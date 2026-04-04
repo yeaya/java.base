@@ -15,6 +15,7 @@ class $export CurrencyCollate : public ::java::lang::Object {
 	$class(CurrencyCollate, 0, ::java::lang::Object)
 public:
 	CurrencyCollate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::text::Collator* myCollation;

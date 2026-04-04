@@ -44,6 +44,7 @@ class ImmutableCollections : public ::java::lang::Object {
 	$class(ImmutableCollections, $PRELOAD, ::java::lang::Object)
 public:
 	ImmutableCollections();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* listCopy(::java::util::Collection* coll);
 	static ::java::util::List* listFromArray($ObjectArray* input);

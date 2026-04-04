@@ -1,5 +1,4 @@
 #include <UriImportExport.h>
-
 #include <java/net/URI.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
@@ -15,35 +14,6 @@ using $URI = ::java::net::URI;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 
-$FieldInfo _UriImportExport_FieldInfo_[] = {
-	{"log", "Ljava/io/PrintStream;", nullptr, $STATIC | $FINAL, $staticField(UriImportExport, log)},
-	{"failures", "I", nullptr, $STATIC, $staticField(UriImportExport, failures)},
-	{}
-};
-
-$MethodInfo _UriImportExport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UriImportExport, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UriImportExport, main, void, $StringArray*), "java.lang.Exception"},
-	{"testBadUri", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testBadUri, void, $String*), "java.lang.Exception"},
-	{"testPath", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testPath, void, $String*)},
-	{"testPath", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testPath, void, $String*, $String*)},
-	{"testUri", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testUri, void, $String*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _UriImportExport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"UriImportExport",
-	"java.lang.Object",
-	nullptr,
-	_UriImportExport_FieldInfo_,
-	_UriImportExport_MethodInfo_
-};
-
-$Object* allocate$UriImportExport($Class* clazz) {
-	return $of($alloc(UriImportExport));
-}
-
 $PrintStream* UriImportExport::log = nullptr;
 int32_t UriImportExport::failures = 0;
 
@@ -52,75 +22,75 @@ void UriImportExport::init$() {
 
 void UriImportExport::testPath($String* s) {
 	$init(UriImportExport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, path, $Paths::get(s, $$new($StringArray, 0)));
-	$nc(UriImportExport::log)->println($of(path));
+	$nc(UriImportExport::log)->println(path);
 	$var($URI, uri, $nc(path)->toUri());
-	$nc(UriImportExport::log)->println($$str({"  --> "_s, uri}));
+	UriImportExport::log->println($$str({"  --> "_s, uri}));
 	$var($Path, result, $Paths::get(uri));
-	$nc(UriImportExport::log)->println($$str({"  --> "_s, result}));
+	UriImportExport::log->println($$str({"  --> "_s, result}));
 	if (!$nc(result)->equals($(path->toAbsolutePath()))) {
-		$nc(UriImportExport::log)->println($$str({"FAIL: Expected "_s, path, ", got "_s, result}));
+		UriImportExport::log->println($$str({"FAIL: Expected "_s, path, ", got "_s, result}));
 		++UriImportExport::failures;
 	}
-	$nc(UriImportExport::log)->println();
+	UriImportExport::log->println();
 }
 
 void UriImportExport::testPath($String* s, $String* expectedUri) {
 	$init(UriImportExport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, path, $Paths::get(s, $$new($StringArray, 0)));
-	$nc(UriImportExport::log)->println($of(path));
+	$nc(UriImportExport::log)->println(path);
 	$var($URI, uri, $nc(path)->toUri());
-	$nc(UriImportExport::log)->println($$str({"  --> "_s, uri}));
-	if (!$nc($($nc(uri)->toString()))->equals(expectedUri)) {
-		$nc(UriImportExport::log)->println($$str({"FAILED: Expected "_s, expectedUri, ", got "_s, uri}));
+	UriImportExport::log->println($$str({"  --> "_s, uri}));
+	if (!$$nc($nc(uri)->toString())->equals(expectedUri)) {
+		UriImportExport::log->println($$str({"FAILED: Expected "_s, expectedUri, ", got "_s, uri}));
 		++UriImportExport::failures;
 		return;
 	}
 	$var($Path, result, $Paths::get(uri));
-	$nc(UriImportExport::log)->println($$str({"  --> "_s, result}));
+	UriImportExport::log->println($$str({"  --> "_s, result}));
 	if (!$nc(result)->equals($(path->toAbsolutePath()))) {
-		$nc(UriImportExport::log)->println($$str({"FAIL: Expected "_s, path, ", got "_s, result}));
+		UriImportExport::log->println($$str({"FAIL: Expected "_s, path, ", got "_s, result}));
 		++UriImportExport::failures;
 	}
-	$nc(UriImportExport::log)->println();
+	UriImportExport::log->println();
 }
 
 void UriImportExport::testUri($String* s) {
 	$init(UriImportExport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URI, uri, $URI::create(s));
-	$nc(UriImportExport::log)->println($of(uri));
+	$nc(UriImportExport::log)->println(uri);
 	$var($Path, path, $Paths::get(uri));
-	$nc(UriImportExport::log)->println($$str({"  --> "_s, path}));
+	UriImportExport::log->println($$str({"  --> "_s, path}));
 	$var($URI, result, $nc(path)->toUri());
-	$nc(UriImportExport::log)->println($$str({"  --> "_s, result}));
+	UriImportExport::log->println($$str({"  --> "_s, result}));
 	if (!$nc(result)->equals(uri)) {
-		$nc(UriImportExport::log)->println($$str({"FAIL: Expected "_s, uri, ", got "_s, result}));
+		UriImportExport::log->println($$str({"FAIL: Expected "_s, uri, ", got "_s, result}));
 		++UriImportExport::failures;
 	}
-	$nc(UriImportExport::log)->println();
+	UriImportExport::log->println();
 }
 
 void UriImportExport::testBadUri($String* s) {
 	$init(UriImportExport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URI, uri, $URI::create(s));
-	$nc(UriImportExport::log)->println($of(uri));
+	$nc(UriImportExport::log)->println(uri);
 	try {
 		$var($Path, path, $Paths::get(uri));
-		$nc(UriImportExport::log)->format(" --> %s  FAIL: Expected IllegalArgumentException\n"_s, $$new($ObjectArray, {$of(path)}));
+		UriImportExport::log->format(" --> %s  FAIL: Expected IllegalArgumentException\n"_s, $$new($ObjectArray, {path}));
 		++UriImportExport::failures;
 	} catch ($IllegalArgumentException& expected) {
-		$nc(UriImportExport::log)->println("  --> IllegalArgumentException (expected)"_s);
+		UriImportExport::log->println("  --> IllegalArgumentException (expected)"_s);
 	}
-	$nc(UriImportExport::log)->println();
+	UriImportExport::log->println();
 }
 
 void UriImportExport::main($StringArray* args) {
 	$init(UriImportExport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	testBadUri("file:foo"_s);
 	testBadUri("file:/foo?q"_s);
 	testBadUri("file:/foo#f"_s);
@@ -147,7 +117,7 @@ void UriImportExport::main($StringArray* args) {
 	}
 }
 
-void clinit$UriImportExport($Class* class$) {
+void UriImportExport::clinit$($Class* clazz) {
 	$assignStatic(UriImportExport::log, $System::out);
 	UriImportExport::failures = 0;
 }
@@ -156,7 +126,31 @@ UriImportExport::UriImportExport() {
 }
 
 $Class* UriImportExport::load$($String* name, bool initialize) {
-	$loadClass(UriImportExport, name, initialize, &_UriImportExport_ClassInfo_, clinit$UriImportExport, allocate$UriImportExport);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Ljava/io/PrintStream;", nullptr, $STATIC | $FINAL, $staticField(UriImportExport, log)},
+		{"failures", "I", nullptr, $STATIC, $staticField(UriImportExport, failures)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UriImportExport, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UriImportExport, main, void, $StringArray*), "java.lang.Exception"},
+		{"testBadUri", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testBadUri, void, $String*), "java.lang.Exception"},
+		{"testPath", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testPath, void, $String*)},
+		{"testPath", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testPath, void, $String*, $String*)},
+		{"testUri", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testUri, void, $String*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"UriImportExport",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UriImportExport, name, initialize, &classInfo$$, UriImportExport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UriImportExport);
+	});
 	return class$;
 }
 

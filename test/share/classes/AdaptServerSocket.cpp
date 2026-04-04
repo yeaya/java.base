@@ -1,5 +1,4 @@
 #include <AdaptServerSocket.h>
-
 #include <AdaptServerSocket$1.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -12,8 +11,6 @@
 #include <jcpp.h>
 
 using $AdaptServerSocket$1 = ::AdaptServerSocket$1;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -25,46 +22,6 @@ using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
-
-$FieldInfo _AdaptServerSocket_FieldInfo_[] = {
-	{"out", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(AdaptServerSocket, out)},
-	{"clientStarted", "Z", nullptr, $STATIC | $VOLATILE, $staticField(AdaptServerSocket, clientStarted)},
-	{"clientException", "Ljava/lang/Exception;", nullptr, $STATIC | $VOLATILE, $staticField(AdaptServerSocket, clientException)},
-	{"client", "Ljava/lang/Thread;", nullptr, $STATIC | $VOLATILE, $staticField(AdaptServerSocket, client)},
-	{}
-};
-
-$MethodInfo _AdaptServerSocket_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AdaptServerSocket, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AdaptServerSocket, main, void, $StringArray*), "java.lang.Exception"},
-	{"startClient", "(II)V", nullptr, $STATIC, $staticMethod(AdaptServerSocket, startClient, void, int32_t, int32_t), "java.lang.Exception"},
-	{"test", "(IIZ)V", nullptr, $STATIC, $staticMethod(AdaptServerSocket, test, void, int32_t, int32_t, bool), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _AdaptServerSocket_InnerClassesInfo_[] = {
-	{"AdaptServerSocket$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AdaptServerSocket_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"AdaptServerSocket",
-	"java.lang.Object",
-	nullptr,
-	_AdaptServerSocket_FieldInfo_,
-	_AdaptServerSocket_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AdaptServerSocket_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"AdaptServerSocket$1"
-};
-
-$Object* allocate$AdaptServerSocket($Class* clazz) {
-	return $of($alloc(AdaptServerSocket));
-}
 
 $PrintStream* AdaptServerSocket::out = nullptr;
 $volatile(bool) AdaptServerSocket::clientStarted = false;
@@ -84,7 +41,7 @@ void AdaptServerSocket::startClient(int32_t port, int32_t dally) {
 
 void AdaptServerSocket::test(int32_t clientDally, int32_t timeout, bool shouldTimeout) {
 	$init(AdaptServerSocket);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool needClient = !shouldTimeout;
 	$assignStatic(AdaptServerSocket::client, nullptr);
 	$assignStatic(AdaptServerSocket::clientException, nullptr);
@@ -92,93 +49,89 @@ void AdaptServerSocket::test(int32_t clientDally, int32_t timeout, bool shouldTi
 	$nc(AdaptServerSocket::out)->println();
 	{
 		$var($ServerSocketChannel, ssc, $ServerSocketChannel::open());
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($ServerSocket, sso, $nc(ssc)->socket());
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($ServerSocket, sso, $nc(ssc)->socket());
-					{
-						$var($Throwable, var$1, nullptr);
+					try {
+						AdaptServerSocket::out->println($$str({"created: "_s, ssc}));
+						AdaptServerSocket::out->println($$str({"         "_s, sso}));
+						if (timeout != 0) {
+							$nc(sso)->setSoTimeout(timeout);
+						}
+						AdaptServerSocket::out->println($$str({"timeout: "_s, $$str($nc(sso)->getSoTimeout())}));
+						sso->bind(nullptr);
+						AdaptServerSocket::out->println($$str({"bound:   "_s, ssc}));
+						AdaptServerSocket::out->println($$str({"         "_s, sso}));
+						if (needClient) {
+							startClient(sso->getLocalPort(), clientDally);
+							while (!AdaptServerSocket::clientStarted) {
+								$Thread::sleep(20);
+							}
+						}
+						$var($Socket, so, nullptr);
 						try {
+							$assign(so, sso->accept());
+						} catch ($SocketTimeoutException& x) {
+							if (shouldTimeout) {
+								$nc(AdaptServerSocket::out)->println("Accept timed out, as expected"_s);
+							} else {
+								$throw(x);
+							}
+						}
+						if (shouldTimeout && (so != nullptr)) {
+							$throwNew($Exception, "Accept did not time out"_s);
+						}
+						if (so != nullptr) {
+							int32_t a = 42;
+							$$nc(so->getOutputStream())->write(a);
+							int32_t b = $$nc(so->getInputStream())->read();
+							if (b != a + 1) {
+								$throwNew($Exception, "Read incorrect data"_s);
+							}
+							$nc(AdaptServerSocket::out)->println($$str({"server:  read "_s, $$str(b)}));
+						}
+					} catch ($Throwable& t$) {
+						if (sso != nullptr) {
 							try {
-								$nc(AdaptServerSocket::out)->println($$str({"created: "_s, ssc}));
-								$nc(AdaptServerSocket::out)->println($$str({"         "_s, sso}));
-								if (timeout != 0) {
-									$nc(sso)->setSoTimeout(timeout);
-								}
-								$nc(AdaptServerSocket::out)->println($$str({"timeout: "_s, $$str($nc(sso)->getSoTimeout())}));
-								$nc(sso)->bind(nullptr);
-								$nc(AdaptServerSocket::out)->println($$str({"bound:   "_s, ssc}));
-								$nc(AdaptServerSocket::out)->println($$str({"         "_s, sso}));
-								if (needClient) {
-									startClient(sso->getLocalPort(), clientDally);
-									while (!AdaptServerSocket::clientStarted) {
-										$Thread::sleep(20);
-									}
-								}
-								$var($Socket, so, nullptr);
-								try {
-									$assign(so, sso->accept());
-								} catch ($SocketTimeoutException& x) {
-									if (shouldTimeout) {
-										$nc(AdaptServerSocket::out)->println("Accept timed out, as expected"_s);
-									} else {
-										$throw(x);
-									}
-								}
-								if (shouldTimeout && (so != nullptr)) {
-									$throwNew($Exception, "Accept did not time out"_s);
-								}
-								if (so != nullptr) {
-									int32_t a = 42;
-									$nc($(so->getOutputStream()))->write(a);
-									int32_t b = $nc($(so->getInputStream()))->read();
-									if (b != a + 1) {
-										$throwNew($Exception, "Read incorrect data"_s);
-									}
-									$nc(AdaptServerSocket::out)->println($$str({"server:  read "_s, $$str(b)}));
-								}
-							} catch ($Throwable& t$) {
-								if (sso != nullptr) {
-									try {
-										sso->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							if (sso != nullptr) {
 								sso->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
 							}
 						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
+						$throw(t$);
 					}
-				} catch ($Throwable& t$) {
-					if (ssc != nullptr) {
-						try {
-							ssc->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					if (sso != nullptr) {
+						sso->close();
 					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
 				if (ssc != nullptr) {
-					ssc->close();
+					try {
+						ssc->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			if (ssc != nullptr) {
+				ssc->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if (needClient) {
@@ -197,7 +150,7 @@ void AdaptServerSocket::main($StringArray* args) {
 	test(500, 50, true);
 }
 
-void clinit$AdaptServerSocket($Class* class$) {
+void AdaptServerSocket::clinit$($Class* clazz) {
 	$assignStatic(AdaptServerSocket::out, $System::out);
 	AdaptServerSocket::clientStarted = false;
 	$assignStatic(AdaptServerSocket::clientException, nullptr);
@@ -208,7 +161,41 @@ AdaptServerSocket::AdaptServerSocket() {
 }
 
 $Class* AdaptServerSocket::load$($String* name, bool initialize) {
-	$loadClass(AdaptServerSocket, name, initialize, &_AdaptServerSocket_ClassInfo_, clinit$AdaptServerSocket, allocate$AdaptServerSocket);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(AdaptServerSocket, out)},
+		{"clientStarted", "Z", nullptr, $STATIC | $VOLATILE, $staticField(AdaptServerSocket, clientStarted)},
+		{"clientException", "Ljava/lang/Exception;", nullptr, $STATIC | $VOLATILE, $staticField(AdaptServerSocket, clientException)},
+		{"client", "Ljava/lang/Thread;", nullptr, $STATIC | $VOLATILE, $staticField(AdaptServerSocket, client)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AdaptServerSocket, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AdaptServerSocket, main, void, $StringArray*), "java.lang.Exception"},
+		{"startClient", "(II)V", nullptr, $STATIC, $staticMethod(AdaptServerSocket, startClient, void, int32_t, int32_t), "java.lang.Exception"},
+		{"test", "(IIZ)V", nullptr, $STATIC, $staticMethod(AdaptServerSocket, test, void, int32_t, int32_t, bool), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AdaptServerSocket$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"AdaptServerSocket",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"AdaptServerSocket$1"
+	};
+	$loadClass(AdaptServerSocket, name, initialize, &classInfo$$, AdaptServerSocket::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AdaptServerSocket);
+	});
 	return class$;
 }
 

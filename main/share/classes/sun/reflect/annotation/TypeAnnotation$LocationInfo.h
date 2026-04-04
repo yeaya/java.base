@@ -30,6 +30,7 @@ class $export TypeAnnotation$LocationInfo : public ::java::lang::Object {
 	$class(TypeAnnotation$LocationInfo, 0, ::java::lang::Object)
 public:
 	TypeAnnotation$LocationInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t depth, $Array<::sun::reflect::annotation::TypeAnnotation$LocationInfo$Location>* locations);
 	$Array<::sun::reflect::annotation::TypeAnnotation>* filter($Array<::sun::reflect::annotation::TypeAnnotation>* ta);

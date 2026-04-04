@@ -1,5 +1,4 @@
 #include <java/util/Optional.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Objects.h>
@@ -28,59 +27,6 @@ using $Stream = ::java::util::stream::Stream;
 namespace java {
 	namespace util {
 
-$CompoundAttribute _Optional_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _Optional_FieldInfo_[] = {
-	{"EMPTY", "Ljava/util/Optional;", "Ljava/util/Optional<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(Optional, EMPTY)},
-	{"value", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(Optional, value)},
-	{}
-};
-
-$MethodInfo _Optional_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE, $method(Optional, init$, void, Object$*)},
-	{"empty", "()Ljava/util/Optional;", "<T:Ljava/lang/Object;>()Ljava/util/Optional<TT;>;", $PUBLIC | $STATIC, $staticMethod(Optional, empty, Optional*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Optional, equals, bool, Object$*)},
-	{"filter", "(Ljava/util/function/Predicate;)Ljava/util/Optional;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/Optional<TT;>;", $PUBLIC, $method(Optional, filter, Optional*, $Predicate*)},
-	{"flatMap", "(Ljava/util/function/Function;)Ljava/util/Optional;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/Optional<+TU;>;>;)Ljava/util/Optional<TU;>;", $PUBLIC, $method(Optional, flatMap, Optional*, $Function*)},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(Optional, get, $Object*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Optional, hashCode, int32_t)},
-	{"ifPresent", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $method(Optional, ifPresent, void, $Consumer*)},
-	{"ifPresentOrElse", "(Ljava/util/function/Consumer;Ljava/lang/Runnable;)V", "(Ljava/util/function/Consumer<-TT;>;Ljava/lang/Runnable;)V", $PUBLIC, $method(Optional, ifPresentOrElse, void, $Consumer*, $Runnable*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(Optional, isEmpty, bool)},
-	{"isPresent", "()Z", nullptr, $PUBLIC, $method(Optional, isPresent, bool)},
-	{"map", "(Ljava/util/function/Function;)Ljava/util/Optional;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/Optional<TU;>;", $PUBLIC, $method(Optional, map, Optional*, $Function*)},
-	{"of", "(Ljava/lang/Object;)Ljava/util/Optional;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/Optional<TT;>;", $PUBLIC | $STATIC, $staticMethod(Optional, of, Optional*, Object$*)},
-	{"ofNullable", "(Ljava/lang/Object;)Ljava/util/Optional;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/Optional<TT;>;", $PUBLIC | $STATIC, $staticMethod(Optional, ofNullable, Optional*, Object$*)},
-	{"or", "(Ljava/util/function/Supplier;)Ljava/util/Optional;", "(Ljava/util/function/Supplier<+Ljava/util/Optional<+TT;>;>;)Ljava/util/Optional<TT;>;", $PUBLIC, $method(Optional, or$, Optional*, $Supplier*)},
-	{"orElse", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PUBLIC, $method(Optional, orElse, $Object*, Object$*)},
-	{"orElseGet", "(Ljava/util/function/Supplier;)Ljava/lang/Object;", "(Ljava/util/function/Supplier<+TT;>;)TT;", $PUBLIC, $method(Optional, orElseGet, $Object*, $Supplier*)},
-	{"orElseThrow", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(Optional, orElseThrow, $Object*)},
-	{"orElseThrow", "(Ljava/util/function/Supplier;)Ljava/lang/Object;", "<X:Ljava/lang/Throwable;>(Ljava/util/function/Supplier<+TX;>;)TT;^TX;", $PUBLIC, $method(Optional, orElseThrow, $Object*, $Supplier*), "java.lang.Throwable"},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC, $method(Optional, stream, $Stream*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Optional, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Optional_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.Optional",
-	"java.lang.Object",
-	nullptr,
-	_Optional_FieldInfo_,
-	_Optional_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	nullptr,
-	_Optional_Annotations_
-};
-
-$Object* allocate$Optional($Class* clazz) {
-	return $of($alloc(Optional));
-}
-
 Optional* Optional::EMPTY = nullptr;
 
 Optional* Optional::empty() {
@@ -107,7 +53,7 @@ $Object* Optional::get() {
 	if (this->value == nullptr) {
 		$throwNew($NoSuchElementException, "No value present"_s);
 	}
-	return $of(this->value);
+	return this->value;
 }
 
 bool Optional::isPresent() {
@@ -179,25 +125,25 @@ $Stream* Optional::stream() {
 }
 
 $Object* Optional::orElse(Object$* other) {
-	return $of(this->value != nullptr ? this->value : $of(other));
+	return this->value != nullptr ? this->value : $of(other);
 }
 
 $Object* Optional::orElseGet($Supplier* supplier) {
-	return $of(this->value != nullptr ? this->value : $nc(supplier)->get());
+	return this->value != nullptr ? this->value : $nc(supplier)->get();
 }
 
 $Object* Optional::orElseThrow() {
 	if (this->value == nullptr) {
 		$throwNew($NoSuchElementException, "No value present"_s);
 	}
-	return $of(this->value);
+	return this->value;
 }
 
 $Object* Optional::orElseThrow($Supplier* exceptionSupplier) {
 	if (this->value != nullptr) {
-		return $of(this->value);
+		return this->value;
 	} else {
-		$throw($cast($Throwable, $($nc(exceptionSupplier)->get())));
+		$throw($$cast($Throwable, $nc(exceptionSupplier)->get()));
 	}
 }
 
@@ -223,7 +169,7 @@ $String* Optional::toString() {
 	return this->value != nullptr ? $String::format("Optional[%s]"_s, $$new($ObjectArray, {this->value})) : "Optional.empty"_s;
 }
 
-void clinit$Optional($Class* class$) {
+void Optional::clinit$($Class* clazz) {
 	$assignStatic(Optional::EMPTY, $new(Optional, nullptr));
 }
 
@@ -231,7 +177,54 @@ Optional::Optional() {
 }
 
 $Class* Optional::load$($String* name, bool initialize) {
-	$loadClass(Optional, name, initialize, &_Optional_ClassInfo_, clinit$Optional, allocate$Optional);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY", "Ljava/util/Optional;", "Ljava/util/Optional<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(Optional, EMPTY)},
+		{"value", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(Optional, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE, $method(Optional, init$, void, Object$*)},
+		{"empty", "()Ljava/util/Optional;", "<T:Ljava/lang/Object;>()Ljava/util/Optional<TT;>;", $PUBLIC | $STATIC, $staticMethod(Optional, empty, Optional*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Optional, equals, bool, Object$*)},
+		{"filter", "(Ljava/util/function/Predicate;)Ljava/util/Optional;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/Optional<TT;>;", $PUBLIC, $method(Optional, filter, Optional*, $Predicate*)},
+		{"flatMap", "(Ljava/util/function/Function;)Ljava/util/Optional;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/Optional<+TU;>;>;)Ljava/util/Optional<TU;>;", $PUBLIC, $method(Optional, flatMap, Optional*, $Function*)},
+		{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(Optional, get, $Object*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Optional, hashCode, int32_t)},
+		{"ifPresent", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $method(Optional, ifPresent, void, $Consumer*)},
+		{"ifPresentOrElse", "(Ljava/util/function/Consumer;Ljava/lang/Runnable;)V", "(Ljava/util/function/Consumer<-TT;>;Ljava/lang/Runnable;)V", $PUBLIC, $method(Optional, ifPresentOrElse, void, $Consumer*, $Runnable*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $method(Optional, isEmpty, bool)},
+		{"isPresent", "()Z", nullptr, $PUBLIC, $method(Optional, isPresent, bool)},
+		{"map", "(Ljava/util/function/Function;)Ljava/util/Optional;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/Optional<TU;>;", $PUBLIC, $method(Optional, map, Optional*, $Function*)},
+		{"of", "(Ljava/lang/Object;)Ljava/util/Optional;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/Optional<TT;>;", $PUBLIC | $STATIC, $staticMethod(Optional, of, Optional*, Object$*)},
+		{"ofNullable", "(Ljava/lang/Object;)Ljava/util/Optional;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/Optional<TT;>;", $PUBLIC | $STATIC, $staticMethod(Optional, ofNullable, Optional*, Object$*)},
+		{"or", "(Ljava/util/function/Supplier;)Ljava/util/Optional;", "(Ljava/util/function/Supplier<+Ljava/util/Optional<+TT;>;>;)Ljava/util/Optional<TT;>;", $PUBLIC, $method(Optional, or$, Optional*, $Supplier*)},
+		{"orElse", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PUBLIC, $method(Optional, orElse, $Object*, Object$*)},
+		{"orElseGet", "(Ljava/util/function/Supplier;)Ljava/lang/Object;", "(Ljava/util/function/Supplier<+TT;>;)TT;", $PUBLIC, $method(Optional, orElseGet, $Object*, $Supplier*)},
+		{"orElseThrow", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(Optional, orElseThrow, $Object*)},
+		{"orElseThrow", "(Ljava/util/function/Supplier;)Ljava/lang/Object;", "<X:Ljava/lang/Throwable;>(Ljava/util/function/Supplier<+TX;>;)TT;^TX;", $PUBLIC, $method(Optional, orElseThrow, $Object*, $Supplier*), "java.lang.Throwable"},
+		{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC, $method(Optional, stream, $Stream*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Optional, toString, $String*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.Optional",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Optional, name, initialize, &classInfo$$, Optional::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Optional);
+	});
 	return class$;
 }
 

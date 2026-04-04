@@ -17,7 +17,7 @@ public:
 	void init$();
 	virtual bool readerShouldBlock() override;
 	virtual bool writerShouldBlock() override;
-	static const int64_t serialVersionUID = (int64_t)0xE06D9BCE412D8715;
+	static const int64_t serialVersionUID = (int64_t)0xe06d9bce412d8715;
 };
 
 			} // locks

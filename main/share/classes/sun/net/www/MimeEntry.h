@@ -23,6 +23,7 @@ class $export MimeEntry : public ::java::lang::Cloneable {
 	$class(MimeEntry, 0, ::java::lang::Cloneable)
 public:
 	MimeEntry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* type);
 	void init$($String* type, $String* imageFileName, $String* extensionString);
 	void init$($String* typeName, int32_t action, $String* command, $String* tempFileNameTemplate);

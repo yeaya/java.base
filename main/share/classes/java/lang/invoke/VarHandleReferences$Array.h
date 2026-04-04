@@ -44,6 +44,7 @@ public:
 	using ::java::lang::invoke::VarHandle::getAndSetAcquire;
 	using ::java::lang::invoke::VarHandle::getAndSetRelease;
 	using ::java::lang::invoke::VarHandle::accessModeTypeUncached;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t abase, int32_t ashift, $Class* arrayType);
 	void init$(int32_t abase, int32_t ashift, $Class* arrayType, bool exact);
 	virtual ::java::lang::invoke::MethodType* accessModeTypeUncached(::java::lang::invoke::VarHandle$AccessType* at) override;

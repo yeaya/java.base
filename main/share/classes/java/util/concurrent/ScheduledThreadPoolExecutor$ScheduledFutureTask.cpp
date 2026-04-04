@@ -1,10 +1,8 @@
 #include <java/util/concurrent/ScheduledThreadPoolExecutor$ScheduledFutureTask.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/Delayed.h>
 #include <java/util/concurrent/FutureTask.h>
-#include <java/util/concurrent/RunnableFuture.h>
 #include <java/util/concurrent/RunnableScheduledFuture.h>
 #include <java/util/concurrent/ScheduledThreadPoolExecutor.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -20,72 +18,12 @@ using $Runnable = ::java::lang::Runnable;
 using $Callable = ::java::util::concurrent::Callable;
 using $Delayed = ::java::util::concurrent::Delayed;
 using $FutureTask = ::java::util::concurrent::FutureTask;
-using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
-using $RunnableScheduledFuture = ::java::util::concurrent::RunnableScheduledFuture;
 using $ScheduledThreadPoolExecutor = ::java::util::concurrent::ScheduledThreadPoolExecutor;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _ScheduledThreadPoolExecutor$ScheduledFutureTask_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/ScheduledThreadPoolExecutor;", nullptr, $FINAL | $SYNTHETIC, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, this$0)},
-	{"sequenceNumber", "J", nullptr, $PRIVATE | $FINAL, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, sequenceNumber)},
-	{"time", "J", nullptr, $PRIVATE | $VOLATILE, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, time)},
-	{"period", "J", nullptr, $PRIVATE | $FINAL, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, period)},
-	{"outerTask", "Ljava/util/concurrent/RunnableScheduledFuture;", "Ljava/util/concurrent/RunnableScheduledFuture<TV;>;", 0, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, outerTask)},
-	{"heapIndex", "I", nullptr, 0, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, heapIndex)},
-	{}
-};
-
-$MethodInfo _ScheduledThreadPoolExecutor$ScheduledFutureTask_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/concurrent/ScheduledThreadPoolExecutor;Ljava/lang/Runnable;Ljava/lang/Object;JJ)V", "(Ljava/lang/Runnable;TV;JJ)V", 0, $method(ScheduledThreadPoolExecutor$ScheduledFutureTask, init$, void, $ScheduledThreadPoolExecutor*, $Runnable*, Object$*, int64_t, int64_t)},
-	{"<init>", "(Ljava/util/concurrent/ScheduledThreadPoolExecutor;Ljava/lang/Runnable;Ljava/lang/Object;JJJ)V", "(Ljava/lang/Runnable;TV;JJJ)V", 0, $method(ScheduledThreadPoolExecutor$ScheduledFutureTask, init$, void, $ScheduledThreadPoolExecutor*, $Runnable*, Object$*, int64_t, int64_t, int64_t)},
-	{"<init>", "(Ljava/util/concurrent/ScheduledThreadPoolExecutor;Ljava/util/concurrent/Callable;JJ)V", "(Ljava/util/concurrent/Callable<TV;>;JJ)V", 0, $method(ScheduledThreadPoolExecutor$ScheduledFutureTask, init$, void, $ScheduledThreadPoolExecutor*, $Callable*, int64_t, int64_t)},
-	{"cancel", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, cancel, bool, bool)},
-	{"compareTo", "(Ljava/util/concurrent/Delayed;)I", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, compareTo, int32_t, $Delayed*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, compareTo, int32_t, Object$*)},
-	{"getDelay", "(Ljava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, getDelay, int64_t, $TimeUnit*)},
-	{"*isCancelled", "()Z", nullptr, $PUBLIC},
-	{"*isDone", "()Z", nullptr, $PUBLIC},
-	{"isPeriodic", "()Z", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, isPeriodic, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, run, void)},
-	{"setNextRunTime", "()V", nullptr, $PRIVATE, $method(ScheduledThreadPoolExecutor$ScheduledFutureTask, setNextRunTime, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ScheduledThreadPoolExecutor$ScheduledFutureTask_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask", "java.util.concurrent.ScheduledThreadPoolExecutor", "ScheduledFutureTask", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ScheduledThreadPoolExecutor$ScheduledFutureTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask",
-	"java.util.concurrent.FutureTask",
-	"java.util.concurrent.RunnableScheduledFuture",
-	_ScheduledThreadPoolExecutor$ScheduledFutureTask_FieldInfo_,
-	_ScheduledThreadPoolExecutor$ScheduledFutureTask_MethodInfo_,
-	"<V:Ljava/lang/Object;>Ljava/util/concurrent/FutureTask<TV;>;Ljava/util/concurrent/RunnableScheduledFuture<TV;>;",
-	nullptr,
-	_ScheduledThreadPoolExecutor$ScheduledFutureTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ScheduledThreadPoolExecutor"
-};
-
-$Object* allocate$ScheduledThreadPoolExecutor$ScheduledFutureTask($Class* clazz) {
-	return $of($alloc(ScheduledThreadPoolExecutor$ScheduledFutureTask));
-}
 
 bool ScheduledThreadPoolExecutor$ScheduledFutureTask::isCancelled() {
 	 return this->$FutureTask::isCancelled();
@@ -161,7 +99,7 @@ int32_t ScheduledThreadPoolExecutor$ScheduledFutureTask::compareTo($Delayed* oth
 	}
 	if ($instanceOf(ScheduledThreadPoolExecutor$ScheduledFutureTask, other)) {
 		$var(ScheduledThreadPoolExecutor$ScheduledFutureTask, x, $cast(ScheduledThreadPoolExecutor$ScheduledFutureTask, other));
-		int64_t diff = this->time - $nc(x)->time;
+		int64_t diff = this->time - x->time;
 		if (diff < 0) {
 			return -1;
 		} else if (diff > 0) {
@@ -194,7 +132,7 @@ void ScheduledThreadPoolExecutor$ScheduledFutureTask::setNextRunTime() {
 bool ScheduledThreadPoolExecutor$ScheduledFutureTask::cancel(bool mayInterruptIfRunning) {
 	bool cancelled = $FutureTask::cancel(mayInterruptIfRunning);
 	if (cancelled && this->this$0->removeOnCancel && this->heapIndex >= 0) {
-		this->this$0->remove(static_cast<$Runnable*>(static_cast<$RunnableFuture*>(static_cast<$FutureTask*>(this))));
+		this->this$0->remove($cast($FutureTask, this));
 	}
 	return cancelled;
 }
@@ -218,7 +156,59 @@ ScheduledThreadPoolExecutor$ScheduledFutureTask::ScheduledThreadPoolExecutor$Sch
 }
 
 $Class* ScheduledThreadPoolExecutor$ScheduledFutureTask::load$($String* name, bool initialize) {
-	$loadClass(ScheduledThreadPoolExecutor$ScheduledFutureTask, name, initialize, &_ScheduledThreadPoolExecutor$ScheduledFutureTask_ClassInfo_, allocate$ScheduledThreadPoolExecutor$ScheduledFutureTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/ScheduledThreadPoolExecutor;", nullptr, $FINAL | $SYNTHETIC, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, this$0)},
+		{"sequenceNumber", "J", nullptr, $PRIVATE | $FINAL, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, sequenceNumber)},
+		{"time", "J", nullptr, $PRIVATE | $VOLATILE, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, time)},
+		{"period", "J", nullptr, $PRIVATE | $FINAL, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, period)},
+		{"outerTask", "Ljava/util/concurrent/RunnableScheduledFuture;", "Ljava/util/concurrent/RunnableScheduledFuture<TV;>;", 0, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, outerTask)},
+		{"heapIndex", "I", nullptr, 0, $field(ScheduledThreadPoolExecutor$ScheduledFutureTask, heapIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/concurrent/ScheduledThreadPoolExecutor;Ljava/lang/Runnable;Ljava/lang/Object;JJ)V", "(Ljava/lang/Runnable;TV;JJ)V", 0, $method(ScheduledThreadPoolExecutor$ScheduledFutureTask, init$, void, $ScheduledThreadPoolExecutor*, $Runnable*, Object$*, int64_t, int64_t)},
+		{"<init>", "(Ljava/util/concurrent/ScheduledThreadPoolExecutor;Ljava/lang/Runnable;Ljava/lang/Object;JJJ)V", "(Ljava/lang/Runnable;TV;JJJ)V", 0, $method(ScheduledThreadPoolExecutor$ScheduledFutureTask, init$, void, $ScheduledThreadPoolExecutor*, $Runnable*, Object$*, int64_t, int64_t, int64_t)},
+		{"<init>", "(Ljava/util/concurrent/ScheduledThreadPoolExecutor;Ljava/util/concurrent/Callable;JJ)V", "(Ljava/util/concurrent/Callable<TV;>;JJ)V", 0, $method(ScheduledThreadPoolExecutor$ScheduledFutureTask, init$, void, $ScheduledThreadPoolExecutor*, $Callable*, int64_t, int64_t)},
+		{"cancel", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, cancel, bool, bool)},
+		{"compareTo", "(Ljava/util/concurrent/Delayed;)I", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, compareTo, int32_t, $Delayed*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, compareTo, int32_t, Object$*)},
+		{"getDelay", "(Ljava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, getDelay, int64_t, $TimeUnit*)},
+		{"*isCancelled", "()Z", nullptr, $PUBLIC},
+		{"*isDone", "()Z", nullptr, $PUBLIC},
+		{"isPeriodic", "()Z", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, isPeriodic, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$ScheduledFutureTask, run, void)},
+		{"setNextRunTime", "()V", nullptr, $PRIVATE, $method(ScheduledThreadPoolExecutor$ScheduledFutureTask, setNextRunTime, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask", "java.util.concurrent.ScheduledThreadPoolExecutor", "ScheduledFutureTask", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask",
+		"java.util.concurrent.FutureTask",
+		"java.util.concurrent.RunnableScheduledFuture",
+		fieldInfos$$,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;>Ljava/util/concurrent/FutureTask<TV;>;Ljava/util/concurrent/RunnableScheduledFuture<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ScheduledThreadPoolExecutor"
+	};
+	$loadClass(ScheduledThreadPoolExecutor$ScheduledFutureTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ScheduledThreadPoolExecutor$ScheduledFutureTask));
+	});
 	return class$;
 }
 

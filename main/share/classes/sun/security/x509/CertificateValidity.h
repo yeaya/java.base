@@ -42,6 +42,7 @@ class $export CertificateValidity : public ::sun::security::x509::CertAttrSet {
 	$class(CertificateValidity, 0, ::sun::security::x509::CertAttrSet)
 public:
 	CertificateValidity();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Date* notBefore, ::java::util::Date* notAfter);
 	void init$(::sun::security::util::DerInputStream* in);
@@ -61,7 +62,7 @@ public:
 	static $String* NAME;
 	static $String* NOT_BEFORE;
 	static $String* NOT_AFTER;
-	static const int64_t YR_2050 = (int64_t)0x0000024BCE5CF000;
+	static const int64_t YR_2050 = (int64_t)0x0000024bce5cf000;
 	::java::util::Date* notBefore = nullptr;
 	::java::util::Date* notAfter = nullptr;
 };

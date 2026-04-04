@@ -1,5 +1,4 @@
 #include <javax/crypto/spec/PBEKeySpec.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
@@ -16,44 +15,11 @@ namespace javax {
 	namespace crypto {
 		namespace spec {
 
-$FieldInfo _PBEKeySpec_FieldInfo_[] = {
-	{"password", "[C", nullptr, $PRIVATE, $field(PBEKeySpec, password)},
-	{"salt", "[B", nullptr, $PRIVATE, $field(PBEKeySpec, salt)},
-	{"iterationCount", "I", nullptr, $PRIVATE, $field(PBEKeySpec, iterationCount)},
-	{"keyLength", "I", nullptr, $PRIVATE, $field(PBEKeySpec, keyLength)},
-	{}
-};
-
-$MethodInfo _PBEKeySpec_MethodInfo_[] = {
-	{"<init>", "([C)V", nullptr, $PUBLIC, $method(PBEKeySpec, init$, void, $chars*)},
-	{"<init>", "([C[BII)V", nullptr, $PUBLIC, $method(PBEKeySpec, init$, void, $chars*, $bytes*, int32_t, int32_t)},
-	{"<init>", "([C[BI)V", nullptr, $PUBLIC, $method(PBEKeySpec, init$, void, $chars*, $bytes*, int32_t)},
-	{"clearPassword", "()V", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, clearPassword, void)},
-	{"getIterationCount", "()I", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getIterationCount, int32_t)},
-	{"getKeyLength", "()I", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getKeyLength, int32_t)},
-	{"getPassword", "()[C", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getPassword, $chars*)},
-	{"getSalt", "()[B", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getSalt, $bytes*)},
-	{}
-};
-
-$ClassInfo _PBEKeySpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.spec.PBEKeySpec",
-	"java.lang.Object",
-	"java.security.spec.KeySpec",
-	_PBEKeySpec_FieldInfo_,
-	_PBEKeySpec_MethodInfo_
-};
-
-$Object* allocate$PBEKeySpec($Class* clazz) {
-	return $of($alloc(PBEKeySpec));
-}
-
 void PBEKeySpec::init$($chars* password) {
 	$set(this, salt, nullptr);
 	this->iterationCount = 0;
 	this->keyLength = 0;
-	if ((password == nullptr) || ($nc(password)->length == 0)) {
+	if ((password == nullptr) || (password->length == 0)) {
 		$set(this, password, $new($chars, 0));
 	} else {
 		$set(this, password, $cast($chars, password->clone()));
@@ -64,14 +30,14 @@ void PBEKeySpec::init$($chars* password, $bytes* salt, int32_t iterationCount, i
 	$set(this, salt, nullptr);
 	this->iterationCount = 0;
 	this->keyLength = 0;
-	if ((password == nullptr) || ($nc(password)->length == 0)) {
+	if ((password == nullptr) || (password->length == 0)) {
 		$set(this, password, $new($chars, 0));
 	} else {
 		$set(this, password, $cast($chars, password->clone()));
 	}
 	if (salt == nullptr) {
 		$throwNew($NullPointerException, "the salt parameter must be non-null"_s);
-	} else if ($nc(salt)->length == 0) {
+	} else if (salt->length == 0) {
 		$throwNew($IllegalArgumentException, "the salt parameter must not be empty"_s);
 	} else {
 		$set(this, salt, $cast($bytes, salt->clone()));
@@ -90,14 +56,14 @@ void PBEKeySpec::init$($chars* password, $bytes* salt, int32_t iterationCount) {
 	$set(this, salt, nullptr);
 	this->iterationCount = 0;
 	this->keyLength = 0;
-	if ((password == nullptr) || ($nc(password)->length == 0)) {
+	if ((password == nullptr) || (password->length == 0)) {
 		$set(this, password, $new($chars, 0));
 	} else {
 		$set(this, password, $cast($chars, password->clone()));
 	}
 	if (salt == nullptr) {
 		$throwNew($NullPointerException, "the salt parameter must be non-null"_s);
-	} else if ($nc(salt)->length == 0) {
+	} else if (salt->length == 0) {
 		$throwNew($IllegalArgumentException, "the salt parameter must not be empty"_s);
 	} else {
 		$set(this, salt, $cast($bytes, salt->clone()));
@@ -124,7 +90,7 @@ $chars* PBEKeySpec::getPassword() {
 
 $bytes* PBEKeySpec::getSalt() {
 	if (this->salt != nullptr) {
-		return $cast($bytes, $nc(this->salt)->clone());
+		return $cast($bytes, this->salt->clone());
 	} else {
 		return nullptr;
 	}
@@ -142,7 +108,35 @@ PBEKeySpec::PBEKeySpec() {
 }
 
 $Class* PBEKeySpec::load$($String* name, bool initialize) {
-	$loadClass(PBEKeySpec, name, initialize, &_PBEKeySpec_ClassInfo_, allocate$PBEKeySpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"password", "[C", nullptr, $PRIVATE, $field(PBEKeySpec, password)},
+		{"salt", "[B", nullptr, $PRIVATE, $field(PBEKeySpec, salt)},
+		{"iterationCount", "I", nullptr, $PRIVATE, $field(PBEKeySpec, iterationCount)},
+		{"keyLength", "I", nullptr, $PRIVATE, $field(PBEKeySpec, keyLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([C)V", nullptr, $PUBLIC, $method(PBEKeySpec, init$, void, $chars*)},
+		{"<init>", "([C[BII)V", nullptr, $PUBLIC, $method(PBEKeySpec, init$, void, $chars*, $bytes*, int32_t, int32_t)},
+		{"<init>", "([C[BI)V", nullptr, $PUBLIC, $method(PBEKeySpec, init$, void, $chars*, $bytes*, int32_t)},
+		{"clearPassword", "()V", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, clearPassword, void)},
+		{"getIterationCount", "()I", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getIterationCount, int32_t)},
+		{"getKeyLength", "()I", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getKeyLength, int32_t)},
+		{"getPassword", "()[C", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getPassword, $chars*)},
+		{"getSalt", "()[B", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getSalt, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.spec.PBEKeySpec",
+		"java.lang.Object",
+		"java.security.spec.KeySpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PBEKeySpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PBEKeySpec);
+	});
 	return class$;
 }
 

@@ -5,6 +5,7 @@
 #include <AdaptServerSocket.h>
 #include <AdaptorCloseAndInterrupt.h>
 #include <AdaptorConcurrentIO.h>
+#include <AddTests.h>
 #include <AddURLTest.h>
 #include <AddressNotSet.h>
 #include <AllocateDirectInit.h>
@@ -19,6 +20,7 @@
 #include <AppendStringBuilder.h>
 #include <ArgWithSpaceAndFinalBackslash.h>
 #include <Args.h>
+#include <ArrayAssignment.h>
 #include <ArrayLength.h>
 #include <ArrayMethods.h>
 #include <AsyncCloseChannel.h>
@@ -29,6 +31,7 @@
 #include <B4414825.h>
 #include <B4849451.h>
 #include <B4923906.h>
+#include <B5086147.h>
 #include <B5087907.h>
 #include <B6246242.h>
 #include <B6296240.h>
@@ -116,9 +119,11 @@
 #include <Bug8209047.h>
 #include <BuilderForwarding.h>
 #include <ByteSwap.h>
+#include <CachedUnknownHostName.h>
 #include <Capacity.h>
 #include <CaseConvertSameInstance.h>
 #include <CaseInsensitiveComparator.h>
+#include <Cast.h>
 #include <Cause.h>
 #include <ChainedExceptions.h>
 #include <ChangingAddress.h>
@@ -136,6 +141,7 @@
 #include <CheckTempDir.h>
 #include <Chew.h>
 #include <Child.h>
+#include <ClassAttributesTest.h>
 #include <ClassForNameTest.h>
 #include <ClassRestrictions.h>
 #include <Cleanup.h>
@@ -148,23 +154,32 @@
 #include <CloseInvalidatesKeys.h>
 #include <CloseRace.h>
 #include <CloseRegisteredChannel.h>
+#include <CloseStream.h>
 #include <CloseThenRegister.h>
 #include <CloseTimeoutChannel.h>
 #include <CloseWhenKeyIdle.h>
 #include <ClosedByInterrupt.h>
 #include <ClosedChannelTransfer.h>
+#include <ClosedReady.h>
+#include <ClosedStream.h>
 #include <ClosedStreams.h>
+#include <ClosedWrite.h>
 #include <ClosedWriter.h>
 #include <Comment.h>
 #include <CompactStringsInitialCoder.h>
 #include <Compare.h>
 #include <CompareIC.h>
 #include <CompareTo.h>
+#include <CompareToTests.h>
 #include <Concurrent.h>
+#include <ConfigureBlocking.h>
 #include <Connect4DatagramChannel.h>
+#include <Connect4URLConnection.h>
+#include <ConnectAfterReaderClose.h>
 #include <Cons.h>
 #include <Constants.h>
 #include <Constructor.h>
+#include <ConstructorNull.h>
 #include <Constructors.h>
 #include <ContentEquals.h>
 #include <CookieNegativeMaxAge.h>
@@ -180,11 +195,13 @@
 #include <CustomZoneNameTest.h>
 #include <Daemon.h>
 #include <DateFormatSymbolsCloneTest.h>
+#include <DeadReader.h>
 #include <Decode.h>
 #include <DecodeNonEncoded.h>
 #include <Decoder.h>
 #include <DefaultAccessibility.h>
 #include <DefaultMethodModeling.h>
+#include <DefineClassByteBuffer.h>
 #include <DefinesWriteObject.h>
 #include <DeleteInterference.h>
 #include <DeleteOnExit.h>
@@ -194,6 +211,8 @@
 #include <DestroyTest.h>
 #include <DieBeforeComplete.h>
 #include <DirectBufferAllocTest.h>
+#include <DivideMcTests.h>
+#include <DivideTests.h>
 #include <DivisionOverflow.h>
 #include <DoubleValueOverflow.h>
 #include <DriveLetter.h>
@@ -202,6 +221,7 @@
 #include <DriveSlash.h>
 #include <DumpCharProperties.h>
 #include <DumpStackTest.h>
+#include <DupIntf.h>
 #include <Duped.h>
 #include <Duped$Echo.h>
 #include <DynamicConstantDescTest.h>
@@ -212,7 +232,9 @@
 #include <EmptyPath.h>
 #include <EmptyRead.h>
 #include <EmptySet.h>
+#include <EnclosingConstructorTests.h>
 #include <EnclosingConstructorWithSecurityManager.h>
+#include <EnclosingMethodTests.h>
 #include <Encode.h>
 #include <EncodeDecode.h>
 #include <EncodingConstructor.h>
@@ -226,6 +248,7 @@
 #include <Equals.h>
 #include <Equals2.h>
 #include <EqualsIgnoreCase.h>
+#include <EqualsTests.h>
 #include <ErrorInInvoke.h>
 #include <ExceedMaxDim.h>
 #include <ExceedMaxDim4Array.h>
@@ -240,6 +263,7 @@
 #include <Exceptions4getDeclaredMethod.h>
 #include <Exceptions4getField.h>
 #include <Exceptions4getMethod.h>
+#include <ExecCommand.h>
 #include <ExecEmptyString.h>
 #include <ExecWithLotsOfArgs.h>
 #include <ExecWithLotsOfArgs$EchoingHelper.h>
@@ -267,8 +291,11 @@
 #include <FinThreads.h>
 #include <FinalVirtualCallFromInterface.h>
 #include <Finalize.h>
+#include <FinalizeOverride.h>
+#include <FinalizerHistogramTest.h>
 #include <FindResourceDoesNotThrowException.h>
 #include <FloatDoubleValueTests.h>
+#include <FlushAfterClose.h>
 #include <ForInnerClass.h>
 #include <ForStaticInnerClass.h>
 #include <Force.h>
@@ -277,6 +304,7 @@
 #include <FormatMicroBenchmark.h>
 #include <Formatted.h>
 #include <FoundType.h>
+#include <GenericStringTest.h>
 #include <GenerifyStackTraces.h>
 #include <GetAbsolutePath.h>
 #include <GetAnnotatedInterfaces.h>
@@ -288,6 +316,7 @@
 #include <GetCallerClassTest.h>
 #include <GetCanonicalPath.h>
 #include <GetChannel.h>
+#include <GetCharsOverLength.h>
 #include <GetCharsSrcEndLarger.h>
 #include <GetClosedChannel.h>
 #include <GetContentType.h>
@@ -299,6 +328,7 @@
 #include <GetLong.h>
 #include <GetLoopbackAddress.h>
 #include <GetMacAddress.h>
+#include <GetPackage.h>
 #include <GetParent.h>
 #include <GetResource.h>
 #include <GetURLsTest.h>
@@ -310,6 +340,7 @@
 #include <HandlersPkgPrefix.h>
 #include <HashCode.h>
 #include <HashCodeEquals.h>
+#include <HashCodeTest.h>
 #include <HashSpread.h>
 #include <HelperSlowToDie.h>
 #include <HiddenFrames.h>
@@ -318,6 +349,7 @@
 #include <HugeCapacity4StringBuffer.h>
 #include <ICCBasher.h>
 #include <IDNTest.h>
+#include <IHashCode.h>
 #include <IPv4Formats.h>
 #include <IPv6AddressTypes.h>
 #include <IPv6Numeric.h>
@@ -325,6 +357,8 @@
 #include <ITLConstructor.h>
 #include <ITLRemoveTest.h>
 #include <Identity.h>
+#include <IgnoreNullSecurityManager.h>
+#include <IllegalAccessInInvoke.h>
 #include <IllegalArg.h>
 #include <ImmutableLocal.h>
 #include <ImplicitBind.h>
@@ -351,8 +385,11 @@
 #include <InitArg.h>
 #include <InitialValue.h>
 #include <InnerClassToString.h>
+#include <InsertMaxValue.h>
 #include <InsertNullString.h>
 #include <IntValueExactTests.h>
+#include <IntegerMinValue.h>
+#include <IntegralDivisionTests.h>
 #include <IntegralValueTests.h>
 #include <InternalNameServiceTest.h>
 #include <InternalNameServiceWithHostsFileTest.h>
@@ -362,12 +399,16 @@
 #include <InterruptibleDatagramSocket.h>
 #include <InvalidNameWithSlash.h>
 #include <IsAbsolute.h>
+#include <IsAnnotationType.h>
+#include <IsBlank.h>
+#include <IsDefaultTest.h>
 #include <IsEmpty.h>
 #include <IsHidden.h>
 #include <IsHostReachableBug.h>
 #include <IsParallelCapable.h>
 #include <IsReachable.h>
 #include <IsReachableViaLoopbackTest.h>
+#include <IsSynthetic.h>
 #include <KeySets.h>
 #include <LambdaClassFinal.h>
 #include <LambdaClassLoaderSerialization.h>
@@ -381,6 +422,7 @@
 #include <LeadingSlash.h>
 #include <LegacyChainedExceptionSerialization.h>
 #include <LimitDirectMemory.h>
+#include <Lines.h>
 #include <LingerOnClose.h>
 #include <ListNull.h>
 #include <ListRoots.h>
@@ -397,7 +439,9 @@
 #include <LookupTest.h>
 #include <LotsOfCancels.h>
 #include <LotsOfCancels4WatchService.h>
+#include <LotsOfChannels.h>
 #include <LotsOfCloses.h>
+#include <LotsOfStreams.h>
 #include <LotsOfUpdates.h>
 #include <LotsOfWrites.h>
 #include <MacPathTest.h>
@@ -431,14 +475,19 @@
 #include <MultiThreadStackWalk.h>
 #include <MultiThreadedSystemProxies.h>
 #include <MulticastTTL.h>
+#include <MultipleConnect.h>
 #include <MultipleNumberScriptTest.h>
 #include <MultiplyTests.h>
+#include <NaNInfinityParsing.h>
 #include <NameLimits.h>
 #include <NameTooLong.h>
 #include <NativeMethod.h>
 #include <NativeOrder.h>
+#include <NegateTests.h>
 #include <NegativeAvailable.h>
+#include <NegativeBufferSize.h>
 #include <NegativeInitSize.h>
+#include <NegativeMarkLimit.h>
 #include <NetParamsTest.h>
 #include <NetworkChannelTests.h>
 #include <NetworkInterfaceEmptyGetInetAddressesTest.h>
@@ -447,6 +496,8 @@
 #include <NewVSOld_th_TH.h>
 #include <NoAction.h>
 #include <NoName.h>
+#include <NoSender.h>
+#include <NonAnsiFileEncodingTest.h>
 #include <NonBlocking.h>
 #include <NonCharacterMapping.h>
 #include <NonInheritableContainee.h>
@@ -455,6 +506,7 @@
 #include <NonPublicProxyClass.h>
 #include <NonPublicStaticInitializer.h>
 #include <NotBound.h>
+#include <NotConnected.h>
 #include <NulDevice.h>
 #include <NulFile.h>
 #include <NullArgs.h>
@@ -465,6 +517,7 @@
 #include <NullCreate.h>
 #include <NullHost.h>
 #include <NullInParamList.h>
+#include <NullLock.h>
 #include <NullQueue.h>
 #include <NullStackTrace.h>
 #include <NullTest.h>
@@ -484,6 +537,7 @@
 #include <OpenLeak.h>
 #include <OpenStream.h>
 #include <OpenSync.h>
+#include <OperatorNpeTests.h>
 #include <OpsAfterClose.h>
 #include <OpsAfterClose4DataInputStream.h>
 #include <OpsAfterClose4FileInputStream.h>
@@ -501,11 +555,13 @@
 #include <PackageMain.h>
 #include <ParallelProbes.h>
 #include <ParameterAnnotations.h>
+#include <ParameterCheck.h>
 #include <ParameterizedBoundIndex.h>
 #include <ParseAuthority.h>
 #include <ParseBoolean.h>
 #include <ParseDouble.h>
 #include <ParseURL.h>
+#include <ParsingTest.h>
 #include <PathOps.h>
 #include <Patterns.h>
 #include <PeekInputStreamTest.h>
@@ -516,9 +572,12 @@
 #include <PipelineTest.h>
 #include <PortUnreachable.h>
 #include <Position.h>
+#include <PowTests.h>
 #include <Pread.h>
+#include <PrecisionTests.h>
 #include <PrimitiveConversionTests.h>
 #include <PrivateInterfaceCall.h>
+#include <ProbablePrime.h>
 #include <Probe.h>
 #include <Protocol.h>
 #include <ProxyClashTest.h>
@@ -529,11 +588,14 @@
 #include <RacyDeregister.h>
 #include <RacyHandler.h>
 #include <RacyRegister.h>
+#include <RangeTests.h>
 #include <ReachabilityFenceTest.h>
 #include <Read.h>
+#include <ReadAfterClose.h>
 #include <ReadAfterReset.h>
 #include <ReadAhead.h>
 #include <ReadByte.h>
+#include <ReadBytesBounds.h>
 #include <ReadCloseRaceNPE.h>
 #include <ReadFull.h>
 #include <ReadFully.h>
@@ -548,6 +610,7 @@
 #include <ReadToLimit.h>
 #include <ReadUTF.h>
 #include <ReadWritePrimitives.h>
+#include <ReadZeroBytes.h>
 #include <ReaderBulkReadContract.h>
 #include <Ready.h>
 #include <Receive.h>
@@ -558,6 +621,7 @@
 #include <RedirectWithLongFilename.h>
 #include <ReferenceClone.h>
 #include <ReferenceEnqueue.h>
+#include <ReferenceEnqueuePending.h>
 #include <ReferenceRefersTo.h>
 #include <ReflectiveLookupTest.h>
 #include <Refused.h>
@@ -573,8 +637,11 @@
 #include <RememberAppend.h>
 #include <RenameDelete.h>
 #include <RepetitiveLambdaSerialization.h>
+#include <Replace.h>
 #include <ReportSocketClosed.h>
 #include <RequestPropertyValues.h>
+#include <Reset.h>
+#include <ResolveFrom.h>
 #include <ResolveProxyClass.h>
 #include <Resources.h>
 #include <ResourcesStreamTest.h>
@@ -582,16 +649,24 @@
 #include <Restart.h>
 #include <RestoreURL.h>
 #include <Reuse.h>
+#include <ReuseAddressTest.h>
 #include <ReuseBuf.h>
+#include <RoundingModeTests.h>
+#include <RoundingTests.h>
 #include <SBBasher.h>
+#include <SBConstructor.h>
+#include <SDFTCKZoneNamesTest.h>
 #include <SJIS.h>
 #include <SPIProviderTest.h>
 #include <Sanity.h>
+#include <ScaleByPowerOfTenTests.h>
 #include <ScatteringRead.h>
 #include <Security.h>
 #include <SecurityExceptions.h>
 #include <SecurityManagerClinit.h>
+#include <SecurityRace.h>
 #include <SecurityTest.h>
+#include <Seek.h>
 #include <SelectFdsLimit.h>
 #include <SelectNowWhenEmpty.h>
 #include <SelectPipe.h>
@@ -604,8 +679,10 @@
 #include <Sender.h>
 #include <SerializationTests.h>
 #include <Serialize.h>
+#include <Set4Field.h>
 #include <SetBufferSize.h>
 #include <SetLastModified.h>
+#include <SetLength.h>
 #include <SetMaxPriority.h>
 #include <SetOption.h>
 #include <SetReceiveBufferSize.h>
@@ -622,7 +699,10 @@
 #include <SignatureTest.h>
 #include <SimpleProxy.h>
 #include <Size.h>
+#include <Skip.h>
 #include <SkipBytes.h>
+#include <SkipEOL.h>
+#include <SkipNegative.h>
 #include <SkipTest.h>
 #include <SkipTest$GenerateData.h>
 #include <SoTimeout.h>
@@ -638,6 +718,7 @@
 #include <SquareRootTests.h>
 #include <StackOverflowTest.h>
 #include <StackStreamState.h>
+#include <StackStreamTest.h>
 #include <StackTraceSerialization.h>
 #include <StarInheritance.h>
 #include <StartOOMTest.h>
@@ -653,12 +734,17 @@
 #include <StringCharBufferSliceTest.h>
 #include <StringConcatFactoryInvariants.h>
 #include <StringConcatFactoryRepeatedConstants.h>
+#include <StringConstructor.h>
 #include <StringConstructorOverflow.h>
 #include <StringContentEqualsBug.h>
 #include <StringPlatformChars.h>
 #include <StringRepeat.h>
 #include <StringScope.h>
+#include <StringsAndBounds.h>
+#include <Strip.h>
 #include <StripACC_SUPER.h>
+#include <StripIndent.h>
+#include <StrippingZerosTest.h>
 #include <SubClass.h>
 #include <SubNetworkInterfaceTest.h>
 #include <SubclassCastUOE.h>
@@ -688,9 +774,11 @@
 #include <Test6991596.h>
 #include <Test6998541.h>
 #include <Test7087570.h>
+#include <Test7157574.h>
 #include <Test8009222.h>
 #include <Test8076596.h>
 #include <TestAfterClose.h>
+#include <TestAnnotatedElement.h>
 #include <TestAnnotatedElementDefaults.h>
 #include <TestC1/TestC1.h>
 #include <TestC2.h>
@@ -708,6 +796,8 @@
 #include <TestNegativeCodepoint.h>
 #include <TestObjectMethods.h>
 #include <TestObjectStreamClass.h>
+#include <TestParameterAnnotations.h>
+#include <TestParameterizedType.h>
 #include <TestPlainArrayNotGeneric.h>
 #include <TestPort.h>
 #include <TestPrivateMember.h>
@@ -725,6 +815,7 @@
 #include <TestUndefinedTitleCase.h>
 #include <TestValueExact.h>
 #include <TestWhiteSpace.h>
+#include <TestgetPatternSeparator_ja.h>
 #include <ThereCanBeOnlyOne.h>
 #include <ThreadStop.h>
 #include <TieRoundingTest.h>
@@ -732,6 +823,7 @@
 #include <TimeZoneLastModified.h>
 #include <TinyBuffers.h>
 #include <ToLowerCase.h>
+#include <ToPlainStringTests.h>
 #include <ToString.h>
 #include <ToStringCache.h>
 #include <ToURI.h>
@@ -743,6 +835,7 @@
 #include <TransferToNonWritable.h>
 #include <Transfers.h>
 #include <Transform.h>
+#include <TranslateEscapes.h>
 #include <Trim.h>
 #include <Trivial.h>
 #include <Truncate.h>
@@ -788,8 +881,10 @@
 #include <WaitFor.h>
 #include <WaitTooLong.h>
 #include <WakeupAfterClose.h>
+#include <WakeupEmpty.h>
 #include <WakeupNow.h>
 #include <WakeupOverflow.h>
+#include <WakeupSpeed.h>
 #include <WalkFunction.h>
 #include <WalkWithSecurity.h>
 #include <WeekDateTest.h>
@@ -800,28 +895,38 @@
 #include <WinDirRelative.h>
 #include <WinMaxPath.h>
 #include <WinSpecialFiles.h>
+#include <WithParameters.h>
 #include <WithSecurityManager4AsynchronousServerSocketChannel.h>
 #include <WithSecurityManager4concat.h>
+#include <WithoutParameters.h>
 #include <Write.h>
+#include <WriteAfterClose.h>
+#include <WriteAfterReaderClose.h>
 #include <WriteBytes.h>
 #include <WriteBytesChars.h>
+#include <WriteFromString.h>
 #include <WriteLengths.h>
 #include <WriteParams.h>
 #include <WriteUTF.h>
 #include <WriterLoop.h>
+#include <Z.h>
 #include <ZeroMap.h>
+#include <ZeroScalingTests.h>
 #include <Zombies.h>
 #include <bug4097450.h>
 #include <bug4099975.h>
 #include <bug6271375.h>
 #include <bug6317072.h>
+#include <bug6344646.h>
 #include <bug6412896.h>
 #include <c/TestClient.h>
 #include <exceptionCauseTest.h>
 #include <getAnnotationTest.h>
 #include <getResponseCode4HttpURLConnection.h>
+#include <indify/Indify.h>
 #include <isSiteLocalAddress.h>
 #include <java/lang/Float2/Extrema.h>
+#include <java/lang/Float2/NaNInfinityParsing.h>
 #include <java/lang/Float2/ParseFloat.h>
 #include <java/lang/Math2/AbsPositiveZero.h>
 #include <java/lang/Math2/AbsTests.h>
@@ -837,12 +942,16 @@
 #include <pkg1/MethodTypeDescriptorAccessTest.h>
 #include <repeatingAnnotations/InheritedAssociatedAnnotations.h>
 #include <test/FindSpecial.h>
+#include <test/java/lang/invoke/CallStaticInitOrder.h>
 #include <test/java/lang/invoke/CountedLoopIterationCountsTest.h>
 #include <test/java/lang/invoke/FindClassSecurityManager.h>
+#include <test/java/lang/invoke/InvokeDynamicPrintArgs.h>
 #include <test/java/lang/invoke/LoopCombinatorLongSignatureTest.h>
+#include <test/java/lang/invoke/MethodHandleConstants.h>
 #include <test/java/lang/invoke/MethodTypeSecurityManager.h>
 #include <test/java/lang/invoke/ObjectMethodInInterfaceTest.h>
 #include <textToNumericFormat.h>
+#include <toStringTest.h>
 #include <jcpp.h>
 
 #undef A
@@ -1007,6 +1116,7 @@ void TestCases::runCases() {
 	run("AdaptServerSocket", ::AdaptServerSocket);
 	run("AdaptorCloseAndInterrupt", ::AdaptorCloseAndInterrupt);
 	run("AdaptorConcurrentIO", ::AdaptorConcurrentIO);
+	run("AddTests", ::AddTests);
 	run("AddURLTest", ::AddURLTest);
 	run("AddressNotSet", ::AddressNotSet);
 	run("AllocateDirectInit", ::AllocateDirectInit);
@@ -1021,6 +1131,7 @@ void TestCases::runCases() {
 	run("AppendStringBuilder", ::AppendStringBuilder);
 	run("ArgWithSpaceAndFinalBackslash", ::ArgWithSpaceAndFinalBackslash, true);
 	run("Args", ::Args);
+	run("ArrayAssignment", ::ArrayAssignment);
 	run("ArrayLength", ::ArrayLength);
 	run("ArrayMethods", ::ArrayMethods);
 	run("AsyncCloseChannel", ::AsyncCloseChannel);
@@ -1031,6 +1142,7 @@ void TestCases::runCases() {
 	run("B4414825", ::B4414825);
 	run("B4849451", ::B4849451);
 	run("B4923906", ::B4923906);
+	run("B5086147", ::B5086147);
 	run("B5087907", ::B5087907);
 	run("B6246242", ::B6246242);
 	run("B6296240", ::B6296240);
@@ -1118,9 +1230,11 @@ void TestCases::runCases() {
 	run("Bug8209047", ::Bug8209047);
 	run("BuilderForwarding", ::BuilderForwarding);
 	run("ByteSwap", ::ByteSwap);
+	run("CachedUnknownHostName", ::CachedUnknownHostName);
 	run("Capacity", ::Capacity);
 	run("CaseConvertSameInstance", ::CaseConvertSameInstance);
 	run("CaseInsensitiveComparator", ::CaseInsensitiveComparator);
+	run("Cast", ::Cast);
 	run("Cause", ::Cause);
 	run("ChainedExceptions", ::ChainedExceptions, true);
 	run("ChangingAddress", ::ChangingAddress);
@@ -1138,6 +1252,7 @@ void TestCases::runCases() {
 	run("CheckTempDir", ::CheckTempDir);
 	run("Chew", ::Chew);
 	run("Child", ::Child);
+	run("ClassAttributesTest", ::ClassAttributesTest);
 	run("ClassForNameTest", ::ClassForNameTest);
 	run("ClassRestrictions", ::ClassRestrictions, true);
 	run("Cleanup", ::Cleanup);
@@ -1150,23 +1265,32 @@ void TestCases::runCases() {
 	run("CloseInvalidatesKeys", ::CloseInvalidatesKeys);
 	run("CloseRace", ::CloseRace);
 	run("CloseRegisteredChannel", ::CloseRegisteredChannel);
+	run("CloseStream", ::CloseStream);
 	run("CloseThenRegister", ::CloseThenRegister);
 	run("CloseTimeoutChannel", ::CloseTimeoutChannel);
 	run("CloseWhenKeyIdle", ::CloseWhenKeyIdle);
 	run("ClosedByInterrupt", ::ClosedByInterrupt);
 	run("ClosedChannelTransfer", ::ClosedChannelTransfer);
+	run("ClosedReady", ::ClosedReady);
+	run("ClosedStream", ::ClosedStream);
 	run("ClosedStreams", ::ClosedStreams);
+	run("ClosedWrite", ::ClosedWrite);
 	run("ClosedWriter", ::ClosedWriter);
 	run("Comment", ::Comment, true);
 	run("CompactStringsInitialCoder", ::CompactStringsInitialCoder);
 	run("Compare", ::Compare);
 	run("CompareIC", ::CompareIC);
 	run("CompareTo", ::CompareTo);
+	run("CompareToTests", ::CompareToTests);
 	run("Concurrent", ::Concurrent);
+	run("ConfigureBlocking", ::ConfigureBlocking);
 	run("Connect4DatagramChannel", ::Connect4DatagramChannel);
+	run("Connect4URLConnection", ::Connect4URLConnection);
+	run("ConnectAfterReaderClose", ::ConnectAfterReaderClose);
 	run("Cons", ::Cons);
 	run("Constants", ::Constants);
 	run("Constructor", ::Constructor);
+	run("ConstructorNull", ::ConstructorNull);
 	run("Constructors", ::Constructors);
 	run("ContentEquals", ::ContentEquals);
 	run("CookieNegativeMaxAge", ::CookieNegativeMaxAge);
@@ -1182,11 +1306,13 @@ void TestCases::runCases() {
 	run("CustomZoneNameTest", ::CustomZoneNameTest, true);
 	run("Daemon", ::Daemon);
 	run("DateFormatSymbolsCloneTest", ::DateFormatSymbolsCloneTest);
+	run("DeadReader", ::DeadReader);
 	run("Decode", ::Decode);
 	run("DecodeNonEncoded", ::DecodeNonEncoded);
 	run("Decoder", ::Decoder);
 	run("DefaultAccessibility", ::DefaultAccessibility);
 	run("DefaultMethodModeling", ::DefaultMethodModeling);
+	run("DefineClassByteBuffer", ::DefineClassByteBuffer, true);
 	run("DefinesWriteObject", ::DefinesWriteObject);
 	run("DeleteInterference", ::DeleteInterference, true);
 	run("DeleteOnExit", ::DeleteOnExit, true);
@@ -1196,6 +1322,8 @@ void TestCases::runCases() {
 	run("DestroyTest", ::DestroyTest);
 	run("DieBeforeComplete", ::DieBeforeComplete);
 	run("DirectBufferAllocTest", ::DirectBufferAllocTest);
+	run("DivideMcTests", ::DivideMcTests);
+	run("DivideTests", ::DivideTests);
 	run("DivisionOverflow", ::DivisionOverflow);
 	run("DoubleValueOverflow", ::DoubleValueOverflow);
 	run("DriveLetter", ::DriveLetter);
@@ -1204,6 +1332,7 @@ void TestCases::runCases() {
 	run("DriveSlash", ::DriveSlash);
 	run("DumpCharProperties", ::DumpCharProperties, true);
 	run("DumpStackTest", ::DumpStackTest, true);
+	run("DupIntf", ::DupIntf);
 	run("Duped", ::Duped, true);
 	run("Duped$Echo", ::Duped$Echo, true);
 	run("DynamicConstantDescTest", ::DynamicConstantDescTest);
@@ -1214,7 +1343,9 @@ void TestCases::runCases() {
 	run("EmptyPath", ::EmptyPath);
 	run("EmptyRead", ::EmptyRead);
 	run("EmptySet", ::EmptySet);
+	run("EnclosingConstructorTests", ::EnclosingConstructorTests);
 	run("EnclosingConstructorWithSecurityManager", ::EnclosingConstructorWithSecurityManager);
+	run("EnclosingMethodTests", ::EnclosingMethodTests);
 	run("Encode", ::Encode);
 	run("EncodeDecode", ::EncodeDecode);
 	run("EncodingConstructor", ::EncodingConstructor);
@@ -1228,6 +1359,7 @@ void TestCases::runCases() {
 	run("Equals", ::Equals);
 	run("Equals2", ::Equals2);
 	run("EqualsIgnoreCase", ::EqualsIgnoreCase);
+	run("EqualsTests", ::EqualsTests);
 	run("ErrorInInvoke", ::ErrorInInvoke);
 	run("ExceedMaxDim", ::ExceedMaxDim);
 	run("ExceedMaxDim4Array", ::ExceedMaxDim4Array);
@@ -1242,6 +1374,7 @@ void TestCases::runCases() {
 	run("Exceptions4getDeclaredMethod", ::Exceptions4getDeclaredMethod);
 	run("Exceptions4getField", ::Exceptions4getField);
 	run("Exceptions4getMethod", ::Exceptions4getMethod);
+	run("ExecCommand", ::ExecCommand, true);
 	run("ExecEmptyString", ::ExecEmptyString);
 	run("ExecWithLotsOfArgs", ::ExecWithLotsOfArgs, true);
 	run("ExecWithLotsOfArgs$EchoingHelper", ::ExecWithLotsOfArgs$EchoingHelper);
@@ -1269,8 +1402,11 @@ void TestCases::runCases() {
 	run("FinThreads", ::FinThreads, true);
 	run("FinalVirtualCallFromInterface", ::FinalVirtualCallFromInterface);
 	run("Finalize", ::Finalize);
+	run("FinalizeOverride", ::FinalizeOverride, true);
+	run("FinalizerHistogramTest", ::FinalizerHistogramTest);
 	run("FindResourceDoesNotThrowException", ::FindResourceDoesNotThrowException);
 	run("FloatDoubleValueTests", ::FloatDoubleValueTests);
+	run("FlushAfterClose", ::FlushAfterClose);
 	run("ForInnerClass", ::ForInnerClass);
 	run("ForStaticInnerClass", ::ForStaticInnerClass);
 	run("Force", ::Force);
@@ -1279,6 +1415,7 @@ void TestCases::runCases() {
 	run("FormatMicroBenchmark", ::FormatMicroBenchmark);
 	run("Formatted", ::Formatted);
 	run("FoundType", ::FoundType);
+	run("GenericStringTest", ::GenericStringTest);
 	run("GenerifyStackTraces", ::GenerifyStackTraces, true);
 	run("GetAbsolutePath", ::GetAbsolutePath);
 	run("GetAnnotatedInterfaces", ::GetAnnotatedInterfaces);
@@ -1290,6 +1427,7 @@ void TestCases::runCases() {
 	run("GetCallerClassTest", ::GetCallerClassTest);
 	run("GetCanonicalPath", ::GetCanonicalPath);
 	run("GetChannel", ::GetChannel);
+	run("GetCharsOverLength", ::GetCharsOverLength);
 	run("GetCharsSrcEndLarger", ::GetCharsSrcEndLarger);
 	run("GetClosedChannel", ::GetClosedChannel);
 	run("GetContentType", ::GetContentType);
@@ -1301,6 +1439,7 @@ void TestCases::runCases() {
 	run("GetLong", ::GetLong);
 	run("GetLoopbackAddress", ::GetLoopbackAddress);
 	run("GetMacAddress", ::GetMacAddress);
+	run("GetPackage", ::GetPackage);
 	run("GetParent", ::GetParent);
 	run("GetResource", ::GetResource);
 	run("GetURLsTest", ::GetURLsTest);
@@ -1312,6 +1451,7 @@ void TestCases::runCases() {
 	run("HandlersPkgPrefix", ::HandlersPkgPrefix, true);
 	run("HashCode", ::HashCode);
 	run("HashCodeEquals", ::HashCodeEquals);
+	run("HashCodeTest", ::HashCodeTest);
 	run("HashSpread", ::HashSpread);
 	run("HelperSlowToDie", ::HelperSlowToDie);
 	run("HiddenFrames", ::HiddenFrames);
@@ -1324,6 +1464,7 @@ void TestCases::runCases() {
 	run("HugeCapacity4StringBuffer", ::HugeCapacity4StringBuffer);
 	run("ICCBasher", ::ICCBasher);
 	run("IDNTest", ::IDNTest);
+	run("IHashCode", ::IHashCode);
 	run("IPv4Formats", ::IPv4Formats);
 	run("IPv6AddressTypes", ::IPv6AddressTypes);
 	run("IPv6Numeric", ::IPv6Numeric);
@@ -1331,6 +1472,8 @@ void TestCases::runCases() {
 	run("ITLConstructor", ::ITLConstructor);
 	run("ITLRemoveTest", ::ITLRemoveTest);
 	run("Identity", ::Identity);
+	run("IgnoreNullSecurityManager", ::IgnoreNullSecurityManager);
+	run("IllegalAccessInInvoke", ::IllegalAccessInInvoke);
 	run("IllegalArg", ::IllegalArg);
 	run("ImmutableLocal", ::ImmutableLocal);
 	run("ImplicitBind", ::ImplicitBind);
@@ -1357,8 +1500,11 @@ void TestCases::runCases() {
 	run("InitArg", ::InitArg);
 	run("InitialValue", ::InitialValue);
 	run("InnerClassToString", ::InnerClassToString);
+	run("InsertMaxValue", ::InsertMaxValue);
 	run("InsertNullString", ::InsertNullString);
 	run("IntValueExactTests", ::IntValueExactTests);
+	run("IntegerMinValue", ::IntegerMinValue);
+	run("IntegralDivisionTests", ::IntegralDivisionTests);
 	run("IntegralValueTests", ::IntegralValueTests);
 	run("InternalNameServiceTest", ::InternalNameServiceTest, true);
 	run("InternalNameServiceWithHostsFileTest", ::InternalNameServiceWithHostsFileTest, true);
@@ -1368,12 +1514,16 @@ void TestCases::runCases() {
 	run("InterruptibleDatagramSocket", ::InterruptibleDatagramSocket, true);
 	run("InvalidNameWithSlash", ::InvalidNameWithSlash);
 	run("IsAbsolute", ::IsAbsolute);
+	run("IsAnnotationType", ::IsAnnotationType);
+	run("IsBlank", ::IsBlank);
+	run("IsDefaultTest", ::IsDefaultTest);
 	run("IsEmpty", ::IsEmpty);
 	run("IsHidden", ::IsHidden);
 	run("IsHostReachableBug", ::IsHostReachableBug, true);
 	run("IsParallelCapable", ::IsParallelCapable);
 	run("IsReachable", ::IsReachable);
 	run("IsReachableViaLoopbackTest", ::IsReachableViaLoopbackTest, true);
+	run("IsSynthetic", ::IsSynthetic);
 	run("KeySets", ::KeySets);
 	run("LambdaClassFinal", ::LambdaClassFinal);
 	run("LambdaClassLoaderSerialization", ::LambdaClassLoaderSerialization, true);
@@ -1387,6 +1537,7 @@ void TestCases::runCases() {
 	run("LeadingSlash", ::LeadingSlash);
 	run("LegacyChainedExceptionSerialization", ::LegacyChainedExceptionSerialization);
 	run("LimitDirectMemory", ::LimitDirectMemory, true);
+	run("Lines", ::Lines);
 	run("LingerOnClose", ::LingerOnClose, true);
 	run("ListNull", ::ListNull);
 	run("ListRoots", ::ListRoots);
@@ -1403,7 +1554,9 @@ void TestCases::runCases() {
 	run("LookupTest", ::LookupTest, true);
 	run("LotsOfCancels", ::LotsOfCancels);
 	run("LotsOfCancels4WatchService", ::LotsOfCancels4WatchService);
+	run("LotsOfChannels", ::LotsOfChannels);
 	run("LotsOfCloses", ::LotsOfCloses, true);
+	run("LotsOfStreams", ::LotsOfStreams);
 	run("LotsOfUpdates", ::LotsOfUpdates);
 	run("LotsOfWrites", ::LotsOfWrites);
 	run("MacPathTest", ::MacPathTest);
@@ -1437,14 +1590,19 @@ void TestCases::runCases() {
 	run("MultiThreadStackWalk", ::MultiThreadStackWalk, true);
 	run("MultiThreadedSystemProxies", ::MultiThreadedSystemProxies);
 	run("MulticastTTL", ::MulticastTTL);
+	run("MultipleConnect", ::MultipleConnect);
 	run("MultipleNumberScriptTest", ::MultipleNumberScriptTest);
 	run("MultiplyTests", ::MultiplyTests);
+	run("NaNInfinityParsing", ::NaNInfinityParsing);
 	run("NameLimits", ::NameLimits);
 	run("NameTooLong", ::NameTooLong);
 	run("NativeMethod", ::NativeMethod);
 	run("NativeOrder", ::NativeOrder);
+	run("NegateTests", ::NegateTests);
 	run("NegativeAvailable", ::NegativeAvailable);
+	run("NegativeBufferSize", ::NegativeBufferSize);
 	run("NegativeInitSize", ::NegativeInitSize);
+	run("NegativeMarkLimit", ::NegativeMarkLimit);
 	run("NetParamsTest", ::NetParamsTest);
 	run("NetworkChannelTests", ::NetworkChannelTests);
 	run("NetworkInterfaceEmptyGetInetAddressesTest", ::NetworkInterfaceEmptyGetInetAddressesTest);
@@ -1453,6 +1611,8 @@ void TestCases::runCases() {
 	run("NewVSOld_th_TH", ::NewVSOld_th_TH, true);
 	run("NoAction", ::NoAction);
 	run("NoName", ::NoName);
+	run("NoSender", ::NoSender);
+	run("NonAnsiFileEncodingTest", ::NonAnsiFileEncodingTest);
 	run("NonBlocking", ::NonBlocking);
 	run("NonCharacterMapping", ::NonCharacterMapping);
 	run("NonInheritableContainee", ::NonInheritableContainee);
@@ -1461,6 +1621,7 @@ void TestCases::runCases() {
 	run("NonPublicProxyClass", ::NonPublicProxyClass, true);
 	run("NonPublicStaticInitializer", ::NonPublicStaticInitializer);
 	run("NotBound", ::NotBound);
+	run("NotConnected", ::NotConnected);
 	run("NulDevice", ::NulDevice, true);
 	run("NulFile", ::NulFile);
 	run("NullArgs", ::NullArgs);
@@ -1471,6 +1632,7 @@ void TestCases::runCases() {
 	run("NullCreate", ::NullCreate);
 	run("NullHost", ::NullHost);
 	run("NullInParamList", ::NullInParamList);
+	run("NullLock", ::NullLock);
 	run("NullQueue", ::NullQueue, true);
 	run("NullStackTrace", ::NullStackTrace);
 	run("NullTest", ::NullTest);
@@ -1490,6 +1652,7 @@ void TestCases::runCases() {
 	run("OpenLeak", ::OpenLeak, true);
 	run("OpenStream", ::OpenStream, true);
 	run("OpenSync", ::OpenSync);
+	run("OperatorNpeTests", ::OperatorNpeTests);
 	run("OpsAfterClose", ::OpsAfterClose);
 	run("OpsAfterClose4DataInputStream", ::OpsAfterClose4DataInputStream);
 	run("OpsAfterClose4FileInputStream", ::OpsAfterClose4FileInputStream);
@@ -1507,11 +1670,13 @@ void TestCases::runCases() {
 	run("PackageMain", ::PackageMain);
 	run("ParallelProbes", ::ParallelProbes);
 	run("ParameterAnnotations", ::ParameterAnnotations);
+	run("ParameterCheck", ::ParameterCheck);
 	run("ParameterizedBoundIndex", ::ParameterizedBoundIndex);
 	run("ParseAuthority", ::ParseAuthority);
 	run("ParseBoolean", ::ParseBoolean);
 	run("ParseDouble", ::ParseDouble);
 	run("ParseURL", ::ParseURL);
+	run("ParsingTest", ::ParsingTest);
 	run("PathOps", ::PathOps);
 	run("Patterns", ::Patterns);
 	run("PeekInputStreamTest", ::PeekInputStreamTest);
@@ -1522,9 +1687,12 @@ void TestCases::runCases() {
 	run("PipelineTest", ::PipelineTest, true);
 	run("PortUnreachable", ::PortUnreachable);
 	run("Position", ::Position);
+	run("PowTests", ::PowTests);
 	run("Pread", ::Pread);
+	run("PrecisionTests", ::PrecisionTests);
 	run("PrimitiveConversionTests", ::PrimitiveConversionTests);
 	run("PrivateInterfaceCall", ::PrivateInterfaceCall, true);
+	run("ProbablePrime", ::ProbablePrime);
 	run("Probe", ::Probe);
 	run("Protocol", ::Protocol);
 	run("ProxyClashTest", ::ProxyClashTest);
@@ -1535,11 +1703,14 @@ void TestCases::runCases() {
 	run("RacyDeregister", ::RacyDeregister);
 	run("RacyHandler", ::RacyHandler, true);
 	run("RacyRegister", ::RacyRegister);
+	run("RangeTests", ::RangeTests);
 	run("ReachabilityFenceTest", ::ReachabilityFenceTest);
 	run("Read", ::Read);
+	run("ReadAfterClose", ::ReadAfterClose);
 	run("ReadAfterReset", ::ReadAfterReset, true);
 	run("ReadAhead", ::ReadAhead);
 	run("ReadByte", ::ReadByte);
+	run("ReadBytesBounds", ::ReadBytesBounds);
 	run("ReadCloseRaceNPE", ::ReadCloseRaceNPE);
 	run("ReadFull", ::ReadFull);
 	run("ReadFully", ::ReadFully, true);
@@ -1554,6 +1725,7 @@ void TestCases::runCases() {
 	run("ReadToLimit", ::ReadToLimit);
 	run("ReadUTF", ::ReadUTF);
 	run("ReadWritePrimitives", ::ReadWritePrimitives);
+	run("ReadZeroBytes", ::ReadZeroBytes);
 	run("ReaderBulkReadContract", ::ReaderBulkReadContract);
 	run("Ready", ::Ready);
 	run("Receive", ::Receive);
@@ -1564,6 +1736,7 @@ void TestCases::runCases() {
 	run("RedirectWithLongFilename", ::RedirectWithLongFilename);
 	run("ReferenceClone", ::ReferenceClone);
 	run("ReferenceEnqueue", ::ReferenceEnqueue);
+	run("ReferenceEnqueuePending", ::ReferenceEnqueuePending);
 	run("ReferenceRefersTo", ::ReferenceRefersTo);
 	run("ReflectiveLookupTest", ::ReflectiveLookupTest);
 	run("Refused", ::Refused);
@@ -1579,8 +1752,11 @@ void TestCases::runCases() {
 	run("RememberAppend", ::RememberAppend);
 	run("RenameDelete", ::RenameDelete);
 	run("RepetitiveLambdaSerialization", ::RepetitiveLambdaSerialization);
+	run("Replace", ::Replace);
 	run("ReportSocketClosed", ::ReportSocketClosed);
 	run("RequestPropertyValues", ::RequestPropertyValues);
+	run("Reset", ::Reset);
+	run("ResolveFrom", ::ResolveFrom);
 	run("ResolveProxyClass", ::ResolveProxyClass);
 	run("Resources", ::Resources);
 	run("ResourcesStreamTest", ::ResourcesStreamTest);
@@ -1588,16 +1764,24 @@ void TestCases::runCases() {
 	run("Restart", ::Restart);
 	run("RestoreURL", ::RestoreURL);
 	run("Reuse", ::Reuse);
+	run("ReuseAddressTest", ::ReuseAddressTest);
 	run("ReuseBuf", ::ReuseBuf);
+	run("RoundingModeTests", ::RoundingModeTests);
+	run("RoundingTests", ::RoundingTests);
 	run("SBBasher", ::SBBasher);
+	run("SBConstructor", ::SBConstructor);
+	run("SDFTCKZoneNamesTest", ::SDFTCKZoneNamesTest);
 	run("SJIS", ::SJIS);
 	run("SPIProviderTest", ::SPIProviderTest, true);
 	run("Sanity", ::Sanity);
+	run("ScaleByPowerOfTenTests", ::ScaleByPowerOfTenTests);
 	run("ScatteringRead", ::ScatteringRead);
 	run("Security", ::Security, true);
 	run("SecurityExceptions", ::SecurityExceptions, true);
 	run("SecurityManagerClinit", ::SecurityManagerClinit, true);
+	run("SecurityRace", ::SecurityRace);
 	run("SecurityTest", ::SecurityTest, true);
+	run("Seek", ::Seek, true);
 	run("SelectFdsLimit", ::SelectFdsLimit);
 	run("SelectNowWhenEmpty", ::SelectNowWhenEmpty);
 	run("SelectPipe", ::SelectPipe);
@@ -1610,8 +1794,10 @@ void TestCases::runCases() {
 	run("Sender", ::Sender);
 	run("SerializationTests", ::SerializationTests);
 	run("Serialize", ::Serialize, true);
+	run("Set4Field", ::Set4Field);
 	run("SetBufferSize", ::SetBufferSize);
 	run("SetLastModified", ::SetLastModified);
+	run("SetLength", ::SetLength);
 	run("SetMaxPriority", ::SetMaxPriority);
 	run("SetOption", ::SetOption);
 	run("SetReceiveBufferSize", ::SetReceiveBufferSize);
@@ -1628,7 +1814,10 @@ void TestCases::runCases() {
 	run("SignatureTest", ::SignatureTest);
 	run("SimpleProxy", ::SimpleProxy, true);
 	run("Size", ::Size);
+	run("Skip", ::Skip);
 	run("SkipBytes", ::SkipBytes);
+	run("SkipEOL", ::SkipEOL);
+	run("SkipNegative", ::SkipNegative, true);
 	run("SkipTest", ::SkipTest, true);
 	run("SkipTest$GenerateData", ::SkipTest$GenerateData, true);
 	run("SoTimeout", ::SoTimeout);
@@ -1644,6 +1833,7 @@ void TestCases::runCases() {
 	run("SquareRootTests", ::SquareRootTests);
 	run("StackOverflowTest", ::StackOverflowTest, true);
 	run("StackStreamState", ::StackStreamState);
+	run("StackStreamTest", ::StackStreamTest, true);
 	run("StackTraceSerialization", ::StackTraceSerialization);
 	run("StarInheritance", ::StarInheritance);
 	run("StartOOMTest", ::StartOOMTest, true);
@@ -1659,12 +1849,17 @@ void TestCases::runCases() {
 	run("StringCharBufferSliceTest", ::StringCharBufferSliceTest);
 	run("StringConcatFactoryInvariants", ::StringConcatFactoryInvariants);
 	run("StringConcatFactoryRepeatedConstants", ::StringConcatFactoryRepeatedConstants);
+	run("StringConstructor", ::StringConstructor);
 	run("StringConstructorOverflow", ::StringConstructorOverflow);
 	run("StringContentEqualsBug", ::StringContentEqualsBug);
 	run("StringPlatformChars", ::StringPlatformChars, true);
 	run("StringRepeat", ::StringRepeat);
 	run("StringScope", ::StringScope);
+	run("StringsAndBounds", ::StringsAndBounds);
+	run("Strip", ::Strip);
 	run("StripACC_SUPER", ::StripACC_SUPER);
+	run("StripIndent", ::StripIndent);
+	run("StrippingZerosTest", ::StrippingZerosTest);
 	run("SubClass", ::SubClass);
 	run("SubNetworkInterfaceTest", ::SubNetworkInterfaceTest);
 	run("SubclassCastUOE", ::SubclassCastUOE);
@@ -1694,9 +1889,11 @@ void TestCases::runCases() {
 	run("Test6991596", ::Test6991596);
 	run("Test6998541", ::Test6998541);
 	run("Test7087570", ::Test7087570);
+	run("Test7157574", ::Test7157574);
 	run("Test8009222", ::Test8009222);
 	run("Test8076596", ::Test8076596);
 	run("TestAfterClose", ::TestAfterClose);
+	run("TestAnnotatedElement", ::TestAnnotatedElement);
 	run("TestAnnotatedElementDefaults", ::TestAnnotatedElementDefaults);
 	run("TestC1.TestC1", ::TestC1::TestC1);
 	run("TestC2", ::TestC2);
@@ -1714,6 +1911,8 @@ void TestCases::runCases() {
 	run("TestNegativeCodepoint", ::TestNegativeCodepoint);
 	run("TestObjectMethods", ::TestObjectMethods);
 	run("TestObjectStreamClass", ::TestObjectStreamClass);
+	run("TestParameterAnnotations", ::TestParameterAnnotations);
+	run("TestParameterizedType", ::TestParameterizedType);
 	run("TestPlainArrayNotGeneric", ::TestPlainArrayNotGeneric);
 	run("TestPort", ::TestPort);
 	run("TestPrivateMember", ::TestPrivateMember);
@@ -1731,24 +1930,27 @@ void TestCases::runCases() {
 	run("TestUndefinedTitleCase", ::TestUndefinedTitleCase);
 	run("TestValueExact", ::TestValueExact);
 	run("TestWhiteSpace", ::TestWhiteSpace);
+	run("TestgetPatternSeparator_ja", ::TestgetPatternSeparator_ja);
 	run("ThereCanBeOnlyOne", ::ThereCanBeOnlyOne, true);
 	run("ThreadStop", ::ThreadStop);
 	run("TieRoundingTest", ::TieRoundingTest);
 	run("TimeToLive", ::TimeToLive, true);
 	run("TimeZoneLastModified", ::TimeZoneLastModified);
 	run("TinyBuffers", ::TinyBuffers);
-	run("ToLowerCase", ::ToLowerCase);
+	run("ToLowerCase", ::ToLowerCase, true);
+	run("ToPlainStringTests", ::ToPlainStringTests);
 	run("ToString", ::ToString);
 	run("ToStringCache", ::ToStringCache);
 	run("ToURI", ::ToURI);
 	run("ToURL", ::ToURL);
-	run("ToUpperCase", ::ToUpperCase);
+	run("ToUpperCase", ::ToUpperCase, true);
 	run("TrailingSlash", ::TrailingSlash);
 	run("TransferTo", ::TransferTo);
 	run("TransferToChannel", ::TransferToChannel);
 	run("TransferToNonWritable", ::TransferToNonWritable);
 	run("Transfers", ::Transfers);
 	run("Transform", ::Transform);
+	run("TranslateEscapes", ::TranslateEscapes);
 	run("Trim", ::Trim);
 	run("Trivial", ::Trivial);
 	run("Truncate", ::Truncate);
@@ -1794,8 +1996,10 @@ void TestCases::runCases() {
 	run("WaitFor", ::WaitFor, true);
 	run("WaitTooLong", ::WaitTooLong, true);
 	run("WakeupAfterClose", ::WakeupAfterClose);
+	run("WakeupEmpty", ::WakeupEmpty);
 	run("WakeupNow", ::WakeupNow);
 	run("WakeupOverflow", ::WakeupOverflow);
+	run("WakeupSpeed", ::WakeupSpeed);
 	run("WalkFunction", ::WalkFunction);
 	run("WalkWithSecurity", ::WalkWithSecurity, true);
 	run("WeekDateTest", ::WeekDateTest);
@@ -1806,28 +2010,38 @@ void TestCases::runCases() {
 	run("WinDirRelative", ::WinDirRelative);
 	run("WinMaxPath", ::WinMaxPath);
 	run("WinSpecialFiles", ::WinSpecialFiles);
+	run("WithParameters", ::WithParameters, true);
 	run("WithSecurityManager4AsynchronousServerSocketChannel", ::WithSecurityManager4AsynchronousServerSocketChannel, true);
 	run("WithSecurityManager4concat", ::WithSecurityManager4concat);
+	run("WithoutParameters", ::WithoutParameters);
 	run("Write", ::Write);
+	run("WriteAfterClose", ::WriteAfterClose);
+	run("WriteAfterReaderClose", ::WriteAfterReaderClose);
 	run("WriteBytes", ::WriteBytes);
 	run("WriteBytesChars", ::WriteBytesChars);
+	run("WriteFromString", ::WriteFromString);
 	run("WriteLengths", ::WriteLengths);
 	run("WriteParams", ::WriteParams);
 	run("WriteUTF", ::WriteUTF);
 	run("WriterLoop", ::WriterLoop);
+	run("Z", ::Z);
 	run("ZeroMap", ::ZeroMap);
+	run("ZeroScalingTests", ::ZeroScalingTests);
 	run("Zombies", ::Zombies);
 	run("bug4097450", ::bug4097450);
 	run("bug4099975", ::bug4099975);
 	run("bug6271375", ::bug6271375);
 	run("bug6317072", ::bug6317072);
+	run("bug6344646", ::bug6344646);
 	run("bug6412896", ::bug6412896);
 	run("c.TestClient", ::c::TestClient, true);
 	run("exceptionCauseTest", ::exceptionCauseTest);
 	run("getAnnotationTest", ::getAnnotationTest);
 	run("getResponseCode4HttpURLConnection", ::getResponseCode4HttpURLConnection);
+	run("indify.Indify", ::indify::Indify, true);
 	run("isSiteLocalAddress", ::isSiteLocalAddress);
 	run("java.lang.Float2.Extrema", ::java::lang::Float2::Extrema);
+	run("java.lang.Float2.NaNInfinityParsing", ::java::lang::Float2::NaNInfinityParsing);
 	run("java.lang.Float2.ParseFloat", ::java::lang::Float2::ParseFloat);
 	run("java.lang.Math2.AbsPositiveZero", ::java::lang::Math2::AbsPositiveZero);
 	run("java.lang.Math2.AbsTests", ::java::lang::Math2::AbsTests);
@@ -1843,12 +2057,16 @@ void TestCases::runCases() {
 	run("pkg1.MethodTypeDescriptorAccessTest", ::pkg1::MethodTypeDescriptorAccessTest);
 	run("repeatingAnnotations.InheritedAssociatedAnnotations", ::repeatingAnnotations::InheritedAssociatedAnnotations);
 	run("test.FindSpecial", ::test::FindSpecial);
+	run("test.java.lang.invoke.CallStaticInitOrder", ::test::java::lang::invoke::CallStaticInitOrder, true);
 	run("test.java.lang.invoke.CountedLoopIterationCountsTest", ::test::java::lang::invoke::CountedLoopIterationCountsTest);
 	run("test.java.lang.invoke.FindClassSecurityManager", ::test::java::lang::invoke::FindClassSecurityManager);
+	run("test.java.lang.invoke.InvokeDynamicPrintArgs", ::test::java::lang::invoke::InvokeDynamicPrintArgs, true);
 	run("test.java.lang.invoke.LoopCombinatorLongSignatureTest", ::test::java::lang::invoke::LoopCombinatorLongSignatureTest);
+	run("test.java.lang.invoke.MethodHandleConstants", ::test::java::lang::invoke::MethodHandleConstants, true);
 	run("test.java.lang.invoke.MethodTypeSecurityManager", ::test::java::lang::invoke::MethodTypeSecurityManager, true);
 	run("test.java.lang.invoke.ObjectMethodInInterfaceTest", ::test::java::lang::invoke::ObjectMethodInInterfaceTest);
 	run("textToNumericFormat", ::textToNumericFormat);
+	run("toStringTest", ::toStringTest);
 
 	int64_t runCaseEndMs = $System::currentTimeMillis();
 	if (processedCount > 1) {
@@ -1860,14 +2078,14 @@ void TestCases::runCases() {
 #ifdef JCPP_SUBSYSTEM_WINDOWS
 #include <windows.h>
 int WINAPI WinMain(HINSTANCE inst, HINSTANCE previnst, LPSTR cmdline, int cmdshow) {
-	return $System::launchw(::java$base$test::init, []($StringArray* args)->void {
+	return $System::launchw(::java$base$test::init, []($StringArray* args) -> void {
 		$var(TestCases, testcases, $new(TestCases, args));
 		testcases->runCases();
 	});
 }
 #else
 int main(int argc, char** argv) {
-	return $System::launch(argc, argv, ::java$base$test::init, []($StringArray* args)->void {
+	return $System::launch(argc, argv, ::java$base$test::init, []($StringArray* args) -> void {
 		$var(TestCases, testcases, $new(TestCases, args));
 		testcases->runCases();
 	});

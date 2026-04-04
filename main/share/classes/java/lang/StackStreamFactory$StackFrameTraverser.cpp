@@ -1,5 +1,4 @@
 #include <java/lang/StackStreamFactory$StackFrameTraverser.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/StackFrameInfo.h>
 #include <java/lang/StackStreamFactory$AbstractStackWalker.h>
@@ -21,7 +20,6 @@
 #undef CHARACTERISTICS
 #undef OPEN
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -30,13 +28,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StackFrameInfo = ::java::lang::StackFrameInfo;
 using $StackStreamFactory = ::java::lang::StackStreamFactory;
 using $StackStreamFactory$AbstractStackWalker = ::java::lang::StackStreamFactory$AbstractStackWalker;
-using $StackStreamFactory$FrameBuffer = ::java::lang::StackStreamFactory$FrameBuffer;
 using $StackStreamFactory$StackFrameTraverser$StackFrameBuffer = ::java::lang::StackStreamFactory$StackFrameTraverser$StackFrameBuffer;
 using $StackStreamFactory$WalkerState = ::java::lang::StackStreamFactory$WalkerState;
 using $StackWalker = ::java::lang::StackWalker;
 using $StackWalker$StackFrame = ::java::lang::StackWalker$StackFrame;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Set = ::java::util::Set;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $Function = ::java::util::function::Function;
@@ -45,60 +41,6 @@ using $StreamSupport = ::java::util::stream::StreamSupport;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _StackStreamFactory$StackFrameTraverser_FieldInfo_[] = {
-	{"CHARACTERISTICS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory$StackFrameTraverser, CHARACTERISTICS)},
-	{"function", "Ljava/util/function/Function;", "Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;", $FINAL, $field(StackStreamFactory$StackFrameTraverser, function)},
-	{}
-};
-
-$MethodInfo _StackStreamFactory$StackFrameTraverser_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/StackWalker;Ljava/util/function/Function;)V", "(Ljava/lang/StackWalker;Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)V", 0, $method(StackStreamFactory$StackFrameTraverser, init$, void, $StackWalker*, $Function*)},
-	{"<init>", "(Ljava/lang/StackWalker;Ljava/util/function/Function;I)V", "(Ljava/lang/StackWalker;Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;I)V", 0, $method(StackStreamFactory$StackFrameTraverser, init$, void, $StackWalker*, $Function*, int32_t)},
-	{"batchSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(StackStreamFactory$StackFrameTraverser, batchSize, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StackStreamFactory$StackFrameTraverser, characteristics, int32_t)},
-	{"consumeFrames", "()Ljava/lang/Object;", "()TT;", $PROTECTED, $virtualMethod(StackStreamFactory$StackFrameTraverser, consumeFrames, $Object*)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StackStreamFactory$StackFrameTraverser, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/StackWalker$StackFrame;>;)V", $PUBLIC, $virtualMethod(StackStreamFactory$StackFrameTraverser, forEachRemaining, void, $Consumer*)},
-	{"initFrameBuffer", "()V", nullptr, $PROTECTED, $virtualMethod(StackStreamFactory$StackFrameTraverser, initFrameBuffer, void)},
-	{"nextStackFrame", "()Ljava/lang/StackWalker$StackFrame;", nullptr, 0, $virtualMethod(StackStreamFactory$StackFrameTraverser, nextStackFrame, $StackWalker$StackFrame*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/StackWalker$StackFrame;>;)Z", $PUBLIC, $virtualMethod(StackStreamFactory$StackFrameTraverser, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/StackWalker$StackFrame;>;", $PUBLIC, $virtualMethod(StackStreamFactory$StackFrameTraverser, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _StackStreamFactory$StackFrameTraverser_InnerClassesInfo_[] = {
-	{"java.lang.StackStreamFactory$StackFrameTraverser", "java.lang.StackStreamFactory", "StackFrameTraverser", $STATIC},
-	{"java.lang.StackStreamFactory$AbstractStackWalker", "java.lang.StackStreamFactory", "AbstractStackWalker", $STATIC | $ABSTRACT},
-	{"java.lang.StackStreamFactory$StackFrameTraverser$StackFrameBuffer", "java.lang.StackStreamFactory$StackFrameTraverser", "StackFrameBuffer", $FINAL},
-	{"java.lang.StackWalker$StackFrame", "java.lang.StackWalker", "StackFrame", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StackStreamFactory$StackFrameTraverser_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.StackStreamFactory$StackFrameTraverser",
-	"java.lang.StackStreamFactory$AbstractStackWalker",
-	"java.util.Spliterator",
-	_StackStreamFactory$StackFrameTraverser_FieldInfo_,
-	_StackStreamFactory$StackFrameTraverser_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/StackStreamFactory$AbstractStackWalker<TT;Ljava/lang/StackFrameInfo;>;Ljava/util/Spliterator<Ljava/lang/StackWalker$StackFrame;>;",
-	nullptr,
-	_StackStreamFactory$StackFrameTraverser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.StackStreamFactory"
-};
-
-$Object* allocate$StackStreamFactory$StackFrameTraverser($Class* clazz) {
-	return $of($alloc(StackStreamFactory$StackFrameTraverser));
-}
 
 int32_t StackStreamFactory$StackFrameTraverser::hashCode() {
 	 return this->$StackStreamFactory$AbstractStackWalker::hashCode();
@@ -143,7 +85,7 @@ $Object* StackStreamFactory$StackFrameTraverser::consumeFrames() {
 	checkState($StackStreamFactory$WalkerState::OPEN);
 	$var($Stream, stream, $StreamSupport::stream(this, false));
 	if (this->function != nullptr) {
-		return $of($nc(this->function)->apply(stream));
+		return this->function->apply(stream);
 	} else {
 		$throwNew($UnsupportedOperationException);
 	}
@@ -177,7 +119,7 @@ int32_t StackStreamFactory$StackFrameTraverser::characteristics() {
 }
 
 void StackStreamFactory$StackFrameTraverser::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StackStreamFactory$WalkerState);
 	checkState($StackStreamFactory$WalkerState::OPEN);
 	for (int32_t n = 0; n < this->maxDepth; ++n) {
@@ -190,7 +132,7 @@ void StackStreamFactory$StackFrameTraverser::forEachRemaining($Consumer* action)
 }
 
 bool StackStreamFactory$StackFrameTraverser::tryAdvance($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StackStreamFactory$WalkerState);
 	checkState($StackStreamFactory$WalkerState::OPEN);
 	int32_t index = $nc(this->frameBuffer)->getIndex();
@@ -210,7 +152,7 @@ bool StackStreamFactory$StackFrameTraverser::tryAdvance($Consumer* action) {
 	return false;
 }
 
-void clinit$StackStreamFactory$StackFrameTraverser($Class* class$) {
+void StackStreamFactory$StackFrameTraverser::clinit$($Class* clazz) {
 	{
 		$init($StackStreamFactory);
 		$nc($StackStreamFactory::stackWalkImplClasses)->add(StackStreamFactory$StackFrameTraverser::class$);
@@ -221,7 +163,55 @@ StackStreamFactory$StackFrameTraverser::StackStreamFactory$StackFrameTraverser()
 }
 
 $Class* StackStreamFactory$StackFrameTraverser::load$($String* name, bool initialize) {
-	$loadClass(StackStreamFactory$StackFrameTraverser, name, initialize, &_StackStreamFactory$StackFrameTraverser_ClassInfo_, clinit$StackStreamFactory$StackFrameTraverser, allocate$StackStreamFactory$StackFrameTraverser);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHARACTERISTICS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory$StackFrameTraverser, CHARACTERISTICS)},
+		{"function", "Ljava/util/function/Function;", "Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;", $FINAL, $field(StackStreamFactory$StackFrameTraverser, function)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/StackWalker;Ljava/util/function/Function;)V", "(Ljava/lang/StackWalker;Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)V", 0, $method(StackStreamFactory$StackFrameTraverser, init$, void, $StackWalker*, $Function*)},
+		{"<init>", "(Ljava/lang/StackWalker;Ljava/util/function/Function;I)V", "(Ljava/lang/StackWalker;Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;I)V", 0, $method(StackStreamFactory$StackFrameTraverser, init$, void, $StackWalker*, $Function*, int32_t)},
+		{"batchSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(StackStreamFactory$StackFrameTraverser, batchSize, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StackStreamFactory$StackFrameTraverser, characteristics, int32_t)},
+		{"consumeFrames", "()Ljava/lang/Object;", "()TT;", $PROTECTED, $virtualMethod(StackStreamFactory$StackFrameTraverser, consumeFrames, $Object*)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StackStreamFactory$StackFrameTraverser, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/StackWalker$StackFrame;>;)V", $PUBLIC, $virtualMethod(StackStreamFactory$StackFrameTraverser, forEachRemaining, void, $Consumer*)},
+		{"initFrameBuffer", "()V", nullptr, $PROTECTED, $virtualMethod(StackStreamFactory$StackFrameTraverser, initFrameBuffer, void)},
+		{"nextStackFrame", "()Ljava/lang/StackWalker$StackFrame;", nullptr, 0, $virtualMethod(StackStreamFactory$StackFrameTraverser, nextStackFrame, $StackWalker$StackFrame*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/StackWalker$StackFrame;>;)Z", $PUBLIC, $virtualMethod(StackStreamFactory$StackFrameTraverser, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/StackWalker$StackFrame;>;", $PUBLIC, $virtualMethod(StackStreamFactory$StackFrameTraverser, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StackStreamFactory$StackFrameTraverser", "java.lang.StackStreamFactory", "StackFrameTraverser", $STATIC},
+		{"java.lang.StackStreamFactory$AbstractStackWalker", "java.lang.StackStreamFactory", "AbstractStackWalker", $STATIC | $ABSTRACT},
+		{"java.lang.StackStreamFactory$StackFrameTraverser$StackFrameBuffer", "java.lang.StackStreamFactory$StackFrameTraverser", "StackFrameBuffer", $FINAL},
+		{"java.lang.StackWalker$StackFrame", "java.lang.StackWalker", "StackFrame", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.StackStreamFactory$StackFrameTraverser",
+		"java.lang.StackStreamFactory$AbstractStackWalker",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/StackStreamFactory$AbstractStackWalker<TT;Ljava/lang/StackFrameInfo;>;Ljava/util/Spliterator<Ljava/lang/StackWalker$StackFrame;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.StackStreamFactory"
+	};
+	$loadClass(StackStreamFactory$StackFrameTraverser, name, initialize, &classInfo$$, StackStreamFactory$StackFrameTraverser::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StackStreamFactory$StackFrameTraverser));
+	});
 	return class$;
 }
 

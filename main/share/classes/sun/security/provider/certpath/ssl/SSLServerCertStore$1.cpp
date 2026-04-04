@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/ssl/SSLServerCertStore$1.h>
-
 #include <javax/net/ssl/SSLSession.h>
 #include <sun/security/provider/certpath/ssl/SSLServerCertStore.h>
 #include <jcpp.h>
@@ -16,43 +15,6 @@ namespace sun {
 			namespace certpath {
 				namespace ssl {
 
-$MethodInfo _SSLServerCertStore$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SSLServerCertStore$1, init$, void)},
-	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$1, verify, bool, $String*, $SSLSession*)},
-	{}
-};
-
-$EnclosingMethodInfo _SSLServerCertStore$1_EnclosingMethodInfo_ = {
-	"sun.security.provider.certpath.ssl.SSLServerCertStore",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SSLServerCertStore$1_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.ssl.SSLServerCertStore$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SSLServerCertStore$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.ssl.SSLServerCertStore$1",
-	"java.lang.Object",
-	"javax.net.ssl.HostnameVerifier",
-	nullptr,
-	_SSLServerCertStore$1_MethodInfo_,
-	nullptr,
-	&_SSLServerCertStore$1_EnclosingMethodInfo_,
-	_SSLServerCertStore$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.ssl.SSLServerCertStore"
-};
-
-$Object* allocate$SSLServerCertStore$1($Class* clazz) {
-	return $of($alloc(SSLServerCertStore$1));
-}
-
 void SSLServerCertStore$1::init$() {
 }
 
@@ -64,7 +26,38 @@ SSLServerCertStore$1::SSLServerCertStore$1() {
 }
 
 $Class* SSLServerCertStore$1::load$($String* name, bool initialize) {
-	$loadClass(SSLServerCertStore$1, name, initialize, &_SSLServerCertStore$1_ClassInfo_, allocate$SSLServerCertStore$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SSLServerCertStore$1, init$, void)},
+		{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$1, verify, bool, $String*, $SSLSession*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.provider.certpath.ssl.SSLServerCertStore",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.ssl.SSLServerCertStore$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.ssl.SSLServerCertStore$1",
+		"java.lang.Object",
+		"javax.net.ssl.HostnameVerifier",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.ssl.SSLServerCertStore"
+	};
+	$loadClass(SSLServerCertStore$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLServerCertStore$1);
+	});
 	return class$;
 }
 

@@ -21,6 +21,7 @@ class $export PKIXExtensions : public ::java::lang::Object {
 	$class(PKIXExtensions, 0, ::java::lang::Object)
 public:
 	PKIXExtensions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::util::ObjectIdentifier* AuthorityKey_Id;
 	static ::sun::security::util::ObjectIdentifier* SubjectKey_Id;

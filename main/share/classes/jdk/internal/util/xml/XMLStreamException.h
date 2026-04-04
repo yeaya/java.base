@@ -29,7 +29,10 @@ public:
 	$Throwable* nested = nullptr;
 	XMLStreamException(const XMLStreamException& e);
 	virtual void throw$() override;
-	inline XMLStreamException* operator ->() {
+	inline XMLStreamException* operator ->() const {
+		return (XMLStreamException*)throwing$;
+	}
+	inline operator XMLStreamException*() const {
 		return (XMLStreamException*)throwing$;
 	}
 };

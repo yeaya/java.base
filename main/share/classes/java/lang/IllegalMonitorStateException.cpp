@@ -1,5 +1,4 @@
 #include <java/lang/IllegalMonitorStateException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _IllegalMonitorStateException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalMonitorStateException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IllegalMonitorStateException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalMonitorStateException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalMonitorStateException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _IllegalMonitorStateException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.IllegalMonitorStateException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_IllegalMonitorStateException_FieldInfo_,
-	_IllegalMonitorStateException_MethodInfo_
-};
-
-$Object* allocate$IllegalMonitorStateException($Class* clazz) {
-	return $of($alloc(IllegalMonitorStateException));
-}
 
 void IllegalMonitorStateException::init$() {
 	$RuntimeException::init$();
@@ -53,7 +28,26 @@ void IllegalMonitorStateException::throw$() {
 }
 
 $Class* IllegalMonitorStateException::load$($String* name, bool initialize) {
-	$loadClass(IllegalMonitorStateException, name, initialize, &_IllegalMonitorStateException_ClassInfo_, allocate$IllegalMonitorStateException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalMonitorStateException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalMonitorStateException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalMonitorStateException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.IllegalMonitorStateException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalMonitorStateException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalMonitorStateException);
+	});
 	return class$;
 }
 

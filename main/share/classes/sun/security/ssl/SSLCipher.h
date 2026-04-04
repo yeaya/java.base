@@ -79,6 +79,7 @@ class SSLCipher : public ::java::lang::Enum {
 public:
 	SSLCipher();
 	static $Array<::sun::security::ssl::SSLCipher>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* transformation, ::sun::security::ssl::CipherType* cipherType, int32_t keySize, int32_t expandedKeySize, int32_t ivSize, int32_t fixedIvSize, bool allowed, bool exportable, $Array<::java::util::Map$Entry>* readCipherGenerators, $Array<::java::util::Map$Entry>* writeCipherGenerators);
 	static void addMac(::sun::security::ssl::Authenticator$MAC* signer, ::java::nio::ByteBuffer* destination, int8_t contentType);
 	static int32_t addPadding(::java::nio::ByteBuffer* bb, int32_t blockSize);

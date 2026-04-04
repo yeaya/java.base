@@ -31,7 +31,7 @@ public:
 	virtual $String* getMessage();
 	virtual int32_t getMessageType();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x177251917C1BD1FE;
+	static const int64_t serialVersionUID = (int64_t)0x177251917c1bd1fe;
 	static const int32_t INFORMATION = 0;
 	static const int32_t WARNING = 1;
 	static const int32_t ERROR = 2;

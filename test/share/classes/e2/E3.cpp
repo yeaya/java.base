@@ -1,29 +1,10 @@
 #include <e2/E3.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace e2 {
-
-$MethodInfo _E3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(E3, init$, void)},
-	{}
-};
-
-$ClassInfo _E3_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"e2.E3",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_E3_MethodInfo_
-};
-
-$Object* allocate$E3($Class* clazz) {
-	return $of($alloc(E3));
-}
 
 void E3::init$() {
 }
@@ -32,7 +13,21 @@ E3::E3() {
 }
 
 $Class* E3::load$($String* name, bool initialize) {
-	$loadClass(E3, name, initialize, &_E3_ClassInfo_, allocate$E3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(E3, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"e2.E3",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(E3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(E3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/Authenticator$DTLS10Authenticator.h>
-
 #include <sun/security/ssl/Authenticator$DTLSAuthenticator.h>
 #include <sun/security/ssl/Authenticator.h>
 #include <sun/security/ssl/ProtocolVersion.h>
@@ -19,47 +18,10 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _Authenticator$DTLS10Authenticator_FieldInfo_[] = {
-	{"BLOCK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Authenticator$DTLS10Authenticator, BLOCK_SIZE)},
-	{}
-};
-
-$MethodInfo _Authenticator$DTLS10Authenticator_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, $PRIVATE, $method(Authenticator$DTLS10Authenticator, init$, void, $ProtocolVersion*)},
-	{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0, $virtualMethod(Authenticator$DTLS10Authenticator, acquireAuthenticationBytes, $bytes*, int8_t, int32_t, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _Authenticator$DTLS10Authenticator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.Authenticator$DTLS10Authenticator", "sun.security.ssl.Authenticator", "DTLS10Authenticator", $PRIVATE | $STATIC},
-	{"sun.security.ssl.Authenticator$DTLSAuthenticator", "sun.security.ssl.Authenticator", "DTLSAuthenticator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Authenticator$DTLS10Authenticator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.Authenticator$DTLS10Authenticator",
-	"sun.security.ssl.Authenticator$DTLSAuthenticator",
-	nullptr,
-	_Authenticator$DTLS10Authenticator_FieldInfo_,
-	_Authenticator$DTLS10Authenticator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Authenticator$DTLS10Authenticator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.Authenticator"
-};
-
-$Object* allocate$Authenticator$DTLS10Authenticator($Class* clazz) {
-	return $of($alloc(Authenticator$DTLS10Authenticator));
-}
-
 void Authenticator$DTLS10Authenticator::init$($ProtocolVersion* protocolVersion) {
 	$Authenticator$DTLSAuthenticator::init$($$new($bytes, Authenticator$DTLS10Authenticator::BLOCK_SIZE));
 	$nc(this->block)->set(9, $nc(protocolVersion)->major);
-	$nc(this->block)->set(10, protocolVersion->minor);
+	this->block->set(10, protocolVersion->minor);
 }
 
 $bytes* Authenticator$DTLS10Authenticator::acquireAuthenticationBytes(int8_t type, int32_t length, $bytes* sequence) {
@@ -82,7 +44,38 @@ Authenticator$DTLS10Authenticator::Authenticator$DTLS10Authenticator() {
 }
 
 $Class* Authenticator$DTLS10Authenticator::load$($String* name, bool initialize) {
-	$loadClass(Authenticator$DTLS10Authenticator, name, initialize, &_Authenticator$DTLS10Authenticator_ClassInfo_, allocate$Authenticator$DTLS10Authenticator);
+	$FieldInfo fieldInfos$$[] = {
+		{"BLOCK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Authenticator$DTLS10Authenticator, BLOCK_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, $PRIVATE, $method(Authenticator$DTLS10Authenticator, init$, void, $ProtocolVersion*)},
+		{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0, $virtualMethod(Authenticator$DTLS10Authenticator, acquireAuthenticationBytes, $bytes*, int8_t, int32_t, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.Authenticator$DTLS10Authenticator", "sun.security.ssl.Authenticator", "DTLS10Authenticator", $PRIVATE | $STATIC},
+		{"sun.security.ssl.Authenticator$DTLSAuthenticator", "sun.security.ssl.Authenticator", "DTLSAuthenticator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.Authenticator$DTLS10Authenticator",
+		"sun.security.ssl.Authenticator$DTLSAuthenticator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.Authenticator"
+	};
+	$loadClass(Authenticator$DTLS10Authenticator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Authenticator$DTLS10Authenticator);
+	});
 	return class$;
 }
 

@@ -20,6 +20,7 @@ class SecureClassLoader$DebugHolder : public ::java::lang::Object {
 	$class(SecureClassLoader$DebugHolder, 0, ::java::lang::Object)
 public:
 	SecureClassLoader$DebugHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::util::Debug* debug;
 };

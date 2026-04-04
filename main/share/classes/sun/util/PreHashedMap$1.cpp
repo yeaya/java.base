@@ -1,5 +1,4 @@
 #include <sun/util/PreHashedMap$1.h>
-
 #include <java/util/AbstractSet.h>
 #include <java/util/Iterator.h>
 #include <sun/util/PreHashedMap$1$1.h>
@@ -19,50 +18,6 @@ using $PreHashedMap$1$1 = ::sun::util::PreHashedMap$1$1;
 namespace sun {
 	namespace util {
 
-$FieldInfo _PreHashedMap$1_FieldInfo_[] = {
-	{"this$0", "Lsun/util/PreHashedMap;", nullptr, $FINAL | $SYNTHETIC, $field(PreHashedMap$1, this$0)},
-	{}
-};
-
-$MethodInfo _PreHashedMap$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/PreHashedMap;)V", nullptr, 0, $method(PreHashedMap$1, init$, void, $PreHashedMap*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PreHashedMap$1, iterator, $Iterator*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PreHashedMap$1, size, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _PreHashedMap$1_EnclosingMethodInfo_ = {
-	"sun.util.PreHashedMap",
-	"keySet",
-	"()Ljava/util/Set;"
-};
-
-$InnerClassInfo _PreHashedMap$1_InnerClassesInfo_[] = {
-	{"sun.util.PreHashedMap$1", nullptr, nullptr, 0},
-	{"sun.util.PreHashedMap$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PreHashedMap$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.PreHashedMap$1",
-	"java.util.AbstractSet",
-	nullptr,
-	_PreHashedMap$1_FieldInfo_,
-	_PreHashedMap$1_MethodInfo_,
-	"Ljava/util/AbstractSet<Ljava/lang/String;>;",
-	&_PreHashedMap$1_EnclosingMethodInfo_,
-	_PreHashedMap$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.PreHashedMap"
-};
-
-$Object* allocate$PreHashedMap$1($Class* clazz) {
-	return $of($alloc(PreHashedMap$1));
-}
-
 void PreHashedMap$1::init$($PreHashedMap* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractSet::init$();
@@ -80,7 +35,44 @@ PreHashedMap$1::PreHashedMap$1() {
 }
 
 $Class* PreHashedMap$1::load$($String* name, bool initialize) {
-	$loadClass(PreHashedMap$1, name, initialize, &_PreHashedMap$1_ClassInfo_, allocate$PreHashedMap$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/util/PreHashedMap;", nullptr, $FINAL | $SYNTHETIC, $field(PreHashedMap$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/util/PreHashedMap;)V", nullptr, 0, $method(PreHashedMap$1, init$, void, $PreHashedMap*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PreHashedMap$1, iterator, $Iterator*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PreHashedMap$1, size, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.util.PreHashedMap",
+		"keySet",
+		"()Ljava/util/Set;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.PreHashedMap$1", nullptr, nullptr, 0},
+		{"sun.util.PreHashedMap$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.PreHashedMap$1",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.PreHashedMap"
+	};
+	$loadClass(PreHashedMap$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PreHashedMap$1));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/fs/BsdFileStore.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Iterable.h>
 #include <java/nio/file/FileSystem.h>
@@ -24,7 +23,6 @@
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UserDefinedFileAttributeView = ::java::nio::file::attribute::UserDefinedFileAttributeView;
 using $Arrays = ::java::util::Arrays;
@@ -44,29 +42,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$MethodInfo _BsdFileStore_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, $method(BsdFileStore, init$, void, $UnixPath*), "java.io.IOException"},
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Lsun/nio/fs/UnixMountEntry;)V", nullptr, 0, $method(BsdFileStore, init$, void, $UnixFileSystem*, $UnixMountEntry*), "java.io.IOException"},
-	{"findMountEntry", "()Lsun/nio/fs/UnixMountEntry;", nullptr, 0, $virtualMethod(BsdFileStore, findMountEntry, $UnixMountEntry*), "java.io.IOException"},
-	{"isOsVersionGte", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BsdFileStore, isOsVersionGte, bool, int32_t, int32_t)},
-	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(BsdFileStore, supportsFileAttributeView, bool, $Class*)},
-	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BsdFileStore, supportsFileAttributeView, bool, $String*)},
-	{}
-};
-
-$ClassInfo _BsdFileStore_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.BsdFileStore",
-	"sun.nio.fs.UnixFileStore",
-	nullptr,
-	nullptr,
-	_BsdFileStore_MethodInfo_
-};
-
-$Object* allocate$BsdFileStore($Class* clazz) {
-	return $of($alloc(BsdFileStore));
-}
-
 void BsdFileStore::init$($UnixPath* file) {
 	$UnixFileStore::init$(file);
 }
@@ -76,8 +51,8 @@ void BsdFileStore::init$($UnixFileSystem* fs, $UnixMountEntry* entry) {
 }
 
 $UnixMountEntry* BsdFileStore::findMountEntry() {
-	$useLocalCurrentObjectStackCache();
-	$var($UnixFileSystem, fs, $cast($UnixFileSystem, $nc($(file()))->getFileSystem()));
+	$useLocalObjectStack();
+	$var($UnixFileSystem, fs, $cast($UnixFileSystem, $$nc(file())->getFileSystem()));
 	$var($UnixPath, path, nullptr);
 	try {
 		$var($bytes, rp, $UnixNativeDispatcher::realpath($(file())));
@@ -92,13 +67,11 @@ $UnixMountEntry* BsdFileStore::findMountEntry() {
 		x->rethrowAsIOException(path);
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(fs)->getMountEntries()))->iterator());
+		$var($Iterator, i$, $$nc($nc(fs)->getMountEntries())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($UnixMountEntry, entry, $cast($UnixMountEntry, i$->next()));
-			{
-				if ($Arrays::equals(dir, $($nc(entry)->dir()))) {
-					return entry;
-				}
+			if ($Arrays::equals(dir, $($nc(entry)->dir()))) {
+				return entry;
 			}
 		}
 	}
@@ -106,7 +79,7 @@ $UnixMountEntry* BsdFileStore::findMountEntry() {
 }
 
 bool BsdFileStore::supportsFileAttributeView($Class* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($UserDefinedFileAttributeView);
 	if (type == $UserDefinedFileAttributeView::class$) {
 		$UnixFileStore$FeatureStatus* status = checkIfFeaturePresent("user_xattr"_s);
@@ -117,15 +90,15 @@ bool BsdFileStore::supportsFileAttributeView($Class* type) {
 		if (status == $UnixFileStore$FeatureStatus::NOT_PRESENT) {
 			return false;
 		}
-		$var($String, fstype, $nc($(entry()))->fstype());
+		$var($String, fstype, $$nc(entry())->fstype());
 		if ("hfs"_s->equals(fstype)) {
 			return true;
 		}
 		if ("apfs"_s->equals(fstype)) {
 			return isOsVersionGte(10, 14);
 		}
-		$var($UnixFileSystem, var$0, $cast($UnixFileSystem, $nc($(file()))->getFileSystem()));
-		$var($UnixPath, dir, $new($UnixPath, var$0, $($nc($(entry()))->dir())));
+		$var($UnixFileSystem, var$0, $cast($UnixFileSystem, $$nc(file())->getFileSystem()));
+		$var($UnixPath, dir, $new($UnixPath, var$0, $($$nc(entry())->dir())));
 		return isExtendedAttributesEnabled(dir);
 	}
 	return $UnixFileStore::supportsFileAttributeView(type);
@@ -141,11 +114,11 @@ bool BsdFileStore::supportsFileAttributeView($String* name) {
 
 bool BsdFileStore::isOsVersionGte(int32_t requiredMajor, int32_t requiredMinor) {
 	$init(BsdFileStore);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, osVersion, $GetPropertyAction::privilegedGetProperty("os.version"_s));
 	$var($StringArray, vers, $Util::split(osVersion, u'.'));
 	int32_t majorVersion = $Integer::parseInt($nc(vers)->get(0));
-	int32_t minorVersion = $Integer::parseInt($nc(vers)->get(1));
+	int32_t minorVersion = $Integer::parseInt(vers->get(1));
 	return (majorVersion > requiredMajor) || (majorVersion == requiredMajor && minorVersion >= requiredMinor);
 }
 
@@ -153,7 +126,26 @@ BsdFileStore::BsdFileStore() {
 }
 
 $Class* BsdFileStore::load$($String* name, bool initialize) {
-	$loadClass(BsdFileStore, name, initialize, &_BsdFileStore_ClassInfo_, allocate$BsdFileStore);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, $method(BsdFileStore, init$, void, $UnixPath*), "java.io.IOException"},
+		{"<init>", "(Lsun/nio/fs/UnixFileSystem;Lsun/nio/fs/UnixMountEntry;)V", nullptr, 0, $method(BsdFileStore, init$, void, $UnixFileSystem*, $UnixMountEntry*), "java.io.IOException"},
+		{"findMountEntry", "()Lsun/nio/fs/UnixMountEntry;", nullptr, 0, $virtualMethod(BsdFileStore, findMountEntry, $UnixMountEntry*), "java.io.IOException"},
+		{"isOsVersionGte", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BsdFileStore, isOsVersionGte, bool, int32_t, int32_t)},
+		{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(BsdFileStore, supportsFileAttributeView, bool, $Class*)},
+		{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BsdFileStore, supportsFileAttributeView, bool, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.BsdFileStore",
+		"sun.nio.fs.UnixFileStore",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BsdFileStore, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BsdFileStore);
+	});
 	return class$;
 }
 

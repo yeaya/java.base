@@ -20,6 +20,7 @@ class ECPointFormatsExtension$ECPointFormat : public ::java::lang::Enum {
 public:
 	ECPointFormatsExtension$ECPointFormat();
 	static $Array<::sun::security::ssl::ECPointFormatsExtension$ECPointFormat>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name);
 	static $String* nameOf(int32_t id);
 	static ::sun::security::ssl::ECPointFormatsExtension$ECPointFormat* valueOf($String* name);

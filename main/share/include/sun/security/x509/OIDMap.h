@@ -77,6 +77,7 @@ class $import OIDMap : public ::java::lang::Object {
 	$class(OIDMap, 0, ::java::lang::Object)
 public:
 	OIDMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addAttribute($String* name, $String* oid, $Class* clazz);
 	static void addInternal($String* name, ::sun::security::util::ObjectIdentifier* oid, $String* className);

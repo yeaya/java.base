@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLSocketImpl$AppInputStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -32,60 +31,10 @@ using $SSLException = ::javax::net::ssl::SSLException;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLSocketImpl = ::sun::security::ssl::SSLSocketImpl;
 using $SSLSocketInputRecord = ::sun::security::ssl::SSLSocketInputRecord;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLSocketImpl$AppInputStream_FieldInfo_[] = {
-	{"this$0", "Lsun/security/ssl/SSLSocketImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SSLSocketImpl$AppInputStream, this$0)},
-	{"oneByte", "[B", nullptr, $PRIVATE | $FINAL, $field(SSLSocketImpl$AppInputStream, oneByte)},
-	{"buffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(SSLSocketImpl$AppInputStream, buffer)},
-	{"appDataIsAvailable", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SSLSocketImpl$AppInputStream, appDataIsAvailable)},
-	{"readLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(SSLSocketImpl$AppInputStream, readLock)},
-	{"isClosing", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SSLSocketImpl$AppInputStream, isClosing)},
-	{"hasDepleted", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SSLSocketImpl$AppInputStream, hasDepleted)},
-	{}
-};
-
-$MethodInfo _SSLSocketImpl$AppInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLSocketImpl;)V", nullptr, 0, $method(SSLSocketImpl$AppInputStream, init$, void, $SSLSocketImpl*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, available, int32_t), "java.io.IOException"},
-	{"checkEOF", "()Z", nullptr, $PRIVATE, $method(SSLSocketImpl$AppInputStream, checkEOF, bool), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, close, void), "java.io.IOException"},
-	{"deplete", "()V", nullptr, $PRIVATE, $method(SSLSocketImpl$AppInputStream, deplete, void)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readLockedDeplete", "()V", nullptr, $PRIVATE, $method(SSLSocketImpl$AppInputStream, readLockedDeplete, void)},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SSLSocketImpl$AppInputStream_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLSocketImpl$AppInputStream", "sun.security.ssl.SSLSocketImpl", "AppInputStream", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SSLSocketImpl$AppInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.SSLSocketImpl$AppInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_SSLSocketImpl$AppInputStream_FieldInfo_,
-	_SSLSocketImpl$AppInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLSocketImpl$AppInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLSocketImpl"
-};
-
-$Object* allocate$SSLSocketImpl$AppInputStream($Class* clazz) {
-	return $of($alloc(SSLSocketImpl$AppInputStream));
-}
 
 void SSLSocketImpl$AppInputStream::init$($SSLSocketImpl* this$0) {
 	$set(this, this$0, this$0);
@@ -108,14 +57,14 @@ int32_t SSLSocketImpl$AppInputStream::read() {
 	if (n <= 0) {
 		return -1;
 	}
-	return (int32_t)($nc(this->oneByte)->get(0) & (uint32_t)255);
+	return this->oneByte->get(0) & 0xff;
 }
 
 int32_t SSLSocketImpl$AppInputStream::read($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (b == nullptr) {
 		$throwNew($NullPointerException, "the target buffer is null"_s);
-	} else if (off < 0 || len < 0 || len > $nc(b)->length - off) {
+	} else if (off < 0 || len < 0 || len > b->length - off) {
 		$throwNew($IndexOutOfBoundsException, $$str({"buffer length: "_s, $$str(b->length), ", offset; "_s, $$str(off), ", bytes to read:"_s, $$str(len)}));
 	} else if (len == 0) {
 		return 0;
@@ -123,11 +72,11 @@ int32_t SSLSocketImpl$AppInputStream::read($bytes* b, int32_t off, int32_t len) 
 	if (checkEOF()) {
 		return -1;
 	}
-	bool var$0 = !$nc(this->this$0->conContext)->isNegotiated && !$nc(this->this$0->conContext)->isBroken && !$nc(this->this$0->conContext)->isInboundClosed();
-	if (var$0 && !$nc(this->this$0->conContext)->isOutboundClosed()) {
+	bool var$0 = !$nc(this->this$0->conContext)->isNegotiated && !this->this$0->conContext->isBroken && !this->this$0->conContext->isInboundClosed();
+	if (var$0 && !this->this$0->conContext->isOutboundClosed()) {
 		this->this$0->ensureNegotiated(true);
 	}
-	if (!$nc(this->this$0->conContext)->isNegotiated || $nc(this->this$0->conContext)->isBroken || $nc(this->this$0->conContext)->isInboundClosed()) {
+	if (!this->this$0->conContext->isNegotiated || this->this$0->conContext->isBroken || this->this$0->conContext->isInboundClosed()) {
 		$throwNew($SocketException, "Connection or inbound has closed"_s);
 	}
 	if (this->hasDepleted) {
@@ -137,115 +86,109 @@ int32_t SSLSocketImpl$AppInputStream::read($bytes* b, int32_t off, int32_t len) 
 		}
 		return -1;
 	}
-	$nc(this->readLock)->lock();
-	{
-		$var($Throwable, var$1, nullptr);
-		int32_t var$3 = 0;
-		bool return$2 = false;
+	this->readLock->lock();
+	$var($Throwable, var$1, nullptr);
+	int32_t var$3 = 0;
+	bool return$2 = false;
+	try {
+		if (this->this$0->conContext->isBroken || this->this$0->conContext->isInboundClosed()) {
+			$throwNew($SocketException, "Connection or inbound has closed"_s);
+		}
+		if (this->hasDepleted) {
+			$init($SSLLogger);
+			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
+				$SSLLogger::fine("The input stream is closing"_s, $$new($ObjectArray, 0));
+			}
+			var$3 = -1;
+			return$2 = true;
+			goto $finally;
+		}
+		int32_t remains = available();
+		if (remains > 0) {
+			int32_t howmany = $Math::min(remains, len);
+			$nc(this->buffer)->get(b, off, howmany);
+			var$3 = howmany;
+			return$2 = true;
+			goto $finally;
+		}
+		this->appDataIsAvailable = false;
 		try {
-			if ($nc(this->this$0->conContext)->isBroken || $nc(this->this$0->conContext)->isInboundClosed()) {
-				$throwNew($SocketException, "Connection or inbound has closed"_s);
-			}
-			if (this->hasDepleted) {
-				$init($SSLLogger);
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
-					$SSLLogger::fine("The input stream is closing"_s, $$new($ObjectArray, 0));
-				}
+			$var($ByteBuffer, bb, this->this$0->readApplicationRecord(this->buffer));
+			if (bb == nullptr) {
 				var$3 = -1;
 				return$2 = true;
 				goto $finally;
+			} else {
+				$set(this, buffer, bb);
 			}
-			int32_t remains = available();
-			if (remains > 0) {
-				int32_t howmany = $Math::min(remains, len);
-				$nc(this->buffer)->get(b, off, howmany);
-				var$3 = howmany;
-				return$2 = true;
-				goto $finally;
-			}
-			this->appDataIsAvailable = false;
-			try {
-				$var($ByteBuffer, bb, this->this$0->readApplicationRecord(this->buffer));
-				if (bb == nullptr) {
-					var$3 = -1;
-					return$2 = true;
-					goto $finally;
-				} else {
-					$set(this, buffer, bb);
-				}
-				$nc(bb)->flip();
-				int32_t volume = $Math::min(len, bb->remaining());
-				$nc(this->buffer)->get(b, off, volume);
-				this->appDataIsAvailable = true;
-				var$3 = volume;
-				return$2 = true;
-				goto $finally;
-			} catch ($Exception& e) {
-				this->this$0->handleException(e);
-				var$3 = -1;
-				return$2 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$4) {
-			$assign(var$1, var$4);
-		} $finally: {
-			{
-				$var($Throwable, var$5, nullptr);
-				try {
-					if (this->isClosing) {
-						readLockedDeplete();
-					}
-				} catch ($Throwable& var$6) {
-					$assign(var$5, var$6);
-				} /*finally*/ {
-					$nc(this->readLock)->unlock();
-				}
-				if (var$5 != nullptr) {
-					$throw(var$5);
-				}
-			}
+			$nc(bb)->flip();
+			int32_t volume = $Math::min(len, bb->remaining());
+			$nc(this->buffer)->get(b, off, volume);
+			this->appDataIsAvailable = true;
+			var$3 = volume;
+			return$2 = true;
+			goto $finally;
+		} catch ($Exception& e) {
+			this->this$0->handleException(e);
+			var$3 = -1;
+			return$2 = true;
+			goto $finally;
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+	} catch ($Throwable& var$4) {
+		$assign(var$1, var$4);
+	} $finally: {
+		$var($Throwable, var$5, nullptr);
+		try {
+			if (this->isClosing) {
+				readLockedDeplete();
+			}
+		} catch ($Throwable& var$6) {
+			$assign(var$5, var$6);
+		} /*finally*/ {
+			this->readLock->unlock();
 		}
-		if (return$2) {
-			return var$3;
+		if (var$5 != nullptr) {
+			$throw(var$5);
 		}
+	}
+	if (var$1 != nullptr) {
+		$throw(var$1);
+	}
+	if (return$2) {
+		return var$3;
 	}
 	$shouldNotReachHere();
 }
 
 int64_t SSLSocketImpl$AppInputStream::skip(int64_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, skipArray, $new($bytes, 256));
 	int64_t skipped = 0;
-	$nc(this->readLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while (n > 0) {
-				int32_t len = (int32_t)$Math::min(n, (int64_t)skipArray->length);
-				int32_t r = read(skipArray, 0, len);
-				if (r <= 0) {
-					break;
-				}
-				n -= r;
-				skipped += r;
+	this->readLock->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		while (n > 0) {
+			int32_t len = (int32_t)$Math::min(n, (int64_t)skipArray->length);
+			int32_t r = read(skipArray, 0, len);
+			if (r <= 0) {
+				break;
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->readLock)->unlock();
+			n -= r;
+			skipped += r;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->readLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return skipped;
 }
 
 void SSLSocketImpl$AppInputStream::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 		$SSLLogger::finest("Closing input stream"_s, $$new($ObjectArray, 0));
@@ -254,26 +197,26 @@ void SSLSocketImpl$AppInputStream::close() {
 		this->this$0->close();
 	} catch ($IOException& ioe) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
-			$SSLLogger::warning("input stream close failed. Debug info only. Exception details:"_s, $$new($ObjectArray, {$of(ioe)}));
+			$SSLLogger::warning("input stream close failed. Debug info only. Exception details:"_s, $$new($ObjectArray, {ioe}));
 		}
 	}
 }
 
 bool SSLSocketImpl$AppInputStream::checkEOF() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->this$0->conContext)->isBroken) {
-		if ($nc(this->this$0->conContext)->closeReason == nullptr) {
+		if (this->this$0->conContext->closeReason == nullptr) {
 			return true;
 		} else {
-			$throwNew($SSLException, $$str({"Connection has closed: "_s, $nc(this->this$0->conContext)->closeReason}), $nc(this->this$0->conContext)->closeReason);
+			$throwNew($SSLException, $$str({"Connection has closed: "_s, this->this$0->conContext->closeReason}), this->this$0->conContext->closeReason);
 		}
-	} else if ($nc(this->this$0->conContext)->isInboundClosed()) {
+	} else if (this->this$0->conContext->isInboundClosed()) {
 		return true;
-	} else if ($nc(this->this$0->conContext)->isInputCloseNotified) {
-		if ($nc(this->this$0->conContext)->closeReason == nullptr) {
+	} else if (this->this$0->conContext->isInputCloseNotified) {
+		if (this->this$0->conContext->closeReason == nullptr) {
 			return true;
 		} else {
-			$throwNew($SSLException, $$str({"Connection has closed: "_s, $nc(this->this$0->conContext)->closeReason}), $nc(this->this$0->conContext)->closeReason);
+			$throwNew($SSLException, $$str({"Connection has closed: "_s, this->this$0->conContext->closeReason}), this->this$0->conContext->closeReason);
 		}
 	}
 	return false;
@@ -284,47 +227,14 @@ void SSLSocketImpl$AppInputStream::deplete() {
 		return;
 	}
 	this->isClosing = true;
-	if ($nc(this->readLock)->tryLock()) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				readLockedDeplete();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->readLock)->unlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-		}
-	}
-}
-
-void SSLSocketImpl$AppInputStream::readLockedDeplete() {
-	$useLocalCurrentObjectStackCache();
-	if (this->hasDepleted || $nc(this->this$0->conContext)->isInboundClosed()) {
-		return;
-	}
-	if (!($instanceOf($SSLSocketInputRecord, $nc(this->this$0->conContext)->inputRecord))) {
-		return;
-	}
-	$var($SSLSocketInputRecord, socketInputRecord, $cast($SSLSocketInputRecord, $nc(this->this$0->conContext)->inputRecord));
-	{
+	if (this->readLock->tryLock()) {
 		$var($Throwable, var$0, nullptr);
 		try {
-			try {
-				$nc(socketInputRecord)->deplete($nc(this->this$0->conContext)->isNegotiated && (this->this$0->getSoTimeout() > 0));
-			} catch ($Exception& ex) {
-				$init($SSLLogger);
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
-					$SSLLogger::warning("input stream close depletion failed"_s, $$new($ObjectArray, {$of(ex)}));
-				}
-			}
+			readLockedDeplete();
 		} catch ($Throwable& var$1) {
 			$assign(var$0, var$1);
 		} /*finally*/ {
-			this->hasDepleted = true;
+			this->readLock->unlock();
 		}
 		if (var$0 != nullptr) {
 			$throw(var$0);
@@ -332,11 +242,83 @@ void SSLSocketImpl$AppInputStream::readLockedDeplete() {
 	}
 }
 
+void SSLSocketImpl$AppInputStream::readLockedDeplete() {
+	$useLocalObjectStack();
+	if (this->hasDepleted || $nc(this->this$0->conContext)->isInboundClosed()) {
+		return;
+	}
+	if (!($instanceOf($SSLSocketInputRecord, $nc(this->this$0->conContext)->inputRecord))) {
+		return;
+	}
+	$var($SSLSocketInputRecord, socketInputRecord, $cast($SSLSocketInputRecord, this->this$0->conContext->inputRecord));
+	$var($Throwable, var$0, nullptr);
+	try {
+		try {
+			$nc(socketInputRecord)->deplete(this->this$0->conContext->isNegotiated && (this->this$0->getSoTimeout() > 0));
+		} catch ($Exception& ex) {
+			$init($SSLLogger);
+			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
+				$SSLLogger::warning("input stream close depletion failed"_s, $$new($ObjectArray, {ex}));
+			}
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->hasDepleted = true;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+}
+
 SSLSocketImpl$AppInputStream::SSLSocketImpl$AppInputStream() {
 }
 
 $Class* SSLSocketImpl$AppInputStream::load$($String* name, bool initialize) {
-	$loadClass(SSLSocketImpl$AppInputStream, name, initialize, &_SSLSocketImpl$AppInputStream_ClassInfo_, allocate$SSLSocketImpl$AppInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/ssl/SSLSocketImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SSLSocketImpl$AppInputStream, this$0)},
+		{"oneByte", "[B", nullptr, $PRIVATE | $FINAL, $field(SSLSocketImpl$AppInputStream, oneByte)},
+		{"buffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(SSLSocketImpl$AppInputStream, buffer)},
+		{"appDataIsAvailable", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SSLSocketImpl$AppInputStream, appDataIsAvailable)},
+		{"readLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(SSLSocketImpl$AppInputStream, readLock)},
+		{"isClosing", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SSLSocketImpl$AppInputStream, isClosing)},
+		{"hasDepleted", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SSLSocketImpl$AppInputStream, hasDepleted)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/SSLSocketImpl;)V", nullptr, 0, $method(SSLSocketImpl$AppInputStream, init$, void, $SSLSocketImpl*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, available, int32_t), "java.io.IOException"},
+		{"checkEOF", "()Z", nullptr, $PRIVATE, $method(SSLSocketImpl$AppInputStream, checkEOF, bool), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, close, void), "java.io.IOException"},
+		{"deplete", "()V", nullptr, $PRIVATE, $method(SSLSocketImpl$AppInputStream, deplete, void)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readLockedDeplete", "()V", nullptr, $PRIVATE, $method(SSLSocketImpl$AppInputStream, readLockedDeplete, void)},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLSocketImpl$AppInputStream", "sun.security.ssl.SSLSocketImpl", "AppInputStream", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.SSLSocketImpl$AppInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLSocketImpl"
+	};
+	$loadClass(SSLSocketImpl$AppInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLSocketImpl$AppInputStream);
+	});
 	return class$;
 }
 

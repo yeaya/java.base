@@ -19,6 +19,7 @@ class $import FileKey : public ::java::lang::Object {
 	$class(FileKey, 0, ::java::lang::Object)
 public:
 	FileKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::ch::FileKey* create(::java::io::FileDescriptor* fd);
 	virtual bool equals(Object$* obj) override;

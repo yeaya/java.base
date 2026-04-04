@@ -1,5 +1,4 @@
 #include <Basic4ThreadLocal.h>
-
 #include <Basic4ThreadLocal$1.h>
 #include <Basic4ThreadLocal$2.h>
 #include <java/lang/ThreadLocal.h>
@@ -14,42 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 
-$FieldInfo _Basic4ThreadLocal_FieldInfo_[] = {
-	{"n", "Ljava/lang/ThreadLocal;", nullptr, $STATIC, $staticField(Basic4ThreadLocal, n)},
-	{}
-};
-
-$MethodInfo _Basic4ThreadLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4ThreadLocal, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic4ThreadLocal, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _Basic4ThreadLocal_InnerClassesInfo_[] = {
-	{"Basic4ThreadLocal$2", nullptr, nullptr, 0},
-	{"Basic4ThreadLocal$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Basic4ThreadLocal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Basic4ThreadLocal",
-	"java.lang.Object",
-	nullptr,
-	_Basic4ThreadLocal_FieldInfo_,
-	_Basic4ThreadLocal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Basic4ThreadLocal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Basic4ThreadLocal$2,Basic4ThreadLocal$1"
-};
-
-$Object* allocate$Basic4ThreadLocal($Class* clazz) {
-	return $of($alloc(Basic4ThreadLocal));
-}
-
 $ThreadLocal* Basic4ThreadLocal::n = nullptr;
 
 void Basic4ThreadLocal::init$() {
@@ -57,7 +20,7 @@ void Basic4ThreadLocal::init$() {
 
 void Basic4ThreadLocal::main($StringArray* args) {
 	$init(Basic4ThreadLocal);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t threadCount = 100;
 	$var($ThreadArray, th, $new($ThreadArray, threadCount));
 	$var($ints, x, $new($ints, threadCount));
@@ -75,7 +38,7 @@ void Basic4ThreadLocal::main($StringArray* args) {
 	}
 }
 
-void clinit$Basic4ThreadLocal($Class* class$) {
+void Basic4ThreadLocal::clinit$($Class* clazz) {
 	$assignStatic(Basic4ThreadLocal::n, $new($Basic4ThreadLocal$1));
 }
 
@@ -83,7 +46,37 @@ Basic4ThreadLocal::Basic4ThreadLocal() {
 }
 
 $Class* Basic4ThreadLocal::load$($String* name, bool initialize) {
-	$loadClass(Basic4ThreadLocal, name, initialize, &_Basic4ThreadLocal_ClassInfo_, clinit$Basic4ThreadLocal, allocate$Basic4ThreadLocal);
+	$FieldInfo fieldInfos$$[] = {
+		{"n", "Ljava/lang/ThreadLocal;", nullptr, $STATIC, $staticField(Basic4ThreadLocal, n)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4ThreadLocal, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic4ThreadLocal, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic4ThreadLocal$2", nullptr, nullptr, 0},
+		{"Basic4ThreadLocal$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Basic4ThreadLocal",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Basic4ThreadLocal$2,Basic4ThreadLocal$1"
+	};
+	$loadClass(Basic4ThreadLocal, name, initialize, &classInfo$$, Basic4ThreadLocal::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic4ThreadLocal);
+	});
 	return class$;
 }
 

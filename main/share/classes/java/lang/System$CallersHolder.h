@@ -18,6 +18,7 @@ class System$CallersHolder : public ::java::lang::Object {
 	$class(System$CallersHolder, 0, ::java::lang::Object)
 public:
 	System$CallersHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Map* callers;
 };

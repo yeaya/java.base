@@ -25,6 +25,7 @@ namespace java {
 class $export CookiePolicy : public ::java::lang::Object {
 	$interface(CookiePolicy, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual bool shouldAccept(::java::net::URI* uri, ::java::net::HttpCookie* cookie) {return false;}
 	static ::java::net::CookiePolicy* ACCEPT_ALL;
 	static ::java::net::CookiePolicy* ACCEPT_NONE;

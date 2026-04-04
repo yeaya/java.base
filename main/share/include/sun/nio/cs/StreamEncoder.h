@@ -44,6 +44,7 @@ class $import StreamEncoder : public ::java::io::Writer {
 	$class(StreamEncoder, $PRELOAD, ::java::io::Writer)
 public:
 	StreamEncoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::OutputStream* out, Object$* lock, ::java::nio::charset::Charset* cs);
 	void init$(::java::io::OutputStream* out, Object$* lock, ::java::nio::charset::CharsetEncoder* enc);
 	void init$(::java::nio::channels::WritableByteChannel* ch, ::java::nio::charset::CharsetEncoder* enc, int32_t mbc);

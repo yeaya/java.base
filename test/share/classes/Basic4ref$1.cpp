@@ -1,73 +1,68 @@
 #include <Basic4ref$1.h>
-
 #include <Basic4ref.h>
 #include <java/lang/ref/Reference.h>
 #include <jcpp.h>
 
 using $Basic4ref = ::Basic4ref;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::java::lang::ref::Reference;
-
-$MethodInfo _Basic4ref$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Basic4ref$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4ref$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Basic4ref$1_EnclosingMethodInfo_ = {
-	"Basic4ref",
-	"showReferences",
-	"()V"
-};
-
-$InnerClassInfo _Basic4ref$1_InnerClassesInfo_[] = {
-	{"Basic4ref$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Basic4ref$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"Basic4ref$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_Basic4ref$1_MethodInfo_,
-	nullptr,
-	&_Basic4ref$1_EnclosingMethodInfo_,
-	_Basic4ref$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Basic4ref"
-};
-
-$Object* allocate$Basic4ref$1($Class* clazz) {
-	return $of($alloc(Basic4ref$1));
-}
 
 void Basic4ref$1::init$() {
 }
 
 void Basic4ref$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("References: W "_s);
 	$init($Basic4ref);
-	$var($String, var$4, $$str({"References: W "_s, $($nc($Basic4ref::rw)->get()), ", W2 "_s}));
-	$var($String, var$3, $$concat(var$4, $($nc($Basic4ref::rw2)->get())));
-	$var($String, var$2, $$concat(var$3, ", P "_s));
-	$var($String, var$1, $$concat(var$2, $($nc($Basic4ref::rp)->get())));
-	$var($String, var$0, $$concat(var$1, ", P2 "_s));
-	$nc($System::err)->println($$concat(var$0, $($nc($Basic4ref::rp2)->get())));
+	var$0->append($($nc($Basic4ref::rw)->get()));
+	var$0->append(", W2 "_s);
+	var$0->append($($nc($Basic4ref::rw2)->get()));
+	var$0->append(", P "_s);
+	var$0->append($($nc($Basic4ref::rp)->get()));
+	var$0->append(", P2 "_s);
+	var$0->append($($nc($Basic4ref::rp2)->get()));
+	$nc($System::err)->println($$str(var$0));
 }
 
 Basic4ref$1::Basic4ref$1() {
 }
 
 $Class* Basic4ref$1::load$($String* name, bool initialize) {
-	$loadClass(Basic4ref$1, name, initialize, &_Basic4ref$1_ClassInfo_, allocate$Basic4ref$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Basic4ref$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4ref$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Basic4ref",
+		"showReferences",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic4ref$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Basic4ref$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Basic4ref"
+	};
+	$loadClass(Basic4ref$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic4ref$1);
+	});
 	return class$;
 }
 

@@ -42,6 +42,7 @@ class $export ZoneRulesProvider : public ::java::lang::Object {
 	$class(ZoneRulesProvider, 0, ::java::lang::Object)
 public:
 	ZoneRulesProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* getAvailableZoneIds();
 	static ::java::time::zone::ZoneRulesProvider* getProvider($String* zoneId);

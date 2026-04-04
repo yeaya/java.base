@@ -1,5 +1,4 @@
 #include <java/util/stream/Node$OfLong.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -52,68 +51,27 @@ public:
 	virtual void accept(int64_t e) override {
 		Node$OfLong::lambda$truncate$0(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Node$OfLong$$Lambda$lambda$truncate$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Node$OfLong$$Lambda$lambda$truncate$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Node$OfLong$$Lambda$lambda$truncate$0, init$, void)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Node$OfLong$$Lambda$lambda$truncate$0, accept, void, int64_t)},
-	{}
-};
-$ClassInfo Node$OfLong$$Lambda$lambda$truncate$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Node$OfLong$$Lambda$lambda$truncate$0",
-	"java.lang.Object",
-	"java.util.function.LongConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* Node$OfLong$$Lambda$lambda$truncate$0::load$($String* name, bool initialize) {
-	$loadClass(Node$OfLong$$Lambda$lambda$truncate$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Node$OfLong$$Lambda$lambda$truncate$0, init$, void)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Node$OfLong$$Lambda$lambda$truncate$0, accept, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Node$OfLong$$Lambda$lambda$truncate$0",
+		"java.lang.Object",
+		"java.util.function.LongConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Node$OfLong$$Lambda$lambda$truncate$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Node$OfLong$$Lambda$lambda$truncate$0);
+	});
 	return class$;
 }
 $Class* Node$OfLong$$Lambda$lambda$truncate$0::class$ = nullptr;
-
-$MethodInfo _Node$OfLong_MethodInfo_[] = {
-	{"copyInto", "([Ljava/lang/Long;I)V", nullptr, $PUBLIC, $virtualMethod(Node$OfLong, copyInto, void, $LongArray*, int32_t)},
-	{"copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Node$OfLong, copyInto, void, $ObjectArray*, int32_t)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Long;>;)V", $PUBLIC, $virtualMethod(Node$OfLong, forEach, void, $Consumer*)},
-	{"getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(Node$OfLong, getShape, $StreamShape*)},
-	{"lambda$truncate$0", "(J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Node$OfLong, lambda$truncate$0, void, int64_t)},
-	{"newArray", "(I)[J", nullptr, $PUBLIC, $virtualMethod(Node$OfLong, newArray, $Object*, int32_t)},
-	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfLong;", "(JJLjava/util/function/IntFunction<[Ljava/lang/Long;>;)Ljava/util/stream/Node$OfLong;", $PUBLIC, $virtualMethod(Node$OfLong, truncate, Node$OfLong*, int64_t, int64_t, $IntFunction*)},
-	{}
-};
-
-$InnerClassInfo _Node$OfLong_InnerClassesInfo_[] = {
-	{"java.util.stream.Node$OfLong", "java.util.stream.Node", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Node$OfPrimitive", "java.util.stream.Node", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Node$OfLong_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.stream.Node$OfLong",
-	nullptr,
-	"java.util.stream.Node$OfPrimitive",
-	nullptr,
-	_Node$OfLong_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/stream/Node$OfPrimitive<Ljava/lang/Long;Ljava/util/function/LongConsumer;[JLjava/util/Spliterator$OfLong;Ljava/util/stream/Node$OfLong;>;",
-	nullptr,
-	_Node$OfLong_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Node"
-};
-
-$Object* allocate$Node$OfLong($Class* clazz) {
-	return $of($alloc(Node$OfLong));
-}
 
 void Node$OfLong::forEach($Consumer* consumer) {
 	if ($instanceOf($LongConsumer, consumer)) {
@@ -123,12 +81,12 @@ void Node$OfLong::forEach($Consumer* consumer) {
 		if ($Tripwire::ENABLED) {
 			$Tripwire::trip($of(this)->getClass(), "{0} calling Node.OfLong.forEachRemaining(Consumer)"_s);
 		}
-		$nc(($cast($Spliterator$OfLong, $($cast($Spliterator$OfPrimitive, spliterator())))))->forEachRemaining(consumer);
+		$$sure($Spliterator$OfLong, $cast($Spliterator$OfPrimitive, spliterator()))->forEachRemaining(consumer);
 	}
 }
 
 void Node$OfLong::copyInto($LongArray* boxed, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tripwire);
 	if ($Tripwire::ENABLED) {
 		$Tripwire::trip($of(this)->getClass(), "{0} calling Node.OfInt.copyInto(Long[], int)"_s);
@@ -140,7 +98,7 @@ void Node$OfLong::copyInto($LongArray* boxed, int32_t offset) {
 }
 
 Node$OfLong* Node$OfLong::truncate(int64_t from, int64_t to, $IntFunction* generator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (from == 0 && to == count()) {
 		return this;
 	}
@@ -148,12 +106,12 @@ Node$OfLong* Node$OfLong::truncate(int64_t from, int64_t to, $IntFunction* gener
 	$var($Spliterator$OfLong, spliterator, $cast($Spliterator$OfLong, $cast($Spliterator$OfPrimitive, this->spliterator())));
 	$var($Node$Builder$OfLong, nodeBuilder, $Nodes::longBuilder(size));
 	$nc(nodeBuilder)->begin(size);
-	for (int32_t i = 0; i < from && $nc(spliterator)->tryAdvance(static_cast<$LongConsumer*>($$new(Node$OfLong$$Lambda$lambda$truncate$0))); ++i) {
+	for (int32_t i = 0; i < from && $nc(spliterator)->tryAdvance($cast($LongConsumer, $$new(Node$OfLong$$Lambda$lambda$truncate$0))); ++i) {
 	}
 	if (to == count()) {
-		$nc(spliterator)->forEachRemaining(static_cast<$LongConsumer*>(nodeBuilder));
+		$nc(spliterator)->forEachRemaining($cast($LongConsumer, nodeBuilder));
 	} else {
-		for (int32_t i = 0; i < size && $nc(spliterator)->tryAdvance(static_cast<$LongConsumer*>(nodeBuilder)); ++i) {
+		for (int32_t i = 0; i < size && $nc(spliterator)->tryAdvance($cast($LongConsumer, nodeBuilder)); ++i) {
 		}
 	}
 	nodeBuilder->end();
@@ -161,7 +119,7 @@ Node$OfLong* Node$OfLong::truncate(int64_t from, int64_t to, $IntFunction* gener
 }
 
 $Object* Node$OfLong::newArray(int32_t count) {
-	return $of($new($longs, count));
+	return $new($longs, count);
 }
 
 $StreamShape* Node$OfLong::getShape() {
@@ -170,7 +128,7 @@ $StreamShape* Node$OfLong::getShape() {
 }
 
 void Node$OfLong::copyInto($ObjectArray* boxed, int32_t offset) {
-	this->copyInto($fcast($LongArray, boxed), offset);
+	this->copyInto($cast($LongArray, boxed), offset);
 }
 
 void Node$OfLong::lambda$truncate$0(int64_t e) {
@@ -179,11 +137,44 @@ void Node$OfLong::lambda$truncate$0(int64_t e) {
 
 $Class* Node$OfLong::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Node$OfLong$$Lambda$lambda$truncate$0::classInfo$.name)) {
+		if (name->equals("java.util.stream.Node$OfLong$$Lambda$lambda$truncate$0")) {
 			return Node$OfLong$$Lambda$lambda$truncate$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Node$OfLong, name, initialize, &_Node$OfLong_ClassInfo_, allocate$Node$OfLong);
+	$MethodInfo methodInfos$$[] = {
+		{"copyInto", "([Ljava/lang/Long;I)V", nullptr, $PUBLIC, $virtualMethod(Node$OfLong, copyInto, void, $LongArray*, int32_t)},
+		{"copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Node$OfLong, copyInto, void, $ObjectArray*, int32_t)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Long;>;)V", $PUBLIC, $virtualMethod(Node$OfLong, forEach, void, $Consumer*)},
+		{"getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(Node$OfLong, getShape, $StreamShape*)},
+		{"lambda$truncate$0", "(J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Node$OfLong, lambda$truncate$0, void, int64_t)},
+		{"newArray", "(I)[J", nullptr, $PUBLIC, $virtualMethod(Node$OfLong, newArray, $Object*, int32_t)},
+		{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfLong;", "(JJLjava/util/function/IntFunction<[Ljava/lang/Long;>;)Ljava/util/stream/Node$OfLong;", $PUBLIC, $virtualMethod(Node$OfLong, truncate, Node$OfLong*, int64_t, int64_t, $IntFunction*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Node$OfLong", "java.util.stream.Node", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Node$OfPrimitive", "java.util.stream.Node", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.stream.Node$OfLong",
+		nullptr,
+		"java.util.stream.Node$OfPrimitive",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/stream/Node$OfPrimitive<Ljava/lang/Long;Ljava/util/function/LongConsumer;[JLjava/util/Spliterator$OfLong;Ljava/util/stream/Node$OfLong;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Node"
+	};
+	$loadClass(Node$OfLong, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Node$OfLong);
+	});
 	return class$;
 }
 

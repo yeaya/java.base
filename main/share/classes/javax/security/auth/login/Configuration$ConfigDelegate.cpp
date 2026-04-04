@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/Configuration$ConfigDelegate.h>
-
 #include <java/security/Provider.h>
 #include <javax/security/auth/login/AppConfigurationEntry.h>
 #include <javax/security/auth/login/Configuration$Parameters.h>
@@ -21,49 +20,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace login {
-
-$FieldInfo _Configuration$ConfigDelegate_FieldInfo_[] = {
-	{"spi", "Ljavax/security/auth/login/ConfigurationSpi;", nullptr, $PRIVATE, $field(Configuration$ConfigDelegate, spi)},
-	{"p", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(Configuration$ConfigDelegate, p)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Configuration$ConfigDelegate, type)},
-	{"params", "Ljavax/security/auth/login/Configuration$Parameters;", nullptr, $PRIVATE, $field(Configuration$ConfigDelegate, params)},
-	{}
-};
-
-$MethodInfo _Configuration$ConfigDelegate_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/login/ConfigurationSpi;Ljava/security/Provider;Ljava/lang/String;Ljavax/security/auth/login/Configuration$Parameters;)V", nullptr, $PRIVATE, $method(Configuration$ConfigDelegate, init$, void, $ConfigurationSpi*, $Provider*, $String*, $Configuration$Parameters*)},
-	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
-	{"getParameters", "()Ljavax/security/auth/login/Configuration$Parameters;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getParameters, $Configuration$Parameters*)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getProvider, $Provider*)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getType, $String*)},
-	{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, refresh, void)},
-	{}
-};
-
-$InnerClassInfo _Configuration$ConfigDelegate_InnerClassesInfo_[] = {
-	{"javax.security.auth.login.Configuration$ConfigDelegate", "javax.security.auth.login.Configuration", "ConfigDelegate", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Configuration$ConfigDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.security.auth.login.Configuration$ConfigDelegate",
-	"javax.security.auth.login.Configuration",
-	nullptr,
-	_Configuration$ConfigDelegate_FieldInfo_,
-	_Configuration$ConfigDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Configuration$ConfigDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.security.auth.login.Configuration"
-};
-
-$Object* allocate$Configuration$ConfigDelegate($Class* clazz) {
-	return $of($alloc(Configuration$ConfigDelegate));
-}
 
 void Configuration$ConfigDelegate::init$($ConfigurationSpi* spi, $Provider* p, $String* type, $Configuration$Parameters* params) {
 	$Configuration::init$();
@@ -97,7 +53,44 @@ Configuration$ConfigDelegate::Configuration$ConfigDelegate() {
 }
 
 $Class* Configuration$ConfigDelegate::load$($String* name, bool initialize) {
-	$loadClass(Configuration$ConfigDelegate, name, initialize, &_Configuration$ConfigDelegate_ClassInfo_, allocate$Configuration$ConfigDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"spi", "Ljavax/security/auth/login/ConfigurationSpi;", nullptr, $PRIVATE, $field(Configuration$ConfigDelegate, spi)},
+		{"p", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(Configuration$ConfigDelegate, p)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Configuration$ConfigDelegate, type)},
+		{"params", "Ljavax/security/auth/login/Configuration$Parameters;", nullptr, $PRIVATE, $field(Configuration$ConfigDelegate, params)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/auth/login/ConfigurationSpi;Ljava/security/Provider;Ljava/lang/String;Ljavax/security/auth/login/Configuration$Parameters;)V", nullptr, $PRIVATE, $method(Configuration$ConfigDelegate, init$, void, $ConfigurationSpi*, $Provider*, $String*, $Configuration$Parameters*)},
+		{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
+		{"getParameters", "()Ljavax/security/auth/login/Configuration$Parameters;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getParameters, $Configuration$Parameters*)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getProvider, $Provider*)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getType, $String*)},
+		{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, refresh, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.security.auth.login.Configuration$ConfigDelegate", "javax.security.auth.login.Configuration", "ConfigDelegate", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.security.auth.login.Configuration$ConfigDelegate",
+		"javax.security.auth.login.Configuration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.security.auth.login.Configuration"
+	};
+	$loadClass(Configuration$ConfigDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Configuration$ConfigDelegate);
+	});
 	return class$;
 }
 

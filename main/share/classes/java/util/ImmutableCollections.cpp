@@ -1,5 +1,4 @@
 #include <java/util/ImmutableCollections.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Collection.h>
@@ -40,71 +39,6 @@ using $CDS = ::jdk::internal::misc::CDS;
 namespace java {
 	namespace util {
 
-$CompoundAttribute _ImmutableCollections_MethodAnnotations_listFromArray2[] = {
-	{"Ljava/lang/SafeVarargs;", nullptr},
-	{}
-};
-
-$FieldInfo _ImmutableCollections_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ImmutableCollections, $assertionsDisabled)},
-	{"SALT32L", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImmutableCollections, SALT32L)},
-	{"REVERSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImmutableCollections, REVERSE)},
-	{"archivedObjects", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(ImmutableCollections, archivedObjects)},
-	{"EMPTY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImmutableCollections, EMPTY)},
-	{"EMPTY_LIST", "Ljava/util/ImmutableCollections$ListN;", "Ljava/util/ImmutableCollections$ListN<*>;", $STATIC | $FINAL, $staticField(ImmutableCollections, EMPTY_LIST)},
-	{"EMPTY_LIST_NULLS", "Ljava/util/ImmutableCollections$ListN;", "Ljava/util/ImmutableCollections$ListN<*>;", $STATIC | $FINAL, $staticField(ImmutableCollections, EMPTY_LIST_NULLS)},
-	{"EMPTY_SET", "Ljava/util/ImmutableCollections$SetN;", "Ljava/util/ImmutableCollections$SetN<*>;", $STATIC | $FINAL, $staticField(ImmutableCollections, EMPTY_SET)},
-	{"EMPTY_MAP", "Ljava/util/ImmutableCollections$MapN;", "Ljava/util/ImmutableCollections$MapN<**>;", $STATIC | $FINAL, $staticField(ImmutableCollections, EMPTY_MAP)},
-	{"EXPAND_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(ImmutableCollections, EXPAND_FACTOR)},
-	{}
-};
-
-$MethodInfo _ImmutableCollections_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ImmutableCollections, init$, void)},
-	{"listCopy", "(Ljava/util/Collection;)Ljava/util/List;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<+TE;>;)Ljava/util/List<TE;>;", $STATIC, $staticMethod(ImmutableCollections, listCopy, $List*, $Collection*)},
-	{"listFromArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([TE;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $staticMethod(ImmutableCollections, listFromArray, $List*, $ObjectArray*), nullptr, nullptr, _ImmutableCollections_MethodAnnotations_listFromArray2},
-	{"listFromTrustedArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $staticMethod(ImmutableCollections, listFromTrustedArray, $List*, $ObjectArray*)},
-	{"listFromTrustedArrayNullsAllowed", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $staticMethod(ImmutableCollections, listFromTrustedArrayNullsAllowed, $List*, $ObjectArray*)},
-	{"uoe", "()Ljava/lang/UnsupportedOperationException;", nullptr, $STATIC, $staticMethod(ImmutableCollections, uoe, $UnsupportedOperationException*)},
-	{}
-};
-
-$InnerClassInfo _ImmutableCollections_InnerClassesInfo_[] = {
-	{"java.util.ImmutableCollections$MapN", "java.util.ImmutableCollections", "MapN", $STATIC | $FINAL},
-	{"java.util.ImmutableCollections$Map1", "java.util.ImmutableCollections", "Map1", $STATIC | $FINAL},
-	{"java.util.ImmutableCollections$AbstractImmutableMap", "java.util.ImmutableCollections", "AbstractImmutableMap", $STATIC | $ABSTRACT},
-	{"java.util.ImmutableCollections$SetN", "java.util.ImmutableCollections", "SetN", $STATIC | $FINAL},
-	{"java.util.ImmutableCollections$Set12", "java.util.ImmutableCollections", "Set12", $STATIC | $FINAL},
-	{"java.util.ImmutableCollections$AbstractImmutableSet", "java.util.ImmutableCollections", "AbstractImmutableSet", $STATIC | $ABSTRACT},
-	{"java.util.ImmutableCollections$ListN", "java.util.ImmutableCollections", "ListN", $STATIC | $FINAL},
-	{"java.util.ImmutableCollections$List12", "java.util.ImmutableCollections", "List12", $STATIC | $FINAL},
-	{"java.util.ImmutableCollections$SubList", "java.util.ImmutableCollections", "SubList", $STATIC | $FINAL},
-	{"java.util.ImmutableCollections$ListItr", "java.util.ImmutableCollections", "ListItr", $STATIC | $FINAL},
-	{"java.util.ImmutableCollections$AbstractImmutableList", "java.util.ImmutableCollections", "AbstractImmutableList", $STATIC | $ABSTRACT},
-	{"java.util.ImmutableCollections$AbstractImmutableCollection", "java.util.ImmutableCollections", "AbstractImmutableCollection", $STATIC | $ABSTRACT},
-	{"java.util.ImmutableCollections$Access", "java.util.ImmutableCollections", "Access", $STATIC},
-	{}
-};
-
-$ClassInfo _ImmutableCollections_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ImmutableCollections",
-	"java.lang.Object",
-	nullptr,
-	_ImmutableCollections_FieldInfo_,
-	_ImmutableCollections_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImmutableCollections_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.ImmutableCollections$MapN,java.util.ImmutableCollections$MapN$MapNIterator,java.util.ImmutableCollections$MapN$1,java.util.ImmutableCollections$Map1,java.util.ImmutableCollections$AbstractImmutableMap,java.util.ImmutableCollections$SetN,java.util.ImmutableCollections$SetN$SetNIterator,java.util.ImmutableCollections$Set12,java.util.ImmutableCollections$Set12$1,java.util.ImmutableCollections$AbstractImmutableSet,java.util.ImmutableCollections$ListN,java.util.ImmutableCollections$List12,java.util.ImmutableCollections$SubList,java.util.ImmutableCollections$ListItr,java.util.ImmutableCollections$AbstractImmutableList,java.util.ImmutableCollections$AbstractImmutableCollection,java.util.ImmutableCollections$Access,java.util.ImmutableCollections$Access$1"
-};
-
-$Object* allocate$ImmutableCollections($Class* clazz) {
-	return $of($alloc(ImmutableCollections));
-}
-
 bool ImmutableCollections::$assertionsDisabled = false;
 int64_t ImmutableCollections::SALT32L = 0;
 bool ImmutableCollections::REVERSE = false;
@@ -125,7 +59,7 @@ $UnsupportedOperationException* ImmutableCollections::uoe() {
 
 $List* ImmutableCollections::listCopy($Collection* coll) {
 	$init(ImmutableCollections);
-	if ($instanceOf($ImmutableCollections$List12, coll) || ($instanceOf($ImmutableCollections$ListN, coll) && !$nc(($cast($ImmutableCollections$ListN, coll)))->allowNulls)) {
+	if ($instanceOf($ImmutableCollections$List12, coll) || ($instanceOf($ImmutableCollections$ListN, coll) && !$cast($ImmutableCollections$ListN, coll)->allowNulls)) {
 		return $cast($List, coll);
 	} else {
 		return $List::of($($nc(coll)->toArray()));
@@ -143,73 +77,60 @@ $List* ImmutableCollections::listFromArray($ObjectArray* input) {
 
 $List* ImmutableCollections::listFromTrustedArray($ObjectArray* input) {
 	$init(ImmutableCollections);
-	$useLocalCurrentObjectStackCache();
-	$load($ObjectArray);
+	$useLocalObjectStack();
 	if (!ImmutableCollections::$assertionsDisabled && !($nc($of(input))->getClass() == $getClass($ObjectArray))) {
 		$throwNew($AssertionError);
 	}
 	{
 		$var($ObjectArray, arr$, input);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, o, arr$->get(i$));
 			{
 				$Objects::requireNonNull(o);
 			}
 		}
 	}
-
-	$var($List, var$0, nullptr)
+	$var($List, var$0, nullptr);
 	switch ($nc(input)->length) {
 	case 0:
-		{
-			$assign(var$0, static_cast<$List*>(ImmutableCollections::EMPTY_LIST));
-			break;
-		}
+		$assign(var$0, $cast($List, ImmutableCollections::EMPTY_LIST));
+		break;
 	case 1:
-		{
-			$assign(var$0, static_cast<$List*>($new($ImmutableCollections$List12, input->get(0))));
-			break;
-		}
+		$assign(var$0, $cast($List, $new($ImmutableCollections$List12, input->get(0))));
+		break;
 	case 2:
-		{
-			$assign(var$0, static_cast<$List*>($new($ImmutableCollections$List12, input->get(0), input->get(1))));
-			break;
-		}
+		$assign(var$0, $cast($List, $new($ImmutableCollections$List12, input->get(0), input->get(1))));
+		break;
 	default:
-		{
-			$assign(var$0, static_cast<$List*>($new($ImmutableCollections$ListN, input, false)));
-			break;
-		}
+		$assign(var$0, $cast($List, $new($ImmutableCollections$ListN, input, false)));
+		break;
 	}
 	return var$0;
 }
 
 $List* ImmutableCollections::listFromTrustedArrayNullsAllowed($ObjectArray* input) {
 	$init(ImmutableCollections);
-	$load($ObjectArray);
 	if (!ImmutableCollections::$assertionsDisabled && !($nc($of(input))->getClass() == $getClass($ObjectArray))) {
 		$throwNew($AssertionError);
 	}
 	if ($nc(input)->length == 0) {
-		return static_cast<$List*>(ImmutableCollections::EMPTY_LIST_NULLS);
+		return $cast($List, ImmutableCollections::EMPTY_LIST_NULLS);
 	} else {
 		return $new($ImmutableCollections$ListN, input, true);
 	}
 }
 
-void clinit$ImmutableCollections($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ImmutableCollections::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	ImmutableCollections::$assertionsDisabled = !ImmutableCollections::class$->desiredAssertionStatus();
 	{
-		int64_t color = 0x243F6A8885A308D3;
+		int64_t color = (int64_t)0x243f6a8885a308d3;
 		int64_t seed = $CDS::getRandomSeedForDumping();
 		if (seed == 0) {
 			seed = $System::nanoTime();
 		}
-		ImmutableCollections::SALT32L = (int64_t)((int32_t)((color * seed) >> 16) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
-		ImmutableCollections::REVERSE = ((int64_t)(ImmutableCollections::SALT32L & (uint64_t)(int64_t)1)) == 0;
+		ImmutableCollections::SALT32L = (int32_t)((color * seed) >> 16) & (int64_t)0xffffffff;
+		ImmutableCollections::REVERSE = (ImmutableCollections::SALT32L & 1) == 0;
 	}
 	{
 		$CDS::initializeFromArchive(ImmutableCollections::class$);
@@ -221,17 +142,17 @@ void clinit$ImmutableCollections($Class* class$) {
 			$assignStatic(ImmutableCollections::EMPTY_MAP, $new($ImmutableCollections$MapN, $$new($ObjectArray, 0)));
 			$assignStatic(ImmutableCollections::archivedObjects, $new($ObjectArray, {
 				ImmutableCollections::EMPTY,
-				$of(ImmutableCollections::EMPTY_LIST),
-				$of(ImmutableCollections::EMPTY_LIST_NULLS),
-				$of(ImmutableCollections::EMPTY_SET),
-				$of(ImmutableCollections::EMPTY_MAP)
+				ImmutableCollections::EMPTY_LIST,
+				ImmutableCollections::EMPTY_LIST_NULLS,
+				ImmutableCollections::EMPTY_SET,
+				ImmutableCollections::EMPTY_MAP
 			}));
 		} else {
-			$assignStatic(ImmutableCollections::EMPTY, $nc(ImmutableCollections::archivedObjects)->get(0));
-			$assignStatic(ImmutableCollections::EMPTY_LIST, $cast($ImmutableCollections$ListN, $nc(ImmutableCollections::archivedObjects)->get(1)));
-			$assignStatic(ImmutableCollections::EMPTY_LIST_NULLS, $cast($ImmutableCollections$ListN, $nc(ImmutableCollections::archivedObjects)->get(2)));
-			$assignStatic(ImmutableCollections::EMPTY_SET, $cast($ImmutableCollections$SetN, $nc(ImmutableCollections::archivedObjects)->get(3)));
-			$assignStatic(ImmutableCollections::EMPTY_MAP, $cast($ImmutableCollections$MapN, $nc(ImmutableCollections::archivedObjects)->get(4)));
+			$assignStatic(ImmutableCollections::EMPTY, ImmutableCollections::archivedObjects->get(0));
+			$assignStatic(ImmutableCollections::EMPTY_LIST, $cast($ImmutableCollections$ListN, ImmutableCollections::archivedObjects->get(1)));
+			$assignStatic(ImmutableCollections::EMPTY_LIST_NULLS, $cast($ImmutableCollections$ListN, ImmutableCollections::archivedObjects->get(2)));
+			$assignStatic(ImmutableCollections::EMPTY_SET, $cast($ImmutableCollections$SetN, ImmutableCollections::archivedObjects->get(3)));
+			$assignStatic(ImmutableCollections::EMPTY_MAP, $cast($ImmutableCollections$MapN, ImmutableCollections::archivedObjects->get(4)));
 		}
 	}
 }
@@ -240,7 +161,65 @@ ImmutableCollections::ImmutableCollections() {
 }
 
 $Class* ImmutableCollections::load$($String* name, bool initialize) {
-	$loadClass(ImmutableCollections, name, initialize, &_ImmutableCollections_ClassInfo_, clinit$ImmutableCollections, allocate$ImmutableCollections);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ImmutableCollections, $assertionsDisabled)},
+		{"SALT32L", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImmutableCollections, SALT32L)},
+		{"REVERSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImmutableCollections, REVERSE)},
+		{"archivedObjects", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(ImmutableCollections, archivedObjects)},
+		{"EMPTY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImmutableCollections, EMPTY)},
+		{"EMPTY_LIST", "Ljava/util/ImmutableCollections$ListN;", "Ljava/util/ImmutableCollections$ListN<*>;", $STATIC | $FINAL, $staticField(ImmutableCollections, EMPTY_LIST)},
+		{"EMPTY_LIST_NULLS", "Ljava/util/ImmutableCollections$ListN;", "Ljava/util/ImmutableCollections$ListN<*>;", $STATIC | $FINAL, $staticField(ImmutableCollections, EMPTY_LIST_NULLS)},
+		{"EMPTY_SET", "Ljava/util/ImmutableCollections$SetN;", "Ljava/util/ImmutableCollections$SetN<*>;", $STATIC | $FINAL, $staticField(ImmutableCollections, EMPTY_SET)},
+		{"EMPTY_MAP", "Ljava/util/ImmutableCollections$MapN;", "Ljava/util/ImmutableCollections$MapN<**>;", $STATIC | $FINAL, $staticField(ImmutableCollections, EMPTY_MAP)},
+		{"EXPAND_FACTOR", "I", nullptr, $STATIC | $FINAL, $constField(ImmutableCollections, EXPAND_FACTOR)},
+		{}
+	};
+	$CompoundAttribute listFromArraymethodAnnotations$$[] = {
+		{"Ljava/lang/SafeVarargs;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ImmutableCollections, init$, void)},
+		{"listCopy", "(Ljava/util/Collection;)Ljava/util/List;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<+TE;>;)Ljava/util/List<TE;>;", $STATIC, $staticMethod(ImmutableCollections, listCopy, $List*, $Collection*)},
+		{"listFromArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([TE;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $staticMethod(ImmutableCollections, listFromArray, $List*, $ObjectArray*), nullptr, nullptr, listFromArraymethodAnnotations$$},
+		{"listFromTrustedArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $staticMethod(ImmutableCollections, listFromTrustedArray, $List*, $ObjectArray*)},
+		{"listFromTrustedArrayNullsAllowed", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $staticMethod(ImmutableCollections, listFromTrustedArrayNullsAllowed, $List*, $ObjectArray*)},
+		{"uoe", "()Ljava/lang/UnsupportedOperationException;", nullptr, $STATIC, $staticMethod(ImmutableCollections, uoe, $UnsupportedOperationException*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ImmutableCollections$MapN", "java.util.ImmutableCollections", "MapN", $STATIC | $FINAL},
+		{"java.util.ImmutableCollections$Map1", "java.util.ImmutableCollections", "Map1", $STATIC | $FINAL},
+		{"java.util.ImmutableCollections$AbstractImmutableMap", "java.util.ImmutableCollections", "AbstractImmutableMap", $STATIC | $ABSTRACT},
+		{"java.util.ImmutableCollections$SetN", "java.util.ImmutableCollections", "SetN", $STATIC | $FINAL},
+		{"java.util.ImmutableCollections$Set12", "java.util.ImmutableCollections", "Set12", $STATIC | $FINAL},
+		{"java.util.ImmutableCollections$AbstractImmutableSet", "java.util.ImmutableCollections", "AbstractImmutableSet", $STATIC | $ABSTRACT},
+		{"java.util.ImmutableCollections$ListN", "java.util.ImmutableCollections", "ListN", $STATIC | $FINAL},
+		{"java.util.ImmutableCollections$List12", "java.util.ImmutableCollections", "List12", $STATIC | $FINAL},
+		{"java.util.ImmutableCollections$SubList", "java.util.ImmutableCollections", "SubList", $STATIC | $FINAL},
+		{"java.util.ImmutableCollections$ListItr", "java.util.ImmutableCollections", "ListItr", $STATIC | $FINAL},
+		{"java.util.ImmutableCollections$AbstractImmutableList", "java.util.ImmutableCollections", "AbstractImmutableList", $STATIC | $ABSTRACT},
+		{"java.util.ImmutableCollections$AbstractImmutableCollection", "java.util.ImmutableCollections", "AbstractImmutableCollection", $STATIC | $ABSTRACT},
+		{"java.util.ImmutableCollections$Access", "java.util.ImmutableCollections", "Access", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ImmutableCollections",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.ImmutableCollections$MapN,java.util.ImmutableCollections$MapN$MapNIterator,java.util.ImmutableCollections$MapN$1,java.util.ImmutableCollections$Map1,java.util.ImmutableCollections$AbstractImmutableMap,java.util.ImmutableCollections$SetN,java.util.ImmutableCollections$SetN$SetNIterator,java.util.ImmutableCollections$Set12,java.util.ImmutableCollections$Set12$1,java.util.ImmutableCollections$AbstractImmutableSet,java.util.ImmutableCollections$ListN,java.util.ImmutableCollections$List12,java.util.ImmutableCollections$SubList,java.util.ImmutableCollections$ListItr,java.util.ImmutableCollections$AbstractImmutableList,java.util.ImmutableCollections$AbstractImmutableCollection,java.util.ImmutableCollections$Access,java.util.ImmutableCollections$Access$1"
+	};
+	$loadClass(ImmutableCollections, name, initialize, &classInfo$$, ImmutableCollections::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ImmutableCollections);
+	});
 	return class$;
 }
 

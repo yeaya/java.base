@@ -1,5 +1,4 @@
 #include <RequestPropertyValues.h>
-
 #include <RequestPropertyValues$DummyURLConnection.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
@@ -10,7 +9,6 @@
 #include <jcpp.h>
 
 using $RequestPropertyValues$DummyURLConnection = ::RequestPropertyValues$DummyURLConnection;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -24,40 +22,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
-$MethodInfo _RequestPropertyValues_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPropertyValues, init$, void)},
-	{"getConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $STATIC, $staticMethod(RequestPropertyValues, getConnection, $URLConnection*, $URL*)},
-	{"hasFtp", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RequestPropertyValues, hasFtp, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RequestPropertyValues, main, void, $StringArray*), "java.lang.Exception"},
-	{"part1", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(RequestPropertyValues, part1, void), "java.lang.Exception"},
-	{"part2", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(RequestPropertyValues, part2, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _RequestPropertyValues_InnerClassesInfo_[] = {
-	{"RequestPropertyValues$DummyURLConnection", "RequestPropertyValues", "DummyURLConnection", $STATIC},
-	{}
-};
-
-$ClassInfo _RequestPropertyValues_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RequestPropertyValues",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_RequestPropertyValues_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RequestPropertyValues_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"RequestPropertyValues$DummyURLConnection"
-};
-
-$Object* allocate$RequestPropertyValues($Class* clazz) {
-	return $of($alloc(RequestPropertyValues));
-}
-
 void RequestPropertyValues::init$() {
 }
 
@@ -67,7 +31,7 @@ void RequestPropertyValues::main($StringArray* args) {
 }
 
 void RequestPropertyValues::part1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, urls, $new($ArrayList));
 	urls->add($$new($URL, "http://localhost:8088"_s));
 	urls->add($$new($URL, "file:/etc/passwd"_s));
@@ -103,7 +67,7 @@ void RequestPropertyValues::part1() {
 }
 
 void RequestPropertyValues::part2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, nullptr);
 	$var($StringArray, goodKeys, $new($StringArray, {
 		""_s,
@@ -151,7 +115,36 @@ RequestPropertyValues::RequestPropertyValues() {
 }
 
 $Class* RequestPropertyValues::load$($String* name, bool initialize) {
-	$loadClass(RequestPropertyValues, name, initialize, &_RequestPropertyValues_ClassInfo_, allocate$RequestPropertyValues);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPropertyValues, init$, void)},
+		{"getConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $STATIC, $staticMethod(RequestPropertyValues, getConnection, $URLConnection*, $URL*)},
+		{"hasFtp", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RequestPropertyValues, hasFtp, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RequestPropertyValues, main, void, $StringArray*), "java.lang.Exception"},
+		{"part1", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(RequestPropertyValues, part1, void), "java.lang.Exception"},
+		{"part2", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(RequestPropertyValues, part2, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"RequestPropertyValues$DummyURLConnection", "RequestPropertyValues", "DummyURLConnection", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RequestPropertyValues",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"RequestPropertyValues$DummyURLConnection"
+	};
+	$loadClass(RequestPropertyValues, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequestPropertyValues);
+	});
 	return class$;
 }
 

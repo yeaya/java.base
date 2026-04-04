@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CookieExtension.h>
-
 #include <sun/security/ssl/CookieExtension$CHCookieConsumer.h>
 #include <sun/security/ssl/CookieExtension$CHCookieProducer.h>
 #include <sun/security/ssl/CookieExtension$CHCookieUpdate.h>
@@ -31,53 +30,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CookieExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, chOnLoadConsumer)},
-	{"chOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, chOnTradeConsumer)},
-	{"hrrNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, hrrNetworkProducer)},
-	{"hrrOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, hrrOnLoadConsumer)},
-	{"hrrNetworkReproducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, hrrNetworkReproducer)},
-	{"cookieStringizer", "Lsun/security/ssl/CookieExtension$CookieStringizer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, cookieStringizer)},
-	{}
-};
-
-$MethodInfo _CookieExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CookieExtension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _CookieExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CookieExtension$HRRCookieReproducer", "sun.security.ssl.CookieExtension", "HRRCookieReproducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CookieExtension$HRRCookieConsumer", "sun.security.ssl.CookieExtension", "HRRCookieConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CookieExtension$HRRCookieProducer", "sun.security.ssl.CookieExtension", "HRRCookieProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CookieExtension$CHCookieUpdate", "sun.security.ssl.CookieExtension", "CHCookieUpdate", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CookieExtension$CHCookieConsumer", "sun.security.ssl.CookieExtension", "CHCookieConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CookieExtension$CHCookieProducer", "sun.security.ssl.CookieExtension", "CHCookieProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CookieExtension$CookieStringizer", "sun.security.ssl.CookieExtension", "CookieStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CookieExtension$CookieSpec", "sun.security.ssl.CookieExtension", "CookieSpec", $STATIC},
-	{}
-};
-
-$ClassInfo _CookieExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.ssl.CookieExtension",
-	"java.lang.Object",
-	nullptr,
-	_CookieExtension_FieldInfo_,
-	_CookieExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CookieExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CookieExtension$HRRCookieReproducer,sun.security.ssl.CookieExtension$HRRCookieConsumer,sun.security.ssl.CookieExtension$HRRCookieProducer,sun.security.ssl.CookieExtension$CHCookieUpdate,sun.security.ssl.CookieExtension$CHCookieConsumer,sun.security.ssl.CookieExtension$CHCookieProducer,sun.security.ssl.CookieExtension$CookieStringizer,sun.security.ssl.CookieExtension$CookieSpec"
-};
-
-$Object* allocate$CookieExtension($Class* clazz) {
-	return $of($alloc(CookieExtension));
-}
-
 $HandshakeProducer* CookieExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* CookieExtension::chOnLoadConsumer = nullptr;
 $HandshakeConsumer* CookieExtension::chOnTradeConsumer = nullptr;
@@ -89,7 +41,7 @@ $CookieExtension$CookieStringizer* CookieExtension::cookieStringizer = nullptr;
 void CookieExtension::init$() {
 }
 
-void clinit$CookieExtension($Class* class$) {
+void CookieExtension::clinit$($Class* clazz) {
 	$assignStatic(CookieExtension::chNetworkProducer, $new($CookieExtension$CHCookieProducer));
 	$assignStatic(CookieExtension::chOnLoadConsumer, $new($CookieExtension$CHCookieConsumer));
 	$assignStatic(CookieExtension::chOnTradeConsumer, $new($CookieExtension$CHCookieUpdate));
@@ -103,7 +55,48 @@ CookieExtension::CookieExtension() {
 }
 
 $Class* CookieExtension::load$($String* name, bool initialize) {
-	$loadClass(CookieExtension, name, initialize, &_CookieExtension_ClassInfo_, clinit$CookieExtension, allocate$CookieExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, chOnLoadConsumer)},
+		{"chOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, chOnTradeConsumer)},
+		{"hrrNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, hrrNetworkProducer)},
+		{"hrrOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, hrrOnLoadConsumer)},
+		{"hrrNetworkReproducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, hrrNetworkReproducer)},
+		{"cookieStringizer", "Lsun/security/ssl/CookieExtension$CookieStringizer;", nullptr, $STATIC | $FINAL, $staticField(CookieExtension, cookieStringizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CookieExtension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CookieExtension$HRRCookieReproducer", "sun.security.ssl.CookieExtension", "HRRCookieReproducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CookieExtension$HRRCookieConsumer", "sun.security.ssl.CookieExtension", "HRRCookieConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CookieExtension$HRRCookieProducer", "sun.security.ssl.CookieExtension", "HRRCookieProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CookieExtension$CHCookieUpdate", "sun.security.ssl.CookieExtension", "CHCookieUpdate", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CookieExtension$CHCookieConsumer", "sun.security.ssl.CookieExtension", "CHCookieConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CookieExtension$CHCookieProducer", "sun.security.ssl.CookieExtension", "CHCookieProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CookieExtension$CookieStringizer", "sun.security.ssl.CookieExtension", "CookieStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CookieExtension$CookieSpec", "sun.security.ssl.CookieExtension", "CookieSpec", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.ssl.CookieExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CookieExtension$HRRCookieReproducer,sun.security.ssl.CookieExtension$HRRCookieConsumer,sun.security.ssl.CookieExtension$HRRCookieProducer,sun.security.ssl.CookieExtension$CHCookieUpdate,sun.security.ssl.CookieExtension$CHCookieConsumer,sun.security.ssl.CookieExtension$CHCookieProducer,sun.security.ssl.CookieExtension$CookieStringizer,sun.security.ssl.CookieExtension$CookieSpec"
+	};
+	$loadClass(CookieExtension, name, initialize, &classInfo$$, CookieExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CookieExtension);
+	});
 	return class$;
 }
 

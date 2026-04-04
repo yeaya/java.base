@@ -1,5 +1,4 @@
 #include <sun/text/BreakDictionary.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/BufferUnderflowException.h>
 #include <java/nio/ByteBuffer.h>
@@ -24,44 +23,6 @@ using $SupplementaryCharacterData = ::sun::text::SupplementaryCharacterData;
 namespace sun {
 	namespace text {
 
-$FieldInfo _BreakDictionary_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BreakDictionary, $assertionsDisabled)},
-	{"supportedVersion", "I", nullptr, $PRIVATE | $STATIC, $staticField(BreakDictionary, supportedVersion)},
-	{"columnMap", "Lsun/text/CompactByteArray;", nullptr, $PRIVATE, $field(BreakDictionary, columnMap)},
-	{"supplementaryCharColumnMap", "Lsun/text/SupplementaryCharacterData;", nullptr, $PRIVATE, $field(BreakDictionary, supplementaryCharColumnMap)},
-	{"numCols", "I", nullptr, $PRIVATE, $field(BreakDictionary, numCols)},
-	{"numColGroups", "I", nullptr, $PRIVATE, $field(BreakDictionary, numColGroups)},
-	{"table", "[S", nullptr, $PRIVATE, $field(BreakDictionary, table)},
-	{"rowIndex", "[S", nullptr, $PRIVATE, $field(BreakDictionary, rowIndex)},
-	{"rowIndexFlags", "[I", nullptr, $PRIVATE, $field(BreakDictionary, rowIndexFlags)},
-	{"rowIndexFlagsIndex", "[S", nullptr, $PRIVATE, $field(BreakDictionary, rowIndexFlagsIndex)},
-	{"rowIndexShifts", "[B", nullptr, $PRIVATE, $field(BreakDictionary, rowIndexShifts)},
-	{}
-};
-
-$MethodInfo _BreakDictionary_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, 0, $method(BreakDictionary, init$, void, $String*, $bytes*)},
-	{"cellIsPopulated", "(II)Z", nullptr, $PRIVATE, $method(BreakDictionary, cellIsPopulated, bool, int32_t, int32_t)},
-	{"getNextState", "(II)S", nullptr, $PUBLIC | $FINAL, $method(BreakDictionary, getNextState, int16_t, int32_t, int32_t)},
-	{"getNextStateFromCharacter", "(II)S", nullptr, $PUBLIC | $FINAL, $method(BreakDictionary, getNextStateFromCharacter, int16_t, int32_t, int32_t)},
-	{"internalAt", "(II)S", nullptr, $PRIVATE, $method(BreakDictionary, internalAt, int16_t, int32_t, int32_t)},
-	{"setupDictionary", "(Ljava/lang/String;[B)V", nullptr, $PRIVATE, $method(BreakDictionary, setupDictionary, void, $String*, $bytes*)},
-	{}
-};
-
-$ClassInfo _BreakDictionary_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.text.BreakDictionary",
-	"java.lang.Object",
-	nullptr,
-	_BreakDictionary_FieldInfo_,
-	_BreakDictionary_MethodInfo_
-};
-
-$Object* allocate$BreakDictionary($Class* clazz) {
-	return $of($alloc(BreakDictionary));
-}
-
 bool BreakDictionary::$assertionsDisabled = false;
 int32_t BreakDictionary::supportedVersion = 0;
 
@@ -84,7 +45,7 @@ void BreakDictionary::init$($String* dictionaryName, $bytes* dictionaryData) {
 }
 
 void BreakDictionary::setupDictionary($String* dictionaryName, $bytes* dictionaryData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, bb, $ByteBuffer::wrap(dictionaryData));
 	int32_t version = $nc(bb)->getInt();
 	if (version != BreakDictionary::supportedVersion) {
@@ -159,16 +120,16 @@ int16_t BreakDictionary::getNextState(int32_t row, int32_t col) {
 	if (cellIsPopulated(row, col)) {
 		return internalAt($nc(this->rowIndex)->get(row), col + $nc(this->rowIndexShifts)->get(row));
 	} else {
-		return (int16_t)0;
+		return 0;
 	}
 }
 
 bool BreakDictionary::cellIsPopulated(int32_t row, int32_t col) {
 	if ($nc(this->rowIndexFlagsIndex)->get(row) < 0) {
-		return col == -$nc(this->rowIndexFlagsIndex)->get(row);
+		return col == -this->rowIndexFlagsIndex->get(row);
 	} else {
-		int32_t flags = $nc(this->rowIndexFlags)->get($nc(this->rowIndexFlagsIndex)->get(row) + (col >> 5));
-		return ((int32_t)(flags & (uint32_t)($sl(1, (int32_t)(col & (uint32_t)31))))) != 0;
+		int32_t flags = $nc(this->rowIndexFlags)->get(this->rowIndexFlagsIndex->get(row) + (col >> 5));
+		return (flags & ($sl(1, col & 0x1f))) != 0;
 	}
 }
 
@@ -176,7 +137,7 @@ int16_t BreakDictionary::internalAt(int32_t row, int32_t col) {
 	return $nc(this->table)->get(row * this->numCols + col);
 }
 
-void clinit$BreakDictionary($Class* class$) {
+void BreakDictionary::clinit$($Class* clazz) {
 	BreakDictionary::$assertionsDisabled = !BreakDictionary::class$->desiredAssertionStatus();
 	BreakDictionary::supportedVersion = 1;
 }
@@ -185,7 +146,40 @@ BreakDictionary::BreakDictionary() {
 }
 
 $Class* BreakDictionary::load$($String* name, bool initialize) {
-	$loadClass(BreakDictionary, name, initialize, &_BreakDictionary_ClassInfo_, clinit$BreakDictionary, allocate$BreakDictionary);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BreakDictionary, $assertionsDisabled)},
+		{"supportedVersion", "I", nullptr, $PRIVATE | $STATIC, $staticField(BreakDictionary, supportedVersion)},
+		{"columnMap", "Lsun/text/CompactByteArray;", nullptr, $PRIVATE, $field(BreakDictionary, columnMap)},
+		{"supplementaryCharColumnMap", "Lsun/text/SupplementaryCharacterData;", nullptr, $PRIVATE, $field(BreakDictionary, supplementaryCharColumnMap)},
+		{"numCols", "I", nullptr, $PRIVATE, $field(BreakDictionary, numCols)},
+		{"numColGroups", "I", nullptr, $PRIVATE, $field(BreakDictionary, numColGroups)},
+		{"table", "[S", nullptr, $PRIVATE, $field(BreakDictionary, table)},
+		{"rowIndex", "[S", nullptr, $PRIVATE, $field(BreakDictionary, rowIndex)},
+		{"rowIndexFlags", "[I", nullptr, $PRIVATE, $field(BreakDictionary, rowIndexFlags)},
+		{"rowIndexFlagsIndex", "[S", nullptr, $PRIVATE, $field(BreakDictionary, rowIndexFlagsIndex)},
+		{"rowIndexShifts", "[B", nullptr, $PRIVATE, $field(BreakDictionary, rowIndexShifts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[B)V", nullptr, 0, $method(BreakDictionary, init$, void, $String*, $bytes*)},
+		{"cellIsPopulated", "(II)Z", nullptr, $PRIVATE, $method(BreakDictionary, cellIsPopulated, bool, int32_t, int32_t)},
+		{"getNextState", "(II)S", nullptr, $PUBLIC | $FINAL, $method(BreakDictionary, getNextState, int16_t, int32_t, int32_t)},
+		{"getNextStateFromCharacter", "(II)S", nullptr, $PUBLIC | $FINAL, $method(BreakDictionary, getNextStateFromCharacter, int16_t, int32_t, int32_t)},
+		{"internalAt", "(II)S", nullptr, $PRIVATE, $method(BreakDictionary, internalAt, int16_t, int32_t, int32_t)},
+		{"setupDictionary", "(Ljava/lang/String;[B)V", nullptr, $PRIVATE, $method(BreakDictionary, setupDictionary, void, $String*, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.text.BreakDictionary",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BreakDictionary, name, initialize, &classInfo$$, BreakDictionary::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BreakDictionary);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/resources/LocaleNames_en.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -11,25 +10,6 @@ using $LocaleNamesBundle = ::sun::util::resources::LocaleNamesBundle;
 namespace sun {
 	namespace util {
 		namespace resources {
-
-$MethodInfo _LocaleNames_en_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_en, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_en, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_en_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.LocaleNames_en",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_en_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_en($Class* clazz) {
-	return $of($alloc(LocaleNames_en));
-}
 
 void LocaleNames_en::init$() {
 	$LocaleNamesBundle::init$();
@@ -43,7 +23,22 @@ LocaleNames_en::LocaleNames_en() {
 }
 
 $Class* LocaleNames_en::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_en, name, initialize, &_LocaleNames_en_ClassInfo_, allocate$LocaleNames_en);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_en, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_en, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.LocaleNames_en",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_en, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_en);
+	});
 	return class$;
 }
 

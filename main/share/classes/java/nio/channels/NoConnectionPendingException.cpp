@@ -1,5 +1,4 @@
 #include <java/nio/channels/NoConnectionPendingException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _NoConnectionPendingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoConnectionPendingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoConnectionPendingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NoConnectionPendingException, init$, void)},
-	{}
-};
-
-$ClassInfo _NoConnectionPendingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.NoConnectionPendingException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_NoConnectionPendingException_FieldInfo_,
-	_NoConnectionPendingException_MethodInfo_
-};
-
-$Object* allocate$NoConnectionPendingException($Class* clazz) {
-	return $of($alloc(NoConnectionPendingException));
-}
 
 void NoConnectionPendingException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void NoConnectionPendingException::throw$() {
 }
 
 $Class* NoConnectionPendingException::load$($String* name, bool initialize) {
-	$loadClass(NoConnectionPendingException, name, initialize, &_NoConnectionPendingException_ClassInfo_, allocate$NoConnectionPendingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoConnectionPendingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NoConnectionPendingException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.NoConnectionPendingException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoConnectionPendingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoConnectionPendingException);
+	});
 	return class$;
 }
 

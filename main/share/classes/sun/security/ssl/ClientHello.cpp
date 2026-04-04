@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ClientHello.h>
-
 #include <sun/security/ssl/ClientHello$ClientHelloConsumer.h>
 #include <sun/security/ssl/ClientHello$ClientHelloKickstartProducer.h>
 #include <sun/security/ssl/ClientHello$ClientHelloProducer.h>
@@ -33,54 +32,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _ClientHello_FieldInfo_[] = {
-	{"kickstartProducer", "Lsun/security/ssl/SSLProducer;", nullptr, $STATIC | $FINAL, $staticField(ClientHello, kickstartProducer)},
-	{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(ClientHello, handshakeConsumer)},
-	{"handshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ClientHello, handshakeProducer)},
-	{"t12HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientHello, t12HandshakeConsumer)},
-	{"t13HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientHello, t13HandshakeConsumer)},
-	{"d12HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientHello, d12HandshakeConsumer)},
-	{"d13HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientHello, d13HandshakeConsumer)},
-	{}
-};
-
-$MethodInfo _ClientHello_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ClientHello, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ClientHello_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ClientHello$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.security.ssl.ClientHello$D13ClientHelloConsumer", "sun.security.ssl.ClientHello", "D13ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ClientHello$D12ClientHelloConsumer", "sun.security.ssl.ClientHello", "D12ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ClientHello$T13ClientHelloConsumer", "sun.security.ssl.ClientHello", "T13ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ClientHello$T12ClientHelloConsumer", "sun.security.ssl.ClientHello", "T12ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ClientHello$ClientHelloConsumer", "sun.security.ssl.ClientHello", "ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ClientHello$ClientHelloProducer", "sun.security.ssl.ClientHello", "ClientHelloProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ClientHello$ClientHelloKickstartProducer", "sun.security.ssl.ClientHello", "ClientHelloKickstartProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ClientHello$ClientHelloMessage", "sun.security.ssl.ClientHello", "ClientHelloMessage", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ClientHello_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ClientHello",
-	"java.lang.Object",
-	nullptr,
-	_ClientHello_FieldInfo_,
-	_ClientHello_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientHello_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ClientHello$1,sun.security.ssl.ClientHello$D13ClientHelloConsumer,sun.security.ssl.ClientHello$D12ClientHelloConsumer,sun.security.ssl.ClientHello$T13ClientHelloConsumer,sun.security.ssl.ClientHello$T12ClientHelloConsumer,sun.security.ssl.ClientHello$ClientHelloConsumer,sun.security.ssl.ClientHello$ClientHelloProducer,sun.security.ssl.ClientHello$ClientHelloKickstartProducer,sun.security.ssl.ClientHello$ClientHelloMessage"
-};
-
-$Object* allocate$ClientHello($Class* clazz) {
-	return $of($alloc(ClientHello));
-}
-
 $SSLProducer* ClientHello::kickstartProducer = nullptr;
 $SSLConsumer* ClientHello::handshakeConsumer = nullptr;
 $HandshakeProducer* ClientHello::handshakeProducer = nullptr;
@@ -92,7 +43,7 @@ $HandshakeConsumer* ClientHello::d13HandshakeConsumer = nullptr;
 void ClientHello::init$() {
 }
 
-void clinit$ClientHello($Class* class$) {
+void ClientHello::clinit$($Class* clazz) {
 	$assignStatic(ClientHello::kickstartProducer, $new($ClientHello$ClientHelloKickstartProducer));
 	$assignStatic(ClientHello::handshakeConsumer, $new($ClientHello$ClientHelloConsumer));
 	$assignStatic(ClientHello::handshakeProducer, $new($ClientHello$ClientHelloProducer));
@@ -106,7 +57,49 @@ ClientHello::ClientHello() {
 }
 
 $Class* ClientHello::load$($String* name, bool initialize) {
-	$loadClass(ClientHello, name, initialize, &_ClientHello_ClassInfo_, clinit$ClientHello, allocate$ClientHello);
+	$FieldInfo fieldInfos$$[] = {
+		{"kickstartProducer", "Lsun/security/ssl/SSLProducer;", nullptr, $STATIC | $FINAL, $staticField(ClientHello, kickstartProducer)},
+		{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(ClientHello, handshakeConsumer)},
+		{"handshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ClientHello, handshakeProducer)},
+		{"t12HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientHello, t12HandshakeConsumer)},
+		{"t13HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientHello, t13HandshakeConsumer)},
+		{"d12HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientHello, d12HandshakeConsumer)},
+		{"d13HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientHello, d13HandshakeConsumer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ClientHello, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ClientHello$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.security.ssl.ClientHello$D13ClientHelloConsumer", "sun.security.ssl.ClientHello", "D13ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ClientHello$D12ClientHelloConsumer", "sun.security.ssl.ClientHello", "D12ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ClientHello$T13ClientHelloConsumer", "sun.security.ssl.ClientHello", "T13ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ClientHello$T12ClientHelloConsumer", "sun.security.ssl.ClientHello", "T12ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ClientHello$ClientHelloConsumer", "sun.security.ssl.ClientHello", "ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ClientHello$ClientHelloProducer", "sun.security.ssl.ClientHello", "ClientHelloProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ClientHello$ClientHelloKickstartProducer", "sun.security.ssl.ClientHello", "ClientHelloKickstartProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ClientHello$ClientHelloMessage", "sun.security.ssl.ClientHello", "ClientHelloMessage", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ClientHello",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ClientHello$1,sun.security.ssl.ClientHello$D13ClientHelloConsumer,sun.security.ssl.ClientHello$D12ClientHelloConsumer,sun.security.ssl.ClientHello$T13ClientHelloConsumer,sun.security.ssl.ClientHello$T12ClientHelloConsumer,sun.security.ssl.ClientHello$ClientHelloConsumer,sun.security.ssl.ClientHello$ClientHelloProducer,sun.security.ssl.ClientHello$ClientHelloKickstartProducer,sun.security.ssl.ClientHello$ClientHelloMessage"
+	};
+	$loadClass(ClientHello, name, initialize, &classInfo$$, ClientHello::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientHello);
+	});
 	return class$;
 }
 

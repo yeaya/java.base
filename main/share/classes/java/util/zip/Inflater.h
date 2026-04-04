@@ -26,6 +26,7 @@ class $export Inflater : public ::java::lang::Object {
 	$class(Inflater, 0, ::java::lang::Object)
 public:
 	Inflater();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool nowrap);
 	void init$();
 	virtual void end();

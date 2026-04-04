@@ -53,6 +53,7 @@ class SSLConfiguration : public ::java::lang::Cloneable {
 	$class(SSLConfiguration, 0, ::java::lang::Cloneable)
 public:
 	SSLConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::SSLContextImpl* sslContext, bool isClientMode);
 	void addHandshakeCompletedListener(::javax::net::ssl::HandshakeCompletedListener* listener);
 	virtual $Object* clone() override;

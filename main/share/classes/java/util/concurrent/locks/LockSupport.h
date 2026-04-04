@@ -34,6 +34,7 @@ class $export LockSupport : public ::java::lang::Object {
 	$class(LockSupport, $PRELOAD, ::java::lang::Object)
 public:
 	LockSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* getBlocker($Thread* t);
 	static int64_t getThreadId($Thread* thread);

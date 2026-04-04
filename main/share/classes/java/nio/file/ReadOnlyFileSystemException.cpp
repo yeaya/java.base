@@ -1,5 +1,4 @@
 #include <java/nio/file/ReadOnlyFileSystemException.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _ReadOnlyFileSystemException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ReadOnlyFileSystemException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ReadOnlyFileSystemException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadOnlyFileSystemException, init$, void)},
-	{}
-};
-
-$ClassInfo _ReadOnlyFileSystemException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.ReadOnlyFileSystemException",
-	"java.lang.UnsupportedOperationException",
-	nullptr,
-	_ReadOnlyFileSystemException_FieldInfo_,
-	_ReadOnlyFileSystemException_MethodInfo_
-};
-
-$Object* allocate$ReadOnlyFileSystemException($Class* clazz) {
-	return $of($alloc(ReadOnlyFileSystemException));
-}
 
 void ReadOnlyFileSystemException::init$() {
 	$UnsupportedOperationException::init$();
@@ -50,7 +26,25 @@ void ReadOnlyFileSystemException::throw$() {
 }
 
 $Class* ReadOnlyFileSystemException::load$($String* name, bool initialize) {
-	$loadClass(ReadOnlyFileSystemException, name, initialize, &_ReadOnlyFileSystemException_ClassInfo_, allocate$ReadOnlyFileSystemException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ReadOnlyFileSystemException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReadOnlyFileSystemException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.ReadOnlyFileSystemException",
+		"java.lang.UnsupportedOperationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReadOnlyFileSystemException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReadOnlyFileSystemException);
+	});
 	return class$;
 }
 

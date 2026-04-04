@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/visitor/Visitor.h>
-
 #include <sun/reflect/generics/tree/ClassSignature.h>
 #include <sun/reflect/generics/tree/MethodTypeSignature.h>
 #include <jcpp.h>
@@ -14,28 +13,24 @@ namespace sun {
 		namespace generics {
 			namespace visitor {
 
-$MethodInfo _Visitor_MethodInfo_[] = {
-	{"visitClassSignature", "(Lsun/reflect/generics/tree/ClassSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Visitor, visitClassSignature, void, $ClassSignature*)},
-	{"visitMethodTypeSignature", "(Lsun/reflect/generics/tree/MethodTypeSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Visitor, visitMethodTypeSignature, void, $MethodTypeSignature*)},
-	{}
-};
-
-$ClassInfo _Visitor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.reflect.generics.visitor.Visitor",
-	nullptr,
-	"sun.reflect.generics.visitor.TypeTreeVisitor",
-	nullptr,
-	_Visitor_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Lsun/reflect/generics/visitor/TypeTreeVisitor<TT;>;"
-};
-
-$Object* allocate$Visitor($Class* clazz) {
-	return $of($alloc(Visitor));
-}
-
 $Class* Visitor::load$($String* name, bool initialize) {
-	$loadClass(Visitor, name, initialize, &_Visitor_ClassInfo_, allocate$Visitor);
+	$MethodInfo methodInfos$$[] = {
+		{"visitClassSignature", "(Lsun/reflect/generics/tree/ClassSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Visitor, visitClassSignature, void, $ClassSignature*)},
+		{"visitMethodTypeSignature", "(Lsun/reflect/generics/tree/MethodTypeSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Visitor, visitMethodTypeSignature, void, $MethodTypeSignature*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.reflect.generics.visitor.Visitor",
+		nullptr,
+		"sun.reflect.generics.visitor.TypeTreeVisitor",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Lsun/reflect/generics/visitor/TypeTreeVisitor<TT;>;"
+	};
+	$loadClass(Visitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Visitor);
+	});
 	return class$;
 }
 

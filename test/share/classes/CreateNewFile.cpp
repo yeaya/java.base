@@ -1,5 +1,4 @@
 #include <CreateNewFile.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <jcpp.h>
@@ -11,31 +10,11 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _CreateNewFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CreateNewFile, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CreateNewFile, main, void, $StringArray*), "java.lang.Exception"},
-	{"testCreateExistingDir", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CreateNewFile, testCreateExistingDir, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CreateNewFile_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CreateNewFile",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CreateNewFile_MethodInfo_
-};
-
-$Object* allocate$CreateNewFile($Class* clazz) {
-	return $of($alloc(CreateNewFile));
-}
-
 void CreateNewFile::init$() {
 }
 
 void CreateNewFile::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "x.CreateNewFile"_s));
 	bool var$0 = f->exists();
 	if (var$0 && !f->delete$()) {
@@ -61,7 +40,7 @@ void CreateNewFile::main($StringArray* args) {
 }
 
 void CreateNewFile::testCreateExistingDir() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, tmpFile, $new($File, "hugo"_s));
 	bool var$0 = tmpFile->exists();
 	if (var$0 && !tmpFile->delete$()) {
@@ -82,7 +61,23 @@ CreateNewFile::CreateNewFile() {
 }
 
 $Class* CreateNewFile::load$($String* name, bool initialize) {
-	$loadClass(CreateNewFile, name, initialize, &_CreateNewFile_ClassInfo_, allocate$CreateNewFile);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CreateNewFile, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CreateNewFile, main, void, $StringArray*), "java.lang.Exception"},
+		{"testCreateExistingDir", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CreateNewFile, testCreateExistingDir, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CreateNewFile",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CreateNewFile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CreateNewFile);
+	});
 	return class$;
 }
 

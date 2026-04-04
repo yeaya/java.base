@@ -1,5 +1,4 @@
 #include <jdk/internal/access/JavaObjectInputStreamReadString.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <jcpp.h>
 
@@ -12,35 +11,30 @@ namespace jdk {
 	namespace internal {
 		namespace access {
 
-$CompoundAttribute _JavaObjectInputStreamReadString_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _JavaObjectInputStreamReadString_MethodInfo_[] = {
-	{"readString", "(Ljava/io/ObjectInputStream;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaObjectInputStreamReadString, readString, $String*, $ObjectInputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _JavaObjectInputStreamReadString_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.access.JavaObjectInputStreamReadString",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavaObjectInputStreamReadString_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavaObjectInputStreamReadString_Annotations_
-};
-
-$Object* allocate$JavaObjectInputStreamReadString($Class* clazz) {
-	return $of($alloc(JavaObjectInputStreamReadString));
-}
-
 $Class* JavaObjectInputStreamReadString::load$($String* name, bool initialize) {
-	$loadClass(JavaObjectInputStreamReadString, name, initialize, &_JavaObjectInputStreamReadString_ClassInfo_, allocate$JavaObjectInputStreamReadString);
+	$MethodInfo methodInfos$$[] = {
+		{"readString", "(Ljava/io/ObjectInputStream;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaObjectInputStreamReadString, readString, $String*, $ObjectInputStream*), "java.io.IOException"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.access.JavaObjectInputStreamReadString",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(JavaObjectInputStreamReadString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaObjectInputStreamReadString);
+	});
 	return class$;
 }
 

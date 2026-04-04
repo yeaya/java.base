@@ -1,5 +1,4 @@
 #include <java/nio/file/Path.h>
-
 #include <java/io/File.h>
 #include <java/lang/Comparable.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -38,73 +37,10 @@ using $WatchKey = ::java::nio::file::WatchKey;
 using $WatchService = ::java::nio::file::WatchService;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace nio {
 		namespace file {
-
-$MethodInfo _Path_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, compareTo, int32_t, Path*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Path, compareTo, int32_t, Object$*)},
-	{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, endsWith, bool, Path*)},
-	{"endsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Path, endsWith, bool, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getFileName", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getFileName, Path*)},
-	{"getFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getFileSystem, $FileSystem*)},
-	{"getName", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getName, Path*, int32_t)},
-	{"getNameCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getNameCount, int32_t)},
-	{"getParent", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getParent, Path*)},
-	{"getRoot", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getRoot, Path*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isAbsolute", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, isAbsolute, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(Path, iterator, $Iterator*)},
-	{"normalize", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, normalize, Path*)},
-	{"of", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Path, of, Path*, $String*, $StringArray*)},
-	{"of", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(Path, of, Path*, $URI*)},
-	{"register$", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $ABSTRACT},
-	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(Path, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*), "java.io.IOException"},
-	{"relativize", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, relativize, Path*, Path*)},
-	{"resolve", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, resolve, Path*, Path*)},
-	{"resolve", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Path, resolve, Path*, $String*)},
-	{"resolveSibling", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Path, resolveSibling, Path*, Path*)},
-	{"resolveSibling", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Path, resolveSibling, Path*, $String*)},
-	{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, startsWith, bool, Path*)},
-	{"startsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Path, startsWith, bool, $String*)},
-	{"subpath", "(II)Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, subpath, Path*, int32_t, int32_t)},
-	{"toAbsolutePath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, toAbsolutePath, Path*)},
-	{"toFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(Path, toFile, $File*)},
-	{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Path, toRealPath, Path*, $LinkOptionArray*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, toUri, $URI*)},
-	{}
-};
-
-$InnerClassInfo _Path_InnerClassesInfo_[] = {
-	{"java.nio.file.Path$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Path_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.file.Path",
-	nullptr,
-	"java.lang.Comparable,java.lang.Iterable,java.nio.file.Watchable",
-	nullptr,
-	_Path_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/nio/file/Path;>;Ljava/lang/Iterable<Ljava/nio/file/Path;>;Ljava/nio/file/Watchable;",
-	nullptr,
-	_Path_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.nio.file.Path$1"
-};
-
-$Object* allocate$Path($Class* clazz) {
-	return $of($alloc(Path));
-}
 
 bool Path::equals(Object$* other) {
 	 return this->$Comparable::equals(other);
@@ -128,27 +64,25 @@ void Path::finalize() {
 
 Path* Path::of($String* first, $StringArray* more) {
 	$init(Path);
-	return $nc($($FileSystems::getDefault()))->getPath(first, more);
+	return $$nc($FileSystems::getDefault())->getPath(first, more);
 }
 
 Path* Path::of($URI* uri) {
 	$init(Path);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, scheme, $nc(uri)->getScheme());
 	if (scheme == nullptr) {
 		$throwNew($IllegalArgumentException, "Missing scheme"_s);
 	}
 	if ($nc(scheme)->equalsIgnoreCase("file"_s)) {
-		return $nc($($nc($($FileSystems::getDefault()))->provider()))->getPath(uri);
+		return $$nc($$nc($FileSystems::getDefault())->provider())->getPath(uri);
 	}
 	{
-		$var($Iterator, i$, $nc($($FileSystemProvider::installedProviders()))->iterator());
+		$var($Iterator, i$, $$nc($FileSystemProvider::installedProviders())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($FileSystemProvider, provider, $cast($FileSystemProvider, i$->next()));
-			{
-				if ($nc($($nc(provider)->getScheme()))->equalsIgnoreCase(scheme)) {
-					return provider->getPath(uri);
-				}
+			if ($$nc($nc(provider)->getScheme())->equalsIgnoreCase(scheme)) {
+				return provider->getPath(uri);
 			}
 		}
 	}
@@ -156,18 +90,18 @@ Path* Path::of($URI* uri) {
 }
 
 bool Path::startsWith($String* other) {
-	$useLocalCurrentObjectStackCache();
-	return startsWith($($nc($(getFileSystem()))->getPath(other, $$new($StringArray, 0))));
+	$useLocalObjectStack();
+	return startsWith($($$nc(getFileSystem())->getPath(other, $$new($StringArray, 0))));
 }
 
 bool Path::endsWith($String* other) {
-	$useLocalCurrentObjectStackCache();
-	return endsWith($($nc($(getFileSystem()))->getPath(other, $$new($StringArray, 0))));
+	$useLocalObjectStack();
+	return endsWith($($$nc(getFileSystem())->getPath(other, $$new($StringArray, 0))));
 }
 
 Path* Path::resolve($String* other) {
-	$useLocalCurrentObjectStackCache();
-	return resolve($($nc($(getFileSystem()))->getPath(other, $$new($StringArray, 0))));
+	$useLocalObjectStack();
+	return resolve($($$nc(getFileSystem())->getPath(other, $$new($StringArray, 0))));
 }
 
 Path* Path::resolveSibling(Path* other) {
@@ -175,12 +109,12 @@ Path* Path::resolveSibling(Path* other) {
 		$throwNew($NullPointerException);
 	}
 	$var(Path, parent, getParent());
-	return (parent == nullptr) ? other : $nc(parent)->resolve(other);
+	return (parent == nullptr) ? other : parent->resolve(other);
 }
 
 Path* Path::resolveSibling($String* other) {
-	$useLocalCurrentObjectStackCache();
-	return resolveSibling($($nc($(getFileSystem()))->getPath(other, $$new($StringArray, 0))));
+	$useLocalObjectStack();
+	return resolveSibling($($$nc(getFileSystem())->getPath(other, $$new($StringArray, 0))));
 }
 
 $File* Path::toFile() {
@@ -204,7 +138,64 @@ int32_t Path::compareTo(Object$* other) {
 }
 
 $Class* Path::load$($String* name, bool initialize) {
-	$loadClass(Path, name, initialize, &_Path_ClassInfo_, allocate$Path);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, compareTo, int32_t, Path*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Path, compareTo, int32_t, Object$*)},
+		{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, endsWith, bool, Path*)},
+		{"endsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Path, endsWith, bool, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getFileName", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getFileName, Path*)},
+		{"getFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getFileSystem, $FileSystem*)},
+		{"getName", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getName, Path*, int32_t)},
+		{"getNameCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getNameCount, int32_t)},
+		{"getParent", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getParent, Path*)},
+		{"getRoot", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, getRoot, Path*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"isAbsolute", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, isAbsolute, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(Path, iterator, $Iterator*)},
+		{"normalize", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, normalize, Path*)},
+		{"of", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Path, of, Path*, $String*, $StringArray*)},
+		{"of", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(Path, of, Path*, $URI*)},
+		{"register$", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $ABSTRACT},
+		{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(Path, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*), "java.io.IOException"},
+		{"relativize", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, relativize, Path*, Path*)},
+		{"resolve", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, resolve, Path*, Path*)},
+		{"resolve", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Path, resolve, Path*, $String*)},
+		{"resolveSibling", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Path, resolveSibling, Path*, Path*)},
+		{"resolveSibling", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Path, resolveSibling, Path*, $String*)},
+		{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, startsWith, bool, Path*)},
+		{"startsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Path, startsWith, bool, $String*)},
+		{"subpath", "(II)Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, subpath, Path*, int32_t, int32_t)},
+		{"toAbsolutePath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, toAbsolutePath, Path*)},
+		{"toFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(Path, toFile, $File*)},
+		{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Path, toRealPath, Path*, $LinkOptionArray*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Path, toUri, $URI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.Path$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.file.Path",
+		nullptr,
+		"java.lang.Comparable,java.lang.Iterable,java.nio.file.Watchable",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/nio/file/Path;>;Ljava/lang/Iterable<Ljava/nio/file/Path;>;Ljava/nio/file/Watchable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.nio.file.Path$1"
+	};
+	$loadClass(Path, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Path));
+	});
 	return class$;
 }
 

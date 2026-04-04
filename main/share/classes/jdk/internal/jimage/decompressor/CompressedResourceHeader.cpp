@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/decompressor/CompressedResourceHeader.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/util/Objects.h>
@@ -21,44 +20,6 @@ namespace jdk {
 	namespace internal {
 		namespace jimage {
 			namespace decompressor {
-
-$FieldInfo _CompressedResourceHeader_FieldInfo_[] = {
-	{"SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompressedResourceHeader, SIZE)},
-	{"MAGIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CompressedResourceHeader, MAGIC)},
-	{"uncompressedSize", "J", nullptr, $PRIVATE | $FINAL, $field(CompressedResourceHeader, uncompressedSize)},
-	{"compressedSize", "J", nullptr, $PRIVATE | $FINAL, $field(CompressedResourceHeader, compressedSize)},
-	{"decompressorNameOffset", "I", nullptr, $PRIVATE | $FINAL, $field(CompressedResourceHeader, decompressorNameOffset)},
-	{"contentOffset", "I", nullptr, $PRIVATE | $FINAL, $field(CompressedResourceHeader, contentOffset)},
-	{"isTerminal", "Z", nullptr, $PRIVATE | $FINAL, $field(CompressedResourceHeader, isTerminal$)},
-	{}
-};
-
-$MethodInfo _CompressedResourceHeader_MethodInfo_[] = {
-	{"<init>", "(JJIIZ)V", nullptr, $PUBLIC, $method(CompressedResourceHeader, init$, void, int64_t, int64_t, int32_t, int32_t, bool)},
-	{"getBytes", "(Ljava/nio/ByteOrder;)[B", nullptr, $PUBLIC, $method(CompressedResourceHeader, getBytes, $bytes*, $ByteOrder*)},
-	{"getContentOffset", "()I", nullptr, $PUBLIC, $method(CompressedResourceHeader, getContentOffset, int32_t)},
-	{"getDecompressorNameOffset", "()I", nullptr, $PUBLIC, $method(CompressedResourceHeader, getDecompressorNameOffset, int32_t)},
-	{"getResourceSize", "()J", nullptr, $PUBLIC, $method(CompressedResourceHeader, getResourceSize, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(CompressedResourceHeader, getSize, int32_t)},
-	{"getStoredContent", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;)Ljava/lang/String;", nullptr, $PUBLIC, $method(CompressedResourceHeader, getStoredContent, $String*, $ResourceDecompressor$StringsProvider*)},
-	{"getUncompressedSize", "()J", nullptr, $PUBLIC, $method(CompressedResourceHeader, getUncompressedSize, int64_t)},
-	{"isTerminal", "()Z", nullptr, $PUBLIC, $method(CompressedResourceHeader, isTerminal, bool)},
-	{"readFromResource", "(Ljava/nio/ByteOrder;[B)Ljdk/internal/jimage/decompressor/CompressedResourceHeader;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompressedResourceHeader, readFromResource, CompressedResourceHeader*, $ByteOrder*, $bytes*)},
-	{}
-};
-
-$ClassInfo _CompressedResourceHeader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.jimage.decompressor.CompressedResourceHeader",
-	"java.lang.Object",
-	nullptr,
-	_CompressedResourceHeader_FieldInfo_,
-	_CompressedResourceHeader_MethodInfo_
-};
-
-$Object* allocate$CompressedResourceHeader($Class* clazz) {
-	return $of($alloc(CompressedResourceHeader));
-}
 
 void CompressedResourceHeader::init$(int64_t compressedSize, int64_t uncompressedSize, int32_t decompressorNameOffset, int32_t contentOffset, bool isTerminal) {
 	this->compressedSize = compressedSize;
@@ -137,7 +98,40 @@ CompressedResourceHeader::CompressedResourceHeader() {
 }
 
 $Class* CompressedResourceHeader::load$($String* name, bool initialize) {
-	$loadClass(CompressedResourceHeader, name, initialize, &_CompressedResourceHeader_ClassInfo_, allocate$CompressedResourceHeader);
+	$FieldInfo fieldInfos$$[] = {
+		{"SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompressedResourceHeader, SIZE)},
+		{"MAGIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CompressedResourceHeader, MAGIC)},
+		{"uncompressedSize", "J", nullptr, $PRIVATE | $FINAL, $field(CompressedResourceHeader, uncompressedSize)},
+		{"compressedSize", "J", nullptr, $PRIVATE | $FINAL, $field(CompressedResourceHeader, compressedSize)},
+		{"decompressorNameOffset", "I", nullptr, $PRIVATE | $FINAL, $field(CompressedResourceHeader, decompressorNameOffset)},
+		{"contentOffset", "I", nullptr, $PRIVATE | $FINAL, $field(CompressedResourceHeader, contentOffset)},
+		{"isTerminal", "Z", nullptr, $PRIVATE | $FINAL, $field(CompressedResourceHeader, isTerminal$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JJIIZ)V", nullptr, $PUBLIC, $method(CompressedResourceHeader, init$, void, int64_t, int64_t, int32_t, int32_t, bool)},
+		{"getBytes", "(Ljava/nio/ByteOrder;)[B", nullptr, $PUBLIC, $method(CompressedResourceHeader, getBytes, $bytes*, $ByteOrder*)},
+		{"getContentOffset", "()I", nullptr, $PUBLIC, $method(CompressedResourceHeader, getContentOffset, int32_t)},
+		{"getDecompressorNameOffset", "()I", nullptr, $PUBLIC, $method(CompressedResourceHeader, getDecompressorNameOffset, int32_t)},
+		{"getResourceSize", "()J", nullptr, $PUBLIC, $method(CompressedResourceHeader, getResourceSize, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(CompressedResourceHeader, getSize, int32_t)},
+		{"getStoredContent", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;)Ljava/lang/String;", nullptr, $PUBLIC, $method(CompressedResourceHeader, getStoredContent, $String*, $ResourceDecompressor$StringsProvider*)},
+		{"getUncompressedSize", "()J", nullptr, $PUBLIC, $method(CompressedResourceHeader, getUncompressedSize, int64_t)},
+		{"isTerminal", "()Z", nullptr, $PUBLIC, $method(CompressedResourceHeader, isTerminal, bool)},
+		{"readFromResource", "(Ljava/nio/ByteOrder;[B)Ljdk/internal/jimage/decompressor/CompressedResourceHeader;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompressedResourceHeader, readFromResource, CompressedResourceHeader*, $ByteOrder*, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.jimage.decompressor.CompressedResourceHeader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompressedResourceHeader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompressedResourceHeader);
+	});
 	return class$;
 }
 

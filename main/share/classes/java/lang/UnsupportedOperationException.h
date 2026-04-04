@@ -22,10 +22,13 @@ public:
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xEEC165E712838B7F;
+	static const int64_t serialVersionUID = (int64_t)0xeec165e712838b7f;
 	UnsupportedOperationException(const UnsupportedOperationException& e);
 	virtual void throw$() override;
-	inline UnsupportedOperationException* operator ->() {
+	inline UnsupportedOperationException* operator ->() const {
+		return (UnsupportedOperationException*)throwing$;
+	}
+	inline operator UnsupportedOperationException*() const {
 		return (UnsupportedOperationException*)throwing$;
 	}
 };

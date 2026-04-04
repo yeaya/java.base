@@ -1,5 +1,4 @@
 #include <MetafactoryArgValidationTest.h>
-
 #include <MetafactoryArgValidationTest$C.h>
 #include <MetafactoryArgValidationTest$I.h>
 #include <java/lang/AssertionError.h>
@@ -41,46 +40,6 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Arrays = ::java::util::Arrays;
 
-$MethodInfo _MetafactoryArgValidationTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryArgValidationTest, init$, void)},
-	{"amfFail", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", $STATIC, $staticMethod(MetafactoryArgValidationTest, amfFail, void, $Class*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*)},
-	{"amfSucceed", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $STATIC, $staticMethod(MetafactoryArgValidationTest, amfSucceed, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*)},
-	{"arr", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $staticMethod(MetafactoryArgValidationTest, arr, $ObjectArray*, $ObjectArray*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MetafactoryArgValidationTest, main, void, $StringArray*)},
-	{"mfFail", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V", $STATIC, $staticMethod(MetafactoryArgValidationTest, mfFail, void, $Class*, $MethodHandles$Lookup*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*)},
-	{"mfSucceed", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", nullptr, $STATIC, $staticMethod(MetafactoryArgValidationTest, mfSucceed, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*)},
-	{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $STATIC | $TRANSIENT, $staticMethod(MetafactoryArgValidationTest, mt, $MethodType*, $Class*, $ClassArray*)},
-	{"testIAE", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest, testIAE, void)},
-	{"testLCE", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest, testLCE, void)},
-	{"testNPE", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest, testNPE, void)},
-	{}
-};
-
-$InnerClassInfo _MetafactoryArgValidationTest_InnerClassesInfo_[] = {
-	{"MetafactoryArgValidationTest$I", "MetafactoryArgValidationTest", "I", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"MetafactoryArgValidationTest$C", "MetafactoryArgValidationTest", "C", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetafactoryArgValidationTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MetafactoryArgValidationTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MetafactoryArgValidationTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetafactoryArgValidationTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"MetafactoryArgValidationTest$I,MetafactoryArgValidationTest$C"
-};
-
-$Object* allocate$MetafactoryArgValidationTest($Class* clazz) {
-	return $of($alloc(MetafactoryArgValidationTest));
-}
-
 void MetafactoryArgValidationTest::init$() {
 }
 
@@ -91,10 +50,9 @@ void MetafactoryArgValidationTest::main($StringArray* args) {
 }
 
 void MetafactoryArgValidationTest::testNPE() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($MetafactoryArgValidationTest$I);
 	$var($MethodType, toI, mt($MetafactoryArgValidationTest$I::class$, $$new($ClassArray, 0)));
-	$init($Void);
 	$var($MethodType, toVoid, mt($Void::TYPE, $$new($ClassArray, 0)));
 	$load($MetafactoryArgValidationTest$C);
 	$var($MethodType, toC, mt($MetafactoryArgValidationTest$C::class$, $$new($ClassArray, 0)));
@@ -103,7 +61,6 @@ void MetafactoryArgValidationTest::testNPE() {
 	int32_t flagSer = $LambdaMetafactory::FLAG_SERIALIZABLE;
 	int32_t flagMark = $LambdaMetafactory::FLAG_MARKERS;
 	int32_t flagBridge = $LambdaMetafactory::FLAG_BRIDGES;
-	$load($NullPointerException);
 	mfFail($NullPointerException::class$, nullptr, "m"_s, toI, toVoid, impl, toVoid);
 	mfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, nullptr, toI, toVoid, impl, toVoid);
 	mfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, nullptr, toVoid, impl, toVoid);
@@ -111,122 +68,121 @@ void MetafactoryArgValidationTest::testNPE() {
 	mfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, toVoid, nullptr, toVoid);
 	mfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, toVoid, impl, nullptr);
 	amfFail($NullPointerException::class$, nullptr, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, nullptr, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, nullptr, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, nullptr);
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		($Object*)nullptr,
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+		nullptr,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		($Object*)nullptr,
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+		toVoid,
+		nullptr,
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		($Object*)nullptr,
-		$($of($Integer::valueOf(flagSer)))
+		toVoid,
+		impl,
+		nullptr,
+		$($Integer::valueOf(flagSer))
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		($Object*)nullptr
+		toVoid,
+		impl,
+		toVoid,
+		nullptr
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagMark))),
-		($Object*)nullptr
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagMark)),
+		nullptr
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagMark))),
-		$($of($Integer::valueOf(1))),
-		($Object*)nullptr
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagMark)),
+		$($Integer::valueOf(1)),
+		nullptr
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagMark))),
-		$($of($Integer::valueOf(2))),
-		$of($Runnable::class$),
-		($Object*)nullptr
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagMark)),
+		$($Integer::valueOf(2)),
+		$Runnable::class$,
+		nullptr
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf(flagBridge))),
-		($Object*)nullptr
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf(flagBridge)),
+		nullptr
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf(flagBridge))),
-		$($of($Integer::valueOf(1))),
-		($Object*)nullptr
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf(flagBridge)),
+		$($Integer::valueOf(1)),
+		nullptr
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf(flagBridge))),
-		$($of($Integer::valueOf(1))),
-		($Object*)nullptr
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf(flagBridge)),
+		$($Integer::valueOf(1)),
+		nullptr
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf(flagBridge))),
-		$($of($Integer::valueOf(2))),
-		$($of(mt($Object::class$, $$new($ClassArray, 0)))),
-		($Object*)nullptr
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf(flagBridge)),
+		$($Integer::valueOf(2)),
+		$(mt($Object::class$, $$new($ClassArray, 0))),
+		nullptr
 	}))));
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf((flagBridge | flagMark) | flagSer))),
-		$($of($Integer::valueOf(1))),
-		$of($Runnable::class$),
-		$($of($Integer::valueOf(2))),
-		$($of(mt($Object::class$, $$new($ClassArray, 0)))),
-		($Object*)nullptr
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf((flagBridge | flagMark) | flagSer)),
+		$($Integer::valueOf(1)),
+		$Runnable::class$,
+		$($Integer::valueOf(2)),
+		$(mt($Object::class$, $$new($ClassArray, 0))),
+		nullptr
 	}))));
 }
 
 void MetafactoryArgValidationTest::testIAE() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($MetafactoryArgValidationTest$I);
 	$var($MethodType, toI, mt($MetafactoryArgValidationTest$I::class$, $$new($ClassArray, 0)));
-	$init($Void);
 	$var($MethodType, toVoid, mt($Void::TYPE, $$new($ClassArray, 0)));
 	$load($MetafactoryArgValidationTest$C);
 	$var($MethodType, toC, mt($MetafactoryArgValidationTest$C::class$, $$new($ClassArray, 0)));
@@ -238,165 +194,164 @@ void MetafactoryArgValidationTest::testIAE() {
 	$load($IllegalArgumentException);
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, 0))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid)
+		toVoid,
+		impl,
+		toVoid
 	}))));
 	amfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(0)))
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(0))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagMark)))
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagMark))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagMark))),
-		$($of($Integer::valueOf(1)))
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagMark)),
+		$($Integer::valueOf(1))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagMark))),
-		$($of($Integer::valueOf(2))),
-		$of($Runnable::class$)
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagMark)),
+		$($Integer::valueOf(2)),
+		$Runnable::class$
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf(flagBridge)))
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf(flagBridge))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf(flagBridge))),
-		$($of($Integer::valueOf(1)))
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf(flagBridge)),
+		$($Integer::valueOf(1))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf(flagBridge))),
-		$($of($Integer::valueOf(2))),
-		$($of(mt($Object::class$, $$new($ClassArray, 0))))
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf(flagBridge)),
+		$($Integer::valueOf(2)),
+		$(mt($Object::class$, $$new($ClassArray, 0)))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf((flagBridge | flagMark) | flagSer))),
-		$($of($Integer::valueOf(1))),
-		$of($Runnable::class$),
-		$($of($Integer::valueOf(2))),
-		$($of(mt($Object::class$, $$new($ClassArray, 0))))
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf((flagBridge | flagMark) | flagSer)),
+		$($Integer::valueOf(1)),
+		$Runnable::class$,
+		$($Integer::valueOf(2)),
+		$(mt($Object::class$, $$new($ClassArray, 0)))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(0))),
-		$($of($Integer::valueOf(1)))
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(0)),
+		$($Integer::valueOf(1))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf(flagMark | flagSer))),
-		$($of($Integer::valueOf(1))),
-		$of($Runnable::class$),
-		$($of($Integer::valueOf(1))),
-		$($of(mt($Object::class$, $$new($ClassArray, 0))))
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf(flagMark | flagSer)),
+		$($Integer::valueOf(1)),
+		$Runnable::class$,
+		$($Integer::valueOf(1)),
+		$(mt($Object::class$, $$new($ClassArray, 0)))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(impl),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+		impl,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(toVoid),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+		toVoid,
+		toVoid,
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(impl),
-		$($of($Integer::valueOf(flagSer)))
+		toVoid,
+		impl,
+		impl,
+		$($Integer::valueOf(flagSer))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$of("hi"_s)
+		toVoid,
+		impl,
+		toVoid,
+		"hi"_s
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagMark))),
-		$of($Runnable::class$)
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagMark)),
+		$Runnable::class$
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagBridge))),
-		$($of($Integer::valueOf(1))),
-		$of($Runnable::class$)
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagBridge)),
+		$($Integer::valueOf(1)),
+		$Runnable::class$
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagMark))),
-		$($of($Integer::valueOf(1))),
-		$of(toVoid)
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagMark)),
+		$($Integer::valueOf(1)),
+		toVoid
 	}))));
 	amfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf((flagBridge | flagMark) | flagSer))),
-		$($of($Integer::valueOf(0))),
-		$($of($Integer::valueOf(0)))
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf((flagBridge | flagMark) | flagSer)),
+		$($Integer::valueOf(0)),
+		$($Integer::valueOf(0))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf((flagBridge | flagMark) | flagSer))),
-		$($of($Integer::valueOf(-1))),
-		$($of($Integer::valueOf(0)))
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf((flagBridge | flagMark) | flagSer)),
+		$($Integer::valueOf(-1)),
+		$($Integer::valueOf(0))
 	}))));
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$of(impl2),
-		$of(toC),
-		$($of($Integer::valueOf((flagBridge | flagMark) | flagSer))),
-		$($of($Integer::valueOf(0))),
-		$($of($Integer::valueOf(-1)))
+		toC,
+		impl2,
+		toC,
+		$($Integer::valueOf((flagBridge | flagMark) | flagSer)),
+		$($Integer::valueOf(0)),
+		$($Integer::valueOf(-1))
 	}))));
 }
 
 void MetafactoryArgValidationTest::testLCE() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($MetafactoryArgValidationTest$I);
 	$var($MethodType, toI, mt($MetafactoryArgValidationTest$I::class$, $$new($ClassArray, 0)));
 	$load($MetafactoryArgValidationTest$C);
 	$var($MethodType, toC, mt($MetafactoryArgValidationTest$C::class$, $$new($ClassArray, 0)));
-	$init($Void);
 	$var($MethodType, toVoid, mt($Void::TYPE, $$new($ClassArray, 0)));
 	$var($MethodType, cToVoid, mt($Void::TYPE, $$new($ClassArray, {$MetafactoryArgValidationTest$C::class$})));
 	$var($MethodType, ccToVoid, mt($Void::TYPE, $$new($ClassArray, {
@@ -415,10 +370,10 @@ void MetafactoryArgValidationTest::testLCE() {
 	$var($String, var$2, "m"_s);
 	$var($MethodType, var$3, mt($Object::class$, $$new($ClassArray, 0)));
 	amfFail(var$0, var$1, var$2, var$3, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, $(mt($Integer::TYPE, $$new($ClassArray, 0))), toVoid, impl, toVoid);
 	$Class* var$4 = $LambdaConversionException::class$;
@@ -426,127 +381,125 @@ void MetafactoryArgValidationTest::testLCE() {
 	$var($String, var$6, "m"_s);
 	$var($MethodType, var$7, mt($Integer::TYPE, $$new($ClassArray, 0)));
 	amfFail(var$4, var$5, var$6, var$7, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	amfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagMark))),
-		$($of($Integer::valueOf(1))),
-		$of($Object::class$)
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagMark)),
+		$($Integer::valueOf(1)),
+		$Object::class$
 	}))));
 	amfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagMark))),
-		$($of($Integer::valueOf(1))),
-		$of($Integer::TYPE)
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagMark)),
+		$($Integer::valueOf(1)),
+		$Integer::TYPE
 	}))));
 	amfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagMark))),
-		$($of($Integer::valueOf(2))),
-		$of($Runnable::class$),
-		$of($Object::class$)
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagMark)),
+		$($Integer::valueOf(2)),
+		$Runnable::class$,
+		$Object::class$
 	}))));
 	mfFail($LambdaConversionException::class$, $($MethodHandles::publicLookup()), "m"_s, toI, toVoid, impl, toVoid);
 	$Class* var$8 = $LambdaConversionException::class$;
 	$var($MethodHandles$Lookup, var$9, $MethodHandles::publicLookup());
 	$var($String, var$10, "m"_s);
-	$var($MethodType, var$11, toI);
-	amfFail(var$8, var$9, var$10, var$11, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+	amfFail(var$8, var$9, var$10, toI, $(arr($$new($ObjectArray, {
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfFail($LambdaConversionException::class$, $($nc($MetafactoryArgValidationTest$C::lookup)->dropLookupMode($MethodHandles$Lookup::PRIVATE)), "m"_s, toI, toVoid, impl, toVoid);
-	$Class* var$12 = $LambdaConversionException::class$;
-	$var($MethodHandles$Lookup, var$13, $nc($MetafactoryArgValidationTest$C::lookup)->dropLookupMode($MethodHandles$Lookup::PRIVATE));
-	$var($String, var$14, "m"_s);
-	$var($MethodType, var$15, toI);
-	amfFail(var$12, var$13, var$14, var$15, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$of(impl),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+	$Class* var$11 = $LambdaConversionException::class$;
+	$var($MethodHandles$Lookup, var$12, $nc($MetafactoryArgValidationTest$C::lookup)->dropLookupMode($MethodHandles$Lookup::PRIVATE));
+	$var($String, var$13, "m"_s);
+	amfFail(var$11, var$12, var$13, toI, $(arr($$new($ObjectArray, {
+		toVoid,
+		impl,
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, cToC, $($MetafactoryArgValidationTest$C::getFieldMH()), cToC);
 	amfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(cToC),
-		$($of($MetafactoryArgValidationTest$C::getFieldMH())),
-		$of(cToC),
-		$($of($Integer::valueOf(flagSer)))
+		cToC,
+		$($MetafactoryArgValidationTest$C::getFieldMH()),
+		cToC,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, toC, $($MetafactoryArgValidationTest$C::getStaticMH()), toC);
 	amfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$($of($MetafactoryArgValidationTest$C::getStaticMH())),
-		$of(toC),
-		$($of($Integer::valueOf(flagSer)))
+		toC,
+		$($MetafactoryArgValidationTest$C::getStaticMH()),
+		toC,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, ccToVoid, $($MetafactoryArgValidationTest$C::putFieldMH()), ccToVoid);
 	amfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(ccToVoid),
-		$($of($MetafactoryArgValidationTest$C::putFieldMH())),
-		$of(ccToVoid),
-		$($of($Integer::valueOf(flagSer)))
+		ccToVoid,
+		$($MetafactoryArgValidationTest$C::putFieldMH()),
+		ccToVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, cToVoid, $($MetafactoryArgValidationTest$C::putStaticMH()), cToVoid);
 	amfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(cToVoid),
-		$($of($MetafactoryArgValidationTest$C::putStaticMH())),
-		$of(cToVoid),
-		$($of($Integer::valueOf(flagSer)))
+		cToVoid,
+		$($MetafactoryArgValidationTest$C::putStaticMH()),
+		cToVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, cToVoid, $($MetafactoryArgValidationTest$C::invokeVirtualMH()), cToVoid);
 	amfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(cToVoid),
-		$($of($MetafactoryArgValidationTest$C::invokeVirtualMH())),
-		$of(cToVoid),
-		$($of($Integer::valueOf(flagSer)))
+		cToVoid,
+		$($MetafactoryArgValidationTest$C::invokeVirtualMH()),
+		cToVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, toVoid, $($MetafactoryArgValidationTest$C::invokeStaticMH()), toVoid);
 	amfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$($of($MetafactoryArgValidationTest$C::invokeStaticMH())),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+		toVoid,
+		$($MetafactoryArgValidationTest$C::invokeStaticMH()),
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, cToString, $($MetafactoryArgValidationTest$C::invokeSpecialMH()), cToString);
 	amfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(cToString),
-		$($of($MetafactoryArgValidationTest$C::invokeSpecialMH())),
-		$of(cToString),
-		$($of($Integer::valueOf(flagSer)))
+		cToString,
+		$($MetafactoryArgValidationTest$C::invokeSpecialMH()),
+		cToString,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, toC, $($MetafactoryArgValidationTest$C::newInvokeSpecialMH()), toC);
 	amfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toC),
-		$($of($MetafactoryArgValidationTest$C::newInvokeSpecialMH())),
-		$of(toC),
-		$($of($Integer::valueOf(flagSer)))
+		toC,
+		$($MetafactoryArgValidationTest$C::newInvokeSpecialMH()),
+		toC,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, cToVoid, $($MetafactoryArgValidationTest$C::invokeInterfaceMH()), cToVoid);
 	amfSucceed($MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(cToVoid),
-		$($of($MetafactoryArgValidationTest$C::invokeInterfaceMH())),
-		$of(cToVoid),
-		$($of($Integer::valueOf(flagSer)))
+		cToVoid,
+		$($MetafactoryArgValidationTest$C::invokeInterfaceMH()),
+		cToVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 	mfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, toVoid, $($MethodHandles::empty(toVoid)), toVoid);
 	amfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
-		$of(toVoid),
-		$($of($MethodHandles::empty(toVoid))),
-		$of(toVoid),
-		$($of($Integer::valueOf(flagSer)))
+		toVoid,
+		$($MethodHandles::empty(toVoid)),
+		toVoid,
+		$($Integer::valueOf(flagSer))
 	}))));
 }
 
@@ -559,17 +512,17 @@ $ObjectArray* MetafactoryArgValidationTest::arr($ObjectArray* args) {
 }
 
 $CallSite* MetafactoryArgValidationTest::mfSucceed($MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $MethodType* desc, $MethodHandle* impl, $MethodType* checked) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $LambdaMetafactory::metafactory(lookup, name, capType, desc, impl, checked);
 	} catch ($Throwable& t) {
 		$var($String, msg, $String::format("Unexpected exception during linkage for metafactory(%s, %s, %s, %s, %s, %s)"_s, $$new($ObjectArray, {
-			$of(lookup),
-			$of(name),
-			$of(capType),
-			$of(desc),
-			$of(impl),
-			$of(checked)
+			lookup,
+			name,
+			capType,
+			desc,
+			impl,
+			checked
 		})));
 		$throwNew($AssertionError, msg, t);
 	}
@@ -577,7 +530,7 @@ $CallSite* MetafactoryArgValidationTest::mfSucceed($MethodHandles$Lookup* lookup
 }
 
 void MetafactoryArgValidationTest::mfFail($Class* exceptionType, $MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $MethodType* desc, $MethodHandle* impl, $MethodType* checked) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$LambdaMetafactory::metafactory(lookup, name, capType, desc, impl, checked);
 	} catch ($Throwable& t) {
@@ -585,39 +538,39 @@ void MetafactoryArgValidationTest::mfFail($Class* exceptionType, $MethodHandles$
 			return;
 		} else {
 			$var($String, msg, $String::format("Unexpected exception: expected %s during linkage for metafactory(%s, %s, %s, %s, %s, %s)"_s, $$new($ObjectArray, {
-				$($of(exceptionType->getName())),
-				$of(lookup),
-				$of(name),
-				$of(capType),
-				$of(desc),
-				$of(impl),
-				$of(checked)
+				$(exceptionType->getName()),
+				lookup,
+				name,
+				capType,
+				desc,
+				impl,
+				checked
 			})));
 			$throwNew($AssertionError, msg, t);
 		}
 	}
 	$var($String, msg, $String::format("Unexpected success: expected %s during linkage for metafactory(%s, %s, %s, %s, %s, %s)"_s, $$new($ObjectArray, {
-		$($of($nc(exceptionType)->getName())),
-		$of(lookup),
-		$of(name),
-		$of(capType),
-		$of(desc),
-		$of(impl),
-		$of(checked)
+		$($nc(exceptionType)->getName()),
+		lookup,
+		name,
+		capType,
+		desc,
+		impl,
+		checked
 	})));
 	$throwNew($AssertionError, $of(msg));
 }
 
 $CallSite* MetafactoryArgValidationTest::amfSucceed($MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $LambdaMetafactory::altMetafactory(lookup, name, capType, args);
 	} catch ($Throwable& t) {
 		$var($String, msg, $String::format("Unexpected exception during linkage for altMetafactory(%s, %s, %s, %s)"_s, $$new($ObjectArray, {
-			$of(lookup),
-			$of(name),
-			$of(capType),
-			$($of($Arrays::asList(args)))
+			lookup,
+			name,
+			capType,
+			$($Arrays::asList(args))
 		})));
 		$throwNew($AssertionError, msg, t);
 	}
@@ -625,7 +578,7 @@ $CallSite* MetafactoryArgValidationTest::amfSucceed($MethodHandles$Lookup* looku
 }
 
 void MetafactoryArgValidationTest::amfFail($Class* exceptionType, $MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$LambdaMetafactory::altMetafactory(lookup, name, capType, args);
 	} catch ($Throwable& t) {
@@ -633,21 +586,21 @@ void MetafactoryArgValidationTest::amfFail($Class* exceptionType, $MethodHandles
 			return;
 		} else {
 			$var($String, msg, $String::format("Unexpected exception: expected %s during linkage for altMetafactory(%s, %s, %s, %s)"_s, $$new($ObjectArray, {
-				$($of(exceptionType->getName())),
-				$of(lookup),
-				$of(name),
-				$of(capType),
-				$($of($Arrays::asList(args)))
+				$(exceptionType->getName()),
+				lookup,
+				name,
+				capType,
+				$($Arrays::asList(args))
 			})));
 			$throwNew($AssertionError, msg, t);
 		}
 	}
 	$var($String, msg, $String::format("Unexpected success: expected %s during linkage for altMetafactory(%s, %s, %s, %s)"_s, $$new($ObjectArray, {
-		$($of($nc(exceptionType)->getName())),
-		$of(lookup),
-		$of(name),
-		$of(capType),
-		$($of($Arrays::asList(args)))
+		$($nc(exceptionType)->getName()),
+		lookup,
+		name,
+		capType,
+		$($Arrays::asList(args))
 	})));
 	$throwNew($AssertionError, $of(msg));
 }
@@ -656,7 +609,42 @@ MetafactoryArgValidationTest::MetafactoryArgValidationTest() {
 }
 
 $Class* MetafactoryArgValidationTest::load$($String* name, bool initialize) {
-	$loadClass(MetafactoryArgValidationTest, name, initialize, &_MetafactoryArgValidationTest_ClassInfo_, allocate$MetafactoryArgValidationTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryArgValidationTest, init$, void)},
+		{"amfFail", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", $STATIC, $staticMethod(MetafactoryArgValidationTest, amfFail, void, $Class*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*)},
+		{"amfSucceed", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $STATIC, $staticMethod(MetafactoryArgValidationTest, amfSucceed, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*)},
+		{"arr", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $staticMethod(MetafactoryArgValidationTest, arr, $ObjectArray*, $ObjectArray*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MetafactoryArgValidationTest, main, void, $StringArray*)},
+		{"mfFail", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V", $STATIC, $staticMethod(MetafactoryArgValidationTest, mfFail, void, $Class*, $MethodHandles$Lookup*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*)},
+		{"mfSucceed", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", nullptr, $STATIC, $staticMethod(MetafactoryArgValidationTest, mfSucceed, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*)},
+		{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $STATIC | $TRANSIENT, $staticMethod(MetafactoryArgValidationTest, mt, $MethodType*, $Class*, $ClassArray*)},
+		{"testIAE", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest, testIAE, void)},
+		{"testLCE", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest, testLCE, void)},
+		{"testNPE", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest, testNPE, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MetafactoryArgValidationTest$I", "MetafactoryArgValidationTest", "I", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"MetafactoryArgValidationTest$C", "MetafactoryArgValidationTest", "C", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MetafactoryArgValidationTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"MetafactoryArgValidationTest$I,MetafactoryArgValidationTest$C"
+	};
+	$loadClass(MetafactoryArgValidationTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetafactoryArgValidationTest);
+	});
 	return class$;
 }
 

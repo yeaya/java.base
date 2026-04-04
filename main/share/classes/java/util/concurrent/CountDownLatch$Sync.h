@@ -17,7 +17,7 @@ public:
 	int32_t getCount();
 	virtual int32_t tryAcquireShared(int32_t acquires) override;
 	virtual bool tryReleaseShared(int32_t releases) override;
-	static const int64_t serialVersionUID = (int64_t)0x45248F9A985464A6;
+	static const int64_t serialVersionUID = (int64_t)0x45248f9a985464a6;
 };
 
 		} // concurrent

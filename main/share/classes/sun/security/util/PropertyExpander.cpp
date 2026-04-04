@@ -1,5 +1,4 @@
 #include <sun/security/util/PropertyExpander.h>
-
 #include <java/io/File.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
@@ -20,37 +19,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$MethodInfo _PropertyExpander_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PropertyExpander, init$, void)},
-	{"expand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyExpander, expand, $String*, $String*), "sun.security.util.PropertyExpander$ExpandException"},
-	{"expand", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyExpander, expand, $String*, $String*, bool), "sun.security.util.PropertyExpander$ExpandException"},
-	{}
-};
-
-$InnerClassInfo _PropertyExpander_InnerClassesInfo_[] = {
-	{"sun.security.util.PropertyExpander$ExpandException", "sun.security.util.PropertyExpander", "ExpandException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PropertyExpander_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.PropertyExpander",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PropertyExpander_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PropertyExpander_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.PropertyExpander$ExpandException"
-};
-
-$Object* allocate$PropertyExpander($Class* clazz) {
-	return $of($alloc(PropertyExpander));
-}
-
 void PropertyExpander::init$() {
 }
 
@@ -59,7 +27,7 @@ $String* PropertyExpander::expand($String* value) {
 }
 
 $String* PropertyExpander::expand($String* value, bool encodeURL) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		return nullptr;
 	}
@@ -136,7 +104,33 @@ PropertyExpander::PropertyExpander() {
 }
 
 $Class* PropertyExpander::load$($String* name, bool initialize) {
-	$loadClass(PropertyExpander, name, initialize, &_PropertyExpander_ClassInfo_, allocate$PropertyExpander);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PropertyExpander, init$, void)},
+		{"expand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyExpander, expand, $String*, $String*), "sun.security.util.PropertyExpander$ExpandException"},
+		{"expand", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyExpander, expand, $String*, $String*, bool), "sun.security.util.PropertyExpander$ExpandException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.PropertyExpander$ExpandException", "sun.security.util.PropertyExpander", "ExpandException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.PropertyExpander",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.PropertyExpander$ExpandException"
+	};
+	$loadClass(PropertyExpander, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyExpander);
+	});
 	return class$;
 }
 

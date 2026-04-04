@@ -1,5 +1,4 @@
 #include <p1/A.h>
-
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
@@ -13,46 +12,22 @@ using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 
 namespace p1 {
-
-$FieldInfo _A_FieldInfo_[] = {
-	{"lock", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(A, lock)},
-	{}
-};
-
-$MethodInfo _A_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(A, init$, void)},
-	{}
-};
-
-$ClassInfo _A_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"p1.A",
-	"java.lang.Object",
-	nullptr,
-	_A_FieldInfo_,
-	_A_MethodInfo_
-};
-
-$Object* allocate$A($Class* clazz) {
-	return $of($alloc(A));
-}
 
 $Object* A::lock = nullptr;
 
 void A::init$() {
 }
 
-void clinit$A($Class* class$) {
+void A::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		try {
-			$nc($($MethodHandles::lookup()))->ensureInitialized(A::class$);
+			$$nc($MethodHandles::lookup())->ensureInitialized(A::class$);
 			$assignStatic(A::lock, $new($Object));
 		} catch ($IllegalAccessException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		}
 	}
 }
@@ -61,7 +36,25 @@ A::A() {
 }
 
 $Class* A::load$($String* name, bool initialize) {
-	$loadClass(A, name, initialize, &_A_ClassInfo_, clinit$A, allocate$A);
+	$FieldInfo fieldInfos$$[] = {
+		{"lock", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(A, lock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(A, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"p1.A",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(A, name, initialize, &classInfo$$, A::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(A);
+	});
 	return class$;
 }
 

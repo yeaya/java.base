@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/jar/JarURLConnection$JarURLInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/util/jar/JarFile.h>
@@ -13,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JarFile = ::java::util::jar::JarFile;
 using $JarURLConnection = ::sun::net::www::protocol::jar::JarURLConnection;
 
 namespace sun {
@@ -22,62 +20,24 @@ namespace sun {
 			namespace protocol {
 				namespace jar {
 
-$FieldInfo _JarURLConnection$JarURLInputStream_FieldInfo_[] = {
-	{"this$0", "Lsun/net/www/protocol/jar/JarURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(JarURLConnection$JarURLInputStream, this$0)},
-	{}
-};
-
-$MethodInfo _JarURLConnection$JarURLInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/jar/JarURLConnection;Ljava/io/InputStream;)V", nullptr, 0, $method(JarURLConnection$JarURLInputStream, init$, void, $JarURLConnection*, $InputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JarURLConnection$JarURLInputStream, close, void), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JarURLConnection$JarURLInputStream_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream", "sun.net.www.protocol.jar.JarURLConnection", "JarURLInputStream", 0},
-	{}
-};
-
-$ClassInfo _JarURLConnection$JarURLInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_JarURLConnection$JarURLInputStream_FieldInfo_,
-	_JarURLConnection$JarURLInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JarURLConnection$JarURLInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.jar.JarURLConnection"
-};
-
-$Object* allocate$JarURLConnection$JarURLInputStream($Class* clazz) {
-	return $of($alloc(JarURLConnection$JarURLInputStream));
-}
-
 void JarURLConnection$JarURLInputStream::init$($JarURLConnection* this$0, $InputStream* src) {
 	$set(this, this$0, this$0);
 	$FilterInputStream::init$(src);
 }
 
 void JarURLConnection$JarURLInputStream::close() {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$FilterInputStream::close();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (!this->this$0->getUseCaches()) {
-				$nc(this->this$0->jarFile)->close();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$FilterInputStream::close();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (!this->this$0->getUseCaches()) {
+			$nc(this->this$0->jarFile)->close();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -85,7 +45,37 @@ JarURLConnection$JarURLInputStream::JarURLConnection$JarURLInputStream() {
 }
 
 $Class* JarURLConnection$JarURLInputStream::load$($String* name, bool initialize) {
-	$loadClass(JarURLConnection$JarURLInputStream, name, initialize, &_JarURLConnection$JarURLInputStream_ClassInfo_, allocate$JarURLConnection$JarURLInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/www/protocol/jar/JarURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(JarURLConnection$JarURLInputStream, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/protocol/jar/JarURLConnection;Ljava/io/InputStream;)V", nullptr, 0, $method(JarURLConnection$JarURLInputStream, init$, void, $JarURLConnection*, $InputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JarURLConnection$JarURLInputStream, close, void), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream", "sun.net.www.protocol.jar.JarURLConnection", "JarURLInputStream", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.jar.JarURLConnection"
+	};
+	$loadClass(JarURLConnection$JarURLInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarURLConnection$JarURLInputStream);
+	});
 	return class$;
 }
 

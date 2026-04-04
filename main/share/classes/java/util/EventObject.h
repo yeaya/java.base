@@ -15,7 +15,7 @@ public:
 	void init$(Object$* source);
 	virtual $Object* getSource();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x4C8D094E186D7DA8;
+	static const int64_t serialVersionUID = (int64_t)0x4c8d094e186d7da8;
 	$Object* source = nullptr;
 };
 

@@ -27,6 +27,7 @@ class Norm2AllModes$NFKCSingleton : public ::java::lang::Object {
 	$class(Norm2AllModes$NFKCSingleton, 0, ::java::lang::Object)
 public:
 	Norm2AllModes$NFKCSingleton();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::icu::impl::Norm2AllModes$Norm2AllModesSingleton* INSTANCE;
 };

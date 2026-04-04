@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$PrefixTree$LENIENT.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/text/ParsePosition.h>
 #include <java/time/format/DateTimeFormatterBuilder$PrefixTree$CI.h>
@@ -18,42 +17,6 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$MethodInfo _DateTimeFormatterBuilder$PrefixTree$LENIENT_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree$LENIENT, init$, void, $String*, $String*, $DateTimeFormatterBuilder$PrefixTree*)},
-	{"isLenientChar", "(C)Z", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree$LENIENT, isLenientChar, bool, char16_t)},
-	{"match", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$LENIENT, match, $String*, $CharSequence*, $ParsePosition*)},
-	{"newNode", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree$CI;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$LENIENT, newNode, $DateTimeFormatterBuilder$PrefixTree$CI*, $String*, $String*, $DateTimeFormatterBuilder$PrefixTree*)},
-	{"toKey", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$LENIENT, toKey, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$PrefixTree$LENIENT_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$PrefixTree", "java.time.format.DateTimeFormatterBuilder", "PrefixTree", $STATIC},
-	{"java.time.format.DateTimeFormatterBuilder$PrefixTree$LENIENT", "java.time.format.DateTimeFormatterBuilder$PrefixTree", "LENIENT", $PRIVATE | $STATIC},
-	{"java.time.format.DateTimeFormatterBuilder$PrefixTree$CI", "java.time.format.DateTimeFormatterBuilder$PrefixTree", "CI", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$PrefixTree$LENIENT_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$PrefixTree$LENIENT",
-	"java.time.format.DateTimeFormatterBuilder$PrefixTree$CI",
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$PrefixTree$LENIENT_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$PrefixTree$LENIENT_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$PrefixTree$LENIENT($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$PrefixTree$LENIENT));
-}
-
 void DateTimeFormatterBuilder$PrefixTree$LENIENT::init$($String* k, $String* v, $DateTimeFormatterBuilder$PrefixTree* child) {
 	$DateTimeFormatterBuilder$PrefixTree$CI::init$(k, v, child);
 }
@@ -67,11 +30,11 @@ bool DateTimeFormatterBuilder$PrefixTree$LENIENT::isLenientChar(char16_t c) {
 }
 
 $String* DateTimeFormatterBuilder$PrefixTree$LENIENT::toKey($String* k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(k)->length(); ++i) {
 		if (isLenientChar(k->charAt(i))) {
 			$var($StringBuilder, sb, $new($StringBuilder, k->length()));
-			sb->append(static_cast<$CharSequence*>(k), 0, i);
+			sb->append(k, 0, i);
 			++i;
 			while (i < k->length()) {
 				if (!isLenientChar(k->charAt(i))) {
@@ -86,7 +49,7 @@ $String* DateTimeFormatterBuilder$PrefixTree$LENIENT::toKey($String* k) {
 }
 
 $String* DateTimeFormatterBuilder$PrefixTree$LENIENT::match($CharSequence* text, $ParsePosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t off = $nc(pos)->getIndex();
 	int32_t end = $nc(text)->length();
 	int32_t len = $nc(this->key)->length();
@@ -96,7 +59,7 @@ $String* DateTimeFormatterBuilder$PrefixTree$LENIENT::match($CharSequence* text,
 			++off;
 			continue;
 		}
-		char16_t var$0 = $nc(this->key)->charAt(koff++);
+		char16_t var$0 = this->key->charAt(koff++);
 		if (!isEqual(var$0, text->charAt(off++))) {
 			return nullptr;
 		}
@@ -114,13 +77,13 @@ $String* DateTimeFormatterBuilder$PrefixTree$LENIENT::match($CharSequence* text,
 			do {
 				if (isEqual($nc(c)->c0, text->charAt(off0))) {
 					pos->setIndex(off0);
-					$var($String, found, $nc(c)->match(text, pos));
+					$var($String, found, c->match(text, pos));
 					if (found != nullptr) {
 						return found;
 					}
 					break;
 				}
-				$assign(c, $nc(c)->sibling);
+				$assign(c, c->sibling);
 			} while (c != nullptr);
 		}
 	}
@@ -132,7 +95,38 @@ DateTimeFormatterBuilder$PrefixTree$LENIENT::DateTimeFormatterBuilder$PrefixTree
 }
 
 $Class* DateTimeFormatterBuilder$PrefixTree$LENIENT::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$PrefixTree$LENIENT, name, initialize, &_DateTimeFormatterBuilder$PrefixTree$LENIENT_ClassInfo_, allocate$DateTimeFormatterBuilder$PrefixTree$LENIENT);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree$LENIENT, init$, void, $String*, $String*, $DateTimeFormatterBuilder$PrefixTree*)},
+		{"isLenientChar", "(C)Z", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree$LENIENT, isLenientChar, bool, char16_t)},
+		{"match", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$LENIENT, match, $String*, $CharSequence*, $ParsePosition*)},
+		{"newNode", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree$CI;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$LENIENT, newNode, $DateTimeFormatterBuilder$PrefixTree$CI*, $String*, $String*, $DateTimeFormatterBuilder$PrefixTree*)},
+		{"toKey", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$LENIENT, toKey, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$PrefixTree", "java.time.format.DateTimeFormatterBuilder", "PrefixTree", $STATIC},
+		{"java.time.format.DateTimeFormatterBuilder$PrefixTree$LENIENT", "java.time.format.DateTimeFormatterBuilder$PrefixTree", "LENIENT", $PRIVATE | $STATIC},
+		{"java.time.format.DateTimeFormatterBuilder$PrefixTree$CI", "java.time.format.DateTimeFormatterBuilder$PrefixTree", "CI", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$PrefixTree$LENIENT",
+		"java.time.format.DateTimeFormatterBuilder$PrefixTree$CI",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$PrefixTree$LENIENT, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$PrefixTree$LENIENT);
+	});
 	return class$;
 }
 

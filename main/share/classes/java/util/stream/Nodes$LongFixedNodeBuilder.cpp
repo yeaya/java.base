@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$LongFixedNodeBuilder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Arrays.h>
@@ -25,53 +24,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _Nodes$LongFixedNodeBuilder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Nodes$LongFixedNodeBuilder, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _Nodes$LongFixedNodeBuilder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(J)V", nullptr, 0, $method(Nodes$LongFixedNodeBuilder, init$, void, int64_t)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$LongFixedNodeBuilder, accept, void, int64_t)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$LongFixedNodeBuilder, begin, void, int64_t)},
-	{"build", "()Ljava/util/stream/Node$OfLong;", nullptr, $PUBLIC, $virtualMethod(Nodes$LongFixedNodeBuilder, build, $Node$OfLong*)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Nodes$LongFixedNodeBuilder, end, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$LongFixedNodeBuilder, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Nodes$LongFixedNodeBuilder_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$LongFixedNodeBuilder", "java.util.stream.Nodes", "LongFixedNodeBuilder", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.Nodes$LongArrayNode", "java.util.stream.Nodes", "LongArrayNode", $PRIVATE | $STATIC},
-	{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Node$Builder$OfLong", "java.util.stream.Node$Builder", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$LongFixedNodeBuilder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Nodes$LongFixedNodeBuilder",
-	"java.util.stream.Nodes$LongArrayNode",
-	"java.util.stream.Node$Builder$OfLong",
-	_Nodes$LongFixedNodeBuilder_FieldInfo_,
-	_Nodes$LongFixedNodeBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Nodes$LongFixedNodeBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$LongFixedNodeBuilder($Class* clazz) {
-	return $of($alloc(Nodes$LongFixedNodeBuilder));
-}
-
 int32_t Nodes$LongFixedNodeBuilder::hashCode() {
 	 return this->$Nodes$LongArrayNode::hashCode();
 }
@@ -92,61 +44,61 @@ bool Nodes$LongFixedNodeBuilder::$assertionsDisabled = false;
 
 void Nodes$LongFixedNodeBuilder::init$(int64_t size) {
 	$Nodes$LongArrayNode::init$(size);
-	if (!Nodes$LongFixedNodeBuilder::$assertionsDisabled && !(size < (int64_t)2147483639)) {
+	if (!Nodes$LongFixedNodeBuilder::$assertionsDisabled && !(size < 2147483639)) {
 		$throwNew($AssertionError);
 	}
 }
 
 $Node$OfLong* Nodes$LongFixedNodeBuilder::build() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->curSize < $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("Current size %d is less than fixed size %d"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(this->curSize))),
-			$($of($Integer::valueOf($nc(this->array)->length)))
+			$($Integer::valueOf(this->curSize)),
+			$($Integer::valueOf(this->array->length))
 		}))));
 	}
 	return this;
 }
 
 void Nodes$LongFixedNodeBuilder::begin(int64_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (size != $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("Begin size %d is not equal to fixed size %d"_s, $$new($ObjectArray, {
-			$($of($Long::valueOf(size))),
-			$($of($Integer::valueOf($nc(this->array)->length)))
+			$($Long::valueOf(size)),
+			$($Integer::valueOf(this->array->length))
 		}))));
 	}
 	this->curSize = 0;
 }
 
 void Nodes$LongFixedNodeBuilder::accept(int64_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->curSize < $nc(this->array)->length) {
-		$nc(this->array)->set(this->curSize++, i);
+		this->array->set(this->curSize++, i);
 	} else {
-		$throwNew($IllegalStateException, $($String::format("Accept exceeded fixed size of %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(this->array)->length)))}))));
+		$throwNew($IllegalStateException, $($String::format("Accept exceeded fixed size of %d"_s, $$new($ObjectArray, {$($Integer::valueOf(this->array->length))}))));
 	}
 }
 
 void Nodes$LongFixedNodeBuilder::end() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->curSize < $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("End size %d is less than fixed size %d"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(this->curSize))),
-			$($of($Integer::valueOf($nc(this->array)->length)))
+			$($Integer::valueOf(this->curSize)),
+			$($Integer::valueOf(this->array->length))
 		}))));
 	}
 }
 
 $String* Nodes$LongFixedNodeBuilder::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("LongFixedNodeBuilder[%d][%s]"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf($nc(this->array)->length - this->curSize))),
-		$($of($Arrays::toString(this->array)))
+		$($Integer::valueOf($nc(this->array)->length - this->curSize)),
+		$($Arrays::toString(this->array))
 	}));
 }
 
-void clinit$Nodes$LongFixedNodeBuilder($Class* class$) {
+void Nodes$LongFixedNodeBuilder::clinit$($Class* clazz) {
 	$load($Nodes);
 	Nodes$LongFixedNodeBuilder::$assertionsDisabled = !$Nodes::class$->desiredAssertionStatus();
 }
@@ -155,7 +107,48 @@ Nodes$LongFixedNodeBuilder::Nodes$LongFixedNodeBuilder() {
 }
 
 $Class* Nodes$LongFixedNodeBuilder::load$($String* name, bool initialize) {
-	$loadClass(Nodes$LongFixedNodeBuilder, name, initialize, &_Nodes$LongFixedNodeBuilder_ClassInfo_, clinit$Nodes$LongFixedNodeBuilder, allocate$Nodes$LongFixedNodeBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Nodes$LongFixedNodeBuilder, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(J)V", nullptr, 0, $method(Nodes$LongFixedNodeBuilder, init$, void, int64_t)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$LongFixedNodeBuilder, accept, void, int64_t)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$LongFixedNodeBuilder, begin, void, int64_t)},
+		{"build", "()Ljava/util/stream/Node$OfLong;", nullptr, $PUBLIC, $virtualMethod(Nodes$LongFixedNodeBuilder, build, $Node$OfLong*)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Nodes$LongFixedNodeBuilder, end, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$LongFixedNodeBuilder, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$LongFixedNodeBuilder", "java.util.stream.Nodes", "LongFixedNodeBuilder", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.Nodes$LongArrayNode", "java.util.stream.Nodes", "LongArrayNode", $PRIVATE | $STATIC},
+		{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Node$Builder$OfLong", "java.util.stream.Node$Builder", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Nodes$LongFixedNodeBuilder",
+		"java.util.stream.Nodes$LongArrayNode",
+		"java.util.stream.Node$Builder$OfLong",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$LongFixedNodeBuilder, name, initialize, &classInfo$$, Nodes$LongFixedNodeBuilder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$LongFixedNodeBuilder));
+	});
 	return class$;
 }
 

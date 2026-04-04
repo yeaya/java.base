@@ -1,5 +1,4 @@
 #include <sun/security/action/GetPropertyAction$1.h>
-
 #include <java/util/Properties.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
@@ -13,43 +12,6 @@ namespace sun {
 	namespace security {
 		namespace action {
 
-$MethodInfo _GetPropertyAction$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GetPropertyAction$1, init$, void)},
-	{"run", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(GetPropertyAction$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _GetPropertyAction$1_EnclosingMethodInfo_ = {
-	"sun.security.action.GetPropertyAction",
-	"privilegedGetProperties",
-	"()Ljava/util/Properties;"
-};
-
-$InnerClassInfo _GetPropertyAction$1_InnerClassesInfo_[] = {
-	{"sun.security.action.GetPropertyAction$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GetPropertyAction$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.action.GetPropertyAction$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_GetPropertyAction$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/Properties;>;",
-	&_GetPropertyAction$1_EnclosingMethodInfo_,
-	_GetPropertyAction$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.action.GetPropertyAction"
-};
-
-$Object* allocate$GetPropertyAction$1($Class* clazz) {
-	return $of($alloc(GetPropertyAction$1));
-}
-
 void GetPropertyAction$1::init$() {
 }
 
@@ -61,7 +23,38 @@ GetPropertyAction$1::GetPropertyAction$1() {
 }
 
 $Class* GetPropertyAction$1::load$($String* name, bool initialize) {
-	$loadClass(GetPropertyAction$1, name, initialize, &_GetPropertyAction$1_ClassInfo_, allocate$GetPropertyAction$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GetPropertyAction$1, init$, void)},
+		{"run", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(GetPropertyAction$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.action.GetPropertyAction",
+		"privilegedGetProperties",
+		"()Ljava/util/Properties;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.action.GetPropertyAction$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.action.GetPropertyAction$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/Properties;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.action.GetPropertyAction"
+	};
+	$loadClass(GetPropertyAction$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetPropertyAction$1);
+	});
 	return class$;
 }
 

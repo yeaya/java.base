@@ -1,5 +1,4 @@
 #include <sun/net/www/http/HttpClient$1.h>
-
 #include <java/net/InetSocketAddress.h>
 #include <sun/net/www/http/HttpClient.h>
 #include <jcpp.h>
@@ -17,49 +16,6 @@ namespace sun {
 		namespace www {
 			namespace http {
 
-$FieldInfo _HttpClient$1_FieldInfo_[] = {
-	{"this$0", "Lsun/net/www/http/HttpClient;", nullptr, $FINAL | $SYNTHETIC, $field(HttpClient$1, this$0)},
-	{"val$server", "Ljava/net/InetSocketAddress;", nullptr, $FINAL | $SYNTHETIC, $field(HttpClient$1, val$server)},
-	{}
-};
-
-$MethodInfo _HttpClient$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/http/HttpClient;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(HttpClient$1, init$, void, $HttpClient*, $InetSocketAddress*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(HttpClient$1, run, $Object*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _HttpClient$1_EnclosingMethodInfo_ = {
-	"sun.net.www.http.HttpClient",
-	"privilegedOpenServer",
-	"(Ljava/net/InetSocketAddress;)V"
-};
-
-$InnerClassInfo _HttpClient$1_InnerClassesInfo_[] = {
-	{"sun.net.www.http.HttpClient$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HttpClient$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.http.HttpClient$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_HttpClient$1_FieldInfo_,
-	_HttpClient$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Object;>;",
-	&_HttpClient$1_EnclosingMethodInfo_,
-	_HttpClient$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.http.HttpClient"
-};
-
-$Object* allocate$HttpClient$1($Class* clazz) {
-	return $of($alloc(HttpClient$1));
-}
-
 void HttpClient$1::init$($HttpClient* this$0, $InetSocketAddress* val$server) {
 	$set(this, this$0, this$0);
 	$set(this, val$server, val$server);
@@ -67,15 +23,51 @@ void HttpClient$1::init$($HttpClient* this$0, $InetSocketAddress* val$server) {
 
 $Object* HttpClient$1::run() {
 	$var($String, var$0, $nc(this->val$server)->getHostString());
-	this->this$0->openServer(var$0, $nc(this->val$server)->getPort());
-	return $of(nullptr);
+	this->this$0->openServer(var$0, this->val$server->getPort());
+	return nullptr;
 }
 
 HttpClient$1::HttpClient$1() {
 }
 
 $Class* HttpClient$1::load$($String* name, bool initialize) {
-	$loadClass(HttpClient$1, name, initialize, &_HttpClient$1_ClassInfo_, allocate$HttpClient$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/www/http/HttpClient;", nullptr, $FINAL | $SYNTHETIC, $field(HttpClient$1, this$0)},
+		{"val$server", "Ljava/net/InetSocketAddress;", nullptr, $FINAL | $SYNTHETIC, $field(HttpClient$1, val$server)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/http/HttpClient;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(HttpClient$1, init$, void, $HttpClient*, $InetSocketAddress*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(HttpClient$1, run, $Object*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.www.http.HttpClient",
+		"privilegedOpenServer",
+		"(Ljava/net/InetSocketAddress;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.http.HttpClient$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.http.HttpClient$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.http.HttpClient"
+	};
+	$loadClass(HttpClient$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClient$1);
+	});
 	return class$;
 }
 

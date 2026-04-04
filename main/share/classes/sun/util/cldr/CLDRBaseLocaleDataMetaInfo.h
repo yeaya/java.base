@@ -28,6 +28,7 @@ class $export CLDRBaseLocaleDataMetaInfo : public ::sun::util::locale::provider:
 	$class(CLDRBaseLocaleDataMetaInfo, 0, ::sun::util::locale::provider::LocaleDataMetaInfo)
 public:
 	CLDRBaseLocaleDataMetaInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* availableLanguageTags($String* category) override;
 	virtual ::java::util::Map* getLanguageAliasMap() override;

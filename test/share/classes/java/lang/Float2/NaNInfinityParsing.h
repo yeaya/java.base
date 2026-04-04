@@ -13,6 +13,7 @@ class $export NaNInfinityParsing : public ::java::lang::Object {
 	$class(NaNInfinityParsing, 0, ::java::lang::Object)
 public:
 	NaNInfinityParsing();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* argv);
 	static $StringArray* NaNStrings;

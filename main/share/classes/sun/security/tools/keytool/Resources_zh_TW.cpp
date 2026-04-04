@@ -1,5 +1,4 @@
 #include <sun/security/tools/keytool/Resources_zh_TW.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,30 +13,6 @@ namespace sun {
 		namespace tools {
 			namespace keytool {
 
-$FieldInfo _Resources_zh_TW_FieldInfo_[] = {
-	{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Resources_zh_TW, contents)},
-	{}
-};
-
-$MethodInfo _Resources_zh_TW_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Resources_zh_TW, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resources_zh_TW, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _Resources_zh_TW_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.tools.keytool.Resources_zh_TW",
-	"java.util.ListResourceBundle",
-	nullptr,
-	_Resources_zh_TW_FieldInfo_,
-	_Resources_zh_TW_MethodInfo_
-};
-
-$Object* allocate$Resources_zh_TW($Class* clazz) {
-	return $of($alloc(Resources_zh_TW));
-}
-
 $ObjectArray2* Resources_zh_TW::contents = nullptr;
 
 void Resources_zh_TW::init$() {
@@ -48,1060 +23,1060 @@ $ObjectArray2* Resources_zh_TW::getContents() {
 	return Resources_zh_TW::contents;
 }
 
-void clinit$Resources_zh_TW($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Resources_zh_TW::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Resources_zh_TW::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("NEWLINE"_s),
-			$of("\n"_s)
+			"NEWLINE"_s,
+			"\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("STAR"_s),
-			$of("*******************************************"_s)
+			"STAR"_s,
+			"*******************************************"_s
 		}),
 		$$new($ObjectArray, {
-			$of("STARNN"_s),
-			$of("*******************************************\n\n"_s)
+			"STARNN"_s,
+			"*******************************************\n\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".OPTION."_s),
-			$of(" [OPTION]..."_s)
+			".OPTION."_s,
+			" [OPTION]..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("Options."_s),
-			$of(u"選項:"_s)
+			"Options."_s,
+			u"選項:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("option.1.set.twice"_s),
-			$of(u"%s 選項已指定多次。將忽略最後一個選項以外的其他所有選項。"_s)
+			"option.1.set.twice"_s,
+			u"%s 選項已指定多次。將忽略最後一個選項以外的其他所有選項。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("multiple.commands.1.2"_s),
-			$of(u"只允許一個命令: 指定了 %1$s 和 %2$s 兩者。"_s)
+			"multiple.commands.1.2"_s,
+			u"只允許一個命令: 指定了 %1$s 和 %2$s 兩者。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Use.keytool.help.for.all.available.commands"_s),
-			$of(u"使用 \"keytool -help\" 取得所有可用的命令"_s)
+			"Use.keytool.help.for.all.available.commands"_s,
+			u"使用 \"keytool -help\" 取得所有可用的命令"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Key.and.Certificate.Management.Tool"_s),
-			$of(u"金鑰與憑證管理工具"_s)
+			"Key.and.Certificate.Management.Tool"_s,
+			u"金鑰與憑證管理工具"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Commands."_s),
-			$of(u"命令:"_s)
+			"Commands."_s,
+			u"命令:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Use.keytool.command.name.help.for.usage.of.command.name"_s),
-			$of(u"使用 \"keytool -command_name -help\" 取得 command_name 的用法。\n使用 -conf <url> 選項指定預先設定的選項檔案。"_s)
+			"Use.keytool.command.name.help.for.usage.of.command.name"_s,
+			u"使用 \"keytool -command_name -help\" 取得 command_name 的用法。\n使用 -conf <url> 選項指定預先設定的選項檔案。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.a.certificate.request"_s),
-			$of(u"產生憑證要求"_s)
+			"Generates.a.certificate.request"_s,
+			u"產生憑證要求"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Changes.an.entry.s.alias"_s),
-			$of(u"變更項目的別名"_s)
+			"Changes.an.entry.s.alias"_s,
+			u"變更項目的別名"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Deletes.an.entry"_s),
-			$of(u"刪除項目"_s)
+			"Deletes.an.entry"_s,
+			u"刪除項目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Exports.certificate"_s),
-			$of(u"匯出憑證"_s)
+			"Exports.certificate"_s,
+			u"匯出憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.a.key.pair"_s),
-			$of(u"產生金鑰組"_s)
+			"Generates.a.key.pair"_s,
+			u"產生金鑰組"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.a.secret.key"_s),
-			$of(u"產生秘密金鑰"_s)
+			"Generates.a.secret.key"_s,
+			u"產生秘密金鑰"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.certificate.from.a.certificate.request"_s),
-			$of(u"從憑證要求產生憑證"_s)
+			"Generates.certificate.from.a.certificate.request"_s,
+			u"從憑證要求產生憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.CRL"_s),
-			$of(u"產生 CRL"_s)
+			"Generates.CRL"_s,
+			u"產生 CRL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generated.keyAlgName.secret.key"_s),
-			$of(u"已產生 {0} 秘密金鑰"_s)
+			"Generated.keyAlgName.secret.key"_s,
+			u"已產生 {0} 秘密金鑰"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generated.keysize.bit.keyAlgName.secret.key"_s),
-			$of(u"已產生 {0} 位元 {1} 秘密金鑰"_s)
+			"Generated.keysize.bit.keyAlgName.secret.key"_s,
+			u"已產生 {0} 位元 {1} 秘密金鑰"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Imports.entries.from.a.JDK.1.1.x.style.identity.database"_s),
-			$of(u"從 JDK 1.1.x-style 識別資料庫匯入項目"_s)
+			"Imports.entries.from.a.JDK.1.1.x.style.identity.database"_s,
+			u"從 JDK 1.1.x-style 識別資料庫匯入項目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Imports.a.certificate.or.a.certificate.chain"_s),
-			$of(u"匯入憑證或憑證鏈"_s)
+			"Imports.a.certificate.or.a.certificate.chain"_s,
+			u"匯入憑證或憑證鏈"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Imports.a.password"_s),
-			$of(u"匯入密碼"_s)
+			"Imports.a.password"_s,
+			u"匯入密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Imports.one.or.all.entries.from.another.keystore"_s),
-			$of(u"從其他金鑰儲存庫匯入一個或全部項目"_s)
+			"Imports.one.or.all.entries.from.another.keystore"_s,
+			u"從其他金鑰儲存庫匯入一個或全部項目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Clones.a.key.entry"_s),
-			$of(u"複製金鑰項目"_s)
+			"Clones.a.key.entry"_s,
+			u"複製金鑰項目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Changes.the.key.password.of.an.entry"_s),
-			$of(u"變更項目的金鑰密碼"_s)
+			"Changes.the.key.password.of.an.entry"_s,
+			u"變更項目的金鑰密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lists.entries.in.a.keystore"_s),
-			$of(u"列示金鑰儲存庫中的項目"_s)
+			"Lists.entries.in.a.keystore"_s,
+			u"列示金鑰儲存庫中的項目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Prints.the.content.of.a.certificate"_s),
-			$of(u"列印憑證的內容"_s)
+			"Prints.the.content.of.a.certificate"_s,
+			u"列印憑證的內容"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Prints.the.content.of.a.certificate.request"_s),
-			$of(u"列印憑證要求的內容"_s)
+			"Prints.the.content.of.a.certificate.request"_s,
+			u"列印憑證要求的內容"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Prints.the.content.of.a.CRL.file"_s),
-			$of(u"列印 CRL 檔案的內容"_s)
+			"Prints.the.content.of.a.CRL.file"_s,
+			u"列印 CRL 檔案的內容"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.a.self.signed.certificate"_s),
-			$of(u"產生自行簽署的憑證"_s)
+			"Generates.a.self.signed.certificate"_s,
+			u"產生自行簽署的憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Changes.the.store.password.of.a.keystore"_s),
-			$of(u"變更金鑰儲存庫的儲存密碼"_s)
+			"Changes.the.store.password.of.a.keystore"_s,
+			u"變更金鑰儲存庫的儲存密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.name.of.the.entry.to.process"_s),
-			$of(u"要處理項目的別名名稱"_s)
+			"alias.name.of.the.entry.to.process"_s,
+			u"要處理項目的別名名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.alias"_s),
-			$of(u"目的地別名"_s)
+			"destination.alias"_s,
+			u"目的地別名"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.key.password"_s),
-			$of(u"目的地金鑰密碼"_s)
+			"destination.key.password"_s,
+			u"目的地金鑰密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.keystore.name"_s),
-			$of(u"目的地金鑰儲存庫名稱"_s)
+			"destination.keystore.name"_s,
+			u"目的地金鑰儲存庫名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.keystore.password.protected"_s),
-			$of(u"目的地金鑰儲存庫密碼保護"_s)
+			"destination.keystore.password.protected"_s,
+			u"目的地金鑰儲存庫密碼保護"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.keystore.provider.name"_s),
-			$of(u"目的地金鑰儲存庫提供者名稱"_s)
+			"destination.keystore.provider.name"_s,
+			u"目的地金鑰儲存庫提供者名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.keystore.password"_s),
-			$of(u"目的地金鑰儲存庫密碼"_s)
+			"destination.keystore.password"_s,
+			u"目的地金鑰儲存庫密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.keystore.type"_s),
-			$of(u"目的地金鑰儲存庫類型"_s)
+			"destination.keystore.type"_s,
+			u"目的地金鑰儲存庫類型"_s
 		}),
 		$$new($ObjectArray, {
-			$of("distinguished.name"_s),
-			$of(u"辨別名稱"_s)
+			"distinguished.name"_s,
+			u"辨別名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("X.509.extension"_s),
-			$of(u"X.509 擴充套件"_s)
+			"X.509.extension"_s,
+			u"X.509 擴充套件"_s
 		}),
 		$$new($ObjectArray, {
-			$of("output.file.name"_s),
-			$of(u"輸出檔案名稱"_s)
+			"output.file.name"_s,
+			u"輸出檔案名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("input.file.name"_s),
-			$of(u"輸入檔案名稱"_s)
+			"input.file.name"_s,
+			u"輸入檔案名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.algorithm.name"_s),
-			$of(u"金鑰演算法名稱"_s)
+			"key.algorithm.name"_s,
+			u"金鑰演算法名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.password"_s),
-			$of(u"金鑰密碼"_s)
+			"key.password"_s,
+			u"金鑰密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.bit.size"_s),
-			$of(u"金鑰位元大小"_s)
+			"key.bit.size"_s,
+			u"金鑰位元大小"_s
 		}),
 		$$new($ObjectArray, {
-			$of("keystore.name"_s),
-			$of(u"金鑰儲存庫名稱"_s)
+			"keystore.name"_s,
+			u"金鑰儲存庫名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("access.the.cacerts.keystore"_s),
-			$of(u"存取 cacerts 金鑰儲存庫"_s)
+			"access.the.cacerts.keystore"_s,
+			u"存取 cacerts 金鑰儲存庫"_s
 		}),
 		$$new($ObjectArray, {
-			$of("warning.cacerts.option"_s),
-			$of(u"警告: 使用 -cacerts 選項存取 cacerts 金鑰儲存庫"_s)
+			"warning.cacerts.option"_s,
+			u"警告: 使用 -cacerts 選項存取 cacerts 金鑰儲存庫"_s
 		}),
 		$$new($ObjectArray, {
-			$of("new.password"_s),
-			$of(u"新密碼"_s)
+			"new.password"_s,
+			u"新密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("do.not.prompt"_s),
-			$of(u"不要提示"_s)
+			"do.not.prompt"_s,
+			u"不要提示"_s
 		}),
 		$$new($ObjectArray, {
-			$of("password.through.protected.mechanism"_s),
-			$of(u"經由保護機制的密碼"_s)
+			"password.through.protected.mechanism"_s,
+			u"經由保護機制的密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("addprovider.option"_s),
-			$of(u"使用名稱新增安全提供者 (例如 SunPKCS11)\n設定 -addprovider 引數"_s)
+			"addprovider.option"_s,
+			u"使用名稱新增安全提供者 (例如 SunPKCS11)\n設定 -addprovider 引數"_s
 		}),
 		$$new($ObjectArray, {
-			$of("provider.class.option"_s),
-			$of(u"使用完整類別名稱新增安全提供者\n設定 -providerclass 引數"_s)
+			"provider.class.option"_s,
+			u"使用完整類別名稱新增安全提供者\n設定 -providerclass 引數"_s
 		}),
 		$$new($ObjectArray, {
-			$of("provider.name"_s),
-			$of(u"提供者名稱"_s)
+			"provider.name"_s,
+			u"提供者名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("provider.classpath"_s),
-			$of(u"提供者類別路徑"_s)
+			"provider.classpath"_s,
+			u"提供者類別路徑"_s
 		}),
 		$$new($ObjectArray, {
-			$of("output.in.RFC.style"_s),
-			$of(u"以 RFC 樣式輸出"_s)
+			"output.in.RFC.style"_s,
+			u"以 RFC 樣式輸出"_s
 		}),
 		$$new($ObjectArray, {
-			$of("signature.algorithm.name"_s),
-			$of(u"簽章演算法名稱"_s)
+			"signature.algorithm.name"_s,
+			u"簽章演算法名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.alias"_s),
-			$of(u"來源別名"_s)
+			"source.alias"_s,
+			u"來源別名"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.key.password"_s),
-			$of(u"來源金鑰密碼"_s)
+			"source.key.password"_s,
+			u"來源金鑰密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.keystore.name"_s),
-			$of(u"來源金鑰儲存庫名稱"_s)
+			"source.keystore.name"_s,
+			u"來源金鑰儲存庫名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.keystore.password.protected"_s),
-			$of(u"來源金鑰儲存庫密碼保護"_s)
+			"source.keystore.password.protected"_s,
+			u"來源金鑰儲存庫密碼保護"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.keystore.provider.name"_s),
-			$of(u"來源金鑰儲存庫提供者名稱"_s)
+			"source.keystore.provider.name"_s,
+			u"來源金鑰儲存庫提供者名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.keystore.password"_s),
-			$of(u"來源金鑰儲存庫密碼"_s)
+			"source.keystore.password"_s,
+			u"來源金鑰儲存庫密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.keystore.type"_s),
-			$of(u"來源金鑰儲存庫類型"_s)
+			"source.keystore.type"_s,
+			u"來源金鑰儲存庫類型"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SSL.server.host.and.port"_s),
-			$of(u"SSL 伺服器主機與連接埠"_s)
+			"SSL.server.host.and.port"_s,
+			u"SSL 伺服器主機與連接埠"_s
 		}),
 		$$new($ObjectArray, {
-			$of("signed.jar.file"_s),
-			$of(u"簽署的 jar 檔案"_s)
+			"signed.jar.file"_s,
+			u"簽署的 jar 檔案"_s
 		}),
 		$$new($ObjectArray, {
-			$of("certificate.validity.start.date.time"_s),
-			$of(u"憑證有效性開始日期/時間"_s)
+			"certificate.validity.start.date.time"_s,
+			u"憑證有效性開始日期/時間"_s
 		}),
 		$$new($ObjectArray, {
-			$of("keystore.password"_s),
-			$of(u"金鑰儲存庫密碼"_s)
+			"keystore.password"_s,
+			u"金鑰儲存庫密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("keystore.type"_s),
-			$of(u"金鑰儲存庫類型"_s)
+			"keystore.type"_s,
+			u"金鑰儲存庫類型"_s
 		}),
 		$$new($ObjectArray, {
-			$of("trust.certificates.from.cacerts"_s),
-			$of(u"來自 cacerts 的信任憑證"_s)
+			"trust.certificates.from.cacerts"_s,
+			u"來自 cacerts 的信任憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("verbose.output"_s),
-			$of(u"詳細資訊輸出"_s)
+			"verbose.output"_s,
+			u"詳細資訊輸出"_s
 		}),
 		$$new($ObjectArray, {
-			$of("validity.number.of.days"_s),
-			$of(u"有效性日數"_s)
+			"validity.number.of.days"_s,
+			u"有效性日數"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Serial.ID.of.cert.to.revoke"_s),
-			$of(u"要撤銷憑證的序列 ID"_s)
+			"Serial.ID.of.cert.to.revoke"_s,
+			u"要撤銷憑證的序列 ID"_s
 		}),
 		$$new($ObjectArray, {
-			$of("keytool.error."_s),
-			$of(u"金鑰工具錯誤: "_s)
+			"keytool.error."_s,
+			u"金鑰工具錯誤: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Illegal.option."_s),
-			$of(u"無效的選項:"_s)
+			"Illegal.option."_s,
+			u"無效的選項:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Illegal.value."_s),
-			$of(u"無效值: "_s)
+			"Illegal.value."_s,
+			u"無效值: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.password.type."_s),
-			$of(u"不明的密碼類型: "_s)
+			"Unknown.password.type."_s,
+			u"不明的密碼類型: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cannot.find.environment.variable."_s),
-			$of(u"找不到環境變數: "_s)
+			"Cannot.find.environment.variable."_s,
+			u"找不到環境變數: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cannot.find.file."_s),
-			$of(u"找不到檔案: "_s)
+			"Cannot.find.file."_s,
+			u"找不到檔案: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Command.option.flag.needs.an.argument."_s),
-			$of(u"命令選項 {0} 需要引數。"_s)
+			"Command.option.flag.needs.an.argument."_s,
+			u"命令選項 {0} 需要引數。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Warning.Different.store.and.key.passwords.not.supported.for.PKCS12.KeyStores.Ignoring.user.specified.command.value."_s),
-			$of(u"警告: PKCS12 金鑰儲存庫不支援不同的儲存庫和金鑰密碼。忽略使用者指定的 {0} 值。"_s)
+			"Warning.Different.store.and.key.passwords.not.supported.for.PKCS12.KeyStores.Ignoring.user.specified.command.value."_s,
+			u"警告: PKCS12 金鑰儲存庫不支援不同的儲存庫和金鑰密碼。忽略使用者指定的 {0} 值。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.keystore.or.storetype.option.cannot.be.used.with.the.cacerts.option"_s),
-			$of(u"-keystore 或 -storetype 選項不能與 -cacerts 選項一起使用"_s)
+			"the.keystore.or.storetype.option.cannot.be.used.with.the.cacerts.option"_s,
+			u"-keystore 或 -storetype 選項不能與 -cacerts 選項一起使用"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".keystore.must.be.NONE.if.storetype.is.{0}"_s),
-			$of(u"如果 -storetype 為 {0}，則 -keystore 必須為 NONE"_s)
+			".keystore.must.be.NONE.if.storetype.is.{0}"_s,
+			u"如果 -storetype 為 {0}，則 -keystore 必須為 NONE"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Too.many.retries.program.terminated"_s),
-			$of(u"重試次數太多，程式已終止"_s)
+			"Too.many.retries.program.terminated"_s,
+			u"重試次數太多，程式已終止"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".storepasswd.and.keypasswd.commands.not.supported.if.storetype.is.{0}"_s),
-			$of(u"如果 -storetype 為 {0}，則不支援 -storepasswd 和 -keypasswd 命令"_s)
+			".storepasswd.and.keypasswd.commands.not.supported.if.storetype.is.{0}"_s,
+			u"如果 -storetype 為 {0}，則不支援 -storepasswd 和 -keypasswd 命令"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".keypasswd.commands.not.supported.if.storetype.is.PKCS12"_s),
-			$of(u"如果 -storetype 為 PKCS12，則不支援 -keypasswd 命令"_s)
+			".keypasswd.commands.not.supported.if.storetype.is.PKCS12"_s,
+			u"如果 -storetype 為 PKCS12，則不支援 -keypasswd 命令"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".keypass.and.new.can.not.be.specified.if.storetype.is.{0}"_s),
-			$of(u"如果 -storetype 為 {0}，則不能指定 -keypass 和 -new"_s)
+			".keypass.and.new.can.not.be.specified.if.storetype.is.{0}"_s,
+			u"如果 -storetype 為 {0}，則不能指定 -keypass 和 -new"_s
 		}),
 		$$new($ObjectArray, {
-			$of("if.protected.is.specified.then.storepass.keypass.and.new.must.not.be.specified"_s),
-			$of(u"如果指定 -protected，則不能指定 -storepass、-keypass 和 -new"_s)
+			"if.protected.is.specified.then.storepass.keypass.and.new.must.not.be.specified"_s,
+			u"如果指定 -protected，則不能指定 -storepass、-keypass 和 -new"_s
 		}),
 		$$new($ObjectArray, {
-			$of("if.srcprotected.is.specified.then.srcstorepass.and.srckeypass.must.not.be.specified"_s),
-			$of(u"如果指定 -srcprotected，則不能指定 -srcstorepass 和 -srckeypass"_s)
+			"if.srcprotected.is.specified.then.srcstorepass.and.srckeypass.must.not.be.specified"_s,
+			u"如果指定 -srcprotected，則不能指定 -srcstorepass 和 -srckeypass"_s
 		}),
 		$$new($ObjectArray, {
-			$of("if.keystore.is.not.password.protected.then.storepass.keypass.and.new.must.not.be.specified"_s),
-			$of(u"如果金鑰儲存庫不受密碼保護，則不能指定 -storepass、-keypass 和 -new"_s)
+			"if.keystore.is.not.password.protected.then.storepass.keypass.and.new.must.not.be.specified"_s,
+			u"如果金鑰儲存庫不受密碼保護，則不能指定 -storepass、-keypass 和 -new"_s
 		}),
 		$$new($ObjectArray, {
-			$of("if.source.keystore.is.not.password.protected.then.srcstorepass.and.srckeypass.must.not.be.specified"_s),
-			$of(u"如果來源金鑰儲存庫不受密碼保護，則不能指定 -srcstorepass 和 -srckeypass"_s)
+			"if.source.keystore.is.not.password.protected.then.srcstorepass.and.srckeypass.must.not.be.specified"_s,
+			u"如果來源金鑰儲存庫不受密碼保護，則不能指定 -srcstorepass 和 -srckeypass"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Illegal.startdate.value"_s),
-			$of(u"無效的 startdate 值"_s)
+			"Illegal.startdate.value"_s,
+			u"無效的 startdate 值"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Validity.must.be.greater.than.zero"_s),
-			$of(u"有效性必須大於零"_s)
+			"Validity.must.be.greater.than.zero"_s,
+			u"有效性必須大於零"_s
 		}),
 		$$new($ObjectArray, {
-			$of("provclass.not.a.provider"_s),
-			$of(u"%s 不是一個提供者"_s)
+			"provclass.not.a.provider"_s,
+			u"%s 不是一個提供者"_s
 		}),
 		$$new($ObjectArray, {
-			$of("provider.name.not.found"_s),
-			$of(u"找不到名稱為 \"%s\" 的提供者"_s)
+			"provider.name.not.found"_s,
+			u"找不到名稱為 \"%s\" 的提供者"_s
 		}),
 		$$new($ObjectArray, {
-			$of("provider.class.not.found"_s),
-			$of(u"找不到提供者 \"%s\""_s)
+			"provider.class.not.found"_s,
+			u"找不到提供者 \"%s\""_s
 		}),
 		$$new($ObjectArray, {
-			$of("Usage.error.no.command.provided"_s),
-			$of(u"用法錯誤: 未提供命令"_s)
+			"Usage.error.no.command.provided"_s,
+			u"用法錯誤: 未提供命令"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Source.keystore.file.exists.but.is.empty."_s),
-			$of(u"來源金鑰儲存庫檔案存在，但為空: "_s)
+			"Source.keystore.file.exists.but.is.empty."_s,
+			u"來源金鑰儲存庫檔案存在，但為空: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Please.specify.srckeystore"_s),
-			$of(u"請指定 -srckeystore"_s)
+			"Please.specify.srckeystore"_s,
+			u"請指定 -srckeystore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Must.not.specify.both.v.and.rfc.with.list.command"_s),
-			$of(u" \'list\' 命令不能同時指定 -v 及 -rfc"_s)
+			"Must.not.specify.both.v.and.rfc.with.list.command"_s,
+			u" \'list\' 命令不能同時指定 -v 及 -rfc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Key.password.must.be.at.least.6.characters"_s),
-			$of(u"金鑰密碼必須至少為 6 個字元"_s)
+			"Key.password.must.be.at.least.6.characters"_s,
+			u"金鑰密碼必須至少為 6 個字元"_s
 		}),
 		$$new($ObjectArray, {
-			$of("New.password.must.be.at.least.6.characters"_s),
-			$of(u"新的密碼必須至少為 6 個字元"_s)
+			"New.password.must.be.at.least.6.characters"_s,
+			u"新的密碼必須至少為 6 個字元"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.file.exists.but.is.empty."_s),
-			$of(u"金鑰儲存庫檔案存在，但為空白: "_s)
+			"Keystore.file.exists.but.is.empty."_s,
+			u"金鑰儲存庫檔案存在，但為空白: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.file.does.not.exist."_s),
-			$of(u"金鑰儲存庫檔案不存在: "_s)
+			"Keystore.file.does.not.exist."_s,
+			u"金鑰儲存庫檔案不存在: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Must.specify.destination.alias"_s),
-			$of(u"必須指定目的地別名"_s)
+			"Must.specify.destination.alias"_s,
+			u"必須指定目的地別名"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Must.specify.alias"_s),
-			$of(u"必須指定別名"_s)
+			"Must.specify.alias"_s,
+			u"必須指定別名"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.password.must.be.at.least.6.characters"_s),
-			$of(u"金鑰儲存庫密碼必須至少為 6 個字元"_s)
+			"Keystore.password.must.be.at.least.6.characters"_s,
+			u"金鑰儲存庫密碼必須至少為 6 個字元"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.the.password.to.be.stored."_s),
-			$of(u"輸入要儲存的密碼:  "_s)
+			"Enter.the.password.to.be.stored."_s,
+			u"輸入要儲存的密碼:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.keystore.password."_s),
-			$of(u"輸入金鑰儲存庫密碼:  "_s)
+			"Enter.keystore.password."_s,
+			u"輸入金鑰儲存庫密碼:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.source.keystore.password."_s),
-			$of(u"請輸入來源金鑰儲存庫密碼: "_s)
+			"Enter.source.keystore.password."_s,
+			u"請輸入來源金鑰儲存庫密碼: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.destination.keystore.password."_s),
-			$of(u"請輸入目的地金鑰儲存庫密碼: "_s)
+			"Enter.destination.keystore.password."_s,
+			u"請輸入目的地金鑰儲存庫密碼: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"金鑰儲存庫密碼太短 - 必須至少為 6 個字元"_s)
+			"Keystore.password.is.too.short.must.be.at.least.6.characters"_s,
+			u"金鑰儲存庫密碼太短 - 必須至少為 6 個字元"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.Entry.Type"_s),
-			$of(u"不明的項目類型"_s)
+			"Unknown.Entry.Type"_s,
+			u"不明的項目類型"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Too.many.failures.Alias.not.changed"_s),
-			$of(u"太多錯誤。未變更別名"_s)
+			"Too.many.failures.Alias.not.changed"_s,
+			u"太多錯誤。未變更別名"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Entry.for.alias.alias.successfully.imported."_s),
-			$of(u"已成功匯入別名 {0} 的項目。"_s)
+			"Entry.for.alias.alias.successfully.imported."_s,
+			u"已成功匯入別名 {0} 的項目。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Entry.for.alias.alias.not.imported."_s),
-			$of(u"未匯入別名 {0} 的項目。"_s)
+			"Entry.for.alias.alias.not.imported."_s,
+			u"未匯入別名 {0} 的項目。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Problem.importing.entry.for.alias.alias.exception.Entry.for.alias.alias.not.imported."_s),
-			$of(u"匯入別名 {0} 的項目時出現問題: {1}。\n未匯入別名 {0} 的項目。"_s)
+			"Problem.importing.entry.for.alias.alias.exception.Entry.for.alias.alias.not.imported."_s,
+			u"匯入別名 {0} 的項目時出現問題: {1}。\n未匯入別名 {0} 的項目。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Import.command.completed.ok.entries.successfully.imported.fail.entries.failed.or.cancelled"_s),
-			$of(u"已完成匯入命令: 成功匯入 {0} 個項目，{1} 個項目失敗或已取消"_s)
+			"Import.command.completed.ok.entries.successfully.imported.fail.entries.failed.or.cancelled"_s,
+			u"已完成匯入命令: 成功匯入 {0} 個項目，{1} 個項目失敗或已取消"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Warning.Overwriting.existing.alias.alias.in.destination.keystore"_s),
-			$of(u"警告: 正在覆寫目的地金鑰儲存庫中的現有別名 {0}"_s)
+			"Warning.Overwriting.existing.alias.alias.in.destination.keystore"_s,
+			u"警告: 正在覆寫目的地金鑰儲存庫中的現有別名 {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Existing.entry.alias.alias.exists.overwrite.no."_s),
-			$of(u"現有項目別名 {0} 存在，是否覆寫？[否]:  "_s)
+			"Existing.entry.alias.alias.exists.overwrite.no."_s,
+			u"現有項目別名 {0} 存在，是否覆寫？[否]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Too.many.failures.try.later"_s),
-			$of(u"太多錯誤 - 請稍後再試"_s)
+			"Too.many.failures.try.later"_s,
+			u"太多錯誤 - 請稍後再試"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certification.request.stored.in.file.filename."_s),
-			$of(u"認證要求儲存在檔案 <{0}>"_s)
+			"Certification.request.stored.in.file.filename."_s,
+			u"認證要求儲存在檔案 <{0}>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Submit.this.to.your.CA"_s),
-			$of(u"將此送出至您的 CA"_s)
+			"Submit.this.to.your.CA"_s,
+			u"將此送出至您的 CA"_s
 		}),
 		$$new($ObjectArray, {
-			$of("if.alias.not.specified.destalias.and.srckeypass.must.not.be.specified"_s),
-			$of(u"如果未指定別名，則不能指定 destalias 和 srckeypass"_s)
+			"if.alias.not.specified.destalias.and.srckeypass.must.not.be.specified"_s,
+			u"如果未指定別名，則不能指定 destalias 和 srckeypass"_s
 		}),
 		$$new($ObjectArray, {
-			$of("The.destination.pkcs12.keystore.has.different.storepass.and.keypass.Please.retry.with.destkeypass.specified."_s),
-			$of(u"目的地 pkcs12 金鑰儲存庫的 storepass 和 keypass 不同。請重新以 -destkeypass 指定。"_s)
+			"The.destination.pkcs12.keystore.has.different.storepass.and.keypass.Please.retry.with.destkeypass.specified."_s,
+			u"目的地 pkcs12 金鑰儲存庫的 storepass 和 keypass 不同。請重新以 -destkeypass 指定。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.stored.in.file.filename."_s),
-			$of(u"憑證儲存在檔案 <{0}>"_s)
+			"Certificate.stored.in.file.filename."_s,
+			u"憑證儲存在檔案 <{0}>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.reply.was.installed.in.keystore"_s),
-			$of(u"憑證回覆已安裝在金鑰儲存庫中"_s)
+			"Certificate.reply.was.installed.in.keystore"_s,
+			u"憑證回覆已安裝在金鑰儲存庫中"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.reply.was.not.installed.in.keystore"_s),
-			$of(u"憑證回覆未安裝在金鑰儲存庫中"_s)
+			"Certificate.reply.was.not.installed.in.keystore"_s,
+			u"憑證回覆未安裝在金鑰儲存庫中"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.was.added.to.keystore"_s),
-			$of(u"憑證已新增至金鑰儲存庫中"_s)
+			"Certificate.was.added.to.keystore"_s,
+			u"憑證已新增至金鑰儲存庫中"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.was.not.added.to.keystore"_s),
-			$of(u"憑證未新增至金鑰儲存庫中"_s)
+			"Certificate.was.not.added.to.keystore"_s,
+			u"憑證未新增至金鑰儲存庫中"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".Storing.ksfname."_s),
-			$of(u"[儲存 {0}]"_s)
+			".Storing.ksfname."_s,
+			u"[儲存 {0}]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.has.no.public.key.certificate."_s),
-			$of(u"{0} 沒有公開金鑰 (憑證)"_s)
+			"alias.has.no.public.key.certificate."_s,
+			u"{0} 沒有公開金鑰 (憑證)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cannot.derive.signature.algorithm"_s),
-			$of(u"無法取得簽章演算法"_s)
+			"Cannot.derive.signature.algorithm"_s,
+			u"無法取得簽章演算法"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Alias.alias.does.not.exist"_s),
-			$of(u"別名 <{0}> 不存在"_s)
+			"Alias.alias.does.not.exist"_s,
+			u"別名 <{0}> 不存在"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Alias.alias.has.no.certificate"_s),
-			$of(u"別名 <{0}> 沒有憑證"_s)
+			"Alias.alias.has.no.certificate"_s,
+			u"別名 <{0}> 沒有憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Key.pair.not.generated.alias.alias.already.exists"_s),
-			$of(u"沒有建立金鑰組，別名 <{0}> 已經存在"_s)
+			"Key.pair.not.generated.alias.alias.already.exists"_s,
+			u"沒有建立金鑰組，別名 <{0}> 已經存在"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generating.keysize.bit.keyAlgName.key.pair.and.self.signed.certificate.sigAlgName.with.a.validity.of.validality.days.for"_s),
-			$of(u"針對 {4} 產生有效期 {3} 天的 {0} 位元 {1} 金鑰組以及自我簽署憑證 ({2})\n\t"_s)
+			"Generating.keysize.bit.keyAlgName.key.pair.and.self.signed.certificate.sigAlgName.with.a.validity.of.validality.days.for"_s,
+			u"針對 {4} 產生有效期 {3} 天的 {0} 位元 {1} 金鑰組以及自我簽署憑證 ({2})\n\t"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.key.password.for.alias."_s),
-			$of(u"輸入 <{0}> 的金鑰密碼"_s)
+			"Enter.key.password.for.alias."_s,
+			u"輸入 <{0}> 的金鑰密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".RETURN.if.same.as.keystore.password."_s),
-			$of(u"\t(RETURN 如果和金鑰儲存庫密碼相同):  "_s)
+			".RETURN.if.same.as.keystore.password."_s,
+			u"\t(RETURN 如果和金鑰儲存庫密碼相同):  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Key.password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"金鑰密碼太短 - 必須至少為 6 個字元"_s)
+			"Key.password.is.too.short.must.be.at.least.6.characters"_s,
+			u"金鑰密碼太短 - 必須至少為 6 個字元"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Too.many.failures.key.not.added.to.keystore"_s),
-			$of(u"太多錯誤 - 金鑰未新增至金鑰儲存庫"_s)
+			"Too.many.failures.key.not.added.to.keystore"_s,
+			u"太多錯誤 - 金鑰未新增至金鑰儲存庫"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Destination.alias.dest.already.exists"_s),
-			$of(u"目的地別名 <{0}> 已經存在"_s)
+			"Destination.alias.dest.already.exists"_s,
+			u"目的地別名 <{0}> 已經存在"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"密碼太短 - 必須至少為 6 個字元"_s)
+			"Password.is.too.short.must.be.at.least.6.characters"_s,
+			u"密碼太短 - 必須至少為 6 個字元"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Too.many.failures.Key.entry.not.cloned"_s),
-			$of(u"太多錯誤。未複製金鑰項目"_s)
+			"Too.many.failures.Key.entry.not.cloned"_s,
+			u"太多錯誤。未複製金鑰項目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.password.for.alias."_s),
-			$of(u"<{0}> 的金鑰密碼"_s)
+			"key.password.for.alias."_s,
+			u"<{0}> 的金鑰密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.entry.for.id.getName.already.exists"_s),
-			$of(u"<{0}> 的金鑰儲存庫項目已經存在"_s)
+			"Keystore.entry.for.id.getName.already.exists"_s,
+			u"<{0}> 的金鑰儲存庫項目已經存在"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Creating.keystore.entry.for.id.getName."_s),
-			$of(u"建立 <{0}> 的金鑰儲存庫項目..."_s)
+			"Creating.keystore.entry.for.id.getName."_s,
+			u"建立 <{0}> 的金鑰儲存庫項目..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("No.entries.from.identity.database.added"_s),
-			$of(u"沒有新增來自識別資料庫的項目"_s)
+			"No.entries.from.identity.database.added"_s,
+			u"沒有新增來自識別資料庫的項目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Alias.name.alias"_s),
-			$of(u"別名名稱: {0}"_s)
+			"Alias.name.alias"_s,
+			u"別名名稱: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Creation.date.keyStore.getCreationDate.alias."_s),
-			$of(u"建立日期: {0,date}"_s)
+			"Creation.date.keyStore.getCreationDate.alias."_s,
+			u"建立日期: {0,date}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.keyStore.getCreationDate.alias."_s),
-			$of("{0}, {1,date}, "_s)
+			"alias.keyStore.getCreationDate.alias."_s,
+			"{0}, {1,date}, "_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias."_s),
-			$of("{0}, "_s)
+			"alias."_s,
+			"{0}, "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Entry.type.type."_s),
-			$of(u"項目類型: {0}"_s)
+			"Entry.type.type."_s,
+			u"項目類型: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.chain.length."_s),
-			$of(u"憑證鏈長度: "_s)
+			"Certificate.chain.length."_s,
+			u"憑證鏈長度: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.i.1."_s),
-			$of(u"憑證 [{0,number,integer}]:"_s)
+			"Certificate.i.1."_s,
+			u"憑證 [{0,number,integer}]:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.fingerprint.SHA.256."_s),
-			$of(u"憑證指紋 (SHA-256): "_s)
+			"Certificate.fingerprint.SHA.256."_s,
+			u"憑證指紋 (SHA-256): "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.type."_s),
-			$of(u"金鑰儲存庫類型: "_s)
+			"Keystore.type."_s,
+			u"金鑰儲存庫類型: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.provider."_s),
-			$of(u"金鑰儲存庫提供者: "_s)
+			"Keystore.provider."_s,
+			u"金鑰儲存庫提供者: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Your.keystore.contains.keyStore.size.entry"_s),
-			$of(u"您的金鑰儲存庫包含 {0,number,integer} 項目"_s)
+			"Your.keystore.contains.keyStore.size.entry"_s,
+			u"您的金鑰儲存庫包含 {0,number,integer} 項目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Your.keystore.contains.keyStore.size.entries"_s),
-			$of(u"您的金鑰儲存庫包含 {0,number,integer} 項目"_s)
+			"Your.keystore.contains.keyStore.size.entries"_s,
+			u"您的金鑰儲存庫包含 {0,number,integer} 項目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Failed.to.parse.input"_s),
-			$of(u"無法剖析輸入"_s)
+			"Failed.to.parse.input"_s,
+			u"無法剖析輸入"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Empty.input"_s),
-			$of(u"空輸入"_s)
+			"Empty.input"_s,
+			u"空輸入"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Not.X.509.certificate"_s),
-			$of(u"非 X.509 憑證"_s)
+			"Not.X.509.certificate"_s,
+			u"非 X.509 憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.has.no.public.key"_s),
-			$of(u"{0} 無公開金鑰"_s)
+			"alias.has.no.public.key"_s,
+			u"{0} 無公開金鑰"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.has.no.X.509.certificate"_s),
-			$of(u"{0} 無 X.509 憑證"_s)
+			"alias.has.no.X.509.certificate"_s,
+			u"{0} 無 X.509 憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("New.certificate.self.signed."_s),
-			$of(u"新憑證 (自我簽署): "_s)
+			"New.certificate.self.signed."_s,
+			u"新憑證 (自我簽署): "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Reply.has.no.certificates"_s),
-			$of(u"回覆不含憑證"_s)
+			"Reply.has.no.certificates"_s,
+			u"回覆不含憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.not.imported.alias.alias.already.exists"_s),
-			$of(u"憑證未輸入，別名 <{0}> 已經存在"_s)
+			"Certificate.not.imported.alias.alias.already.exists"_s,
+			u"憑證未輸入，別名 <{0}> 已經存在"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Input.not.an.X.509.certificate"_s),
-			$of(u"輸入的不是 X.509 憑證"_s)
+			"Input.not.an.X.509.certificate"_s,
+			u"輸入的不是 X.509 憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.already.exists.in.keystore.under.alias.trustalias."_s),
-			$of(u"金鑰儲存庫中的 <{0}> 別名之下，憑證已經存在"_s)
+			"Certificate.already.exists.in.keystore.under.alias.trustalias."_s,
+			u"金鑰儲存庫中的 <{0}> 別名之下，憑證已經存在"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Do.you.still.want.to.add.it.no."_s),
-			$of(u"您仍然想要將之新增嗎？ [否]:  "_s)
+			"Do.you.still.want.to.add.it.no."_s,
+			u"您仍然想要將之新增嗎？ [否]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.already.exists.in.system.wide.CA.keystore.under.alias.trustalias."_s),
-			$of(u"整個系統 CA 金鑰儲存庫中的 <{0}> 別名之下，憑證已經存在"_s)
+			"Certificate.already.exists.in.system.wide.CA.keystore.under.alias.trustalias."_s,
+			u"整個系統 CA 金鑰儲存庫中的 <{0}> 別名之下，憑證已經存在"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Do.you.still.want.to.add.it.to.your.own.keystore.no."_s),
-			$of(u"您仍然想要將之新增至自己的金鑰儲存庫嗎？ [否]:  "_s)
+			"Do.you.still.want.to.add.it.to.your.own.keystore.no."_s,
+			u"您仍然想要將之新增至自己的金鑰儲存庫嗎？ [否]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Trust.this.certificate.no."_s),
-			$of(u"信任這個憑證？ [否]:  "_s)
+			"Trust.this.certificate.no."_s,
+			u"信任這個憑證？ [否]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("YES"_s),
-			$of(u"是"_s)
+			"YES"_s,
+			u"是"_s
 		}),
 		$$new($ObjectArray, {
-			$of("New.prompt."_s),
-			$of(u"新 {0}: "_s)
+			"New.prompt."_s,
+			u"新 {0}: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Passwords.must.differ"_s),
-			$of(u"必須是不同的密碼"_s)
+			"Passwords.must.differ"_s,
+			u"必須是不同的密碼"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Re.enter.new.prompt."_s),
-			$of(u"重新輸入新 {0}: "_s)
+			"Re.enter.new.prompt."_s,
+			u"重新輸入新 {0}: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Re.enter.password."_s),
-			$of(u"重新輸入密碼:"_s)
+			"Re.enter.password."_s,
+			u"重新輸入密碼:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Re.enter.new.password."_s),
-			$of(u"重新輸入新密碼: "_s)
+			"Re.enter.new.password."_s,
+			u"重新輸入新密碼: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("They.don.t.match.Try.again"_s),
-			$of(u"它們不相符。請重試"_s)
+			"They.don.t.match.Try.again"_s,
+			u"它們不相符。請重試"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.prompt.alias.name."_s),
-			$of(u"輸入 {0} 別名名稱:  "_s)
+			"Enter.prompt.alias.name."_s,
+			u"輸入 {0} 別名名稱:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.new.alias.name.RETURN.to.cancel.import.for.this.entry."_s),
-			$of(u"請輸入新的別名名稱\t(RETURN 以取消匯入此項目):"_s)
+			"Enter.new.alias.name.RETURN.to.cancel.import.for.this.entry."_s,
+			u"請輸入新的別名名稱\t(RETURN 以取消匯入此項目):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.alias.name."_s),
-			$of(u"輸入別名名稱:  "_s)
+			"Enter.alias.name."_s,
+			u"輸入別名名稱:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of(".RETURN.if.same.as.for.otherAlias."_s),
-			$of(u"\t(RETURN 如果和 <{0}> 的相同)"_s)
+			".RETURN.if.same.as.for.otherAlias."_s,
+			u"\t(RETURN 如果和 <{0}> 的相同)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.your.first.and.last.name."_s),
-			$of(u"您的名字與姓氏為何？"_s)
+			"What.is.your.first.and.last.name."_s,
+			u"您的名字與姓氏為何？"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.the.name.of.your.organizational.unit."_s),
-			$of(u"您的組織單位名稱為何？"_s)
+			"What.is.the.name.of.your.organizational.unit."_s,
+			u"您的組織單位名稱為何？"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.the.name.of.your.organization."_s),
-			$of(u"您的組織名稱為何？"_s)
+			"What.is.the.name.of.your.organization."_s,
+			u"您的組織名稱為何？"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.the.name.of.your.City.or.Locality."_s),
-			$of(u"您所在的城市或地區名稱為何？"_s)
+			"What.is.the.name.of.your.City.or.Locality."_s,
+			u"您所在的城市或地區名稱為何？"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.the.name.of.your.State.or.Province."_s),
-			$of(u"您所在的州及省份名稱為何？"_s)
+			"What.is.the.name.of.your.State.or.Province."_s,
+			u"您所在的州及省份名稱為何？"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.the.two.letter.country.code.for.this.unit."_s),
-			$of(u"此單位的兩個字母國別代碼為何？"_s)
+			"What.is.the.two.letter.country.code.for.this.unit."_s,
+			u"此單位的兩個字母國別代碼為何？"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Is.name.correct."_s),
-			$of(u"{0} 正確嗎？"_s)
+			"Is.name.correct."_s,
+			u"{0} 正確嗎？"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of(u"否"_s)
+			"no"_s,
+			u"否"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yes"_s),
-			$of(u"是"_s)
+			"yes"_s,
+			u"是"_s
 		}),
 		$$new($ObjectArray, {
-			$of("y"_s),
-			$of("y"_s)
+			"y"_s,
+			"y"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".defaultValue."_s),
-			$of("  [{0}]:  "_s)
+			".defaultValue."_s,
+			"  [{0}]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Alias.alias.has.no.key"_s),
-			$of(u"別名 <{0}> 沒有金鑰"_s)
+			"Alias.alias.has.no.key"_s,
+			u"別名 <{0}> 沒有金鑰"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Alias.alias.references.an.entry.type.that.is.not.a.private.key.entry.The.keyclone.command.only.supports.cloning.of.private.key"_s),
-			$of(u"別名 <{0}> 所參照的項目不是私密金鑰類型。-keyclone 命令僅支援私密金鑰項目的複製"_s)
+			"Alias.alias.references.an.entry.type.that.is.not.a.private.key.entry.The.keyclone.command.only.supports.cloning.of.private.key"_s,
+			u"別名 <{0}> 所參照的項目不是私密金鑰類型。-keyclone 命令僅支援私密金鑰項目的複製"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".WARNING.WARNING.WARNING."_s),
-			$of("*****************  WARNING WARNING WARNING  *****************"_s)
+			".WARNING.WARNING.WARNING."_s,
+			"*****************  WARNING WARNING WARNING  *****************"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Signer.d."_s),
-			$of(u"簽署者 #%d:"_s)
+			"Signer.d."_s,
+			u"簽署者 #%d:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Timestamp."_s),
-			$of(u"時戳:"_s)
+			"Timestamp."_s,
+			u"時戳:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Signature."_s),
-			$of(u"簽章:"_s)
+			"Signature."_s,
+			u"簽章:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CRLs."_s),
-			$of("CRL:"_s)
+			"CRLs."_s,
+			"CRL:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.owner."_s),
-			$of(u"憑證擁有者: "_s)
+			"Certificate.owner."_s,
+			u"憑證擁有者: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Not.a.signed.jar.file"_s),
-			$of(u"不是簽署的 jar 檔案"_s)
+			"Not.a.signed.jar.file"_s,
+			u"不是簽署的 jar 檔案"_s
 		}),
 		$$new($ObjectArray, {
-			$of("No.certificate.from.the.SSL.server"_s),
-			$of(u"沒有來自 SSL 伺服器的憑證"_s)
+			"No.certificate.from.the.SSL.server"_s,
+			u"沒有來自 SSL 伺服器的憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".The.integrity.of.the.information.stored.in.your.keystore."_s),
-			$of(u"* 尚未驗證儲存於金鑰儲存庫中資訊  *\n* 的完整性！若要驗證其完整性，    *\n* 您必須提供您的金鑰儲存庫密碼。  *"_s)
+			".The.integrity.of.the.information.stored.in.your.keystore."_s,
+			u"* 尚未驗證儲存於金鑰儲存庫中資訊  *\n* 的完整性！若要驗證其完整性，    *\n* 您必須提供您的金鑰儲存庫密碼。  *"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".The.integrity.of.the.information.stored.in.the.srckeystore."_s),
-			$of(u"* 尚未驗證儲存於 srckeystore 中資訊  *\n* 的完整性！若要驗證其完整性，您必須 *\n* 提供 srckeystore 密碼。            *"_s)
+			".The.integrity.of.the.information.stored.in.the.srckeystore."_s,
+			u"* 尚未驗證儲存於 srckeystore 中資訊  *\n* 的完整性！若要驗證其完整性，您必須 *\n* 提供 srckeystore 密碼。            *"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.reply.does.not.contain.public.key.for.alias."_s),
-			$of(u"憑證回覆並未包含 <{0}> 的公開金鑰"_s)
+			"Certificate.reply.does.not.contain.public.key.for.alias."_s,
+			u"憑證回覆並未包含 <{0}> 的公開金鑰"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Incomplete.certificate.chain.in.reply"_s),
-			$of(u"回覆時的憑證鏈不完整"_s)
+			"Incomplete.certificate.chain.in.reply"_s,
+			u"回覆時的憑證鏈不完整"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.chain.in.reply.does.not.verify."_s),
-			$of(u"回覆時的憑證鏈未驗證: "_s)
+			"Certificate.chain.in.reply.does.not.verify."_s,
+			u"回覆時的憑證鏈未驗證: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Top.level.certificate.in.reply."_s),
-			$of(u"回覆時的最高級憑證:\n"_s)
+			"Top.level.certificate.in.reply."_s,
+			u"回覆時的最高級憑證:\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".is.not.trusted."_s),
-			$of(u"... 是不被信任的。"_s)
+			".is.not.trusted."_s,
+			u"... 是不被信任的。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Install.reply.anyway.no."_s),
-			$of(u"還是要安裝回覆？ [否]:  "_s)
+			"Install.reply.anyway.no."_s,
+			u"還是要安裝回覆？ [否]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of(u"否"_s)
+			"NO"_s,
+			u"否"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Public.keys.in.reply.and.keystore.don.t.match"_s),
-			$of(u"回覆時的公開金鑰與金鑰儲存庫不符"_s)
+			"Public.keys.in.reply.and.keystore.don.t.match"_s,
+			u"回覆時的公開金鑰與金鑰儲存庫不符"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.reply.and.certificate.in.keystore.are.identical"_s),
-			$of(u"憑證回覆與金鑰儲存庫中的憑證是相同的"_s)
+			"Certificate.reply.and.certificate.in.keystore.are.identical"_s,
+			u"憑證回覆與金鑰儲存庫中的憑證是相同的"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Failed.to.establish.chain.from.reply"_s),
-			$of(u"無法從回覆中將鏈建立起來"_s)
+			"Failed.to.establish.chain.from.reply"_s,
+			u"無法從回覆中將鏈建立起來"_s
 		}),
 		$$new($ObjectArray, {
-			$of("n"_s),
-			$of("n"_s)
+			"n"_s,
+			"n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Wrong.answer.try.again"_s),
-			$of(u"錯誤的答案，請再試一次"_s)
+			"Wrong.answer.try.again"_s,
+			u"錯誤的答案，請再試一次"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Secret.key.not.generated.alias.alias.already.exists"_s),
-			$of(u"未產生秘密金鑰，別名 <{0}> 已存在"_s)
+			"Secret.key.not.generated.alias.alias.already.exists"_s,
+			u"未產生秘密金鑰，別名 <{0}> 已存在"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Please.provide.keysize.for.secret.key.generation"_s),
-			$of(u"請提供 -keysize 以產生秘密金鑰"_s)
+			"Please.provide.keysize.for.secret.key.generation"_s,
+			u"請提供 -keysize 以產生秘密金鑰"_s
 		}),
 		$$new($ObjectArray, {
-			$of("warning.not.verified.make.sure.keystore.is.correct"_s),
-			$of(u"警告: 未驗證。請確定 -keystore 正確。"_s)
+			"warning.not.verified.make.sure.keystore.is.correct"_s,
+			u"警告: 未驗證。請確定 -keystore 正確。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Extensions."_s),
-			$of(u"擴充套件: "_s)
+			"Extensions."_s,
+			u"擴充套件: "_s
 		}),
 		$$new($ObjectArray, {
-			$of(".Empty.value."_s),
-			$of(u"(空白值)"_s)
+			".Empty.value."_s,
+			u"(空白值)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Extension.Request."_s),
-			$of(u"擴充套件要求:"_s)
+			"Extension.Request."_s,
+			u"擴充套件要求:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.keyUsage.type."_s),
-			$of(u"不明的 keyUsage 類型: "_s)
+			"Unknown.keyUsage.type."_s,
+			u"不明的 keyUsage 類型: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.extendedkeyUsage.type."_s),
-			$of(u"不明的 extendedkeyUsage 類型: "_s)
+			"Unknown.extendedkeyUsage.type."_s,
+			u"不明的 extendedkeyUsage 類型: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.AccessDescription.type."_s),
-			$of(u"不明的 AccessDescription 類型: "_s)
+			"Unknown.AccessDescription.type."_s,
+			u"不明的 AccessDescription 類型: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unrecognized.GeneralName.type."_s),
-			$of(u"無法辨識的 GeneralName 類型: "_s)
+			"Unrecognized.GeneralName.type."_s,
+			u"無法辨識的 GeneralName 類型: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("This.extension.cannot.be.marked.as.critical."_s),
-			$of(u"此擴充套件無法標示為關鍵。"_s)
+			"This.extension.cannot.be.marked.as.critical."_s,
+			u"此擴充套件無法標示為關鍵。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Odd.number.of.hex.digits.found."_s),
-			$of(u"找到十六進位數字的奇數: "_s)
+			"Odd.number.of.hex.digits.found."_s,
+			u"找到十六進位數字的奇數: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.extension.type."_s),
-			$of(u"不明的擴充套件類型: "_s)
+			"Unknown.extension.type."_s,
+			u"不明的擴充套件類型: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("command.{0}.is.ambiguous."_s),
-			$of(u"命令 {0} 不明確:"_s)
+			"command.{0}.is.ambiguous."_s,
+			u"命令 {0} 不明確:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.certificate.request"_s),
-			$of(u"憑證要求"_s)
+			"the.certificate.request"_s,
+			u"憑證要求"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.issuer"_s),
-			$of(u"發行人"_s)
+			"the.issuer"_s,
+			u"發行人"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.generated.certificate"_s),
-			$of(u"產生的憑證"_s)
+			"the.generated.certificate"_s,
+			u"產生的憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.generated.crl"_s),
-			$of(u"產生的 CRL"_s)
+			"the.generated.crl"_s,
+			u"產生的 CRL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.generated.certificate.request"_s),
-			$of(u"產生的憑證要求"_s)
+			"the.generated.certificate.request"_s,
+			u"產生的憑證要求"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.certificate"_s),
-			$of(u"憑證"_s)
+			"the.certificate"_s,
+			u"憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.crl"_s),
-			$of("CRL"_s)
+			"the.crl"_s,
+			"CRL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.tsa.certificate"_s),
-			$of(u"TSA 憑證"_s)
+			"the.tsa.certificate"_s,
+			u"TSA 憑證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.input"_s),
-			$of(u"輸入"_s)
+			"the.input"_s,
+			u"輸入"_s
 		}),
 		$$new($ObjectArray, {
-			$of("reply"_s),
-			$of(u"回覆"_s)
+			"reply"_s,
+			u"回覆"_s
 		}),
 		$$new($ObjectArray, {
-			$of("one.in.many"_s),
-			$of("%1$s #%2$d / %3$d"_s)
+			"one.in.many"_s,
+			"%1$s #%2$d / %3$d"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.in.cacerts"_s),
-			$of(u"cacerts 中的發行人 <%s>"_s)
+			"alias.in.cacerts"_s,
+			u"cacerts 中的發行人 <%s>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.in.keystore"_s),
-			$of(u"發行人 <%s>"_s)
+			"alias.in.keystore"_s,
+			u"發行人 <%s>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("with.weak"_s),
-			$of(u"%s (低強度)"_s)
+			"with.weak"_s,
+			u"%s (低強度)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.bit"_s),
-			$of(u"%1$d 位元的 %2$s 金鑰"_s)
+			"key.bit"_s,
+			u"%1$d 位元的 %2$s 金鑰"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.bit.weak"_s),
-			$of(u"%1$d 位元的 %2$s 金鑰 (低強度)"_s)
+			"key.bit.weak"_s,
+			u"%1$d 位元的 %2$s 金鑰 (低強度)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("unknown.size.1"_s),
-			$of(u"%s 金鑰大小不明"_s)
+			"unknown.size.1"_s,
+			u"%s 金鑰大小不明"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".PATTERN.printX509Cert.with.weak"_s),
-			$of(u"擁有者: {0}\n發行人: {1}\n序號: {2}\n有效期自: {3} 到: {4}\n憑證指紋:\n\t SHA1: {5}\n\t SHA256: {6}\n簽章演算法名稱: {7}\n主體公開金鑰演算法: {8}\n版本: {9}"_s)
+			".PATTERN.printX509Cert.with.weak"_s,
+			u"擁有者: {0}\n發行人: {1}\n序號: {2}\n有效期自: {3} 到: {4}\n憑證指紋:\n\t SHA1: {5}\n\t SHA256: {6}\n簽章演算法名稱: {7}\n主體公開金鑰演算法: {8}\n版本: {9}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PKCS.10.with.weak"_s),
-			$of(u"PKCS #10 憑證要求 (版本 1.0)\n主體: %1$s\n格式: %2$s\n公用金鑰: %3$s\n簽章演算法: %4$s\n"_s)
+			"PKCS.10.with.weak"_s,
+			u"PKCS #10 憑證要求 (版本 1.0)\n主體: %1$s\n格式: %2$s\n公用金鑰: %3$s\n簽章演算法: %4$s\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("verified.by.s.in.s.weak"_s),
-			$of(u"由 %2$s 中的 %1$s 以 %3$s 驗證"_s)
+			"verified.by.s.in.s.weak"_s,
+			u"由 %2$s 中的 %1$s 以 %3$s 驗證"_s
 		}),
 		$$new($ObjectArray, {
-			$of("whose.sigalg.risk"_s),
-			$of(u"%1$s 使用的 %2$s 簽章演算法存在安全風險。"_s)
+			"whose.sigalg.risk"_s,
+			u"%1$s 使用的 %2$s 簽章演算法存在安全風險。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("whose.key.risk"_s),
-			$of(u"%1$s 使用的 %2$s 存在安全風險。"_s)
+			"whose.key.risk"_s,
+			u"%1$s 使用的 %2$s 存在安全風險。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jks.storetype.warning"_s),
-			$of(u"%1$s 金鑰儲存庫使用專有格式。建議您使用 \"keytool -importkeystore -srckeystore %2$s -destkeystore %2$s -deststoretype pkcs12\" 移轉成為使用 PKCS12 (業界標準格式)。"_s)
+			"jks.storetype.warning"_s,
+			u"%1$s 金鑰儲存庫使用專有格式。建議您使用 \"keytool -importkeystore -srckeystore %2$s -destkeystore %2$s -deststoretype pkcs12\" 移轉成為使用 PKCS12 (業界標準格式)。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("migrate.keystore.warning"_s),
-			$of(u"已將 \"%1$s\" 移轉成為 %4$s。%2$s 金鑰儲存庫已備份為 \"%3$s\"。"_s)
+			"migrate.keystore.warning"_s,
+			u"已將 \"%1$s\" 移轉成為 %4$s。%2$s 金鑰儲存庫已備份為 \"%3$s\"。"_s
 		}),
 		$$new($ObjectArray, {
-			$of("backup.keystore.warning"_s),
-			$of(u"原始的金鑰儲存庫 \"%1$s\" 已備份為 \"%3$s\"..."_s)
+			"backup.keystore.warning"_s,
+			u"原始的金鑰儲存庫 \"%1$s\" 已備份為 \"%3$s\"..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("importing.keystore.status"_s),
-			$of(u"正在將金鑰儲存庫 %1$s 匯入 %2$s..."_s)
+			"importing.keystore.status"_s,
+			u"正在將金鑰儲存庫 %1$s 匯入 %2$s..."_s
 		})
 	}));
 }
@@ -1110,7 +1085,26 @@ Resources_zh_TW::Resources_zh_TW() {
 }
 
 $Class* Resources_zh_TW::load$($String* name, bool initialize) {
-	$loadClass(Resources_zh_TW, name, initialize, &_Resources_zh_TW_ClassInfo_, clinit$Resources_zh_TW, allocate$Resources_zh_TW);
+	$FieldInfo fieldInfos$$[] = {
+		{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Resources_zh_TW, contents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Resources_zh_TW, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resources_zh_TW, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.tools.keytool.Resources_zh_TW",
+		"java.util.ListResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resources_zh_TW, name, initialize, &classInfo$$, Resources_zh_TW::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Resources_zh_TW);
+	});
 	return class$;
 }
 

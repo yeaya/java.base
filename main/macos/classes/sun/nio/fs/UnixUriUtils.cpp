@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixUriUtils.h>
-
 #include <java/io/File.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/AssertionError.h>
@@ -38,7 +37,6 @@
 #undef S_IFMT
 
 using $File = ::java::io::File;
-using $Appendable = ::java::lang::Appendable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -59,55 +57,6 @@ using $UnixPath = ::sun::nio::fs::UnixPath;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _UnixUriUtils_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixUriUtils, $assertionsDisabled)},
-	{"L_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_DIGIT)},
-	{"H_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnixUriUtils, H_DIGIT)},
-	{"L_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnixUriUtils, L_UPALPHA)},
-	{"H_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_UPALPHA)},
-	{"L_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnixUriUtils, L_LOWALPHA)},
-	{"H_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_LOWALPHA)},
-	{"L_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnixUriUtils, L_ALPHA)},
-	{"H_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_ALPHA)},
-	{"L_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_ALPHANUM)},
-	{"H_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_ALPHANUM)},
-	{"L_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_MARK)},
-	{"H_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_MARK)},
-	{"L_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_UNRESERVED)},
-	{"H_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_UNRESERVED)},
-	{"L_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_PCHAR)},
-	{"H_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_PCHAR)},
-	{"L_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_PATH)},
-	{"H_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_PATH)},
-	{}
-};
-
-$MethodInfo _UnixUriUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixUriUtils, init$, void)},
-	{"decode", "(C)I", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, decode, int32_t, char16_t)},
-	{"fromUri", "(Lsun/nio/fs/UnixFileSystem;Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(UnixUriUtils, fromUri, $Path*, $UnixFileSystem*, $URI*)},
-	{"highMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, highMask, int64_t, $String*)},
-	{"highMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, highMask, int64_t, char16_t, char16_t)},
-	{"lowMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, lowMask, int64_t, $String*)},
-	{"lowMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, lowMask, int64_t, char16_t, char16_t)},
-	{"match", "(CJJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, match, bool, char16_t, int64_t, int64_t)},
-	{"toUri", "(Lsun/nio/fs/UnixPath;)Ljava/net/URI;", nullptr, $STATIC, $staticMethod(UnixUriUtils, toUri, $URI*, $UnixPath*)},
-	{}
-};
-
-$ClassInfo _UnixUriUtils_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixUriUtils",
-	"java.lang.Object",
-	nullptr,
-	_UnixUriUtils_FieldInfo_,
-	_UnixUriUtils_MethodInfo_
-};
-
-$Object* allocate$UnixUriUtils($Class* clazz) {
-	return $of($alloc(UnixUriUtils));
-}
 
 bool UnixUriUtils::$assertionsDisabled = false;
 int64_t UnixUriUtils::L_DIGIT = 0;
@@ -130,15 +79,15 @@ void UnixUriUtils::init$() {
 
 $Path* UnixUriUtils::fromUri($UnixFileSystem* fs, $URI* uri) {
 	$init(UnixUriUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(uri)->isAbsolute()) {
 		$throwNew($IllegalArgumentException, "URI is not absolute"_s);
 	}
-	if ($nc(uri)->isOpaque()) {
+	if (uri->isOpaque()) {
 		$throwNew($IllegalArgumentException, "URI is not hierarchical"_s);
 	}
-	$var($String, scheme, $nc(uri)->getScheme());
-	if ((scheme == nullptr) || !$nc(scheme)->equalsIgnoreCase("file"_s)) {
+	$var($String, scheme, uri->getScheme());
+	if ((scheme == nullptr) || !scheme->equalsIgnoreCase("file"_s)) {
 		$throwNew($IllegalArgumentException, "URI scheme is not \"file\""_s);
 	}
 	if (uri->getRawAuthority() != nullptr) {
@@ -150,7 +99,7 @@ $Path* UnixUriUtils::fromUri($UnixFileSystem* fs, $URI* uri) {
 	if (uri->getRawQuery() != nullptr) {
 		$throwNew($IllegalArgumentException, "URI has a query component"_s);
 	}
-	if (!$nc($(uri->toString()))->startsWith("file:///"_s)) {
+	if (!$$nc(uri->toString())->startsWith("file:///"_s)) {
 		return $$new($File, uri)->toPath();
 	}
 	$var($String, p, uri->getRawPath());
@@ -173,7 +122,7 @@ $Path* UnixUriUtils::fromUri($UnixFileSystem* fs, $URI* uri) {
 			}
 			char16_t c1 = p->charAt(pos++);
 			char16_t c2 = p->charAt(pos++);
-			int32_t var$0 = (decode(c1) << 4);
+			int32_t var$0 = decode(c1) << 4;
 			b = (int8_t)(var$0 | decode(c2));
 			if (b == 0) {
 				$throwNew($IllegalArgumentException, "Nul character not allowed"_s);
@@ -194,20 +143,20 @@ $Path* UnixUriUtils::fromUri($UnixFileSystem* fs, $URI* uri) {
 
 $URI* UnixUriUtils::toUri($UnixPath* up) {
 	$init(UnixUriUtils);
-	$useLocalCurrentObjectStackCache();
-	$var($bytes, path, $nc($($nc(up)->toAbsolutePath()))->asByteArray());
+	$useLocalObjectStack();
+	$var($bytes, path, $$nc($nc(up)->toAbsolutePath())->asByteArray());
 	$var($StringBuilder, sb, $new($StringBuilder, "file:///"_s));
 	if (!UnixUriUtils::$assertionsDisabled && !($nc(path)->get(0) == u'/')) {
 		$throwNew($AssertionError);
 	}
-	$var($HexFormat, hex, $nc($($HexFormat::of()))->withUpperCase());
+	$var($HexFormat, hex, $$nc($HexFormat::of())->withUpperCase());
 	for (int32_t i = 1; i < $nc(path)->length; ++i) {
-		char16_t c = (char16_t)((int32_t)(path->get(i) & (uint32_t)255));
+		char16_t c = (char16_t)(path->get(i) & 0xff);
 		if (match(c, UnixUriUtils::L_PATH, UnixUriUtils::H_PATH)) {
 			sb->append(c);
 		} else {
 			sb->append(u'%');
-			$nc(hex)->toHexDigits(static_cast<$Appendable*>(sb), (int8_t)c);
+			$nc(hex)->toHexDigits(sb, (int8_t)c);
 		}
 	}
 	if (sb->charAt(sb->length() - 1) != u'/') {
@@ -215,7 +164,7 @@ $URI* UnixUriUtils::toUri($UnixPath* up) {
 			up->checkRead();
 			int32_t mode = $UnixNativeDispatcher::stat(up);
 			$init($UnixConstants);
-			if (((int32_t)(mode & (uint32_t)$UnixConstants::S_IFMT)) == $UnixConstants::S_IFDIR) {
+			if ((mode & $UnixConstants::S_IFMT) == $UnixConstants::S_IFDIR) {
 				sb->append(u'/');
 			}
 		} catch ($SecurityException& ignore) {
@@ -258,8 +207,8 @@ int64_t UnixUriUtils::highMask($String* chars) {
 int64_t UnixUriUtils::lowMask(char16_t first, char16_t last) {
 	$init(UnixUriUtils);
 	int64_t m = 0;
-	int32_t f = $Math::max($Math::min((int32_t)first, 63), 0);
-	int32_t l = $Math::max($Math::min((int32_t)last, 63), 0);
+	int32_t f = $Math::max($Math::min(first, 63), 0);
+	int32_t l = $Math::max($Math::min(last, 63), 0);
 	for (int32_t i = f; i <= l; ++i) {
 		m |= $sl((int64_t)1, i);
 	}
@@ -269,8 +218,8 @@ int64_t UnixUriUtils::lowMask(char16_t first, char16_t last) {
 int64_t UnixUriUtils::highMask(char16_t first, char16_t last) {
 	$init(UnixUriUtils);
 	int64_t m = 0;
-	int32_t f = $Math::max($Math::min((int32_t)first, 127), 64) - 64;
-	int32_t l = $Math::max($Math::min((int32_t)last, 127), 64) - 64;
+	int32_t f = $Math::max($Math::min(first, 127), 64) - 64;
+	int32_t l = $Math::max($Math::min(last, 127), 64) - 64;
 	for (int32_t i = f; i <= l; ++i) {
 		m |= $sl((int64_t)1, i);
 	}
@@ -280,10 +229,10 @@ int64_t UnixUriUtils::highMask(char16_t first, char16_t last) {
 bool UnixUriUtils::match(char16_t c, int64_t lowMask, int64_t highMask) {
 	$init(UnixUriUtils);
 	if (c < 64) {
-		return ((int64_t)(($sl((int64_t)1, c)) & (uint64_t)lowMask)) != 0;
+		return (($sl((int64_t)1, c)) & lowMask) != 0;
 	}
 	if (c < 128) {
-		return ((int64_t)(($sl((int64_t)1, c - 64)) & (uint64_t)highMask)) != 0;
+		return (($sl((int64_t)1, c - 64)) & highMask) != 0;
 	}
 	return false;
 }
@@ -302,7 +251,7 @@ int32_t UnixUriUtils::decode(char16_t c) {
 	$throwNew($AssertionError);
 }
 
-void clinit$UnixUriUtils($Class* class$) {
+void UnixUriUtils::clinit$($Class* clazz) {
 	UnixUriUtils::$assertionsDisabled = !UnixUriUtils::class$->desiredAssertionStatus();
 	UnixUriUtils::L_DIGIT = UnixUriUtils::lowMask(u'0', u'9');
 	UnixUriUtils::H_UPALPHA = UnixUriUtils::highMask(u'A', u'Z');
@@ -324,7 +273,51 @@ UnixUriUtils::UnixUriUtils() {
 }
 
 $Class* UnixUriUtils::load$($String* name, bool initialize) {
-	$loadClass(UnixUriUtils, name, initialize, &_UnixUriUtils_ClassInfo_, clinit$UnixUriUtils, allocate$UnixUriUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixUriUtils, $assertionsDisabled)},
+		{"L_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_DIGIT)},
+		{"H_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnixUriUtils, H_DIGIT)},
+		{"L_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnixUriUtils, L_UPALPHA)},
+		{"H_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_UPALPHA)},
+		{"L_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnixUriUtils, L_LOWALPHA)},
+		{"H_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_LOWALPHA)},
+		{"L_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnixUriUtils, L_ALPHA)},
+		{"H_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_ALPHA)},
+		{"L_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_ALPHANUM)},
+		{"H_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_ALPHANUM)},
+		{"L_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_MARK)},
+		{"H_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_MARK)},
+		{"L_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_UNRESERVED)},
+		{"H_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_UNRESERVED)},
+		{"L_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_PCHAR)},
+		{"H_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_PCHAR)},
+		{"L_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, L_PATH)},
+		{"H_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixUriUtils, H_PATH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(UnixUriUtils, init$, void)},
+		{"decode", "(C)I", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, decode, int32_t, char16_t)},
+		{"fromUri", "(Lsun/nio/fs/UnixFileSystem;Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(UnixUriUtils, fromUri, $Path*, $UnixFileSystem*, $URI*)},
+		{"highMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, highMask, int64_t, $String*)},
+		{"highMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, highMask, int64_t, char16_t, char16_t)},
+		{"lowMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, lowMask, int64_t, $String*)},
+		{"lowMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, lowMask, int64_t, char16_t, char16_t)},
+		{"match", "(CJJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, match, bool, char16_t, int64_t, int64_t)},
+		{"toUri", "(Lsun/nio/fs/UnixPath;)Ljava/net/URI;", nullptr, $STATIC, $staticMethod(UnixUriUtils, toUri, $URI*, $UnixPath*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixUriUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnixUriUtils, name, initialize, &classInfo$$, UnixUriUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixUriUtils);
+	});
 	return class$;
 }
 

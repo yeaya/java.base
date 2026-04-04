@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/util/CodePointMap$StringIterator.h>
-
 #include <java/lang/CharSequence.h>
 #include <jdk/internal/icu/util/CodePointMap.h>
 #include <jcpp.h>
@@ -17,76 +16,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace util {
-
-$CompoundAttribute _CodePointMap$StringIterator_FieldAnnotations_s[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CodePointMap$StringIterator_FieldAnnotations_sIndex[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CodePointMap$StringIterator_FieldAnnotations_c[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CodePointMap$StringIterator_FieldAnnotations_value[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CodePointMap$StringIterator_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _CodePointMap$StringIterator_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/icu/util/CodePointMap;", nullptr, $FINAL | $SYNTHETIC, $field(CodePointMap$StringIterator, this$0)},
-	{"s", "Ljava/lang/CharSequence;", nullptr, $PROTECTED | $DEPRECATED, $field(CodePointMap$StringIterator, s), _CodePointMap$StringIterator_FieldAnnotations_s},
-	{"sIndex", "I", nullptr, $PROTECTED | $DEPRECATED, $field(CodePointMap$StringIterator, sIndex), _CodePointMap$StringIterator_FieldAnnotations_sIndex},
-	{"c", "I", nullptr, $PROTECTED | $DEPRECATED, $field(CodePointMap$StringIterator, c), _CodePointMap$StringIterator_FieldAnnotations_c},
-	{"value", "I", nullptr, $PROTECTED | $DEPRECATED, $field(CodePointMap$StringIterator, value), _CodePointMap$StringIterator_FieldAnnotations_value},
-	{}
-};
-
-$MethodInfo _CodePointMap$StringIterator_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/util/CodePointMap;Ljava/lang/CharSequence;I)V", nullptr, $PROTECTED | $DEPRECATED, $method(CodePointMap$StringIterator, init$, void, $CodePointMap*, $CharSequence*, int32_t), nullptr, nullptr, _CodePointMap$StringIterator_MethodAnnotations_init$0},
-	{"getCodePoint", "()I", nullptr, $PUBLIC | $FINAL, $method(CodePointMap$StringIterator, getCodePoint, int32_t)},
-	{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(CodePointMap$StringIterator, getIndex, int32_t)},
-	{"getValue", "()I", nullptr, $PUBLIC | $FINAL, $method(CodePointMap$StringIterator, getValue, int32_t)},
-	{"next", "()Z", nullptr, $PUBLIC, $virtualMethod(CodePointMap$StringIterator, next, bool)},
-	{"previous", "()Z", nullptr, $PUBLIC, $virtualMethod(CodePointMap$StringIterator, previous, bool)},
-	{"reset", "(Ljava/lang/CharSequence;I)V", nullptr, $PUBLIC, $virtualMethod(CodePointMap$StringIterator, reset, void, $CharSequence*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CodePointMap$StringIterator_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.util.CodePointMap$StringIterator", "jdk.internal.icu.util.CodePointMap", "StringIterator", $PUBLIC},
-	{}
-};
-
-$ClassInfo _CodePointMap$StringIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.icu.util.CodePointMap$StringIterator",
-	"java.lang.Object",
-	nullptr,
-	_CodePointMap$StringIterator_FieldInfo_,
-	_CodePointMap$StringIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CodePointMap$StringIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.util.CodePointMap"
-};
-
-$Object* allocate$CodePointMap$StringIterator($Class* clazz) {
-	return $of($alloc(CodePointMap$StringIterator));
-}
 
 void CodePointMap$StringIterator::init$($CodePointMap* this$0, $CharSequence* s, int32_t sIndex) {
 	$set(this, this$0, this$0);
@@ -139,7 +68,66 @@ CodePointMap$StringIterator::CodePointMap$StringIterator() {
 }
 
 $Class* CodePointMap$StringIterator::load$($String* name, bool initialize) {
-	$loadClass(CodePointMap$StringIterator, name, initialize, &_CodePointMap$StringIterator_ClassInfo_, allocate$CodePointMap$StringIterator);
+	$CompoundAttribute sfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute sIndexfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute cfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute valuefieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/icu/util/CodePointMap;", nullptr, $FINAL | $SYNTHETIC, $field(CodePointMap$StringIterator, this$0)},
+		{"s", "Ljava/lang/CharSequence;", nullptr, $PROTECTED | $DEPRECATED, $field(CodePointMap$StringIterator, s), sfieldAnnotations$$},
+		{"sIndex", "I", nullptr, $PROTECTED | $DEPRECATED, $field(CodePointMap$StringIterator, sIndex), sIndexfieldAnnotations$$},
+		{"c", "I", nullptr, $PROTECTED | $DEPRECATED, $field(CodePointMap$StringIterator, c), cfieldAnnotations$$},
+		{"value", "I", nullptr, $PROTECTED | $DEPRECATED, $field(CodePointMap$StringIterator, value), valuefieldAnnotations$$},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/icu/util/CodePointMap;Ljava/lang/CharSequence;I)V", nullptr, $PROTECTED | $DEPRECATED, $method(CodePointMap$StringIterator, init$, void, $CodePointMap*, $CharSequence*, int32_t), nullptr, nullptr, init$methodAnnotations$$},
+		{"getCodePoint", "()I", nullptr, $PUBLIC | $FINAL, $method(CodePointMap$StringIterator, getCodePoint, int32_t)},
+		{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(CodePointMap$StringIterator, getIndex, int32_t)},
+		{"getValue", "()I", nullptr, $PUBLIC | $FINAL, $method(CodePointMap$StringIterator, getValue, int32_t)},
+		{"next", "()Z", nullptr, $PUBLIC, $virtualMethod(CodePointMap$StringIterator, next, bool)},
+		{"previous", "()Z", nullptr, $PUBLIC, $virtualMethod(CodePointMap$StringIterator, previous, bool)},
+		{"reset", "(Ljava/lang/CharSequence;I)V", nullptr, $PUBLIC, $virtualMethod(CodePointMap$StringIterator, reset, void, $CharSequence*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.util.CodePointMap$StringIterator", "jdk.internal.icu.util.CodePointMap", "StringIterator", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.icu.util.CodePointMap$StringIterator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.util.CodePointMap"
+	};
+	$loadClass(CodePointMap$StringIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CodePointMap$StringIterator);
+	});
 	return class$;
 }
 

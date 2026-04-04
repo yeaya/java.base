@@ -1,5 +1,4 @@
 #include <jdk/internal/access/JavaObjectInputStreamAccess.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <jcpp.h>
 
@@ -12,35 +11,30 @@ namespace jdk {
 	namespace internal {
 		namespace access {
 
-$CompoundAttribute _JavaObjectInputStreamAccess_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _JavaObjectInputStreamAccess_MethodInfo_[] = {
-	{"checkArray", "(Ljava/io/ObjectInputStream;Ljava/lang/Class;I)V", "(Ljava/io/ObjectInputStream;Ljava/lang/Class<*>;I)V", $PUBLIC | $ABSTRACT, $virtualMethod(JavaObjectInputStreamAccess, checkArray, void, $ObjectInputStream*, $Class*, int32_t), "java.io.InvalidClassException"},
-	{}
-};
-
-$ClassInfo _JavaObjectInputStreamAccess_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.access.JavaObjectInputStreamAccess",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavaObjectInputStreamAccess_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavaObjectInputStreamAccess_Annotations_
-};
-
-$Object* allocate$JavaObjectInputStreamAccess($Class* clazz) {
-	return $of($alloc(JavaObjectInputStreamAccess));
-}
-
 $Class* JavaObjectInputStreamAccess::load$($String* name, bool initialize) {
-	$loadClass(JavaObjectInputStreamAccess, name, initialize, &_JavaObjectInputStreamAccess_ClassInfo_, allocate$JavaObjectInputStreamAccess);
+	$MethodInfo methodInfos$$[] = {
+		{"checkArray", "(Ljava/io/ObjectInputStream;Ljava/lang/Class;I)V", "(Ljava/io/ObjectInputStream;Ljava/lang/Class<*>;I)V", $PUBLIC | $ABSTRACT, $virtualMethod(JavaObjectInputStreamAccess, checkArray, void, $ObjectInputStream*, $Class*, int32_t), "java.io.InvalidClassException"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.access.JavaObjectInputStreamAccess",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(JavaObjectInputStreamAccess, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaObjectInputStreamAccess);
+	});
 	return class$;
 }
 

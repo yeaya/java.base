@@ -25,6 +25,7 @@ class BigInteger$UnsafeHolder : public ::java::lang::Object {
 	$class(BigInteger$UnsafeHolder, 0, ::java::lang::Object)
 public:
 	BigInteger$UnsafeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void putMag(::java::math::BigInteger* bi, $ints* magnitude);
 	static void putSign(::java::math::BigInteger* bi, int32_t sign);

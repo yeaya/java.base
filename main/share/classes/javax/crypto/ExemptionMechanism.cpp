@@ -1,5 +1,4 @@
 #include <javax/crypto/ExemptionMechanism.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/Key.h>
@@ -28,47 +27,6 @@ using $GetInstance$Instance = ::sun::security::jca::GetInstance$Instance;
 namespace javax {
 	namespace crypto {
 
-$FieldInfo _ExemptionMechanism_FieldInfo_[] = {
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(ExemptionMechanism, provider)},
-	{"exmechSpi", "Ljavax/crypto/ExemptionMechanismSpi;", nullptr, $PRIVATE, $field(ExemptionMechanism, exmechSpi)},
-	{"mechanism", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExemptionMechanism, mechanism)},
-	{"done", "Z", nullptr, $PRIVATE, $field(ExemptionMechanism, done)},
-	{"initialized", "Z", nullptr, $PRIVATE, $field(ExemptionMechanism, initialized)},
-	{"keyStored", "Ljava/security/Key;", nullptr, $PRIVATE, $field(ExemptionMechanism, keyStored)},
-	{}
-};
-
-$MethodInfo _ExemptionMechanism_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/ExemptionMechanismSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ExemptionMechanism, init$, void, $ExemptionMechanismSpi*, $Provider*, $String*)},
-	{"genExemptionBlob", "()[B", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, genExemptionBlob, $bytes*), "java.lang.IllegalStateException,javax.crypto.ExemptionMechanismException"},
-	{"genExemptionBlob", "([B)I", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, genExemptionBlob, int32_t, $bytes*), "java.lang.IllegalStateException,javax.crypto.ShortBufferException,javax.crypto.ExemptionMechanismException"},
-	{"genExemptionBlob", "([BI)I", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, genExemptionBlob, int32_t, $bytes*, int32_t), "java.lang.IllegalStateException,javax.crypto.ShortBufferException,javax.crypto.ExemptionMechanismException"},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ExemptionMechanism, getInstance, ExemptionMechanism*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ExemptionMechanism, getInstance, ExemptionMechanism*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ExemptionMechanism, getInstance, ExemptionMechanism*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, getName, $String*)},
-	{"getOutputSize", "(I)I", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, getOutputSize, int32_t, int32_t), "java.lang.IllegalStateException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, getProvider, $Provider*)},
-	{"init", "(Ljava/security/Key;)V", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, init, void, $Key*), "java.security.InvalidKeyException,javax.crypto.ExemptionMechanismException"},
-	{"init", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, init, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
-	{"init", "(Ljava/security/Key;Ljava/security/AlgorithmParameters;)V", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, init, void, $Key*, $AlgorithmParameters*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
-	{"isCryptoAllowed", "(Ljava/security/Key;)Z", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, isCryptoAllowed, bool, $Key*), "javax.crypto.ExemptionMechanismException"},
-	{}
-};
-
-$ClassInfo _ExemptionMechanism_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.ExemptionMechanism",
-	"java.lang.Object",
-	nullptr,
-	_ExemptionMechanism_FieldInfo_,
-	_ExemptionMechanism_MethodInfo_
-};
-
-$Object* allocate$ExemptionMechanism($Class* clazz) {
-	return $of($alloc(ExemptionMechanism));
-}
-
 void ExemptionMechanism::init$($ExemptionMechanismSpi* exmechSpi, $Provider* provider, $String* mechanism) {
 	this->done = false;
 	this->initialized = false;
@@ -83,24 +41,24 @@ $String* ExemptionMechanism::getName() {
 }
 
 ExemptionMechanism* ExemptionMechanism::getInstance($String* algorithm) {
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($ExemptionMechanismSpi);
 	$var($GetInstance$Instance, instance, $JceSecurity::getInstance("ExemptionMechanism"_s, $ExemptionMechanismSpi::class$, algorithm));
-	return $new(ExemptionMechanism, $cast($ExemptionMechanismSpi, $nc(instance)->impl), instance->provider, algorithm);
+	return $new(ExemptionMechanism, $cast($ExemptionMechanismSpi, $nc(instance)->impl), $nc(instance)->provider, algorithm);
 }
 
 ExemptionMechanism* ExemptionMechanism::getInstance($String* algorithm, $String* provider) {
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($ExemptionMechanismSpi);
 	$var($GetInstance$Instance, instance, $JceSecurity::getInstance("ExemptionMechanism"_s, $ExemptionMechanismSpi::class$, algorithm, provider));
-	return $new(ExemptionMechanism, $cast($ExemptionMechanismSpi, $nc(instance)->impl), instance->provider, algorithm);
+	return $new(ExemptionMechanism, $cast($ExemptionMechanismSpi, $nc(instance)->impl), $nc(instance)->provider, algorithm);
 }
 
 ExemptionMechanism* ExemptionMechanism::getInstance($String* algorithm, $Provider* provider) {
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($ExemptionMechanismSpi);
 	$var($GetInstance$Instance, instance, $JceSecurity::getInstance("ExemptionMechanism"_s, $ExemptionMechanismSpi::class$, algorithm, provider));
-	return $new(ExemptionMechanism, $cast($ExemptionMechanismSpi, $nc(instance)->impl), instance->provider, algorithm);
+	return $new(ExemptionMechanism, $cast($ExemptionMechanismSpi, $nc(instance)->impl), $nc(instance)->provider, algorithm);
 }
 
 $Provider* ExemptionMechanism::getProvider() {
@@ -110,7 +68,7 @@ $Provider* ExemptionMechanism::getProvider() {
 bool ExemptionMechanism::isCryptoAllowed($Key* key) {
 	bool ret = false;
 	if (this->done && (key != nullptr)) {
-		ret = $nc($of(this->keyStored))->equals(key);
+		ret = $nc(this->keyStored)->equals(key);
 	}
 	return ret;
 }
@@ -180,7 +138,43 @@ ExemptionMechanism::ExemptionMechanism() {
 }
 
 $Class* ExemptionMechanism::load$($String* name, bool initialize) {
-	$loadClass(ExemptionMechanism, name, initialize, &_ExemptionMechanism_ClassInfo_, allocate$ExemptionMechanism);
+	$FieldInfo fieldInfos$$[] = {
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(ExemptionMechanism, provider)},
+		{"exmechSpi", "Ljavax/crypto/ExemptionMechanismSpi;", nullptr, $PRIVATE, $field(ExemptionMechanism, exmechSpi)},
+		{"mechanism", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExemptionMechanism, mechanism)},
+		{"done", "Z", nullptr, $PRIVATE, $field(ExemptionMechanism, done)},
+		{"initialized", "Z", nullptr, $PRIVATE, $field(ExemptionMechanism, initialized)},
+		{"keyStored", "Ljava/security/Key;", nullptr, $PRIVATE, $field(ExemptionMechanism, keyStored)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/crypto/ExemptionMechanismSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ExemptionMechanism, init$, void, $ExemptionMechanismSpi*, $Provider*, $String*)},
+		{"genExemptionBlob", "()[B", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, genExemptionBlob, $bytes*), "java.lang.IllegalStateException,javax.crypto.ExemptionMechanismException"},
+		{"genExemptionBlob", "([B)I", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, genExemptionBlob, int32_t, $bytes*), "java.lang.IllegalStateException,javax.crypto.ShortBufferException,javax.crypto.ExemptionMechanismException"},
+		{"genExemptionBlob", "([BI)I", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, genExemptionBlob, int32_t, $bytes*, int32_t), "java.lang.IllegalStateException,javax.crypto.ShortBufferException,javax.crypto.ExemptionMechanismException"},
+		{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ExemptionMechanism, getInstance, ExemptionMechanism*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ExemptionMechanism, getInstance, ExemptionMechanism*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ExemptionMechanism, getInstance, ExemptionMechanism*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, getName, $String*)},
+		{"getOutputSize", "(I)I", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, getOutputSize, int32_t, int32_t), "java.lang.IllegalStateException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, getProvider, $Provider*)},
+		{"init", "(Ljava/security/Key;)V", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, init, void, $Key*), "java.security.InvalidKeyException,javax.crypto.ExemptionMechanismException"},
+		{"init", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, init, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
+		{"init", "(Ljava/security/Key;Ljava/security/AlgorithmParameters;)V", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, init, void, $Key*, $AlgorithmParameters*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
+		{"isCryptoAllowed", "(Ljava/security/Key;)Z", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, isCryptoAllowed, bool, $Key*), "javax.crypto.ExemptionMechanismException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.ExemptionMechanism",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExemptionMechanism, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExemptionMechanism);
+	});
 	return class$;
 }
 

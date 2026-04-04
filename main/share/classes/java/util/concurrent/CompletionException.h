@@ -23,10 +23,13 @@ public:
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x6CAAB173BFB4E069;
+	static const int64_t serialVersionUID = (int64_t)0x6caab173bfb4e069;
 	CompletionException(const CompletionException& e);
 	virtual void throw$() override;
-	inline CompletionException* operator ->() {
+	inline CompletionException* operator ->() const {
+		return (CompletionException*)throwing$;
+	}
+	inline operator CompletionException*() const {
 		return (CompletionException*)throwing$;
 	}
 };

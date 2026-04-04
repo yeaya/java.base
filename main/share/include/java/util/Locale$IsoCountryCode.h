@@ -28,6 +28,7 @@ class $import Locale$IsoCountryCode : public ::java::lang::Enum {
 public:
 	Locale$IsoCountryCode();
 	static $Array<::java::util::Locale$IsoCountryCode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual ::java::util::Set* createCountryCodeSet() {return nullptr;}
 	static ::java::util::Set* retrieveISOCountryCodes(::java::util::Locale$IsoCountryCode* type);

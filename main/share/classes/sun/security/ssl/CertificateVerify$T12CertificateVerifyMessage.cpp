@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateVerify$T12CertificateVerifyMessage.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/GeneralSecurityException.h>
@@ -50,18 +49,15 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $PrivateKey = ::java::security::PrivateKey;
 using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Alert = ::sun::security::ssl::Alert;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $Record = ::sun::security::ssl::Record;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
@@ -69,7 +65,6 @@ using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 using $SignatureScheme = ::sun::security::ssl::SignatureScheme;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 using $X509Authentication$X509Credentials = ::sun::security::ssl::X509Authentication$X509Credentials;
 using $X509Authentication$X509Possession = ::sun::security::ssl::X509Authentication$X509Possession;
@@ -79,72 +74,30 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertificateVerify$T12CertificateVerifyMessage_FieldInfo_[] = {
-	{"signatureScheme", "Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $FINAL, $field(CertificateVerify$T12CertificateVerifyMessage, signatureScheme)},
-	{"signature", "[B", nullptr, $PRIVATE | $FINAL, $field(CertificateVerify$T12CertificateVerifyMessage, signature)},
-	{}
-};
-
-$MethodInfo _CertificateVerify$T12CertificateVerifyMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/X509Authentication$X509Possession;)V", nullptr, 0, $method(CertificateVerify$T12CertificateVerifyMessage, init$, void, $HandshakeContext*, $X509Authentication$X509Possession*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateVerify$T12CertificateVerifyMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T12CertificateVerifyMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T12CertificateVerifyMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T12CertificateVerifyMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T12CertificateVerifyMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CertificateVerify$T12CertificateVerifyMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateVerify$T12CertificateVerifyMessage", "sun.security.ssl.CertificateVerify", "T12CertificateVerifyMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CertificateVerify$T12CertificateVerifyMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateVerify$T12CertificateVerifyMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_CertificateVerify$T12CertificateVerifyMessage_FieldInfo_,
-	_CertificateVerify$T12CertificateVerifyMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateVerify$T12CertificateVerifyMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateVerify"
-};
-
-$Object* allocate$CertificateVerify$T12CertificateVerifyMessage($Class* clazz) {
-	return $of($alloc(CertificateVerify$T12CertificateVerifyMessage));
-}
-
 void CertificateVerify$T12CertificateVerifyMessage::init$($HandshakeContext* context, $X509Authentication$X509Possession* x509Possession) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
-	$var($Map$Entry, schemeAndSigner, $SignatureScheme::getSignerOfPreferableAlgorithm($nc(chc)->algorithmConstraints, chc->peerRequestedSignatureSchemes, x509Possession, chc->negotiatedProtocol));
+	$var($Map$Entry, schemeAndSigner, $SignatureScheme::getSignerOfPreferableAlgorithm($nc(chc)->algorithmConstraints, $nc(chc)->peerRequestedSignatureSchemes, x509Possession, $nc(chc)->negotiatedProtocol));
 	if (schemeAndSigner == nullptr) {
 		$init($Alert);
-		$throw($($nc($nc(chc)->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"No supported CertificateVerify signature algorithm for "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm()), "  key"_s}))));
+		$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"No supported CertificateVerify signature algorithm for "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm()), "  key"_s}))));
 	}
 	$set(this, signatureScheme, $cast($SignatureScheme, $nc(schemeAndSigner)->getKey()));
 	$var($bytes, temporary, nullptr);
 	try {
 		$var($Signature, signer, $cast($Signature, schemeAndSigner->getValue()));
-		$nc(signer)->update($($nc($nc(chc)->handshakeHash)->archived()));
+		$nc(signer)->update($($nc(chc->handshakeHash)->archived()));
 		$assign(temporary, signer->sign());
 	} catch ($SignatureException& ikse) {
 		$init($Alert);
-		$throw($($nc($nc(chc)->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Cannot produce CertificateVerify signature"_s, ikse)));
+		$throw($($nc(chc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Cannot produce CertificateVerify signature"_s, ikse)));
 	}
 	$set(this, signature, temporary);
 }
 
 void CertificateVerify$T12CertificateVerifyMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, handshakeContext));
 	if ($nc(m)->remaining() < 4) {
@@ -163,18 +116,16 @@ void CertificateVerify$T12CertificateVerifyMessage::init$($HandshakeContext* han
 	}
 	$var($X509Authentication$X509Credentials, x509Credentials, nullptr);
 	{
-		$var($Iterator, i$, $nc($nc(shc)->handshakeCredentials)->iterator());
+		$var($Iterator, i$, $nc(shc->handshakeCredentials)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SSLCredentials, cd, $cast($SSLCredentials, i$->next()));
-			{
-				if ($instanceOf($X509Authentication$X509Credentials, cd)) {
-					$assign(x509Credentials, $cast($X509Authentication$X509Credentials, cd));
-					break;
-				}
+			if ($instanceOf($X509Authentication$X509Credentials, cd)) {
+				$assign(x509Credentials, $cast($X509Authentication$X509Credentials, cd));
+				break;
 			}
 		}
 	}
-	if (x509Credentials == nullptr || $nc(x509Credentials)->popPublicKey == nullptr) {
+	if (x509Credentials == nullptr || x509Credentials->popPublicKey == nullptr) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "No X509 credentials negotiated for CertificateVerify"_s)));
 	}
@@ -216,13 +167,13 @@ void CertificateVerify$T12CertificateVerifyMessage::send($HandshakeOutStream* ho
 }
 
 $String* CertificateVerify$T12CertificateVerifyMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"CertificateVerify\": \'{\'\n  \"signature algorithm\": {0}\n  \"signature\": \'{\'\n{1}\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$of(this->signatureScheme->name$),
-		$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->signature)), "    "_s)))
+		this->signatureScheme->name$,
+		$($Utilities::indent($(hexEncoder->encodeBuffer(this->signature)), "    "_s))
 	}));
 	return messageFormat->format(messageFields);
 }
@@ -231,7 +182,43 @@ CertificateVerify$T12CertificateVerifyMessage::CertificateVerify$T12CertificateV
 }
 
 $Class* CertificateVerify$T12CertificateVerifyMessage::load$($String* name, bool initialize) {
-	$loadClass(CertificateVerify$T12CertificateVerifyMessage, name, initialize, &_CertificateVerify$T12CertificateVerifyMessage_ClassInfo_, allocate$CertificateVerify$T12CertificateVerifyMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"signatureScheme", "Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $FINAL, $field(CertificateVerify$T12CertificateVerifyMessage, signatureScheme)},
+		{"signature", "[B", nullptr, $PRIVATE | $FINAL, $field(CertificateVerify$T12CertificateVerifyMessage, signature)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/X509Authentication$X509Possession;)V", nullptr, 0, $method(CertificateVerify$T12CertificateVerifyMessage, init$, void, $HandshakeContext*, $X509Authentication$X509Possession*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateVerify$T12CertificateVerifyMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T12CertificateVerifyMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T12CertificateVerifyMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T12CertificateVerifyMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T12CertificateVerifyMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateVerify$T12CertificateVerifyMessage", "sun.security.ssl.CertificateVerify", "T12CertificateVerifyMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateVerify$T12CertificateVerifyMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateVerify"
+	};
+	$loadClass(CertificateVerify$T12CertificateVerifyMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateVerify$T12CertificateVerifyMessage);
+	});
 	return class$;
 }
 

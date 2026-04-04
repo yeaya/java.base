@@ -1,5 +1,4 @@
 #include <java/lang/annotation/IncompleteAnnotationException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,37 +10,13 @@ namespace java {
 	namespace lang {
 		namespace annotation {
 
-$FieldInfo _IncompleteAnnotationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IncompleteAnnotationException, serialVersionUID)},
-	{"annotationType", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PRIVATE, $field(IncompleteAnnotationException, annotationType$)},
-	{"elementName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IncompleteAnnotationException, elementName$)},
-	{}
-};
-
-$MethodInfo _IncompleteAnnotationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/String;)V", $PUBLIC, $method(IncompleteAnnotationException, init$, void, $Class*, $String*)},
-	{"annotationType", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PUBLIC, $virtualMethod(IncompleteAnnotationException, annotationType, $Class*)},
-	{"elementName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IncompleteAnnotationException, elementName, $String*)},
-	{}
-};
-
-$ClassInfo _IncompleteAnnotationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.annotation.IncompleteAnnotationException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_IncompleteAnnotationException_FieldInfo_,
-	_IncompleteAnnotationException_MethodInfo_
-};
-
-$Object* allocate$IncompleteAnnotationException($Class* clazz) {
-	return $of($alloc(IncompleteAnnotationException));
-}
-
 void IncompleteAnnotationException::init$($Class* annotationType, $String* elementName) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($nc(annotationType)->getName()), " missing element "_s}));
-	$RuntimeException::init$($$concat(var$0, $($nc(elementName)->toString())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc(annotationType)->getName()));
+	var$0->append(" missing element "_s);
+	var$0->append($($nc(elementName)->toString()));
+	$RuntimeException::init$($$str(var$0));
 	$set(this, annotationType$, annotationType);
 	$set(this, elementName$, elementName);
 }
@@ -65,7 +40,29 @@ void IncompleteAnnotationException::throw$() {
 }
 
 $Class* IncompleteAnnotationException::load$($String* name, bool initialize) {
-	$loadClass(IncompleteAnnotationException, name, initialize, &_IncompleteAnnotationException_ClassInfo_, allocate$IncompleteAnnotationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IncompleteAnnotationException, serialVersionUID)},
+		{"annotationType", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PRIVATE, $field(IncompleteAnnotationException, annotationType$)},
+		{"elementName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IncompleteAnnotationException, elementName$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/String;)V", $PUBLIC, $method(IncompleteAnnotationException, init$, void, $Class*, $String*)},
+		{"annotationType", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PUBLIC, $virtualMethod(IncompleteAnnotationException, annotationType, $Class*)},
+		{"elementName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IncompleteAnnotationException, elementName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.annotation.IncompleteAnnotationException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IncompleteAnnotationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IncompleteAnnotationException);
+	});
 	return class$;
 }
 

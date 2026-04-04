@@ -1,5 +1,4 @@
 #include <java/lang/invoke/StringConcatFactory$1.h>
-
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodType.h>
@@ -19,59 +18,18 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $StringConcatFactory = ::java::lang::invoke::StringConcatFactory;
-using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $Wrapper = ::sun::invoke::util::Wrapper;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
 
-$MethodInfo _StringConcatFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StringConcatFactory$1, init$, void)},
-	{"apply", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(StringConcatFactory$1, apply, $MethodHandle*, $Class*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringConcatFactory$1, apply, $Object*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _StringConcatFactory$1_EnclosingMethodInfo_ = {
-	"java.lang.invoke.StringConcatFactory",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _StringConcatFactory$1_InnerClassesInfo_[] = {
-	{"java.lang.invoke.StringConcatFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StringConcatFactory$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.StringConcatFactory$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	_StringConcatFactory$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/Function<Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandle;>;",
-	&_StringConcatFactory$1_EnclosingMethodInfo_,
-	_StringConcatFactory$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.StringConcatFactory"
-};
-
-$Object* allocate$StringConcatFactory$1($Class* clazz) {
-	return $of($alloc(StringConcatFactory$1));
-}
-
 void StringConcatFactory$1::init$() {
 }
 
 $MethodHandle* StringConcatFactory$1::apply($Class* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StringConcatFactory);
-	$init($Long);
-	$load($bytes);
 	$var($MethodHandle, prepend, $nc($StringConcatFactory::JLA)->stringConcatHelper("prepend"_s, $($MethodType::methodType($Long::TYPE, $Long::TYPE, $$new($ClassArray, {
 		$getClass($bytes),
 		$Wrapper::asPrimitiveType(c),
@@ -81,14 +39,46 @@ $MethodHandle* StringConcatFactory$1::apply($Class* c) {
 }
 
 $Object* StringConcatFactory$1::apply(Object$* c) {
-	return $of(this->apply($cast($Class, c)));
+	return this->apply($cast($Class, c));
 }
 
 StringConcatFactory$1::StringConcatFactory$1() {
 }
 
 $Class* StringConcatFactory$1::load$($String* name, bool initialize) {
-	$loadClass(StringConcatFactory$1, name, initialize, &_StringConcatFactory$1_ClassInfo_, allocate$StringConcatFactory$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StringConcatFactory$1, init$, void)},
+		{"apply", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(StringConcatFactory$1, apply, $MethodHandle*, $Class*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringConcatFactory$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.invoke.StringConcatFactory",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.StringConcatFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.StringConcatFactory$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/Function<Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandle;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.StringConcatFactory"
+	};
+	$loadClass(StringConcatFactory$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringConcatFactory$1);
+	});
 	return class$;
 }
 

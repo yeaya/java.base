@@ -63,6 +63,7 @@ public:
 	using ::java::lang::invoke::VarHandleByteArrayAsLongs$ByteArrayViewVarHandle::getAndBitwiseXorAcquire;
 	using ::java::lang::invoke::VarHandleByteArrayAsLongs$ByteArrayViewVarHandle::getAndBitwiseXorRelease;
 	using ::java::lang::invoke::VarHandleByteArrayAsLongs$ByteArrayViewVarHandle::accessModeTypeUncached;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool be);
 	void init$(bool be, bool exact);
 	virtual ::java::lang::invoke::MethodType* accessModeTypeUncached(::java::lang::invoke::VarHandle$AccessType* at) override;

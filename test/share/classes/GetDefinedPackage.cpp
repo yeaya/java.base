@@ -1,5 +1,4 @@
 #include <GetDefinedPackage.h>
-
 #include <GetDefinedPackage$TestClassLoader.h>
 #include <java/lang/Package.h>
 #include <jcpp.h>
@@ -14,43 +13,12 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $Package = ::java::lang::Package;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _GetDefinedPackage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetDefinedPackage, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(GetDefinedPackage, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _GetDefinedPackage_InnerClassesInfo_[] = {
-	{"GetDefinedPackage$TestClassLoader", "GetDefinedPackage", "TestClassLoader", $STATIC},
-	{}
-};
-
-$ClassInfo _GetDefinedPackage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetDefinedPackage",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_GetDefinedPackage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetDefinedPackage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"GetDefinedPackage$TestClassLoader"
-};
-
-$Object* allocate$GetDefinedPackage($Class* clazz) {
-	return $of($alloc(GetDefinedPackage));
-}
-
 void GetDefinedPackage::init$() {
 }
 
 void GetDefinedPackage::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GetDefinedPackage$TestClassLoader, loader, $new($GetDefinedPackage$TestClassLoader));
-	$init($GetDefinedPackage$TestClassLoader);
 	$var($Package, pkg, loader->getDefinedPackage($GetDefinedPackage$TestClassLoader::PKG_NAME));
 	if (pkg == nullptr) {
 		$throwNew($RuntimeException, "package foo not found"_s);
@@ -66,7 +34,32 @@ GetDefinedPackage::GetDefinedPackage() {
 }
 
 $Class* GetDefinedPackage::load$($String* name, bool initialize) {
-	$loadClass(GetDefinedPackage, name, initialize, &_GetDefinedPackage_ClassInfo_, allocate$GetDefinedPackage);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetDefinedPackage, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(GetDefinedPackage, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetDefinedPackage$TestClassLoader", "GetDefinedPackage", "TestClassLoader", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetDefinedPackage",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"GetDefinedPackage$TestClassLoader"
+	};
+	$loadClass(GetDefinedPackage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetDefinedPackage);
+	});
 	return class$;
 }
 

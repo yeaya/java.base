@@ -19,6 +19,7 @@ class JCAUtil$CachedSecureRandomHolder : public ::java::lang::Object {
 	$class(JCAUtil$CachedSecureRandomHolder, 0, ::java::lang::Object)
 public:
 	JCAUtil$CachedSecureRandomHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::SecureRandom* instance;
 };

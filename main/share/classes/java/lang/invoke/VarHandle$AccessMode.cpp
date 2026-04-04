@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandle$AccessMode.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Enum.h>
 #include <java/lang/invoke/VarHandle$AccessType.h>
@@ -54,81 +53,6 @@ using $VarHandle$AccessType = ::java::lang::invoke::VarHandle$AccessType;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _VarHandle$AccessMode_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(VarHandle$AccessMode, $assertionsDisabled)},
-	{"GET", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET)},
-	{"SET", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, SET)},
-	{"GET_VOLATILE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_VOLATILE)},
-	{"SET_VOLATILE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, SET_VOLATILE)},
-	{"GET_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_ACQUIRE)},
-	{"SET_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, SET_RELEASE)},
-	{"GET_OPAQUE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_OPAQUE)},
-	{"SET_OPAQUE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, SET_OPAQUE)},
-	{"COMPARE_AND_SET", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, COMPARE_AND_SET)},
-	{"COMPARE_AND_EXCHANGE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, COMPARE_AND_EXCHANGE)},
-	{"COMPARE_AND_EXCHANGE_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, COMPARE_AND_EXCHANGE_ACQUIRE)},
-	{"COMPARE_AND_EXCHANGE_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, COMPARE_AND_EXCHANGE_RELEASE)},
-	{"WEAK_COMPARE_AND_SET_PLAIN", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, WEAK_COMPARE_AND_SET_PLAIN)},
-	{"WEAK_COMPARE_AND_SET", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, WEAK_COMPARE_AND_SET)},
-	{"WEAK_COMPARE_AND_SET_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, WEAK_COMPARE_AND_SET_ACQUIRE)},
-	{"WEAK_COMPARE_AND_SET_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, WEAK_COMPARE_AND_SET_RELEASE)},
-	{"GET_AND_SET", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_SET)},
-	{"GET_AND_SET_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_SET_ACQUIRE)},
-	{"GET_AND_SET_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_SET_RELEASE)},
-	{"GET_AND_ADD", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_ADD)},
-	{"GET_AND_ADD_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_ADD_ACQUIRE)},
-	{"GET_AND_ADD_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_ADD_RELEASE)},
-	{"GET_AND_BITWISE_OR", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_OR)},
-	{"GET_AND_BITWISE_OR_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_OR_RELEASE)},
-	{"GET_AND_BITWISE_OR_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_OR_ACQUIRE)},
-	{"GET_AND_BITWISE_AND", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_AND)},
-	{"GET_AND_BITWISE_AND_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_AND_RELEASE)},
-	{"GET_AND_BITWISE_AND_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_AND_ACQUIRE)},
-	{"GET_AND_BITWISE_XOR", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_XOR)},
-	{"GET_AND_BITWISE_XOR_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_XOR_RELEASE)},
-	{"GET_AND_BITWISE_XOR_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_XOR_ACQUIRE)},
-	{"$VALUES", "[Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(VarHandle$AccessMode, $VALUES)},
-	{"COUNT", "I", nullptr, $STATIC | $FINAL, $staticField(VarHandle$AccessMode, COUNT)},
-	{"methodName", "Ljava/lang/String;", nullptr, $FINAL, $field(VarHandle$AccessMode, methodName$)},
-	{"at", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $FINAL, $field(VarHandle$AccessMode, at)},
-	{}
-};
-
-$MethodInfo _VarHandle$AccessMode_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandle$AccessMode, $values, $VarHandle$AccessModeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/invoke/VarHandle$AccessType;)V", "(Ljava/lang/String;Ljava/lang/invoke/VarHandle$AccessType;)V", $PRIVATE, $method(VarHandle$AccessMode, init$, void, $String*, int32_t, $String*, $VarHandle$AccessType*)},
-	{"methodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(VarHandle$AccessMode, methodName, $String*)},
-	{"valueFromMethodName", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessMode, valueFromMethodName, VarHandle$AccessMode*, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessMode, valueOf, VarHandle$AccessMode*, $String*)},
-	{"values", "()[Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessMode, values, $VarHandle$AccessModeArray*)},
-	{}
-};
-
-$InnerClassInfo _VarHandle$AccessMode_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandle$AccessMode", "java.lang.invoke.VarHandle", "AccessMode", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _VarHandle$AccessMode_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.invoke.VarHandle$AccessMode",
-	"java.lang.Enum",
-	nullptr,
-	_VarHandle$AccessMode_FieldInfo_,
-	_VarHandle$AccessMode_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/invoke/VarHandle$AccessMode;>;",
-	nullptr,
-	_VarHandle$AccessMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandle"
-};
-
-$Object* allocate$VarHandle$AccessMode($Class* clazz) {
-	return $of($alloc(VarHandle$AccessMode));
-}
 
 bool VarHandle$AccessMode::$assertionsDisabled = false;
 VarHandle$AccessMode* VarHandle$AccessMode::GET = nullptr;
@@ -224,395 +148,268 @@ $String* VarHandle$AccessMode::methodName() {
 
 VarHandle$AccessMode* VarHandle$AccessMode::valueFromMethodName($String* methodName) {
 	$init(VarHandle$AccessMode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s89857$, methodName);
 	int32_t tmp89857$ = -1;
 	switch ($nc(s89857$)->hashCode()) {
-	case 0x00018F56:
-		{
-			if (s89857$->equals("get"_s)) {
-				tmp89857$ = 0;
-			}
-			break;
+	case 0x00018f56:
+		if (s89857$->equals("get"_s)) {
+			tmp89857$ = 0;
 		}
-	case 0x0001BC62:
-		{
-			if (s89857$->equals("set"_s)) {
-				tmp89857$ = 1;
-			}
-			break;
+		break;
+	case 0x0001bc62:
+		if (s89857$->equals("set"_s)) {
+			tmp89857$ = 1;
 		}
-	case 0x0B513B12:
-		{
-			if (s89857$->equals("getVolatile"_s)) {
-				tmp89857$ = 2;
-			}
-			break;
+		break;
+	case 0x0b513b12:
+		if (s89857$->equals("getVolatile"_s)) {
+			tmp89857$ = 2;
 		}
-	case 0x06099C1E:
-		{
-			if (s89857$->equals("setVolatile"_s)) {
-				tmp89857$ = 3;
-			}
-			break;
+		break;
+	case 0x06099c1e:
+		if (s89857$->equals("setVolatile"_s)) {
+			tmp89857$ = 3;
 		}
-	case (int32_t)0xF8689CA0:
-		{
-			if (s89857$->equals("getAcquire"_s)) {
-				tmp89857$ = 4;
-			}
-			break;
+		break;
+	case (int32_t)0xf8689ca0:
+		if (s89857$->equals("getAcquire"_s)) {
+			tmp89857$ = 4;
 		}
-	case (int32_t)0xF23FB145:
-		{
-			if (s89857$->equals("setRelease"_s)) {
-				tmp89857$ = 5;
-			}
-			break;
+		break;
+	case (int32_t)0xf23fb145:
+		if (s89857$->equals("setRelease"_s)) {
+			tmp89857$ = 5;
 		}
-	case 0x28D92717:
-		{
-			if (s89857$->equals("getOpaque"_s)) {
-				tmp89857$ = 6;
-			}
-			break;
+		break;
+	case 0x28d92717:
+		if (s89857$->equals("getOpaque"_s)) {
+			tmp89857$ = 6;
 		}
-	case 0x1C0E5B23:
-		{
-			if (s89857$->equals("setOpaque"_s)) {
-				tmp89857$ = 7;
-			}
-			break;
+		break;
+	case 0x1c0e5b23:
+		if (s89857$->equals("setOpaque"_s)) {
+			tmp89857$ = 7;
 		}
-	case (int32_t)0x9C651050:
-		{
-			if (s89857$->equals("compareAndSet"_s)) {
-				tmp89857$ = 8;
-			}
-			break;
+		break;
+	case (int32_t)0x9c651050:
+		if (s89857$->equals("compareAndSet"_s)) {
+			tmp89857$ = 8;
 		}
-	case 0x58737EF5:
-		{
-			if (s89857$->equals("compareAndExchange"_s)) {
-				tmp89857$ = 9;
-			}
-			break;
+		break;
+	case 0x58737ef5:
+		if (s89857$->equals("compareAndExchange"_s)) {
+			tmp89857$ = 9;
 		}
-	case 0x2C96AC21:
-		{
-			if (s89857$->equals("compareAndExchangeAcquire"_s)) {
-				tmp89857$ = 10;
-			}
-			break;
+		break;
+	case 0x2c96ac21:
+		if (s89857$->equals("compareAndExchangeAcquire"_s)) {
+			tmp89857$ = 10;
 		}
-	case (int32_t)0xB2FC7352:
-		{
-			if (s89857$->equals("compareAndExchangeRelease"_s)) {
-				tmp89857$ = 11;
-			}
-			break;
+		break;
+	case (int32_t)0xb2fc7352:
+		if (s89857$->equals("compareAndExchangeRelease"_s)) {
+			tmp89857$ = 11;
 		}
-	case (int32_t)0xBD5D83B8:
-		{
-			if (s89857$->equals("weakCompareAndSet"_s)) {
-				tmp89857$ = 12;
-			}
-			break;
+		break;
+	case (int32_t)0xbd5d83b8:
+		if (s89857$->equals("weakCompareAndSet"_s)) {
+			tmp89857$ = 12;
 		}
-	case (int32_t)0xDE31F8F2:
-		{
-			if (s89857$->equals("weakCompareAndSetPlain"_s)) {
-				tmp89857$ = 13;
-			}
-			break;
+		break;
+	case (int32_t)0xde31f8f2:
+		if (s89857$->equals("weakCompareAndSetPlain"_s)) {
+			tmp89857$ = 13;
 		}
-	case (int32_t)0xF1A555FE:
-		{
-			if (s89857$->equals("weakCompareAndSetAcquire"_s)) {
-				tmp89857$ = 14;
-			}
-			break;
+		break;
+	case (int32_t)0xf1a555fe:
+		if (s89857$->equals("weakCompareAndSetAcquire"_s)) {
+			tmp89857$ = 14;
 		}
-	case 0x780B1D2F:
-		{
-			if (s89857$->equals("weakCompareAndSetRelease"_s)) {
-				tmp89857$ = 15;
-			}
-			break;
+		break;
+	case 0x780b1d2f:
+		if (s89857$->equals("weakCompareAndSetRelease"_s)) {
+			tmp89857$ = 15;
 		}
-	case 0x10DA0A01:
-		{
-			if (s89857$->equals("getAndSet"_s)) {
-				tmp89857$ = 16;
-			}
-			break;
+		break;
+	case 0x10da0a01:
+		if (s89857$->equals("getAndSet"_s)) {
+			tmp89857$ = 16;
 		}
-	case 0x775BDB95:
-		{
-			if (s89857$->equals("getAndSetAcquire"_s)) {
-				tmp89857$ = 17;
-			}
-			break;
+		break;
+	case 0x775bdb95:
+		if (s89857$->equals("getAndSetAcquire"_s)) {
+			tmp89857$ = 17;
 		}
-	case (int32_t)0xFDC1A2C6:
-		{
-			if (s89857$->equals("getAndSetRelease"_s)) {
-				tmp89857$ = 18;
-			}
-			break;
+		break;
+	case (int32_t)0xfdc1a2c6:
+		if (s89857$->equals("getAndSetRelease"_s)) {
+			tmp89857$ = 18;
 		}
-	case 0x10D9C640:
-		{
-			if (s89857$->equals("getAndAdd"_s)) {
-				tmp89857$ = 19;
-			}
-			break;
+		break;
+	case 0x10d9c640:
+		if (s89857$->equals("getAndAdd"_s)) {
+			tmp89857$ = 19;
 		}
-	case 0x37DAAA76:
-		{
-			if (s89857$->equals("getAndAddAcquire"_s)) {
-				tmp89857$ = 20;
-			}
-			break;
+		break;
+	case 0x37daaa76:
+		if (s89857$->equals("getAndAddAcquire"_s)) {
+			tmp89857$ = 20;
 		}
-	case (int32_t)0xBE4071A7:
-		{
-			if (s89857$->equals("getAndAddRelease"_s)) {
-				tmp89857$ = 21;
-			}
-			break;
+		break;
+	case (int32_t)0xbe4071a7:
+		if (s89857$->equals("getAndAddRelease"_s)) {
+			tmp89857$ = 21;
 		}
-	case 0x50983B53:
-		{
-			if (s89857$->equals("getAndBitwiseOr"_s)) {
-				tmp89857$ = 22;
-			}
-			break;
+		break;
+	case 0x50983b53:
+		if (s89857$->equals("getAndBitwiseOr"_s)) {
+			tmp89857$ = 22;
 		}
-	case (int32_t)0x8BFAB134:
-		{
-			if (s89857$->equals("getAndBitwiseOrRelease"_s)) {
-				tmp89857$ = 23;
-			}
-			break;
+		break;
+	case (int32_t)0x8bfab134:
+		if (s89857$->equals("getAndBitwiseOrRelease"_s)) {
+			tmp89857$ = 23;
 		}
-	case 0x0594EA03:
-		{
-			if (s89857$->equals("getAndBitwiseOrAcquire"_s)) {
-				tmp89857$ = 24;
-			}
-			break;
+		break;
+	case 0x0594ea03:
+		if (s89857$->equals("getAndBitwiseOrAcquire"_s)) {
+			tmp89857$ = 24;
 		}
-	case (int32_t)0xC26EFA67:
-		{
-			if (s89857$->equals("getAndBitwiseAnd"_s)) {
-				tmp89857$ = 25;
-			}
-			break;
+		break;
+	case (int32_t)0xc26efa67:
+		if (s89857$->equals("getAndBitwiseAnd"_s)) {
+			tmp89857$ = 25;
 		}
-	case (int32_t)0x9B7693A0:
-		{
-			if (s89857$->equals("getAndBitwiseAndRelease"_s)) {
-				tmp89857$ = 26;
-			}
-			break;
+		break;
+	case (int32_t)0x9b7693a0:
+		if (s89857$->equals("getAndBitwiseAndRelease"_s)) {
+			tmp89857$ = 26;
 		}
-	case 0x1510CC6F:
-		{
-			if (s89857$->equals("getAndBitwiseAndAcquire"_s)) {
-				tmp89857$ = 27;
-			}
-			break;
+		break;
+	case 0x1510cc6f:
+		if (s89857$->equals("getAndBitwiseAndAcquire"_s)) {
+			tmp89857$ = 27;
 		}
-	case (int32_t)0xC26F50EB:
-		{
-			if (s89857$->equals("getAndBitwiseXor"_s)) {
-				tmp89857$ = 28;
-			}
-			break;
+		break;
+	case (int32_t)0xc26f50eb:
+		if (s89857$->equals("getAndBitwiseXor"_s)) {
+			tmp89857$ = 28;
 		}
-	case (int32_t)0xD0A4A09C:
-		{
-			if (s89857$->equals("getAndBitwiseXorRelease"_s)) {
-				tmp89857$ = 29;
-			}
-			break;
+		break;
+	case (int32_t)0xd0a4a09c:
+		if (s89857$->equals("getAndBitwiseXorRelease"_s)) {
+			tmp89857$ = 29;
 		}
-	case 0x4A3ED96B:
-		{
-			if (s89857$->equals("getAndBitwiseXorAcquire"_s)) {
-				tmp89857$ = 30;
-			}
-			break;
+		break;
+	case 0x4a3ed96b:
+		if (s89857$->equals("getAndBitwiseXorAcquire"_s)) {
+			tmp89857$ = 30;
 		}
+		break;
 	}
-
-	$var(VarHandle$AccessMode, var$0, nullptr)
+	$var(VarHandle$AccessMode, var$0, nullptr);
 	switch (tmp89857$) {
 	case 0:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET);
+		break;
 	case 1:
-		{
-			$assign(var$0, VarHandle$AccessMode::SET);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::SET);
+		break;
 	case 2:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_VOLATILE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_VOLATILE);
+		break;
 	case 3:
-		{
-			$assign(var$0, VarHandle$AccessMode::SET_VOLATILE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::SET_VOLATILE);
+		break;
 	case 4:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_ACQUIRE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_ACQUIRE);
+		break;
 	case 5:
-		{
-			$assign(var$0, VarHandle$AccessMode::SET_RELEASE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::SET_RELEASE);
+		break;
 	case 6:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_OPAQUE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_OPAQUE);
+		break;
 	case 7:
-		{
-			$assign(var$0, VarHandle$AccessMode::SET_OPAQUE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::SET_OPAQUE);
+		break;
 	case 8:
-		{
-			$assign(var$0, VarHandle$AccessMode::COMPARE_AND_SET);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::COMPARE_AND_SET);
+		break;
 	case 9:
-		{
-			$assign(var$0, VarHandle$AccessMode::COMPARE_AND_EXCHANGE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::COMPARE_AND_EXCHANGE);
+		break;
 	case 10:
-		{
-			$assign(var$0, VarHandle$AccessMode::COMPARE_AND_EXCHANGE_ACQUIRE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::COMPARE_AND_EXCHANGE_ACQUIRE);
+		break;
 	case 11:
-		{
-			$assign(var$0, VarHandle$AccessMode::COMPARE_AND_EXCHANGE_RELEASE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::COMPARE_AND_EXCHANGE_RELEASE);
+		break;
 	case 12:
-		{
-			$assign(var$0, VarHandle$AccessMode::WEAK_COMPARE_AND_SET);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::WEAK_COMPARE_AND_SET);
+		break;
 	case 13:
-		{
-			$assign(var$0, VarHandle$AccessMode::WEAK_COMPARE_AND_SET_PLAIN);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::WEAK_COMPARE_AND_SET_PLAIN);
+		break;
 	case 14:
-		{
-			$assign(var$0, VarHandle$AccessMode::WEAK_COMPARE_AND_SET_ACQUIRE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::WEAK_COMPARE_AND_SET_ACQUIRE);
+		break;
 	case 15:
-		{
-			$assign(var$0, VarHandle$AccessMode::WEAK_COMPARE_AND_SET_RELEASE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::WEAK_COMPARE_AND_SET_RELEASE);
+		break;
 	case 16:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_SET);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_SET);
+		break;
 	case 17:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_SET_ACQUIRE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_SET_ACQUIRE);
+		break;
 	case 18:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_SET_RELEASE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_SET_RELEASE);
+		break;
 	case 19:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_ADD);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_ADD);
+		break;
 	case 20:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_ADD_ACQUIRE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_ADD_ACQUIRE);
+		break;
 	case 21:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_ADD_RELEASE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_ADD_RELEASE);
+		break;
 	case 22:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_OR);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_OR);
+		break;
 	case 23:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_OR_RELEASE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_OR_RELEASE);
+		break;
 	case 24:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_OR_ACQUIRE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_OR_ACQUIRE);
+		break;
 	case 25:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_AND);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_AND);
+		break;
 	case 26:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_AND_RELEASE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_AND_RELEASE);
+		break;
 	case 27:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_AND_ACQUIRE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_AND_ACQUIRE);
+		break;
 	case 28:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_XOR);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_XOR);
+		break;
 	case 29:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_XOR_RELEASE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_XOR_RELEASE);
+		break;
 	case 30:
-		{
-			$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_XOR_ACQUIRE);
-			break;
-		}
+		$assign(var$0, VarHandle$AccessMode::GET_AND_BITWISE_XOR_ACQUIRE);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"No AccessMode value for method name "_s, methodName}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"No AccessMode value for method name "_s, methodName}));
 	}
 	return var$0;
 }
 
-void clinit$VarHandle$AccessMode($Class* class$) {
+void VarHandle$AccessMode::clinit$($Class* clazz) {
 	$load($VarHandle);
 	VarHandle$AccessMode::$assertionsDisabled = !$VarHandle::class$->desiredAssertionStatus();
 	$init($VarHandle$AccessType);
@@ -660,7 +457,76 @@ VarHandle$AccessMode::VarHandle$AccessMode() {
 }
 
 $Class* VarHandle$AccessMode::load$($String* name, bool initialize) {
-	$loadClass(VarHandle$AccessMode, name, initialize, &_VarHandle$AccessMode_ClassInfo_, clinit$VarHandle$AccessMode, allocate$VarHandle$AccessMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(VarHandle$AccessMode, $assertionsDisabled)},
+		{"GET", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET)},
+		{"SET", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, SET)},
+		{"GET_VOLATILE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_VOLATILE)},
+		{"SET_VOLATILE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, SET_VOLATILE)},
+		{"GET_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_ACQUIRE)},
+		{"SET_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, SET_RELEASE)},
+		{"GET_OPAQUE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_OPAQUE)},
+		{"SET_OPAQUE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, SET_OPAQUE)},
+		{"COMPARE_AND_SET", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, COMPARE_AND_SET)},
+		{"COMPARE_AND_EXCHANGE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, COMPARE_AND_EXCHANGE)},
+		{"COMPARE_AND_EXCHANGE_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, COMPARE_AND_EXCHANGE_ACQUIRE)},
+		{"COMPARE_AND_EXCHANGE_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, COMPARE_AND_EXCHANGE_RELEASE)},
+		{"WEAK_COMPARE_AND_SET_PLAIN", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, WEAK_COMPARE_AND_SET_PLAIN)},
+		{"WEAK_COMPARE_AND_SET", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, WEAK_COMPARE_AND_SET)},
+		{"WEAK_COMPARE_AND_SET_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, WEAK_COMPARE_AND_SET_ACQUIRE)},
+		{"WEAK_COMPARE_AND_SET_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, WEAK_COMPARE_AND_SET_RELEASE)},
+		{"GET_AND_SET", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_SET)},
+		{"GET_AND_SET_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_SET_ACQUIRE)},
+		{"GET_AND_SET_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_SET_RELEASE)},
+		{"GET_AND_ADD", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_ADD)},
+		{"GET_AND_ADD_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_ADD_ACQUIRE)},
+		{"GET_AND_ADD_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_ADD_RELEASE)},
+		{"GET_AND_BITWISE_OR", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_OR)},
+		{"GET_AND_BITWISE_OR_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_OR_RELEASE)},
+		{"GET_AND_BITWISE_OR_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_OR_ACQUIRE)},
+		{"GET_AND_BITWISE_AND", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_AND)},
+		{"GET_AND_BITWISE_AND_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_AND_RELEASE)},
+		{"GET_AND_BITWISE_AND_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_AND_ACQUIRE)},
+		{"GET_AND_BITWISE_XOR", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_XOR)},
+		{"GET_AND_BITWISE_XOR_RELEASE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_XOR_RELEASE)},
+		{"GET_AND_BITWISE_XOR_ACQUIRE", "Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessMode, GET_AND_BITWISE_XOR_ACQUIRE)},
+		{"$VALUES", "[Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(VarHandle$AccessMode, $VALUES)},
+		{"COUNT", "I", nullptr, $STATIC | $FINAL, $staticField(VarHandle$AccessMode, COUNT)},
+		{"methodName", "Ljava/lang/String;", nullptr, $FINAL, $field(VarHandle$AccessMode, methodName$)},
+		{"at", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $FINAL, $field(VarHandle$AccessMode, at)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandle$AccessMode, $values, $VarHandle$AccessModeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/invoke/VarHandle$AccessType;)V", "(Ljava/lang/String;Ljava/lang/invoke/VarHandle$AccessType;)V", $PRIVATE, $method(VarHandle$AccessMode, init$, void, $String*, int32_t, $String*, $VarHandle$AccessType*)},
+		{"methodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(VarHandle$AccessMode, methodName, $String*)},
+		{"valueFromMethodName", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessMode, valueFromMethodName, VarHandle$AccessMode*, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessMode, valueOf, VarHandle$AccessMode*, $String*)},
+		{"values", "()[Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessMode, values, $VarHandle$AccessModeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandle$AccessMode", "java.lang.invoke.VarHandle", "AccessMode", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.invoke.VarHandle$AccessMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/invoke/VarHandle$AccessMode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandle"
+	};
+	$loadClass(VarHandle$AccessMode, name, initialize, &classInfo$$, VarHandle$AccessMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(VarHandle$AccessMode));
+	});
 	return class$;
 }
 

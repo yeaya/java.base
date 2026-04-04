@@ -9,6 +9,7 @@ class WalkWithSecurity$1 : public ::java::lang::Object {
 	$class(WalkWithSecurity$1, 0, ::java::lang::Object)
 public:
 	WalkWithSecurity$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$WalkWithSecurity$ExpectedResult;
 };
 

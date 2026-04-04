@@ -1,5 +1,4 @@
 #include <java/net/URLClassLoader$5.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/net/FactoryURLClassLoader.h>
 #include <java/net/URL.h>
@@ -19,50 +18,6 @@ using $AccessControlContext = ::java::security::AccessControlContext;
 namespace java {
 	namespace net {
 
-$FieldInfo _URLClassLoader$5_FieldInfo_[] = {
-	{"val$acc", "Ljava/security/AccessControlContext;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassLoader$5, val$acc)},
-	{"val$parent", "Ljava/lang/ClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassLoader$5, val$parent)},
-	{"val$urls", "[Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassLoader$5, val$urls)},
-	{}
-};
-
-$MethodInfo _URLClassLoader$5_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(URLClassLoader$5, init$, void, $URLArray*, $ClassLoader*, $AccessControlContext*)},
-	{"run", "()Ljava/net/URLClassLoader;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader$5, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _URLClassLoader$5_EnclosingMethodInfo_ = {
-	"java.net.URLClassLoader",
-	"newInstance",
-	"([Ljava/net/URL;Ljava/lang/ClassLoader;)Ljava/net/URLClassLoader;"
-};
-
-$InnerClassInfo _URLClassLoader$5_InnerClassesInfo_[] = {
-	{"java.net.URLClassLoader$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URLClassLoader$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.URLClassLoader$5",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_URLClassLoader$5_FieldInfo_,
-	_URLClassLoader$5_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/URLClassLoader;>;",
-	&_URLClassLoader$5_EnclosingMethodInfo_,
-	_URLClassLoader$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.URLClassLoader"
-};
-
-$Object* allocate$URLClassLoader$5($Class* clazz) {
-	return $of($alloc(URLClassLoader$5));
-}
-
 void URLClassLoader$5::init$($URLArray* val$urls, $ClassLoader* val$parent, $AccessControlContext* val$acc) {
 	$set(this, val$urls, val$urls);
 	$set(this, val$parent, val$parent);
@@ -77,7 +32,44 @@ URLClassLoader$5::URLClassLoader$5() {
 }
 
 $Class* URLClassLoader$5::load$($String* name, bool initialize) {
-	$loadClass(URLClassLoader$5, name, initialize, &_URLClassLoader$5_ClassInfo_, allocate$URLClassLoader$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$acc", "Ljava/security/AccessControlContext;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassLoader$5, val$acc)},
+		{"val$parent", "Ljava/lang/ClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassLoader$5, val$parent)},
+		{"val$urls", "[Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassLoader$5, val$urls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(URLClassLoader$5, init$, void, $URLArray*, $ClassLoader*, $AccessControlContext*)},
+		{"run", "()Ljava/net/URLClassLoader;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader$5, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.URLClassLoader",
+		"newInstance",
+		"([Ljava/net/URL;Ljava/lang/ClassLoader;)Ljava/net/URLClassLoader;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.URLClassLoader$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.URLClassLoader$5",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/URLClassLoader;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.URLClassLoader"
+	};
+	$loadClass(URLClassLoader$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLClassLoader$5);
+	});
 	return class$;
 }
 

@@ -42,12 +42,15 @@ public:
 	virtual void rethrowAsIOException(::sun::nio::fs::UnixPath* file);
 	virtual void setError(int32_t errno$);
 	::java::io::IOException* translateToIOException($String* file, $String* other);
-	static const int64_t serialVersionUID = (int64_t)0x644B857BEB44DD12;
+	static const int64_t serialVersionUID = (int64_t)0x644b857beb44dd12;
 	int32_t errno$$ = 0;
 	$String* msg = nullptr;
 	UnixException(const UnixException& e);
 	virtual void throw$() override;
-	inline UnixException* operator ->() {
+	inline UnixException* operator ->() const {
+		return (UnixException*)throwing$;
+	}
+	inline operator UnixException*() const {
 		return (UnixException*)throwing$;
 	}
 };

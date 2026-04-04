@@ -22,6 +22,7 @@ class $export MetafactoryParameterCastTest : public ::java::lang::Object {
 	$class(MetafactoryParameterCastTest, 0, ::java::lang::Object)
 public:
 	MetafactoryParameterCastTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::lang::invoke::CallSite* invokeAltMetafactory(::java::lang::invoke::MethodHandle* mh, $Class* sam, $String* methodName, $ClassArray* captured, ::java::lang::invoke::MethodType* instMT, ::java::lang::invoke::MethodType* samMT, $Array<::java::lang::invoke::MethodType>* bridgeMTs);
 	virtual ::java::lang::invoke::CallSite* invokeMetafactory(::java::lang::invoke::MethodHandle* mh, $Class* sam, $String* methodName, $ClassArray* captured, ::java::lang::invoke::MethodType* instMT, ::java::lang::invoke::MethodType* samMT);

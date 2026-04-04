@@ -93,6 +93,7 @@ class $import Pattern : public ::java::io::Serializable {
 	$class(Pattern, 0, ::java::io::Serializable)
 public:
 	Pattern();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* p, int32_t f);
 	static ::java::util::regex::Pattern$CharPredicate* ALL();
 	static ::java::util::regex::Pattern$CharPredicate* CIRange(int32_t lower, int32_t upper);
@@ -206,7 +207,7 @@ public:
 	static const int32_t CANON_EQ = 128;
 	static const int32_t UNICODE_CHARACTER_CLASS = 256;
 	static const int32_t ALL_FLAGS = 511; // CASE_INSENSITIVE | MULTILINE | DOTALL | UNICODE_CASE | CANON_EQ | UNIX_LINES | LITERAL | UNICODE_CHARACTER_CLASS | COMMENTS
-	static const int64_t serialVersionUID = (int64_t)0x4667D56B6E49020D;
+	static const int64_t serialVersionUID = (int64_t)0x4667d56b6e49020d;
 	$String* pattern$ = nullptr;
 	int32_t flags$ = 0;
 	int32_t flags0 = 0;
@@ -227,7 +228,7 @@ public:
 	int32_t cursor$ = 0;
 	int32_t patternLength = 0;
 	bool hasSupplementary = false;
-	static const int32_t MAX_REPS = 0x7FFFFFFF;
+	static const int32_t MAX_REPS = 0x7fffffff;
 	static ::java::util::regex::Pattern$Node* accept$;
 	static ::java::util::regex::Pattern$Node* lastAccept;
 };

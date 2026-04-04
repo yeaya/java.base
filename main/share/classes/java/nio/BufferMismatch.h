@@ -34,6 +34,7 @@ class BufferMismatch : public ::java::lang::Object {
 	$class(BufferMismatch, 0, ::java::lang::Object)
 public:
 	BufferMismatch();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t mismatch(::java::nio::ByteBuffer* a, int32_t aOff, ::java::nio::ByteBuffer* b, int32_t bOff, int32_t length);
 	static int32_t mismatch(::java::nio::CharBuffer* a, int32_t aOff, ::java::nio::CharBuffer* b, int32_t bOff, int32_t length);

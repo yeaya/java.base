@@ -1,5 +1,4 @@
 #include <java/security/AllPermissionCollection$1.h>
-
 #include <java/security/AllPermission.h>
 #include <java/security/AllPermissionCollection.h>
 #include <sun/security/util/SecurityConstants.h>
@@ -17,50 +16,6 @@ using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _AllPermissionCollection$1_FieldInfo_[] = {
-	{"this$0", "Ljava/security/AllPermissionCollection;", nullptr, $FINAL | $SYNTHETIC, $field(AllPermissionCollection$1, this$0)},
-	{"hasMore", "Z", nullptr, $PRIVATE, $field(AllPermissionCollection$1, hasMore)},
-	{}
-};
-
-$MethodInfo _AllPermissionCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/AllPermissionCollection;)V", nullptr, 0, $method(AllPermissionCollection$1, init$, void, $AllPermissionCollection*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(AllPermissionCollection$1, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(AllPermissionCollection$1, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AllPermissionCollection$1_EnclosingMethodInfo_ = {
-	"java.security.AllPermissionCollection",
-	"elements",
-	"()Ljava/util/Enumeration;"
-};
-
-$InnerClassInfo _AllPermissionCollection$1_InnerClassesInfo_[] = {
-	{"java.security.AllPermissionCollection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AllPermissionCollection$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.AllPermissionCollection$1",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_AllPermissionCollection$1_FieldInfo_,
-	_AllPermissionCollection$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/security/Permission;>;",
-	&_AllPermissionCollection$1_EnclosingMethodInfo_,
-	_AllPermissionCollection$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.AllPermissionCollection"
-};
-
-$Object* allocate$AllPermissionCollection$1($Class* clazz) {
-	return $of($alloc(AllPermissionCollection$1));
-}
 
 void AllPermissionCollection$1::init$($AllPermissionCollection* this$0) {
 	$set(this, this$0, this$0);
@@ -81,7 +36,44 @@ AllPermissionCollection$1::AllPermissionCollection$1() {
 }
 
 $Class* AllPermissionCollection$1::load$($String* name, bool initialize) {
-	$loadClass(AllPermissionCollection$1, name, initialize, &_AllPermissionCollection$1_ClassInfo_, allocate$AllPermissionCollection$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/security/AllPermissionCollection;", nullptr, $FINAL | $SYNTHETIC, $field(AllPermissionCollection$1, this$0)},
+		{"hasMore", "Z", nullptr, $PRIVATE, $field(AllPermissionCollection$1, hasMore)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/AllPermissionCollection;)V", nullptr, 0, $method(AllPermissionCollection$1, init$, void, $AllPermissionCollection*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(AllPermissionCollection$1, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(AllPermissionCollection$1, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.security.AllPermissionCollection",
+		"elements",
+		"()Ljava/util/Enumeration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.AllPermissionCollection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.AllPermissionCollection$1",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/security/Permission;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.AllPermissionCollection"
+	};
+	$loadClass(AllPermissionCollection$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AllPermissionCollection$1);
+	});
 	return class$;
 }
 

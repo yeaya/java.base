@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsWatchService.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/WatchEvent$Kind.h>
@@ -34,46 +33,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsWatchService_FieldInfo_[] = {
-	{"WAKEUP_COMPLETION_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsWatchService, WAKEUP_COMPLETION_KEY)},
-	{"poller", "Lsun/nio/fs/WindowsWatchService$Poller;", nullptr, $PRIVATE | $FINAL, $field(WindowsWatchService, poller)},
-	{"ALL_FILE_NOTIFY_EVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsWatchService, ALL_FILE_NOTIFY_EVENTS)},
-	{}
-};
-
-$MethodInfo _WindowsWatchService_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;)V", nullptr, 0, $method(WindowsWatchService, init$, void, $WindowsFileSystem*), "java.io.IOException"},
-	{"implClose", "()V", nullptr, 0, $virtualMethod(WindowsWatchService, implClose, void), "java.io.IOException"},
-	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT, $virtualMethod(WindowsWatchService, register$, $WatchKey*, $Path*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _WindowsWatchService_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsWatchService$Poller", "sun.nio.fs.WindowsWatchService", "Poller", $PRIVATE | $STATIC},
-	{"sun.nio.fs.WindowsWatchService$FileKey", "sun.nio.fs.WindowsWatchService", "FileKey", $PRIVATE | $STATIC},
-	{"sun.nio.fs.WindowsWatchService$WindowsWatchKey", "sun.nio.fs.WindowsWatchService", "WindowsWatchKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsWatchService_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsWatchService",
-	"sun.nio.fs.AbstractWatchService",
-	nullptr,
-	_WindowsWatchService_FieldInfo_,
-	_WindowsWatchService_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsWatchService_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsWatchService$Poller,sun.nio.fs.WindowsWatchService$FileKey,sun.nio.fs.WindowsWatchService$WindowsWatchKey"
-};
-
-$Object* allocate$WindowsWatchService($Class* clazz) {
-	return $of($alloc(WindowsWatchService));
-}
-
 void WindowsWatchService::init$($WindowsFileSystem* fs) {
 	$AbstractWatchService::init$();
 	int64_t port = 0;
@@ -83,7 +42,7 @@ void WindowsWatchService::init$($WindowsFileSystem* fs) {
 		$throwNew($IOException, $(x->getMessage()));
 	}
 	$set(this, poller, $new($WindowsWatchService$Poller, fs, this, port));
-	$nc(this->poller)->start();
+	this->poller->start();
 }
 
 $WatchKey* WindowsWatchService::register$($Path* path, $WatchEvent$KindArray* events, $WatchEvent$ModifierArray* modifiers) {
@@ -98,7 +57,41 @@ WindowsWatchService::WindowsWatchService() {
 }
 
 $Class* WindowsWatchService::load$($String* name, bool initialize) {
-	$loadClass(WindowsWatchService, name, initialize, &_WindowsWatchService_ClassInfo_, allocate$WindowsWatchService);
+	$FieldInfo fieldInfos$$[] = {
+		{"WAKEUP_COMPLETION_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsWatchService, WAKEUP_COMPLETION_KEY)},
+		{"poller", "Lsun/nio/fs/WindowsWatchService$Poller;", nullptr, $PRIVATE | $FINAL, $field(WindowsWatchService, poller)},
+		{"ALL_FILE_NOTIFY_EVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsWatchService, ALL_FILE_NOTIFY_EVENTS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/WindowsFileSystem;)V", nullptr, 0, $method(WindowsWatchService, init$, void, $WindowsFileSystem*), "java.io.IOException"},
+		{"implClose", "()V", nullptr, 0, $virtualMethod(WindowsWatchService, implClose, void), "java.io.IOException"},
+		{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT, $virtualMethod(WindowsWatchService, register$, $WatchKey*, $Path*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsWatchService$Poller", "sun.nio.fs.WindowsWatchService", "Poller", $PRIVATE | $STATIC},
+		{"sun.nio.fs.WindowsWatchService$FileKey", "sun.nio.fs.WindowsWatchService", "FileKey", $PRIVATE | $STATIC},
+		{"sun.nio.fs.WindowsWatchService$WindowsWatchKey", "sun.nio.fs.WindowsWatchService", "WindowsWatchKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsWatchService",
+		"sun.nio.fs.AbstractWatchService",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsWatchService$Poller,sun.nio.fs.WindowsWatchService$FileKey,sun.nio.fs.WindowsWatchService$WindowsWatchKey"
+	};
+	$loadClass(WindowsWatchService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsWatchService);
+	});
 	return class$;
 }
 

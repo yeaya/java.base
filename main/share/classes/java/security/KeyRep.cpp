@@ -1,11 +1,9 @@
 #include <java/security/KeyRep.h>
-
 #include <java/io/NotSerializableException.h>
 #include <java/security/KeyFactory.h>
 #include <java/security/KeyRep$Type.h>
 #include <java/security/PrivateKey.h>
 #include <java/security/PublicKey.h>
-#include <java/security/spec/KeySpec.h>
 #include <java/security/spec/PKCS8EncodedKeySpec.h>
 #include <java/security/spec/X509EncodedKeySpec.h>
 #include <java/util/Locale.h>
@@ -28,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $KeyFactory = ::java::security::KeyFactory;
 using $KeyRep$Type = ::java::security::KeyRep$Type;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $PKCS8EncodedKeySpec = ::java::security::spec::PKCS8EncodedKeySpec;
 using $X509EncodedKeySpec = ::java::security::spec::X509EncodedKeySpec;
 using $Locale = ::java::util::Locale;
@@ -36,48 +33,6 @@ using $SecretKeySpec = ::javax::crypto::spec::SecretKeySpec;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _KeyRep_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyRep, serialVersionUID)},
-	{"PKCS8", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyRep, PKCS8)},
-	{"X509", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyRep, X509)},
-	{"RAW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyRep, RAW)},
-	{"type", "Ljava/security/KeyRep$Type;", nullptr, $PRIVATE, $field(KeyRep, type)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyRep, algorithm)},
-	{"format", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyRep, format)},
-	{"encoded", "[B", nullptr, $PRIVATE, $field(KeyRep, encoded)},
-	{}
-};
-
-$MethodInfo _KeyRep_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyRep$Type;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(KeyRep, init$, void, $KeyRep$Type*, $String*, $String*, $bytes*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(KeyRep, readResolve, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$InnerClassInfo _KeyRep_InnerClassesInfo_[] = {
-	{"java.security.KeyRep$Type", "java.security.KeyRep", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _KeyRep_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.KeyRep",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_KeyRep_FieldInfo_,
-	_KeyRep_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyRep_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.security.KeyRep$Type"
-};
-
-$Object* allocate$KeyRep($Class* clazz) {
-	return $of($alloc(KeyRep));
-}
 
 $String* KeyRep::PKCS8 = nullptr;
 $String* KeyRep::X509 = nullptr;
@@ -95,23 +50,19 @@ void KeyRep::init$($KeyRep$Type* type, $String* algorithm, $String* format, $byt
 }
 
 $Object* KeyRep::readResolve() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($KeyRep$Type);
-		if (this->type == $KeyRep$Type::SECRET && $nc(KeyRep::RAW)->equals(this->format)) {
+		if (this->type == $KeyRep$Type::SECRET && KeyRep::RAW->equals(this->format)) {
 			return $of($new($SecretKeySpec, this->encoded, this->algorithm));
+		} else if (this->type == $KeyRep$Type::PUBLIC && KeyRep::X509->equals(this->format)) {
+			$var($KeyFactory, f, $KeyFactory::getInstance(this->algorithm));
+			return $nc(f)->generatePublic($$new($X509EncodedKeySpec, this->encoded));
+		} else if (this->type == $KeyRep$Type::PRIVATE && KeyRep::PKCS8->equals(this->format)) {
+			$var($KeyFactory, f, $KeyFactory::getInstance(this->algorithm));
+			return $of($nc(f)->generatePrivate($$new($PKCS8EncodedKeySpec, this->encoded)));
 		} else {
-			if (this->type == $KeyRep$Type::PUBLIC && $nc(KeyRep::X509)->equals(this->format)) {
-				$var($KeyFactory, f, $KeyFactory::getInstance(this->algorithm));
-				return $of($nc(f)->generatePublic($$new($X509EncodedKeySpec, this->encoded)));
-			} else {
-				if (this->type == $KeyRep$Type::PRIVATE && $nc(KeyRep::PKCS8)->equals(this->format)) {
-					$var($KeyFactory, f, $KeyFactory::getInstance(this->algorithm));
-					return $of($nc(f)->generatePrivate($$new($PKCS8EncodedKeySpec, this->encoded)));
-				} else {
-					$throwNew($NotSerializableException, $$str({"unrecognized type/format combination: "_s, this->type, "/"_s, this->format}));
-				}
-			}
+			$throwNew($NotSerializableException, $$str({"unrecognized type/format combination: "_s, this->type, "/"_s, this->format}));
 		}
 	} catch ($NotSerializableException& nse) {
 		$throw(nse);
@@ -126,14 +77,50 @@ $Object* KeyRep::readResolve() {
 KeyRep::KeyRep() {
 }
 
-void clinit$KeyRep($Class* class$) {
+void KeyRep::clinit$($Class* clazz) {
 	$assignStatic(KeyRep::PKCS8, "PKCS#8"_s);
 	$assignStatic(KeyRep::X509, "X.509"_s);
 	$assignStatic(KeyRep::RAW, "RAW"_s);
 }
 
 $Class* KeyRep::load$($String* name, bool initialize) {
-	$loadClass(KeyRep, name, initialize, &_KeyRep_ClassInfo_, clinit$KeyRep, allocate$KeyRep);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyRep, serialVersionUID)},
+		{"PKCS8", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyRep, PKCS8)},
+		{"X509", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyRep, X509)},
+		{"RAW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyRep, RAW)},
+		{"type", "Ljava/security/KeyRep$Type;", nullptr, $PRIVATE, $field(KeyRep, type)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyRep, algorithm)},
+		{"format", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyRep, format)},
+		{"encoded", "[B", nullptr, $PRIVATE, $field(KeyRep, encoded)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/KeyRep$Type;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(KeyRep, init$, void, $KeyRep$Type*, $String*, $String*, $bytes*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(KeyRep, readResolve, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyRep$Type", "java.security.KeyRep", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.KeyRep",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.security.KeyRep$Type"
+	};
+	$loadClass(KeyRep, name, initialize, &classInfo$$, KeyRep::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyRep);
+	});
 	return class$;
 }
 

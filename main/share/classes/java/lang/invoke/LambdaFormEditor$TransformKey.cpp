@@ -1,5 +1,4 @@
 #include <java/lang/invoke/LambdaFormEditor$TransformKey.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/LambdaForm.h>
 #include <java/lang/invoke/LambdaFormEditor$Transform.h>
@@ -28,70 +27,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _LambdaFormEditor$TransformKey_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaFormEditor$TransformKey, $assertionsDisabled)},
-	{"packedBytes", "J", nullptr, $FINAL, $field(LambdaFormEditor$TransformKey, packedBytes$)},
-	{"fullBytes", "[B", nullptr, $FINAL, $field(LambdaFormEditor$TransformKey, fullBytes$)},
-	{"NO_BYTES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LambdaFormEditor$TransformKey, NO_BYTES)},
-	{"STRESS_TEST", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor$TransformKey, STRESS_TEST)},
-	{"PACKED_BYTE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor$TransformKey, PACKED_BYTE_SIZE)},
-	{"PACKED_BYTE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor$TransformKey, PACKED_BYTE_MASK)},
-	{"PACKED_BYTE_MAX_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor$TransformKey, PACKED_BYTE_MAX_LENGTH)},
-	{}
-};
-
-$MethodInfo _LambdaFormEditor$TransformKey_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PRIVATE, $method(LambdaFormEditor$TransformKey, init$, void, int64_t)},
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(LambdaFormEditor$TransformKey, init$, void, $bytes*)},
-	{"<init>", "(J[B)V", nullptr, $PRIVATE, $method(LambdaFormEditor$TransformKey, init$, void, int64_t, $bytes*)},
-	{"bval", "(I)B", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, bval, int8_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$TransformKey, equals, bool, Object$*)},
-	{"equals", "(Ljava/lang/invoke/LambdaFormEditor$TransformKey;)Z", nullptr, $PRIVATE, $method(LambdaFormEditor$TransformKey, equals, bool, LambdaFormEditor$TransformKey*)},
-	{"equals", "(Ljava/lang/invoke/LambdaFormEditor$Transform;)Z", nullptr, $PRIVATE, $method(LambdaFormEditor$TransformKey, equals, bool, $LambdaFormEditor$Transform*)},
-	{"fullBytes", "([I)[B", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(LambdaFormEditor$TransformKey, fullBytes, $bytes*, $ints*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$TransformKey, hashCode, int32_t)},
-	{"inRange", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, inRange, bool, int32_t)},
-	{"of", "(BI)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, int32_t)},
-	{"of", "(BII)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, int32_t, int32_t)},
-	{"of", "(BIII)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, int32_t, int32_t, int32_t)},
-	{"of", "(B[I)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC | $TRANSIENT, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, $ints*)},
-	{"of", "(BI[I)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, int32_t, $ints*)},
-	{"of", "(BII[B)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, int32_t, int32_t, $bytes*)},
-	{"ofBothArrays", "(B[I[B)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, ofBothArrays, LambdaFormEditor$TransformKey*, int8_t, $ints*, $bytes*)},
-	{"packedBytes", "([B)J", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, packedBytes, int64_t, $bytes*)},
-	{"packedBytes", "(II)J", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, packedBytes, int64_t, int32_t, int32_t)},
-	{"packedBytes", "(III)J", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, packedBytes, int64_t, int32_t, int32_t, int32_t)},
-	{"packedBytes", "(IIII)J", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, packedBytes, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$TransformKey, toString, $String*)},
-	{"withResult", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaFormEditor$Transform;", nullptr, 0, $method(LambdaFormEditor$TransformKey, withResult, $LambdaFormEditor$Transform*, $LambdaForm*)},
-	{}
-};
-
-$InnerClassInfo _LambdaFormEditor$TransformKey_InnerClassesInfo_[] = {
-	{"java.lang.invoke.LambdaFormEditor$TransformKey", "java.lang.invoke.LambdaFormEditor", "TransformKey", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LambdaFormEditor$TransformKey_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.LambdaFormEditor$TransformKey",
-	"java.lang.Object",
-	nullptr,
-	_LambdaFormEditor$TransformKey_FieldInfo_,
-	_LambdaFormEditor$TransformKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LambdaFormEditor$TransformKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.LambdaFormEditor"
-};
-
-$Object* allocate$LambdaFormEditor$TransformKey($Class* clazz) {
-	return $of($alloc(LambdaFormEditor$TransformKey));
-}
-
 bool LambdaFormEditor$TransformKey::$assertionsDisabled = false;
 $bytes* LambdaFormEditor$TransformKey::NO_BYTES = nullptr;
 
@@ -112,7 +47,7 @@ void LambdaFormEditor$TransformKey::init$(int64_t packedBytes, $bytes* fullBytes
 
 int8_t LambdaFormEditor$TransformKey::bval(int32_t b) {
 	$init(LambdaFormEditor$TransformKey);
-	if (!LambdaFormEditor$TransformKey::$assertionsDisabled && !(((int32_t)(b & (uint32_t)255)) == b)) {
+	if (!LambdaFormEditor$TransformKey::$assertionsDisabled && !((b & 0xff) == b)) {
 		$throwNew($AssertionError);
 	}
 	return (int8_t)b;
@@ -120,13 +55,13 @@ int8_t LambdaFormEditor$TransformKey::bval(int32_t b) {
 
 LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t k, int32_t b1) {
 	$init(LambdaFormEditor$TransformKey);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int8_t b0 = bval(k);
 	if (inRange(b0 | b1)) {
 		return $new(LambdaFormEditor$TransformKey, packedBytes(b0, b1));
 	} else {
 		return $new(LambdaFormEditor$TransformKey, $(fullBytes($$new($ints, {
-			(int32_t)b0,
+			b0,
 			b1
 		}))));
 	}
@@ -134,12 +69,12 @@ LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t k, int32
 
 LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t b0, int32_t b1, int32_t b2) {
 	$init(LambdaFormEditor$TransformKey);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inRange((b0 | b1) | b2)) {
 		return $new(LambdaFormEditor$TransformKey, packedBytes(b0, b1, b2));
 	} else {
 		return $new(LambdaFormEditor$TransformKey, $(fullBytes($$new($ints, {
-			(int32_t)b0,
+			b0,
 			b1,
 			b2
 		}))));
@@ -148,12 +83,12 @@ LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t b0, int3
 
 LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t b0, int32_t b1, int32_t b2, int32_t b3) {
 	$init(LambdaFormEditor$TransformKey);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inRange(((b0 | b1) | b2) | b3)) {
 		return $new(LambdaFormEditor$TransformKey, packedBytes(b0, b1, b2, b3));
 	} else {
 		return $new(LambdaFormEditor$TransformKey, $(fullBytes($$new($ints, {
-			(int32_t)b0,
+			b0,
 			b1,
 			b2,
 			b3
@@ -192,15 +127,13 @@ LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t kind, in
 
 LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::ofBothArrays(int8_t kind, $ints* b123, $bytes* b456) {
 	$init(LambdaFormEditor$TransformKey);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, fullBytes, $new($bytes, 1 + $nc(b123)->length + $nc(b456)->length));
 	int32_t i = 0;
 	fullBytes->set(i++, bval(kind));
 	{
 		$var($ints, arr$, b123);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t bv = arr$->get(i$);
 			{
 				fullBytes->set(i++, bval(bv));
@@ -209,9 +142,7 @@ LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::ofBothArrays(int8_
 	}
 	{
 		$var($bytes, arr$, b456);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			int8_t bv = arr$->get(i$);
 			{
 				fullBytes->set(i++, bv);
@@ -228,13 +159,13 @@ LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::ofBothArrays(int8_
 
 int64_t LambdaFormEditor$TransformKey::packedBytes($bytes* bytes) {
 	$init(LambdaFormEditor$TransformKey);
-	if (!inRange($nc(bytes)->get(0)) || $nc(bytes)->length > LambdaFormEditor$TransformKey::PACKED_BYTE_MAX_LENGTH) {
+	if (!inRange($nc(bytes)->get(0)) || bytes->length > LambdaFormEditor$TransformKey::PACKED_BYTE_MAX_LENGTH) {
 		return 0;
 	}
 	int64_t pb = 0;
 	int32_t bitset = 0;
-	for (int32_t i = 0; i < $nc(bytes)->length; ++i) {
-		int32_t b = (int32_t)(bytes->get(i) & (uint32_t)255);
+	for (int32_t i = 0; i < bytes->length; ++i) {
+		int32_t b = bytes->get(i) & 0xff;
 		bitset |= b;
 		pb |= $sl((int64_t)b, i * LambdaFormEditor$TransformKey::PACKED_BYTE_SIZE);
 	}
@@ -270,22 +201,20 @@ int64_t LambdaFormEditor$TransformKey::packedBytes(int32_t b0, int32_t b1, int32
 
 bool LambdaFormEditor$TransformKey::inRange(int32_t bitset) {
 	$init(LambdaFormEditor$TransformKey);
-	if (!LambdaFormEditor$TransformKey::$assertionsDisabled && !(((int32_t)(bitset & (uint32_t)255)) == bitset)) {
+	if (!LambdaFormEditor$TransformKey::$assertionsDisabled && !((bitset & 0xff) == bitset)) {
 		$throwNew($AssertionError);
 	}
-	return (((int32_t)(bitset & (uint32_t)~LambdaFormEditor$TransformKey::PACKED_BYTE_MASK)) == 0);
+	return ((bitset & ~LambdaFormEditor$TransformKey::PACKED_BYTE_MASK) == 0);
 }
 
 $bytes* LambdaFormEditor$TransformKey::fullBytes($ints* byteValues) {
 	$init(LambdaFormEditor$TransformKey);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bytes, $new($bytes, $nc(byteValues)->length));
 	int32_t i = 0;
 	{
 		$var($ints, arr$, byteValues);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t bv = arr$->get(i$);
 			{
 				bytes->set(i++, bval(bv));
@@ -303,13 +232,13 @@ $LambdaFormEditor$Transform* LambdaFormEditor$TransformKey::withResult($LambdaFo
 }
 
 $String* LambdaFormEditor$TransformKey::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	int64_t bits = this->packedBytes$;
 	if (bits != 0) {
 		buf->append("("_s);
 		while (bits != 0) {
-			buf->append((int64_t)(bits & (uint64_t)(int64_t)LambdaFormEditor$TransformKey::PACKED_BYTE_MASK));
+			buf->append(bits & LambdaFormEditor$TransformKey::PACKED_BYTE_MASK);
 			$usrAssign(bits, LambdaFormEditor$TransformKey::PACKED_BYTE_SIZE);
 			if (bits != 0) {
 				buf->append(","_s);
@@ -349,7 +278,7 @@ int32_t LambdaFormEditor$TransformKey::hashCode() {
 	return $Arrays::hashCode(this->fullBytes$);
 }
 
-void clinit$LambdaFormEditor$TransformKey($Class* class$) {
+void LambdaFormEditor$TransformKey::clinit$($Class* clazz) {
 	$load($LambdaFormEditor);
 	LambdaFormEditor$TransformKey::$assertionsDisabled = !$LambdaFormEditor::class$->desiredAssertionStatus();
 	$assignStatic(LambdaFormEditor$TransformKey::NO_BYTES, $new($bytes, 0));
@@ -359,7 +288,65 @@ LambdaFormEditor$TransformKey::LambdaFormEditor$TransformKey() {
 }
 
 $Class* LambdaFormEditor$TransformKey::load$($String* name, bool initialize) {
-	$loadClass(LambdaFormEditor$TransformKey, name, initialize, &_LambdaFormEditor$TransformKey_ClassInfo_, clinit$LambdaFormEditor$TransformKey, allocate$LambdaFormEditor$TransformKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaFormEditor$TransformKey, $assertionsDisabled)},
+		{"packedBytes", "J", nullptr, $FINAL, $field(LambdaFormEditor$TransformKey, packedBytes$)},
+		{"fullBytes", "[B", nullptr, $FINAL, $field(LambdaFormEditor$TransformKey, fullBytes$)},
+		{"NO_BYTES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LambdaFormEditor$TransformKey, NO_BYTES)},
+		{"STRESS_TEST", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor$TransformKey, STRESS_TEST)},
+		{"PACKED_BYTE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor$TransformKey, PACKED_BYTE_SIZE)},
+		{"PACKED_BYTE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor$TransformKey, PACKED_BYTE_MASK)},
+		{"PACKED_BYTE_MAX_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor$TransformKey, PACKED_BYTE_MAX_LENGTH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PRIVATE, $method(LambdaFormEditor$TransformKey, init$, void, int64_t)},
+		{"<init>", "([B)V", nullptr, $PRIVATE, $method(LambdaFormEditor$TransformKey, init$, void, $bytes*)},
+		{"<init>", "(J[B)V", nullptr, $PRIVATE, $method(LambdaFormEditor$TransformKey, init$, void, int64_t, $bytes*)},
+		{"bval", "(I)B", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, bval, int8_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$TransformKey, equals, bool, Object$*)},
+		{"equals", "(Ljava/lang/invoke/LambdaFormEditor$TransformKey;)Z", nullptr, $PRIVATE, $method(LambdaFormEditor$TransformKey, equals, bool, LambdaFormEditor$TransformKey*)},
+		{"equals", "(Ljava/lang/invoke/LambdaFormEditor$Transform;)Z", nullptr, $PRIVATE, $method(LambdaFormEditor$TransformKey, equals, bool, $LambdaFormEditor$Transform*)},
+		{"fullBytes", "([I)[B", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(LambdaFormEditor$TransformKey, fullBytes, $bytes*, $ints*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$TransformKey, hashCode, int32_t)},
+		{"inRange", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, inRange, bool, int32_t)},
+		{"of", "(BI)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, int32_t)},
+		{"of", "(BII)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, int32_t, int32_t)},
+		{"of", "(BIII)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, int32_t, int32_t, int32_t)},
+		{"of", "(B[I)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC | $TRANSIENT, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, $ints*)},
+		{"of", "(BI[I)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, int32_t, $ints*)},
+		{"of", "(BII[B)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $STATIC, $staticMethod(LambdaFormEditor$TransformKey, of, LambdaFormEditor$TransformKey*, int8_t, int32_t, int32_t, $bytes*)},
+		{"ofBothArrays", "(B[I[B)Ljava/lang/invoke/LambdaFormEditor$TransformKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, ofBothArrays, LambdaFormEditor$TransformKey*, int8_t, $ints*, $bytes*)},
+		{"packedBytes", "([B)J", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, packedBytes, int64_t, $bytes*)},
+		{"packedBytes", "(II)J", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, packedBytes, int64_t, int32_t, int32_t)},
+		{"packedBytes", "(III)J", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, packedBytes, int64_t, int32_t, int32_t, int32_t)},
+		{"packedBytes", "(IIII)J", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormEditor$TransformKey, packedBytes, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$TransformKey, toString, $String*)},
+		{"withResult", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaFormEditor$Transform;", nullptr, 0, $method(LambdaFormEditor$TransformKey, withResult, $LambdaFormEditor$Transform*, $LambdaForm*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.LambdaFormEditor$TransformKey", "java.lang.invoke.LambdaFormEditor", "TransformKey", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.LambdaFormEditor$TransformKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.LambdaFormEditor"
+	};
+	$loadClass(LambdaFormEditor$TransformKey, name, initialize, &classInfo$$, LambdaFormEditor$TransformKey::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaFormEditor$TransformKey);
+	});
 	return class$;
 }
 

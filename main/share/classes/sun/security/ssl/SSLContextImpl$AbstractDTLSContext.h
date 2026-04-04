@@ -27,6 +27,7 @@ class SSLContextImpl$AbstractDTLSContext : public ::sun::security::ssl::SSLConte
 	$class(SSLContextImpl$AbstractDTLSContext, 0, ::sun::security::ssl::SSLContextImpl)
 public:
 	SSLContextImpl$AbstractDTLSContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::net::ssl::SSLEngine* createSSLEngineImpl() override;
 	virtual ::javax::net::ssl::SSLEngine* createSSLEngineImpl($String* host, int32_t port) override;

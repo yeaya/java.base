@@ -1,5 +1,4 @@
 #include <SBBasher.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/StringBuffer.h>
 #include <java/util/Random.h>
@@ -13,35 +12,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Random = ::java::util::Random;
 
-$FieldInfo _SBBasher_FieldInfo_[] = {
-	{"generator", "Ljava/util/Random;", nullptr, $STATIC, $staticField(SBBasher, generator)},
-	{}
-};
-
-$MethodInfo _SBBasher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SBBasher, init$, void)},
-	{"Test1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SBBasher, Test1, bool, $String*)},
-	{"Test2", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SBBasher, Test2, bool, $String*)},
-	{"Test3", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SBBasher, Test3, bool, $String*)},
-	{"generateTestString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SBBasher, generateTestString, $String*)},
-	{"getRandomIndex", "(II)I", nullptr, $PRIVATE, $method(SBBasher, getRandomIndex, int32_t, int32_t, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SBBasher, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _SBBasher_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SBBasher",
-	"java.lang.Object",
-	nullptr,
-	_SBBasher_FieldInfo_,
-	_SBBasher_MethodInfo_
-};
-
-$Object* allocate$SBBasher($Class* clazz) {
-	return $of($alloc(SBBasher));
-}
-
 $Random* SBBasher::generator = nullptr;
 
 void SBBasher::init$() {
@@ -49,7 +19,7 @@ void SBBasher::init$() {
 
 void SBBasher::main($StringArray* args) {
 	$init(SBBasher);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(SBBasher, basher, $new(SBBasher));
 	for (int32_t iterations = 0; iterations < 100; ++iterations) {
 		$var($String, testString, basher->generateTestString());
@@ -92,12 +62,12 @@ $String* SBBasher::generateTestString() {
 }
 
 bool SBBasher::Test1($String* before) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, bashed, $new($StringBuffer, before));
 	$var($String, slice, nullptr);
 	for (int32_t i = 0; i < 100; ++i) {
 		int32_t startIndex = getRandomIndex(0, $nc(before)->length());
-		int32_t endIndex = getRandomIndex(startIndex, $nc(before)->length());
+		int32_t endIndex = getRandomIndex(startIndex, before->length());
 		if (endIndex < bashed->length()) {
 			$assign(slice, bashed->substring(startIndex, endIndex));
 		} else {
@@ -114,12 +84,12 @@ bool SBBasher::Test1($String* before) {
 }
 
 bool SBBasher::Test2($String* before) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, bashed, $new($StringBuffer, before));
 	$var($String, slice, nullptr);
 	for (int32_t i = 0; i < 100; ++i) {
 		int32_t startIndex = getRandomIndex(0, $nc(before)->length());
-		int32_t endIndex = getRandomIndex(startIndex, $nc(before)->length());
+		int32_t endIndex = getRandomIndex(startIndex, before->length());
 		if (endIndex < bashed->length()) {
 			$assign(slice, bashed->substring(startIndex, endIndex));
 		} else {
@@ -130,9 +100,8 @@ bool SBBasher::Test2($String* before) {
 		} else {
 			bashed->delete$(startIndex, endIndex);
 		}
-		int32_t var$0 = startIndex;
-		$var($chars, var$1, $nc(slice)->toCharArray());
-		bashed->insert(var$0, var$1, 0, slice->length());
+		$var($chars, var$0, slice->toCharArray());
+		bashed->insert(startIndex, var$0, 0, slice->length());
 	}
 	$var($String, after, bashed->toString());
 	if (!$nc(before)->equals(after)) {
@@ -143,7 +112,7 @@ bool SBBasher::Test2($String* before) {
 }
 
 bool SBBasher::Test3($String* before) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, bashed1, $new($StringBuffer, before));
 	$var($StringBuffer, bashed2, $new($StringBuffer, before));
 	int32_t startIndex = getRandomIndex(0, bashed1->length());
@@ -154,14 +123,14 @@ bool SBBasher::Test3($String* before) {
 	bashed2->replace(startIndex, endIndex, insertString);
 	$var($String, result1, bashed1->toString());
 	$var($String, result2, bashed2->toString());
-	if (!$nc(result1)->equals(result2)) {
+	if (!result1->equals(result2)) {
 		return false;
 	} else {
 		return true;
 	}
 }
 
-void clinit$SBBasher($Class* class$) {
+void SBBasher::clinit$($Class* clazz) {
 	$assignStatic(SBBasher::generator, $new($Random));
 }
 
@@ -169,7 +138,31 @@ SBBasher::SBBasher() {
 }
 
 $Class* SBBasher::load$($String* name, bool initialize) {
-	$loadClass(SBBasher, name, initialize, &_SBBasher_ClassInfo_, clinit$SBBasher, allocate$SBBasher);
+	$FieldInfo fieldInfos$$[] = {
+		{"generator", "Ljava/util/Random;", nullptr, $STATIC, $staticField(SBBasher, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SBBasher, init$, void)},
+		{"Test1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SBBasher, Test1, bool, $String*)},
+		{"Test2", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SBBasher, Test2, bool, $String*)},
+		{"Test3", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SBBasher, Test3, bool, $String*)},
+		{"generateTestString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SBBasher, generateTestString, $String*)},
+		{"getRandomIndex", "(II)I", nullptr, $PRIVATE, $method(SBBasher, getRandomIndex, int32_t, int32_t, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SBBasher, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SBBasher",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SBBasher, name, initialize, &classInfo$$, SBBasher::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SBBasher);
+	});
 	return class$;
 }
 

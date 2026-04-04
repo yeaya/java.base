@@ -1,5 +1,4 @@
 #include <javax/security/cert/CertificateException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,45 +11,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace javax {
 	namespace security {
 		namespace cert {
-
-$NamedAttribute CertificateException_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _CertificateException_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", CertificateException_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _CertificateException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CertificateException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _CertificateException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.cert.CertificateException",
-	"java.lang.Exception",
-	nullptr,
-	_CertificateException_FieldInfo_,
-	_CertificateException_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_CertificateException_Annotations_
-};
-
-$Object* allocate$CertificateException($Class* clazz) {
-	return $of($alloc(CertificateException));
-}
 
 void CertificateException::init$() {
 	$Exception::init$();
@@ -71,7 +31,39 @@ void CertificateException::throw$() {
 }
 
 $Class* CertificateException::load$($String* name, bool initialize) {
-	$loadClass(CertificateException, name, initialize, &_CertificateException_ClassInfo_, allocate$CertificateException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateException, init$, void, $String*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.cert.CertificateException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(CertificateException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateException);
+	});
 	return class$;
 }
 

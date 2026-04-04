@@ -1,5 +1,4 @@
 #include <java/util/HashMap$Values.h>
-
 #include <java/util/AbstractCollection.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/HashMap$Node.h>
@@ -29,49 +28,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _HashMap$Values_FieldInfo_[] = {
-	{"this$0", "Ljava/util/HashMap;", nullptr, $FINAL | $SYNTHETIC, $field(HashMap$Values, this$0)},
-	{}
-};
-
-$MethodInfo _HashMap$Values_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(HashMap$Values, init$, void, $HashMap*)},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, contains, bool, Object$*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, forEach, void, $Consumer*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, iterator, $Iterator*)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, spliterator, $Spliterator*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HashMap$Values, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(HashMap$Values, toArray, $ObjectArray*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _HashMap$Values_InnerClassesInfo_[] = {
-	{"java.util.HashMap$Values", "java.util.HashMap", "Values", $FINAL},
-	{}
-};
-
-$ClassInfo _HashMap$Values_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.HashMap$Values",
-	"java.util.AbstractCollection",
-	nullptr,
-	_HashMap$Values_FieldInfo_,
-	_HashMap$Values_MethodInfo_,
-	"Ljava/util/AbstractCollection<TV;>;",
-	nullptr,
-	_HashMap$Values_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.HashMap"
-};
-
-$Object* allocate$HashMap$Values($Class* clazz) {
-	return $of($alloc(HashMap$Values));
-}
 
 void HashMap$Values::init$($HashMap* this$0) {
 	$set(this, this$0, this$0);
@@ -107,7 +63,7 @@ $ObjectArray* HashMap$Values::toArray($ObjectArray* a) {
 }
 
 void HashMap$Values::forEach($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$NodeArray, tab, nullptr);
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
@@ -116,14 +72,10 @@ void HashMap$Values::forEach($Consumer* action) {
 		int32_t mc = this->this$0->modCount;
 		{
 			$var($HashMap$NodeArray, arr$, tab);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($HashMap$Node, e, arr$->get(i$));
-				{
-					for (; e != nullptr; $assign(e, $nc(e)->next)) {
-						$nc(action)->accept(e->value);
-					}
+				for (; e != nullptr; $assign(e, e->next)) {
+					$nc(action)->accept(e->value);
 				}
 			}
 		}
@@ -137,7 +89,44 @@ HashMap$Values::HashMap$Values() {
 }
 
 $Class* HashMap$Values::load$($String* name, bool initialize) {
-	$loadClass(HashMap$Values, name, initialize, &_HashMap$Values_ClassInfo_, allocate$HashMap$Values);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/HashMap;", nullptr, $FINAL | $SYNTHETIC, $field(HashMap$Values, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(HashMap$Values, init$, void, $HashMap*)},
+		{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, contains, bool, Object$*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, forEach, void, $Consumer*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, iterator, $Iterator*)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, spliterator, $Spliterator*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HashMap$Values, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(HashMap$Values, toArray, $ObjectArray*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.HashMap$Values", "java.util.HashMap", "Values", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.HashMap$Values",
+		"java.util.AbstractCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractCollection<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.HashMap"
+	};
+	$loadClass(HashMap$Values, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HashMap$Values);
+	});
 	return class$;
 }
 

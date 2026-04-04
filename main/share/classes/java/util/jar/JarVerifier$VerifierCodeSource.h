@@ -38,7 +38,7 @@ public:
 	$Array<::java::security::cert::Certificate>* getPrivateCertificates();
 	$Array<::java::security::CodeSigner>* getPrivateSigners();
 	virtual bool isSameDomain(Object$* csdomain);
-	static const int64_t serialVersionUID = (int64_t)0x82714C6CDCB23B07;
+	static const int64_t serialVersionUID = (int64_t)0x82714c6cdcb23b07;
 	::java::net::URL* vlocation = nullptr;
 	$Array<::java::security::CodeSigner>* vsigners = nullptr;
 	$Array<::java::security::cert::Certificate>* vcerts = nullptr;

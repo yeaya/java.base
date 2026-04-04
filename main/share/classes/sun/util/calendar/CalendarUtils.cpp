@@ -1,5 +1,4 @@
 #include <sun/util/calendar/CalendarUtils.h>
-
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
@@ -10,36 +9,6 @@ using $StringBuffer = ::java::lang::StringBuffer;
 namespace sun {
 	namespace util {
 		namespace calendar {
-
-$MethodInfo _CalendarUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CalendarUtils, init$, void)},
-	{"amod", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, amod, int32_t, int32_t, int32_t)},
-	{"amod", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, amod, int64_t, int64_t, int64_t)},
-	{"floorDivide", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int64_t, int64_t, int64_t)},
-	{"floorDivide", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int32_t, int32_t, int32_t)},
-	{"floorDivide", "(II[I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int32_t, int32_t, int32_t, $ints*)},
-	{"floorDivide", "(JI[I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int32_t, int64_t, int32_t, $ints*)},
-	{"isGregorianLeapYear", "(I)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, isGregorianLeapYear, bool, int32_t)},
-	{"isJulianLeapYear", "(I)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, isJulianLeapYear, bool, int32_t)},
-	{"mod", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, mod, int64_t, int64_t, int64_t)},
-	{"mod", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, mod, int32_t, int32_t, int32_t)},
-	{"sprintf0d", "(Ljava/lang/StringBuilder;II)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, sprintf0d, $StringBuilder*, $StringBuilder*, int32_t, int32_t)},
-	{"sprintf0d", "(Ljava/lang/StringBuffer;II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, sprintf0d, $StringBuffer*, $StringBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _CalendarUtils_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.calendar.CalendarUtils",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CalendarUtils_MethodInfo_
-};
-
-$Object* allocate$CalendarUtils($Class* clazz) {
-	return $of($alloc(CalendarUtils));
-}
 
 void CalendarUtils::init$() {
 }
@@ -140,7 +109,33 @@ CalendarUtils::CalendarUtils() {
 }
 
 $Class* CalendarUtils::load$($String* name, bool initialize) {
-	$loadClass(CalendarUtils, name, initialize, &_CalendarUtils_ClassInfo_, allocate$CalendarUtils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CalendarUtils, init$, void)},
+		{"amod", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, amod, int32_t, int32_t, int32_t)},
+		{"amod", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, amod, int64_t, int64_t, int64_t)},
+		{"floorDivide", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int64_t, int64_t, int64_t)},
+		{"floorDivide", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int32_t, int32_t, int32_t)},
+		{"floorDivide", "(II[I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int32_t, int32_t, int32_t, $ints*)},
+		{"floorDivide", "(JI[I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int32_t, int64_t, int32_t, $ints*)},
+		{"isGregorianLeapYear", "(I)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, isGregorianLeapYear, bool, int32_t)},
+		{"isJulianLeapYear", "(I)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, isJulianLeapYear, bool, int32_t)},
+		{"mod", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, mod, int64_t, int64_t, int64_t)},
+		{"mod", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, mod, int32_t, int32_t, int32_t)},
+		{"sprintf0d", "(Ljava/lang/StringBuilder;II)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, sprintf0d, $StringBuilder*, $StringBuilder*, int32_t, int32_t)},
+		{"sprintf0d", "(Ljava/lang/StringBuffer;II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, sprintf0d, $StringBuffer*, $StringBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.calendar.CalendarUtils",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CalendarUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CalendarUtils);
+	});
 	return class$;
 }
 

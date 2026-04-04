@@ -1,5 +1,4 @@
 #include <java/lang/ReflectiveOperationException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,32 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ReflectiveOperationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ReflectiveOperationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ReflectiveOperationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _ReflectiveOperationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.ReflectiveOperationException",
-	"java.lang.Exception",
-	nullptr,
-	_ReflectiveOperationException_FieldInfo_,
-	_ReflectiveOperationException_MethodInfo_
-};
-
-$Object* allocate$ReflectiveOperationException($Class* clazz) {
-	return $of($alloc(ReflectiveOperationException));
-}
 
 void ReflectiveOperationException::init$() {
 	$Exception::init$();
@@ -63,7 +36,28 @@ void ReflectiveOperationException::throw$() {
 }
 
 $Class* ReflectiveOperationException::load$($String* name, bool initialize) {
-	$loadClass(ReflectiveOperationException, name, initialize, &_ReflectiveOperationException_ClassInfo_, allocate$ReflectiveOperationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ReflectiveOperationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.ReflectiveOperationException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReflectiveOperationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReflectiveOperationException);
+	});
 	return class$;
 }
 

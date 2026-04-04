@@ -1,5 +1,4 @@
 #include <java/lang/StringLatin1.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharacterDataLatin1.h>
 #include <java/lang/ConditionalSpecialCasing.h>
@@ -11,7 +10,6 @@
 #include <java/lang/StringUTF16.h>
 #include <java/util/Arrays.h>
 #include <java/util/Locale.h>
-#include <java/util/Spliterator.h>
 #include <java/util/stream/Stream.h>
 #include <java/util/stream/StreamSupport.h>
 #include <jdk/internal/util/ArraysSupport.h>
@@ -38,136 +36,12 @@ using $StringLatin1$LinesSpliterator = ::java::lang::StringLatin1$LinesSpliterat
 using $StringUTF16 = ::java::lang::StringUTF16;
 using $Arrays = ::java::util::Arrays;
 using $Locale = ::java::util::Locale;
-using $Spliterator = ::java::util::Spliterator;
 using $Stream = ::java::util::stream::Stream;
 using $StreamSupport = ::java::util::stream::StreamSupport;
 using $ArraysSupport = ::jdk::internal::util::ArraysSupport;
 
 namespace java {
 	namespace lang {
-
-$CompoundAttribute _StringLatin1_MethodAnnotations_compareTo6[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringLatin1_MethodAnnotations_compareToUTF1610[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringLatin1_MethodAnnotations_equals13[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringLatin1_MethodAnnotations_indexOf20[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringLatin1_MethodAnnotations_indexOf21[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringLatin1_MethodAnnotations_indexOfChar22[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringLatin1_MethodAnnotations_inflate25[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringLatin1_MethodAnnotations_inflate26[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _StringLatin1_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StringLatin1, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _StringLatin1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StringLatin1, init$, void)},
-	{"canEncode", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, canEncode, bool, int32_t)},
-	{"charAt", "([BI)C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, charAt, char16_t, $bytes*, int32_t)},
-	{"codePointAt", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, codePointAt, int32_t, $bytes*, int32_t, int32_t)},
-	{"codePointBefore", "([BI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, codePointBefore, int32_t, $bytes*, int32_t)},
-	{"codePointCount", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, codePointCount, int32_t, $bytes*, int32_t, int32_t)},
-	{"compareTo", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareTo, int32_t, $bytes*, $bytes*), nullptr, nullptr, _StringLatin1_MethodAnnotations_compareTo6},
-	{"compareTo", "([B[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareTo, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
-	{"compareToCI", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareToCI, int32_t, $bytes*, $bytes*)},
-	{"compareToCI_UTF16", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareToCI_UTF16, int32_t, $bytes*, $bytes*)},
-	{"compareToUTF16", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareToUTF16, int32_t, $bytes*, $bytes*), nullptr, nullptr, _StringLatin1_MethodAnnotations_compareToUTF1610},
-	{"compareToUTF16", "([B[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareToUTF16, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
-	{"compareToUTF16Values", "([B[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringLatin1, compareToUTF16Values, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
-	{"equals", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, equals, bool, $bytes*, $bytes*), nullptr, nullptr, _StringLatin1_MethodAnnotations_equals13},
-	{"fillNull", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, fillNull, void, $bytes*, int32_t, int32_t)},
-	{"getBytes", "([BII[BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, getBytes, void, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"getChar", "([BI)C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, getChar, char16_t, $bytes*, int32_t)},
-	{"getChars", "([BII[CI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, getChars, void, $bytes*, int32_t, int32_t, $chars*, int32_t)},
-	{"hashCode", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, hashCode, int32_t, $bytes*)},
-	{"indexOf", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, indexOf, int32_t, $bytes*, int32_t, int32_t)},
-	{"indexOf", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, indexOf, int32_t, $bytes*, $bytes*), nullptr, nullptr, _StringLatin1_MethodAnnotations_indexOf20},
-	{"indexOf", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, indexOf, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _StringLatin1_MethodAnnotations_indexOf21},
-	{"indexOfChar", "([BIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringLatin1, indexOfChar, int32_t, $bytes*, int32_t, int32_t, int32_t), nullptr, nullptr, _StringLatin1_MethodAnnotations_indexOfChar22},
-	{"indexOfNonWhitespace", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, indexOfNonWhitespace, int32_t, $bytes*)},
-	{"inflate", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, inflate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"inflate", "([BI[CII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, inflate, void, $bytes*, int32_t, $chars*, int32_t, int32_t), nullptr, nullptr, _StringLatin1_MethodAnnotations_inflate25},
-	{"inflate", "([BI[BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, inflate, void, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _StringLatin1_MethodAnnotations_inflate26},
-	{"lastIndexOf", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, lastIndexOf, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"lastIndexOf", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, lastIndexOf, int32_t, $bytes*, int32_t, int32_t)},
-	{"lastIndexOfNonWhitespace", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, lastIndexOfNonWhitespace, int32_t, $bytes*)},
-	{"length", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, length, int32_t, $bytes*)},
-	{"lines", "([B)Ljava/util/stream/Stream;", "([B)Ljava/util/stream/Stream<Ljava/lang/String;>;", $STATIC, $staticMethod(StringLatin1, lines, $Stream*, $bytes*)},
-	{"newString", "([BII)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, newString, $String*, $bytes*, int32_t, int32_t)},
-	{"putChar", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, putChar, void, $bytes*, int32_t, int32_t)},
-	{"regionMatchesCI", "([BI[BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, regionMatchesCI, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"regionMatchesCI_UTF16", "([BI[BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, regionMatchesCI_UTF16, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"replace", "([BCC)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, replace, $String*, $bytes*, char16_t, char16_t)},
-	{"replace", "([BI[BI[BI)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, replace, $String*, $bytes*, int32_t, $bytes*, int32_t, $bytes*, int32_t)},
-	{"strip", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, strip, $String*, $bytes*)},
-	{"stripLeading", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, stripLeading, $String*, $bytes*)},
-	{"stripTrailing", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, stripTrailing, $String*, $bytes*)},
-	{"toBytes", "([III)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, toBytes, $bytes*, $ints*, int32_t, int32_t)},
-	{"toBytes", "(C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, toBytes, $bytes*, char16_t)},
-	{"toChars", "([B)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, toChars, $chars*, $bytes*)},
-	{"toLowerCase", "(Ljava/lang/String;[BLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, toLowerCase, $String*, $String*, $bytes*, $Locale*)},
-	{"toLowerCaseEx", "(Ljava/lang/String;[BILjava/util/Locale;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringLatin1, toLowerCaseEx, $String*, $String*, $bytes*, int32_t, $Locale*, bool)},
-	{"toUpperCase", "(Ljava/lang/String;[BLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, toUpperCase, $String*, $String*, $bytes*, $Locale*)},
-	{"toUpperCaseEx", "(Ljava/lang/String;[BILjava/util/Locale;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringLatin1, toUpperCaseEx, $String*, $String*, $bytes*, int32_t, $Locale*, bool)},
-	{"trim", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, trim, $String*, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _StringLatin1_InnerClassesInfo_[] = {
-	{"java.lang.StringLatin1$CharsSpliterator", "java.lang.StringLatin1", "CharsSpliterator", $STATIC},
-	{"java.lang.StringLatin1$LinesSpliterator", "java.lang.StringLatin1", "LinesSpliterator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StringLatin1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.StringLatin1",
-	"java.lang.Object",
-	nullptr,
-	_StringLatin1_FieldInfo_,
-	_StringLatin1_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringLatin1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.StringLatin1$CharsSpliterator,java.lang.StringLatin1$LinesSpliterator"
-};
-
-$Object* allocate$StringLatin1($Class* clazz) {
-	return $of($alloc(StringLatin1));
-}
 
 bool StringLatin1::$assertionsDisabled = false;
 
@@ -178,7 +52,7 @@ char16_t StringLatin1::charAt($bytes* value, int32_t index) {
 	if (index < 0 || index >= $nc(value)->length) {
 		$throwNew($StringIndexOutOfBoundsException, index);
 	}
-	return (char16_t)((int32_t)($nc(value)->get(index) & (uint32_t)255));
+	return (char16_t)($nc(value)->get(index) & 0xff);
 }
 
 bool StringLatin1::canEncode(int32_t cp) {
@@ -190,11 +64,11 @@ int32_t StringLatin1::length($bytes* value) {
 }
 
 int32_t StringLatin1::codePointAt($bytes* value, int32_t index, int32_t end) {
-	return (int32_t)($nc(value)->get(index) & (uint32_t)255);
+	return $nc(value)->get(index) & 0xff;
 }
 
 int32_t StringLatin1::codePointBefore($bytes* value, int32_t index) {
-	return (int32_t)($nc(value)->get(index - 1) & (uint32_t)255);
+	return $nc(value)->get(index - 1) & 0xff;
 }
 
 int32_t StringLatin1::codePointCount($bytes* value, int32_t beginIndex, int32_t endIndex) {
@@ -282,7 +156,7 @@ int32_t StringLatin1::compareToCI($bytes* value, $bytes* other) {
 		if (value->get(k) != other->get(k)) {
 			$init($CharacterDataLatin1);
 			char16_t c1 = (char16_t)$nc($CharacterDataLatin1::instance)->toUpperCase(getChar(value, k));
-			char16_t c2 = (char16_t)$nc($CharacterDataLatin1::instance)->toUpperCase(getChar(other, k));
+			char16_t c2 = (char16_t)$CharacterDataLatin1::instance->toUpperCase(getChar(other, k));
 			if (c1 != c2) {
 				c1 = $Character::toLowerCase(c1);
 				c2 = $Character::toLowerCase(c2);
@@ -322,12 +196,10 @@ int32_t StringLatin1::hashCode($bytes* value) {
 	int32_t h = 0;
 	{
 		$var($bytes, arr$, value);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int8_t v = arr$->get(i$);
 			{
-				h = 31 * h + ((int32_t)(v & (uint32_t)255));
+				h = 31 * h + (v & 0xff);
 			}
 		}
 	}
@@ -364,7 +236,7 @@ int32_t StringLatin1::indexOf($bytes* value, $bytes* str) {
 	if ($nc(value)->length == 0) {
 		return -1;
 	}
-	return indexOf(value, $nc(value)->length, str, $nc(str)->length, 0);
+	return indexOf(value, value->length, str, str->length, 0);
 }
 
 int32_t StringLatin1::indexOf($bytes* value, int32_t valueCount, $bytes* str, int32_t strCount, int32_t fromIndex) {
@@ -378,13 +250,15 @@ int32_t StringLatin1::indexOf($bytes* value, int32_t valueCount, $bytes* str, in
 					break;
 				}
 				{
+					;
 				}
 			}
 		}
 		if (i <= max) {
 			int32_t j = i + 1;
 			int32_t end = j + strCount - 1;
-			for (int32_t k = 1; j < end && $nc(value)->get(j) == str->get(k); ++j, ++k) {
+			for (int32_t k = 1; j < end && value->get(j) == str->get(k); ++j, ++k) {
+				;
 			}
 			if (j == end) {
 				return i;
@@ -398,10 +272,10 @@ int32_t StringLatin1::lastIndexOf($bytes* src, int32_t srcCount, $bytes* tgt, in
 	int32_t min = tgtCount - 1;
 	int32_t i = min + fromIndex;
 	int32_t strLastIndex = tgtCount - 1;
-	char16_t strLastChar = (char16_t)((int32_t)($nc(tgt)->get(strLastIndex) & (uint32_t)255));
+	char16_t strLastChar = (char16_t)($nc(tgt)->get(strLastIndex) & 0xff);
 	bool startSearchForLastChar$continue = false;
 	while (true) {
-		while (i >= min && ((int32_t)($nc(src)->get(i) & (uint32_t)255)) != strLastChar) {
+		while (i >= min && ($nc(src)->get(i) & 0xff) != strLastChar) {
 			--i;
 		}
 		if (i < min) {
@@ -411,7 +285,7 @@ int32_t StringLatin1::lastIndexOf($bytes* src, int32_t srcCount, $bytes* tgt, in
 		int32_t start = j - strLastIndex;
 		int32_t k = strLastIndex - 1;
 		while (j > start) {
-			if (((int32_t)($nc(src)->get(j--) & (uint32_t)255)) != ((int32_t)(tgt->get(k--) & (uint32_t)255))) {
+			if (($nc(src)->get(j--) & 0xff) != (tgt->get(k--) & 0xff)) {
 				--i;
 				startSearchForLastChar$continue = true;
 				break;
@@ -431,7 +305,7 @@ int32_t StringLatin1::lastIndexOf($bytes* value, int32_t ch, int32_t fromIndex) 
 	}
 	int32_t off = $Math::min(fromIndex, $nc(value)->length - 1);
 	for (; off >= 0; --off) {
-		if ($nc(value)->get(off) == (int8_t)ch) {
+		if (value->get(off) == (int8_t)ch) {
 			return off;
 		}
 	}
@@ -439,7 +313,7 @@ int32_t StringLatin1::lastIndexOf($bytes* value, int32_t ch, int32_t fromIndex) 
 }
 
 $String* StringLatin1::replace($bytes* value, char16_t oldChar, char16_t newChar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (canEncode(oldChar)) {
 		int32_t len = $nc(value)->length;
 		int32_t i = -1;
@@ -464,7 +338,7 @@ $String* StringLatin1::replace($bytes* value, char16_t oldChar, char16_t newChar
 				$var($bytes, buf, $StringUTF16::newBytesFor(len));
 				inflate(value, 0, buf, 0, i);
 				while (i < len) {
-					char16_t c = (char16_t)((int32_t)(value->get(i) & (uint32_t)255));
+					char16_t c = (char16_t)(value->get(i) & 0xff);
 					$StringUTF16::putChar(buf, i, (c == oldChar) ? newChar : c);
 					++i;
 				}
@@ -476,7 +350,7 @@ $String* StringLatin1::replace($bytes* value, char16_t oldChar, char16_t newChar
 }
 
 $String* StringLatin1::replace($bytes* value, int32_t valLen, $bytes* targ, int32_t targLen, $bytes* repl, int32_t replLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!StringLatin1::$assertionsDisabled && !(targLen > 0)) {
 		$throwNew($AssertionError);
 	}
@@ -527,14 +401,14 @@ $String* StringLatin1::replace($bytes* value, int32_t valLen, $bytes* targ, int3
 bool StringLatin1::regionMatchesCI($bytes* value, int32_t toffset, $bytes* other, int32_t ooffset, int32_t len) {
 	int32_t last = toffset + len;
 	while (toffset < last) {
-		char16_t c1 = (char16_t)((int32_t)($nc(value)->get(toffset++) & (uint32_t)255));
-		char16_t c2 = (char16_t)((int32_t)($nc(other)->get(ooffset++) & (uint32_t)255));
+		char16_t c1 = (char16_t)($nc(value)->get(toffset++) & 0xff);
+		char16_t c2 = (char16_t)($nc(other)->get(ooffset++) & 0xff);
 		if (c1 == c2) {
 			continue;
 		}
 		$init($CharacterDataLatin1);
 		int32_t u1 = $nc($CharacterDataLatin1::instance)->toUpperCase(c1);
-		int32_t u2 = $nc($CharacterDataLatin1::instance)->toUpperCase(c2);
+		int32_t u2 = $CharacterDataLatin1::instance->toUpperCase(c2);
 		if (u1 == u2) {
 			continue;
 		}
@@ -550,7 +424,7 @@ bool StringLatin1::regionMatchesCI($bytes* value, int32_t toffset, $bytes* other
 bool StringLatin1::regionMatchesCI_UTF16($bytes* value, int32_t toffset, $bytes* other, int32_t ooffset, int32_t len) {
 	int32_t last = toffset + len;
 	while (toffset < last) {
-		char16_t c1 = (char16_t)((int32_t)($nc(value)->get(toffset++) & (uint32_t)255));
+		char16_t c1 = (char16_t)($nc(value)->get(toffset++) & 0xff);
 		char16_t c2 = $StringUTF16::getChar(other, ooffset++);
 		if (c1 == c2) {
 			continue;
@@ -571,14 +445,14 @@ bool StringLatin1::regionMatchesCI_UTF16($bytes* value, int32_t toffset, $bytes*
 }
 
 $String* StringLatin1::toLowerCase($String* str, $bytes* value, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	int32_t first = 0;
 	int32_t len = $nc(value)->length;
 	for (first = 0; first < len; ++first) {
-		int32_t cp = (int32_t)(value->get(first) & (uint32_t)255);
+		int32_t cp = value->get(first) & 0xff;
 		$init($CharacterDataLatin1);
 		if (cp != $nc($CharacterDataLatin1::instance)->toLowerCase(cp)) {
 			break;
@@ -594,7 +468,7 @@ $String* StringLatin1::toLowerCase($String* str, $bytes* value, $Locale* locale)
 	$var($bytes, result, $new($bytes, len));
 	$System::arraycopy(value, 0, result, 0, first);
 	for (int32_t i = first; i < len; ++i) {
-		int32_t cp = (int32_t)(value->get(i) & (uint32_t)255);
+		int32_t cp = value->get(i) & 0xff;
 		$init($CharacterDataLatin1);
 		cp = $nc($CharacterDataLatin1::instance)->toLowerCase(cp);
 		if (!canEncode(cp)) {
@@ -606,14 +480,14 @@ $String* StringLatin1::toLowerCase($String* str, $bytes* value, $Locale* locale)
 }
 
 $String* StringLatin1::toLowerCaseEx($String* str, $bytes* value, int32_t first, $Locale* locale, bool localeDependent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, result, $StringUTF16::newBytesFor($nc(value)->length));
 	int32_t resultOffset = 0;
 	for (int32_t i = 0; i < first; ++i) {
-		$StringUTF16::putChar(result, resultOffset++, (int32_t)($nc(value)->get(i) & (uint32_t)255));
+		$StringUTF16::putChar(result, resultOffset++, value->get(i) & 0xff);
 	}
-	for (int32_t i = first; i < $nc(value)->length; ++i) {
-		int32_t srcChar = (int32_t)(value->get(i) & (uint32_t)255);
+	for (int32_t i = first; i < value->length; ++i) {
+		int32_t srcChar = value->get(i) & 0xff;
 		int32_t lowerChar = 0;
 		$var($chars, lowerCharArray, nullptr);
 		if (localeDependent) {
@@ -645,14 +519,14 @@ $String* StringLatin1::toLowerCaseEx($String* str, $bytes* value, int32_t first,
 }
 
 $String* StringLatin1::toUpperCase($String* str, $bytes* value, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	int32_t first = 0;
 	int32_t len = $nc(value)->length;
 	for (first = 0; first < len; ++first) {
-		int32_t cp = (int32_t)(value->get(first) & (uint32_t)255);
+		int32_t cp = value->get(first) & 0xff;
 		$init($CharacterDataLatin1);
 		if (cp != $nc($CharacterDataLatin1::instance)->toUpperCaseEx(cp)) {
 			break;
@@ -668,7 +542,7 @@ $String* StringLatin1::toUpperCase($String* str, $bytes* value, $Locale* locale)
 	$var($bytes, result, $new($bytes, len));
 	$System::arraycopy(value, 0, result, 0, first);
 	for (int32_t i = first; i < len; ++i) {
-		int32_t cp = (int32_t)(value->get(i) & (uint32_t)255);
+		int32_t cp = value->get(i) & 0xff;
 		$init($CharacterDataLatin1);
 		cp = $nc($CharacterDataLatin1::instance)->toUpperCaseEx(cp);
 		if (!canEncode(cp)) {
@@ -680,14 +554,14 @@ $String* StringLatin1::toUpperCase($String* str, $bytes* value, $Locale* locale)
 }
 
 $String* StringLatin1::toUpperCaseEx($String* str, $bytes* value, int32_t first, $Locale* locale, bool localeDependent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, result, $StringUTF16::newBytesFor($nc(value)->length));
 	int32_t resultOffset = 0;
 	for (int32_t i = 0; i < first; ++i) {
-		$StringUTF16::putChar(result, resultOffset++, (int32_t)($nc(value)->get(i) & (uint32_t)255));
+		$StringUTF16::putChar(result, resultOffset++, value->get(i) & 0xff);
 	}
-	for (int32_t i = first; i < $nc(value)->length; ++i) {
-		int32_t srcChar = (int32_t)(value->get(i) & (uint32_t)255);
+	for (int32_t i = first; i < value->length; ++i) {
+		int32_t srcChar = value->get(i) & 0xff;
 		int32_t upperChar = 0;
 		$var($chars, upperCharArray, nullptr);
 		if (localeDependent) {
@@ -726,10 +600,10 @@ $String* StringLatin1::toUpperCaseEx($String* str, $bytes* value, int32_t first,
 $String* StringLatin1::trim($bytes* value) {
 	int32_t len = $nc(value)->length;
 	int32_t st = 0;
-	while ((st < len) && (((int32_t)(value->get(st) & (uint32_t)255)) <= u' ')) {
+	while ((st < len) && ((value->get(st) & 0xff) <= u' ')) {
 		++st;
 	}
-	while ((st < len) && (((int32_t)(value->get(len - 1) & (uint32_t)255)) <= u' ')) {
+	while ((st < len) && ((value->get(len - 1) & 0xff) <= u' ')) {
 		--len;
 	}
 	return ((st > 0) || (len < value->length)) ? newString(value, st, len - st) : ($String*)nullptr;
@@ -769,7 +643,7 @@ $String* StringLatin1::strip($bytes* value) {
 		return ""_s;
 	}
 	int32_t right = lastIndexOfNonWhitespace(value);
-	bool ifChanged = (left > 0) || (right < $nc(value)->length);
+	bool ifChanged = (left > 0) || (right < value->length);
 	return ifChanged ? newString(value, left, right - left) : ($String*)nullptr;
 }
 
@@ -792,7 +666,7 @@ void StringLatin1::putChar($bytes* val, int32_t index, int32_t c) {
 }
 
 char16_t StringLatin1::getChar($bytes* val, int32_t index) {
-	return (char16_t)((int32_t)($nc(val)->get(index) & (uint32_t)255));
+	return (char16_t)($nc(val)->get(index) & 0xff);
 }
 
 $bytes* StringLatin1::toBytes($ints* val, int32_t off, int32_t len) {
@@ -824,7 +698,7 @@ void StringLatin1::fillNull($bytes* val, int32_t index, int32_t end) {
 
 void StringLatin1::inflate($bytes* src, int32_t srcOff, $chars* dst, int32_t dstOff, int32_t len) {
 	for (int32_t i = 0; i < len; ++i) {
-		$nc(dst)->set(dstOff++, (char16_t)((int32_t)($nc(src)->get(srcOff++) & (uint32_t)255)));
+		$nc(dst)->set(dstOff++, (char16_t)($nc(src)->get(srcOff++) & 0xff));
 	}
 }
 
@@ -832,7 +706,7 @@ void StringLatin1::inflate($bytes* src, int32_t srcOff, $bytes* dst, int32_t dst
 	$StringUTF16::inflate(src, srcOff, dst, dstOff, len);
 }
 
-void clinit$StringLatin1($Class* class$) {
+void StringLatin1::clinit$($Class* clazz) {
 	StringLatin1::$assertionsDisabled = !StringLatin1::class$->desiredAssertionStatus();
 }
 
@@ -840,7 +714,116 @@ StringLatin1::StringLatin1() {
 }
 
 $Class* StringLatin1::load$($String* name, bool initialize) {
-	$loadClass(StringLatin1, name, initialize, &_StringLatin1_ClassInfo_, clinit$StringLatin1, allocate$StringLatin1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StringLatin1, $assertionsDisabled)},
+		{}
+	};
+	$CompoundAttribute compareTomethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareToUTF16methodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute equalsmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexOfmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexOfmethodAnnotations$$$2[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexOfCharmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute inflatemethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute inflatemethodAnnotations$$$2[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StringLatin1, init$, void)},
+		{"canEncode", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, canEncode, bool, int32_t)},
+		{"charAt", "([BI)C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, charAt, char16_t, $bytes*, int32_t)},
+		{"codePointAt", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, codePointAt, int32_t, $bytes*, int32_t, int32_t)},
+		{"codePointBefore", "([BI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, codePointBefore, int32_t, $bytes*, int32_t)},
+		{"codePointCount", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, codePointCount, int32_t, $bytes*, int32_t, int32_t)},
+		{"compareTo", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareTo, int32_t, $bytes*, $bytes*), nullptr, nullptr, compareTomethodAnnotations$$},
+		{"compareTo", "([B[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareTo, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
+		{"compareToCI", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareToCI, int32_t, $bytes*, $bytes*)},
+		{"compareToCI_UTF16", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareToCI_UTF16, int32_t, $bytes*, $bytes*)},
+		{"compareToUTF16", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareToUTF16, int32_t, $bytes*, $bytes*), nullptr, nullptr, compareToUTF16methodAnnotations$$},
+		{"compareToUTF16", "([B[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, compareToUTF16, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
+		{"compareToUTF16Values", "([B[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringLatin1, compareToUTF16Values, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
+		{"equals", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, equals, bool, $bytes*, $bytes*), nullptr, nullptr, equalsmethodAnnotations$$},
+		{"fillNull", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, fillNull, void, $bytes*, int32_t, int32_t)},
+		{"getBytes", "([BII[BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, getBytes, void, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"getChar", "([BI)C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, getChar, char16_t, $bytes*, int32_t)},
+		{"getChars", "([BII[CI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, getChars, void, $bytes*, int32_t, int32_t, $chars*, int32_t)},
+		{"hashCode", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, hashCode, int32_t, $bytes*)},
+		{"indexOf", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, indexOf, int32_t, $bytes*, int32_t, int32_t)},
+		{"indexOf", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, indexOf, int32_t, $bytes*, $bytes*), nullptr, nullptr, indexOfmethodAnnotations$$$1},
+		{"indexOf", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, indexOf, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, indexOfmethodAnnotations$$$2},
+		{"indexOfChar", "([BIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringLatin1, indexOfChar, int32_t, $bytes*, int32_t, int32_t, int32_t), nullptr, nullptr, indexOfCharmethodAnnotations$$},
+		{"indexOfNonWhitespace", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, indexOfNonWhitespace, int32_t, $bytes*)},
+		{"inflate", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, inflate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"inflate", "([BI[CII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, inflate, void, $bytes*, int32_t, $chars*, int32_t, int32_t), nullptr, nullptr, inflatemethodAnnotations$$$1},
+		{"inflate", "([BI[BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, inflate, void, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, inflatemethodAnnotations$$$2},
+		{"lastIndexOf", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, lastIndexOf, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"lastIndexOf", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, lastIndexOf, int32_t, $bytes*, int32_t, int32_t)},
+		{"lastIndexOfNonWhitespace", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, lastIndexOfNonWhitespace, int32_t, $bytes*)},
+		{"length", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, length, int32_t, $bytes*)},
+		{"lines", "([B)Ljava/util/stream/Stream;", "([B)Ljava/util/stream/Stream<Ljava/lang/String;>;", $STATIC, $staticMethod(StringLatin1, lines, $Stream*, $bytes*)},
+		{"newString", "([BII)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, newString, $String*, $bytes*, int32_t, int32_t)},
+		{"putChar", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, putChar, void, $bytes*, int32_t, int32_t)},
+		{"regionMatchesCI", "([BI[BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, regionMatchesCI, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"regionMatchesCI_UTF16", "([BI[BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, regionMatchesCI_UTF16, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"replace", "([BCC)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, replace, $String*, $bytes*, char16_t, char16_t)},
+		{"replace", "([BI[BI[BI)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, replace, $String*, $bytes*, int32_t, $bytes*, int32_t, $bytes*, int32_t)},
+		{"strip", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, strip, $String*, $bytes*)},
+		{"stripLeading", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, stripLeading, $String*, $bytes*)},
+		{"stripTrailing", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, stripTrailing, $String*, $bytes*)},
+		{"toBytes", "([III)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, toBytes, $bytes*, $ints*, int32_t, int32_t)},
+		{"toBytes", "(C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, toBytes, $bytes*, char16_t)},
+		{"toChars", "([B)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, toChars, $chars*, $bytes*)},
+		{"toLowerCase", "(Ljava/lang/String;[BLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, toLowerCase, $String*, $String*, $bytes*, $Locale*)},
+		{"toLowerCaseEx", "(Ljava/lang/String;[BILjava/util/Locale;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringLatin1, toLowerCaseEx, $String*, $String*, $bytes*, int32_t, $Locale*, bool)},
+		{"toUpperCase", "(Ljava/lang/String;[BLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, toUpperCase, $String*, $String*, $bytes*, $Locale*)},
+		{"toUpperCaseEx", "(Ljava/lang/String;[BILjava/util/Locale;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringLatin1, toUpperCaseEx, $String*, $String*, $bytes*, int32_t, $Locale*, bool)},
+		{"trim", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringLatin1, trim, $String*, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StringLatin1$CharsSpliterator", "java.lang.StringLatin1", "CharsSpliterator", $STATIC},
+		{"java.lang.StringLatin1$LinesSpliterator", "java.lang.StringLatin1", "LinesSpliterator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.StringLatin1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.StringLatin1$CharsSpliterator,java.lang.StringLatin1$LinesSpliterator"
+	};
+	$loadClass(StringLatin1, name, initialize, &classInfo$$, StringLatin1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StringLatin1);
+	});
 	return class$;
 }
 

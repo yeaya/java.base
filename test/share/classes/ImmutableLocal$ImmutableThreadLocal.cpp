@@ -1,5 +1,4 @@
 #include <ImmutableLocal$ImmutableThreadLocal.h>
-
 #include <ImmutableLocal.h>
 #include <java/lang/ThreadLocal.h>
 #include <jcpp.h>
@@ -9,38 +8,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ThreadLocal = ::java::lang::ThreadLocal;
-
-$MethodInfo _ImmutableLocal$ImmutableThreadLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImmutableLocal$ImmutableThreadLocal, init$, void)},
-	{"initialValue", "()Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT},
-	{"set", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ImmutableLocal$ImmutableThreadLocal, set, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ImmutableLocal$ImmutableThreadLocal_InnerClassesInfo_[] = {
-	{"ImmutableLocal$ImmutableThreadLocal", "ImmutableLocal", "ImmutableThreadLocal", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImmutableLocal$ImmutableThreadLocal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"ImmutableLocal$ImmutableThreadLocal",
-	"java.lang.ThreadLocal",
-	nullptr,
-	nullptr,
-	_ImmutableLocal$ImmutableThreadLocal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImmutableLocal$ImmutableThreadLocal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ImmutableLocal"
-};
-
-$Object* allocate$ImmutableLocal$ImmutableThreadLocal($Class* clazz) {
-	return $of($alloc(ImmutableLocal$ImmutableThreadLocal));
-}
 
 $Object* ImmutableLocal$ImmutableThreadLocal::initialValue() {
 	 return this->$ThreadLocal::initialValue();
@@ -58,7 +25,34 @@ ImmutableLocal$ImmutableThreadLocal::ImmutableLocal$ImmutableThreadLocal() {
 }
 
 $Class* ImmutableLocal$ImmutableThreadLocal::load$($String* name, bool initialize) {
-	$loadClass(ImmutableLocal$ImmutableThreadLocal, name, initialize, &_ImmutableLocal$ImmutableThreadLocal_ClassInfo_, allocate$ImmutableLocal$ImmutableThreadLocal);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImmutableLocal$ImmutableThreadLocal, init$, void)},
+		{"initialValue", "()Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT},
+		{"set", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ImmutableLocal$ImmutableThreadLocal, set, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ImmutableLocal$ImmutableThreadLocal", "ImmutableLocal", "ImmutableThreadLocal", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"ImmutableLocal$ImmutableThreadLocal",
+		"java.lang.ThreadLocal",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ImmutableLocal"
+	};
+	$loadClass(ImmutableLocal$ImmutableThreadLocal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImmutableLocal$ImmutableThreadLocal);
+	});
 	return class$;
 }
 

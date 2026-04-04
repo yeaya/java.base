@@ -1,5 +1,4 @@
 #include <java/util/List.h>
-
 #include <java/util/AbstractList$RandomAccessSpliterator.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -37,70 +36,6 @@ using $UnaryOperator = ::java::util::function::UnaryOperator;
 namespace java {
 	namespace util {
 
-$CompoundAttribute _List_MethodAnnotations_of19[] = {
-	{"Ljava/lang/SafeVarargs;", nullptr},
-	{}
-};
-
-$MethodInfo _List_MethodInfo_[] = {
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC | $ABSTRACT, $virtualMethod(List, add, void, int32_t, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(List, addAll, bool, int32_t, $Collection*)},
-	{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"copyOf", "(Ljava/util/Collection;)Ljava/util/List;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<+TE;>;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, copyOf, List*, $Collection*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(List, get, $Object*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(List, indexOf, int32_t, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(List, lastIndexOf, int32_t, Object$*)},
-	{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(List, listIterator, $ListIterator*)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(List, listIterator, $ListIterator*, int32_t)},
-	{"of", "()Ljava/util/List;", "<E:Ljava/lang/Object;>()Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*)},
-	{"of", "(Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(List, of, List*, $ObjectArray*), nullptr, nullptr, _List_MethodAnnotations_of19},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(List, remove, $Object*, int32_t)},
-	{"removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(List, replaceAll, void, $UnaryOperator*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(List, set, $Object*, int32_t, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(List, sort, void, $Comparator*)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(List, spliterator, $Spliterator*)},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(List, subList, List*, int32_t, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _List_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.List",
-	nullptr,
-	"java.util.Collection",
-	nullptr,
-	_List_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Collection<TE;>;"
-};
-
-$Object* allocate$List($Class* clazz) {
-	return $of($alloc(List));
-}
-
 bool List::equals(Object$* o) {
 	 return this->$Collection::equals(o);
 }
@@ -110,7 +45,7 @@ int32_t List::hashCode() {
 }
 
 void List::replaceAll($UnaryOperator* operator$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(operator$);
 	$var($ListIterator, li, this->listIterator());
 	while ($nc(li)->hasNext()) {
@@ -119,15 +54,13 @@ void List::replaceAll($UnaryOperator* operator$) {
 }
 
 void List::sort($Comparator* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, a, this->toArray());
 	$Arrays::sort(a, c);
 	$var($ListIterator, i, this->listIterator());
 	{
 		$var($ObjectArray, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, e, arr$->get(i$));
 			{
 				$nc(i)->next();
@@ -141,14 +74,14 @@ $Spliterator* List::spliterator() {
 	if ($instanceOf($RandomAccess, this)) {
 		return $new($AbstractList$RandomAccessSpliterator, this);
 	} else {
-		return $Spliterators::spliterator(static_cast<$Collection*>(this), $Spliterator::ORDERED);
+		return $Spliterators::spliterator(this, $Spliterator::ORDERED);
 	}
 }
 
 List* List::of() {
 	$init(List);
 	$init($ImmutableCollections);
-	return static_cast<List*>($ImmutableCollections::EMPTY_LIST);
+	return $cast(List, $ImmutableCollections::EMPTY_LIST);
 }
 
 List* List::of(Object$* e1) {
@@ -263,28 +196,18 @@ List* List::of(Object$* e1, Object$* e2, Object$* e3, Object$* e4, Object$* e5, 
 
 List* List::of($ObjectArray* elements) {
 	$init(List);
-	{
-		$var(List, list, nullptr)
-		switch ($nc(elements)->length) {
-		case 0:
-			{
-				$init($ImmutableCollections);
-				$assign(list, static_cast<List*>($ImmutableCollections::EMPTY_LIST));
-				return list;
-			}
-		case 1:
-			{
-				return $new($ImmutableCollections$List12, elements->get(0));
-			}
-		case 2:
-			{
-				return $new($ImmutableCollections$List12, elements->get(0), elements->get(1));
-			}
-		default:
-			{
-				return $ImmutableCollections::listFromArray(elements);
-			}
-		}
+	$var(List, list, nullptr);
+	switch ($nc(elements)->length) {
+	case 0:
+		$init($ImmutableCollections);
+		$assign(list, $cast(List, $ImmutableCollections::EMPTY_LIST));
+		return list;
+	case 1:
+		return $new($ImmutableCollections$List12, elements->get(0));
+	case 2:
+		return $new($ImmutableCollections$List12, elements->get(0), elements->get(1));
+	default:
+		return $ImmutableCollections::listFromArray(elements);
 	}
 }
 
@@ -294,7 +217,66 @@ List* List::copyOf($Collection* coll) {
 }
 
 $Class* List::load$($String* name, bool initialize) {
-	$loadClass(List, name, initialize, &_List_ClassInfo_, allocate$List);
+	$CompoundAttribute ofmethodAnnotations$$$11[] = {
+		{"Ljava/lang/SafeVarargs;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC | $ABSTRACT, $virtualMethod(List, add, void, int32_t, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(List, addAll, bool, int32_t, $Collection*)},
+		{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"copyOf", "(Ljava/util/Collection;)Ljava/util/List;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<+TE;>;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, copyOf, List*, $Collection*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(List, get, $Object*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(List, indexOf, int32_t, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(List, lastIndexOf, int32_t, Object$*)},
+		{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(List, listIterator, $ListIterator*)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(List, listIterator, $ListIterator*, int32_t)},
+		{"of", "()Ljava/util/List;", "<E:Ljava/lang/Object;>()Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*)},
+		{"of", "(Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([TE;)Ljava/util/List<TE;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(List, of, List*, $ObjectArray*), nullptr, nullptr, ofmethodAnnotations$$$11},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(List, remove, $Object*, int32_t)},
+		{"removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(List, replaceAll, void, $UnaryOperator*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(List, set, $Object*, int32_t, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(List, sort, void, $Comparator*)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(List, spliterator, $Spliterator*)},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(List, subList, List*, int32_t, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.List",
+		nullptr,
+		"java.util.Collection",
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Collection<TE;>;"
+	};
+	$loadClass(List, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(List);
+	});
 	return class$;
 }
 

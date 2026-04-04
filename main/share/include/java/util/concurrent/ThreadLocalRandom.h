@@ -84,6 +84,7 @@ class $import ThreadLocalRandom : public ::java::util::Random {
 	$class(ThreadLocalRandom, 0, ::java::util::Random)
 public:
 	ThreadLocalRandom();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t advanceProbe(int32_t probe);
 	static ::java::util::concurrent::ThreadLocalRandom* current();
@@ -125,11 +126,11 @@ public:
 	virtual void setSeed(int64_t seed) override;
 	void writeObject(::java::io::ObjectOutputStream* s);
 	bool initialized = false;
-	static const int64_t serialVersionUID = (int64_t)0xAECA4F167A867673;
+	static const int64_t serialVersionUID = (int64_t)0xaeca4f167a867673;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
-	static const int64_t GOLDEN_GAMMA = (int64_t)0x9E3779B97F4A7C15;
-	static const int32_t PROBE_INCREMENT = 0x9E3779B9;
-	static const int64_t SEEDER_INCREMENT = (int64_t)0xBB67AE8584CAA73B;
+	static const int64_t GOLDEN_GAMMA = (int64_t)0x9e3779b97f4a7c15;
+	static const int32_t PROBE_INCREMENT = 0x9e3779b9;
+	static const int64_t SEEDER_INCREMENT = (int64_t)0xbb67ae8584caa73b;
 	static $String* BAD_BOUND;
 	static $String* BAD_RANGE;
 	static $String* BAD_SIZE;

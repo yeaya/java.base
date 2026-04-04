@@ -78,6 +78,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::AsynchronousChannelProvider* provider, ::sun::nio::ch::ThreadPool* pool);
 	virtual $Object* attachForeignChannel(::java::nio::channels::Channel* channel, ::java::io::FileDescriptor* fdo) {return nullptr;}
 	virtual bool awaitTermination(int64_t timeout, ::java::util::concurrent::TimeUnit* unit) override;

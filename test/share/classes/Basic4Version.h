@@ -38,6 +38,7 @@ class $export Basic4Version : public ::java::lang::Object {
 	$class(Basic4Version, 0, ::java::lang::Object)
 public:
 	Basic4Version();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkCompare(::java::lang::Runtime$Version* v0, ::java::lang::Runtime$Version* v1, int32_t expected, int32_t actual);
 	static void fail($String* fs, $Class* ex);

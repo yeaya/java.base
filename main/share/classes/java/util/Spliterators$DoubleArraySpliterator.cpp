@@ -1,5 +1,4 @@
 #include <java/util/Spliterators$DoubleArraySpliterator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator$OfDouble.h>
@@ -26,54 +25,6 @@ using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 namespace java {
 	namespace util {
 
-$FieldInfo _Spliterators$DoubleArraySpliterator_FieldInfo_[] = {
-	{"array", "[D", nullptr, $PRIVATE | $FINAL, $field(Spliterators$DoubleArraySpliterator, array)},
-	{"index", "I", nullptr, $PRIVATE, $field(Spliterators$DoubleArraySpliterator, index)},
-	{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(Spliterators$DoubleArraySpliterator, fence)},
-	{"characteristics", "I", nullptr, $PRIVATE | $FINAL, $field(Spliterators$DoubleArraySpliterator, characteristics$)},
-	{}
-};
-
-$MethodInfo _Spliterators$DoubleArraySpliterator_MethodInfo_[] = {
-	{"<init>", "([DI)V", nullptr, $PUBLIC, $method(Spliterators$DoubleArraySpliterator, init$, void, $doubles*, int32_t)},
-	{"<init>", "([DIII)V", nullptr, $PUBLIC, $method(Spliterators$DoubleArraySpliterator, init$, void, $doubles*, int32_t, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, forEachRemaining, void, $DoubleConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$DoubleArraySpliterator, forEachRemaining, void, Object$*)},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Double;>;", $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, getComparator, $Comparator*)},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, tryAdvance, bool, $DoubleConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$DoubleArraySpliterator, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, trySplit, $Spliterator$OfDouble*)},
-	{}
-};
-
-$InnerClassInfo _Spliterators$DoubleArraySpliterator_InnerClassesInfo_[] = {
-	{"java.util.Spliterators$DoubleArraySpliterator", "java.util.Spliterators", "DoubleArraySpliterator", $STATIC | $FINAL},
-	{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Spliterators$DoubleArraySpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.Spliterators$DoubleArraySpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator$OfDouble",
-	_Spliterators$DoubleArraySpliterator_FieldInfo_,
-	_Spliterators$DoubleArraySpliterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spliterators$DoubleArraySpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Spliterators"
-};
-
-$Object* allocate$Spliterators$DoubleArraySpliterator($Class* clazz) {
-	return $of($alloc(Spliterators$DoubleArraySpliterator));
-}
-
 void Spliterators$DoubleArraySpliterator::init$($doubles* array, int32_t additionalCharacteristics) {
 	Spliterators$DoubleArraySpliterator::init$(array, 0, $nc(array)->length, additionalCharacteristics);
 }
@@ -88,7 +39,7 @@ void Spliterators$DoubleArraySpliterator::init$($doubles* array, int32_t origin,
 $Spliterator$OfDouble* Spliterators$DoubleArraySpliterator::trySplit() {
 	int32_t lo = this->index;
 	int32_t mid = (int32_t)((uint32_t)(lo + this->fence) >> 1);
-	return (lo >= mid) ? ($Spliterator$OfDouble*)nullptr : static_cast<$Spliterator$OfDouble*>($new(Spliterators$DoubleArraySpliterator, this->array, lo, this->index = mid, this->characteristics$));
+	return (lo >= mid) ? ($Spliterator$OfDouble*)nullptr : $cast($Spliterator$OfDouble, $new(Spliterators$DoubleArraySpliterator, this->array, lo, this->index = mid, this->characteristics$));
 }
 
 void Spliterators$DoubleArraySpliterator::forEachRemaining($DoubleConsumer* action) {
@@ -144,7 +95,49 @@ Spliterators$DoubleArraySpliterator::Spliterators$DoubleArraySpliterator() {
 }
 
 $Class* Spliterators$DoubleArraySpliterator::load$($String* name, bool initialize) {
-	$loadClass(Spliterators$DoubleArraySpliterator, name, initialize, &_Spliterators$DoubleArraySpliterator_ClassInfo_, allocate$Spliterators$DoubleArraySpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[D", nullptr, $PRIVATE | $FINAL, $field(Spliterators$DoubleArraySpliterator, array)},
+		{"index", "I", nullptr, $PRIVATE, $field(Spliterators$DoubleArraySpliterator, index)},
+		{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(Spliterators$DoubleArraySpliterator, fence)},
+		{"characteristics", "I", nullptr, $PRIVATE | $FINAL, $field(Spliterators$DoubleArraySpliterator, characteristics$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([DI)V", nullptr, $PUBLIC, $method(Spliterators$DoubleArraySpliterator, init$, void, $doubles*, int32_t)},
+		{"<init>", "([DIII)V", nullptr, $PUBLIC, $method(Spliterators$DoubleArraySpliterator, init$, void, $doubles*, int32_t, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, forEachRemaining, void, $DoubleConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$DoubleArraySpliterator, forEachRemaining, void, Object$*)},
+		{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Double;>;", $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, getComparator, $Comparator*)},
+		{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, tryAdvance, bool, $DoubleConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$DoubleArraySpliterator, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleArraySpliterator, trySplit, $Spliterator$OfDouble*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterators$DoubleArraySpliterator", "java.util.Spliterators", "DoubleArraySpliterator", $STATIC | $FINAL},
+		{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.Spliterators$DoubleArraySpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator$OfDouble",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Spliterators"
+	};
+	$loadClass(Spliterators$DoubleArraySpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spliterators$DoubleArraySpliterator);
+	});
 	return class$;
 }
 

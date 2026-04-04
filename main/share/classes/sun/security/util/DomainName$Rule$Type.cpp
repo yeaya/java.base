@@ -1,5 +1,4 @@
 #include <sun/security/util/DomainName$Rule$Type.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/util/DomainName$Rule.h>
 #include <sun/security/util/DomainName.h>
@@ -20,49 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace util {
-
-$FieldInfo _DomainName$Rule$Type_FieldInfo_[] = {
-	{"EXCEPTION", "Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DomainName$Rule$Type, EXCEPTION)},
-	{"NORMAL", "Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DomainName$Rule$Type, NORMAL)},
-	{"OTHER", "Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DomainName$Rule$Type, OTHER)},
-	{"WILDCARD", "Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DomainName$Rule$Type, WILDCARD)},
-	{"$VALUES", "[Lsun/security/util/DomainName$Rule$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DomainName$Rule$Type, $VALUES)},
-	{}
-};
-
-$MethodInfo _DomainName$Rule$Type_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/util/DomainName$Rule$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DomainName$Rule$Type, $values, $DomainName$Rule$TypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DomainName$Rule$Type, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(DomainName$Rule$Type, valueOf, DomainName$Rule$Type*, $String*)},
-	{"values", "()[Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(DomainName$Rule$Type, values, $DomainName$Rule$TypeArray*)},
-	{}
-};
-
-$InnerClassInfo _DomainName$Rule$Type_InnerClassesInfo_[] = {
-	{"sun.security.util.DomainName$Rule", "sun.security.util.DomainName", "Rule", $PRIVATE | $STATIC},
-	{"sun.security.util.DomainName$Rule$Type", "sun.security.util.DomainName$Rule", "Type", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DomainName$Rule$Type_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.util.DomainName$Rule$Type",
-	"java.lang.Enum",
-	nullptr,
-	_DomainName$Rule$Type_FieldInfo_,
-	_DomainName$Rule$Type_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/util/DomainName$Rule$Type;>;",
-	nullptr,
-	_DomainName$Rule$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.DomainName"
-};
-
-$Object* allocate$DomainName$Rule$Type($Class* clazz) {
-	return $of($alloc(DomainName$Rule$Type));
-}
 
 DomainName$Rule$Type* DomainName$Rule$Type::EXCEPTION = nullptr;
 DomainName$Rule$Type* DomainName$Rule$Type::NORMAL = nullptr;
@@ -94,7 +50,7 @@ void DomainName$Rule$Type::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$DomainName$Rule$Type($Class* class$) {
+void DomainName$Rule$Type::clinit$($Class* clazz) {
 	$assignStatic(DomainName$Rule$Type::EXCEPTION, $new(DomainName$Rule$Type, "EXCEPTION"_s, 0));
 	$assignStatic(DomainName$Rule$Type::NORMAL, $new(DomainName$Rule$Type, "NORMAL"_s, 1));
 	$assignStatic(DomainName$Rule$Type::OTHER, $new(DomainName$Rule$Type, "OTHER"_s, 2));
@@ -106,7 +62,44 @@ DomainName$Rule$Type::DomainName$Rule$Type() {
 }
 
 $Class* DomainName$Rule$Type::load$($String* name, bool initialize) {
-	$loadClass(DomainName$Rule$Type, name, initialize, &_DomainName$Rule$Type_ClassInfo_, clinit$DomainName$Rule$Type, allocate$DomainName$Rule$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXCEPTION", "Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DomainName$Rule$Type, EXCEPTION)},
+		{"NORMAL", "Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DomainName$Rule$Type, NORMAL)},
+		{"OTHER", "Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DomainName$Rule$Type, OTHER)},
+		{"WILDCARD", "Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DomainName$Rule$Type, WILDCARD)},
+		{"$VALUES", "[Lsun/security/util/DomainName$Rule$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DomainName$Rule$Type, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/util/DomainName$Rule$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DomainName$Rule$Type, $values, $DomainName$Rule$TypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DomainName$Rule$Type, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(DomainName$Rule$Type, valueOf, DomainName$Rule$Type*, $String*)},
+		{"values", "()[Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(DomainName$Rule$Type, values, $DomainName$Rule$TypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.DomainName$Rule", "sun.security.util.DomainName", "Rule", $PRIVATE | $STATIC},
+		{"sun.security.util.DomainName$Rule$Type", "sun.security.util.DomainName$Rule", "Type", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.util.DomainName$Rule$Type",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/util/DomainName$Rule$Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.DomainName"
+	};
+	$loadClass(DomainName$Rule$Type, name, initialize, &classInfo$$, DomainName$Rule$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DomainName$Rule$Type));
+	});
 	return class$;
 }
 

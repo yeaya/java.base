@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberShort.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,40 +8,34 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberShort_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberShort_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberShort_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberShort_MethodInfo_[] = {
-	{"value", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberShort, value, int16_t)},
-	{}
-};
-
-$ClassInfo _SingleMemberShort_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberShort",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberShort_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberShort_Annotations_
-};
-
-$Object* allocate$SingleMemberShort($Class* clazz) {
-	return $of($alloc(SingleMemberShort));
-}
-
 $Class* SingleMemberShort::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberShort, name, initialize, &_SingleMemberShort_ClassInfo_, allocate$SingleMemberShort);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberShort, value, int16_t)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberShort",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberShort, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberShort);
+	});
 	return class$;
 }
 

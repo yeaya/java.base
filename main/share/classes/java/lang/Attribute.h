@@ -48,6 +48,9 @@ public:
 
 	void encode(::java::io::DataOutputStream* os, ::jdk::internal::reflect::ConstantPool* cp);
 	void visit(::jdk::internal::reflect::ConstantPool* cp);
+	Attribute* clone();
+	void cloneSelf();
+	static Attribute* cloneArray(Attribute* array);
 };
 
     } // lang

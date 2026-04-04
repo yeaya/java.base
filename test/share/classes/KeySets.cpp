@@ -1,5 +1,4 @@
 #include <KeySets.h>
-
 #include <KeySets$1.h>
 #include <KeySets$10.h>
 #include <KeySets$2.h>
@@ -18,8 +17,6 @@
 #include <java/nio/channels/SelectionKey.h>
 #include <java/nio/channels/Selector.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractSet.h>
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
@@ -47,56 +44,8 @@ using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractSet = ::java::util::AbstractSet;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
-
-$MethodInfo _KeySets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeySets, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeySets, main, void, $StringArray*), "java.lang.Exception"},
-	{"reg", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $STATIC, $staticMethod(KeySets, reg, $SelectionKey*, $Selector*), "java.io.IOException"},
-	{"testClose", "()V", nullptr, $STATIC, $staticMethod(KeySets, testClose, void), "java.lang.Exception"},
-	{"testMutability", "()V", nullptr, $STATIC, $staticMethod(KeySets, testMutability, void), "java.lang.Exception"},
-	{"testNoAddition", "(Ljava/util/Set;)V", nullptr, $STATIC, $staticMethod(KeySets, testNoAddition, void, $Set*), "java.lang.Exception"},
-	{"testNoRemoval", "(Ljava/util/Set;LKeySets$Adder;)V", nullptr, $STATIC, $staticMethod(KeySets, testNoRemoval, void, $Set*, $KeySets$Adder*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _KeySets_InnerClassesInfo_[] = {
-	{"KeySets$Adder", "KeySets", "Adder", $STATIC | $INTERFACE | $ABSTRACT},
-	{"KeySets$Catch", "KeySets", "Catch", $STATIC | $ABSTRACT},
-	{"KeySets$10", nullptr, nullptr, 0},
-	{"KeySets$9", nullptr, nullptr, 0},
-	{"KeySets$8", nullptr, nullptr, 0},
-	{"KeySets$7", nullptr, nullptr, 0},
-	{"KeySets$6", nullptr, nullptr, 0},
-	{"KeySets$5", nullptr, nullptr, 0},
-	{"KeySets$4", nullptr, nullptr, 0},
-	{"KeySets$3", nullptr, nullptr, 0},
-	{"KeySets$2", nullptr, nullptr, 0},
-	{"KeySets$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KeySets_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"KeySets",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_KeySets_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeySets_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"KeySets$Adder,KeySets$Catch,KeySets$10,KeySets$9,KeySets$8,KeySets$7,KeySets$6,KeySets$5,KeySets$4,KeySets$3,KeySets$2,KeySets$1"
-};
-
-$Object* allocate$KeySets($Class* clazz) {
-	return $of($alloc(KeySets));
-}
 
 void KeySets::init$() {
 }
@@ -133,36 +82,36 @@ $SelectionKey* KeySets::reg($Selector* sel) {
 }
 
 void KeySets::testMutability() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Selector, sel, $Selector::open());
 	$var($Set, var$0, $nc(sel)->keys());
 	testNoRemoval(var$0, $$new($KeySets$10, sel));
-	testNoAddition($($nc(sel)->keys()));
-	$nc(sel)->select();
+	testNoAddition($(sel->keys()));
+	sel->select();
 	testNoAddition($(sel->selectedKeys()));
 	$var($SelectionKey, sk, reg(sel));
 	sel->select();
-	int32_t n = $nc($(sel->selectedKeys()))->size();
-	$nc($(sel->selectedKeys()))->remove(sk);
-	if ($nc($(sel->selectedKeys()))->size() != n - 1) {
+	int32_t n = $$nc(sel->selectedKeys())->size();
+	$$nc(sel->selectedKeys())->remove(sk);
+	if ($$nc(sel->selectedKeys())->size() != n - 1) {
 		$throwNew($Exception, "remove failed"_s);
 	}
 	$var($HashSet, hs, $new($HashSet));
 	hs->add($(reg(sel)));
 	sel->select();
-	$nc($(sel->selectedKeys()))->retainAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(hs))));
-	if ($nc($(sel->selectedKeys()))->isEmpty()) {
+	$$nc(sel->selectedKeys())->retainAll($cast($AbstractCollection, hs));
+	if ($$nc(sel->selectedKeys())->isEmpty()) {
 		$throwNew($Exception, "retainAll failed"_s);
 	}
-	$nc($(sel->selectedKeys()))->removeAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(hs))));
-	if (!$nc($(sel->selectedKeys()))->isEmpty()) {
+	$$nc(sel->selectedKeys())->removeAll($cast($AbstractCollection, hs));
+	if (!$$nc(sel->selectedKeys())->isEmpty()) {
 		$throwNew($Exception, "removeAll failed"_s);
 	}
 	hs->clear();
 	hs->add($(reg(sel)));
 	sel->select();
-	$nc($(sel->selectedKeys()))->clear();
-	if (!$nc($(sel->selectedKeys()))->isEmpty()) {
+	$$nc(sel->selectedKeys())->clear();
+	if (!$$nc(sel->selectedKeys())->isEmpty()) {
 		$throwNew($Exception, "clear failed"_s);
 	}
 }
@@ -176,7 +125,48 @@ KeySets::KeySets() {
 }
 
 $Class* KeySets::load$($String* name, bool initialize) {
-	$loadClass(KeySets, name, initialize, &_KeySets_ClassInfo_, allocate$KeySets);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeySets, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeySets, main, void, $StringArray*), "java.lang.Exception"},
+		{"reg", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $STATIC, $staticMethod(KeySets, reg, $SelectionKey*, $Selector*), "java.io.IOException"},
+		{"testClose", "()V", nullptr, $STATIC, $staticMethod(KeySets, testClose, void), "java.lang.Exception"},
+		{"testMutability", "()V", nullptr, $STATIC, $staticMethod(KeySets, testMutability, void), "java.lang.Exception"},
+		{"testNoAddition", "(Ljava/util/Set;)V", nullptr, $STATIC, $staticMethod(KeySets, testNoAddition, void, $Set*), "java.lang.Exception"},
+		{"testNoRemoval", "(Ljava/util/Set;LKeySets$Adder;)V", nullptr, $STATIC, $staticMethod(KeySets, testNoRemoval, void, $Set*, $KeySets$Adder*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"KeySets$Adder", "KeySets", "Adder", $STATIC | $INTERFACE | $ABSTRACT},
+		{"KeySets$Catch", "KeySets", "Catch", $STATIC | $ABSTRACT},
+		{"KeySets$10", nullptr, nullptr, 0},
+		{"KeySets$9", nullptr, nullptr, 0},
+		{"KeySets$8", nullptr, nullptr, 0},
+		{"KeySets$7", nullptr, nullptr, 0},
+		{"KeySets$6", nullptr, nullptr, 0},
+		{"KeySets$5", nullptr, nullptr, 0},
+		{"KeySets$4", nullptr, nullptr, 0},
+		{"KeySets$3", nullptr, nullptr, 0},
+		{"KeySets$2", nullptr, nullptr, 0},
+		{"KeySets$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"KeySets",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"KeySets$Adder,KeySets$Catch,KeySets$10,KeySets$9,KeySets$8,KeySets$7,KeySets$6,KeySets$5,KeySets$4,KeySets$3,KeySets$2,KeySets$1"
+	};
+	$loadClass(KeySets, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeySets);
+	});
 	return class$;
 }
 

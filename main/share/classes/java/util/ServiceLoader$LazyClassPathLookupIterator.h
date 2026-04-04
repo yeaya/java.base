@@ -35,6 +35,7 @@ class ServiceLoader$LazyClassPathLookupIterator : public ::java::util::Iterator 
 	$class(ServiceLoader$LazyClassPathLookupIterator, 0, ::java::util::Iterator)
 public:
 	ServiceLoader$LazyClassPathLookupIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::ServiceLoader* this$0);
 	virtual bool hasNext() override;
 	bool hasNextService();

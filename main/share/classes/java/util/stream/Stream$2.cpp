@@ -1,5 +1,4 @@
 #include <java/util/stream/Stream$2.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterators$AbstractSpliterator.h>
 #include <java/util/function/Consumer.h>
@@ -22,55 +21,6 @@ using $UnaryOperator = ::java::util::function::UnaryOperator;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Stream$2_FieldInfo_[] = {
-	{"val$hasNext", "Ljava/util/function/Predicate;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$2, val$hasNext)},
-	{"val$seed", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$2, val$seed)},
-	{"val$next", "Ljava/util/function/UnaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$2, val$next)},
-	{"prev", "Ljava/lang/Object;", "TT;", 0, $field(Stream$2, prev)},
-	{"started", "Z", nullptr, 0, $field(Stream$2, started)},
-	{"finished", "Z", nullptr, 0, $field(Stream$2, finished)},
-	{}
-};
-
-$MethodInfo _Stream$2_MethodInfo_[] = {
-	{"<init>", "(JILjava/util/function/UnaryOperator;Ljava/lang/Object;Ljava/util/function/Predicate;)V", nullptr, 0, $method(Stream$2, init$, void, int64_t, int32_t, $UnaryOperator*, Object$*, $Predicate*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Stream$2, forEachRemaining, void, $Consumer*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Stream$2, tryAdvance, bool, $Consumer*)},
-	{}
-};
-
-$EnclosingMethodInfo _Stream$2_EnclosingMethodInfo_ = {
-	"java.util.stream.Stream",
-	"iterate",
-	"(Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/UnaryOperator;)Ljava/util/stream/Stream;"
-};
-
-$InnerClassInfo _Stream$2_InnerClassesInfo_[] = {
-	{"java.util.stream.Stream$2", nullptr, nullptr, 0},
-	{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Stream$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.Stream$2",
-	"java.util.Spliterators$AbstractSpliterator",
-	nullptr,
-	_Stream$2_FieldInfo_,
-	_Stream$2_MethodInfo_,
-	"Ljava/util/Spliterators$AbstractSpliterator<TT;>;",
-	&_Stream$2_EnclosingMethodInfo_,
-	_Stream$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Stream"
-};
-
-$Object* allocate$Stream$2($Class* clazz) {
-	return $of($alloc(Stream$2));
-}
 
 void Stream$2::init$(int64_t est, int32_t additionalCharacteristics, $UnaryOperator* val$next, Object$* val$seed, $Predicate* val$hasNext) {
 	$set(this, val$next, val$next);
@@ -118,7 +68,49 @@ Stream$2::Stream$2() {
 }
 
 $Class* Stream$2::load$($String* name, bool initialize) {
-	$loadClass(Stream$2, name, initialize, &_Stream$2_ClassInfo_, allocate$Stream$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$hasNext", "Ljava/util/function/Predicate;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$2, val$hasNext)},
+		{"val$seed", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$2, val$seed)},
+		{"val$next", "Ljava/util/function/UnaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$2, val$next)},
+		{"prev", "Ljava/lang/Object;", "TT;", 0, $field(Stream$2, prev)},
+		{"started", "Z", nullptr, 0, $field(Stream$2, started)},
+		{"finished", "Z", nullptr, 0, $field(Stream$2, finished)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JILjava/util/function/UnaryOperator;Ljava/lang/Object;Ljava/util/function/Predicate;)V", nullptr, 0, $method(Stream$2, init$, void, int64_t, int32_t, $UnaryOperator*, Object$*, $Predicate*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Stream$2, forEachRemaining, void, $Consumer*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Stream$2, tryAdvance, bool, $Consumer*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.Stream",
+		"iterate",
+		"(Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/UnaryOperator;)Ljava/util/stream/Stream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Stream$2", nullptr, nullptr, 0},
+		{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.Stream$2",
+		"java.util.Spliterators$AbstractSpliterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/Spliterators$AbstractSpliterator<TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Stream"
+	};
+	$loadClass(Stream$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream$2);
+	});
 	return class$;
 }
 

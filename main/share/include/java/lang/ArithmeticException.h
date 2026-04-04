@@ -14,10 +14,13 @@ public:
 	ArithmeticException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x1F509E624AF9F007;
+	static const int64_t serialVersionUID = (int64_t)0x1f509e624af9f007;
 	ArithmeticException(const ArithmeticException& e);
 	virtual void throw$() override;
-	inline ArithmeticException* operator ->() {
+	inline ArithmeticException* operator ->() const {
+		return (ArithmeticException*)throwing$;
+	}
+	inline operator ArithmeticException*() const {
 		return (ArithmeticException*)throwing$;
 	}
 };

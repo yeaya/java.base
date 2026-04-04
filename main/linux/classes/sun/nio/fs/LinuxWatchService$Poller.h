@@ -71,6 +71,7 @@ class LinuxWatchService$Poller : public ::sun::nio::fs::AbstractPoller {
 	$class(LinuxWatchService$Poller, 0, ::sun::nio::fs::AbstractPoller)
 public:
 	LinuxWatchService$Poller();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::UnixFileSystem* fs, ::sun::nio::fs::LinuxWatchService* watcher, int32_t ifd, $ints* sp);
 	virtual void implCancelKey(::java::nio::file::WatchKey* obj) override;
 	virtual void implCloseAll() override;

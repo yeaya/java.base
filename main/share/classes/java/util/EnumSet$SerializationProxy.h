@@ -27,12 +27,13 @@ class EnumSet$SerializationProxy : public ::java::io::Serializable {
 	$class(EnumSet$SerializationProxy, 0, ::java::io::Serializable)
 public:
 	EnumSet$SerializationProxy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::EnumSet* set);
 	$Object* readResolve();
 	static $Array<::java::lang::Enum>* ZERO_LENGTH_ENUM_ARRAY;
 	$Class* elementType = nullptr;
 	$Array<::java::lang::Enum>* elements = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x0507D3DB7654CAD1;
+	static const int64_t serialVersionUID = (int64_t)0x0507d3db7654cad1;
 };
 
 	} // util

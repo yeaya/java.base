@@ -20,6 +20,7 @@ class $import RegisteredDomain$Type : public ::java::lang::Enum {
 public:
 	RegisteredDomain$Type();
 	static $Array<::sun::security::util::RegisteredDomain$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::util::RegisteredDomain$Type* valueOf($String* name);
 	static $Array<::sun::security::util::RegisteredDomain$Type>* values();

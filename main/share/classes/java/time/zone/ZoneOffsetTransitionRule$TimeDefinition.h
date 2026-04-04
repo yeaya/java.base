@@ -29,6 +29,7 @@ class $export ZoneOffsetTransitionRule$TimeDefinition : public ::java::lang::Enu
 public:
 	ZoneOffsetTransitionRule$TimeDefinition();
 	static $Array<::java::time::zone::ZoneOffsetTransitionRule$TimeDefinition>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual ::java::time::LocalDateTime* createDateTime(::java::time::LocalDateTime* dateTime, ::java::time::ZoneOffset* standardOffset, ::java::time::ZoneOffset* wallOffset);
 	static ::java::time::zone::ZoneOffsetTransitionRule$TimeDefinition* valueOf($String* name);

@@ -1,5 +1,4 @@
 #include <sun/security/x509/AttributeNameEnumeration.h>
-
 #include <java/util/Vector.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _AttributeNameEnumeration_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeNameEnumeration, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeNameEnumeration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeNameEnumeration, init$, void)},
-	{}
-};
-
-$ClassInfo _AttributeNameEnumeration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.AttributeNameEnumeration",
-	"java.util.Vector",
-	nullptr,
-	_AttributeNameEnumeration_FieldInfo_,
-	_AttributeNameEnumeration_MethodInfo_,
-	"Ljava/util/Vector<Ljava/lang/String;>;"
-};
-
-$Object* allocate$AttributeNameEnumeration($Class* clazz) {
-	return $of($alloc(AttributeNameEnumeration));
-}
-
 void AttributeNameEnumeration::init$() {
 	$Vector::init$(4, 2);
 }
@@ -44,7 +19,26 @@ AttributeNameEnumeration::AttributeNameEnumeration() {
 }
 
 $Class* AttributeNameEnumeration::load$($String* name, bool initialize) {
-	$loadClass(AttributeNameEnumeration, name, initialize, &_AttributeNameEnumeration_ClassInfo_, allocate$AttributeNameEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeNameEnumeration, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeNameEnumeration, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.AttributeNameEnumeration",
+		"java.util.Vector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/Vector<Ljava/lang/String;>;"
+	};
+	$loadClass(AttributeNameEnumeration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeNameEnumeration));
+	});
 	return class$;
 }
 

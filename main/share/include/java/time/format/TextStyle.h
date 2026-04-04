@@ -28,6 +28,7 @@ class $import TextStyle : public ::java::lang::Enum {
 public:
 	TextStyle();
 	static $Array<::java::time::format::TextStyle>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t calendarStyle, int32_t zoneNameStyleIndex);
 	virtual ::java::time::format::TextStyle* asNormal();
 	virtual ::java::time::format::TextStyle* asStandalone();

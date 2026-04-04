@@ -22,6 +22,7 @@ class MatchOps$MatchKind : public ::java::lang::Enum {
 public:
 	MatchOps$MatchKind();
 	static $Array<::java::util::stream::MatchOps$MatchKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, bool stopOnPredicateMatches, bool shortCircuitResult);
 	static ::java::util::stream::MatchOps$MatchKind* valueOf($String* name);
 	static $Array<::java::util::stream::MatchOps$MatchKind>* values();

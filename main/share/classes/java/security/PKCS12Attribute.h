@@ -31,6 +31,7 @@ class $export PKCS12Attribute : public ::java::security::KeyStore$Entry$Attribut
 	$class(PKCS12Attribute, 0, ::java::security::KeyStore$Entry$Attribute)
 public:
 	PKCS12Attribute();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $String* value);
 	void init$($bytes* encoded);
 	$bytes* encode(::sun::security::util::ObjectIdentifier* type, $StringArray* values);

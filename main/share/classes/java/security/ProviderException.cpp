@@ -1,5 +1,4 @@
 #include <java/security/ProviderException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,32 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _ProviderException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProviderException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ProviderException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProviderException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProviderException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ProviderException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ProviderException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _ProviderException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.ProviderException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ProviderException_FieldInfo_,
-	_ProviderException_MethodInfo_
-};
-
-$Object* allocate$ProviderException($Class* clazz) {
-	return $of($alloc(ProviderException));
-}
 
 void ProviderException::init$() {
 	$RuntimeException::init$();
@@ -63,7 +36,28 @@ void ProviderException::throw$() {
 }
 
 $Class* ProviderException::load$($String* name, bool initialize) {
-	$loadClass(ProviderException, name, initialize, &_ProviderException_ClassInfo_, allocate$ProviderException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProviderException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProviderException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProviderException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ProviderException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ProviderException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.ProviderException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProviderException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProviderException);
+	});
 	return class$;
 }
 

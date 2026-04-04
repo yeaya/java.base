@@ -1,5 +1,4 @@
 #include <PassThroughFileSystem$PassThroughPath.h>
-
 #include <PassThroughFileSystem$PassThroughPath$1.h>
 #include <PassThroughFileSystem.h>
 #include <java/io/File.h>
@@ -32,76 +31,7 @@ using $FileSystem = ::java::nio::file::FileSystem;
 using $Path = ::java::nio::file::Path;
 using $WatchKey = ::java::nio::file::WatchKey;
 using $WatchService = ::java::nio::file::WatchService;
-using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $Iterator = ::java::util::Iterator;
-
-$FieldInfo _PassThroughFileSystem$PassThroughPath_FieldInfo_[] = {
-	{"fs", "Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $FINAL, $field(PassThroughFileSystem$PassThroughPath, fs)},
-	{"delegate", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(PassThroughFileSystem$PassThroughPath, delegate)},
-	{}
-};
-
-$MethodInfo _PassThroughFileSystem$PassThroughPath_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/FileSystem;Ljava/nio/file/Path;)V", nullptr, 0, $method(PassThroughFileSystem$PassThroughPath, init$, void, $FileSystem*, $Path*)},
-	{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, compareTo, int32_t, $Path*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, compareTo, int32_t, Object$*)},
-	{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, endsWith, bool, $Path*)},
-	{"endsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, endsWith, bool, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, equals, bool, Object$*)},
-	{"getFileName", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getFileName, $Path*)},
-	{"getFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getFileSystem, $FileSystem*)},
-	{"getName", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getName, $Path*, int32_t)},
-	{"getNameCount", "()I", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getNameCount, int32_t)},
-	{"getParent", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getParent, $Path*)},
-	{"getRoot", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getRoot, $Path*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, hashCode, int32_t)},
-	{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, isAbsolute, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, iterator, $Iterator*)},
-	{"normalize", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, normalize, $Path*)},
-	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*)},
-	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*)},
-	{"relativize", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, relativize, $Path*, $Path*)},
-	{"resolve", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, resolve, $Path*, $Path*)},
-	{"resolve", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, resolve, $Path*, $String*)},
-	{"resolveSibling", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, resolveSibling, $Path*, $Path*)},
-	{"resolveSibling", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, resolveSibling, $Path*, $String*)},
-	{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, startsWith, bool, $Path*)},
-	{"startsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, startsWith, bool, $String*)},
-	{"subpath", "(II)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, subpath, $Path*, int32_t, int32_t)},
-	{"toAbsolutePath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, toAbsolutePath, $Path*)},
-	{"toFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, toFile, $File*)},
-	{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughPath, toRealPath, $Path*, $LinkOptionArray*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, toString, $String*)},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, toUri, $URI*)},
-	{"wrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(PassThroughFileSystem$PassThroughPath, wrap, $Path*, $Path*)},
-	{}
-};
-
-$InnerClassInfo _PassThroughFileSystem$PassThroughPath_InnerClassesInfo_[] = {
-	{"PassThroughFileSystem$PassThroughPath", "PassThroughFileSystem", "PassThroughPath", $STATIC},
-	{"PassThroughFileSystem$PassThroughPath$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PassThroughFileSystem$PassThroughPath_ClassInfo_ = {
-	$ACC_SUPER,
-	"PassThroughFileSystem$PassThroughPath",
-	"java.lang.Object",
-	"java.nio.file.Path",
-	_PassThroughFileSystem$PassThroughPath_FieldInfo_,
-	_PassThroughFileSystem$PassThroughPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PassThroughFileSystem$PassThroughPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"PassThroughFileSystem"
-};
-
-$Object* allocate$PassThroughFileSystem$PassThroughPath($Class* clazz) {
-	return $of($alloc(PassThroughFileSystem$PassThroughPath));
-}
 
 void PassThroughFileSystem$PassThroughPath::init$($FileSystem* fs, $Path* delegate) {
 	$set(this, fs, fs);
@@ -109,7 +39,7 @@ void PassThroughFileSystem$PassThroughPath::init$($FileSystem* fs, $Path* delega
 }
 
 $Path* PassThroughFileSystem$PassThroughPath::wrap($Path* path) {
-	return (path != nullptr) ? static_cast<$Path*>($new(PassThroughFileSystem$PassThroughPath, this->fs, path)) : ($Path*)nullptr;
+	return (path != nullptr) ? $cast($Path, $new(PassThroughFileSystem$PassThroughPath, this->fs, path)) : ($Path*)nullptr;
 }
 
 $FileSystem* PassThroughFileSystem$PassThroughPath::getFileSystem() {
@@ -165,7 +95,7 @@ $Path* PassThroughFileSystem$PassThroughPath::normalize() {
 }
 
 $Path* PassThroughFileSystem$PassThroughPath::resolve($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return wrap($($nc(this->delegate)->resolve($($PassThroughFileSystem::unwrap(other)))));
 }
 
@@ -174,7 +104,7 @@ $Path* PassThroughFileSystem$PassThroughPath::resolve($String* other) {
 }
 
 $Path* PassThroughFileSystem$PassThroughPath::resolveSibling($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return wrap($($nc(this->delegate)->resolveSibling($($PassThroughFileSystem::unwrap(other)))));
 }
 
@@ -183,7 +113,7 @@ $Path* PassThroughFileSystem$PassThroughPath::resolveSibling($String* other) {
 }
 
 $Path* PassThroughFileSystem$PassThroughPath::relativize($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return wrap($($nc(this->delegate)->relativize($($PassThroughFileSystem::unwrap(other)))));
 }
 
@@ -203,9 +133,9 @@ $String* PassThroughFileSystem$PassThroughPath::toString() {
 }
 
 $URI* PassThroughFileSystem$PassThroughPath::toUri() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, ssp, $nc($($nc(this->delegate)->toUri()))->getSchemeSpecificPart());
-	return $URI::create($$str({$($nc($($nc(this->fs)->provider()))->getScheme()), ":"_s, ssp}));
+	$useLocalObjectStack();
+	$var($String, ssp, $$nc($nc(this->delegate)->toUri())->getSchemeSpecificPart());
+	return $URI::create($$str({$($$nc($nc(this->fs)->provider())->getScheme()), ":"_s, ssp}));
 }
 
 $Path* PassThroughFileSystem$PassThroughPath::toAbsolutePath() {
@@ -247,7 +177,69 @@ PassThroughFileSystem$PassThroughPath::PassThroughFileSystem$PassThroughPath() {
 }
 
 $Class* PassThroughFileSystem$PassThroughPath::load$($String* name, bool initialize) {
-	$loadClass(PassThroughFileSystem$PassThroughPath, name, initialize, &_PassThroughFileSystem$PassThroughPath_ClassInfo_, allocate$PassThroughFileSystem$PassThroughPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"fs", "Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $FINAL, $field(PassThroughFileSystem$PassThroughPath, fs)},
+		{"delegate", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(PassThroughFileSystem$PassThroughPath, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/FileSystem;Ljava/nio/file/Path;)V", nullptr, 0, $method(PassThroughFileSystem$PassThroughPath, init$, void, $FileSystem*, $Path*)},
+		{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, compareTo, int32_t, $Path*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, compareTo, int32_t, Object$*)},
+		{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, endsWith, bool, $Path*)},
+		{"endsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, endsWith, bool, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, equals, bool, Object$*)},
+		{"getFileName", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getFileName, $Path*)},
+		{"getFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getFileSystem, $FileSystem*)},
+		{"getName", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getName, $Path*, int32_t)},
+		{"getNameCount", "()I", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getNameCount, int32_t)},
+		{"getParent", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getParent, $Path*)},
+		{"getRoot", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, getRoot, $Path*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, hashCode, int32_t)},
+		{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, isAbsolute, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, iterator, $Iterator*)},
+		{"normalize", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, normalize, $Path*)},
+		{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*)},
+		{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*)},
+		{"relativize", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, relativize, $Path*, $Path*)},
+		{"resolve", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, resolve, $Path*, $Path*)},
+		{"resolve", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, resolve, $Path*, $String*)},
+		{"resolveSibling", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, resolveSibling, $Path*, $Path*)},
+		{"resolveSibling", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, resolveSibling, $Path*, $String*)},
+		{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, startsWith, bool, $Path*)},
+		{"startsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, startsWith, bool, $String*)},
+		{"subpath", "(II)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, subpath, $Path*, int32_t, int32_t)},
+		{"toAbsolutePath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, toAbsolutePath, $Path*)},
+		{"toFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, toFile, $File*)},
+		{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughPath, toRealPath, $Path*, $LinkOptionArray*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, toString, $String*)},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath, toUri, $URI*)},
+		{"wrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(PassThroughFileSystem$PassThroughPath, wrap, $Path*, $Path*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"PassThroughFileSystem$PassThroughPath", "PassThroughFileSystem", "PassThroughPath", $STATIC},
+		{"PassThroughFileSystem$PassThroughPath$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"PassThroughFileSystem$PassThroughPath",
+		"java.lang.Object",
+		"java.nio.file.Path",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"PassThroughFileSystem"
+	};
+	$loadClass(PassThroughFileSystem$PassThroughPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PassThroughFileSystem$PassThroughPath));
+	});
 	return class$;
 }
 

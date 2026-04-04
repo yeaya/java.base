@@ -1,5 +1,4 @@
 #include <java/util/AbstractList$Itr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/AbstractList.h>
@@ -20,48 +19,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace util {
 
-$FieldInfo _AbstractList$Itr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/AbstractList;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractList$Itr, this$0)},
-	{"cursor", "I", nullptr, 0, $field(AbstractList$Itr, cursor)},
-	{"lastRet", "I", nullptr, 0, $field(AbstractList$Itr, lastRet)},
-	{"expectedModCount", "I", nullptr, 0, $field(AbstractList$Itr, expectedModCount)},
-	{}
-};
-
-$MethodInfo _AbstractList$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/AbstractList;)V", nullptr, $PRIVATE, $method(AbstractList$Itr, init$, void, $AbstractList*)},
-	{"checkForComodification", "()V", nullptr, $FINAL, $method(AbstractList$Itr, checkForComodification, void)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractList$Itr, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractList$Itr, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractList$Itr, remove, void)},
-	{}
-};
-
-$InnerClassInfo _AbstractList$Itr_InnerClassesInfo_[] = {
-	{"java.util.AbstractList$Itr", "java.util.AbstractList", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AbstractList$Itr_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.AbstractList$Itr",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_AbstractList$Itr_FieldInfo_,
-	_AbstractList$Itr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_AbstractList$Itr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.AbstractList"
-};
-
-$Object* allocate$AbstractList$Itr($Class* clazz) {
-	return $of($alloc(AbstractList$Itr));
-}
-
 void AbstractList$Itr::init$($AbstractList* this$0) {
 	$set(this, this$0, this$0);
 	this->cursor = 0;
@@ -80,10 +37,10 @@ $Object* AbstractList$Itr::next() {
 		$var($Object, next, this->this$0->get(i));
 		this->lastRet = i;
 		this->cursor = i + 1;
-		return $of(next);
+		return next;
 	} catch ($IndexOutOfBoundsException& e) {
 		checkForComodification();
-		$throwNew($NoSuchElementException, static_cast<$Throwable*>(e));
+		$throwNew($NoSuchElementException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -115,7 +72,43 @@ AbstractList$Itr::AbstractList$Itr() {
 }
 
 $Class* AbstractList$Itr::load$($String* name, bool initialize) {
-	$loadClass(AbstractList$Itr, name, initialize, &_AbstractList$Itr_ClassInfo_, allocate$AbstractList$Itr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/AbstractList;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractList$Itr, this$0)},
+		{"cursor", "I", nullptr, 0, $field(AbstractList$Itr, cursor)},
+		{"lastRet", "I", nullptr, 0, $field(AbstractList$Itr, lastRet)},
+		{"expectedModCount", "I", nullptr, 0, $field(AbstractList$Itr, expectedModCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/AbstractList;)V", nullptr, $PRIVATE, $method(AbstractList$Itr, init$, void, $AbstractList*)},
+		{"checkForComodification", "()V", nullptr, $FINAL, $method(AbstractList$Itr, checkForComodification, void)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractList$Itr, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractList$Itr, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractList$Itr, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.AbstractList$Itr", "java.util.AbstractList", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.AbstractList$Itr",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.AbstractList"
+	};
+	$loadClass(AbstractList$Itr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractList$Itr);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Bug8165466.h>
-
 #include <java/text/DecimalFormat.h>
 #include <java/text/NumberFormat.h>
 #include <java/util/Locale.h>
@@ -14,30 +13,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $DecimalFormat = ::java::text::DecimalFormat;
 using $Locale = ::java::util::Locale;
 
-$MethodInfo _Bug8165466_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8165466, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8165466, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _Bug8165466_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug8165466",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Bug8165466_MethodInfo_
-};
-
-$Object* allocate$Bug8165466($Class* clazz) {
-	return $of($alloc(Bug8165466));
-}
-
 void Bug8165466::init$() {
 }
 
 void Bug8165466::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($DecimalFormat, nf, $cast($DecimalFormat, $DecimalFormat::getPercentInstance($Locale::US)));
 	$nc(nf)->setMaximumFractionDigits(3);
@@ -79,7 +59,22 @@ Bug8165466::Bug8165466() {
 }
 
 $Class* Bug8165466::load$($String* name, bool initialize) {
-	$loadClass(Bug8165466, name, initialize, &_Bug8165466_ClassInfo_, allocate$Bug8165466);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8165466, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8165466, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug8165466",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug8165466, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug8165466);
+	});
 	return class$;
 }
 

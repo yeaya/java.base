@@ -16,6 +16,7 @@ class $export LargeCopyWithMark : public ::java::lang::Object {
 	$class(LargeCopyWithMark, 0, ::java::lang::Object)
 public:
 	LargeCopyWithMark();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static const int32_t BUFF_SIZE = 8192;

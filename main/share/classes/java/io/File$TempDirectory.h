@@ -23,6 +23,7 @@ class File$TempDirectory : public ::java::lang::Object {
 	$class(File$TempDirectory, 0, ::java::lang::Object)
 public:
 	File$TempDirectory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::io::File* generateFile($String* prefix, $String* suffix, ::java::io::File* dir);
 	static ::java::io::File* location();

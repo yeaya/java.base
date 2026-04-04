@@ -1,5 +1,4 @@
 #include <java/io/Console$1.h>
-
 #include <java/io/Console.h>
 #include <java/io/IOException.h>
 #include <jcpp.h>
@@ -14,48 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _Console$1_FieldInfo_[] = {
-	{"this$0", "Ljava/io/Console;", nullptr, $FINAL | $SYNTHETIC, $field(Console$1, this$0)},
-	{}
-};
-
-$MethodInfo _Console$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Console;)V", nullptr, 0, $method(Console$1, init$, void, $Console*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Console$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Console$1_EnclosingMethodInfo_ = {
-	"java.io.Console",
-	"installShutdownHook",
-	"()V"
-};
-
-$InnerClassInfo _Console$1_InnerClassesInfo_[] = {
-	{"java.io.Console$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Console$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.Console$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Console$1_FieldInfo_,
-	_Console$1_MethodInfo_,
-	nullptr,
-	&_Console$1_EnclosingMethodInfo_,
-	_Console$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.Console"
-};
-
-$Object* allocate$Console$1($Class* clazz) {
-	return $of($alloc(Console$1));
-}
 
 void Console$1::init$($Console* this$0) {
 	$set(this, this$0, this$0);
@@ -74,7 +31,42 @@ Console$1::Console$1() {
 }
 
 $Class* Console$1::load$($String* name, bool initialize) {
-	$loadClass(Console$1, name, initialize, &_Console$1_ClassInfo_, allocate$Console$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/io/Console;", nullptr, $FINAL | $SYNTHETIC, $field(Console$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Console;)V", nullptr, 0, $method(Console$1, init$, void, $Console*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Console$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.io.Console",
+		"installShutdownHook",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.Console$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.Console$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.Console"
+	};
+	$loadClass(Console$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Console$1);
+	});
 	return class$;
 }
 

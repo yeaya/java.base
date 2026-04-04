@@ -30,6 +30,7 @@ class $import MS950_HKSCS_XP$Decoder : public ::sun::nio::cs::HKSCS$Decoder {
 public:
 	MS950_HKSCS_XP$Decoder();
 	using ::sun::nio::cs::HKSCS$Decoder::decode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual char16_t decodeDoubleEx(int32_t b1, int32_t b2) override;
 	static ::sun::nio::cs::DoubleByte$Decoder* ms950;

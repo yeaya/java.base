@@ -16,6 +16,7 @@ class $export LookupTest$Server : public ::java::lang::Thread {
 	$class(LookupTest$Server, 0, ::java::lang::Thread)
 public:
 	LookupTest$Server();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void readOneRequest(::java::io::InputStream* is);
 	virtual void run() override;

@@ -19,12 +19,32 @@
  */
 
 #include <java/lang/ProvidesDirective.h>
+#include <jcpp.h>
+#include <string.h>
 
 namespace java {
 	namespace lang {
 
 bool ProvidesDirective::isEnd() {
 	return service == nullptr;
+}
+
+ProvidesDirective* ProvidesDirective::cloneArray(ProvidesDirective* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	ProvidesDirective* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	ProvidesDirective* newArray = $allocRawStatic(ProvidesDirective, count);
+	memcpy(newArray, array, sizeof(ProvidesDirective) * count);
+	return newArray;
 }
 
 	} // lang

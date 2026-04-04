@@ -26,17 +26,21 @@ class $export ExceptionInInitializerError : public ::java::lang::LinkageError {
 	$class(ExceptionInInitializerError, 0, ::java::lang::LinkageError)
 public:
 	ExceptionInInitializerError();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($Throwable* thrown);
 	void init$($String* s);
 	virtual $Throwable* getException();
 	void readObject(::java::io::ObjectInputStream* s);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x151E34D009A19380;
+	static const int64_t serialVersionUID = (int64_t)0x151e34d009a19380;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	ExceptionInInitializerError(const ExceptionInInitializerError& e);
 	virtual void throw$() override;
-	inline ExceptionInInitializerError* operator ->() {
+	inline ExceptionInInitializerError* operator ->() const {
+		return (ExceptionInInitializerError*)throwing$;
+	}
+	inline operator ExceptionInInitializerError*() const {
 		return (ExceptionInInitializerError*)throwing$;
 	}
 };

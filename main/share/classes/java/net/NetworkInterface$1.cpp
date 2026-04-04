@@ -1,5 +1,4 @@
 #include <java/net/NetworkInterface$1.h>
-
 #include <java/net/NetworkInterface.h>
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
@@ -14,50 +13,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace net {
 
-$FieldInfo _NetworkInterface$1_FieldInfo_[] = {
-	{"val$a", "[Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(NetworkInterface$1, val$a)},
-	{"i", "I", nullptr, 0, $field(NetworkInterface$1, i)},
-	{}
-};
-
-$MethodInfo _NetworkInterface$1_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;)V", nullptr, 0, $method(NetworkInterface$1, init$, void, $ObjectArray*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(NetworkInterface$1, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(NetworkInterface$1, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _NetworkInterface$1_EnclosingMethodInfo_ = {
-	"java.net.NetworkInterface",
-	"enumerationFromArray",
-	"([Ljava/lang/Object;)Ljava/util/Enumeration;"
-};
-
-$InnerClassInfo _NetworkInterface$1_InnerClassesInfo_[] = {
-	{"java.net.NetworkInterface$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NetworkInterface$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.NetworkInterface$1",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_NetworkInterface$1_FieldInfo_,
-	_NetworkInterface$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<TT;>;",
-	&_NetworkInterface$1_EnclosingMethodInfo_,
-	_NetworkInterface$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.NetworkInterface"
-};
-
-$Object* allocate$NetworkInterface$1($Class* clazz) {
-	return $of($alloc(NetworkInterface$1));
-}
-
 void NetworkInterface$1::init$($ObjectArray* val$a) {
 	$set(this, val$a, val$a);
 	this->i = 0;
@@ -65,7 +20,7 @@ void NetworkInterface$1::init$($ObjectArray* val$a) {
 
 $Object* NetworkInterface$1::nextElement() {
 	if (this->i < $nc(this->val$a)->length) {
-		return $of($nc(this->val$a)->get(this->i++));
+		return this->val$a->get(this->i++);
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -79,7 +34,44 @@ NetworkInterface$1::NetworkInterface$1() {
 }
 
 $Class* NetworkInterface$1::load$($String* name, bool initialize) {
-	$loadClass(NetworkInterface$1, name, initialize, &_NetworkInterface$1_ClassInfo_, allocate$NetworkInterface$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$a", "[Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(NetworkInterface$1, val$a)},
+		{"i", "I", nullptr, 0, $field(NetworkInterface$1, i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/Object;)V", nullptr, 0, $method(NetworkInterface$1, init$, void, $ObjectArray*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(NetworkInterface$1, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(NetworkInterface$1, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.NetworkInterface",
+		"enumerationFromArray",
+		"([Ljava/lang/Object;)Ljava/util/Enumeration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.NetworkInterface$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.NetworkInterface$1",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.NetworkInterface"
+	};
+	$loadClass(NetworkInterface$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NetworkInterface$1);
+	});
 	return class$;
 }
 

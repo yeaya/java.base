@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController.h>
-
 #include <java/util/jar/JarFile.h>
 #include <sun/net/www/protocol/jar/URLJarFile.h>
 #include <jcpp.h>
@@ -15,38 +14,33 @@ namespace sun {
 			namespace protocol {
 				namespace jar {
 
-$MethodInfo _URLJarFile$URLJarFileCloseController_MethodInfo_[] = {
-	{"close", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URLJarFile$URLJarFileCloseController, close, void, $JarFile*)},
-	{}
-};
-
-$InnerClassInfo _URLJarFile$URLJarFileCloseController_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.jar.URLJarFile$URLJarFileCloseController", "sun.net.www.protocol.jar.URLJarFile", "URLJarFileCloseController", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _URLJarFile$URLJarFileCloseController_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.net.www.protocol.jar.URLJarFile$URLJarFileCloseController",
-	nullptr,
-	nullptr,
-	nullptr,
-	_URLJarFile$URLJarFileCloseController_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URLJarFile$URLJarFileCloseController_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.jar.URLJarFile"
-};
-
-$Object* allocate$URLJarFile$URLJarFileCloseController($Class* clazz) {
-	return $of($alloc(URLJarFile$URLJarFileCloseController));
-}
-
 $Class* URLJarFile$URLJarFileCloseController::load$($String* name, bool initialize) {
-	$loadClass(URLJarFile$URLJarFileCloseController, name, initialize, &_URLJarFile$URLJarFileCloseController_ClassInfo_, allocate$URLJarFile$URLJarFileCloseController);
+	$MethodInfo methodInfos$$[] = {
+		{"close", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URLJarFile$URLJarFileCloseController, close, void, $JarFile*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.jar.URLJarFile$URLJarFileCloseController", "sun.net.www.protocol.jar.URLJarFile", "URLJarFileCloseController", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.net.www.protocol.jar.URLJarFile$URLJarFileCloseController",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.jar.URLJarFile"
+	};
+	$loadClass(URLJarFile$URLJarFileCloseController, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLJarFile$URLJarFileCloseController);
+	});
 	return class$;
 }
 

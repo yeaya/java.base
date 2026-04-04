@@ -15,6 +15,7 @@ class $export Basic2 : public ::java::lang::Object {
 	$class(Basic2, 0, ::java::lang::Object)
 public:
 	Basic2();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::Random* rand;

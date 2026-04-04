@@ -1,5 +1,4 @@
 #include <java/lang/ref/Cleaner$Cleanable.h>
-
 #include <java/lang/ref/Cleaner.h>
 #include <jcpp.h>
 
@@ -11,38 +10,33 @@ namespace java {
 	namespace lang {
 		namespace ref {
 
-$MethodInfo _Cleaner$Cleanable_MethodInfo_[] = {
-	{"clean", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Cleaner$Cleanable, clean, void)},
-	{}
-};
-
-$InnerClassInfo _Cleaner$Cleanable_InnerClassesInfo_[] = {
-	{"java.lang.ref.Cleaner$Cleanable", "java.lang.ref.Cleaner", "Cleanable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Cleaner$Cleanable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.ref.Cleaner$Cleanable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Cleaner$Cleanable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Cleaner$Cleanable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ref.Cleaner"
-};
-
-$Object* allocate$Cleaner$Cleanable($Class* clazz) {
-	return $of($alloc(Cleaner$Cleanable));
-}
-
 $Class* Cleaner$Cleanable::load$($String* name, bool initialize) {
-	$loadClass(Cleaner$Cleanable, name, initialize, &_Cleaner$Cleanable_ClassInfo_, allocate$Cleaner$Cleanable);
+	$MethodInfo methodInfos$$[] = {
+		{"clean", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Cleaner$Cleanable, clean, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ref.Cleaner$Cleanable", "java.lang.ref.Cleaner", "Cleanable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.ref.Cleaner$Cleanable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ref.Cleaner"
+	};
+	$loadClass(Cleaner$Cleanable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Cleaner$Cleanable);
+	});
 	return class$;
 }
 

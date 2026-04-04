@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Executors$2.h>
-
 #include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/concurrent/Executors.h>
 #include <jcpp.h>
@@ -15,61 +14,54 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _Executors$2_FieldInfo_[] = {
-	{"val$action", "Ljava/security/PrivilegedExceptionAction;", nullptr, $FINAL | $SYNTHETIC, $field(Executors$2, val$action)},
-	{}
-};
-
-$MethodInfo _Executors$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PrivilegedExceptionAction;)V", "()V", 0, $method(Executors$2, init$, void, $PrivilegedExceptionAction*)},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Executors$2, call, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _Executors$2_EnclosingMethodInfo_ = {
-	"java.util.concurrent.Executors",
-	"callable",
-	"(Ljava/security/PrivilegedExceptionAction;)Ljava/util/concurrent/Callable;"
-};
-
-$InnerClassInfo _Executors$2_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Executors$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Executors$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.Executors$2",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_Executors$2_FieldInfo_,
-	_Executors$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Object;>;",
-	&_Executors$2_EnclosingMethodInfo_,
-	_Executors$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.Executors"
-};
-
-$Object* allocate$Executors$2($Class* clazz) {
-	return $of($alloc(Executors$2));
-}
-
 void Executors$2::init$($PrivilegedExceptionAction* val$action) {
 	$set(this, val$action, val$action);
 }
 
 $Object* Executors$2::call() {
-	return $of($nc(this->val$action)->run());
+	return $nc(this->val$action)->run();
 }
 
 Executors$2::Executors$2() {
 }
 
 $Class* Executors$2::load$($String* name, bool initialize) {
-	$loadClass(Executors$2, name, initialize, &_Executors$2_ClassInfo_, allocate$Executors$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$action", "Ljava/security/PrivilegedExceptionAction;", nullptr, $FINAL | $SYNTHETIC, $field(Executors$2, val$action)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/PrivilegedExceptionAction;)V", "()V", 0, $method(Executors$2, init$, void, $PrivilegedExceptionAction*)},
+		{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Executors$2, call, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.concurrent.Executors",
+		"callable",
+		"(Ljava/security/PrivilegedExceptionAction;)Ljava/util/concurrent/Callable;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Executors$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.Executors$2",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.Executors"
+	};
+	$loadClass(Executors$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Executors$2);
+	});
 	return class$;
 }
 

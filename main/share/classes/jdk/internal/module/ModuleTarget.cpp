@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleTarget.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jdk {
 	namespace internal {
 		namespace module {
-
-$FieldInfo _ModuleTarget_FieldInfo_[] = {
-	{"targetPlatform", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleTarget, targetPlatform$)},
-	{}
-};
-
-$MethodInfo _ModuleTarget_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleTarget, init$, void, $String*)},
-	{"targetPlatform", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModuleTarget, targetPlatform, $String*)},
-	{}
-};
-
-$ClassInfo _ModuleTarget_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.module.ModuleTarget",
-	"java.lang.Object",
-	nullptr,
-	_ModuleTarget_FieldInfo_,
-	_ModuleTarget_MethodInfo_
-};
-
-$Object* allocate$ModuleTarget($Class* clazz) {
-	return $of($alloc(ModuleTarget));
-}
 
 void ModuleTarget::init$($String* targetPlatform) {
 	$set(this, targetPlatform$, targetPlatform);
@@ -46,7 +21,26 @@ ModuleTarget::ModuleTarget() {
 }
 
 $Class* ModuleTarget::load$($String* name, bool initialize) {
-	$loadClass(ModuleTarget, name, initialize, &_ModuleTarget_ClassInfo_, allocate$ModuleTarget);
+	$FieldInfo fieldInfos$$[] = {
+		{"targetPlatform", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleTarget, targetPlatform$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleTarget, init$, void, $String*)},
+		{"targetPlatform", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModuleTarget, targetPlatform, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.module.ModuleTarget",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleTarget, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleTarget);
+	});
 	return class$;
 }
 

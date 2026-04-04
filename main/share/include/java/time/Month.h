@@ -71,6 +71,7 @@ public:
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal) override;
 	virtual int32_t firstDayOfYear(bool leapYear);

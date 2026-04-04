@@ -1,5 +1,4 @@
 #include <SetTTLTo0.h>
-
 #include <java/net/MulticastSocket.h>
 #include <jcpp.h>
 
@@ -7,25 +6,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MulticastSocket = ::java::net::MulticastSocket;
-
-$MethodInfo _SetTTLTo0_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SetTTLTo0, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetTTLTo0, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _SetTTLTo0_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SetTTLTo0",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SetTTLTo0_MethodInfo_
-};
-
-$Object* allocate$SetTTLTo0($Class* clazz) {
-	return $of($alloc(SetTTLTo0));
-}
 
 void SetTTLTo0::init$() {
 }
@@ -45,7 +25,22 @@ SetTTLTo0::SetTTLTo0() {
 }
 
 $Class* SetTTLTo0::load$($String* name, bool initialize) {
-	$loadClass(SetTTLTo0, name, initialize, &_SetTTLTo0_ClassInfo_, allocate$SetTTLTo0);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SetTTLTo0, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetTTLTo0, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SetTTLTo0",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SetTTLTo0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SetTTLTo0);
+	});
 	return class$;
 }
 

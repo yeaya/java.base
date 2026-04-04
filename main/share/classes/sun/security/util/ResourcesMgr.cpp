@@ -1,5 +1,4 @@
 #include <sun/security/util/ResourcesMgr.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -38,58 +37,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* baseName) override {
-		 return $of($ResourceBundle::getBundle($cast($String, baseName)));
+		 return $ResourceBundle::getBundle($cast($String, baseName));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResourcesMgr$$Lambda$getBundle>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ResourcesMgr$$Lambda$getBundle::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesMgr$$Lambda$getBundle, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourcesMgr$$Lambda$getBundle, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ResourcesMgr$$Lambda$getBundle::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.util.ResourcesMgr$$Lambda$getBundle",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ResourcesMgr$$Lambda$getBundle::load$($String* name, bool initialize) {
-	$loadClass(ResourcesMgr$$Lambda$getBundle, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesMgr$$Lambda$getBundle, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourcesMgr$$Lambda$getBundle, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.util.ResourcesMgr$$Lambda$getBundle",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ResourcesMgr$$Lambda$getBundle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourcesMgr$$Lambda$getBundle);
+	});
 	return class$;
 }
 $Class* ResourcesMgr$$Lambda$getBundle::class$ = nullptr;
-
-$FieldInfo _ResourcesMgr_FieldInfo_[] = {
-	{"bundles", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/ResourceBundle;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourcesMgr, bundles)},
-	{}
-};
-
-$MethodInfo _ResourcesMgr_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesMgr, init$, void)},
-	{"getAuthResourceString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesMgr, getAuthResourceString, $String*, $String*)},
-	{"getBundle", "(Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourcesMgr, getBundle, $ResourceBundle*, $String*)},
-	{"getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesMgr, getString, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _ResourcesMgr_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.ResourcesMgr",
-	"java.lang.Object",
-	nullptr,
-	_ResourcesMgr_FieldInfo_,
-	_ResourcesMgr_MethodInfo_
-};
-
-$Object* allocate$ResourcesMgr($Class* clazz) {
-	return $of($alloc(ResourcesMgr));
-}
 
 $Map* ResourcesMgr::bundles = nullptr;
 
@@ -98,12 +68,12 @@ void ResourcesMgr::init$() {
 
 $String* ResourcesMgr::getString($String* s) {
 	$init(ResourcesMgr);
-	return $nc($(getBundle("sun.security.util.Resources"_s)))->getString(s);
+	return $$nc(getBundle("sun.security.util.Resources"_s))->getString(s);
 }
 
 $String* ResourcesMgr::getAuthResourceString($String* s) {
 	$init(ResourcesMgr);
-	return $nc($(getBundle("sun.security.util.AuthResources"_s)))->getString(s);
+	return $$nc(getBundle("sun.security.util.AuthResources"_s))->getString(s);
 }
 
 $ResourceBundle* ResourcesMgr::getBundle($String* bundleName) {
@@ -111,11 +81,11 @@ $ResourceBundle* ResourcesMgr::getBundle($String* bundleName) {
 	if (!$VM::isBooted()) {
 		$throwNew($InternalError, "Expected to use ResourceBundle only after booted"_s);
 	}
-	return $cast($ResourceBundle, $nc(ResourcesMgr::bundles)->computeIfAbsent(bundleName, static_cast<$Function*>($$new(ResourcesMgr$$Lambda$getBundle))));
+	return $cast($ResourceBundle, ResourcesMgr::bundles->computeIfAbsent(bundleName, $$new(ResourcesMgr$$Lambda$getBundle)));
 }
 
-void clinit$ResourcesMgr($Class* class$) {
-	$assignStatic(ResourcesMgr::bundles, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+void ResourcesMgr::clinit$($Class* clazz) {
+	$assignStatic(ResourcesMgr::bundles, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 ResourcesMgr::ResourcesMgr() {
@@ -123,11 +93,32 @@ ResourcesMgr::ResourcesMgr() {
 
 $Class* ResourcesMgr::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ResourcesMgr$$Lambda$getBundle::classInfo$.name)) {
+		if (name->equals("sun.security.util.ResourcesMgr$$Lambda$getBundle")) {
 			return ResourcesMgr$$Lambda$getBundle::load$(name, initialize);
 		}
 	}
-	$loadClass(ResourcesMgr, name, initialize, &_ResourcesMgr_ClassInfo_, clinit$ResourcesMgr, allocate$ResourcesMgr);
+	$FieldInfo fieldInfos$$[] = {
+		{"bundles", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/ResourceBundle;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourcesMgr, bundles)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesMgr, init$, void)},
+		{"getAuthResourceString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesMgr, getAuthResourceString, $String*, $String*)},
+		{"getBundle", "(Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourcesMgr, getBundle, $ResourceBundle*, $String*)},
+		{"getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesMgr, getString, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.ResourcesMgr",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResourcesMgr, name, initialize, &classInfo$$, ResourcesMgr::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourcesMgr);
+	});
 	return class$;
 }
 

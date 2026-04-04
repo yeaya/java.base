@@ -11,6 +11,7 @@ class $export Constructor : public ::java::lang::Object {
 	$class(Constructor, 0, ::java::lang::Object)
 public:
 	Constructor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool hasFtp();
 	static void main($StringArray* args);

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentHashMap$Traverser.h>
-
 #include <java/util/concurrent/ConcurrentHashMap$ForwardingNode.h>
 #include <java/util/concurrent/ConcurrentHashMap$Node.h>
 #include <java/util/concurrent/ConcurrentHashMap$TableStack.h>
@@ -23,51 +22,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _ConcurrentHashMap$Traverser_FieldInfo_[] = {
-	{"tab", "[Ljava/util/concurrent/ConcurrentHashMap$Node;", "[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $field(ConcurrentHashMap$Traverser, tab)},
-	{"next", "Ljava/util/concurrent/ConcurrentHashMap$Node;", "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $field(ConcurrentHashMap$Traverser, next)},
-	{"stack", "Ljava/util/concurrent/ConcurrentHashMap$TableStack;", "Ljava/util/concurrent/ConcurrentHashMap$TableStack<TK;TV;>;", 0, $field(ConcurrentHashMap$Traverser, stack)},
-	{"spare", "Ljava/util/concurrent/ConcurrentHashMap$TableStack;", "Ljava/util/concurrent/ConcurrentHashMap$TableStack<TK;TV;>;", 0, $field(ConcurrentHashMap$Traverser, spare)},
-	{"index", "I", nullptr, 0, $field(ConcurrentHashMap$Traverser, index)},
-	{"baseIndex", "I", nullptr, 0, $field(ConcurrentHashMap$Traverser, baseIndex)},
-	{"baseLimit", "I", nullptr, 0, $field(ConcurrentHashMap$Traverser, baseLimit)},
-	{"baseSize", "I", nullptr, $FINAL, $field(ConcurrentHashMap$Traverser, baseSize)},
-	{}
-};
-
-$MethodInfo _ConcurrentHashMap$Traverser_MethodInfo_[] = {
-	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;III)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;III)V", 0, $method(ConcurrentHashMap$Traverser, init$, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t, int32_t)},
-	{"advance", "()Ljava/util/concurrent/ConcurrentHashMap$Node;", "()Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", $FINAL, $method(ConcurrentHashMap$Traverser, advance, $ConcurrentHashMap$Node*)},
-	{"pushState", "([Ljava/util/concurrent/ConcurrentHashMap$Node;II)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;II)V", $PRIVATE, $method(ConcurrentHashMap$Traverser, pushState, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t)},
-	{"recoverState", "(I)V", nullptr, $PRIVATE, $method(ConcurrentHashMap$Traverser, recoverState, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ConcurrentHashMap$Traverser_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentHashMap$Traverser", "java.util.concurrent.ConcurrentHashMap", "Traverser", $STATIC},
-	{}
-};
-
-$ClassInfo _ConcurrentHashMap$Traverser_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.ConcurrentHashMap$Traverser",
-	"java.lang.Object",
-	nullptr,
-	_ConcurrentHashMap$Traverser_FieldInfo_,
-	_ConcurrentHashMap$Traverser_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_ConcurrentHashMap$Traverser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentHashMap"
-};
-
-$Object* allocate$ConcurrentHashMap$Traverser($Class* clazz) {
-	return $of($alloc(ConcurrentHashMap$Traverser));
-}
-
 void ConcurrentHashMap$Traverser::init$($ConcurrentHashMap$NodeArray* tab, int32_t size, int32_t index, int32_t limit) {
 	$set(this, tab, tab);
 	this->baseSize = size;
@@ -77,7 +31,7 @@ void ConcurrentHashMap$Traverser::init$($ConcurrentHashMap$NodeArray* tab, int32
 }
 
 $ConcurrentHashMap$Node* ConcurrentHashMap$Traverser::advance() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$Node, e, nullptr);
 	if (($assign(e, this->next)) != nullptr) {
 		$assign(e, $nc(e)->next);
@@ -96,12 +50,12 @@ $ConcurrentHashMap$Node* ConcurrentHashMap$Traverser::advance() {
 		}
 		if (($assign(e, $ConcurrentHashMap::tabAt(t, i))) != nullptr && $nc(e)->hash < 0) {
 			if ($instanceOf($ConcurrentHashMap$ForwardingNode, e)) {
-				$set(this, tab, $nc(($cast($ConcurrentHashMap$ForwardingNode, e)))->nextTable);
+				$set(this, tab, $cast($ConcurrentHashMap$ForwardingNode, e)->nextTable);
 				$assign(e, nullptr);
 				pushState(t, i, n);
 				continue;
 			} else if ($instanceOf($ConcurrentHashMap$TreeBin, e)) {
-				$assign(e, $nc(($cast($ConcurrentHashMap$TreeBin, e)))->first);
+				$assign(e, $cast($ConcurrentHashMap$TreeBin, e)->first);
 			} else {
 				$assign(e, nullptr);
 			}
@@ -129,7 +83,7 @@ void ConcurrentHashMap$Traverser::pushState($ConcurrentHashMap$NodeArray* t, int
 }
 
 void ConcurrentHashMap$Traverser::recoverState(int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$TableStack, s, nullptr);
 	int32_t len = 0;
 	while (true) {
@@ -139,7 +93,7 @@ void ConcurrentHashMap$Traverser::recoverState(int32_t n) {
 		}
 		{
 			n = len;
-			this->index = s->index;
+			this->index = $nc(s)->index;
 			$set(this, tab, s->tab);
 			$set(s, tab, nullptr);
 			$var($ConcurrentHashMap$TableStack, next, s->next);
@@ -157,7 +111,46 @@ ConcurrentHashMap$Traverser::ConcurrentHashMap$Traverser() {
 }
 
 $Class* ConcurrentHashMap$Traverser::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentHashMap$Traverser, name, initialize, &_ConcurrentHashMap$Traverser_ClassInfo_, allocate$ConcurrentHashMap$Traverser);
+	$FieldInfo fieldInfos$$[] = {
+		{"tab", "[Ljava/util/concurrent/ConcurrentHashMap$Node;", "[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $field(ConcurrentHashMap$Traverser, tab)},
+		{"next", "Ljava/util/concurrent/ConcurrentHashMap$Node;", "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $field(ConcurrentHashMap$Traverser, next)},
+		{"stack", "Ljava/util/concurrent/ConcurrentHashMap$TableStack;", "Ljava/util/concurrent/ConcurrentHashMap$TableStack<TK;TV;>;", 0, $field(ConcurrentHashMap$Traverser, stack)},
+		{"spare", "Ljava/util/concurrent/ConcurrentHashMap$TableStack;", "Ljava/util/concurrent/ConcurrentHashMap$TableStack<TK;TV;>;", 0, $field(ConcurrentHashMap$Traverser, spare)},
+		{"index", "I", nullptr, 0, $field(ConcurrentHashMap$Traverser, index)},
+		{"baseIndex", "I", nullptr, 0, $field(ConcurrentHashMap$Traverser, baseIndex)},
+		{"baseLimit", "I", nullptr, 0, $field(ConcurrentHashMap$Traverser, baseLimit)},
+		{"baseSize", "I", nullptr, $FINAL, $field(ConcurrentHashMap$Traverser, baseSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;III)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;III)V", 0, $method(ConcurrentHashMap$Traverser, init$, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t, int32_t)},
+		{"advance", "()Ljava/util/concurrent/ConcurrentHashMap$Node;", "()Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", $FINAL, $method(ConcurrentHashMap$Traverser, advance, $ConcurrentHashMap$Node*)},
+		{"pushState", "([Ljava/util/concurrent/ConcurrentHashMap$Node;II)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;II)V", $PRIVATE, $method(ConcurrentHashMap$Traverser, pushState, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t)},
+		{"recoverState", "(I)V", nullptr, $PRIVATE, $method(ConcurrentHashMap$Traverser, recoverState, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentHashMap$Traverser", "java.util.concurrent.ConcurrentHashMap", "Traverser", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.ConcurrentHashMap$Traverser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentHashMap"
+	};
+	$loadClass(ConcurrentHashMap$Traverser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConcurrentHashMap$Traverser);
+	});
 	return class$;
 }
 

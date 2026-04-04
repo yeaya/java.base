@@ -20,6 +20,7 @@ class Stooge : public ::java::lang::Enum {
 public:
 	Stooge();
 	static $Array<::UniTest::Stooge>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::UniTest::Stooge* valueOf($String* name);
 	static $Array<::UniTest::Stooge>* values();

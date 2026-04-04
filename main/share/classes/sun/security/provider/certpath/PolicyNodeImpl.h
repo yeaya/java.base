@@ -25,6 +25,7 @@ class PolicyNodeImpl : public ::java::security::cert::PolicyNode {
 	$class(PolicyNodeImpl, 0, ::java::security::cert::PolicyNode)
 public:
 	PolicyNodeImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::provider::certpath::PolicyNodeImpl* parent, $String* validPolicy, ::java::util::Set* qualifierSet, bool criticalityIndicator, ::java::util::Set* expectedPolicySet, bool generatedByPolicyMapping);
 	void init$(::sun::security::provider::certpath::PolicyNodeImpl* parent, ::sun::security::provider::certpath::PolicyNodeImpl* node);
 	void addChild(::sun::security::provider::certpath::PolicyNodeImpl* child);

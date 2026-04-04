@@ -23,6 +23,7 @@ class $import Normalizer$Form : public ::java::lang::Enum {
 public:
 	Normalizer$Form();
 	static $Array<::java::text::Normalizer$Form>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::text::Normalizer$Form* valueOf($String* name);
 	static $Array<::java::text::Normalizer$Form>* values();

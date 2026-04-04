@@ -48,6 +48,7 @@ class $export ClassValue : public ::java::lang::Object {
 	$class(ClassValue, 0, ::java::lang::Object)
 public:
 	ClassValue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void bumpVersion();
 	virtual ::java::lang::ClassValue$Entry* castEntry(::java::lang::ClassValue$Entry* e);
@@ -66,8 +67,8 @@ public:
 	static $Array<::java::lang::ClassValue$Entry>* EMPTY_CACHE;
 	int32_t hashCodeForCache = 0;
 	static ::java::util::concurrent::atomic::AtomicInteger* nextHashCode;
-	static const int32_t HASH_INCREMENT = 0x61C88647;
-	static const int32_t HASH_MASK = 0x3FFFFFFF; // (-1 >>> 2)
+	static const int32_t HASH_INCREMENT = 0x61c88647;
+	static const int32_t HASH_MASK = 0x3fffffff; // (-1 >>> 2)
 	::java::lang::ClassValue$Identity* identity = nullptr;
 	$volatile(::java::lang::ClassValue$Version*) version$ = nullptr;
 	static $Object* CRITICAL_SECTION;

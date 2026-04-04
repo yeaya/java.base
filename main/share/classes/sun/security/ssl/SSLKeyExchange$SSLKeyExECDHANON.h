@@ -24,6 +24,7 @@ class SSLKeyExchange$SSLKeyExECDHANON : public ::java::lang::Object {
 	$class(SSLKeyExchange$SSLKeyExECDHANON, 0, ::java::lang::Object)
 public:
 	SSLKeyExchange$SSLKeyExECDHANON();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLKeyExchange* KE;
 };

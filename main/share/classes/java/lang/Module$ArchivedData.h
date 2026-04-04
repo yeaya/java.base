@@ -23,6 +23,7 @@ class Module$ArchivedData : public ::java::lang::Object {
 	$class(Module$ArchivedData, $PRELOAD, ::java::lang::Object)
 public:
 	Module$ArchivedData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void archive();
 	static ::java::lang::Module$ArchivedData* get();

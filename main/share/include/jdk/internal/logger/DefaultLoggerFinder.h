@@ -30,6 +30,7 @@ class $import DefaultLoggerFinder : public ::java::lang::System$LoggerFinder {
 	$class(DefaultLoggerFinder, 0, ::java::lang::System$LoggerFinder)
 public:
 	DefaultLoggerFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::lang::Void* unused);
 	static ::java::lang::Void* checkPermission();

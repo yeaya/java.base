@@ -33,6 +33,7 @@ class Finalizer : public ::java::lang::ref::FinalReference {
 	$class(Finalizer, $PRELOAD, ::java::lang::ref::FinalReference)
 public:
 	Finalizer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* finalizee);
 	static void forkSecondaryFinalizer(::java::lang::Runnable* proc);
 	static ::java::lang::ref::ReferenceQueue* getQueue();

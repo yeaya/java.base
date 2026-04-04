@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/BreakIteratorProviderImpl.h>
-
 #include <java/lang/InternalError.h>
 #include <java/text/BreakIterator.h>
 #include <java/text/spi/BreakIteratorProvider.h>
@@ -25,7 +24,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $BreakIterator = ::java::text::BreakIterator;
 using $BreakIteratorProvider = ::java::text::spi::BreakIteratorProvider;
 using $Locale = ::java::util::Locale;
@@ -42,47 +40,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$FieldInfo _BreakIteratorProviderImpl_FieldInfo_[] = {
-	{"CHARACTER_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BreakIteratorProviderImpl, CHARACTER_INDEX)},
-	{"WORD_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BreakIteratorProviderImpl, WORD_INDEX)},
-	{"LINE_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BreakIteratorProviderImpl, LINE_INDEX)},
-	{"SENTENCE_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BreakIteratorProviderImpl, SENTENCE_INDEX)},
-	{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(BreakIteratorProviderImpl, type)},
-	{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(BreakIteratorProviderImpl, langtags)},
-	{}
-};
-
-$MethodInfo _BreakIteratorProviderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(BreakIteratorProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getAvailableLanguageTags, $Set*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getAvailableLocales, $LocaleArray*)},
-	{"getBreakInstance", "(Ljava/util/Locale;ILjava/lang/String;Ljava/lang/String;)Ljava/text/BreakIterator;", nullptr, $PRIVATE, $method(BreakIteratorProviderImpl, getBreakInstance, $BreakIterator*, $Locale*, int32_t, $String*, $String*)},
-	{"getCharacterInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getCharacterInstance, $BreakIterator*, $Locale*)},
-	{"getLineInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getLineInstance, $BreakIterator*, $Locale*)},
-	{"getSentenceInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getSentenceInstance, $BreakIterator*, $Locale*)},
-	{"getWordInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getWordInstance, $BreakIterator*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _BreakIteratorProviderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.BreakIteratorProviderImpl",
-	"java.text.spi.BreakIteratorProvider",
-	"sun.util.locale.provider.AvailableLanguageTags",
-	_BreakIteratorProviderImpl_FieldInfo_,
-	_BreakIteratorProviderImpl_MethodInfo_
-};
-
-$Object* allocate$BreakIteratorProviderImpl($Class* clazz) {
-	return $of($alloc(BreakIteratorProviderImpl));
-}
 
 int32_t BreakIteratorProviderImpl::hashCode() {
 	 return this->$BreakIteratorProvider::hashCode();
@@ -131,9 +88,9 @@ $BreakIterator* BreakIteratorProviderImpl::getSentenceInstance($Locale* locale) 
 }
 
 $BreakIterator* BreakIteratorProviderImpl::getBreakInstance($Locale* locale, int32_t type, $String* ruleName, $String* dictionaryName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(locale);
-	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::forJRE()))->getLocaleResources(locale));
+	$var($LocaleResources, lr, $$nc($LocaleProviderAdapter::forJRE())->getLocaleResources(locale));
 	$var($StringArray, classNames, $cast($StringArray, $nc(lr)->getBreakIteratorInfo("BreakIteratorClasses"_s)));
 	$var($String, ruleFile, $cast($String, lr->getBreakIteratorInfo(ruleName)));
 	$var($bytes, ruleData, lr->getBreakIteratorResources(ruleName));
@@ -142,39 +99,29 @@ $BreakIterator* BreakIteratorProviderImpl::getBreakInstance($Locale* locale, int
 			$var($String, s6958$, $nc(classNames)->get(type));
 			int32_t tmp6958$ = -1;
 			switch ($nc(s6958$)->hashCode()) {
-			case 0x71D345D6:
-				{
-					if (s6958$->equals("RuleBasedBreakIterator"_s)) {
-						tmp6958$ = 0;
-					}
-					break;
+			case 0x71d345d6:
+				if (s6958$->equals("RuleBasedBreakIterator"_s)) {
+					tmp6958$ = 0;
 				}
-			case 0x4A7414F0:
-				{
-					if (s6958$->equals("DictionaryBasedBreakIterator"_s)) {
-						tmp6958$ = 1;
-					}
-					break;
+				break;
+			case 0x4a7414f0:
+				if (s6958$->equals("DictionaryBasedBreakIterator"_s)) {
+					tmp6958$ = 1;
 				}
+				break;
 			}
 			{
-				$var($String, dictionaryFile, nullptr)
-				$var($bytes, dictionaryData, nullptr)
+				$var($String, dictionaryFile, nullptr);
+				$var($bytes, dictionaryData, nullptr);
 				switch (tmp6958$) {
 				case 0:
-					{
-						return $new($RuleBasedBreakIterator, ruleFile, ruleData);
-					}
+					return $new($RuleBasedBreakIterator, ruleFile, ruleData);
 				case 1:
-					{
-						$assign(dictionaryFile, $cast($String, lr->getBreakIteratorInfo(dictionaryName)));
-						$assign(dictionaryData, lr->getBreakIteratorResources(dictionaryName));
-						return $new($DictionaryBasedBreakIterator, ruleFile, ruleData, dictionaryFile, dictionaryData);
-					}
+					$assign(dictionaryFile, $cast($String, lr->getBreakIteratorInfo(dictionaryName)));
+					$assign(dictionaryData, lr->getBreakIteratorResources(dictionaryName));
+					return $new($DictionaryBasedBreakIterator, ruleFile, ruleData, dictionaryFile, dictionaryData);
 				default:
-					{
-						$throwNew($IllegalArgumentException, $$str({"Invalid break iterator class \""_s, classNames->get(type), "\""_s}));
-					}
+					$throwNew($IllegalArgumentException, $$str({"Invalid break iterator class \""_s, classNames->get(type), "\""_s}));
 				}
 			}
 		}
@@ -191,14 +138,50 @@ $Set* BreakIteratorProviderImpl::getAvailableLanguageTags() {
 }
 
 bool BreakIteratorProviderImpl::isSupportedLocale($Locale* locale) {
-	return $nc($($LocaleProviderAdapter::forType(this->type)))->isSupportedProviderLocale(locale, this->langtags);
+	return $$nc($LocaleProviderAdapter::forType(this->type))->isSupportedProviderLocale(locale, this->langtags);
 }
 
 BreakIteratorProviderImpl::BreakIteratorProviderImpl() {
 }
 
 $Class* BreakIteratorProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(BreakIteratorProviderImpl, name, initialize, &_BreakIteratorProviderImpl_ClassInfo_, allocate$BreakIteratorProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHARACTER_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BreakIteratorProviderImpl, CHARACTER_INDEX)},
+		{"WORD_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BreakIteratorProviderImpl, WORD_INDEX)},
+		{"LINE_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BreakIteratorProviderImpl, LINE_INDEX)},
+		{"SENTENCE_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BreakIteratorProviderImpl, SENTENCE_INDEX)},
+		{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(BreakIteratorProviderImpl, type)},
+		{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(BreakIteratorProviderImpl, langtags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(BreakIteratorProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+		{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getAvailableLanguageTags, $Set*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getAvailableLocales, $LocaleArray*)},
+		{"getBreakInstance", "(Ljava/util/Locale;ILjava/lang/String;Ljava/lang/String;)Ljava/text/BreakIterator;", nullptr, $PRIVATE, $method(BreakIteratorProviderImpl, getBreakInstance, $BreakIterator*, $Locale*, int32_t, $String*, $String*)},
+		{"getCharacterInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getCharacterInstance, $BreakIterator*, $Locale*)},
+		{"getLineInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getLineInstance, $BreakIterator*, $Locale*)},
+		{"getSentenceInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getSentenceInstance, $BreakIterator*, $Locale*)},
+		{"getWordInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, getWordInstance, $BreakIterator*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(BreakIteratorProviderImpl, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.BreakIteratorProviderImpl",
+		"java.text.spi.BreakIteratorProvider",
+		"sun.util.locale.provider.AvailableLanguageTags",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BreakIteratorProviderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BreakIteratorProviderImpl));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <NotConnected.h>
-
 #include <java/io/IOException.h>
 #include <java/io/PipedInputStream.h>
 #include <java/io/PipedOutputStream.h>
@@ -12,30 +11,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _NotConnected_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NotConnected, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NotConnected, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _NotConnected_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NotConnected",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NotConnected_MethodInfo_
-};
-
-$Object* allocate$NotConnected($Class* clazz) {
-	return $of($alloc(NotConnected));
-}
-
 void NotConnected::init$() {
 }
 
 void NotConnected::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PipedInputStream, i, $new($PipedInputStream));
 	$var($PipedOutputStream, o, $new($PipedOutputStream));
 	bool readPassed = false;
@@ -59,7 +39,22 @@ NotConnected::NotConnected() {
 }
 
 $Class* NotConnected::load$($String* name, bool initialize) {
-	$loadClass(NotConnected, name, initialize, &_NotConnected_ClassInfo_, allocate$NotConnected);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NotConnected, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NotConnected, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NotConnected",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NotConnected, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotConnected);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Executors$PrivilegedThreadFactory.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/RuntimePermission.h>
@@ -23,7 +22,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $Executors$DefaultThreadFactory = ::java::util::concurrent::Executors$DefaultThreadFactory;
 using $Executors$PrivilegedThreadFactory$1 = ::java::util::concurrent::Executors$PrivilegedThreadFactory$1;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
@@ -32,47 +30,8 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _Executors$PrivilegedThreadFactory_FieldInfo_[] = {
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $FINAL, $field(Executors$PrivilegedThreadFactory, acc)},
-	{"ccl", "Ljava/lang/ClassLoader;", nullptr, $FINAL, $field(Executors$PrivilegedThreadFactory, ccl)},
-	{}
-};
-
-$MethodInfo _Executors$PrivilegedThreadFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Executors$PrivilegedThreadFactory, init$, void)},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(Executors$PrivilegedThreadFactory, newThread, $Thread*, $Runnable*)},
-	{}
-};
-
-$InnerClassInfo _Executors$PrivilegedThreadFactory_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Executors$PrivilegedThreadFactory", "java.util.concurrent.Executors", "PrivilegedThreadFactory", $PRIVATE | $STATIC},
-	{"java.util.concurrent.Executors$DefaultThreadFactory", "java.util.concurrent.Executors", "DefaultThreadFactory", $PRIVATE | $STATIC},
-	{"java.util.concurrent.Executors$PrivilegedThreadFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Executors$PrivilegedThreadFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.Executors$PrivilegedThreadFactory",
-	"java.util.concurrent.Executors$DefaultThreadFactory",
-	nullptr,
-	_Executors$PrivilegedThreadFactory_FieldInfo_,
-	_Executors$PrivilegedThreadFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Executors$PrivilegedThreadFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.Executors"
-};
-
-$Object* allocate$Executors$PrivilegedThreadFactory($Class* clazz) {
-	return $of($alloc(Executors$PrivilegedThreadFactory));
-}
-
 void Executors$PrivilegedThreadFactory::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Executors$DefaultThreadFactory::init$();
 	$var($SecurityManager, sm, $System::getSecurityManager());
@@ -93,7 +52,40 @@ Executors$PrivilegedThreadFactory::Executors$PrivilegedThreadFactory() {
 }
 
 $Class* Executors$PrivilegedThreadFactory::load$($String* name, bool initialize) {
-	$loadClass(Executors$PrivilegedThreadFactory, name, initialize, &_Executors$PrivilegedThreadFactory_ClassInfo_, allocate$Executors$PrivilegedThreadFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $FINAL, $field(Executors$PrivilegedThreadFactory, acc)},
+		{"ccl", "Ljava/lang/ClassLoader;", nullptr, $FINAL, $field(Executors$PrivilegedThreadFactory, ccl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Executors$PrivilegedThreadFactory, init$, void)},
+		{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(Executors$PrivilegedThreadFactory, newThread, $Thread*, $Runnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Executors$PrivilegedThreadFactory", "java.util.concurrent.Executors", "PrivilegedThreadFactory", $PRIVATE | $STATIC},
+		{"java.util.concurrent.Executors$DefaultThreadFactory", "java.util.concurrent.Executors", "DefaultThreadFactory", $PRIVATE | $STATIC},
+		{"java.util.concurrent.Executors$PrivilegedThreadFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.Executors$PrivilegedThreadFactory",
+		"java.util.concurrent.Executors$DefaultThreadFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.Executors"
+	};
+	$loadClass(Executors$PrivilegedThreadFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Executors$PrivilegedThreadFactory);
+	});
 	return class$;
 }
 

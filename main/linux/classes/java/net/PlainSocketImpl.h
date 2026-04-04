@@ -19,6 +19,7 @@ class PlainSocketImpl : public ::java::net::AbstractPlainSocketImpl {
 	$class(PlainSocketImpl, 0, ::java::net::AbstractPlainSocketImpl)
 public:
 	PlainSocketImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool isServer);
 	static void initProto();
 	virtual void socketAccept(::java::net::SocketImpl* s) override;

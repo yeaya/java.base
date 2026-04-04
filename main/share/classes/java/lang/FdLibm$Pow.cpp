@@ -1,5 +1,4 @@
 #include <java/lang/FdLibm$Pow.h>
-
 #include <java/lang/FdLibm.h>
 #include <java/lang/Math.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -33,43 +32,12 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 namespace java {
 	namespace lang {
 
-$MethodInfo _FdLibm$Pow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Pow, init$, void)},
-	{"compute", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Pow, compute, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _FdLibm$Pow_InnerClassesInfo_[] = {
-	{"java.lang.FdLibm$Pow", "java.lang.FdLibm", "Pow", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _FdLibm$Pow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.FdLibm$Pow",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_FdLibm$Pow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FdLibm$Pow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.FdLibm"
-};
-
-$Object* allocate$FdLibm$Pow($Class* clazz) {
-	return $of($alloc(FdLibm$Pow));
-}
-
 void FdLibm$Pow::init$() {
 	$throwNew($UnsupportedOperationException);
 }
 
 double FdLibm$Pow::compute(double x, double y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double z = 0.0;
 	double r = 0.0;
 	double s = 0.0;
@@ -108,7 +76,7 @@ double FdLibm$Pow::compute(double x, double y) {
 		}
 	}
 	int32_t hx = $FdLibm::__HI(x);
-	int32_t ix = (int32_t)(hx & (uint32_t)0x7FFFFFFF);
+	int32_t ix = hx & 0x7fffffff;
 	int32_t y_is_int = 0;
 	if (hx < 0) {
 		if (y_abs >= 9.007199254740992E15) {
@@ -116,7 +84,7 @@ double FdLibm$Pow::compute(double x, double y) {
 		} else if (y_abs >= 1.0) {
 			int64_t y_abs_as_long = $cast(int64_t, y_abs);
 			if (((double)y_abs_as_long) == y_abs) {
-				y_is_int = 2 - (int32_t)((int64_t)(y_abs_as_long & (uint64_t)(int64_t)1));
+				y_is_int = 2 - (int32_t)(y_abs_as_long & (int64_t)1);
 			}
 		}
 	}
@@ -126,7 +94,7 @@ double FdLibm$Pow::compute(double x, double y) {
 			z = 1.0 / z;
 		}
 		if (hx < 0) {
-			if (((ix - 0x3FF00000) | y_is_int) == 0) {
+			if (((ix - 0x3ff00000) | y_is_int) == 0) {
 				z = (z - z) / (z - z);
 			} else if (y_is_int == 1) {
 				z = -1.0 * z;
@@ -182,11 +150,11 @@ double FdLibm$Pow::compute(double x, double y) {
 			ix = $FdLibm::__HI(x_abs);
 		}
 		n += ((ix) >> 20) - 1023;
-		j = (int32_t)(ix & (uint32_t)0x000FFFFF);
-		ix = j | 0x3FF00000;
-		if (j <= 0x0003988E) {
+		j = ix & 0x000fffff;
+		ix = j | 0x3ff00000;
+		if (j <= 0x0003988e) {
 			k = 0;
-		} else if (j < 0x000BB67A) {
+		} else if (j < 0x000bb67a) {
 			k = 1;
 		} else {
 			k = 0;
@@ -256,8 +224,8 @@ double FdLibm$Pow::compute(double x, double y) {
 				return s * $Double::POSITIVE_INFINITY;
 			}
 		}
-	} else if (((int32_t)(j & (uint32_t)0x7FFFFFFF)) >= 0x4090CC00) {
-		if (((j - (int32_t)0xC090CC00) | i) != 0) {
+	} else if ((j & 0x7fffffff) >= 0x4090cc00) {
+		if (((j - (int32_t)0xc090cc00) | i) != 0) {
 			return s * 0.0;
 		} else if (p_l <= z - p_h) {
 			return s * 0.0;
@@ -271,15 +239,15 @@ double FdLibm$Pow::compute(double x, double y) {
 	double LG2 = 0.6931471805599453;
 	double LG2_H = 0.6931471824645996;
 	double LG2_L = -1.904654299957768E-9;
-	i = (int32_t)(j & (uint32_t)0x7FFFFFFF);
+	i = j & 0x7fffffff;
 	k = (i >> 20) - 1023;
 	n = 0;
-	if (i > 0x3FE00000) {
+	if (i > 0x3fe00000) {
 		n = j + ($sr(0x00100000, k + 1));
-		k = (((int32_t)(n & (uint32_t)0x7FFFFFFF)) >> 20) - 1023;
+		k = ((n & 0x7fffffff) >> 0x14) - 1023;
 		t = 0.0;
-		t = $FdLibm::__HI(t, ((int32_t)(n & (uint32_t)~($sr(0x000FFFFF, k)))));
-		n = $sr(((int32_t)(n & (uint32_t)0x000FFFFF)) | 0x00100000, 20 - k);
+		t = $FdLibm::__HI(t, (n & ~($sr(0x000fffff, k))));
+		n = $sr((n & 0x000fffff) | 0x00100000, 20 - k);
 		if (j < 0) {
 			n = -n;
 		}
@@ -311,7 +279,33 @@ FdLibm$Pow::FdLibm$Pow() {
 }
 
 $Class* FdLibm$Pow::load$($String* name, bool initialize) {
-	$loadClass(FdLibm$Pow, name, initialize, &_FdLibm$Pow_ClassInfo_, allocate$FdLibm$Pow);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Pow, init$, void)},
+		{"compute", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Pow, compute, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.FdLibm$Pow", "java.lang.FdLibm", "Pow", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.FdLibm$Pow",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.FdLibm"
+	};
+	$loadClass(FdLibm$Pow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FdLibm$Pow);
+	});
 	return class$;
 }
 

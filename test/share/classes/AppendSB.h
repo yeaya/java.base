@@ -20,6 +20,7 @@ class $export AppendSB : public ::java::lang::Object {
 	$class(AppendSB, 0, ::java::lang::Object)
 public:
 	AppendSB();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::StringBuffer* generateTestBuffer(int32_t min, int32_t max);
 	static int32_t getRandomIndex(int32_t constraint1, int32_t constraint2);

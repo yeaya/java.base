@@ -1,5 +1,4 @@
 #include <exceptionCauseTest.h>
-
 #include <java/lang/TypeNotPresentException.h>
 #include <jcpp.h>
 
@@ -8,30 +7,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $TypeNotPresentException = ::java::lang::TypeNotPresentException;
 
-$MethodInfo _exceptionCauseTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(exceptionCauseTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(exceptionCauseTest, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _exceptionCauseTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"exceptionCauseTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_exceptionCauseTest_MethodInfo_
-};
-
-$Object* allocate$exceptionCauseTest($Class* clazz) {
-	return $of($alloc(exceptionCauseTest));
-}
-
 void exceptionCauseTest::init$() {
 }
 
 void exceptionCauseTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, cause, $new($Throwable, "because"_s));
 	$var($Throwable, par, $new($Throwable, cause));
 	$var($TypeNotPresentException, cnp, $new($TypeNotPresentException, "test"_s, par));
@@ -48,7 +28,22 @@ exceptionCauseTest::exceptionCauseTest() {
 }
 
 $Class* exceptionCauseTest::load$($String* name, bool initialize) {
-	$loadClass(exceptionCauseTest, name, initialize, &_exceptionCauseTest_ClassInfo_, allocate$exceptionCauseTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(exceptionCauseTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(exceptionCauseTest, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"exceptionCauseTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(exceptionCauseTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(exceptionCauseTest);
+	});
 	return class$;
 }
 

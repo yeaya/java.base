@@ -50,6 +50,7 @@ class CgroupV1Subsystem : public ::jdk::internal::platform::CgroupSubsystem, pub
 	$class(CgroupV1Subsystem, 0, ::jdk::internal::platform::CgroupSubsystem, ::jdk::internal::platform::CgroupV1Metrics)
 public:
 	CgroupV1Subsystem();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

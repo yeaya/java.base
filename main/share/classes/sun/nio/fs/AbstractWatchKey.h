@@ -43,6 +43,7 @@ class AbstractWatchKey : public ::java::nio::file::WatchKey {
 	$class(AbstractWatchKey, 0, ::java::nio::file::WatchKey)
 public:
 	AbstractWatchKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::Path* dir, ::sun::nio::fs::AbstractWatchService* watcher);
 	virtual ::java::util::List* pollEvents() override;
 	virtual bool reset() override;

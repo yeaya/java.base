@@ -55,6 +55,7 @@ class Bits : public ::java::lang::Object {
 	$class(Bits, 0, ::java::lang::Object)
 public:
 	Bits();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t pageCount(int64_t size);
 	static int32_t pageSize();

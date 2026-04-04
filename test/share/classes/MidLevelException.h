@@ -18,7 +18,10 @@ public:
 	void init$($Throwable* cause);
 	MidLevelException(const MidLevelException& e);
 	virtual void throw$() override;
-	inline MidLevelException* operator ->() {
+	inline MidLevelException* operator ->() const {
+		return (MidLevelException*)throwing$;
+	}
+	inline operator MidLevelException*() const {
 		return (MidLevelException*)throwing$;
 	}
 };

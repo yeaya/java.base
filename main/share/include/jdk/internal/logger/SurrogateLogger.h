@@ -36,6 +36,7 @@ class $import SurrogateLogger : public ::jdk::internal::logger::SimpleConsoleLog
 	$class(SurrogateLogger, 0, ::jdk::internal::logger::SimpleConsoleLogger)
 public:
 	SurrogateLogger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual ::sun::util::logging::PlatformLogger$Level* defaultPlatformLevel() override;
 	static $String* getSimpleFormat(::java::util::function::Function* defaultPropertyGetter);

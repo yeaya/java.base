@@ -134,7 +134,7 @@ public:
 	$Object* unlinkFirst();
 	$Object* unlinkLast();
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xFA9DDC6CE257FE26;
+	static const int64_t serialVersionUID = (int64_t)0xfa9ddc6ce257fe26;
 	::java::util::concurrent::LinkedBlockingDeque$Node* first = nullptr;
 	::java::util::concurrent::LinkedBlockingDeque$Node* last = nullptr;
 	int32_t count = 0;

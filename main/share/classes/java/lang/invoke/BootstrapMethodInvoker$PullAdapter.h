@@ -23,6 +23,7 @@ class BootstrapMethodInvoker$PullAdapter : public ::java::lang::Object {
 	$class(BootstrapMethodInvoker$PullAdapter, 0, ::java::lang::Object)
 public:
 	BootstrapMethodInvoker$PullAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* pullFromBootstrapMethod(::java::lang::invoke::MethodHandle* pushModeBSM, ::java::lang::invoke::MethodHandles$Lookup* lookup, ::java::lang::invoke::BootstrapCallInfo* bsci);
 	static ::java::lang::invoke::MethodHandle* MH_pullFromBootstrapMethod;

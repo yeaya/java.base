@@ -1,5 +1,4 @@
 #include <java/nio/file/DirectoryIteratorException.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
@@ -19,31 +18,6 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _DirectoryIteratorException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DirectoryIteratorException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DirectoryIteratorException_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(DirectoryIteratorException, init$, void, $IOException*)},
-	{"getCause", "()Ljava/io/IOException;", nullptr, $PUBLIC, $virtualMethod(DirectoryIteratorException, getCause, $Throwable*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DirectoryIteratorException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{}
-};
-
-$ClassInfo _DirectoryIteratorException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.nio.file.DirectoryIteratorException",
-	"java.util.ConcurrentModificationException",
-	nullptr,
-	_DirectoryIteratorException_FieldInfo_,
-	_DirectoryIteratorException_MethodInfo_
-};
-
-$Object* allocate$DirectoryIteratorException($Class* clazz) {
-	return $of($alloc(DirectoryIteratorException));
-}
 
 void DirectoryIteratorException::init$($IOException* cause) {
 	$ConcurrentModificationException::init$($cast($Throwable, $Objects::requireNonNull(cause)));
@@ -72,7 +46,27 @@ void DirectoryIteratorException::throw$() {
 }
 
 $Class* DirectoryIteratorException::load$($String* name, bool initialize) {
-	$loadClass(DirectoryIteratorException, name, initialize, &_DirectoryIteratorException_ClassInfo_, allocate$DirectoryIteratorException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DirectoryIteratorException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(DirectoryIteratorException, init$, void, $IOException*)},
+		{"getCause", "()Ljava/io/IOException;", nullptr, $PUBLIC, $virtualMethod(DirectoryIteratorException, getCause, $Throwable*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DirectoryIteratorException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.nio.file.DirectoryIteratorException",
+		"java.util.ConcurrentModificationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DirectoryIteratorException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectoryIteratorException);
+	});
 	return class$;
 }
 

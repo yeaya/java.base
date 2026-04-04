@@ -1,8 +1,6 @@
 #include <java/util/UUID.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/MessageDigest.h>
@@ -19,7 +17,6 @@
 
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -38,65 +35,6 @@ using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _UUID_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UUID, $assertionsDisabled)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UUID, serialVersionUID)},
-	{"mostSigBits", "J", nullptr, $PRIVATE | $FINAL, $field(UUID, mostSigBits)},
-	{"leastSigBits", "J", nullptr, $PRIVATE | $FINAL, $field(UUID, leastSigBits)},
-	{"jla", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UUID, jla)},
-	{"NIBBLES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UUID, NIBBLES)},
-	{}
-};
-
-$MethodInfo _UUID_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(UUID, init$, void, $bytes*)},
-	{"<init>", "(JJ)V", nullptr, $PUBLIC, $method(UUID, init$, void, int64_t, int64_t)},
-	{"clockSequence", "()I", nullptr, $PUBLIC, $method(UUID, clockSequence, int32_t)},
-	{"compareTo", "(Ljava/util/UUID;)I", nullptr, $PUBLIC, $method(UUID, compareTo, int32_t, UUID*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UUID, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UUID, equals, bool, Object$*)},
-	{"fromString", "(Ljava/lang/String;)Ljava/util/UUID;", nullptr, $PUBLIC | $STATIC, $staticMethod(UUID, fromString, UUID*, $String*)},
-	{"fromString1", "(Ljava/lang/String;)Ljava/util/UUID;", nullptr, $PRIVATE | $STATIC, $staticMethod(UUID, fromString1, UUID*, $String*)},
-	{"getLeastSignificantBits", "()J", nullptr, $PUBLIC, $method(UUID, getLeastSignificantBits, int64_t)},
-	{"getMostSignificantBits", "()J", nullptr, $PUBLIC, $method(UUID, getMostSignificantBits, int64_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UUID, hashCode, int32_t)},
-	{"nameUUIDFromBytes", "([B)Ljava/util/UUID;", nullptr, $PUBLIC | $STATIC, $staticMethod(UUID, nameUUIDFromBytes, UUID*, $bytes*)},
-	{"node", "()J", nullptr, $PUBLIC, $method(UUID, node, int64_t)},
-	{"parse4Nibbles", "(Ljava/lang/String;I)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UUID, parse4Nibbles, int64_t, $String*, int32_t)},
-	{"randomUUID", "()Ljava/util/UUID;", nullptr, $PUBLIC | $STATIC, $staticMethod(UUID, randomUUID, UUID*)},
-	{"timestamp", "()J", nullptr, $PUBLIC, $method(UUID, timestamp, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UUID, toString, $String*)},
-	{"variant", "()I", nullptr, $PUBLIC, $method(UUID, variant, int32_t)},
-	{"version", "()I", nullptr, $PUBLIC, $method(UUID, version, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UUID_InnerClassesInfo_[] = {
-	{"java.util.UUID$Holder", "java.util.UUID", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _UUID_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.UUID",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Comparable",
-	_UUID_FieldInfo_,
-	_UUID_MethodInfo_,
-	"Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/util/UUID;>;",
-	nullptr,
-	_UUID_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.UUID$Holder"
-};
-
-$Object* allocate$UUID($Class* clazz) {
-	return $of($alloc(UUID));
-}
 
 $Object* UUID::clone() {
 	 return this->$Serializable::clone();
@@ -117,10 +55,10 @@ void UUID::init$($bytes* data) {
 		$throwNew($AssertionError, $of("data must be 16 bytes in length"_s));
 	}
 	for (int32_t i = 0; i < 8; ++i) {
-		msb = (msb << 8) | ((int32_t)($nc(data)->get(i) & (uint32_t)255));
+		msb = (msb << 8) | ($nc(data)->get(i) & 0xff);
 	}
 	for (int32_t i = 8; i < 16; ++i) {
-		lsb = (lsb << 8) | ((int32_t)($nc(data)->get(i) & (uint32_t)255));
+		lsb = (lsb << 8) | ($nc(data)->get(i) & 0xff);
 	}
 	this->mostSigBits = msb;
 	this->leastSigBits = lsb;
@@ -133,7 +71,7 @@ void UUID::init$(int64_t mostSigBits, int64_t leastSigBits) {
 
 UUID* UUID::randomUUID() {
 	$init(UUID);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($UUID$Holder);
 	$var($SecureRandom, ng, $UUID$Holder::numberGenerator);
 	$var($bytes, randomBytes, $new($bytes, 16));
@@ -147,7 +85,7 @@ UUID* UUID::randomUUID() {
 
 UUID* UUID::nameUUIDFromBytes($bytes* name) {
 	$init(UUID);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MessageDigest, md, nullptr);
 	try {
 		$assign(md, $MessageDigest::getInstance("MD5"_s));
@@ -169,7 +107,7 @@ int64_t UUID::parse4Nibbles($String* name, int32_t pos) {
 	char16_t ch2 = name->charAt(pos + 1);
 	char16_t ch3 = name->charAt(pos + 2);
 	char16_t ch4 = name->charAt(pos + 3);
-	return (((ch1 | ch2) | ch3) | ch4) > 255 ? -1 : ((($nc(ns)->get(ch1) << 12) | (ns->get(ch2) << 8)) | (ns->get(ch3) << 4)) | ns->get(ch4);
+	return (((ch1 | ch2) | ch3) | ch4) > 0xff ? -1 : ((($nc(ns)->get(ch1) << 12) | ($nc(ns)->get(ch2) << 8)) | ($nc(ns)->get(ch3) << 4)) | $nc(ns)->get(ch4);
 }
 
 UUID* UUID::fromString($String* name) {
@@ -202,22 +140,22 @@ UUID* UUID::fromString1($String* name) {
 	if (len > 36) {
 		$throwNew($IllegalArgumentException, "UUID string too large"_s);
 	}
-	int32_t dash1 = name->indexOf((int32_t)u'-', 0);
-	int32_t dash2 = name->indexOf((int32_t)u'-', dash1 + 1);
-	int32_t dash3 = name->indexOf((int32_t)u'-', dash2 + 1);
-	int32_t dash4 = name->indexOf((int32_t)u'-', dash3 + 1);
-	int32_t dash5 = name->indexOf((int32_t)u'-', dash4 + 1);
+	int32_t dash1 = name->indexOf(u'-', 0);
+	int32_t dash2 = name->indexOf(u'-', dash1 + 1);
+	int32_t dash3 = name->indexOf(u'-', dash2 + 1);
+	int32_t dash4 = name->indexOf(u'-', dash3 + 1);
+	int32_t dash5 = name->indexOf(u'-', dash4 + 1);
 	if (dash4 < 0 || dash5 >= 0) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid UUID string: "_s, name}));
 	}
-	int64_t mostSigBits = (int64_t)($Long::parseLong(name, 0, dash1, 16) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t mostSigBits = $Long::parseLong(name, 0, dash1, 16) & (int64_t)0xffffffff;
 	mostSigBits <<= 16;
-	mostSigBits |= (int64_t)($Long::parseLong(name, dash1 + 1, dash2, 16) & (uint64_t)(int64_t)65535);
+	mostSigBits |= $Long::parseLong(name, dash1 + 1, dash2, 16) & (int64_t)0xffff;
 	mostSigBits <<= 16;
-	mostSigBits |= (int64_t)($Long::parseLong(name, dash2 + 1, dash3, 16) & (uint64_t)(int64_t)65535);
-	int64_t leastSigBits = (int64_t)($Long::parseLong(name, dash3 + 1, dash4, 16) & (uint64_t)(int64_t)65535);
+	mostSigBits |= $Long::parseLong(name, dash2 + 1, dash3, 16) & (int64_t)0xffff;
+	int64_t leastSigBits = $Long::parseLong(name, dash3 + 1, dash4, 16) & (int64_t)0xffff;
 	leastSigBits <<= 48;
-	leastSigBits |= (int64_t)($Long::parseLong(name, dash4 + 1, len, 16) & (uint64_t)(int64_t)0x0000FFFFFFFFFFFF);
+	leastSigBits |= $Long::parseLong(name, dash4 + 1, len, 16) & (int64_t)0x0000ffffffffffff;
 	return $new(UUID, mostSigBits, leastSigBits);
 }
 
@@ -230,32 +168,32 @@ int64_t UUID::getMostSignificantBits() {
 }
 
 int32_t UUID::version() {
-	return (int32_t)((int64_t)((this->mostSigBits >> 12) & (uint64_t)(int64_t)15));
+	return (int32_t)((this->mostSigBits >> 12) & 0x0f);
 }
 
 int32_t UUID::variant() {
-	return (int32_t)((int64_t)(($usr(this->leastSigBits, 64 - ((int64_t)((uint64_t)this->leastSigBits >> 62)))) & (uint64_t)(this->leastSigBits >> 63)));
+	return (int32_t)(($usr(this->leastSigBits, 64 - ((int64_t)((uint64_t)this->leastSigBits >> 62)))) & (this->leastSigBits >> 63));
 }
 
 int64_t UUID::timestamp() {
 	if (version() != 1) {
 		$throwNew($UnsupportedOperationException, "Not a time-based UUID"_s);
 	}
-	return ((((int64_t)(this->mostSigBits & (uint64_t)(int64_t)4095)) << 48) | (((int64_t)((this->mostSigBits >> 16) & (uint64_t)(int64_t)65535)) << 32)) | (int64_t)((uint64_t)this->mostSigBits >> 32);
+	return (((this->mostSigBits & (int64_t)0x0fff) << 48) | (((this->mostSigBits >> 16) & (int64_t)0xffff) << 32)) | (int64_t)((uint64_t)this->mostSigBits >> 32);
 }
 
 int32_t UUID::clockSequence() {
 	if (version() != 1) {
 		$throwNew($UnsupportedOperationException, "Not a time-based UUID"_s);
 	}
-	return (int32_t)((int64_t)((uint64_t)((int64_t)(this->leastSigBits & (uint64_t)(int64_t)0x3FFF000000000000)) >> 48));
+	return (int32_t)((int64_t)((uint64_t)(this->leastSigBits & (int64_t)0x3fff000000000000) >> 48));
 }
 
 int64_t UUID::node() {
 	if (version() != 1) {
 		$throwNew($UnsupportedOperationException, "Not a time-based UUID"_s);
 	}
-	return (int64_t)(this->leastSigBits & (uint64_t)(int64_t)0x0000FFFFFFFFFFFF);
+	return this->leastSigBits & (int64_t)0x0000ffffffffffff;
 }
 
 $String* UUID::toString() {
@@ -268,7 +206,7 @@ int32_t UUID::hashCode() {
 }
 
 bool UUID::equals(Object$* obj) {
-	if ((nullptr == obj) || ($nc($of(obj))->getClass() != UUID::class$)) {
+	if ((nullptr == obj) || ($of(obj)->getClass() != UUID::class$)) {
 		return false;
 	}
 	$var(UUID, id, $cast(UUID, obj));
@@ -276,41 +214,41 @@ bool UUID::equals(Object$* obj) {
 }
 
 int32_t UUID::compareTo(UUID* val) {
-	return (this->mostSigBits < $nc(val)->mostSigBits ? -1 : (this->mostSigBits > $nc(val)->mostSigBits ? 1 : (this->leastSigBits < $nc(val)->leastSigBits ? -1 : (this->leastSigBits > $nc(val)->leastSigBits ? 1 : 0))));
+	return (this->mostSigBits < $nc(val)->mostSigBits ? -1 : (this->mostSigBits > val->mostSigBits ? 1 : (this->leastSigBits < val->leastSigBits ? -1 : (this->leastSigBits > val->leastSigBits ? 1 : 0))));
 }
 
 int32_t UUID::compareTo(Object$* val) {
 	return this->compareTo($cast(UUID, val));
 }
 
-void clinit$UUID($Class* class$) {
+void UUID::clinit$($Class* clazz) {
 	UUID::$assertionsDisabled = !UUID::class$->desiredAssertionStatus();
 	$assignStatic(UUID::jla, $SharedSecrets::getJavaLangAccess());
 	{
 		$var($bytes, ns, $new($bytes, 256));
 		$Arrays::fill(ns, (int8_t)-1);
-		ns->set(u'0', (int8_t)0);
-		ns->set(u'1', (int8_t)1);
-		ns->set(u'2', (int8_t)2);
-		ns->set(u'3', (int8_t)3);
-		ns->set(u'4', (int8_t)4);
-		ns->set(u'5', (int8_t)5);
-		ns->set(u'6', (int8_t)6);
-		ns->set(u'7', (int8_t)7);
-		ns->set(u'8', (int8_t)8);
-		ns->set(u'9', (int8_t)9);
-		ns->set(u'A', (int8_t)10);
-		ns->set(u'B', (int8_t)11);
-		ns->set(u'C', (int8_t)12);
-		ns->set(u'D', (int8_t)13);
-		ns->set(u'E', (int8_t)14);
-		ns->set(u'F', (int8_t)15);
-		ns->set(u'a', (int8_t)10);
-		ns->set(u'b', (int8_t)11);
-		ns->set(u'c', (int8_t)12);
-		ns->set(u'd', (int8_t)13);
-		ns->set(u'e', (int8_t)14);
-		ns->set(u'f', (int8_t)15);
+		ns->set(u'0', 0);
+		ns->set(u'1', 1);
+		ns->set(u'2', 2);
+		ns->set(u'3', 3);
+		ns->set(u'4', 4);
+		ns->set(u'5', 5);
+		ns->set(u'6', 6);
+		ns->set(u'7', 7);
+		ns->set(u'8', 8);
+		ns->set(u'9', 9);
+		ns->set(u'A', 10);
+		ns->set(u'B', 11);
+		ns->set(u'C', 12);
+		ns->set(u'D', 13);
+		ns->set(u'E', 14);
+		ns->set(u'F', 15);
+		ns->set(u'a', 10);
+		ns->set(u'b', 11);
+		ns->set(u'c', 12);
+		ns->set(u'd', 13);
+		ns->set(u'e', 14);
+		ns->set(u'f', 15);
 		$assignStatic(UUID::NIBBLES, ns);
 	}
 }
@@ -319,7 +257,60 @@ UUID::UUID() {
 }
 
 $Class* UUID::load$($String* name, bool initialize) {
-	$loadClass(UUID, name, initialize, &_UUID_ClassInfo_, clinit$UUID, allocate$UUID);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UUID, $assertionsDisabled)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UUID, serialVersionUID)},
+		{"mostSigBits", "J", nullptr, $PRIVATE | $FINAL, $field(UUID, mostSigBits)},
+		{"leastSigBits", "J", nullptr, $PRIVATE | $FINAL, $field(UUID, leastSigBits)},
+		{"jla", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UUID, jla)},
+		{"NIBBLES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UUID, NIBBLES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "([B)V", nullptr, $PRIVATE, $method(UUID, init$, void, $bytes*)},
+		{"<init>", "(JJ)V", nullptr, $PUBLIC, $method(UUID, init$, void, int64_t, int64_t)},
+		{"clockSequence", "()I", nullptr, $PUBLIC, $method(UUID, clockSequence, int32_t)},
+		{"compareTo", "(Ljava/util/UUID;)I", nullptr, $PUBLIC, $method(UUID, compareTo, int32_t, UUID*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UUID, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UUID, equals, bool, Object$*)},
+		{"fromString", "(Ljava/lang/String;)Ljava/util/UUID;", nullptr, $PUBLIC | $STATIC, $staticMethod(UUID, fromString, UUID*, $String*)},
+		{"fromString1", "(Ljava/lang/String;)Ljava/util/UUID;", nullptr, $PRIVATE | $STATIC, $staticMethod(UUID, fromString1, UUID*, $String*)},
+		{"getLeastSignificantBits", "()J", nullptr, $PUBLIC, $method(UUID, getLeastSignificantBits, int64_t)},
+		{"getMostSignificantBits", "()J", nullptr, $PUBLIC, $method(UUID, getMostSignificantBits, int64_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UUID, hashCode, int32_t)},
+		{"nameUUIDFromBytes", "([B)Ljava/util/UUID;", nullptr, $PUBLIC | $STATIC, $staticMethod(UUID, nameUUIDFromBytes, UUID*, $bytes*)},
+		{"node", "()J", nullptr, $PUBLIC, $method(UUID, node, int64_t)},
+		{"parse4Nibbles", "(Ljava/lang/String;I)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UUID, parse4Nibbles, int64_t, $String*, int32_t)},
+		{"randomUUID", "()Ljava/util/UUID;", nullptr, $PUBLIC | $STATIC, $staticMethod(UUID, randomUUID, UUID*)},
+		{"timestamp", "()J", nullptr, $PUBLIC, $method(UUID, timestamp, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UUID, toString, $String*)},
+		{"variant", "()I", nullptr, $PUBLIC, $method(UUID, variant, int32_t)},
+		{"version", "()I", nullptr, $PUBLIC, $method(UUID, version, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.UUID$Holder", "java.util.UUID", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.UUID",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/util/UUID;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.UUID$Holder"
+	};
+	$loadClass(UUID, name, initialize, &classInfo$$, UUID::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UUID));
+	});
 	return class$;
 }
 

@@ -51,6 +51,7 @@ class $export VarHandle : public ::java::lang::constant::Constable {
 	$class(VarHandle, 0, ::java::lang::constant::Constable)
 public:
 	VarHandle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::VarForm* vform);
 	void init$(::java::lang::invoke::VarForm* vform, bool exact);
 	::java::lang::invoke::MethodType* accessModeType(::java::lang::invoke::VarHandle$AccessMode* accessMode);

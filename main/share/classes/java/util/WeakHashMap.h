@@ -46,6 +46,7 @@ class $export WeakHashMap : public ::java::util::AbstractMap {
 	$class(WeakHashMap, $PRELOAD, ::java::util::AbstractMap)
 public:
 	WeakHashMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t initialCapacity, float loadFactor);
 	void init$(int32_t initialCapacity);
 	void init$();

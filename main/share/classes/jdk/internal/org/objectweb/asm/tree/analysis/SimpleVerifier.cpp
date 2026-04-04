@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/SimpleVerifier.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -55,48 +54,6 @@ namespace jdk {
 					namespace tree {
 						namespace analysis {
 
-$FieldInfo _SimpleVerifier_FieldInfo_[] = {
-	{"currentClass", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $FINAL, $field(SimpleVerifier, currentClass)},
-	{"currentSuperClass", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $FINAL, $field(SimpleVerifier, currentSuperClass)},
-	{"currentClassInterfaces", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;", $PRIVATE | $FINAL, $field(SimpleVerifier, currentClassInterfaces)},
-	{"isInterface", "Z", nullptr, $PRIVATE | $FINAL, $field(SimpleVerifier, isInterface$)},
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(SimpleVerifier, loader)},
-	{}
-};
-
-$MethodInfo _SimpleVerifier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleVerifier, init$, void)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Z)V", nullptr, $PUBLIC, $method(SimpleVerifier, init$, void, $Type*, $Type*, bool)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List;Z)V", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;Z)V", $PUBLIC, $method(SimpleVerifier, init$, void, $Type*, $Type*, $List*, bool)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List;Z)V", "(ILjdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;Z)V", $PROTECTED, $method(SimpleVerifier, init$, void, int32_t, $Type*, $Type*, $List*, bool)},
-	{"getClass", "(Ljdk/internal/org/objectweb/asm/Type;)Ljava/lang/Class;", "(Ljdk/internal/org/objectweb/asm/Type;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(SimpleVerifier, getClass, $Class*, $Type*)},
-	{"getElementValue", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, getElementValue, $BasicValue*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"getSuperClass", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, getSuperClass, $Type*, $Type*)},
-	{"isArrayValue", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isArrayValue, bool, $BasicValue*)},
-	{"isAssignableFrom", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isAssignableFrom, bool, $Type*, $Type*)},
-	{"isInterface", "(Ljdk/internal/org/objectweb/asm/Type;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isInterface, bool, $Type*)},
-	{"isSubTypeOf", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isSubTypeOf, bool, $BasicValue*, $BasicValue*)},
-	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(SimpleVerifier, merge, $BasicValue*, $BasicValue*, $BasicValue*)},
-	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SimpleVerifier, merge, $1Value*, $1Value*, $1Value*)},
-	{"newArrayValue", "(Ljdk/internal/org/objectweb/asm/Type;I)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PRIVATE, $method(SimpleVerifier, newArrayValue, $BasicValue*, $Type*, int32_t)},
-	{"newValue", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(SimpleVerifier, newValue, $1Value*, $Type*)},
-	{"setClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(SimpleVerifier, setClassLoader, void, $ClassLoader*)},
-	{}
-};
-
-$ClassInfo _SimpleVerifier_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.analysis.SimpleVerifier",
-	"jdk.internal.org.objectweb.asm.tree.analysis.BasicVerifier",
-	nullptr,
-	_SimpleVerifier_FieldInfo_,
-	_SimpleVerifier_MethodInfo_
-};
-
-$Object* allocate$SimpleVerifier($Class* clazz) {
-	return $of($alloc(SimpleVerifier));
-}
-
 void SimpleVerifier::init$() {
 	SimpleVerifier::init$(nullptr, nullptr, false);
 }
@@ -127,28 +84,21 @@ void SimpleVerifier::setClassLoader($ClassLoader* loader) {
 }
 
 $1Value* SimpleVerifier::newValue($Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type == nullptr) {
 		$init($BasicValue);
 		return $BasicValue::UNINITIALIZED_VALUE;
 	}
 	bool isArray = $nc(type)->getSort() == $Type::ARRAY;
 	if (isArray) {
-		switch ($nc($(type->getElementType()))->getSort()) {
+		switch ($$nc(type->getElementType())->getSort()) {
 		case $Type::BOOLEAN:
-			{}
 		case $Type::CHAR:
-			{}
 		case $Type::BYTE:
-			{}
 		case $Type::SHORT:
-			{
-				return $new($BasicValue, type);
-			}
+			return $new($BasicValue, type);
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 	$var($BasicValue, value, $cast($BasicValue, $BasicVerifier::newValue(type)));
@@ -160,7 +110,7 @@ $1Value* SimpleVerifier::newValue($Type* type) {
 			for (int32_t i = 0; i < type->getDimensions(); ++i) {
 				descriptor->append(u'[');
 			}
-			descriptor->append($($nc($($nc(value)->getType()))->getDescriptor()));
+			descriptor->append($($$nc($nc(value)->getType())->getDescriptor()));
 			$assign(value, $new($BasicValue, $($Type::getType($(descriptor->toString())))));
 		} else {
 			$assign(value, $new($BasicValue, type));
@@ -175,17 +125,17 @@ bool SimpleVerifier::isArrayValue($BasicValue* value) {
 	if (var$0) {
 		bool var$1 = type->getSort() == $Type::ARRAY;
 		$init($BasicInterpreter);
-		var$0 = (var$1 || type->equals($BasicInterpreter::NULL_TYPE));
+		var$0 = var$1 || type->equals($BasicInterpreter::NULL_TYPE);
 	}
 	return var$0;
 }
 
 $BasicValue* SimpleVerifier::getElementValue($BasicValue* objectArrayValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, arrayType, $nc(objectArrayValue)->getType());
 	if (arrayType != nullptr) {
 		if (arrayType->getSort() == $Type::ARRAY) {
-			return $cast($BasicValue, newValue($($Type::getType($($nc($(arrayType->getDescriptor()))->substring(1))))));
+			return $cast($BasicValue, newValue($($Type::getType($($$nc(arrayType->getDescriptor())->substring(1))))));
 		} else {
 			$init($BasicInterpreter);
 			if (arrayType->equals($BasicInterpreter::NULL_TYPE)) {
@@ -197,63 +147,53 @@ $BasicValue* SimpleVerifier::getElementValue($BasicValue* objectArrayValue) {
 }
 
 bool SimpleVerifier::isSubTypeOf($BasicValue* value, $BasicValue* expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, expectedType, $nc(expected)->getType());
 	$var($Type, type, $nc(value)->getType());
 	switch ($nc(expectedType)->getSort()) {
 	case $Type::INT:
-		{}
 	case $Type::FLOAT:
-		{}
 	case $Type::LONG:
-		{}
 	case $Type::DOUBLE:
-		{
-			return $nc(type)->equals(expectedType);
-		}
+		return $nc(type)->equals(expectedType);
 	case $Type::ARRAY:
-		{}
 	case $Type::OBJECT:
-		{
-			$init($BasicInterpreter);
-			if ($nc(type)->equals($BasicInterpreter::NULL_TYPE)) {
-				return true;
-			} else {
-				bool var$1 = type->getSort() == $Type::OBJECT;
-				if (var$1 || type->getSort() == $Type::ARRAY) {
-					if (isAssignableFrom(expectedType, type)) {
-						return true;
-					} else if ($nc(getClass(expectedType))->isInterface()) {
-						return $Object::class$->isAssignableFrom(getClass(type));
-					} else {
-						return false;
-					}
+		$init($BasicInterpreter);
+		if ($nc(type)->equals($BasicInterpreter::NULL_TYPE)) {
+			return true;
+		} else {
+			bool var$0 = type->getSort() == $Type::OBJECT;
+			if (var$0 || type->getSort() == $Type::ARRAY) {
+				if (isAssignableFrom(expectedType, type)) {
+					return true;
+				} else if ($nc(getClass(expectedType))->isInterface()) {
+					return $Object::class$->isAssignableFrom(getClass(type));
 				} else {
 					return false;
 				}
+			} else {
+				return false;
 			}
 		}
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
 $BasicValue* SimpleVerifier::merge($BasicValue* value1, $BasicValue* value2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(value1)->equals(value2)) {
 		$var($Type, type1, value1->getType());
 		$var($Type, type2, $nc(value2)->getType());
 		bool var$1 = type1 != nullptr;
 		if (var$1) {
 			bool var$2 = type1->getSort() == $Type::OBJECT;
-			var$1 = (var$2 || type1->getSort() == $Type::ARRAY);
+			var$1 = var$2 || type1->getSort() == $Type::ARRAY;
 		}
 		bool var$0 = var$1 && type2 != nullptr;
 		if (var$0) {
 			bool var$3 = type2->getSort() == $Type::OBJECT;
-			var$0 = (var$3 || type2->getSort() == $Type::ARRAY);
+			var$0 = var$3 || type2->getSort() == $Type::ARRAY;
 		}
 		if (var$0) {
 			$init($BasicInterpreter);
@@ -270,15 +210,15 @@ $BasicValue* SimpleVerifier::merge($BasicValue* value1, $BasicValue* value2) {
 				return value2;
 			}
 			int32_t numDimensions = 0;
-			bool var$7 = $nc(type1)->getSort() == $Type::ARRAY;
-			bool var$6 = var$7 && $nc(type2)->getSort() == $Type::ARRAY;
+			bool var$7 = type1->getSort() == $Type::ARRAY;
+			bool var$6 = var$7 && type2->getSort() == $Type::ARRAY;
 			if (var$6) {
 				int32_t var$8 = type1->getDimensions();
 				var$6 = var$8 == type2->getDimensions();
 			}
 			bool var$5 = var$6;
-			bool var$4 = var$5 && $nc($(type1->getElementType()))->getSort() == $Type::OBJECT;
-			if (var$4 && $nc($(type2->getElementType()))->getSort() == $Type::OBJECT) {
+			bool var$4 = var$5 && $$nc(type1->getElementType())->getSort() == $Type::OBJECT;
+			if (var$4 && $$nc(type2->getElementType())->getSort() == $Type::OBJECT) {
 				numDimensions = type1->getDimensions();
 				$assign(type1, type1->getElementType());
 				$assign(type2, type2->getElementType());
@@ -299,7 +239,7 @@ $BasicValue* SimpleVerifier::merge($BasicValue* value1, $BasicValue* value2) {
 }
 
 $BasicValue* SimpleVerifier::newArrayValue($Type* type, int32_t dimensions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dimensions == 0) {
 		return $cast($BasicValue, newValue(type));
 	} else {
@@ -313,14 +253,14 @@ $BasicValue* SimpleVerifier::newArrayValue($Type* type, int32_t dimensions) {
 }
 
 bool SimpleVerifier::isInterface($Type* type) {
-	if (this->currentClass != nullptr && $nc(this->currentClass)->equals(type)) {
+	if (this->currentClass != nullptr && this->currentClass->equals(type)) {
 		return this->isInterface$;
 	}
 	return $nc(getClass(type))->isInterface();
 }
 
 $Type* SimpleVerifier::getSuperClass($Type* type) {
-	if (this->currentClass != nullptr && $nc(this->currentClass)->equals(type)) {
+	if (this->currentClass != nullptr && this->currentClass->equals(type)) {
 		return this->currentSuperClass;
 	}
 	$Class* superClass = $nc(getClass(type))->getSuperclass();
@@ -328,35 +268,31 @@ $Type* SimpleVerifier::getSuperClass($Type* type) {
 }
 
 bool SimpleVerifier::isAssignableFrom($Type* type1, $Type* type2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(type1)->equals(type2)) {
 		return true;
 	}
-	if (this->currentClass != nullptr && $nc(this->currentClass)->equals(type1)) {
+	if (this->currentClass != nullptr && this->currentClass->equals(type1)) {
 		if (getSuperClass(type2) == nullptr) {
 			return false;
 		} else {
 			if (this->isInterface$) {
 				bool var$0 = $nc(type2)->getSort() == $Type::OBJECT;
-				return var$0 || $nc(type2)->getSort() == $Type::ARRAY;
+				return var$0 || type2->getSort() == $Type::ARRAY;
 			}
 			return isAssignableFrom(type1, $(getSuperClass(type2)));
 		}
 	}
-	if (this->currentClass != nullptr && $nc(this->currentClass)->equals(type2)) {
+	if (this->currentClass != nullptr && this->currentClass->equals(type2)) {
 		if (isAssignableFrom(type1, this->currentSuperClass)) {
 			return true;
 		}
 		if (this->currentClassInterfaces != nullptr) {
-			{
-				$var($Iterator, i$, $nc(this->currentClassInterfaces)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Type, currentClassInterface, $cast($Type, i$->next()));
-					{
-						if (isAssignableFrom(type1, currentClassInterface)) {
-							return true;
-						}
-					}
+			$var($Iterator, i$, this->currentClassInterfaces->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Type, currentClassInterface, $cast($Type, i$->next()));
+				if (isAssignableFrom(type1, currentClassInterface)) {
+					return true;
 				}
 			}
 		}
@@ -366,13 +302,13 @@ bool SimpleVerifier::isAssignableFrom($Type* type1, $Type* type2) {
 }
 
 $Class* SimpleVerifier::getClass($Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		if ($nc(type)->getSort() == $Type::ARRAY) {
-			return $Class::forName($($nc($(type->getDescriptor()))->replace(u'/', u'.')), false, this->loader);
+			return $Class::forName($($$nc(type->getDescriptor())->replace(u'/', u'.')), false, this->loader);
 		}
-		return $Class::forName($($nc(type)->getClassName()), false, this->loader);
+		return $Class::forName($(type->getClassName()), false, this->loader);
 	} catch ($ClassNotFoundException& e) {
 		$throwNew($TypeNotPresentException, $(e->toString()), e);
 	}
@@ -387,7 +323,44 @@ SimpleVerifier::SimpleVerifier() {
 }
 
 $Class* SimpleVerifier::load$($String* name, bool initialize) {
-	$loadClass(SimpleVerifier, name, initialize, &_SimpleVerifier_ClassInfo_, allocate$SimpleVerifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"currentClass", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $FINAL, $field(SimpleVerifier, currentClass)},
+		{"currentSuperClass", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $FINAL, $field(SimpleVerifier, currentSuperClass)},
+		{"currentClassInterfaces", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;", $PRIVATE | $FINAL, $field(SimpleVerifier, currentClassInterfaces)},
+		{"isInterface", "Z", nullptr, $PRIVATE | $FINAL, $field(SimpleVerifier, isInterface$)},
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(SimpleVerifier, loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleVerifier, init$, void)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Z)V", nullptr, $PUBLIC, $method(SimpleVerifier, init$, void, $Type*, $Type*, bool)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List;Z)V", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;Z)V", $PUBLIC, $method(SimpleVerifier, init$, void, $Type*, $Type*, $List*, bool)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List;Z)V", "(ILjdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;Z)V", $PROTECTED, $method(SimpleVerifier, init$, void, int32_t, $Type*, $Type*, $List*, bool)},
+		{"getClass", "(Ljdk/internal/org/objectweb/asm/Type;)Ljava/lang/Class;", "(Ljdk/internal/org/objectweb/asm/Type;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(SimpleVerifier, getClass, $Class*, $Type*)},
+		{"getElementValue", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, getElementValue, $BasicValue*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"getSuperClass", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, getSuperClass, $Type*, $Type*)},
+		{"isArrayValue", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isArrayValue, bool, $BasicValue*)},
+		{"isAssignableFrom", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isAssignableFrom, bool, $Type*, $Type*)},
+		{"isInterface", "(Ljdk/internal/org/objectweb/asm/Type;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isInterface, bool, $Type*)},
+		{"isSubTypeOf", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isSubTypeOf, bool, $BasicValue*, $BasicValue*)},
+		{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(SimpleVerifier, merge, $BasicValue*, $BasicValue*, $BasicValue*)},
+		{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SimpleVerifier, merge, $1Value*, $1Value*, $1Value*)},
+		{"newArrayValue", "(Ljdk/internal/org/objectweb/asm/Type;I)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PRIVATE, $method(SimpleVerifier, newArrayValue, $BasicValue*, $Type*, int32_t)},
+		{"newValue", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(SimpleVerifier, newValue, $1Value*, $Type*)},
+		{"setClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(SimpleVerifier, setClassLoader, void, $ClassLoader*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.analysis.SimpleVerifier",
+		"jdk.internal.org.objectweb.asm.tree.analysis.BasicVerifier",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SimpleVerifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SimpleVerifier));
+	});
 	return class$;
 }
 

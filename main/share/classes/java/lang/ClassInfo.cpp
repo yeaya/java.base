@@ -25,6 +25,7 @@
 #include <java/io/DataOutputStream.h>
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
+#include <string.h>
 
 using namespace ::java::lang;
 using namespace ::java::io;
@@ -119,6 +120,20 @@ void ClassInfo::visit(::jdk::internal::reflect::ConstantPool* cp) {
 	if (this->rawTypeAnnotations == nullptr && typeAnnotationsBytes != nullptr) {
 		this->rawTypeAnnotations = cloneStaticBytes(typeAnnotationsBytes);
 	}
+}
+
+ClassInfo* ClassInfo::clone() {
+	ClassInfo* newClassInfo = $allocRawStatic(ClassInfo);
+	memcpy(newClassInfo, this, sizeof(ClassInfo));
+	newClassInfo->fields = FieldInfo::cloneArray(this->fields);
+	newClassInfo->methods = MethodInfo::cloneArray(this->methods);
+	if (this->enclosingMethod != nullptr) {
+		newClassInfo->enclosingMethod = this->enclosingMethod->clone();
+	}
+	newClassInfo->innerClasses = InnerClassInfo::cloneArray(this->innerClasses);
+	newClassInfo->annotations = CompoundAttribute::cloneArray(this->annotations);
+	newClassInfo->typeAnnotations = TypeAnnotation::cloneArray(this->typeAnnotations);
+	return newClassInfo;
 }
 
 $bytes* ClassInfo::getRawAnnotations(CompoundAttribute* annotations, ::jdk::internal::reflect::ConstantPool* constantPool) {

@@ -14,10 +14,13 @@ class $import ClosedSelectorException : public ::java::lang::IllegalStateExcepti
 public:
 	ClosedSelectorException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x59BCE6F90BE2CD1B;
+	static const int64_t serialVersionUID = (int64_t)0x59bce6f90be2cd1b;
 	ClosedSelectorException(const ClosedSelectorException& e);
 	virtual void throw$() override;
-	inline ClosedSelectorException* operator ->() {
+	inline ClosedSelectorException* operator ->() const {
+		return (ClosedSelectorException*)throwing$;
+	}
+	inline operator ClosedSelectorException*() const {
 		return (ClosedSelectorException*)throwing$;
 	}
 };

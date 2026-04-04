@@ -1,5 +1,4 @@
 #include <DeadReader.h>
-
 #include <LazyReader.h>
 #include <java/io/IOException.h>
 #include <java/io/PipedInputStream.h>
@@ -14,30 +13,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _DeadReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DeadReader, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeadReader, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _DeadReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DeadReader",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DeadReader_MethodInfo_
-};
-
-$Object* allocate$DeadReader($Class* clazz) {
-	return $of($alloc(DeadReader));
-}
-
 void DeadReader::init$() {
 }
 
 void DeadReader::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PipedOutputStream, os, $new($PipedOutputStream));
 	$var($PipedInputStream, is, $new($PipedInputStream));
 	is->connect(os);
@@ -58,7 +38,22 @@ DeadReader::DeadReader() {
 }
 
 $Class* DeadReader::load$($String* name, bool initialize) {
-	$loadClass(DeadReader, name, initialize, &_DeadReader_ClassInfo_, allocate$DeadReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DeadReader, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeadReader, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DeadReader",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DeadReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeadReader);
+	});
 	return class$;
 }
 

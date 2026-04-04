@@ -1,5 +1,4 @@
 #include <sun/net/TelnetOutputStream.h>
-
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
@@ -12,34 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace net {
-
-$FieldInfo _TelnetOutputStream_FieldInfo_[] = {
-	{"stickyCRLF", "Z", nullptr, 0, $field(TelnetOutputStream, stickyCRLF)},
-	{"seenCR", "Z", nullptr, 0, $field(TelnetOutputStream, seenCR)},
-	{"binaryMode", "Z", nullptr, $PUBLIC, $field(TelnetOutputStream, binaryMode)},
-	{}
-};
-
-$MethodInfo _TelnetOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(TelnetOutputStream, init$, void, $OutputStream*, bool)},
-	{"setStickyCRLF", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TelnetOutputStream, setStickyCRLF, void, bool)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(TelnetOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(TelnetOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _TelnetOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.TelnetOutputStream",
-	"java.io.BufferedOutputStream",
-	nullptr,
-	_TelnetOutputStream_FieldInfo_,
-	_TelnetOutputStream_MethodInfo_
-};
-
-$Object* allocate$TelnetOutputStream($Class* clazz) {
-	return $of($alloc(TelnetOutputStream));
-}
 
 void TelnetOutputStream::init$($OutputStream* fd, bool binary) {
 	$BufferedOutputStream::init$(fd);
@@ -68,15 +39,15 @@ void TelnetOutputStream::write(int32_t c) {
 		}
 	} else {
 		if (c == u'\n') {
-			$BufferedOutputStream::write((int32_t)u'\r');
-			$BufferedOutputStream::write((int32_t)u'\n');
+			$BufferedOutputStream::write(u'\r');
+			$BufferedOutputStream::write(u'\n');
 			return;
 		}
 		if (c == u'\r') {
 			if (this->stickyCRLF) {
 				this->seenCR = true;
 			} else {
-				$BufferedOutputStream::write((int32_t)u'\r');
+				$BufferedOutputStream::write(u'\r');
 				c = 0;
 			}
 		}
@@ -90,7 +61,7 @@ void TelnetOutputStream::write($bytes* bytes, int32_t off, int32_t length) {
 		return;
 	}
 	while (--length >= 0) {
-		write((int32_t)$nc(bytes)->get(off++));
+		write($nc(bytes)->get(off++));
 	}
 }
 
@@ -98,7 +69,30 @@ TelnetOutputStream::TelnetOutputStream() {
 }
 
 $Class* TelnetOutputStream::load$($String* name, bool initialize) {
-	$loadClass(TelnetOutputStream, name, initialize, &_TelnetOutputStream_ClassInfo_, allocate$TelnetOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"stickyCRLF", "Z", nullptr, 0, $field(TelnetOutputStream, stickyCRLF)},
+		{"seenCR", "Z", nullptr, 0, $field(TelnetOutputStream, seenCR)},
+		{"binaryMode", "Z", nullptr, $PUBLIC, $field(TelnetOutputStream, binaryMode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(TelnetOutputStream, init$, void, $OutputStream*, bool)},
+		{"setStickyCRLF", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TelnetOutputStream, setStickyCRLF, void, bool)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(TelnetOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(TelnetOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.TelnetOutputStream",
+		"java.io.BufferedOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TelnetOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TelnetOutputStream));
+	});
 	return class$;
 }
 

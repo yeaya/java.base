@@ -1,5 +1,4 @@
 #include <ProbablePrime.h>
-
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -11,30 +10,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
-$MethodInfo _ProbablePrime_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProbablePrime, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProbablePrime, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _ProbablePrime_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ProbablePrime",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ProbablePrime_MethodInfo_
-};
-
-$Object* allocate$ProbablePrime($Class* clazz) {
-	return $of($alloc(ProbablePrime));
-}
-
 void ProbablePrime::init$() {
 }
 
 void ProbablePrime::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, num, $new($BigInteger, "4"_s));
 	$var($ints, certainties, $new($ints, {
 		-1,
@@ -66,7 +46,22 @@ ProbablePrime::ProbablePrime() {
 }
 
 $Class* ProbablePrime::load$($String* name, bool initialize) {
-	$loadClass(ProbablePrime, name, initialize, &_ProbablePrime_ClassInfo_, allocate$ProbablePrime);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProbablePrime, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProbablePrime, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ProbablePrime",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProbablePrime, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProbablePrime);
+	});
 	return class$;
 }
 

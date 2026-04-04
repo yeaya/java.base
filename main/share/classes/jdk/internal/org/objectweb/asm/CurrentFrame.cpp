@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/CurrentFrame.h>
-
 #include <jdk/internal/org/objectweb/asm/Frame.h>
 #include <jdk/internal/org/objectweb/asm/Label.h>
 #include <jdk/internal/org/objectweb/asm/Symbol.h>
@@ -19,25 +18,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 
-$MethodInfo _CurrentFrame_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, 0, $method(CurrentFrame, init$, void, $Label*)},
-	{"execute", "(IILjdk/internal/org/objectweb/asm/Symbol;Ljdk/internal/org/objectweb/asm/SymbolTable;)V", nullptr, 0, $virtualMethod(CurrentFrame, execute, void, int32_t, int32_t, $Symbol*, $SymbolTable*)},
-	{}
-};
-
-$ClassInfo _CurrentFrame_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.CurrentFrame",
-	"jdk.internal.org.objectweb.asm.Frame",
-	nullptr,
-	nullptr,
-	_CurrentFrame_MethodInfo_
-};
-
-$Object* allocate$CurrentFrame($Class* clazz) {
-	return $of($alloc(CurrentFrame));
-}
-
 void CurrentFrame::init$($Label* owner) {
 	$Frame::init$(owner);
 }
@@ -53,7 +33,22 @@ CurrentFrame::CurrentFrame() {
 }
 
 $Class* CurrentFrame::load$($String* name, bool initialize) {
-	$loadClass(CurrentFrame, name, initialize, &_CurrentFrame_ClassInfo_, allocate$CurrentFrame);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, 0, $method(CurrentFrame, init$, void, $Label*)},
+		{"execute", "(IILjdk/internal/org/objectweb/asm/Symbol;Ljdk/internal/org/objectweb/asm/SymbolTable;)V", nullptr, 0, $virtualMethod(CurrentFrame, execute, void, int32_t, int32_t, $Symbol*, $SymbolTable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.CurrentFrame",
+		"jdk.internal.org.objectweb.asm.Frame",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrentFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrentFrame);
+	});
 	return class$;
 }
 

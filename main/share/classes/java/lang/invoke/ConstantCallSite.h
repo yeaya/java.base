@@ -32,6 +32,7 @@ class $export ConstantCallSite : public ::java::lang::invoke::CallSite {
 	$class(ConstantCallSite, 0, ::java::lang::invoke::CallSite)
 public:
 	ConstantCallSite();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodHandle* target);
 	void init$(::java::lang::invoke::MethodType* targetType, ::java::lang::invoke::MethodHandle* createTargetHook);
 	virtual ::java::lang::invoke::MethodHandle* dynamicInvoker() override;

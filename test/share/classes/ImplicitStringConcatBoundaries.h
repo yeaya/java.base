@@ -90,6 +90,7 @@ class $export ImplicitStringConcatBoundaries : public ::java::lang::Object {
 	$class(ImplicitStringConcatBoundaries, 0, ::java::lang::Object)
 public:
 	ImplicitStringConcatBoundaries();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test($String* expected, $String* actual);
@@ -111,7 +112,7 @@ public:
 	static char16_t CHAR_MAX_2;
 	static const int32_t INT_MIN_1 = 0x80000000; // Integer.MIN_VALUE
 	static int32_t INT_MIN_2;
-	static const int32_t INT_MAX_1 = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t INT_MAX_1 = 0x7fffffff; // Integer.MAX_VALUE
 	static int32_t INT_MAX_2;
 	static float FLOAT_MIN_EXP_1;
 	static float FLOAT_MIN_EXP_2;
@@ -123,7 +124,7 @@ public:
 	static float FLOAT_MAX_2;
 	static const int64_t LONG_MIN_1 = 0x8000000000000000; // Long.MIN_VALUE
 	static int64_t LONG_MIN_2;
-	static const int64_t LONG_MAX_1 = 0x7FFFFFFFFFFFFFFF; // Long.MAX_VALUE
+	static const int64_t LONG_MAX_1 = 0x7fffffffffffffff; // Long.MAX_VALUE
 	static int64_t LONG_MAX_2;
 	static double DOUBLE_MIN_EXP_1;
 	static double DOUBLE_MIN_EXP_2;

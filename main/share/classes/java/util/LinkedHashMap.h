@@ -66,7 +66,7 @@ public:
 	void transferLinks(::java::util::LinkedHashMap$Entry* src, ::java::util::LinkedHashMap$Entry* dst);
 	virtual ::java::util::Collection* values() override;
 	virtual $ObjectArray* valuesToArray($ObjectArray* a) override;
-	static const int64_t serialVersionUID = (int64_t)0x34C04E5C106CC0FB;
+	static const int64_t serialVersionUID = (int64_t)0x34c04e5c106cc0fb;
 	::java::util::LinkedHashMap$Entry* head = nullptr;
 	::java::util::LinkedHashMap$Entry* tail = nullptr;
 	bool accessOrder = false;

@@ -19,6 +19,7 @@ class Reference$ReferenceHandler : public ::java::lang::Thread {
 	$class(Reference$ReferenceHandler, $PRELOAD, ::java::lang::Thread)
 public:
 	Reference$ReferenceHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ThreadGroup* g, $String* name);
 	static void ensureClassInitialized($Class* clazz);
 	virtual void run() override;

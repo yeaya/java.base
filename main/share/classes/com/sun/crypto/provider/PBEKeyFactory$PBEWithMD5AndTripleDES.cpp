@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PBEKeyFactory$PBEWithMD5AndTripleDES.h>
-
 #include <com/sun/crypto/provider/PBEKeyFactory.h>
 #include <jcpp.h>
 
@@ -13,36 +12,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _PBEKeyFactory$PBEWithMD5AndTripleDES_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PBEKeyFactory$PBEWithMD5AndTripleDES, init$, void)},
-	{}
-};
-
-$InnerClassInfo _PBEKeyFactory$PBEWithMD5AndTripleDES_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndTripleDES", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithMD5AndTripleDES", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PBEKeyFactory$PBEWithMD5AndTripleDES_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndTripleDES",
-	"com.sun.crypto.provider.PBEKeyFactory",
-	nullptr,
-	nullptr,
-	_PBEKeyFactory$PBEWithMD5AndTripleDES_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PBEKeyFactory$PBEWithMD5AndTripleDES_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.PBEKeyFactory"
-};
-
-$Object* allocate$PBEKeyFactory$PBEWithMD5AndTripleDES($Class* clazz) {
-	return $of($alloc(PBEKeyFactory$PBEWithMD5AndTripleDES));
-}
-
 void PBEKeyFactory$PBEWithMD5AndTripleDES::init$() {
 	$PBEKeyFactory::init$("PBEWithMD5AndTripleDES"_s);
 }
@@ -51,7 +20,32 @@ PBEKeyFactory$PBEWithMD5AndTripleDES::PBEKeyFactory$PBEWithMD5AndTripleDES() {
 }
 
 $Class* PBEKeyFactory$PBEWithMD5AndTripleDES::load$($String* name, bool initialize) {
-	$loadClass(PBEKeyFactory$PBEWithMD5AndTripleDES, name, initialize, &_PBEKeyFactory$PBEWithMD5AndTripleDES_ClassInfo_, allocate$PBEKeyFactory$PBEWithMD5AndTripleDES);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PBEKeyFactory$PBEWithMD5AndTripleDES, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndTripleDES", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithMD5AndTripleDES", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndTripleDES",
+		"com.sun.crypto.provider.PBEKeyFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.PBEKeyFactory"
+	};
+	$loadClass(PBEKeyFactory$PBEWithMD5AndTripleDES, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PBEKeyFactory$PBEWithMD5AndTripleDES);
+	});
 	return class$;
 }
 

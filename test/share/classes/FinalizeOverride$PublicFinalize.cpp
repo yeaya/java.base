@@ -1,5 +1,4 @@
 #include <FinalizeOverride$PublicFinalize.h>
-
 #include <FinalizeOverride$Base.h>
 #include <FinalizeOverride.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
@@ -7,50 +6,16 @@
 
 using $FinalizeOverride = ::FinalizeOverride;
 using $FinalizeOverride$Base = ::FinalizeOverride$Base;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-
-$MethodInfo _FinalizeOverride$PublicFinalize_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(FinalizeOverride$PublicFinalize, init$, void, int32_t)},
-	{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(FinalizeOverride$PublicFinalize, finalize, void)},
-	{}
-};
-
-$InnerClassInfo _FinalizeOverride$PublicFinalize_InnerClassesInfo_[] = {
-	{"FinalizeOverride$PublicFinalize", "FinalizeOverride", "PublicFinalize", $STATIC},
-	{"FinalizeOverride$Base", "FinalizeOverride", "Base", $STATIC},
-	{}
-};
-
-$ClassInfo _FinalizeOverride$PublicFinalize_ClassInfo_ = {
-	$ACC_SUPER,
-	"FinalizeOverride$PublicFinalize",
-	"FinalizeOverride$Base",
-	nullptr,
-	nullptr,
-	_FinalizeOverride$PublicFinalize_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FinalizeOverride$PublicFinalize_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FinalizeOverride"
-};
-
-$Object* allocate$FinalizeOverride$PublicFinalize($Class* clazz) {
-	return $of($alloc(FinalizeOverride$PublicFinalize));
-}
 
 void FinalizeOverride$PublicFinalize::init$(int32_t v) {
 	$FinalizeOverride$Base::init$(v);
 }
 
 void FinalizeOverride$PublicFinalize::finalize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($FinalizeOverride);
 	$nc($FinalizeOverride::finalizedSum)->addAndGet(this->value * 100);
 	$nc($System::out)->println($$str({"PublicFinalize.finalize() sum += "_s, $$str(called()), "+"_s, $$str(this->value), "*100"_s}));
@@ -61,7 +26,34 @@ FinalizeOverride$PublicFinalize::FinalizeOverride$PublicFinalize() {
 }
 
 $Class* FinalizeOverride$PublicFinalize::load$($String* name, bool initialize) {
-	$loadClass(FinalizeOverride$PublicFinalize, name, initialize, &_FinalizeOverride$PublicFinalize_ClassInfo_, allocate$FinalizeOverride$PublicFinalize);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(FinalizeOverride$PublicFinalize, init$, void, int32_t)},
+		{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(FinalizeOverride$PublicFinalize, finalize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FinalizeOverride$PublicFinalize", "FinalizeOverride", "PublicFinalize", $STATIC},
+		{"FinalizeOverride$Base", "FinalizeOverride", "Base", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FinalizeOverride$PublicFinalize",
+		"FinalizeOverride$Base",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FinalizeOverride"
+	};
+	$loadClass(FinalizeOverride$PublicFinalize, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FinalizeOverride$PublicFinalize);
+	});
 	return class$;
 }
 

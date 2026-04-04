@@ -27,6 +27,7 @@ class ObjectStreamClass$Caches : public ::java::lang::Object {
 	$class(ObjectStreamClass$Caches, 0, ::java::lang::Object)
 public:
 	ObjectStreamClass$Caches();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::concurrent::ConcurrentMap* localDescs;
 	static ::java::util::concurrent::ConcurrentMap* reflectors;

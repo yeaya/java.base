@@ -12,7 +12,10 @@ public:
 	void init$();
 	LowLevelException(const LowLevelException& e);
 	virtual void throw$() override;
-	inline LowLevelException* operator ->() {
+	inline LowLevelException* operator ->() const {
+		return (LowLevelException*)throwing$;
+	}
+	inline operator LowLevelException*() const {
 		return (LowLevelException*)throwing$;
 	}
 };

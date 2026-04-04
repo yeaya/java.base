@@ -1,5 +1,4 @@
 #include <java/util/ImmutableCollections$Access$1.h>
-
 #include <java/util/ImmutableCollections$Access.h>
 #include <java/util/ImmutableCollections.h>
 #include <java/util/List.h>
@@ -14,45 +13,6 @@ using $List = ::java::util::List;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _ImmutableCollections$Access$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$Access$1, init$, void)},
-	{"listFromTrustedArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$Access$1, listFromTrustedArray, $List*, $ObjectArray*)},
-	{"listFromTrustedArrayNullsAllowed", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$Access$1, listFromTrustedArrayNullsAllowed, $List*, $ObjectArray*)},
-	{}
-};
-
-$EnclosingMethodInfo _ImmutableCollections$Access$1_EnclosingMethodInfo_ = {
-	"java.util.ImmutableCollections$Access",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ImmutableCollections$Access$1_InnerClassesInfo_[] = {
-	{"java.util.ImmutableCollections$Access", "java.util.ImmutableCollections", "Access", $STATIC},
-	{"java.util.ImmutableCollections$Access$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ImmutableCollections$Access$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ImmutableCollections$Access$1",
-	"java.lang.Object",
-	"jdk.internal.access.JavaUtilCollectionAccess",
-	nullptr,
-	_ImmutableCollections$Access$1_MethodInfo_,
-	nullptr,
-	&_ImmutableCollections$Access$1_EnclosingMethodInfo_,
-	_ImmutableCollections$Access$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ImmutableCollections"
-};
-
-$Object* allocate$ImmutableCollections$Access$1($Class* clazz) {
-	return $of($alloc(ImmutableCollections$Access$1));
-}
 
 void ImmutableCollections$Access$1::init$() {
 }
@@ -69,7 +29,40 @@ ImmutableCollections$Access$1::ImmutableCollections$Access$1() {
 }
 
 $Class* ImmutableCollections$Access$1::load$($String* name, bool initialize) {
-	$loadClass(ImmutableCollections$Access$1, name, initialize, &_ImmutableCollections$Access$1_ClassInfo_, allocate$ImmutableCollections$Access$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$Access$1, init$, void)},
+		{"listFromTrustedArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$Access$1, listFromTrustedArray, $List*, $ObjectArray*)},
+		{"listFromTrustedArrayNullsAllowed", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$Access$1, listFromTrustedArrayNullsAllowed, $List*, $ObjectArray*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.ImmutableCollections$Access",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ImmutableCollections$Access", "java.util.ImmutableCollections", "Access", $STATIC},
+		{"java.util.ImmutableCollections$Access$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ImmutableCollections$Access$1",
+		"java.lang.Object",
+		"jdk.internal.access.JavaUtilCollectionAccess",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ImmutableCollections"
+	};
+	$loadClass(ImmutableCollections$Access$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImmutableCollections$Access$1);
+	});
 	return class$;
 }
 

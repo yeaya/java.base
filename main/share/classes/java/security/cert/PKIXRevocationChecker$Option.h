@@ -24,6 +24,7 @@ class $export PKIXRevocationChecker$Option : public ::java::lang::Enum {
 public:
 	PKIXRevocationChecker$Option();
 	static $Array<::java::security::cert::PKIXRevocationChecker$Option>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::security::cert::PKIXRevocationChecker$Option* valueOf($String* name);
 	static $Array<::java::security::cert::PKIXRevocationChecker$Option>* values();

@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodType.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
@@ -88,7 +87,6 @@ using $MethodType$OffsetHolder = ::java::lang::invoke::MethodType$OffsetHolder;
 using $MethodTypeForm = ::java::lang::invoke::MethodTypeForm;
 using $TypeDescriptor$OfField = ::java::lang::invoke::TypeDescriptor$OfField;
 using $TypeDescriptor$OfMethod = ::java::lang::invoke::TypeDescriptor$OfMethod;
-using $Permission = ::java::security::Permission;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
@@ -99,7 +97,6 @@ using $StringJoiner = ::java::util::StringJoiner;
 using $Function = ::java::util::function::Function;
 using $IntFunction = ::java::util::function::IntFunction;
 using $Stream = ::java::util::stream::Stream;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $BytecodeDescriptor = ::sun::invoke::util::BytecodeDescriptor;
 using $VerifyType = ::sun::invoke::util::VerifyType;
 using $Wrapper = ::sun::invoke::util::Wrapper;
@@ -117,27 +114,24 @@ public:
 	virtual $Object* apply(Object$* p) override {
 		 return $of(MethodType::lambda$describeConstable$0($cast($Class, p)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MethodType$$Lambda$lambda$describeConstable$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MethodType$$Lambda$lambda$describeConstable$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodType$$Lambda$lambda$describeConstable$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodType$$Lambda$lambda$describeConstable$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo MethodType$$Lambda$lambda$describeConstable$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.invoke.MethodType$$Lambda$lambda$describeConstable$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* MethodType$$Lambda$lambda$describeConstable$0::load$($String* name, bool initialize) {
-	$loadClass(MethodType$$Lambda$lambda$describeConstable$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MethodType$$Lambda$lambda$describeConstable$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodType$$Lambda$lambda$describeConstable$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.invoke.MethodType$$Lambda$lambda$describeConstable$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MethodType$$Lambda$lambda$describeConstable$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodType$$Lambda$lambda$describeConstable$0);
+	});
 	return class$;
 }
 $Class* MethodType$$Lambda$lambda$describeConstable$0::class$ = nullptr;
@@ -148,197 +142,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(MethodType::lambda$describeConstable$1(x$0));
+		 return MethodType::lambda$describeConstable$1(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MethodType$$Lambda$lambda$describeConstable$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MethodType$$Lambda$lambda$describeConstable$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodType$$Lambda$lambda$describeConstable$1$1, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodType$$Lambda$lambda$describeConstable$1$1, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo MethodType$$Lambda$lambda$describeConstable$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.invoke.MethodType$$Lambda$lambda$describeConstable$1$1",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* MethodType$$Lambda$lambda$describeConstable$1$1::load$($String* name, bool initialize) {
-	$loadClass(MethodType$$Lambda$lambda$describeConstable$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MethodType$$Lambda$lambda$describeConstable$1$1, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodType$$Lambda$lambda$describeConstable$1$1, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.invoke.MethodType$$Lambda$lambda$describeConstable$1$1",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MethodType$$Lambda$lambda$describeConstable$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodType$$Lambda$lambda$describeConstable$1$1);
+	});
 	return class$;
 }
 $Class* MethodType$$Lambda$lambda$describeConstable$1$1::class$ = nullptr;
-
-$CompoundAttribute _MethodType_FieldAnnotations_rtype[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodType_FieldAnnotations_ptypes[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodType_FieldAnnotations_form[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodType_FieldAnnotations_wrapAlt[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodType_FieldAnnotations_invokers[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodType_FieldAnnotations_methodDescriptor[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodType_FieldAnnotations_objectOnlyTypes[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodType_FieldAnnotations_METHOD_HANDLE_ARRAY[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$FieldInfo _MethodType_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodType, $assertionsDisabled)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodType, serialVersionUID)},
-	{"rtype", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodType, rtype$), _MethodType_FieldAnnotations_rtype},
-	{"ptypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodType, ptypes$), _MethodType_FieldAnnotations_ptypes},
-	{"form", "Ljava/lang/invoke/MethodTypeForm;", nullptr, $PRIVATE, $field(MethodType, form$), _MethodType_FieldAnnotations_form},
-	{"wrapAlt", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(MethodType, wrapAlt), _MethodType_FieldAnnotations_wrapAlt},
-	{"invokers", "Ljava/lang/invoke/Invokers;", nullptr, $PRIVATE, $field(MethodType, invokers$), _MethodType_FieldAnnotations_invokers},
-	{"methodDescriptor", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MethodType, methodDescriptor), _MethodType_FieldAnnotations_methodDescriptor},
-	{"MAX_JVM_ARITY", "I", nullptr, $STATIC | $FINAL, $constField(MethodType, MAX_JVM_ARITY)},
-	{"MAX_MH_ARITY", "I", nullptr, $STATIC | $FINAL, $constField(MethodType, MAX_MH_ARITY)},
-	{"MAX_MH_INVOKER_ARITY", "I", nullptr, $STATIC | $FINAL, $constField(MethodType, MAX_MH_INVOKER_ARITY)},
-	{"internTable", "Ljava/lang/invoke/MethodType$ConcurrentWeakInternSet;", "Ljava/lang/invoke/MethodType$ConcurrentWeakInternSet<Ljava/lang/invoke/MethodType;>;", $STATIC | $FINAL, $staticField(MethodType, internTable)},
-	{"NO_PTYPES", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $STATIC | $FINAL, $staticField(MethodType, NO_PTYPES)},
-	{"objectOnlyTypes", "[Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodType, objectOnlyTypes), _MethodType_FieldAnnotations_objectOnlyTypes},
-	{"METHOD_HANDLE_ARRAY", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(MethodType, METHOD_HANDLE_ARRAY), _MethodType_FieldAnnotations_METHOD_HANDLE_ARRAY},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodType, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _MethodType_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", $PRIVATE, $method(MethodType, init$, void, $Class*, $ClassArray*)},
-	{"appendParameterTypes", "([Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "([Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $TRANSIENT, $method(MethodType, appendParameterTypes, MethodType*, $ClassArray*)},
-	{"appendParameterTypes", "(Ljava/util/List;)Ljava/lang/invoke/MethodType;", "(Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodType;", $PUBLIC, $method(MethodType, appendParameterTypes, MethodType*, $List*)},
-	{"asCollectorType", "(Ljava/lang/Class;II)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;II)Ljava/lang/invoke/MethodType;", 0, $method(MethodType, asCollectorType, MethodType*, $Class*, int32_t, int32_t)},
-	{"asSpreaderType", "(Ljava/lang/Class;II)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;II)Ljava/lang/invoke/MethodType;", 0, $method(MethodType, asSpreaderType, MethodType*, $Class*, int32_t, int32_t)},
-	{"basicType", "()Ljava/lang/invoke/MethodType;", nullptr, 0, $method(MethodType, basicType, MethodType*)},
-	{"canConvert", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(MethodType, canConvert, bool, $Class*, $Class*)},
-	{"canConvertParameters", "([Ljava/lang/Class;[Ljava/lang/Class;)Z", "([Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Z", $PRIVATE, $method(MethodType, canConvertParameters, bool, $ClassArray*, $ClassArray*)},
-	{"changeParameterType", "(ILjava/lang/Class;)Ljava/lang/invoke/MethodType;", "(ILjava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC, $method(MethodType, changeParameterType, MethodType*, int32_t, $Class*)},
-	{"changeParameterType", "(ILjava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodType, changeParameterType, $TypeDescriptor$OfMethod*, int32_t, $TypeDescriptor$OfField*)},
-	{"changeReturnType", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC, $method(MethodType, changeReturnType, MethodType*, $Class*)},
-	{"changeReturnType", "(Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodType, changeReturnType, $TypeDescriptor$OfMethod*, $TypeDescriptor$OfField*)},
-	{"checkPtypes", "([Ljava/lang/Class;)I", "([Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $staticMethod(MethodType, checkPtypes, int32_t, $ClassArray*)},
-	{"checkSlotCount", "(I)V", nullptr, $STATIC, $staticMethod(MethodType, checkSlotCount, void, int32_t)},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/constant/MethodTypeDesc;>;", $PUBLIC, $virtualMethod(MethodType, describeConstable, $Optional*)},
-	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodType, descriptorString, $String*)},
-	{"dropParameterTypes", "(II)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(MethodType, dropParameterTypes, $TypeDescriptor$OfMethod*, int32_t, int32_t)},
-	{"effectivelyIdenticalParameters", "(ILjava/util/List;)Z", "(ILjava/util/List<Ljava/lang/Class<*>;>;)Z", 0, $method(MethodType, effectivelyIdenticalParameters, bool, int32_t, $List*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodType, equals, bool, Object$*)},
-	{"equals", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE, $method(MethodType, equals, bool, MethodType*)},
-	{"erase", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MethodType, erase, MethodType*)},
-	{"explicitCastEquivalentToAsType", "(Ljava/lang/invoke/MethodType;)Z", nullptr, 0, $method(MethodType, explicitCastEquivalentToAsType, bool, MethodType*)},
-	{"explicitCastEquivalentToAsType", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodType, explicitCastEquivalentToAsType, bool, $Class*, $Class*)},
-	{"form", "()Ljava/lang/invoke/MethodTypeForm;", nullptr, 0, $method(MethodType, form, $MethodTypeForm*)},
-	{"fromDescriptor", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/invoke/MethodType;", nullptr, $STATIC, $staticMethod(MethodType, fromDescriptor, MethodType*, $String*, $ClassLoader*), "java.lang.IllegalArgumentException,java.lang.TypeNotPresentException"},
-	{"fromMethodDescriptorString", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodType, fromMethodDescriptorString, MethodType*, $String*, $ClassLoader*), "java.lang.IllegalArgumentException,java.lang.TypeNotPresentException"},
-	{"generic", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MethodType, generic, MethodType*)},
-	{"genericMethodType", "(IZ)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodType, genericMethodType, MethodType*, int32_t, bool)},
-	{"genericMethodType", "(I)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodType, genericMethodType, MethodType*, int32_t)},
-	{"hasPrimitives", "()Z", nullptr, $PUBLIC, $method(MethodType, hasPrimitives, bool)},
-	{"hasWrappers", "()Z", nullptr, $PUBLIC, $method(MethodType, hasWrappers, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MethodType, hashCode, int32_t)},
-	{"insertParameterTypes", "(I[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(I[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $TRANSIENT, $method(MethodType, insertParameterTypes, MethodType*, int32_t, $ClassArray*)},
-	{"insertParameterTypes", "(ILjava/util/List;)Ljava/lang/invoke/MethodType;", "(ILjava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodType;", $PUBLIC, $method(MethodType, insertParameterTypes, MethodType*, int32_t, $List*)},
-	{"insertParameterTypes", "(I[Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodType, insertParameterTypes, $TypeDescriptor$OfMethod*, int32_t, $TypeDescriptor$OfFieldArray*)},
-	{"invokerType", "()Ljava/lang/invoke/MethodType;", nullptr, 0, $method(MethodType, invokerType, MethodType*)},
-	{"invokers", "()Ljava/lang/invoke/Invokers;", nullptr, 0, $method(MethodType, invokers, $Invokers*)},
-	{"isConvertibleTo", "(Ljava/lang/invoke/MethodType;)Z", nullptr, 0, $method(MethodType, isConvertibleTo, bool, MethodType*)},
-	{"isGeneric", "()Z", nullptr, 0, $method(MethodType, isGeneric, bool)},
-	{"isViewableAs", "(Ljava/lang/invoke/MethodType;Z)Z", nullptr, 0, $method(MethodType, isViewableAs, bool, MethodType*, bool)},
-	{"lambda$describeConstable$0", "(Ljava/lang/Class;)Ljava/lang/constant/ClassDesc;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodType, lambda$describeConstable$0, $ClassDesc*, $Class*)},
-	{"lambda$describeConstable$1", "(I)[Ljava/lang/constant/ClassDesc;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodType, lambda$describeConstable$1, $ClassDescArray*, int32_t)},
-	{"lastParameterType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(MethodType, lastParameterType, $Class*)},
-	{"leadingReferenceParameter", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(MethodType, leadingReferenceParameter, $Class*)},
-	{"listToArray", "(Ljava/util/List;)[Ljava/lang/Class;", "(Ljava/util/List<Ljava/lang/Class<*>;>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(MethodType, listToArray, $ClassArray*, $List*)},
-	{"makeImpl", "(Ljava/lang/Class;[Ljava/lang/Class;Z)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Z)Ljava/lang/invoke/MethodType;", $STATIC, $staticMethod(MethodType, makeImpl, MethodType*, $Class*, $ClassArray*, bool)},
-	{"methodType", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC, $staticMethod(MethodType, methodType, MethodType*, $Class*, $ClassArray*)},
-	{"methodType", "(Ljava/lang/Class;Ljava/util/List;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC, $staticMethod(MethodType, methodType, MethodType*, $Class*, $List*)},
-	{"methodType", "(Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodType, methodType, MethodType*, $Class*, $Class*, $ClassArray*)},
-	{"methodType", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC, $staticMethod(MethodType, methodType, MethodType*, $Class*)},
-	{"methodType", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC, $staticMethod(MethodType, methodType, MethodType*, $Class*, $Class*)},
-	{"methodType", "(Ljava/lang/Class;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC, $staticMethod(MethodType, methodType, MethodType*, $Class*, MethodType*)},
-	{"newIndexOutOfBoundsException", "(Ljava/lang/Object;)Ljava/lang/IndexOutOfBoundsException;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodType, newIndexOutOfBoundsException, $IndexOutOfBoundsException*, Object$*)},
-	{"parameterArray", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MethodType, parameterArray, $TypeDescriptor$OfFieldArray*)},
-	{"parameterCount", "()I", nullptr, $PUBLIC, $virtualMethod(MethodType, parameterCount, int32_t)},
-	{"parameterList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(MethodType, parameterList, $List*)},
-	{"parameterSlotCount", "()I", nullptr, 0, $method(MethodType, parameterSlotCount, int32_t)},
-	{"parameterType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MethodType, parameterType, $TypeDescriptor$OfField*, int32_t)},
-	{"ptypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", 0, $method(MethodType, ptypes, $ClassArray*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MethodType, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(MethodType, readResolve, $Object*)},
-	{"replaceParameterTypes", "(II[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(II[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $TRANSIENT, $method(MethodType, replaceParameterTypes, MethodType*, int32_t, int32_t, $ClassArray*)},
-	{"returnType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MethodType, returnType, $TypeDescriptor$OfField*)},
-	{"rtype", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(MethodType, rtype, $Class*)},
-	{"setForm", "(Ljava/lang/invoke/MethodTypeForm;)V", nullptr, 0, $method(MethodType, setForm, void, $MethodTypeForm*)},
-	{"toFieldDescriptorString", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $STATIC, $staticMethod(MethodType, toFieldDescriptorString, $String*, $Class*)},
-	{"toMethodDescriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MethodType, toMethodDescriptorString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodType, toString, $String*)},
-	{"unwrap", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MethodType, unwrap, MethodType*)},
-	{"unwrapWithNoPrims", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodType, unwrapWithNoPrims, MethodType*, MethodType*)},
-	{"wrap", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MethodType, wrap, MethodType*)},
-	{"wrapWithPrims", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodType, wrapWithPrims, MethodType*, MethodType*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(MethodType, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _MethodType_InnerClassesInfo_[] = {
-	{"java.lang.invoke.TypeDescriptor$OfMethod", "java.lang.invoke.TypeDescriptor", "OfMethod", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.lang.invoke.MethodType$ConcurrentWeakInternSet", "java.lang.invoke.MethodType", "ConcurrentWeakInternSet", $PRIVATE | $STATIC},
-	{"java.lang.invoke.MethodType$OffsetHolder", "java.lang.invoke.MethodType", "OffsetHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MethodType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.invoke.MethodType",
-	"java.lang.Object",
-	"java.lang.constant.Constable,java.lang.invoke.TypeDescriptor$OfMethod,java.io.Serializable",
-	_MethodType_FieldInfo_,
-	_MethodType_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/constant/Constable;Ljava/lang/invoke/TypeDescriptor$OfMethod<Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;>;Ljava/io/Serializable;",
-	nullptr,
-	_MethodType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodType$ConcurrentWeakInternSet,java.lang.invoke.MethodType$ConcurrentWeakInternSet$WeakEntry,java.lang.invoke.MethodType$OffsetHolder"
-};
-
-$Object* allocate$MethodType($Class* clazz) {
-	return $of($alloc(MethodType));
-}
 
 $Object* MethodType::clone() {
 	 return this->$Constable::clone();
@@ -378,22 +204,17 @@ void MethodType::setForm($MethodTypeForm* f) {
 
 int32_t MethodType::checkPtypes($ClassArray* ptypes) {
 	$init(MethodType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t slots = 0;
 	{
 		$var($ClassArray, arr$, ptypes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* ptype = arr$->get(i$);
 			{
 				$Objects::requireNonNull(ptype);
-				$init($Void);
 				if (ptype == $Void::TYPE) {
 					$throw($($MethodHandleStatics::newIllegalArgumentException("parameter type cannot be void"_s)));
 				}
-				$init($Double);
-				$init($Long);
 				if (ptype == $Double::TYPE || ptype == $Long::TYPE) {
 					++slots;
 				}
@@ -406,15 +227,15 @@ int32_t MethodType::checkPtypes($ClassArray* ptypes) {
 
 void MethodType::checkSlotCount(int32_t count) {
 	$init(MethodType);
-	$useLocalCurrentObjectStackCache();
-	if (((int32_t)(count & (uint32_t)MethodType::MAX_JVM_ARITY)) != count) {
+	$useLocalObjectStack();
+	if ((count & MethodType::MAX_JVM_ARITY) != count) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"bad parameter count "_s, $$str(count)}))));
 	}
 }
 
 $IndexOutOfBoundsException* MethodType::newIndexOutOfBoundsException(Object$* num$renamed) {
 	$init(MethodType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, num, num$renamed);
 	if ($instanceOf($Integer, num)) {
 		$assign(num, $str({"bad index: "_s, num}));
@@ -436,7 +257,7 @@ MethodType* MethodType::methodType($Class* rtype, $List* ptypes) {
 $ClassArray* MethodType::listToArray($List* ptypes) {
 	$init(MethodType);
 	checkSlotCount($nc(ptypes)->size());
-	return $fcast($ClassArray, $nc(ptypes)->toArray(MethodType::NO_PTYPES));
+	return $cast($ClassArray, ptypes->toArray(MethodType::NO_PTYPES));
 }
 
 MethodType* MethodType::methodType($Class* rtype, $Class* ptype0, $ClassArray* ptypes) {
@@ -464,14 +285,14 @@ MethodType* MethodType::methodType($Class* rtype, MethodType* ptypes) {
 
 MethodType* MethodType::makeImpl($Class* rtype, $ClassArray* ptypes$renamed, bool trusted) {
 	$init(MethodType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassArray, ptypes, ptypes$renamed);
 	if ($nc(ptypes)->length == 0) {
 		$assign(ptypes, MethodType::NO_PTYPES);
 		trusted = true;
 	}
 	$var(MethodType, primordialMT, $new(MethodType, rtype, ptypes));
-	$var(MethodType, mt, $cast(MethodType, $nc(MethodType::internTable)->get(primordialMT)));
+	$var(MethodType, mt, $cast(MethodType, MethodType::internTable->get(primordialMT)));
 	if (mt != nullptr) {
 		return mt;
 	}
@@ -480,36 +301,35 @@ MethodType* MethodType::makeImpl($Class* rtype, $ClassArray* ptypes$renamed, boo
 		MethodType::checkPtypes(ptypes);
 		$assign(mt, primordialMT);
 	} else {
-		$assign(ptypes, $fcast($ClassArray, $Arrays::copyOf(ptypes, $nc(ptypes)->length)));
+		$assign(ptypes, $cast($ClassArray, $Arrays::copyOf(ptypes, $nc(ptypes)->length)));
 		MethodType::checkPtypes(ptypes);
 		$assign(mt, $new(MethodType, rtype, ptypes));
 	}
 	$set($nc(mt), form$, $MethodTypeForm::findForm(mt));
-	return $cast(MethodType, $nc(MethodType::internTable)->add(mt));
+	return $cast(MethodType, MethodType::internTable->add(mt));
 }
 
 MethodType* MethodType::genericMethodType(int32_t objectArgCount, bool finalArray) {
 	$init(MethodType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MethodType, mt, nullptr);
 	checkSlotCount(objectArgCount);
 	int32_t ivarargs = (!finalArray ? 0 : 1);
 	int32_t ootIndex = objectArgCount * 2 + ivarargs;
-	if (ootIndex < $nc(MethodType::objectOnlyTypes)->length) {
-		$assign(mt, $nc(MethodType::objectOnlyTypes)->get(ootIndex));
+	if (ootIndex < MethodType::objectOnlyTypes->length) {
+		$assign(mt, MethodType::objectOnlyTypes->get(ootIndex));
 		if (mt != nullptr) {
 			return mt;
 		}
 	}
 	$var($ClassArray, ptypes, $new($ClassArray, objectArgCount + ivarargs));
-	$Arrays::fill(ptypes, $of($Object::class$));
+	$Arrays::fill(ptypes, $Object::class$);
 	if (ivarargs != 0) {
-		$load($ObjectArray);
 		ptypes->set(objectArgCount, $getClass($ObjectArray));
 	}
 	$assign(mt, makeImpl($Object::class$, ptypes, true));
-	if (ootIndex < $nc(MethodType::objectOnlyTypes)->length) {
-		$nc(MethodType::objectOnlyTypes)->set(ootIndex, mt);
+	if (ootIndex < MethodType::objectOnlyTypes->length) {
+		MethodType::objectOnlyTypes->set(ootIndex, mt);
 	}
 	return mt;
 }
@@ -529,14 +349,14 @@ MethodType* MethodType::changeParameterType(int32_t num, $Class* nptype) {
 }
 
 MethodType* MethodType::insertParameterTypes(int32_t num, $ClassArray* ptypesToInsert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(this->ptypes$)->length;
 	if (num < 0 || num > len) {
 		$throw($(newIndexOutOfBoundsException($($Integer::valueOf(num)))));
 	}
 	int32_t ins = checkPtypes(ptypesToInsert);
 	checkSlotCount(parameterSlotCount() + $nc(ptypesToInsert)->length + ins);
-	int32_t ilen = $nc(ptypesToInsert)->length;
+	int32_t ilen = ptypesToInsert->length;
 	if (ilen == 0) {
 		return this;
 	}
@@ -564,7 +384,7 @@ MethodType* MethodType::appendParameterTypes($List* ptypesToInsert) {
 }
 
 MethodType* MethodType::replaceParameterTypes(int32_t start, int32_t end, $ClassArray* ptypesToInsert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start == end) {
 		return insertParameterTypes(start, ptypesToInsert);
 	}
@@ -576,11 +396,11 @@ MethodType* MethodType::replaceParameterTypes(int32_t start, int32_t end, $Class
 	if (ilen == 0) {
 		return $cast(MethodType, dropParameterTypes(start, end));
 	}
-	return $nc($($cast(MethodType, dropParameterTypes(start, end))))->insertParameterTypes(start, ptypesToInsert);
+	return $$sure(MethodType, dropParameterTypes(start, end))->insertParameterTypes(start, ptypesToInsert);
 }
 
 MethodType* MethodType::asSpreaderType($Class* arrayType, int32_t pos, int32_t arrayLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!MethodType::$assertionsDisabled && !(parameterCount() >= arrayLength)) {
 		$throwNew($AssertionError);
 	}
@@ -588,7 +408,6 @@ MethodType* MethodType::asSpreaderType($Class* arrayType, int32_t pos, int32_t a
 	if (arrayLength == 0) {
 		return this;
 	}
-	$load($ObjectArray);
 	if (arrayType == $getClass($ObjectArray)) {
 		if (isGeneric()) {
 			return this;
@@ -607,8 +426,8 @@ MethodType* MethodType::asSpreaderType($Class* arrayType, int32_t pos, int32_t a
 	}
 	for (int32_t i = spreadPos; i < spreadPos + arrayLength; ++i) {
 		if ($nc(this->ptypes$)->get(i) != elemType) {
-			$var($ClassArray, fixedPtypes, $cast($ClassArray, $nc(this->ptypes$)->clone()));
-			$Arrays::fill(fixedPtypes, i, spreadPos + arrayLength, $of(elemType));
+			$var($ClassArray, fixedPtypes, $cast($ClassArray, this->ptypes$->clone()));
+			$Arrays::fill(fixedPtypes, i, spreadPos + arrayLength, elemType);
 			return methodType(this->rtype$, fixedPtypes);
 		}
 	}
@@ -617,14 +436,14 @@ MethodType* MethodType::asSpreaderType($Class* arrayType, int32_t pos, int32_t a
 
 $Class* MethodType::leadingReferenceParameter() {
 	$Class* ptype = nullptr;
-	if ($nc(this->ptypes$)->length == 0 || $nc((ptype = $nc(this->ptypes$)->get(0)))->isPrimitive()) {
+	if ($nc(this->ptypes$)->length == 0 || $nc((ptype = this->ptypes$->get(0)))->isPrimitive()) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("no leading reference parameter"_s)));
 	}
 	return ptype;
 }
 
 MethodType* MethodType::asCollectorType($Class* arrayType, int32_t pos, int32_t arrayLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!MethodType::$assertionsDisabled && !(parameterCount() >= 1)) {
 		$throwNew($AssertionError);
 	}
@@ -635,14 +454,13 @@ MethodType* MethodType::asCollectorType($Class* arrayType, int32_t pos, int32_t 
 		$throwNew($AssertionError);
 	}
 	$var(MethodType, res, nullptr);
-	$load($ObjectArray);
 	if (arrayType == $getClass($ObjectArray)) {
 		$assign(res, genericMethodType(arrayLength));
 		if (this->rtype$ != $Object::class$) {
 			$assign(res, $nc(res)->changeReturnType(this->rtype$));
 		}
 	} else {
-		$Class* elemType = arrayType->getComponentType();
+		$Class* elemType = $nc(arrayType)->getComponentType();
 		if (!MethodType::$assertionsDisabled && !(elemType != nullptr)) {
 			$throwNew($AssertionError);
 		}
@@ -651,15 +469,15 @@ MethodType* MethodType::asCollectorType($Class* arrayType, int32_t pos, int32_t 
 	if ($nc(this->ptypes$)->length == 1) {
 		return res;
 	} else {
-		if (pos < $nc(this->ptypes$)->length - 1) {
-			$assign(res, $nc(res)->insertParameterTypes(arrayLength, $fcast($ClassArray, $($Arrays::copyOfRange(this->ptypes$, pos + 1, $nc(this->ptypes$)->length)))));
+		if (pos < this->ptypes$->length - 1) {
+			$assign(res, $nc(res)->insertParameterTypes(arrayLength, $$cast($ClassArray, $Arrays::copyOfRange(this->ptypes$, pos + 1, this->ptypes$->length))));
 		}
-		return $nc(res)->insertParameterTypes(0, $fcast($ClassArray, $($Arrays::copyOf(this->ptypes$, pos))));
+		return $nc(res)->insertParameterTypes(0, $$cast($ClassArray, $Arrays::copyOf(this->ptypes$, pos)));
 	}
 }
 
 $TypeDescriptor$OfMethod* MethodType::dropParameterTypes(int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(this->ptypes$)->length;
 	if (!(0 <= start && start <= end && end <= len)) {
 		$throw($(newIndexOutOfBoundsException($$str({"start="_s, $$str(start), " end="_s, $$str(end)}))));
@@ -672,13 +490,13 @@ $TypeDescriptor$OfMethod* MethodType::dropParameterTypes(int32_t start, int32_t 
 		if (end == len) {
 			$assign(nptypes, MethodType::NO_PTYPES);
 		} else {
-			$assign(nptypes, $fcast($ClassArray, $Arrays::copyOfRange(this->ptypes$, end, len)));
+			$assign(nptypes, $cast($ClassArray, $Arrays::copyOfRange(this->ptypes$, end, len)));
 		}
 	} else if (end == len) {
-		$assign(nptypes, $fcast($ClassArray, $Arrays::copyOfRange(this->ptypes$, 0, start)));
+		$assign(nptypes, $cast($ClassArray, $Arrays::copyOfRange(this->ptypes$, 0, start)));
 	} else {
 		int32_t tail = len - end;
-		$assign(nptypes, $fcast($ClassArray, $Arrays::copyOfRange(this->ptypes$, 0, start + tail)));
+		$assign(nptypes, $cast($ClassArray, $Arrays::copyOfRange(this->ptypes$, 0, start + tail)));
 		$System::arraycopy(this->ptypes$, end, nptypes, start, tail);
 	}
 	return makeImpl(this->rtype$, nptypes, true);
@@ -774,18 +592,17 @@ $TypeDescriptor$OfField* MethodType::returnType() {
 }
 
 $List* MethodType::parameterList() {
-	$useLocalCurrentObjectStackCache();
-	return $Collections::unmodifiableList($($Arrays::asList($cast($ClassArray, $($nc(this->ptypes$)->clone())))));
+	$useLocalObjectStack();
+	return $Collections::unmodifiableList($($Arrays::asList($$cast($ClassArray, $nc(this->ptypes$)->clone()))));
 }
 
 $Class* MethodType::lastParameterType() {
 	int32_t len = $nc(this->ptypes$)->length;
-	$init($Void);
-	return len == 0 ? $Void::TYPE : $nc(this->ptypes$)->get(len - 1);
+	return len == 0 ? $Void::TYPE : this->ptypes$->get(len - 1);
 }
 
 $TypeDescriptor$OfFieldArray* MethodType::parameterArray() {
-	return $fcast($TypeDescriptor$OfFieldArray, $cast($ClassArray, $nc(this->ptypes$)->clone()));
+	return $cast($TypeDescriptor$OfFieldArray, $cast($ClassArray, $nc(this->ptypes$)->clone()));
 }
 
 bool MethodType::equals(Object$* x) {
@@ -796,7 +613,7 @@ bool MethodType::equals(Object$* x) {
 		return equals($cast(MethodType, x));
 	}
 	if ($instanceOf($MethodType$ConcurrentWeakInternSet$WeakEntry, x)) {
-		$var($Object, o, $nc(($cast($MethodType$ConcurrentWeakInternSet$WeakEntry, x)))->get());
+		$var($Object, o, $cast($MethodType$ConcurrentWeakInternSet$WeakEntry, x)->get());
 		if ($instanceOf(MethodType, o)) {
 			return equals($cast(MethodType, o));
 		}
@@ -809,30 +626,28 @@ bool MethodType::equals(MethodType* that) {
 }
 
 int32_t MethodType::hashCode() {
-	int32_t hashCode = 31 + $nc($of(this->rtype$))->hashCode();
+	int32_t hashCode = 31 + $nc(this->rtype$)->hashCode();
 	{
 		$var($ClassArray, arr$, this->ptypes$);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* ptype = arr$->get(i$);
-			hashCode = 31 * hashCode + $nc($of(ptype))->hashCode();
+			hashCode = 31 * hashCode + $nc(ptype)->hashCode();
 		}
 	}
 	return hashCode;
 }
 
 $String* MethodType::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringJoiner, sj, $new($StringJoiner, ","_s, "("_s, $$str({")"_s, $($nc(this->rtype$)->getSimpleName())})));
 	for (int32_t i = 0; i < $nc(this->ptypes$)->length; ++i) {
-		sj->add($($nc($nc(this->ptypes$)->get(i))->getSimpleName()));
+		sj->add($($nc(this->ptypes$->get(i))->getSimpleName()));
 	}
 	return sj->toString();
 }
 
 bool MethodType::effectivelyIdenticalParameters(int32_t skipPos, $List* fullList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t myLen = $nc(this->ptypes$)->length;
 	int32_t fullLen = $nc(fullList)->size();
 	if (skipPos > myLen || myLen - skipPos > fullLen) {
@@ -851,24 +666,24 @@ bool MethodType::effectivelyIdenticalParameters(int32_t skipPos, $List* fullList
 }
 
 bool MethodType::isViewableAs(MethodType* newType, bool keepInterfaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* var$0 = $cast($Class, returnType());
-	if (!$VerifyType::isNullConversion(var$0, $($cast($Class, $nc(newType)->returnType())), keepInterfaces)) {
+	if (!$VerifyType::isNullConversion(var$0, $$cast($Class, $nc(newType)->returnType()), keepInterfaces)) {
 		return false;
 	}
-	if (this->form$ == $nc(newType)->form$ && $nc(this->form$)->erasedType$ == this) {
+	if (this->form$ == newType->form$ && $nc(this->form$)->erasedType$ == this) {
 		return true;
 	}
-	if (this->ptypes$ == $nc(newType)->ptypes$) {
+	if (this->ptypes$ == newType->ptypes$) {
 		return true;
 	}
 	int32_t argc = parameterCount();
-	if (argc != $nc(newType)->parameterCount()) {
+	if (argc != newType->parameterCount()) {
 		return false;
 	}
 	for (int32_t i = 0; i < argc; ++i) {
-		$Class* var$1 = $cast($Class, $nc(newType)->parameterType(i));
-		if (!$VerifyType::isNullConversion(var$1, $($cast($Class, parameterType(i))), keepInterfaces)) {
+		$Class* var$1 = $cast($Class, newType->parameterType(i));
+		if (!$VerifyType::isNullConversion(var$1, $$cast($Class, parameterType(i)), keepInterfaces)) {
 			return false;
 		}
 	}
@@ -876,14 +691,14 @@ bool MethodType::isViewableAs(MethodType* newType, bool keepInterfaces) {
 }
 
 bool MethodType::isConvertibleTo(MethodType* newType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodTypeForm, oldForm, this->form());
 	$var($MethodTypeForm, newForm, $nc(newType)->form());
 	if (oldForm == newForm) {
 		return true;
 	}
 	$Class* var$0 = $cast($Class, returnType());
-	if (!canConvert(var$0, $($cast($Class, newType->returnType())))) {
+	if (!canConvert(var$0, $$cast($Class, newType->returnType()))) {
 		return false;
 	}
 	$var($ClassArray, srcTypes, newType->ptypes$);
@@ -896,12 +711,12 @@ bool MethodType::isConvertibleTo(MethodType* newType) {
 		return false;
 	}
 	if (argc <= 1) {
-		if (argc == 1 && !canConvert($nc(srcTypes)->get(0), $nc(dstTypes)->get(0))) {
+		if (argc == 1 && !canConvert(srcTypes->get(0), dstTypes->get(0))) {
 			return false;
 		}
 		return true;
 	}
-	bool var$1 = (!$nc(oldForm)->hasPrimitives() && oldForm->erasedType$ == this);
+	bool var$1 = !$nc(oldForm)->hasPrimitives() && oldForm->erasedType$ == this;
 	if (var$1 || (!$nc(newForm)->hasPrimitives() && newForm->erasedType$ == newType)) {
 		if (!MethodType::$assertionsDisabled && !(canConvertParameters(srcTypes, dstTypes))) {
 			$throwNew($AssertionError);
@@ -912,14 +727,14 @@ bool MethodType::isConvertibleTo(MethodType* newType) {
 }
 
 bool MethodType::explicitCastEquivalentToAsType(MethodType* newType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this == newType) {
 		return true;
 	}
 	if (!explicitCastEquivalentToAsType(this->rtype$, $nc(newType)->rtype$)) {
 		return false;
 	}
-	$var($ClassArray, srcTypes, $nc(newType)->ptypes$);
+	$var($ClassArray, srcTypes, newType->ptypes$);
 	$var($ClassArray, dstTypes, this->ptypes$);
 	if (dstTypes == srcTypes) {
 		return true;
@@ -937,7 +752,6 @@ bool MethodType::explicitCastEquivalentToAsType(MethodType* newType) {
 
 bool MethodType::explicitCastEquivalentToAsType($Class* src, $Class* dst) {
 	$init(MethodType);
-	$init($Void);
 	if (src == dst || dst == $Object::class$ || dst == $Void::TYPE) {
 		return true;
 	}
@@ -962,23 +776,21 @@ bool MethodType::canConvertParameters($ClassArray* srcTypes, $ClassArray* dstTyp
 
 bool MethodType::canConvert($Class* src, $Class* dst) {
 	$init(MethodType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (src == dst || src == $Object::class$ || dst == $Object::class$) {
 		return true;
 	}
 	if ($nc(src)->isPrimitive()) {
-		$init($Void);
 		if (src == $Void::TYPE) {
 			return true;
 		}
 		$Wrapper* sw = $Wrapper::forPrimitiveType(src);
 		if ($nc(dst)->isPrimitive()) {
-			return $nc($($Wrapper::forPrimitiveType(dst)))->isConvertibleFrom(sw);
+			return $$nc($Wrapper::forPrimitiveType(dst))->isConvertibleFrom(sw);
 		} else {
 			return dst->isAssignableFrom($nc(sw)->wrapperType());
 		}
 	} else if ($nc(dst)->isPrimitive()) {
-		$init($Void);
 		if (dst == $Void::TYPE) {
 			return true;
 		}
@@ -987,7 +799,7 @@ bool MethodType::canConvert($Class* src, $Class* dst) {
 			return true;
 		}
 		bool var$0 = $Wrapper::isWrapperType(src);
-		if (var$0 && $nc(dw)->isConvertibleFrom($($Wrapper::forWrapperType(src)))) {
+		if (var$0 && dw->isConvertibleFrom($($Wrapper::forWrapperType(src)))) {
 			return true;
 		}
 		return false;
@@ -1005,13 +817,13 @@ $Invokers* MethodType::invokers() {
 	if (inv != nullptr) {
 		return inv;
 	}
-	$set(this, invokers$, ($assign(inv, $new($Invokers, this))));
+	$set(this, invokers$, $assign(inv, $new($Invokers, this)));
 	return inv;
 }
 
 MethodType* MethodType::fromMethodDescriptorString($String* descriptor, $ClassLoader* loader) {
 	$init(MethodType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (loader == nullptr) {
 		$var($SecurityManager, sm, $System::getSecurityManager());
@@ -1025,14 +837,14 @@ MethodType* MethodType::fromMethodDescriptorString($String* descriptor, $ClassLo
 
 MethodType* MethodType::fromDescriptor($String* descriptor, $ClassLoader* loader) {
 	$init(MethodType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = !$nc(descriptor)->startsWith("("_s);
-	bool var$0 = var$1 || $nc(descriptor)->indexOf((int32_t)u')') < 0;
-	if (var$0 || $nc(descriptor)->indexOf((int32_t)u'.') >= 0) {
+	bool var$0 = var$1 || descriptor->indexOf(u')') < 0;
+	if (var$0 || descriptor->indexOf(u'.') >= 0) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"not a method descriptor: "_s, descriptor}))));
 	}
 	$var($List, types, $BytecodeDescriptor::parseMethod(descriptor, loader));
-	$Class* rtype = $cast($Class, $nc(types)->remove(types->size() - 1));
+	$Class* rtype = $cast($Class, $nc(types)->remove($nc(types)->size() - 1));
 	$var($ClassArray, ptypes, listToArray(types));
 	return makeImpl(rtype, ptypes, true);
 }
@@ -1056,10 +868,10 @@ $String* MethodType::toFieldDescriptorString($Class* cls) {
 }
 
 $Optional* MethodType::describeConstable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($ClassDesc, var$0, $cast($ClassDesc, $nc($($nc($($cast($Class, returnType())))->describeConstable()))->orElseThrow()));
-		return $Optional::of($($MethodTypeDesc::of(var$0, $fcast($ClassDescArray, $($nc($($nc($($Stream::of($(parameterArray()))))->map(static_cast<$Function*>($$new(MethodType$$Lambda$lambda$describeConstable$0)))))->toArray(static_cast<$IntFunction*>($$new(MethodType$$Lambda$lambda$describeConstable$1$1))))))));
+		$var($ClassDesc, var$0, $cast($ClassDesc, $$nc($$sure($Class, returnType())->describeConstable())->orElseThrow()));
+		return $Optional::of($($MethodTypeDesc::of(var$0, $$cast($ClassDescArray, $$nc($$nc($Stream::of($(parameterArray())))->map($$new(MethodType$$Lambda$lambda$describeConstable$0)))->toArray($$new(MethodType$$Lambda$lambda$describeConstable$1$1))))));
 	} catch ($NoSuchElementException& e) {
 		return $Optional::empty();
 	}
@@ -1067,19 +879,18 @@ $Optional* MethodType::describeConstable() {
 }
 
 void MethodType::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultWriteObject();
 	s->writeObject($(returnType()));
 	s->writeObject($(parameterArray()));
 }
 
 void MethodType::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MethodHandleStatics);
 	$init($MethodType$OffsetHolder);
-	$init($Void);
 	$nc($MethodHandleStatics::UNSAFE)->putReference(this, $MethodType$OffsetHolder::rtypeOffset, $Void::TYPE);
-	$nc($MethodHandleStatics::UNSAFE)->putReference(this, $MethodType$OffsetHolder::ptypesOffset, MethodType::NO_PTYPES);
+	$MethodHandleStatics::UNSAFE->putReference(this, $MethodType$OffsetHolder::ptypesOffset, MethodType::NO_PTYPES);
 	$nc(s)->defaultReadObject();
 	$Class* returnType = $cast($Class, s->readObject());
 	$var($ClassArray, parameterArray, $cast($ClassArray, s->readObject()));
@@ -1087,13 +898,13 @@ void MethodType::readObject($ObjectInputStream* s) {
 }
 
 $Object* MethodType::readResolve() {
-	$var(MethodType, mt, $nc(($cast($MethodTypeArray, this->wrapAlt)))->get(0));
+	$var(MethodType, mt, $nc($cast($MethodTypeArray, this->wrapAlt))->get(0));
 	$set(this, wrapAlt, nullptr);
 	return $of(mt);
 }
 
 $TypeDescriptor$OfMethod* MethodType::insertParameterTypes(int32_t num, $TypeDescriptor$OfFieldArray* ptypesToInsert) {
-	return this->insertParameterTypes(num, $fcast($ClassArray, ptypesToInsert));
+	return this->insertParameterTypes(num, $cast($ClassArray, ptypesToInsert));
 }
 
 $TypeDescriptor$OfMethod* MethodType::changeParameterType(int32_t num, $TypeDescriptor$OfField* nptype) {
@@ -1111,12 +922,13 @@ $ClassDescArray* MethodType::lambda$describeConstable$1(int32_t x$0) {
 
 $ClassDesc* MethodType::lambda$describeConstable$0($Class* p) {
 	$init(MethodType);
-	return $cast($ClassDesc, $nc($($nc(p)->describeConstable()))->orElseThrow());
+	return $cast($ClassDesc, $$nc($nc(p)->describeConstable())->orElseThrow());
 }
 
-void clinit$MethodType($Class* class$) {
+void MethodType::clinit$($Class* clazz) {
 	MethodType::$assertionsDisabled = !MethodType::class$->desiredAssertionStatus();
 	{
+		;
 	}
 	$assignStatic(MethodType::internTable, $new($MethodType$ConcurrentWeakInternSet));
 	$assignStatic(MethodType::NO_PTYPES, $new($ClassArray, 0));
@@ -1131,14 +943,165 @@ MethodType::MethodType() {
 
 $Class* MethodType::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MethodType$$Lambda$lambda$describeConstable$0::classInfo$.name)) {
+		if (name->equals("java.lang.invoke.MethodType$$Lambda$lambda$describeConstable$0")) {
 			return MethodType$$Lambda$lambda$describeConstable$0::load$(name, initialize);
 		}
-		if (name->equals(MethodType$$Lambda$lambda$describeConstable$1$1::classInfo$.name)) {
+		if (name->equals("java.lang.invoke.MethodType$$Lambda$lambda$describeConstable$1$1")) {
 			return MethodType$$Lambda$lambda$describeConstable$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(MethodType, name, initialize, &_MethodType_ClassInfo_, clinit$MethodType, allocate$MethodType);
+	$CompoundAttribute rtypefieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute ptypesfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute formfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute wrapAltfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute invokersfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute methodDescriptorfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute objectOnlyTypesfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute METHOD_HANDLE_ARRAYfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodType, $assertionsDisabled)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodType, serialVersionUID)},
+		{"rtype", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodType, rtype$), rtypefieldAnnotations$$},
+		{"ptypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodType, ptypes$), ptypesfieldAnnotations$$},
+		{"form", "Ljava/lang/invoke/MethodTypeForm;", nullptr, $PRIVATE, $field(MethodType, form$), formfieldAnnotations$$},
+		{"wrapAlt", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(MethodType, wrapAlt), wrapAltfieldAnnotations$$},
+		{"invokers", "Ljava/lang/invoke/Invokers;", nullptr, $PRIVATE, $field(MethodType, invokers$), invokersfieldAnnotations$$},
+		{"methodDescriptor", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MethodType, methodDescriptor), methodDescriptorfieldAnnotations$$},
+		{"MAX_JVM_ARITY", "I", nullptr, $STATIC | $FINAL, $constField(MethodType, MAX_JVM_ARITY)},
+		{"MAX_MH_ARITY", "I", nullptr, $STATIC | $FINAL, $constField(MethodType, MAX_MH_ARITY)},
+		{"MAX_MH_INVOKER_ARITY", "I", nullptr, $STATIC | $FINAL, $constField(MethodType, MAX_MH_INVOKER_ARITY)},
+		{"internTable", "Ljava/lang/invoke/MethodType$ConcurrentWeakInternSet;", "Ljava/lang/invoke/MethodType$ConcurrentWeakInternSet<Ljava/lang/invoke/MethodType;>;", $STATIC | $FINAL, $staticField(MethodType, internTable)},
+		{"NO_PTYPES", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $STATIC | $FINAL, $staticField(MethodType, NO_PTYPES)},
+		{"objectOnlyTypes", "[Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodType, objectOnlyTypes), objectOnlyTypesfieldAnnotations$$},
+		{"METHOD_HANDLE_ARRAY", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(MethodType, METHOD_HANDLE_ARRAY), METHOD_HANDLE_ARRAYfieldAnnotations$$},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodType, serialPersistentFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", $PRIVATE, $method(MethodType, init$, void, $Class*, $ClassArray*)},
+		{"appendParameterTypes", "([Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "([Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $TRANSIENT, $method(MethodType, appendParameterTypes, MethodType*, $ClassArray*)},
+		{"appendParameterTypes", "(Ljava/util/List;)Ljava/lang/invoke/MethodType;", "(Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodType;", $PUBLIC, $method(MethodType, appendParameterTypes, MethodType*, $List*)},
+		{"asCollectorType", "(Ljava/lang/Class;II)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;II)Ljava/lang/invoke/MethodType;", 0, $method(MethodType, asCollectorType, MethodType*, $Class*, int32_t, int32_t)},
+		{"asSpreaderType", "(Ljava/lang/Class;II)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;II)Ljava/lang/invoke/MethodType;", 0, $method(MethodType, asSpreaderType, MethodType*, $Class*, int32_t, int32_t)},
+		{"basicType", "()Ljava/lang/invoke/MethodType;", nullptr, 0, $method(MethodType, basicType, MethodType*)},
+		{"canConvert", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(MethodType, canConvert, bool, $Class*, $Class*)},
+		{"canConvertParameters", "([Ljava/lang/Class;[Ljava/lang/Class;)Z", "([Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Z", $PRIVATE, $method(MethodType, canConvertParameters, bool, $ClassArray*, $ClassArray*)},
+		{"changeParameterType", "(ILjava/lang/Class;)Ljava/lang/invoke/MethodType;", "(ILjava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC, $method(MethodType, changeParameterType, MethodType*, int32_t, $Class*)},
+		{"changeParameterType", "(ILjava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodType, changeParameterType, $TypeDescriptor$OfMethod*, int32_t, $TypeDescriptor$OfField*)},
+		{"changeReturnType", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC, $method(MethodType, changeReturnType, MethodType*, $Class*)},
+		{"changeReturnType", "(Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodType, changeReturnType, $TypeDescriptor$OfMethod*, $TypeDescriptor$OfField*)},
+		{"checkPtypes", "([Ljava/lang/Class;)I", "([Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $staticMethod(MethodType, checkPtypes, int32_t, $ClassArray*)},
+		{"checkSlotCount", "(I)V", nullptr, $STATIC, $staticMethod(MethodType, checkSlotCount, void, int32_t)},
+		{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/constant/MethodTypeDesc;>;", $PUBLIC, $virtualMethod(MethodType, describeConstable, $Optional*)},
+		{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodType, descriptorString, $String*)},
+		{"dropParameterTypes", "(II)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(MethodType, dropParameterTypes, $TypeDescriptor$OfMethod*, int32_t, int32_t)},
+		{"effectivelyIdenticalParameters", "(ILjava/util/List;)Z", "(ILjava/util/List<Ljava/lang/Class<*>;>;)Z", 0, $method(MethodType, effectivelyIdenticalParameters, bool, int32_t, $List*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodType, equals, bool, Object$*)},
+		{"equals", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE, $method(MethodType, equals, bool, MethodType*)},
+		{"erase", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MethodType, erase, MethodType*)},
+		{"explicitCastEquivalentToAsType", "(Ljava/lang/invoke/MethodType;)Z", nullptr, 0, $method(MethodType, explicitCastEquivalentToAsType, bool, MethodType*)},
+		{"explicitCastEquivalentToAsType", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodType, explicitCastEquivalentToAsType, bool, $Class*, $Class*)},
+		{"form", "()Ljava/lang/invoke/MethodTypeForm;", nullptr, 0, $method(MethodType, form, $MethodTypeForm*)},
+		{"fromDescriptor", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/invoke/MethodType;", nullptr, $STATIC, $staticMethod(MethodType, fromDescriptor, MethodType*, $String*, $ClassLoader*), "java.lang.IllegalArgumentException,java.lang.TypeNotPresentException"},
+		{"fromMethodDescriptorString", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodType, fromMethodDescriptorString, MethodType*, $String*, $ClassLoader*), "java.lang.IllegalArgumentException,java.lang.TypeNotPresentException"},
+		{"generic", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MethodType, generic, MethodType*)},
+		{"genericMethodType", "(IZ)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodType, genericMethodType, MethodType*, int32_t, bool)},
+		{"genericMethodType", "(I)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodType, genericMethodType, MethodType*, int32_t)},
+		{"hasPrimitives", "()Z", nullptr, $PUBLIC, $method(MethodType, hasPrimitives, bool)},
+		{"hasWrappers", "()Z", nullptr, $PUBLIC, $method(MethodType, hasWrappers, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MethodType, hashCode, int32_t)},
+		{"insertParameterTypes", "(I[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(I[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $TRANSIENT, $method(MethodType, insertParameterTypes, MethodType*, int32_t, $ClassArray*)},
+		{"insertParameterTypes", "(ILjava/util/List;)Ljava/lang/invoke/MethodType;", "(ILjava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodType;", $PUBLIC, $method(MethodType, insertParameterTypes, MethodType*, int32_t, $List*)},
+		{"insertParameterTypes", "(I[Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodType, insertParameterTypes, $TypeDescriptor$OfMethod*, int32_t, $TypeDescriptor$OfFieldArray*)},
+		{"invokerType", "()Ljava/lang/invoke/MethodType;", nullptr, 0, $method(MethodType, invokerType, MethodType*)},
+		{"invokers", "()Ljava/lang/invoke/Invokers;", nullptr, 0, $method(MethodType, invokers, $Invokers*)},
+		{"isConvertibleTo", "(Ljava/lang/invoke/MethodType;)Z", nullptr, 0, $method(MethodType, isConvertibleTo, bool, MethodType*)},
+		{"isGeneric", "()Z", nullptr, 0, $method(MethodType, isGeneric, bool)},
+		{"isViewableAs", "(Ljava/lang/invoke/MethodType;Z)Z", nullptr, 0, $method(MethodType, isViewableAs, bool, MethodType*, bool)},
+		{"lambda$describeConstable$0", "(Ljava/lang/Class;)Ljava/lang/constant/ClassDesc;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodType, lambda$describeConstable$0, $ClassDesc*, $Class*)},
+		{"lambda$describeConstable$1", "(I)[Ljava/lang/constant/ClassDesc;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodType, lambda$describeConstable$1, $ClassDescArray*, int32_t)},
+		{"lastParameterType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(MethodType, lastParameterType, $Class*)},
+		{"leadingReferenceParameter", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(MethodType, leadingReferenceParameter, $Class*)},
+		{"listToArray", "(Ljava/util/List;)[Ljava/lang/Class;", "(Ljava/util/List<Ljava/lang/Class<*>;>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(MethodType, listToArray, $ClassArray*, $List*)},
+		{"makeImpl", "(Ljava/lang/Class;[Ljava/lang/Class;Z)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Z)Ljava/lang/invoke/MethodType;", $STATIC, $staticMethod(MethodType, makeImpl, MethodType*, $Class*, $ClassArray*, bool)},
+		{"methodType", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC, $staticMethod(MethodType, methodType, MethodType*, $Class*, $ClassArray*)},
+		{"methodType", "(Ljava/lang/Class;Ljava/util/List;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC, $staticMethod(MethodType, methodType, MethodType*, $Class*, $List*)},
+		{"methodType", "(Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodType, methodType, MethodType*, $Class*, $Class*, $ClassArray*)},
+		{"methodType", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC, $staticMethod(MethodType, methodType, MethodType*, $Class*)},
+		{"methodType", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC, $staticMethod(MethodType, methodType, MethodType*, $Class*, $Class*)},
+		{"methodType", "(Ljava/lang/Class;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC, $staticMethod(MethodType, methodType, MethodType*, $Class*, MethodType*)},
+		{"newIndexOutOfBoundsException", "(Ljava/lang/Object;)Ljava/lang/IndexOutOfBoundsException;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodType, newIndexOutOfBoundsException, $IndexOutOfBoundsException*, Object$*)},
+		{"parameterArray", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MethodType, parameterArray, $TypeDescriptor$OfFieldArray*)},
+		{"parameterCount", "()I", nullptr, $PUBLIC, $virtualMethod(MethodType, parameterCount, int32_t)},
+		{"parameterList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(MethodType, parameterList, $List*)},
+		{"parameterSlotCount", "()I", nullptr, 0, $method(MethodType, parameterSlotCount, int32_t)},
+		{"parameterType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MethodType, parameterType, $TypeDescriptor$OfField*, int32_t)},
+		{"ptypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", 0, $method(MethodType, ptypes, $ClassArray*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MethodType, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(MethodType, readResolve, $Object*)},
+		{"replaceParameterTypes", "(II[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(II[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $TRANSIENT, $method(MethodType, replaceParameterTypes, MethodType*, int32_t, int32_t, $ClassArray*)},
+		{"returnType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MethodType, returnType, $TypeDescriptor$OfField*)},
+		{"rtype", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(MethodType, rtype, $Class*)},
+		{"setForm", "(Ljava/lang/invoke/MethodTypeForm;)V", nullptr, 0, $method(MethodType, setForm, void, $MethodTypeForm*)},
+		{"toFieldDescriptorString", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $STATIC, $staticMethod(MethodType, toFieldDescriptorString, $String*, $Class*)},
+		{"toMethodDescriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MethodType, toMethodDescriptorString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodType, toString, $String*)},
+		{"unwrap", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MethodType, unwrap, MethodType*)},
+		{"unwrapWithNoPrims", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodType, unwrapWithNoPrims, MethodType*, MethodType*)},
+		{"wrap", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MethodType, wrap, MethodType*)},
+		{"wrapWithPrims", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodType, wrapWithPrims, MethodType*, MethodType*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(MethodType, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.TypeDescriptor$OfMethod", "java.lang.invoke.TypeDescriptor", "OfMethod", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.lang.invoke.MethodType$ConcurrentWeakInternSet", "java.lang.invoke.MethodType", "ConcurrentWeakInternSet", $PRIVATE | $STATIC},
+		{"java.lang.invoke.MethodType$OffsetHolder", "java.lang.invoke.MethodType", "OffsetHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.invoke.MethodType",
+		"java.lang.Object",
+		"java.lang.constant.Constable,java.lang.invoke.TypeDescriptor$OfMethod,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/constant/Constable;Ljava/lang/invoke/TypeDescriptor$OfMethod<Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodType$ConcurrentWeakInternSet,java.lang.invoke.MethodType$ConcurrentWeakInternSet$WeakEntry,java.lang.invoke.MethodType$OffsetHolder"
+	};
+	$loadClass(MethodType, name, initialize, &classInfo$$, MethodType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MethodType));
+	});
 	return class$;
 }
 

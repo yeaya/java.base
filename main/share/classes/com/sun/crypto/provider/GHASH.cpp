@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/GHASH.h>
-
 #include <java/lang/Cloneable.h>
 #include <java/lang/Math.h>
 #include <java/lang/invoke/MethodHandles.h>
@@ -33,60 +32,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$CompoundAttribute _GHASH_MethodAnnotations_processBlocks11[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _GHASH_FieldInfo_[] = {
-	{"AES_BLOCK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GHASH, AES_BLOCK_SIZE)},
-	{"asLongView", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GHASH, asLongView)},
-	{"MAX_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GHASH, MAX_LEN)},
-	{"subkeyHtbl", "[J", nullptr, $PRIVATE, $field(GHASH, subkeyHtbl)},
-	{"state", "[J", nullptr, $PRIVATE | $FINAL, $field(GHASH, state)},
-	{}
-};
-
-$MethodInfo _GHASH_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([B)V", nullptr, 0, $method(GHASH, init$, void, $bytes*), "java.security.ProviderException"},
-	{"<init>", "(Lcom/sun/crypto/provider/GHASH;)V", nullptr, $PRIVATE, $method(GHASH, init$, void, GHASH*)},
-	{"blockMult", "([J[J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GHASH, blockMult, void, $longs*, $longs*)},
-	{"clone", "()Lcom/sun/crypto/provider/GHASH;", nullptr, $PUBLIC, $virtualMethod(GHASH, clone, $Object*)},
-	{"digest", "()[B", nullptr, 0, $method(GHASH, digest, $bytes*)},
-	{"doFinal", "(Ljava/nio/ByteBuffer;I)I", nullptr, 0, $method(GHASH, doFinal, int32_t, $ByteBuffer*, int32_t)},
-	{"doFinal", "([BII)I", nullptr, 0, $method(GHASH, doFinal, int32_t, $bytes*, int32_t, int32_t)},
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GHASH, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GHASH, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*)},
-	{"ghashRangeCheck", "([BII[J[J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GHASH, ghashRangeCheck, void, $bytes*, int32_t, int32_t, $longs*, $longs*)},
-	{"processBlock", "([BI[J[J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GHASH, processBlock, void, $bytes*, int32_t, $longs*, $longs*)},
-	{"processBlocks", "([BII[J[J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GHASH, processBlocks, void, $bytes*, int32_t, int32_t, $longs*, $longs*), nullptr, nullptr, _GHASH_MethodAnnotations_processBlocks11},
-	{"processBlocksDirect", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(GHASH, processBlocksDirect, void, $ByteBuffer*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "([B)I", nullptr, 0, $method(GHASH, update, int32_t, $bytes*)},
-	{"update", "([BII)I", nullptr, 0, $method(GHASH, update, int32_t, $bytes*, int32_t, int32_t)},
-	{"update", "(Ljava/nio/ByteBuffer;I)I", nullptr, 0, $method(GHASH, update, int32_t, $ByteBuffer*, int32_t)},
-	{"update", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GHASH, update, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"update", "([BIILjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GHASH, update, int32_t, $bytes*, int32_t, int32_t, $ByteBuffer*)},
-	{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GHASH, update, int32_t, $ByteBuffer*, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _GHASH_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.GHASH",
-	"java.lang.Object",
-	"java.lang.Cloneable,com.sun.crypto.provider.GCM",
-	_GHASH_FieldInfo_,
-	_GHASH_MethodInfo_
-};
-
-$Object* allocate$GHASH($Class* clazz) {
-	return $of($alloc(GHASH));
-}
-
 int32_t GHASH::hashCode() {
 	 return this->$Cloneable::hashCode();
 }
@@ -115,43 +60,43 @@ void GHASH::blockMult($longs* st, $longs* subH) {
 	X = $nc(st)->get(0);
 	for (int32_t i = 0; i < 64; ++i) {
 		int64_t mask = X >> 63;
-		Z0 ^= (int64_t)(V0 & (uint64_t)mask);
-		Z1 ^= (int64_t)(V1 & (uint64_t)mask);
+		Z0 ^= V0 & mask;
+		Z1 ^= V1 & mask;
 		mask = (V1 << 63) >> 63;
-		int64_t carry = (int64_t)(V0 & (uint64_t)(int64_t)1);
+		int64_t carry = V0 & 1;
 		V0 = (int64_t)((uint64_t)V0 >> 1);
 		V1 = ((int64_t)((uint64_t)V1 >> 1)) | (carry << 63);
-		V0 ^= (int64_t)((int64_t)0xE100000000000000 & (uint64_t)mask);
+		V0 ^= (int64_t)0xe100000000000000 & mask;
 		X <<= 1;
 	}
 	X = st->get(1);
 	for (int32_t i = 64; i < 127; ++i) {
 		int64_t mask = X >> 63;
-		Z0 ^= (int64_t)(V0 & (uint64_t)mask);
-		Z1 ^= (int64_t)(V1 & (uint64_t)mask);
+		Z0 ^= V0 & mask;
+		Z1 ^= V1 & mask;
 		mask = (V1 << 63) >> 63;
-		int64_t carry = (int64_t)(V0 & (uint64_t)(int64_t)1);
+		int64_t carry = V0 & 1;
 		V0 = (int64_t)((uint64_t)V0 >> 1);
 		V1 = ((int64_t)((uint64_t)V1 >> 1)) | (carry << 63);
-		V0 ^= (int64_t)((int64_t)0xE100000000000000 & (uint64_t)mask);
+		V0 ^= (int64_t)0xe100000000000000 & mask;
 		X <<= 1;
 	}
 	int64_t mask = X >> 63;
-	Z0 ^= (int64_t)(V0 & (uint64_t)mask);
-	Z1 ^= (int64_t)(V1 & (uint64_t)mask);
+	Z0 ^= V0 & mask;
+	Z1 ^= V1 & mask;
 	st->set(0, Z0);
 	st->set(1, Z1);
 }
 
 void GHASH::init$($bytes* subkeyH) {
-	$useLocalCurrentObjectStackCache();
-	if ((subkeyH == nullptr) || $nc(subkeyH)->length != GHASH::AES_BLOCK_SIZE) {
+	$useLocalObjectStack();
+	if ((subkeyH == nullptr) || subkeyH->length != GHASH::AES_BLOCK_SIZE) {
 		$throwNew($ProviderException, "Internal error"_s);
 	}
 	$set(this, state, $new($longs, 2));
 	$set(this, subkeyHtbl, $new($longs, 2 * 9));
-	$nc(this->subkeyHtbl)->set(0, $longValue($nc(GHASH::asLongView)->get($$new($ObjectArray, {$of(subkeyH), $$of(0)}))));
-	$nc(this->subkeyHtbl)->set(1, $longValue($nc(GHASH::asLongView)->get($$new($ObjectArray, {$of(subkeyH), $$of(8)}))));
+	this->subkeyHtbl->set(0, $longValue($nc(GHASH::asLongView)->get($$new($ObjectArray, {subkeyH, $$of(0)}))));
+	this->subkeyHtbl->set(1, $longValue(GHASH::asLongView->get($$new($ObjectArray, {subkeyH, $$of(8)}))));
 }
 
 void GHASH::init$(GHASH* g) {
@@ -165,9 +110,9 @@ $Object* GHASH::clone() {
 
 void GHASH::processBlock($bytes* data, int32_t ofs, $longs* st, $longs* subH) {
 	$init(GHASH);
-	$useLocalCurrentObjectStackCache();
-	(*$nc(st))[0] ^= $longValue($nc(GHASH::asLongView)->get($$new($ObjectArray, {$of(data), $$of(ofs)})));
-	(*st)[1] ^= $longValue($nc(GHASH::asLongView)->get($$new($ObjectArray, {$of(data), $$of((ofs + 8))})));
+	$useLocalObjectStack();
+	(*$nc(st))[0] ^= $longValue($nc(GHASH::asLongView)->get($$new($ObjectArray, {data, $$of(ofs)})));
+	(*st)[1] ^= $longValue(GHASH::asLongView->get($$new($ObjectArray, {data, $$of(ofs + 8)})));
 	blockMult(st, subH);
 }
 
@@ -186,7 +131,7 @@ int32_t GHASH::update($bytes* in, int32_t inOfs, int32_t inLen) {
 }
 
 int32_t GHASH::update($ByteBuffer* ct, int32_t inLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	inLen -= ($mod(inLen, GHASH::AES_BLOCK_SIZE));
 	if (inLen == 0) {
 		return 0;
@@ -205,11 +150,11 @@ int32_t GHASH::update($ByteBuffer* ct, int32_t inLen) {
 	int32_t to_process = inLen;
 	$var($bytes, in, $new($bytes, $Math::min(GHASH::MAX_LEN, inLen)));
 	while (to_process > GHASH::MAX_LEN) {
-		$nc(ct)->get(in, 0, GHASH::MAX_LEN);
+		ct->get(in, 0, GHASH::MAX_LEN);
 		update(in, 0, GHASH::MAX_LEN);
 		to_process -= GHASH::MAX_LEN;
 	}
-	$nc(ct)->get(in, 0, to_process);
+	ct->get(in, 0, to_process);
 	update(in, 0, to_process);
 	return inLen;
 }
@@ -241,7 +186,7 @@ int32_t GHASH::doFinal($bytes* in, int32_t inOfs, int32_t inLen) {
 
 void GHASH::ghashRangeCheck($bytes* in, int32_t inOfs, int32_t inLen, $longs* st, $longs* subH) {
 	$init(GHASH);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inLen < 0) {
 		$throwNew($RuntimeException, $$str({"invalid input length: "_s, $$str(inLen)}));
 	}
@@ -287,12 +232,12 @@ void GHASH::processBlocksDirect($ByteBuffer* ct, int32_t inLen) {
 }
 
 $bytes* GHASH::digest() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, result, $new($bytes, GHASH::AES_BLOCK_SIZE));
-	$nc(GHASH::asLongView)->set($$new($ObjectArray, {$of(result), $$of(0), $$of($nc(this->state)->get(0))}));
-	$nc(GHASH::asLongView)->set($$new($ObjectArray, {$of(result), $$of(8), $$of($nc(this->state)->get(1))}));
-	$nc(this->state)->set(0, 0);
-	$nc(this->state)->set(1, 0);
+	$nc(GHASH::asLongView)->set($$new($ObjectArray, {result, $$of(0), $$of($nc(this->state)->get(0))}));
+	GHASH::asLongView->set($$new($ObjectArray, {result, $$of(8), $$of(this->state->get(1))}));
+	this->state->set(0, 0);
+	this->state->set(1, 0);
 	return result;
 }
 
@@ -316,8 +261,7 @@ int32_t GHASH::doFinal($ByteBuffer* src, $ByteBuffer* dst) {
 	return doFinal(src, $nc(src)->remaining());
 }
 
-void clinit$GHASH($Class* class$) {
-	$load($longs);
+void GHASH::clinit$($Class* clazz) {
 	$init($ByteOrder);
 	$assignStatic(GHASH::asLongView, $MethodHandles::byteArrayViewVarHandle($getClass($longs), $ByteOrder::BIG_ENDIAN));
 }
@@ -326,7 +270,55 @@ GHASH::GHASH() {
 }
 
 $Class* GHASH::load$($String* name, bool initialize) {
-	$loadClass(GHASH, name, initialize, &_GHASH_ClassInfo_, clinit$GHASH, allocate$GHASH);
+	$FieldInfo fieldInfos$$[] = {
+		{"AES_BLOCK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GHASH, AES_BLOCK_SIZE)},
+		{"asLongView", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GHASH, asLongView)},
+		{"MAX_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GHASH, MAX_LEN)},
+		{"subkeyHtbl", "[J", nullptr, $PRIVATE, $field(GHASH, subkeyHtbl)},
+		{"state", "[J", nullptr, $PRIVATE | $FINAL, $field(GHASH, state)},
+		{}
+	};
+	$CompoundAttribute processBlocksmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "([B)V", nullptr, 0, $method(GHASH, init$, void, $bytes*), "java.security.ProviderException"},
+		{"<init>", "(Lcom/sun/crypto/provider/GHASH;)V", nullptr, $PRIVATE, $method(GHASH, init$, void, GHASH*)},
+		{"blockMult", "([J[J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GHASH, blockMult, void, $longs*, $longs*)},
+		{"clone", "()Lcom/sun/crypto/provider/GHASH;", nullptr, $PUBLIC, $virtualMethod(GHASH, clone, $Object*)},
+		{"digest", "()[B", nullptr, 0, $method(GHASH, digest, $bytes*)},
+		{"doFinal", "(Ljava/nio/ByteBuffer;I)I", nullptr, 0, $method(GHASH, doFinal, int32_t, $ByteBuffer*, int32_t)},
+		{"doFinal", "([BII)I", nullptr, 0, $method(GHASH, doFinal, int32_t, $bytes*, int32_t, int32_t)},
+		{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GHASH, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GHASH, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*)},
+		{"ghashRangeCheck", "([BII[J[J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GHASH, ghashRangeCheck, void, $bytes*, int32_t, int32_t, $longs*, $longs*)},
+		{"processBlock", "([BI[J[J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GHASH, processBlock, void, $bytes*, int32_t, $longs*, $longs*)},
+		{"processBlocks", "([BII[J[J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GHASH, processBlocks, void, $bytes*, int32_t, int32_t, $longs*, $longs*), nullptr, nullptr, processBlocksmethodAnnotations$$},
+		{"processBlocksDirect", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(GHASH, processBlocksDirect, void, $ByteBuffer*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"update", "([B)I", nullptr, 0, $method(GHASH, update, int32_t, $bytes*)},
+		{"update", "([BII)I", nullptr, 0, $method(GHASH, update, int32_t, $bytes*, int32_t, int32_t)},
+		{"update", "(Ljava/nio/ByteBuffer;I)I", nullptr, 0, $method(GHASH, update, int32_t, $ByteBuffer*, int32_t)},
+		{"update", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GHASH, update, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"update", "([BIILjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GHASH, update, int32_t, $bytes*, int32_t, int32_t, $ByteBuffer*)},
+		{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GHASH, update, int32_t, $ByteBuffer*, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.GHASH",
+		"java.lang.Object",
+		"java.lang.Cloneable,com.sun.crypto.provider.GCM",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GHASH, name, initialize, &classInfo$$, GHASH::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GHASH));
+	});
 	return class$;
 }
 

@@ -31,6 +31,7 @@ class CertificateVerify$T13CertificateVerifyMessage : public ::sun::security::ss
 	$class(CertificateVerify$T13CertificateVerifyMessage, 0, ::sun::security::ssl::SSLHandshake$HandshakeMessage)
 public:
 	CertificateVerify$T13CertificateVerifyMessage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::HandshakeContext* context, ::sun::security::ssl::X509Authentication$X509Possession* x509Possession);
 	void init$(::sun::security::ssl::HandshakeContext* context, ::java::nio::ByteBuffer* m);
 	virtual ::sun::security::ssl::SSLHandshake* handshakeType() override;

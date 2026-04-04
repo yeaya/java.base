@@ -1,5 +1,4 @@
 #include <java/io/Console$2.h>
-
 #include <java/io/Console.h>
 #include <java/nio/charset/Charset.h>
 #include <jcpp.h>
@@ -16,50 +15,11 @@ using $Charset = ::java::nio::charset::Charset;
 namespace java {
 	namespace io {
 
-$MethodInfo _Console$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Console$2, init$, void)},
-	{"charset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(Console$2, charset, $Charset*)},
-	{"console", "()Ljava/io/Console;", nullptr, $PUBLIC, $virtualMethod(Console$2, console, $Console*)},
-	{}
-};
-
-$EnclosingMethodInfo _Console$2_EnclosingMethodInfo_ = {
-	"java.io.Console",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Console$2_InnerClassesInfo_[] = {
-	{"java.io.Console$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Console$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.Console$2",
-	"java.lang.Object",
-	"jdk.internal.access.JavaIOAccess",
-	nullptr,
-	_Console$2_MethodInfo_,
-	nullptr,
-	&_Console$2_EnclosingMethodInfo_,
-	_Console$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.Console"
-};
-
-$Object* allocate$Console$2($Class* clazz) {
-	return $of($alloc(Console$2));
-}
-
 void Console$2::init$() {
 }
 
 $Console* Console$2::console() {
 	if ($Console::istty()) {
-		$init($Console);
 		if ($Console::cons == nullptr) {
 			$assignStatic($Console::cons, $new($Console));
 		}
@@ -77,7 +37,39 @@ Console$2::Console$2() {
 }
 
 $Class* Console$2::load$($String* name, bool initialize) {
-	$loadClass(Console$2, name, initialize, &_Console$2_ClassInfo_, allocate$Console$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Console$2, init$, void)},
+		{"charset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(Console$2, charset, $Charset*)},
+		{"console", "()Ljava/io/Console;", nullptr, $PUBLIC, $virtualMethod(Console$2, console, $Console*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.io.Console",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.Console$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.Console$2",
+		"java.lang.Object",
+		"jdk.internal.access.JavaIOAccess",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.Console"
+	};
+	$loadClass(Console$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Console$2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <AnnotationToStringTest.h>
-
 #include <AnnotationToStringTest$AnnotationHost.h>
 #include <AnnotationToStringTest$ArrayAnnotationHost.h>
 #include <AnnotationToStringTest$PrimHost.h>
@@ -18,7 +17,6 @@ using $ExpectedString = ::ExpectedString;
 using $MostlyPrimitive = ::MostlyPrimitive;
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $FieldArray = $Array<::java::lang::reflect::Field>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,52 +24,17 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $Field = ::java::lang::reflect::Field;
 
-$MethodInfo _AnnotationToStringTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationToStringTest, init$, void)},
-	{"arrayAnnotationTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationToStringTest, arrayAnnotationTest, int32_t)},
-	{"check", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationToStringTest, check, int32_t, $String*, $String*)},
-	{"classyTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationToStringTest, classyTest, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(AnnotationToStringTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _AnnotationToStringTest_InnerClassesInfo_[] = {
-	{"AnnotationToStringTest$ArrayAnnotationHost", "AnnotationToStringTest", "ArrayAnnotationHost", $STATIC},
-	{"AnnotationToStringTest$AnnotationHost", "AnnotationToStringTest", "AnnotationHost", $STATIC},
-	{"AnnotationToStringTest$PrimHost", "AnnotationToStringTest", "PrimHost", $STATIC},
-	{}
-};
-
-$ClassInfo _AnnotationToStringTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"AnnotationToStringTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AnnotationToStringTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnnotationToStringTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"AnnotationToStringTest$ArrayAnnotationHost,AnnotationToStringTest$AnnotationHost,AnnotationToStringTest$PrimHost"
-};
-
-$Object* allocate$AnnotationToStringTest($Class* clazz) {
-	return $of($alloc(AnnotationToStringTest));
-}
-
 void AnnotationToStringTest::init$() {
 }
 
 void AnnotationToStringTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$load($AnnotationToStringTest$PrimHost);
 	$load($ExpectedString);
-	$var($String, var$0, $nc(($cast($ExpectedString, $($AnnotationToStringTest$PrimHost::class$->getAnnotation($ExpectedString::class$)))))->value());
+	$var($String, var$0, $$sure($ExpectedString, $AnnotationToStringTest$PrimHost::class$->getAnnotation($ExpectedString::class$))->value());
 	$load($MostlyPrimitive);
-	failures += check(var$0, $($nc($of(($cast($MostlyPrimitive, $($AnnotationToStringTest$PrimHost::class$->getAnnotation($MostlyPrimitive::class$))))))->toString()));
+	failures += check(var$0, $($$sure($MostlyPrimitive, $AnnotationToStringTest$PrimHost::class$->getAnnotation($MostlyPrimitive::class$))->toString()));
 	failures += classyTest();
 	failures += arrayAnnotationTest();
 	if (failures > 0) {
@@ -82,8 +45,8 @@ void AnnotationToStringTest::main($StringArray* args) {
 int32_t AnnotationToStringTest::check($String* expected, $String* actual) {
 	if (!$nc(expected)->equals(actual)) {
 		$nc($System::err)->printf("ERROR: Expected \'\'%s\'\';%ngot             \'\'%s\'\'.\n"_s, $$new($ObjectArray, {
-			$of(expected),
-			$of(actual)
+			expected,
+			actual
 		}));
 		return 1;
 	} else {
@@ -92,23 +55,21 @@ int32_t AnnotationToStringTest::check($String* expected, $String* actual) {
 }
 
 int32_t AnnotationToStringTest::classyTest() {
+	$useLocalObjectStack();
 	$load(AnnotationToStringTest);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failures = 0;
 	{
 		$load($AnnotationToStringTest$AnnotationHost);
 		$var($FieldArray, arr$, $AnnotationToStringTest$AnnotationHost::class$->getFields());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Field, f, arr$->get(i$));
 			{
 				$load($Classy);
 				$var($Annotation, a, $nc(f)->getAnnotation($Classy::class$));
-				$nc($System::out)->println($of(a));
+				$nc($System::out)->println(a);
 				$load($ExpectedString);
-				$var($String, var$0, $nc(($cast($ExpectedString, $(f->getAnnotation($ExpectedString::class$)))))->value());
+				$var($String, var$0, $$sure($ExpectedString, f->getAnnotation($ExpectedString::class$))->value());
 				failures += check(var$0, $($nc(a)->toString()));
 			}
 		}
@@ -117,21 +78,19 @@ int32_t AnnotationToStringTest::classyTest() {
 }
 
 int32_t AnnotationToStringTest::arrayAnnotationTest() {
+	$useLocalObjectStack();
 	$load(AnnotationToStringTest);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failures = 0;
 	{
 		$load($AnnotationToStringTest$ArrayAnnotationHost);
 		$var($FieldArray, arr$, $AnnotationToStringTest$ArrayAnnotationHost::class$->getFields());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Field, f, arr$->get(i$));
 			{
 				$var($AnnotationArray, annotations, $nc(f)->getAnnotations());
-				$nc($System::out)->println($of($nc(annotations)->get(1)));
-				$var($String, var$0, $nc(($cast($ExpectedString, $nc(annotations)->get(0))))->value());
+				$nc($System::out)->println($nc(annotations)->get(1));
+				$var($String, var$0, $nc($cast($ExpectedString, annotations->get(0)))->value());
 				failures += check(var$0, $($nc(annotations->get(1))->toString()));
 			}
 		}
@@ -143,7 +102,37 @@ AnnotationToStringTest::AnnotationToStringTest() {
 }
 
 $Class* AnnotationToStringTest::load$($String* name, bool initialize) {
-	$loadClass(AnnotationToStringTest, name, initialize, &_AnnotationToStringTest_ClassInfo_, allocate$AnnotationToStringTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationToStringTest, init$, void)},
+		{"arrayAnnotationTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationToStringTest, arrayAnnotationTest, int32_t)},
+		{"check", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationToStringTest, check, int32_t, $String*, $String*)},
+		{"classyTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationToStringTest, classyTest, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(AnnotationToStringTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AnnotationToStringTest$ArrayAnnotationHost", "AnnotationToStringTest", "ArrayAnnotationHost", $STATIC},
+		{"AnnotationToStringTest$AnnotationHost", "AnnotationToStringTest", "AnnotationHost", $STATIC},
+		{"AnnotationToStringTest$PrimHost", "AnnotationToStringTest", "PrimHost", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"AnnotationToStringTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"AnnotationToStringTest$ArrayAnnotationHost,AnnotationToStringTest$AnnotationHost,AnnotationToStringTest$PrimHost"
+	};
+	$loadClass(AnnotationToStringTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationToStringTest);
+	});
 	return class$;
 }
 

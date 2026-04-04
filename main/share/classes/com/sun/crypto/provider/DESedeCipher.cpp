@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DESedeCipher.h>
-
 #include <com/sun/crypto/provider/CipherCore.h>
 #include <com/sun/crypto/provider/DESConstants.h>
 #include <com/sun/crypto/provider/DESedeCrypt.h>
@@ -18,7 +17,6 @@
 using $CipherCore = ::com::sun::crypto::provider::CipherCore;
 using $DESConstants = ::com::sun::crypto::provider::DESConstants;
 using $DESedeCrypt = ::com::sun::crypto::provider::DESedeCrypt;
-using $SymmetricCipher = ::com::sun::crypto::provider::SymmetricCipher;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -34,45 +32,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _DESedeCipher_FieldInfo_[] = {
-	{"core", "Lcom/sun/crypto/provider/CipherCore;", nullptr, $PRIVATE, $field(DESedeCipher, core)},
-	{}
-};
-
-$MethodInfo _DESedeCipher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DESedeCipher, init$, void)},
-	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException,javax.crypto.BadPaddingException"},
-	{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineGetBlockSize, int32_t)},
-	{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineGetIV, $bytes*)},
-	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineGetOutputSize, int32_t, int32_t)},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
-	{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _DESedeCipher_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DESedeCipher",
-	"javax.crypto.CipherSpi",
-	nullptr,
-	_DESedeCipher_FieldInfo_,
-	_DESedeCipher_MethodInfo_
-};
-
-$Object* allocate$DESedeCipher($Class* clazz) {
-	return $of($alloc(DESedeCipher));
-}
 
 void DESedeCipher::init$() {
 	$CipherSpi::init$();
@@ -133,7 +92,7 @@ $AlgorithmParameters* DESedeCipher::engineGetParameters() {
 }
 
 int32_t DESedeCipher::engineGetKeySize($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, $nc(key)->getEncoded());
 	$Arrays::fill(encoded, (int8_t)0);
 	if ($nc(encoded)->length != 24) {
@@ -154,7 +113,41 @@ DESedeCipher::DESedeCipher() {
 }
 
 $Class* DESedeCipher::load$($String* name, bool initialize) {
-	$loadClass(DESedeCipher, name, initialize, &_DESedeCipher_ClassInfo_, allocate$DESedeCipher);
+	$FieldInfo fieldInfos$$[] = {
+		{"core", "Lcom/sun/crypto/provider/CipherCore;", nullptr, $PRIVATE, $field(DESedeCipher, core)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DESedeCipher, init$, void)},
+		{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException,javax.crypto.BadPaddingException"},
+		{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineGetBlockSize, int32_t)},
+		{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineGetIV, $bytes*)},
+		{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
+		{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineGetOutputSize, int32_t, int32_t)},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
+		{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+		{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(DESedeCipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DESedeCipher",
+		"javax.crypto.CipherSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DESedeCipher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DESedeCipher);
+	});
 	return class$;
 }
 

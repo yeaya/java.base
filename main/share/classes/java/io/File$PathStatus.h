@@ -19,6 +19,7 @@ class File$PathStatus : public ::java::lang::Enum {
 public:
 	File$PathStatus();
 	static $Array<::java::io::File$PathStatus>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::io::File$PathStatus* valueOf($String* name);
 	static $Array<::java::io::File$PathStatus>* values();

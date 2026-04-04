@@ -29,6 +29,7 @@ class $export SAXException : public ::java::lang::Exception {
 	$class(SAXException, 0, ::java::lang::Exception)
 public:
 	SAXException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* message);
 	void init$(::java::lang::Exception* e);
@@ -41,10 +42,13 @@ public:
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
-	static const int64_t serialVersionUID = (int64_t)0x0818172D57A7FE20;
+	static const int64_t serialVersionUID = (int64_t)0x0818172d57a7fe20;
 	SAXException(const SAXException& e);
 	virtual void throw$() override;
-	inline SAXException* operator ->() {
+	inline SAXException* operator ->() const {
+		return (SAXException*)throwing$;
+	}
+	inline operator SAXException*() const {
 		return (SAXException*)throwing$;
 	}
 };

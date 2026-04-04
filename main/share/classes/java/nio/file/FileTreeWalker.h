@@ -39,6 +39,7 @@ class FileTreeWalker : public ::java::io::Closeable {
 	$class(FileTreeWalker, 0, ::java::io::Closeable)
 public:
 	FileTreeWalker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Collection* options, int32_t maxDepth);
 	virtual void close() override;
 	::java::nio::file::attribute::BasicFileAttributes* getAttributes(::java::nio::file::Path* file, bool canUseCached);

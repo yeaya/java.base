@@ -26,6 +26,7 @@ class HostPortrange : public ::java::lang::Object {
 public:
 	HostPortrange();
 	using ::java::lang::Object::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* scheme, $String* str);
 	virtual $ints* defaultPort();
 	virtual bool equals(::java::net::HostPortrange* that);

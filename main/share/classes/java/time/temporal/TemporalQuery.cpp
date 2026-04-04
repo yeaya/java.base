@@ -1,5 +1,4 @@
 #include <java/time/temporal/TemporalQuery.h>
-
 #include <java/time/temporal/TemporalAccessor.h>
 #include <jcpp.h>
 
@@ -12,35 +11,30 @@ namespace java {
 	namespace time {
 		namespace temporal {
 
-$CompoundAttribute _TemporalQuery_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _TemporalQuery_MethodInfo_[] = {
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", "(Ljava/time/temporal/TemporalAccessor;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TemporalQuery, queryFrom, $Object*, $TemporalAccessor*)},
-	{}
-};
-
-$ClassInfo _TemporalQuery_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.time.temporal.TemporalQuery",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TemporalQuery_MethodInfo_,
-	"<R:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	nullptr,
-	_TemporalQuery_Annotations_
-};
-
-$Object* allocate$TemporalQuery($Class* clazz) {
-	return $of($alloc(TemporalQuery));
-}
-
 $Class* TemporalQuery::load$($String* name, bool initialize) {
-	$loadClass(TemporalQuery, name, initialize, &_TemporalQuery_ClassInfo_, allocate$TemporalQuery);
+	$MethodInfo methodInfos$$[] = {
+		{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", "(Ljava/time/temporal/TemporalAccessor;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TemporalQuery, queryFrom, $Object*, $TemporalAccessor*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.time.temporal.TemporalQuery",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<R:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(TemporalQuery, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TemporalQuery);
+	});
 	return class$;
 }
 

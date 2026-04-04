@@ -125,6 +125,7 @@ public:
 	ConcurrentHashMap();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t initialCapacity);
 	void init$(::java::util::Map* m);
@@ -218,10 +219,10 @@ public:
 	static ::java::util::concurrent::ConcurrentHashMap$Node* untreeify(::java::util::concurrent::ConcurrentHashMap$Node* b);
 	virtual ::java::util::Collection* values() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x6499DE129D87293D;
+	static const int64_t serialVersionUID = (int64_t)0x6499de129d87293d;
 	static const int32_t MAXIMUM_CAPACITY = 0x40000000; // 1 << 30
 	static const int32_t DEFAULT_CAPACITY = 16;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
+	static const int32_t MAX_ARRAY_SIZE = 0x7ffffff7; // Integer.MAX_VALUE - 8
 	static const int32_t DEFAULT_CONCURRENCY_LEVEL = 16;
 	static float LOAD_FACTOR;
 	static const int32_t TREEIFY_THRESHOLD = 8;
@@ -234,7 +235,7 @@ public:
 	static const int32_t MOVED = (-1);
 	static const int32_t TREEBIN = (-2);
 	static const int32_t RESERVED = (-3);
-	static const int32_t HASH_BITS = 0x7FFFFFFF;
+	static const int32_t HASH_BITS = 0x7fffffff;
 	static int32_t NCPU;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	$volatile($Array<::java::util::concurrent::ConcurrentHashMap$Node>*) table = nullptr;

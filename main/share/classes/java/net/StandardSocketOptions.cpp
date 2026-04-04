@@ -1,5 +1,4 @@
 #include <java/net/StandardSocketOptions.h>
-
 #include <java/net/NetworkInterface.h>
 #include <java/net/SocketOption.h>
 #include <java/net/StandardSocketOptions$StdSocketOption.h>
@@ -31,51 +30,6 @@ using $StandardSocketOptions$StdSocketOption = ::java::net::StandardSocketOption
 namespace java {
 	namespace net {
 
-$FieldInfo _StandardSocketOptions_FieldInfo_[] = {
-	{"SO_BROADCAST", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_BROADCAST)},
-	{"SO_KEEPALIVE", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_KEEPALIVE)},
-	{"SO_SNDBUF", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_SNDBUF)},
-	{"SO_RCVBUF", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_RCVBUF)},
-	{"SO_REUSEADDR", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_REUSEADDR)},
-	{"SO_REUSEPORT", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_REUSEPORT)},
-	{"SO_LINGER", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_LINGER)},
-	{"IP_TOS", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, IP_TOS)},
-	{"IP_MULTICAST_IF", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/net/NetworkInterface;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, IP_MULTICAST_IF)},
-	{"IP_MULTICAST_TTL", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, IP_MULTICAST_TTL)},
-	{"IP_MULTICAST_LOOP", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, IP_MULTICAST_LOOP)},
-	{"TCP_NODELAY", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, TCP_NODELAY)},
-	{}
-};
-
-$MethodInfo _StandardSocketOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StandardSocketOptions, init$, void)},
-	{}
-};
-
-$InnerClassInfo _StandardSocketOptions_InnerClassesInfo_[] = {
-	{"java.net.StandardSocketOptions$StdSocketOption", "java.net.StandardSocketOptions", "StdSocketOption", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _StandardSocketOptions_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.net.StandardSocketOptions",
-	"java.lang.Object",
-	nullptr,
-	_StandardSocketOptions_FieldInfo_,
-	_StandardSocketOptions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StandardSocketOptions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.StandardSocketOptions$StdSocketOption"
-};
-
-$Object* allocate$StandardSocketOptions($Class* clazz) {
-	return $of($alloc(StandardSocketOptions));
-}
-
 $SocketOption* StandardSocketOptions::SO_BROADCAST = nullptr;
 $SocketOption* StandardSocketOptions::SO_KEEPALIVE = nullptr;
 $SocketOption* StandardSocketOptions::SO_SNDBUF = nullptr;
@@ -92,11 +46,9 @@ $SocketOption* StandardSocketOptions::TCP_NODELAY = nullptr;
 void StandardSocketOptions::init$() {
 }
 
-void clinit$StandardSocketOptions($Class* class$) {
-	$load($Boolean);
+void StandardSocketOptions::clinit$($Class* clazz) {
 	$assignStatic(StandardSocketOptions::SO_BROADCAST, $new($StandardSocketOptions$StdSocketOption, "SO_BROADCAST"_s, $Boolean::class$));
 	$assignStatic(StandardSocketOptions::SO_KEEPALIVE, $new($StandardSocketOptions$StdSocketOption, "SO_KEEPALIVE"_s, $Boolean::class$));
-	$load($Integer);
 	$assignStatic(StandardSocketOptions::SO_SNDBUF, $new($StandardSocketOptions$StdSocketOption, "SO_SNDBUF"_s, $Integer::class$));
 	$assignStatic(StandardSocketOptions::SO_RCVBUF, $new($StandardSocketOptions$StdSocketOption, "SO_RCVBUF"_s, $Integer::class$));
 	$assignStatic(StandardSocketOptions::SO_REUSEADDR, $new($StandardSocketOptions$StdSocketOption, "SO_REUSEADDR"_s, $Boolean::class$));
@@ -114,7 +66,46 @@ StandardSocketOptions::StandardSocketOptions() {
 }
 
 $Class* StandardSocketOptions::load$($String* name, bool initialize) {
-	$loadClass(StandardSocketOptions, name, initialize, &_StandardSocketOptions_ClassInfo_, clinit$StandardSocketOptions, allocate$StandardSocketOptions);
+	$FieldInfo fieldInfos$$[] = {
+		{"SO_BROADCAST", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_BROADCAST)},
+		{"SO_KEEPALIVE", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_KEEPALIVE)},
+		{"SO_SNDBUF", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_SNDBUF)},
+		{"SO_RCVBUF", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_RCVBUF)},
+		{"SO_REUSEADDR", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_REUSEADDR)},
+		{"SO_REUSEPORT", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_REUSEPORT)},
+		{"SO_LINGER", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, SO_LINGER)},
+		{"IP_TOS", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, IP_TOS)},
+		{"IP_MULTICAST_IF", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/net/NetworkInterface;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, IP_MULTICAST_IF)},
+		{"IP_MULTICAST_TTL", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, IP_MULTICAST_TTL)},
+		{"IP_MULTICAST_LOOP", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, IP_MULTICAST_LOOP)},
+		{"TCP_NODELAY", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(StandardSocketOptions, TCP_NODELAY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StandardSocketOptions, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.StandardSocketOptions$StdSocketOption", "java.net.StandardSocketOptions", "StdSocketOption", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.net.StandardSocketOptions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.StandardSocketOptions$StdSocketOption"
+	};
+	$loadClass(StandardSocketOptions, name, initialize, &classInfo$$, StandardSocketOptions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardSocketOptions);
+	});
 	return class$;
 }
 

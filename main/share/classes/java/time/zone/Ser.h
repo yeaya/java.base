@@ -48,7 +48,7 @@ public:
 	virtual void writeExternal(::java::io::ObjectOutput* out) override;
 	static void writeInternal(int8_t type, Object$* object, ::java::io::DataOutput* out);
 	static void writeOffset(::java::time::ZoneOffset* offset, ::java::io::DataOutput* out);
-	static const int64_t serialVersionUID = (int64_t)0x84B0FEEB7C1A53BE;
+	static const int64_t serialVersionUID = (int64_t)0x84b0feeb7c1a53be;
 	static const int8_t ZRULES = 1;
 	static const int8_t ZOT = 2;
 	static const int8_t ZOTRULE = 3;

@@ -32,6 +32,7 @@ class $export HttpCookie : public ::java::lang::Cloneable {
 	$class(HttpCookie, 0, ::java::lang::Cloneable)
 public:
 	HttpCookie();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $String* value);
 	void init$($String* name, $String* value, $String* header);
 	void init$($String* name, $String* value, $String* header, int64_t creationTime);

@@ -17,6 +17,7 @@ class $export Append : public ::java::lang::Object {
 	$class(Append, 0, ::java::lang::Object)
 public:
 	Append();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test($Class* c, bool io);

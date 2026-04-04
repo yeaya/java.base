@@ -15,10 +15,13 @@ public:
 	CancellationException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x804B5067C84F2819;
+	static const int64_t serialVersionUID = (int64_t)0x804b5067c84f2819;
 	CancellationException(const CancellationException& e);
 	virtual void throw$() override;
-	inline CancellationException* operator ->() {
+	inline CancellationException* operator ->() const {
+		return (CancellationException*)throwing$;
+	}
+	inline operator CancellationException*() const {
 		return (CancellationException*)throwing$;
 	}
 };

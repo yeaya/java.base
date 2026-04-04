@@ -26,6 +26,7 @@ class $import ChaCha20Poly1305Parameters : public ::java::security::AlgorithmPar
 	$class(ChaCha20Poly1305Parameters, 0, ::java::security::AlgorithmParametersSpi)
 public:
 	ChaCha20Poly1305Parameters();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $bytes* engineGetEncoded() override;
 	virtual $bytes* engineGetEncoded($String* encodingMethod) override;

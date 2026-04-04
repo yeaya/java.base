@@ -1,5 +1,4 @@
 #include <sun/security/x509/DeltaCRLIndicatorExtension.h>
-
 #include <java/io/OutputStream.h>
 #include <java/math/BigInteger.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -25,39 +24,12 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _DeltaCRLIndicatorExtension_FieldInfo_[] = {
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DeltaCRLIndicatorExtension, NAME)},
-	{"LABEL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DeltaCRLIndicatorExtension, LABEL)},
-	{}
-};
-
-$MethodInfo _DeltaCRLIndicatorExtension_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(DeltaCRLIndicatorExtension, init$, void, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DeltaCRLIndicatorExtension, init$, void, $BigInteger*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DeltaCRLIndicatorExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DeltaCRLIndicatorExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DeltaCRLIndicatorExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.DeltaCRLIndicatorExtension",
-	"sun.security.x509.CRLNumberExtension",
-	nullptr,
-	_DeltaCRLIndicatorExtension_FieldInfo_,
-	_DeltaCRLIndicatorExtension_MethodInfo_
-};
-
-$Object* allocate$DeltaCRLIndicatorExtension($Class* clazz) {
-	return $of($alloc(DeltaCRLIndicatorExtension));
-}
-
 $String* DeltaCRLIndicatorExtension::NAME = nullptr;
 $String* DeltaCRLIndicatorExtension::LABEL = nullptr;
 
 void DeltaCRLIndicatorExtension::init$(int32_t crlNum) {
 	$init($PKIXExtensions);
-	$CRLNumberExtension::init$($PKIXExtensions::DeltaCRLIndicator_Id, true, $($BigInteger::valueOf((int64_t)crlNum)), DeltaCRLIndicatorExtension::NAME, DeltaCRLIndicatorExtension::LABEL);
+	$CRLNumberExtension::init$($PKIXExtensions::DeltaCRLIndicator_Id, true, $($BigInteger::valueOf(crlNum)), DeltaCRLIndicatorExtension::NAME, DeltaCRLIndicatorExtension::LABEL);
 }
 
 void DeltaCRLIndicatorExtension::init$($BigInteger* crlNum) {
@@ -79,13 +51,35 @@ void DeltaCRLIndicatorExtension::encode($OutputStream* out) {
 DeltaCRLIndicatorExtension::DeltaCRLIndicatorExtension() {
 }
 
-void clinit$DeltaCRLIndicatorExtension($Class* class$) {
+void DeltaCRLIndicatorExtension::clinit$($Class* clazz) {
 	$assignStatic(DeltaCRLIndicatorExtension::NAME, "DeltaCRLIndicator"_s);
 	$assignStatic(DeltaCRLIndicatorExtension::LABEL, "Base CRL Number"_s);
 }
 
 $Class* DeltaCRLIndicatorExtension::load$($String* name, bool initialize) {
-	$loadClass(DeltaCRLIndicatorExtension, name, initialize, &_DeltaCRLIndicatorExtension_ClassInfo_, clinit$DeltaCRLIndicatorExtension, allocate$DeltaCRLIndicatorExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DeltaCRLIndicatorExtension, NAME)},
+		{"LABEL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DeltaCRLIndicatorExtension, LABEL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(DeltaCRLIndicatorExtension, init$, void, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DeltaCRLIndicatorExtension, init$, void, $BigInteger*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DeltaCRLIndicatorExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DeltaCRLIndicatorExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.DeltaCRLIndicatorExtension",
+		"sun.security.x509.CRLNumberExtension",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeltaCRLIndicatorExtension, name, initialize, &classInfo$$, DeltaCRLIndicatorExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DeltaCRLIndicatorExtension));
+	});
 	return class$;
 }
 

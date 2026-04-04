@@ -47,11 +47,12 @@ namespace java {
 	namespace lang {
 
 class $export Double : public ::java::lang::Number, public ::java::lang::Comparable, public ::java::lang::constant::Constable, public ::java::lang::constant::ConstantDesc {
-	$class(Double, 0, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable, ::java::lang::constant::ConstantDesc)
+	$class(Double, $PREINIT, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable, ::java::lang::constant::ConstantDesc)
 public:
 	Double();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(double value);
 	void init$($String* s);
 	virtual int8_t byteValue() override;
@@ -97,7 +98,7 @@ public:
 	static const int32_t BYTES = 8; // SIZE / Byte.SIZE
 	static $Class* TYPE;
 	double value = 0.0;
-	static const int64_t serialVersionUID = (int64_t)0x80B3C24A296BFB04;
+	static const int64_t serialVersionUID = (int64_t)0x80b3c24a296bfb04;
 	static double mod(double a, double b);
 };
 

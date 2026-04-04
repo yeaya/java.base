@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CipherSuite$KeyExchange.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/ssl/CipherSuite.h>
 #include <sun/security/ssl/JsseJce.h>
@@ -42,68 +41,6 @@ using $NamedGroup$NamedGroupSpec = ::sun::security::ssl::NamedGroup$NamedGroupSp
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _CipherSuite$KeyExchange_FieldInfo_[] = {
-	{"K_NULL", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_NULL)},
-	{"K_RSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_RSA)},
-	{"K_RSA_EXPORT", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_RSA_EXPORT)},
-	{"K_DH_RSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DH_RSA)},
-	{"K_DH_DSS", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DH_DSS)},
-	{"K_DHE_DSS", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DHE_DSS)},
-	{"K_DHE_DSS_EXPORT", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DHE_DSS_EXPORT)},
-	{"K_DHE_RSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DHE_RSA)},
-	{"K_DHE_RSA_EXPORT", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DHE_RSA_EXPORT)},
-	{"K_DH_ANON", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DH_ANON)},
-	{"K_DH_ANON_EXPORT", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DH_ANON_EXPORT)},
-	{"K_ECDH_ECDSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_ECDH_ECDSA)},
-	{"K_ECDH_RSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_ECDH_RSA)},
-	{"K_ECDHE_ECDSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_ECDHE_ECDSA)},
-	{"K_ECDHE_RSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_ECDHE_RSA)},
-	{"K_ECDH_ANON", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_ECDH_ANON)},
-	{"K_SCSV", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_SCSV)},
-	{"$VALUES", "[Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CipherSuite$KeyExchange, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(CipherSuite$KeyExchange, name$)},
-	{"allowed", "Z", nullptr, $FINAL, $field(CipherSuite$KeyExchange, allowed)},
-	{"groupTypes", "[Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $FINAL, $field(CipherSuite$KeyExchange, groupTypes)},
-	{"alwaysAvailable", "Z", nullptr, $PRIVATE | $FINAL, $field(CipherSuite$KeyExchange, alwaysAvailable)},
-	{"isAnonymous", "Z", nullptr, $PRIVATE | $FINAL, $field(CipherSuite$KeyExchange, isAnonymous)},
-	{}
-};
-
-$MethodInfo _CipherSuite$KeyExchange_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CipherSuite$KeyExchange, $values, $CipherSuite$KeyExchangeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;ZZ[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)V", "(Ljava/lang/String;ZZ[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)V", $PRIVATE | $TRANSIENT, $method(CipherSuite$KeyExchange, init$, void, $String*, int32_t, $String*, bool, bool, $NamedGroup$NamedGroupSpecArray*)},
-	{"isAvailable", "()Z", nullptr, 0, $method(CipherSuite$KeyExchange, isAvailable, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CipherSuite$KeyExchange, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$KeyExchange, valueOf, CipherSuite$KeyExchange*, $String*)},
-	{"values", "()[Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$KeyExchange, values, $CipherSuite$KeyExchangeArray*)},
-	{}
-};
-
-$InnerClassInfo _CipherSuite$KeyExchange_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CipherSuite$KeyExchange", "sun.security.ssl.CipherSuite", "KeyExchange", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CipherSuite$KeyExchange_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.CipherSuite$KeyExchange",
-	"java.lang.Enum",
-	nullptr,
-	_CipherSuite$KeyExchange_FieldInfo_,
-	_CipherSuite$KeyExchange_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/CipherSuite$KeyExchange;>;",
-	nullptr,
-	_CipherSuite$KeyExchange_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CipherSuite"
-};
-
-$Object* allocate$CipherSuite$KeyExchange($Class* clazz) {
-	return $of($alloc(CipherSuite$KeyExchange));
-}
 
 CipherSuite$KeyExchange* CipherSuite$KeyExchange::K_NULL = nullptr;
 CipherSuite$KeyExchange* CipherSuite$KeyExchange::K_RSA = nullptr;
@@ -182,8 +119,8 @@ $String* CipherSuite$KeyExchange::toString() {
 	return this->name$;
 }
 
-void clinit$CipherSuite$KeyExchange($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CipherSuite$KeyExchange::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($NamedGroup$NamedGroupSpec);
 	$assignStatic(CipherSuite$KeyExchange::K_NULL, $new(CipherSuite$KeyExchange, "K_NULL"_s, 0, "NULL"_s, false, true, $$new($NamedGroup$NamedGroupSpecArray, {$NamedGroup$NamedGroupSpec::NAMED_GROUP_NONE})));
 	$assignStatic(CipherSuite$KeyExchange::K_RSA, $new(CipherSuite$KeyExchange, "K_RSA"_s, 1, "RSA"_s, true, false, $$new($NamedGroup$NamedGroupSpecArray, {$NamedGroup$NamedGroupSpec::NAMED_GROUP_NONE})));
@@ -225,7 +162,63 @@ CipherSuite$KeyExchange::CipherSuite$KeyExchange() {
 }
 
 $Class* CipherSuite$KeyExchange::load$($String* name, bool initialize) {
-	$loadClass(CipherSuite$KeyExchange, name, initialize, &_CipherSuite$KeyExchange_ClassInfo_, clinit$CipherSuite$KeyExchange, allocate$CipherSuite$KeyExchange);
+	$FieldInfo fieldInfos$$[] = {
+		{"K_NULL", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_NULL)},
+		{"K_RSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_RSA)},
+		{"K_RSA_EXPORT", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_RSA_EXPORT)},
+		{"K_DH_RSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DH_RSA)},
+		{"K_DH_DSS", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DH_DSS)},
+		{"K_DHE_DSS", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DHE_DSS)},
+		{"K_DHE_DSS_EXPORT", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DHE_DSS_EXPORT)},
+		{"K_DHE_RSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DHE_RSA)},
+		{"K_DHE_RSA_EXPORT", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DHE_RSA_EXPORT)},
+		{"K_DH_ANON", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DH_ANON)},
+		{"K_DH_ANON_EXPORT", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_DH_ANON_EXPORT)},
+		{"K_ECDH_ECDSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_ECDH_ECDSA)},
+		{"K_ECDH_RSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_ECDH_RSA)},
+		{"K_ECDHE_ECDSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_ECDHE_ECDSA)},
+		{"K_ECDHE_RSA", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_ECDHE_RSA)},
+		{"K_ECDH_ANON", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_ECDH_ANON)},
+		{"K_SCSV", "Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$KeyExchange, K_SCSV)},
+		{"$VALUES", "[Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CipherSuite$KeyExchange, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(CipherSuite$KeyExchange, name$)},
+		{"allowed", "Z", nullptr, $FINAL, $field(CipherSuite$KeyExchange, allowed)},
+		{"groupTypes", "[Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $FINAL, $field(CipherSuite$KeyExchange, groupTypes)},
+		{"alwaysAvailable", "Z", nullptr, $PRIVATE | $FINAL, $field(CipherSuite$KeyExchange, alwaysAvailable)},
+		{"isAnonymous", "Z", nullptr, $PRIVATE | $FINAL, $field(CipherSuite$KeyExchange, isAnonymous)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CipherSuite$KeyExchange, $values, $CipherSuite$KeyExchangeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;ZZ[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)V", "(Ljava/lang/String;ZZ[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)V", $PRIVATE | $TRANSIENT, $method(CipherSuite$KeyExchange, init$, void, $String*, int32_t, $String*, bool, bool, $NamedGroup$NamedGroupSpecArray*)},
+		{"isAvailable", "()Z", nullptr, 0, $method(CipherSuite$KeyExchange, isAvailable, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CipherSuite$KeyExchange, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$KeyExchange, valueOf, CipherSuite$KeyExchange*, $String*)},
+		{"values", "()[Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$KeyExchange, values, $CipherSuite$KeyExchangeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CipherSuite$KeyExchange", "sun.security.ssl.CipherSuite", "KeyExchange", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.CipherSuite$KeyExchange",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/CipherSuite$KeyExchange;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CipherSuite"
+	};
+	$loadClass(CipherSuite$KeyExchange, name, initialize, &classInfo$$, CipherSuite$KeyExchange::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CipherSuite$KeyExchange));
+	});
 	return class$;
 }
 

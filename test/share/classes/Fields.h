@@ -18,6 +18,7 @@ class $export Fields : public ::java::lang::Object {
 	$class(Fields, 0, ::java::lang::Object)
 public:
 	Fields();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* name();
 	static $Object* STATIC_FINAL;

@@ -45,6 +45,7 @@ class $export ModuleDescriptor : public ::java::lang::Comparable {
 	$class(ModuleDescriptor, $PRELOAD, ::java::lang::Comparable)
 public:
 	ModuleDescriptor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, ::java::lang::module::ModuleDescriptor$Version* version, $String* rawVersionString, ::java::util::Set* modifiers, ::java::util::Set* requires, ::java::util::Set* exports, ::java::util::Set* opens, ::java::util::Set* uses, ::java::util::Set* provides, ::java::util::Set* packages, $String* mainClass);
 	void init$($String* name, ::java::lang::module::ModuleDescriptor$Version* version, ::java::util::Set* modifiers, ::java::util::Set* requires, ::java::util::Set* exports, ::java::util::Set* opens, ::java::util::Set* uses, ::java::util::Set* provides, ::java::util::Set* packages, $String* mainClass, int32_t hashCode, bool unused);
 	static int32_t compare(Object$* obj1, Object$* obj2);

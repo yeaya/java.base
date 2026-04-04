@@ -32,6 +32,7 @@ class $import ThreadLocalCoders : public ::java::lang::Object {
 	$class(ThreadLocalCoders, 0, ::java::lang::Object)
 public:
 	ThreadLocalCoders();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::charset::CharsetDecoder* decoderFor(Object$* name);
 	static ::java::nio::charset::CharsetEncoder* encoderFor(Object$* name);

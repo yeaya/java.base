@@ -53,6 +53,7 @@ class $export CertificateSerialNumber : public ::sun::security::x509::CertAttrSe
 	$class(CertificateSerialNumber, 0, ::sun::security::x509::CertAttrSet)
 public:
 	CertificateSerialNumber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::math::BigInteger* num);
 	void init$(int32_t num);
 	void init$(::sun::security::util::DerInputStream* in);

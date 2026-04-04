@@ -1,5 +1,4 @@
 #include <java/net/SocketCleanable.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
@@ -27,53 +26,21 @@ using $ResourceManager = ::sun::net::ResourceManager;
 namespace java {
 	namespace net {
 
-$FieldInfo _SocketCleanable_FieldInfo_[] = {
-	{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SocketCleanable, fdAccess)},
-	{"fd", "I", nullptr, $PRIVATE | $FINAL, $field(SocketCleanable, fd)},
-	{"stream", "Z", nullptr, $PRIVATE | $FINAL, $field(SocketCleanable, stream)},
-	{}
-};
-
-$MethodInfo _SocketCleanable_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;Ljava/lang/ref/Cleaner;IZ)V", nullptr, $PRIVATE, $method(SocketCleanable, init$, void, $FileDescriptor*, $Cleaner*, int32_t, bool)},
-	{"cleanupClose0", "(I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketCleanable, cleanupClose0, void, int32_t), "java.io.IOException"},
-	{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(SocketCleanable, performCleanup, void)},
-	{"register", "(Ljava/io/FileDescriptor;Z)V", nullptr, $STATIC, $staticMethod(SocketCleanable, register$, void, $FileDescriptor*, bool)},
-	{"unregister", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $staticMethod(SocketCleanable, unregister, void, $FileDescriptor*)},
-	{}
-};
-
-#define _METHOD_INDEX_cleanupClose0 1
-
-$ClassInfo _SocketCleanable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.net.SocketCleanable",
-	"jdk.internal.ref.PhantomCleanable",
-	nullptr,
-	_SocketCleanable_FieldInfo_,
-	_SocketCleanable_MethodInfo_,
-	"Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;"
-};
-
-$Object* allocate$SocketCleanable($Class* clazz) {
-	return $of($alloc(SocketCleanable));
-}
-
 $JavaIOFileDescriptorAccess* SocketCleanable::fdAccess = nullptr;
 
 void SocketCleanable::cleanupClose0(int32_t fd) {
 	$init(SocketCleanable);
-	$prepareNativeStatic(SocketCleanable, cleanupClose0, void, int32_t fd);
+	$prepareNativeStatic(cleanupClose0, void, int32_t fd);
 	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 
 void SocketCleanable::register$($FileDescriptor* fdo, bool stream) {
 	$init(SocketCleanable);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fdo != nullptr && fdo->valid()) {
 		int32_t fd = $nc(SocketCleanable::fdAccess)->get(fdo);
-		$nc(SocketCleanable::fdAccess)->registerCleanup(fdo, $$new(SocketCleanable, fdo, $($CleanerFactory::cleaner()), fd, stream));
+		SocketCleanable::fdAccess->registerCleanup(fdo, $$new(SocketCleanable, fdo, $($CleanerFactory::cleaner()), fd, stream));
 	}
 }
 
@@ -91,28 +58,26 @@ void SocketCleanable::init$($FileDescriptor* obj, $Cleaner* cleaner, int32_t fd,
 }
 
 void SocketCleanable::performCleanup() {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				cleanupClose0(this->fd);
-			} catch ($IOException& ioe) {
-				$throwNew($UncheckedIOException, "close"_s, ioe);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (!this->stream) {
-				$ResourceManager::afterUdpClose();
-			}
+			cleanupClose0(this->fd);
+		} catch ($IOException& ioe) {
+			$throwNew($UncheckedIOException, "close"_s, ioe);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (!this->stream) {
+			$ResourceManager::afterUdpClose();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$SocketCleanable($Class* class$) {
+void SocketCleanable::clinit$($Class* clazz) {
 	$assignStatic(SocketCleanable::fdAccess, $SharedSecrets::getJavaIOFileDescriptorAccess());
 }
 
@@ -120,7 +85,32 @@ SocketCleanable::SocketCleanable() {
 }
 
 $Class* SocketCleanable::load$($String* name, bool initialize) {
-	$loadClass(SocketCleanable, name, initialize, &_SocketCleanable_ClassInfo_, clinit$SocketCleanable, allocate$SocketCleanable);
+	$FieldInfo fieldInfos$$[] = {
+		{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SocketCleanable, fdAccess)},
+		{"fd", "I", nullptr, $PRIVATE | $FINAL, $field(SocketCleanable, fd)},
+		{"stream", "Z", nullptr, $PRIVATE | $FINAL, $field(SocketCleanable, stream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/FileDescriptor;Ljava/lang/ref/Cleaner;IZ)V", nullptr, $PRIVATE, $method(SocketCleanable, init$, void, $FileDescriptor*, $Cleaner*, int32_t, bool)},
+		{"cleanupClose0", "(I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketCleanable, cleanupClose0, void, int32_t), "java.io.IOException"},
+		{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(SocketCleanable, performCleanup, void)},
+		{"register", "(Ljava/io/FileDescriptor;Z)V", nullptr, $STATIC, $staticMethod(SocketCleanable, register$, void, $FileDescriptor*, bool)},
+		{"unregister", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $staticMethod(SocketCleanable, unregister, void, $FileDescriptor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.net.SocketCleanable",
+		"jdk.internal.ref.PhantomCleanable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;"
+	};
+	$loadClass(SocketCleanable, name, initialize, &classInfo$$, SocketCleanable::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SocketCleanable));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/net/InetAddressImplFactory.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/InetAddressImpl.h>
 #include <jcpp.h>
@@ -12,28 +11,6 @@ using $InetAddressImpl = ::java::net::InetAddressImpl;
 namespace java {
 	namespace net {
 
-$MethodInfo _InetAddressImplFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InetAddressImplFactory, init$, void)},
-	{"create", "()Ljava/net/InetAddressImpl;", nullptr, $STATIC, $staticMethod(InetAddressImplFactory, create, $InetAddressImpl*)},
-	{"isIPv6Supported", "()Z", nullptr, $STATIC | $NATIVE, $staticMethod(InetAddressImplFactory, isIPv6Supported, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_isIPv6Supported 2
-
-$ClassInfo _InetAddressImplFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.InetAddressImplFactory",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_InetAddressImplFactory_MethodInfo_
-};
-
-$Object* allocate$InetAddressImplFactory($Class* clazz) {
-	return $of($alloc(InetAddressImplFactory));
-}
-
 void InetAddressImplFactory::init$() {
 }
 
@@ -43,9 +20,8 @@ $InetAddressImpl* InetAddressImplFactory::create() {
 
 bool InetAddressImplFactory::isIPv6Supported() {
 	$init(InetAddressImplFactory);
-	bool $ret = false;
-	$prepareNativeStatic(InetAddressImplFactory, isIPv6Supported, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(isIPv6Supported, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -54,7 +30,23 @@ InetAddressImplFactory::InetAddressImplFactory() {
 }
 
 $Class* InetAddressImplFactory::load$($String* name, bool initialize) {
-	$loadClass(InetAddressImplFactory, name, initialize, &_InetAddressImplFactory_ClassInfo_, allocate$InetAddressImplFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InetAddressImplFactory, init$, void)},
+		{"create", "()Ljava/net/InetAddressImpl;", nullptr, $STATIC, $staticMethod(InetAddressImplFactory, create, $InetAddressImpl*)},
+		{"isIPv6Supported", "()Z", nullptr, $STATIC | $NATIVE, $staticMethod(InetAddressImplFactory, isIPv6Supported, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.InetAddressImplFactory",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InetAddressImplFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InetAddressImplFactory);
+	});
 	return class$;
 }
 

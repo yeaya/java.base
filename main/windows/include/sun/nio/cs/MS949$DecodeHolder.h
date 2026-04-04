@@ -13,6 +13,7 @@ class $import MS949$DecodeHolder : public ::java::lang::Object {
 	$class(MS949$DecodeHolder, 0, ::java::lang::Object)
 public:
 	MS949$DecodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cSBStr;
 	static $StringArray* b2cStr;

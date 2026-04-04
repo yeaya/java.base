@@ -25,6 +25,7 @@ class $import AbstractSelectionKey : public ::java::nio::channels::SelectionKey 
 	$class(AbstractSelectionKey, 0, ::java::nio::channels::SelectionKey)
 public:
 	AbstractSelectionKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void cancel() override;
 	virtual void invalidate();

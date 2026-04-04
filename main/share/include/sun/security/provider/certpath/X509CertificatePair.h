@@ -36,6 +36,7 @@ class $import X509CertificatePair : public ::java::lang::Object {
 	$class(X509CertificatePair, 0, ::java::lang::Object)
 public:
 	X509CertificatePair();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::security::cert::X509Certificate* forward, ::java::security::cert::X509Certificate* reverse);
 	void init$($bytes* encoded);

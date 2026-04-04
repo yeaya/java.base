@@ -1,5 +1,4 @@
 #include <java/util/Iterator.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Objects.h>
 #include <java/util/function/Consumer.h>
@@ -14,34 +13,12 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 
-$MethodInfo _Iterator_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Iterator, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Iterator, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(Iterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Iterator, remove, void)},
-	{}
-};
-
-$ClassInfo _Iterator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.Iterator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Iterator_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$Iterator($Class* clazz) {
-	return $of($alloc(Iterator));
-}
-
 void Iterator::remove() {
 	$throwNew($UnsupportedOperationException, "remove"_s);
 }
 
 void Iterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	while (hasNext()) {
 		action->accept($(next()));
@@ -49,7 +26,25 @@ void Iterator::forEachRemaining($Consumer* action) {
 }
 
 $Class* Iterator::load$($String* name, bool initialize) {
-	$loadClass(Iterator, name, initialize, &_Iterator_ClassInfo_, allocate$Iterator);
+	$MethodInfo methodInfos$$[] = {
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Iterator, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Iterator, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(Iterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Iterator, remove, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.Iterator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(Iterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Iterator);
+	});
 	return class$;
 }
 

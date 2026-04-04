@@ -38,6 +38,7 @@ class BMPSet : public ::java::lang::Object {
 	$class(BMPSet, 0, ::java::lang::Object)
 public:
 	BMPSet();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($ints* parentList, int32_t parentListLength);
 	bool contains(int32_t c);
 	bool containsSlow(int32_t c, int32_t lo, int32_t hi);

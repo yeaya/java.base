@@ -28,6 +28,7 @@ class DisabledAlgorithmConstraints$Constraint$Operator : public ::java::lang::En
 public:
 	DisabledAlgorithmConstraints$Constraint$Operator();
 	static $Array<::sun::security::util::DisabledAlgorithmConstraints$Constraint$Operator>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::util::DisabledAlgorithmConstraints$Constraint$Operator* of($String* s);
 	static ::sun::security::util::DisabledAlgorithmConstraints$Constraint$Operator* valueOf($String* name);

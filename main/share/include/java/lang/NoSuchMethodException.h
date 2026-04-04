@@ -14,10 +14,13 @@ public:
 	NoSuchMethodException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x45DDBD9E5EC605DB;
+	static const int64_t serialVersionUID = (int64_t)0x45ddbd9e5ec605db;
 	NoSuchMethodException(const NoSuchMethodException& e);
 	virtual void throw$() override;
-	inline NoSuchMethodException* operator ->() {
+	inline NoSuchMethodException* operator ->() const {
+		return (NoSuchMethodException*)throwing$;
+	}
+	inline operator NoSuchMethodException*() const {
 		return (NoSuchMethodException*)throwing$;
 	}
 };

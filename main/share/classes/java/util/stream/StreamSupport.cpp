@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamSupport.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterator$OfDouble.h>
 #include <java/util/Spliterator$OfInt.h>
@@ -39,32 +38,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$MethodInfo _StreamSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StreamSupport, init$, void)},
-	{"doubleStream", "(Ljava/util/Spliterator$OfDouble;Z)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSupport, doubleStream, $DoubleStream*, $Spliterator$OfDouble*, bool)},
-	{"doubleStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfDouble;>;IZ)Ljava/util/stream/DoubleStream;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, doubleStream, $DoubleStream*, $Supplier*, int32_t, bool)},
-	{"intStream", "(Ljava/util/Spliterator$OfInt;Z)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSupport, intStream, $IntStream*, $Spliterator$OfInt*, bool)},
-	{"intStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/IntStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfInt;>;IZ)Ljava/util/stream/IntStream;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, intStream, $IntStream*, $Supplier*, int32_t, bool)},
-	{"longStream", "(Ljava/util/Spliterator$OfLong;Z)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSupport, longStream, $LongStream*, $Spliterator$OfLong*, bool)},
-	{"longStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/LongStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfLong;>;IZ)Ljava/util/stream/LongStream;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, longStream, $LongStream*, $Supplier*, int32_t, bool)},
-	{"stream", "(Ljava/util/Spliterator;Z)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/Spliterator<TT;>;Z)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, stream, $Stream*, $Spliterator*, bool)},
-	{"stream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+Ljava/util/Spliterator<TT;>;>;IZ)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, stream, $Stream*, $Supplier*, int32_t, bool)},
-	{}
-};
-
-$ClassInfo _StreamSupport_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.stream.StreamSupport",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_StreamSupport_MethodInfo_
-};
-
-$Object* allocate$StreamSupport($Class* clazz) {
-	return $of($alloc(StreamSupport));
-}
-
 void StreamSupport::init$() {
 }
 
@@ -79,7 +52,7 @@ $Stream* StreamSupport::stream($Supplier* supplier, int32_t characteristics, boo
 }
 
 $IntStream* StreamSupport::intStream($Spliterator$OfInt* spliterator, bool parallel) {
-	return $as($IntStream, $new($IntPipeline$Head, static_cast<$Spliterator*>(spliterator), $StreamOpFlag::fromCharacteristics(static_cast<$Spliterator*>(spliterator)), parallel));
+	return $as($IntStream, $new($IntPipeline$Head, spliterator, $StreamOpFlag::fromCharacteristics(spliterator), parallel));
 }
 
 $IntStream* StreamSupport::intStream($Supplier* supplier, int32_t characteristics, bool parallel) {
@@ -87,7 +60,7 @@ $IntStream* StreamSupport::intStream($Supplier* supplier, int32_t characteristic
 }
 
 $LongStream* StreamSupport::longStream($Spliterator$OfLong* spliterator, bool parallel) {
-	return $as($LongStream, $new($LongPipeline$Head, static_cast<$Spliterator*>(spliterator), $StreamOpFlag::fromCharacteristics(static_cast<$Spliterator*>(spliterator)), parallel));
+	return $as($LongStream, $new($LongPipeline$Head, spliterator, $StreamOpFlag::fromCharacteristics(spliterator), parallel));
 }
 
 $LongStream* StreamSupport::longStream($Supplier* supplier, int32_t characteristics, bool parallel) {
@@ -95,7 +68,7 @@ $LongStream* StreamSupport::longStream($Supplier* supplier, int32_t characterist
 }
 
 $DoubleStream* StreamSupport::doubleStream($Spliterator$OfDouble* spliterator, bool parallel) {
-	return $as($DoubleStream, $new($DoublePipeline$Head, static_cast<$Spliterator*>(spliterator), $StreamOpFlag::fromCharacteristics(static_cast<$Spliterator*>(spliterator)), parallel));
+	return $as($DoubleStream, $new($DoublePipeline$Head, spliterator, $StreamOpFlag::fromCharacteristics(spliterator), parallel));
 }
 
 $DoubleStream* StreamSupport::doubleStream($Supplier* supplier, int32_t characteristics, bool parallel) {
@@ -106,7 +79,29 @@ StreamSupport::StreamSupport() {
 }
 
 $Class* StreamSupport::load$($String* name, bool initialize) {
-	$loadClass(StreamSupport, name, initialize, &_StreamSupport_ClassInfo_, allocate$StreamSupport);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StreamSupport, init$, void)},
+		{"doubleStream", "(Ljava/util/Spliterator$OfDouble;Z)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSupport, doubleStream, $DoubleStream*, $Spliterator$OfDouble*, bool)},
+		{"doubleStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfDouble;>;IZ)Ljava/util/stream/DoubleStream;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, doubleStream, $DoubleStream*, $Supplier*, int32_t, bool)},
+		{"intStream", "(Ljava/util/Spliterator$OfInt;Z)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSupport, intStream, $IntStream*, $Spliterator$OfInt*, bool)},
+		{"intStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/IntStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfInt;>;IZ)Ljava/util/stream/IntStream;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, intStream, $IntStream*, $Supplier*, int32_t, bool)},
+		{"longStream", "(Ljava/util/Spliterator$OfLong;Z)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSupport, longStream, $LongStream*, $Spliterator$OfLong*, bool)},
+		{"longStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/LongStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfLong;>;IZ)Ljava/util/stream/LongStream;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, longStream, $LongStream*, $Supplier*, int32_t, bool)},
+		{"stream", "(Ljava/util/Spliterator;Z)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/Spliterator<TT;>;Z)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, stream, $Stream*, $Spliterator*, bool)},
+		{"stream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+Ljava/util/Spliterator<TT;>;>;IZ)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, stream, $Stream*, $Supplier*, int32_t, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.stream.StreamSupport",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StreamSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamSupport);
+	});
 	return class$;
 }
 

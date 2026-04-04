@@ -20,6 +20,7 @@ class $export Indent : public ::java::lang::Object {
 	$class(Indent, 0, ::java::lang::Object)
 public:
 	Indent();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* getBody($StringArray* inLines);
 	static int32_t indexOfNonWhitespace($String* s);

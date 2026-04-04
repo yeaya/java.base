@@ -1,8 +1,6 @@
 #include <jdk/internal/jimage/NativeImageBuffer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <jdk/internal/jimage/NativeImageBuffer$1.h>
 #include <jcpp.h>
 
@@ -11,61 +9,27 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $NativeImageBuffer$1 = ::jdk::internal::jimage::NativeImageBuffer$1;
 
 namespace jdk {
 	namespace internal {
 		namespace jimage {
 
-$MethodInfo _NativeImageBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NativeImageBuffer, init$, void)},
-	{"getNativeMap", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $STATIC | $NATIVE, $staticMethod(NativeImageBuffer, getNativeMap, $ByteBuffer*, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_getNativeMap 1
-
-$InnerClassInfo _NativeImageBuffer_InnerClassesInfo_[] = {
-	{"jdk.internal.jimage.NativeImageBuffer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NativeImageBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.jimage.NativeImageBuffer",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NativeImageBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativeImageBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.jimage.NativeImageBuffer$1"
-};
-
-$Object* allocate$NativeImageBuffer($Class* clazz) {
-	return $of($alloc(NativeImageBuffer));
-}
-
 void NativeImageBuffer::init$() {
 }
 
 $ByteBuffer* NativeImageBuffer::getNativeMap($String* imagePath) {
 	$init(NativeImageBuffer);
-	$var($ByteBuffer, $ret, nullptr);
-	$prepareNativeStatic(NativeImageBuffer, getNativeMap, $ByteBuffer*, $String* imagePath);
-	$assign($ret, $invokeNativeStaticObject(imagePath));
+	$prepareNativeStatic(getNativeMap, $ByteBuffer*, $String* imagePath);
+	$var($ByteBuffer, $ret, $invokeNativeStaticObject(imagePath));
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$NativeImageBuffer($Class* class$) {
+void NativeImageBuffer::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($NativeImageBuffer$1)));
+		$AccessController::doPrivileged($$new($NativeImageBuffer$1));
 	}
 }
 
@@ -73,7 +37,32 @@ NativeImageBuffer::NativeImageBuffer() {
 }
 
 $Class* NativeImageBuffer::load$($String* name, bool initialize) {
-	$loadClass(NativeImageBuffer, name, initialize, &_NativeImageBuffer_ClassInfo_, clinit$NativeImageBuffer, allocate$NativeImageBuffer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NativeImageBuffer, init$, void)},
+		{"getNativeMap", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $STATIC | $NATIVE, $staticMethod(NativeImageBuffer, getNativeMap, $ByteBuffer*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jimage.NativeImageBuffer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.jimage.NativeImageBuffer",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.jimage.NativeImageBuffer$1"
+	};
+	$loadClass(NativeImageBuffer, name, initialize, &classInfo$$, NativeImageBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeImageBuffer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <EmptyBuffer$Server.h>
-
 #include <EmptyBuffer.h>
 #include <java/io/IOException.h>
 #include <java/net/DatagramSocket.h>
@@ -14,70 +13,27 @@
 
 using $EmptyBuffer = ::EmptyBuffer;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ClosedByInterruptException = ::java::nio::channels::ClosedByInterruptException;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 
-$FieldInfo _EmptyBuffer$Server_FieldInfo_[] = {
-	{"dc", "Ljava/nio/channels/DatagramChannel;", nullptr, $PRIVATE | $FINAL, $field(EmptyBuffer$Server, dc)},
-	{"clientAddress", "Ljava/net/SocketAddress;", nullptr, $PRIVATE | $FINAL, $field(EmptyBuffer$Server, clientAddress)},
-	{"e", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(EmptyBuffer$Server, e)},
-	{}
-};
-
-$MethodInfo _EmptyBuffer$Server_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocketAddress;)V", nullptr, 0, $method(EmptyBuffer$Server, init$, void, $SocketAddress*), "java.io.IOException"},
-	{"port", "()I", nullptr, 0, $virtualMethod(EmptyBuffer$Server, port, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EmptyBuffer$Server, run, void)},
-	{"showBuffer", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(EmptyBuffer$Server, showBuffer, void, $String*, $ByteBuffer*)},
-	{"throwException", "()V", nullptr, 0, $virtualMethod(EmptyBuffer$Server, throwException, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _EmptyBuffer$Server_InnerClassesInfo_[] = {
-	{"EmptyBuffer$Server", "EmptyBuffer", "Server", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _EmptyBuffer$Server_ClassInfo_ = {
-	$ACC_SUPER,
-	"EmptyBuffer$Server",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_EmptyBuffer$Server_FieldInfo_,
-	_EmptyBuffer$Server_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EmptyBuffer$Server_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"EmptyBuffer"
-};
-
-$Object* allocate$EmptyBuffer$Server($Class* clazz) {
-	return $of($alloc(EmptyBuffer$Server));
-}
-
 void EmptyBuffer$Server::init$($SocketAddress* clientAddress) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, e, nullptr);
-	$set(this, dc, $cast($DatagramChannel, $nc($($DatagramChannel::open()))->bind($$new($InetSocketAddress, 0))));
+	$set(this, dc, $cast($DatagramChannel, $$nc($DatagramChannel::open())->bind($$new($InetSocketAddress, 0))));
 	$set(this, clientAddress, clientAddress);
 }
 
 int32_t EmptyBuffer$Server::port() {
-	return $nc($($nc(this->dc)->socket()))->getLocalPort();
+	return $$nc($nc(this->dc)->socket())->getLocalPort();
 }
 
 void EmptyBuffer$Server::throwException() {
@@ -92,59 +48,57 @@ void EmptyBuffer$Server::showBuffer($String* s, $ByteBuffer* bb) {
 	$nc(bb)->rewind();
 	for (int32_t i = 0; i < bb->limit(); ++i) {
 		int8_t element = bb->get();
-		$nc($EmptyBuffer::log)->print((int32_t)element);
+		$EmptyBuffer::log->print((int32_t)element);
 	}
-	$nc($EmptyBuffer::log)->println();
+	$EmptyBuffer::log->println();
 }
 
 void EmptyBuffer$Server::run() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(12));
-				$nc(bb)->clear();
-				int32_t numberReceived = 0;
-				while (!$Thread::interrupted()) {
-					$var($SocketAddress, sa, nullptr);
-					try {
-						$assign(sa, $nc(this->dc)->receive(bb));
-					} catch ($ClosedByInterruptException& cbie) {
-						$init($EmptyBuffer);
-						$nc($EmptyBuffer::log)->println("Took expected exit"_s);
-						if (numberReceived != 3) {
-							$throwNew($RuntimeException, "Failed: Too few datagrams"_s);
-						}
-						break;
+			$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(12));
+			$nc(bb)->clear();
+			int32_t numberReceived = 0;
+			while (!$Thread::interrupted()) {
+				$var($SocketAddress, sa, nullptr);
+				try {
+					$assign(sa, $nc(this->dc)->receive(bb));
+				} catch ($ClosedByInterruptException& cbie) {
+					$init($EmptyBuffer);
+					$nc($EmptyBuffer::log)->println("Took expected exit"_s);
+					if (numberReceived != 3) {
+						$throwNew($RuntimeException, "Failed: Too few datagrams"_s);
 					}
-					if (sa != nullptr) {
-						$init($EmptyBuffer);
-						$nc($EmptyBuffer::log)->println($$str({"Client: "_s, sa}));
-						if ($of(sa)->equals(this->clientAddress)) {
-							showBuffer("RECV"_s, bb);
-							++numberReceived;
-						}
-						if (numberReceived > 3) {
-							$throwNew($RuntimeException, "Failed: Too many datagrams"_s);
-						}
-						$assign(sa, nullptr);
-					}
+					break;
 				}
-			} catch ($Exception& ex) {
-				$set(this, e, ex);
+				if (sa != nullptr) {
+					$init($EmptyBuffer);
+					$nc($EmptyBuffer::log)->println($$str({"Client: "_s, sa}));
+					if (sa->equals(this->clientAddress)) {
+						showBuffer("RECV"_s, bb);
+						++numberReceived;
+					}
+					if (numberReceived > 3) {
+						$throwNew($RuntimeException, "Failed: Too many datagrams"_s);
+					}
+					$assign(sa, nullptr);
+				}
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			try {
-				$nc(this->dc)->close();
-			} catch ($IOException& ignore) {
-			}
+		} catch ($Exception& ex) {
+			$set(this, e, ex);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		try {
+			$nc(this->dc)->close();
+		} catch ($IOException& ignore) {
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -152,7 +106,42 @@ EmptyBuffer$Server::EmptyBuffer$Server() {
 }
 
 $Class* EmptyBuffer$Server::load$($String* name, bool initialize) {
-	$loadClass(EmptyBuffer$Server, name, initialize, &_EmptyBuffer$Server_ClassInfo_, allocate$EmptyBuffer$Server);
+	$FieldInfo fieldInfos$$[] = {
+		{"dc", "Ljava/nio/channels/DatagramChannel;", nullptr, $PRIVATE | $FINAL, $field(EmptyBuffer$Server, dc)},
+		{"clientAddress", "Ljava/net/SocketAddress;", nullptr, $PRIVATE | $FINAL, $field(EmptyBuffer$Server, clientAddress)},
+		{"e", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(EmptyBuffer$Server, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/SocketAddress;)V", nullptr, 0, $method(EmptyBuffer$Server, init$, void, $SocketAddress*), "java.io.IOException"},
+		{"port", "()I", nullptr, 0, $virtualMethod(EmptyBuffer$Server, port, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EmptyBuffer$Server, run, void)},
+		{"showBuffer", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(EmptyBuffer$Server, showBuffer, void, $String*, $ByteBuffer*)},
+		{"throwException", "()V", nullptr, 0, $virtualMethod(EmptyBuffer$Server, throwException, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"EmptyBuffer$Server", "EmptyBuffer", "Server", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"EmptyBuffer$Server",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"EmptyBuffer"
+	};
+	$loadClass(EmptyBuffer$Server, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EmptyBuffer$Server);
+	});
 	return class$;
 }
 

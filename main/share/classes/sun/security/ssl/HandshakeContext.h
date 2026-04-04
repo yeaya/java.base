@@ -79,6 +79,7 @@ class HandshakeContext : public ::sun::security::ssl::ConnectionContext {
 	$class(HandshakeContext, 0, ::sun::security::ssl::ConnectionContext)
 public:
 	HandshakeContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::SSLContextImpl* sslContext, ::sun::security::ssl::TransportContext* conContext);
 	void init$(::sun::security::ssl::TransportContext* conContext);
 	virtual void dispatch(int8_t handshakeType, ::sun::security::ssl::Plaintext* plaintext);

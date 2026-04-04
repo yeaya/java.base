@@ -27,6 +27,7 @@ class ServiceLoader$LayerLookupIterator : public ::java::util::Iterator {
 	$class(ServiceLoader$LayerLookupIterator, 0, ::java::util::Iterator)
 public:
 	ServiceLoader$LayerLookupIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::ServiceLoader* this$0);
 	virtual bool hasNext() override;
 	virtual $Object* next() override;

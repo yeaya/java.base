@@ -1,5 +1,4 @@
 #include <sun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder.h>
-
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -23,66 +22,21 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _AbstractBasicFileAttributeView$AttributesBuilder_FieldInfo_[] = {
-	{"names", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(AbstractBasicFileAttributeView$AttributesBuilder, names)},
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(AbstractBasicFileAttributeView$AttributesBuilder, map)},
-	{"copyAll", "Z", nullptr, $PRIVATE, $field(AbstractBasicFileAttributeView$AttributesBuilder, copyAll)},
-	{}
-};
-
-$MethodInfo _AbstractBasicFileAttributeView$AttributesBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;[Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;[Ljava/lang/String;)V", $PRIVATE, $method(AbstractBasicFileAttributeView$AttributesBuilder, init$, void, $Set*, $StringArray*)},
-	{"add", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AbstractBasicFileAttributeView$AttributesBuilder, add, void, $String*, Object$*)},
-	{"create", "(Ljava/util/Set;[Ljava/lang/String;)Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;", "(Ljava/util/Set<Ljava/lang/String;>;[Ljava/lang/String;)Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;", $STATIC, $staticMethod(AbstractBasicFileAttributeView$AttributesBuilder, create, AbstractBasicFileAttributeView$AttributesBuilder*, $Set*, $StringArray*)},
-	{"match", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(AbstractBasicFileAttributeView$AttributesBuilder, match, bool, $String*)},
-	{"unmodifiableMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", 0, $virtualMethod(AbstractBasicFileAttributeView$AttributesBuilder, unmodifiableMap, $Map*)},
-	{}
-};
-
-$InnerClassInfo _AbstractBasicFileAttributeView$AttributesBuilder_InnerClassesInfo_[] = {
-	{"sun.nio.fs.AbstractBasicFileAttributeView$AttributesBuilder", "sun.nio.fs.AbstractBasicFileAttributeView", "AttributesBuilder", $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractBasicFileAttributeView$AttributesBuilder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.AbstractBasicFileAttributeView$AttributesBuilder",
-	"java.lang.Object",
-	nullptr,
-	_AbstractBasicFileAttributeView$AttributesBuilder_FieldInfo_,
-	_AbstractBasicFileAttributeView$AttributesBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractBasicFileAttributeView$AttributesBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.AbstractBasicFileAttributeView"
-};
-
-$Object* allocate$AbstractBasicFileAttributeView$AttributesBuilder($Class* clazz) {
-	return $of($alloc(AbstractBasicFileAttributeView$AttributesBuilder));
-}
-
 void AbstractBasicFileAttributeView$AttributesBuilder::init$($Set* allowed, $StringArray* requested) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, names, $new($HashSet));
 	$set(this, map, $new($HashMap));
 	{
 		$var($StringArray, arr$, requested);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, name, arr$->get(i$));
-			{
-				if ($nc(name)->equals("*"_s)) {
-					this->copyAll = true;
-				} else {
-					if (!$nc(allowed)->contains(name)) {
-						$throwNew($IllegalArgumentException, $$str({"\'"_s, name, "\' not recognized"_s}));
-					}
-					$nc(this->names)->add(name);
+			if ($nc(name)->equals("*"_s)) {
+				this->copyAll = true;
+			} else {
+				if (!$nc(allowed)->contains(name)) {
+					$throwNew($IllegalArgumentException, $$str({"\'"_s, name, "\' not recognized"_s}));
 				}
+				this->names->add(name);
 			}
 		}
 	}
@@ -108,7 +62,42 @@ AbstractBasicFileAttributeView$AttributesBuilder::AbstractBasicFileAttributeView
 }
 
 $Class* AbstractBasicFileAttributeView$AttributesBuilder::load$($String* name, bool initialize) {
-	$loadClass(AbstractBasicFileAttributeView$AttributesBuilder, name, initialize, &_AbstractBasicFileAttributeView$AttributesBuilder_ClassInfo_, allocate$AbstractBasicFileAttributeView$AttributesBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"names", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(AbstractBasicFileAttributeView$AttributesBuilder, names)},
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(AbstractBasicFileAttributeView$AttributesBuilder, map)},
+		{"copyAll", "Z", nullptr, $PRIVATE, $field(AbstractBasicFileAttributeView$AttributesBuilder, copyAll)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;[Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;[Ljava/lang/String;)V", $PRIVATE, $method(AbstractBasicFileAttributeView$AttributesBuilder, init$, void, $Set*, $StringArray*)},
+		{"add", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AbstractBasicFileAttributeView$AttributesBuilder, add, void, $String*, Object$*)},
+		{"create", "(Ljava/util/Set;[Ljava/lang/String;)Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;", "(Ljava/util/Set<Ljava/lang/String;>;[Ljava/lang/String;)Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;", $STATIC, $staticMethod(AbstractBasicFileAttributeView$AttributesBuilder, create, AbstractBasicFileAttributeView$AttributesBuilder*, $Set*, $StringArray*)},
+		{"match", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(AbstractBasicFileAttributeView$AttributesBuilder, match, bool, $String*)},
+		{"unmodifiableMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", 0, $virtualMethod(AbstractBasicFileAttributeView$AttributesBuilder, unmodifiableMap, $Map*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.AbstractBasicFileAttributeView$AttributesBuilder", "sun.nio.fs.AbstractBasicFileAttributeView", "AttributesBuilder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.AbstractBasicFileAttributeView$AttributesBuilder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.AbstractBasicFileAttributeView"
+	};
+	$loadClass(AbstractBasicFileAttributeView$AttributesBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractBasicFileAttributeView$AttributesBuilder);
+	});
 	return class$;
 }
 

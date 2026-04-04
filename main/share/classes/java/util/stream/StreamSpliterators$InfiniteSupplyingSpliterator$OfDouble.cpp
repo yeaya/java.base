@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble.h>
-
 #include <java/util/Comparator.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator$OfDouble.h>
@@ -26,60 +25,6 @@ using $StreamSpliterators$InfiniteSupplyingSpliterator = ::java::util::stream::S
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble_FieldInfo_[] = {
-	{"s", "Ljava/util/function/DoubleSupplier;", nullptr, $FINAL, $field(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, s)},
-	{}
-};
-
-$MethodInfo _StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(JLjava/util/function/DoubleSupplier;)V", nullptr, 0, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, init$, void, int64_t, $DoubleSupplier*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, tryAdvance, bool, $DoubleConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator", "java.util.stream.StreamSpliterators", "InfiniteSupplyingSpliterator", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble", "java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator", "OfDouble", $STATIC | $FINAL},
-	{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble",
-	"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator",
-	"java.util.Spliterator$OfDouble",
-	_StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble_FieldInfo_,
-	_StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble_MethodInfo_,
-	"Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<Ljava/lang/Double;>;Ljava/util/Spliterator$OfDouble;",
-	nullptr,
-	_StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamSpliterators"
-};
-
-$Object* allocate$StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble($Class* clazz) {
-	return $of($alloc(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble));
-}
 
 int64_t StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::estimateSize() {
 	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::estimateSize();
@@ -224,7 +169,7 @@ $Spliterator* StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::trySplit
 	if (this->estimate == 0) {
 		return nullptr;
 	}
-	return static_cast<$Spliterator*>(static_cast<$StreamSpliterators$InfiniteSupplyingSpliterator*>($new(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, this->estimate = (int64_t)((uint64_t)this->estimate >> 1), this->s)));
+	return $cast($StreamSpliterators$InfiniteSupplyingSpliterator, $new(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, this->estimate = (int64_t)((uint64_t)this->estimate >> 1), this->s));
 }
 
 bool StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::tryAdvance(Object$* action) {
@@ -235,7 +180,55 @@ StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::StreamSpliterators$Inf
 }
 
 $Class* StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::load$($String* name, bool initialize) {
-	$loadClass(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, name, initialize, &_StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble_ClassInfo_, allocate$StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljava/util/function/DoubleSupplier;", nullptr, $FINAL, $field(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(JLjava/util/function/DoubleSupplier;)V", nullptr, 0, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, init$, void, int64_t, $DoubleSupplier*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, tryAdvance, bool, $DoubleConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator", "java.util.stream.StreamSpliterators", "InfiniteSupplyingSpliterator", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble", "java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator", "OfDouble", $STATIC | $FINAL},
+		{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble",
+		"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator",
+		"java.util.Spliterator$OfDouble",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<Ljava/lang/Double;>;Ljava/util/Spliterator$OfDouble;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamSpliterators"
+	};
+	$loadClass(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble));
+	});
 	return class$;
 }
 

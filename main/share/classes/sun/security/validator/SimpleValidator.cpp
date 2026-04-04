@@ -1,12 +1,10 @@
 #include <sun/security/validator/SimpleValidator.h>
-
 #include <java/io/IOException.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/Principal.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertPathValidatorException.h>
-#include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/TrustAnchor.h>
 #include <java/security/cert/X509Certificate.h>
@@ -70,7 +68,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Principal = ::java::security::Principal;
 using $PublicKey = ::java::security::PublicKey;
 using $CertPathValidatorException = ::java::security::cert::CertPathValidatorException;
-using $Certificate = ::java::security::cert::Certificate;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $TrustAnchor = ::java::security::cert::TrustAnchor;
 using $X509Certificate = ::java::security::cert::X509Certificate;
@@ -81,12 +78,10 @@ using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $AlgorithmChecker = ::sun::security::provider::certpath::AlgorithmChecker;
 using $UntrustedChecker = ::sun::security::provider::certpath::UntrustedChecker;
-using $BitArray = ::sun::security::util::BitArray;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $KnownOIDs = ::sun::security::util::KnownOIDs;
@@ -101,47 +96,6 @@ namespace sun {
 	namespace security {
 		namespace validator {
 
-$FieldInfo _SimpleValidator_FieldInfo_[] = {
-	{"OID_BASIC_CONSTRAINTS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OID_BASIC_CONSTRAINTS)},
-	{"OID_NETSCAPE_CERT_TYPE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OID_NETSCAPE_CERT_TYPE)},
-	{"OID_KEY_USAGE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OID_KEY_USAGE)},
-	{"OID_EXTENDED_KEY_USAGE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OID_EXTENDED_KEY_USAGE)},
-	{"OID_EKU_ANY_USAGE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OID_EKU_ANY_USAGE)},
-	{"OBJID_NETSCAPE_CERT_TYPE", "Lsun/security/util/ObjectIdentifier;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OBJID_NETSCAPE_CERT_TYPE)},
-	{"NSCT_SSL_CA", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SimpleValidator, NSCT_SSL_CA)},
-	{"NSCT_CODE_SIGNING_CA", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SimpleValidator, NSCT_CODE_SIGNING_CA)},
-	{"trustedX500Principals", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/security/auth/x500/X500Principal;Ljava/util/List<Ljava/security/cert/X509Certificate;>;>;", $PRIVATE | $FINAL, $field(SimpleValidator, trustedX500Principals)},
-	{"trustedCerts", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $FINAL, $field(SimpleValidator, trustedCerts)},
-	{}
-};
-
-$MethodInfo _SimpleValidator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/Collection;)V", "(Ljava/lang/String;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)V", 0, $method(SimpleValidator, init$, void, $String*, $Collection*)},
-	{"buildTrustedChain", "([Ljava/security/cert/X509Certificate;)[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $method(SimpleValidator, buildTrustedChain, $X509CertificateArray*, $X509CertificateArray*), "java.security.cert.CertificateException"},
-	{"checkBasicConstraints", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;I)I", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;I)I", $PRIVATE, $method(SimpleValidator, checkBasicConstraints, int32_t, $X509Certificate*, $Set*, int32_t), "java.security.cert.CertificateException"},
-	{"checkExtensions", "(Ljava/security/cert/X509Certificate;I)I", nullptr, $PRIVATE, $method(SimpleValidator, checkExtensions, int32_t, $X509Certificate*, int32_t), "java.security.cert.CertificateException"},
-	{"checkKeyUsage", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(SimpleValidator, checkKeyUsage, void, $X509Certificate*, $Set*), "java.security.cert.CertificateException"},
-	{"checkNetscapeCertType", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(SimpleValidator, checkNetscapeCertType, void, $X509Certificate*, $Set*), "java.security.cert.CertificateException"},
-	{"engineValidate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/util/List;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/util/List<[B>;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", 0, $virtualMethod(SimpleValidator, engineValidate, $X509CertificateArray*, $X509CertificateArray*, $Collection*, $List*, $AlgorithmConstraints*, Object$*), "java.security.cert.CertificateException"},
-	{"getNetscapeCertTypeBit", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(SimpleValidator, getNetscapeCertTypeBit, bool, $X509Certificate*, $String*)},
-	{"getTrustedCertificate", "(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $method(SimpleValidator, getTrustedCertificate, $X509Certificate*, $X509Certificate*)},
-	{"getTrustedCertificates", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC, $virtualMethod(SimpleValidator, getTrustedCertificates, $Collection*)},
-	{}
-};
-
-$ClassInfo _SimpleValidator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.validator.SimpleValidator",
-	"sun.security.validator.Validator",
-	nullptr,
-	_SimpleValidator_FieldInfo_,
-	_SimpleValidator_MethodInfo_
-};
-
-$Object* allocate$SimpleValidator($Class* clazz) {
-	return $of($alloc(SimpleValidator));
-}
-
 $String* SimpleValidator::OID_BASIC_CONSTRAINTS = nullptr;
 $String* SimpleValidator::OID_NETSCAPE_CERT_TYPE = nullptr;
 $String* SimpleValidator::OID_KEY_USAGE = nullptr;
@@ -152,7 +106,7 @@ $String* SimpleValidator::NSCT_SSL_CA = nullptr;
 $String* SimpleValidator::NSCT_CODE_SIGNING_CA = nullptr;
 
 void SimpleValidator::init$($String* variant, $Collection* trustedCerts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Validator);
 	$Validator::init$($Validator::TYPE_SIMPLE, variant);
 	$set(this, trustedCerts, trustedCerts);
@@ -163,10 +117,10 @@ void SimpleValidator::init$($String* variant, $Collection* trustedCerts) {
 			$var($X509Certificate, cert, $cast($X509Certificate, i$->next()));
 			{
 				$var($X500Principal, principal, $nc(cert)->getSubjectX500Principal());
-				$var($List, list, $cast($List, $nc(this->trustedX500Principals)->get(principal)));
+				$var($List, list, $cast($List, this->trustedX500Principals->get(principal)));
 				if (list == nullptr) {
 					$assign(list, $new($ArrayList, 2));
-					$nc(this->trustedX500Principals)->put(principal, list);
+					this->trustedX500Principals->put(principal, list);
 				}
 				$nc(list)->add(cert);
 			}
@@ -179,9 +133,9 @@ $Collection* SimpleValidator::getTrustedCertificates() {
 }
 
 $X509CertificateArray* SimpleValidator::engineValidate($X509CertificateArray* chain$renamed, $Collection* otherCerts, $List* responseList, $AlgorithmConstraints* constraints, Object$* parameter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X509CertificateArray, chain, chain$renamed);
-	if ((chain == nullptr) || ($nc(chain)->length == 0)) {
+	if ((chain == nullptr) || (chain->length == 0)) {
 		$throwNew($CertificateException, "null or zero-length certificate chain"_s);
 	}
 	$assign(chain, buildTrustedChain(chain));
@@ -190,7 +144,7 @@ $X509CertificateArray* SimpleValidator::engineValidate($X509CertificateArray* ch
 		$assign(date, $new($Date));
 	}
 	$var($UntrustedChecker, untrustedChecker, $new($UntrustedChecker));
-	$var($X509Certificate, anchorCert, $nc(chain)->get(chain->length - 1));
+	$var($X509Certificate, anchorCert, $nc(chain)->get($nc(chain)->length - 1));
 	try {
 		untrustedChecker->check(anchorCert);
 	} catch ($CertPathValidatorException& cpve) {
@@ -220,22 +174,22 @@ $X509CertificateArray* SimpleValidator::engineValidate($X509CertificateArray* ch
 			}
 		} catch ($CertPathValidatorException& cpve) {
 			$init($ValidatorException);
-			$throwNew($ValidatorException, $ValidatorException::T_ALGORITHM_DISABLED, cert, static_cast<$Throwable*>(cpve));
+			$throwNew($ValidatorException, $ValidatorException::T_ALGORITHM_DISABLED, cert, cpve);
 		}
 		$init($Validator);
-		bool var$0 = ($nc(this->variant)->equals($Validator::VAR_CODE_SIGNING) == false);
-		if (var$0 && ($nc(this->variant)->equals($Validator::VAR_JCE_SIGNING) == false)) {
+		bool var$0 = $nc(this->variant)->equals($Validator::VAR_CODE_SIGNING) == false;
+		if (var$0 && (this->variant->equals($Validator::VAR_JCE_SIGNING) == false)) {
 			$nc(cert)->checkValidity(date);
 		}
-		if ($nc($($nc(cert)->getIssuerX500Principal()))->equals($($nc(issuerCert)->getSubjectX500Principal())) == false) {
+		if ($$nc($nc(cert)->getIssuerX500Principal())->equals($($nc(issuerCert)->getSubjectX500Principal())) == false) {
 			$init($ValidatorException);
 			$throwNew($ValidatorException, $ValidatorException::T_NAME_CHAINING, cert);
 		}
 		try {
-			$nc(cert)->verify($($nc(issuerCert)->getPublicKey()));
+			cert->verify($(issuerCert->getPublicKey()));
 		} catch ($GeneralSecurityException& e) {
 			$init($ValidatorException);
-			$throwNew($ValidatorException, $ValidatorException::T_SIGNATURE_ERROR, cert, static_cast<$Throwable*>(e));
+			$throwNew($ValidatorException, $ValidatorException::T_SIGNATURE_ERROR, cert, e);
 		}
 		if (i != 0) {
 			maxPathLength = checkExtensions(cert, maxPathLength);
@@ -245,7 +199,7 @@ $X509CertificateArray* SimpleValidator::engineValidate($X509CertificateArray* ch
 }
 
 int32_t SimpleValidator::checkExtensions($X509Certificate* cert, int32_t maxPathLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, critSet, $nc(cert)->getCriticalExtensionOIDs());
 	if (critSet == nullptr) {
 		$assign(critSet, $Collections::emptySet());
@@ -264,16 +218,16 @@ void SimpleValidator::checkNetscapeCertType($X509Certificate* cert, $Set* critSe
 	$init($Validator);
 	if ($nc(this->variant)->equals($Validator::VAR_GENERIC)) {
 	} else {
-		bool var$1 = $nc(this->variant)->equals($Validator::VAR_TLS_CLIENT);
-		if (var$1 || $nc(this->variant)->equals($Validator::VAR_TLS_SERVER)) {
+		bool var$0 = this->variant->equals($Validator::VAR_TLS_CLIENT);
+		if (var$0 || this->variant->equals($Validator::VAR_TLS_SERVER)) {
 			if (getNetscapeCertTypeBit(cert, SimpleValidator::NSCT_SSL_CA) == false) {
 				$init($ValidatorException);
 				$throwNew($ValidatorException, "Invalid Netscape CertType extension for SSL CA certificate"_s, $ValidatorException::T_CA_EXTENSIONS, cert);
 			}
 			$nc(critSet)->remove(SimpleValidator::OID_NETSCAPE_CERT_TYPE);
 		} else {
-			bool var$3 = $nc(this->variant)->equals($Validator::VAR_CODE_SIGNING);
-			if (var$3 || $nc(this->variant)->equals($Validator::VAR_JCE_SIGNING)) {
+			bool var$1 = this->variant->equals($Validator::VAR_CODE_SIGNING);
+			if (var$1 || this->variant->equals($Validator::VAR_JCE_SIGNING)) {
 				if (getNetscapeCertTypeBit(cert, SimpleValidator::NSCT_CODE_SIGNING_CA) == false) {
 					$init($ValidatorException);
 					$throwNew($ValidatorException, "Invalid Netscape CertType extension for code signing CA certificate"_s, $ValidatorException::T_CA_EXTENSIONS, cert);
@@ -288,13 +242,13 @@ void SimpleValidator::checkNetscapeCertType($X509Certificate* cert, $Set* critSe
 
 bool SimpleValidator::getNetscapeCertTypeBit($X509Certificate* cert, $String* type) {
 	$init(SimpleValidator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($NetscapeCertTypeExtension, ext, nullptr);
 		if ($instanceOf($X509CertImpl, cert)) {
 			$var($X509CertImpl, certImpl, $cast($X509CertImpl, cert));
 			$var($ObjectIdentifier, oid, SimpleValidator::OBJID_NETSCAPE_CERT_TYPE);
-			$assign(ext, $cast($NetscapeCertTypeExtension, $nc(certImpl)->getExtension(oid)));
+			$assign(ext, $cast($NetscapeCertTypeExtension, certImpl->getExtension(oid)));
 			if (ext == nullptr) {
 				return true;
 			}
@@ -305,7 +259,7 @@ bool SimpleValidator::getNetscapeCertTypeBit($X509Certificate* cert, $String* ty
 			}
 			$var($DerInputStream, in, $new($DerInputStream, extVal));
 			$var($bytes, encoded, in->getOctetString());
-			$assign(encoded, $nc($($$new($DerValue, encoded)->getUnalignedBitString()))->toByteArray());
+			$assign(encoded, $$nc($$new($DerValue, encoded)->getUnalignedBitString())->toByteArray());
 			$assign(ext, $new($NetscapeCertTypeExtension, encoded));
 		}
 		$var($Boolean, val, $cast($Boolean, $nc(ext)->get(type)));
@@ -349,53 +303,51 @@ void SimpleValidator::checkKeyUsage($X509Certificate* cert, $Set* critSet) {
 }
 
 $X509CertificateArray* SimpleValidator::buildTrustedChain($X509CertificateArray* chain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, c, $new($ArrayList, $nc(chain)->length));
-	for (int32_t i = 0; i < $nc(chain)->length; ++i) {
+	for (int32_t i = 0; i < chain->length; ++i) {
 		$var($X509Certificate, cert, chain->get(i));
 		$var($X509Certificate, trustedCert, getTrustedCertificate(cert));
 		if (trustedCert != nullptr) {
 			c->add(trustedCert);
 			$init($Validator);
-			return $fcast($X509CertificateArray, c->toArray($Validator::CHAIN0));
+			return $cast($X509CertificateArray, c->toArray($Validator::CHAIN0));
 		}
 		c->add(cert);
 	}
-	$var($X509Certificate, cert, $nc(chain)->get(chain->length - 1));
+	$var($X509Certificate, cert, chain->get(chain->length - 1));
 	$var($X500Principal, subject, $nc(cert)->getSubjectX500Principal());
 	$var($X500Principal, issuer, cert->getIssuerX500Principal());
-	$var($List, list, $cast($List, $nc(this->trustedX500Principals)->get(issuer)));
+	$var($List, list, $cast($List, this->trustedX500Principals->get(issuer)));
 	if (list != nullptr) {
 		$var($X509Certificate, matchedCert, $cast($X509Certificate, list->get(0)));
 		$var($X509CertImpl, certImpl, $X509CertImpl::toImpl(cert));
 		$var($KeyIdentifier, akid, $nc(certImpl)->getAuthKeyId());
 		if (akid != nullptr) {
-			{
-				$var($Iterator, i$, list->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($X509Certificate, sup, $cast($X509Certificate, i$->next()));
-					{
-						$var($X509CertImpl, supCert, $X509CertImpl::toImpl(sup));
-						if (akid->equals($($nc(supCert)->getSubjectKeyId()))) {
-							$assign(matchedCert, sup);
-							break;
-						}
+			$var($Iterator, i$, list->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($X509Certificate, sup, $cast($X509Certificate, i$->next()));
+				{
+					$var($X509CertImpl, supCert, $X509CertImpl::toImpl(sup));
+					if (akid->equals($($nc(supCert)->getSubjectKeyId()))) {
+						$assign(matchedCert, sup);
+						break;
 					}
 				}
 			}
 		}
 		c->add(matchedCert);
 		$init($Validator);
-		return $fcast($X509CertificateArray, c->toArray($Validator::CHAIN0));
+		return $cast($X509CertificateArray, c->toArray($Validator::CHAIN0));
 	}
 	$init($ValidatorException);
 	$throwNew($ValidatorException, $ValidatorException::T_NO_TRUST_ANCHOR);
 }
 
 $X509Certificate* SimpleValidator::getTrustedCertificate($X509Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Principal, certSubjectName, $nc(cert)->getSubjectX500Principal());
-	$var($List, list, $cast($List, $nc(this->trustedX500Principals)->get(certSubjectName)));
+	$var($List, list, $cast($List, this->trustedX500Principals->get(certSubjectName)));
 	if (list == nullptr) {
 		return nullptr;
 	}
@@ -409,10 +361,10 @@ $X509Certificate* SimpleValidator::getTrustedCertificate($X509Certificate* cert)
 				if ($nc(mycert)->equals(cert)) {
 					return cert;
 				}
-				if (!$nc($($nc(mycert)->getIssuerX500Principal()))->equals(certIssuerName)) {
+				if (!$$nc(mycert->getIssuerX500Principal())->equals(certIssuerName)) {
 					continue;
 				}
-				if (!$nc($of($($nc(mycert)->getPublicKey())))->equals(certPublicKey)) {
+				if (!$$nc(mycert->getPublicKey())->equals(certPublicKey)) {
 					continue;
 				}
 				return mycert;
@@ -422,7 +374,7 @@ $X509Certificate* SimpleValidator::getTrustedCertificate($X509Certificate* cert)
 	return nullptr;
 }
 
-void clinit$SimpleValidator($Class* class$) {
+void SimpleValidator::clinit$($Class* clazz) {
 	$init($NetscapeCertTypeExtension);
 	$assignStatic(SimpleValidator::NSCT_SSL_CA, $NetscapeCertTypeExtension::SSL_CA);
 	$assignStatic(SimpleValidator::NSCT_CODE_SIGNING_CA, $NetscapeCertTypeExtension::OBJECT_SIGNING_CA);
@@ -440,7 +392,43 @@ SimpleValidator::SimpleValidator() {
 }
 
 $Class* SimpleValidator::load$($String* name, bool initialize) {
-	$loadClass(SimpleValidator, name, initialize, &_SimpleValidator_ClassInfo_, clinit$SimpleValidator, allocate$SimpleValidator);
+	$FieldInfo fieldInfos$$[] = {
+		{"OID_BASIC_CONSTRAINTS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OID_BASIC_CONSTRAINTS)},
+		{"OID_NETSCAPE_CERT_TYPE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OID_NETSCAPE_CERT_TYPE)},
+		{"OID_KEY_USAGE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OID_KEY_USAGE)},
+		{"OID_EXTENDED_KEY_USAGE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OID_EXTENDED_KEY_USAGE)},
+		{"OID_EKU_ANY_USAGE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OID_EKU_ANY_USAGE)},
+		{"OBJID_NETSCAPE_CERT_TYPE", "Lsun/security/util/ObjectIdentifier;", nullptr, $STATIC | $FINAL, $staticField(SimpleValidator, OBJID_NETSCAPE_CERT_TYPE)},
+		{"NSCT_SSL_CA", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SimpleValidator, NSCT_SSL_CA)},
+		{"NSCT_CODE_SIGNING_CA", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SimpleValidator, NSCT_CODE_SIGNING_CA)},
+		{"trustedX500Principals", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/security/auth/x500/X500Principal;Ljava/util/List<Ljava/security/cert/X509Certificate;>;>;", $PRIVATE | $FINAL, $field(SimpleValidator, trustedX500Principals)},
+		{"trustedCerts", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $FINAL, $field(SimpleValidator, trustedCerts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/util/Collection;)V", "(Ljava/lang/String;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)V", 0, $method(SimpleValidator, init$, void, $String*, $Collection*)},
+		{"buildTrustedChain", "([Ljava/security/cert/X509Certificate;)[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $method(SimpleValidator, buildTrustedChain, $X509CertificateArray*, $X509CertificateArray*), "java.security.cert.CertificateException"},
+		{"checkBasicConstraints", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;I)I", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;I)I", $PRIVATE, $method(SimpleValidator, checkBasicConstraints, int32_t, $X509Certificate*, $Set*, int32_t), "java.security.cert.CertificateException"},
+		{"checkExtensions", "(Ljava/security/cert/X509Certificate;I)I", nullptr, $PRIVATE, $method(SimpleValidator, checkExtensions, int32_t, $X509Certificate*, int32_t), "java.security.cert.CertificateException"},
+		{"checkKeyUsage", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(SimpleValidator, checkKeyUsage, void, $X509Certificate*, $Set*), "java.security.cert.CertificateException"},
+		{"checkNetscapeCertType", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(SimpleValidator, checkNetscapeCertType, void, $X509Certificate*, $Set*), "java.security.cert.CertificateException"},
+		{"engineValidate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/util/List;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/util/List<[B>;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", 0, $virtualMethod(SimpleValidator, engineValidate, $X509CertificateArray*, $X509CertificateArray*, $Collection*, $List*, $AlgorithmConstraints*, Object$*), "java.security.cert.CertificateException"},
+		{"getNetscapeCertTypeBit", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(SimpleValidator, getNetscapeCertTypeBit, bool, $X509Certificate*, $String*)},
+		{"getTrustedCertificate", "(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $method(SimpleValidator, getTrustedCertificate, $X509Certificate*, $X509Certificate*)},
+		{"getTrustedCertificates", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC, $virtualMethod(SimpleValidator, getTrustedCertificates, $Collection*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.validator.SimpleValidator",
+		"sun.security.validator.Validator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SimpleValidator, name, initialize, &classInfo$$, SimpleValidator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleValidator);
+	});
 	return class$;
 }
 

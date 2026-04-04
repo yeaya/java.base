@@ -38,6 +38,7 @@ class $import CharsetDecoder : public ::java::lang::Object {
 	$class(CharsetDecoder, 0, ::java::lang::Object)
 public:
 	CharsetDecoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs, float averageCharsPerByte, float maxCharsPerByte, $String* replacement);
 	void init$(::java::nio::charset::Charset* cs, float averageCharsPerByte, float maxCharsPerByte);
 	float averageCharsPerByte();

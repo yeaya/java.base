@@ -56,6 +56,7 @@ public:
 	Collator();
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	virtual int32_t compare($String* source, $String* target) {return 0;}

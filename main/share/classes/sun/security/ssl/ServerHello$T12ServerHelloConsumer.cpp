@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ServerHello$T12ServerHelloConsumer.h>
-
 #include <java/security/SecureRandom.h>
 #include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap.h>
@@ -13,7 +12,6 @@
 #include <sun/security/ssl/ClientHandshakeContext.h>
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/ContentType.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeHash.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/RandomCookie.h>
@@ -50,21 +48,14 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $ChangeCipherSpec = ::sun::security::ssl::ChangeCipherSpec;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $ContentType = ::sun::security::ssl::ContentType;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLKeyExchange = ::sun::security::ssl::SSLKeyExchange;
@@ -73,82 +64,50 @@ using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $SSLTrafficKeyDerivation = ::sun::security::ssl::SSLTrafficKeyDerivation;
 using $ServerHello$ServerHelloMessage = ::sun::security::ssl::ServerHello$ServerHelloMessage;
 using $SessionId = ::sun::security::ssl::SessionId;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ServerHello$T12ServerHelloConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerHello$T12ServerHelloConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(ServerHello$T12ServerHelloConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ServerHello$T12ServerHelloConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ServerHello$T12ServerHelloConsumer", "sun.security.ssl.ServerHello", "T12ServerHelloConsumer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ServerHello$T12ServerHelloConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ServerHello$T12ServerHelloConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeConsumer",
-	nullptr,
-	_ServerHello$T12ServerHelloConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerHello$T12ServerHelloConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ServerHello"
-};
-
-$Object* allocate$ServerHello$T12ServerHelloConsumer($Class* clazz) {
-	return $of($alloc(ServerHello$T12ServerHelloConsumer));
-}
-
 void ServerHello$T12ServerHelloConsumer::init$() {
 }
 
 void ServerHello$T12ServerHelloConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($ServerHello$ServerHelloMessage, serverHello, $cast($ServerHello$ServerHelloMessage, message));
 	if (!$nc(chc)->isNegotiable($nc(serverHello)->serverVersion)) {
 		$init($Alert);
-		$throw($($nc(chc->conContext)->fatal($Alert::PROTOCOL_VERSION, $$str({"Server chose "_s, $nc(serverHello)->serverVersion, ", but that protocol version is not enabled or not supported by the client."_s}))));
+		$throw($($nc(chc->conContext)->fatal($Alert::PROTOCOL_VERSION, $$str({"Server chose "_s, serverHello->serverVersion, ", but that protocol version is not enabled or not supported by the client."_s}))));
 	}
-	$set($nc(chc), negotiatedCipherSuite, $nc(serverHello)->cipherSuite);
+	$set(chc, negotiatedCipherSuite, serverHello->cipherSuite);
 	$nc(chc->handshakeHash)->determine(chc->negotiatedProtocol, chc->negotiatedCipherSuite);
 	$set(chc, serverHelloRandom, serverHello->serverRandom);
 	if ($nc(chc->negotiatedCipherSuite)->keyExchange == nullptr) {
 		$init($Alert);
-		$throw($($nc(chc->conContext)->fatal($Alert::PROTOCOL_VERSION, $$str({"TLS 1.2 or prior version does not support the server cipher suite: "_s, $nc(chc->negotiatedCipherSuite)->name$}))));
+		$throw($($nc(chc->conContext)->fatal($Alert::PROTOCOL_VERSION, $$str({"TLS 1.2 or prior version does not support the server cipher suite: "_s, chc->negotiatedCipherSuite->name$}))));
 	}
 	$init($SSLExtension);
 	$var($SSLExtensionArray, extTypes, $new($SSLExtensionArray, {$SSLExtension::SH_RENEGOTIATION_INFO}));
 	$nc(serverHello->extensions)->consumeOnLoad(chc, extTypes);
 	if (chc->resumingSession != nullptr) {
-		if ($nc(serverHello->sessionId)->equals($($nc(chc->resumingSession)->getSessionId()))) {
-			$CipherSuite* sessionSuite = $nc(chc->resumingSession)->getSuite();
+		if ($nc(serverHello->sessionId)->equals($(chc->resumingSession->getSessionId()))) {
+			$CipherSuite* sessionSuite = chc->resumingSession->getSuite();
 			if (chc->negotiatedCipherSuite != sessionSuite) {
 				$init($Alert);
 				$throw($($nc(chc->conContext)->fatal($Alert::PROTOCOL_VERSION, "Server returned wrong cipher suite for session"_s)));
 			}
-			$ProtocolVersion* sessionVersion = $nc(chc->resumingSession)->getProtocolVersion();
+			$ProtocolVersion* sessionVersion = chc->resumingSession->getProtocolVersion();
 			if (chc->negotiatedProtocol != sessionVersion) {
 				$init($Alert);
 				$throw($($nc(chc->conContext)->fatal($Alert::PROTOCOL_VERSION, "Server resumed with wrong protocol version"_s)));
 			}
 			chc->isResumption = true;
-			$nc(chc->resumingSession)->setAsSessionResumption(true);
+			chc->resumingSession->setAsSessionResumption(true);
 			$set(chc, handshakeSession, chc->resumingSession);
 		} else {
 			if (chc->resumingSession != nullptr) {
-				$nc(chc->resumingSession)->invalidate();
+				chc->resumingSession->invalidate();
 				$set(chc, resumingSession, nullptr);
 			}
 			chc->isResumption = false;
@@ -160,13 +119,13 @@ void ServerHello$T12ServerHelloConsumer::consume($ConnectionContext* context, $S
 	}
 	$init($SSLHandshake);
 	$assign(extTypes, $nc(chc->sslConfig)->getEnabledExtensions($SSLHandshake::SERVER_HELLO));
-	$nc(serverHello->extensions)->consumeOnLoad(chc, extTypes);
+	serverHello->extensions->consumeOnLoad(chc, extTypes);
 	if (!chc->isResumption) {
 		if (chc->resumingSession != nullptr) {
-			$nc(chc->resumingSession)->invalidate();
+			chc->resumingSession->invalidate();
 			$set(chc, resumingSession, nullptr);
 		}
-		if (!$nc(chc->sslConfig)->enableSessionCreation) {
+		if (!chc->sslConfig->enableSessionCreation) {
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::PROTOCOL_VERSION, "New session creation is disabled"_s)));
 		}
@@ -180,16 +139,16 @@ void ServerHello$T12ServerHelloConsumer::consume($ConnectionContext* context, $S
 		} else {
 			$set(chc, handshakeSession, $new($SSLSessionImpl, chc, chc->negotiatedCipherSuite, serverHello->sessionId));
 		}
-		$nc(chc->handshakeSession)->setMaximumPacketSize($nc(chc->sslConfig)->maximumPacketSize);
+		$nc(chc->handshakeSession)->setMaximumPacketSize(chc->sslConfig->maximumPacketSize);
 	}
-	$nc(serverHello->extensions)->consumeOnTrade(chc, extTypes);
+	serverHello->extensions->consumeOnTrade(chc, extTypes);
 	if (chc->isResumption) {
 		$SSLTrafficKeyDerivation* kdg = $SSLTrafficKeyDerivation::valueOf(chc->negotiatedProtocol);
 		if (kdg == nullptr) {
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Not supported key derivation: "_s, chc->negotiatedProtocol}))));
 		} else {
-			$set(chc, handshakeKeyDerivation, $nc(kdg)->createKeyDerivation(chc, $($nc(chc->resumingSession)->getMasterSecret())));
+			$set(chc, handshakeKeyDerivation, kdg->createKeyDerivation(chc, $($nc(chc->resumingSession)->getMasterSecret())));
 		}
 		if (chc->statelessResumption) {
 			$nc(chc->handshakeConsumers)->putIfAbsent($($Byte::valueOf($SSLHandshake::NEW_SESSION_TICKET->id)), $SSLHandshake::NEW_SESSION_TICKET);
@@ -199,18 +158,14 @@ void ServerHello$T12ServerHelloConsumer::consume($ConnectionContext* context, $S
 		$nc($nc(chc->conContext)->consumers)->putIfAbsent($($Byte::valueOf($ContentType::CHANGE_CIPHER_SPEC->id)), $ChangeCipherSpec::t10Consumer);
 		$nc(chc->handshakeConsumers)->put($($Byte::valueOf($SSLHandshake::FINISHED->id)), $SSLHandshake::FINISHED);
 	} else {
-		$var($SSLKeyExchange, ke, $SSLKeyExchange::valueOf($nc(chc->negotiatedCipherSuite)->keyExchange, chc->negotiatedProtocol));
+		$var($SSLKeyExchange, ke, $SSLKeyExchange::valueOf(chc->negotiatedCipherSuite->keyExchange, chc->negotiatedProtocol));
 		$set(chc, handshakeKeyExchange, ke);
 		if (ke != nullptr) {
-			{
-				$var($SSLHandshakeArray, arr$, ke->getRelatedHandshakers(chc));
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$SSLHandshake* handshake = arr$->get(i$);
-					{
-						$nc(chc->handshakeConsumers)->put($($Byte::valueOf($nc(handshake)->id)), handshake);
-					}
+			$var($SSLHandshakeArray, arr$, ke->getRelatedHandshakers(chc));
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$SSLHandshake* handshake = arr$->get(i$);
+				{
+					$nc(chc->handshakeConsumers)->put($($Byte::valueOf($nc(handshake)->id)), handshake);
 				}
 			}
 		}
@@ -222,7 +177,33 @@ ServerHello$T12ServerHelloConsumer::ServerHello$T12ServerHelloConsumer() {
 }
 
 $Class* ServerHello$T12ServerHelloConsumer::load$($String* name, bool initialize) {
-	$loadClass(ServerHello$T12ServerHelloConsumer, name, initialize, &_ServerHello$T12ServerHelloConsumer_ClassInfo_, allocate$ServerHello$T12ServerHelloConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServerHello$T12ServerHelloConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(ServerHello$T12ServerHelloConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ServerHello$T12ServerHelloConsumer", "sun.security.ssl.ServerHello", "T12ServerHelloConsumer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ServerHello$T12ServerHelloConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ServerHello"
+	};
+	$loadClass(ServerHello$T12ServerHelloConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerHello$T12ServerHelloConsumer);
+	});
 	return class$;
 }
 

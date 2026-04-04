@@ -1,5 +1,4 @@
 #include <java/util/stream/ReferencePipeline.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -58,7 +57,6 @@
 #include <java/util/stream/ReferencePipeline$7.h>
 #include <java/util/stream/ReferencePipeline$8.h>
 #include <java/util/stream/ReferencePipeline$9.h>
-#include <java/util/stream/ReferencePipeline$StatelessOp.h>
 #include <java/util/stream/Sink.h>
 #include <java/util/stream/SliceOps.h>
 #include <java/util/stream/SortedOps.h>
@@ -100,7 +98,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
-using $Set = ::java::util::Set;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterators = ::java::util::Spliterators;
 using $BiConsumer = ::java::util::function::BiConsumer;
@@ -146,7 +143,6 @@ using $ReferencePipeline$6 = ::java::util::stream::ReferencePipeline$6;
 using $ReferencePipeline$7 = ::java::util::stream::ReferencePipeline$7;
 using $ReferencePipeline$8 = ::java::util::stream::ReferencePipeline$8;
 using $ReferencePipeline$9 = ::java::util::stream::ReferencePipeline$9;
-using $ReferencePipeline$StatelessOp = ::java::util::stream::ReferencePipeline$StatelessOp;
 using $Sink = ::java::util::stream::Sink;
 using $SliceOps = ::java::util::stream::SliceOps;
 using $SortedOps = ::java::util::stream::SortedOps;
@@ -156,7 +152,6 @@ using $StreamShape = ::java::util::stream::StreamShape;
 using $StreamSpliterators$DelegatingSpliterator = ::java::util::stream::StreamSpliterators$DelegatingSpliterator;
 using $StreamSpliterators$WrappingSpliterator = ::java::util::stream::StreamSpliterators$WrappingSpliterator;
 using $WhileOps = ::java::util::stream::WhileOps;
-using $JavaUtilCollectionAccess = ::jdk::internal::access::JavaUtilCollectionAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 
 namespace java {
@@ -169,29 +164,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(ReferencePipeline::lambda$toArray$0(x$0));
+		 return ReferencePipeline::lambda$toArray$0(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ReferencePipeline$$Lambda$lambda$toArray$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ReferencePipeline$$Lambda$lambda$toArray$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReferencePipeline$$Lambda$lambda$toArray$0, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReferencePipeline$$Lambda$lambda$toArray$0, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo ReferencePipeline$$Lambda$lambda$toArray$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.ReferencePipeline$$Lambda$lambda$toArray$0",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* ReferencePipeline$$Lambda$lambda$toArray$0::load$($String* name, bool initialize) {
-	$loadClass(ReferencePipeline$$Lambda$lambda$toArray$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReferencePipeline$$Lambda$lambda$toArray$0, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReferencePipeline$$Lambda$lambda$toArray$0, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.ReferencePipeline$$Lambda$lambda$toArray$0",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReferencePipeline$$Lambda$lambda$toArray$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferencePipeline$$Lambda$lambda$toArray$0);
+	});
 	return class$;
 }
 $Class* ReferencePipeline$$Lambda$lambda$toArray$0::class$ = nullptr;
@@ -206,146 +198,34 @@ public:
 	virtual void accept(Object$* u) override {
 		ReferencePipeline::lambda$collect$1(accumulator, container, u);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ReferencePipeline$$Lambda$lambda$collect$1$1>());
-	}
 	$BiConsumer* accumulator = nullptr;
 	$Object* container = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ReferencePipeline$$Lambda$lambda$collect$1$1::fieldInfos[3] = {
-	{"accumulator", "Ljava/util/function/BiConsumer;", nullptr, $PUBLIC, $field(ReferencePipeline$$Lambda$lambda$collect$1$1, accumulator)},
-	{"container", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ReferencePipeline$$Lambda$lambda$collect$1$1, container)},
-	{}
-};
-$MethodInfo ReferencePipeline$$Lambda$lambda$collect$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferencePipeline$$Lambda$lambda$collect$1$1, init$, void, $BiConsumer*, Object$*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ReferencePipeline$$Lambda$lambda$collect$1$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo ReferencePipeline$$Lambda$lambda$collect$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.ReferencePipeline$$Lambda$lambda$collect$1$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* ReferencePipeline$$Lambda$lambda$collect$1$1::load$($String* name, bool initialize) {
-	$loadClass(ReferencePipeline$$Lambda$lambda$collect$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"accumulator", "Ljava/util/function/BiConsumer;", nullptr, $PUBLIC, $field(ReferencePipeline$$Lambda$lambda$collect$1$1, accumulator)},
+		{"container", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ReferencePipeline$$Lambda$lambda$collect$1$1, container)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferencePipeline$$Lambda$lambda$collect$1$1, init$, void, $BiConsumer*, Object$*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ReferencePipeline$$Lambda$lambda$collect$1$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.ReferencePipeline$$Lambda$lambda$collect$1$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReferencePipeline$$Lambda$lambda$collect$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferencePipeline$$Lambda$lambda$collect$1$1);
+	});
 	return class$;
 }
 $Class* ReferencePipeline$$Lambda$lambda$collect$1$1::class$ = nullptr;
-
-$MethodInfo _ReferencePipeline_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<*>;>;IZ)V", 0, $method(ReferencePipeline, init$, void, $Supplier*, int32_t, bool)},
-	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<*>;IZ)V", 0, $method(ReferencePipeline, init$, void, $Spliterator*, int32_t, bool)},
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;I)V", "(Ljava/util/stream/AbstractPipeline<*TP_IN;*>;I)V", 0, $method(ReferencePipeline, init$, void, $AbstractPipeline*, int32_t)},
-	{"allMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TP_OUT;>;)Z", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, allMatch, bool, $Predicate*)},
-	{"anyMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TP_OUT;>;)Z", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, anyMatch, bool, $Predicate*)},
-	{"collect", "(Ljava/util/stream/Collector;)Ljava/lang/Object;", "<R:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/util/stream/Collector<-TP_OUT;TA;TR;>;)TR;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, collect, $Object*, $Collector*)},
-	{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/BiConsumer<TR;-TP_OUT;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, collect, $Object*, $Supplier*, $BiConsumer*, $BiConsumer*)},
-	{"count", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, count, int64_t)},
-	{"distinct", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, distinct, $Stream*)},
-	{"dropWhile", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TP_OUT;>;)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, dropWhile, $Stream*, $Predicate*)},
-	{"evaluateToNode", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[TP_OUT;>;)Ljava/util/stream/Node<TP_OUT;>;", $FINAL, $virtualMethod(ReferencePipeline, evaluateToNode, $Node*, $PipelineHelper*, $Spliterator*, bool, $IntFunction*)},
-	{"filter", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TP_OUT;>;)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, filter, $Stream*, $Predicate*)},
-	{"findAny", "()Ljava/util/Optional;", "()Ljava/util/Optional<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, findAny, $Optional*)},
-	{"findFirst", "()Ljava/util/Optional;", "()Ljava/util/Optional<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, findFirst, $Optional*)},
-	{"flatMap", "(Ljava/util/function/Function;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/Function<-TP_OUT;+Ljava/util/stream/Stream<+TR;>;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, flatMap, $Stream*, $Function*)},
-	{"flatMapToDouble", "(Ljava/util/function/Function;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/Function<-TP_OUT;+Ljava/util/stream/DoubleStream;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, flatMapToDouble, $DoubleStream*, $Function*)},
-	{"flatMapToInt", "(Ljava/util/function/Function;)Ljava/util/stream/IntStream;", "(Ljava/util/function/Function<-TP_OUT;+Ljava/util/stream/IntStream;>;)Ljava/util/stream/IntStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, flatMapToInt, $IntStream*, $Function*)},
-	{"flatMapToLong", "(Ljava/util/function/Function;)Ljava/util/stream/LongStream;", "(Ljava/util/function/Function<-TP_OUT;+Ljava/util/stream/LongStream;>;)Ljava/util/stream/LongStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, flatMapToLong, $LongStream*, $Function*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TP_OUT;>;)V", $PUBLIC, $virtualMethod(ReferencePipeline, forEach, void, $Consumer*)},
-	{"forEachOrdered", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TP_OUT;>;)V", $PUBLIC, $virtualMethod(ReferencePipeline, forEachOrdered, void, $Consumer*)},
-	{"forEachWithCancel", "(Ljava/util/Spliterator;Ljava/util/stream/Sink;)Z", "(Ljava/util/Spliterator<TP_OUT;>;Ljava/util/stream/Sink<TP_OUT;>;)Z", $FINAL, $virtualMethod(ReferencePipeline, forEachWithCancel, bool, $Spliterator*, $Sink*)},
-	{"getOutputShape", "()Ljava/util/stream/StreamShape;", nullptr, $FINAL, $virtualMethod(ReferencePipeline, getOutputShape, $StreamShape*)},
-	{"*isParallel", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, iterator, $Iterator*)},
-	{"lambda$collect$1", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReferencePipeline, lambda$collect$1, void, $BiConsumer*, Object$*, Object$*)},
-	{"lambda$toArray$0", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReferencePipeline, lambda$toArray$0, $ObjectArray*, int32_t)},
-	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<TP_OUT;>;>;)Ljava/util/Spliterator<TP_OUT;>;", $FINAL, $virtualMethod(ReferencePipeline, lazySpliterator, $Spliterator*, $Supplier*)},
-	{"limit", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, limit, $Stream*, int64_t)},
-	{"makeNodeBuilder", "(JLjava/util/function/IntFunction;)Ljava/util/stream/Node$Builder;", "(JLjava/util/function/IntFunction<[TP_OUT;>;)Ljava/util/stream/Node$Builder<TP_OUT;>;", $FINAL, $virtualMethod(ReferencePipeline, makeNodeBuilder, $Node$Builder*, int64_t, $IntFunction*)},
-	{"map", "(Ljava/util/function/Function;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/Function<-TP_OUT;+TR;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, map, $Stream*, $Function*)},
-	{"mapMulti", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/BiConsumer<-TP_OUT;-Ljava/util/function/Consumer<TR;>;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapMulti, $Stream*, $BiConsumer*)},
-	{"mapMultiToDouble", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/BiConsumer<-TP_OUT;-Ljava/util/function/DoubleConsumer;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapMultiToDouble, $DoubleStream*, $BiConsumer*)},
-	{"mapMultiToInt", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/IntStream;", "(Ljava/util/function/BiConsumer<-TP_OUT;-Ljava/util/function/IntConsumer;>;)Ljava/util/stream/IntStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapMultiToInt, $IntStream*, $BiConsumer*)},
-	{"mapMultiToLong", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/LongStream;", "(Ljava/util/function/BiConsumer<-TP_OUT;-Ljava/util/function/LongConsumer;>;)Ljava/util/stream/LongStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapMultiToLong, $LongStream*, $BiConsumer*)},
-	{"mapToDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/ToDoubleFunction<-TP_OUT;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapToDouble, $DoubleStream*, $ToDoubleFunction*)},
-	{"mapToInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;", "(Ljava/util/function/ToIntFunction<-TP_OUT;>;)Ljava/util/stream/IntStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapToInt, $IntStream*, $ToIntFunction*)},
-	{"mapToLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/LongStream;", "(Ljava/util/function/ToLongFunction<-TP_OUT;>;)Ljava/util/stream/LongStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapToLong, $LongStream*, $ToLongFunction*)},
-	{"max", "(Ljava/util/Comparator;)Ljava/util/Optional;", "(Ljava/util/Comparator<-TP_OUT;>;)Ljava/util/Optional<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, max, $Optional*, $Comparator*)},
-	{"min", "(Ljava/util/Comparator;)Ljava/util/Optional;", "(Ljava/util/Comparator<-TP_OUT;>;)Ljava/util/Optional<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, min, $Optional*, $Comparator*)},
-	{"noneMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TP_OUT;>;)Z", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, noneMatch, bool, $Predicate*)},
-	{"*onClose", "(Ljava/lang/Runnable;)Ljava/util/stream/BaseStream;", nullptr, $PUBLIC},
-	{"*parallel", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $FINAL},
-	{"peek", "(Ljava/util/function/Consumer;)Ljava/util/stream/Stream;", "(Ljava/util/function/Consumer<-TP_OUT;>;)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, peek, $Stream*, $Consumer*)},
-	{"reduce", "(Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "(TP_OUT;Ljava/util/function/BinaryOperator<TP_OUT;>;)TP_OUT;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, reduce, $Object*, Object$*, $BinaryOperator*)},
-	{"reduce", "(Ljava/util/function/BinaryOperator;)Ljava/util/Optional;", "(Ljava/util/function/BinaryOperator<TP_OUT;>;)Ljava/util/Optional<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, reduce, $Optional*, $BinaryOperator*)},
-	{"reduce", "(Ljava/lang/Object;Ljava/util/function/BiFunction;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(TR;Ljava/util/function/BiFunction<TR;-TP_OUT;TR;>;Ljava/util/function/BinaryOperator<TR;>;)TR;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, reduce, $Object*, Object$*, $BiFunction*, $BinaryOperator*)},
-	{"*sequential", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $FINAL},
-	{"skip", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, skip, $Stream*, int64_t)},
-	{"sorted", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, sorted, $Stream*)},
-	{"sorted", "(Ljava/util/Comparator;)Ljava/util/stream/Stream;", "(Ljava/util/Comparator<-TP_OUT;>;)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, sorted, $Stream*, $Comparator*)},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
-	{"takeWhile", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TP_OUT;>;)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, takeWhile, $Stream*, $Predicate*)},
-	{"toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "<A:Ljava/lang/Object;>(Ljava/util/function/IntFunction<[TA;>;)[TA;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, toArray, $ObjectArray*, $IntFunction*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, toArray, $ObjectArray*)},
-	{"toList", "()Ljava/util/List;", "()Ljava/util/List<TP_OUT;>;", $PUBLIC, $virtualMethod(ReferencePipeline, toList, $List*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unordered", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC, $virtualMethod(ReferencePipeline, unordered, $BaseStream*)},
-	{"wrap", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)Ljava/util/Spliterator<TP_OUT;>;", $FINAL, $virtualMethod(ReferencePipeline, wrap, $Spliterator*, $PipelineHelper*, $Supplier*, bool)},
-	{}
-};
-
-$InnerClassInfo _ReferencePipeline_InnerClassesInfo_[] = {
-	{"java.util.stream.ReferencePipeline$StatefulOp", "java.util.stream.ReferencePipeline", "StatefulOp", $STATIC | $ABSTRACT},
-	{"java.util.stream.ReferencePipeline$StatelessOp", "java.util.stream.ReferencePipeline", "StatelessOp", $STATIC | $ABSTRACT},
-	{"java.util.stream.ReferencePipeline$Head", "java.util.stream.ReferencePipeline", "Head", $STATIC},
-	{"java.util.stream.ReferencePipeline$15", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$14", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$13", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$12", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$11", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$10", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$9", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$8", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$7", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$6", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$5", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$4", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$3", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$2", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ReferencePipeline_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.ReferencePipeline",
-	"java.util.stream.AbstractPipeline",
-	"java.util.stream.Stream",
-	nullptr,
-	_ReferencePipeline_MethodInfo_,
-	"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;>Ljava/util/stream/AbstractPipeline<TP_IN;TP_OUT;Ljava/util/stream/Stream<TP_OUT;>;>;Ljava/util/stream/Stream<TP_OUT;>;",
-	nullptr,
-	_ReferencePipeline_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.stream.ReferencePipeline$StatefulOp,java.util.stream.ReferencePipeline$StatelessOp,java.util.stream.ReferencePipeline$Head,java.util.stream.ReferencePipeline$15,java.util.stream.ReferencePipeline$15$1,java.util.stream.ReferencePipeline$14,java.util.stream.ReferencePipeline$14$1,java.util.stream.ReferencePipeline$13,java.util.stream.ReferencePipeline$13$1,java.util.stream.ReferencePipeline$12,java.util.stream.ReferencePipeline$12$1,java.util.stream.ReferencePipeline$11,java.util.stream.ReferencePipeline$11$1,java.util.stream.ReferencePipeline$10,java.util.stream.ReferencePipeline$10$1,java.util.stream.ReferencePipeline$9,java.util.stream.ReferencePipeline$9$1,java.util.stream.ReferencePipeline$8,java.util.stream.ReferencePipeline$8$1,java.util.stream.ReferencePipeline$7,java.util.stream.ReferencePipeline$7$1,java.util.stream.ReferencePipeline$6,java.util.stream.ReferencePipeline$6$1,java.util.stream.ReferencePipeline$5,java.util.stream.ReferencePipeline$5$1,java.util.stream.ReferencePipeline$4,java.util.stream.ReferencePipeline$4$1,java.util.stream.ReferencePipeline$3,java.util.stream.ReferencePipeline$3$1,java.util.stream.ReferencePipeline$2,java.util.stream.ReferencePipeline$2$1,java.util.stream.ReferencePipeline$1"
-};
-
-$Object* allocate$ReferencePipeline($Class* clazz) {
-	return $of($alloc(ReferencePipeline));
-}
 
 $BaseStream* ReferencePipeline::sequential() {
 	 return this->$AbstractPipeline::sequential();
@@ -439,11 +319,11 @@ $Iterator* ReferencePipeline::iterator() {
 
 $BaseStream* ReferencePipeline::unordered() {
 	if (!isOrdered()) {
-		return static_cast<$BaseStream*>(static_cast<$AbstractPipeline*>(this));
+		return $cast($AbstractPipeline, this);
 	}
 	$init($StreamShape);
 	$init($StreamOpFlag);
-	return static_cast<$BaseStream*>(static_cast<$AbstractPipeline*>(static_cast<ReferencePipeline*>(static_cast<$ReferencePipeline$StatelessOp*>($new($ReferencePipeline$1, this, this, $StreamShape::REFERENCE, $StreamOpFlag::NOT_ORDERED)))));
+	return $cast($AbstractPipeline, $new($ReferencePipeline$1, this, this, $StreamShape::REFERENCE, $StreamOpFlag::NOT_ORDERED));
 }
 
 $Stream* ReferencePipeline::filter($Predicate* predicate) {
@@ -590,36 +470,36 @@ void ReferencePipeline::forEachOrdered($Consumer* action) {
 }
 
 $ObjectArray* ReferencePipeline::toArray($IntFunction* generator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IntFunction, rawGenerator, generator);
-	return $nc($($Nodes::flatten($(evaluateToArrayNode(rawGenerator)), rawGenerator)))->asArray(rawGenerator);
+	return $$nc($Nodes::flatten($(evaluateToArrayNode(rawGenerator)), rawGenerator))->asArray(rawGenerator);
 }
 
 $ObjectArray* ReferencePipeline::toArray() {
-	return toArray(static_cast<$IntFunction*>($$new(ReferencePipeline$$Lambda$lambda$toArray$0)));
+	return toArray($$new(ReferencePipeline$$Lambda$lambda$toArray$0));
 }
 
 $List* ReferencePipeline::toList() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($SharedSecrets::getJavaUtilCollectionAccess()))->listFromTrustedArrayNullsAllowed($(this->toArray()));
+	$useLocalObjectStack();
+	return $$nc($SharedSecrets::getJavaUtilCollectionAccess())->listFromTrustedArrayNullsAllowed($(this->toArray()));
 }
 
 bool ReferencePipeline::anyMatch($Predicate* predicate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MatchOps$MatchKind);
-	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeRef(predicate, $MatchOps$MatchKind::ANY)))))))->booleanValue();
+	return $$sure($Boolean, evaluate($($MatchOps::makeRef(predicate, $MatchOps$MatchKind::ANY))))->booleanValue();
 }
 
 bool ReferencePipeline::allMatch($Predicate* predicate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MatchOps$MatchKind);
-	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeRef(predicate, $MatchOps$MatchKind::ALL)))))))->booleanValue();
+	return $$sure($Boolean, evaluate($($MatchOps::makeRef(predicate, $MatchOps$MatchKind::ALL))))->booleanValue();
 }
 
 bool ReferencePipeline::noneMatch($Predicate* predicate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MatchOps$MatchKind);
-	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeRef(predicate, $MatchOps$MatchKind::NONE)))))))->booleanValue();
+	return $$sure($Boolean, evaluate($($MatchOps::makeRef(predicate, $MatchOps$MatchKind::NONE))))->booleanValue();
 }
 
 $Optional* ReferencePipeline::findFirst() {
@@ -631,7 +511,7 @@ $Optional* ReferencePipeline::findAny() {
 }
 
 $Object* ReferencePipeline::reduce(Object$* identity, $BinaryOperator* accumulator) {
-	return $of(evaluate($($ReduceOps::makeRef(identity, static_cast<$BiFunction*>(accumulator), accumulator))));
+	return evaluate($($ReduceOps::makeRef(identity, accumulator, accumulator)));
 }
 
 $Optional* ReferencePipeline::reduce($BinaryOperator* accumulator) {
@@ -639,31 +519,31 @@ $Optional* ReferencePipeline::reduce($BinaryOperator* accumulator) {
 }
 
 $Object* ReferencePipeline::reduce(Object$* identity, $BiFunction* accumulator, $BinaryOperator* combiner) {
-	return $of(evaluate($($ReduceOps::makeRef(identity, accumulator, combiner))));
+	return evaluate($($ReduceOps::makeRef(identity, accumulator, combiner)));
 }
 
 $Object* ReferencePipeline::collect($Collector* collector) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, container, nullptr);
 	bool var$1 = isParallel();
 	$init($Collector$Characteristics);
-	bool var$0 = var$1 && ($nc($($nc(collector)->characteristics()))->contains($Collector$Characteristics::CONCURRENT));
+	bool var$0 = var$1 && ($$nc($nc(collector)->characteristics())->contains($Collector$Characteristics::CONCURRENT));
 	if (var$0) {
 		bool var$2 = !isOrdered();
-		var$0 = (var$2 || $nc($(collector->characteristics()))->contains($Collector$Characteristics::UNORDERED));
+		var$0 = var$2 || $$nc(collector->characteristics())->contains($Collector$Characteristics::UNORDERED);
 	}
 	if (var$0) {
-		$assign(container, $nc($($nc(collector)->supplier()))->get());
+		$assign(container, $$nc($nc(collector)->supplier())->get());
 		$var($BiConsumer, accumulator, collector->accumulator());
-		forEach(static_cast<$Consumer*>($$new(ReferencePipeline$$Lambda$lambda$collect$1$1, accumulator, container)));
+		forEach($$new(ReferencePipeline$$Lambda$lambda$collect$1$1, accumulator, container));
 	} else {
 		$assign(container, evaluate($($ReduceOps::makeRef(collector))));
 	}
-	return $of($nc($($nc(collector)->characteristics()))->contains($Collector$Characteristics::IDENTITY_FINISH) ? container : $nc($($nc(collector)->finisher()))->apply(container));
+	return $$nc($nc(collector)->characteristics())->contains($Collector$Characteristics::IDENTITY_FINISH) ? container : $$nc(collector->finisher())->apply(container);
 }
 
 $Object* ReferencePipeline::collect($Supplier* supplier, $BiConsumer* accumulator, $BiConsumer* combiner) {
-	return $of(evaluate($($ReduceOps::makeRef(supplier, accumulator, combiner))));
+	return evaluate($($ReduceOps::makeRef(supplier, accumulator, combiner)));
 }
 
 $Optional* ReferencePipeline::max($Comparator* comparator) {
@@ -675,8 +555,8 @@ $Optional* ReferencePipeline::min($Comparator* comparator) {
 }
 
 int64_t ReferencePipeline::count() {
-	$useLocalCurrentObjectStackCache();
-	return $nc(($cast($Long, $(evaluate($($ReduceOps::makeRefCounting()))))))->longValue();
+	$useLocalObjectStack();
+	return $$sure($Long, evaluate($($ReduceOps::makeRefCounting())))->longValue();
 }
 
 void ReferencePipeline::lambda$collect$1($BiConsumer* accumulator, Object$* container, Object$* u) {
@@ -694,14 +574,117 @@ ReferencePipeline::ReferencePipeline() {
 
 $Class* ReferencePipeline::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ReferencePipeline$$Lambda$lambda$toArray$0::classInfo$.name)) {
+		if (name->equals("java.util.stream.ReferencePipeline$$Lambda$lambda$toArray$0")) {
 			return ReferencePipeline$$Lambda$lambda$toArray$0::load$(name, initialize);
 		}
-		if (name->equals(ReferencePipeline$$Lambda$lambda$collect$1$1::classInfo$.name)) {
+		if (name->equals("java.util.stream.ReferencePipeline$$Lambda$lambda$collect$1$1")) {
 			return ReferencePipeline$$Lambda$lambda$collect$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ReferencePipeline, name, initialize, &_ReferencePipeline_ClassInfo_, allocate$ReferencePipeline);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<*>;>;IZ)V", 0, $method(ReferencePipeline, init$, void, $Supplier*, int32_t, bool)},
+		{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<*>;IZ)V", 0, $method(ReferencePipeline, init$, void, $Spliterator*, int32_t, bool)},
+		{"<init>", "(Ljava/util/stream/AbstractPipeline;I)V", "(Ljava/util/stream/AbstractPipeline<*TP_IN;*>;I)V", 0, $method(ReferencePipeline, init$, void, $AbstractPipeline*, int32_t)},
+		{"allMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TP_OUT;>;)Z", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, allMatch, bool, $Predicate*)},
+		{"anyMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TP_OUT;>;)Z", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, anyMatch, bool, $Predicate*)},
+		{"collect", "(Ljava/util/stream/Collector;)Ljava/lang/Object;", "<R:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/util/stream/Collector<-TP_OUT;TA;TR;>;)TR;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, collect, $Object*, $Collector*)},
+		{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/BiConsumer<TR;-TP_OUT;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, collect, $Object*, $Supplier*, $BiConsumer*, $BiConsumer*)},
+		{"count", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, count, int64_t)},
+		{"distinct", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, distinct, $Stream*)},
+		{"dropWhile", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TP_OUT;>;)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, dropWhile, $Stream*, $Predicate*)},
+		{"evaluateToNode", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[TP_OUT;>;)Ljava/util/stream/Node<TP_OUT;>;", $FINAL, $virtualMethod(ReferencePipeline, evaluateToNode, $Node*, $PipelineHelper*, $Spliterator*, bool, $IntFunction*)},
+		{"filter", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TP_OUT;>;)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, filter, $Stream*, $Predicate*)},
+		{"findAny", "()Ljava/util/Optional;", "()Ljava/util/Optional<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, findAny, $Optional*)},
+		{"findFirst", "()Ljava/util/Optional;", "()Ljava/util/Optional<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, findFirst, $Optional*)},
+		{"flatMap", "(Ljava/util/function/Function;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/Function<-TP_OUT;+Ljava/util/stream/Stream<+TR;>;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, flatMap, $Stream*, $Function*)},
+		{"flatMapToDouble", "(Ljava/util/function/Function;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/Function<-TP_OUT;+Ljava/util/stream/DoubleStream;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, flatMapToDouble, $DoubleStream*, $Function*)},
+		{"flatMapToInt", "(Ljava/util/function/Function;)Ljava/util/stream/IntStream;", "(Ljava/util/function/Function<-TP_OUT;+Ljava/util/stream/IntStream;>;)Ljava/util/stream/IntStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, flatMapToInt, $IntStream*, $Function*)},
+		{"flatMapToLong", "(Ljava/util/function/Function;)Ljava/util/stream/LongStream;", "(Ljava/util/function/Function<-TP_OUT;+Ljava/util/stream/LongStream;>;)Ljava/util/stream/LongStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, flatMapToLong, $LongStream*, $Function*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TP_OUT;>;)V", $PUBLIC, $virtualMethod(ReferencePipeline, forEach, void, $Consumer*)},
+		{"forEachOrdered", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TP_OUT;>;)V", $PUBLIC, $virtualMethod(ReferencePipeline, forEachOrdered, void, $Consumer*)},
+		{"forEachWithCancel", "(Ljava/util/Spliterator;Ljava/util/stream/Sink;)Z", "(Ljava/util/Spliterator<TP_OUT;>;Ljava/util/stream/Sink<TP_OUT;>;)Z", $FINAL, $virtualMethod(ReferencePipeline, forEachWithCancel, bool, $Spliterator*, $Sink*)},
+		{"getOutputShape", "()Ljava/util/stream/StreamShape;", nullptr, $FINAL, $virtualMethod(ReferencePipeline, getOutputShape, $StreamShape*)},
+		{"*isParallel", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, iterator, $Iterator*)},
+		{"lambda$collect$1", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReferencePipeline, lambda$collect$1, void, $BiConsumer*, Object$*, Object$*)},
+		{"lambda$toArray$0", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReferencePipeline, lambda$toArray$0, $ObjectArray*, int32_t)},
+		{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<TP_OUT;>;>;)Ljava/util/Spliterator<TP_OUT;>;", $FINAL, $virtualMethod(ReferencePipeline, lazySpliterator, $Spliterator*, $Supplier*)},
+		{"limit", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, limit, $Stream*, int64_t)},
+		{"makeNodeBuilder", "(JLjava/util/function/IntFunction;)Ljava/util/stream/Node$Builder;", "(JLjava/util/function/IntFunction<[TP_OUT;>;)Ljava/util/stream/Node$Builder<TP_OUT;>;", $FINAL, $virtualMethod(ReferencePipeline, makeNodeBuilder, $Node$Builder*, int64_t, $IntFunction*)},
+		{"map", "(Ljava/util/function/Function;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/Function<-TP_OUT;+TR;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, map, $Stream*, $Function*)},
+		{"mapMulti", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/BiConsumer<-TP_OUT;-Ljava/util/function/Consumer<TR;>;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapMulti, $Stream*, $BiConsumer*)},
+		{"mapMultiToDouble", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/BiConsumer<-TP_OUT;-Ljava/util/function/DoubleConsumer;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapMultiToDouble, $DoubleStream*, $BiConsumer*)},
+		{"mapMultiToInt", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/IntStream;", "(Ljava/util/function/BiConsumer<-TP_OUT;-Ljava/util/function/IntConsumer;>;)Ljava/util/stream/IntStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapMultiToInt, $IntStream*, $BiConsumer*)},
+		{"mapMultiToLong", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/LongStream;", "(Ljava/util/function/BiConsumer<-TP_OUT;-Ljava/util/function/LongConsumer;>;)Ljava/util/stream/LongStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapMultiToLong, $LongStream*, $BiConsumer*)},
+		{"mapToDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/ToDoubleFunction<-TP_OUT;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapToDouble, $DoubleStream*, $ToDoubleFunction*)},
+		{"mapToInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;", "(Ljava/util/function/ToIntFunction<-TP_OUT;>;)Ljava/util/stream/IntStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapToInt, $IntStream*, $ToIntFunction*)},
+		{"mapToLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/LongStream;", "(Ljava/util/function/ToLongFunction<-TP_OUT;>;)Ljava/util/stream/LongStream;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, mapToLong, $LongStream*, $ToLongFunction*)},
+		{"max", "(Ljava/util/Comparator;)Ljava/util/Optional;", "(Ljava/util/Comparator<-TP_OUT;>;)Ljava/util/Optional<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, max, $Optional*, $Comparator*)},
+		{"min", "(Ljava/util/Comparator;)Ljava/util/Optional;", "(Ljava/util/Comparator<-TP_OUT;>;)Ljava/util/Optional<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, min, $Optional*, $Comparator*)},
+		{"noneMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TP_OUT;>;)Z", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, noneMatch, bool, $Predicate*)},
+		{"*onClose", "(Ljava/lang/Runnable;)Ljava/util/stream/BaseStream;", nullptr, $PUBLIC},
+		{"*parallel", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $FINAL},
+		{"peek", "(Ljava/util/function/Consumer;)Ljava/util/stream/Stream;", "(Ljava/util/function/Consumer<-TP_OUT;>;)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, peek, $Stream*, $Consumer*)},
+		{"reduce", "(Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "(TP_OUT;Ljava/util/function/BinaryOperator<TP_OUT;>;)TP_OUT;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, reduce, $Object*, Object$*, $BinaryOperator*)},
+		{"reduce", "(Ljava/util/function/BinaryOperator;)Ljava/util/Optional;", "(Ljava/util/function/BinaryOperator<TP_OUT;>;)Ljava/util/Optional<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, reduce, $Optional*, $BinaryOperator*)},
+		{"reduce", "(Ljava/lang/Object;Ljava/util/function/BiFunction;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(TR;Ljava/util/function/BiFunction<TR;-TP_OUT;TR;>;Ljava/util/function/BinaryOperator<TR;>;)TR;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, reduce, $Object*, Object$*, $BiFunction*, $BinaryOperator*)},
+		{"*sequential", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $FINAL},
+		{"skip", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, skip, $Stream*, int64_t)},
+		{"sorted", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, sorted, $Stream*)},
+		{"sorted", "(Ljava/util/Comparator;)Ljava/util/stream/Stream;", "(Ljava/util/Comparator<-TP_OUT;>;)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, sorted, $Stream*, $Comparator*)},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
+		{"takeWhile", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TP_OUT;>;)Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, takeWhile, $Stream*, $Predicate*)},
+		{"toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "<A:Ljava/lang/Object;>(Ljava/util/function/IntFunction<[TA;>;)[TA;", $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, toArray, $ObjectArray*, $IntFunction*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReferencePipeline, toArray, $ObjectArray*)},
+		{"toList", "()Ljava/util/List;", "()Ljava/util/List<TP_OUT;>;", $PUBLIC, $virtualMethod(ReferencePipeline, toList, $List*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unordered", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TP_OUT;>;", $PUBLIC, $virtualMethod(ReferencePipeline, unordered, $BaseStream*)},
+		{"wrap", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)Ljava/util/Spliterator<TP_OUT;>;", $FINAL, $virtualMethod(ReferencePipeline, wrap, $Spliterator*, $PipelineHelper*, $Supplier*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ReferencePipeline$StatefulOp", "java.util.stream.ReferencePipeline", "StatefulOp", $STATIC | $ABSTRACT},
+		{"java.util.stream.ReferencePipeline$StatelessOp", "java.util.stream.ReferencePipeline", "StatelessOp", $STATIC | $ABSTRACT},
+		{"java.util.stream.ReferencePipeline$Head", "java.util.stream.ReferencePipeline", "Head", $STATIC},
+		{"java.util.stream.ReferencePipeline$15", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$14", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$13", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$12", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$11", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$10", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$9", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$8", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$7", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$6", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$5", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$4", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$3", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$2", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.ReferencePipeline",
+		"java.util.stream.AbstractPipeline",
+		"java.util.stream.Stream",
+		nullptr,
+		methodInfos$$,
+		"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;>Ljava/util/stream/AbstractPipeline<TP_IN;TP_OUT;Ljava/util/stream/Stream<TP_OUT;>;>;Ljava/util/stream/Stream<TP_OUT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.stream.ReferencePipeline$StatefulOp,java.util.stream.ReferencePipeline$StatelessOp,java.util.stream.ReferencePipeline$Head,java.util.stream.ReferencePipeline$15,java.util.stream.ReferencePipeline$15$1,java.util.stream.ReferencePipeline$14,java.util.stream.ReferencePipeline$14$1,java.util.stream.ReferencePipeline$13,java.util.stream.ReferencePipeline$13$1,java.util.stream.ReferencePipeline$12,java.util.stream.ReferencePipeline$12$1,java.util.stream.ReferencePipeline$11,java.util.stream.ReferencePipeline$11$1,java.util.stream.ReferencePipeline$10,java.util.stream.ReferencePipeline$10$1,java.util.stream.ReferencePipeline$9,java.util.stream.ReferencePipeline$9$1,java.util.stream.ReferencePipeline$8,java.util.stream.ReferencePipeline$8$1,java.util.stream.ReferencePipeline$7,java.util.stream.ReferencePipeline$7$1,java.util.stream.ReferencePipeline$6,java.util.stream.ReferencePipeline$6$1,java.util.stream.ReferencePipeline$5,java.util.stream.ReferencePipeline$5$1,java.util.stream.ReferencePipeline$4,java.util.stream.ReferencePipeline$4$1,java.util.stream.ReferencePipeline$3,java.util.stream.ReferencePipeline$3$1,java.util.stream.ReferencePipeline$2,java.util.stream.ReferencePipeline$2$1,java.util.stream.ReferencePipeline$1"
+	};
+	$loadClass(ReferencePipeline, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReferencePipeline));
+	});
 	return class$;
 }
 

@@ -1,6 +1,4 @@
 #include <java/io/FileOutputStream.h>
-
-#include <java/io/Closeable.h>
 #include <java/io/File.h>
 #include <java/io/FileCleanable.h>
 #include <java/io/FileDescriptor.h>
@@ -16,7 +14,6 @@
 #include <sun/nio/ch/FileChannelImpl.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $File = ::java::io::File;
 using $FileCleanable = ::java::io::FileCleanable;
 using $FileDescriptor = ::java::io::FileDescriptor;
@@ -39,65 +36,6 @@ using $FileChannelImpl = ::sun::nio::ch::FileChannelImpl;
 namespace java {
 	namespace io {
 
-$FieldInfo _FileOutputStream_FieldInfo_[] = {
-	{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileOutputStream, fdAccess)},
-	{"fd", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $FINAL, $field(FileOutputStream, fd)},
-	{"channel", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $VOLATILE, $field(FileOutputStream, channel)},
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FileOutputStream, path)},
-	{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FileOutputStream, closeLock)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(FileOutputStream, closed)},
-	{}
-};
-
-$MethodInfo _FileOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileOutputStream, init$, void, $String*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(FileOutputStream, init$, void, $String*, bool), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileOutputStream, init$, void, $File*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/File;Z)V", nullptr, $PUBLIC, $method(FileOutputStream, init$, void, $File*, bool), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(FileOutputStream, init$, void, $FileDescriptor*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileOutputStream, close, void), "java.io.IOException"},
-	{"getChannel", "()Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC, $virtualMethod(FileOutputStream, getChannel, $FileChannel*)},
-	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $FINAL, $method(FileOutputStream, getFD, $FileDescriptor*), "java.io.IOException"},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileOutputStream, initIDs, void)},
-	{"open", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(FileOutputStream, open, void, $String*, bool), "java.io.FileNotFoundException"},
-	{"open0", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $NATIVE, $method(FileOutputStream, open0, void, $String*, bool), "java.io.FileNotFoundException"},
-	{"write", "(IZ)V", nullptr, $PRIVATE | $NATIVE, $method(FileOutputStream, write, void, int32_t, bool), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(FileOutputStream, write, void, $bytes*), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(FileOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"writeBytes", "([BIIZ)V", nullptr, $PRIVATE | $NATIVE, $method(FileOutputStream, writeBytes, void, $bytes*, int32_t, int32_t, bool), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 8
-#define _METHOD_INDEX_open0 10
-#define _METHOD_INDEX_write 11
-#define _METHOD_INDEX_writeBytes 15
-
-$InnerClassInfo _FileOutputStream_InnerClassesInfo_[] = {
-	{"java.io.FileOutputStream$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.FileOutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	_FileOutputStream_FieldInfo_,
-	_FileOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.io.FileOutputStream$1"
-};
-
-$Object* allocate$FileOutputStream($Class* clazz) {
-	return $of($alloc(FileOutputStream));
-}
-
 $JavaIOFileDescriptorAccess* FileOutputStream::fdAccess = nullptr;
 
 void FileOutputStream::init$($String* name) {
@@ -113,10 +51,10 @@ void FileOutputStream::init$($File* file) {
 }
 
 void FileOutputStream::init$($File* file, bool append) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$OutputStream::init$();
 	$set(this, closeLock, $new($Object));
-	$var($String, name, file != nullptr ? $nc(file)->getPath() : ($String*)nullptr);
+	$var($String, name, file != nullptr ? file->getPath() : ($String*)nullptr);
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkWrite(name);
@@ -124,7 +62,7 @@ void FileOutputStream::init$($File* file, bool append) {
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	if (file->isInvalid()) {
+	if ($nc(file)->isInvalid()) {
 		$throwNew($FileNotFoundException, "Invalid file path"_s);
 	}
 	$set(this, fd, $new($FileDescriptor));
@@ -150,7 +88,7 @@ void FileOutputStream::init$($FileDescriptor* fdObj) {
 }
 
 void FileOutputStream::open0($String* name, bool append) {
-	$prepareNative(FileOutputStream, open0, void, $String* name, bool append);
+	$prepareNative(open0, void, $String* name, bool append);
 	$invokeNative(name, append);
 	$finishNative();
 }
@@ -160,7 +98,7 @@ void FileOutputStream::open($String* name, bool append) {
 }
 
 void FileOutputStream::write(int32_t b, bool append) {
-	$prepareNative(FileOutputStream, write, void, int32_t b, bool append);
+	$prepareNative(write, void, int32_t b, bool append);
 	$invokeNative(b, append);
 	$finishNative();
 }
@@ -170,7 +108,7 @@ void FileOutputStream::write(int32_t b) {
 }
 
 void FileOutputStream::writeBytes($bytes* b, int32_t off, int32_t len, bool append) {
-	$prepareNative(FileOutputStream, writeBytes, void, $bytes* b, int32_t off, int32_t len, bool append);
+	$prepareNative(writeBytes, void, $bytes* b, int32_t off, int32_t len, bool append);
 	$invokeNative(b, off, len, append);
 	$finishNative();
 }
@@ -184,7 +122,7 @@ void FileOutputStream::write($bytes* b, int32_t off, int32_t len) {
 }
 
 void FileOutputStream::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closed) {
 		return;
 	}
@@ -214,12 +152,12 @@ $FileChannel* FileOutputStream::getChannel() {
 		$synchronized(this) {
 			$assign(fc, this->channel);
 			if (fc == nullptr) {
-				$set(this, channel, ($assign(fc, $FileChannelImpl::open(this->fd, this->path, false, true, false, this))));
+				$set(this, channel, $assign(fc, $FileChannelImpl::open(this->fd, this->path, false, true, false, this)));
 				if (this->closed) {
 					try {
 						$nc(fc)->close();
 					} catch ($IOException& ioe) {
-						$throwNew($InternalError, static_cast<$Throwable*>(ioe));
+						$throwNew($InternalError, ioe);
 					}
 				}
 			}
@@ -230,12 +168,12 @@ $FileChannel* FileOutputStream::getChannel() {
 
 void FileOutputStream::initIDs() {
 	$init(FileOutputStream);
-	$prepareNativeStatic(FileOutputStream, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$FileOutputStream($Class* class$) {
+void FileOutputStream::clinit$($Class* clazz) {
 	$assignStatic(FileOutputStream::fdAccess, $SharedSecrets::getJavaIOFileDescriptorAccess());
 	{
 		FileOutputStream::initIDs();
@@ -246,7 +184,55 @@ FileOutputStream::FileOutputStream() {
 }
 
 $Class* FileOutputStream::load$($String* name, bool initialize) {
-	$loadClass(FileOutputStream, name, initialize, &_FileOutputStream_ClassInfo_, clinit$FileOutputStream, allocate$FileOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileOutputStream, fdAccess)},
+		{"fd", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $FINAL, $field(FileOutputStream, fd)},
+		{"channel", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $VOLATILE, $field(FileOutputStream, channel)},
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FileOutputStream, path)},
+		{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FileOutputStream, closeLock)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(FileOutputStream, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileOutputStream, init$, void, $String*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(FileOutputStream, init$, void, $String*, bool), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileOutputStream, init$, void, $File*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/io/File;Z)V", nullptr, $PUBLIC, $method(FileOutputStream, init$, void, $File*, bool), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(FileOutputStream, init$, void, $FileDescriptor*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileOutputStream, close, void), "java.io.IOException"},
+		{"getChannel", "()Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC, $virtualMethod(FileOutputStream, getChannel, $FileChannel*)},
+		{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $FINAL, $method(FileOutputStream, getFD, $FileDescriptor*), "java.io.IOException"},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileOutputStream, initIDs, void)},
+		{"open", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(FileOutputStream, open, void, $String*, bool), "java.io.FileNotFoundException"},
+		{"open0", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $NATIVE, $method(FileOutputStream, open0, void, $String*, bool), "java.io.FileNotFoundException"},
+		{"write", "(IZ)V", nullptr, $PRIVATE | $NATIVE, $method(FileOutputStream, write, void, int32_t, bool), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(FileOutputStream, write, void, $bytes*), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(FileOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"writeBytes", "([BIIZ)V", nullptr, $PRIVATE | $NATIVE, $method(FileOutputStream, writeBytes, void, $bytes*, int32_t, int32_t, bool), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.FileOutputStream$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.FileOutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.io.FileOutputStream$1"
+	};
+	$loadClass(FileOutputStream, name, initialize, &classInfo$$, FileOutputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileOutputStream));
+	});
 	return class$;
 }
 

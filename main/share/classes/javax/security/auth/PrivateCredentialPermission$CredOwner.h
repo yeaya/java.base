@@ -16,7 +16,7 @@ public:
 	void init$($String* principalClass, $String* principalName);
 	virtual bool implies(Object$* obj);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xB22E5616B9037436;
+	static const int64_t serialVersionUID = (int64_t)0xb22e5616b9037436;
 	$String* principalClass = nullptr;
 	$String* principalName = nullptr;
 };

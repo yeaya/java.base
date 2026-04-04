@@ -1,5 +1,4 @@
 #include <java/lang/reflect/ReflectPermission.h>
-
 #include <java/security/BasicPermission.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 namespace java {
 	namespace lang {
 		namespace reflect {
-
-$FieldInfo _ReflectPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReflectPermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ReflectPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectPermission, init$, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _ReflectPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.reflect.ReflectPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_ReflectPermission_FieldInfo_,
-	_ReflectPermission_MethodInfo_
-};
-
-$Object* allocate$ReflectPermission($Class* clazz) {
-	return $of($alloc(ReflectPermission));
-}
 
 void ReflectPermission::init$($String* name) {
 	$BasicPermission::init$(name);
@@ -48,7 +23,26 @@ ReflectPermission::ReflectPermission() {
 }
 
 $Class* ReflectPermission::load$($String* name, bool initialize) {
-	$loadClass(ReflectPermission, name, initialize, &_ReflectPermission_ClassInfo_, allocate$ReflectPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReflectPermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectPermission, init$, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.reflect.ReflectPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReflectPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReflectPermission));
+	});
 	return class$;
 }
 

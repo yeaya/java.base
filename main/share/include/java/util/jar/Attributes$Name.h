@@ -58,6 +58,7 @@ class $import Attributes$Name : public ::java::lang::Object {
 	$class(Attributes$Name, 0, ::java::lang::Object)
 public:
 	Attributes$Name();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	static void addName(::java::util::Map* names, ::java::util::jar::Attributes$Name* name);
 	virtual bool equals(Object$* o) override;

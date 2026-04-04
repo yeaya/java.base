@@ -12,6 +12,7 @@ class StackStreamFactory$1 : public ::java::lang::Object {
 	$class(StackStreamFactory$1, 0, ::java::lang::Object)
 public:
 	StackStreamFactory$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$lang$StackStreamFactory$WalkerState;
 };
 

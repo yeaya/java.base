@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixFileSystemProvider.h>
-
 #include <java/io/FilePermission.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/RuntimePermission.h>
@@ -32,12 +31,10 @@
 #include <java/nio/file/attribute/PosixFileAttributeView.h>
 #include <java/nio/file/attribute/PosixFileAttributes.h>
 #include <java/nio/file/spi/FileTypeDetector.h>
-#include <java/security/Permission.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <java/util/concurrent/ExecutorService.h>
 #include <sun/nio/ch/ThreadPool.h>
-#include <sun/nio/fs/AbstractBasicFileAttributeView.h>
 #include <sun/nio/fs/AbstractFileSystemProvider.h>
 #include <sun/nio/fs/AbstractFileTypeDetector.h>
 #include <sun/nio/fs/DynamicFileAttributeView.h>
@@ -126,12 +123,10 @@ using $FileOwnerAttributeView = ::java::nio::file::attribute::FileOwnerAttribute
 using $PosixFileAttributeView = ::java::nio::file::attribute::PosixFileAttributeView;
 using $PosixFileAttributes = ::java::nio::file::attribute::PosixFileAttributes;
 using $FileTypeDetector = ::java::nio::file::spi::FileTypeDetector;
-using $Permission = ::java::security::Permission;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $ThreadPool = ::sun::nio::ch::ThreadPool;
-using $AbstractBasicFileAttributeView = ::sun::nio::fs::AbstractBasicFileAttributeView;
 using $AbstractFileSystemProvider = ::sun::nio::fs::AbstractFileSystemProvider;
 using $DynamicFileAttributeView = ::sun::nio::fs::DynamicFileAttributeView;
 using $UnixChannelFactory = ::sun::nio::fs::UnixChannelFactory;
@@ -158,77 +153,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _UnixFileSystemProvider_FieldInfo_[] = {
-	{"USER_DIR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileSystemProvider, USER_DIR)},
-	{"EMPTY_PATH", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileSystemProvider, EMPTY_PATH)},
-	{"theFileSystem", "Lsun/nio/fs/UnixFileSystem;", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystemProvider, theFileSystem$)},
-	{}
-};
-
-$MethodInfo _UnixFileSystemProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnixFileSystemProvider, init$, void)},
-	{"chain", "([Lsun/nio/fs/AbstractFileTypeDetector;)Ljava/nio/file/spi/FileTypeDetector;", nullptr, $FINAL | $TRANSIENT, $method(UnixFileSystemProvider, chain, $FileTypeDetector*, $AbstractFileTypeDetectorArray*)},
-	{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
-	{"checkPath", "(Ljava/nio/file/Path;)Lsun/nio/fs/UnixPath;", nullptr, 0, $virtualMethod(UnixFileSystemProvider, checkPath, $UnixPath*, $Path*)},
-	{"checkUri", "(Ljava/net/URI;)V", nullptr, $PRIVATE, $method(UnixFileSystemProvider, checkUri, void, $URI*)},
-	{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
-	{"createLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, createLink, void, $Path*, $Path*), "java.io.IOException"},
-	{"createSymbolicLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, createSymbolicLink, void, $Path*, $Path*, $FileAttributeArray*), "java.io.IOException"},
-	{"exists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, exists, bool, $Path*)},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Lsun/nio/fs/DynamicFileAttributeView;", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, getFileAttributeView, $DynamicFileAttributeView*, $Path*, $String*, $LinkOptionArray*)},
-	{"getFileStore", "(Lsun/nio/fs/UnixPath;)Ljava/nio/file/FileStore;", nullptr, $ABSTRACT, $virtualMethod(UnixFileSystemProvider, getFileStore, $FileStore*, $UnixPath*), "java.io.IOException"},
-	{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
-	{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, getFileSystem, $FileSystem*, $URI*)},
-	{"getFileTypeDetector", "()Ljava/nio/file/spi/FileTypeDetector;", nullptr, 0, $virtualMethod(UnixFileSystemProvider, getFileTypeDetector, $FileTypeDetector*)},
-	{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, getPath, $Path*, $URI*)},
-	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, getScheme, $String*)},
-	{"getSunPathForSocketFile", "(Ljava/nio/file/Path;)[B", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, getSunPathForSocketFile, $bytes*, $Path*)},
-	{"implDelete", "(Ljava/nio/file/Path;Z)Z", nullptr, 0, $virtualMethod(UnixFileSystemProvider, implDelete, bool, $Path*, bool), "java.io.IOException"},
-	{"isDirectory", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, isDirectory, bool, $Path*)},
-	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, isHidden, bool, $Path*)},
-	{"isRegularFile", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, isRegularFile, bool, $Path*)},
-	{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
-	{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{"newAsynchronousFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/AsynchronousFileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, newAsynchronousFileChannel, $AsynchronousFileChannel*, $Path*, $Set*, $ExecutorService*, $FileAttributeArray*), "java.io.IOException"},
-	{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
-	{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(UnixFileSystemProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*), "java.io.IOException"},
-	{"newFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, newFileChannel, $FileChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/lang/String;)Lsun/nio/fs/UnixFileSystem;", nullptr, $ABSTRACT, $virtualMethod(UnixFileSystemProvider, newFileSystem, $UnixFileSystem*, $String*)},
-	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, newFileSystem, $FileSystem*, $URI*, $Map*)},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
-	{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, readSymbolicLink, $Path*, $Path*), "java.io.IOException"},
-	{"theFileSystem", "()Lsun/nio/fs/UnixFileSystem;", nullptr, 0, $virtualMethod(UnixFileSystemProvider, theFileSystem, $UnixFileSystem*)},
-	{}
-};
-
-$InnerClassInfo _UnixFileSystemProvider_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixFileSystemProvider$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.nio.fs.UnixFileSystemProvider$2", nullptr, nullptr, 0},
-	{"sun.nio.fs.UnixFileSystemProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _UnixFileSystemProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.nio.fs.UnixFileSystemProvider",
-	"sun.nio.fs.AbstractFileSystemProvider",
-	nullptr,
-	_UnixFileSystemProvider_FieldInfo_,
-	_UnixFileSystemProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnixFileSystemProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixFileSystemProvider$3,sun.nio.fs.UnixFileSystemProvider$2,sun.nio.fs.UnixFileSystemProvider$1"
-};
-
-$Object* allocate$UnixFileSystemProvider($Class* clazz) {
-	return $of($alloc(UnixFileSystemProvider));
-}
-
 $String* UnixFileSystemProvider::USER_DIR = nullptr;
 $bytes* UnixFileSystemProvider::EMPTY_PATH = nullptr;
 
@@ -247,14 +171,14 @@ $String* UnixFileSystemProvider::getScheme() {
 }
 
 void UnixFileSystemProvider::checkUri($URI* uri) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($nc(uri)->getScheme()))->equalsIgnoreCase($(getScheme()))) {
+	$useLocalObjectStack();
+	if (!$$nc($nc(uri)->getScheme())->equalsIgnoreCase($(getScheme()))) {
 		$throwNew($IllegalArgumentException, "URI does not match this provider"_s);
 	}
-	if ($nc(uri)->getRawAuthority() != nullptr) {
+	if (uri->getRawAuthority() != nullptr) {
 		$throwNew($IllegalArgumentException, "Authority component present"_s);
 	}
-	$var($String, path, $nc(uri)->getPath());
+	$var($String, path, uri->getPath());
 	if (path == nullptr) {
 		$throwNew($IllegalArgumentException, "Path component is undefined"_s);
 	}
@@ -299,15 +223,15 @@ $FileAttributeView* UnixFileSystemProvider::getFileAttributeView($Path* obj, $Cl
 	bool followLinks = $Util::followLinks(options);
 	$load($BasicFileAttributeView);
 	if (type == $BasicFileAttributeView::class$) {
-		return static_cast<$FileAttributeView*>($UnixFileAttributeViews::createBasicView(file, followLinks));
+		return $cast($FileAttributeView, $UnixFileAttributeViews::createBasicView(file, followLinks));
 	}
 	$load($PosixFileAttributeView);
 	if (type == $PosixFileAttributeView::class$) {
-		return static_cast<$FileAttributeView*>(static_cast<$BasicFileAttributeView*>(static_cast<$AbstractBasicFileAttributeView*>(static_cast<$UnixFileAttributeViews$Basic*>($UnixFileAttributeViews::createPosixView(file, followLinks)))));
+		return $cast($FileAttributeView, $cast($UnixFileAttributeViews$Basic, $UnixFileAttributeViews::createPosixView(file, followLinks)));
 	}
 	$load($FileOwnerAttributeView);
 	if (type == $FileOwnerAttributeView::class$) {
-		return static_cast<$FileAttributeView*>($UnixFileAttributeViews::createOwnerView(file, followLinks));
+		return $cast($FileAttributeView, $UnixFileAttributeViews::createOwnerView(file, followLinks));
 	}
 	if (type == nullptr) {
 		$throwNew($NullPointerException);
@@ -332,7 +256,7 @@ $BasicFileAttributes* UnixFileSystemProvider::readAttributes($Path* file, $Class
 			$throwNew($UnsupportedOperationException);
 		}
 	}
-	return $nc(($cast($BasicFileAttributeView, $(getFileAttributeView(file, view, options)))))->readAttributes();
+	return $$sure($BasicFileAttributeView, getFileAttributeView(file, view, options))->readAttributes();
 }
 
 $DynamicFileAttributeView* UnixFileSystemProvider::getFileAttributeView($Path* obj, $String* name, $LinkOptionArray* options) {
@@ -341,13 +265,13 @@ $DynamicFileAttributeView* UnixFileSystemProvider::getFileAttributeView($Path* o
 	if ($nc(name)->equals("basic"_s)) {
 		return $UnixFileAttributeViews::createBasicView(file, followLinks);
 	}
-	if ($nc(name)->equals("posix"_s)) {
+	if (name->equals("posix"_s)) {
 		return $UnixFileAttributeViews::createPosixView(file, followLinks);
 	}
-	if ($nc(name)->equals("unix"_s)) {
+	if (name->equals("unix"_s)) {
 		return $UnixFileAttributeViews::createUnixView(file, followLinks);
 	}
-	if ($nc(name)->equals("owner"_s)) {
+	if (name->equals("owner"_s)) {
 		return $UnixFileAttributeViews::createOwnerView(file, followLinks);
 	}
 	return nullptr;
@@ -367,7 +291,7 @@ $FileChannel* UnixFileSystemProvider::newFileChannel($Path* obj, $Set* options, 
 }
 
 $AsynchronousFileChannel* UnixFileSystemProvider::newAsynchronousFileChannel($Path* obj, $Set* options, $ExecutorService* executor, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, file, checkPath(obj));
 	$init($UnixFileModeAttribute);
 	int32_t mode = $UnixFileModeAttribute::toUnixMode($UnixFileModeAttribute::ALL_READWRITE, attrs);
@@ -395,7 +319,7 @@ $SeekableByteChannel* UnixFileSystemProvider::newByteChannel($Path* obj, $Set* o
 }
 
 bool UnixFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, file, $UnixPath::toUnixPath(obj));
 	$nc(file)->checkDelete();
 	$var($UnixFileAttributes, attrs, nullptr);
@@ -415,7 +339,7 @@ bool UnixFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
 		bool var$0 = attrs != nullptr && attrs->isDirectory();
 		if (var$0) {
 			bool var$1 = x->errno$() == $UnixConstants::EEXIST;
-			var$0 = (var$1 || x->errno$() == $UnixConstants::ENOTEMPTY);
+			var$0 = var$1 || x->errno$() == $UnixConstants::ENOTEMPTY;
 		}
 		if (var$0) {
 			$throwNew($DirectoryNotEmptyException, $(file->getPathForExceptionMessage()));
@@ -427,19 +351,19 @@ bool UnixFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
 }
 
 void UnixFileSystemProvider::copy($Path* source, $Path* target, $CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, var$0, $UnixPath::toUnixPath(source));
 	$UnixCopyFile::copy(var$0, $($UnixPath::toUnixPath(target)), options);
 }
 
 void UnixFileSystemProvider::move($Path* source, $Path* target, $CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, var$0, $UnixPath::toUnixPath(source));
 	$UnixCopyFile::move(var$0, $($UnixPath::toUnixPath(target)), options);
 }
 
 void UnixFileSystemProvider::checkAccess($Path* obj, $AccessModeArray* modes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, file, $UnixPath::toUnixPath(obj));
 	bool e = false;
 	bool r = false;
@@ -448,35 +372,23 @@ void UnixFileSystemProvider::checkAccess($Path* obj, $AccessModeArray* modes) {
 	if ($nc(modes)->length == 0) {
 		e = true;
 	} else {
-		{
-			$var($AccessModeArray, arr$, modes);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$AccessMode* mode = arr$->get(i$);
-				{
-					$init($UnixFileSystemProvider$3);
-					switch ($nc($UnixFileSystemProvider$3::$SwitchMap$java$nio$file$AccessMode)->get($nc((mode))->ordinal())) {
-					case 1:
-						{
-							r = true;
-							break;
-						}
-					case 2:
-						{
-							w = true;
-							break;
-						}
-					case 3:
-						{
-							x = true;
-							break;
-						}
-					default:
-						{
-							$throwNew($AssertionError, $of("Should not get here"_s));
-						}
-					}
+		$var($AccessModeArray, arr$, modes);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$AccessMode* mode = arr$->get(i$);
+			{
+				$init($UnixFileSystemProvider$3);
+				switch ($nc($UnixFileSystemProvider$3::$SwitchMap$java$nio$file$AccessMode)->get($nc((mode))->ordinal())) {
+				case 1:
+					r = true;
+					break;
+				case 2:
+					w = true;
+					break;
+				case 3:
+					x = true;
+					break;
+				default:
+					$throwNew($AssertionError, $of("Should not get here"_s));
 				}
 			}
 		}
@@ -508,7 +420,7 @@ void UnixFileSystemProvider::checkAccess($Path* obj, $AccessModeArray* modes) {
 }
 
 bool UnixFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, file1, $UnixPath::toUnixPath(obj1));
 	if ($nc(file1)->equals(obj2)) {
 		return true;
@@ -520,7 +432,7 @@ bool UnixFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
 		return false;
 	}
 	$var($UnixPath, file2, $cast($UnixPath, obj2));
-	$nc(file1)->checkRead();
+	file1->checkRead();
 	$nc(file2)->checkRead();
 	$var($UnixFileAttributes, attrs1, nullptr);
 	$var($UnixFileAttributes, attrs2, nullptr);
@@ -540,7 +452,7 @@ bool UnixFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
 }
 
 bool UnixFileSystemProvider::isHidden($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, file, $UnixPath::toUnixPath(obj));
 	$nc(file)->checkRead();
 	$var($UnixPath, name, file->getFileName());
@@ -549,7 +461,7 @@ bool UnixFileSystemProvider::isHidden($Path* obj) {
 	}
 	$var($bytes, path, nullptr);
 	if ($nc(name)->isEmpty()) {
-		$assign(path, $nc($($cast($UnixFileSystem, name->getFileSystem())))->defaultDirectory());
+		$assign(path, $$sure($UnixFileSystem, name->getFileSystem())->defaultDirectory());
 	} else {
 		$assign(path, name->asByteArray());
 	}
@@ -557,7 +469,7 @@ bool UnixFileSystemProvider::isHidden($Path* obj) {
 }
 
 $FileStore* UnixFileSystemProvider::getFileStore($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, file, $UnixPath::toUnixPath(obj));
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -568,7 +480,7 @@ $FileStore* UnixFileSystemProvider::getFileStore($Path* obj) {
 }
 
 void UnixFileSystemProvider::createDirectory($Path* obj, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, dir, $UnixPath::toUnixPath(obj));
 	$nc(dir)->checkWrite();
 	$init($UnixFileModeAttribute);
@@ -585,7 +497,7 @@ void UnixFileSystemProvider::createDirectory($Path* obj, $FileAttributeArray* at
 }
 
 $DirectoryStream* UnixFileSystemProvider::newDirectoryStream($Path* obj, $DirectoryStream$Filter* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, dir, $UnixPath::toUnixPath(obj));
 	$nc(dir)->checkRead();
 	if (filter == nullptr) {
@@ -626,7 +538,7 @@ $DirectoryStream* UnixFileSystemProvider::newDirectoryStream($Path* obj, $Direct
 }
 
 void UnixFileSystemProvider::createSymbolicLink($Path* obj1, $Path* obj2, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, link, $UnixPath::toUnixPath(obj1));
 	$var($UnixPath, target, $UnixPath::toUnixPath(obj2));
 	if ($nc(attrs)->length > 0) {
@@ -646,7 +558,7 @@ void UnixFileSystemProvider::createSymbolicLink($Path* obj1, $Path* obj2, $FileA
 }
 
 void UnixFileSystemProvider::createLink($Path* obj1, $Path* obj2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, link, $UnixPath::toUnixPath(obj1));
 	$var($UnixPath, existing, $UnixPath::toUnixPath(obj2));
 	$var($SecurityManager, sm, $System::getSecurityManager());
@@ -663,7 +575,7 @@ void UnixFileSystemProvider::createLink($Path* obj1, $Path* obj2) {
 }
 
 $Path* UnixFileSystemProvider::readSymbolicLink($Path* obj1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixPath, link, $UnixPath::toUnixPath(obj1));
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -673,7 +585,7 @@ $Path* UnixFileSystemProvider::readSymbolicLink($Path* obj1) {
 	}
 	try {
 		$var($bytes, target, $UnixNativeDispatcher::readlink(link));
-		return $new($UnixPath, $($cast($UnixFileSystem, $nc(link)->getFileSystem())), target);
+		return $new($UnixPath, $$cast($UnixFileSystem, $nc(link)->getFileSystem()), target);
 	} catch ($UnixException& x) {
 		$init($UnixConstants);
 		if (x->errno$() == $UnixConstants::EINVAL) {
@@ -690,7 +602,7 @@ bool UnixFileSystemProvider::isDirectory($Path* obj) {
 	$nc(file)->checkRead();
 	int32_t mode = $UnixNativeDispatcher::stat(file);
 	$init($UnixConstants);
-	return (((int32_t)(mode & (uint32_t)$UnixConstants::S_IFMT)) == $UnixConstants::S_IFDIR);
+	return ((mode & $UnixConstants::S_IFMT) == $UnixConstants::S_IFDIR);
 }
 
 bool UnixFileSystemProvider::isRegularFile($Path* obj) {
@@ -698,7 +610,7 @@ bool UnixFileSystemProvider::isRegularFile($Path* obj) {
 	$nc(file)->checkRead();
 	int32_t mode = $UnixNativeDispatcher::stat(file);
 	$init($UnixConstants);
-	return (((int32_t)(mode & (uint32_t)$UnixConstants::S_IFMT)) == $UnixConstants::S_IFREG);
+	return ((mode & $UnixConstants::S_IFMT) == $UnixConstants::S_IFREG);
 }
 
 bool UnixFileSystemProvider::exists($Path* obj) {
@@ -720,10 +632,10 @@ $bytes* UnixFileSystemProvider::getSunPathForSocketFile($Path* obj) {
 	if ($nc(file)->isEmpty()) {
 		return UnixFileSystemProvider::EMPTY_PATH;
 	}
-	return $nc(file)->getByteArrayForSysCalls();
+	return file->getByteArrayForSysCalls();
 }
 
-void clinit$UnixFileSystemProvider($Class* class$) {
+void UnixFileSystemProvider::clinit$($Class* clazz) {
 	$assignStatic(UnixFileSystemProvider::USER_DIR, "user.dir"_s);
 	$assignStatic(UnixFileSystemProvider::EMPTY_PATH, $new($bytes, 0));
 }
@@ -732,7 +644,72 @@ UnixFileSystemProvider::UnixFileSystemProvider() {
 }
 
 $Class* UnixFileSystemProvider::load$($String* name, bool initialize) {
-	$loadClass(UnixFileSystemProvider, name, initialize, &_UnixFileSystemProvider_ClassInfo_, clinit$UnixFileSystemProvider, allocate$UnixFileSystemProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"USER_DIR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileSystemProvider, USER_DIR)},
+		{"EMPTY_PATH", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileSystemProvider, EMPTY_PATH)},
+		{"theFileSystem", "Lsun/nio/fs/UnixFileSystem;", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystemProvider, theFileSystem$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnixFileSystemProvider, init$, void)},
+		{"chain", "([Lsun/nio/fs/AbstractFileTypeDetector;)Ljava/nio/file/spi/FileTypeDetector;", nullptr, $FINAL | $TRANSIENT, $method(UnixFileSystemProvider, chain, $FileTypeDetector*, $AbstractFileTypeDetectorArray*)},
+		{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
+		{"checkPath", "(Ljava/nio/file/Path;)Lsun/nio/fs/UnixPath;", nullptr, 0, $virtualMethod(UnixFileSystemProvider, checkPath, $UnixPath*, $Path*)},
+		{"checkUri", "(Ljava/net/URI;)V", nullptr, $PRIVATE, $method(UnixFileSystemProvider, checkUri, void, $URI*)},
+		{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
+		{"createLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, createLink, void, $Path*, $Path*), "java.io.IOException"},
+		{"createSymbolicLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, createSymbolicLink, void, $Path*, $Path*, $FileAttributeArray*), "java.io.IOException"},
+		{"exists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, exists, bool, $Path*)},
+		{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
+		{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Lsun/nio/fs/DynamicFileAttributeView;", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, getFileAttributeView, $DynamicFileAttributeView*, $Path*, $String*, $LinkOptionArray*)},
+		{"getFileStore", "(Lsun/nio/fs/UnixPath;)Ljava/nio/file/FileStore;", nullptr, $ABSTRACT, $virtualMethod(UnixFileSystemProvider, getFileStore, $FileStore*, $UnixPath*), "java.io.IOException"},
+		{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
+		{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, getFileSystem, $FileSystem*, $URI*)},
+		{"getFileTypeDetector", "()Ljava/nio/file/spi/FileTypeDetector;", nullptr, 0, $virtualMethod(UnixFileSystemProvider, getFileTypeDetector, $FileTypeDetector*)},
+		{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, getPath, $Path*, $URI*)},
+		{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, getScheme, $String*)},
+		{"getSunPathForSocketFile", "(Ljava/nio/file/Path;)[B", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, getSunPathForSocketFile, $bytes*, $Path*)},
+		{"implDelete", "(Ljava/nio/file/Path;Z)Z", nullptr, 0, $virtualMethod(UnixFileSystemProvider, implDelete, bool, $Path*, bool), "java.io.IOException"},
+		{"isDirectory", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, isDirectory, bool, $Path*)},
+		{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, isHidden, bool, $Path*)},
+		{"isRegularFile", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, isRegularFile, bool, $Path*)},
+		{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
+		{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{"newAsynchronousFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/AsynchronousFileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, newAsynchronousFileChannel, $AsynchronousFileChannel*, $Path*, $Set*, $ExecutorService*, $FileAttributeArray*), "java.io.IOException"},
+		{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+		{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(UnixFileSystemProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*), "java.io.IOException"},
+		{"newFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, newFileChannel, $FileChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+		{"newFileSystem", "(Ljava/lang/String;)Lsun/nio/fs/UnixFileSystem;", nullptr, $ABSTRACT, $virtualMethod(UnixFileSystemProvider, newFileSystem, $UnixFileSystem*, $String*)},
+		{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC | $FINAL, $virtualMethod(UnixFileSystemProvider, newFileSystem, $FileSystem*, $URI*, $Map*)},
+		{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixFileSystemProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
+		{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider, readSymbolicLink, $Path*, $Path*), "java.io.IOException"},
+		{"theFileSystem", "()Lsun/nio/fs/UnixFileSystem;", nullptr, 0, $virtualMethod(UnixFileSystemProvider, theFileSystem, $UnixFileSystem*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixFileSystemProvider$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.nio.fs.UnixFileSystemProvider$2", nullptr, nullptr, 0},
+		{"sun.nio.fs.UnixFileSystemProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.nio.fs.UnixFileSystemProvider",
+		"sun.nio.fs.AbstractFileSystemProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixFileSystemProvider$3,sun.nio.fs.UnixFileSystemProvider$2,sun.nio.fs.UnixFileSystemProvider$1"
+	};
+	$loadClass(UnixFileSystemProvider, name, initialize, &classInfo$$, UnixFileSystemProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixFileSystemProvider);
+	});
 	return class$;
 }
 

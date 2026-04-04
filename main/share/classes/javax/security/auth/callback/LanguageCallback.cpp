@@ -1,5 +1,4 @@
 #include <javax/security/auth/callback/LanguageCallback.h>
-
 #include <java/util/Locale.h>
 #include <javax/security/auth/callback/Callback.h>
 #include <jcpp.h>
@@ -14,37 +13,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace callback {
-
-$FieldInfo _LanguageCallback_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LanguageCallback, serialVersionUID)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(LanguageCallback, locale)},
-	{}
-};
-
-$MethodInfo _LanguageCallback_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LanguageCallback, init$, void)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(LanguageCallback, getLocale, $Locale*)},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(LanguageCallback, setLocale, void, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LanguageCallback_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.callback.LanguageCallback",
-	"java.lang.Object",
-	"javax.security.auth.callback.Callback,java.io.Serializable",
-	_LanguageCallback_FieldInfo_,
-	_LanguageCallback_MethodInfo_
-};
-
-$Object* allocate$LanguageCallback($Class* clazz) {
-	return $of($alloc(LanguageCallback));
-}
 
 int32_t LanguageCallback::hashCode() {
 	 return this->$Callback::hashCode();
@@ -81,7 +49,33 @@ LanguageCallback::LanguageCallback() {
 }
 
 $Class* LanguageCallback::load$($String* name, bool initialize) {
-	$loadClass(LanguageCallback, name, initialize, &_LanguageCallback_ClassInfo_, allocate$LanguageCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LanguageCallback, serialVersionUID)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(LanguageCallback, locale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LanguageCallback, init$, void)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(LanguageCallback, getLocale, $Locale*)},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(LanguageCallback, setLocale, void, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.callback.LanguageCallback",
+		"java.lang.Object",
+		"javax.security.auth.callback.Callback,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LanguageCallback, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LanguageCallback));
+	});
 	return class$;
 }
 

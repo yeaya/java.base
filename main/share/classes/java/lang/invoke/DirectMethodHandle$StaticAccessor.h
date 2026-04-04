@@ -24,6 +24,7 @@ class DirectMethodHandle$StaticAccessor : public ::java::lang::invoke::DirectMet
 	$class(DirectMethodHandle$StaticAccessor, 0, ::java::lang::invoke::DirectMethodHandle)
 public:
 	DirectMethodHandle$StaticAccessor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodType* mtype, ::java::lang::invoke::LambdaForm* form, ::java::lang::invoke::MemberName* member, bool crackable, Object$* staticBase, int64_t staticOffset);
 	virtual $Object* checkCast(Object$* obj) override;
 	virtual ::java::lang::invoke::MethodHandle* copyWith(::java::lang::invoke::MethodType* mt, ::java::lang::invoke::LambdaForm* lf) override;

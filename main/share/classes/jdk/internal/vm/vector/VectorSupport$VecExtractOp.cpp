@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/vector/VectorSupport$VecExtractOp.h>
-
 #include <jdk/internal/vm/vector/VectorSupport.h>
 #include <jcpp.h>
 
@@ -12,38 +11,33 @@ namespace jdk {
 		namespace vm {
 			namespace vector {
 
-$MethodInfo _VectorSupport$VecExtractOp_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;I)J", "(TV;I)J", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VecExtractOp, apply, int64_t, Object$*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _VectorSupport$VecExtractOp_InnerClassesInfo_[] = {
-	{"jdk.internal.vm.vector.VectorSupport$VecExtractOp", "jdk.internal.vm.vector.VectorSupport", "VecExtractOp", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VectorSupport$VecExtractOp_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.vm.vector.VectorSupport$VecExtractOp",
-	nullptr,
-	nullptr,
-	nullptr,
-	_VectorSupport$VecExtractOp_MethodInfo_,
-	"<V:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_VectorSupport$VecExtractOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.vm.vector.VectorSupport"
-};
-
-$Object* allocate$VectorSupport$VecExtractOp($Class* clazz) {
-	return $of($alloc(VectorSupport$VecExtractOp));
-}
-
 $Class* VectorSupport$VecExtractOp::load$($String* name, bool initialize) {
-	$loadClass(VectorSupport$VecExtractOp, name, initialize, &_VectorSupport$VecExtractOp_ClassInfo_, allocate$VectorSupport$VecExtractOp);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljava/lang/Object;I)J", "(TV;I)J", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VecExtractOp, apply, int64_t, Object$*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.vm.vector.VectorSupport$VecExtractOp", "jdk.internal.vm.vector.VectorSupport", "VecExtractOp", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.vm.vector.VectorSupport$VecExtractOp",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.vm.vector.VectorSupport"
+	};
+	$loadClass(VectorSupport$VecExtractOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VectorSupport$VecExtractOp);
+	});
 	return class$;
 }
 

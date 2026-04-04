@@ -1,5 +1,4 @@
 #include <sun/nio/cs/Big5_Solaris.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -25,44 +24,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _Big5_Solaris_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Big5_Solaris, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Big5_Solaris, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Big5_Solaris, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Big5_Solaris, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Big5_Solaris, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _Big5_Solaris_InnerClassesInfo_[] = {
-	{"sun.nio.cs.Big5_Solaris$Holder", "sun.nio.cs.Big5_Solaris", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Big5_Solaris_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.Big5_Solaris",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_Big5_Solaris_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Big5_Solaris_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.Big5_Solaris$Holder"
-};
-
-$Object* allocate$Big5_Solaris($Class* clazz) {
-	return $of($alloc(Big5_Solaris));
-}
 
 int32_t Big5_Solaris::hashCode() {
 	 return this->$Charset::hashCode();
@@ -93,7 +54,7 @@ $String* Big5_Solaris::historicalName() {
 }
 
 bool Big5_Solaris::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf($Big5, cs)) || ($instanceOf(Big5_Solaris, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf($Big5, cs)) || ($instanceOf(Big5_Solaris, cs)));
 }
 
 $CharsetDecoder* Big5_Solaris::newDecoder() {
@@ -110,7 +71,40 @@ Big5_Solaris::Big5_Solaris() {
 }
 
 $Class* Big5_Solaris::load$($String* name, bool initialize) {
-	$loadClass(Big5_Solaris, name, initialize, &_Big5_Solaris_ClassInfo_, allocate$Big5_Solaris);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Big5_Solaris, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Big5_Solaris, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Big5_Solaris, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Big5_Solaris, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Big5_Solaris, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.Big5_Solaris$Holder", "sun.nio.cs.Big5_Solaris", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.Big5_Solaris",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.Big5_Solaris$Holder"
+	};
+	$loadClass(Big5_Solaris, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Big5_Solaris));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <NetworkChannelTests.h>
-
 #include <NetworkChannelTests$1.h>
 #include <NetworkChannelTests$2.h>
 #include <NetworkChannelTests$3.h>
@@ -38,68 +37,31 @@ using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $UnsupportedAddressTypeException = ::java::nio::channels::UnsupportedAddressTypeException;
 
-$MethodInfo _NetworkChannelTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NetworkChannelTests, init$, void)},
-	{"bindTests", "(LNetworkChannelTests$ChannelFactory;)V", nullptr, $STATIC, $staticMethod(NetworkChannelTests, bindTests, void, $NetworkChannelTests$ChannelFactory*), "java.io.IOException"},
-	{"connectedAddressTests", "()V", nullptr, $STATIC, $staticMethod(NetworkChannelTests, connectedAddressTests, void), "java.io.IOException"},
-	{"localAddressTests", "(LNetworkChannelTests$ChannelFactory;)V", nullptr, $STATIC, $staticMethod(NetworkChannelTests, localAddressTests, void, $NetworkChannelTests$ChannelFactory*), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NetworkChannelTests, main, void, $StringArray*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _NetworkChannelTests_InnerClassesInfo_[] = {
-	{"NetworkChannelTests$BogusSocketAddress", "NetworkChannelTests", "BogusSocketAddress", $STATIC},
-	{"NetworkChannelTests$ChannelFactory", "NetworkChannelTests", "ChannelFactory", $STATIC | $INTERFACE | $ABSTRACT},
-	{"NetworkChannelTests$3", nullptr, nullptr, 0},
-	{"NetworkChannelTests$2", nullptr, nullptr, 0},
-	{"NetworkChannelTests$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NetworkChannelTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NetworkChannelTests",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NetworkChannelTests_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NetworkChannelTests_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"NetworkChannelTests$BogusSocketAddress,NetworkChannelTests$ChannelFactory,NetworkChannelTests$3,NetworkChannelTests$2,NetworkChannelTests$1"
-};
-
-$Object* allocate$NetworkChannelTests($Class* clazz) {
-	return $of($alloc(NetworkChannelTests));
-}
-
 void NetworkChannelTests::init$() {
 }
 
 void NetworkChannelTests::bindTests($NetworkChannelTests$ChannelFactory* factory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NetworkChannel, ch, nullptr);
-	$assign(ch, $nc($($nc(factory)->open()))->bind($$new($InetSocketAddress, 0)));
+	$assign(ch, $$nc($nc(factory)->open())->bind($$new($InetSocketAddress, 0)));
 	try {
 		$nc(ch)->bind($$new($InetSocketAddress, 0));
 		$throwNew($RuntimeException, "AlreadyBoundException not thrown"_s);
 	} catch ($AlreadyBoundException& x) {
 	}
 	$nc(ch)->close();
-	$assign(ch, $nc($(factory->open()))->bind(nullptr));
-	if (ch->getLocalAddress() == nullptr) {
+	$assign(ch, $$nc(factory->open())->bind(nullptr));
+	if ($nc(ch)->getLocalAddress() == nullptr) {
 		$throwNew($RuntimeException, "socket not found"_s);
 	}
 	ch->close();
 	$assign(ch, factory->open());
 	try {
-		ch->bind($$new($NetworkChannelTests$BogusSocketAddress));
+		$nc(ch)->bind($$new($NetworkChannelTests$BogusSocketAddress));
 		$throwNew($RuntimeException, "UnsupportedAddressTypeException not thrown"_s);
 	} catch ($UnsupportedAddressTypeException& x) {
 	}
-	ch->close();
+	$nc(ch)->close();
 	try {
 		ch->bind($$new($InetSocketAddress, 0));
 		$throwNew($RuntimeException, "ClosedChannelException not thrown"_s);
@@ -108,19 +70,19 @@ void NetworkChannelTests::bindTests($NetworkChannelTests$ChannelFactory* factory
 }
 
 void NetworkChannelTests::localAddressTests($NetworkChannelTests$ChannelFactory* factory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NetworkChannel, ch, nullptr);
 	$assign(ch, $nc(factory)->open());
 	if ($nc(ch)->getLocalAddress() != nullptr) {
 		$throwNew($RuntimeException, "Local address returned when not bound"_s);
 	}
-	$var($InetSocketAddress, local, ($cast($InetSocketAddress, $nc($($nc(ch)->bind($$new($InetSocketAddress, 0))))->getLocalAddress())));
-	if (!$nc($($nc(local)->getAddress()))->isAnyLocalAddress()) {
+	$var($InetSocketAddress, local, $cast($InetSocketAddress, $$nc(ch->bind($$new($InetSocketAddress, 0)))->getLocalAddress()));
+	if (!$$nc($nc(local)->getAddress())->isAnyLocalAddress()) {
 		if ($NetworkInterface::getByInetAddress($(local->getAddress())) == nullptr) {
 			$throwNew($RuntimeException, "not bound to local address"_s);
 		}
 	}
-	if ($nc(local)->getPort() <= 0) {
+	if (local->getPort() <= 0) {
 		$throwNew($RuntimeException, "not bound to local port"_s);
 	}
 	ch->close();
@@ -132,18 +94,18 @@ void NetworkChannelTests::localAddressTests($NetworkChannelTests$ChannelFactory*
 }
 
 void NetworkChannelTests::connectedAddressTests() {
-	$useLocalCurrentObjectStackCache();
-	$var($ServerSocketChannel, ssc, $cast($ServerSocketChannel, $nc($($ServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0))));
-	$var($InetSocketAddress, local, ($cast($InetSocketAddress, $nc(ssc)->getLocalAddress())));
+	$useLocalObjectStack();
+	$var($ServerSocketChannel, ssc, $cast($ServerSocketChannel, $$nc($ServerSocketChannel::open())->bind($$new($InetSocketAddress, 0))));
+	$var($InetSocketAddress, local, $cast($InetSocketAddress, $nc(ssc)->getLocalAddress()));
 	int32_t port = $nc(local)->getPort();
 	$var($InetSocketAddress, server, $new($InetSocketAddress, $($InetAddress::getLocalHost()), port));
 	$var($SocketChannel, sc, $SocketChannel::open());
 	if ($nc(sc)->getRemoteAddress() != nullptr) {
 		$throwNew($RuntimeException, "getRemoteAddress returned address when not connected"_s);
 	}
-	$nc(sc)->connect(server);
+	sc->connect(server);
 	$var($SocketAddress, remote, sc->getRemoteAddress());
-	if (!$nc($of(remote))->equals(server)) {
+	if (!$nc(remote)->equals(server)) {
 		$throwNew($RuntimeException, "getRemoteAddress returned incorrect address"_s);
 	}
 	sc->close();
@@ -156,7 +118,7 @@ void NetworkChannelTests::connectedAddressTests() {
 }
 
 void NetworkChannelTests::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NetworkChannelTests$ChannelFactory, factory, nullptr);
 	$assign(factory, $new($NetworkChannelTests$1));
 	bindTests(factory);
@@ -165,9 +127,9 @@ void NetworkChannelTests::main($StringArray* args) {
 	$assign(factory, $new($NetworkChannelTests$2));
 	bindTests(factory);
 	localAddressTests(factory);
-	$nc($($nc($($ServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0), 100)))->close();
-	$nc($($nc($($ServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0), 0)))->close();
-	$nc($($nc($($ServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0), -1)))->close();
+	$$nc($$nc($ServerSocketChannel::open())->bind($$new($InetSocketAddress, 0), 100))->close();
+	$$nc($$nc($ServerSocketChannel::open())->bind($$new($InetSocketAddress, 0), 0))->close();
+	$$nc($$nc($ServerSocketChannel::open())->bind($$new($InetSocketAddress, 0), -1))->close();
 	$assign(factory, $new($NetworkChannelTests$3));
 	bindTests(factory);
 	localAddressTests(factory);
@@ -177,7 +139,39 @@ NetworkChannelTests::NetworkChannelTests() {
 }
 
 $Class* NetworkChannelTests::load$($String* name, bool initialize) {
-	$loadClass(NetworkChannelTests, name, initialize, &_NetworkChannelTests_ClassInfo_, allocate$NetworkChannelTests);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NetworkChannelTests, init$, void)},
+		{"bindTests", "(LNetworkChannelTests$ChannelFactory;)V", nullptr, $STATIC, $staticMethod(NetworkChannelTests, bindTests, void, $NetworkChannelTests$ChannelFactory*), "java.io.IOException"},
+		{"connectedAddressTests", "()V", nullptr, $STATIC, $staticMethod(NetworkChannelTests, connectedAddressTests, void), "java.io.IOException"},
+		{"localAddressTests", "(LNetworkChannelTests$ChannelFactory;)V", nullptr, $STATIC, $staticMethod(NetworkChannelTests, localAddressTests, void, $NetworkChannelTests$ChannelFactory*), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NetworkChannelTests, main, void, $StringArray*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NetworkChannelTests$BogusSocketAddress", "NetworkChannelTests", "BogusSocketAddress", $STATIC},
+		{"NetworkChannelTests$ChannelFactory", "NetworkChannelTests", "ChannelFactory", $STATIC | $INTERFACE | $ABSTRACT},
+		{"NetworkChannelTests$3", nullptr, nullptr, 0},
+		{"NetworkChannelTests$2", nullptr, nullptr, 0},
+		{"NetworkChannelTests$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NetworkChannelTests",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"NetworkChannelTests$BogusSocketAddress,NetworkChannelTests$ChannelFactory,NetworkChannelTests$3,NetworkChannelTests$2,NetworkChannelTests$1"
+	};
+	$loadClass(NetworkChannelTests, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NetworkChannelTests);
+	});
 	return class$;
 }
 

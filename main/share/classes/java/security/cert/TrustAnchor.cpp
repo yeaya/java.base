@@ -1,5 +1,4 @@
 #include <java/security/cert/TrustAnchor.h>
-
 #include <java/io/IOException.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertPathHelperImpl.h>
@@ -28,46 +27,6 @@ using $NameConstraintsExtension = ::sun::security::x509::NameConstraintsExtensio
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _TrustAnchor_FieldInfo_[] = {
-	{"pubKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE | $FINAL, $field(TrustAnchor, pubKey)},
-	{"caName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TrustAnchor, caName)},
-	{"caPrincipal", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE | $FINAL, $field(TrustAnchor, caPrincipal)},
-	{"trustedCert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $FINAL, $field(TrustAnchor, trustedCert)},
-	{"ncBytes", "[B", nullptr, $PRIVATE, $field(TrustAnchor, ncBytes)},
-	{"nc", "Lsun/security/x509/NameConstraintsExtension;", nullptr, $PRIVATE, $field(TrustAnchor, nc)},
-	{"jdkCA", "Z", nullptr, $PRIVATE, $field(TrustAnchor, jdkCA)},
-	{"hasJdkCABeenChecked", "Z", nullptr, $PRIVATE, $field(TrustAnchor, hasJdkCABeenChecked)},
-	{}
-};
-
-$MethodInfo _TrustAnchor_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;[B)V", nullptr, $PUBLIC, $method(TrustAnchor, init$, void, $X509Certificate*, $bytes*)},
-	{"<init>", "(Ljavax/security/auth/x500/X500Principal;Ljava/security/PublicKey;[B)V", nullptr, $PUBLIC, $method(TrustAnchor, init$, void, $X500Principal*, $PublicKey*, $bytes*)},
-	{"<init>", "(Ljava/lang/String;Ljava/security/PublicKey;[B)V", nullptr, $PUBLIC, $method(TrustAnchor, init$, void, $String*, $PublicKey*, $bytes*)},
-	{"getCA", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC | $FINAL, $method(TrustAnchor, getCA, $X500Principal*)},
-	{"getCAName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TrustAnchor, getCAName, $String*)},
-	{"getCAPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $FINAL, $method(TrustAnchor, getCAPublicKey, $PublicKey*)},
-	{"getNameConstraints", "()[B", nullptr, $PUBLIC | $FINAL, $method(TrustAnchor, getNameConstraints, $bytes*)},
-	{"getTrustedCert", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC | $FINAL, $method(TrustAnchor, getTrustedCert, $X509Certificate*)},
-	{"isJdkCA", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(TrustAnchor, isJdkCA, bool)},
-	{"setNameConstraints", "([B)V", nullptr, $PRIVATE, $method(TrustAnchor, setNameConstraints, void, $bytes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrustAnchor, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TrustAnchor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.cert.TrustAnchor",
-	"java.lang.Object",
-	nullptr,
-	_TrustAnchor_FieldInfo_,
-	_TrustAnchor_MethodInfo_
-};
-
-$Object* allocate$TrustAnchor($Class* clazz) {
-	return $of($alloc(TrustAnchor));
-}
 
 void TrustAnchor::init$($X509Certificate* trustedCert, $bytes* nameConstraints) {
 	if (trustedCert == nullptr) {
@@ -125,15 +84,14 @@ $PublicKey* TrustAnchor::getCAPublicKey() {
 }
 
 void TrustAnchor::setNameConstraints($bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (bytes == nullptr) {
 		$set(this, ncBytes, nullptr);
 		$set(this, nc, nullptr);
 	} else {
-		$set(this, ncBytes, $cast($bytes, $nc(bytes)->clone()));
+		$set(this, ncBytes, $cast($bytes, bytes->clone()));
 		try {
-			$init($Boolean);
-			$set(this, nc, $new($NameConstraintsExtension, $Boolean::FALSE, $of(bytes)));
+			$set(this, nc, $new($NameConstraintsExtension, $Boolean::FALSE, bytes));
 		} catch ($IOException& ioe) {
 			$var($IllegalArgumentException, iae, $new($IllegalArgumentException, $(ioe->getMessage())));
 			iae->initCause(ioe);
@@ -143,21 +101,21 @@ void TrustAnchor::setNameConstraints($bytes* bytes) {
 }
 
 $bytes* TrustAnchor::getNameConstraints() {
-	return this->ncBytes == nullptr ? ($bytes*)nullptr : $cast($bytes, $nc(this->ncBytes)->clone());
+	return this->ncBytes == nullptr ? ($bytes*)nullptr : $cast($bytes, this->ncBytes->clone());
 }
 
 $String* TrustAnchor::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("[\n"_s);
 	if (this->pubKey != nullptr) {
-		sb->append($$str({"  Trusted CA Public Key: "_s, $($nc($of(this->pubKey))->toString()), "\n"_s}));
-		sb->append($$str({"  Trusted CA Issuer Name: "_s, $($String::valueOf($of(this->caName))), "\n"_s}));
+		sb->append($$str({"  Trusted CA Public Key: "_s, $(this->pubKey->toString()), "\n"_s}));
+		sb->append($$str({"  Trusted CA Issuer Name: "_s, $($String::valueOf(this->caName)), "\n"_s}));
 	} else {
 		sb->append($$str({"  Trusted CA cert: "_s, $($nc(this->trustedCert)->toString()), "\n"_s}));
 	}
 	if (this->nc != nullptr) {
-		sb->append($$str({"  Name Constraints: "_s, $($nc(this->nc)->toString()), "\n"_s}));
+		sb->append($$str({"  Name Constraints: "_s, $(this->nc->toString()), "\n"_s}));
 	}
 	return sb->toString();
 }
@@ -174,7 +132,7 @@ bool TrustAnchor::isJdkCA() {
 	}
 }
 
-void clinit$TrustAnchor($Class* class$) {
+void TrustAnchor::clinit$($Class* clazz) {
 	{
 		$CertPathHelperImpl::initialize();
 	}
@@ -184,7 +142,42 @@ TrustAnchor::TrustAnchor() {
 }
 
 $Class* TrustAnchor::load$($String* name, bool initialize) {
-	$loadClass(TrustAnchor, name, initialize, &_TrustAnchor_ClassInfo_, clinit$TrustAnchor, allocate$TrustAnchor);
+	$FieldInfo fieldInfos$$[] = {
+		{"pubKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE | $FINAL, $field(TrustAnchor, pubKey)},
+		{"caName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TrustAnchor, caName)},
+		{"caPrincipal", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE | $FINAL, $field(TrustAnchor, caPrincipal)},
+		{"trustedCert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $FINAL, $field(TrustAnchor, trustedCert)},
+		{"ncBytes", "[B", nullptr, $PRIVATE, $field(TrustAnchor, ncBytes)},
+		{"nc", "Lsun/security/x509/NameConstraintsExtension;", nullptr, $PRIVATE, $field(TrustAnchor, nc)},
+		{"jdkCA", "Z", nullptr, $PRIVATE, $field(TrustAnchor, jdkCA)},
+		{"hasJdkCABeenChecked", "Z", nullptr, $PRIVATE, $field(TrustAnchor, hasJdkCABeenChecked)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/cert/X509Certificate;[B)V", nullptr, $PUBLIC, $method(TrustAnchor, init$, void, $X509Certificate*, $bytes*)},
+		{"<init>", "(Ljavax/security/auth/x500/X500Principal;Ljava/security/PublicKey;[B)V", nullptr, $PUBLIC, $method(TrustAnchor, init$, void, $X500Principal*, $PublicKey*, $bytes*)},
+		{"<init>", "(Ljava/lang/String;Ljava/security/PublicKey;[B)V", nullptr, $PUBLIC, $method(TrustAnchor, init$, void, $String*, $PublicKey*, $bytes*)},
+		{"getCA", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC | $FINAL, $method(TrustAnchor, getCA, $X500Principal*)},
+		{"getCAName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TrustAnchor, getCAName, $String*)},
+		{"getCAPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $FINAL, $method(TrustAnchor, getCAPublicKey, $PublicKey*)},
+		{"getNameConstraints", "()[B", nullptr, $PUBLIC | $FINAL, $method(TrustAnchor, getNameConstraints, $bytes*)},
+		{"getTrustedCert", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC | $FINAL, $method(TrustAnchor, getTrustedCert, $X509Certificate*)},
+		{"isJdkCA", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(TrustAnchor, isJdkCA, bool)},
+		{"setNameConstraints", "([B)V", nullptr, $PRIVATE, $method(TrustAnchor, setNameConstraints, void, $bytes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrustAnchor, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.cert.TrustAnchor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TrustAnchor, name, initialize, &classInfo$$, TrustAnchor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TrustAnchor);
+	});
 	return class$;
 }
 

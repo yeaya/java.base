@@ -66,6 +66,7 @@ class $import ModuleInfo : public ::java::lang::Object {
 	$class(ModuleInfo, 0, ::java::lang::Object)
 public:
 	ModuleInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::function::Supplier* pf, bool ph);
 	void init$(::java::util::function::Supplier* pf);
 	::jdk::internal::module::ModuleInfo$Attributes* doRead(::java::io::DataInput* input);

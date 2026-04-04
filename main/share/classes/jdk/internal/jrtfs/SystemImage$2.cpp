@@ -1,5 +1,4 @@
 #include <jdk/internal/jrtfs/SystemImage$2.h>
-
 #include <java/nio/file/Files.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/Path.h>
@@ -19,43 +18,6 @@ namespace jdk {
 	namespace internal {
 		namespace jrtfs {
 
-$MethodInfo _SystemImage$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SystemImage$2, init$, void)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(SystemImage$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SystemImage$2_EnclosingMethodInfo_ = {
-	"jdk.internal.jrtfs.SystemImage",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SystemImage$2_InnerClassesInfo_[] = {
-	{"jdk.internal.jrtfs.SystemImage$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SystemImage$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.jrtfs.SystemImage$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_SystemImage$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_SystemImage$2_EnclosingMethodInfo_,
-	_SystemImage$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.jrtfs.SystemImage"
-};
-
-$Object* allocate$SystemImage$2($Class* clazz) {
-	return $of($alloc(SystemImage$2));
-}
-
 void SystemImage$2::init$() {
 }
 
@@ -68,7 +30,38 @@ SystemImage$2::SystemImage$2() {
 }
 
 $Class* SystemImage$2::load$($String* name, bool initialize) {
-	$loadClass(SystemImage$2, name, initialize, &_SystemImage$2_ClassInfo_, allocate$SystemImage$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SystemImage$2, init$, void)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(SystemImage$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.jrtfs.SystemImage",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jrtfs.SystemImage$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.jrtfs.SystemImage$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.jrtfs.SystemImage"
+	};
+	$loadClass(SystemImage$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemImage$2);
+	});
 	return class$;
 }
 

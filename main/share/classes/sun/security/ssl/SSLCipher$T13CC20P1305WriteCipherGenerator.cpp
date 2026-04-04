@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLCipher$T13CC20P1305WriteCipherGenerator.h>
-
 #include <java/security/Key.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -26,39 +25,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLCipher$T13CC20P1305WriteCipherGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLCipher$T13CC20P1305WriteCipherGenerator, init$, void)},
-	{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T13CC20P1305WriteCipherGenerator, createCipher, $SSLCipher$SSLWriteCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
-	{}
-};
-
-$InnerClassInfo _SSLCipher$T13CC20P1305WriteCipherGenerator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLCipher$T13CC20P1305WriteCipherGenerator", "sun.security.ssl.SSLCipher", "T13CC20P1305WriteCipherGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLCipher$WriteCipherGenerator", "sun.security.ssl.SSLCipher", "WriteCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.security.ssl.SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher", "sun.security.ssl.SSLCipher$T13CC20P1305WriteCipherGenerator", "CC20P1305WriteCipher", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLCipher$T13CC20P1305WriteCipherGenerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLCipher$T13CC20P1305WriteCipherGenerator",
-	"java.lang.Object",
-	"sun.security.ssl.SSLCipher$WriteCipherGenerator",
-	nullptr,
-	_SSLCipher$T13CC20P1305WriteCipherGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLCipher$T13CC20P1305WriteCipherGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLCipher"
-};
-
-$Object* allocate$SSLCipher$T13CC20P1305WriteCipherGenerator($Class* clazz) {
-	return $of($alloc(SSLCipher$T13CC20P1305WriteCipherGenerator));
-}
-
 void SSLCipher$T13CC20P1305WriteCipherGenerator::init$() {
 }
 
@@ -70,7 +36,35 @@ SSLCipher$T13CC20P1305WriteCipherGenerator::SSLCipher$T13CC20P1305WriteCipherGen
 }
 
 $Class* SSLCipher$T13CC20P1305WriteCipherGenerator::load$($String* name, bool initialize) {
-	$loadClass(SSLCipher$T13CC20P1305WriteCipherGenerator, name, initialize, &_SSLCipher$T13CC20P1305WriteCipherGenerator_ClassInfo_, allocate$SSLCipher$T13CC20P1305WriteCipherGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLCipher$T13CC20P1305WriteCipherGenerator, init$, void)},
+		{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T13CC20P1305WriteCipherGenerator, createCipher, $SSLCipher$SSLWriteCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLCipher$T13CC20P1305WriteCipherGenerator", "sun.security.ssl.SSLCipher", "T13CC20P1305WriteCipherGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLCipher$WriteCipherGenerator", "sun.security.ssl.SSLCipher", "WriteCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.security.ssl.SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher", "sun.security.ssl.SSLCipher$T13CC20P1305WriteCipherGenerator", "CC20P1305WriteCipher", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLCipher$T13CC20P1305WriteCipherGenerator",
+		"java.lang.Object",
+		"sun.security.ssl.SSLCipher$WriteCipherGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLCipher"
+	};
+	$loadClass(SSLCipher$T13CC20P1305WriteCipherGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLCipher$T13CC20P1305WriteCipherGenerator);
+	});
 	return class$;
 }
 

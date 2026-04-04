@@ -33,6 +33,7 @@ class DatagramSocketAdaptor$NetworkInterfaces : public ::java::lang::Object {
 	$class(DatagramSocketAdaptor$NetworkInterfaces, 0, ::java::lang::Object)
 public:
 	DatagramSocketAdaptor$NetworkInterfaces();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::net::NetworkInterface* getDefault();
 	static ::java::lang::invoke::MethodHandles$Lookup* lambda$static$0();

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/atomic/AtomicLongFieldUpdater$LockedUpdater.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalAccessException.h>
@@ -7,7 +6,6 @@
 #include <java/lang/reflect/Modifier.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/concurrent/atomic/AtomicLongFieldUpdater$LockedUpdater$1.h>
 #include <java/util/concurrent/atomic/AtomicLongFieldUpdater.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -32,7 +30,6 @@ using $Field = ::java::lang::reflect::Field;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $AtomicLongFieldUpdater = ::java::util::concurrent::atomic::AtomicLongFieldUpdater;
 using $AtomicLongFieldUpdater$LockedUpdater$1 = ::java::util::concurrent::atomic::AtomicLongFieldUpdater$LockedUpdater$1;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
@@ -43,62 +40,16 @@ namespace java {
 		namespace concurrent {
 			namespace atomic {
 
-$FieldInfo _AtomicLongFieldUpdater$LockedUpdater_FieldInfo_[] = {
-	{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AtomicLongFieldUpdater$LockedUpdater, U)},
-	{"offset", "J", nullptr, $PRIVATE | $FINAL, $field(AtomicLongFieldUpdater$LockedUpdater, offset)},
-	{"cclass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(AtomicLongFieldUpdater$LockedUpdater, cclass)},
-	{"tclass", "Ljava/lang/Class;", "Ljava/lang/Class<TT;>;", $PRIVATE | $FINAL, $field(AtomicLongFieldUpdater$LockedUpdater, tclass)},
-	{}
-};
-
-$MethodInfo _AtomicLongFieldUpdater$LockedUpdater_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/Class<*>;)V", 0, $method(AtomicLongFieldUpdater$LockedUpdater, init$, void, $Class*, $String*, $Class*)},
-	{"accessCheck", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(AtomicLongFieldUpdater$LockedUpdater, accessCheck, void, Object$*)},
-	{"accessCheckException", "(Ljava/lang/Object;)Ljava/lang/RuntimeException;", "(TT;)Ljava/lang/RuntimeException;", $PRIVATE | $FINAL, $method(AtomicLongFieldUpdater$LockedUpdater, accessCheckException, $RuntimeException*, Object$*)},
-	{"compareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, compareAndSet, bool, Object$*, int64_t, int64_t)},
-	{"get", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, get, int64_t, Object$*)},
-	{"lazySet", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, lazySet, void, Object$*, int64_t)},
-	{"set", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, set, void, Object$*, int64_t)},
-	{"weakCompareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, weakCompareAndSet, bool, Object$*, int64_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _AtomicLongFieldUpdater$LockedUpdater_InnerClassesInfo_[] = {
-	{"java.util.concurrent.atomic.AtomicLongFieldUpdater$LockedUpdater", "java.util.concurrent.atomic.AtomicLongFieldUpdater", "LockedUpdater", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.concurrent.atomic.AtomicLongFieldUpdater$LockedUpdater$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AtomicLongFieldUpdater$LockedUpdater_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.atomic.AtomicLongFieldUpdater$LockedUpdater",
-	"java.util.concurrent.atomic.AtomicLongFieldUpdater",
-	nullptr,
-	_AtomicLongFieldUpdater$LockedUpdater_FieldInfo_,
-	_AtomicLongFieldUpdater$LockedUpdater_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/concurrent/atomic/AtomicLongFieldUpdater<TT;>;",
-	nullptr,
-	_AtomicLongFieldUpdater$LockedUpdater_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.atomic.AtomicLongFieldUpdater"
-};
-
-$Object* allocate$AtomicLongFieldUpdater$LockedUpdater($Class* clazz) {
-	return $of($alloc(AtomicLongFieldUpdater$LockedUpdater));
-}
-
 $Unsafe* AtomicLongFieldUpdater$LockedUpdater::U = nullptr;
 
 void AtomicLongFieldUpdater$LockedUpdater::init$($Class* tclass, $String* fieldName, $Class* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$AtomicLongFieldUpdater::init$();
 	$var($Field, field, nullptr);
 	int32_t modifiers = 0;
 	try {
-		$assign(field, $cast($Field, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($AtomicLongFieldUpdater$LockedUpdater$1, this, tclass, fieldName)))));
+		$assign(field, $cast($Field, $AccessController::doPrivileged($$new($AtomicLongFieldUpdater$LockedUpdater$1, this, tclass, fieldName))));
 		modifiers = $nc(field)->getModifiers();
 		$ReflectUtil::ensureMemberAccess(caller, tclass, nullptr, modifiers);
 		$var($ClassLoader, cl, $nc(tclass)->getClassLoader());
@@ -107,11 +58,10 @@ void AtomicLongFieldUpdater$LockedUpdater::init$($Class* tclass, $String* fieldN
 			$ReflectUtil::checkPackageAccess(tclass);
 		}
 	} catch ($PrivilegedActionException& pae) {
-		$throwNew($RuntimeException, $(static_cast<$Throwable*>(pae->getException())));
+		$throwNew($RuntimeException, $(pae->getException()));
 	} catch ($Exception& ex) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
+		$throwNew($RuntimeException, ex);
 	}
-	$init($Long);
 	if ($nc(field)->getType() != $Long::TYPE) {
 		$throwNew($IllegalArgumentException, "Must be long type"_s);
 	}
@@ -132,14 +82,18 @@ void AtomicLongFieldUpdater$LockedUpdater::accessCheck(Object$* obj) {
 }
 
 $RuntimeException* AtomicLongFieldUpdater$LockedUpdater::accessCheckException(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cclass == this->tclass) {
 		return $new($ClassCastException);
 	} else {
-		$var($String, var$2, $$str({"Class "_s, $($nc(this->cclass)->getName()), " can not access a protected member of class "_s}));
-		$var($String, var$1, $$concat(var$2, $($nc(this->tclass)->getName())));
-		$var($String, var$0, $$concat(var$1, " using an instance of "_s));
-		return $new($RuntimeException, static_cast<$Throwable*>($$new($IllegalAccessException, $$concat(var$0, $($nc($of(obj))->getClass()->getName())))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Class "_s);
+		var$0->append($($nc(this->cclass)->getName()));
+		var$0->append(" can not access a protected member of class "_s);
+		var$0->append($($nc(this->tclass)->getName()));
+		var$0->append(" using an instance of "_s);
+		var$0->append($($nc($of(obj))->getClass()->getName()));
+		return $new($RuntimeException, $$new($IllegalAccessException, $$str(var$0)));
 	}
 }
 
@@ -150,7 +104,7 @@ bool AtomicLongFieldUpdater$LockedUpdater::compareAndSet(Object$* obj, int64_t e
 		if (v != expect) {
 			return false;
 		}
-		$nc(AtomicLongFieldUpdater$LockedUpdater::U)->putLong(obj, this->offset, update);
+		AtomicLongFieldUpdater$LockedUpdater::U->putLong(obj, this->offset, update);
 		return true;
 	}
 }
@@ -177,7 +131,7 @@ int64_t AtomicLongFieldUpdater$LockedUpdater::get(Object$* obj) {
 	}
 }
 
-void clinit$AtomicLongFieldUpdater$LockedUpdater($Class* class$) {
+void AtomicLongFieldUpdater$LockedUpdater::clinit$($Class* clazz) {
 	$assignStatic(AtomicLongFieldUpdater$LockedUpdater::U, $Unsafe::getUnsafe());
 }
 
@@ -185,7 +139,47 @@ AtomicLongFieldUpdater$LockedUpdater::AtomicLongFieldUpdater$LockedUpdater() {
 }
 
 $Class* AtomicLongFieldUpdater$LockedUpdater::load$($String* name, bool initialize) {
-	$loadClass(AtomicLongFieldUpdater$LockedUpdater, name, initialize, &_AtomicLongFieldUpdater$LockedUpdater_ClassInfo_, clinit$AtomicLongFieldUpdater$LockedUpdater, allocate$AtomicLongFieldUpdater$LockedUpdater);
+	$FieldInfo fieldInfos$$[] = {
+		{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AtomicLongFieldUpdater$LockedUpdater, U)},
+		{"offset", "J", nullptr, $PRIVATE | $FINAL, $field(AtomicLongFieldUpdater$LockedUpdater, offset)},
+		{"cclass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(AtomicLongFieldUpdater$LockedUpdater, cclass)},
+		{"tclass", "Ljava/lang/Class;", "Ljava/lang/Class<TT;>;", $PRIVATE | $FINAL, $field(AtomicLongFieldUpdater$LockedUpdater, tclass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/Class<*>;)V", 0, $method(AtomicLongFieldUpdater$LockedUpdater, init$, void, $Class*, $String*, $Class*)},
+		{"accessCheck", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(AtomicLongFieldUpdater$LockedUpdater, accessCheck, void, Object$*)},
+		{"accessCheckException", "(Ljava/lang/Object;)Ljava/lang/RuntimeException;", "(TT;)Ljava/lang/RuntimeException;", $PRIVATE | $FINAL, $method(AtomicLongFieldUpdater$LockedUpdater, accessCheckException, $RuntimeException*, Object$*)},
+		{"compareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, compareAndSet, bool, Object$*, int64_t, int64_t)},
+		{"get", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, get, int64_t, Object$*)},
+		{"lazySet", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, lazySet, void, Object$*, int64_t)},
+		{"set", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, set, void, Object$*, int64_t)},
+		{"weakCompareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, weakCompareAndSet, bool, Object$*, int64_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.atomic.AtomicLongFieldUpdater$LockedUpdater", "java.util.concurrent.atomic.AtomicLongFieldUpdater", "LockedUpdater", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.concurrent.atomic.AtomicLongFieldUpdater$LockedUpdater$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.atomic.AtomicLongFieldUpdater$LockedUpdater",
+		"java.util.concurrent.atomic.AtomicLongFieldUpdater",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/concurrent/atomic/AtomicLongFieldUpdater<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.atomic.AtomicLongFieldUpdater"
+	};
+	$loadClass(AtomicLongFieldUpdater$LockedUpdater, name, initialize, &classInfo$$, AtomicLongFieldUpdater$LockedUpdater::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AtomicLongFieldUpdater$LockedUpdater);
+	});
 	return class$;
 }
 

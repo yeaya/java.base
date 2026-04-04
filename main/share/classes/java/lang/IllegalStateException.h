@@ -22,10 +22,13 @@ public:
 	void init$($String* s);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xE65755E69A46F248;
+	static const int64_t serialVersionUID = (int64_t)0xe65755e69a46f248;
 	IllegalStateException(const IllegalStateException& e);
 	virtual void throw$() override;
-	inline IllegalStateException* operator ->() {
+	inline IllegalStateException* operator ->() const {
+		return (IllegalStateException*)throwing$;
+	}
+	inline operator IllegalStateException*() const {
 		return (IllegalStateException*)throwing$;
 	}
 };

@@ -88,6 +88,7 @@ class $export Currency : public ::java::io::Serializable {
 	$class(Currency, 0, ::java::io::Serializable)
 public:
 	Currency();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* currencyCode, int32_t defaultFractionDigits, int32_t numericCode);
 	static ::java::util::Set* getAvailableCurrencies();
 	$String* getCurrencyCode();
@@ -116,7 +117,7 @@ public:
 	static void setMainTableEntry(char16_t char1, char16_t char2, int32_t entry);
 	virtual $String* toString() override;
 	static void updateMainTableEntry($String* code, int32_t fraction, int32_t numeric);
-	static const int64_t serialVersionUID = (int64_t)0xFDCD934A5911A91F;
+	static const int64_t serialVersionUID = (int64_t)0xfdcd934a5911a91f;
 	$String* currencyCode = nullptr;
 	int32_t defaultFractionDigits = 0;
 	int32_t numericCode = 0;
@@ -140,7 +141,7 @@ public:
 	static const int32_t SPECIAL_CASE_COUNTRY_INDEX_MASK = 31;
 	static const int32_t SPECIAL_CASE_COUNTRY_INDEX_DELTA = 1;
 	static const int32_t COUNTRY_TYPE_MASK = 512; // SIMPLE_CASE_COUNTRY_MASK | SPECIAL_CASE_COUNTRY_MASK
-	static const int32_t NUMERIC_CODE_MASK = 0x000FFC00;
+	static const int32_t NUMERIC_CODE_MASK = 0x000ffc00;
 	static const int32_t NUMERIC_CODE_SHIFT = 10;
 	static const int32_t VALID_FORMAT_VERSION = 3;
 	static const int32_t SYMBOL = 0;

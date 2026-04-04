@@ -1,5 +1,4 @@
 #include <java/util/function/ObjLongConsumer.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,35 +9,30 @@ namespace java {
 	namespace util {
 		namespace function {
 
-$CompoundAttribute _ObjLongConsumer_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _ObjLongConsumer_MethodInfo_[] = {
-	{"accept", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $ABSTRACT, $virtualMethod(ObjLongConsumer, accept, void, Object$*, int64_t)},
-	{}
-};
-
-$ClassInfo _ObjLongConsumer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.ObjLongConsumer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ObjLongConsumer_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	nullptr,
-	_ObjLongConsumer_Annotations_
-};
-
-$Object* allocate$ObjLongConsumer($Class* clazz) {
-	return $of($alloc(ObjLongConsumer));
-}
-
 $Class* ObjLongConsumer::load$($String* name, bool initialize) {
-	$loadClass(ObjLongConsumer, name, initialize, &_ObjLongConsumer_ClassInfo_, allocate$ObjLongConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $ABSTRACT, $virtualMethod(ObjLongConsumer, accept, void, Object$*, int64_t)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.ObjLongConsumer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ObjLongConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjLongConsumer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <MissingAnnotation.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -7,46 +6,39 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute MissingAnnotation_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute MissingAnnotation_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE_USE"},
-	{'-'}
-};
-
-$NamedAttribute MissingAnnotation_Attribute_var$1[] = {
-	{"value", '[', MissingAnnotation_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _MissingAnnotation_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", MissingAnnotation_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", MissingAnnotation_Attribute_var$1},
-	{}
-};
-
-$ClassInfo _MissingAnnotation_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"MissingAnnotation",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_MissingAnnotation_Annotations_
-};
-
-$Object* allocate$MissingAnnotation($Class* clazz) {
-	return $of($alloc(MissingAnnotation));
-}
-
 $Class* MissingAnnotation::load$($String* name, bool initialize) {
-	$loadClass(MissingAnnotation, name, initialize, &_MissingAnnotation_ClassInfo_, allocate$MissingAnnotation);
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE_USE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"MissingAnnotation",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(MissingAnnotation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MissingAnnotation);
+	});
 	return class$;
 }
 

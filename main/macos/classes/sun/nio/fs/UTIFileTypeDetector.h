@@ -21,6 +21,7 @@ class UTIFileTypeDetector : public ::sun::nio::fs::AbstractFileTypeDetector {
 	$class(UTIFileTypeDetector, 0, ::sun::nio::fs::AbstractFileTypeDetector)
 public:
 	UTIFileTypeDetector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* implProbeContentType(::java::nio::file::Path* path) override;
 	$String* probe0($String* fileExtension);

@@ -1,5 +1,4 @@
 #include <sun/net/ftp/FtpDirEntry$Permission.h>
-
 #include <java/lang/Enum.h>
 #include <sun/net/ftp/FtpDirEntry.h>
 #include <jcpp.h>
@@ -18,48 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace net {
 		namespace ftp {
-
-$FieldInfo _FtpDirEntry$Permission_FieldInfo_[] = {
-	{"USER", "Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Permission, USER)},
-	{"GROUP", "Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Permission, GROUP)},
-	{"OTHERS", "Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Permission, OTHERS)},
-	{"$VALUES", "[Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FtpDirEntry$Permission, $VALUES)},
-	{"value", "I", nullptr, 0, $field(FtpDirEntry$Permission, value)},
-	{}
-};
-
-$MethodInfo _FtpDirEntry$Permission_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FtpDirEntry$Permission, $values, $FtpDirEntry$PermissionArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(FtpDirEntry$Permission, init$, void, $String*, int32_t, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Permission, valueOf, FtpDirEntry$Permission*, $String*)},
-	{"values", "()[Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Permission, values, $FtpDirEntry$PermissionArray*)},
-	{}
-};
-
-$InnerClassInfo _FtpDirEntry$Permission_InnerClassesInfo_[] = {
-	{"sun.net.ftp.FtpDirEntry$Permission", "sun.net.ftp.FtpDirEntry", "Permission", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _FtpDirEntry$Permission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.net.ftp.FtpDirEntry$Permission",
-	"java.lang.Enum",
-	nullptr,
-	_FtpDirEntry$Permission_FieldInfo_,
-	_FtpDirEntry$Permission_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/net/ftp/FtpDirEntry$Permission;>;",
-	nullptr,
-	_FtpDirEntry$Permission_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.ftp.FtpDirEntry"
-};
-
-$Object* allocate$FtpDirEntry$Permission($Class* clazz) {
-	return $of($alloc(FtpDirEntry$Permission));
-}
 
 FtpDirEntry$Permission* FtpDirEntry$Permission::USER = nullptr;
 FtpDirEntry$Permission* FtpDirEntry$Permission::GROUP = nullptr;
@@ -90,7 +47,7 @@ void FtpDirEntry$Permission::init$($String* $enum$name, int32_t $enum$ordinal, i
 	this->value = v;
 }
 
-void clinit$FtpDirEntry$Permission($Class* class$) {
+void FtpDirEntry$Permission::clinit$($Class* clazz) {
 	$assignStatic(FtpDirEntry$Permission::USER, $new(FtpDirEntry$Permission, "USER"_s, 0, 0));
 	$assignStatic(FtpDirEntry$Permission::GROUP, $new(FtpDirEntry$Permission, "GROUP"_s, 1, 1));
 	$assignStatic(FtpDirEntry$Permission::OTHERS, $new(FtpDirEntry$Permission, "OTHERS"_s, 2, 2));
@@ -101,7 +58,43 @@ FtpDirEntry$Permission::FtpDirEntry$Permission() {
 }
 
 $Class* FtpDirEntry$Permission::load$($String* name, bool initialize) {
-	$loadClass(FtpDirEntry$Permission, name, initialize, &_FtpDirEntry$Permission_ClassInfo_, clinit$FtpDirEntry$Permission, allocate$FtpDirEntry$Permission);
+	$FieldInfo fieldInfos$$[] = {
+		{"USER", "Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Permission, USER)},
+		{"GROUP", "Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Permission, GROUP)},
+		{"OTHERS", "Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Permission, OTHERS)},
+		{"$VALUES", "[Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FtpDirEntry$Permission, $VALUES)},
+		{"value", "I", nullptr, 0, $field(FtpDirEntry$Permission, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FtpDirEntry$Permission, $values, $FtpDirEntry$PermissionArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(FtpDirEntry$Permission, init$, void, $String*, int32_t, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Permission, valueOf, FtpDirEntry$Permission*, $String*)},
+		{"values", "()[Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Permission, values, $FtpDirEntry$PermissionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.ftp.FtpDirEntry$Permission", "sun.net.ftp.FtpDirEntry", "Permission", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.net.ftp.FtpDirEntry$Permission",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/net/ftp/FtpDirEntry$Permission;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.ftp.FtpDirEntry"
+	};
+	$loadClass(FtpDirEntry$Permission, name, initialize, &classInfo$$, FtpDirEntry$Permission::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FtpDirEntry$Permission));
+	});
 	return class$;
 }
 

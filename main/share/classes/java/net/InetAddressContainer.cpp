@@ -1,5 +1,4 @@
 #include <java/net/InetAddressContainer.h>
-
 #include <java/net/InetAddress.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace net {
 
-$FieldInfo _InetAddressContainer_FieldInfo_[] = {
-	{"addr", "Ljava/net/InetAddress;", nullptr, 0, $field(InetAddressContainer, addr)},
-	{}
-};
-
-$MethodInfo _InetAddressContainer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InetAddressContainer, init$, void)},
-	{}
-};
-
-$ClassInfo _InetAddressContainer_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.InetAddressContainer",
-	"java.lang.Object",
-	nullptr,
-	_InetAddressContainer_FieldInfo_,
-	_InetAddressContainer_MethodInfo_
-};
-
-$Object* allocate$InetAddressContainer($Class* clazz) {
-	return $of($alloc(InetAddressContainer));
-}
-
 void InetAddressContainer::init$() {
 }
 
@@ -40,7 +16,25 @@ InetAddressContainer::InetAddressContainer() {
 }
 
 $Class* InetAddressContainer::load$($String* name, bool initialize) {
-	$loadClass(InetAddressContainer, name, initialize, &_InetAddressContainer_ClassInfo_, allocate$InetAddressContainer);
+	$FieldInfo fieldInfos$$[] = {
+		{"addr", "Ljava/net/InetAddress;", nullptr, 0, $field(InetAddressContainer, addr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InetAddressContainer, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.InetAddressContainer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InetAddressContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InetAddressContainer);
+	});
 	return class$;
 }
 

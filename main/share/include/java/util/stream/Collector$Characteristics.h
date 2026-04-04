@@ -22,6 +22,7 @@ class $import Collector$Characteristics : public ::java::lang::Enum {
 public:
 	Collector$Characteristics();
 	static $Array<::java::util::stream::Collector$Characteristics>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::util::stream::Collector$Characteristics* valueOf($String* name);
 	static $Array<::java::util::stream::Collector$Characteristics>* values();

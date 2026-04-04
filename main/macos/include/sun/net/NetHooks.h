@@ -28,6 +28,7 @@ class $import NetHooks : public ::java::lang::Object {
 	$class(NetHooks, 0, ::java::lang::Object)
 public:
 	NetHooks();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void beforeTcpBind(::java::io::FileDescriptor* fdObj, ::java::net::InetAddress* address, int32_t port);
 	static void beforeTcpConnect(::java::io::FileDescriptor* fdObj, ::java::net::InetAddress* address, int32_t port);

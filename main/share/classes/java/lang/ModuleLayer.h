@@ -70,6 +70,7 @@ class $export ModuleLayer : public ::java::lang::Object {
 	$class(ModuleLayer, $PRELOAD, ::java::lang::Object)
 public:
 	ModuleLayer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::module::Configuration* cf, ::java::util::List* parents, ::java::util::function::Function* clf);
 	void bindToLoader(::java::lang::ClassLoader* loader);
 	static ::java::lang::ModuleLayer* boot();

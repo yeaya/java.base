@@ -1,5 +1,4 @@
 #include <sun/nio/cs/JIS_X_0212$EncodeHolder.h>
-
 #include <sun/nio/cs/DoubleByte$Encoder.h>
 #include <sun/nio/cs/JIS_X_0212$DecodeHolder.h>
 #include <sun/nio/cs/JIS_X_0212.h>
@@ -16,50 +15,14 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _JIS_X_0212$EncodeHolder_FieldInfo_[] = {
-	{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(JIS_X_0212$EncodeHolder, c2b)},
-	{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(JIS_X_0212$EncodeHolder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _JIS_X_0212$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JIS_X_0212$EncodeHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _JIS_X_0212$EncodeHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.JIS_X_0212$EncodeHolder", "sun.nio.cs.JIS_X_0212", "EncodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _JIS_X_0212$EncodeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.JIS_X_0212$EncodeHolder",
-	"java.lang.Object",
-	nullptr,
-	_JIS_X_0212$EncodeHolder_FieldInfo_,
-	_JIS_X_0212$EncodeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JIS_X_0212$EncodeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.JIS_X_0212"
-};
-
-$Object* allocate$JIS_X_0212$EncodeHolder($Class* clazz) {
-	return $of($alloc(JIS_X_0212$EncodeHolder));
-}
-
 $chars* JIS_X_0212$EncodeHolder::c2b = nullptr;
 $chars* JIS_X_0212$EncodeHolder::c2bIndex = nullptr;
 
 void JIS_X_0212$EncodeHolder::init$() {
 }
 
-void clinit$JIS_X_0212$EncodeHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JIS_X_0212$EncodeHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JIS_X_0212$EncodeHolder::c2b, $new($chars, 23040));
 	$assignStatic(JIS_X_0212$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
@@ -74,7 +37,37 @@ JIS_X_0212$EncodeHolder::JIS_X_0212$EncodeHolder() {
 }
 
 $Class* JIS_X_0212$EncodeHolder::load$($String* name, bool initialize) {
-	$loadClass(JIS_X_0212$EncodeHolder, name, initialize, &_JIS_X_0212$EncodeHolder_ClassInfo_, clinit$JIS_X_0212$EncodeHolder, allocate$JIS_X_0212$EncodeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(JIS_X_0212$EncodeHolder, c2b)},
+		{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(JIS_X_0212$EncodeHolder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JIS_X_0212$EncodeHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.JIS_X_0212$EncodeHolder", "sun.nio.cs.JIS_X_0212", "EncodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.JIS_X_0212$EncodeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.JIS_X_0212"
+	};
+	$loadClass(JIS_X_0212$EncodeHolder, name, initialize, &classInfo$$, JIS_X_0212$EncodeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JIS_X_0212$EncodeHolder);
+	});
 	return class$;
 }
 

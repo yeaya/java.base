@@ -1,13 +1,10 @@
 #include <Split.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/util/Arrays.h>
 #include <java/util/Random.h>
 #include <java/util/regex/Pattern.h>
 #include <java/util/regex/PatternSyntaxException.h>
 #include <jcpp.h>
 
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -18,30 +15,11 @@ using $Random = ::java::util::Random;
 using $Pattern = ::java::util::regex::Pattern;
 using $PatternSyntaxException = ::java::util::regex::PatternSyntaxException;
 
-$MethodInfo _Split_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Split, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Split, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Split_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Split",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Split_MethodInfo_
-};
-
-$Object* allocate$Split($Class* clazz) {
-	return $of($alloc(Split));
-}
-
 void Split::init$() {
 }
 
 void Split::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, source, "0123456789"_s);
 	for (int32_t limit = -2; limit < 3; ++limit) {
 		for (int32_t x = 0; x < 10; ++x) {
@@ -101,51 +79,51 @@ void Split::main($StringArray* args) {
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			bool doEscape = arr$->get(i$);
-			{
-				for (int32_t cp = 0; cp < 0x00011000; ++cp) {
-					$var($Pattern, p, nullptr);
-					$var($String, regex, $new($String, $($Character::toChars(cp))));
-					if (doEscape) {
-						$assign(regex, $str({"\\"_s, regex}));
-					}
+			for (int32_t cp = 0; cp < 0x00011000; ++cp) {
+				$var($Pattern, p, nullptr);
+				$var($String, regex, $new($String, $($Character::toChars(cp))));
+				if (doEscape) {
+					$assign(regex, $str({"\\"_s, regex}));
+				}
+				try {
+					$assign(p, $Pattern::compile(regex));
+				} catch ($PatternSyntaxException& pse) {
 					try {
-						$assign(p, $Pattern::compile(regex));
-					} catch ($PatternSyntaxException& pse) {
-						try {
-							"abc"_s->split(regex);
-						} catch ($PatternSyntaxException& pse0) {
-							continue;
-						}
-						$throwNew($RuntimeException, "String.split failure 11"_s);
+						"abc"_s->split(regex);
+					} catch ($PatternSyntaxException& pse0) {
+						continue;
 					}
-					int32_t off = r->nextInt(source->length());
-					$var($String, var$4, $$str({$(source->substring(0, 3)), regex}));
-					$var($String, var$3, $$concat(var$4, $(source->substring(3, 9))));
-					$var($String, var$2, $$concat(var$3, regex));
-					$var($String, var$1, $$concat(var$2, $(source->substring(9, 15))));
-					$var($String, var$0, $$concat(var$1, regex));
-					$var($String, var$5, $$str({$(source->substring(0, off)), regex}));
-					$var($StringArray, srcStrs, $new($StringArray, {
-						""_s,
-						source,
-						$$str({regex, source}),
-						$$str({source, regex}),
-						$$concat(var$0, $(source->substring(15))),
-						$$concat(var$5, $(source->substring(off)))
-					}));
-					{
-						$var($StringArray, arr$, srcStrs);
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							$var($String, src, arr$->get(i$));
-							{
-								for (int32_t limit = -2; limit < 3; ++limit) {
-									$var($ObjectArray, var$6, $nc(src)->split(regex, limit));
-									if (!$Arrays::equals(var$6, $($nc(p)->split(src, limit)))) {
-										$throwNew($RuntimeException, "String.split failure 12"_s);
-									}
-								}
+					$throwNew($RuntimeException, "String.split failure 11"_s);
+				}
+				int32_t off = r->nextInt(source->length());
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($(source->substring(0, 3)));
+				var$0->append(regex);
+				var$0->append($(source->substring(3, 9)));
+				var$0->append(regex);
+				var$0->append($(source->substring(9, 15)));
+				var$0->append(regex);
+				var$0->append($(source->substring(15)));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append($(source->substring(0, off)));
+				var$1->append(regex);
+				var$1->append($(source->substring(off)));
+				$var($StringArray, srcStrs, $new($StringArray, {
+					""_s,
+					source,
+					$$str({regex, source}),
+					$$str({source, regex}),
+					$$str(var$0),
+					$$str(var$1)
+				}));
+				{
+					$var($StringArray, arr$, srcStrs);
+					for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+						$var($String, src, arr$->get(i$));
+						for (int32_t limit = -2; limit < 3; ++limit) {
+							$var($ObjectArray, var$2, $nc(src)->split(regex, limit));
+							if (!$Arrays::equals(var$2, $($nc(p)->split(src, limit)))) {
+								$throwNew($RuntimeException, "String.split failure 12"_s);
 							}
 						}
 					}
@@ -159,7 +137,22 @@ Split::Split() {
 }
 
 $Class* Split::load$($String* name, bool initialize) {
-	$loadClass(Split, name, initialize, &_Split_ClassInfo_, allocate$Split);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Split, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Split, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Split",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Split, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Split);
+	});
 	return class$;
 }
 

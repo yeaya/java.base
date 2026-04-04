@@ -1,17 +1,14 @@
 #include <javax/crypto/ProviderVerifier.h>
-
 #include <java/io/InputStream.h>
 #include <java/lang/SecurityException.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/Provider.h>
 #include <java/security/cert/Certificate.h>
 #include <java/util/jar/JarEntry.h>
 #include <java/util/jar/JarException.h>
 #include <java/util/jar/JarFile.h>
-#include <java/util/zip/ZipEntry.h>
 #include <javax/crypto/CryptoPermissions.h>
 #include <javax/crypto/ProviderVerifier$1.h>
 #include <jcpp.h>
@@ -26,59 +23,15 @@ using $SecurityException = ::java::lang::SecurityException;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Provider = ::java::security::Provider;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarException = ::java::util::jar::JarException;
 using $JarFile = ::java::util::jar::JarFile;
-using $ZipEntry = ::java::util::zip::ZipEntry;
 using $CryptoPermissions = ::javax::crypto::CryptoPermissions;
 using $ProviderVerifier$1 = ::javax::crypto::ProviderVerifier$1;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _ProviderVerifier_FieldInfo_[] = {
-	{"jarURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(ProviderVerifier, jarURL)},
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(ProviderVerifier, provider)},
-	{"savePerms", "Z", nullptr, $PRIVATE, $field(ProviderVerifier, savePerms)},
-	{"appPerms", "Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE, $field(ProviderVerifier, appPerms)},
-	{}
-};
-
-$MethodInfo _ProviderVerifier_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Z)V", nullptr, 0, $method(ProviderVerifier, init$, void, $URL*, bool)},
-	{"<init>", "(Ljava/net/URL;Ljava/security/Provider;Z)V", nullptr, 0, $method(ProviderVerifier, init$, void, $URL*, $Provider*, bool)},
-	{"getPermissions", "()Ljavax/crypto/CryptoPermissions;", nullptr, 0, $method(ProviderVerifier, getPermissions, $CryptoPermissions*)},
-	{"isTrustedCryptoProvider", "(Ljava/security/Provider;)Z", nullptr, $STATIC, $staticMethod(ProviderVerifier, isTrustedCryptoProvider, bool, $Provider*)},
-	{"verify", "()V", nullptr, 0, $method(ProviderVerifier, verify, void), "java.io.IOException"},
-	{"verifyPolicySigned", "([Ljava/security/cert/Certificate;)V", nullptr, $STATIC, $staticMethod(ProviderVerifier, verifyPolicySigned, void, $CertificateArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ProviderVerifier_InnerClassesInfo_[] = {
-	{"javax.crypto.ProviderVerifier$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProviderVerifier_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.crypto.ProviderVerifier",
-	"java.lang.Object",
-	nullptr,
-	_ProviderVerifier_FieldInfo_,
-	_ProviderVerifier_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProviderVerifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.crypto.ProviderVerifier$1"
-};
-
-$Object* allocate$ProviderVerifier($Class* clazz) {
-	return $of($alloc(ProviderVerifier));
-}
 
 void ProviderVerifier::init$($URL* jarURL, bool savePerms) {
 	ProviderVerifier::init$(jarURL, nullptr, savePerms);
@@ -92,47 +45,45 @@ void ProviderVerifier::init$($URL* jarURL, $Provider* provider, bool savePerms) 
 }
 
 void ProviderVerifier::verify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (!this->savePerms) {
 		return;
 	}
-	$var($URL, url, $nc($($nc(this->jarURL)->getProtocol()))->equalsIgnoreCase("jar"_s) ? this->jarURL : $new($URL, $$str({"jar:"_s, $($nc(this->jarURL)->toString()), "!/"_s})));
+	$var($URL, url, $$nc($nc(this->jarURL)->getProtocol())->equalsIgnoreCase("jar"_s) ? this->jarURL : $new($URL, $$str({"jar:"_s, $(this->jarURL->toString()), "!/"_s})));
 	$var($JarFile, jf, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$var($JarFile, tmp, $cast($JarFile, $AccessController::doPrivileged($$new($ProviderVerifier$1, this, url))));
+			$assign(jf, tmp);
+		} catch ($PrivilegedActionException& pae) {
+			$var($String, var$1, $str({"Cannot load "_s, $($nc(url)->toString())}));
+			$throwNew($SecurityException, var$1, $(pae->getCause()));
+		}
+		if (jf != nullptr) {
+			$var($JarEntry, je, jf->getJarEntry("cryptoPerms"_s));
+			if (je == nullptr) {
+				$throwNew($JarException, "Can not find cryptoPerms"_s);
+			}
 			try {
-				$var($JarFile, tmp, $cast($JarFile, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($ProviderVerifier$1, this, url)))));
-				$assign(jf, tmp);
-			} catch ($PrivilegedActionException& pae) {
-				$var($String, var$1, $str({"Cannot load "_s, $($nc(url)->toString())}));
-				$throwNew($SecurityException, var$1, $(pae->getCause()));
-			}
-			if (jf != nullptr) {
-				$var($JarEntry, je, jf->getJarEntry("cryptoPerms"_s));
-				if (je == nullptr) {
-					$throwNew($JarException, "Can not find cryptoPerms"_s);
-				}
-				try {
-					$set(this, appPerms, $new($CryptoPermissions));
-					$nc(this->appPerms)->load($(jf->getInputStream(je)));
-				} catch ($Exception& ex) {
-					$var($JarException, jex, $new($JarException, $$str({"Cannot load/parse"_s, $($nc(this->jarURL)->toString())})));
-					jex->initCause(ex);
-					$throw(jex);
-				}
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			if (jf != nullptr) {
-				jf->close();
+				$set(this, appPerms, $new($CryptoPermissions));
+				this->appPerms->load($(jf->getInputStream(je)));
+			} catch ($Exception& ex) {
+				$var($JarException, jex, $new($JarException, $$str({"Cannot load/parse"_s, $($nc(this->jarURL)->toString())})));
+				jex->initCause(ex);
+				$throw(jex);
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		if (jf != nullptr) {
+			jf->close();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -151,7 +102,43 @@ ProviderVerifier::ProviderVerifier() {
 }
 
 $Class* ProviderVerifier::load$($String* name, bool initialize) {
-	$loadClass(ProviderVerifier, name, initialize, &_ProviderVerifier_ClassInfo_, allocate$ProviderVerifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"jarURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(ProviderVerifier, jarURL)},
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(ProviderVerifier, provider)},
+		{"savePerms", "Z", nullptr, $PRIVATE, $field(ProviderVerifier, savePerms)},
+		{"appPerms", "Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE, $field(ProviderVerifier, appPerms)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;Z)V", nullptr, 0, $method(ProviderVerifier, init$, void, $URL*, bool)},
+		{"<init>", "(Ljava/net/URL;Ljava/security/Provider;Z)V", nullptr, 0, $method(ProviderVerifier, init$, void, $URL*, $Provider*, bool)},
+		{"getPermissions", "()Ljavax/crypto/CryptoPermissions;", nullptr, 0, $method(ProviderVerifier, getPermissions, $CryptoPermissions*)},
+		{"isTrustedCryptoProvider", "(Ljava/security/Provider;)Z", nullptr, $STATIC, $staticMethod(ProviderVerifier, isTrustedCryptoProvider, bool, $Provider*)},
+		{"verify", "()V", nullptr, 0, $method(ProviderVerifier, verify, void), "java.io.IOException"},
+		{"verifyPolicySigned", "([Ljava/security/cert/Certificate;)V", nullptr, $STATIC, $staticMethod(ProviderVerifier, verifyPolicySigned, void, $CertificateArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.crypto.ProviderVerifier$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.crypto.ProviderVerifier",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.crypto.ProviderVerifier$1"
+	};
+	$loadClass(ProviderVerifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProviderVerifier);
+	});
 	return class$;
 }
 

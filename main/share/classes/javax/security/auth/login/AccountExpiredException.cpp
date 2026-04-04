@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/AccountExpiredException.h>
-
 #include <javax/security/auth/login/AccountException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace login {
-
-$FieldInfo _AccountExpiredException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AccountExpiredException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AccountExpiredException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AccountExpiredException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccountExpiredException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _AccountExpiredException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.login.AccountExpiredException",
-	"javax.security.auth.login.AccountException",
-	nullptr,
-	_AccountExpiredException_FieldInfo_,
-	_AccountExpiredException_MethodInfo_
-};
-
-$Object* allocate$AccountExpiredException($Class* clazz) {
-	return $of($alloc(AccountExpiredException));
-}
 
 void AccountExpiredException::init$() {
 	$AccountException::init$();
@@ -56,7 +31,26 @@ void AccountExpiredException::throw$() {
 }
 
 $Class* AccountExpiredException::load$($String* name, bool initialize) {
-	$loadClass(AccountExpiredException, name, initialize, &_AccountExpiredException_ClassInfo_, allocate$AccountExpiredException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AccountExpiredException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AccountExpiredException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccountExpiredException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.login.AccountExpiredException",
+		"javax.security.auth.login.AccountException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AccountExpiredException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccountExpiredException);
+	});
 	return class$;
 }
 

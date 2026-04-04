@@ -1,5 +1,4 @@
 #include <package2/Class2.h>
-
 #include <java/lang/AssertionError.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace package2 {
-
-$FieldInfo _Class2_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Class2, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _Class2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Class2, init$, void)},
-	{"testAssert", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Class2, testAssert, void, bool)},
-	{}
-};
-
-$ClassInfo _Class2_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"package2.Class2",
-	"java.lang.Object",
-	nullptr,
-	_Class2_FieldInfo_,
-	_Class2_MethodInfo_
-};
-
-$Object* allocate$Class2($Class* clazz) {
-	return $of($alloc(Class2));
-}
 
 bool Class2::$assertionsDisabled = false;
 
@@ -50,7 +25,7 @@ void Class2::testAssert(bool assertsShouldBeOn) {
 	}
 }
 
-void clinit$Class2($Class* class$) {
+void Class2::clinit$($Class* clazz) {
 	Class2::$assertionsDisabled = !Class2::class$->desiredAssertionStatus();
 }
 
@@ -58,7 +33,26 @@ Class2::Class2() {
 }
 
 $Class* Class2::load$($String* name, bool initialize) {
-	$loadClass(Class2, name, initialize, &_Class2_ClassInfo_, clinit$Class2, allocate$Class2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Class2, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Class2, init$, void)},
+		{"testAssert", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Class2, testAssert, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"package2.Class2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Class2, name, initialize, &classInfo$$, Class2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Class2);
+	});
 	return class$;
 }
 

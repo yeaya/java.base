@@ -1,5 +1,4 @@
 #include <CompareToTests.h>
-
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -14,45 +13,23 @@
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
 using $BigIntegerArray2 = $Array<::java::math::BigInteger, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
-$MethodInfo _CompareToTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompareToTests, init$, void)},
-	{"compareToTest", "(Ljava/math/BigInteger;Ljava/math/BigInteger;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CompareToTests, compareToTest, int32_t, $BigInteger*, $BigInteger*, int32_t)},
-	{"compareToTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(CompareToTests, compareToTests, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompareToTests, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _CompareToTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CompareToTests",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CompareToTests_MethodInfo_
-};
-
-$Object* allocate$CompareToTests($Class* clazz) {
-	return $of($alloc(CompareToTests));
-}
-
 void CompareToTests::init$() {
 }
 
 int32_t CompareToTests::compareToTests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$init($BigInteger);
 	$var($BigInteger, MINUS_ONE, $nc($BigInteger::ONE)->negate());
-	$var($BigInteger, TWO_POW_126, $nc($BigInteger::ONE)->shiftLeft(126));
-	$var($BigInteger, TWO_POW_127, $nc($BigInteger::ONE)->shiftLeft(127));
-	$var($BigInteger, TWO_POW_128, $nc($BigInteger::ONE)->shiftLeft(128));
+	$var($BigInteger, TWO_POW_126, $BigInteger::ONE->shiftLeft(126));
+	$var($BigInteger, TWO_POW_127, $BigInteger::ONE->shiftLeft(127));
+	$var($BigInteger, TWO_POW_128, $BigInteger::ONE->shiftLeft(128));
 	$var($BigIntegerArray2, testCases, $new($BigIntegerArray2, {
 		$$new($BigIntegerArray, {
 			$($BigInteger::valueOf((int64_t)0)),
@@ -61,22 +38,22 @@ int32_t CompareToTests::compareToTests() {
 		}),
 		$$new($BigIntegerArray, {
 			$($BigInteger::valueOf((int64_t)0)),
-			$($BigInteger::valueOf((int64_t)1)),
+			$($BigInteger::valueOf(1)),
 			MINUS_ONE
 		}),
 		$$new($BigIntegerArray, {
-			$($BigInteger::valueOf((int64_t)1)),
-			$($BigInteger::valueOf((int64_t)2)),
+			$($BigInteger::valueOf(1)),
+			$($BigInteger::valueOf(2)),
 			MINUS_ONE
 		}),
 		$$new($BigIntegerArray, {
-			$($BigInteger::valueOf((int64_t)2)),
-			$($BigInteger::valueOf((int64_t)1)),
+			$($BigInteger::valueOf(2)),
+			$($BigInteger::valueOf(1)),
 			$BigInteger::ONE
 		}),
 		$$new($BigIntegerArray, {
-			$($BigInteger::valueOf((int64_t)10)),
-			$($BigInteger::valueOf((int64_t)10)),
+			$($BigInteger::valueOf(10)),
+			$($BigInteger::valueOf(10)),
 			$BigInteger::ZERO
 		}),
 		$$new($BigIntegerArray, {
@@ -85,12 +62,12 @@ int32_t CompareToTests::compareToTests() {
 			$BigInteger::ZERO
 		}),
 		$$new($BigIntegerArray, {
-			$($nc(TWO_POW_127)->negate()),
+			$(TWO_POW_127->negate()),
 			TWO_POW_127,
 			MINUS_ONE
 		}),
 		$$new($BigIntegerArray, {
-			$($nc(TWO_POW_128)->or$(TWO_POW_126)),
+			$(TWO_POW_128->or$(TWO_POW_126)),
 			TWO_POW_128,
 			$BigInteger::ONE
 		}),
@@ -135,7 +112,7 @@ int32_t CompareToTests::compareToTests() {
 			$BigInteger::ZERO
 		}),
 		$$new($BigIntegerArray, {
-			$($nc($($BigInteger::valueOf($Long::MAX_VALUE)))->negate()),
+			$($($BigInteger::valueOf($Long::MAX_VALUE))->negate()),
 			$($BigInteger::valueOf($Long::MAX_VALUE)),
 			MINUS_ONE
 		}),
@@ -145,7 +122,7 @@ int32_t CompareToTests::compareToTests() {
 			MINUS_ONE
 		}),
 		$$new($BigIntegerArray, {
-			$($nc($($BigInteger::valueOf($Long::MAX_VALUE - 1)))->negate()),
+			$($($BigInteger::valueOf($Long::MAX_VALUE - 1))->negate()),
 			$($BigInteger::valueOf($Long::MAX_VALUE)),
 			MINUS_ONE
 		}),
@@ -155,7 +132,7 @@ int32_t CompareToTests::compareToTests() {
 			MINUS_ONE
 		}),
 		$$new($BigIntegerArray, {
-			$($nc($($BigInteger::valueOf($Long::MIN_VALUE)))->negate()),
+			$($($BigInteger::valueOf($Long::MIN_VALUE))->negate()),
 			$($BigInteger::valueOf($Long::MAX_VALUE)),
 			$BigInteger::ONE
 		}),
@@ -165,7 +142,7 @@ int32_t CompareToTests::compareToTests() {
 			MINUS_ONE
 		}),
 		$$new($BigIntegerArray, {
-			$($nc($($BigInteger::valueOf($Long::MIN_VALUE + 1)))->negate()),
+			$($($BigInteger::valueOf($Long::MIN_VALUE + 1))->negate()),
 			$($BigInteger::valueOf($Long::MAX_VALUE)),
 			$BigInteger::ZERO
 		}),
@@ -175,7 +152,7 @@ int32_t CompareToTests::compareToTests() {
 			$BigInteger::ONE
 		}),
 		$$new($BigIntegerArray, {
-			$($nc($($BigInteger::valueOf($Long::MAX_VALUE)))->negate()),
+			$($($BigInteger::valueOf($Long::MAX_VALUE))->negate()),
 			$($BigInteger::valueOf($Long::MIN_VALUE)),
 			$BigInteger::ONE
 		}),
@@ -185,7 +162,7 @@ int32_t CompareToTests::compareToTests() {
 			$BigInteger::ONE
 		}),
 		$$new($BigIntegerArray, {
-			$($nc($($BigInteger::valueOf($Long::MAX_VALUE - 1)))->negate()),
+			$($($BigInteger::valueOf($Long::MAX_VALUE - 1))->negate()),
 			$($BigInteger::valueOf($Long::MIN_VALUE)),
 			$BigInteger::ONE
 		}),
@@ -195,7 +172,7 @@ int32_t CompareToTests::compareToTests() {
 			$BigInteger::ZERO
 		}),
 		$$new($BigIntegerArray, {
-			$($nc($($BigInteger::valueOf($Long::MIN_VALUE)))->negate()),
+			$($($BigInteger::valueOf($Long::MIN_VALUE))->negate()),
 			$($BigInteger::valueOf($Long::MIN_VALUE)),
 			$BigInteger::ONE
 		}),
@@ -205,16 +182,14 @@ int32_t CompareToTests::compareToTests() {
 			$BigInteger::ONE
 		}),
 		$$new($BigIntegerArray, {
-			$($nc($($BigInteger::valueOf($Long::MIN_VALUE + 1)))->negate()),
+			$($($BigInteger::valueOf($Long::MIN_VALUE + 1))->negate()),
 			$($BigInteger::valueOf($Long::MIN_VALUE)),
 			$BigInteger::ONE
 		})
 	}));
 	{
 		$var($BigIntegerArray2, arr$, testCases);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigIntegerArray, testCase, arr$->get(i$));
 			{
 				$var($BigInteger, a, $nc(testCase)->get(0));
@@ -231,7 +206,7 @@ int32_t CompareToTests::compareToTests() {
 }
 
 int32_t CompareToTests::compareToTest($BigInteger* a, $BigInteger* b, int32_t expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = $nc(a)->compareTo(b);
 	int32_t failed = (result == expected) ? 0 : 1;
 	if (failed == 1) {
@@ -241,7 +216,7 @@ int32_t CompareToTests::compareToTest($BigInteger* a, $BigInteger* b, int32_t ex
 }
 
 void CompareToTests::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	failures += compareToTests();
 	if (failures > 0) {
@@ -253,7 +228,24 @@ CompareToTests::CompareToTests() {
 }
 
 $Class* CompareToTests::load$($String* name, bool initialize) {
-	$loadClass(CompareToTests, name, initialize, &_CompareToTests_ClassInfo_, allocate$CompareToTests);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompareToTests, init$, void)},
+		{"compareToTest", "(Ljava/math/BigInteger;Ljava/math/BigInteger;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CompareToTests, compareToTest, int32_t, $BigInteger*, $BigInteger*, int32_t)},
+		{"compareToTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(CompareToTests, compareToTests, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompareToTests, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CompareToTests",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CompareToTests, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompareToTests);
+	});
 	return class$;
 }
 

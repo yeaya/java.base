@@ -15,6 +15,7 @@ class $export CloseDuringWrite : public ::java::lang::Object {
 	$class(CloseDuringWrite, 0, ::java::lang::Object)
 public:
 	CloseDuringWrite();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::Random* rand;

@@ -1,5 +1,4 @@
 #include <java/util/TimeZone.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CloneNotSupportedException.h>
@@ -42,7 +41,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Permission = ::java::security::Permission;
 using $ZoneId = ::java::time::ZoneId;
 using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
@@ -57,80 +55,6 @@ using $TimeZoneNameUtility = ::sun::util::locale::provider::TimeZoneNameUtility;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _TimeZone_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TimeZone, $assertionsDisabled)},
-	{"SHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TimeZone, SHORT)},
-	{"LONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TimeZone, LONG)},
-	{"ONE_MINUTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeZone, ONE_MINUTE)},
-	{"ONE_HOUR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeZone, ONE_HOUR)},
-	{"ONE_DAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeZone, ONE_DAY)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TimeZone, serialVersionUID)},
-	{"NO_TIMEZONE", "Ljava/util/TimeZone;", nullptr, $STATIC | $FINAL, $staticField(TimeZone, NO_TIMEZONE)},
-	{"ID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TimeZone, ID)},
-	{"zoneId", "Ljava/time/ZoneId;", nullptr, $PRIVATE | $TRANSIENT, $field(TimeZone, zoneId)},
-	{"defaultTimeZone", "Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TimeZone, defaultTimeZone)},
-	{"GMT_ID", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TimeZone, GMT_ID)},
-	{"GMT_ID_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeZone, GMT_ID_LENGTH)},
-	{}
-};
-
-$MethodInfo _TimeZone_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZone, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TimeZone, clone, $Object*)},
-	{"getAvailableIDs", "(I)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TimeZone, getAvailableIDs, $StringArray*, int32_t)},
-	{"getAvailableIDs", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TimeZone, getAvailableIDs, $StringArray*)},
-	{"getDSTSavings", "()I", nullptr, $PUBLIC, $virtualMethod(TimeZone, getDSTSavings, int32_t)},
-	{"getDefault", "()Ljava/util/TimeZone;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZone, getDefault, TimeZone*)},
-	{"getDefaultRef", "()Ljava/util/TimeZone;", nullptr, $STATIC, $staticMethod(TimeZone, getDefaultRef, TimeZone*)},
-	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TimeZone, getDisplayName, $String*)},
-	{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TimeZone, getDisplayName, $String*, $Locale*)},
-	{"getDisplayName", "(ZI)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TimeZone, getDisplayName, $String*, bool, int32_t)},
-	{"getDisplayName", "(ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TimeZone, getDisplayName, $String*, bool, int32_t, $Locale*)},
-	{"getDisplayNames", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZone, getDisplayNames, $StringArray*, $String*, $Locale*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TimeZone, getID, $String*)},
-	{"getOffset", "(IIIIII)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeZone, getOffset, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getOffset", "(J)I", nullptr, $PUBLIC, $virtualMethod(TimeZone, getOffset, int32_t, int64_t)},
-	{"getOffsets", "(J[I)I", nullptr, 0, $virtualMethod(TimeZone, getOffsets, int32_t, int64_t, $ints*)},
-	{"getRawOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeZone, getRawOffset, int32_t)},
-	{"getSystemGMTOffsetID", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(TimeZone, getSystemGMTOffsetID, $String*)},
-	{"getSystemTimeZoneID", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(TimeZone, getSystemTimeZoneID, $String*, $String*)},
-	{"getTimeZone", "(Ljava/lang/String;)Ljava/util/TimeZone;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TimeZone, getTimeZone, TimeZone*, $String*)},
-	{"getTimeZone", "(Ljava/time/ZoneId;)Ljava/util/TimeZone;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZone, getTimeZone, TimeZone*, $ZoneId*)},
-	{"getTimeZone", "(Ljava/lang/String;Z)Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZone, getTimeZone, TimeZone*, $String*, bool)},
-	{"hasSameRules", "(Ljava/util/TimeZone;)Z", nullptr, $PUBLIC, $virtualMethod(TimeZone, hasSameRules, bool, TimeZone*)},
-	{"inDaylightTime", "(Ljava/util/Date;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeZone, inDaylightTime, bool, $Date*)},
-	{"observesDaylightTime", "()Z", nullptr, $PUBLIC, $virtualMethod(TimeZone, observesDaylightTime, bool)},
-	{"parseCustomTimeZone", "(Ljava/lang/String;)Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(TimeZone, parseCustomTimeZone, TimeZone*, $String*)},
-	{"setDefault", "(Ljava/util/TimeZone;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZone, setDefault, void, TimeZone*)},
-	{"setDefaultZone", "()Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(TimeZone, setDefaultZone, TimeZone*)},
-	{"setID", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TimeZone, setID, void, $String*)},
-	{"setRawOffset", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeZone, setRawOffset, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toZoneId", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(TimeZone, toZoneId, $ZoneId*)},
-	{"toZoneId0", "()Ljava/time/ZoneId;", nullptr, $PRIVATE, $method(TimeZone, toZoneId0, $ZoneId*)},
-	{"useDaylightTime", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeZone, useDaylightTime, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_getSystemGMTOffsetID 20
-#define _METHOD_INDEX_getSystemTimeZoneID 21
-
-$ClassInfo _TimeZone_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.TimeZone",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_TimeZone_FieldInfo_,
-	_TimeZone_MethodInfo_
-};
-
-$Object* allocate$TimeZone($Class* clazz) {
-	return $of($alloc(TimeZone));
-}
 
 int32_t TimeZone::hashCode() {
 	 return this->$Serializable::hashCode();
@@ -204,7 +128,7 @@ $String* TimeZone::getDisplayName(bool daylight, int32_t style) {
 }
 
 $String* TimeZone::getDisplayName(bool daylight, int32_t style, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (style != TimeZone::SHORT && style != TimeZone::LONG) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal style: "_s, $$str(style)}));
 	}
@@ -234,7 +158,7 @@ $StringArray* TimeZone::getDisplayNames($String* id, $Locale* locale) {
 
 int32_t TimeZone::getDSTSavings() {
 	if (useDaylightTime()) {
-		return 0x0036EE80;
+		return 3600000;
 	}
 	return 0;
 }
@@ -245,9 +169,8 @@ bool TimeZone::observesDaylightTime() {
 }
 
 TimeZone* TimeZone::getTimeZone($String* ID) {
-	$load(TimeZone);
+	$init(TimeZone);
 	$synchronized(class$) {
-		$init(TimeZone);
 		return getTimeZone(ID, true);
 	}
 }
@@ -267,13 +190,13 @@ TimeZone* TimeZone::getTimeZone($ZoneId* zoneId) {
 $ZoneId* TimeZone::toZoneId() {
 	$var($ZoneId, zId, this->zoneId);
 	if (zId == nullptr) {
-		$set(this, zoneId, ($assign(zId, toZoneId0())));
+		$set(this, zoneId, $assign(zId, toZoneId0()));
 	}
 	return zId;
 }
 
 $ZoneId* TimeZone::toZoneId0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, id, getID());
 	$var(TimeZone, defaultZone, TimeZone::defaultTimeZone);
 	if (defaultZone != this && defaultZone != nullptr && $nc(id)->equals($(defaultZone->getID()))) {
@@ -308,42 +231,38 @@ TimeZone* TimeZone::getTimeZone($String* ID, bool fallback) {
 }
 
 $StringArray* TimeZone::getAvailableIDs(int32_t rawOffset) {
-	$load(TimeZone);
+	$init(TimeZone);
 	$synchronized(class$) {
-		$init(TimeZone);
 		return $ZoneInfo::getAvailableIDs(rawOffset);
 	}
 }
 
 $StringArray* TimeZone::getAvailableIDs() {
-	$load(TimeZone);
+	$init(TimeZone);
 	$synchronized(class$) {
-		$init(TimeZone);
 		return $ZoneInfo::getAvailableIDs();
 	}
 }
 
 $String* TimeZone::getSystemTimeZoneID($String* javaHome) {
 	$init(TimeZone);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(TimeZone, getSystemTimeZoneID, $String*, $String* javaHome);
-	$assign($ret, $invokeNativeStaticObject(javaHome));
+	$prepareNativeStatic(getSystemTimeZoneID, $String*, $String* javaHome);
+	$var($String, $ret, $invokeNativeStaticObject(javaHome));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* TimeZone::getSystemGMTOffsetID() {
 	$init(TimeZone);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(TimeZone, getSystemGMTOffsetID, $String*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getSystemGMTOffsetID, $String*);
+	$var($String, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 TimeZone* TimeZone::getDefault() {
 	$init(TimeZone);
-	return $cast(TimeZone, $nc($(getDefaultRef()))->clone());
+	return $cast(TimeZone, $$nc(getDefaultRef())->clone());
 }
 
 TimeZone* TimeZone::getDefaultRef() {
@@ -359,14 +278,13 @@ TimeZone* TimeZone::getDefaultRef() {
 }
 
 TimeZone* TimeZone::setDefaultZone() {
-	$load(TimeZone);
+	$init(TimeZone);
 	$synchronized(class$) {
-		$init(TimeZone);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var(TimeZone, tz, nullptr);
 		$var($Properties, props, $GetPropertyAction::privilegedGetProperties());
 		$var($String, zoneID, $nc(props)->getProperty("user.timezone"_s));
-		if (zoneID == nullptr || $nc(zoneID)->isEmpty()) {
+		if (zoneID == nullptr || zoneID->isEmpty()) {
 			$var($String, javaHome, $StaticProperty::javaHome());
 			try {
 				$assign(zoneID, getSystemTimeZoneID(javaHome));
@@ -397,12 +315,12 @@ TimeZone* TimeZone::setDefaultZone() {
 
 void TimeZone::setDefault(TimeZone* zone) {
 	$init(TimeZone);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($PropertyPermission, "user.timezone"_s, "write"_s));
 	}
-	$assignStatic(TimeZone::defaultTimeZone, (zone == nullptr) ? (TimeZone*)nullptr : $cast(TimeZone, $nc(zone)->clone()));
+	$assignStatic(TimeZone::defaultTimeZone, (zone == nullptr) ? (TimeZone*)nullptr : $cast(TimeZone, zone->clone()));
 }
 
 bool TimeZone::hasSameRules(TimeZone* other) {
@@ -414,16 +332,16 @@ bool TimeZone::hasSameRules(TimeZone* other) {
 	bool var$0 = var$1;
 	if (var$0) {
 		bool var$3 = useDaylightTime();
-		var$0 = var$3 == other->useDaylightTime();
+		var$0 = var$3 == $nc(other)->useDaylightTime();
 	}
 	return var$0;
 }
 
 $Object* TimeZone::clone() {
 	try {
-		return $of($Serializable::clone());
+		return $Serializable::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -432,7 +350,7 @@ TimeZone* TimeZone::parseCustomTimeZone($String* id) {
 	$init(TimeZone);
 	int32_t length = 0;
 	bool var$0 = (length = $nc(id)->length()) < (TimeZone::GMT_ID_LENGTH + 2);
-	if (var$0 || $nc(id)->indexOf(TimeZone::GMT_ID) != 0) {
+	if (var$0 || id->indexOf(TimeZone::GMT_ID) != 0) {
 		return nullptr;
 	}
 	$var($ZoneInfo, zi, nullptr);
@@ -442,7 +360,7 @@ TimeZone* TimeZone::parseCustomTimeZone($String* id) {
 	}
 	int32_t index = TimeZone::GMT_ID_LENGTH;
 	bool negative = false;
-	char16_t c = $nc(id)->charAt(index++);
+	char16_t c = id->charAt(index++);
 	if (c == u'-') {
 		negative = true;
 	} else if (c != u'+') {
@@ -504,7 +422,7 @@ TimeZone* TimeZone::parseCustomTimeZone($String* id) {
 	return zi;
 }
 
-void clinit$TimeZone($Class* class$) {
+void TimeZone::clinit$($Class* clazz) {
 	$assignStatic(TimeZone::GMT_ID, "GMT"_s);
 	TimeZone::$assertionsDisabled = !TimeZone::class$->desiredAssertionStatus();
 	$assignStatic(TimeZone::NO_TIMEZONE, nullptr);
@@ -514,7 +432,73 @@ TimeZone::TimeZone() {
 }
 
 $Class* TimeZone::load$($String* name, bool initialize) {
-	$loadClass(TimeZone, name, initialize, &_TimeZone_ClassInfo_, clinit$TimeZone, allocate$TimeZone);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TimeZone, $assertionsDisabled)},
+		{"SHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TimeZone, SHORT)},
+		{"LONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TimeZone, LONG)},
+		{"ONE_MINUTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeZone, ONE_MINUTE)},
+		{"ONE_HOUR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeZone, ONE_HOUR)},
+		{"ONE_DAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeZone, ONE_DAY)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TimeZone, serialVersionUID)},
+		{"NO_TIMEZONE", "Ljava/util/TimeZone;", nullptr, $STATIC | $FINAL, $staticField(TimeZone, NO_TIMEZONE)},
+		{"ID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TimeZone, ID)},
+		{"zoneId", "Ljava/time/ZoneId;", nullptr, $PRIVATE | $TRANSIENT, $field(TimeZone, zoneId)},
+		{"defaultTimeZone", "Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TimeZone, defaultTimeZone)},
+		{"GMT_ID", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TimeZone, GMT_ID)},
+		{"GMT_ID_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeZone, GMT_ID_LENGTH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZone, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TimeZone, clone, $Object*)},
+		{"getAvailableIDs", "(I)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TimeZone, getAvailableIDs, $StringArray*, int32_t)},
+		{"getAvailableIDs", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TimeZone, getAvailableIDs, $StringArray*)},
+		{"getDSTSavings", "()I", nullptr, $PUBLIC, $virtualMethod(TimeZone, getDSTSavings, int32_t)},
+		{"getDefault", "()Ljava/util/TimeZone;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZone, getDefault, TimeZone*)},
+		{"getDefaultRef", "()Ljava/util/TimeZone;", nullptr, $STATIC, $staticMethod(TimeZone, getDefaultRef, TimeZone*)},
+		{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TimeZone, getDisplayName, $String*)},
+		{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TimeZone, getDisplayName, $String*, $Locale*)},
+		{"getDisplayName", "(ZI)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TimeZone, getDisplayName, $String*, bool, int32_t)},
+		{"getDisplayName", "(ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TimeZone, getDisplayName, $String*, bool, int32_t, $Locale*)},
+		{"getDisplayNames", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZone, getDisplayNames, $StringArray*, $String*, $Locale*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TimeZone, getID, $String*)},
+		{"getOffset", "(IIIIII)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeZone, getOffset, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getOffset", "(J)I", nullptr, $PUBLIC, $virtualMethod(TimeZone, getOffset, int32_t, int64_t)},
+		{"getOffsets", "(J[I)I", nullptr, 0, $virtualMethod(TimeZone, getOffsets, int32_t, int64_t, $ints*)},
+		{"getRawOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeZone, getRawOffset, int32_t)},
+		{"getSystemGMTOffsetID", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(TimeZone, getSystemGMTOffsetID, $String*)},
+		{"getSystemTimeZoneID", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(TimeZone, getSystemTimeZoneID, $String*, $String*)},
+		{"getTimeZone", "(Ljava/lang/String;)Ljava/util/TimeZone;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TimeZone, getTimeZone, TimeZone*, $String*)},
+		{"getTimeZone", "(Ljava/time/ZoneId;)Ljava/util/TimeZone;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZone, getTimeZone, TimeZone*, $ZoneId*)},
+		{"getTimeZone", "(Ljava/lang/String;Z)Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZone, getTimeZone, TimeZone*, $String*, bool)},
+		{"hasSameRules", "(Ljava/util/TimeZone;)Z", nullptr, $PUBLIC, $virtualMethod(TimeZone, hasSameRules, bool, TimeZone*)},
+		{"inDaylightTime", "(Ljava/util/Date;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeZone, inDaylightTime, bool, $Date*)},
+		{"observesDaylightTime", "()Z", nullptr, $PUBLIC, $virtualMethod(TimeZone, observesDaylightTime, bool)},
+		{"parseCustomTimeZone", "(Ljava/lang/String;)Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(TimeZone, parseCustomTimeZone, TimeZone*, $String*)},
+		{"setDefault", "(Ljava/util/TimeZone;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZone, setDefault, void, TimeZone*)},
+		{"setDefaultZone", "()Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(TimeZone, setDefaultZone, TimeZone*)},
+		{"setID", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TimeZone, setID, void, $String*)},
+		{"setRawOffset", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeZone, setRawOffset, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"toZoneId", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(TimeZone, toZoneId, $ZoneId*)},
+		{"toZoneId0", "()Ljava/time/ZoneId;", nullptr, $PRIVATE, $method(TimeZone, toZoneId0, $ZoneId*)},
+		{"useDaylightTime", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeZone, useDaylightTime, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.TimeZone",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TimeZone, name, initialize, &classInfo$$, TimeZone::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TimeZone));
+	});
 	return class$;
 }
 

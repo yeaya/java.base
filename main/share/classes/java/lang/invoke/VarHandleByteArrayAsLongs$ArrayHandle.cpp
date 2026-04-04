@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandleByteArrayAsLongs$ArrayHandle.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/IllegalStateException.h>
@@ -61,295 +60,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of($new($ArrayIndexOutOfBoundsException, $cast($String, s)));
+		 return $new($ArrayIndexOutOfBoundsException, $cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.invoke.VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException::load$($String* name, bool initialize) {
-	$loadClass(VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.invoke.VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException);
+	});
 	return class$;
 }
 $Class* VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException::class$ = nullptr;
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_address3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_compareAndExchange4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_compareAndExchangeAcquire5[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_compareAndExchangeRelease6[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_compareAndSet7[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_get8[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAcquire9[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndAdd10[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndAddAcquire11[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndAddConvEndianWithCAS12[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndAddRelease13[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseAnd14[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseAndAcquire15[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseAndConvEndianWithCAS16[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseAndRelease17[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseOr18[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseOrAcquire19[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseOrConvEndianWithCAS20[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseOrRelease21[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseXor22[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseXorAcquire23[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseXorConvEndianWithCAS24[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseXorRelease25[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndSet26[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndSetAcquire27[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndSetRelease28[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getOpaque29[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getVolatile30[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_index31[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_set32[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_setOpaque33[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_setRelease34[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_setVolatile35[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_weakCompareAndSet36[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_weakCompareAndSetAcquire37[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_weakCompareAndSetPlain38[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_weakCompareAndSetRelease39[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _VarHandleByteArrayAsLongs$ArrayHandle_FieldInfo_[] = {
-	{"OOBEF", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;Ljava/lang/ArrayIndexOutOfBoundsException;>;", $PRIVATE | $STATIC | $FINAL, $staticField(VarHandleByteArrayAsLongs$ArrayHandle, OOBEF)},
-	{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsLongs$ArrayHandle, FORM)},
-	{}
-};
-
-$MethodInfo _VarHandleByteArrayAsLongs$ArrayHandle_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(VarHandleByteArrayAsLongs$ArrayHandle, init$, void, bool)},
-	{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(VarHandleByteArrayAsLongs$ArrayHandle, init$, void, bool, bool)},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleByteArrayAsLongs$ArrayHandle, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
-	{"address", "([BI)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, address, int64_t, $bytes*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_address3},
-	{"compareAndExchange", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, compareAndExchange, int64_t, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_compareAndExchange4},
-	{"compareAndExchangeAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, compareAndExchangeAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_compareAndExchangeAcquire5},
-	{"compareAndExchangeRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, compareAndExchangeRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_compareAndExchangeRelease6},
-	{"compareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, compareAndSet, bool, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_compareAndSet7},
-	{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, get, int64_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_get8},
-	{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAcquire, int64_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAcquire9},
-	{"getAndAdd", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndAdd, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndAdd10},
-	{"getAndAddAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndAddAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndAddAcquire11},
-	{"getAndAddConvEndianWithCAS", "([BIJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndAddConvEndianWithCAS, int64_t, $bytes*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndAddConvEndianWithCAS12},
-	{"getAndAddRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndAddRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndAddRelease13},
-	{"getAndBitwiseAnd", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseAnd, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseAnd14},
-	{"getAndBitwiseAndAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseAndAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseAndAcquire15},
-	{"getAndBitwiseAndConvEndianWithCAS", "([BIJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseAndConvEndianWithCAS, int64_t, $bytes*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseAndConvEndianWithCAS16},
-	{"getAndBitwiseAndRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseAndRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseAndRelease17},
-	{"getAndBitwiseOr", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseOr, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseOr18},
-	{"getAndBitwiseOrAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseOrAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseOrAcquire19},
-	{"getAndBitwiseOrConvEndianWithCAS", "([BIJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseOrConvEndianWithCAS, int64_t, $bytes*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseOrConvEndianWithCAS20},
-	{"getAndBitwiseOrRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseOrRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseOrRelease21},
-	{"getAndBitwiseXor", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseXor, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseXor22},
-	{"getAndBitwiseXorAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseXorAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseXorAcquire23},
-	{"getAndBitwiseXorConvEndianWithCAS", "([BIJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseXorConvEndianWithCAS, int64_t, $bytes*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseXorConvEndianWithCAS24},
-	{"getAndBitwiseXorRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseXorRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndBitwiseXorRelease25},
-	{"getAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndSet, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndSet26},
-	{"getAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndSetAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndSetAcquire27},
-	{"getAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndSetRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getAndSetRelease28},
-	{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getOpaque, int64_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getOpaque29},
-	{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getVolatile, int64_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_getVolatile30},
-	{"index", "([BI)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, index, int32_t, $bytes*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_index31},
-	{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, set, void, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_set32},
-	{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, setOpaque, void, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_setOpaque33},
-	{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, setRelease, void, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_setRelease34},
-	{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, setVolatile, void, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_setVolatile35},
-	{"weakCompareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, weakCompareAndSet, bool, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_weakCompareAndSet36},
-	{"weakCompareAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, weakCompareAndSetAcquire, bool, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_weakCompareAndSetAcquire37},
-	{"weakCompareAndSetPlain", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, weakCompareAndSetPlain, bool, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_weakCompareAndSetPlain38},
-	{"weakCompareAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, weakCompareAndSetRelease, bool, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, _VarHandleByteArrayAsLongs$ArrayHandle_MethodAnnotations_weakCompareAndSetRelease39},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsLongs$ArrayHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsLongs$ArrayHandle, withInvokeBehavior, VarHandleByteArrayAsLongs$ArrayHandle*)},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsLongs$ArrayHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsLongs$ArrayHandle, withInvokeExactBehavior, VarHandleByteArrayAsLongs$ArrayHandle*)},
-	{}
-};
-
-$InnerClassInfo _VarHandleByteArrayAsLongs$ArrayHandle_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandleByteArrayAsLongs$ArrayHandle", "java.lang.invoke.VarHandleByteArrayAsLongs", "ArrayHandle", $STATIC | $FINAL},
-	{"java.lang.invoke.VarHandleByteArrayAsLongs$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsLongs", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VarHandleByteArrayAsLongs$ArrayHandle_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.VarHandleByteArrayAsLongs$ArrayHandle",
-	"java.lang.invoke.VarHandleByteArrayAsLongs$ByteArrayViewVarHandle",
-	nullptr,
-	_VarHandleByteArrayAsLongs$ArrayHandle_FieldInfo_,
-	_VarHandleByteArrayAsLongs$ArrayHandle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VarHandleByteArrayAsLongs$ArrayHandle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandleByteArrayAsLongs"
-};
-
-$Object* allocate$VarHandleByteArrayAsLongs$ArrayHandle($Class* clazz) {
-	return $of($alloc(VarHandleByteArrayAsLongs$ArrayHandle));
-}
 
 $BiFunction* VarHandleByteArrayAsLongs$ArrayHandle::OOBEF = nullptr;
 $VarForm* VarHandleByteArrayAsLongs$ArrayHandle::FORM = nullptr;
@@ -371,9 +104,6 @@ VarHandleByteArrayAsLongs$ArrayHandle* VarHandleByteArrayAsLongs$ArrayHandle::wi
 }
 
 $MethodType* VarHandleByteArrayAsLongs$ArrayHandle::accessModeTypeUncached($VarHandle$AccessType* at) {
-	$load($bytes);
-	$init($Long);
-	$init($Integer);
 	return $nc(at)->accessModeType($getClass($bytes), $Long::TYPE, $$new($ClassArray, {$Integer::TYPE}));
 }
 
@@ -386,7 +116,7 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::address($bytes* ba, int32_t index
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
 	$init($Unsafe);
 	int64_t address = ((int64_t)index) + $Unsafe::ARRAY_BYTE_BASE_OFFSET;
-	if (((int64_t)(address & (uint64_t)(int64_t)7)) != 0) {
+	if ((address & 7) != 0) {
 		$throw($($VarHandleByteArrayBase::newIllegalStateExceptionForMisalignedAccess(index)));
 	}
 	return address;
@@ -394,7 +124,7 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::address($bytes* ba, int32_t index
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::get($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -404,7 +134,7 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::get($VarHandle* ob, Object$* oba,
 
 void VarHandleByteArrayAsLongs$ArrayHandle::set($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -414,7 +144,7 @@ void VarHandleByteArrayAsLongs$ArrayHandle::set($VarHandle* ob, Object$* oba, in
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getVolatile($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -423,18 +153,17 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getVolatile($VarHandle* ob, Objec
 
 void VarHandleByteArrayAsLongs$ArrayHandle::setVolatile($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	$nc($MethodHandleStatics::UNSAFE)->putLongVolatile(var$0, var$1, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	$nc($MethodHandleStatics::UNSAFE)->putLongVolatile(ba, var$0, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value));
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAcquire($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -443,18 +172,17 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAcquire($VarHandle* ob, Object
 
 void VarHandleByteArrayAsLongs$ArrayHandle::setRelease($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	$nc($MethodHandleStatics::UNSAFE)->putLongRelease(var$0, var$1, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	$nc($MethodHandleStatics::UNSAFE)->putLongRelease(ba, var$0, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value));
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getOpaque($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -463,147 +191,135 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getOpaque($VarHandle* ob, Object$
 
 void VarHandleByteArrayAsLongs$ArrayHandle::setOpaque($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	$nc($MethodHandleStatics::UNSAFE)->putLongOpaque(var$0, var$1, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	$nc($MethodHandleStatics::UNSAFE)->putLongOpaque(ba, var$0, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value));
 }
 
 bool VarHandleByteArrayAsLongs$ArrayHandle::compareAndSet($VarHandle* ob, Object$* oba, int32_t index, int64_t expected, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	int64_t var$2 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
-	return $nc($MethodHandleStatics::UNSAFE)->compareAndSetLong(var$0, var$1, var$2, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	int64_t var$1 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
+	return $nc($MethodHandleStatics::UNSAFE)->compareAndSetLong(ba, var$0, var$1, $VarHandleByteArrayAsLongs::convEndian(handle->be, value));
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::compareAndExchange($VarHandle* ob, Object$* oba, int32_t index, int64_t expected, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	int64_t var$2 = $VarHandleByteArrayAsLongs::convEndian(handle->be, expected);
-	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeLong(var$0, var$1, var$2, $VarHandleByteArrayAsLongs::convEndian(handle->be, value)));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	int64_t var$1 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
+	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeLong(ba, var$0, var$1, $VarHandleByteArrayAsLongs::convEndian(handle->be, value)));
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::compareAndExchangeAcquire($VarHandle* ob, Object$* oba, int32_t index, int64_t expected, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	int64_t var$2 = $VarHandleByteArrayAsLongs::convEndian(handle->be, expected);
-	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeLongAcquire(var$0, var$1, var$2, $VarHandleByteArrayAsLongs::convEndian(handle->be, value)));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	int64_t var$1 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
+	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeLongAcquire(ba, var$0, var$1, $VarHandleByteArrayAsLongs::convEndian(handle->be, value)));
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::compareAndExchangeRelease($VarHandle* ob, Object$* oba, int32_t index, int64_t expected, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	int64_t var$2 = $VarHandleByteArrayAsLongs::convEndian(handle->be, expected);
-	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeLongRelease(var$0, var$1, var$2, $VarHandleByteArrayAsLongs::convEndian(handle->be, value)));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	int64_t var$1 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
+	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeLongRelease(ba, var$0, var$1, $VarHandleByteArrayAsLongs::convEndian(handle->be, value)));
 }
 
 bool VarHandleByteArrayAsLongs$ArrayHandle::weakCompareAndSetPlain($VarHandle* ob, Object$* oba, int32_t index, int64_t expected, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	int64_t var$2 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
-	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLongPlain(var$0, var$1, var$2, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	int64_t var$1 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLongPlain(ba, var$0, var$1, $VarHandleByteArrayAsLongs::convEndian(handle->be, value));
 }
 
 bool VarHandleByteArrayAsLongs$ArrayHandle::weakCompareAndSet($VarHandle* ob, Object$* oba, int32_t index, int64_t expected, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	int64_t var$2 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
-	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLong(var$0, var$1, var$2, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	int64_t var$1 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLong(ba, var$0, var$1, $VarHandleByteArrayAsLongs::convEndian(handle->be, value));
 }
 
 bool VarHandleByteArrayAsLongs$ArrayHandle::weakCompareAndSetAcquire($VarHandle* ob, Object$* oba, int32_t index, int64_t expected, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	int64_t var$2 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
-	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLongAcquire(var$0, var$1, var$2, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	int64_t var$1 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLongAcquire(ba, var$0, var$1, $VarHandleByteArrayAsLongs::convEndian(handle->be, value));
 }
 
 bool VarHandleByteArrayAsLongs$ArrayHandle::weakCompareAndSetRelease($VarHandle* ob, Object$* oba, int32_t index, int64_t expected, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	int64_t var$2 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
-	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLongRelease(var$0, var$1, var$2, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	int64_t var$1 = $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, expected);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLongRelease(ba, var$0, var$1, $VarHandleByteArrayAsLongs::convEndian(handle->be, value));
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndSet($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->getAndSetLong(var$0, var$1, $VarHandleByteArrayAsLongs::convEndian(handle->be, value)));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->getAndSetLong(ba, var$0, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value)));
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndSetAcquire($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->getAndSetLongAcquire(var$0, var$1, $VarHandleByteArrayAsLongs::convEndian(handle->be, value)));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->getAndSetLongAcquire(ba, var$0, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value)));
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndSetRelease($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
-	$var($Object, var$0, $of(ba));
-	int64_t var$1 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
-	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->getAndSetLongRelease(var$0, var$1, $VarHandleByteArrayAsLongs::convEndian(handle->be, value)));
+	int64_t var$0 = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	return $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, $nc($MethodHandleStatics::UNSAFE)->getAndSetLongRelease(ba, var$0, $VarHandleByteArrayAsLongs::convEndian($nc(handle)->be, value)));
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndAdd($VarHandle* ob, Object$* oba, int32_t index, int64_t delta) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -617,7 +333,7 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndAdd($VarHandle* ob, Object$
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndAddAcquire($VarHandle* ob, Object$* oba, int32_t index, int64_t delta) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -631,7 +347,7 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndAddAcquire($VarHandle* ob, 
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndAddRelease($VarHandle* ob, Object$* oba, int32_t index, int64_t delta) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -648,18 +364,18 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndAddConvEndianWithCAS($bytes
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	int64_t offset = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	$init($MethodHandleStatics);
 	do {
 		$init($MethodHandleStatics);
 		nativeExpectedValue = $nc($MethodHandleStatics::UNSAFE)->getLongVolatile(ba, offset);
 		expectedValue = $Long::reverseBytes(nativeExpectedValue);
-	$init($MethodHandleStatics);
 	} while (!$nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLong(ba, offset, nativeExpectedValue, $Long::reverseBytes(expectedValue + delta)));
 	return expectedValue;
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseOr($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -673,7 +389,7 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseOr($VarHandle* ob, O
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseOrRelease($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -687,7 +403,7 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseOrRelease($VarHandle
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseOrAcquire($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -704,18 +420,18 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseOrConvEndianWithCAS(
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	int64_t offset = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	$init($MethodHandleStatics);
 	do {
 		$init($MethodHandleStatics);
 		nativeExpectedValue = $nc($MethodHandleStatics::UNSAFE)->getLongVolatile(ba, offset);
 		expectedValue = $Long::reverseBytes(nativeExpectedValue);
-	$init($MethodHandleStatics);
 	} while (!$nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLong(ba, offset, nativeExpectedValue, $Long::reverseBytes(expectedValue | value)));
 	return expectedValue;
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseAnd($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -729,7 +445,7 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseAnd($VarHandle* ob, 
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseAndRelease($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -743,7 +459,7 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseAndRelease($VarHandl
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseAndAcquire($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -760,18 +476,18 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseAndConvEndianWithCAS
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	int64_t offset = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	$init($MethodHandleStatics);
 	do {
 		$init($MethodHandleStatics);
 		nativeExpectedValue = $nc($MethodHandleStatics::UNSAFE)->getLongVolatile(ba, offset);
 		expectedValue = $Long::reverseBytes(nativeExpectedValue);
-	$init($MethodHandleStatics);
-	} while (!$nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLong(ba, offset, nativeExpectedValue, $Long::reverseBytes((int64_t)(expectedValue & (uint64_t)value))));
+	} while (!$nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLong(ba, offset, nativeExpectedValue, $Long::reverseBytes(expectedValue & value)));
 	return expectedValue;
 }
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseXor($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -785,7 +501,7 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseXor($VarHandle* ob, 
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseXorRelease($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -799,7 +515,7 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseXorRelease($VarHandl
 
 int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseXorAcquire($VarHandle* ob, Object$* oba, int32_t index, int64_t value) {
 	$init(VarHandleByteArrayAsLongs$ArrayHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsLongs$ArrayHandle, handle, $cast(VarHandleByteArrayAsLongs$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($VarHandleByteArrayBase);
@@ -816,21 +532,18 @@ int64_t VarHandleByteArrayAsLongs$ArrayHandle::getAndBitwiseXorConvEndianWithCAS
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	int64_t offset = address(ba, VarHandleByteArrayAsLongs$ArrayHandle::index(ba, index));
+	$init($MethodHandleStatics);
 	do {
 		$init($MethodHandleStatics);
 		nativeExpectedValue = $nc($MethodHandleStatics::UNSAFE)->getLongVolatile(ba, offset);
 		expectedValue = $Long::reverseBytes(nativeExpectedValue);
-	$init($MethodHandleStatics);
 	} while (!$nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLong(ba, offset, nativeExpectedValue, $Long::reverseBytes(expectedValue ^ value)));
 	return expectedValue;
 }
 
-void clinit$VarHandleByteArrayAsLongs$ArrayHandle($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(VarHandleByteArrayAsLongs$ArrayHandle::OOBEF, $Preconditions::outOfBoundsExceptionFormatter(static_cast<$Function*>($$new(VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException))));
-	$load($bytes);
-	$init($Long);
-	$init($Integer);
+void VarHandleByteArrayAsLongs$ArrayHandle::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(VarHandleByteArrayAsLongs$ArrayHandle::OOBEF, $Preconditions::outOfBoundsExceptionFormatter($$new(VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException)));
 	$assignStatic(VarHandleByteArrayAsLongs$ArrayHandle::FORM, $new($VarForm, VarHandleByteArrayAsLongs$ArrayHandle::class$, $getClass($bytes), $Long::TYPE, $$new($ClassArray, {$Integer::TYPE})));
 }
 
@@ -839,11 +552,231 @@ VarHandleByteArrayAsLongs$ArrayHandle::VarHandleByteArrayAsLongs$ArrayHandle() {
 
 $Class* VarHandleByteArrayAsLongs$ArrayHandle::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException::classInfo$.name)) {
+		if (name->equals("java.lang.invoke.VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException")) {
 			return VarHandleByteArrayAsLongs$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException::load$(name, initialize);
 		}
 	}
-	$loadClass(VarHandleByteArrayAsLongs$ArrayHandle, name, initialize, &_VarHandleByteArrayAsLongs$ArrayHandle_ClassInfo_, clinit$VarHandleByteArrayAsLongs$ArrayHandle, allocate$VarHandleByteArrayAsLongs$ArrayHandle);
+	$FieldInfo fieldInfos$$[] = {
+		{"OOBEF", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;Ljava/lang/ArrayIndexOutOfBoundsException;>;", $PRIVATE | $STATIC | $FINAL, $staticField(VarHandleByteArrayAsLongs$ArrayHandle, OOBEF)},
+		{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsLongs$ArrayHandle, FORM)},
+		{}
+	};
+	$CompoundAttribute addressmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangeAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangeReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddConvEndianWithCASmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseAndmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseAndAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseAndConvEndianWithCASmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseAndReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseOrmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseOrAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseOrConvEndianWithCASmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseOrReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseXormethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseXorAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseXorConvEndianWithCASmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseXorReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetPlainmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, 0, $method(VarHandleByteArrayAsLongs$ArrayHandle, init$, void, bool)},
+		{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(VarHandleByteArrayAsLongs$ArrayHandle, init$, void, bool, bool)},
+		{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleByteArrayAsLongs$ArrayHandle, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+		{"address", "([BI)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, address, int64_t, $bytes*, int32_t), nullptr, nullptr, addressmethodAnnotations$$},
+		{"compareAndExchange", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, compareAndExchange, int64_t, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, compareAndExchangemethodAnnotations$$},
+		{"compareAndExchangeAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, compareAndExchangeAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, compareAndExchangeAcquiremethodAnnotations$$},
+		{"compareAndExchangeRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, compareAndExchangeRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, compareAndExchangeReleasemethodAnnotations$$},
+		{"compareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, compareAndSet, bool, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, compareAndSetmethodAnnotations$$},
+		{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, get, int64_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getmethodAnnotations$$},
+		{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAcquire, int64_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getAcquiremethodAnnotations$$},
+		{"getAndAdd", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndAdd, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndAddmethodAnnotations$$},
+		{"getAndAddAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndAddAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndAddAcquiremethodAnnotations$$},
+		{"getAndAddConvEndianWithCAS", "([BIJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndAddConvEndianWithCAS, int64_t, $bytes*, int32_t, int64_t), nullptr, nullptr, getAndAddConvEndianWithCASmethodAnnotations$$},
+		{"getAndAddRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndAddRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndAddReleasemethodAnnotations$$},
+		{"getAndBitwiseAnd", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseAnd, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseAndmethodAnnotations$$},
+		{"getAndBitwiseAndAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseAndAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseAndAcquiremethodAnnotations$$},
+		{"getAndBitwiseAndConvEndianWithCAS", "([BIJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseAndConvEndianWithCAS, int64_t, $bytes*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseAndConvEndianWithCASmethodAnnotations$$},
+		{"getAndBitwiseAndRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseAndRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseAndReleasemethodAnnotations$$},
+		{"getAndBitwiseOr", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseOr, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseOrmethodAnnotations$$},
+		{"getAndBitwiseOrAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseOrAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseOrAcquiremethodAnnotations$$},
+		{"getAndBitwiseOrConvEndianWithCAS", "([BIJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseOrConvEndianWithCAS, int64_t, $bytes*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseOrConvEndianWithCASmethodAnnotations$$},
+		{"getAndBitwiseOrRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseOrRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseOrReleasemethodAnnotations$$},
+		{"getAndBitwiseXor", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseXor, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseXormethodAnnotations$$},
+		{"getAndBitwiseXorAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseXorAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseXorAcquiremethodAnnotations$$},
+		{"getAndBitwiseXorConvEndianWithCAS", "([BIJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseXorConvEndianWithCAS, int64_t, $bytes*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseXorConvEndianWithCASmethodAnnotations$$},
+		{"getAndBitwiseXorRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndBitwiseXorRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndBitwiseXorReleasemethodAnnotations$$},
+		{"getAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndSet, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndSetmethodAnnotations$$},
+		{"getAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndSetAcquire, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndSetAcquiremethodAnnotations$$},
+		{"getAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getAndSetRelease, int64_t, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, getAndSetReleasemethodAnnotations$$},
+		{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getOpaque, int64_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getOpaquemethodAnnotations$$},
+		{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, getVolatile, int64_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getVolatilemethodAnnotations$$},
+		{"index", "([BI)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, index, int32_t, $bytes*, int32_t), nullptr, nullptr, indexmethodAnnotations$$},
+		{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, set, void, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, setmethodAnnotations$$},
+		{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, setOpaque, void, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, setOpaquemethodAnnotations$$},
+		{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, setRelease, void, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, setReleasemethodAnnotations$$},
+		{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJ)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, setVolatile, void, $VarHandle*, Object$*, int32_t, int64_t), nullptr, nullptr, setVolatilemethodAnnotations$$},
+		{"weakCompareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, weakCompareAndSet, bool, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, weakCompareAndSetmethodAnnotations$$},
+		{"weakCompareAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, weakCompareAndSetAcquire, bool, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, weakCompareAndSetAcquiremethodAnnotations$$},
+		{"weakCompareAndSetPlain", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, weakCompareAndSetPlain, bool, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, weakCompareAndSetPlainmethodAnnotations$$},
+		{"weakCompareAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IJJ)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsLongs$ArrayHandle, weakCompareAndSetRelease, bool, $VarHandle*, Object$*, int32_t, int64_t, int64_t), nullptr, nullptr, weakCompareAndSetReleasemethodAnnotations$$},
+		{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsLongs$ArrayHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsLongs$ArrayHandle, withInvokeBehavior, VarHandleByteArrayAsLongs$ArrayHandle*)},
+		{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsLongs$ArrayHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsLongs$ArrayHandle, withInvokeExactBehavior, VarHandleByteArrayAsLongs$ArrayHandle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandleByteArrayAsLongs$ArrayHandle", "java.lang.invoke.VarHandleByteArrayAsLongs", "ArrayHandle", $STATIC | $FINAL},
+		{"java.lang.invoke.VarHandleByteArrayAsLongs$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsLongs", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.VarHandleByteArrayAsLongs$ArrayHandle",
+		"java.lang.invoke.VarHandleByteArrayAsLongs$ByteArrayViewVarHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandleByteArrayAsLongs"
+	};
+	$loadClass(VarHandleByteArrayAsLongs$ArrayHandle, name, initialize, &classInfo$$, VarHandleByteArrayAsLongs$ArrayHandle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandleByteArrayAsLongs$ArrayHandle);
+	});
 	return class$;
 }
 

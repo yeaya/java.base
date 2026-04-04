@@ -35,6 +35,7 @@ public:
 	HeapDoubleBuffer();
 	using ::java::nio::DoubleBuffer::get;
 	using ::java::nio::DoubleBuffer::limit;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t cap, int32_t lim, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	void init$($doubles* buf, int32_t off, int32_t len, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	void init$($doubles* buf, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int32_t off, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);

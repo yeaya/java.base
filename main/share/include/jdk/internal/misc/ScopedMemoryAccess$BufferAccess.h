@@ -40,6 +40,7 @@ class $import ScopedMemoryAccess$BufferAccess : public ::java::lang::Object {
 	$class(ScopedMemoryAccess$BufferAccess, 0, ::java::lang::Object)
 public:
 	ScopedMemoryAccess$BufferAccess();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t bufferAddress(::java::nio::ByteBuffer* bb, int64_t offset);
 	static $Object* bufferBase(::java::nio::ByteBuffer* bb);

@@ -1,5 +1,4 @@
 #include <java/time/chrono/ChronoLocalDateImpl.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
@@ -10,7 +9,6 @@
 #include <java/time/temporal/ChronoField.h>
 #include <java/time/temporal/ChronoUnit.h>
 #include <java/time/temporal/Temporal.h>
-#include <java/time/temporal/TemporalAccessor.h>
 #include <java/time/temporal/TemporalAdjuster.h>
 #include <java/time/temporal/TemporalAmount.h>
 #include <java/time/temporal/TemporalField.h>
@@ -42,7 +40,6 @@ using $Chronology = ::java::time::chrono::Chronology;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $Temporal = ::java::time::temporal::Temporal;
-using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalAdjuster = ::java::time::temporal::TemporalAdjuster;
 using $TemporalAmount = ::java::time::temporal::TemporalAmount;
 using $TemporalField = ::java::time::temporal::TemporalField;
@@ -55,63 +52,6 @@ namespace java {
 	namespace time {
 		namespace chrono {
 
-$FieldInfo _ChronoLocalDateImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChronoLocalDateImpl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ChronoLocalDateImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, 0, $method(ChronoLocalDateImpl, init$, void)},
-	{"daysUntil", "(Ljava/time/chrono/ChronoLocalDate;)J", nullptr, $PRIVATE, $method(ChronoLocalDateImpl, daysUntil, int64_t, $ChronoLocalDate*)},
-	{"ensureValid", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/Temporal;)Ljava/time/chrono/ChronoLocalDate;", "<D::Ljava/time/chrono/ChronoLocalDate;>(Ljava/time/chrono/Chronology;Ljava/time/temporal/Temporal;)TD;", $STATIC, $staticMethod(ChronoLocalDateImpl, ensureValid, $ChronoLocalDate*, $Chronology*, $Temporal*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateImpl, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateImpl, hashCode, int32_t)},
-	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/time/temporal/TemporalAmount;)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, minus, $ChronoLocalDate*, $TemporalAmount*)},
-	{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/ChronoLocalDate;", "(JLjava/time/temporal/TemporalUnit;)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, minus, $ChronoLocalDate*, int64_t, $TemporalUnit*)},
-	{"minusDays", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", 0, $virtualMethod(ChronoLocalDateImpl, minusDays, $ChronoLocalDate*, int64_t)},
-	{"minusMonths", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", 0, $virtualMethod(ChronoLocalDateImpl, minusMonths, $ChronoLocalDate*, int64_t)},
-	{"minusWeeks", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", 0, $virtualMethod(ChronoLocalDateImpl, minusWeeks, $ChronoLocalDate*, int64_t)},
-	{"minusYears", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", 0, $virtualMethod(ChronoLocalDateImpl, minusYears, $ChronoLocalDate*, int64_t)},
-	{"monthsUntil", "(Ljava/time/chrono/ChronoLocalDate;)J", nullptr, $PRIVATE, $method(ChronoLocalDateImpl, monthsUntil, int64_t, $ChronoLocalDate*)},
-	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/time/temporal/TemporalAmount;)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, plus, $ChronoLocalDate*, $TemporalAmount*)},
-	{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/ChronoLocalDate;", "(JLjava/time/temporal/TemporalUnit;)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, plus, $ChronoLocalDate*, int64_t, $TemporalUnit*)},
-	{"plusDays", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", $ABSTRACT, $virtualMethod(ChronoLocalDateImpl, plusDays, $ChronoLocalDate*, int64_t)},
-	{"plusMonths", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", $ABSTRACT, $virtualMethod(ChronoLocalDateImpl, plusMonths, $ChronoLocalDate*, int64_t)},
-	{"plusWeeks", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", 0, $virtualMethod(ChronoLocalDateImpl, plusWeeks, $ChronoLocalDate*, int64_t)},
-	{"plusYears", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", $ABSTRACT, $virtualMethod(ChronoLocalDateImpl, plusYears, $ChronoLocalDate*, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateImpl, toString, $String*)},
-	{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateImpl, until, int64_t, $Temporal*, $TemporalUnit*)},
-	{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/time/temporal/TemporalAdjuster;)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, with, $ChronoLocalDate*, $TemporalAdjuster*)},
-	{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/time/temporal/TemporalField;J)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, with, $ChronoLocalDate*, $TemporalField*, int64_t)},
-	{}
-};
-
-$InnerClassInfo _ChronoLocalDateImpl_InnerClassesInfo_[] = {
-	{"java.time.chrono.ChronoLocalDateImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ChronoLocalDateImpl_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.time.chrono.ChronoLocalDateImpl",
-	"java.lang.Object",
-	"java.time.chrono.ChronoLocalDate,java.io.Serializable",
-	_ChronoLocalDateImpl_FieldInfo_,
-	_ChronoLocalDateImpl_MethodInfo_,
-	"<D::Ljava/time/chrono/ChronoLocalDate;>Ljava/lang/Object;Ljava/time/chrono/ChronoLocalDate;Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalAdjuster;Ljava/io/Serializable;",
-	nullptr,
-	_ChronoLocalDateImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.time.chrono.ChronoLocalDateImpl$1"
-};
-
-$Object* allocate$ChronoLocalDateImpl($Class* clazz) {
-	return $of($alloc(ChronoLocalDateImpl));
-}
-
 $Object* ChronoLocalDateImpl::clone() {
 	 return this->$ChronoLocalDate::clone();
 }
@@ -122,11 +62,15 @@ void ChronoLocalDateImpl::finalize() {
 
 $ChronoLocalDate* ChronoLocalDateImpl::ensureValid($Chronology* chrono, $Temporal* temporal) {
 	$init(ChronoLocalDateImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ChronoLocalDate, other, $cast($ChronoLocalDate, temporal));
 	if ($nc(chrono)->equals($($nc(other)->getChronology())) == false) {
-		$var($String, var$0, $$str({"Chronology mismatch, expected: "_s, $(chrono->getId()), ", actual: "_s}));
-		$throwNew($ClassCastException, $$concat(var$0, $($nc($($nc(other)->getChronology()))->getId())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Chronology mismatch, expected: "_s);
+		var$0->append($(chrono->getId()));
+		var$0->append(", actual: "_s);
+		var$0->append($($$nc(other->getChronology())->getId()));
+		$throwNew($ClassCastException, $$str(var$0));
 	}
 	return other;
 }
@@ -158,38 +102,22 @@ $ChronoLocalDate* ChronoLocalDateImpl::plus(int64_t amountToAdd, $TemporalUnit* 
 			$init($ChronoLocalDateImpl$1);
 			switch ($nc($ChronoLocalDateImpl$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc((chronoUnit))->ordinal())) {
 			case 1:
-				{
-					return plusDays(amountToAdd);
-				}
+				return plusDays(amountToAdd);
 			case 2:
-				{
-					return plusDays($Math::multiplyExact(amountToAdd, 7));
-				}
+				return plusDays($Math::multiplyExact(amountToAdd, 7));
 			case 3:
-				{
-					return plusMonths(amountToAdd);
-				}
+				return plusMonths(amountToAdd);
 			case 4:
-				{
-					return plusYears(amountToAdd);
-				}
+				return plusYears(amountToAdd);
 			case 5:
-				{
-					return plusYears($Math::multiplyExact(amountToAdd, 10));
-				}
+				return plusYears($Math::multiplyExact(amountToAdd, 10));
 			case 6:
-				{
-					return plusYears($Math::multiplyExact(amountToAdd, 100));
-				}
+				return plusYears($Math::multiplyExact(amountToAdd, 100));
 			case 7:
-				{
-					return plusYears($Math::multiplyExact(amountToAdd, 1000));
-				}
+				return plusYears($Math::multiplyExact(amountToAdd, 1000));
 			case 8:
-				{
-					$init($ChronoField);
-					return with($ChronoField::ERA, $Math::addExact(getLong($ChronoField::ERA), amountToAdd));
-				}
+				$init($ChronoField);
+				return with($ChronoField::ERA, $Math::addExact(getLong($ChronoField::ERA), amountToAdd));
 			}
 			$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
 		}
@@ -210,25 +138,25 @@ $ChronoLocalDate* ChronoLocalDateImpl::plusWeeks(int64_t weeksToAdd) {
 }
 
 $ChronoLocalDate* ChronoLocalDateImpl::minusYears(int64_t yearsToSubtract) {
-	return (yearsToSubtract == $Long::MIN_VALUE ? $nc(($cast(ChronoLocalDateImpl, $(plusYears($Long::MAX_VALUE)))))->plusYears(1) : plusYears(-yearsToSubtract));
+	return (yearsToSubtract == $Long::MIN_VALUE ? $$sure(ChronoLocalDateImpl, plusYears($Long::MAX_VALUE))->plusYears(1) : plusYears(-yearsToSubtract));
 }
 
 $ChronoLocalDate* ChronoLocalDateImpl::minusMonths(int64_t monthsToSubtract) {
-	return (monthsToSubtract == $Long::MIN_VALUE ? $nc(($cast(ChronoLocalDateImpl, $(plusMonths($Long::MAX_VALUE)))))->plusMonths(1) : plusMonths(-monthsToSubtract));
+	return (monthsToSubtract == $Long::MIN_VALUE ? $$sure(ChronoLocalDateImpl, plusMonths($Long::MAX_VALUE))->plusMonths(1) : plusMonths(-monthsToSubtract));
 }
 
 $ChronoLocalDate* ChronoLocalDateImpl::minusWeeks(int64_t weeksToSubtract) {
-	return (weeksToSubtract == $Long::MIN_VALUE ? $nc(($cast(ChronoLocalDateImpl, $(plusWeeks($Long::MAX_VALUE)))))->plusWeeks(1) : plusWeeks(-weeksToSubtract));
+	return (weeksToSubtract == $Long::MIN_VALUE ? $$sure(ChronoLocalDateImpl, plusWeeks($Long::MAX_VALUE))->plusWeeks(1) : plusWeeks(-weeksToSubtract));
 }
 
 $ChronoLocalDate* ChronoLocalDateImpl::minusDays(int64_t daysToSubtract) {
-	return (daysToSubtract == $Long::MIN_VALUE ? $nc(($cast(ChronoLocalDateImpl, $(plusDays($Long::MAX_VALUE)))))->plusDays(1) : plusDays(-daysToSubtract));
+	return (daysToSubtract == $Long::MIN_VALUE ? $$sure(ChronoLocalDateImpl, plusDays($Long::MAX_VALUE))->plusDays(1) : plusDays(-daysToSubtract));
 }
 
 int64_t ChronoLocalDateImpl::until($Temporal* endExclusive, $TemporalUnit* unit) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(endExclusive), "endExclusive"_s);
-	$var($ChronoLocalDate, end, $nc($(getChronology()))->date(endExclusive));
+	$useLocalObjectStack();
+	$Objects::requireNonNull(endExclusive, "endExclusive"_s);
+	$var($ChronoLocalDate, end, $$nc(getChronology())->date(endExclusive));
 	{
 		$ChronoUnit* chronoUnit = nullptr;
 		bool var$0 = $instanceOf($ChronoUnit, unit);
@@ -240,33 +168,19 @@ int64_t ChronoLocalDateImpl::until($Temporal* endExclusive, $TemporalUnit* unit)
 			$init($ChronoLocalDateImpl$1);
 			switch ($nc($ChronoLocalDateImpl$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc((chronoUnit))->ordinal())) {
 			case 1:
-				{
-					return daysUntil(end);
-				}
+				return daysUntil(end);
 			case 2:
-				{
-					return daysUntil(end) / 7;
-				}
+				return daysUntil(end) / 7;
 			case 3:
-				{
-					return monthsUntil(end);
-				}
+				return monthsUntil(end);
 			case 4:
-				{
-					return monthsUntil(end) / 12;
-				}
+				return monthsUntil(end) / 12;
 			case 5:
-				{
-					return monthsUntil(end) / 120;
-				}
+				return monthsUntil(end) / 120;
 			case 6:
-				{
-					return monthsUntil(end) / 1200;
-				}
+				return monthsUntil(end) / 1200;
 			case 7:
-				{
-					return monthsUntil(end) / 12000;
-				}
+				return monthsUntil(end) / 12000;
 			case 8:
 				{
 					$init($ChronoField);
@@ -277,7 +191,7 @@ int64_t ChronoLocalDateImpl::until($Temporal* endExclusive, $TemporalUnit* unit)
 			$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
 		}
 	}
-	$Objects::requireNonNull($of(unit), "unit"_s);
+	$Objects::requireNonNull(unit, "unit"_s);
 	return $nc(unit)->between(this, end);
 }
 
@@ -287,9 +201,9 @@ int64_t ChronoLocalDateImpl::daysUntil($ChronoLocalDate* end) {
 }
 
 int64_t ChronoLocalDateImpl::monthsUntil($ChronoLocalDate* end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	$var($ValueRange, range, $nc($(getChronology()))->range($ChronoField::MONTH_OF_YEAR));
+	$var($ValueRange, range, $$nc(getChronology())->range($ChronoField::MONTH_OF_YEAR));
 	if ($nc(range)->getMaximum() != 12) {
 		$throwNew($IllegalStateException, "ChronoLocalDateImpl only supports Chronologies with 12 months per year"_s);
 	}
@@ -312,17 +226,17 @@ bool ChronoLocalDateImpl::equals(Object$* obj) {
 
 int32_t ChronoLocalDateImpl::hashCode() {
 	int64_t epDay = toEpochDay();
-	return $nc($(getChronology()))->hashCode() ^ ((int32_t)(epDay ^ ((int64_t)((uint64_t)epDay >> 32))));
+	return $$nc(getChronology())->hashCode() ^ ((int32_t)(epDay ^ ((int64_t)((uint64_t)epDay >> 32))));
 }
 
 $String* ChronoLocalDateImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
 	int64_t yoe = getLong($ChronoField::YEAR_OF_ERA);
 	int64_t moy = getLong($ChronoField::MONTH_OF_YEAR);
 	int64_t dom = getLong($ChronoField::DAY_OF_MONTH);
 	$var($StringBuilder, buf, $new($StringBuilder, 30));
-	buf->append($($nc($(getChronology()))->toString()))->append(" "_s)->append($($of(getEra())))->append(" "_s)->append(yoe)->append(moy < 10 ? "-0"_s : "-"_s)->append(moy)->append(dom < 10 ? "-0"_s : "-"_s)->append(dom);
+	buf->append($($$nc(getChronology())->toString()))->append(" "_s)->append($(getEra()))->append(" "_s)->append(yoe)->append(moy < 10 ? "-0"_s : "-"_s)->append(moy)->append(dom < 10 ? "-0"_s : "-"_s)->append(dom);
 	return buf->toString();
 }
 
@@ -330,7 +244,58 @@ ChronoLocalDateImpl::ChronoLocalDateImpl() {
 }
 
 $Class* ChronoLocalDateImpl::load$($String* name, bool initialize) {
-	$loadClass(ChronoLocalDateImpl, name, initialize, &_ChronoLocalDateImpl_ClassInfo_, allocate$ChronoLocalDateImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChronoLocalDateImpl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, 0, $method(ChronoLocalDateImpl, init$, void)},
+		{"daysUntil", "(Ljava/time/chrono/ChronoLocalDate;)J", nullptr, $PRIVATE, $method(ChronoLocalDateImpl, daysUntil, int64_t, $ChronoLocalDate*)},
+		{"ensureValid", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/Temporal;)Ljava/time/chrono/ChronoLocalDate;", "<D::Ljava/time/chrono/ChronoLocalDate;>(Ljava/time/chrono/Chronology;Ljava/time/temporal/Temporal;)TD;", $STATIC, $staticMethod(ChronoLocalDateImpl, ensureValid, $ChronoLocalDate*, $Chronology*, $Temporal*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateImpl, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateImpl, hashCode, int32_t)},
+		{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/time/temporal/TemporalAmount;)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, minus, $ChronoLocalDate*, $TemporalAmount*)},
+		{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/ChronoLocalDate;", "(JLjava/time/temporal/TemporalUnit;)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, minus, $ChronoLocalDate*, int64_t, $TemporalUnit*)},
+		{"minusDays", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", 0, $virtualMethod(ChronoLocalDateImpl, minusDays, $ChronoLocalDate*, int64_t)},
+		{"minusMonths", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", 0, $virtualMethod(ChronoLocalDateImpl, minusMonths, $ChronoLocalDate*, int64_t)},
+		{"minusWeeks", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", 0, $virtualMethod(ChronoLocalDateImpl, minusWeeks, $ChronoLocalDate*, int64_t)},
+		{"minusYears", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", 0, $virtualMethod(ChronoLocalDateImpl, minusYears, $ChronoLocalDate*, int64_t)},
+		{"monthsUntil", "(Ljava/time/chrono/ChronoLocalDate;)J", nullptr, $PRIVATE, $method(ChronoLocalDateImpl, monthsUntil, int64_t, $ChronoLocalDate*)},
+		{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/time/temporal/TemporalAmount;)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, plus, $ChronoLocalDate*, $TemporalAmount*)},
+		{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/ChronoLocalDate;", "(JLjava/time/temporal/TemporalUnit;)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, plus, $ChronoLocalDate*, int64_t, $TemporalUnit*)},
+		{"plusDays", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", $ABSTRACT, $virtualMethod(ChronoLocalDateImpl, plusDays, $ChronoLocalDate*, int64_t)},
+		{"plusMonths", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", $ABSTRACT, $virtualMethod(ChronoLocalDateImpl, plusMonths, $ChronoLocalDate*, int64_t)},
+		{"plusWeeks", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", 0, $virtualMethod(ChronoLocalDateImpl, plusWeeks, $ChronoLocalDate*, int64_t)},
+		{"plusYears", "(J)Ljava/time/chrono/ChronoLocalDate;", "(J)TD;", $ABSTRACT, $virtualMethod(ChronoLocalDateImpl, plusYears, $ChronoLocalDate*, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateImpl, toString, $String*)},
+		{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateImpl, until, int64_t, $Temporal*, $TemporalUnit*)},
+		{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/time/temporal/TemporalAdjuster;)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, with, $ChronoLocalDate*, $TemporalAdjuster*)},
+		{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/time/temporal/TemporalField;J)TD;", $PUBLIC, $virtualMethod(ChronoLocalDateImpl, with, $ChronoLocalDate*, $TemporalField*, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.chrono.ChronoLocalDateImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.time.chrono.ChronoLocalDateImpl",
+		"java.lang.Object",
+		"java.time.chrono.ChronoLocalDate,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<D::Ljava/time/chrono/ChronoLocalDate;>Ljava/lang/Object;Ljava/time/chrono/ChronoLocalDate;Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalAdjuster;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.time.chrono.ChronoLocalDateImpl$1"
+	};
+	$loadClass(ChronoLocalDateImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ChronoLocalDateImpl));
+	});
 	return class$;
 }
 

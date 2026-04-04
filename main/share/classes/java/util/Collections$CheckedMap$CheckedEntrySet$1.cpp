@@ -1,5 +1,4 @@
 #include <java/util/Collections$CheckedMap$CheckedEntrySet$1.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -38,88 +37,34 @@ public:
 	virtual void accept(Object$* e) override {
 		$nc(inst$)->lambda$forEachRemaining$0(action, $cast($Map$Entry, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0>());
-	}
 	Collections$CheckedMap$CheckedEntrySet$1* inst$ = nullptr;
 	$Consumer* action = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, inst$)},
-	{"action", "Ljava/util/function/Consumer;", nullptr, $PUBLIC, $field(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, action)},
-	{}
-};
-$MethodInfo Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collections$CheckedMap$CheckedEntrySet$1;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, init$, void, Collections$CheckedMap$CheckedEntrySet$1*, $Consumer*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0::load$($String* name, bool initialize) {
-	$loadClass(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, inst$)},
+		{"action", "Ljava/util/function/Consumer;", nullptr, $PUBLIC, $field(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, action)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collections$CheckedMap$CheckedEntrySet$1;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, init$, void, Collections$CheckedMap$CheckedEntrySet$1*, $Consumer*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0);
+	});
 	return class$;
 }
 $Class* Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0::class$ = nullptr;
-
-$FieldInfo _Collections$CheckedMap$CheckedEntrySet$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/Collections$CheckedMap$CheckedEntrySet;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$CheckedMap$CheckedEntrySet$1, this$0)},
-	{"val$i", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$CheckedMap$CheckedEntrySet$1, val$i)},
-	{}
-};
-
-$MethodInfo _Collections$CheckedMap$CheckedEntrySet$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collections$CheckedMap$CheckedEntrySet;Ljava/util/Iterator;)V", "()V", 0, $method(Collections$CheckedMap$CheckedEntrySet$1, init$, void, $Collections$CheckedMap$CheckedEntrySet*, $Iterator*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, hasNext, bool)},
-	{"lambda$forEachRemaining$0", "(Ljava/util/function/Consumer;Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Collections$CheckedMap$CheckedEntrySet$1, lambda$forEachRemaining$0, void, $Consumer*, $Map$Entry*)},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Collections$CheckedMap$CheckedEntrySet$1_EnclosingMethodInfo_ = {
-	"java.util.Collections$CheckedMap$CheckedEntrySet",
-	"iterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _Collections$CheckedMap$CheckedEntrySet$1_InnerClassesInfo_[] = {
-	{"java.util.Collections$CheckedMap", "java.util.Collections", "CheckedMap", $PRIVATE | $STATIC},
-	{"java.util.Collections$CheckedMap$CheckedEntrySet", "java.util.Collections$CheckedMap", "CheckedEntrySet", $STATIC},
-	{"java.util.Collections$CheckedMap$CheckedEntrySet$1", nullptr, nullptr, 0},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Collections$CheckedMap$CheckedEntrySet$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$CheckedMap$CheckedEntrySet$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Collections$CheckedMap$CheckedEntrySet$1_FieldInfo_,
-	_Collections$CheckedMap$CheckedEntrySet$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;",
-	&_Collections$CheckedMap$CheckedEntrySet$1_EnclosingMethodInfo_,
-	_Collections$CheckedMap$CheckedEntrySet$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$CheckedMap$CheckedEntrySet$1($Class* clazz) {
-	return $of($alloc(Collections$CheckedMap$CheckedEntrySet$1));
-}
 
 void Collections$CheckedMap$CheckedEntrySet$1::init$($Collections$CheckedMap$CheckedEntrySet* this$0, $Iterator* val$i) {
 	$set(this, this$0, this$0);
@@ -135,11 +80,11 @@ void Collections$CheckedMap$CheckedEntrySet$1::remove() {
 }
 
 $Object* Collections$CheckedMap$CheckedEntrySet$1::next() {
-	return $of($Collections$CheckedMap$CheckedEntrySet::checkedEntry($cast($Map$Entry, $($nc(this->val$i)->next())), this->this$0->valueType));
+	return $Collections$CheckedMap$CheckedEntrySet::checkedEntry($$cast($Map$Entry, $nc(this->val$i)->next()), this->this$0->valueType);
 }
 
 void Collections$CheckedMap$CheckedEntrySet$1::forEachRemaining($Consumer* action) {
-	$nc(this->val$i)->forEachRemaining(static_cast<$Consumer*>($$new(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, this, action)));
+	$nc(this->val$i)->forEachRemaining($$new(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, this, action));
 }
 
 void Collections$CheckedMap$CheckedEntrySet$1::lambda$forEachRemaining$0($Consumer* action, $Map$Entry* e) {
@@ -151,11 +96,54 @@ Collections$CheckedMap$CheckedEntrySet$1::Collections$CheckedMap$CheckedEntrySet
 
 $Class* Collections$CheckedMap$CheckedEntrySet$1::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0::classInfo$.name)) {
+		if (name->equals("java.util.Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0")) {
 			return Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Collections$CheckedMap$CheckedEntrySet$1, name, initialize, &_Collections$CheckedMap$CheckedEntrySet$1_ClassInfo_, allocate$Collections$CheckedMap$CheckedEntrySet$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/Collections$CheckedMap$CheckedEntrySet;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$CheckedMap$CheckedEntrySet$1, this$0)},
+		{"val$i", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$CheckedMap$CheckedEntrySet$1, val$i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collections$CheckedMap$CheckedEntrySet;Ljava/util/Iterator;)V", "()V", 0, $method(Collections$CheckedMap$CheckedEntrySet$1, init$, void, $Collections$CheckedMap$CheckedEntrySet*, $Iterator*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, hasNext, bool)},
+		{"lambda$forEachRemaining$0", "(Ljava/util/function/Consumer;Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Collections$CheckedMap$CheckedEntrySet$1, lambda$forEachRemaining$0, void, $Consumer*, $Map$Entry*)},
+		{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.Collections$CheckedMap$CheckedEntrySet",
+		"iterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$CheckedMap", "java.util.Collections", "CheckedMap", $PRIVATE | $STATIC},
+		{"java.util.Collections$CheckedMap$CheckedEntrySet", "java.util.Collections$CheckedMap", "CheckedEntrySet", $STATIC},
+		{"java.util.Collections$CheckedMap$CheckedEntrySet$1", nullptr, nullptr, 0},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$CheckedMap$CheckedEntrySet$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$CheckedMap$CheckedEntrySet$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$CheckedMap$CheckedEntrySet$1);
+	});
 	return class$;
 }
 

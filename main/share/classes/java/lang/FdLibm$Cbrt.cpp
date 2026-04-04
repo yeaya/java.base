@@ -1,5 +1,4 @@
 #include <java/lang/FdLibm$Cbrt.h>
-
 #include <java/lang/FdLibm.h>
 #include <java/lang/Math.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -22,48 +21,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _FdLibm$Cbrt_FieldInfo_[] = {
-	{"B1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FdLibm$Cbrt, B1)},
-	{"B2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FdLibm$Cbrt, B2)},
-	{"C", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Cbrt, C)},
-	{"D", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Cbrt, D)},
-	{"E", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Cbrt, E)},
-	{"F", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Cbrt, F)},
-	{"G", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Cbrt, G)},
-	{}
-};
-
-$MethodInfo _FdLibm$Cbrt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Cbrt, init$, void)},
-	{"compute", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Cbrt, compute, double, double)},
-	{}
-};
-
-$InnerClassInfo _FdLibm$Cbrt_InnerClassesInfo_[] = {
-	{"java.lang.FdLibm$Cbrt", "java.lang.FdLibm", "Cbrt", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _FdLibm$Cbrt_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.FdLibm$Cbrt",
-	"java.lang.Object",
-	nullptr,
-	_FdLibm$Cbrt_FieldInfo_,
-	_FdLibm$Cbrt_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FdLibm$Cbrt_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.FdLibm"
-};
-
-$Object* allocate$FdLibm$Cbrt($Class* clazz) {
-	return $of($alloc(FdLibm$Cbrt));
-}
 
 double FdLibm$Cbrt::C = 0.0;
 double FdLibm$Cbrt::D = 0.0;
@@ -111,7 +68,7 @@ double FdLibm$Cbrt::compute(double x) {
 FdLibm$Cbrt::FdLibm$Cbrt() {
 }
 
-void clinit$FdLibm$Cbrt($Class* class$) {
+void FdLibm$Cbrt::clinit$($Class* clazz) {
 	FdLibm$Cbrt::C = 0.5428571428571428;
 	FdLibm$Cbrt::D = -0.7053061224489796;
 	FdLibm$Cbrt::E = 1.4142857142857144;
@@ -120,7 +77,43 @@ void clinit$FdLibm$Cbrt($Class* class$) {
 }
 
 $Class* FdLibm$Cbrt::load$($String* name, bool initialize) {
-	$loadClass(FdLibm$Cbrt, name, initialize, &_FdLibm$Cbrt_ClassInfo_, clinit$FdLibm$Cbrt, allocate$FdLibm$Cbrt);
+	$FieldInfo fieldInfos$$[] = {
+		{"B1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FdLibm$Cbrt, B1)},
+		{"B2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FdLibm$Cbrt, B2)},
+		{"C", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Cbrt, C)},
+		{"D", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Cbrt, D)},
+		{"E", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Cbrt, E)},
+		{"F", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Cbrt, F)},
+		{"G", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Cbrt, G)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Cbrt, init$, void)},
+		{"compute", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Cbrt, compute, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.FdLibm$Cbrt", "java.lang.FdLibm", "Cbrt", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.FdLibm$Cbrt",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.FdLibm"
+	};
+	$loadClass(FdLibm$Cbrt, name, initialize, &classInfo$$, FdLibm$Cbrt::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FdLibm$Cbrt);
+	});
 	return class$;
 }
 

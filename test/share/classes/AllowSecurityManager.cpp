@@ -1,5 +1,4 @@
 #include <AllowSecurityManager.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <jcpp.h>
@@ -10,31 +9,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 
-$MethodInfo _AllowSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AllowSecurityManager, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AllowSecurityManager, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _AllowSecurityManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"AllowSecurityManager",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AllowSecurityManager_MethodInfo_
-};
-
-$Object* allocate$AllowSecurityManager($Class* clazz) {
-	return $of($alloc(AllowSecurityManager));
-}
-
 void AllowSecurityManager::init$() {
 }
 
 void AllowSecurityManager::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(AllowSecurityManager);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, prop, $System::getProperty("java.security.manager"_s));
 	bool disallow = "disallow"_s->equals(prop);
@@ -54,7 +34,22 @@ AllowSecurityManager::AllowSecurityManager() {
 }
 
 $Class* AllowSecurityManager::load$($String* name, bool initialize) {
-	$loadClass(AllowSecurityManager, name, initialize, &_AllowSecurityManager_ClassInfo_, allocate$AllowSecurityManager);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AllowSecurityManager, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AllowSecurityManager, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"AllowSecurityManager",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AllowSecurityManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AllowSecurityManager);
+	});
 	return class$;
 }
 

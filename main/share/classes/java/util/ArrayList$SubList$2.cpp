@@ -1,5 +1,4 @@
 #include <java/util/ArrayList$SubList$2.h>
-
 #include <java/util/ArrayList$ArrayListSpliterator.h>
 #include <java/util/ArrayList$SubList.h>
 #include <java/util/ArrayList.h>
@@ -29,57 +28,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 
-$FieldInfo _ArrayList$SubList$2_FieldInfo_[] = {
-	{"this$0", "Ljava/util/ArrayList$SubList;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayList$SubList$2, this$0)},
-	{"index", "I", nullptr, $PRIVATE, $field(ArrayList$SubList$2, index)},
-	{"fence", "I", nullptr, $PRIVATE, $field(ArrayList$SubList$2, fence)},
-	{"expectedModCount", "I", nullptr, $PRIVATE, $field(ArrayList$SubList$2, expectedModCount)},
-	{}
-};
-
-$MethodInfo _ArrayList$SubList$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayList$SubList;)V", nullptr, 0, $method(ArrayList$SubList$2, init$, void, $ArrayList$SubList*)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$2, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$2, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList$SubList$2, forEachRemaining, void, $Consumer*)},
-	{"getFence", "()I", nullptr, $PRIVATE, $method(ArrayList$SubList$2, getFence, int32_t)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList$2, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/ArrayList$ArrayListSpliterator;", "()Ljava/util/ArrayList<TE;>.ArrayListSpliterator;", $PUBLIC, $virtualMethod(ArrayList$SubList$2, trySplit, $Spliterator*)},
-	{}
-};
-
-$EnclosingMethodInfo _ArrayList$SubList$2_EnclosingMethodInfo_ = {
-	"java.util.ArrayList$SubList",
-	"spliterator",
-	"()Ljava/util/Spliterator;"
-};
-
-$InnerClassInfo _ArrayList$SubList$2_InnerClassesInfo_[] = {
-	{"java.util.ArrayList$SubList", "java.util.ArrayList", "SubList", $PRIVATE | $STATIC},
-	{"java.util.ArrayList$SubList$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ArrayList$SubList$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ArrayList$SubList$2",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_ArrayList$SubList$2_FieldInfo_,
-	_ArrayList$SubList$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
-	&_ArrayList$SubList$2_EnclosingMethodInfo_,
-	_ArrayList$SubList$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ArrayList"
-};
-
-$Object* allocate$ArrayList$SubList$2($Class* clazz) {
-	return $of($alloc(ArrayList$SubList$2));
-}
-
 void ArrayList$SubList$2::init$($ArrayList$SubList* this$0) {
 	$set(this, this$0, this$0);
 	this->index = this->this$0->offset;
@@ -99,7 +47,7 @@ $Spliterator* ArrayList$SubList$2::trySplit() {
 	int32_t hi = getFence();
 	int32_t lo = this->index;
 	int32_t mid = (int32_t)((uint32_t)(lo + hi) >> 1);
-	return ((lo >= mid) ? ($ArrayList$ArrayListSpliterator*)nullptr : $new($ArrayList$ArrayListSpliterator, static_cast<$ArrayList*>($nc(this->this$0->root)), lo, this->index = mid, this->expectedModCount));
+	return (lo >= mid) ? ($ArrayList$ArrayListSpliterator*)nullptr : $new($ArrayList$ArrayListSpliterator, $nc(this->this$0->root), lo, this->index = mid, this->expectedModCount);
 }
 
 bool ArrayList$SubList$2::tryAdvance($Consumer* action) {
@@ -110,7 +58,7 @@ bool ArrayList$SubList$2::tryAdvance($Consumer* action) {
 		this->index = i + 1;
 		$var($Object, e, $nc($nc(this->this$0->root)->elementData$)->get(i));
 		action->accept(e);
-		if ($nc(this->this$0->root)->modCount != this->expectedModCount) {
+		if (this->this$0->root->modCount != this->expectedModCount) {
 			$throwNew($ConcurrentModificationException);
 		}
 		return true;
@@ -119,7 +67,7 @@ bool ArrayList$SubList$2::tryAdvance($Consumer* action) {
 }
 
 void ArrayList$SubList$2::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	int32_t i = 0;
 	int32_t hi = 0;
@@ -159,7 +107,51 @@ ArrayList$SubList$2::ArrayList$SubList$2() {
 }
 
 $Class* ArrayList$SubList$2::load$($String* name, bool initialize) {
-	$loadClass(ArrayList$SubList$2, name, initialize, &_ArrayList$SubList$2_ClassInfo_, allocate$ArrayList$SubList$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/ArrayList$SubList;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayList$SubList$2, this$0)},
+		{"index", "I", nullptr, $PRIVATE, $field(ArrayList$SubList$2, index)},
+		{"fence", "I", nullptr, $PRIVATE, $field(ArrayList$SubList$2, fence)},
+		{"expectedModCount", "I", nullptr, $PRIVATE, $field(ArrayList$SubList$2, expectedModCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ArrayList$SubList;)V", nullptr, 0, $method(ArrayList$SubList$2, init$, void, $ArrayList$SubList*)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$2, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$2, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList$SubList$2, forEachRemaining, void, $Consumer*)},
+		{"getFence", "()I", nullptr, $PRIVATE, $method(ArrayList$SubList$2, getFence, int32_t)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList$2, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/ArrayList$ArrayListSpliterator;", "()Ljava/util/ArrayList<TE;>.ArrayListSpliterator;", $PUBLIC, $virtualMethod(ArrayList$SubList$2, trySplit, $Spliterator*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.ArrayList$SubList",
+		"spliterator",
+		"()Ljava/util/Spliterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ArrayList$SubList", "java.util.ArrayList", "SubList", $PRIVATE | $STATIC},
+		{"java.util.ArrayList$SubList$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ArrayList$SubList$2",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ArrayList"
+	};
+	$loadClass(ArrayList$SubList$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayList$SubList$2);
+	});
 	return class$;
 }
 

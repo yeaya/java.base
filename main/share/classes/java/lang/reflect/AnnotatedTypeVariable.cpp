@@ -1,5 +1,4 @@
 #include <java/lang/reflect/AnnotatedTypeVariable.h>
-
 #include <java/lang/reflect/AnnotatedType.h>
 #include <jcpp.h>
 
@@ -12,27 +11,23 @@ namespace java {
 	namespace lang {
 		namespace reflect {
 
-$MethodInfo _AnnotatedTypeVariable_MethodInfo_[] = {
-	{"getAnnotatedBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedTypeVariable, getAnnotatedBounds, $AnnotatedTypeArray*)},
-	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedTypeVariable, getAnnotatedOwnerType, $AnnotatedType*)},
-	{}
-};
-
-$ClassInfo _AnnotatedTypeVariable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.reflect.AnnotatedTypeVariable",
-	nullptr,
-	"java.lang.reflect.AnnotatedType",
-	nullptr,
-	_AnnotatedTypeVariable_MethodInfo_
-};
-
-$Object* allocate$AnnotatedTypeVariable($Class* clazz) {
-	return $of($alloc(AnnotatedTypeVariable));
-}
-
 $Class* AnnotatedTypeVariable::load$($String* name, bool initialize) {
-	$loadClass(AnnotatedTypeVariable, name, initialize, &_AnnotatedTypeVariable_ClassInfo_, allocate$AnnotatedTypeVariable);
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotatedBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedTypeVariable, getAnnotatedBounds, $AnnotatedTypeArray*)},
+		{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedTypeVariable, getAnnotatedOwnerType, $AnnotatedType*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.reflect.AnnotatedTypeVariable",
+		nullptr,
+		"java.lang.reflect.AnnotatedType",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AnnotatedTypeVariable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotatedTypeVariable);
+	});
 	return class$;
 }
 

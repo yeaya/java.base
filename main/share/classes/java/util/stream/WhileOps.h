@@ -40,6 +40,7 @@ class WhileOps : public ::java::lang::Object {
 	$class(WhileOps, 0, ::java::lang::Object)
 public:
 	WhileOps();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::stream::DoubleStream* makeDropWhileDouble(::java::util::stream::AbstractPipeline* upstream, ::java::util::function::DoublePredicate* predicate);
 	static ::java::util::stream::IntStream* makeDropWhileInt(::java::util::stream::AbstractPipeline* upstream, ::java::util::function::IntPredicate* predicate);

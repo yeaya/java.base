@@ -1,5 +1,4 @@
 #include <java/lang/System$LoggerFinder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Module.h>
 #include <java/lang/RuntimePermission.h>
@@ -35,7 +34,6 @@ using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $LocalizedLoggerWrapper = ::jdk::internal::logger::LocalizedLoggerWrapper;
@@ -50,75 +48,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(System$LoggerFinder::lambda$accessProvider$0());
+		 return System$LoggerFinder::lambda$accessProvider$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<System$LoggerFinder$$Lambda$lambda$accessProvider$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo System$LoggerFinder$$Lambda$lambda$accessProvider$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(System$LoggerFinder$$Lambda$lambda$accessProvider$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(System$LoggerFinder$$Lambda$lambda$accessProvider$0, run, $Object*)},
-	{}
-};
-$ClassInfo System$LoggerFinder$$Lambda$lambda$accessProvider$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.System$LoggerFinder$$Lambda$lambda$accessProvider$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* System$LoggerFinder$$Lambda$lambda$accessProvider$0::load$($String* name, bool initialize) {
-	$loadClass(System$LoggerFinder$$Lambda$lambda$accessProvider$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(System$LoggerFinder$$Lambda$lambda$accessProvider$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(System$LoggerFinder$$Lambda$lambda$accessProvider$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.System$LoggerFinder$$Lambda$lambda$accessProvider$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(System$LoggerFinder$$Lambda$lambda$accessProvider$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(System$LoggerFinder$$Lambda$lambda$accessProvider$0);
+	});
 	return class$;
 }
 $Class* System$LoggerFinder$$Lambda$lambda$accessProvider$0::class$ = nullptr;
-
-$FieldInfo _System$LoggerFinder_FieldInfo_[] = {
-	{"LOGGERFINDER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $STATIC | $FINAL, $staticField(System$LoggerFinder, LOGGERFINDER_PERMISSION)},
-	{"service", "Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(System$LoggerFinder, service)},
-	{}
-};
-
-$MethodInfo _System$LoggerFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(System$LoggerFinder, init$, void)},
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(System$LoggerFinder, init$, void, $Void*)},
-	{"accessProvider", "()Ljava/lang/System$LoggerFinder;", nullptr, $STATIC, $staticMethod(System$LoggerFinder, accessProvider, System$LoggerFinder*)},
-	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(System$LoggerFinder, checkPermission, $Void*)},
-	{"getLocalizedLogger", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC, $virtualMethod(System$LoggerFinder, getLocalizedLogger, $System$Logger*, $String*, $ResourceBundle*, $Module*)},
-	{"getLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(System$LoggerFinder, getLogger, $System$Logger*, $String*, $Module*)},
-	{"getLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(System$LoggerFinder, getLoggerFinder, System$LoggerFinder*)},
-	{"lambda$accessProvider$0", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(System$LoggerFinder, lambda$accessProvider$0, System$LoggerFinder*)},
-	{}
-};
-
-$InnerClassInfo _System$LoggerFinder_InnerClassesInfo_[] = {
-	{"java.lang.System$LoggerFinder", "java.lang.System", "LoggerFinder", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _System$LoggerFinder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.lang.System$LoggerFinder",
-	"java.lang.Object",
-	nullptr,
-	_System$LoggerFinder_FieldInfo_,
-	_System$LoggerFinder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_System$LoggerFinder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.System"
-};
-
-$Object* allocate$System$LoggerFinder($Class* clazz) {
-	return $of($alloc(System$LoggerFinder));
-}
 
 $RuntimePermission* System$LoggerFinder::LOGGERFINDER_PERMISSION = nullptr;
 $volatile(System$LoggerFinder*) System$LoggerFinder::service = nullptr;
@@ -154,11 +106,11 @@ System$LoggerFinder* System$LoggerFinder::getLoggerFinder() {
 
 System$LoggerFinder* System$LoggerFinder::accessProvider() {
 	$init(System$LoggerFinder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (System$LoggerFinder::service == nullptr) {
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(System$LoggerFinder$$Lambda$lambda$accessProvider$0)));
-		$assignStatic(System$LoggerFinder::service, $cast(System$LoggerFinder, $AccessController::doPrivileged(pa, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>(System$LoggerFinder::LOGGERFINDER_PERMISSION)}))));
+		$var($PrivilegedAction, pa, $new(System$LoggerFinder$$Lambda$lambda$accessProvider$0));
+		$assignStatic(System$LoggerFinder::service, $cast(System$LoggerFinder, $AccessController::doPrivileged(pa, nullptr, $$new($PermissionArray, {System$LoggerFinder::LOGGERFINDER_PERMISSION}))));
 	}
 	return System$LoggerFinder::service;
 }
@@ -168,7 +120,7 @@ System$LoggerFinder* System$LoggerFinder::lambda$accessProvider$0() {
 	return $LoggerFinderLoader::getLoggerFinder();
 }
 
-void clinit$System$LoggerFinder($Class* class$) {
+void System$LoggerFinder::clinit$($Class* clazz) {
 	$assignStatic(System$LoggerFinder::LOGGERFINDER_PERMISSION, $new($RuntimePermission, "loggerFinder"_s));
 }
 
@@ -177,11 +129,48 @@ System$LoggerFinder::System$LoggerFinder() {
 
 $Class* System$LoggerFinder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(System$LoggerFinder$$Lambda$lambda$accessProvider$0::classInfo$.name)) {
+		if (name->equals("java.lang.System$LoggerFinder$$Lambda$lambda$accessProvider$0")) {
 			return System$LoggerFinder$$Lambda$lambda$accessProvider$0::load$(name, initialize);
 		}
 	}
-	$loadClass(System$LoggerFinder, name, initialize, &_System$LoggerFinder_ClassInfo_, clinit$System$LoggerFinder, allocate$System$LoggerFinder);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOGGERFINDER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $STATIC | $FINAL, $staticField(System$LoggerFinder, LOGGERFINDER_PERMISSION)},
+		{"service", "Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(System$LoggerFinder, service)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(System$LoggerFinder, init$, void)},
+		{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(System$LoggerFinder, init$, void, $Void*)},
+		{"accessProvider", "()Ljava/lang/System$LoggerFinder;", nullptr, $STATIC, $staticMethod(System$LoggerFinder, accessProvider, System$LoggerFinder*)},
+		{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(System$LoggerFinder, checkPermission, $Void*)},
+		{"getLocalizedLogger", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC, $virtualMethod(System$LoggerFinder, getLocalizedLogger, $System$Logger*, $String*, $ResourceBundle*, $Module*)},
+		{"getLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(System$LoggerFinder, getLogger, $System$Logger*, $String*, $Module*)},
+		{"getLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(System$LoggerFinder, getLoggerFinder, System$LoggerFinder*)},
+		{"lambda$accessProvider$0", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(System$LoggerFinder, lambda$accessProvider$0, System$LoggerFinder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.System$LoggerFinder", "java.lang.System", "LoggerFinder", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.lang.System$LoggerFinder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.System"
+	};
+	$loadClass(System$LoggerFinder, name, initialize, &classInfo$$, System$LoggerFinder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(System$LoggerFinder);
+	});
 	return class$;
 }
 

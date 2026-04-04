@@ -28,6 +28,7 @@ class CryptoPermission : public ::java::security::Permission {
 	$class(CryptoPermission, 0, ::java::security::Permission)
 public:
 	CryptoPermission();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* alg);
 	void init$($String* alg, int32_t maxKeySize);
 	void init$($String* alg, int32_t maxKeySize, ::java::security::spec::AlgorithmParameterSpec* algParamSpec);
@@ -48,7 +49,7 @@ public:
 	bool impliesParameterSpec(bool checkParam, ::java::security::spec::AlgorithmParameterSpec* algParamSpec);
 	virtual ::java::security::PermissionCollection* newPermissionCollection() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x7CB9A857B9023A5A;
+	static const int64_t serialVersionUID = (int64_t)0x7cb9a857b9023a5a;
 	$String* alg = nullptr;
 	int32_t maxKeySize = 0;
 	$String* exemptionMechanism = nullptr;

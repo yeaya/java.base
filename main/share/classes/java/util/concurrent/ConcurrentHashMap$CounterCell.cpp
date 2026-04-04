@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentHashMap$CounterCell.h>
-
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <jcpp.h>
 
@@ -13,46 +12,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$CompoundAttribute _ConcurrentHashMap$CounterCell_Annotations_[] = {
-	{"Ljdk/internal/vm/annotation/Contended;", nullptr},
-	{}
-};
-
-$FieldInfo _ConcurrentHashMap$CounterCell_FieldInfo_[] = {
-	{"value", "J", nullptr, $VOLATILE, $field(ConcurrentHashMap$CounterCell, value)},
-	{}
-};
-
-$MethodInfo _ConcurrentHashMap$CounterCell_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(ConcurrentHashMap$CounterCell, init$, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _ConcurrentHashMap$CounterCell_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentHashMap$CounterCell", "java.util.concurrent.ConcurrentHashMap", "CounterCell", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ConcurrentHashMap$CounterCell_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ConcurrentHashMap$CounterCell",
-	"java.lang.Object",
-	nullptr,
-	_ConcurrentHashMap$CounterCell_FieldInfo_,
-	_ConcurrentHashMap$CounterCell_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConcurrentHashMap$CounterCell_InnerClassesInfo_,
-	_ConcurrentHashMap$CounterCell_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentHashMap"
-};
-
-$Object* allocate$ConcurrentHashMap$CounterCell($Class* clazz) {
-	return $of($alloc(ConcurrentHashMap$CounterCell));
-}
-
 void ConcurrentHashMap$CounterCell::init$(int64_t x) {
 	this->value = x;
 }
@@ -61,7 +20,40 @@ ConcurrentHashMap$CounterCell::ConcurrentHashMap$CounterCell() {
 }
 
 $Class* ConcurrentHashMap$CounterCell::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentHashMap$CounterCell, name, initialize, &_ConcurrentHashMap$CounterCell_ClassInfo_, allocate$ConcurrentHashMap$CounterCell);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "J", nullptr, $VOLATILE, $field(ConcurrentHashMap$CounterCell, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, 0, $method(ConcurrentHashMap$CounterCell, init$, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentHashMap$CounterCell", "java.util.concurrent.ConcurrentHashMap", "CounterCell", $STATIC | $FINAL},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Contended;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ConcurrentHashMap$CounterCell",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentHashMap"
+	};
+	$loadClass(ConcurrentHashMap$CounterCell, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConcurrentHashMap$CounterCell);
+	});
 	return class$;
 }
 

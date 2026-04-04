@@ -1,5 +1,4 @@
 #include <test/java/time/format/ZoneName.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -17,37 +16,6 @@ namespace test {
 		namespace time {
 			namespace format {
 
-$FieldInfo _ZoneName_FieldInfo_[] = {
-	{"zidMap", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, zidMap)},
-	{"mzoneMap", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, mzoneMap)},
-	{"aliasMap", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, aliasMap)},
-	{"zidToMzone", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, zidToMzone)},
-	{"mzoneToZid", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, mzoneToZid)},
-	{"mzoneToZidL", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, mzoneToZidL)},
-	{"aliases", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, aliases)},
-	{}
-};
-
-$MethodInfo _ZoneName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ZoneName, init$, void)},
-	{"toZid", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneName, toZid, $String*, $String*, $Locale*)},
-	{"toZid", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneName, toZid, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _ZoneName_ClassInfo_ = {
-	$ACC_SUPER,
-	"test.java.time.format.ZoneName",
-	"java.lang.Object",
-	nullptr,
-	_ZoneName_FieldInfo_,
-	_ZoneName_MethodInfo_
-};
-
-$Object* allocate$ZoneName($Class* clazz) {
-	return $of($alloc(ZoneName));
-}
-
 $StringArray* ZoneName::zidMap = nullptr;
 $StringArray* ZoneName::mzoneMap = nullptr;
 $StringArray* ZoneName::aliasMap = nullptr;
@@ -61,19 +29,19 @@ void ZoneName::init$() {
 
 $String* ZoneName::toZid($String* zid$renamed, $Locale* locale) {
 	$init(ZoneName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, zid, zid$renamed);
-	$var($String, mzone, $cast($String, $nc(ZoneName::zidToMzone)->get(zid)));
-	if (mzone == nullptr && $nc(ZoneName::aliases)->containsKey(zid)) {
-		$assign(zid, $cast($String, $nc(ZoneName::aliases)->get(zid)));
-		$assign(mzone, $cast($String, $nc(ZoneName::zidToMzone)->get(zid)));
+	$var($String, mzone, $cast($String, ZoneName::zidToMzone->get(zid)));
+	if (mzone == nullptr && ZoneName::aliases->containsKey(zid)) {
+		$assign(zid, $cast($String, ZoneName::aliases->get(zid)));
+		$assign(mzone, $cast($String, ZoneName::zidToMzone->get(zid)));
 	}
 	if (mzone != nullptr) {
-		$var($Map, map, $cast($Map, $nc(ZoneName::mzoneToZidL)->get(mzone)));
+		$var($Map, map, $cast($Map, ZoneName::mzoneToZidL->get(mzone)));
 		if (map != nullptr && map->containsKey($($nc(locale)->getCountry()))) {
-			$assign(zid, $cast($String, map->get($($nc(locale)->getCountry()))));
+			$assign(zid, $cast($String, map->get($(locale->getCountry()))));
 		} else {
-			$assign(zid, $cast($String, $nc(ZoneName::mzoneToZid)->get(mzone)));
+			$assign(zid, $cast($String, ZoneName::mzoneToZid->get(mzone)));
 		}
 	}
 	return toZid(zid);
@@ -81,14 +49,14 @@ $String* ZoneName::toZid($String* zid$renamed, $Locale* locale) {
 
 $String* ZoneName::toZid($String* zid) {
 	$init(ZoneName);
-	if ($nc(ZoneName::aliases)->containsKey(zid)) {
-		return $cast($String, $nc(ZoneName::aliases)->get(zid));
+	if (ZoneName::aliases->containsKey(zid)) {
+		return $cast($String, ZoneName::aliases->get(zid));
 	}
 	return zid;
 }
 
-void clinit$ZoneName($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ZoneName::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ZoneName::zidMap, $new($StringArray, {
 		"Africa/Abidjan"_s,
 		"GMT"_s,
@@ -2575,21 +2543,21 @@ void clinit$ZoneName($Class* class$) {
 	$assignStatic(ZoneName::mzoneToZidL, $new($HashMap));
 	$assignStatic(ZoneName::aliases, $new($HashMap));
 	{
-		for (int32_t i = 0; i < $nc(ZoneName::zidMap)->length; i += 3) {
-			$nc(ZoneName::zidToMzone)->put($nc(ZoneName::zidMap)->get(i), $nc(ZoneName::zidMap)->get(i + 1));
-			$nc(ZoneName::mzoneToZid)->put($nc(ZoneName::zidMap)->get(i + 1), $nc(ZoneName::zidMap)->get(i + 2));
+		for (int32_t i = 0; i < ZoneName::zidMap->length; i += 3) {
+			ZoneName::zidToMzone->put(ZoneName::zidMap->get(i), ZoneName::zidMap->get(i + 1));
+			ZoneName::mzoneToZid->put(ZoneName::zidMap->get(i + 1), ZoneName::zidMap->get(i + 2));
 		}
-		for (int32_t i = 0; i < $nc(ZoneName::mzoneMap)->length; i += 3) {
-			$var($String, mzone, $nc(ZoneName::mzoneMap)->get(i));
-			$var($Map, map, $cast($Map, $nc(ZoneName::mzoneToZidL)->get(mzone)));
+		for (int32_t i = 0; i < ZoneName::mzoneMap->length; i += 3) {
+			$var($String, mzone, ZoneName::mzoneMap->get(i));
+			$var($Map, map, $cast($Map, ZoneName::mzoneToZidL->get(mzone)));
 			if (map == nullptr) {
 				$assign(map, $new($HashMap));
-				$nc(ZoneName::mzoneToZidL)->put(mzone, map);
+				ZoneName::mzoneToZidL->put(mzone, map);
 			}
-			$nc(map)->put($nc(ZoneName::mzoneMap)->get(i + 1), $nc(ZoneName::mzoneMap)->get(i + 2));
+			$nc(map)->put(ZoneName::mzoneMap->get(i + 1), ZoneName::mzoneMap->get(i + 2));
 		}
-		for (int32_t i = 0; i < $nc(ZoneName::aliasMap)->length; i += 2) {
-			$nc(ZoneName::aliases)->put($nc(ZoneName::aliasMap)->get(i), $nc(ZoneName::aliasMap)->get(i + 1));
+		for (int32_t i = 0; i < ZoneName::aliasMap->length; i += 2) {
+			ZoneName::aliases->put(ZoneName::aliasMap->get(i), ZoneName::aliasMap->get(i + 1));
 		}
 	}
 }
@@ -2598,7 +2566,33 @@ ZoneName::ZoneName() {
 }
 
 $Class* ZoneName::load$($String* name, bool initialize) {
-	$loadClass(ZoneName, name, initialize, &_ZoneName_ClassInfo_, clinit$ZoneName, allocate$ZoneName);
+	$FieldInfo fieldInfos$$[] = {
+		{"zidMap", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, zidMap)},
+		{"mzoneMap", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, mzoneMap)},
+		{"aliasMap", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, aliasMap)},
+		{"zidToMzone", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, zidToMzone)},
+		{"mzoneToZid", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, mzoneToZid)},
+		{"mzoneToZidL", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, mzoneToZidL)},
+		{"aliases", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneName, aliases)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ZoneName, init$, void)},
+		{"toZid", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneName, toZid, $String*, $String*, $Locale*)},
+		{"toZid", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneName, toZid, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"test.java.time.format.ZoneName",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ZoneName, name, initialize, &classInfo$$, ZoneName::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ZoneName);
+	});
 	return class$;
 }
 

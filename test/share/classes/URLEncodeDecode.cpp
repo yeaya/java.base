@@ -1,11 +1,9 @@
 #include <URLEncodeDecode.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/net/URLDecoder.h>
 #include <java/net/URLEncoder.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -14,34 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $URLDecoder = ::java::net::URLDecoder;
 using $URLEncoder = ::java::net::URLEncoder;
-
-$FieldInfo _URLEncodeDecode_FieldInfo_[] = {
-	{"chars", "[C", nullptr, $STATIC, $staticField(URLEncodeDecode, chars)},
-	{"str", "Ljava/lang/String;", nullptr, $STATIC, $staticField(URLEncodeDecode, str)},
-	{"correctEncodedUTF8", "Ljava/lang/String;", nullptr, $STATIC, $staticField(URLEncodeDecode, correctEncodedUTF8)},
-	{}
-};
-
-$MethodInfo _URLEncodeDecode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(URLEncodeDecode, init$, void)},
-	{"getHexBytes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(URLEncodeDecode, getHexBytes, $String*, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLEncodeDecode, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(URLEncodeDecode, test, void, $String*, $String*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _URLEncodeDecode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"URLEncodeDecode",
-	"java.lang.Object",
-	nullptr,
-	_URLEncodeDecode_FieldInfo_,
-	_URLEncodeDecode_MethodInfo_
-};
-
-$Object* allocate$URLEncodeDecode($Class* clazz) {
-	return $of($alloc(URLEncodeDecode));
-}
 
 $chars* URLEncodeDecode::chars = nullptr;
 $String* URLEncodeDecode::str = nullptr;
@@ -52,16 +22,16 @@ void URLEncodeDecode::init$() {
 
 void URLEncodeDecode::main($StringArray* args) {
 	$init(URLEncodeDecode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({"Constructed the string: "_s, URLEncodeDecode::str}));
-	$nc($System::out)->println($$str({"The Unicode bytes are: "_s, $(getHexBytes(URLEncodeDecode::str))}));
-	$nc($System::out)->println(""_s);
+	$System::out->println($$str({"The Unicode bytes are: "_s, $(getHexBytes(URLEncodeDecode::str))}));
+	$System::out->println(""_s);
 	test("UTF-8"_s, URLEncodeDecode::correctEncodedUTF8);
 }
 
 void URLEncodeDecode::test($String* enc, $String* correctEncoded) {
 	$init(URLEncodeDecode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, encoded, nullptr);
 	$var($String, outStr, nullptr);
 	if (enc == nullptr) {
@@ -72,23 +42,23 @@ void URLEncodeDecode::test($String* enc, $String* correctEncoded) {
 		$assign(outStr, enc);
 	}
 	$nc($System::out)->println($$str({"URLEncode it ("_s, outStr, ") : "_s, encoded}));
-	$nc($System::out)->println($$str({"The Unicode bytes are: "_s, $(getHexBytes(encoded))}));
+	$System::out->println($$str({"The Unicode bytes are: "_s, $(getHexBytes(encoded))}));
 	if ($nc(encoded)->equals(correctEncoded)) {
-		$nc($System::out)->println("The encoding is correct!"_s);
+		$System::out->println("The encoding is correct!"_s);
 	} else {
 		$throwNew($Exception, $$str({"The encoding is incorrect! It should be "_s, correctEncoded}));
 	}
-	$nc($System::out)->println(""_s);
+	$System::out->println(""_s);
 	$var($String, decoded, nullptr);
 	if (enc == nullptr) {
 		$assign(decoded, $URLDecoder::decode(encoded));
 	} else {
 		$assign(decoded, $URLDecoder::decode(encoded, enc));
 	}
-	$nc($System::out)->println($$str({"URLDecode it ("_s, outStr, ") : "_s, decoded}));
-	$nc($System::out)->println($$str({"The Unicode bytes are: "_s, $(getHexBytes(decoded))}));
+	$System::out->println($$str({"URLDecode it ("_s, outStr, ") : "_s, decoded}));
+	$System::out->println($$str({"The Unicode bytes are: "_s, $(getHexBytes(decoded))}));
 	if ($nc(URLEncodeDecode::str)->equals(decoded)) {
-		$nc($System::out)->println("The decoding is correct"_s);
+		$System::out->println("The decoding is correct"_s);
 	} else {
 		$throwNew($Exception, "The decoded is not equal to the original"_s);
 	}
@@ -96,16 +66,16 @@ void URLEncodeDecode::test($String* enc, $String* correctEncoded) {
 
 $String* URLEncodeDecode::getHexBytes($String* s) {
 	$init(URLEncodeDecode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
 		int32_t a = s->charAt(i);
-		int32_t b1 = (int32_t)((a >> 8) & (uint32_t)255);
+		int32_t b1 = (a >> 8) & 0xff;
 		int32_t b2 = (int8_t)a;
-		int32_t b11 = (int32_t)((b1 >> 4) & (uint32_t)15);
-		int32_t b12 = (int32_t)(b1 & (uint32_t)15);
-		int32_t b21 = (int32_t)((b2 >> 4) & (uint32_t)15);
-		int32_t b22 = (int32_t)(b2 & (uint32_t)15);
+		int32_t b11 = (b1 >> 4) & 0x0f;
+		int32_t b12 = b1 & 0x0f;
+		int32_t b21 = (b2 >> 4) & 0x0f;
+		int32_t b22 = b2 & 0x0f;
 		sb->append($($Integer::toHexString(b11)));
 		sb->append($($Integer::toHexString(b12)));
 		sb->append($($Integer::toHexString(b21)));
@@ -115,7 +85,7 @@ $String* URLEncodeDecode::getHexBytes($String* s) {
 	return sb->toString();
 }
 
-void clinit$URLEncodeDecode($Class* class$) {
+void URLEncodeDecode::clinit$($Class* clazz) {
 	$assignStatic(URLEncodeDecode::chars, $new($chars, {
 		u'H',
 		u'e',
@@ -135,9 +105,9 @@ void clinit$URLEncodeDecode($Class* class$) {
 		u'(',
 		u')',
 		u'@',
-		(char16_t)0xAE,
-		(char16_t)0x101,
-		(char16_t)0x10A0
+		(char16_t)0xae,
+		(char16_t)0x0101,
+		(char16_t)0x10a0
 	}));
 	$assignStatic(URLEncodeDecode::str, $new($String, URLEncodeDecode::chars));
 	$assignStatic(URLEncodeDecode::correctEncodedUTF8, "Hello+%2B%25-_.%21%7E*%27%28%29%40%C2%AE%C4%81%E1%82%A0"_s);
@@ -147,7 +117,30 @@ URLEncodeDecode::URLEncodeDecode() {
 }
 
 $Class* URLEncodeDecode::load$($String* name, bool initialize) {
-	$loadClass(URLEncodeDecode, name, initialize, &_URLEncodeDecode_ClassInfo_, clinit$URLEncodeDecode, allocate$URLEncodeDecode);
+	$FieldInfo fieldInfos$$[] = {
+		{"chars", "[C", nullptr, $STATIC, $staticField(URLEncodeDecode, chars)},
+		{"str", "Ljava/lang/String;", nullptr, $STATIC, $staticField(URLEncodeDecode, str)},
+		{"correctEncodedUTF8", "Ljava/lang/String;", nullptr, $STATIC, $staticField(URLEncodeDecode, correctEncodedUTF8)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(URLEncodeDecode, init$, void)},
+		{"getHexBytes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(URLEncodeDecode, getHexBytes, $String*, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLEncodeDecode, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(URLEncodeDecode, test, void, $String*, $String*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"URLEncodeDecode",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(URLEncodeDecode, name, initialize, &classInfo$$, URLEncodeDecode::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(URLEncodeDecode);
+	});
 	return class$;
 }
 

@@ -15,6 +15,7 @@ class $export Supplementary4StringBuffer : public ::java::lang::Object {
 	$class(Supplementary4StringBuffer, 0, ::java::lang::Object)
 public:
 	Supplementary4StringBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check(bool err, $String* msg);
 	static void check(bool err, $String* s, int32_t got, int32_t expected);

@@ -1,5 +1,4 @@
 #include <sun/security/x509/AVAKeyword.h>
-
 #include <java/io/IOException.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
@@ -40,39 +39,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _AVAKeyword_FieldInfo_[] = {
-	{"oidMap", "Ljava/util/Map;", "Ljava/util/Map<Lsun/security/util/ObjectIdentifier;Lsun/security/x509/AVAKeyword;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AVAKeyword, oidMap)},
-	{"keywordMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/x509/AVAKeyword;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AVAKeyword, keywordMap)},
-	{"keyword", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AVAKeyword, keyword)},
-	{"oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(AVAKeyword, oid)},
-	{"rfc1779Compliant", "Z", nullptr, $PRIVATE, $field(AVAKeyword, rfc1779Compliant)},
-	{"rfc2253Compliant", "Z", nullptr, $PRIVATE, $field(AVAKeyword, rfc2253Compliant)},
-	{}
-};
-
-$MethodInfo _AVAKeyword_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;ZZ)V", nullptr, $PRIVATE, $method(AVAKeyword, init$, void, $String*, $ObjectIdentifier*, bool, bool)},
-	{"getKeyword", "(Lsun/security/util/ObjectIdentifier;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AVAKeyword, getKeyword, $String*, $ObjectIdentifier*, int32_t)},
-	{"getKeyword", "(Lsun/security/util/ObjectIdentifier;ILjava/util/Map;)Ljava/lang/String;", "(Lsun/security/util/ObjectIdentifier;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $STATIC, $staticMethod(AVAKeyword, getKeyword, $String*, $ObjectIdentifier*, int32_t, $Map*)},
-	{"getOID", "(Ljava/lang/String;ILjava/util/Map;)Lsun/security/util/ObjectIdentifier;", "(Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Lsun/security/util/ObjectIdentifier;", $STATIC, $staticMethod(AVAKeyword, getOID, $ObjectIdentifier*, $String*, int32_t, $Map*), "java.io.IOException"},
-	{"hasKeyword", "(Lsun/security/util/ObjectIdentifier;I)Z", nullptr, $STATIC, $staticMethod(AVAKeyword, hasKeyword, bool, $ObjectIdentifier*, int32_t)},
-	{"isCompliant", "(I)Z", nullptr, $PRIVATE, $method(AVAKeyword, isCompliant, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _AVAKeyword_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.x509.AVAKeyword",
-	"java.lang.Object",
-	nullptr,
-	_AVAKeyword_FieldInfo_,
-	_AVAKeyword_MethodInfo_
-};
-
-$Object* allocate$AVAKeyword($Class* clazz) {
-	return $of($alloc(AVAKeyword));
-}
-
 $Map* AVAKeyword::oidMap = nullptr;
 $Map* AVAKeyword::keywordMap = nullptr;
 
@@ -86,30 +52,22 @@ void AVAKeyword::init$($String* keyword, $ObjectIdentifier* oid, bool rfc1779Com
 }
 
 bool AVAKeyword::isCompliant(int32_t standard) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (standard) {
 	case $AVA::RFC1779:
-		{
-			return this->rfc1779Compliant;
-		}
+		return this->rfc1779Compliant;
 	case $AVA::RFC2253:
-		{
-			return this->rfc2253Compliant;
-		}
+		return this->rfc2253Compliant;
 	case $AVA::DEFAULT:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid standard "_s, $$str(standard)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid standard "_s, $$str(standard)}));
 	}
 }
 
 $ObjectIdentifier* AVAKeyword::getOID($String* keyword$renamed, int32_t standard, $Map* extraKeywordMap) {
 	$init(AVAKeyword);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, keyword, keyword$renamed);
 	$init($Locale);
 	$assign(keyword, $nc(keyword)->toUpperCase($Locale::ENGLISH));
@@ -153,7 +111,7 @@ $String* AVAKeyword::getKeyword($ObjectIdentifier* oid, int32_t standard) {
 
 $String* AVAKeyword::getKeyword($ObjectIdentifier* oid, int32_t standard, $Map* extraOidMap) {
 	$init(AVAKeyword);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, oidString, $nc(oid)->toString());
 	$var($String, keywordString, $cast($String, $nc(extraOidMap)->get(oidString)));
 	if (keywordString == nullptr) {
@@ -162,10 +120,10 @@ $String* AVAKeyword::getKeyword($ObjectIdentifier* oid, int32_t standard, $Map* 
 			return ak->keyword;
 		}
 	} else {
-		if ($nc(keywordString)->isEmpty()) {
+		if (keywordString->isEmpty()) {
 			$throwNew($IllegalArgumentException, "keyword cannot be empty"_s);
 		}
-		$assign(keywordString, $nc(keywordString)->trim());
+		$assign(keywordString, keywordString->trim());
 		char16_t c = keywordString->charAt(0);
 		if (c < 65 || c > 122 || (c > 90 && c < 97)) {
 			$throwNew($IllegalArgumentException, "keyword does not start with letter"_s);
@@ -194,7 +152,7 @@ bool AVAKeyword::hasKeyword($ObjectIdentifier* oid, int32_t standard) {
 	return $nc(ak)->isCompliant(standard);
 }
 
-void clinit$AVAKeyword($Class* class$) {
+void AVAKeyword::clinit$($Class* clazz) {
 	{
 		$assignStatic(AVAKeyword::oidMap, $new($HashMap));
 		$assignStatic(AVAKeyword::keywordMap, $new($HashMap));
@@ -228,7 +186,35 @@ AVAKeyword::AVAKeyword() {
 }
 
 $Class* AVAKeyword::load$($String* name, bool initialize) {
-	$loadClass(AVAKeyword, name, initialize, &_AVAKeyword_ClassInfo_, clinit$AVAKeyword, allocate$AVAKeyword);
+	$FieldInfo fieldInfos$$[] = {
+		{"oidMap", "Ljava/util/Map;", "Ljava/util/Map<Lsun/security/util/ObjectIdentifier;Lsun/security/x509/AVAKeyword;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AVAKeyword, oidMap)},
+		{"keywordMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/x509/AVAKeyword;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AVAKeyword, keywordMap)},
+		{"keyword", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AVAKeyword, keyword)},
+		{"oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(AVAKeyword, oid)},
+		{"rfc1779Compliant", "Z", nullptr, $PRIVATE, $field(AVAKeyword, rfc1779Compliant)},
+		{"rfc2253Compliant", "Z", nullptr, $PRIVATE, $field(AVAKeyword, rfc2253Compliant)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;ZZ)V", nullptr, $PRIVATE, $method(AVAKeyword, init$, void, $String*, $ObjectIdentifier*, bool, bool)},
+		{"getKeyword", "(Lsun/security/util/ObjectIdentifier;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AVAKeyword, getKeyword, $String*, $ObjectIdentifier*, int32_t)},
+		{"getKeyword", "(Lsun/security/util/ObjectIdentifier;ILjava/util/Map;)Ljava/lang/String;", "(Lsun/security/util/ObjectIdentifier;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $STATIC, $staticMethod(AVAKeyword, getKeyword, $String*, $ObjectIdentifier*, int32_t, $Map*)},
+		{"getOID", "(Ljava/lang/String;ILjava/util/Map;)Lsun/security/util/ObjectIdentifier;", "(Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Lsun/security/util/ObjectIdentifier;", $STATIC, $staticMethod(AVAKeyword, getOID, $ObjectIdentifier*, $String*, int32_t, $Map*), "java.io.IOException"},
+		{"hasKeyword", "(Lsun/security/util/ObjectIdentifier;I)Z", nullptr, $STATIC, $staticMethod(AVAKeyword, hasKeyword, bool, $ObjectIdentifier*, int32_t)},
+		{"isCompliant", "(I)Z", nullptr, $PRIVATE, $method(AVAKeyword, isCompliant, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.x509.AVAKeyword",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AVAKeyword, name, initialize, &classInfo$$, AVAKeyword::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AVAKeyword);
+	});
 	return class$;
 }
 

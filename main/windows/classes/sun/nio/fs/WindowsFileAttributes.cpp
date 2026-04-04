@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsFileAttributes.h>
-
 #include <java/lang/Math.h>
 #include <java/nio/file/attribute/FileTime.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -62,96 +61,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsFileAttributes_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileAttributes, unsafe)},
-	{"SIZEOF_FILE_INFORMATION", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, SIZEOF_FILE_INFORMATION)},
-	{"OFFSETOF_FILE_INFORMATION_ATTRIBUTES", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_ATTRIBUTES)},
-	{"OFFSETOF_FILE_INFORMATION_CREATETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_CREATETIME)},
-	{"OFFSETOF_FILE_INFORMATION_LASTACCESSTIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_LASTACCESSTIME)},
-	{"OFFSETOF_FILE_INFORMATION_LASTWRITETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_LASTWRITETIME)},
-	{"OFFSETOF_FILE_INFORMATION_VOLSERIALNUM", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_VOLSERIALNUM)},
-	{"OFFSETOF_FILE_INFORMATION_SIZEHIGH", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_SIZEHIGH)},
-	{"OFFSETOF_FILE_INFORMATION_SIZELOW", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_SIZELOW)},
-	{"OFFSETOF_FILE_INFORMATION_INDEXHIGH", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_INDEXHIGH)},
-	{"OFFSETOF_FILE_INFORMATION_INDEXLOW", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_INDEXLOW)},
-	{"SIZEOF_FILE_ATTRIBUTE_DATA", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, SIZEOF_FILE_ATTRIBUTE_DATA)},
-	{"OFFSETOF_FILE_ATTRIBUTE_DATA_ATTRIBUTES", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_ATTRIBUTES)},
-	{"OFFSETOF_FILE_ATTRIBUTE_DATA_CREATETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_CREATETIME)},
-	{"OFFSETOF_FILE_ATTRIBUTE_DATA_LASTACCESSTIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_LASTACCESSTIME)},
-	{"OFFSETOF_FILE_ATTRIBUTE_DATA_LASTWRITETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_LASTWRITETIME)},
-	{"OFFSETOF_FILE_ATTRIBUTE_DATA_SIZEHIGH", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_SIZEHIGH)},
-	{"OFFSETOF_FILE_ATTRIBUTE_DATA_SIZELOW", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_SIZELOW)},
-	{"SIZEOF_FIND_DATA", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, SIZEOF_FIND_DATA)},
-	{"OFFSETOF_FIND_DATA_ATTRIBUTES", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_ATTRIBUTES)},
-	{"OFFSETOF_FIND_DATA_CREATETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_CREATETIME)},
-	{"OFFSETOF_FIND_DATA_LASTACCESSTIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_LASTACCESSTIME)},
-	{"OFFSETOF_FIND_DATA_LASTWRITETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_LASTWRITETIME)},
-	{"OFFSETOF_FIND_DATA_SIZEHIGH", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_SIZEHIGH)},
-	{"OFFSETOF_FIND_DATA_SIZELOW", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_SIZELOW)},
-	{"OFFSETOF_FIND_DATA_RESERVED0", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_RESERVED0)},
-	{"WINDOWS_EPOCH_IN_MICROS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, WINDOWS_EPOCH_IN_MICROS)},
-	{"WINDOWS_EPOCH_IN_100NS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, WINDOWS_EPOCH_IN_100NS)},
-	{"ensureAccurateMetadata", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileAttributes, ensureAccurateMetadata)},
-	{"fileAttrs", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, fileAttrs)},
-	{"creationTime", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, creationTime$)},
-	{"lastAccessTime", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, lastAccessTime$)},
-	{"lastWriteTime", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, lastWriteTime)},
-	{"size", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, size$)},
-	{"reparseTag", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, reparseTag)},
-	{"volSerialNumber", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, volSerialNumber$)},
-	{"fileIndexHigh", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, fileIndexHigh$)},
-	{"fileIndexLow", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, fileIndexLow$)},
-	{}
-};
-
-$MethodInfo _WindowsFileAttributes_MethodInfo_[] = {
-	{"<init>", "(IJJJJIIII)V", nullptr, $PRIVATE, $method(WindowsFileAttributes, init$, void, int32_t, int64_t, int64_t, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"attributes", "()I", nullptr, 0, $virtualMethod(WindowsFileAttributes, attributes, int32_t)},
-	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, creationTime, $FileTime*)},
-	{"fileIndexHigh", "()I", nullptr, 0, $virtualMethod(WindowsFileAttributes, fileIndexHigh, int32_t)},
-	{"fileIndexLow", "()I", nullptr, 0, $virtualMethod(WindowsFileAttributes, fileIndexLow, int32_t)},
-	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, fileKey, $Object*)},
-	{"fromFileAttributeData", "(JI)Lsun/nio/fs/WindowsFileAttributes;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileAttributes, fromFileAttributeData, WindowsFileAttributes*, int64_t, int32_t)},
-	{"fromFileInformation", "(JI)Lsun/nio/fs/WindowsFileAttributes;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileAttributes, fromFileInformation, WindowsFileAttributes*, int64_t, int32_t)},
-	{"fromFindData", "(J)Lsun/nio/fs/WindowsFileAttributes;", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, fromFindData, WindowsFileAttributes*, int64_t)},
-	{"get", "(Lsun/nio/fs/WindowsPath;Z)Lsun/nio/fs/WindowsFileAttributes;", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, get, WindowsFileAttributes*, $WindowsPath*, bool), "sun.nio.fs.WindowsException"},
-	{"getBufferForFindData", "()Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, getBufferForFindData, $NativeBuffer*)},
-	{"isArchive", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isArchive, bool)},
-	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isDirectory, bool)},
-	{"isDirectoryLink", "()Z", nullptr, 0, $virtualMethod(WindowsFileAttributes, isDirectoryLink, bool)},
-	{"isHidden", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isHidden, bool)},
-	{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isOther, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isReadOnly, bool)},
-	{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isRegularFile, bool)},
-	{"isReparsePoint", "(I)Z", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, isReparsePoint, bool, int32_t)},
-	{"isReparsePoint", "()Z", nullptr, 0, $virtualMethod(WindowsFileAttributes, isReparsePoint, bool)},
-	{"isSameFile", "(Lsun/nio/fs/WindowsFileAttributes;Lsun/nio/fs/WindowsFileAttributes;)Z", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, isSameFile, bool, WindowsFileAttributes*, WindowsFileAttributes*)},
-	{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isSymbolicLink, bool)},
-	{"isSystem", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isSystem, bool)},
-	{"isUnixDomainSocket", "()Z", nullptr, 0, $virtualMethod(WindowsFileAttributes, isUnixDomainSocket, bool)},
-	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, lastAccessTime, $FileTime*)},
-	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, lastModifiedTime, $FileTime*)},
-	{"readAttributes", "(J)Lsun/nio/fs/WindowsFileAttributes;", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, readAttributes, WindowsFileAttributes*, int64_t), "sun.nio.fs.WindowsException"},
-	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, size, int64_t)},
-	{"toFileTime", "(J)Ljava/nio/file/attribute/FileTime;", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, toFileTime, $FileTime*, int64_t)},
-	{"toWindowsTime", "(Ljava/nio/file/attribute/FileTime;)J", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, toWindowsTime, int64_t, $FileTime*)},
-	{"volSerialNumber", "()I", nullptr, 0, $virtualMethod(WindowsFileAttributes, volSerialNumber, int32_t)},
-	{}
-};
-
-$ClassInfo _WindowsFileAttributes_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsFileAttributes",
-	"java.lang.Object",
-	"java.nio.file.attribute.DosFileAttributes",
-	_WindowsFileAttributes_FieldInfo_,
-	_WindowsFileAttributes_MethodInfo_
-};
-
-$Object* allocate$WindowsFileAttributes($Class* clazz) {
-	return $of($alloc(WindowsFileAttributes));
-}
-
 $Unsafe* WindowsFileAttributes::unsafe = nullptr;
 bool WindowsFileAttributes::ensureAccurateMetadata = false;
 
@@ -192,25 +101,25 @@ void WindowsFileAttributes::init$(int32_t fileAttrs, int64_t creationTime, int64
 WindowsFileAttributes* WindowsFileAttributes::fromFileInformation(int64_t address, int32_t reparseTag) {
 	$init(WindowsFileAttributes);
 	int32_t fileAttrs = $nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_ATTRIBUTES);
-	int64_t creationTime = $nc(WindowsFileAttributes::unsafe)->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_CREATETIME);
-	int64_t lastAccessTime = $nc(WindowsFileAttributes::unsafe)->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_LASTACCESSTIME);
-	int64_t lastWriteTime = $nc(WindowsFileAttributes::unsafe)->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_LASTWRITETIME);
-	int64_t var$0 = ((int64_t)($nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_SIZEHIGH)) << 32);
-	int64_t size = var$0 + ((int64_t)($nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_SIZELOW) & (uint64_t)(int64_t)0x00000000FFFFFFFF));
-	int32_t volSerialNumber = $nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_VOLSERIALNUM);
-	int32_t fileIndexHigh = $nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_INDEXHIGH);
-	int32_t fileIndexLow = $nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_INDEXLOW);
+	int64_t creationTime = WindowsFileAttributes::unsafe->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_CREATETIME);
+	int64_t lastAccessTime = WindowsFileAttributes::unsafe->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_LASTACCESSTIME);
+	int64_t lastWriteTime = WindowsFileAttributes::unsafe->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_LASTWRITETIME);
+	int64_t var$0 = (int64_t)(WindowsFileAttributes::unsafe->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_SIZEHIGH)) << 32;
+	int64_t size = var$0 + (WindowsFileAttributes::unsafe->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_SIZELOW) & (int64_t)0xffffffff);
+	int32_t volSerialNumber = WindowsFileAttributes::unsafe->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_VOLSERIALNUM);
+	int32_t fileIndexHigh = WindowsFileAttributes::unsafe->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_INDEXHIGH);
+	int32_t fileIndexLow = WindowsFileAttributes::unsafe->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_INDEXLOW);
 	return $new(WindowsFileAttributes, fileAttrs, creationTime, lastAccessTime, lastWriteTime, size, reparseTag, volSerialNumber, fileIndexHigh, fileIndexLow);
 }
 
 WindowsFileAttributes* WindowsFileAttributes::fromFileAttributeData(int64_t address, int32_t reparseTag) {
 	$init(WindowsFileAttributes);
 	int32_t fileAttrs = $nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_ATTRIBUTES);
-	int64_t creationTime = $nc(WindowsFileAttributes::unsafe)->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_CREATETIME);
-	int64_t lastAccessTime = $nc(WindowsFileAttributes::unsafe)->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_LASTACCESSTIME);
-	int64_t lastWriteTime = $nc(WindowsFileAttributes::unsafe)->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_LASTWRITETIME);
-	int64_t var$0 = ((int64_t)($nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_SIZEHIGH)) << 32);
-	int64_t size = var$0 + ((int64_t)($nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_SIZELOW) & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+	int64_t creationTime = WindowsFileAttributes::unsafe->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_CREATETIME);
+	int64_t lastAccessTime = WindowsFileAttributes::unsafe->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_LASTACCESSTIME);
+	int64_t lastWriteTime = WindowsFileAttributes::unsafe->getLong(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_LASTWRITETIME);
+	int64_t var$0 = (int64_t)(WindowsFileAttributes::unsafe->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_SIZEHIGH)) << 32;
+	int64_t size = var$0 + (WindowsFileAttributes::unsafe->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_SIZELOW) & (int64_t)0xffffffff);
 	return $new(WindowsFileAttributes, fileAttrs, creationTime, lastAccessTime, lastWriteTime, size, reparseTag, 0, 0, 0);
 }
 
@@ -222,51 +131,87 @@ $NativeBuffer* WindowsFileAttributes::getBufferForFindData() {
 WindowsFileAttributes* WindowsFileAttributes::fromFindData(int64_t address) {
 	$init(WindowsFileAttributes);
 	int32_t fileAttrs = $nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_ATTRIBUTES);
-	int64_t creationTime = $nc(WindowsFileAttributes::unsafe)->getLong(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_CREATETIME);
-	int64_t lastAccessTime = $nc(WindowsFileAttributes::unsafe)->getLong(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_LASTACCESSTIME);
-	int64_t lastWriteTime = $nc(WindowsFileAttributes::unsafe)->getLong(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_LASTWRITETIME);
-	int64_t var$0 = ((int64_t)($nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_SIZEHIGH)) << 32);
-	int64_t size = var$0 + ((int64_t)($nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_SIZELOW) & (uint64_t)(int64_t)0x00000000FFFFFFFF));
-	int32_t reparseTag = isReparsePoint(fileAttrs) ? $nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_RESERVED0) : 0;
+	int64_t creationTime = WindowsFileAttributes::unsafe->getLong(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_CREATETIME);
+	int64_t lastAccessTime = WindowsFileAttributes::unsafe->getLong(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_LASTACCESSTIME);
+	int64_t lastWriteTime = WindowsFileAttributes::unsafe->getLong(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_LASTWRITETIME);
+	int64_t var$0 = (int64_t)(WindowsFileAttributes::unsafe->getInt(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_SIZEHIGH)) << 32;
+	int64_t size = var$0 + (WindowsFileAttributes::unsafe->getInt(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_SIZELOW) & (int64_t)0xffffffff);
+	int32_t reparseTag = isReparsePoint(fileAttrs) ? WindowsFileAttributes::unsafe->getInt(address + WindowsFileAttributes::OFFSETOF_FIND_DATA_RESERVED0) : 0;
 	return $new(WindowsFileAttributes, fileAttrs, creationTime, lastAccessTime, lastWriteTime, size, reparseTag, 0, 0, 0);
 }
 
 WindowsFileAttributes* WindowsFileAttributes::readAttributes(int64_t handle) {
 	$init(WindowsFileAttributes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(WindowsFileAttributes::SIZEOF_FILE_INFORMATION));
-	{
+	$var($Throwable, var$0, nullptr);
+	$var(WindowsFileAttributes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		int64_t address = $nc(buffer)->address();
+		$WindowsNativeDispatcher::GetFileInformationByHandle(handle, address);
+		int32_t reparseTag = 0;
+		int32_t fileAttrs = $nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_ATTRIBUTES);
+		if (isReparsePoint(fileAttrs)) {
+			int32_t size = 16384;
+			$var($NativeBuffer, reparseBuffer, $NativeBuffers::getNativeBuffer(size));
+			$var($Throwable, var$3, nullptr);
+			try {
+				$WindowsNativeDispatcher::DeviceIoControlGetReparsePoint(handle, $nc(reparseBuffer)->address(), size);
+				reparseTag = (int32_t)WindowsFileAttributes::unsafe->getLong(reparseBuffer->address());
+			} catch ($Throwable& var$4) {
+				$assign(var$3, var$4);
+			} /*finally*/ {
+				$nc(reparseBuffer)->release();
+			}
+			if (var$3 != nullptr) {
+				$throw(var$3);
+			}
+		}
+		$assign(var$2, fromFileInformation(address, reparseTag));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		$nc(buffer)->release();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+WindowsFileAttributes* WindowsFileAttributes::get($WindowsPath* path, bool followLinks) {
+	$init(WindowsFileAttributes);
+	$useLocalObjectStack();
+	if (!WindowsFileAttributes::ensureAccurateMetadata) {
+		$var($WindowsException, firstException, nullptr);
+		$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(WindowsFileAttributes::SIZEOF_FILE_ATTRIBUTE_DATA));
 		$var($Throwable, var$0, nullptr);
 		$var(WindowsFileAttributes, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			int64_t address = $nc(buffer)->address();
-			$WindowsNativeDispatcher::GetFileInformationByHandle(handle, address);
-			int32_t reparseTag = 0;
-			int32_t fileAttrs = $nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_INFORMATION_ATTRIBUTES);
-			if (isReparsePoint(fileAttrs)) {
-				int32_t size = 16384;
-				$var($NativeBuffer, reparseBuffer, $NativeBuffers::getNativeBuffer(size));
-				{
-					$var($Throwable, var$3, nullptr);
-					try {
-						$WindowsNativeDispatcher::DeviceIoControlGetReparsePoint(handle, $nc(reparseBuffer)->address(), size);
-						reparseTag = (int32_t)$nc(WindowsFileAttributes::unsafe)->getLong($nc(reparseBuffer)->address());
-					} catch ($Throwable& var$4) {
-						$assign(var$3, var$4);
-					} /*finally*/ {
-						$nc(reparseBuffer)->release();
-					}
-					if (var$3 != nullptr) {
-						$throw(var$3);
-					}
+			try {
+				int64_t address = $nc(buffer)->address();
+				$WindowsNativeDispatcher::GetFileAttributesEx($($nc(path)->getPathForWin32Calls()), address);
+				int32_t fileAttrs = $nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_ATTRIBUTES);
+				if (!isReparsePoint(fileAttrs)) {
+					$assign(var$2, fromFileAttributeData(address, 0));
+					return$1 = true;
+					goto $finally;
 				}
+			} catch ($WindowsException& x) {
+				if (x->lastError() != 32) {
+					$throw(x);
+				}
+				$assign(firstException, x);
 			}
-			$assign(var$2, fromFileInformation(address, reparseTag));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -276,107 +221,61 @@ WindowsFileAttributes* WindowsFileAttributes::readAttributes(int64_t handle) {
 		if (return$1) {
 			return var$2;
 		}
-	}
-	$shouldNotReachHere();
-}
-
-WindowsFileAttributes* WindowsFileAttributes::get($WindowsPath* path, bool followLinks) {
-	$init(WindowsFileAttributes);
-	$useLocalCurrentObjectStackCache();
-	if (!WindowsFileAttributes::ensureAccurateMetadata) {
-		$var($WindowsException, firstException, nullptr);
-		$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(WindowsFileAttributes::SIZEOF_FILE_ATTRIBUTE_DATA));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var(WindowsFileAttributes, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				try {
-					int64_t address = $nc(buffer)->address();
-					$WindowsNativeDispatcher::GetFileAttributesEx($($nc(path)->getPathForWin32Calls()), address);
-					int32_t fileAttrs = $nc(WindowsFileAttributes::unsafe)->getInt(address + WindowsFileAttributes::OFFSETOF_FILE_ATTRIBUTE_DATA_ATTRIBUTES);
-					if (!isReparsePoint(fileAttrs)) {
-						$assign(var$2, fromFileAttributeData(address, 0));
-						return$1 = true;
-						goto $finally;
-					}
-				} catch ($WindowsException& x) {
-					if (x->lastError() != 32) {
-						$throw(x);
-					}
-					$assign(firstException, x);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(buffer)->release();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
-		}
 		if (firstException != nullptr) {
 			$var($String, search, $nc(path)->getPathForWin32Calls());
-			char16_t last = $nc(search)->charAt(search->length() - 1);
+			char16_t last = $nc(search)->charAt($nc(search)->length() - 1);
 			if (last == u':' || last == u'\\') {
 				$throw(firstException);
 			}
 			$assign(buffer, getBufferForFindData());
-			{
-				$var($Throwable, var$4, nullptr);
-				$var(WindowsFileAttributes, var$6, nullptr);
-				bool return$5 = false;
+			$var($Throwable, var$4, nullptr);
+			$var(WindowsFileAttributes, var$6, nullptr);
+			bool return$5 = false;
+			try {
 				try {
-					try {
-						int64_t handle = $WindowsNativeDispatcher::FindFirstFile(search, $nc(buffer)->address());
-						$WindowsNativeDispatcher::FindClose(handle);
-						$var(WindowsFileAttributes, attrs, fromFindData($nc(buffer)->address()));
-						if ($nc(attrs)->isReparsePoint()) {
-							$throw(firstException);
-						}
-						$assign(var$6, attrs);
-						return$5 = true;
-						goto $finally1;
-					} catch ($WindowsException& ignore) {
+					int64_t handle = $WindowsNativeDispatcher::FindFirstFile(search, $nc(buffer)->address());
+					$WindowsNativeDispatcher::FindClose(handle);
+					$var(WindowsFileAttributes, attrs, fromFindData(buffer->address()));
+					if ($nc(attrs)->isReparsePoint()) {
 						$throw(firstException);
 					}
-				} catch ($Throwable& var$7) {
-					$assign(var$4, var$7);
-				} $finally1: {
-					$nc(buffer)->release();
+					$assign(var$6, attrs);
+					return$5 = true;
+					goto $finally1;
+				} catch ($WindowsException& ignore) {
+					$throw(firstException);
 				}
-				if (var$4 != nullptr) {
-					$throw(var$4);
-				}
-				if (return$5) {
-					return var$6;
-				}
+			} catch ($Throwable& var$7) {
+				$assign(var$4, var$7);
+			} $finally1: {
+				$nc(buffer)->release();
+			}
+			if (var$4 != nullptr) {
+				$throw(var$4);
+			}
+			if (return$5) {
+				return var$6;
 			}
 		}
 	}
 	int64_t handle = $nc(path)->openForReadAttributeAccess(followLinks);
-	{
-		$var($Throwable, var$8, nullptr);
-		$var(WindowsFileAttributes, var$10, nullptr);
-		bool return$9 = false;
-		try {
-			$assign(var$10, readAttributes(handle));
-			return$9 = true;
-			goto $finally2;
-		} catch ($Throwable& var$11) {
-			$assign(var$8, var$11);
-		} $finally2: {
-			$WindowsNativeDispatcher::CloseHandle(handle);
-		}
-		if (var$8 != nullptr) {
-			$throw(var$8);
-		}
-		if (return$9) {
-			return var$10;
-		}
+	$var($Throwable, var$8, nullptr);
+	$var(WindowsFileAttributes, var$10, nullptr);
+	bool return$9 = false;
+	try {
+		$assign(var$10, readAttributes(handle));
+		return$9 = true;
+		goto $finally2;
+	} catch ($Throwable& var$11) {
+		$assign(var$8, var$11);
+	} $finally2: {
+		$WindowsNativeDispatcher::CloseHandle(handle);
+	}
+	if (var$8 != nullptr) {
+		$throw(var$8);
+	}
+	if (return$9) {
+		return var$10;
 	}
 	$shouldNotReachHere();
 }
@@ -388,7 +287,7 @@ bool WindowsFileAttributes::isSameFile(WindowsFileAttributes* attrs1, WindowsFil
 
 bool WindowsFileAttributes::isReparsePoint(int32_t attributes) {
 	$init(WindowsFileAttributes);
-	return ((int32_t)(attributes & (uint32_t)1024)) != 0;
+	return (attributes & 0x0400) != 0;
 }
 
 int32_t WindowsFileAttributes::attributes() {
@@ -424,7 +323,7 @@ $FileTime* WindowsFileAttributes::creationTime() {
 }
 
 $Object* WindowsFileAttributes::fileKey() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool WindowsFileAttributes::isReparsePoint() {
@@ -432,11 +331,11 @@ bool WindowsFileAttributes::isReparsePoint() {
 }
 
 bool WindowsFileAttributes::isDirectoryLink() {
-	return isSymbolicLink() && (((int32_t)(this->fileAttrs & (uint32_t)16)) != 0);
+	return isSymbolicLink() && ((this->fileAttrs & 0x10) != 0);
 }
 
 bool WindowsFileAttributes::isSymbolicLink() {
-	return this->reparseTag == (int32_t)0xA000000C;
+	return this->reparseTag == (int32_t)0xa000000c;
 }
 
 bool WindowsFileAttributes::isUnixDomainSocket() {
@@ -447,14 +346,14 @@ bool WindowsFileAttributes::isDirectory() {
 	if (isSymbolicLink()) {
 		return false;
 	}
-	return (((int32_t)(this->fileAttrs & (uint32_t)16)) != 0);
+	return ((this->fileAttrs & 0x10) != 0);
 }
 
 bool WindowsFileAttributes::isOther() {
 	if (isSymbolicLink()) {
 		return false;
 	}
-	return (((int32_t)(this->fileAttrs & (uint32_t)(64 | 1024))) != 0);
+	return ((this->fileAttrs & (0x40 | 0x0400)) != 0);
 }
 
 bool WindowsFileAttributes::isRegularFile() {
@@ -464,22 +363,22 @@ bool WindowsFileAttributes::isRegularFile() {
 }
 
 bool WindowsFileAttributes::isReadOnly() {
-	return ((int32_t)(this->fileAttrs & (uint32_t)1)) != 0;
+	return (this->fileAttrs & 1) != 0;
 }
 
 bool WindowsFileAttributes::isHidden() {
-	return ((int32_t)(this->fileAttrs & (uint32_t)2)) != 0;
+	return (this->fileAttrs & 2) != 0;
 }
 
 bool WindowsFileAttributes::isArchive() {
-	return ((int32_t)(this->fileAttrs & (uint32_t)32)) != 0;
+	return (this->fileAttrs & 0x20) != 0;
 }
 
 bool WindowsFileAttributes::isSystem() {
-	return ((int32_t)(this->fileAttrs & (uint32_t)4)) != 0;
+	return (this->fileAttrs & 4) != 0;
 }
 
-void clinit$WindowsFileAttributes($Class* class$) {
+void WindowsFileAttributes::clinit$($Class* clazz) {
 	$assignStatic(WindowsFileAttributes::unsafe, $Unsafe::getUnsafe());
 	{
 		$var($String, propValue, $GetPropertyAction::privilegedGetProperty("sun.nio.fs.ensureAccurateMetadata"_s, "false"_s));
@@ -491,7 +390,92 @@ WindowsFileAttributes::WindowsFileAttributes() {
 }
 
 $Class* WindowsFileAttributes::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileAttributes, name, initialize, &_WindowsFileAttributes_ClassInfo_, clinit$WindowsFileAttributes, allocate$WindowsFileAttributes);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileAttributes, unsafe)},
+		{"SIZEOF_FILE_INFORMATION", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, SIZEOF_FILE_INFORMATION)},
+		{"OFFSETOF_FILE_INFORMATION_ATTRIBUTES", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_ATTRIBUTES)},
+		{"OFFSETOF_FILE_INFORMATION_CREATETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_CREATETIME)},
+		{"OFFSETOF_FILE_INFORMATION_LASTACCESSTIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_LASTACCESSTIME)},
+		{"OFFSETOF_FILE_INFORMATION_LASTWRITETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_LASTWRITETIME)},
+		{"OFFSETOF_FILE_INFORMATION_VOLSERIALNUM", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_VOLSERIALNUM)},
+		{"OFFSETOF_FILE_INFORMATION_SIZEHIGH", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_SIZEHIGH)},
+		{"OFFSETOF_FILE_INFORMATION_SIZELOW", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_SIZELOW)},
+		{"OFFSETOF_FILE_INFORMATION_INDEXHIGH", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_INDEXHIGH)},
+		{"OFFSETOF_FILE_INFORMATION_INDEXLOW", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_INFORMATION_INDEXLOW)},
+		{"SIZEOF_FILE_ATTRIBUTE_DATA", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, SIZEOF_FILE_ATTRIBUTE_DATA)},
+		{"OFFSETOF_FILE_ATTRIBUTE_DATA_ATTRIBUTES", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_ATTRIBUTES)},
+		{"OFFSETOF_FILE_ATTRIBUTE_DATA_CREATETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_CREATETIME)},
+		{"OFFSETOF_FILE_ATTRIBUTE_DATA_LASTACCESSTIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_LASTACCESSTIME)},
+		{"OFFSETOF_FILE_ATTRIBUTE_DATA_LASTWRITETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_LASTWRITETIME)},
+		{"OFFSETOF_FILE_ATTRIBUTE_DATA_SIZEHIGH", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_SIZEHIGH)},
+		{"OFFSETOF_FILE_ATTRIBUTE_DATA_SIZELOW", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FILE_ATTRIBUTE_DATA_SIZELOW)},
+		{"SIZEOF_FIND_DATA", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, SIZEOF_FIND_DATA)},
+		{"OFFSETOF_FIND_DATA_ATTRIBUTES", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_ATTRIBUTES)},
+		{"OFFSETOF_FIND_DATA_CREATETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_CREATETIME)},
+		{"OFFSETOF_FIND_DATA_LASTACCESSTIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_LASTACCESSTIME)},
+		{"OFFSETOF_FIND_DATA_LASTWRITETIME", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_LASTWRITETIME)},
+		{"OFFSETOF_FIND_DATA_SIZEHIGH", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_SIZEHIGH)},
+		{"OFFSETOF_FIND_DATA_SIZELOW", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_SIZELOW)},
+		{"OFFSETOF_FIND_DATA_RESERVED0", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, OFFSETOF_FIND_DATA_RESERVED0)},
+		{"WINDOWS_EPOCH_IN_MICROS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, WINDOWS_EPOCH_IN_MICROS)},
+		{"WINDOWS_EPOCH_IN_100NS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsFileAttributes, WINDOWS_EPOCH_IN_100NS)},
+		{"ensureAccurateMetadata", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileAttributes, ensureAccurateMetadata)},
+		{"fileAttrs", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, fileAttrs)},
+		{"creationTime", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, creationTime$)},
+		{"lastAccessTime", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, lastAccessTime$)},
+		{"lastWriteTime", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, lastWriteTime)},
+		{"size", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, size$)},
+		{"reparseTag", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, reparseTag)},
+		{"volSerialNumber", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, volSerialNumber$)},
+		{"fileIndexHigh", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, fileIndexHigh$)},
+		{"fileIndexLow", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileAttributes, fileIndexLow$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IJJJJIIII)V", nullptr, $PRIVATE, $method(WindowsFileAttributes, init$, void, int32_t, int64_t, int64_t, int64_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"attributes", "()I", nullptr, 0, $virtualMethod(WindowsFileAttributes, attributes, int32_t)},
+		{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, creationTime, $FileTime*)},
+		{"fileIndexHigh", "()I", nullptr, 0, $virtualMethod(WindowsFileAttributes, fileIndexHigh, int32_t)},
+		{"fileIndexLow", "()I", nullptr, 0, $virtualMethod(WindowsFileAttributes, fileIndexLow, int32_t)},
+		{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, fileKey, $Object*)},
+		{"fromFileAttributeData", "(JI)Lsun/nio/fs/WindowsFileAttributes;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileAttributes, fromFileAttributeData, WindowsFileAttributes*, int64_t, int32_t)},
+		{"fromFileInformation", "(JI)Lsun/nio/fs/WindowsFileAttributes;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileAttributes, fromFileInformation, WindowsFileAttributes*, int64_t, int32_t)},
+		{"fromFindData", "(J)Lsun/nio/fs/WindowsFileAttributes;", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, fromFindData, WindowsFileAttributes*, int64_t)},
+		{"get", "(Lsun/nio/fs/WindowsPath;Z)Lsun/nio/fs/WindowsFileAttributes;", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, get, WindowsFileAttributes*, $WindowsPath*, bool), "sun.nio.fs.WindowsException"},
+		{"getBufferForFindData", "()Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, getBufferForFindData, $NativeBuffer*)},
+		{"isArchive", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isArchive, bool)},
+		{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isDirectory, bool)},
+		{"isDirectoryLink", "()Z", nullptr, 0, $virtualMethod(WindowsFileAttributes, isDirectoryLink, bool)},
+		{"isHidden", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isHidden, bool)},
+		{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isOther, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isReadOnly, bool)},
+		{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isRegularFile, bool)},
+		{"isReparsePoint", "(I)Z", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, isReparsePoint, bool, int32_t)},
+		{"isReparsePoint", "()Z", nullptr, 0, $virtualMethod(WindowsFileAttributes, isReparsePoint, bool)},
+		{"isSameFile", "(Lsun/nio/fs/WindowsFileAttributes;Lsun/nio/fs/WindowsFileAttributes;)Z", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, isSameFile, bool, WindowsFileAttributes*, WindowsFileAttributes*)},
+		{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isSymbolicLink, bool)},
+		{"isSystem", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, isSystem, bool)},
+		{"isUnixDomainSocket", "()Z", nullptr, 0, $virtualMethod(WindowsFileAttributes, isUnixDomainSocket, bool)},
+		{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, lastAccessTime, $FileTime*)},
+		{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, lastModifiedTime, $FileTime*)},
+		{"readAttributes", "(J)Lsun/nio/fs/WindowsFileAttributes;", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, readAttributes, WindowsFileAttributes*, int64_t), "sun.nio.fs.WindowsException"},
+		{"size", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributes, size, int64_t)},
+		{"toFileTime", "(J)Ljava/nio/file/attribute/FileTime;", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, toFileTime, $FileTime*, int64_t)},
+		{"toWindowsTime", "(Ljava/nio/file/attribute/FileTime;)J", nullptr, $STATIC, $staticMethod(WindowsFileAttributes, toWindowsTime, int64_t, $FileTime*)},
+		{"volSerialNumber", "()I", nullptr, 0, $virtualMethod(WindowsFileAttributes, volSerialNumber, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsFileAttributes",
+		"java.lang.Object",
+		"java.nio.file.attribute.DosFileAttributes",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsFileAttributes, name, initialize, &classInfo$$, WindowsFileAttributes::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFileAttributes);
+	});
 	return class$;
 }
 

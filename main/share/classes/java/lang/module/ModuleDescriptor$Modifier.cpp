@@ -1,5 +1,4 @@
 #include <java/lang/module/ModuleDescriptor$Modifier.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/module/ModuleDescriptor.h>
 #include <jcpp.h>
@@ -19,48 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace module {
-
-$FieldInfo _ModuleDescriptor$Modifier_FieldInfo_[] = {
-	{"OPEN", "Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Modifier, OPEN)},
-	{"AUTOMATIC", "Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Modifier, AUTOMATIC)},
-	{"SYNTHETIC", "Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Modifier, SYNTHETIC)},
-	{"MANDATED", "Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Modifier, MANDATED)},
-	{"$VALUES", "[Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleDescriptor$Modifier, $VALUES)},
-	{}
-};
-
-$MethodInfo _ModuleDescriptor$Modifier_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleDescriptor$Modifier, $values, $ModuleDescriptor$ModifierArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ModuleDescriptor$Modifier, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor$Modifier, valueOf, ModuleDescriptor$Modifier*, $String*)},
-	{"values", "()[Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor$Modifier, values, $ModuleDescriptor$ModifierArray*)},
-	{}
-};
-
-$InnerClassInfo _ModuleDescriptor$Modifier_InnerClassesInfo_[] = {
-	{"java.lang.module.ModuleDescriptor$Modifier", "java.lang.module.ModuleDescriptor", "Modifier", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ModuleDescriptor$Modifier_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.module.ModuleDescriptor$Modifier",
-	"java.lang.Enum",
-	nullptr,
-	_ModuleDescriptor$Modifier_FieldInfo_,
-	_ModuleDescriptor$Modifier_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/module/ModuleDescriptor$Modifier;>;",
-	nullptr,
-	_ModuleDescriptor$Modifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.module.ModuleDescriptor"
-};
-
-$Object* allocate$ModuleDescriptor$Modifier($Class* clazz) {
-	return $of($alloc(ModuleDescriptor$Modifier));
-}
 
 ModuleDescriptor$Modifier* ModuleDescriptor$Modifier::OPEN = nullptr;
 ModuleDescriptor$Modifier* ModuleDescriptor$Modifier::AUTOMATIC = nullptr;
@@ -92,7 +49,7 @@ void ModuleDescriptor$Modifier::init$($String* $enum$name, int32_t $enum$ordinal
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ModuleDescriptor$Modifier($Class* class$) {
+void ModuleDescriptor$Modifier::clinit$($Class* clazz) {
 	$assignStatic(ModuleDescriptor$Modifier::OPEN, $new(ModuleDescriptor$Modifier, "OPEN"_s, 0));
 	$assignStatic(ModuleDescriptor$Modifier::AUTOMATIC, $new(ModuleDescriptor$Modifier, "AUTOMATIC"_s, 1));
 	$assignStatic(ModuleDescriptor$Modifier::SYNTHETIC, $new(ModuleDescriptor$Modifier, "SYNTHETIC"_s, 2));
@@ -104,7 +61,43 @@ ModuleDescriptor$Modifier::ModuleDescriptor$Modifier() {
 }
 
 $Class* ModuleDescriptor$Modifier::load$($String* name, bool initialize) {
-	$loadClass(ModuleDescriptor$Modifier, name, initialize, &_ModuleDescriptor$Modifier_ClassInfo_, clinit$ModuleDescriptor$Modifier, allocate$ModuleDescriptor$Modifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"OPEN", "Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Modifier, OPEN)},
+		{"AUTOMATIC", "Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Modifier, AUTOMATIC)},
+		{"SYNTHETIC", "Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Modifier, SYNTHETIC)},
+		{"MANDATED", "Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Modifier, MANDATED)},
+		{"$VALUES", "[Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleDescriptor$Modifier, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleDescriptor$Modifier, $values, $ModuleDescriptor$ModifierArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ModuleDescriptor$Modifier, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor$Modifier, valueOf, ModuleDescriptor$Modifier*, $String*)},
+		{"values", "()[Ljava/lang/module/ModuleDescriptor$Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor$Modifier, values, $ModuleDescriptor$ModifierArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.module.ModuleDescriptor$Modifier", "java.lang.module.ModuleDescriptor", "Modifier", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.module.ModuleDescriptor$Modifier",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/module/ModuleDescriptor$Modifier;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.module.ModuleDescriptor"
+	};
+	$loadClass(ModuleDescriptor$Modifier, name, initialize, &classInfo$$, ModuleDescriptor$Modifier::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ModuleDescriptor$Modifier));
+	});
 	return class$;
 }
 

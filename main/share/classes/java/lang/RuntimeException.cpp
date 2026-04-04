@@ -1,5 +1,4 @@
 #include <java/lang/RuntimeException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,33 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _RuntimeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(RuntimeException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RuntimeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimeException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RuntimeException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RuntimeException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PROTECTED, $method(RuntimeException, init$, void, $String*, $Throwable*, bool, bool)},
-	{}
-};
-
-$ClassInfo _RuntimeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.RuntimeException",
-	"java.lang.Exception",
-	nullptr,
-	_RuntimeException_FieldInfo_,
-	_RuntimeException_MethodInfo_
-};
-
-$Object* allocate$RuntimeException($Class* clazz) {
-	return $of($alloc(RuntimeException));
-}
 
 void RuntimeException::init$() {
 	$Exception::init$();
@@ -68,7 +40,29 @@ void RuntimeException::throw$() {
 }
 
 $Class* RuntimeException::load$($String* name, bool initialize) {
-	$loadClass(RuntimeException, name, initialize, &_RuntimeException_ClassInfo_, allocate$RuntimeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(RuntimeException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimeException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RuntimeException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RuntimeException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PROTECTED, $method(RuntimeException, init$, void, $String*, $Throwable*, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.RuntimeException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RuntimeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RuntimeException);
+	});
 	return class$;
 }
 

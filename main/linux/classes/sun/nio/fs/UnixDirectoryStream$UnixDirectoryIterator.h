@@ -29,6 +29,7 @@ class UnixDirectoryStream$UnixDirectoryIterator : public ::java::util::Iterator 
 	$class(UnixDirectoryStream$UnixDirectoryIterator, 0, ::java::util::Iterator)
 public:
 	UnixDirectoryStream$UnixDirectoryIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::UnixDirectoryStream* this$0);
 	virtual bool hasNext() override;
 	bool isSelfOrParent($bytes* nameAsBytes);

@@ -1,5 +1,4 @@
 #include <GroupOfOne$2.h>
-
 #include <GroupOfOne.h>
 #include <java/lang/Runnable.h>
 #include <jcpp.h>
@@ -9,43 +8,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-
-$MethodInfo _GroupOfOne$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GroupOfOne$2, init$, void)},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(GroupOfOne$2, newThread, $Thread*, $Runnable*)},
-	{}
-};
-
-$EnclosingMethodInfo _GroupOfOne$2_EnclosingMethodInfo_ = {
-	"GroupOfOne",
-	"test",
-	"(Ljava/net/SocketAddress;ZZ)V"
-};
-
-$InnerClassInfo _GroupOfOne$2_InnerClassesInfo_[] = {
-	{"GroupOfOne$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GroupOfOne$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"GroupOfOne$2",
-	"java.lang.Object",
-	"java.util.concurrent.ThreadFactory",
-	nullptr,
-	_GroupOfOne$2_MethodInfo_,
-	nullptr,
-	&_GroupOfOne$2_EnclosingMethodInfo_,
-	_GroupOfOne$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GroupOfOne"
-};
-
-$Object* allocate$GroupOfOne$2($Class* clazz) {
-	return $of($alloc(GroupOfOne$2));
-}
 
 void GroupOfOne$2::init$() {
 }
@@ -58,7 +20,38 @@ GroupOfOne$2::GroupOfOne$2() {
 }
 
 $Class* GroupOfOne$2::load$($String* name, bool initialize) {
-	$loadClass(GroupOfOne$2, name, initialize, &_GroupOfOne$2_ClassInfo_, allocate$GroupOfOne$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GroupOfOne$2, init$, void)},
+		{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(GroupOfOne$2, newThread, $Thread*, $Runnable*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"GroupOfOne",
+		"test",
+		"(Ljava/net/SocketAddress;ZZ)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GroupOfOne$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GroupOfOne$2",
+		"java.lang.Object",
+		"java.util.concurrent.ThreadFactory",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GroupOfOne"
+	};
+	$loadClass(GroupOfOne$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GroupOfOne$2);
+	});
 	return class$;
 }
 

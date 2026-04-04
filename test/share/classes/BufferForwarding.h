@@ -18,6 +18,7 @@ class $export BufferForwarding : public ::java::lang::Object {
 	$class(BufferForwarding, 0, ::java::lang::Object)
 public:
 	BufferForwarding();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void appendCharSequence();
 	virtual void assertEquals($String* actual, $String* expected);

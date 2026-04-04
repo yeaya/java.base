@@ -1,5 +1,4 @@
 #include <jdk/internal/math/FormattedFloatingDecimal.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/lang/ThreadLocal.h>
@@ -31,56 +30,6 @@ namespace jdk {
 	namespace internal {
 		namespace math {
 
-$FieldInfo _FormattedFloatingDecimal_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FormattedFloatingDecimal, $assertionsDisabled)},
-	{"decExponentRounded", "I", nullptr, $PRIVATE, $field(FormattedFloatingDecimal, decExponentRounded)},
-	{"mantissa", "[C", nullptr, $PRIVATE, $field(FormattedFloatingDecimal, mantissa)},
-	{"exponent", "[C", nullptr, $PRIVATE, $field(FormattedFloatingDecimal, exponent)},
-	{"threadLocalCharBuffer", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FormattedFloatingDecimal, threadLocalCharBuffer)},
-	{}
-};
-
-$MethodInfo _FormattedFloatingDecimal_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/math/FormattedFloatingDecimal$Form;Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, init$, void, int32_t, $FormattedFloatingDecimal$Form*, $FloatingDecimal$BinaryToASCIIConverter*)},
-	{"applyPrecision", "(I[CII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FormattedFloatingDecimal, applyPrecision, int32_t, int32_t, $chars*, int32_t, int32_t)},
-	{"create", "(ZI)[C", nullptr, $PRIVATE | $STATIC, $staticMethod(FormattedFloatingDecimal, create, $chars*, bool, int32_t)},
-	{"fillCompatible", "(I[CIIZ)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, fillCompatible, void, int32_t, $chars*, int32_t, int32_t, bool)},
-	{"fillDecimal", "(I[CIIZ)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, fillDecimal, void, int32_t, $chars*, int32_t, int32_t, bool)},
-	{"fillScientific", "(I[CIIZ)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, fillScientific, void, int32_t, $chars*, int32_t, int32_t, bool)},
-	{"getBuffer", "()[C", nullptr, $PRIVATE | $STATIC, $staticMethod(FormattedFloatingDecimal, getBuffer, $chars*)},
-	{"getExponent", "()[C", nullptr, $PUBLIC, $virtualMethod(FormattedFloatingDecimal, getExponent, $chars*)},
-	{"getExponentRounded", "()I", nullptr, $PUBLIC, $virtualMethod(FormattedFloatingDecimal, getExponentRounded, int32_t)},
-	{"getMantissa", "()[C", nullptr, $PUBLIC, $virtualMethod(FormattedFloatingDecimal, getMantissa, $chars*)},
-	{"valueOf", "(DILjdk/internal/math/FormattedFloatingDecimal$Form;)Ljdk/internal/math/FormattedFloatingDecimal;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormattedFloatingDecimal, valueOf, FormattedFloatingDecimal*, double, int32_t, $FormattedFloatingDecimal$Form*)},
-	{}
-};
-
-$InnerClassInfo _FormattedFloatingDecimal_InnerClassesInfo_[] = {
-	{"jdk.internal.math.FormattedFloatingDecimal$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"jdk.internal.math.FormattedFloatingDecimal$Form", "jdk.internal.math.FormattedFloatingDecimal", "Form", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"jdk.internal.math.FormattedFloatingDecimal$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FormattedFloatingDecimal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.math.FormattedFloatingDecimal",
-	"java.lang.Object",
-	nullptr,
-	_FormattedFloatingDecimal_FieldInfo_,
-	_FormattedFloatingDecimal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FormattedFloatingDecimal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.math.FormattedFloatingDecimal$2,jdk.internal.math.FormattedFloatingDecimal$Form,jdk.internal.math.FormattedFloatingDecimal$1"
-};
-
-$Object* allocate$FormattedFloatingDecimal($Class* clazz) {
-	return $of($alloc(FormattedFloatingDecimal));
-}
-
 bool FormattedFloatingDecimal::$assertionsDisabled = false;
 $ThreadLocal* FormattedFloatingDecimal::threadLocalCharBuffer = nullptr;
 
@@ -93,62 +42,52 @@ FormattedFloatingDecimal* FormattedFloatingDecimal::valueOf(double d, int32_t pr
 
 $chars* FormattedFloatingDecimal::getBuffer() {
 	$init(FormattedFloatingDecimal);
-	return $cast($chars, $nc(FormattedFloatingDecimal::threadLocalCharBuffer)->get());
+	return $cast($chars, FormattedFloatingDecimal::threadLocalCharBuffer->get());
 }
 
 void FormattedFloatingDecimal::init$(int32_t precision, $FormattedFloatingDecimal$Form* form, $FloatingDecimal$BinaryToASCIIConverter* fdConverter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(fdConverter)->isExceptional()) {
-		$set(this, mantissa, $nc($(fdConverter->toJavaFormatString()))->toCharArray());
+		$set(this, mantissa, $$nc(fdConverter->toJavaFormatString())->toCharArray());
 		$set(this, exponent, nullptr);
 		return;
 	}
 	$var($chars, digits, getBuffer());
-	int32_t nDigits = $nc(fdConverter)->getDigits(digits);
+	int32_t nDigits = fdConverter->getDigits(digits);
 	int32_t decExp = fdConverter->getDecimalExponent();
 	int32_t exp = 0;
 	bool isNegative = fdConverter->isNegative();
 	$init($FormattedFloatingDecimal$2);
 	switch ($nc($FormattedFloatingDecimal$2::$SwitchMap$jdk$internal$math$FormattedFloatingDecimal$Form)->get($nc((form))->ordinal())) {
 	case 1:
-		{
-			exp = decExp;
-			this->decExponentRounded = exp;
-			fillCompatible(precision, digits, nDigits, exp, isNegative);
-			break;
-		}
+		exp = decExp;
+		this->decExponentRounded = exp;
+		fillCompatible(precision, digits, nDigits, exp, isNegative);
+		break;
 	case 2:
-		{
-			exp = applyPrecision(decExp, digits, nDigits, decExp + precision);
-			fillDecimal(precision, digits, nDigits, exp, isNegative);
-			this->decExponentRounded = exp;
-			break;
-		}
+		exp = applyPrecision(decExp, digits, nDigits, decExp + precision);
+		fillDecimal(precision, digits, nDigits, exp, isNegative);
+		this->decExponentRounded = exp;
+		break;
 	case 3:
-		{
-			exp = applyPrecision(decExp, digits, nDigits, precision + 1);
-			fillScientific(precision, digits, nDigits, exp, isNegative);
-			this->decExponentRounded = exp;
-			break;
-		}
+		exp = applyPrecision(decExp, digits, nDigits, precision + 1);
+		fillScientific(precision, digits, nDigits, exp, isNegative);
+		this->decExponentRounded = exp;
+		break;
 	case 4:
-		{
-			exp = applyPrecision(decExp, digits, nDigits, precision);
-			if (exp - 1 < -4 || exp - 1 >= precision) {
-				--precision;
-				fillScientific(precision, digits, nDigits, exp, isNegative);
-			} else {
-				precision = precision - exp;
-				fillDecimal(precision, digits, nDigits, exp, isNegative);
-			}
-			this->decExponentRounded = exp;
-			break;
+		exp = applyPrecision(decExp, digits, nDigits, precision);
+		if (exp - 1 < -4 || exp - 1 >= precision) {
+			--precision;
+			fillScientific(precision, digits, nDigits, exp, isNegative);
+		} else {
+			precision = precision - exp;
+			fillDecimal(precision, digits, nDigits, exp, isNegative);
 		}
+		this->decExponentRounded = exp;
+		break;
 	default:
-		{
-			if (!FormattedFloatingDecimal::$assertionsDisabled) {
-				$throwNew($AssertionError);
-			}
+		if (!FormattedFloatingDecimal::$assertionsDisabled) {
+			$throwNew($AssertionError);
 		}
 	}
 }
@@ -211,7 +150,7 @@ void FormattedFloatingDecimal::fillCompatible(int32_t precision, $chars* digits,
 			$System::arraycopy(digits, 0, this->mantissa, startIndex, nDigits);
 			$Arrays::fill(this->mantissa, startIndex + nDigits, startIndex + nDigits + extraZeros, u'0');
 			$nc(this->mantissa)->set(startIndex + nDigits + extraZeros, u'.');
-			$nc(this->mantissa)->set(startIndex + nDigits + extraZeros + 1, u'0');
+			this->mantissa->set(startIndex + nDigits + extraZeros + 1, u'0');
 		} else if (exp < nDigits) {
 			int32_t t = $Math::min(nDigits - exp, precision);
 			$set(this, mantissa, create(isNegative, exp + 1 + t));
@@ -222,7 +161,7 @@ void FormattedFloatingDecimal::fillCompatible(int32_t precision, $chars* digits,
 			$set(this, mantissa, create(isNegative, nDigits + 2));
 			$System::arraycopy(digits, 0, this->mantissa, startIndex, nDigits);
 			$nc(this->mantissa)->set(startIndex + nDigits, u'.');
-			$nc(this->mantissa)->set(startIndex + nDigits + 1, u'0');
+			this->mantissa->set(startIndex + nDigits + 1, u'0');
 		}
 	} else if (exp <= 0 && exp > -3) {
 		int32_t zeros = $Math::max(0, $Math::min(-exp, precision));
@@ -230,7 +169,7 @@ void FormattedFloatingDecimal::fillCompatible(int32_t precision, $chars* digits,
 		if (zeros > 0) {
 			$set(this, mantissa, create(isNegative, zeros + 2 + t));
 			$nc(this->mantissa)->set(startIndex, u'0');
-			$nc(this->mantissa)->set(startIndex + 1, u'.');
+			this->mantissa->set(startIndex + 1, u'.');
 			$Arrays::fill(this->mantissa, startIndex + 2, startIndex + 2 + zeros, u'0');
 			if (t > 0) {
 				$System::arraycopy(digits, 0, this->mantissa, startIndex + 2 + zeros, t);
@@ -238,7 +177,7 @@ void FormattedFloatingDecimal::fillCompatible(int32_t precision, $chars* digits,
 		} else if (t > 0) {
 			$set(this, mantissa, create(isNegative, zeros + 2 + t));
 			$nc(this->mantissa)->set(startIndex, u'0');
-			$nc(this->mantissa)->set(startIndex + 1, u'.');
+			this->mantissa->set(startIndex + 1, u'.');
 			$System::arraycopy(digits, 0, this->mantissa, startIndex + 2, t);
 		} else {
 			$set(this, mantissa, create(isNegative, 1));
@@ -248,13 +187,13 @@ void FormattedFloatingDecimal::fillCompatible(int32_t precision, $chars* digits,
 		if (nDigits > 1) {
 			$set(this, mantissa, create(isNegative, nDigits + 1));
 			$nc(this->mantissa)->set(startIndex, $nc(digits)->get(0));
-			$nc(this->mantissa)->set(startIndex + 1, u'.');
+			this->mantissa->set(startIndex + 1, u'.');
 			$System::arraycopy(digits, 1, this->mantissa, startIndex + 2, nDigits - 1);
 		} else {
 			$set(this, mantissa, create(isNegative, 3));
 			$nc(this->mantissa)->set(startIndex, $nc(digits)->get(0));
-			$nc(this->mantissa)->set(startIndex + 1, u'.');
-			$nc(this->mantissa)->set(startIndex + 2, u'0');
+			this->mantissa->set(startIndex + 1, u'.');
+			this->mantissa->set(startIndex + 2, u'0');
 		}
 		int32_t e = 0;
 		int32_t expStartIntex = 0;
@@ -272,13 +211,13 @@ void FormattedFloatingDecimal::fillCompatible(int32_t precision, $chars* digits,
 		} else if (e <= 99) {
 			$set(this, exponent, create(isNegExp, 2));
 			$nc(this->exponent)->set(expStartIntex, (char16_t)(e / 10 + u'0'));
-			$nc(this->exponent)->set(expStartIntex + 1, (char16_t)(e % 10 + u'0'));
+			this->exponent->set(expStartIntex + 1, (char16_t)(e % 10 + u'0'));
 		} else {
 			$set(this, exponent, create(isNegExp, 3));
 			$nc(this->exponent)->set(expStartIntex, (char16_t)(e / 100 + u'0'));
 			$modAssign(e, 100);
-			$nc(this->exponent)->set(expStartIntex + 1, (char16_t)(e / 10 + u'0'));
-			$nc(this->exponent)->set(expStartIntex + 2, (char16_t)(e % 10 + u'0'));
+			this->exponent->set(expStartIntex + 1, (char16_t)(e / 10 + u'0'));
+			this->exponent->set(expStartIntex + 2, (char16_t)(e % 10 + u'0'));
 		}
 	}
 }
@@ -316,7 +255,7 @@ void FormattedFloatingDecimal::fillDecimal(int32_t precision, $chars* digits, in
 		if (zeros > 0) {
 			$set(this, mantissa, create(isNegative, zeros + 2 + t));
 			$nc(this->mantissa)->set(startIndex, u'0');
-			$nc(this->mantissa)->set(startIndex + 1, u'.');
+			this->mantissa->set(startIndex + 1, u'.');
 			$Arrays::fill(this->mantissa, startIndex + 2, startIndex + 2 + zeros, u'0');
 			if (t > 0) {
 				$System::arraycopy(digits, 0, this->mantissa, startIndex + 2 + zeros, t);
@@ -324,7 +263,7 @@ void FormattedFloatingDecimal::fillDecimal(int32_t precision, $chars* digits, in
 		} else if (t > 0) {
 			$set(this, mantissa, create(isNegative, zeros + 2 + t));
 			$nc(this->mantissa)->set(startIndex, u'0');
-			$nc(this->mantissa)->set(startIndex + 1, u'.');
+			this->mantissa->set(startIndex + 1, u'.');
 			$System::arraycopy(digits, 0, this->mantissa, startIndex + 2, t);
 		} else {
 			$set(this, mantissa, create(isNegative, 1));
@@ -339,7 +278,7 @@ void FormattedFloatingDecimal::fillScientific(int32_t precision, $chars* digits,
 	if (t > 0) {
 		$set(this, mantissa, create(isNegative, t + 2));
 		$nc(this->mantissa)->set(startIndex, $nc(digits)->get(0));
-		$nc(this->mantissa)->set(startIndex + 1, u'.');
+		this->mantissa->set(startIndex + 1, u'.');
 		$System::arraycopy(digits, 1, this->mantissa, startIndex + 2, t);
 	} else {
 		$set(this, mantissa, create(isNegative, 1));
@@ -378,7 +317,7 @@ void FormattedFloatingDecimal::fillScientific(int32_t precision, $chars* digits,
 	}
 }
 
-void clinit$FormattedFloatingDecimal($Class* class$) {
+void FormattedFloatingDecimal::clinit$($Class* clazz) {
 	FormattedFloatingDecimal::$assertionsDisabled = !FormattedFloatingDecimal::class$->desiredAssertionStatus();
 	$assignStatic(FormattedFloatingDecimal::threadLocalCharBuffer, $new($FormattedFloatingDecimal$1));
 }
@@ -387,7 +326,51 @@ FormattedFloatingDecimal::FormattedFloatingDecimal() {
 }
 
 $Class* FormattedFloatingDecimal::load$($String* name, bool initialize) {
-	$loadClass(FormattedFloatingDecimal, name, initialize, &_FormattedFloatingDecimal_ClassInfo_, clinit$FormattedFloatingDecimal, allocate$FormattedFloatingDecimal);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FormattedFloatingDecimal, $assertionsDisabled)},
+		{"decExponentRounded", "I", nullptr, $PRIVATE, $field(FormattedFloatingDecimal, decExponentRounded)},
+		{"mantissa", "[C", nullptr, $PRIVATE, $field(FormattedFloatingDecimal, mantissa)},
+		{"exponent", "[C", nullptr, $PRIVATE, $field(FormattedFloatingDecimal, exponent)},
+		{"threadLocalCharBuffer", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FormattedFloatingDecimal, threadLocalCharBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjdk/internal/math/FormattedFloatingDecimal$Form;Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, init$, void, int32_t, $FormattedFloatingDecimal$Form*, $FloatingDecimal$BinaryToASCIIConverter*)},
+		{"applyPrecision", "(I[CII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FormattedFloatingDecimal, applyPrecision, int32_t, int32_t, $chars*, int32_t, int32_t)},
+		{"create", "(ZI)[C", nullptr, $PRIVATE | $STATIC, $staticMethod(FormattedFloatingDecimal, create, $chars*, bool, int32_t)},
+		{"fillCompatible", "(I[CIIZ)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, fillCompatible, void, int32_t, $chars*, int32_t, int32_t, bool)},
+		{"fillDecimal", "(I[CIIZ)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, fillDecimal, void, int32_t, $chars*, int32_t, int32_t, bool)},
+		{"fillScientific", "(I[CIIZ)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, fillScientific, void, int32_t, $chars*, int32_t, int32_t, bool)},
+		{"getBuffer", "()[C", nullptr, $PRIVATE | $STATIC, $staticMethod(FormattedFloatingDecimal, getBuffer, $chars*)},
+		{"getExponent", "()[C", nullptr, $PUBLIC, $virtualMethod(FormattedFloatingDecimal, getExponent, $chars*)},
+		{"getExponentRounded", "()I", nullptr, $PUBLIC, $virtualMethod(FormattedFloatingDecimal, getExponentRounded, int32_t)},
+		{"getMantissa", "()[C", nullptr, $PUBLIC, $virtualMethod(FormattedFloatingDecimal, getMantissa, $chars*)},
+		{"valueOf", "(DILjdk/internal/math/FormattedFloatingDecimal$Form;)Ljdk/internal/math/FormattedFloatingDecimal;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormattedFloatingDecimal, valueOf, FormattedFloatingDecimal*, double, int32_t, $FormattedFloatingDecimal$Form*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.math.FormattedFloatingDecimal$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"jdk.internal.math.FormattedFloatingDecimal$Form", "jdk.internal.math.FormattedFloatingDecimal", "Form", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"jdk.internal.math.FormattedFloatingDecimal$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.math.FormattedFloatingDecimal",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.math.FormattedFloatingDecimal$2,jdk.internal.math.FormattedFloatingDecimal$Form,jdk.internal.math.FormattedFloatingDecimal$1"
+	};
+	$loadClass(FormattedFloatingDecimal, name, initialize, &classInfo$$, FormattedFloatingDecimal::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FormattedFloatingDecimal);
+	});
 	return class$;
 }
 

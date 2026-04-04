@@ -19,6 +19,7 @@ class $export FinalizeOverride : public ::java::lang::Object {
 	$class(FinalizeOverride, 0, ::java::lang::Object)
 public:
 	FinalizeOverride();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* argvs);
 	static void patchPrivateFinalize();

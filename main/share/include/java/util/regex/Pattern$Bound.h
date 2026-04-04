@@ -35,6 +35,7 @@ class $import Pattern$Bound : public ::java::util::regex::Pattern$Node {
 	$class(Pattern$Bound, 0, ::java::util::regex::Pattern$Node)
 public:
 	Pattern$Bound();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t n, bool useUWORD);
 	int32_t check(::java::util::regex::Matcher* matcher, int32_t i, ::java::lang::CharSequence* seq);
 	bool isWord(int32_t ch);

@@ -143,7 +143,7 @@ public:
 	static const int32_t HOUR1_FIELD = 15;
 	static const int32_t HOUR0_FIELD = 16;
 	static const int32_t TIMEZONE_FIELD = 17;
-	static const int64_t serialVersionUID = (int64_t)0x642CA1E4C22615FC;
+	static const int64_t serialVersionUID = (int64_t)0x642ca1e4c22615fc;
 	static const int32_t FULL = 0;
 	static const int32_t LONG = 1;
 	static const int32_t MEDIUM = 2;

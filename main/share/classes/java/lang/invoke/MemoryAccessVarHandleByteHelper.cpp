@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MemoryAccessVarHandleByteHelper.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/invoke/MemoryAccessVarHandleBase.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
@@ -37,112 +36,10 @@ using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
 using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_checkAddress2[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_convEndian3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_get4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_getAcquire5[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_getOpaque6[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_getVolatile7[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_offset8[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_offsetNoVMAlignCheck9[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_set10[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_setOpaque11[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_setRelease12[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleByteHelper_MethodAnnotations_setVolatile13[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _MemoryAccessVarHandleByteHelper_FieldInfo_[] = {
-	{"BE", "Z", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleByteHelper, BE)},
-	{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleByteHelper, SCOPED_MEMORY_ACCESS)},
-	{"VM_ALIGN", "I", nullptr, $STATIC | $FINAL, $constField(MemoryAccessVarHandleByteHelper, VM_ALIGN)},
-	{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleByteHelper, FORM)},
-	{}
-};
-
-$MethodInfo _MemoryAccessVarHandleByteHelper_MethodInfo_[] = {
-	{"<init>", "(ZZJJZ)V", nullptr, 0, $method(MemoryAccessVarHandleByteHelper, init$, void, bool, bool, int64_t, int64_t, bool)},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(MemoryAccessVarHandleByteHelper, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
-	{"checkAddress", "(Ljava/lang/Object;JJZ)Ljdk/internal/access/foreign/MemorySegmentProxy;", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, checkAddress, $MemorySegmentProxy*, Object$*, int64_t, int64_t, bool), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_checkAddress2},
-	{"convEndian", "(ZB)B", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, convEndian, int8_t, bool, int8_t), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_convEndian3},
-	{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)B", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, get, int8_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_get4},
-	{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)B", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, getAcquire, int8_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_getAcquire5},
-	{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)B", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, getOpaque, int8_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_getOpaque6},
-	{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)B", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, getVolatile, int8_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_getVolatile7},
-	{"offset", "(ZLjdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, offset, int64_t, bool, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_offset8},
-	{"offsetNoVMAlignCheck", "(ZLjdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, offsetNoVMAlignCheck, int64_t, bool, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_offsetNoVMAlignCheck9},
-	{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JB)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, set, void, $VarHandle*, Object$*, int64_t, int8_t), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_set10},
-	{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JB)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, setOpaque, void, $VarHandle*, Object$*, int64_t, int8_t), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_setOpaque11},
-	{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JB)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, setRelease, void, $VarHandle*, Object$*, int64_t, int8_t), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_setRelease12},
-	{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JB)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, setVolatile, void, $VarHandle*, Object$*, int64_t, int8_t), nullptr, nullptr, _MemoryAccessVarHandleByteHelper_MethodAnnotations_setVolatile13},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/MemoryAccessVarHandleByteHelper;", nullptr, $PUBLIC, $virtualMethod(MemoryAccessVarHandleByteHelper, withInvokeBehavior, MemoryAccessVarHandleByteHelper*)},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/MemoryAccessVarHandleByteHelper;", nullptr, $PUBLIC, $virtualMethod(MemoryAccessVarHandleByteHelper, withInvokeExactBehavior, MemoryAccessVarHandleByteHelper*)},
-	{}
-};
-
-$ClassInfo _MemoryAccessVarHandleByteHelper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.MemoryAccessVarHandleByteHelper",
-	"java.lang.invoke.MemoryAccessVarHandleBase",
-	nullptr,
-	_MemoryAccessVarHandleByteHelper_FieldInfo_,
-	_MemoryAccessVarHandleByteHelper_MethodInfo_
-};
-
-$Object* allocate$MemoryAccessVarHandleByteHelper($Class* clazz) {
-	return $of($alloc(MemoryAccessVarHandleByteHelper));
-}
 
 bool MemoryAccessVarHandleByteHelper::BE = false;
 $ScopedMemoryAccess* MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS = nullptr;
@@ -154,8 +51,6 @@ void MemoryAccessVarHandleByteHelper::init$(bool skipAlignmentMaskCheck, bool be
 
 $MethodType* MemoryAccessVarHandleByteHelper::accessModeTypeUncached($VarHandle$AccessType* accessType) {
 	$load($MemorySegmentProxy);
-	$init($Byte);
-	$init($Long);
 	return $nc(accessType)->accessModeType($MemorySegmentProxy::class$, $Byte::TYPE, $$new($ClassArray, {$Long::TYPE}));
 }
 
@@ -182,7 +77,7 @@ $MemorySegmentProxy* MemoryAccessVarHandleByteHelper::checkAddress(Object$* obb,
 int64_t MemoryAccessVarHandleByteHelper::offset(bool skipAlignmentMaskCheck, $MemorySegmentProxy* bb, int64_t offset, int64_t alignmentMask) {
 	$init(MemoryAccessVarHandleByteHelper);
 	int64_t address = offsetNoVMAlignCheck(skipAlignmentMaskCheck, bb, offset, alignmentMask);
-	if (((int64_t)(address & (uint64_t)(int64_t)MemoryAccessVarHandleByteHelper::VM_ALIGN)) != 0) {
+	if ((address & MemoryAccessVarHandleByteHelper::VM_ALIGN) != 0) {
 		$throw($($MemoryAccessVarHandleBase::newIllegalStateExceptionForMisalignedAccess(address)));
 	}
 	return address;
@@ -190,14 +85,14 @@ int64_t MemoryAccessVarHandleByteHelper::offset(bool skipAlignmentMaskCheck, $Me
 
 int64_t MemoryAccessVarHandleByteHelper::offsetNoVMAlignCheck(bool skipAlignmentMaskCheck, $MemorySegmentProxy* bb, int64_t offset, int64_t alignmentMask) {
 	$init(MemoryAccessVarHandleByteHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t base = $nc(bb)->unsafeGetOffset();
 	int64_t address = base + offset;
 	if (skipAlignmentMaskCheck) {
-		if (((int64_t)(base & (uint64_t)alignmentMask)) != 0) {
+		if ((base & alignmentMask) != 0) {
 			$throw($($MemoryAccessVarHandleBase::newIllegalStateExceptionForMisalignedAccess(address)));
 		}
-	} else if (((int64_t)(address & (uint64_t)alignmentMask)) != 0) {
+	} else if ((address & alignmentMask) != 0) {
 		$throw($($MemoryAccessVarHandleBase::newIllegalStateExceptionForMisalignedAccess(address)));
 	}
 	return address;
@@ -205,94 +100,92 @@ int64_t MemoryAccessVarHandleByteHelper::offsetNoVMAlignCheck(bool skipAlignment
 
 int8_t MemoryAccessVarHandleByteHelper::get($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleByteHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	return $nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->getByte(var$0, var$1, offsetNoVMAlignCheck($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask));
+	return $nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->getByte(var$0, var$1, offsetNoVMAlignCheck(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask));
 }
 
 void MemoryAccessVarHandleByteHelper::set($VarHandle* ob, Object$* obb, int64_t base, int8_t value) {
 	$init(MemoryAccessVarHandleByteHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	$nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->putByte(var$0, var$1, offsetNoVMAlignCheck($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value);
+	$nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->putByte(var$0, var$1, offsetNoVMAlignCheck(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value);
 }
 
 int8_t MemoryAccessVarHandleByteHelper::getVolatile($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleByteHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->getByteVolatile(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->getByteVolatile(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
 }
 
 void MemoryAccessVarHandleByteHelper::setVolatile($VarHandle* ob, Object$* obb, int64_t base, int8_t value) {
 	$init(MemoryAccessVarHandleByteHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	int64_t var$2 = offset($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	$nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->putByteVolatile(var$0, var$1, var$2, convEndian($nc(handle)->be, value));
+	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
+	$nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->putByteVolatile(var$0, var$1, var$2, convEndian(handle->be, value));
 }
 
 int8_t MemoryAccessVarHandleByteHelper::getAcquire($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleByteHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->getByteAcquire(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->getByteAcquire(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
 }
 
 void MemoryAccessVarHandleByteHelper::setRelease($VarHandle* ob, Object$* obb, int64_t base, int8_t value) {
 	$init(MemoryAccessVarHandleByteHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	int64_t var$2 = offset($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	$nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->putByteRelease(var$0, var$1, var$2, convEndian($nc(handle)->be, value));
+	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
+	$nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->putByteRelease(var$0, var$1, var$2, convEndian(handle->be, value));
 }
 
 int8_t MemoryAccessVarHandleByteHelper::getOpaque($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleByteHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->getByteOpaque(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->getByteOpaque(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
 }
 
 void MemoryAccessVarHandleByteHelper::setOpaque($VarHandle* ob, Object$* obb, int64_t base, int8_t value) {
 	$init(MemoryAccessVarHandleByteHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	int64_t var$2 = offset($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	$nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->putByteOpaque(var$0, var$1, var$2, convEndian($nc(handle)->be, value));
+	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
+	$nc(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS)->putByteOpaque(var$0, var$1, var$2, convEndian(handle->be, value));
 }
 
-void clinit$MemoryAccessVarHandleByteHelper($Class* class$) {
+void MemoryAccessVarHandleByteHelper::clinit$($Class* clazz) {
 	$init($MethodHandleStatics);
 	MemoryAccessVarHandleByteHelper::BE = $nc($MethodHandleStatics::UNSAFE)->isBigEndian();
 	$assignStatic(MemoryAccessVarHandleByteHelper::SCOPED_MEMORY_ACCESS, $ScopedMemoryAccess::getScopedMemoryAccess());
 	$load($MemorySegmentProxy);
-	$init($Byte);
-	$init($Long);
 	$assignStatic(MemoryAccessVarHandleByteHelper::FORM, $new($VarForm, MemoryAccessVarHandleByteHelper::class$, $MemorySegmentProxy::class$, $Byte::TYPE, $$new($ClassArray, {$Long::TYPE})));
 }
 
@@ -300,7 +193,91 @@ MemoryAccessVarHandleByteHelper::MemoryAccessVarHandleByteHelper() {
 }
 
 $Class* MemoryAccessVarHandleByteHelper::load$($String* name, bool initialize) {
-	$loadClass(MemoryAccessVarHandleByteHelper, name, initialize, &_MemoryAccessVarHandleByteHelper_ClassInfo_, clinit$MemoryAccessVarHandleByteHelper, allocate$MemoryAccessVarHandleByteHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"BE", "Z", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleByteHelper, BE)},
+		{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleByteHelper, SCOPED_MEMORY_ACCESS)},
+		{"VM_ALIGN", "I", nullptr, $STATIC | $FINAL, $constField(MemoryAccessVarHandleByteHelper, VM_ALIGN)},
+		{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleByteHelper, FORM)},
+		{}
+	};
+	$CompoundAttribute checkAddressmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute convEndianmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute offsetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute offsetNoVMAlignCheckmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZZJJZ)V", nullptr, 0, $method(MemoryAccessVarHandleByteHelper, init$, void, bool, bool, int64_t, int64_t, bool)},
+		{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(MemoryAccessVarHandleByteHelper, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+		{"checkAddress", "(Ljava/lang/Object;JJZ)Ljdk/internal/access/foreign/MemorySegmentProxy;", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, checkAddress, $MemorySegmentProxy*, Object$*, int64_t, int64_t, bool), nullptr, nullptr, checkAddressmethodAnnotations$$},
+		{"convEndian", "(ZB)B", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, convEndian, int8_t, bool, int8_t), nullptr, nullptr, convEndianmethodAnnotations$$},
+		{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)B", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, get, int8_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, getmethodAnnotations$$},
+		{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)B", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, getAcquire, int8_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, getAcquiremethodAnnotations$$},
+		{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)B", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, getOpaque, int8_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, getOpaquemethodAnnotations$$},
+		{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)B", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, getVolatile, int8_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, getVolatilemethodAnnotations$$},
+		{"offset", "(ZLjdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, offset, int64_t, bool, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, offsetmethodAnnotations$$},
+		{"offsetNoVMAlignCheck", "(ZLjdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, offsetNoVMAlignCheck, int64_t, bool, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, offsetNoVMAlignCheckmethodAnnotations$$},
+		{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JB)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, set, void, $VarHandle*, Object$*, int64_t, int8_t), nullptr, nullptr, setmethodAnnotations$$},
+		{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JB)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, setOpaque, void, $VarHandle*, Object$*, int64_t, int8_t), nullptr, nullptr, setOpaquemethodAnnotations$$},
+		{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JB)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, setRelease, void, $VarHandle*, Object$*, int64_t, int8_t), nullptr, nullptr, setReleasemethodAnnotations$$},
+		{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JB)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleByteHelper, setVolatile, void, $VarHandle*, Object$*, int64_t, int8_t), nullptr, nullptr, setVolatilemethodAnnotations$$},
+		{"withInvokeBehavior", "()Ljava/lang/invoke/MemoryAccessVarHandleByteHelper;", nullptr, $PUBLIC, $virtualMethod(MemoryAccessVarHandleByteHelper, withInvokeBehavior, MemoryAccessVarHandleByteHelper*)},
+		{"withInvokeExactBehavior", "()Ljava/lang/invoke/MemoryAccessVarHandleByteHelper;", nullptr, $PUBLIC, $virtualMethod(MemoryAccessVarHandleByteHelper, withInvokeExactBehavior, MemoryAccessVarHandleByteHelper*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.MemoryAccessVarHandleByteHelper",
+		"java.lang.invoke.MemoryAccessVarHandleBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MemoryAccessVarHandleByteHelper, name, initialize, &classInfo$$, MemoryAccessVarHandleByteHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryAccessVarHandleByteHelper);
+	});
 	return class$;
 }
 

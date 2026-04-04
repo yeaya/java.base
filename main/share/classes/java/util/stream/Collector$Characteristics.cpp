@@ -1,5 +1,4 @@
 #include <java/util/stream/Collector$Characteristics.h>
-
 #include <java/lang/Enum.h>
 #include <java/util/stream/Collector.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Collector$Characteristics_FieldInfo_[] = {
-	{"CONCURRENT", "Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Collector$Characteristics, CONCURRENT)},
-	{"UNORDERED", "Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Collector$Characteristics, UNORDERED)},
-	{"IDENTITY_FINISH", "Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Collector$Characteristics, IDENTITY_FINISH)},
-	{"$VALUES", "[Ljava/util/stream/Collector$Characteristics;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Collector$Characteristics, $VALUES)},
-	{}
-};
-
-$MethodInfo _Collector$Characteristics_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/stream/Collector$Characteristics;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collector$Characteristics, $values, $Collector$CharacteristicsArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Collector$Characteristics, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC, $staticMethod(Collector$Characteristics, valueOf, Collector$Characteristics*, $String*)},
-	{"values", "()[Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC, $staticMethod(Collector$Characteristics, values, $Collector$CharacteristicsArray*)},
-	{}
-};
-
-$InnerClassInfo _Collector$Characteristics_InnerClassesInfo_[] = {
-	{"java.util.stream.Collector$Characteristics", "java.util.stream.Collector", "Characteristics", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Collector$Characteristics_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.util.stream.Collector$Characteristics",
-	"java.lang.Enum",
-	nullptr,
-	_Collector$Characteristics_FieldInfo_,
-	_Collector$Characteristics_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/util/stream/Collector$Characteristics;>;",
-	nullptr,
-	_Collector$Characteristics_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Collector"
-};
-
-$Object* allocate$Collector$Characteristics($Class* clazz) {
-	return $of($alloc(Collector$Characteristics));
-}
 
 Collector$Characteristics* Collector$Characteristics::CONCURRENT = nullptr;
 Collector$Characteristics* Collector$Characteristics::UNORDERED = nullptr;
@@ -88,7 +46,7 @@ void Collector$Characteristics::init$($String* $enum$name, int32_t $enum$ordinal
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Collector$Characteristics($Class* class$) {
+void Collector$Characteristics::clinit$($Class* clazz) {
 	$assignStatic(Collector$Characteristics::CONCURRENT, $new(Collector$Characteristics, "CONCURRENT"_s, 0));
 	$assignStatic(Collector$Characteristics::UNORDERED, $new(Collector$Characteristics, "UNORDERED"_s, 1));
 	$assignStatic(Collector$Characteristics::IDENTITY_FINISH, $new(Collector$Characteristics, "IDENTITY_FINISH"_s, 2));
@@ -99,7 +57,42 @@ Collector$Characteristics::Collector$Characteristics() {
 }
 
 $Class* Collector$Characteristics::load$($String* name, bool initialize) {
-	$loadClass(Collector$Characteristics, name, initialize, &_Collector$Characteristics_ClassInfo_, clinit$Collector$Characteristics, allocate$Collector$Characteristics);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONCURRENT", "Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Collector$Characteristics, CONCURRENT)},
+		{"UNORDERED", "Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Collector$Characteristics, UNORDERED)},
+		{"IDENTITY_FINISH", "Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Collector$Characteristics, IDENTITY_FINISH)},
+		{"$VALUES", "[Ljava/util/stream/Collector$Characteristics;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Collector$Characteristics, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/util/stream/Collector$Characteristics;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collector$Characteristics, $values, $Collector$CharacteristicsArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Collector$Characteristics, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC, $staticMethod(Collector$Characteristics, valueOf, Collector$Characteristics*, $String*)},
+		{"values", "()[Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC, $staticMethod(Collector$Characteristics, values, $Collector$CharacteristicsArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Collector$Characteristics", "java.util.stream.Collector", "Characteristics", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.util.stream.Collector$Characteristics",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/util/stream/Collector$Characteristics;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Collector"
+	};
+	$loadClass(Collector$Characteristics, name, initialize, &classInfo$$, Collector$Characteristics::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collector$Characteristics));
+	});
 	return class$;
 }
 

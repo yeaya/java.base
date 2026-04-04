@@ -1,5 +1,4 @@
 #include <java/util/Comparators$NullComparator.h>
-
 #include <java/util/Comparator.h>
 #include <java/util/Comparators.h>
 #include <java/util/Objects.h>
@@ -14,51 +13,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Comparators$NullComparator_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Comparators$NullComparator, serialVersionUID)},
-	{"nullFirst", "Z", nullptr, $PRIVATE | $FINAL, $field(Comparators$NullComparator, nullFirst)},
-	{"real", "Ljava/util/Comparator;", "Ljava/util/Comparator<TT;>;", $PRIVATE | $FINAL, $field(Comparators$NullComparator, real)},
-	{}
-};
-
-$MethodInfo _Comparators$NullComparator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ZLjava/util/Comparator;)V", "(ZLjava/util/Comparator<-TT;>;)V", 0, $method(Comparators$NullComparator, init$, void, bool, $Comparator*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", "(TT;TT;)I", $PUBLIC, $virtualMethod(Comparators$NullComparator, compare, int32_t, Object$*, Object$*)},
-	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparators$NullComparator, reversed, $Comparator*)},
-	{"thenComparing", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparators$NullComparator, thenComparing, $Comparator*, $Comparator*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Comparators$NullComparator_InnerClassesInfo_[] = {
-	{"java.util.Comparators$NullComparator", "java.util.Comparators", "NullComparator", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Comparators$NullComparator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.Comparators$NullComparator",
-	"java.lang.Object",
-	"java.util.Comparator,java.io.Serializable",
-	_Comparators$NullComparator_FieldInfo_,
-	_Comparators$NullComparator_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Comparator<TT;>;Ljava/io/Serializable;",
-	nullptr,
-	_Comparators$NullComparator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Comparators"
-};
-
-$Object* allocate$Comparators$NullComparator($Class* clazz) {
-	return $of($alloc(Comparators$NullComparator));
-}
 
 bool Comparators$NullComparator::equals(Object$* obj) {
 	 return this->$Comparator::equals(obj);
@@ -91,24 +45,63 @@ int32_t Comparators$NullComparator::compare(Object$* a, Object$* b) {
 	} else if (b == nullptr) {
 		return this->nullFirst ? 1 : -1;
 	} else {
-		return (this->real == nullptr) ? 0 : $nc(this->real)->compare(a, b);
+		return (this->real == nullptr) ? 0 : this->real->compare(a, b);
 	}
 }
 
 $Comparator* Comparators$NullComparator::thenComparing($Comparator* other) {
 	$Objects::requireNonNull(other);
-	return $new(Comparators$NullComparator, this->nullFirst, this->real == nullptr ? other : $($nc(this->real)->thenComparing(other)));
+	return $new(Comparators$NullComparator, this->nullFirst, this->real == nullptr ? other : $(this->real->thenComparing(other)));
 }
 
 $Comparator* Comparators$NullComparator::reversed() {
-	return $new(Comparators$NullComparator, !this->nullFirst, this->real == nullptr ? ($Comparator*)nullptr : $($nc(this->real)->reversed()));
+	return $new(Comparators$NullComparator, !this->nullFirst, this->real == nullptr ? ($Comparator*)nullptr : $(this->real->reversed()));
 }
 
 Comparators$NullComparator::Comparators$NullComparator() {
 }
 
 $Class* Comparators$NullComparator::load$($String* name, bool initialize) {
-	$loadClass(Comparators$NullComparator, name, initialize, &_Comparators$NullComparator_ClassInfo_, allocate$Comparators$NullComparator);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Comparators$NullComparator, serialVersionUID)},
+		{"nullFirst", "Z", nullptr, $PRIVATE | $FINAL, $field(Comparators$NullComparator, nullFirst)},
+		{"real", "Ljava/util/Comparator;", "Ljava/util/Comparator<TT;>;", $PRIVATE | $FINAL, $field(Comparators$NullComparator, real)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ZLjava/util/Comparator;)V", "(ZLjava/util/Comparator<-TT;>;)V", 0, $method(Comparators$NullComparator, init$, void, bool, $Comparator*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", "(TT;TT;)I", $PUBLIC, $virtualMethod(Comparators$NullComparator, compare, int32_t, Object$*, Object$*)},
+		{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparators$NullComparator, reversed, $Comparator*)},
+		{"thenComparing", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparators$NullComparator, thenComparing, $Comparator*, $Comparator*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Comparators$NullComparator", "java.util.Comparators", "NullComparator", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.Comparators$NullComparator",
+		"java.lang.Object",
+		"java.util.Comparator,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Comparator<TT;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Comparators"
+	};
+	$loadClass(Comparators$NullComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Comparators$NullComparator));
+	});
 	return class$;
 }
 

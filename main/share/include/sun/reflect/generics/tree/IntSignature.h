@@ -24,6 +24,7 @@ class $import IntSignature : public ::sun::reflect::generics::tree::BaseType {
 	$class(IntSignature, 0, ::sun::reflect::generics::tree::BaseType)
 public:
 	IntSignature();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void accept(::sun::reflect::generics::visitor::TypeTreeVisitor* v) override;
 	static ::sun::reflect::generics::tree::IntSignature* make();

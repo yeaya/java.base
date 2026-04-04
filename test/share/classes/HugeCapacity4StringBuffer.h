@@ -9,6 +9,7 @@ class $export HugeCapacity4StringBuffer : public ::java::lang::Object {
 	$class(HugeCapacity4StringBuffer, 0, ::java::lang::Object)
 public:
 	HugeCapacity4StringBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void testHugeInitialCharSequence();

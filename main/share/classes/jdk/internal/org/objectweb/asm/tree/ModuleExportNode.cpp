@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/ModuleExportNode.h>
-
 #include <java/util/List.h>
 #include <jdk/internal/org/objectweb/asm/ModuleVisitor.h>
 #include <jcpp.h>
@@ -17,32 +16,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 
-$FieldInfo _ModuleExportNode_FieldInfo_[] = {
-	{"packaze", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleExportNode, packaze)},
-	{"access", "I", nullptr, $PUBLIC, $field(ModuleExportNode, access)},
-	{"modules", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleExportNode, modules)},
-	{}
-};
-
-$MethodInfo _ModuleExportNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/util/List;)V", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ModuleExportNode, init$, void, $String*, int32_t, $List*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleExportNode, accept, void, $ModuleVisitor*)},
-	{}
-};
-
-$ClassInfo _ModuleExportNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.ModuleExportNode",
-	"java.lang.Object",
-	nullptr,
-	_ModuleExportNode_FieldInfo_,
-	_ModuleExportNode_MethodInfo_
-};
-
-$Object* allocate$ModuleExportNode($Class* clazz) {
-	return $of($alloc(ModuleExportNode));
-}
-
 void ModuleExportNode::init$($String* packaze, int32_t access, $List* modules) {
 	$set(this, packaze, packaze);
 	this->access = access;
@@ -50,15 +23,36 @@ void ModuleExportNode::init$($String* packaze, int32_t access, $List* modules) {
 }
 
 void ModuleExportNode::accept($ModuleVisitor* moduleVisitor) {
-	$useLocalCurrentObjectStackCache();
-	$nc(moduleVisitor)->visitExport(this->packaze, this->access, this->modules == nullptr ? ($StringArray*)nullptr : $fcast($StringArray, $($nc(this->modules)->toArray($$new($StringArray, 0)))));
+	$useLocalObjectStack();
+	$nc(moduleVisitor)->visitExport(this->packaze, this->access, this->modules == nullptr ? ($StringArray*)nullptr : $$cast($StringArray, this->modules->toArray($$new($StringArray, 0))));
 }
 
 ModuleExportNode::ModuleExportNode() {
 }
 
 $Class* ModuleExportNode::load$($String* name, bool initialize) {
-	$loadClass(ModuleExportNode, name, initialize, &_ModuleExportNode_ClassInfo_, allocate$ModuleExportNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"packaze", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleExportNode, packaze)},
+		{"access", "I", nullptr, $PUBLIC, $field(ModuleExportNode, access)},
+		{"modules", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleExportNode, modules)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/util/List;)V", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ModuleExportNode, init$, void, $String*, int32_t, $List*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleExportNode, accept, void, $ModuleVisitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.ModuleExportNode",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleExportNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleExportNode);
+	});
 	return class$;
 }
 

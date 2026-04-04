@@ -1,5 +1,4 @@
 #include <MapAssertions.h>
-
 #include <java/io/File.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/nio/MappedByteBuffer.h>
@@ -17,30 +16,11 @@ using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 
-$MethodInfo _MapAssertions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MapAssertions, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MapAssertions, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _MapAssertions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MapAssertions",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MapAssertions_MethodInfo_
-};
-
-$Object* allocate$MapAssertions($Class* clazz) {
-	return $of($alloc(MapAssertions));
-}
-
 void MapAssertions::init$() {
 }
 
 void MapAssertions::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($RandomAccessFile, raf, $new($RandomAccessFile, blah, "r"_s));
@@ -56,7 +36,22 @@ MapAssertions::MapAssertions() {
 }
 
 $Class* MapAssertions::load$($String* name, bool initialize) {
-	$loadClass(MapAssertions, name, initialize, &_MapAssertions_ClassInfo_, allocate$MapAssertions);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MapAssertions, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MapAssertions, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MapAssertions",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MapAssertions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MapAssertions);
+	});
 	return class$;
 }
 

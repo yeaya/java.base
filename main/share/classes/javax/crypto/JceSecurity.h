@@ -57,6 +57,7 @@ class JceSecurity : public ::java::lang::Object {
 	$class(JceSecurity, 0, ::java::lang::Object)
 public:
 	JceSecurity();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool canUseProvider(::java::security::Provider* p);
 	static ::java::net::URL* getCodeBase($Class* clazz);

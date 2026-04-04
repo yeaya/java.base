@@ -1,5 +1,4 @@
 #include <java/util/concurrent/PriorityBlockingQueue.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
@@ -78,13 +77,11 @@ using $Helpers = ::java::util::concurrent::Helpers;
 using $PriorityBlockingQueue$Itr = ::java::util::concurrent::PriorityBlockingQueue$Itr;
 using $PriorityBlockingQueue$PBQSpliterator = ::java::util::concurrent::PriorityBlockingQueue$PBQSpliterator;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $Condition = ::java::util::concurrent::locks::Condition;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
 using $Predicate = ::java::util::function::Predicate;
 using $Stream = ::java::util::stream::Stream;
-using $JavaObjectInputStreamAccess = ::jdk::internal::access::JavaObjectInputStreamAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $ArraysSupport = ::jdk::internal::util::ArraysSupport;
 
@@ -101,33 +98,29 @@ public:
 	virtual bool test(Object$* e) override {
 		 return PriorityBlockingQueue::lambda$removeAll$0(c, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PriorityBlockingQueue$$Lambda$lambda$removeAll$0>());
-	}
 	$Collection* c = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PriorityBlockingQueue$$Lambda$lambda$removeAll$0::fieldInfos[2] = {
-	{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(PriorityBlockingQueue$$Lambda$lambda$removeAll$0, c)},
-	{}
-};
-$MethodInfo PriorityBlockingQueue$$Lambda$lambda$removeAll$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(PriorityBlockingQueue$$Lambda$lambda$removeAll$0, init$, void, $Collection*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$$Lambda$lambda$removeAll$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo PriorityBlockingQueue$$Lambda$lambda$removeAll$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.concurrent.PriorityBlockingQueue$$Lambda$lambda$removeAll$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* PriorityBlockingQueue$$Lambda$lambda$removeAll$0::load$($String* name, bool initialize) {
-	$loadClass(PriorityBlockingQueue$$Lambda$lambda$removeAll$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(PriorityBlockingQueue$$Lambda$lambda$removeAll$0, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(PriorityBlockingQueue$$Lambda$lambda$removeAll$0, init$, void, $Collection*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$$Lambda$lambda$removeAll$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.concurrent.PriorityBlockingQueue$$Lambda$lambda$removeAll$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PriorityBlockingQueue$$Lambda$lambda$removeAll$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PriorityBlockingQueue$$Lambda$lambda$removeAll$0);
+	});
 	return class$;
 }
 $Class* PriorityBlockingQueue$$Lambda$lambda$removeAll$0::class$ = nullptr;
@@ -141,139 +134,32 @@ public:
 	virtual bool test(Object$* e) override {
 		 return PriorityBlockingQueue::lambda$retainAll$1(c, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1>());
-	}
 	$Collection* c = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1::fieldInfos[2] = {
-	{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1, c)},
-	{}
-};
-$MethodInfo PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1, init$, void, $Collection*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.concurrent.PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1::load$($String* name, bool initialize) {
-	$loadClass(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1, init$, void, $Collection*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.concurrent.PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1);
+	});
 	return class$;
 }
 $Class* PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
-
-$FieldInfo _PriorityBlockingQueue_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PriorityBlockingQueue, serialVersionUID)},
-	{"DEFAULT_INITIAL_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PriorityBlockingQueue, DEFAULT_INITIAL_CAPACITY)},
-	{"queue", "[Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(PriorityBlockingQueue, queue)},
-	{"size", "I", nullptr, $PRIVATE | $TRANSIENT, $field(PriorityBlockingQueue, size$)},
-	{"comparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<-TE;>;", $PRIVATE | $TRANSIENT, $field(PriorityBlockingQueue, comparator$)},
-	{"lock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(PriorityBlockingQueue, lock)},
-	{"notEmpty", "Ljava/util/concurrent/locks/Condition;", nullptr, $PRIVATE | $FINAL, $field(PriorityBlockingQueue, notEmpty)},
-	{"allocationSpinLock", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(PriorityBlockingQueue, allocationSpinLock)},
-	{"q", "Ljava/util/PriorityQueue;", "Ljava/util/PriorityQueue<TE;>;", $PRIVATE, $field(PriorityBlockingQueue, q)},
-	{"ALLOCATIONSPINLOCK", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PriorityBlockingQueue, ALLOCATIONSPINLOCK)},
-	{}
-};
-
-$MethodInfo _PriorityBlockingQueue_MethodInfo_[] = {
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*element", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PriorityBlockingQueue, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(PriorityBlockingQueue, init$, void, int32_t)},
-	{"<init>", "(ILjava/util/Comparator;)V", "(ILjava/util/Comparator<-TE;>;)V", $PUBLIC, $method(PriorityBlockingQueue, init$, void, int32_t, $Comparator*)},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(PriorityBlockingQueue, init$, void, $Collection*)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, add, bool, Object$*)},
-	{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(PriorityBlockingQueue, bulkRemove, bool, $Predicate*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, clear, void)},
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, comparator, $Comparator*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, contains, bool, Object$*)},
-	{"dequeue", "()Ljava/lang/Object;", "()TE;", $PRIVATE, $method(PriorityBlockingQueue, dequeue, $Object*)},
-	{"drainTo", "(Ljava/util/Collection;)I", "(Ljava/util/Collection<-TE;>;)I", $PUBLIC, $virtualMethod(PriorityBlockingQueue, drainTo, int32_t, $Collection*)},
-	{"drainTo", "(Ljava/util/Collection;I)I", "(Ljava/util/Collection<-TE;>;I)I", $PUBLIC, $virtualMethod(PriorityBlockingQueue, drainTo, int32_t, $Collection*, int32_t)},
-	{"ensureNonEmpty", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, ensureNonEmpty, $ObjectArray*, $ObjectArray*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(PriorityBlockingQueue, forEach, void, $Consumer*)},
-	{"heapify", "()V", nullptr, $PRIVATE, $method(PriorityBlockingQueue, heapify, void)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(PriorityBlockingQueue, indexOf, int32_t, Object$*)},
-	{"isClear", "([JI)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, isClear, bool, $longs*, int32_t)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, iterator, $Iterator*)},
-	{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PriorityBlockingQueue, lambda$removeAll$0, bool, $Collection*, Object$*)},
-	{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PriorityBlockingQueue, lambda$retainAll$1, bool, $Collection*, Object$*)},
-	{"nBits", "(I)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, nBits, $longs*, int32_t)},
-	{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, offer, bool, Object$*)},
-	{"offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, offer, bool, Object$*, int64_t, $TimeUnit*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, peek, $Object*)},
-	{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, poll, $Object*)},
-	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, poll, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"put", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(PriorityBlockingQueue, put, void, Object$*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PriorityBlockingQueue, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remainingCapacity", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, remainingCapacity, int32_t)},
-	{"*remove", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, removeAll, bool, $Collection*)},
-	{"removeAt", "(I)V", nullptr, $PRIVATE, $method(PriorityBlockingQueue, removeAt, void, int32_t)},
-	{"removeEq", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(PriorityBlockingQueue, removeEq, void, Object$*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, removeIf, bool, $Predicate*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, retainAll, bool, $Collection*)},
-	{"setBit", "([JI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, setBit, void, $longs*, int32_t)},
-	{"siftDownComparable", "(ILjava/lang/Object;[Ljava/lang/Object;I)V", "<T:Ljava/lang/Object;>(ITT;[Ljava/lang/Object;I)V", $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, siftDownComparable, void, int32_t, Object$*, $ObjectArray*, int32_t)},
-	{"siftDownUsingComparator", "(ILjava/lang/Object;[Ljava/lang/Object;ILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>(ITT;[Ljava/lang/Object;ILjava/util/Comparator<-TT;>;)V", $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, siftDownUsingComparator, void, int32_t, Object$*, $ObjectArray*, int32_t, $Comparator*)},
-	{"siftUpComparable", "(ILjava/lang/Object;[Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(ITT;[Ljava/lang/Object;)V", $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, siftUpComparable, void, int32_t, Object$*, $ObjectArray*)},
-	{"siftUpUsingComparator", "(ILjava/lang/Object;[Ljava/lang/Object;Ljava/util/Comparator;)V", "<T:Ljava/lang/Object;>(ITT;[Ljava/lang/Object;Ljava/util/Comparator<-TT;>;)V", $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, siftUpUsingComparator, void, int32_t, Object$*, $ObjectArray*, $Comparator*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, spliterator, $Spliterator*)},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"take", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, take, $Object*), "java.lang.InterruptedException"},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, toString, $String*)},
-	{"tryGrow", "([Ljava/lang/Object;I)V", nullptr, $PRIVATE, $method(PriorityBlockingQueue, tryGrow, void, $ObjectArray*, int32_t)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(PriorityBlockingQueue, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _PriorityBlockingQueue_InnerClassesInfo_[] = {
-	{"java.util.concurrent.PriorityBlockingQueue$PBQSpliterator", "java.util.concurrent.PriorityBlockingQueue", "PBQSpliterator", $FINAL},
-	{"java.util.concurrent.PriorityBlockingQueue$Itr", "java.util.concurrent.PriorityBlockingQueue", "Itr", $FINAL},
-	{}
-};
-
-$ClassInfo _PriorityBlockingQueue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.PriorityBlockingQueue",
-	"java.util.AbstractQueue",
-	"java.util.concurrent.BlockingQueue,java.io.Serializable",
-	_PriorityBlockingQueue_FieldInfo_,
-	_PriorityBlockingQueue_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractQueue<TE;>;Ljava/util/concurrent/BlockingQueue<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_PriorityBlockingQueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.PriorityBlockingQueue$PBQSpliterator,java.util.concurrent.PriorityBlockingQueue$Itr"
-};
-
-$Object* allocate$PriorityBlockingQueue($Class* clazz) {
-	return $of($alloc(PriorityBlockingQueue));
-}
 
 $Object* PriorityBlockingQueue::remove() {
 	 return this->$AbstractQueue::remove();
@@ -336,7 +222,7 @@ void PriorityBlockingQueue::init$(int32_t initialCapacity) {
 void PriorityBlockingQueue::init$(int32_t initialCapacity, $Comparator* comparator) {
 	$AbstractQueue::init$();
 	$set(this, lock, $new($ReentrantLock));
-	$set(this, notEmpty, $nc(this->lock)->newCondition());
+	$set(this, notEmpty, this->lock->newCondition());
 	if (initialCapacity < 1) {
 		$throwNew($IllegalArgumentException);
 	}
@@ -345,19 +231,19 @@ void PriorityBlockingQueue::init$(int32_t initialCapacity, $Comparator* comparat
 }
 
 void PriorityBlockingQueue::init$($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractQueue::init$();
 	$set(this, lock, $new($ReentrantLock));
-	$set(this, notEmpty, $nc(this->lock)->newCondition());
+	$set(this, notEmpty, this->lock->newCondition());
 	bool heapify = true;
 	bool screen = true;
 	if ($instanceOf($SortedSet, c)) {
 		$var($SortedSet, ss, $cast($SortedSet, c));
-		$set(this, comparator$, $nc(ss)->comparator());
+		$set(this, comparator$, ss->comparator());
 		heapify = false;
 	} else if ($instanceOf(PriorityBlockingQueue, c)) {
 		$var(PriorityBlockingQueue, pq, $cast(PriorityBlockingQueue, c));
-		$set(this, comparator$, $nc(pq)->comparator());
+		$set(this, comparator$, pq->comparator());
 		screen = false;
 		if ($of(pq)->getClass() == PriorityBlockingQueue::class$) {
 			heapify = false;
@@ -367,19 +253,14 @@ void PriorityBlockingQueue::init$($Collection* c) {
 	int32_t n = $nc(es)->length;
 	$load($ArrayList);
 	if ($of(c)->getClass() != $ArrayList::class$) {
-		$load($ObjectArray);
 		$assign(es, $Arrays::copyOf(es, n, $getClass($ObjectArray)));
 	}
 	if (screen && (n == 1 || this->comparator$ != nullptr)) {
-		{
-			$var($ObjectArray, arr$, es);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Object0, e, arr$->get(i$));
-				if (e == nullptr) {
-					$throwNew($NullPointerException);
-				}
+		$var($ObjectArray, arr$, es);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Object0, e, arr$->get(i$));
+			if (e == nullptr) {
+				$throwNew($NullPointerException);
 			}
 		}
 	}
@@ -396,32 +277,30 @@ $ObjectArray* PriorityBlockingQueue::ensureNonEmpty($ObjectArray* es) {
 }
 
 void PriorityBlockingQueue::tryGrow($ObjectArray* array, int32_t oldCap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->lock)->unlock();
 	$var($ObjectArray, newArray, nullptr);
-	if (this->allocationSpinLock == 0 && $nc(PriorityBlockingQueue::ALLOCATIONSPINLOCK)->compareAndSet($$new($ObjectArray, {$of(this), $$of(0), $$of(1)}))) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				int32_t growth = (oldCap < 64) ? (oldCap + 2) : (oldCap >> 1);
-				int32_t newCap = $ArraysSupport::newLength(oldCap, 1, growth);
-				if (this->queue == array) {
-					$assign(newArray, $new($ObjectArray, newCap));
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->allocationSpinLock = 0;
+	if (this->allocationSpinLock == 0 && $nc(PriorityBlockingQueue::ALLOCATIONSPINLOCK)->compareAndSet($$new($ObjectArray, {this, $$of(0), $$of(1)}))) {
+		$var($Throwable, var$0, nullptr);
+		try {
+			int32_t growth = (oldCap < 64) ? (oldCap + 2) : (oldCap >> 1);
+			int32_t newCap = $ArraysSupport::newLength(oldCap, 1, growth);
+			if (this->queue == array) {
+				$assign(newArray, $new($ObjectArray, newCap));
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->allocationSpinLock = 0;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if (newArray == nullptr) {
 		$Thread::yield();
 	}
-	$nc(this->lock)->lock();
+	this->lock->lock();
 	if (newArray != nullptr && this->queue == array) {
 		$set(this, queue, newArray);
 		$System::arraycopy(array, 0, newArray, 0, oldCap);
@@ -429,7 +308,7 @@ void PriorityBlockingQueue::tryGrow($ObjectArray* array, int32_t oldCap) {
 }
 
 $Object* PriorityBlockingQueue::dequeue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, es, nullptr);
 	$var($Object, result, nullptr);
 	if (($assign(result, ($nc(($assign(es, this->queue)))->get(0)))) != nullptr) {
@@ -445,12 +324,12 @@ $Object* PriorityBlockingQueue::dequeue() {
 			}
 		}
 	}
-	return $of(result);
+	return result;
 }
 
 void PriorityBlockingQueue::siftUpComparable(int32_t k, Object$* x, $ObjectArray* es) {
 	$init(PriorityBlockingQueue);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Comparable, key, $cast($Comparable, x));
 	while (k > 0) {
 		int32_t parent = (int32_t)((uint32_t)(k - 1) >> 1);
@@ -466,7 +345,7 @@ void PriorityBlockingQueue::siftUpComparable(int32_t k, Object$* x, $ObjectArray
 
 void PriorityBlockingQueue::siftUpUsingComparator(int32_t k, Object$* x, $ObjectArray* es, $Comparator* cmp) {
 	$init(PriorityBlockingQueue);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (k > 0) {
 		int32_t parent = (int32_t)((uint32_t)(k - 1) >> 1);
 		$var($Object0, e, $nc(es)->get(parent));
@@ -481,14 +360,14 @@ void PriorityBlockingQueue::siftUpUsingComparator(int32_t k, Object$* x, $Object
 
 void PriorityBlockingQueue::siftDownComparable(int32_t k, Object$* x, $ObjectArray* es, int32_t n) {
 	$init(PriorityBlockingQueue);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Comparable, key, $cast($Comparable, x));
 	int32_t half = (int32_t)((uint32_t)n >> 1);
 	while (k < half) {
 		int32_t child = (k << 1) + 1;
 		$var($Object, c, $nc(es)->get(child));
 		int32_t right = child + 1;
-		if (right < n && $nc(($cast($Comparable, c)))->compareTo(es->get(right)) > 0) {
+		if (right < n && $nc($cast($Comparable, c))->compareTo(es->get(right)) > 0) {
 			$assign(c, es->get(child = right));
 		}
 		if ($nc(key)->compareTo(c) <= 0) {
@@ -502,7 +381,7 @@ void PriorityBlockingQueue::siftDownComparable(int32_t k, Object$* x, $ObjectArr
 
 void PriorityBlockingQueue::siftDownUsingComparator(int32_t k, Object$* x, $ObjectArray* es, int32_t n, $Comparator* cmp) {
 	$init(PriorityBlockingQueue);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t half = (int32_t)((uint32_t)n >> 1);
 	while (k < half) {
 		int32_t child = (k << 1) + 1;
@@ -521,7 +400,7 @@ void PriorityBlockingQueue::siftDownUsingComparator(int32_t k, Object$* x, $Obje
 }
 
 void PriorityBlockingQueue::heapify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, es, this->queue);
 	int32_t n = this->size$;
 	int32_t i = ((int32_t)((uint32_t)n >> 1)) - 1;
@@ -542,7 +421,7 @@ bool PriorityBlockingQueue::add(Object$* e) {
 }
 
 bool PriorityBlockingQueue::offer(Object$* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -554,25 +433,23 @@ bool PriorityBlockingQueue::offer(Object$* e) {
 	while ((n = this->size$) >= (cap = $nc(($assign(es, this->queue)))->length)) {
 		tryGrow(es, cap);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Comparator, cmp, nullptr);
-			if (($assign(cmp, this->comparator$)) == nullptr) {
-				siftUpComparable(n, e, es);
-			} else {
-				siftUpUsingComparator(n, e, es, cmp);
-			}
-			this->size$ = n + 1;
-			$nc(this->notEmpty)->signal();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Comparator, cmp, nullptr);
+		if (($assign(cmp, this->comparator$)) == nullptr) {
+			siftUpComparable(n, e, es);
+		} else {
+			siftUpUsingComparator(n, e, es, cmp);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		this->size$ = n + 1;
+		$nc(this->notEmpty)->signal();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return true;
 }
@@ -586,102 +463,94 @@ bool PriorityBlockingQueue::offer(Object$* e, int64_t timeout, $TimeUnit* unit) 
 }
 
 $Object* PriorityBlockingQueue::poll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, dequeue());
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, dequeue());
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Object* PriorityBlockingQueue::take() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
 	$var($Object, result, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while (($assign(result, dequeue())) == nullptr) {
-				$nc(this->notEmpty)->await();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		while (($assign(result, dequeue())) == nullptr) {
+			$nc(this->notEmpty)->await();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
 	}
-	return $of(result);
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	return result;
 }
 
 $Object* PriorityBlockingQueue::poll(int64_t timeout, $TimeUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
 	$var($Object, result, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while (($assign(result, dequeue())) == nullptr && nanos > 0) {
-				nanos = $nc(this->notEmpty)->awaitNanos(nanos);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		while (($assign(result, dequeue())) == nullptr && nanos > 0) {
+			nanos = $nc(this->notEmpty)->awaitNanos(nanos);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
 	}
-	return $of(result);
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	return result;
 }
 
 $Object* PriorityBlockingQueue::peek() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $nc(this->queue)->get(0));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(this->queue)->get(0));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -691,28 +560,26 @@ $Comparator* PriorityBlockingQueue::comparator() {
 }
 
 int32_t PriorityBlockingQueue::size() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			var$2 = this->size$;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		var$2 = this->size$;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -724,13 +591,9 @@ int32_t PriorityBlockingQueue::remainingCapacity() {
 int32_t PriorityBlockingQueue::indexOf(Object$* o) {
 	if (o != nullptr) {
 		$var($ObjectArray, es, this->queue);
-		{
-			int32_t i = 0;
-			int32_t n = this->size$;
-			for (; i < n; ++i) {
-				if ($of(o)->equals($nc(es)->get(i))) {
-					return i;
-				}
+		for (int32_t i = 0, n = this->size$; i < n; ++i) {
+			if ($of(o)->equals($nc(es)->get(i))) {
+				return i;
 			}
 		}
 	}
@@ -738,7 +601,7 @@ int32_t PriorityBlockingQueue::indexOf(Object$* o) {
 }
 
 void PriorityBlockingQueue::removeAt(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, es, this->queue);
 	int32_t n = this->size$ - 1;
 	if (n == i) {
@@ -764,97 +627,87 @@ void PriorityBlockingQueue::removeAt(int32_t i) {
 }
 
 bool PriorityBlockingQueue::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			int32_t i = indexOf(o);
-			if (i == -1) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-			removeAt(i);
-			var$2 = true;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		int32_t i = indexOf(o);
+		if (i == -1) {
+			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		removeAt(i);
+		var$2 = true;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void PriorityBlockingQueue::removeEq(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($ObjectArray, es, this->queue);
-			{
-				int32_t i = 0;
-				int32_t n = this->size$;
-				for (; i < n; ++i) {
-					if ($equals(o, $nc(es)->get(i))) {
-						removeAt(i);
-						break;
-					}
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($ObjectArray, es, this->queue);
+		for (int32_t i = 0, n = this->size$; i < n; ++i) {
+			if ($equals(o, $nc(es)->get(i))) {
+				removeAt(i);
+				break;
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 bool PriorityBlockingQueue::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = indexOf(o) != -1;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = indexOf(o) != -1;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $String* PriorityBlockingQueue::toString() {
-	return $Helpers::collectionToString(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractQueue*>(this))));
+	return $Helpers::collectionToString($cast($AbstractCollection, this));
 }
 
 int32_t PriorityBlockingQueue::drainTo($Collection* c) {
@@ -862,7 +715,7 @@ int32_t PriorityBlockingQueue::drainTo($Collection* c) {
 }
 
 int32_t PriorityBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(c);
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
@@ -872,121 +725,109 @@ int32_t PriorityBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
 	}
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int32_t n = $Math::min(this->size$, maxElements);
-			for (int32_t i = 0; i < n; ++i) {
-				c->add($nc(this->queue)->get(0));
-				dequeue();
-			}
-			var$2 = n;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int32_t n = $Math::min(this->size$, maxElements);
+		for (int32_t i = 0; i < n; ++i) {
+			c->add($nc(this->queue)->get(0));
+			dequeue();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = n;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void PriorityBlockingQueue::clear() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($ObjectArray, es, this->queue);
-			{
-				int32_t i = 0;
-				int32_t n = this->size$;
-				for (; i < n; ++i) {
-					$nc(es)->set(i, nullptr);
-				}
-			}
-			this->size$ = 0;
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($ObjectArray, es, this->queue);
+		for (int32_t i = 0, n = this->size$; i < n; ++i) {
+			$nc(es)->set(i, nullptr);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		this->size$ = 0;
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $ObjectArray* PriorityBlockingQueue::toArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($ObjectArray, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $Arrays::copyOf(this->queue, this->size$));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($ObjectArray, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $Arrays::copyOf(this->queue, this->size$));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $ObjectArray* PriorityBlockingQueue::toArray($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($ObjectArray, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			int32_t n = this->size$;
-			if ($nc(a)->length < n) {
-				$assign(var$2, $Arrays::copyOf(this->queue, this->size$, $of(a)->getClass()));
-				return$1 = true;
-				goto $finally;
-			}
-			$System::arraycopy(this->queue, 0, a, 0, n);
-			if ($nc(a)->length > n) {
-				a->set(n, nullptr);
-			}
-			$assign(var$2, a);
+	$var($Throwable, var$0, nullptr);
+	$var($ObjectArray, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		int32_t n = this->size$;
+		if ($nc(a)->length < n) {
+			$assign(var$2, $Arrays::copyOf(this->queue, this->size$, $of(a)->getClass()));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$System::arraycopy(this->queue, 0, a, 0, n);
+		if (a->length > n) {
+			a->set(n, nullptr);
 		}
-		if (return$1) {
-			return var$2;
-		}
+		$assign(var$2, a);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -997,44 +838,39 @@ $Iterator* PriorityBlockingQueue::iterator() {
 
 void PriorityBlockingQueue::writeObject($ObjectOutputStream* s) {
 	$nc(this->lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, q, $new($PriorityQueue, $Math::max(this->size$, 1), this->comparator$));
-			$nc(this->q)->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractQueue*>(this))));
-			$nc(s)->defaultWriteObject();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, q, nullptr);
-			$nc(this->lock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, q, $new($PriorityQueue, $Math::max(this->size$, 1), this->comparator$));
+		this->q->addAll($cast($AbstractCollection, this));
+		$nc(s)->defaultWriteObject();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, q, nullptr);
+		this->lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void PriorityBlockingQueue::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(s)->defaultReadObject();
-			int32_t sz = $nc(this->q)->size();
-			$load($ObjectArray);
-			$nc($($SharedSecrets::getJavaObjectInputStreamAccess()))->checkArray(s, $getClass($ObjectArray), sz);
-			$set(this, queue, $new($ObjectArray, $Math::max(1, sz)));
-			$set(this, comparator$, $nc(this->q)->comparator());
-			addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractQueue*>(this->q))));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, q, nullptr);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(s)->defaultReadObject();
+		int32_t sz = $nc(this->q)->size();
+		$$nc($SharedSecrets::getJavaObjectInputStreamAccess())->checkArray(s, $getClass($ObjectArray), sz);
+		$set(this, queue, $new($ObjectArray, $Math::max(1, sz)));
+		$set(this, comparator$, $nc(this->q)->comparator());
+		addAll($cast($AbstractCollection, this->q));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, q, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -1049,12 +885,12 @@ bool PriorityBlockingQueue::removeIf($Predicate* filter) {
 
 bool PriorityBlockingQueue::removeAll($Collection* c) {
 	$Objects::requireNonNull(c);
-	return bulkRemove(static_cast<$Predicate*>($$new(PriorityBlockingQueue$$Lambda$lambda$removeAll$0, c)));
+	return bulkRemove($$new(PriorityBlockingQueue$$Lambda$lambda$removeAll$0, c));
 }
 
 bool PriorityBlockingQueue::retainAll($Collection* c) {
 	$Objects::requireNonNull(c);
-	return bulkRemove(static_cast<$Predicate*>($$new(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1, c)));
+	return bulkRemove($$new(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1, c));
 }
 
 $longs* PriorityBlockingQueue::nBits(int32_t n) {
@@ -1069,88 +905,81 @@ void PriorityBlockingQueue::setBit($longs* bits, int32_t i) {
 
 bool PriorityBlockingQueue::isClear($longs* bits, int32_t i) {
 	$init(PriorityBlockingQueue);
-	return ((int64_t)($nc(bits)->get(i >> 6) & (uint64_t)($sl((int64_t)1, i)))) == 0;
+	return ($nc(bits)->get(i >> 6) & ($sl((int64_t)1, i))) == 0;
 }
 
 bool PriorityBlockingQueue::bulkRemove($Predicate* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			$var($ObjectArray, es, this->queue);
-			int32_t end = this->size$;
-			int32_t i = 0;
-			for (i = 0; i < end && !$nc(filter)->test($nc(es)->get(i)); ++i) {
-			}
-			if (i >= end) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-			int32_t beg = i;
-			$var($longs, deathRow, nBits(end - beg));
-			$nc(deathRow)->set(0, 1);
-			for (i = beg + 1; i < end; ++i) {
-				if ($nc(filter)->test($nc(es)->get(i))) {
-					setBit(deathRow, i - beg);
-				}
-			}
-			int32_t w = beg;
-			for (i = beg; i < end; ++i) {
-				if (isClear(deathRow, i - beg)) {
-					$nc(es)->set(w++, es->get(i));
-				}
-			}
-			for (i = (this->size$ = w); i < end; ++i) {
-				$nc(es)->set(i, nullptr);
-			}
-			heapify();
-			var$2 = true;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$var($ObjectArray, es, this->queue);
+		int32_t end = this->size$;
+		int32_t i = 0;
+		for (i = 0; i < end && !$nc(filter)->test($nc(es)->get(i)); ++i) {
+			;
+		}
+		if (i >= end) {
+			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		int32_t beg = i;
+		$var($longs, deathRow, nBits(end - beg));
+		$nc(deathRow)->set(0, 1);
+		for (i = beg + 1; i < end; ++i) {
+			if ($nc(filter)->test($nc(es)->get(i))) {
+				setBit(deathRow, i - beg);
+			}
 		}
-		if (return$1) {
-			return var$2;
+		int32_t w = beg;
+		for (i = beg; i < end; ++i) {
+			if (isClear(deathRow, i - beg)) {
+				$nc(es)->set(w++, $nc(es)->get(i));
+			}
 		}
+		for (i = (this->size$ = w); i < end; ++i) {
+			$nc(es)->set(i, nullptr);
+		}
+		heapify();
+		var$2 = true;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void PriorityBlockingQueue::forEach($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($ObjectArray, es, this->queue);
-			{
-				int32_t i = 0;
-				int32_t n = this->size$;
-				for (; i < n; ++i) {
-					action->accept($nc(es)->get(i));
-				}
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($ObjectArray, es, this->queue);
+		for (int32_t i = 0, n = this->size$; i < n; ++i) {
+			action->accept($nc(es)->get(i));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -1164,15 +993,14 @@ bool PriorityBlockingQueue::lambda$removeAll$0($Collection* c, Object$* e) {
 	return $nc(c)->contains(e);
 }
 
-void clinit$PriorityBlockingQueue($Class* class$) {
+void PriorityBlockingQueue::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
-			$init($Integer);
 			$assignStatic(PriorityBlockingQueue::ALLOCATIONSPINLOCK, $nc(l)->findVarHandle(PriorityBlockingQueue::class$, "allocationSpinLock"_s, $Integer::TYPE));
 		} catch ($ReflectiveOperationException& e) {
-			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
+			$throwNew($ExceptionInInitializerError, e);
 		}
 	}
 }
@@ -1182,14 +1010,111 @@ PriorityBlockingQueue::PriorityBlockingQueue() {
 
 $Class* PriorityBlockingQueue::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PriorityBlockingQueue$$Lambda$lambda$removeAll$0::classInfo$.name)) {
+		if (name->equals("java.util.concurrent.PriorityBlockingQueue$$Lambda$lambda$removeAll$0")) {
 			return PriorityBlockingQueue$$Lambda$lambda$removeAll$0::load$(name, initialize);
 		}
-		if (name->equals(PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1::classInfo$.name)) {
+		if (name->equals("java.util.concurrent.PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1")) {
 			return PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(PriorityBlockingQueue, name, initialize, &_PriorityBlockingQueue_ClassInfo_, clinit$PriorityBlockingQueue, allocate$PriorityBlockingQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PriorityBlockingQueue, serialVersionUID)},
+		{"DEFAULT_INITIAL_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PriorityBlockingQueue, DEFAULT_INITIAL_CAPACITY)},
+		{"queue", "[Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(PriorityBlockingQueue, queue)},
+		{"size", "I", nullptr, $PRIVATE | $TRANSIENT, $field(PriorityBlockingQueue, size$)},
+		{"comparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<-TE;>;", $PRIVATE | $TRANSIENT, $field(PriorityBlockingQueue, comparator$)},
+		{"lock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(PriorityBlockingQueue, lock)},
+		{"notEmpty", "Ljava/util/concurrent/locks/Condition;", nullptr, $PRIVATE | $FINAL, $field(PriorityBlockingQueue, notEmpty)},
+		{"allocationSpinLock", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(PriorityBlockingQueue, allocationSpinLock)},
+		{"q", "Ljava/util/PriorityQueue;", "Ljava/util/PriorityQueue<TE;>;", $PRIVATE, $field(PriorityBlockingQueue, q)},
+		{"ALLOCATIONSPINLOCK", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PriorityBlockingQueue, ALLOCATIONSPINLOCK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*element", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PriorityBlockingQueue, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(PriorityBlockingQueue, init$, void, int32_t)},
+		{"<init>", "(ILjava/util/Comparator;)V", "(ILjava/util/Comparator<-TE;>;)V", $PUBLIC, $method(PriorityBlockingQueue, init$, void, int32_t, $Comparator*)},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(PriorityBlockingQueue, init$, void, $Collection*)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, add, bool, Object$*)},
+		{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(PriorityBlockingQueue, bulkRemove, bool, $Predicate*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, clear, void)},
+		{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, comparator, $Comparator*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, contains, bool, Object$*)},
+		{"dequeue", "()Ljava/lang/Object;", "()TE;", $PRIVATE, $method(PriorityBlockingQueue, dequeue, $Object*)},
+		{"drainTo", "(Ljava/util/Collection;)I", "(Ljava/util/Collection<-TE;>;)I", $PUBLIC, $virtualMethod(PriorityBlockingQueue, drainTo, int32_t, $Collection*)},
+		{"drainTo", "(Ljava/util/Collection;I)I", "(Ljava/util/Collection<-TE;>;I)I", $PUBLIC, $virtualMethod(PriorityBlockingQueue, drainTo, int32_t, $Collection*, int32_t)},
+		{"ensureNonEmpty", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, ensureNonEmpty, $ObjectArray*, $ObjectArray*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(PriorityBlockingQueue, forEach, void, $Consumer*)},
+		{"heapify", "()V", nullptr, $PRIVATE, $method(PriorityBlockingQueue, heapify, void)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(PriorityBlockingQueue, indexOf, int32_t, Object$*)},
+		{"isClear", "([JI)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, isClear, bool, $longs*, int32_t)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, iterator, $Iterator*)},
+		{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PriorityBlockingQueue, lambda$removeAll$0, bool, $Collection*, Object$*)},
+		{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PriorityBlockingQueue, lambda$retainAll$1, bool, $Collection*, Object$*)},
+		{"nBits", "(I)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, nBits, $longs*, int32_t)},
+		{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, offer, bool, Object$*)},
+		{"offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, offer, bool, Object$*, int64_t, $TimeUnit*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, peek, $Object*)},
+		{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, poll, $Object*)},
+		{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, poll, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"put", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(PriorityBlockingQueue, put, void, Object$*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PriorityBlockingQueue, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remainingCapacity", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, remainingCapacity, int32_t)},
+		{"*remove", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, removeAll, bool, $Collection*)},
+		{"removeAt", "(I)V", nullptr, $PRIVATE, $method(PriorityBlockingQueue, removeAt, void, int32_t)},
+		{"removeEq", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(PriorityBlockingQueue, removeEq, void, Object$*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, removeIf, bool, $Predicate*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue, retainAll, bool, $Collection*)},
+		{"setBit", "([JI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, setBit, void, $longs*, int32_t)},
+		{"siftDownComparable", "(ILjava/lang/Object;[Ljava/lang/Object;I)V", "<T:Ljava/lang/Object;>(ITT;[Ljava/lang/Object;I)V", $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, siftDownComparable, void, int32_t, Object$*, $ObjectArray*, int32_t)},
+		{"siftDownUsingComparator", "(ILjava/lang/Object;[Ljava/lang/Object;ILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>(ITT;[Ljava/lang/Object;ILjava/util/Comparator<-TT;>;)V", $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, siftDownUsingComparator, void, int32_t, Object$*, $ObjectArray*, int32_t, $Comparator*)},
+		{"siftUpComparable", "(ILjava/lang/Object;[Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(ITT;[Ljava/lang/Object;)V", $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, siftUpComparable, void, int32_t, Object$*, $ObjectArray*)},
+		{"siftUpUsingComparator", "(ILjava/lang/Object;[Ljava/lang/Object;Ljava/util/Comparator;)V", "<T:Ljava/lang/Object;>(ITT;[Ljava/lang/Object;Ljava/util/Comparator<-TT;>;)V", $PRIVATE | $STATIC, $staticMethod(PriorityBlockingQueue, siftUpUsingComparator, void, int32_t, Object$*, $ObjectArray*, $Comparator*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, spliterator, $Spliterator*)},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"take", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, take, $Object*), "java.lang.InterruptedException"},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(PriorityBlockingQueue, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue, toString, $String*)},
+		{"tryGrow", "([Ljava/lang/Object;I)V", nullptr, $PRIVATE, $method(PriorityBlockingQueue, tryGrow, void, $ObjectArray*, int32_t)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(PriorityBlockingQueue, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.PriorityBlockingQueue$PBQSpliterator", "java.util.concurrent.PriorityBlockingQueue", "PBQSpliterator", $FINAL},
+		{"java.util.concurrent.PriorityBlockingQueue$Itr", "java.util.concurrent.PriorityBlockingQueue", "Itr", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.PriorityBlockingQueue",
+		"java.util.AbstractQueue",
+		"java.util.concurrent.BlockingQueue,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractQueue<TE;>;Ljava/util/concurrent/BlockingQueue<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.PriorityBlockingQueue$PBQSpliterator,java.util.concurrent.PriorityBlockingQueue$Itr"
+	};
+	$loadClass(PriorityBlockingQueue, name, initialize, &classInfo$$, PriorityBlockingQueue::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PriorityBlockingQueue));
+	});
 	return class$;
 }
 

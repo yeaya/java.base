@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandleFloats$FieldInstanceReadWrite.h>
-
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/VarForm.h>
 #include <java/lang/invoke/VarHandle.h>
@@ -24,158 +23,10 @@ using $VarForm = ::java::lang::invoke::VarForm;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $VarHandleFloats$FieldInstanceReadOnly = ::java::lang::invoke::VarHandleFloats$FieldInstanceReadOnly;
 using $Objects = ::java::util::Objects;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_compareAndExchange2[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_compareAndExchangeAcquire3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_compareAndExchangeRelease4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_compareAndSet5[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndAdd6[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndAddAcquire7[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndAddRelease8[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndSet9[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndSetAcquire10[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndSetRelease11[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_set12[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_setOpaque13[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_setRelease14[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_setVolatile15[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_weakCompareAndSet16[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_weakCompareAndSetAcquire17[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_weakCompareAndSetPlain18[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_weakCompareAndSetRelease19[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _VarHandleFloats$FieldInstanceReadWrite_FieldInfo_[] = {
-	{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleFloats$FieldInstanceReadWrite, FORM)},
-	{}
-};
-
-$MethodInfo _VarHandleFloats$FieldInstanceReadWrite_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;J)V", "(Ljava/lang/Class<*>;J)V", 0, $method(VarHandleFloats$FieldInstanceReadWrite, init$, void, $Class*, int64_t)},
-	{"<init>", "(Ljava/lang/Class;JZ)V", "(Ljava/lang/Class<*>;JZ)V", $PRIVATE, $method(VarHandleFloats$FieldInstanceReadWrite, init$, void, $Class*, int64_t, bool)},
-	{"compareAndExchange", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, compareAndExchange, float, $VarHandle*, Object$*, float, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_compareAndExchange2},
-	{"compareAndExchangeAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, compareAndExchangeAcquire, float, $VarHandle*, Object$*, float, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_compareAndExchangeAcquire3},
-	{"compareAndExchangeRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, compareAndExchangeRelease, float, $VarHandle*, Object$*, float, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_compareAndExchangeRelease4},
-	{"compareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)Z", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, compareAndSet, bool, $VarHandle*, Object$*, float, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_compareAndSet5},
-	{"getAndAdd", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndAdd, float, $VarHandle*, Object$*, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndAdd6},
-	{"getAndAddAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndAddAcquire, float, $VarHandle*, Object$*, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndAddAcquire7},
-	{"getAndAddRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndAddRelease, float, $VarHandle*, Object$*, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndAddRelease8},
-	{"getAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndSet, float, $VarHandle*, Object$*, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndSet9},
-	{"getAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndSetAcquire, float, $VarHandle*, Object$*, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndSetAcquire10},
-	{"getAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndSetRelease, float, $VarHandle*, Object$*, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_getAndSetRelease11},
-	{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)V", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, set, void, $VarHandle*, Object$*, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_set12},
-	{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)V", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, setOpaque, void, $VarHandle*, Object$*, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_setOpaque13},
-	{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)V", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, setRelease, void, $VarHandle*, Object$*, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_setRelease14},
-	{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)V", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, setVolatile, void, $VarHandle*, Object$*, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_setVolatile15},
-	{"weakCompareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)Z", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, weakCompareAndSet, bool, $VarHandle*, Object$*, float, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_weakCompareAndSet16},
-	{"weakCompareAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)Z", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, weakCompareAndSetAcquire, bool, $VarHandle*, Object$*, float, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_weakCompareAndSetAcquire17},
-	{"weakCompareAndSetPlain", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)Z", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, weakCompareAndSetPlain, bool, $VarHandle*, Object$*, float, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_weakCompareAndSetPlain18},
-	{"weakCompareAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)Z", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, weakCompareAndSetRelease, bool, $VarHandle*, Object$*, float, float), nullptr, nullptr, _VarHandleFloats$FieldInstanceReadWrite_MethodAnnotations_weakCompareAndSetRelease19},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleFloats$FieldInstanceReadWrite;", nullptr, $PUBLIC, $virtualMethod(VarHandleFloats$FieldInstanceReadWrite, withInvokeBehavior, VarHandleFloats$FieldInstanceReadWrite*)},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleFloats$FieldInstanceReadWrite;", nullptr, $PUBLIC, $virtualMethod(VarHandleFloats$FieldInstanceReadWrite, withInvokeExactBehavior, VarHandleFloats$FieldInstanceReadWrite*)},
-	{}
-};
-
-$InnerClassInfo _VarHandleFloats$FieldInstanceReadWrite_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandleFloats$FieldInstanceReadWrite", "java.lang.invoke.VarHandleFloats", "FieldInstanceReadWrite", $STATIC | $FINAL},
-	{"java.lang.invoke.VarHandleFloats$FieldInstanceReadOnly", "java.lang.invoke.VarHandleFloats", "FieldInstanceReadOnly", $STATIC},
-	{}
-};
-
-$ClassInfo _VarHandleFloats$FieldInstanceReadWrite_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.VarHandleFloats$FieldInstanceReadWrite",
-	"java.lang.invoke.VarHandleFloats$FieldInstanceReadOnly",
-	nullptr,
-	_VarHandleFloats$FieldInstanceReadWrite_FieldInfo_,
-	_VarHandleFloats$FieldInstanceReadWrite_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VarHandleFloats$FieldInstanceReadWrite_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandleFloats"
-};
-
-$Object* allocate$VarHandleFloats$FieldInstanceReadWrite($Class* clazz) {
-	return $of($alloc(VarHandleFloats$FieldInstanceReadWrite));
-}
 
 $VarForm* VarHandleFloats$FieldInstanceReadWrite::FORM = nullptr;
 
@@ -197,7 +48,7 @@ VarHandleFloats$FieldInstanceReadWrite* VarHandleFloats$FieldInstanceReadWrite::
 
 void VarHandleFloats$FieldInstanceReadWrite::set($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -205,7 +56,7 @@ void VarHandleFloats$FieldInstanceReadWrite::set($VarHandle* ob, Object$* holder
 
 void VarHandleFloats$FieldInstanceReadWrite::setVolatile($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putFloatVolatile($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -213,7 +64,7 @@ void VarHandleFloats$FieldInstanceReadWrite::setVolatile($VarHandle* ob, Object$
 
 void VarHandleFloats$FieldInstanceReadWrite::setOpaque($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putFloatOpaque($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -221,7 +72,7 @@ void VarHandleFloats$FieldInstanceReadWrite::setOpaque($VarHandle* ob, Object$* 
 
 void VarHandleFloats$FieldInstanceReadWrite::setRelease($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putFloatRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -229,7 +80,7 @@ void VarHandleFloats$FieldInstanceReadWrite::setRelease($VarHandle* ob, Object$*
 
 bool VarHandleFloats$FieldInstanceReadWrite::compareAndSet($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndSetFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -237,7 +88,7 @@ bool VarHandleFloats$FieldInstanceReadWrite::compareAndSet($VarHandle* ob, Objec
 
 float VarHandleFloats$FieldInstanceReadWrite::compareAndExchange($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -245,7 +96,7 @@ float VarHandleFloats$FieldInstanceReadWrite::compareAndExchange($VarHandle* ob,
 
 float VarHandleFloats$FieldInstanceReadWrite::compareAndExchangeAcquire($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeFloatAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -253,7 +104,7 @@ float VarHandleFloats$FieldInstanceReadWrite::compareAndExchangeAcquire($VarHand
 
 float VarHandleFloats$FieldInstanceReadWrite::compareAndExchangeRelease($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeFloatRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -261,7 +112,7 @@ float VarHandleFloats$FieldInstanceReadWrite::compareAndExchangeRelease($VarHand
 
 bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetPlain($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetFloatPlain($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -269,7 +120,7 @@ bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetPlain($VarHandle* 
 
 bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSet($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -277,7 +128,7 @@ bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSet($VarHandle* ob, O
 
 bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetAcquire($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetFloatAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -285,7 +136,7 @@ bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetAcquire($VarHandle
 
 bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetRelease($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetFloatRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -293,7 +144,7 @@ bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetRelease($VarHandle
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndSet($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndSetFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -301,7 +152,7 @@ float VarHandleFloats$FieldInstanceReadWrite::getAndSet($VarHandle* ob, Object$*
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndSetAcquire($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndSetFloatAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -309,7 +160,7 @@ float VarHandleFloats$FieldInstanceReadWrite::getAndSetAcquire($VarHandle* ob, O
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndSetRelease($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndSetFloatRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -317,7 +168,7 @@ float VarHandleFloats$FieldInstanceReadWrite::getAndSetRelease($VarHandle* ob, O
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndAdd($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndAddFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -325,7 +176,7 @@ float VarHandleFloats$FieldInstanceReadWrite::getAndAdd($VarHandle* ob, Object$*
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndAddAcquire($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndAddFloatAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -333,14 +184,13 @@ float VarHandleFloats$FieldInstanceReadWrite::getAndAddAcquire($VarHandle* ob, O
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndAddRelease($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndAddFloatRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
 }
 
-void clinit$VarHandleFloats$FieldInstanceReadWrite($Class* class$) {
-	$init($Float);
+void VarHandleFloats$FieldInstanceReadWrite::clinit$($Class* clazz) {
 	$assignStatic(VarHandleFloats$FieldInstanceReadWrite::FORM, $new($VarForm, VarHandleFloats$FieldInstanceReadWrite::class$, $Object::class$, $Float::TYPE, $$new($ClassArray, 0)));
 }
 
@@ -348,7 +198,130 @@ VarHandleFloats$FieldInstanceReadWrite::VarHandleFloats$FieldInstanceReadWrite()
 }
 
 $Class* VarHandleFloats$FieldInstanceReadWrite::load$($String* name, bool initialize) {
-	$loadClass(VarHandleFloats$FieldInstanceReadWrite, name, initialize, &_VarHandleFloats$FieldInstanceReadWrite_ClassInfo_, clinit$VarHandleFloats$FieldInstanceReadWrite, allocate$VarHandleFloats$FieldInstanceReadWrite);
+	$FieldInfo fieldInfos$$[] = {
+		{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleFloats$FieldInstanceReadWrite, FORM)},
+		{}
+	};
+	$CompoundAttribute compareAndExchangemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangeAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangeReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetPlainmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;J)V", "(Ljava/lang/Class<*>;J)V", 0, $method(VarHandleFloats$FieldInstanceReadWrite, init$, void, $Class*, int64_t)},
+		{"<init>", "(Ljava/lang/Class;JZ)V", "(Ljava/lang/Class<*>;JZ)V", $PRIVATE, $method(VarHandleFloats$FieldInstanceReadWrite, init$, void, $Class*, int64_t, bool)},
+		{"compareAndExchange", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, compareAndExchange, float, $VarHandle*, Object$*, float, float), nullptr, nullptr, compareAndExchangemethodAnnotations$$},
+		{"compareAndExchangeAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, compareAndExchangeAcquire, float, $VarHandle*, Object$*, float, float), nullptr, nullptr, compareAndExchangeAcquiremethodAnnotations$$},
+		{"compareAndExchangeRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, compareAndExchangeRelease, float, $VarHandle*, Object$*, float, float), nullptr, nullptr, compareAndExchangeReleasemethodAnnotations$$},
+		{"compareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)Z", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, compareAndSet, bool, $VarHandle*, Object$*, float, float), nullptr, nullptr, compareAndSetmethodAnnotations$$},
+		{"getAndAdd", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndAdd, float, $VarHandle*, Object$*, float), nullptr, nullptr, getAndAddmethodAnnotations$$},
+		{"getAndAddAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndAddAcquire, float, $VarHandle*, Object$*, float), nullptr, nullptr, getAndAddAcquiremethodAnnotations$$},
+		{"getAndAddRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndAddRelease, float, $VarHandle*, Object$*, float), nullptr, nullptr, getAndAddReleasemethodAnnotations$$},
+		{"getAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndSet, float, $VarHandle*, Object$*, float), nullptr, nullptr, getAndSetmethodAnnotations$$},
+		{"getAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndSetAcquire, float, $VarHandle*, Object$*, float), nullptr, nullptr, getAndSetAcquiremethodAnnotations$$},
+		{"getAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, getAndSetRelease, float, $VarHandle*, Object$*, float), nullptr, nullptr, getAndSetReleasemethodAnnotations$$},
+		{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)V", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, set, void, $VarHandle*, Object$*, float), nullptr, nullptr, setmethodAnnotations$$},
+		{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)V", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, setOpaque, void, $VarHandle*, Object$*, float), nullptr, nullptr, setOpaquemethodAnnotations$$},
+		{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)V", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, setRelease, void, $VarHandle*, Object$*, float), nullptr, nullptr, setReleasemethodAnnotations$$},
+		{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;F)V", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, setVolatile, void, $VarHandle*, Object$*, float), nullptr, nullptr, setVolatilemethodAnnotations$$},
+		{"weakCompareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)Z", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, weakCompareAndSet, bool, $VarHandle*, Object$*, float, float), nullptr, nullptr, weakCompareAndSetmethodAnnotations$$},
+		{"weakCompareAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)Z", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, weakCompareAndSetAcquire, bool, $VarHandle*, Object$*, float, float), nullptr, nullptr, weakCompareAndSetAcquiremethodAnnotations$$},
+		{"weakCompareAndSetPlain", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)Z", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, weakCompareAndSetPlain, bool, $VarHandle*, Object$*, float, float), nullptr, nullptr, weakCompareAndSetPlainmethodAnnotations$$},
+		{"weakCompareAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;FF)Z", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldInstanceReadWrite, weakCompareAndSetRelease, bool, $VarHandle*, Object$*, float, float), nullptr, nullptr, weakCompareAndSetReleasemethodAnnotations$$},
+		{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleFloats$FieldInstanceReadWrite;", nullptr, $PUBLIC, $virtualMethod(VarHandleFloats$FieldInstanceReadWrite, withInvokeBehavior, VarHandleFloats$FieldInstanceReadWrite*)},
+		{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleFloats$FieldInstanceReadWrite;", nullptr, $PUBLIC, $virtualMethod(VarHandleFloats$FieldInstanceReadWrite, withInvokeExactBehavior, VarHandleFloats$FieldInstanceReadWrite*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandleFloats$FieldInstanceReadWrite", "java.lang.invoke.VarHandleFloats", "FieldInstanceReadWrite", $STATIC | $FINAL},
+		{"java.lang.invoke.VarHandleFloats$FieldInstanceReadOnly", "java.lang.invoke.VarHandleFloats", "FieldInstanceReadOnly", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.VarHandleFloats$FieldInstanceReadWrite",
+		"java.lang.invoke.VarHandleFloats$FieldInstanceReadOnly",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandleFloats"
+	};
+	$loadClass(VarHandleFloats$FieldInstanceReadWrite, name, initialize, &classInfo$$, VarHandleFloats$FieldInstanceReadWrite::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandleFloats$FieldInstanceReadWrite);
+	});
 	return class$;
 }
 

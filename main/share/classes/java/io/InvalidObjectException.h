@@ -13,10 +13,13 @@ class $export InvalidObjectException : public ::java::io::ObjectStreamException 
 public:
 	InvalidObjectException();
 	void init$($String* reason);
-	static const int64_t serialVersionUID = (int64_t)0x2CDE8AE9921AD3DF;
+	static const int64_t serialVersionUID = (int64_t)0x2cde8ae9921ad3df;
 	InvalidObjectException(const InvalidObjectException& e);
 	virtual void throw$() override;
-	inline InvalidObjectException* operator ->() {
+	inline InvalidObjectException* operator ->() const {
+		return (InvalidObjectException*)throwing$;
+	}
+	inline operator InvalidObjectException*() const {
 		return (InvalidObjectException*)throwing$;
 	}
 };

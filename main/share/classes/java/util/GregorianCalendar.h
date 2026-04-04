@@ -77,6 +77,7 @@ class $export GregorianCalendar : public ::java::util::Calendar {
 	$class(GregorianCalendar, 0, ::java::util::Calendar)
 public:
 	GregorianCalendar();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::TimeZone* zone);
 	void init$(::java::util::Locale* aLocale);
@@ -141,7 +142,7 @@ public:
 	static const int32_t BCE = 0;
 	static const int32_t AD = 1;
 	static const int32_t CE = 1;
-	static const int32_t EPOCH_OFFSET = 0x000AF93B;
+	static const int32_t EPOCH_OFFSET = 0x000af93b;
 	static const int32_t EPOCH_YEAR = 1970;
 	static $ints* MONTH_LENGTH;
 	static $ints* LEAP_MONTH_LENGTH;
@@ -153,11 +154,11 @@ public:
 	static $ints* MIN_VALUES;
 	static $ints* LEAST_MAX_VALUES;
 	static $ints* MAX_VALUES;
-	static const int64_t serialVersionUID = (int64_t)0x8F3DD7D6E5B0D0C1;
+	static const int64_t serialVersionUID = (int64_t)0x8f3dd7d6e5b0d0c1;
 	static ::sun::util::calendar::Gregorian* gcal;
 	static ::sun::util::calendar::JulianCalendar* jcal;
 	static $Array<::sun::util::calendar::Era>* jeras;
-	static const int64_t DEFAULT_GREGORIAN_CUTOVER = (int64_t)0xFFFFF4E2F964AC00;
+	static const int64_t DEFAULT_GREGORIAN_CUTOVER = (int64_t)0xfffff4e2f964ac00;
 	int64_t gregorianCutover = 0;
 	int64_t gregorianCutoverDate = 0;
 	int32_t gregorianCutoverYear = 0;

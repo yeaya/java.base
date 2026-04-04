@@ -30,6 +30,7 @@ class $export CheckPermission : public ::java::lang::Object {
 	$class(CheckPermission, 0, ::java::lang::Object)
 public:
 	CheckPermission();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void assertCheckOperation(::java::io::File* file, ::java::util::Set* ops);
 	static void assertCheckPermission($Class* type, $String* name);

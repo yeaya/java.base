@@ -26,6 +26,7 @@ class $import SocketExceptions : public ::java::lang::Object {
 	$class(SocketExceptions, 0, ::java::lang::Object)
 public:
 	SocketExceptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::io::IOException* create(::java::io::IOException* e, $String* msg);
 	static ::java::io::IOException* of(::java::io::IOException* e, ::java::net::SocketAddress* addr);

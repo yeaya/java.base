@@ -1,5 +1,4 @@
 #include <sun/net/ext/ExtendedSocketOptions$NoExtendedSocketOptions.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/SocketOption.h>
@@ -21,49 +20,17 @@ namespace sun {
 	namespace net {
 		namespace ext {
 
-$MethodInfo _ExtendedSocketOptions$NoExtendedSocketOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ExtendedSocketOptions$NoExtendedSocketOptions, init$, void)},
-	{"getOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;)Ljava/lang/Object;", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(ExtendedSocketOptions$NoExtendedSocketOptions, getOption, $Object*, $FileDescriptor*, $SocketOption*), "java.net.SocketException"},
-	{"setOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;Ljava/lang/Object;)V", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;Ljava/lang/Object;)V", $PUBLIC, $virtualMethod(ExtendedSocketOptions$NoExtendedSocketOptions, setOption, void, $FileDescriptor*, $SocketOption*, Object$*), "java.net.SocketException"},
-	{}
-};
-
-$InnerClassInfo _ExtendedSocketOptions$NoExtendedSocketOptions_InnerClassesInfo_[] = {
-	{"sun.net.ext.ExtendedSocketOptions$NoExtendedSocketOptions", "sun.net.ext.ExtendedSocketOptions", "NoExtendedSocketOptions", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ExtendedSocketOptions$NoExtendedSocketOptions_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.net.ext.ExtendedSocketOptions$NoExtendedSocketOptions",
-	"sun.net.ext.ExtendedSocketOptions",
-	nullptr,
-	nullptr,
-	_ExtendedSocketOptions$NoExtendedSocketOptions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExtendedSocketOptions$NoExtendedSocketOptions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.ext.ExtendedSocketOptions"
-};
-
-$Object* allocate$ExtendedSocketOptions$NoExtendedSocketOptions($Class* clazz) {
-	return $of($alloc(ExtendedSocketOptions$NoExtendedSocketOptions));
-}
-
 void ExtendedSocketOptions$NoExtendedSocketOptions::init$() {
 	$ExtendedSocketOptions::init$($($Collections::emptySet()));
 }
 
 void ExtendedSocketOptions$NoExtendedSocketOptions::setOption($FileDescriptor* fd, $SocketOption* option, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$throwNew($UnsupportedOperationException, $$str({"no extended options: "_s, $($nc(option)->name())}));
 }
 
 $Object* ExtendedSocketOptions$NoExtendedSocketOptions::getOption($FileDescriptor* fd, $SocketOption* option) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$throwNew($UnsupportedOperationException, $$str({"no extended options: "_s, $($nc(option)->name())}));
 	$shouldNotReachHere();
 }
@@ -72,7 +39,34 @@ ExtendedSocketOptions$NoExtendedSocketOptions::ExtendedSocketOptions$NoExtendedS
 }
 
 $Class* ExtendedSocketOptions$NoExtendedSocketOptions::load$($String* name, bool initialize) {
-	$loadClass(ExtendedSocketOptions$NoExtendedSocketOptions, name, initialize, &_ExtendedSocketOptions$NoExtendedSocketOptions_ClassInfo_, allocate$ExtendedSocketOptions$NoExtendedSocketOptions);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ExtendedSocketOptions$NoExtendedSocketOptions, init$, void)},
+		{"getOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;)Ljava/lang/Object;", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(ExtendedSocketOptions$NoExtendedSocketOptions, getOption, $Object*, $FileDescriptor*, $SocketOption*), "java.net.SocketException"},
+		{"setOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;Ljava/lang/Object;)V", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;Ljava/lang/Object;)V", $PUBLIC, $virtualMethod(ExtendedSocketOptions$NoExtendedSocketOptions, setOption, void, $FileDescriptor*, $SocketOption*, Object$*), "java.net.SocketException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.ext.ExtendedSocketOptions$NoExtendedSocketOptions", "sun.net.ext.ExtendedSocketOptions", "NoExtendedSocketOptions", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.net.ext.ExtendedSocketOptions$NoExtendedSocketOptions",
+		"sun.net.ext.ExtendedSocketOptions",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.ext.ExtendedSocketOptions"
+	};
+	$loadClass(ExtendedSocketOptions$NoExtendedSocketOptions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedSocketOptions$NoExtendedSocketOptions);
+	});
 	return class$;
 }
 

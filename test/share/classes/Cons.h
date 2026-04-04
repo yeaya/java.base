@@ -11,6 +11,7 @@ class $export Cons : public ::java::lang::Object {
 	$class(Cons, 0, ::java::lang::Object)
 public:
 	Cons();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void ck($String* ans, $String* exp, $String* got);
 	static void ck1($String* arg, $String* parent, $String* name, $String* path);

@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfRef.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
 #include <java/util/function/Consumer.h>
@@ -20,44 +19,6 @@ using $StreamSpliterators$InfiniteSupplyingSpliterator = ::java::util::stream::S
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _StreamSpliterators$InfiniteSupplyingSpliterator$OfRef_FieldInfo_[] = {
-	{"s", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<+TT;>;", $FINAL, $field(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, s)},
-	{}
-};
-
-$MethodInfo _StreamSpliterators$InfiniteSupplyingSpliterator$OfRef_MethodInfo_[] = {
-	{"<init>", "(JLjava/util/function/Supplier;)V", "(JLjava/util/function/Supplier<+TT;>;)V", 0, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, init$, void, int64_t, $Supplier*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _StreamSpliterators$InfiniteSupplyingSpliterator$OfRef_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator", "java.util.stream.StreamSpliterators", "InfiniteSupplyingSpliterator", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfRef", "java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator", "OfRef", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StreamSpliterators$InfiniteSupplyingSpliterator$OfRef_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfRef",
-	"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator",
-	nullptr,
-	_StreamSpliterators$InfiniteSupplyingSpliterator$OfRef_FieldInfo_,
-	_StreamSpliterators$InfiniteSupplyingSpliterator$OfRef_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>;",
-	nullptr,
-	_StreamSpliterators$InfiniteSupplyingSpliterator$OfRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamSpliterators"
-};
-
-$Object* allocate$StreamSpliterators$InfiniteSupplyingSpliterator$OfRef($Class* clazz) {
-	return $of($alloc(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef));
-}
 
 void StreamSpliterators$InfiniteSupplyingSpliterator$OfRef::init$(int64_t size, $Supplier* s) {
 	$StreamSpliterators$InfiniteSupplyingSpliterator::init$(size);
@@ -81,7 +42,39 @@ StreamSpliterators$InfiniteSupplyingSpliterator$OfRef::StreamSpliterators$Infini
 }
 
 $Class* StreamSpliterators$InfiniteSupplyingSpliterator$OfRef::load$($String* name, bool initialize) {
-	$loadClass(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, name, initialize, &_StreamSpliterators$InfiniteSupplyingSpliterator$OfRef_ClassInfo_, allocate$StreamSpliterators$InfiniteSupplyingSpliterator$OfRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<+TT;>;", $FINAL, $field(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLjava/util/function/Supplier;)V", "(JLjava/util/function/Supplier<+TT;>;)V", 0, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, init$, void, int64_t, $Supplier*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator", "java.util.stream.StreamSpliterators", "InfiniteSupplyingSpliterator", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfRef", "java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator", "OfRef", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfRef",
+		"java.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamSpliterators"
+	};
+	$loadClass(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef);
+	});
 	return class$;
 }
 

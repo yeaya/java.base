@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/NativeConstructorAccessorImpl.h>
-
 #include <java/lang/reflect/Constructor.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jdk/internal/reflect/ConstructorAccessor.h>
@@ -27,39 +26,6 @@ using $DelegatingConstructorAccessorImpl = ::jdk::internal::reflect::DelegatingC
 namespace jdk {
 	namespace internal {
 		namespace reflect {
-
-$FieldInfo _NativeConstructorAccessorImpl_FieldInfo_[] = {
-	{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeConstructorAccessorImpl, U)},
-	{"GENERATED_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeConstructorAccessorImpl, GENERATED_OFFSET)},
-	{"c", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $FINAL, $field(NativeConstructorAccessorImpl, c)},
-	{"parent", "Ljdk/internal/reflect/DelegatingConstructorAccessorImpl;", nullptr, $PRIVATE, $field(NativeConstructorAccessorImpl, parent)},
-	{"numInvocations", "I", nullptr, $PRIVATE, $field(NativeConstructorAccessorImpl, numInvocations)},
-	{"generated", "I", nullptr, $PRIVATE | $VOLATILE, $field(NativeConstructorAccessorImpl, generated)},
-	{}
-};
-
-$MethodInfo _NativeConstructorAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", 0, $method(NativeConstructorAccessorImpl, init$, void, $Constructor*)},
-	{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeConstructorAccessorImpl, newInstance, $Object*, $ObjectArray*), "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
-	{"newInstance0", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/reflect/Constructor<*>;[Ljava/lang/Object;)Ljava/lang/Object;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeConstructorAccessorImpl, newInstance0, $Object*, $Constructor*, $ObjectArray*), "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
-	{"setParent", "(Ljdk/internal/reflect/DelegatingConstructorAccessorImpl;)V", nullptr, 0, $virtualMethod(NativeConstructorAccessorImpl, setParent, void, $DelegatingConstructorAccessorImpl*)},
-	{}
-};
-
-#define _METHOD_INDEX_newInstance0 2
-
-$ClassInfo _NativeConstructorAccessorImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.reflect.NativeConstructorAccessorImpl",
-	"jdk.internal.reflect.ConstructorAccessorImpl",
-	nullptr,
-	_NativeConstructorAccessorImpl_FieldInfo_,
-	_NativeConstructorAccessorImpl_MethodInfo_
-};
-
-$Object* allocate$NativeConstructorAccessorImpl($Class* clazz) {
-	return $of($alloc(NativeConstructorAccessorImpl));
-}
 
 $Unsafe* NativeConstructorAccessorImpl::U = nullptr;
 int64_t NativeConstructorAccessorImpl::GENERATED_OFFSET = 0;
@@ -89,7 +55,7 @@ $Object* NativeConstructorAccessorImpl::newInstance0($Constructor* c, $ObjectArr
 	}
 }
 
-void clinit$NativeConstructorAccessorImpl($Class* class$) {
+void NativeConstructorAccessorImpl::clinit$($Class* clazz) {
 	$assignStatic(NativeConstructorAccessorImpl::U, $Unsafe::getUnsafe());
 	NativeConstructorAccessorImpl::GENERATED_OFFSET = $nc(NativeConstructorAccessorImpl::U)->objectFieldOffset(NativeConstructorAccessorImpl::class$, "generated"_s);
 }
@@ -98,7 +64,33 @@ NativeConstructorAccessorImpl::NativeConstructorAccessorImpl() {
 }
 
 $Class* NativeConstructorAccessorImpl::load$($String* name, bool initialize) {
-	$loadClass(NativeConstructorAccessorImpl, name, initialize, &_NativeConstructorAccessorImpl_ClassInfo_, clinit$NativeConstructorAccessorImpl, allocate$NativeConstructorAccessorImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeConstructorAccessorImpl, U)},
+		{"GENERATED_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeConstructorAccessorImpl, GENERATED_OFFSET)},
+		{"c", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $FINAL, $field(NativeConstructorAccessorImpl, c)},
+		{"parent", "Ljdk/internal/reflect/DelegatingConstructorAccessorImpl;", nullptr, $PRIVATE, $field(NativeConstructorAccessorImpl, parent)},
+		{"numInvocations", "I", nullptr, $PRIVATE, $field(NativeConstructorAccessorImpl, numInvocations)},
+		{"generated", "I", nullptr, $PRIVATE | $VOLATILE, $field(NativeConstructorAccessorImpl, generated)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", 0, $method(NativeConstructorAccessorImpl, init$, void, $Constructor*)},
+		{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeConstructorAccessorImpl, newInstance, $Object*, $ObjectArray*), "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
+		{"newInstance0", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/reflect/Constructor<*>;[Ljava/lang/Object;)Ljava/lang/Object;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeConstructorAccessorImpl, newInstance0, $Object*, $Constructor*, $ObjectArray*), "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
+		{"setParent", "(Ljdk/internal/reflect/DelegatingConstructorAccessorImpl;)V", nullptr, 0, $virtualMethod(NativeConstructorAccessorImpl, setParent, void, $DelegatingConstructorAccessorImpl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.reflect.NativeConstructorAccessorImpl",
+		"jdk.internal.reflect.ConstructorAccessorImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NativeConstructorAccessorImpl, name, initialize, &classInfo$$, NativeConstructorAccessorImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NativeConstructorAccessorImpl));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/Locale$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/util/Locale$Category.h>
 #include <java/util/Locale.h>
@@ -18,53 +17,17 @@ using $Locale$Category = ::java::util::Locale$Category;
 namespace java {
 	namespace util {
 
-$FieldInfo _Locale$1_FieldInfo_[] = {
-	{"$SwitchMap$java$util$Locale$Category", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Locale$1, $SwitchMap$java$util$Locale$Category)},
-	{}
-};
-
-$EnclosingMethodInfo _Locale$1_EnclosingMethodInfo_ = {
-	"java.util.Locale",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Locale$1_InnerClassesInfo_[] = {
-	{"java.util.Locale$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Locale$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.util.Locale$1",
-	"java.lang.Object",
-	nullptr,
-	_Locale$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Locale$1_EnclosingMethodInfo_,
-	_Locale$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Locale"
-};
-
-$Object* allocate$Locale$1($Class* clazz) {
-	return $of($alloc(Locale$1));
-}
-
 $ints* Locale$1::$SwitchMap$java$util$Locale$Category = nullptr;
 
-void clinit$Locale$1($Class* class$) {
+void Locale$1::clinit$($Class* clazz) {
 	$assignStatic(Locale$1::$SwitchMap$java$util$Locale$Category, $new($ints, $($Locale$Category::values())->length));
 	{
 		try {
-			$nc(Locale$1::$SwitchMap$java$util$Locale$Category)->set($Locale$Category::DISPLAY->ordinal(), 1);
+			Locale$1::$SwitchMap$java$util$Locale$Category->set($Locale$Category::DISPLAY->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Locale$1::$SwitchMap$java$util$Locale$Category)->set($Locale$Category::FORMAT->ordinal(), 2);
+			Locale$1::$SwitchMap$java$util$Locale$Category->set($Locale$Category::FORMAT->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -74,7 +37,37 @@ Locale$1::Locale$1() {
 }
 
 $Class* Locale$1::load$($String* name, bool initialize) {
-	$loadClass(Locale$1, name, initialize, &_Locale$1_ClassInfo_, clinit$Locale$1, allocate$Locale$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$util$Locale$Category", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Locale$1, $SwitchMap$java$util$Locale$Category)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.Locale",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Locale$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.util.Locale$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Locale"
+	};
+	$loadClass(Locale$1, name, initialize, &classInfo$$, Locale$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Locale$1);
+	});
 	return class$;
 }
 

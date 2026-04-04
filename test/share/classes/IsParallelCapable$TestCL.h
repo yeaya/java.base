@@ -10,6 +10,7 @@ class $export IsParallelCapable$TestCL : public ::java::lang::ClassLoader {
 public:
 	IsParallelCapable$TestCL();
 	using ::java::lang::ClassLoader::findClass;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool expectCapable() {return false;}
 	virtual $Class* findClass($String* name) override;

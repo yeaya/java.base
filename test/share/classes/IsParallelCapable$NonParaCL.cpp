@@ -1,5 +1,4 @@
 #include <IsParallelCapable$NonParaCL.h>
-
 #include <IsParallelCapable$TestCL.h>
 #include <IsParallelCapable.h>
 #include <jcpp.h>
@@ -8,38 +7,6 @@ using $IsParallelCapable$TestCL = ::IsParallelCapable$TestCL;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _IsParallelCapable$NonParaCL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IsParallelCapable$NonParaCL, init$, void)},
-	{"expectCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(IsParallelCapable$NonParaCL, expectCapable, bool)},
-	{}
-};
-
-$InnerClassInfo _IsParallelCapable$NonParaCL_InnerClassesInfo_[] = {
-	{"IsParallelCapable$NonParaCL", "IsParallelCapable", "NonParaCL", $PUBLIC | $STATIC},
-	{"IsParallelCapable$TestCL", "IsParallelCapable", "TestCL", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _IsParallelCapable$NonParaCL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IsParallelCapable$NonParaCL",
-	"IsParallelCapable$TestCL",
-	nullptr,
-	nullptr,
-	_IsParallelCapable$NonParaCL_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IsParallelCapable$NonParaCL_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"IsParallelCapable"
-};
-
-$Object* allocate$IsParallelCapable$NonParaCL($Class* clazz) {
-	return $of($alloc(IsParallelCapable$NonParaCL));
-}
 
 void IsParallelCapable$NonParaCL::init$() {
 	$IsParallelCapable$TestCL::init$();
@@ -53,7 +20,34 @@ IsParallelCapable$NonParaCL::IsParallelCapable$NonParaCL() {
 }
 
 $Class* IsParallelCapable$NonParaCL::load$($String* name, bool initialize) {
-	$loadClass(IsParallelCapable$NonParaCL, name, initialize, &_IsParallelCapable$NonParaCL_ClassInfo_, allocate$IsParallelCapable$NonParaCL);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IsParallelCapable$NonParaCL, init$, void)},
+		{"expectCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(IsParallelCapable$NonParaCL, expectCapable, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"IsParallelCapable$NonParaCL", "IsParallelCapable", "NonParaCL", $PUBLIC | $STATIC},
+		{"IsParallelCapable$TestCL", "IsParallelCapable", "TestCL", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IsParallelCapable$NonParaCL",
+		"IsParallelCapable$TestCL",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"IsParallelCapable"
+	};
+	$loadClass(IsParallelCapable$NonParaCL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IsParallelCapable$NonParaCL);
+	});
 	return class$;
 }
 

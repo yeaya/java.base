@@ -1,5 +1,4 @@
 #include <ReferenceClone$WeakRef.h>
-
 #include <ReferenceClone.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -14,47 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakReference = ::java::lang::ref::WeakReference;
-
-$FieldInfo _ReferenceClone$WeakRef_FieldInfo_[] = {
-	{"this$0", "LReferenceClone;", nullptr, $FINAL | $SYNTHETIC, $field(ReferenceClone$WeakRef, this$0)},
-	{}
-};
-
-$MethodInfo _ReferenceClone$WeakRef_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(LReferenceClone;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferenceClone$WeakRef, init$, void, $ReferenceClone*, Object$*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReferenceClone$WeakRef, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ReferenceClone$WeakRef_InnerClassesInfo_[] = {
-	{"ReferenceClone$WeakRef", "ReferenceClone", "WeakRef", 0},
-	{"ReferenceClone$CloneableRef", "ReferenceClone", "CloneableRef", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ReferenceClone$WeakRef_ClassInfo_ = {
-	$ACC_SUPER,
-	"ReferenceClone$WeakRef",
-	"java.lang.ref.WeakReference",
-	"ReferenceClone$CloneableRef",
-	_ReferenceClone$WeakRef_FieldInfo_,
-	_ReferenceClone$WeakRef_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Ljava/lang/Object;>;LReferenceClone$CloneableRef;",
-	nullptr,
-	_ReferenceClone$WeakRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ReferenceClone"
-};
-
-$Object* allocate$ReferenceClone$WeakRef($Class* clazz) {
-	return $of($alloc(ReferenceClone$WeakRef));
-}
 
 int32_t ReferenceClone$WeakRef::hashCode() {
 	 return this->$WeakReference::hashCode();
@@ -79,14 +37,49 @@ void ReferenceClone$WeakRef::init$($ReferenceClone* this$0, Object$* referent) {
 }
 
 $Object* ReferenceClone$WeakRef::clone() {
-	return $of($WeakReference::clone());
+	return $WeakReference::clone();
 }
 
 ReferenceClone$WeakRef::ReferenceClone$WeakRef() {
 }
 
 $Class* ReferenceClone$WeakRef::load$($String* name, bool initialize) {
-	$loadClass(ReferenceClone$WeakRef, name, initialize, &_ReferenceClone$WeakRef_ClassInfo_, allocate$ReferenceClone$WeakRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LReferenceClone;", nullptr, $FINAL | $SYNTHETIC, $field(ReferenceClone$WeakRef, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(LReferenceClone;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferenceClone$WeakRef, init$, void, $ReferenceClone*, Object$*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReferenceClone$WeakRef, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ReferenceClone$WeakRef", "ReferenceClone", "WeakRef", 0},
+		{"ReferenceClone$CloneableRef", "ReferenceClone", "CloneableRef", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ReferenceClone$WeakRef",
+		"java.lang.ref.WeakReference",
+		"ReferenceClone$CloneableRef",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Ljava/lang/Object;>;LReferenceClone$CloneableRef;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ReferenceClone"
+	};
+	$loadClass(ReferenceClone$WeakRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReferenceClone$WeakRef));
+	});
 	return class$;
 }
 

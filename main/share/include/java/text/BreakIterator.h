@@ -51,6 +51,7 @@ class $import BreakIterator : public ::java::lang::Cloneable {
 	$class(BreakIterator, 0, ::java::lang::Cloneable)
 public:
 	BreakIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	static ::java::text::BreakIterator* createBreakInstance(::java::util::Locale* locale, int32_t type);

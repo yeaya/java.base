@@ -14,10 +14,13 @@ class $import ConnectionPendingException : public ::java::lang::IllegalStateExce
 public:
 	ConnectionPendingException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x1BDF3F203B969F6F;
+	static const int64_t serialVersionUID = (int64_t)0x1bdf3f203b969f6f;
 	ConnectionPendingException(const ConnectionPendingException& e);
 	virtual void throw$() override;
-	inline ConnectionPendingException* operator ->() {
+	inline ConnectionPendingException* operator ->() const {
+		return (ConnectionPendingException*)throwing$;
+	}
+	inline operator ConnectionPendingException*() const {
 		return (ConnectionPendingException*)throwing$;
 	}
 };

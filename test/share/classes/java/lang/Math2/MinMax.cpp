@@ -1,9 +1,7 @@
 #include <java/lang/Math2/MinMax.h>
-
 #include <java/lang/Math.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $Float = ::java::lang::Float;
@@ -15,43 +13,22 @@ namespace java {
 	namespace lang {
 		namespace Math2 {
 
-$MethodInfo _MinMax_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MinMax, init$, void)},
-	{"go", "(Ljava/lang/String;FF)V", nullptr, $STATIC, $staticMethod(MinMax, go, void, $String*, float, float)},
-	{"go", "(Ljava/lang/String;DD)V", nullptr, $STATIC, $staticMethod(MinMax, go, void, $String*, double, double)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MinMax, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _MinMax_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.Math2.MinMax",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MinMax_MethodInfo_
-};
-
-$Object* allocate$MinMax($Class* clazz) {
-	return $of($alloc(MinMax));
-}
-
 void MinMax::init$() {
 }
 
 void MinMax::go($String* what, float result, float correctResult) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, v, $str({what, ": got "_s, $$str(result), ", expected "_s, $$str(correctResult)}));
-	if (!($nc($($Float::toString(result)))->equals($($Float::toString(correctResult))))) {
+	if (!($($Float::toString(result))->equals($($Float::toString(correctResult))))) {
 		$throwNew($RuntimeException, v);
 	}
 	$nc($System::err)->println(v);
 }
 
 void MinMax::go($String* what, double result, double correctResult) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, v, $str({what, ": got "_s, $$str(result), ", expected "_s, $$str(correctResult)}));
-	if (!($nc($($Double::toString(result)))->equals($($Double::toString(correctResult))))) {
+	if (!($($Double::toString(result))->equals($($Double::toString(correctResult))))) {
 		$throwNew($RuntimeException, v);
 	}
 	$nc($System::err)->println(v);
@@ -124,7 +101,24 @@ MinMax::MinMax() {
 }
 
 $Class* MinMax::load$($String* name, bool initialize) {
-	$loadClass(MinMax, name, initialize, &_MinMax_ClassInfo_, allocate$MinMax);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MinMax, init$, void)},
+		{"go", "(Ljava/lang/String;FF)V", nullptr, $STATIC, $staticMethod(MinMax, go, void, $String*, float, float)},
+		{"go", "(Ljava/lang/String;DD)V", nullptr, $STATIC, $staticMethod(MinMax, go, void, $String*, double, double)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MinMax, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.Math2.MinMax",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MinMax, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MinMax);
+	});
 	return class$;
 }
 

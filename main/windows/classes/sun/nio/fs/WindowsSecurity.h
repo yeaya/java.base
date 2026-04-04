@@ -21,6 +21,7 @@ class WindowsSecurity : public ::java::lang::Object {
 	$class(WindowsSecurity, 0, ::java::lang::Object)
 public:
 	WindowsSecurity();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool checkAccessMask(int64_t securityInfo, int32_t accessMask, int32_t genericRead, int32_t genericWrite, int32_t genericExecute, int32_t genericAll);
 	static ::sun::nio::fs::WindowsSecurity$Privilege* enablePrivilege($String* priv);

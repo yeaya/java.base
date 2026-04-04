@@ -37,6 +37,7 @@ class FileOwnerAttributeViewImpl : public ::java::nio::file::attribute::FileOwne
 	$class(FileOwnerAttributeViewImpl, 0, ::java::nio::file::attribute::FileOwnerAttributeView, ::sun::nio::fs::DynamicFileAttributeView)
 public:
 	FileOwnerAttributeViewImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

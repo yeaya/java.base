@@ -1,5 +1,4 @@
 #include <java/io/ByteArrayInputStream.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/Math.h>
@@ -18,44 +17,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _ByteArrayInputStream_FieldInfo_[] = {
-	{"buf", "[B", nullptr, $PROTECTED, $field(ByteArrayInputStream, buf)},
-	{"pos", "I", nullptr, $PROTECTED, $field(ByteArrayInputStream, pos)},
-	{"mark", "I", nullptr, $PROTECTED, $field(ByteArrayInputStream, mark$)},
-	{"count", "I", nullptr, $PROTECTED, $field(ByteArrayInputStream, count)},
-	{}
-};
-
-$MethodInfo _ByteArrayInputStream_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ByteArrayInputStream, init$, void, $bytes*)},
-	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(ByteArrayInputStream, init$, void, $bytes*, int32_t, int32_t)},
-	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, available, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, close, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, read, int32_t)},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, read, int32_t, $bytes*, int32_t, int32_t)},
-	{"readAllBytes", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, readAllBytes, $bytes*)},
-	{"readNBytes", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, readNBytes, int32_t, $bytes*, int32_t, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, reset, void)},
-	{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, skip, int64_t, int64_t)},
-	{"transferTo", "(Ljava/io/OutputStream;)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, transferTo, int64_t, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ByteArrayInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.ByteArrayInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_ByteArrayInputStream_FieldInfo_,
-	_ByteArrayInputStream_MethodInfo_
-};
-
-$Object* allocate$ByteArrayInputStream($Class* clazz) {
-	return $of($alloc(ByteArrayInputStream));
-}
 
 void ByteArrayInputStream::init$($bytes* buf) {
 	$InputStream::init$();
@@ -76,7 +37,7 @@ void ByteArrayInputStream::init$($bytes* buf, int32_t offset, int32_t length) {
 
 int32_t ByteArrayInputStream::read() {
 	$synchronized(this) {
-		return (this->pos < this->count) ? ((int32_t)($nc(this->buf)->get(this->pos++) & (uint32_t)255)) : -1;
+		return (this->pos < this->count) ? ($nc(this->buf)->get(this->pos++) & 0xff) : -1;
 	}
 }
 
@@ -125,7 +86,7 @@ int64_t ByteArrayInputStream::skip(int64_t n) {
 	$synchronized(this) {
 		int64_t k = this->count - this->pos;
 		if (n < k) {
-			k = n < 0 ? (int64_t)0 : n;
+			k = n < 0 ? 0 : n;
 		}
 		this->pos += k;
 		return k;
@@ -159,7 +120,40 @@ ByteArrayInputStream::ByteArrayInputStream() {
 }
 
 $Class* ByteArrayInputStream::load$($String* name, bool initialize) {
-	$loadClass(ByteArrayInputStream, name, initialize, &_ByteArrayInputStream_ClassInfo_, allocate$ByteArrayInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[B", nullptr, $PROTECTED, $field(ByteArrayInputStream, buf)},
+		{"pos", "I", nullptr, $PROTECTED, $field(ByteArrayInputStream, pos)},
+		{"mark", "I", nullptr, $PROTECTED, $field(ByteArrayInputStream, mark$)},
+		{"count", "I", nullptr, $PROTECTED, $field(ByteArrayInputStream, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(ByteArrayInputStream, init$, void, $bytes*)},
+		{"<init>", "([BII)V", nullptr, $PUBLIC, $method(ByteArrayInputStream, init$, void, $bytes*, int32_t, int32_t)},
+		{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, available, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, close, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, read, int32_t)},
+		{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, read, int32_t, $bytes*, int32_t, int32_t)},
+		{"readAllBytes", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, readAllBytes, $bytes*)},
+		{"readNBytes", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, readNBytes, int32_t, $bytes*, int32_t, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, reset, void)},
+		{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, skip, int64_t, int64_t)},
+		{"transferTo", "(Ljava/io/OutputStream;)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, transferTo, int64_t, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.ByteArrayInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteArrayInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ByteArrayInputStream);
+	});
 	return class$;
 }
 

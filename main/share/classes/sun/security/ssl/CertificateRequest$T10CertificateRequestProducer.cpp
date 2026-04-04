@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateRequest$T10CertificateRequestProducer.h>
-
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap.h>
@@ -9,7 +8,6 @@
 #include <sun/security/ssl/CipherSuite$KeyExchange.h>
 #include <sun/security/ssl/CipherSuite.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeOutStream.h>
 #include <sun/security/ssl/SSLContextImpl.h>
 #include <sun/security/ssl/SSLHandshake$HandshakeMessage.h>
@@ -26,13 +24,8 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
-using $X509TrustManager = ::javax::net::ssl::X509TrustManager;
 using $CertificateRequest$T10CertificateRequestMessage = ::sun::security::ssl::CertificateRequest$T10CertificateRequestMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -42,54 +35,23 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertificateRequest$T10CertificateRequestProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateRequest$T10CertificateRequestProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CertificateRequest$T10CertificateRequestProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateRequest$T10CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T10CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertificateRequest$T10CertificateRequestProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateRequest$T10CertificateRequestProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_CertificateRequest$T10CertificateRequestProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateRequest$T10CertificateRequestProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateRequest"
-};
-
-$Object* allocate$CertificateRequest$T10CertificateRequestProducer($Class* clazz) {
-	return $of($alloc(CertificateRequest$T10CertificateRequestProducer));
-}
-
 void CertificateRequest$T10CertificateRequestProducer::init$() {
 }
 
 $bytes* CertificateRequest$T10CertificateRequestProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
-	$var($X509CertificateArray, caCerts, $nc($($nc($nc(shc)->sslContext)->getX509TrustManager()))->getAcceptedIssuers());
+	$var($X509CertificateArray, caCerts, $$nc($nc($nc(shc)->sslContext)->getX509TrustManager())->getAcceptedIssuers());
 	$var($CertificateRequest$T10CertificateRequestMessage, crm, $new($CertificateRequest$T10CertificateRequestMessage, shc, caCerts, $nc(shc->negotiatedCipherSuite)->keyExchange));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Produced CertificateRequest handshake message"_s, $$new($ObjectArray, {$of(crm)}));
+		$SSLLogger::fine("Produced CertificateRequest handshake message"_s, $$new($ObjectArray, {crm}));
 	}
 	crm->write(shc->handshakeOutput);
 	$nc(shc->handshakeOutput)->flush();
 	$init($SSLHandshake);
 	$nc(shc->handshakeConsumers)->put($($Byte::valueOf($SSLHandshake::CERTIFICATE->id)), $SSLHandshake::CERTIFICATE);
-	$nc(shc->handshakeConsumers)->put($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)), $SSLHandshake::CERTIFICATE_VERIFY);
+	shc->handshakeConsumers->put($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)), $SSLHandshake::CERTIFICATE_VERIFY);
 	return nullptr;
 }
 
@@ -97,7 +59,33 @@ CertificateRequest$T10CertificateRequestProducer::CertificateRequest$T10Certific
 }
 
 $Class* CertificateRequest$T10CertificateRequestProducer::load$($String* name, bool initialize) {
-	$loadClass(CertificateRequest$T10CertificateRequestProducer, name, initialize, &_CertificateRequest$T10CertificateRequestProducer_ClassInfo_, allocate$CertificateRequest$T10CertificateRequestProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateRequest$T10CertificateRequestProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateRequest$T10CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T10CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateRequest$T10CertificateRequestProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateRequest"
+	};
+	$loadClass(CertificateRequest$T10CertificateRequestProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateRequest$T10CertificateRequestProducer);
+	});
 	return class$;
 }
 

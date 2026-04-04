@@ -1,5 +1,4 @@
 #include <java/security/KeyStore$Builder$1.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/security/KeyStore$Builder.h>
 #include <java/security/KeyStore$ProtectionParameter.h>
@@ -19,53 +18,6 @@ using $KeyStore$ProtectionParameter = ::java::security::KeyStore$ProtectionParam
 
 namespace java {
 	namespace security {
-
-$FieldInfo _KeyStore$Builder$1_FieldInfo_[] = {
-	{"val$protectionParameter", "Ljava/security/KeyStore$ProtectionParameter;", nullptr, $FINAL | $SYNTHETIC, $field(KeyStore$Builder$1, val$protectionParameter)},
-	{"val$keyStore", "Ljava/security/KeyStore;", nullptr, $FINAL | $SYNTHETIC, $field(KeyStore$Builder$1, val$keyStore)},
-	{"getCalled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(KeyStore$Builder$1, getCalled)},
-	{}
-};
-
-$MethodInfo _KeyStore$Builder$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore;Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, 0, $method(KeyStore$Builder$1, init$, void, $KeyStore*, $KeyStore$ProtectionParameter*)},
-	{"getKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$1, getKeyStore, $KeyStore*)},
-	{"getProtectionParameter", "(Ljava/lang/String;)Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$1, getProtectionParameter, $KeyStore$ProtectionParameter*, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _KeyStore$Builder$1_EnclosingMethodInfo_ = {
-	"java.security.KeyStore$Builder",
-	"newInstance",
-	"(Ljava/security/KeyStore;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;"
-};
-
-$InnerClassInfo _KeyStore$Builder$1_InnerClassesInfo_[] = {
-	{"java.security.KeyStore$Builder", "java.security.KeyStore", "Builder", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.security.KeyStore$Builder$1", nullptr, nullptr, 0},
-	{"java.security.KeyStore$ProtectionParameter", "java.security.KeyStore", "ProtectionParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeyStore$Builder$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.KeyStore$Builder$1",
-	"java.security.KeyStore$Builder",
-	nullptr,
-	_KeyStore$Builder$1_FieldInfo_,
-	_KeyStore$Builder$1_MethodInfo_,
-	nullptr,
-	&_KeyStore$Builder$1_EnclosingMethodInfo_,
-	_KeyStore$Builder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.KeyStore"
-};
-
-$Object* allocate$KeyStore$Builder$1($Class* clazz) {
-	return $of($alloc(KeyStore$Builder$1));
-}
 
 void KeyStore$Builder$1::init$($KeyStore* val$keyStore, $KeyStore$ProtectionParameter* val$protectionParameter) {
 	$set(this, val$keyStore, val$keyStore);
@@ -92,7 +44,47 @@ KeyStore$Builder$1::KeyStore$Builder$1() {
 }
 
 $Class* KeyStore$Builder$1::load$($String* name, bool initialize) {
-	$loadClass(KeyStore$Builder$1, name, initialize, &_KeyStore$Builder$1_ClassInfo_, allocate$KeyStore$Builder$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$protectionParameter", "Ljava/security/KeyStore$ProtectionParameter;", nullptr, $FINAL | $SYNTHETIC, $field(KeyStore$Builder$1, val$protectionParameter)},
+		{"val$keyStore", "Ljava/security/KeyStore;", nullptr, $FINAL | $SYNTHETIC, $field(KeyStore$Builder$1, val$keyStore)},
+		{"getCalled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(KeyStore$Builder$1, getCalled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/KeyStore;Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, 0, $method(KeyStore$Builder$1, init$, void, $KeyStore*, $KeyStore$ProtectionParameter*)},
+		{"getKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$1, getKeyStore, $KeyStore*)},
+		{"getProtectionParameter", "(Ljava/lang/String;)Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$1, getProtectionParameter, $KeyStore$ProtectionParameter*, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.security.KeyStore$Builder",
+		"newInstance",
+		"(Ljava/security/KeyStore;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyStore$Builder", "java.security.KeyStore", "Builder", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.security.KeyStore$Builder$1", nullptr, nullptr, 0},
+		{"java.security.KeyStore$ProtectionParameter", "java.security.KeyStore", "ProtectionParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.KeyStore$Builder$1",
+		"java.security.KeyStore$Builder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.KeyStore"
+	};
+	$loadClass(KeyStore$Builder$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStore$Builder$1);
+	});
 	return class$;
 }
 

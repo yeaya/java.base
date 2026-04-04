@@ -24,6 +24,7 @@ class DomainName$Rule$Type : public ::java::lang::Enum {
 public:
 	DomainName$Rule$Type();
 	static $Array<::sun::security::util::DomainName$Rule$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::util::DomainName$Rule$Type* valueOf($String* name);
 	static $Array<::sun::security::util::DomainName$Rule$Type>* values();

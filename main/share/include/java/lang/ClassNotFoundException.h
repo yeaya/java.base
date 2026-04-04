@@ -26,17 +26,21 @@ class $import ClassNotFoundException : public ::java::lang::ReflectiveOperationE
 	$class(ClassNotFoundException, 0, ::java::lang::ReflectiveOperationException)
 public:
 	ClassNotFoundException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* s);
 	void init$($String* s, $Throwable* ex);
 	virtual $Throwable* getException();
 	void readObject(::java::io::ObjectInputStream* s);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x7F5ACD663ED4208E;
+	static const int64_t serialVersionUID = (int64_t)0x7f5acd663ed4208e;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	ClassNotFoundException(const ClassNotFoundException& e);
 	virtual void throw$() override;
-	inline ClassNotFoundException* operator ->() {
+	inline ClassNotFoundException* operator ->() const {
+		return (ClassNotFoundException*)throwing$;
+	}
+	inline operator ClassNotFoundException*() const {
 		return (ClassNotFoundException*)throwing$;
 	}
 };

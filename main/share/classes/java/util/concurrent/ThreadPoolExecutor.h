@@ -75,6 +75,7 @@ class $export ThreadPoolExecutor : public ::java::util::concurrent::AbstractExec
 	$class(ThreadPoolExecutor, $HAS_FINALIZE, ::java::util::concurrent::AbstractExecutorService)
 public:
 	ThreadPoolExecutor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t corePoolSize, int32_t maximumPoolSize, int64_t keepAliveTime, ::java::util::concurrent::TimeUnit* unit, ::java::util::concurrent::BlockingQueue* workQueue);
 	void init$(int32_t corePoolSize, int32_t maximumPoolSize, int64_t keepAliveTime, ::java::util::concurrent::TimeUnit* unit, ::java::util::concurrent::BlockingQueue* workQueue, ::java::util::concurrent::ThreadFactory* threadFactory);
 	void init$(int32_t corePoolSize, int32_t maximumPoolSize, int64_t keepAliveTime, ::java::util::concurrent::TimeUnit* unit, ::java::util::concurrent::BlockingQueue* workQueue, ::java::util::concurrent::RejectedExecutionHandler* handler);
@@ -140,8 +141,8 @@ public:
 	static int32_t workerCountOf(int32_t c);
 	::java::util::concurrent::atomic::AtomicInteger* ctl = nullptr;
 	static const int32_t COUNT_BITS = 29; // Integer.SIZE - 3
-	static const int32_t COUNT_MASK = 0x1FFFFFFF; // (1 << COUNT_BITS) - 1
-	static const int32_t RUNNING = 0xE0000000; // -1 << COUNT_BITS
+	static const int32_t COUNT_MASK = 0x1fffffff; // (1 << COUNT_BITS) - 1
+	static const int32_t RUNNING = 0xe0000000; // -1 << COUNT_BITS
 	static const int32_t SHUTDOWN = 0; // 0 << COUNT_BITS
 	static const int32_t STOP = 0x20000000; // 1 << COUNT_BITS
 	static const int32_t TIDYING = 0x40000000; // 2 << COUNT_BITS

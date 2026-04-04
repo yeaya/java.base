@@ -18,6 +18,7 @@ class SHA5$SHA384 : public ::sun::security::provider::SHA5 {
 public:
 	SHA5$SHA384();
 	using ::sun::security::provider::SHA5::engineUpdate;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	static $longs* INITIAL_HASHES;

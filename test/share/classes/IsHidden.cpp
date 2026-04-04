@@ -1,5 +1,4 @@
 #include <IsHidden.h>
-
 #include <java/io/File.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/LinkOption.h>
@@ -10,7 +9,6 @@
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,35 +17,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Files = ::java::nio::file::Files;
 using $DosFileAttributeView = ::java::nio::file::attribute::DosFileAttributeView;
 
-$FieldInfo _IsHidden_FieldInfo_[] = {
-	{"dir", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(IsHidden, dir)},
-	{}
-};
-
-$MethodInfo _IsHidden_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IsHidden, init$, void)},
-	{"checkHidden", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, checkHidden, void, $File*)},
-	{"ck", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, ck, void, $String*, bool), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsHidden, main, void, $StringArray*), "java.lang.Exception"},
-	{"setHidden", "(Ljava/io/File;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, setHidden, void, $File*, bool), "java.io.IOException"},
-	{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, testUnix, void), "java.lang.Exception"},
-	{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, testWin32, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _IsHidden_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IsHidden",
-	"java.lang.Object",
-	nullptr,
-	_IsHidden_FieldInfo_,
-	_IsHidden_MethodInfo_
-};
-
-$Object* allocate$IsHidden($Class* clazz) {
-	return $of($alloc(IsHidden));
-}
-
 $String* IsHidden::dir = nullptr;
 
 void IsHidden::init$() {
@@ -55,7 +24,7 @@ void IsHidden::init$() {
 
 void IsHidden::ck($String* path, bool ans) {
 	$init(IsHidden);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $new($File, path));
 	bool x = f->isHidden();
 	if (x != ans) {
@@ -66,9 +35,9 @@ void IsHidden::ck($String* path, bool ans) {
 
 void IsHidden::setHidden($File* f, bool value) {
 	$init(IsHidden);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($DosFileAttributeView);
-	$nc(($cast($DosFileAttributeView, $($Files::getFileAttributeView($($nc(f)->toPath()), $DosFileAttributeView::class$, $$new($LinkOptionArray, 0))))))->setHidden(value);
+	$$sure($DosFileAttributeView, $Files::getFileAttributeView($($nc(f)->toPath()), $DosFileAttributeView::class$, $$new($LinkOptionArray, 0)))->setHidden(value);
 }
 
 void IsHidden::checkHidden($File* f) {
@@ -80,23 +49,21 @@ void IsHidden::checkHidden($File* f) {
 
 void IsHidden::testWin32() {
 	$init(IsHidden);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $new($File, IsHidden::dir, "test"_s));
 	f->deleteOnExit();
 	f->createNewFile();
 	setHidden(f, true);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			ck($(f->getPath()), true);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			setHidden(f, false);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		ck($(f->getPath()), true);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		setHidden(f, false);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	ck(".foo"_s, false);
 	ck("foo"_s, false);
@@ -112,7 +79,7 @@ void IsHidden::testWin32() {
 
 void IsHidden::testUnix() {
 	$init(IsHidden);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ck($$str({IsHidden::dir, "/IsHidden.java"_s}), false);
 	ck($$str({IsHidden::dir, "/."_s}), true);
 	ck("."_s, true);
@@ -133,7 +100,7 @@ void IsHidden::main($StringArray* args) {
 	}
 }
 
-void clinit$IsHidden($Class* class$) {
+void IsHidden::clinit$($Class* clazz) {
 	$assignStatic(IsHidden::dir, $System::getProperty("test.dir"_s, "."_s));
 }
 
@@ -141,7 +108,31 @@ IsHidden::IsHidden() {
 }
 
 $Class* IsHidden::load$($String* name, bool initialize) {
-	$loadClass(IsHidden, name, initialize, &_IsHidden_ClassInfo_, clinit$IsHidden, allocate$IsHidden);
+	$FieldInfo fieldInfos$$[] = {
+		{"dir", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(IsHidden, dir)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IsHidden, init$, void)},
+		{"checkHidden", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, checkHidden, void, $File*)},
+		{"ck", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, ck, void, $String*, bool), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsHidden, main, void, $StringArray*), "java.lang.Exception"},
+		{"setHidden", "(Ljava/io/File;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, setHidden, void, $File*, bool), "java.io.IOException"},
+		{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, testUnix, void), "java.lang.Exception"},
+		{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, testWin32, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IsHidden",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IsHidden, name, initialize, &classInfo$$, IsHidden::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IsHidden);
+	});
 	return class$;
 }
 

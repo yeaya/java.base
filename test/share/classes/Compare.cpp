@@ -1,5 +1,4 @@
 #include <Compare.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
@@ -7,7 +6,6 @@
 #undef MAX_VALUE
 #undef MIN_VALUE
 
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
@@ -22,42 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $Random = ::java::util::Random;
 
-$FieldInfo _Compare_FieldInfo_[] = {
-	{"rnd", "Ljava/util/Random;", nullptr, $FINAL, $field(Compare, rnd)},
-	{"passed", "I", nullptr, $VOLATILE, $field(Compare, passed)},
-	{"failed", "I", nullptr, $VOLATILE, $field(Compare, failed)},
-	{}
-};
-
-$MethodInfo _Compare_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Compare, init$, void)},
-	{"check", "(Z)V", nullptr, 0, $virtualMethod(Compare, check, void, bool)},
-	{"compareAll", "(JJ)V", nullptr, 0, $virtualMethod(Compare, compareAll, void, int64_t, int64_t)},
-	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Compare, equal, void, Object$*, Object$*)},
-	{"fail", "()V", nullptr, 0, $virtualMethod(Compare, fail, void)},
-	{"fail", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Compare, fail, void, $String*)},
-	{"instanceMain", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Compare, instanceMain, void, $StringArray*), "java.lang.Throwable"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Compare, main, void, $StringArray*), "java.lang.Throwable"},
-	{"pass", "()V", nullptr, 0, $virtualMethod(Compare, pass, void)},
-	{"test", "([Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Compare, test, void, $StringArray*), "java.lang.Exception"},
-	{"toBoolean", "(J)Z", nullptr, 0, $virtualMethod(Compare, toBoolean, bool, int64_t)},
-	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Compare, unexpected, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _Compare_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Compare",
-	"java.lang.Object",
-	nullptr,
-	_Compare_FieldInfo_,
-	_Compare_MethodInfo_
-};
-
-$Object* allocate$Compare($Class* clazz) {
-	return $of($alloc(Compare));
-}
-
 void Compare::init$() {
 	$set(this, rnd, $new($Random));
 	this->passed = 0;
@@ -69,24 +31,24 @@ bool Compare::toBoolean(int64_t x) {
 }
 
 void Compare::compareAll(int64_t x, int64_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $Double::compare((double)x, (double)y);
-	check(var$0 == $nc($($Double::valueOf((double)x)))->compareTo($($Double::valueOf((double)y))));
+	check(var$0 == $($Double::valueOf((double)x))->compareTo($($Double::valueOf((double)y))));
 	int32_t var$1 = $Float::compare((float)x, (float)y);
-	check(var$1 == $nc($($Float::valueOf((float)x)))->compareTo($($Float::valueOf((float)y))));
+	check(var$1 == $($Float::valueOf((float)x))->compareTo($($Float::valueOf((float)y))));
 	int32_t var$2 = $Long::compare(x, y);
-	check(var$2 == $nc($($Long::valueOf(x)))->compareTo($($Long::valueOf(y))));
+	check(var$2 == $($Long::valueOf(x))->compareTo($($Long::valueOf(y))));
 	int32_t var$3 = $Integer::compare((int32_t)x, (int32_t)y);
-	check(var$3 == $nc($($Integer::valueOf((int32_t)x)))->compareTo($($Integer::valueOf((int32_t)y))));
+	check(var$3 == $($Integer::valueOf((int32_t)x))->compareTo($($Integer::valueOf((int32_t)y))));
 	int32_t var$4 = $Short::compare((int16_t)x, (int16_t)y);
-	check(var$4 == $nc($($Short::valueOf((int16_t)x)))->compareTo($($Short::valueOf((int16_t)y))));
+	check(var$4 == $($Short::valueOf((int16_t)x))->compareTo($($Short::valueOf((int16_t)y))));
 	int32_t var$5 = $Character::compare((char16_t)x, (char16_t)y);
-	check(var$5 == $nc($($Character::valueOf((char16_t)x)))->compareTo($($Character::valueOf((char16_t)y))));
+	check(var$5 == $($Character::valueOf((char16_t)x))->compareTo($($Character::valueOf((char16_t)y))));
 	int32_t var$6 = $Byte::compare((int8_t)x, (int8_t)y);
-	check(var$6 == $nc($($Byte::valueOf((int8_t)x)))->compareTo($($Byte::valueOf((int8_t)y))));
+	check(var$6 == $($Byte::valueOf((int8_t)x))->compareTo($($Byte::valueOf((int8_t)y))));
 	bool var$8 = toBoolean(x);
 	int32_t var$7 = $Boolean::compare(var$8, toBoolean(y));
-	check(var$7 == $nc($($Boolean::valueOf(toBoolean(x))))->compareTo($($Boolean::valueOf(toBoolean(y)))));
+	check(var$7 == $($Boolean::valueOf(toBoolean(x)))->compareTo($($Boolean::valueOf(toBoolean(y)))));
 	int32_t var$9 = $Double::compare((double)x, (double)y);
 	check(var$9 == -$Double::compare((double)y, (double)x));
 	int32_t var$10 = $Float::compare((float)x, (float)y);
@@ -101,58 +63,58 @@ void Compare::compareAll(int64_t x, int64_t y) {
 	check(var$14 == -$Character::compare((char16_t)y, (char16_t)x));
 	int32_t var$15 = $Byte::compare((int8_t)x, (int8_t)y);
 	check(var$15 == -$Byte::compare((int8_t)y, (int8_t)x));
-	$var($Object, var$16, $of($Integer::valueOf($Long::compare(x, y))));
+	$var($Object, var$16, $Integer::valueOf($Long::compare(x, y)));
 	equal(var$16, $($Integer::valueOf(x < y ? -1 : x > y ? 1 : 0)));
 	{
 		int32_t a = (int32_t)x;
 		int32_t b = (int32_t)y;
-		$var($Object, var$17, $of($Integer::valueOf($Integer::compare(a, b))));
+		$var($Object, var$17, $Integer::valueOf($Integer::compare(a, b)));
 		equal(var$17, $($Integer::valueOf(a < b ? -1 : a > b ? 1 : 0)));
 	}
 	{
 		int16_t a = (int16_t)x;
 		int16_t b = (int16_t)y;
-		$var($Object, var$18, $of($Integer::valueOf($Short::compare(a, b))));
+		$var($Object, var$18, $Integer::valueOf($Short::compare(a, b)));
 		equal(var$18, $($Integer::valueOf(a - b)));
 	}
 	{
 		char16_t a = (char16_t)x;
 		char16_t b = (char16_t)y;
-		$var($Object, var$19, $of($Integer::valueOf($Character::compare(a, b))));
+		$var($Object, var$19, $Integer::valueOf($Character::compare(a, b)));
 		equal(var$19, $($Integer::valueOf(a - b)));
 	}
 	{
 		int8_t a = (int8_t)x;
 		int8_t b = (int8_t)y;
-		$var($Object, var$20, $of($Integer::valueOf($Byte::compare(a, b))));
+		$var($Object, var$20, $Integer::valueOf($Byte::compare(a, b)));
 		equal(var$20, $($Integer::valueOf(a - b)));
 	}
 	{
 		bool a = toBoolean(x);
 		bool b = toBoolean(y);
-		$var($Object, var$21, $of($Integer::valueOf($Boolean::compare(a, b))));
+		$var($Object, var$21, $Integer::valueOf($Boolean::compare(a, b)));
 		equal(var$21, $($Integer::valueOf(a == b ? 0 : a ? 1 : -1)));
 	}
 }
 
 void Compare::test($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, longs, $new($longs, {
 		$Long::MIN_VALUE,
-		(int64_t)$Integer::MIN_VALUE,
-		(int64_t)$Short::MIN_VALUE,
-		(int64_t)$Character::MIN_VALUE,
-		(int64_t)$Byte::MIN_VALUE,
-		(int64_t)-1,
-		(int64_t)0,
-		(int64_t)1,
-		(int64_t)$Byte::MAX_VALUE,
-		(int64_t)$Character::MAX_VALUE,
-		(int64_t)$Short::MAX_VALUE,
-		(int64_t)$Integer::MAX_VALUE,
+		$Integer::MIN_VALUE,
+		$Short::MIN_VALUE,
+		$Character::MIN_VALUE,
+		$Byte::MIN_VALUE,
+		-1,
+		0,
+		1,
+		$Byte::MAX_VALUE,
+		$Character::MAX_VALUE,
+		$Short::MAX_VALUE,
+		$Integer::MAX_VALUE,
 		$Long::MAX_VALUE,
-		$nc(this->rnd)->nextLong(),
-		(int64_t)$nc(this->rnd)->nextInt()
+		this->rnd->nextLong(),
+		this->rnd->nextInt()
 	}));
 	{
 		$var($longs, arr$, longs);
@@ -161,15 +123,11 @@ void Compare::test($StringArray* args) {
 		for (; i$ < len$; ++i$) {
 			int64_t x = arr$->get(i$);
 			{
-				{
-					$var($longs, arr$, longs);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						int64_t y = arr$->get(i$);
-						{
-							compareAll(x, y);
-						}
+				$var($longs, arr$, longs);
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+					int64_t y = arr$->get(i$);
+					{
+						compareAll(x, y);
 					}
 				}
 			}
@@ -205,7 +163,7 @@ void Compare::check(bool cond) {
 }
 
 void Compare::equal(Object$* x, Object$* y) {
-	if (x == nullptr ? y == nullptr : $nc($of(x))->equals(y)) {
+	if (x == nullptr ? y == nullptr : $of(x)->equals(y)) {
 		pass();
 	} else {
 		fail($$str({x, " not equal to "_s, y}));
@@ -217,15 +175,15 @@ void Compare::main($StringArray* args) {
 }
 
 void Compare::instanceMain($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		test(args);
 	} catch ($Throwable& t) {
 		unexpected(t);
 	}
 	$nc($System::out)->printf("%nPassed = %d, failed = %d%n%n"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(this->passed))),
-		$($of($Integer::valueOf(this->failed)))
+		$($Integer::valueOf(this->passed)),
+		$($Integer::valueOf(this->failed))
 	}));
 	if (this->failed > 0) {
 		$throwNew($AssertionError, $of("Some tests failed"_s));
@@ -236,7 +194,38 @@ Compare::Compare() {
 }
 
 $Class* Compare::load$($String* name, bool initialize) {
-	$loadClass(Compare, name, initialize, &_Compare_ClassInfo_, allocate$Compare);
+	$FieldInfo fieldInfos$$[] = {
+		{"rnd", "Ljava/util/Random;", nullptr, $FINAL, $field(Compare, rnd)},
+		{"passed", "I", nullptr, $VOLATILE, $field(Compare, passed)},
+		{"failed", "I", nullptr, $VOLATILE, $field(Compare, failed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Compare, init$, void)},
+		{"check", "(Z)V", nullptr, 0, $virtualMethod(Compare, check, void, bool)},
+		{"compareAll", "(JJ)V", nullptr, 0, $virtualMethod(Compare, compareAll, void, int64_t, int64_t)},
+		{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Compare, equal, void, Object$*, Object$*)},
+		{"fail", "()V", nullptr, 0, $virtualMethod(Compare, fail, void)},
+		{"fail", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Compare, fail, void, $String*)},
+		{"instanceMain", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Compare, instanceMain, void, $StringArray*), "java.lang.Throwable"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Compare, main, void, $StringArray*), "java.lang.Throwable"},
+		{"pass", "()V", nullptr, 0, $virtualMethod(Compare, pass, void)},
+		{"test", "([Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Compare, test, void, $StringArray*), "java.lang.Exception"},
+		{"toBoolean", "(J)Z", nullptr, 0, $virtualMethod(Compare, toBoolean, bool, int64_t)},
+		{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Compare, unexpected, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Compare",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Compare, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Compare);
+	});
 	return class$;
 }
 

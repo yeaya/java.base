@@ -1,5 +1,4 @@
 #include <java/lang/invoke/ConstantGroup$1.h>
-
 #include <java/lang/invoke/ConstantGroup.h>
 #include <jcpp.h>
 
@@ -13,45 +12,9 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _ConstantGroup$1_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ConstantGroup$1, $assertionsDisabled)},
-	{}
-};
-
-$EnclosingMethodInfo _ConstantGroup$1_EnclosingMethodInfo_ = {
-	"java.lang.invoke.ConstantGroup",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ConstantGroup$1_InnerClassesInfo_[] = {
-	{"java.lang.invoke.ConstantGroup$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ConstantGroup$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.lang.invoke.ConstantGroup$1",
-	"java.lang.Object",
-	nullptr,
-	_ConstantGroup$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ConstantGroup$1_EnclosingMethodInfo_,
-	_ConstantGroup$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.ConstantGroup"
-};
-
-$Object* allocate$ConstantGroup$1($Class* clazz) {
-	return $of($alloc(ConstantGroup$1));
-}
-
 bool ConstantGroup$1::$assertionsDisabled = false;
 
-void clinit$ConstantGroup$1($Class* class$) {
+void ConstantGroup$1::clinit$($Class* clazz) {
 	$load($ConstantGroup);
 	ConstantGroup$1::$assertionsDisabled = !$ConstantGroup::class$->desiredAssertionStatus();
 }
@@ -60,7 +23,37 @@ ConstantGroup$1::ConstantGroup$1() {
 }
 
 $Class* ConstantGroup$1::load$($String* name, bool initialize) {
-	$loadClass(ConstantGroup$1, name, initialize, &_ConstantGroup$1_ClassInfo_, clinit$ConstantGroup$1, allocate$ConstantGroup$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ConstantGroup$1, $assertionsDisabled)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.invoke.ConstantGroup",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.ConstantGroup$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.lang.invoke.ConstantGroup$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.ConstantGroup"
+	};
+	$loadClass(ConstantGroup$1, name, initialize, &classInfo$$, ConstantGroup$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ConstantGroup$1);
+	});
 	return class$;
 }
 

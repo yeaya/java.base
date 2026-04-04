@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/ReplaceableUCharacterIterator.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/StringBuffer.h>
@@ -18,7 +17,6 @@ using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $Replaceable = ::jdk::internal::icu::text::Replaceable;
 using $ReplaceableString = ::jdk::internal::icu::text::ReplaceableString;
 using $UCharacterIterator = ::jdk::internal::icu::text::UCharacterIterator;
 
@@ -26,39 +24,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace impl {
-
-$FieldInfo _ReplaceableUCharacterIterator_FieldInfo_[] = {
-	{"replaceable", "Ljdk/internal/icu/text/Replaceable;", nullptr, $PRIVATE, $field(ReplaceableUCharacterIterator, replaceable)},
-	{"currentIndex", "I", nullptr, $PRIVATE, $field(ReplaceableUCharacterIterator, currentIndex)},
-	{}
-};
-
-$MethodInfo _ReplaceableUCharacterIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReplaceableUCharacterIterator, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $method(ReplaceableUCharacterIterator, init$, void, $StringBuffer*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, clone, $Object*)},
-	{"current", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, current, int32_t)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, getIndex, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, getLength, int32_t)},
-	{"getText", "([CI)I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, getText, int32_t, $chars*, int32_t)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, next, int32_t)},
-	{"previous", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, previous, int32_t)},
-	{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, setIndex, void, int32_t)},
-	{}
-};
-
-$ClassInfo _ReplaceableUCharacterIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.icu.impl.ReplaceableUCharacterIterator",
-	"jdk.internal.icu.text.UCharacterIterator",
-	nullptr,
-	_ReplaceableUCharacterIterator_FieldInfo_,
-	_ReplaceableUCharacterIterator_MethodInfo_
-};
-
-$Object* allocate$ReplaceableUCharacterIterator($Class* clazz) {
-	return $of($alloc(ReplaceableUCharacterIterator));
-}
 
 void ReplaceableUCharacterIterator::init$($String* str) {
 	$UCharacterIterator::init$();
@@ -80,16 +45,16 @@ void ReplaceableUCharacterIterator::init$($StringBuffer* buf) {
 
 $Object* ReplaceableUCharacterIterator::clone() {
 	try {
-		return $of($UCharacterIterator::clone());
+		return $UCharacterIterator::clone();
 	} catch ($CloneNotSupportedException& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t ReplaceableUCharacterIterator::current() {
 	if (this->currentIndex < $nc(this->replaceable)->length()) {
-		return $nc(this->replaceable)->charAt(this->currentIndex);
+		return this->replaceable->charAt(this->currentIndex);
 	}
 	return $UCharacterIterator::DONE;
 }
@@ -104,7 +69,7 @@ int32_t ReplaceableUCharacterIterator::getIndex() {
 
 int32_t ReplaceableUCharacterIterator::next() {
 	if (this->currentIndex < $nc(this->replaceable)->length()) {
-		return $nc(this->replaceable)->charAt(this->currentIndex++);
+		return this->replaceable->charAt(this->currentIndex++);
 	}
 	return $UCharacterIterator::DONE;
 }
@@ -128,7 +93,7 @@ int32_t ReplaceableUCharacterIterator::getText($chars* fillIn, int32_t offset) {
 	if (offset < 0 || offset + length > $nc(fillIn)->length) {
 		$throwNew($IndexOutOfBoundsException, $($Integer::toString(length)));
 	}
-	$nc(this->replaceable)->getChars(0, length, fillIn, offset);
+	this->replaceable->getChars(0, length, fillIn, offset);
 	return length;
 }
 
@@ -136,7 +101,35 @@ ReplaceableUCharacterIterator::ReplaceableUCharacterIterator() {
 }
 
 $Class* ReplaceableUCharacterIterator::load$($String* name, bool initialize) {
-	$loadClass(ReplaceableUCharacterIterator, name, initialize, &_ReplaceableUCharacterIterator_ClassInfo_, allocate$ReplaceableUCharacterIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"replaceable", "Ljdk/internal/icu/text/Replaceable;", nullptr, $PRIVATE, $field(ReplaceableUCharacterIterator, replaceable)},
+		{"currentIndex", "I", nullptr, $PRIVATE, $field(ReplaceableUCharacterIterator, currentIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReplaceableUCharacterIterator, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $method(ReplaceableUCharacterIterator, init$, void, $StringBuffer*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, clone, $Object*)},
+		{"current", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, current, int32_t)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, getIndex, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, getLength, int32_t)},
+		{"getText", "([CI)I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, getText, int32_t, $chars*, int32_t)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, next, int32_t)},
+		{"previous", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, previous, int32_t)},
+		{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, setIndex, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.icu.impl.ReplaceableUCharacterIterator",
+		"jdk.internal.icu.text.UCharacterIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReplaceableUCharacterIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReplaceableUCharacterIterator);
+	});
 	return class$;
 }
 

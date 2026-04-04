@@ -1,5 +1,4 @@
 #include <java/util/EnumMap$EntryIterator$Entry.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/EnumMap$EntryIterator.h>
@@ -12,57 +11,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EnumMap = ::java::util::EnumMap;
 using $EnumMap$EntryIterator = ::java::util::EnumMap$EntryIterator;
 using $Map$Entry = ::java::util::Map$Entry;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _EnumMap$EntryIterator$Entry_FieldInfo_[] = {
-	{"this$1", "Ljava/util/EnumMap$EntryIterator;", nullptr, $FINAL | $SYNTHETIC, $field(EnumMap$EntryIterator$Entry, this$1)},
-	{"index", "I", nullptr, $PRIVATE, $field(EnumMap$EntryIterator$Entry, index)},
-	{}
-};
-
-$MethodInfo _EnumMap$EntryIterator$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumMap$EntryIterator;I)V", nullptr, $PRIVATE, $method(EnumMap$EntryIterator$Entry, init$, void, $EnumMap$EntryIterator*, int32_t)},
-	{"checkIndexForEntryUse", "()V", nullptr, $PRIVATE, $method(EnumMap$EntryIterator$Entry, checkIndexForEntryUse, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, equals, bool, Object$*)},
-	{"getKey", "()Ljava/lang/Enum;", "()TK;", $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, getKey, $Object*)},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, getValue, $Object*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, hashCode, int32_t)},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, setValue, $Object*, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _EnumMap$EntryIterator$Entry_InnerClassesInfo_[] = {
-	{"java.util.EnumMap$EntryIterator", "java.util.EnumMap", "EntryIterator", $PRIVATE},
-	{"java.util.EnumMap$EntryIterator$Entry", "java.util.EnumMap$EntryIterator", "Entry", $PRIVATE},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _EnumMap$EntryIterator$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.EnumMap$EntryIterator$Entry",
-	"java.lang.Object",
-	"java.util.Map$Entry",
-	_EnumMap$EntryIterator$Entry_FieldInfo_,
-	_EnumMap$EntryIterator$Entry_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Map$Entry<TK;TV;>;",
-	nullptr,
-	_EnumMap$EntryIterator$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.EnumMap"
-};
-
-$Object* allocate$EnumMap$EntryIterator$Entry($Class* clazz) {
-	return $of($alloc(EnumMap$EntryIterator$Entry));
-}
 
 void EnumMap$EntryIterator$Entry::init$($EnumMap$EntryIterator* this$1, int32_t index) {
 	$set(this, this$1, this$1);
@@ -76,19 +29,19 @@ $Object* EnumMap$EntryIterator$Entry::getKey() {
 
 $Object* EnumMap$EntryIterator$Entry::getValue() {
 	checkIndexForEntryUse();
-	return $of($nc(this->this$1->this$0)->unmaskNull($nc($nc(this->this$1->this$0)->vals)->get(this->index)));
+	return $nc(this->this$1->this$0)->unmaskNull($nc($nc(this->this$1->this$0)->vals)->get(this->index));
 }
 
 $Object* EnumMap$EntryIterator$Entry::setValue(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndexForEntryUse();
 	$var($Object, oldValue, $nc(this->this$1->this$0)->unmaskNull($nc($nc(this->this$1->this$0)->vals)->get(this->index)));
-	$nc($nc(this->this$1->this$0)->vals)->set(this->index, $($nc(this->this$1->this$0)->maskNull(value)));
-	return $of(oldValue);
+	this->this$1->this$0->vals->set(this->index, $(this->this$1->this$0->maskNull(value)));
+	return oldValue;
 }
 
 bool EnumMap$EntryIterator$Entry::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->index < 0) {
 		return $equals(o, this);
 	}
@@ -103,8 +56,8 @@ bool EnumMap$EntryIterator$Entry::equals(Object$* o) {
 	}
 	$var($Object, ourValue, $nc(this->this$1->this$0)->unmaskNull($nc($nc(this->this$1->this$0)->vals)->get(this->index)));
 	$var($Object, hisValue, $nc(e)->getValue());
-	bool var$1 = $equals(e->getKey(), $nc($nc(this->this$1->this$0)->keyUniverse)->get(this->index));
-	return (var$1 && ($equals(ourValue, hisValue) || (ourValue != nullptr && $of(ourValue)->equals(hisValue))));
+	bool var$1 = $equals(e->getKey(), $nc(this->this$1->this$0->keyUniverse)->get(this->index));
+	return (var$1 && ($equals(ourValue, hisValue) || (ourValue != nullptr && ourValue->equals(hisValue))));
 }
 
 int32_t EnumMap$EntryIterator$Entry::hashCode() {
@@ -115,12 +68,15 @@ int32_t EnumMap$EntryIterator$Entry::hashCode() {
 }
 
 $String* EnumMap$EntryIterator$Entry::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->index < 0) {
 		return $Map$Entry::toString();
 	}
-	$var($String, var$0, $$str({$nc($nc(this->this$1->this$0)->keyUniverse)->get(this->index), "="_s}));
-	return $concat(var$0, $($nc(this->this$1->this$0)->unmaskNull($nc($nc(this->this$1->this$0)->vals)->get(this->index))));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($nc($nc(this->this$1->this$0)->keyUniverse)->get(this->index));
+	var$0->append("="_s);
+	var$0->append($(this->this$1->this$0->unmaskNull($nc(this->this$1->this$0->vals)->get(this->index))));
+	return $str(var$0);
 }
 
 void EnumMap$EntryIterator$Entry::checkIndexForEntryUse() {
@@ -133,7 +89,46 @@ EnumMap$EntryIterator$Entry::EnumMap$EntryIterator$Entry() {
 }
 
 $Class* EnumMap$EntryIterator$Entry::load$($String* name, bool initialize) {
-	$loadClass(EnumMap$EntryIterator$Entry, name, initialize, &_EnumMap$EntryIterator$Entry_ClassInfo_, allocate$EnumMap$EntryIterator$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljava/util/EnumMap$EntryIterator;", nullptr, $FINAL | $SYNTHETIC, $field(EnumMap$EntryIterator$Entry, this$1)},
+		{"index", "I", nullptr, $PRIVATE, $field(EnumMap$EntryIterator$Entry, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/EnumMap$EntryIterator;I)V", nullptr, $PRIVATE, $method(EnumMap$EntryIterator$Entry, init$, void, $EnumMap$EntryIterator*, int32_t)},
+		{"checkIndexForEntryUse", "()V", nullptr, $PRIVATE, $method(EnumMap$EntryIterator$Entry, checkIndexForEntryUse, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, equals, bool, Object$*)},
+		{"getKey", "()Ljava/lang/Enum;", "()TK;", $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, getKey, $Object*)},
+		{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, getValue, $Object*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, hashCode, int32_t)},
+		{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, setValue, $Object*, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.EnumMap$EntryIterator", "java.util.EnumMap", "EntryIterator", $PRIVATE},
+		{"java.util.EnumMap$EntryIterator$Entry", "java.util.EnumMap$EntryIterator", "Entry", $PRIVATE},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.EnumMap$EntryIterator$Entry",
+		"java.lang.Object",
+		"java.util.Map$Entry",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Map$Entry<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.EnumMap"
+	};
+	$loadClass(EnumMap$EntryIterator$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnumMap$EntryIterator$Entry);
+	});
 	return class$;
 }
 

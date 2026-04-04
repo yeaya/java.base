@@ -43,6 +43,7 @@ class DummyX509KeyManager : public ::javax::net::ssl::X509ExtendedKeyManager {
 	$class(DummyX509KeyManager, 0, ::javax::net::ssl::X509ExtendedKeyManager)
 public:
 	DummyX509KeyManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* chooseClientAlias($StringArray* keyTypes, $Array<::java::security::Principal>* issuers, ::java::net::Socket* socket) override;
 	virtual $String* chooseEngineClientAlias($StringArray* keyTypes, $Array<::java::security::Principal>* issuers, ::javax::net::ssl::SSLEngine* engine) override;

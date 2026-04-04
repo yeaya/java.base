@@ -25,11 +25,12 @@ namespace java {
 	namespace lang {
 
 class $export Boolean : public ::java::io::Serializable, public ::java::lang::Comparable, public ::java::lang::constant::Constable {
-	$class(Boolean, $PRELOAD, ::java::io::Serializable, ::java::lang::Comparable, ::java::lang::constant::Constable)
+	$class(Boolean, $PRELOAD | $PREINIT, ::java::io::Serializable, ::java::lang::Comparable, ::java::lang::constant::Constable)
 public:
 	Boolean();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool value);
 	void init$($String* s);
 	bool booleanValue();
@@ -53,7 +54,7 @@ public:
 	static ::java::lang::Boolean* FALSE;
 	static $Class* TYPE;
 	bool value = false;
-	static const int64_t serialVersionUID = (int64_t)0xCD207280D59CFAEE;
+	static const int64_t serialVersionUID = (int64_t)0xcd207280d59cfaee;
 };
 
 	} // lang

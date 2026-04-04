@@ -1,5 +1,4 @@
 #include <LineSink.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/EOFException.h>
@@ -21,35 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$FieldInfo _LineSink_FieldInfo_[] = {
-	{"ui", "Ljava/io/DataInputStream;", nullptr, 0, $field(LineSink, ui)},
-	{"ti", "Ljava/io/BufferedReader;", nullptr, 0, $field(LineSink, ti)},
-	{"count", "I", nullptr, 0, $field(LineSink, count)},
-	{"log", "Ljava/io/PrintWriter;", nullptr, 0, $field(LineSink, log)},
-	{}
-};
-
-$MethodInfo _LineSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/io/BufferedReader;ILjava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(LineSink, init$, void, $InputStream*, $BufferedReader*, int32_t, $PrintWriter*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;Ljava/io/BufferedReader;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(LineSink, init$, void, $InputStream*, $BufferedReader*, $PrintWriter*), "java.io.IOException"},
-	{"readUTFLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LineSink, readUTFLine, $String*), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LineSink, run, void)},
-	{}
-};
-
-$ClassInfo _LineSink_ClassInfo_ = {
-	$ACC_SUPER,
-	"LineSink",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_LineSink_FieldInfo_,
-	_LineSink_MethodInfo_
-};
-
-$Object* allocate$LineSink($Class* clazz) {
-	return $of($alloc(LineSink));
-}
 
 void LineSink::init$($InputStream* us, $BufferedReader* ts, int32_t count, $PrintWriter* log) {
 	LineSink::init$(us, ts, log);
@@ -74,7 +44,7 @@ $String* LineSink::readUTFLine() {
 }
 
 void LineSink::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		for (int32_t ln = 0; ln < this->count; ++ln) {
 			$var($String, us, readUTFLine());
@@ -96,17 +66,31 @@ void LineSink::run() {
 			int32_t var$0 = $nc(us)->length();
 			if (var$0 != $nc(ts)->length()) {
 				$nc(this->log)->println($$str({"Length mismatch: us = \""_s, us, "\", ts = \""_s, ts, "\""_s}));
-				$var($String, var$1, $$str({"Line "_s, $$str(ln), ": Length mismatch: "_s, $$str(us->length()), " "_s}));
-				$throwNew($RuntimeException, $$concat(var$1, $$str(ts->length())));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append("Line "_s);
+				var$1->append(ln);
+				var$1->append(": Length mismatch: "_s);
+				var$1->append(us->length());
+				var$1->append(" "_s);
+				var$1->append(ts->length());
+				$throwNew($RuntimeException, $$str(var$1));
 			}
-			for (int32_t i = 0; i < $nc(us)->length(); ++i) {
+			for (int32_t i = 0; i < us->length(); ++i) {
 				char16_t var$2 = us->charAt(i);
-				if (var$2 != $nc(ts)->charAt(i)) {
-					$var($String, var$3, $$str({"Line "_s, $$str(ln), ": Char mismatch: ["_s, $$str(i), "] "_s, $($Integer::toHexString(us->charAt(i))), " "_s}));
-					$throwNew($RuntimeException, $$concat(var$3, $($Integer::toHexString(ts->charAt(i)))));
+				if (var$2 != ts->charAt(i)) {
+					$var($StringBuilder, var$3, $new($StringBuilder));
+					var$3->append("Line "_s);
+					var$3->append(ln);
+					var$3->append(": Char mismatch: ["_s);
+					var$3->append(i);
+					var$3->append("] "_s);
+					var$3->append($($Integer::toHexString(us->charAt(i))));
+					var$3->append(" "_s);
+					var$3->append($($Integer::toHexString(ts->charAt(i))));
+					$throwNew($RuntimeException, $$str(var$3));
 				}
 			}
-			$nc(this->log)->println($$str({$$str(ln), " "_s, $$str($nc(ts)->length())}));
+			$nc(this->log)->println($$str({$$str(ln), " "_s, $$str(ts->length())}));
 		}
 		if (readUTFLine() != nullptr) {
 			$throwNew($RuntimeException, "Expected EOF on UTF stream"_s);
@@ -123,7 +107,31 @@ LineSink::LineSink() {
 }
 
 $Class* LineSink::load$($String* name, bool initialize) {
-	$loadClass(LineSink, name, initialize, &_LineSink_ClassInfo_, allocate$LineSink);
+	$FieldInfo fieldInfos$$[] = {
+		{"ui", "Ljava/io/DataInputStream;", nullptr, 0, $field(LineSink, ui)},
+		{"ti", "Ljava/io/BufferedReader;", nullptr, 0, $field(LineSink, ti)},
+		{"count", "I", nullptr, 0, $field(LineSink, count)},
+		{"log", "Ljava/io/PrintWriter;", nullptr, 0, $field(LineSink, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/io/BufferedReader;ILjava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(LineSink, init$, void, $InputStream*, $BufferedReader*, int32_t, $PrintWriter*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/InputStream;Ljava/io/BufferedReader;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(LineSink, init$, void, $InputStream*, $BufferedReader*, $PrintWriter*), "java.io.IOException"},
+		{"readUTFLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LineSink, readUTFLine, $String*), "java.io.IOException"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LineSink, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LineSink",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineSink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LineSink);
+	});
 	return class$;
 }
 

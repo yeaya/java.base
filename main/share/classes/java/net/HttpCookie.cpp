@@ -1,5 +1,4 @@
 #include <java/net/HttpCookie.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
@@ -30,7 +29,6 @@
 #include <java/util/Objects.h>
 #include <java/util/StringTokenizer.h>
 #include <java/util/TimeZone.h>
-#include <jdk/internal/access/JavaNetHttpCookieAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
 
@@ -80,123 +78,10 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Objects = ::java::util::Objects;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $TimeZone = ::java::util::TimeZone;
-using $JavaNetHttpCookieAccess = ::jdk::internal::access::JavaNetHttpCookieAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _HttpCookie_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpCookie, name)},
-	{"value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, value)},
-	{"comment", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, comment)},
-	{"commentURL", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, commentURL)},
-	{"toDiscard", "Z", nullptr, $PRIVATE, $field(HttpCookie, toDiscard)},
-	{"domain", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, domain)},
-	{"maxAge", "J", nullptr, $PRIVATE, $field(HttpCookie, maxAge)},
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, path)},
-	{"portlist", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, portlist)},
-	{"secure", "Z", nullptr, $PRIVATE, $field(HttpCookie, secure)},
-	{"httpOnly", "Z", nullptr, $PRIVATE, $field(HttpCookie, httpOnly)},
-	{"version", "I", nullptr, $PRIVATE, $field(HttpCookie, version)},
-	{"header", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpCookie, header$)},
-	{"whenCreated", "J", nullptr, $PRIVATE | $FINAL, $field(HttpCookie, whenCreated)},
-	{"MAX_AGE_UNSPECIFIED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpCookie, MAX_AGE_UNSPECIFIED)},
-	{"COOKIE_DATE_FORMATS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpCookie, COOKIE_DATE_FORMATS)},
-	{"SET_COOKIE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpCookie, SET_COOKIE)},
-	{"SET_COOKIE2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpCookie, SET_COOKIE2)},
-	{"tspecials", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpCookie, tspecials)},
-	{"assignors", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/net/HttpCookie$CookieAttributeAssignor;>;", $STATIC | $FINAL, $staticField(HttpCookie, assignors)},
-	{"GMT", "Ljava/util/TimeZone;", nullptr, $STATIC | $FINAL, $staticField(HttpCookie, GMT)},
-	{}
-};
-
-$MethodInfo _HttpCookie_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HttpCookie, init$, void, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V", nullptr, 0, $method(HttpCookie, init$, void, $String*, $String*, $String*, int64_t)},
-	{"assignAttribute", "(Ljava/net/HttpCookie;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, assignAttribute, void, HttpCookie*, $String*, $String*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpCookie, clone, $Object*)},
-	{"domainMatches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpCookie, domainMatches, bool, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpCookie, equals, bool, Object$*)},
-	{"equalsIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, equalsIgnoreCase, bool, $String*, $String*)},
-	{"expiryDate2DeltaSeconds", "(Ljava/lang/String;)J", nullptr, $PRIVATE, $method(HttpCookie, expiryDate2DeltaSeconds, int64_t, $String*)},
-	{"getComment", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getComment, $String*)},
-	{"getCommentURL", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getCommentURL, $String*)},
-	{"getCreationTime", "()J", nullptr, 0, $method(HttpCookie, getCreationTime, int64_t)},
-	{"getDiscard", "()Z", nullptr, $PUBLIC, $method(HttpCookie, getDiscard, bool)},
-	{"getDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getDomain, $String*)},
-	{"getMaxAge", "()J", nullptr, $PUBLIC, $method(HttpCookie, getMaxAge, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getName, $String*)},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getPath, $String*)},
-	{"getPortlist", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getPortlist, $String*)},
-	{"getSecure", "()Z", nullptr, $PUBLIC, $method(HttpCookie, getSecure, bool)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getValue, $String*)},
-	{"getVersion", "()I", nullptr, $PUBLIC, $method(HttpCookie, getVersion, int32_t)},
-	{"guessCookieVersion", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, guessCookieVersion, int32_t, $String*)},
-	{"hasExpired", "()Z", nullptr, $PUBLIC, $method(HttpCookie, hasExpired, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpCookie, hashCode, int32_t)},
-	{"header", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpCookie, header, $String*)},
-	{"isHttpOnly", "()Z", nullptr, $PUBLIC, $method(HttpCookie, isHttpOnly, bool)},
-	{"isToken", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, isToken, bool, $String*)},
-	{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/net/HttpCookie;>;", $PUBLIC | $STATIC, $staticMethod(HttpCookie, parse, $List*, $String*)},
-	{"parse", "(Ljava/lang/String;Z)Ljava/util/List;", "(Ljava/lang/String;Z)Ljava/util/List<Ljava/net/HttpCookie;>;", $PRIVATE | $STATIC, $staticMethod(HttpCookie, parse, $List*, $String*, bool)},
-	{"parseInternal", "(Ljava/lang/String;Z)Ljava/net/HttpCookie;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, parseInternal, HttpCookie*, $String*, bool)},
-	{"setComment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setComment, void, $String*)},
-	{"setCommentURL", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setCommentURL, void, $String*)},
-	{"setDiscard", "(Z)V", nullptr, $PUBLIC, $method(HttpCookie, setDiscard, void, bool)},
-	{"setDomain", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setDomain, void, $String*)},
-	{"setHttpOnly", "(Z)V", nullptr, $PUBLIC, $method(HttpCookie, setHttpOnly, void, bool)},
-	{"setMaxAge", "(J)V", nullptr, $PUBLIC, $method(HttpCookie, setMaxAge, void, int64_t)},
-	{"setPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setPath, void, $String*)},
-	{"setPortlist", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setPortlist, void, $String*)},
-	{"setSecure", "(Z)V", nullptr, $PUBLIC, $method(HttpCookie, setSecure, void, bool)},
-	{"setValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setValue, void, $String*)},
-	{"setVersion", "(I)V", nullptr, $PUBLIC, $method(HttpCookie, setVersion, void, int32_t)},
-	{"splitMultiCookies", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(HttpCookie, splitMultiCookies, $List*, $String*)},
-	{"startsWithIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, startsWithIgnoreCase, bool, $String*, $String*)},
-	{"stripOffSurroundingQuote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, stripOffSurroundingQuote, $String*, $String*)},
-	{"toNetscapeHeaderString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpCookie, toNetscapeHeaderString, $String*)},
-	{"toRFC2965HeaderString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpCookie, toRFC2965HeaderString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpCookie, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _HttpCookie_InnerClassesInfo_[] = {
-	{"java.net.HttpCookie$CookieAttributeAssignor", "java.net.HttpCookie", "CookieAttributeAssignor", $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.net.HttpCookie$12", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$11", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$10", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$9", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$8", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$7", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$6", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$5", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$4", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$3", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$2", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HttpCookie_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.net.HttpCookie",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_HttpCookie_FieldInfo_,
-	_HttpCookie_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpCookie_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.HttpCookie$CookieAttributeAssignor,java.net.HttpCookie$12,java.net.HttpCookie$11,java.net.HttpCookie$10,java.net.HttpCookie$9,java.net.HttpCookie$8,java.net.HttpCookie$7,java.net.HttpCookie$6,java.net.HttpCookie$5,java.net.HttpCookie$4,java.net.HttpCookie$3,java.net.HttpCookie$2,java.net.HttpCookie$1"
-};
-
-$Object* allocate$HttpCookie($Class* clazz) {
-	return $of($alloc(HttpCookie));
-}
 
 $StringArray* HttpCookie::COOKIE_DATE_FORMATS = nullptr;
 $String* HttpCookie::SET_COOKIE = nullptr;
@@ -239,15 +124,13 @@ $List* HttpCookie::parse($String* header) {
 
 $List* HttpCookie::parse($String* header$renamed, bool retainHeader) {
 	$init(HttpCookie);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, header, header$renamed);
 	int32_t version = guessCookieVersion(header);
 	if (startsWithIgnoreCase(header, HttpCookie::SET_COOKIE2)) {
-		$assign(header, $nc(header)->substring($nc(HttpCookie::SET_COOKIE2)->length()));
-	} else {
-		if (startsWithIgnoreCase(header, HttpCookie::SET_COOKIE)) {
-			$assign(header, $nc(header)->substring($nc(HttpCookie::SET_COOKIE)->length()));
-		}
+		$assign(header, $nc(header)->substring(HttpCookie::SET_COOKIE2->length()));
+	} else if (startsWithIgnoreCase(header, HttpCookie::SET_COOKIE)) {
+		$assign(header, $nc(header)->substring(HttpCookie::SET_COOKIE->length()));
 	}
 	$var($List, cookies, $new($ArrayList));
 	if (version == 0) {
@@ -387,19 +270,19 @@ void HttpCookie::setHttpOnly(bool httpOnly) {
 
 bool HttpCookie::domainMatches($String* domain, $String* host) {
 	$init(HttpCookie);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (domain == nullptr || host == nullptr) {
 		return false;
 	}
 	bool isLocalDomain = ".local"_s->equalsIgnoreCase(domain);
-	int32_t embeddedDotInDomain = $nc(domain)->indexOf((int32_t)u'.');
+	int32_t embeddedDotInDomain = $nc(domain)->indexOf(u'.');
 	if (embeddedDotInDomain == 0) {
-		embeddedDotInDomain = domain->indexOf((int32_t)u'.', 1);
+		embeddedDotInDomain = domain->indexOf(u'.', 1);
 	}
 	if (!isLocalDomain && (embeddedDotInDomain == -1 || embeddedDotInDomain == domain->length() - 1)) {
 		return false;
 	}
-	int32_t firstDotInHost = $nc(host)->indexOf((int32_t)u'.');
+	int32_t firstDotInHost = $nc(host)->indexOf(u'.');
 	if (firstDotInHost == -1 && (isLocalDomain || domain->equalsIgnoreCase($$str({host, ".local"_s})))) {
 		return true;
 	}
@@ -410,7 +293,7 @@ bool HttpCookie::domainMatches($String* domain, $String* host) {
 	} else if (lengthDiff > 0) {
 		$var($String, H, host->substring(0, lengthDiff));
 		$var($String, D, host->substring(lengthDiff));
-		bool var$0 = H->indexOf((int32_t)u'.') == -1;
+		bool var$0 = H->indexOf(u'.') == -1;
 		return (var$0 && D->equalsIgnoreCase(domain));
 	} else if (lengthDiff == -1) {
 		bool var$1 = domain->charAt(0) == u'.';
@@ -428,7 +311,7 @@ $String* HttpCookie::toString() {
 }
 
 bool HttpCookie::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -445,27 +328,27 @@ bool HttpCookie::equals(Object$* obj) {
 	bool var$2 = equalsIgnoreCase(var$3, $($nc(other)->getName()));
 	if (var$2) {
 		$var($String, var$4, getDomain());
-		var$2 = equalsIgnoreCase(var$4, $($nc(other)->getDomain()));
+		var$2 = equalsIgnoreCase(var$4, $(other->getDomain()));
 	}
 	bool var$1 = var$2;
 	if (var$1) {
-		$var($Object, var$5, $of(getPath()));
-		var$1 = $Objects::equals(var$5, $($nc(other)->getPath()));
+		$var($Object, var$5, getPath());
+		var$1 = $Objects::equals(var$5, $(other->getPath()));
 	}
 	return var$1;
 }
 
 int32_t HttpCookie::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t h1 = $($nc(this->name)->toLowerCase())->hashCode();
-	int32_t h2 = (this->domain != nullptr) ? $($nc(this->domain)->toLowerCase())->hashCode() : 0;
-	int32_t h3 = (this->path != nullptr) ? $nc(this->path)->hashCode() : 0;
+	int32_t h2 = (this->domain != nullptr) ? $(this->domain->toLowerCase())->hashCode() : 0;
+	int32_t h3 = (this->path != nullptr) ? this->path->hashCode() : 0;
 	return h1 + h2 + h3;
 }
 
 $Object* HttpCookie::clone() {
 	try {
-		return $of($Cloneable::clone());
+		return $Cloneable::clone();
 	} catch ($CloneNotSupportedException& e) {
 		$throwNew($RuntimeException, $(e->getMessage()));
 	}
@@ -481,7 +364,7 @@ bool HttpCookie::isToken($String* value) {
 	int32_t len = $nc(value)->length();
 	for (int32_t i = 0; i < len; ++i) {
 		char16_t c = value->charAt(i);
-		if (c < 32 || c >= 127 || $nc(HttpCookie::tspecials)->indexOf((int32_t)c) != -1) {
+		if (c < 32 || c >= 127 || HttpCookie::tspecials->indexOf(c) != -1) {
 			return false;
 		}
 	}
@@ -490,13 +373,13 @@ bool HttpCookie::isToken($String* value) {
 
 HttpCookie* HttpCookie::parseInternal($String* header, bool retainHeader) {
 	$init(HttpCookie);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HttpCookie, cookie, nullptr);
 	$var($String, namevaluePair, nullptr);
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, header, ";"_s));
 	try {
 		$assign(namevaluePair, tokenizer->nextToken());
-		int32_t index = $nc(namevaluePair)->indexOf((int32_t)u'=');
+		int32_t index = $nc(namevaluePair)->indexOf(u'=');
 		if (index != -1) {
 			$var($String, name, $(namevaluePair->substring(0, index))->trim());
 			$var($String, value, $(namevaluePair->substring(index + 1))->trim());
@@ -513,7 +396,7 @@ HttpCookie* HttpCookie::parseInternal($String* header, bool retainHeader) {
 	}
 	while (tokenizer->hasMoreTokens()) {
 		$assign(namevaluePair, tokenizer->nextToken());
-		int32_t index = $nc(namevaluePair)->indexOf((int32_t)u'=');
+		int32_t index = $nc(namevaluePair)->indexOf(u'=');
 		$var($String, name, nullptr);
 		$var($String, value, nullptr);
 		if (index != -1) {
@@ -530,10 +413,10 @@ HttpCookie* HttpCookie::parseInternal($String* header, bool retainHeader) {
 
 void HttpCookie::assignAttribute(HttpCookie* cookie, $String* attrName, $String* attrValue$renamed) {
 	$init(HttpCookie);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, attrValue, attrValue$renamed);
 	$assign(attrValue, stripOffSurroundingQuote(attrValue));
-	$var($HttpCookie$CookieAttributeAssignor, assignor, $cast($HttpCookie$CookieAttributeAssignor, $nc(HttpCookie::assignors)->get($($nc(attrName)->toLowerCase()))));
+	$var($HttpCookie$CookieAttributeAssignor, assignor, $cast($HttpCookie$CookieAttributeAssignor, HttpCookie::assignors->get($($nc(attrName)->toLowerCase()))));
 	if (assignor != nullptr) {
 		assignor->assign(cookie, attrName, attrValue);
 	} else {
@@ -545,13 +428,16 @@ $String* HttpCookie::header() {
 }
 
 $String* HttpCookie::toNetscapeHeaderString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$(getName()), "="_s}));
-	return $concat(var$0, $(getValue()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(getName()));
+	var$0->append("="_s);
+	var$0->append($(getValue()));
+	return $str(var$0);
 }
 
 $String* HttpCookie::toRFC2965HeaderString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($(getName()))->append("=\""_s)->append($(getValue()))->append(u'\"');
 	if (getPath() != nullptr) {
@@ -567,18 +453,18 @@ $String* HttpCookie::toRFC2965HeaderString() {
 }
 
 int64_t HttpCookie::expiryDate2DeltaSeconds($String* dateString) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Calendar, cal, $new($GregorianCalendar, HttpCookie::GMT));
-	for (int32_t i = 0; i < $nc(HttpCookie::COOKIE_DATE_FORMATS)->length; ++i) {
+	for (int32_t i = 0; i < HttpCookie::COOKIE_DATE_FORMATS->length; ++i) {
 		$init($Locale);
-		$var($SimpleDateFormat, df, $new($SimpleDateFormat, $nc(HttpCookie::COOKIE_DATE_FORMATS)->get(i), $Locale::US));
+		$var($SimpleDateFormat, df, $new($SimpleDateFormat, HttpCookie::COOKIE_DATE_FORMATS->get(i), $Locale::US));
 		cal->set(1970, 0, 1, 0, 0, 0);
 		df->setTimeZone(HttpCookie::GMT);
 		df->setLenient(false);
 		df->set2DigitYearStart($(cal->getTime()));
 		try {
 			cal->setTime($(df->parse(dateString)));
-			if (!$nc($nc(HttpCookie::COOKIE_DATE_FORMATS)->get(i))->contains("yyyy"_s)) {
+			if (!$nc(HttpCookie::COOKIE_DATE_FORMATS->get(i))->contains("yyyy"_s)) {
 				int32_t year = cal->get($Calendar::YEAR);
 				$modAssign(year, 100);
 				if (year < 70) {
@@ -606,10 +492,8 @@ int32_t HttpCookie::guessCookieVersion($String* header$renamed) {
 		version = 1;
 	} else if (header->indexOf("max-age"_s) != -1) {
 		version = 1;
-	} else {
-		if (startsWithIgnoreCase(header, HttpCookie::SET_COOKIE2)) {
-			version = 1;
-		}
+	} else if (startsWithIgnoreCase(header, HttpCookie::SET_COOKIE2)) {
+		version = 1;
 	}
 	return version;
 }
@@ -655,7 +539,7 @@ bool HttpCookie::startsWithIgnoreCase($String* s, $String* start) {
 
 $List* HttpCookie::splitMultiCookies($String* header) {
 	$init(HttpCookie);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, cookies, $new($ArrayList));
 	int32_t quoteCount = 0;
 	int32_t p = 0;
@@ -670,12 +554,12 @@ $List* HttpCookie::splitMultiCookies($String* header) {
 			q = p + 1;
 		}
 	}
-	cookies->add($($nc(header)->substring(q)));
+	cookies->add($(header->substring(q)));
 	return cookies;
 }
 
-void clinit$HttpCookie($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void HttpCookie::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(HttpCookie::SET_COOKIE, "set-cookie:"_s);
 	$assignStatic(HttpCookie::SET_COOKIE2, "set-cookie2:"_s);
 	$assignStatic(HttpCookie::tspecials, ",; "_s);
@@ -689,17 +573,17 @@ void clinit$HttpCookie($Class* class$) {
 	}));
 	$assignStatic(HttpCookie::assignors, $new($HashMap));
 	{
-		$nc(HttpCookie::assignors)->put("comment"_s, $$new($HttpCookie$1));
-		$nc(HttpCookie::assignors)->put("commenturl"_s, $$new($HttpCookie$2));
-		$nc(HttpCookie::assignors)->put("discard"_s, $$new($HttpCookie$3));
-		$nc(HttpCookie::assignors)->put("domain"_s, $$new($HttpCookie$4));
-		$nc(HttpCookie::assignors)->put("max-age"_s, $$new($HttpCookie$5));
-		$nc(HttpCookie::assignors)->put("path"_s, $$new($HttpCookie$6));
-		$nc(HttpCookie::assignors)->put("port"_s, $$new($HttpCookie$7));
-		$nc(HttpCookie::assignors)->put("secure"_s, $$new($HttpCookie$8));
-		$nc(HttpCookie::assignors)->put("httponly"_s, $$new($HttpCookie$9));
-		$nc(HttpCookie::assignors)->put("version"_s, $$new($HttpCookie$10));
-		$nc(HttpCookie::assignors)->put("expires"_s, $$new($HttpCookie$11));
+		HttpCookie::assignors->put("comment"_s, $$new($HttpCookie$1));
+		HttpCookie::assignors->put("commenturl"_s, $$new($HttpCookie$2));
+		HttpCookie::assignors->put("discard"_s, $$new($HttpCookie$3));
+		HttpCookie::assignors->put("domain"_s, $$new($HttpCookie$4));
+		HttpCookie::assignors->put("max-age"_s, $$new($HttpCookie$5));
+		HttpCookie::assignors->put("path"_s, $$new($HttpCookie$6));
+		HttpCookie::assignors->put("port"_s, $$new($HttpCookie$7));
+		HttpCookie::assignors->put("secure"_s, $$new($HttpCookie$8));
+		HttpCookie::assignors->put("httponly"_s, $$new($HttpCookie$9));
+		HttpCookie::assignors->put("version"_s, $$new($HttpCookie$10));
+		HttpCookie::assignors->put("expires"_s, $$new($HttpCookie$11));
 	}
 	{
 		$SharedSecrets::setJavaNetHttpCookieAccess($$new($HttpCookie$12));
@@ -711,7 +595,113 @@ HttpCookie::HttpCookie() {
 }
 
 $Class* HttpCookie::load$($String* name, bool initialize) {
-	$loadClass(HttpCookie, name, initialize, &_HttpCookie_ClassInfo_, clinit$HttpCookie, allocate$HttpCookie);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpCookie, name)},
+		{"value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, value)},
+		{"comment", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, comment)},
+		{"commentURL", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, commentURL)},
+		{"toDiscard", "Z", nullptr, $PRIVATE, $field(HttpCookie, toDiscard)},
+		{"domain", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, domain)},
+		{"maxAge", "J", nullptr, $PRIVATE, $field(HttpCookie, maxAge)},
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, path)},
+		{"portlist", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpCookie, portlist)},
+		{"secure", "Z", nullptr, $PRIVATE, $field(HttpCookie, secure)},
+		{"httpOnly", "Z", nullptr, $PRIVATE, $field(HttpCookie, httpOnly)},
+		{"version", "I", nullptr, $PRIVATE, $field(HttpCookie, version)},
+		{"header", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpCookie, header$)},
+		{"whenCreated", "J", nullptr, $PRIVATE | $FINAL, $field(HttpCookie, whenCreated)},
+		{"MAX_AGE_UNSPECIFIED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpCookie, MAX_AGE_UNSPECIFIED)},
+		{"COOKIE_DATE_FORMATS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpCookie, COOKIE_DATE_FORMATS)},
+		{"SET_COOKIE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpCookie, SET_COOKIE)},
+		{"SET_COOKIE2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpCookie, SET_COOKIE2)},
+		{"tspecials", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpCookie, tspecials)},
+		{"assignors", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/net/HttpCookie$CookieAttributeAssignor;>;", $STATIC | $FINAL, $staticField(HttpCookie, assignors)},
+		{"GMT", "Ljava/util/TimeZone;", nullptr, $STATIC | $FINAL, $staticField(HttpCookie, GMT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HttpCookie, init$, void, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V", nullptr, 0, $method(HttpCookie, init$, void, $String*, $String*, $String*, int64_t)},
+		{"assignAttribute", "(Ljava/net/HttpCookie;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, assignAttribute, void, HttpCookie*, $String*, $String*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpCookie, clone, $Object*)},
+		{"domainMatches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpCookie, domainMatches, bool, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpCookie, equals, bool, Object$*)},
+		{"equalsIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, equalsIgnoreCase, bool, $String*, $String*)},
+		{"expiryDate2DeltaSeconds", "(Ljava/lang/String;)J", nullptr, $PRIVATE, $method(HttpCookie, expiryDate2DeltaSeconds, int64_t, $String*)},
+		{"getComment", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getComment, $String*)},
+		{"getCommentURL", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getCommentURL, $String*)},
+		{"getCreationTime", "()J", nullptr, 0, $method(HttpCookie, getCreationTime, int64_t)},
+		{"getDiscard", "()Z", nullptr, $PUBLIC, $method(HttpCookie, getDiscard, bool)},
+		{"getDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getDomain, $String*)},
+		{"getMaxAge", "()J", nullptr, $PUBLIC, $method(HttpCookie, getMaxAge, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getName, $String*)},
+		{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getPath, $String*)},
+		{"getPortlist", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getPortlist, $String*)},
+		{"getSecure", "()Z", nullptr, $PUBLIC, $method(HttpCookie, getSecure, bool)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(HttpCookie, getValue, $String*)},
+		{"getVersion", "()I", nullptr, $PUBLIC, $method(HttpCookie, getVersion, int32_t)},
+		{"guessCookieVersion", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, guessCookieVersion, int32_t, $String*)},
+		{"hasExpired", "()Z", nullptr, $PUBLIC, $method(HttpCookie, hasExpired, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpCookie, hashCode, int32_t)},
+		{"header", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpCookie, header, $String*)},
+		{"isHttpOnly", "()Z", nullptr, $PUBLIC, $method(HttpCookie, isHttpOnly, bool)},
+		{"isToken", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, isToken, bool, $String*)},
+		{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/net/HttpCookie;>;", $PUBLIC | $STATIC, $staticMethod(HttpCookie, parse, $List*, $String*)},
+		{"parse", "(Ljava/lang/String;Z)Ljava/util/List;", "(Ljava/lang/String;Z)Ljava/util/List<Ljava/net/HttpCookie;>;", $PRIVATE | $STATIC, $staticMethod(HttpCookie, parse, $List*, $String*, bool)},
+		{"parseInternal", "(Ljava/lang/String;Z)Ljava/net/HttpCookie;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, parseInternal, HttpCookie*, $String*, bool)},
+		{"setComment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setComment, void, $String*)},
+		{"setCommentURL", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setCommentURL, void, $String*)},
+		{"setDiscard", "(Z)V", nullptr, $PUBLIC, $method(HttpCookie, setDiscard, void, bool)},
+		{"setDomain", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setDomain, void, $String*)},
+		{"setHttpOnly", "(Z)V", nullptr, $PUBLIC, $method(HttpCookie, setHttpOnly, void, bool)},
+		{"setMaxAge", "(J)V", nullptr, $PUBLIC, $method(HttpCookie, setMaxAge, void, int64_t)},
+		{"setPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setPath, void, $String*)},
+		{"setPortlist", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setPortlist, void, $String*)},
+		{"setSecure", "(Z)V", nullptr, $PUBLIC, $method(HttpCookie, setSecure, void, bool)},
+		{"setValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCookie, setValue, void, $String*)},
+		{"setVersion", "(I)V", nullptr, $PUBLIC, $method(HttpCookie, setVersion, void, int32_t)},
+		{"splitMultiCookies", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(HttpCookie, splitMultiCookies, $List*, $String*)},
+		{"startsWithIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, startsWithIgnoreCase, bool, $String*, $String*)},
+		{"stripOffSurroundingQuote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpCookie, stripOffSurroundingQuote, $String*, $String*)},
+		{"toNetscapeHeaderString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpCookie, toNetscapeHeaderString, $String*)},
+		{"toRFC2965HeaderString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpCookie, toRFC2965HeaderString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpCookie, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.HttpCookie$CookieAttributeAssignor", "java.net.HttpCookie", "CookieAttributeAssignor", $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.net.HttpCookie$12", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$11", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$10", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$9", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$8", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$7", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$6", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$5", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$4", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$3", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$2", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.net.HttpCookie",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.HttpCookie$CookieAttributeAssignor,java.net.HttpCookie$12,java.net.HttpCookie$11,java.net.HttpCookie$10,java.net.HttpCookie$9,java.net.HttpCookie$8,java.net.HttpCookie$7,java.net.HttpCookie$6,java.net.HttpCookie$5,java.net.HttpCookie$4,java.net.HttpCookie$3,java.net.HttpCookie$2,java.net.HttpCookie$1"
+	};
+	$loadClass(HttpCookie, name, initialize, &classInfo$$, HttpCookie::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpCookie);
+	});
 	return class$;
 }
 

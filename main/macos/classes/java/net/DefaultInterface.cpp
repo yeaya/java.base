@@ -1,5 +1,4 @@
 #include <java/net/DefaultInterface.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -40,63 +39,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->getInetAddresses());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DefaultInterface$$Lambda$getInetAddresses>());
+		 return $nc(inst$)->getInetAddresses();
 	}
 	$NetworkInterface* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DefaultInterface$$Lambda$getInetAddresses::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DefaultInterface$$Lambda$getInetAddresses, inst$)},
-	{}
-};
-$MethodInfo DefaultInterface$$Lambda$getInetAddresses::methodInfos[3] = {
-	{"<init>", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $method(DefaultInterface$$Lambda$getInetAddresses, init$, void, $NetworkInterface*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultInterface$$Lambda$getInetAddresses, run, $Object*)},
-	{}
-};
-$ClassInfo DefaultInterface$$Lambda$getInetAddresses::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.net.DefaultInterface$$Lambda$getInetAddresses",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* DefaultInterface$$Lambda$getInetAddresses::load$($String* name, bool initialize) {
-	$loadClass(DefaultInterface$$Lambda$getInetAddresses, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DefaultInterface$$Lambda$getInetAddresses, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $method(DefaultInterface$$Lambda$getInetAddresses, init$, void, $NetworkInterface*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultInterface$$Lambda$getInetAddresses, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.net.DefaultInterface$$Lambda$getInetAddresses",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultInterface$$Lambda$getInetAddresses, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultInterface$$Lambda$getInetAddresses);
+	});
 	return class$;
 }
 $Class* DefaultInterface$$Lambda$getInetAddresses::class$ = nullptr;
-
-$FieldInfo _DefaultInterface_FieldInfo_[] = {
-	{"defaultInterface", "Ljava/net/NetworkInterface;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultInterface, defaultInterface)},
-	{}
-};
-
-$MethodInfo _DefaultInterface_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultInterface, init$, void)},
-	{"chooseDefaultInterface", "()Ljava/net/NetworkInterface;", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultInterface, chooseDefaultInterface, $NetworkInterface*)},
-	{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DefaultInterface, getDefault, $NetworkInterface*)},
-	{}
-};
-
-$ClassInfo _DefaultInterface_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.DefaultInterface",
-	"java.lang.Object",
-	nullptr,
-	_DefaultInterface_FieldInfo_,
-	_DefaultInterface_MethodInfo_
-};
-
-$Object* allocate$DefaultInterface($Class* clazz) {
-	return $of($alloc(DefaultInterface));
-}
 
 $NetworkInterface* DefaultInterface::defaultInterface = nullptr;
 
@@ -110,7 +80,7 @@ $NetworkInterface* DefaultInterface::getDefault() {
 
 $NetworkInterface* DefaultInterface::chooseDefaultInterface() {
 	$init(DefaultInterface);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Enumeration, nifs, nullptr);
 	try {
@@ -127,13 +97,13 @@ $NetworkInterface* DefaultInterface::chooseDefaultInterface() {
 		$var($NetworkInterface, ni, $cast($NetworkInterface, nifs->nextElement()));
 		try {
 			bool var$0 = !$nc(ni)->isUp();
-			if (var$0 || !$nc(ni)->supportsMulticast()) {
+			if (var$0 || !ni->supportsMulticast()) {
 				continue;
 			}
 			bool ip4 = false;
 			bool ip6 = false;
 			bool isNonLinkLocal = false;
-			$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(DefaultInterface$$Lambda$getInetAddresses, static_cast<$NetworkInterface*>($nc(ni)))));
+			$var($PrivilegedAction, pa, $new(DefaultInterface$$Lambda$getInetAddresses, ni));
 			$var($Enumeration, addrs, $cast($Enumeration, $AccessController::doPrivileged(pa)));
 			while ($nc(addrs)->hasMoreElements()) {
 				$var($InetAddress, addr, $cast($InetAddress, addrs->nextElement()));
@@ -148,7 +118,7 @@ $NetworkInterface* DefaultInterface::chooseDefaultInterface() {
 					}
 				}
 			}
-			bool isLoopback = $nc(ni)->isLoopback();
+			bool isLoopback = ni->isLoopback();
 			bool isPPP = ni->isPointToPoint();
 			if (!isLoopback && !isPPP) {
 				if (preferred == nullptr) {
@@ -188,7 +158,7 @@ $NetworkInterface* DefaultInterface::chooseDefaultInterface() {
 	}
 }
 
-void clinit$DefaultInterface($Class* class$) {
+void DefaultInterface::clinit$($Class* clazz) {
 	$assignStatic(DefaultInterface::defaultInterface, DefaultInterface::chooseDefaultInterface());
 }
 
@@ -197,11 +167,31 @@ DefaultInterface::DefaultInterface() {
 
 $Class* DefaultInterface::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DefaultInterface$$Lambda$getInetAddresses::classInfo$.name)) {
+		if (name->equals("java.net.DefaultInterface$$Lambda$getInetAddresses")) {
 			return DefaultInterface$$Lambda$getInetAddresses::load$(name, initialize);
 		}
 	}
-	$loadClass(DefaultInterface, name, initialize, &_DefaultInterface_ClassInfo_, clinit$DefaultInterface, allocate$DefaultInterface);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultInterface", "Ljava/net/NetworkInterface;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultInterface, defaultInterface)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultInterface, init$, void)},
+		{"chooseDefaultInterface", "()Ljava/net/NetworkInterface;", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultInterface, chooseDefaultInterface, $NetworkInterface*)},
+		{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DefaultInterface, getDefault, $NetworkInterface*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.DefaultInterface",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultInterface, name, initialize, &classInfo$$, DefaultInterface::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultInterface);
+	});
 	return class$;
 }
 

@@ -23,10 +23,13 @@ public:
 	void init$($String* msg);
 	void init$($Throwable* cause);
 	void init$($String* msg, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xAF45939DFA22E419;
+	static const int64_t serialVersionUID = (int64_t)0xaf45939dfa22e419;
 	FindException(const FindException& e);
 	virtual void throw$() override;
-	inline FindException* operator ->() {
+	inline FindException* operator ->() const {
+		return (FindException*)throwing$;
+	}
+	inline operator FindException*() const {
 		return (FindException*)throwing$;
 	}
 };

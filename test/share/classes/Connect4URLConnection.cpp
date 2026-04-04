@@ -1,5 +1,4 @@
 #include <Connect4URLConnection.h>
-
 #include <java/io/IOException.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
@@ -14,30 +13,11 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 
-$MethodInfo _Connect4URLConnection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Connect4URLConnection, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Connect4URLConnection, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Connect4URLConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Connect4URLConnection",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Connect4URLConnection_MethodInfo_
-};
-
-$Object* allocate$Connect4URLConnection($Class* clazz) {
-	return $of($alloc(Connect4URLConnection));
-}
-
 void Connect4URLConnection::init$() {
 }
 
 void Connect4URLConnection::main($StringArray* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($URL, url, $new($URL, "file:azwe.txt"_s));
 		$var($URLConnection, urlConnection, url->openConnection());
@@ -52,7 +32,22 @@ Connect4URLConnection::Connect4URLConnection() {
 }
 
 $Class* Connect4URLConnection::load$($String* name, bool initialize) {
-	$loadClass(Connect4URLConnection, name, initialize, &_Connect4URLConnection_ClassInfo_, allocate$Connect4URLConnection);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Connect4URLConnection, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Connect4URLConnection, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Connect4URLConnection",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Connect4URLConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Connect4URLConnection);
+	});
 	return class$;
 }
 

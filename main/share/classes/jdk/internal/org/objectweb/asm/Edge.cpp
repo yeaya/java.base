@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/Edge.h>
-
 #include <jdk/internal/org/objectweb/asm/Label.h>
 #include <jcpp.h>
 
@@ -17,33 +16,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 
-$FieldInfo _Edge_FieldInfo_[] = {
-	{"JUMP", "I", nullptr, $STATIC | $FINAL, $constField(Edge, JUMP)},
-	{"EXCEPTION", "I", nullptr, $STATIC | $FINAL, $constField(Edge, EXCEPTION)},
-	{"info", "I", nullptr, $FINAL, $field(Edge, info)},
-	{"successor", "Ljdk/internal/org/objectweb/asm/Label;", nullptr, $FINAL, $field(Edge, successor)},
-	{"nextEdge", "Ljdk/internal/org/objectweb/asm/Edge;", nullptr, 0, $field(Edge, nextEdge)},
-	{}
-};
-
-$MethodInfo _Edge_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Edge;)V", nullptr, 0, $method(Edge, init$, void, int32_t, $Label*, Edge*)},
-	{}
-};
-
-$ClassInfo _Edge_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.Edge",
-	"java.lang.Object",
-	nullptr,
-	_Edge_FieldInfo_,
-	_Edge_MethodInfo_
-};
-
-$Object* allocate$Edge($Class* clazz) {
-	return $of($alloc(Edge));
-}
-
 void Edge::init$(int32_t info, $Label* successor, Edge* nextEdge) {
 	this->info = info;
 	$set(this, successor, successor);
@@ -54,7 +26,29 @@ Edge::Edge() {
 }
 
 $Class* Edge::load$($String* name, bool initialize) {
-	$loadClass(Edge, name, initialize, &_Edge_ClassInfo_, allocate$Edge);
+	$FieldInfo fieldInfos$$[] = {
+		{"JUMP", "I", nullptr, $STATIC | $FINAL, $constField(Edge, JUMP)},
+		{"EXCEPTION", "I", nullptr, $STATIC | $FINAL, $constField(Edge, EXCEPTION)},
+		{"info", "I", nullptr, $FINAL, $field(Edge, info)},
+		{"successor", "Ljdk/internal/org/objectweb/asm/Label;", nullptr, $FINAL, $field(Edge, successor)},
+		{"nextEdge", "Ljdk/internal/org/objectweb/asm/Edge;", nullptr, 0, $field(Edge, nextEdge)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Edge;)V", nullptr, 0, $method(Edge, init$, void, int32_t, $Label*, Edge*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.Edge",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Edge, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Edge);
+	});
 	return class$;
 }
 

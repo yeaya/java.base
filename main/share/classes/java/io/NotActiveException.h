@@ -14,10 +14,13 @@ public:
 	NotActiveException();
 	void init$($String* reason);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xC9F7A024C541E001;
+	static const int64_t serialVersionUID = (int64_t)0xc9f7a024c541e001;
 	NotActiveException(const NotActiveException& e);
 	virtual void throw$() override;
-	inline NotActiveException* operator ->() {
+	inline NotActiveException* operator ->() const {
+		return (NotActiveException*)throwing$;
+	}
+	inline operator NotActiveException*() const {
 		return (NotActiveException*)throwing$;
 	}
 };

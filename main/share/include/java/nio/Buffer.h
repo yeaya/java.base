@@ -43,6 +43,7 @@ class $import Buffer : public ::java::lang::Object {
 	$class(Buffer, $PRELOAD, ::java::lang::Object)
 public:
 	Buffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t addr, int32_t cap, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	void init$(int32_t mark, int32_t pos, int32_t lim, int32_t cap, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	virtual $Object* array() {return nullptr;}

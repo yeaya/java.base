@@ -14,10 +14,13 @@ class $import AcceptPendingException : public ::java::lang::IllegalStateExceptio
 public:
 	AcceptPendingException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x25C4244AABB2AFE5;
+	static const int64_t serialVersionUID = (int64_t)0x25c4244aabb2afe5;
 	AcceptPendingException(const AcceptPendingException& e);
 	virtual void throw$() override;
-	inline AcceptPendingException* operator ->() {
+	inline AcceptPendingException* operator ->() const {
+		return (AcceptPendingException*)throwing$;
+	}
+	inline operator AcceptPendingException*() const {
 		return (AcceptPendingException*)throwing$;
 	}
 };

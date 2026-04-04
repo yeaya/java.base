@@ -1,5 +1,4 @@
 #include <p1/B.h>
-
 #include <jcpp.h>
 
 #undef B
@@ -11,35 +10,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace p1 {
 
-$FieldInfo _B_FieldInfo_[] = {
-	{"INSTANCE", "Lp1/B;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(B, INSTANCE)},
-	{}
-};
-
-$MethodInfo _B_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(B, init$, void)},
-	{}
-};
-
-$ClassInfo _B_ClassInfo_ = {
-	$ACC_SUPER,
-	"p1.B",
-	"java.lang.Object",
-	nullptr,
-	_B_FieldInfo_,
-	_B_MethodInfo_
-};
-
-$Object* allocate$B($Class* clazz) {
-	return $of($alloc(B));
-}
-
 B* B::INSTANCE = nullptr;
 
 void B::init$() {
 }
 
-void clinit$B($Class* class$) {
+void B::clinit$($Class* clazz) {
 	$assignStatic(B::INSTANCE, $new(B));
 }
 
@@ -47,7 +23,25 @@ B::B() {
 }
 
 $Class* B::load$($String* name, bool initialize) {
-	$loadClass(B, name, initialize, &_B_ClassInfo_, clinit$B, allocate$B);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lp1/B;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(B, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(B, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"p1.B",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(B, name, initialize, &classInfo$$, B::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(B);
+	});
 	return class$;
 }
 

@@ -41,6 +41,7 @@ class ModuleLoaderMap$Mapper : public ::java::util::function::Function {
 	$class(ModuleLoaderMap$Mapper, $PRELOAD, ::java::util::function::Function)
 public:
 	ModuleLoaderMap$Mapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::module::Configuration* cf);
 	::java::lang::ClassLoader* apply($String* name);
 	virtual $Object* apply(Object$* name) override;

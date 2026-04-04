@@ -21,6 +21,7 @@ class LauncherHelper$ResourceBundleHolder : public ::java::lang::Object {
 	$class(LauncherHelper$ResourceBundleHolder, 0, ::java::lang::Object)
 public:
 	LauncherHelper$ResourceBundleHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::ResourceBundle* RB;
 };

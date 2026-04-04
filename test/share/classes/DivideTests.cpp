@@ -1,5 +1,4 @@
 #include <DivideTests.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/StrictMath.h>
 #include <java/math/BigDecimal.h>
@@ -22,7 +21,6 @@
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;
 using $longArray2 = $Array<int64_t, 2>;
 using $BigDecimalArray2 = $Array<::java::math::BigDecimal, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -36,37 +34,11 @@ using $BigInteger = ::java::math::BigInteger;
 using $MathContext = ::java::math::MathContext;
 using $RoundingMode = ::java::math::RoundingMode;
 
-$MethodInfo _DivideTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DivideTests, init$, void)},
-	{"anotherDivide", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Ljava/math/BigDecimal;", nullptr, 0, $virtualMethod(DivideTests, anotherDivide, $BigDecimal*, $BigDecimal*, $BigDecimal*)},
-	{"divideByOneTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(DivideTests, divideByOneTests, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, main, void, $StringArray*)},
-	{"nonTerminating", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, nonTerminating, int32_t)},
-	{"powersOf2and5", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, powersOf2and5, int32_t)},
-	{"properScaleTests", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, properScaleTests, int32_t)},
-	{"scaledRoundedDivideTests", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, scaledRoundedDivideTests, int32_t)},
-	{"trailingZeroTests", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, trailingZeroTests, int32_t)},
-	{}
-};
-
-$ClassInfo _DivideTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DivideTests",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DivideTests_MethodInfo_
-};
-
-$Object* allocate$DivideTests($Class* clazz) {
-	return $of($alloc(DivideTests));
-}
-
 void DivideTests::init$() {
 }
 
 $BigDecimal* DivideTests::anotherDivide($BigDecimal* dividend, $BigDecimal* divisor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(divisor)->signum() == 0) {
 		if ($nc(dividend)->signum() == 0) {
 			$throwNew($ArithmeticException, "Division undefined"_s);
@@ -76,12 +48,12 @@ $BigDecimal* DivideTests::anotherDivide($BigDecimal* dividend, $BigDecimal* divi
 	if ($nc(dividend)->signum() == 0) {
 		return $BigDecimal::ZERO;
 	} else {
-		$var($BigInteger, TWO, $BigInteger::valueOf((int64_t)2));
-		$var($BigInteger, FIVE, $BigInteger::valueOf((int64_t)5));
-		$var($BigInteger, TEN, $BigInteger::valueOf((int64_t)10));
-		$var($BigInteger, divisorIntvalue, $nc($($nc($($nc(divisor)->scaleByPowerOfTen(divisor->scale())))->toBigInteger()))->abs());
-		$var($BigInteger, dividendIntvalue, $nc($($nc($(dividend->scaleByPowerOfTen(dividend->scale())))->toBigInteger()))->abs());
-		$var($BigInteger, b_prime, $nc(divisorIntvalue)->divide($($nc(dividendIntvalue)->gcd(divisorIntvalue))));
+		$var($BigInteger, TWO, $BigInteger::valueOf(2));
+		$var($BigInteger, FIVE, $BigInteger::valueOf(5));
+		$var($BigInteger, TEN, $BigInteger::valueOf(10));
+		$var($BigInteger, divisorIntvalue, $($(divisor->scaleByPowerOfTen(divisor->scale()))->toBigInteger())->abs());
+		$var($BigInteger, dividendIntvalue, $($(dividend->scaleByPowerOfTen(dividend->scale()))->toBigInteger())->abs());
+		$var($BigInteger, b_prime, divisorIntvalue->divide($(dividendIntvalue->gcd(divisorIntvalue))));
 		bool goodDivisor = false;
 		int32_t i = 0;
 		int32_t j = 0;
@@ -89,44 +61,33 @@ $BigDecimal* DivideTests::anotherDivide($BigDecimal* dividend, $BigDecimal* divi
 		for (;;) {
 			{
 				while (!$nc(b_prime)->equals($BigInteger::ONE)) {
-					int32_t b_primeModTen = $nc($(b_prime->mod(TEN)))->intValue();
+					int32_t b_primeModTen = $(b_prime->mod(TEN))->intValue();
 					switch (b_primeModTen) {
 					case 0:
-						{
-							++i;
-							++j;
-							$assign(b_prime, b_prime->divide(TEN));
-							break;
-						}
+						++i;
+						++j;
+						$assign(b_prime, b_prime->divide(TEN));
+						break;
 					case 5:
-						{
-							++j;
-							$assign(b_prime, b_prime->divide(FIVE));
-							break;
-						}
+						++j;
+						$assign(b_prime, b_prime->divide(FIVE));
+						break;
 					case 2:
-						{}
 					case 4:
-						{}
 					case 6:
-						{}
 					case 8:
-						{
-							++i;
-							$assign(b_prime, b_prime->divide(TWO));
-							break;
-						}
+						++i;
+						$assign(b_prime, b_prime->divide(TWO));
+						break;
 					default:
-						{
-							$assign(b_prime, $BigInteger::ONE);
-							badDivisor$break = true;
-							break;
-						}
+						$assign(b_prime, $BigInteger::ONE);
+						badDivisor$break = true;
+						break;
 					}
-
 					if (badDivisor$break) {
 						break;
-					}				}
+					}
+				}
 				if (badDivisor$break) {
 					break;
 				}
@@ -146,7 +107,7 @@ $BigDecimal* DivideTests::anotherDivide($BigDecimal* dividend, $BigDecimal* divi
 }
 
 int32_t DivideTests::powersOf2and5() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	for (int32_t i = 0; i < 6; ++i) {
 		int32_t powerOf2 = $cast(int32_t, $StrictMath::pow(2.0, (double)i));
@@ -159,27 +120,36 @@ int32_t DivideTests::powersOf2and5() {
 				$assign(bd, $nc($BigDecimal::ONE)->divide($$new($BigDecimal, product = powerOf2 * powerOf5)));
 			} catch ($ArithmeticException& e) {
 				++failures;
-				$var($String, var$1, $$str({$(($$new($BigDecimal, powerOf2))->toString()), " / "_s}));
-				$var($String, var$0, $$concat(var$1, $(($$new($BigDecimal, powerOf5))->toString())));
-				$nc($System::err)->println($$concat(var$0, " threw an exception."_s));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($(($$new($BigDecimal, powerOf2))->toString()));
+				var$0->append(" / "_s);
+				var$0->append($(($$new($BigDecimal, powerOf5))->toString()));
+				var$0->append(" threw an exception."_s);
+				$nc($System::err)->println($$str(var$0));
 				e->printStackTrace();
 			}
 			try {
 				$assign(bd, $$new($BigDecimal, powerOf2)->divide($$new($BigDecimal, powerOf5)));
 			} catch ($ArithmeticException& e) {
 				++failures;
-				$var($String, var$3, $$str({$(($$new($BigDecimal, powerOf2))->toString()), " / "_s}));
-				$var($String, var$2, $$concat(var$3, $(($$new($BigDecimal, powerOf5))->toString())));
-				$nc($System::err)->println($$concat(var$2, " threw an exception."_s));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append($(($$new($BigDecimal, powerOf2))->toString()));
+				var$1->append(" / "_s);
+				var$1->append($(($$new($BigDecimal, powerOf5))->toString()));
+				var$1->append(" threw an exception."_s);
+				$nc($System::err)->println($$str(var$1));
 				e->printStackTrace();
 			}
 			try {
 				$assign(bd, $$new($BigDecimal, powerOf5)->divide($$new($BigDecimal, powerOf2)));
 			} catch ($ArithmeticException& e) {
 				++failures;
-				$var($String, var$5, $$str({$(($$new($BigDecimal, powerOf5))->toString()), " / "_s}));
-				$var($String, var$4, $$concat(var$5, $(($$new($BigDecimal, powerOf2))->toString())));
-				$nc($System::err)->println($$concat(var$4, " threw an exception."_s));
+				$var($StringBuilder, var$2, $new($StringBuilder));
+				var$2->append($(($$new($BigDecimal, powerOf5))->toString()));
+				var$2->append(" / "_s);
+				var$2->append($(($$new($BigDecimal, powerOf2))->toString()));
+				var$2->append(" threw an exception."_s);
+				$nc($System::err)->println($$str(var$2));
 				e->printStackTrace();
 			}
 		}
@@ -188,7 +158,7 @@ int32_t DivideTests::powersOf2and5() {
 }
 
 int32_t DivideTests::nonTerminating() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($ints, primes, $new($ints, {
 		1,
@@ -207,8 +177,9 @@ int32_t DivideTests::nonTerminating() {
 						try {
 							$var($BigDecimal, quotient, $$new($BigDecimal, dividend)->divide($$new($BigDecimal, divisor)));
 							++failures;
-							$nc($System::err)->println($$str({"Exact quotient "_s, $($nc(quotient)->toString()), " returned for non-terminating fraction "_s, $$str(dividend), " / "_s, $$str(divisor), "."_s}));
+							$nc($System::err)->println($$str({"Exact quotient "_s, $(quotient->toString()), " returned for non-terminating fraction "_s, $$str(dividend), " / "_s, $$str(divisor), "."_s}));
 						} catch ($ArithmeticException& e) {
+							;
 						}
 					}
 				}
@@ -219,7 +190,7 @@ int32_t DivideTests::nonTerminating() {
 }
 
 int32_t DivideTests::properScaleTests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimalArray2, testCases, $new($BigDecimalArray2, {
 		$$new($BigDecimalArray, {
@@ -265,13 +236,11 @@ int32_t DivideTests::properScaleTests() {
 	}));
 	{
 		$var($BigDecimalArray2, arr$, testCases);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigDecimalArray, tc, arr$->get(i$));
 			{
 				$var($BigDecimal, quotient, nullptr);
-				if (!$nc(($assign(quotient, $nc($nc(tc)->get(0))->divide(tc->get(1)))))->equals(tc->get(2))) {
+				if (!$nc(($assign(quotient, $nc($nc(tc)->get(0))->divide($nc(tc)->get(1)))))->equals($nc(tc)->get(2))) {
 					++failures;
 					$nc($System::err)->println($$str({"Unexpected quotient from "_s, tc->get(0), " / "_s, tc->get(1), "; expected "_s, tc->get(2), " got "_s, quotient}));
 				}
@@ -282,7 +251,7 @@ int32_t DivideTests::properScaleTests() {
 }
 
 int32_t DivideTests::trailingZeroTests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$init($RoundingMode);
 	$var($MathContext, mc, $new($MathContext, 3, $RoundingMode::FLOOR));
@@ -300,13 +269,11 @@ int32_t DivideTests::trailingZeroTests() {
 	}));
 	{
 		$var($BigDecimalArray2, arr$, testCases);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigDecimalArray, tc, arr$->get(i$));
 			{
 				$var($BigDecimal, quotient, nullptr);
-				if (!$nc(($assign(quotient, $nc($nc(tc)->get(0))->divide(tc->get(1), mc))))->equals(tc->get(2))) {
+				if (!$nc(($assign(quotient, $nc($nc(tc)->get(0))->divide($nc(tc)->get(1), mc))))->equals($nc(tc)->get(2))) {
 					++failures;
 					$nc($System::err)->println($$str({"Unexpected quotient from "_s, tc->get(0), " / "_s, tc->get(1), "; expected "_s, tc->get(2), " got "_s, quotient}));
 				}
@@ -317,7 +284,7 @@ int32_t DivideTests::trailingZeroTests() {
 }
 
 int32_t DivideTests::scaledRoundedDivideTests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, a, $new($BigDecimal, "31415"_s));
 	$var($BigDecimal, a_minus, a->negate());
@@ -444,22 +411,28 @@ int32_t DivideTests::scaledRoundedDivideTests() {
 	}));
 	{
 		$var($BigDecimalArray2, arr$, testCases);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigDecimalArray, tc, arr$->get(i$));
 			{
 				int32_t scale = $nc($nc(tc)->get(2))->scale();
-				int32_t rm = $nc($($nc(tc->get(2))->unscaledValue()))->intValue();
+				int32_t rm = $($nc(tc->get(2))->unscaledValue())->intValue();
 				$var($BigDecimal, quotient, $nc(tc->get(0))->divide(tc->get(1), scale, rm));
-				if (!$nc(quotient)->equals(tc->get(3))) {
+				if (!quotient->equals(tc->get(3))) {
 					++failures;
-					$var($String, var$4, $$str({"Unexpected quotient from "_s, tc->get(0), " / "_s, tc->get(1), " scale "_s, $$str(scale), " rounding mode "_s}));
-					$var($String, var$3, $$concat(var$4, $($RoundingMode::valueOf(rm))));
-					$var($String, var$2, $$concat(var$3, "; expected "_s));
-					$var($String, var$1, $$concat(var$2, $(tc->get(3))));
-					$var($String, var$0, $$concat(var$1, " got "_s));
-					$nc($System::err)->println($$concat(var$0, $(quotient)));
+					$var($StringBuilder, var$0, $new($StringBuilder));
+					var$0->append("Unexpected quotient from "_s);
+					var$0->append(tc->get(0));
+					var$0->append(" / "_s);
+					var$0->append(tc->get(1));
+					var$0->append(" scale "_s);
+					var$0->append(scale);
+					var$0->append(" rounding mode "_s);
+					var$0->append($($RoundingMode::valueOf(rm)));
+					var$0->append("; expected "_s);
+					var$0->append(tc->get(3));
+					var$0->append(" got "_s);
+					var$0->append(quotient);
+					$nc($System::err)->println($$str(var$0));
 				}
 			}
 		}
@@ -508,14 +481,12 @@ int32_t DivideTests::scaledRoundedDivideTests() {
 	}));
 	{
 		$var($BigDecimalArray2, arr$, testCases2);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigDecimalArray, test, arr$->get(i$));
 			{
 				$init($RoundingMode);
-				$var($BigDecimal, quo, $nc($nc(test)->get(0))->divide(test->get(1), $RoundingMode::HALF_UP));
-				if (!$nc(quo)->equals(test->get(2))) {
+				$var($BigDecimal, quo, $nc($nc(test)->get(0))->divide($nc(test)->get(1), $RoundingMode::HALF_UP));
+				if (!quo->equals(test->get(2))) {
 					++failures;
 					$nc($System::err)->println($$str({"Unexpected quotient from "_s, test->get(0), " / "_s, test->get(1), " rounding mode HALF_UP; expected "_s, test->get(2), " got "_s, quo}));
 				}
@@ -526,7 +497,7 @@ int32_t DivideTests::scaledRoundedDivideTests() {
 }
 
 int32_t DivideTests::divideByOneTests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$init($BigDecimal);
 	$var($BigDecimal, one, $nc($BigDecimal::ONE)->setScale(17));
@@ -535,48 +506,46 @@ int32_t DivideTests::divideByOneTests() {
 	$var($longArray2, unscaledAndScale, $new($longArray2, {
 		$$new($longs, {
 			$Long::MAX_VALUE,
-			(int64_t)17
+			17
 		}),
 		$$new($longs, {
 			-$Long::MAX_VALUE,
-			(int64_t)17
+			17
 		}),
 		$$new($longs, {
 			$Long::MAX_VALUE,
-			(int64_t)0
+			0
 		}),
 		$$new($longs, {
 			-$Long::MAX_VALUE,
-			(int64_t)0
+			0
 		}),
 		$$new($longs, {
 			$Long::MAX_VALUE,
-			(int64_t)100
+			100
 		}),
 		$$new($longs, {
 			-$Long::MAX_VALUE,
-			(int64_t)100
+			100
 		})
 	}));
 	{
 		$var($longArray2, arr$, unscaledAndScale);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($longs, uas, arr$->get(i$));
 			{
 				int64_t unscaled = $nc(uas)->get(0);
 				int32_t scale = (int32_t)uas->get(1);
 				$var($BigDecimal, noRound, nullptr);
 				try {
-					$assign(noRound, $nc($($BigDecimal::valueOf(unscaled, scale)))->divide(one, $RoundingMode::UNNECESSARY));
+					$assign(noRound, $($BigDecimal::valueOf(unscaled, scale))->divide(one, $RoundingMode::UNNECESSARY));
 				} catch ($ArithmeticException& e) {
 					++failures;
 					$nc($System::err)->println($$str({"ArithmeticException for value "_s, $$str(unscaled), " and scale "_s, $$str(scale), " without rounding"_s}));
 				}
 				$var($BigDecimal, roundDown, nullptr);
 				try {
-					$assign(roundDown, $nc($($BigDecimal::valueOf(unscaled, scale)))->divide(one, $RoundingMode::DOWN));
+					$assign(roundDown, $($BigDecimal::valueOf(unscaled, scale))->divide(one, $RoundingMode::DOWN));
 				} catch ($ArithmeticException& e) {
 					++failures;
 					$nc($System::err)->println($$str({"ArithmeticException for value "_s, $$str(unscaled), " and scale "_s, $$str(scale), " with rounding down"_s}));
@@ -592,7 +561,7 @@ int32_t DivideTests::divideByOneTests() {
 }
 
 void DivideTests::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	failures += powersOf2and5();
 	failures += nonTerminating();
@@ -609,7 +578,29 @@ DivideTests::DivideTests() {
 }
 
 $Class* DivideTests::load$($String* name, bool initialize) {
-	$loadClass(DivideTests, name, initialize, &_DivideTests_ClassInfo_, allocate$DivideTests);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DivideTests, init$, void)},
+		{"anotherDivide", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Ljava/math/BigDecimal;", nullptr, 0, $virtualMethod(DivideTests, anotherDivide, $BigDecimal*, $BigDecimal*, $BigDecimal*)},
+		{"divideByOneTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(DivideTests, divideByOneTests, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, main, void, $StringArray*)},
+		{"nonTerminating", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, nonTerminating, int32_t)},
+		{"powersOf2and5", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, powersOf2and5, int32_t)},
+		{"properScaleTests", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, properScaleTests, int32_t)},
+		{"scaledRoundedDivideTests", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, scaledRoundedDivideTests, int32_t)},
+		{"trailingZeroTests", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, trailingZeroTests, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DivideTests",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DivideTests, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DivideTests);
+	});
 	return class$;
 }
 

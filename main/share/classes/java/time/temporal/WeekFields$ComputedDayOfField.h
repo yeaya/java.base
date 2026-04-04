@@ -55,6 +55,7 @@ class $export WeekFields$ComputedDayOfField : public ::java::time::temporal::Tem
 	$class(WeekFields$ComputedDayOfField, 0, ::java::time::temporal::TemporalField)
 public:
 	WeekFields$ComputedDayOfField();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, ::java::time::temporal::WeekFields* weekDef, ::java::time::temporal::TemporalUnit* baseUnit, ::java::time::temporal::TemporalUnit* rangeUnit, ::java::time::temporal::ValueRange* range);
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal, int64_t newValue) override;
 	int32_t computeWeek(int32_t offset, int32_t day);

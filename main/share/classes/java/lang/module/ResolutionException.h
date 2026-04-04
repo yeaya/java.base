@@ -23,10 +23,13 @@ public:
 	void init$($String* msg);
 	void init$($Throwable* cause);
 	void init$($String* msg, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xF1B07D0713D73596;
+	static const int64_t serialVersionUID = (int64_t)0xf1b07d0713d73596;
 	ResolutionException(const ResolutionException& e);
 	virtual void throw$() override;
-	inline ResolutionException* operator ->() {
+	inline ResolutionException* operator ->() const {
+		return (ResolutionException*)throwing$;
+	}
+	inline operator ResolutionException*() const {
 		return (ResolutionException*)throwing$;
 	}
 };

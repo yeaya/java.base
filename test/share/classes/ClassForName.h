@@ -9,6 +9,7 @@ class $export ClassForName : public ::java::lang::Runnable {
 	$class(ClassForName, 0, ::java::lang::Runnable)
 public:
 	ClassForName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void run() override;
 };

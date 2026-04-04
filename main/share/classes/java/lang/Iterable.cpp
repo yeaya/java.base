@@ -1,5 +1,4 @@
 #include <java/lang/Iterable.h>
-
 #include <java/util/Iterator.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
@@ -18,29 +17,8 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace lang {
 
-$MethodInfo _Iterable_MethodInfo_[] = {
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Iterable, forEach, void, $Consumer*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Iterable, iterator, $Iterator*)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Iterable, spliterator, $Spliterator*)},
-	{}
-};
-
-$ClassInfo _Iterable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.Iterable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Iterable_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$Iterable($Class* clazz) {
-	return $of($alloc(Iterable));
-}
-
 void Iterable::forEach($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	{
 		$var($Iterator, i$, this->iterator());
@@ -58,7 +36,24 @@ $Spliterator* Iterable::spliterator() {
 }
 
 $Class* Iterable::load$($String* name, bool initialize) {
-	$loadClass(Iterable, name, initialize, &_Iterable_ClassInfo_, allocate$Iterable);
+	$MethodInfo methodInfos$$[] = {
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Iterable, forEach, void, $Consumer*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Iterable, iterator, $Iterator*)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Iterable, spliterator, $Spliterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.Iterable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(Iterable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Iterable);
+	});
 	return class$;
 }
 

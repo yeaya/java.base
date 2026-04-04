@@ -1,5 +1,4 @@
 #include <java/lang/CharacterData.h>
-
 #include <java/lang/CharacterData00.h>
 #include <java/lang/CharacterData01.h>
 #include <java/lang/CharacterData02.h>
@@ -23,47 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$MethodInfo _CharacterData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CharacterData, init$, void)},
-	{"digit", "(II)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, digit, int32_t, int32_t, int32_t)},
-	{"getDirectionality", "(I)B", nullptr, $ABSTRACT, $virtualMethod(CharacterData, getDirectionality, int8_t, int32_t)},
-	{"getNumericValue", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, getNumericValue, int32_t, int32_t)},
-	{"getProperties", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, getProperties, int32_t, int32_t)},
-	{"getType", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, getType, int32_t, int32_t)},
-	{"isDigit", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isDigit, bool, int32_t)},
-	{"isIdentifierIgnorable", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isIdentifierIgnorable, bool, int32_t)},
-	{"isIdeographic", "(I)Z", nullptr, 0, $virtualMethod(CharacterData, isIdeographic, bool, int32_t)},
-	{"isJavaIdentifierPart", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isJavaIdentifierPart, bool, int32_t)},
-	{"isJavaIdentifierStart", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isJavaIdentifierStart, bool, int32_t)},
-	{"isLowerCase", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isLowerCase, bool, int32_t)},
-	{"isMirrored", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isMirrored, bool, int32_t)},
-	{"isOtherAlphabetic", "(I)Z", nullptr, 0, $virtualMethod(CharacterData, isOtherAlphabetic, bool, int32_t)},
-	{"isUnicodeIdentifierPart", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isUnicodeIdentifierPart, bool, int32_t)},
-	{"isUnicodeIdentifierStart", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isUnicodeIdentifierStart, bool, int32_t)},
-	{"isUpperCase", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isUpperCase, bool, int32_t)},
-	{"isWhitespace", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isWhitespace, bool, int32_t)},
-	{"of", "(I)Ljava/lang/CharacterData;", nullptr, $STATIC | $FINAL, $staticMethod(CharacterData, of, CharacterData*, int32_t)},
-	{"toLowerCase", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, toLowerCase, int32_t, int32_t)},
-	{"toTitleCase", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, toTitleCase, int32_t, int32_t)},
-	{"toUpperCase", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, toUpperCase, int32_t, int32_t)},
-	{"toUpperCaseCharArray", "(I)[C", nullptr, 0, $virtualMethod(CharacterData, toUpperCaseCharArray, $chars*, int32_t)},
-	{"toUpperCaseEx", "(I)I", nullptr, 0, $virtualMethod(CharacterData, toUpperCaseEx, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _CharacterData_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.lang.CharacterData",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CharacterData_MethodInfo_
-};
-
-$Object* allocate$CharacterData($Class* clazz) {
-	return $of($alloc(CharacterData));
-}
 
 void CharacterData::init$() {
 }
@@ -89,53 +47,37 @@ CharacterData* CharacterData::of(int32_t ch) {
 		$init($CharacterDataLatin1);
 		return $CharacterDataLatin1::instance;
 	} else {
-
-		$var(CharacterData, var$0, nullptr)
+		$var(CharacterData, var$0, nullptr);
 		switch ((int32_t)((uint32_t)ch >> 16)) {
 		case 0:
-			{
-				$init($CharacterData00);
-				$assign(var$0, $CharacterData00::instance);
-				break;
-			}
+			$init($CharacterData00);
+			$assign(var$0, $CharacterData00::instance);
+			break;
 		case 1:
-			{
-				$init($CharacterData01);
-				$assign(var$0, $CharacterData01::instance);
-				break;
-			}
+			$init($CharacterData01);
+			$assign(var$0, $CharacterData01::instance);
+			break;
 		case 2:
-			{
-				$init($CharacterData02);
-				$assign(var$0, $CharacterData02::instance);
-				break;
-			}
+			$init($CharacterData02);
+			$assign(var$0, $CharacterData02::instance);
+			break;
 		case 3:
-			{
-				$init($CharacterData03);
-				$assign(var$0, $CharacterData03::instance);
-				break;
-			}
+			$init($CharacterData03);
+			$assign(var$0, $CharacterData03::instance);
+			break;
 		case 14:
-			{
-				$init($CharacterData0E);
-				$assign(var$0, $CharacterData0E::instance);
-				break;
-			}
+			$init($CharacterData0E);
+			$assign(var$0, $CharacterData0E::instance);
+			break;
 		case 15:
-			{}
 		case 16:
-			{
-				$init($CharacterDataPrivateUse);
-				$assign(var$0, $CharacterDataPrivateUse::instance);
-				break;
-			}
+			$init($CharacterDataPrivateUse);
+			$assign(var$0, $CharacterDataPrivateUse::instance);
+			break;
 		default:
-			{
-				$init($CharacterDataUndefined);
-				$assign(var$0, $CharacterDataUndefined::instance);
-				break;
-			}
+			$init($CharacterDataUndefined);
+			$assign(var$0, $CharacterDataUndefined::instance);
+			break;
 		}
 		return var$0;
 	}
@@ -145,7 +87,44 @@ CharacterData::CharacterData() {
 }
 
 $Class* CharacterData::load$($String* name, bool initialize) {
-	$loadClass(CharacterData, name, initialize, &_CharacterData_ClassInfo_, allocate$CharacterData);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CharacterData, init$, void)},
+		{"digit", "(II)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, digit, int32_t, int32_t, int32_t)},
+		{"getDirectionality", "(I)B", nullptr, $ABSTRACT, $virtualMethod(CharacterData, getDirectionality, int8_t, int32_t)},
+		{"getNumericValue", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, getNumericValue, int32_t, int32_t)},
+		{"getProperties", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, getProperties, int32_t, int32_t)},
+		{"getType", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, getType, int32_t, int32_t)},
+		{"isDigit", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isDigit, bool, int32_t)},
+		{"isIdentifierIgnorable", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isIdentifierIgnorable, bool, int32_t)},
+		{"isIdeographic", "(I)Z", nullptr, 0, $virtualMethod(CharacterData, isIdeographic, bool, int32_t)},
+		{"isJavaIdentifierPart", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isJavaIdentifierPart, bool, int32_t)},
+		{"isJavaIdentifierStart", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isJavaIdentifierStart, bool, int32_t)},
+		{"isLowerCase", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isLowerCase, bool, int32_t)},
+		{"isMirrored", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isMirrored, bool, int32_t)},
+		{"isOtherAlphabetic", "(I)Z", nullptr, 0, $virtualMethod(CharacterData, isOtherAlphabetic, bool, int32_t)},
+		{"isUnicodeIdentifierPart", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isUnicodeIdentifierPart, bool, int32_t)},
+		{"isUnicodeIdentifierStart", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isUnicodeIdentifierStart, bool, int32_t)},
+		{"isUpperCase", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isUpperCase, bool, int32_t)},
+		{"isWhitespace", "(I)Z", nullptr, $ABSTRACT, $virtualMethod(CharacterData, isWhitespace, bool, int32_t)},
+		{"of", "(I)Ljava/lang/CharacterData;", nullptr, $STATIC | $FINAL, $staticMethod(CharacterData, of, CharacterData*, int32_t)},
+		{"toLowerCase", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, toLowerCase, int32_t, int32_t)},
+		{"toTitleCase", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, toTitleCase, int32_t, int32_t)},
+		{"toUpperCase", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CharacterData, toUpperCase, int32_t, int32_t)},
+		{"toUpperCaseCharArray", "(I)[C", nullptr, 0, $virtualMethod(CharacterData, toUpperCaseCharArray, $chars*, int32_t)},
+		{"toUpperCaseEx", "(I)I", nullptr, 0, $virtualMethod(CharacterData, toUpperCaseEx, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.lang.CharacterData",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CharacterData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharacterData);
+	});
 	return class$;
 }
 

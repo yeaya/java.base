@@ -1,5 +1,4 @@
 #include <java/util/OptionalInt.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/function/IntConsumer.h>
@@ -24,56 +23,6 @@ using $IntStream = ::java::util::stream::IntStream;
 
 namespace java {
 	namespace util {
-
-$CompoundAttribute _OptionalInt_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _OptionalInt_FieldInfo_[] = {
-	{"EMPTY", "Ljava/util/OptionalInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OptionalInt, EMPTY)},
-	{"isPresent", "Z", nullptr, $PRIVATE | $FINAL, $field(OptionalInt, isPresent$)},
-	{"value", "I", nullptr, $PRIVATE | $FINAL, $field(OptionalInt, value)},
-	{}
-};
-
-$MethodInfo _OptionalInt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(OptionalInt, init$, void)},
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(OptionalInt, init$, void, int32_t)},
-	{"empty", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalInt, empty, OptionalInt*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OptionalInt, equals, bool, Object$*)},
-	{"getAsInt", "()I", nullptr, $PUBLIC, $method(OptionalInt, getAsInt, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OptionalInt, hashCode, int32_t)},
-	{"ifPresent", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $method(OptionalInt, ifPresent, void, $IntConsumer*)},
-	{"ifPresentOrElse", "(Ljava/util/function/IntConsumer;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(OptionalInt, ifPresentOrElse, void, $IntConsumer*, $Runnable*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(OptionalInt, isEmpty, bool)},
-	{"isPresent", "()Z", nullptr, $PUBLIC, $method(OptionalInt, isPresent, bool)},
-	{"of", "(I)Ljava/util/OptionalInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalInt, of, OptionalInt*, int32_t)},
-	{"orElse", "(I)I", nullptr, $PUBLIC, $method(OptionalInt, orElse, int32_t, int32_t)},
-	{"orElseGet", "(Ljava/util/function/IntSupplier;)I", nullptr, $PUBLIC, $method(OptionalInt, orElseGet, int32_t, $IntSupplier*)},
-	{"orElseThrow", "()I", nullptr, $PUBLIC, $method(OptionalInt, orElseThrow, int32_t)},
-	{"orElseThrow", "(Ljava/util/function/Supplier;)I", "<X:Ljava/lang/Throwable;>(Ljava/util/function/Supplier<+TX;>;)I^TX;", $PUBLIC, $method(OptionalInt, orElseThrow, int32_t, $Supplier*), "java.lang.Throwable"},
-	{"stream", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $method(OptionalInt, stream, $IntStream*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionalInt, toString, $String*)},
-	{}
-};
-
-$ClassInfo _OptionalInt_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.OptionalInt",
-	"java.lang.Object",
-	nullptr,
-	_OptionalInt_FieldInfo_,
-	_OptionalInt_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_OptionalInt_Annotations_
-};
-
-$Object* allocate$OptionalInt($Class* clazz) {
-	return $of($alloc(OptionalInt));
-}
 
 OptionalInt* OptionalInt::EMPTY = nullptr;
 
@@ -153,7 +102,7 @@ int32_t OptionalInt::orElseThrow($Supplier* exceptionSupplier) {
 	if (this->isPresent$) {
 		return this->value;
 	} else {
-		$throw($cast($Throwable, $($nc(exceptionSupplier)->get())));
+		$throw($$cast($Throwable, $nc(exceptionSupplier)->get()));
 	}
 }
 
@@ -168,7 +117,7 @@ bool OptionalInt::equals(Object$* obj) {
 		var$1 = true;
 	}
 	bool var$0 = var$1;
-	return var$0 && (this->isPresent$ && $nc(other)->isPresent$ ? this->value == $nc(other)->value : this->isPresent$ == other->isPresent$);
+	return var$0 && (this->isPresent$ && $nc(other)->isPresent$ ? this->value == other->value : this->isPresent$ == $nc(other)->isPresent$);
 }
 
 int32_t OptionalInt::hashCode() {
@@ -176,11 +125,11 @@ int32_t OptionalInt::hashCode() {
 }
 
 $String* OptionalInt::toString() {
-	$useLocalCurrentObjectStackCache();
-	return this->isPresent$ ? $String::format("OptionalInt[%s]"_s, $$new($ObjectArray, {$($of($Integer::valueOf(this->value)))})) : "OptionalInt.empty"_s;
+	$useLocalObjectStack();
+	return this->isPresent$ ? $String::format("OptionalInt[%s]"_s, $$new($ObjectArray, {$($Integer::valueOf(this->value))})) : "OptionalInt.empty"_s;
 }
 
-void clinit$OptionalInt($Class* class$) {
+void OptionalInt::clinit$($Class* clazz) {
 	$assignStatic(OptionalInt::EMPTY, $new(OptionalInt));
 }
 
@@ -188,7 +137,51 @@ OptionalInt::OptionalInt() {
 }
 
 $Class* OptionalInt::load$($String* name, bool initialize) {
-	$loadClass(OptionalInt, name, initialize, &_OptionalInt_ClassInfo_, clinit$OptionalInt, allocate$OptionalInt);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY", "Ljava/util/OptionalInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OptionalInt, EMPTY)},
+		{"isPresent", "Z", nullptr, $PRIVATE | $FINAL, $field(OptionalInt, isPresent$)},
+		{"value", "I", nullptr, $PRIVATE | $FINAL, $field(OptionalInt, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(OptionalInt, init$, void)},
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(OptionalInt, init$, void, int32_t)},
+		{"empty", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalInt, empty, OptionalInt*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OptionalInt, equals, bool, Object$*)},
+		{"getAsInt", "()I", nullptr, $PUBLIC, $method(OptionalInt, getAsInt, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OptionalInt, hashCode, int32_t)},
+		{"ifPresent", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $method(OptionalInt, ifPresent, void, $IntConsumer*)},
+		{"ifPresentOrElse", "(Ljava/util/function/IntConsumer;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(OptionalInt, ifPresentOrElse, void, $IntConsumer*, $Runnable*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $method(OptionalInt, isEmpty, bool)},
+		{"isPresent", "()Z", nullptr, $PUBLIC, $method(OptionalInt, isPresent, bool)},
+		{"of", "(I)Ljava/util/OptionalInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalInt, of, OptionalInt*, int32_t)},
+		{"orElse", "(I)I", nullptr, $PUBLIC, $method(OptionalInt, orElse, int32_t, int32_t)},
+		{"orElseGet", "(Ljava/util/function/IntSupplier;)I", nullptr, $PUBLIC, $method(OptionalInt, orElseGet, int32_t, $IntSupplier*)},
+		{"orElseThrow", "()I", nullptr, $PUBLIC, $method(OptionalInt, orElseThrow, int32_t)},
+		{"orElseThrow", "(Ljava/util/function/Supplier;)I", "<X:Ljava/lang/Throwable;>(Ljava/util/function/Supplier<+TX;>;)I^TX;", $PUBLIC, $method(OptionalInt, orElseThrow, int32_t, $Supplier*), "java.lang.Throwable"},
+		{"stream", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $method(OptionalInt, stream, $IntStream*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionalInt, toString, $String*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.OptionalInt",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(OptionalInt, name, initialize, &classInfo$$, OptionalInt::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OptionalInt);
+	});
 	return class$;
 }
 

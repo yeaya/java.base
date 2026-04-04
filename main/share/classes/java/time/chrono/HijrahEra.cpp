@@ -1,5 +1,4 @@
 #include <java/time/chrono/HijrahEra.h>
-
 #include <java/lang/Enum.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/chrono/Chronology.h>
@@ -26,15 +25,12 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DateTimeException = ::java::time::DateTimeException;
-using $Chronology = ::java::time::chrono::Chronology;
 using $Era = ::java::time::chrono::Era;
 using $HijrahChronology = ::java::time::chrono::HijrahChronology;
 using $HijrahDate = ::java::time::chrono::HijrahDate;
-using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $TextStyle = ::java::time::format::TextStyle;
 using $ChronoField = ::java::time::temporal::ChronoField;
-using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalField = ::java::time::temporal::TemporalField;
 using $ValueRange = ::java::time::temporal::ValueRange;
 using $Locale = ::java::util::Locale;
@@ -42,43 +38,6 @@ using $Locale = ::java::util::Locale;
 namespace java {
 	namespace time {
 		namespace chrono {
-
-$FieldInfo _HijrahEra_FieldInfo_[] = {
-	{"AH", "Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HijrahEra, AH)},
-	{"$VALUES", "[Ljava/time/chrono/HijrahEra;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(HijrahEra, $VALUES)},
-	{}
-};
-
-$MethodInfo _HijrahEra_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/chrono/HijrahEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahEra, $values, $HijrahEraArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HijrahEra, init$, void, $String*, int32_t)},
-	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HijrahEra, getDisplayName, $String*, $TextStyle*, $Locale*)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(HijrahEra, getValue, int32_t)},
-	{"of", "(I)Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(HijrahEra, of, HijrahEra*, int32_t)},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(HijrahEra, range, $ValueRange*, $TemporalField*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(HijrahEra, valueOf, HijrahEra*, $String*)},
-	{"values", "()[Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(HijrahEra, values, $HijrahEraArray*)},
-	{}
-};
-
-$ClassInfo _HijrahEra_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.time.chrono.HijrahEra",
-	"java.lang.Enum",
-	"java.time.chrono.Era",
-	_HijrahEra_FieldInfo_,
-	_HijrahEra_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/time/chrono/HijrahEra;>;Ljava/time/chrono/Era;"
-};
-
-$Object* allocate$HijrahEra($Class* clazz) {
-	return $of($alloc(HijrahEra));
-}
 
 $String* HijrahEra::toString() {
 	 return this->$Enum::toString();
@@ -124,7 +83,7 @@ void HijrahEra::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 HijrahEra* HijrahEra::of(int32_t hijrahEra) {
 	$init(HijrahEra);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hijrahEra == 1) {
 		return HijrahEra::AH;
 	} else {
@@ -145,13 +104,13 @@ $ValueRange* HijrahEra::range($TemporalField* field) {
 }
 
 $String* HijrahEra::getDisplayName($TextStyle* style, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
 	$init($HijrahChronology);
-	return $nc($($nc($($nc($($$new($DateTimeFormatterBuilder)->appendText(static_cast<$TemporalField*>($ChronoField::ERA), style)))->toFormatter(locale)))->withChronology($HijrahChronology::INSTANCE)))->format($($HijrahDate::now()));
+	return $$nc($$nc($$nc($$new($DateTimeFormatterBuilder)->appendText($ChronoField::ERA, style))->toFormatter(locale))->withChronology($HijrahChronology::INSTANCE))->format($($HijrahDate::now()));
 }
 
-void clinit$HijrahEra($Class* class$) {
+void HijrahEra::clinit$($Class* clazz) {
 	$assignStatic(HijrahEra::AH, $new(HijrahEra, "AH"_s, 0));
 	$assignStatic(HijrahEra::$VALUES, HijrahEra::$values());
 }
@@ -160,7 +119,39 @@ HijrahEra::HijrahEra() {
 }
 
 $Class* HijrahEra::load$($String* name, bool initialize) {
-	$loadClass(HijrahEra, name, initialize, &_HijrahEra_ClassInfo_, clinit$HijrahEra, allocate$HijrahEra);
+	$FieldInfo fieldInfos$$[] = {
+		{"AH", "Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HijrahEra, AH)},
+		{"$VALUES", "[Ljava/time/chrono/HijrahEra;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(HijrahEra, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/time/chrono/HijrahEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahEra, $values, $HijrahEraArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HijrahEra, init$, void, $String*, int32_t)},
+		{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HijrahEra, getDisplayName, $String*, $TextStyle*, $Locale*)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(HijrahEra, getValue, int32_t)},
+		{"of", "(I)Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(HijrahEra, of, HijrahEra*, int32_t)},
+		{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(HijrahEra, range, $ValueRange*, $TemporalField*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(HijrahEra, valueOf, HijrahEra*, $String*)},
+		{"values", "()[Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(HijrahEra, values, $HijrahEraArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.time.chrono.HijrahEra",
+		"java.lang.Enum",
+		"java.time.chrono.Era",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/time/chrono/HijrahEra;>;Ljava/time/chrono/Era;"
+	};
+	$loadClass(HijrahEra, name, initialize, &classInfo$$, HijrahEra::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HijrahEra));
+	});
 	return class$;
 }
 

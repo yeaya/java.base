@@ -32,6 +32,7 @@ class ModulePath$Patterns : public ::java::lang::Object {
 	$class(ModulePath$Patterns, 0, ::java::lang::Object)
 public:
 	ModulePath$Patterns();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::regex::Pattern* DASH_VERSION;
 	static ::java::util::regex::Pattern* NON_ALPHANUM;

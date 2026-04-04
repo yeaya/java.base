@@ -1,5 +1,4 @@
 #include <java/nio/channels/WritableByteChannel.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace nio {
 		namespace channels {
 
-$MethodInfo _WritableByteChannel_MethodInfo_[] = {
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WritableByteChannel, write, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _WritableByteChannel_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.channels.WritableByteChannel",
-	nullptr,
-	"java.nio.channels.Channel",
-	nullptr,
-	_WritableByteChannel_MethodInfo_
-};
-
-$Object* allocate$WritableByteChannel($Class* clazz) {
-	return $of($alloc(WritableByteChannel));
-}
-
 $Class* WritableByteChannel::load$($String* name, bool initialize) {
-	$loadClass(WritableByteChannel, name, initialize, &_WritableByteChannel_ClassInfo_, allocate$WritableByteChannel);
+	$MethodInfo methodInfos$$[] = {
+		{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WritableByteChannel, write, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.channels.WritableByteChannel",
+		nullptr,
+		"java.nio.channels.Channel",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WritableByteChannel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WritableByteChannel);
+	});
 	return class$;
 }
 

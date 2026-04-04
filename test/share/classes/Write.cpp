@@ -1,5 +1,4 @@
 #include <Write.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
@@ -20,28 +19,6 @@ using $BufferUnderflowException = ::java::nio::BufferUnderflowException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
-$MethodInfo _Write_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Write, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Write, main, void, $StringArray*), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $STATIC, $staticMethod(Write, test1, void), "java.lang.Exception"},
-	{"test2", "()V", nullptr, $STATIC, $staticMethod(Write, test2, void), "java.lang.Exception"},
-	{"test3", "()V", nullptr, $STATIC, $staticMethod(Write, test3, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Write_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Write",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Write_MethodInfo_
-};
-
-$Object* allocate$Write($Class* clazz) {
-	return $of($alloc(Write));
-}
-
 void Write::init$() {
 }
 
@@ -52,32 +29,30 @@ void Write::main($StringArray* args) {
 }
 
 void Write::test1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBufferArray, dsts, $new($ByteBufferArray, 4));
 	for (int32_t i = 0; i < 4; ++i) {
 		dsts->set(i, $($ByteBuffer::allocateDirect(10)));
 	}
 	$var($File, testFile, $File::createTempFile("test1"_s, nullptr));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($FileOutputStream, fos, $new($FileOutputStream, testFile));
-			$var($FileChannel, fc, fos->getChannel());
-			$nc(fc)->write(dsts, 2, 1);
-			fos->close();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(testFile)->delete$();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($FileOutputStream, fos, $new($FileOutputStream, testFile));
+		$var($FileChannel, fc, fos->getChannel());
+		$nc(fc)->write(dsts, 2, 1);
+		fos->close();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(testFile)->delete$();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Write::test2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, testFile, $File::createTempFile("test2"_s, nullptr));
 	$nc(testFile)->delete$();
 	$var($ByteBufferArray, srcs, $new($ByteBufferArray, 4));
@@ -94,73 +69,67 @@ void Write::test2() {
 	$nc(srcs->get(3))->flip();
 	$var($FileOutputStream, fos, $new($FileOutputStream, testFile));
 	$var($FileChannel, fc, fos->getChannel());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(fc)->write(srcs, 1, 2);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(fc)->close();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(fc)->write(srcs, 1, 2);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(fc)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$var($FileInputStream, fis, $new($FileInputStream, testFile));
 	$assign(fc, fis->getChannel());
-	{
-		$var($Throwable, var$2, nullptr);
+	$var($Throwable, var$2, nullptr);
+	try {
+		$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(10));
+		$nc(fc)->read(bb);
+		$nc(bb)->flip();
+		if (bb->get() != 2) {
+			$throwNew($RuntimeException, "Write failure"_s);
+		}
+		if (bb->get() != 3) {
+			$throwNew($RuntimeException, "Write failure"_s);
+		}
 		try {
-			$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(10));
-			fc->read(bb);
-			$nc(bb)->flip();
-			if (bb->get() != 2) {
-				$throwNew($RuntimeException, "Write failure"_s);
-			}
-			if (bb->get() != 3) {
-				$throwNew($RuntimeException, "Write failure"_s);
-			}
-			try {
-				bb->get();
-				$throwNew($RuntimeException, "Write failure"_s);
-			} catch ($BufferUnderflowException& bufe) {
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$2, var$3);
-		} /*finally*/ {
-			fc->close();
+			bb->get();
+			$throwNew($RuntimeException, "Write failure"_s);
+		} catch ($BufferUnderflowException& bufe) {
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$2, var$3);
+	} /*finally*/ {
+		$nc(fc)->close();
+	}
+	if (var$2 != nullptr) {
+		$throw(var$2);
 	}
 	testFile->delete$();
 }
 
 void Write::test3() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, testFile, $File::createTempFile("test1"_s, nullptr));
 	$nc(testFile)->deleteOnExit();
 	$var($ByteBuffer, dst, $ByteBuffer::allocate(10));
 	$var($FileOutputStream, fos, $new($FileOutputStream, testFile));
 	$var($FileChannel, fc, fos->getChannel());
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(fc)->write(dst, -1);
-				$throwNew($RuntimeException, "Expected IAE not thrown"_s);
-			} catch ($IllegalArgumentException& iae) {
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			fos->close();
+			$nc(fc)->write(dst, -1);
+			$throwNew($RuntimeException, "Expected IAE not thrown"_s);
+		} catch ($IllegalArgumentException& iae) {
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		fos->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -168,7 +137,25 @@ Write::Write() {
 }
 
 $Class* Write::load$($String* name, bool initialize) {
-	$loadClass(Write, name, initialize, &_Write_ClassInfo_, allocate$Write);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Write, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Write, main, void, $StringArray*), "java.lang.Exception"},
+		{"test1", "()V", nullptr, $STATIC, $staticMethod(Write, test1, void), "java.lang.Exception"},
+		{"test2", "()V", nullptr, $STATIC, $staticMethod(Write, test2, void), "java.lang.Exception"},
+		{"test3", "()V", nullptr, $STATIC, $staticMethod(Write, test3, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Write",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Write, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Write);
+	});
 	return class$;
 }
 

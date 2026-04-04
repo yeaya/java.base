@@ -13,6 +13,7 @@ class DisabledAlgorithmConstraints$1 : public ::java::lang::Object {
 	$class(DisabledAlgorithmConstraints$1, 0, ::java::lang::Object)
 public:
 	DisabledAlgorithmConstraints$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator;
 };
 

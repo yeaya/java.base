@@ -25,6 +25,7 @@ class $export BigDecimalCompatibilityTest : public ::java::lang::Object {
 	$class(BigDecimalCompatibilityTest, 0, ::java::lang::Object)
 public:
 	BigDecimalCompatibilityTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check(::java::lang::Number* got, ::java::math::BigDecimal* expected, int32_t multiplier);
 	static void main($StringArray* args);

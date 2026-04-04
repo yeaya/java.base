@@ -17,6 +17,7 @@ class $import PSource$PSpecified : public ::javax::crypto::spec::PSource {
 	$class(PSource$PSpecified, 0, ::javax::crypto::spec::PSource)
 public:
 	PSource$PSpecified();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* p);
 	$bytes* getValue();
 	$bytes* p = nullptr;

@@ -1,5 +1,4 @@
 #include <java/lang/ProcessHandleImpl$1.h>
-
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
 #include <java/lang/ProcessHandleImpl$ExitCompletion.h>
@@ -18,54 +17,9 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ProcessHandleImpl = ::java::lang::ProcessHandleImpl;
 using $ProcessHandleImpl$ExitCompletion = ::java::lang::ProcessHandleImpl$ExitCompletion;
-using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ProcessHandleImpl$1_FieldInfo_[] = {
-	{"val$newCompletion", "Ljava/lang/ProcessHandleImpl$ExitCompletion;", nullptr, $FINAL | $SYNTHETIC, $field(ProcessHandleImpl$1, val$newCompletion)},
-	{"val$shouldReap", "Z", nullptr, $FINAL | $SYNTHETIC, $field(ProcessHandleImpl$1, val$shouldReap)},
-	{"val$pid", "J", nullptr, $FINAL | $SYNTHETIC, $field(ProcessHandleImpl$1, val$pid)},
-	{}
-};
-
-$MethodInfo _ProcessHandleImpl$1_MethodInfo_[] = {
-	{"<init>", "(JZLjava/lang/ProcessHandleImpl$ExitCompletion;)V", "()V", 0, $method(ProcessHandleImpl$1, init$, void, int64_t, bool, $ProcessHandleImpl$ExitCompletion*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _ProcessHandleImpl$1_EnclosingMethodInfo_ = {
-	"java.lang.ProcessHandleImpl",
-	"completion",
-	"(JZ)Ljava/util/concurrent/CompletableFuture;"
-};
-
-$InnerClassInfo _ProcessHandleImpl$1_InnerClassesInfo_[] = {
-	{"java.lang.ProcessHandleImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProcessHandleImpl$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ProcessHandleImpl$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_ProcessHandleImpl$1_FieldInfo_,
-	_ProcessHandleImpl$1_MethodInfo_,
-	nullptr,
-	&_ProcessHandleImpl$1_EnclosingMethodInfo_,
-	_ProcessHandleImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessHandleImpl"
-};
-
-$Object* allocate$ProcessHandleImpl$1($Class* clazz) {
-	return $of($alloc(ProcessHandleImpl$1));
-}
 
 void ProcessHandleImpl$1::init$(int64_t val$pid, bool val$shouldReap, $ProcessHandleImpl$ExitCompletion* val$newCompletion) {
 	this->val$pid = val$pid;
@@ -74,7 +28,7 @@ void ProcessHandleImpl$1::init$(int64_t val$pid, bool val$shouldReap, $ProcessHa
 }
 
 void ProcessHandleImpl$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t exitValue = $ProcessHandleImpl::waitForProcessExit0(this->val$pid, this->val$shouldReap);
 	if (exitValue == -2) {
 		int64_t sleep = 300;
@@ -102,7 +56,44 @@ ProcessHandleImpl$1::ProcessHandleImpl$1() {
 }
 
 $Class* ProcessHandleImpl$1::load$($String* name, bool initialize) {
-	$loadClass(ProcessHandleImpl$1, name, initialize, &_ProcessHandleImpl$1_ClassInfo_, allocate$ProcessHandleImpl$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$newCompletion", "Ljava/lang/ProcessHandleImpl$ExitCompletion;", nullptr, $FINAL | $SYNTHETIC, $field(ProcessHandleImpl$1, val$newCompletion)},
+		{"val$shouldReap", "Z", nullptr, $FINAL | $SYNTHETIC, $field(ProcessHandleImpl$1, val$shouldReap)},
+		{"val$pid", "J", nullptr, $FINAL | $SYNTHETIC, $field(ProcessHandleImpl$1, val$pid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JZLjava/lang/ProcessHandleImpl$ExitCompletion;)V", "()V", 0, $method(ProcessHandleImpl$1, init$, void, int64_t, bool, $ProcessHandleImpl$ExitCompletion*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.ProcessHandleImpl",
+		"completion",
+		"(JZ)Ljava/util/concurrent/CompletableFuture;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessHandleImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ProcessHandleImpl$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessHandleImpl"
+	};
+	$loadClass(ProcessHandleImpl$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessHandleImpl$1);
+	});
 	return class$;
 }
 

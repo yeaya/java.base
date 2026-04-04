@@ -1,5 +1,4 @@
 #include <java/io/NotActiveException.h>
-
 #include <java/io/ObjectStreamException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _NotActiveException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotActiveException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NotActiveException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotActiveException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NotActiveException, init$, void)},
-	{}
-};
-
-$ClassInfo _NotActiveException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.NotActiveException",
-	"java.io.ObjectStreamException",
-	nullptr,
-	_NotActiveException_FieldInfo_,
-	_NotActiveException_MethodInfo_
-};
-
-$Object* allocate$NotActiveException($Class* clazz) {
-	return $of($alloc(NotActiveException));
-}
 
 void NotActiveException::init$($String* reason) {
 	$ObjectStreamException::init$(reason);
@@ -54,7 +29,26 @@ void NotActiveException::throw$() {
 }
 
 $Class* NotActiveException::load$($String* name, bool initialize) {
-	$loadClass(NotActiveException, name, initialize, &_NotActiveException_ClassInfo_, allocate$NotActiveException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotActiveException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotActiveException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NotActiveException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.NotActiveException",
+		"java.io.ObjectStreamException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotActiveException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotActiveException);
+	});
 	return class$;
 }
 

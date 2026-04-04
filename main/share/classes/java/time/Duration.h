@@ -54,6 +54,7 @@ public:
 	Duration();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t seconds, int32_t nanos);
 	::java::time::Duration* abs();
 	virtual ::java::time::temporal::Temporal* addTo(::java::time::temporal::Temporal* temporal) override;
@@ -128,7 +129,7 @@ public:
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
 	static ::java::time::Duration* ZERO;
-	static const int64_t serialVersionUID = (int64_t)0x2ABA9D02D1C4F832;
+	static const int64_t serialVersionUID = (int64_t)0x2aba9d02d1c4f832;
 	static ::java::math::BigInteger* BI_NANOS_PER_SECOND;
 	int64_t seconds = 0;
 	int32_t nanos = 0;

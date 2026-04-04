@@ -1,7 +1,5 @@
 #include <java/util/Currency$CurrencyProperty.h>
-
 #include <java/io/Serializable.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -29,7 +27,6 @@
 #undef ROOT
 
 using $Serializable = ::java::io::Serializable;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -38,7 +35,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ParseException = ::java::text::ParseException;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
-using $Date = ::java::util::Date;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Optional = ::java::util::Optional;
@@ -47,8 +43,6 @@ using $IntUnaryOperator = ::java::util::function::IntUnaryOperator;
 using $Predicate = ::java::util::function::Predicate;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
-using $IntStream = ::java::util::stream::IntStream;
-using $Stream = ::java::util::stream::Stream;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
@@ -63,27 +57,24 @@ public:
 	virtual int32_t applyAsInt(int32_t c) override {
 		 return Currency$CurrencyProperty::lambda$getValidEntry$0(c);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0, init$, void)},
-	{"applyAsInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0, applyAsInt, int32_t, int32_t)},
-	{}
-};
-$ClassInfo Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0",
-	"java.lang.Object",
-	"java.util.function.IntUnaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0::load$($String* name, bool initialize) {
-	$loadClass(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0, init$, void)},
+		{"applyAsInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0, applyAsInt, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0",
+		"java.lang.Object",
+		"java.util.function.IntUnaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0);
+	});
 	return class$;
 }
 $Class* Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0::class$ = nullptr;
@@ -98,84 +89,34 @@ public:
 	virtual bool test(Object$* prop) override {
 		 return Currency$CurrencyProperty::lambda$containsInconsistentInstances$1(numCode, fractionDigit, $cast(Currency$CurrencyProperty, prop));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1>());
-	}
 	int32_t numCode = 0;
 	int32_t fractionDigit = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1::fieldInfos[3] = {
-	{"numCode", "I", nullptr, $PUBLIC, $field(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, numCode)},
-	{"fractionDigit", "I", nullptr, $PUBLIC, $field(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, fractionDigit)},
-	{}
-};
-$MethodInfo Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, init$, void, int32_t, int32_t)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1::load$($String* name, bool initialize) {
-	$loadClass(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"numCode", "I", nullptr, $PUBLIC, $field(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, numCode)},
+		{"fractionDigit", "I", nullptr, $PUBLIC, $field(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, fractionDigit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, init$, void, int32_t, int32_t)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1);
+	});
 	return class$;
 }
 $Class* Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1::class$ = nullptr;
-
-$FieldInfo _Currency$CurrencyProperty_FieldInfo_[] = {
-	{"country", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency$CurrencyProperty, country)},
-	{"currencyCode", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency$CurrencyProperty, currencyCode)},
-	{"fraction", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$CurrencyProperty, fraction)},
-	{"numericCode", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$CurrencyProperty, numericCode)},
-	{"date", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency$CurrencyProperty, date)},
-	{}
-};
-
-$MethodInfo _Currency$CurrencyProperty_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V", nullptr, $PRIVATE, $method(Currency$CurrencyProperty, init$, void, $String*, $String*, int32_t, int32_t, $String*)},
-	{"containsInconsistentInstances", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/util/Currency$CurrencyProperty;>;)Z", $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, containsInconsistentInstances, bool, $List*)},
-	{"getValidEntry", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Optional<Ljava/util/Currency$CurrencyProperty;>;", $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, getValidEntry, $Optional*, $String*, $String*, $Pattern*)},
-	{"info", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, info, void, $String*, $Throwable*)},
-	{"isPastCutoverDate", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, isPastCutoverDate, bool, $String*), "java.text.ParseException"},
-	{"lambda$containsInconsistentInstances$1", "(IILjava/util/Currency$CurrencyProperty;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency$CurrencyProperty, lambda$containsInconsistentInstances$1, bool, int32_t, int32_t, Currency$CurrencyProperty*)},
-	{"lambda$getValidEntry$0", "(I)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency$CurrencyProperty, lambda$getValidEntry$0, int32_t, int32_t)},
-	{"parseProperty", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Currency$CurrencyProperty;", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, parseProperty, Currency$CurrencyProperty*, $String*, $String*, $Pattern*)},
-	{}
-};
-
-$InnerClassInfo _Currency$CurrencyProperty_InnerClassesInfo_[] = {
-	{"java.util.Currency$CurrencyProperty", "java.util.Currency", "CurrencyProperty", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Currency$CurrencyProperty_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Currency$CurrencyProperty",
-	"java.lang.Object",
-	nullptr,
-	_Currency$CurrencyProperty_FieldInfo_,
-	_Currency$CurrencyProperty_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Currency$CurrencyProperty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Currency"
-};
-
-$Object* allocate$Currency$CurrencyProperty($Class* clazz) {
-	return $of($alloc(Currency$CurrencyProperty));
-}
 
 void Currency$CurrencyProperty::init$($String* country, $String* currencyCode, int32_t fraction, int32_t numericCode, $String* date) {
 	$set(this, country, country);
@@ -186,12 +127,12 @@ void Currency$CurrencyProperty::init$($String* country, $String* currencyCode, i
 }
 
 $Optional* Currency$CurrencyProperty::getValidEntry($String* ctry, $String* curData, $Pattern* pattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Currency$CurrencyProperty, prop, nullptr);
 	if ($nc(ctry)->length() != 2) {
 	} else {
 		$assign(prop, parseProperty(ctry, curData, pattern));
-		if (prop == nullptr || ($nc(prop)->date == nullptr && $nc($($($nc(curData)->chars())->map(static_cast<$IntUnaryOperator*>($$new(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0)))))->sum() >= 3)) {
+		if (prop == nullptr || (prop->date == nullptr && $$nc($($nc(curData)->chars())->map($$new(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0)))->sum() >= 3)) {
 			$assign(prop, nullptr);
 		} else if (prop->fraction > 9) {
 			$assign(prop, nullptr);
@@ -212,33 +153,32 @@ $Optional* Currency$CurrencyProperty::getValidEntry($String* ctry, $String* curD
 }
 
 Currency$CurrencyProperty* Currency$CurrencyProperty::parseProperty($String* ctry, $String* curData, $Pattern* pattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Matcher, m, $nc(pattern)->matcher(curData));
 	if (!$nc(m)->find()) {
 		return nullptr;
 	} else {
-		$var($String, var$0, ctry);
-		$var($String, var$1, m->group(1));
-		int32_t var$2 = $Integer::parseInt($(m->group(3)));
-		int32_t var$3 = $Integer::parseInt($(m->group(2)));
-		return $new(Currency$CurrencyProperty, var$0, var$1, var$2, var$3, $(m->group(4)));
+		$var($String, var$0, m->group(1));
+		int32_t var$1 = $Integer::parseInt($(m->group(3)));
+		int32_t var$2 = $Integer::parseInt($(m->group(2)));
+		return $new(Currency$CurrencyProperty, ctry, var$0, var$1, var$2, $(m->group(4)));
 	}
 }
 
 bool Currency$CurrencyProperty::containsInconsistentInstances($List* list) {
-	$useLocalCurrentObjectStackCache();
-	int32_t numCode = $nc(($cast(Currency$CurrencyProperty, $($nc(list)->get(0)))))->numericCode;
-	int32_t fractionDigit = $nc(($cast(Currency$CurrencyProperty, $(list->get(0)))))->fraction;
-	return $nc($(list->stream()))->anyMatch(static_cast<$Predicate*>($$new(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, numCode, fractionDigit)));
+	$useLocalObjectStack();
+	int32_t numCode = $nc(($$cast(Currency$CurrencyProperty, $nc(list)->get(0))))->numericCode;
+	int32_t fractionDigit = $nc(($$cast(Currency$CurrencyProperty, list->get(0))))->fraction;
+	return $$nc(list->stream())->anyMatch($$new(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, numCode, fractionDigit));
 }
 
 bool Currency$CurrencyProperty::isPastCutoverDate($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($SimpleDateFormat, format, $new($SimpleDateFormat, "yyyy-MM-dd\'T\'HH:mm:ss"_s, $Locale::ROOT));
 	format->setTimeZone($($TimeZone::getTimeZone("UTC"_s)));
 	format->setLenient(false);
-	int64_t time = $nc($(format->parse($($nc(s)->trim()))))->getTime();
+	int64_t time = $$nc(format->parse($($nc(s)->trim())))->getTime();
 	return $System::currentTimeMillis() > time;
 }
 
@@ -255,7 +195,7 @@ void Currency$CurrencyProperty::info($String* message, $Throwable* t) {
 }
 
 bool Currency$CurrencyProperty::lambda$containsInconsistentInstances$1(int32_t numCode, int32_t fractionDigit, Currency$CurrencyProperty* prop) {
-	return $nc(prop)->numericCode != numCode || $nc(prop)->fraction != fractionDigit;
+	return $nc(prop)->numericCode != numCode || prop->fraction != fractionDigit;
 }
 
 int32_t Currency$CurrencyProperty::lambda$getValidEntry$0(int32_t c) {
@@ -267,14 +207,54 @@ Currency$CurrencyProperty::Currency$CurrencyProperty() {
 
 $Class* Currency$CurrencyProperty::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0::classInfo$.name)) {
+		if (name->equals("java.util.Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0")) {
 			return Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0::load$(name, initialize);
 		}
-		if (name->equals(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1::classInfo$.name)) {
+		if (name->equals("java.util.Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1")) {
 			return Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Currency$CurrencyProperty, name, initialize, &_Currency$CurrencyProperty_ClassInfo_, allocate$Currency$CurrencyProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"country", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency$CurrencyProperty, country)},
+		{"currencyCode", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency$CurrencyProperty, currencyCode)},
+		{"fraction", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$CurrencyProperty, fraction)},
+		{"numericCode", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$CurrencyProperty, numericCode)},
+		{"date", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency$CurrencyProperty, date)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V", nullptr, $PRIVATE, $method(Currency$CurrencyProperty, init$, void, $String*, $String*, int32_t, int32_t, $String*)},
+		{"containsInconsistentInstances", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/util/Currency$CurrencyProperty;>;)Z", $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, containsInconsistentInstances, bool, $List*)},
+		{"getValidEntry", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Optional<Ljava/util/Currency$CurrencyProperty;>;", $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, getValidEntry, $Optional*, $String*, $String*, $Pattern*)},
+		{"info", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, info, void, $String*, $Throwable*)},
+		{"isPastCutoverDate", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, isPastCutoverDate, bool, $String*), "java.text.ParseException"},
+		{"lambda$containsInconsistentInstances$1", "(IILjava/util/Currency$CurrencyProperty;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency$CurrencyProperty, lambda$containsInconsistentInstances$1, bool, int32_t, int32_t, Currency$CurrencyProperty*)},
+		{"lambda$getValidEntry$0", "(I)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency$CurrencyProperty, lambda$getValidEntry$0, int32_t, int32_t)},
+		{"parseProperty", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Currency$CurrencyProperty;", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, parseProperty, Currency$CurrencyProperty*, $String*, $String*, $Pattern*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Currency$CurrencyProperty", "java.util.Currency", "CurrencyProperty", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Currency$CurrencyProperty",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Currency"
+	};
+	$loadClass(Currency$CurrencyProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency$CurrencyProperty);
+	});
 	return class$;
 }
 

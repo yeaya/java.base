@@ -1,5 +1,4 @@
 #include <java/util/concurrent/PriorityBlockingQueue$PBQSpliterator.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/PriorityBlockingQueue.h>
@@ -22,51 +21,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _PriorityBlockingQueue$PBQSpliterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/PriorityBlockingQueue;", nullptr, $FINAL | $SYNTHETIC, $field(PriorityBlockingQueue$PBQSpliterator, this$0)},
-	{"array", "[Ljava/lang/Object;", nullptr, 0, $field(PriorityBlockingQueue$PBQSpliterator, array)},
-	{"index", "I", nullptr, 0, $field(PriorityBlockingQueue$PBQSpliterator, index)},
-	{"fence", "I", nullptr, 0, $field(PriorityBlockingQueue$PBQSpliterator, fence)},
-	{}
-};
-
-$MethodInfo _PriorityBlockingQueue$PBQSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;)V", nullptr, 0, $method(PriorityBlockingQueue$PBQSpliterator, init$, void, $PriorityBlockingQueue*)},
-	{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;[Ljava/lang/Object;II)V", nullptr, 0, $method(PriorityBlockingQueue$PBQSpliterator, init$, void, $PriorityBlockingQueue*, $ObjectArray*, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, forEachRemaining, void, $Consumer*)},
-	{"getFence", "()I", nullptr, $PRIVATE, $method(PriorityBlockingQueue$PBQSpliterator, getFence, int32_t)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/concurrent/PriorityBlockingQueue$PBQSpliterator;", "()Ljava/util/concurrent/PriorityBlockingQueue<TE;>.PBQSpliterator;", $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, trySplit, PriorityBlockingQueue$PBQSpliterator*)},
-	{}
-};
-
-$InnerClassInfo _PriorityBlockingQueue$PBQSpliterator_InnerClassesInfo_[] = {
-	{"java.util.concurrent.PriorityBlockingQueue$PBQSpliterator", "java.util.concurrent.PriorityBlockingQueue", "PBQSpliterator", $FINAL},
-	{}
-};
-
-$ClassInfo _PriorityBlockingQueue$PBQSpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.PriorityBlockingQueue$PBQSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_PriorityBlockingQueue$PBQSpliterator_FieldInfo_,
-	_PriorityBlockingQueue$PBQSpliterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
-	nullptr,
-	_PriorityBlockingQueue$PBQSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.PriorityBlockingQueue"
-};
-
-$Object* allocate$PriorityBlockingQueue$PBQSpliterator($Class* clazz) {
-	return $of($alloc(PriorityBlockingQueue$PBQSpliterator));
-}
 
 void PriorityBlockingQueue$PBQSpliterator::init$($PriorityBlockingQueue* this$0) {
 	$set(this, this$0, this$0);
@@ -125,7 +79,46 @@ PriorityBlockingQueue$PBQSpliterator::PriorityBlockingQueue$PBQSpliterator() {
 }
 
 $Class* PriorityBlockingQueue$PBQSpliterator::load$($String* name, bool initialize) {
-	$loadClass(PriorityBlockingQueue$PBQSpliterator, name, initialize, &_PriorityBlockingQueue$PBQSpliterator_ClassInfo_, allocate$PriorityBlockingQueue$PBQSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/PriorityBlockingQueue;", nullptr, $FINAL | $SYNTHETIC, $field(PriorityBlockingQueue$PBQSpliterator, this$0)},
+		{"array", "[Ljava/lang/Object;", nullptr, 0, $field(PriorityBlockingQueue$PBQSpliterator, array)},
+		{"index", "I", nullptr, 0, $field(PriorityBlockingQueue$PBQSpliterator, index)},
+		{"fence", "I", nullptr, 0, $field(PriorityBlockingQueue$PBQSpliterator, fence)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;)V", nullptr, 0, $method(PriorityBlockingQueue$PBQSpliterator, init$, void, $PriorityBlockingQueue*)},
+		{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;[Ljava/lang/Object;II)V", nullptr, 0, $method(PriorityBlockingQueue$PBQSpliterator, init$, void, $PriorityBlockingQueue*, $ObjectArray*, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, forEachRemaining, void, $Consumer*)},
+		{"getFence", "()I", nullptr, $PRIVATE, $method(PriorityBlockingQueue$PBQSpliterator, getFence, int32_t)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/concurrent/PriorityBlockingQueue$PBQSpliterator;", "()Ljava/util/concurrent/PriorityBlockingQueue<TE;>.PBQSpliterator;", $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, trySplit, PriorityBlockingQueue$PBQSpliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.PriorityBlockingQueue$PBQSpliterator", "java.util.concurrent.PriorityBlockingQueue", "PBQSpliterator", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.PriorityBlockingQueue$PBQSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.PriorityBlockingQueue"
+	};
+	$loadClass(PriorityBlockingQueue$PBQSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PriorityBlockingQueue$PBQSpliterator);
+	});
 	return class$;
 }
 

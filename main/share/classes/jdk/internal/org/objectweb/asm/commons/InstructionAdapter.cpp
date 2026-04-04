@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/InstructionAdapter.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <jdk/internal/org/objectweb/asm/ConstantDynamic.h>
@@ -226,144 +225,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$CompoundAttribute _InstructionAdapter_MethodAnnotations_invokespecial51[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _InstructionAdapter_MethodAnnotations_invokestatic53[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _InstructionAdapter_MethodAnnotations_invokevirtual55[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _InstructionAdapter_FieldInfo_[] = {
-	{"OBJECT_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionAdapter, OBJECT_TYPE)},
-	{}
-};
-
-$MethodInfo _InstructionAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(InstructionAdapter, init$, void, $MethodVisitor*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PROTECTED, $method(InstructionAdapter, init$, void, int32_t, $MethodVisitor*)},
-	{"aconst", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, aconst, void, Object$*)},
-	{"add", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, add, void, $Type*)},
-	{"aload", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, aload, void, $Type*)},
-	{"and", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, and$, void, $Type*)},
-	{"anew", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, anew, void, $Type*)},
-	{"areturn", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, areturn, void, $Type*)},
-	{"arraylength", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, arraylength, void)},
-	{"astore", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, astore, void, $Type*)},
-	{"athrow", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, athrow, void)},
-	{"cast", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, cast, void, $Type*, $Type*)},
-	{"cast", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $STATIC, $staticMethod(InstructionAdapter, cast, void, $MethodVisitor*, $Type*, $Type*)},
-	{"cconst", "(Ljdk/internal/org/objectweb/asm/ConstantDynamic;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, cconst, void, $ConstantDynamic*)},
-	{"checkcast", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, checkcast, void, $Type*)},
-	{"cmpg", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, cmpg, void, $Type*)},
-	{"cmpl", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, cmpl, void, $Type*)},
-	{"dconst", "(D)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dconst, void, double)},
-	{"div", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, div, void, $Type*)},
-	{"dup", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dup, void)},
-	{"dup2", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dup2, void)},
-	{"dup2X1", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dup2X1, void)},
-	{"dup2X2", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dup2X2, void)},
-	{"dupX1", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dupX1, void)},
-	{"dupX2", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dupX2, void)},
-	{"fconst", "(F)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, fconst, void, float)},
-	{"getfield", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, getfield, void, $String*, $String*, $String*)},
-	{"getstatic", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, getstatic, void, $String*, $String*, $String*)},
-	{"goTo", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, goTo, void, $Label*)},
-	{"hconst", "(Ljdk/internal/org/objectweb/asm/Handle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, hconst, void, $Handle*)},
-	{"iconst", "(I)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, iconst, void, int32_t)},
-	{"ifacmpeq", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifacmpeq, void, $Label*)},
-	{"ifacmpne", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifacmpne, void, $Label*)},
-	{"ifeq", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifeq, void, $Label*)},
-	{"ifge", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifge, void, $Label*)},
-	{"ifgt", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifgt, void, $Label*)},
-	{"ificmpeq", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmpeq, void, $Label*)},
-	{"ificmpge", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmpge, void, $Label*)},
-	{"ificmpgt", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmpgt, void, $Label*)},
-	{"ificmple", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmple, void, $Label*)},
-	{"ificmplt", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmplt, void, $Label*)},
-	{"ificmpne", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmpne, void, $Label*)},
-	{"ifle", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifle, void, $Label*)},
-	{"iflt", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, iflt, void, $Label*)},
-	{"ifne", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifne, void, $Label*)},
-	{"ifnonnull", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifnonnull, void, $Label*)},
-	{"ifnull", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifnull, void, $Label*)},
-	{"iinc", "(II)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, iinc, void, int32_t, int32_t)},
-	{"instanceOf", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, instanceOf, void, $Type*)},
-	{"invokedynamic", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, invokedynamic, void, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"invokeinterface", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, invokeinterface, void, $String*, $String*, $String*)},
-	{"invokespecial", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InstructionAdapter, invokespecial, void, $String*, $String*, $String*), nullptr, nullptr, _InstructionAdapter_MethodAnnotations_invokespecial51},
-	{"invokespecial", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, invokespecial, void, $String*, $String*, $String*, bool)},
-	{"invokestatic", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InstructionAdapter, invokestatic, void, $String*, $String*, $String*), nullptr, nullptr, _InstructionAdapter_MethodAnnotations_invokestatic53},
-	{"invokestatic", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, invokestatic, void, $String*, $String*, $String*, bool)},
-	{"invokevirtual", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InstructionAdapter, invokevirtual, void, $String*, $String*, $String*), nullptr, nullptr, _InstructionAdapter_MethodAnnotations_invokevirtual55},
-	{"invokevirtual", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, invokevirtual, void, $String*, $String*, $String*, bool)},
-	{"jsr", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, jsr, void, $Label*)},
-	{"lcmp", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, lcmp, void)},
-	{"lconst", "(J)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, lconst, void, int64_t)},
-	{"load", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, load, void, int32_t, $Type*)},
-	{"lookupswitch", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, lookupswitch, void, $Label*, $ints*, $LabelArray*)},
-	{"mark", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, mark, void, $Label*)},
-	{"monitorenter", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, monitorenter, void)},
-	{"monitorexit", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, monitorexit, void)},
-	{"mul", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, mul, void, $Type*)},
-	{"multianewarray", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, multianewarray, void, $String*, int32_t)},
-	{"neg", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, neg, void, $Type*)},
-	{"newarray", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, newarray, void, $Type*)},
-	{"newarray", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $STATIC, $staticMethod(InstructionAdapter, newarray, void, $MethodVisitor*, $Type*)},
-	{"nop", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, nop, void)},
-	{"or", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, or$, void, $Type*)},
-	{"pop", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, pop, void)},
-	{"pop2", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, pop2, void)},
-	{"putfield", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, putfield, void, $String*, $String*, $String*)},
-	{"putstatic", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, putstatic, void, $String*, $String*, $String*)},
-	{"rem", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, rem, void, $Type*)},
-	{"ret", "(I)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ret, void, int32_t)},
-	{"shl", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, shl, void, $Type*)},
-	{"shr", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, shr, void, $Type*)},
-	{"store", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, store, void, int32_t, $Type*)},
-	{"sub", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, sub, void, $Type*)},
-	{"swap", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, swap, void)},
-	{"tableswitch", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(InstructionAdapter, tableswitch, void, int32_t, int32_t, $Label*, $LabelArray*)},
-	{"tconst", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, tconst, void, $Type*)},
-	{"ushr", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ushr, void, $Type*)},
-	{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
-	{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitIincInsn, void, int32_t, int32_t)},
-	{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitInsn, void, int32_t)},
-	{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitIntInsn, void, int32_t, int32_t)},
-	{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(InstructionAdapter, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitJumpInsn, void, int32_t, $Label*)},
-	{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitLabel, void, $Label*)},
-	{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitLdcInsn, void, Object$*)},
-	{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
-	{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
-	{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitMultiANewArrayInsn, void, $String*, int32_t)},
-	{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(InstructionAdapter, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
-	{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitTypeInsn, void, int32_t, $String*)},
-	{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitVarInsn, void, int32_t, int32_t)},
-	{"xor", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, xor$, void, $Type*)},
-	{}
-};
-
-$ClassInfo _InstructionAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.InstructionAdapter",
-	"jdk.internal.org.objectweb.asm.MethodVisitor",
-	nullptr,
-	_InstructionAdapter_FieldInfo_,
-	_InstructionAdapter_MethodInfo_
-};
-
-$Object* allocate$InstructionAdapter($Class* clazz) {
-	return $of($alloc(InstructionAdapter));
-}
-
 $Type* InstructionAdapter::OBJECT_TYPE = nullptr;
 
 void InstructionAdapter::init$($MethodVisitor* methodVisitor) {
@@ -380,737 +241,481 @@ void InstructionAdapter::init$(int32_t api, $MethodVisitor* methodVisitor) {
 void InstructionAdapter::visitInsn(int32_t opcode) {
 	switch (opcode) {
 	case $Opcodes::NOP:
-		{
-			nop();
-			break;
-		}
+		nop();
+		break;
 	case $Opcodes::ACONST_NULL:
-		{
-			aconst(nullptr);
-			break;
-		}
+		aconst(nullptr);
+		break;
 	case $Opcodes::ICONST_M1:
-		{}
 	case $Opcodes::ICONST_0:
-		{}
 	case $Opcodes::ICONST_1:
-		{}
 	case $Opcodes::ICONST_2:
-		{}
 	case $Opcodes::ICONST_3:
-		{}
 	case $Opcodes::ICONST_4:
-		{}
 	case $Opcodes::ICONST_5:
-		{
-			iconst(opcode - $Opcodes::ICONST_0);
-			break;
-		}
+		iconst(opcode - $Opcodes::ICONST_0);
+		break;
 	case $Opcodes::LCONST_0:
-		{}
 	case $Opcodes::LCONST_1:
-		{
-			lconst((int64_t)(opcode - $Opcodes::LCONST_0));
-			break;
-		}
+		lconst((int64_t)(opcode - $Opcodes::LCONST_0));
+		break;
 	case $Opcodes::FCONST_0:
-		{}
 	case $Opcodes::FCONST_1:
-		{}
 	case $Opcodes::FCONST_2:
-		{
-			fconst((float)(opcode - $Opcodes::FCONST_0));
-			break;
-		}
+		fconst((float)(opcode - $Opcodes::FCONST_0));
+		break;
 	case $Opcodes::DCONST_0:
-		{}
 	case $Opcodes::DCONST_1:
-		{
-			dconst((double)(opcode - $Opcodes::DCONST_0));
-			break;
-		}
+		dconst((double)(opcode - $Opcodes::DCONST_0));
+		break;
 	case $Opcodes::IALOAD:
-		{
-			$init($Type);
-			aload($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		aload($Type::INT_TYPE);
+		break;
 	case $Opcodes::LALOAD:
-		{
-			$init($Type);
-			aload($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		aload($Type::LONG_TYPE);
+		break;
 	case $Opcodes::FALOAD:
-		{
-			$init($Type);
-			aload($Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		aload($Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DALOAD:
-		{
-			$init($Type);
-			aload($Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		aload($Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::AALOAD:
-		{
-			aload(InstructionAdapter::OBJECT_TYPE);
-			break;
-		}
+		aload(InstructionAdapter::OBJECT_TYPE);
+		break;
 	case $Opcodes::BALOAD:
-		{
-			$init($Type);
-			aload($Type::BYTE_TYPE);
-			break;
-		}
+		$init($Type);
+		aload($Type::BYTE_TYPE);
+		break;
 	case $Opcodes::CALOAD:
-		{
-			$init($Type);
-			aload($Type::CHAR_TYPE);
-			break;
-		}
+		$init($Type);
+		aload($Type::CHAR_TYPE);
+		break;
 	case $Opcodes::SALOAD:
-		{
-			$init($Type);
-			aload($Type::SHORT_TYPE);
-			break;
-		}
+		$init($Type);
+		aload($Type::SHORT_TYPE);
+		break;
 	case $Opcodes::IASTORE:
-		{
-			$init($Type);
-			astore($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		astore($Type::INT_TYPE);
+		break;
 	case $Opcodes::LASTORE:
-		{
-			$init($Type);
-			astore($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		astore($Type::LONG_TYPE);
+		break;
 	case $Opcodes::FASTORE:
-		{
-			$init($Type);
-			astore($Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		astore($Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DASTORE:
-		{
-			$init($Type);
-			astore($Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		astore($Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::AASTORE:
-		{
-			astore(InstructionAdapter::OBJECT_TYPE);
-			break;
-		}
+		astore(InstructionAdapter::OBJECT_TYPE);
+		break;
 	case $Opcodes::BASTORE:
-		{
-			$init($Type);
-			astore($Type::BYTE_TYPE);
-			break;
-		}
+		$init($Type);
+		astore($Type::BYTE_TYPE);
+		break;
 	case $Opcodes::CASTORE:
-		{
-			$init($Type);
-			astore($Type::CHAR_TYPE);
-			break;
-		}
+		$init($Type);
+		astore($Type::CHAR_TYPE);
+		break;
 	case $Opcodes::SASTORE:
-		{
-			$init($Type);
-			astore($Type::SHORT_TYPE);
-			break;
-		}
+		$init($Type);
+		astore($Type::SHORT_TYPE);
+		break;
 	case $Opcodes::POP:
-		{
-			pop();
-			break;
-		}
+		pop();
+		break;
 	case $Opcodes::POP2:
-		{
-			pop2();
-			break;
-		}
+		pop2();
+		break;
 	case $Opcodes::DUP:
-		{
-			dup();
-			break;
-		}
+		dup();
+		break;
 	case $Opcodes::DUP_X1:
-		{
-			dupX1();
-			break;
-		}
+		dupX1();
+		break;
 	case $Opcodes::DUP_X2:
-		{
-			dupX2();
-			break;
-		}
+		dupX2();
+		break;
 	case $Opcodes::DUP2:
-		{
-			dup2();
-			break;
-		}
+		dup2();
+		break;
 	case $Opcodes::DUP2_X1:
-		{
-			dup2X1();
-			break;
-		}
+		dup2X1();
+		break;
 	case $Opcodes::DUP2_X2:
-		{
-			dup2X2();
-			break;
-		}
+		dup2X2();
+		break;
 	case $Opcodes::SWAP:
-		{
-			swap();
-			break;
-		}
+		swap();
+		break;
 	case $Opcodes::IADD:
-		{
-			$init($Type);
-			add($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		add($Type::INT_TYPE);
+		break;
 	case $Opcodes::LADD:
-		{
-			$init($Type);
-			add($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		add($Type::LONG_TYPE);
+		break;
 	case $Opcodes::FADD:
-		{
-			$init($Type);
-			add($Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		add($Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DADD:
-		{
-			$init($Type);
-			add($Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		add($Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::ISUB:
-		{
-			$init($Type);
-			sub($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		sub($Type::INT_TYPE);
+		break;
 	case $Opcodes::LSUB:
-		{
-			$init($Type);
-			sub($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		sub($Type::LONG_TYPE);
+		break;
 	case $Opcodes::FSUB:
-		{
-			$init($Type);
-			sub($Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		sub($Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DSUB:
-		{
-			$init($Type);
-			sub($Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		sub($Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::IMUL:
-		{
-			$init($Type);
-			mul($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		mul($Type::INT_TYPE);
+		break;
 	case $Opcodes::LMUL:
-		{
-			$init($Type);
-			mul($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		mul($Type::LONG_TYPE);
+		break;
 	case $Opcodes::FMUL:
-		{
-			$init($Type);
-			mul($Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		mul($Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DMUL:
-		{
-			$init($Type);
-			mul($Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		mul($Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::IDIV:
-		{
-			$init($Type);
-			div($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		div($Type::INT_TYPE);
+		break;
 	case $Opcodes::LDIV:
-		{
-			$init($Type);
-			div($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		div($Type::LONG_TYPE);
+		break;
 	case $Opcodes::FDIV:
-		{
-			$init($Type);
-			div($Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		div($Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DDIV:
-		{
-			$init($Type);
-			div($Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		div($Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::IREM:
-		{
-			$init($Type);
-			rem($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		rem($Type::INT_TYPE);
+		break;
 	case $Opcodes::LREM:
-		{
-			$init($Type);
-			rem($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		rem($Type::LONG_TYPE);
+		break;
 	case $Opcodes::FREM:
-		{
-			$init($Type);
-			rem($Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		rem($Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DREM:
-		{
-			$init($Type);
-			rem($Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		rem($Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::INEG:
-		{
-			$init($Type);
-			neg($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		neg($Type::INT_TYPE);
+		break;
 	case $Opcodes::LNEG:
-		{
-			$init($Type);
-			neg($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		neg($Type::LONG_TYPE);
+		break;
 	case $Opcodes::FNEG:
-		{
-			$init($Type);
-			neg($Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		neg($Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DNEG:
-		{
-			$init($Type);
-			neg($Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		neg($Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::ISHL:
-		{
-			$init($Type);
-			shl($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		shl($Type::INT_TYPE);
+		break;
 	case $Opcodes::LSHL:
-		{
-			$init($Type);
-			shl($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		shl($Type::LONG_TYPE);
+		break;
 	case $Opcodes::ISHR:
-		{
-			$init($Type);
-			shr($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		shr($Type::INT_TYPE);
+		break;
 	case $Opcodes::LSHR:
-		{
-			$init($Type);
-			shr($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		shr($Type::LONG_TYPE);
+		break;
 	case $Opcodes::IUSHR:
-		{
-			$init($Type);
-			ushr($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		ushr($Type::INT_TYPE);
+		break;
 	case $Opcodes::LUSHR:
-		{
-			$init($Type);
-			ushr($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		ushr($Type::LONG_TYPE);
+		break;
 	case $Opcodes::IAND:
-		{
-			$init($Type);
-			and$($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		and$($Type::INT_TYPE);
+		break;
 	case $Opcodes::LAND:
-		{
-			$init($Type);
-			and$($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		and$($Type::LONG_TYPE);
+		break;
 	case $Opcodes::IOR:
-		{
-			$init($Type);
-			or$($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		or$($Type::INT_TYPE);
+		break;
 	case $Opcodes::LOR:
-		{
-			$init($Type);
-			or$($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		or$($Type::LONG_TYPE);
+		break;
 	case $Opcodes::IXOR:
-		{
-			$init($Type);
-			xor$($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		xor$($Type::INT_TYPE);
+		break;
 	case $Opcodes::LXOR:
-		{
-			$init($Type);
-			xor$($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		xor$($Type::LONG_TYPE);
+		break;
 	case $Opcodes::I2L:
-		{
-			$init($Type);
-			cast($Type::INT_TYPE, $Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::INT_TYPE, $Type::LONG_TYPE);
+		break;
 	case $Opcodes::I2F:
-		{
-			$init($Type);
-			cast($Type::INT_TYPE, $Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::INT_TYPE, $Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::I2D:
-		{
-			$init($Type);
-			cast($Type::INT_TYPE, $Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::INT_TYPE, $Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::L2I:
-		{
-			$init($Type);
-			cast($Type::LONG_TYPE, $Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::LONG_TYPE, $Type::INT_TYPE);
+		break;
 	case $Opcodes::L2F:
-		{
-			$init($Type);
-			cast($Type::LONG_TYPE, $Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::LONG_TYPE, $Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::L2D:
-		{
-			$init($Type);
-			cast($Type::LONG_TYPE, $Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::LONG_TYPE, $Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::F2I:
-		{
-			$init($Type);
-			cast($Type::FLOAT_TYPE, $Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::FLOAT_TYPE, $Type::INT_TYPE);
+		break;
 	case $Opcodes::F2L:
-		{
-			$init($Type);
-			cast($Type::FLOAT_TYPE, $Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::FLOAT_TYPE, $Type::LONG_TYPE);
+		break;
 	case $Opcodes::F2D:
-		{
-			$init($Type);
-			cast($Type::FLOAT_TYPE, $Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::FLOAT_TYPE, $Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::D2I:
-		{
-			$init($Type);
-			cast($Type::DOUBLE_TYPE, $Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::DOUBLE_TYPE, $Type::INT_TYPE);
+		break;
 	case $Opcodes::D2L:
-		{
-			$init($Type);
-			cast($Type::DOUBLE_TYPE, $Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::DOUBLE_TYPE, $Type::LONG_TYPE);
+		break;
 	case $Opcodes::D2F:
-		{
-			$init($Type);
-			cast($Type::DOUBLE_TYPE, $Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::DOUBLE_TYPE, $Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::I2B:
-		{
-			$init($Type);
-			cast($Type::INT_TYPE, $Type::BYTE_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::INT_TYPE, $Type::BYTE_TYPE);
+		break;
 	case $Opcodes::I2C:
-		{
-			$init($Type);
-			cast($Type::INT_TYPE, $Type::CHAR_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::INT_TYPE, $Type::CHAR_TYPE);
+		break;
 	case $Opcodes::I2S:
-		{
-			$init($Type);
-			cast($Type::INT_TYPE, $Type::SHORT_TYPE);
-			break;
-		}
+		$init($Type);
+		cast($Type::INT_TYPE, $Type::SHORT_TYPE);
+		break;
 	case $Opcodes::LCMP:
-		{
-			lcmp();
-			break;
-		}
+		lcmp();
+		break;
 	case $Opcodes::FCMPL:
-		{
-			$init($Type);
-			cmpl($Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		cmpl($Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::FCMPG:
-		{
-			$init($Type);
-			cmpg($Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		cmpg($Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DCMPL:
-		{
-			$init($Type);
-			cmpl($Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		cmpl($Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::DCMPG:
-		{
-			$init($Type);
-			cmpg($Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		cmpg($Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::IRETURN:
-		{
-			$init($Type);
-			areturn($Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		areturn($Type::INT_TYPE);
+		break;
 	case $Opcodes::LRETURN:
-		{
-			$init($Type);
-			areturn($Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		areturn($Type::LONG_TYPE);
+		break;
 	case $Opcodes::FRETURN:
-		{
-			$init($Type);
-			areturn($Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		areturn($Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DRETURN:
-		{
-			$init($Type);
-			areturn($Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		areturn($Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::ARETURN:
-		{
-			areturn(InstructionAdapter::OBJECT_TYPE);
-			break;
-		}
+		areturn(InstructionAdapter::OBJECT_TYPE);
+		break;
 	case $Opcodes::RETURN:
-		{
-			$init($Type);
-			areturn($Type::VOID_TYPE);
-			break;
-		}
+		$init($Type);
+		areturn($Type::VOID_TYPE);
+		break;
 	case $Opcodes::ARRAYLENGTH:
-		{
-			arraylength();
-			break;
-		}
+		arraylength();
+		break;
 	case $Opcodes::ATHROW:
-		{
-			athrow();
-			break;
-		}
+		athrow();
+		break;
 	case $Opcodes::MONITORENTER:
-		{
-			monitorenter();
-			break;
-		}
+		monitorenter();
+		break;
 	case $Opcodes::MONITOREXIT:
-		{
-			monitorexit();
-			break;
-		}
+		monitorexit();
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 }
 
 void InstructionAdapter::visitIntInsn(int32_t opcode, int32_t operand) {
 	switch (opcode) {
 	case $Opcodes::BIPUSH:
-		{
-			iconst(operand);
-			break;
-		}
+		iconst(operand);
+		break;
 	case $Opcodes::SIPUSH:
-		{
-			iconst(operand);
-			break;
-		}
+		iconst(operand);
+		break;
 	case $Opcodes::NEWARRAY:
-		{
-			switch (operand) {
-			case $Opcodes::T_BOOLEAN:
-				{
-					$init($Type);
-					newarray($Type::BOOLEAN_TYPE);
-					break;
-				}
-			case $Opcodes::T_CHAR:
-				{
-					$init($Type);
-					newarray($Type::CHAR_TYPE);
-					break;
-				}
-			case $Opcodes::T_BYTE:
-				{
-					$init($Type);
-					newarray($Type::BYTE_TYPE);
-					break;
-				}
-			case $Opcodes::T_SHORT:
-				{
-					$init($Type);
-					newarray($Type::SHORT_TYPE);
-					break;
-				}
-			case $Opcodes::T_INT:
-				{
-					$init($Type);
-					newarray($Type::INT_TYPE);
-					break;
-				}
-			case $Opcodes::T_FLOAT:
-				{
-					$init($Type);
-					newarray($Type::FLOAT_TYPE);
-					break;
-				}
-			case $Opcodes::T_LONG:
-				{
-					$init($Type);
-					newarray($Type::LONG_TYPE);
-					break;
-				}
-			case $Opcodes::T_DOUBLE:
-				{
-					$init($Type);
-					newarray($Type::DOUBLE_TYPE);
-					break;
-				}
-			default:
-				{
-					$throwNew($IllegalArgumentException);
-				}
-			}
+		switch (operand) {
+		case $Opcodes::T_BOOLEAN:
+			$init($Type);
+			newarray($Type::BOOLEAN_TYPE);
 			break;
-		}
-	default:
-		{
+		case $Opcodes::T_CHAR:
+			$init($Type);
+			newarray($Type::CHAR_TYPE);
+			break;
+		case $Opcodes::T_BYTE:
+			$init($Type);
+			newarray($Type::BYTE_TYPE);
+			break;
+		case $Opcodes::T_SHORT:
+			$init($Type);
+			newarray($Type::SHORT_TYPE);
+			break;
+		case $Opcodes::T_INT:
+			$init($Type);
+			newarray($Type::INT_TYPE);
+			break;
+		case $Opcodes::T_FLOAT:
+			$init($Type);
+			newarray($Type::FLOAT_TYPE);
+			break;
+		case $Opcodes::T_LONG:
+			$init($Type);
+			newarray($Type::LONG_TYPE);
+			break;
+		case $Opcodes::T_DOUBLE:
+			$init($Type);
+			newarray($Type::DOUBLE_TYPE);
+			break;
+		default:
 			$throwNew($IllegalArgumentException);
 		}
+		break;
+	default:
+		$throwNew($IllegalArgumentException);
 	}
 }
 
 void InstructionAdapter::visitVarInsn(int32_t opcode, int32_t var) {
 	switch (opcode) {
 	case $Opcodes::ILOAD:
-		{
-			$init($Type);
-			load(var, $Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		load(var, $Type::INT_TYPE);
+		break;
 	case $Opcodes::LLOAD:
-		{
-			$init($Type);
-			load(var, $Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		load(var, $Type::LONG_TYPE);
+		break;
 	case $Opcodes::FLOAD:
-		{
-			$init($Type);
-			load(var, $Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		load(var, $Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DLOAD:
-		{
-			$init($Type);
-			load(var, $Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		load(var, $Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::ALOAD:
-		{
-			load(var, InstructionAdapter::OBJECT_TYPE);
-			break;
-		}
+		load(var, InstructionAdapter::OBJECT_TYPE);
+		break;
 	case $Opcodes::ISTORE:
-		{
-			$init($Type);
-			store(var, $Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		store(var, $Type::INT_TYPE);
+		break;
 	case $Opcodes::LSTORE:
-		{
-			$init($Type);
-			store(var, $Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		store(var, $Type::LONG_TYPE);
+		break;
 	case $Opcodes::FSTORE:
-		{
-			$init($Type);
-			store(var, $Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		store(var, $Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::DSTORE:
-		{
-			$init($Type);
-			store(var, $Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		store(var, $Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::ASTORE:
-		{
-			store(var, InstructionAdapter::OBJECT_TYPE);
-			break;
-		}
+		store(var, InstructionAdapter::OBJECT_TYPE);
+		break;
 	case $Opcodes::RET:
-		{
-			ret(var);
-			break;
-		}
+		ret(var);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 }
 
@@ -1118,92 +723,62 @@ void InstructionAdapter::visitTypeInsn(int32_t opcode, $String* type) {
 	$var($Type, objectType, $Type::getObjectType(type));
 	switch (opcode) {
 	case $Opcodes::NEW:
-		{
-			anew(objectType);
-			break;
-		}
+		anew(objectType);
+		break;
 	case $Opcodes::ANEWARRAY:
-		{
-			newarray(objectType);
-			break;
-		}
+		newarray(objectType);
+		break;
 	case $Opcodes::CHECKCAST:
-		{
-			checkcast(objectType);
-			break;
-		}
+		checkcast(objectType);
+		break;
 	case $Opcodes::INSTANCEOF:
-		{
-			instanceOf(objectType);
-			break;
-		}
+		instanceOf(objectType);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 }
 
 void InstructionAdapter::visitFieldInsn(int32_t opcode, $String* owner, $String* name, $String* descriptor) {
 	switch (opcode) {
 	case $Opcodes::GETSTATIC:
-		{
-			getstatic(owner, name, descriptor);
-			break;
-		}
+		getstatic(owner, name, descriptor);
+		break;
 	case $Opcodes::PUTSTATIC:
-		{
-			putstatic(owner, name, descriptor);
-			break;
-		}
+		putstatic(owner, name, descriptor);
+		break;
 	case $Opcodes::GETFIELD:
-		{
-			getfield(owner, name, descriptor);
-			break;
-		}
+		getfield(owner, name, descriptor);
+		break;
 	case $Opcodes::PUTFIELD:
-		{
-			putfield(owner, name, descriptor);
-			break;
-		}
+		putfield(owner, name, descriptor);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 }
 
 void InstructionAdapter::visitMethodInsn(int32_t opcodeAndSource, $String* owner, $String* name, $String* descriptor, bool isInterface) {
-	if (this->api < $Opcodes::ASM5 && ((int32_t)(opcodeAndSource & (uint32_t)$Opcodes::SOURCE_DEPRECATED)) == 0) {
+	if (this->api < $Opcodes::ASM5 && (opcodeAndSource & $Opcodes::SOURCE_DEPRECATED) == 0) {
 		$MethodVisitor::visitMethodInsn(opcodeAndSource, owner, name, descriptor, isInterface);
 		return;
 	}
-	int32_t opcode = (int32_t)(opcodeAndSource & (uint32_t)~$Opcodes::SOURCE_MASK);
+	int32_t opcode = opcodeAndSource & ~$Opcodes::SOURCE_MASK;
 	switch (opcode) {
 	case $Opcodes::INVOKESPECIAL:
-		{
-			invokespecial(owner, name, descriptor, isInterface);
-			break;
-		}
+		invokespecial(owner, name, descriptor, isInterface);
+		break;
 	case $Opcodes::INVOKEVIRTUAL:
-		{
-			invokevirtual(owner, name, descriptor, isInterface);
-			break;
-		}
+		invokevirtual(owner, name, descriptor, isInterface);
+		break;
 	case $Opcodes::INVOKESTATIC:
-		{
-			invokestatic(owner, name, descriptor, isInterface);
-			break;
-		}
+		invokestatic(owner, name, descriptor, isInterface);
+		break;
 	case $Opcodes::INVOKEINTERFACE:
-		{
-			invokeinterface(owner, name, descriptor);
-			break;
-		}
+		invokeinterface(owner, name, descriptor);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 }
 
@@ -1214,99 +789,61 @@ void InstructionAdapter::visitInvokeDynamicInsn($String* name, $String* descript
 void InstructionAdapter::visitJumpInsn(int32_t opcode, $Label* label) {
 	switch (opcode) {
 	case $Opcodes::IFEQ:
-		{
-			ifeq(label);
-			break;
-		}
+		ifeq(label);
+		break;
 	case $Opcodes::IFNE:
-		{
-			ifne(label);
-			break;
-		}
+		ifne(label);
+		break;
 	case $Opcodes::IFLT:
-		{
-			iflt(label);
-			break;
-		}
+		iflt(label);
+		break;
 	case $Opcodes::IFGE:
-		{
-			ifge(label);
-			break;
-		}
+		ifge(label);
+		break;
 	case $Opcodes::IFGT:
-		{
-			ifgt(label);
-			break;
-		}
+		ifgt(label);
+		break;
 	case $Opcodes::IFLE:
-		{
-			ifle(label);
-			break;
-		}
+		ifle(label);
+		break;
 	case $Opcodes::IF_ICMPEQ:
-		{
-			ificmpeq(label);
-			break;
-		}
+		ificmpeq(label);
+		break;
 	case $Opcodes::IF_ICMPNE:
-		{
-			ificmpne(label);
-			break;
-		}
+		ificmpne(label);
+		break;
 	case $Opcodes::IF_ICMPLT:
-		{
-			ificmplt(label);
-			break;
-		}
+		ificmplt(label);
+		break;
 	case $Opcodes::IF_ICMPGE:
-		{
-			ificmpge(label);
-			break;
-		}
+		ificmpge(label);
+		break;
 	case $Opcodes::IF_ICMPGT:
-		{
-			ificmpgt(label);
-			break;
-		}
+		ificmpgt(label);
+		break;
 	case $Opcodes::IF_ICMPLE:
-		{
-			ificmple(label);
-			break;
-		}
+		ificmple(label);
+		break;
 	case $Opcodes::IF_ACMPEQ:
-		{
-			ifacmpeq(label);
-			break;
-		}
+		ifacmpeq(label);
+		break;
 	case $Opcodes::IF_ACMPNE:
-		{
-			ifacmpne(label);
-			break;
-		}
+		ifacmpne(label);
+		break;
 	case $Opcodes::GOTO:
-		{
-			goTo(label);
-			break;
-		}
+		goTo(label);
+		break;
 	case $Opcodes::JSR:
-		{
-			jsr(label);
-			break;
-		}
+		jsr(label);
+		break;
 	case $Opcodes::IFNULL:
-		{
-			ifnull(label);
-			break;
-		}
+		ifnull(label);
+		break;
 	case $Opcodes::IFNONNULL:
-		{
-			ifnonnull(label);
-			break;
-		}
+		ifnonnull(label);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 }
 
@@ -1315,28 +852,28 @@ void InstructionAdapter::visitLabel($Label* label) {
 }
 
 void InstructionAdapter::visitLdcInsn(Object$* value) {
-	if (this->api < $Opcodes::ASM5 && ($instanceOf($Handle, value) || ($instanceOf($Type, value) && $nc(($cast($Type, value)))->getSort() == $Type::METHOD))) {
+	if (this->api < $Opcodes::ASM5 && ($instanceOf($Handle, value) || ($instanceOf($Type, value) && $cast($Type, value)->getSort() == $Type::METHOD))) {
 		$throwNew($UnsupportedOperationException, "This feature requires ASM5"_s);
 	}
 	if (this->api < $Opcodes::ASM7 && $instanceOf($ConstantDynamic, value)) {
 		$throwNew($UnsupportedOperationException, "This feature requires ASM7"_s);
 	}
 	if ($instanceOf($Integer, value)) {
-		iconst($nc(($cast($Integer, value)))->intValue());
+		iconst($cast($Integer, value)->intValue());
 	} else if ($instanceOf($Byte, value)) {
-		iconst($nc(($cast($Byte, value)))->intValue());
+		iconst($cast($Byte, value)->intValue());
 	} else if ($instanceOf($Character, value)) {
-		iconst($nc(($cast($Character, value)))->charValue());
+		iconst($cast($Character, value)->charValue());
 	} else if ($instanceOf($Short, value)) {
-		iconst($nc(($cast($Short, value)))->intValue());
+		iconst($cast($Short, value)->intValue());
 	} else if ($instanceOf($Boolean, value)) {
-		iconst($nc(($cast($Boolean, value)))->booleanValue() ? 1 : 0);
+		iconst($cast($Boolean, value)->booleanValue() ? 1 : 0);
 	} else if ($instanceOf($Float, value)) {
-		fconst($nc(($cast($Float, value)))->floatValue());
+		fconst($cast($Float, value)->floatValue());
 	} else if ($instanceOf($Long, value)) {
-		lconst($nc(($cast($Long, value)))->longValue());
+		lconst($cast($Long, value)->longValue());
 	} else if ($instanceOf($Double, value)) {
-		dconst($nc(($cast($Double, value)))->doubleValue());
+		dconst($cast($Double, value)->doubleValue());
 	} else if ($instanceOf($String, value)) {
 		aconst(value);
 	} else if ($instanceOf($Type, value)) {
@@ -1391,7 +928,7 @@ void InstructionAdapter::iconst(int32_t intValue) {
 }
 
 void InstructionAdapter::lconst(int64_t longValue) {
-	if (longValue == (int64_t)0 || longValue == (int64_t)1) {
+	if (longValue == 0 || longValue == 1) {
 		$nc(this->mv)->visitInsn($Opcodes::LCONST_0 + (int32_t)longValue);
 	} else {
 		$nc(this->mv)->visitLdcInsn($($Long::valueOf(longValue)));
@@ -1400,7 +937,7 @@ void InstructionAdapter::lconst(int64_t longValue) {
 
 void InstructionAdapter::fconst(float floatValue) {
 	int32_t bits = $Float::floatToIntBits(floatValue);
-	if (bits == (int64_t)0 || bits == 0x3F800000 || bits == 0x40000000) {
+	if (bits == 0 || bits == 0x3f800000 || bits == 0x40000000) {
 		$nc(this->mv)->visitInsn($Opcodes::FCONST_0 + $cast(int32_t, floatValue));
 	} else {
 		$nc(this->mv)->visitLdcInsn($($Float::valueOf(floatValue)));
@@ -1409,7 +946,7 @@ void InstructionAdapter::fconst(float floatValue) {
 
 void InstructionAdapter::dconst(double doubleValue) {
 	int64_t bits = $Double::doubleToLongBits(doubleValue);
-	if (bits == (int64_t)0 || bits == (int64_t)0x3FF0000000000000) {
+	if (bits == 0 || bits == (int64_t)0x3ff0000000000000) {
 		$nc(this->mv)->visitInsn($Opcodes::DCONST_0 + $cast(int32_t, doubleValue));
 	} else {
 		$nc(this->mv)->visitLdcInsn($($Double::valueOf(doubleValue)));
@@ -1543,64 +1080,42 @@ void InstructionAdapter::cast($MethodVisitor* methodVisitor, $Type* from, $Type*
 		if (from == $Type::DOUBLE_TYPE) {
 			if (to == $Type::FLOAT_TYPE) {
 				$nc(methodVisitor)->visitInsn($Opcodes::D2F);
+			} else if (to == $Type::LONG_TYPE) {
+				$nc(methodVisitor)->visitInsn($Opcodes::D2L);
 			} else {
-				if (to == $Type::LONG_TYPE) {
-					$nc(methodVisitor)->visitInsn($Opcodes::D2L);
-				} else {
-					$nc(methodVisitor)->visitInsn($Opcodes::D2I);
-					cast(methodVisitor, $Type::INT_TYPE, to);
-				}
+				$nc(methodVisitor)->visitInsn($Opcodes::D2I);
+				cast(methodVisitor, $Type::INT_TYPE, to);
 			}
-		} else {
-			if (from == $Type::FLOAT_TYPE) {
-				if (to == $Type::DOUBLE_TYPE) {
-					$nc(methodVisitor)->visitInsn($Opcodes::F2D);
-				} else {
-					if (to == $Type::LONG_TYPE) {
-						$nc(methodVisitor)->visitInsn($Opcodes::F2L);
-					} else {
-						$nc(methodVisitor)->visitInsn($Opcodes::F2I);
-						cast(methodVisitor, $Type::INT_TYPE, to);
-					}
-				}
+		} else if (from == $Type::FLOAT_TYPE) {
+			if (to == $Type::DOUBLE_TYPE) {
+				$nc(methodVisitor)->visitInsn($Opcodes::F2D);
+			} else if (to == $Type::LONG_TYPE) {
+				$nc(methodVisitor)->visitInsn($Opcodes::F2L);
 			} else {
-				if (from == $Type::LONG_TYPE) {
-					if (to == $Type::DOUBLE_TYPE) {
-						$nc(methodVisitor)->visitInsn($Opcodes::L2D);
-					} else {
-						if (to == $Type::FLOAT_TYPE) {
-							$nc(methodVisitor)->visitInsn($Opcodes::L2F);
-						} else {
-							$nc(methodVisitor)->visitInsn($Opcodes::L2I);
-							cast(methodVisitor, $Type::INT_TYPE, to);
-						}
-					}
-				} else {
-					if (to == $Type::BYTE_TYPE) {
-						$nc(methodVisitor)->visitInsn($Opcodes::I2B);
-					} else {
-						if (to == $Type::CHAR_TYPE) {
-							$nc(methodVisitor)->visitInsn($Opcodes::I2C);
-						} else {
-							if (to == $Type::DOUBLE_TYPE) {
-								$nc(methodVisitor)->visitInsn($Opcodes::I2D);
-							} else {
-								if (to == $Type::FLOAT_TYPE) {
-									$nc(methodVisitor)->visitInsn($Opcodes::I2F);
-								} else {
-									if (to == $Type::LONG_TYPE) {
-										$nc(methodVisitor)->visitInsn($Opcodes::I2L);
-									} else {
-										if (to == $Type::SHORT_TYPE) {
-											$nc(methodVisitor)->visitInsn($Opcodes::I2S);
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+				$nc(methodVisitor)->visitInsn($Opcodes::F2I);
+				cast(methodVisitor, $Type::INT_TYPE, to);
 			}
+		} else if (from == $Type::LONG_TYPE) {
+			if (to == $Type::DOUBLE_TYPE) {
+				$nc(methodVisitor)->visitInsn($Opcodes::L2D);
+			} else if (to == $Type::FLOAT_TYPE) {
+				$nc(methodVisitor)->visitInsn($Opcodes::L2F);
+			} else {
+				$nc(methodVisitor)->visitInsn($Opcodes::L2I);
+				cast(methodVisitor, $Type::INT_TYPE, to);
+			}
+		} else if (to == $Type::BYTE_TYPE) {
+			$nc(methodVisitor)->visitInsn($Opcodes::I2B);
+		} else if (to == $Type::CHAR_TYPE) {
+			$nc(methodVisitor)->visitInsn($Opcodes::I2C);
+		} else if (to == $Type::DOUBLE_TYPE) {
+			$nc(methodVisitor)->visitInsn($Opcodes::I2D);
+		} else if (to == $Type::FLOAT_TYPE) {
+			$nc(methodVisitor)->visitInsn($Opcodes::I2F);
+		} else if (to == $Type::LONG_TYPE) {
+			$nc(methodVisitor)->visitInsn($Opcodes::I2L);
+		} else if (to == $Type::SHORT_TYPE) {
+			$nc(methodVisitor)->visitInsn($Opcodes::I2S);
 		}
 	}
 }
@@ -1793,50 +1308,32 @@ void InstructionAdapter::newarray($MethodVisitor* methodVisitor, $Type* type) {
 	int32_t arrayType = 0;
 	switch ($nc(type)->getSort()) {
 	case $Type::BOOLEAN:
-		{
-			arrayType = $Opcodes::T_BOOLEAN;
-			break;
-		}
+		arrayType = $Opcodes::T_BOOLEAN;
+		break;
 	case $Type::CHAR:
-		{
-			arrayType = $Opcodes::T_CHAR;
-			break;
-		}
+		arrayType = $Opcodes::T_CHAR;
+		break;
 	case $Type::BYTE:
-		{
-			arrayType = $Opcodes::T_BYTE;
-			break;
-		}
+		arrayType = $Opcodes::T_BYTE;
+		break;
 	case $Type::SHORT:
-		{
-			arrayType = $Opcodes::T_SHORT;
-			break;
-		}
+		arrayType = $Opcodes::T_SHORT;
+		break;
 	case $Type::INT:
-		{
-			arrayType = $Opcodes::T_INT;
-			break;
-		}
+		arrayType = $Opcodes::T_INT;
+		break;
 	case $Type::FLOAT:
-		{
-			arrayType = $Opcodes::T_FLOAT;
-			break;
-		}
+		arrayType = $Opcodes::T_FLOAT;
+		break;
 	case $Type::LONG:
-		{
-			arrayType = $Opcodes::T_LONG;
-			break;
-		}
+		arrayType = $Opcodes::T_LONG;
+		break;
 	case $Type::DOUBLE:
-		{
-			arrayType = $Opcodes::T_DOUBLE;
-			break;
-		}
+		arrayType = $Opcodes::T_DOUBLE;
+		break;
 	default:
-		{
-			$nc(methodVisitor)->visitTypeInsn($Opcodes::ANEWARRAY, $(type->getInternalName()));
-			return;
-		}
+		$nc(methodVisitor)->visitTypeInsn($Opcodes::ANEWARRAY, $(type->getInternalName()));
+		return;
 	}
 	$nc(methodVisitor)->visitIntInsn($Opcodes::NEWARRAY, arrayType);
 }
@@ -1881,7 +1378,7 @@ void InstructionAdapter::mark($Label* label) {
 	$nc(this->mv)->visitLabel(label);
 }
 
-void clinit$InstructionAdapter($Class* class$) {
+void InstructionAdapter::clinit$($Class* clazz) {
 	$assignStatic(InstructionAdapter::OBJECT_TYPE, $Type::getType("Ljava/lang/Object;"_s));
 }
 
@@ -1889,7 +1386,137 @@ InstructionAdapter::InstructionAdapter() {
 }
 
 $Class* InstructionAdapter::load$($String* name, bool initialize) {
-	$loadClass(InstructionAdapter, name, initialize, &_InstructionAdapter_ClassInfo_, clinit$InstructionAdapter, allocate$InstructionAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"OBJECT_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionAdapter, OBJECT_TYPE)},
+		{}
+	};
+	$CompoundAttribute invokespecialmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute invokestaticmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute invokevirtualmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(InstructionAdapter, init$, void, $MethodVisitor*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PROTECTED, $method(InstructionAdapter, init$, void, int32_t, $MethodVisitor*)},
+		{"aconst", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, aconst, void, Object$*)},
+		{"add", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, add, void, $Type*)},
+		{"aload", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, aload, void, $Type*)},
+		{"and", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, and$, void, $Type*)},
+		{"anew", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, anew, void, $Type*)},
+		{"areturn", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, areturn, void, $Type*)},
+		{"arraylength", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, arraylength, void)},
+		{"astore", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, astore, void, $Type*)},
+		{"athrow", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, athrow, void)},
+		{"cast", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, cast, void, $Type*, $Type*)},
+		{"cast", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $STATIC, $staticMethod(InstructionAdapter, cast, void, $MethodVisitor*, $Type*, $Type*)},
+		{"cconst", "(Ljdk/internal/org/objectweb/asm/ConstantDynamic;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, cconst, void, $ConstantDynamic*)},
+		{"checkcast", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, checkcast, void, $Type*)},
+		{"cmpg", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, cmpg, void, $Type*)},
+		{"cmpl", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, cmpl, void, $Type*)},
+		{"dconst", "(D)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dconst, void, double)},
+		{"div", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, div, void, $Type*)},
+		{"dup", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dup, void)},
+		{"dup2", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dup2, void)},
+		{"dup2X1", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dup2X1, void)},
+		{"dup2X2", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dup2X2, void)},
+		{"dupX1", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dupX1, void)},
+		{"dupX2", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, dupX2, void)},
+		{"fconst", "(F)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, fconst, void, float)},
+		{"getfield", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, getfield, void, $String*, $String*, $String*)},
+		{"getstatic", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, getstatic, void, $String*, $String*, $String*)},
+		{"goTo", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, goTo, void, $Label*)},
+		{"hconst", "(Ljdk/internal/org/objectweb/asm/Handle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, hconst, void, $Handle*)},
+		{"iconst", "(I)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, iconst, void, int32_t)},
+		{"ifacmpeq", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifacmpeq, void, $Label*)},
+		{"ifacmpne", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifacmpne, void, $Label*)},
+		{"ifeq", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifeq, void, $Label*)},
+		{"ifge", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifge, void, $Label*)},
+		{"ifgt", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifgt, void, $Label*)},
+		{"ificmpeq", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmpeq, void, $Label*)},
+		{"ificmpge", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmpge, void, $Label*)},
+		{"ificmpgt", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmpgt, void, $Label*)},
+		{"ificmple", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmple, void, $Label*)},
+		{"ificmplt", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmplt, void, $Label*)},
+		{"ificmpne", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ificmpne, void, $Label*)},
+		{"ifle", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifle, void, $Label*)},
+		{"iflt", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, iflt, void, $Label*)},
+		{"ifne", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifne, void, $Label*)},
+		{"ifnonnull", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifnonnull, void, $Label*)},
+		{"ifnull", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ifnull, void, $Label*)},
+		{"iinc", "(II)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, iinc, void, int32_t, int32_t)},
+		{"instanceOf", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, instanceOf, void, $Type*)},
+		{"invokedynamic", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, invokedynamic, void, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"invokeinterface", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, invokeinterface, void, $String*, $String*, $String*)},
+		{"invokespecial", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InstructionAdapter, invokespecial, void, $String*, $String*, $String*), nullptr, nullptr, invokespecialmethodAnnotations$$},
+		{"invokespecial", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, invokespecial, void, $String*, $String*, $String*, bool)},
+		{"invokestatic", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InstructionAdapter, invokestatic, void, $String*, $String*, $String*), nullptr, nullptr, invokestaticmethodAnnotations$$},
+		{"invokestatic", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, invokestatic, void, $String*, $String*, $String*, bool)},
+		{"invokevirtual", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InstructionAdapter, invokevirtual, void, $String*, $String*, $String*), nullptr, nullptr, invokevirtualmethodAnnotations$$},
+		{"invokevirtual", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, invokevirtual, void, $String*, $String*, $String*, bool)},
+		{"jsr", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, jsr, void, $Label*)},
+		{"lcmp", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, lcmp, void)},
+		{"lconst", "(J)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, lconst, void, int64_t)},
+		{"load", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, load, void, int32_t, $Type*)},
+		{"lookupswitch", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, lookupswitch, void, $Label*, $ints*, $LabelArray*)},
+		{"mark", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, mark, void, $Label*)},
+		{"monitorenter", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, monitorenter, void)},
+		{"monitorexit", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, monitorexit, void)},
+		{"mul", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, mul, void, $Type*)},
+		{"multianewarray", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, multianewarray, void, $String*, int32_t)},
+		{"neg", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, neg, void, $Type*)},
+		{"newarray", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, newarray, void, $Type*)},
+		{"newarray", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $STATIC, $staticMethod(InstructionAdapter, newarray, void, $MethodVisitor*, $Type*)},
+		{"nop", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, nop, void)},
+		{"or", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, or$, void, $Type*)},
+		{"pop", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, pop, void)},
+		{"pop2", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, pop2, void)},
+		{"putfield", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, putfield, void, $String*, $String*, $String*)},
+		{"putstatic", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, putstatic, void, $String*, $String*, $String*)},
+		{"rem", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, rem, void, $Type*)},
+		{"ret", "(I)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ret, void, int32_t)},
+		{"shl", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, shl, void, $Type*)},
+		{"shr", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, shr, void, $Type*)},
+		{"store", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, store, void, int32_t, $Type*)},
+		{"sub", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, sub, void, $Type*)},
+		{"swap", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, swap, void)},
+		{"tableswitch", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(InstructionAdapter, tableswitch, void, int32_t, int32_t, $Label*, $LabelArray*)},
+		{"tconst", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, tconst, void, $Type*)},
+		{"ushr", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, ushr, void, $Type*)},
+		{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
+		{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitIincInsn, void, int32_t, int32_t)},
+		{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitInsn, void, int32_t)},
+		{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitIntInsn, void, int32_t, int32_t)},
+		{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(InstructionAdapter, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitJumpInsn, void, int32_t, $Label*)},
+		{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitLabel, void, $Label*)},
+		{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitLdcInsn, void, Object$*)},
+		{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
+		{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
+		{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitMultiANewArrayInsn, void, $String*, int32_t)},
+		{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(InstructionAdapter, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
+		{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitTypeInsn, void, int32_t, $String*)},
+		{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, visitVarInsn, void, int32_t, int32_t)},
+		{"xor", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(InstructionAdapter, xor$, void, $Type*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.InstructionAdapter",
+		"jdk.internal.org.objectweb.asm.MethodVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstructionAdapter, name, initialize, &classInfo$$, InstructionAdapter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InstructionAdapter);
+	});
 	return class$;
 }
 

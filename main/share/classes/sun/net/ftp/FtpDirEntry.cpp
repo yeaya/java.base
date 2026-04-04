@@ -1,5 +1,4 @@
 #include <sun/net/ftp/FtpDirEntry.h>
-
 #include <java/text/DateFormat.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
@@ -23,70 +22,6 @@ using $FtpDirEntry$Type = ::sun::net::ftp::FtpDirEntry$Type;
 namespace sun {
 	namespace net {
 		namespace ftp {
-
-$FieldInfo _FtpDirEntry_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FtpDirEntry, name)},
-	{"user", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FtpDirEntry, user)},
-	{"group", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FtpDirEntry, group)},
-	{"size", "J", nullptr, $PRIVATE, $field(FtpDirEntry, size)},
-	{"created", "Ljava/util/Date;", nullptr, $PRIVATE, $field(FtpDirEntry, created)},
-	{"lastModified", "Ljava/util/Date;", nullptr, $PRIVATE, $field(FtpDirEntry, lastModified)},
-	{"type", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PRIVATE, $field(FtpDirEntry, type)},
-	{"permissions", "[[Z", nullptr, $PRIVATE, $field(FtpDirEntry, permissions)},
-	{"facts", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(FtpDirEntry, facts)},
-	{}
-};
-
-$MethodInfo _FtpDirEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FtpDirEntry, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FtpDirEntry, init$, void, $String*)},
-	{"addFact", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, addFact, FtpDirEntry*, $String*, $String*)},
-	{"canExexcute", "(Lsun/net/ftp/FtpDirEntry$Permission;)Z", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, canExexcute, bool, $FtpDirEntry$Permission*)},
-	{"canRead", "(Lsun/net/ftp/FtpDirEntry$Permission;)Z", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, canRead, bool, $FtpDirEntry$Permission*)},
-	{"canWrite", "(Lsun/net/ftp/FtpDirEntry$Permission;)Z", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, canWrite, bool, $FtpDirEntry$Permission*)},
-	{"getCreated", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getCreated, $Date*)},
-	{"getFact", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getFact, $String*, $String*)},
-	{"getGroup", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getGroup, $String*)},
-	{"getLastModified", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getLastModified, $Date*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getName, $String*)},
-	{"getSize", "()J", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getSize, int64_t)},
-	{"getType", "()Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getType, $FtpDirEntry$Type*)},
-	{"getUser", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getUser, $String*)},
-	{"setCreated", "(Ljava/util/Date;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setCreated, FtpDirEntry*, $Date*)},
-	{"setGroup", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setGroup, FtpDirEntry*, $String*)},
-	{"setLastModified", "(Ljava/util/Date;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setLastModified, FtpDirEntry*, $Date*)},
-	{"setPermissions", "([[Z)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setPermissions, FtpDirEntry*, $booleanArray2*)},
-	{"setSize", "(J)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setSize, FtpDirEntry*, int64_t)},
-	{"setType", "(Lsun/net/ftp/FtpDirEntry$Type;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setType, FtpDirEntry*, $FtpDirEntry$Type*)},
-	{"setUser", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setUser, FtpDirEntry*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _FtpDirEntry_InnerClassesInfo_[] = {
-	{"sun.net.ftp.FtpDirEntry$Permission", "sun.net.ftp.FtpDirEntry", "Permission", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"sun.net.ftp.FtpDirEntry$Type", "sun.net.ftp.FtpDirEntry", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _FtpDirEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.ftp.FtpDirEntry",
-	"java.lang.Object",
-	nullptr,
-	_FtpDirEntry_FieldInfo_,
-	_FtpDirEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FtpDirEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.ftp.FtpDirEntry$Permission,sun.net.ftp.FtpDirEntry$Type"
-};
-
-$Object* allocate$FtpDirEntry($Class* clazz) {
-	return $of($alloc(FtpDirEntry));
-}
 
 void FtpDirEntry::init$() {
 	$set(this, user, nullptr);
@@ -165,21 +100,21 @@ FtpDirEntry* FtpDirEntry::setLastModified($Date* lastModified) {
 
 bool FtpDirEntry::canRead($FtpDirEntry$Permission* p) {
 	if (this->permissions != nullptr) {
-		return $nc($nc(this->permissions)->get($nc(p)->value))->get(0);
+		return $nc(this->permissions->get($nc(p)->value))->get(0);
 	}
 	return false;
 }
 
 bool FtpDirEntry::canWrite($FtpDirEntry$Permission* p) {
 	if (this->permissions != nullptr) {
-		return $nc($nc(this->permissions)->get($nc(p)->value))->get(1);
+		return $nc(this->permissions->get($nc(p)->value))->get(1);
 	}
 	return false;
 }
 
 bool FtpDirEntry::canExexcute($FtpDirEntry$Permission* p) {
 	if (this->permissions != nullptr) {
-		return $nc($nc(this->permissions)->get($nc(p)->value))->get(2);
+		return $nc(this->permissions->get($nc(p)->value))->get(2);
 	}
 	return false;
 }
@@ -208,19 +143,88 @@ FtpDirEntry* FtpDirEntry::setCreated($Date* created) {
 }
 
 $String* FtpDirEntry::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->lastModified == nullptr) {
 		return $str({this->name, " ["_s, this->type, "] ("_s, this->user, " / "_s, this->group, ") "_s, $$str(this->size)});
 	}
-	$var($String, var$0, $$str({this->name, " ["_s, this->type, "] ("_s, this->user, " / "_s, this->group, ") {"_s, $$str(this->size), "} "_s}));
-	return $concat(var$0, $($nc($($DateFormat::getDateInstance()))->format(this->lastModified)));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(this->name);
+	var$0->append(" ["_s);
+	var$0->append(this->type);
+	var$0->append("] ("_s);
+	var$0->append(this->user);
+	var$0->append(" / "_s);
+	var$0->append(this->group);
+	var$0->append(") {"_s);
+	var$0->append(this->size);
+	var$0->append("} "_s);
+	var$0->append($($$nc($DateFormat::getDateInstance())->format(this->lastModified)));
+	return $str(var$0);
 }
 
 FtpDirEntry::FtpDirEntry() {
 }
 
 $Class* FtpDirEntry::load$($String* name, bool initialize) {
-	$loadClass(FtpDirEntry, name, initialize, &_FtpDirEntry_ClassInfo_, allocate$FtpDirEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FtpDirEntry, name)},
+		{"user", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FtpDirEntry, user)},
+		{"group", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FtpDirEntry, group)},
+		{"size", "J", nullptr, $PRIVATE, $field(FtpDirEntry, size)},
+		{"created", "Ljava/util/Date;", nullptr, $PRIVATE, $field(FtpDirEntry, created)},
+		{"lastModified", "Ljava/util/Date;", nullptr, $PRIVATE, $field(FtpDirEntry, lastModified)},
+		{"type", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PRIVATE, $field(FtpDirEntry, type)},
+		{"permissions", "[[Z", nullptr, $PRIVATE, $field(FtpDirEntry, permissions)},
+		{"facts", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(FtpDirEntry, facts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FtpDirEntry, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FtpDirEntry, init$, void, $String*)},
+		{"addFact", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, addFact, FtpDirEntry*, $String*, $String*)},
+		{"canExexcute", "(Lsun/net/ftp/FtpDirEntry$Permission;)Z", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, canExexcute, bool, $FtpDirEntry$Permission*)},
+		{"canRead", "(Lsun/net/ftp/FtpDirEntry$Permission;)Z", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, canRead, bool, $FtpDirEntry$Permission*)},
+		{"canWrite", "(Lsun/net/ftp/FtpDirEntry$Permission;)Z", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, canWrite, bool, $FtpDirEntry$Permission*)},
+		{"getCreated", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getCreated, $Date*)},
+		{"getFact", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getFact, $String*, $String*)},
+		{"getGroup", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getGroup, $String*)},
+		{"getLastModified", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getLastModified, $Date*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getName, $String*)},
+		{"getSize", "()J", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getSize, int64_t)},
+		{"getType", "()Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getType, $FtpDirEntry$Type*)},
+		{"getUser", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, getUser, $String*)},
+		{"setCreated", "(Ljava/util/Date;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setCreated, FtpDirEntry*, $Date*)},
+		{"setGroup", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setGroup, FtpDirEntry*, $String*)},
+		{"setLastModified", "(Ljava/util/Date;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setLastModified, FtpDirEntry*, $Date*)},
+		{"setPermissions", "([[Z)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setPermissions, FtpDirEntry*, $booleanArray2*)},
+		{"setSize", "(J)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setSize, FtpDirEntry*, int64_t)},
+		{"setType", "(Lsun/net/ftp/FtpDirEntry$Type;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setType, FtpDirEntry*, $FtpDirEntry$Type*)},
+		{"setUser", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, setUser, FtpDirEntry*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpDirEntry, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.ftp.FtpDirEntry$Permission", "sun.net.ftp.FtpDirEntry", "Permission", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"sun.net.ftp.FtpDirEntry$Type", "sun.net.ftp.FtpDirEntry", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.ftp.FtpDirEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.ftp.FtpDirEntry$Permission,sun.net.ftp.FtpDirEntry$Type"
+	};
+	$loadClass(FtpDirEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FtpDirEntry);
+	});
 	return class$;
 }
 

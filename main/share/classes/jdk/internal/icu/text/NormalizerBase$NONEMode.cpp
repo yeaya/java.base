@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/NormalizerBase$NONEMode.h>
-
 #include <jdk/internal/icu/impl/Norm2AllModes$NoopNormalizer2.h>
 #include <jdk/internal/icu/impl/Norm2AllModes.h>
 #include <jdk/internal/icu/text/Normalizer2.h>
@@ -21,38 +20,6 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$MethodInfo _NormalizerBase$NONEMode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$NONEMode, init$, void)},
-	{"getNormalizer2", "(I)Ljdk/internal/icu/text/Normalizer2;", nullptr, $PROTECTED, $virtualMethod(NormalizerBase$NONEMode, getNormalizer2, $Normalizer2*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _NormalizerBase$NONEMode_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.NormalizerBase$NONEMode", "jdk.internal.icu.text.NormalizerBase", "NONEMode", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.text.NormalizerBase$Mode", "jdk.internal.icu.text.NormalizerBase", "Mode", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NormalizerBase$NONEMode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.text.NormalizerBase$NONEMode",
-	"jdk.internal.icu.text.NormalizerBase$Mode",
-	nullptr,
-	nullptr,
-	_NormalizerBase$NONEMode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NormalizerBase$NONEMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.NormalizerBase"
-};
-
-$Object* allocate$NormalizerBase$NONEMode($Class* clazz) {
-	return $of($alloc(NormalizerBase$NONEMode));
-}
-
 void NormalizerBase$NONEMode::init$() {
 	$NormalizerBase$Mode::init$();
 }
@@ -66,7 +33,34 @@ NormalizerBase$NONEMode::NormalizerBase$NONEMode() {
 }
 
 $Class* NormalizerBase$NONEMode::load$($String* name, bool initialize) {
-	$loadClass(NormalizerBase$NONEMode, name, initialize, &_NormalizerBase$NONEMode_ClassInfo_, allocate$NormalizerBase$NONEMode);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$NONEMode, init$, void)},
+		{"getNormalizer2", "(I)Ljdk/internal/icu/text/Normalizer2;", nullptr, $PROTECTED, $virtualMethod(NormalizerBase$NONEMode, getNormalizer2, $Normalizer2*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.NormalizerBase$NONEMode", "jdk.internal.icu.text.NormalizerBase", "NONEMode", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.text.NormalizerBase$Mode", "jdk.internal.icu.text.NormalizerBase", "Mode", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.text.NormalizerBase$NONEMode",
+		"jdk.internal.icu.text.NormalizerBase$Mode",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.NormalizerBase"
+	};
+	$loadClass(NormalizerBase$NONEMode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalizerBase$NONEMode);
+	});
 	return class$;
 }
 

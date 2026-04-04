@@ -1,5 +1,4 @@
 #include <java/security/spec/EncodedKeySpec$1.h>
-
 #include <java/security/spec/EncodedKeySpec.h>
 #include <jcpp.h>
 
@@ -13,43 +12,6 @@ namespace java {
 	namespace security {
 		namespace spec {
 
-$MethodInfo _EncodedKeySpec$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(EncodedKeySpec$1, init$, void)},
-	{"clearEncodedKeySpec", "(Ljava/security/spec/EncodedKeySpec;)V", nullptr, $PUBLIC, $virtualMethod(EncodedKeySpec$1, clearEncodedKeySpec, void, $EncodedKeySpec*)},
-	{}
-};
-
-$EnclosingMethodInfo _EncodedKeySpec$1_EnclosingMethodInfo_ = {
-	"java.security.spec.EncodedKeySpec",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _EncodedKeySpec$1_InnerClassesInfo_[] = {
-	{"java.security.spec.EncodedKeySpec$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _EncodedKeySpec$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.spec.EncodedKeySpec$1",
-	"java.lang.Object",
-	"jdk.internal.access.JavaSecuritySpecAccess",
-	nullptr,
-	_EncodedKeySpec$1_MethodInfo_,
-	nullptr,
-	&_EncodedKeySpec$1_EnclosingMethodInfo_,
-	_EncodedKeySpec$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.spec.EncodedKeySpec"
-};
-
-$Object* allocate$EncodedKeySpec$1($Class* clazz) {
-	return $of($alloc(EncodedKeySpec$1));
-}
-
 void EncodedKeySpec$1::init$() {
 }
 
@@ -61,7 +23,38 @@ EncodedKeySpec$1::EncodedKeySpec$1() {
 }
 
 $Class* EncodedKeySpec$1::load$($String* name, bool initialize) {
-	$loadClass(EncodedKeySpec$1, name, initialize, &_EncodedKeySpec$1_ClassInfo_, allocate$EncodedKeySpec$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(EncodedKeySpec$1, init$, void)},
+		{"clearEncodedKeySpec", "(Ljava/security/spec/EncodedKeySpec;)V", nullptr, $PUBLIC, $virtualMethod(EncodedKeySpec$1, clearEncodedKeySpec, void, $EncodedKeySpec*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.security.spec.EncodedKeySpec",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.spec.EncodedKeySpec$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.spec.EncodedKeySpec$1",
+		"java.lang.Object",
+		"jdk.internal.access.JavaSecuritySpecAccess",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.spec.EncodedKeySpec"
+	};
+	$loadClass(EncodedKeySpec$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EncodedKeySpec$1);
+	});
 	return class$;
 }
 

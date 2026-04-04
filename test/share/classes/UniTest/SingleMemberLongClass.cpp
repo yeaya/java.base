@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberLongClass.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,38 +8,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberLongClass_Attribute_var$0[] = {
-	{"value", 'J', "4"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberLongClass_Annotations_[] = {
-	{"LUniTest/SingleMemberLong;", SingleMemberLongClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberLongClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberLongClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberLongClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberLongClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberLongClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberLongClass_Annotations_
-};
-
-$Object* allocate$SingleMemberLongClass($Class* clazz) {
-	return $of($alloc(SingleMemberLongClass));
-}
-
 void SingleMemberLongClass::init$() {
 }
 
@@ -48,7 +15,33 @@ SingleMemberLongClass::SingleMemberLongClass() {
 }
 
 $Class* SingleMemberLongClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberLongClass, name, initialize, &_SingleMemberLongClass_ClassInfo_, allocate$SingleMemberLongClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberLongClass, init$, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'J', "4"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberLong;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberLongClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberLongClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberLongClass);
+	});
 	return class$;
 }
 

@@ -58,6 +58,7 @@ class SunX509KeyManagerImpl : public ::javax::net::ssl::X509ExtendedKeyManager {
 	$class(SunX509KeyManagerImpl, 0, ::javax::net::ssl::X509ExtendedKeyManager)
 public:
 	SunX509KeyManagerImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::KeyStore* ks, $chars* password);
 	virtual $String* chooseClientAlias($StringArray* keyTypes, $Array<::java::security::Principal>* issuers, ::java::net::Socket* socket) override;
 	virtual $String* chooseEngineClientAlias($StringArray* keyType, $Array<::java::security::Principal>* issuers, ::javax::net::ssl::SSLEngine* engine) override;

@@ -32,6 +32,7 @@ class $export FreshestCRLExtension : public ::sun::security::x509::CRLDistributi
 	$class(FreshestCRLExtension, 0, ::sun::security::x509::CRLDistributionPointsExtension)
 public:
 	FreshestCRLExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::security::x509::CRLDistributionPointsExtension::encode;
 	void init$(::java::util::List* distributionPoints);
 	void init$(::java::lang::Boolean* critical, Object$* value);

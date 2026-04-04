@@ -1,5 +1,4 @@
 #include <sun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement.h>
-
 #include <java/math/BigInteger.h>
 #include <sun/security/util/math/ImmutableIntegerModuloP.h>
 #include <sun/security/util/math/IntegerFieldModuloP.h>
@@ -26,64 +25,6 @@ namespace sun {
 		namespace util {
 			namespace math {
 				namespace intpoly {
-
-$FieldInfo _IntegerPolynomial$ImmutableElement_FieldInfo_[] = {
-	{"this$0", "Lsun/security/util/math/intpoly/IntegerPolynomial;", nullptr, $FINAL | $SYNTHETIC, $field(IntegerPolynomial$ImmutableElement, this$0)},
-	{}
-};
-
-$MethodInfo _IntegerPolynomial$ImmutableElement_MethodInfo_[] = {
-	{"*add", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
-	{"*addModPowerTwo", "(Lsun/security/util/math/IntegerModuloP;[B)V", nullptr, $PUBLIC},
-	{"*addModPowerTwo", "(Lsun/security/util/math/IntegerModuloP;I)[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"*additiveInverse", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
-	{"*asBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"*asByteArray", "([B)V", nullptr, $PUBLIC},
-	{"*asByteArray", "(I)[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getField", "()Lsun/security/util/math/IntegerFieldModuloP;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;Ljava/math/BigInteger;)V", nullptr, $PROTECTED, $method(IntegerPolynomial$ImmutableElement, init$, void, $IntegerPolynomial*, $BigInteger*)},
-	{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;Z)V", nullptr, $PROTECTED, $method(IntegerPolynomial$ImmutableElement, init$, void, $IntegerPolynomial*, bool)},
-	{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;[JI)V", nullptr, $PROTECTED, $method(IntegerPolynomial$ImmutableElement, init$, void, $IntegerPolynomial*, $longs*, int32_t)},
-	{"fixed", "()Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$ImmutableElement, fixed, $ImmutableIntegerModuloP*)},
-	{"*mutable$", "()Lsun/security/util/math/MutableIntegerModuloP;", nullptr, $PUBLIC},
-	{"*multiply", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
-	{"*square", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
-	{"*multiplicativeInverse", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*subtract", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*pow", "(Ljava/math/BigInteger;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _IntegerPolynomial$ImmutableElement_InnerClassesInfo_[] = {
-	{"sun.security.util.math.intpoly.IntegerPolynomial$ImmutableElement", "sun.security.util.math.intpoly.IntegerPolynomial", "ImmutableElement", 0},
-	{"sun.security.util.math.intpoly.IntegerPolynomial$Element", "sun.security.util.math.intpoly.IntegerPolynomial", "Element", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _IntegerPolynomial$ImmutableElement_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.math.intpoly.IntegerPolynomial$ImmutableElement",
-	"sun.security.util.math.intpoly.IntegerPolynomial$Element",
-	"sun.security.util.math.ImmutableIntegerModuloP",
-	_IntegerPolynomial$ImmutableElement_FieldInfo_,
-	_IntegerPolynomial$ImmutableElement_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntegerPolynomial$ImmutableElement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.math.intpoly.IntegerPolynomial"
-};
-
-$Object* allocate$IntegerPolynomial$ImmutableElement($Class* clazz) {
-	return $of($alloc(IntegerPolynomial$ImmutableElement));
-}
 
 $IntegerFieldModuloP* IntegerPolynomial$ImmutableElement::getField() {
 	 return this->$IntegerPolynomial$Element::getField();
@@ -184,7 +125,59 @@ IntegerPolynomial$ImmutableElement::IntegerPolynomial$ImmutableElement() {
 }
 
 $Class* IntegerPolynomial$ImmutableElement::load$($String* name, bool initialize) {
-	$loadClass(IntegerPolynomial$ImmutableElement, name, initialize, &_IntegerPolynomial$ImmutableElement_ClassInfo_, allocate$IntegerPolynomial$ImmutableElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/util/math/intpoly/IntegerPolynomial;", nullptr, $FINAL | $SYNTHETIC, $field(IntegerPolynomial$ImmutableElement, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
+		{"*addModPowerTwo", "(Lsun/security/util/math/IntegerModuloP;[B)V", nullptr, $PUBLIC},
+		{"*addModPowerTwo", "(Lsun/security/util/math/IntegerModuloP;I)[B", nullptr, $PUBLIC | $ABSTRACT},
+		{"*additiveInverse", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
+		{"*asBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+		{"*asByteArray", "([B)V", nullptr, $PUBLIC},
+		{"*asByteArray", "(I)[B", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getField", "()Lsun/security/util/math/IntegerFieldModuloP;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;Ljava/math/BigInteger;)V", nullptr, $PROTECTED, $method(IntegerPolynomial$ImmutableElement, init$, void, $IntegerPolynomial*, $BigInteger*)},
+		{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;Z)V", nullptr, $PROTECTED, $method(IntegerPolynomial$ImmutableElement, init$, void, $IntegerPolynomial*, bool)},
+		{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;[JI)V", nullptr, $PROTECTED, $method(IntegerPolynomial$ImmutableElement, init$, void, $IntegerPolynomial*, $longs*, int32_t)},
+		{"fixed", "()Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$ImmutableElement, fixed, $ImmutableIntegerModuloP*)},
+		{"*mutable$", "()Lsun/security/util/math/MutableIntegerModuloP;", nullptr, $PUBLIC},
+		{"*multiply", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
+		{"*square", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
+		{"*multiplicativeInverse", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*subtract", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*pow", "(Ljava/math/BigInteger;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.math.intpoly.IntegerPolynomial$ImmutableElement", "sun.security.util.math.intpoly.IntegerPolynomial", "ImmutableElement", 0},
+		{"sun.security.util.math.intpoly.IntegerPolynomial$Element", "sun.security.util.math.intpoly.IntegerPolynomial", "Element", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.math.intpoly.IntegerPolynomial$ImmutableElement",
+		"sun.security.util.math.intpoly.IntegerPolynomial$Element",
+		"sun.security.util.math.ImmutableIntegerModuloP",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.math.intpoly.IntegerPolynomial"
+	};
+	$loadClass(IntegerPolynomial$ImmutableElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IntegerPolynomial$ImmutableElement));
+	});
 	return class$;
 }
 

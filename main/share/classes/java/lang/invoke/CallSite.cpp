@@ -1,5 +1,4 @@
 #include <java/lang/invoke/CallSite.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/BootstrapMethodError.h>
 #include <java/lang/ClassCastException.h>
@@ -35,7 +34,6 @@ using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -51,72 +49,10 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $MethodTypeForm = ::java::lang::invoke::MethodTypeForm;
 using $WrongMethodTypeException = ::java::lang::invoke::WrongMethodTypeException;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _CallSite_FieldAnnotations_GET_TARGET[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CallSite_FieldAnnotations_THROW_UCS[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CallSite_FieldAnnotations_TARGET_OFFSET[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$FieldInfo _CallSite_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CallSite, $assertionsDisabled)},
-	{"target", "Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL, $field(CallSite, target)},
-	{"context", "Ljava/lang/invoke/MethodHandleNatives$CallSiteContext;", nullptr, $PRIVATE | $FINAL, $field(CallSite, context)},
-	{"GET_TARGET", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticField(CallSite, GET_TARGET), _CallSite_FieldAnnotations_GET_TARGET},
-	{"THROW_UCS", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticField(CallSite, THROW_UCS), _CallSite_FieldAnnotations_THROW_UCS},
-	{"TARGET_OFFSET", "J", nullptr, $PRIVATE | $STATIC, $staticField(CallSite, TARGET_OFFSET), _CallSite_FieldAnnotations_TARGET_OFFSET},
-	{}
-};
-
-$MethodInfo _CallSite_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, 0, $method(CallSite, init$, void, $MethodType*)},
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, 0, $method(CallSite, init$, void, $MethodHandle*)},
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;)V", nullptr, 0, $method(CallSite, init$, void, $MethodType*, $MethodHandle*), "java.lang.Throwable"},
-	{"checkTargetChange", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE, $method(CallSite, checkTargetChange, void, $MethodHandle*)},
-	{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CallSite, dynamicInvoker, $MethodHandle*)},
-	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CallSite, getTarget, $MethodHandle*)},
-	{"getTargetHandle", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(CallSite, getTargetHandle, $MethodHandle*)},
-	{"getTargetOffset", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(CallSite, getTargetOffset, int64_t)},
-	{"getTargetVolatile", "()Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL, $method(CallSite, getTargetVolatile, $MethodHandle*)},
-	{"makeDynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(CallSite, makeDynamicInvoker, $MethodHandle*)},
-	{"makeSite", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/invoke/CallSite;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Object;Ljava/lang/Class<*>;)Ljava/lang/invoke/CallSite;", $STATIC, $staticMethod(CallSite, makeSite, CallSite*, $MethodHandle*, $String*, $MethodType*, Object$*, $Class*)},
-	{"makeUninitializedCallSite", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(CallSite, makeUninitializedCallSite, $MethodHandle*, $MethodType*)},
-	{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CallSite, setTarget, void, $MethodHandle*)},
-	{"setTargetNormal", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $FINAL, $method(CallSite, setTargetNormal, void, $MethodHandle*)},
-	{"setTargetVolatile", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $FINAL, $method(CallSite, setTargetVolatile, void, $MethodHandle*)},
-	{"type", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(CallSite, type, $MethodType*)},
-	{"uninitializedCallSite", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(CallSite, uninitializedCallSite, $Object*, $ObjectArray*)},
-	{"uninitializedCallSiteHandle", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(CallSite, uninitializedCallSiteHandle, $MethodHandle*)},
-	{"wrongTargetType", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/WrongMethodTypeException;", nullptr, $PRIVATE | $STATIC, $staticMethod(CallSite, wrongTargetType, $WrongMethodTypeException*, $MethodHandle*, $MethodType*)},
-	{}
-};
-
-$ClassInfo _CallSite_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.lang.invoke.CallSite",
-	"java.lang.Object",
-	nullptr,
-	_CallSite_FieldInfo_,
-	_CallSite_MethodInfo_
-};
-
-$Object* allocate$CallSite($Class* clazz) {
-	return $of($alloc(CallSite));
-}
 
 bool CallSite::$assertionsDisabled = false;
 $MethodHandle* CallSite::GET_TARGET = nullptr;
@@ -135,10 +71,10 @@ void CallSite::init$($MethodHandle* target) {
 }
 
 void CallSite::init$($MethodType* targetType, $MethodHandle* createTargetHook) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	CallSite::init$(targetType);
 	$var($ConstantCallSite, selfCCS, $cast($ConstantCallSite, this));
-	$var($MethodHandle, boundTarget, $cast($MethodHandle, $nc(createTargetHook)->invokeWithArguments($$new($ObjectArray, {$of(selfCCS)}))));
+	$var($MethodHandle, boundTarget, $cast($MethodHandle, $nc(createTargetHook)->invokeWithArguments($$new($ObjectArray, {selfCCS}))));
 	setTargetNormal(boundTarget);
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->storeStoreFence();
@@ -149,7 +85,7 @@ $MethodType* CallSite::type() {
 }
 
 void CallSite::checkTargetChange($MethodHandle* newTarget) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodType, oldType, $nc(this->target)->type());
 	$var($MethodType, newType, $nc(newTarget)->type());
 	if (newType != oldType) {
@@ -159,20 +95,20 @@ void CallSite::checkTargetChange($MethodHandle* newTarget) {
 
 $WrongMethodTypeException* CallSite::wrongTargetType($MethodHandle* target, $MethodType* type) {
 	$init(CallSite);
-	$useLocalCurrentObjectStackCache();
-	return $new($WrongMethodTypeException, $$str({$($String::valueOf($of(target))), " should be of type "_s, type}));
+	$useLocalObjectStack();
+	return $new($WrongMethodTypeException, $$str({$($String::valueOf(target)), " should be of type "_s, type}));
 }
 
 $MethodHandle* CallSite::makeDynamicInvoker() {
-	$useLocalCurrentObjectStackCache();
-	$var($MethodHandle, getTarget, $nc($(getTargetHandle()))->bindArgumentL(0, this));
+	$useLocalObjectStack();
+	$var($MethodHandle, getTarget, $$nc(getTargetHandle())->bindArgumentL(0, this));
 	$var($MethodHandle, invoker, $MethodHandles::exactInvoker($(this->type())));
 	return $MethodHandles::foldArguments(invoker, getTarget);
 }
 
 $MethodHandle* CallSite::getTargetHandle() {
 	$init(CallSite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandle, handle, CallSite::GET_TARGET);
 	if (handle != nullptr) {
 		return handle;
@@ -182,24 +118,23 @@ $MethodHandle* CallSite::getTargetHandle() {
 		$load($MethodHandle);
 		return $assignStatic(CallSite::GET_TARGET, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findVirtual(CallSite::class$, "getTarget"_s, $($MethodType::methodType($MethodHandle::class$))));
 	} catch ($ReflectiveOperationException& e) {
-		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(e))));
+		$throw($($MethodHandleStatics::newInternalError(e)));
 	}
 	$shouldNotReachHere();
 }
 
 $MethodHandle* CallSite::uninitializedCallSiteHandle() {
 	$init(CallSite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandle, handle, CallSite::THROW_UCS);
 	if (handle != nullptr) {
 		return handle;
 	}
 	try {
 		$init($MethodHandles$Lookup);
-		$load($ObjectArray);
 		return $assignStatic(CallSite::THROW_UCS, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(CallSite::class$, "uninitializedCallSite"_s, $($MethodType::methodType($Object::class$, $getClass($ObjectArray)))));
 	} catch ($ReflectiveOperationException& e) {
-		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(e))));
+		$throw($($MethodHandleStatics::newInternalError(e)));
 	}
 	$shouldNotReachHere();
 }
@@ -211,12 +146,12 @@ $Object* CallSite::uninitializedCallSite($ObjectArray* ignore) {
 }
 
 $MethodHandle* CallSite::makeUninitializedCallSite($MethodType* targetType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodType, basicType, $nc(targetType)->basicType());
-	$var($MethodHandle, invoker, $nc($($nc(basicType)->form()))->cachedMethodHandle($MethodTypeForm::MH_UNINIT_CS));
+	$var($MethodHandle, invoker, $$nc($nc(basicType)->form())->cachedMethodHandle($MethodTypeForm::MH_UNINIT_CS));
 	if (invoker == nullptr) {
-		$assign(invoker, $nc($(uninitializedCallSiteHandle()))->asType(basicType));
-		$assign(invoker, $nc($(basicType->form()))->setCachedMethodHandle($MethodTypeForm::MH_UNINIT_CS, invoker));
+		$assign(invoker, $$nc(uninitializedCallSiteHandle())->asType(basicType));
+		$assign(invoker, $$nc(basicType->form())->setCachedMethodHandle($MethodTypeForm::MH_UNINIT_CS, invoker));
 	}
 	return $nc(invoker)->viewAsType(targetType, false);
 }
@@ -252,7 +187,7 @@ void CallSite::setTargetVolatile($MethodHandle* newTarget) {
 
 CallSite* CallSite::makeSite($MethodHandle* bootstrapMethod, $String* name, $MethodType* type, Object$* info, $Class* callerClass) {
 	$init(CallSite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CallSite, site, nullptr);
 	try {
 		$var($Object, binding, $BootstrapMethodInvoker::invoke(CallSite::class$, bootstrapMethod, name, type, info, callerClass));
@@ -261,7 +196,7 @@ CallSite* CallSite::makeSite($MethodHandle* bootstrapMethod, $String* name, $Met
 		} else {
 			$throwNew($ClassCastException, "CallSite bootstrap method failed to produce an instance of CallSite"_s);
 		}
-		if (!$nc($($nc($($nc(site)->getTarget()))->type()))->equals($of(type))) {
+		if (!$$nc($$nc($nc(site)->getTarget())->type())->equals($of(type))) {
 			$throw($(wrongTargetType($(site->getTarget()), type)));
 		}
 	} catch ($Error& e) {
@@ -272,7 +207,7 @@ CallSite* CallSite::makeSite($MethodHandle* bootstrapMethod, $String* name, $Met
 	return site;
 }
 
-void clinit$CallSite($Class* class$) {
+void CallSite::clinit$($Class* clazz) {
 	CallSite::$assertionsDisabled = !CallSite::class$->desiredAssertionStatus();
 }
 
@@ -280,7 +215,60 @@ CallSite::CallSite() {
 }
 
 $Class* CallSite::load$($String* name, bool initialize) {
-	$loadClass(CallSite, name, initialize, &_CallSite_ClassInfo_, clinit$CallSite, allocate$CallSite);
+	$CompoundAttribute GET_TARGETfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute THROW_UCSfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute TARGET_OFFSETfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CallSite, $assertionsDisabled)},
+		{"target", "Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL, $field(CallSite, target)},
+		{"context", "Ljava/lang/invoke/MethodHandleNatives$CallSiteContext;", nullptr, $PRIVATE | $FINAL, $field(CallSite, context)},
+		{"GET_TARGET", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticField(CallSite, GET_TARGET), GET_TARGETfieldAnnotations$$},
+		{"THROW_UCS", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticField(CallSite, THROW_UCS), THROW_UCSfieldAnnotations$$},
+		{"TARGET_OFFSET", "J", nullptr, $PRIVATE | $STATIC, $staticField(CallSite, TARGET_OFFSET), TARGET_OFFSETfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, 0, $method(CallSite, init$, void, $MethodType*)},
+		{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, 0, $method(CallSite, init$, void, $MethodHandle*)},
+		{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;)V", nullptr, 0, $method(CallSite, init$, void, $MethodType*, $MethodHandle*), "java.lang.Throwable"},
+		{"checkTargetChange", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE, $method(CallSite, checkTargetChange, void, $MethodHandle*)},
+		{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CallSite, dynamicInvoker, $MethodHandle*)},
+		{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CallSite, getTarget, $MethodHandle*)},
+		{"getTargetHandle", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(CallSite, getTargetHandle, $MethodHandle*)},
+		{"getTargetOffset", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(CallSite, getTargetOffset, int64_t)},
+		{"getTargetVolatile", "()Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL, $method(CallSite, getTargetVolatile, $MethodHandle*)},
+		{"makeDynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(CallSite, makeDynamicInvoker, $MethodHandle*)},
+		{"makeSite", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/invoke/CallSite;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Object;Ljava/lang/Class<*>;)Ljava/lang/invoke/CallSite;", $STATIC, $staticMethod(CallSite, makeSite, CallSite*, $MethodHandle*, $String*, $MethodType*, Object$*, $Class*)},
+		{"makeUninitializedCallSite", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(CallSite, makeUninitializedCallSite, $MethodHandle*, $MethodType*)},
+		{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CallSite, setTarget, void, $MethodHandle*)},
+		{"setTargetNormal", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $FINAL, $method(CallSite, setTargetNormal, void, $MethodHandle*)},
+		{"setTargetVolatile", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $FINAL, $method(CallSite, setTargetVolatile, void, $MethodHandle*)},
+		{"type", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(CallSite, type, $MethodType*)},
+		{"uninitializedCallSite", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(CallSite, uninitializedCallSite, $Object*, $ObjectArray*)},
+		{"uninitializedCallSiteHandle", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(CallSite, uninitializedCallSiteHandle, $MethodHandle*)},
+		{"wrongTargetType", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/WrongMethodTypeException;", nullptr, $PRIVATE | $STATIC, $staticMethod(CallSite, wrongTargetType, $WrongMethodTypeException*, $MethodHandle*, $MethodType*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.lang.invoke.CallSite",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CallSite, name, initialize, &classInfo$$, CallSite::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CallSite);
+	});
 	return class$;
 }
 

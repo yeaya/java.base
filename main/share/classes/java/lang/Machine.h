@@ -110,6 +110,7 @@ public:
 	static ThreadGroup* getMainThreadGroup();
 
 	static void* loadNativeMethod(Class* clazz, MethodInfo* methodInfo);
+	static void* loadNativeMethod(Class* clazz, const char* methodName, const char* descriptor);
 	static ClassEntry* getClassEntry(String* name);
 
 	static void addLibrary(Library* lib);

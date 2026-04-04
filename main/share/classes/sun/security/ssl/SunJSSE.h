@@ -25,6 +25,7 @@ class SunJSSE : public ::java::security::Provider {
 	$class(SunJSSE, 0, ::java::security::Provider)
 public:
 	SunJSSE();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::java::security::Provider::getProperty;
 	void init$();
 	void doRegister();
@@ -32,7 +33,7 @@ public:
 	using ::java::security::Provider::load;
 	void ps($String* type, $String* algo, $String* cn, ::java::util::List* a, ::java::util::HashMap* attrs);
 	void registerAlgorithms();
-	static const int64_t serialVersionUID = (int64_t)0x2CD9C06322EE4A2D;
+	static const int64_t serialVersionUID = (int64_t)0x2cd9c06322ee4a2d;
 	static $String* info;
 };
 

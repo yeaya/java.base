@@ -1,5 +1,4 @@
 #include <sun/net/sdp/SdpProvider$Rule.h>
-
 #include <java/net/InetAddress.h>
 #include <sun/net/sdp/SdpProvider$Action.h>
 #include <sun/net/sdp/SdpProvider.h>
@@ -15,38 +14,33 @@ namespace sun {
 	namespace net {
 		namespace sdp {
 
-$MethodInfo _SdpProvider$Rule_MethodInfo_[] = {
-	{"match", "(Lsun/net/sdp/SdpProvider$Action;Ljava/net/InetAddress;I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SdpProvider$Rule, match, bool, $SdpProvider$Action*, $InetAddress*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SdpProvider$Rule_InnerClassesInfo_[] = {
-	{"sun.net.sdp.SdpProvider$Rule", "sun.net.sdp.SdpProvider", "Rule", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SdpProvider$Rule_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.net.sdp.SdpProvider$Rule",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SdpProvider$Rule_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SdpProvider$Rule_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.sdp.SdpProvider"
-};
-
-$Object* allocate$SdpProvider$Rule($Class* clazz) {
-	return $of($alloc(SdpProvider$Rule));
-}
-
 $Class* SdpProvider$Rule::load$($String* name, bool initialize) {
-	$loadClass(SdpProvider$Rule, name, initialize, &_SdpProvider$Rule_ClassInfo_, allocate$SdpProvider$Rule);
+	$MethodInfo methodInfos$$[] = {
+		{"match", "(Lsun/net/sdp/SdpProvider$Action;Ljava/net/InetAddress;I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SdpProvider$Rule, match, bool, $SdpProvider$Action*, $InetAddress*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.sdp.SdpProvider$Rule", "sun.net.sdp.SdpProvider", "Rule", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.net.sdp.SdpProvider$Rule",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.sdp.SdpProvider"
+	};
+	$loadClass(SdpProvider$Rule, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SdpProvider$Rule);
+	});
 	return class$;
 }
 

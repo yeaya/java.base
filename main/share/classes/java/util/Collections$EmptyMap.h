@@ -58,7 +58,7 @@ public:
 	virtual int32_t size() override;
 	virtual $String* toString() override;
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0x593614855ADCE7D0;
+	static const int64_t serialVersionUID = (int64_t)0x593614855adce7d0;
 };
 
 	} // util

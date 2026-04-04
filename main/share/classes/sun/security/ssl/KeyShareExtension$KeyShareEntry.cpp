@@ -1,5 +1,4 @@
 #include <sun/security/ssl/KeyShareExtension$KeyShareEntry.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/text/MessageFormat.h>
@@ -32,52 +31,13 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _KeyShareExtension$KeyShareEntry_FieldInfo_[] = {
-	{"namedGroupId", "I", nullptr, $FINAL, $field(KeyShareExtension$KeyShareEntry, namedGroupId)},
-	{"keyExchange", "[B", nullptr, $FINAL, $field(KeyShareExtension$KeyShareEntry, keyExchange)},
-	{}
-};
-
-$MethodInfo _KeyShareExtension$KeyShareEntry_MethodInfo_[] = {
-	{"<init>", "(I[B)V", nullptr, $PRIVATE, $method(KeyShareExtension$KeyShareEntry, init$, void, int32_t, $bytes*)},
-	{"getEncoded", "()[B", nullptr, $PRIVATE, $method(KeyShareExtension$KeyShareEntry, getEncoded, $bytes*)},
-	{"getEncodedSize", "()I", nullptr, $PRIVATE, $method(KeyShareExtension$KeyShareEntry, getEncodedSize, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$KeyShareEntry, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _KeyShareExtension$KeyShareEntry_InnerClassesInfo_[] = {
-	{"sun.security.ssl.KeyShareExtension$KeyShareEntry", "sun.security.ssl.KeyShareExtension", "KeyShareEntry", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KeyShareExtension$KeyShareEntry_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.KeyShareExtension$KeyShareEntry",
-	"java.lang.Object",
-	nullptr,
-	_KeyShareExtension$KeyShareEntry_FieldInfo_,
-	_KeyShareExtension$KeyShareEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyShareExtension$KeyShareEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.KeyShareExtension"
-};
-
-$Object* allocate$KeyShareExtension$KeyShareEntry($Class* clazz) {
-	return $of($alloc(KeyShareExtension$KeyShareEntry));
-}
-
 void KeyShareExtension$KeyShareEntry::init$(int32_t namedGroupId, $bytes* keyExchange) {
 	this->namedGroupId = namedGroupId;
 	$set(this, keyExchange, keyExchange);
 }
 
 $bytes* KeyShareExtension$KeyShareEntry::getEncoded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, buffer, $new($bytes, $nc(this->keyExchange)->length + 4));
 	$var($ByteBuffer, m, $ByteBuffer::wrap(buffer));
 	try {
@@ -86,7 +46,7 @@ $bytes* KeyShareExtension$KeyShareEntry::getEncoded() {
 	} catch ($IOException& ioe) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-			$SSLLogger::warning("Unlikely IOException"_s, $$new($ObjectArray, {$of(ioe)}));
+			$SSLLogger::warning("Unlikely IOException"_s, $$new($ObjectArray, {ioe}));
 		}
 	}
 	return buffer;
@@ -97,13 +57,13 @@ int32_t KeyShareExtension$KeyShareEntry::getEncodedSize() {
 }
 
 $String* KeyShareExtension$KeyShareEntry::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\n\'{\'\n  \"named group\": {0}\n  \"key_exchange\": \'{\'\n{1}\n  \'}\'\n\'}\',"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$($of($NamedGroup::nameOf(this->namedGroupId))),
-		$($of($Utilities::indent($(hexEncoder->encode(this->keyExchange)), "    "_s)))
+		$($NamedGroup::nameOf(this->namedGroupId)),
+		$($Utilities::indent($(hexEncoder->encode(this->keyExchange)), "    "_s))
 	}));
 	return messageFormat->format(messageFields);
 }
@@ -112,7 +72,40 @@ KeyShareExtension$KeyShareEntry::KeyShareExtension$KeyShareEntry() {
 }
 
 $Class* KeyShareExtension$KeyShareEntry::load$($String* name, bool initialize) {
-	$loadClass(KeyShareExtension$KeyShareEntry, name, initialize, &_KeyShareExtension$KeyShareEntry_ClassInfo_, allocate$KeyShareExtension$KeyShareEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"namedGroupId", "I", nullptr, $FINAL, $field(KeyShareExtension$KeyShareEntry, namedGroupId)},
+		{"keyExchange", "[B", nullptr, $FINAL, $field(KeyShareExtension$KeyShareEntry, keyExchange)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[B)V", nullptr, $PRIVATE, $method(KeyShareExtension$KeyShareEntry, init$, void, int32_t, $bytes*)},
+		{"getEncoded", "()[B", nullptr, $PRIVATE, $method(KeyShareExtension$KeyShareEntry, getEncoded, $bytes*)},
+		{"getEncodedSize", "()I", nullptr, $PRIVATE, $method(KeyShareExtension$KeyShareEntry, getEncodedSize, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$KeyShareEntry, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.KeyShareExtension$KeyShareEntry", "sun.security.ssl.KeyShareExtension", "KeyShareEntry", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.KeyShareExtension$KeyShareEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.KeyShareExtension"
+	};
+	$loadClass(KeyShareExtension$KeyShareEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyShareExtension$KeyShareEntry);
+	});
 	return class$;
 }
 

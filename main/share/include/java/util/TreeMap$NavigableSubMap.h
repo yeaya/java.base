@@ -111,7 +111,7 @@ public:
 	bool tooHigh(Object$* key);
 	bool tooLow(Object$* key);
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0xE2D0A70E64210E08;
+	static const int64_t serialVersionUID = (int64_t)0xe2d0a70e64210e08;
 	::java::util::TreeMap* m = nullptr;
 	$Object* lo = nullptr;
 	$Object* hi = nullptr;

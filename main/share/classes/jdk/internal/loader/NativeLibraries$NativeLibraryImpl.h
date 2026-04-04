@@ -19,6 +19,7 @@ class $export NativeLibraries$NativeLibraryImpl : public ::jdk::internal::loader
 	$class(NativeLibraries$NativeLibraryImpl, 0, ::jdk::internal::loader::NativeLibrary)
 public:
 	NativeLibraries$NativeLibraryImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* fromClass, $String* name, bool isBuiltin, bool isJNI);
 	virtual int64_t find($String* name) override;
 	virtual $String* name() override;

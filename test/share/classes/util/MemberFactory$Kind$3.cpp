@@ -1,5 +1,4 @@
 #include <util/MemberFactory$Kind$3.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/reflect/AccessibleObject.h>
@@ -22,50 +21,6 @@ using $MemberFactory$Kind = ::util::MemberFactory$Kind;
 
 namespace util {
 
-$FieldInfo _MemberFactory$Kind$3_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MemberFactory$Kind$3, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _MemberFactory$Kind$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(MemberFactory$Kind$3, init$, void, $String*, int32_t)},
-	{"apply", "(Ljava/lang/Class;Lutil/MemberFactory;)Ljava/lang/reflect/AccessibleObject;", "(Ljava/lang/Class<*>;Lutil/MemberFactory;)Ljava/lang/reflect/AccessibleObject;", $PUBLIC, $method(MemberFactory$Kind$3, apply, $AccessibleObject*, $Class*, $MemberFactory*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MemberFactory$Kind$3, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _MemberFactory$Kind$3_EnclosingMethodInfo_ = {
-	"util.MemberFactory$Kind",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _MemberFactory$Kind$3_InnerClassesInfo_[] = {
-	{"util.MemberFactory$Kind", "util.MemberFactory", "Kind", $STATIC | $ABSTRACT | $ENUM},
-	{"util.MemberFactory$Kind$3", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MemberFactory$Kind$3_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"util.MemberFactory$Kind$3",
-	"util.MemberFactory$Kind",
-	nullptr,
-	_MemberFactory$Kind$3_FieldInfo_,
-	_MemberFactory$Kind$3_MethodInfo_,
-	nullptr,
-	&_MemberFactory$Kind$3_EnclosingMethodInfo_,
-	_MemberFactory$Kind$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"util.MemberFactory"
-};
-
-$Object* allocate$MemberFactory$Kind$3($Class* clazz) {
-	return $of($alloc(MemberFactory$Kind$3));
-}
-
 bool MemberFactory$Kind$3::$assertionsDisabled = false;
 
 void MemberFactory$Kind$3::init$($String* $enum$name, int32_t $enum$ordinal) {
@@ -86,10 +41,10 @@ $AccessibleObject* MemberFactory$Kind$3::apply($Class* declaringClass, $MemberFa
 }
 
 $Object* MemberFactory$Kind$3::apply(Object$* declaringClass, Object$* factory) {
-	return $of(this->apply($cast($Class, declaringClass), $cast($MemberFactory, factory)));
+	return this->apply($cast($Class, declaringClass), $cast($MemberFactory, factory));
 }
 
-void clinit$MemberFactory$Kind$3($Class* class$) {
+void MemberFactory$Kind$3::clinit$($Class* clazz) {
 	$load($MemberFactory);
 	MemberFactory$Kind$3::$assertionsDisabled = !$MemberFactory::class$->desiredAssertionStatus();
 }
@@ -98,7 +53,44 @@ MemberFactory$Kind$3::MemberFactory$Kind$3() {
 }
 
 $Class* MemberFactory$Kind$3::load$($String* name, bool initialize) {
-	$loadClass(MemberFactory$Kind$3, name, initialize, &_MemberFactory$Kind$3_ClassInfo_, clinit$MemberFactory$Kind$3, allocate$MemberFactory$Kind$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MemberFactory$Kind$3, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(MemberFactory$Kind$3, init$, void, $String*, int32_t)},
+		{"apply", "(Ljava/lang/Class;Lutil/MemberFactory;)Ljava/lang/reflect/AccessibleObject;", "(Ljava/lang/Class<*>;Lutil/MemberFactory;)Ljava/lang/reflect/AccessibleObject;", $PUBLIC, $method(MemberFactory$Kind$3, apply, $AccessibleObject*, $Class*, $MemberFactory*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MemberFactory$Kind$3, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"util.MemberFactory$Kind",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"util.MemberFactory$Kind", "util.MemberFactory", "Kind", $STATIC | $ABSTRACT | $ENUM},
+		{"util.MemberFactory$Kind$3", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"util.MemberFactory$Kind$3",
+		"util.MemberFactory$Kind",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"util.MemberFactory"
+	};
+	$loadClass(MemberFactory$Kind$3, name, initialize, &classInfo$$, MemberFactory$Kind$3::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MemberFactory$Kind$3));
+	});
 	return class$;
 }
 

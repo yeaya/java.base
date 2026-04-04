@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleHashesBuilder$Graph$Builder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -22,7 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $ModuleHashesBuilder$Graph = ::jdk::internal::module::ModuleHashesBuilder$Graph;
@@ -37,73 +35,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* _e) override {
-		 return $of(ModuleHashesBuilder$Graph$Builder::lambda$addNode$0(_e));
+		 return ModuleHashesBuilder$Graph$Builder::lambda$addNode$0(_e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0::load$($String* name, bool initialize) {
-	$loadClass(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0);
+	});
 	return class$;
 }
 $Class* ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0::class$ = nullptr;
-
-$FieldInfo _ModuleHashesBuilder$Graph$Builder_FieldInfo_[] = {
-	{"nodes", "Ljava/util/Set;", "Ljava/util/Set<TT;>;", $FINAL, $field(ModuleHashesBuilder$Graph$Builder, nodes)},
-	{"edges", "Ljava/util/Map;", "Ljava/util/Map<TT;Ljava/util/Set<TT;>;>;", $FINAL, $field(ModuleHashesBuilder$Graph$Builder, edges)},
-	{}
-};
-
-$MethodInfo _ModuleHashesBuilder$Graph$Builder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ModuleHashesBuilder$Graph$Builder, init$, void)},
-	{"addEdge", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder, addEdge, void, Object$*, Object$*)},
-	{"addNode", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder, addNode, void, Object$*)},
-	{"build", "()Ljdk/internal/module/ModuleHashesBuilder$Graph;", "()Ljdk/internal/module/ModuleHashesBuilder$Graph<TT;>;", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder, build, $ModuleHashesBuilder$Graph*)},
-	{"lambda$addNode$0", "(Ljava/lang/Object;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleHashesBuilder$Graph$Builder, lambda$addNode$0, $Set*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ModuleHashesBuilder$Graph$Builder_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModuleHashesBuilder$Graph", "jdk.internal.module.ModuleHashesBuilder", "Graph", $STATIC},
-	{"jdk.internal.module.ModuleHashesBuilder$Graph$Builder", "jdk.internal.module.ModuleHashesBuilder$Graph", "Builder", $STATIC},
-	{}
-};
-
-$ClassInfo _ModuleHashesBuilder$Graph$Builder_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.ModuleHashesBuilder$Graph$Builder",
-	"java.lang.Object",
-	nullptr,
-	_ModuleHashesBuilder$Graph$Builder_FieldInfo_,
-	_ModuleHashesBuilder$Graph$Builder_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_ModuleHashesBuilder$Graph$Builder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModuleHashesBuilder"
-};
-
-$Object* allocate$ModuleHashesBuilder$Graph$Builder($Class* clazz) {
-	return $of($alloc(ModuleHashesBuilder$Graph$Builder));
-}
 
 void ModuleHashesBuilder$Graph$Builder::init$() {
 	$set(this, nodes, $new($HashSet));
@@ -111,15 +65,15 @@ void ModuleHashesBuilder$Graph$Builder::init$() {
 }
 
 void ModuleHashesBuilder$Graph$Builder::addNode(Object$* node) {
-	if ($nc(this->nodes)->add(node)) {
-		$nc(this->edges)->computeIfAbsent(node, static_cast<$Function*>($$new(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0)));
+	if (this->nodes->add(node)) {
+		this->edges->computeIfAbsent(node, $$new(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0));
 	}
 }
 
 void ModuleHashesBuilder$Graph$Builder::addEdge(Object$* u, Object$* v) {
 	addNode(u);
 	addNode(v);
-	$nc(($cast($Set, $($nc(this->edges)->get(u)))))->add(v);
+	$$sure($Set, this->edges->get(u))->add(v);
 }
 
 $ModuleHashesBuilder$Graph* ModuleHashesBuilder$Graph$Builder::build() {
@@ -135,11 +89,46 @@ ModuleHashesBuilder$Graph$Builder::ModuleHashesBuilder$Graph$Builder() {
 
 $Class* ModuleHashesBuilder$Graph$Builder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0")) {
 			return ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ModuleHashesBuilder$Graph$Builder, name, initialize, &_ModuleHashesBuilder$Graph$Builder_ClassInfo_, allocate$ModuleHashesBuilder$Graph$Builder);
+	$FieldInfo fieldInfos$$[] = {
+		{"nodes", "Ljava/util/Set;", "Ljava/util/Set<TT;>;", $FINAL, $field(ModuleHashesBuilder$Graph$Builder, nodes)},
+		{"edges", "Ljava/util/Map;", "Ljava/util/Map<TT;Ljava/util/Set<TT;>;>;", $FINAL, $field(ModuleHashesBuilder$Graph$Builder, edges)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ModuleHashesBuilder$Graph$Builder, init$, void)},
+		{"addEdge", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder, addEdge, void, Object$*, Object$*)},
+		{"addNode", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder, addNode, void, Object$*)},
+		{"build", "()Ljdk/internal/module/ModuleHashesBuilder$Graph;", "()Ljdk/internal/module/ModuleHashesBuilder$Graph<TT;>;", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder, build, $ModuleHashesBuilder$Graph*)},
+		{"lambda$addNode$0", "(Ljava/lang/Object;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleHashesBuilder$Graph$Builder, lambda$addNode$0, $Set*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModuleHashesBuilder$Graph", "jdk.internal.module.ModuleHashesBuilder", "Graph", $STATIC},
+		{"jdk.internal.module.ModuleHashesBuilder$Graph$Builder", "jdk.internal.module.ModuleHashesBuilder$Graph", "Builder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.ModuleHashesBuilder$Graph$Builder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModuleHashesBuilder"
+	};
+	$loadClass(ModuleHashesBuilder$Graph$Builder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleHashesBuilder$Graph$Builder);
+	});
 	return class$;
 }
 

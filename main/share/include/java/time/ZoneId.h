@@ -55,6 +55,7 @@ class $import ZoneId : public ::java::io::Serializable {
 	$class(ZoneId, 0, ::java::io::Serializable)
 public:
 	ZoneId();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool equals(Object$* obj) override;
 	static ::java::time::ZoneId* from(::java::time::temporal::TemporalAccessor* temporal);
@@ -76,7 +77,7 @@ public:
 	virtual void write(::java::io::DataOutput* out) {}
 	$Object* writeReplace();
 	static ::java::util::Map* SHORT_IDS;
-	static const int64_t serialVersionUID = (int64_t)0x00000798CAB446E6;
+	static const int64_t serialVersionUID = (int64_t)0x00000798cab446e6;
 };
 
 	} // time

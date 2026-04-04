@@ -1,5 +1,4 @@
 #include <test/FindSpecial$MyComparator.h>
-
 #include <java/lang/Error.h>
 #include <java/util/Comparator.h>
 #include <test/FindSpecial.h>
@@ -12,38 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
 
 namespace test {
-
-$MethodInfo _FindSpecial$MyComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FindSpecial$MyComparator, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(FindSpecial$MyComparator, compare, int32_t, Object$*, Object$*)},
-	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(FindSpecial$MyComparator, reversed, $Comparator*)},
-	{}
-};
-
-$InnerClassInfo _FindSpecial$MyComparator_InnerClassesInfo_[] = {
-	{"test.FindSpecial$MyComparator", "test.FindSpecial", "MyComparator", $STATIC},
-	{}
-};
-
-$ClassInfo _FindSpecial$MyComparator_ClassInfo_ = {
-	$ACC_SUPER,
-	"test.FindSpecial$MyComparator",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	_FindSpecial$MyComparator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/Object;>;",
-	nullptr,
-	_FindSpecial$MyComparator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"test.FindSpecial"
-};
-
-$Object* allocate$FindSpecial$MyComparator($Class* clazz) {
-	return $of($alloc(FindSpecial$MyComparator));
-}
 
 void FindSpecial$MyComparator::init$() {
 }
@@ -61,7 +28,34 @@ FindSpecial$MyComparator::FindSpecial$MyComparator() {
 }
 
 $Class* FindSpecial$MyComparator::load$($String* name, bool initialize) {
-	$loadClass(FindSpecial$MyComparator, name, initialize, &_FindSpecial$MyComparator_ClassInfo_, allocate$FindSpecial$MyComparator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FindSpecial$MyComparator, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(FindSpecial$MyComparator, compare, int32_t, Object$*, Object$*)},
+		{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(FindSpecial$MyComparator, reversed, $Comparator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"test.FindSpecial$MyComparator", "test.FindSpecial", "MyComparator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"test.FindSpecial$MyComparator",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"test.FindSpecial"
+	};
+	$loadClass(FindSpecial$MyComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FindSpecial$MyComparator);
+	});
 	return class$;
 }
 

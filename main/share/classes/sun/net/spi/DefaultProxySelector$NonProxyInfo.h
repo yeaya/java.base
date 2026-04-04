@@ -21,6 +21,7 @@ class DefaultProxySelector$NonProxyInfo : public ::java::lang::Object {
 	$class(DefaultProxySelector$NonProxyInfo, 0, ::java::lang::Object)
 public:
 	DefaultProxySelector$NonProxyInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* p, $String* s, ::java::util::regex::Pattern* pattern, $String* d);
 	static $String* defStringVal;
 	$String* hostsSource = nullptr;

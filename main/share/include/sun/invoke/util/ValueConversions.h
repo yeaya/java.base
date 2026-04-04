@@ -63,6 +63,7 @@ class $import ValueConversions : public ::java::lang::Object {
 	$class(ValueConversions, 0, ::java::lang::Object)
 public:
 	ValueConversions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int8_t booleanToByte(bool x);
 	static char16_t booleanToChar(bool x);

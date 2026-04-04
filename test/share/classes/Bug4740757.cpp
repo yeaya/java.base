@@ -1,5 +1,4 @@
 #include <Bug4740757.h>
-
 #include <java/text/BreakIterator.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -8,38 +7,12 @@
 #undef KOREA
 #undef KOREAN
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BreakIterator = ::java::text::BreakIterator;
 using $Locale = ::java::util::Locale;
-
-$FieldInfo _Bug4740757_FieldInfo_[] = {
-	{"err", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Bug4740757, err)},
-	{}
-};
-
-$MethodInfo _Bug4740757_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4740757, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug4740757, main, void, $StringArray*)},
-	{"test4740757", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4740757, test4740757, void)},
-	{}
-};
-
-$ClassInfo _Bug4740757_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug4740757",
-	"java.lang.Object",
-	nullptr,
-	_Bug4740757_FieldInfo_,
-	_Bug4740757_MethodInfo_
-};
-
-$Object* allocate$Bug4740757($Class* clazz) {
-	return $of($alloc(Bug4740757));
-}
 
 bool Bug4740757::err = false;
 
@@ -48,9 +21,9 @@ void Bug4740757::init$() {
 
 void Bug4740757::main($StringArray* args) {
 	$init(Bug4740757);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, defaultLocale, $Locale::getDefault());
-	if ($nc($($nc(defaultLocale)->getLanguage()))->equals("th"_s)) {
+	if ($$nc($nc(defaultLocale)->getLanguage())->equals("th"_s)) {
 		$Locale::setDefault($Locale::KOREA);
 		test4740757();
 		$Locale::setDefault(defaultLocale);
@@ -64,7 +37,7 @@ void Bug4740757::main($StringArray* args) {
 
 void Bug4740757::test4740757() {
 	$init(Bug4740757);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, source, u"안녕하세요? 좋은 아침, 여보세요! 안녕. End."_s);
 	$var($String, expected, u"안/녕/하/세/요? /좋/은 /아/침, /여/보/세/요! /안/녕. /End./"_s);
 	$init($Locale);
@@ -78,14 +51,20 @@ void Bug4740757::test4740757() {
 		sb->append(u'/');
 	}
 	if (!expected->equals($(sb->toString()))) {
-		$var($String, var$1, $$str({"Failed: Hangul line-breaking failed.\n\tExpected: "_s, expected, "\n\tGot:      "_s, sb, "\nin "_s}));
-		$var($String, var$0, $$concat(var$1, $($Locale::getDefault())));
-		$nc($System::err)->println($$concat(var$0, " locale."_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Failed: Hangul line-breaking failed.\n\tExpected: "_s);
+		var$0->append(expected);
+		var$0->append("\n\tGot:      "_s);
+		var$0->append(sb);
+		var$0->append("\nin "_s);
+		var$0->append($($Locale::getDefault()));
+		var$0->append(" locale."_s);
+		$nc($System::err)->println($$str(var$0));
 		Bug4740757::err = true;
 	}
 }
 
-void clinit$Bug4740757($Class* class$) {
+void Bug4740757::clinit$($Class* clazz) {
 	Bug4740757::err = false;
 }
 
@@ -93,7 +72,27 @@ Bug4740757::Bug4740757() {
 }
 
 $Class* Bug4740757::load$($String* name, bool initialize) {
-	$loadClass(Bug4740757, name, initialize, &_Bug4740757_ClassInfo_, clinit$Bug4740757, allocate$Bug4740757);
+	$FieldInfo fieldInfos$$[] = {
+		{"err", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Bug4740757, err)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4740757, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug4740757, main, void, $StringArray*)},
+		{"test4740757", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4740757, test4740757, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug4740757",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Bug4740757, name, initialize, &classInfo$$, Bug4740757::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug4740757);
+	});
 	return class$;
 }
 

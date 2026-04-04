@@ -1,5 +1,4 @@
 #include <GoldenDoubleValues.h>
-
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
@@ -17,35 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
 
-$FieldInfo _GoldenDoubleValues_FieldInfo_[] = {
-	{"TestLocale", "Ljava/util/Locale;", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, TestLocale)},
-	{"FullLocalizationTestLocale", "Ljava/util/Locale;", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, FullLocalizationTestLocale)},
-	{"PROPERTY_CHECK_NEGATIVE_VALUE", "D", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, PROPERTY_CHECK_NEGATIVE_VALUE)},
-	{"PROPERTY_CHECK_POSITIVE_VALUE", "D", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, PROPERTY_CHECK_POSITIVE_VALUE)},
-	{"DecimalLocalizationValues", "[D", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, DecimalLocalizationValues)},
-	{"DecimalGoldenValues", "[D", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, DecimalGoldenValues)},
-	{"CurrencyGoldenValues", "[D", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, CurrencyGoldenValues)},
-	{}
-};
-
-$MethodInfo _GoldenDoubleValues_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GoldenDoubleValues, init$, void)},
-	{}
-};
-
-$ClassInfo _GoldenDoubleValues_ClassInfo_ = {
-	$ACC_SUPER,
-	"GoldenDoubleValues",
-	"java.lang.Object",
-	nullptr,
-	_GoldenDoubleValues_FieldInfo_,
-	_GoldenDoubleValues_MethodInfo_
-};
-
-$Object* allocate$GoldenDoubleValues($Class* clazz) {
-	return $of($alloc(GoldenDoubleValues));
-}
-
 $Locale* GoldenDoubleValues::TestLocale = nullptr;
 $Locale* GoldenDoubleValues::FullLocalizationTestLocale = nullptr;
 double GoldenDoubleValues::PROPERTY_CHECK_NEGATIVE_VALUE = 0.0;
@@ -57,7 +27,7 @@ $doubles* GoldenDoubleValues::CurrencyGoldenValues = nullptr;
 void GoldenDoubleValues::init$() {
 }
 
-void clinit$GoldenDoubleValues($Class* class$) {
+void GoldenDoubleValues::clinit$($Class* clazz) {
 	GoldenDoubleValues::PROPERTY_CHECK_NEGATIVE_VALUE = -2.1474836462334998E9;
 	GoldenDoubleValues::PROPERTY_CHECK_POSITIVE_VALUE = 2.1474836462335002E9;
 	$assignStatic(GoldenDoubleValues::TestLocale, $new($Locale, "en"_s, "US"_s));
@@ -78,7 +48,6 @@ void clinit$GoldenDoubleValues($Class* class$) {
 		1234.99,
 		1234.999
 	}));
-	$init($Double);
 	$assignStatic(GoldenDoubleValues::DecimalGoldenValues, $new($doubles, {
 		+0.0,
 		-0.0,
@@ -874,7 +843,31 @@ GoldenDoubleValues::GoldenDoubleValues() {
 }
 
 $Class* GoldenDoubleValues::load$($String* name, bool initialize) {
-	$loadClass(GoldenDoubleValues, name, initialize, &_GoldenDoubleValues_ClassInfo_, clinit$GoldenDoubleValues, allocate$GoldenDoubleValues);
+	$FieldInfo fieldInfos$$[] = {
+		{"TestLocale", "Ljava/util/Locale;", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, TestLocale)},
+		{"FullLocalizationTestLocale", "Ljava/util/Locale;", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, FullLocalizationTestLocale)},
+		{"PROPERTY_CHECK_NEGATIVE_VALUE", "D", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, PROPERTY_CHECK_NEGATIVE_VALUE)},
+		{"PROPERTY_CHECK_POSITIVE_VALUE", "D", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, PROPERTY_CHECK_POSITIVE_VALUE)},
+		{"DecimalLocalizationValues", "[D", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, DecimalLocalizationValues)},
+		{"DecimalGoldenValues", "[D", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, DecimalGoldenValues)},
+		{"CurrencyGoldenValues", "[D", nullptr, $STATIC | $FINAL, $staticField(GoldenDoubleValues, CurrencyGoldenValues)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GoldenDoubleValues, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GoldenDoubleValues",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GoldenDoubleValues, name, initialize, &classInfo$$, GoldenDoubleValues::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GoldenDoubleValues);
+	});
 	return class$;
 }
 

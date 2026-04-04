@@ -62,6 +62,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addRequestedBasicAttributes(::java::nio::file::attribute::BasicFileAttributes* attrs, ::sun::nio::fs::AbstractBasicFileAttributeView$AttributesBuilder* builder);
 	virtual $String* name() override;

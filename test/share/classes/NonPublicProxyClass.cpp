@@ -1,5 +1,4 @@
 #include <NonPublicProxyClass.h>
-
 #include <NonPublicProxyClass$1.h>
 #include <NonPublicProxyClass$NewInstancePolicy.h>
 #include <NonPublicProxyClass$NonPublicInterface.h>
@@ -25,7 +24,6 @@ using $NonPublicProxyClass$1 = ::NonPublicProxyClass$1;
 using $NonPublicProxyClass$NewInstancePolicy = ::NonPublicProxyClass$NewInstancePolicy;
 using $NonPublicProxyClass$NonPublicInterface = ::NonPublicProxyClass$NonPublicInterface;
 using $NonPublicProxyClass$PublicInterface = ::NonPublicProxyClass$PublicInterface;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -42,63 +40,14 @@ using $Modifier = ::java::lang::reflect::Modifier;
 using $Proxy = ::java::lang::reflect::Proxy;
 using $ReflectPermission = ::java::lang::reflect::ReflectPermission;
 using $AccessControlException = ::java::security::AccessControlException;
-using $Permission = ::java::security::Permission;
 using $Policy = ::java::security::Policy;
-
-$FieldInfo _NonPublicProxyClass_FieldInfo_[] = {
-	{"DEFAULT_POLICY", "Ljava/security/Policy;", nullptr, $STATIC | $FINAL, $staticField(NonPublicProxyClass, DEFAULT_POLICY)},
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(NonPublicProxyClass, loader)},
-	{"interfaces", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(NonPublicProxyClass, interfaces)},
-	{"handler", "Ljava/lang/reflect/InvocationHandler;", nullptr, $PRIVATE | $FINAL, $field(NonPublicProxyClass, handler)},
-	{"proxyClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(NonPublicProxyClass, proxyClass)},
-	{"NEW_PROXY_IN_PKG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NonPublicProxyClass, NEW_PROXY_IN_PKG)},
-	{}
-};
-
-$MethodInfo _NonPublicProxyClass_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PUBLIC | $TRANSIENT, $method(NonPublicProxyClass, init$, void, $ClassLoader*, $ClassArray*)},
-	{"hasAccess", "()Z", nullptr, $PRIVATE, $method(NonPublicProxyClass, hasAccess, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonPublicProxyClass, main, void, $StringArray*), "java.lang.Exception"},
-	{"newInstanceFromConstructor", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(NonPublicProxyClass, newInstanceFromConstructor, void, $Class*), "java.lang.Exception"},
-	{"newInvocationHandler", "()Ljava/lang/reflect/InvocationHandler;", nullptr, $PRIVATE | $STATIC, $staticMethod(NonPublicProxyClass, newInvocationHandler, $InvocationHandler*)},
-	{"newProxyInstance", "()V", nullptr, $PRIVATE, $method(NonPublicProxyClass, newProxyInstance, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass, run, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _NonPublicProxyClass_InnerClassesInfo_[] = {
-	{"NonPublicProxyClass$NewInstancePolicy", "NonPublicProxyClass", "NewInstancePolicy", $STATIC},
-	{"NonPublicProxyClass$NonPublicInterface", "NonPublicProxyClass", "NonPublicInterface", $STATIC | $INTERFACE | $ABSTRACT},
-	{"NonPublicProxyClass$PublicInterface", "NonPublicProxyClass", "PublicInterface", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"NonPublicProxyClass$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NonPublicProxyClass_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NonPublicProxyClass",
-	"java.lang.Object",
-	nullptr,
-	_NonPublicProxyClass_FieldInfo_,
-	_NonPublicProxyClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NonPublicProxyClass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"NonPublicProxyClass$NewInstancePolicy,NonPublicProxyClass$NonPublicInterface,NonPublicProxyClass$PublicInterface,NonPublicProxyClass$1"
-};
-
-$Object* allocate$NonPublicProxyClass($Class* clazz) {
-	return $of($alloc(NonPublicProxyClass));
-}
 
 $Policy* NonPublicProxyClass::DEFAULT_POLICY = nullptr;
 $String* NonPublicProxyClass::NEW_PROXY_IN_PKG = nullptr;
 
 void NonPublicProxyClass::main($StringArray* args) {
 	$init(NonPublicProxyClass);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, loader, $ClassLoader::getSystemClassLoader());
 	$Class* zipConstantsClass = $Class::forName("java.util.zip.ZipConstants"_s, false, nullptr);
@@ -119,36 +68,26 @@ void NonPublicProxyClass::main($StringArray* args) {
 			$var($String, s2808$, args->get(0));
 			int32_t tmp2808$ = -1;
 			switch ($nc(s2808$)->hashCode()) {
-			case 0x05E0C11C:
-				{
-					if (s2808$->equals("grant"_s)) {
-						tmp2808$ = 0;
-					}
-					break;
+			case 0x05e0c11c:
+				if (s2808$->equals("grant"_s)) {
+					tmp2808$ = 0;
 				}
-			case 0x002EFE0C:
-				{
-					if (s2808$->equals("deny"_s)) {
-						tmp2808$ = 1;
-					}
-					break;
+				break;
+			case 0x002efe0c:
+				if (s2808$->equals("deny"_s)) {
+					tmp2808$ = 1;
 				}
+				break;
 			}
 			switch (tmp2808$) {
 			case 0:
-				{
-					$Policy::setPolicy($$new($NonPublicProxyClass$NewInstancePolicy, true));
-					break;
-				}
+				$Policy::setPolicy($$new($NonPublicProxyClass$NewInstancePolicy, true));
+				break;
 			case 1:
-				{
-					$Policy::setPolicy($$new($NonPublicProxyClass$NewInstancePolicy, false));
-					break;
-				}
+				$Policy::setPolicy($$new($NonPublicProxyClass$NewInstancePolicy, false));
+				break;
 			default:
-				{
-					$throwNew($IllegalArgumentException, args->get(0));
-				}
+				$throwNew($IllegalArgumentException, args->get(0));
 			}
 		}
 		$System::setSecurityManager($$new($SecurityManager));
@@ -156,7 +95,7 @@ void NonPublicProxyClass::main($StringArray* args) {
 	test1->run();
 	test2->run();
 	test3->run();
-	$nc($System::out)->format("Test passed: security %s%n"_s, $$new($ObjectArray, {($nc(args)->length == 0 ? $of("manager not installed"_s) : $($of($Policy::getPolicy())))}));
+	$nc($System::out)->format("Test passed: security %s%n"_s, $$new($ObjectArray, {(args->length == 0 ? $of("manager not installed"_s) : $$of($Policy::getPolicy()))}));
 }
 
 void NonPublicProxyClass::init$($ClassLoader* loader, $ClassArray* intfs) {
@@ -166,7 +105,7 @@ void NonPublicProxyClass::init$($ClassLoader* loader, $ClassArray* intfs) {
 }
 
 void NonPublicProxyClass::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	bool hasAccess = this->loader != nullptr || this->hasAccess();
 	try {
@@ -179,8 +118,8 @@ void NonPublicProxyClass::run() {
 			$throw(e);
 		}
 		$load($RuntimePermission);
-		bool var$0 = $nc($of($(e->getPermission())))->getClass() != $RuntimePermission::class$;
-		if (var$0 || !$nc($($nc($(e->getPermission()))->getName()))->equals("getClassLoader"_s)) {
+		bool var$0 = $$of($nc(e->getPermission()))->getClass() != $RuntimePermission::class$;
+		if (var$0 || !$$nc($$nc(e->getPermission())->getName())->equals("getClassLoader"_s)) {
 			$throw(e);
 		}
 		return;
@@ -193,7 +132,7 @@ void NonPublicProxyClass::run() {
 }
 
 bool NonPublicProxyClass::hasAccess() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($System::getSecurityManager() == nullptr) {
 		return true;
 	}
@@ -203,10 +142,10 @@ bool NonPublicProxyClass::hasAccess() {
 }
 
 void NonPublicProxyClass::newProxyInstance() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	int32_t i = $nc($($nc(this->proxyClass)->getName()))->lastIndexOf((int32_t)u'.');
-	$var($String, pkg, (i != -1) ? $nc($($nc(this->proxyClass)->getName()))->substring(0, i) : ""_s);
+	int32_t i = $$nc($nc(this->proxyClass)->getName())->lastIndexOf(u'.');
+	$var($String, pkg, (i != -1) ? $$nc(this->proxyClass->getName())->substring(0, i) : ""_s);
 	bool var$0 = $nc(pkg)->isEmpty();
 	bool hasAccess = var$0 || this->hasAccess();
 	try {
@@ -219,21 +158,21 @@ void NonPublicProxyClass::newProxyInstance() {
 			$throw(e);
 		}
 		$load($ReflectPermission);
-		bool var$1 = $nc($of($(e->getPermission())))->getClass() != $ReflectPermission::class$;
-		if (var$1 || !$nc($($nc($(e->getPermission()))->getName()))->equals($$str({NonPublicProxyClass::NEW_PROXY_IN_PKG, pkg}))) {
+		bool var$1 = $$of($nc(e->getPermission()))->getClass() != $ReflectPermission::class$;
+		if (var$1 || !$$nc($$nc(e->getPermission())->getName())->equals($$str({NonPublicProxyClass::NEW_PROXY_IN_PKG, pkg}))) {
 			$throw(e);
 		}
 	}
 }
 
 void NonPublicProxyClass::newInstanceFromConstructor($Class* proxyClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	bool isSamePackage = $nc($($nc(proxyClass)->getName()))->lastIndexOf((int32_t)u'.') == -1;
+	bool isSamePackage = $$nc($nc(proxyClass)->getName())->lastIndexOf(u'.') == -1;
 	try {
 		$load($InvocationHandler);
 		$var($Constructor, cons, proxyClass->getConstructor($$new($ClassArray, {$InvocationHandler::class$})));
-		$nc(cons)->newInstance($$new($ObjectArray, {$($of(newInvocationHandler()))}));
+		$nc(cons)->newInstance($$new($ObjectArray, {$(newInvocationHandler())}));
 		if (!isSamePackage) {
 			$throwNew($RuntimeException, "ERROR: Constructor.newInstance should not succeed"_s);
 		}
@@ -249,7 +188,7 @@ $InvocationHandler* NonPublicProxyClass::newInvocationHandler() {
 	return $new($NonPublicProxyClass$1);
 }
 
-void clinit$NonPublicProxyClass($Class* class$) {
+void NonPublicProxyClass::clinit$($Class* clazz) {
 	$assignStatic(NonPublicProxyClass::NEW_PROXY_IN_PKG, "newProxyInPackage."_s);
 	$assignStatic(NonPublicProxyClass::DEFAULT_POLICY, $Policy::getPolicy());
 }
@@ -258,7 +197,49 @@ NonPublicProxyClass::NonPublicProxyClass() {
 }
 
 $Class* NonPublicProxyClass::load$($String* name, bool initialize) {
-	$loadClass(NonPublicProxyClass, name, initialize, &_NonPublicProxyClass_ClassInfo_, clinit$NonPublicProxyClass, allocate$NonPublicProxyClass);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_POLICY", "Ljava/security/Policy;", nullptr, $STATIC | $FINAL, $staticField(NonPublicProxyClass, DEFAULT_POLICY)},
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(NonPublicProxyClass, loader)},
+		{"interfaces", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(NonPublicProxyClass, interfaces)},
+		{"handler", "Ljava/lang/reflect/InvocationHandler;", nullptr, $PRIVATE | $FINAL, $field(NonPublicProxyClass, handler)},
+		{"proxyClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(NonPublicProxyClass, proxyClass)},
+		{"NEW_PROXY_IN_PKG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NonPublicProxyClass, NEW_PROXY_IN_PKG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PUBLIC | $TRANSIENT, $method(NonPublicProxyClass, init$, void, $ClassLoader*, $ClassArray*)},
+		{"hasAccess", "()Z", nullptr, $PRIVATE, $method(NonPublicProxyClass, hasAccess, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonPublicProxyClass, main, void, $StringArray*), "java.lang.Exception"},
+		{"newInstanceFromConstructor", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(NonPublicProxyClass, newInstanceFromConstructor, void, $Class*), "java.lang.Exception"},
+		{"newInvocationHandler", "()Ljava/lang/reflect/InvocationHandler;", nullptr, $PRIVATE | $STATIC, $staticMethod(NonPublicProxyClass, newInvocationHandler, $InvocationHandler*)},
+		{"newProxyInstance", "()V", nullptr, $PRIVATE, $method(NonPublicProxyClass, newProxyInstance, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass, run, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NonPublicProxyClass$NewInstancePolicy", "NonPublicProxyClass", "NewInstancePolicy", $STATIC},
+		{"NonPublicProxyClass$NonPublicInterface", "NonPublicProxyClass", "NonPublicInterface", $STATIC | $INTERFACE | $ABSTRACT},
+		{"NonPublicProxyClass$PublicInterface", "NonPublicProxyClass", "PublicInterface", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"NonPublicProxyClass$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NonPublicProxyClass",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"NonPublicProxyClass$NewInstancePolicy,NonPublicProxyClass$NonPublicInterface,NonPublicProxyClass$PublicInterface,NonPublicProxyClass$1"
+	};
+	$loadClass(NonPublicProxyClass, name, initialize, &classInfo$$, NonPublicProxyClass::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NonPublicProxyClass);
+	});
 	return class$;
 }
 

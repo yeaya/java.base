@@ -19,6 +19,7 @@ class $export ExactArithTests : public ::java::lang::Object {
 	$class(ExactArithTests, 0, ::java::lang::Object)
 public:
 	ExactArithTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkResult($String* message, int64_t x, int64_t y, int64_t result, ::java::math::BigInteger* expected);
 	static void fail($String* message);

@@ -1,5 +1,4 @@
 #include <sun/security/x509/X509CertImpl.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/ByteArrayOutputStream.h>
@@ -7,7 +6,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
-#include <java/io/Reader.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -18,7 +16,6 @@
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
-#include <java/security/Key.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Principal.h>
@@ -152,7 +149,6 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $OutputStream = ::java::io::OutputStream;
-using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -165,7 +161,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $BigInteger = ::java::math::BigInteger;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
-using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Principal = ::java::security::Principal;
@@ -190,7 +185,6 @@ using $Enumeration = ::java::util::Enumeration;
 using $HexFormat = ::java::util::HexFormat;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $TreeSet = ::java::util::TreeSet;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
@@ -258,171 +252,32 @@ public:
 	virtual $Object* apply(Object$* x) override {
 		 return $of($nc(inst$)->lambda$getFingerprint$0($cast($String, x)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<X509CertImpl$$Lambda$lambda$getFingerprint$0>());
-	}
 	X509CertImpl* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo X509CertImpl$$Lambda$lambda$getFingerprint$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(X509CertImpl$$Lambda$lambda$getFingerprint$0, inst$)},
-	{}
-};
-$MethodInfo X509CertImpl$$Lambda$lambda$getFingerprint$0::methodInfos[3] = {
-	{"<init>", "(Lsun/security/x509/X509CertImpl;)V", nullptr, $PUBLIC, $method(X509CertImpl$$Lambda$lambda$getFingerprint$0, init$, void, X509CertImpl*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl$$Lambda$lambda$getFingerprint$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo X509CertImpl$$Lambda$lambda$getFingerprint$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.x509.X509CertImpl$$Lambda$lambda$getFingerprint$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* X509CertImpl$$Lambda$lambda$getFingerprint$0::load$($String* name, bool initialize) {
-	$loadClass(X509CertImpl$$Lambda$lambda$getFingerprint$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(X509CertImpl$$Lambda$lambda$getFingerprint$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/x509/X509CertImpl;)V", nullptr, $PUBLIC, $method(X509CertImpl$$Lambda$lambda$getFingerprint$0, init$, void, X509CertImpl*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl$$Lambda$lambda$getFingerprint$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.x509.X509CertImpl$$Lambda$lambda$getFingerprint$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X509CertImpl$$Lambda$lambda$getFingerprint$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X509CertImpl$$Lambda$lambda$getFingerprint$0);
+	});
 	return class$;
 }
 $Class* X509CertImpl$$Lambda$lambda$getFingerprint$0::class$ = nullptr;
-
-$FieldInfo _X509CertImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509CertImpl, serialVersionUID)},
-	{"DOT", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509CertImpl, DOT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, NAME)},
-	{"INFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, INFO)},
-	{"ALG_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, ALG_ID)},
-	{"SIGNATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SIGNATURE)},
-	{"SIGNED_CERT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SIGNED_CERT)},
-	{"SUBJECT_DN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SUBJECT_DN)},
-	{"ISSUER_DN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, ISSUER_DN)},
-	{"SERIAL_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SERIAL_ID)},
-	{"PUBLIC_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, PUBLIC_KEY)},
-	{"VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, VERSION)},
-	{"SIG_ALG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SIG_ALG)},
-	{"SIG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SIG)},
-	{"readOnly", "Z", nullptr, $PRIVATE, $field(X509CertImpl, readOnly)},
-	{"signedCert", "[B", nullptr, $PRIVATE, $field(X509CertImpl, signedCert)},
-	{"info", "Lsun/security/x509/X509CertInfo;", nullptr, $PROTECTED, $field(X509CertImpl, info)},
-	{"algId", "Lsun/security/x509/AlgorithmId;", nullptr, $PROTECTED, $field(X509CertImpl, algId)},
-	{"signature", "[B", nullptr, $PROTECTED, $field(X509CertImpl, signature)},
-	{"NUM_STANDARD_KEY_USAGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509CertImpl, NUM_STANDARD_KEY_USAGE)},
-	{"subjectAlternativeNames", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/util/List<*>;>;", $PRIVATE, $field(X509CertImpl, subjectAlternativeNames)},
-	{"issuerAlternativeNames", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/util/List<*>;>;", $PRIVATE, $field(X509CertImpl, issuerAlternativeNames)},
-	{"extKeyUsage", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(X509CertImpl, extKeyUsage)},
-	{"authInfoAccess", "Ljava/util/Set;", "Ljava/util/Set<Lsun/security/x509/AccessDescription;>;", $PRIVATE, $field(X509CertImpl, authInfoAccess)},
-	{"verifiedPublicKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE, $field(X509CertImpl, verifiedPublicKey)},
-	{"verifiedProvider", "Ljava/lang/String;", nullptr, $PRIVATE, $field(X509CertImpl, verifiedProvider)},
-	{"verificationResult", "Z", nullptr, $PRIVATE, $field(X509CertImpl, verificationResult)},
-	{"fingerprints", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(X509CertImpl, fingerprints)},
-	{}
-};
-
-$MethodInfo _X509CertImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X509CertImpl, init$, void)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(X509CertImpl, init$, void, $bytes*), "java.security.cert.CertificateException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(X509CertImpl, init$, void, $InputStream*), "java.security.cert.CertificateException"},
-	{"<init>", "(Lsun/security/x509/X509CertInfo;)V", nullptr, $PUBLIC, $method(X509CertImpl, init$, void, $X509CertInfo*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(X509CertImpl, init$, void, $DerValue*), "java.security.cert.CertificateException"},
-	{"checkValidity", "()V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, checkValidity, void), "java.security.cert.CertificateExpiredException,java.security.cert.CertificateNotYetValidException"},
-	{"checkValidity", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, checkValidity, void, $Date*), "java.security.cert.CertificateExpiredException,java.security.cert.CertificateNotYetValidException"},
-	{"cloneAltNames", "(Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/Collection<Ljava/util/List<*>;>;)Ljava/util/Collection<Ljava/util/List<*>;>;", $PRIVATE | $STATIC, $staticMethod(X509CertImpl, cloneAltNames, $Collection*, $Collection*)},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, delete$, void, $String*), "java.security.cert.CertificateException,java.io.IOException"},
-	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, derEncode, void, $OutputStream*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, encode, void, $OutputStream*), "java.security.cert.CertificateEncodingException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, get, $Object*, $String*), "java.security.cert.CertificateParsingException"},
-	{"getAuthKeyId", "()Lsun/security/x509/KeyIdentifier;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getAuthKeyId, $KeyIdentifier*)},
-	{"getAuthorityInfoAccessExtension", "()Lsun/security/x509/AuthorityInfoAccessExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getAuthorityInfoAccessExtension, $AuthorityInfoAccessExtension*)},
-	{"getAuthorityKeyIdentifierExtension", "()Lsun/security/x509/AuthorityKeyIdentifierExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getAuthorityKeyIdentifierExtension, $AuthorityKeyIdentifierExtension*)},
-	{"getBasicConstraints", "()I", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getBasicConstraints, int32_t)},
-	{"getBasicConstraintsExtension", "()Lsun/security/x509/BasicConstraintsExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getBasicConstraintsExtension, $BasicConstraintsExtension*)},
-	{"getCRLDistributionPointsExtension", "()Lsun/security/x509/CRLDistributionPointsExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getCRLDistributionPointsExtension, $CRLDistributionPointsExtension*)},
-	{"getCertificatePoliciesExtension", "()Lsun/security/x509/CertificatePoliciesExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getCertificatePoliciesExtension, $CertificatePoliciesExtension*)},
-	{"getCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509CertImpl, getCriticalExtensionOIDs, $Set*)},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509CertImpl, getElements, $Enumeration*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getEncoded, $bytes*), "java.security.cert.CertificateEncodingException"},
-	{"getEncodedInternal", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getEncodedInternal, $bytes*), "java.security.cert.CertificateEncodingException"},
-	{"getEncodedInternal", "(Ljava/security/cert/Certificate;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getEncodedInternal, $bytes*, $Certificate*), "java.security.cert.CertificateEncodingException"},
-	{"getExtendedKeyUsage", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(X509CertImpl, getExtendedKeyUsage, $List*), "java.security.cert.CertificateParsingException"},
-	{"getExtendedKeyUsage", "(Ljava/security/cert/X509Certificate;)Ljava/util/List;", "(Ljava/security/cert/X509Certificate;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getExtendedKeyUsage, $List*, $X509Certificate*), "java.security.cert.CertificateParsingException"},
-	{"getExtendedKeyUsageExtension", "()Lsun/security/x509/ExtendedKeyUsageExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getExtendedKeyUsageExtension, $ExtendedKeyUsageExtension*)},
-	{"getExtension", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/x509/Extension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getExtension, $Extension*, $ObjectIdentifier*)},
-	{"getExtensionValue", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getExtensionValue, $bytes*, $String*)},
-	{"getFingerprint", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getFingerprint, $String*, $String*)},
-	{"getFingerprint", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getFingerprint, $String*, $String*, $X509Certificate*)},
-	{"getIssuerAlternativeNameExtension", "()Lsun/security/x509/IssuerAlternativeNameExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getIssuerAlternativeNameExtension, $IssuerAlternativeNameExtension*)},
-	{"getIssuerAlternativeNames", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/util/List<*>;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(X509CertImpl, getIssuerAlternativeNames, $Collection*), "java.security.cert.CertificateParsingException"},
-	{"getIssuerAlternativeNames", "(Ljava/security/cert/X509Certificate;)Ljava/util/Collection;", "(Ljava/security/cert/X509Certificate;)Ljava/util/Collection<Ljava/util/List<*>;>;", $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getIssuerAlternativeNames, $Collection*, $X509Certificate*), "java.security.cert.CertificateParsingException"},
-	{"getIssuerDN", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getIssuerDN, $Principal*)},
-	{"getIssuerUniqueID", "()[Z", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getIssuerUniqueID, $booleans*)},
-	{"getIssuerX500Principal", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getIssuerX500Principal, $X500Principal*)},
-	{"getIssuerX500Principal", "(Ljava/security/cert/X509Certificate;)Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getIssuerX500Principal, $X500Principal*, $X509Certificate*)},
-	{"getKeyUsage", "()[Z", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getKeyUsage, $booleans*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getName, $String*)},
-	{"getNameConstraintsExtension", "()Lsun/security/x509/NameConstraintsExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getNameConstraintsExtension, $NameConstraintsExtension*)},
-	{"getNonCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509CertImpl, getNonCriticalExtensionOIDs, $Set*)},
-	{"getNotAfter", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getNotAfter, $Date*)},
-	{"getNotBefore", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getNotBefore, $Date*)},
-	{"getPolicyConstraintsExtension", "()Lsun/security/x509/PolicyConstraintsExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getPolicyConstraintsExtension, $PolicyConstraintsExtension*)},
-	{"getPolicyMappingsExtension", "()Lsun/security/x509/PolicyMappingsExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getPolicyMappingsExtension, $PolicyMappingsExtension*)},
-	{"getPrivateKeyUsageExtension", "()Lsun/security/x509/PrivateKeyUsageExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getPrivateKeyUsageExtension, $PrivateKeyUsageExtension*)},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getPublicKey, $PublicKey*)},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSerialNumber, $BigInteger*)},
-	{"getSerialNumberObject", "()Lsun/security/x509/SerialNumber;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSerialNumberObject, $SerialNumber*)},
-	{"getSigAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSigAlgName, $String*)},
-	{"getSigAlgOID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSigAlgOID, $String*)},
-	{"getSigAlgParams", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSigAlgParams, $bytes*)},
-	{"getSignature", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSignature, $bytes*)},
-	{"getSubjectAlternativeNameExtension", "()Lsun/security/x509/SubjectAlternativeNameExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectAlternativeNameExtension, $SubjectAlternativeNameExtension*)},
-	{"getSubjectAlternativeNames", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/util/List<*>;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(X509CertImpl, getSubjectAlternativeNames, $Collection*), "java.security.cert.CertificateParsingException"},
-	{"getSubjectAlternativeNames", "(Ljava/security/cert/X509Certificate;)Ljava/util/Collection;", "(Ljava/security/cert/X509Certificate;)Ljava/util/Collection<Ljava/util/List<*>;>;", $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getSubjectAlternativeNames, $Collection*, $X509Certificate*), "java.security.cert.CertificateParsingException"},
-	{"getSubjectDN", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectDN, $Principal*)},
-	{"getSubjectKeyId", "()Lsun/security/x509/KeyIdentifier;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectKeyId, $KeyIdentifier*)},
-	{"getSubjectKeyIdentifierExtension", "()Lsun/security/x509/SubjectKeyIdentifierExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectKeyIdentifierExtension, $SubjectKeyIdentifierExtension*)},
-	{"getSubjectUniqueID", "()[Z", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectUniqueID, $booleans*)},
-	{"getSubjectX500Principal", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectX500Principal, $X500Principal*)},
-	{"getSubjectX500Principal", "(Ljava/security/cert/X509Certificate;)Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getSubjectX500Principal, $X500Principal*, $X509Certificate*)},
-	{"getTBSCertificate", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getTBSCertificate, $bytes*), "java.security.cert.CertificateEncodingException"},
-	{"getUnparseableExtension", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/x509/Extension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getUnparseableExtension, $Extension*, $ObjectIdentifier*)},
-	{"getVersion", "()I", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getVersion, int32_t)},
-	{"getX500Principal", "(Ljava/security/cert/X509Certificate;Z)Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE | $STATIC, $staticMethod(X509CertImpl, getX500Principal, $X500Principal*, $X509Certificate*, bool), "java.lang.Exception"},
-	{"hasUnsupportedCriticalExtension", "()Z", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, hasUnsupportedCriticalExtension, bool)},
-	{"isSelfIssued", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, isSelfIssued, bool, $X509Certificate*)},
-	{"isSelfSigned", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, isSelfSigned, bool, $X509Certificate*, $String*)},
-	{"lambda$getFingerprint$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(X509CertImpl, lambda$getFingerprint$0, $String*, $String*)},
-	{"makeAltNames", "(Lsun/security/x509/GeneralNames;)Ljava/util/Collection;", "(Lsun/security/x509/GeneralNames;)Ljava/util/Collection<Ljava/util/List<*>;>;", $PRIVATE | $STATIC, $staticMethod(X509CertImpl, makeAltNames, $Collection*, $GeneralNames*)},
-	{"parse", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(X509CertImpl, parse, void, $DerValue*), "java.security.cert.CertificateException,java.io.IOException"},
-	{"readRFC1421Cert", "(Ljava/io/InputStream;)Lsun/security/util/DerValue;", nullptr, $PRIVATE, $method(X509CertImpl, readRFC1421Cert, $DerValue*, $InputStream*), "java.io.IOException"},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, set, void, $String*, Object$*), "java.security.cert.CertificateException,java.io.IOException"},
-	{"sign", "(Ljava/security/PrivateKey;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, sign, void, $PrivateKey*, $String*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{"sign", "(Ljava/security/PrivateKey;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, sign, void, $PrivateKey*, $String*, $String*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{"toImpl", "(Ljava/security/cert/X509Certificate;)Lsun/security/x509/X509CertImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, toImpl, X509CertImpl*, $X509Certificate*), "java.security.cert.CertificateException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, toString, $String*)},
-	{"verify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, verify, void, $PublicKey*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{"verify", "(Ljava/security/PublicKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X509CertImpl, verify, void, $PublicKey*, $String*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{"verify", "(Ljava/security/PublicKey;Ljava/security/Provider;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X509CertImpl, verify, void, $PublicKey*, $Provider*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.SignatureException"},
-	{}
-};
-
-$ClassInfo _X509CertImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.X509CertImpl",
-	"java.security.cert.X509Certificate",
-	"sun.security.util.DerEncoder",
-	_X509CertImpl_FieldInfo_,
-	_X509CertImpl_MethodInfo_
-};
-
-$Object* allocate$X509CertImpl($Class* clazz) {
-	return $of($alloc(X509CertImpl));
-}
 
 bool X509CertImpl::equals(Object$* other) {
 	 return this->$X509Certificate::equals(other);
@@ -464,7 +319,7 @@ void X509CertImpl::init$() {
 }
 
 void X509CertImpl::init$($bytes* certData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$X509Certificate::init$();
 	this->readOnly = false;
 	$set(this, signedCert, nullptr);
@@ -481,7 +336,7 @@ void X509CertImpl::init$($bytes* certData) {
 }
 
 void X509CertImpl::init$($InputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$X509Certificate::init$();
 	this->readOnly = false;
 	$set(this, signedCert, nullptr);
@@ -497,7 +352,7 @@ void X509CertImpl::init$($InputStream* in) {
 	} catch ($IOException& ioe) {
 		try {
 			inBuffered->reset();
-			$assign(der, $new($DerValue, static_cast<$InputStream*>(inBuffered)));
+			$assign(der, $new($DerValue, inBuffered));
 		} catch ($IOException& ioe1) {
 			$throwNew($CertificateException, $$str({"Input stream must be either DER-encoded bytes or RFC1421 hex-encoded DER-encoded bytes: "_s, $(ioe1->getMessage())}), ioe1);
 		}
@@ -511,7 +366,7 @@ void X509CertImpl::init$($InputStream* in) {
 }
 
 $DerValue* X509CertImpl::readRFC1421Cert($InputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, der, nullptr);
 	$var($String, line, nullptr);
 	$init($StandardCharsets);
@@ -570,12 +425,12 @@ void X509CertImpl::init$($DerValue* derVal) {
 }
 
 void X509CertImpl::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->signedCert == nullptr) {
 		$throwNew($CertificateEncodingException, "Null certificate to encode"_s);
 	}
 	try {
-		$nc(out)->write($cast($bytes, $($nc(this->signedCert)->clone())));
+		$nc(out)->write($$cast($bytes, $nc(this->signedCert)->clone()));
 	} catch ($IOException& e) {
 		$throwNew($CertificateEncodingException, $(e->toString()));
 	}
@@ -585,11 +440,11 @@ void X509CertImpl::derEncode($OutputStream* out) {
 	if (this->signedCert == nullptr) {
 		$throwNew($IOException, "Null certificate to encode"_s);
 	}
-	$nc(out)->write($cast($bytes, $($nc(this->signedCert)->clone())));
+	$nc(out)->write($$cast($bytes, $nc(this->signedCert)->clone()));
 }
 
 $bytes* X509CertImpl::getEncoded() {
-	return $cast($bytes, $nc($(getEncodedInternal()))->clone());
+	return $cast($bytes, $$nc(getEncodedInternal())->clone());
 }
 
 $bytes* X509CertImpl::getEncodedInternal() {
@@ -605,12 +460,12 @@ void X509CertImpl::verify($PublicKey* key) {
 
 void X509CertImpl::verify($PublicKey* key, $String* sigProvider$renamed) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, sigProvider, sigProvider$renamed);
 		if (sigProvider == nullptr) {
 			$assign(sigProvider, ""_s);
 		}
-		if ((this->verifiedPublicKey != nullptr) && $nc($of(this->verifiedPublicKey))->equals(key)) {
+		if ((this->verifiedPublicKey != nullptr) && this->verifiedPublicKey->equals(key)) {
 			if ($nc(sigProvider)->equals(this->verifiedProvider)) {
 				if (this->verificationResult) {
 					return;
@@ -635,7 +490,7 @@ void X509CertImpl::verify($PublicKey* key, $String* sigProvider$renamed) {
 			$var($String, var$0, e->getMessage());
 			$throwNew($CertificateException, var$0, $(e->getCause()));
 		} catch ($InvalidAlgorithmParameterException& e) {
-			$throwNew($CertificateException, static_cast<$Throwable*>(e));
+			$throwNew($CertificateException, e);
 		}
 		$var($bytes, rawCert, $nc(this->info)->getEncodedInfo());
 		$nc(sigVerf)->update(rawCert, 0, $nc(rawCert)->length);
@@ -650,7 +505,7 @@ void X509CertImpl::verify($PublicKey* key, $String* sigProvider$renamed) {
 
 void X509CertImpl::verify($PublicKey* key, $Provider* sigProvider) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->signedCert == nullptr) {
 			$throwNew($CertificateEncodingException, "Uninitialized certificate"_s);
 		}
@@ -667,7 +522,7 @@ void X509CertImpl::verify($PublicKey* key, $Provider* sigProvider) {
 			$var($String, var$0, e->getMessage());
 			$throwNew($CertificateException, var$0, $(e->getCause()));
 		} catch ($InvalidAlgorithmParameterException& e) {
-			$throwNew($CertificateException, static_cast<$Throwable*>(e));
+			$throwNew($CertificateException, e);
 		}
 		$var($bytes, rawCert, $nc(this->info)->getEncodedInfo());
 		$nc(sigVerf)->update(rawCert, 0, $nc(rawCert)->length);
@@ -684,18 +539,18 @@ void X509CertImpl::sign($PrivateKey* key, $String* algorithm) {
 }
 
 void X509CertImpl::sign($PrivateKey* key, $String* algorithm, $String* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (this->readOnly) {
 			$throwNew($CertificateEncodingException, "cannot over-write existing certificate"_s);
 		}
-		$var($Signature, sigEngine, $SignatureUtil::fromKey(algorithm, static_cast<$Key*>(key), provider));
+		$var($Signature, sigEngine, $SignatureUtil::fromKey(algorithm, key, provider));
 		$set(this, algId, $SignatureUtil::fromSignature(sigEngine, key));
 		$var($DerOutputStream, out, $new($DerOutputStream));
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
 		$init($X509CertInfo);
 		$nc(this->info)->set($X509CertInfo::ALGORITHM_ID, $$new($CertificateAlgorithmId, this->algId));
-		$nc(this->info)->encode(tmp);
+		this->info->encode(tmp);
 		$var($bytes, rawCert, tmp->toByteArray());
 		$nc(this->algId)->encode(tmp);
 		$nc(sigEngine)->update(rawCert, 0, $nc(rawCert)->length);
@@ -729,7 +584,7 @@ void X509CertImpl::checkValidity($Date* date) {
 }
 
 $Object* X509CertImpl::get($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X509AttributeName, attr, $new($X509AttributeName, name));
 	$var($String, id, attr->getPrefix());
 	if (!($nc(id)->equalsIgnoreCase(X509CertImpl::NAME))) {
@@ -739,32 +594,32 @@ $Object* X509CertImpl::get($String* name) {
 	$assign(id, attr->getPrefix());
 	if ($nc(id)->equalsIgnoreCase(X509CertImpl::INFO)) {
 		if (this->info == nullptr) {
-			return $of(nullptr);
+			return nullptr;
 		}
 		if (attr->getSuffix() != nullptr) {
 			try {
-				return $of($nc(this->info)->get($(attr->getSuffix())));
+				return $nc(this->info)->get($(attr->getSuffix()));
 			} catch ($IOException& e) {
 				$throwNew($CertificateParsingException, $(e->toString()));
 			} catch ($CertificateException& e) {
 				$throwNew($CertificateParsingException, $(e->toString()));
 			}
 		} else {
-			return $of(this->info);
+			return this->info;
 		}
 	} else if (id->equalsIgnoreCase(X509CertImpl::ALG_ID)) {
-		return $of((this->algId));
+		return ($of(this->algId));
 	} else if (id->equalsIgnoreCase(X509CertImpl::SIGNATURE)) {
 		if (this->signature != nullptr) {
-			return $of($nc(this->signature)->clone());
+			return this->signature->clone();
 		} else {
-			return $of(nullptr);
+			return nullptr;
 		}
 	} else if (id->equalsIgnoreCase(X509CertImpl::SIGNED_CERT)) {
 		if (this->signedCert != nullptr) {
-			return $of($nc(this->signedCert)->clone());
+			return this->signedCert->clone();
 		} else {
-			return $of(nullptr);
+			return nullptr;
 		}
 	} else {
 		$throwNew($CertificateParsingException, $$str({"Attribute name not recognized or get() not allowed for the same: "_s, id}));
@@ -772,7 +627,7 @@ $Object* X509CertImpl::get($String* name) {
 }
 
 void X509CertImpl::set($String* name, Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->readOnly) {
 		$throwNew($CertificateException, "cannot over-write existing certificate"_s);
 	}
@@ -800,7 +655,7 @@ void X509CertImpl::set($String* name, Object$* obj) {
 }
 
 void X509CertImpl::delete$($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->readOnly) {
 		$throwNew($CertificateException, "cannot over-write existing certificate"_s);
 	}
@@ -829,7 +684,7 @@ void X509CertImpl::delete$($String* name) {
 }
 
 $Enumeration* X509CertImpl::getElements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeNameEnumeration, elements, $new($AttributeNameEnumeration));
 	elements->addElement($$str({X509CertImpl::NAME, $$str(X509CertImpl::DOT), X509CertImpl::INFO}));
 	elements->addElement($$str({X509CertImpl::NAME, $$str(X509CertImpl::DOT), X509CertImpl::ALG_ID}));
@@ -843,18 +698,25 @@ $String* X509CertImpl::getName() {
 }
 
 $String* X509CertImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr || this->algId == nullptr || this->signature == nullptr) {
 		return ""_s;
 	}
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
-	$var($String, var$1, $$str({"[\n"_s, this->info, $$str(u'\n'), "  Algorithm: ["_s, this->algId, "]\n  Signature:\n"_s}));
-	$var($String, var$0, $$concat(var$1, $(encoder->encodeBuffer(this->signature))));
-	return $concat(var$0, "\n]"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("[\n"_s);
+	var$0->append(this->info);
+	var$0->append(u'\n');
+	var$0->append("  Algorithm: ["_s);
+	var$0->append(this->algId);
+	var$0->append("]\n  Signature:\n"_s);
+	var$0->append($(encoder->encodeBuffer(this->signature)));
+	var$0->append("\n]"_s);
+	return $str(var$0);
 }
 
 $PublicKey* X509CertImpl::getPublicKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -869,13 +731,13 @@ $PublicKey* X509CertImpl::getPublicKey() {
 }
 
 int32_t X509CertImpl::getVersion() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return -1;
 	}
 	try {
 		$init($CertificateVersion);
-		int32_t vers = $nc(($cast($Integer, $($nc(this->info)->get($$str({$CertificateVersion::NAME, $$str(X509CertImpl::DOT), $CertificateVersion::VERSION}))))))->intValue();
+		int32_t vers = $$sure($Integer, $nc(this->info)->get($$str({$CertificateVersion::NAME, $$str(X509CertImpl::DOT), $CertificateVersion::VERSION})))->intValue();
 		return vers + 1;
 	} catch ($Exception& e) {
 		return -1;
@@ -885,11 +747,11 @@ int32_t X509CertImpl::getVersion() {
 
 $BigInteger* X509CertImpl::getSerialNumber() {
 	$var($SerialNumber, ser, getSerialNumberObject());
-	return ser != nullptr ? $nc(ser)->getNumber() : ($BigInteger*)nullptr;
+	return ser != nullptr ? ser->getNumber() : ($BigInteger*)nullptr;
 }
 
 $SerialNumber* X509CertImpl::getSerialNumberObject() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -904,7 +766,7 @@ $SerialNumber* X509CertImpl::getSerialNumberObject() {
 }
 
 $Principal* X509CertImpl::getSubjectDN() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -919,7 +781,7 @@ $Principal* X509CertImpl::getSubjectDN() {
 }
 
 $X500Principal* X509CertImpl::getSubjectX500Principal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -934,7 +796,7 @@ $X500Principal* X509CertImpl::getSubjectX500Principal() {
 }
 
 $Principal* X509CertImpl::getIssuerDN() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -949,7 +811,7 @@ $Principal* X509CertImpl::getIssuerDN() {
 }
 
 $X500Principal* X509CertImpl::getIssuerX500Principal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -964,7 +826,7 @@ $X500Principal* X509CertImpl::getIssuerX500Principal() {
 }
 
 $Date* X509CertImpl::getNotBefore() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -979,7 +841,7 @@ $Date* X509CertImpl::getNotBefore() {
 }
 
 $Date* X509CertImpl::getNotAfter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -995,7 +857,7 @@ $Date* X509CertImpl::getNotAfter() {
 
 $bytes* X509CertImpl::getTBSCertificate() {
 	if (this->info != nullptr) {
-		return $nc(this->info)->getEncodedInfo();
+		return this->info->getEncodedInfo();
 	} else {
 		$throwNew($CertificateEncodingException, "Uninitialized certificate"_s);
 	}
@@ -1045,7 +907,7 @@ $booleans* X509CertImpl::getIssuerUniqueID() {
 		if (id == nullptr) {
 			return nullptr;
 		} else {
-			return ($nc(id)->getId());
+			return (id->getId());
 		}
 	} catch ($Exception& e) {
 		return nullptr;
@@ -1063,7 +925,7 @@ $booleans* X509CertImpl::getSubjectUniqueID() {
 		if (id == nullptr) {
 			return nullptr;
 		} else {
-			return ($nc(id)->getId());
+			return (id->getId());
 		}
 	} catch ($Exception& e) {
 		return nullptr;
@@ -1173,7 +1035,7 @@ bool X509CertImpl::hasUnsupportedCriticalExtension() {
 }
 
 $Set* X509CertImpl::getCriticalExtensionOIDs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1183,15 +1045,13 @@ $Set* X509CertImpl::getCriticalExtensionOIDs() {
 		if (exts == nullptr) {
 			return nullptr;
 		}
-		$var($Set, extSet, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet))));
+		$var($Set, extSet, $cast($AbstractSet, $new($TreeSet)));
 		{
-			$var($Iterator, i$, $nc($($nc(exts)->getAllExtensions()))->iterator());
+			$var($Iterator, i$, $$nc($nc(exts)->getAllExtensions())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Extension, ex, $cast($Extension, i$->next()));
-				{
-					if ($nc(ex)->isCritical()) {
-						extSet->add($($nc($(ex->getExtensionId()))->toString()));
-					}
+				if ($nc(ex)->isCritical()) {
+					extSet->add($($$nc(ex->getExtensionId())->toString()));
 				}
 			}
 		}
@@ -1203,7 +1063,7 @@ $Set* X509CertImpl::getCriticalExtensionOIDs() {
 }
 
 $Set* X509CertImpl::getNonCriticalExtensionOIDs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1213,19 +1073,17 @@ $Set* X509CertImpl::getNonCriticalExtensionOIDs() {
 		if (exts == nullptr) {
 			return nullptr;
 		}
-		$var($Set, extSet, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet))));
+		$var($Set, extSet, $cast($AbstractSet, $new($TreeSet)));
 		{
-			$var($Iterator, i$, $nc($($nc(exts)->getAllExtensions()))->iterator());
+			$var($Iterator, i$, $$nc($nc(exts)->getAllExtensions())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Extension, ex, $cast($Extension, i$->next()));
-				{
-					if (!$nc(ex)->isCritical()) {
-						extSet->add($($nc($(ex->getExtensionId()))->toString()));
-					}
+				if (!$nc(ex)->isCritical()) {
+					extSet->add($($$nc(ex->getExtensionId())->toString()));
 				}
 			}
 		}
-		extSet->addAll($($nc($(exts->getUnparseableExtensions()))->keySet()));
+		extSet->addAll($($$nc(exts->getUnparseableExtensions())->keySet()));
 		return extSet;
 	} catch ($Exception& e) {
 		return nullptr;
@@ -1234,7 +1092,7 @@ $Set* X509CertImpl::getNonCriticalExtensionOIDs() {
 }
 
 $Extension* X509CertImpl::getExtension($ObjectIdentifier* oid) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1249,18 +1107,16 @@ $Extension* X509CertImpl::getExtension($ObjectIdentifier* oid) {
 		if (extensions == nullptr) {
 			return nullptr;
 		} else {
-			$var($Extension, ex, $nc(extensions)->getExtension($($nc(oid)->toString())));
+			$var($Extension, ex, extensions->getExtension($($nc(oid)->toString())));
 			if (ex != nullptr) {
 				return ex;
 			}
 			{
-				$var($Iterator, i$, $nc($(extensions->getAllExtensions()))->iterator());
+				$var($Iterator, i$, $$nc(extensions->getAllExtensions())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Extension, ex2, $cast($Extension, i$->next()));
-					{
-						if ($nc($($nc(ex2)->getExtensionId()))->equals(oid)) {
-							return ex2;
-						}
+					if ($$nc($nc(ex2)->getExtensionId())->equals(oid)) {
+						return ex2;
 					}
 				}
 			}
@@ -1273,7 +1129,7 @@ $Extension* X509CertImpl::getExtension($ObjectIdentifier* oid) {
 }
 
 $Extension* X509CertImpl::getUnparseableExtension($ObjectIdentifier* oid) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1288,7 +1144,7 @@ $Extension* X509CertImpl::getUnparseableExtension($ObjectIdentifier* oid) {
 		if (extensions == nullptr) {
 			return nullptr;
 		} else {
-			return $cast($Extension, $nc($($nc(extensions)->getUnparseableExtensions()))->get($($nc(oid)->toString())));
+			return $cast($Extension, $$nc(extensions->getUnparseableExtensions())->get($($nc(oid)->toString())));
 		}
 	} catch ($IOException& ioe) {
 		return nullptr;
@@ -1297,7 +1153,7 @@ $Extension* X509CertImpl::getUnparseableExtension($ObjectIdentifier* oid) {
 }
 
 $bytes* X509CertImpl::getExtensionValue($String* oid) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($ObjectIdentifier, findOID, $ObjectIdentifier::of(oid));
 		$var($String, extAlias, $OIDMap::getName(findOID));
@@ -1309,7 +1165,7 @@ $bytes* X509CertImpl::getExtensionValue($String* oid) {
 				return nullptr;
 			}
 			{
-				$var($Iterator, i$, $nc($($nc(exts)->getAllExtensions()))->iterator());
+				$var($Iterator, i$, $$nc($nc(exts)->getAllExtensions())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Extension, ex, $cast($Extension, i$->next()));
 					{
@@ -1329,7 +1185,7 @@ $bytes* X509CertImpl::getExtensionValue($String* oid) {
 		}
 		if (certExt == nullptr) {
 			if (exts != nullptr) {
-				$assign(certExt, $cast($Extension, $nc($(exts->getUnparseableExtensions()))->get(oid)));
+				$assign(certExt, $cast($Extension, $$nc(exts->getUnparseableExtensions())->get(oid)));
 			}
 			if (certExt == nullptr) {
 				return nullptr;
@@ -1349,7 +1205,7 @@ $bytes* X509CertImpl::getExtensionValue($String* oid) {
 }
 
 $booleans* X509CertImpl::getKeyUsage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($PKIXExtensions);
 		$var($String, extAlias, $OIDMap::getName($PKIXExtensions::KeyUsage_Id));
@@ -1375,7 +1231,7 @@ $booleans* X509CertImpl::getKeyUsage() {
 
 $List* X509CertImpl::getExtendedKeyUsage() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->readOnly && this->extKeyUsage != nullptr) {
 			return this->extKeyUsage;
 		} else {
@@ -1391,7 +1247,7 @@ $List* X509CertImpl::getExtendedKeyUsage() {
 
 $List* X509CertImpl::getExtendedKeyUsage($X509Certificate* cert) {
 	$init(X509CertImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($KnownOIDs);
 		$var($bytes, ext, $nc(cert)->getExtensionValue($($KnownOIDs::extendedKeyUsage->value())));
@@ -1400,17 +1256,16 @@ $List* X509CertImpl::getExtendedKeyUsage($X509Certificate* cert) {
 		}
 		$var($DerValue, val, $new($DerValue, ext));
 		$var($bytes, data, val->getOctetString());
-		$init($Boolean);
-		$var($ExtendedKeyUsageExtension, ekuExt, $new($ExtendedKeyUsageExtension, $Boolean::FALSE, $of(data)));
+		$var($ExtendedKeyUsageExtension, ekuExt, $new($ExtendedKeyUsageExtension, $Boolean::FALSE, data));
 		return $Collections::unmodifiableList($(ekuExt->getExtendedKeyUsage()));
 	} catch ($IOException& ioe) {
-		$throwNew($CertificateParsingException, static_cast<$Throwable*>(ioe));
+		$throwNew($CertificateParsingException, ioe);
 	}
 	$shouldNotReachHere();
 }
 
 int32_t X509CertImpl::getBasicConstraints() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($PKIXExtensions);
 		$var($String, extAlias, $OIDMap::getName($PKIXExtensions::BasicConstraints_Id));
@@ -1422,8 +1277,8 @@ int32_t X509CertImpl::getBasicConstraints() {
 			return -1;
 		}
 		$init($BasicConstraintsExtension);
-		if ($nc(($cast($Boolean, $($nc(certExt)->get($BasicConstraintsExtension::IS_CA)))))->booleanValue() == true) {
-			return $nc(($cast($Integer, $(certExt->get($BasicConstraintsExtension::PATH_LEN)))))->intValue();
+		if ($$sure($Boolean, $nc(certExt)->get($BasicConstraintsExtension::IS_CA))->booleanValue() == true) {
+			return $$sure($Integer, certExt->get($BasicConstraintsExtension::PATH_LEN))->intValue();
 		} else {
 			return -1;
 		}
@@ -1435,13 +1290,13 @@ int32_t X509CertImpl::getBasicConstraints() {
 
 $Collection* X509CertImpl::makeAltNames($GeneralNames* names) {
 	$init(X509CertImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(names)->isEmpty()) {
 		return $Collections::emptySet();
 	}
 	$var($List, newNames, $new($ArrayList));
 	{
-		$var($Iterator, i$, $nc($($nc(names)->names()))->iterator());
+		$var($Iterator, i$, $$nc(names->names())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($GeneralName, gname, $cast($GeneralName, i$->next()));
 			{
@@ -1449,53 +1304,39 @@ $Collection* X509CertImpl::makeAltNames($GeneralNames* names) {
 				$var($List, nameEntry, $new($ArrayList, 2));
 				nameEntry->add($($Integer::valueOf($nc(name)->getType())));
 				{
-					$var($DerOutputStream, derOut, nullptr)
-					switch ($nc(name)->getType()) {
+					$var($DerOutputStream, derOut, nullptr);
+					switch (name->getType()) {
 					case $GeneralNameInterface::NAME_RFC822:
-						{
-							nameEntry->add($($nc(($cast($RFC822Name, name)))->getName()));
-							break;
-						}
+						nameEntry->add($($cast($RFC822Name, name)->getName()));
+						break;
 					case $GeneralNameInterface::NAME_DNS:
-						{
-							nameEntry->add($($nc(($cast($DNSName, name)))->getName()));
-							break;
-						}
+						nameEntry->add($($cast($DNSName, name)->getName()));
+						break;
 					case $GeneralNameInterface::NAME_DIRECTORY:
-						{
-							nameEntry->add($($nc(($cast($X500Name, name)))->getRFC2253Name()));
-							break;
-						}
+						nameEntry->add($($cast($X500Name, name)->getRFC2253Name()));
+						break;
 					case $GeneralNameInterface::NAME_URI:
-						{
-							nameEntry->add($($nc(($cast($URIName, name)))->getName()));
-							break;
-						}
+						nameEntry->add($($cast($URIName, name)->getName()));
+						break;
 					case $GeneralNameInterface::NAME_IP:
-						{
-							try {
-								nameEntry->add($($nc(($cast($IPAddressName, name)))->getName()));
-							} catch ($IOException& ioe) {
-								$throwNew($RuntimeException, "IPAddress cannot be parsed"_s, ioe);
-							}
-							break;
+						try {
+							nameEntry->add($($cast($IPAddressName, name)->getName()));
+						} catch ($IOException& ioe) {
+							$throwNew($RuntimeException, "IPAddress cannot be parsed"_s, ioe);
 						}
+						break;
 					case $GeneralNameInterface::NAME_OID:
-						{
-							nameEntry->add($($nc($($nc(($cast($OIDName, name)))->getOID()))->toString()));
-							break;
-						}
+						nameEntry->add($($$nc($cast($OIDName, name)->getOID())->toString()));
+						break;
 					default:
-						{
-							$assign(derOut, $new($DerOutputStream));
-							try {
-								name->encode(derOut);
-							} catch ($IOException& ioe) {
-								$throwNew($RuntimeException, "name cannot be encoded"_s, ioe);
-							}
-							nameEntry->add($($nc(derOut)->toByteArray()));
-							break;
+						$assign(derOut, $new($DerOutputStream));
+						try {
+							name->encode(derOut);
+						} catch ($IOException& ioe) {
+							$throwNew($RuntimeException, "name cannot be encoded"_s, ioe);
 						}
+						nameEntry->add($($nc(derOut)->toByteArray()));
+						break;
 					}
 				}
 				newNames->add($($Collections::unmodifiableList(nameEntry)));
@@ -1507,16 +1348,14 @@ $Collection* X509CertImpl::makeAltNames($GeneralNames* names) {
 
 $Collection* X509CertImpl::cloneAltNames($Collection* altNames) {
 	$init(X509CertImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool mustClone = false;
 	{
 		$var($Iterator, i$, $nc(altNames)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($List, nameEntry, $cast($List, i$->next()));
-			{
-				if ($instanceOf($bytes, $($nc(nameEntry)->get(1)))) {
-					mustClone = true;
-				}
+			if ($instanceOf($bytes, $($nc(nameEntry)->get(1)))) {
+				mustClone = true;
 			}
 		}
 	}
@@ -1529,8 +1368,8 @@ $Collection* X509CertImpl::cloneAltNames($Collection* altNames) {
 				{
 					$var($Object, nameObject, $nc(nameEntry)->get(1));
 					if ($instanceOf($bytes, nameObject)) {
-						$var($List, nameEntryCopy, $new($ArrayList, static_cast<$Collection*>(nameEntry)));
-						nameEntryCopy->set(1, $($nc(($cast($bytes, nameObject)))->clone()));
+						$var($List, nameEntryCopy, $new($ArrayList, nameEntry));
+						nameEntryCopy->set(1, $($cast($bytes, nameObject)->clone()));
 						namesCopy->add($($Collections::unmodifiableList(nameEntryCopy)));
 					} else {
 						namesCopy->add(nameEntry);
@@ -1546,7 +1385,7 @@ $Collection* X509CertImpl::cloneAltNames($Collection* altNames) {
 
 $Collection* X509CertImpl::getSubjectAlternativeNames() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->readOnly && this->subjectAlternativeNames != nullptr) {
 			return cloneAltNames(this->subjectAlternativeNames);
 		}
@@ -1568,7 +1407,7 @@ $Collection* X509CertImpl::getSubjectAlternativeNames() {
 
 $Collection* X509CertImpl::getSubjectAlternativeNames($X509Certificate* cert) {
 	$init(X509CertImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($KnownOIDs);
 		$var($bytes, ext, $nc(cert)->getExtensionValue($($KnownOIDs::SubjectAlternativeName->value())));
@@ -1577,25 +1416,23 @@ $Collection* X509CertImpl::getSubjectAlternativeNames($X509Certificate* cert) {
 		}
 		$var($DerValue, val, $new($DerValue, ext));
 		$var($bytes, data, val->getOctetString());
-		$init($Boolean);
-		$var($SubjectAlternativeNameExtension, subjectAltNameExt, $new($SubjectAlternativeNameExtension, $Boolean::FALSE, $of(data)));
+		$var($SubjectAlternativeNameExtension, subjectAltNameExt, $new($SubjectAlternativeNameExtension, $Boolean::FALSE, data));
 		$var($GeneralNames, names, nullptr);
 		try {
-			$init($SubjectAlternativeNameExtension);
 			$assign(names, $cast($GeneralNames, subjectAltNameExt->get($SubjectAlternativeNameExtension::SUBJECT_NAME)));
 		} catch ($IOException& ioe) {
 			return $Collections::emptySet();
 		}
 		return makeAltNames(names);
 	} catch ($IOException& ioe) {
-		$throwNew($CertificateParsingException, static_cast<$Throwable*>(ioe));
+		$throwNew($CertificateParsingException, ioe);
 	}
 	$shouldNotReachHere();
 }
 
 $Collection* X509CertImpl::getIssuerAlternativeNames() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->readOnly && this->issuerAlternativeNames != nullptr) {
 			return cloneAltNames(this->issuerAlternativeNames);
 		}
@@ -1617,7 +1454,7 @@ $Collection* X509CertImpl::getIssuerAlternativeNames() {
 
 $Collection* X509CertImpl::getIssuerAlternativeNames($X509Certificate* cert) {
 	$init(X509CertImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($KnownOIDs);
 		$var($bytes, ext, $nc(cert)->getExtensionValue($($KnownOIDs::IssuerAlternativeName->value())));
@@ -1626,18 +1463,16 @@ $Collection* X509CertImpl::getIssuerAlternativeNames($X509Certificate* cert) {
 		}
 		$var($DerValue, val, $new($DerValue, ext));
 		$var($bytes, data, val->getOctetString());
-		$init($Boolean);
-		$var($IssuerAlternativeNameExtension, issuerAltNameExt, $new($IssuerAlternativeNameExtension, $Boolean::FALSE, $of(data)));
+		$var($IssuerAlternativeNameExtension, issuerAltNameExt, $new($IssuerAlternativeNameExtension, $Boolean::FALSE, data));
 		$var($GeneralNames, names, nullptr);
 		try {
-			$init($IssuerAlternativeNameExtension);
 			$assign(names, $cast($GeneralNames, issuerAltNameExt->get($IssuerAlternativeNameExtension::ISSUER_NAME)));
 		} catch ($IOException& ioe) {
 			return $Collections::emptySet();
 		}
 		return makeAltNames(names);
 	} catch ($IOException& ioe) {
-		$throwNew($CertificateParsingException, static_cast<$Throwable*>(ioe));
+		$throwNew($CertificateParsingException, ioe);
 	}
 	$shouldNotReachHere();
 }
@@ -1648,20 +1483,20 @@ $AuthorityInfoAccessExtension* X509CertImpl::getAuthorityInfoAccessExtension() {
 }
 
 void X509CertImpl::parse($DerValue* val) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->readOnly) {
 		$throwNew($CertificateParsingException, "cannot over-write existing certificate"_s);
 	}
-	if ($nc(val)->data$ == nullptr || $nc(val)->tag != $DerValue::tag_Sequence) {
+	if ($nc(val)->data$ == nullptr || val->tag != $DerValue::tag_Sequence) {
 		$throwNew($CertificateParsingException, "invalid DER-encoded certificate data"_s);
 	}
-	$set(this, signedCert, $nc(val)->toByteArray());
+	$set(this, signedCert, val->toByteArray());
 	$var($DerValueArray, seq, $new($DerValueArray, 3));
 	seq->set(0, $($nc(val->data$)->getDerValue()));
-	seq->set(1, $($nc(val->data$)->getDerValue()));
-	seq->set(2, $($nc(val->data$)->getDerValue()));
-	if ($nc(val->data$)->available() != 0) {
-		$throwNew($CertificateParsingException, $$str({"signed overrun, bytes = "_s, $$str($nc(val->data$)->available())}));
+	seq->set(1, $(val->data$->getDerValue()));
+	seq->set(2, $(val->data$->getDerValue()));
+	if (val->data$->available() != 0) {
+		$throwNew($CertificateParsingException, $$str({"signed overrun, bytes = "_s, $$str(val->data$->available())}));
 	}
 	if ($nc(seq->get(0))->tag != $DerValue::tag_Sequence) {
 		$throwNew($CertificateParsingException, "signed fields invalid"_s);
@@ -1671,12 +1506,12 @@ void X509CertImpl::parse($DerValue* val) {
 	if ($nc($nc(seq->get(1))->data$)->available() != 0) {
 		$throwNew($CertificateParsingException, "algid field overrun"_s);
 	}
-	if ($nc($nc(seq->get(2))->data$)->available() != 0) {
+	if ($nc(seq->get(2))->data$->available() != 0) {
 		$throwNew($CertificateParsingException, "signed fields overrun"_s);
 	}
 	$set(this, info, $new($X509CertInfo, seq->get(0)));
 	$init($CertificateAlgorithmId);
-	$var($AlgorithmId, infoSigAlg, $cast($AlgorithmId, $nc(this->info)->get($$str({$CertificateAlgorithmId::NAME, $$str(X509CertImpl::DOT), $CertificateAlgorithmId::ALGORITHM}))));
+	$var($AlgorithmId, infoSigAlg, $cast($AlgorithmId, this->info->get($$str({$CertificateAlgorithmId::NAME, $$str(X509CertImpl::DOT), $CertificateAlgorithmId::ALGORITHM}))));
 	if (!$nc(this->algId)->equals(infoSigAlg)) {
 		$throwNew($CertificateException, "Signature algorithm mismatch"_s);
 	}
@@ -1685,7 +1520,7 @@ void X509CertImpl::parse($DerValue* val) {
 
 $X500Principal* X509CertImpl::getX500Principal($X509Certificate* cert, bool getIssuer) {
 	$init(X509CertImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, $nc(cert)->getEncoded());
 	$var($DerInputStream, derIn, $new($DerInputStream, encoded));
 	$var($DerValue, tbsCert, $nc($(derIn->getSequence(3)))->get(0));
@@ -1728,7 +1563,7 @@ $X500Principal* X509CertImpl::getIssuerX500Principal($X509Certificate* cert) {
 $bytes* X509CertImpl::getEncodedInternal($Certificate* cert) {
 	$init(X509CertImpl);
 	if ($instanceOf(X509CertImpl, cert)) {
-		return $nc(($cast(X509CertImpl, cert)))->getEncodedInternal();
+		return $cast(X509CertImpl, cert)->getEncodedInternal();
 	} else {
 		return $nc(cert)->getEncoded();
 	}
@@ -1745,7 +1580,7 @@ X509CertImpl* X509CertImpl::toImpl($X509Certificate* cert) {
 
 bool X509CertImpl::isSelfIssued($X509Certificate* cert) {
 	$init(X509CertImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X500Principal, subject, $nc(cert)->getSubjectX500Principal());
 	$var($X500Principal, issuer, cert->getIssuerX500Principal());
 	return $nc(subject)->equals(issuer);
@@ -1753,13 +1588,13 @@ bool X509CertImpl::isSelfIssued($X509Certificate* cert) {
 
 bool X509CertImpl::isSelfSigned($X509Certificate* cert, $String* sigProvider) {
 	$init(X509CertImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isSelfIssued(cert)) {
 		try {
 			if (sigProvider == nullptr) {
-				$nc(cert)->verify($(cert->getPublicKey()));
+				$nc(cert)->verify($($nc(cert)->getPublicKey()));
 			} else {
-				$nc(cert)->verify($(cert->getPublicKey()), sigProvider);
+				$nc(cert)->verify($($nc(cert)->getPublicKey()), sigProvider);
 			}
 			return true;
 		} catch ($Exception& e) {
@@ -1769,17 +1604,17 @@ bool X509CertImpl::isSelfSigned($X509Certificate* cert, $String* sigProvider) {
 }
 
 $String* X509CertImpl::getFingerprint($String* algorithm) {
-	return $cast($String, $nc(this->fingerprints)->computeIfAbsent(algorithm, static_cast<$Function*>($$new(X509CertImpl$$Lambda$lambda$getFingerprint$0, this))));
+	return $cast($String, $nc(this->fingerprints)->computeIfAbsent(algorithm, $$new(X509CertImpl$$Lambda$lambda$getFingerprint$0, this)));
 }
 
 $String* X509CertImpl::getFingerprint($String* algorithm, $X509Certificate* cert) {
 	$init(X509CertImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, encCertInfo, $nc(cert)->getEncoded());
 		$var($MessageDigest, md, $MessageDigest::getInstance(algorithm));
 		$var($bytes, digest, $nc(md)->digest(encCertInfo));
-		return $nc($($nc($($HexFormat::of()))->withUpperCase()))->formatHex(digest);
+		return $$nc($$nc($HexFormat::of())->withUpperCase())->formatHex(digest);
 	} catch ($NoSuchAlgorithmException& e) {
 	} catch ($CertificateEncodingException& e) {
 	}
@@ -1793,7 +1628,7 @@ $String* X509CertImpl::lambda$getFingerprint$0($String* x) {
 X509CertImpl::X509CertImpl() {
 }
 
-void clinit$X509CertImpl($Class* class$) {
+void X509CertImpl::clinit$($Class* clazz) {
 	$assignStatic(X509CertImpl::NAME, "x509"_s);
 	$init($X509CertInfo);
 	$assignStatic(X509CertImpl::INFO, $X509CertInfo::NAME);
@@ -1814,11 +1649,141 @@ void clinit$X509CertImpl($Class* class$) {
 
 $Class* X509CertImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(X509CertImpl$$Lambda$lambda$getFingerprint$0::classInfo$.name)) {
+		if (name->equals("sun.security.x509.X509CertImpl$$Lambda$lambda$getFingerprint$0")) {
 			return X509CertImpl$$Lambda$lambda$getFingerprint$0::load$(name, initialize);
 		}
 	}
-	$loadClass(X509CertImpl, name, initialize, &_X509CertImpl_ClassInfo_, clinit$X509CertImpl, allocate$X509CertImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509CertImpl, serialVersionUID)},
+		{"DOT", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509CertImpl, DOT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, NAME)},
+		{"INFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, INFO)},
+		{"ALG_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, ALG_ID)},
+		{"SIGNATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SIGNATURE)},
+		{"SIGNED_CERT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SIGNED_CERT)},
+		{"SUBJECT_DN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SUBJECT_DN)},
+		{"ISSUER_DN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, ISSUER_DN)},
+		{"SERIAL_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SERIAL_ID)},
+		{"PUBLIC_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, PUBLIC_KEY)},
+		{"VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, VERSION)},
+		{"SIG_ALG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SIG_ALG)},
+		{"SIG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509CertImpl, SIG)},
+		{"readOnly", "Z", nullptr, $PRIVATE, $field(X509CertImpl, readOnly)},
+		{"signedCert", "[B", nullptr, $PRIVATE, $field(X509CertImpl, signedCert)},
+		{"info", "Lsun/security/x509/X509CertInfo;", nullptr, $PROTECTED, $field(X509CertImpl, info)},
+		{"algId", "Lsun/security/x509/AlgorithmId;", nullptr, $PROTECTED, $field(X509CertImpl, algId)},
+		{"signature", "[B", nullptr, $PROTECTED, $field(X509CertImpl, signature)},
+		{"NUM_STANDARD_KEY_USAGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509CertImpl, NUM_STANDARD_KEY_USAGE)},
+		{"subjectAlternativeNames", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/util/List<*>;>;", $PRIVATE, $field(X509CertImpl, subjectAlternativeNames)},
+		{"issuerAlternativeNames", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/util/List<*>;>;", $PRIVATE, $field(X509CertImpl, issuerAlternativeNames)},
+		{"extKeyUsage", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(X509CertImpl, extKeyUsage)},
+		{"authInfoAccess", "Ljava/util/Set;", "Ljava/util/Set<Lsun/security/x509/AccessDescription;>;", $PRIVATE, $field(X509CertImpl, authInfoAccess)},
+		{"verifiedPublicKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE, $field(X509CertImpl, verifiedPublicKey)},
+		{"verifiedProvider", "Ljava/lang/String;", nullptr, $PRIVATE, $field(X509CertImpl, verifiedProvider)},
+		{"verificationResult", "Z", nullptr, $PRIVATE, $field(X509CertImpl, verificationResult)},
+		{"fingerprints", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(X509CertImpl, fingerprints)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X509CertImpl, init$, void)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(X509CertImpl, init$, void, $bytes*), "java.security.cert.CertificateException"},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(X509CertImpl, init$, void, $InputStream*), "java.security.cert.CertificateException"},
+		{"<init>", "(Lsun/security/x509/X509CertInfo;)V", nullptr, $PUBLIC, $method(X509CertImpl, init$, void, $X509CertInfo*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(X509CertImpl, init$, void, $DerValue*), "java.security.cert.CertificateException"},
+		{"checkValidity", "()V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, checkValidity, void), "java.security.cert.CertificateExpiredException,java.security.cert.CertificateNotYetValidException"},
+		{"checkValidity", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, checkValidity, void, $Date*), "java.security.cert.CertificateExpiredException,java.security.cert.CertificateNotYetValidException"},
+		{"cloneAltNames", "(Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/Collection<Ljava/util/List<*>;>;)Ljava/util/Collection<Ljava/util/List<*>;>;", $PRIVATE | $STATIC, $staticMethod(X509CertImpl, cloneAltNames, $Collection*, $Collection*)},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, delete$, void, $String*), "java.security.cert.CertificateException,java.io.IOException"},
+		{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, derEncode, void, $OutputStream*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, encode, void, $OutputStream*), "java.security.cert.CertificateEncodingException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, get, $Object*, $String*), "java.security.cert.CertificateParsingException"},
+		{"getAuthKeyId", "()Lsun/security/x509/KeyIdentifier;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getAuthKeyId, $KeyIdentifier*)},
+		{"getAuthorityInfoAccessExtension", "()Lsun/security/x509/AuthorityInfoAccessExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getAuthorityInfoAccessExtension, $AuthorityInfoAccessExtension*)},
+		{"getAuthorityKeyIdentifierExtension", "()Lsun/security/x509/AuthorityKeyIdentifierExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getAuthorityKeyIdentifierExtension, $AuthorityKeyIdentifierExtension*)},
+		{"getBasicConstraints", "()I", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getBasicConstraints, int32_t)},
+		{"getBasicConstraintsExtension", "()Lsun/security/x509/BasicConstraintsExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getBasicConstraintsExtension, $BasicConstraintsExtension*)},
+		{"getCRLDistributionPointsExtension", "()Lsun/security/x509/CRLDistributionPointsExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getCRLDistributionPointsExtension, $CRLDistributionPointsExtension*)},
+		{"getCertificatePoliciesExtension", "()Lsun/security/x509/CertificatePoliciesExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getCertificatePoliciesExtension, $CertificatePoliciesExtension*)},
+		{"getCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509CertImpl, getCriticalExtensionOIDs, $Set*)},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509CertImpl, getElements, $Enumeration*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getEncoded, $bytes*), "java.security.cert.CertificateEncodingException"},
+		{"getEncodedInternal", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getEncodedInternal, $bytes*), "java.security.cert.CertificateEncodingException"},
+		{"getEncodedInternal", "(Ljava/security/cert/Certificate;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getEncodedInternal, $bytes*, $Certificate*), "java.security.cert.CertificateEncodingException"},
+		{"getExtendedKeyUsage", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(X509CertImpl, getExtendedKeyUsage, $List*), "java.security.cert.CertificateParsingException"},
+		{"getExtendedKeyUsage", "(Ljava/security/cert/X509Certificate;)Ljava/util/List;", "(Ljava/security/cert/X509Certificate;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getExtendedKeyUsage, $List*, $X509Certificate*), "java.security.cert.CertificateParsingException"},
+		{"getExtendedKeyUsageExtension", "()Lsun/security/x509/ExtendedKeyUsageExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getExtendedKeyUsageExtension, $ExtendedKeyUsageExtension*)},
+		{"getExtension", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/x509/Extension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getExtension, $Extension*, $ObjectIdentifier*)},
+		{"getExtensionValue", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getExtensionValue, $bytes*, $String*)},
+		{"getFingerprint", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getFingerprint, $String*, $String*)},
+		{"getFingerprint", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getFingerprint, $String*, $String*, $X509Certificate*)},
+		{"getIssuerAlternativeNameExtension", "()Lsun/security/x509/IssuerAlternativeNameExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getIssuerAlternativeNameExtension, $IssuerAlternativeNameExtension*)},
+		{"getIssuerAlternativeNames", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/util/List<*>;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(X509CertImpl, getIssuerAlternativeNames, $Collection*), "java.security.cert.CertificateParsingException"},
+		{"getIssuerAlternativeNames", "(Ljava/security/cert/X509Certificate;)Ljava/util/Collection;", "(Ljava/security/cert/X509Certificate;)Ljava/util/Collection<Ljava/util/List<*>;>;", $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getIssuerAlternativeNames, $Collection*, $X509Certificate*), "java.security.cert.CertificateParsingException"},
+		{"getIssuerDN", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getIssuerDN, $Principal*)},
+		{"getIssuerUniqueID", "()[Z", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getIssuerUniqueID, $booleans*)},
+		{"getIssuerX500Principal", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getIssuerX500Principal, $X500Principal*)},
+		{"getIssuerX500Principal", "(Ljava/security/cert/X509Certificate;)Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getIssuerX500Principal, $X500Principal*, $X509Certificate*)},
+		{"getKeyUsage", "()[Z", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getKeyUsage, $booleans*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getName, $String*)},
+		{"getNameConstraintsExtension", "()Lsun/security/x509/NameConstraintsExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getNameConstraintsExtension, $NameConstraintsExtension*)},
+		{"getNonCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509CertImpl, getNonCriticalExtensionOIDs, $Set*)},
+		{"getNotAfter", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getNotAfter, $Date*)},
+		{"getNotBefore", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getNotBefore, $Date*)},
+		{"getPolicyConstraintsExtension", "()Lsun/security/x509/PolicyConstraintsExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getPolicyConstraintsExtension, $PolicyConstraintsExtension*)},
+		{"getPolicyMappingsExtension", "()Lsun/security/x509/PolicyMappingsExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getPolicyMappingsExtension, $PolicyMappingsExtension*)},
+		{"getPrivateKeyUsageExtension", "()Lsun/security/x509/PrivateKeyUsageExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getPrivateKeyUsageExtension, $PrivateKeyUsageExtension*)},
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getPublicKey, $PublicKey*)},
+		{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSerialNumber, $BigInteger*)},
+		{"getSerialNumberObject", "()Lsun/security/x509/SerialNumber;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSerialNumberObject, $SerialNumber*)},
+		{"getSigAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSigAlgName, $String*)},
+		{"getSigAlgOID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSigAlgOID, $String*)},
+		{"getSigAlgParams", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSigAlgParams, $bytes*)},
+		{"getSignature", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSignature, $bytes*)},
+		{"getSubjectAlternativeNameExtension", "()Lsun/security/x509/SubjectAlternativeNameExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectAlternativeNameExtension, $SubjectAlternativeNameExtension*)},
+		{"getSubjectAlternativeNames", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/util/List<*>;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(X509CertImpl, getSubjectAlternativeNames, $Collection*), "java.security.cert.CertificateParsingException"},
+		{"getSubjectAlternativeNames", "(Ljava/security/cert/X509Certificate;)Ljava/util/Collection;", "(Ljava/security/cert/X509Certificate;)Ljava/util/Collection<Ljava/util/List<*>;>;", $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getSubjectAlternativeNames, $Collection*, $X509Certificate*), "java.security.cert.CertificateParsingException"},
+		{"getSubjectDN", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectDN, $Principal*)},
+		{"getSubjectKeyId", "()Lsun/security/x509/KeyIdentifier;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectKeyId, $KeyIdentifier*)},
+		{"getSubjectKeyIdentifierExtension", "()Lsun/security/x509/SubjectKeyIdentifierExtension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectKeyIdentifierExtension, $SubjectKeyIdentifierExtension*)},
+		{"getSubjectUniqueID", "()[Z", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectUniqueID, $booleans*)},
+		{"getSubjectX500Principal", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getSubjectX500Principal, $X500Principal*)},
+		{"getSubjectX500Principal", "(Ljava/security/cert/X509Certificate;)Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, getSubjectX500Principal, $X500Principal*, $X509Certificate*)},
+		{"getTBSCertificate", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getTBSCertificate, $bytes*), "java.security.cert.CertificateEncodingException"},
+		{"getUnparseableExtension", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/x509/Extension;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getUnparseableExtension, $Extension*, $ObjectIdentifier*)},
+		{"getVersion", "()I", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, getVersion, int32_t)},
+		{"getX500Principal", "(Ljava/security/cert/X509Certificate;Z)Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE | $STATIC, $staticMethod(X509CertImpl, getX500Principal, $X500Principal*, $X509Certificate*, bool), "java.lang.Exception"},
+		{"hasUnsupportedCriticalExtension", "()Z", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, hasUnsupportedCriticalExtension, bool)},
+		{"isSelfIssued", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, isSelfIssued, bool, $X509Certificate*)},
+		{"isSelfSigned", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, isSelfSigned, bool, $X509Certificate*, $String*)},
+		{"lambda$getFingerprint$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(X509CertImpl, lambda$getFingerprint$0, $String*, $String*)},
+		{"makeAltNames", "(Lsun/security/x509/GeneralNames;)Ljava/util/Collection;", "(Lsun/security/x509/GeneralNames;)Ljava/util/Collection<Ljava/util/List<*>;>;", $PRIVATE | $STATIC, $staticMethod(X509CertImpl, makeAltNames, $Collection*, $GeneralNames*)},
+		{"parse", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(X509CertImpl, parse, void, $DerValue*), "java.security.cert.CertificateException,java.io.IOException"},
+		{"readRFC1421Cert", "(Ljava/io/InputStream;)Lsun/security/util/DerValue;", nullptr, $PRIVATE, $method(X509CertImpl, readRFC1421Cert, $DerValue*, $InputStream*), "java.io.IOException"},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, set, void, $String*, Object$*), "java.security.cert.CertificateException,java.io.IOException"},
+		{"sign", "(Ljava/security/PrivateKey;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, sign, void, $PrivateKey*, $String*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+		{"sign", "(Ljava/security/PrivateKey;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, sign, void, $PrivateKey*, $String*, $String*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+		{"toImpl", "(Ljava/security/cert/X509Certificate;)Lsun/security/x509/X509CertImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CertImpl, toImpl, X509CertImpl*, $X509Certificate*), "java.security.cert.CertificateException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, toString, $String*)},
+		{"verify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $virtualMethod(X509CertImpl, verify, void, $PublicKey*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+		{"verify", "(Ljava/security/PublicKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X509CertImpl, verify, void, $PublicKey*, $String*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+		{"verify", "(Ljava/security/PublicKey;Ljava/security/Provider;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X509CertImpl, verify, void, $PublicKey*, $Provider*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.SignatureException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.X509CertImpl",
+		"java.security.cert.X509Certificate",
+		"sun.security.util.DerEncoder",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X509CertImpl, name, initialize, &classInfo$$, X509CertImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X509CertImpl));
+	});
 	return class$;
 }
 

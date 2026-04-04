@@ -1,5 +1,4 @@
 #include <javax/crypto/Mac.h>
-
 #include <java/lang/Cloneable.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/nio/ByteBuffer.h>
@@ -52,60 +51,6 @@ using $Debug = ::sun::security::util::Debug;
 namespace javax {
 	namespace crypto {
 
-$FieldInfo _Mac_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Mac, debug)},
-	{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Mac, pdebug)},
-	{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Mac, skipDebug)},
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(Mac, provider)},
-	{"spi", "Ljavax/crypto/MacSpi;", nullptr, $PRIVATE, $field(Mac, spi)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mac, algorithm)},
-	{"initialized", "Z", nullptr, $PRIVATE, $field(Mac, initialized)},
-	{"firstService", "Ljava/security/Provider$Service;", nullptr, $PRIVATE, $field(Mac, firstService)},
-	{"serviceIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PRIVATE, $field(Mac, serviceIterator)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Mac, lock)},
-	{"warnCount", "I", nullptr, $PRIVATE | $STATIC, $staticField(Mac, warnCount)},
-	{}
-};
-
-$MethodInfo _Mac_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/MacSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Mac, init$, void, $MacSpi*, $Provider*, $String*)},
-	{"<init>", "(Ljava/security/Provider$Service;Ljava/util/Iterator;Ljava/lang/String;)V", "(Ljava/security/Provider$Service;Ljava/util/Iterator<Ljava/security/Provider$Service;>;Ljava/lang/String;)V", $PRIVATE, $method(Mac, init$, void, $Provider$Service*, $Iterator*, $String*)},
-	{"chooseFirstProvider", "()V", nullptr, 0, $virtualMethod(Mac, chooseFirstProvider, void)},
-	{"chooseProvider", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PRIVATE, $method(Mac, chooseProvider, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Mac, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"doFinal", "()[B", nullptr, $PUBLIC | $FINAL, $method(Mac, doFinal, $bytes*), "java.lang.IllegalStateException"},
-	{"doFinal", "([BI)V", nullptr, $PUBLIC | $FINAL, $method(Mac, doFinal, void, $bytes*, int32_t), "javax.crypto.ShortBufferException,java.lang.IllegalStateException"},
-	{"doFinal", "([B)[B", nullptr, $PUBLIC | $FINAL, $method(Mac, doFinal, $bytes*, $bytes*), "java.lang.IllegalStateException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Mac, getAlgorithm, $String*)},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/Mac;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Mac, getInstance, Mac*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/Mac;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Mac, getInstance, Mac*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/Mac;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Mac, getInstance, Mac*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getMacLength", "()I", nullptr, $PUBLIC | $FINAL, $method(Mac, getMacLength, int32_t)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(Mac, getProvider, $Provider*)},
-	{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Mac, getProviderName, $String*)},
-	{"init", "(Ljava/security/Key;)V", nullptr, $PUBLIC | $FINAL, $method(Mac, init, void, $Key*), "java.security.InvalidKeyException"},
-	{"init", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(Mac, init, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"reset", "()V", nullptr, $PUBLIC | $FINAL, $method(Mac, reset, void)},
-	{"update", "(B)V", nullptr, $PUBLIC | $FINAL, $method(Mac, update, void, int8_t), "java.lang.IllegalStateException"},
-	{"update", "([B)V", nullptr, $PUBLIC | $FINAL, $method(Mac, update, void, $bytes*), "java.lang.IllegalStateException"},
-	{"update", "([BII)V", nullptr, $PUBLIC | $FINAL, $method(Mac, update, void, $bytes*, int32_t, int32_t), "java.lang.IllegalStateException"},
-	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(Mac, update, void, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _Mac_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.Mac",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_Mac_FieldInfo_,
-	_Mac_MethodInfo_
-};
-
-$Object* allocate$Mac($Class* clazz) {
-	return $of($alloc(Mac));
-}
-
 $Debug* Mac::debug = nullptr;
 $Debug* Mac::pdebug = nullptr;
 bool Mac::skipDebug = false;
@@ -134,8 +79,8 @@ $String* Mac::getAlgorithm() {
 
 Mac* Mac::getInstance($String* algorithm) {
 	$init(Mac);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$var($List, services, $GetInstance::getServices("Mac"_s, algorithm));
 	$var($Iterator, t, $nc(services)->iterator());
 	while ($nc(t)->hasNext()) {
@@ -150,22 +95,22 @@ Mac* Mac::getInstance($String* algorithm) {
 
 Mac* Mac::getInstance($String* algorithm, $String* provider) {
 	$init(Mac);
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($MacSpi);
 	$var($GetInstance$Instance, instance, $JceSecurity::getInstance("Mac"_s, $MacSpi::class$, algorithm, provider));
-	return $new(Mac, $cast($MacSpi, $nc(instance)->impl), instance->provider, algorithm);
+	return $new(Mac, $cast($MacSpi, $nc(instance)->impl), $nc(instance)->provider, algorithm);
 }
 
 Mac* Mac::getInstance($String* algorithm, $Provider* provider) {
 	$init(Mac);
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($MacSpi);
 	$var($GetInstance$Instance, instance, $JceSecurity::getInstance("Mac"_s, $MacSpi::class$, algorithm, provider));
-	return $new(Mac, $cast($MacSpi, $nc(instance)->impl), instance->provider, algorithm);
+	return $new(Mac, $cast($MacSpi, $nc(instance)->impl), $nc(instance)->provider, algorithm);
 }
 
 void Mac::chooseFirstProvider() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->spi != nullptr) || (this->serviceIterator == nullptr)) {
 		return;
 	}
@@ -176,9 +121,9 @@ void Mac::chooseFirstProvider() {
 		if (Mac::debug != nullptr) {
 			int32_t w = --Mac::warnCount;
 			if (w >= 0) {
-				$nc(Mac::debug)->println("Mac.init() not first method called, disabling delayed provider selection"_s);
+				Mac::debug->println("Mac.init() not first method called, disabling delayed provider selection"_s);
 				if (w == 0) {
-					$nc(Mac::debug)->println("Further warnings of this type will be suppressed"_s);
+					Mac::debug->println("Further warnings of this type will be suppressed"_s);
 				}
 				$$new($Exception, "Call trace"_s)->printStackTrace();
 			}
@@ -196,7 +141,7 @@ void Mac::chooseFirstProvider() {
 				continue;
 			}
 			try {
-				$var($Object, obj, $nc(s)->newInstance(nullptr));
+				$var($Object, obj, s->newInstance(nullptr));
 				if ($instanceOf($MacSpi, obj) == false) {
 					continue;
 				}
@@ -218,10 +163,10 @@ void Mac::chooseFirstProvider() {
 }
 
 void Mac::chooseProvider($Key* key, $AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if (this->spi != nullptr) {
-			$nc(this->spi)->engineInit(key, params);
+			this->spi->engineInit(key, params);
 			return;
 		}
 		$var($Exception, lastException, nullptr);
@@ -236,11 +181,11 @@ void Mac::chooseProvider($Key* key, $AlgorithmParameterSpec* params) {
 			if ($nc(s)->supportsParameter(key) == false) {
 				continue;
 			}
-			if ($JceSecurity::canUseProvider($($nc(s)->getProvider())) == false) {
+			if ($JceSecurity::canUseProvider($(s->getProvider())) == false) {
 				continue;
 			}
 			try {
-				$var($MacSpi, spi, $cast($MacSpi, $nc(s)->newInstance(nullptr)));
+				$var($MacSpi, spi, $cast($MacSpi, s->newInstance(nullptr)));
 				$nc(spi)->engineInit(key, params);
 				$set(this, provider, s->getProvider());
 				$set(this, spi, spi);
@@ -262,7 +207,7 @@ void Mac::chooseProvider($Key* key, $AlgorithmParameterSpec* params) {
 		if ($instanceOf($RuntimeException, lastException)) {
 			$throw($cast($RuntimeException, lastException));
 		}
-		$var($String, kName, (key != nullptr) ? $nc($of(key))->getClass()->getName() : "(null)"_s);
+		$var($String, kName, (key != nullptr) ? $of(key)->getClass()->getName() : "(null)"_s);
 		$throwNew($InvalidKeyException, $$str({"No installed provider supports this key: "_s, kName}), lastException);
 	}
 }
@@ -278,14 +223,14 @@ int32_t Mac::getMacLength() {
 }
 
 $String* Mac::getProviderName() {
-	return (this->provider == nullptr) ? "(no provider)"_s : $nc(this->provider)->getName();
+	return (this->provider == nullptr) ? "(no provider)"_s : this->provider->getName();
 }
 
 void Mac::init($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (this->spi != nullptr) {
-			$nc(this->spi)->engineInit(key, nullptr);
+			this->spi->engineInit(key, nullptr);
 		} else {
 			chooseProvider(key, nullptr);
 		}
@@ -294,20 +239,20 @@ void Mac::init($Key* key) {
 	}
 	this->initialized = true;
 	if (!Mac::skipDebug && Mac::pdebug != nullptr) {
-		$nc(Mac::pdebug)->println($$str({"Mac."_s, this->algorithm, " algorithm from: "_s, $(getProviderName())}));
+		Mac::pdebug->println($$str({"Mac."_s, this->algorithm, " algorithm from: "_s, $(getProviderName())}));
 	}
 }
 
 void Mac::init($Key* key, $AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->spi != nullptr) {
-		$nc(this->spi)->engineInit(key, params);
+		this->spi->engineInit(key, params);
 	} else {
 		chooseProvider(key, params);
 	}
 	this->initialized = true;
 	if (!Mac::skipDebug && Mac::pdebug != nullptr) {
-		$nc(Mac::pdebug)->println($$str({"Mac."_s, this->algorithm, " algorithm from: "_s, $(getProviderName())}));
+		Mac::pdebug->println($$str({"Mac."_s, this->algorithm, " algorithm from: "_s, $(getProviderName())}));
 	}
 }
 
@@ -359,7 +304,7 @@ $bytes* Mac::doFinal() {
 		$throwNew($IllegalStateException, "MAC not initialized"_s);
 	}
 	$var($bytes, mac, $nc(this->spi)->engineDoFinal());
-	$nc(this->spi)->engineReset();
+	this->spi->engineReset();
 	return mac;
 }
 
@@ -369,7 +314,7 @@ void Mac::doFinal($bytes* output, int32_t outOffset) {
 		$throwNew($IllegalStateException, "MAC not initialized"_s);
 	}
 	int32_t macLen = getMacLength();
-	if (output == nullptr || $nc(output)->length - outOffset < macLen) {
+	if (output == nullptr || output->length - outOffset < macLen) {
 		$throwNew($ShortBufferException, "Cannot store MAC in output buffer"_s);
 	}
 	$var($bytes, mac, doFinal());
@@ -395,10 +340,10 @@ $Object* Mac::clone() {
 	chooseFirstProvider();
 	$var(Mac, that, $cast(Mac, $Cloneable::clone()));
 	$set($nc(that), spi, $cast($MacSpi, $nc(this->spi)->clone()));
-	return $of(that);
+	return that;
 }
 
-void clinit$Mac($Class* class$) {
+void Mac::clinit$($Class* clazz) {
 	$assignStatic(Mac::debug, $Debug::getInstance("jca"_s, "Mac"_s));
 	$assignStatic(Mac::pdebug, $Debug::getInstance("provider"_s, "Provider"_s));
 	bool var$0 = $Debug::isOn("engine="_s);
@@ -410,7 +355,56 @@ Mac::Mac() {
 }
 
 $Class* Mac::load$($String* name, bool initialize) {
-	$loadClass(Mac, name, initialize, &_Mac_ClassInfo_, clinit$Mac, allocate$Mac);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Mac, debug)},
+		{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Mac, pdebug)},
+		{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Mac, skipDebug)},
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(Mac, provider)},
+		{"spi", "Ljavax/crypto/MacSpi;", nullptr, $PRIVATE, $field(Mac, spi)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mac, algorithm)},
+		{"initialized", "Z", nullptr, $PRIVATE, $field(Mac, initialized)},
+		{"firstService", "Ljava/security/Provider$Service;", nullptr, $PRIVATE, $field(Mac, firstService)},
+		{"serviceIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PRIVATE, $field(Mac, serviceIterator)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Mac, lock)},
+		{"warnCount", "I", nullptr, $PRIVATE | $STATIC, $staticField(Mac, warnCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/crypto/MacSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Mac, init$, void, $MacSpi*, $Provider*, $String*)},
+		{"<init>", "(Ljava/security/Provider$Service;Ljava/util/Iterator;Ljava/lang/String;)V", "(Ljava/security/Provider$Service;Ljava/util/Iterator<Ljava/security/Provider$Service;>;Ljava/lang/String;)V", $PRIVATE, $method(Mac, init$, void, $Provider$Service*, $Iterator*, $String*)},
+		{"chooseFirstProvider", "()V", nullptr, 0, $virtualMethod(Mac, chooseFirstProvider, void)},
+		{"chooseProvider", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PRIVATE, $method(Mac, chooseProvider, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Mac, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"doFinal", "()[B", nullptr, $PUBLIC | $FINAL, $method(Mac, doFinal, $bytes*), "java.lang.IllegalStateException"},
+		{"doFinal", "([BI)V", nullptr, $PUBLIC | $FINAL, $method(Mac, doFinal, void, $bytes*, int32_t), "javax.crypto.ShortBufferException,java.lang.IllegalStateException"},
+		{"doFinal", "([B)[B", nullptr, $PUBLIC | $FINAL, $method(Mac, doFinal, $bytes*, $bytes*), "java.lang.IllegalStateException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Mac, getAlgorithm, $String*)},
+		{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/Mac;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Mac, getInstance, Mac*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/Mac;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Mac, getInstance, Mac*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/Mac;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Mac, getInstance, Mac*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getMacLength", "()I", nullptr, $PUBLIC | $FINAL, $method(Mac, getMacLength, int32_t)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(Mac, getProvider, $Provider*)},
+		{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Mac, getProviderName, $String*)},
+		{"init", "(Ljava/security/Key;)V", nullptr, $PUBLIC | $FINAL, $method(Mac, init, void, $Key*), "java.security.InvalidKeyException"},
+		{"init", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(Mac, init, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"reset", "()V", nullptr, $PUBLIC | $FINAL, $method(Mac, reset, void)},
+		{"update", "(B)V", nullptr, $PUBLIC | $FINAL, $method(Mac, update, void, int8_t), "java.lang.IllegalStateException"},
+		{"update", "([B)V", nullptr, $PUBLIC | $FINAL, $method(Mac, update, void, $bytes*), "java.lang.IllegalStateException"},
+		{"update", "([BII)V", nullptr, $PUBLIC | $FINAL, $method(Mac, update, void, $bytes*, int32_t, int32_t), "java.lang.IllegalStateException"},
+		{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(Mac, update, void, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.Mac",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Mac, name, initialize, &classInfo$$, Mac::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Mac);
+	});
 	return class$;
 }
 

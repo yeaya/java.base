@@ -1,5 +1,4 @@
 #include <sun/launcher/LauncherHelper$StdArg.h>
-
 #include <sun/launcher/LauncherHelper.h>
 #include <jcpp.h>
 
@@ -10,44 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace launcher {
-
-$FieldInfo _LauncherHelper$StdArg_FieldInfo_[] = {
-	{"arg", "Ljava/lang/String;", nullptr, $FINAL, $field(LauncherHelper$StdArg, arg)},
-	{"needsExpansion", "Z", nullptr, $FINAL, $field(LauncherHelper$StdArg, needsExpansion)},
-	{}
-};
-
-$MethodInfo _LauncherHelper$StdArg_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(LauncherHelper$StdArg, init$, void, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(LauncherHelper$StdArg, init$, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$StdArg, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _LauncherHelper$StdArg_InnerClassesInfo_[] = {
-	{"sun.launcher.LauncherHelper$StdArg", "sun.launcher.LauncherHelper", "StdArg", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LauncherHelper$StdArg_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.launcher.LauncherHelper$StdArg",
-	"java.lang.Object",
-	nullptr,
-	_LauncherHelper$StdArg_FieldInfo_,
-	_LauncherHelper$StdArg_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LauncherHelper$StdArg_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.launcher.LauncherHelper"
-};
-
-$Object* allocate$LauncherHelper$StdArg($Class* clazz) {
-	return $of($alloc(LauncherHelper$StdArg));
-}
 
 void LauncherHelper$StdArg::init$($String* arg, bool expand) {
 	$set(this, arg, arg);
@@ -60,7 +21,7 @@ void LauncherHelper$StdArg::init$($String* in) {
 }
 
 $String* LauncherHelper$StdArg::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"StdArg{arg="_s, this->arg, ", needsExpansion="_s, $$str(this->needsExpansion), $$str(u'}')});
 }
 
@@ -68,7 +29,39 @@ LauncherHelper$StdArg::LauncherHelper$StdArg() {
 }
 
 $Class* LauncherHelper$StdArg::load$($String* name, bool initialize) {
-	$loadClass(LauncherHelper$StdArg, name, initialize, &_LauncherHelper$StdArg_ClassInfo_, allocate$LauncherHelper$StdArg);
+	$FieldInfo fieldInfos$$[] = {
+		{"arg", "Ljava/lang/String;", nullptr, $FINAL, $field(LauncherHelper$StdArg, arg)},
+		{"needsExpansion", "Z", nullptr, $FINAL, $field(LauncherHelper$StdArg, needsExpansion)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(LauncherHelper$StdArg, init$, void, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(LauncherHelper$StdArg, init$, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$StdArg, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.launcher.LauncherHelper$StdArg", "sun.launcher.LauncherHelper", "StdArg", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.launcher.LauncherHelper$StdArg",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.launcher.LauncherHelper"
+	};
+	$loadClass(LauncherHelper$StdArg, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LauncherHelper$StdArg);
+	});
 	return class$;
 }
 

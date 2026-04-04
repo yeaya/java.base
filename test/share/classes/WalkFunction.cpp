@@ -1,5 +1,4 @@
 #include <WalkFunction.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/lang/StackWalker.h>
@@ -37,27 +36,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($Stream, inst$)->count());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WalkFunction$$Lambda$count>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WalkFunction$$Lambda$count::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$count, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$count, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo WalkFunction$$Lambda$count::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"WalkFunction$$Lambda$count",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* WalkFunction$$Lambda$count::load$($String* name, bool initialize) {
-	$loadClass(WalkFunction$$Lambda$count, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$count, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$count, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"WalkFunction$$Lambda$count",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WalkFunction$$Lambda$count, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WalkFunction$$Lambda$count);
+	});
 	return class$;
 }
 $Class* WalkFunction$$Lambda$count::class$ = nullptr;
@@ -68,29 +64,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* stream) override {
-		 return $of(WalkFunction::reduce($cast($Stream, stream)));
+		 return WalkFunction::reduce($cast($Stream, stream));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WalkFunction$$Lambda$reduce$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WalkFunction$$Lambda$reduce$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$reduce$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$reduce$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo WalkFunction$$Lambda$reduce$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"WalkFunction$$Lambda$reduce$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* WalkFunction$$Lambda$reduce$1::load$($String* name, bool initialize) {
-	$loadClass(WalkFunction$$Lambda$reduce$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$reduce$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$reduce$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"WalkFunction$$Lambda$reduce$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WalkFunction$$Lambda$reduce$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WalkFunction$$Lambda$reduce$1);
+	});
 	return class$;
 }
 $Class* WalkFunction$$Lambda$reduce$1::class$ = nullptr;
@@ -101,29 +94,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* r, Object$* f) override {
-		 return $of(WalkFunction::lambda$reduce$0($cast($StackWalker$StackFrame, r), $cast($StackWalker$StackFrame, f)));
+		 return WalkFunction::lambda$reduce$0($cast($StackWalker$StackFrame, r), $cast($StackWalker$StackFrame, f));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WalkFunction$$Lambda$lambda$reduce$0$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WalkFunction$$Lambda$lambda$reduce$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$lambda$reduce$0$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$lambda$reduce$0$2, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo WalkFunction$$Lambda$lambda$reduce$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"WalkFunction$$Lambda$lambda$reduce$0$2",
-	"java.lang.Object",
-	"java.util.function.BinaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* WalkFunction$$Lambda$lambda$reduce$0$2::load$($String* name, bool initialize) {
-	$loadClass(WalkFunction$$Lambda$lambda$reduce$0$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$lambda$reduce$0$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$lambda$reduce$0$2, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"WalkFunction$$Lambda$lambda$reduce$0$2",
+		"java.lang.Object",
+		"java.util.function.BinaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WalkFunction$$Lambda$lambda$reduce$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WalkFunction$$Lambda$lambda$reduce$0$2);
+	});
 	return class$;
 }
 $Class* WalkFunction$$Lambda$lambda$reduce$0$2::class$ = nullptr;
@@ -134,63 +124,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(WalkFunction::function($cast($Stream, s)));
+		 return WalkFunction::function($cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WalkFunction$$Lambda$function$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WalkFunction$$Lambda$function$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$function$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$function$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo WalkFunction$$Lambda$function$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"WalkFunction$$Lambda$function$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* WalkFunction$$Lambda$function$3::load$($String* name, bool initialize) {
-	$loadClass(WalkFunction$$Lambda$function$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$function$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$function$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"WalkFunction$$Lambda$function$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WalkFunction$$Lambda$function$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WalkFunction$$Lambda$function$3);
+	});
 	return class$;
 }
 $Class* WalkFunction$$Lambda$function$3::class$ = nullptr;
-
-$FieldInfo _WalkFunction_FieldInfo_[] = {
-	{"walker", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WalkFunction, walker)},
-	{}
-};
-
-$MethodInfo _WalkFunction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction, init$, void)},
-	{"counter", "()Ljava/util/function/Function;", "<T:Ljava/lang/Object;>()Ljava/util/function/Function<Ljava/util/stream/Stream<TT;>;Ljava/lang/Long;>;", $PRIVATE | $STATIC, $staticMethod(WalkFunction, counter, $Function*)},
-	{"function", "(Ljava/util/stream/Stream;)Ljava/lang/Void;", "(Ljava/util/stream/Stream<*>;)Ljava/lang/Void;", $PRIVATE | $STATIC, $staticMethod(WalkFunction, function, $Void*, $Stream*)},
-	{"lambda$reduce$0", "(Ljava/lang/StackWalker$StackFrame;Ljava/lang/StackWalker$StackFrame;)Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WalkFunction, lambda$reduce$0, $StackWalker$StackFrame*, $StackWalker$StackFrame*, $StackWalker$StackFrame*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(WalkFunction, main, void, $StringArray*), "java.lang.Exception"},
-	{"reduce", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", "(Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;)Ljava/util/Optional<Ljava/lang/StackWalker$StackFrame;>;", $STATIC, $staticMethod(WalkFunction, reduce, $Optional*, $Stream*)},
-	{"testFunctions", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WalkFunction, testFunctions, void)},
-	{"testWildcards", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WalkFunction, testWildcards, void)},
-	{"wildCounter", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<Ljava/util/stream/Stream<*>;Ljava/lang/Long;>;", $PRIVATE | $STATIC, $staticMethod(WalkFunction, wildCounter, $Function*)},
-	{}
-};
-
-$ClassInfo _WalkFunction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WalkFunction",
-	"java.lang.Object",
-	nullptr,
-	_WalkFunction_FieldInfo_,
-	_WalkFunction_MethodInfo_
-};
-
-$Object* allocate$WalkFunction($Class* clazz) {
-	return $of($alloc(WalkFunction));
-}
 
 $StackWalker* WalkFunction::walker = nullptr;
 
@@ -199,52 +155,55 @@ void WalkFunction::init$() {
 
 void WalkFunction::main($StringArray* args) {
 	$init(WalkFunction);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	testFunctions();
 	testWildcards();
 	$nc(WalkFunction::walker)->walk($(counter()));
-	$nc(WalkFunction::walker)->walk($(wildCounter()));
+	WalkFunction::walker->walk($(wildCounter()));
 }
 
 void WalkFunction::testFunctions() {
 	$init(WalkFunction);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$nc(WalkFunction::walker)->walk(static_cast<$Function*>($$new(WalkFunction$$Lambda$count)));
+	$nc(WalkFunction::walker)->walk($$new(WalkFunction$$Lambda$count));
 	try {
-		$nc(WalkFunction::walker)->walk(nullptr);
+		WalkFunction::walker->walk(nullptr);
 		$throwNew($RuntimeException, "NPE expected"_s);
 	} catch ($NullPointerException& e) {
 	}
-	$var($Optional, result, $cast($Optional, $nc(WalkFunction::walker)->walk(static_cast<$Function*>($$new(WalkFunction$$Lambda$reduce$1)))));
-	if (!$nc($($nc(($cast($StackWalker$StackFrame, $($nc(result)->get()))))->getClassName()))->equals($(WalkFunction::class$->getName()))) {
-		$var($String, var$0, $$str({$(result->get()), " expected: "_s}));
-		$throwNew($RuntimeException, $$concat(var$0, $(WalkFunction::class$->getName())));
+	$var($Optional, result, $cast($Optional, WalkFunction::walker->walk($$new(WalkFunction$$Lambda$reduce$1))));
+	if (!$$nc($$sure($StackWalker$StackFrame, $nc(result)->get())->getClassName())->equals($(WalkFunction::class$->getName()))) {
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(result->get()));
+		var$0->append(" expected: "_s);
+		var$0->append($(WalkFunction::class$->getName()));
+		$throwNew($RuntimeException, $$str(var$0));
 	}
 }
 
 $Optional* WalkFunction::reduce($Stream* stream) {
 	$init(WalkFunction);
-	return $nc(stream)->reduce(static_cast<$BinaryOperator*>($$new(WalkFunction$$Lambda$lambda$reduce$0$2)));
+	return $nc(stream)->reduce($$new(WalkFunction$$Lambda$lambda$reduce$0$2));
 }
 
 void WalkFunction::testWildcards() {
 	$init(WalkFunction);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($Function, f1, static_cast<$Function*>($new(WalkFunction$$Lambda$function$3)));
-	$var($Function, f2, static_cast<$Function*>($new(WalkFunction$$Lambda$function$3)));
-	$var($Function, f3, static_cast<$Function*>($new(WalkFunction$$Lambda$function$3)));
-	$var($Function, f4, static_cast<$Function*>($new(WalkFunction$$Lambda$function$3)));
-	$var($Function, f5, static_cast<$Function*>($new(WalkFunction$$Lambda$function$3)));
-	$var($Function, f6, static_cast<$Function*>($new(WalkFunction$$Lambda$function$3)));
+	$var($Function, f1, $new(WalkFunction$$Lambda$function$3));
+	$var($Function, f2, $new(WalkFunction$$Lambda$function$3));
+	$var($Function, f3, $new(WalkFunction$$Lambda$function$3));
+	$var($Function, f4, $new(WalkFunction$$Lambda$function$3));
+	$var($Function, f5, $new(WalkFunction$$Lambda$function$3));
+	$var($Function, f6, $new(WalkFunction$$Lambda$function$3));
 	$nc(WalkFunction::walker)->walk(f1);
-	$nc(WalkFunction::walker)->walk(f2);
-	$nc(WalkFunction::walker)->walk(f3);
-	$nc(WalkFunction::walker)->walk(f4);
-	$nc(WalkFunction::walker)->walk(f5);
-	$nc(WalkFunction::walker)->walk(f6);
+	WalkFunction::walker->walk(f2);
+	WalkFunction::walker->walk(f3);
+	WalkFunction::walker->walk(f4);
+	WalkFunction::walker->walk(f5);
+	WalkFunction::walker->walk(f6);
 }
 
 $Void* WalkFunction::function($Stream* s) {
@@ -254,21 +213,21 @@ $Void* WalkFunction::function($Stream* s) {
 
 $Function* WalkFunction::wildCounter() {
 	$init(WalkFunction);
-	return static_cast<$Function*>($new(WalkFunction$$Lambda$count));
+	return $new(WalkFunction$$Lambda$count);
 }
 
 $Function* WalkFunction::counter() {
 	$init(WalkFunction);
-	return static_cast<$Function*>($new(WalkFunction$$Lambda$count));
+	return $new(WalkFunction$$Lambda$count);
 }
 
 $StackWalker$StackFrame* WalkFunction::lambda$reduce$0($StackWalker$StackFrame* r, $StackWalker$StackFrame* f) {
 	$init(WalkFunction);
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc(r)->getClassName()))->compareTo($($nc(f)->getClassName())) > 0 ? f : r;
+	$useLocalObjectStack();
+	return $$nc($nc(r)->getClassName())->compareTo($($nc(f)->getClassName())) > 0 ? f : r;
 }
 
-void clinit$WalkFunction($Class* class$) {
+void WalkFunction::clinit$($Class* clazz) {
 	$assignStatic(WalkFunction::walker, $StackWalker::getInstance());
 }
 
@@ -277,20 +236,46 @@ WalkFunction::WalkFunction() {
 
 $Class* WalkFunction::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WalkFunction$$Lambda$count::classInfo$.name)) {
+		if (name->equals("WalkFunction$$Lambda$count")) {
 			return WalkFunction$$Lambda$count::load$(name, initialize);
 		}
-		if (name->equals(WalkFunction$$Lambda$reduce$1::classInfo$.name)) {
+		if (name->equals("WalkFunction$$Lambda$reduce$1")) {
 			return WalkFunction$$Lambda$reduce$1::load$(name, initialize);
 		}
-		if (name->equals(WalkFunction$$Lambda$lambda$reduce$0$2::classInfo$.name)) {
+		if (name->equals("WalkFunction$$Lambda$lambda$reduce$0$2")) {
 			return WalkFunction$$Lambda$lambda$reduce$0$2::load$(name, initialize);
 		}
-		if (name->equals(WalkFunction$$Lambda$function$3::classInfo$.name)) {
+		if (name->equals("WalkFunction$$Lambda$function$3")) {
 			return WalkFunction$$Lambda$function$3::load$(name, initialize);
 		}
 	}
-	$loadClass(WalkFunction, name, initialize, &_WalkFunction_ClassInfo_, clinit$WalkFunction, allocate$WalkFunction);
+	$FieldInfo fieldInfos$$[] = {
+		{"walker", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WalkFunction, walker)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction, init$, void)},
+		{"counter", "()Ljava/util/function/Function;", "<T:Ljava/lang/Object;>()Ljava/util/function/Function<Ljava/util/stream/Stream<TT;>;Ljava/lang/Long;>;", $PRIVATE | $STATIC, $staticMethod(WalkFunction, counter, $Function*)},
+		{"function", "(Ljava/util/stream/Stream;)Ljava/lang/Void;", "(Ljava/util/stream/Stream<*>;)Ljava/lang/Void;", $PRIVATE | $STATIC, $staticMethod(WalkFunction, function, $Void*, $Stream*)},
+		{"lambda$reduce$0", "(Ljava/lang/StackWalker$StackFrame;Ljava/lang/StackWalker$StackFrame;)Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WalkFunction, lambda$reduce$0, $StackWalker$StackFrame*, $StackWalker$StackFrame*, $StackWalker$StackFrame*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(WalkFunction, main, void, $StringArray*), "java.lang.Exception"},
+		{"reduce", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", "(Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;)Ljava/util/Optional<Ljava/lang/StackWalker$StackFrame;>;", $STATIC, $staticMethod(WalkFunction, reduce, $Optional*, $Stream*)},
+		{"testFunctions", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WalkFunction, testFunctions, void)},
+		{"testWildcards", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WalkFunction, testWildcards, void)},
+		{"wildCounter", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<Ljava/util/stream/Stream<*>;Ljava/lang/Long;>;", $PRIVATE | $STATIC, $staticMethod(WalkFunction, wildCounter, $Function*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WalkFunction",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WalkFunction, name, initialize, &classInfo$$, WalkFunction::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WalkFunction);
+	});
 	return class$;
 }
 

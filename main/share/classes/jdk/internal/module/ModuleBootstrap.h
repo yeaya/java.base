@@ -84,6 +84,7 @@ class $export ModuleBootstrap : public ::java::lang::Object {
 	$class(ModuleBootstrap, $PRELOAD, ::java::lang::Object)
 public:
 	ModuleBootstrap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addEnableNativeAccess(::java::lang::ModuleLayer* layer);
 	static bool addExtraExportsAndOpens(::java::lang::ModuleLayer* bootLayer);

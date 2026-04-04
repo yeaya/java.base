@@ -25,6 +25,7 @@ class $import AclEntryFlag : public ::java::lang::Enum {
 public:
 	AclEntryFlag();
 	static $Array<::java::nio::file::attribute::AclEntryFlag>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::nio::file::attribute::AclEntryFlag* valueOf($String* name);
 	static $Array<::java::nio::file::attribute::AclEntryFlag>* values();

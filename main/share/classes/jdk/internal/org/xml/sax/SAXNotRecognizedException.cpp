@@ -1,5 +1,4 @@
 #include <jdk/internal/org/xml/sax/SAXNotRecognizedException.h>
-
 #include <jdk/internal/org/xml/sax/SAXException.h>
 #include <jcpp.h>
 
@@ -13,30 +12,6 @@ namespace jdk {
 		namespace org {
 			namespace xml {
 				namespace sax {
-
-$FieldInfo _SAXNotRecognizedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SAXNotRecognizedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SAXNotRecognizedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SAXNotRecognizedException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SAXNotRecognizedException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _SAXNotRecognizedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.xml.sax.SAXNotRecognizedException",
-	"jdk.internal.org.xml.sax.SAXException",
-	nullptr,
-	_SAXNotRecognizedException_FieldInfo_,
-	_SAXNotRecognizedException_MethodInfo_
-};
-
-$Object* allocate$SAXNotRecognizedException($Class* clazz) {
-	return $of($alloc(SAXNotRecognizedException));
-}
 
 void SAXNotRecognizedException::init$() {
 	$SAXException::init$();
@@ -57,7 +32,26 @@ void SAXNotRecognizedException::throw$() {
 }
 
 $Class* SAXNotRecognizedException::load$($String* name, bool initialize) {
-	$loadClass(SAXNotRecognizedException, name, initialize, &_SAXNotRecognizedException_ClassInfo_, allocate$SAXNotRecognizedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SAXNotRecognizedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SAXNotRecognizedException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SAXNotRecognizedException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.xml.sax.SAXNotRecognizedException",
+		"jdk.internal.org.xml.sax.SAXException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SAXNotRecognizedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAXNotRecognizedException);
+	});
 	return class$;
 }
 

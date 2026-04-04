@@ -87,6 +87,7 @@ class $import MethodHandles$Lookup : public ::java::lang::Object {
 	$class(MethodHandles$Lookup, $PRELOAD, ::java::lang::Object)
 public:
 	MethodHandles$Lookup();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* lookupClass);
 	void init$($Class* lookupClass, $Class* prevLookupClass, int32_t allowedModes);
 	$Class* accessClass($Class* targetClass);

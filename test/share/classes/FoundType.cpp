@@ -1,5 +1,4 @@
 #include <FoundType.h>
-
 #include <java/lang/Error.h>
 #include <java/lang/annotation/AnnotationTypeMismatchException.h>
 #include <java/lang/reflect/Method.h>
@@ -14,30 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AnnotationTypeMismatchException = ::java::lang::annotation::AnnotationTypeMismatchException;
 using $Method = ::java::lang::reflect::Method;
 
-$FieldInfo _FoundType_FieldInfo_[] = {
-	{"TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FoundType, TYPE)},
-	{}
-};
-
-$MethodInfo _FoundType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FoundType, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FoundType, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _FoundType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FoundType",
-	"java.lang.Object",
-	nullptr,
-	_FoundType_FieldInfo_,
-	_FoundType_MethodInfo_
-};
-
-$Object* allocate$FoundType($Class* clazz) {
-	return $of($alloc(FoundType));
-}
-
 $String* FoundType::TYPE = nullptr;
 
 void FoundType::init$() {
@@ -45,9 +20,9 @@ void FoundType::init$() {
 
 void FoundType::main($StringArray* args) {
 	$init(FoundType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationTypeMismatchException, ex, $new($AnnotationTypeMismatchException, nullptr, FoundType::TYPE));
-	if (!$nc(FoundType::TYPE)->equals($(ex->foundType()))) {
+	if (!FoundType::TYPE->equals($(ex->foundType()))) {
 		$throwNew($Error);
 	}
 }
@@ -55,12 +30,31 @@ void FoundType::main($StringArray* args) {
 FoundType::FoundType() {
 }
 
-void clinit$FoundType($Class* class$) {
+void FoundType::clinit$($Class* clazz) {
 	$assignStatic(FoundType::TYPE, "a.halting.Problem"_s);
 }
 
 $Class* FoundType::load$($String* name, bool initialize) {
-	$loadClass(FoundType, name, initialize, &_FoundType_ClassInfo_, clinit$FoundType, allocate$FoundType);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FoundType, TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FoundType, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FoundType, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FoundType",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FoundType, name, initialize, &classInfo$$, FoundType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FoundType);
+	});
 	return class$;
 }
 

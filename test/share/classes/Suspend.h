@@ -17,6 +17,7 @@ class $export Suspend : public ::java::lang::Runnable {
 	$class(Suspend, 0, ::java::lang::Runnable)
 public:
 	Suspend();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	virtual void run() override;

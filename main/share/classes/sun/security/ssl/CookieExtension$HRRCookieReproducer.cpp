@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CookieExtension$HRRCookieReproducer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Map.h>
 #include <sun/security/ssl/ConnectionContext.h>
@@ -20,11 +19,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Map = ::java::util::Map;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $CookieExtension$CookieSpec = ::sun::security::ssl::CookieExtension$CookieSpec;
 using $Record = ::sun::security::ssl::Record;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -34,42 +31,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CookieExtension$HRRCookieReproducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CookieExtension$HRRCookieReproducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CookieExtension$HRRCookieReproducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CookieExtension$HRRCookieReproducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CookieExtension$HRRCookieReproducer", "sun.security.ssl.CookieExtension", "HRRCookieReproducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CookieExtension$HRRCookieReproducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CookieExtension$HRRCookieReproducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_CookieExtension$HRRCookieReproducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CookieExtension$HRRCookieReproducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CookieExtension"
-};
-
-$Object* allocate$CookieExtension$HRRCookieReproducer($Class* clazz) {
-	return $of($alloc(CookieExtension$HRRCookieReproducer));
-}
-
 void CookieExtension$HRRCookieReproducer::init$() {
 }
 
 $bytes* CookieExtension$HRRCookieReproducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::HRR_COOKIE)) {
@@ -79,9 +45,9 @@ $bytes* CookieExtension$HRRCookieReproducer::produce($ConnectionContext* context
 		}
 		return nullptr;
 	}
-	$var($CookieExtension$CookieSpec, spec, $cast($CookieExtension$CookieSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_COOKIE)));
-	if (spec != nullptr && spec->cookie != nullptr && $nc(spec->cookie)->length != 0) {
-		$var($bytes, extData, $new($bytes, $nc(spec->cookie)->length + 2));
+	$var($CookieExtension$CookieSpec, spec, $cast($CookieExtension$CookieSpec, $nc(shc->handshakeExtensions)->get($SSLExtension::CH_COOKIE)));
+	if (spec != nullptr && spec->cookie != nullptr && spec->cookie->length != 0) {
+		$var($bytes, extData, $new($bytes, spec->cookie->length + 2));
 		$var($ByteBuffer, m, $ByteBuffer::wrap(extData));
 		$Record::putBytes16(m, spec->cookie);
 		return extData;
@@ -93,7 +59,33 @@ CookieExtension$HRRCookieReproducer::CookieExtension$HRRCookieReproducer() {
 }
 
 $Class* CookieExtension$HRRCookieReproducer::load$($String* name, bool initialize) {
-	$loadClass(CookieExtension$HRRCookieReproducer, name, initialize, &_CookieExtension$HRRCookieReproducer_ClassInfo_, allocate$CookieExtension$HRRCookieReproducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CookieExtension$HRRCookieReproducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CookieExtension$HRRCookieReproducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CookieExtension$HRRCookieReproducer", "sun.security.ssl.CookieExtension", "HRRCookieReproducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CookieExtension$HRRCookieReproducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CookieExtension"
+	};
+	$loadClass(CookieExtension$HRRCookieReproducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CookieExtension$HRRCookieReproducer);
+	});
 	return class$;
 }
 

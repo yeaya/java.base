@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/ReflectionFactory$GetReflectionFactoryAction.h>
-
 #include <jdk/internal/reflect/ReflectionFactory.h>
 #include <jcpp.h>
 
@@ -12,49 +11,44 @@ namespace jdk {
 	namespace internal {
 		namespace reflect {
 
-$MethodInfo _ReflectionFactory$GetReflectionFactoryAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReflectionFactory$GetReflectionFactoryAction, init$, void)},
-	{"run", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory$GetReflectionFactoryAction, run, $Object*)},
-	{}
-};
-
-$InnerClassInfo _ReflectionFactory$GetReflectionFactoryAction_InnerClassesInfo_[] = {
-	{"jdk.internal.reflect.ReflectionFactory$GetReflectionFactoryAction", "jdk.internal.reflect.ReflectionFactory", "GetReflectionFactoryAction", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ReflectionFactory$GetReflectionFactoryAction_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.reflect.ReflectionFactory$GetReflectionFactoryAction",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_ReflectionFactory$GetReflectionFactoryAction_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljdk/internal/reflect/ReflectionFactory;>;",
-	nullptr,
-	_ReflectionFactory$GetReflectionFactoryAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.reflect.ReflectionFactory"
-};
-
-$Object* allocate$ReflectionFactory$GetReflectionFactoryAction($Class* clazz) {
-	return $of($alloc(ReflectionFactory$GetReflectionFactoryAction));
-}
-
 void ReflectionFactory$GetReflectionFactoryAction::init$() {
 }
 
 $Object* ReflectionFactory$GetReflectionFactoryAction::run() {
-	return $of($ReflectionFactory::getReflectionFactory());
+	return $ReflectionFactory::getReflectionFactory();
 }
 
 ReflectionFactory$GetReflectionFactoryAction::ReflectionFactory$GetReflectionFactoryAction() {
 }
 
 $Class* ReflectionFactory$GetReflectionFactoryAction::load$($String* name, bool initialize) {
-	$loadClass(ReflectionFactory$GetReflectionFactoryAction, name, initialize, &_ReflectionFactory$GetReflectionFactoryAction_ClassInfo_, allocate$ReflectionFactory$GetReflectionFactoryAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReflectionFactory$GetReflectionFactoryAction, init$, void)},
+		{"run", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory$GetReflectionFactoryAction, run, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.reflect.ReflectionFactory$GetReflectionFactoryAction", "jdk.internal.reflect.ReflectionFactory", "GetReflectionFactoryAction", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.reflect.ReflectionFactory$GetReflectionFactoryAction",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljdk/internal/reflect/ReflectionFactory;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.reflect.ReflectionFactory"
+	};
+	$loadClass(ReflectionFactory$GetReflectionFactoryAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReflectionFactory$GetReflectionFactoryAction);
+	});
 	return class$;
 }
 

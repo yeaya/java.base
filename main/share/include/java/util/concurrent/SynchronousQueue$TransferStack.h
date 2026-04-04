@@ -37,6 +37,7 @@ class $import SynchronousQueue$TransferStack : public ::java::util::concurrent::
 	$class(SynchronousQueue$TransferStack, 0, ::java::util::concurrent::SynchronousQueue$Transferer)
 public:
 	SynchronousQueue$TransferStack();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool casHead(::java::util::concurrent::SynchronousQueue$TransferStack$SNode* h, ::java::util::concurrent::SynchronousQueue$TransferStack$SNode* nh);
 	void clean(::java::util::concurrent::SynchronousQueue$TransferStack$SNode* s);

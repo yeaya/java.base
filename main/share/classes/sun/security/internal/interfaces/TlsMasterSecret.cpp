@@ -1,5 +1,4 @@
 #include <sun/security/internal/interfaces/TlsMasterSecret.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,46 +11,39 @@ namespace sun {
 		namespace internal {
 			namespace interfaces {
 
-$CompoundAttribute _TlsMasterSecret_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _TlsMasterSecret_FieldAnnotations_serialVersionUID[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _TlsMasterSecret_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(TlsMasterSecret, serialVersionUID), _TlsMasterSecret_FieldAnnotations_serialVersionUID},
-	{}
-};
-
-$MethodInfo _TlsMasterSecret_MethodInfo_[] = {
-	{"getMajorVersion", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TlsMasterSecret, getMajorVersion, int32_t)},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TlsMasterSecret, getMinorVersion, int32_t)},
-	{}
-};
-
-$ClassInfo _TlsMasterSecret_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.security.internal.interfaces.TlsMasterSecret",
-	nullptr,
-	"javax.crypto.SecretKey",
-	_TlsMasterSecret_FieldInfo_,
-	_TlsMasterSecret_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_TlsMasterSecret_Annotations_
-};
-
-$Object* allocate$TlsMasterSecret($Class* clazz) {
-	return $of($alloc(TlsMasterSecret));
-}
-
 $Class* TlsMasterSecret::load$($String* name, bool initialize) {
-	$loadClass(TlsMasterSecret, name, initialize, &_TlsMasterSecret_ClassInfo_, allocate$TlsMasterSecret);
+	$CompoundAttribute serialVersionUIDfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(TlsMasterSecret, serialVersionUID), serialVersionUIDfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getMajorVersion", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TlsMasterSecret, getMajorVersion, int32_t)},
+		{"getMinorVersion", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TlsMasterSecret, getMinorVersion, int32_t)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.security.internal.interfaces.TlsMasterSecret",
+		nullptr,
+		"javax.crypto.SecretKey",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(TlsMasterSecret, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TlsMasterSecret));
+	});
 	return class$;
 }
 

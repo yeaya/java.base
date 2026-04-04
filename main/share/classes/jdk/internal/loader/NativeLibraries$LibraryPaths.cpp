@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/NativeLibraries$LibraryPaths.h>
-
 #include <jdk/internal/loader/ClassLoaderHelper.h>
 #include <jdk/internal/loader/NativeLibraries.h>
 #include <jdk/internal/util/StaticProperty.h>
@@ -19,50 +18,14 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$FieldInfo _NativeLibraries$LibraryPaths_FieldInfo_[] = {
-	{"SYS_PATHS", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NativeLibraries$LibraryPaths, SYS_PATHS)},
-	{"USER_PATHS", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NativeLibraries$LibraryPaths, USER_PATHS)},
-	{}
-};
-
-$MethodInfo _NativeLibraries$LibraryPaths_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NativeLibraries$LibraryPaths, init$, void)},
-	{}
-};
-
-$InnerClassInfo _NativeLibraries$LibraryPaths_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.NativeLibraries$LibraryPaths", "jdk.internal.loader.NativeLibraries", "LibraryPaths", $STATIC},
-	{}
-};
-
-$ClassInfo _NativeLibraries$LibraryPaths_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.NativeLibraries$LibraryPaths",
-	"java.lang.Object",
-	nullptr,
-	_NativeLibraries$LibraryPaths_FieldInfo_,
-	_NativeLibraries$LibraryPaths_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativeLibraries$LibraryPaths_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.NativeLibraries"
-};
-
-$Object* allocate$NativeLibraries$LibraryPaths($Class* clazz) {
-	return $of($alloc(NativeLibraries$LibraryPaths));
-}
-
 $StringArray* NativeLibraries$LibraryPaths::SYS_PATHS = nullptr;
 $StringArray* NativeLibraries$LibraryPaths::USER_PATHS = nullptr;
 
 void NativeLibraries$LibraryPaths::init$() {
 }
 
-void clinit$NativeLibraries$LibraryPaths($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void NativeLibraries$LibraryPaths::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(NativeLibraries$LibraryPaths::SYS_PATHS, $ClassLoaderHelper::parsePath($($StaticProperty::sunBootLibraryPath())));
 	$assignStatic(NativeLibraries$LibraryPaths::USER_PATHS, $ClassLoaderHelper::parsePath($($StaticProperty::javaLibraryPath())));
 }
@@ -71,7 +34,37 @@ NativeLibraries$LibraryPaths::NativeLibraries$LibraryPaths() {
 }
 
 $Class* NativeLibraries$LibraryPaths::load$($String* name, bool initialize) {
-	$loadClass(NativeLibraries$LibraryPaths, name, initialize, &_NativeLibraries$LibraryPaths_ClassInfo_, clinit$NativeLibraries$LibraryPaths, allocate$NativeLibraries$LibraryPaths);
+	$FieldInfo fieldInfos$$[] = {
+		{"SYS_PATHS", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NativeLibraries$LibraryPaths, SYS_PATHS)},
+		{"USER_PATHS", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NativeLibraries$LibraryPaths, USER_PATHS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NativeLibraries$LibraryPaths, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.NativeLibraries$LibraryPaths", "jdk.internal.loader.NativeLibraries", "LibraryPaths", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.NativeLibraries$LibraryPaths",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.NativeLibraries"
+	};
+	$loadClass(NativeLibraries$LibraryPaths, name, initialize, &classInfo$$, NativeLibraries$LibraryPaths::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeLibraries$LibraryPaths);
+	});
 	return class$;
 }
 

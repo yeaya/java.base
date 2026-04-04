@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/LockSupport.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
@@ -17,42 +16,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 			namespace locks {
-
-$FieldInfo _LockSupport_FieldInfo_[] = {
-	{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LockSupport, U)},
-	{"PARKBLOCKER", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LockSupport, PARKBLOCKER)},
-	{"TID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LockSupport, TID)},
-	{}
-};
-
-$MethodInfo _LockSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LockSupport, init$, void)},
-	{"getBlocker", "(Ljava/lang/Thread;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, getBlocker, $Object*, $Thread*)},
-	{"getThreadId", "(Ljava/lang/Thread;)J", nullptr, $STATIC | $FINAL, $staticMethod(LockSupport, getThreadId, int64_t, $Thread*)},
-	{"park", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, park, void, Object$*)},
-	{"park", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, park, void)},
-	{"parkNanos", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkNanos, void, Object$*, int64_t)},
-	{"parkNanos", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkNanos, void, int64_t)},
-	{"parkUntil", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkUntil, void, Object$*, int64_t)},
-	{"parkUntil", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkUntil, void, int64_t)},
-	{"setBlocker", "(Ljava/lang/Thread;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LockSupport, setBlocker, void, $Thread*, Object$*)},
-	{"setCurrentBlocker", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, setCurrentBlocker, void, Object$*)},
-	{"unpark", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, unpark, void, $Thread*)},
-	{}
-};
-
-$ClassInfo _LockSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.locks.LockSupport",
-	"java.lang.Object",
-	nullptr,
-	_LockSupport_FieldInfo_,
-	_LockSupport_MethodInfo_
-};
-
-$Object* allocate$LockSupport($Class* clazz) {
-	return $of($alloc(LockSupport));
-}
 
 $Unsafe* LockSupport::U = nullptr;
 int64_t LockSupport::PARKBLOCKER = 0;
@@ -109,7 +72,7 @@ $Object* LockSupport::getBlocker($Thread* t) {
 	if (t == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	return $of($nc(LockSupport::U)->getReferenceOpaque(t, LockSupport::PARKBLOCKER));
+	return $nc(LockSupport::U)->getReferenceOpaque(t, LockSupport::PARKBLOCKER);
 }
 
 void LockSupport::park() {
@@ -134,17 +97,48 @@ int64_t LockSupport::getThreadId($Thread* thread) {
 	return $nc(LockSupport::U)->getLong(thread, LockSupport::TID);
 }
 
-void clinit$LockSupport($Class* class$) {
+void LockSupport::clinit$($Class* clazz) {
 	$assignStatic(LockSupport::U, $Unsafe::getUnsafe());
 	LockSupport::PARKBLOCKER = $nc(LockSupport::U)->objectFieldOffset($Thread::class$, "parkBlocker"_s);
-	LockSupport::TID = $nc(LockSupport::U)->objectFieldOffset($Thread::class$, "tid"_s);
+	LockSupport::TID = LockSupport::U->objectFieldOffset($Thread::class$, "tid"_s);
 }
 
 LockSupport::LockSupport() {
 }
 
 $Class* LockSupport::load$($String* name, bool initialize) {
-	$loadClass(LockSupport, name, initialize, &_LockSupport_ClassInfo_, clinit$LockSupport, allocate$LockSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LockSupport, U)},
+		{"PARKBLOCKER", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LockSupport, PARKBLOCKER)},
+		{"TID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LockSupport, TID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LockSupport, init$, void)},
+		{"getBlocker", "(Ljava/lang/Thread;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, getBlocker, $Object*, $Thread*)},
+		{"getThreadId", "(Ljava/lang/Thread;)J", nullptr, $STATIC | $FINAL, $staticMethod(LockSupport, getThreadId, int64_t, $Thread*)},
+		{"park", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, park, void, Object$*)},
+		{"park", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, park, void)},
+		{"parkNanos", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkNanos, void, Object$*, int64_t)},
+		{"parkNanos", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkNanos, void, int64_t)},
+		{"parkUntil", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkUntil, void, Object$*, int64_t)},
+		{"parkUntil", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkUntil, void, int64_t)},
+		{"setBlocker", "(Ljava/lang/Thread;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LockSupport, setBlocker, void, $Thread*, Object$*)},
+		{"setCurrentBlocker", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, setCurrentBlocker, void, Object$*)},
+		{"unpark", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, unpark, void, $Thread*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.locks.LockSupport",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LockSupport, name, initialize, &classInfo$$, LockSupport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LockSupport);
+	});
 	return class$;
 }
 

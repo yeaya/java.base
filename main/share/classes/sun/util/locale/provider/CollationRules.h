@@ -17,6 +17,7 @@ class CollationRules : public ::java::lang::Object {
 	$class(CollationRules, 0, ::java::lang::Object)
 public:
 	CollationRules();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* DEFAULTRULES;
 };

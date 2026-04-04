@@ -1,5 +1,4 @@
 #include <sun/security/rsa/RSAKeyFactory$PSS.h>
-
 #include <sun/security/rsa/RSAKeyFactory.h>
 #include <sun/security/rsa/RSAUtil$KeyType.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace sun {
 	namespace security {
 		namespace rsa {
 
-$MethodInfo _RSAKeyFactory$PSS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RSAKeyFactory$PSS, init$, void)},
-	{}
-};
-
-$InnerClassInfo _RSAKeyFactory$PSS_InnerClassesInfo_[] = {
-	{"sun.security.rsa.RSAKeyFactory$PSS", "sun.security.rsa.RSAKeyFactory", "PSS", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RSAKeyFactory$PSS_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.rsa.RSAKeyFactory$PSS",
-	"sun.security.rsa.RSAKeyFactory",
-	nullptr,
-	nullptr,
-	_RSAKeyFactory$PSS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RSAKeyFactory$PSS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.rsa.RSAKeyFactory"
-};
-
-$Object* allocate$RSAKeyFactory$PSS($Class* clazz) {
-	return $of($alloc(RSAKeyFactory$PSS));
-}
-
 void RSAKeyFactory$PSS::init$() {
 	$init($RSAUtil$KeyType);
 	$RSAKeyFactory::init$($RSAUtil$KeyType::PSS);
@@ -55,7 +24,32 @@ RSAKeyFactory$PSS::RSAKeyFactory$PSS() {
 }
 
 $Class* RSAKeyFactory$PSS::load$($String* name, bool initialize) {
-	$loadClass(RSAKeyFactory$PSS, name, initialize, &_RSAKeyFactory$PSS_ClassInfo_, allocate$RSAKeyFactory$PSS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RSAKeyFactory$PSS, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.rsa.RSAKeyFactory$PSS", "sun.security.rsa.RSAKeyFactory", "PSS", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.rsa.RSAKeyFactory$PSS",
+		"sun.security.rsa.RSAKeyFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.rsa.RSAKeyFactory"
+	};
+	$loadClass(RSAKeyFactory$PSS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAKeyFactory$PSS);
+	});
 	return class$;
 }
 

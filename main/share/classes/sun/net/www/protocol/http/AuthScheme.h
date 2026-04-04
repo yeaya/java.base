@@ -30,6 +30,7 @@ class $export AuthScheme : public ::java::lang::Enum {
 public:
 	AuthScheme();
 	static $Array<::sun::net::www::protocol::http::AuthScheme>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::net::www::protocol::http::AuthScheme* valueOf($String* name);
 	static $Array<::sun::net::www::protocol::http::AuthScheme>* values();

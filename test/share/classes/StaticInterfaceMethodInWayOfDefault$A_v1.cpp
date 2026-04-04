@@ -1,38 +1,33 @@
 #include <StaticInterfaceMethodInWayOfDefault$A_v1.h>
-
 #include <StaticInterfaceMethodInWayOfDefault.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 
-$InnerClassInfo _StaticInterfaceMethodInWayOfDefault$A_v1_InnerClassesInfo_[] = {
-	{"StaticInterfaceMethodInWayOfDefault$A_v1", "StaticInterfaceMethodInWayOfDefault", "A_v1", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StaticInterfaceMethodInWayOfDefault$A_v1_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"StaticInterfaceMethodInWayOfDefault$A_v1",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_StaticInterfaceMethodInWayOfDefault$A_v1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"StaticInterfaceMethodInWayOfDefault"
-};
-
-$Object* allocate$StaticInterfaceMethodInWayOfDefault$A_v1($Class* clazz) {
-	return $of($alloc(StaticInterfaceMethodInWayOfDefault$A_v1));
-}
-
 $Class* StaticInterfaceMethodInWayOfDefault$A_v1::load$($String* name, bool initialize) {
-	$loadClass(StaticInterfaceMethodInWayOfDefault$A_v1, name, initialize, &_StaticInterfaceMethodInWayOfDefault$A_v1_ClassInfo_, allocate$StaticInterfaceMethodInWayOfDefault$A_v1);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StaticInterfaceMethodInWayOfDefault$A_v1", "StaticInterfaceMethodInWayOfDefault", "A_v1", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"StaticInterfaceMethodInWayOfDefault$A_v1",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"StaticInterfaceMethodInWayOfDefault"
+	};
+	$loadClass(StaticInterfaceMethodInWayOfDefault$A_v1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StaticInterfaceMethodInWayOfDefault$A_v1);
+	});
 	return class$;
 }
 

@@ -43,6 +43,7 @@ class $export BootLoader$PackageHelper : public ::java::lang::Object {
 	$class(BootLoader$PackageHelper, 0, ::java::lang::Object)
 public:
 	BootLoader$PackageHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::Package* definePackage($String* name, $String* location);
 	static ::java::lang::Module* findModule($String* location);

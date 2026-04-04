@@ -1,5 +1,4 @@
 #include <FinalizeOverride$Subclass.h>
-
 #include <FinalizeOverride$Base.h>
 #include <FinalizeOverride.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
@@ -7,43 +6,9 @@
 
 using $FinalizeOverride = ::FinalizeOverride;
 using $FinalizeOverride$Base = ::FinalizeOverride$Base;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-
-$MethodInfo _FinalizeOverride$Subclass_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(FinalizeOverride$Subclass, init$, void, int32_t)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(FinalizeOverride$Subclass, finalize, void)},
-	{}
-};
-
-$InnerClassInfo _FinalizeOverride$Subclass_InnerClassesInfo_[] = {
-	{"FinalizeOverride$Subclass", "FinalizeOverride", "Subclass", $STATIC},
-	{"FinalizeOverride$Base", "FinalizeOverride", "Base", $STATIC},
-	{}
-};
-
-$ClassInfo _FinalizeOverride$Subclass_ClassInfo_ = {
-	$ACC_SUPER,
-	"FinalizeOverride$Subclass",
-	"FinalizeOverride$Base",
-	nullptr,
-	nullptr,
-	_FinalizeOverride$Subclass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FinalizeOverride$Subclass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FinalizeOverride"
-};
-
-$Object* allocate$FinalizeOverride$Subclass($Class* clazz) {
-	return $of($alloc(FinalizeOverride$Subclass));
-}
 
 void FinalizeOverride$Subclass::init$(int32_t v) {
 	$FinalizeOverride$Base::init$(v);
@@ -59,7 +24,34 @@ FinalizeOverride$Subclass::FinalizeOverride$Subclass() {
 }
 
 $Class* FinalizeOverride$Subclass::load$($String* name, bool initialize) {
-	$loadClass(FinalizeOverride$Subclass, name, initialize, &_FinalizeOverride$Subclass_ClassInfo_, allocate$FinalizeOverride$Subclass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(FinalizeOverride$Subclass, init$, void, int32_t)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(FinalizeOverride$Subclass, finalize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FinalizeOverride$Subclass", "FinalizeOverride", "Subclass", $STATIC},
+		{"FinalizeOverride$Base", "FinalizeOverride", "Base", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FinalizeOverride$Subclass",
+		"FinalizeOverride$Base",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FinalizeOverride"
+	};
+	$loadClass(FinalizeOverride$Subclass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FinalizeOverride$Subclass);
+	});
 	return class$;
 }
 

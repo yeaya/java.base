@@ -1,5 +1,4 @@
 #include <jdk/internal/util/random/RandomSupport$RandomGeneratorProperties.h>
-
 #include <jdk/internal/util/random/RandomSupport.h>
 #include <jcpp.h>
 
@@ -15,94 +14,85 @@ namespace jdk {
 		namespace util {
 			namespace random {
 
-$NamedAttribute RandomSupport$RandomGeneratorProperties_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute RandomSupport$RandomGeneratorProperties_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'-'}
-};
-
-$NamedAttribute RandomSupport$RandomGeneratorProperties_Attribute_var$1[] = {
-	{"value", '[', RandomSupport$RandomGeneratorProperties_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _RandomSupport$RandomGeneratorProperties_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", RandomSupport$RandomGeneratorProperties_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", RandomSupport$RandomGeneratorProperties_Attribute_var$1},
-	{}
-};
-
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_equidistribution0 = {
-	'I', "2147483647"
-};
-
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_group1 = {
-	's', "Legacy"
-};
-
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_i2 = {
-	'I', "0"
-};
-
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_isHardware3 = {
-	'Z', "false"
-};
-
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_isStochastic4 = {
-	'Z', "false"
-};
-
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_j5 = {
-	'I', "0"
-};
-
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_k6 = {
-	'I', "0"
-};
-
-$MethodInfo _RandomSupport$RandomGeneratorProperties_MethodInfo_[] = {
-	{"equidistribution", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, equidistribution, int32_t), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_equidistribution0},
-	{"group", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, group, $String*), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_group1},
-	{"i", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, i, int32_t), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_i2},
-	{"isHardware", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, isHardware, bool), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_isHardware3},
-	{"isStochastic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, isStochastic, bool), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_isStochastic4},
-	{"j", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, j, int32_t), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_j5},
-	{"k", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, k, int32_t), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_k6},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, name, $String*)},
-	{}
-};
-
-$InnerClassInfo _RandomSupport$RandomGeneratorProperties_InnerClassesInfo_[] = {
-	{"jdk.internal.util.random.RandomSupport$RandomGeneratorProperties", "jdk.internal.util.random.RandomSupport", "RandomGeneratorProperties", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _RandomSupport$RandomGeneratorProperties_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"jdk.internal.util.random.RandomSupport$RandomGeneratorProperties",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_RandomSupport$RandomGeneratorProperties_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RandomSupport$RandomGeneratorProperties_InnerClassesInfo_,
-	_RandomSupport$RandomGeneratorProperties_Annotations_,
-	nullptr,
-	nullptr,
-	"jdk.internal.util.random.RandomSupport"
-};
-
-$Object* allocate$RandomSupport$RandomGeneratorProperties($Class* clazz) {
-	return $of($alloc(RandomSupport$RandomGeneratorProperties));
-}
-
 $Class* RandomSupport$RandomGeneratorProperties::load$($String* name, bool initialize) {
-	$loadClass(RandomSupport$RandomGeneratorProperties, name, initialize, &_RandomSupport$RandomGeneratorProperties_ClassInfo_, allocate$RandomSupport$RandomGeneratorProperties);
+
+	$Attribute equidistributiondefaultValue$$ = {
+		'I', "2147483647"
+	};
+
+	$Attribute groupdefaultValue$$ = {
+		's', "Legacy"
+	};
+
+	$Attribute idefaultValue$$ = {
+		'I', "0"
+	};
+
+	$Attribute isHardwaredefaultValue$$ = {
+		'Z', "false"
+	};
+
+	$Attribute isStochasticdefaultValue$$ = {
+		'Z', "false"
+	};
+
+	$Attribute jdefaultValue$$ = {
+		'I', "0"
+	};
+
+	$Attribute kdefaultValue$$ = {
+		'I', "0"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"equidistribution", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, equidistribution, int32_t), nullptr, &equidistributiondefaultValue$$},
+		{"group", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, group, $String*), nullptr, &groupdefaultValue$$},
+		{"i", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, i, int32_t), nullptr, &idefaultValue$$},
+		{"isHardware", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, isHardware, bool), nullptr, &isHardwaredefaultValue$$},
+		{"isStochastic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, isStochastic, bool), nullptr, &isStochasticdefaultValue$$},
+		{"j", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, j, int32_t), nullptr, &jdefaultValue$$},
+		{"k", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, k, int32_t), nullptr, &kdefaultValue$$},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, name, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.util.random.RandomSupport$RandomGeneratorProperties", "jdk.internal.util.random.RandomSupport", "RandomGeneratorProperties", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"jdk.internal.util.random.RandomSupport$RandomGeneratorProperties",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.util.random.RandomSupport"
+	};
+	$loadClass(RandomSupport$RandomGeneratorProperties, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomSupport$RandomGeneratorProperties);
+	});
 	return class$;
 }
 

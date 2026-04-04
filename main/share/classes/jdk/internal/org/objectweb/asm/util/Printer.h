@@ -55,6 +55,7 @@ class $export Printer : public ::java::lang::Object {
 	$class(Printer, 0, ::java::lang::Object)
 public:
 	Printer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t api);
 	static void appendString(::java::lang::StringBuilder* stringBuilder, $String* string);
 	virtual ::java::util::List* getText();

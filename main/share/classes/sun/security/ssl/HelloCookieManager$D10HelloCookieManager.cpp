@@ -1,5 +1,4 @@
 #include <sun/security/ssl/HelloCookieManager$D10HelloCookieManager.h>
-
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/SecureRandom.h>
@@ -28,47 +27,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _HelloCookieManager$D10HelloCookieManager_FieldInfo_[] = {
-	{"secureRandom", "Ljava/security/SecureRandom;", nullptr, $FINAL, $field(HelloCookieManager$D10HelloCookieManager, secureRandom)},
-	{"cookieVersion", "I", nullptr, $PRIVATE, $field(HelloCookieManager$D10HelloCookieManager, cookieVersion)},
-	{"cookieSecret", "[B", nullptr, $PRIVATE | $FINAL, $field(HelloCookieManager$D10HelloCookieManager, cookieSecret)},
-	{"legacySecret", "[B", nullptr, $PRIVATE | $FINAL, $field(HelloCookieManager$D10HelloCookieManager, legacySecret)},
-	{"d10ManagerLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(HelloCookieManager$D10HelloCookieManager, d10ManagerLock)},
-	{}
-};
-
-$MethodInfo _HelloCookieManager$D10HelloCookieManager_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(HelloCookieManager$D10HelloCookieManager, init$, void, $SecureRandom*)},
-	{"createCookie", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)[B", nullptr, 0, $virtualMethod(HelloCookieManager$D10HelloCookieManager, createCookie, $bytes*, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
-	{"isCookieValid", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;[B)Z", nullptr, 0, $virtualMethod(HelloCookieManager$D10HelloCookieManager, isCookieValid, bool, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _HelloCookieManager$D10HelloCookieManager_InnerClassesInfo_[] = {
-	{"sun.security.ssl.HelloCookieManager$D10HelloCookieManager", "sun.security.ssl.HelloCookieManager", "D10HelloCookieManager", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HelloCookieManager$D10HelloCookieManager_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.HelloCookieManager$D10HelloCookieManager",
-	"sun.security.ssl.HelloCookieManager",
-	nullptr,
-	_HelloCookieManager$D10HelloCookieManager_FieldInfo_,
-	_HelloCookieManager$D10HelloCookieManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HelloCookieManager$D10HelloCookieManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.HelloCookieManager"
-};
-
-$Object* allocate$HelloCookieManager$D10HelloCookieManager($Class* clazz) {
-	return $of($alloc(HelloCookieManager$D10HelloCookieManager));
-}
-
 void HelloCookieManager$D10HelloCookieManager::init$($SecureRandom* secureRandom) {
 	$HelloCookieManager::init$();
 	$set(this, d10ManagerLock, $new($ReentrantLock));
@@ -81,28 +39,26 @@ void HelloCookieManager$D10HelloCookieManager::init$($SecureRandom* secureRandom
 }
 
 $bytes* HelloCookieManager$D10HelloCookieManager::createCookie($ServerHandshakeContext* context, $ClientHello$ClientHelloMessage* clientHello) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t version = 0;
 	$var($bytes, secret, nullptr);
-	$nc(this->d10ManagerLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			version = this->cookieVersion;
-			$assign(secret, this->cookieSecret);
-			if (((int32_t)(this->cookieVersion & (uint32_t)0x00FFFFFF)) == 0) {
-				$System::arraycopy(this->cookieSecret, 0, this->legacySecret, 0, 32);
-				$nc(this->secureRandom)->nextBytes(this->cookieSecret);
-			}
-			++this->cookieVersion;
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->d10ManagerLock)->unlock();
+	this->d10ManagerLock->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		version = this->cookieVersion;
+		$assign(secret, this->cookieSecret);
+		if ((this->cookieVersion & 0x00ffffff) == 0) {
+			$System::arraycopy(this->cookieSecret, 0, this->legacySecret, 0, 32);
+			$nc(this->secureRandom)->nextBytes(this->cookieSecret);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		++this->cookieVersion;
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->d10ManagerLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$var($MessageDigest, md, nullptr);
 	try {
@@ -113,33 +69,31 @@ $bytes* HelloCookieManager$D10HelloCookieManager::createCookie($ServerHandshakeC
 	$var($bytes, helloBytes, $nc(clientHello)->getHelloCookieBytes());
 	$nc(md)->update(helloBytes);
 	$var($bytes, cookie, md->digest(secret));
-	$nc(cookie)->set(0, (int8_t)((int32_t)((version >> 24) & (uint32_t)255)));
+	$nc(cookie)->set(0, (int8_t)((version >> 24) & 0xff));
 	return cookie;
 }
 
 bool HelloCookieManager$D10HelloCookieManager::isCookieValid($ServerHandshakeContext* context, $ClientHello$ClientHelloMessage* clientHello, $bytes* cookie) {
-	$useLocalCurrentObjectStackCache();
-	if ((cookie == nullptr) || ($nc(cookie)->length != 32)) {
+	$useLocalObjectStack();
+	if ((cookie == nullptr) || (cookie->length != 32)) {
 		return false;
 	}
 	$var($bytes, secret, nullptr);
-	$nc(this->d10ManagerLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (((int32_t)((this->cookieVersion >> 24) & (uint32_t)255)) == $nc(cookie)->get(0)) {
-				$assign(secret, this->cookieSecret);
-			} else {
-				$assign(secret, this->legacySecret);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->d10ManagerLock)->unlock();
+	this->d10ManagerLock->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (((this->cookieVersion >> 24) & 0xff) == $nc(cookie)->get(0)) {
+			$assign(secret, this->cookieSecret);
+		} else {
+			$assign(secret, this->legacySecret);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->d10ManagerLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$var($MessageDigest, md, nullptr);
 	try {
@@ -158,7 +112,42 @@ HelloCookieManager$D10HelloCookieManager::HelloCookieManager$D10HelloCookieManag
 }
 
 $Class* HelloCookieManager$D10HelloCookieManager::load$($String* name, bool initialize) {
-	$loadClass(HelloCookieManager$D10HelloCookieManager, name, initialize, &_HelloCookieManager$D10HelloCookieManager_ClassInfo_, allocate$HelloCookieManager$D10HelloCookieManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"secureRandom", "Ljava/security/SecureRandom;", nullptr, $FINAL, $field(HelloCookieManager$D10HelloCookieManager, secureRandom)},
+		{"cookieVersion", "I", nullptr, $PRIVATE, $field(HelloCookieManager$D10HelloCookieManager, cookieVersion)},
+		{"cookieSecret", "[B", nullptr, $PRIVATE | $FINAL, $field(HelloCookieManager$D10HelloCookieManager, cookieSecret)},
+		{"legacySecret", "[B", nullptr, $PRIVATE | $FINAL, $field(HelloCookieManager$D10HelloCookieManager, legacySecret)},
+		{"d10ManagerLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(HelloCookieManager$D10HelloCookieManager, d10ManagerLock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(HelloCookieManager$D10HelloCookieManager, init$, void, $SecureRandom*)},
+		{"createCookie", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)[B", nullptr, 0, $virtualMethod(HelloCookieManager$D10HelloCookieManager, createCookie, $bytes*, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
+		{"isCookieValid", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;[B)Z", nullptr, 0, $virtualMethod(HelloCookieManager$D10HelloCookieManager, isCookieValid, bool, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.HelloCookieManager$D10HelloCookieManager", "sun.security.ssl.HelloCookieManager", "D10HelloCookieManager", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.HelloCookieManager$D10HelloCookieManager",
+		"sun.security.ssl.HelloCookieManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.HelloCookieManager"
+	};
+	$loadClass(HelloCookieManager$D10HelloCookieManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HelloCookieManager$D10HelloCookieManager);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <FailingFlushAndClose$FailingFlushWriter.h>
-
 #include <FailingFlushAndClose.h>
 #include <java/io/IOException.h>
 #include <java/io/Writer.h>
@@ -12,44 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _FailingFlushAndClose$FailingFlushWriter_FieldInfo_[] = {
-	{"closed", "Z", nullptr, 0, $field(FailingFlushAndClose$FailingFlushWriter, closed)},
-	{}
-};
-
-$MethodInfo _FailingFlushAndClose$FailingFlushWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FailingFlushAndClose$FailingFlushWriter, init$, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushWriter, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushWriter, flush, void), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FailingFlushAndClose$FailingFlushWriter_InnerClassesInfo_[] = {
-	{"FailingFlushAndClose$FailingFlushWriter", "FailingFlushAndClose", "FailingFlushWriter", $STATIC},
-	{}
-};
-
-$ClassInfo _FailingFlushAndClose$FailingFlushWriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"FailingFlushAndClose$FailingFlushWriter",
-	"java.io.Writer",
-	nullptr,
-	_FailingFlushAndClose$FailingFlushWriter_FieldInfo_,
-	_FailingFlushAndClose$FailingFlushWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FailingFlushAndClose$FailingFlushWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FailingFlushAndClose"
-};
-
-$Object* allocate$FailingFlushAndClose$FailingFlushWriter($Class* clazz) {
-	return $of($alloc(FailingFlushAndClose$FailingFlushWriter));
-}
 
 void FailingFlushAndClose$FailingFlushWriter::init$() {
 	$Writer::init$();
@@ -80,7 +41,39 @@ FailingFlushAndClose$FailingFlushWriter::FailingFlushAndClose$FailingFlushWriter
 }
 
 $Class* FailingFlushAndClose$FailingFlushWriter::load$($String* name, bool initialize) {
-	$loadClass(FailingFlushAndClose$FailingFlushWriter, name, initialize, &_FailingFlushAndClose$FailingFlushWriter_ClassInfo_, allocate$FailingFlushAndClose$FailingFlushWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"closed", "Z", nullptr, 0, $field(FailingFlushAndClose$FailingFlushWriter, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FailingFlushAndClose$FailingFlushWriter, init$, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushWriter, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushWriter, flush, void), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FailingFlushAndClose$FailingFlushWriter", "FailingFlushAndClose", "FailingFlushWriter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FailingFlushAndClose$FailingFlushWriter",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FailingFlushAndClose"
+	};
+	$loadClass(FailingFlushAndClose$FailingFlushWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FailingFlushAndClose$FailingFlushWriter));
+	});
 	return class$;
 }
 

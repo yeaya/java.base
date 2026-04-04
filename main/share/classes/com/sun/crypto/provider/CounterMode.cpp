@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/CounterMode.h>
-
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/security/InvalidKeyException.h>
@@ -19,49 +18,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$CompoundAttribute _CounterMode_MethodAnnotations_implCrypt5[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _CounterMode_FieldInfo_[] = {
-	{"counter", "[B", nullptr, $FINAL, $field(CounterMode, counter)},
-	{"encryptedCounter", "[B", nullptr, $PRIVATE | $FINAL, $field(CounterMode, encryptedCounter)},
-	{"used", "I", nullptr, $PRIVATE, $field(CounterMode, used)},
-	{"counterSave", "[B", nullptr, $PRIVATE, $field(CounterMode, counterSave)},
-	{"encryptedCounterSave", "[B", nullptr, $PRIVATE, $field(CounterMode, encryptedCounterSave)},
-	{"usedSave", "I", nullptr, $PRIVATE, $field(CounterMode, usedSave)},
-	{}
-};
-
-$MethodInfo _CounterMode_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(CounterMode, init$, void, $SymmetricCipher*)},
-	{"crypt", "([BII[BI)I", nullptr, $PRIVATE, $method(CounterMode, crypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CounterMode, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CounterMode, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CounterMode, getFeedback, $String*)},
-	{"implCrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(CounterMode, implCrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, _CounterMode_MethodAnnotations_implCrypt5},
-	{"increment", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CounterMode, increment, void, $bytes*)},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(CounterMode, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
-	{"reset", "()V", nullptr, 0, $virtualMethod(CounterMode, reset, void)},
-	{"restore", "()V", nullptr, 0, $virtualMethod(CounterMode, restore, void)},
-	{"save", "()V", nullptr, 0, $virtualMethod(CounterMode, save, void)},
-	{}
-};
-
-$ClassInfo _CounterMode_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.crypto.provider.CounterMode",
-	"com.sun.crypto.provider.FeedbackCipher",
-	nullptr,
-	_CounterMode_FieldInfo_,
-	_CounterMode_MethodInfo_
-};
-
-$Object* allocate$CounterMode($Class* clazz) {
-	return $of($alloc(CounterMode));
-}
 
 void CounterMode::init$($SymmetricCipher* embeddedCipher) {
 	$FeedbackCipher::init$(embeddedCipher);
@@ -98,7 +54,7 @@ void CounterMode::restore() {
 }
 
 void CounterMode::init(bool decrypting, $String* algorithm, $bytes* key, $bytes* iv) {
-	if ((key == nullptr) || (iv == nullptr) || ($nc(iv)->length != this->blockSize)) {
+	if ((key == nullptr) || (iv == nullptr) || (iv->length != this->blockSize)) {
 		$throwNew($InvalidKeyException, "Internal error"_s);
 	}
 	$set(this, iv, iv);
@@ -118,7 +74,7 @@ void CounterMode::increment($bytes* b) {
 	$init(CounterMode);
 	int32_t n = $nc(b)->length - 1;
 	while (true) {
-		bool var$0 = (n >= 0);
+		bool var$0 = n >= 0;
 		if (!(var$0 && (++(*b)[n] == 0))) {
 			break;
 		}
@@ -145,7 +101,7 @@ int32_t CounterMode::implCrypt($bytes* in, int32_t inOff, int32_t len, $bytes* o
 			increment(this->counter);
 			this->used = 0;
 		}
-		$nc(out)->set(outOff++, (int8_t)($nc(in)->get(inOff++) ^ $nc(this->encryptedCounter)->get(this->used++)));
+		$nc(out)->set(outOff++, (int8_t)($nc(in)->get(inOff++) ^ this->encryptedCounter->get(this->used++)));
 	}
 	return result;
 }
@@ -154,7 +110,44 @@ CounterMode::CounterMode() {
 }
 
 $Class* CounterMode::load$($String* name, bool initialize) {
-	$loadClass(CounterMode, name, initialize, &_CounterMode_ClassInfo_, allocate$CounterMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"counter", "[B", nullptr, $FINAL, $field(CounterMode, counter)},
+		{"encryptedCounter", "[B", nullptr, $PRIVATE | $FINAL, $field(CounterMode, encryptedCounter)},
+		{"used", "I", nullptr, $PRIVATE, $field(CounterMode, used)},
+		{"counterSave", "[B", nullptr, $PRIVATE, $field(CounterMode, counterSave)},
+		{"encryptedCounterSave", "[B", nullptr, $PRIVATE, $field(CounterMode, encryptedCounterSave)},
+		{"usedSave", "I", nullptr, $PRIVATE, $field(CounterMode, usedSave)},
+		{}
+	};
+	$CompoundAttribute implCryptmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(CounterMode, init$, void, $SymmetricCipher*)},
+		{"crypt", "([BII[BI)I", nullptr, $PRIVATE, $method(CounterMode, crypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CounterMode, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CounterMode, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CounterMode, getFeedback, $String*)},
+		{"implCrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(CounterMode, implCrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, implCryptmethodAnnotations$$},
+		{"increment", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CounterMode, increment, void, $bytes*)},
+		{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(CounterMode, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
+		{"reset", "()V", nullptr, 0, $virtualMethod(CounterMode, reset, void)},
+		{"restore", "()V", nullptr, 0, $virtualMethod(CounterMode, restore, void)},
+		{"save", "()V", nullptr, 0, $virtualMethod(CounterMode, save, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.crypto.provider.CounterMode",
+		"com.sun.crypto.provider.FeedbackCipher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CounterMode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CounterMode);
+	});
 	return class$;
 }
 

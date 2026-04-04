@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberEnumWithDef.h>
-
 #include <UniTest/Stooge.h>
 #include <jcpp.h>
 
@@ -12,44 +11,38 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberEnumWithDef_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberEnumWithDef_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberEnumWithDef_Attribute_var$0},
-	{}
-};
-
-$Attribute _SingleMemberEnumWithDef_DefaultValue_value0 = {
-	'e', "LUniTest/Stooge; LARRY"
-};
-
-$MethodInfo _SingleMemberEnumWithDef_MethodInfo_[] = {
-	{"value", "()LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberEnumWithDef, value, $Stooge*), nullptr, &_SingleMemberEnumWithDef_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _SingleMemberEnumWithDef_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberEnumWithDef",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberEnumWithDef_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberEnumWithDef_Annotations_
-};
-
-$Object* allocate$SingleMemberEnumWithDef($Class* clazz) {
-	return $of($alloc(SingleMemberEnumWithDef));
-}
-
 $Class* SingleMemberEnumWithDef::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberEnumWithDef, name, initialize, &_SingleMemberEnumWithDef_ClassInfo_, allocate$SingleMemberEnumWithDef);
+
+	$Attribute valuedefaultValue$$ = {
+		'e', "LUniTest/Stooge; LARRY"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberEnumWithDef, value, $Stooge*), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberEnumWithDef",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberEnumWithDef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberEnumWithDef);
+	});
 	return class$;
 }
 

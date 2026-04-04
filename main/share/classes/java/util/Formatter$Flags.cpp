@@ -1,5 +1,4 @@
 #include <java/util/Formatter$Flags.h>
-
 #include <java/util/DuplicateFormatFlagsException.h>
 #include <java/util/Formatter.h>
 #include <java/util/UnknownFormatFlagsException.h>
@@ -26,60 +25,6 @@ using $UnknownFormatFlagsException = ::java::util::UnknownFormatFlagsException;
 namespace java {
 	namespace util {
 
-$FieldInfo _Formatter$Flags_FieldInfo_[] = {
-	{"flags", "I", nullptr, $PRIVATE, $field(Formatter$Flags, flags)},
-	{"NONE", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, NONE)},
-	{"LEFT_JUSTIFY", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, LEFT_JUSTIFY)},
-	{"UPPERCASE", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, UPPERCASE)},
-	{"ALTERNATE", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, ALTERNATE)},
-	{"PLUS", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, PLUS)},
-	{"LEADING_SPACE", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, LEADING_SPACE)},
-	{"ZERO_PAD", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, ZERO_PAD)},
-	{"GROUP", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, GROUP)},
-	{"PARENTHESES", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, PARENTHESES)},
-	{"PREVIOUS", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, PREVIOUS)},
-	{}
-};
-
-$MethodInfo _Formatter$Flags_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(Formatter$Flags, init$, void, int32_t)},
-	{"add", "(Ljava/util/Formatter$Flags;)Ljava/util/Formatter$Flags;", nullptr, $PRIVATE, $method(Formatter$Flags, add, Formatter$Flags*, Formatter$Flags*)},
-	{"contains", "(Ljava/util/Formatter$Flags;)Z", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, contains, bool, Formatter$Flags*)},
-	{"dup", "()Ljava/util/Formatter$Flags;", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, dup, Formatter$Flags*)},
-	{"parse", "(Ljava/lang/String;II)Ljava/util/Formatter$Flags;", nullptr, $PUBLIC | $STATIC, $staticMethod(Formatter$Flags, parse, Formatter$Flags*, $String*, int32_t, int32_t)},
-	{"parse", "(C)Ljava/util/Formatter$Flags;", nullptr, $PRIVATE | $STATIC, $staticMethod(Formatter$Flags, parse, Formatter$Flags*, char16_t)},
-	{"remove", "(Ljava/util/Formatter$Flags;)Ljava/util/Formatter$Flags;", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, remove, Formatter$Flags*, Formatter$Flags*)},
-	{"toString", "(Ljava/util/Formatter$Flags;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Formatter$Flags, toString, $String*, Formatter$Flags*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, toString, $String*)},
-	{"valueOf", "()I", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, valueOf, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Formatter$Flags_InnerClassesInfo_[] = {
-	{"java.util.Formatter$Flags", "java.util.Formatter", "Flags", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Formatter$Flags_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Formatter$Flags",
-	"java.lang.Object",
-	nullptr,
-	_Formatter$Flags_FieldInfo_,
-	_Formatter$Flags_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Formatter$Flags_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Formatter"
-};
-
-$Object* allocate$Formatter$Flags($Class* clazz) {
-	return $of($alloc(Formatter$Flags));
-}
-
 Formatter$Flags* Formatter$Flags::NONE = nullptr;
 Formatter$Flags* Formatter$Flags::LEFT_JUSTIFY = nullptr;
 Formatter$Flags* Formatter$Flags::UPPERCASE = nullptr;
@@ -100,7 +45,7 @@ int32_t Formatter$Flags::valueOf() {
 }
 
 bool Formatter$Flags::contains(Formatter$Flags* f) {
-	int32_t var$0 = ((int32_t)(this->flags & (uint32_t)$nc(f)->valueOf()));
+	int32_t var$0 = this->flags & $nc(f)->valueOf();
 	return var$0 == f->valueOf();
 }
 
@@ -120,7 +65,7 @@ Formatter$Flags* Formatter$Flags::remove(Formatter$Flags* f) {
 
 Formatter$Flags* Formatter$Flags::parse($String* s, int32_t start, int32_t end) {
 	$init(Formatter$Flags);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Formatter$Flags, f, $new(Formatter$Flags, 0));
 	for (int32_t i = start; i < end; ++i) {
 		char16_t c = $nc(s)->charAt(i);
@@ -135,54 +80,35 @@ Formatter$Flags* Formatter$Flags::parse($String* s, int32_t start, int32_t end) 
 
 Formatter$Flags* Formatter$Flags::parse(char16_t c) {
 	$init(Formatter$Flags);
-	$useLocalCurrentObjectStackCache();
-
-	$var(Formatter$Flags, var$0, nullptr)
+	$useLocalObjectStack();
+	$var(Formatter$Flags, var$0, nullptr);
 	switch (c) {
 	case u'-':
-		{
-			$assign(var$0, Formatter$Flags::LEFT_JUSTIFY);
-			break;
-		}
+		$assign(var$0, Formatter$Flags::LEFT_JUSTIFY);
+		break;
 	case u'#':
-		{
-			$assign(var$0, Formatter$Flags::ALTERNATE);
-			break;
-		}
+		$assign(var$0, Formatter$Flags::ALTERNATE);
+		break;
 	case u'+':
-		{
-			$assign(var$0, Formatter$Flags::PLUS);
-			break;
-		}
+		$assign(var$0, Formatter$Flags::PLUS);
+		break;
 	case u' ':
-		{
-			$assign(var$0, Formatter$Flags::LEADING_SPACE);
-			break;
-		}
+		$assign(var$0, Formatter$Flags::LEADING_SPACE);
+		break;
 	case u'0':
-		{
-			$assign(var$0, Formatter$Flags::ZERO_PAD);
-			break;
-		}
+		$assign(var$0, Formatter$Flags::ZERO_PAD);
+		break;
 	case u',':
-		{
-			$assign(var$0, Formatter$Flags::GROUP);
-			break;
-		}
+		$assign(var$0, Formatter$Flags::GROUP);
+		break;
 	case u'(':
-		{
-			$assign(var$0, Formatter$Flags::PARENTHESES);
-			break;
-		}
+		$assign(var$0, Formatter$Flags::PARENTHESES);
+		break;
 	case u'<':
-		{
-			$assign(var$0, Formatter$Flags::PREVIOUS);
-			break;
-		}
+		$assign(var$0, Formatter$Flags::PREVIOUS);
+		break;
 	default:
-		{
-			$throwNew($UnknownFormatFlagsException, $($String::valueOf(c)));
-		}
+		$throwNew($UnknownFormatFlagsException, $($String::valueOf(c)));
 	}
 	return var$0;
 }
@@ -224,7 +150,7 @@ $String* Formatter$Flags::toString() {
 	return sb->toString();
 }
 
-void clinit$Formatter$Flags($Class* class$) {
+void Formatter$Flags::clinit$($Class* clazz) {
 	$assignStatic(Formatter$Flags::NONE, $new(Formatter$Flags, 0));
 	$assignStatic(Formatter$Flags::LEFT_JUSTIFY, $new(Formatter$Flags, 1 << 0));
 	$assignStatic(Formatter$Flags::UPPERCASE, $new(Formatter$Flags, 1 << 1));
@@ -241,7 +167,55 @@ Formatter$Flags::Formatter$Flags() {
 }
 
 $Class* Formatter$Flags::load$($String* name, bool initialize) {
-	$loadClass(Formatter$Flags, name, initialize, &_Formatter$Flags_ClassInfo_, clinit$Formatter$Flags, allocate$Formatter$Flags);
+	$FieldInfo fieldInfos$$[] = {
+		{"flags", "I", nullptr, $PRIVATE, $field(Formatter$Flags, flags)},
+		{"NONE", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, NONE)},
+		{"LEFT_JUSTIFY", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, LEFT_JUSTIFY)},
+		{"UPPERCASE", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, UPPERCASE)},
+		{"ALTERNATE", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, ALTERNATE)},
+		{"PLUS", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, PLUS)},
+		{"LEADING_SPACE", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, LEADING_SPACE)},
+		{"ZERO_PAD", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, ZERO_PAD)},
+		{"GROUP", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, GROUP)},
+		{"PARENTHESES", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, PARENTHESES)},
+		{"PREVIOUS", "Ljava/util/Formatter$Flags;", nullptr, $STATIC | $FINAL, $staticField(Formatter$Flags, PREVIOUS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(Formatter$Flags, init$, void, int32_t)},
+		{"add", "(Ljava/util/Formatter$Flags;)Ljava/util/Formatter$Flags;", nullptr, $PRIVATE, $method(Formatter$Flags, add, Formatter$Flags*, Formatter$Flags*)},
+		{"contains", "(Ljava/util/Formatter$Flags;)Z", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, contains, bool, Formatter$Flags*)},
+		{"dup", "()Ljava/util/Formatter$Flags;", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, dup, Formatter$Flags*)},
+		{"parse", "(Ljava/lang/String;II)Ljava/util/Formatter$Flags;", nullptr, $PUBLIC | $STATIC, $staticMethod(Formatter$Flags, parse, Formatter$Flags*, $String*, int32_t, int32_t)},
+		{"parse", "(C)Ljava/util/Formatter$Flags;", nullptr, $PRIVATE | $STATIC, $staticMethod(Formatter$Flags, parse, Formatter$Flags*, char16_t)},
+		{"remove", "(Ljava/util/Formatter$Flags;)Ljava/util/Formatter$Flags;", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, remove, Formatter$Flags*, Formatter$Flags*)},
+		{"toString", "(Ljava/util/Formatter$Flags;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Formatter$Flags, toString, $String*, Formatter$Flags*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, toString, $String*)},
+		{"valueOf", "()I", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, valueOf, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Formatter$Flags", "java.util.Formatter", "Flags", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Formatter$Flags",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Formatter"
+	};
+	$loadClass(Formatter$Flags, name, initialize, &classInfo$$, Formatter$Flags::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Formatter$Flags);
+	});
 	return class$;
 }
 

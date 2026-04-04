@@ -24,6 +24,7 @@ class CharacterData00 : public ::java::lang::CharacterData {
 	$class(CharacterData00, 0, ::java::lang::CharacterData)
 public:
 	CharacterData00();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t digit(int32_t ch, int32_t radix) override;
 	virtual int32_t findInCharMap(int32_t ch);

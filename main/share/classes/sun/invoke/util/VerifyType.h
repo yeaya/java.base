@@ -21,6 +21,7 @@ class $export VerifyType : public ::java::lang::Object {
 	$class(VerifyType, 0, ::java::lang::Object)
 public:
 	VerifyType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t canPassUnchecked($Class* src, $Class* dst);
 	static bool isNullConversion($Class* src, $Class* dst, bool keepInterfaces);

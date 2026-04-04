@@ -53,6 +53,7 @@ class MethodWriter : public ::jdk::internal::org::objectweb::asm$::MethodVisitor
 	$class(MethodWriter, 0, ::jdk::internal::org::objectweb::asm$::MethodVisitor)
 public:
 	MethodWriter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::org::objectweb::asm$::SymbolTable* symbolTable, int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions, int32_t compute);
 	void addSuccessorToCurrentBasicBlock(int32_t info, ::jdk::internal::org::objectweb::asm$::Label* successor);
 	bool canCopyMethodAttributes(::jdk::internal::org::objectweb::asm$::ClassReader* source, bool hasSyntheticAttribute, bool hasDeprecatedAttribute, int32_t descriptorIndex, int32_t signatureIndex, int32_t exceptionsOffset);

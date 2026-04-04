@@ -84,6 +84,7 @@ class $export CheckClassAdapter : public ::jdk::internal::org::objectweb::asm$::
 	$class(CheckClassAdapter, 0, ::jdk::internal::org::objectweb::asm$::ClassVisitor)
 public:
 	CheckClassAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::org::objectweb::asm$::ClassVisitor* classVisitor);
 	void init$(::jdk::internal::org::objectweb::asm$::ClassVisitor* classVisitor, bool checkDataFlow);
 	void init$(int32_t api, ::jdk::internal::org::objectweb::asm$::ClassVisitor* classVisitor, bool checkDataFlow);

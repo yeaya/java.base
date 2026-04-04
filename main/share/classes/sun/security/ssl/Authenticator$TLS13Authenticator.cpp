@@ -1,5 +1,4 @@
 #include <sun/security/ssl/Authenticator$TLS13Authenticator.h>
-
 #include <java/util/Arrays.h>
 #include <sun/security/ssl/Authenticator$SSLAuthenticator.h>
 #include <sun/security/ssl/Authenticator.h>
@@ -21,48 +20,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _Authenticator$TLS13Authenticator_FieldInfo_[] = {
-	{"BLOCK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Authenticator$TLS13Authenticator, BLOCK_SIZE)},
-	{}
-};
-
-$MethodInfo _Authenticator$TLS13Authenticator_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, $PRIVATE, $method(Authenticator$TLS13Authenticator, init$, void, $ProtocolVersion*)},
-	{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0, $virtualMethod(Authenticator$TLS13Authenticator, acquireAuthenticationBytes, $bytes*, int8_t, int32_t, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _Authenticator$TLS13Authenticator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.Authenticator$TLS13Authenticator", "sun.security.ssl.Authenticator", "TLS13Authenticator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Authenticator$SSLAuthenticator", "sun.security.ssl.Authenticator", "SSLAuthenticator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Authenticator$TLS13Authenticator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.Authenticator$TLS13Authenticator",
-	"sun.security.ssl.Authenticator$SSLAuthenticator",
-	nullptr,
-	_Authenticator$TLS13Authenticator_FieldInfo_,
-	_Authenticator$TLS13Authenticator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Authenticator$TLS13Authenticator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.Authenticator"
-};
-
-$Object* allocate$Authenticator$TLS13Authenticator($Class* clazz) {
-	return $of($alloc(Authenticator$TLS13Authenticator));
-}
-
 void Authenticator$TLS13Authenticator::init$($ProtocolVersion* protocolVersion) {
 	$Authenticator$SSLAuthenticator::init$($$new($bytes, Authenticator$TLS13Authenticator::BLOCK_SIZE));
 	$init($ProtocolVersion);
 	$nc(this->block)->set(9, $ProtocolVersion::TLS12->major);
-	$nc(this->block)->set(10, $ProtocolVersion::TLS12->minor);
+	this->block->set(10, $ProtocolVersion::TLS12->minor);
 }
 
 $bytes* Authenticator$TLS13Authenticator::acquireAuthenticationBytes(int8_t type, int32_t length, $bytes* sequence) {
@@ -70,7 +32,7 @@ $bytes* Authenticator$TLS13Authenticator::acquireAuthenticationBytes(int8_t type
 	increaseSequenceNumber();
 	ad->set(0, type);
 	ad->set(3, (int8_t)(length >> 8));
-	ad->set(4, (int8_t)((int32_t)(length & (uint32_t)255)));
+	ad->set(4, (int8_t)(length & 0xff));
 	return ad;
 }
 
@@ -78,7 +40,38 @@ Authenticator$TLS13Authenticator::Authenticator$TLS13Authenticator() {
 }
 
 $Class* Authenticator$TLS13Authenticator::load$($String* name, bool initialize) {
-	$loadClass(Authenticator$TLS13Authenticator, name, initialize, &_Authenticator$TLS13Authenticator_ClassInfo_, allocate$Authenticator$TLS13Authenticator);
+	$FieldInfo fieldInfos$$[] = {
+		{"BLOCK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Authenticator$TLS13Authenticator, BLOCK_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, $PRIVATE, $method(Authenticator$TLS13Authenticator, init$, void, $ProtocolVersion*)},
+		{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0, $virtualMethod(Authenticator$TLS13Authenticator, acquireAuthenticationBytes, $bytes*, int8_t, int32_t, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.Authenticator$TLS13Authenticator", "sun.security.ssl.Authenticator", "TLS13Authenticator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Authenticator$SSLAuthenticator", "sun.security.ssl.Authenticator", "SSLAuthenticator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.Authenticator$TLS13Authenticator",
+		"sun.security.ssl.Authenticator$SSLAuthenticator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.Authenticator"
+	};
+	$loadClass(Authenticator$TLS13Authenticator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Authenticator$TLS13Authenticator);
+	});
 	return class$;
 }
 

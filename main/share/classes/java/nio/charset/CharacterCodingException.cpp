@@ -1,5 +1,4 @@
 #include <java/nio/charset/CharacterCodingException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace charset {
-
-$FieldInfo _CharacterCodingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharacterCodingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CharacterCodingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CharacterCodingException, init$, void)},
-	{}
-};
-
-$ClassInfo _CharacterCodingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.charset.CharacterCodingException",
-	"java.io.IOException",
-	nullptr,
-	_CharacterCodingException_FieldInfo_,
-	_CharacterCodingException_MethodInfo_
-};
-
-$Object* allocate$CharacterCodingException($Class* clazz) {
-	return $of($alloc(CharacterCodingException));
-}
 
 void CharacterCodingException::init$() {
 	$IOException::init$();
@@ -50,7 +26,25 @@ void CharacterCodingException::throw$() {
 }
 
 $Class* CharacterCodingException::load$($String* name, bool initialize) {
-	$loadClass(CharacterCodingException, name, initialize, &_CharacterCodingException_ClassInfo_, allocate$CharacterCodingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharacterCodingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CharacterCodingException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.charset.CharacterCodingException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharacterCodingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharacterCodingException);
+	});
 	return class$;
 }
 

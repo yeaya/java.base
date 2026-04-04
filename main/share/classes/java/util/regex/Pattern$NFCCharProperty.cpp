@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$NFCCharProperty.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/text/Normalizer$Form.h>
 #include <java/text/Normalizer.h>
@@ -31,51 +30,13 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$NFCCharProperty_FieldInfo_[] = {
-	{"predicate", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, 0, $field(Pattern$NFCCharProperty, predicate)},
-	{}
-};
-
-$MethodInfo _Pattern$NFCCharProperty_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, 0, $method(Pattern$NFCCharProperty, init$, void, $Pattern$CharPredicate*)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$NFCCharProperty, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$NFCCharProperty, study, bool, $Pattern$TreeInfo*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$NFCCharProperty_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$NFCCharProperty", "java.util.regex.Pattern", "NFCCharProperty", $PRIVATE | $STATIC},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$NFCCharProperty_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Pattern$NFCCharProperty",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$NFCCharProperty_FieldInfo_,
-	_Pattern$NFCCharProperty_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$NFCCharProperty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$NFCCharProperty($Class* clazz) {
-	return $of($alloc(Pattern$NFCCharProperty));
-}
-
 void Pattern$NFCCharProperty::init$($Pattern$CharPredicate* predicate) {
 	$Pattern$Node::init$();
 	$set(this, predicate, predicate);
 }
 
 bool Pattern$NFCCharProperty::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (i < $nc(matcher)->to) {
 		int32_t ch0 = $Character::codePointAt(seq, i);
 		int32_t n = $Character::charCount(ch0);
@@ -87,8 +48,8 @@ bool Pattern$NFCCharProperty::match($Matcher* matcher, int32_t i, $CharSequence*
 		} else {
 			while (i + n < j) {
 				$init($Normalizer$Form);
-				$var($String, nfc, $Normalizer::normalize($($nc($($nc(seq)->toString()))->substring(i, j)), $Normalizer$Form::NFC));
-				if ($nc(nfc)->codePointCount(0, nfc->length()) == 1) {
+				$var($String, nfc, $Normalizer::normalize($($$nc($nc(seq)->toString())->substring(i, j)), $Normalizer$Form::NFC));
+				if ($nc(nfc)->codePointCount(0, $nc(nfc)->length()) == 1) {
 					bool var$0 = $nc(this->predicate)->is(nfc->codePointAt(0));
 					if (var$0 && $nc(this->next)->match(matcher, j, seq)) {
 						return true;
@@ -102,7 +63,7 @@ bool Pattern$NFCCharProperty::match($Matcher* matcher, int32_t i, $CharSequence*
 			return false;
 		}
 	}
-	$nc(matcher)->hitEnd$ = true;
+	matcher->hitEnd$ = true;
 	return false;
 }
 
@@ -116,7 +77,39 @@ Pattern$NFCCharProperty::Pattern$NFCCharProperty() {
 }
 
 $Class* Pattern$NFCCharProperty::load$($String* name, bool initialize) {
-	$loadClass(Pattern$NFCCharProperty, name, initialize, &_Pattern$NFCCharProperty_ClassInfo_, allocate$Pattern$NFCCharProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"predicate", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, 0, $field(Pattern$NFCCharProperty, predicate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, 0, $method(Pattern$NFCCharProperty, init$, void, $Pattern$CharPredicate*)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$NFCCharProperty, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$NFCCharProperty, study, bool, $Pattern$TreeInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$NFCCharProperty", "java.util.regex.Pattern", "NFCCharProperty", $PRIVATE | $STATIC},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Pattern$NFCCharProperty",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$NFCCharProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$NFCCharProperty);
+	});
 	return class$;
 }
 

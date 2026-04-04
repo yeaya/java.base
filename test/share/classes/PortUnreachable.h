@@ -15,6 +15,7 @@ class $export PortUnreachable : public ::java::lang::Object {
 	$class(PortUnreachable, 0, ::java::lang::Object)
 public:
 	PortUnreachable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* attempt(int32_t retry);
 	virtual void execute();

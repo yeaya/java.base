@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLConfiguration$CustomizedClientSignatureSchemes.h>
-
 #include <java/util/List.h>
 #include <sun/security/ssl/SSLConfiguration.h>
 #include <jcpp.h>
@@ -15,47 +14,12 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLConfiguration$CustomizedClientSignatureSchemes_FieldInfo_[] = {
-	{"signatureSchemes", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLConfiguration$CustomizedClientSignatureSchemes, signatureSchemes)},
-	{}
-};
-
-$MethodInfo _SSLConfiguration$CustomizedClientSignatureSchemes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLConfiguration$CustomizedClientSignatureSchemes, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SSLConfiguration$CustomizedClientSignatureSchemes_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLConfiguration$CustomizedClientSignatureSchemes", "sun.security.ssl.SSLConfiguration", "CustomizedClientSignatureSchemes", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLConfiguration$CustomizedClientSignatureSchemes_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLConfiguration$CustomizedClientSignatureSchemes",
-	"java.lang.Object",
-	nullptr,
-	_SSLConfiguration$CustomizedClientSignatureSchemes_FieldInfo_,
-	_SSLConfiguration$CustomizedClientSignatureSchemes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLConfiguration$CustomizedClientSignatureSchemes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLConfiguration"
-};
-
-$Object* allocate$SSLConfiguration$CustomizedClientSignatureSchemes($Class* clazz) {
-	return $of($alloc(SSLConfiguration$CustomizedClientSignatureSchemes));
-}
-
 $List* SSLConfiguration$CustomizedClientSignatureSchemes::signatureSchemes = nullptr;
 
 void SSLConfiguration$CustomizedClientSignatureSchemes::init$() {
 }
 
-void clinit$SSLConfiguration$CustomizedClientSignatureSchemes($Class* class$) {
+void SSLConfiguration$CustomizedClientSignatureSchemes::clinit$($Class* clazz) {
 	$assignStatic(SSLConfiguration$CustomizedClientSignatureSchemes::signatureSchemes, $SSLConfiguration::getCustomizedSignatureScheme("jdk.tls.client.SignatureSchemes"_s));
 }
 
@@ -63,7 +27,36 @@ SSLConfiguration$CustomizedClientSignatureSchemes::SSLConfiguration$CustomizedCl
 }
 
 $Class* SSLConfiguration$CustomizedClientSignatureSchemes::load$($String* name, bool initialize) {
-	$loadClass(SSLConfiguration$CustomizedClientSignatureSchemes, name, initialize, &_SSLConfiguration$CustomizedClientSignatureSchemes_ClassInfo_, clinit$SSLConfiguration$CustomizedClientSignatureSchemes, allocate$SSLConfiguration$CustomizedClientSignatureSchemes);
+	$FieldInfo fieldInfos$$[] = {
+		{"signatureSchemes", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLConfiguration$CustomizedClientSignatureSchemes, signatureSchemes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLConfiguration$CustomizedClientSignatureSchemes, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLConfiguration$CustomizedClientSignatureSchemes", "sun.security.ssl.SSLConfiguration", "CustomizedClientSignatureSchemes", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLConfiguration$CustomizedClientSignatureSchemes",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLConfiguration"
+	};
+	$loadClass(SSLConfiguration$CustomizedClientSignatureSchemes, name, initialize, &classInfo$$, SSLConfiguration$CustomizedClientSignatureSchemes::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLConfiguration$CustomizedClientSignatureSchemes);
+	});
 	return class$;
 }
 

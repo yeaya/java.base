@@ -1,5 +1,4 @@
 #include <java/nio/charset/CoderMalfunctionError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -13,31 +12,8 @@ namespace java {
 	namespace nio {
 		namespace charset {
 
-$FieldInfo _CoderMalfunctionError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CoderMalfunctionError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CoderMalfunctionError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(CoderMalfunctionError, init$, void, $Exception*)},
-	{}
-};
-
-$ClassInfo _CoderMalfunctionError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.charset.CoderMalfunctionError",
-	"java.lang.Error",
-	nullptr,
-	_CoderMalfunctionError_FieldInfo_,
-	_CoderMalfunctionError_MethodInfo_
-};
-
-$Object* allocate$CoderMalfunctionError($Class* clazz) {
-	return $of($alloc(CoderMalfunctionError));
-}
-
 void CoderMalfunctionError::init$($Exception* cause) {
-	$Error::init$(static_cast<$Throwable*>(cause));
+	$Error::init$(cause);
 }
 
 CoderMalfunctionError::CoderMalfunctionError() {
@@ -51,7 +27,25 @@ void CoderMalfunctionError::throw$() {
 }
 
 $Class* CoderMalfunctionError::load$($String* name, bool initialize) {
-	$loadClass(CoderMalfunctionError, name, initialize, &_CoderMalfunctionError_ClassInfo_, allocate$CoderMalfunctionError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CoderMalfunctionError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(CoderMalfunctionError, init$, void, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.charset.CoderMalfunctionError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CoderMalfunctionError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CoderMalfunctionError);
+	});
 	return class$;
 }
 

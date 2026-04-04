@@ -22,6 +22,7 @@ class RSAKeyExchange : public ::java::lang::Object {
 	$class(RSAKeyExchange, 0, ::java::lang::Object)
 public:
 	RSAKeyExchange();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLPossessionGenerator* poGenerator;
 	static ::sun::security::ssl::SSLKeyAgreementGenerator* kaGenerator;

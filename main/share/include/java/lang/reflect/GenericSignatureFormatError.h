@@ -15,10 +15,13 @@ public:
 	GenericSignatureFormatError();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x5D1E6BE9E4BF48FA;
+	static const int64_t serialVersionUID = (int64_t)0x5d1e6be9e4bf48fa;
 	GenericSignatureFormatError(const GenericSignatureFormatError& e);
 	virtual void throw$() override;
-	inline GenericSignatureFormatError* operator ->() {
+	inline GenericSignatureFormatError* operator ->() const {
+		return (GenericSignatureFormatError*)throwing$;
+	}
+	inline operator GenericSignatureFormatError*() const {
 		return (GenericSignatureFormatError*)throwing$;
 	}
 };

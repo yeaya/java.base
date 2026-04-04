@@ -1,8 +1,5 @@
 #include <sun/security/ssl/CertificateMessage$T13CertificateConsumer.h>
-
 #include <java/io/ByteArrayInputStream.h>
-#include <java/io/InputStream.h>
-#include <java/net/Socket.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertPathValidatorException$BasicReason.h>
@@ -55,14 +52,11 @@
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
-using $InputStream = ::java::io::InputStream;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Socket = ::java::net::Socket;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $PublicKey = ::java::security::PublicKey;
 using $CertPathValidatorException = ::java::security::cert::CertPathValidatorException;
 using $CertPathValidatorException$BasicReason = ::java::security::cert::CertPathValidatorException$BasicReason;
 using $CertPathValidatorException$Reason = ::java::security::cert::CertPathValidatorException$Reason;
@@ -70,7 +64,6 @@ using $CertificateException = ::java::security::cert::CertificateException;
 using $CertificateFactory = ::java::security::cert::CertificateFactory;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Iterator = ::java::util::Iterator;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $List = ::java::util::List;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
@@ -83,61 +76,20 @@ using $ClientAuthType = ::sun::security::ssl::ClientAuthType;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
-using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $X509Authentication$X509Credentials = ::sun::security::ssl::X509Authentication$X509Credentials;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertificateMessage$T13CertificateConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateMessage$T13CertificateConsumer, init$, void)},
-	{"checkClientCerts", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/util/List;)[Ljava/security/cert/X509Certificate;", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/util/List<Lsun/security/ssl/CertificateMessage$CertificateEntry;>;)[Ljava/security/cert/X509Certificate;", $PRIVATE | $STATIC, $staticMethod(CertificateMessage$T13CertificateConsumer, checkClientCerts, $X509CertificateArray*, $ServerHandshakeContext*, $List*), "java.io.IOException"},
-	{"checkServerCerts", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/util/List;)[Ljava/security/cert/X509Certificate;", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/util/List<Lsun/security/ssl/CertificateMessage$CertificateEntry;>;)[Ljava/security/cert/X509Certificate;", $PRIVATE | $STATIC, $staticMethod(CertificateMessage$T13CertificateConsumer, checkServerCerts, $X509CertificateArray*, $ClientHandshakeContext*, $List*), "java.io.IOException"},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T13CertificateConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
-	{"getCertificateAlert", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/security/cert/CertificateException;)Lsun/security/ssl/Alert;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateMessage$T13CertificateConsumer, getCertificateAlert, $Alert*, $ClientHandshakeContext*, $CertificateException*)},
-	{"onConsumeCertificate", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/CertificateMessage$T13CertificateMessage;)V", nullptr, $PRIVATE, $method(CertificateMessage$T13CertificateConsumer, onConsumeCertificate, void, $ServerHandshakeContext*, $CertificateMessage$T13CertificateMessage*), "java.io.IOException"},
-	{"onConsumeCertificate", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/CertificateMessage$T13CertificateMessage;)V", nullptr, $PRIVATE, $method(CertificateMessage$T13CertificateConsumer, onConsumeCertificate, void, $ClientHandshakeContext*, $CertificateMessage$T13CertificateMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CertificateMessage$T13CertificateConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateMessage$T13CertificateConsumer", "sun.security.ssl.CertificateMessage", "T13CertificateConsumer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertificateMessage$T13CertificateConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateMessage$T13CertificateConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLConsumer",
-	nullptr,
-	_CertificateMessage$T13CertificateConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateMessage$T13CertificateConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateMessage"
-};
-
-$Object* allocate$CertificateMessage$T13CertificateConsumer($Class* clazz) {
-	return $of($alloc(CertificateMessage$T13CertificateConsumer));
-}
-
 void CertificateMessage$T13CertificateConsumer::init$() {
 }
 
 void CertificateMessage$T13CertificateConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(hc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE->id)));
@@ -145,21 +97,21 @@ void CertificateMessage$T13CertificateConsumer::consume($ConnectionContext* cont
 	if ($nc(hc->sslConfig)->isClientMode) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-			$SSLLogger::fine("Consuming server Certificate handshake message"_s, $$new($ObjectArray, {$of(cm)}));
+			$SSLLogger::fine("Consuming server Certificate handshake message"_s, $$new($ObjectArray, {cm}));
 		}
 		onConsumeCertificate($cast($ClientHandshakeContext, context), cm);
 	} else {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-			$SSLLogger::fine("Consuming client Certificate handshake message"_s, $$new($ObjectArray, {$of(cm)}));
+			$SSLLogger::fine("Consuming client Certificate handshake message"_s, $$new($ObjectArray, {cm}));
 		}
 		onConsumeCertificate($cast($ServerHandshakeContext, context), cm);
 	}
 }
 
 void CertificateMessage$T13CertificateConsumer::onConsumeCertificate($ServerHandshakeContext* shc, $CertificateMessage$T13CertificateMessage* certificateMessage) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(certificateMessage)->certEntries == nullptr || $nc($nc(certificateMessage)->certEntries)->isEmpty()) {
+	$useLocalObjectStack();
+	if ($nc(certificateMessage)->certEntries == nullptr || certificateMessage->certEntries->isEmpty()) {
 		$init($SSLHandshake);
 		$nc($nc(shc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)));
 		$init($ClientAuthType);
@@ -170,21 +122,21 @@ void CertificateMessage$T13CertificateConsumer::onConsumeCertificate($ServerHand
 			return;
 		}
 	}
-	$var($X509CertificateArray, cliCerts, checkClientCerts(shc, $nc(certificateMessage)->certEntries));
+	$var($X509CertificateArray, cliCerts, checkClientCerts(shc, certificateMessage->certEntries));
 	$nc($nc(shc)->handshakeCredentials)->add($$new($X509Authentication$X509Credentials, $($nc($nc(cliCerts)->get(0))->getPublicKey()), cliCerts));
 	$nc(shc->handshakeSession)->setPeerCertificates(cliCerts);
 }
 
 void CertificateMessage$T13CertificateConsumer::onConsumeCertificate($ClientHandshakeContext* chc, $CertificateMessage$T13CertificateMessage* certificateMessage) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(certificateMessage)->certEntries == nullptr || $nc($nc(certificateMessage)->certEntries)->isEmpty()) {
+	$useLocalObjectStack();
+	if ($nc(certificateMessage)->certEntries == nullptr || certificateMessage->certEntries->isEmpty()) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::BAD_CERTIFICATE, "Empty server certificate chain"_s)));
 	}
 	$init($SSLHandshake);
 	$var($SSLExtensionArray, enabledExtensions, $nc($nc(chc)->sslConfig)->getEnabledExtensions($SSLHandshake::CERTIFICATE));
 	{
-		$var($Iterator, i$, $nc($nc(certificateMessage)->certEntries)->iterator());
+		$var($Iterator, i$, $nc(certificateMessage->certEntries)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($CertificateMessage$CertificateEntry, certEnt, $cast($CertificateMessage$CertificateEntry, i$->next()));
 			{
@@ -199,7 +151,7 @@ void CertificateMessage$T13CertificateConsumer::onConsumeCertificate($ClientHand
 
 $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkClientCerts($ServerHandshakeContext* shc, $List* certEntries) {
 	$init(CertificateMessage$T13CertificateConsumer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X509CertificateArray, certs, $new($X509CertificateArray, $nc(certEntries)->size()));
 	try {
 		$var($CertificateFactory, cf, $CertificateFactory::getInstance("X.509"_s));
@@ -209,7 +161,7 @@ $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkClientCer
 			for (; $nc(i$)->hasNext();) {
 				$var($CertificateMessage$CertificateEntry, entry, $cast($CertificateMessage$CertificateEntry, i$->next()));
 				{
-					certs->set(i++, $cast($X509Certificate, $($nc(cf)->generateCertificate($$new($ByteArrayInputStream, $nc(entry)->encoded)))));
+					certs->set(i++, $$cast($X509Certificate, $nc(cf)->generateCertificate($$new($ByteArrayInputStream, $nc(entry)->encoded))));
 				}
 			}
 		}
@@ -217,68 +169,53 @@ $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkClientCer
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::BAD_CERTIFICATE, "Failed to parse server certificates"_s, ce)));
 	}
-	$var($String, keyAlgorithm, $nc($($nc(certs->get(0))->getPublicKey()))->getAlgorithm());
+	$var($String, keyAlgorithm, $$nc($nc(certs->get(0))->getPublicKey())->getAlgorithm());
 	$var($String, authType, nullptr);
 	{
 		$var($String, s53002$, keyAlgorithm);
 		int32_t tmp53002$ = -1;
 		switch ($nc(s53002$)->hashCode()) {
-		case 0x00013E20:
-			{
-				if (s53002$->equals("RSA"_s)) {
-					tmp53002$ = 0;
-				}
-				break;
+		case 0x00013e20:
+			if (s53002$->equals("RSA"_s)) {
+				tmp53002$ = 0;
 			}
+			break;
 		case 0x00010992:
-			{
-				if (s53002$->equals("DSA"_s)) {
-					tmp53002$ = 1;
-				}
-				break;
+			if (s53002$->equals("DSA"_s)) {
+				tmp53002$ = 1;
 			}
+			break;
 		case 2206:
-			{
-				if (s53002$->equals("EC"_s)) {
-					tmp53002$ = 2;
-				}
-				break;
+			if (s53002$->equals("EC"_s)) {
+				tmp53002$ = 2;
 			}
-		case 0x69D3B2A4:
-			{
-				if (s53002$->equals("RSASSA-PSS"_s)) {
-					tmp53002$ = 3;
-				}
-				break;
+			break;
+		case 0x69d3b2a4:
+			if (s53002$->equals("RSASSA-PSS"_s)) {
+				tmp53002$ = 3;
 			}
+			break;
 		}
 		switch (tmp53002$) {
 		case 0:
-			{}
 		case 1:
-			{}
 		case 2:
-			{}
 		case 3:
-			{
-				$assign(authType, keyAlgorithm);
-				break;
-			}
+			$assign(authType, keyAlgorithm);
+			break;
 		default:
-			{
-				$assign(authType, "UNKNOWN"_s);
-			}
+			$assign(authType, "UNKNOWN"_s);
 		}
 	}
 	try {
 		$var($X509TrustManager, tm, $nc($nc(shc)->sslContext)->getX509TrustManager());
 		if ($instanceOf($X509ExtendedTrustManager, tm)) {
 			if ($instanceOf($SSLEngine, $nc(shc->conContext)->transport)) {
-				$var($SSLEngine, engine, $cast($SSLEngine, $nc(shc->conContext)->transport));
-				$nc(($cast($X509ExtendedTrustManager, tm)))->checkClientTrusted($cast($X509CertificateArray, $(certs->clone())), authType, engine);
+				$var($SSLEngine, engine, $cast($SSLEngine, shc->conContext->transport));
+				$cast($X509ExtendedTrustManager, tm)->checkClientTrusted($$cast($X509CertificateArray, certs->clone()), authType, engine);
 			} else {
-				$var($SSLSocket, socket, $cast($SSLSocket, $nc(shc->conContext)->transport));
-				$nc(($cast($X509ExtendedTrustManager, tm)))->checkClientTrusted($cast($X509CertificateArray, $(certs->clone())), authType, static_cast<$Socket*>(socket));
+				$var($SSLSocket, socket, $cast($SSLSocket, shc->conContext->transport));
+				$cast($X509ExtendedTrustManager, tm)->checkClientTrusted($$cast($X509CertificateArray, certs->clone()), authType, socket);
 			}
 		} else {
 			$throwNew($CertificateException, "Improper X509TrustManager implementation"_s);
@@ -286,14 +223,14 @@ $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkClientCer
 		$nc(shc->handshakeSession)->setPeerCertificates(certs);
 	} catch ($CertificateException& ce) {
 		$init($Alert);
-		$throw($($nc($nc(shc)->conContext)->fatal($Alert::CERTIFICATE_UNKNOWN, static_cast<$Throwable*>(ce))));
+		$throw($($nc($nc(shc)->conContext)->fatal($Alert::CERTIFICATE_UNKNOWN, ce)));
 	}
 	return certs;
 }
 
 $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkServerCerts($ClientHandshakeContext* chc, $List* certEntries) {
 	$init(CertificateMessage$T13CertificateConsumer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X509CertificateArray, certs, $new($X509CertificateArray, $nc(certEntries)->size()));
 	try {
 		$var($CertificateFactory, cf, $CertificateFactory::getInstance("X.509"_s));
@@ -303,7 +240,7 @@ $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkServerCer
 			for (; $nc(i$)->hasNext();) {
 				$var($CertificateMessage$CertificateEntry, entry, $cast($CertificateMessage$CertificateEntry, i$->next()));
 				{
-					certs->set(i++, $cast($X509Certificate, $($nc(cf)->generateCertificate($$new($ByteArrayInputStream, $nc(entry)->encoded)))));
+					certs->set(i++, $$cast($X509Certificate, $nc(cf)->generateCertificate($$new($ByteArrayInputStream, $nc(entry)->encoded))));
 				}
 			}
 		}
@@ -316,38 +253,36 @@ $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkServerCer
 		$var($X509TrustManager, tm, $nc($nc(chc)->sslContext)->getX509TrustManager());
 		if ($instanceOf($X509ExtendedTrustManager, tm)) {
 			if ($instanceOf($SSLEngine, $nc(chc->conContext)->transport)) {
-				$var($SSLEngine, engine, $cast($SSLEngine, $nc(chc->conContext)->transport));
-				$nc(($cast($X509ExtendedTrustManager, tm)))->checkServerTrusted($cast($X509CertificateArray, $(certs->clone())), authType, engine);
+				$var($SSLEngine, engine, $cast($SSLEngine, chc->conContext->transport));
+				$cast($X509ExtendedTrustManager, tm)->checkServerTrusted($$cast($X509CertificateArray, certs->clone()), authType, engine);
 			} else {
-				$var($SSLSocket, socket, $cast($SSLSocket, $nc(chc->conContext)->transport));
-				$nc(($cast($X509ExtendedTrustManager, tm)))->checkServerTrusted($cast($X509CertificateArray, $(certs->clone())), authType, static_cast<$Socket*>(socket));
+				$var($SSLSocket, socket, $cast($SSLSocket, chc->conContext->transport));
+				$cast($X509ExtendedTrustManager, tm)->checkServerTrusted($$cast($X509CertificateArray, certs->clone()), authType, socket);
 			}
 		} else {
 			$throwNew($CertificateException, "Improper X509TrustManager implementation"_s);
 		}
 		$nc(chc->handshakeSession)->setPeerCertificates(certs);
 	} catch ($CertificateException& ce) {
-		$throw($($nc($nc(chc)->conContext)->fatal($(getCertificateAlert(chc, ce)), static_cast<$Throwable*>(ce))));
+		$throw($($nc($nc(chc)->conContext)->fatal($(getCertificateAlert(chc, ce)), ce)));
 	}
 	return certs;
 }
 
 $Alert* CertificateMessage$T13CertificateConsumer::getCertificateAlert($ClientHandshakeContext* chc, $CertificateException* cexc) {
 	$init(CertificateMessage$T13CertificateConsumer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Alert);
 	$Alert* alert = $Alert::CERTIFICATE_UNKNOWN;
 	$var($Throwable, baseCause, $nc(cexc)->getCause());
 	if ($instanceOf($CertPathValidatorException, baseCause)) {
 		$var($CertPathValidatorException, cpve, $cast($CertPathValidatorException, baseCause));
-		$var($CertPathValidatorException$Reason, reason, $nc(cpve)->getReason());
+		$var($CertPathValidatorException$Reason, reason, cpve->getReason());
 		$init($CertPathValidatorException$BasicReason);
 		if ($equals(reason, $CertPathValidatorException$BasicReason::REVOKED)) {
 			alert = $nc(chc)->staplingActive ? $Alert::BAD_CERT_STATUS_RESPONSE : $Alert::CERTIFICATE_REVOKED;
-		} else {
-			if ($equals(reason, $CertPathValidatorException$BasicReason::UNDETERMINED_REVOCATION_STATUS)) {
-				alert = $nc(chc)->staplingActive ? $Alert::BAD_CERT_STATUS_RESPONSE : $Alert::CERTIFICATE_UNKNOWN;
-			}
+		} else if ($equals(reason, $CertPathValidatorException$BasicReason::UNDETERMINED_REVOCATION_STATUS)) {
+			alert = $nc(chc)->staplingActive ? $Alert::BAD_CERT_STATUS_RESPONSE : $Alert::CERTIFICATE_UNKNOWN;
 		}
 	}
 	return alert;
@@ -357,7 +292,38 @@ CertificateMessage$T13CertificateConsumer::CertificateMessage$T13CertificateCons
 }
 
 $Class* CertificateMessage$T13CertificateConsumer::load$($String* name, bool initialize) {
-	$loadClass(CertificateMessage$T13CertificateConsumer, name, initialize, &_CertificateMessage$T13CertificateConsumer_ClassInfo_, allocate$CertificateMessage$T13CertificateConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateMessage$T13CertificateConsumer, init$, void)},
+		{"checkClientCerts", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/util/List;)[Ljava/security/cert/X509Certificate;", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/util/List<Lsun/security/ssl/CertificateMessage$CertificateEntry;>;)[Ljava/security/cert/X509Certificate;", $PRIVATE | $STATIC, $staticMethod(CertificateMessage$T13CertificateConsumer, checkClientCerts, $X509CertificateArray*, $ServerHandshakeContext*, $List*), "java.io.IOException"},
+		{"checkServerCerts", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/util/List;)[Ljava/security/cert/X509Certificate;", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/util/List<Lsun/security/ssl/CertificateMessage$CertificateEntry;>;)[Ljava/security/cert/X509Certificate;", $PRIVATE | $STATIC, $staticMethod(CertificateMessage$T13CertificateConsumer, checkServerCerts, $X509CertificateArray*, $ClientHandshakeContext*, $List*), "java.io.IOException"},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T13CertificateConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+		{"getCertificateAlert", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/security/cert/CertificateException;)Lsun/security/ssl/Alert;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateMessage$T13CertificateConsumer, getCertificateAlert, $Alert*, $ClientHandshakeContext*, $CertificateException*)},
+		{"onConsumeCertificate", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/CertificateMessage$T13CertificateMessage;)V", nullptr, $PRIVATE, $method(CertificateMessage$T13CertificateConsumer, onConsumeCertificate, void, $ServerHandshakeContext*, $CertificateMessage$T13CertificateMessage*), "java.io.IOException"},
+		{"onConsumeCertificate", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/CertificateMessage$T13CertificateMessage;)V", nullptr, $PRIVATE, $method(CertificateMessage$T13CertificateConsumer, onConsumeCertificate, void, $ClientHandshakeContext*, $CertificateMessage$T13CertificateMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateMessage$T13CertificateConsumer", "sun.security.ssl.CertificateMessage", "T13CertificateConsumer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateMessage$T13CertificateConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateMessage"
+	};
+	$loadClass(CertificateMessage$T13CertificateConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateMessage$T13CertificateConsumer);
+	});
 	return class$;
 }
 

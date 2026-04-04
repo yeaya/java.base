@@ -35,6 +35,7 @@ class $import X509CertPath : public ::java::security::cert::CertPath {
 	$class(X509CertPath, 0, ::java::security::cert::CertPath)
 public:
 	X509CertPath();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::List* certs);
 	void init$(::java::io::InputStream* is);
 	void init$(::java::io::InputStream* is, $String* encoding);
@@ -48,7 +49,7 @@ public:
 	static ::java::util::List* parsePKCS7(::java::io::InputStream* is);
 	static ::java::util::List* parsePKIPATH(::java::io::InputStream* is);
 	static $bytes* readAllBytes(::java::io::InputStream* is);
-	static const int64_t serialVersionUID = (int64_t)0x453F54F74C4520B4;
+	static const int64_t serialVersionUID = (int64_t)0x453f54f74c4520b4;
 	::java::util::List* certs = nullptr;
 	static $String* COUNT_ENCODING;
 	static $String* PKCS7_ENCODING;

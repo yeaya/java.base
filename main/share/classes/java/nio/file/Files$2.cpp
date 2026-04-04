@@ -1,5 +1,4 @@
 #include <java/nio/file/Files$2.h>
-
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
 #include <java/nio/file/DirectoryIteratorException.h>
@@ -23,49 +22,6 @@ namespace java {
 	namespace nio {
 		namespace file {
 
-$FieldInfo _Files$2_FieldInfo_[] = {
-	{"val$delegate", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(Files$2, val$delegate)},
-	{}
-};
-
-$MethodInfo _Files$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;)V", nullptr, 0, $method(Files$2, init$, void, $Iterator*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Files$2, hasNext, bool)},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Files$2, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Files$2_EnclosingMethodInfo_ = {
-	"java.nio.file.Files",
-	"list",
-	"(Ljava/nio/file/Path;)Ljava/util/stream/Stream;"
-};
-
-$InnerClassInfo _Files$2_InnerClassesInfo_[] = {
-	{"java.nio.file.Files$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Files$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.Files$2",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Files$2_FieldInfo_,
-	_Files$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
-	&_Files$2_EnclosingMethodInfo_,
-	_Files$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.Files"
-};
-
-$Object* allocate$Files$2($Class* clazz) {
-	return $of($alloc(Files$2));
-}
-
 void Files$2::init$($Iterator* val$delegate) {
 	$set(this, val$delegate, val$delegate);
 }
@@ -74,7 +30,7 @@ bool Files$2::hasNext() {
 	try {
 		return $nc(this->val$delegate)->hasNext();
 	} catch ($DirectoryIteratorException& e) {
-		$throwNew($UncheckedIOException, $($cast($IOException, e->getCause())));
+		$throwNew($UncheckedIOException, $$cast($IOException, e->getCause()));
 	}
 	$shouldNotReachHere();
 }
@@ -83,7 +39,7 @@ $Object* Files$2::next() {
 	try {
 		return $of($cast($Path, $nc(this->val$delegate)->next()));
 	} catch ($DirectoryIteratorException& e) {
-		$throwNew($UncheckedIOException, $($cast($IOException, e->getCause())));
+		$throwNew($UncheckedIOException, $$cast($IOException, e->getCause()));
 	}
 	$shouldNotReachHere();
 }
@@ -92,7 +48,43 @@ Files$2::Files$2() {
 }
 
 $Class* Files$2::load$($String* name, bool initialize) {
-	$loadClass(Files$2, name, initialize, &_Files$2_ClassInfo_, allocate$Files$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$delegate", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(Files$2, val$delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Iterator;)V", nullptr, 0, $method(Files$2, init$, void, $Iterator*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Files$2, hasNext, bool)},
+		{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Files$2, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.file.Files",
+		"list",
+		"(Ljava/nio/file/Path;)Ljava/util/stream/Stream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.Files$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.Files$2",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.Files"
+	};
+	$loadClass(Files$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Files$2);
+	});
 	return class$;
 }
 

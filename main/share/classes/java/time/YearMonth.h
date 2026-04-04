@@ -61,6 +61,7 @@ public:
 	YearMonth();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t year, int32_t month);
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal) override;
 	::java::time::LocalDate* atDay(int32_t dayOfMonth);
@@ -113,7 +114,7 @@ public:
 	::java::time::YearMonth* withYear(int32_t year);
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x3A0E6CEAF57EBBC6;
+	static const int64_t serialVersionUID = (int64_t)0x3a0e6ceaf57ebbc6;
 	static ::java::time::format::DateTimeFormatter* PARSER;
 	int32_t year = 0;
 	int32_t month = 0;

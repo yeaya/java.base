@@ -34,6 +34,7 @@ class Class$ReflectionData : public ::java::lang::Object {
 	$class(Class$ReflectionData, $PRELOAD, ::java::lang::Object)
 public:
 	Class$ReflectionData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t redefinedCount);
 	$volatile($Array<::java::lang::reflect::Field>*) declaredFields = nullptr;
 	$volatile($Array<::java::lang::reflect::Field>*) publicFields = nullptr;

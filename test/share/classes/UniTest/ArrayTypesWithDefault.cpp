@@ -1,5 +1,4 @@
 #include <UniTest/ArrayTypesWithDefault.h>
-
 #include <UniTest/Point.h>
 #include <UniTest/Stooge.h>
 #include <jcpp.h>
@@ -14,169 +13,149 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute ArrayTypesWithDefault_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _ArrayTypesWithDefault_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", ArrayTypesWithDefault_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute ArrayTypesWithDefault_Attribute_var$3[] = {
-	{"x", 'I', "11"},
-	{"y", 'I', "12"},
-	{}
-};
-
-$CompoundAttribute ArrayTypesWithDefault_CompoundAttribute_var$2 = {
-"LUniTest/Point;", ArrayTypesWithDefault_Attribute_var$3
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$1[] = {
-	{'@', &ArrayTypesWithDefault_CompoundAttribute_var$2},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_a0 = {
-	'[', ArrayTypesWithDefault_Attribute_var$1
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$4[] = {
-	{'B', "11"},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_b1 = {
-	'[', ArrayTypesWithDefault_Attribute_var$4
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$5[] = {
-	{'Z', "false"},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_bool$2 = {
-	'[', ArrayTypesWithDefault_Attribute_var$5
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$6[] = {
-	{'C', "V"},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_c3 = {
-	'[', ArrayTypesWithDefault_Attribute_var$6
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$7[] = {
-	{'c', "Ljava/lang/Class;"},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_cls4 = {
-	'[', ArrayTypesWithDefault_Attribute_var$7
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$8[] = {
-	{'D', "17.0"},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_d5 = {
-	'[', ArrayTypesWithDefault_Attribute_var$8
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$9[] = {
-	{'e', "LUniTest/Stooge; LARRY"},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_e6 = {
-	'[', ArrayTypesWithDefault_Attribute_var$9
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$10[] = {
-	{'F', "16.0"},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_f7 = {
-	'[', ArrayTypesWithDefault_Attribute_var$10
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$11[] = {
-	{'I', "13"},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_i8 = {
-	'[', ArrayTypesWithDefault_Attribute_var$11
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$12[] = {
-	{'J', "14"},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_l9 = {
-	'[', ArrayTypesWithDefault_Attribute_var$12
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$13[] = {
-	{'S', "12"},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_s10 = {
-	'[', ArrayTypesWithDefault_Attribute_var$13
-};
-
-$Attribute ArrayTypesWithDefault_Attribute_var$14[] = {
-	{'s', "default"},
-	{'-'}
-};
-
-$Attribute _ArrayTypesWithDefault_DefaultValue_str11 = {
-	'[', ArrayTypesWithDefault_Attribute_var$14
-};
-
-$MethodInfo _ArrayTypesWithDefault_MethodInfo_[] = {
-	{"a", "()[LUniTest/Point;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, a, $PointArray*), nullptr, &_ArrayTypesWithDefault_DefaultValue_a0},
-	{"b", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, b, $bytes*), nullptr, &_ArrayTypesWithDefault_DefaultValue_b1},
-	{"bool", "()[Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, bool$, $booleans*), nullptr, &_ArrayTypesWithDefault_DefaultValue_bool$2},
-	{"c", "()[C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, c, $chars*), nullptr, &_ArrayTypesWithDefault_DefaultValue_c3},
-	{"cls", "()[Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, cls, $ClassArray*), nullptr, &_ArrayTypesWithDefault_DefaultValue_cls4},
-	{"d", "()[D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, d, $doubles*), nullptr, &_ArrayTypesWithDefault_DefaultValue_d5},
-	{"e", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, e, $StoogeArray*), nullptr, &_ArrayTypesWithDefault_DefaultValue_e6},
-	{"f", "()[F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, f, $floats*), nullptr, &_ArrayTypesWithDefault_DefaultValue_f7},
-	{"i", "()[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, i, $ints*), nullptr, &_ArrayTypesWithDefault_DefaultValue_i8},
-	{"l", "()[J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, l, $longs*), nullptr, &_ArrayTypesWithDefault_DefaultValue_l9},
-	{"s", "()[S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, s, $shorts*), nullptr, &_ArrayTypesWithDefault_DefaultValue_s10},
-	{"str", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, str, $StringArray*), nullptr, &_ArrayTypesWithDefault_DefaultValue_str11},
-	{}
-};
-
-$ClassInfo _ArrayTypesWithDefault_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.ArrayTypesWithDefault",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_ArrayTypesWithDefault_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ArrayTypesWithDefault_Annotations_
-};
-
-$Object* allocate$ArrayTypesWithDefault($Class* clazz) {
-	return $of($alloc(ArrayTypesWithDefault));
-}
-
 $Class* ArrayTypesWithDefault::load$($String* name, bool initialize) {
-	$loadClass(ArrayTypesWithDefault, name, initialize, &_ArrayTypesWithDefault_ClassInfo_, allocate$ArrayTypesWithDefault);
+	$NamedAttribute adefaultValue$$$compoundAttribute$namedAttribute[] = {
+		{"x", 'I', "11"},
+		{"y", 'I', "12"},
+		{}
+	};
+$CompoundAttribute adefaultValue$$$compoundAttribute = {
+	"LUniTest/Point;", adefaultValue$$$compoundAttribute$namedAttribute
+};
+	$Attribute $attribute[] = {
+		{'@', &adefaultValue$$$compoundAttribute},
+		{'-'}
+	};
+
+	$Attribute adefaultValue$$ = {
+		'[', $attribute
+	};
+	$Attribute $attribute$1[] = {
+		{'B', "11"},
+		{'-'}
+	};
+
+	$Attribute bdefaultValue$$ = {
+		'[', $attribute$1
+	};
+	$Attribute $attribute$2[] = {
+		{'Z', "false"},
+		{'-'}
+	};
+
+	$Attribute bool$defaultValue$$ = {
+		'[', $attribute$2
+	};
+	$Attribute $attribute$3[] = {
+		{'C', "V"},
+		{'-'}
+	};
+
+	$Attribute cdefaultValue$$ = {
+		'[', $attribute$3
+	};
+	$Attribute $attribute$4[] = {
+		{'c', "Ljava/lang/Class;"},
+		{'-'}
+	};
+
+	$Attribute clsdefaultValue$$ = {
+		'[', $attribute$4
+	};
+	$Attribute $attribute$5[] = {
+		{'D', "17.0"},
+		{'-'}
+	};
+
+	$Attribute ddefaultValue$$ = {
+		'[', $attribute$5
+	};
+	$Attribute $attribute$6[] = {
+		{'e', "LUniTest/Stooge; LARRY"},
+		{'-'}
+	};
+
+	$Attribute edefaultValue$$ = {
+		'[', $attribute$6
+	};
+	$Attribute $attribute$7[] = {
+		{'F', "16.0"},
+		{'-'}
+	};
+
+	$Attribute fdefaultValue$$ = {
+		'[', $attribute$7
+	};
+	$Attribute $attribute$8[] = {
+		{'I', "13"},
+		{'-'}
+	};
+
+	$Attribute idefaultValue$$ = {
+		'[', $attribute$8
+	};
+	$Attribute $attribute$9[] = {
+		{'J', "14"},
+		{'-'}
+	};
+
+	$Attribute ldefaultValue$$ = {
+		'[', $attribute$9
+	};
+	$Attribute $attribute$10[] = {
+		{'S', "12"},
+		{'-'}
+	};
+
+	$Attribute sdefaultValue$$ = {
+		'[', $attribute$10
+	};
+	$Attribute $attribute$11[] = {
+		{'s', "default"},
+		{'-'}
+	};
+
+	$Attribute strdefaultValue$$ = {
+		'[', $attribute$11
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"a", "()[LUniTest/Point;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, a, $PointArray*), nullptr, &adefaultValue$$},
+		{"b", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, b, $bytes*), nullptr, &bdefaultValue$$},
+		{"bool", "()[Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, bool$, $booleans*), nullptr, &bool$defaultValue$$},
+		{"c", "()[C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, c, $chars*), nullptr, &cdefaultValue$$},
+		{"cls", "()[Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, cls, $ClassArray*), nullptr, &clsdefaultValue$$},
+		{"d", "()[D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, d, $doubles*), nullptr, &ddefaultValue$$},
+		{"e", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, e, $StoogeArray*), nullptr, &edefaultValue$$},
+		{"f", "()[F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, f, $floats*), nullptr, &fdefaultValue$$},
+		{"i", "()[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, i, $ints*), nullptr, &idefaultValue$$},
+		{"l", "()[J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, l, $longs*), nullptr, &ldefaultValue$$},
+		{"s", "()[S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, s, $shorts*), nullptr, &sdefaultValue$$},
+		{"str", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, str, $StringArray*), nullptr, &strdefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.ArrayTypesWithDefault",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ArrayTypesWithDefault, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayTypesWithDefault);
+	});
 	return class$;
 }
 

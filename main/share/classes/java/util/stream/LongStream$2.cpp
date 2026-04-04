@@ -1,5 +1,4 @@
 #include <java/util/stream/LongStream$2.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterators$AbstractLongSpliterator.h>
 #include <java/util/function/LongConsumer.h>
@@ -22,57 +21,6 @@ using $LongUnaryOperator = ::java::util::function::LongUnaryOperator;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _LongStream$2_FieldInfo_[] = {
-	{"val$hasNext", "Ljava/util/function/LongPredicate;", nullptr, $FINAL | $SYNTHETIC, $field(LongStream$2, val$hasNext)},
-	{"val$seed", "J", nullptr, $FINAL | $SYNTHETIC, $field(LongStream$2, val$seed)},
-	{"val$next", "Ljava/util/function/LongUnaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(LongStream$2, val$next)},
-	{"prev", "J", nullptr, 0, $field(LongStream$2, prev)},
-	{"started", "Z", nullptr, 0, $field(LongStream$2, started)},
-	{"finished", "Z", nullptr, 0, $field(LongStream$2, finished)},
-	{}
-};
-
-$MethodInfo _LongStream$2_MethodInfo_[] = {
-	{"<init>", "(JILjava/util/function/LongUnaryOperator;JLjava/util/function/LongPredicate;)V", nullptr, 0, $method(LongStream$2, init$, void, int64_t, int32_t, $LongUnaryOperator*, int64_t, $LongPredicate*)},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(LongStream$2, forEachRemaining, void, $LongConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongStream$2, forEachRemaining, void, Object$*)},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(LongStream$2, tryAdvance, bool, $LongConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongStream$2, tryAdvance, bool, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _LongStream$2_EnclosingMethodInfo_ = {
-	"java.util.stream.LongStream",
-	"iterate",
-	"(JLjava/util/function/LongPredicate;Ljava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;"
-};
-
-$InnerClassInfo _LongStream$2_InnerClassesInfo_[] = {
-	{"java.util.stream.LongStream$2", nullptr, nullptr, 0},
-	{"java.util.Spliterators$AbstractLongSpliterator", "java.util.Spliterators", "AbstractLongSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LongStream$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.LongStream$2",
-	"java.util.Spliterators$AbstractLongSpliterator",
-	nullptr,
-	_LongStream$2_FieldInfo_,
-	_LongStream$2_MethodInfo_,
-	nullptr,
-	&_LongStream$2_EnclosingMethodInfo_,
-	_LongStream$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.LongStream"
-};
-
-$Object* allocate$LongStream$2($Class* clazz) {
-	return $of($alloc(LongStream$2));
-}
 
 void LongStream$2::init$(int64_t est, int32_t additionalCharacteristics, $LongUnaryOperator* val$next, int64_t val$seed, $LongPredicate* val$hasNext) {
 	$set(this, val$next, val$next);
@@ -126,7 +74,51 @@ LongStream$2::LongStream$2() {
 }
 
 $Class* LongStream$2::load$($String* name, bool initialize) {
-	$loadClass(LongStream$2, name, initialize, &_LongStream$2_ClassInfo_, allocate$LongStream$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$hasNext", "Ljava/util/function/LongPredicate;", nullptr, $FINAL | $SYNTHETIC, $field(LongStream$2, val$hasNext)},
+		{"val$seed", "J", nullptr, $FINAL | $SYNTHETIC, $field(LongStream$2, val$seed)},
+		{"val$next", "Ljava/util/function/LongUnaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(LongStream$2, val$next)},
+		{"prev", "J", nullptr, 0, $field(LongStream$2, prev)},
+		{"started", "Z", nullptr, 0, $field(LongStream$2, started)},
+		{"finished", "Z", nullptr, 0, $field(LongStream$2, finished)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JILjava/util/function/LongUnaryOperator;JLjava/util/function/LongPredicate;)V", nullptr, 0, $method(LongStream$2, init$, void, int64_t, int32_t, $LongUnaryOperator*, int64_t, $LongPredicate*)},
+		{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(LongStream$2, forEachRemaining, void, $LongConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongStream$2, forEachRemaining, void, Object$*)},
+		{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(LongStream$2, tryAdvance, bool, $LongConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongStream$2, tryAdvance, bool, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.LongStream",
+		"iterate",
+		"(JLjava/util/function/LongPredicate;Ljava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.LongStream$2", nullptr, nullptr, 0},
+		{"java.util.Spliterators$AbstractLongSpliterator", "java.util.Spliterators", "AbstractLongSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.LongStream$2",
+		"java.util.Spliterators$AbstractLongSpliterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.LongStream"
+	};
+	$loadClass(LongStream$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LongStream$2);
+	});
 	return class$;
 }
 

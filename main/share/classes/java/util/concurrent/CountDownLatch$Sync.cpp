@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CountDownLatch$Sync.h>
-
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/locks/AbstractQueuedSynchronizer.h>
 #include <jcpp.h>
@@ -13,44 +12,6 @@ using $AbstractQueuedSynchronizer = ::java::util::concurrent::locks::AbstractQue
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _CountDownLatch$Sync_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CountDownLatch$Sync, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CountDownLatch$Sync_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(CountDownLatch$Sync, init$, void, int32_t)},
-	{"getCount", "()I", nullptr, 0, $method(CountDownLatch$Sync, getCount, int32_t)},
-	{"tryAcquireShared", "(I)I", nullptr, $PROTECTED, $virtualMethod(CountDownLatch$Sync, tryAcquireShared, int32_t, int32_t)},
-	{"tryReleaseShared", "(I)Z", nullptr, $PROTECTED, $virtualMethod(CountDownLatch$Sync, tryReleaseShared, bool, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CountDownLatch$Sync_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CountDownLatch$Sync", "java.util.concurrent.CountDownLatch", "Sync", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CountDownLatch$Sync_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CountDownLatch$Sync",
-	"java.util.concurrent.locks.AbstractQueuedSynchronizer",
-	nullptr,
-	_CountDownLatch$Sync_FieldInfo_,
-	_CountDownLatch$Sync_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CountDownLatch$Sync_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CountDownLatch"
-};
-
-$Object* allocate$CountDownLatch$Sync($Class* clazz) {
-	return $of($alloc(CountDownLatch$Sync));
-}
 
 void CountDownLatch$Sync::init$(int32_t count) {
 	$AbstractQueuedSynchronizer::init$();
@@ -82,7 +43,39 @@ CountDownLatch$Sync::CountDownLatch$Sync() {
 }
 
 $Class* CountDownLatch$Sync::load$($String* name, bool initialize) {
-	$loadClass(CountDownLatch$Sync, name, initialize, &_CountDownLatch$Sync_ClassInfo_, allocate$CountDownLatch$Sync);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CountDownLatch$Sync, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(CountDownLatch$Sync, init$, void, int32_t)},
+		{"getCount", "()I", nullptr, 0, $method(CountDownLatch$Sync, getCount, int32_t)},
+		{"tryAcquireShared", "(I)I", nullptr, $PROTECTED, $virtualMethod(CountDownLatch$Sync, tryAcquireShared, int32_t, int32_t)},
+		{"tryReleaseShared", "(I)Z", nullptr, $PROTECTED, $virtualMethod(CountDownLatch$Sync, tryReleaseShared, bool, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CountDownLatch$Sync", "java.util.concurrent.CountDownLatch", "Sync", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CountDownLatch$Sync",
+		"java.util.concurrent.locks.AbstractQueuedSynchronizer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CountDownLatch"
+	};
+	$loadClass(CountDownLatch$Sync, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CountDownLatch$Sync);
+	});
 	return class$;
 }
 

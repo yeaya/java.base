@@ -67,6 +67,7 @@ public:
 	Year();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t year);
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal) override;
 	::java::time::LocalDate* atDay(int32_t dayOfYear);
@@ -112,9 +113,9 @@ public:
 	virtual ::java::time::Year* with(::java::time::temporal::TemporalField* field, int64_t newValue) override;
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
-	static const int32_t MIN_VALUE = 0xC4653601;
-	static const int32_t MAX_VALUE = 0x3B9AC9FF;
-	static const int64_t serialVersionUID = (int64_t)0xFFAE26B64BB10611;
+	static const int32_t MIN_VALUE = 0xc4653601;
+	static const int32_t MAX_VALUE = 0x3b9ac9ff;
+	static const int64_t serialVersionUID = (int64_t)0xffae26b64bb10611;
 	static ::java::time::format::DateTimeFormatter* PARSER;
 	int32_t year = 0;
 };

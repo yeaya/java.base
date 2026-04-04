@@ -1,17 +1,14 @@
 #include <java/time/Period.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/LocalDate.h>
 #include <java/time/Ser.h>
-#include <java/time/chrono/ChronoLocalDate.h>
 #include <java/time/chrono/ChronoPeriod.h>
 #include <java/time/chrono/Chronology.h>
 #include <java/time/chrono/IsoChronology.h>
@@ -47,7 +44,6 @@ using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -61,7 +57,6 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $DateTimeException = ::java::time::DateTimeException;
 using $LocalDate = ::java::time::LocalDate;
 using $Ser = ::java::time::Ser;
-using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $ChronoPeriod = ::java::time::chrono::ChronoPeriod;
 using $Chronology = ::java::time::chrono::Chronology;
 using $IsoChronology = ::java::time::chrono::IsoChronology;
@@ -81,90 +76,6 @@ using $Pattern = ::java::util::regex::Pattern;
 
 namespace java {
 	namespace time {
-
-$CompoundAttribute _Period_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _Period_FieldInfo_[] = {
-	{"ZERO", "Ljava/time/Period;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Period, ZERO)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Period, serialVersionUID)},
-	{"PATTERN", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Period, PATTERN)},
-	{"SUPPORTED_UNITS", "Ljava/util/List;", "Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Period, SUPPORTED_UNITS)},
-	{"years", "I", nullptr, $PRIVATE | $FINAL, $field(Period, years)},
-	{"months", "I", nullptr, $PRIVATE | $FINAL, $field(Period, months)},
-	{"days", "I", nullptr, $PRIVATE | $FINAL, $field(Period, days)},
-	{}
-};
-
-$MethodInfo _Period_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(III)V", nullptr, $PRIVATE, $method(Period, init$, void, int32_t, int32_t, int32_t)},
-	{"addTo", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Period, addTo, $Temporal*, $Temporal*)},
-	{"between", "(Ljava/time/LocalDate;Ljava/time/LocalDate;)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, between, Period*, $LocalDate*, $LocalDate*)},
-	{"charMatch", "(Ljava/lang/CharSequence;IIC)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Period, charMatch, bool, $CharSequence*, int32_t, int32_t, char16_t)},
-	{"create", "(III)Ljava/time/Period;", nullptr, $PRIVATE | $STATIC, $staticMethod(Period, create, Period*, int32_t, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Period, equals, bool, Object$*)},
-	{"from", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, from, Period*, $TemporalAmount*)},
-	{"get", "(Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(Period, get, int64_t, $TemporalUnit*)},
-	{"getChronology", "()Ljava/time/chrono/IsoChronology;", nullptr, $PUBLIC, $virtualMethod(Period, getChronology, $Chronology*)},
-	{"getDays", "()I", nullptr, $PUBLIC, $method(Period, getDays, int32_t)},
-	{"getMonths", "()I", nullptr, $PUBLIC, $method(Period, getMonths, int32_t)},
-	{"getUnits", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $PUBLIC, $virtualMethod(Period, getUnits, $List*)},
-	{"getYears", "()I", nullptr, $PUBLIC, $method(Period, getYears, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Period, hashCode, int32_t)},
-	{"isNegative", "()Z", nullptr, $PUBLIC, $virtualMethod(Period, isNegative, bool)},
-	{"isZero", "()Z", nullptr, $PUBLIC, $virtualMethod(Period, isZero, bool)},
-	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(Period, minus, Period*, $TemporalAmount*)},
-	{"minusDays", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, minusDays, Period*, int64_t)},
-	{"minusMonths", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, minusMonths, Period*, int64_t)},
-	{"minusYears", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, minusYears, Period*, int64_t)},
-	{"multipliedBy", "(I)Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(Period, multipliedBy, Period*, int32_t)},
-	{"negated", "()Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(Period, negated, Period*)},
-	{"normalized", "()Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(Period, normalized, Period*)},
-	{"of", "(III)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, of, Period*, int32_t, int32_t, int32_t)},
-	{"ofDays", "(I)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, ofDays, Period*, int32_t)},
-	{"ofMonths", "(I)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, ofMonths, Period*, int32_t)},
-	{"ofWeeks", "(I)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, ofWeeks, Period*, int32_t)},
-	{"ofYears", "(I)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, ofYears, Period*, int32_t)},
-	{"parse", "(Ljava/lang/CharSequence;)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, parse, Period*, $CharSequence*)},
-	{"parseNumber", "(Ljava/lang/CharSequence;III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Period, parseNumber, int32_t, $CharSequence*, int32_t, int32_t, int32_t)},
-	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(Period, plus, Period*, $TemporalAmount*)},
-	{"plusDays", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, plusDays, Period*, int64_t)},
-	{"plusMonths", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, plusMonths, Period*, int64_t)},
-	{"plusYears", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, plusYears, Period*, int64_t)},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/Period;", nullptr, $STATIC, $staticMethod(Period, readExternal, Period*, $DataInput*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Period, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"subtractFrom", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Period, subtractFrom, $Temporal*, $Temporal*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Period, toString, $String*)},
-	{"toTotalMonths", "()J", nullptr, $PUBLIC, $method(Period, toTotalMonths, int64_t)},
-	{"validateChrono", "(Ljava/time/temporal/TemporalAccessor;)V", nullptr, $PRIVATE, $method(Period, validateChrono, void, $TemporalAccessor*)},
-	{"withDays", "(I)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, withDays, Period*, int32_t)},
-	{"withMonths", "(I)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, withMonths, Period*, int32_t)},
-	{"withYears", "(I)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, withYears, Period*, int32_t)},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(Period, writeExternal, void, $DataOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Period, writeReplace, $Object*)},
-	{}
-};
-
-$ClassInfo _Period_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.Period",
-	"java.lang.Object",
-	"java.time.chrono.ChronoPeriod,java.io.Serializable",
-	_Period_FieldInfo_,
-	_Period_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Period_Annotations_
-};
-
-$Object* allocate$Period($Class* clazz) {
-	return $of($alloc(Period));
-}
 
 $Object* Period::clone() {
 	 return this->$ChronoPeriod::clone();
@@ -205,22 +116,22 @@ Period* Period::of(int32_t years, int32_t months, int32_t days) {
 
 Period* Period::from($TemporalAmount* amount) {
 	$init(Period);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf(Period, amount)) {
 		return $cast(Period, amount);
 	}
 	if ($instanceOf($ChronoPeriod, amount)) {
 		$init($IsoChronology);
-		if ($nc($IsoChronology::INSTANCE)->equals($($nc(($cast($ChronoPeriod, amount)))->getChronology())) == false) {
+		if ($nc($IsoChronology::INSTANCE)->equals($($cast($ChronoPeriod, amount)->getChronology())) == false) {
 			$throwNew($DateTimeException, $$str({"Period requires ISO chronology: "_s, amount}));
 		}
 	}
-	$Objects::requireNonNull($of(amount), "amount"_s);
+	$Objects::requireNonNull(amount, "amount"_s);
 	int32_t years = 0;
 	int32_t months = 0;
 	int32_t days = 0;
 	{
-		$var($Iterator, i$, $nc($($nc(amount)->getUnits()))->iterator());
+		$var($Iterator, i$, $$nc($nc(amount)->getUnits())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($TemporalUnit, unit, $cast($TemporalUnit, i$->next()));
 			{
@@ -228,16 +139,12 @@ Period* Period::from($TemporalAmount* amount) {
 				$init($ChronoUnit);
 				if ($equals(unit, $ChronoUnit::YEARS)) {
 					years = $Math::toIntExact(unitAmount);
+				} else if ($equals(unit, $ChronoUnit::MONTHS)) {
+					months = $Math::toIntExact(unitAmount);
+				} else if ($equals(unit, $ChronoUnit::DAYS)) {
+					days = $Math::toIntExact(unitAmount);
 				} else {
-					if ($equals(unit, $ChronoUnit::MONTHS)) {
-						months = $Math::toIntExact(unitAmount);
-					} else {
-						if ($equals(unit, $ChronoUnit::DAYS)) {
-							days = $Math::toIntExact(unitAmount);
-						} else {
-							$throwNew($DateTimeException, $$str({"Unit must be Years, Months or Days, but was "_s, unit}));
-						}
-					}
+					$throwNew($DateTimeException, $$str({"Unit must be Years, Months or Days, but was "_s, unit}));
 				}
 			}
 		}
@@ -247,13 +154,11 @@ Period* Period::from($TemporalAmount* amount) {
 
 Period* Period::parse($CharSequence* text) {
 	$init(Period);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(text), "text"_s);
+	$Objects::requireNonNull(text, "text"_s);
 	$var($Matcher, matcher, $nc(Period::PATTERN)->matcher(text));
 	if ($nc(matcher)->matches()) {
-		$var($CharSequence, var$0, text);
-		int32_t var$1 = matcher->start(1);
-		int32_t negate = (charMatch(var$0, var$1, matcher->end(1), u'-') ? -1 : 1);
+		int32_t var$0 = matcher->start(1);
+		int32_t negate = (charMatch(text, var$0, matcher->end(1), u'-') ? -1 : 1);
 		int32_t yearStart = matcher->start(2);
 		int32_t yearEnd = matcher->end(2);
 		int32_t monthStart = matcher->start(3);
@@ -321,16 +226,12 @@ int64_t Period::get($TemporalUnit* unit) {
 	$init($ChronoUnit);
 	if ($equals(unit, $ChronoUnit::YEARS)) {
 		return getYears();
+	} else if ($equals(unit, $ChronoUnit::MONTHS)) {
+		return getMonths();
+	} else if ($equals(unit, $ChronoUnit::DAYS)) {
+		return getDays();
 	} else {
-		if ($equals(unit, $ChronoUnit::MONTHS)) {
-			return getMonths();
-		} else {
-			if ($equals(unit, $ChronoUnit::DAYS)) {
-				return getDays();
-			} else {
-				$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
-			}
-		}
+		$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
 	}
 }
 
@@ -387,8 +288,8 @@ Period* Period::withDays(int32_t days) {
 Period* Period::plus($TemporalAmount* amountToAdd) {
 	$var(Period, isoAmount, Period::from(amountToAdd));
 	int32_t var$0 = $Math::addExact(this->years, $nc(isoAmount)->years);
-	int32_t var$1 = $Math::addExact(this->months, $nc(isoAmount)->months);
-	return create(var$0, var$1, $Math::addExact(this->days, $nc(isoAmount)->days));
+	int32_t var$1 = $Math::addExact(this->months, isoAmount->months);
+	return create(var$0, var$1, $Math::addExact(this->days, isoAmount->days));
 }
 
 Period* Period::plusYears(int64_t yearsToAdd) {
@@ -415,20 +316,20 @@ Period* Period::plusDays(int64_t daysToAdd) {
 Period* Period::minus($TemporalAmount* amountToSubtract) {
 	$var(Period, isoAmount, Period::from(amountToSubtract));
 	int32_t var$0 = $Math::subtractExact(this->years, $nc(isoAmount)->years);
-	int32_t var$1 = $Math::subtractExact(this->months, $nc(isoAmount)->months);
-	return create(var$0, var$1, $Math::subtractExact(this->days, $nc(isoAmount)->days));
+	int32_t var$1 = $Math::subtractExact(this->months, isoAmount->months);
+	return create(var$0, var$1, $Math::subtractExact(this->days, isoAmount->days));
 }
 
 Period* Period::minusYears(int64_t yearsToSubtract) {
-	return (yearsToSubtract == $Long::MIN_VALUE ? $nc($(plusYears($Long::MAX_VALUE)))->plusYears(1) : plusYears(-yearsToSubtract));
+	return (yearsToSubtract == $Long::MIN_VALUE ? $$nc(plusYears($Long::MAX_VALUE))->plusYears(1) : plusYears(-yearsToSubtract));
 }
 
 Period* Period::minusMonths(int64_t monthsToSubtract) {
-	return (monthsToSubtract == $Long::MIN_VALUE ? $nc($(plusMonths($Long::MAX_VALUE)))->plusMonths(1) : plusMonths(-monthsToSubtract));
+	return (monthsToSubtract == $Long::MIN_VALUE ? $$nc(plusMonths($Long::MAX_VALUE))->plusMonths(1) : plusMonths(-monthsToSubtract));
 }
 
 Period* Period::minusDays(int64_t daysToSubtract) {
-	return (daysToSubtract == $Long::MIN_VALUE ? $nc($(plusDays($Long::MAX_VALUE)))->plusDays(1) : plusDays(-daysToSubtract));
+	return (daysToSubtract == $Long::MIN_VALUE ? $$nc(plusDays($Long::MAX_VALUE))->plusDays(1) : plusDays(-daysToSubtract));
 }
 
 Period* Period::multipliedBy(int32_t scalar) {
@@ -503,8 +404,8 @@ $Temporal* Period::subtractFrom($Temporal* temporal$renamed) {
 }
 
 void Period::validateChrono($TemporalAccessor* temporal) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(temporal), "temporal"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(temporal, "temporal"_s);
 	$var($Chronology, temporalChrono, $cast($Chronology, $nc(temporal)->query($($TemporalQueries::chronology()))));
 	$init($IsoChronology);
 	if (temporalChrono != nullptr && $nc($IsoChronology::INSTANCE)->equals(temporalChrono) == false) {
@@ -522,7 +423,7 @@ bool Period::equals(Object$* obj) {
 		$assign(other, $cast(Period, obj));
 		var$3 = true;
 	}
-	bool var$2 = (var$3);
+	bool var$2 = var$3;
 	bool var$1 = var$2 && this->years == $nc(other)->years;
 	bool var$0 = var$1 && this->months == other->months;
 	return var$0 && this->days == other->days;
@@ -553,7 +454,7 @@ $String* Period::toString() {
 }
 
 $Object* Period::writeReplace() {
-	return $of($new($Ser, $Ser::PERIOD_TYPE, this));
+	return $new($Ser, $Ser::PERIOD_TYPE, this);
 }
 
 void Period::readObject($ObjectInputStream* s) {
@@ -574,7 +475,7 @@ Period* Period::readExternal($DataInput* in) {
 	return Period::of(years, months, days);
 }
 
-void clinit$Period($Class* class$) {
+void Period::clinit$($Class* clazz) {
 	$assignStatic(Period::ZERO, $new(Period, 0, 0, 0));
 	$assignStatic(Period::PATTERN, $Pattern::compile("([-+]?)P(?:([-+]?[0-9]+)Y)?(?:([-+]?[0-9]+)M)?(?:([-+]?[0-9]+)W)?(?:([-+]?[0-9]+)D)?"_s, $Pattern::CASE_INSENSITIVE));
 	$init($ChronoUnit);
@@ -585,7 +486,85 @@ Period::Period() {
 }
 
 $Class* Period::load$($String* name, bool initialize) {
-	$loadClass(Period, name, initialize, &_Period_ClassInfo_, clinit$Period, allocate$Period);
+	$FieldInfo fieldInfos$$[] = {
+		{"ZERO", "Ljava/time/Period;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Period, ZERO)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Period, serialVersionUID)},
+		{"PATTERN", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Period, PATTERN)},
+		{"SUPPORTED_UNITS", "Ljava/util/List;", "Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Period, SUPPORTED_UNITS)},
+		{"years", "I", nullptr, $PRIVATE | $FINAL, $field(Period, years)},
+		{"months", "I", nullptr, $PRIVATE | $FINAL, $field(Period, months)},
+		{"days", "I", nullptr, $PRIVATE | $FINAL, $field(Period, days)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(III)V", nullptr, $PRIVATE, $method(Period, init$, void, int32_t, int32_t, int32_t)},
+		{"addTo", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Period, addTo, $Temporal*, $Temporal*)},
+		{"between", "(Ljava/time/LocalDate;Ljava/time/LocalDate;)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, between, Period*, $LocalDate*, $LocalDate*)},
+		{"charMatch", "(Ljava/lang/CharSequence;IIC)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Period, charMatch, bool, $CharSequence*, int32_t, int32_t, char16_t)},
+		{"create", "(III)Ljava/time/Period;", nullptr, $PRIVATE | $STATIC, $staticMethod(Period, create, Period*, int32_t, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Period, equals, bool, Object$*)},
+		{"from", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, from, Period*, $TemporalAmount*)},
+		{"get", "(Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(Period, get, int64_t, $TemporalUnit*)},
+		{"getChronology", "()Ljava/time/chrono/IsoChronology;", nullptr, $PUBLIC, $virtualMethod(Period, getChronology, $Chronology*)},
+		{"getDays", "()I", nullptr, $PUBLIC, $method(Period, getDays, int32_t)},
+		{"getMonths", "()I", nullptr, $PUBLIC, $method(Period, getMonths, int32_t)},
+		{"getUnits", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $PUBLIC, $virtualMethod(Period, getUnits, $List*)},
+		{"getYears", "()I", nullptr, $PUBLIC, $method(Period, getYears, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Period, hashCode, int32_t)},
+		{"isNegative", "()Z", nullptr, $PUBLIC, $virtualMethod(Period, isNegative, bool)},
+		{"isZero", "()Z", nullptr, $PUBLIC, $virtualMethod(Period, isZero, bool)},
+		{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(Period, minus, Period*, $TemporalAmount*)},
+		{"minusDays", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, minusDays, Period*, int64_t)},
+		{"minusMonths", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, minusMonths, Period*, int64_t)},
+		{"minusYears", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, minusYears, Period*, int64_t)},
+		{"multipliedBy", "(I)Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(Period, multipliedBy, Period*, int32_t)},
+		{"negated", "()Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(Period, negated, Period*)},
+		{"normalized", "()Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(Period, normalized, Period*)},
+		{"of", "(III)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, of, Period*, int32_t, int32_t, int32_t)},
+		{"ofDays", "(I)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, ofDays, Period*, int32_t)},
+		{"ofMonths", "(I)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, ofMonths, Period*, int32_t)},
+		{"ofWeeks", "(I)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, ofWeeks, Period*, int32_t)},
+		{"ofYears", "(I)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, ofYears, Period*, int32_t)},
+		{"parse", "(Ljava/lang/CharSequence;)Ljava/time/Period;", nullptr, $PUBLIC | $STATIC, $staticMethod(Period, parse, Period*, $CharSequence*)},
+		{"parseNumber", "(Ljava/lang/CharSequence;III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Period, parseNumber, int32_t, $CharSequence*, int32_t, int32_t, int32_t)},
+		{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(Period, plus, Period*, $TemporalAmount*)},
+		{"plusDays", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, plusDays, Period*, int64_t)},
+		{"plusMonths", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, plusMonths, Period*, int64_t)},
+		{"plusYears", "(J)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, plusYears, Period*, int64_t)},
+		{"readExternal", "(Ljava/io/DataInput;)Ljava/time/Period;", nullptr, $STATIC, $staticMethod(Period, readExternal, Period*, $DataInput*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Period, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"subtractFrom", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Period, subtractFrom, $Temporal*, $Temporal*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Period, toString, $String*)},
+		{"toTotalMonths", "()J", nullptr, $PUBLIC, $method(Period, toTotalMonths, int64_t)},
+		{"validateChrono", "(Ljava/time/temporal/TemporalAccessor;)V", nullptr, $PRIVATE, $method(Period, validateChrono, void, $TemporalAccessor*)},
+		{"withDays", "(I)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, withDays, Period*, int32_t)},
+		{"withMonths", "(I)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, withMonths, Period*, int32_t)},
+		{"withYears", "(I)Ljava/time/Period;", nullptr, $PUBLIC, $method(Period, withYears, Period*, int32_t)},
+		{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(Period, writeExternal, void, $DataOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Period, writeReplace, $Object*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.Period",
+		"java.lang.Object",
+		"java.time.chrono.ChronoPeriod,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Period, name, initialize, &classInfo$$, Period::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Period));
+	});
 	return class$;
 }
 

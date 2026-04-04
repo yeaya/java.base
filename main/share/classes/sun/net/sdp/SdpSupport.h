@@ -26,6 +26,7 @@ class SdpSupport : public ::java::lang::Object {
 	$class(SdpSupport, 0, ::java::lang::Object)
 public:
 	SdpSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void convert0(int32_t fd);
 	static void convertSocket(::java::io::FileDescriptor* fd);

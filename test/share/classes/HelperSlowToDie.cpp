@@ -1,5 +1,4 @@
 #include <HelperSlowToDie.h>
-
 #include <HelperSlowToDie$1.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/Runtime.h>
@@ -15,7 +14,6 @@
 
 using $HelperSlowToDie$1 = ::HelperSlowToDie$1;
 using $SocketChannelArray = $Array<::java::nio::channels::SocketChannel>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -26,51 +24,14 @@ using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
-$FieldInfo _HelperSlowToDie_FieldInfo_[] = {
-	{"CHANNELS_PER_THREAD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HelperSlowToDie, CHANNELS_PER_THREAD)},
-	{"TEST_ITERATIONS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HelperSlowToDie, TEST_ITERATIONS)},
-	{"done", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(HelperSlowToDie, done)},
-	{}
-};
-
-$MethodInfo _HelperSlowToDie_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HelperSlowToDie, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HelperSlowToDie, main, void, $StringArray*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _HelperSlowToDie_InnerClassesInfo_[] = {
-	{"HelperSlowToDie$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HelperSlowToDie_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HelperSlowToDie",
-	"java.lang.Object",
-	nullptr,
-	_HelperSlowToDie_FieldInfo_,
-	_HelperSlowToDie_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HelperSlowToDie_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HelperSlowToDie$1"
-};
-
-$Object* allocate$HelperSlowToDie($Class* clazz) {
-	return $of($alloc(HelperSlowToDie));
-}
-
 $volatile(bool) HelperSlowToDie::done = false;
 
 void HelperSlowToDie::init$() {
 }
 
 void HelperSlowToDie::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($System::getProperty("os.name"_s)))->startsWith("Windows"_s)) {
+	$useLocalObjectStack();
+	if (!$$nc($System::getProperty("os.name"_s))->startsWith("Windows"_s)) {
 		$nc($System::out)->println("Test skipped as it verifies a Windows specific bug"_s);
 		return;
 	}
@@ -84,7 +45,7 @@ void HelperSlowToDie::main($StringArray* args) {
 	}
 	$nc(sel)->selectNow();
 	$var($Runnable, busy, $new($HelperSlowToDie$1));
-	int32_t ncores = $nc($($Runtime::getRuntime()))->availableProcessors();
+	int32_t ncores = $$nc($Runtime::getRuntime())->availableProcessors();
 	for (int32_t i = 0; i < ncores - 1; ++i) {
 		$$new($Thread, busy)->start();
 	}
@@ -108,7 +69,38 @@ HelperSlowToDie::HelperSlowToDie() {
 }
 
 $Class* HelperSlowToDie::load$($String* name, bool initialize) {
-	$loadClass(HelperSlowToDie, name, initialize, &_HelperSlowToDie_ClassInfo_, allocate$HelperSlowToDie);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHANNELS_PER_THREAD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HelperSlowToDie, CHANNELS_PER_THREAD)},
+		{"TEST_ITERATIONS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HelperSlowToDie, TEST_ITERATIONS)},
+		{"done", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(HelperSlowToDie, done)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HelperSlowToDie, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HelperSlowToDie, main, void, $StringArray*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HelperSlowToDie$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HelperSlowToDie",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HelperSlowToDie$1"
+	};
+	$loadClass(HelperSlowToDie, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HelperSlowToDie);
+	});
 	return class$;
 }
 

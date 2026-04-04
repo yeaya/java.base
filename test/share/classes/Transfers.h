@@ -30,6 +30,7 @@ class $export Transfers : public ::java::lang::Object {
 	$class(Transfers, 0, ::java::lang::Object)
 public:
 	Transfers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkBytes(::java::nio::channels::FileChannel* fc, int32_t off, int32_t len, $bytes* bytes);
 	static void checkRandomBytes(::java::nio::channels::FileChannel* fc, int32_t off, int32_t len, int64_t seed);

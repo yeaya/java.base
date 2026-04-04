@@ -22,6 +22,7 @@ class AbstractPoller$RequestType : public ::java::lang::Enum {
 public:
 	AbstractPoller$RequestType();
 	static $Array<::sun::nio::fs::AbstractPoller$RequestType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::nio::fs::AbstractPoller$RequestType* valueOf($String* name);
 	static $Array<::sun::nio::fs::AbstractPoller$RequestType>* values();

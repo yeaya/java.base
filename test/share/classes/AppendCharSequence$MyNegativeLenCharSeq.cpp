@@ -1,5 +1,4 @@
 #include <AppendCharSequence$MyNegativeLenCharSeq.h>
-
 #include <AppendCharSequence.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -11,45 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-
-$FieldInfo _AppendCharSequence$MyNegativeLenCharSeq_FieldInfo_[] = {
-	{"length", "I", nullptr, 0, $field(AppendCharSequence$MyNegativeLenCharSeq, length$)},
-	{}
-};
-
-$MethodInfo _AppendCharSequence$MyNegativeLenCharSeq_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(AppendCharSequence$MyNegativeLenCharSeq, init$, void, int32_t)},
-	{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, charAt, char16_t, int32_t)},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, length, int32_t)},
-	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, subSequence, $CharSequence*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AppendCharSequence$MyNegativeLenCharSeq_InnerClassesInfo_[] = {
-	{"AppendCharSequence$MyNegativeLenCharSeq", "AppendCharSequence", "MyNegativeLenCharSeq", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AppendCharSequence$MyNegativeLenCharSeq_ClassInfo_ = {
-	$ACC_SUPER,
-	"AppendCharSequence$MyNegativeLenCharSeq",
-	"java.lang.Object",
-	"java.lang.CharSequence",
-	_AppendCharSequence$MyNegativeLenCharSeq_FieldInfo_,
-	_AppendCharSequence$MyNegativeLenCharSeq_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AppendCharSequence$MyNegativeLenCharSeq_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"AppendCharSequence"
-};
-
-$Object* allocate$AppendCharSequence$MyNegativeLenCharSeq($Class* clazz) {
-	return $of($alloc(AppendCharSequence$MyNegativeLenCharSeq));
-}
 
 void AppendCharSequence$MyNegativeLenCharSeq::init$(int32_t length) {
 	this->length$ = length;
@@ -77,7 +37,40 @@ AppendCharSequence$MyNegativeLenCharSeq::AppendCharSequence$MyNegativeLenCharSeq
 }
 
 $Class* AppendCharSequence$MyNegativeLenCharSeq::load$($String* name, bool initialize) {
-	$loadClass(AppendCharSequence$MyNegativeLenCharSeq, name, initialize, &_AppendCharSequence$MyNegativeLenCharSeq_ClassInfo_, allocate$AppendCharSequence$MyNegativeLenCharSeq);
+	$FieldInfo fieldInfos$$[] = {
+		{"length", "I", nullptr, 0, $field(AppendCharSequence$MyNegativeLenCharSeq, length$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(AppendCharSequence$MyNegativeLenCharSeq, init$, void, int32_t)},
+		{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, charAt, char16_t, int32_t)},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, length, int32_t)},
+		{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, subSequence, $CharSequence*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AppendCharSequence$MyNegativeLenCharSeq", "AppendCharSequence", "MyNegativeLenCharSeq", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"AppendCharSequence$MyNegativeLenCharSeq",
+		"java.lang.Object",
+		"java.lang.CharSequence",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"AppendCharSequence"
+	};
+	$loadClass(AppendCharSequence$MyNegativeLenCharSeq, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppendCharSequence$MyNegativeLenCharSeq);
+	});
 	return class$;
 }
 

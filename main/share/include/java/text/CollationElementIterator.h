@@ -62,7 +62,7 @@ public:
 	int32_t strengthOrder(int32_t order);
 	static int16_t tertiaryOrder(int32_t order);
 	static const int32_t NULLORDER = (-1);
-	static const int32_t UNMAPPEDCHARVALUE = 0x7FFF0000;
+	static const int32_t UNMAPPEDCHARVALUE = 0x7fff0000;
 	::jdk::internal::icu::text::NormalizerBase* text = nullptr;
 	$ints* buffer = nullptr;
 	int32_t expIndex = 0;

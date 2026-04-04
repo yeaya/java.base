@@ -1,5 +1,4 @@
 #include <java/util/concurrent/atomic/DoubleAdder.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/util/concurrent/atomic/DoubleAdder$SerializationProxy.h>
@@ -26,57 +25,12 @@ namespace java {
 		namespace concurrent {
 			namespace atomic {
 
-$FieldInfo _DoubleAdder_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DoubleAdder, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DoubleAdder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleAdder, init$, void)},
-	{"add", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, add, void, double)},
-	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, doubleValue, double)},
-	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, floatValue, float)},
-	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, intValue, int32_t)},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, longValue, int64_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DoubleAdder, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, reset, void)},
-	{"sum", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, sum, double)},
-	{"sumThenReset", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, sumThenReset, double)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, toString, $String*)},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DoubleAdder, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _DoubleAdder_InnerClassesInfo_[] = {
-	{"java.util.concurrent.atomic.DoubleAdder$SerializationProxy", "java.util.concurrent.atomic.DoubleAdder", "SerializationProxy", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DoubleAdder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.atomic.DoubleAdder",
-	"java.util.concurrent.atomic.Striped64",
-	nullptr,
-	_DoubleAdder_FieldInfo_,
-	_DoubleAdder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DoubleAdder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.atomic.DoubleAdder$SerializationProxy"
-};
-
-$Object* allocate$DoubleAdder($Class* clazz) {
-	return $of($alloc(DoubleAdder));
-}
-
 void DoubleAdder::init$() {
 	$Striped64::init$();
 }
 
 void DoubleAdder::add(double x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, nullptr);
 	int64_t b = 0;
 	int64_t v = 0;
@@ -90,10 +44,10 @@ void DoubleAdder::add(double x) {
 	if (var$0) {
 		int32_t index = getProbe();
 		bool uncontended = true;
-		bool var$3 = cs == nullptr || (m = $nc(cs)->length - 1) < 0;
-		bool var$2 = var$3 || ($assign(c, $nc(cs)->get((int32_t)(index & (uint32_t)m)))) == nullptr;
+		bool var$3 = cs == nullptr || (m = cs->length - 1) < 0;
+		bool var$2 = var$3 || ($assign(c, cs->get(index & m))) == nullptr;
 		if (!var$2) {
-			int64_t var$4 = v = c->value;
+			int64_t var$4 = v = $nc(c)->value;
 			var$2 = !(uncontended = $nc(c)->cas(var$4, $Double::doubleToRawLongBits($Double::longBitsToDouble(v) + x)));
 		}
 		if (var$2) {
@@ -103,19 +57,15 @@ void DoubleAdder::add(double x) {
 }
 
 double DoubleAdder::sum() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, this->cells);
 	double sum = $Double::longBitsToDouble(this->base);
 	if (cs != nullptr) {
-		{
-			$var($Striped64$CellArray, arr$, cs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Striped64$Cell, c, arr$->get(i$));
-				if (c != nullptr) {
-					sum += $Double::longBitsToDouble(c->value);
-				}
+		$var($Striped64$CellArray, arr$, cs);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Striped64$Cell, c, arr$->get(i$));
+			if (c != nullptr) {
+				sum += $Double::longBitsToDouble(c->value);
 			}
 		}
 	}
@@ -123,40 +73,30 @@ double DoubleAdder::sum() {
 }
 
 void DoubleAdder::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, this->cells);
 	this->base = 0;
 	if (cs != nullptr) {
-		{
-			$var($Striped64$CellArray, arr$, cs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Striped64$Cell, c, arr$->get(i$));
-				if (c != nullptr) {
-					c->reset();
-				}
+		$var($Striped64$CellArray, arr$, cs);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Striped64$Cell, c, arr$->get(i$));
+			if (c != nullptr) {
+				c->reset();
 			}
 		}
 	}
 }
 
 double DoubleAdder::sumThenReset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, this->cells);
 	double sum = $Double::longBitsToDouble(getAndSetBase(0));
 	if (cs != nullptr) {
-		{
-			$var($Striped64$CellArray, arr$, cs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Striped64$Cell, c, arr$->get(i$));
-				{
-					if (c != nullptr) {
-						sum += $Double::longBitsToDouble(c->getAndSet(0));
-					}
-				}
+		$var($Striped64$CellArray, arr$, cs);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Striped64$Cell, c, arr$->get(i$));
+			if (c != nullptr) {
+				sum += $Double::longBitsToDouble(c->getAndSet(0));
 			}
 		}
 	}
@@ -184,7 +124,7 @@ float DoubleAdder::floatValue() {
 }
 
 $Object* DoubleAdder::writeReplace() {
-	return $of($new($DoubleAdder$SerializationProxy, this));
+	return $new($DoubleAdder$SerializationProxy, this);
 }
 
 void DoubleAdder::readObject($ObjectInputStream* s) {
@@ -195,7 +135,46 @@ DoubleAdder::DoubleAdder() {
 }
 
 $Class* DoubleAdder::load$($String* name, bool initialize) {
-	$loadClass(DoubleAdder, name, initialize, &_DoubleAdder_ClassInfo_, allocate$DoubleAdder);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DoubleAdder, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleAdder, init$, void)},
+		{"add", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, add, void, double)},
+		{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, doubleValue, double)},
+		{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, floatValue, float)},
+		{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, intValue, int32_t)},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, longValue, int64_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DoubleAdder, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, reset, void)},
+		{"sum", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, sum, double)},
+		{"sumThenReset", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, sumThenReset, double)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, toString, $String*)},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DoubleAdder, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.atomic.DoubleAdder$SerializationProxy", "java.util.concurrent.atomic.DoubleAdder", "SerializationProxy", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.atomic.DoubleAdder",
+		"java.util.concurrent.atomic.Striped64",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.atomic.DoubleAdder$SerializationProxy"
+	};
+	$loadClass(DoubleAdder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleAdder);
+	});
 	return class$;
 }
 

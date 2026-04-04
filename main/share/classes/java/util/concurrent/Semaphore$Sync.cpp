@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Semaphore$Sync.h>
-
 #include <java/lang/Error.h>
 #include <java/util/concurrent/Semaphore.h>
 #include <java/util/concurrent/locks/AbstractQueuedSynchronizer.h>
@@ -15,46 +14,6 @@ using $AbstractQueuedSynchronizer = ::java::util::concurrent::locks::AbstractQue
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _Semaphore$Sync_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Semaphore$Sync, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Semaphore$Sync_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(Semaphore$Sync, init$, void, int32_t)},
-	{"drainPermits", "()I", nullptr, $FINAL, $method(Semaphore$Sync, drainPermits, int32_t)},
-	{"getPermits", "()I", nullptr, $FINAL, $method(Semaphore$Sync, getPermits, int32_t)},
-	{"nonfairTryAcquireShared", "(I)I", nullptr, $FINAL, $method(Semaphore$Sync, nonfairTryAcquireShared, int32_t, int32_t)},
-	{"reducePermits", "(I)V", nullptr, $FINAL, $method(Semaphore$Sync, reducePermits, void, int32_t)},
-	{"tryReleaseShared", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(Semaphore$Sync, tryReleaseShared, bool, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Semaphore$Sync_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Semaphore$Sync", "java.util.concurrent.Semaphore", "Sync", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Semaphore$Sync_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.concurrent.Semaphore$Sync",
-	"java.util.concurrent.locks.AbstractQueuedSynchronizer",
-	nullptr,
-	_Semaphore$Sync_FieldInfo_,
-	_Semaphore$Sync_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Semaphore$Sync_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.Semaphore"
-};
-
-$Object* allocate$Semaphore$Sync($Class* clazz) {
-	return $of($alloc(Semaphore$Sync));
-}
 
 void Semaphore$Sync::init$(int32_t permits) {
 	$AbstractQueuedSynchronizer::init$();
@@ -114,7 +73,41 @@ Semaphore$Sync::Semaphore$Sync() {
 }
 
 $Class* Semaphore$Sync::load$($String* name, bool initialize) {
-	$loadClass(Semaphore$Sync, name, initialize, &_Semaphore$Sync_ClassInfo_, allocate$Semaphore$Sync);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Semaphore$Sync, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(Semaphore$Sync, init$, void, int32_t)},
+		{"drainPermits", "()I", nullptr, $FINAL, $method(Semaphore$Sync, drainPermits, int32_t)},
+		{"getPermits", "()I", nullptr, $FINAL, $method(Semaphore$Sync, getPermits, int32_t)},
+		{"nonfairTryAcquireShared", "(I)I", nullptr, $FINAL, $method(Semaphore$Sync, nonfairTryAcquireShared, int32_t, int32_t)},
+		{"reducePermits", "(I)V", nullptr, $FINAL, $method(Semaphore$Sync, reducePermits, void, int32_t)},
+		{"tryReleaseShared", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(Semaphore$Sync, tryReleaseShared, bool, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Semaphore$Sync", "java.util.concurrent.Semaphore", "Sync", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.concurrent.Semaphore$Sync",
+		"java.util.concurrent.locks.AbstractQueuedSynchronizer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.Semaphore"
+	};
+	$loadClass(Semaphore$Sync, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Semaphore$Sync);
+	});
 	return class$;
 }
 

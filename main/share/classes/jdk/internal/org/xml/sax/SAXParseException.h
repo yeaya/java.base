@@ -46,10 +46,13 @@ public:
 	$String* systemId = nullptr;
 	int32_t lineNumber = 0;
 	int32_t columnNumber = 0;
-	static const int64_t serialVersionUID = (int64_t)0xB193069484371E28;
+	static const int64_t serialVersionUID = (int64_t)0xb193069484371e28;
 	SAXParseException(const SAXParseException& e);
 	virtual void throw$() override;
-	inline SAXParseException* operator ->() {
+	inline SAXParseException* operator ->() const {
+		return (SAXParseException*)throwing$;
+	}
+	inline operator SAXParseException*() const {
 		return (SAXParseException*)throwing$;
 	}
 };

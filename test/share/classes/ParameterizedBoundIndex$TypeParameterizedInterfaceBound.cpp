@@ -1,5 +1,4 @@
 #include <ParameterizedBoundIndex$TypeParameterizedInterfaceBound.h>
-
 #include <ParameterizedBoundIndex.h>
 #include <jcpp.h>
 
@@ -8,41 +7,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
 
-$TypeAnnotation _ParameterizedBoundIndex$TypeParameterizedInterfaceBound_TypeAnnotations_[] = {
-	{"LParameterizedBoundIndex$TypeAnnotation;", nullptr, "CLASS_TYPE_PARAMETER_BOUND, param_index = 0, bound_index = 1"},
-	{}
-};
-
-$MethodInfo _ParameterizedBoundIndex$TypeParameterizedInterfaceBound_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ParameterizedBoundIndex$TypeParameterizedInterfaceBound, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ParameterizedBoundIndex$TypeParameterizedInterfaceBound_InnerClassesInfo_[] = {
-	{"ParameterizedBoundIndex$TypeParameterizedInterfaceBound", "ParameterizedBoundIndex", "TypeParameterizedInterfaceBound", $STATIC},
-	{}
-};
-
-$ClassInfo _ParameterizedBoundIndex$TypeParameterizedInterfaceBound_ClassInfo_ = {
-	$ACC_SUPER,
-	"ParameterizedBoundIndex$TypeParameterizedInterfaceBound",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ParameterizedBoundIndex$TypeParameterizedInterfaceBound_MethodInfo_,
-	"<T::Ljava/util/List<*>;>Ljava/lang/Object;",
-	nullptr,
-	_ParameterizedBoundIndex$TypeParameterizedInterfaceBound_InnerClassesInfo_,
-	nullptr,
-	_ParameterizedBoundIndex$TypeParameterizedInterfaceBound_TypeAnnotations_,
-	nullptr,
-	"ParameterizedBoundIndex"
-};
-
-$Object* allocate$ParameterizedBoundIndex$TypeParameterizedInterfaceBound($Class* clazz) {
-	return $of($alloc(ParameterizedBoundIndex$TypeParameterizedInterfaceBound));
-}
-
 void ParameterizedBoundIndex$TypeParameterizedInterfaceBound::init$() {
 }
 
@@ -50,7 +14,36 @@ ParameterizedBoundIndex$TypeParameterizedInterfaceBound::ParameterizedBoundIndex
 }
 
 $Class* ParameterizedBoundIndex$TypeParameterizedInterfaceBound::load$($String* name, bool initialize) {
-	$loadClass(ParameterizedBoundIndex$TypeParameterizedInterfaceBound, name, initialize, &_ParameterizedBoundIndex$TypeParameterizedInterfaceBound_ClassInfo_, allocate$ParameterizedBoundIndex$TypeParameterizedInterfaceBound);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ParameterizedBoundIndex$TypeParameterizedInterfaceBound, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ParameterizedBoundIndex$TypeParameterizedInterfaceBound", "ParameterizedBoundIndex", "TypeParameterizedInterfaceBound", $STATIC},
+		{}
+	};
+	$TypeAnnotation typeAnnotations$$[] = {
+		{"LParameterizedBoundIndex$TypeAnnotation;", nullptr, "CLASS_TYPE_PARAMETER_BOUND, param_index = 0, bound_index = 1"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ParameterizedBoundIndex$TypeParameterizedInterfaceBound",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T::Ljava/util/List<*>;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		typeAnnotations$$,
+		nullptr,
+		"ParameterizedBoundIndex"
+	};
+	$loadClass(ParameterizedBoundIndex$TypeParameterizedInterfaceBound, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParameterizedBoundIndex$TypeParameterizedInterfaceBound);
+	});
 	return class$;
 }
 

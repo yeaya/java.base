@@ -20,6 +20,7 @@ class ProtectionDomain$DebugHolder : public ::java::lang::Object {
 	$class(ProtectionDomain$DebugHolder, 0, ::java::lang::Object)
 public:
 	ProtectionDomain$DebugHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::util::Debug* debug;
 };

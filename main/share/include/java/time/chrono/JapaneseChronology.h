@@ -80,6 +80,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::time::chrono::ChronoLocalDate* date(::java::time::chrono::Era* era, int32_t yearOfEra, int32_t month, int32_t dayOfMonth) override;
 	virtual ::java::time::chrono::ChronoLocalDate* date(int32_t prolepticYear, int32_t month, int32_t dayOfMonth) override;
@@ -114,7 +115,7 @@ public:
 	static ::sun::util::calendar::LocalGregorianCalendar* JCAL;
 	static ::java::util::Locale* LOCALE;
 	static ::java::time::chrono::JapaneseChronology* INSTANCE;
-	static const int64_t serialVersionUID = (int64_t)0x06623C4799CB0DDC;
+	static const int64_t serialVersionUID = (int64_t)0x06623c4799cb0ddc;
 };
 
 		} // chrono

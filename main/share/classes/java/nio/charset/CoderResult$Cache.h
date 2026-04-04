@@ -22,6 +22,7 @@ class CoderResult$Cache : public ::java::lang::Object {
 	$class(CoderResult$Cache, 0, ::java::lang::Object)
 public:
 	CoderResult$Cache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::charset::CoderResult$Cache* INSTANCE;
 	::java::util::Map* unmappable = nullptr;

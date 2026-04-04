@@ -41,6 +41,7 @@ class $import BidiBase$TextAttributeConstants : public ::java::lang::Object {
 	$class(BidiBase$TextAttributeConstants, 0, ::java::lang::Object)
 public:
 	BidiBase$TextAttributeConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::text::AttributedCharacterIterator$Attribute* getTextAttribute($String* name);
 	static ::jdk::internal::access::JavaAWTFontAccess* jafa;

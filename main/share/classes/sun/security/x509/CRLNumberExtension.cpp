@@ -1,5 +1,4 @@
 #include <sun/security/x509/CRLNumberExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/math/BigInteger.h>
@@ -37,52 +36,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _CRLNumberExtension_FieldInfo_[] = {
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CRLNumberExtension, NAME)},
-	{"NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CRLNumberExtension, NUMBER)},
-	{"LABEL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRLNumberExtension, LABEL)},
-	{"crlNumber", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(CRLNumberExtension, crlNumber)},
-	{"extensionName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CRLNumberExtension, extensionName)},
-	{"extensionLabel", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CRLNumberExtension, extensionLabel)},
-	{}
-};
-
-$MethodInfo _CRLNumberExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CRLNumberExtension, init$, void, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(CRLNumberExtension, init$, void, $BigInteger*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;ZLjava/math/BigInteger;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CRLNumberExtension, init$, void, $ObjectIdentifier*, bool, $BigInteger*, $String*, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CRLNumberExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Ljava/lang/Boolean;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CRLNumberExtension, init$, void, $ObjectIdentifier*, $Boolean*, Object$*, $String*, $String*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;Lsun/security/util/ObjectIdentifier;Z)V", nullptr, $PROTECTED, $virtualMethod(CRLNumberExtension, encode, void, $OutputStream*, $ObjectIdentifier*, bool), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(CRLNumberExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CRLNumberExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CRLNumberExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.CRLNumberExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_CRLNumberExtension_FieldInfo_,
-	_CRLNumberExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$CRLNumberExtension($Class* clazz) {
-	return $of($alloc(CRLNumberExtension));
-}
-
 int32_t CRLNumberExtension::hashCode() {
 	 return this->$Extension::hashCode();
 }
@@ -115,7 +68,7 @@ void CRLNumberExtension::encodeThis() {
 
 void CRLNumberExtension::init$(int32_t crlNum) {
 	$init($PKIXExtensions);
-	CRLNumberExtension::init$($PKIXExtensions::CRLNumber_Id, false, $($BigInteger::valueOf((int64_t)crlNum)), CRLNumberExtension::NAME, CRLNumberExtension::LABEL);
+	CRLNumberExtension::init$($PKIXExtensions::CRLNumber_Id, false, $($BigInteger::valueOf(crlNum)), CRLNumberExtension::NAME, CRLNumberExtension::LABEL);
 }
 
 void CRLNumberExtension::init$($BigInteger* crlNum) {
@@ -152,7 +105,7 @@ void CRLNumberExtension::init$($ObjectIdentifier* extensionId, $Boolean* critica
 }
 
 void CRLNumberExtension::set($String* name, Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->equalsIgnoreCase(CRLNumberExtension::NUMBER)) {
 		if (!($instanceOf($BigInteger, obj))) {
 			$throwNew($IOException, "Attribute must be of type BigInteger."_s);
@@ -165,7 +118,7 @@ void CRLNumberExtension::set($String* name, Object$* obj) {
 }
 
 $Object* CRLNumberExtension::get($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->equalsIgnoreCase(CRLNumberExtension::NUMBER)) {
 		return $of(this->crlNumber);
 	} else {
@@ -174,7 +127,7 @@ $Object* CRLNumberExtension::get($String* name) {
 }
 
 void CRLNumberExtension::delete$($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->equalsIgnoreCase(CRLNumberExtension::NUMBER)) {
 		$set(this, crlNumber, nullptr);
 	} else {
@@ -184,7 +137,7 @@ void CRLNumberExtension::delete$($String* name) {
 }
 
 $String* CRLNumberExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append(this->extensionLabel)->append(": "_s);
 	if (this->crlNumber != nullptr) {
@@ -201,7 +154,7 @@ void CRLNumberExtension::encode($OutputStream* out) {
 }
 
 void CRLNumberExtension::encode($OutputStream* out, $ObjectIdentifier* extensionId, bool isCritical) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$set(this, extensionId, extensionId);
@@ -225,14 +178,55 @@ $String* CRLNumberExtension::getName() {
 CRLNumberExtension::CRLNumberExtension() {
 }
 
-void clinit$CRLNumberExtension($Class* class$) {
+void CRLNumberExtension::clinit$($Class* clazz) {
 	$assignStatic(CRLNumberExtension::NAME, "CRLNumber"_s);
 	$assignStatic(CRLNumberExtension::NUMBER, "value"_s);
 	$assignStatic(CRLNumberExtension::LABEL, "CRL Number"_s);
 }
 
 $Class* CRLNumberExtension::load$($String* name, bool initialize) {
-	$loadClass(CRLNumberExtension, name, initialize, &_CRLNumberExtension_ClassInfo_, clinit$CRLNumberExtension, allocate$CRLNumberExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CRLNumberExtension, NAME)},
+		{"NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CRLNumberExtension, NUMBER)},
+		{"LABEL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRLNumberExtension, LABEL)},
+		{"crlNumber", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(CRLNumberExtension, crlNumber)},
+		{"extensionName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CRLNumberExtension, extensionName)},
+		{"extensionLabel", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CRLNumberExtension, extensionLabel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(CRLNumberExtension, init$, void, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(CRLNumberExtension, init$, void, $BigInteger*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;ZLjava/math/BigInteger;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CRLNumberExtension, init$, void, $ObjectIdentifier*, bool, $BigInteger*, $String*, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CRLNumberExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;Ljava/lang/Boolean;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CRLNumberExtension, init$, void, $ObjectIdentifier*, $Boolean*, Object$*, $String*, $String*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;Lsun/security/util/ObjectIdentifier;Z)V", nullptr, $PROTECTED, $virtualMethod(CRLNumberExtension, encode, void, $OutputStream*, $ObjectIdentifier*, bool), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(CRLNumberExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CRLNumberExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CRLNumberExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.CRLNumberExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(CRLNumberExtension, name, initialize, &classInfo$$, CRLNumberExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CRLNumberExtension));
+	});
 	return class$;
 }
 

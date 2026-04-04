@@ -1,5 +1,4 @@
 #include <BufferBreaker.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <jcpp.h>
@@ -9,35 +8,6 @@ using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _BufferBreaker_FieldInfo_[] = {
-	{"breakIt", "Z", nullptr, $PUBLIC, $field(BufferBreaker, breakIt)},
-	{"buffer", "[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BufferBreaker, buffer)},
-	{}
-};
-
-$MethodInfo _BufferBreaker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BufferBreaker, init$, void)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, available, int32_t)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, read, int32_t)},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, skip, int64_t, int64_t)},
-	{}
-};
-
-$ClassInfo _BufferBreaker_ClassInfo_ = {
-	$ACC_SUPER,
-	"BufferBreaker",
-	"java.io.InputStream",
-	nullptr,
-	_BufferBreaker_FieldInfo_,
-	_BufferBreaker_MethodInfo_
-};
-
-$Object* allocate$BufferBreaker($Class* clazz) {
-	return $of($alloc(BufferBreaker));
-}
 
 $bytes* BufferBreaker::buffer = nullptr;
 
@@ -58,8 +28,8 @@ int32_t BufferBreaker::read($bytes* b, int32_t off, int32_t len) {
 	if (this->breakIt) {
 		$throwNew($IOException, "BREAK"_s);
 	}
-	if (len > $nc(BufferBreaker::buffer)->length) {
-		len = $nc(BufferBreaker::buffer)->length;
+	if (len > BufferBreaker::buffer->length) {
+		len = BufferBreaker::buffer->length;
 	}
 	$System::arraycopy(BufferBreaker::buffer, 0, b, off, len);
 	return len;
@@ -73,7 +43,7 @@ int32_t BufferBreaker::available() {
 	return 0;
 }
 
-void clinit$BufferBreaker($Class* class$) {
+void BufferBreaker::clinit$($Class* clazz) {
 	$assignStatic(BufferBreaker::buffer, $new($bytes, {
 		(int8_t)u'a',
 		(int8_t)u'b',
@@ -89,7 +59,31 @@ BufferBreaker::BufferBreaker() {
 }
 
 $Class* BufferBreaker::load$($String* name, bool initialize) {
-	$loadClass(BufferBreaker, name, initialize, &_BufferBreaker_ClassInfo_, clinit$BufferBreaker, allocate$BufferBreaker);
+	$FieldInfo fieldInfos$$[] = {
+		{"breakIt", "Z", nullptr, $PUBLIC, $field(BufferBreaker, breakIt)},
+		{"buffer", "[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BufferBreaker, buffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BufferBreaker, init$, void)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, available, int32_t)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, read, int32_t)},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, skip, int64_t, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"BufferBreaker",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufferBreaker, name, initialize, &classInfo$$, BufferBreaker::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferBreaker);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/net/PortUnreachableException.h>
-
 #include <java/net/SocketException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $SocketException = ::java::net::SocketException;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _PortUnreachableException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortUnreachableException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PortUnreachableException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PortUnreachableException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PortUnreachableException, init$, void)},
-	{}
-};
-
-$ClassInfo _PortUnreachableException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.PortUnreachableException",
-	"java.net.SocketException",
-	nullptr,
-	_PortUnreachableException_FieldInfo_,
-	_PortUnreachableException_MethodInfo_
-};
-
-$Object* allocate$PortUnreachableException($Class* clazz) {
-	return $of($alloc(PortUnreachableException));
-}
 
 void PortUnreachableException::init$($String* msg) {
 	$SocketException::init$(msg);
@@ -54,7 +29,26 @@ void PortUnreachableException::throw$() {
 }
 
 $Class* PortUnreachableException::load$($String* name, bool initialize) {
-	$loadClass(PortUnreachableException, name, initialize, &_PortUnreachableException_ClassInfo_, allocate$PortUnreachableException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortUnreachableException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PortUnreachableException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PortUnreachableException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.PortUnreachableException",
+		"java.net.SocketException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PortUnreachableException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PortUnreachableException);
+	});
 	return class$;
 }
 

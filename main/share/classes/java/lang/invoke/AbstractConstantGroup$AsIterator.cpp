@@ -1,5 +1,4 @@
 #include <java/lang/invoke/AbstractConstantGroup$AsIterator.h>
-
 #include <java/lang/invoke/AbstractConstantGroup.h>
 #include <java/lang/invoke/ConstantGroup.h>
 #include <java/util/NoSuchElementException.h>
@@ -15,50 +14,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _AbstractConstantGroup$AsIterator_FieldInfo_[] = {
-	{"self", "Ljava/lang/invoke/ConstantGroup;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsIterator, self)},
-	{"end", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsIterator, end)},
-	{"resolving", "Z", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsIterator, resolving)},
-	{"ifNotPresent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsIterator, ifNotPresent)},
-	{"index", "I", nullptr, $PRIVATE, $field(AbstractConstantGroup$AsIterator, index)},
-	{}
-};
-
-$MethodInfo _AbstractConstantGroup$AsIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IIZLjava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsIterator, init$, void, $ConstantGroup*, int32_t, int32_t, bool, Object$*)},
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(AbstractConstantGroup$AsIterator, init$, void, $ConstantGroup*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IILjava/lang/Object;)V", nullptr, 0, $method(AbstractConstantGroup$AsIterator, init$, void, $ConstantGroup*, int32_t, int32_t, Object$*)},
-	{"bumpIndex", "()I", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsIterator, bumpIndex, int32_t)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsIterator, next, $Object*)},
-	{}
-};
-
-$InnerClassInfo _AbstractConstantGroup$AsIterator_InnerClassesInfo_[] = {
-	{"java.lang.invoke.AbstractConstantGroup$AsIterator", "java.lang.invoke.AbstractConstantGroup", "AsIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractConstantGroup$AsIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.AbstractConstantGroup$AsIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_AbstractConstantGroup$AsIterator_FieldInfo_,
-	_AbstractConstantGroup$AsIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/Object;>;",
-	nullptr,
-	_AbstractConstantGroup$AsIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.AbstractConstantGroup"
-};
-
-$Object* allocate$AbstractConstantGroup$AsIterator($Class* clazz) {
-	return $of($alloc(AbstractConstantGroup$AsIterator));
-}
 
 void AbstractConstantGroup$AsIterator::init$($ConstantGroup* self, int32_t start, int32_t end, bool resolving, Object$* ifNotPresent) {
 	$set(this, self, self);
@@ -83,9 +38,9 @@ bool AbstractConstantGroup$AsIterator::hasNext() {
 $Object* AbstractConstantGroup$AsIterator::next() {
 	int32_t i = bumpIndex();
 	if (this->resolving) {
-		return $of($nc(this->self)->get(i));
+		return $nc(this->self)->get(i);
 	} else {
-		return $of($nc(this->self)->get(i, this->ifNotPresent));
+		return $nc(this->self)->get(i, this->ifNotPresent);
 	}
 }
 
@@ -102,7 +57,45 @@ AbstractConstantGroup$AsIterator::AbstractConstantGroup$AsIterator() {
 }
 
 $Class* AbstractConstantGroup$AsIterator::load$($String* name, bool initialize) {
-	$loadClass(AbstractConstantGroup$AsIterator, name, initialize, &_AbstractConstantGroup$AsIterator_ClassInfo_, allocate$AbstractConstantGroup$AsIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"self", "Ljava/lang/invoke/ConstantGroup;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsIterator, self)},
+		{"end", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsIterator, end)},
+		{"resolving", "Z", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsIterator, resolving)},
+		{"ifNotPresent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsIterator, ifNotPresent)},
+		{"index", "I", nullptr, $PRIVATE, $field(AbstractConstantGroup$AsIterator, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/ConstantGroup;IIZLjava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsIterator, init$, void, $ConstantGroup*, int32_t, int32_t, bool, Object$*)},
+		{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(AbstractConstantGroup$AsIterator, init$, void, $ConstantGroup*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/invoke/ConstantGroup;IILjava/lang/Object;)V", nullptr, 0, $method(AbstractConstantGroup$AsIterator, init$, void, $ConstantGroup*, int32_t, int32_t, Object$*)},
+		{"bumpIndex", "()I", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsIterator, bumpIndex, int32_t)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsIterator, next, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.AbstractConstantGroup$AsIterator", "java.lang.invoke.AbstractConstantGroup", "AsIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.AbstractConstantGroup$AsIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.AbstractConstantGroup"
+	};
+	$loadClass(AbstractConstantGroup$AsIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractConstantGroup$AsIterator);
+	});
 	return class$;
 }
 

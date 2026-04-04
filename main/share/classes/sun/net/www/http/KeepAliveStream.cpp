@@ -1,5 +1,4 @@
 #include <sun/net/www/http/KeepAliveStream.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/IOException.h>
@@ -7,7 +6,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/net/ProgressSource.h>
 #include <sun/net/www/MeteredStream.h>
 #include <sun/net/www/http/HttpClient.h>
@@ -29,7 +27,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProgressSource = ::sun::net::ProgressSource;
 using $MeteredStream = ::sun::net::www::MeteredStream;
 using $HttpClient = ::sun::net::www::http::HttpClient;
@@ -41,58 +38,6 @@ namespace sun {
 	namespace net {
 		namespace www {
 			namespace http {
-
-$FieldInfo _KeepAliveStream_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(KeepAliveStream, $assertionsDisabled)},
-	{"hc", "Lsun/net/www/http/HttpClient;", nullptr, 0, $field(KeepAliveStream, hc)},
-	{"hurried", "Z", nullptr, 0, $field(KeepAliveStream, hurried)},
-	{"queuedForCleanup", "Z", nullptr, $PROTECTED | $VOLATILE, $field(KeepAliveStream, queuedForCleanup)},
-	{"queue", "Lsun/net/www/http/KeepAliveStreamCleaner;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeepAliveStream, queue)},
-	{"cleanerThread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(KeepAliveStream, cleanerThread)},
-	{}
-};
-
-$MethodInfo _KeepAliveStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/InputStream;Lsun/net/ProgressSource;JLsun/net/www/http/HttpClient;)V", nullptr, $PUBLIC, $method(KeepAliveStream, init$, void, $InputStream*, $ProgressSource*, int64_t, $HttpClient*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(KeepAliveStream, close, void), "java.io.IOException"},
-	{"hurry", "()Z", nullptr, $PUBLIC, $virtualMethod(KeepAliveStream, hurry, bool)},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(KeepAliveStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(KeepAliveStream, markSupported, bool)},
-	{"queueForCleanup", "(Lsun/net/www/http/KeepAliveCleanerEntry;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KeepAliveStream, queueForCleanup, void, $KeepAliveCleanerEntry*)},
-	{"remainingToRead", "()J", nullptr, $PROTECTED, $virtualMethod(KeepAliveStream, remainingToRead, int64_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(KeepAliveStream, reset, void), "java.io.IOException"},
-	{"setClosed", "()V", nullptr, $PROTECTED, $virtualMethod(KeepAliveStream, setClosed, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _KeepAliveStream_InnerClassesInfo_[] = {
-	{"sun.net.www.http.KeepAliveStream$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KeepAliveStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.http.KeepAliveStream",
-	"sun.net.www.MeteredStream",
-	"sun.net.www.http.Hurryable",
-	_KeepAliveStream_FieldInfo_,
-	_KeepAliveStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeepAliveStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.www.http.KeepAliveStream$1"
-};
-
-$Object* allocate$KeepAliveStream($Class* clazz) {
-	return $of($alloc(KeepAliveStream));
-}
 
 void KeepAliveStream::finalize() {
 	this->$MeteredStream::finalize();
@@ -125,68 +70,64 @@ void KeepAliveStream::init$($InputStream* is, $ProgressSource* pi, int64_t expec
 }
 
 void KeepAliveStream::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->queuedForCleanup) {
 		return;
 	}
 	lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		if (this->closed || this->queuedForCleanup) {
+			return$1 = true;
+			goto $finally;
+		}
+		$var($Throwable, var$2, nullptr);
 		try {
-			if (this->closed || this->queuedForCleanup) {
-				return$1 = true;
-				goto $finally;
-			}
-			{
-				$var($Throwable, var$2, nullptr);
-				try {
-					if (this->expected > this->count) {
-						int64_t nskip = this->expected - this->count;
-						if (nskip <= available()) {
-							bool var$3 = false;
-							do {
-								var$3 = (nskip = (this->expected - this->count)) > (int64_t)0;
-							} while (var$3 && skip($Math::min(nskip, (int64_t)available())) > (int64_t)0);
-						} else {
-							$init($KeepAliveStreamCleaner);
-							if (this->expected <= $KeepAliveStreamCleaner::MAX_DATA_REMAINING && !this->hurried) {
-								queueForCleanup($$new($KeepAliveCleanerEntry, this, this->hc));
-							} else {
-								$nc(this->hc)->closeServer();
-							}
-						}
-					}
-					if (!this->closed && !this->hurried && !this->queuedForCleanup) {
-						$nc(this->hc)->finished();
-					}
-				} catch ($Throwable& var$4) {
-					$assign(var$2, var$4);
-				} /*finally*/ {
-					if (this->pi != nullptr) {
-						$nc(this->pi)->finishTracking();
-					}
-					if (!this->queuedForCleanup) {
-						$set(this, in, nullptr);
-						$set(this, hc, nullptr);
-						this->closed = true;
+			if (this->expected > this->count) {
+				int64_t nskip = this->expected - this->count;
+				if (nskip <= available()) {
+					bool var$3 = false;
+					do {
+						var$3 = (nskip = (this->expected - this->count)) > 0;
+					} while (var$3 && skip($Math::min(nskip, (int64_t)available())) > 0);
+				} else {
+					$init($KeepAliveStreamCleaner);
+					if (this->expected <= $KeepAliveStreamCleaner::MAX_DATA_REMAINING && !this->hurried) {
+						queueForCleanup($$new($KeepAliveCleanerEntry, this, this->hc));
+					} else {
+						$nc(this->hc)->closeServer();
 					}
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
-				}
 			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} $finally: {
-			unlock();
+			if (!this->closed && !this->hurried && !this->queuedForCleanup) {
+				$nc(this->hc)->finished();
+			}
+		} catch ($Throwable& var$4) {
+			$assign(var$2, var$4);
+		} /*finally*/ {
+			if (this->pi != nullptr) {
+				this->pi->finishTracking();
+			}
+			if (!this->queuedForCleanup) {
+				$set(this, in, nullptr);
+				$set(this, hc, nullptr);
+				this->closed = true;
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -202,91 +143,87 @@ void KeepAliveStream::reset() {
 }
 
 bool KeepAliveStream::hurry() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				if (this->closed || this->count >= this->expected) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				} else if ($nc(this->in)->available() < (this->expected - this->count)) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				} else {
-					int32_t size = (int32_t)(this->expected - this->count);
-					$var($bytes, buf, $new($bytes, size));
-					$var($DataInputStream, dis, $new($DataInputStream, this->in));
-					dis->readFully(buf);
-					$set(this, in, $new($ByteArrayInputStream, buf));
-					this->hurried = true;
-					var$2 = true;
-					return$1 = true;
-					goto $finally;
-				}
-			} catch ($IOException& e) {
+			if (this->closed || this->count >= this->expected) {
 				var$2 = false;
 				return$1 = true;
 				goto $finally;
+			} else if ($nc(this->in)->available() < (this->expected - this->count)) {
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
+			} else {
+				int32_t size = (int32_t)(this->expected - this->count);
+				$var($bytes, buf, $new($bytes, size));
+				$var($DataInputStream, dis, $new($DataInputStream, this->in));
+				dis->readFully(buf);
+				$set(this, in, $new($ByteArrayInputStream, buf));
+				this->hurried = true;
+				var$2 = true;
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			unlock();
+		} catch ($IOException& e) {
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void KeepAliveStream::queueForCleanup($KeepAliveCleanerEntry* kace) {
 	$init(KeepAliveStream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$nc(KeepAliveStream::queue)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			if (!$nc(kace)->getQueuedForCleanup()) {
-				if (!$nc(KeepAliveStream::queue)->offer(kace)) {
-					$nc($(kace->getHttpClient()))->closeServer();
-					return$1 = true;
-					goto $finally;
-				}
-				kace->setQueuedForCleanup();
-				$nc(KeepAliveStream::queue)->signalAll();
+	KeepAliveStream::queue->lock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		if (!$nc(kace)->getQueuedForCleanup()) {
+			if (!KeepAliveStream::queue->offer(kace)) {
+				$$nc(kace->getHttpClient())->closeServer();
+				return$1 = true;
+				goto $finally;
 			}
-			bool startCleanupThread = (KeepAliveStream::cleanerThread == nullptr);
-			if (!startCleanupThread) {
-				if (!$nc(KeepAliveStream::cleanerThread)->isAlive()) {
-					startCleanupThread = true;
-				}
+			kace->setQueuedForCleanup();
+			KeepAliveStream::queue->signalAll();
+		}
+		bool startCleanupThread = (KeepAliveStream::cleanerThread == nullptr);
+		if (!startCleanupThread) {
+			if (!$nc(KeepAliveStream::cleanerThread)->isAlive()) {
+				startCleanupThread = true;
 			}
-			if (startCleanupThread) {
-				$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($KeepAliveStream$1)));
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$nc(KeepAliveStream::queue)->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (startCleanupThread) {
+			$AccessController::doPrivileged($$new($KeepAliveStream$1));
 		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		KeepAliveStream::queue->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -306,7 +243,7 @@ void KeepAliveStream::setClosed() {
 	this->closed = true;
 }
 
-void clinit$KeepAliveStream($Class* class$) {
+void KeepAliveStream::clinit$($Class* clazz) {
 	KeepAliveStream::$assertionsDisabled = !KeepAliveStream::class$->desiredAssertionStatus();
 	$assignStatic(KeepAliveStream::queue, $new($KeepAliveStreamCleaner));
 }
@@ -315,7 +252,53 @@ KeepAliveStream::KeepAliveStream() {
 }
 
 $Class* KeepAliveStream::load$($String* name, bool initialize) {
-	$loadClass(KeepAliveStream, name, initialize, &_KeepAliveStream_ClassInfo_, clinit$KeepAliveStream, allocate$KeepAliveStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(KeepAliveStream, $assertionsDisabled)},
+		{"hc", "Lsun/net/www/http/HttpClient;", nullptr, 0, $field(KeepAliveStream, hc)},
+		{"hurried", "Z", nullptr, 0, $field(KeepAliveStream, hurried)},
+		{"queuedForCleanup", "Z", nullptr, $PROTECTED | $VOLATILE, $field(KeepAliveStream, queuedForCleanup)},
+		{"queue", "Lsun/net/www/http/KeepAliveStreamCleaner;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeepAliveStream, queue)},
+		{"cleanerThread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(KeepAliveStream, cleanerThread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/InputStream;Lsun/net/ProgressSource;JLsun/net/www/http/HttpClient;)V", nullptr, $PUBLIC, $method(KeepAliveStream, init$, void, $InputStream*, $ProgressSource*, int64_t, $HttpClient*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(KeepAliveStream, close, void), "java.io.IOException"},
+		{"hurry", "()Z", nullptr, $PUBLIC, $virtualMethod(KeepAliveStream, hurry, bool)},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(KeepAliveStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(KeepAliveStream, markSupported, bool)},
+		{"queueForCleanup", "(Lsun/net/www/http/KeepAliveCleanerEntry;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KeepAliveStream, queueForCleanup, void, $KeepAliveCleanerEntry*)},
+		{"remainingToRead", "()J", nullptr, $PROTECTED, $virtualMethod(KeepAliveStream, remainingToRead, int64_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(KeepAliveStream, reset, void), "java.io.IOException"},
+		{"setClosed", "()V", nullptr, $PROTECTED, $virtualMethod(KeepAliveStream, setClosed, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.http.KeepAliveStream$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.http.KeepAliveStream",
+		"sun.net.www.MeteredStream",
+		"sun.net.www.http.Hurryable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.www.http.KeepAliveStream$1"
+	};
+	$loadClass(KeepAliveStream, name, initialize, &classInfo$$, KeepAliveStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KeepAliveStream));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/ImmutableCollections$AbstractImmutableSet.h>
-
 #include <java/util/AbstractCollection.h>
 #include <java/util/Collection.h>
 #include <java/util/ImmutableCollections$AbstractImmutableCollection.h>
@@ -29,66 +28,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$CompoundAttribute _ImmutableCollections$AbstractImmutableSet_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$MethodInfo _ImmutableCollections$AbstractImmutableSet_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$AbstractImmutableSet, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableSet, equals, bool, Object$*)},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*size", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$InnerClassInfo _ImmutableCollections$AbstractImmutableSet_InnerClassesInfo_[] = {
-	{"java.util.ImmutableCollections$AbstractImmutableSet", "java.util.ImmutableCollections", "AbstractImmutableSet", $STATIC | $ABSTRACT},
-	{"java.util.ImmutableCollections$AbstractImmutableCollection", "java.util.ImmutableCollections", "AbstractImmutableCollection", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImmutableCollections$AbstractImmutableSet_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.ImmutableCollections$AbstractImmutableSet",
-	"java.util.ImmutableCollections$AbstractImmutableCollection",
-	"java.util.Set",
-	nullptr,
-	_ImmutableCollections$AbstractImmutableSet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/ImmutableCollections$AbstractImmutableCollection<TE;>;Ljava/util/Set<TE;>;",
-	nullptr,
-	_ImmutableCollections$AbstractImmutableSet_InnerClassesInfo_,
-	_ImmutableCollections$AbstractImmutableSet_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.ImmutableCollections"
-};
-
-$Object* allocate$ImmutableCollections$AbstractImmutableSet($Class* clazz) {
-	return $of($alloc(ImmutableCollections$AbstractImmutableSet));
-}
 
 int32_t ImmutableCollections$AbstractImmutableSet::hashCode() {
 	 return this->$ImmutableCollections$AbstractImmutableCollection::hashCode();
@@ -179,7 +118,7 @@ void ImmutableCollections$AbstractImmutableSet::init$() {
 }
 
 bool ImmutableCollections$AbstractImmutableSet::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	} else if (!($instanceOf($Set, o))) {
@@ -191,13 +130,11 @@ bool ImmutableCollections$AbstractImmutableSet::equals(Object$* o) {
 		return false;
 	}
 	{
-		$var($Iterator, i$, $nc(c)->iterator());
+		$var($Iterator, i$, c->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, e, i$->next());
-			{
-				if (e == nullptr || !contains(e)) {
-					return false;
-				}
+			if (e == nullptr || !contains(e)) {
+				return false;
 			}
 		}
 	}
@@ -208,7 +145,61 @@ ImmutableCollections$AbstractImmutableSet::ImmutableCollections$AbstractImmutabl
 }
 
 $Class* ImmutableCollections$AbstractImmutableSet::load$($String* name, bool initialize) {
-	$loadClass(ImmutableCollections$AbstractImmutableSet, name, initialize, &_ImmutableCollections$AbstractImmutableSet_ClassInfo_, allocate$ImmutableCollections$AbstractImmutableSet);
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$AbstractImmutableSet, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableSet, equals, bool, Object$*)},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*size", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ImmutableCollections$AbstractImmutableSet", "java.util.ImmutableCollections", "AbstractImmutableSet", $STATIC | $ABSTRACT},
+		{"java.util.ImmutableCollections$AbstractImmutableCollection", "java.util.ImmutableCollections", "AbstractImmutableCollection", $STATIC | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.ImmutableCollections$AbstractImmutableSet",
+		"java.util.ImmutableCollections$AbstractImmutableCollection",
+		"java.util.Set",
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/ImmutableCollections$AbstractImmutableCollection<TE;>;Ljava/util/Set<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.ImmutableCollections"
+	};
+	$loadClass(ImmutableCollections$AbstractImmutableSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImmutableCollections$AbstractImmutableSet));
+	});
 	return class$;
 }
 

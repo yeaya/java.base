@@ -33,6 +33,7 @@ class $export OpsAfterClose : public ::java::lang::Enum {
 public:
 	OpsAfterClose();
 	static $Array<OpsAfterClose>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool check(::java::io::Reader* r) {return false;}
 	static void main($StringArray* args);

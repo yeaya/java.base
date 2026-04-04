@@ -24,6 +24,7 @@ class $export NativeLibraries$Unloader : public ::java::lang::Runnable {
 	$class(NativeLibraries$Unloader, 0, ::java::lang::Runnable)
 public:
 	NativeLibraries$Unloader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int64_t handle, bool isBuiltin, bool isJNI);
 	virtual void run() override;
 	static bool $assertionsDisabled;

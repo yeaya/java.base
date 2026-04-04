@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SNIServerName.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/HexFormat.h>
 #include <javax/net/ssl/StandardConstants.h>
@@ -19,36 +18,6 @@ using $StandardConstants = ::javax::net::ssl::StandardConstants;
 namespace javax {
 	namespace net {
 		namespace ssl {
-
-$FieldInfo _SNIServerName_FieldInfo_[] = {
-	{"type", "I", nullptr, $PRIVATE | $FINAL, $field(SNIServerName, type)},
-	{"encoded", "[B", nullptr, $PRIVATE | $FINAL, $field(SNIServerName, encoded)},
-	{}
-};
-
-$MethodInfo _SNIServerName_MethodInfo_[] = {
-	{"<init>", "(I[B)V", nullptr, $PROTECTED, $method(SNIServerName, init$, void, int32_t, $bytes*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SNIServerName, equals, bool, Object$*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $method(SNIServerName, getEncoded, $bytes*)},
-	{"getType", "()I", nullptr, $PUBLIC | $FINAL, $method(SNIServerName, getType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SNIServerName, hashCode, int32_t)},
-	{"toHexString", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SNIServerName, toHexString, $String*, $bytes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SNIServerName, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SNIServerName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.net.ssl.SNIServerName",
-	"java.lang.Object",
-	nullptr,
-	_SNIServerName_FieldInfo_,
-	_SNIServerName_MethodInfo_
-};
-
-$Object* allocate$SNIServerName($Class* clazz) {
-	return $of($alloc(SNIServerName));
-}
 
 void SNIServerName::init$(int32_t type, $bytes* encoded) {
 	if (type < 0) {
@@ -75,11 +44,11 @@ bool SNIServerName::equals(Object$* other) {
 	if ($equals(this, other)) {
 		return true;
 	}
-	if ($of(this)->getClass() != $nc($of(other))->getClass()) {
+	if (this->getClass() != $nc($of(other))->getClass()) {
 		return false;
 	}
 	$var(SNIServerName, that, $cast(SNIServerName, other));
-	return (this->type == $nc(that)->type) && $Arrays::equals(this->encoded, that->encoded);
+	return (this->type == that->type) && $Arrays::equals(this->encoded, that->encoded);
 }
 
 int32_t SNIServerName::hashCode() {
@@ -90,7 +59,7 @@ int32_t SNIServerName::hashCode() {
 }
 
 $String* SNIServerName::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->type == $StandardConstants::SNI_HOST_NAME) {
 		return $str({"type=host_name (0), value="_s, $(toHexString(this->encoded))});
 	} else {
@@ -99,18 +68,43 @@ $String* SNIServerName::toString() {
 }
 
 $String* SNIServerName::toHexString($bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(bytes)->length == 0) {
 		return "(empty)"_s;
 	}
-	return $nc($($nc($($HexFormat::ofDelimiter(":"_s)))->withUpperCase()))->formatHex(bytes);
+	return $$nc($$nc($HexFormat::ofDelimiter(":"_s))->withUpperCase())->formatHex(bytes);
 }
 
 SNIServerName::SNIServerName() {
 }
 
 $Class* SNIServerName::load$($String* name, bool initialize) {
-	$loadClass(SNIServerName, name, initialize, &_SNIServerName_ClassInfo_, allocate$SNIServerName);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "I", nullptr, $PRIVATE | $FINAL, $field(SNIServerName, type)},
+		{"encoded", "[B", nullptr, $PRIVATE | $FINAL, $field(SNIServerName, encoded)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[B)V", nullptr, $PROTECTED, $method(SNIServerName, init$, void, int32_t, $bytes*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SNIServerName, equals, bool, Object$*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $method(SNIServerName, getEncoded, $bytes*)},
+		{"getType", "()I", nullptr, $PUBLIC | $FINAL, $method(SNIServerName, getType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SNIServerName, hashCode, int32_t)},
+		{"toHexString", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SNIServerName, toHexString, $String*, $bytes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SNIServerName, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.net.ssl.SNIServerName",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SNIServerName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SNIServerName);
+	});
 	return class$;
 }
 

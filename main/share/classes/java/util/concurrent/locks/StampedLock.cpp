@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/StampedLock.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/IllegalMonitorStateException.h>
@@ -60,158 +59,6 @@ namespace java {
 		namespace concurrent {
 			namespace locks {
 
-$CompoundAttribute _StampedLock_MethodAnnotations_readLock19[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StampedLock_MethodAnnotations_tryAcquireRead26[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StampedLock_MethodAnnotations_tryAcquireWrite27[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StampedLock_MethodAnnotations_tryUnlockRead37[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StampedLock_MethodAnnotations_tryUnlockWrite38[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StampedLock_MethodAnnotations_unlockRead43[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StampedLock_MethodAnnotations_unlockWrite44[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StampedLock_MethodAnnotations_writeLock49[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$FieldInfo _StampedLock_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, serialVersionUID)},
-	{"LG_READERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, LG_READERS)},
-	{"RUNIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, RUNIT)},
-	{"WBIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, WBIT)},
-	{"RBITS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, RBITS)},
-	{"RFULL", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, RFULL)},
-	{"ABITS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, ABITS)},
-	{"SBITS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, SBITS)},
-	{"RSAFE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, RSAFE)},
-	{"ORIGIN", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, ORIGIN)},
-	{"INTERRUPTED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, INTERRUPTED)},
-	{"WAITING", "I", nullptr, $STATIC | $FINAL, $constField(StampedLock, WAITING)},
-	{"CANCELLED", "I", nullptr, $STATIC | $FINAL, $constField(StampedLock, CANCELLED)},
-	{"head", "Ljava/util/concurrent/locks/StampedLock$Node;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(StampedLock, head)},
-	{"tail", "Ljava/util/concurrent/locks/StampedLock$Node;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(StampedLock, tail)},
-	{"readLockView", "Ljava/util/concurrent/locks/StampedLock$ReadLockView;", nullptr, $TRANSIENT, $field(StampedLock, readLockView)},
-	{"writeLockView", "Ljava/util/concurrent/locks/StampedLock$WriteLockView;", nullptr, $TRANSIENT, $field(StampedLock, writeLockView)},
-	{"readWriteLockView", "Ljava/util/concurrent/locks/StampedLock$ReadWriteLockView;", nullptr, $TRANSIENT, $field(StampedLock, readWriteLockView)},
-	{"state", "J", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(StampedLock, state)},
-	{"readerOverflow", "I", nullptr, $PRIVATE | $TRANSIENT, $field(StampedLock, readerOverflow)},
-	{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock, U)},
-	{"STATE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock, STATE)},
-	{"HEAD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock, HEAD)},
-	{"TAIL", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock, TAIL)},
-	{}
-};
-
-$MethodInfo _StampedLock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StampedLock, init$, void)},
-	{"acquireRead", "(ZZJ)J", nullptr, $PRIVATE, $method(StampedLock, acquireRead, int64_t, bool, bool, int64_t)},
-	{"acquireWrite", "(ZZJ)J", nullptr, $PRIVATE, $method(StampedLock, acquireWrite, int64_t, bool, bool, int64_t)},
-	{"asReadLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC, $virtualMethod(StampedLock, asReadLock, $Lock*)},
-	{"asReadWriteLock", "()Ljava/util/concurrent/locks/ReadWriteLock;", nullptr, $PUBLIC, $virtualMethod(StampedLock, asReadWriteLock, $ReadWriteLock*)},
-	{"asWriteLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC, $virtualMethod(StampedLock, asWriteLock, $Lock*)},
-	{"cancelAcquire", "(Ljava/util/concurrent/locks/StampedLock$Node;Z)J", nullptr, $PRIVATE, $method(StampedLock, cancelAcquire, int64_t, $StampedLock$Node*, bool)},
-	{"cancelCowaiter", "(Ljava/util/concurrent/locks/StampedLock$ReaderNode;Ljava/util/concurrent/locks/StampedLock$ReaderNode;Z)J", nullptr, $PRIVATE, $method(StampedLock, cancelCowaiter, int64_t, $StampedLock$ReaderNode*, $StampedLock$ReaderNode*, bool)},
-	{"casState", "(JJ)Z", nullptr, $PRIVATE, $method(StampedLock, casState, bool, int64_t, int64_t)},
-	{"casTail", "(Ljava/util/concurrent/locks/StampedLock$Node;Ljava/util/concurrent/locks/StampedLock$Node;)Z", nullptr, $PRIVATE, $method(StampedLock, casTail, bool, $StampedLock$Node*, $StampedLock$Node*)},
-	{"cleanQueue", "()V", nullptr, $PRIVATE, $method(StampedLock, cleanQueue, void)},
-	{"getReadLockCount", "(J)I", nullptr, $PRIVATE, $method(StampedLock, getReadLockCount, int32_t, int64_t)},
-	{"getReadLockCount", "()I", nullptr, $PUBLIC, $virtualMethod(StampedLock, getReadLockCount, int32_t)},
-	{"isLockStamp", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StampedLock, isLockStamp, bool, int64_t)},
-	{"isOptimisticReadStamp", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StampedLock, isOptimisticReadStamp, bool, int64_t)},
-	{"isReadLockStamp", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StampedLock, isReadLockStamp, bool, int64_t)},
-	{"isReadLocked", "()Z", nullptr, $PUBLIC, $virtualMethod(StampedLock, isReadLocked, bool)},
-	{"isWriteLockStamp", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StampedLock, isWriteLockStamp, bool, int64_t)},
-	{"isWriteLocked", "()Z", nullptr, $PUBLIC, $virtualMethod(StampedLock, isWriteLocked, bool)},
-	{"readLock", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, readLock, int64_t), nullptr, nullptr, _StampedLock_MethodAnnotations_readLock19},
-	{"readLockInterruptibly", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, readLockInterruptibly, int64_t), "java.lang.InterruptedException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(StampedLock, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"releaseWrite", "(J)J", nullptr, $PRIVATE, $method(StampedLock, releaseWrite, int64_t, int64_t)},
-	{"signalCowaiters", "(Ljava/util/concurrent/locks/StampedLock$ReaderNode;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StampedLock, signalCowaiters, void, $StampedLock$ReaderNode*)},
-	{"signalNext", "(Ljava/util/concurrent/locks/StampedLock$Node;)V", nullptr, $STATIC | $FINAL, $staticMethod(StampedLock, signalNext, void, $StampedLock$Node*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StampedLock, toString, $String*)},
-	{"tryAcquireRead", "()J", nullptr, $PRIVATE, $method(StampedLock, tryAcquireRead, int64_t), nullptr, nullptr, _StampedLock_MethodAnnotations_tryAcquireRead26},
-	{"tryAcquireWrite", "()J", nullptr, $PRIVATE, $method(StampedLock, tryAcquireWrite, int64_t), nullptr, nullptr, _StampedLock_MethodAnnotations_tryAcquireWrite27},
-	{"tryConvertToOptimisticRead", "(J)J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryConvertToOptimisticRead, int64_t, int64_t)},
-	{"tryConvertToReadLock", "(J)J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryConvertToReadLock, int64_t, int64_t)},
-	{"tryConvertToWriteLock", "(J)J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryConvertToWriteLock, int64_t, int64_t)},
-	{"tryDecReaderOverflow", "(J)J", nullptr, $PRIVATE, $method(StampedLock, tryDecReaderOverflow, int64_t, int64_t)},
-	{"tryIncReaderOverflow", "(J)J", nullptr, $PRIVATE, $method(StampedLock, tryIncReaderOverflow, int64_t, int64_t)},
-	{"tryInitializeHead", "()V", nullptr, $PRIVATE, $method(StampedLock, tryInitializeHead, void)},
-	{"tryOptimisticRead", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryOptimisticRead, int64_t)},
-	{"tryReadLock", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryReadLock, int64_t)},
-	{"tryReadLock", "(JLjava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryReadLock, int64_t, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"tryUnlockRead", "()Z", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryUnlockRead, bool), nullptr, nullptr, _StampedLock_MethodAnnotations_tryUnlockRead37},
-	{"tryUnlockWrite", "()Z", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryUnlockWrite, bool), nullptr, nullptr, _StampedLock_MethodAnnotations_tryUnlockWrite38},
-	{"tryWriteLock", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryWriteLock, int64_t)},
-	{"tryWriteLock", "(JLjava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryWriteLock, int64_t, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"unlinkCowaiter", "(Ljava/util/concurrent/locks/StampedLock$ReaderNode;Ljava/util/concurrent/locks/StampedLock$ReaderNode;)V", nullptr, $PRIVATE, $method(StampedLock, unlinkCowaiter, void, $StampedLock$ReaderNode*, $StampedLock$ReaderNode*)},
-	{"unlock", "(J)V", nullptr, $PUBLIC, $virtualMethod(StampedLock, unlock, void, int64_t)},
-	{"unlockRead", "(J)V", nullptr, $PUBLIC, $virtualMethod(StampedLock, unlockRead, void, int64_t), nullptr, nullptr, _StampedLock_MethodAnnotations_unlockRead43},
-	{"unlockWrite", "(J)V", nullptr, $PUBLIC, $virtualMethod(StampedLock, unlockWrite, void, int64_t), nullptr, nullptr, _StampedLock_MethodAnnotations_unlockWrite44},
-	{"unlockWriteState", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StampedLock, unlockWriteState, int64_t, int64_t)},
-	{"unstampedUnlockRead", "()V", nullptr, $FINAL, $method(StampedLock, unstampedUnlockRead, void)},
-	{"unstampedUnlockWrite", "()V", nullptr, $FINAL, $method(StampedLock, unstampedUnlockWrite, void)},
-	{"validate", "(J)Z", nullptr, $PUBLIC, $virtualMethod(StampedLock, validate, bool, int64_t)},
-	{"writeLock", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, writeLock, int64_t), nullptr, nullptr, _StampedLock_MethodAnnotations_writeLock49},
-	{"writeLockInterruptibly", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, writeLockInterruptibly, int64_t), "java.lang.InterruptedException"},
-	{}
-};
-
-$InnerClassInfo _StampedLock_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.StampedLock$ReadWriteLockView", "java.util.concurrent.locks.StampedLock", "ReadWriteLockView", $FINAL},
-	{"java.util.concurrent.locks.StampedLock$WriteLockView", "java.util.concurrent.locks.StampedLock", "WriteLockView", $FINAL},
-	{"java.util.concurrent.locks.StampedLock$ReadLockView", "java.util.concurrent.locks.StampedLock", "ReadLockView", $FINAL},
-	{"java.util.concurrent.locks.StampedLock$ReaderNode", "java.util.concurrent.locks.StampedLock", "ReaderNode", $STATIC | $FINAL},
-	{"java.util.concurrent.locks.StampedLock$WriterNode", "java.util.concurrent.locks.StampedLock", "WriterNode", $STATIC | $FINAL},
-	{"java.util.concurrent.locks.StampedLock$Node", "java.util.concurrent.locks.StampedLock", "Node", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StampedLock_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.locks.StampedLock",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_StampedLock_FieldInfo_,
-	_StampedLock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StampedLock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.StampedLock$ReadWriteLockView,java.util.concurrent.locks.StampedLock$WriteLockView,java.util.concurrent.locks.StampedLock$ReadLockView,java.util.concurrent.locks.StampedLock$ReaderNode,java.util.concurrent.locks.StampedLock$WriterNode,java.util.concurrent.locks.StampedLock$Node"
-};
-
-$Object* allocate$StampedLock($Class* clazz) {
-	return $of($alloc(StampedLock));
-}
-
 $Unsafe* StampedLock::U = nullptr;
 int64_t StampedLock::STATE = 0;
 int64_t StampedLock::HEAD = 0;
@@ -228,7 +75,7 @@ bool StampedLock::casState(int64_t expect, int64_t update) {
 int64_t StampedLock::tryAcquireWrite() {
 	int64_t s = 0;
 	int64_t nextState = 0;
-	bool var$0 = ((int64_t)((s = this->state) & (uint64_t)StampedLock::ABITS)) == (int64_t)0;
+	bool var$0 = ((s = this->state) & StampedLock::ABITS) == 0;
 	if (var$0 && casState(s, nextState = s | StampedLock::WBIT)) {
 		$nc(StampedLock::U)->storeStoreFence();
 		return nextState;
@@ -237,27 +84,22 @@ int64_t StampedLock::tryAcquireWrite() {
 }
 
 int64_t StampedLock::tryAcquireRead() {
-	{
-		int64_t s = 0;
-		int64_t m = 0;
-		int64_t nextState = 0;
-		for (;;) {
-			if ((m = (int64_t)((s = this->state) & (uint64_t)StampedLock::ABITS)) < StampedLock::RFULL) {
-				if (casState(s, nextState = s + StampedLock::RUNIT)) {
-					return nextState;
-				}
-			} else if (m == StampedLock::WBIT) {
-				return 0;
-			} else if ((nextState = tryIncReaderOverflow(s)) != (int64_t)0) {
+	for (int64_t s = 0, m = 0, nextState = 0;;) {
+		if ((m = (s = this->state) & StampedLock::ABITS) < StampedLock::RFULL) {
+			if (casState(s, nextState = s + StampedLock::RUNIT)) {
 				return nextState;
 			}
+		} else if (m == StampedLock::WBIT) {
+			return 0;
+		} else if ((nextState = tryIncReaderOverflow(s)) != 0) {
+			return nextState;
 		}
 	}
 }
 
 int64_t StampedLock::unlockWriteState(int64_t s) {
 	$init(StampedLock);
-	return ((s += StampedLock::WBIT) == (int64_t)0) ? StampedLock::ORIGIN : s;
+	return ((s += StampedLock::WBIT) == 0) ? StampedLock::ORIGIN : s;
 }
 
 int64_t StampedLock::releaseWrite(int64_t s) {
@@ -267,10 +109,10 @@ int64_t StampedLock::releaseWrite(int64_t s) {
 }
 
 int64_t StampedLock::writeLock() {
-	int64_t s = (int64_t)($nc(StampedLock::U)->getLongOpaque(this, StampedLock::STATE) & (uint64_t)~StampedLock::ABITS);
+	int64_t s = $nc(StampedLock::U)->getLongOpaque(this, StampedLock::STATE) & ~StampedLock::ABITS;
 	int64_t nextState = 0;
 	if (casState(s, nextState = s | StampedLock::WBIT)) {
-		$nc(StampedLock::U)->storeStoreFence();
+		StampedLock::U->storeStoreFence();
 		return nextState;
 	}
 	return acquireWrite(false, false, 0);
@@ -284,10 +126,10 @@ int64_t StampedLock::tryWriteLock(int64_t time, $TimeUnit* unit) {
 	int64_t nanos = $nc(unit)->toNanos(time);
 	if (!$Thread::interrupted()) {
 		int64_t nextState = 0;
-		if ((nextState = tryAcquireWrite()) != (int64_t)0) {
+		if ((nextState = tryAcquireWrite()) != 0) {
 			return nextState;
 		}
-		if (nanos <= (int64_t)0) {
+		if (nanos <= 0) {
 			return 0;
 		}
 		nextState = acquireWrite(true, true, $System::nanoTime() + nanos);
@@ -302,8 +144,8 @@ int64_t StampedLock::writeLockInterruptibly() {
 	int64_t nextState = 0;
 	bool var$0 = !$Thread::interrupted();
 	if (var$0) {
-		bool var$1 = (nextState = tryAcquireWrite()) != (int64_t)0;
-		var$0 = (var$1 || (nextState = acquireWrite(true, false, 0)) != StampedLock::INTERRUPTED);
+		bool var$1 = (nextState = tryAcquireWrite()) != 0;
+		var$0 = var$1 || (nextState = acquireWrite(true, false, 0)) != StampedLock::INTERRUPTED;
 	}
 	if (var$0) {
 		return nextState;
@@ -312,7 +154,7 @@ int64_t StampedLock::writeLockInterruptibly() {
 }
 
 int64_t StampedLock::readLock() {
-	int64_t s = (int64_t)($nc(StampedLock::U)->getLongOpaque(this, StampedLock::STATE) & (uint64_t)StampedLock::RSAFE);
+	int64_t s = $nc(StampedLock::U)->getLongOpaque(this, StampedLock::STATE) & StampedLock::RSAFE;
 	int64_t nextState = 0;
 	if (casState(s, nextState = s + StampedLock::RUNIT)) {
 		return nextState;
@@ -329,10 +171,10 @@ int64_t StampedLock::tryReadLock(int64_t time, $TimeUnit* unit) {
 	int64_t nanos = $nc(unit)->toNanos(time);
 	if (!$Thread::interrupted()) {
 		int64_t nextState = 0;
-		if (this->tail == this->head && (nextState = tryAcquireRead()) != (int64_t)0) {
+		if (this->tail == this->head && (nextState = tryAcquireRead()) != 0) {
 			return nextState;
 		}
-		if (nanos <= (int64_t)0) {
+		if (nanos <= 0) {
 			return 0;
 		}
 		nextState = acquireRead(true, true, $System::nanoTime() + nanos);
@@ -347,8 +189,8 @@ int64_t StampedLock::readLockInterruptibly() {
 	int64_t nextState = 0;
 	bool var$0 = !$Thread::interrupted();
 	if (var$0) {
-		bool var$1 = (nextState = tryAcquireRead()) != (int64_t)0;
-		var$0 = (var$1 || (nextState = acquireRead(true, false, 0)) != StampedLock::INTERRUPTED);
+		bool var$1 = (nextState = tryAcquireRead()) != 0;
+		var$0 = var$1 || (nextState = acquireRead(true, false, 0)) != StampedLock::INTERRUPTED;
 	}
 	if (var$0) {
 		return nextState;
@@ -358,16 +200,16 @@ int64_t StampedLock::readLockInterruptibly() {
 
 int64_t StampedLock::tryOptimisticRead() {
 	int64_t s = 0;
-	return (((int64_t)((s = this->state) & (uint64_t)StampedLock::WBIT)) == (int64_t)0) ? ((int64_t)(s & (uint64_t)StampedLock::SBITS)) : (int64_t)0;
+	return (((s = this->state) & StampedLock::WBIT) == 0) ? (s & StampedLock::SBITS) : 0;
 }
 
 bool StampedLock::validate(int64_t stamp) {
 	$nc(StampedLock::U)->loadFence();
-	return ((int64_t)(stamp & (uint64_t)StampedLock::SBITS)) == ((int64_t)(this->state & (uint64_t)StampedLock::SBITS));
+	return (stamp & StampedLock::SBITS) == (this->state & StampedLock::SBITS);
 }
 
 void StampedLock::unlockWrite(int64_t stamp) {
-	if (this->state != stamp || ((int64_t)(stamp & (uint64_t)StampedLock::WBIT)) == (int64_t)0) {
+	if (this->state != stamp || (stamp & StampedLock::WBIT) == 0) {
 		$throwNew($IllegalMonitorStateException);
 	}
 	releaseWrite(stamp);
@@ -376,10 +218,10 @@ void StampedLock::unlockWrite(int64_t stamp) {
 void StampedLock::unlockRead(int64_t stamp) {
 	int64_t s = 0;
 	int64_t m = 0;
-	if (((int64_t)(stamp & (uint64_t)StampedLock::RBITS)) != (int64_t)0) {
+	if ((stamp & StampedLock::RBITS) != 0) {
 		while (true) {
-			bool var$0 = ((int64_t)((s = this->state) & (uint64_t)StampedLock::SBITS)) == ((int64_t)(stamp & (uint64_t)StampedLock::SBITS));
-			if (!(var$0 && ((m = (int64_t)(s & (uint64_t)StampedLock::RBITS)) != (int64_t)0))) {
+			bool var$0 = ((s = this->state) & StampedLock::SBITS) == (stamp & StampedLock::SBITS);
+			if (!(var$0 && ((m = s & StampedLock::RBITS) != 0))) {
 				break;
 			}
 			{
@@ -390,7 +232,7 @@ void StampedLock::unlockRead(int64_t stamp) {
 						}
 						return;
 					}
-				} else if (tryDecReaderOverflow(s) != (int64_t)0) {
+				} else if (tryDecReaderOverflow(s) != 0) {
 					return;
 				}
 			}
@@ -400,7 +242,7 @@ void StampedLock::unlockRead(int64_t stamp) {
 }
 
 void StampedLock::unlock(int64_t stamp) {
-	if (((int64_t)(stamp & (uint64_t)StampedLock::WBIT)) != (int64_t)0) {
+	if ((stamp & StampedLock::WBIT) != 0) {
 		unlockWrite(stamp);
 	} else {
 		unlockRead(stamp);
@@ -408,13 +250,13 @@ void StampedLock::unlock(int64_t stamp) {
 }
 
 int64_t StampedLock::tryConvertToWriteLock(int64_t stamp) {
-	int64_t a = (int64_t)(stamp & (uint64_t)StampedLock::ABITS);
+	int64_t a = stamp & StampedLock::ABITS;
 	int64_t m = 0;
 	int64_t s = 0;
 	int64_t nextState = 0;
-	while (((int64_t)((s = this->state) & (uint64_t)StampedLock::SBITS)) == ((int64_t)(stamp & (uint64_t)StampedLock::SBITS))) {
-		if ((m = (int64_t)(s & (uint64_t)StampedLock::ABITS)) == (int64_t)0) {
-			if (a != (int64_t)0) {
+	while (((s = this->state) & StampedLock::SBITS) == (stamp & StampedLock::SBITS)) {
+		if ((m = s & StampedLock::ABITS) == 0) {
+			if (a != 0) {
 				break;
 			}
 			if (casState(s, nextState = s | StampedLock::WBIT)) {
@@ -426,7 +268,7 @@ int64_t StampedLock::tryConvertToWriteLock(int64_t stamp) {
 				break;
 			}
 			return stamp;
-		} else if (m == StampedLock::RUNIT && a != (int64_t)0) {
+		} else if (m == StampedLock::RUNIT && a != 0) {
 			if (casState(s, nextState = s - StampedLock::RUNIT + StampedLock::WBIT)) {
 				return nextState;
 			}
@@ -441,24 +283,24 @@ int64_t StampedLock::tryConvertToReadLock(int64_t stamp) {
 	int64_t a = 0;
 	int64_t s = 0;
 	int64_t nextState = 0;
-	while (((int64_t)((s = this->state) & (uint64_t)StampedLock::SBITS)) == ((int64_t)(stamp & (uint64_t)StampedLock::SBITS))) {
-		if ((a = (int64_t)(stamp & (uint64_t)StampedLock::ABITS)) >= StampedLock::WBIT) {
+	while (((s = this->state) & StampedLock::SBITS) == (stamp & StampedLock::SBITS)) {
+		if ((a = stamp & StampedLock::ABITS) >= StampedLock::WBIT) {
 			if (s != stamp) {
 				break;
 			}
 			nextState = (this->state = unlockWriteState(s) + StampedLock::RUNIT);
 			signalNext(this->head);
 			return nextState;
-		} else if (a == (int64_t)0) {
-			if (((int64_t)(s & (uint64_t)StampedLock::ABITS)) < StampedLock::RFULL) {
+		} else if (a == 0) {
+			if ((s & StampedLock::ABITS) < StampedLock::RFULL) {
 				if (casState(s, nextState = s + StampedLock::RUNIT)) {
 					return nextState;
 				}
-			} else if ((nextState = tryIncReaderOverflow(s)) != (int64_t)0) {
+			} else if ((nextState = tryIncReaderOverflow(s)) != 0) {
 				return nextState;
 			}
 		} else {
-			if (((int64_t)(s & (uint64_t)StampedLock::ABITS)) == (int64_t)0) {
+			if ((s & StampedLock::ABITS) == 0) {
 				break;
 			}
 			return stamp;
@@ -473,25 +315,25 @@ int64_t StampedLock::tryConvertToOptimisticRead(int64_t stamp) {
 	int64_t s = 0;
 	int64_t nextState = 0;
 	$nc(StampedLock::U)->loadFence();
-	while (((int64_t)((s = this->state) & (uint64_t)StampedLock::SBITS)) == ((int64_t)(stamp & (uint64_t)StampedLock::SBITS))) {
-		if ((a = (int64_t)(stamp & (uint64_t)StampedLock::ABITS)) >= StampedLock::WBIT) {
+	while (((s = this->state) & StampedLock::SBITS) == (stamp & StampedLock::SBITS)) {
+		if ((a = stamp & StampedLock::ABITS) >= StampedLock::WBIT) {
 			if (s != stamp) {
 				break;
 			}
 			return releaseWrite(s);
-		} else if (a == (int64_t)0) {
+		} else if (a == 0) {
 			return stamp;
-		} else if ((m = (int64_t)(s & (uint64_t)StampedLock::ABITS)) == (int64_t)0) {
+		} else if ((m = s & StampedLock::ABITS) == 0) {
 			break;
 		} else if (m < StampedLock::RFULL) {
 			if (casState(s, nextState = s - StampedLock::RUNIT)) {
 				if (m == StampedLock::RUNIT) {
 					signalNext(this->head);
 				}
-				return (int64_t)(nextState & (uint64_t)StampedLock::SBITS);
+				return nextState & StampedLock::SBITS;
 			}
-		} else if ((nextState = tryDecReaderOverflow(s)) != (int64_t)0) {
-			return (int64_t)(nextState & (uint64_t)StampedLock::SBITS);
+		} else if ((nextState = tryDecReaderOverflow(s)) != 0) {
+			return nextState & StampedLock::SBITS;
 		}
 	}
 	return 0;
@@ -499,7 +341,7 @@ int64_t StampedLock::tryConvertToOptimisticRead(int64_t stamp) {
 
 bool StampedLock::tryUnlockWrite() {
 	int64_t s = 0;
-	if (((int64_t)((s = this->state) & (uint64_t)StampedLock::WBIT)) != (int64_t)0) {
+	if (((s = this->state) & StampedLock::WBIT) != 0) {
 		releaseWrite(s);
 		return true;
 	}
@@ -510,7 +352,7 @@ bool StampedLock::tryUnlockRead() {
 	int64_t s = 0;
 	int64_t m = 0;
 	while (true) {
-		bool var$0 = (m = (int64_t)((s = this->state) & (uint64_t)StampedLock::ABITS)) != (int64_t)0;
+		bool var$0 = (m = (s = this->state) & StampedLock::ABITS) != 0;
 		if (!(var$0 && m < StampedLock::WBIT)) {
 			break;
 		}
@@ -522,7 +364,7 @@ bool StampedLock::tryUnlockRead() {
 					}
 					return true;
 				}
-			} else if (tryDecReaderOverflow(s) != (int64_t)0) {
+			} else if (tryDecReaderOverflow(s) != 0) {
 				return true;
 			}
 		}
@@ -532,38 +374,38 @@ bool StampedLock::tryUnlockRead() {
 
 int32_t StampedLock::getReadLockCount(int64_t s) {
 	int64_t readers = 0;
-	if ((readers = (int64_t)(s & (uint64_t)StampedLock::RBITS)) >= StampedLock::RFULL) {
+	if ((readers = s & StampedLock::RBITS) >= StampedLock::RFULL) {
 		readers = StampedLock::RFULL + this->readerOverflow;
 	}
 	return (int32_t)readers;
 }
 
 bool StampedLock::isWriteLocked() {
-	return ((int64_t)(this->state & (uint64_t)StampedLock::WBIT)) != (int64_t)0;
+	return (this->state & StampedLock::WBIT) != 0;
 }
 
 bool StampedLock::isReadLocked() {
-	return ((int64_t)(this->state & (uint64_t)StampedLock::RBITS)) != (int64_t)0;
+	return (this->state & StampedLock::RBITS) != 0;
 }
 
 bool StampedLock::isWriteLockStamp(int64_t stamp) {
 	$init(StampedLock);
-	return ((int64_t)(stamp & (uint64_t)StampedLock::ABITS)) == StampedLock::WBIT;
+	return (stamp & StampedLock::ABITS) == StampedLock::WBIT;
 }
 
 bool StampedLock::isReadLockStamp(int64_t stamp) {
 	$init(StampedLock);
-	return ((int64_t)(stamp & (uint64_t)StampedLock::RBITS)) != (int64_t)0;
+	return (stamp & StampedLock::RBITS) != 0;
 }
 
 bool StampedLock::isLockStamp(int64_t stamp) {
 	$init(StampedLock);
-	return ((int64_t)(stamp & (uint64_t)StampedLock::ABITS)) != (int64_t)0;
+	return (stamp & StampedLock::ABITS) != 0;
 }
 
 bool StampedLock::isOptimisticReadStamp(int64_t stamp) {
 	$init(StampedLock);
-	return ((int64_t)(stamp & (uint64_t)StampedLock::ABITS)) == (int64_t)0 && stamp != (int64_t)0;
+	return (stamp & StampedLock::ABITS) == 0 && stamp != 0;
 }
 
 int32_t StampedLock::getReadLockCount() {
@@ -571,10 +413,12 @@ int32_t StampedLock::getReadLockCount() {
 }
 
 $String* StampedLock::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t s = this->state;
-	$var($String, var$0, $($Serializable::toString()));
-	return $concat(var$0, (((int64_t)(s & (uint64_t)StampedLock::ABITS)) == (int64_t)0 ? "[Unlocked]"_s : ((int64_t)(s & (uint64_t)StampedLock::WBIT)) != (int64_t)0 ? "[Write-locked]"_s : $$str({"[Read-locks:"_s, $$str(getReadLockCount(s)), "]"_s})));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Serializable::toString()));
+	var$0->append((s & StampedLock::ABITS) == 0 ? "[Unlocked]"_s : (s & StampedLock::WBIT) != 0 ? "[Write-locked]"_s : $$str({"[Read-locks:"_s, $$str(getReadLockCount(s)), "]"_s}));
+	return $str(var$0);
 }
 
 $Lock* StampedLock::asReadLock() {
@@ -582,7 +426,7 @@ $Lock* StampedLock::asReadLock() {
 	if (($assign(v, this->readLockView)) != nullptr) {
 		return v;
 	}
-	return ($set(this, readLockView, $new($StampedLock$ReadLockView, this)));
+	return $set(this, readLockView, $new($StampedLock$ReadLockView, this));
 }
 
 $Lock* StampedLock::asWriteLock() {
@@ -590,7 +434,7 @@ $Lock* StampedLock::asWriteLock() {
 	if (($assign(v, this->writeLockView)) != nullptr) {
 		return v;
 	}
-	return ($set(this, writeLockView, $new($StampedLock$WriteLockView, this)));
+	return $set(this, writeLockView, $new($StampedLock$WriteLockView, this));
 }
 
 $ReadWriteLock* StampedLock::asReadWriteLock() {
@@ -598,12 +442,12 @@ $ReadWriteLock* StampedLock::asReadWriteLock() {
 	if (($assign(v, this->readWriteLockView)) != nullptr) {
 		return v;
 	}
-	return ($set(this, readWriteLockView, $new($StampedLock$ReadWriteLockView, this)));
+	return $set(this, readWriteLockView, $new($StampedLock$ReadWriteLockView, this));
 }
 
 void StampedLock::unstampedUnlockWrite() {
 	int64_t s = 0;
-	if (((int64_t)((s = this->state) & (uint64_t)StampedLock::WBIT)) == (int64_t)0) {
+	if (((s = this->state) & StampedLock::WBIT) == 0) {
 		$throwNew($IllegalMonitorStateException);
 	}
 	releaseWrite(s);
@@ -612,7 +456,7 @@ void StampedLock::unstampedUnlockWrite() {
 void StampedLock::unstampedUnlockRead() {
 	int64_t s = 0;
 	int64_t m = 0;
-	while ((m = (int64_t)((s = this->state) & (uint64_t)StampedLock::RBITS)) > (int64_t)0) {
+	while ((m = (s = this->state) & StampedLock::RBITS) > 0) {
 		if (m < StampedLock::RFULL) {
 			if (casState(s, s - StampedLock::RUNIT)) {
 				if (m == StampedLock::RUNIT) {
@@ -620,7 +464,7 @@ void StampedLock::unstampedUnlockRead() {
 				}
 				return;
 			}
-		} else if (tryDecReaderOverflow(s) != (int64_t)0) {
+		} else if (tryDecReaderOverflow(s) != 0) {
 			return;
 		}
 	}
@@ -633,7 +477,7 @@ void StampedLock::readObject($ObjectInputStream* s) {
 }
 
 int64_t StampedLock::tryIncReaderOverflow(int64_t s) {
-	if (((int64_t)(s & (uint64_t)StampedLock::ABITS)) != StampedLock::RFULL) {
+	if ((s & StampedLock::ABITS) != StampedLock::RFULL) {
 		$Thread::onSpinWait();
 	} else if (casState(s, s | StampedLock::RBITS)) {
 		++this->readerOverflow;
@@ -643,7 +487,7 @@ int64_t StampedLock::tryIncReaderOverflow(int64_t s) {
 }
 
 int64_t StampedLock::tryDecReaderOverflow(int64_t s) {
-	if (((int64_t)(s & (uint64_t)StampedLock::ABITS)) != StampedLock::RFULL) {
+	if ((s & StampedLock::ABITS) != StampedLock::RFULL) {
 		$Thread::onSpinWait();
 	} else if (casState(s, s | StampedLock::RBITS)) {
 		int32_t r = 0;
@@ -672,12 +516,10 @@ void StampedLock::signalNext($StampedLock$Node* h) {
 void StampedLock::signalCowaiters($StampedLock$ReaderNode* node) {
 	$init(StampedLock);
 	if (node != nullptr) {
-		{
-			$var($StampedLock$ReaderNode, c, nullptr);
-			for (; ($assign(c, node->cowaiters)) != nullptr;) {
-				if (node->casCowaiters(c, $nc(c)->cowaiters)) {
-					$LockSupport::unpark($nc(c)->waiter);
-				}
+		$var($StampedLock$ReaderNode, c, nullptr);
+		for (; ($assign(c, node->cowaiters)) != nullptr;) {
+			if (node->casCowaiters(c, $nc(c)->cowaiters)) {
+				$LockSupport::unpark(c->waiter);
 			}
 		}
 	}
@@ -695,74 +537,70 @@ void StampedLock::tryInitializeHead() {
 }
 
 int64_t StampedLock::acquireWrite(bool interruptible, bool timed, int64_t time) {
-	$useLocalCurrentObjectStackCache();
-	int8_t spins = (int8_t)0;
-	int8_t postSpins = (int8_t)0;
+	$useLocalObjectStack();
+	int8_t spins = 0;
+	int8_t postSpins = 0;
 	bool interrupted = false;
 	bool first = false;
 	$var($StampedLock$WriterNode, node, nullptr);
 	$var($StampedLock$Node, pred, nullptr);
-	{
-		int64_t s = 0;
-		int64_t nextState = 0;
-		for (;;) {
-			bool var$0 = !first && ($assign(pred, (node == nullptr) ? ($StampedLock$Node*)nullptr : $cast($StampedLock$Node, $nc(node)->prev))) != nullptr;
-			if (var$0 && !(first = (this->head == pred))) {
-				if ($nc(pred)->status < 0) {
-					cleanQueue();
-					continue;
-				} else if (pred->prev == nullptr) {
-					$Thread::onSpinWait();
-					continue;
+	for (int64_t s = 0, nextState = 0;;) {
+		bool var$0 = !first && ($assign(pred, (node == nullptr) ? ($StampedLock$Node*)nullptr : $cast($StampedLock$Node, node->prev))) != nullptr;
+		if (var$0 && !(first = (this->head == pred))) {
+			if ($nc(pred)->status < 0) {
+				cleanQueue();
+				continue;
+			} else if (pred->prev == nullptr) {
+				$Thread::onSpinWait();
+				continue;
+			}
+		}
+		bool var$1 = (first || pred == nullptr) && ((s = this->state) & StampedLock::ABITS) == 0;
+		if (var$1 && casState(s, nextState = s | StampedLock::WBIT)) {
+			$nc(StampedLock::U)->storeStoreFence();
+			if (first) {
+				$set($nc(node), prev, nullptr);
+				$set(this, head, node);
+				$set($nc(pred), next, nullptr);
+				$set(node, waiter, nullptr);
+				if (interrupted) {
+					$($Thread::currentThread())->interrupt();
 				}
 			}
-			bool var$1 = (first || pred == nullptr) && ((int64_t)((s = this->state) & (uint64_t)StampedLock::ABITS)) == (int64_t)0;
-			if (var$1 && casState(s, nextState = s | StampedLock::WBIT)) {
-				$nc(StampedLock::U)->storeStoreFence();
-				if (first) {
-					$set($nc(node), prev, nullptr);
-					$set(this, head, node);
-					$set($nc(pred), next, nullptr);
-					$set(node, waiter, nullptr);
-					if (interrupted) {
-						$($Thread::currentThread())->interrupt();
-					}
-				}
-				return nextState;
-			} else if (node == nullptr) {
-				$assign(node, $new($StampedLock$WriterNode));
-			} else if (pred == nullptr) {
-				$var($StampedLock$Node, t, this->tail);
-				$nc(node)->setPrevRelaxed(t);
-				if (t == nullptr) {
-					tryInitializeHead();
-				} else if (!casTail(t, node)) {
-					node->setPrevRelaxed(nullptr);
-				} else {
-					$set($nc(t), next, node);
-				}
-			} else if (first && spins != 0) {
-				--spins;
-				$Thread::onSpinWait();
-			} else if ($nc(node)->status == 0) {
-				if (node->waiter == nullptr) {
-					$set(node, waiter, $Thread::currentThread());
-				}
-				node->status = StampedLock::WAITING;
+			return nextState;
+		} else if (node == nullptr) {
+			$assign(node, $new($StampedLock$WriterNode));
+		} else if (pred == nullptr) {
+			$var($StampedLock$Node, t, this->tail);
+			node->setPrevRelaxed(t);
+			if (t == nullptr) {
+				tryInitializeHead();
+			} else if (!casTail(t, node)) {
+				node->setPrevRelaxed(nullptr);
 			} else {
-				int64_t nanos = 0;
-				spins = (postSpins = (int8_t)((postSpins << 1) | 1));
-				if (!timed) {
-					$LockSupport::park(this);
-				} else if ((nanos = time - $System::nanoTime()) > (int64_t)0) {
-					$LockSupport::parkNanos(this, nanos);
-				} else {
-					break;
-				}
-				node->clearStatus();
-				if ((interrupted |= $Thread::interrupted()) && interruptible) {
-					break;
-				}
+				$set(t, next, node);
+			}
+		} else if (first && spins != 0) {
+			--spins;
+			$Thread::onSpinWait();
+		} else if (node->status == 0) {
+			if (node->waiter == nullptr) {
+				$set(node, waiter, $Thread::currentThread());
+			}
+			node->status = StampedLock::WAITING;
+		} else {
+			int64_t nanos = 0;
+			spins = (postSpins = (int8_t)((postSpins << 1) | 1));
+			if (!timed) {
+				$LockSupport::park(this);
+			} else if ((nanos = time - $System::nanoTime()) > 0) {
+				$LockSupport::parkNanos(this, nanos);
+			} else {
+				break;
+			}
+			node->clearStatus();
+			if ((interrupted |= $Thread::interrupted()) && interruptible) {
+				break;
 			}
 		}
 	}
@@ -770,7 +608,7 @@ int64_t StampedLock::acquireWrite(bool interruptible, bool timed, int64_t time) 
 }
 
 int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool interrupted = false;
 	$var($StampedLock$ReaderNode, node, nullptr);
 	for (;;) {
@@ -778,7 +616,7 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 		int64_t nextState = 0;
 		$var($StampedLock$Node, tailPred, nullptr);
 		$var($StampedLock$Node, t, this->tail);
-		if ((t == nullptr || ($assign(tailPred, $nc(t)->prev)) == nullptr) && (nextState = tryAcquireRead()) != (int64_t)0) {
+		if ((t == nullptr || ($assign(tailPred, t->prev)) == nullptr) && (nextState = tryAcquireRead()) != 0) {
 			return nextState;
 		} else if (t == nullptr) {
 			tryInitializeHead();
@@ -800,7 +638,7 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 					break;
 				} else if (node == nullptr) {
 					$assign(node, $new($StampedLock$ReaderNode));
-				} else if ($nc(node)->waiter == nullptr) {
+				} else if (node->waiter == nullptr) {
 					$set(node, waiter, $Thread::currentThread());
 				} else if (!attached) {
 					$var($StampedLock$ReaderNode, c, leader->cowaiters);
@@ -813,11 +651,11 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 					int64_t nanos = 0;
 					if (!timed) {
 						$LockSupport::park(this);
-					} else if ((nanos = time - $System::nanoTime()) > (int64_t)0) {
+					} else if ((nanos = time - $System::nanoTime()) > 0) {
 						$LockSupport::parkNanos(this, nanos);
 					}
 					interrupted |= $Thread::interrupted();
-					if ((interrupted && interruptible) || (timed && nanos <= (int64_t)0)) {
+					if ((interrupted && interruptible) || (timed && nanos <= 0)) {
 						return cancelCowaiter(node, leader, interrupted);
 					}
 				}
@@ -830,15 +668,15 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 			if (interrupted) {
 				$($Thread::currentThread())->interrupt();
 			}
-			if (ns != (int64_t)0) {
+			if (ns != 0) {
 				return ns;
 			} else {
 				$assign(node, nullptr);
 			}
 		}
 	}
-	int8_t spins = (int8_t)0;
-	int8_t postSpins = (int8_t)0;
+	int8_t spins = 0;
+	int8_t postSpins = 0;
 	bool first = false;
 	$var($StampedLock$Node, pred, nullptr);
 	for (int64_t nextState = 0;;) {
@@ -852,7 +690,7 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 				continue;
 			}
 		}
-		if ((first || pred == nullptr) && (nextState = tryAcquireRead()) != (int64_t)0) {
+		if ((first || pred == nullptr) && (nextState = tryAcquireRead()) != 0) {
 			if (first) {
 				$set($nc(node), prev, nullptr);
 				$set(this, head, node);
@@ -877,7 +715,7 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 			spins = (postSpins = (int8_t)((postSpins << 1) | 1));
 			if (!timed) {
 				$LockSupport::park(this);
-			} else if ((nanos = time - $System::nanoTime()) > (int64_t)0) {
+			} else if ((nanos = time - $System::nanoTime()) > 0) {
 				$LockSupport::parkNanos(this, nanos);
 			} else {
 				break;
@@ -892,60 +730,56 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 }
 
 void StampedLock::cleanQueue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (;;) {
-		{
-			$var($StampedLock$Node, q, this->tail);
-			$var($StampedLock$Node, s, nullptr);
-			$var($StampedLock$Node, p, nullptr);
-			$var($StampedLock$Node, n, nullptr);
-			for (;;) {
-				if (q == nullptr || ($assign(p, $nc(q)->prev)) == nullptr) {
-					return;
-				}
-				if (s == nullptr ? this->tail != q : ($nc(s)->prev != q || $nc(s)->status < 0)) {
-					break;
-				}
-				if ($nc(q)->status < 0) {
-					if ((s == nullptr ? casTail(q, p) : $nc(s)->casPrev(q, p)) && q->prev == p) {
-						$nc(p)->casNext(q, s);
-						if (p->prev == nullptr) {
-							signalNext(p);
-						}
-					}
-					break;
-				}
-				if (($assign(n, $nc(p)->next)) != q) {
-					if (n != nullptr && $nc(q)->prev == p && q->status >= 0) {
-						p->casNext(n, q);
-						if (p->prev == nullptr) {
-							signalNext(p);
-						}
-					}
-					break;
-				}
-				$assign(s, q);
-				$assign(q, $nc(q)->prev);
+		$var($StampedLock$Node, q, this->tail);
+		$var($StampedLock$Node, s, nullptr);
+		$var($StampedLock$Node, p, nullptr);
+		$var($StampedLock$Node, n, nullptr);
+		for (;;) {
+			if (q == nullptr || ($assign(p, q->prev)) == nullptr) {
+				return;
 			}
+			if (s == nullptr ? this->tail != q : (s->prev != q || s->status < 0)) {
+				break;
+			}
+			if ($nc(q)->status < 0) {
+				if ((s == nullptr ? casTail(q, p) : s->casPrev(q, p)) && q->prev == p) {
+					$nc(p)->casNext(q, s);
+					if (p->prev == nullptr) {
+						signalNext(p);
+					}
+				}
+				break;
+			}
+			if (($assign(n, $nc(p)->next)) != q) {
+				if (n != nullptr && q->prev == p && q->status >= 0) {
+					p->casNext(n, q);
+					if (p->prev == nullptr) {
+						signalNext(p);
+					}
+				}
+				break;
+			}
+			$assign(s, q);
+			$assign(q, q->prev);
 		}
 	}
 }
 
 void StampedLock::unlinkCowaiter($StampedLock$ReaderNode* node, $StampedLock$ReaderNode* leader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (leader != nullptr) {
 		while (leader->prev != nullptr && leader->status >= 0) {
-			{
-				$var($StampedLock$ReaderNode, p, leader);
-				$var($StampedLock$ReaderNode, q, nullptr);
-				for (;; $assign(p, q)) {
-					if (($assign(q, $nc(p)->cowaiters)) == nullptr) {
-						return;
-					}
-					if (q == node) {
-						$nc(p)->casCowaiters(q, $nc(q)->cowaiters);
-						break;
-					}
+			$var($StampedLock$ReaderNode, p, leader);
+			$var($StampedLock$ReaderNode, q, nullptr);
+			for (;; $assign(p, q)) {
+				if (($assign(q, $nc(p)->cowaiters)) == nullptr) {
+					return;
+				}
+				if (q == node) {
+					p->casCowaiters(q, $nc(q)->cowaiters);
+					break;
 				}
 			}
 		}
@@ -961,7 +795,7 @@ int64_t StampedLock::cancelAcquire($StampedLock$Node* node, bool interrupted) {
 			signalCowaiters($cast($StampedLock$ReaderNode, node));
 		}
 	}
-	return (interrupted || $Thread::interrupted()) ? StampedLock::INTERRUPTED : (int64_t)0;
+	return (interrupted || $Thread::interrupted()) ? StampedLock::INTERRUPTED : 0;
 }
 
 int64_t StampedLock::cancelCowaiter($StampedLock$ReaderNode* node, $StampedLock$ReaderNode* leader, bool interrupted) {
@@ -970,14 +804,14 @@ int64_t StampedLock::cancelCowaiter($StampedLock$ReaderNode* node, $StampedLock$
 		node->status = StampedLock::CANCELLED;
 		unlinkCowaiter(node, leader);
 	}
-	return (interrupted || $Thread::interrupted()) ? StampedLock::INTERRUPTED : (int64_t)0;
+	return (interrupted || $Thread::interrupted()) ? StampedLock::INTERRUPTED : 0;
 }
 
-void clinit$StampedLock($Class* class$) {
+void StampedLock::clinit$($Class* clazz) {
 	$assignStatic(StampedLock::U, $Unsafe::getUnsafe());
 	StampedLock::STATE = $nc(StampedLock::U)->objectFieldOffset(StampedLock::class$, "state"_s);
-	StampedLock::HEAD = $nc(StampedLock::U)->objectFieldOffset(StampedLock::class$, "head"_s);
-	StampedLock::TAIL = $nc(StampedLock::U)->objectFieldOffset(StampedLock::class$, "tail"_s);
+	StampedLock::HEAD = StampedLock::U->objectFieldOffset(StampedLock::class$, "head"_s);
+	StampedLock::TAIL = StampedLock::U->objectFieldOffset(StampedLock::class$, "tail"_s);
 	{
 		$load($LockSupport);
 		$Class* ensureLoaded = $LockSupport::class$;
@@ -988,7 +822,145 @@ StampedLock::StampedLock() {
 }
 
 $Class* StampedLock::load$($String* name, bool initialize) {
-	$loadClass(StampedLock, name, initialize, &_StampedLock_ClassInfo_, clinit$StampedLock, allocate$StampedLock);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, serialVersionUID)},
+		{"LG_READERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, LG_READERS)},
+		{"RUNIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, RUNIT)},
+		{"WBIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, WBIT)},
+		{"RBITS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, RBITS)},
+		{"RFULL", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, RFULL)},
+		{"ABITS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, ABITS)},
+		{"SBITS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, SBITS)},
+		{"RSAFE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, RSAFE)},
+		{"ORIGIN", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, ORIGIN)},
+		{"INTERRUPTED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StampedLock, INTERRUPTED)},
+		{"WAITING", "I", nullptr, $STATIC | $FINAL, $constField(StampedLock, WAITING)},
+		{"CANCELLED", "I", nullptr, $STATIC | $FINAL, $constField(StampedLock, CANCELLED)},
+		{"head", "Ljava/util/concurrent/locks/StampedLock$Node;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(StampedLock, head)},
+		{"tail", "Ljava/util/concurrent/locks/StampedLock$Node;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(StampedLock, tail)},
+		{"readLockView", "Ljava/util/concurrent/locks/StampedLock$ReadLockView;", nullptr, $TRANSIENT, $field(StampedLock, readLockView)},
+		{"writeLockView", "Ljava/util/concurrent/locks/StampedLock$WriteLockView;", nullptr, $TRANSIENT, $field(StampedLock, writeLockView)},
+		{"readWriteLockView", "Ljava/util/concurrent/locks/StampedLock$ReadWriteLockView;", nullptr, $TRANSIENT, $field(StampedLock, readWriteLockView)},
+		{"state", "J", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(StampedLock, state)},
+		{"readerOverflow", "I", nullptr, $PRIVATE | $TRANSIENT, $field(StampedLock, readerOverflow)},
+		{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock, U)},
+		{"STATE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock, STATE)},
+		{"HEAD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock, HEAD)},
+		{"TAIL", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock, TAIL)},
+		{}
+	};
+	$CompoundAttribute readLockmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute tryAcquireReadmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute tryAcquireWritemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute tryUnlockReadmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute tryUnlockWritemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute unlockReadmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute unlockWritemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute writeLockmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StampedLock, init$, void)},
+		{"acquireRead", "(ZZJ)J", nullptr, $PRIVATE, $method(StampedLock, acquireRead, int64_t, bool, bool, int64_t)},
+		{"acquireWrite", "(ZZJ)J", nullptr, $PRIVATE, $method(StampedLock, acquireWrite, int64_t, bool, bool, int64_t)},
+		{"asReadLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC, $virtualMethod(StampedLock, asReadLock, $Lock*)},
+		{"asReadWriteLock", "()Ljava/util/concurrent/locks/ReadWriteLock;", nullptr, $PUBLIC, $virtualMethod(StampedLock, asReadWriteLock, $ReadWriteLock*)},
+		{"asWriteLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC, $virtualMethod(StampedLock, asWriteLock, $Lock*)},
+		{"cancelAcquire", "(Ljava/util/concurrent/locks/StampedLock$Node;Z)J", nullptr, $PRIVATE, $method(StampedLock, cancelAcquire, int64_t, $StampedLock$Node*, bool)},
+		{"cancelCowaiter", "(Ljava/util/concurrent/locks/StampedLock$ReaderNode;Ljava/util/concurrent/locks/StampedLock$ReaderNode;Z)J", nullptr, $PRIVATE, $method(StampedLock, cancelCowaiter, int64_t, $StampedLock$ReaderNode*, $StampedLock$ReaderNode*, bool)},
+		{"casState", "(JJ)Z", nullptr, $PRIVATE, $method(StampedLock, casState, bool, int64_t, int64_t)},
+		{"casTail", "(Ljava/util/concurrent/locks/StampedLock$Node;Ljava/util/concurrent/locks/StampedLock$Node;)Z", nullptr, $PRIVATE, $method(StampedLock, casTail, bool, $StampedLock$Node*, $StampedLock$Node*)},
+		{"cleanQueue", "()V", nullptr, $PRIVATE, $method(StampedLock, cleanQueue, void)},
+		{"getReadLockCount", "(J)I", nullptr, $PRIVATE, $method(StampedLock, getReadLockCount, int32_t, int64_t)},
+		{"getReadLockCount", "()I", nullptr, $PUBLIC, $virtualMethod(StampedLock, getReadLockCount, int32_t)},
+		{"isLockStamp", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StampedLock, isLockStamp, bool, int64_t)},
+		{"isOptimisticReadStamp", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StampedLock, isOptimisticReadStamp, bool, int64_t)},
+		{"isReadLockStamp", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StampedLock, isReadLockStamp, bool, int64_t)},
+		{"isReadLocked", "()Z", nullptr, $PUBLIC, $virtualMethod(StampedLock, isReadLocked, bool)},
+		{"isWriteLockStamp", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StampedLock, isWriteLockStamp, bool, int64_t)},
+		{"isWriteLocked", "()Z", nullptr, $PUBLIC, $virtualMethod(StampedLock, isWriteLocked, bool)},
+		{"readLock", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, readLock, int64_t), nullptr, nullptr, readLockmethodAnnotations$$},
+		{"readLockInterruptibly", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, readLockInterruptibly, int64_t), "java.lang.InterruptedException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(StampedLock, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"releaseWrite", "(J)J", nullptr, $PRIVATE, $method(StampedLock, releaseWrite, int64_t, int64_t)},
+		{"signalCowaiters", "(Ljava/util/concurrent/locks/StampedLock$ReaderNode;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StampedLock, signalCowaiters, void, $StampedLock$ReaderNode*)},
+		{"signalNext", "(Ljava/util/concurrent/locks/StampedLock$Node;)V", nullptr, $STATIC | $FINAL, $staticMethod(StampedLock, signalNext, void, $StampedLock$Node*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StampedLock, toString, $String*)},
+		{"tryAcquireRead", "()J", nullptr, $PRIVATE, $method(StampedLock, tryAcquireRead, int64_t), nullptr, nullptr, tryAcquireReadmethodAnnotations$$},
+		{"tryAcquireWrite", "()J", nullptr, $PRIVATE, $method(StampedLock, tryAcquireWrite, int64_t), nullptr, nullptr, tryAcquireWritemethodAnnotations$$},
+		{"tryConvertToOptimisticRead", "(J)J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryConvertToOptimisticRead, int64_t, int64_t)},
+		{"tryConvertToReadLock", "(J)J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryConvertToReadLock, int64_t, int64_t)},
+		{"tryConvertToWriteLock", "(J)J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryConvertToWriteLock, int64_t, int64_t)},
+		{"tryDecReaderOverflow", "(J)J", nullptr, $PRIVATE, $method(StampedLock, tryDecReaderOverflow, int64_t, int64_t)},
+		{"tryIncReaderOverflow", "(J)J", nullptr, $PRIVATE, $method(StampedLock, tryIncReaderOverflow, int64_t, int64_t)},
+		{"tryInitializeHead", "()V", nullptr, $PRIVATE, $method(StampedLock, tryInitializeHead, void)},
+		{"tryOptimisticRead", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryOptimisticRead, int64_t)},
+		{"tryReadLock", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryReadLock, int64_t)},
+		{"tryReadLock", "(JLjava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryReadLock, int64_t, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"tryUnlockRead", "()Z", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryUnlockRead, bool), nullptr, nullptr, tryUnlockReadmethodAnnotations$$},
+		{"tryUnlockWrite", "()Z", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryUnlockWrite, bool), nullptr, nullptr, tryUnlockWritemethodAnnotations$$},
+		{"tryWriteLock", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryWriteLock, int64_t)},
+		{"tryWriteLock", "(JLjava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC, $virtualMethod(StampedLock, tryWriteLock, int64_t, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"unlinkCowaiter", "(Ljava/util/concurrent/locks/StampedLock$ReaderNode;Ljava/util/concurrent/locks/StampedLock$ReaderNode;)V", nullptr, $PRIVATE, $method(StampedLock, unlinkCowaiter, void, $StampedLock$ReaderNode*, $StampedLock$ReaderNode*)},
+		{"unlock", "(J)V", nullptr, $PUBLIC, $virtualMethod(StampedLock, unlock, void, int64_t)},
+		{"unlockRead", "(J)V", nullptr, $PUBLIC, $virtualMethod(StampedLock, unlockRead, void, int64_t), nullptr, nullptr, unlockReadmethodAnnotations$$},
+		{"unlockWrite", "(J)V", nullptr, $PUBLIC, $virtualMethod(StampedLock, unlockWrite, void, int64_t), nullptr, nullptr, unlockWritemethodAnnotations$$},
+		{"unlockWriteState", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StampedLock, unlockWriteState, int64_t, int64_t)},
+		{"unstampedUnlockRead", "()V", nullptr, $FINAL, $method(StampedLock, unstampedUnlockRead, void)},
+		{"unstampedUnlockWrite", "()V", nullptr, $FINAL, $method(StampedLock, unstampedUnlockWrite, void)},
+		{"validate", "(J)Z", nullptr, $PUBLIC, $virtualMethod(StampedLock, validate, bool, int64_t)},
+		{"writeLock", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, writeLock, int64_t), nullptr, nullptr, writeLockmethodAnnotations$$},
+		{"writeLockInterruptibly", "()J", nullptr, $PUBLIC, $virtualMethod(StampedLock, writeLockInterruptibly, int64_t), "java.lang.InterruptedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.StampedLock$ReadWriteLockView", "java.util.concurrent.locks.StampedLock", "ReadWriteLockView", $FINAL},
+		{"java.util.concurrent.locks.StampedLock$WriteLockView", "java.util.concurrent.locks.StampedLock", "WriteLockView", $FINAL},
+		{"java.util.concurrent.locks.StampedLock$ReadLockView", "java.util.concurrent.locks.StampedLock", "ReadLockView", $FINAL},
+		{"java.util.concurrent.locks.StampedLock$ReaderNode", "java.util.concurrent.locks.StampedLock", "ReaderNode", $STATIC | $FINAL},
+		{"java.util.concurrent.locks.StampedLock$WriterNode", "java.util.concurrent.locks.StampedLock", "WriterNode", $STATIC | $FINAL},
+		{"java.util.concurrent.locks.StampedLock$Node", "java.util.concurrent.locks.StampedLock", "Node", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.locks.StampedLock",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.StampedLock$ReadWriteLockView,java.util.concurrent.locks.StampedLock$WriteLockView,java.util.concurrent.locks.StampedLock$ReadLockView,java.util.concurrent.locks.StampedLock$ReaderNode,java.util.concurrent.locks.StampedLock$WriterNode,java.util.concurrent.locks.StampedLock$Node"
+	};
+	$loadClass(StampedLock, name, initialize, &classInfo$$, StampedLock::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StampedLock);
+	});
 	return class$;
 }
 

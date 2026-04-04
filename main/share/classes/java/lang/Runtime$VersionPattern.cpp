@@ -1,5 +1,4 @@
 #include <java/lang/Runtime$VersionPattern.h>
-
 #include <java/lang/Runtime.h>
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
@@ -25,51 +24,6 @@ using $Pattern = ::java::util::regex::Pattern;
 namespace java {
 	namespace lang {
 
-$FieldInfo _Runtime$VersionPattern_FieldInfo_[] = {
-	{"VNUM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime$VersionPattern, VNUM)},
-	{"PRE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime$VersionPattern, PRE)},
-	{"BUILD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime$VersionPattern, BUILD)},
-	{"OPT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime$VersionPattern, OPT)},
-	{"VSTR_FORMAT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime$VersionPattern, VSTR_FORMAT)},
-	{"VSTR_PATTERN", "Ljava/util/regex/Pattern;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, VSTR_PATTERN)},
-	{"VNUM_GROUP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, VNUM_GROUP)},
-	{"PRE_GROUP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, PRE_GROUP)},
-	{"PLUS_GROUP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, PLUS_GROUP)},
-	{"BUILD_GROUP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, BUILD_GROUP)},
-	{"OPT_GROUP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, OPT_GROUP)},
-	{}
-};
-
-$MethodInfo _Runtime$VersionPattern_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Runtime$VersionPattern, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Runtime$VersionPattern_InnerClassesInfo_[] = {
-	{"java.lang.Runtime$VersionPattern", "java.lang.Runtime", "VersionPattern", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Runtime$VersionPattern_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Runtime$VersionPattern",
-	"java.lang.Object",
-	nullptr,
-	_Runtime$VersionPattern_FieldInfo_,
-	_Runtime$VersionPattern_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Runtime$VersionPattern_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Runtime"
-};
-
-$Object* allocate$Runtime$VersionPattern($Class* clazz) {
-	return $of($alloc(Runtime$VersionPattern));
-}
-
 $String* Runtime$VersionPattern::VNUM = nullptr;
 $String* Runtime$VersionPattern::PRE = nullptr;
 $String* Runtime$VersionPattern::BUILD = nullptr;
@@ -85,7 +39,7 @@ $String* Runtime$VersionPattern::OPT_GROUP = nullptr;
 void Runtime$VersionPattern::init$() {
 }
 
-void clinit$Runtime$VersionPattern($Class* class$) {
+void Runtime$VersionPattern::clinit$($Class* clazz) {
 	$assignStatic(Runtime$VersionPattern::VNUM, "(?<VNUM>[1-9][0-9]*(?:(?:\\.0)*\\.[1-9][0-9]*)*)"_s);
 	$assignStatic(Runtime$VersionPattern::PRE, "(?:-(?<PRE>[a-zA-Z0-9]+))?"_s);
 	$assignStatic(Runtime$VersionPattern::BUILD, "(?:(?<PLUS>\\+)(?<BUILD>0|[1-9][0-9]*)?)?"_s);
@@ -103,7 +57,46 @@ Runtime$VersionPattern::Runtime$VersionPattern() {
 }
 
 $Class* Runtime$VersionPattern::load$($String* name, bool initialize) {
-	$loadClass(Runtime$VersionPattern, name, initialize, &_Runtime$VersionPattern_ClassInfo_, clinit$Runtime$VersionPattern, allocate$Runtime$VersionPattern);
+	$FieldInfo fieldInfos$$[] = {
+		{"VNUM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime$VersionPattern, VNUM)},
+		{"PRE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime$VersionPattern, PRE)},
+		{"BUILD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime$VersionPattern, BUILD)},
+		{"OPT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime$VersionPattern, OPT)},
+		{"VSTR_FORMAT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime$VersionPattern, VSTR_FORMAT)},
+		{"VSTR_PATTERN", "Ljava/util/regex/Pattern;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, VSTR_PATTERN)},
+		{"VNUM_GROUP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, VNUM_GROUP)},
+		{"PRE_GROUP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, PRE_GROUP)},
+		{"PLUS_GROUP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, PLUS_GROUP)},
+		{"BUILD_GROUP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, BUILD_GROUP)},
+		{"OPT_GROUP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Runtime$VersionPattern, OPT_GROUP)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Runtime$VersionPattern, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Runtime$VersionPattern", "java.lang.Runtime", "VersionPattern", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Runtime$VersionPattern",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Runtime"
+	};
+	$loadClass(Runtime$VersionPattern, name, initialize, &classInfo$$, Runtime$VersionPattern::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Runtime$VersionPattern);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/LongStream$LongMapMultiConsumer.h>
-
 #include <java/util/function/LongConsumer.h>
 #include <java/util/stream/LongStream.h>
 #include <jcpp.h>
@@ -14,43 +13,37 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$CompoundAttribute _LongStream$LongMapMultiConsumer_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _LongStream$LongMapMultiConsumer_MethodInfo_[] = {
-	{"accept", "(JLjava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream$LongMapMultiConsumer, accept, void, int64_t, $LongConsumer*)},
-	{}
-};
-
-$InnerClassInfo _LongStream$LongMapMultiConsumer_InnerClassesInfo_[] = {
-	{"java.util.stream.LongStream$LongMapMultiConsumer", "java.util.stream.LongStream", "LongMapMultiConsumer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LongStream$LongMapMultiConsumer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.stream.LongStream$LongMapMultiConsumer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_LongStream$LongMapMultiConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LongStream$LongMapMultiConsumer_InnerClassesInfo_,
-	_LongStream$LongMapMultiConsumer_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.stream.LongStream"
-};
-
-$Object* allocate$LongStream$LongMapMultiConsumer($Class* clazz) {
-	return $of($alloc(LongStream$LongMapMultiConsumer));
-}
-
 $Class* LongStream$LongMapMultiConsumer::load$($String* name, bool initialize) {
-	$loadClass(LongStream$LongMapMultiConsumer, name, initialize, &_LongStream$LongMapMultiConsumer_ClassInfo_, allocate$LongStream$LongMapMultiConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(JLjava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream$LongMapMultiConsumer, accept, void, int64_t, $LongConsumer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.LongStream$LongMapMultiConsumer", "java.util.stream.LongStream", "LongMapMultiConsumer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.stream.LongStream$LongMapMultiConsumer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.stream.LongStream"
+	};
+	$loadClass(LongStream$LongMapMultiConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LongStream$LongMapMultiConsumer);
+	});
 	return class$;
 }
 

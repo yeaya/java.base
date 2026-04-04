@@ -20,6 +20,7 @@ class $import SystemProps : public ::java::lang::Object {
 	$class(SystemProps, $PRELOAD, ::java::lang::Object)
 public:
 	SystemProps();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void fillI18nProps(::java::util::HashMap* cmdProps, $String* base, $String* display, $String* format);
 	static ::java::util::Map* initProperties();

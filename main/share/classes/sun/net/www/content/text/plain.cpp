@@ -1,5 +1,4 @@
 #include <sun/net/www/content/text/plain.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/net/ContentHandler.h>
@@ -21,34 +20,15 @@ namespace sun {
 			namespace content {
 				namespace text {
 
-$MethodInfo _plain_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(plain, init$, void)},
-	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(plain, getContent, $Object*, $URLConnection*)},
-	{}
-};
-
-$ClassInfo _plain_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.content.text.plain",
-	"java.net.ContentHandler",
-	nullptr,
-	nullptr,
-	_plain_MethodInfo_
-};
-
-$Object* allocate$plain($Class* clazz) {
-	return $of($alloc(plain));
-}
-
 void plain::init$() {
 	$ContentHandler::init$();
 }
 
 $Object* plain::getContent($URLConnection* uc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InputStream, is, $nc(uc)->getInputStream());
-		return $of($new($PlainTextInputStream, $(uc->getInputStream())));
+		return $new($PlainTextInputStream, $(uc->getInputStream()));
 	} catch ($IOException& e) {
 		return $of($str({"Error reading document:\n"_s, $(e->toString())}));
 	}
@@ -59,7 +39,22 @@ plain::plain() {
 }
 
 $Class* plain::load$($String* name, bool initialize) {
-	$loadClass(plain, name, initialize, &_plain_ClassInfo_, allocate$plain);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(plain, init$, void)},
+		{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(plain, getContent, $Object*, $URLConnection*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.content.text.plain",
+		"java.net.ContentHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(plain, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(plain);
+	});
 	return class$;
 }
 

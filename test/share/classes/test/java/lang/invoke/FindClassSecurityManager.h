@@ -14,6 +14,7 @@ class $export FindClassSecurityManager : public ::java::lang::Object {
 	$class(FindClassSecurityManager, 0, ::java::lang::Object)
 public:
 	FindClassSecurityManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static bool $assertionsDisabled;

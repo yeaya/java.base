@@ -18,7 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)20130919;
 	MalformedParametersException(const MalformedParametersException& e);
 	virtual void throw$() override;
-	inline MalformedParametersException* operator ->() {
+	inline MalformedParametersException* operator ->() const {
+		return (MalformedParametersException*)throwing$;
+	}
+	inline operator MalformedParametersException*() const {
 		return (MalformedParametersException*)throwing$;
 	}
 };

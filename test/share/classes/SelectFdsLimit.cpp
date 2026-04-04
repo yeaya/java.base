@@ -1,5 +1,4 @@
 #include <SelectFdsLimit.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/lang/CharSequence.h>
@@ -22,34 +21,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ServerSocket = ::java::net::ServerSocket;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 
-$FieldInfo _SelectFdsLimit_FieldInfo_[] = {
-	{"FDTOOPEN", "I", nullptr, $STATIC | $FINAL, $constField(SelectFdsLimit, FDTOOPEN)},
-	{"TESTFILE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SelectFdsLimit, TESTFILE)},
-	{"testFIS", "[Ljava/io/FileInputStream;", nullptr, $STATIC, $staticField(SelectFdsLimit, testFIS)},
-	{}
-};
-
-$MethodInfo _SelectFdsLimit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectFdsLimit, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SelectFdsLimit, main, void, $StringArray*), "java.io.IOException,java.io.FileNotFoundException"},
-	{"openFiles", "(ILjava/io/File;)V", nullptr, $STATIC, $staticMethod(SelectFdsLimit, openFiles, void, int32_t, $File*), "java.io.FileNotFoundException,java.io.IOException"},
-	{"prepareTestEnv", "()V", nullptr, $STATIC, $staticMethod(SelectFdsLimit, prepareTestEnv, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SelectFdsLimit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SelectFdsLimit",
-	"java.lang.Object",
-	nullptr,
-	_SelectFdsLimit_FieldInfo_,
-	_SelectFdsLimit_MethodInfo_
-};
-
-$Object* allocate$SelectFdsLimit($Class* clazz) {
-	return $of($alloc(SelectFdsLimit));
-}
-
 $String* SelectFdsLimit::TESTFILE = nullptr;
 $FileInputStreamArray* SelectFdsLimit::testFIS = nullptr;
 
@@ -68,21 +39,21 @@ void SelectFdsLimit::prepareTestEnv() {
 
 void SelectFdsLimit::openFiles(int32_t fn, $File* f) {
 	$init(SelectFdsLimit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(SelectFdsLimit::testFIS, $new($FileInputStreamArray, SelectFdsLimit::FDTOOPEN));
 	for (;;) {
 		if (0 == fn) {
 			break;
 		}
 		$var($FileInputStream, fis, $new($FileInputStream, f));
-		$nc(SelectFdsLimit::testFIS)->set(--fn, fis);
+		SelectFdsLimit::testFIS->set(--fn, fis);
 	}
 }
 
 void SelectFdsLimit::main($StringArray* args) {
 	$init(SelectFdsLimit);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($System::getProperty("os.name"_s)))->contains("OS X"_s)) {
+	$useLocalObjectStack();
+	if (!$$nc($System::getProperty("os.name"_s))->contains("OS X"_s)) {
 		return;
 	}
 	prepareTestEnv();
@@ -98,12 +69,35 @@ void SelectFdsLimit::main($StringArray* args) {
 SelectFdsLimit::SelectFdsLimit() {
 }
 
-void clinit$SelectFdsLimit($Class* class$) {
+void SelectFdsLimit::clinit$($Class* clazz) {
 	$assignStatic(SelectFdsLimit::TESTFILE, "testfile"_s);
 }
 
 $Class* SelectFdsLimit::load$($String* name, bool initialize) {
-	$loadClass(SelectFdsLimit, name, initialize, &_SelectFdsLimit_ClassInfo_, clinit$SelectFdsLimit, allocate$SelectFdsLimit);
+	$FieldInfo fieldInfos$$[] = {
+		{"FDTOOPEN", "I", nullptr, $STATIC | $FINAL, $constField(SelectFdsLimit, FDTOOPEN)},
+		{"TESTFILE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SelectFdsLimit, TESTFILE)},
+		{"testFIS", "[Ljava/io/FileInputStream;", nullptr, $STATIC, $staticField(SelectFdsLimit, testFIS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SelectFdsLimit, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SelectFdsLimit, main, void, $StringArray*), "java.io.IOException,java.io.FileNotFoundException"},
+		{"openFiles", "(ILjava/io/File;)V", nullptr, $STATIC, $staticMethod(SelectFdsLimit, openFiles, void, int32_t, $File*), "java.io.FileNotFoundException,java.io.IOException"},
+		{"prepareTestEnv", "()V", nullptr, $STATIC, $staticMethod(SelectFdsLimit, prepareTestEnv, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SelectFdsLimit",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SelectFdsLimit, name, initialize, &classInfo$$, SelectFdsLimit::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SelectFdsLimit);
+	});
 	return class$;
 }
 

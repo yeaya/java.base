@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/ReentrantLock.h>
-
 #include <java/util/Collection.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <java/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject.h>
@@ -30,67 +29,6 @@ namespace java {
 		namespace concurrent {
 			namespace locks {
 
-$FieldInfo _ReentrantLock_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReentrantLock, serialVersionUID)},
-	{"sync", "Ljava/util/concurrent/locks/ReentrantLock$Sync;", nullptr, $PRIVATE | $FINAL, $field(ReentrantLock, sync)},
-	{}
-};
-
-$MethodInfo _ReentrantLock_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReentrantLock, init$, void)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(ReentrantLock, init$, void, bool)},
-	{"getHoldCount", "()I", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, getHoldCount, int32_t)},
-	{"getOwner", "()Ljava/lang/Thread;", nullptr, $PROTECTED, $virtualMethod(ReentrantLock, getOwner, $Thread*)},
-	{"getQueueLength", "()I", nullptr, $PUBLIC | $FINAL, $method(ReentrantLock, getQueueLength, int32_t)},
-	{"getQueuedThreads", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Thread;>;", $PROTECTED, $virtualMethod(ReentrantLock, getQueuedThreads, $Collection*)},
-	{"getWaitQueueLength", "(Ljava/util/concurrent/locks/Condition;)I", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, getWaitQueueLength, int32_t, $Condition*)},
-	{"getWaitingThreads", "(Ljava/util/concurrent/locks/Condition;)Ljava/util/Collection;", "(Ljava/util/concurrent/locks/Condition;)Ljava/util/Collection<Ljava/lang/Thread;>;", $PROTECTED, $virtualMethod(ReentrantLock, getWaitingThreads, $Collection*, $Condition*)},
-	{"hasQueuedThread", "(Ljava/lang/Thread;)Z", nullptr, $PUBLIC | $FINAL, $method(ReentrantLock, hasQueuedThread, bool, $Thread*)},
-	{"hasQueuedThreads", "()Z", nullptr, $PUBLIC | $FINAL, $method(ReentrantLock, hasQueuedThreads, bool)},
-	{"hasWaiters", "(Ljava/util/concurrent/locks/Condition;)Z", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, hasWaiters, bool, $Condition*)},
-	{"isFair", "()Z", nullptr, $PUBLIC | $FINAL, $method(ReentrantLock, isFair, bool)},
-	{"isHeldByCurrentThread", "()Z", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, isHeldByCurrentThread, bool)},
-	{"isLocked", "()Z", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, isLocked, bool)},
-	{"lock", "()V", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, lock, void)},
-	{"lockInterruptibly", "()V", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, lockInterruptibly, void), "java.lang.InterruptedException"},
-	{"newCondition", "()Ljava/util/concurrent/locks/Condition;", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, newCondition, $Condition*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, toString, $String*)},
-	{"tryLock", "()Z", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, tryLock, bool)},
-	{"tryLock", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, tryLock, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"unlock", "()V", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, unlock, void)},
-	{}
-};
-
-$InnerClassInfo _ReentrantLock_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.ReentrantLock$FairSync", "java.util.concurrent.locks.ReentrantLock", "FairSync", $STATIC | $FINAL},
-	{"java.util.concurrent.locks.ReentrantLock$NonfairSync", "java.util.concurrent.locks.ReentrantLock", "NonfairSync", $STATIC | $FINAL},
-	{"java.util.concurrent.locks.ReentrantLock$Sync", "java.util.concurrent.locks.ReentrantLock", "Sync", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ReentrantLock_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.locks.ReentrantLock",
-	"java.lang.Object",
-	"java.util.concurrent.locks.Lock,java.io.Serializable",
-	_ReentrantLock_FieldInfo_,
-	_ReentrantLock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReentrantLock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.ReentrantLock$FairSync,java.util.concurrent.locks.ReentrantLock$NonfairSync,java.util.concurrent.locks.ReentrantLock$Sync"
-};
-
-$Object* allocate$ReentrantLock($Class* clazz) {
-	return $of($alloc(ReentrantLock));
-}
-
 int32_t ReentrantLock::hashCode() {
 	 return this->$Lock::hashCode();
 }
@@ -112,7 +50,7 @@ void ReentrantLock::init$() {
 }
 
 void ReentrantLock::init$(bool fair) {
-	$set(this, sync, fair ? static_cast<$ReentrantLock$Sync*>($new($ReentrantLock$FairSync)) : static_cast<$ReentrantLock$Sync*>($new($ReentrantLock$NonfairSync)));
+	$set(this, sync, fair ? $cast($ReentrantLock$Sync, $new($ReentrantLock$FairSync)) : $cast($ReentrantLock$Sync, $new($ReentrantLock$NonfairSync)));
 }
 
 void ReentrantLock::lock() {
@@ -206,17 +144,74 @@ $Collection* ReentrantLock::getWaitingThreads($Condition* condition) {
 }
 
 $String* ReentrantLock::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, o, $nc(this->sync)->getOwner());
-	$var($String, var$0, $($Lock::toString()));
-	return $concat(var$0, ((o == nullptr) ? "[Unlocked]"_s : $$str({"[Locked by thread "_s, $($nc(o)->getName()), "]"_s})));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Lock::toString()));
+	var$0->append((o == nullptr) ? "[Unlocked]"_s : $$str({"[Locked by thread "_s, $(o->getName()), "]"_s}));
+	return $str(var$0);
 }
 
 ReentrantLock::ReentrantLock() {
 }
 
 $Class* ReentrantLock::load$($String* name, bool initialize) {
-	$loadClass(ReentrantLock, name, initialize, &_ReentrantLock_ClassInfo_, allocate$ReentrantLock);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReentrantLock, serialVersionUID)},
+		{"sync", "Ljava/util/concurrent/locks/ReentrantLock$Sync;", nullptr, $PRIVATE | $FINAL, $field(ReentrantLock, sync)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReentrantLock, init$, void)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(ReentrantLock, init$, void, bool)},
+		{"getHoldCount", "()I", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, getHoldCount, int32_t)},
+		{"getOwner", "()Ljava/lang/Thread;", nullptr, $PROTECTED, $virtualMethod(ReentrantLock, getOwner, $Thread*)},
+		{"getQueueLength", "()I", nullptr, $PUBLIC | $FINAL, $method(ReentrantLock, getQueueLength, int32_t)},
+		{"getQueuedThreads", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Thread;>;", $PROTECTED, $virtualMethod(ReentrantLock, getQueuedThreads, $Collection*)},
+		{"getWaitQueueLength", "(Ljava/util/concurrent/locks/Condition;)I", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, getWaitQueueLength, int32_t, $Condition*)},
+		{"getWaitingThreads", "(Ljava/util/concurrent/locks/Condition;)Ljava/util/Collection;", "(Ljava/util/concurrent/locks/Condition;)Ljava/util/Collection<Ljava/lang/Thread;>;", $PROTECTED, $virtualMethod(ReentrantLock, getWaitingThreads, $Collection*, $Condition*)},
+		{"hasQueuedThread", "(Ljava/lang/Thread;)Z", nullptr, $PUBLIC | $FINAL, $method(ReentrantLock, hasQueuedThread, bool, $Thread*)},
+		{"hasQueuedThreads", "()Z", nullptr, $PUBLIC | $FINAL, $method(ReentrantLock, hasQueuedThreads, bool)},
+		{"hasWaiters", "(Ljava/util/concurrent/locks/Condition;)Z", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, hasWaiters, bool, $Condition*)},
+		{"isFair", "()Z", nullptr, $PUBLIC | $FINAL, $method(ReentrantLock, isFair, bool)},
+		{"isHeldByCurrentThread", "()Z", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, isHeldByCurrentThread, bool)},
+		{"isLocked", "()Z", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, isLocked, bool)},
+		{"lock", "()V", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, lock, void)},
+		{"lockInterruptibly", "()V", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, lockInterruptibly, void), "java.lang.InterruptedException"},
+		{"newCondition", "()Ljava/util/concurrent/locks/Condition;", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, newCondition, $Condition*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, toString, $String*)},
+		{"tryLock", "()Z", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, tryLock, bool)},
+		{"tryLock", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, tryLock, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"unlock", "()V", nullptr, $PUBLIC, $virtualMethod(ReentrantLock, unlock, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.ReentrantLock$FairSync", "java.util.concurrent.locks.ReentrantLock", "FairSync", $STATIC | $FINAL},
+		{"java.util.concurrent.locks.ReentrantLock$NonfairSync", "java.util.concurrent.locks.ReentrantLock", "NonfairSync", $STATIC | $FINAL},
+		{"java.util.concurrent.locks.ReentrantLock$Sync", "java.util.concurrent.locks.ReentrantLock", "Sync", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.locks.ReentrantLock",
+		"java.lang.Object",
+		"java.util.concurrent.locks.Lock,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.ReentrantLock$FairSync,java.util.concurrent.locks.ReentrantLock$NonfairSync,java.util.concurrent.locks.ReentrantLock$Sync"
+	};
+	$loadClass(ReentrantLock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReentrantLock));
+	});
 	return class$;
 }
 

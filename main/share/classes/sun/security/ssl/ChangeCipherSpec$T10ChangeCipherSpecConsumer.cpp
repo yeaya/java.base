@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ChangeCipherSpec$T10ChangeCipherSpecConsumer.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
@@ -46,7 +45,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $Map = ::java::util::Map;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $IvParameterSpec = ::javax::crypto::spec::IvParameterSpec;
 using $SSLException = ::javax::net::ssl::SSLException;
@@ -57,10 +55,7 @@ using $CipherType = ::sun::security::ssl::CipherType;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $ContentType = ::sun::security::ssl::ContentType;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $InputRecord = ::sun::security::ssl::InputRecord;
-using $SSLCipher = ::sun::security::ssl::SSLCipher;
 using $SSLCipher$SSLReadCipher = ::sun::security::ssl::SSLCipher$SSLReadCipher;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation = ::sun::security::ssl::SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation;
@@ -70,47 +65,16 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ChangeCipherSpec$T10ChangeCipherSpecConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ChangeCipherSpec$T10ChangeCipherSpecConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ChangeCipherSpec$T10ChangeCipherSpecConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ChangeCipherSpec$T10ChangeCipherSpecConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecConsumer", "sun.security.ssl.ChangeCipherSpec", "T10ChangeCipherSpecConsumer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ChangeCipherSpec$T10ChangeCipherSpecConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLConsumer",
-	nullptr,
-	_ChangeCipherSpec$T10ChangeCipherSpecConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ChangeCipherSpec$T10ChangeCipherSpecConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ChangeCipherSpec"
-};
-
-$Object* allocate$ChangeCipherSpec$T10ChangeCipherSpecConsumer($Class* clazz) {
-	return $of($alloc(ChangeCipherSpec$T10ChangeCipherSpecConsumer));
-}
-
 void ChangeCipherSpec$T10ChangeCipherSpecConsumer::init$() {
 }
 
 void ChangeCipherSpec$T10ChangeCipherSpecConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TransportContext, tc, $cast($TransportContext, context));
 	$init($ContentType);
 	$nc($nc(tc)->consumers)->remove($($Byte::valueOf($ContentType::CHANGE_CIPHER_SPEC->id)));
 	bool var$0 = $nc(message)->remaining() != 1;
-	if (var$0 || $nc(message)->get() != 1) {
+	if (var$0 || message->get() != 1) {
 		$init($Alert);
 		$throw($(tc->fatal($Alert::UNEXPECTED_MESSAGE, "Malformed or unexpected ChangeCipherSpec message"_s)));
 	}
@@ -127,7 +91,7 @@ void ChangeCipherSpec$T10ChangeCipherSpecConsumer::consume($ConnectionContext* c
 		$init($Alert);
 		$throw($(tc->fatal($Alert::UNEXPECTED_MESSAGE, "Unexpected ChangeCipherSpec message"_s)));
 	}
-	$var($SSLKeyDerivation, kd, $nc(hc)->handshakeKeyDerivation);
+	$var($SSLKeyDerivation, kd, hc->handshakeKeyDerivation);
 	if ($instanceOf($SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation, kd)) {
 		$var($SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation, tkd, $cast($SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation, kd));
 		$CipherSuite* ncs = hc->negotiatedCipherSuite;
@@ -137,19 +101,19 @@ void ChangeCipherSpec$T10ChangeCipherSpecConsumer::consume($ConnectionContext* c
 			$assign(readAuthenticator, $Authenticator::valueOf(hc->negotiatedProtocol));
 		} else {
 			try {
-				$assign(readAuthenticator, $Authenticator::valueOf(hc->negotiatedProtocol, ncs->macAlg, $($nc(tkd)->getTrafficKey($nc(hc->sslConfig)->isClientMode ? "serverMacKey"_s : "clientMacKey"_s))));
+				$assign(readAuthenticator, $Authenticator::valueOf(hc->negotiatedProtocol, ncs->macAlg, $(tkd->getTrafficKey($nc(hc->sslConfig)->isClientMode ? "serverMacKey"_s : "clientMacKey"_s))));
 			} catch ($NoSuchAlgorithmException& e) {
 				$throwNew($SSLException, "Algorithm missing:  "_s, e);
 			} catch ($InvalidKeyException& e) {
 				$throwNew($SSLException, "Algorithm missing:  "_s, e);
 			}
 		}
-		$var($SecretKey, readKey, $nc(tkd)->getTrafficKey($nc(hc->sslConfig)->isClientMode ? "serverWriteKey"_s : "clientWriteKey"_s));
-		$var($SecretKey, readIv, tkd->getTrafficKey($nc(hc->sslConfig)->isClientMode ? "serverWriteIv"_s : "clientWriteIv"_s));
-		$var($IvParameterSpec, iv, (readIv == nullptr) ? ($IvParameterSpec*)nullptr : $new($IvParameterSpec, $($nc(readIv)->getEncoded())));
+		$var($SecretKey, readKey, tkd->getTrafficKey($nc(hc->sslConfig)->isClientMode ? "serverWriteKey"_s : "clientWriteKey"_s));
+		$var($SecretKey, readIv, tkd->getTrafficKey(hc->sslConfig->isClientMode ? "serverWriteIv"_s : "clientWriteIv"_s));
+		$var($IvParameterSpec, iv, (readIv == nullptr) ? ($IvParameterSpec*)nullptr : $new($IvParameterSpec, $(readIv->getEncoded())));
 		$var($SSLCipher$SSLReadCipher, readCipher, nullptr);
 		try {
-			$assign(readCipher, $nc(ncs)->bulkCipher->createReadCipher(readAuthenticator, hc->negotiatedProtocol, readKey, iv, $($nc(hc->sslContext)->getSecureRandom())));
+			$assign(readCipher, ncs->bulkCipher->createReadCipher(readAuthenticator, hc->negotiatedProtocol, readKey, iv, $($nc(hc->sslContext)->getSecureRandom())));
 		} catch ($GeneralSecurityException& gse) {
 			$throwNew($SSLException, "Algorithm missing:  "_s, gse);
 		}
@@ -167,7 +131,33 @@ ChangeCipherSpec$T10ChangeCipherSpecConsumer::ChangeCipherSpec$T10ChangeCipherSp
 }
 
 $Class* ChangeCipherSpec$T10ChangeCipherSpecConsumer::load$($String* name, bool initialize) {
-	$loadClass(ChangeCipherSpec$T10ChangeCipherSpecConsumer, name, initialize, &_ChangeCipherSpec$T10ChangeCipherSpecConsumer_ClassInfo_, allocate$ChangeCipherSpec$T10ChangeCipherSpecConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ChangeCipherSpec$T10ChangeCipherSpecConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ChangeCipherSpec$T10ChangeCipherSpecConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecConsumer", "sun.security.ssl.ChangeCipherSpec", "T10ChangeCipherSpecConsumer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ChangeCipherSpec"
+	};
+	$loadClass(ChangeCipherSpec$T10ChangeCipherSpecConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ChangeCipherSpec$T10ChangeCipherSpecConsumer);
+	});
 	return class$;
 }
 

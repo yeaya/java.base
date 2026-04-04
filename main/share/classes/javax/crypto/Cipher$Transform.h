@@ -30,6 +30,7 @@ class Cipher$Transform : public ::java::lang::Object {
 	$class(Cipher$Transform, 0, ::java::lang::Object)
 public:
 	Cipher$Transform();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* alg, $String* suffix, $String* mode, $String* pad);
 	static bool matches($String* regexp, $String* str);
 	virtual void setModePadding(::javax::crypto::CipherSpi* spi);

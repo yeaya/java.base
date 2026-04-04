@@ -22,6 +22,7 @@ class $export PreviewFeature$Feature : public ::java::lang::Enum {
 public:
 	PreviewFeature$Feature();
 	static $Array<::jdk::internal::javac::PreviewFeature$Feature>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::javac::PreviewFeature$Feature* valueOf($String* name);
 	static $Array<::jdk::internal::javac::PreviewFeature$Feature>* values();

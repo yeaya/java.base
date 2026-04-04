@@ -18,6 +18,7 @@ class HexDumpReader$ByteArrayBuilder : public ::java::lang::Object {
 	$class(HexDumpReader$ByteArrayBuilder, 0, ::java::lang::Object)
 public:
 	HexDumpReader$ByteArrayBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void put(int8_t b);
 	virtual $bytes* toArray();

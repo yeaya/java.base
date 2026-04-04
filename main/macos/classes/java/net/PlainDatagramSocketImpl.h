@@ -22,6 +22,7 @@ public:
 	PlainDatagramSocketImpl();
 	using ::java::net::AbstractPlainDatagramSocketImpl::join;
 	using ::java::net::AbstractPlainDatagramSocketImpl::leave;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool isMulticast);
 	virtual void bind0(int32_t lport, ::java::net::InetAddress* laddr) override;
 	virtual void connect0(::java::net::InetAddress* address, int32_t port) override;

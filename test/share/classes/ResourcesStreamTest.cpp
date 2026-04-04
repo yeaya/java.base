@@ -1,5 +1,4 @@
 #include <ResourcesStreamTest.h>
-
 #include <ResourcesStreamTest$FailingClassLoader.h>
 #include <ResourcesStreamTest$SuccessClassLoader.h>
 #include <java/io/IOException.h>
@@ -33,7 +32,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URL = ::java::net::URL;
-using $Optional = ::java::util::Optional;
 using $Consumer = ::java::util::function::Consumer;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
@@ -48,33 +46,29 @@ public:
 	virtual void accept(Object$* arg0) override {
 		$nc(inst$)->println(arg0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResourcesStreamTest$$Lambda$println>());
-	}
 	$PrintStream* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResourcesStreamTest$$Lambda$println::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResourcesStreamTest$$Lambda$println, inst$)},
-	{}
-};
-$MethodInfo ResourcesStreamTest$$Lambda$println::methodInfos[3] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(ResourcesStreamTest$$Lambda$println, init$, void, $PrintStream*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResourcesStreamTest$$Lambda$println, accept, void, Object$*)},
-	{}
-};
-$ClassInfo ResourcesStreamTest$$Lambda$println::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ResourcesStreamTest$$Lambda$println",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResourcesStreamTest$$Lambda$println::load$($String* name, bool initialize) {
-	$loadClass(ResourcesStreamTest$$Lambda$println, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResourcesStreamTest$$Lambda$println, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(ResourcesStreamTest$$Lambda$println, init$, void, $PrintStream*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResourcesStreamTest$$Lambda$println, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ResourcesStreamTest$$Lambda$println",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResourcesStreamTest$$Lambda$println, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourcesStreamTest$$Lambda$println);
+	});
 	return class$;
 }
 $Class* ResourcesStreamTest$$Lambda$println::class$ = nullptr;
@@ -87,27 +81,24 @@ public:
 	virtual bool test(Object$* url) override {
 		 return ResourcesStreamTest::lambda$testFailure$0($cast($URL, url));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResourcesStreamTest$$Lambda$lambda$testFailure$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ResourcesStreamTest$$Lambda$lambda$testFailure$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ResourcesStreamTest$$Lambda$lambda$testFailure$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ResourcesStreamTest$$Lambda$lambda$testFailure$0$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* ResourcesStreamTest$$Lambda$lambda$testFailure$0$1::load$($String* name, bool initialize) {
-	$loadClass(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ResourcesStreamTest$$Lambda$lambda$testFailure$0$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1);
+	});
 	return class$;
 }
 $Class* ResourcesStreamTest$$Lambda$lambda$testFailure$0$1::class$ = nullptr;
@@ -118,67 +109,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(ResourcesStreamTest::lambda$testFailure$1());
+		 return ResourcesStreamTest::lambda$testFailure$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResourcesStreamTest$$Lambda$lambda$testFailure$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2, get, $Object*)},
-	{}
-};
-$ClassInfo ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ResourcesStreamTest$$Lambda$lambda$testFailure$1$2",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::load$($String* name, bool initialize) {
-	$loadClass(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ResourcesStreamTest$$Lambda$lambda$testFailure$1$2",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2);
+	});
 	return class$;
 }
 $Class* ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::class$ = nullptr;
-
-$MethodInfo _ResourcesStreamTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesStreamTest, init$, void)},
-	{"lambda$testFailure$0", "(Ljava/net/URL;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourcesStreamTest, lambda$testFailure$0, bool, $URL*)},
-	{"lambda$testFailure$1", "()Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourcesStreamTest, lambda$testFailure$1, $Exception*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesStreamTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"testFailure", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesStreamTest, testFailure, void), "java.lang.Exception"},
-	{"testSuccess", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesStreamTest, testSuccess, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ResourcesStreamTest_InnerClassesInfo_[] = {
-	{"ResourcesStreamTest$FailingClassLoader", "ResourcesStreamTest", "FailingClassLoader", $PUBLIC | $STATIC},
-	{"ResourcesStreamTest$SuccessClassLoader", "ResourcesStreamTest", "SuccessClassLoader", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ResourcesStreamTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ResourcesStreamTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ResourcesStreamTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResourcesStreamTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ResourcesStreamTest$FailingClassLoader,ResourcesStreamTest$SuccessClassLoader"
-};
-
-$Object* allocate$ResourcesStreamTest($Class* clazz) {
-	return $of($alloc(ResourcesStreamTest));
-}
 
 void ResourcesStreamTest::init$() {
 }
@@ -189,14 +142,14 @@ void ResourcesStreamTest::main($StringArray* args) {
 }
 
 void ResourcesStreamTest::testSuccess() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($ClassLoader, cl, $new($ResourcesStreamTest$FailingClassLoader));
 		$var($Stream, stream, cl->resources("the name"_s));
-		$nc(stream)->forEach(static_cast<$Consumer*>($$new(ResourcesStreamTest$$Lambda$println, static_cast<$PrintStream*>($nc($System::out)))));
+		$nc(stream)->forEach($$new(ResourcesStreamTest$$Lambda$println, $nc($System::out)));
 		$throwNew($Exception, "expected UncheckedIOException not thrown"_s);
 	} catch ($UncheckedIOException& uio) {
-		$var($String, causeMessage, $nc($($cast($IOException, uio->getCause())))->getMessage());
+		$var($String, causeMessage, $$sure($IOException, uio->getCause())->getMessage());
 		if (!"the name"_s->equals(causeMessage)) {
 			$throwNew($Exception, $$str({"unexpected cause message: "_s, causeMessage}));
 		}
@@ -204,13 +157,13 @@ void ResourcesStreamTest::testSuccess() {
 }
 
 void ResourcesStreamTest::testFailure() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassLoader, cl, $new($ResourcesStreamTest$SuccessClassLoader));
-	int64_t count = $nc($(cl->resources("the name"_s)))->count();
+	int64_t count = $$nc(cl->resources("the name"_s))->count();
 	if (count != 1) {
 		$throwNew($Exception, "expected resource is null or empty"_s);
 	}
-	$nc($($nc($($nc($(cl->resources("the name"_s)))->filter(static_cast<$Predicate*>($$new(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1)))))->findFirst()))->orElseThrow(static_cast<$Supplier*>($$new(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2)));
+	$$nc($$nc($$nc(cl->resources("the name"_s))->filter($$new(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1)))->findFirst())->orElseThrow($$new(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2));
 }
 
 $Exception* ResourcesStreamTest::lambda$testFailure$1() {
@@ -226,17 +179,47 @@ ResourcesStreamTest::ResourcesStreamTest() {
 
 $Class* ResourcesStreamTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ResourcesStreamTest$$Lambda$println::classInfo$.name)) {
+		if (name->equals("ResourcesStreamTest$$Lambda$println")) {
 			return ResourcesStreamTest$$Lambda$println::load$(name, initialize);
 		}
-		if (name->equals(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1::classInfo$.name)) {
+		if (name->equals("ResourcesStreamTest$$Lambda$lambda$testFailure$0$1")) {
 			return ResourcesStreamTest$$Lambda$lambda$testFailure$0$1::load$(name, initialize);
 		}
-		if (name->equals(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::classInfo$.name)) {
+		if (name->equals("ResourcesStreamTest$$Lambda$lambda$testFailure$1$2")) {
 			return ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(ResourcesStreamTest, name, initialize, &_ResourcesStreamTest_ClassInfo_, allocate$ResourcesStreamTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesStreamTest, init$, void)},
+		{"lambda$testFailure$0", "(Ljava/net/URL;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourcesStreamTest, lambda$testFailure$0, bool, $URL*)},
+		{"lambda$testFailure$1", "()Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourcesStreamTest, lambda$testFailure$1, $Exception*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesStreamTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"testFailure", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesStreamTest, testFailure, void), "java.lang.Exception"},
+		{"testSuccess", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesStreamTest, testSuccess, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ResourcesStreamTest$FailingClassLoader", "ResourcesStreamTest", "FailingClassLoader", $PUBLIC | $STATIC},
+		{"ResourcesStreamTest$SuccessClassLoader", "ResourcesStreamTest", "SuccessClassLoader", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ResourcesStreamTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ResourcesStreamTest$FailingClassLoader,ResourcesStreamTest$SuccessClassLoader"
+	};
+	$loadClass(ResourcesStreamTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourcesStreamTest);
+	});
 	return class$;
 }
 

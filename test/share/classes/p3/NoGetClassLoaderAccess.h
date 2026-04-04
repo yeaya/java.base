@@ -25,6 +25,7 @@ class $export NoGetClassLoaderAccess : public ::java::lang::Object {
 	$class(NoGetClassLoaderAccess, 0, ::java::lang::Object)
 public:
 	NoGetClassLoaderAccess();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Class* findClass(::java::lang::Module* module, $String* cn);
 	static void main($StringArray* args);

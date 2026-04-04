@@ -1,5 +1,4 @@
 #include <sun/security/ssl/NamedGroup$XDHScheme.h>
-
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/PublicKey.h>
 #include <java/security/SecureRandom.h>
@@ -27,7 +26,6 @@ using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$ExceptionSupplier = ::sun::security::ssl::NamedGroup$ExceptionSupplier;
 using $NamedGroupPossession = ::sun::security::ssl::NamedGroupPossession;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
-using $SSLKeyAgreementGenerator = ::sun::security::ssl::SSLKeyAgreementGenerator;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $XDHKeyExchange = ::sun::security::ssl::XDHKeyExchange;
@@ -38,57 +36,17 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _NamedGroup$XDHScheme_FieldInfo_[] = {
-	{"instance", "Lsun/security/ssl/NamedGroup$XDHScheme;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NamedGroup$XDHScheme, instance)},
-	{}
-};
-
-$MethodInfo _NamedGroup$XDHScheme_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(NamedGroup$XDHScheme, init$, void)},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$XDHScheme, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
-	{"createPossession", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$XDHScheme, createPossession, $SSLPossession*, $NamedGroup*, $SecureRandom*)},
-	{"decodeCredentials", "(Lsun/security/ssl/NamedGroup;[BLjava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$ExceptionSupplier;)Lsun/security/ssl/SSLCredentials;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$XDHScheme, decodeCredentials, $SSLCredentials*, $NamedGroup*, $bytes*, $AlgorithmConstraints*, $NamedGroup$ExceptionSupplier*), "java.io.IOException,java.security.GeneralSecurityException"},
-	{"encodePossessionPublicKey", "(Lsun/security/ssl/NamedGroupPossession;)[B", nullptr, $PUBLIC, $virtualMethod(NamedGroup$XDHScheme, encodePossessionPublicKey, $bytes*, $NamedGroupPossession*)},
-	{}
-};
-
-$InnerClassInfo _NamedGroup$XDHScheme_InnerClassesInfo_[] = {
-	{"sun.security.ssl.NamedGroup$XDHScheme", "sun.security.ssl.NamedGroup", "XDHScheme", $PRIVATE | $STATIC},
-	{"sun.security.ssl.NamedGroup$NamedGroupScheme", "sun.security.ssl.NamedGroup", "NamedGroupScheme", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NamedGroup$XDHScheme_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.NamedGroup$XDHScheme",
-	"java.lang.Object",
-	"sun.security.ssl.NamedGroup$NamedGroupScheme",
-	_NamedGroup$XDHScheme_FieldInfo_,
-	_NamedGroup$XDHScheme_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NamedGroup$XDHScheme_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.NamedGroup"
-};
-
-$Object* allocate$NamedGroup$XDHScheme($Class* clazz) {
-	return $of($alloc(NamedGroup$XDHScheme));
-}
-
 NamedGroup$XDHScheme* NamedGroup$XDHScheme::instance = nullptr;
 
 void NamedGroup$XDHScheme::init$() {
 }
 
 $bytes* NamedGroup$XDHScheme::encodePossessionPublicKey($NamedGroupPossession* poss) {
-	return $nc(($cast($XDHKeyExchange$XDHEPossession, poss)))->encode();
+	return $nc($cast($XDHKeyExchange$XDHEPossession, poss))->encode();
 }
 
 $SSLCredentials* NamedGroup$XDHScheme::decodeCredentials($NamedGroup* ng, $bytes* encoded, $AlgorithmConstraints* constraints, $NamedGroup$ExceptionSupplier* onConstraintFail) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XDHKeyExchange$XDHECredentials, result, $XDHKeyExchange$XDHECredentials::valueOf(ng, encoded));
 	checkConstraints($($nc(result)->getPublicKey()), constraints, onConstraintFail);
 	return result;
@@ -103,7 +61,7 @@ $SSLKeyDerivation* NamedGroup$XDHScheme::createKeyDerivation($HandshakeContext* 
 	return $nc($XDHKeyExchange::xdheKAGenerator)->createKeyDerivation(hc);
 }
 
-void clinit$NamedGroup$XDHScheme($Class* class$) {
+void NamedGroup$XDHScheme::clinit$($Class* clazz) {
 	$assignStatic(NamedGroup$XDHScheme::instance, $new(NamedGroup$XDHScheme));
 }
 
@@ -111,7 +69,41 @@ NamedGroup$XDHScheme::NamedGroup$XDHScheme() {
 }
 
 $Class* NamedGroup$XDHScheme::load$($String* name, bool initialize) {
-	$loadClass(NamedGroup$XDHScheme, name, initialize, &_NamedGroup$XDHScheme_ClassInfo_, clinit$NamedGroup$XDHScheme, allocate$NamedGroup$XDHScheme);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lsun/security/ssl/NamedGroup$XDHScheme;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NamedGroup$XDHScheme, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(NamedGroup$XDHScheme, init$, void)},
+		{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$XDHScheme, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
+		{"createPossession", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$XDHScheme, createPossession, $SSLPossession*, $NamedGroup*, $SecureRandom*)},
+		{"decodeCredentials", "(Lsun/security/ssl/NamedGroup;[BLjava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$ExceptionSupplier;)Lsun/security/ssl/SSLCredentials;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$XDHScheme, decodeCredentials, $SSLCredentials*, $NamedGroup*, $bytes*, $AlgorithmConstraints*, $NamedGroup$ExceptionSupplier*), "java.io.IOException,java.security.GeneralSecurityException"},
+		{"encodePossessionPublicKey", "(Lsun/security/ssl/NamedGroupPossession;)[B", nullptr, $PUBLIC, $virtualMethod(NamedGroup$XDHScheme, encodePossessionPublicKey, $bytes*, $NamedGroupPossession*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.NamedGroup$XDHScheme", "sun.security.ssl.NamedGroup", "XDHScheme", $PRIVATE | $STATIC},
+		{"sun.security.ssl.NamedGroup$NamedGroupScheme", "sun.security.ssl.NamedGroup", "NamedGroupScheme", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.NamedGroup$XDHScheme",
+		"java.lang.Object",
+		"sun.security.ssl.NamedGroup$NamedGroupScheme",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.NamedGroup"
+	};
+	$loadClass(NamedGroup$XDHScheme, name, initialize, &classInfo$$, NamedGroup$XDHScheme::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NamedGroup$XDHScheme);
+	});
 	return class$;
 }
 

@@ -31,6 +31,7 @@ class TrustStoreManager : public ::java::lang::Object {
 	$class(TrustStoreManager, 0, ::java::lang::Object)
 public:
 	TrustStoreManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* getTrustedCerts();
 	static ::java::security::KeyStore* getTrustedKeyStore();

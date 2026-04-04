@@ -32,7 +32,7 @@ public:
 	virtual bool implies(::java::security::Permission* permission) override;
 	virtual $String* toString() override;
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0xA2A4DAD66A180929;
+	static const int64_t serialVersionUID = (int64_t)0xa2a4dad66a180929;
 	::java::security::PermissionCollection* perms = nullptr;
 	::java::security::CodeSource* cs = nullptr;
 	$volatile(bool) permissionAdded = false;

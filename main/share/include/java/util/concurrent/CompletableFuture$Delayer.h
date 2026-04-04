@@ -28,6 +28,7 @@ class $import CompletableFuture$Delayer : public ::java::lang::Object {
 	$class(CompletableFuture$Delayer, 0, ::java::lang::Object)
 public:
 	CompletableFuture$Delayer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::concurrent::ScheduledFuture* delay(::java::lang::Runnable* command, int64_t delay, ::java::util::concurrent::TimeUnit* unit);
 	static ::java::util::concurrent::ScheduledThreadPoolExecutor* delayer;

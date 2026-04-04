@@ -29,6 +29,7 @@ class EUC_JP_Open$Encoder : public ::sun::nio::cs::EUC_JP$Encoder {
 public:
 	EUC_JP_Open$Encoder();
 	using ::sun::nio::cs::EUC_JP$Encoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual int32_t encodeDouble(char16_t ch) override;
 	static ::sun::nio::cs::DoubleByte$Encoder* ENC0208_Solaris;

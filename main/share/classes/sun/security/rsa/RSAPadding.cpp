@@ -1,5 +1,4 @@
 #include <sun/security/rsa/RSAPadding.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
@@ -52,52 +51,6 @@ namespace sun {
 	namespace security {
 		namespace rsa {
 
-$FieldInfo _RSAPadding_FieldInfo_[] = {
-	{"PAD_BLOCKTYPE_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RSAPadding, PAD_BLOCKTYPE_1)},
-	{"PAD_BLOCKTYPE_2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RSAPadding, PAD_BLOCKTYPE_2)},
-	{"PAD_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RSAPadding, PAD_NONE)},
-	{"PAD_OAEP_MGF1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RSAPadding, PAD_OAEP_MGF1)},
-	{"type", "I", nullptr, $PRIVATE | $FINAL, $field(RSAPadding, type)},
-	{"paddedSize", "I", nullptr, $PRIVATE | $FINAL, $field(RSAPadding, paddedSize)},
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(RSAPadding, random)},
-	{"maxDataSize", "I", nullptr, $PRIVATE | $FINAL, $field(RSAPadding, maxDataSize)},
-	{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(RSAPadding, md)},
-	{"mgf", "Lsun/security/rsa/MGF1;", nullptr, $PRIVATE, $field(RSAPadding, mgf)},
-	{"lHash", "[B", nullptr, $PRIVATE, $field(RSAPadding, lHash)},
-	{"emptyHashes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[B>;", $PRIVATE | $STATIC | $FINAL, $staticField(RSAPadding, emptyHashes)},
-	{}
-};
-
-$MethodInfo _RSAPadding_MethodInfo_[] = {
-	{"<init>", "(IILjava/security/SecureRandom;Ljavax/crypto/spec/OAEPParameterSpec;)V", nullptr, $PRIVATE, $method(RSAPadding, init$, void, int32_t, int32_t, $SecureRandom*, $OAEPParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"getInitialHash", "(Ljava/security/MessageDigest;[B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAPadding, getInitialHash, $bytes*, $MessageDigest*, $bytes*)},
-	{"getInstance", "(II)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAPadding, getInstance, RSAPadding*, int32_t, int32_t), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"getInstance", "(IILjava/security/SecureRandom;)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAPadding, getInstance, RSAPadding*, int32_t, int32_t, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"getInstance", "(IILjava/security/SecureRandom;Ljavax/crypto/spec/OAEPParameterSpec;)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAPadding, getInstance, RSAPadding*, int32_t, int32_t, $SecureRandom*, $OAEPParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"getMaxDataSize", "()I", nullptr, $PUBLIC, $method(RSAPadding, getMaxDataSize, int32_t)},
-	{"pad", "([B)[B", nullptr, $PUBLIC, $method(RSAPadding, pad, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
-	{"pad", "([BII)[B", nullptr, $PUBLIC, $method(RSAPadding, pad, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.BadPaddingException"},
-	{"padOAEP", "([BII)[B", nullptr, $PRIVATE, $method(RSAPadding, padOAEP, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.BadPaddingException"},
-	{"padV15", "([BII)[B", nullptr, $PRIVATE, $method(RSAPadding, padV15, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.BadPaddingException"},
-	{"unpad", "([B)[B", nullptr, $PUBLIC, $method(RSAPadding, unpad, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
-	{"unpadOAEP", "([B)[B", nullptr, $PRIVATE, $method(RSAPadding, unpadOAEP, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
-	{"unpadV15", "([B)[B", nullptr, $PRIVATE, $method(RSAPadding, unpadV15, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
-	{}
-};
-
-$ClassInfo _RSAPadding_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.rsa.RSAPadding",
-	"java.lang.Object",
-	nullptr,
-	_RSAPadding_FieldInfo_,
-	_RSAPadding_MethodInfo_
-};
-
-$Object* allocate$RSAPadding($Class* clazz) {
-	return $of($alloc(RSAPadding));
-}
-
 $Map* RSAPadding::emptyHashes = nullptr;
 
 RSAPadding* RSAPadding::getInstance(int32_t type, int32_t paddedSize) {
@@ -116,7 +69,7 @@ RSAPadding* RSAPadding::getInstance(int32_t type, int32_t paddedSize, $SecureRan
 }
 
 void RSAPadding::init$(int32_t type, int32_t paddedSize, $SecureRandom* random, $OAEPParameterSpec* spec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->type = type;
 	this->paddedSize = paddedSize;
 	$set(this, random, random);
@@ -124,74 +77,65 @@ void RSAPadding::init$(int32_t type, int32_t paddedSize, $SecureRandom* random, 
 		$throwNew($InvalidKeyException, "Padded size must be at least 64"_s);
 	}
 	{
-		$var($String, mdName, nullptr)
-		$var($String, mgfMdName, nullptr)
-		$var($bytes, digestInput, nullptr)
+		$var($String, mdName, nullptr);
+		$var($String, mgfMdName, nullptr);
+		$var($bytes, digestInput, nullptr);
 		int32_t digestLen = 0;
 		switch (type) {
 		case RSAPadding::PAD_BLOCKTYPE_1:
-			{}
 		case RSAPadding::PAD_BLOCKTYPE_2:
-			{
-				this->maxDataSize = paddedSize - 11;
-				break;
-			}
+			this->maxDataSize = paddedSize - 11;
+			break;
 		case RSAPadding::PAD_NONE:
-			{
-				this->maxDataSize = paddedSize;
-				break;
-			}
+			this->maxDataSize = paddedSize;
+			break;
 		case RSAPadding::PAD_OAEP_MGF1:
-			{
-				$assign(mdName, "SHA-1"_s);
-				$assign(mgfMdName, mdName);
-				$assign(digestInput, nullptr);
-				try {
-					if (spec != nullptr) {
-						$assign(mdName, spec->getDigestAlgorithm());
-						$var($String, mgfName, spec->getMGFAlgorithm());
-						if (!$nc(mgfName)->equalsIgnoreCase("MGF1"_s)) {
-							$throwNew($InvalidAlgorithmParameterException, $$str({"Unsupported MGF algo: "_s, mgfName}));
-						}
-						$assign(mgfMdName, $nc(($cast($MGF1ParameterSpec, $(spec->getMGFParameters()))))->getDigestAlgorithm());
-						$var($PSource, pSrc, spec->getPSource());
-						$var($String, pSrcAlgo, $nc(pSrc)->getAlgorithm());
-						if (!$nc(pSrcAlgo)->equalsIgnoreCase("PSpecified"_s)) {
-							$throwNew($InvalidAlgorithmParameterException, $$str({"Unsupported pSource algo: "_s, pSrcAlgo}));
-						}
-						$assign(digestInput, $nc(($cast($PSource$PSpecified, pSrc)))->getValue());
+			$assign(mdName, "SHA-1"_s);
+			$assign(mgfMdName, mdName);
+			$assign(digestInput, nullptr);
+			try {
+				if (spec != nullptr) {
+					$assign(mdName, spec->getDigestAlgorithm());
+					$var($String, mgfName, spec->getMGFAlgorithm());
+					if (!$nc(mgfName)->equalsIgnoreCase("MGF1"_s)) {
+						$throwNew($InvalidAlgorithmParameterException, $$str({"Unsupported MGF algo: "_s, mgfName}));
 					}
-					$set(this, md, $MessageDigest::getInstance(mdName));
-					$set(this, mgf, $new($MGF1, mgfMdName));
-				} catch ($NoSuchAlgorithmException& e) {
-					$throwNew($InvalidKeyException, "Digest not available"_s, e);
+					$assign(mgfMdName, $$sure($MGF1ParameterSpec, spec->getMGFParameters())->getDigestAlgorithm());
+					$var($PSource, pSrc, spec->getPSource());
+					$var($String, pSrcAlgo, $nc(pSrc)->getAlgorithm());
+					if (!$nc(pSrcAlgo)->equalsIgnoreCase("PSpecified"_s)) {
+						$throwNew($InvalidAlgorithmParameterException, $$str({"Unsupported pSource algo: "_s, pSrcAlgo}));
+					}
+					$assign(digestInput, $cast($PSource$PSpecified, pSrc)->getValue());
 				}
-				$set(this, lHash, getInitialHash(this->md, digestInput));
-				digestLen = $nc(this->lHash)->length;
-				this->maxDataSize = paddedSize - 2 - 2 * digestLen;
-				if (this->maxDataSize <= 0) {
-					$throwNew($InvalidKeyException, $$str({"Key is too short for encryption using OAEPPadding with "_s, mdName, " and "_s, $($nc(this->mgf)->getName())}));
-				}
-				break;
+				$set(this, md, $MessageDigest::getInstance(mdName));
+				$set(this, mgf, $new($MGF1, mgfMdName));
+			} catch ($NoSuchAlgorithmException& e) {
+				$throwNew($InvalidKeyException, "Digest not available"_s, e);
 			}
+			$set(this, lHash, getInitialHash(this->md, digestInput));
+			digestLen = $nc(this->lHash)->length;
+			this->maxDataSize = paddedSize - 2 - 2 * digestLen;
+			if (this->maxDataSize <= 0) {
+				$throwNew($InvalidKeyException, $$str({"Key is too short for encryption using OAEPPadding with "_s, mdName, " and "_s, $($nc(this->mgf)->getName())}));
+			}
+			break;
 		default:
-			{
-				$throwNew($InvalidKeyException, $$str({"Invalid padding: "_s, $$str(type)}));
-			}
+			$throwNew($InvalidKeyException, $$str({"Invalid padding: "_s, $$str(type)}));
 		}
 	}
 }
 
 $bytes* RSAPadding::getInitialHash($MessageDigest* md, $bytes* digestInput) {
 	$init(RSAPadding);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, result, nullptr);
-	if ((digestInput == nullptr) || ($nc(digestInput)->length == 0)) {
+	if ((digestInput == nullptr) || (digestInput->length == 0)) {
 		$var($String, digestName, $nc(md)->getAlgorithm());
 		$assign(result, $cast($bytes, $nc(RSAPadding::emptyHashes)->get(digestName)));
 		if (result == nullptr) {
 			$assign(result, md->digest());
-			$nc(RSAPadding::emptyHashes)->put(digestName, result);
+			RSAPadding::emptyHashes->put(digestName, result);
 		}
 	} else {
 		$assign(result, $nc(md)->digest(digestInput));
@@ -208,66 +152,48 @@ $bytes* RSAPadding::pad($bytes* data) {
 }
 
 $bytes* RSAPadding::pad($bytes* data, int32_t ofs, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len > this->maxDataSize) {
 		$throwNew($BadPaddingException, $$str({"Data must be shorter than "_s, $$str((this->maxDataSize + 1)), " bytes but received "_s, $$str(len), " bytes."_s}));
 	}
 	switch (this->type) {
 	case RSAPadding::PAD_NONE:
-		{
-			return $RSACore::convert(data, ofs, len);
-		}
+		return $RSACore::convert(data, ofs, len);
 	case RSAPadding::PAD_BLOCKTYPE_1:
-		{}
 	case RSAPadding::PAD_BLOCKTYPE_2:
-		{
-			return padV15(data, ofs, len);
-		}
+		return padV15(data, ofs, len);
 	case RSAPadding::PAD_OAEP_MGF1:
-		{
-			return padOAEP(data, ofs, len);
-		}
+		return padOAEP(data, ofs, len);
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
 $bytes* RSAPadding::unpad($bytes* padded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(padded)->length != this->paddedSize) {
 		$throwNew($BadPaddingException, $$str({"Decryption error.The padded array length ("_s, $$str(padded->length), ") is not the specified padded size ("_s, $$str(this->paddedSize), ")"_s}));
 	}
 	switch (this->type) {
 	case RSAPadding::PAD_NONE:
-		{
-			return padded;
-		}
+		return padded;
 	case RSAPadding::PAD_BLOCKTYPE_1:
-		{}
 	case RSAPadding::PAD_BLOCKTYPE_2:
-		{
-			return unpadV15(padded);
-		}
+		return unpadV15(padded);
 	case RSAPadding::PAD_OAEP_MGF1:
-		{
-			return unpadOAEP(padded);
-		}
+		return unpadOAEP(padded);
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
 $bytes* RSAPadding::padV15($bytes* data, int32_t ofs, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, padded, $new($bytes, this->paddedSize));
 	$System::arraycopy(data, ofs, padded, this->paddedSize - len, len);
 	int32_t psSize = this->paddedSize - 3 - len;
 	int32_t k = 0;
-	padded->set(k++, (int8_t)0);
+	padded->set(k++, 0);
 	padded->set(k++, (int8_t)this->type);
 	if (this->type == RSAPadding::PAD_BLOCKTYPE_1) {
 		while (psSize-- > 0) {
@@ -292,18 +218,18 @@ $bytes* RSAPadding::padV15($bytes* data, int32_t ofs, int32_t len) {
 }
 
 $bytes* RSAPadding::unpadV15($bytes* padded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t k = 0;
 	bool bp = false;
 	if ($nc(padded)->get(k++) != 0) {
 		bp = true;
 	}
-	if ($nc(padded)->get(k++) != this->type) {
+	if (padded->get(k++) != this->type) {
 		bp = true;
 	}
 	int32_t p = 0;
-	while (k < $nc(padded)->length) {
-		int32_t b = (int32_t)(padded->get(k++) & (uint32_t)255);
+	while (k < padded->length) {
+		int32_t b = padded->get(k++) & 0xff;
 		if ((b == 0) && (p == 0)) {
 			p = k;
 		}
@@ -314,7 +240,7 @@ $bytes* RSAPadding::unpadV15($bytes* padded) {
 			bp = true;
 		}
 	}
-	int32_t n = $nc(padded)->length - p;
+	int32_t n = padded->length - p;
 	if (n > this->maxDataSize) {
 		bp = true;
 	}
@@ -331,7 +257,7 @@ $bytes* RSAPadding::unpadV15($bytes* padded) {
 }
 
 $bytes* RSAPadding::padOAEP($bytes* M, int32_t ofs, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->random == nullptr) {
 		$set(this, random, $JCAUtil::getSecureRandom());
 	}
@@ -346,15 +272,15 @@ $bytes* RSAPadding::padOAEP($bytes* M, int32_t ofs, int32_t len) {
 	int32_t dbLen = EM->length - dbStart;
 	int32_t mStart = this->paddedSize - len;
 	$System::arraycopy(this->lHash, 0, EM, dbStart, hLen);
-	EM->set(mStart - 1, (int8_t)1);
+	EM->set(mStart - 1, 1);
 	$System::arraycopy(M, ofs, EM, mStart, len);
 	$nc(this->mgf)->generateAndXor(EM, seedStart, seedLen, dbLen, EM, dbStart);
-	$nc(this->mgf)->generateAndXor(EM, dbStart, dbLen, seedLen, EM, seedStart);
+	this->mgf->generateAndXor(EM, dbStart, dbLen, seedLen, EM, seedStart);
 	return EM;
 }
 
 $bytes* RSAPadding::unpadOAEP($bytes* padded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, EM, padded);
 	bool bp = false;
 	int32_t hLen = $nc(this->lHash)->length;
@@ -364,11 +290,11 @@ $bytes* RSAPadding::unpadOAEP($bytes* padded) {
 	int32_t seedStart = 1;
 	int32_t seedLen = hLen;
 	int32_t dbStart = hLen + 1;
-	int32_t dbLen = $nc(EM)->length - dbStart;
+	int32_t dbLen = EM->length - dbStart;
 	$nc(this->mgf)->generateAndXor(EM, dbStart, dbLen, seedLen, EM, seedStart);
-	$nc(this->mgf)->generateAndXor(EM, seedStart, seedLen, dbLen, EM, dbStart);
+	this->mgf->generateAndXor(EM, seedStart, seedLen, dbLen, EM, dbStart);
 	for (int32_t i = 0; i < hLen; ++i) {
-		if ($nc(this->lHash)->get(i) != EM->get(dbStart + i)) {
+		if (this->lHash->get(i) != EM->get(dbStart + i)) {
 			bp = true;
 		}
 	}
@@ -402,7 +328,7 @@ $bytes* RSAPadding::unpadOAEP($bytes* padded) {
 	}
 }
 
-void clinit$RSAPadding($Class* class$) {
+void RSAPadding::clinit$($Class* clazz) {
 	$assignStatic(RSAPadding::emptyHashes, $Collections::synchronizedMap($$new($HashMap)));
 }
 
@@ -410,7 +336,48 @@ RSAPadding::RSAPadding() {
 }
 
 $Class* RSAPadding::load$($String* name, bool initialize) {
-	$loadClass(RSAPadding, name, initialize, &_RSAPadding_ClassInfo_, clinit$RSAPadding, allocate$RSAPadding);
+	$FieldInfo fieldInfos$$[] = {
+		{"PAD_BLOCKTYPE_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RSAPadding, PAD_BLOCKTYPE_1)},
+		{"PAD_BLOCKTYPE_2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RSAPadding, PAD_BLOCKTYPE_2)},
+		{"PAD_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RSAPadding, PAD_NONE)},
+		{"PAD_OAEP_MGF1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RSAPadding, PAD_OAEP_MGF1)},
+		{"type", "I", nullptr, $PRIVATE | $FINAL, $field(RSAPadding, type)},
+		{"paddedSize", "I", nullptr, $PRIVATE | $FINAL, $field(RSAPadding, paddedSize)},
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(RSAPadding, random)},
+		{"maxDataSize", "I", nullptr, $PRIVATE | $FINAL, $field(RSAPadding, maxDataSize)},
+		{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(RSAPadding, md)},
+		{"mgf", "Lsun/security/rsa/MGF1;", nullptr, $PRIVATE, $field(RSAPadding, mgf)},
+		{"lHash", "[B", nullptr, $PRIVATE, $field(RSAPadding, lHash)},
+		{"emptyHashes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[B>;", $PRIVATE | $STATIC | $FINAL, $staticField(RSAPadding, emptyHashes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/security/SecureRandom;Ljavax/crypto/spec/OAEPParameterSpec;)V", nullptr, $PRIVATE, $method(RSAPadding, init$, void, int32_t, int32_t, $SecureRandom*, $OAEPParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"getInitialHash", "(Ljava/security/MessageDigest;[B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAPadding, getInitialHash, $bytes*, $MessageDigest*, $bytes*)},
+		{"getInstance", "(II)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAPadding, getInstance, RSAPadding*, int32_t, int32_t), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"getInstance", "(IILjava/security/SecureRandom;)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAPadding, getInstance, RSAPadding*, int32_t, int32_t, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"getInstance", "(IILjava/security/SecureRandom;Ljavax/crypto/spec/OAEPParameterSpec;)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAPadding, getInstance, RSAPadding*, int32_t, int32_t, $SecureRandom*, $OAEPParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"getMaxDataSize", "()I", nullptr, $PUBLIC, $method(RSAPadding, getMaxDataSize, int32_t)},
+		{"pad", "([B)[B", nullptr, $PUBLIC, $method(RSAPadding, pad, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
+		{"pad", "([BII)[B", nullptr, $PUBLIC, $method(RSAPadding, pad, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.BadPaddingException"},
+		{"padOAEP", "([BII)[B", nullptr, $PRIVATE, $method(RSAPadding, padOAEP, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.BadPaddingException"},
+		{"padV15", "([BII)[B", nullptr, $PRIVATE, $method(RSAPadding, padV15, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.BadPaddingException"},
+		{"unpad", "([B)[B", nullptr, $PUBLIC, $method(RSAPadding, unpad, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
+		{"unpadOAEP", "([B)[B", nullptr, $PRIVATE, $method(RSAPadding, unpadOAEP, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
+		{"unpadV15", "([B)[B", nullptr, $PRIVATE, $method(RSAPadding, unpadV15, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.rsa.RSAPadding",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RSAPadding, name, initialize, &classInfo$$, RSAPadding::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAPadding);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/util/DisabledAlgorithmConstraints$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <sun/security/util/DisabledAlgorithmConstraints$Constraint$Operator.h>
 #include <sun/security/util/DisabledAlgorithmConstraints$Constraint.h>
@@ -24,69 +23,33 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _DisabledAlgorithmConstraints$1_FieldInfo_[] = {
-	{"$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DisabledAlgorithmConstraints$1, $SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)},
-	{}
-};
-
-$EnclosingMethodInfo _DisabledAlgorithmConstraints$1_EnclosingMethodInfo_ = {
-	"sun.security.util.DisabledAlgorithmConstraints",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DisabledAlgorithmConstraints$1_InnerClassesInfo_[] = {
-	{"sun.security.util.DisabledAlgorithmConstraints$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _DisabledAlgorithmConstraints$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"sun.security.util.DisabledAlgorithmConstraints$1",
-	"java.lang.Object",
-	nullptr,
-	_DisabledAlgorithmConstraints$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_DisabledAlgorithmConstraints$1_EnclosingMethodInfo_,
-	_DisabledAlgorithmConstraints$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.DisabledAlgorithmConstraints"
-};
-
-$Object* allocate$DisabledAlgorithmConstraints$1($Class* clazz) {
-	return $of($alloc(DisabledAlgorithmConstraints$1));
-}
-
 $ints* DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator = nullptr;
 
-void clinit$DisabledAlgorithmConstraints$1($Class* class$) {
+void DisabledAlgorithmConstraints$1::clinit$($Class* clazz) {
 	$assignStatic(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator, $new($ints, $($DisabledAlgorithmConstraints$Constraint$Operator::values())->length));
 	{
 		try {
-			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::EQ->ordinal(), 1);
+			DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator->set($DisabledAlgorithmConstraints$Constraint$Operator::EQ->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::NE->ordinal(), 2);
+			DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator->set($DisabledAlgorithmConstraints$Constraint$Operator::NE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::LT->ordinal(), 3);
+			DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator->set($DisabledAlgorithmConstraints$Constraint$Operator::LT->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::LE->ordinal(), 4);
+			DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator->set($DisabledAlgorithmConstraints$Constraint$Operator::LE->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::GT->ordinal(), 5);
+			DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator->set($DisabledAlgorithmConstraints$Constraint$Operator::GT->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::GE->ordinal(), 6);
+			DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator->set($DisabledAlgorithmConstraints$Constraint$Operator::GE->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -96,7 +59,37 @@ DisabledAlgorithmConstraints$1::DisabledAlgorithmConstraints$1() {
 }
 
 $Class* DisabledAlgorithmConstraints$1::load$($String* name, bool initialize) {
-	$loadClass(DisabledAlgorithmConstraints$1, name, initialize, &_DisabledAlgorithmConstraints$1_ClassInfo_, clinit$DisabledAlgorithmConstraints$1, allocate$DisabledAlgorithmConstraints$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DisabledAlgorithmConstraints$1, $SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.util.DisabledAlgorithmConstraints",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.DisabledAlgorithmConstraints$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"sun.security.util.DisabledAlgorithmConstraints$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.DisabledAlgorithmConstraints"
+	};
+	$loadClass(DisabledAlgorithmConstraints$1, name, initialize, &classInfo$$, DisabledAlgorithmConstraints$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DisabledAlgorithmConstraints$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl$6.h>
-
 #include <java/util/Locale.h>
 #include <java/util/spi/CalendarDataProvider.h>
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl.h>
@@ -18,46 +17,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$MethodInfo _HostLocaleProviderAdapterImpl$6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$6, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, getAvailableLocales, $LocaleArray*)},
-	{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, getFirstDayOfWeek, int32_t, $Locale*)},
-	{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, getMinimalDaysInFirstWeek, int32_t, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, isSupportedLocale, bool, $Locale*)},
-	{}
-};
-
-$EnclosingMethodInfo _HostLocaleProviderAdapterImpl$6_EnclosingMethodInfo_ = {
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
-	"getCalendarDataProvider",
-	"()Ljava/util/spi/CalendarDataProvider;"
-};
-
-$InnerClassInfo _HostLocaleProviderAdapterImpl$6_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$6", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HostLocaleProviderAdapterImpl$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl$6",
-	"java.util.spi.CalendarDataProvider",
-	nullptr,
-	nullptr,
-	_HostLocaleProviderAdapterImpl$6_MethodInfo_,
-	nullptr,
-	&_HostLocaleProviderAdapterImpl$6_EnclosingMethodInfo_,
-	_HostLocaleProviderAdapterImpl$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
-};
-
-$Object* allocate$HostLocaleProviderAdapterImpl$6($Class* clazz) {
-	return $of($alloc(HostLocaleProviderAdapterImpl$6));
-}
 
 void HostLocaleProviderAdapterImpl$6::init$() {
 	$CalendarDataProvider::init$();
@@ -83,7 +42,41 @@ HostLocaleProviderAdapterImpl$6::HostLocaleProviderAdapterImpl$6() {
 }
 
 $Class* HostLocaleProviderAdapterImpl$6::load$($String* name, bool initialize) {
-	$loadClass(HostLocaleProviderAdapterImpl$6, name, initialize, &_HostLocaleProviderAdapterImpl$6_ClassInfo_, allocate$HostLocaleProviderAdapterImpl$6);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$6, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, getAvailableLocales, $LocaleArray*)},
+		{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, getFirstDayOfWeek, int32_t, $Locale*)},
+		{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, getMinimalDaysInFirstWeek, int32_t, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, isSupportedLocale, bool, $Locale*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
+		"getCalendarDataProvider",
+		"()Ljava/util/spi/CalendarDataProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$6", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl$6",
+		"java.util.spi.CalendarDataProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
+	};
+	$loadClass(HostLocaleProviderAdapterImpl$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostLocaleProviderAdapterImpl$6);
+	});
 	return class$;
 }
 

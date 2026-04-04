@@ -1,5 +1,4 @@
 #include <TestAnnotation.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -26,67 +25,27 @@ public:
 	virtual void run() override {
 		TestAnnotation::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestAnnotation$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestAnnotation$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestAnnotation$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestAnnotation$$Lambda$lambda$static$0, run, void)},
-	{}
-};
-$ClassInfo TestAnnotation$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestAnnotation$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestAnnotation$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(TestAnnotation$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestAnnotation$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestAnnotation$$Lambda$lambda$static$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestAnnotation$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestAnnotation$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestAnnotation$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* TestAnnotation$$Lambda$lambda$static$0::class$ = nullptr;
-
-$NamedAttribute TestAnnotation_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _TestAnnotation_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", TestAnnotation_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _TestAnnotation_FieldInfo_[] = {
-	{"r", "Ljava/lang/Runnable;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestAnnotation, r)},
-	{}
-};
-
-$MethodInfo _TestAnnotation_MethodInfo_[] = {
-	{"lambda$static$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestAnnotation, lambda$static$0, void)},
-	{}
-};
-
-$ClassInfo _TestAnnotation_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"TestAnnotation",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	_TestAnnotation_FieldInfo_,
-	_TestAnnotation_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_TestAnnotation_Annotations_
-};
-
-$Object* allocate$TestAnnotation($Class* clazz) {
-	return $of($alloc(TestAnnotation));
-}
 
 $Runnable* TestAnnotation::r = nullptr;
 
@@ -94,17 +53,47 @@ void TestAnnotation::lambda$static$0() {
 	$init(TestAnnotation);
 }
 
-void clinit$TestAnnotation($Class* class$) {
-	$assignStatic(TestAnnotation::r, static_cast<$Runnable*>($new(TestAnnotation$$Lambda$lambda$static$0)));
+void TestAnnotation::clinit$($Class* clazz) {
+	$assignStatic(TestAnnotation::r, $new(TestAnnotation$$Lambda$lambda$static$0));
 }
 
 $Class* TestAnnotation::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestAnnotation$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("TestAnnotation$$Lambda$lambda$static$0")) {
 			return TestAnnotation$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(TestAnnotation, name, initialize, &_TestAnnotation_ClassInfo_, clinit$TestAnnotation, allocate$TestAnnotation);
+	$FieldInfo fieldInfos$$[] = {
+		{"r", "Ljava/lang/Runnable;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestAnnotation, r)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"lambda$static$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestAnnotation, lambda$static$0, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"TestAnnotation",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(TestAnnotation, name, initialize, &classInfo$$, TestAnnotation::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestAnnotation);
+	});
 	return class$;
 }
 

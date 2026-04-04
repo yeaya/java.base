@@ -21,6 +21,7 @@ class $export AdaptServerSocket : public ::java::lang::Object {
 	$class(AdaptServerSocket, 0, ::java::lang::Object)
 public:
 	AdaptServerSocket();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void startClient(int32_t port, int32_t dally);

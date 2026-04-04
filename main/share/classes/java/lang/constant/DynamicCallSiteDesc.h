@@ -32,6 +32,7 @@ class $export DynamicCallSiteDesc : public ::java::lang::Object {
 	$class(DynamicCallSiteDesc, 0, ::java::lang::Object)
 public:
 	DynamicCallSiteDesc();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::constant::DirectMethodHandleDesc* bootstrapMethod, $String* invocationName, ::java::lang::constant::MethodTypeDesc* invocationType, $Array<::java::lang::constant::ConstantDesc>* bootstrapArgs);
 	virtual $Array<::java::lang::constant::ConstantDesc>* bootstrapArgs();
 	virtual ::java::lang::constant::MethodHandleDesc* bootstrapMethod();

@@ -35,6 +35,7 @@ class $export InstructionAdapter : public ::jdk::internal::org::objectweb::asm$:
 	$class(InstructionAdapter, 0, ::jdk::internal::org::objectweb::asm$::MethodVisitor)
 public:
 	InstructionAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::org::objectweb::asm$::MethodVisitor* methodVisitor);
 	void init$(int32_t api, ::jdk::internal::org::objectweb::asm$::MethodVisitor* methodVisitor);
 	virtual void aconst(Object$* value);

@@ -15,6 +15,7 @@ class $export DumpCharProperties : public ::java::lang::Object {
 	$class(DumpCharProperties, 0, ::java::lang::Object)
 public:
 	DumpCharProperties();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* charProps(int32_t i);
 	static void main($StringArray* args);

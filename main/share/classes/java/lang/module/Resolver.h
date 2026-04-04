@@ -65,6 +65,7 @@ class Resolver : public ::java::lang::Object {
 	$class(Resolver, $PRELOAD, ::java::lang::Object)
 public:
 	Resolver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::module::ModuleFinder* beforeFinder, ::java::util::List* parents, ::java::lang::module::ModuleFinder* afterFinder, ::java::io::PrintStream* traceOutput);
 	::java::util::Set* addFoundAutomaticModules();
 	void addFoundModule(::java::lang::module::ModuleReference* mref);

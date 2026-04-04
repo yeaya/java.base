@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$EmptyNode$OfDouble.h>
-
 #include <java/util/Spliterator$OfDouble.h>
 #include <java/util/Spliterator.h>
 #include <java/util/Spliterators.h>
@@ -31,57 +30,6 @@ using $StreamShape = ::java::util::stream::StreamShape;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _Nodes$EmptyNode$OfDouble_MethodInfo_[] = {
-	{"*asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC},
-	{"*copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*copyInto", "([Ljava/lang/Double;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*count", "()J", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getChild", "(I)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getChildCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(Nodes$EmptyNode$OfDouble, init$, void)},
-	{"asPrimitiveArray", "()[D", nullptr, $PUBLIC, $method(Nodes$EmptyNode$OfDouble, asPrimitiveArray, $doubles*)},
-	{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Nodes$EmptyNode$OfDouble, spliterator, $Spliterator*)},
-	{"*truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Nodes$EmptyNode$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$EmptyNode", "java.util.stream.Nodes", "EmptyNode", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Nodes$EmptyNode$OfDouble", "java.util.stream.Nodes$EmptyNode", "OfDouble", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.Node$OfDouble", "java.util.stream.Node", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$EmptyNode$OfDouble_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Nodes$EmptyNode$OfDouble",
-	"java.util.stream.Nodes$EmptyNode",
-	"java.util.stream.Node$OfDouble",
-	nullptr,
-	_Nodes$EmptyNode$OfDouble_MethodInfo_,
-	"Ljava/util/stream/Nodes$EmptyNode<Ljava/lang/Double;[DLjava/util/function/DoubleConsumer;>;Ljava/util/stream/Node$OfDouble;",
-	nullptr,
-	_Nodes$EmptyNode$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$EmptyNode$OfDouble($Class* clazz) {
-	return $of($alloc(Nodes$EmptyNode$OfDouble));
-}
 
 $ObjectArray* Nodes$EmptyNode$OfDouble::asArray($IntFunction* generator) {
 	 return this->$Nodes$EmptyNode::asArray(generator);
@@ -196,7 +144,7 @@ $ObjectArray* Nodes$EmptyNode$OfDouble::MemberClass0$::asArray($IntFunction* gen
 }
 
 $Object* Nodes$EmptyNode$OfDouble::MemberClass0$::asPrimitiveArray() {
-	return $of(((Nodes$EmptyNode$OfDouble*)(void*)((int8_t*)(void*)this - $offsetof(Nodes$EmptyNode$OfDouble, memberClass0$)))->asPrimitiveArray());
+	return ((Nodes$EmptyNode$OfDouble*)(void*)((int8_t*)(void*)this - $offsetof(Nodes$EmptyNode$OfDouble, memberClass0$)))->asPrimitiveArray();
 }
 
 void Nodes$EmptyNode$OfDouble::MemberClass0$::copyInto(Object$* array, int32_t offset) {
@@ -248,7 +196,53 @@ Nodes$EmptyNode$OfDouble::Nodes$EmptyNode$OfDouble() {
 }
 
 $Class* Nodes$EmptyNode$OfDouble::load$($String* name, bool initialize) {
-	$loadClass(Nodes$EmptyNode$OfDouble, name, initialize, &_Nodes$EmptyNode$OfDouble_ClassInfo_, allocate$Nodes$EmptyNode$OfDouble);
+	$MethodInfo methodInfos$$[] = {
+		{"*asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC},
+		{"*copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*copyInto", "([Ljava/lang/Double;I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*count", "()J", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getChild", "(I)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getChildCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(Nodes$EmptyNode$OfDouble, init$, void)},
+		{"asPrimitiveArray", "()[D", nullptr, $PUBLIC, $method(Nodes$EmptyNode$OfDouble, asPrimitiveArray, $doubles*)},
+		{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Nodes$EmptyNode$OfDouble, spliterator, $Spliterator*)},
+		{"*truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$EmptyNode", "java.util.stream.Nodes", "EmptyNode", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Nodes$EmptyNode$OfDouble", "java.util.stream.Nodes$EmptyNode", "OfDouble", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.Node$OfDouble", "java.util.stream.Node", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Nodes$EmptyNode$OfDouble",
+		"java.util.stream.Nodes$EmptyNode",
+		"java.util.stream.Node$OfDouble",
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/stream/Nodes$EmptyNode<Ljava/lang/Double;[DLjava/util/function/DoubleConsumer;>;Ljava/util/stream/Node$OfDouble;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$EmptyNode$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$EmptyNode$OfDouble));
+	});
 	return class$;
 }
 

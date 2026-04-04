@@ -20,6 +20,7 @@ class $export URLDecoder : public ::java::lang::Object {
 	$class(URLDecoder, 0, ::java::lang::Object)
 public:
 	URLDecoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* decode($String* s);
 	static $String* decode($String* s, $String* enc);

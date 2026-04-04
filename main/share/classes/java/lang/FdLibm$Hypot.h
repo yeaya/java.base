@@ -17,6 +17,7 @@ class FdLibm$Hypot : public ::java::lang::Object {
 	$class(FdLibm$Hypot, 0, ::java::lang::Object)
 public:
 	FdLibm$Hypot();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static double compute(double x, double y);
 	static bool $assertionsDisabled;

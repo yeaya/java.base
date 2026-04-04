@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsSecurityDescriptor.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Math.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -12,7 +11,6 @@
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <java/nio/file/attribute/UserPrincipal.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -68,20 +66,17 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ProviderMismatchException = ::java::nio::file::ProviderMismatchException;
 using $AclEntry = ::java::nio::file::attribute::AclEntry;
-using $AclEntry$Builder = ::java::nio::file::attribute::AclEntry$Builder;
 using $AclEntryFlag = ::java::nio::file::attribute::AclEntryFlag;
 using $AclEntryPermission = ::java::nio::file::attribute::AclEntryPermission;
 using $AclEntryType = ::java::nio::file::attribute::AclEntryType;
 using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
-using $NativeBuffer = ::sun::nio::fs::NativeBuffer;
 using $NativeBuffers = ::sun::nio::fs::NativeBuffers;
 using $WindowsException = ::sun::nio::fs::WindowsException;
 using $WindowsNativeDispatcher = ::sun::nio::fs::WindowsNativeDispatcher;
@@ -93,49 +88,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsSecurityDescriptor_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsSecurityDescriptor, unsafe)},
-	{"SIZEOF_ACL", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, SIZEOF_ACL)},
-	{"SIZEOF_ACCESS_ALLOWED_ACE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, SIZEOF_ACCESS_ALLOWED_ACE)},
-	{"SIZEOF_ACCESS_DENIED_ACE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, SIZEOF_ACCESS_DENIED_ACE)},
-	{"SIZEOF_SECURITY_DESCRIPTOR", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, SIZEOF_SECURITY_DESCRIPTOR)},
-	{"OFFSETOF_TYPE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, OFFSETOF_TYPE)},
-	{"OFFSETOF_FLAGS", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, OFFSETOF_FLAGS)},
-	{"OFFSETOF_ACCESS_MASK", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, OFFSETOF_ACCESS_MASK)},
-	{"OFFSETOF_SID", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, OFFSETOF_SID)},
-	{"NULL_DESCRIPTOR", "Lsun/nio/fs/WindowsSecurityDescriptor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsSecurityDescriptor, NULL_DESCRIPTOR)},
-	{"sidList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Long;>;", $PRIVATE | $FINAL, $field(WindowsSecurityDescriptor, sidList)},
-	{"aclBuffer", "Lsun/nio/fs/NativeBuffer;", nullptr, $PRIVATE | $FINAL, $field(WindowsSecurityDescriptor, aclBuffer)},
-	{"sdBuffer", "Lsun/nio/fs/NativeBuffer;", nullptr, $PRIVATE | $FINAL, $field(WindowsSecurityDescriptor, sdBuffer)},
-	{}
-};
-
-$MethodInfo _WindowsSecurityDescriptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsSecurityDescriptor, init$, void)},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)V", $PRIVATE, $method(WindowsSecurityDescriptor, init$, void, $List*), "java.io.IOException"},
-	{"address", "()J", nullptr, 0, $virtualMethod(WindowsSecurityDescriptor, address, int64_t)},
-	{"create", "(Ljava/util/List;)Lsun/nio/fs/WindowsSecurityDescriptor;", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)Lsun/nio/fs/WindowsSecurityDescriptor;", $STATIC, $staticMethod(WindowsSecurityDescriptor, create, WindowsSecurityDescriptor*, $List*), "java.io.IOException"},
-	{"decode", "(J)Ljava/nio/file/attribute/AclEntry;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsSecurityDescriptor, decode, $AclEntry*, int64_t), "java.io.IOException"},
-	{"encode", "(Ljava/nio/file/attribute/AclEntry;JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsSecurityDescriptor, encode, void, $AclEntry*, int64_t, int64_t), "sun.nio.fs.WindowsException"},
-	{"fromAttribute", "([Ljava/nio/file/attribute/FileAttribute;)Lsun/nio/fs/WindowsSecurityDescriptor;", "([Ljava/nio/file/attribute/FileAttribute<*>;)Lsun/nio/fs/WindowsSecurityDescriptor;", $STATIC | $TRANSIENT, $staticMethod(WindowsSecurityDescriptor, fromAttribute, WindowsSecurityDescriptor*, $FileAttributeArray*), "java.io.IOException"},
-	{"getAcl", "(J)Ljava/util/List;", "(J)Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;", $STATIC, $staticMethod(WindowsSecurityDescriptor, getAcl, $List*, int64_t), "java.io.IOException"},
-	{"release", "()V", nullptr, 0, $virtualMethod(WindowsSecurityDescriptor, release, void)},
-	{}
-};
-
-$ClassInfo _WindowsSecurityDescriptor_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsSecurityDescriptor",
-	"java.lang.Object",
-	nullptr,
-	_WindowsSecurityDescriptor_FieldInfo_,
-	_WindowsSecurityDescriptor_MethodInfo_
-};
-
-$Object* allocate$WindowsSecurityDescriptor($Class* clazz) {
-	return $of($alloc(WindowsSecurityDescriptor));
-}
-
 $Unsafe* WindowsSecurityDescriptor::unsafe = nullptr;
 WindowsSecurityDescriptor* WindowsSecurityDescriptor::NULL_DESCRIPTOR = nullptr;
 
@@ -146,263 +98,263 @@ void WindowsSecurityDescriptor::init$() {
 }
 
 void WindowsSecurityDescriptor::init$($List* acl$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, acl, acl$renamed);
 	bool initialized = false;
-	$assign(acl, $new($ArrayList, static_cast<$Collection*>(acl)));
+	$assign(acl, $new($ArrayList, acl));
 	$set(this, sidList, $new($ArrayList, acl->size()));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				int32_t size = WindowsSecurityDescriptor::SIZEOF_ACL;
-				{
-					$var($Iterator, i$, acl->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($AclEntry, entry, $cast($AclEntry, i$->next()));
-						{
-							$var($UserPrincipal, user, $nc(entry)->principal());
-							if (!($instanceOf($WindowsUserPrincipals$User, user))) {
-								$throwNew($ProviderMismatchException);
-							}
-							$var($String, sidString, $nc(($cast($WindowsUserPrincipals$User, user)))->sidString());
-							try {
-								int64_t pSid = $WindowsNativeDispatcher::ConvertStringSidToSid(sidString);
-								$nc(this->sidList)->add($($Long::valueOf(pSid)));
-								int32_t var$1 = $WindowsNativeDispatcher::GetLengthSid(pSid);
-								size += var$1 + $Math::max((int32_t)WindowsSecurityDescriptor::SIZEOF_ACCESS_ALLOWED_ACE, (int32_t)WindowsSecurityDescriptor::SIZEOF_ACCESS_DENIED_ACE);
-							} catch ($WindowsException& x) {
-								$var($String, var$2, $$str({"Failed to get SID for "_s, $($nc(user)->getName()), ": "_s}));
-								$throwNew($IOException, $$concat(var$2, $(x->errorString())));
-							}
+			int32_t size = WindowsSecurityDescriptor::SIZEOF_ACL;
+			{
+				$var($Iterator, i$, acl->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($AclEntry, entry, $cast($AclEntry, i$->next()));
+					{
+						$var($UserPrincipal, user, $nc(entry)->principal());
+						if (!($instanceOf($WindowsUserPrincipals$User, user))) {
+							$throwNew($ProviderMismatchException);
+						}
+						$var($String, sidString, $nc($cast($WindowsUserPrincipals$User, user))->sidString());
+						try {
+							int64_t pSid = $WindowsNativeDispatcher::ConvertStringSidToSid(sidString);
+							this->sidList->add($($Long::valueOf(pSid)));
+							int32_t var$1 = $WindowsNativeDispatcher::GetLengthSid(pSid);
+							size += var$1 + $Math::max((int32_t)WindowsSecurityDescriptor::SIZEOF_ACCESS_ALLOWED_ACE, WindowsSecurityDescriptor::SIZEOF_ACCESS_DENIED_ACE);
+						} catch ($WindowsException& x) {
+							$var($StringBuilder, var$2, $new($StringBuilder));
+							var$2->append("Failed to get SID for "_s);
+							var$2->append($(user->getName()));
+							var$2->append(": "_s);
+							var$2->append($(x->errorString()));
+							$throwNew($IOException, $$str(var$2));
 						}
 					}
 				}
-				$set(this, aclBuffer, $NativeBuffers::getNativeBuffer(size));
-				$set(this, sdBuffer, $NativeBuffers::getNativeBuffer(WindowsSecurityDescriptor::SIZEOF_SECURITY_DESCRIPTOR));
-				$WindowsNativeDispatcher::InitializeAcl($nc(this->aclBuffer)->address(), size);
-				int32_t i = 0;
-				while (i < acl->size()) {
-					$var($AclEntry, entry, $cast($AclEntry, acl->get(i)));
-					int64_t pSid = $nc(($cast($Long, $($nc(this->sidList)->get(i)))))->longValue();
-					try {
-						encode(entry, pSid, $nc(this->aclBuffer)->address());
-					} catch ($WindowsException& x) {
-						$throwNew($IOException, $$str({"Failed to encode ACE: "_s, $(x->errorString())}));
-					}
-					++i;
+			}
+			$set(this, aclBuffer, $NativeBuffers::getNativeBuffer(size));
+			$set(this, sdBuffer, $NativeBuffers::getNativeBuffer(WindowsSecurityDescriptor::SIZEOF_SECURITY_DESCRIPTOR));
+			$WindowsNativeDispatcher::InitializeAcl($nc(this->aclBuffer)->address(), size);
+			int32_t i = 0;
+			while (i < acl->size()) {
+				$var($AclEntry, entry, $cast($AclEntry, acl->get(i)));
+				int64_t pSid = $$sure($Long, this->sidList->get(i))->longValue();
+				try {
+					encode(entry, pSid, this->aclBuffer->address());
+				} catch ($WindowsException& x) {
+					$throwNew($IOException, $$str({"Failed to encode ACE: "_s, $(x->errorString())}));
 				}
-				$WindowsNativeDispatcher::InitializeSecurityDescriptor($nc(this->sdBuffer)->address());
-				int64_t var$3 = $nc(this->sdBuffer)->address();
-				$WindowsNativeDispatcher::SetSecurityDescriptorDacl(var$3, $nc(this->aclBuffer)->address());
-				initialized = true;
-			} catch ($WindowsException& x) {
-				$throwNew($IOException, $(x->getMessage()));
+				++i;
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} /*finally*/ {
-			if (!initialized) {
-				release();
-			}
+			$WindowsNativeDispatcher::InitializeSecurityDescriptor($nc(this->sdBuffer)->address());
+			int64_t var$3 = this->sdBuffer->address();
+			$WindowsNativeDispatcher::SetSecurityDescriptorDacl(var$3, this->aclBuffer->address());
+			initialized = true;
+		} catch ($WindowsException& x) {
+			$throwNew($IOException, $(x->getMessage()));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		if (!initialized) {
+			release();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void WindowsSecurityDescriptor::release() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->sdBuffer != nullptr) {
-		$nc(this->sdBuffer)->release();
+		this->sdBuffer->release();
 	}
 	if (this->aclBuffer != nullptr) {
-		$nc(this->aclBuffer)->release();
+		this->aclBuffer->release();
 	}
 	if (this->sidList != nullptr) {
-		{
-			$var($Iterator, i$, $nc(this->sidList)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Long, sid, $cast($Long, i$->next()));
-				{
-					$WindowsNativeDispatcher::LocalFree($nc(sid)->longValue());
-				}
+		$var($Iterator, i$, this->sidList->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Long, sid, $cast($Long, i$->next()));
+			{
+				$WindowsNativeDispatcher::LocalFree($nc(sid)->longValue());
 			}
 		}
 	}
 }
 
 int64_t WindowsSecurityDescriptor::address() {
-	return (this->sdBuffer == nullptr) ? (int64_t)0 : $nc(this->sdBuffer)->address();
+	return (this->sdBuffer == nullptr) ? 0 : this->sdBuffer->address();
 }
 
 $AclEntry* WindowsSecurityDescriptor::decode(int64_t aceAddress) {
 	$init(WindowsSecurityDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int8_t aceType = $nc(WindowsSecurityDescriptor::unsafe)->getByte(aceAddress + WindowsSecurityDescriptor::OFFSETOF_TYPE);
-	if (aceType != (int8_t)0 && aceType != (int8_t)1) {
+	if (aceType != 0 && aceType != 1) {
 		return nullptr;
 	}
 	$AclEntryType* type = nullptr;
-	if (aceType == (int8_t)0) {
+	if (aceType == 0) {
 		$init($AclEntryType);
 		type = $AclEntryType::ALLOW;
 	} else {
 		$init($AclEntryType);
 		type = $AclEntryType::DENY;
 	}
-	int8_t aceFlags = $nc(WindowsSecurityDescriptor::unsafe)->getByte(aceAddress + WindowsSecurityDescriptor::OFFSETOF_FLAGS);
+	int8_t aceFlags = WindowsSecurityDescriptor::unsafe->getByte(aceAddress + WindowsSecurityDescriptor::OFFSETOF_FLAGS);
 	$load($AclEntryFlag);
 	$var($Set, flags, $EnumSet::noneOf($AclEntryFlag::class$));
-	if (((int32_t)(aceFlags & (uint32_t)(int32_t)(int8_t)1)) != 0) {
+	if ((aceFlags & (int8_t)1) != 0) {
 		$init($AclEntryFlag);
 		$nc(flags)->add($AclEntryFlag::FILE_INHERIT);
 	}
-	if (((int32_t)(aceFlags & (uint32_t)(int32_t)(int8_t)2)) != 0) {
+	if ((aceFlags & (int8_t)2) != 0) {
 		$init($AclEntryFlag);
 		$nc(flags)->add($AclEntryFlag::DIRECTORY_INHERIT);
 	}
-	if (((int32_t)(aceFlags & (uint32_t)(int32_t)(int8_t)4)) != 0) {
+	if ((aceFlags & (int8_t)4) != 0) {
 		$init($AclEntryFlag);
 		$nc(flags)->add($AclEntryFlag::NO_PROPAGATE_INHERIT);
 	}
-	if (((int32_t)(aceFlags & (uint32_t)(int32_t)(int8_t)8)) != 0) {
+	if ((aceFlags & (int8_t)8) != 0) {
 		$init($AclEntryFlag);
 		$nc(flags)->add($AclEntryFlag::INHERIT_ONLY);
 	}
-	int32_t mask = $nc(WindowsSecurityDescriptor::unsafe)->getInt(aceAddress + WindowsSecurityDescriptor::OFFSETOF_ACCESS_MASK);
+	int32_t mask = WindowsSecurityDescriptor::unsafe->getInt(aceAddress + WindowsSecurityDescriptor::OFFSETOF_ACCESS_MASK);
 	$load($AclEntryPermission);
 	$var($Set, perms, $EnumSet::noneOf($AclEntryPermission::class$));
-	if (((int32_t)(mask & (uint32_t)1)) > 0) {
+	if ((mask & 1) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::READ_DATA);
 	}
-	if (((int32_t)(mask & (uint32_t)2)) > 0) {
+	if ((mask & 2) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::WRITE_DATA);
 	}
-	if (((int32_t)(mask & (uint32_t)4)) > 0) {
+	if ((mask & 4) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::APPEND_DATA);
 	}
-	if (((int32_t)(mask & (uint32_t)8)) > 0) {
+	if ((mask & 8) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::READ_NAMED_ATTRS);
 	}
-	if (((int32_t)(mask & (uint32_t)16)) > 0) {
+	if ((mask & 0x10) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::WRITE_NAMED_ATTRS);
 	}
-	if (((int32_t)(mask & (uint32_t)32)) > 0) {
+	if ((mask & 0x20) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::EXECUTE);
 	}
-	if (((int32_t)(mask & (uint32_t)64)) > 0) {
+	if ((mask & 0x40) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::DELETE_CHILD);
 	}
-	if (((int32_t)(mask & (uint32_t)128)) > 0) {
+	if ((mask & 0x80) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::READ_ATTRIBUTES);
 	}
-	if (((int32_t)(mask & (uint32_t)256)) > 0) {
+	if ((mask & 0x0100) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::WRITE_ATTRIBUTES);
 	}
-	if (((int32_t)(mask & (uint32_t)0x00010000)) > 0) {
+	if ((mask & 0x00010000) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::DELETE);
 	}
-	if (((int32_t)(mask & (uint32_t)0x00020000)) > 0) {
+	if ((mask & 0x00020000) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::READ_ACL);
 	}
-	if (((int32_t)(mask & (uint32_t)0x00040000)) > 0) {
+	if ((mask & 0x00040000) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::WRITE_ACL);
 	}
-	if (((int32_t)(mask & (uint32_t)0x00080000)) > 0) {
+	if ((mask & 0x00080000) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::WRITE_OWNER);
 	}
-	if (((int32_t)(mask & (uint32_t)0x00100000)) > 0) {
+	if ((mask & 0x00100000) > 0) {
 		$init($AclEntryPermission);
 		$nc(perms)->add($AclEntryPermission::SYNCHRONIZE);
 	}
 	int64_t sidAddress = aceAddress + WindowsSecurityDescriptor::OFFSETOF_SID;
 	$var($UserPrincipal, user, $WindowsUserPrincipals::fromSid(sidAddress));
-	return $nc($($nc($($nc($($nc($($nc($($AclEntry::newBuilder()))->setType(type)))->setPrincipal(user)))->setFlags(flags)))->setPermissions(perms)))->build();
+	return $$nc($$nc($$nc($$nc($$nc($AclEntry::newBuilder())->setType(type))->setPrincipal(user))->setFlags(flags))->setPermissions(perms))->build();
 }
 
 void WindowsSecurityDescriptor::encode($AclEntry* ace, int64_t sidAddress, int64_t aclAddress) {
 	$init(WindowsSecurityDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AclEntryType);
 	bool var$0 = $nc(ace)->type() != $AclEntryType::ALLOW;
 	if (var$0 && ace->type() != $AclEntryType::DENY) {
 		return;
 	}
-	bool allow = ($nc(ace)->type() == $AclEntryType::ALLOW);
+	bool allow = (ace->type() == $AclEntryType::ALLOW);
 	$var($Set, aceMask, ace->permissions());
 	int32_t mask = 0;
 	$init($AclEntryPermission);
 	if ($nc(aceMask)->contains($AclEntryPermission::READ_DATA)) {
 		mask |= 1;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::WRITE_DATA)) {
+	if (aceMask->contains($AclEntryPermission::WRITE_DATA)) {
 		mask |= 2;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::APPEND_DATA)) {
+	if (aceMask->contains($AclEntryPermission::APPEND_DATA)) {
 		mask |= 4;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::READ_NAMED_ATTRS)) {
+	if (aceMask->contains($AclEntryPermission::READ_NAMED_ATTRS)) {
 		mask |= 8;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::WRITE_NAMED_ATTRS)) {
+	if (aceMask->contains($AclEntryPermission::WRITE_NAMED_ATTRS)) {
 		mask |= 16;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::EXECUTE)) {
+	if (aceMask->contains($AclEntryPermission::EXECUTE)) {
 		mask |= 32;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::DELETE_CHILD)) {
+	if (aceMask->contains($AclEntryPermission::DELETE_CHILD)) {
 		mask |= 64;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::READ_ATTRIBUTES)) {
+	if (aceMask->contains($AclEntryPermission::READ_ATTRIBUTES)) {
 		mask |= 128;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::WRITE_ATTRIBUTES)) {
+	if (aceMask->contains($AclEntryPermission::WRITE_ATTRIBUTES)) {
 		mask |= 256;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::DELETE)) {
+	if (aceMask->contains($AclEntryPermission::DELETE)) {
 		mask |= 0x00010000;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::READ_ACL)) {
+	if (aceMask->contains($AclEntryPermission::READ_ACL)) {
 		mask |= 0x00020000;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::WRITE_ACL)) {
+	if (aceMask->contains($AclEntryPermission::WRITE_ACL)) {
 		mask |= 0x00040000;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::WRITE_OWNER)) {
+	if (aceMask->contains($AclEntryPermission::WRITE_OWNER)) {
 		mask |= 0x00080000;
 	}
-	if ($nc(aceMask)->contains($AclEntryPermission::SYNCHRONIZE)) {
+	if (aceMask->contains($AclEntryPermission::SYNCHRONIZE)) {
 		mask |= 0x00100000;
 	}
 	$var($Set, aceFlags, ace->flags());
-	int8_t flags = (int8_t)0;
+	int8_t flags = 0;
 	$init($AclEntryFlag);
 	if ($nc(aceFlags)->contains($AclEntryFlag::FILE_INHERIT)) {
-		flags |= (int8_t)1;
+		flags |= 1;
 	}
-	if ($nc(aceFlags)->contains($AclEntryFlag::DIRECTORY_INHERIT)) {
-		flags |= (int8_t)2;
+	if (aceFlags->contains($AclEntryFlag::DIRECTORY_INHERIT)) {
+		flags |= 2;
 	}
-	if ($nc(aceFlags)->contains($AclEntryFlag::NO_PROPAGATE_INHERIT)) {
-		flags |= (int8_t)4;
+	if (aceFlags->contains($AclEntryFlag::NO_PROPAGATE_INHERIT)) {
+		flags |= 4;
 	}
-	if ($nc(aceFlags)->contains($AclEntryFlag::INHERIT_ONLY)) {
-		flags |= (int8_t)8;
+	if (aceFlags->contains($AclEntryFlag::INHERIT_ONLY)) {
+		flags |= 8;
 	}
 	if (allow) {
 		$WindowsNativeDispatcher::AddAccessAllowedAceEx(aclAddress, flags, mask, sidAddress);
@@ -418,13 +370,11 @@ WindowsSecurityDescriptor* WindowsSecurityDescriptor::create($List* acl) {
 
 WindowsSecurityDescriptor* WindowsSecurityDescriptor::fromAttribute($FileAttributeArray* attrs) {
 	$init(WindowsSecurityDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(WindowsSecurityDescriptor, sd, WindowsSecurityDescriptor::NULL_DESCRIPTOR);
 	{
 		$var($FileAttributeArray, arr$, attrs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($FileAttribute, attr, arr$->get(i$));
 			{
 				if (sd != WindowsSecurityDescriptor::NULL_DESCRIPTOR) {
@@ -433,7 +383,7 @@ WindowsSecurityDescriptor* WindowsSecurityDescriptor::fromAttribute($FileAttribu
 				if (attr == nullptr) {
 					$throwNew($NullPointerException);
 				}
-				if ($nc($($nc(attr)->name()))->equals("acl:acl"_s)) {
+				if ($$nc($nc(attr)->name())->equals("acl:acl"_s)) {
 					$var($List, acl, $cast($List, attr->value()));
 					$assign(sd, $new(WindowsSecurityDescriptor, acl));
 				} else {
@@ -447,10 +397,10 @@ WindowsSecurityDescriptor* WindowsSecurityDescriptor::fromAttribute($FileAttribu
 
 $List* WindowsSecurityDescriptor::getAcl(int64_t pSecurityDescriptor) {
 	$init(WindowsSecurityDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t aclAddress = $WindowsNativeDispatcher::GetSecurityDescriptorDacl(pSecurityDescriptor);
 	int32_t aceCount = 0;
-	if (aclAddress == (int64_t)0) {
+	if (aclAddress == 0) {
 		aceCount = 0;
 	} else {
 		$var($WindowsNativeDispatcher$AclInformation, aclInfo, $WindowsNativeDispatcher::GetAclInformation(aclAddress));
@@ -467,7 +417,7 @@ $List* WindowsSecurityDescriptor::getAcl(int64_t pSecurityDescriptor) {
 	return result;
 }
 
-void clinit$WindowsSecurityDescriptor($Class* class$) {
+void WindowsSecurityDescriptor::clinit$($Class* clazz) {
 	$assignStatic(WindowsSecurityDescriptor::unsafe, $Unsafe::getUnsafe());
 	$assignStatic(WindowsSecurityDescriptor::NULL_DESCRIPTOR, $new(WindowsSecurityDescriptor));
 }
@@ -476,7 +426,45 @@ WindowsSecurityDescriptor::WindowsSecurityDescriptor() {
 }
 
 $Class* WindowsSecurityDescriptor::load$($String* name, bool initialize) {
-	$loadClass(WindowsSecurityDescriptor, name, initialize, &_WindowsSecurityDescriptor_ClassInfo_, clinit$WindowsSecurityDescriptor, allocate$WindowsSecurityDescriptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsSecurityDescriptor, unsafe)},
+		{"SIZEOF_ACL", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, SIZEOF_ACL)},
+		{"SIZEOF_ACCESS_ALLOWED_ACE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, SIZEOF_ACCESS_ALLOWED_ACE)},
+		{"SIZEOF_ACCESS_DENIED_ACE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, SIZEOF_ACCESS_DENIED_ACE)},
+		{"SIZEOF_SECURITY_DESCRIPTOR", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, SIZEOF_SECURITY_DESCRIPTOR)},
+		{"OFFSETOF_TYPE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, OFFSETOF_TYPE)},
+		{"OFFSETOF_FLAGS", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, OFFSETOF_FLAGS)},
+		{"OFFSETOF_ACCESS_MASK", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, OFFSETOF_ACCESS_MASK)},
+		{"OFFSETOF_SID", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsSecurityDescriptor, OFFSETOF_SID)},
+		{"NULL_DESCRIPTOR", "Lsun/nio/fs/WindowsSecurityDescriptor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsSecurityDescriptor, NULL_DESCRIPTOR)},
+		{"sidList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Long;>;", $PRIVATE | $FINAL, $field(WindowsSecurityDescriptor, sidList)},
+		{"aclBuffer", "Lsun/nio/fs/NativeBuffer;", nullptr, $PRIVATE | $FINAL, $field(WindowsSecurityDescriptor, aclBuffer)},
+		{"sdBuffer", "Lsun/nio/fs/NativeBuffer;", nullptr, $PRIVATE | $FINAL, $field(WindowsSecurityDescriptor, sdBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsSecurityDescriptor, init$, void)},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)V", $PRIVATE, $method(WindowsSecurityDescriptor, init$, void, $List*), "java.io.IOException"},
+		{"address", "()J", nullptr, 0, $virtualMethod(WindowsSecurityDescriptor, address, int64_t)},
+		{"create", "(Ljava/util/List;)Lsun/nio/fs/WindowsSecurityDescriptor;", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)Lsun/nio/fs/WindowsSecurityDescriptor;", $STATIC, $staticMethod(WindowsSecurityDescriptor, create, WindowsSecurityDescriptor*, $List*), "java.io.IOException"},
+		{"decode", "(J)Ljava/nio/file/attribute/AclEntry;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsSecurityDescriptor, decode, $AclEntry*, int64_t), "java.io.IOException"},
+		{"encode", "(Ljava/nio/file/attribute/AclEntry;JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsSecurityDescriptor, encode, void, $AclEntry*, int64_t, int64_t), "sun.nio.fs.WindowsException"},
+		{"fromAttribute", "([Ljava/nio/file/attribute/FileAttribute;)Lsun/nio/fs/WindowsSecurityDescriptor;", "([Ljava/nio/file/attribute/FileAttribute<*>;)Lsun/nio/fs/WindowsSecurityDescriptor;", $STATIC | $TRANSIENT, $staticMethod(WindowsSecurityDescriptor, fromAttribute, WindowsSecurityDescriptor*, $FileAttributeArray*), "java.io.IOException"},
+		{"getAcl", "(J)Ljava/util/List;", "(J)Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;", $STATIC, $staticMethod(WindowsSecurityDescriptor, getAcl, $List*, int64_t), "java.io.IOException"},
+		{"release", "()V", nullptr, 0, $virtualMethod(WindowsSecurityDescriptor, release, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsSecurityDescriptor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsSecurityDescriptor, name, initialize, &classInfo$$, WindowsSecurityDescriptor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsSecurityDescriptor);
+	});
 	return class$;
 }
 

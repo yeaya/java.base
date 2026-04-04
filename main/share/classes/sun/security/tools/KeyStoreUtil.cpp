@@ -1,12 +1,10 @@
 #include <sun/security/tools/KeyStoreUtil.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/io/StreamTokenizer.h>
 #include <java/io/StringReader.h>
 #include <java/lang/ClassLoader.h>
@@ -23,7 +21,6 @@
 #include <java/text/Collator.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
@@ -42,10 +39,7 @@ using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $StreamTokenizer = ::java::io::StreamTokenizer;
 using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -54,9 +48,7 @@ using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $MalformedURLException = ::java::net::MalformedURLException;
-using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $KeyStore = ::java::security::KeyStore;
 using $Provider = ::java::security::Provider;
@@ -65,49 +57,18 @@ using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Collator = ::java::text::Collator;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Properties = ::java::util::Properties;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $ServiceLoader = ::java::util::ServiceLoader;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $FilePaths = ::sun::security::util::FilePaths;
 using $PropertyExpander = ::sun::security::util::PropertyExpander;
 
 namespace sun {
 	namespace security {
 		namespace tools {
-
-$MethodInfo _KeyStoreUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyStoreUtil, init$, void)},
-	{"expandArgs", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, expandArgs, $StringArray*, $String*, $String*, $String*, $String*, $StringArray*), "java.io.IOException,sun.security.util.PropertyExpander$ExpandException"},
-	{"getCacerts", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, getCacerts, $String*)},
-	{"getCacertsKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, getCacertsKeyStore, $KeyStore*), "java.lang.Exception"},
-	{"getPassWithModifier", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/text/Collator;)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, getPassWithModifier, $chars*, $String*, $String*, $ResourceBundle*, $Collator*)},
-	{"isSelfSigned", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, isSelfSigned, bool, $X509Certificate*)},
-	{"isWindowsKeyStore", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, isWindowsKeyStore, bool, $String*)},
-	{"loadProviderByClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, loadProviderByClass, void, $String*, $String*, $ClassLoader*)},
-	{"loadProviderByName", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, loadProviderByName, void, $String*, $String*)},
-	{"niceStoreTypeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, niceStoreTypeName, $String*, $String*)},
-	{"parseArgsLine", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(KeyStoreUtil, parseArgsLine, void, $List*, $String*), "java.io.IOException,sun.security.util.PropertyExpander$ExpandException"},
-	{"signedBy", "(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, signedBy, bool, $X509Certificate*, $X509Certificate*)},
-	{}
-};
-
-$ClassInfo _KeyStoreUtil_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.tools.KeyStoreUtil",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_KeyStoreUtil_MethodInfo_
-};
-
-$Object* allocate$KeyStoreUtil($Class* clazz) {
-	return $of($alloc(KeyStoreUtil));
-}
 
 void KeyStoreUtil::init$() {
 }
@@ -117,12 +78,12 @@ bool KeyStoreUtil::isSelfSigned($X509Certificate* cert) {
 }
 
 bool KeyStoreUtil::signedBy($X509Certificate* end, $X509Certificate* ca) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($nc(ca)->getSubjectX500Principal()))->equals($($nc(end)->getIssuerX500Principal()))) {
+	$useLocalObjectStack();
+	if (!$$nc($nc(ca)->getSubjectX500Principal())->equals($($nc(end)->getIssuerX500Principal()))) {
 		return false;
 	}
 	try {
-		$nc(end)->verify($($nc(ca)->getPublicKey()));
+		end->verify($(ca->getPublicKey()));
 		return true;
 	} catch ($Exception& e) {
 		return false;
@@ -134,7 +95,7 @@ bool KeyStoreUtil::isWindowsKeyStore($String* storetype) {
 	bool var$0 = storetype != nullptr;
 	if (var$0) {
 		bool var$1 = storetype->equalsIgnoreCase("Windows-MY"_s);
-		var$0 = (var$1 || storetype->equalsIgnoreCase("Windows-ROOT"_s));
+		var$0 = var$1 || storetype->equalsIgnoreCase("Windows-ROOT"_s);
 	}
 	return var$0;
 }
@@ -155,7 +116,7 @@ $String* KeyStoreUtil::getCacerts() {
 }
 
 $KeyStore* KeyStoreUtil::getCacertsKeyStore() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $new($File, $(getCacerts())));
 	if (!file->exists()) {
 		return nullptr;
@@ -164,7 +125,7 @@ $KeyStore* KeyStoreUtil::getCacertsKeyStore() {
 }
 
 $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $ResourceBundle* rb, $Collator* collator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (modifier == nullptr) {
 		return $nc(arg)->toCharArray();
 	} else if ($nc(collator)->compare(modifier, "env"_s) == 0) {
@@ -173,7 +134,7 @@ $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $Reso
 			$nc($System::err)->println($$str({$($nc(rb)->getString("Cannot.find.environment.variable."_s)), arg}));
 			return nullptr;
 		} else {
-			return $nc(value)->toCharArray();
+			return value->toCharArray();
 		}
 	} else if (collator->compare(modifier, "file"_s) == 0) {
 		try {
@@ -183,7 +144,7 @@ $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $Reso
 			} catch ($MalformedURLException& mue) {
 				$var($File, f, $new($File, arg));
 				if (f->exists()) {
-					$assign(url, $nc($(f->toURI()))->toURL());
+					$assign(url, $$nc(f->toURI())->toURL());
 				} else {
 					$nc($System::err)->println($$str({$($nc(rb)->getString("Cannot.find.file."_s)), arg}));
 					return nullptr;
@@ -191,40 +152,38 @@ $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $Reso
 			}
 			{
 				$var($BufferedReader, br, $new($BufferedReader, $$new($InputStreamReader, $($nc(url)->openStream()))));
-				{
-					$var($Throwable, var$0, nullptr);
-					$var($chars, var$2, nullptr);
-					bool return$1 = false;
+				$var($Throwable, var$0, nullptr);
+				$var($chars, var$2, nullptr);
+				bool return$1 = false;
+				try {
 					try {
-						try {
-							$var($String, value, br->readLine());
-							if (value == nullptr) {
-								$assign(var$2, $new($chars, 0));
-								return$1 = true;
-								goto $finally;
-							}
-							$assign(var$2, $nc(value)->toCharArray());
+						$var($String, value, br->readLine());
+						if (value == nullptr) {
+							$assign(var$2, $new($chars, 0));
 							return$1 = true;
 							goto $finally;
-						} catch ($Throwable& t$) {
-							try {
-								br->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-							$throw(t$);
 						}
-					} catch ($Throwable& var$3) {
-						$assign(var$0, var$3);
-					} $finally: {
-						br->close();
+						$assign(var$2, $nc(value)->toCharArray());
+						return$1 = true;
+						goto $finally;
+					} catch ($Throwable& t$) {
+						try {
+							br->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
-					if (return$1) {
-						return var$2;
-					}
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
+				} $finally: {
+					br->close();
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
+				}
+				if (return$1) {
+					return var$2;
 				}
 			}
 		} catch ($IOException& ioe) {
@@ -238,8 +197,8 @@ $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $Reso
 }
 
 void KeyStoreUtil::parseArgsLine($List* list, $String* s) {
-	$useLocalCurrentObjectStackCache();
-	$var($StreamTokenizer, st, $new($StreamTokenizer, static_cast<$Reader*>($$new($StringReader, s))));
+	$useLocalObjectStack();
+	$var($StreamTokenizer, st, $new($StreamTokenizer, $$new($StringReader, s)));
 	st->resetSyntax();
 	st->whitespaceChars(0, 32);
 	st->wordChars(33, 255);
@@ -254,10 +213,10 @@ void KeyStoreUtil::parseArgsLine($List* list, $String* s) {
 }
 
 $StringArray* KeyStoreUtil::expandArgs($String* tool, $String* file, $String* c1, $String* c2, $StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, result, $new($ArrayList));
 	$var($Properties, p, $new($Properties));
-	p->load(static_cast<$InputStream*>($$new($FileInputStream, file)));
+	p->load($$new($FileInputStream, file));
 	$var($String, s, p->getProperty($$str({tool, ".all"_s})));
 	if (s != nullptr) {
 		parseArgsLine(result, s);
@@ -280,13 +239,13 @@ $StringArray* KeyStoreUtil::expandArgs($String* tool, $String* file, $String* c1
 		return args;
 	} else {
 		result->addAll($($Arrays::asList(args)));
-		return $fcast($StringArray, result->toArray($$new($StringArray, result->size())));
+		return $cast($StringArray, result->toArray($$new($StringArray, result->size())));
 	}
 }
 
 void KeyStoreUtil::loadProviderByName($String* provName, $String* arg) {
+	$useLocalObjectStack();
 	$load(KeyStoreUtil);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Provider, loaded, $Security::getProvider(provName));
 	if (loaded != nullptr) {
@@ -298,17 +257,15 @@ void KeyStoreUtil::loadProviderByName($String* provName, $String* arg) {
 	}
 	{
 		$load($Provider);
-		$var($Iterator, i$, $nc($($ServiceLoader::load($Provider::class$, $($ClassLoader::getSystemClassLoader()))))->iterator());
+		$var($Iterator, i$, $$nc($ServiceLoader::load($Provider::class$, $($ClassLoader::getSystemClassLoader())))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Provider, p, $cast($Provider, i$->next()));
-			{
-				if ($nc($($nc(p)->getName()))->equals(provName)) {
-					if (arg != nullptr) {
-						$assign(p, p->configure(arg));
-					}
-					$Security::addProvider(p);
-					return;
+			if ($$nc($nc(p)->getName())->equals(provName)) {
+				if (arg != nullptr) {
+					$assign(p, p->configure(arg));
 				}
+				$Security::addProvider(p);
+				return;
 			}
 		}
 	}
@@ -316,8 +273,8 @@ void KeyStoreUtil::loadProviderByName($String* provName, $String* arg) {
 }
 
 void KeyStoreUtil::loadProviderByClass($String* provClass, $String* arg, $ClassLoader* cl) {
+	$useLocalObjectStack();
 	$load(KeyStoreUtil);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(provClass)->equals("sun.security.pkcs11.SunPKCS11"_s)) {
 		loadProviderByName("SunPKCS11"_s, arg);
@@ -329,9 +286,9 @@ void KeyStoreUtil::loadProviderByClass($String* provClass, $String* arg, $ClassL
 	$var($Provider, prov, nullptr);
 	try {
 		$Class* clazz = $Class::forName(provClass, false, cl);
-		$assign(prov, $cast($Provider, $nc($($nc(clazz)->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
+		$assign(prov, $cast($Provider, $$nc(clazz->getConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0))));
 	} catch ($ReflectiveOperationException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	}
 	if (arg != nullptr) {
 		$assign(prov, $nc(prov)->configure(arg));
@@ -343,7 +300,32 @@ KeyStoreUtil::KeyStoreUtil() {
 }
 
 $Class* KeyStoreUtil::load$($String* name, bool initialize) {
-	$loadClass(KeyStoreUtil, name, initialize, &_KeyStoreUtil_ClassInfo_, allocate$KeyStoreUtil);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(KeyStoreUtil, init$, void)},
+		{"expandArgs", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, expandArgs, $StringArray*, $String*, $String*, $String*, $String*, $StringArray*), "java.io.IOException,sun.security.util.PropertyExpander$ExpandException"},
+		{"getCacerts", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, getCacerts, $String*)},
+		{"getCacertsKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, getCacertsKeyStore, $KeyStore*), "java.lang.Exception"},
+		{"getPassWithModifier", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/text/Collator;)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, getPassWithModifier, $chars*, $String*, $String*, $ResourceBundle*, $Collator*)},
+		{"isSelfSigned", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, isSelfSigned, bool, $X509Certificate*)},
+		{"isWindowsKeyStore", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, isWindowsKeyStore, bool, $String*)},
+		{"loadProviderByClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, loadProviderByClass, void, $String*, $String*, $ClassLoader*)},
+		{"loadProviderByName", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, loadProviderByName, void, $String*, $String*)},
+		{"niceStoreTypeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, niceStoreTypeName, $String*, $String*)},
+		{"parseArgsLine", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(KeyStoreUtil, parseArgsLine, void, $List*, $String*), "java.io.IOException,sun.security.util.PropertyExpander$ExpandException"},
+		{"signedBy", "(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, signedBy, bool, $X509Certificate*, $X509Certificate*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.tools.KeyStoreUtil",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyStoreUtil, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStoreUtil);
+	});
 	return class$;
 }
 

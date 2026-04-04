@@ -12,6 +12,7 @@ class ProcessImpl$1 : public ::java::lang::Object {
 	$class(ProcessImpl$1, 0, ::java::lang::Object)
 public:
 	ProcessImpl$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$lang$ProcessImpl$Platform;
 };
 

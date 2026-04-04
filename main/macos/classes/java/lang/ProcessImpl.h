@@ -56,6 +56,7 @@ class ProcessImpl : public ::java::lang::Process {
 	$class(ProcessImpl, 0, ::java::lang::Process)
 public:
 	ProcessImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* prog, $bytes* argBlock, int32_t argc, $bytes* envBlock, int32_t envc, $bytes* dir, $ints* fds, bool forceNullOutputStream, bool redirectErrorStream);
 	void destroy(bool force);
 	virtual void destroy() override;

@@ -1,5 +1,4 @@
 #include <sun/util/calendar/ImmutableGregorianDate.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Locale.h>
 #include <java/util/TimeZone.h>
@@ -23,90 +22,6 @@ using $Era = ::sun::util::calendar::Era;
 namespace sun {
 	namespace util {
 		namespace calendar {
-
-$FieldInfo _ImmutableGregorianDate_FieldInfo_[] = {
-	{"date", "Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PRIVATE | $FINAL, $field(ImmutableGregorianDate, date)},
-	{}
-};
-
-$MethodInfo _ImmutableGregorianDate_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/calendar/BaseCalendar$Date;)V", nullptr, 0, $method(ImmutableGregorianDate, init$, void, $BaseCalendar$Date*)},
-	{"addDate", "(III)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addDate, $CalendarDate*, int32_t, int32_t, int32_t)},
-	{"addDayOfMonth", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addDayOfMonth, $CalendarDate*, int32_t)},
-	{"addHours", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addHours, $CalendarDate*, int32_t)},
-	{"addMillis", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addMillis, $CalendarDate*, int32_t)},
-	{"addMinutes", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addMinutes, $CalendarDate*, int32_t)},
-	{"addMonth", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addMonth, $CalendarDate*, int32_t)},
-	{"addSeconds", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addSeconds, $CalendarDate*, int32_t)},
-	{"addTimeOfDay", "(IIII)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addTimeOfDay, $CalendarDate*, int32_t, int32_t, int32_t, int32_t)},
-	{"addYear", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addYear, $CalendarDate*, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, equals, bool, Object$*)},
-	{"getDayOfMonth", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getDayOfMonth, int32_t)},
-	{"getDayOfWeek", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getDayOfWeek, int32_t)},
-	{"getDaylightSaving", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getDaylightSaving, int32_t)},
-	{"getEra", "()Lsun/util/calendar/Era;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getEra, $Era*)},
-	{"getHours", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getHours, int32_t)},
-	{"getMillis", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getMillis, int32_t)},
-	{"getMinutes", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getMinutes, int32_t)},
-	{"getMonth", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getMonth, int32_t)},
-	{"getNormalizedYear", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getNormalizedYear, int32_t)},
-	{"getSeconds", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getSeconds, int32_t)},
-	{"getTimeOfDay", "()J", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getTimeOfDay, int64_t)},
-	{"getYear", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getYear, int32_t)},
-	{"getZone", "()Ljava/util/TimeZone;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getZone, $TimeZone*)},
-	{"getZoneOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getZoneOffset, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, hashCode, int32_t)},
-	{"isDaylightTime", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, isDaylightTime, bool)},
-	{"isLeapYear", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, isLeapYear, bool)},
-	{"isNormalized", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, isNormalized, bool)},
-	{"isSameDate", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, isSameDate, bool, $CalendarDate*)},
-	{"isStandardTime", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, isStandardTime, bool)},
-	{"setDate", "(III)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setDate, $CalendarDate*, int32_t, int32_t, int32_t)},
-	{"setDayOfMonth", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setDayOfMonth, $CalendarDate*, int32_t)},
-	{"setDayOfWeek", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setDayOfWeek, void, int32_t)},
-	{"setDaylightSaving", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setDaylightSaving, void, int32_t)},
-	{"setEra", "(Lsun/util/calendar/Era;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setEra, $CalendarDate*, $Era*)},
-	{"setHours", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setHours, $CalendarDate*, int32_t)},
-	{"setLeapYear", "(Z)V", nullptr, 0, $virtualMethod(ImmutableGregorianDate, setLeapYear, void, bool)},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setLocale, void, $Locale*)},
-	{"setMillis", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setMillis, $CalendarDate*, int32_t)},
-	{"setMinutes", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setMinutes, $CalendarDate*, int32_t)},
-	{"setMonth", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setMonth, $CalendarDate*, int32_t)},
-	{"setNormalized", "(Z)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setNormalized, void, bool)},
-	{"setNormalizedYear", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setNormalizedYear, void, int32_t)},
-	{"setSeconds", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setSeconds, $CalendarDate*, int32_t)},
-	{"setStandardTime", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setStandardTime, void, bool)},
-	{"setTimeOfDay", "(IIII)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setTimeOfDay, $CalendarDate*, int32_t, int32_t, int32_t, int32_t)},
-	{"setTimeOfDay", "(J)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setTimeOfDay, void, int64_t)},
-	{"setYear", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setYear, $CalendarDate*, int32_t)},
-	{"setZone", "(Ljava/util/TimeZone;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setZone, $CalendarDate*, $TimeZone*)},
-	{"setZoneOffset", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setZoneOffset, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, toString, $String*)},
-	{"unsupported", "()V", nullptr, $PRIVATE, $method(ImmutableGregorianDate, unsupported, void)},
-	{}
-};
-
-$InnerClassInfo _ImmutableGregorianDate_InnerClassesInfo_[] = {
-	{"sun.util.calendar.BaseCalendar$Date", "sun.util.calendar.BaseCalendar", "Date", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImmutableGregorianDate_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.calendar.ImmutableGregorianDate",
-	"sun.util.calendar.BaseCalendar$Date",
-	nullptr,
-	_ImmutableGregorianDate_FieldInfo_,
-	_ImmutableGregorianDate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImmutableGregorianDate_InnerClassesInfo_
-};
-
-$Object* allocate$ImmutableGregorianDate($Class* clazz) {
-	return $of($alloc(ImmutableGregorianDate));
-}
 
 void ImmutableGregorianDate::init$($BaseCalendar$Date* date) {
 	$BaseCalendar$Date::init$();
@@ -303,7 +218,7 @@ bool ImmutableGregorianDate::equals(Object$* obj) {
 	if (!($instanceOf(ImmutableGregorianDate, obj))) {
 		return false;
 	}
-	return $nc(this->date)->equals($nc(($cast(ImmutableGregorianDate, obj)))->date);
+	return $nc(this->date)->equals($nc($cast(ImmutableGregorianDate, obj))->date);
 }
 
 int32_t ImmutableGregorianDate::hashCode() {
@@ -311,7 +226,7 @@ int32_t ImmutableGregorianDate::hashCode() {
 }
 
 $Object* ImmutableGregorianDate::clone() {
-	return $of($BaseCalendar$Date::clone());
+	return $BaseCalendar$Date::clone();
 }
 
 $String* ImmutableGregorianDate::toString() {
@@ -358,7 +273,85 @@ ImmutableGregorianDate::ImmutableGregorianDate() {
 }
 
 $Class* ImmutableGregorianDate::load$($String* name, bool initialize) {
-	$loadClass(ImmutableGregorianDate, name, initialize, &_ImmutableGregorianDate_ClassInfo_, allocate$ImmutableGregorianDate);
+	$FieldInfo fieldInfos$$[] = {
+		{"date", "Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PRIVATE | $FINAL, $field(ImmutableGregorianDate, date)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/util/calendar/BaseCalendar$Date;)V", nullptr, 0, $method(ImmutableGregorianDate, init$, void, $BaseCalendar$Date*)},
+		{"addDate", "(III)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addDate, $CalendarDate*, int32_t, int32_t, int32_t)},
+		{"addDayOfMonth", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addDayOfMonth, $CalendarDate*, int32_t)},
+		{"addHours", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addHours, $CalendarDate*, int32_t)},
+		{"addMillis", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addMillis, $CalendarDate*, int32_t)},
+		{"addMinutes", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addMinutes, $CalendarDate*, int32_t)},
+		{"addMonth", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addMonth, $CalendarDate*, int32_t)},
+		{"addSeconds", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addSeconds, $CalendarDate*, int32_t)},
+		{"addTimeOfDay", "(IIII)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addTimeOfDay, $CalendarDate*, int32_t, int32_t, int32_t, int32_t)},
+		{"addYear", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, addYear, $CalendarDate*, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, equals, bool, Object$*)},
+		{"getDayOfMonth", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getDayOfMonth, int32_t)},
+		{"getDayOfWeek", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getDayOfWeek, int32_t)},
+		{"getDaylightSaving", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getDaylightSaving, int32_t)},
+		{"getEra", "()Lsun/util/calendar/Era;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getEra, $Era*)},
+		{"getHours", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getHours, int32_t)},
+		{"getMillis", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getMillis, int32_t)},
+		{"getMinutes", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getMinutes, int32_t)},
+		{"getMonth", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getMonth, int32_t)},
+		{"getNormalizedYear", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getNormalizedYear, int32_t)},
+		{"getSeconds", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getSeconds, int32_t)},
+		{"getTimeOfDay", "()J", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getTimeOfDay, int64_t)},
+		{"getYear", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getYear, int32_t)},
+		{"getZone", "()Ljava/util/TimeZone;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getZone, $TimeZone*)},
+		{"getZoneOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, getZoneOffset, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, hashCode, int32_t)},
+		{"isDaylightTime", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, isDaylightTime, bool)},
+		{"isLeapYear", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, isLeapYear, bool)},
+		{"isNormalized", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, isNormalized, bool)},
+		{"isSameDate", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, isSameDate, bool, $CalendarDate*)},
+		{"isStandardTime", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, isStandardTime, bool)},
+		{"setDate", "(III)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setDate, $CalendarDate*, int32_t, int32_t, int32_t)},
+		{"setDayOfMonth", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setDayOfMonth, $CalendarDate*, int32_t)},
+		{"setDayOfWeek", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setDayOfWeek, void, int32_t)},
+		{"setDaylightSaving", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setDaylightSaving, void, int32_t)},
+		{"setEra", "(Lsun/util/calendar/Era;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setEra, $CalendarDate*, $Era*)},
+		{"setHours", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setHours, $CalendarDate*, int32_t)},
+		{"setLeapYear", "(Z)V", nullptr, 0, $virtualMethod(ImmutableGregorianDate, setLeapYear, void, bool)},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setLocale, void, $Locale*)},
+		{"setMillis", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setMillis, $CalendarDate*, int32_t)},
+		{"setMinutes", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setMinutes, $CalendarDate*, int32_t)},
+		{"setMonth", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setMonth, $CalendarDate*, int32_t)},
+		{"setNormalized", "(Z)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setNormalized, void, bool)},
+		{"setNormalizedYear", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setNormalizedYear, void, int32_t)},
+		{"setSeconds", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setSeconds, $CalendarDate*, int32_t)},
+		{"setStandardTime", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setStandardTime, void, bool)},
+		{"setTimeOfDay", "(IIII)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setTimeOfDay, $CalendarDate*, int32_t, int32_t, int32_t, int32_t)},
+		{"setTimeOfDay", "(J)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setTimeOfDay, void, int64_t)},
+		{"setYear", "(I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setYear, $CalendarDate*, int32_t)},
+		{"setZone", "(Ljava/util/TimeZone;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, setZone, $CalendarDate*, $TimeZone*)},
+		{"setZoneOffset", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImmutableGregorianDate, setZoneOffset, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableGregorianDate, toString, $String*)},
+		{"unsupported", "()V", nullptr, $PRIVATE, $method(ImmutableGregorianDate, unsupported, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.calendar.BaseCalendar$Date", "sun.util.calendar.BaseCalendar", "Date", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.calendar.ImmutableGregorianDate",
+		"sun.util.calendar.BaseCalendar$Date",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(ImmutableGregorianDate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImmutableGregorianDate);
+	});
 	return class$;
 }
 

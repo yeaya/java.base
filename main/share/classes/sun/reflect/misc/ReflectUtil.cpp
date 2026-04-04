@@ -1,5 +1,4 @@
 #include <sun/reflect/misc/ReflectUtil.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
@@ -27,51 +26,12 @@ using $Member = ::java::lang::reflect::Member;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Proxy = ::java::lang::reflect::Proxy;
-using $Permission = ::java::security::Permission;
 using $Reflection = ::jdk::internal::reflect::Reflection;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace sun {
 	namespace reflect {
 		namespace misc {
-
-$FieldInfo _ReflectUtil_FieldInfo_[] = {
-	{"PROXY_PACKAGE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReflectUtil, PROXY_PACKAGE)},
-	{}
-};
-
-$MethodInfo _ReflectUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ReflectUtil, init$, void)},
-	{"checkPackageAccess", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, checkPackageAccess, void, $Class*)},
-	{"checkPackageAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectUtil, checkPackageAccess, void, $String*)},
-	{"checkProxyMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectUtil, checkProxyMethod, void, Object$*, $Method*)},
-	{"checkProxyPackageAccess", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, checkProxyPackageAccess, void, $Class*)},
-	{"checkProxyPackageAccess", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ReflectUtil, checkProxyPackageAccess, void, $ClassLoader*, $ClassArray*)},
-	{"conservativeCheckMemberAccess", "(Ljava/lang/reflect/Member;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectUtil, conservativeCheckMemberAccess, void, $Member*), "java.lang.SecurityException"},
-	{"ensureMemberAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Object;I)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Object;I)V", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, ensureMemberAccess, void, $Class*, $Class*, Object$*, int32_t), "java.lang.IllegalAccessException"},
-	{"forName", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, forName, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"isAncestor", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ReflectUtil, isAncestor, bool, $ClassLoader*, $ClassLoader*)},
-	{"isNonPublicProxyClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, isNonPublicProxyClass, bool, $Class*)},
-	{"isPackageAccessible", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, isPackageAccessible, bool, $Class*)},
-	{"isSuperInterface", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(ReflectUtil, isSuperInterface, bool, $Class*, $Class*)},
-	{"needsPackageAccessCheck", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectUtil, needsPackageAccessCheck, bool, $ClassLoader*, $ClassLoader*)},
-	{"privateCheckPackageAccess", "(Ljava/lang/SecurityManager;Ljava/lang/Class;)V", "(Ljava/lang/SecurityManager;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(ReflectUtil, privateCheckPackageAccess, void, $SecurityManager*, $Class*)},
-	{"privateCheckProxyPackageAccess", "(Ljava/lang/SecurityManager;Ljava/lang/Class;)V", "(Ljava/lang/SecurityManager;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(ReflectUtil, privateCheckProxyPackageAccess, void, $SecurityManager*, $Class*)},
-	{}
-};
-
-$ClassInfo _ReflectUtil_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.reflect.misc.ReflectUtil",
-	"java.lang.Object",
-	nullptr,
-	_ReflectUtil_FieldInfo_,
-	_ReflectUtil_MethodInfo_
-};
-
-$Object* allocate$ReflectUtil($Class* clazz) {
-	return $of($alloc(ReflectUtil));
-}
 
 $String* ReflectUtil::PROXY_PACKAGE = nullptr;
 
@@ -87,7 +47,7 @@ $Class* ReflectUtil::forName($String* name) {
 
 void ReflectUtil::ensureMemberAccess($Class* currentClass, $Class* memberClass, Object$* target, int32_t modifiers) {
 	$init(ReflectUtil);
-	$Reflection::ensureMemberAccess(currentClass, memberClass, target == nullptr ? ($Class*)nullptr : $nc($of(target))->getClass(), modifiers);
+	$Reflection::ensureMemberAccess(currentClass, memberClass, target == nullptr ? ($Class*)nullptr : $of(target)->getClass(), modifiers);
 }
 
 void ReflectUtil::conservativeCheckMemberAccess($Member* m) {
@@ -127,17 +87,17 @@ void ReflectUtil::privateCheckPackageAccess($SecurityManager* s, $Class* clazz) 
 
 void ReflectUtil::checkPackageAccess($String* name) {
 	$init(ReflectUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, s, $System::getSecurityManager());
 	if (s != nullptr) {
 		$var($String, cname, $nc(name)->replace(u'/', u'.'));
 		if (cname->startsWith("["_s)) {
-			int32_t b = cname->lastIndexOf((int32_t)u'[') + 2;
+			int32_t b = cname->lastIndexOf(u'[') + 2;
 			if (b > 1 && b < cname->length()) {
 				$assign(cname, cname->substring(b));
 			}
 		}
-		int32_t i = cname->lastIndexOf((int32_t)u'.');
+		int32_t i = cname->lastIndexOf(u'.');
 		if (i != -1) {
 			s->checkPackageAccess($(cname->substring(0, i)));
 		}
@@ -189,15 +149,11 @@ void ReflectUtil::checkProxyPackageAccess($Class* clazz) {
 void ReflectUtil::privateCheckProxyPackageAccess($SecurityManager* s, $Class* clazz) {
 	$init(ReflectUtil);
 	if ($Proxy::isProxyClass(clazz)) {
-		{
-			$var($ClassArray, arr$, $nc(clazz)->getInterfaces());
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$Class* intf = arr$->get(i$);
-				{
-					privateCheckPackageAccess(s, intf);
-				}
+		$var($ClassArray, arr$, $nc(clazz)->getInterfaces());
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$Class* intf = arr$->get(i$);
+			{
+				privateCheckPackageAccess(s, intf);
 			}
 		}
 	}
@@ -205,21 +161,17 @@ void ReflectUtil::privateCheckProxyPackageAccess($SecurityManager* s, $Class* cl
 
 void ReflectUtil::checkProxyPackageAccess($ClassLoader* ccl, $ClassArray* interfaces) {
 	$init(ReflectUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
-		{
-			$var($ClassArray, arr$, interfaces);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$Class* intf = arr$->get(i$);
-				{
-					$var($ClassLoader, cl, $nc(intf)->getClassLoader());
-					if (needsPackageAccessCheck(ccl, cl)) {
-						privateCheckPackageAccess(sm, intf);
-					}
+		$var($ClassArray, arr$, interfaces);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$Class* intf = arr$->get(i$);
+			{
+				$var($ClassLoader, cl, $nc(intf)->getClassLoader());
+				if (needsPackageAccessCheck(ccl, cl)) {
+					privateCheckPackageAccess(sm, intf);
 				}
 			}
 		}
@@ -236,19 +188,19 @@ bool ReflectUtil::isNonPublicProxyClass($Class* cls) {
 
 void ReflectUtil::checkProxyMethod(Object$* proxy, $Method* method) {
 	$init(ReflectUtil);
-	$useLocalCurrentObjectStackCache();
-	if (proxy == nullptr || !$Proxy::isProxyClass($nc($of(proxy))->getClass())) {
+	$useLocalObjectStack();
+	if (proxy == nullptr || !$Proxy::isProxyClass($of(proxy)->getClass())) {
 		$throwNew($IllegalArgumentException, "Not a Proxy instance"_s);
 	}
 	if ($Modifier::isStatic($nc(method)->getModifiers())) {
 		$throwNew($IllegalArgumentException, "Can\'t handle static method"_s);
 	}
-	$Class* c = $nc(method)->getDeclaringClass();
+	$Class* c = method->getDeclaringClass();
 	if (c == $Object::class$) {
 		$var($String, name, method->getName());
 		bool var$1 = $nc(name)->equals("hashCode"_s);
-		bool var$0 = var$1 || $nc(name)->equals("equals"_s);
-		if (var$0 || $nc(name)->equals("toString"_s)) {
+		bool var$0 = var$1 || name->equals("equals"_s);
+		if (var$0 || name->equals("toString"_s)) {
 			return;
 		}
 	}
@@ -260,19 +212,15 @@ void ReflectUtil::checkProxyMethod(Object$* proxy, $Method* method) {
 
 bool ReflectUtil::isSuperInterface($Class* c, $Class* intf) {
 	$init(ReflectUtil);
-	{
-		$var($ClassArray, arr$, $nc(c)->getInterfaces());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$Class* i = arr$->get(i$);
-			{
-				if (i == intf) {
-					return true;
-				}
-				if (isSuperInterface(i, intf)) {
-					return true;
-				}
+	$var($ClassArray, arr$, $nc(c)->getInterfaces());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		$Class* i = arr$->get(i$);
+		{
+			if (i == intf) {
+				return true;
+			}
+			if (isSuperInterface(i, intf)) {
+				return true;
 			}
 		}
 	}
@@ -282,12 +230,45 @@ bool ReflectUtil::isSuperInterface($Class* c, $Class* intf) {
 ReflectUtil::ReflectUtil() {
 }
 
-void clinit$ReflectUtil($Class* class$) {
+void ReflectUtil::clinit$($Class* clazz) {
 	$assignStatic(ReflectUtil::PROXY_PACKAGE, "com.sun.proxy"_s);
 }
 
 $Class* ReflectUtil::load$($String* name, bool initialize) {
-	$loadClass(ReflectUtil, name, initialize, &_ReflectUtil_ClassInfo_, clinit$ReflectUtil, allocate$ReflectUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"PROXY_PACKAGE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReflectUtil, PROXY_PACKAGE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ReflectUtil, init$, void)},
+		{"checkPackageAccess", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, checkPackageAccess, void, $Class*)},
+		{"checkPackageAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectUtil, checkPackageAccess, void, $String*)},
+		{"checkProxyMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectUtil, checkProxyMethod, void, Object$*, $Method*)},
+		{"checkProxyPackageAccess", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, checkProxyPackageAccess, void, $Class*)},
+		{"checkProxyPackageAccess", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ReflectUtil, checkProxyPackageAccess, void, $ClassLoader*, $ClassArray*)},
+		{"conservativeCheckMemberAccess", "(Ljava/lang/reflect/Member;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectUtil, conservativeCheckMemberAccess, void, $Member*), "java.lang.SecurityException"},
+		{"ensureMemberAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Object;I)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Object;I)V", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, ensureMemberAccess, void, $Class*, $Class*, Object$*, int32_t), "java.lang.IllegalAccessException"},
+		{"forName", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, forName, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"isAncestor", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ReflectUtil, isAncestor, bool, $ClassLoader*, $ClassLoader*)},
+		{"isNonPublicProxyClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, isNonPublicProxyClass, bool, $Class*)},
+		{"isPackageAccessible", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(ReflectUtil, isPackageAccessible, bool, $Class*)},
+		{"isSuperInterface", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(ReflectUtil, isSuperInterface, bool, $Class*, $Class*)},
+		{"needsPackageAccessCheck", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectUtil, needsPackageAccessCheck, bool, $ClassLoader*, $ClassLoader*)},
+		{"privateCheckPackageAccess", "(Ljava/lang/SecurityManager;Ljava/lang/Class;)V", "(Ljava/lang/SecurityManager;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(ReflectUtil, privateCheckPackageAccess, void, $SecurityManager*, $Class*)},
+		{"privateCheckProxyPackageAccess", "(Ljava/lang/SecurityManager;Ljava/lang/Class;)V", "(Ljava/lang/SecurityManager;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(ReflectUtil, privateCheckProxyPackageAccess, void, $SecurityManager*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.reflect.misc.ReflectUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReflectUtil, name, initialize, &classInfo$$, ReflectUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ReflectUtil);
+	});
 	return class$;
 }
 

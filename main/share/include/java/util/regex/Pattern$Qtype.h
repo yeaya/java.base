@@ -24,6 +24,7 @@ class $import Pattern$Qtype : public ::java::lang::Enum {
 public:
 	Pattern$Qtype();
 	static $Array<::java::util::regex::Pattern$Qtype>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::util::regex::Pattern$Qtype* valueOf($String* name);
 	static $Array<::java::util::regex::Pattern$Qtype>* values();

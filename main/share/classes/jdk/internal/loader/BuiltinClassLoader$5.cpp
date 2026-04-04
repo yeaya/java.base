@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/BuiltinClassLoader$5.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/module/ModuleReader.h>
 #include <java/lang/module/ModuleReference.h>
@@ -22,50 +21,6 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$FieldInfo _BuiltinClassLoader$5_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/loader/BuiltinClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$5, this$0)},
-	{"val$mref", "Ljava/lang/module/ModuleReference;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$5, val$mref)},
-	{}
-};
-
-$MethodInfo _BuiltinClassLoader$5_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/module/ModuleReference;)V", nullptr, 0, $method(BuiltinClassLoader$5, init$, void, $BuiltinClassLoader*, $ModuleReference*)},
-	{"apply", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$5, apply, $ModuleReader*, $ModuleReference*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BuiltinClassLoader$5, apply, $Object*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _BuiltinClassLoader$5_EnclosingMethodInfo_ = {
-	"jdk.internal.loader.BuiltinClassLoader",
-	"moduleReaderFor",
-	"(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;"
-};
-
-$InnerClassInfo _BuiltinClassLoader$5_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.BuiltinClassLoader$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BuiltinClassLoader$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.BuiltinClassLoader$5",
-	"java.lang.Object",
-	"java.util.function.Function",
-	_BuiltinClassLoader$5_FieldInfo_,
-	_BuiltinClassLoader$5_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/Function<Ljava/lang/module/ModuleReference;Ljava/lang/module/ModuleReader;>;",
-	&_BuiltinClassLoader$5_EnclosingMethodInfo_,
-	_BuiltinClassLoader$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.BuiltinClassLoader"
-};
-
-$Object* allocate$BuiltinClassLoader$5($Class* clazz) {
-	return $of($alloc(BuiltinClassLoader$5));
-}
-
 void BuiltinClassLoader$5::init$($BuiltinClassLoader* this$0, $ModuleReference* val$mref) {
 	$set(this, this$0, this$0);
 	$set(this, val$mref, val$mref);
@@ -81,14 +36,51 @@ $ModuleReader* BuiltinClassLoader$5::apply($ModuleReference* moduleReference) {
 }
 
 $Object* BuiltinClassLoader$5::apply(Object$* moduleReference) {
-	return $of(this->apply($cast($ModuleReference, moduleReference)));
+	return this->apply($cast($ModuleReference, moduleReference));
 }
 
 BuiltinClassLoader$5::BuiltinClassLoader$5() {
 }
 
 $Class* BuiltinClassLoader$5::load$($String* name, bool initialize) {
-	$loadClass(BuiltinClassLoader$5, name, initialize, &_BuiltinClassLoader$5_ClassInfo_, allocate$BuiltinClassLoader$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/loader/BuiltinClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$5, this$0)},
+		{"val$mref", "Ljava/lang/module/ModuleReference;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$5, val$mref)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/module/ModuleReference;)V", nullptr, 0, $method(BuiltinClassLoader$5, init$, void, $BuiltinClassLoader*, $ModuleReference*)},
+		{"apply", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$5, apply, $ModuleReader*, $ModuleReference*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BuiltinClassLoader$5, apply, $Object*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.loader.BuiltinClassLoader",
+		"moduleReaderFor",
+		"(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.BuiltinClassLoader$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.BuiltinClassLoader$5",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/Function<Ljava/lang/module/ModuleReference;Ljava/lang/module/ModuleReader;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.BuiltinClassLoader"
+	};
+	$loadClass(BuiltinClassLoader$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BuiltinClassLoader$5);
+	});
 	return class$;
 }
 

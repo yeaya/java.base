@@ -1,5 +1,4 @@
 #include <java/util/WeakHashMap$EntrySpliterator.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/util/AbstractMap$SimpleImmutableEntry.h>
 #include <java/util/ConcurrentModificationException.h>
@@ -27,48 +26,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _WeakHashMap$EntrySpliterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/WeakHashMap;IIII)V", "(Ljava/util/WeakHashMap<TK;TV;>;IIII)V", 0, $method(WeakHashMap$EntrySpliterator, init$, void, $WeakHashMap*, int32_t, int32_t, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySpliterator, characteristics, int32_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(WeakHashMap$EntrySpliterator, forEachRemaining, void, $Consumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(WeakHashMap$EntrySpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/WeakHashMap$EntrySpliterator;", "()Ljava/util/WeakHashMap$EntrySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(WeakHashMap$EntrySpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _WeakHashMap$EntrySpliterator_InnerClassesInfo_[] = {
-	{"java.util.WeakHashMap$EntrySpliterator", "java.util.WeakHashMap", "EntrySpliterator", $STATIC | $FINAL},
-	{"java.util.WeakHashMap$WeakHashMapSpliterator", "java.util.WeakHashMap", "WeakHashMapSpliterator", $STATIC},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WeakHashMap$EntrySpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.WeakHashMap$EntrySpliterator",
-	"java.util.WeakHashMap$WeakHashMapSpliterator",
-	"java.util.Spliterator",
-	nullptr,
-	_WeakHashMap$EntrySpliterator_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/WeakHashMap$WeakHashMapSpliterator<TK;TV;>;Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_WeakHashMap$EntrySpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.WeakHashMap"
-};
-
-$Object* allocate$WeakHashMap$EntrySpliterator($Class* clazz) {
-	return $of($alloc(WeakHashMap$EntrySpliterator));
-}
 
 int64_t WeakHashMap$EntrySpliterator::estimateSize() {
 	 return this->$WeakHashMap$WeakHashMapSpliterator::estimateSize();
@@ -102,11 +59,11 @@ $Spliterator* WeakHashMap$EntrySpliterator::trySplit() {
 	int32_t hi = getFence();
 	int32_t lo = this->index;
 	int32_t mid = (int32_t)((uint32_t)(lo + hi) >> 1);
-	return ((lo >= mid) ? (WeakHashMap$EntrySpliterator*)nullptr : $new(WeakHashMap$EntrySpliterator, this->map, lo, this->index = mid, $usrAssign(this->est, 1), this->expectedModCount));
+	return (lo >= mid) ? (WeakHashMap$EntrySpliterator*)nullptr : $new(WeakHashMap$EntrySpliterator, this->map, lo, this->index = mid, $usrAssign(this->est, 1), this->expectedModCount);
 }
 
 void WeakHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	int32_t hi = 0;
 	int32_t mc = 0;
@@ -127,9 +84,9 @@ void WeakHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
 		$set(this, current, nullptr);
 		do {
 			if (p == nullptr) {
-				$assign(p, $nc(tab)->get(i++));
+				$assign(p, tab->get(i++));
 			} else {
-				$var($Object, x, $nc(p)->get());
+				$var($Object, x, p->get());
 				$var($Object, v, p->value);
 				$assign(p, p->next);
 				if (x != nullptr) {
@@ -145,7 +102,7 @@ void WeakHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool WeakHashMap$EntrySpliterator::tryAdvance($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hi = 0;
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
@@ -156,13 +113,13 @@ bool WeakHashMap$EntrySpliterator::tryAdvance($Consumer* action) {
 			if (this->current == nullptr) {
 				$set(this, current, tab->get(this->index++));
 			} else {
-				$var($Object, x, $nc(this->current)->get());
+				$var($Object, x, this->current->get());
 				$var($Object, v, $nc(this->current)->value);
-				$set(this, current, $nc(this->current)->next);
+				$set(this, current, this->current->next);
 				if (x != nullptr) {
 					$var($Object, k, $WeakHashMap::unmaskNull(x));
 					$nc(action)->accept($$new($AbstractMap$SimpleImmutableEntry, k, v));
-					if ($nc(this->map)->modCount != this->expectedModCount) {
+					if (this->map->modCount != this->expectedModCount) {
 						$throwNew($ConcurrentModificationException);
 					}
 					return true;
@@ -181,7 +138,44 @@ WeakHashMap$EntrySpliterator::WeakHashMap$EntrySpliterator() {
 }
 
 $Class* WeakHashMap$EntrySpliterator::load$($String* name, bool initialize) {
-	$loadClass(WeakHashMap$EntrySpliterator, name, initialize, &_WeakHashMap$EntrySpliterator_ClassInfo_, allocate$WeakHashMap$EntrySpliterator);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/WeakHashMap;IIII)V", "(Ljava/util/WeakHashMap<TK;TV;>;IIII)V", 0, $method(WeakHashMap$EntrySpliterator, init$, void, $WeakHashMap*, int32_t, int32_t, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySpliterator, characteristics, int32_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(WeakHashMap$EntrySpliterator, forEachRemaining, void, $Consumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(WeakHashMap$EntrySpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/WeakHashMap$EntrySpliterator;", "()Ljava/util/WeakHashMap$EntrySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(WeakHashMap$EntrySpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.WeakHashMap$EntrySpliterator", "java.util.WeakHashMap", "EntrySpliterator", $STATIC | $FINAL},
+		{"java.util.WeakHashMap$WeakHashMapSpliterator", "java.util.WeakHashMap", "WeakHashMapSpliterator", $STATIC},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.WeakHashMap$EntrySpliterator",
+		"java.util.WeakHashMap$WeakHashMapSpliterator",
+		"java.util.Spliterator",
+		nullptr,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/WeakHashMap$WeakHashMapSpliterator<TK;TV;>;Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.WeakHashMap"
+	};
+	$loadClass(WeakHashMap$EntrySpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WeakHashMap$EntrySpliterator));
+	});
 	return class$;
 }
 

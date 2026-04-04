@@ -46,6 +46,7 @@ class $import CRLDistributionPointsExtension : public ::sun::security::x509::Ext
 	$class(CRLDistributionPointsExtension, 0, ::sun::security::x509::Extension, ::sun::security::x509::CertAttrSet)
 public:
 	CRLDistributionPointsExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::security::x509::Extension::encode;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

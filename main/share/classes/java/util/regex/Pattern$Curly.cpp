@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$Curly.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$Node.h>
@@ -25,50 +24,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$Curly_FieldInfo_[] = {
-	{"atom", "Ljava/util/regex/Pattern$Node;", nullptr, 0, $field(Pattern$Curly, atom)},
-	{"type", "Ljava/util/regex/Pattern$Qtype;", nullptr, 0, $field(Pattern$Curly, type)},
-	{"cmin", "I", nullptr, 0, $field(Pattern$Curly, cmin)},
-	{"cmax", "I", nullptr, 0, $field(Pattern$Curly, cmax)},
-	{}
-};
-
-$MethodInfo _Pattern$Curly_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;IILjava/util/regex/Pattern$Qtype;)V", nullptr, 0, $method(Pattern$Curly, init$, void, $Pattern$Node*, int32_t, int32_t, $Pattern$Qtype*)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Curly, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"match0", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(Pattern$Curly, match0, bool, $Matcher*, int32_t, int32_t, $CharSequence*)},
-	{"match1", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(Pattern$Curly, match1, bool, $Matcher*, int32_t, int32_t, $CharSequence*)},
-	{"match2", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(Pattern$Curly, match2, bool, $Matcher*, int32_t, int32_t, $CharSequence*)},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Curly, study, bool, $Pattern$TreeInfo*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$Curly_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$Curly", "java.util.regex.Pattern", "Curly", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$Curly_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$Curly",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$Curly_FieldInfo_,
-	_Pattern$Curly_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$Curly_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$Curly($Class* clazz) {
-	return $of($alloc(Pattern$Curly));
-}
-
 void Pattern$Curly::init$($Pattern$Node* node, int32_t cmin, int32_t cmax, $Pattern$Qtype* type) {
 	$Pattern$Node::init$();
 	$set(this, atom, node);
@@ -89,12 +44,10 @@ bool Pattern$Curly::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 	$init($Pattern$Qtype);
 	if (this->type == $Pattern$Qtype::GREEDY) {
 		return match0(matcher, i, j, seq);
+	} else if (this->type == $Pattern$Qtype::LAZY) {
+		return match1(matcher, i, j, seq);
 	} else {
-		if (this->type == $Pattern$Qtype::LAZY) {
-			return match1(matcher, i, j, seq);
-		} else {
-			return match2(matcher, i, j, seq);
-		}
+		return match2(matcher, i, j, seq);
 	}
 }
 
@@ -149,7 +102,7 @@ bool Pattern$Curly::match1($Matcher* matcher, int32_t i, int32_t j, $CharSequenc
 		if (i == $nc(matcher)->last) {
 			return false;
 		}
-		i = $nc(matcher)->last;
+		i = matcher->last;
 		++j;
 	}
 }
@@ -162,7 +115,7 @@ bool Pattern$Curly::match2($Matcher* matcher, int32_t i, int32_t j, $CharSequenc
 		if (i == $nc(matcher)->last) {
 			break;
 		}
-		i = $nc(matcher)->last;
+		i = matcher->last;
 	}
 	return $nc(this->next)->match(matcher, i, seq);
 }
@@ -176,7 +129,7 @@ bool Pattern$Curly::study($Pattern$TreeInfo* info) {
 	$nc(this->atom)->study(info);
 	int32_t temp = info->minLength * this->cmin + minL;
 	if (temp < minL) {
-		temp = 0x0FFFFFFF;
+		temp = 0x0fffffff;
 	}
 	info->minLength = temp;
 	if (maxV & info->maxValid) {
@@ -200,7 +153,45 @@ Pattern$Curly::Pattern$Curly() {
 }
 
 $Class* Pattern$Curly::load$($String* name, bool initialize) {
-	$loadClass(Pattern$Curly, name, initialize, &_Pattern$Curly_ClassInfo_, allocate$Pattern$Curly);
+	$FieldInfo fieldInfos$$[] = {
+		{"atom", "Ljava/util/regex/Pattern$Node;", nullptr, 0, $field(Pattern$Curly, atom)},
+		{"type", "Ljava/util/regex/Pattern$Qtype;", nullptr, 0, $field(Pattern$Curly, type)},
+		{"cmin", "I", nullptr, 0, $field(Pattern$Curly, cmin)},
+		{"cmax", "I", nullptr, 0, $field(Pattern$Curly, cmax)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$Node;IILjava/util/regex/Pattern$Qtype;)V", nullptr, 0, $method(Pattern$Curly, init$, void, $Pattern$Node*, int32_t, int32_t, $Pattern$Qtype*)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Curly, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"match0", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(Pattern$Curly, match0, bool, $Matcher*, int32_t, int32_t, $CharSequence*)},
+		{"match1", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(Pattern$Curly, match1, bool, $Matcher*, int32_t, int32_t, $CharSequence*)},
+		{"match2", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(Pattern$Curly, match2, bool, $Matcher*, int32_t, int32_t, $CharSequence*)},
+		{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Curly, study, bool, $Pattern$TreeInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$Curly", "java.util.regex.Pattern", "Curly", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$Curly",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$Curly, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$Curly);
+	});
 	return class$;
 }
 

@@ -15,6 +15,7 @@ class $export LotsOfStreams$LOSEnumeration : public ::java::util::Enumeration {
 	$class(LotsOfStreams$LOSEnumeration, 0, ::java::util::Enumeration)
 public:
 	LotsOfStreams$LOSEnumeration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool hasMoreElements() override;
 	virtual $Object* nextElement() override;

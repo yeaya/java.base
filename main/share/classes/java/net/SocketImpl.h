@@ -36,6 +36,7 @@ class $export SocketImpl : public ::java::net::SocketOptions {
 public:
 	SocketImpl();
 	using ::java::net::SocketOptions::getOption;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void accept(::java::net::SocketImpl* s) {}
 	virtual int32_t available() {return 0;}

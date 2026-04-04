@@ -1,5 +1,4 @@
 #include <java/io/InputStream.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream$1.h>
@@ -39,57 +38,6 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace io {
 
-$FieldInfo _InputStream_FieldInfo_[] = {
-	{"MAX_SKIP_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputStream, MAX_SKIP_BUFFER_SIZE)},
-	{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputStream, DEFAULT_BUFFER_SIZE)},
-	{"MAX_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputStream, MAX_BUFFER_SIZE)},
-	{}
-};
-
-$MethodInfo _InputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InputStream, init$, void)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(InputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InputStream, close, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(InputStream, markSupported, bool)},
-	{"nullInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(InputStream, nullInputStream, InputStream*)},
-	{"read", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(InputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readAllBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(InputStream, readAllBytes, $bytes*), "java.io.IOException"},
-	{"readNBytes", "(I)[B", nullptr, $PUBLIC, $virtualMethod(InputStream, readNBytes, $bytes*, int32_t), "java.io.IOException"},
-	{"readNBytes", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InputStream, readNBytes, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(InputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{"skipNBytes", "(J)V", nullptr, $PUBLIC, $virtualMethod(InputStream, skipNBytes, void, int64_t), "java.io.IOException"},
-	{"transferTo", "(Ljava/io/OutputStream;)J", nullptr, $PUBLIC, $virtualMethod(InputStream, transferTo, int64_t, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _InputStream_InnerClassesInfo_[] = {
-	{"java.io.InputStream$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.io.InputStream",
-	"java.lang.Object",
-	"java.io.Closeable",
-	_InputStream_FieldInfo_,
-	_InputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.io.InputStream$1"
-};
-
-$Object* allocate$InputStream($Class* clazz) {
-	return $of($alloc(InputStream));
-}
-
 void InputStream::init$() {
 }
 
@@ -111,7 +59,7 @@ int32_t InputStream::read($bytes* b, int32_t off, int32_t len) {
 	if (c == -1) {
 		return -1;
 	}
-	$nc(b)->set(off, (int8_t)c);
+	b->set(off, (int8_t)c);
 	int32_t i = 1;
 	try {
 		for (; i < len; ++i) {
@@ -131,7 +79,7 @@ $bytes* InputStream::readAllBytes() {
 }
 
 $bytes* InputStream::readNBytes(int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len < 0) {
 		$throwNew($IllegalArgumentException, "len < 0"_s);
 	}
@@ -260,7 +208,7 @@ bool InputStream::markSupported() {
 }
 
 int64_t InputStream::transferTo($OutputStream* out) {
-	$Objects::requireNonNull($of(out), "out"_s);
+	$Objects::requireNonNull(out, "out"_s);
 	int64_t transferred = 0;
 	$var($bytes, buffer, $new($bytes, InputStream::DEFAULT_BUFFER_SIZE));
 	int32_t read = 0;
@@ -275,7 +223,52 @@ InputStream::InputStream() {
 }
 
 $Class* InputStream::load$($String* name, bool initialize) {
-	$loadClass(InputStream, name, initialize, &_InputStream_ClassInfo_, allocate$InputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_SKIP_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputStream, MAX_SKIP_BUFFER_SIZE)},
+		{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputStream, DEFAULT_BUFFER_SIZE)},
+		{"MAX_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputStream, MAX_BUFFER_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InputStream, init$, void)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(InputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InputStream, close, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(InputStream, markSupported, bool)},
+		{"nullInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(InputStream, nullInputStream, InputStream*)},
+		{"read", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(InputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readAllBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(InputStream, readAllBytes, $bytes*), "java.io.IOException"},
+		{"readNBytes", "(I)[B", nullptr, $PUBLIC, $virtualMethod(InputStream, readNBytes, $bytes*, int32_t), "java.io.IOException"},
+		{"readNBytes", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InputStream, readNBytes, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(InputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{"skipNBytes", "(J)V", nullptr, $PUBLIC, $virtualMethod(InputStream, skipNBytes, void, int64_t), "java.io.IOException"},
+		{"transferTo", "(Ljava/io/OutputStream;)J", nullptr, $PUBLIC, $virtualMethod(InputStream, transferTo, int64_t, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.InputStream$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.io.InputStream",
+		"java.lang.Object",
+		"java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.io.InputStream$1"
+	};
+	$loadClass(InputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputStream);
+	});
 	return class$;
 }
 

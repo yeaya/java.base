@@ -1,5 +1,4 @@
 #include <javax/crypto/CryptoPolicyParser.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/Reader.h>
 #include <java/io/StreamTokenizer.h>
@@ -52,84 +51,36 @@ using $CryptoPolicyParser$ParsingException = ::javax::crypto::CryptoPolicyParser
 namespace javax {
 	namespace crypto {
 
-$FieldInfo _CryptoPolicyParser_FieldInfo_[] = {
-	{"grantEntries", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/crypto/CryptoPolicyParser$GrantEntry;>;", $PRIVATE, $field(CryptoPolicyParser, grantEntries)},
-	{"st", "Ljava/io/StreamTokenizer;", nullptr, $PRIVATE, $field(CryptoPolicyParser, st)},
-	{"lookahead", "I", nullptr, $PRIVATE, $field(CryptoPolicyParser, lookahead)},
-	{}
-};
-
-$MethodInfo _CryptoPolicyParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CryptoPolicyParser, init$, void)},
-	{"getInstance", "(Ljava/lang/String;[Ljava/lang/Integer;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CryptoPolicyParser, getInstance, $AlgorithmParameterSpec*, $String*, $IntegerArray*), "javax.crypto.CryptoPolicyParser$ParsingException"},
-	{"getPermissions", "()[Ljavax/crypto/CryptoPermission;", nullptr, 0, $method(CryptoPolicyParser, getPermissions, $CryptoPermissionArray*)},
-	{"isConsistent", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Z", $PRIVATE, $method(CryptoPolicyParser, isConsistent, bool, $String*, $String*, $Hashtable*)},
-	{"match", "()I", nullptr, $PRIVATE, $method(CryptoPolicyParser, match, int32_t), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CryptoPolicyParser, match, $String*, $String*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
-	{"parseGrantEntry", "(Ljava/util/Hashtable;)Ljavax/crypto/CryptoPolicyParser$GrantEntry;", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Ljavax/crypto/CryptoPolicyParser$GrantEntry;", $PRIVATE, $method(CryptoPolicyParser, parseGrantEntry, $CryptoPolicyParser$GrantEntry*, $Hashtable*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
-	{"parsePermissionEntry", "(Ljava/util/Hashtable;)Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;", $PRIVATE, $method(CryptoPolicyParser, parsePermissionEntry, $CryptoPolicyParser$CryptoPermissionEntry*, $Hashtable*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
-	{"peek", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CryptoPolicyParser, peek, bool, $String*)},
-	{"peekAndMatch", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CryptoPolicyParser, peekAndMatch, bool, $String*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
-	{"read", "(Ljava/io/Reader;)V", nullptr, 0, $method(CryptoPolicyParser, read, void, $Reader*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CryptoPolicyParser_InnerClassesInfo_[] = {
-	{"javax.crypto.CryptoPolicyParser$ParsingException", "javax.crypto.CryptoPolicyParser", "ParsingException", $STATIC | $FINAL},
-	{"javax.crypto.CryptoPolicyParser$CryptoPermissionEntry", "javax.crypto.CryptoPolicyParser", "CryptoPermissionEntry", $PRIVATE | $STATIC},
-	{"javax.crypto.CryptoPolicyParser$GrantEntry", "javax.crypto.CryptoPolicyParser", "GrantEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CryptoPolicyParser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.crypto.CryptoPolicyParser",
-	"java.lang.Object",
-	nullptr,
-	_CryptoPolicyParser_FieldInfo_,
-	_CryptoPolicyParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CryptoPolicyParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.crypto.CryptoPolicyParser$ParsingException,javax.crypto.CryptoPolicyParser$CryptoPermissionEntry,javax.crypto.CryptoPolicyParser$GrantEntry"
-};
-
-$Object* allocate$CryptoPolicyParser($Class* clazz) {
-	return $of($alloc(CryptoPolicyParser));
-}
-
 void CryptoPolicyParser::init$() {
 	$set(this, grantEntries, $new($Vector));
 }
 
 void CryptoPolicyParser::read($Reader* policy$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Reader, policy, policy$renamed);
 	if (!($instanceOf($BufferedReader, policy))) {
 		$assign(policy, $new($BufferedReader, policy));
 	}
 	$set(this, st, $new($StreamTokenizer, policy));
-	$nc(this->st)->resetSyntax();
-	$nc(this->st)->wordChars(u'a', u'z');
-	$nc(this->st)->wordChars(u'A', u'Z');
-	$nc(this->st)->wordChars(u'.', u'.');
-	$nc(this->st)->wordChars(u'0', u'9');
-	$nc(this->st)->wordChars(u'_', u'_');
-	$nc(this->st)->wordChars(u'$', u'$');
-	$nc(this->st)->wordChars(128 + 32, 255);
-	$nc(this->st)->whitespaceChars(0, u' ');
-	$nc(this->st)->commentChar(u'/');
-	$nc(this->st)->quoteChar(u'\'');
-	$nc(this->st)->quoteChar(u'\"');
-	$nc(this->st)->lowerCaseMode(false);
-	$nc(this->st)->ordinaryChar(u'/');
-	$nc(this->st)->slashSlashComments(true);
-	$nc(this->st)->slashStarComments(true);
-	$nc(this->st)->parseNumbers();
+	this->st->resetSyntax();
+	this->st->wordChars(u'a', u'z');
+	this->st->wordChars(u'A', u'Z');
+	this->st->wordChars(u'.', u'.');
+	this->st->wordChars(u'0', u'9');
+	this->st->wordChars(u'_', u'_');
+	this->st->wordChars(u'$', u'$');
+	this->st->wordChars(128 + 32, 255);
+	this->st->whitespaceChars(0, u' ');
+	this->st->commentChar(u'/');
+	this->st->quoteChar(u'\'');
+	this->st->quoteChar(u'\"');
+	this->st->lowerCaseMode(false);
+	this->st->ordinaryChar(u'/');
+	this->st->slashSlashComments(true);
+	this->st->slashStarComments(true);
+	this->st->parseNumbers();
 	$var($Hashtable, processedPermissions, nullptr);
-	this->lookahead = $nc(this->st)->nextToken();
+	this->lookahead = this->st->nextToken();
 	while (this->lookahead != $StreamTokenizer::TT_EOF) {
 		if (peek("grant"_s)) {
 			$var($CryptoPolicyParser$GrantEntry, ge, parseGrantEntry(processedPermissions));
@@ -137,14 +88,14 @@ void CryptoPolicyParser::read($Reader* policy$renamed) {
 				$nc(this->grantEntries)->addElement(ge);
 			}
 		} else {
-			$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), "expected grant statement"_s);
+			$throwNew($CryptoPolicyParser$ParsingException, this->st->lineno(), "expected grant statement"_s);
 		}
 		match(";"_s);
 	}
 }
 
 $CryptoPolicyParser$GrantEntry* CryptoPolicyParser::parseGrantEntry($Hashtable* processedPermissions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CryptoPolicyParser$GrantEntry, e, $new($CryptoPolicyParser$GrantEntry));
 	match("grant"_s);
 	match("{"_s);
@@ -162,7 +113,7 @@ $CryptoPolicyParser$GrantEntry* CryptoPolicyParser::parseGrantEntry($Hashtable* 
 }
 
 $CryptoPolicyParser$CryptoPermissionEntry* CryptoPolicyParser::parsePermissionEntry($Hashtable* processedPermissions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CryptoPolicyParser$CryptoPermissionEntry, e, $new($CryptoPolicyParser$CryptoPermissionEntry));
 	match("Permission"_s);
 	$set(e, cryptoPermission, match("permission type"_s));
@@ -174,7 +125,7 @@ $CryptoPolicyParser$CryptoPermissionEntry* CryptoPolicyParser::parsePermissionEn
 	}
 	if (peek("\""_s)) {
 		$init($Locale);
-		$set(e, alg, $nc($(match("quoted string"_s)))->toUpperCase($Locale::ENGLISH));
+		$set(e, alg, $$nc(match("quoted string"_s))->toUpperCase($Locale::ENGLISH));
 	} else if (peek("*"_s)) {
 		match("*"_s);
 		$init($CryptoPermission);
@@ -185,7 +136,7 @@ $CryptoPolicyParser$CryptoPermissionEntry* CryptoPolicyParser::parsePermissionEn
 	peekAndMatch(","_s);
 	if (peek("\""_s)) {
 		$init($Locale);
-		$set(e, exemptionMechanism, $nc($(match("quoted string"_s)))->toUpperCase($Locale::ENGLISH));
+		$set(e, exemptionMechanism, $$nc(match("quoted string"_s))->toUpperCase($Locale::ENGLISH));
 	}
 	peekAndMatch(","_s);
 	if (!isConsistent(e->alg, e->exemptionMechanism, processedPermissions)) {
@@ -225,19 +176,18 @@ $CryptoPolicyParser$CryptoPermissionEntry* CryptoPolicyParser::parsePermissionEn
 }
 
 $AlgorithmParameterSpec* CryptoPolicyParser::getInstance($String* type, $IntegerArray* params) {
+	$useLocalObjectStack();
 	$load(CryptoPolicyParser);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($AlgorithmParameterSpec, ret, nullptr);
 	try {
 		$Class* apsClass = $Class::forName(type);
 		$var($ClassArray, paramClasses, $new($ClassArray, $nc(params)->length));
 		for (int32_t i = 0; i < params->length; ++i) {
-			$init($Integer);
 			paramClasses->set(i, $Integer::TYPE);
 		}
-		$var($Constructor, c, $nc(apsClass)->getConstructor(paramClasses));
-		$assign(ret, $cast($AlgorithmParameterSpec, $nc(c)->newInstance(params)));
+		$var($Constructor, c, apsClass->getConstructor(paramClasses));
+		$assign(ret, $cast($AlgorithmParameterSpec, $nc(c)->newInstance($cast($ObjectArray, params))));
 	} catch ($Exception& e) {
 		$throwNew($CryptoPolicyParser$ParsingException, $$str({"Cannot call the constructor of "_s, type, e}));
 	}
@@ -256,65 +206,47 @@ bool CryptoPolicyParser::peek($String* expect) {
 	bool found = false;
 	switch (this->lookahead) {
 	case $StreamTokenizer::TT_WORD:
-		{
-			if ($nc(expect)->equalsIgnoreCase($nc(this->st)->sval)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equalsIgnoreCase($nc(this->st)->sval)) {
+			found = true;
 		}
+		break;
 	case $StreamTokenizer::TT_NUMBER:
-		{
-			if ($nc(expect)->equalsIgnoreCase("number"_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equalsIgnoreCase("number"_s)) {
+			found = true;
 		}
+		break;
 	case u',':
-		{
-			if ($nc(expect)->equals(","_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equals(","_s)) {
+			found = true;
 		}
+		break;
 	case u'{':
-		{
-			if ($nc(expect)->equals("{"_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equals("{"_s)) {
+			found = true;
 		}
+		break;
 	case u'}':
-		{
-			if ($nc(expect)->equals("}"_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equals("}"_s)) {
+			found = true;
 		}
+		break;
 	case u'\"':
-		{
-			if ($nc(expect)->equals("\""_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equals("\""_s)) {
+			found = true;
 		}
+		break;
 	case u'*':
-		{
-			if ($nc(expect)->equals("*"_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equals("*"_s)) {
+			found = true;
 		}
+		break;
 	case u';':
-		{
-			if ($nc(expect)->equals(";"_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equals(";"_s)) {
+			found = true;
 		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	return found;
 }
@@ -325,19 +257,15 @@ int32_t CryptoPolicyParser::match() {
 	$var($String, sValue, nullptr);
 	switch (this->lookahead) {
 	case $StreamTokenizer::TT_NUMBER:
-		{
-			value = $cast(int32_t, $nc(this->st)->nval);
-			if (value < 0) {
-				$assign(sValue, $String::valueOf($nc(this->st)->nval));
-			}
-			this->lookahead = $nc(this->st)->nextToken();
-			break;
+		value = $cast(int32_t, this->st->nval);
+		if (value < 0) {
+			$assign(sValue, $String::valueOf(this->st->nval));
 		}
+		this->lookahead = this->st->nextToken();
+		break;
 	default:
-		{
-			$assign(sValue, $nc(this->st)->sval);
-			break;
-		}
+		$assign(sValue, this->st->sval);
+		break;
 	}
 	if (value <= 0) {
 		$throwNew($CryptoPolicyParser$ParsingException, lineno, "a non-negative number"_s, sValue);
@@ -346,101 +274,83 @@ int32_t CryptoPolicyParser::match() {
 }
 
 $String* CryptoPolicyParser::match($String* expect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, value, nullptr);
 	switch (this->lookahead) {
 	case $StreamTokenizer::TT_NUMBER:
 		{
 			int32_t var$0 = $nc(this->st)->lineno();
-			$var($String, var$1, expect);
-			$throwNew($CryptoPolicyParser$ParsingException, var$0, var$1, $$str({"number "_s, $($String::valueOf($nc(this->st)->nval))}));
+			$throwNew($CryptoPolicyParser$ParsingException, var$0, expect, $$str({"number "_s, $($String::valueOf(this->st->nval))}));
 		}
 	case $StreamTokenizer::TT_EOF:
-		{
-			$throwNew($CryptoPolicyParser$ParsingException, $$str({"expected "_s, expect, ", read end of file"_s}));
-		}
+		$throwNew($CryptoPolicyParser$ParsingException, $$str({"expected "_s, expect, ", read end of file"_s}));
 	case $StreamTokenizer::TT_WORD:
-		{
-			if ($nc(expect)->equalsIgnoreCase($nc(this->st)->sval)) {
-				this->lookahead = $nc(this->st)->nextToken();
-			} else if (expect->equalsIgnoreCase("permission type"_s)) {
-				$assign(value, $nc(this->st)->sval);
-				this->lookahead = $nc(this->st)->nextToken();
-			} else {
-				$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, $nc(this->st)->sval);
-			}
-			break;
+		if ($nc(expect)->equalsIgnoreCase($nc(this->st)->sval)) {
+			this->lookahead = this->st->nextToken();
+		} else if (expect->equalsIgnoreCase("permission type"_s)) {
+			$assign(value, this->st->sval);
+			this->lookahead = this->st->nextToken();
+		} else {
+			$throwNew($CryptoPolicyParser$ParsingException, this->st->lineno(), expect, this->st->sval);
 		}
+		break;
 	case u'\"':
-		{
-			if ($nc(expect)->equalsIgnoreCase("quoted string"_s)) {
-				$assign(value, $nc(this->st)->sval);
-				this->lookahead = $nc(this->st)->nextToken();
-			} else if (expect->equalsIgnoreCase("permission type"_s)) {
-				$assign(value, $nc(this->st)->sval);
-				this->lookahead = $nc(this->st)->nextToken();
-			} else {
-				$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, $nc(this->st)->sval);
-			}
-			break;
+		if ($nc(expect)->equalsIgnoreCase("quoted string"_s)) {
+			$assign(value, $nc(this->st)->sval);
+			this->lookahead = this->st->nextToken();
+		} else if (expect->equalsIgnoreCase("permission type"_s)) {
+			$assign(value, $nc(this->st)->sval);
+			this->lookahead = this->st->nextToken();
+		} else {
+			$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, $nc(this->st)->sval);
 		}
+		break;
 	case u',':
-		{
-			if ($nc(expect)->equals(","_s)) {
-				this->lookahead = $nc(this->st)->nextToken();
-			} else {
-				$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ","_s);
-			}
-			break;
+		if ($nc(expect)->equals(","_s)) {
+			this->lookahead = $nc(this->st)->nextToken();
+		} else {
+			$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ","_s);
 		}
+		break;
 	case u'{':
-		{
-			if ($nc(expect)->equals("{"_s)) {
-				this->lookahead = $nc(this->st)->nextToken();
-			} else {
-				$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "{"_s);
-			}
-			break;
+		if ($nc(expect)->equals("{"_s)) {
+			this->lookahead = $nc(this->st)->nextToken();
+		} else {
+			$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "{"_s);
 		}
+		break;
 	case u'}':
-		{
-			if ($nc(expect)->equals("}"_s)) {
-				this->lookahead = $nc(this->st)->nextToken();
-			} else {
-				$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "}"_s);
-			}
-			break;
+		if ($nc(expect)->equals("}"_s)) {
+			this->lookahead = $nc(this->st)->nextToken();
+		} else {
+			$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "}"_s);
 		}
+		break;
 	case u';':
-		{
-			if ($nc(expect)->equals(";"_s)) {
-				this->lookahead = $nc(this->st)->nextToken();
-			} else {
-				$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ";"_s);
-			}
-			break;
+		if ($nc(expect)->equals(";"_s)) {
+			this->lookahead = $nc(this->st)->nextToken();
+		} else {
+			$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ";"_s);
 		}
+		break;
 	case u'*':
-		{
-			if ($nc(expect)->equals("*"_s)) {
-				this->lookahead = $nc(this->st)->nextToken();
-			} else {
-				$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "*"_s);
-			}
-			break;
+		if ($nc(expect)->equals("*"_s)) {
+			this->lookahead = $nc(this->st)->nextToken();
+		} else {
+			$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "*"_s);
 		}
+		break;
 	default:
 		{
-			int32_t var$2 = $nc(this->st)->lineno();
-			$var($String, var$3, expect);
-			$throwNew($CryptoPolicyParser$ParsingException, var$2, var$3, $($String::valueOf((char16_t)this->lookahead)));
+			int32_t var$1 = $nc(this->st)->lineno();
+			$throwNew($CryptoPolicyParser$ParsingException, var$1, expect, $($String::valueOf((char16_t)this->lookahead)));
 		}
 	}
 	return value;
 }
 
 $CryptoPermissionArray* CryptoPolicyParser::getPermissions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, result, $new($Vector));
 	$var($Enumeration, grantEnum, $nc(this->grantEntries)->elements());
 	while ($nc(grantEnum)->hasMoreElements()) {
@@ -464,7 +374,7 @@ $CryptoPermissionArray* CryptoPolicyParser::getPermissions() {
 }
 
 bool CryptoPolicyParser::isConsistent($String* alg, $String* exemptionMechanism, $Hashtable* processedPermissions$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, processedPermissions, processedPermissions$renamed);
 	$var($String, thisExemptionMechanism, exemptionMechanism == nullptr ? "none"_s : exemptionMechanism);
 	if (processedPermissions == nullptr) {
@@ -479,7 +389,7 @@ bool CryptoPolicyParser::isConsistent($String* alg, $String* exemptionMechanism,
 		return false;
 	}
 	$var($Vector, exemptionMechanisms, nullptr);
-	if ($nc(processedPermissions)->containsKey(alg)) {
+	if (processedPermissions->containsKey(alg)) {
 		$assign(exemptionMechanisms, $cast($Vector, processedPermissions->get(alg)));
 		if ($nc(exemptionMechanisms)->contains(thisExemptionMechanism)) {
 			return false;
@@ -488,7 +398,7 @@ bool CryptoPolicyParser::isConsistent($String* alg, $String* exemptionMechanism,
 		$assign(exemptionMechanisms, $new($Vector, 1));
 	}
 	$nc(exemptionMechanisms)->addElement(thisExemptionMechanism);
-	$nc(processedPermissions)->put(alg, exemptionMechanisms);
+	processedPermissions->put(alg, exemptionMechanisms);
 	return true;
 }
 
@@ -496,7 +406,49 @@ CryptoPolicyParser::CryptoPolicyParser() {
 }
 
 $Class* CryptoPolicyParser::load$($String* name, bool initialize) {
-	$loadClass(CryptoPolicyParser, name, initialize, &_CryptoPolicyParser_ClassInfo_, allocate$CryptoPolicyParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"grantEntries", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/crypto/CryptoPolicyParser$GrantEntry;>;", $PRIVATE, $field(CryptoPolicyParser, grantEntries)},
+		{"st", "Ljava/io/StreamTokenizer;", nullptr, $PRIVATE, $field(CryptoPolicyParser, st)},
+		{"lookahead", "I", nullptr, $PRIVATE, $field(CryptoPolicyParser, lookahead)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CryptoPolicyParser, init$, void)},
+		{"getInstance", "(Ljava/lang/String;[Ljava/lang/Integer;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CryptoPolicyParser, getInstance, $AlgorithmParameterSpec*, $String*, $IntegerArray*), "javax.crypto.CryptoPolicyParser$ParsingException"},
+		{"getPermissions", "()[Ljavax/crypto/CryptoPermission;", nullptr, 0, $method(CryptoPolicyParser, getPermissions, $CryptoPermissionArray*)},
+		{"isConsistent", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Z", $PRIVATE, $method(CryptoPolicyParser, isConsistent, bool, $String*, $String*, $Hashtable*)},
+		{"match", "()I", nullptr, $PRIVATE, $method(CryptoPolicyParser, match, int32_t), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+		{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CryptoPolicyParser, match, $String*, $String*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+		{"parseGrantEntry", "(Ljava/util/Hashtable;)Ljavax/crypto/CryptoPolicyParser$GrantEntry;", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Ljavax/crypto/CryptoPolicyParser$GrantEntry;", $PRIVATE, $method(CryptoPolicyParser, parseGrantEntry, $CryptoPolicyParser$GrantEntry*, $Hashtable*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+		{"parsePermissionEntry", "(Ljava/util/Hashtable;)Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;", $PRIVATE, $method(CryptoPolicyParser, parsePermissionEntry, $CryptoPolicyParser$CryptoPermissionEntry*, $Hashtable*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+		{"peek", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CryptoPolicyParser, peek, bool, $String*)},
+		{"peekAndMatch", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CryptoPolicyParser, peekAndMatch, bool, $String*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+		{"read", "(Ljava/io/Reader;)V", nullptr, 0, $method(CryptoPolicyParser, read, void, $Reader*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.crypto.CryptoPolicyParser$ParsingException", "javax.crypto.CryptoPolicyParser", "ParsingException", $STATIC | $FINAL},
+		{"javax.crypto.CryptoPolicyParser$CryptoPermissionEntry", "javax.crypto.CryptoPolicyParser", "CryptoPermissionEntry", $PRIVATE | $STATIC},
+		{"javax.crypto.CryptoPolicyParser$GrantEntry", "javax.crypto.CryptoPolicyParser", "GrantEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.crypto.CryptoPolicyParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.crypto.CryptoPolicyParser$ParsingException,javax.crypto.CryptoPolicyParser$CryptoPermissionEntry,javax.crypto.CryptoPolicyParser$GrantEntry"
+	};
+	$loadClass(CryptoPolicyParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CryptoPolicyParser);
+	});
 	return class$;
 }
 

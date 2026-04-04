@@ -1,5 +1,4 @@
 #include <sun/security/ssl/HandshakeOutStream.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/nio/ByteBuffer.h>
@@ -26,57 +25,23 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _HandshakeOutStream_FieldInfo_[] = {
-	{"outputRecord", "Lsun/security/ssl/OutputRecord;", nullptr, 0, $field(HandshakeOutStream, outputRecord)},
-	{}
-};
-
-$MethodInfo _HandshakeOutStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/OutputRecord;)V", nullptr, 0, $method(HandshakeOutStream, init$, void, $OutputRecord*)},
-	{"checkOverflow", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HandshakeOutStream, checkOverflow, void, int32_t, int32_t)},
-	{"complete", "()V", nullptr, 0, $virtualMethod(HandshakeOutStream, complete, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(HandshakeOutStream, flush, void), "java.io.IOException"},
-	{"putBytes16", "([B)V", nullptr, $PUBLIC, $virtualMethod(HandshakeOutStream, putBytes16, void, $bytes*), "java.io.IOException"},
-	{"putBytes24", "([B)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putBytes24, void, $bytes*), "java.io.IOException"},
-	{"putBytes8", "([B)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putBytes8, void, $bytes*), "java.io.IOException"},
-	{"putInt16", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt16, void, int32_t), "java.io.IOException"},
-	{"putInt24", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt24, void, int32_t), "java.io.IOException"},
-	{"putInt32", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt32, void, int32_t), "java.io.IOException"},
-	{"putInt8", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt8, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeOutStream, write, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _HandshakeOutStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.ssl.HandshakeOutStream",
-	"java.io.ByteArrayOutputStream",
-	nullptr,
-	_HandshakeOutStream_FieldInfo_,
-	_HandshakeOutStream_MethodInfo_
-};
-
-$Object* allocate$HandshakeOutStream($Class* clazz) {
-	return $of($alloc(HandshakeOutStream));
-}
-
 void HandshakeOutStream::init$($OutputRecord* outputRecord) {
 	$ByteArrayOutputStream::init$();
 	$set(this, outputRecord, outputRecord);
 }
 
 void HandshakeOutStream::complete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (size() < 4) {
 		$throwNew($RuntimeException, "handshake message is not available"_s);
 	}
 	if (this->outputRecord != nullptr) {
-		if (!$nc(this->outputRecord)->isClosed()) {
-			$nc(this->outputRecord)->encodeHandshake(this->buf, 0, this->count);
+		if (!this->outputRecord->isClosed()) {
+			this->outputRecord->encodeHandshake(this->buf, 0, this->count);
 		} else {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
-				$SSLLogger::warning("outbound has closed, ignore outbound handshake messages"_s, $$new($ObjectArray, {$($of($ByteBuffer::wrap(this->buf, 0, this->count)))}));
+				$SSLLogger::warning("outbound has closed, ignore outbound handshake messages"_s, $$new($ObjectArray, {$($ByteBuffer::wrap(this->buf, 0, this->count))}));
 			}
 		}
 		reset();
@@ -90,7 +55,7 @@ void HandshakeOutStream::write($bytes* b, int32_t off, int32_t len) {
 
 void HandshakeOutStream::flush() {
 	if (this->outputRecord != nullptr) {
-		$nc(this->outputRecord)->flush();
+		this->outputRecord->flush();
 	}
 }
 
@@ -123,8 +88,8 @@ void HandshakeOutStream::putBytes8($bytes* b) {
 	if (b == nullptr) {
 		putInt8(0);
 	} else {
-		putInt8($nc(b)->length);
-		$ByteArrayOutputStream::write(b, 0, $nc(b)->length);
+		putInt8(b->length);
+		$ByteArrayOutputStream::write(b, 0, b->length);
 	}
 }
 
@@ -132,8 +97,8 @@ void HandshakeOutStream::putBytes16($bytes* b) {
 	if (b == nullptr) {
 		putInt16(0);
 	} else {
-		putInt16($nc(b)->length);
-		$ByteArrayOutputStream::write(b, 0, $nc(b)->length);
+		putInt16(b->length);
+		$ByteArrayOutputStream::write(b, 0, b->length);
 	}
 }
 
@@ -141,14 +106,14 @@ void HandshakeOutStream::putBytes24($bytes* b) {
 	if (b == nullptr) {
 		putInt24(0);
 	} else {
-		putInt24($nc(b)->length);
-		$ByteArrayOutputStream::write(b, 0, $nc(b)->length);
+		putInt24(b->length);
+		$ByteArrayOutputStream::write(b, 0, b->length);
 	}
 }
 
 void HandshakeOutStream::checkOverflow(int32_t length, int32_t limit) {
 	$init(HandshakeOutStream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (length >= limit) {
 		$throwNew($RuntimeException, $$str({"Field length overflow, the field length ("_s, $$str(length), ") should be less than "_s, $$str(limit)}));
 	}
@@ -158,7 +123,36 @@ HandshakeOutStream::HandshakeOutStream() {
 }
 
 $Class* HandshakeOutStream::load$($String* name, bool initialize) {
-	$loadClass(HandshakeOutStream, name, initialize, &_HandshakeOutStream_ClassInfo_, allocate$HandshakeOutStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"outputRecord", "Lsun/security/ssl/OutputRecord;", nullptr, 0, $field(HandshakeOutStream, outputRecord)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/OutputRecord;)V", nullptr, 0, $method(HandshakeOutStream, init$, void, $OutputRecord*)},
+		{"checkOverflow", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HandshakeOutStream, checkOverflow, void, int32_t, int32_t)},
+		{"complete", "()V", nullptr, 0, $virtualMethod(HandshakeOutStream, complete, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(HandshakeOutStream, flush, void), "java.io.IOException"},
+		{"putBytes16", "([B)V", nullptr, $PUBLIC, $virtualMethod(HandshakeOutStream, putBytes16, void, $bytes*), "java.io.IOException"},
+		{"putBytes24", "([B)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putBytes24, void, $bytes*), "java.io.IOException"},
+		{"putBytes8", "([B)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putBytes8, void, $bytes*), "java.io.IOException"},
+		{"putInt16", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt16, void, int32_t), "java.io.IOException"},
+		{"putInt24", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt24, void, int32_t), "java.io.IOException"},
+		{"putInt32", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt32, void, int32_t), "java.io.IOException"},
+		{"putInt8", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt8, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeOutStream, write, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.ssl.HandshakeOutStream",
+		"java.io.ByteArrayOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HandshakeOutStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HandshakeOutStream));
+	});
 	return class$;
 }
 

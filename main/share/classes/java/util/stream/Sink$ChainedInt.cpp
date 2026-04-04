@@ -1,5 +1,4 @@
 #include <java/util/stream/Sink$ChainedInt.h>
-
 #include <java/util/Objects.h>
 #include <java/util/stream/Sink.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ using $Sink = ::java::util::stream::Sink;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Sink$ChainedInt_FieldInfo_[] = {
-	{"downstream", "Ljava/util/stream/Sink;", "Ljava/util/stream/Sink<-TE_OUT;>;", $PROTECTED | $FINAL, $field(Sink$ChainedInt, downstream)},
-	{}
-};
-
-$MethodInfo _Sink$ChainedInt_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-TE_OUT;>;)V", $PUBLIC, $method(Sink$ChainedInt, init$, void, $Sink*)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Sink$ChainedInt, begin, void, int64_t)},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(Sink$ChainedInt, cancellationRequested, bool)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Sink$ChainedInt, end, void)},
-	{}
-};
-
-$InnerClassInfo _Sink$ChainedInt_InnerClassesInfo_[] = {
-	{"java.util.stream.Sink$ChainedInt", "java.util.stream.Sink", "ChainedInt", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Sink$ChainedInt_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.stream.Sink$ChainedInt",
-	"java.lang.Object",
-	"java.util.stream.Sink$OfInt",
-	_Sink$ChainedInt_FieldInfo_,
-	_Sink$ChainedInt_MethodInfo_,
-	"<E_OUT:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/Sink$OfInt;",
-	nullptr,
-	_Sink$ChainedInt_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Sink"
-};
-
-$Object* allocate$Sink$ChainedInt($Class* clazz) {
-	return $of($alloc(Sink$ChainedInt));
-}
 
 void Sink$ChainedInt::init$($Sink* downstream) {
 	$set(this, downstream, $cast($Sink, $Objects::requireNonNull(downstream)));
@@ -74,7 +34,40 @@ Sink$ChainedInt::Sink$ChainedInt() {
 }
 
 $Class* Sink$ChainedInt::load$($String* name, bool initialize) {
-	$loadClass(Sink$ChainedInt, name, initialize, &_Sink$ChainedInt_ClassInfo_, allocate$Sink$ChainedInt);
+	$FieldInfo fieldInfos$$[] = {
+		{"downstream", "Ljava/util/stream/Sink;", "Ljava/util/stream/Sink<-TE_OUT;>;", $PROTECTED | $FINAL, $field(Sink$ChainedInt, downstream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-TE_OUT;>;)V", $PUBLIC, $method(Sink$ChainedInt, init$, void, $Sink*)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Sink$ChainedInt, begin, void, int64_t)},
+		{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(Sink$ChainedInt, cancellationRequested, bool)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Sink$ChainedInt, end, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Sink$ChainedInt", "java.util.stream.Sink", "ChainedInt", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.stream.Sink$ChainedInt",
+		"java.lang.Object",
+		"java.util.stream.Sink$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E_OUT:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/Sink$OfInt;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Sink"
+	};
+	$loadClass(Sink$ChainedInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Sink$ChainedInt));
+	});
 	return class$;
 }
 

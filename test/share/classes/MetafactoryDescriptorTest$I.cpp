@@ -1,38 +1,33 @@
 #include <MetafactoryDescriptorTest$I.h>
-
 #include <MetafactoryDescriptorTest.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 
-$InnerClassInfo _MetafactoryDescriptorTest$I_InnerClassesInfo_[] = {
-	{"MetafactoryDescriptorTest$I", "MetafactoryDescriptorTest", "I", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MetafactoryDescriptorTest$I_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"MetafactoryDescriptorTest$I",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_MetafactoryDescriptorTest$I_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MetafactoryDescriptorTest"
-};
-
-$Object* allocate$MetafactoryDescriptorTest$I($Class* clazz) {
-	return $of($alloc(MetafactoryDescriptorTest$I));
-}
-
 $Class* MetafactoryDescriptorTest$I::load$($String* name, bool initialize) {
-	$loadClass(MetafactoryDescriptorTest$I, name, initialize, &_MetafactoryDescriptorTest$I_ClassInfo_, allocate$MetafactoryDescriptorTest$I);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MetafactoryDescriptorTest$I", "MetafactoryDescriptorTest", "I", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"MetafactoryDescriptorTest$I",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MetafactoryDescriptorTest"
+	};
+	$loadClass(MetafactoryDescriptorTest$I, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetafactoryDescriptorTest$I);
+	});
 	return class$;
 }
 

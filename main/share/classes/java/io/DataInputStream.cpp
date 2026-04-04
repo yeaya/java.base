@@ -1,5 +1,4 @@
 #include <java/io/DataInputStream.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/EOFException.h>
 #include <java/io/FilterInputStream.h>
@@ -25,60 +24,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace io {
-
-$CompoundAttribute _DataInputStream_MethodAnnotations_readLine11[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _DataInputStream_FieldInfo_[] = {
-	{"bytearr", "[B", nullptr, $PRIVATE, $field(DataInputStream, bytearr)},
-	{"chararr", "[C", nullptr, $PRIVATE, $field(DataInputStream, chararr)},
-	{"readBuffer", "[B", nullptr, $PRIVATE, $field(DataInputStream, readBuffer)},
-	{"lineBuffer", "[C", nullptr, $PRIVATE, $field(DataInputStream, lineBuffer)},
-	{}
-};
-
-$MethodInfo _DataInputStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(DataInputStream, init$, void, $InputStream*)},
-	{"read", "([B)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readBoolean", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readBoolean, bool), "java.io.IOException"},
-	{"readByte", "()B", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readByte, int8_t), "java.io.IOException"},
-	{"readChar", "()C", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readChar, char16_t), "java.io.IOException"},
-	{"readDouble", "()D", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readDouble, double), "java.io.IOException"},
-	{"readFloat", "()F", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readFloat, float), "java.io.IOException"},
-	{"readFully", "([B)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readFully, void, $bytes*), "java.io.IOException"},
-	{"readFully", "([BII)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readInt", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readInt, int32_t), "java.io.IOException"},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(DataInputStream, readLine, $String*), "java.io.IOException", nullptr, _DataInputStream_MethodAnnotations_readLine11},
-	{"readLong", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readLong, int64_t), "java.io.IOException"},
-	{"readShort", "()S", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readShort, int16_t), "java.io.IOException"},
-	{"readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readUTF, $String*), "java.io.IOException"},
-	{"readUTF", "(Ljava/io/DataInput;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DataInputStream, readUTF, $String*, $DataInput*), "java.io.IOException"},
-	{"readUnsignedByte", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readUnsignedByte, int32_t), "java.io.IOException"},
-	{"readUnsignedShort", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readUnsignedShort, int32_t), "java.io.IOException"},
-	{"skipBytes", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, skipBytes, int32_t, int32_t), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DataInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.DataInputStream",
-	"java.io.FilterInputStream",
-	"java.io.DataInput",
-	_DataInputStream_FieldInfo_,
-	_DataInputStream_MethodInfo_
-};
-
-$Object* allocate$DataInputStream($Class* clazz) {
-	return $of($alloc(DataInputStream));
-}
 
 int32_t DataInputStream::hashCode() {
 	 return this->$FilterInputStream::hashCode();
@@ -204,7 +149,7 @@ int32_t DataInputStream::readInt() {
 
 int64_t DataInputStream::readLong() {
 	readFully(this->readBuffer, 0, 8);
-	return (((int64_t)$nc(this->readBuffer)->get(0) << 56) + ((int64_t)((int32_t)($nc(this->readBuffer)->get(1) & (uint32_t)255)) << 48) + ((int64_t)((int32_t)($nc(this->readBuffer)->get(2) & (uint32_t)255)) << 40) + ((int64_t)((int32_t)($nc(this->readBuffer)->get(3) & (uint32_t)255)) << 32) + ((int64_t)((int32_t)($nc(this->readBuffer)->get(4) & (uint32_t)255)) << 24) + (((int32_t)($nc(this->readBuffer)->get(5) & (uint32_t)255)) << 16) + (((int32_t)($nc(this->readBuffer)->get(6) & (uint32_t)255)) << 8) + (((int32_t)($nc(this->readBuffer)->get(7) & (uint32_t)255)) << 0));
+	return (((int64_t)$nc(this->readBuffer)->get(0) << 56) + ((int64_t)($nc(this->readBuffer)->get(1) & 0xff) << 48) + ((int64_t)($nc(this->readBuffer)->get(2) & 0xff) << 40) + ((int64_t)($nc(this->readBuffer)->get(3) & 0xff) << 32) + ((int64_t)($nc(this->readBuffer)->get(4) & 0xff) << 24) + (($nc(this->readBuffer)->get(5) & 0xff) << 16) + (($nc(this->readBuffer)->get(6) & 0xff) << 8) + (($nc(this->readBuffer)->get(7) & 0xff) << 0));
 }
 
 float DataInputStream::readFloat() {
@@ -218,51 +163,41 @@ double DataInputStream::readDouble() {
 $String* DataInputStream::readLine() {
 	$var($chars, buf, this->lineBuffer);
 	if (buf == nullptr) {
-		$assign(buf, ($set(this, lineBuffer, $new($chars, 128))));
+		$assign(buf, $set(this, lineBuffer, $new($chars, 128)));
 	}
 	int32_t room = $nc(buf)->length;
 	int32_t offset = 0;
 	int32_t c = 0;
 	bool loop$break = false;
 	while (true) {
-		{
-			int32_t c2 = 0;
-			switch (c = $nc(this->in)->read()) {
-			case -1:
-				{}
-			case u'\n':
-				{
-					loop$break = true;
-					break;
+		int32_t c2 = 0;
+		switch (c = $nc(this->in)->read()) {
+		case -1:
+		case u'\n':
+			loop$break = true;
+			break;
+		case u'\r':
+			c2 = $nc(this->in)->read();
+			if ((c2 != u'\n') && (c2 != -1)) {
+				if (!($instanceOf($PushbackInputStream, this->in))) {
+					$set(this, in, $new($PushbackInputStream, this->in));
 				}
-			case u'\r':
-				{
-					c2 = $nc(this->in)->read();
-					if ((c2 != u'\n') && (c2 != -1)) {
-						if (!($instanceOf($PushbackInputStream, this->in))) {
-							$set(this, in, $new($PushbackInputStream, this->in));
-						}
-						$nc(($cast($PushbackInputStream, this->in)))->unread(c2);
-					}
-					loop$break = true;
-					break;
-				}
-			default:
-				{
-					if (--room < 0) {
-						$assign(buf, $new($chars, offset + 128));
-						room = buf->length - offset - 1;
-						$System::arraycopy(this->lineBuffer, 0, buf, 0, offset);
-						$set(this, lineBuffer, buf);
-					}
-					buf->set(offset++, (char16_t)c);
-					break;
-				}
+				$nc($cast($PushbackInputStream, this->in))->unread(c2);
 			}
-
-			if (loop$break) {
-				break;
+			loop$break = true;
+			break;
+		default:
+			if (--room < 0) {
+				$assign(buf, $new($chars, offset + 128));
+				room = buf->length - offset - 1;
+				$System::arraycopy(this->lineBuffer, 0, buf, 0, offset);
+				$set(this, lineBuffer, buf);
 			}
+			buf->set(offset++, (char16_t)c);
+			break;
+		}
+		if (loop$break) {
+			break;
 		}
 	}
 	if ((c == -1) && (offset == 0)) {
@@ -277,7 +212,7 @@ $String* DataInputStream::readUTF() {
 
 $String* DataInputStream::readUTF($DataInput* in) {
 	$init(DataInputStream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t utflen = $nc(in)->readUnsignedShort();
 	$var($bytes, bytearr, nullptr);
 	$var($chars, chararr, nullptr);
@@ -293,7 +228,7 @@ $String* DataInputStream::readUTF($DataInput* in) {
 				$set(dis, bytearr, $new($bytes, utflen * 2));
 				$set(dis, chararr, $new($chars, utflen * 2));
 			}
-			$assign(chararr, $nc(dis)->chararr);
+			$assign(chararr, dis->chararr);
 			$assign(bytearr, dis->bytearr);
 		} else {
 			$assign(bytearr, $new($bytes, utflen));
@@ -307,7 +242,7 @@ $String* DataInputStream::readUTF($DataInput* in) {
 	int32_t chararr_count = 0;
 	in->readFully(bytearr, 0, utflen);
 	while (count < utflen) {
-		c = (int32_t)((int32_t)$nc(bytearr)->get(count) & (uint32_t)255);
+		c = (int32_t)$nc(bytearr)->get(count) & 0xff;
 		if (c > 127) {
 			break;
 		}
@@ -315,67 +250,51 @@ $String* DataInputStream::readUTF($DataInput* in) {
 		$nc(chararr)->set(chararr_count++, (char16_t)c);
 	}
 	while (count < utflen) {
-		c = (int32_t)((int32_t)$nc(bytearr)->get(count) & (uint32_t)255);
+		c = (int32_t)$nc(bytearr)->get(count) & 0xff;
 		switch (c >> 4) {
 		case 0:
-			{}
 		case 1:
-			{}
 		case 2:
-			{}
 		case 3:
-			{}
 		case 4:
-			{}
 		case 5:
-			{}
 		case 6:
-			{}
 		case 7:
 			{
-				{
-					++count;
-					$nc(chararr)->set(chararr_count++, (char16_t)c);
-				}
-				break;
+				++count;
+				$nc(chararr)->set(chararr_count++, (char16_t)c);
 			}
+			break;
 		case 12:
-			{}
 		case 13:
 			{
-				{
-					count += 2;
-					if (count > utflen) {
-						$throwNew($UTFDataFormatException, "malformed input: partial character at end"_s);
-					}
-					char2 = (int32_t)bytearr->get(count - 1);
-					if (((int32_t)(char2 & (uint32_t)192)) != 128) {
-						$throwNew($UTFDataFormatException, $$str({"malformed input around byte "_s, $$str(count)}));
-					}
-					$nc(chararr)->set(chararr_count++, (char16_t)((((int32_t)(c & (uint32_t)31)) << 6) | ((int32_t)(char2 & (uint32_t)63))));
+				count += 2;
+				if (count > utflen) {
+					$throwNew($UTFDataFormatException, "malformed input: partial character at end"_s);
 				}
-				break;
+				char2 = (int32_t)bytearr->get(count - 1);
+				if ((char2 & 0xc0) != 0x80) {
+					$throwNew($UTFDataFormatException, $$str({"malformed input around byte "_s, $$str(count)}));
+				}
+				$nc(chararr)->set(chararr_count++, (char16_t)(((c & 0x1f) << 6) | (char2 & 0x3f)));
 			}
+			break;
 		case 14:
 			{
-				{
-					count += 3;
-					if (count > utflen) {
-						$throwNew($UTFDataFormatException, "malformed input: partial character at end"_s);
-					}
-					char2 = (int32_t)bytearr->get(count - 2);
-					char3 = (int32_t)bytearr->get(count - 1);
-					if ((((int32_t)(char2 & (uint32_t)192)) != 128) || (((int32_t)(char3 & (uint32_t)192)) != 128)) {
-						$throwNew($UTFDataFormatException, $$str({"malformed input around byte "_s, $$str((count - 1))}));
-					}
-					$nc(chararr)->set(chararr_count++, (char16_t)(((((int32_t)(c & (uint32_t)15)) << 12) | (((int32_t)(char2 & (uint32_t)63)) << 6)) | (((int32_t)(char3 & (uint32_t)63)) << 0)));
+				count += 3;
+				if (count > utflen) {
+					$throwNew($UTFDataFormatException, "malformed input: partial character at end"_s);
 				}
-				break;
+				char2 = (int32_t)bytearr->get(count - 2);
+				char3 = (int32_t)bytearr->get(count - 1);
+				if (((char2 & 0xc0) != 0x80) || ((char3 & 0xc0) != 0x80)) {
+					$throwNew($UTFDataFormatException, $$str({"malformed input around byte "_s, $$str((count - 1))}));
+				}
+				$nc(chararr)->set(chararr_count++, (char16_t)((((c & 0x0f) << 12) | ((char2 & 0x3f) << 6)) | ((char3 & 0x3f) << 0)));
 			}
+			break;
 		default:
-			{
-				$throwNew($UTFDataFormatException, $$str({"malformed input around byte "_s, $$str(count)}));
-			}
+			$throwNew($UTFDataFormatException, $$str({"malformed input around byte "_s, $$str(count)}));
 		}
 	}
 	return $new($String, chararr, 0, chararr_count);
@@ -385,7 +304,55 @@ DataInputStream::DataInputStream() {
 }
 
 $Class* DataInputStream::load$($String* name, bool initialize) {
-	$loadClass(DataInputStream, name, initialize, &_DataInputStream_ClassInfo_, allocate$DataInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"bytearr", "[B", nullptr, $PRIVATE, $field(DataInputStream, bytearr)},
+		{"chararr", "[C", nullptr, $PRIVATE, $field(DataInputStream, chararr)},
+		{"readBuffer", "[B", nullptr, $PRIVATE, $field(DataInputStream, readBuffer)},
+		{"lineBuffer", "[C", nullptr, $PRIVATE, $field(DataInputStream, lineBuffer)},
+		{}
+	};
+	$CompoundAttribute readLinemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(DataInputStream, init$, void, $InputStream*)},
+		{"read", "([B)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readBoolean", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readBoolean, bool), "java.io.IOException"},
+		{"readByte", "()B", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readByte, int8_t), "java.io.IOException"},
+		{"readChar", "()C", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readChar, char16_t), "java.io.IOException"},
+		{"readDouble", "()D", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readDouble, double), "java.io.IOException"},
+		{"readFloat", "()F", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readFloat, float), "java.io.IOException"},
+		{"readFully", "([B)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readFully, void, $bytes*), "java.io.IOException"},
+		{"readFully", "([BII)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readInt", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readInt, int32_t), "java.io.IOException"},
+		{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $virtualMethod(DataInputStream, readLine, $String*), "java.io.IOException", nullptr, readLinemethodAnnotations$$},
+		{"readLong", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readLong, int64_t), "java.io.IOException"},
+		{"readShort", "()S", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readShort, int16_t), "java.io.IOException"},
+		{"readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readUTF, $String*), "java.io.IOException"},
+		{"readUTF", "(Ljava/io/DataInput;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DataInputStream, readUTF, $String*, $DataInput*), "java.io.IOException"},
+		{"readUnsignedByte", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readUnsignedByte, int32_t), "java.io.IOException"},
+		{"readUnsignedShort", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, readUnsignedShort, int32_t), "java.io.IOException"},
+		{"skipBytes", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataInputStream, skipBytes, int32_t, int32_t), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.DataInputStream",
+		"java.io.FilterInputStream",
+		"java.io.DataInput",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DataInputStream));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLSessionContextImpl.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Locale.h>
@@ -11,7 +10,6 @@
 #include <sun/security/ssl/SSLSessionContextImpl$SessionCacheVisitor.h>
 #include <sun/security/ssl/SSLSessionImpl.h>
 #include <sun/security/ssl/SessionId.h>
-#include <sun/security/util/Cache$CacheVisitor.h>
 #include <sun/security/util/Cache.h>
 #include <jcpp.h>
 
@@ -40,66 +38,10 @@ using $SSLSessionContextImpl$SessionCacheVisitor = ::sun::security::ssl::SSLSess
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $SessionId = ::sun::security::ssl::SessionId;
 using $Cache = ::sun::security::util::Cache;
-using $Cache$CacheVisitor = ::sun::security::util::Cache$CacheVisitor;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLSessionContextImpl_FieldInfo_[] = {
-	{"DEFAULT_MAX_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLSessionContextImpl, DEFAULT_MAX_CACHE_SIZE)},
-	{"DEFAULT_SESSION_TIMEOUT", "I", nullptr, $STATIC | $FINAL, $constField(SSLSessionContextImpl, DEFAULT_SESSION_TIMEOUT)},
-	{"sessionCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Lsun/security/ssl/SessionId;Lsun/security/ssl/SSLSessionImpl;>;", $PRIVATE | $FINAL, $field(SSLSessionContextImpl, sessionCache)},
-	{"sessionHostPortCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Ljava/lang/String;Lsun/security/ssl/SSLSessionImpl;>;", $PRIVATE | $FINAL, $field(SSLSessionContextImpl, sessionHostPortCache)},
-	{"cacheLimit", "I", nullptr, $PRIVATE, $field(SSLSessionContextImpl, cacheLimit)},
-	{"timeout", "I", nullptr, $PRIVATE, $field(SSLSessionContextImpl, timeout)},
-	{"statelessSession", "Z", nullptr, $PRIVATE, $field(SSLSessionContextImpl, statelessSession)},
-	{}
-};
-
-$MethodInfo _SSLSessionContextImpl_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(SSLSessionContextImpl, init$, void, bool)},
-	{"get", "([B)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(SSLSessionContextImpl, get, $SSLSessionImpl*, $bytes*)},
-	{"get", "(Ljava/lang/String;I)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(SSLSessionContextImpl, get, $SSLSessionImpl*, $String*, int32_t)},
-	{"getDefaults", "(Z)I", nullptr, $PRIVATE, $method(SSLSessionContextImpl, getDefaults, int32_t, bool)},
-	{"getIds", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<[B>;", $PUBLIC, $virtualMethod(SSLSessionContextImpl, getIds, $Enumeration*)},
-	{"getKey", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLSessionContextImpl, getKey, $String*, $String*, int32_t)},
-	{"getSession", "([B)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, getSession, $SSLSession*, $bytes*)},
-	{"getSessionCacheSize", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, getSessionCacheSize, int32_t)},
-	{"getSessionTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, getSessionTimeout, int32_t)},
-	{"isTimedout", "(Ljavax/net/ssl/SSLSession;)Z", nullptr, $PRIVATE, $method(SSLSessionContextImpl, isTimedout, bool, $SSLSession*)},
-	{"pull", "([B)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(SSLSessionContextImpl, pull, $SSLSessionImpl*, $bytes*)},
-	{"put", "(Lsun/security/ssl/SSLSessionImpl;)V", nullptr, 0, $method(SSLSessionContextImpl, put, void, $SSLSessionImpl*)},
-	{"remove", "(Lsun/security/ssl/SessionId;)V", nullptr, 0, $method(SSLSessionContextImpl, remove, void, $SessionId*)},
-	{"setSessionCacheSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, setSessionCacheSize, void, int32_t), "java.lang.IllegalArgumentException"},
-	{"setSessionTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, setSessionTimeout, void, int32_t), "java.lang.IllegalArgumentException"},
-	{"statelessEnabled", "()Z", nullptr, 0, $method(SSLSessionContextImpl, statelessEnabled, bool)},
-	{}
-};
-
-$InnerClassInfo _SSLSessionContextImpl_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLSessionContextImpl$SessionCacheVisitor", "sun.security.ssl.SSLSessionContextImpl", "SessionCacheVisitor", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLSessionContextImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLSessionContextImpl",
-	"java.lang.Object",
-	"javax.net.ssl.SSLSessionContext",
-	_SSLSessionContextImpl_FieldInfo_,
-	_SSLSessionContextImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLSessionContextImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLSessionContextImpl$SessionCacheVisitor"
-};
-
-$Object* allocate$SSLSessionContextImpl($Class* clazz) {
-	return $of($alloc(SSLSessionContextImpl));
-}
 
 void SSLSessionContextImpl::init$(bool server) {
 	this->statelessSession = true;
@@ -114,7 +56,7 @@ bool SSLSessionContextImpl::statelessEnabled() {
 }
 
 $SSLSession* SSLSessionContextImpl::getSession($bytes* sessionId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (sessionId == nullptr) {
 		$throwNew($NullPointerException, "session id cannot be null"_s);
 	}
@@ -173,7 +115,7 @@ $SSLSessionImpl* SSLSessionContextImpl::pull($bytes* id) {
 }
 
 $SSLSessionImpl* SSLSessionContextImpl::get($String* hostname, int32_t port) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hostname == nullptr && port == -1) {
 		return nullptr;
 	}
@@ -186,34 +128,34 @@ $SSLSessionImpl* SSLSessionContextImpl::get($String* hostname, int32_t port) {
 
 $String* SSLSessionContextImpl::getKey($String* hostname, int32_t port) {
 	$init(SSLSessionContextImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	return $nc(($$str({hostname, ":"_s, $$str(port)})))->toLowerCase($Locale::ENGLISH);
 }
 
 void SSLSessionContextImpl::put($SSLSessionImpl* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->sessionCache)->put($($nc(s)->getSessionId()), s);
-	bool var$0 = ($nc(s)->getPeerHost() != nullptr);
+	bool var$0 = s->getPeerHost() != nullptr;
 	if (var$0 && (s->getPeerPort() != -1)) {
 		$var($String, var$1, s->getPeerHost());
 		$nc(this->sessionHostPortCache)->put($(getKey(var$1, s->getPeerPort())), s);
 	}
-	$nc(s)->setContext(this);
+	s->setContext(this);
 }
 
 void SSLSessionContextImpl::remove($SessionId* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLSessionImpl, s, $cast($SSLSessionImpl, $nc(this->sessionCache)->get(key)));
 	if (s != nullptr) {
-		$nc(this->sessionCache)->remove(key);
+		this->sessionCache->remove(key);
 		$var($String, var$0, s->getPeerHost());
 		$nc(this->sessionHostPortCache)->remove($(getKey(var$0, s->getPeerPort())));
 	}
 }
 
 int32_t SSLSessionContextImpl::getDefaults(bool server) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, st, nullptr);
 		if (server) {
@@ -245,7 +187,7 @@ int32_t SSLSessionContextImpl::getDefaults(bool server) {
 				}
 			}
 		}
-		int32_t defaultCacheLimit = $nc($($GetIntegerAction::privilegedGetProperty("javax.net.ssl.sessionCacheSize"_s, SSLSessionContextImpl::DEFAULT_MAX_CACHE_SIZE)))->intValue();
+		int32_t defaultCacheLimit = $$nc($GetIntegerAction::privilegedGetProperty("javax.net.ssl.sessionCacheSize"_s, SSLSessionContextImpl::DEFAULT_MAX_CACHE_SIZE))->intValue();
 		if (defaultCacheLimit >= 0) {
 			return defaultCacheLimit;
 		} else {
@@ -267,13 +209,13 @@ bool SSLSessionContextImpl::isTimedout($SSLSession* sess) {
 	if (this->timeout == 0) {
 		return false;
 	}
-	bool var$0 = (sess != nullptr);
+	bool var$0 = sess != nullptr;
 	if (var$0) {
-		int64_t var$1 = (sess->getCreationTime() + this->timeout * (int64_t)1000);
-		var$0 = (var$1 <= ($System::currentTimeMillis()));
+		int64_t var$1 = sess->getCreationTime() + this->timeout * (int64_t)1000;
+		var$0 = var$1 <= ($System::currentTimeMillis());
 	}
 	if (var$0) {
-		sess->invalidate();
+		$nc(sess)->invalidate();
 		return true;
 	}
 	return false;
@@ -283,7 +225,56 @@ SSLSessionContextImpl::SSLSessionContextImpl() {
 }
 
 $Class* SSLSessionContextImpl::load$($String* name, bool initialize) {
-	$loadClass(SSLSessionContextImpl, name, initialize, &_SSLSessionContextImpl_ClassInfo_, allocate$SSLSessionContextImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_MAX_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLSessionContextImpl, DEFAULT_MAX_CACHE_SIZE)},
+		{"DEFAULT_SESSION_TIMEOUT", "I", nullptr, $STATIC | $FINAL, $constField(SSLSessionContextImpl, DEFAULT_SESSION_TIMEOUT)},
+		{"sessionCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Lsun/security/ssl/SessionId;Lsun/security/ssl/SSLSessionImpl;>;", $PRIVATE | $FINAL, $field(SSLSessionContextImpl, sessionCache)},
+		{"sessionHostPortCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Ljava/lang/String;Lsun/security/ssl/SSLSessionImpl;>;", $PRIVATE | $FINAL, $field(SSLSessionContextImpl, sessionHostPortCache)},
+		{"cacheLimit", "I", nullptr, $PRIVATE, $field(SSLSessionContextImpl, cacheLimit)},
+		{"timeout", "I", nullptr, $PRIVATE, $field(SSLSessionContextImpl, timeout)},
+		{"statelessSession", "Z", nullptr, $PRIVATE, $field(SSLSessionContextImpl, statelessSession)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, 0, $method(SSLSessionContextImpl, init$, void, bool)},
+		{"get", "([B)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(SSLSessionContextImpl, get, $SSLSessionImpl*, $bytes*)},
+		{"get", "(Ljava/lang/String;I)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(SSLSessionContextImpl, get, $SSLSessionImpl*, $String*, int32_t)},
+		{"getDefaults", "(Z)I", nullptr, $PRIVATE, $method(SSLSessionContextImpl, getDefaults, int32_t, bool)},
+		{"getIds", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<[B>;", $PUBLIC, $virtualMethod(SSLSessionContextImpl, getIds, $Enumeration*)},
+		{"getKey", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLSessionContextImpl, getKey, $String*, $String*, int32_t)},
+		{"getSession", "([B)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, getSession, $SSLSession*, $bytes*)},
+		{"getSessionCacheSize", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, getSessionCacheSize, int32_t)},
+		{"getSessionTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, getSessionTimeout, int32_t)},
+		{"isTimedout", "(Ljavax/net/ssl/SSLSession;)Z", nullptr, $PRIVATE, $method(SSLSessionContextImpl, isTimedout, bool, $SSLSession*)},
+		{"pull", "([B)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(SSLSessionContextImpl, pull, $SSLSessionImpl*, $bytes*)},
+		{"put", "(Lsun/security/ssl/SSLSessionImpl;)V", nullptr, 0, $method(SSLSessionContextImpl, put, void, $SSLSessionImpl*)},
+		{"remove", "(Lsun/security/ssl/SessionId;)V", nullptr, 0, $method(SSLSessionContextImpl, remove, void, $SessionId*)},
+		{"setSessionCacheSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, setSessionCacheSize, void, int32_t), "java.lang.IllegalArgumentException"},
+		{"setSessionTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, setSessionTimeout, void, int32_t), "java.lang.IllegalArgumentException"},
+		{"statelessEnabled", "()Z", nullptr, 0, $method(SSLSessionContextImpl, statelessEnabled, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLSessionContextImpl$SessionCacheVisitor", "sun.security.ssl.SSLSessionContextImpl", "SessionCacheVisitor", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLSessionContextImpl",
+		"java.lang.Object",
+		"javax.net.ssl.SSLSessionContext",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLSessionContextImpl$SessionCacheVisitor"
+	};
+	$loadClass(SSLSessionContextImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLSessionContextImpl);
+	});
 	return class$;
 }
 

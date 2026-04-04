@@ -1,10 +1,8 @@
 #include <java/time/chrono/ChronoLocalDateTimeImpl.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutput.h>
-#include <java/io/Serializable.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Math.h>
 #include <java/time/LocalTime.h>
@@ -21,7 +19,6 @@
 #include <java/time/temporal/ChronoField.h>
 #include <java/time/temporal/ChronoUnit.h>
 #include <java/time/temporal/Temporal.h>
-#include <java/time/temporal/TemporalAccessor.h>
 #include <java/time/temporal/TemporalAdjuster.h>
 #include <java/time/temporal/TemporalField.h>
 #include <java/time/temporal/TemporalUnit.h>
@@ -49,7 +46,6 @@ using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutput = ::java::io::ObjectOutput;
-using $Serializable = ::java::io::Serializable;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -70,7 +66,6 @@ using $Ser = ::java::time::chrono::Ser;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $Temporal = ::java::time::temporal::Temporal;
-using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalAdjuster = ::java::time::temporal::TemporalAdjuster;
 using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
@@ -80,83 +75,6 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace time {
 		namespace chrono {
-
-$FieldInfo _ChronoLocalDateTimeImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, serialVersionUID)},
-	{"HOURS_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, HOURS_PER_DAY)},
-	{"MINUTES_PER_HOUR", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, MINUTES_PER_HOUR)},
-	{"MINUTES_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, MINUTES_PER_DAY)},
-	{"SECONDS_PER_MINUTE", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, SECONDS_PER_MINUTE)},
-	{"SECONDS_PER_HOUR", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, SECONDS_PER_HOUR)},
-	{"SECONDS_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, SECONDS_PER_DAY)},
-	{"MILLIS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, MILLIS_PER_DAY)},
-	{"MICROS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, MICROS_PER_DAY)},
-	{"NANOS_PER_SECOND", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, NANOS_PER_SECOND)},
-	{"NANOS_PER_MINUTE", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, NANOS_PER_MINUTE)},
-	{"NANOS_PER_HOUR", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, NANOS_PER_HOUR)},
-	{"NANOS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, NANOS_PER_DAY)},
-	{"date", "Ljava/time/chrono/ChronoLocalDate;", "TD;", $PRIVATE | $FINAL | $TRANSIENT, $field(ChronoLocalDateTimeImpl, date)},
-	{"time", "Ljava/time/LocalTime;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(ChronoLocalDateTimeImpl, time)},
-	{}
-};
-
-$MethodInfo _ChronoLocalDateTimeImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/time/chrono/ChronoLocalDate;Ljava/time/LocalTime;)V", "(TD;Ljava/time/LocalTime;)V", $PRIVATE, $method(ChronoLocalDateTimeImpl, init$, void, $ChronoLocalDate*, $LocalTime*)},
-	{"atZone", "(Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime<TD;>;", $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, atZone, $ChronoZonedDateTime*, $ZoneId*)},
-	{"ensureValid", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/Temporal;)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "<R::Ljava/time/chrono/ChronoLocalDate;>(Ljava/time/chrono/Chronology;Ljava/time/temporal/Temporal;)Ljava/time/chrono/ChronoLocalDateTimeImpl<TR;>;", $STATIC, $staticMethod(ChronoLocalDateTimeImpl, ensureValid, ChronoLocalDateTimeImpl*, $Chronology*, $Temporal*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, equals, bool, Object$*)},
-	{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, get, int32_t, $TemporalField*)},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, getLong, int64_t, $TemporalField*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, hashCode, int32_t)},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, isSupported, bool, $TemporalField*)},
-	{"of", "(Ljava/time/chrono/ChronoLocalDate;Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "<R::Ljava/time/chrono/ChronoLocalDate;>(TR;Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTimeImpl<TR;>;", $STATIC, $staticMethod(ChronoLocalDateTimeImpl, of, ChronoLocalDateTimeImpl*, $ChronoLocalDate*, $LocalTime*)},
-	{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, plus, ChronoLocalDateTimeImpl*, int64_t, $TemporalUnit*)},
-	{"plusDays", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, plusDays, ChronoLocalDateTimeImpl*, int64_t)},
-	{"plusHours", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, plusHours, ChronoLocalDateTimeImpl*, int64_t)},
-	{"plusMinutes", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, plusMinutes, ChronoLocalDateTimeImpl*, int64_t)},
-	{"plusNanos", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, plusNanos, ChronoLocalDateTimeImpl*, int64_t)},
-	{"plusSeconds", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", 0, $method(ChronoLocalDateTimeImpl, plusSeconds, ChronoLocalDateTimeImpl*, int64_t)},
-	{"plusWithOverflow", "(Ljava/time/chrono/ChronoLocalDate;JJJJ)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(TD;JJJJ)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, plusWithOverflow, ChronoLocalDateTimeImpl*, $ChronoLocalDate*, int64_t, int64_t, int64_t, int64_t)},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, range, $ValueRange*, $TemporalField*)},
-	{"readExternal", "(Ljava/io/ObjectInput;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/io/ObjectInput;)Ljava/time/chrono/ChronoLocalDateTime<*>;", $STATIC, $staticMethod(ChronoLocalDateTimeImpl, readExternal, $ChronoLocalDateTime*, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ChronoLocalDateTimeImpl, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"toLocalDate", "()Ljava/time/chrono/ChronoLocalDate;", "()TD;", $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, toLocalDate, $ChronoLocalDate*)},
-	{"toLocalTime", "()Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, toLocalTime, $LocalTime*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, toString, $String*)},
-	{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, until, int64_t, $Temporal*, $TemporalUnit*)},
-	{"with", "(Ljava/time/temporal/Temporal;Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(Ljava/time/temporal/Temporal;Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, with, ChronoLocalDateTimeImpl*, $Temporal*, $LocalTime*)},
-	{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, with, ChronoLocalDateTimeImpl*, $TemporalAdjuster*)},
-	{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(Ljava/time/temporal/TemporalField;J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, with, ChronoLocalDateTimeImpl*, $TemporalField*, int64_t)},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, 0, $method(ChronoLocalDateTimeImpl, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ChronoLocalDateTimeImpl, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _ChronoLocalDateTimeImpl_InnerClassesInfo_[] = {
-	{"java.time.chrono.ChronoLocalDateTimeImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ChronoLocalDateTimeImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.chrono.ChronoLocalDateTimeImpl",
-	"java.lang.Object",
-	"java.time.chrono.ChronoLocalDateTime,java.io.Serializable",
-	_ChronoLocalDateTimeImpl_FieldInfo_,
-	_ChronoLocalDateTimeImpl_MethodInfo_,
-	"<D::Ljava/time/chrono/ChronoLocalDate;>Ljava/lang/Object;Ljava/time/chrono/ChronoLocalDateTime<TD;>;Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalAdjuster;Ljava/io/Serializable;",
-	nullptr,
-	_ChronoLocalDateTimeImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.time.chrono.ChronoLocalDateTimeImpl$1"
-};
-
-$Object* allocate$ChronoLocalDateTimeImpl($Class* clazz) {
-	return $of($alloc(ChronoLocalDateTimeImpl));
-}
 
 $Object* ChronoLocalDateTimeImpl::clone() {
 	 return this->$ChronoLocalDateTime::clone();
@@ -173,24 +91,28 @@ ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::of($ChronoLocalDate* date, $Lo
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::ensureValid($Chronology* chrono, $Temporal* temporal) {
 	$init(ChronoLocalDateTimeImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(ChronoLocalDateTimeImpl, other, $cast(ChronoLocalDateTimeImpl, temporal));
 	if ($nc(chrono)->equals($($nc(other)->getChronology())) == false) {
-		$var($String, var$0, $$str({"Chronology mismatch, required: "_s, $(chrono->getId()), ", actual: "_s}));
-		$throwNew($ClassCastException, $$concat(var$0, $($nc($($nc(other)->getChronology()))->getId())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Chronology mismatch, required: "_s);
+		var$0->append($(chrono->getId()));
+		var$0->append(", actual: "_s);
+		var$0->append($($$nc(other->getChronology())->getId()));
+		$throwNew($ClassCastException, $$str(var$0));
 	}
 	return other;
 }
 
 void ChronoLocalDateTimeImpl::init$($ChronoLocalDate* date, $LocalTime* time) {
-	$Objects::requireNonNull($of(date), "date"_s);
-	$Objects::requireNonNull($of(time), "time"_s);
+	$Objects::requireNonNull(date, "date"_s);
+	$Objects::requireNonNull(time, "time"_s);
 	$set(this, date, date);
 	$set(this, time, time);
 }
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::with($Temporal* newDate, $LocalTime* newTime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this->date, newDate) && this->time == newTime) {
 		return this;
 	}
@@ -216,7 +138,7 @@ bool ChronoLocalDateTimeImpl::isSupported($TemporalField* field) {
 		}
 		if (var$0) {
 			bool var$1 = $nc(chronoField)->isDateBased();
-			return var$1 || $nc(chronoField)->isTimeBased();
+			return var$1 || chronoField->isTimeBased();
 		}
 	}
 	return field != nullptr && field->isSupportedBy(this);
@@ -249,7 +171,7 @@ int32_t ChronoLocalDateTimeImpl::get($TemporalField* field) {
 			return ($nc(chronoField)->isTimeBased() ? $nc(this->time)->get(field) : $nc(this->date)->get(field));
 		}
 	}
-	return $nc($(range(field)))->checkValidIntValue(getLong(field), field);
+	return $$nc(range(field))->checkValidIntValue(getLong(field), field);
 }
 
 int64_t ChronoLocalDateTimeImpl::getLong($TemporalField* field) {
@@ -268,20 +190,20 @@ int64_t ChronoLocalDateTimeImpl::getLong($TemporalField* field) {
 }
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::with($TemporalAdjuster* adjuster) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ChronoLocalDate, adjuster)) {
 		return with($cast($ChronoLocalDate, adjuster), this->time);
 	} else if ($instanceOf($LocalTime, adjuster)) {
-		return with(static_cast<$Temporal*>(this->date), $cast($LocalTime, adjuster));
+		return with(this->date, $cast($LocalTime, adjuster));
 	} else if ($instanceOf(ChronoLocalDateTimeImpl, adjuster)) {
 		return ChronoLocalDateTimeImpl::ensureValid($($nc(this->date)->getChronology()), $cast(ChronoLocalDateTimeImpl, adjuster));
 	}
 	$var($Chronology, var$0, $nc(this->date)->getChronology());
-	return ChronoLocalDateTimeImpl::ensureValid(var$0, $cast(ChronoLocalDateTimeImpl, $($nc(adjuster)->adjustInto(this))));
+	return ChronoLocalDateTimeImpl::ensureValid(var$0, $$cast(ChronoLocalDateTimeImpl, $nc(adjuster)->adjustInto(this)));
 }
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::with($TemporalField* field, int64_t newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -291,9 +213,9 @@ ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::with($TemporalField* field, in
 		}
 		if (var$0) {
 			if ($nc(chronoField)->isTimeBased()) {
-				return with(static_cast<$Temporal*>(this->date), $($nc(this->time)->with(field, newValue)));
+				return with(this->date, $($nc(this->time)->with(field, newValue)));
 			} else {
-				return with($(static_cast<$Temporal*>($nc(this->date)->with(field, newValue))), this->time);
+				return with($($nc(this->date)->with(field, newValue)), this->time);
 			}
 		}
 	}
@@ -302,7 +224,7 @@ ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::with($TemporalField* field, in
 }
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::plus(int64_t amountToAdd, $TemporalUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$ChronoUnit* chronoUnit = nullptr;
 		bool var$0 = $instanceOf($ChronoUnit, unit);
@@ -314,35 +236,21 @@ ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::plus(int64_t amountToAdd, $Tem
 			$init($ChronoLocalDateTimeImpl$1);
 			switch ($nc($ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc((chronoUnit))->ordinal())) {
 			case 1:
-				{
-					return plusNanos(amountToAdd);
-				}
+				return plusNanos(amountToAdd);
 			case 2:
-				{
-					return $nc($(plusDays($div(amountToAdd, ChronoLocalDateTimeImpl::MICROS_PER_DAY))))->plusNanos(($mod(amountToAdd, ChronoLocalDateTimeImpl::MICROS_PER_DAY)) * 1000);
-				}
+				return $$nc(plusDays($div(amountToAdd, ChronoLocalDateTimeImpl::MICROS_PER_DAY)))->plusNanos(($mod(amountToAdd, ChronoLocalDateTimeImpl::MICROS_PER_DAY)) * 1000);
 			case 3:
-				{
-					return $nc($(plusDays($div(amountToAdd, ChronoLocalDateTimeImpl::MILLIS_PER_DAY))))->plusNanos(($mod(amountToAdd, ChronoLocalDateTimeImpl::MILLIS_PER_DAY)) * 0x000F4240);
-				}
+				return $$nc(plusDays($div(amountToAdd, ChronoLocalDateTimeImpl::MILLIS_PER_DAY)))->plusNanos(($mod(amountToAdd, ChronoLocalDateTimeImpl::MILLIS_PER_DAY)) * 1000000);
 			case 4:
-				{
-					return plusSeconds(amountToAdd);
-				}
+				return plusSeconds(amountToAdd);
 			case 5:
-				{
-					return plusMinutes(amountToAdd);
-				}
+				return plusMinutes(amountToAdd);
 			case 6:
-				{
-					return plusHours(amountToAdd);
-				}
+				return plusHours(amountToAdd);
 			case 7:
-				{
-					return $nc($(plusDays(amountToAdd / 256)))->plusHours((amountToAdd % 256) * 12);
-				}
+				return $$nc(plusDays(amountToAdd / 256))->plusHours((amountToAdd % 256) * 12);
 			}
-			return with($(static_cast<$Temporal*>($nc(this->date)->plus(amountToAdd, unit))), this->time);
+			return with($($nc(this->date)->plus(amountToAdd, unit)), this->time);
 		}
 	}
 	$var($Chronology, var$1, $nc(this->date)->getChronology());
@@ -351,7 +259,7 @@ ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::plus(int64_t amountToAdd, $Tem
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::plusDays(int64_t days) {
 	$init($ChronoUnit);
-	return with($(static_cast<$Temporal*>($nc(this->date)->plus(days, $ChronoUnit::DAYS))), this->time);
+	return with($($nc(this->date)->plus(days, $ChronoUnit::DAYS)), this->time);
 }
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::plusHours(int64_t hours) {
@@ -371,9 +279,9 @@ ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::plusNanos(int64_t nanos) {
 }
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::plusWithOverflow($ChronoLocalDate* newDate, int64_t hours, int64_t minutes, int64_t seconds, int64_t nanos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((((hours | minutes) | seconds) | nanos) == 0) {
-		return with(static_cast<$Temporal*>(newDate), this->time);
+		return with(newDate, this->time);
 	}
 	int64_t totDays = $div(nanos, ChronoLocalDateTimeImpl::NANOS_PER_DAY) + $div(seconds, ChronoLocalDateTimeImpl::SECONDS_PER_DAY) + $div(minutes, ChronoLocalDateTimeImpl::MINUTES_PER_DAY) + $div(hours, ChronoLocalDateTimeImpl::HOURS_PER_DAY);
 	int64_t totNanos = $mod(nanos, ChronoLocalDateTimeImpl::NANOS_PER_DAY) + ($mod(seconds, ChronoLocalDateTimeImpl::SECONDS_PER_DAY)) * ChronoLocalDateTimeImpl::NANOS_PER_SECOND + ($mod(minutes, ChronoLocalDateTimeImpl::MINUTES_PER_DAY)) * ChronoLocalDateTimeImpl::NANOS_PER_MINUTE + ($mod(hours, ChronoLocalDateTimeImpl::HOURS_PER_DAY)) * ChronoLocalDateTimeImpl::NANOS_PER_HOUR;
@@ -383,7 +291,7 @@ ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::plusWithOverflow($ChronoLocalD
 	int64_t newNoD = $Math::floorMod(totNanos, ChronoLocalDateTimeImpl::NANOS_PER_DAY);
 	$var($LocalTime, newTime, newNoD == curNoD ? this->time : $LocalTime::ofNanoOfDay(newNoD));
 	$init($ChronoUnit);
-	return with($(static_cast<$Temporal*>($nc(newDate)->plus(totDays, $ChronoUnit::DAYS))), newTime);
+	return with($($nc(newDate)->plus(totDays, $ChronoUnit::DAYS)), newTime);
 }
 
 $ChronoZonedDateTime* ChronoLocalDateTimeImpl::atZone($ZoneId* zone) {
@@ -391,9 +299,9 @@ $ChronoZonedDateTime* ChronoLocalDateTimeImpl::atZone($ZoneId* zone) {
 }
 
 int64_t ChronoLocalDateTimeImpl::until($Temporal* endExclusive, $TemporalUnit* unit) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(endExclusive), "endExclusive"_s);
-	$var($ChronoLocalDateTime, end, $nc($(getChronology()))->localDateTime(endExclusive));
+	$useLocalObjectStack();
+	$Objects::requireNonNull(endExclusive, "endExclusive"_s);
+	$var($ChronoLocalDateTime, end, $$nc(getChronology())->localDateTime(endExclusive));
 	{
 		$ChronoUnit* chronoUnit = nullptr;
 		bool var$0 = $instanceOf($ChronoUnit, unit);
@@ -409,57 +317,43 @@ int64_t ChronoLocalDateTimeImpl::until($Temporal* endExclusive, $TemporalUnit* u
 				$init($ChronoLocalDateTimeImpl$1);
 				switch ($nc($ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc((chronoUnit))->ordinal())) {
 				case 1:
-					{
-						amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::NANOS_PER_DAY);
-						break;
-					}
+					amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::NANOS_PER_DAY);
+					break;
 				case 2:
-					{
-						amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::MICROS_PER_DAY);
-						break;
-					}
+					amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::MICROS_PER_DAY);
+					break;
 				case 3:
-					{
-						amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::MILLIS_PER_DAY);
-						break;
-					}
+					amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::MILLIS_PER_DAY);
+					break;
 				case 4:
-					{
-						amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::SECONDS_PER_DAY);
-						break;
-					}
+					amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::SECONDS_PER_DAY);
+					break;
 				case 5:
-					{
-						amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::MINUTES_PER_DAY);
-						break;
-					}
+					amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::MINUTES_PER_DAY);
+					break;
 				case 6:
-					{
-						amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::HOURS_PER_DAY);
-						break;
-					}
+					amount = $Math::multiplyExact(amount, ChronoLocalDateTimeImpl::HOURS_PER_DAY);
+					break;
 				case 7:
-					{
-						amount = $Math::multiplyExact(amount, 2);
-						break;
-					}
+					amount = $Math::multiplyExact(amount, 2);
+					break;
 				}
 				return $Math::addExact(amount, $nc(this->time)->until($(end->toLocalTime()), unit));
 			}
 			$var($ChronoLocalDate, endDate, $nc(end)->toLocalDate());
-			if ($nc($(end->toLocalTime()))->isBefore(this->time)) {
+			if ($$nc(end->toLocalTime())->isBefore(this->time)) {
 				$init($ChronoUnit);
 				$assign(endDate, $nc(endDate)->minus(1, $ChronoUnit::DAYS));
 			}
 			return $nc(this->date)->until(endDate, unit);
 		}
 	}
-	$Objects::requireNonNull($of(unit), "unit"_s);
+	$Objects::requireNonNull(unit, "unit"_s);
 	return $nc(unit)->between(this, end);
 }
 
 $Object* ChronoLocalDateTimeImpl::writeReplace() {
-	return $of($new($Ser, $Ser::CHRONO_LOCAL_DATE_TIME_TYPE, this));
+	return $new($Ser, $Ser::CHRONO_LOCAL_DATE_TIME_TYPE, this);
 }
 
 void ChronoLocalDateTimeImpl::readObject($ObjectInputStream* s) {
@@ -473,7 +367,7 @@ void ChronoLocalDateTimeImpl::writeExternal($ObjectOutput* out) {
 
 $ChronoLocalDateTime* ChronoLocalDateTimeImpl::readExternal($ObjectInput* in) {
 	$init(ChronoLocalDateTimeImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ChronoLocalDate, date, $cast($ChronoLocalDate, $nc(in)->readObject()));
 	$var($LocalTime, time, $cast($LocalTime, in->readObject()));
 	return $nc(date)->atTime(time);
@@ -490,22 +384,96 @@ bool ChronoLocalDateTimeImpl::equals(Object$* obj) {
 }
 
 int32_t ChronoLocalDateTimeImpl::hashCode() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $nc($(toLocalDate()))->hashCode();
-	return var$0 ^ $nc($(toLocalTime()))->hashCode();
+	$useLocalObjectStack();
+	int32_t var$0 = $$nc(toLocalDate())->hashCode();
+	return var$0 ^ $$nc(toLocalTime())->hashCode();
 }
 
 $String* ChronoLocalDateTimeImpl::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($nc($(toLocalDate()))->toString()), $$str(u'T')}));
-	return $concat(var$0, $($nc($(toLocalTime()))->toString()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($$nc(toLocalDate())->toString()));
+	var$0->append(u'T');
+	var$0->append($($$nc(toLocalTime())->toString()));
+	return $str(var$0);
 }
 
 ChronoLocalDateTimeImpl::ChronoLocalDateTimeImpl() {
 }
 
 $Class* ChronoLocalDateTimeImpl::load$($String* name, bool initialize) {
-	$loadClass(ChronoLocalDateTimeImpl, name, initialize, &_ChronoLocalDateTimeImpl_ClassInfo_, allocate$ChronoLocalDateTimeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, serialVersionUID)},
+		{"HOURS_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, HOURS_PER_DAY)},
+		{"MINUTES_PER_HOUR", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, MINUTES_PER_HOUR)},
+		{"MINUTES_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, MINUTES_PER_DAY)},
+		{"SECONDS_PER_MINUTE", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, SECONDS_PER_MINUTE)},
+		{"SECONDS_PER_HOUR", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, SECONDS_PER_HOUR)},
+		{"SECONDS_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, SECONDS_PER_DAY)},
+		{"MILLIS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, MILLIS_PER_DAY)},
+		{"MICROS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, MICROS_PER_DAY)},
+		{"NANOS_PER_SECOND", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, NANOS_PER_SECOND)},
+		{"NANOS_PER_MINUTE", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, NANOS_PER_MINUTE)},
+		{"NANOS_PER_HOUR", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, NANOS_PER_HOUR)},
+		{"NANOS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(ChronoLocalDateTimeImpl, NANOS_PER_DAY)},
+		{"date", "Ljava/time/chrono/ChronoLocalDate;", "TD;", $PRIVATE | $FINAL | $TRANSIENT, $field(ChronoLocalDateTimeImpl, date)},
+		{"time", "Ljava/time/LocalTime;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(ChronoLocalDateTimeImpl, time)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/time/chrono/ChronoLocalDate;Ljava/time/LocalTime;)V", "(TD;Ljava/time/LocalTime;)V", $PRIVATE, $method(ChronoLocalDateTimeImpl, init$, void, $ChronoLocalDate*, $LocalTime*)},
+		{"atZone", "(Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime<TD;>;", $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, atZone, $ChronoZonedDateTime*, $ZoneId*)},
+		{"ensureValid", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/Temporal;)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "<R::Ljava/time/chrono/ChronoLocalDate;>(Ljava/time/chrono/Chronology;Ljava/time/temporal/Temporal;)Ljava/time/chrono/ChronoLocalDateTimeImpl<TR;>;", $STATIC, $staticMethod(ChronoLocalDateTimeImpl, ensureValid, ChronoLocalDateTimeImpl*, $Chronology*, $Temporal*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, equals, bool, Object$*)},
+		{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, get, int32_t, $TemporalField*)},
+		{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, getLong, int64_t, $TemporalField*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, hashCode, int32_t)},
+		{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, isSupported, bool, $TemporalField*)},
+		{"of", "(Ljava/time/chrono/ChronoLocalDate;Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "<R::Ljava/time/chrono/ChronoLocalDate;>(TR;Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTimeImpl<TR;>;", $STATIC, $staticMethod(ChronoLocalDateTimeImpl, of, ChronoLocalDateTimeImpl*, $ChronoLocalDate*, $LocalTime*)},
+		{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, plus, ChronoLocalDateTimeImpl*, int64_t, $TemporalUnit*)},
+		{"plusDays", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, plusDays, ChronoLocalDateTimeImpl*, int64_t)},
+		{"plusHours", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, plusHours, ChronoLocalDateTimeImpl*, int64_t)},
+		{"plusMinutes", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, plusMinutes, ChronoLocalDateTimeImpl*, int64_t)},
+		{"plusNanos", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, plusNanos, ChronoLocalDateTimeImpl*, int64_t)},
+		{"plusSeconds", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", 0, $method(ChronoLocalDateTimeImpl, plusSeconds, ChronoLocalDateTimeImpl*, int64_t)},
+		{"plusWithOverflow", "(Ljava/time/chrono/ChronoLocalDate;JJJJ)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(TD;JJJJ)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, plusWithOverflow, ChronoLocalDateTimeImpl*, $ChronoLocalDate*, int64_t, int64_t, int64_t, int64_t)},
+		{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, range, $ValueRange*, $TemporalField*)},
+		{"readExternal", "(Ljava/io/ObjectInput;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/io/ObjectInput;)Ljava/time/chrono/ChronoLocalDateTime<*>;", $STATIC, $staticMethod(ChronoLocalDateTimeImpl, readExternal, $ChronoLocalDateTime*, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ChronoLocalDateTimeImpl, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"toLocalDate", "()Ljava/time/chrono/ChronoLocalDate;", "()TD;", $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, toLocalDate, $ChronoLocalDate*)},
+		{"toLocalTime", "()Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, toLocalTime, $LocalTime*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, toString, $String*)},
+		{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, until, int64_t, $Temporal*, $TemporalUnit*)},
+		{"with", "(Ljava/time/temporal/Temporal;Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(Ljava/time/temporal/Temporal;Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PRIVATE, $method(ChronoLocalDateTimeImpl, with, ChronoLocalDateTimeImpl*, $Temporal*, $LocalTime*)},
+		{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, with, ChronoLocalDateTimeImpl*, $TemporalAdjuster*)},
+		{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/chrono/ChronoLocalDateTimeImpl;", "(Ljava/time/temporal/TemporalField;J)Ljava/time/chrono/ChronoLocalDateTimeImpl<TD;>;", $PUBLIC, $virtualMethod(ChronoLocalDateTimeImpl, with, ChronoLocalDateTimeImpl*, $TemporalField*, int64_t)},
+		{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, 0, $method(ChronoLocalDateTimeImpl, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ChronoLocalDateTimeImpl, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.chrono.ChronoLocalDateTimeImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.chrono.ChronoLocalDateTimeImpl",
+		"java.lang.Object",
+		"java.time.chrono.ChronoLocalDateTime,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<D::Ljava/time/chrono/ChronoLocalDate;>Ljava/lang/Object;Ljava/time/chrono/ChronoLocalDateTime<TD;>;Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalAdjuster;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.time.chrono.ChronoLocalDateTimeImpl$1"
+	};
+	$loadClass(ChronoLocalDateTimeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ChronoLocalDateTimeImpl));
+	});
 	return class$;
 }
 

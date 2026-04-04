@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/UnicodeSet$VersionFilter.h>
-
 #include <jdk/internal/icu/lang/UCharacter.h>
 #include <jdk/internal/icu/text/UnicodeSet.h>
 #include <jdk/internal/icu/util/VersionInfo.h>
@@ -20,43 +19,6 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$FieldInfo _UnicodeSet$VersionFilter_FieldInfo_[] = {
-	{"version", "Ljdk/internal/icu/util/VersionInfo;", nullptr, 0, $field(UnicodeSet$VersionFilter, version)},
-	{}
-};
-
-$MethodInfo _UnicodeSet$VersionFilter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/util/VersionInfo;)V", nullptr, 0, $method(UnicodeSet$VersionFilter, init$, void, $VersionInfo*)},
-	{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSet$VersionFilter, contains, bool, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UnicodeSet$VersionFilter_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.UnicodeSet$VersionFilter", "jdk.internal.icu.text.UnicodeSet", "VersionFilter", $PRIVATE | $STATIC},
-	{"jdk.internal.icu.text.UnicodeSet$Filter", "jdk.internal.icu.text.UnicodeSet", "Filter", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _UnicodeSet$VersionFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.icu.text.UnicodeSet$VersionFilter",
-	"java.lang.Object",
-	"jdk.internal.icu.text.UnicodeSet$Filter",
-	_UnicodeSet$VersionFilter_FieldInfo_,
-	_UnicodeSet$VersionFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnicodeSet$VersionFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.UnicodeSet"
-};
-
-$Object* allocate$UnicodeSet$VersionFilter($Class* clazz) {
-	return $of($alloc(UnicodeSet$VersionFilter));
-}
-
 void UnicodeSet$VersionFilter::init$($VersionInfo* version) {
 	$set(this, version, version);
 }
@@ -71,7 +33,38 @@ UnicodeSet$VersionFilter::UnicodeSet$VersionFilter() {
 }
 
 $Class* UnicodeSet$VersionFilter::load$($String* name, bool initialize) {
-	$loadClass(UnicodeSet$VersionFilter, name, initialize, &_UnicodeSet$VersionFilter_ClassInfo_, allocate$UnicodeSet$VersionFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"version", "Ljdk/internal/icu/util/VersionInfo;", nullptr, 0, $field(UnicodeSet$VersionFilter, version)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/icu/util/VersionInfo;)V", nullptr, 0, $method(UnicodeSet$VersionFilter, init$, void, $VersionInfo*)},
+		{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSet$VersionFilter, contains, bool, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.UnicodeSet$VersionFilter", "jdk.internal.icu.text.UnicodeSet", "VersionFilter", $PRIVATE | $STATIC},
+		{"jdk.internal.icu.text.UnicodeSet$Filter", "jdk.internal.icu.text.UnicodeSet", "Filter", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.icu.text.UnicodeSet$VersionFilter",
+		"java.lang.Object",
+		"jdk.internal.icu.text.UnicodeSet$Filter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.UnicodeSet"
+	};
+	$loadClass(UnicodeSet$VersionFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicodeSet$VersionFilter);
+	});
 	return class$;
 }
 

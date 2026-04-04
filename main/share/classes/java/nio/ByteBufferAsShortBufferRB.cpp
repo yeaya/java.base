@@ -1,5 +1,4 @@
 #include <java/nio/ByteBufferAsShortBufferRB.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteBufferAsShortBufferB.h>
 #include <java/nio/ByteOrder.h>
@@ -24,36 +23,6 @@ using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy
 namespace java {
 	namespace nio {
 
-$MethodInfo _ByteBufferAsShortBufferRB_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsShortBufferRB, init$, void, $ByteBuffer*, $MemorySegmentProxy*)},
-	{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsShortBufferRB, init$, void, $ByteBuffer*, int32_t, int32_t, int32_t, int32_t, int64_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, asReadOnlyBuffer, $ShortBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ByteBufferAsShortBufferRB, base, $Object*)},
-	{"compact", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, compact, $ShortBuffer*)},
-	{"duplicate", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, duplicate, $ShortBuffer*)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, order, $ByteOrder*)},
-	{"put", "(S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, put, $ShortBuffer*, int16_t)},
-	{"put", "(IS)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, put, $ShortBuffer*, int32_t, int16_t)},
-	{"slice", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, slice, $ShortBuffer*)},
-	{"slice", "(II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, slice, $ShortBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ByteBufferAsShortBufferRB_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.ByteBufferAsShortBufferRB",
-	"java.nio.ByteBufferAsShortBufferB",
-	nullptr,
-	nullptr,
-	_ByteBufferAsShortBufferRB_MethodInfo_
-};
-
-$Object* allocate$ByteBufferAsShortBufferRB($Class* clazz) {
-	return $of($alloc(ByteBufferAsShortBufferRB));
-}
-
 void ByteBufferAsShortBufferRB::init$($ByteBuffer* bb, $MemorySegmentProxy* segment) {
 	$ByteBufferAsShortBufferB::init$(bb, segment);
 }
@@ -63,7 +32,7 @@ void ByteBufferAsShortBufferRB::init$($ByteBuffer* bb, int32_t mark, int32_t pos
 }
 
 $Object* ByteBufferAsShortBufferRB::base() {
-	return $of($nc(this->bb)->hb);
+	return $nc(this->bb)->hb;
 }
 
 $ShortBuffer* ByteBufferAsShortBufferRB::slice() {
@@ -123,7 +92,33 @@ ByteBufferAsShortBufferRB::ByteBufferAsShortBufferRB() {
 }
 
 $Class* ByteBufferAsShortBufferRB::load$($String* name, bool initialize) {
-	$loadClass(ByteBufferAsShortBufferRB, name, initialize, &_ByteBufferAsShortBufferRB_ClassInfo_, allocate$ByteBufferAsShortBufferRB);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsShortBufferRB, init$, void, $ByteBuffer*, $MemorySegmentProxy*)},
+		{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsShortBufferRB, init$, void, $ByteBuffer*, int32_t, int32_t, int32_t, int32_t, int64_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, asReadOnlyBuffer, $ShortBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ByteBufferAsShortBufferRB, base, $Object*)},
+		{"compact", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, compact, $ShortBuffer*)},
+		{"duplicate", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, duplicate, $ShortBuffer*)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, order, $ByteOrder*)},
+		{"put", "(S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, put, $ShortBuffer*, int16_t)},
+		{"put", "(IS)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, put, $ShortBuffer*, int32_t, int16_t)},
+		{"slice", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, slice, $ShortBuffer*)},
+		{"slice", "(II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsShortBufferRB, slice, $ShortBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.ByteBufferAsShortBufferRB",
+		"java.nio.ByteBufferAsShortBufferB",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ByteBufferAsShortBufferRB, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ByteBufferAsShortBufferRB));
+	});
 	return class$;
 }
 

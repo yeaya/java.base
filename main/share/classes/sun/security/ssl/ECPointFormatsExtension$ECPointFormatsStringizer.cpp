@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECPointFormatsExtension$ECPointFormatsStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/ECPointFormatsExtension$ECPointFormatsSpec.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ECPointFormatsExtension$ECPointFormatsStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ECPointFormatsExtension$ECPointFormatsStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECPointFormatsExtension$ECPointFormatsStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _ECPointFormatsExtension$ECPointFormatsStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECPointFormatsExtension$ECPointFormatsStringizer", "sun.security.ssl.ECPointFormatsExtension", "ECPointFormatsStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ECPointFormatsExtension$ECPointFormatsStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ECPointFormatsExtension$ECPointFormatsStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_ECPointFormatsExtension$ECPointFormatsStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECPointFormatsExtension$ECPointFormatsStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECPointFormatsExtension"
-};
-
-$Object* allocate$ECPointFormatsExtension$ECPointFormatsStringizer($Class* clazz) {
-	return $of($alloc(ECPointFormatsExtension$ECPointFormatsStringizer));
-}
-
 void ECPointFormatsExtension$ECPointFormatsStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ ECPointFormatsExtension$ECPointFormatsStringizer::ECPointFormatsExtension$ECPoin
 }
 
 $Class* ECPointFormatsExtension$ECPointFormatsStringizer::load$($String* name, bool initialize) {
-	$loadClass(ECPointFormatsExtension$ECPointFormatsStringizer, name, initialize, &_ECPointFormatsExtension$ECPointFormatsStringizer_ClassInfo_, allocate$ECPointFormatsExtension$ECPointFormatsStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ECPointFormatsExtension$ECPointFormatsStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECPointFormatsExtension$ECPointFormatsStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECPointFormatsExtension$ECPointFormatsStringizer", "sun.security.ssl.ECPointFormatsExtension", "ECPointFormatsStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ECPointFormatsExtension$ECPointFormatsStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECPointFormatsExtension"
+	};
+	$loadClass(ECPointFormatsExtension$ECPointFormatsStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECPointFormatsExtension$ECPointFormatsStringizer);
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ class LinuxNativeDispatcher : public ::sun::nio::fs::UnixNativeDispatcher {
 	$class(LinuxNativeDispatcher, 0, ::sun::nio::fs::UnixNativeDispatcher)
 public:
 	LinuxNativeDispatcher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void endmntent(int64_t stream);
 	static int32_t getmntent(int64_t fp, ::sun::nio::fs::UnixMountEntry* entry, int32_t buflen);

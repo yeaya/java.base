@@ -24,6 +24,7 @@ class $export Locale$LanguageRange : public ::java::lang::Object {
 	$class(Locale$LanguageRange, 0, ::java::lang::Object)
 public:
 	Locale$LanguageRange();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* range);
 	void init$($String* range, double weight);
 	virtual bool equals(Object$* obj) override;

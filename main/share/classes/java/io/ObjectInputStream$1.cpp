@@ -1,5 +1,4 @@
 #include <java/io/ObjectInputStream$1.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/reflect/Method.h>
@@ -20,73 +19,28 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 namespace java {
 	namespace io {
 
-$FieldInfo _ObjectInputStream$1_FieldInfo_[] = {
-	{"val$subcl", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(ObjectInputStream$1, val$subcl)},
-	{}
-};
-
-$MethodInfo _ObjectInputStream$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "()V", 0, $method(ObjectInputStream$1, init$, void, $Class*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ObjectInputStream$1_EnclosingMethodInfo_ = {
-	"java.io.ObjectInputStream",
-	"auditSubclass",
-	"(Ljava/lang/Class;)Ljava/lang/Boolean;"
-};
-
-$InnerClassInfo _ObjectInputStream$1_InnerClassesInfo_[] = {
-	{"java.io.ObjectInputStream$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ObjectInputStream$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectInputStream$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ObjectInputStream$1_FieldInfo_,
-	_ObjectInputStream$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_ObjectInputStream$1_EnclosingMethodInfo_,
-	_ObjectInputStream$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectInputStream"
-};
-
-$Object* allocate$ObjectInputStream$1($Class* clazz) {
-	return $of($alloc(ObjectInputStream$1));
-}
-
 void ObjectInputStream$1::init$($Class* val$subcl) {
 	$set(this, val$subcl, val$subcl);
 }
 
 $Object* ObjectInputStream$1::run() {
 	$beforeCallerSensitive();
-	$load($ObjectInputStream);
 	{
+		$load($ObjectInputStream);
 		$Class* cl = this->val$subcl;
 		for (; cl != $ObjectInputStream::class$; cl = $nc(cl)->getSuperclass()) {
 			try {
-				cl->getDeclaredMethod("readUnshared"_s, ($ClassArray*)nullptr);
-				$init($Boolean);
+				$nc(cl)->getDeclaredMethod("readUnshared"_s, ($ClassArray*)nullptr);
 				return $of($Boolean::FALSE);
 			} catch ($NoSuchMethodException& ex) {
 			}
 			try {
-				cl->getDeclaredMethod("readFields"_s, ($ClassArray*)nullptr);
-				$init($Boolean);
+				$nc(cl)->getDeclaredMethod("readFields"_s, ($ClassArray*)nullptr);
 				return $of($Boolean::FALSE);
 			} catch ($NoSuchMethodException& ex) {
 			}
 		}
 	}
-	$init($Boolean);
 	return $of($Boolean::TRUE);
 }
 
@@ -94,7 +48,42 @@ ObjectInputStream$1::ObjectInputStream$1() {
 }
 
 $Class* ObjectInputStream$1::load$($String* name, bool initialize) {
-	$loadClass(ObjectInputStream$1, name, initialize, &_ObjectInputStream$1_ClassInfo_, allocate$ObjectInputStream$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$subcl", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(ObjectInputStream$1, val$subcl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "()V", 0, $method(ObjectInputStream$1, init$, void, $Class*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.io.ObjectInputStream",
+		"auditSubclass",
+		"(Ljava/lang/Class;)Ljava/lang/Boolean;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectInputStream$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectInputStream$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectInputStream"
+	};
+	$loadClass(ObjectInputStream$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectInputStream$1);
+	});
 	return class$;
 }
 

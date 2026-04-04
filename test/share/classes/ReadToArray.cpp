@@ -1,5 +1,4 @@
 #include <ReadToArray.h>
-
 #include <java/io/PipedReader.h>
 #include <java/io/PipedWriter.h>
 #include <jcpp.h>
@@ -10,30 +9,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _ReadToArray_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadToArray, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadToArray, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ReadToArray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ReadToArray",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ReadToArray_MethodInfo_
-};
-
-$Object* allocate$ReadToArray($Class* clazz) {
-	return $of($alloc(ReadToArray));
-}
-
 void ReadToArray::init$() {
 }
 
 void ReadToArray::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PipedWriter, pw, $new($PipedWriter));
 	$var($PipedReader, pr, $new($PipedReader, pw));
 	$var($chars, cbuf, $new($chars, {
@@ -42,7 +22,7 @@ void ReadToArray::main($StringArray* args) {
 		u'a',
 		u'a'
 	}));
-	pw->write((int32_t)u'b');
+	pw->write(u'b');
 	pr->read(cbuf, 2, 1);
 	if (cbuf->get(2) != u'b') {
 		$throwNew($Exception, "Read character to wrong position: 2nd character should be b"_s);
@@ -53,7 +33,22 @@ ReadToArray::ReadToArray() {
 }
 
 $Class* ReadToArray::load$($String* name, bool initialize) {
-	$loadClass(ReadToArray, name, initialize, &_ReadToArray_ClassInfo_, allocate$ReadToArray);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReadToArray, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadToArray, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ReadToArray",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReadToArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReadToArray);
+	});
 	return class$;
 }
 

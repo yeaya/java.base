@@ -18,6 +18,7 @@ class $export ReachabilityFenceTest : public ::java::lang::Object {
 	$class(ReachabilityFenceTest, 0, ::java::lang::Object)
 public:
 	ReachabilityFenceTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool fenced();
 	static void main($StringArray* args);

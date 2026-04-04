@@ -1,5 +1,4 @@
 #include <java/security/AlgorithmParameters.h>
-
 #include <java/io/IOException.h>
 #include <java/security/AlgorithmParametersSpi.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -28,44 +27,6 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace security {
 
-$FieldInfo _AlgorithmParameters_FieldInfo_[] = {
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(AlgorithmParameters, provider)},
-	{"paramSpi", "Ljava/security/AlgorithmParametersSpi;", nullptr, $PRIVATE, $field(AlgorithmParameters, paramSpi)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AlgorithmParameters, algorithm)},
-	{"initialized", "Z", nullptr, $PRIVATE, $field(AlgorithmParameters, initialized)},
-	{}
-};
-
-$MethodInfo _AlgorithmParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/AlgorithmParametersSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AlgorithmParameters, init$, void, $AlgorithmParametersSpi*, $Provider*, $String*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, getAlgorithm, $String*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, getEncoded, $bytes*), "java.io.IOException"},
-	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, getEncoded, $bytes*, $String*), "java.io.IOException"},
-	{"getInstance", "(Ljava/lang/String;)Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmParameters, getInstance, AlgorithmParameters*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmParameters, getInstance, AlgorithmParameters*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmParameters, getInstance, AlgorithmParameters*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $FINAL, $method(AlgorithmParameters, getParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, getProvider, $Provider*)},
-	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, init, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
-	{"init", "([B)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, init, void, $bytes*), "java.io.IOException"},
-	{"init", "([BLjava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, init, void, $bytes*, $String*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AlgorithmParameters, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AlgorithmParameters_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.AlgorithmParameters",
-	"java.lang.Object",
-	nullptr,
-	_AlgorithmParameters_FieldInfo_,
-	_AlgorithmParameters_MethodInfo_
-};
-
-$Object* allocate$AlgorithmParameters($Class* clazz) {
-	return $of($alloc(AlgorithmParameters));
-}
-
 void AlgorithmParameters::init$($AlgorithmParametersSpi* paramSpi, $Provider* provider, $String* algorithm) {
 	this->initialized = false;
 	$set(this, paramSpi, paramSpi);
@@ -78,11 +39,11 @@ $String* AlgorithmParameters::getAlgorithm() {
 }
 
 AlgorithmParameters* AlgorithmParameters::getInstance($String* algorithm) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	try {
 		$var($ObjectArray, objs, $Security::getImpl(algorithm, "AlgorithmParameters"_s, ($String*)nullptr));
-		return $new(AlgorithmParameters, $cast($AlgorithmParametersSpi, $nc(objs)->get(0)), $cast($Provider, objs->get(1)), algorithm);
+		return $new(AlgorithmParameters, $cast($AlgorithmParametersSpi, $nc(objs)->get(0)), $cast($Provider, $nc(objs)->get(1)), algorithm);
 	} catch ($NoSuchProviderException& e) {
 		$throwNew($NoSuchAlgorithmException, $$str({algorithm, " not found"_s}));
 	}
@@ -90,21 +51,21 @@ AlgorithmParameters* AlgorithmParameters::getInstance($String* algorithm) {
 }
 
 AlgorithmParameters* AlgorithmParameters::getInstance($String* algorithm, $String* provider) {
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
-	if (provider == nullptr || $nc(provider)->isEmpty()) {
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
+	if (provider == nullptr || provider->isEmpty()) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
 	}
 	$var($ObjectArray, objs, $Security::getImpl(algorithm, "AlgorithmParameters"_s, provider));
-	return $new(AlgorithmParameters, $cast($AlgorithmParametersSpi, $nc(objs)->get(0)), $cast($Provider, objs->get(1)), algorithm);
+	return $new(AlgorithmParameters, $cast($AlgorithmParametersSpi, $nc(objs)->get(0)), $cast($Provider, $nc(objs)->get(1)), algorithm);
 }
 
 AlgorithmParameters* AlgorithmParameters::getInstance($String* algorithm, $Provider* provider) {
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
 	}
 	$var($ObjectArray, objs, $Security::getImpl(algorithm, "AlgorithmParameters"_s, provider));
-	return $new(AlgorithmParameters, $cast($AlgorithmParametersSpi, $nc(objs)->get(0)), $cast($Provider, objs->get(1)), algorithm);
+	return $new(AlgorithmParameters, $cast($AlgorithmParametersSpi, $nc(objs)->get(0)), $cast($Provider, $nc(objs)->get(1)), algorithm);
 }
 
 $Provider* AlgorithmParameters::getProvider() {
@@ -167,7 +128,40 @@ AlgorithmParameters::AlgorithmParameters() {
 }
 
 $Class* AlgorithmParameters::load$($String* name, bool initialize) {
-	$loadClass(AlgorithmParameters, name, initialize, &_AlgorithmParameters_ClassInfo_, allocate$AlgorithmParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(AlgorithmParameters, provider)},
+		{"paramSpi", "Ljava/security/AlgorithmParametersSpi;", nullptr, $PRIVATE, $field(AlgorithmParameters, paramSpi)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AlgorithmParameters, algorithm)},
+		{"initialized", "Z", nullptr, $PRIVATE, $field(AlgorithmParameters, initialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/AlgorithmParametersSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AlgorithmParameters, init$, void, $AlgorithmParametersSpi*, $Provider*, $String*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, getAlgorithm, $String*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, getEncoded, $bytes*), "java.io.IOException"},
+		{"getEncoded", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, getEncoded, $bytes*, $String*), "java.io.IOException"},
+		{"getInstance", "(Ljava/lang/String;)Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmParameters, getInstance, AlgorithmParameters*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmParameters, getInstance, AlgorithmParameters*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmParameters, getInstance, AlgorithmParameters*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $FINAL, $method(AlgorithmParameters, getParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, getProvider, $Provider*)},
+		{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, init, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+		{"init", "([B)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, init, void, $bytes*), "java.io.IOException"},
+		{"init", "([BLjava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameters, init, void, $bytes*, $String*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AlgorithmParameters, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.AlgorithmParameters",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AlgorithmParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlgorithmParameters);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/util/PropertyExpander$ExpandException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <sun/security/util/PropertyExpander.h>
 #include <jcpp.h>
@@ -13,41 +12,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 namespace sun {
 	namespace security {
 		namespace util {
-
-$FieldInfo _PropertyExpander$ExpandException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyExpander$ExpandException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PropertyExpander$ExpandException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PropertyExpander$ExpandException, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _PropertyExpander$ExpandException_InnerClassesInfo_[] = {
-	{"sun.security.util.PropertyExpander$ExpandException", "sun.security.util.PropertyExpander", "ExpandException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PropertyExpander$ExpandException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.PropertyExpander$ExpandException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_PropertyExpander$ExpandException_FieldInfo_,
-	_PropertyExpander$ExpandException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PropertyExpander$ExpandException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.PropertyExpander"
-};
-
-$Object* allocate$PropertyExpander$ExpandException($Class* clazz) {
-	return $of($alloc(PropertyExpander$ExpandException));
-}
 
 void PropertyExpander$ExpandException::init$($String* msg) {
 	$GeneralSecurityException::init$(msg);
@@ -64,7 +28,36 @@ void PropertyExpander$ExpandException::throw$() {
 }
 
 $Class* PropertyExpander$ExpandException::load$($String* name, bool initialize) {
-	$loadClass(PropertyExpander$ExpandException, name, initialize, &_PropertyExpander$ExpandException_ClassInfo_, allocate$PropertyExpander$ExpandException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyExpander$ExpandException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PropertyExpander$ExpandException, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.PropertyExpander$ExpandException", "sun.security.util.PropertyExpander", "ExpandException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.PropertyExpander$ExpandException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.PropertyExpander"
+	};
+	$loadClass(PropertyExpander$ExpandException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyExpander$ExpandException);
+	});
 	return class$;
 }
 

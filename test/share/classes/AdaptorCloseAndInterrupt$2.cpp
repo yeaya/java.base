@@ -1,5 +1,4 @@
 #include <AdaptorCloseAndInterrupt$2.h>
-
 #include <AdaptorCloseAndInterrupt.h>
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
 #include <jcpp.h>
@@ -10,50 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
-
-$FieldInfo _AdaptorCloseAndInterrupt$2_FieldInfo_[] = {
-	{"this$0", "LAdaptorCloseAndInterrupt;", nullptr, $FINAL | $SYNTHETIC, $field(AdaptorCloseAndInterrupt$2, this$0)},
-	{"val$current", "Ljava/lang/Thread;", nullptr, $FINAL | $SYNTHETIC, $field(AdaptorCloseAndInterrupt$2, val$current)},
-	{}
-};
-
-$MethodInfo _AdaptorCloseAndInterrupt$2_MethodInfo_[] = {
-	{"<init>", "(LAdaptorCloseAndInterrupt;Ljava/lang/Thread;)V", "()V", 0, $method(AdaptorCloseAndInterrupt$2, init$, void, $AdaptorCloseAndInterrupt*, $Thread*)},
-	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AdaptorCloseAndInterrupt$2, call, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _AdaptorCloseAndInterrupt$2_EnclosingMethodInfo_ = {
-	"AdaptorCloseAndInterrupt",
-	"doAsyncInterrupt",
-	"()V"
-};
-
-$InnerClassInfo _AdaptorCloseAndInterrupt$2_InnerClassesInfo_[] = {
-	{"AdaptorCloseAndInterrupt$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AdaptorCloseAndInterrupt$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"AdaptorCloseAndInterrupt$2",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_AdaptorCloseAndInterrupt$2_FieldInfo_,
-	_AdaptorCloseAndInterrupt$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Void;>;",
-	&_AdaptorCloseAndInterrupt$2_EnclosingMethodInfo_,
-	_AdaptorCloseAndInterrupt$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"AdaptorCloseAndInterrupt"
-};
-
-$Object* allocate$AdaptorCloseAndInterrupt$2($Class* clazz) {
-	return $of($alloc(AdaptorCloseAndInterrupt$2));
-}
 
 void AdaptorCloseAndInterrupt$2::init$($AdaptorCloseAndInterrupt* this$0, $Thread* val$current) {
 	$set(this, this$0, this$0);
@@ -63,14 +18,50 @@ void AdaptorCloseAndInterrupt$2::init$($AdaptorCloseAndInterrupt* this$0, $Threa
 $Object* AdaptorCloseAndInterrupt$2::call() {
 	$nc(this->val$current)->interrupt();
 	$nc(this->this$0->isInterrupted)->set(true);
-	return $of(nullptr);
+	return nullptr;
 }
 
 AdaptorCloseAndInterrupt$2::AdaptorCloseAndInterrupt$2() {
 }
 
 $Class* AdaptorCloseAndInterrupt$2::load$($String* name, bool initialize) {
-	$loadClass(AdaptorCloseAndInterrupt$2, name, initialize, &_AdaptorCloseAndInterrupt$2_ClassInfo_, allocate$AdaptorCloseAndInterrupt$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LAdaptorCloseAndInterrupt;", nullptr, $FINAL | $SYNTHETIC, $field(AdaptorCloseAndInterrupt$2, this$0)},
+		{"val$current", "Ljava/lang/Thread;", nullptr, $FINAL | $SYNTHETIC, $field(AdaptorCloseAndInterrupt$2, val$current)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LAdaptorCloseAndInterrupt;Ljava/lang/Thread;)V", "()V", 0, $method(AdaptorCloseAndInterrupt$2, init$, void, $AdaptorCloseAndInterrupt*, $Thread*)},
+		{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AdaptorCloseAndInterrupt$2, call, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"AdaptorCloseAndInterrupt",
+		"doAsyncInterrupt",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AdaptorCloseAndInterrupt$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"AdaptorCloseAndInterrupt$2",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"AdaptorCloseAndInterrupt"
+	};
+	$loadClass(AdaptorCloseAndInterrupt$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AdaptorCloseAndInterrupt$2);
+	});
 	return class$;
 }
 

@@ -52,6 +52,7 @@ class $export GetXSpace : public ::java::lang::Object {
 	$class(GetXSpace, 0, ::java::lang::Object)
 public:
 	GetXSpace();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void allow(::java::nio::file::Path* path);
 	static void compare(::GetXSpace$Space* s);

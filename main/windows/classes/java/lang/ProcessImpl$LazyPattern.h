@@ -23,6 +23,7 @@ class ProcessImpl$LazyPattern : public ::java::lang::Object {
 	$class(ProcessImpl$LazyPattern, 0, ::java::lang::Object)
 public:
 	ProcessImpl$LazyPattern();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::regex::Pattern* PATTERN;
 };

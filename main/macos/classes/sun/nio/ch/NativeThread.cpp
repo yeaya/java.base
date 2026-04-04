@@ -1,5 +1,4 @@
 #include <sun/nio/ch/NativeThread.h>
-
 #include <sun/nio/ch/IOUtil.h>
 #include <jcpp.h>
 
@@ -11,58 +10,32 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$MethodInfo _NativeThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NativeThread, init$, void)},
-	{"current", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(NativeThread, current, int64_t)},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeThread, init, void)},
-	{"signal", "(J)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(NativeThread, signal, void, int64_t)},
-	{}
-};
-
-#define _METHOD_INDEX_current 1
-#define _METHOD_INDEX_init 2
-#define _METHOD_INDEX_signal 3
-
-$ClassInfo _NativeThread_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.NativeThread",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NativeThread_MethodInfo_
-};
-
-$Object* allocate$NativeThread($Class* clazz) {
-	return $of($alloc(NativeThread));
-}
-
 void NativeThread::init$() {
 }
 
 int64_t NativeThread::current() {
 	$init(NativeThread);
-	int64_t $ret = 0;
-	$prepareNativeStatic(NativeThread, current, int64_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(current, int64_t);
+	int64_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void NativeThread::signal(int64_t nt) {
 	$init(NativeThread);
-	$prepareNativeStatic(NativeThread, signal, void, int64_t nt);
+	$prepareNativeStatic(signal, void, int64_t nt);
 	$invokeNativeStatic(nt);
 	$finishNativeStatic();
 }
 
 void NativeThread::init() {
 	$init(NativeThread);
-	$prepareNativeStatic(NativeThread, init, void);
+	$prepareNativeStatic(init, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$NativeThread($Class* class$) {
+void NativeThread::clinit$($Class* clazz) {
 	{
 		$IOUtil::load();
 		NativeThread::init();
@@ -73,7 +46,24 @@ NativeThread::NativeThread() {
 }
 
 $Class* NativeThread::load$($String* name, bool initialize) {
-	$loadClass(NativeThread, name, initialize, &_NativeThread_ClassInfo_, clinit$NativeThread, allocate$NativeThread);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NativeThread, init$, void)},
+		{"current", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(NativeThread, current, int64_t)},
+		{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeThread, init, void)},
+		{"signal", "(J)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(NativeThread, signal, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.NativeThread",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NativeThread, name, initialize, &classInfo$$, NativeThread::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeThread);
+	});
 	return class$;
 }
 

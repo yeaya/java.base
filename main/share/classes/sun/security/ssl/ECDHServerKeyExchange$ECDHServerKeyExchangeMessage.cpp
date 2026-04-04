@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECDHServerKeyExchange$ECDHServerKeyExchangeMessage.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -79,7 +78,6 @@ using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Alert = ::sun::security::ssl::Alert;
@@ -90,7 +88,6 @@ using $JsseJce = ::sun::security::ssl::JsseJce;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$ExceptionSupplier = ::sun::security::ssl::NamedGroup$ExceptionSupplier;
 using $NamedGroupPossession = ::sun::security::ssl::NamedGroupPossession;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $RSASignature = ::sun::security::ssl::RSASignature;
 using $Record = ::sun::security::ssl::Record;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
@@ -100,7 +97,6 @@ using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 using $SignatureScheme = ::sun::security::ssl::SignatureScheme;
 using $SupportedGroupsExtension$SupportedGroups = ::sun::security::ssl::SupportedGroupsExtension$SupportedGroups;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 using $X509Authentication$X509Credentials = ::sun::security::ssl::X509Authentication$X509Credentials;
 using $X509Authentication$X509Possession = ::sun::security::ssl::X509Authentication$X509Possession;
@@ -120,91 +116,37 @@ public:
 	virtual void apply($String* s) override {
 		$nc(inst$)->lambda$new$0(chc, s);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0>());
-	}
 	ECDHServerKeyExchange$ECDHServerKeyExchangeMessage* inst$ = nullptr;
 	$ClientHandshakeContext* chc = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, inst$)},
-	{"chc", "Lsun/security/ssl/ClientHandshakeContext;", nullptr, $PUBLIC, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, chc)},
-	{}
-};
-$MethodInfo ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lsun/security/ssl/ECDHServerKeyExchange$ECDHServerKeyExchangeMessage;Lsun/security/ssl/ClientHandshakeContext;)V", nullptr, $PUBLIC, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, init$, void, ECDHServerKeyExchange$ECDHServerKeyExchangeMessage*, $ClientHandshakeContext*)},
-	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, apply, void, $String*)},
-	{}
-};
-$ClassInfo ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.ssl.ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"sun.security.ssl.NamedGroup$ExceptionSupplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, inst$)},
+		{"chc", "Lsun/security/ssl/ClientHandshakeContext;", nullptr, $PUBLIC, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, chc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/ECDHServerKeyExchange$ECDHServerKeyExchangeMessage;Lsun/security/ssl/ClientHandshakeContext;)V", nullptr, $PUBLIC, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, init$, void, ECDHServerKeyExchange$ECDHServerKeyExchangeMessage*, $ClientHandshakeContext*)},
+		{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, apply, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.ssl.ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"sun.security.ssl.NamedGroup$ExceptionSupplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0::class$ = nullptr;
 
-$FieldInfo _ECDHServerKeyExchange$ECDHServerKeyExchangeMessage_FieldInfo_[] = {
-	{"CURVE_NAMED_CURVE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, CURVE_NAMED_CURVE)},
-	{"namedGroup", "Lsun/security/ssl/NamedGroup;", nullptr, $PRIVATE | $FINAL, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, namedGroup)},
-	{"publicPoint", "[B", nullptr, $PRIVATE | $FINAL, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, publicPoint)},
-	{"paramsSignature", "[B", nullptr, $PRIVATE | $FINAL, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, paramsSignature)},
-	{"useExplicitSigAlgorithm", "Z", nullptr, $PRIVATE | $FINAL, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, useExplicitSigAlgorithm)},
-	{"signatureScheme", "Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $FINAL, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, signatureScheme)},
-	{"sslCredentials", "Lsun/security/ssl/SSLCredentials;", nullptr, $PRIVATE, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, sslCredentials)},
-	{}
-};
-
-$MethodInfo _ECDHServerKeyExchange$ECDHServerKeyExchangeMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, init$, void, $HandshakeContext*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, getSignature, $Signature*, $String*, $Key*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, handshakeType, $SSLHandshake*)},
-	{"lambda$new$0", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, lambda$new$0, void, $ClientHandshakeContext*, $String*), "javax.net.ssl.SSLException"},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, toString, $String*)},
-	{"updateSignature", "(Ljava/security/Signature;[B[BI[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, updateSignature, void, $Signature*, $bytes*, $bytes*, int32_t, $bytes*), "java.security.SignatureException"},
-	{}
-};
-
-$InnerClassInfo _ECDHServerKeyExchange$ECDHServerKeyExchangeMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECDHServerKeyExchange$ECDHServerKeyExchangeMessage", "sun.security.ssl.ECDHServerKeyExchange", "ECDHServerKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ECDHServerKeyExchange$ECDHServerKeyExchangeMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ECDHServerKeyExchange$ECDHServerKeyExchangeMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_ECDHServerKeyExchange$ECDHServerKeyExchangeMessage_FieldInfo_,
-	_ECDHServerKeyExchange$ECDHServerKeyExchangeMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECDHServerKeyExchange$ECDHServerKeyExchangeMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECDHServerKeyExchange"
-};
-
-$Object* allocate$ECDHServerKeyExchange$ECDHServerKeyExchangeMessage($Class* clazz) {
-	return $of($alloc(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage));
-}
-
 void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$($HandshakeContext* handshakeContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, handshakeContext));
 	$var($NamedGroupPossession, namedGroupPossession, nullptr);
@@ -213,17 +155,15 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$($HandshakeContext
 		$var($Iterator, i$, $nc($nc(shc)->handshakePossessions)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SSLPossession, possession, $cast($SSLPossession, i$->next()));
-			{
-				if ($instanceOf($NamedGroupPossession, possession)) {
-					$assign(namedGroupPossession, $cast($NamedGroupPossession, possession));
-					if (x509Possession != nullptr) {
-						break;
-					}
-				} else if ($instanceOf($X509Authentication$X509Possession, possession)) {
-					$assign(x509Possession, $cast($X509Authentication$X509Possession, possession));
-					if (namedGroupPossession != nullptr) {
-						break;
-					}
+			if ($instanceOf($NamedGroupPossession, possession)) {
+				$assign(namedGroupPossession, $cast($NamedGroupPossession, possession));
+				if (x509Possession != nullptr) {
+					break;
+				}
+			} else if ($instanceOf($X509Authentication$X509Possession, possession)) {
+				$assign(x509Possession, $cast($X509Authentication$X509Possession, possession));
+				if (namedGroupPossession != nullptr) {
+					break;
 				}
 			}
 		}
@@ -253,21 +193,21 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$($HandshakeContext
 			$var($Map$Entry, schemeAndSigner, $SignatureScheme::getSignerOfPreferableAlgorithm(shc->algorithmConstraints, shc->peerRequestedSignatureSchemes, x509Possession, shc->negotiatedProtocol));
 			if (schemeAndSigner == nullptr) {
 				$init($Alert);
-				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"No supported signature algorithm for "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm()), "  key"_s}))));
+				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"No supported signature algorithm for "_s, $($nc(x509Possession->popPrivateKey)->getAlgorithm()), "  key"_s}))));
 			} else {
-				$set(this, signatureScheme, $cast($SignatureScheme, $nc(schemeAndSigner)->getKey()));
+				$set(this, signatureScheme, $cast($SignatureScheme, schemeAndSigner->getKey()));
 				$assign(signer, $cast($Signature, schemeAndSigner->getValue()));
 			}
 		} else {
 			$set(this, signatureScheme, nullptr);
 			try {
-				$assign(signer, getSignature($($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm()), x509Possession->popPrivateKey));
+				$assign(signer, getSignature($($nc(x509Possession->popPrivateKey)->getAlgorithm()), x509Possession->popPrivateKey));
 			} catch ($NoSuchAlgorithmException& e) {
 				$init($Alert);
-				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm())}), e)));
+				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc(x509Possession->popPrivateKey)->getAlgorithm())}), e)));
 			} catch ($InvalidKeyException& e) {
 				$init($Alert);
-				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm())}), e)));
+				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc(x509Possession->popPrivateKey)->getAlgorithm())}), e)));
 			}
 		}
 		$var($bytes, signature, nullptr);
@@ -276,14 +216,14 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$($HandshakeContext
 			$assign(signature, $nc(signer)->sign());
 		} catch ($SignatureException& ex) {
 			$init($Alert);
-			$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Failed to sign ecdhe parameters: "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm())}), ex)));
+			$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Failed to sign ecdhe parameters: "_s, $($nc(x509Possession->popPrivateKey)->getAlgorithm())}), ex)));
 		}
 		$set(this, paramsSignature, signature);
 	}
 }
 
 void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, handshakeContext));
 	int8_t curveType = (int8_t)$Record::getInt8(m);
@@ -307,7 +247,7 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$($HandshakeContext
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, $$str({"Insufficient Point data: "_s, this->namedGroup}))));
 	}
 	try {
-		$set(this, sslCredentials, this->namedGroup->decodeCredentials(this->publicPoint, $nc(handshakeContext)->algorithmConstraints, static_cast<$NamedGroup$ExceptionSupplier*>($$new(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, this, chc))));
+		$set(this, sslCredentials, this->namedGroup->decodeCredentials(this->publicPoint, $nc(handshakeContext)->algorithmConstraints, $$new(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, this, chc)));
 	} catch ($GeneralSecurityException& ex) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, $$str({"Cannot decode named group: "_s, $($NamedGroup::nameOf(namedGroupId))}))));
@@ -317,11 +257,9 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$($HandshakeContext
 		$var($Iterator, i$, $nc($nc(chc)->handshakeCredentials)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SSLCredentials, cd, $cast($SSLCredentials, i$->next()));
-			{
-				if ($instanceOf($X509Authentication$X509Credentials, cd)) {
-					$assign(x509Credentials, $cast($X509Authentication$X509Credentials, cd));
-					break;
-				}
+			if ($instanceOf($X509Authentication$X509Credentials, cd)) {
+				$assign(x509Credentials, $cast($X509Authentication$X509Credentials, cd));
+				break;
 			}
 		}
 	}
@@ -367,7 +305,7 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$($HandshakeContext
 		}
 	} else {
 		try {
-			$assign(signer, getSignature($($nc($nc(x509Credentials)->popPublicKey)->getAlgorithm()), x509Credentials->popPublicKey));
+			$assign(signer, getSignature($($nc($nc(x509Credentials)->popPublicKey)->getAlgorithm()), $nc(x509Credentials)->popPublicKey));
 		} catch ($NoSuchAlgorithmException& e) {
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc($nc(x509Credentials)->popPublicKey)->getAlgorithm())}), e)));
@@ -396,7 +334,7 @@ $SSLHandshake* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::handshakeType
 int32_t ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::messageLength() {
 	int32_t sigLen = 0;
 	if (this->paramsSignature != nullptr) {
-		sigLen = 2 + $nc(this->paramsSignature)->length;
+		sigLen = 2 + this->paramsSignature->length;
 		if (this->useExplicitSigAlgorithm) {
 			sigLen += $SignatureScheme::sizeInRecord();
 		}
@@ -417,16 +355,16 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::send($HandshakeOutStrea
 }
 
 $String* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->useExplicitSigAlgorithm) {
 		$init($Locale);
 		$var($MessageFormat, messageFormat, $new($MessageFormat, "\"ECDH ServerKeyExchange\": \'{\'\n  \"parameters\": \'{\'\n    \"named group\": \"{0}\"\n    \"ecdh public\": \'{\'\n{1}\n    \'}\',\n  \'}\',\n  \"digital signature\":  \'{\'\n    \"signature algorithm\": \"{2}\"\n    \"signature\": \'{\'\n{3}\n    \'}\',\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 		$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 		$var($ObjectArray, messageFields, $new($ObjectArray, {
-			$of(this->namedGroup->name$),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->publicPoint)), "      "_s))),
-			$of(this->signatureScheme->name$),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->paramsSignature)), "      "_s)))
+			this->namedGroup->name$,
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->publicPoint)), "      "_s)),
+			this->signatureScheme->name$,
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->paramsSignature)), "      "_s))
 		}));
 		return messageFormat->format(messageFields);
 	} else if (this->paramsSignature != nullptr) {
@@ -434,9 +372,9 @@ $String* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::toString() {
 		$var($MessageFormat, messageFormat, $new($MessageFormat, "\"ECDH ServerKeyExchange\": \'{\'\n  \"parameters\":  \'{\'\n    \"named group\": \"{0}\"\n    \"ecdh public\": \'{\'\n{1}\n    \'}\',\n  \'}\',\n  \"signature\": \'{\'\n{2}\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 		$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 		$var($ObjectArray, messageFields, $new($ObjectArray, {
-			$of(this->namedGroup->name$),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->publicPoint)), "      "_s))),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->paramsSignature)), "    "_s)))
+			this->namedGroup->name$,
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->publicPoint)), "      "_s)),
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->paramsSignature)), "    "_s))
 		}));
 		return messageFormat->format(messageFields);
 	} else {
@@ -444,8 +382,8 @@ $String* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::toString() {
 		$var($MessageFormat, messageFormat, $new($MessageFormat, "\"ECDH ServerKeyExchange\": \'{\'\n  \"parameters\":  \'{\'\n    \"named group\": \"{0}\"\n    \"ecdh public\": \'{\'\n{1}\n    \'}\',\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 		$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 		$var($ObjectArray, messageFields, $new($ObjectArray, {
-			$of(this->namedGroup->name$),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->publicPoint)), "      "_s)))
+			this->namedGroup->name$,
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->publicPoint)), "      "_s))
 		}));
 		return messageFormat->format(messageFields);
 	}
@@ -453,61 +391,47 @@ $String* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::toString() {
 
 $Signature* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::getSignature($String* keyAlgorithm, $Key* key) {
 	$init(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Signature, signer, nullptr);
 	{
 		$var($String, s17713$, keyAlgorithm);
 		int32_t tmp17713$ = -1;
 		switch ($nc(s17713$)->hashCode()) {
 		case 2206:
-			{
-				if (s17713$->equals("EC"_s)) {
-					tmp17713$ = 0;
-				}
-				break;
+			if (s17713$->equals("EC"_s)) {
+				tmp17713$ = 0;
 			}
-		case 0x03FAD473:
-			{
-				if (s17713$->equals("EdDSA"_s)) {
-					tmp17713$ = 1;
-				}
-				break;
+			break;
+		case 0x03fad473:
+			if (s17713$->equals("EdDSA"_s)) {
+				tmp17713$ = 1;
 			}
-		case 0x00013E20:
-			{
-				if (s17713$->equals("RSA"_s)) {
-					tmp17713$ = 2;
-				}
-				break;
+			break;
+		case 0x00013e20:
+			if (s17713$->equals("RSA"_s)) {
+				tmp17713$ = 2;
 			}
+			break;
 		}
 		switch (tmp17713$) {
 		case 0:
-			{
-				$init($JsseJce);
-				$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_ECDSA));
-				break;
-			}
+			$init($JsseJce);
+			$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_ECDSA));
+			break;
 		case 1:
-			{
-				$init($JsseJce);
-				$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_EDDSA));
-				break;
-			}
+			$init($JsseJce);
+			$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_EDDSA));
+			break;
 		case 2:
-			{
-				$assign(signer, $RSASignature::getInstance());
-				break;
-			}
+			$assign(signer, $RSASignature::getInstance());
+			break;
 		default:
-			{
-				$throwNew($NoSuchAlgorithmException, $$str({"neither an RSA or a EC key : "_s, keyAlgorithm}));
-			}
+			$throwNew($NoSuchAlgorithmException, $$str({"neither an RSA or a EC key : "_s, keyAlgorithm}));
 		}
 	}
 	if (signer != nullptr) {
 		if ($instanceOf($PublicKey, key)) {
-			signer->initVerify(($cast($PublicKey, key)));
+			signer->initVerify($cast($PublicKey, key));
 		} else {
 			signer->initSign($cast($PrivateKey, key));
 		}
@@ -520,8 +444,8 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::updateSignature($Signat
 	$nc(sig)->update(clntNonce);
 	sig->update(svrNonce);
 	sig->update(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::CURVE_NAMED_CURVE);
-	sig->update((int8_t)((int32_t)((namedGroupId >> 8) & (uint32_t)255)));
-	sig->update((int8_t)((int32_t)(namedGroupId & (uint32_t)255)));
+	sig->update((int8_t)((namedGroupId >> 8) & 0xff));
+	sig->update((int8_t)(namedGroupId & 0xff));
 	sig->update((int8_t)$nc(publicPoint)->length);
 	sig->update(publicPoint);
 }
@@ -536,11 +460,55 @@ ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::ECDHServerKeyExchange$ECDHSe
 
 $Class* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("sun.security.ssl.ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0")) {
 			return ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, name, initialize, &_ECDHServerKeyExchange$ECDHServerKeyExchangeMessage_ClassInfo_, allocate$ECDHServerKeyExchange$ECDHServerKeyExchangeMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"CURVE_NAMED_CURVE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, CURVE_NAMED_CURVE)},
+		{"namedGroup", "Lsun/security/ssl/NamedGroup;", nullptr, $PRIVATE | $FINAL, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, namedGroup)},
+		{"publicPoint", "[B", nullptr, $PRIVATE | $FINAL, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, publicPoint)},
+		{"paramsSignature", "[B", nullptr, $PRIVATE | $FINAL, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, paramsSignature)},
+		{"useExplicitSigAlgorithm", "Z", nullptr, $PRIVATE | $FINAL, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, useExplicitSigAlgorithm)},
+		{"signatureScheme", "Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $FINAL, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, signatureScheme)},
+		{"sslCredentials", "Lsun/security/ssl/SSLCredentials;", nullptr, $PRIVATE, $field(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, sslCredentials)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, init$, void, $HandshakeContext*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, getSignature, $Signature*, $String*, $Key*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, handshakeType, $SSLHandshake*)},
+		{"lambda$new$0", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, lambda$new$0, void, $ClientHandshakeContext*, $String*), "javax.net.ssl.SSLException"},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, toString, $String*)},
+		{"updateSignature", "(Ljava/security/Signature;[B[BI[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, updateSignature, void, $Signature*, $bytes*, $bytes*, int32_t, $bytes*), "java.security.SignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECDHServerKeyExchange$ECDHServerKeyExchangeMessage", "sun.security.ssl.ECDHServerKeyExchange", "ECDHServerKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ECDHServerKeyExchange$ECDHServerKeyExchangeMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECDHServerKeyExchange"
+	};
+	$loadClass(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage);
+	});
 	return class$;
 }
 

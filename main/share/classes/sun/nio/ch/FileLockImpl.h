@@ -22,6 +22,7 @@ class $export FileLockImpl : public ::java::nio::channels::FileLock {
 	$class(FileLockImpl, 0, ::java::nio::channels::FileLock)
 public:
 	FileLockImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::FileChannel* channel, int64_t position, int64_t size, bool shared);
 	void init$(::java::nio::channels::AsynchronousFileChannel* channel, int64_t position, int64_t size, bool shared);
 	virtual void invalidate();

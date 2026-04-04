@@ -1,5 +1,4 @@
 #include <java/util/LinkedList$DescendingIterator.h>
-
 #include <java/util/LinkedList$ListItr.h>
 #include <java/util/LinkedList.h>
 #include <jcpp.h>
@@ -14,67 +13,61 @@ using $LinkedList$ListItr = ::java::util::LinkedList$ListItr;
 namespace java {
 	namespace util {
 
-$FieldInfo _LinkedList$DescendingIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/LinkedList;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedList$DescendingIterator, this$0)},
-	{"itr", "Ljava/util/LinkedList$ListItr;", "Ljava/util/LinkedList<TE;>.ListItr;", $PRIVATE | $FINAL, $field(LinkedList$DescendingIterator, itr)},
-	{}
-};
-
-$MethodInfo _LinkedList$DescendingIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedList;)V", nullptr, $PRIVATE, $method(LinkedList$DescendingIterator, init$, void, $LinkedList*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedList$DescendingIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedList$DescendingIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedList$DescendingIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _LinkedList$DescendingIterator_InnerClassesInfo_[] = {
-	{"java.util.LinkedList$DescendingIterator", "java.util.LinkedList", "DescendingIterator", $PRIVATE},
-	{}
-};
-
-$ClassInfo _LinkedList$DescendingIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.LinkedList$DescendingIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_LinkedList$DescendingIterator_FieldInfo_,
-	_LinkedList$DescendingIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_LinkedList$DescendingIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.LinkedList"
-};
-
-$Object* allocate$LinkedList$DescendingIterator($Class* clazz) {
-	return $of($alloc(LinkedList$DescendingIterator));
-}
-
 void LinkedList$DescendingIterator::init$($LinkedList* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, itr, $new($LinkedList$ListItr, this->this$0, this->this$0->size()));
 }
 
 bool LinkedList$DescendingIterator::hasNext() {
-	return $nc(this->itr)->hasPrevious();
+	return this->itr->hasPrevious();
 }
 
 $Object* LinkedList$DescendingIterator::next() {
-	return $of($nc(this->itr)->previous());
+	return this->itr->previous();
 }
 
 void LinkedList$DescendingIterator::remove() {
-	$nc(this->itr)->remove();
+	this->itr->remove();
 }
 
 LinkedList$DescendingIterator::LinkedList$DescendingIterator() {
 }
 
 $Class* LinkedList$DescendingIterator::load$($String* name, bool initialize) {
-	$loadClass(LinkedList$DescendingIterator, name, initialize, &_LinkedList$DescendingIterator_ClassInfo_, allocate$LinkedList$DescendingIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/LinkedList;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedList$DescendingIterator, this$0)},
+		{"itr", "Ljava/util/LinkedList$ListItr;", "Ljava/util/LinkedList<TE;>.ListItr;", $PRIVATE | $FINAL, $field(LinkedList$DescendingIterator, itr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/LinkedList;)V", nullptr, $PRIVATE, $method(LinkedList$DescendingIterator, init$, void, $LinkedList*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedList$DescendingIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedList$DescendingIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedList$DescendingIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.LinkedList$DescendingIterator", "java.util.LinkedList", "DescendingIterator", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.LinkedList$DescendingIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.LinkedList"
+	};
+	$loadClass(LinkedList$DescendingIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedList$DescendingIterator);
+	});
 	return class$;
 }
 

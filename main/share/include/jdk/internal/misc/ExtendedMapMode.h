@@ -36,6 +36,7 @@ class $import ExtendedMapMode : public ::java::lang::Object {
 	$class(ExtendedMapMode, 0, ::java::lang::Object)
 public:
 	ExtendedMapMode();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandles$Lookup* lambda$static$0();
 	static ::java::nio::channels::FileChannel$MapMode* newMapMode($String* name);

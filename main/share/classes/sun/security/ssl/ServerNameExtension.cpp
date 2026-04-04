@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ServerNameExtension.h>
-
 #include <sun/security/ssl/HandshakeProducer.h>
 #include <sun/security/ssl/SSLExtension$ExtensionConsumer.h>
 #include <sun/security/ssl/SSLStringizer.h>
@@ -33,56 +32,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _ServerNameExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, chOnLoadConsumer)},
-	{"chStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, chStringizer)},
-	{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, shNetworkProducer)},
-	{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, shOnLoadConsumer)},
-	{"shStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, shStringizer)},
-	{"eeNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, eeNetworkProducer)},
-	{"eeOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, eeOnLoadConsumer)},
-	{}
-};
-
-$MethodInfo _ServerNameExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ServerNameExtension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ServerNameExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ServerNameExtension$EEServerNameConsumer", "sun.security.ssl.ServerNameExtension", "EEServerNameConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerNameExtension$EEServerNameProducer", "sun.security.ssl.ServerNameExtension", "EEServerNameProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerNameExtension$SHServerNameConsumer", "sun.security.ssl.ServerNameExtension", "SHServerNameConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerNameExtension$SHServerNameProducer", "sun.security.ssl.ServerNameExtension", "SHServerNameProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerNameExtension$SHServerNamesStringizer", "sun.security.ssl.ServerNameExtension", "SHServerNamesStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerNameExtension$SHServerNamesSpec", "sun.security.ssl.ServerNameExtension", "SHServerNamesSpec", $STATIC | $FINAL},
-	{"sun.security.ssl.ServerNameExtension$CHServerNameConsumer", "sun.security.ssl.ServerNameExtension", "CHServerNameConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerNameExtension$CHServerNameProducer", "sun.security.ssl.ServerNameExtension", "CHServerNameProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerNameExtension$CHServerNamesStringizer", "sun.security.ssl.ServerNameExtension", "CHServerNamesStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerNameExtension$CHServerNamesSpec", "sun.security.ssl.ServerNameExtension", "CHServerNamesSpec", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ServerNameExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ServerNameExtension",
-	"java.lang.Object",
-	nullptr,
-	_ServerNameExtension_FieldInfo_,
-	_ServerNameExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerNameExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ServerNameExtension$EEServerNameConsumer,sun.security.ssl.ServerNameExtension$EEServerNameProducer,sun.security.ssl.ServerNameExtension$SHServerNameConsumer,sun.security.ssl.ServerNameExtension$SHServerNameProducer,sun.security.ssl.ServerNameExtension$SHServerNamesStringizer,sun.security.ssl.ServerNameExtension$SHServerNamesSpec,sun.security.ssl.ServerNameExtension$CHServerNameConsumer,sun.security.ssl.ServerNameExtension$CHServerNameProducer,sun.security.ssl.ServerNameExtension$CHServerNamesStringizer,sun.security.ssl.ServerNameExtension$CHServerNamesSpec,sun.security.ssl.ServerNameExtension$CHServerNamesSpec$UnknownServerName"
-};
-
-$Object* allocate$ServerNameExtension($Class* clazz) {
-	return $of($alloc(ServerNameExtension));
-}
-
 $HandshakeProducer* ServerNameExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* ServerNameExtension::chOnLoadConsumer = nullptr;
 $SSLStringizer* ServerNameExtension::chStringizer = nullptr;
@@ -95,7 +44,7 @@ $SSLExtension$ExtensionConsumer* ServerNameExtension::eeOnLoadConsumer = nullptr
 void ServerNameExtension::init$() {
 }
 
-void clinit$ServerNameExtension($Class* class$) {
+void ServerNameExtension::clinit$($Class* clazz) {
 	$assignStatic(ServerNameExtension::chNetworkProducer, $new($ServerNameExtension$CHServerNameProducer));
 	$assignStatic(ServerNameExtension::chOnLoadConsumer, $new($ServerNameExtension$CHServerNameConsumer));
 	$assignStatic(ServerNameExtension::chStringizer, $new($ServerNameExtension$CHServerNamesStringizer));
@@ -110,7 +59,51 @@ ServerNameExtension::ServerNameExtension() {
 }
 
 $Class* ServerNameExtension::load$($String* name, bool initialize) {
-	$loadClass(ServerNameExtension, name, initialize, &_ServerNameExtension_ClassInfo_, clinit$ServerNameExtension, allocate$ServerNameExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, chOnLoadConsumer)},
+		{"chStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, chStringizer)},
+		{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, shNetworkProducer)},
+		{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, shOnLoadConsumer)},
+		{"shStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, shStringizer)},
+		{"eeNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, eeNetworkProducer)},
+		{"eeOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ServerNameExtension, eeOnLoadConsumer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ServerNameExtension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ServerNameExtension$EEServerNameConsumer", "sun.security.ssl.ServerNameExtension", "EEServerNameConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerNameExtension$EEServerNameProducer", "sun.security.ssl.ServerNameExtension", "EEServerNameProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerNameExtension$SHServerNameConsumer", "sun.security.ssl.ServerNameExtension", "SHServerNameConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerNameExtension$SHServerNameProducer", "sun.security.ssl.ServerNameExtension", "SHServerNameProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerNameExtension$SHServerNamesStringizer", "sun.security.ssl.ServerNameExtension", "SHServerNamesStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerNameExtension$SHServerNamesSpec", "sun.security.ssl.ServerNameExtension", "SHServerNamesSpec", $STATIC | $FINAL},
+		{"sun.security.ssl.ServerNameExtension$CHServerNameConsumer", "sun.security.ssl.ServerNameExtension", "CHServerNameConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerNameExtension$CHServerNameProducer", "sun.security.ssl.ServerNameExtension", "CHServerNameProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerNameExtension$CHServerNamesStringizer", "sun.security.ssl.ServerNameExtension", "CHServerNamesStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerNameExtension$CHServerNamesSpec", "sun.security.ssl.ServerNameExtension", "CHServerNamesSpec", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ServerNameExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ServerNameExtension$EEServerNameConsumer,sun.security.ssl.ServerNameExtension$EEServerNameProducer,sun.security.ssl.ServerNameExtension$SHServerNameConsumer,sun.security.ssl.ServerNameExtension$SHServerNameProducer,sun.security.ssl.ServerNameExtension$SHServerNamesStringizer,sun.security.ssl.ServerNameExtension$SHServerNamesSpec,sun.security.ssl.ServerNameExtension$CHServerNameConsumer,sun.security.ssl.ServerNameExtension$CHServerNameProducer,sun.security.ssl.ServerNameExtension$CHServerNamesStringizer,sun.security.ssl.ServerNameExtension$CHServerNamesSpec,sun.security.ssl.ServerNameExtension$CHServerNamesSpec$UnknownServerName"
+	};
+	$loadClass(ServerNameExtension, name, initialize, &classInfo$$, ServerNameExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerNameExtension);
+	});
 	return class$;
 }
 

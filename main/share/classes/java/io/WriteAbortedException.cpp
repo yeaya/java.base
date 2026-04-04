@@ -1,5 +1,4 @@
 #include <java/io/WriteAbortedException.h>
-
 #include <java/io/ObjectStreamException.h>
 #include <jcpp.h>
 
@@ -14,42 +13,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace io {
 
-$NamedAttribute WriteAbortedException_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _WriteAbortedException_FieldAnnotations_detail[] = {
-	{"Ljava/lang/Deprecated;", WriteAbortedException_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _WriteAbortedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WriteAbortedException, serialVersionUID)},
-	{"detail", "Ljava/lang/Exception;", nullptr, $PUBLIC | $DEPRECATED, $field(WriteAbortedException, detail), _WriteAbortedException_FieldAnnotations_detail},
-	{}
-};
-
-$MethodInfo _WriteAbortedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(WriteAbortedException, init$, void, $String*, $Exception*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(WriteAbortedException, getCause, $Throwable*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WriteAbortedException, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _WriteAbortedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.WriteAbortedException",
-	"java.io.ObjectStreamException",
-	nullptr,
-	_WriteAbortedException_FieldInfo_,
-	_WriteAbortedException_MethodInfo_
-};
-
-$Object* allocate$WriteAbortedException($Class* clazz) {
-	return $of($alloc(WriteAbortedException));
-}
-
 void WriteAbortedException::init$($String* s, $Exception* ex) {
 	$ObjectStreamException::init$(s);
 	initCause(nullptr);
@@ -57,12 +20,15 @@ void WriteAbortedException::init$($String* s, $Exception* ex) {
 }
 
 $String* WriteAbortedException::getMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->detail == nullptr) {
 		return $ObjectStreamException::getMessage();
 	} else {
-		$var($String, var$0, $$str({$($ObjectStreamException::getMessage()), "; "_s}));
-		return $concat(var$0, $($nc(this->detail)->toString()));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($ObjectStreamException::getMessage()));
+		var$0->append("; "_s);
+		var$0->append($(this->detail->toString()));
+		return $str(var$0);
 	}
 }
 
@@ -81,7 +47,36 @@ void WriteAbortedException::throw$() {
 }
 
 $Class* WriteAbortedException::load$($String* name, bool initialize) {
-	$loadClass(WriteAbortedException, name, initialize, &_WriteAbortedException_ClassInfo_, allocate$WriteAbortedException);
+	$NamedAttribute detailfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute detailfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", detailfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WriteAbortedException, serialVersionUID)},
+		{"detail", "Ljava/lang/Exception;", nullptr, $PUBLIC | $DEPRECATED, $field(WriteAbortedException, detail), detailfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(WriteAbortedException, init$, void, $String*, $Exception*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(WriteAbortedException, getCause, $Throwable*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WriteAbortedException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.WriteAbortedException",
+		"java.io.ObjectStreamException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WriteAbortedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WriteAbortedException);
+	});
 	return class$;
 }
 

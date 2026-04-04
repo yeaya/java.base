@@ -1,5 +1,4 @@
 #include <java/lang/VerifyError.h>
-
 #include <java/lang/LinkageError.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _VerifyError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(VerifyError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _VerifyError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VerifyError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VerifyError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _VerifyError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.VerifyError",
-	"java.lang.LinkageError",
-	nullptr,
-	_VerifyError_FieldInfo_,
-	_VerifyError_MethodInfo_
-};
-
-$Object* allocate$VerifyError($Class* clazz) {
-	return $of($alloc(VerifyError));
-}
 
 void VerifyError::init$() {
 	$LinkageError::init$();
@@ -54,7 +29,26 @@ void VerifyError::throw$() {
 }
 
 $Class* VerifyError::load$($String* name, bool initialize) {
-	$loadClass(VerifyError, name, initialize, &_VerifyError_ClassInfo_, allocate$VerifyError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(VerifyError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VerifyError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VerifyError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.VerifyError",
+		"java.lang.LinkageError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VerifyError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VerifyError);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/reflect/annotation/TypeNotPresentExceptionProxy.h>
-
 #include <java/lang/TypeNotPresentException.h>
 #include <sun/reflect/annotation/ExceptionProxy.h>
 #include <jcpp.h>
@@ -14,35 +13,6 @@ using $ExceptionProxy = ::sun::reflect::annotation::ExceptionProxy;
 namespace sun {
 	namespace reflect {
 		namespace annotation {
-
-$FieldInfo _TypeNotPresentExceptionProxy_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeNotPresentExceptionProxy, serialVersionUID)},
-	{"typeName", "Ljava/lang/String;", nullptr, $FINAL, $field(TypeNotPresentExceptionProxy, typeName$)},
-	{"cause", "Ljava/lang/Throwable;", nullptr, $FINAL, $field(TypeNotPresentExceptionProxy, cause)},
-	{}
-};
-
-$MethodInfo _TypeNotPresentExceptionProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TypeNotPresentExceptionProxy, init$, void, $String*, $Throwable*)},
-	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED, $virtualMethod(TypeNotPresentExceptionProxy, generateException, $RuntimeException*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentExceptionProxy, getCause, $Throwable*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentExceptionProxy, toString, $String*)},
-	{"typeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentExceptionProxy, typeName, $String*)},
-	{}
-};
-
-$ClassInfo _TypeNotPresentExceptionProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.annotation.TypeNotPresentExceptionProxy",
-	"sun.reflect.annotation.ExceptionProxy",
-	nullptr,
-	_TypeNotPresentExceptionProxy_FieldInfo_,
-	_TypeNotPresentExceptionProxy_MethodInfo_
-};
-
-$Object* allocate$TypeNotPresentExceptionProxy($Class* clazz) {
-	return $of($alloc(TypeNotPresentExceptionProxy));
-}
 
 void TypeNotPresentExceptionProxy::init$($String* typeName, $Throwable* cause) {
 	$ExceptionProxy::init$();
@@ -70,7 +40,31 @@ TypeNotPresentExceptionProxy::TypeNotPresentExceptionProxy() {
 }
 
 $Class* TypeNotPresentExceptionProxy::load$($String* name, bool initialize) {
-	$loadClass(TypeNotPresentExceptionProxy, name, initialize, &_TypeNotPresentExceptionProxy_ClassInfo_, allocate$TypeNotPresentExceptionProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeNotPresentExceptionProxy, serialVersionUID)},
+		{"typeName", "Ljava/lang/String;", nullptr, $FINAL, $field(TypeNotPresentExceptionProxy, typeName$)},
+		{"cause", "Ljava/lang/Throwable;", nullptr, $FINAL, $field(TypeNotPresentExceptionProxy, cause)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TypeNotPresentExceptionProxy, init$, void, $String*, $Throwable*)},
+		{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED, $virtualMethod(TypeNotPresentExceptionProxy, generateException, $RuntimeException*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentExceptionProxy, getCause, $Throwable*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentExceptionProxy, toString, $String*)},
+		{"typeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentExceptionProxy, typeName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.annotation.TypeNotPresentExceptionProxy",
+		"sun.reflect.annotation.ExceptionProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TypeNotPresentExceptionProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeNotPresentExceptionProxy);
+	});
 	return class$;
 }
 

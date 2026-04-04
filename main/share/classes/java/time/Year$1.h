@@ -12,6 +12,7 @@ class Year$1 : public ::java::lang::Object {
 	$class(Year$1, 0, ::java::lang::Object)
 public:
 	Year$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$time$temporal$ChronoUnit;
 	static $ints* $SwitchMap$java$time$temporal$ChronoField;
 };

@@ -1,5 +1,4 @@
 #include <java/net/SocksSocketImpl.h>
-
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -32,9 +31,7 @@
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <jdk/internal/util/StaticProperty.h>
@@ -89,7 +86,6 @@ using $PasswordAuthentication = ::java::net::PasswordAuthentication;
 using $Proxy = ::java::net::Proxy;
 using $Proxy$Type = ::java::net::Proxy$Type;
 using $ProxySelector = ::java::net::ProxySelector;
-using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SocketException = ::java::net::SocketException;
 using $SocketImpl = ::java::net::SocketImpl;
@@ -104,11 +100,8 @@ using $URISyntaxException = ::java::net::URISyntaxException;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $StaticProperty = ::jdk::internal::util::StaticProperty;
 using $SocksProxy = ::sun::net::SocksProxy;
 using $DefaultProxySelector = ::sun::net::spi::DefaultProxySelector;
@@ -116,72 +109,6 @@ using $ParseUtil = ::sun::net::www::ParseUtil;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _SocksSocketImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocksSocketImpl, $assertionsDisabled)},
-	{"server", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SocksSocketImpl, server)},
-	{"serverPort", "I", nullptr, $PRIVATE, $field(SocksSocketImpl, serverPort)},
-	{"external_address", "Ljava/net/InetSocketAddress;", nullptr, $PRIVATE, $field(SocksSocketImpl, external_address)},
-	{"useV4", "Z", nullptr, $PRIVATE, $field(SocksSocketImpl, useV4$)},
-	{"cmdsock", "Ljava/net/Socket;", nullptr, $PRIVATE, $field(SocksSocketImpl, cmdsock)},
-	{"cmdIn", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(SocksSocketImpl, cmdIn)},
-	{"cmdOut", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(SocksSocketImpl, cmdOut)},
-	{}
-};
-
-$MethodInfo _SocksSocketImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/net/SocketImpl;)V", nullptr, 0, $method(SocksSocketImpl, init$, void, $SocketImpl*)},
-	{"<init>", "(Ljava/net/Proxy;Ljava/net/SocketImpl;)V", nullptr, 0, $method(SocksSocketImpl, init$, void, $Proxy*, $SocketImpl*)},
-	{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, accept, void, $SocketImpl*)},
-	{"authenticate", "(BLjava/io/InputStream;Ljava/io/BufferedOutputStream;J)Z", nullptr, $PRIVATE, $method(SocksSocketImpl, authenticate, bool, int8_t, $InputStream*, $BufferedOutputStream*, int64_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, close, void), "java.io.IOException"},
-	{"connect", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, connect, void, $String*, int32_t), "java.io.IOException"},
-	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, connect, void, $InetAddress*, int32_t), "java.io.IOException"},
-	{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, connect, void, $SocketAddress*, int32_t), "java.io.IOException"},
-	{"connectV4", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/net/InetSocketAddress;J)V", nullptr, $PRIVATE, $method(SocksSocketImpl, connectV4, void, $InputStream*, $OutputStream*, $InetSocketAddress*, int64_t), "java.io.IOException"},
-	{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, getInetAddress, $InetAddress*)},
-	{"getPort", "()I", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, getPort, int32_t)},
-	{"getUserName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SocksSocketImpl, getUserName, $String*)},
-	{"listen", "(I)V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, listen, void, int32_t)},
-	{"privilegedConnect", "(Ljava/lang/String;II)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SocksSocketImpl, privilegedConnect, void, $String*, int32_t, int32_t), "java.io.IOException"},
-	{"readSocksReply", "(Ljava/io/InputStream;[BJ)I", nullptr, $PRIVATE, $method(SocksSocketImpl, readSocksReply, int32_t, $InputStream*, $bytes*, int64_t), "java.io.IOException"},
-	{"remainingMillis", "(J)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SocksSocketImpl, remainingMillis, int32_t, int64_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, 0, $virtualMethod(SocksSocketImpl, reset, void)},
-	{"superConnectServer", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(SocksSocketImpl, superConnectServer, void, $String*, int32_t, int32_t), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"useV4", "(Ljava/net/Proxy;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SocksSocketImpl, useV4, bool, $Proxy*)},
-	{}
-};
-
-$InnerClassInfo _SocksSocketImpl_InnerClassesInfo_[] = {
-	{"java.net.SocksSocketImpl$3", nullptr, nullptr, 0},
-	{"java.net.SocksSocketImpl$2", nullptr, nullptr, 0},
-	{"java.net.SocksSocketImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SocksSocketImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.SocksSocketImpl",
-	"java.net.DelegatingSocketImpl",
-	"java.net.SocksConsts",
-	_SocksSocketImpl_FieldInfo_,
-	_SocksSocketImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SocksSocketImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.SocksSocketImpl$3,java.net.SocksSocketImpl$2,java.net.SocksSocketImpl$1"
-};
-
-$Object* allocate$SocksSocketImpl($Class* clazz) {
-	return $of($alloc(SocksSocketImpl));
-}
 
 $String* SocksSocketImpl::toString() {
 	 return this->$DelegatingSocketImpl::toString();
@@ -216,7 +143,7 @@ void SocksSocketImpl::init$($SocketImpl* delegate) {
 }
 
 void SocksSocketImpl::init$($Proxy* proxy, $SocketImpl* delegate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DelegatingSocketImpl::init$(delegate);
 	$set(this, server, nullptr);
 	this->serverPort = $SocksConsts::DEFAULT_PORT;
@@ -242,7 +169,7 @@ void SocksSocketImpl::init$($Proxy* proxy, $SocketImpl* delegate) {
 
 bool SocksSocketImpl::useV4($Proxy* proxy) {
 	$init(SocksSocketImpl);
-	if ($instanceOf($SocksProxy, proxy) && $nc(($cast($SocksProxy, proxy)))->protocolVersion() == 4) {
+	if ($instanceOf($SocksProxy, proxy) && $cast($SocksProxy, proxy)->protocolVersion() == 4) {
 		return true;
 	}
 	return $DefaultProxySelector::socksProxyVersion() == 4;
@@ -250,23 +177,23 @@ bool SocksSocketImpl::useV4($Proxy* proxy) {
 
 void SocksSocketImpl::privilegedConnect($String* host, int32_t port, int32_t timeout) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		try {
-			$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($SocksSocketImpl$1, this, host, port, timeout)));
+			$AccessController::doPrivileged($$new($SocksSocketImpl$1, this, host, port, timeout));
 		} catch ($PrivilegedActionException& pae) {
-			$throw($cast($IOException, $(pae->getException())));
+			$throw($$cast($IOException, pae->getException()));
 		}
 	}
 }
 
 void SocksSocketImpl::superConnectServer($String* host, int32_t port, int32_t timeout) {
-	$nc(this->delegate$)->connect(static_cast<$SocketAddress*>($$new($InetSocketAddress, host, port)), timeout);
+	$nc(this->delegate$)->connect($$new($InetSocketAddress, host, port), timeout);
 }
 
 int32_t SocksSocketImpl::remainingMillis(int64_t deadlineMillis) {
 	$init(SocksSocketImpl);
-	if (deadlineMillis == (int64_t)0) {
+	if (deadlineMillis == 0) {
 		return 0;
 	}
 	int64_t remaining = deadlineMillis - $System::currentTimeMillis();
@@ -277,41 +204,39 @@ int32_t SocksSocketImpl::remainingMillis(int64_t deadlineMillis) {
 }
 
 int32_t SocksSocketImpl::readSocksReply($InputStream* in, $bytes* data, int64_t deadlineMillis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(data)->length;
 	int32_t received = 0;
-	int32_t originalTimeout = $nc(($cast($Integer, $(getOption($SocketOptions::SO_TIMEOUT)))))->intValue();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while (received < len) {
-				int32_t count = 0;
-				int32_t remaining = remainingMillis(deadlineMillis);
-				setOption($SocketOptions::SO_TIMEOUT, $($of($Integer::valueOf(remaining))));
-				try {
-					count = $nc(in)->read(data, received, len - received);
-				} catch ($SocketTimeoutException& e) {
-					$throwNew($SocketTimeoutException, "Connect timed out"_s);
-				}
-				if (count < 0) {
-					$throwNew($SocketException, "Malformed reply from SOCKS server"_s);
-				}
-				received += count;
+	int32_t originalTimeout = $$sure($Integer, getOption($SocketOptions::SO_TIMEOUT))->intValue();
+	$var($Throwable, var$0, nullptr);
+	try {
+		while (received < len) {
+			int32_t count = 0;
+			int32_t remaining = remainingMillis(deadlineMillis);
+			setOption($SocketOptions::SO_TIMEOUT, $($Integer::valueOf(remaining)));
+			try {
+				count = $nc(in)->read(data, received, len - received);
+			} catch ($SocketTimeoutException& e) {
+				$throwNew($SocketTimeoutException, "Connect timed out"_s);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			setOption($SocketOptions::SO_TIMEOUT, $($of($Integer::valueOf(originalTimeout))));
+			if (count < 0) {
+				$throwNew($SocketException, "Malformed reply from SOCKS server"_s);
+			}
+			received += count;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		setOption($SocketOptions::SO_TIMEOUT, $($Integer::valueOf(originalTimeout)));
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return received;
 }
 
 bool SocksSocketImpl::authenticate(int8_t method, $InputStream* in, $BufferedOutputStream* out, int64_t deadlineMillis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (method == $SocksConsts::NO_AUTH) {
 		return true;
@@ -320,7 +245,7 @@ bool SocksSocketImpl::authenticate(int8_t method, $InputStream* in, $BufferedOut
 		$var($String, userName, nullptr);
 		$var($String, password, nullptr);
 		$var($InetAddress, addr, $InetAddress::getByName(this->server));
-		$var($PasswordAuthentication, pw, $cast($PasswordAuthentication, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SocksSocketImpl$2, this, addr)))));
+		$var($PasswordAuthentication, pw, $cast($PasswordAuthentication, $AccessController::doPrivileged($$new($SocksSocketImpl$2, this, addr))));
 		if (pw != nullptr) {
 			$assign(userName, pw->getUserName());
 			$assign(password, $new($String, $(pw->getPassword())));
@@ -333,7 +258,7 @@ bool SocksSocketImpl::authenticate(int8_t method, $InputStream* in, $BufferedOut
 		$nc(out)->write(1);
 		out->write($nc(userName)->length());
 		$init($StandardCharsets);
-		out->write($($nc(userName)->getBytes($StandardCharsets::ISO_8859_1)));
+		out->write($(userName->getBytes($StandardCharsets::ISO_8859_1)));
 		if (password != nullptr) {
 			out->write(password->length());
 			out->write($(password->getBytes($StandardCharsets::ISO_8859_1)));
@@ -354,15 +279,15 @@ bool SocksSocketImpl::authenticate(int8_t method, $InputStream* in, $BufferedOut
 }
 
 void SocksSocketImpl::connectV4($InputStream* in, $OutputStream* out, $InetSocketAddress* endpoint, int64_t deadlineMillis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Inet4Address, $($nc(endpoint)->getAddress())))) {
 		$throwNew($SocketException, "SOCKS V4 requires IPv4 only addresses"_s);
 	}
 	$nc(out)->write($SocksConsts::PROTO_VERS4);
 	out->write($SocksConsts::CONNECT);
-	out->write((int32_t)(($nc(endpoint)->getPort() >> 8) & (uint32_t)255));
-	out->write((int32_t)(($nc(endpoint)->getPort() >> 0) & (uint32_t)255));
-	out->write($($nc($($nc(endpoint)->getAddress()))->getAddress()));
+	out->write((endpoint->getPort() >> 8) & 0xff);
+	out->write((endpoint->getPort() >> 0) & 0xff);
+	out->write($($$nc(endpoint->getAddress())->getAddress()));
 	$var($String, userName, getUserName());
 	$init($StandardCharsets);
 	out->write($($nc(userName)->getBytes($StandardCharsets::ISO_8859_1)));
@@ -376,37 +301,26 @@ void SocksSocketImpl::connectV4($InputStream* in, $OutputStream* out, $InetSocke
 	if (data->get(0) != 0 && data->get(0) != 4) {
 		$throwNew($SocketException, "Reply from SOCKS server has bad version"_s);
 	}
-
-	$var($SocketException, var$0, nullptr)
+	$var($SocketException, var$0, nullptr);
 	switch (data->get(1)) {
 	case 90:
 		{
-			{
-				$set(this, external_address, endpoint);
-				$assign(var$0, nullptr);
-				break;
-			}
+			$set(this, external_address, endpoint);
+			$assign(var$0, nullptr);
+			break;
 		}
 	case 91:
-		{
-			$assign(var$0, $new($SocketException, "SOCKS request rejected"_s));
-			break;
-		}
+		$assign(var$0, $new($SocketException, "SOCKS request rejected"_s));
+		break;
 	case 92:
-		{
-			$assign(var$0, $new($SocketException, "SOCKS server couldn\'t reach destination"_s));
-			break;
-		}
+		$assign(var$0, $new($SocketException, "SOCKS server couldn\'t reach destination"_s));
+		break;
 	case 93:
-		{
-			$assign(var$0, $new($SocketException, "SOCKS authentication failed"_s));
-			break;
-		}
+		$assign(var$0, $new($SocketException, "SOCKS authentication failed"_s));
+		break;
 	default:
-		{
-			$assign(var$0, $new($SocketException, "Reply from SOCKS server contains bad status"_s));
-			break;
-		}
+		$assign(var$0, $new($SocketException, "Reply from SOCKS server contains bad status"_s));
+		break;
 	}
 	$var($SocketException, ex, var$0);
 	if (ex != nullptr) {
@@ -417,15 +331,15 @@ void SocksSocketImpl::connectV4($InputStream* in, $OutputStream* out, $InetSocke
 }
 
 void SocksSocketImpl::connect($String* host, int32_t port) {
-	connect(static_cast<$SocketAddress*>($$new($InetSocketAddress, host, port)), 0);
+	connect($$new($InetSocketAddress, host, port), 0);
 }
 
 void SocksSocketImpl::connect($InetAddress* address, int32_t port) {
-	connect(static_cast<$SocketAddress*>($$new($InetSocketAddress, address, port)), 0);
+	connect($$new($InetSocketAddress, address, port), 0);
 }
 
 void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	int64_t deadlineMillis = 0;
 	if (timeout == 0) {
@@ -449,26 +363,30 @@ void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
 			$var($String, var$1, epoint->getHostName());
 			security->checkConnect(var$1, epoint->getPort());
 		} else {
-			$var($String, var$2, $nc($(epoint->getAddress()))->getHostAddress());
+			$var($String, var$2, $$nc(epoint->getAddress())->getHostAddress());
 			security->checkConnect(var$2, epoint->getPort());
 		}
 	}
 	if (this->server == nullptr) {
-		$var($ProxySelector, sel, $cast($ProxySelector, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SocksSocketImpl$3, this)))));
+		$var($ProxySelector, sel, $cast($ProxySelector, $AccessController::doPrivileged($$new($SocksSocketImpl$3, this))));
 		if (sel == nullptr) {
-			$nc(this->delegate$)->connect(static_cast<$SocketAddress*>(epoint), remainingMillis(deadlineMillis));
+			$nc(this->delegate$)->connect(epoint, remainingMillis(deadlineMillis));
 			return;
 		}
 		$var($URI, uri, nullptr);
 		$var($String, host, $nc(epoint)->getHostString());
 		bool var$4 = $instanceOf($Inet6Address, $(epoint->getAddress()));
 		bool var$3 = var$4 && (!$nc(host)->startsWith("["_s));
-		if (var$3 && (host->indexOf((int32_t)u':') >= 0)) {
+		if (var$3 && (host->indexOf(u':') >= 0)) {
 			$assign(host, $str({"["_s, host, "]"_s}));
 		}
 		try {
-			$var($String, var$5, $$str({"socket://"_s, $($ParseUtil::encodePath(host)), ":"_s}));
-			$assign(uri, $new($URI, $$concat(var$5, $$str(epoint->getPort()))));
+			$var($StringBuilder, var$5, $new($StringBuilder));
+			var$5->append("socket://"_s);
+			var$5->append($($ParseUtil::encodePath(host)));
+			var$5->append(":"_s);
+			var$5->append(epoint->getPort());
+			$assign(uri, $new($URI, $$str(var$5)));
 		} catch ($URISyntaxException& e) {
 			if (!SocksSocketImpl::$assertionsDisabled) {
 				$throwNew($AssertionError, $of(e));
@@ -479,26 +397,26 @@ void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
 		$var($IOException, savedExc, nullptr);
 		$var($Iterator, iProxy, nullptr);
 		try {
-			$assign(iProxy, $nc($($nc(sel)->select(uri)))->iterator());
+			$assign(iProxy, $$nc($nc(sel)->select(uri))->iterator());
 		} catch ($IllegalArgumentException& iae) {
 			$throwNew($IOException, "Failed to select a proxy"_s, iae);
 		}
-		if (iProxy == nullptr || !($nc(iProxy)->hasNext())) {
-			$nc(this->delegate$)->connect(static_cast<$SocketAddress*>(epoint), remainingMillis(deadlineMillis));
+		if (iProxy == nullptr || !(iProxy->hasNext())) {
+			$nc(this->delegate$)->connect(epoint, remainingMillis(deadlineMillis));
 			return;
 		}
 		while ($nc(iProxy)->hasNext()) {
 			$assign(p, $cast($Proxy, iProxy->next()));
 			$init($Proxy$Type);
-			if (p == nullptr || $nc(p)->type() != $Proxy$Type::SOCKS) {
-				$nc(this->delegate$)->connect(static_cast<$SocketAddress*>(epoint), remainingMillis(deadlineMillis));
+			if (p == nullptr || p->type() != $Proxy$Type::SOCKS) {
+				$nc(this->delegate$)->connect(epoint, remainingMillis(deadlineMillis));
 				return;
 			}
 			if (!($instanceOf($InetSocketAddress, $($nc(p)->address())))) {
 				$throwNew($SocketException, $$str({"Unknown address type for proxy: "_s, p}));
 			}
-			$set(this, server, $nc(($cast($InetSocketAddress, $($nc(p)->address()))))->getHostString());
-			this->serverPort = $nc(($cast($InetSocketAddress, $(p->address()))))->getPort();
+			$set(this, server, $$sure($InetSocketAddress, p->address())->getHostString());
+			this->serverPort = $$sure($InetSocketAddress, p->address())->getPort();
 			this->useV4$ = useV4(p);
 			try {
 				privilegedConnect(this->server, this->serverPort, remainingMillis(deadlineMillis));
@@ -554,21 +472,21 @@ void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
 	out->write(0);
 	if ($nc(epoint)->isUnresolved()) {
 		out->write($SocksConsts::DOMAIN_NAME);
-		out->write($nc($(epoint->getHostName()))->length());
+		out->write($$nc(epoint->getHostName())->length());
 		$init($StandardCharsets);
-		out->write($($nc($(epoint->getHostName()))->getBytes($StandardCharsets::ISO_8859_1)));
-		out->write((int32_t)((epoint->getPort() >> 8) & (uint32_t)255));
-		out->write((int32_t)((epoint->getPort() >> 0) & (uint32_t)255));
+		out->write($($$nc(epoint->getHostName())->getBytes($StandardCharsets::ISO_8859_1)));
+		out->write((epoint->getPort() >> 8) & 0xff);
+		out->write((epoint->getPort() >> 0) & 0xff);
 	} else if ($instanceOf($Inet6Address, $(epoint->getAddress()))) {
 		out->write($SocksConsts::IPV6);
-		out->write($($nc($(epoint->getAddress()))->getAddress()));
-		out->write((int32_t)((epoint->getPort() >> 8) & (uint32_t)255));
-		out->write((int32_t)((epoint->getPort() >> 0) & (uint32_t)255));
+		out->write($($$nc(epoint->getAddress())->getAddress()));
+		out->write((epoint->getPort() >> 8) & 0xff);
+		out->write((epoint->getPort() >> 0) & 0xff);
 	} else {
 		out->write($SocksConsts::IPV4);
-		out->write($($nc($(epoint->getAddress()))->getAddress()));
-		out->write((int32_t)((epoint->getPort() >> 8) & (uint32_t)255));
-		out->write((int32_t)((epoint->getPort() >> 0) & (uint32_t)255));
+		out->write($($$nc(epoint->getAddress())->getAddress()));
+		out->write((epoint->getPort() >> 8) & 0xff);
+		out->write((epoint->getPort() >> 0) & 0xff);
 	}
 	out->flush();
 	$assign(data, $new($bytes, 4));
@@ -582,108 +500,82 @@ void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
 	switch (data->get(1)) {
 	case $SocksConsts::REQUEST_OK:
 		{
-			{
-				$var($bytes, lenByte, nullptr)
-				$var($bytes, host, nullptr)
-				switch (data->get(3)) {
-				case $SocksConsts::IPV4:
-					{
-						$assign(addr, $new($bytes, 4));
-						i = readSocksReply(in, addr, deadlineMillis);
-						if (i != 4) {
-							$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
-						}
-						$assign(data, $new($bytes, 2));
-						i = readSocksReply(in, data, deadlineMillis);
-						if (i != 2) {
-							$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
-						}
-						break;
-					}
-				case $SocksConsts::DOMAIN_NAME:
-					{
-						$assign(lenByte, $new($bytes, 1));
-						i = readSocksReply(in, lenByte, deadlineMillis);
-						if (i != 1) {
-							$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
-						}
-						len = (int32_t)($nc(lenByte)->get(0) & (uint32_t)255);
-						$assign(host, $new($bytes, len));
-						i = readSocksReply(in, host, deadlineMillis);
-						if (i != len) {
-							$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
-						}
-						$assign(data, $new($bytes, 2));
-						i = readSocksReply(in, data, deadlineMillis);
-						if (i != 2) {
-							$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
-						}
-						break;
-					}
-				case $SocksConsts::IPV6:
-					{
-						len = 16;
-						$assign(addr, $new($bytes, len));
-						i = readSocksReply(in, addr, deadlineMillis);
-						if (i != len) {
-							$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
-						}
-						$assign(data, $new($bytes, 2));
-						i = readSocksReply(in, data, deadlineMillis);
-						if (i != 2) {
-							$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
-						}
-						break;
-					}
-				default:
-					{
-						$assign(ex, $new($SocketException, "Reply from SOCKS server contains wrong code"_s));
-						break;
-					}
+			$var($bytes, lenByte, nullptr);
+			$var($bytes, host, nullptr);
+			switch (data->get(3)) {
+			case $SocksConsts::IPV4:
+				$assign(addr, $new($bytes, 4));
+				i = readSocksReply(in, addr, deadlineMillis);
+				if (i != 4) {
+					$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
 				}
+				$assign(data, $new($bytes, 2));
+				i = readSocksReply(in, data, deadlineMillis);
+				if (i != 2) {
+					$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
+				}
+				break;
+			case $SocksConsts::DOMAIN_NAME:
+				$assign(lenByte, $new($bytes, 1));
+				i = readSocksReply(in, lenByte, deadlineMillis);
+				if (i != 1) {
+					$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
+				}
+				len = $nc(lenByte)->get(0) & 0xff;
+				$assign(host, $new($bytes, len));
+				i = readSocksReply(in, host, deadlineMillis);
+				if (i != len) {
+					$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
+				}
+				$assign(data, $new($bytes, 2));
+				i = readSocksReply(in, data, deadlineMillis);
+				if (i != 2) {
+					$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
+				}
+				break;
+			case $SocksConsts::IPV6:
+				len = 16;
+				$assign(addr, $new($bytes, len));
+				i = readSocksReply(in, addr, deadlineMillis);
+				if (i != len) {
+					$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
+				}
+				$assign(data, $new($bytes, 2));
+				i = readSocksReply(in, data, deadlineMillis);
+				if (i != 2) {
+					$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
+				}
+				break;
+			default:
+				$assign(ex, $new($SocketException, "Reply from SOCKS server contains wrong code"_s));
+				break;
 			}
 			break;
 		}
 	case $SocksConsts::GENERAL_FAILURE:
-		{
-			$assign(ex, $new($SocketException, "SOCKS server general failure"_s));
-			break;
-		}
+		$assign(ex, $new($SocketException, "SOCKS server general failure"_s));
+		break;
 	case $SocksConsts::NOT_ALLOWED:
-		{
-			$assign(ex, $new($SocketException, "SOCKS: Connection not allowed by ruleset"_s));
-			break;
-		}
+		$assign(ex, $new($SocketException, "SOCKS: Connection not allowed by ruleset"_s));
+		break;
 	case $SocksConsts::NET_UNREACHABLE:
-		{
-			$assign(ex, $new($SocketException, "SOCKS: Network unreachable"_s));
-			break;
-		}
+		$assign(ex, $new($SocketException, "SOCKS: Network unreachable"_s));
+		break;
 	case $SocksConsts::HOST_UNREACHABLE:
-		{
-			$assign(ex, $new($SocketException, "SOCKS: Host unreachable"_s));
-			break;
-		}
+		$assign(ex, $new($SocketException, "SOCKS: Host unreachable"_s));
+		break;
 	case $SocksConsts::CONN_REFUSED:
-		{
-			$assign(ex, $new($SocketException, "SOCKS: Connection refused"_s));
-			break;
-		}
+		$assign(ex, $new($SocketException, "SOCKS: Connection refused"_s));
+		break;
 	case $SocksConsts::TTL_EXPIRED:
-		{
-			$assign(ex, $new($SocketException, "SOCKS: TTL expired"_s));
-			break;
-		}
+		$assign(ex, $new($SocketException, "SOCKS: TTL expired"_s));
+		break;
 	case $SocksConsts::CMD_NOT_SUPPORTED:
-		{
-			$assign(ex, $new($SocketException, "SOCKS: Command not supported"_s));
-			break;
-		}
+		$assign(ex, $new($SocketException, "SOCKS: Command not supported"_s));
+		break;
 	case $SocksConsts::ADDR_TYPE_NOT_SUP:
-		{
-			$assign(ex, $new($SocketException, "SOCKS: address type not supported"_s));
-			break;
-		}
+		$assign(ex, $new($SocketException, "SOCKS: address type not supported"_s));
+		break;
 	}
 	if (ex != nullptr) {
 		$nc(in)->close();
@@ -703,7 +595,7 @@ void SocksSocketImpl::accept($SocketImpl* s) {
 
 $InetAddress* SocksSocketImpl::getInetAddress() {
 	if (this->external_address != nullptr) {
-		return $nc(this->external_address)->getAddress();
+		return this->external_address->getAddress();
 	} else {
 		return $nc(this->delegate$)->getInetAddress();
 	}
@@ -711,7 +603,7 @@ $InetAddress* SocksSocketImpl::getInetAddress() {
 
 int32_t SocksSocketImpl::getPort() {
 	if (this->external_address != nullptr) {
-		return $nc(this->external_address)->getPort();
+		return this->external_address->getPort();
 	} else {
 		return $nc(this->delegate$)->getPort();
 	}
@@ -719,7 +611,7 @@ int32_t SocksSocketImpl::getPort() {
 
 void SocksSocketImpl::close() {
 	if (this->cmdsock != nullptr) {
-		$nc(this->cmdsock)->close();
+		this->cmdsock->close();
 	}
 	$set(this, cmdsock, nullptr);
 	$nc(this->delegate$)->close();
@@ -733,7 +625,7 @@ void SocksSocketImpl::reset() {
 	$throwNew($InternalError, "should not get here"_s);
 }
 
-void clinit$SocksSocketImpl($Class* class$) {
+void SocksSocketImpl::clinit$($Class* clazz) {
 	SocksSocketImpl::$assertionsDisabled = !SocksSocketImpl::class$->desiredAssertionStatus();
 }
 
@@ -741,7 +633,67 @@ SocksSocketImpl::SocksSocketImpl() {
 }
 
 $Class* SocksSocketImpl::load$($String* name, bool initialize) {
-	$loadClass(SocksSocketImpl, name, initialize, &_SocksSocketImpl_ClassInfo_, clinit$SocksSocketImpl, allocate$SocksSocketImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocksSocketImpl, $assertionsDisabled)},
+		{"server", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SocksSocketImpl, server)},
+		{"serverPort", "I", nullptr, $PRIVATE, $field(SocksSocketImpl, serverPort)},
+		{"external_address", "Ljava/net/InetSocketAddress;", nullptr, $PRIVATE, $field(SocksSocketImpl, external_address)},
+		{"useV4", "Z", nullptr, $PRIVATE, $field(SocksSocketImpl, useV4$)},
+		{"cmdsock", "Ljava/net/Socket;", nullptr, $PRIVATE, $field(SocksSocketImpl, cmdsock)},
+		{"cmdIn", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(SocksSocketImpl, cmdIn)},
+		{"cmdOut", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(SocksSocketImpl, cmdOut)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/net/SocketImpl;)V", nullptr, 0, $method(SocksSocketImpl, init$, void, $SocketImpl*)},
+		{"<init>", "(Ljava/net/Proxy;Ljava/net/SocketImpl;)V", nullptr, 0, $method(SocksSocketImpl, init$, void, $Proxy*, $SocketImpl*)},
+		{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, accept, void, $SocketImpl*)},
+		{"authenticate", "(BLjava/io/InputStream;Ljava/io/BufferedOutputStream;J)Z", nullptr, $PRIVATE, $method(SocksSocketImpl, authenticate, bool, int8_t, $InputStream*, $BufferedOutputStream*, int64_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, close, void), "java.io.IOException"},
+		{"connect", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, connect, void, $String*, int32_t), "java.io.IOException"},
+		{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, connect, void, $InetAddress*, int32_t), "java.io.IOException"},
+		{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, connect, void, $SocketAddress*, int32_t), "java.io.IOException"},
+		{"connectV4", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/net/InetSocketAddress;J)V", nullptr, $PRIVATE, $method(SocksSocketImpl, connectV4, void, $InputStream*, $OutputStream*, $InetSocketAddress*, int64_t), "java.io.IOException"},
+		{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, getInetAddress, $InetAddress*)},
+		{"getPort", "()I", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, getPort, int32_t)},
+		{"getUserName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SocksSocketImpl, getUserName, $String*)},
+		{"listen", "(I)V", nullptr, $PROTECTED, $virtualMethod(SocksSocketImpl, listen, void, int32_t)},
+		{"privilegedConnect", "(Ljava/lang/String;II)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SocksSocketImpl, privilegedConnect, void, $String*, int32_t, int32_t), "java.io.IOException"},
+		{"readSocksReply", "(Ljava/io/InputStream;[BJ)I", nullptr, $PRIVATE, $method(SocksSocketImpl, readSocksReply, int32_t, $InputStream*, $bytes*, int64_t), "java.io.IOException"},
+		{"remainingMillis", "(J)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SocksSocketImpl, remainingMillis, int32_t, int64_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, 0, $virtualMethod(SocksSocketImpl, reset, void)},
+		{"superConnectServer", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(SocksSocketImpl, superConnectServer, void, $String*, int32_t, int32_t), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"useV4", "(Ljava/net/Proxy;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SocksSocketImpl, useV4, bool, $Proxy*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.SocksSocketImpl$3", nullptr, nullptr, 0},
+		{"java.net.SocksSocketImpl$2", nullptr, nullptr, 0},
+		{"java.net.SocksSocketImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.SocksSocketImpl",
+		"java.net.DelegatingSocketImpl",
+		"java.net.SocksConsts",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.SocksSocketImpl$3,java.net.SocksSocketImpl$2,java.net.SocksSocketImpl$1"
+	};
+	$loadClass(SocksSocketImpl, name, initialize, &classInfo$$, SocksSocketImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SocksSocketImpl));
+	});
 	return class$;
 }
 

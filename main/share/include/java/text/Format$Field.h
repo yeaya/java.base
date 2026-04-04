@@ -13,7 +13,7 @@ class $import Format$Field : public ::java::text::AttributedCharacterIterator$At
 public:
 	Format$Field();
 	void init$($String* name);
-	static const int64_t serialVersionUID = (int64_t)0x03D7FBBD383B0F9B;
+	static const int64_t serialVersionUID = (int64_t)0x03d7fbbd383b0f9b;
 };
 
 	} // text

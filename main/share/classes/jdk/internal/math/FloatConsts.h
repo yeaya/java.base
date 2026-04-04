@@ -26,13 +26,14 @@ class $export FloatConsts : public ::java::lang::Object {
 	$class(FloatConsts, 0, ::java::lang::Object)
 public:
 	FloatConsts();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int32_t SIGNIFICAND_WIDTH = 24;
 	static const int32_t MIN_SUB_EXPONENT = -149; // Float.MIN_EXPONENT - (SIGNIFICAND_WIDTH - 1)
 	static const int32_t EXP_BIAS = 127;
 	static const int32_t SIGN_BIT_MASK = 0x80000000;
-	static const int32_t EXP_BIT_MASK = 0x7F800000;
-	static const int32_t SIGNIF_BIT_MASK = 0x007FFFFF;
+	static const int32_t EXP_BIT_MASK = 0x7f800000;
+	static const int32_t SIGNIF_BIT_MASK = 0x007fffff;
 };
 
 		} // math

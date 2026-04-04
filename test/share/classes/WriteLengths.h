@@ -16,6 +16,7 @@ class $export WriteLengths : public ::java::lang::Object {
 	$class(WriteLengths, 0, ::java::lang::Object)
 public:
 	WriteLengths();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void go(int32_t len, $String* enc);
 	static void main($StringArray* args);

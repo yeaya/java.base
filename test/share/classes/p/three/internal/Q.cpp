@@ -1,5 +1,4 @@
 #include <p/three/internal/Q.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <jcpp.h>
 
@@ -13,31 +12,27 @@ namespace p {
 	namespace three {
 		namespace internal {
 
-$MethodInfo _Q_MethodInfo_[] = {
-	{"m", "()I", nullptr, $PUBLIC, $virtualMethod(Q, m, int32_t)},
-	{}
-};
-
-$ClassInfo _Q_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"p.three.internal.Q",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Q_MethodInfo_
-};
-
-$Object* allocate$Q($Class* clazz) {
-	return $of($alloc(Q));
-}
-
 int32_t Q::m() {
 	$throwNew($UnsupportedOperationException, "Q::m is in a non-exported package"_s);
 	$shouldNotReachHere();
 }
 
 $Class* Q::load$($String* name, bool initialize) {
-	$loadClass(Q, name, initialize, &_Q_ClassInfo_, allocate$Q);
+	$MethodInfo methodInfos$$[] = {
+		{"m", "()I", nullptr, $PUBLIC, $virtualMethod(Q, m, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"p.three.internal.Q",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Q, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Q);
+	});
 	return class$;
 }
 

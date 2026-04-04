@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/ReturnType.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace sun {
 		namespace generics {
 			namespace tree {
 
-$ClassInfo _ReturnType_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.reflect.generics.tree.ReturnType",
-	nullptr,
-	"sun.reflect.generics.tree.TypeTree"
-};
-
-$Object* allocate$ReturnType($Class* clazz) {
-	return $of($alloc(ReturnType));
-}
-
 $Class* ReturnType::load$($String* name, bool initialize) {
-	$loadClass(ReturnType, name, initialize, &_ReturnType_ClassInfo_, allocate$ReturnType);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.reflect.generics.tree.ReturnType",
+		nullptr,
+		"sun.reflect.generics.tree.TypeTree"
+	};
+	$loadClass(ReturnType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReturnType);
+	});
 	return class$;
 }
 

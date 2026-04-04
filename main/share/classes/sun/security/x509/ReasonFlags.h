@@ -50,6 +50,7 @@ class $export ReasonFlags : public ::java::lang::Object {
 	$class(ReasonFlags, 0, ::java::lang::Object)
 public:
 	ReasonFlags();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* reasons);
 	void init$($booleans* reasons);
 	void init$(::sun::security::util::BitArray* reasons);

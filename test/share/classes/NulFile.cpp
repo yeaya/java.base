@@ -1,5 +1,4 @@
 #include <NulFile.h>
-
 #include <NulFile$1.h>
 #include <NulFile$2.h>
 #include <java/io/ByteArrayInputStream.h>
@@ -11,10 +10,8 @@
 #include <java/io/FileOutputStream.h>
 #include <java/io/FilenameFilter.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/net/MalformedURLException.h>
@@ -36,15 +33,11 @@ using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $FilenameFilter = ::java::io::FilenameFilter;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -53,55 +46,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $InvalidPathException = ::java::nio::file::InvalidPathException;
-
-$FieldInfo _NulFile_FieldInfo_[] = {
-	{"CHAR_NUL", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NulFile, CHAR_NUL)},
-	{"ExceptionMsg", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NulFile, ExceptionMsg)},
-	{}
-};
-
-$MethodInfo _NulFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NulFile, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NulFile, main, void, $StringArray*)},
-	{"test", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, test, void, $String*)},
-	{"test", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, test, void, $File*)},
-	{"test", "(Ljava/io/File;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, test, void, $File*, bool)},
-	{"testCreateTempFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testCreateTempFile, void, $String*, $String*, $File*)},
-	{"testFile", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFile, void)},
-	{"testFileInUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileInUnix, void)},
-	{"testFileInWindows", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileInWindows, void)},
-	{"testFileInputStream", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileInputStream, void, $String*)},
-	{"testFileOutputStream", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileOutputStream, void, $String*)},
-	{"testRandomAccessFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testRandomAccessFile, void, $String*)},
-	{"testSerialization", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testSerialization, void, $File*)},
-	{"testTempFile", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testTempFile, void)},
-	{}
-};
-
-$InnerClassInfo _NulFile_InnerClassesInfo_[] = {
-	{"NulFile$2", nullptr, nullptr, 0},
-	{"NulFile$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NulFile_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NulFile",
-	"java.lang.Object",
-	nullptr,
-	_NulFile_FieldInfo_,
-	_NulFile_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NulFile_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"NulFile$2,NulFile$1"
-};
-
-$Object* allocate$NulFile($Class* clazz) {
-	return $of($alloc(NulFile));
-}
 
 $String* NulFile::ExceptionMsg = nullptr;
 
@@ -118,7 +62,7 @@ void NulFile::main($StringArray* args) {
 
 void NulFile::testFile() {
 	$init(NulFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test($$new($File, $($$new($StringBuilder)->append(NulFile::CHAR_NUL)->toString())));
 	test($$new($File, $($$new($StringBuilder)->append(""_s)->append(NulFile::CHAR_NUL)->toString())));
 	test($$new($File, $($$new($StringBuilder)->append(NulFile::CHAR_NUL)->append(""_s)->toString())));
@@ -126,7 +70,7 @@ void NulFile::testFile() {
 
 void NulFile::testFileInUnix() {
 	$init(NulFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if ($nc(osName)->startsWith("Windows"_s)) {
 		return;
@@ -145,7 +89,7 @@ void NulFile::testFileInUnix() {
 
 void NulFile::testFileInWindows() {
 	$init(NulFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if (!$nc(osName)->startsWith("Windows"_s)) {
 		return;
@@ -176,7 +120,7 @@ void NulFile::testFileInWindows() {
 
 void NulFile::test($String* name) {
 	$init(NulFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(name)->length();
 	for (int32_t i = 0; i <= length; ++i) {
 		$var($StringBuilder, sbName, $new($StringBuilder, name));
@@ -200,13 +144,13 @@ void NulFile::test($String* name) {
 
 void NulFile::testFileInputStream($String* str) {
 	$init(NulFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool exceptionThrown = false;
 	$var($FileInputStream, is, nullptr);
 	try {
 		$assign(is, $new($FileInputStream, str));
 	} catch ($FileNotFoundException& ex) {
-		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
+		if (NulFile::ExceptionMsg->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
 	}
@@ -221,7 +165,7 @@ void NulFile::testFileInputStream($String* str) {
 	try {
 		$assign(is, $new($FileInputStream, $$new($File, str)));
 	} catch ($FileNotFoundException& ex) {
-		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
+		if (NulFile::ExceptionMsg->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
 	}
@@ -235,13 +179,13 @@ void NulFile::testFileInputStream($String* str) {
 
 void NulFile::testFileOutputStream($String* str) {
 	$init(NulFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool exceptionThrown = false;
 	$var($FileOutputStream, os, nullptr);
 	try {
 		$assign(os, $new($FileOutputStream, str));
 	} catch ($FileNotFoundException& ex) {
-		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
+		if (NulFile::ExceptionMsg->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
 	}
@@ -256,7 +200,7 @@ void NulFile::testFileOutputStream($String* str) {
 	try {
 		$assign(os, $new($FileOutputStream, $$new($File, str)));
 	} catch ($FileNotFoundException& ex) {
-		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
+		if (NulFile::ExceptionMsg->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
 	}
@@ -270,7 +214,7 @@ void NulFile::testFileOutputStream($String* str) {
 
 void NulFile::testRandomAccessFile($String* str) {
 	$init(NulFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool exceptionThrown = false;
 	$var($RandomAccessFile, raf, nullptr);
 	$var($StringArray, modes, $new($StringArray, {
@@ -281,15 +225,13 @@ void NulFile::testRandomAccessFile($String* str) {
 	}));
 	{
 		$var($StringArray, arr$, modes);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, mode, arr$->get(i$));
 			{
 				try {
 					$assign(raf, $new($RandomAccessFile, str, mode));
 				} catch ($FileNotFoundException& ex) {
-					if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
+					if (NulFile::ExceptionMsg->equals($(ex->getMessage()))) {
 						exceptionThrown = true;
 					}
 				}
@@ -304,7 +246,7 @@ void NulFile::testRandomAccessFile($String* str) {
 				try {
 					$assign(raf, $new($RandomAccessFile, $$new($File, str), mode));
 				} catch ($FileNotFoundException& ex) {
-					if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
+					if (NulFile::ExceptionMsg->equals($(ex->getMessage()))) {
 						exceptionThrown = true;
 					}
 				}
@@ -327,20 +269,20 @@ void NulFile::test($File* testFile) {
 
 void NulFile::test($File* testFile, bool derived) {
 	$init(NulFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool exceptionThrown = false;
 	if (testFile == nullptr) {
 		$throwNew($RuntimeException, "test file should not be null."_s);
 	}
-	if ($nc($($nc(testFile)->getPath()))->indexOf((int32_t)NulFile::CHAR_NUL) < 0) {
+	if ($$nc($nc(testFile)->getPath())->indexOf(NulFile::CHAR_NUL) < 0) {
 		$throwNew($RuntimeException, "File path should contain Nul character"_s);
 	}
-	if ($nc($($nc(testFile)->getAbsolutePath()))->indexOf((int32_t)NulFile::CHAR_NUL) < 0) {
+	if ($$nc(testFile->getAbsolutePath())->indexOf(NulFile::CHAR_NUL) < 0) {
 		$throwNew($RuntimeException, "File absolute path should contain Nul character"_s);
 	}
-	$var($File, derivedAbsFile, $nc(testFile)->getAbsoluteFile());
+	$var($File, derivedAbsFile, testFile->getAbsoluteFile());
 	if (derived) {
-		if ($nc($($nc(derivedAbsFile)->getPath()))->indexOf((int32_t)NulFile::CHAR_NUL) < 0) {
+		if ($$nc($nc(derivedAbsFile)->getPath())->indexOf(NulFile::CHAR_NUL) < 0) {
 			$throwNew($RuntimeException, "Derived file path should also contain Nul character"_s);
 		}
 	} else {
@@ -350,7 +292,7 @@ void NulFile::test($File* testFile, bool derived) {
 		exceptionThrown = false;
 		testFile->getCanonicalPath();
 	} catch ($IOException& ex) {
-		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
+		if (NulFile::ExceptionMsg->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
 	}
@@ -361,7 +303,7 @@ void NulFile::test($File* testFile, bool derived) {
 		exceptionThrown = false;
 		testFile->getCanonicalFile();
 	} catch ($IOException& ex) {
-		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
+		if (NulFile::ExceptionMsg->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
 	}
@@ -372,7 +314,7 @@ void NulFile::test($File* testFile, bool derived) {
 		exceptionThrown = false;
 		testFile->toURL();
 	} catch ($MalformedURLException& ex) {
-		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
+		if (NulFile::ExceptionMsg->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
 	}
@@ -397,17 +339,17 @@ void NulFile::test($File* testFile, bool derived) {
 	if (testFile->isHidden()) {
 		$throwNew($RuntimeException, "File should not be hidden"_s);
 	}
-	if (testFile->lastModified() != (int64_t)0) {
+	if (testFile->lastModified() != 0) {
 		$throwNew($RuntimeException, "File last modified time should be 0L"_s);
 	}
-	if (testFile->length() != (int64_t)0) {
+	if (testFile->length() != 0) {
 		$throwNew($RuntimeException, "File length should be 0L"_s);
 	}
 	try {
 		exceptionThrown = false;
 		testFile->createNewFile();
 	} catch ($IOException& ex) {
-		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
+		if (NulFile::ExceptionMsg->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
 	}
@@ -529,13 +471,13 @@ void NulFile::test($File* testFile, bool derived) {
 	if (testFile->canExecute()) {
 		$throwNew($RuntimeException, "File should not be executable"_s);
 	}
-	if (testFile->getTotalSpace() != (int64_t)0) {
+	if (testFile->getTotalSpace() != 0) {
 		$throwNew($RuntimeException, "The total space should be 0L"_s);
 	}
-	if (testFile->getFreeSpace() != (int64_t)0) {
+	if (testFile->getFreeSpace() != 0) {
 		$throwNew($RuntimeException, "The free space should be 0L"_s);
 	}
-	if (testFile->getUsableSpace() != (int64_t)0) {
+	if (testFile->getUsableSpace() != 0) {
 		$throwNew($RuntimeException, "The usable space should be 0L"_s);
 	}
 	try {
@@ -547,7 +489,7 @@ void NulFile::test($File* testFile, bool derived) {
 	if (!exceptionThrown) {
 		$throwNew($RuntimeException, "compareTo(null) should throw NPE"_s);
 	}
-	if ($nc($(testFile->toString()))->indexOf((int32_t)NulFile::CHAR_NUL) < 0) {
+	if ($$nc(testFile->toString())->indexOf(NulFile::CHAR_NUL) < 0) {
 		$throwNew($RuntimeException, "File path should contain Nul character"_s);
 	}
 	try {
@@ -563,7 +505,7 @@ void NulFile::test($File* testFile, bool derived) {
 
 void NulFile::testSerialization($File* testFile) {
 	$init(NulFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, path, $nc(testFile)->getPath());
 	try {
 		$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
@@ -581,16 +523,16 @@ void NulFile::testSerialization($File* testFile) {
 		test(newFile, false);
 	} catch ($IOException& ex) {
 		$nc($System::err)->println("Exception happens in testSerialization"_s);
-		$nc($System::err)->println($(ex->getMessage()));
+		$System::err->println($(ex->getMessage()));
 	} catch ($ClassNotFoundException& ex) {
 		$nc($System::err)->println("Exception happens in testSerialization"_s);
-		$nc($System::err)->println($(ex->getMessage()));
+		$System::err->println($(ex->getMessage()));
 	}
 }
 
 void NulFile::testTempFile() {
 	$init(NulFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, names, $new($StringArray, {
 		"x"_s,
 		"xx"_s,
@@ -603,9 +545,7 @@ void NulFile::testTempFile() {
 	$var($File, tmpDir, $new($File, "tmpDir"_s));
 	{
 		$var($StringArray, arr$, names);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, name, arr$->get(i$));
 			{
 				int32_t length = $nc(name)->length();
@@ -626,7 +566,7 @@ void NulFile::testTempFile() {
 
 void NulFile::testCreateTempFile($String* prefix, $String* suffix, $File* directory) {
 	$init(NulFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool exceptionThrown = false;
 	bool shortPrefix = ($nc(prefix)->length() < 3);
 	if (shortPrefix) {
@@ -640,7 +580,7 @@ void NulFile::testCreateTempFile($String* prefix, $String* suffix, $File* direct
 			}
 		} catch ($IOException& ioe) {
 			$nc($System::err)->println("IOException happens in testCreateTempFile"_s);
-			$nc($System::err)->println($(ioe->getMessage()));
+			$System::err->println($(ioe->getMessage()));
 		}
 	} else {
 		try {
@@ -648,7 +588,7 @@ void NulFile::testCreateTempFile($String* prefix, $String* suffix, $File* direct
 		} catch ($IOException& ex) {
 			$var($String, err, "Unable to create temporary file"_s);
 			bool var$0 = ex->getMessage() != nullptr;
-			if (var$0 && $nc($(ex->getMessage()))->startsWith(err)) {
+			if (var$0 && $$nc(ex->getMessage())->startsWith(err)) {
 				exceptionThrown = true;
 			} else {
 				$throwNew($RuntimeException, $$str({"Get IOException with message, "_s, $(ex->getMessage()), ", expect message, "_s, err}));
@@ -663,12 +603,55 @@ void NulFile::testCreateTempFile($String* prefix, $String* suffix, $File* direct
 NulFile::NulFile() {
 }
 
-void clinit$NulFile($Class* class$) {
+void NulFile::clinit$($Class* clazz) {
 	$assignStatic(NulFile::ExceptionMsg, "Invalid file path"_s);
 }
 
 $Class* NulFile::load$($String* name, bool initialize) {
-	$loadClass(NulFile, name, initialize, &_NulFile_ClassInfo_, clinit$NulFile, allocate$NulFile);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHAR_NUL", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NulFile, CHAR_NUL)},
+		{"ExceptionMsg", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NulFile, ExceptionMsg)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NulFile, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NulFile, main, void, $StringArray*)},
+		{"test", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, test, void, $String*)},
+		{"test", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, test, void, $File*)},
+		{"test", "(Ljava/io/File;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, test, void, $File*, bool)},
+		{"testCreateTempFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testCreateTempFile, void, $String*, $String*, $File*)},
+		{"testFile", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFile, void)},
+		{"testFileInUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileInUnix, void)},
+		{"testFileInWindows", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileInWindows, void)},
+		{"testFileInputStream", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileInputStream, void, $String*)},
+		{"testFileOutputStream", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileOutputStream, void, $String*)},
+		{"testRandomAccessFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testRandomAccessFile, void, $String*)},
+		{"testSerialization", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testSerialization, void, $File*)},
+		{"testTempFile", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testTempFile, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NulFile$2", nullptr, nullptr, 0},
+		{"NulFile$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NulFile",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"NulFile$2,NulFile$1"
+	};
+	$loadClass(NulFile, name, initialize, &classInfo$$, NulFile::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NulFile);
+	});
 	return class$;
 }
 

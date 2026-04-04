@@ -15,6 +15,7 @@ class JrtFileAttributeView$AttrID : public ::java::lang::Enum {
 public:
 	JrtFileAttributeView$AttrID();
 	static $Array<::jdk::internal::jrtfs::JrtFileAttributeView$AttrID>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::jrtfs::JrtFileAttributeView$AttrID* valueOf($String* name);
 	static $Array<::jdk::internal::jrtfs::JrtFileAttributeView$AttrID>* values();

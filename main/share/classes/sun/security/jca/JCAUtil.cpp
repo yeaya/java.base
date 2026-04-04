@@ -1,5 +1,4 @@
 #include <sun/security/jca/JCAUtil.h>
-
 #include <java/lang/Math.h>
 #include <java/security/SecureRandom.h>
 #include <sun/security/jca/JCAUtil$CachedSecureRandomHolder.h>
@@ -18,45 +17,6 @@ using $JCAUtil$CachedSecureRandomHolder = ::sun::security::jca::JCAUtil$CachedSe
 namespace sun {
 	namespace security {
 		namespace jca {
-
-$FieldInfo _JCAUtil_FieldInfo_[] = {
-	{"ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JCAUtil, ARRAY_SIZE)},
-	{"def", "Ljava/security/SecureRandom;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JCAUtil, def)},
-	{}
-};
-
-$MethodInfo _JCAUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JCAUtil, init$, void)},
-	{"clearDefSecureRandom", "()V", nullptr, $STATIC, $staticMethod(JCAUtil, clearDefSecureRandom, void)},
-	{"getDefSecureRandom", "()Ljava/security/SecureRandom;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCAUtil, getDefSecureRandom, $SecureRandom*)},
-	{"getSecureRandom", "()Ljava/security/SecureRandom;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCAUtil, getSecureRandom, $SecureRandom*)},
-	{"getTempArraySize", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCAUtil, getTempArraySize, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JCAUtil_InnerClassesInfo_[] = {
-	{"sun.security.jca.JCAUtil$CachedSecureRandomHolder", "sun.security.jca.JCAUtil", "CachedSecureRandomHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JCAUtil_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.jca.JCAUtil",
-	"java.lang.Object",
-	nullptr,
-	_JCAUtil_FieldInfo_,
-	_JCAUtil_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCAUtil_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jca.JCAUtil$CachedSecureRandomHolder"
-};
-
-$Object* allocate$JCAUtil($Class* clazz) {
-	return $of($alloc(JCAUtil));
-}
 
 $volatile($SecureRandom*) JCAUtil::def = nullptr;
 
@@ -86,14 +46,14 @@ $SecureRandom* JCAUtil::getDefSecureRandom() {
 		$synchronized(JCAUtil::class$) {
 			$assign(result, JCAUtil::def);
 			if (result == nullptr) {
-				$assignStatic(JCAUtil::def, ($assign(result, $new($SecureRandom))));
+				$assignStatic(JCAUtil::def, $assign(result, $new($SecureRandom)));
 			}
 		}
 	}
 	return result;
 }
 
-void clinit$JCAUtil($Class* class$) {
+void JCAUtil::clinit$($Class* clazz) {
 	$assignStatic(JCAUtil::def, nullptr);
 }
 
@@ -101,7 +61,40 @@ JCAUtil::JCAUtil() {
 }
 
 $Class* JCAUtil::load$($String* name, bool initialize) {
-	$loadClass(JCAUtil, name, initialize, &_JCAUtil_ClassInfo_, clinit$JCAUtil, allocate$JCAUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JCAUtil, ARRAY_SIZE)},
+		{"def", "Ljava/security/SecureRandom;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JCAUtil, def)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JCAUtil, init$, void)},
+		{"clearDefSecureRandom", "()V", nullptr, $STATIC, $staticMethod(JCAUtil, clearDefSecureRandom, void)},
+		{"getDefSecureRandom", "()Ljava/security/SecureRandom;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCAUtil, getDefSecureRandom, $SecureRandom*)},
+		{"getSecureRandom", "()Ljava/security/SecureRandom;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCAUtil, getSecureRandom, $SecureRandom*)},
+		{"getTempArraySize", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCAUtil, getTempArraySize, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jca.JCAUtil$CachedSecureRandomHolder", "sun.security.jca.JCAUtil", "CachedSecureRandomHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.jca.JCAUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jca.JCAUtil$CachedSecureRandomHolder"
+	};
+	$loadClass(JCAUtil, name, initialize, &classInfo$$, JCAUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JCAUtil);
+	});
 	return class$;
 }
 

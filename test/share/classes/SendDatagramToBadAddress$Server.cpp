@@ -1,5 +1,4 @@
 #include <SendDatagramToBadAddress$Server.h>
-
 #include <SendDatagramToBadAddress.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
@@ -14,54 +13,15 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocket = ::java::net::DatagramSocket;
 
-$FieldInfo _SendDatagramToBadAddress$Server_FieldInfo_[] = {
-	{"this$0", "LSendDatagramToBadAddress;", nullptr, $FINAL | $SYNTHETIC, $field(SendDatagramToBadAddress$Server, this$0)},
-	{"server", "Ljava/net/DatagramSocket;", nullptr, 0, $field(SendDatagramToBadAddress$Server, server)},
-	{"buf", "[B", nullptr, 0, $field(SendDatagramToBadAddress$Server, buf)},
-	{"pack", "Ljava/net/DatagramPacket;", nullptr, 0, $field(SendDatagramToBadAddress$Server, pack)},
-	{}
-};
-
-$MethodInfo _SendDatagramToBadAddress$Server_MethodInfo_[] = {
-	{"<init>", "(LSendDatagramToBadAddress;Ljava/net/DatagramSocket;)V", nullptr, $PUBLIC, $method(SendDatagramToBadAddress$Server, init$, void, $SendDatagramToBadAddress*, $DatagramSocket*)},
-	{"receive", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(SendDatagramToBadAddress$Server, receive, void, int32_t, bool), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _SendDatagramToBadAddress$Server_InnerClassesInfo_[] = {
-	{"SendDatagramToBadAddress$Server", "SendDatagramToBadAddress", "Server", 0},
-	{}
-};
-
-$ClassInfo _SendDatagramToBadAddress$Server_ClassInfo_ = {
-	$ACC_SUPER,
-	"SendDatagramToBadAddress$Server",
-	"java.lang.Object",
-	nullptr,
-	_SendDatagramToBadAddress$Server_FieldInfo_,
-	_SendDatagramToBadAddress$Server_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SendDatagramToBadAddress$Server_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SendDatagramToBadAddress"
-};
-
-$Object* allocate$SendDatagramToBadAddress$Server($Class* clazz) {
-	return $of($alloc(SendDatagramToBadAddress$Server));
-}
-
 void SendDatagramToBadAddress$Server::init$($SendDatagramToBadAddress* this$0, $DatagramSocket* s) {
 	$set(this, this$0, this$0);
 	$set(this, buf, $new($bytes, 128));
-	$set(this, pack, $new($DatagramPacket, this->buf, $nc(this->buf)->length));
+	$set(this, pack, $new($DatagramPacket, this->buf, this->buf->length));
 	$set(this, server, s);
 }
 
 void SendDatagramToBadAddress$Server::receive(int32_t loop, bool expectError) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < loop; ++i) {
 		try {
 			$nc(this->server)->receive(this->pack);
@@ -76,11 +36,11 @@ void SendDatagramToBadAddress$Server::receive(int32_t loop, bool expectError) {
 			}
 		}
 		$var($String, s1, $str({"Hello, server"_s, $$str(i)}));
-		$var($bytes, buf, $nc(s1)->getBytes());
+		$var($bytes, buf, s1->getBytes());
 		$var($bytes, var$0, $nc(this->pack)->getData());
-		int32_t var$1 = $nc(this->pack)->getOffset();
-		if (!s1->equals($$new($String, var$0, var$1, $nc(this->pack)->getLength()))) {
-			$SendDatagramToBadAddress::print($$str({"Got: "_s, $$new($String, $($nc(this->pack)->getData()))}));
+		int32_t var$1 = this->pack->getOffset();
+		if (!s1->equals($$new($String, var$0, var$1, this->pack->getLength()))) {
+			$SendDatagramToBadAddress::print($$str({"Got: "_s, $$new($String, $(this->pack->getData()))}));
 			$SendDatagramToBadAddress::print($$str({"Expected: "_s, $$new($String, buf)}));
 			$throwNew($Exception, $$str({"Error comparing data: Iter "_s, $$str(i)}));
 		}
@@ -91,7 +51,40 @@ SendDatagramToBadAddress$Server::SendDatagramToBadAddress$Server() {
 }
 
 $Class* SendDatagramToBadAddress$Server::load$($String* name, bool initialize) {
-	$loadClass(SendDatagramToBadAddress$Server, name, initialize, &_SendDatagramToBadAddress$Server_ClassInfo_, allocate$SendDatagramToBadAddress$Server);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LSendDatagramToBadAddress;", nullptr, $FINAL | $SYNTHETIC, $field(SendDatagramToBadAddress$Server, this$0)},
+		{"server", "Ljava/net/DatagramSocket;", nullptr, 0, $field(SendDatagramToBadAddress$Server, server)},
+		{"buf", "[B", nullptr, 0, $field(SendDatagramToBadAddress$Server, buf)},
+		{"pack", "Ljava/net/DatagramPacket;", nullptr, 0, $field(SendDatagramToBadAddress$Server, pack)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LSendDatagramToBadAddress;Ljava/net/DatagramSocket;)V", nullptr, $PUBLIC, $method(SendDatagramToBadAddress$Server, init$, void, $SendDatagramToBadAddress*, $DatagramSocket*)},
+		{"receive", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(SendDatagramToBadAddress$Server, receive, void, int32_t, bool), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SendDatagramToBadAddress$Server", "SendDatagramToBadAddress", "Server", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SendDatagramToBadAddress$Server",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SendDatagramToBadAddress"
+	};
+	$loadClass(SendDatagramToBadAddress$Server, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SendDatagramToBadAddress$Server);
+	});
 	return class$;
 }
 

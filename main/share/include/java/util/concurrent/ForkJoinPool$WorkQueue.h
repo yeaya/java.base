@@ -45,6 +45,7 @@ class $import ForkJoinPool$WorkQueue : public ::java::lang::Object {
 	$class(ForkJoinPool$WorkQueue, 0, ::java::lang::Object)
 public:
 	ForkJoinPool$WorkQueue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::ForkJoinWorkerThread* owner, bool isInnocuous);
 	void init$(int32_t config);
 	static bool casSlotToNull($Array<::java::util::concurrent::ForkJoinTask>* a, int32_t i, ::java::util::concurrent::ForkJoinTask* c);

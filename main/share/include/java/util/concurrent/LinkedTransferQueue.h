@@ -86,6 +86,7 @@ public:
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Collection* c);
 	virtual bool add(Object$* e) override;
@@ -141,7 +142,7 @@ public:
 	void unsplice(::java::util::concurrent::LinkedTransferQueue$Node* pred, ::java::util::concurrent::LinkedTransferQueue$Node* s);
 	void writeObject(::java::io::ObjectOutputStream* s);
 	$Object* xfer(Object$* e, bool haveData, int32_t how, int64_t nanos);
-	static const int64_t serialVersionUID = (int64_t)0xD345336E1F5C3E9A;
+	static const int64_t serialVersionUID = (int64_t)0xd345336e1f5c3e9a;
 	static const int64_t SPIN_FOR_TIMEOUT_THRESHOLD = (int64_t)1023;
 	static const int32_t SWEEP_THRESHOLD = 32;
 	$volatile(::java::util::concurrent::LinkedTransferQueue$Node*) head = nullptr;

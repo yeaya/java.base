@@ -31,6 +31,7 @@ class Norm2AllModes : public ::java::lang::Object {
 	$class(Norm2AllModes, 0, ::java::lang::Object)
 public:
 	Norm2AllModes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::icu::impl::NormalizerImpl* ni);
 	static ::jdk::internal::icu::impl::Norm2AllModes* getInstanceFromSingleton(::jdk::internal::icu::impl::Norm2AllModes$Norm2AllModesSingleton* singleton);
 	static ::jdk::internal::icu::impl::Norm2AllModes* getNFCInstance();

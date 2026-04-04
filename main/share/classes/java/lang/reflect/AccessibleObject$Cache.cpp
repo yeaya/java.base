@@ -1,5 +1,4 @@
 #include <java/lang/reflect/AccessibleObject$Cache.h>
-
 #include <java/lang/ref/WeakReference.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <jcpp.h>
@@ -14,44 +13,6 @@ namespace java {
 	namespace lang {
 		namespace reflect {
 
-$FieldInfo _AccessibleObject$Cache_FieldInfo_[] = {
-	{"callerRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;", $FINAL, $field(AccessibleObject$Cache, callerRef)},
-	{"targetRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;", $FINAL, $field(AccessibleObject$Cache, targetRef)},
-	{}
-};
-
-$MethodInfo _AccessibleObject$Cache_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", 0, $method(AccessibleObject$Cache, init$, void, $Class*, $Class*)},
-	{"isCacheFor", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", 0, $virtualMethod(AccessibleObject$Cache, isCacheFor, bool, $Class*, $Class*)},
-	{"protectedMemberCallerCache", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/Object;", $STATIC, $staticMethod(AccessibleObject$Cache, protectedMemberCallerCache, $Object*, $Class*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _AccessibleObject$Cache_InnerClassesInfo_[] = {
-	{"java.lang.reflect.AccessibleObject$Cache", "java.lang.reflect.AccessibleObject", "Cache", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AccessibleObject$Cache_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.reflect.AccessibleObject$Cache",
-	"java.lang.Object",
-	nullptr,
-	_AccessibleObject$Cache_FieldInfo_,
-	_AccessibleObject$Cache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleObject$Cache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.reflect.AccessibleObject"
-};
-
-$Object* allocate$AccessibleObject$Cache($Class* clazz) {
-	return $of($alloc(AccessibleObject$Cache));
-}
-
 void AccessibleObject$Cache::init$($Class* caller, $Class* target) {
 	$set(this, callerRef, $new($WeakReference, caller));
 	$set(this, targetRef, $new($WeakReference, target));
@@ -63,14 +24,46 @@ bool AccessibleObject$Cache::isCacheFor($Class* caller, $Class* refc) {
 }
 
 $Object* AccessibleObject$Cache::protectedMemberCallerCache($Class* caller, $Class* refc) {
-	return $of($new(AccessibleObject$Cache, caller, refc));
+	return $new(AccessibleObject$Cache, caller, refc);
 }
 
 AccessibleObject$Cache::AccessibleObject$Cache() {
 }
 
 $Class* AccessibleObject$Cache::load$($String* name, bool initialize) {
-	$loadClass(AccessibleObject$Cache, name, initialize, &_AccessibleObject$Cache_ClassInfo_, allocate$AccessibleObject$Cache);
+	$FieldInfo fieldInfos$$[] = {
+		{"callerRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;", $FINAL, $field(AccessibleObject$Cache, callerRef)},
+		{"targetRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;", $FINAL, $field(AccessibleObject$Cache, targetRef)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", 0, $method(AccessibleObject$Cache, init$, void, $Class*, $Class*)},
+		{"isCacheFor", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", 0, $virtualMethod(AccessibleObject$Cache, isCacheFor, bool, $Class*, $Class*)},
+		{"protectedMemberCallerCache", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/Object;", $STATIC, $staticMethod(AccessibleObject$Cache, protectedMemberCallerCache, $Object*, $Class*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.reflect.AccessibleObject$Cache", "java.lang.reflect.AccessibleObject", "Cache", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.reflect.AccessibleObject$Cache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.reflect.AccessibleObject"
+	};
+	$loadClass(AccessibleObject$Cache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessibleObject$Cache);
+	});
 	return class$;
 }
 

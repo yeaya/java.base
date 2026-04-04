@@ -35,6 +35,7 @@ class $import LocalVariablesSorter : public ::jdk::internal::org::objectweb::asm
 	$class(LocalVariablesSorter, 0, ::jdk::internal::org::objectweb::asm$::MethodVisitor)
 public:
 	LocalVariablesSorter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t access, $String* descriptor, ::jdk::internal::org::objectweb::asm$::MethodVisitor* methodVisitor);
 	void init$(int32_t api, int32_t access, $String* descriptor, ::jdk::internal::org::objectweb::asm$::MethodVisitor* methodVisitor);
 	virtual int32_t newLocal(::jdk::internal::org::objectweb::asm$::Type* type);

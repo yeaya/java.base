@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/vector/VectorSupport$VectorSpecies.h>
-
 #include <jdk/internal/vm/vector/VectorSupport.h>
 #include <jcpp.h>
 
@@ -12,36 +11,6 @@ namespace jdk {
 		namespace vm {
 			namespace vector {
 
-$MethodInfo _VectorSupport$VectorSpecies_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VectorSupport$VectorSpecies, init$, void)},
-	{}
-};
-
-$InnerClassInfo _VectorSupport$VectorSpecies_InnerClassesInfo_[] = {
-	{"jdk.internal.vm.vector.VectorSupport$VectorSpecies", "jdk.internal.vm.vector.VectorSupport", "VectorSpecies", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _VectorSupport$VectorSpecies_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.vm.vector.VectorSupport$VectorSpecies",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_VectorSupport$VectorSpecies_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_VectorSupport$VectorSpecies_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.vm.vector.VectorSupport"
-};
-
-$Object* allocate$VectorSupport$VectorSpecies($Class* clazz) {
-	return $of($alloc(VectorSupport$VectorSpecies));
-}
-
 void VectorSupport$VectorSpecies::init$() {
 }
 
@@ -49,7 +18,32 @@ VectorSupport$VectorSpecies::VectorSupport$VectorSpecies() {
 }
 
 $Class* VectorSupport$VectorSpecies::load$($String* name, bool initialize) {
-	$loadClass(VectorSupport$VectorSpecies, name, initialize, &_VectorSupport$VectorSpecies_ClassInfo_, allocate$VectorSupport$VectorSpecies);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VectorSupport$VectorSpecies, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.vm.vector.VectorSupport$VectorSpecies", "jdk.internal.vm.vector.VectorSupport", "VectorSpecies", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.vm.vector.VectorSupport$VectorSpecies",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.vm.vector.VectorSupport"
+	};
+	$loadClass(VectorSupport$VectorSpecies, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VectorSupport$VectorSpecies);
+	});
 	return class$;
 }
 

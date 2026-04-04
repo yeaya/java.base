@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$LineEnding.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$Node.h>
@@ -18,39 +17,6 @@ using $Pattern$TreeInfo = ::java::util::regex::Pattern$TreeInfo;
 namespace java {
 	namespace util {
 		namespace regex {
-
-$MethodInfo _Pattern$LineEnding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Pattern$LineEnding, init$, void)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LineEnding, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$LineEnding, study, bool, $Pattern$TreeInfo*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$LineEnding_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$LineEnding", "java.util.regex.Pattern", "LineEnding", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$LineEnding_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$LineEnding",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	nullptr,
-	_Pattern$LineEnding_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$LineEnding_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$LineEnding($Class* clazz) {
-	return $of($alloc(Pattern$LineEnding));
-}
 
 void Pattern$LineEnding::init$() {
 	$Pattern$Node::init$();
@@ -90,7 +56,35 @@ Pattern$LineEnding::Pattern$LineEnding() {
 }
 
 $Class* Pattern$LineEnding::load$($String* name, bool initialize) {
-	$loadClass(Pattern$LineEnding, name, initialize, &_Pattern$LineEnding_ClassInfo_, allocate$Pattern$LineEnding);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Pattern$LineEnding, init$, void)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LineEnding, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$LineEnding, study, bool, $Pattern$TreeInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$LineEnding", "java.util.regex.Pattern", "LineEnding", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$LineEnding",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$LineEnding, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$LineEnding);
+	});
 	return class$;
 }
 

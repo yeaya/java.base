@@ -14,7 +14,7 @@ public:
 	RuntimePermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0x66AF2F85D3B9D84F;
+	static const int64_t serialVersionUID = (int64_t)0x66af2f85d3b9d84f;
 };
 
 	} // lang

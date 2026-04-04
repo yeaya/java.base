@@ -1,5 +1,4 @@
 #include <AppendSB.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
@@ -11,32 +10,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Random = ::java::util::Random;
 
-$FieldInfo _AppendSB_FieldInfo_[] = {
-	{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(AppendSB, generator)},
-	{}
-};
-
-$MethodInfo _AppendSB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AppendSB, init$, void)},
-	{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendSB, generateTestBuffer, $StringBuffer*, int32_t, int32_t)},
-	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendSB, getRandomIndex, int32_t, int32_t, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AppendSB, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _AppendSB_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"AppendSB",
-	"java.lang.Object",
-	nullptr,
-	_AppendSB_FieldInfo_,
-	_AppendSB_MethodInfo_
-};
-
-$Object* allocate$AppendSB($Class* clazz) {
-	return $of($alloc(AppendSB));
-}
-
 $Random* AppendSB::generator = nullptr;
 
 void AppendSB::init$() {
@@ -44,7 +17,7 @@ void AppendSB::init$() {
 
 void AppendSB::main($StringArray* args) {
 	$init(AppendSB);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < 1000; ++i) {
 		$var($StringBuffer, sb1, generateTestBuffer(10, 100));
 		$var($StringBuffer, sb2, generateTestBuffer(10, 100));
@@ -57,7 +30,7 @@ void AppendSB::main($StringArray* args) {
 		test->append(sb1);
 		test->append(sb2);
 		test->append(sb3);
-		if (!$nc($(test->toString()))->equals(concatResult)) {
+		if (!$(test->toString())->equals(concatResult)) {
 			$throwNew($RuntimeException, "StringBuffer.append failure"_s);
 		}
 	}
@@ -82,7 +55,7 @@ $StringBuffer* AppendSB::generateTestBuffer(int32_t min, int32_t max) {
 	return aNewStringBuffer;
 }
 
-void clinit$AppendSB($Class* class$) {
+void AppendSB::clinit$($Class* clazz) {
 	$assignStatic(AppendSB::generator, $new($Random));
 }
 
@@ -90,7 +63,28 @@ AppendSB::AppendSB() {
 }
 
 $Class* AppendSB::load$($String* name, bool initialize) {
-	$loadClass(AppendSB, name, initialize, &_AppendSB_ClassInfo_, clinit$AppendSB, allocate$AppendSB);
+	$FieldInfo fieldInfos$$[] = {
+		{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(AppendSB, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AppendSB, init$, void)},
+		{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendSB, generateTestBuffer, $StringBuffer*, int32_t, int32_t)},
+		{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendSB, getRandomIndex, int32_t, int32_t, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AppendSB, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"AppendSB",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AppendSB, name, initialize, &classInfo$$, AppendSB::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AppendSB);
+	});
 	return class$;
 }
 

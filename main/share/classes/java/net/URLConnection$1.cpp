@@ -1,5 +1,4 @@
 #include <java/net/URLConnection$1.h>
-
 #include <java/net/FileNameMap.h>
 #include <java/net/URLConnection.h>
 #include <sun/net/www/MimeTable.h>
@@ -10,53 +9,10 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileNameMap = ::java::net::FileNameMap;
 using $MimeTable = ::sun::net::www::MimeTable;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _URLConnection$1_FieldInfo_[] = {
-	{"internalMap", "Ljava/net/FileNameMap;", nullptr, $PRIVATE, $field(URLConnection$1, internalMap)},
-	{}
-};
-
-$MethodInfo _URLConnection$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(URLConnection$1, init$, void)},
-	{"getContentTypeFor", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection$1, getContentTypeFor, $String*, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _URLConnection$1_EnclosingMethodInfo_ = {
-	"java.net.URLConnection",
-	"getFileNameMap",
-	"()Ljava/net/FileNameMap;"
-};
-
-$InnerClassInfo _URLConnection$1_InnerClassesInfo_[] = {
-	{"java.net.URLConnection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URLConnection$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.URLConnection$1",
-	"java.lang.Object",
-	"java.net.FileNameMap",
-	_URLConnection$1_FieldInfo_,
-	_URLConnection$1_MethodInfo_,
-	nullptr,
-	&_URLConnection$1_EnclosingMethodInfo_,
-	_URLConnection$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.URLConnection"
-};
-
-$Object* allocate$URLConnection$1($Class* clazz) {
-	return $of($alloc(URLConnection$1));
-}
 
 void URLConnection$1::init$() {
 	$set(this, internalMap, $MimeTable::loadTable());
@@ -70,7 +26,42 @@ URLConnection$1::URLConnection$1() {
 }
 
 $Class* URLConnection$1::load$($String* name, bool initialize) {
-	$loadClass(URLConnection$1, name, initialize, &_URLConnection$1_ClassInfo_, allocate$URLConnection$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"internalMap", "Ljava/net/FileNameMap;", nullptr, $PRIVATE, $field(URLConnection$1, internalMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(URLConnection$1, init$, void)},
+		{"getContentTypeFor", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection$1, getContentTypeFor, $String*, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.URLConnection",
+		"getFileNameMap",
+		"()Ljava/net/FileNameMap;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.URLConnection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.URLConnection$1",
+		"java.lang.Object",
+		"java.net.FileNameMap",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.URLConnection"
+	};
+	$loadClass(URLConnection$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLConnection$1);
+	});
 	return class$;
 }
 

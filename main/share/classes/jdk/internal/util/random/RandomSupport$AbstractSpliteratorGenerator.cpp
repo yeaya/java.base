@@ -1,5 +1,4 @@
 #include <jdk/internal/util/random/RandomSupport$AbstractSpliteratorGenerator.h>
-
 #include <java/util/Spliterator$OfDouble.h>
 #include <java/util/Spliterator$OfInt.h>
 #include <java/util/Spliterator$OfLong.h>
@@ -39,63 +38,6 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 			namespace random {
-
-$MethodInfo _RandomSupport$AbstractSpliteratorGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RandomSupport$AbstractSpliteratorGenerator, init$, void)},
-	{"doubleStream", "(Ljava/util/Spliterator$OfDouble;)Ljava/util/stream/DoubleStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, doubleStream, $DoubleStream*, $Spliterator$OfDouble*)},
-	{"doubles", "(Ljava/util/random/RandomGenerator;J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, $RandomGenerator*, int64_t)},
-	{"doubles", "(Ljava/util/random/RandomGenerator;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, $RandomGenerator*)},
-	{"doubles", "(Ljava/util/random/RandomGenerator;JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, $RandomGenerator*, int64_t, double, double)},
-	{"doubles", "(Ljava/util/random/RandomGenerator;DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, $RandomGenerator*, double, double)},
-	{"doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, int64_t)},
-	{"doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*)},
-	{"doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, int64_t, double, double)},
-	{"doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, double, double)},
-	{"intStream", "(Ljava/util/Spliterator$OfInt;)Ljava/util/stream/IntStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, intStream, $IntStream*, $Spliterator$OfInt*)},
-	{"ints", "(Ljava/util/random/RandomGenerator;J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, $RandomGenerator*, int64_t)},
-	{"ints", "(Ljava/util/random/RandomGenerator;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, $RandomGenerator*)},
-	{"ints", "(Ljava/util/random/RandomGenerator;JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, $RandomGenerator*, int64_t, int32_t, int32_t)},
-	{"ints", "(Ljava/util/random/RandomGenerator;II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, $RandomGenerator*, int32_t, int32_t)},
-	{"ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, int64_t)},
-	{"ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*)},
-	{"ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, int64_t, int32_t, int32_t)},
-	{"ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, int32_t, int32_t)},
-	{"longStream", "(Ljava/util/Spliterator$OfLong;)Ljava/util/stream/LongStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, longStream, $LongStream*, $Spliterator$OfLong*)},
-	{"longs", "(Ljava/util/random/RandomGenerator;J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, $RandomGenerator*, int64_t)},
-	{"longs", "(Ljava/util/random/RandomGenerator;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, $RandomGenerator*)},
-	{"longs", "(Ljava/util/random/RandomGenerator;JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, $RandomGenerator*, int64_t, int64_t, int64_t)},
-	{"longs", "(Ljava/util/random/RandomGenerator;JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, $RandomGenerator*, int64_t, int64_t)},
-	{"longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, int64_t)},
-	{"longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*)},
-	{"longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, int64_t, int64_t, int64_t)},
-	{"longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, int64_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _RandomSupport$AbstractSpliteratorGenerator_InnerClassesInfo_[] = {
-	{"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSpliteratorGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RandomSupport$AbstractSpliteratorGenerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator",
-	"java.lang.Object",
-	"java.util.random.RandomGenerator",
-	nullptr,
-	_RandomSupport$AbstractSpliteratorGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RandomSupport$AbstractSpliteratorGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.util.random.RandomSupport"
-};
-
-$Object* allocate$RandomSupport$AbstractSpliteratorGenerator($Class* clazz) {
-	return $of($alloc(RandomSupport$AbstractSpliteratorGenerator));
-}
 
 void RandomSupport$AbstractSpliteratorGenerator::init$() {
 }
@@ -166,13 +108,11 @@ $LongStream* RandomSupport$AbstractSpliteratorGenerator::longs($RandomGenerator*
 $DoubleStream* RandomSupport$AbstractSpliteratorGenerator::doubles($RandomGenerator* gen, int64_t streamSize) {
 	$init(RandomSupport$AbstractSpliteratorGenerator);
 	$RandomSupport::checkStreamSize(streamSize);
-	$init($Double);
 	return doubleStream($$new($RandomSupport$RandomDoublesSpliterator, gen, 0, streamSize, $Double::MAX_VALUE, 0.0));
 }
 
 $DoubleStream* RandomSupport$AbstractSpliteratorGenerator::doubles($RandomGenerator* gen) {
 	$init(RandomSupport$AbstractSpliteratorGenerator);
-	$init($Double);
 	return doubleStream($$new($RandomSupport$RandomDoublesSpliterator, gen, 0, $Long::MAX_VALUE, $Double::MAX_VALUE, 0.0));
 }
 
@@ -190,11 +130,11 @@ $DoubleStream* RandomSupport$AbstractSpliteratorGenerator::doubles($RandomGenera
 }
 
 $IntStream* RandomSupport$AbstractSpliteratorGenerator::ints(int64_t streamSize) {
-	return ints(static_cast<$RandomGenerator*>(this), streamSize);
+	return ints(this, streamSize);
 }
 
 $IntStream* RandomSupport$AbstractSpliteratorGenerator::ints() {
-	return ints(static_cast<$RandomGenerator*>(this));
+	return ints(this);
 }
 
 $IntStream* RandomSupport$AbstractSpliteratorGenerator::ints(int64_t streamSize, int32_t randomNumberOrigin, int32_t randomNumberBound) {
@@ -202,15 +142,15 @@ $IntStream* RandomSupport$AbstractSpliteratorGenerator::ints(int64_t streamSize,
 }
 
 $IntStream* RandomSupport$AbstractSpliteratorGenerator::ints(int32_t randomNumberOrigin, int32_t randomNumberBound) {
-	return ints(static_cast<$RandomGenerator*>(this), randomNumberOrigin, randomNumberBound);
+	return ints(this, randomNumberOrigin, randomNumberBound);
 }
 
 $LongStream* RandomSupport$AbstractSpliteratorGenerator::longs(int64_t streamSize) {
-	return longs(static_cast<$RandomGenerator*>(this), streamSize);
+	return longs(this, streamSize);
 }
 
 $LongStream* RandomSupport$AbstractSpliteratorGenerator::longs() {
-	return longs(static_cast<$RandomGenerator*>(this));
+	return longs(this);
 }
 
 $LongStream* RandomSupport$AbstractSpliteratorGenerator::longs(int64_t streamSize, int64_t randomNumberOrigin, int64_t randomNumberBound) {
@@ -218,15 +158,15 @@ $LongStream* RandomSupport$AbstractSpliteratorGenerator::longs(int64_t streamSiz
 }
 
 $LongStream* RandomSupport$AbstractSpliteratorGenerator::longs(int64_t randomNumberOrigin, int64_t randomNumberBound) {
-	return longs(static_cast<$RandomGenerator*>(this), randomNumberOrigin, randomNumberBound);
+	return longs(this, randomNumberOrigin, randomNumberBound);
 }
 
 $DoubleStream* RandomSupport$AbstractSpliteratorGenerator::doubles(int64_t streamSize) {
-	return doubles(static_cast<$RandomGenerator*>(this), streamSize);
+	return doubles(this, streamSize);
 }
 
 $DoubleStream* RandomSupport$AbstractSpliteratorGenerator::doubles() {
-	return doubles(static_cast<$RandomGenerator*>(this));
+	return doubles(this);
 }
 
 $DoubleStream* RandomSupport$AbstractSpliteratorGenerator::doubles(int64_t streamSize, double randomNumberOrigin, double randomNumberBound) {
@@ -234,14 +174,66 @@ $DoubleStream* RandomSupport$AbstractSpliteratorGenerator::doubles(int64_t strea
 }
 
 $DoubleStream* RandomSupport$AbstractSpliteratorGenerator::doubles(double randomNumberOrigin, double randomNumberBound) {
-	return doubles(static_cast<$RandomGenerator*>(this), randomNumberOrigin, randomNumberBound);
+	return doubles(this, randomNumberOrigin, randomNumberBound);
 }
 
 RandomSupport$AbstractSpliteratorGenerator::RandomSupport$AbstractSpliteratorGenerator() {
 }
 
 $Class* RandomSupport$AbstractSpliteratorGenerator::load$($String* name, bool initialize) {
-	$loadClass(RandomSupport$AbstractSpliteratorGenerator, name, initialize, &_RandomSupport$AbstractSpliteratorGenerator_ClassInfo_, allocate$RandomSupport$AbstractSpliteratorGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RandomSupport$AbstractSpliteratorGenerator, init$, void)},
+		{"doubleStream", "(Ljava/util/Spliterator$OfDouble;)Ljava/util/stream/DoubleStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, doubleStream, $DoubleStream*, $Spliterator$OfDouble*)},
+		{"doubles", "(Ljava/util/random/RandomGenerator;J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, $RandomGenerator*, int64_t)},
+		{"doubles", "(Ljava/util/random/RandomGenerator;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, $RandomGenerator*)},
+		{"doubles", "(Ljava/util/random/RandomGenerator;JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, $RandomGenerator*, int64_t, double, double)},
+		{"doubles", "(Ljava/util/random/RandomGenerator;DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, $RandomGenerator*, double, double)},
+		{"doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, int64_t)},
+		{"doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*)},
+		{"doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, int64_t, double, double)},
+		{"doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, doubles, $DoubleStream*, double, double)},
+		{"intStream", "(Ljava/util/Spliterator$OfInt;)Ljava/util/stream/IntStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, intStream, $IntStream*, $Spliterator$OfInt*)},
+		{"ints", "(Ljava/util/random/RandomGenerator;J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, $RandomGenerator*, int64_t)},
+		{"ints", "(Ljava/util/random/RandomGenerator;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, $RandomGenerator*)},
+		{"ints", "(Ljava/util/random/RandomGenerator;JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, $RandomGenerator*, int64_t, int32_t, int32_t)},
+		{"ints", "(Ljava/util/random/RandomGenerator;II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, $RandomGenerator*, int32_t, int32_t)},
+		{"ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, int64_t)},
+		{"ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*)},
+		{"ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, int64_t, int32_t, int32_t)},
+		{"ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, ints, $IntStream*, int32_t, int32_t)},
+		{"longStream", "(Ljava/util/Spliterator$OfLong;)Ljava/util/stream/LongStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, longStream, $LongStream*, $Spliterator$OfLong*)},
+		{"longs", "(Ljava/util/random/RandomGenerator;J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, $RandomGenerator*, int64_t)},
+		{"longs", "(Ljava/util/random/RandomGenerator;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, $RandomGenerator*)},
+		{"longs", "(Ljava/util/random/RandomGenerator;JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, $RandomGenerator*, int64_t, int64_t, int64_t)},
+		{"longs", "(Ljava/util/random/RandomGenerator;JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, $RandomGenerator*, int64_t, int64_t)},
+		{"longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, int64_t)},
+		{"longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*)},
+		{"longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, int64_t, int64_t, int64_t)},
+		{"longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSpliteratorGenerator, longs, $LongStream*, int64_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSpliteratorGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator",
+		"java.lang.Object",
+		"java.util.random.RandomGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.util.random.RandomSupport"
+	};
+	$loadClass(RandomSupport$AbstractSpliteratorGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomSupport$AbstractSpliteratorGenerator);
+	});
 	return class$;
 }
 

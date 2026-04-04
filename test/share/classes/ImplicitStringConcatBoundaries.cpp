@@ -1,5 +1,4 @@
 #include <ImplicitStringConcatBoundaries.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -60,70 +59,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 
-$FieldInfo _ImplicitStringConcatBoundaries_FieldInfo_[] = {
-	{"BOOL_TRUE_1", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, BOOL_TRUE_1)},
-	{"BOOL_TRUE_2", "Z", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, BOOL_TRUE_2)},
-	{"BOOL_FALSE_1", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, BOOL_FALSE_1)},
-	{"BOOL_FALSE_2", "Z", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, BOOL_FALSE_2)},
-	{"BYTE_MIN_1", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, BYTE_MIN_1)},
-	{"BYTE_MIN_2", "B", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, BYTE_MIN_2)},
-	{"BYTE_MAX_1", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, BYTE_MAX_1)},
-	{"BYTE_MAX_2", "B", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, BYTE_MAX_2)},
-	{"SHORT_MIN_1", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, SHORT_MIN_1)},
-	{"SHORT_MIN_2", "S", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, SHORT_MIN_2)},
-	{"SHORT_MAX_1", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, SHORT_MAX_1)},
-	{"SHORT_MAX_2", "S", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, SHORT_MAX_2)},
-	{"CHAR_MIN_1", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, CHAR_MIN_1)},
-	{"CHAR_MIN_2", "C", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, CHAR_MIN_2)},
-	{"CHAR_MAX_1", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, CHAR_MAX_1)},
-	{"CHAR_MAX_2", "C", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, CHAR_MAX_2)},
-	{"INT_MIN_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, INT_MIN_1)},
-	{"INT_MIN_2", "I", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, INT_MIN_2)},
-	{"INT_MAX_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, INT_MAX_1)},
-	{"INT_MAX_2", "I", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, INT_MAX_2)},
-	{"FLOAT_MIN_EXP_1", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_EXP_1)},
-	{"FLOAT_MIN_EXP_2", "F", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_EXP_2)},
-	{"FLOAT_MIN_NORM_1", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_NORM_1)},
-	{"FLOAT_MIN_NORM_2", "F", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_NORM_2)},
-	{"FLOAT_MIN_1", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_1)},
-	{"FLOAT_MIN_2", "F", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_2)},
-	{"FLOAT_MAX_1", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, FLOAT_MAX_1)},
-	{"FLOAT_MAX_2", "F", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, FLOAT_MAX_2)},
-	{"LONG_MIN_1", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, LONG_MIN_1)},
-	{"LONG_MIN_2", "J", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, LONG_MIN_2)},
-	{"LONG_MAX_1", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, LONG_MAX_1)},
-	{"LONG_MAX_2", "J", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, LONG_MAX_2)},
-	{"DOUBLE_MIN_EXP_1", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_EXP_1)},
-	{"DOUBLE_MIN_EXP_2", "D", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_EXP_2)},
-	{"DOUBLE_MIN_NORM_1", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_NORM_1)},
-	{"DOUBLE_MIN_NORM_2", "D", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_NORM_2)},
-	{"DOUBLE_MIN_1", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_1)},
-	{"DOUBLE_MIN_2", "D", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_2)},
-	{"DOUBLE_MAX_1", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MAX_1)},
-	{"DOUBLE_MAX_2", "D", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MAX_2)},
-	{}
-};
-
-$MethodInfo _ImplicitStringConcatBoundaries_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatBoundaries, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatBoundaries, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatBoundaries, test, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _ImplicitStringConcatBoundaries_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ImplicitStringConcatBoundaries",
-	"java.lang.Object",
-	nullptr,
-	_ImplicitStringConcatBoundaries_FieldInfo_,
-	_ImplicitStringConcatBoundaries_MethodInfo_
-};
-
-$Object* allocate$ImplicitStringConcatBoundaries($Class* clazz) {
-	return $of($alloc(ImplicitStringConcatBoundaries));
-}
-
 bool ImplicitStringConcatBoundaries::BOOL_TRUE_2 = false;
 bool ImplicitStringConcatBoundaries::BOOL_FALSE_2 = false;
 int8_t ImplicitStringConcatBoundaries::BYTE_MIN_2 = 0;
@@ -158,7 +93,7 @@ void ImplicitStringConcatBoundaries::init$() {
 
 void ImplicitStringConcatBoundaries::main($StringArray* args) {
 	$init(ImplicitStringConcatBoundaries);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("foofalse"_s, $$str({"foo"_s, $$str(ImplicitStringConcatBoundaries::BOOL_FALSE_1)}));
 	test("foofalse"_s, $$str({"foo"_s, $$str(ImplicitStringConcatBoundaries::BOOL_FALSE_2)}));
 	test("footrue"_s, $$str({"foo"_s, $$str(ImplicitStringConcatBoundaries::BOOL_TRUE_1)}));
@@ -203,7 +138,7 @@ void ImplicitStringConcatBoundaries::main($StringArray* args) {
 
 void ImplicitStringConcatBoundaries::test($String* expected, $String* actual) {
 	$init(ImplicitStringConcatBoundaries);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(expected)->equals(actual)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("Expected = "_s);
@@ -214,14 +149,12 @@ void ImplicitStringConcatBoundaries::test($String* expected, $String* actual) {
 	}
 }
 
-void clinit$ImplicitStringConcatBoundaries($Class* class$) {
+void ImplicitStringConcatBoundaries::clinit$($Class* clazz) {
 	ImplicitStringConcatBoundaries::FLOAT_MIN_EXP_1 = (float)$Float::MIN_EXPONENT;
-	$init($Float);
 	ImplicitStringConcatBoundaries::FLOAT_MIN_NORM_1 = $Float::MIN_NORMAL;
 	ImplicitStringConcatBoundaries::FLOAT_MIN_1 = $Float::MIN_VALUE;
 	ImplicitStringConcatBoundaries::FLOAT_MAX_1 = $Float::MAX_VALUE;
 	ImplicitStringConcatBoundaries::DOUBLE_MIN_EXP_1 = (double)$Double::MIN_EXPONENT;
-	$init($Double);
 	ImplicitStringConcatBoundaries::DOUBLE_MIN_NORM_1 = $Double::MIN_NORMAL;
 	ImplicitStringConcatBoundaries::DOUBLE_MIN_1 = $Double::MIN_VALUE;
 	ImplicitStringConcatBoundaries::DOUBLE_MAX_1 = $Double::MAX_VALUE;
@@ -236,14 +169,12 @@ void clinit$ImplicitStringConcatBoundaries($Class* class$) {
 	ImplicitStringConcatBoundaries::INT_MIN_2 = $Integer::MIN_VALUE;
 	ImplicitStringConcatBoundaries::INT_MAX_2 = $Integer::MAX_VALUE;
 	ImplicitStringConcatBoundaries::FLOAT_MIN_EXP_2 = (float)$Float::MIN_EXPONENT;
-	$init($Float);
 	ImplicitStringConcatBoundaries::FLOAT_MIN_NORM_2 = $Float::MIN_NORMAL;
 	ImplicitStringConcatBoundaries::FLOAT_MIN_2 = $Float::MIN_VALUE;
 	ImplicitStringConcatBoundaries::FLOAT_MAX_2 = $Float::MAX_VALUE;
 	ImplicitStringConcatBoundaries::LONG_MIN_2 = $Long::MIN_VALUE;
 	ImplicitStringConcatBoundaries::LONG_MAX_2 = $Long::MAX_VALUE;
 	ImplicitStringConcatBoundaries::DOUBLE_MIN_EXP_2 = (double)$Double::MIN_EXPONENT;
-	$init($Double);
 	ImplicitStringConcatBoundaries::DOUBLE_MIN_NORM_2 = $Double::MIN_NORMAL;
 	ImplicitStringConcatBoundaries::DOUBLE_MIN_2 = $Double::MIN_VALUE;
 	ImplicitStringConcatBoundaries::DOUBLE_MAX_2 = $Double::MAX_VALUE;
@@ -253,7 +184,66 @@ ImplicitStringConcatBoundaries::ImplicitStringConcatBoundaries() {
 }
 
 $Class* ImplicitStringConcatBoundaries::load$($String* name, bool initialize) {
-	$loadClass(ImplicitStringConcatBoundaries, name, initialize, &_ImplicitStringConcatBoundaries_ClassInfo_, clinit$ImplicitStringConcatBoundaries, allocate$ImplicitStringConcatBoundaries);
+	$FieldInfo fieldInfos$$[] = {
+		{"BOOL_TRUE_1", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, BOOL_TRUE_1)},
+		{"BOOL_TRUE_2", "Z", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, BOOL_TRUE_2)},
+		{"BOOL_FALSE_1", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, BOOL_FALSE_1)},
+		{"BOOL_FALSE_2", "Z", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, BOOL_FALSE_2)},
+		{"BYTE_MIN_1", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, BYTE_MIN_1)},
+		{"BYTE_MIN_2", "B", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, BYTE_MIN_2)},
+		{"BYTE_MAX_1", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, BYTE_MAX_1)},
+		{"BYTE_MAX_2", "B", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, BYTE_MAX_2)},
+		{"SHORT_MIN_1", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, SHORT_MIN_1)},
+		{"SHORT_MIN_2", "S", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, SHORT_MIN_2)},
+		{"SHORT_MAX_1", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, SHORT_MAX_1)},
+		{"SHORT_MAX_2", "S", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, SHORT_MAX_2)},
+		{"CHAR_MIN_1", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, CHAR_MIN_1)},
+		{"CHAR_MIN_2", "C", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, CHAR_MIN_2)},
+		{"CHAR_MAX_1", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, CHAR_MAX_1)},
+		{"CHAR_MAX_2", "C", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, CHAR_MAX_2)},
+		{"INT_MIN_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, INT_MIN_1)},
+		{"INT_MIN_2", "I", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, INT_MIN_2)},
+		{"INT_MAX_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, INT_MAX_1)},
+		{"INT_MAX_2", "I", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, INT_MAX_2)},
+		{"FLOAT_MIN_EXP_1", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_EXP_1)},
+		{"FLOAT_MIN_EXP_2", "F", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_EXP_2)},
+		{"FLOAT_MIN_NORM_1", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_NORM_1)},
+		{"FLOAT_MIN_NORM_2", "F", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_NORM_2)},
+		{"FLOAT_MIN_1", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_1)},
+		{"FLOAT_MIN_2", "F", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, FLOAT_MIN_2)},
+		{"FLOAT_MAX_1", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, FLOAT_MAX_1)},
+		{"FLOAT_MAX_2", "F", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, FLOAT_MAX_2)},
+		{"LONG_MIN_1", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, LONG_MIN_1)},
+		{"LONG_MIN_2", "J", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, LONG_MIN_2)},
+		{"LONG_MAX_1", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImplicitStringConcatBoundaries, LONG_MAX_1)},
+		{"LONG_MAX_2", "J", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, LONG_MAX_2)},
+		{"DOUBLE_MIN_EXP_1", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_EXP_1)},
+		{"DOUBLE_MIN_EXP_2", "D", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_EXP_2)},
+		{"DOUBLE_MIN_NORM_1", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_NORM_1)},
+		{"DOUBLE_MIN_NORM_2", "D", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_NORM_2)},
+		{"DOUBLE_MIN_1", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_1)},
+		{"DOUBLE_MIN_2", "D", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MIN_2)},
+		{"DOUBLE_MAX_1", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MAX_1)},
+		{"DOUBLE_MAX_2", "D", nullptr, $PUBLIC | $STATIC, $staticField(ImplicitStringConcatBoundaries, DOUBLE_MAX_2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatBoundaries, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatBoundaries, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatBoundaries, test, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ImplicitStringConcatBoundaries",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImplicitStringConcatBoundaries, name, initialize, &classInfo$$, ImplicitStringConcatBoundaries::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ImplicitStringConcatBoundaries);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/UnicodeEncoder.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -31,42 +30,8 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _UnicodeEncoder_FieldInfo_[] = {
-	{"BYTE_ORDER_MARK", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(UnicodeEncoder, BYTE_ORDER_MARK)},
-	{"REVERSED_MARK", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(UnicodeEncoder, REVERSED_MARK)},
-	{"BIG", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(UnicodeEncoder, BIG)},
-	{"LITTLE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(UnicodeEncoder, LITTLE)},
-	{"byteOrder", "I", nullptr, $PRIVATE, $field(UnicodeEncoder, byteOrder)},
-	{"usesMark", "Z", nullptr, $PRIVATE, $field(UnicodeEncoder, usesMark)},
-	{"needsMark", "Z", nullptr, $PRIVATE, $field(UnicodeEncoder, needsMark)},
-	{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE | $FINAL, $field(UnicodeEncoder, sgp)},
-	{}
-};
-
-$MethodInfo _UnicodeEncoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;IZ)V", nullptr, $PROTECTED, $method(UnicodeEncoder, init$, void, $Charset*, int32_t, bool)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(UnicodeEncoder, canEncode, bool, char16_t)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(UnicodeEncoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(UnicodeEncoder, implReset, void)},
-	{"put", "(CLjava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(UnicodeEncoder, put, void, char16_t, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _UnicodeEncoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.nio.cs.UnicodeEncoder",
-	"java.nio.charset.CharsetEncoder",
-	nullptr,
-	_UnicodeEncoder_FieldInfo_,
-	_UnicodeEncoder_MethodInfo_
-};
-
-$Object* allocate$UnicodeEncoder($Class* clazz) {
-	return $of($alloc(UnicodeEncoder));
-}
-
 void UnicodeEncoder::init$($Charset* cs, int32_t bo, bool m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$CharsetEncoder::init$(cs, 2.0f, m ? 4.0f : 2.0f, ((bo == UnicodeEncoder::BIG) ? $$new($bytes, {
 		(int8_t)255,
 		(int8_t)253
@@ -82,15 +47,15 @@ void UnicodeEncoder::init$($Charset* cs, int32_t bo, bool m) {
 void UnicodeEncoder::put(char16_t c, $ByteBuffer* dst) {
 	if (this->byteOrder == UnicodeEncoder::BIG) {
 		$nc(dst)->put((int8_t)(c >> 8));
-		dst->put((int8_t)((int32_t)(c & (uint32_t)255)));
+		dst->put((int8_t)(c & 0xff));
 	} else {
-		$nc(dst)->put((int8_t)((int32_t)(c & (uint32_t)255)));
+		$nc(dst)->put((int8_t)(c & 0xff));
 		dst->put((int8_t)(c >> 8));
 	}
 }
 
 $CoderResult* UnicodeEncoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mark = $nc(src)->position();
 	if (this->needsMark && src->hasRemaining()) {
 		if ($nc(dst)->remaining() < 2) {
@@ -100,55 +65,53 @@ $CoderResult* UnicodeEncoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
 		put(UnicodeEncoder::BYTE_ORDER_MARK, dst);
 		this->needsMark = false;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				char16_t c = src->get();
-				if (!$Character::isSurrogate(c)) {
-					if ($nc(dst)->remaining() < 2) {
-						$init($CoderResult);
-						$assign(var$2, $CoderResult::OVERFLOW);
-						return$1 = true;
-						goto $finally;
-					}
-					++mark;
-					put(c, dst);
-					continue;
-				}
-				int32_t d = $nc(this->sgp)->parse(c, src);
-				if (d < 0) {
-					$assign(var$2, $nc(this->sgp)->error());
-					return$1 = true;
-					goto $finally;
-				}
-				if ($nc(dst)->remaining() < 4) {
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			char16_t c = src->get();
+			if (!$Character::isSurrogate(c)) {
+				if ($nc(dst)->remaining() < 2) {
 					$init($CoderResult);
 					$assign(var$2, $CoderResult::OVERFLOW);
 					return$1 = true;
 					goto $finally;
 				}
-				mark += 2;
-				put($Character::highSurrogate(d), dst);
-				put($Character::lowSurrogate(d), dst);
+				++mark;
+				put(c, dst);
+				continue;
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
+			int32_t d = this->sgp->parse(c, src);
+			if (d < 0) {
+				$assign(var$2, this->sgp->error());
+				return$1 = true;
+				goto $finally;
+			}
+			if ($nc(dst)->remaining() < 4) {
+				$init($CoderResult);
+				$assign(var$2, $CoderResult::OVERFLOW);
+				return$1 = true;
+				goto $finally;
+			}
+			mark += 2;
+			put($Character::highSurrogate(d), dst);
+			put($Character::lowSurrogate(d), dst);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -165,7 +128,36 @@ UnicodeEncoder::UnicodeEncoder() {
 }
 
 $Class* UnicodeEncoder::load$($String* name, bool initialize) {
-	$loadClass(UnicodeEncoder, name, initialize, &_UnicodeEncoder_ClassInfo_, allocate$UnicodeEncoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"BYTE_ORDER_MARK", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(UnicodeEncoder, BYTE_ORDER_MARK)},
+		{"REVERSED_MARK", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(UnicodeEncoder, REVERSED_MARK)},
+		{"BIG", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(UnicodeEncoder, BIG)},
+		{"LITTLE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(UnicodeEncoder, LITTLE)},
+		{"byteOrder", "I", nullptr, $PRIVATE, $field(UnicodeEncoder, byteOrder)},
+		{"usesMark", "Z", nullptr, $PRIVATE, $field(UnicodeEncoder, usesMark)},
+		{"needsMark", "Z", nullptr, $PRIVATE, $field(UnicodeEncoder, needsMark)},
+		{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE | $FINAL, $field(UnicodeEncoder, sgp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;IZ)V", nullptr, $PROTECTED, $method(UnicodeEncoder, init$, void, $Charset*, int32_t, bool)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(UnicodeEncoder, canEncode, bool, char16_t)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(UnicodeEncoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(UnicodeEncoder, implReset, void)},
+		{"put", "(CLjava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(UnicodeEncoder, put, void, char16_t, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.nio.cs.UnicodeEncoder",
+		"java.nio.charset.CharsetEncoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnicodeEncoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicodeEncoder);
+	});
 	return class$;
 }
 

@@ -28,6 +28,7 @@ class $export Basic4ref : public ::java::lang::Object {
 	$class(Basic4ref, $HAS_FINALIZE, ::java::lang::Object)
 public:
 	Basic4ref();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createNoise();
 	virtual void finalize() override;

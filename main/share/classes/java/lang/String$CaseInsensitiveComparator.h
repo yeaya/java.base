@@ -23,7 +23,7 @@ public:
 	virtual int32_t compare(Object$* s1, Object$* s2) override;
 	$Object* readResolve();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x77035C7D5C50E5CE;
+	static const int64_t serialVersionUID = (int64_t)0x77035c7d5c50e5ce;
 };
 
 	} // lang

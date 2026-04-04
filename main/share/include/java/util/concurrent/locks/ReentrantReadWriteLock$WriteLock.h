@@ -49,7 +49,7 @@ public:
 	virtual bool tryLock() override;
 	virtual bool tryLock(int64_t timeout, ::java::util::concurrent::TimeUnit* unit) override;
 	virtual void unlock() override;
-	static const int64_t serialVersionUID = (int64_t)0xBAB742683F7D684C;
+	static const int64_t serialVersionUID = (int64_t)0xbab742683f7d684c;
 	::java::util::concurrent::locks::ReentrantReadWriteLock$Sync* sync = nullptr;
 };
 

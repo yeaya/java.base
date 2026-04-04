@@ -1,5 +1,4 @@
 #include <java/util/stream/WhileOps$DropWhileOp.h>
-
 #include <java/util/stream/Sink.h>
 #include <java/util/stream/WhileOps$DropWhileSink.h>
 #include <java/util/stream/WhileOps.h>
@@ -15,38 +14,33 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$MethodInfo _WhileOps$DropWhileOp_MethodInfo_[] = {
-	{"opWrapSink", "(Ljava/util/stream/Sink;Z)Ljava/util/stream/WhileOps$DropWhileSink;", "(Ljava/util/stream/Sink<TT;>;Z)Ljava/util/stream/WhileOps$DropWhileSink<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(WhileOps$DropWhileOp, opWrapSink, $WhileOps$DropWhileSink*, $Sink*, bool)},
-	{}
-};
-
-$InnerClassInfo _WhileOps$DropWhileOp_InnerClassesInfo_[] = {
-	{"java.util.stream.WhileOps$DropWhileOp", "java.util.stream.WhileOps", "DropWhileOp", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WhileOps$DropWhileOp_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.util.stream.WhileOps$DropWhileOp",
-	nullptr,
-	nullptr,
-	nullptr,
-	_WhileOps$DropWhileOp_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_WhileOps$DropWhileOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.WhileOps"
-};
-
-$Object* allocate$WhileOps$DropWhileOp($Class* clazz) {
-	return $of($alloc(WhileOps$DropWhileOp));
-}
-
 $Class* WhileOps$DropWhileOp::load$($String* name, bool initialize) {
-	$loadClass(WhileOps$DropWhileOp, name, initialize, &_WhileOps$DropWhileOp_ClassInfo_, allocate$WhileOps$DropWhileOp);
+	$MethodInfo methodInfos$$[] = {
+		{"opWrapSink", "(Ljava/util/stream/Sink;Z)Ljava/util/stream/WhileOps$DropWhileSink;", "(Ljava/util/stream/Sink<TT;>;Z)Ljava/util/stream/WhileOps$DropWhileSink<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(WhileOps$DropWhileOp, opWrapSink, $WhileOps$DropWhileSink*, $Sink*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.WhileOps$DropWhileOp", "java.util.stream.WhileOps", "DropWhileOp", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.util.stream.WhileOps$DropWhileOp",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.WhileOps"
+	};
+	$loadClass(WhileOps$DropWhileOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WhileOps$DropWhileOp);
+	});
 	return class$;
 }
 

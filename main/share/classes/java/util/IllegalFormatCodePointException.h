@@ -19,7 +19,10 @@ public:
 	int32_t c = 0;
 	IllegalFormatCodePointException(const IllegalFormatCodePointException& e);
 	virtual void throw$() override;
-	inline IllegalFormatCodePointException* operator ->() {
+	inline IllegalFormatCodePointException* operator ->() const {
+		return (IllegalFormatCodePointException*)throwing$;
+	}
+	inline operator IllegalFormatCodePointException*() const {
 		return (IllegalFormatCodePointException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <sun/util/resources/Bundles$2.h>
-
 #include <java/lang/SecurityException.h>
 #include <java/util/Iterator.h>
 #include <java/util/Locale.h>
@@ -29,52 +28,6 @@ namespace sun {
 	namespace util {
 		namespace resources {
 
-$FieldInfo _Bundles$2_FieldInfo_[] = {
-	{"val$cacheKey", "Lsun/util/resources/Bundles$CacheKey;", nullptr, $FINAL | $SYNTHETIC, $field(Bundles$2, val$cacheKey)},
-	{"val$locale", "Ljava/util/Locale;", nullptr, $FINAL | $SYNTHETIC, $field(Bundles$2, val$locale)},
-	{"val$baseName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Bundles$2, val$baseName)},
-	{"val$providers", "Ljava/util/ServiceLoader;", nullptr, $FINAL | $SYNTHETIC, $field(Bundles$2, val$providers)},
-	{}
-};
-
-$MethodInfo _Bundles$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader;Ljava/lang/String;Ljava/util/Locale;Lsun/util/resources/Bundles$CacheKey;)V", nullptr, 0, $method(Bundles$2, init$, void, $ServiceLoader*, $String*, $Locale*, $Bundles$CacheKey*)},
-	{"run", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(Bundles$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Bundles$2_EnclosingMethodInfo_ = {
-	"sun.util.resources.Bundles",
-	"loadBundleFromProviders",
-	"(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader;Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;"
-};
-
-$InnerClassInfo _Bundles$2_InnerClassesInfo_[] = {
-	{"sun.util.resources.Bundles$2", nullptr, nullptr, 0},
-	{"sun.util.resources.Bundles$CacheKey", "sun.util.resources.Bundles", "CacheKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Bundles$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.resources.Bundles$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_Bundles$2_FieldInfo_,
-	_Bundles$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/ResourceBundle;>;",
-	&_Bundles$2_EnclosingMethodInfo_,
-	_Bundles$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.resources.Bundles"
-};
-
-$Object* allocate$Bundles$2($Class* clazz) {
-	return $of($alloc(Bundles$2));
-}
-
 void Bundles$2::init$($ServiceLoader* val$providers, $String* val$baseName, $Locale* val$locale, $Bundles$CacheKey* val$cacheKey) {
 	$set(this, val$providers, val$providers);
 	$set(this, val$baseName, val$baseName);
@@ -83,35 +36,72 @@ void Bundles$2::init$($ServiceLoader* val$providers, $String* val$baseName, $Loc
 }
 
 $Object* Bundles$2::run() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, itr, $nc(this->val$providers)->iterator());
-		for (; $nc(itr)->hasNext();) {
-			try {
-				$var($ResourceBundleProvider, provider, $cast($ResourceBundleProvider, itr->next()));
-				$var($ResourceBundle, bundle, $nc(provider)->getBundle(this->val$baseName, this->val$locale));
-				if (bundle != nullptr) {
-					return $of(bundle);
-				}
-			} catch ($ServiceConfigurationError& e) {
-				if (this->val$cacheKey != nullptr) {
-					$nc(this->val$cacheKey)->setCause(e);
-				}
-			} catch ($SecurityException& e) {
-				if (this->val$cacheKey != nullptr) {
-					$nc(this->val$cacheKey)->setCause(e);
-				}
+	$useLocalObjectStack();
+	$var($Iterator, itr, $nc(this->val$providers)->iterator());
+	for (; $nc(itr)->hasNext();) {
+		try {
+			$var($ResourceBundleProvider, provider, $cast($ResourceBundleProvider, itr->next()));
+			$var($ResourceBundle, bundle, $nc(provider)->getBundle(this->val$baseName, this->val$locale));
+			if (bundle != nullptr) {
+				return bundle;
+			}
+		} catch ($ServiceConfigurationError& e) {
+			if (this->val$cacheKey != nullptr) {
+				this->val$cacheKey->setCause(e);
+			}
+		} catch ($SecurityException& e) {
+			if (this->val$cacheKey != nullptr) {
+				this->val$cacheKey->setCause(e);
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 Bundles$2::Bundles$2() {
 }
 
 $Class* Bundles$2::load$($String* name, bool initialize) {
-	$loadClass(Bundles$2, name, initialize, &_Bundles$2_ClassInfo_, allocate$Bundles$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$cacheKey", "Lsun/util/resources/Bundles$CacheKey;", nullptr, $FINAL | $SYNTHETIC, $field(Bundles$2, val$cacheKey)},
+		{"val$locale", "Ljava/util/Locale;", nullptr, $FINAL | $SYNTHETIC, $field(Bundles$2, val$locale)},
+		{"val$baseName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Bundles$2, val$baseName)},
+		{"val$providers", "Ljava/util/ServiceLoader;", nullptr, $FINAL | $SYNTHETIC, $field(Bundles$2, val$providers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ServiceLoader;Ljava/lang/String;Ljava/util/Locale;Lsun/util/resources/Bundles$CacheKey;)V", nullptr, 0, $method(Bundles$2, init$, void, $ServiceLoader*, $String*, $Locale*, $Bundles$CacheKey*)},
+		{"run", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(Bundles$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.util.resources.Bundles",
+		"loadBundleFromProviders",
+		"(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader;Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.resources.Bundles$2", nullptr, nullptr, 0},
+		{"sun.util.resources.Bundles$CacheKey", "sun.util.resources.Bundles", "CacheKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.resources.Bundles$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/ResourceBundle;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.resources.Bundles"
+	};
+	$loadClass(Bundles$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bundles$2);
+	});
 	return class$;
 }
 

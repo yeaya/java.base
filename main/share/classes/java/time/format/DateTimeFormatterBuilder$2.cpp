@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$2.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/format/DateTimeFormatterBuilder.h>
 #include <java/time/format/SignStyle.h>
@@ -26,79 +25,42 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$FieldInfo _DateTimeFormatterBuilder$2_FieldInfo_[] = {
-	{"$SwitchMap$java$time$format$SignStyle", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DateTimeFormatterBuilder$2, $SwitchMap$java$time$format$SignStyle)},
-	{"$SwitchMap$java$time$format$TextStyle", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DateTimeFormatterBuilder$2, $SwitchMap$java$time$format$TextStyle)},
-	{}
-};
-
-$EnclosingMethodInfo _DateTimeFormatterBuilder$2_EnclosingMethodInfo_ = {
-	"java.time.format.DateTimeFormatterBuilder",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$2_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$2_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.format.DateTimeFormatterBuilder$2",
-	"java.lang.Object",
-	nullptr,
-	_DateTimeFormatterBuilder$2_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_DateTimeFormatterBuilder$2_EnclosingMethodInfo_,
-	_DateTimeFormatterBuilder$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$2($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$2));
-}
-
 $ints* DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle = nullptr;
 $ints* DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle = nullptr;
 
-void clinit$DateTimeFormatterBuilder$2($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DateTimeFormatterBuilder$2::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle, $new($ints, $($SignStyle::values())->length));
 	{
 		try {
-			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle)->set($SignStyle::EXCEEDS_PAD->ordinal(), 1);
+			DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle->set($SignStyle::EXCEEDS_PAD->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle)->set($SignStyle::ALWAYS->ordinal(), 2);
+			DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle->set($SignStyle::ALWAYS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle)->set($SignStyle::NORMAL->ordinal(), 3);
+			DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle->set($SignStyle::NORMAL->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle)->set($SignStyle::NOT_NEGATIVE->ordinal(), 4);
+			DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle->set($SignStyle::NOT_NEGATIVE->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle, $new($ints, $($TextStyle::values())->length));
 	{
 		try {
-			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle)->set($TextStyle::FULL_STANDALONE->ordinal(), 1);
+			DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle->set($TextStyle::FULL_STANDALONE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle)->set($TextStyle::SHORT_STANDALONE->ordinal(), 2);
+			DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle->set($TextStyle::SHORT_STANDALONE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle)->set($TextStyle::NARROW_STANDALONE->ordinal(), 3);
+			DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle->set($TextStyle::NARROW_STANDALONE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -108,7 +70,38 @@ DateTimeFormatterBuilder$2::DateTimeFormatterBuilder$2() {
 }
 
 $Class* DateTimeFormatterBuilder$2::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$2, name, initialize, &_DateTimeFormatterBuilder$2_ClassInfo_, clinit$DateTimeFormatterBuilder$2, allocate$DateTimeFormatterBuilder$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$format$SignStyle", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DateTimeFormatterBuilder$2, $SwitchMap$java$time$format$SignStyle)},
+		{"$SwitchMap$java$time$format$TextStyle", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DateTimeFormatterBuilder$2, $SwitchMap$java$time$format$TextStyle)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.format.DateTimeFormatterBuilder",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.format.DateTimeFormatterBuilder$2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$2, name, initialize, &classInfo$$, DateTimeFormatterBuilder$2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$2);
+	});
 	return class$;
 }
 

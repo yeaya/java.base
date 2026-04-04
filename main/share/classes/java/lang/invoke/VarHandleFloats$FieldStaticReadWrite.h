@@ -36,6 +36,7 @@ public:
 	using ::java::lang::invoke::VarHandleFloats$FieldStaticReadOnly::getAndAdd;
 	using ::java::lang::invoke::VarHandleFloats$FieldStaticReadOnly::getAndAddAcquire;
 	using ::java::lang::invoke::VarHandleFloats$FieldStaticReadOnly::getAndAddRelease;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* base, int64_t fieldOffset);
 	void init$(Object$* base, int64_t fieldOffset, bool exact);
 	static float compareAndExchange(::java::lang::invoke::VarHandle* ob, float expected, float value);

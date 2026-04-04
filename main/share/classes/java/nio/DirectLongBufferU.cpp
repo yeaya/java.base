@@ -1,5 +1,4 @@
 #include <java/nio/DirectLongBufferU.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -40,63 +39,13 @@ using $DirectLongBufferRU = ::java::nio::DirectLongBufferRU;
 using $LongBuffer = ::java::nio::LongBuffer;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
 using $ScopedMemoryAccess$Scope$ScopedAccessError = ::jdk::internal::misc::ScopedMemoryAccess$Scope$ScopedAccessError;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Cleaner = ::jdk::internal::ref::Cleaner;
 using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _DirectLongBufferU_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectLongBufferU, $assertionsDisabled)},
-	{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectLongBufferU, ARRAY_BASE_OFFSET)},
-	{"UNALIGNED", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DirectLongBufferU, UNALIGNED)},
-	{"att", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(DirectLongBufferU, att)},
-	{}
-};
-
-$MethodInfo _DirectLongBufferU_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectLongBufferU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"address", "()J", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, address, int64_t)},
-	{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, asReadOnlyBuffer, $LongBuffer*)},
-	{"attachment", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, attachment, $Object*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectLongBufferU, base, $Object*)},
-	{"cleaner", "()Ljdk/internal/ref/Cleaner;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, cleaner, $Cleaner*)},
-	{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, compact, $LongBuffer*)},
-	{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, duplicate, $LongBuffer*)},
-	{"get", "()J", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, get, int64_t)},
-	{"get", "(I)J", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, get, int64_t, int32_t)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, isReadOnly, bool)},
-	{"ix", "(I)J", nullptr, $PRIVATE, $method(DirectLongBufferU, ix, int64_t, int32_t)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, order, $ByteOrder*)},
-	{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, put, $LongBuffer*, int64_t)},
-	{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, put, $LongBuffer*, int32_t, int64_t)},
-	{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, slice, $LongBuffer*)},
-	{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, slice, $LongBuffer*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DirectLongBufferU_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.DirectLongBufferU",
-	"java.nio.LongBuffer",
-	"sun.nio.ch.DirectBuffer",
-	_DirectLongBufferU_FieldInfo_,
-	_DirectLongBufferU_MethodInfo_
-};
-
-$Object* allocate$DirectLongBufferU($Class* clazz) {
-	return $of($alloc(DirectLongBufferU));
-}
 
 $String* DirectLongBufferU::toString() {
 	 return this->$LongBuffer::toString();
@@ -123,7 +72,7 @@ int64_t DirectLongBufferU::ARRAY_BASE_OFFSET = 0;
 bool DirectLongBufferU::UNALIGNED = false;
 
 $Object* DirectLongBufferU::attachment() {
-	return $of(this->att);
+	return this->att;
 }
 
 $Cleaner* DirectLongBufferU::cleaner() {
@@ -132,13 +81,13 @@ $Cleaner* DirectLongBufferU::cleaner() {
 
 void DirectLongBufferU::init$($DirectBuffer* db, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int32_t off, $MemorySegmentProxy* segment) {
 	$LongBuffer::init$(mark, pos, lim, cap, segment);
-	this->$Buffer::address = $nc(($cast($Buffer, db)))->address + off;
-	$var($Object, attachment, $nc(db)->attachment());
+	this->$Buffer::address = $nc($cast($Buffer, db))->address + off;
+	$var($Object, attachment, db->attachment());
 	$set(this, att, attachment == nullptr ? $of(db) : attachment);
 }
 
 $Object* DirectLongBufferU::base() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $LongBuffer* DirectLongBufferU::slice() {
@@ -191,122 +140,112 @@ int64_t DirectLongBufferU::ix(int32_t i) {
 }
 
 int64_t DirectLongBufferU::get() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			$init($Buffer);
-			$var($ScopedMemoryAccess$Scope, var$3, scope());
-			var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getLong(var$3, nullptr, ix(nextGetIndex())));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		$init($Buffer);
+		$var($ScopedMemoryAccess$Scope, var$3, scope());
+		var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getLong(var$3, nullptr, ix(nextGetIndex())));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int64_t DirectLongBufferU::get(int32_t i) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			$init($Buffer);
-			$var($ScopedMemoryAccess$Scope, var$3, scope());
-			var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getLong(var$3, nullptr, ix(checkIndex(i))));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		$init($Buffer);
+		$var($ScopedMemoryAccess$Scope, var$3, scope());
+		var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getLong(var$3, nullptr, ix(checkIndex(i))));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $LongBuffer* DirectLongBufferU::put(int64_t x) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($Buffer);
-			$var($ScopedMemoryAccess$Scope, var$1, scope());
-			$nc($Buffer::SCOPED_MEMORY_ACCESS)->putLong(var$1, nullptr, ix(nextPutIndex()), (x));
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($Buffer);
+		$var($ScopedMemoryAccess$Scope, var$1, scope());
+		$nc($Buffer::SCOPED_MEMORY_ACCESS)->putLong(var$1, nullptr, ix(nextPutIndex()), (x));
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return this;
 }
 
 $LongBuffer* DirectLongBufferU::put(int32_t i, int64_t x) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($Buffer);
-			$var($ScopedMemoryAccess$Scope, var$1, scope());
-			$nc($Buffer::SCOPED_MEMORY_ACCESS)->putLong(var$1, nullptr, ix(checkIndex(i)), (x));
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($Buffer);
+		$var($ScopedMemoryAccess$Scope, var$1, scope());
+		$nc($Buffer::SCOPED_MEMORY_ACCESS)->putLong(var$1, nullptr, ix(checkIndex(i)), (x));
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return this;
 }
 
 $LongBuffer* DirectLongBufferU::compact() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!DirectLongBufferU::$assertionsDisabled && !(pos <= lim)) {
 		$throwNew($AssertionError);
 	}
 	int32_t rem = (pos <= lim ? lim - pos : 0);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($Buffer);
-			$var($ScopedMemoryAccess$Scope, var$1, scope());
-			int64_t var$2 = ix(pos);
-			$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$1, nullptr, nullptr, var$2, nullptr, ix(0), (int64_t)rem << 3);
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($Buffer);
+		$var($ScopedMemoryAccess$Scope, var$1, scope());
+		int64_t var$2 = ix(pos);
+		$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$1, nullptr, nullptr, var$2, nullptr, ix(0), (int64_t)rem << 3);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	position(rem);
 	limit(capacity());
@@ -327,10 +266,9 @@ $ByteOrder* DirectLongBufferU::order() {
 	return (($ByteOrder::nativeOrder() != $ByteOrder::BIG_ENDIAN) ? $ByteOrder::LITTLE_ENDIAN : $ByteOrder::BIG_ENDIAN);
 }
 
-void clinit$DirectLongBufferU($Class* class$) {
+void DirectLongBufferU::clinit$($Class* clazz) {
 	DirectLongBufferU::$assertionsDisabled = !DirectLongBufferU::class$->desiredAssertionStatus();
 	$init($Buffer);
-	$load($longs);
 	DirectLongBufferU::ARRAY_BASE_OFFSET = $nc($Buffer::UNSAFE)->arrayBaseOffset($getClass($longs));
 	DirectLongBufferU::UNALIGNED = $Bits::unaligned();
 }
@@ -339,7 +277,50 @@ DirectLongBufferU::DirectLongBufferU() {
 }
 
 $Class* DirectLongBufferU::load$($String* name, bool initialize) {
-	$loadClass(DirectLongBufferU, name, initialize, &_DirectLongBufferU_ClassInfo_, clinit$DirectLongBufferU, allocate$DirectLongBufferU);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectLongBufferU, $assertionsDisabled)},
+		{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectLongBufferU, ARRAY_BASE_OFFSET)},
+		{"UNALIGNED", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DirectLongBufferU, UNALIGNED)},
+		{"att", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(DirectLongBufferU, att)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectLongBufferU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"address", "()J", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, address, int64_t)},
+		{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, asReadOnlyBuffer, $LongBuffer*)},
+		{"attachment", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, attachment, $Object*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectLongBufferU, base, $Object*)},
+		{"cleaner", "()Ljdk/internal/ref/Cleaner;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, cleaner, $Cleaner*)},
+		{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, compact, $LongBuffer*)},
+		{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, duplicate, $LongBuffer*)},
+		{"get", "()J", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, get, int64_t)},
+		{"get", "(I)J", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, get, int64_t, int32_t)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, isReadOnly, bool)},
+		{"ix", "(I)J", nullptr, $PRIVATE, $method(DirectLongBufferU, ix, int64_t, int32_t)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, order, $ByteOrder*)},
+		{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, put, $LongBuffer*, int64_t)},
+		{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, put, $LongBuffer*, int32_t, int64_t)},
+		{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, slice, $LongBuffer*)},
+		{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferU, slice, $LongBuffer*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.DirectLongBufferU",
+		"java.nio.LongBuffer",
+		"sun.nio.ch.DirectBuffer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DirectLongBufferU, name, initialize, &classInfo$$, DirectLongBufferU::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectLongBufferU));
+	});
 	return class$;
 }
 

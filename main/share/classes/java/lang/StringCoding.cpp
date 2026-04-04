@@ -1,5 +1,4 @@
 #include <java/lang/StringCoding.h>
-
 #include <java/lang/StringUTF16.h>
 #include <jcpp.h>
 
@@ -10,36 +9,6 @@ using $StringUTF16 = ::java::lang::StringUTF16;
 
 namespace java {
 	namespace lang {
-
-$CompoundAttribute _StringCoding_MethodAnnotations_hasNegatives1[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringCoding_MethodAnnotations_implEncodeISOArray2[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$MethodInfo _StringCoding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StringCoding, init$, void)},
-	{"hasNegatives", "([BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCoding, hasNegatives, bool, $bytes*, int32_t, int32_t), nullptr, nullptr, _StringCoding_MethodAnnotations_hasNegatives1},
-	{"implEncodeISOArray", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCoding, implEncodeISOArray, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _StringCoding_MethodAnnotations_implEncodeISOArray2},
-	{}
-};
-
-$ClassInfo _StringCoding_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.StringCoding",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_StringCoding_MethodInfo_
-};
-
-$Object* allocate$StringCoding($Class* clazz) {
-	return $of($alloc(StringCoding));
-}
 
 void StringCoding::init$() {
 }
@@ -57,7 +26,7 @@ int32_t StringCoding::implEncodeISOArray($bytes* sa, int32_t sp, $bytes* da, int
 	int32_t i = 0;
 	for (; i < len; ++i) {
 		char16_t c = $StringUTF16::getChar(sa, sp++);
-		if (c > (char16_t)0xFF) {
+		if (c > (char16_t)0xff) {
 			break;
 		}
 		$nc(da)->set(dp++, (int8_t)c);
@@ -69,7 +38,31 @@ StringCoding::StringCoding() {
 }
 
 $Class* StringCoding::load$($String* name, bool initialize) {
-	$loadClass(StringCoding, name, initialize, &_StringCoding_ClassInfo_, allocate$StringCoding);
+	$CompoundAttribute hasNegativesmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute implEncodeISOArraymethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StringCoding, init$, void)},
+		{"hasNegatives", "([BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCoding, hasNegatives, bool, $bytes*, int32_t, int32_t), nullptr, nullptr, hasNegativesmethodAnnotations$$},
+		{"implEncodeISOArray", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCoding, implEncodeISOArray, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, implEncodeISOArraymethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.StringCoding",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringCoding, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringCoding);
+	});
 	return class$;
 }
 

@@ -14,7 +14,7 @@ public:
 	NetPermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0x8C3479EC677F6463;
+	static const int64_t serialVersionUID = (int64_t)0x8c3479ec677f6463;
 };
 
 	} // net

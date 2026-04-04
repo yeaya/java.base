@@ -30,6 +30,7 @@ class Locale$LocaleNameGetter : public ::sun::util::locale::provider::LocaleServ
 	$class(Locale$LocaleNameGetter, 0, ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter)
 public:
 	Locale$LocaleNameGetter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* getObject(::java::util::spi::LocaleNameProvider* localeNameProvider, ::java::util::Locale* locale, $String* key, $ObjectArray* params);
 	virtual $Object* getObject(::java::util::spi::LocaleServiceProvider* localeNameProvider, ::java::util::Locale* locale, $String* key, $ObjectArray* params) override;

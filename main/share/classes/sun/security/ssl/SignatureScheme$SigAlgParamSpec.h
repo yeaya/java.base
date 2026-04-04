@@ -35,6 +35,7 @@ class SignatureScheme$SigAlgParamSpec : public ::java::lang::Enum {
 public:
 	SignatureScheme$SigAlgParamSpec();
 	static $Array<::sun::security::ssl::SignatureScheme$SigAlgParamSpec>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* hash, int32_t saltLength);
 	static ::sun::security::ssl::SignatureScheme$SigAlgParamSpec* valueOf($String* name);
 	static $Array<::sun::security::ssl::SignatureScheme$SigAlgParamSpec>* values();

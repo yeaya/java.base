@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/InsnList$InsnListIterator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/NoSuchElementException.h>
 #include <jdk/internal/org/objectweb/asm/tree/AbstractInsnNode.h>
@@ -21,53 +20,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace tree {
-
-$FieldInfo _InsnList$InsnListIterator_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/org/objectweb/asm/tree/InsnList;", nullptr, $FINAL | $SYNTHETIC, $field(InsnList$InsnListIterator, this$0)},
-	{"nextInsn", "Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, 0, $field(InsnList$InsnListIterator, nextInsn)},
-	{"previousInsn", "Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, 0, $field(InsnList$InsnListIterator, previousInsn)},
-	{"remove", "Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, 0, $field(InsnList$InsnListIterator, remove$)},
-	{}
-};
-
-$MethodInfo _InsnList$InsnListIterator_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/InsnList;I)V", nullptr, 0, $method(InsnList$InsnListIterator, init$, void, $InsnList*, int32_t)},
-	{"add", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, add, void, Object$*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, hasNext, bool)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, hasPrevious, bool)},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, next, $Object*)},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, previousIndex, int32_t)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, remove, void)},
-	{"set", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, set, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _InsnList$InsnListIterator_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.tree.InsnList$InsnListIterator", "jdk.internal.org.objectweb.asm.tree.InsnList", "InsnListIterator", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _InsnList$InsnListIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.InsnList$InsnListIterator",
-	"java.lang.Object",
-	"java.util.ListIterator",
-	_InsnList$InsnListIterator_FieldInfo_,
-	_InsnList$InsnListIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InsnList$InsnListIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.tree.InsnList"
-};
-
-$Object* allocate$InsnList$InsnListIterator($Class* clazz) {
-	return $of($alloc(InsnList$InsnListIterator));
-}
 
 void InsnList$InsnListIterator::init$($InsnList* this$0, int32_t index) {
 	$set(this, this$0, this$0);
@@ -92,7 +44,7 @@ $Object* InsnList$InsnListIterator::next() {
 	$set(this, previousInsn, result);
 	$set(this, nextInsn, $nc(result)->nextInsn);
 	$set(this, remove$, result);
-	return $of(result);
+	return result;
 }
 
 void InsnList$InsnListIterator::remove() {
@@ -121,7 +73,7 @@ $Object* InsnList$InsnListIterator::previous() {
 	$set(this, nextInsn, result);
 	$set(this, previousInsn, $nc(result)->previousInsn);
 	$set(this, remove$, result);
-	return $of(result);
+	return result;
 }
 
 int32_t InsnList$InsnListIterator::nextIndex() {
@@ -173,7 +125,48 @@ InsnList$InsnListIterator::InsnList$InsnListIterator() {
 }
 
 $Class* InsnList$InsnListIterator::load$($String* name, bool initialize) {
-	$loadClass(InsnList$InsnListIterator, name, initialize, &_InsnList$InsnListIterator_ClassInfo_, allocate$InsnList$InsnListIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/org/objectweb/asm/tree/InsnList;", nullptr, $FINAL | $SYNTHETIC, $field(InsnList$InsnListIterator, this$0)},
+		{"nextInsn", "Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, 0, $field(InsnList$InsnListIterator, nextInsn)},
+		{"previousInsn", "Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, 0, $field(InsnList$InsnListIterator, previousInsn)},
+		{"remove", "Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, 0, $field(InsnList$InsnListIterator, remove$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/InsnList;I)V", nullptr, 0, $method(InsnList$InsnListIterator, init$, void, $InsnList*, int32_t)},
+		{"add", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, add, void, Object$*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, hasNext, bool)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, hasPrevious, bool)},
+		{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, next, $Object*)},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, previousIndex, int32_t)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, remove, void)},
+		{"set", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, set, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.tree.InsnList$InsnListIterator", "jdk.internal.org.objectweb.asm.tree.InsnList", "InsnListIterator", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.InsnList$InsnListIterator",
+		"java.lang.Object",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.tree.InsnList"
+	};
+	$loadClass(InsnList$InsnListIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InsnList$InsnListIterator);
+	});
 	return class$;
 }
 

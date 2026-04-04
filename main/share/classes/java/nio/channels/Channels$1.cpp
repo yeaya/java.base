@@ -1,5 +1,4 @@
 #include <java/nio/channels/Channels$1.h>
-
 #include <java/io/OutputStream.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
@@ -24,53 +23,6 @@ namespace java {
 	namespace nio {
 		namespace channels {
 
-$FieldInfo _Channels$1_FieldInfo_[] = {
-	{"val$ch", "Ljava/nio/channels/WritableByteChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Channels$1, val$ch)},
-	{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Channels$1, bb)},
-	{"bs", "[B", nullptr, $PRIVATE, $field(Channels$1, bs)},
-	{"b1", "[B", nullptr, $PRIVATE, $field(Channels$1, b1)},
-	{}
-};
-
-$MethodInfo _Channels$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/WritableByteChannel;)V", nullptr, 0, $method(Channels$1, init$, void, $WritableByteChannel*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Channels$1, close, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Channels$1, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Channels$1, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _Channels$1_EnclosingMethodInfo_ = {
-	"java.nio.channels.Channels",
-	"newOutputStream",
-	"(Ljava/nio/channels/WritableByteChannel;)Ljava/io/OutputStream;"
-};
-
-$InnerClassInfo _Channels$1_InnerClassesInfo_[] = {
-	{"java.nio.channels.Channels$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Channels$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.channels.Channels$1",
-	"java.io.OutputStream",
-	nullptr,
-	_Channels$1_FieldInfo_,
-	_Channels$1_MethodInfo_,
-	nullptr,
-	&_Channels$1_EnclosingMethodInfo_,
-	_Channels$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.channels.Channels"
-};
-
-$Object* allocate$Channels$1($Class* clazz) {
-	return $of($alloc(Channels$1));
-}
-
 void Channels$1::init$($WritableByteChannel* val$ch) {
 	$set(this, val$ch, val$ch);
 	$OutputStream::init$();
@@ -94,7 +46,7 @@ void Channels$1::write($bytes* bs, int32_t off, int32_t len) {
 			return;
 		}
 		$var($ByteBuffer, bb, (this->bs == bs) ? this->bb : $ByteBuffer::wrap(bs));
-		$nc(bb)->limit($Math::min(off + len, bb->capacity()));
+		$nc(bb)->limit($Math::min(off + len, $nc(bb)->capacity()));
 		bb->position(off);
 		$set(this, bb, bb);
 		$set(this, bs, bs);
@@ -110,7 +62,47 @@ Channels$1::Channels$1() {
 }
 
 $Class* Channels$1::load$($String* name, bool initialize) {
-	$loadClass(Channels$1, name, initialize, &_Channels$1_ClassInfo_, allocate$Channels$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$ch", "Ljava/nio/channels/WritableByteChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Channels$1, val$ch)},
+		{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Channels$1, bb)},
+		{"bs", "[B", nullptr, $PRIVATE, $field(Channels$1, bs)},
+		{"b1", "[B", nullptr, $PRIVATE, $field(Channels$1, b1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/WritableByteChannel;)V", nullptr, 0, $method(Channels$1, init$, void, $WritableByteChannel*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Channels$1, close, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Channels$1, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Channels$1, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.channels.Channels",
+		"newOutputStream",
+		"(Ljava/nio/channels/WritableByteChannel;)Ljava/io/OutputStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.channels.Channels$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.channels.Channels$1",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.channels.Channels"
+	};
+	$loadClass(Channels$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Channels$1));
+	});
 	return class$;
 }
 

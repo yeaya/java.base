@@ -15,10 +15,13 @@ public:
 	CertificateNotYetValidException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x3C7356120800B0FE;
+	static const int64_t serialVersionUID = (int64_t)0x3c7356120800b0fe;
 	CertificateNotYetValidException(const CertificateNotYetValidException& e);
 	virtual void throw$() override;
-	inline CertificateNotYetValidException* operator ->() {
+	inline CertificateNotYetValidException* operator ->() const {
+		return (CertificateNotYetValidException*)throwing$;
+	}
+	inline operator CertificateNotYetValidException*() const {
 		return (CertificateNotYetValidException*)throwing$;
 	}
 };

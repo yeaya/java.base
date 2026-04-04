@@ -30,6 +30,7 @@ public:
 	ByteBufferAsIntBufferB();
 	using ::java::nio::IntBuffer::get;
 	using ::java::nio::IntBuffer::limit;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::ByteBuffer* bb, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	void init$(::java::nio::ByteBuffer* bb, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int64_t addr, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	virtual ::java::nio::IntBuffer* asReadOnlyBuffer() override;

@@ -72,6 +72,7 @@ class SSLLogger$SSLSimpleFormatter : public ::java::lang::Object {
 	$class(SSLLogger$SSLSimpleFormatter, 0, ::java::lang::Object)
 public:
 	SSLLogger$SSLSimpleFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* format(::sun::security::ssl::SSLLogger$SSLConsoleLogger* logger, ::java::lang::System$Logger$Level* level, $String* message, $ObjectArray* parameters);
 	static $String* formatByteArrayInputStream(::java::io::ByteArrayInputStream* bytes);

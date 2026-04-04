@@ -1,5 +1,4 @@
 #include <java/util/regex/Matcher$1MatchResultIterator.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/NoSuchElementException.h>
@@ -8,7 +7,6 @@
 #include <java/util/regex/Matcher.h>
 #include <jcpp.h>
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -22,53 +20,6 @@ using $Matcher = ::java::util::regex::Matcher;
 namespace java {
 	namespace util {
 		namespace regex {
-
-$FieldInfo _Matcher$1MatchResultIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/regex/Matcher;", nullptr, $FINAL | $SYNTHETIC, $field(Matcher$1MatchResultIterator, this$0)},
-	{"state", "I", nullptr, 0, $field(Matcher$1MatchResultIterator, state)},
-	{"expectedCount", "I", nullptr, 0, $field(Matcher$1MatchResultIterator, expectedCount)},
-	{"textAsString", "Ljava/lang/String;", nullptr, 0, $field(Matcher$1MatchResultIterator, textAsString)},
-	{}
-};
-
-$MethodInfo _Matcher$1MatchResultIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Matcher;)V", nullptr, 0, $method(Matcher$1MatchResultIterator, init$, void, $Matcher*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/regex/MatchResult;>;)V", $PUBLIC, $virtualMethod(Matcher$1MatchResultIterator, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Matcher$1MatchResultIterator, hasNext, bool)},
-	{"next", "()Ljava/util/regex/MatchResult;", nullptr, $PUBLIC, $virtualMethod(Matcher$1MatchResultIterator, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Matcher$1MatchResultIterator_EnclosingMethodInfo_ = {
-	"java.util.regex.Matcher",
-	"results",
-	"()Ljava/util/stream/Stream;"
-};
-
-$InnerClassInfo _Matcher$1MatchResultIterator_InnerClassesInfo_[] = {
-	{"java.util.regex.Matcher$1MatchResultIterator", nullptr, "MatchResultIterator", 0},
-	{}
-};
-
-$ClassInfo _Matcher$1MatchResultIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Matcher$1MatchResultIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Matcher$1MatchResultIterator_FieldInfo_,
-	_Matcher$1MatchResultIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/util/regex/MatchResult;>;",
-	&_Matcher$1MatchResultIterator_EnclosingMethodInfo_,
-	_Matcher$1MatchResultIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Matcher"
-};
-
-$Object* allocate$Matcher$1MatchResultIterator($Class* clazz) {
-	return $of($alloc(Matcher$1MatchResultIterator));
-}
 
 void Matcher$1MatchResultIterator::init$($Matcher* this$0) {
 	$set(this, this$0, this$0);
@@ -84,7 +35,7 @@ $Object* Matcher$1MatchResultIterator::next() {
 		$throwNew($NoSuchElementException);
 	}
 	this->state = -1;
-	return $of(this->this$0->toMatchResult(this->textAsString));
+	return this->this$0->toMatchResult(this->textAsString);
 }
 
 bool Matcher$1MatchResultIterator::hasNext() {
@@ -104,7 +55,7 @@ bool Matcher$1MatchResultIterator::hasNext() {
 }
 
 void Matcher$1MatchResultIterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->expectedCount >= 0 && this->expectedCount != this->this$0->modCount) {
 		$throwNew($ConcurrentModificationException);
 	}
@@ -131,7 +82,47 @@ Matcher$1MatchResultIterator::Matcher$1MatchResultIterator() {
 }
 
 $Class* Matcher$1MatchResultIterator::load$($String* name, bool initialize) {
-	$loadClass(Matcher$1MatchResultIterator, name, initialize, &_Matcher$1MatchResultIterator_ClassInfo_, allocate$Matcher$1MatchResultIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/regex/Matcher;", nullptr, $FINAL | $SYNTHETIC, $field(Matcher$1MatchResultIterator, this$0)},
+		{"state", "I", nullptr, 0, $field(Matcher$1MatchResultIterator, state)},
+		{"expectedCount", "I", nullptr, 0, $field(Matcher$1MatchResultIterator, expectedCount)},
+		{"textAsString", "Ljava/lang/String;", nullptr, 0, $field(Matcher$1MatchResultIterator, textAsString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Matcher;)V", nullptr, 0, $method(Matcher$1MatchResultIterator, init$, void, $Matcher*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/regex/MatchResult;>;)V", $PUBLIC, $virtualMethod(Matcher$1MatchResultIterator, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Matcher$1MatchResultIterator, hasNext, bool)},
+		{"next", "()Ljava/util/regex/MatchResult;", nullptr, $PUBLIC, $virtualMethod(Matcher$1MatchResultIterator, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.regex.Matcher",
+		"results",
+		"()Ljava/util/stream/Stream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Matcher$1MatchResultIterator", nullptr, "MatchResultIterator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Matcher$1MatchResultIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/util/regex/MatchResult;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Matcher"
+	};
+	$loadClass(Matcher$1MatchResultIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Matcher$1MatchResultIterator);
+	});
 	return class$;
 }
 

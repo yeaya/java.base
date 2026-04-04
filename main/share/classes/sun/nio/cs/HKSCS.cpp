@@ -1,5 +1,4 @@
 #include <sun/nio/cs/HKSCS.h>
-
 #include <jcpp.h>
 
 #undef HKSCS
@@ -12,36 +11,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$MethodInfo _HKSCS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HKSCS, init$, void)},
-	{}
-};
-
-$InnerClassInfo _HKSCS_InnerClassesInfo_[] = {
-	{"sun.nio.cs.HKSCS$Encoder", "sun.nio.cs.HKSCS", "Encoder", $PUBLIC | $STATIC},
-	{"sun.nio.cs.HKSCS$Decoder", "sun.nio.cs.HKSCS", "Decoder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HKSCS_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.HKSCS",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HKSCS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HKSCS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.HKSCS$Encoder,sun.nio.cs.HKSCS$Decoder"
-};
-
-$Object* allocate$HKSCS($Class* clazz) {
-	return $of($alloc(HKSCS));
-}
-
 void HKSCS::init$() {
 }
 
@@ -49,7 +18,32 @@ HKSCS::HKSCS() {
 }
 
 $Class* HKSCS::load$($String* name, bool initialize) {
-	$loadClass(HKSCS, name, initialize, &_HKSCS_ClassInfo_, allocate$HKSCS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HKSCS, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.HKSCS$Encoder", "sun.nio.cs.HKSCS", "Encoder", $PUBLIC | $STATIC},
+		{"sun.nio.cs.HKSCS$Decoder", "sun.nio.cs.HKSCS", "Decoder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.HKSCS",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.HKSCS$Encoder,sun.nio.cs.HKSCS$Decoder"
+	};
+	$loadClass(HKSCS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HKSCS);
+	});
 	return class$;
 }
 

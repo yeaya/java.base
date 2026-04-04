@@ -1,5 +1,4 @@
 #include <sun/security/provider/JavaKeyStore.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/DataOutputStream.h>
@@ -79,67 +78,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _JavaKeyStore_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavaKeyStore, debug)},
-	{"MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaKeyStore, MAGIC)},
-	{"VERSION_1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaKeyStore, VERSION_1)},
-	{"VERSION_2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaKeyStore, VERSION_2)},
-	{"entries", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(JavaKeyStore, entries)},
-	{}
-};
-
-$MethodInfo _JavaKeyStore_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JavaKeyStore, init$, void)},
-	{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(JavaKeyStore, convertAlias, $String*, $String*)},
-	{"convertToBytes", "([C)[B", nullptr, $PRIVATE, $method(JavaKeyStore, convertToBytes, $bytes*, $chars*)},
-	{"engineAliases", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JavaKeyStore, engineAliases, $Enumeration*)},
-	{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineContainsAlias, bool, $String*)},
-	{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineDeleteEntry, void, $String*), "java.security.KeyStoreException"},
-	{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineGetCertificate, $Certificate*, $String*)},
-	{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineGetCertificateAlias, $String*, $Certificate*)},
-	{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineGetCertificateChain, $CertificateArray*, $String*)},
-	{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineGetCreationDate, $Date*, $String*)},
-	{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineGetKey, $Key*, $String*, $chars*), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineIsCertificateEntry, bool, $String*)},
-	{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineIsKeyEntry, bool, $String*)},
-	{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineLoad, void, $InputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineSetCertificateEntry, void, $String*, $Certificate*), "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineSetKeyEntry, void, $String*, $Key*, $chars*, $CertificateArray*), "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineSetKeyEntry, void, $String*, $bytes*, $CertificateArray*), "java.security.KeyStoreException"},
-	{"engineSize", "()I", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineSize, int32_t)},
-	{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineStore, void, $OutputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"getPreKeyedHash", "([C)Ljava/security/MessageDigest;", nullptr, $PRIVATE, $method(JavaKeyStore, getPreKeyedHash, $MessageDigest*, $chars*), "java.security.NoSuchAlgorithmException"},
-	{}
-};
-
-$InnerClassInfo _JavaKeyStore_InnerClassesInfo_[] = {
-	{"sun.security.provider.JavaKeyStore$TrustedCertEntry", "sun.security.provider.JavaKeyStore", "TrustedCertEntry", $PRIVATE | $STATIC},
-	{"sun.security.provider.JavaKeyStore$KeyEntry", "sun.security.provider.JavaKeyStore", "KeyEntry", $PRIVATE | $STATIC},
-	{"sun.security.provider.JavaKeyStore$DualFormatJKS", "sun.security.provider.JavaKeyStore", "DualFormatJKS", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.JavaKeyStore$CaseExactJKS", "sun.security.provider.JavaKeyStore", "CaseExactJKS", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.JavaKeyStore$JKS", "sun.security.provider.JavaKeyStore", "JKS", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JavaKeyStore_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.security.provider.JavaKeyStore",
-	"java.security.KeyStoreSpi",
-	nullptr,
-	_JavaKeyStore_FieldInfo_,
-	_JavaKeyStore_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavaKeyStore_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.JavaKeyStore$TrustedCertEntry,sun.security.provider.JavaKeyStore$KeyEntry,sun.security.provider.JavaKeyStore$DualFormatJKS,sun.security.provider.JavaKeyStore$CaseExactJKS,sun.security.provider.JavaKeyStore$JKS"
-};
-
-$Object* allocate$JavaKeyStore($Class* clazz) {
-	return $of($alloc(JavaKeyStore));
-}
-
 $Debug* JavaKeyStore::debug = nullptr;
 
 void JavaKeyStore::init$() {
@@ -148,8 +86,8 @@ void JavaKeyStore::init$() {
 }
 
 $Key* JavaKeyStore::engineGetKey($String* alias, $chars* password) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
+	$useLocalObjectStack();
+	$var($Object, entry, this->entries->get($(convertAlias(alias))));
 	if (entry == nullptr || !($instanceOf($JavaKeyStore$KeyEntry, entry))) {
 		return nullptr;
 	}
@@ -158,44 +96,42 @@ $Key* JavaKeyStore::engineGetKey($String* alias, $chars* password) {
 	}
 	$var($bytes, passwordBytes, convertToBytes(password));
 	$var($KeyProtector, keyProtector, $new($KeyProtector, passwordBytes));
-	$var($bytes, encrBytes, $nc(($cast($JavaKeyStore$KeyEntry, entry)))->protectedPrivKey);
+	$var($bytes, encrBytes, $nc($cast($JavaKeyStore$KeyEntry, entry))->protectedPrivKey);
 	$var($EncryptedPrivateKeyInfo, encrInfo, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Key, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($Key, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$assign(encrInfo, $new($EncryptedPrivateKeyInfo, encrBytes));
-				$assign(var$2, keyProtector->recover(encrInfo));
-				return$1 = true;
-				goto $finally;
-			} catch ($IOException& ioe) {
-				$throwNew($UnrecoverableKeyException, "Private key not stored as PKCS #8 EncryptedPrivateKeyInfo"_s);
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(passwordBytes, (int8_t)0);
+			$assign(encrInfo, $new($EncryptedPrivateKeyInfo, encrBytes));
+			$assign(var$2, keyProtector->recover(encrInfo));
+			return$1 = true;
+			goto $finally;
+		} catch ($IOException& ioe) {
+			$throwNew($UnrecoverableKeyException, "Private key not stored as PKCS #8 EncryptedPrivateKeyInfo"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(passwordBytes, (int8_t)0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $CertificateArray* JavaKeyStore::engineGetCertificateChain($String* alias) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
+	$useLocalObjectStack();
+	$var($Object, entry, this->entries->get($(convertAlias(alias))));
 	if (entry != nullptr && $instanceOf($JavaKeyStore$KeyEntry, entry)) {
-		if ($nc(($cast($JavaKeyStore$KeyEntry, entry)))->chain == nullptr) {
+		if ($cast($JavaKeyStore$KeyEntry, entry)->chain == nullptr) {
 			return nullptr;
 		} else {
-			return $cast($CertificateArray, $nc($nc(($cast($JavaKeyStore$KeyEntry, entry)))->chain)->clone());
+			return $cast($CertificateArray, $cast($JavaKeyStore$KeyEntry, entry)->chain->clone());
 		}
 	} else {
 		return nullptr;
@@ -203,15 +139,15 @@ $CertificateArray* JavaKeyStore::engineGetCertificateChain($String* alias) {
 }
 
 $Certificate* JavaKeyStore::engineGetCertificate($String* alias) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
+	$useLocalObjectStack();
+	$var($Object, entry, this->entries->get($(convertAlias(alias))));
 	if (entry != nullptr) {
 		if ($instanceOf($JavaKeyStore$TrustedCertEntry, entry)) {
-			return $nc(($cast($JavaKeyStore$TrustedCertEntry, entry)))->cert;
-		} else if ($nc(($cast($JavaKeyStore$KeyEntry, entry)))->chain == nullptr) {
+			return $cast($JavaKeyStore$TrustedCertEntry, entry)->cert;
+		} else if ($cast($JavaKeyStore$KeyEntry, entry)->chain == nullptr) {
 			return nullptr;
 		} else {
-			return $nc($nc(($cast($JavaKeyStore$KeyEntry, entry)))->chain)->get(0);
+			return $cast($JavaKeyStore$KeyEntry, entry)->chain->get(0);
 		}
 	} else {
 		return nullptr;
@@ -219,13 +155,13 @@ $Certificate* JavaKeyStore::engineGetCertificate($String* alias) {
 }
 
 $Date* JavaKeyStore::engineGetCreationDate($String* alias) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
+	$useLocalObjectStack();
+	$var($Object, entry, this->entries->get($(convertAlias(alias))));
 	if (entry != nullptr) {
 		if ($instanceOf($JavaKeyStore$TrustedCertEntry, entry)) {
-			return $new($Date, $nc($nc(($cast($JavaKeyStore$TrustedCertEntry, entry)))->date)->getTime());
+			return $new($Date, $nc($cast($JavaKeyStore$TrustedCertEntry, entry)->date)->getTime());
 		} else {
-			return $new($Date, $nc($nc(($cast($JavaKeyStore$KeyEntry, entry)))->date)->getTime());
+			return $new($Date, $nc($cast($JavaKeyStore$KeyEntry, entry)->date)->getTime());
 		}
 	} else {
 		return nullptr;
@@ -233,7 +169,7 @@ $Date* JavaKeyStore::engineGetCreationDate($String* alias) {
 }
 
 void JavaKeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password, $CertificateArray* chain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyProtector, keyProtector, nullptr);
 	$var($bytes, passwordBytes, nullptr);
 	if (!($instanceOf($PrivateKey, key))) {
@@ -242,41 +178,39 @@ void JavaKeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password
 	if (password == nullptr) {
 		$throwNew($KeyStoreException, "password can\'t be null"_s);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$synchronized(this->entries) {
-					$var($JavaKeyStore$KeyEntry, entry, $new($JavaKeyStore$KeyEntry));
-					$set(entry, date, $new($Date));
-					$assign(passwordBytes, convertToBytes(password));
-					$assign(keyProtector, $new($KeyProtector, passwordBytes));
-					$set(entry, protectedPrivKey, keyProtector->protect(key));
-					if ((chain != nullptr) && (chain->length != 0)) {
-						$set(entry, chain, $cast($CertificateArray, chain->clone()));
-					} else {
-						$set(entry, chain, nullptr);
-					}
-					$nc(this->entries)->put($(convertAlias(alias)), entry);
+			$synchronized(this->entries) {
+				$var($JavaKeyStore$KeyEntry, entry, $new($JavaKeyStore$KeyEntry));
+				$set(entry, date, $new($Date));
+				$assign(passwordBytes, convertToBytes(password));
+				$assign(keyProtector, $new($KeyProtector, passwordBytes));
+				$set(entry, protectedPrivKey, keyProtector->protect(key));
+				if ((chain != nullptr) && (chain->length != 0)) {
+					$set(entry, chain, $cast($CertificateArray, chain->clone()));
+				} else {
+					$set(entry, chain, nullptr);
 				}
-			} catch ($NoSuchAlgorithmException& nsae) {
-				$throwNew($KeyStoreException, "Key protection algorithm not found"_s);
+				this->entries->put($(convertAlias(alias)), entry);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (passwordBytes != nullptr) {
-				$Arrays::fill(passwordBytes, (int8_t)0);
-			}
+		} catch ($NoSuchAlgorithmException& nsae) {
+			$throwNew($KeyStoreException, "Key protection algorithm not found"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (passwordBytes != nullptr) {
+			$Arrays::fill(passwordBytes, (int8_t)0);
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JavaKeyStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateArray* chain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->entries) {
 		try {
 			$new($EncryptedPrivateKeyInfo, key);
@@ -291,45 +225,45 @@ void JavaKeyStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateAr
 		} else {
 			$set(entry, chain, nullptr);
 		}
-		$nc(this->entries)->put($(convertAlias(alias)), entry);
+		this->entries->put($(convertAlias(alias)), entry);
 	}
 }
 
 void JavaKeyStore::engineSetCertificateEntry($String* alias, $Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->entries) {
-		$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
+		$var($Object, entry, this->entries->get($(convertAlias(alias))));
 		if ((entry != nullptr) && ($instanceOf($JavaKeyStore$KeyEntry, entry))) {
 			$throwNew($KeyStoreException, "Cannot overwrite own certificate"_s);
 		}
 		$var($JavaKeyStore$TrustedCertEntry, trustedCertEntry, $new($JavaKeyStore$TrustedCertEntry));
 		$set(trustedCertEntry, cert, cert);
 		$set(trustedCertEntry, date, $new($Date));
-		$nc(this->entries)->put($(convertAlias(alias)), trustedCertEntry);
+		this->entries->put($(convertAlias(alias)), trustedCertEntry);
 	}
 }
 
 void JavaKeyStore::engineDeleteEntry($String* alias) {
 	$synchronized(this->entries) {
-		$nc(this->entries)->remove($(convertAlias(alias)));
+		this->entries->remove($(convertAlias(alias)));
 	}
 }
 
 $Enumeration* JavaKeyStore::engineAliases() {
-	return $nc(this->entries)->keys();
+	return this->entries->keys();
 }
 
 bool JavaKeyStore::engineContainsAlias($String* alias) {
-	return $nc(this->entries)->containsKey($(convertAlias(alias)));
+	return this->entries->containsKey($(convertAlias(alias)));
 }
 
 int32_t JavaKeyStore::engineSize() {
-	return $nc(this->entries)->size();
+	return this->entries->size();
 }
 
 bool JavaKeyStore::engineIsKeyEntry($String* alias) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
+	$useLocalObjectStack();
+	$var($Object, entry, this->entries->get($(convertAlias(alias))));
 	if ((entry != nullptr) && ($instanceOf($JavaKeyStore$KeyEntry, entry))) {
 		return true;
 	} else {
@@ -338,8 +272,8 @@ bool JavaKeyStore::engineIsKeyEntry($String* alias) {
 }
 
 bool JavaKeyStore::engineIsCertificateEntry($String* alias) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
+	$useLocalObjectStack();
+	$var($Object, entry, this->entries->get($(convertAlias(alias))));
 	if ((entry != nullptr) && ($instanceOf($JavaKeyStore$TrustedCertEntry, entry))) {
 		return true;
 	} else {
@@ -348,17 +282,17 @@ bool JavaKeyStore::engineIsCertificateEntry($String* alias) {
 }
 
 $String* JavaKeyStore::engineGetCertificateAlias($Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Certificate, certElem, nullptr);
 	{
-		$var($Enumeration, e, $nc(this->entries)->keys());
+		$var($Enumeration, e, this->entries->keys());
 		for (; $nc(e)->hasMoreElements();) {
 			$var($String, alias, $cast($String, e->nextElement()));
-			$var($Object, entry, $nc(this->entries)->get(alias));
+			$var($Object, entry, this->entries->get(alias));
 			if ($instanceOf($JavaKeyStore$TrustedCertEntry, entry)) {
-				$assign(certElem, $nc(($cast($JavaKeyStore$TrustedCertEntry, entry)))->cert);
-			} else if ($nc(($cast($JavaKeyStore$KeyEntry, entry)))->chain != nullptr) {
-				$assign(certElem, $nc($nc(($cast($JavaKeyStore$KeyEntry, entry)))->chain)->get(0));
+				$assign(certElem, $cast($JavaKeyStore$TrustedCertEntry, entry)->cert);
+			} else if ($nc($cast($JavaKeyStore$KeyEntry, entry))->chain != nullptr) {
+				$assign(certElem, $cast($JavaKeyStore$KeyEntry, entry)->chain->get(0));
 			} else {
 				continue;
 			}
@@ -371,7 +305,7 @@ $String* JavaKeyStore::engineGetCertificateAlias($Certificate* cert) {
 }
 
 void JavaKeyStore::engineStore($OutputStream* stream, $chars* password) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->entries) {
 		if (password == nullptr) {
 			$throwNew($IllegalArgumentException, "password can\'t be null"_s);
@@ -381,37 +315,37 @@ void JavaKeyStore::engineStore($OutputStream* stream, $chars* password) {
 		$var($DataOutputStream, dos, $new($DataOutputStream, $$new($DigestOutputStream, stream, md)));
 		dos->writeInt(JavaKeyStore::MAGIC);
 		dos->writeInt(JavaKeyStore::VERSION_2);
-		dos->writeInt($nc(this->entries)->size());
+		dos->writeInt(this->entries->size());
 		{
-			$var($Enumeration, e, $nc(this->entries)->keys());
+			$var($Enumeration, e, this->entries->keys());
 			for (; $nc(e)->hasMoreElements();) {
 				$var($String, alias, $cast($String, e->nextElement()));
-				$var($Object, entry, $nc(this->entries)->get(alias));
+				$var($Object, entry, this->entries->get(alias));
 				if ($instanceOf($JavaKeyStore$KeyEntry, entry)) {
 					dos->writeInt(1);
 					dos->writeUTF(alias);
-					dos->writeLong($nc($nc(($cast($JavaKeyStore$KeyEntry, entry)))->date)->getTime());
-					dos->writeInt($nc($nc(($cast($JavaKeyStore$KeyEntry, entry)))->protectedPrivKey)->length);
-					dos->write($nc(($cast($JavaKeyStore$KeyEntry, entry)))->protectedPrivKey);
+					dos->writeLong($nc($cast($JavaKeyStore$KeyEntry, entry)->date)->getTime());
+					dos->writeInt($nc($cast($JavaKeyStore$KeyEntry, entry)->protectedPrivKey)->length);
+					dos->write($cast($JavaKeyStore$KeyEntry, entry)->protectedPrivKey);
 					int32_t chainLen = 0;
-					if ($nc(($cast($JavaKeyStore$KeyEntry, entry)))->chain == nullptr) {
+					if ($cast($JavaKeyStore$KeyEntry, entry)->chain == nullptr) {
 						chainLen = 0;
 					} else {
-						chainLen = $nc($nc(($cast($JavaKeyStore$KeyEntry, entry)))->chain)->length;
+						chainLen = $cast($JavaKeyStore$KeyEntry, entry)->chain->length;
 					}
 					dos->writeInt(chainLen);
 					for (int32_t i = 0; i < chainLen; ++i) {
-						$assign(encoded, $nc($nc($nc(($cast($JavaKeyStore$KeyEntry, entry)))->chain)->get(i))->getEncoded());
-						dos->writeUTF($($nc($nc($nc(($cast($JavaKeyStore$KeyEntry, entry)))->chain)->get(i))->getType()));
+						$assign(encoded, $nc($nc($cast($JavaKeyStore$KeyEntry, entry)->chain)->get(i))->getEncoded());
+						dos->writeUTF($($nc($cast($JavaKeyStore$KeyEntry, entry)->chain->get(i))->getType()));
 						dos->writeInt($nc(encoded)->length);
 						dos->write(encoded);
 					}
 				} else {
 					dos->writeInt(2);
 					dos->writeUTF(alias);
-					dos->writeLong($nc($nc(($cast($JavaKeyStore$TrustedCertEntry, entry)))->date)->getTime());
-					$assign(encoded, $nc($nc(($cast($JavaKeyStore$TrustedCertEntry, entry)))->cert)->getEncoded());
-					dos->writeUTF($($nc($nc(($cast($JavaKeyStore$TrustedCertEntry, entry)))->cert)->getType()));
+					dos->writeLong($nc($nc($cast($JavaKeyStore$TrustedCertEntry, entry))->date)->getTime());
+					$assign(encoded, $nc($cast($JavaKeyStore$TrustedCertEntry, entry)->cert)->getEncoded());
+					dos->writeUTF($($cast($JavaKeyStore$TrustedCertEntry, entry)->cert->getType()));
 					dos->writeInt($nc(encoded)->length);
 					dos->write(encoded);
 				}
@@ -424,7 +358,7 @@ void JavaKeyStore::engineStore($OutputStream* stream, $chars* password) {
 }
 
 void JavaKeyStore::engineLoad($InputStream* stream, $chars* password) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->entries) {
 		$var($DataInputStream, dis, nullptr);
 		$var($MessageDigest, md, nullptr);
@@ -453,7 +387,7 @@ void JavaKeyStore::engineLoad($InputStream* stream, $chars* password) {
 		} else {
 			$assign(cfs, $new($Hashtable, 3));
 		}
-		$nc(this->entries)->clear();
+		this->entries->clear();
 		int32_t count = dis->readInt();
 		for (int32_t i = 0; i < count; ++i) {
 			int32_t tag = 0;
@@ -483,9 +417,9 @@ void JavaKeyStore::engineLoad($InputStream* stream, $chars* password) {
 						certs->add($($nc(cf)->generateCertificate(bais)));
 						bais->close();
 					}
-					$set(entry, chain, $fcast($CertificateArray, certs->toArray($$new($CertificateArray, numOfCerts))));
+					$set(entry, chain, $cast($CertificateArray, certs->toArray($$new($CertificateArray, numOfCerts))));
 				}
-				$nc(this->entries)->put(alias, entry);
+				this->entries->put(alias, entry);
 			} else if (tag == 2) {
 				++trustedKeyCount;
 				$var($JavaKeyStore$TrustedCertEntry, entry, $new($JavaKeyStore$TrustedCertEntry));
@@ -504,27 +438,27 @@ void JavaKeyStore::engineLoad($InputStream* stream, $chars* password) {
 				$assign(bais, $new($ByteArrayInputStream, encoded));
 				$set(entry, cert, $nc(cf)->generateCertificate(bais));
 				bais->close();
-				$nc(this->entries)->put(alias, entry);
+				this->entries->put(alias, entry);
 			} else {
 				$throwNew($IOException, $$str({"Unrecognized keystore entry: "_s, $$str(tag)}));
 			}
 		}
 		if (JavaKeyStore::debug != nullptr) {
-			$nc(JavaKeyStore::debug)->println($$str({"JavaKeyStore load: private key count: "_s, $$str(privateKeyCount), ". trusted key count: "_s, $$str(trustedKeyCount)}));
+			JavaKeyStore::debug->println($$str({"JavaKeyStore load: private key count: "_s, $$str(privateKeyCount), ". trusted key count: "_s, $$str(trustedKeyCount)}));
 		}
 		if (password != nullptr) {
 			$var($bytes, computed, $nc(md)->digest());
 			$var($bytes, actual, $IOUtils::readExactlyNBytes(dis, $nc(computed)->length));
 			if (!$MessageDigest::isEqual(computed, actual)) {
 				$var($Throwable, t, $new($UnrecoverableKeyException, "Password verification failed"_s));
-				$throw($cast($IOException, $($$new($IOException, "Keystore was tampered with, or password was incorrect"_s)->initCause(t))));
+				$throw($$cast($IOException, $$new($IOException, "Keystore was tampered with, or password was incorrect"_s)->initCause(t)));
 			}
 		}
 	}
 }
 
 $MessageDigest* JavaKeyStore::getPreKeyedHash($chars* password) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MessageDigest, md, $MessageDigest::getInstance("SHA"_s));
 	$var($bytes, passwdBytes, convertToBytes(password));
 	$nc(md)->update(passwdBytes);
@@ -545,7 +479,7 @@ $bytes* JavaKeyStore::convertToBytes($chars* password) {
 	return passwdBytes;
 }
 
-void clinit$JavaKeyStore($Class* class$) {
+void JavaKeyStore::clinit$($Class* clazz) {
 	$assignStatic(JavaKeyStore::debug, $Debug::getInstance("keystore"_s));
 }
 
@@ -553,7 +487,62 @@ JavaKeyStore::JavaKeyStore() {
 }
 
 $Class* JavaKeyStore::load$($String* name, bool initialize) {
-	$loadClass(JavaKeyStore, name, initialize, &_JavaKeyStore_ClassInfo_, clinit$JavaKeyStore, allocate$JavaKeyStore);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavaKeyStore, debug)},
+		{"MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaKeyStore, MAGIC)},
+		{"VERSION_1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaKeyStore, VERSION_1)},
+		{"VERSION_2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaKeyStore, VERSION_2)},
+		{"entries", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(JavaKeyStore, entries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JavaKeyStore, init$, void)},
+		{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(JavaKeyStore, convertAlias, $String*, $String*)},
+		{"convertToBytes", "([C)[B", nullptr, $PRIVATE, $method(JavaKeyStore, convertToBytes, $bytes*, $chars*)},
+		{"engineAliases", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JavaKeyStore, engineAliases, $Enumeration*)},
+		{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineContainsAlias, bool, $String*)},
+		{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineDeleteEntry, void, $String*), "java.security.KeyStoreException"},
+		{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineGetCertificate, $Certificate*, $String*)},
+		{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineGetCertificateAlias, $String*, $Certificate*)},
+		{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineGetCertificateChain, $CertificateArray*, $String*)},
+		{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineGetCreationDate, $Date*, $String*)},
+		{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineGetKey, $Key*, $String*, $chars*), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+		{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineIsCertificateEntry, bool, $String*)},
+		{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineIsKeyEntry, bool, $String*)},
+		{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineLoad, void, $InputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineSetCertificateEntry, void, $String*, $Certificate*), "java.security.KeyStoreException"},
+		{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineSetKeyEntry, void, $String*, $Key*, $chars*, $CertificateArray*), "java.security.KeyStoreException"},
+		{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineSetKeyEntry, void, $String*, $bytes*, $CertificateArray*), "java.security.KeyStoreException"},
+		{"engineSize", "()I", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineSize, int32_t)},
+		{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore, engineStore, void, $OutputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"getPreKeyedHash", "([C)Ljava/security/MessageDigest;", nullptr, $PRIVATE, $method(JavaKeyStore, getPreKeyedHash, $MessageDigest*, $chars*), "java.security.NoSuchAlgorithmException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.JavaKeyStore$TrustedCertEntry", "sun.security.provider.JavaKeyStore", "TrustedCertEntry", $PRIVATE | $STATIC},
+		{"sun.security.provider.JavaKeyStore$KeyEntry", "sun.security.provider.JavaKeyStore", "KeyEntry", $PRIVATE | $STATIC},
+		{"sun.security.provider.JavaKeyStore$DualFormatJKS", "sun.security.provider.JavaKeyStore", "DualFormatJKS", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.JavaKeyStore$CaseExactJKS", "sun.security.provider.JavaKeyStore", "CaseExactJKS", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.JavaKeyStore$JKS", "sun.security.provider.JavaKeyStore", "JKS", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.security.provider.JavaKeyStore",
+		"java.security.KeyStoreSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.JavaKeyStore$TrustedCertEntry,sun.security.provider.JavaKeyStore$KeyEntry,sun.security.provider.JavaKeyStore$DualFormatJKS,sun.security.provider.JavaKeyStore$CaseExactJKS,sun.security.provider.JavaKeyStore$JKS"
+	};
+	$loadClass(JavaKeyStore, name, initialize, &classInfo$$, JavaKeyStore::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaKeyStore);
+	});
 	return class$;
 }
 

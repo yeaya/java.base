@@ -1,5 +1,4 @@
 #include <sun/security/rsa/RSAUtil$KeyType.h>
-
 #include <java/lang/Enum.h>
 #include <java/security/ProviderException.h>
 #include <java/security/spec/PSSParameterSpec.h>
@@ -26,50 +25,6 @@ using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 namespace sun {
 	namespace security {
 		namespace rsa {
-
-$FieldInfo _RSAUtil$KeyType_FieldInfo_[] = {
-	{"RSA", "Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RSAUtil$KeyType, RSA)},
-	{"PSS", "Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RSAUtil$KeyType, PSS)},
-	{"$VALUES", "[Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RSAUtil$KeyType, $VALUES)},
-	{"keyAlgo", "Ljava/lang/String;", nullptr, $FINAL, $field(RSAUtil$KeyType, keyAlgo)},
-	{"oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $FINAL, $field(RSAUtil$KeyType, oid)},
-	{"paramSpecCls", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/security/spec/AlgorithmParameterSpec;>;", $FINAL, $field(RSAUtil$KeyType, paramSpecCls)},
-	{}
-};
-
-$MethodInfo _RSAUtil$KeyType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RSAUtil$KeyType, $values, $RSAUtil$KeyTypeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class;)V", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class<+Ljava/security/spec/AlgorithmParameterSpec;>;)V", $PRIVATE, $method(RSAUtil$KeyType, init$, void, $String*, int32_t, $String*, $ObjectIdentifier*, $Class*)},
-	{"lookup", "(Ljava/lang/String;)Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil$KeyType, lookup, RSAUtil$KeyType*, $String*), "java.security.ProviderException"},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil$KeyType, valueOf, RSAUtil$KeyType*, $String*)},
-	{"values", "()[Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil$KeyType, values, $RSAUtil$KeyTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _RSAUtil$KeyType_InnerClassesInfo_[] = {
-	{"sun.security.rsa.RSAUtil$KeyType", "sun.security.rsa.RSAUtil", "KeyType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _RSAUtil$KeyType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.rsa.RSAUtil$KeyType",
-	"java.lang.Enum",
-	nullptr,
-	_RSAUtil$KeyType_FieldInfo_,
-	_RSAUtil$KeyType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/rsa/RSAUtil$KeyType;>;",
-	nullptr,
-	_RSAUtil$KeyType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.rsa.RSAUtil"
-};
-
-$Object* allocate$RSAUtil$KeyType($Class* clazz) {
-	return $of($alloc(RSAUtil$KeyType));
-}
 
 RSAUtil$KeyType* RSAUtil$KeyType::RSA = nullptr;
 RSAUtil$KeyType* RSAUtil$KeyType::PSS = nullptr;
@@ -112,7 +67,7 @@ RSAUtil$KeyType* RSAUtil$KeyType::lookup($String* name) {
 	}
 }
 
-void clinit$RSAUtil$KeyType($Class* class$) {
+void RSAUtil$KeyType::clinit$($Class* clazz) {
 	$init($AlgorithmId);
 	$assignStatic(RSAUtil$KeyType::RSA, $new(RSAUtil$KeyType, "RSA"_s, 0, "RSA"_s, $AlgorithmId::RSAEncryption_oid, nullptr));
 	$load($PSSParameterSpec);
@@ -124,7 +79,45 @@ RSAUtil$KeyType::RSAUtil$KeyType() {
 }
 
 $Class* RSAUtil$KeyType::load$($String* name, bool initialize) {
-	$loadClass(RSAUtil$KeyType, name, initialize, &_RSAUtil$KeyType_ClassInfo_, clinit$RSAUtil$KeyType, allocate$RSAUtil$KeyType);
+	$FieldInfo fieldInfos$$[] = {
+		{"RSA", "Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RSAUtil$KeyType, RSA)},
+		{"PSS", "Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RSAUtil$KeyType, PSS)},
+		{"$VALUES", "[Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RSAUtil$KeyType, $VALUES)},
+		{"keyAlgo", "Ljava/lang/String;", nullptr, $FINAL, $field(RSAUtil$KeyType, keyAlgo)},
+		{"oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $FINAL, $field(RSAUtil$KeyType, oid)},
+		{"paramSpecCls", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/security/spec/AlgorithmParameterSpec;>;", $FINAL, $field(RSAUtil$KeyType, paramSpecCls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RSAUtil$KeyType, $values, $RSAUtil$KeyTypeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class;)V", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class<+Ljava/security/spec/AlgorithmParameterSpec;>;)V", $PRIVATE, $method(RSAUtil$KeyType, init$, void, $String*, int32_t, $String*, $ObjectIdentifier*, $Class*)},
+		{"lookup", "(Ljava/lang/String;)Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil$KeyType, lookup, RSAUtil$KeyType*, $String*), "java.security.ProviderException"},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil$KeyType, valueOf, RSAUtil$KeyType*, $String*)},
+		{"values", "()[Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil$KeyType, values, $RSAUtil$KeyTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.rsa.RSAUtil$KeyType", "sun.security.rsa.RSAUtil", "KeyType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.rsa.RSAUtil$KeyType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/rsa/RSAUtil$KeyType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.rsa.RSAUtil"
+	};
+	$loadClass(RSAUtil$KeyType, name, initialize, &classInfo$$, RSAUtil$KeyType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RSAUtil$KeyType));
+	});
 	return class$;
 }
 

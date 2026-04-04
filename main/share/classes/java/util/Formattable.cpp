@@ -1,5 +1,4 @@
 #include <java/util/Formattable.h>
-
 #include <java/util/Formatter.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $Formatter = ::java::util::Formatter;
 namespace java {
 	namespace util {
 
-$MethodInfo _Formattable_MethodInfo_[] = {
-	{"formatTo", "(Ljava/util/Formatter;III)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formattable, formatTo, void, $Formatter*, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _Formattable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.Formattable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Formattable_MethodInfo_
-};
-
-$Object* allocate$Formattable($Class* clazz) {
-	return $of($alloc(Formattable));
-}
-
 $Class* Formattable::load$($String* name, bool initialize) {
-	$loadClass(Formattable, name, initialize, &_Formattable_ClassInfo_, allocate$Formattable);
+	$MethodInfo methodInfos$$[] = {
+		{"formatTo", "(Ljava/util/Formatter;III)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formattable, formatTo, void, $Formatter*, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.Formattable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Formattable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Formattable);
+	});
 	return class$;
 }
 

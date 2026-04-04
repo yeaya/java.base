@@ -1,5 +1,4 @@
 #include <sun/security/tools/keytool/CertAndKeyGen.h>
-
 #include <java/io/IOException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/KeyPair.h>
@@ -9,11 +8,9 @@
 #include <java/security/SecureRandom.h>
 #include <java/security/cert/CertificateEncodingException.h>
 #include <java/security/cert/X509Certificate.h>
-#include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/security/spec/ECGenParameterSpec.h>
 #include <java/security/spec/NamedParameterSpec.h>
 #include <java/util/Date.h>
-#include <java/util/Random.h>
 #include <sun/security/util/SignatureUtil.h>
 #include <sun/security/x509/CertificateExtensions.h>
 #include <sun/security/x509/CertificateSerialNumber.h>
@@ -48,11 +45,9 @@ using $PublicKey = ::java::security::PublicKey;
 using $SecureRandom = ::java::security::SecureRandom;
 using $CertificateEncodingException = ::java::security::cert::CertificateEncodingException;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $ECGenParameterSpec = ::java::security::spec::ECGenParameterSpec;
 using $NamedParameterSpec = ::java::security::spec::NamedParameterSpec;
 using $Date = ::java::util::Date;
-using $Random = ::java::util::Random;
 using $SignatureUtil = ::sun::security::util::SignatureUtil;
 using $CertificateExtensions = ::sun::security::x509::CertificateExtensions;
 using $CertificateSerialNumber = ::sun::security::x509::CertificateSerialNumber;
@@ -68,49 +63,6 @@ namespace sun {
 	namespace security {
 		namespace tools {
 			namespace keytool {
-
-$FieldInfo _CertAndKeyGen_FieldInfo_[] = {
-	{"prng", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(CertAndKeyGen, prng)},
-	{"keyType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CertAndKeyGen, keyType)},
-	{"sigAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CertAndKeyGen, sigAlg)},
-	{"keyGen", "Ljava/security/KeyPairGenerator;", nullptr, $PRIVATE, $field(CertAndKeyGen, keyGen)},
-	{"publicKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE, $field(CertAndKeyGen, publicKey)},
-	{"privateKey", "Ljava/security/PrivateKey;", nullptr, $PRIVATE, $field(CertAndKeyGen, privateKey)},
-	{"signerFlag", "Z", nullptr, $PRIVATE, $field(CertAndKeyGen, signerFlag)},
-	{"signerPrivateKey", "Ljava/security/PrivateKey;", nullptr, $PRIVATE, $field(CertAndKeyGen, signerPrivateKey)},
-	{"signerSubjectName", "Lsun/security/x509/X500Name;", nullptr, $PRIVATE, $field(CertAndKeyGen, signerSubjectName)},
-	{}
-};
-
-$MethodInfo _CertAndKeyGen_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, init$, void, $String*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, init$, void, $String*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/security/PrivateKey;Lsun/security/x509/X500Name;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, init$, void, $String*, $String*, $String*, $PrivateKey*, $X500Name*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"generate", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, generate, void, $String*)},
-	{"generate", "(I)V", nullptr, $PUBLIC, $method(CertAndKeyGen, generate, void, int32_t)},
-	{"generateInternal", "()V", nullptr, $PRIVATE, $method(CertAndKeyGen, generateInternal, void)},
-	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $method(CertAndKeyGen, getPrivateKey, $PrivateKey*)},
-	{"getPublicKey", "()Lsun/security/x509/X509Key;", nullptr, $PUBLIC, $method(CertAndKeyGen, getPublicKey, $X509Key*)},
-	{"getPublicKeyAnyway", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $method(CertAndKeyGen, getPublicKeyAnyway, $PublicKey*)},
-	{"getSelfCertificate", "(Lsun/security/x509/X500Name;Ljava/util/Date;J)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(CertAndKeyGen, getSelfCertificate, $X509Certificate*, $X500Name*, $Date*, int64_t), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getSelfCertificate", "(Lsun/security/x509/X500Name;Ljava/util/Date;JLsun/security/x509/CertificateExtensions;)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(CertAndKeyGen, getSelfCertificate, $X509Certificate*, $X500Name*, $Date*, int64_t, $CertificateExtensions*), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getSelfCertificate", "(Lsun/security/x509/X500Name;J)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(CertAndKeyGen, getSelfCertificate, $X509Certificate*, $X500Name*, int64_t), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"setRandom", "(Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, setRandom, void, $SecureRandom*)},
-	{}
-};
-
-$ClassInfo _CertAndKeyGen_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.tools.keytool.CertAndKeyGen",
-	"java.lang.Object",
-	nullptr,
-	_CertAndKeyGen_FieldInfo_,
-	_CertAndKeyGen_MethodInfo_
-};
-
-$Object* allocate$CertAndKeyGen($Class* clazz) {
-	return $of($alloc(CertAndKeyGen));
-}
 
 void CertAndKeyGen::init$($String* keyType, $String* sigAlg) {
 	$set(this, keyGen, $KeyPairGenerator::getInstance(keyType));
@@ -144,16 +96,16 @@ void CertAndKeyGen::setRandom($SecureRandom* generator) {
 }
 
 void CertAndKeyGen::generate($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (this->prng == nullptr) {
 			$set(this, prng, $new($SecureRandom));
 		}
 		try {
-			$nc(this->keyGen)->initialize(static_cast<$AlgorithmParameterSpec*>($$new($NamedParameterSpec, name)), this->prng);
+			$nc(this->keyGen)->initialize($$new($NamedParameterSpec, name), this->prng);
 		} catch ($InvalidAlgorithmParameterException& e) {
 			if ($nc(this->keyType)->equalsIgnoreCase("EC"_s)) {
-				$nc(this->keyGen)->initialize(static_cast<$AlgorithmParameterSpec*>($$new($ECGenParameterSpec, name)), this->prng);
+				$nc(this->keyGen)->initialize($$new($ECGenParameterSpec, name), this->prng);
 			} else {
 				$throw(e);
 			}
@@ -179,12 +131,12 @@ void CertAndKeyGen::generate(int32_t keyBits) {
 }
 
 void CertAndKeyGen::generateInternal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyPair, pair, $nc(this->keyGen)->generateKeyPair());
 	$set(this, publicKey, $nc(pair)->getPublic());
 	$set(this, privateKey, pair->getPrivate());
 	if (!"X.509"_s->equalsIgnoreCase($($nc(this->publicKey)->getFormat()))) {
-		$throwNew($IllegalArgumentException, $$str({"Public key format is "_s, $($nc(this->publicKey)->getFormat()), ", must be X.509"_s}));
+		$throwNew($IllegalArgumentException, $$str({"Public key format is "_s, $(this->publicKey->getFormat()), ", must be X.509"_s}));
 	}
 	if (this->sigAlg == nullptr) {
 		if (this->signerFlag) {
@@ -221,7 +173,7 @@ $X509Certificate* CertAndKeyGen::getSelfCertificate($X500Name* myname, $Date* fi
 }
 
 $X509Certificate* CertAndKeyGen::getSelfCertificate($X500Name* myname, $Date* firstDate, int64_t validity, $CertificateExtensions* ext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X509CertImpl, cert, nullptr);
 	$var($Date, lastDate, nullptr);
 	try {
@@ -229,7 +181,6 @@ $X509Certificate* CertAndKeyGen::getSelfCertificate($X500Name* myname, $Date* fi
 		lastDate->setTime($nc(firstDate)->getTime() + validity * 1000);
 		$var($CertificateValidity, interval, $new($CertificateValidity, firstDate, lastDate));
 		$var($X509CertInfo, info, $new($X509CertInfo));
-		$init($X509CertInfo);
 		info->set($X509CertInfo::VERSION, $$new($CertificateVersion, $CertificateVersion::V3));
 		if (this->prng == nullptr) {
 			$set(this, prng, $new($SecureRandom));
@@ -267,7 +218,45 @@ CertAndKeyGen::CertAndKeyGen() {
 }
 
 $Class* CertAndKeyGen::load$($String* name, bool initialize) {
-	$loadClass(CertAndKeyGen, name, initialize, &_CertAndKeyGen_ClassInfo_, allocate$CertAndKeyGen);
+	$FieldInfo fieldInfos$$[] = {
+		{"prng", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(CertAndKeyGen, prng)},
+		{"keyType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CertAndKeyGen, keyType)},
+		{"sigAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CertAndKeyGen, sigAlg)},
+		{"keyGen", "Ljava/security/KeyPairGenerator;", nullptr, $PRIVATE, $field(CertAndKeyGen, keyGen)},
+		{"publicKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE, $field(CertAndKeyGen, publicKey)},
+		{"privateKey", "Ljava/security/PrivateKey;", nullptr, $PRIVATE, $field(CertAndKeyGen, privateKey)},
+		{"signerFlag", "Z", nullptr, $PRIVATE, $field(CertAndKeyGen, signerFlag)},
+		{"signerPrivateKey", "Ljava/security/PrivateKey;", nullptr, $PRIVATE, $field(CertAndKeyGen, signerPrivateKey)},
+		{"signerSubjectName", "Lsun/security/x509/X500Name;", nullptr, $PRIVATE, $field(CertAndKeyGen, signerSubjectName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, init$, void, $String*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, init$, void, $String*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/security/PrivateKey;Lsun/security/x509/X500Name;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, init$, void, $String*, $String*, $String*, $PrivateKey*, $X500Name*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"generate", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, generate, void, $String*)},
+		{"generate", "(I)V", nullptr, $PUBLIC, $method(CertAndKeyGen, generate, void, int32_t)},
+		{"generateInternal", "()V", nullptr, $PRIVATE, $method(CertAndKeyGen, generateInternal, void)},
+		{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $method(CertAndKeyGen, getPrivateKey, $PrivateKey*)},
+		{"getPublicKey", "()Lsun/security/x509/X509Key;", nullptr, $PUBLIC, $method(CertAndKeyGen, getPublicKey, $X509Key*)},
+		{"getPublicKeyAnyway", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $method(CertAndKeyGen, getPublicKeyAnyway, $PublicKey*)},
+		{"getSelfCertificate", "(Lsun/security/x509/X500Name;Ljava/util/Date;J)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(CertAndKeyGen, getSelfCertificate, $X509Certificate*, $X500Name*, $Date*, int64_t), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getSelfCertificate", "(Lsun/security/x509/X500Name;Ljava/util/Date;JLsun/security/x509/CertificateExtensions;)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(CertAndKeyGen, getSelfCertificate, $X509Certificate*, $X500Name*, $Date*, int64_t, $CertificateExtensions*), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getSelfCertificate", "(Lsun/security/x509/X500Name;J)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(CertAndKeyGen, getSelfCertificate, $X509Certificate*, $X500Name*, int64_t), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"setRandom", "(Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, setRandom, void, $SecureRandom*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.tools.keytool.CertAndKeyGen",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertAndKeyGen, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertAndKeyGen);
+	});
 	return class$;
 }
 

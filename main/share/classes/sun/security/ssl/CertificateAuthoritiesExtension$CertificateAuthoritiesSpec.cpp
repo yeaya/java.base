@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateAuthoritiesExtension$CertificateAuthoritiesSpec.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/text/MessageFormat.h>
@@ -43,69 +42,28 @@ using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $Alert = ::sun::security::ssl::Alert;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $Record = ::sun::security::ssl::Record;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertificateAuthoritiesExtension$CertificateAuthoritiesSpec_FieldInfo_[] = {
-	{"authorities", "Ljava/util/List;", "Ljava/util/List<[B>;", $FINAL, $field(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, authorities)},
-	{}
-};
-
-$MethodInfo _CertificateAuthoritiesExtension$CertificateAuthoritiesSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PRIVATE, $method(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, init$, void, $List*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"getAuthorities", "()[Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, getAuthorities, $X500PrincipalArray*)},
-	{"getEncodedAuthorities", "([Ljava/security/cert/X509Certificate;)Ljava/util/List;", "([Ljava/security/cert/X509Certificate;)Ljava/util/List<[B>;", $PRIVATE | $STATIC, $staticMethod(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, getEncodedAuthorities, $List*, $X509CertificateArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CertificateAuthoritiesExtension$CertificateAuthoritiesSpec_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateAuthoritiesExtension$CertificateAuthoritiesSpec", "sun.security.ssl.CertificateAuthoritiesExtension", "CertificateAuthoritiesSpec", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$SSLExtensionSpec", "sun.security.ssl.SSLExtension", "SSLExtensionSpec", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CertificateAuthoritiesExtension$CertificateAuthoritiesSpec_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateAuthoritiesExtension$CertificateAuthoritiesSpec",
-	"java.lang.Object",
-	"sun.security.ssl.SSLExtension$SSLExtensionSpec",
-	_CertificateAuthoritiesExtension$CertificateAuthoritiesSpec_FieldInfo_,
-	_CertificateAuthoritiesExtension$CertificateAuthoritiesSpec_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateAuthoritiesExtension$CertificateAuthoritiesSpec_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateAuthoritiesExtension"
-};
-
-$Object* allocate$CertificateAuthoritiesExtension$CertificateAuthoritiesSpec($Class* clazz) {
-	return $of($alloc(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec));
-}
-
 void CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::init$($List* authorities) {
 	$set(this, authorities, authorities);
 }
 
 void CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::init$($HandshakeContext* hc, $ByteBuffer* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(m)->remaining() < 3) {
 		$init($Alert);
-		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid certificate_authorities extension: insufficient data"_s)))));
+		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, $$new($SSLProtocolException, "Invalid certificate_authorities extension: insufficient data"_s))));
 	}
 	int32_t listLen = $Record::getInt16(m);
 	if (listLen == 0) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, "Invalid certificate_authorities extension: no certificate authorities"_s)));
 	}
-	if (listLen > $nc(m)->remaining()) {
+	if (listLen > m->remaining()) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, "Invalid certificate_authorities extension: insufficient data"_s)));
 	}
@@ -119,20 +77,18 @@ void CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::init$($Handshak
 
 $List* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::getEncodedAuthorities($X509CertificateArray* trustedCerts) {
 	$init(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, authorities, $new($ArrayList, $nc(trustedCerts)->length));
 	int32_t sizeAccount = 0;
 	{
 		$var($X509CertificateArray, arr$, trustedCerts);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($X509Certificate, cert, arr$->get(i$));
 			{
 				$var($X500Principal, x500Principal, $nc(cert)->getSubjectX500Principal());
 				$var($bytes, encodedPrincipal, $nc(x500Principal)->getEncoded());
 				sizeAccount += $nc(encodedPrincipal)->length;
-				if (sizeAccount > 0x0000FFFF) {
+				if (sizeAccount > 0x0000ffff) {
 					return $Collections::emptyList();
 				}
 				if (encodedPrincipal->length != 0) {
@@ -145,11 +101,11 @@ $List* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::getEncodedAut
 }
 
 $X500PrincipalArray* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::getAuthorities() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X500PrincipalArray, principals, $new($X500PrincipalArray, $nc(this->authorities)->size()));
 	int32_t i = 0;
 	{
-		$var($Iterator, i$, $nc(this->authorities)->iterator());
+		$var($Iterator, i$, this->authorities->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($bytes, encoded, $cast($bytes, i$->next()));
 			{
@@ -161,7 +117,7 @@ $X500PrincipalArray* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec:
 }
 
 $String* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"certificate authorities\": \'[\'\n{0}\']\'"_s, $Locale::ENGLISH));
 	$var($StringBuilder, builder, $new($StringBuilder, 512));
@@ -176,7 +132,7 @@ $String* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::toString() 
 			}
 		}
 	}
-	$var($ObjectArray, messageFields, $new($ObjectArray, {$($of($Utilities::indent($(builder->toString()))))}));
+	$var($ObjectArray, messageFields, $new($ObjectArray, {$($Utilities::indent($(builder->toString())))}));
 	return messageFormat->format(messageFields);
 }
 
@@ -184,7 +140,41 @@ CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::CertificateAuthoriti
 }
 
 $Class* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::load$($String* name, bool initialize) {
-	$loadClass(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, name, initialize, &_CertificateAuthoritiesExtension$CertificateAuthoritiesSpec_ClassInfo_, allocate$CertificateAuthoritiesExtension$CertificateAuthoritiesSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"authorities", "Ljava/util/List;", "Ljava/util/List<[B>;", $FINAL, $field(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, authorities)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PRIVATE, $method(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, init$, void, $List*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"getAuthorities", "()[Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, getAuthorities, $X500PrincipalArray*)},
+		{"getEncodedAuthorities", "([Ljava/security/cert/X509Certificate;)Ljava/util/List;", "([Ljava/security/cert/X509Certificate;)Ljava/util/List<[B>;", $PRIVATE | $STATIC, $staticMethod(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, getEncodedAuthorities, $List*, $X509CertificateArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateAuthoritiesExtension$CertificateAuthoritiesSpec", "sun.security.ssl.CertificateAuthoritiesExtension", "CertificateAuthoritiesSpec", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$SSLExtensionSpec", "sun.security.ssl.SSLExtension", "SSLExtensionSpec", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateAuthoritiesExtension$CertificateAuthoritiesSpec",
+		"java.lang.Object",
+		"sun.security.ssl.SSLExtension$SSLExtensionSpec",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateAuthoritiesExtension"
+	};
+	$loadClass(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec);
+	});
 	return class$;
 }
 

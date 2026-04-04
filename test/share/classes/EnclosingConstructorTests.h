@@ -9,6 +9,7 @@ class $export EnclosingConstructorTests : public ::java::lang::Object {
 	$class(EnclosingConstructorTests, 0, ::java::lang::Object)
 public:
 	EnclosingConstructorTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t i);
 	static int32_t examine($Class* enclosedClass, $String* constructorSig);

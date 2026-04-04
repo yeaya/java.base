@@ -59,6 +59,7 @@ class $export DistributionPoint : public ::java::lang::Object {
 	$class(DistributionPoint, 0, ::java::lang::Object)
 public:
 	DistributionPoint();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::x509::GeneralNames* fullName, $booleans* reasonFlags, ::sun::security::x509::GeneralNames* crlIssuer);
 	void init$(::sun::security::x509::RDN* relativeName, $booleans* reasonFlags, ::sun::security::x509::GeneralNames* crlIssuer);
 	void init$(::sun::security::util::DerValue* val);

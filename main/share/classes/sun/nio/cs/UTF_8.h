@@ -33,6 +33,7 @@ class $export UTF_8 : public ::sun::nio::cs::Unicode {
 	$class(UTF_8, $PRELOAD, ::sun::nio::cs::Unicode)
 public:
 	UTF_8();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool contains(::java::nio::charset::Charset* cs) override;
 	virtual $String* historicalName() override;

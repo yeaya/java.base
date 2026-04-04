@@ -99,6 +99,7 @@ class MethodTypeForm : public ::java::lang::Object {
 	$class(MethodTypeForm, 0, ::java::lang::Object)
 public:
 	MethodTypeForm();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodType* erasedType);
 	::java::lang::invoke::MethodType* basicType();
 	::java::lang::invoke::LambdaForm* cachedLambdaForm(int32_t which);

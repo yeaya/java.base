@@ -1,5 +1,4 @@
 #include <javax/security/auth/RefreshFailedException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace security {
 		namespace auth {
-
-$FieldInfo _RefreshFailedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RefreshFailedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RefreshFailedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RefreshFailedException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RefreshFailedException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _RefreshFailedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.RefreshFailedException",
-	"java.lang.Exception",
-	nullptr,
-	_RefreshFailedException_FieldInfo_,
-	_RefreshFailedException_MethodInfo_
-};
-
-$Object* allocate$RefreshFailedException($Class* clazz) {
-	return $of($alloc(RefreshFailedException));
-}
 
 void RefreshFailedException::init$() {
 	$Exception::init$();
@@ -54,7 +29,26 @@ void RefreshFailedException::throw$() {
 }
 
 $Class* RefreshFailedException::load$($String* name, bool initialize) {
-	$loadClass(RefreshFailedException, name, initialize, &_RefreshFailedException_ClassInfo_, allocate$RefreshFailedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RefreshFailedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RefreshFailedException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RefreshFailedException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.RefreshFailedException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RefreshFailedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RefreshFailedException);
+	});
 	return class$;
 }
 

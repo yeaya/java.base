@@ -1,7 +1,5 @@
 #include <java/net/HostPortrange.h>
-
 #include <java/lang/Appendable.h>
-#include <java/lang/CharSequence.h>
 #include <java/util/Formatter.h>
 #include <java/util/Locale.h>
 #include <sun/net/util/IPAddressUtil.h>
@@ -15,9 +13,7 @@
 #undef PORT_MIN
 #undef US
 
-using $Appendable = ::java::lang::Appendable;
 using $Byte = ::java::lang::Byte;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -31,58 +27,12 @@ using $IPAddressUtil = ::sun::net::util::IPAddressUtil;
 namespace java {
 	namespace net {
 
-$FieldInfo _HostPortrange_FieldInfo_[] = {
-	{"hostname", "Ljava/lang/String;", nullptr, 0, $field(HostPortrange, hostname$)},
-	{"scheme", "Ljava/lang/String;", nullptr, 0, $field(HostPortrange, scheme)},
-	{"portrange", "[I", nullptr, 0, $field(HostPortrange, portrange$)},
-	{"wildcard", "Z", nullptr, 0, $field(HostPortrange, wildcard$)},
-	{"literal", "Z", nullptr, 0, $field(HostPortrange, literal$)},
-	{"ipv6", "Z", nullptr, 0, $field(HostPortrange, ipv6)},
-	{"ipv4", "Z", nullptr, 0, $field(HostPortrange, ipv4)},
-	{"PORT_MIN", "I", nullptr, $STATIC | $FINAL, $constField(HostPortrange, PORT_MIN)},
-	{"PORT_MAX", "I", nullptr, $STATIC | $FINAL, $constField(HostPortrange, PORT_MAX)},
-	{"CASE_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(HostPortrange, CASE_DIFF)},
-	{"HTTP_PORT", "[I", nullptr, $STATIC | $FINAL, $staticField(HostPortrange, HTTP_PORT)},
-	{"HTTPS_PORT", "[I", nullptr, $STATIC | $FINAL, $staticField(HostPortrange, HTTPS_PORT)},
-	{"NO_PORT", "[I", nullptr, $STATIC | $FINAL, $staticField(HostPortrange, NO_PORT)},
-	{}
-};
-
-$MethodInfo _HostPortrange_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(HostPortrange, init$, void, $String*, $String*)},
-	{"defaultPort", "()[I", nullptr, 0, $virtualMethod(HostPortrange, defaultPort, $ints*)},
-	{"equals", "(Ljava/net/HostPortrange;)Z", nullptr, 0, $virtualMethod(HostPortrange, equals, bool, HostPortrange*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HostPortrange, hashCode, int32_t)},
-	{"hostname", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostPortrange, hostname, $String*)},
-	{"ipv4Literal", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, ipv4Literal, bool)},
-	{"ipv6Literal", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, ipv6Literal, bool)},
-	{"literal", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, literal, bool)},
-	{"parsePort", "(Ljava/lang/String;)[I", nullptr, 0, $virtualMethod(HostPortrange, parsePort, $ints*, $String*)},
-	{"portrange", "()[I", nullptr, $PUBLIC, $virtualMethod(HostPortrange, portrange, $ints*)},
-	{"toLowerCase", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(HostPortrange, toLowerCase, $String*, $String*)},
-	{"wildcard", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, wildcard, bool)},
-	{}
-};
-
-$ClassInfo _HostPortrange_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.HostPortrange",
-	"java.lang.Object",
-	nullptr,
-	_HostPortrange_FieldInfo_,
-	_HostPortrange_MethodInfo_
-};
-
-$Object* allocate$HostPortrange($Class* clazz) {
-	return $of($alloc(HostPortrange));
-}
-
 $ints* HostPortrange::HTTP_PORT = nullptr;
 $ints* HostPortrange::HTTPS_PORT = nullptr;
 $ints* HostPortrange::NO_PORT = nullptr;
 
 bool HostPortrange::equals(HostPortrange* that) {
-	return $nc(this->hostname$)->equals($nc(that)->hostname$) && $nc(this->portrange$)->get(0) == $nc($nc(that)->portrange$)->get(0) && $nc(this->portrange$)->get(1) == $nc(that->portrange$)->get(1) && this->wildcard$ == that->wildcard$ && this->literal$ == that->literal$;
+	return $nc(this->hostname$)->equals($nc(that)->hostname$) && $nc(this->portrange$)->get(0) == $nc(that->portrange$)->get(0) && this->portrange$->get(1) == that->portrange$->get(1) && this->wildcard$ == that->wildcard$ && this->literal$ == that->literal$;
 }
 
 int32_t HostPortrange::hashCode() {
@@ -90,19 +40,19 @@ int32_t HostPortrange::hashCode() {
 }
 
 void HostPortrange::init$($String* scheme, $String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, hoststr, nullptr);
 	$var($String, portstr, nullptr);
 	$set(this, scheme, scheme);
 	if ($nc(str)->charAt(0) == u'[') {
 		this->ipv6 = (this->literal$ = true);
-		int32_t rb = str->indexOf((int32_t)u']');
+		int32_t rb = str->indexOf(u']');
 		if (rb != -1) {
 			$assign(hoststr, str->substring(1, rb));
 		} else {
 			$throwNew($IllegalArgumentException, $$str({"invalid IPv6 address: "_s, str}));
 		}
-		int32_t sep = str->indexOf((int32_t)u':', rb + 1);
+		int32_t sep = str->indexOf(u':', rb + 1);
 		if (sep != -1 && str->length() > sep) {
 			$assign(portstr, str->substring(sep + 1));
 		}
@@ -112,35 +62,35 @@ void HostPortrange::init$($String* scheme, $String* str) {
 		}
 		$var($StringBuilder, sb, $new($StringBuilder));
 		$init($Locale);
-		$var($Formatter, formatter, $new($Formatter, static_cast<$Appendable*>(sb), $Locale::US));
+		$var($Formatter, formatter, $new($Formatter, sb, $Locale::US));
 		formatter->format("%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x"_s, $$new($ObjectArray, {
-			$($of($Byte::valueOf($nc(ip)->get(0)))),
-			$($of($Byte::valueOf($nc(ip)->get(1)))),
-			$($of($Byte::valueOf($nc(ip)->get(2)))),
-			$($of($Byte::valueOf($nc(ip)->get(3)))),
-			$($of($Byte::valueOf($nc(ip)->get(4)))),
-			$($of($Byte::valueOf($nc(ip)->get(5)))),
-			$($of($Byte::valueOf($nc(ip)->get(6)))),
-			$($of($Byte::valueOf($nc(ip)->get(7)))),
-			$($of($Byte::valueOf($nc(ip)->get(8)))),
-			$($of($Byte::valueOf($nc(ip)->get(9)))),
-			$($of($Byte::valueOf($nc(ip)->get(10)))),
-			$($of($Byte::valueOf($nc(ip)->get(11)))),
-			$($of($Byte::valueOf($nc(ip)->get(12)))),
-			$($of($Byte::valueOf($nc(ip)->get(13)))),
-			$($of($Byte::valueOf($nc(ip)->get(14)))),
-			$($of($Byte::valueOf($nc(ip)->get(15))))
+			$($Byte::valueOf($nc(ip)->get(0))),
+			$($Byte::valueOf($nc(ip)->get(1))),
+			$($Byte::valueOf($nc(ip)->get(2))),
+			$($Byte::valueOf($nc(ip)->get(3))),
+			$($Byte::valueOf($nc(ip)->get(4))),
+			$($Byte::valueOf($nc(ip)->get(5))),
+			$($Byte::valueOf($nc(ip)->get(6))),
+			$($Byte::valueOf($nc(ip)->get(7))),
+			$($Byte::valueOf($nc(ip)->get(8))),
+			$($Byte::valueOf($nc(ip)->get(9))),
+			$($Byte::valueOf($nc(ip)->get(10))),
+			$($Byte::valueOf($nc(ip)->get(11))),
+			$($Byte::valueOf($nc(ip)->get(12))),
+			$($Byte::valueOf($nc(ip)->get(13))),
+			$($Byte::valueOf($nc(ip)->get(14))),
+			$($Byte::valueOf($nc(ip)->get(15)))
 		}));
 		$set(this, hostname$, sb->toString());
 	} else {
-		int32_t sep = str->indexOf((int32_t)u':');
+		int32_t sep = str->indexOf(u':');
 		if (sep != -1 && str->length() > sep) {
 			$assign(hoststr, str->substring(0, sep));
 			$assign(portstr, str->substring(sep + 1));
 		} else {
 			$assign(hoststr, sep == -1 ? str : str->substring(0, sep));
 		}
-		if ($nc(hoststr)->lastIndexOf((int32_t)u'*') > 0) {
+		if ($nc(hoststr)->lastIndexOf(u'*') > 0) {
 			$throwNew($IllegalArgumentException, "invalid host wildcard specification"_s);
 		} else if (hoststr->startsWith("*"_s)) {
 			this->wildcard$ = true;
@@ -152,18 +102,14 @@ void HostPortrange::init$($String* scheme, $String* str) {
 				$throwNew($IllegalArgumentException, "invalid host wildcard specification"_s);
 			}
 		} else {
-			int32_t lastdot = hoststr->lastIndexOf((int32_t)u'.');
+			int32_t lastdot = $nc(hoststr)->lastIndexOf(u'.');
 			if (lastdot != -1 && (hoststr->length() > 1)) {
 				bool ipv4 = true;
-				{
-					int32_t i = lastdot + 1;
-					int32_t len = hoststr->length();
-					for (; i < len; ++i) {
-						char16_t c = hoststr->charAt(i);
-						if (c < u'0' || c > u'9') {
-							ipv4 = false;
-							break;
-						}
+				for (int32_t i = lastdot + 1, len = hoststr->length(); i < len; ++i) {
+					char16_t c = hoststr->charAt(i);
+					if (c < u'0' || c > u'9') {
+						ipv4 = false;
+						break;
 					}
 				}
 				this->ipv4 = (this->literal$ = ipv4);
@@ -174,12 +120,12 @@ void HostPortrange::init$($String* scheme, $String* str) {
 					}
 					$var($StringBuilder, sb, $new($StringBuilder));
 					$init($Locale);
-					$var($Formatter, formatter, $new($Formatter, static_cast<$Appendable*>(sb), $Locale::US));
+					$var($Formatter, formatter, $new($Formatter, sb, $Locale::US));
 					formatter->format("%d.%d.%d.%d"_s, $$new($ObjectArray, {
-						$($of($Byte::valueOf($nc(ip)->get(0)))),
-						$($of($Byte::valueOf($nc(ip)->get(1)))),
-						$($of($Byte::valueOf($nc(ip)->get(2)))),
-						$($of($Byte::valueOf($nc(ip)->get(3))))
+						$($Byte::valueOf($nc(ip)->get(0))),
+						$($Byte::valueOf($nc(ip)->get(1))),
+						$($Byte::valueOf($nc(ip)->get(2))),
+						$($Byte::valueOf($nc(ip)->get(3)))
 					}));
 					$assign(hoststr, sb->toString());
 				} else {
@@ -213,14 +159,14 @@ $String* HostPortrange::toLowerCase($String* s) {
 		} else if (c >= u'A' && c <= u'Z') {
 			if (sb == nullptr) {
 				$assign(sb, $new($StringBuilder, len));
-				sb->append(static_cast<$CharSequence*>(s), 0, i);
+				sb->append(s, 0, i);
 			}
 			$nc(sb)->append((char16_t)(c - HostPortrange::CASE_DIFF));
 		} else {
 			$throwNew($IllegalArgumentException, "Invalid characters in hostname"_s);
 		}
 	}
-	return sb == nullptr ? s : $nc(sb)->toString();
+	return sb == nullptr ? s : sb->toString();
 }
 
 bool HostPortrange::literal() {
@@ -250,15 +196,15 @@ bool HostPortrange::wildcard() {
 $ints* HostPortrange::defaultPort() {
 	if ($nc(this->scheme)->equals("http"_s)) {
 		return HostPortrange::HTTP_PORT;
-	} else if ($nc(this->scheme)->equals("https"_s)) {
+	} else if (this->scheme->equals("https"_s)) {
 		return HostPortrange::HTTPS_PORT;
 	}
 	return HostPortrange::NO_PORT;
 }
 
 $ints* HostPortrange::parsePort($String* port) {
-	$useLocalCurrentObjectStackCache();
-	if (port == nullptr || $nc(port)->isEmpty()) {
+	$useLocalObjectStack();
+	if (port == nullptr || port->isEmpty()) {
 		return defaultPort();
 	}
 	if ($nc(port)->equals("*"_s)) {
@@ -268,7 +214,7 @@ $ints* HostPortrange::parsePort($String* port) {
 		});
 	}
 	try {
-		int32_t dash = $nc(port)->indexOf((int32_t)u'-');
+		int32_t dash = port->indexOf(u'-');
 		if (dash == -1) {
 			int32_t p = $Integer::parseInt(port);
 			return $new($ints, {
@@ -304,7 +250,7 @@ $ints* HostPortrange::parsePort($String* port) {
 	$shouldNotReachHere();
 }
 
-void clinit$HostPortrange($Class* class$) {
+void HostPortrange::clinit$($Class* clazz) {
 	$assignStatic(HostPortrange::HTTP_PORT, $new($ints, {
 		80,
 		80
@@ -323,7 +269,48 @@ HostPortrange::HostPortrange() {
 }
 
 $Class* HostPortrange::load$($String* name, bool initialize) {
-	$loadClass(HostPortrange, name, initialize, &_HostPortrange_ClassInfo_, clinit$HostPortrange, allocate$HostPortrange);
+	$FieldInfo fieldInfos$$[] = {
+		{"hostname", "Ljava/lang/String;", nullptr, 0, $field(HostPortrange, hostname$)},
+		{"scheme", "Ljava/lang/String;", nullptr, 0, $field(HostPortrange, scheme)},
+		{"portrange", "[I", nullptr, 0, $field(HostPortrange, portrange$)},
+		{"wildcard", "Z", nullptr, 0, $field(HostPortrange, wildcard$)},
+		{"literal", "Z", nullptr, 0, $field(HostPortrange, literal$)},
+		{"ipv6", "Z", nullptr, 0, $field(HostPortrange, ipv6)},
+		{"ipv4", "Z", nullptr, 0, $field(HostPortrange, ipv4)},
+		{"PORT_MIN", "I", nullptr, $STATIC | $FINAL, $constField(HostPortrange, PORT_MIN)},
+		{"PORT_MAX", "I", nullptr, $STATIC | $FINAL, $constField(HostPortrange, PORT_MAX)},
+		{"CASE_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(HostPortrange, CASE_DIFF)},
+		{"HTTP_PORT", "[I", nullptr, $STATIC | $FINAL, $staticField(HostPortrange, HTTP_PORT)},
+		{"HTTPS_PORT", "[I", nullptr, $STATIC | $FINAL, $staticField(HostPortrange, HTTPS_PORT)},
+		{"NO_PORT", "[I", nullptr, $STATIC | $FINAL, $staticField(HostPortrange, NO_PORT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(HostPortrange, init$, void, $String*, $String*)},
+		{"defaultPort", "()[I", nullptr, 0, $virtualMethod(HostPortrange, defaultPort, $ints*)},
+		{"equals", "(Ljava/net/HostPortrange;)Z", nullptr, 0, $virtualMethod(HostPortrange, equals, bool, HostPortrange*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HostPortrange, hashCode, int32_t)},
+		{"hostname", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostPortrange, hostname, $String*)},
+		{"ipv4Literal", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, ipv4Literal, bool)},
+		{"ipv6Literal", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, ipv6Literal, bool)},
+		{"literal", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, literal, bool)},
+		{"parsePort", "(Ljava/lang/String;)[I", nullptr, 0, $virtualMethod(HostPortrange, parsePort, $ints*, $String*)},
+		{"portrange", "()[I", nullptr, $PUBLIC, $virtualMethod(HostPortrange, portrange, $ints*)},
+		{"toLowerCase", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(HostPortrange, toLowerCase, $String*, $String*)},
+		{"wildcard", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, wildcard, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.HostPortrange",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HostPortrange, name, initialize, &classInfo$$, HostPortrange::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HostPortrange);
+	});
 	return class$;
 }
 

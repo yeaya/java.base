@@ -63,6 +63,7 @@ public:
 	ImageReader$SharedImageReader();
 	using ::jdk::internal::jimage::BasicImageReader::close;
 	using ::jdk::internal::jimage::BasicImageReader::getResource;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::Path* imagePath, ::java::nio::ByteOrder* byteOrder);
 	void addOpener(::jdk::internal::jimage::ImageReader* reader);
 	::jdk::internal::jimage::ImageReader$Node* buildNode($String* name);

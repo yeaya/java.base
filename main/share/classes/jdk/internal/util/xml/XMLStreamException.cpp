@@ -1,5 +1,4 @@
 #include <jdk/internal/util/xml/XMLStreamException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,34 +10,6 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 			namespace xml {
-
-$FieldInfo _XMLStreamException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLStreamException, serialVersionUID)},
-	{"nested", "Ljava/lang/Throwable;", nullptr, $PROTECTED, $field(XMLStreamException, nested)},
-	{}
-};
-
-$MethodInfo _XMLStreamException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void, $String*, $Throwable*)},
-	{"getNestedException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(XMLStreamException, getNestedException, $Throwable*)},
-	{}
-};
-
-$ClassInfo _XMLStreamException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.util.xml.XMLStreamException",
-	"java.lang.Exception",
-	nullptr,
-	_XMLStreamException_FieldInfo_,
-	_XMLStreamException_MethodInfo_
-};
-
-$Object* allocate$XMLStreamException($Class* clazz) {
-	return $of($alloc(XMLStreamException));
-}
 
 void XMLStreamException::init$() {
 	$Exception::init$();
@@ -73,7 +44,30 @@ void XMLStreamException::throw$() {
 }
 
 $Class* XMLStreamException::load$($String* name, bool initialize) {
-	$loadClass(XMLStreamException, name, initialize, &_XMLStreamException_ClassInfo_, allocate$XMLStreamException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLStreamException, serialVersionUID)},
+		{"nested", "Ljava/lang/Throwable;", nullptr, $PROTECTED, $field(XMLStreamException, nested)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void, $String*, $Throwable*)},
+		{"getNestedException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(XMLStreamException, getNestedException, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.util.xml.XMLStreamException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLStreamException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLStreamException);
+	});
 	return class$;
 }
 

@@ -32,6 +32,7 @@ class SocketPermissionCollection : public ::java::security::PermissionCollection
 	$class(SocketPermissionCollection, 0, ::java::security::PermissionCollection)
 public:
 	SocketPermissionCollection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(::java::security::Permission* permission) override;
 	virtual ::java::util::Enumeration* elements() override;
@@ -39,7 +40,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
 	::java::util::Map* perms = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x26AE13457F91BA1A;
+	static const int64_t serialVersionUID = (int64_t)0x26ae13457f91ba1a;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 };
 

@@ -1,5 +1,4 @@
 #include <java/security/interfaces/DSAPublicKey.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/interfaces/DSAKey.h>
 #include <jcpp.h>
@@ -14,39 +13,6 @@ using $DSAKey = ::java::security::interfaces::DSAKey;
 namespace java {
 	namespace security {
 		namespace interfaces {
-
-$CompoundAttribute _DSAPublicKey_FieldAnnotations_serialVersionUID[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _DSAPublicKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(DSAPublicKey, serialVersionUID), _DSAPublicKey_FieldAnnotations_serialVersionUID},
-	{}
-};
-
-$MethodInfo _DSAPublicKey_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAPublicKey, getY, $BigInteger*)},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DSAPublicKey_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.interfaces.DSAPublicKey",
-	nullptr,
-	"java.security.interfaces.DSAKey,java.security.PublicKey",
-	_DSAPublicKey_FieldInfo_,
-	_DSAPublicKey_MethodInfo_
-};
-
-$Object* allocate$DSAPublicKey($Class* clazz) {
-	return $of($alloc(DSAPublicKey));
-}
 
 int32_t DSAPublicKey::hashCode() {
 	 return this->$DSAKey::hashCode();
@@ -69,7 +35,34 @@ void DSAPublicKey::finalize() {
 }
 
 $Class* DSAPublicKey::load$($String* name, bool initialize) {
-	$loadClass(DSAPublicKey, name, initialize, &_DSAPublicKey_ClassInfo_, allocate$DSAPublicKey);
+	$CompoundAttribute serialVersionUIDfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(DSAPublicKey, serialVersionUID), serialVersionUIDfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAPublicKey, getY, $BigInteger*)},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.interfaces.DSAPublicKey",
+		nullptr,
+		"java.security.interfaces.DSAKey,java.security.PublicKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DSAPublicKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DSAPublicKey));
+	});
 	return class$;
 }
 

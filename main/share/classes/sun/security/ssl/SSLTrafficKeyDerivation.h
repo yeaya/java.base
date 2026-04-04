@@ -45,6 +45,7 @@ public:
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, ::sun::security::ssl::SSLKeyDerivationGenerator* keyDerivationGenerator);
 	virtual ::sun::security::ssl::SSLKeyDerivation* createKeyDerivation(::sun::security::ssl::HandshakeContext* context, ::javax::crypto::SecretKey* secretKey) override;
 	virtual $String* toString() override;

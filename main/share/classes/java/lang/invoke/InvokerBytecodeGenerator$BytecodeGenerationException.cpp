@@ -1,5 +1,4 @@
 #include <java/lang/invoke/InvokerBytecodeGenerator$BytecodeGenerationException.h>
-
 #include <java/lang/invoke/InvokerBytecodeGenerator.h>
 #include <jcpp.h>
 
@@ -13,38 +12,8 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$MethodInfo _InvokerBytecodeGenerator$BytecodeGenerationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, 0, $method(InvokerBytecodeGenerator$BytecodeGenerationException, init$, void, $Exception*)},
-	{}
-};
-
-$InnerClassInfo _InvokerBytecodeGenerator$BytecodeGenerationException_InnerClassesInfo_[] = {
-	{"java.lang.invoke.InvokerBytecodeGenerator$BytecodeGenerationException", "java.lang.invoke.InvokerBytecodeGenerator", "BytecodeGenerationException", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _InvokerBytecodeGenerator$BytecodeGenerationException_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.InvokerBytecodeGenerator$BytecodeGenerationException",
-	"java.lang.RuntimeException",
-	nullptr,
-	nullptr,
-	_InvokerBytecodeGenerator$BytecodeGenerationException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InvokerBytecodeGenerator$BytecodeGenerationException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.InvokerBytecodeGenerator"
-};
-
-$Object* allocate$InvokerBytecodeGenerator$BytecodeGenerationException($Class* clazz) {
-	return $of($alloc(InvokerBytecodeGenerator$BytecodeGenerationException));
-}
-
 void InvokerBytecodeGenerator$BytecodeGenerationException::init$($Exception* cause) {
-	$RuntimeException::init$(static_cast<$Throwable*>(cause));
+	$RuntimeException::init$(cause);
 }
 
 InvokerBytecodeGenerator$BytecodeGenerationException::InvokerBytecodeGenerator$BytecodeGenerationException() {
@@ -58,7 +27,32 @@ void InvokerBytecodeGenerator$BytecodeGenerationException::throw$() {
 }
 
 $Class* InvokerBytecodeGenerator$BytecodeGenerationException::load$($String* name, bool initialize) {
-	$loadClass(InvokerBytecodeGenerator$BytecodeGenerationException, name, initialize, &_InvokerBytecodeGenerator$BytecodeGenerationException_ClassInfo_, allocate$InvokerBytecodeGenerator$BytecodeGenerationException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, 0, $method(InvokerBytecodeGenerator$BytecodeGenerationException, init$, void, $Exception*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.InvokerBytecodeGenerator$BytecodeGenerationException", "java.lang.invoke.InvokerBytecodeGenerator", "BytecodeGenerationException", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.InvokerBytecodeGenerator$BytecodeGenerationException",
+		"java.lang.RuntimeException",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.InvokerBytecodeGenerator"
+	};
+	$loadClass(InvokerBytecodeGenerator$BytecodeGenerationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvokerBytecodeGenerator$BytecodeGenerationException);
+	});
 	return class$;
 }
 

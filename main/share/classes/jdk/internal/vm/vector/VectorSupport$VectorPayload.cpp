@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/vector/VectorSupport$VectorPayload.h>
-
 #include <jdk/internal/vm/vector/VectorSupport.h>
 #include <jcpp.h>
 
@@ -14,55 +13,49 @@ namespace jdk {
 		namespace vm {
 			namespace vector {
 
-$FieldInfo _VectorSupport$VectorPayload_FieldInfo_[] = {
-	{"payload", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(VectorSupport$VectorPayload, payload)},
-	{}
-};
-
-$MethodInfo _VectorSupport$VectorPayload_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VectorSupport$VectorPayload, init$, void, Object$*)},
-	{"getPayload", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $method(VectorSupport$VectorPayload, getPayload, $Object*)},
-	{}
-};
-
-$InnerClassInfo _VectorSupport$VectorPayload_InnerClassesInfo_[] = {
-	{"jdk.internal.vm.vector.VectorSupport$VectorPayload", "jdk.internal.vm.vector.VectorSupport", "VectorPayload", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _VectorSupport$VectorPayload_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.vm.vector.VectorSupport$VectorPayload",
-	"java.lang.Object",
-	nullptr,
-	_VectorSupport$VectorPayload_FieldInfo_,
-	_VectorSupport$VectorPayload_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VectorSupport$VectorPayload_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.vm.vector.VectorSupport"
-};
-
-$Object* allocate$VectorSupport$VectorPayload($Class* clazz) {
-	return $of($alloc(VectorSupport$VectorPayload));
-}
-
 void VectorSupport$VectorPayload::init$(Object$* payload) {
 	$set(this, payload, payload);
 }
 
 $Object* VectorSupport$VectorPayload::getPayload() {
-	return $of($nc(($cast(VectorSupport$VectorPayload, $($VectorSupport::maybeRebox(this)))))->payload);
+	return $nc(($$cast(VectorSupport$VectorPayload, $VectorSupport::maybeRebox(this))))->payload;
 }
 
 VectorSupport$VectorPayload::VectorSupport$VectorPayload() {
 }
 
 $Class* VectorSupport$VectorPayload::load$($String* name, bool initialize) {
-	$loadClass(VectorSupport$VectorPayload, name, initialize, &_VectorSupport$VectorPayload_ClassInfo_, allocate$VectorSupport$VectorPayload);
+	$FieldInfo fieldInfos$$[] = {
+		{"payload", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(VectorSupport$VectorPayload, payload)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VectorSupport$VectorPayload, init$, void, Object$*)},
+		{"getPayload", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $method(VectorSupport$VectorPayload, getPayload, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.vm.vector.VectorSupport$VectorPayload", "jdk.internal.vm.vector.VectorSupport", "VectorPayload", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.vm.vector.VectorSupport$VectorPayload",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.vm.vector.VectorSupport"
+	};
+	$loadClass(VectorSupport$VectorPayload, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VectorSupport$VectorPayload);
+	});
 	return class$;
 }
 

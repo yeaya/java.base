@@ -1,5 +1,4 @@
 #include <java/nio/file/Files$FileTypeDetectors$2.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/nio/file/Files$FileTypeDetectors.h>
 #include <java/nio/file/spi/FileTypeDetector.h>
@@ -24,49 +23,11 @@ namespace java {
 	namespace nio {
 		namespace file {
 
-$MethodInfo _Files$FileTypeDetectors$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Files$FileTypeDetectors$2, init$, void)},
-	{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileTypeDetector;>;", $PUBLIC, $virtualMethod(Files$FileTypeDetectors$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Files$FileTypeDetectors$2_EnclosingMethodInfo_ = {
-	"java.nio.file.Files$FileTypeDetectors",
-	"loadInstalledDetectors",
-	"()Ljava/util/List;"
-};
-
-$InnerClassInfo _Files$FileTypeDetectors$2_InnerClassesInfo_[] = {
-	{"java.nio.file.Files$FileTypeDetectors", "java.nio.file.Files", "FileTypeDetectors", $PRIVATE | $STATIC},
-	{"java.nio.file.Files$FileTypeDetectors$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Files$FileTypeDetectors$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.Files$FileTypeDetectors$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_Files$FileTypeDetectors$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/List<Ljava/nio/file/spi/FileTypeDetector;>;>;",
-	&_Files$FileTypeDetectors$2_EnclosingMethodInfo_,
-	_Files$FileTypeDetectors$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.Files"
-};
-
-$Object* allocate$Files$FileTypeDetectors$2($Class* clazz) {
-	return $of($alloc(Files$FileTypeDetectors$2));
-}
-
 void Files$FileTypeDetectors$2::init$() {
 }
 
 $Object* Files$FileTypeDetectors$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($List, list, $new($ArrayList));
 	$load($FileTypeDetector);
@@ -80,14 +41,46 @@ $Object* Files$FileTypeDetectors$2::run() {
 			}
 		}
 	}
-	return $of(list);
+	return list;
 }
 
 Files$FileTypeDetectors$2::Files$FileTypeDetectors$2() {
 }
 
 $Class* Files$FileTypeDetectors$2::load$($String* name, bool initialize) {
-	$loadClass(Files$FileTypeDetectors$2, name, initialize, &_Files$FileTypeDetectors$2_ClassInfo_, allocate$Files$FileTypeDetectors$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Files$FileTypeDetectors$2, init$, void)},
+		{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileTypeDetector;>;", $PUBLIC, $virtualMethod(Files$FileTypeDetectors$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.file.Files$FileTypeDetectors",
+		"loadInstalledDetectors",
+		"()Ljava/util/List;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.Files$FileTypeDetectors", "java.nio.file.Files", "FileTypeDetectors", $PRIVATE | $STATIC},
+		{"java.nio.file.Files$FileTypeDetectors$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.Files$FileTypeDetectors$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/List<Ljava/nio/file/spi/FileTypeDetector;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.Files"
+	};
+	$loadClass(Files$FileTypeDetectors$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Files$FileTypeDetectors$2);
+	});
 	return class$;
 }
 

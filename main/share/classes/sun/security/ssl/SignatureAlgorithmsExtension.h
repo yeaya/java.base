@@ -25,6 +25,7 @@ class SignatureAlgorithmsExtension : public ::java::lang::Object {
 	$class(SignatureAlgorithmsExtension, 0, ::java::lang::Object)
 public:
 	SignatureAlgorithmsExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::HandshakeProducer* chNetworkProducer;
 	static ::sun::security::ssl::SSLExtension$ExtensionConsumer* chOnLoadConsumer;

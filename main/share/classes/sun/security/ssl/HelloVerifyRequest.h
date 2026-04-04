@@ -22,6 +22,7 @@ class HelloVerifyRequest : public ::java::lang::Object {
 	$class(HelloVerifyRequest, 0, ::java::lang::Object)
 public:
 	HelloVerifyRequest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLConsumer* handshakeConsumer;
 	static ::sun::security::ssl::HandshakeProducer* handshakeProducer;

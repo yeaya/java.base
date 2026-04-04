@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/BlowfishParameters.h>
-
 #include <com/sun/crypto/provider/BlockCipherParamsCore.h>
 #include <com/sun/crypto/provider/BlowfishConstants.h>
 #include <java/security/AlgorithmParametersSpi.h>
@@ -22,36 +21,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _BlowfishParameters_FieldInfo_[] = {
-	{"core", "Lcom/sun/crypto/provider/BlockCipherParamsCore;", nullptr, $PRIVATE, $field(BlowfishParameters, core)},
-	{}
-};
-
-$MethodInfo _BlowfishParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BlowfishParameters, init$, void)},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineGetEncoded, $bytes*), "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(BlowfishParameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineInit, void, $bytes*), "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineToString, $String*)},
-	{}
-};
-
-$ClassInfo _BlowfishParameters_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.BlowfishParameters",
-	"java.security.AlgorithmParametersSpi",
-	nullptr,
-	_BlowfishParameters_FieldInfo_,
-	_BlowfishParameters_MethodInfo_
-};
-
-$Object* allocate$BlowfishParameters($Class* clazz) {
-	return $of($alloc(BlowfishParameters));
-}
 
 void BlowfishParameters::init$() {
 	$AlgorithmParametersSpi::init$();
@@ -95,7 +64,32 @@ BlowfishParameters::BlowfishParameters() {
 }
 
 $Class* BlowfishParameters::load$($String* name, bool initialize) {
-	$loadClass(BlowfishParameters, name, initialize, &_BlowfishParameters_ClassInfo_, allocate$BlowfishParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"core", "Lcom/sun/crypto/provider/BlockCipherParamsCore;", nullptr, $PRIVATE, $field(BlowfishParameters, core)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BlowfishParameters, init$, void)},
+		{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+		{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+		{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(BlowfishParameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineInit, void, $bytes*), "java.io.IOException"},
+		{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+		{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineToString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.BlowfishParameters",
+		"java.security.AlgorithmParametersSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BlowfishParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BlowfishParameters);
+	});
 	return class$;
 }
 

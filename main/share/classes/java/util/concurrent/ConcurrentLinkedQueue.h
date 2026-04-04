@@ -67,6 +67,7 @@ public:
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Collection* c);
 	virtual bool add(Object$* e) override;
@@ -103,7 +104,7 @@ public:
 	bool tryCasSuccessor(::java::util::concurrent::ConcurrentLinkedQueue$Node* pred, ::java::util::concurrent::ConcurrentLinkedQueue$Node* c, ::java::util::concurrent::ConcurrentLinkedQueue$Node* p);
 	void updateHead(::java::util::concurrent::ConcurrentLinkedQueue$Node* h, ::java::util::concurrent::ConcurrentLinkedQueue$Node* p);
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x02BAFB2A664C708C;
+	static const int64_t serialVersionUID = (int64_t)0x02bafb2a664c708c;
 	$volatile(::java::util::concurrent::ConcurrentLinkedQueue$Node*) head = nullptr;
 	$volatile(::java::util::concurrent::ConcurrentLinkedQueue$Node*) tail = nullptr;
 	static const int32_t MAX_HOPS = 8;

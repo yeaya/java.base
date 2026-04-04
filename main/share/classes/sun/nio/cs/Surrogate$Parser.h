@@ -26,6 +26,7 @@ class $export Surrogate$Parser : public ::java::lang::Object {
 	$class(Surrogate$Parser, 0, ::java::lang::Object)
 public:
 	Surrogate$Parser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t character();
 	virtual ::java::nio::charset::CoderResult* error();

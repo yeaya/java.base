@@ -1,5 +1,4 @@
 #include <sun/security/provider/JavaKeyStore$KeyEntry.h>
-
 #include <java/security/cert/Certificate.h>
 #include <java/util/Date.h>
 #include <sun/security/provider/JavaKeyStore.h>
@@ -14,43 +13,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _JavaKeyStore$KeyEntry_FieldInfo_[] = {
-	{"date", "Ljava/util/Date;", nullptr, 0, $field(JavaKeyStore$KeyEntry, date)},
-	{"protectedPrivKey", "[B", nullptr, 0, $field(JavaKeyStore$KeyEntry, protectedPrivKey)},
-	{"chain", "[Ljava/security/cert/Certificate;", nullptr, 0, $field(JavaKeyStore$KeyEntry, chain)},
-	{}
-};
-
-$MethodInfo _JavaKeyStore$KeyEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JavaKeyStore$KeyEntry, init$, void)},
-	{}
-};
-
-$InnerClassInfo _JavaKeyStore$KeyEntry_InnerClassesInfo_[] = {
-	{"sun.security.provider.JavaKeyStore$KeyEntry", "sun.security.provider.JavaKeyStore", "KeyEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JavaKeyStore$KeyEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.JavaKeyStore$KeyEntry",
-	"java.lang.Object",
-	nullptr,
-	_JavaKeyStore$KeyEntry_FieldInfo_,
-	_JavaKeyStore$KeyEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavaKeyStore$KeyEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.JavaKeyStore"
-};
-
-$Object* allocate$JavaKeyStore$KeyEntry($Class* clazz) {
-	return $of($alloc(JavaKeyStore$KeyEntry));
-}
-
 void JavaKeyStore$KeyEntry::init$() {
 }
 
@@ -58,7 +20,38 @@ JavaKeyStore$KeyEntry::JavaKeyStore$KeyEntry() {
 }
 
 $Class* JavaKeyStore$KeyEntry::load$($String* name, bool initialize) {
-	$loadClass(JavaKeyStore$KeyEntry, name, initialize, &_JavaKeyStore$KeyEntry_ClassInfo_, allocate$JavaKeyStore$KeyEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"date", "Ljava/util/Date;", nullptr, 0, $field(JavaKeyStore$KeyEntry, date)},
+		{"protectedPrivKey", "[B", nullptr, 0, $field(JavaKeyStore$KeyEntry, protectedPrivKey)},
+		{"chain", "[Ljava/security/cert/Certificate;", nullptr, 0, $field(JavaKeyStore$KeyEntry, chain)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JavaKeyStore$KeyEntry, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.JavaKeyStore$KeyEntry", "sun.security.provider.JavaKeyStore", "KeyEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.JavaKeyStore$KeyEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.JavaKeyStore"
+	};
+	$loadClass(JavaKeyStore$KeyEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaKeyStore$KeyEntry);
+	});
 	return class$;
 }
 

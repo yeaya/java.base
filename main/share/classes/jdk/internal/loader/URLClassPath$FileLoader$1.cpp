@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/URLClassPath$FileLoader$1.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
@@ -23,56 +22,6 @@ using $URLClassPath$FileLoader = ::jdk::internal::loader::URLClassPath$FileLoade
 namespace jdk {
 	namespace internal {
 		namespace loader {
-
-$FieldInfo _URLClassPath$FileLoader$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/loader/URLClassPath$FileLoader;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$FileLoader$1, this$0)},
-	{"val$file", "Ljava/io/File;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$FileLoader$1, val$file)},
-	{"val$url", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$FileLoader$1, val$url)},
-	{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$FileLoader$1, val$name)},
-	{}
-};
-
-$MethodInfo _URLClassPath$FileLoader$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/URLClassPath$FileLoader;Ljava/lang/String;Ljava/net/URL;Ljava/io/File;)V", nullptr, 0, $method(URLClassPath$FileLoader$1, init$, void, $URLClassPath$FileLoader*, $String*, $URL*, $File*)},
-	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getCodeSourceURL, $URL*)},
-	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getContentLength, int32_t), "java.io.IOException"},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getName, $String*)},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getURL, $URL*)},
-	{}
-};
-
-$EnclosingMethodInfo _URLClassPath$FileLoader$1_EnclosingMethodInfo_ = {
-	"jdk.internal.loader.URLClassPath$FileLoader",
-	"getResource",
-	"(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;"
-};
-
-$InnerClassInfo _URLClassPath$FileLoader$1_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.URLClassPath$FileLoader", "jdk.internal.loader.URLClassPath", "FileLoader", $PRIVATE | $STATIC},
-	{"jdk.internal.loader.URLClassPath$FileLoader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URLClassPath$FileLoader$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.URLClassPath$FileLoader$1",
-	"jdk.internal.loader.Resource",
-	nullptr,
-	_URLClassPath$FileLoader$1_FieldInfo_,
-	_URLClassPath$FileLoader$1_MethodInfo_,
-	nullptr,
-	&_URLClassPath$FileLoader$1_EnclosingMethodInfo_,
-	_URLClassPath$FileLoader$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.URLClassPath"
-};
-
-$Object* allocate$URLClassPath$FileLoader$1($Class* clazz) {
-	return $of($alloc(URLClassPath$FileLoader$1));
-}
 
 void URLClassPath$FileLoader$1::init$($URLClassPath$FileLoader* this$0, $String* val$name, $URL* val$url, $File* val$file) {
 	$set(this, this$0, this$0);
@@ -106,7 +55,50 @@ URLClassPath$FileLoader$1::URLClassPath$FileLoader$1() {
 }
 
 $Class* URLClassPath$FileLoader$1::load$($String* name, bool initialize) {
-	$loadClass(URLClassPath$FileLoader$1, name, initialize, &_URLClassPath$FileLoader$1_ClassInfo_, allocate$URLClassPath$FileLoader$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/loader/URLClassPath$FileLoader;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$FileLoader$1, this$0)},
+		{"val$file", "Ljava/io/File;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$FileLoader$1, val$file)},
+		{"val$url", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$FileLoader$1, val$url)},
+		{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$FileLoader$1, val$name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/loader/URLClassPath$FileLoader;Ljava/lang/String;Ljava/net/URL;Ljava/io/File;)V", nullptr, 0, $method(URLClassPath$FileLoader$1, init$, void, $URLClassPath$FileLoader*, $String*, $URL*, $File*)},
+		{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getCodeSourceURL, $URL*)},
+		{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getContentLength, int32_t), "java.io.IOException"},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getName, $String*)},
+		{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getURL, $URL*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.loader.URLClassPath$FileLoader",
+		"getResource",
+		"(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.URLClassPath$FileLoader", "jdk.internal.loader.URLClassPath", "FileLoader", $PRIVATE | $STATIC},
+		{"jdk.internal.loader.URLClassPath$FileLoader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.URLClassPath$FileLoader$1",
+		"jdk.internal.loader.Resource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.URLClassPath"
+	};
+	$loadClass(URLClassPath$FileLoader$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLClassPath$FileLoader$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <AssociatedDirectOnSuperClassIndirectOnSubclassContainer.h>
-
 #include <AssociatedDirectOnSuperClassIndirectOnSubclass.h>
 #include <jcpp.h>
 
@@ -9,40 +8,34 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute AssociatedDirectOnSuperClassIndirectOnSubclassContainer_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _AssociatedDirectOnSuperClassIndirectOnSubclassContainer_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", AssociatedDirectOnSuperClassIndirectOnSubclassContainer_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _AssociatedDirectOnSuperClassIndirectOnSubclassContainer_MethodInfo_[] = {
-	{"value", "()[LAssociatedDirectOnSuperClassIndirectOnSubclass;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssociatedDirectOnSuperClassIndirectOnSubclassContainer, value, $AssociatedDirectOnSuperClassIndirectOnSubclassArray*)},
-	{}
-};
-
-$ClassInfo _AssociatedDirectOnSuperClassIndirectOnSubclassContainer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"AssociatedDirectOnSuperClassIndirectOnSubclassContainer",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_AssociatedDirectOnSuperClassIndirectOnSubclassContainer_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_AssociatedDirectOnSuperClassIndirectOnSubclassContainer_Annotations_
-};
-
-$Object* allocate$AssociatedDirectOnSuperClassIndirectOnSubclassContainer($Class* clazz) {
-	return $of($alloc(AssociatedDirectOnSuperClassIndirectOnSubclassContainer));
-}
-
 $Class* AssociatedDirectOnSuperClassIndirectOnSubclassContainer::load$($String* name, bool initialize) {
-	$loadClass(AssociatedDirectOnSuperClassIndirectOnSubclassContainer, name, initialize, &_AssociatedDirectOnSuperClassIndirectOnSubclassContainer_ClassInfo_, allocate$AssociatedDirectOnSuperClassIndirectOnSubclassContainer);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[LAssociatedDirectOnSuperClassIndirectOnSubclass;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssociatedDirectOnSuperClassIndirectOnSubclassContainer, value, $AssociatedDirectOnSuperClassIndirectOnSubclassArray*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"AssociatedDirectOnSuperClassIndirectOnSubclassContainer",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(AssociatedDirectOnSuperClassIndirectOnSubclassContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AssociatedDirectOnSuperClassIndirectOnSubclassContainer);
+	});
 	return class$;
 }
 

@@ -85,6 +85,7 @@ class JrtFileSystemProvider : public ::java::nio::file::spi::FileSystemProvider 
 	$class(JrtFileSystemProvider, 0, ::java::nio::file::spi::FileSystemProvider)
 public:
 	JrtFileSystemProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void checkAccess(::java::nio::file::Path* path, $Array<::java::nio::file::AccessMode>* modes) override;
 	void checkPermission();

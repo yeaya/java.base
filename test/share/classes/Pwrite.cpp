@@ -1,13 +1,10 @@
 #include <Pwrite.h>
-
 #include <java/io/BufferedWriter.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/io/Writer.h>
 #include <java/lang/StringBuffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
@@ -19,10 +16,8 @@ using $BufferedWriter = ::java::io::BufferedWriter;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -34,34 +29,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $NonWritableChannelException = ::java::nio::channels::NonWritableChannelException;
 using $Random = ::java::util::Random;
-
-$FieldInfo _Pwrite_FieldInfo_[] = {
-	{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(Pwrite, generator)},
-	{"blah", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(Pwrite, blah)},
-	{}
-};
-
-$MethodInfo _Pwrite_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Pwrite, init$, void)},
-	{"genericTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pwrite, genericTest, void), "java.lang.Exception"},
-	{"initTestFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pwrite, initTestFile, void, $File*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Pwrite, main, void, $StringArray*), "java.lang.Exception"},
-	{"testUnwritableChannel", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pwrite, testUnwritableChannel, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Pwrite_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Pwrite",
-	"java.lang.Object",
-	nullptr,
-	_Pwrite_FieldInfo_,
-	_Pwrite_MethodInfo_
-};
-
-$Object* allocate$Pwrite($Class* clazz) {
-	return $of($alloc(Pwrite));
-}
 
 $Random* Pwrite::generator = nullptr;
 $File* Pwrite::blah = nullptr;
@@ -77,7 +44,7 @@ void Pwrite::main($StringArray* args) {
 
 void Pwrite::testUnwritableChannel() {
 	$init(Pwrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, blah, $File::createTempFile("blah2"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
@@ -85,29 +52,27 @@ void Pwrite::testUnwritableChannel() {
 	fos->close();
 	$var($FileInputStream, fis, $new($FileInputStream, blah));
 	$var($FileChannel, fc, fis->getChannel());
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(fc)->write($($ByteBuffer::allocate(256)), 1);
-				$throwNew($RuntimeException, "Expected exception not thrown"_s);
-			} catch ($NonWritableChannelException& e) {
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(fc)->close();
-			blah->delete$();
+			$nc(fc)->write($($ByteBuffer::allocate(256)), 1);
+			$throwNew($RuntimeException, "Expected exception not thrown"_s);
+		} catch ($NonWritableChannelException& e) {
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(fc)->close();
+		blah->delete$();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Pwrite::genericTest() {
 	$init(Pwrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->setLength(4);
 	$assignStatic(Pwrite::blah, $File::createTempFile("blah"_s, nullptr));
@@ -118,7 +83,7 @@ void Pwrite::genericTest() {
 	for (int32_t x = 0; x < 100; ++x) {
 		int64_t offset = $nc(Pwrite::generator)->nextInt(1000);
 		$var($ByteBuffer, bleck, $ByteBuffer::allocateDirect(4));
-		for (int8_t i = (int8_t)0; i < 4; ++i) {
+		for (int8_t i = 0; i < 4; ++i) {
 			$nc(bleck)->put(i);
 		}
 		$nc(bleck)->flip();
@@ -149,8 +114,8 @@ void Pwrite::genericTest() {
 		if (originalPosition != newPosition) {
 			$throwNew($Exception, "File position modified"_s);
 		}
-		for (int8_t i = (int8_t)0; i < 4; ++i) {
-			if (bleck->get((int32_t)i) != i) {
+		for (int8_t i = 0; i < 4; ++i) {
+			if ($nc(bleck)->get(i) != i) {
 				$throwNew($Exception, "Write test failed"_s);
 			}
 		}
@@ -162,12 +127,12 @@ void Pwrite::genericTest() {
 
 void Pwrite::initTestFile($File* blah) {
 	$init(Pwrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
-	$var($BufferedWriter, awriter, $new($BufferedWriter, $$new($OutputStreamWriter, static_cast<$OutputStream*>(fos), "8859_1"_s)));
+	$var($BufferedWriter, awriter, $new($BufferedWriter, $$new($OutputStreamWriter, fos, "8859_1"_s)));
 	for (int32_t i = 0; i < 4000; ++i) {
 		$var($String, number, $$new($Integer, i)->toString());
-		for (int32_t h = 0; h < 4 - $nc(number)->length(); ++h) {
+		for (int32_t h = 0; h < 4 - number->length(); ++h) {
 			awriter->write("0"_s);
 		}
 		awriter->write($$str({""_s, $$str(i)}));
@@ -177,7 +142,7 @@ void Pwrite::initTestFile($File* blah) {
 	awriter->close();
 }
 
-void clinit$Pwrite($Class* class$) {
+void Pwrite::clinit$($Class* clazz) {
 	$assignStatic(Pwrite::generator, $new($Random));
 }
 
@@ -185,7 +150,30 @@ Pwrite::Pwrite() {
 }
 
 $Class* Pwrite::load$($String* name, bool initialize) {
-	$loadClass(Pwrite, name, initialize, &_Pwrite_ClassInfo_, clinit$Pwrite, allocate$Pwrite);
+	$FieldInfo fieldInfos$$[] = {
+		{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(Pwrite, generator)},
+		{"blah", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(Pwrite, blah)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Pwrite, init$, void)},
+		{"genericTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pwrite, genericTest, void), "java.lang.Exception"},
+		{"initTestFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pwrite, initTestFile, void, $File*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Pwrite, main, void, $StringArray*), "java.lang.Exception"},
+		{"testUnwritableChannel", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pwrite, testUnwritableChannel, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Pwrite",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pwrite, name, initialize, &classInfo$$, Pwrite::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Pwrite);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Send12k.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InterruptedIOException.h>
 #include <java/lang/CharSequence.h>
@@ -12,7 +11,6 @@
 
 using $IOException = ::java::io::IOException;
 using $InterruptedIOException = ::java::io::InterruptedIOException;
-using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -21,32 +19,13 @@ using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 
-$MethodInfo _Send12k_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Send12k, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Send12k, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Send12k_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Send12k",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Send12k_MethodInfo_
-};
-
-$Object* allocate$Send12k($Class* clazz) {
-	return $of($alloc(Send12k));
-}
-
 void Send12k::init$() {
 }
 
 void Send12k::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t SEND_SIZE = 0;
-	if ($nc($($System::getProperty("os.name"_s)))->contains("Mac"_s)) {
+	if ($$nc($System::getProperty("os.name"_s))->contains("Mac"_s)) {
 		SEND_SIZE = 16 * 576;
 	} else {
 		SEND_SIZE = 16 * 1024;
@@ -58,8 +37,12 @@ void Send12k::main($StringArray* args) {
 	$var($DatagramPacket, p1, $new($DatagramPacket, b1, 0, b1->length, localHost, s2->getLocalPort()));
 	bool sendOkay = true;
 	try {
-		$var($String, var$0, $$str({"Sending to: ["_s, localHost, "]:"_s}));
-		$nc($System::out)->println($$concat(var$0, $$str(s2->getLocalPort())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Sending to: ["_s);
+		var$0->append(localHost);
+		var$0->append("]:"_s);
+		var$0->append(s2->getLocalPort());
+		$nc($System::out)->println($$str(var$0));
 		s1->send(p1);
 	} catch ($IOException& e) {
 		$nc($System::out)->println($$str({"Sending failed: "_s, e}));
@@ -84,7 +67,22 @@ Send12k::Send12k() {
 }
 
 $Class* Send12k::load$($String* name, bool initialize) {
-	$loadClass(Send12k, name, initialize, &_Send12k_ClassInfo_, allocate$Send12k);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Send12k, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Send12k, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Send12k",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Send12k, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Send12k);
+	});
 	return class$;
 }
 

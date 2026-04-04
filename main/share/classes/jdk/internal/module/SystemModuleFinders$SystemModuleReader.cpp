@@ -1,5 +1,4 @@
 #include <jdk/internal/module/SystemModuleFinders$SystemModuleReader.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -44,7 +43,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URI = ::java::net::URI;
-using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Objects = ::java::util::Objects;
@@ -53,7 +51,6 @@ using $Spliterator = ::java::util::Spliterator;
 using $Function = ::java::util::function::Function;
 using $Stream = ::java::util::stream::Stream;
 using $StreamSupport = ::java::util::stream::StreamSupport;
-using $JavaNetUriAccess = ::jdk::internal::access::JavaNetUriAccess;
 using $ImageLocation = ::jdk::internal::jimage::ImageLocation;
 using $ImageReader = ::jdk::internal::jimage::ImageReader;
 using $SystemModuleFinders = ::jdk::internal::module::SystemModuleFinders;
@@ -71,92 +68,42 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* bb) override {
-		 return $of($nc(inst$)->toInputStream($cast($ByteBuffer, bb)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream>());
+		 return $nc(inst$)->toInputStream($cast($ByteBuffer, bb));
 	}
 	SystemModuleFinders$SystemModuleReader* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, inst$)},
-	{}
-};
-$MethodInfo SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/SystemModuleFinders$SystemModuleReader;)V", nullptr, $PUBLIC, $method(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, init$, void, SystemModuleFinders$SystemModuleReader*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::load$($String* name, bool initialize) {
-	$loadClass(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/SystemModuleFinders$SystemModuleReader;)V", nullptr, $PUBLIC, $method(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, init$, void, SystemModuleFinders$SystemModuleReader*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream);
+	});
 	return class$;
 }
 $Class* SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::class$ = nullptr;
 
-$FieldInfo _SystemModuleFinders$SystemModuleReader_FieldInfo_[] = {
-	{"module", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SystemModuleFinders$SystemModuleReader, module)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SystemModuleFinders$SystemModuleReader, closed)},
-	{}
-};
-
-$MethodInfo _SystemModuleFinders$SystemModuleReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/URI;)V", nullptr, 0, $method(SystemModuleFinders$SystemModuleReader, init$, void, $String*, $URI*)},
-	{"checkPermissionToConnect", "(Ljava/net/URI;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemModuleFinders$SystemModuleReader, checkPermissionToConnect, void, $URI*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, close, void)},
-	{"containsImageLocation", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemModuleReader, containsImageLocation, bool, $String*), "java.io.IOException"},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, find, $Optional*, $String*), "java.io.IOException"},
-	{"findImageLocation", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation;", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemModuleReader, findImageLocation, $ImageLocation*, $String*), "java.io.IOException"},
-	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, list, $Stream*), "java.io.IOException"},
-	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, open, $Optional*, $String*), "java.io.IOException"},
-	{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, read, $Optional*, $String*), "java.io.IOException"},
-	{"release", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, release, void, $ByteBuffer*)},
-	{"toInputStream", "(Ljava/nio/ByteBuffer;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemModuleReader, toInputStream, $InputStream*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _SystemModuleFinders$SystemModuleReader_InnerClassesInfo_[] = {
-	{"jdk.internal.module.SystemModuleFinders$SystemModuleReader", "jdk.internal.module.SystemModuleFinders", "SystemModuleReader", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SystemModuleFinders$SystemModuleReader_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.SystemModuleFinders$SystemModuleReader",
-	"java.lang.Object",
-	"java.lang.module.ModuleReader",
-	_SystemModuleFinders$SystemModuleReader_FieldInfo_,
-	_SystemModuleFinders$SystemModuleReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SystemModuleFinders$SystemModuleReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.SystemModuleFinders"
-};
-
-$Object* allocate$SystemModuleFinders$SystemModuleReader($Class* clazz) {
-	return $of($alloc(SystemModuleFinders$SystemModuleReader));
-}
-
 void SystemModuleFinders$SystemModuleReader::checkPermissionToConnect($URI* uri) {
 	$init(SystemModuleFinders$SystemModuleReader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		try {
-			$var($URLConnection, uc, $nc($($nc(uri)->toURL()))->openConnection());
+			$var($URLConnection, uc, $$nc($nc(uri)->toURL())->openConnection());
 			sm->checkPermission($($nc(uc)->getPermission()));
 		} catch ($IOException& ioe) {
 			$throwNew($UncheckedIOException, ioe);
@@ -196,7 +143,7 @@ bool SystemModuleFinders$SystemModuleReader::containsImageLocation($String* name
 }
 
 $Optional* SystemModuleFinders$SystemModuleReader::find($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (containsImageLocation(name)) {
 		$init($SystemModuleFinders);
 		$var($URI, u, $nc($SystemModuleFinders::JNUA)->create("jrt"_s, $$str({"/"_s, this->module, "/"_s, name})));
@@ -207,43 +154,41 @@ $Optional* SystemModuleFinders$SystemModuleReader::find($String* name) {
 }
 
 $Optional* SystemModuleFinders$SystemModuleReader::open($String* name) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($(read(name)))->map(static_cast<$Function*>($$new(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, this)));
+	$useLocalObjectStack();
+	return $$nc(read(name))->map($$new(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, this));
 }
 
 $InputStream* SystemModuleFinders$SystemModuleReader::toInputStream($ByteBuffer* bb) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($InputStream, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			int32_t rem = $nc(bb)->remaining();
-			$var($bytes, bytes, $new($bytes, rem));
-			bb->get(bytes);
-			$assign(var$2, $new($ByteArrayInputStream, bytes));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			release(bb);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	$var($InputStream, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		int32_t rem = $nc(bb)->remaining();
+		$var($bytes, bytes, $new($bytes, rem));
+		bb->get(bytes);
+		$assign(var$2, $new($ByteArrayInputStream, bytes));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		release(bb);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Optional* SystemModuleFinders$SystemModuleReader::read($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageLocation, location, findImageLocation(name));
 	if (location != nullptr) {
-		return $Optional::of($($nc($($SystemModuleFinders$SystemImage::reader()))->getResourceBuffer(location)));
+		return $Optional::of($($$nc($SystemModuleFinders$SystemImage::reader())->getResourceBuffer(location)));
 	} else {
 		return $Optional::empty();
 	}
@@ -271,11 +216,51 @@ SystemModuleFinders$SystemModuleReader::SystemModuleFinders$SystemModuleReader()
 
 $Class* SystemModuleFinders$SystemModuleReader::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream")) {
 			return SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::load$(name, initialize);
 		}
 	}
-	$loadClass(SystemModuleFinders$SystemModuleReader, name, initialize, &_SystemModuleFinders$SystemModuleReader_ClassInfo_, allocate$SystemModuleFinders$SystemModuleReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"module", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SystemModuleFinders$SystemModuleReader, module)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SystemModuleFinders$SystemModuleReader, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/net/URI;)V", nullptr, 0, $method(SystemModuleFinders$SystemModuleReader, init$, void, $String*, $URI*)},
+		{"checkPermissionToConnect", "(Ljava/net/URI;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemModuleFinders$SystemModuleReader, checkPermissionToConnect, void, $URI*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, close, void)},
+		{"containsImageLocation", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemModuleReader, containsImageLocation, bool, $String*), "java.io.IOException"},
+		{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, find, $Optional*, $String*), "java.io.IOException"},
+		{"findImageLocation", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation;", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemModuleReader, findImageLocation, $ImageLocation*, $String*), "java.io.IOException"},
+		{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, list, $Stream*), "java.io.IOException"},
+		{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, open, $Optional*, $String*), "java.io.IOException"},
+		{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, read, $Optional*, $String*), "java.io.IOException"},
+		{"release", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, release, void, $ByteBuffer*)},
+		{"toInputStream", "(Ljava/nio/ByteBuffer;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemModuleReader, toInputStream, $InputStream*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.SystemModuleFinders$SystemModuleReader", "jdk.internal.module.SystemModuleFinders", "SystemModuleReader", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.SystemModuleFinders$SystemModuleReader",
+		"java.lang.Object",
+		"java.lang.module.ModuleReader",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.SystemModuleFinders"
+	};
+	$loadClass(SystemModuleFinders$SystemModuleReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemModuleFinders$SystemModuleReader);
+	});
 	return class$;
 }
 

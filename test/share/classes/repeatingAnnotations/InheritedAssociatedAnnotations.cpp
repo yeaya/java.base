@@ -1,5 +1,4 @@
 #include <repeatingAnnotations/InheritedAssociatedAnnotations.h>
-
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedElement.h>
 #include <java/util/Arrays.h>
@@ -26,26 +25,6 @@ using $ExpectedAssociated = ::repeatingAnnotations::ExpectedAssociated;
 
 namespace repeatingAnnotations {
 
-$MethodInfo _InheritedAssociatedAnnotations_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedAssociatedAnnotations, init$, void)},
-	{"checkAssociated", "(Ljava/lang/reflect/AnnotatedElement;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InheritedAssociatedAnnotations, checkAssociated, void, $AnnotatedElement*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritedAssociatedAnnotations, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _InheritedAssociatedAnnotations_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"repeatingAnnotations.InheritedAssociatedAnnotations",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_InheritedAssociatedAnnotations_MethodInfo_
-};
-
-$Object* allocate$InheritedAssociatedAnnotations($Class* clazz) {
-	return $of($alloc(InheritedAssociatedAnnotations));
-}
-
 void InheritedAssociatedAnnotations::init$() {
 }
 
@@ -61,16 +40,16 @@ void InheritedAssociatedAnnotations::main($StringArray* args) {
 }
 
 void InheritedAssociatedAnnotations::checkAssociated($AnnotatedElement* ae) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Ann);
-	$var($AnnArray, actual, $fcast($AnnArray, $nc(ae)->getAnnotationsByType($Ann::class$)));
+	$var($AnnArray, actual, $cast($AnnArray, $nc(ae)->getAnnotationsByType($Ann::class$)));
 	$load($ExpectedAssociated);
-	$var($AnnArray, expected, $nc(($cast($ExpectedAssociated, $(ae->getAnnotation($ExpectedAssociated::class$)))))->value());
+	$var($AnnArray, expected, $$sure($ExpectedAssociated, ae->getAnnotation($ExpectedAssociated::class$))->value());
 	if (!$Arrays::equals(actual, expected)) {
 		$throwNew($RuntimeException, $($String::format("Test failed for %s: Expected %s but got %s."_s, $$new($ObjectArray, {
-			$of(ae),
-			$($of($Arrays::toString(expected))),
-			$($of($Arrays::toString(actual)))
+			ae,
+			$($Arrays::toString(expected)),
+			$($Arrays::toString(actual))
 		}))));
 	}
 }
@@ -79,7 +58,23 @@ InheritedAssociatedAnnotations::InheritedAssociatedAnnotations() {
 }
 
 $Class* InheritedAssociatedAnnotations::load$($String* name, bool initialize) {
-	$loadClass(InheritedAssociatedAnnotations, name, initialize, &_InheritedAssociatedAnnotations_ClassInfo_, allocate$InheritedAssociatedAnnotations);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedAssociatedAnnotations, init$, void)},
+		{"checkAssociated", "(Ljava/lang/reflect/AnnotatedElement;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InheritedAssociatedAnnotations, checkAssociated, void, $AnnotatedElement*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritedAssociatedAnnotations, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"repeatingAnnotations.InheritedAssociatedAnnotations",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InheritedAssociatedAnnotations, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InheritedAssociatedAnnotations);
+	});
 	return class$;
 }
 

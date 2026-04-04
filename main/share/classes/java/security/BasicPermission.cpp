@@ -1,5 +1,4 @@
 #include <java/security/BasicPermission.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/security/BasicPermissionCollection.h>
 #include <java/security/Permission.h>
@@ -18,41 +17,6 @@ using $PermissionCollection = ::java::security::PermissionCollection;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _BasicPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicPermission, serialVersionUID)},
-	{"wildcard", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(BasicPermission, wildcard)},
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(BasicPermission, path)},
-	{"exitVM", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(BasicPermission, exitVM)},
-	{}
-};
-
-$MethodInfo _BasicPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicPermission, init$, void, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicPermission, equals, bool, Object$*)},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicPermission, getActions, $String*)},
-	{"getCanonicalName", "()Ljava/lang/String;", nullptr, $FINAL, $method(BasicPermission, getCanonicalName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicPermission, hashCode, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(BasicPermission, implies, bool, $Permission*)},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(BasicPermission, init, void, $String*)},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(BasicPermission, newPermissionCollection, $PermissionCollection*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BasicPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{}
-};
-
-$ClassInfo _BasicPermission_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.BasicPermission",
-	"java.security.Permission",
-	nullptr,
-	_BasicPermission_FieldInfo_,
-	_BasicPermission_MethodInfo_
-};
-
-$Object* allocate$BasicPermission($Class* clazz) {
-	return $of($alloc(BasicPermission));
-}
 
 void BasicPermission::init($String* name) {
 	if (name == nullptr) {
@@ -90,9 +54,9 @@ void BasicPermission::init$($String* name, $String* actions) {
 }
 
 bool BasicPermission::implies($Permission* p) {
-	bool var$0 = (p == nullptr);
+	bool var$0 = p == nullptr;
 	if (!var$0) {
-		var$0 = ($nc($of(p))->getClass() != $of(this)->getClass());
+		var$0 = $of(p)->getClass() != $of(this)->getClass();
 	}
 	if (var$0) {
 		return false;
@@ -103,8 +67,8 @@ bool BasicPermission::implies($Permission* p) {
 			return $nc(that->path)->startsWith(this->path);
 		} else {
 			int32_t var$2 = $nc(that->path)->length();
-			bool var$1 = (var$2 > $nc(this->path)->length());
-			return var$1 && $nc(that->path)->startsWith(this->path);
+			bool var$1 = var$2 > $nc(this->path)->length();
+			return var$1 && that->path->startsWith(this->path);
 		}
 	} else if ($nc(that)->wildcard) {
 		return false;
@@ -114,23 +78,23 @@ bool BasicPermission::implies($Permission* p) {
 }
 
 bool BasicPermission::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
-	bool var$0 = (obj == nullptr);
+	bool var$0 = obj == nullptr;
 	if (!var$0) {
-		var$0 = ($nc($of(obj))->getClass() != $of(this)->getClass());
+		var$0 = $of(obj)->getClass() != $of(this)->getClass();
 	}
 	if (var$0) {
 		return false;
 	}
 	$var(BasicPermission, bp, $cast(BasicPermission, obj));
-	return $nc($(getName()))->equals($($nc(bp)->getName()));
+	return $$nc(getName())->equals($($nc(bp)->getName()));
 }
 
 int32_t BasicPermission::hashCode() {
-	return $nc($(this->getName()))->hashCode();
+	return $$nc(this->getName())->hashCode();
 }
 
 $String* BasicPermission::getActions() {
@@ -154,7 +118,37 @@ BasicPermission::BasicPermission() {
 }
 
 $Class* BasicPermission::load$($String* name, bool initialize) {
-	$loadClass(BasicPermission, name, initialize, &_BasicPermission_ClassInfo_, allocate$BasicPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicPermission, serialVersionUID)},
+		{"wildcard", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(BasicPermission, wildcard)},
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(BasicPermission, path)},
+		{"exitVM", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(BasicPermission, exitVM)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicPermission, init$, void, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicPermission, equals, bool, Object$*)},
+		{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicPermission, getActions, $String*)},
+		{"getCanonicalName", "()Ljava/lang/String;", nullptr, $FINAL, $method(BasicPermission, getCanonicalName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicPermission, hashCode, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(BasicPermission, implies, bool, $Permission*)},
+		{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(BasicPermission, init, void, $String*)},
+		{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(BasicPermission, newPermissionCollection, $PermissionCollection*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BasicPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.BasicPermission",
+		"java.security.Permission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicPermission));
+	});
 	return class$;
 }
 

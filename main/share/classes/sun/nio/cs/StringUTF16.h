@@ -21,6 +21,7 @@ class StringUTF16 : public ::java::lang::Object {
 	$class(StringUTF16, 0, ::java::lang::Object)
 public:
 	StringUTF16();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static char16_t getChar($bytes* val, int32_t index);
 	static ::jdk::internal::misc::Unsafe* unsafe;

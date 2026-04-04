@@ -1,5 +1,4 @@
 #include <sun/net/ProgressSource$State.h>
-
 #include <java/lang/Enum.h>
 #include <sun/net/ProgressSource.h>
 #include <jcpp.h>
@@ -18,48 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace net {
-
-$FieldInfo _ProgressSource$State_FieldInfo_[] = {
-	{"NEW", "Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProgressSource$State, NEW)},
-	{"CONNECTED", "Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProgressSource$State, CONNECTED)},
-	{"UPDATE", "Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProgressSource$State, UPDATE)},
-	{"DELETE", "Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProgressSource$State, DELETE)},
-	{"$VALUES", "[Lsun/net/ProgressSource$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ProgressSource$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _ProgressSource$State_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/ProgressSource$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProgressSource$State, $values, $ProgressSource$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ProgressSource$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProgressSource$State, valueOf, ProgressSource$State*, $String*)},
-	{"values", "()[Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProgressSource$State, values, $ProgressSource$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _ProgressSource$State_InnerClassesInfo_[] = {
-	{"sun.net.ProgressSource$State", "sun.net.ProgressSource", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ProgressSource$State_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.net.ProgressSource$State",
-	"java.lang.Enum",
-	nullptr,
-	_ProgressSource$State_FieldInfo_,
-	_ProgressSource$State_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/net/ProgressSource$State;>;",
-	nullptr,
-	_ProgressSource$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.ProgressSource"
-};
-
-$Object* allocate$ProgressSource$State($Class* clazz) {
-	return $of($alloc(ProgressSource$State));
-}
 
 ProgressSource$State* ProgressSource$State::NEW = nullptr;
 ProgressSource$State* ProgressSource$State::CONNECTED = nullptr;
@@ -91,7 +48,7 @@ void ProgressSource$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ProgressSource$State($Class* class$) {
+void ProgressSource$State::clinit$($Class* clazz) {
 	$assignStatic(ProgressSource$State::NEW, $new(ProgressSource$State, "NEW"_s, 0));
 	$assignStatic(ProgressSource$State::CONNECTED, $new(ProgressSource$State, "CONNECTED"_s, 1));
 	$assignStatic(ProgressSource$State::UPDATE, $new(ProgressSource$State, "UPDATE"_s, 2));
@@ -103,7 +60,43 @@ ProgressSource$State::ProgressSource$State() {
 }
 
 $Class* ProgressSource$State::load$($String* name, bool initialize) {
-	$loadClass(ProgressSource$State, name, initialize, &_ProgressSource$State_ClassInfo_, clinit$ProgressSource$State, allocate$ProgressSource$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"NEW", "Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProgressSource$State, NEW)},
+		{"CONNECTED", "Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProgressSource$State, CONNECTED)},
+		{"UPDATE", "Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProgressSource$State, UPDATE)},
+		{"DELETE", "Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProgressSource$State, DELETE)},
+		{"$VALUES", "[Lsun/net/ProgressSource$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ProgressSource$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/net/ProgressSource$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProgressSource$State, $values, $ProgressSource$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ProgressSource$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProgressSource$State, valueOf, ProgressSource$State*, $String*)},
+		{"values", "()[Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProgressSource$State, values, $ProgressSource$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.ProgressSource$State", "sun.net.ProgressSource", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.net.ProgressSource$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/net/ProgressSource$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.ProgressSource"
+	};
+	$loadClass(ProgressSource$State, name, initialize, &classInfo$$, ProgressSource$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProgressSource$State));
+	});
 	return class$;
 }
 

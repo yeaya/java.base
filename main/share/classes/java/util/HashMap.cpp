@@ -1,5 +1,4 @@
 #include <java/util/HashMap.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -73,126 +72,10 @@ using $Set = ::java::util::Set;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $BiFunction = ::java::util::function::BiFunction;
 using $Function = ::java::util::function::Function;
-using $JavaObjectInputStreamAccess = ::jdk::internal::access::JavaObjectInputStreamAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _HashMap_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HashMap, serialVersionUID)},
-	{"DEFAULT_INITIAL_CAPACITY", "I", nullptr, $STATIC | $FINAL, $constField(HashMap, DEFAULT_INITIAL_CAPACITY)},
-	{"MAXIMUM_CAPACITY", "I", nullptr, $STATIC | $FINAL, $constField(HashMap, MAXIMUM_CAPACITY)},
-	{"DEFAULT_LOAD_FACTOR", "F", nullptr, $STATIC | $FINAL, $staticField(HashMap, DEFAULT_LOAD_FACTOR)},
-	{"TREEIFY_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(HashMap, TREEIFY_THRESHOLD)},
-	{"UNTREEIFY_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(HashMap, UNTREEIFY_THRESHOLD)},
-	{"MIN_TREEIFY_CAPACITY", "I", nullptr, $STATIC | $FINAL, $constField(HashMap, MIN_TREEIFY_CAPACITY)},
-	{"table", "[Ljava/util/HashMap$Node;", "[Ljava/util/HashMap$Node<TK;TV;>;", $TRANSIENT, $field(HashMap, table)},
-	{"entrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $TRANSIENT, $field(HashMap, entrySet$)},
-	{"size", "I", nullptr, $TRANSIENT, $field(HashMap, size$)},
-	{"modCount", "I", nullptr, $TRANSIENT, $field(HashMap, modCount)},
-	{"threshold", "I", nullptr, 0, $field(HashMap, threshold)},
-	{"loadFactor", "F", nullptr, $FINAL, $field(HashMap, loadFactor$)},
-	{}
-};
-
-$MethodInfo _HashMap_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(IF)V", nullptr, $PUBLIC, $method(HashMap, init$, void, int32_t, float)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(HashMap, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HashMap, init$, void)},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $method(HashMap, init$, void, $Map*)},
-	{"afterNodeAccess", "(Ljava/util/HashMap$Node;)V", "(Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $virtualMethod(HashMap, afterNodeAccess, void, $HashMap$Node*)},
-	{"afterNodeInsertion", "(Z)V", nullptr, 0, $virtualMethod(HashMap, afterNodeInsertion, void, bool)},
-	{"afterNodeRemoval", "(Ljava/util/HashMap$Node;)V", "(Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $virtualMethod(HashMap, afterNodeRemoval, void, $HashMap$Node*)},
-	{"capacity", "()I", nullptr, $FINAL, $method(HashMap, capacity, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(HashMap, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HashMap, clone, $Object*)},
-	{"comparableClassFor", "(Ljava/lang/Object;)Ljava/lang/Class;", "(Ljava/lang/Object;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(HashMap, comparableClassFor, $Class*, Object$*)},
-	{"compareComparables", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;)I", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;)I", $STATIC, $staticMethod(HashMap, compareComparables, int32_t, $Class*, Object$*, Object$*)},
-	{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(HashMap, compute, $Object*, Object$*, $BiFunction*)},
-	{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(TK;Ljava/util/function/Function<-TK;+TV;>;)TV;", $PUBLIC, $virtualMethod(HashMap, computeIfAbsent, $Object*, Object$*, $Function*)},
-	{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(HashMap, computeIfPresent, $Object*, Object$*, $BiFunction*)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashMap, containsKey, bool, Object$*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashMap, containsValue, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(HashMap, entrySet, $Set*)},
-	{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC, $virtualMethod(HashMap, forEach, void, $BiConsumer*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(HashMap, get, $Object*, Object$*)},
-	{"getNode", "(Ljava/lang/Object;)Ljava/util/HashMap$Node;", "(Ljava/lang/Object;)Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(HashMap, getNode, $HashMap$Node*, Object$*)},
-	{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TV;)TV;", $PUBLIC, $virtualMethod(HashMap, getOrDefault, $Object*, Object$*, Object$*)},
-	{"hash", "(Ljava/lang/Object;)I", nullptr, $STATIC | $FINAL, $staticMethod(HashMap, hash, int32_t, Object$*)},
-	{"internalWriteEntries", "(Ljava/io/ObjectOutputStream;)V", nullptr, 0, $virtualMethod(HashMap, internalWriteEntries, void, $ObjectOutputStream*), "java.io.IOException"},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(HashMap, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(HashMap, keySet, $Set*)},
-	{"keysToArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", 0, $virtualMethod(HashMap, keysToArray, $ObjectArray*, $ObjectArray*)},
-	{"loadFactor", "()F", nullptr, $FINAL, $method(HashMap, loadFactor, float)},
-	{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;TV;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(HashMap, merge, $Object*, Object$*, Object$*, $BiFunction*)},
-	{"newNode", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)Ljava/util/HashMap$Node;", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$Node<TK;TV;>;", 0, $virtualMethod(HashMap, newNode, $HashMap$Node*, int32_t, Object$*, Object$*, $HashMap$Node*)},
-	{"newTreeNode", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)Ljava/util/HashMap$TreeNode;", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $virtualMethod(HashMap, newTreeNode, $HashMap$TreeNode*, int32_t, Object$*, Object$*, $HashMap$Node*)},
-	{"prepareArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $FINAL, $method(HashMap, prepareArray, $ObjectArray*, $ObjectArray*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(HashMap, put, $Object*, Object$*, Object$*)},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $virtualMethod(HashMap, putAll, void, $Map*)},
-	{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(HashMap, putIfAbsent, $Object*, Object$*, Object$*)},
-	{"putMapEntries", "(Ljava/util/Map;Z)V", "(Ljava/util/Map<+TK;+TV;>;Z)V", $FINAL, $method(HashMap, putMapEntries, void, $Map*, bool)},
-	{"putVal", "(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object;", "(ITK;TV;ZZ)TV;", $FINAL, $method(HashMap, putVal, $Object*, int32_t, Object$*, Object$*, bool, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(HashMap, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"reinitialize", "()V", nullptr, 0, $virtualMethod(HashMap, reinitialize, void)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(HashMap, remove, $Object*, Object$*)},
-	{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashMap, remove, bool, Object$*, Object$*)},
-	{"removeNode", "(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/util/HashMap$Node;", "(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(HashMap, removeNode, $HashMap$Node*, int32_t, Object$*, Object$*, bool, bool)},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK;TV;TV;)Z", $PUBLIC, $virtualMethod(HashMap, replace, bool, Object$*, Object$*, Object$*)},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(HashMap, replace, $Object*, Object$*, Object$*)},
-	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(HashMap, replaceAll, void, $BiFunction*)},
-	{"replacementNode", "(Ljava/util/HashMap$Node;Ljava/util/HashMap$Node;)Ljava/util/HashMap$Node;", "(Ljava/util/HashMap$Node<TK;TV;>;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$Node<TK;TV;>;", 0, $virtualMethod(HashMap, replacementNode, $HashMap$Node*, $HashMap$Node*, $HashMap$Node*)},
-	{"replacementTreeNode", "(Ljava/util/HashMap$Node;Ljava/util/HashMap$Node;)Ljava/util/HashMap$TreeNode;", "(Ljava/util/HashMap$Node<TK;TV;>;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $virtualMethod(HashMap, replacementTreeNode, $HashMap$TreeNode*, $HashMap$Node*, $HashMap$Node*)},
-	{"resize", "()[Ljava/util/HashMap$Node;", "()[Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(HashMap, resize, $HashMap$NodeArray*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(HashMap, size, int32_t)},
-	{"tableSizeFor", "(I)I", nullptr, $STATIC | $FINAL, $staticMethod(HashMap, tableSizeFor, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"treeifyBin", "([Ljava/util/HashMap$Node;I)V", "([Ljava/util/HashMap$Node<TK;TV;>;I)V", $FINAL, $method(HashMap, treeifyBin, void, $HashMap$NodeArray*, int32_t)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(HashMap, values, $Collection*)},
-	{"valuesToArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", 0, $virtualMethod(HashMap, valuesToArray, $ObjectArray*, $ObjectArray*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(HashMap, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _HashMap_InnerClassesInfo_[] = {
-	{"java.util.HashMap$TreeNode", "java.util.HashMap", "TreeNode", $STATIC | $FINAL},
-	{"java.util.HashMap$EntrySpliterator", "java.util.HashMap", "EntrySpliterator", $STATIC | $FINAL},
-	{"java.util.HashMap$ValueSpliterator", "java.util.HashMap", "ValueSpliterator", $STATIC | $FINAL},
-	{"java.util.HashMap$KeySpliterator", "java.util.HashMap", "KeySpliterator", $STATIC | $FINAL},
-	{"java.util.HashMap$HashMapSpliterator", "java.util.HashMap", "HashMapSpliterator", $STATIC},
-	{"java.util.HashMap$EntryIterator", "java.util.HashMap", "EntryIterator", $FINAL},
-	{"java.util.HashMap$ValueIterator", "java.util.HashMap", "ValueIterator", $FINAL},
-	{"java.util.HashMap$KeyIterator", "java.util.HashMap", "KeyIterator", $FINAL},
-	{"java.util.HashMap$HashIterator", "java.util.HashMap", "HashIterator", $ABSTRACT},
-	{"java.util.HashMap$EntrySet", "java.util.HashMap", "EntrySet", $FINAL},
-	{"java.util.HashMap$Values", "java.util.HashMap", "Values", $FINAL},
-	{"java.util.HashMap$KeySet", "java.util.HashMap", "KeySet", $FINAL},
-	{"java.util.HashMap$Node", "java.util.HashMap", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _HashMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.HashMap",
-	"java.util.AbstractMap",
-	"java.lang.Cloneable,java.io.Serializable",
-	_HashMap_FieldInfo_,
-	_HashMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/AbstractMap<TK;TV;>;Ljava/util/Map<TK;TV;>;Ljava/lang/Cloneable;Ljava/io/Serializable;",
-	nullptr,
-	_HashMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.HashMap$TreeNode,java.util.HashMap$EntrySpliterator,java.util.HashMap$ValueSpliterator,java.util.HashMap$KeySpliterator,java.util.HashMap$HashMapSpliterator,java.util.HashMap$EntryIterator,java.util.HashMap$ValueIterator,java.util.HashMap$KeyIterator,java.util.HashMap$HashIterator,java.util.HashMap$EntrySet,java.util.HashMap$Values,java.util.HashMap$KeySet,java.util.HashMap$Node"
-};
-
-$Object* allocate$HashMap($Class* clazz) {
-	return $of($alloc(HashMap));
-}
 
 bool HashMap::equals(Object$* o) {
 	 return this->$AbstractMap::equals(o);
@@ -215,33 +98,29 @@ float HashMap::DEFAULT_LOAD_FACTOR = 0.0;
 int32_t HashMap::hash(Object$* key) {
 	$init(HashMap);
 	int32_t h = 0;
-	return (key == nullptr) ? 0 : (h = $nc($of(key))->hashCode()) ^ ((int32_t)((uint32_t)h >> 16));
+	return (key == nullptr) ? 0 : (h = $of(key)->hashCode()) ^ ((int32_t)((uint32_t)h >> 16));
 }
 
 $Class* HashMap::comparableClassFor(Object$* x) {
 	$init(HashMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Comparable, x)) {
 		$Class* c = nullptr;
 		$var($TypeArray, ts, nullptr);
 		$var($TypeArray, as, nullptr);
 		$var($ParameterizedType, p, nullptr);
-		if ((c = $nc($of(x))->getClass()) == $String::class$) {
+		if ((c = $of(x)->getClass()) == $String::class$) {
 			return c;
 		}
-		if (($assign(ts, $nc(c)->getGenericInterfaces())) != nullptr) {
-			{
-				$var($TypeArray, arr$, ts);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($Type, t, arr$->get(i$));
-					{
-						$load($Comparable);
-						bool var$0 = ($instanceOf($ParameterizedType, t)) && ($equals($nc(($assign(p, $cast($ParameterizedType, t))))->getRawType(), $Comparable::class$));
-						if (var$0 && ($assign(as, $nc(p)->getActualTypeArguments())) != nullptr && $nc(as)->length == 1 && $equals(as->get(0), c)) {
-							return c;
-						}
+		if (($assign(ts, c->getGenericInterfaces())) != nullptr) {
+			$var($TypeArray, arr$, ts);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($Type, t, arr$->get(i$));
+				{
+					$load($Comparable);
+					bool var$0 = ($instanceOf($ParameterizedType, t)) && ($equals($nc(($assign(p, $cast($ParameterizedType, t))))->getRawType(), $Comparable::class$));
+					if (var$0 && ($assign(as, $nc(p)->getActualTypeArguments())) != nullptr && $nc(as)->length == 1 && $equals(as->get(0), c)) {
+						return c;
 					}
 				}
 			}
@@ -252,7 +131,7 @@ $Class* HashMap::comparableClassFor(Object$* x) {
 
 int32_t HashMap::compareComparables($Class* kc, Object$* k, Object$* x) {
 	$init(HashMap);
-	return (x == nullptr || $nc($of(x))->getClass() != kc ? 0 : $nc(($cast($Comparable, k)))->compareTo(x));
+	return (x == nullptr || $of(x)->getClass() != kc ? 0 : $nc($cast($Comparable, k))->compareTo(x));
 }
 
 int32_t HashMap::tableSizeFor(int32_t cap) {
@@ -262,7 +141,7 @@ int32_t HashMap::tableSizeFor(int32_t cap) {
 }
 
 void HashMap::init$(int32_t initialCapacity, float loadFactor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractMap::init$();
 	if (initialCapacity < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal initial capacity: "_s, $$str(initialCapacity)}));
@@ -293,7 +172,7 @@ void HashMap::init$($Map* m) {
 }
 
 void HashMap::putMapEntries($Map* m, bool evict) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t s = $nc(m)->size();
 	if (s > 0) {
 		if (this->table == nullptr) {
@@ -303,12 +182,12 @@ void HashMap::putMapEntries($Map* m, bool evict) {
 				this->threshold = tableSizeFor(t);
 			}
 		} else {
-			while (s > this->threshold && $nc(this->table)->length < HashMap::MAXIMUM_CAPACITY) {
+			while (s > this->threshold && this->table->length < HashMap::MAXIMUM_CAPACITY) {
 				resize();
 			}
 		}
 		{
-			$var($Iterator, i$, $nc($(m->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc(m->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 				{
@@ -331,11 +210,11 @@ bool HashMap::isEmpty() {
 
 $Object* HashMap::get(Object$* key) {
 	$var($HashMap$Node, e, nullptr);
-	return $of(($assign(e, getNode(key))) == nullptr ? ($Object*)nullptr : $nc(e)->value);
+	return ($assign(e, getNode(key))) == nullptr ? ($Object*)nullptr : $nc(e)->value;
 }
 
 $HashMap$Node* HashMap::getNode(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$NodeArray, tab, nullptr);
 	$var($HashMap$Node, first, nullptr);
 	$var($HashMap$Node, e, nullptr);
@@ -344,24 +223,24 @@ $HashMap$Node* HashMap::getNode(Object$* key) {
 	$var($Object, k, nullptr);
 	bool var$1 = ($assign(tab, this->table)) != nullptr;
 	bool var$0 = var$1 && (n = $nc(tab)->length) > 0;
-	if (var$0 && ($assign(first, tab->get((int32_t)((n - 1) & (uint32_t)(hash = HashMap::hash(key)))))) != nullptr) {
+	if (var$0 && ($assign(first, tab->get((n - 1) & (hash = HashMap::hash(key))))) != nullptr) {
 		bool var$2 = $nc(first)->hash == hash;
 		if (var$2) {
 			bool var$3 = $equals($assign(k, first->key), key);
-			var$2 = (var$3 || (key != nullptr && $of(key)->equals(k)));
+			var$2 = var$3 || (key != nullptr && $of(key)->equals(k));
 		}
 		if (var$2) {
 			return first;
 		}
-		if (($assign(e, $nc(first)->next)) != nullptr) {
+		if (($assign(e, first->next)) != nullptr) {
 			if ($instanceOf($HashMap$TreeNode, first)) {
-				return $nc(($cast($HashMap$TreeNode, first)))->getTreeNode(hash, key);
+				return $cast($HashMap$TreeNode, first)->getTreeNode(hash, key);
 			}
 			do {
 				bool var$4 = $nc(e)->hash == hash;
 				if (var$4) {
 					bool var$5 = $equals($assign(k, e->key), key);
-					var$4 = (var$5 || (key != nullptr && $of(key)->equals(k)));
+					var$4 = var$5 || (key != nullptr && $of(key)->equals(k));
 				}
 				if (var$4) {
 					return e;
@@ -377,11 +256,11 @@ bool HashMap::containsKey(Object$* key) {
 }
 
 $Object* HashMap::put(Object$* key, Object$* value) {
-	return $of(putVal(hash(key), key, value, false, true));
+	return putVal(hash(key), key, value, false, true);
 }
 
 $Object* HashMap::putVal(int32_t hash, Object$* key, Object$* value, bool onlyIfAbsent, bool evict) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$NodeArray, tab, nullptr);
 	$var($HashMap$Node, p, nullptr);
 	int32_t n = 0;
@@ -390,7 +269,7 @@ $Object* HashMap::putVal(int32_t hash, Object$* key, Object$* value, bool onlyIf
 	if (var$0 || (n = $nc(tab)->length) == 0) {
 		n = $nc(($assign(tab, resize())))->length;
 	}
-	if (($assign(p, $nc(tab)->get(i = (int32_t)((n - 1) & (uint32_t)hash)))) == nullptr) {
+	if (($assign(p, $nc(tab)->get(i = (n - 1) & hash))) == nullptr) {
 		tab->set(i, $(newNode(hash, key, value, nullptr)));
 	} else {
 		$var($HashMap$Node, e, nullptr);
@@ -398,12 +277,12 @@ $Object* HashMap::putVal(int32_t hash, Object$* key, Object$* value, bool onlyIf
 		bool var$1 = $nc(p)->hash == hash;
 		if (var$1) {
 			bool var$2 = $equals($assign(k, p->key), key);
-			var$1 = (var$2 || (key != nullptr && $of(key)->equals(k)));
+			var$1 = var$2 || (key != nullptr && $of(key)->equals(k));
 		}
 		if (var$1) {
 			$assign(e, p);
 		} else if ($instanceOf($HashMap$TreeNode, p)) {
-			$assign(e, $nc(($cast($HashMap$TreeNode, p)))->putTreeVal(this, tab, hash, key, value));
+			$assign(e, $cast($HashMap$TreeNode, p)->putTreeVal(this, tab, hash, key, value));
 		} else {
 			for (int32_t binCount = 0;; ++binCount) {
 				if (($assign(e, $nc(p)->next)) == nullptr) {
@@ -416,7 +295,7 @@ $Object* HashMap::putVal(int32_t hash, Object$* key, Object$* value, bool onlyIf
 				bool var$3 = $nc(e)->hash == hash;
 				if (var$3) {
 					bool var$4 = $equals($assign(k, e->key), key);
-					var$3 = (var$4 || (key != nullptr && $of(key)->equals(k)));
+					var$3 = var$4 || (key != nullptr && $of(key)->equals(k));
 				}
 				if (var$3) {
 					break;
@@ -430,7 +309,7 @@ $Object* HashMap::putVal(int32_t hash, Object$* key, Object$* value, bool onlyIf
 				$set(e, value, value);
 			}
 			afterNodeAccess(e);
-			return $of(oldValue);
+			return oldValue;
 		}
 	}
 	++this->modCount;
@@ -438,13 +317,13 @@ $Object* HashMap::putVal(int32_t hash, Object$* key, Object$* value, bool onlyIf
 		resize();
 	}
 	afterNodeInsertion(evict);
-	return $of(nullptr);
+	return nullptr;
 }
 
 $HashMap$NodeArray* HashMap::resize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$NodeArray, oldTab, this->table);
-	int32_t oldCap = (oldTab == nullptr) ? 0 : $nc(oldTab)->length;
+	int32_t oldCap = (oldTab == nullptr) ? 0 : oldTab->length;
 	int32_t oldThr = this->threshold;
 	int32_t newCap = 0;
 	int32_t newThr = 0;
@@ -474,9 +353,9 @@ $HashMap$NodeArray* HashMap::resize() {
 			if (($assign(e, oldTab->get(j))) != nullptr) {
 				oldTab->set(j, nullptr);
 				if ($nc(e)->next == nullptr) {
-					newTab->set((int32_t)(e->hash & (uint32_t)(newCap - 1)), e);
+					newTab->set(e->hash & (newCap - 1), e);
 				} else if ($instanceOf($HashMap$TreeNode, e)) {
-					$nc(($cast($HashMap$TreeNode, e)))->split(this, newTab, j, oldCap);
+					$cast($HashMap$TreeNode, e)->split(this, newTab, j, oldCap);
 				} else {
 					$var($HashMap$Node, loHead, nullptr);
 					$var($HashMap$Node, loTail, nullptr);
@@ -485,18 +364,18 @@ $HashMap$NodeArray* HashMap::resize() {
 					$var($HashMap$Node, next, nullptr);
 					do {
 						$assign(next, e->next);
-						if (((int32_t)(e->hash & (uint32_t)oldCap)) == 0) {
+						if ((e->hash & oldCap) == 0) {
 							if (loTail == nullptr) {
 								$assign(loHead, e);
 							} else {
-								$set($nc(loTail), next, e);
+								$set(loTail, next, e);
 							}
 							$assign(loTail, e);
 						} else {
 							if (hiTail == nullptr) {
 								$assign(hiHead, e);
 							} else {
-								$set($nc(hiTail), next, e);
+								$set(hiTail, next, e);
 							}
 							$assign(hiTail, e);
 						}
@@ -517,13 +396,13 @@ $HashMap$NodeArray* HashMap::resize() {
 }
 
 void HashMap::treeifyBin($HashMap$NodeArray* tab, int32_t hash) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 0;
 	int32_t index = 0;
 	$var($HashMap$Node, e, nullptr);
-	if (tab == nullptr || (n = $nc(tab)->length) < HashMap::MIN_TREEIFY_CAPACITY) {
+	if (tab == nullptr || (n = tab->length) < HashMap::MIN_TREEIFY_CAPACITY) {
 		resize();
-	} else if (($assign(e, tab->get(index = (int32_t)((n - 1) & (uint32_t)hash)))) != nullptr) {
+	} else if (($assign(e, tab->get(index = (n - 1) & hash))) != nullptr) {
 		$var($HashMap$TreeNode, hd, nullptr);
 		$var($HashMap$TreeNode, tl, nullptr);
 		do {
@@ -532,7 +411,7 @@ void HashMap::treeifyBin($HashMap$NodeArray* tab, int32_t hash) {
 				$assign(hd, p);
 			} else {
 				$set($nc(p), prev, tl);
-				$set($nc(tl), next, p);
+				$set(tl, next, p);
 			}
 			$assign(tl, p);
 		} while (($assign(e, $nc(e)->next)) != nullptr);
@@ -548,18 +427,18 @@ void HashMap::putAll($Map* m) {
 
 $Object* HashMap::remove(Object$* key) {
 	$var($HashMap$Node, e, nullptr);
-	return $of(($assign(e, removeNode(hash(key), key, nullptr, false, true))) == nullptr ? ($Object*)nullptr : $nc(e)->value);
+	return ($assign(e, removeNode(hash(key), key, nullptr, false, true))) == nullptr ? ($Object*)nullptr : $nc(e)->value;
 }
 
 $HashMap$Node* HashMap::removeNode(int32_t hash, Object$* key, Object$* value, bool matchValue, bool movable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$NodeArray, tab, nullptr);
 	$var($HashMap$Node, p, nullptr);
 	int32_t n = 0;
 	int32_t index = 0;
 	bool var$1 = ($assign(tab, this->table)) != nullptr;
 	bool var$0 = var$1 && (n = $nc(tab)->length) > 0;
-	if (var$0 && ($assign(p, tab->get(index = (int32_t)((n - 1) & (uint32_t)hash)))) != nullptr) {
+	if (var$0 && ($assign(p, tab->get(index = (n - 1) & hash))) != nullptr) {
 		$var($HashMap$Node, node, nullptr);
 		$var($HashMap$Node, e, nullptr);
 		$var($Object, k, nullptr);
@@ -567,19 +446,19 @@ $HashMap$Node* HashMap::removeNode(int32_t hash, Object$* key, Object$* value, b
 		bool var$2 = $nc(p)->hash == hash;
 		if (var$2) {
 			bool var$3 = $equals($assign(k, p->key), key);
-			var$2 = (var$3 || (key != nullptr && $of(key)->equals(k)));
+			var$2 = var$3 || (key != nullptr && $of(key)->equals(k));
 		}
 		if (var$2) {
 			$assign(node, p);
-		} else if (($assign(e, $nc(p)->next)) != nullptr) {
+		} else if (($assign(e, p->next)) != nullptr) {
 			if ($instanceOf($HashMap$TreeNode, p)) {
-				$assign(node, $nc(($cast($HashMap$TreeNode, p)))->getTreeNode(hash, key));
+				$assign(node, $cast($HashMap$TreeNode, p)->getTreeNode(hash, key));
 			} else {
 				do {
 					bool var$4 = $nc(e)->hash == hash;
 					if (var$4) {
 						bool var$5 = $equals($assign(k, e->key), key);
-						var$4 = (var$5 || (key != nullptr && $of(key)->equals(k)));
+						var$4 = var$5 || (key != nullptr && $of(key)->equals(k));
 					}
 					if (var$4) {
 						$assign(node, e);
@@ -591,12 +470,12 @@ $HashMap$Node* HashMap::removeNode(int32_t hash, Object$* key, Object$* value, b
 		}
 		bool var$6 = node != nullptr;
 		if (var$6) {
-			bool var$7 = !matchValue || $equals($assign(v, $nc(node)->value), value);
-			var$6 = (var$7 || (value != nullptr && $of(value)->equals(v)));
+			bool var$7 = !matchValue || $equals($assign(v, node->value), value);
+			var$6 = var$7 || (value != nullptr && $of(value)->equals(v));
 		}
 		if (var$6) {
 			if ($instanceOf($HashMap$TreeNode, node)) {
-				$nc(($cast($HashMap$TreeNode, node)))->removeTreeNode(this, tab, movable);
+				$cast($HashMap$TreeNode, node)->removeTreeNode(this, tab, movable);
 			} else if (node == p) {
 				tab->set(index, $nc(node)->next);
 			} else {
@@ -623,23 +502,17 @@ void HashMap::clear() {
 }
 
 bool HashMap::containsValue(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$NodeArray, tab, nullptr);
 	$var($Object, v, nullptr);
 	if (($assign(tab, this->table)) != nullptr && this->size$ > 0) {
-		{
-			$var($HashMap$NodeArray, arr$, tab);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($HashMap$Node, e, arr$->get(i$));
-				{
-					for (; e != nullptr; $assign(e, $nc(e)->next)) {
-						bool var$0 = $equals($assign(v, e->value), value);
-						if (var$0 || (value != nullptr && $of(value)->equals(v))) {
-							return true;
-						}
-					}
+		$var($HashMap$NodeArray, arr$, tab);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($HashMap$Node, e, arr$->get(i$));
+			for (; e != nullptr; $assign(e, e->next)) {
+				bool var$0 = $equals($assign(v, e->value), value);
+				if (var$0 || (value != nullptr && $of(value)->equals(v))) {
+					return true;
 				}
 			}
 		}
@@ -661,29 +534,23 @@ $ObjectArray* HashMap::prepareArray($ObjectArray* a) {
 	if ($nc(a)->length < size) {
 		return $cast($ObjectArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), size));
 	}
-	if ($nc(a)->length > size) {
+	if (a->length > size) {
 		a->set(size, nullptr);
 	}
 	return a;
 }
 
 $ObjectArray* HashMap::keysToArray($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, r, a);
 	$var($HashMap$NodeArray, tab, nullptr);
 	int32_t idx = 0;
 	if (this->size$ > 0 && ($assign(tab, this->table)) != nullptr) {
-		{
-			$var($HashMap$NodeArray, arr$, tab);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($HashMap$Node, e, arr$->get(i$));
-				{
-					for (; e != nullptr; $assign(e, $nc(e)->next)) {
-						$nc(r)->set(idx++, e->key);
-					}
-				}
+		$var($HashMap$NodeArray, arr$, tab);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($HashMap$Node, e, arr$->get(i$));
+			for (; e != nullptr; $assign(e, e->next)) {
+				$nc(r)->set(idx++, e->key);
 			}
 		}
 	}
@@ -691,22 +558,16 @@ $ObjectArray* HashMap::keysToArray($ObjectArray* a) {
 }
 
 $ObjectArray* HashMap::valuesToArray($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, r, a);
 	$var($HashMap$NodeArray, tab, nullptr);
 	int32_t idx = 0;
 	if (this->size$ > 0 && ($assign(tab, this->table)) != nullptr) {
-		{
-			$var($HashMap$NodeArray, arr$, tab);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($HashMap$Node, e, arr$->get(i$));
-				{
-					for (; e != nullptr; $assign(e, $nc(e)->next)) {
-						$nc(r)->set(idx++, e->value);
-					}
-				}
+		$var($HashMap$NodeArray, arr$, tab);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($HashMap$Node, e, arr$->get(i$));
+			for (; e != nullptr; $assign(e, e->next)) {
+				$nc(r)->set(idx++, e->value);
 			}
 		}
 	}
@@ -729,11 +590,11 @@ $Set* HashMap::entrySet() {
 
 $Object* HashMap::getOrDefault(Object$* key, Object$* defaultValue) {
 	$var($HashMap$Node, e, nullptr);
-	return $of(($assign(e, getNode(key))) == nullptr ? $of(defaultValue) : $nc(e)->value);
+	return ($assign(e, getNode(key))) == nullptr ? $of(defaultValue) : $nc(e)->value;
 }
 
 $Object* HashMap::putIfAbsent(Object$* key, Object$* value) {
-	return $of(putVal(hash(key), key, value, true, true));
+	return putVal(hash(key), key, value, true, true);
 }
 
 bool HashMap::remove(Object$* key, Object$* value) {
@@ -741,13 +602,13 @@ bool HashMap::remove(Object$* key, Object$* value) {
 }
 
 bool HashMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$Node, e, nullptr);
 	$var($Object, v, nullptr);
 	bool var$0 = ($assign(e, getNode(key))) != nullptr;
 	if (var$0) {
 		bool var$1 = $equals($assign(v, $nc(e)->value), oldValue);
-		var$0 = (var$1 || (v != nullptr && $of(v)->equals(oldValue)));
+		var$0 = var$1 || (v != nullptr && v->equals(oldValue));
 	}
 	if (var$0) {
 		$set($nc(e), value, newValue);
@@ -758,19 +619,19 @@ bool HashMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
 }
 
 $Object* HashMap::replace(Object$* key, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$Node, e, nullptr);
 	if (($assign(e, getNode(key))) != nullptr) {
 		$var($Object, oldValue, $nc(e)->value);
 		$set(e, value, value);
 		afterNodeAccess(e);
-		return $of(oldValue);
+		return oldValue;
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* HashMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -786,7 +647,7 @@ $Object* HashMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 	if (var$0 || (n = $nc(tab)->length) == 0) {
 		n = $nc(($assign(tab, resize())))->length;
 	}
-	if (($assign(first, $nc(tab)->get(i = (int32_t)((n - 1) & (uint32_t)hash)))) != nullptr) {
+	if (($assign(first, $nc(tab)->get(i = (n - 1) & hash))) != nullptr) {
 		if ($instanceOf($HashMap$TreeNode, first)) {
 			$assign(old, $nc(($assign(t, $cast($HashMap$TreeNode, first))))->getTreeNode(hash, key));
 		} else {
@@ -796,7 +657,7 @@ $Object* HashMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 				bool var$1 = $nc(e)->hash == hash;
 				if (var$1) {
 					bool var$2 = $equals($assign(k, e->key), key);
-					var$1 = (var$2 || (key != nullptr && $of(key)->equals(k)));
+					var$1 = var$2 || (key != nullptr && $of(key)->equals(k));
 				}
 				if (var$1) {
 					$assign(old, e);
@@ -808,7 +669,7 @@ $Object* HashMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 		$var($Object, oldValue, nullptr);
 		if (old != nullptr && ($assign(oldValue, old->value)) != nullptr) {
 			afterNodeAccess(old);
-			return $of(oldValue);
+			return oldValue;
 		}
 	}
 	int32_t mc = this->modCount;
@@ -817,15 +678,15 @@ $Object* HashMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 		$throwNew($ConcurrentModificationException);
 	}
 	if (v == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	} else if (old != nullptr) {
 		$set(old, value, v);
 		afterNodeAccess(old);
-		return $of(v);
+		return v;
 	} else if (t != nullptr) {
 		t->putTreeVal(this, tab, hash, key, v);
 	} else {
-		$nc(tab)->set(i, $(newNode(hash, key, v, first)));
+		tab->set(i, $(newNode(hash, key, v, first)));
 		if (binCount >= HashMap::TREEIFY_THRESHOLD - 1) {
 			treeifyBin(tab, hash);
 		}
@@ -833,11 +694,11 @@ $Object* HashMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 	this->modCount = mc + 1;
 	++this->size$;
 	afterNodeInsertion(true);
-	return $of(v);
+	return v;
 }
 
 $Object* HashMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -852,17 +713,17 @@ $Object* HashMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction)
 		if (v != nullptr) {
 			$set(e, value, v);
 			afterNodeAccess(e);
-			return $of(v);
+			return v;
 		} else {
 			int32_t hash = HashMap::hash(key);
 			removeNode(hash, key, nullptr, false, true);
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* HashMap::compute(Object$* key, $BiFunction* remappingFunction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -878,7 +739,7 @@ $Object* HashMap::compute(Object$* key, $BiFunction* remappingFunction) {
 	if (var$0 || (n = $nc(tab)->length) == 0) {
 		n = $nc(($assign(tab, resize())))->length;
 	}
-	if (($assign(first, $nc(tab)->get(i = (int32_t)((n - 1) & (uint32_t)hash)))) != nullptr) {
+	if (($assign(first, $nc(tab)->get(i = (n - 1) & hash))) != nullptr) {
 		if ($instanceOf($HashMap$TreeNode, first)) {
 			$assign(old, $nc(($assign(t, $cast($HashMap$TreeNode, first))))->getTreeNode(hash, key));
 		} else {
@@ -888,7 +749,7 @@ $Object* HashMap::compute(Object$* key, $BiFunction* remappingFunction) {
 				bool var$1 = $nc(e)->hash == hash;
 				if (var$1) {
 					bool var$2 = $equals($assign(k, e->key), key);
-					var$1 = (var$2 || (key != nullptr && $of(key)->equals(k)));
+					var$1 = var$2 || (key != nullptr && $of(key)->equals(k));
 				}
 				if (var$1) {
 					$assign(old, e);
@@ -898,7 +759,7 @@ $Object* HashMap::compute(Object$* key, $BiFunction* remappingFunction) {
 			} while (($assign(e, $nc(e)->next)) != nullptr);
 		}
 	}
-	$var($Object, oldValue, (old == nullptr) ? ($Object*)nullptr : $nc(old)->value);
+	$var($Object, oldValue, (old == nullptr) ? ($Object*)nullptr : old->value);
 	int32_t mc = this->modCount;
 	$var($Object, v, $nc(remappingFunction)->apply(key, oldValue));
 	if (mc != this->modCount) {
@@ -915,7 +776,7 @@ $Object* HashMap::compute(Object$* key, $BiFunction* remappingFunction) {
 		if (t != nullptr) {
 			t->putTreeVal(this, tab, hash, key, v);
 		} else {
-			$nc(tab)->set(i, $(newNode(hash, key, v, first)));
+			tab->set(i, $(newNode(hash, key, v, first)));
 			if (binCount >= HashMap::TREEIFY_THRESHOLD - 1) {
 				treeifyBin(tab, hash);
 			}
@@ -924,11 +785,11 @@ $Object* HashMap::compute(Object$* key, $BiFunction* remappingFunction) {
 		++this->size$;
 		afterNodeInsertion(true);
 	}
-	return $of(v);
+	return v;
 }
 
 $Object* HashMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr || remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -944,7 +805,7 @@ $Object* HashMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunc
 	if (var$0 || (n = $nc(tab)->length) == 0) {
 		n = $nc(($assign(tab, resize())))->length;
 	}
-	if (($assign(first, $nc(tab)->get(i = (int32_t)((n - 1) & (uint32_t)hash)))) != nullptr) {
+	if (($assign(first, $nc(tab)->get(i = (n - 1) & hash))) != nullptr) {
 		if ($instanceOf($HashMap$TreeNode, first)) {
 			$assign(old, $nc(($assign(t, $cast($HashMap$TreeNode, first))))->getTreeNode(hash, key));
 		} else {
@@ -954,7 +815,7 @@ $Object* HashMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunc
 				bool var$1 = $nc(e)->hash == hash;
 				if (var$1) {
 					bool var$2 = $equals($assign(k, e->key), key);
-					var$1 = (var$2 || (key != nullptr && $of(key)->equals(k)));
+					var$1 = var$2 || (key != nullptr && $of(key)->equals(k));
 				}
 				if (var$1) {
 					$assign(old, e);
@@ -981,12 +842,12 @@ $Object* HashMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunc
 		} else {
 			removeNode(hash, key, nullptr, false, true);
 		}
-		return $of(v);
+		return v;
 	} else {
 		if (t != nullptr) {
 			t->putTreeVal(this, tab, hash, key, value);
 		} else {
-			$nc(tab)->set(i, $(newNode(hash, key, value, first)));
+			tab->set(i, $(newNode(hash, key, value, first)));
 			if (binCount >= HashMap::TREEIFY_THRESHOLD - 1) {
 				treeifyBin(tab, hash);
 			}
@@ -999,7 +860,7 @@ $Object* HashMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunc
 }
 
 void HashMap::forEach($BiConsumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$NodeArray, tab, nullptr);
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
@@ -1008,14 +869,10 @@ void HashMap::forEach($BiConsumer* action) {
 		int32_t mc = this->modCount;
 		{
 			$var($HashMap$NodeArray, arr$, tab);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($HashMap$Node, e, arr$->get(i$));
-				{
-					for (; e != nullptr; $assign(e, $nc(e)->next)) {
-						$nc(action)->accept(e->key, e->value);
-					}
+				for (; e != nullptr; $assign(e, e->next)) {
+					$nc(action)->accept(e->key, e->value);
 				}
 			}
 		}
@@ -1026,7 +883,7 @@ void HashMap::forEach($BiConsumer* action) {
 }
 
 void HashMap::replaceAll($BiFunction* function) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$NodeArray, tab, nullptr);
 	if (function == nullptr) {
 		$throwNew($NullPointerException);
@@ -1035,14 +892,10 @@ void HashMap::replaceAll($BiFunction* function) {
 		int32_t mc = this->modCount;
 		{
 			$var($HashMap$NodeArray, arr$, tab);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($HashMap$Node, e, arr$->get(i$));
-				{
-					for (; e != nullptr; $assign(e, $nc(e)->next)) {
-						$set(e, value, $nc(function)->apply(e->key, e->value));
-					}
+				for (; e != nullptr; $assign(e, e->next)) {
+					$set(e, value, $nc(function)->apply(e->key, e->value));
 				}
 			}
 		}
@@ -1057,7 +910,7 @@ $Object* HashMap::clone() {
 	try {
 		$assign(result, $cast(HashMap, $AbstractMap::clone()));
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$nc(result)->reinitialize();
 	result->putMapEntries(this, false);
@@ -1069,7 +922,7 @@ float HashMap::loadFactor() {
 }
 
 int32_t HashMap::capacity() {
-	return (this->table != nullptr) ? $nc(this->table)->length : (this->threshold > 0) ? this->threshold : HashMap::DEFAULT_INITIAL_CAPACITY;
+	return (this->table != nullptr) ? this->table->length : (this->threshold > 0) ? this->threshold : HashMap::DEFAULT_INITIAL_CAPACITY;
 }
 
 void HashMap::writeObject($ObjectOutputStream* s) {
@@ -1081,7 +934,7 @@ void HashMap::writeObject($ObjectOutputStream* s) {
 }
 
 void HashMap::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	reinitialize();
 	if (this->loadFactor$ <= 0 || $Float::isNaN(this->loadFactor$)) {
@@ -1097,8 +950,8 @@ void HashMap::readObject($ObjectInputStream* s) {
 		int32_t cap = ((fc < HashMap::DEFAULT_INITIAL_CAPACITY) ? HashMap::DEFAULT_INITIAL_CAPACITY : (fc >= HashMap::MAXIMUM_CAPACITY) ? HashMap::MAXIMUM_CAPACITY : tableSizeFor($cast(int32_t, fc)));
 		float ft = (float)cap * lf;
 		this->threshold = ((cap < HashMap::MAXIMUM_CAPACITY && ft < HashMap::MAXIMUM_CAPACITY) ? $cast(int32_t, ft) : $Integer::MAX_VALUE);
-		$load($Map$EntryArray);
-		$nc($($SharedSecrets::getJavaObjectInputStreamAccess()))->checkArray(s, $getClass($Map$EntryArray), cap);
+		$load($Map$Entry);
+		$$nc($SharedSecrets::getJavaObjectInputStreamAccess())->checkArray(s, $getClass($Map$EntryArray), cap);
 		$var($HashMap$NodeArray, tab, $new($HashMap$NodeArray, cap));
 		$set(this, table, tab);
 		for (int32_t i = 0; i < mappings; ++i) {
@@ -1114,7 +967,7 @@ $HashMap$Node* HashMap::newNode(int32_t hash, Object$* key, Object$* value, $Has
 }
 
 $HashMap$Node* HashMap::replacementNode($HashMap$Node* p, $HashMap$Node* next) {
-	return $new($HashMap$Node, $nc(p)->hash, p->key, p->value, next);
+	return $new($HashMap$Node, $nc(p)->hash, $nc(p)->key, $nc(p)->value, next);
 }
 
 $HashMap$TreeNode* HashMap::newTreeNode(int32_t hash, Object$* key, Object$* value, $HashMap$Node* next) {
@@ -1122,7 +975,7 @@ $HashMap$TreeNode* HashMap::newTreeNode(int32_t hash, Object$* key, Object$* val
 }
 
 $HashMap$TreeNode* HashMap::replacementTreeNode($HashMap$Node* p, $HashMap$Node* next) {
-	return $new($HashMap$TreeNode, $nc(p)->hash, p->key, p->value, next);
+	return $new($HashMap$TreeNode, $nc(p)->hash, $nc(p)->key, $nc(p)->value, next);
 }
 
 void HashMap::reinitialize() {
@@ -1145,21 +998,15 @@ void HashMap::afterNodeRemoval($HashMap$Node* p) {
 }
 
 void HashMap::internalWriteEntries($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$NodeArray, tab, nullptr);
 	if (this->size$ > 0 && ($assign(tab, this->table)) != nullptr) {
-		{
-			$var($HashMap$NodeArray, arr$, tab);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($HashMap$Node, e, arr$->get(i$));
-				{
-					for (; e != nullptr; $assign(e, $nc(e)->next)) {
-						$nc(s)->writeObject(e->key);
-						s->writeObject(e->value);
-					}
-				}
+		$var($HashMap$NodeArray, arr$, tab);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($HashMap$Node, e, arr$->get(i$));
+			for (; e != nullptr; $assign(e, e->next)) {
+				$nc(s)->writeObject(e->key);
+				s->writeObject(e->value);
 			}
 		}
 	}
@@ -1168,12 +1015,121 @@ void HashMap::internalWriteEntries($ObjectOutputStream* s) {
 HashMap::HashMap() {
 }
 
-void clinit$HashMap($Class* class$) {
+void HashMap::clinit$($Class* clazz) {
 	HashMap::DEFAULT_LOAD_FACTOR = 0.75f;
 }
 
 $Class* HashMap::load$($String* name, bool initialize) {
-	$loadClass(HashMap, name, initialize, &_HashMap_ClassInfo_, clinit$HashMap, allocate$HashMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HashMap, serialVersionUID)},
+		{"DEFAULT_INITIAL_CAPACITY", "I", nullptr, $STATIC | $FINAL, $constField(HashMap, DEFAULT_INITIAL_CAPACITY)},
+		{"MAXIMUM_CAPACITY", "I", nullptr, $STATIC | $FINAL, $constField(HashMap, MAXIMUM_CAPACITY)},
+		{"DEFAULT_LOAD_FACTOR", "F", nullptr, $STATIC | $FINAL, $staticField(HashMap, DEFAULT_LOAD_FACTOR)},
+		{"TREEIFY_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(HashMap, TREEIFY_THRESHOLD)},
+		{"UNTREEIFY_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(HashMap, UNTREEIFY_THRESHOLD)},
+		{"MIN_TREEIFY_CAPACITY", "I", nullptr, $STATIC | $FINAL, $constField(HashMap, MIN_TREEIFY_CAPACITY)},
+		{"table", "[Ljava/util/HashMap$Node;", "[Ljava/util/HashMap$Node<TK;TV;>;", $TRANSIENT, $field(HashMap, table)},
+		{"entrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $TRANSIENT, $field(HashMap, entrySet$)},
+		{"size", "I", nullptr, $TRANSIENT, $field(HashMap, size$)},
+		{"modCount", "I", nullptr, $TRANSIENT, $field(HashMap, modCount)},
+		{"threshold", "I", nullptr, 0, $field(HashMap, threshold)},
+		{"loadFactor", "F", nullptr, $FINAL, $field(HashMap, loadFactor$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(IF)V", nullptr, $PUBLIC, $method(HashMap, init$, void, int32_t, float)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(HashMap, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HashMap, init$, void)},
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $method(HashMap, init$, void, $Map*)},
+		{"afterNodeAccess", "(Ljava/util/HashMap$Node;)V", "(Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $virtualMethod(HashMap, afterNodeAccess, void, $HashMap$Node*)},
+		{"afterNodeInsertion", "(Z)V", nullptr, 0, $virtualMethod(HashMap, afterNodeInsertion, void, bool)},
+		{"afterNodeRemoval", "(Ljava/util/HashMap$Node;)V", "(Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $virtualMethod(HashMap, afterNodeRemoval, void, $HashMap$Node*)},
+		{"capacity", "()I", nullptr, $FINAL, $method(HashMap, capacity, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(HashMap, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HashMap, clone, $Object*)},
+		{"comparableClassFor", "(Ljava/lang/Object;)Ljava/lang/Class;", "(Ljava/lang/Object;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(HashMap, comparableClassFor, $Class*, Object$*)},
+		{"compareComparables", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;)I", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;)I", $STATIC, $staticMethod(HashMap, compareComparables, int32_t, $Class*, Object$*, Object$*)},
+		{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(HashMap, compute, $Object*, Object$*, $BiFunction*)},
+		{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(TK;Ljava/util/function/Function<-TK;+TV;>;)TV;", $PUBLIC, $virtualMethod(HashMap, computeIfAbsent, $Object*, Object$*, $Function*)},
+		{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(HashMap, computeIfPresent, $Object*, Object$*, $BiFunction*)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashMap, containsKey, bool, Object$*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashMap, containsValue, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(HashMap, entrySet, $Set*)},
+		{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC, $virtualMethod(HashMap, forEach, void, $BiConsumer*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(HashMap, get, $Object*, Object$*)},
+		{"getNode", "(Ljava/lang/Object;)Ljava/util/HashMap$Node;", "(Ljava/lang/Object;)Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(HashMap, getNode, $HashMap$Node*, Object$*)},
+		{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TV;)TV;", $PUBLIC, $virtualMethod(HashMap, getOrDefault, $Object*, Object$*, Object$*)},
+		{"hash", "(Ljava/lang/Object;)I", nullptr, $STATIC | $FINAL, $staticMethod(HashMap, hash, int32_t, Object$*)},
+		{"internalWriteEntries", "(Ljava/io/ObjectOutputStream;)V", nullptr, 0, $virtualMethod(HashMap, internalWriteEntries, void, $ObjectOutputStream*), "java.io.IOException"},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(HashMap, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(HashMap, keySet, $Set*)},
+		{"keysToArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", 0, $virtualMethod(HashMap, keysToArray, $ObjectArray*, $ObjectArray*)},
+		{"loadFactor", "()F", nullptr, $FINAL, $method(HashMap, loadFactor, float)},
+		{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;TV;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(HashMap, merge, $Object*, Object$*, Object$*, $BiFunction*)},
+		{"newNode", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)Ljava/util/HashMap$Node;", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$Node<TK;TV;>;", 0, $virtualMethod(HashMap, newNode, $HashMap$Node*, int32_t, Object$*, Object$*, $HashMap$Node*)},
+		{"newTreeNode", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)Ljava/util/HashMap$TreeNode;", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $virtualMethod(HashMap, newTreeNode, $HashMap$TreeNode*, int32_t, Object$*, Object$*, $HashMap$Node*)},
+		{"prepareArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $FINAL, $method(HashMap, prepareArray, $ObjectArray*, $ObjectArray*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(HashMap, put, $Object*, Object$*, Object$*)},
+		{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $virtualMethod(HashMap, putAll, void, $Map*)},
+		{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(HashMap, putIfAbsent, $Object*, Object$*, Object$*)},
+		{"putMapEntries", "(Ljava/util/Map;Z)V", "(Ljava/util/Map<+TK;+TV;>;Z)V", $FINAL, $method(HashMap, putMapEntries, void, $Map*, bool)},
+		{"putVal", "(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object;", "(ITK;TV;ZZ)TV;", $FINAL, $method(HashMap, putVal, $Object*, int32_t, Object$*, Object$*, bool, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(HashMap, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"reinitialize", "()V", nullptr, 0, $virtualMethod(HashMap, reinitialize, void)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(HashMap, remove, $Object*, Object$*)},
+		{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashMap, remove, bool, Object$*, Object$*)},
+		{"removeNode", "(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/util/HashMap$Node;", "(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(HashMap, removeNode, $HashMap$Node*, int32_t, Object$*, Object$*, bool, bool)},
+		{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK;TV;TV;)Z", $PUBLIC, $virtualMethod(HashMap, replace, bool, Object$*, Object$*, Object$*)},
+		{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(HashMap, replace, $Object*, Object$*, Object$*)},
+		{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(HashMap, replaceAll, void, $BiFunction*)},
+		{"replacementNode", "(Ljava/util/HashMap$Node;Ljava/util/HashMap$Node;)Ljava/util/HashMap$Node;", "(Ljava/util/HashMap$Node<TK;TV;>;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$Node<TK;TV;>;", 0, $virtualMethod(HashMap, replacementNode, $HashMap$Node*, $HashMap$Node*, $HashMap$Node*)},
+		{"replacementTreeNode", "(Ljava/util/HashMap$Node;Ljava/util/HashMap$Node;)Ljava/util/HashMap$TreeNode;", "(Ljava/util/HashMap$Node<TK;TV;>;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $virtualMethod(HashMap, replacementTreeNode, $HashMap$TreeNode*, $HashMap$Node*, $HashMap$Node*)},
+		{"resize", "()[Ljava/util/HashMap$Node;", "()[Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(HashMap, resize, $HashMap$NodeArray*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(HashMap, size, int32_t)},
+		{"tableSizeFor", "(I)I", nullptr, $STATIC | $FINAL, $staticMethod(HashMap, tableSizeFor, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"treeifyBin", "([Ljava/util/HashMap$Node;I)V", "([Ljava/util/HashMap$Node<TK;TV;>;I)V", $FINAL, $method(HashMap, treeifyBin, void, $HashMap$NodeArray*, int32_t)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(HashMap, values, $Collection*)},
+		{"valuesToArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", 0, $virtualMethod(HashMap, valuesToArray, $ObjectArray*, $ObjectArray*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(HashMap, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.HashMap$TreeNode", "java.util.HashMap", "TreeNode", $STATIC | $FINAL},
+		{"java.util.HashMap$EntrySpliterator", "java.util.HashMap", "EntrySpliterator", $STATIC | $FINAL},
+		{"java.util.HashMap$ValueSpliterator", "java.util.HashMap", "ValueSpliterator", $STATIC | $FINAL},
+		{"java.util.HashMap$KeySpliterator", "java.util.HashMap", "KeySpliterator", $STATIC | $FINAL},
+		{"java.util.HashMap$HashMapSpliterator", "java.util.HashMap", "HashMapSpliterator", $STATIC},
+		{"java.util.HashMap$EntryIterator", "java.util.HashMap", "EntryIterator", $FINAL},
+		{"java.util.HashMap$ValueIterator", "java.util.HashMap", "ValueIterator", $FINAL},
+		{"java.util.HashMap$KeyIterator", "java.util.HashMap", "KeyIterator", $FINAL},
+		{"java.util.HashMap$HashIterator", "java.util.HashMap", "HashIterator", $ABSTRACT},
+		{"java.util.HashMap$EntrySet", "java.util.HashMap", "EntrySet", $FINAL},
+		{"java.util.HashMap$Values", "java.util.HashMap", "Values", $FINAL},
+		{"java.util.HashMap$KeySet", "java.util.HashMap", "KeySet", $FINAL},
+		{"java.util.HashMap$Node", "java.util.HashMap", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.HashMap",
+		"java.util.AbstractMap",
+		"java.lang.Cloneable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/AbstractMap<TK;TV;>;Ljava/util/Map<TK;TV;>;Ljava/lang/Cloneable;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.HashMap$TreeNode,java.util.HashMap$EntrySpliterator,java.util.HashMap$ValueSpliterator,java.util.HashMap$KeySpliterator,java.util.HashMap$HashMapSpliterator,java.util.HashMap$EntryIterator,java.util.HashMap$ValueIterator,java.util.HashMap$KeyIterator,java.util.HashMap$HashIterator,java.util.HashMap$EntrySet,java.util.HashMap$Values,java.util.HashMap$KeySet,java.util.HashMap$Node"
+	};
+	$loadClass(HashMap, name, initialize, &classInfo$$, HashMap::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HashMap));
+	});
 	return class$;
 }
 

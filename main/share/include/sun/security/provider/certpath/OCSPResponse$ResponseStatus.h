@@ -31,6 +31,7 @@ class $import OCSPResponse$ResponseStatus : public ::java::lang::Enum {
 public:
 	OCSPResponse$ResponseStatus();
 	static $Array<::sun::security::provider::certpath::OCSPResponse$ResponseStatus>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::provider::certpath::OCSPResponse$ResponseStatus* valueOf($String* name);
 	static $Array<::sun::security::provider::certpath::OCSPResponse$ResponseStatus>* values();

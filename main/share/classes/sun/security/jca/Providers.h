@@ -31,6 +31,7 @@ class $export Providers : public ::java::lang::Object {
 	$class(Providers, 0, ::java::lang::Object)
 public:
 	Providers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::jca::ProviderList* beginThreadProviderList(::sun::security::jca::ProviderList* list);
 	static void changeThreadProviderList(::sun::security::jca::ProviderList* list);

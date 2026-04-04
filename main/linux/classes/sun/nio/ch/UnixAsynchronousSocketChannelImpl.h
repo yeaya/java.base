@@ -68,6 +68,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::ch::Port* port);
 	void init$(::sun::nio::ch::Port* port, ::java::io::FileDescriptor* fd, ::java::net::InetSocketAddress* remote);
 	static void checkConnect(int32_t fdVal);

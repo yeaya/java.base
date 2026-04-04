@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/Resource.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -37,40 +36,6 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$FieldInfo _Resource_FieldInfo_[] = {
-	{"cis", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(Resource, cis)},
-	{}
-};
-
-$MethodInfo _Resource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Resource, init$, void)},
-	{"cachedInputStream", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Resource, cachedInputStream, $InputStream*), "java.io.IOException"},
-	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Resource, getByteBuffer, $ByteBuffer*), "java.io.IOException"},
-	{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(Resource, getBytes, $bytes*), "java.io.IOException"},
-	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(Resource, getCertificates, $CertificateArray*)},
-	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(Resource, getCodeSigners, $CodeSignerArray*)},
-	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getCodeSourceURL, $URL*)},
-	{"getContentLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getContentLength, int32_t), "java.io.IOException"},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(Resource, getManifest, $Manifest*), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getName, $String*)},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getURL, $URL*)},
-	{}
-};
-
-$ClassInfo _Resource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.loader.Resource",
-	"java.lang.Object",
-	nullptr,
-	_Resource_FieldInfo_,
-	_Resource_MethodInfo_
-};
-
-$Object* allocate$Resource($Class* clazz) {
-	return $of($alloc(Resource));
-}
-
 void Resource::init$() {
 }
 
@@ -84,7 +49,7 @@ $InputStream* Resource::cachedInputStream() {
 }
 
 $bytes* Resource::getBytes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, b, nullptr);
 	$var($InputStream, in, cachedInputStream());
 	bool isInterrupted = $Thread::interrupted();
@@ -98,60 +63,58 @@ $bytes* Resource::getBytes() {
 			isInterrupted = true;
 		}
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$assign(b, $new($bytes, 0));
-			if (len == -1) {
-				len = $Integer::MAX_VALUE;
+	$var($Throwable, var$0, nullptr);
+	try {
+		$assign(b, $new($bytes, 0));
+		if (len == -1) {
+			len = $Integer::MAX_VALUE;
+		}
+		int32_t pos = 0;
+		while (pos < len) {
+			int32_t bytesToRead = 0;
+			if (pos >= b->length) {
+				bytesToRead = $Math::min(len - pos, b->length + 1024);
+				if (bytesToRead < 0) {
+					bytesToRead = len - pos;
+				}
+				$assign(b, $Arrays::copyOf(b, pos + bytesToRead));
+			} else {
+				bytesToRead = b->length - pos;
 			}
-			int32_t pos = 0;
-			while (pos < len) {
-				int32_t bytesToRead = 0;
-				if (pos >= b->length) {
-					bytesToRead = $Math::min(len - pos, b->length + 1024);
-					if (bytesToRead < 0) {
-						bytesToRead = len - pos;
-					}
-					$assign(b, $Arrays::copyOf(b, pos + bytesToRead));
-				} else {
-					bytesToRead = b->length - pos;
-				}
-				int32_t cc = 0;
-				try {
-					cc = $nc(in)->read(b, pos, bytesToRead);
-				} catch ($InterruptedIOException& iioe) {
-					$Thread::interrupted();
-					isInterrupted = true;
-				}
-				if (cc < 0) {
-					if (len != $Integer::MAX_VALUE) {
-						$throwNew($EOFException, "Detect premature EOF"_s);
-					} else {
-						if (b->length != pos) {
-							$assign(b, $Arrays::copyOf(b, pos));
-						}
-						break;
-					}
-				}
-				pos += cc;
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
+			int32_t cc = 0;
 			try {
-				$nc(in)->close();
+				cc = $nc(in)->read(b, pos, bytesToRead);
 			} catch ($InterruptedIOException& iioe) {
+				$Thread::interrupted();
 				isInterrupted = true;
-			} catch ($IOException& ignore) {
 			}
-			if (isInterrupted) {
-				$($Thread::currentThread())->interrupt();
+			if (cc < 0) {
+				if (len != $Integer::MAX_VALUE) {
+					$throwNew($EOFException, "Detect premature EOF"_s);
+				} else {
+					if (b->length != pos) {
+						$assign(b, $Arrays::copyOf(b, pos));
+					}
+					break;
+				}
 			}
+			pos += cc;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		try {
+			$nc(in)->close();
+		} catch ($InterruptedIOException& iioe) {
+			isInterrupted = true;
+		} catch ($IOException& ignore) {
 		}
+		if (isInterrupted) {
+			$($Thread::currentThread())->interrupt();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return b;
 }
@@ -159,7 +122,7 @@ $bytes* Resource::getBytes() {
 $ByteBuffer* Resource::getByteBuffer() {
 	$var($InputStream, in, cachedInputStream());
 	if ($instanceOf($ByteBuffered, in)) {
-		return $nc(($cast($ByteBuffered, in)))->getByteBuffer();
+		return $cast($ByteBuffered, in)->getByteBuffer();
 	}
 	return nullptr;
 }
@@ -180,7 +143,36 @@ Resource::Resource() {
 }
 
 $Class* Resource::load$($String* name, bool initialize) {
-	$loadClass(Resource, name, initialize, &_Resource_ClassInfo_, allocate$Resource);
+	$FieldInfo fieldInfos$$[] = {
+		{"cis", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(Resource, cis)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Resource, init$, void)},
+		{"cachedInputStream", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Resource, cachedInputStream, $InputStream*), "java.io.IOException"},
+		{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Resource, getByteBuffer, $ByteBuffer*), "java.io.IOException"},
+		{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(Resource, getBytes, $bytes*), "java.io.IOException"},
+		{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(Resource, getCertificates, $CertificateArray*)},
+		{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(Resource, getCodeSigners, $CodeSignerArray*)},
+		{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getCodeSourceURL, $URL*)},
+		{"getContentLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getContentLength, int32_t), "java.io.IOException"},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(Resource, getManifest, $Manifest*), "java.io.IOException"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getName, $String*)},
+		{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getURL, $URL*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.loader.Resource",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resource);
+	});
 	return class$;
 }
 

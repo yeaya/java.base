@@ -1,5 +1,4 @@
 #include <sun/security/ssl/MaxFragExtension$EEMaxFragmentLengthProducer.h>
-
 #include <java/util/Map.h>
 #include <sun/security/ssl/CipherSuite.h>
 #include <sun/security/ssl/ConnectionContext.h>
@@ -24,59 +23,22 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
-using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $InputRecord = ::sun::security::ssl::InputRecord;
 using $MaxFragExtension$MaxFragLenSpec = ::sun::security::ssl::MaxFragExtension$MaxFragLenSpec;
-using $OutputRecord = ::sun::security::ssl::OutputRecord;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _MaxFragExtension$EEMaxFragmentLengthProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MaxFragExtension$EEMaxFragmentLengthProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(MaxFragExtension$EEMaxFragmentLengthProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _MaxFragExtension$EEMaxFragmentLengthProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.MaxFragExtension$EEMaxFragmentLengthProducer", "sun.security.ssl.MaxFragExtension", "EEMaxFragmentLengthProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MaxFragExtension$EEMaxFragmentLengthProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.MaxFragExtension$EEMaxFragmentLengthProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_MaxFragExtension$EEMaxFragmentLengthProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaxFragExtension$EEMaxFragmentLengthProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.MaxFragExtension"
-};
-
-$Object* allocate$MaxFragExtension$EEMaxFragmentLengthProducer($Class* clazz) {
-	return $of($alloc(MaxFragExtension$EEMaxFragmentLengthProducer));
-}
-
 void MaxFragExtension$EEMaxFragmentLengthProducer::init$() {
 }
 
 $bytes* MaxFragExtension$EEMaxFragmentLengthProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($MaxFragExtension$MaxFragLenSpec, spec, $cast($MaxFragExtension$MaxFragLenSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_MAX_FRAGMENT_LENGTH)));
@@ -89,7 +51,7 @@ $bytes* MaxFragExtension$EEMaxFragmentLengthProducer::produce($ConnectionContext
 	}
 	if ((shc->maxFragmentLength > 0) && ($nc(shc->sslConfig)->maximumPacketSize != 0)) {
 		int32_t estimatedMaxFragSize = $nc(shc->negotiatedCipherSuite)->calculatePacketSize(shc->maxFragmentLength, shc->negotiatedProtocol, $nc(shc->sslContext)->isDTLS());
-		if (estimatedMaxFragSize > $nc(shc->sslConfig)->maximumPacketSize) {
+		if (estimatedMaxFragSize > shc->sslConfig->maximumPacketSize) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 				$SSLLogger::fine("Abort the maximum fragment length negotiation, may overflow the maximum packet size limit."_s, $$new($ObjectArray, 0));
@@ -100,8 +62,8 @@ $bytes* MaxFragExtension$EEMaxFragmentLengthProducer::produce($ConnectionContext
 	if (shc->maxFragmentLength > 0) {
 		$nc(shc->handshakeSession)->setNegotiatedMaxFragSize(shc->maxFragmentLength);
 		$nc($nc(shc->conContext)->inputRecord)->changeFragmentSize(shc->maxFragmentLength);
-		$nc($nc(shc->conContext)->outputRecord)->changeFragmentSize(shc->maxFragmentLength);
-		$nc(shc->handshakeExtensions)->put($SSLExtension::EE_MAX_FRAGMENT_LENGTH, spec);
+		$nc(shc->conContext->outputRecord)->changeFragmentSize(shc->maxFragmentLength);
+		shc->handshakeExtensions->put($SSLExtension::EE_MAX_FRAGMENT_LENGTH, spec);
 		return $new($bytes, {$nc(spec)->id});
 	}
 	return nullptr;
@@ -111,7 +73,33 @@ MaxFragExtension$EEMaxFragmentLengthProducer::MaxFragExtension$EEMaxFragmentLeng
 }
 
 $Class* MaxFragExtension$EEMaxFragmentLengthProducer::load$($String* name, bool initialize) {
-	$loadClass(MaxFragExtension$EEMaxFragmentLengthProducer, name, initialize, &_MaxFragExtension$EEMaxFragmentLengthProducer_ClassInfo_, allocate$MaxFragExtension$EEMaxFragmentLengthProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MaxFragExtension$EEMaxFragmentLengthProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(MaxFragExtension$EEMaxFragmentLengthProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.MaxFragExtension$EEMaxFragmentLengthProducer", "sun.security.ssl.MaxFragExtension", "EEMaxFragmentLengthProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.MaxFragExtension$EEMaxFragmentLengthProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.MaxFragExtension"
+	};
+	$loadClass(MaxFragExtension$EEMaxFragmentLengthProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaxFragExtension$EEMaxFragmentLengthProducer);
+	});
 	return class$;
 }
 

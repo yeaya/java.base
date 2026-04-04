@@ -29,6 +29,7 @@ class SmtpClient : public ::sun::net::TransferProtocolClient {
 	$class(SmtpClient, 0, ::sun::net::TransferProtocolClient)
 public:
 	SmtpClient();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* host);
 	void init$();
 	void init$(int32_t to);

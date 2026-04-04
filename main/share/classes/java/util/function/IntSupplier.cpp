@@ -1,5 +1,4 @@
 #include <java/util/function/IntSupplier.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,35 +9,30 @@ namespace java {
 	namespace util {
 		namespace function {
 
-$CompoundAttribute _IntSupplier_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _IntSupplier_MethodInfo_[] = {
-	{"getAsInt", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntSupplier, getAsInt, int32_t)},
-	{}
-};
-
-$ClassInfo _IntSupplier_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.IntSupplier",
-	nullptr,
-	nullptr,
-	nullptr,
-	_IntSupplier_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_IntSupplier_Annotations_
-};
-
-$Object* allocate$IntSupplier($Class* clazz) {
-	return $of($alloc(IntSupplier));
-}
-
 $Class* IntSupplier::load$($String* name, bool initialize) {
-	$loadClass(IntSupplier, name, initialize, &_IntSupplier_ClassInfo_, allocate$IntSupplier);
+	$MethodInfo methodInfos$$[] = {
+		{"getAsInt", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntSupplier, getAsInt, int32_t)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.IntSupplier",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(IntSupplier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntSupplier);
+	});
 	return class$;
 }
 

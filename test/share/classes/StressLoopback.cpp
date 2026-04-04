@@ -1,5 +1,4 @@
 #include <StressLoopback.h>
-
 #include <StressLoopback$Sink.h>
 #include <StressLoopback$Source.h>
 #include <java/io/IOException.h>
@@ -21,7 +20,6 @@ using $StressLoopback$Source = ::StressLoopback$Source;
 using $StressLoopback$SinkArray = $Array<StressLoopback$Sink>;
 using $StressLoopback$SourceArray = $Array<StressLoopback$Source>;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -37,45 +35,6 @@ using $AsynchronousServerSocketChannel = ::java::nio::channels::AsynchronousServ
 using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
 using $Channel = ::java::nio::channels::Channel;
 using $Random = ::java::util::Random;
-using $Future = ::java::util::concurrent::Future;
-
-$FieldInfo _StressLoopback_FieldInfo_[] = {
-	{"rand", "Ljava/util/Random;", nullptr, $STATIC | $FINAL, $staticField(StressLoopback, rand)},
-	{}
-};
-
-$MethodInfo _StressLoopback_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StressLoopback, init$, void)},
-	{"closeUnchecked", "(Ljava/nio/channels/Channel;)V", nullptr, $STATIC, $staticMethod(StressLoopback, closeUnchecked, void, $Channel*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StressLoopback, main, void, $StringArray*), "java.lang.Exception"},
-	{"waitUntilClosed", "(Ljava/nio/channels/Channel;)V", nullptr, $STATIC, $staticMethod(StressLoopback, waitUntilClosed, void, $Channel*)},
-	{}
-};
-
-$InnerClassInfo _StressLoopback_InnerClassesInfo_[] = {
-	{"StressLoopback$Sink", "StressLoopback", "Sink", $STATIC},
-	{"StressLoopback$Source", "StressLoopback", "Source", $STATIC},
-	{}
-};
-
-$ClassInfo _StressLoopback_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StressLoopback",
-	"java.lang.Object",
-	nullptr,
-	_StressLoopback_FieldInfo_,
-	_StressLoopback_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StressLoopback_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"StressLoopback$Sink,StressLoopback$Sink$1,StressLoopback$Source,StressLoopback$Source$1"
-};
-
-$Object* allocate$StressLoopback($Class* clazz) {
-	return $of($alloc(StressLoopback));
-}
 
 $Random* StressLoopback::rand = nullptr;
 
@@ -84,19 +43,19 @@ void StressLoopback::init$() {
 
 void StressLoopback::main($StringArray* args) {
 	$init(StressLoopback);
-	$useLocalCurrentObjectStackCache();
-	$var($AsynchronousServerSocketChannel, listener, $cast($AsynchronousServerSocketChannel, $nc($($AsynchronousServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0))));
-	int32_t port = $nc((($cast($InetSocketAddress, $($nc(listener)->getLocalAddress())))))->getPort();
+	$useLocalObjectStack();
+	$var($AsynchronousServerSocketChannel, listener, $cast($AsynchronousServerSocketChannel, $$nc($AsynchronousServerSocketChannel::open())->bind($$new($InetSocketAddress, 0))));
+	int32_t port = $$cast($InetSocketAddress, $nc(listener)->getLocalAddress())->getPort();
 	$var($InetAddress, lh, $InetAddress::getLocalHost());
 	$var($SocketAddress, remote, $new($InetSocketAddress, lh, port));
-	int32_t count = 2 + $nc(StressLoopback::rand)->nextInt(9);
+	int32_t count = 2 + StressLoopback::rand->nextInt(9);
 	$var($StressLoopback$SourceArray, source, $new($StressLoopback$SourceArray, count));
 	$var($StressLoopback$SinkArray, sink, $new($StressLoopback$SinkArray, count));
 	for (int32_t i = 0; i < count; ++i) {
 		$var($AsynchronousSocketChannel, ch, $AsynchronousSocketChannel::open());
-		$nc($($nc(ch)->connect(remote)))->get();
+		$$nc($nc(ch)->connect(remote))->get();
 		source->set(i, $$new($StressLoopback$Source, ch));
-		sink->set(i, $$new($StressLoopback$Sink, $cast($AsynchronousByteChannel, $($nc($(listener->accept()))->get()))));
+		sink->set(i, $$new($StressLoopback$Sink, $$cast($AsynchronousByteChannel, $$nc(listener->accept())->get())));
 	}
 	for (int32_t i = 0; i < count; ++i) {
 		$nc(sink->get(i))->start();
@@ -112,16 +71,16 @@ void StressLoopback::main($StringArray* args) {
 			failed = true;
 		}
 		$nc($System::out)->format("%d -> %d (%s)\n"_s, $$new($ObjectArray, {
-			$($of($Long::valueOf(nwrote))),
-			$($of($Long::valueOf(nread))),
-			(failed) ? $of("FAIL"_s) : $of("PASS"_s)
+			$($Long::valueOf(nwrote)),
+			$($Long::valueOf(nread)),
+			(failed) ? "FAIL"_s : "PASS"_s
 		}));
 		total += nwrote;
 	}
 	if (failed) {
 		$throwNew($RuntimeException, "Test failed - see log for details"_s);
 	}
-	$nc($System::out)->format("Total sent %d MB\n"_s, $$new($ObjectArray, {$($of($Long::valueOf($div(total, ((int64_t)1024 * (int64_t)1024)))))}));
+	$nc($System::out)->format("Total sent %d MB\n"_s, $$new($ObjectArray, {$($Long::valueOf($div(total, ((int64_t)1024 * (int64_t)1024))))}));
 }
 
 void StressLoopback::waitUntilClosed($Channel* c) {
@@ -142,7 +101,7 @@ void StressLoopback::closeUnchecked($Channel* c) {
 	}
 }
 
-void clinit$StressLoopback($Class* class$) {
+void StressLoopback::clinit$($Class* clazz) {
 	$assignStatic(StressLoopback::rand, $new($Random));
 }
 
@@ -150,7 +109,39 @@ StressLoopback::StressLoopback() {
 }
 
 $Class* StressLoopback::load$($String* name, bool initialize) {
-	$loadClass(StressLoopback, name, initialize, &_StressLoopback_ClassInfo_, clinit$StressLoopback, allocate$StressLoopback);
+	$FieldInfo fieldInfos$$[] = {
+		{"rand", "Ljava/util/Random;", nullptr, $STATIC | $FINAL, $staticField(StressLoopback, rand)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StressLoopback, init$, void)},
+		{"closeUnchecked", "(Ljava/nio/channels/Channel;)V", nullptr, $STATIC, $staticMethod(StressLoopback, closeUnchecked, void, $Channel*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StressLoopback, main, void, $StringArray*), "java.lang.Exception"},
+		{"waitUntilClosed", "(Ljava/nio/channels/Channel;)V", nullptr, $STATIC, $staticMethod(StressLoopback, waitUntilClosed, void, $Channel*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StressLoopback$Sink", "StressLoopback", "Sink", $STATIC},
+		{"StressLoopback$Source", "StressLoopback", "Source", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StressLoopback",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"StressLoopback$Sink,StressLoopback$Sink$1,StressLoopback$Source,StressLoopback$Source$1"
+	};
+	$loadClass(StressLoopback, name, initialize, &classInfo$$, StressLoopback::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StressLoopback);
+	});
 	return class$;
 }
 

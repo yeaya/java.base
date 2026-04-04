@@ -1,5 +1,4 @@
 #include <Bash$TestReference.h>
-
 #include <Bash.h>
 #include <java/lang/ref/SoftReference.h>
 #include <jcpp.h>
@@ -9,42 +8,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SoftReference = ::java::lang::ref::SoftReference;
-
-$FieldInfo _Bash$TestReference_FieldInfo_[] = {
-	{"head", "LBash$TestReference;", nullptr, $PUBLIC | $STATIC, $staticField(Bash$TestReference, head)},
-	{"next", "LBash$TestReference;", nullptr, $PUBLIC, $field(Bash$TestReference, next)},
-	{}
-};
-
-$MethodInfo _Bash$TestReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Bash$TestReference, init$, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Bash$TestReference_InnerClassesInfo_[] = {
-	{"Bash$TestReference", "Bash", "TestReference", $STATIC},
-	{}
-};
-
-$ClassInfo _Bash$TestReference_ClassInfo_ = {
-	$ACC_SUPER,
-	"Bash$TestReference",
-	"java.lang.ref.SoftReference",
-	nullptr,
-	_Bash$TestReference_FieldInfo_,
-	_Bash$TestReference_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Bash$TestReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Bash"
-};
-
-$Object* allocate$Bash$TestReference($Class* clazz) {
-	return $of($alloc(Bash$TestReference));
-}
 
 Bash$TestReference* Bash$TestReference::head = nullptr;
 
@@ -58,7 +21,37 @@ Bash$TestReference::Bash$TestReference() {
 }
 
 $Class* Bash$TestReference::load$($String* name, bool initialize) {
-	$loadClass(Bash$TestReference, name, initialize, &_Bash$TestReference_ClassInfo_, allocate$Bash$TestReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"head", "LBash$TestReference;", nullptr, $PUBLIC | $STATIC, $staticField(Bash$TestReference, head)},
+		{"next", "LBash$TestReference;", nullptr, $PUBLIC, $field(Bash$TestReference, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Bash$TestReference, init$, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Bash$TestReference", "Bash", "TestReference", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Bash$TestReference",
+		"java.lang.ref.SoftReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Bash"
+	};
+	$loadClass(Bash$TestReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bash$TestReference);
+	});
 	return class$;
 }
 

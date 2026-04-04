@@ -1,5 +1,4 @@
 #include <Target.h>
-
 #include <java/lang/UnsatisfiedLinkError.h>
 #include <jcpp.h>
 
@@ -8,28 +7,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsatisfiedLinkError = ::java::lang::UnsatisfiedLinkError;
 
-$MethodInfo _Target_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Target, init$, void)},
-	{}
-};
-
-$ClassInfo _Target_ClassInfo_ = {
-	$ACC_SUPER,
-	"Target",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Target_MethodInfo_
-};
-
-$Object* allocate$Target($Class* clazz) {
-	return $of($alloc(Target));
-}
-
 void Target::init$() {
 }
 
-void clinit$Target($Class* class$) {
+void Target::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		try {
@@ -44,7 +25,21 @@ Target::Target() {
 }
 
 $Class* Target::load$($String* name, bool initialize) {
-	$loadClass(Target, name, initialize, &_Target_ClassInfo_, clinit$Target, allocate$Target);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Target, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Target",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Target, name, initialize, &classInfo$$, Target::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Target);
+	});
 	return class$;
 }
 

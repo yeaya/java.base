@@ -1,5 +1,4 @@
 #include <ExpectedIsDefault.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -7,40 +6,34 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute ExpectedIsDefault_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _ExpectedIsDefault_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", ExpectedIsDefault_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _ExpectedIsDefault_MethodInfo_[] = {
-	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedIsDefault, value, bool)},
-	{}
-};
-
-$ClassInfo _ExpectedIsDefault_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"ExpectedIsDefault",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_ExpectedIsDefault_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ExpectedIsDefault_Annotations_
-};
-
-$Object* allocate$ExpectedIsDefault($Class* clazz) {
-	return $of($alloc(ExpectedIsDefault));
-}
-
 $Class* ExpectedIsDefault::load$($String* name, bool initialize) {
-	$loadClass(ExpectedIsDefault, name, initialize, &_ExpectedIsDefault_ClassInfo_, allocate$ExpectedIsDefault);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedIsDefault, value, bool)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"ExpectedIsDefault",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ExpectedIsDefault, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExpectedIsDefault);
+	});
 	return class$;
 }
 

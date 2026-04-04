@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/DateFormatProviderImpl.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -39,7 +38,6 @@ using $DateFormatProvider = ::java::text::spi::DateFormatProvider;
 using $Calendar = ::java::util::Calendar;
 using $Locale = ::java::util::Locale;
 using $MissingResourceException = ::java::util::MissingResourceException;
-using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
 using $TimeZone = ::java::util::TimeZone;
 using $Function = ::java::util::function::Function;
@@ -47,7 +45,6 @@ using $Supplier = ::java::util::function::Supplier;
 using $CalendarDataUtility = ::sun::util::locale::provider::CalendarDataUtility;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
-using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 using $TimeZoneNameUtility = ::sun::util::locale::provider::TimeZoneNameUtility;
 
 namespace sun {
@@ -63,27 +60,24 @@ public:
 	virtual $Object* apply(Object$* ID) override {
 		 return $of($TimeZone::getTimeZone($cast($String, ID)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DateFormatProviderImpl$$Lambda$getTimeZone>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DateFormatProviderImpl$$Lambda$getTimeZone::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DateFormatProviderImpl$$Lambda$getTimeZone, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl$$Lambda$getTimeZone, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo DateFormatProviderImpl$$Lambda$getTimeZone::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.util.locale.provider.DateFormatProviderImpl$$Lambda$getTimeZone",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* DateFormatProviderImpl$$Lambda$getTimeZone::load$($String* name, bool initialize) {
-	$loadClass(DateFormatProviderImpl$$Lambda$getTimeZone, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DateFormatProviderImpl$$Lambda$getTimeZone, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl$$Lambda$getTimeZone, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.util.locale.provider.DateFormatProviderImpl$$Lambda$getTimeZone",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DateFormatProviderImpl$$Lambda$getTimeZone, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateFormatProviderImpl$$Lambda$getTimeZone);
+	});
 	return class$;
 }
 $Class* DateFormatProviderImpl$$Lambda$getTimeZone::class$ = nullptr;
@@ -97,72 +91,32 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->getTimeZone());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DateFormatProviderImpl$$Lambda$getTimeZone$1>());
-	}
 	$DateFormat* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DateFormatProviderImpl$$Lambda$getTimeZone$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DateFormatProviderImpl$$Lambda$getTimeZone$1, inst$)},
-	{}
-};
-$MethodInfo DateFormatProviderImpl$$Lambda$getTimeZone$1::methodInfos[3] = {
-	{"<init>", "(Ljava/text/DateFormat;)V", nullptr, $PUBLIC, $method(DateFormatProviderImpl$$Lambda$getTimeZone$1, init$, void, $DateFormat*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl$$Lambda$getTimeZone$1, get, $Object*)},
-	{}
-};
-$ClassInfo DateFormatProviderImpl$$Lambda$getTimeZone$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.util.locale.provider.DateFormatProviderImpl$$Lambda$getTimeZone$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* DateFormatProviderImpl$$Lambda$getTimeZone$1::load$($String* name, bool initialize) {
-	$loadClass(DateFormatProviderImpl$$Lambda$getTimeZone$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DateFormatProviderImpl$$Lambda$getTimeZone$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/text/DateFormat;)V", nullptr, $PUBLIC, $method(DateFormatProviderImpl$$Lambda$getTimeZone$1, init$, void, $DateFormat*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl$$Lambda$getTimeZone$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.util.locale.provider.DateFormatProviderImpl$$Lambda$getTimeZone$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DateFormatProviderImpl$$Lambda$getTimeZone$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateFormatProviderImpl$$Lambda$getTimeZone$1);
+	});
 	return class$;
 }
 $Class* DateFormatProviderImpl$$Lambda$getTimeZone$1::class$ = nullptr;
-
-$FieldInfo _DateFormatProviderImpl_FieldInfo_[] = {
-	{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(DateFormatProviderImpl, type)},
-	{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DateFormatProviderImpl, langtags)},
-	{}
-};
-
-$MethodInfo _DateFormatProviderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(DateFormatProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DateFormatProviderImpl, getAvailableLanguageTags, $Set*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getAvailableLocales, $LocaleArray*)},
-	{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getDateInstance, $DateFormat*, int32_t, $Locale*)},
-	{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getDateTimeInstance, $DateFormat*, int32_t, int32_t, $Locale*)},
-	{"getInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PRIVATE, $method(DateFormatProviderImpl, getInstance, $DateFormat*, int32_t, int32_t, $Locale*)},
-	{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getTimeInstance, $DateFormat*, int32_t, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DateFormatProviderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.DateFormatProviderImpl",
-	"java.text.spi.DateFormatProvider",
-	"sun.util.locale.provider.AvailableLanguageTags",
-	_DateFormatProviderImpl_FieldInfo_,
-	_DateFormatProviderImpl_MethodInfo_
-};
-
-$Object* allocate$DateFormatProviderImpl($Class* clazz) {
-	return $of($alloc(DateFormatProviderImpl));
-}
 
 int32_t DateFormatProviderImpl::hashCode() {
 	 return this->$DateFormatProvider::hashCode();
@@ -195,7 +149,7 @@ $LocaleArray* DateFormatProviderImpl::getAvailableLocales() {
 }
 
 bool DateFormatProviderImpl::isSupportedLocale($Locale* locale) {
-	return $nc($($LocaleProviderAdapter::forType(this->type)))->isSupportedProviderLocale(locale, this->langtags);
+	return $$nc($LocaleProviderAdapter::forType(this->type))->isSupportedProviderLocale(locale, this->langtags);
 }
 
 $DateFormat* DateFormatProviderImpl::getTimeInstance(int32_t style, $Locale* locale) {
@@ -211,7 +165,7 @@ $DateFormat* DateFormatProviderImpl::getDateTimeInstance(int32_t dateStyle, int3
 }
 
 $DateFormat* DateFormatProviderImpl::getInstance(int32_t dateStyle, int32_t timeStyle, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -219,14 +173,14 @@ $DateFormat* DateFormatProviderImpl::getInstance(int32_t dateStyle, int32_t time
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, ""_s, rg));
 	$var($Calendar, cal, sdf->getCalendar());
 	try {
-		$var($String, pattern, $nc($($nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(rg)))->getDateTimePattern(timeStyle, dateStyle, cal));
+		$var($String, pattern, $$nc($$nc($LocaleProviderAdapter::forType(this->type))->getLocaleResources(rg))->getDateTimePattern(timeStyle, dateStyle, cal));
 		sdf->applyPattern(pattern);
 	} catch ($MissingResourceException& mre) {
 		sdf->applyPattern("M/d/yy h:mm a"_s);
 	}
 	$var($String, tz, $nc(locale)->getUnicodeLocaleType("tz"_s));
 	if (tz != nullptr) {
-		sdf->setTimeZone($cast($TimeZone, $($nc($($nc($($TimeZoneNameUtility::convertLDMLShortID(tz)))->map(static_cast<$Function*>($$new(DateFormatProviderImpl$$Lambda$getTimeZone)))))->orElseGet(static_cast<$Supplier*>($$new(DateFormatProviderImpl$$Lambda$getTimeZone$1, static_cast<$SimpleDateFormat*>(sdf)))))));
+		sdf->setTimeZone($$cast($TimeZone, $$nc($$nc($TimeZoneNameUtility::convertLDMLShortID(tz))->map($$new(DateFormatProviderImpl$$Lambda$getTimeZone)))->orElseGet($$new(DateFormatProviderImpl$$Lambda$getTimeZone$1, sdf))));
 	}
 	return sdf;
 }
@@ -240,14 +194,45 @@ DateFormatProviderImpl::DateFormatProviderImpl() {
 
 $Class* DateFormatProviderImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DateFormatProviderImpl$$Lambda$getTimeZone::classInfo$.name)) {
+		if (name->equals("sun.util.locale.provider.DateFormatProviderImpl$$Lambda$getTimeZone")) {
 			return DateFormatProviderImpl$$Lambda$getTimeZone::load$(name, initialize);
 		}
-		if (name->equals(DateFormatProviderImpl$$Lambda$getTimeZone$1::classInfo$.name)) {
+		if (name->equals("sun.util.locale.provider.DateFormatProviderImpl$$Lambda$getTimeZone$1")) {
 			return DateFormatProviderImpl$$Lambda$getTimeZone$1::load$(name, initialize);
 		}
 	}
-	$loadClass(DateFormatProviderImpl, name, initialize, &_DateFormatProviderImpl_ClassInfo_, allocate$DateFormatProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(DateFormatProviderImpl, type)},
+		{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DateFormatProviderImpl, langtags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(DateFormatProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+		{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DateFormatProviderImpl, getAvailableLanguageTags, $Set*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getAvailableLocales, $LocaleArray*)},
+		{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getDateInstance, $DateFormat*, int32_t, $Locale*)},
+		{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getDateTimeInstance, $DateFormat*, int32_t, int32_t, $Locale*)},
+		{"getInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PRIVATE, $method(DateFormatProviderImpl, getInstance, $DateFormat*, int32_t, int32_t, $Locale*)},
+		{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getTimeInstance, $DateFormat*, int32_t, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.DateFormatProviderImpl",
+		"java.text.spi.DateFormatProvider",
+		"sun.util.locale.provider.AvailableLanguageTags",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DateFormatProviderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DateFormatProviderImpl));
+	});
 	return class$;
 }
 

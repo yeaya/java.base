@@ -68,6 +68,7 @@ class $import SunCertPathBuilder : public ::java::security::cert::CertPathBuilde
 	$class(SunCertPathBuilder, 0, ::java::security::cert::CertPathBuilderSpi)
 public:
 	SunCertPathBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* addVertices(::java::util::Collection* certs, ::java::util::List* adjList);
 	static bool anchorIsTarget(::java::security::cert::TrustAnchor* anchor, ::java::security::cert::CertSelector* sel);

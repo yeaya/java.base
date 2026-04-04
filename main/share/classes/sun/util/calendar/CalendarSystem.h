@@ -40,6 +40,7 @@ class $export CalendarSystem : public ::java::lang::Object {
 	$class(CalendarSystem, 0, ::java::lang::Object)
 public:
 	CalendarSystem();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::util::calendar::CalendarSystem* forName($String* calendarName);
 	virtual ::sun::util::calendar::CalendarDate* getCalendarDate() {return nullptr;}

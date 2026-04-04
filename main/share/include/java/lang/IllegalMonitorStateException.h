@@ -14,10 +14,13 @@ public:
 	IllegalMonitorStateException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x33885078182CED4D;
+	static const int64_t serialVersionUID = (int64_t)0x33885078182ced4d;
 	IllegalMonitorStateException(const IllegalMonitorStateException& e);
 	virtual void throw$() override;
-	inline IllegalMonitorStateException* operator ->() {
+	inline IllegalMonitorStateException* operator ->() const {
+		return (IllegalMonitorStateException*)throwing$;
+	}
+	inline operator IllegalMonitorStateException*() const {
 		return (IllegalMonitorStateException*)throwing$;
 	}
 };

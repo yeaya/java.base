@@ -1,5 +1,4 @@
 #include <java/lang/System$2.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Module.h>
@@ -65,98 +64,6 @@ using $AnnotationType = ::sun::reflect::annotation::AnnotationType;
 namespace java {
 	namespace lang {
 
-$MethodInfo _System$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(System$2, init$, void)},
-	{"addEnableNativeAccess", "(Ljava/lang/Module;)Ljava/lang/Module;", nullptr, $PUBLIC, $virtualMethod(System$2, addEnableNativeAccess, $Module*, $Module*)},
-	{"addEnableNativeAccessAllUnnamed", "()V", nullptr, $PUBLIC, $virtualMethod(System$2, addEnableNativeAccessAllUnnamed, void)},
-	{"addExports", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addExports, void, $Module*, $String*)},
-	{"addExports", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addExports, void, $Module*, $String*, $Module*)},
-	{"addExportsToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addExportsToAllUnnamed, void, $Module*, $String*)},
-	{"addNonExportedPackages", "(Ljava/lang/ModuleLayer;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addNonExportedPackages, void, $ModuleLayer*)},
-	{"addOpens", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addOpens, void, $Module*, $String*, $Module*)},
-	{"addOpensToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addOpensToAllUnnamed, void, $Module*, $String*)},
-	{"addOpensToAllUnnamed", "(Ljava/lang/Module;Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/lang/Module;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(System$2, addOpensToAllUnnamed, void, $Module*, $Set*, $Set*)},
-	{"addReads", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addReads, void, $Module*, $Module*)},
-	{"addReadsAllUnnamed", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addReadsAllUnnamed, void, $Module*)},
-	{"addUses", "(Ljava/lang/Module;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(System$2, addUses, void, $Module*, $Class*)},
-	{"bindToLoader", "(Ljava/lang/ModuleLayer;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(System$2, bindToLoader, void, $ModuleLayer*, $ClassLoader*)},
-	{"blockedOn", "(Lsun/nio/ch/Interruptible;)V", nullptr, $PUBLIC, $virtualMethod(System$2, blockedOn, void, $Interruptible*)},
-	{"casAnnotationType", "(Ljava/lang/Class;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", "(Ljava/lang/Class<*>;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", $PUBLIC, $virtualMethod(System$2, casAnnotationType, bool, $Class*, $AnnotationType*, $AnnotationType*)},
-	{"classData", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(System$2, classData, $Object*, $Class*)},
-	{"createOrGetClassLoaderValueMap", "(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap;", "(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap<**>;", $PUBLIC, $virtualMethod(System$2, createOrGetClassLoaderValueMap, $ConcurrentHashMap*, $ClassLoader*)},
-	{"decodeASCII", "([BI[CII)I", nullptr, $PUBLIC, $virtualMethod(System$2, decodeASCII, int32_t, $bytes*, int32_t, $chars*, int32_t, int32_t)},
-	{"defineClass", "(Ljava/lang/ClassLoader;Ljava/lang/String;[BLjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;[BLjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(System$2, defineClass, $Class*, $ClassLoader*, $String*, $bytes*, $ProtectionDomain*, $String*)},
-	{"defineClass", "(Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/String;[BLjava/security/ProtectionDomain;ZILjava/lang/Object;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/Class<*>;Ljava/lang/String;[BLjava/security/ProtectionDomain;ZILjava/lang/Object;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(System$2, defineClass, $Class*, $ClassLoader*, $Class*, $String*, $bytes*, $ProtectionDomain*, bool, int32_t, Object$*)},
-	{"defineModule", "(Ljava/lang/ClassLoader;Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;)Ljava/lang/Module;", nullptr, $PUBLIC, $virtualMethod(System$2, defineModule, $Module*, $ClassLoader*, $ModuleDescriptor*, $URI*)},
-	{"definePackage", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/Package;", nullptr, $PUBLIC, $virtualMethod(System$2, definePackage, $Package*, $ClassLoader*, $String*, $Module*)},
-	{"defineUnnamedModule", "(Ljava/lang/ClassLoader;)Ljava/lang/Module;", nullptr, $PUBLIC, $virtualMethod(System$2, defineUnnamedModule, $Module*, $ClassLoader*)},
-	{"exit", "(I)V", nullptr, $PUBLIC, $virtualMethod(System$2, exit, void, int32_t)},
-	{"fastUUID", "(JJ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(System$2, fastUUID, $String*, int64_t, int64_t)},
-	{"findBootstrapClassOrNull", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(System$2, findBootstrapClassOrNull, $Class*, $String*)},
-	{"findNative", "(Ljava/lang/ClassLoader;Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(System$2, findNative, int64_t, $ClassLoader*, $String*)},
-	{"getAnnotationType", "(Ljava/lang/Class;)Lsun/reflect/annotation/AnnotationType;", "(Ljava/lang/Class<*>;)Lsun/reflect/annotation/AnnotationType;", $PUBLIC, $virtualMethod(System$2, getAnnotationType, $AnnotationType*, $Class*)},
-	{"getBytesNoRepl", "(Ljava/lang/String;Ljava/nio/charset/Charset;)[B", nullptr, $PUBLIC, $virtualMethod(System$2, getBytesNoRepl, $bytes*, $String*, $Charset*), "java.nio.charset.CharacterCodingException"},
-	{"getBytesUTF8NoRepl", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(System$2, getBytesUTF8NoRepl, $bytes*, $String*)},
-	{"getConstantPool", "(Ljava/lang/Class;)Ljdk/internal/reflect/ConstantPool;", "(Ljava/lang/Class<*>;)Ljdk/internal/reflect/ConstantPool;", $PUBLIC, $virtualMethod(System$2, getConstantPool, $ConstantPool*, $Class*)},
-	{"getDeclaredAnnotationMap", "(Ljava/lang/Class;)Ljava/util/Map;", "(Ljava/lang/Class<*>;)Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", $PUBLIC, $virtualMethod(System$2, getDeclaredAnnotationMap, $Map*, $Class*)},
-	{"getDeclaredPublicMethods", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $PUBLIC | $TRANSIENT, $virtualMethod(System$2, getDeclaredPublicMethods, $List*, $Class*, $String*, $ClassArray*)},
-	{"getEnumConstantsShared", "(Ljava/lang/Class;)[Ljava/lang/Enum;", "<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/Class<TE;>;)[TE;", $PUBLIC, $virtualMethod(System$2, getEnumConstantsShared, $EnumArray*, $Class*)},
-	{"getRawClassAnnotations", "(Ljava/lang/Class;)[B", "(Ljava/lang/Class<*>;)[B", $PUBLIC, $virtualMethod(System$2, getRawClassAnnotations, $bytes*, $Class*)},
-	{"getRawClassTypeAnnotations", "(Ljava/lang/Class;)[B", "(Ljava/lang/Class<*>;)[B", $PUBLIC, $virtualMethod(System$2, getRawClassTypeAnnotations, $bytes*, $Class*)},
-	{"getRawExecutableTypeAnnotations", "(Ljava/lang/reflect/Executable;)[B", nullptr, $PUBLIC, $virtualMethod(System$2, getRawExecutableTypeAnnotations, $bytes*, $Executable*)},
-	{"getServicesCatalog", "(Ljava/lang/ModuleLayer;)Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC, $virtualMethod(System$2, getServicesCatalog, $ServicesCatalog*, $ModuleLayer*)},
-	{"inflateBytesToChars", "([BI[CII)V", nullptr, $PUBLIC, $virtualMethod(System$2, inflateBytesToChars, void, $bytes*, int32_t, $chars*, int32_t, int32_t)},
-	{"invalidatePackageAccessCache", "()V", nullptr, $PUBLIC, $virtualMethod(System$2, invalidatePackageAccessCache, void)},
-	{"invokeFinalize", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(System$2, invokeFinalize, void, Object$*), "java.lang.Throwable"},
-	{"isEnableNativeAccess", "(Ljava/lang/Module;)Z", nullptr, $PUBLIC, $virtualMethod(System$2, isEnableNativeAccess, bool, $Module*)},
-	{"isReflectivelyExported", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)Z", nullptr, $PUBLIC, $virtualMethod(System$2, isReflectivelyExported, bool, $Module*, $String*, $Module*)},
-	{"isReflectivelyOpened", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)Z", nullptr, $PUBLIC, $virtualMethod(System$2, isReflectivelyOpened, bool, $Module*, $String*, $Module*)},
-	{"join", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(System$2, join, $String*, $String*, $String*, $String*, $StringArray*, int32_t)},
-	{"layers", "(Ljava/lang/ModuleLayer;)Ljava/util/stream/Stream;", "(Ljava/lang/ModuleLayer;)Ljava/util/stream/Stream<Ljava/lang/ModuleLayer;>;", $PUBLIC, $virtualMethod(System$2, layers, $Stream*, $ModuleLayer*)},
-	{"layers", "(Ljava/lang/ClassLoader;)Ljava/util/stream/Stream;", "(Ljava/lang/ClassLoader;)Ljava/util/stream/Stream<Ljava/lang/ModuleLayer;>;", $PUBLIC, $virtualMethod(System$2, layers, $Stream*, $ClassLoader*)},
-	{"newStringNoRepl", "([BLjava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(System$2, newStringNoRepl, $String*, $bytes*, $Charset*), "java.nio.charset.CharacterCodingException"},
-	{"newStringUTF8NoRepl", "([BII)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(System$2, newStringUTF8NoRepl, $String*, $bytes*, int32_t, int32_t)},
-	{"newThreadWithAcc", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(System$2, newThreadWithAcc, $Thread*, $Runnable*, $AccessControlContext*)},
-	{"protectionDomain", "(Ljava/lang/Class;)Ljava/security/ProtectionDomain;", "(Ljava/lang/Class<*>;)Ljava/security/ProtectionDomain;", $PUBLIC, $virtualMethod(System$2, protectionDomain, $ProtectionDomain*, $Class*)},
-	{"registerShutdownHook", "(IZLjava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(System$2, registerShutdownHook, void, int32_t, bool, $Runnable*)},
-	{"setCause", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(System$2, setCause, void, $Throwable*, $Throwable*)},
-	{"stringConcatHelper", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(System$2, stringConcatHelper, $MethodHandle*, $String*, $MethodType*)},
-	{"stringConcatInitialCoder", "()J", nullptr, $PUBLIC, $virtualMethod(System$2, stringConcatInitialCoder, int64_t)},
-	{"stringConcatMix", "(JLjava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(System$2, stringConcatMix, int64_t, int64_t, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _System$2_EnclosingMethodInfo_ = {
-	"java.lang.System",
-	"setJavaLangAccess",
-	"()V"
-};
-
-$InnerClassInfo _System$2_InnerClassesInfo_[] = {
-	{"java.lang.System$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _System$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.System$2",
-	"java.lang.Object",
-	"jdk.internal.access.JavaLangAccess",
-	nullptr,
-	_System$2_MethodInfo_,
-	nullptr,
-	&_System$2_EnclosingMethodInfo_,
-	_System$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.System"
-};
-
-$Object* allocate$System$2($Class* clazz) {
-	return $of($alloc(System$2));
-}
-
 void System$2::init$() {
 }
 
@@ -193,7 +100,7 @@ $bytes* System$2::getRawExecutableTypeAnnotations($Executable* executable) {
 }
 
 $EnumArray* System$2::getEnumConstantsShared($Class* klass) {
-	return $fcast($EnumArray, $nc(klass)->getEnumConstantsShared());
+	return $cast($EnumArray, $nc(klass)->getEnumConstantsShared());
 }
 
 void System$2::blockedOn($Interruptible* b) {
@@ -373,7 +280,7 @@ $String* System$2::join($String* prefix, $String* suffix, $String* delimiter, $S
 }
 
 $Object* System$2::classData($Class* c) {
-	return $of($nc(c)->getClassData());
+	return $nc(c)->getClassData();
 }
 
 int64_t System$2::findNative($ClassLoader* loader, $String* entry) {
@@ -388,7 +295,93 @@ System$2::System$2() {
 }
 
 $Class* System$2::load$($String* name, bool initialize) {
-	$loadClass(System$2, name, initialize, &_System$2_ClassInfo_, allocate$System$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(System$2, init$, void)},
+		{"addEnableNativeAccess", "(Ljava/lang/Module;)Ljava/lang/Module;", nullptr, $PUBLIC, $virtualMethod(System$2, addEnableNativeAccess, $Module*, $Module*)},
+		{"addEnableNativeAccessAllUnnamed", "()V", nullptr, $PUBLIC, $virtualMethod(System$2, addEnableNativeAccessAllUnnamed, void)},
+		{"addExports", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addExports, void, $Module*, $String*)},
+		{"addExports", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addExports, void, $Module*, $String*, $Module*)},
+		{"addExportsToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addExportsToAllUnnamed, void, $Module*, $String*)},
+		{"addNonExportedPackages", "(Ljava/lang/ModuleLayer;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addNonExportedPackages, void, $ModuleLayer*)},
+		{"addOpens", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addOpens, void, $Module*, $String*, $Module*)},
+		{"addOpensToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addOpensToAllUnnamed, void, $Module*, $String*)},
+		{"addOpensToAllUnnamed", "(Ljava/lang/Module;Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/lang/Module;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(System$2, addOpensToAllUnnamed, void, $Module*, $Set*, $Set*)},
+		{"addReads", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addReads, void, $Module*, $Module*)},
+		{"addReadsAllUnnamed", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $virtualMethod(System$2, addReadsAllUnnamed, void, $Module*)},
+		{"addUses", "(Ljava/lang/Module;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(System$2, addUses, void, $Module*, $Class*)},
+		{"bindToLoader", "(Ljava/lang/ModuleLayer;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(System$2, bindToLoader, void, $ModuleLayer*, $ClassLoader*)},
+		{"blockedOn", "(Lsun/nio/ch/Interruptible;)V", nullptr, $PUBLIC, $virtualMethod(System$2, blockedOn, void, $Interruptible*)},
+		{"casAnnotationType", "(Ljava/lang/Class;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", "(Ljava/lang/Class<*>;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", $PUBLIC, $virtualMethod(System$2, casAnnotationType, bool, $Class*, $AnnotationType*, $AnnotationType*)},
+		{"classData", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(System$2, classData, $Object*, $Class*)},
+		{"createOrGetClassLoaderValueMap", "(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap;", "(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap<**>;", $PUBLIC, $virtualMethod(System$2, createOrGetClassLoaderValueMap, $ConcurrentHashMap*, $ClassLoader*)},
+		{"decodeASCII", "([BI[CII)I", nullptr, $PUBLIC, $virtualMethod(System$2, decodeASCII, int32_t, $bytes*, int32_t, $chars*, int32_t, int32_t)},
+		{"defineClass", "(Ljava/lang/ClassLoader;Ljava/lang/String;[BLjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;[BLjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(System$2, defineClass, $Class*, $ClassLoader*, $String*, $bytes*, $ProtectionDomain*, $String*)},
+		{"defineClass", "(Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/String;[BLjava/security/ProtectionDomain;ZILjava/lang/Object;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/Class<*>;Ljava/lang/String;[BLjava/security/ProtectionDomain;ZILjava/lang/Object;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(System$2, defineClass, $Class*, $ClassLoader*, $Class*, $String*, $bytes*, $ProtectionDomain*, bool, int32_t, Object$*)},
+		{"defineModule", "(Ljava/lang/ClassLoader;Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;)Ljava/lang/Module;", nullptr, $PUBLIC, $virtualMethod(System$2, defineModule, $Module*, $ClassLoader*, $ModuleDescriptor*, $URI*)},
+		{"definePackage", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/Package;", nullptr, $PUBLIC, $virtualMethod(System$2, definePackage, $Package*, $ClassLoader*, $String*, $Module*)},
+		{"defineUnnamedModule", "(Ljava/lang/ClassLoader;)Ljava/lang/Module;", nullptr, $PUBLIC, $virtualMethod(System$2, defineUnnamedModule, $Module*, $ClassLoader*)},
+		{"exit", "(I)V", nullptr, $PUBLIC, $virtualMethod(System$2, exit, void, int32_t)},
+		{"fastUUID", "(JJ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(System$2, fastUUID, $String*, int64_t, int64_t)},
+		{"findBootstrapClassOrNull", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(System$2, findBootstrapClassOrNull, $Class*, $String*)},
+		{"findNative", "(Ljava/lang/ClassLoader;Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(System$2, findNative, int64_t, $ClassLoader*, $String*)},
+		{"getAnnotationType", "(Ljava/lang/Class;)Lsun/reflect/annotation/AnnotationType;", "(Ljava/lang/Class<*>;)Lsun/reflect/annotation/AnnotationType;", $PUBLIC, $virtualMethod(System$2, getAnnotationType, $AnnotationType*, $Class*)},
+		{"getBytesNoRepl", "(Ljava/lang/String;Ljava/nio/charset/Charset;)[B", nullptr, $PUBLIC, $virtualMethod(System$2, getBytesNoRepl, $bytes*, $String*, $Charset*), "java.nio.charset.CharacterCodingException"},
+		{"getBytesUTF8NoRepl", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(System$2, getBytesUTF8NoRepl, $bytes*, $String*)},
+		{"getConstantPool", "(Ljava/lang/Class;)Ljdk/internal/reflect/ConstantPool;", "(Ljava/lang/Class<*>;)Ljdk/internal/reflect/ConstantPool;", $PUBLIC, $virtualMethod(System$2, getConstantPool, $ConstantPool*, $Class*)},
+		{"getDeclaredAnnotationMap", "(Ljava/lang/Class;)Ljava/util/Map;", "(Ljava/lang/Class<*>;)Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", $PUBLIC, $virtualMethod(System$2, getDeclaredAnnotationMap, $Map*, $Class*)},
+		{"getDeclaredPublicMethods", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $PUBLIC | $TRANSIENT, $virtualMethod(System$2, getDeclaredPublicMethods, $List*, $Class*, $String*, $ClassArray*)},
+		{"getEnumConstantsShared", "(Ljava/lang/Class;)[Ljava/lang/Enum;", "<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/Class<TE;>;)[TE;", $PUBLIC, $virtualMethod(System$2, getEnumConstantsShared, $EnumArray*, $Class*)},
+		{"getRawClassAnnotations", "(Ljava/lang/Class;)[B", "(Ljava/lang/Class<*>;)[B", $PUBLIC, $virtualMethod(System$2, getRawClassAnnotations, $bytes*, $Class*)},
+		{"getRawClassTypeAnnotations", "(Ljava/lang/Class;)[B", "(Ljava/lang/Class<*>;)[B", $PUBLIC, $virtualMethod(System$2, getRawClassTypeAnnotations, $bytes*, $Class*)},
+		{"getRawExecutableTypeAnnotations", "(Ljava/lang/reflect/Executable;)[B", nullptr, $PUBLIC, $virtualMethod(System$2, getRawExecutableTypeAnnotations, $bytes*, $Executable*)},
+		{"getServicesCatalog", "(Ljava/lang/ModuleLayer;)Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC, $virtualMethod(System$2, getServicesCatalog, $ServicesCatalog*, $ModuleLayer*)},
+		{"inflateBytesToChars", "([BI[CII)V", nullptr, $PUBLIC, $virtualMethod(System$2, inflateBytesToChars, void, $bytes*, int32_t, $chars*, int32_t, int32_t)},
+		{"invalidatePackageAccessCache", "()V", nullptr, $PUBLIC, $virtualMethod(System$2, invalidatePackageAccessCache, void)},
+		{"invokeFinalize", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(System$2, invokeFinalize, void, Object$*), "java.lang.Throwable"},
+		{"isEnableNativeAccess", "(Ljava/lang/Module;)Z", nullptr, $PUBLIC, $virtualMethod(System$2, isEnableNativeAccess, bool, $Module*)},
+		{"isReflectivelyExported", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)Z", nullptr, $PUBLIC, $virtualMethod(System$2, isReflectivelyExported, bool, $Module*, $String*, $Module*)},
+		{"isReflectivelyOpened", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)Z", nullptr, $PUBLIC, $virtualMethod(System$2, isReflectivelyOpened, bool, $Module*, $String*, $Module*)},
+		{"join", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(System$2, join, $String*, $String*, $String*, $String*, $StringArray*, int32_t)},
+		{"layers", "(Ljava/lang/ModuleLayer;)Ljava/util/stream/Stream;", "(Ljava/lang/ModuleLayer;)Ljava/util/stream/Stream<Ljava/lang/ModuleLayer;>;", $PUBLIC, $virtualMethod(System$2, layers, $Stream*, $ModuleLayer*)},
+		{"layers", "(Ljava/lang/ClassLoader;)Ljava/util/stream/Stream;", "(Ljava/lang/ClassLoader;)Ljava/util/stream/Stream<Ljava/lang/ModuleLayer;>;", $PUBLIC, $virtualMethod(System$2, layers, $Stream*, $ClassLoader*)},
+		{"newStringNoRepl", "([BLjava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(System$2, newStringNoRepl, $String*, $bytes*, $Charset*), "java.nio.charset.CharacterCodingException"},
+		{"newStringUTF8NoRepl", "([BII)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(System$2, newStringUTF8NoRepl, $String*, $bytes*, int32_t, int32_t)},
+		{"newThreadWithAcc", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(System$2, newThreadWithAcc, $Thread*, $Runnable*, $AccessControlContext*)},
+		{"protectionDomain", "(Ljava/lang/Class;)Ljava/security/ProtectionDomain;", "(Ljava/lang/Class<*>;)Ljava/security/ProtectionDomain;", $PUBLIC, $virtualMethod(System$2, protectionDomain, $ProtectionDomain*, $Class*)},
+		{"registerShutdownHook", "(IZLjava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(System$2, registerShutdownHook, void, int32_t, bool, $Runnable*)},
+		{"setCause", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(System$2, setCause, void, $Throwable*, $Throwable*)},
+		{"stringConcatHelper", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(System$2, stringConcatHelper, $MethodHandle*, $String*, $MethodType*)},
+		{"stringConcatInitialCoder", "()J", nullptr, $PUBLIC, $virtualMethod(System$2, stringConcatInitialCoder, int64_t)},
+		{"stringConcatMix", "(JLjava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(System$2, stringConcatMix, int64_t, int64_t, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.System",
+		"setJavaLangAccess",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.System$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.System$2",
+		"java.lang.Object",
+		"jdk.internal.access.JavaLangAccess",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.System"
+	};
+	$loadClass(System$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(System$2);
+	});
 	return class$;
 }
 

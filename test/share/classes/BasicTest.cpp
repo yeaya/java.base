@@ -1,5 +1,4 @@
 #include <BasicTest.h>
-
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
@@ -14,7 +13,6 @@
 #undef MAX_PARAM_SLOTS
 #undef TYPE
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -28,33 +26,6 @@ using $StringConcatException = ::java::lang::invoke::StringConcatException;
 using $StringConcatFactory = ::java::lang::invoke::StringConcatFactory;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-
-$FieldInfo _BasicTest_FieldInfo_[] = {
-	{"MAX_PARAM_SLOTS", "I", nullptr, $STATIC | $FINAL, $constField(BasicTest, MAX_PARAM_SLOTS)},
-	{"exceedMaxParamSlots", "I", nullptr, $STATIC, $staticField(BasicTest, exceedMaxParamSlots)},
-	{}
-};
-
-$MethodInfo _BasicTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTest, main, void, $StringArray*), "java.lang.Throwable"},
-	{"test", "(Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $staticMethod(BasicTest, test, void, $MethodType*), "java.lang.invoke.StringConcatException"},
-	{}
-};
-
-$ClassInfo _BasicTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"BasicTest",
-	"java.lang.Object",
-	nullptr,
-	_BasicTest_FieldInfo_,
-	_BasicTest_MethodInfo_
-};
-
-$Object* allocate$BasicTest($Class* clazz) {
-	return $of($alloc(BasicTest));
-}
 
 int32_t BasicTest::exceedMaxParamSlots = 0;
 
@@ -63,26 +34,23 @@ void BasicTest::init$() {
 
 void BasicTest::main($StringArray* args) {
 	$init(BasicTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t expectionTestCases = 0;
 	$var($ClassArray, types, $new($ClassArray, 200));
-	$init($Integer);
-	$Arrays::fill(types, $of($Integer::TYPE));
+	$Arrays::fill(types, $Integer::TYPE);
 	test($($MethodType::methodType($String::class$, types)));
 	$assign(types, $new($ClassArray, 100));
-	$init($Long);
-	$Arrays::fill(types, $of($Long::TYPE));
+	$Arrays::fill(types, $Long::TYPE);
 	test($($MethodType::methodType($String::class$, types)));
 	++expectionTestCases;
 	$assign(types, $new($ClassArray, 101));
-	$Arrays::fill(types, 0, 50, $of($Long::TYPE));
-	$init($Double);
-	$Arrays::fill(types, 50, 100, $of($Double::TYPE));
+	$Arrays::fill(types, 0, 50, $Long::TYPE);
+	$Arrays::fill(types, 50, 100, $Double::TYPE);
 	types->set(100, $Integer::TYPE);
 	test($($MethodType::methodType($String::class$, types)));
 	++expectionTestCases;
 	$assign(types, $new($ClassArray, 201));
-	$Arrays::fill(types, $of($Integer::TYPE));
+	$Arrays::fill(types, $Integer::TYPE);
 	test($($MethodType::methodType($String::class$, types)));
 	if (BasicTest::exceedMaxParamSlots != expectionTestCases) {
 		$throwNew($RuntimeException, "expected one test case exceeding 200 param slots"_s);
@@ -91,19 +59,17 @@ void BasicTest::main($StringArray* args) {
 
 void BasicTest::test($MethodType* concatType) {
 	$init(BasicTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, recipe, ""_s);
 	int32_t slots = 0;
 	{
-		$var($Iterator, i$, $nc($($nc(concatType)->parameterList()))->iterator());
+		$var($Iterator, i$, $$nc($nc(concatType)->parameterList())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$Class* c = $cast($Class, i$->next());
 			{
 				$plusAssign(recipe, "\u0001"_s);
 				++slots;
-				$init($Double);
-				$init($Long);
 				if (c == $Double::TYPE || c == $Long::TYPE) {
 					++slots;
 				}
@@ -113,7 +79,7 @@ void BasicTest::test($MethodType* concatType) {
 	if (slots > BasicTest::MAX_PARAM_SLOTS) {
 		++BasicTest::exceedMaxParamSlots;
 	}
-	$nc($System::out)->format("Test %s parameter slots%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(slots)))}));
+	$nc($System::out)->format("Test %s parameter slots%n"_s, $$new($ObjectArray, {$($Integer::valueOf(slots))}));
 	try {
 		$StringConcatFactory::makeConcat($($MethodHandles::lookup()), "name"_s, concatType);
 		if (slots > BasicTest::MAX_PARAM_SLOTS) {
@@ -136,7 +102,7 @@ void BasicTest::test($MethodType* concatType) {
 	}
 }
 
-void clinit$BasicTest($Class* class$) {
+void BasicTest::clinit$($Class* clazz) {
 	BasicTest::exceedMaxParamSlots = 0;
 }
 
@@ -144,7 +110,28 @@ BasicTest::BasicTest() {
 }
 
 $Class* BasicTest::load$($String* name, bool initialize) {
-	$loadClass(BasicTest, name, initialize, &_BasicTest_ClassInfo_, clinit$BasicTest, allocate$BasicTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_PARAM_SLOTS", "I", nullptr, $STATIC | $FINAL, $constField(BasicTest, MAX_PARAM_SLOTS)},
+		{"exceedMaxParamSlots", "I", nullptr, $STATIC, $staticField(BasicTest, exceedMaxParamSlots)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTest, main, void, $StringArray*), "java.lang.Throwable"},
+		{"test", "(Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $staticMethod(BasicTest, test, void, $MethodType*), "java.lang.invoke.StringConcatException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"BasicTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicTest, name, initialize, &classInfo$$, BasicTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicTest);
+	});
 	return class$;
 }
 

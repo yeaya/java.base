@@ -15,10 +15,13 @@ public:
 	BrokenBarrierException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x62C610B23D3CA0E4;
+	static const int64_t serialVersionUID = (int64_t)0x62c610b23d3ca0e4;
 	BrokenBarrierException(const BrokenBarrierException& e);
 	virtual void throw$() override;
-	inline BrokenBarrierException* operator ->() {
+	inline BrokenBarrierException* operator ->() const {
+		return (BrokenBarrierException*)throwing$;
+	}
+	inline operator BrokenBarrierException*() const {
 		return (BrokenBarrierException*)throwing$;
 	}
 };

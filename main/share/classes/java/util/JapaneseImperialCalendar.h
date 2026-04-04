@@ -68,6 +68,7 @@ class JapaneseImperialCalendar : public ::java::util::Calendar {
 	$class(JapaneseImperialCalendar, 0, ::java::util::Calendar)
 public:
 	JapaneseImperialCalendar();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::TimeZone* zone, ::java::util::Locale* aLocale);
 	void init$(::java::util::TimeZone* zone, ::java::util::Locale* aLocale, bool flag);
 	int32_t actualMonthLength();
@@ -114,7 +115,7 @@ public:
 	static const int32_t SHOWA = 3;
 	static const int32_t HEISEI = 4;
 	static const int32_t REIWA = 5;
-	static const int32_t EPOCH_OFFSET = 0x000AF93B;
+	static const int32_t EPOCH_OFFSET = 0x000af93b;
 	static const int32_t ONE_SECOND = 1000;
 	static const int32_t ONE_MINUTE = 60000; // 60 * ONE_SECOND
 	static const int32_t ONE_HOUR = 3600000; // 60 * ONE_MINUTE
@@ -128,7 +129,7 @@ public:
 	static $ints* MIN_VALUES;
 	static $ints* LEAST_MAX_VALUES;
 	static $ints* MAX_VALUES;
-	static const int64_t serialVersionUID = (int64_t)0xD14EA2DA1E3A65E7;
+	static const int64_t serialVersionUID = (int64_t)0xd14ea2da1e3a65e7;
 	::sun::util::calendar::LocalGregorianCalendar$Date* jdate = nullptr;
 	$ints* zoneOffsets = nullptr;
 	$ints* originalFields = nullptr;

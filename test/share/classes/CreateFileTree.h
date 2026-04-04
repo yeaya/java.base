@@ -22,6 +22,7 @@ class $export CreateFileTree : public ::java::lang::Object {
 	$class(CreateFileTree, 0, ::java::lang::Object)
 public:
 	CreateFileTree();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::file::Path* create();
 	static void main($StringArray* args);

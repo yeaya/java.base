@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleInfo.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/EOFException.h>
@@ -17,7 +16,6 @@
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -57,7 +55,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $InvalidModuleDescriptorException = ::java::lang::module::InvalidModuleDescriptorException;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $ModuleDescriptor$Builder = ::java::lang::module::ModuleDescriptor$Builder;
@@ -67,10 +64,8 @@ using $ModuleDescriptor$Opens$Modifier = ::java::lang::module::ModuleDescriptor$
 using $ModuleDescriptor$Requires$Modifier = ::java::lang::module::ModuleDescriptor$Requires$Modifier;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
-using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
@@ -90,62 +85,6 @@ namespace jdk {
 	namespace internal {
 		namespace module {
 
-$FieldInfo _ModuleInfo_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleInfo, $assertionsDisabled)},
-	{"JLMA", "Ljdk/internal/access/JavaLangModuleAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModuleInfo, JLMA)},
-	{"packageFinder", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE | $FINAL, $field(ModuleInfo, packageFinder)},
-	{"parseHashes", "Z", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo, parseHashes)},
-	{"predefinedNotAllowed", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(ModuleInfo, predefinedNotAllowed)},
-	{}
-};
-
-$MethodInfo _ModuleInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Supplier;Z)V", "(Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;Z)V", $PRIVATE, $method(ModuleInfo, init$, void, $Supplier*, bool)},
-	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)V", $PRIVATE, $method(ModuleInfo, init$, void, $Supplier*)},
-	{"doRead", "(Ljava/io/DataInput;)Ljdk/internal/module/ModuleInfo$Attributes;", nullptr, $PRIVATE, $method(ModuleInfo, doRead, $ModuleInfo$Attributes*, $DataInput*), "java.io.IOException"},
-	{"invalidModuleDescriptor", "(Ljava/lang/String;)Ljava/lang/module/InvalidModuleDescriptorException;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleInfo, invalidModuleDescriptor, $InvalidModuleDescriptorException*, $String*)},
-	{"isAttributeAtMostOnce", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleInfo, isAttributeAtMostOnce, bool, $String*)},
-	{"isAttributeDisallowed", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleInfo, isAttributeDisallowed, bool, $String*)},
-	{"read", "(Ljava/io/InputStream;Ljava/util/function/Supplier;)Ljdk/internal/module/ModuleInfo$Attributes;", "(Ljava/io/InputStream;Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)Ljdk/internal/module/ModuleInfo$Attributes;", $PUBLIC | $STATIC, $staticMethod(ModuleInfo, read, $ModuleInfo$Attributes*, $InputStream*, $Supplier*), "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier;)Ljdk/internal/module/ModuleInfo$Attributes;", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)Ljdk/internal/module/ModuleInfo$Attributes;", $PUBLIC | $STATIC, $staticMethod(ModuleInfo, read, $ModuleInfo$Attributes*, $ByteBuffer*, $Supplier*)},
-	{"readIgnoringHashes", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier;)Ljdk/internal/module/ModuleInfo$Attributes;", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)Ljdk/internal/module/ModuleInfo$Attributes;", $PUBLIC | $STATIC, $staticMethod(ModuleInfo, readIgnoringHashes, $ModuleInfo$Attributes*, $ByteBuffer*, $Supplier*)},
-	{"readModuleAttribute", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;I)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PRIVATE, $method(ModuleInfo, readModuleAttribute, $ModuleDescriptor$Builder*, $DataInput*, $ModuleInfo$ConstantPool*, int32_t), "java.io.IOException"},
-	{"readModuleHashesAttribute", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljdk/internal/module/ModuleHashes;", nullptr, $PRIVATE, $method(ModuleInfo, readModuleHashesAttribute, $ModuleHashes*, $DataInput*, $ModuleInfo$ConstantPool*), "java.io.IOException"},
-	{"readModuleMainClassAttribute", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ModuleInfo, readModuleMainClassAttribute, $String*, $DataInput*, $ModuleInfo$ConstantPool*), "java.io.IOException"},
-	{"readModulePackagesAttribute", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljava/util/Set;", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(ModuleInfo, readModulePackagesAttribute, $Set*, $DataInput*, $ModuleInfo$ConstantPool*), "java.io.IOException"},
-	{"readModuleResolution", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljdk/internal/module/ModuleResolution;", nullptr, $PRIVATE, $method(ModuleInfo, readModuleResolution, $ModuleResolution*, $DataInput*, $ModuleInfo$ConstantPool*), "java.io.IOException"},
-	{"readModuleTargetAttribute", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljdk/internal/module/ModuleTarget;", nullptr, $PRIVATE, $method(ModuleInfo, readModuleTargetAttribute, $ModuleTarget*, $DataInput*, $ModuleInfo$ConstantPool*), "java.io.IOException"},
-	{"truncatedModuleDescriptor", "()Ljava/lang/module/InvalidModuleDescriptorException;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleInfo, truncatedModuleDescriptor, $InvalidModuleDescriptorException*)},
-	{}
-};
-
-$InnerClassInfo _ModuleInfo_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModuleInfo$CountingDataInput", "jdk.internal.module.ModuleInfo", "CountingDataInput", $PRIVATE | $STATIC},
-	{"jdk.internal.module.ModuleInfo$DataInputWrapper", "jdk.internal.module.ModuleInfo", "DataInputWrapper", $PRIVATE | $STATIC},
-	{"jdk.internal.module.ModuleInfo$ConstantPool", "jdk.internal.module.ModuleInfo", "ConstantPool", $PRIVATE | $STATIC},
-	{"jdk.internal.module.ModuleInfo$Attributes", "jdk.internal.module.ModuleInfo", "Attributes", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ModuleInfo_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.module.ModuleInfo",
-	"java.lang.Object",
-	nullptr,
-	_ModuleInfo_FieldInfo_,
-	_ModuleInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModuleInfo$CountingDataInput,jdk.internal.module.ModuleInfo$DataInputWrapper,jdk.internal.module.ModuleInfo$ConstantPool,jdk.internal.module.ModuleInfo$ConstantPool$ValueEntry,jdk.internal.module.ModuleInfo$ConstantPool$Index2Entry,jdk.internal.module.ModuleInfo$ConstantPool$IndexEntry,jdk.internal.module.ModuleInfo$ConstantPool$Entry,jdk.internal.module.ModuleInfo$Attributes"
-};
-
-$Object* allocate$ModuleInfo($Class* clazz) {
-	return $of($alloc(ModuleInfo));
-}
-
 bool ModuleInfo::$assertionsDisabled = false;
 $JavaLangModuleAccess* ModuleInfo::JLMA = nullptr;
 $volatile($Set*) ModuleInfo::predefinedNotAllowed = nullptr;
@@ -161,7 +100,7 @@ void ModuleInfo::init$($Supplier* pf) {
 
 $ModuleInfo$Attributes* ModuleInfo::read($InputStream* in, $Supplier* pf) {
 	$init(ModuleInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $$new(ModuleInfo, pf)->doRead($$new($DataInputStream, in));
 	} catch ($IllegalArgumentException& e) {
@@ -176,7 +115,7 @@ $ModuleInfo$Attributes* ModuleInfo::read($InputStream* in, $Supplier* pf) {
 
 $ModuleInfo$Attributes* ModuleInfo::read($ByteBuffer* bb, $Supplier* pf) {
 	$init(ModuleInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $$new(ModuleInfo, pf)->doRead($$new($ModuleInfo$DataInputWrapper, bb));
 	} catch ($IllegalArgumentException& e) {
@@ -193,7 +132,7 @@ $ModuleInfo$Attributes* ModuleInfo::read($ByteBuffer* bb, $Supplier* pf) {
 
 $ModuleInfo$Attributes* ModuleInfo::readIgnoringHashes($ByteBuffer* bb, $Supplier* pf) {
 	$init(ModuleInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $$new(ModuleInfo, pf, false)->doRead($$new($ModuleInfo$DataInputWrapper, bb));
 	} catch ($IllegalArgumentException& e) {
@@ -209,10 +148,10 @@ $ModuleInfo$Attributes* ModuleInfo::readIgnoringHashes($ByteBuffer* bb, $Supplie
 }
 
 $ModuleInfo$Attributes* ModuleInfo::doRead($DataInput* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModuleInfo$CountingDataInput, in, $new($ModuleInfo$CountingDataInput, input));
 	int32_t magic = in->readInt();
-	if (magic != (int32_t)0xCAFEBABE) {
+	if (magic != (int32_t)0xcafebabe) {
 		$throw($(invalidModuleDescriptor("Bad magic number"_s)));
 	}
 	int32_t minor_version = in->readUnsignedShort();
@@ -222,7 +161,7 @@ $ModuleInfo$Attributes* ModuleInfo::doRead($DataInput* input) {
 	}
 	$var($ModuleInfo$ConstantPool, cpool, $new($ModuleInfo$ConstantPool, in));
 	int32_t access_flags = in->readUnsignedShort();
-	if (access_flags != 32768) {
+	if (access_flags != 0x00008000) {
 		$throw($(invalidModuleDescriptor("access_flags should be ACC_MODULE"_s)));
 	}
 	int32_t this_class = in->readUnsignedShort();
@@ -267,91 +206,65 @@ $ModuleInfo$Attributes* ModuleInfo::doRead($DataInput* input) {
 			$var($String, s9156$, attribute_name);
 			int32_t tmp9156$ = -1;
 			switch ($nc(s9156$)->hashCode()) {
-			case (int32_t)0x89B0928C:
-				{
-					if (s9156$->equals("Module"_s)) {
-						tmp9156$ = 0;
-					}
-					break;
+			case (int32_t)0x89b0928c:
+				if (s9156$->equals("Module"_s)) {
+					tmp9156$ = 0;
 				}
-			case 0x2706FF99:
-				{
-					if (s9156$->equals("ModulePackages"_s)) {
-						tmp9156$ = 1;
-					}
-					break;
+				break;
+			case 0x2706ff99:
+				if (s9156$->equals("ModulePackages"_s)) {
+					tmp9156$ = 1;
 				}
-			case 0x3DEB0A13:
-				{
-					if (s9156$->equals("ModuleMainClass"_s)) {
-						tmp9156$ = 2;
-					}
-					break;
+				break;
+			case 0x3deb0a13:
+				if (s9156$->equals("ModuleMainClass"_s)) {
+					tmp9156$ = 2;
 				}
-			case 0x5646D73D:
-				{
-					if (s9156$->equals("ModuleTarget"_s)) {
-						tmp9156$ = 3;
-					}
-					break;
+				break;
+			case 0x5646d73d:
+				if (s9156$->equals("ModuleTarget"_s)) {
+					tmp9156$ = 3;
 				}
-			case 0x41CD27E8:
-				{
-					if (s9156$->equals("ModuleHashes"_s)) {
-						tmp9156$ = 4;
-					}
-					break;
+				break;
+			case 0x41cd27e8:
+				if (s9156$->equals("ModuleHashes"_s)) {
+					tmp9156$ = 4;
 				}
+				break;
 			case 0x20272858:
-				{
-					if (s9156$->equals("ModuleResolution"_s)) {
-						tmp9156$ = 5;
-					}
-					break;
+				if (s9156$->equals("ModuleResolution"_s)) {
+					tmp9156$ = 5;
 				}
+				break;
 			}
 			switch (tmp9156$) {
 			case 0:
-				{
-					$assign(builder, readModuleAttribute(in, cpool, major_version));
-					break;
-				}
+				$assign(builder, readModuleAttribute(in, cpool, major_version));
+				break;
 			case 1:
-				{
-					$assign(allPackages, readModulePackagesAttribute(in, cpool));
-					break;
-				}
+				$assign(allPackages, readModulePackagesAttribute(in, cpool));
+				break;
 			case 2:
-				{
-					$assign(mainClass, readModuleMainClassAttribute(in, cpool));
-					break;
-				}
+				$assign(mainClass, readModuleMainClassAttribute(in, cpool));
+				break;
 			case 3:
-				{
-					$assign(moduleTarget, readModuleTargetAttribute(in, cpool));
-					break;
-				}
+				$assign(moduleTarget, readModuleTargetAttribute(in, cpool));
+				break;
 			case 4:
-				{
-					if (this->parseHashes) {
-						$assign(moduleHashes, readModuleHashesAttribute(in, cpool));
-					} else {
-						in->skipBytes(length);
-					}
-					break;
+				if (this->parseHashes) {
+					$assign(moduleHashes, readModuleHashesAttribute(in, cpool));
+				} else {
+					in->skipBytes(length);
 				}
+				break;
 			case 5:
-				{
-					$assign(moduleResolution, readModuleResolution(in, cpool));
-					break;
-				}
+				$assign(moduleResolution, readModuleResolution(in, cpool));
+				break;
 			default:
-				{
-					if (isAttributeDisallowed(attribute_name)) {
-						$throw($(invalidModuleDescriptor($$str({attribute_name, " attribute not allowed"_s}))));
-					} else {
-						in->skipBytes(length);
-					}
+				if (isAttributeDisallowed(attribute_name)) {
+					$throw($(invalidModuleDescriptor($$str({attribute_name, " attribute not allowed"_s}))));
+				} else {
+					in->skipBytes(length);
 				}
 			}
 		}
@@ -369,21 +282,21 @@ $ModuleInfo$Attributes* ModuleInfo::doRead($DataInput* input) {
 	bool usedPackageFinder = false;
 	if (allPackages == nullptr && this->packageFinder != nullptr) {
 		try {
-			$assign(allPackages, $cast($Set, $nc(this->packageFinder)->get()));
+			$assign(allPackages, $cast($Set, this->packageFinder->get()));
 		} catch ($UncheckedIOException& x) {
-			$throw($($cast($IOException, x->getCause())));
+			$throw($$cast($IOException, x->getCause()));
 		}
 		usedPackageFinder = true;
 	}
 	if (allPackages != nullptr) {
 		$var($Set, knownPackages, $nc(ModuleInfo::JLMA)->packages(builder));
 		if (!allPackages->containsAll(knownPackages)) {
-			$var($Set, missingPackages, $new($HashSet, static_cast<$Collection*>(knownPackages)));
+			$var($Set, missingPackages, $new($HashSet, knownPackages));
 			missingPackages->removeAll(allPackages);
 			if (!ModuleInfo::$assertionsDisabled && ! !missingPackages->isEmpty()) {
 				$throwNew($AssertionError);
 			}
-			$var($String, missingPackage, $cast($String, $nc($(missingPackages->iterator()))->next()));
+			$var($String, missingPackage, $cast($String, $$nc(missingPackages->iterator())->next()));
 			$var($String, tail, nullptr);
 			if (usedPackageFinder) {
 				$assign(tail, " not found in module"_s);
@@ -399,21 +312,21 @@ $ModuleInfo$Attributes* ModuleInfo::doRead($DataInput* input) {
 }
 
 $ModuleDescriptor$Builder* ModuleInfo::readModuleAttribute($DataInput* in, $ModuleInfo$ConstantPool* cpool, int32_t major) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t module_name_index = $nc(in)->readUnsignedShort();
 	$var($String, mn, $nc(cpool)->getModuleName(module_name_index));
 	int32_t module_flags = in->readUnsignedShort();
 	$var($Set, modifiers, $new($HashSet));
-	bool open = (((int32_t)(module_flags & (uint32_t)32)) != 0);
+	bool open = ((module_flags & 0x20) != 0);
 	if (open) {
 		$init($ModuleDescriptor$Modifier);
 		modifiers->add($ModuleDescriptor$Modifier::OPEN);
 	}
-	if (((int32_t)(module_flags & (uint32_t)4096)) != 0) {
+	if ((module_flags & 0x1000) != 0) {
 		$init($ModuleDescriptor$Modifier);
 		modifiers->add($ModuleDescriptor$Modifier::SYNTHETIC);
 	}
-	if (((int32_t)(module_flags & (uint32_t)32768)) != 0) {
+	if ((module_flags & 0x8000) != 0) {
 		$init($ModuleDescriptor$Modifier);
 		modifiers->add($ModuleDescriptor$Modifier::MANDATED);
 	}
@@ -434,19 +347,19 @@ $ModuleDescriptor$Builder* ModuleInfo::readModuleAttribute($DataInput* in, $Modu
 			$assign(mods, $Set::of());
 		} else {
 			$assign(mods, $new($HashSet));
-			if (((int32_t)(requires_flags & (uint32_t)32)) != 0) {
+			if ((requires_flags & 0x20) != 0) {
 				$init($ModuleDescriptor$Requires$Modifier);
 				mods->add($ModuleDescriptor$Requires$Modifier::TRANSITIVE);
 			}
-			if (((int32_t)(requires_flags & (uint32_t)64)) != 0) {
+			if ((requires_flags & 0x40) != 0) {
 				$init($ModuleDescriptor$Requires$Modifier);
 				mods->add($ModuleDescriptor$Requires$Modifier::STATIC);
 			}
-			if (((int32_t)(requires_flags & (uint32_t)4096)) != 0) {
+			if ((requires_flags & 0x1000) != 0) {
 				$init($ModuleDescriptor$Requires$Modifier);
 				mods->add($ModuleDescriptor$Requires$Modifier::SYNTHETIC);
 			}
-			if (((int32_t)(requires_flags & (uint32_t)32768)) != 0) {
+			if ((requires_flags & 0x8000) != 0) {
 				$init($ModuleDescriptor$Requires$Modifier);
 				mods->add($ModuleDescriptor$Requires$Modifier::MANDATED);
 			}
@@ -456,19 +369,19 @@ $ModuleDescriptor$Builder* ModuleInfo::readModuleAttribute($DataInput* in, $Modu
 			$nc(builder)->requires(mods, dn);
 		} else {
 			$var($String, vs, cpool->getUtf8(requires_version_index));
-			$nc(ModuleInfo::JLMA)->requires(builder, mods, dn, vs);
+			ModuleInfo::JLMA->requires(builder, mods, dn, vs);
 		}
 		if ($nc(dn)->equals("java.base"_s)) {
 			bool var$0 = major >= 54;
 			if (var$0) {
 				$init($ModuleDescriptor$Requires$Modifier);
 				bool var$1 = $nc(mods)->contains($ModuleDescriptor$Requires$Modifier::TRANSITIVE);
-				var$0 = (var$1 || $nc(mods)->contains($ModuleDescriptor$Requires$Modifier::STATIC));
+				var$0 = var$1 || mods->contains($ModuleDescriptor$Requires$Modifier::STATIC);
 			}
 			if (var$0) {
 				$var($String, flagName, nullptr);
 				$init($ModuleDescriptor$Requires$Modifier);
-				if (mods->contains($ModuleDescriptor$Requires$Modifier::TRANSITIVE)) {
+				if ($nc(mods)->contains($ModuleDescriptor$Requires$Modifier::TRANSITIVE)) {
 					$assign(flagName, "ACC_TRANSITIVE"_s);
 				} else {
 					$assign(flagName, "ACC_STATIC_PHASE"_s);
@@ -496,11 +409,11 @@ $ModuleDescriptor$Builder* ModuleInfo::readModuleAttribute($DataInput* in, $Modu
 				$assign(mods, $Set::of());
 			} else {
 				$assign(mods, $new($HashSet));
-				if (((int32_t)(exports_flags & (uint32_t)4096)) != 0) {
+				if ((exports_flags & 0x1000) != 0) {
 					$init($ModuleDescriptor$Exports$Modifier);
 					mods->add($ModuleDescriptor$Exports$Modifier::SYNTHETIC);
 				}
-				if (((int32_t)(exports_flags & (uint32_t)32768)) != 0) {
+				if ((exports_flags & 0x8000) != 0) {
 					$init($ModuleDescriptor$Exports$Modifier);
 					mods->add($ModuleDescriptor$Exports$Modifier::MANDATED);
 				}
@@ -535,11 +448,11 @@ $ModuleDescriptor$Builder* ModuleInfo::readModuleAttribute($DataInput* in, $Modu
 				$assign(mods, $Set::of());
 			} else {
 				$assign(mods, $new($HashSet));
-				if (((int32_t)(opens_flags & (uint32_t)4096)) != 0) {
+				if ((opens_flags & 0x1000) != 0) {
 					$init($ModuleDescriptor$Opens$Modifier);
 					mods->add($ModuleDescriptor$Opens$Modifier::SYNTHETIC);
 				}
-				if (((int32_t)(opens_flags & (uint32_t)32768)) != 0) {
+				if ((opens_flags & 0x8000) != 0) {
 					$init($ModuleDescriptor$Opens$Modifier);
 					mods->add($ModuleDescriptor$Opens$Modifier::MANDATED);
 				}
@@ -589,7 +502,7 @@ $ModuleDescriptor$Builder* ModuleInfo::readModuleAttribute($DataInput* in, $Modu
 }
 
 $Set* ModuleInfo::readModulePackagesAttribute($DataInput* in, $ModuleInfo$ConstantPool* cpool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t package_count = $nc(in)->readUnsignedShort();
 	$var($Set, packages, $new($HashSet, package_count));
 	for (int32_t i = 0; i < package_count; ++i) {
@@ -618,7 +531,7 @@ $ModuleTarget* ModuleInfo::readModuleTargetAttribute($DataInput* in, $ModuleInfo
 }
 
 $ModuleHashes* ModuleInfo::readModuleHashesAttribute($DataInput* in, $ModuleInfo$ConstantPool* cpool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t algorithm_index = $nc(in)->readUnsignedShort();
 	$var($String, algorithm, $nc(cpool)->getUtf8(algorithm_index));
 	int32_t hash_count = in->readUnsignedShort();
@@ -638,19 +551,19 @@ $ModuleHashes* ModuleInfo::readModuleHashesAttribute($DataInput* in, $ModuleInfo
 }
 
 $ModuleResolution* ModuleInfo::readModuleResolution($DataInput* in, $ModuleInfo$ConstantPool* cpool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t flags = $nc(in)->readUnsignedShort();
 	int32_t reason = 0;
-	if (((int32_t)(flags & (uint32_t)2)) != 0) {
+	if ((flags & 2) != 0) {
 		reason = 2;
 	}
-	if (((int32_t)(flags & (uint32_t)4)) != 0) {
+	if ((flags & 4) != 0) {
 		if (reason != 0) {
 			$throw($(invalidModuleDescriptor($$str({"Bad module resolution flags:"_s, $$str(flags)}))));
 		}
 		reason = 4;
 	}
-	if (((int32_t)(flags & (uint32_t)8)) != 0) {
+	if ((flags & 8) != 0) {
 		if (reason != 0) {
 			$throw($(invalidModuleDescriptor($$str({"Bad module resolution flags:"_s, $$str(flags)}))));
 		}
@@ -661,13 +574,13 @@ $ModuleResolution* ModuleInfo::readModuleResolution($DataInput* in, $ModuleInfo$
 bool ModuleInfo::isAttributeAtMostOnce($String* name) {
 	$init(ModuleInfo);
 	bool var$6 = $nc(name)->equals("Module"_s);
-	bool var$5 = var$6 || $nc(name)->equals("SourceFile"_s);
-	bool var$4 = var$5 || $nc(name)->equals("SourceDebugExtension"_s);
-	bool var$3 = var$4 || $nc(name)->equals("ModulePackages"_s);
-	bool var$2 = var$3 || $nc(name)->equals("ModuleMainClass"_s);
-	bool var$1 = var$2 || $nc(name)->equals("ModuleTarget"_s);
-	bool var$0 = var$1 || $nc(name)->equals("ModuleHashes"_s);
-	if (var$0 || $nc(name)->equals("ModuleResolution"_s)) {
+	bool var$5 = var$6 || name->equals("SourceFile"_s);
+	bool var$4 = var$5 || name->equals("SourceDebugExtension"_s);
+	bool var$3 = var$4 || name->equals("ModulePackages"_s);
+	bool var$2 = var$3 || name->equals("ModuleMainClass"_s);
+	bool var$1 = var$2 || name->equals("ModuleTarget"_s);
+	bool var$0 = var$1 || name->equals("ModuleHashes"_s);
+	if (var$0 || name->equals("ModuleResolution"_s)) {
 		return true;
 	}
 	return false;
@@ -675,7 +588,7 @@ bool ModuleInfo::isAttributeAtMostOnce($String* name) {
 
 bool ModuleInfo::isAttributeDisallowed($String* name) {
 	$init(ModuleInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, notAllowed, ModuleInfo::predefinedNotAllowed);
 	if (notAllowed == nullptr) {
 		$assign(notAllowed, $Set::of($$new($StringArray, {
@@ -713,7 +626,7 @@ $InvalidModuleDescriptorException* ModuleInfo::truncatedModuleDescriptor() {
 	return invalidModuleDescriptor("Truncated module-info.class"_s);
 }
 
-void clinit$ModuleInfo($Class* class$) {
+void ModuleInfo::clinit$($Class* clazz) {
 	ModuleInfo::$assertionsDisabled = !ModuleInfo::class$->desiredAssertionStatus();
 	$assignStatic(ModuleInfo::JLMA, $SharedSecrets::getJavaLangModuleAccess());
 }
@@ -722,7 +635,57 @@ ModuleInfo::ModuleInfo() {
 }
 
 $Class* ModuleInfo::load$($String* name, bool initialize) {
-	$loadClass(ModuleInfo, name, initialize, &_ModuleInfo_ClassInfo_, clinit$ModuleInfo, allocate$ModuleInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleInfo, $assertionsDisabled)},
+		{"JLMA", "Ljdk/internal/access/JavaLangModuleAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModuleInfo, JLMA)},
+		{"packageFinder", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE | $FINAL, $field(ModuleInfo, packageFinder)},
+		{"parseHashes", "Z", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo, parseHashes)},
+		{"predefinedNotAllowed", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(ModuleInfo, predefinedNotAllowed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Supplier;Z)V", "(Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;Z)V", $PRIVATE, $method(ModuleInfo, init$, void, $Supplier*, bool)},
+		{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)V", $PRIVATE, $method(ModuleInfo, init$, void, $Supplier*)},
+		{"doRead", "(Ljava/io/DataInput;)Ljdk/internal/module/ModuleInfo$Attributes;", nullptr, $PRIVATE, $method(ModuleInfo, doRead, $ModuleInfo$Attributes*, $DataInput*), "java.io.IOException"},
+		{"invalidModuleDescriptor", "(Ljava/lang/String;)Ljava/lang/module/InvalidModuleDescriptorException;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleInfo, invalidModuleDescriptor, $InvalidModuleDescriptorException*, $String*)},
+		{"isAttributeAtMostOnce", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleInfo, isAttributeAtMostOnce, bool, $String*)},
+		{"isAttributeDisallowed", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleInfo, isAttributeDisallowed, bool, $String*)},
+		{"read", "(Ljava/io/InputStream;Ljava/util/function/Supplier;)Ljdk/internal/module/ModuleInfo$Attributes;", "(Ljava/io/InputStream;Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)Ljdk/internal/module/ModuleInfo$Attributes;", $PUBLIC | $STATIC, $staticMethod(ModuleInfo, read, $ModuleInfo$Attributes*, $InputStream*, $Supplier*), "java.io.IOException"},
+		{"read", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier;)Ljdk/internal/module/ModuleInfo$Attributes;", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)Ljdk/internal/module/ModuleInfo$Attributes;", $PUBLIC | $STATIC, $staticMethod(ModuleInfo, read, $ModuleInfo$Attributes*, $ByteBuffer*, $Supplier*)},
+		{"readIgnoringHashes", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier;)Ljdk/internal/module/ModuleInfo$Attributes;", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)Ljdk/internal/module/ModuleInfo$Attributes;", $PUBLIC | $STATIC, $staticMethod(ModuleInfo, readIgnoringHashes, $ModuleInfo$Attributes*, $ByteBuffer*, $Supplier*)},
+		{"readModuleAttribute", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;I)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PRIVATE, $method(ModuleInfo, readModuleAttribute, $ModuleDescriptor$Builder*, $DataInput*, $ModuleInfo$ConstantPool*, int32_t), "java.io.IOException"},
+		{"readModuleHashesAttribute", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljdk/internal/module/ModuleHashes;", nullptr, $PRIVATE, $method(ModuleInfo, readModuleHashesAttribute, $ModuleHashes*, $DataInput*, $ModuleInfo$ConstantPool*), "java.io.IOException"},
+		{"readModuleMainClassAttribute", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ModuleInfo, readModuleMainClassAttribute, $String*, $DataInput*, $ModuleInfo$ConstantPool*), "java.io.IOException"},
+		{"readModulePackagesAttribute", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljava/util/Set;", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(ModuleInfo, readModulePackagesAttribute, $Set*, $DataInput*, $ModuleInfo$ConstantPool*), "java.io.IOException"},
+		{"readModuleResolution", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljdk/internal/module/ModuleResolution;", nullptr, $PRIVATE, $method(ModuleInfo, readModuleResolution, $ModuleResolution*, $DataInput*, $ModuleInfo$ConstantPool*), "java.io.IOException"},
+		{"readModuleTargetAttribute", "(Ljava/io/DataInput;Ljdk/internal/module/ModuleInfo$ConstantPool;)Ljdk/internal/module/ModuleTarget;", nullptr, $PRIVATE, $method(ModuleInfo, readModuleTargetAttribute, $ModuleTarget*, $DataInput*, $ModuleInfo$ConstantPool*), "java.io.IOException"},
+		{"truncatedModuleDescriptor", "()Ljava/lang/module/InvalidModuleDescriptorException;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleInfo, truncatedModuleDescriptor, $InvalidModuleDescriptorException*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModuleInfo$CountingDataInput", "jdk.internal.module.ModuleInfo", "CountingDataInput", $PRIVATE | $STATIC},
+		{"jdk.internal.module.ModuleInfo$DataInputWrapper", "jdk.internal.module.ModuleInfo", "DataInputWrapper", $PRIVATE | $STATIC},
+		{"jdk.internal.module.ModuleInfo$ConstantPool", "jdk.internal.module.ModuleInfo", "ConstantPool", $PRIVATE | $STATIC},
+		{"jdk.internal.module.ModuleInfo$Attributes", "jdk.internal.module.ModuleInfo", "Attributes", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.module.ModuleInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModuleInfo$CountingDataInput,jdk.internal.module.ModuleInfo$DataInputWrapper,jdk.internal.module.ModuleInfo$ConstantPool,jdk.internal.module.ModuleInfo$ConstantPool$ValueEntry,jdk.internal.module.ModuleInfo$ConstantPool$Index2Entry,jdk.internal.module.ModuleInfo$ConstantPool$IndexEntry,jdk.internal.module.ModuleInfo$ConstantPool$Entry,jdk.internal.module.ModuleInfo$Attributes"
+	};
+	$loadClass(ModuleInfo, name, initialize, &classInfo$$, ModuleInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleInfo);
+	});
 	return class$;
 }
 

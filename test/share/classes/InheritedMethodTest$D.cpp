@@ -1,5 +1,4 @@
 #include <InheritedMethodTest$D.h>
-
 #include <InheritedMethodTest$C.h>
 #include <InheritedMethodTest.h>
 #include <jcpp.h>
@@ -8,44 +7,6 @@ using $InheritedMethodTest$C = ::InheritedMethodTest$C;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _InheritedMethodTest$D_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedMethodTest$D, init$, void)},
-	{"iString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InheritedMethodTest$D, iString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InheritedMethodTest$D, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _InheritedMethodTest$D_InnerClassesInfo_[] = {
-	{"InheritedMethodTest$D", "InheritedMethodTest", "D", $PUBLIC | $STATIC},
-	{"InheritedMethodTest$C", "InheritedMethodTest", "C", $PUBLIC | $STATIC | $ABSTRACT},
-	{"InheritedMethodTest$J", "InheritedMethodTest", "J", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _InheritedMethodTest$D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"InheritedMethodTest$D",
-	"InheritedMethodTest$C",
-	"InheritedMethodTest$J",
-	nullptr,
-	_InheritedMethodTest$D_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InheritedMethodTest$D_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"InheritedMethodTest"
-};
-
-$Object* allocate$InheritedMethodTest$D($Class* clazz) {
-	return $of($alloc(InheritedMethodTest$D));
-}
 
 int32_t InheritedMethodTest$D::hashCode() {
 	 return this->$InheritedMethodTest$C::hashCode();
@@ -79,7 +40,40 @@ InheritedMethodTest$D::InheritedMethodTest$D() {
 }
 
 $Class* InheritedMethodTest$D::load$($String* name, bool initialize) {
-	$loadClass(InheritedMethodTest$D, name, initialize, &_InheritedMethodTest$D_ClassInfo_, allocate$InheritedMethodTest$D);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedMethodTest$D, init$, void)},
+		{"iString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InheritedMethodTest$D, iString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InheritedMethodTest$D, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"InheritedMethodTest$D", "InheritedMethodTest", "D", $PUBLIC | $STATIC},
+		{"InheritedMethodTest$C", "InheritedMethodTest", "C", $PUBLIC | $STATIC | $ABSTRACT},
+		{"InheritedMethodTest$J", "InheritedMethodTest", "J", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"InheritedMethodTest$D",
+		"InheritedMethodTest$C",
+		"InheritedMethodTest$J",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"InheritedMethodTest"
+	};
+	$loadClass(InheritedMethodTest$D, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InheritedMethodTest$D));
+	});
 	return class$;
 }
 

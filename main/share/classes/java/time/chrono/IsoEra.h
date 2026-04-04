@@ -26,6 +26,7 @@ public:
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual int32_t getValue() override;
 	static ::java::time::chrono::IsoEra* of(int32_t isoEra);

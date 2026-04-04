@@ -1,11 +1,9 @@
 #include <java/lang/Class$Atomic.h>
-
 #include <java/lang/Class$AnnotationData.h>
 #include <java/lang/ref/SoftReference.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/reflect/annotation/AnnotationType.h>
 #include <jcpp.h>
-
 
 using $Class$AnnotationData = ::java::lang::Class$AnnotationData;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -18,47 +16,6 @@ using $AnnotationType = ::sun::reflect::annotation::AnnotationType;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _Class$Atomic_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Class$Atomic, unsafe)},
-	{"reflectionDataOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Class$Atomic, reflectionDataOffset)},
-	{"annotationTypeOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Class$Atomic, annotationTypeOffset)},
-	{"annotationDataOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Class$Atomic, annotationDataOffset)},
-	{}
-};
-
-$MethodInfo _Class$Atomic_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Class$Atomic, init$, void)},
-	{"casAnnotationData", "(Ljava/lang/Class;Ljava/lang/Class$AnnotationData;Ljava/lang/Class$AnnotationData;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class$AnnotationData;Ljava/lang/Class$AnnotationData;)Z", $STATIC, $staticMethod(Class$Atomic, casAnnotationData, bool, $Class*, $Class$AnnotationData*, $Class$AnnotationData*)},
-	{"casAnnotationType", "(Ljava/lang/Class;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", "(Ljava/lang/Class<*>;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", $STATIC, $staticMethod(Class$Atomic, casAnnotationType, bool, $Class*, $AnnotationType*, $AnnotationType*)},
-	{"casReflectionData", "(Ljava/lang/Class;Ljava/lang/ref/SoftReference;Ljava/lang/ref/SoftReference;)Z", "<T:Ljava/lang/Object;>(Ljava/lang/Class<*>;Ljava/lang/ref/SoftReference<Ljava/lang/Class$ReflectionData<TT;>;>;Ljava/lang/ref/SoftReference<Ljava/lang/Class$ReflectionData<TT;>;>;)Z", $STATIC, $staticMethod(Class$Atomic, casReflectionData, bool, $Class*, $SoftReference*, $SoftReference*)},
-	{}
-};
-
-$InnerClassInfo _Class$Atomic_InnerClassesInfo_[] = {
-	{"java.lang.Class$Atomic", "java.lang.Class", "Atomic", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Class$Atomic_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Class$Atomic",
-	"java.lang.Object",
-	nullptr,
-	_Class$Atomic_FieldInfo_,
-	_Class$Atomic_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Class$Atomic_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Class"
-};
-
-$Object* allocate$Class$Atomic($Class* clazz) {
-	return $of($alloc(Class$Atomic));
-}
 
 $Unsafe* Class$Atomic::unsafe = nullptr;
 int64_t Class$Atomic::reflectionDataOffset = 0;
@@ -83,18 +40,53 @@ bool Class$Atomic::casAnnotationData($Class* clazz, $Class$AnnotationData* oldDa
 	return ObjectManager::compareAndSetReference($of(clazz), mem, oldData, newData);
 }
 
-void clinit$Class$Atomic($Class* class$) {
+void Class$Atomic::clinit$($Class* clazz) {
 	$assignStatic(Class$Atomic::unsafe, $Unsafe::getUnsafe());
 	Class$Atomic::reflectionDataOffset = $nc(Class$Atomic::unsafe)->objectFieldOffset($Class::class$, "reflectionData"_s);
-	Class$Atomic::annotationTypeOffset = $nc(Class$Atomic::unsafe)->objectFieldOffset($Class::class$, "annotationType"_s);
-	Class$Atomic::annotationDataOffset = $nc(Class$Atomic::unsafe)->objectFieldOffset($Class::class$, "annotationData"_s);
+	Class$Atomic::annotationTypeOffset = Class$Atomic::unsafe->objectFieldOffset($Class::class$, "annotationType"_s);
+	Class$Atomic::annotationDataOffset = Class$Atomic::unsafe->objectFieldOffset($Class::class$, "annotationData"_s);
 }
 
 Class$Atomic::Class$Atomic() {
 }
 
 $Class* Class$Atomic::load$($String* name, bool initialize) {
-	$loadClass(Class$Atomic, name, initialize, &_Class$Atomic_ClassInfo_, clinit$Class$Atomic, allocate$Class$Atomic);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Class$Atomic, unsafe)},
+		{"reflectionDataOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Class$Atomic, reflectionDataOffset)},
+		{"annotationTypeOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Class$Atomic, annotationTypeOffset)},
+		{"annotationDataOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Class$Atomic, annotationDataOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Class$Atomic, init$, void)},
+		{"casAnnotationData", "(Ljava/lang/Class;Ljava/lang/Class$AnnotationData;Ljava/lang/Class$AnnotationData;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class$AnnotationData;Ljava/lang/Class$AnnotationData;)Z", $STATIC, $staticMethod(Class$Atomic, casAnnotationData, bool, $Class*, $Class$AnnotationData*, $Class$AnnotationData*)},
+		{"casAnnotationType", "(Ljava/lang/Class;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", "(Ljava/lang/Class<*>;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", $STATIC, $staticMethod(Class$Atomic, casAnnotationType, bool, $Class*, $AnnotationType*, $AnnotationType*)},
+		{"casReflectionData", "(Ljava/lang/Class;Ljava/lang/ref/SoftReference;Ljava/lang/ref/SoftReference;)Z", "<T:Ljava/lang/Object;>(Ljava/lang/Class<*>;Ljava/lang/ref/SoftReference<Ljava/lang/Class$ReflectionData<TT;>;>;Ljava/lang/ref/SoftReference<Ljava/lang/Class$ReflectionData<TT;>;>;)Z", $STATIC, $staticMethod(Class$Atomic, casReflectionData, bool, $Class*, $SoftReference*, $SoftReference*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Class$Atomic", "java.lang.Class", "Atomic", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Class$Atomic",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Class"
+	};
+	$loadClass(Class$Atomic, name, initialize, &classInfo$$, Class$Atomic::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Class$Atomic);
+	});
 	return class$;
 }
 

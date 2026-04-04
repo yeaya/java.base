@@ -1,5 +1,4 @@
 #include <java/util/LinkedHashMap$LinkedEntrySet.h>
-
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
@@ -27,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $AbstractSet = ::java::util::AbstractSet;
-using $Collection = ::java::util::Collection;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
 using $HashMap = ::java::util::HashMap;
 using $HashMap$Node = ::java::util::HashMap$Node;
@@ -42,49 +40,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _LinkedHashMap$LinkedEntrySet_FieldInfo_[] = {
-	{"this$0", "Ljava/util/LinkedHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedHashMap$LinkedEntrySet, this$0)},
-	{}
-};
-
-$MethodInfo _LinkedHashMap$LinkedEntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(LinkedHashMap$LinkedEntrySet, init$, void, $LinkedHashMap*)},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, contains, bool, Object$*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, forEach, void, $Consumer*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, spliterator, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _LinkedHashMap$LinkedEntrySet_InnerClassesInfo_[] = {
-	{"java.util.LinkedHashMap$LinkedEntrySet", "java.util.LinkedHashMap", "LinkedEntrySet", $FINAL},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LinkedHashMap$LinkedEntrySet_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.LinkedHashMap$LinkedEntrySet",
-	"java.util.AbstractSet",
-	nullptr,
-	_LinkedHashMap$LinkedEntrySet_FieldInfo_,
-	_LinkedHashMap$LinkedEntrySet_MethodInfo_,
-	"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_LinkedHashMap$LinkedEntrySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.LinkedHashMap"
-};
-
-$Object* allocate$LinkedHashMap$LinkedEntrySet($Class* clazz) {
-	return $of($alloc(LinkedHashMap$LinkedEntrySet));
-}
 
 void LinkedHashMap$LinkedEntrySet::init$($LinkedHashMap* this$0) {
 	$set(this, this$0, this$0);
@@ -104,7 +59,7 @@ $Iterator* LinkedHashMap$LinkedEntrySet::iterator() {
 }
 
 bool LinkedHashMap$LinkedEntrySet::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, e, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -120,7 +75,7 @@ bool LinkedHashMap$LinkedEntrySet::contains(Object$* o) {
 }
 
 bool LinkedHashMap$LinkedEntrySet::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Map$Entry, e, nullptr);
 		bool var$0 = $instanceOf($Map$Entry, o);
@@ -138,7 +93,7 @@ bool LinkedHashMap$LinkedEntrySet::remove(Object$* o) {
 }
 
 $Spliterator* LinkedHashMap$LinkedEntrySet::spliterator() {
-	return $Spliterators::spliterator(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(this))), ($Spliterator::SIZED | $Spliterator::ORDERED) | $Spliterator::DISTINCT);
+	return $Spliterators::spliterator($cast($AbstractCollection, this), ($Spliterator::SIZED | $Spliterator::ORDERED) | $Spliterator::DISTINCT);
 }
 
 void LinkedHashMap$LinkedEntrySet::forEach($Consumer* action) {
@@ -148,7 +103,7 @@ void LinkedHashMap$LinkedEntrySet::forEach($Consumer* action) {
 	int32_t mc = this->this$0->modCount;
 	{
 		$var($LinkedHashMap$Entry, e, this->this$0->head);
-		for (; e != nullptr; $assign(e, $nc(e)->after)) {
+		for (; e != nullptr; $assign(e, e->after)) {
 			$nc(action)->accept(e);
 		}
 	}
@@ -161,7 +116,44 @@ LinkedHashMap$LinkedEntrySet::LinkedHashMap$LinkedEntrySet() {
 }
 
 $Class* LinkedHashMap$LinkedEntrySet::load$($String* name, bool initialize) {
-	$loadClass(LinkedHashMap$LinkedEntrySet, name, initialize, &_LinkedHashMap$LinkedEntrySet_ClassInfo_, allocate$LinkedHashMap$LinkedEntrySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/LinkedHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedHashMap$LinkedEntrySet, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(LinkedHashMap$LinkedEntrySet, init$, void, $LinkedHashMap*)},
+		{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, contains, bool, Object$*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, forEach, void, $Consumer*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, spliterator, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.LinkedHashMap$LinkedEntrySet", "java.util.LinkedHashMap", "LinkedEntrySet", $FINAL},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.LinkedHashMap$LinkedEntrySet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.LinkedHashMap"
+	};
+	$loadClass(LinkedHashMap$LinkedEntrySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LinkedHashMap$LinkedEntrySet));
+	});
 	return class$;
 }
 

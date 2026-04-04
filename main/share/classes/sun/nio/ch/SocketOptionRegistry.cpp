@@ -1,5 +1,4 @@
 #include <sun/nio/ch/SocketOptionRegistry.h>
-
 #include <java/net/ProtocolFamily.h>
 #include <java/net/SocketOption.h>
 #include <java/util/Map.h>
@@ -13,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ProtocolFamily = ::java::net::ProtocolFamily;
 using $SocketOption = ::java::net::SocketOption;
-using $Map = ::java::util::Map;
 using $OptionKey = ::sun::nio::ch::OptionKey;
 using $SocketOptionRegistry$LazyInitialization = ::sun::nio::ch::SocketOptionRegistry$LazyInitialization;
 using $SocketOptionRegistry$RegistryKey = ::sun::nio::ch::SocketOptionRegistry$RegistryKey;
@@ -21,37 +19,6 @@ using $SocketOptionRegistry$RegistryKey = ::sun::nio::ch::SocketOptionRegistry$R
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$MethodInfo _SocketOptionRegistry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SocketOptionRegistry, init$, void)},
-	{"findOption", "(Ljava/net/SocketOption;Ljava/net/ProtocolFamily;)Lsun/nio/ch/OptionKey;", "(Ljava/net/SocketOption<*>;Ljava/net/ProtocolFamily;)Lsun/nio/ch/OptionKey;", $PUBLIC | $STATIC, $staticMethod(SocketOptionRegistry, findOption, $OptionKey*, $SocketOption*, $ProtocolFamily*)},
-	{}
-};
-
-$InnerClassInfo _SocketOptionRegistry_InnerClassesInfo_[] = {
-	{"sun.nio.ch.SocketOptionRegistry$LazyInitialization", "sun.nio.ch.SocketOptionRegistry", "LazyInitialization", $PRIVATE | $STATIC},
-	{"sun.nio.ch.SocketOptionRegistry$RegistryKey", "sun.nio.ch.SocketOptionRegistry", "RegistryKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SocketOptionRegistry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.SocketOptionRegistry",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SocketOptionRegistry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SocketOptionRegistry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.SocketOptionRegistry$LazyInitialization,sun.nio.ch.SocketOptionRegistry$RegistryKey"
-};
-
-$Object* allocate$SocketOptionRegistry($Class* clazz) {
-	return $of($alloc(SocketOptionRegistry));
-}
 
 void SocketOptionRegistry::init$() {
 }
@@ -66,7 +33,33 @@ SocketOptionRegistry::SocketOptionRegistry() {
 }
 
 $Class* SocketOptionRegistry::load$($String* name, bool initialize) {
-	$loadClass(SocketOptionRegistry, name, initialize, &_SocketOptionRegistry_ClassInfo_, allocate$SocketOptionRegistry);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SocketOptionRegistry, init$, void)},
+		{"findOption", "(Ljava/net/SocketOption;Ljava/net/ProtocolFamily;)Lsun/nio/ch/OptionKey;", "(Ljava/net/SocketOption<*>;Ljava/net/ProtocolFamily;)Lsun/nio/ch/OptionKey;", $PUBLIC | $STATIC, $staticMethod(SocketOptionRegistry, findOption, $OptionKey*, $SocketOption*, $ProtocolFamily*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.SocketOptionRegistry$LazyInitialization", "sun.nio.ch.SocketOptionRegistry", "LazyInitialization", $PRIVATE | $STATIC},
+		{"sun.nio.ch.SocketOptionRegistry$RegistryKey", "sun.nio.ch.SocketOptionRegistry", "RegistryKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.SocketOptionRegistry",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.SocketOptionRegistry$LazyInitialization,sun.nio.ch.SocketOptionRegistry$RegistryKey"
+	};
+	$loadClass(SocketOptionRegistry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketOptionRegistry);
+	});
 	return class$;
 }
 

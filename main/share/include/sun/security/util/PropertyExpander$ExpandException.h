@@ -14,10 +14,13 @@ class $import PropertyExpander$ExpandException : public ::java::security::Genera
 public:
 	PropertyExpander$ExpandException();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x91C887D7ECDE44DA;
+	static const int64_t serialVersionUID = (int64_t)0x91c887d7ecde44da;
 	PropertyExpander$ExpandException(const PropertyExpander$ExpandException& e);
 	virtual void throw$() override;
-	inline PropertyExpander$ExpandException* operator ->() {
+	inline PropertyExpander$ExpandException* operator ->() const {
+		return (PropertyExpander$ExpandException*)throwing$;
+	}
+	inline operator PropertyExpander$ExpandException*() const {
 		return (PropertyExpander$ExpandException*)throwing$;
 	}
 };

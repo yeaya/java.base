@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/AbstractOwnableSynchronizer.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,32 +9,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 			namespace locks {
-
-$FieldInfo _AbstractOwnableSynchronizer_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractOwnableSynchronizer, serialVersionUID)},
-	{"exclusiveOwnerThread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractOwnableSynchronizer, exclusiveOwnerThread)},
-	{}
-};
-
-$MethodInfo _AbstractOwnableSynchronizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractOwnableSynchronizer, init$, void)},
-	{"getExclusiveOwnerThread", "()Ljava/lang/Thread;", nullptr, $PROTECTED | $FINAL, $method(AbstractOwnableSynchronizer, getExclusiveOwnerThread, $Thread*)},
-	{"setExclusiveOwnerThread", "(Ljava/lang/Thread;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractOwnableSynchronizer, setExclusiveOwnerThread, void, $Thread*)},
-	{}
-};
-
-$ClassInfo _AbstractOwnableSynchronizer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.concurrent.locks.AbstractOwnableSynchronizer",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_AbstractOwnableSynchronizer_FieldInfo_,
-	_AbstractOwnableSynchronizer_MethodInfo_
-};
-
-$Object* allocate$AbstractOwnableSynchronizer($Class* clazz) {
-	return $of($alloc(AbstractOwnableSynchronizer));
-}
 
 void AbstractOwnableSynchronizer::init$() {
 }
@@ -52,7 +25,28 @@ AbstractOwnableSynchronizer::AbstractOwnableSynchronizer() {
 }
 
 $Class* AbstractOwnableSynchronizer::load$($String* name, bool initialize) {
-	$loadClass(AbstractOwnableSynchronizer, name, initialize, &_AbstractOwnableSynchronizer_ClassInfo_, allocate$AbstractOwnableSynchronizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractOwnableSynchronizer, serialVersionUID)},
+		{"exclusiveOwnerThread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractOwnableSynchronizer, exclusiveOwnerThread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractOwnableSynchronizer, init$, void)},
+		{"getExclusiveOwnerThread", "()Ljava/lang/Thread;", nullptr, $PROTECTED | $FINAL, $method(AbstractOwnableSynchronizer, getExclusiveOwnerThread, $Thread*)},
+		{"setExclusiveOwnerThread", "(Ljava/lang/Thread;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractOwnableSynchronizer, setExclusiveOwnerThread, void, $Thread*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.concurrent.locks.AbstractOwnableSynchronizer",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractOwnableSynchronizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractOwnableSynchronizer);
+	});
 	return class$;
 }
 

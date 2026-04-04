@@ -11,6 +11,7 @@ class $export Initializer : public ::java::lang::Object {
 	$class(Initializer, 0, ::java::lang::Object)
 public:
 	Initializer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void init();
 	static bool isInited();

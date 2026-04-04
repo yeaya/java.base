@@ -52,6 +52,7 @@ class $export ZoneInfoFile : public ::java::lang::Object {
 	$class(ZoneInfoFile, 0, ::java::lang::Object)
 public:
 	ZoneInfoFile();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addOldMapping();
 	static int32_t addTrans($longs* transitions, int32_t nTrans, $ints* offsets, int32_t nOffsets, int64_t trans, int32_t offset, int32_t stdOffset);
@@ -80,12 +81,12 @@ public:
 	static $ints* indices;
 	static bool USE_OLDMAPPING;
 	static $Array<::java::lang::String, 2>* oldMappings;
-	static const int64_t UTC1900 = (int64_t)0xFFFFFFFF7C558180;
+	static const int64_t UTC1900 = (int64_t)0xffffffff7c558180;
 	static const int64_t UTC2037 = (int64_t)2145916799;
 	static const int64_t LDT2037 = (int64_t)2114380800;
 	static int64_t CURRT;
 	static const int32_t SECONDS_PER_DAY = 0x00015180;
-	static const int32_t DAYS_PER_CYCLE = 0x00023AB1;
+	static const int32_t DAYS_PER_CYCLE = 0x00023ab1;
 	static const int64_t DAYS_0000_TO_1970 = 719528; // (DAYS_PER_CYCLE * 5L) - (30L * 365L + 7L)
 	static $ints* toCalendarDOW;
 	static $ints* toSTZTime;

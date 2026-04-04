@@ -40,6 +40,7 @@ class $export LotsOfCloses : public ::java::lang::Object {
 	$class(LotsOfCloses, 0, ::java::lang::Object)
 public:
 	LotsOfCloses();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::Void* lambda$newCloserTask$0(::java::nio::file::WatchService* watcher);
 	static ::java::lang::Boolean* lambda$newRegisterTask$1(::java::nio::file::Path* dir, ::java::nio::file::WatchService* watcher);

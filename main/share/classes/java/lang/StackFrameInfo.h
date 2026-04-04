@@ -36,6 +36,7 @@ class StackFrameInfo : public ::java::lang::StackWalker$StackFrame {
 	$class(StackFrameInfo, 0, ::java::lang::StackWalker$StackFrame)
 public:
 	StackFrameInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::StackWalker* walker);
 	virtual $Class* declaringClass();
 	void ensureRetainClassRefEnabled();

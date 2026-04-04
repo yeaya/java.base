@@ -78,6 +78,7 @@ class $export LocaleProviderAdapter : public ::java::lang::Object {
 	$class(LocaleProviderAdapter, 0, ::java::lang::Object)
 public:
 	LocaleProviderAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::util::locale::provider::LocaleProviderAdapter* findAdapter($Class* providerClass, ::java::util::Locale* locale);
 	static ::sun::util::locale::provider::LocaleProviderAdapter* forJRE();

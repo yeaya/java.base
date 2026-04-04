@@ -54,6 +54,7 @@ class UnixChannelFactory : public ::java::lang::Object {
 	$class(UnixChannelFactory, 0, ::java::lang::Object)
 public:
 	UnixChannelFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::channels::AsynchronousFileChannel* newAsynchronousFileChannel(::sun::nio::fs::UnixPath* path, ::java::util::Set* options, int32_t mode, ::sun::nio::ch::ThreadPool* pool);
 	static ::java::nio::channels::FileChannel* newFileChannel(int32_t dfd, ::sun::nio::fs::UnixPath* path, $String* pathForPermissionCheck, ::java::util::Set* options, int32_t mode);

@@ -1,5 +1,4 @@
 #include <java/nio/file/attribute/DosFileAttributes.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,29 +9,25 @@ namespace java {
 		namespace file {
 			namespace attribute {
 
-$MethodInfo _DosFileAttributes_MethodInfo_[] = {
-	{"isArchive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isArchive, bool)},
-	{"isHidden", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isHidden, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isReadOnly, bool)},
-	{"isSystem", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isSystem, bool)},
-	{}
-};
-
-$ClassInfo _DosFileAttributes_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.file.attribute.DosFileAttributes",
-	nullptr,
-	"java.nio.file.attribute.BasicFileAttributes",
-	nullptr,
-	_DosFileAttributes_MethodInfo_
-};
-
-$Object* allocate$DosFileAttributes($Class* clazz) {
-	return $of($alloc(DosFileAttributes));
-}
-
 $Class* DosFileAttributes::load$($String* name, bool initialize) {
-	$loadClass(DosFileAttributes, name, initialize, &_DosFileAttributes_ClassInfo_, allocate$DosFileAttributes);
+	$MethodInfo methodInfos$$[] = {
+		{"isArchive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isArchive, bool)},
+		{"isHidden", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isHidden, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isReadOnly, bool)},
+		{"isSystem", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isSystem, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.file.attribute.DosFileAttributes",
+		nullptr,
+		"java.nio.file.attribute.BasicFileAttributes",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DosFileAttributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DosFileAttributes);
+	});
 	return class$;
 }
 

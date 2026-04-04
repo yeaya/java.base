@@ -1,5 +1,4 @@
 #include <java/util/stream/IntStream$IntMapMultiConsumer.h>
-
 #include <java/util/function/IntConsumer.h>
 #include <java/util/stream/IntStream.h>
 #include <jcpp.h>
@@ -14,43 +13,37 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$CompoundAttribute _IntStream$IntMapMultiConsumer_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _IntStream$IntMapMultiConsumer_MethodInfo_[] = {
-	{"accept", "(ILjava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream$IntMapMultiConsumer, accept, void, int32_t, $IntConsumer*)},
-	{}
-};
-
-$InnerClassInfo _IntStream$IntMapMultiConsumer_InnerClassesInfo_[] = {
-	{"java.util.stream.IntStream$IntMapMultiConsumer", "java.util.stream.IntStream", "IntMapMultiConsumer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _IntStream$IntMapMultiConsumer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.stream.IntStream$IntMapMultiConsumer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_IntStream$IntMapMultiConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntStream$IntMapMultiConsumer_InnerClassesInfo_,
-	_IntStream$IntMapMultiConsumer_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.stream.IntStream"
-};
-
-$Object* allocate$IntStream$IntMapMultiConsumer($Class* clazz) {
-	return $of($alloc(IntStream$IntMapMultiConsumer));
-}
-
 $Class* IntStream$IntMapMultiConsumer::load$($String* name, bool initialize) {
-	$loadClass(IntStream$IntMapMultiConsumer, name, initialize, &_IntStream$IntMapMultiConsumer_ClassInfo_, allocate$IntStream$IntMapMultiConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(ILjava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream$IntMapMultiConsumer, accept, void, int32_t, $IntConsumer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.IntStream$IntMapMultiConsumer", "java.util.stream.IntStream", "IntMapMultiConsumer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.stream.IntStream$IntMapMultiConsumer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.stream.IntStream"
+	};
+	$loadClass(IntStream$IntMapMultiConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntStream$IntMapMultiConsumer);
+	});
 	return class$;
 }
 

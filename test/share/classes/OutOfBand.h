@@ -22,6 +22,7 @@ class $export OutOfBand : public ::java::lang::Object {
 	$class(OutOfBand, 0, ::java::lang::Object)
 public:
 	OutOfBand();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test1(::java::nio::channels::SocketChannel* client, ::java::nio::channels::SocketChannel* server);

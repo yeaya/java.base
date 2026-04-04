@@ -29,6 +29,7 @@ public:
 	Handler();
 	using ::java::net::URLStreamHandler::equals;
 	using ::java::net::URLStreamHandler::hashCode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	using ::java::net::URLStreamHandler::openConnection;
 	virtual ::java::net::URLConnection* openConnection(::java::net::URL* u) override;

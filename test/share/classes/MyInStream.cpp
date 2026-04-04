@@ -1,5 +1,4 @@
 #include <MyInStream.h>
-
 #include <java/io/InputStream.h>
 #include <jcpp.h>
 
@@ -7,32 +6,6 @@ using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _MyInStream_FieldInfo_[] = {
-	{"buf", "[C", nullptr, 0, $field(MyInStream, buf)},
-	{"ctr", "I", nullptr, 0, $field(MyInStream, ctr)},
-	{}
-};
-
-$MethodInfo _MyInStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MyInStream, init$, void)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(MyInStream, available, int32_t)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(MyInStream, read, int32_t)},
-	{}
-};
-
-$ClassInfo _MyInStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"MyInStream",
-	"java.io.InputStream",
-	nullptr,
-	_MyInStream_FieldInfo_,
-	_MyInStream_MethodInfo_
-};
-
-$Object* allocate$MyInStream($Class* clazz) {
-	return $of($alloc(MyInStream));
-}
 
 void MyInStream::init$() {
 	$InputStream::init$();
@@ -63,7 +36,28 @@ MyInStream::MyInStream() {
 }
 
 $Class* MyInStream::load$($String* name, bool initialize) {
-	$loadClass(MyInStream, name, initialize, &_MyInStream_ClassInfo_, allocate$MyInStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[C", nullptr, 0, $field(MyInStream, buf)},
+		{"ctr", "I", nullptr, 0, $field(MyInStream, ctr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MyInStream, init$, void)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(MyInStream, available, int32_t)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(MyInStream, read, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MyInStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MyInStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MyInStream);
+	});
 	return class$;
 }
 

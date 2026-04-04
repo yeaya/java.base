@@ -31,6 +31,7 @@ class SystemImage : public ::java::lang::Object {
 	$class(SystemImage, 0, ::java::lang::Object)
 public:
 	SystemImage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void close() {}
 	static $String* findHome();

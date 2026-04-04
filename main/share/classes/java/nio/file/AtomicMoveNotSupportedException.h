@@ -14,10 +14,13 @@ class $export AtomicMoveNotSupportedException : public ::java::nio::file::FileSy
 public:
 	AtomicMoveNotSupportedException();
 	void init$($String* source, $String* target, $String* reason);
-	static const int64_t serialVersionUID = (int64_t)0x4AFA75CCC59748DB;
+	static const int64_t serialVersionUID = (int64_t)0x4afa75ccc59748db;
 	AtomicMoveNotSupportedException(const AtomicMoveNotSupportedException& e);
 	virtual void throw$() override;
-	inline AtomicMoveNotSupportedException* operator ->() {
+	inline AtomicMoveNotSupportedException* operator ->() const {
+		return (AtomicMoveNotSupportedException*)throwing$;
+	}
+	inline operator AtomicMoveNotSupportedException*() const {
 		return (AtomicMoveNotSupportedException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <CharType$H.h>
-
 #include <CharType.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
@@ -9,49 +8,44 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
 
-$MethodInfo _CharType$H_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CharType$H, init$, void)},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CharType$H, invoke, $Object*, Object$*, $Method*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _CharType$H_InnerClassesInfo_[] = {
-	{"CharType$H", "CharType", "H", $STATIC},
-	{}
-};
-
-$ClassInfo _CharType$H_ClassInfo_ = {
-	$ACC_SUPER,
-	"CharType$H",
-	"java.lang.Object",
-	"java.lang.reflect.InvocationHandler",
-	nullptr,
-	_CharType$H_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CharType$H_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"CharType"
-};
-
-$Object* allocate$CharType$H($Class* clazz) {
-	return $of($alloc(CharType$H));
-}
-
 void CharType$H::init$() {
 }
 
 $Object* CharType$H::invoke(Object$* o, $Method* m, $ObjectArray* arr) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 CharType$H::CharType$H() {
 }
 
 $Class* CharType$H::load$($String* name, bool initialize) {
-	$loadClass(CharType$H, name, initialize, &_CharType$H_ClassInfo_, allocate$CharType$H);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CharType$H, init$, void)},
+		{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CharType$H, invoke, $Object*, Object$*, $Method*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CharType$H", "CharType", "H", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"CharType$H",
+		"java.lang.Object",
+		"java.lang.reflect.InvocationHandler",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"CharType"
+	};
+	$loadClass(CharType$H, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharType$H);
+	});
 	return class$;
 }
 

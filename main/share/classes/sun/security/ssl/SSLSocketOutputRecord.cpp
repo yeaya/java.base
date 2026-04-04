@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLSocketOutputRecord.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
@@ -37,10 +36,8 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketException = ::java::net::SocketException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
 using $Alert = ::sun::security::ssl::Alert;
-using $Authenticator = ::sun::security::ssl::Authenticator;
 using $ContentType = ::sun::security::ssl::ContentType;
 using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $OutputRecord = ::sun::security::ssl::OutputRecord;
@@ -55,43 +52,6 @@ using $TransportContext = ::sun::security::ssl::TransportContext;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLSocketOutputRecord_FieldInfo_[] = {
-	{"deliverStream", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(SSLSocketOutputRecord, deliverStream)},
-	{}
-};
-
-$MethodInfo _SSLSocketOutputRecord_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/security/ssl/HandshakeHash;)V", nullptr, 0, $method(SSLSocketOutputRecord, init$, void, $HandshakeHash*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeHash;Lsun/security/ssl/TransportContext;)V", nullptr, 0, $method(SSLSocketOutputRecord, init$, void, $HandshakeHash*, $TransportContext*)},
-	{"deliver", "([BII)V", nullptr, 0, $virtualMethod(SSLSocketOutputRecord, deliver, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"encodeAlert", "(BB)V", nullptr, 0, $virtualMethod(SSLSocketOutputRecord, encodeAlert, void, int8_t, int8_t), "java.io.IOException"},
-	{"encodeChangeCipherSpec", "()V", nullptr, 0, $virtualMethod(SSLSocketOutputRecord, encodeChangeCipherSpec, void), "java.io.IOException"},
-	{"encodeHandshake", "([BII)V", nullptr, 0, $virtualMethod(SSLSocketOutputRecord, encodeHandshake, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(SSLSocketOutputRecord, flush, void), "java.io.IOException"},
-	{"getFragLimit", "()I", nullptr, $PRIVATE, $method(SSLSocketOutputRecord, getFragLimit, int32_t)},
-	{"needToSplitPayload", "()Z", nullptr, $PRIVATE, $method(SSLSocketOutputRecord, needToSplitPayload, bool)},
-	{"setDeliverStream", "(Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(SSLSocketOutputRecord, setDeliverStream, void, $OutputStream*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{}
-};
-
-$ClassInfo _SSLSocketOutputRecord_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLSocketOutputRecord",
-	"sun.security.ssl.OutputRecord",
-	"sun.security.ssl.SSLRecord",
-	_SSLSocketOutputRecord_FieldInfo_,
-	_SSLSocketOutputRecord_MethodInfo_
-};
-
-$Object* allocate$SSLSocketOutputRecord($Class* clazz) {
-	return $of($alloc(SSLSocketOutputRecord));
-}
 
 $String* SSLSocketOutputRecord::toString() {
 	 return this->$OutputRecord::toString();
@@ -127,186 +87,103 @@ void SSLSocketOutputRecord::init$($HandshakeHash* handshakeHash, $TransportConte
 }
 
 void SSLSocketOutputRecord::encodeAlert(int8_t level, int8_t description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->recordLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			if (isClosed()) {
-				$init($SSLLogger);
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
-					$SSLLogger::warning($$str({"outbound has closed, ignore outbound alert message: "_s, $($Alert::nameOf(description))}), $$new($ObjectArray, 0));
-				}
-				return$1 = true;
-				goto $finally;
-			}
-			this->count = $SSLRecord::headerSize + $nc(this->writeCipher)->getExplicitNonceSize();
-			write((int32_t)level);
-			write((int32_t)description);
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		if (isClosed()) {
 			$init($SSLLogger);
-			if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
-				$init($ContentType);
-				$SSLLogger::fine($$str({"WRITE: "_s, $nc(this->protocolVersion)->name$, " "_s, $ContentType::ALERT->name$, "("_s, $($Alert::nameOf(description)), "), length = "_s, $$str((this->count - $SSLRecord::headerSize))}), $$new($ObjectArray, 0));
+			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
+				$SSLLogger::warning($$str({"outbound has closed, ignore outbound alert message: "_s, $($Alert::nameOf(description))}), $$new($ObjectArray, 0));
 			}
+			return$1 = true;
+			goto $finally;
+		}
+		this->count = $SSLRecord::headerSize + $nc(this->writeCipher)->getExplicitNonceSize();
+		write(level);
+		write(description);
+		$init($SSLLogger);
+		if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
 			$init($ContentType);
-			encrypt(this->writeCipher, $ContentType::ALERT->id, $SSLRecord::headerSize);
-			$nc(this->deliverStream)->write(this->buf, 0, this->count);
-			$nc(this->deliverStream)->flush();
-			if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
-				$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($of($$new($ByteArrayInputStream, this->buf, 0, this->count)))}));
-			}
-			this->count = 0;
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$nc(this->recordLock)->unlock();
+			$SSLLogger::fine($$str({"WRITE: "_s, $nc(this->protocolVersion)->name$, " "_s, $ContentType::ALERT->name$, "("_s, $($Alert::nameOf(description)), "), length = "_s, $$str((this->count - $SSLRecord::headerSize))}), $$new($ObjectArray, 0));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$init($ContentType);
+		encrypt(this->writeCipher, $ContentType::ALERT->id, $SSLRecord::headerSize);
+		$nc(this->deliverStream)->write(this->buf, 0, this->count);
+		this->deliverStream->flush();
+		if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
+			$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($$new($ByteArrayInputStream, this->buf, 0, this->count))}));
 		}
-		if (return$1) {
-			return;
-		}
+		this->count = 0;
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		this->recordLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void SSLSocketOutputRecord::encodeHandshake($bytes* source, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->recordLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			if (isClosed()) {
-				$init($SSLLogger);
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
-					$SSLLogger::warning("outbound has closed, ignore outbound handshake message"_s, $$new($ObjectArray, {$($of($ByteBuffer::wrap(source, offset, length)))}));
-				}
-				return$1 = true;
-				goto $finally;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		if (isClosed()) {
+			$init($SSLLogger);
+			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
+				$SSLLogger::warning("outbound has closed, ignore outbound handshake message"_s, $$new($ObjectArray, {$($ByteBuffer::wrap(source, offset, length))}));
 			}
-			if (this->firstMessage) {
-				this->firstMessage = false;
-				$init($ProtocolVersion);
-				$init($SSLHandshake);
-				if ((this->helloVersion == $ProtocolVersion::SSL20Hello) && ($nc(source)->get(offset) == $SSLHandshake::CLIENT_HELLO->id) && (source->get(offset + 4 + 2 + 32) == 0)) {
-					$var($ByteBuffer, v2ClientHello, encodeV2ClientHello(source, (offset + 4), (length - 4)));
-					$var($bytes, record, $cast($bytes, $nc(v2ClientHello)->array()));
-					int32_t limit = v2ClientHello->limit();
-					$nc(this->handshakeHash)->deliver(record, 2, (limit - 2));
-					$init($SSLLogger);
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
-						$SSLLogger::fine($$str({"WRITE: SSLv2 ClientHello message, length = "_s, $$str(limit)}), $$new($ObjectArray, 0));
-					}
-					$nc(this->deliverStream)->write(record, 0, limit);
-					$nc(this->deliverStream)->flush();
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
-						$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($of($$new($ByteArrayInputStream, record, 0, limit)))}));
-					}
-					return$1 = true;
-					goto $finally;
-				}
-			}
-			int8_t handshakeType = $nc(source)->get(0);
-			if ($nc(this->handshakeHash)->isHashable(handshakeType)) {
-				$nc(this->handshakeHash)->deliver(source, offset, length);
-			}
-			int32_t fragLimit = getFragLimit();
-			int32_t position = $SSLRecord::headerSize + $nc(this->writeCipher)->getExplicitNonceSize();
-			if (this->count == 0) {
-				this->count = position;
-			}
-			if ((this->count - position) < (fragLimit - length)) {
-				write(source, offset, length);
-				return$1 = true;
-				goto $finally;
-			}
-			for (int32_t limit = (offset + length); offset < limit;) {
-				int32_t remains = (limit - offset) + (this->count - position);
-				int32_t fragLen = $Math::min(fragLimit, remains);
-				write(source, offset, fragLen);
-				if (remains < fragLimit) {
-					return$1 = true;
-					goto $finally;
-				}
+			return$1 = true;
+			goto $finally;
+		}
+		if (this->firstMessage) {
+			this->firstMessage = false;
+			$init($ProtocolVersion);
+			$init($SSLHandshake);
+			if ((this->helloVersion == $ProtocolVersion::SSL20Hello) && ($nc(source)->get(offset) == $SSLHandshake::CLIENT_HELLO->id) && (source->get(offset + 4 + 2 + 32) == 0)) {
+				$var($ByteBuffer, v2ClientHello, encodeV2ClientHello(source, (offset + 4), (length - 4)));
+				$var($bytes, record, $cast($bytes, $nc(v2ClientHello)->array()));
+				int32_t limit = v2ClientHello->limit();
+				$nc(this->handshakeHash)->deliver(record, 2, (limit - 2));
 				$init($SSLLogger);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
-					$init($ContentType);
-					$SSLLogger::fine($$str({"WRITE: "_s, $nc(this->protocolVersion)->name$, " "_s, $ContentType::HANDSHAKE->name$, ", length = "_s, $$str((this->count - $SSLRecord::headerSize))}), $$new($ObjectArray, 0));
+					$SSLLogger::fine($$str({"WRITE: SSLv2 ClientHello message, length = "_s, $$str(limit)}), $$new($ObjectArray, 0));
 				}
-				$init($ContentType);
-				encrypt(this->writeCipher, $ContentType::HANDSHAKE->id, $SSLRecord::headerSize);
-				$nc(this->deliverStream)->write(this->buf, 0, this->count);
-				$nc(this->deliverStream)->flush();
+				$nc(this->deliverStream)->write(record, 0, limit);
+				this->deliverStream->flush();
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
-					$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($of($$new($ByteArrayInputStream, this->buf, 0, this->count)))}));
-				}
-				offset += fragLen;
-				this->count = position;
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$nc(this->recordLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
-	}
-}
-
-void SSLSocketOutputRecord::encodeChangeCipherSpec() {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->recordLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			if (isClosed()) {
-				$init($SSLLogger);
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
-					$SSLLogger::warning("outbound has closed, ignore outbound change_cipher_spec message"_s, $$new($ObjectArray, 0));
+					$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($$new($ByteArrayInputStream, record, 0, limit))}));
 				}
 				return$1 = true;
 				goto $finally;
 			}
-			this->count = $SSLRecord::headerSize + $nc(this->writeCipher)->getExplicitNonceSize();
-			write((int32_t)(int8_t)1);
-			$init($ContentType);
-			encrypt(this->writeCipher, $ContentType::CHANGE_CIPHER_SPEC->id, $SSLRecord::headerSize);
-			$nc(this->deliverStream)->write(this->buf, 0, this->count);
-			$init($SSLLogger);
-			if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
-				$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($of($$new($ByteArrayInputStream, this->buf, 0, this->count)))}));
-			}
-			this->count = 0;
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$nc(this->recordLock)->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		int8_t handshakeType = $nc(source)->get(0);
+		if ($nc(this->handshakeHash)->isHashable(handshakeType)) {
+			this->handshakeHash->deliver(source, offset, length);
 		}
-		if (return$1) {
-			return;
+		int32_t fragLimit = getFragLimit();
+		int32_t position = $SSLRecord::headerSize + $nc(this->writeCipher)->getExplicitNonceSize();
+		if (this->count == 0) {
+			this->count = position;
 		}
-	}
-}
-
-void SSLSocketOutputRecord::flush() {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->recordLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			int32_t position = $SSLRecord::headerSize + $nc(this->writeCipher)->getExplicitNonceSize();
-			if (this->count <= position) {
+		if ((this->count - position) < (fragLimit - length)) {
+			write(source, offset, length);
+			return$1 = true;
+			goto $finally;
+		}
+		for (int32_t limit = (offset + length); offset < limit;) {
+			int32_t remains = (limit - offset) + (this->count - position);
+			int32_t fragLen = $Math::min(fragLimit, remains);
+			write(source, offset, fragLen);
+			if (remains < fragLimit) {
 				return$1 = true;
 				goto $finally;
 			}
@@ -318,109 +195,180 @@ void SSLSocketOutputRecord::flush() {
 			$init($ContentType);
 			encrypt(this->writeCipher, $ContentType::HANDSHAKE->id, $SSLRecord::headerSize);
 			$nc(this->deliverStream)->write(this->buf, 0, this->count);
-			$nc(this->deliverStream)->flush();
+			this->deliverStream->flush();
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
-				$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($of($$new($ByteArrayInputStream, this->buf, 0, this->count)))}));
+				$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($$new($ByteArrayInputStream, this->buf, 0, this->count))}));
 			}
-			this->count = 0;
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$nc(this->recordLock)->unlock();
+			offset += fragLen;
+			this->count = position;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		this->recordLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
+	}
+}
+
+void SSLSocketOutputRecord::encodeChangeCipherSpec() {
+	$useLocalObjectStack();
+	$nc(this->recordLock)->lock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		if (isClosed()) {
+			$init($SSLLogger);
+			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
+				$SSLLogger::warning("outbound has closed, ignore outbound change_cipher_spec message"_s, $$new($ObjectArray, 0));
+			}
+			return$1 = true;
+			goto $finally;
 		}
-		if (return$1) {
-			return;
+		this->count = $SSLRecord::headerSize + $nc(this->writeCipher)->getExplicitNonceSize();
+		write((int8_t)1);
+		$init($ContentType);
+		encrypt(this->writeCipher, $ContentType::CHANGE_CIPHER_SPEC->id, $SSLRecord::headerSize);
+		$nc(this->deliverStream)->write(this->buf, 0, this->count);
+		$init($SSLLogger);
+		if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
+			$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($$new($ByteArrayInputStream, this->buf, 0, this->count))}));
 		}
+		this->count = 0;
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		this->recordLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
+	}
+}
+
+void SSLSocketOutputRecord::flush() {
+	$useLocalObjectStack();
+	$nc(this->recordLock)->lock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		int32_t position = $SSLRecord::headerSize + $nc(this->writeCipher)->getExplicitNonceSize();
+		if (this->count <= position) {
+			return$1 = true;
+			goto $finally;
+		}
+		$init($SSLLogger);
+		if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
+			$init($ContentType);
+			$SSLLogger::fine($$str({"WRITE: "_s, $nc(this->protocolVersion)->name$, " "_s, $ContentType::HANDSHAKE->name$, ", length = "_s, $$str((this->count - $SSLRecord::headerSize))}), $$new($ObjectArray, 0));
+		}
+		$init($ContentType);
+		encrypt(this->writeCipher, $ContentType::HANDSHAKE->id, $SSLRecord::headerSize);
+		$nc(this->deliverStream)->write(this->buf, 0, this->count);
+		this->deliverStream->flush();
+		if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
+			$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($$new($ByteArrayInputStream, this->buf, 0, this->count))}));
+		}
+		this->count = 0;
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		this->recordLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void SSLSocketOutputRecord::deliver($bytes* source, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->recordLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (isClosed()) {
-				$throwNew($SocketException, "Connection or outbound has been closed"_s);
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (isClosed()) {
+			$throwNew($SocketException, "Connection or outbound has been closed"_s);
+		}
+		if ($nc($nc(this->writeCipher)->authenticator)->seqNumOverflow()) {
+			$init($SSLLogger);
+			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
+				$SSLLogger::fine("sequence number extremely close to overflow (2^64-1 packets). Closing connection."_s, $$new($ObjectArray, 0));
 			}
-			if ($nc($nc(this->writeCipher)->authenticator)->seqNumOverflow()) {
-				$init($SSLLogger);
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
-					$SSLLogger::fine("sequence number extremely close to overflow (2^64-1 packets). Closing connection."_s, $$new($ObjectArray, 0));
-				}
-				$throwNew($SSLHandshakeException, "sequence number overflow"_s);
+			$throwNew($SSLHandshakeException, "sequence number overflow"_s);
+		}
+		bool isFirstRecordOfThePayload = true;
+		for (int32_t limit = (offset + length); offset < limit;) {
+			int32_t fragLen = 0;
+			if (this->packetSize > 0) {
+				fragLen = $Math::min($SSLRecord::maxRecordSize, this->packetSize);
+				fragLen = this->writeCipher->calculateFragmentSize(fragLen, $SSLRecord::headerSize);
+				fragLen = $Math::min(fragLen, $Record::maxDataSize);
+			} else {
+				fragLen = $Record::maxDataSize;
 			}
-			bool isFirstRecordOfThePayload = true;
-			for (int32_t limit = (offset + length); offset < limit;) {
-				int32_t fragLen = 0;
-				if (this->packetSize > 0) {
-					fragLen = $Math::min($SSLRecord::maxRecordSize, this->packetSize);
-					fragLen = $nc(this->writeCipher)->calculateFragmentSize(fragLen, $SSLRecord::headerSize);
-					fragLen = $Math::min(fragLen, $Record::maxDataSize);
-				} else {
-					fragLen = $Record::maxDataSize;
-				}
-				fragLen = calculateFragmentSize(fragLen);
-				if (isFirstRecordOfThePayload && needToSplitPayload()) {
-					fragLen = 1;
-					isFirstRecordOfThePayload = false;
-				} else {
-					fragLen = $Math::min(fragLen, (limit - offset));
-				}
-				int32_t position = $SSLRecord::headerSize + $nc(this->writeCipher)->getExplicitNonceSize();
-				this->count = position;
-				write(source, offset, fragLen);
-				$init($SSLLogger);
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
-					$init($ContentType);
-					$SSLLogger::fine($$str({"WRITE: "_s, $nc(this->protocolVersion)->name$, " "_s, $ContentType::APPLICATION_DATA->name$, ", length = "_s, $$str((this->count - position))}), $$new($ObjectArray, 0));
-				}
+			fragLen = calculateFragmentSize(fragLen);
+			if (isFirstRecordOfThePayload && needToSplitPayload()) {
+				fragLen = 1;
+				isFirstRecordOfThePayload = false;
+			} else {
+				fragLen = $Math::min(fragLen, (limit - offset));
+			}
+			int32_t position = $SSLRecord::headerSize + this->writeCipher->getExplicitNonceSize();
+			this->count = position;
+			write(source, offset, fragLen);
+			$init($SSLLogger);
+			if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
 				$init($ContentType);
-				encrypt(this->writeCipher, $ContentType::APPLICATION_DATA->id, $SSLRecord::headerSize);
-				$nc(this->deliverStream)->write(this->buf, 0, this->count);
-				$nc(this->deliverStream)->flush();
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
-					$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($of($$new($ByteArrayInputStream, this->buf, 0, this->count)))}));
-				}
-				this->count = 0;
-				if (this->isFirstAppOutputRecord) {
-					this->isFirstAppOutputRecord = false;
-				}
-				offset += fragLen;
+				$SSLLogger::fine($$str({"WRITE: "_s, $nc(this->protocolVersion)->name$, " "_s, $ContentType::APPLICATION_DATA->name$, ", length = "_s, $$str((this->count - position))}), $$new($ObjectArray, 0));
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->recordLock)->unlock();
+			$init($ContentType);
+			encrypt(this->writeCipher, $ContentType::APPLICATION_DATA->id, $SSLRecord::headerSize);
+			$nc(this->deliverStream)->write(this->buf, 0, this->count);
+			this->deliverStream->flush();
+			if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
+				$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($$new($ByteArrayInputStream, this->buf, 0, this->count))}));
+			}
+			this->count = 0;
+			if (this->isFirstAppOutputRecord) {
+				this->isFirstAppOutputRecord = false;
+			}
+			offset += fragLen;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->recordLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SSLSocketOutputRecord::setDeliverStream($OutputStream* outputStream) {
 	$nc(this->recordLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, deliverStream, outputStream);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->recordLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, deliverStream, outputStream);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->recordLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 bool SSLSocketOutputRecord::needToSplitPayload() {
-	bool var$0 = (!$nc(this->protocolVersion)->useTLS11PlusSpec());
+	bool var$0 = !$nc(this->protocolVersion)->useTLS11PlusSpec();
 	$init($Record);
 	return var$0 && $nc(this->writeCipher)->isCBCMode() && !this->isFirstAppOutputRecord && $Record::enableCBCProtection;
 }
@@ -442,7 +390,39 @@ SSLSocketOutputRecord::SSLSocketOutputRecord() {
 }
 
 $Class* SSLSocketOutputRecord::load$($String* name, bool initialize) {
-	$loadClass(SSLSocketOutputRecord, name, initialize, &_SSLSocketOutputRecord_ClassInfo_, allocate$SSLSocketOutputRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"deliverStream", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(SSLSocketOutputRecord, deliverStream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/security/ssl/HandshakeHash;)V", nullptr, 0, $method(SSLSocketOutputRecord, init$, void, $HandshakeHash*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeHash;Lsun/security/ssl/TransportContext;)V", nullptr, 0, $method(SSLSocketOutputRecord, init$, void, $HandshakeHash*, $TransportContext*)},
+		{"deliver", "([BII)V", nullptr, 0, $virtualMethod(SSLSocketOutputRecord, deliver, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"encodeAlert", "(BB)V", nullptr, 0, $virtualMethod(SSLSocketOutputRecord, encodeAlert, void, int8_t, int8_t), "java.io.IOException"},
+		{"encodeChangeCipherSpec", "()V", nullptr, 0, $virtualMethod(SSLSocketOutputRecord, encodeChangeCipherSpec, void), "java.io.IOException"},
+		{"encodeHandshake", "([BII)V", nullptr, 0, $virtualMethod(SSLSocketOutputRecord, encodeHandshake, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(SSLSocketOutputRecord, flush, void), "java.io.IOException"},
+		{"getFragLimit", "()I", nullptr, $PRIVATE, $method(SSLSocketOutputRecord, getFragLimit, int32_t)},
+		{"needToSplitPayload", "()Z", nullptr, $PRIVATE, $method(SSLSocketOutputRecord, needToSplitPayload, bool)},
+		{"setDeliverStream", "(Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(SSLSocketOutputRecord, setDeliverStream, void, $OutputStream*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLSocketOutputRecord",
+		"sun.security.ssl.OutputRecord",
+		"sun.security.ssl.SSLRecord",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLSocketOutputRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLSocketOutputRecord));
+	});
 	return class$;
 }
 

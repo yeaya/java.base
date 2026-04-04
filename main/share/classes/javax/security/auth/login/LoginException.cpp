@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/LoginException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace login {
-
-$FieldInfo _LoginException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LoginException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LoginException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LoginException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LoginException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _LoginException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.login.LoginException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_LoginException_FieldInfo_,
-	_LoginException_MethodInfo_
-};
-
-$Object* allocate$LoginException($Class* clazz) {
-	return $of($alloc(LoginException));
-}
 
 void LoginException::init$() {
 	$GeneralSecurityException::init$();
@@ -56,7 +31,26 @@ void LoginException::throw$() {
 }
 
 $Class* LoginException::load$($String* name, bool initialize) {
-	$loadClass(LoginException, name, initialize, &_LoginException_ClassInfo_, allocate$LoginException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LoginException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LoginException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LoginException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.login.LoginException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LoginException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoginException);
+	});
 	return class$;
 }
 

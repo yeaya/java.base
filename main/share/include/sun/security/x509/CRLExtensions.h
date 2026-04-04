@@ -43,6 +43,7 @@ class $import CRLExtensions : public ::java::lang::Object {
 	$class(CRLExtensions, 0, ::java::lang::Object)
 public:
 	CRLExtensions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::security::util::DerInputStream* in);
 	virtual void delete$($String* alias);

@@ -1,5 +1,4 @@
 #include <sun/net/ftp/impl/FtpClient$MLSxParser.h>
-
 #include <java/util/Date.h>
 #include <sun/net/ftp/FtpDirEntry$Type.h>
 #include <sun/net/ftp/FtpDirEntry.h>
@@ -25,45 +24,14 @@ namespace sun {
 		namespace ftp {
 			namespace impl {
 
-$MethodInfo _FtpClient$MLSxParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FtpClient$MLSxParser, init$, void)},
-	{"parseLine", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpClient$MLSxParser, parseLine, $FtpDirEntry*, $String*)},
-	{}
-};
-
-$InnerClassInfo _FtpClient$MLSxParser_InnerClassesInfo_[] = {
-	{"sun.net.ftp.impl.FtpClient$MLSxParser", "sun.net.ftp.impl.FtpClient", "MLSxParser", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FtpClient$MLSxParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.ftp.impl.FtpClient$MLSxParser",
-	"java.lang.Object",
-	"sun.net.ftp.FtpDirParser",
-	nullptr,
-	_FtpClient$MLSxParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FtpClient$MLSxParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.ftp.impl.FtpClient"
-};
-
-$Object* allocate$FtpClient$MLSxParser($Class* clazz) {
-	return $of($alloc(FtpClient$MLSxParser));
-}
-
 void FtpClient$MLSxParser::init$() {
 }
 
 $FtpDirEntry* FtpClient$MLSxParser::parseLine($String* line$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, line, line$renamed);
 	$var($String, name, nullptr);
-	int32_t i = $nc(line)->lastIndexOf((int32_t)u';');
+	int32_t i = $nc(line)->lastIndexOf(u';');
 	if (i > 0) {
 		$assign(name, $(line->substring(i + 1))->trim());
 		$assign(line, line->substring(0, i));
@@ -74,7 +42,7 @@ $FtpDirEntry* FtpClient$MLSxParser::parseLine($String* line$renamed) {
 	$var($FtpDirEntry, file, $new($FtpDirEntry, name));
 	while (!line->isEmpty()) {
 		$var($String, s, nullptr);
-		i = line->indexOf((int32_t)u';');
+		i = line->indexOf(u';');
 		if (i > 0) {
 			$assign(s, line->substring(0, i));
 			$assign(line, line->substring(i + 1));
@@ -82,7 +50,7 @@ $FtpDirEntry* FtpClient$MLSxParser::parseLine($String* line$renamed) {
 			$assign(s, line);
 			$assign(line, ""_s);
 		}
-		i = $nc(s)->indexOf((int32_t)u'=');
+		i = $nc(s)->indexOf(u'=');
 		if (i > 0) {
 			$var($String, fact, s->substring(0, i));
 			$var($String, value, s->substring(i + 1));
@@ -133,7 +101,33 @@ FtpClient$MLSxParser::FtpClient$MLSxParser() {
 }
 
 $Class* FtpClient$MLSxParser::load$($String* name, bool initialize) {
-	$loadClass(FtpClient$MLSxParser, name, initialize, &_FtpClient$MLSxParser_ClassInfo_, allocate$FtpClient$MLSxParser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FtpClient$MLSxParser, init$, void)},
+		{"parseLine", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpClient$MLSxParser, parseLine, $FtpDirEntry*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.ftp.impl.FtpClient$MLSxParser", "sun.net.ftp.impl.FtpClient", "MLSxParser", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.ftp.impl.FtpClient$MLSxParser",
+		"java.lang.Object",
+		"sun.net.ftp.FtpDirParser",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.ftp.impl.FtpClient"
+	};
+	$loadClass(FtpClient$MLSxParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FtpClient$MLSxParser);
+	});
 	return class$;
 }
 

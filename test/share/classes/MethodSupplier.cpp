@@ -1,29 +1,8 @@
 #include <MethodSupplier.h>
-
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _MethodSupplier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodSupplier, init$, void)},
-	{"m", "()V", nullptr, $PUBLIC, $virtualMethod(MethodSupplier, m, void)},
-	{}
-};
-
-$ClassInfo _MethodSupplier_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MethodSupplier",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MethodSupplier_MethodInfo_
-};
-
-$Object* allocate$MethodSupplier($Class* clazz) {
-	return $of($alloc(MethodSupplier));
-}
 
 void MethodSupplier::init$() {
 }
@@ -36,7 +15,22 @@ MethodSupplier::MethodSupplier() {
 }
 
 $Class* MethodSupplier::load$($String* name, bool initialize) {
-	$loadClass(MethodSupplier, name, initialize, &_MethodSupplier_ClassInfo_, allocate$MethodSupplier);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MethodSupplier, init$, void)},
+		{"m", "()V", nullptr, $PUBLIC, $virtualMethod(MethodSupplier, m, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MethodSupplier",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MethodSupplier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodSupplier);
+	});
 	return class$;
 }
 

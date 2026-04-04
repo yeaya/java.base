@@ -1,5 +1,4 @@
 #include <java/security/KeyStore$CallbackHandlerProtection.h>
-
 #include <java/security/KeyStore.h>
 #include <javax/security/auth/callback/CallbackHandler.h>
 #include <jcpp.h>
@@ -13,43 +12,6 @@ using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _KeyStore$CallbackHandlerProtection_FieldInfo_[] = {
-	{"handler", "Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PRIVATE | $FINAL, $field(KeyStore$CallbackHandlerProtection, handler)},
-	{}
-};
-
-$MethodInfo _KeyStore$CallbackHandlerProtection_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC, $method(KeyStore$CallbackHandlerProtection, init$, void, $CallbackHandler*)},
-	{"getCallbackHandler", "()Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PUBLIC, $virtualMethod(KeyStore$CallbackHandlerProtection, getCallbackHandler, $CallbackHandler*)},
-	{}
-};
-
-$InnerClassInfo _KeyStore$CallbackHandlerProtection_InnerClassesInfo_[] = {
-	{"java.security.KeyStore$CallbackHandlerProtection", "java.security.KeyStore", "CallbackHandlerProtection", $PUBLIC | $STATIC},
-	{"java.security.KeyStore$ProtectionParameter", "java.security.KeyStore", "ProtectionParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeyStore$CallbackHandlerProtection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.KeyStore$CallbackHandlerProtection",
-	"java.lang.Object",
-	"java.security.KeyStore$ProtectionParameter",
-	_KeyStore$CallbackHandlerProtection_FieldInfo_,
-	_KeyStore$CallbackHandlerProtection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyStore$CallbackHandlerProtection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.KeyStore"
-};
-
-$Object* allocate$KeyStore$CallbackHandlerProtection($Class* clazz) {
-	return $of($alloc(KeyStore$CallbackHandlerProtection));
-}
 
 void KeyStore$CallbackHandlerProtection::init$($CallbackHandler* handler) {
 	if (handler == nullptr) {
@@ -66,7 +28,38 @@ KeyStore$CallbackHandlerProtection::KeyStore$CallbackHandlerProtection() {
 }
 
 $Class* KeyStore$CallbackHandlerProtection::load$($String* name, bool initialize) {
-	$loadClass(KeyStore$CallbackHandlerProtection, name, initialize, &_KeyStore$CallbackHandlerProtection_ClassInfo_, allocate$KeyStore$CallbackHandlerProtection);
+	$FieldInfo fieldInfos$$[] = {
+		{"handler", "Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PRIVATE | $FINAL, $field(KeyStore$CallbackHandlerProtection, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC, $method(KeyStore$CallbackHandlerProtection, init$, void, $CallbackHandler*)},
+		{"getCallbackHandler", "()Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PUBLIC, $virtualMethod(KeyStore$CallbackHandlerProtection, getCallbackHandler, $CallbackHandler*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyStore$CallbackHandlerProtection", "java.security.KeyStore", "CallbackHandlerProtection", $PUBLIC | $STATIC},
+		{"java.security.KeyStore$ProtectionParameter", "java.security.KeyStore", "ProtectionParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.KeyStore$CallbackHandlerProtection",
+		"java.lang.Object",
+		"java.security.KeyStore$ProtectionParameter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.KeyStore"
+	};
+	$loadClass(KeyStore$CallbackHandlerProtection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStore$CallbackHandlerProtection);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamSpliterators$DelegatingSpliterator$OfLong.h>
-
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator$OfLong.h>
 #include <java/util/Spliterator.h>
@@ -24,56 +23,6 @@ using $StreamSpliterators$DelegatingSpliterator$OfPrimitive = ::java::util::stre
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _StreamSpliterators$DelegatingSpliterator$OfLong_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
-	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
-	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/util/Spliterator$OfLong;>;)V", 0, $method(StreamSpliterators$DelegatingSpliterator$OfLong, init$, void, $Supplier*)},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$DelegatingSpliterator$OfLong, forEachRemaining, void, $LongConsumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$DelegatingSpliterator$OfLong, tryAdvance, bool, $LongConsumer*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator$OfLong, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _StreamSpliterators$DelegatingSpliterator$OfLong_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamSpliterators$DelegatingSpliterator", "java.util.stream.StreamSpliterators", "DelegatingSpliterator", $STATIC},
-	{"java.util.stream.StreamSpliterators$DelegatingSpliterator$OfLong", "java.util.stream.StreamSpliterators$DelegatingSpliterator", "OfLong", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$DelegatingSpliterator$OfPrimitive", "java.util.stream.StreamSpliterators$DelegatingSpliterator", "OfPrimitive", $STATIC},
-	{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StreamSpliterators$DelegatingSpliterator$OfLong_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.StreamSpliterators$DelegatingSpliterator$OfLong",
-	"java.util.stream.StreamSpliterators$DelegatingSpliterator$OfPrimitive",
-	"java.util.Spliterator$OfLong",
-	nullptr,
-	_StreamSpliterators$DelegatingSpliterator$OfLong_MethodInfo_,
-	"Ljava/util/stream/StreamSpliterators$DelegatingSpliterator$OfPrimitive<Ljava/lang/Long;Ljava/util/function/LongConsumer;Ljava/util/Spliterator$OfLong;>;Ljava/util/Spliterator$OfLong;",
-	nullptr,
-	_StreamSpliterators$DelegatingSpliterator$OfLong_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamSpliterators"
-};
-
-$Object* allocate$StreamSpliterators$DelegatingSpliterator$OfLong($Class* clazz) {
-	return $of($alloc(StreamSpliterators$DelegatingSpliterator$OfLong));
-}
 
 bool StreamSpliterators$DelegatingSpliterator$OfLong::tryAdvance(Object$* consumer) {
 	 return this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::tryAdvance(consumer);
@@ -208,11 +157,11 @@ void StreamSpliterators$DelegatingSpliterator$OfLong::init$($Supplier* supplier)
 }
 
 void StreamSpliterators$DelegatingSpliterator$OfLong::forEachRemaining($LongConsumer* consumer) {
-	$StreamSpliterators$DelegatingSpliterator$OfPrimitive::forEachRemaining($of(consumer));
+	$StreamSpliterators$DelegatingSpliterator$OfPrimitive::forEachRemaining(consumer);
 }
 
 bool StreamSpliterators$DelegatingSpliterator$OfLong::tryAdvance($LongConsumer* consumer) {
-	return $StreamSpliterators$DelegatingSpliterator$OfPrimitive::tryAdvance($of(consumer));
+	return $StreamSpliterators$DelegatingSpliterator$OfPrimitive::tryAdvance(consumer);
 }
 
 $Spliterator* StreamSpliterators$DelegatingSpliterator$OfLong::trySplit() {
@@ -223,7 +172,52 @@ StreamSpliterators$DelegatingSpliterator$OfLong::StreamSpliterators$DelegatingSp
 }
 
 $Class* StreamSpliterators$DelegatingSpliterator$OfLong::load$($String* name, bool initialize) {
-	$loadClass(StreamSpliterators$DelegatingSpliterator$OfLong, name, initialize, &_StreamSpliterators$DelegatingSpliterator$OfLong_ClassInfo_, allocate$StreamSpliterators$DelegatingSpliterator$OfLong);
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
+		{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
+		{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/util/Spliterator$OfLong;>;)V", 0, $method(StreamSpliterators$DelegatingSpliterator$OfLong, init$, void, $Supplier*)},
+		{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$DelegatingSpliterator$OfLong, forEachRemaining, void, $LongConsumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$DelegatingSpliterator$OfLong, tryAdvance, bool, $LongConsumer*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator$OfLong, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamSpliterators$DelegatingSpliterator", "java.util.stream.StreamSpliterators", "DelegatingSpliterator", $STATIC},
+		{"java.util.stream.StreamSpliterators$DelegatingSpliterator$OfLong", "java.util.stream.StreamSpliterators$DelegatingSpliterator", "OfLong", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$DelegatingSpliterator$OfPrimitive", "java.util.stream.StreamSpliterators$DelegatingSpliterator", "OfPrimitive", $STATIC},
+		{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.StreamSpliterators$DelegatingSpliterator$OfLong",
+		"java.util.stream.StreamSpliterators$DelegatingSpliterator$OfPrimitive",
+		"java.util.Spliterator$OfLong",
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/stream/StreamSpliterators$DelegatingSpliterator$OfPrimitive<Ljava/lang/Long;Ljava/util/function/LongConsumer;Ljava/util/Spliterator$OfLong;>;Ljava/util/Spliterator$OfLong;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamSpliterators"
+	};
+	$loadClass(StreamSpliterators$DelegatingSpliterator$OfLong, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StreamSpliterators$DelegatingSpliterator$OfLong));
+	});
 	return class$;
 }
 

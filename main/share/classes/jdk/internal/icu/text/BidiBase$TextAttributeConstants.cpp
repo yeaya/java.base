@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/BidiBase$TextAttributeConstants.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
@@ -32,47 +31,6 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$FieldInfo _BidiBase$TextAttributeConstants_FieldInfo_[] = {
-	{"jafa", "Ljdk/internal/access/JavaAWTFontAccess;", nullptr, $STATIC | $FINAL, $staticField(BidiBase$TextAttributeConstants, jafa)},
-	{"RUN_DIRECTION", "Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $STATIC | $FINAL, $staticField(BidiBase$TextAttributeConstants, RUN_DIRECTION)},
-	{"NUMERIC_SHAPING", "Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $STATIC | $FINAL, $staticField(BidiBase$TextAttributeConstants, NUMERIC_SHAPING)},
-	{"BIDI_EMBEDDING", "Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $STATIC | $FINAL, $staticField(BidiBase$TextAttributeConstants, BIDI_EMBEDDING)},
-	{"RUN_DIRECTION_LTR", "Ljava/lang/Boolean;", nullptr, $STATIC | $FINAL, $staticField(BidiBase$TextAttributeConstants, RUN_DIRECTION_LTR)},
-	{}
-};
-
-$MethodInfo _BidiBase$TextAttributeConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BidiBase$TextAttributeConstants, init$, void)},
-	{"getTextAttribute", "(Ljava/lang/String;)Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiBase$TextAttributeConstants, getTextAttribute, $AttributedCharacterIterator$Attribute*, $String*)},
-	{}
-};
-
-$InnerClassInfo _BidiBase$TextAttributeConstants_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.BidiBase$TextAttributeConstants", "jdk.internal.icu.text.BidiBase", "TextAttributeConstants", $PRIVATE | $STATIC},
-	{"jdk.internal.icu.text.BidiBase$TextAttributeConstants$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BidiBase$TextAttributeConstants_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.icu.text.BidiBase$TextAttributeConstants",
-	"java.lang.Object",
-	nullptr,
-	_BidiBase$TextAttributeConstants_FieldInfo_,
-	_BidiBase$TextAttributeConstants_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BidiBase$TextAttributeConstants_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.BidiBase"
-};
-
-$Object* allocate$BidiBase$TextAttributeConstants($Class* clazz) {
-	return $of($alloc(BidiBase$TextAttributeConstants));
-}
-
 $JavaAWTFontAccess* BidiBase$TextAttributeConstants::jafa = nullptr;
 $AttributedCharacterIterator$Attribute* BidiBase$TextAttributeConstants::RUN_DIRECTION = nullptr;
 $AttributedCharacterIterator$Attribute* BidiBase$TextAttributeConstants::NUMERIC_SHAPING = nullptr;
@@ -87,11 +45,11 @@ $AttributedCharacterIterator$Attribute* BidiBase$TextAttributeConstants::getText
 	if (BidiBase$TextAttributeConstants::jafa == nullptr) {
 		return $new($BidiBase$TextAttributeConstants$1, name);
 	} else {
-		return $cast($AttributedCharacterIterator$Attribute, $nc(BidiBase$TextAttributeConstants::jafa)->getTextAttributeConstant(name));
+		return $cast($AttributedCharacterIterator$Attribute, BidiBase$TextAttributeConstants::jafa->getTextAttributeConstant(name));
 	}
 }
 
-void clinit$BidiBase$TextAttributeConstants($Class* class$) {
+void BidiBase$TextAttributeConstants::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		try {
@@ -103,15 +61,49 @@ void clinit$BidiBase$TextAttributeConstants($Class* class$) {
 	$assignStatic(BidiBase$TextAttributeConstants::RUN_DIRECTION, BidiBase$TextAttributeConstants::getTextAttribute("RUN_DIRECTION"_s));
 	$assignStatic(BidiBase$TextAttributeConstants::NUMERIC_SHAPING, BidiBase$TextAttributeConstants::getTextAttribute("NUMERIC_SHAPING"_s));
 	$assignStatic(BidiBase$TextAttributeConstants::BIDI_EMBEDDING, BidiBase$TextAttributeConstants::getTextAttribute("BIDI_EMBEDDING"_s));
-	$init($Boolean);
-	$assignStatic(BidiBase$TextAttributeConstants::RUN_DIRECTION_LTR, (BidiBase$TextAttributeConstants::jafa == nullptr) ? $Boolean::FALSE : $cast($Boolean, $nc(BidiBase$TextAttributeConstants::jafa)->getTextAttributeConstant("RUN_DIRECTION_LTR"_s)));
+	$assignStatic(BidiBase$TextAttributeConstants::RUN_DIRECTION_LTR, (BidiBase$TextAttributeConstants::jafa == nullptr) ? $Boolean::FALSE : $cast($Boolean, BidiBase$TextAttributeConstants::jafa->getTextAttributeConstant("RUN_DIRECTION_LTR"_s)));
 }
 
 BidiBase$TextAttributeConstants::BidiBase$TextAttributeConstants() {
 }
 
 $Class* BidiBase$TextAttributeConstants::load$($String* name, bool initialize) {
-	$loadClass(BidiBase$TextAttributeConstants, name, initialize, &_BidiBase$TextAttributeConstants_ClassInfo_, clinit$BidiBase$TextAttributeConstants, allocate$BidiBase$TextAttributeConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"jafa", "Ljdk/internal/access/JavaAWTFontAccess;", nullptr, $STATIC | $FINAL, $staticField(BidiBase$TextAttributeConstants, jafa)},
+		{"RUN_DIRECTION", "Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $STATIC | $FINAL, $staticField(BidiBase$TextAttributeConstants, RUN_DIRECTION)},
+		{"NUMERIC_SHAPING", "Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $STATIC | $FINAL, $staticField(BidiBase$TextAttributeConstants, NUMERIC_SHAPING)},
+		{"BIDI_EMBEDDING", "Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $STATIC | $FINAL, $staticField(BidiBase$TextAttributeConstants, BIDI_EMBEDDING)},
+		{"RUN_DIRECTION_LTR", "Ljava/lang/Boolean;", nullptr, $STATIC | $FINAL, $staticField(BidiBase$TextAttributeConstants, RUN_DIRECTION_LTR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BidiBase$TextAttributeConstants, init$, void)},
+		{"getTextAttribute", "(Ljava/lang/String;)Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiBase$TextAttributeConstants, getTextAttribute, $AttributedCharacterIterator$Attribute*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.BidiBase$TextAttributeConstants", "jdk.internal.icu.text.BidiBase", "TextAttributeConstants", $PRIVATE | $STATIC},
+		{"jdk.internal.icu.text.BidiBase$TextAttributeConstants$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.icu.text.BidiBase$TextAttributeConstants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.BidiBase"
+	};
+	$loadClass(BidiBase$TextAttributeConstants, name, initialize, &classInfo$$, BidiBase$TextAttributeConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BidiBase$TextAttributeConstants);
+	});
 	return class$;
 }
 

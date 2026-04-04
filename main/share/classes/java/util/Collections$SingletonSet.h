@@ -42,7 +42,7 @@ public:
 	virtual ::java::util::Spliterator* spliterator() override;
 	using ::java::util::AbstractSet::toArray;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x2C52419829C0B1BF;
+	static const int64_t serialVersionUID = (int64_t)0x2c52419829c0b1bf;
 	$Object* element = nullptr;
 };
 

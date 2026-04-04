@@ -38,8 +38,8 @@ public:
 	static void lambda$test$0(::java::nio::channels::Selector* selector, int64_t timeout, ::java::util::concurrent::atomic::AtomicBoolean* isTimedOut, ::java::util::concurrent::atomic::AtomicReference* theException);
 	static void main($StringArray* args);
 	static bool test(int64_t timeout);
-	static const int64_t BIG_TIMEOUT = (int64_t)0x000000174876EBE8;
-	static const int64_t BIGGER_TIMEOUT = (int64_t)0x000305120C0F2000;
+	static const int64_t BIG_TIMEOUT = (int64_t)0x000000174876ebe8;
+	static const int64_t BIGGER_TIMEOUT = (int64_t)0x000305120c0f2000;
 	static const int64_t SLEEP_MILLIS = 10000;
 };
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/NormalizerImpl$UTF16Plus.h>
-
 #include <java/lang/CharSequence.h>
 #include <jdk/internal/icu/impl/NormalizerImpl.h>
 #include <jcpp.h>
@@ -14,48 +13,15 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$MethodInfo _NormalizerImpl$UTF16Plus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NormalizerImpl$UTF16Plus, init$, void)},
-	{"equal", "(Ljava/lang/CharSequence;IILjava/lang/CharSequence;II)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$UTF16Plus, equal, bool, $CharSequence*, int32_t, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"isLeadSurrogate", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$UTF16Plus, isLeadSurrogate, bool, int32_t)},
-	{"isSurrogateLead", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$UTF16Plus, isSurrogateLead, bool, int32_t)},
-	{}
-};
-
-$InnerClassInfo _NormalizerImpl$UTF16Plus_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.NormalizerImpl$UTF16Plus", "jdk.internal.icu.impl.NormalizerImpl", "UTF16Plus", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NormalizerImpl$UTF16Plus_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.NormalizerImpl$UTF16Plus",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NormalizerImpl$UTF16Plus_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NormalizerImpl$UTF16Plus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.NormalizerImpl"
-};
-
-$Object* allocate$NormalizerImpl$UTF16Plus($Class* clazz) {
-	return $of($alloc(NormalizerImpl$UTF16Plus));
-}
-
 void NormalizerImpl$UTF16Plus::init$() {
 }
 
 bool NormalizerImpl$UTF16Plus::isLeadSurrogate(int32_t c) {
-	return ((int32_t)(c & (uint32_t)-1024)) == 0x0000D800;
+	return (c & -1024) == 0xd800;
 }
 
 bool NormalizerImpl$UTF16Plus::isSurrogateLead(int32_t c) {
-	return ((int32_t)(c & (uint32_t)1024)) == 0;
+	return (c & 0x0400) == 0;
 }
 
 bool NormalizerImpl$UTF16Plus::equal($CharSequence* s1, int32_t start1, int32_t limit1, $CharSequence* s2, int32_t start2, int32_t limit2) {
@@ -78,7 +44,35 @@ NormalizerImpl$UTF16Plus::NormalizerImpl$UTF16Plus() {
 }
 
 $Class* NormalizerImpl$UTF16Plus::load$($String* name, bool initialize) {
-	$loadClass(NormalizerImpl$UTF16Plus, name, initialize, &_NormalizerImpl$UTF16Plus_ClassInfo_, allocate$NormalizerImpl$UTF16Plus);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NormalizerImpl$UTF16Plus, init$, void)},
+		{"equal", "(Ljava/lang/CharSequence;IILjava/lang/CharSequence;II)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$UTF16Plus, equal, bool, $CharSequence*, int32_t, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"isLeadSurrogate", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$UTF16Plus, isLeadSurrogate, bool, int32_t)},
+		{"isSurrogateLead", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$UTF16Plus, isSurrogateLead, bool, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.NormalizerImpl$UTF16Plus", "jdk.internal.icu.impl.NormalizerImpl", "UTF16Plus", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.NormalizerImpl$UTF16Plus",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.NormalizerImpl"
+	};
+	$loadClass(NormalizerImpl$UTF16Plus, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalizerImpl$UTF16Plus);
+	});
 	return class$;
 }
 

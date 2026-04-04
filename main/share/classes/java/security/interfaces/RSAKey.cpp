@@ -1,5 +1,4 @@
 #include <java/security/interfaces/RSAKey.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <jcpp.h>
@@ -13,31 +12,27 @@ namespace java {
 	namespace security {
 		namespace interfaces {
 
-$MethodInfo _RSAKey_MethodInfo_[] = {
-	{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAKey, getModulus, $BigInteger*)},
-	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(RSAKey, getParams, $AlgorithmParameterSpec*)},
-	{}
-};
-
-$ClassInfo _RSAKey_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.interfaces.RSAKey",
-	nullptr,
-	nullptr,
-	nullptr,
-	_RSAKey_MethodInfo_
-};
-
-$Object* allocate$RSAKey($Class* clazz) {
-	return $of($alloc(RSAKey));
-}
-
 $AlgorithmParameterSpec* RSAKey::getParams() {
 	return nullptr;
 }
 
 $Class* RSAKey::load$($String* name, bool initialize) {
-	$loadClass(RSAKey, name, initialize, &_RSAKey_ClassInfo_, allocate$RSAKey);
+	$MethodInfo methodInfos$$[] = {
+		{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAKey, getModulus, $BigInteger*)},
+		{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(RSAKey, getParams, $AlgorithmParameterSpec*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.interfaces.RSAKey",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RSAKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAKey);
+	});
 	return class$;
 }
 

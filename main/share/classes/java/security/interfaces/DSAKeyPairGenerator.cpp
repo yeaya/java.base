@@ -1,5 +1,4 @@
 #include <java/security/interfaces/DSAKeyPairGenerator.h>
-
 #include <java/security/SecureRandom.h>
 #include <java/security/interfaces/DSAParams.h>
 #include <jcpp.h>
@@ -13,27 +12,23 @@ namespace java {
 	namespace security {
 		namespace interfaces {
 
-$MethodInfo _DSAKeyPairGenerator_MethodInfo_[] = {
-	{"initialize", "(Ljava/security/interfaces/DSAParams;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAKeyPairGenerator, initialize, void, $DSAParams*, $SecureRandom*), "java.security.InvalidParameterException"},
-	{"initialize", "(IZLjava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAKeyPairGenerator, initialize, void, int32_t, bool, $SecureRandom*), "java.security.InvalidParameterException"},
-	{}
-};
-
-$ClassInfo _DSAKeyPairGenerator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.interfaces.DSAKeyPairGenerator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DSAKeyPairGenerator_MethodInfo_
-};
-
-$Object* allocate$DSAKeyPairGenerator($Class* clazz) {
-	return $of($alloc(DSAKeyPairGenerator));
-}
-
 $Class* DSAKeyPairGenerator::load$($String* name, bool initialize) {
-	$loadClass(DSAKeyPairGenerator, name, initialize, &_DSAKeyPairGenerator_ClassInfo_, allocate$DSAKeyPairGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"initialize", "(Ljava/security/interfaces/DSAParams;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAKeyPairGenerator, initialize, void, $DSAParams*, $SecureRandom*), "java.security.InvalidParameterException"},
+		{"initialize", "(IZLjava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAKeyPairGenerator, initialize, void, int32_t, bool, $SecureRandom*), "java.security.InvalidParameterException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.interfaces.DSAKeyPairGenerator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DSAKeyPairGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DSAKeyPairGenerator);
+	});
 	return class$;
 }
 

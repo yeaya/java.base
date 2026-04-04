@@ -1,5 +1,4 @@
 #include <UninitializedParent.h>
-
 #include <UninitializedParent$1.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityException.h>
@@ -10,7 +9,6 @@
 
 using $UninitializedParent$1 = ::UninitializedParent$1;
 using $URLArray = $Array<::java::net::URL>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -21,49 +19,14 @@ using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $URLClassLoader = ::java::net::URLClassLoader;
 
-$FieldInfo _UninitializedParent_FieldInfo_[] = {
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticField(UninitializedParent, loader)},
-	{}
-};
-
-$MethodInfo _UninitializedParent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UninitializedParent, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UninitializedParent, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _UninitializedParent_InnerClassesInfo_[] = {
-	{"UninitializedParent$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _UninitializedParent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"UninitializedParent",
-	"java.lang.Object",
-	nullptr,
-	_UninitializedParent_FieldInfo_,
-	_UninitializedParent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UninitializedParent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"UninitializedParent$1"
-};
-
-$Object* allocate$UninitializedParent($Class* clazz) {
-	return $of($alloc(UninitializedParent));
-}
-
 $ClassLoader* UninitializedParent::loader = nullptr;
 
 void UninitializedParent::init$() {
 }
 
 void UninitializedParent::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(UninitializedParent);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$System::setSecurityManager($$new($SecurityManager));
 	try {
@@ -89,7 +52,36 @@ UninitializedParent::UninitializedParent() {
 }
 
 $Class* UninitializedParent::load$($String* name, bool initialize) {
-	$loadClass(UninitializedParent, name, initialize, &_UninitializedParent_ClassInfo_, allocate$UninitializedParent);
+	$FieldInfo fieldInfos$$[] = {
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticField(UninitializedParent, loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UninitializedParent, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UninitializedParent, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"UninitializedParent$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"UninitializedParent",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"UninitializedParent$1"
+	};
+	$loadClass(UninitializedParent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UninitializedParent);
+	});
 	return class$;
 }
 

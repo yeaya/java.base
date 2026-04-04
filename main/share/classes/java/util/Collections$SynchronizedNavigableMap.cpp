@@ -1,5 +1,4 @@
 #include <java/util/Collections$SynchronizedNavigableMap.h>
-
 #include <java/util/Collection.h>
 #include <java/util/Collections$SynchronizedMap.h>
 #include <java/util/Collections$SynchronizedNavigableSet.h>
@@ -37,96 +36,6 @@ using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$SynchronizedNavigableMap_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SynchronizedNavigableMap, serialVersionUID)},
-	{"nm", "Ljava/util/NavigableMap;", "Ljava/util/NavigableMap<TK;TV;>;", $PRIVATE | $FINAL, $field(Collections$SynchronizedNavigableMap, nm)},
-	{}
-};
-
-$MethodInfo _Collections$SynchronizedNavigableMap_MethodInfo_[] = {
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*comparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
-	{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*firstKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC},
-	{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/NavigableMap;)V", "(Ljava/util/NavigableMap<TK;TV;>;)V", 0, $method(Collections$SynchronizedNavigableMap, init$, void, $NavigableMap*)},
-	{"<init>", "(Ljava/util/NavigableMap;Ljava/lang/Object;)V", "(Ljava/util/NavigableMap<TK;TV;>;Ljava/lang/Object;)V", 0, $method(Collections$SynchronizedNavigableMap, init$, void, $NavigableMap*, Object$*)},
-	{"ceilingEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, ceilingEntry, $Map$Entry*, Object$*)},
-	{"ceilingKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, ceilingKey, $Object*, Object$*)},
-	{"descendingKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, descendingKeySet, $NavigableSet*)},
-	{"descendingMap", "()Ljava/util/NavigableMap;", "()Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, descendingMap, $NavigableMap*)},
-	{"firstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, firstEntry, $Map$Entry*)},
-	{"floorEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, floorEntry, $Map$Entry*, Object$*)},
-	{"floorKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, floorKey, $Object*, Object$*)},
-	{"headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, headMap, $SortedMap*, Object$*)},
-	{"headMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, headMap, $NavigableMap*, Object$*, bool)},
-	{"higherEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, higherEntry, $Map$Entry*, Object$*)},
-	{"higherKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, higherKey, $Object*, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"keySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, keySet, $Set*)},
-	{"lastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, lastEntry, $Map$Entry*)},
-	{"*lastKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"lowerEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, lowerEntry, $Map$Entry*, Object$*)},
-	{"lowerKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, lowerKey, $Object*, Object$*)},
-	{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"navigableKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, navigableKeySet, $NavigableSet*)},
-	{"pollFirstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, pollFirstEntry, $Map$Entry*)},
-	{"pollLastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, pollLastEntry, $Map$Entry*)},
-	{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
-	{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, subMap, $SortedMap*, Object$*, Object$*)},
-	{"subMap", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;ZTK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, subMap, $NavigableMap*, Object$*, bool, Object$*, bool)},
-	{"tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, tailMap, $SortedMap*, Object$*)},
-	{"tailMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, tailMap, $NavigableMap*, Object$*, bool)},
-	{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$SynchronizedNavigableMap_InnerClassesInfo_[] = {
-	{"java.util.Collections$SynchronizedNavigableMap", "java.util.Collections", "SynchronizedNavigableMap", $STATIC},
-	{"java.util.Collections$SynchronizedSortedMap", "java.util.Collections", "SynchronizedSortedMap", $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$SynchronizedNavigableMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$SynchronizedNavigableMap",
-	"java.util.Collections$SynchronizedSortedMap",
-	"java.util.NavigableMap",
-	_Collections$SynchronizedNavigableMap_FieldInfo_,
-	_Collections$SynchronizedNavigableMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$SynchronizedSortedMap<TK;TV;>;Ljava/util/NavigableMap<TK;TV;>;",
-	nullptr,
-	_Collections$SynchronizedNavigableMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$SynchronizedNavigableMap($Class* clazz) {
-	return $of($alloc(Collections$SynchronizedNavigableMap));
-}
 
 $Comparator* Collections$SynchronizedNavigableMap::comparator() {
 	 return this->$Collections$SynchronizedSortedMap::comparator();
@@ -266,7 +175,7 @@ $Map$Entry* Collections$SynchronizedNavigableMap::lowerEntry(Object$* key) {
 
 $Object* Collections$SynchronizedNavigableMap::lowerKey(Object$* key) {
 	$synchronized(this->mutex) {
-		return $of($nc(this->nm)->lowerKey(key));
+		return $nc(this->nm)->lowerKey(key);
 	}
 }
 
@@ -278,7 +187,7 @@ $Map$Entry* Collections$SynchronizedNavigableMap::floorEntry(Object$* key) {
 
 $Object* Collections$SynchronizedNavigableMap::floorKey(Object$* key) {
 	$synchronized(this->mutex) {
-		return $of($nc(this->nm)->floorKey(key));
+		return $nc(this->nm)->floorKey(key);
 	}
 }
 
@@ -290,7 +199,7 @@ $Map$Entry* Collections$SynchronizedNavigableMap::ceilingEntry(Object$* key) {
 
 $Object* Collections$SynchronizedNavigableMap::ceilingKey(Object$* key) {
 	$synchronized(this->mutex) {
-		return $of($nc(this->nm)->ceilingKey(key));
+		return $nc(this->nm)->ceilingKey(key);
 	}
 }
 
@@ -302,7 +211,7 @@ $Map$Entry* Collections$SynchronizedNavigableMap::higherEntry(Object$* key) {
 
 $Object* Collections$SynchronizedNavigableMap::higherKey(Object$* key) {
 	$synchronized(this->mutex) {
-		return $of($nc(this->nm)->higherKey(key));
+		return $nc(this->nm)->higherKey(key);
 	}
 }
 
@@ -354,19 +263,19 @@ $NavigableSet* Collections$SynchronizedNavigableMap::descendingKeySet() {
 
 $SortedMap* Collections$SynchronizedNavigableMap::subMap(Object$* fromKey, Object$* toKey) {
 	$synchronized(this->mutex) {
-		return static_cast<$SortedMap*>(static_cast<$Collections$SynchronizedSortedMap*>($new(Collections$SynchronizedNavigableMap, $($nc(this->nm)->subMap(fromKey, true, toKey, false)), this->mutex)));
+		return $cast($Collections$SynchronizedSortedMap, $new(Collections$SynchronizedNavigableMap, $($nc(this->nm)->subMap(fromKey, true, toKey, false)), this->mutex));
 	}
 }
 
 $SortedMap* Collections$SynchronizedNavigableMap::headMap(Object$* toKey) {
 	$synchronized(this->mutex) {
-		return static_cast<$SortedMap*>(static_cast<$Collections$SynchronizedSortedMap*>($new(Collections$SynchronizedNavigableMap, $($nc(this->nm)->headMap(toKey, false)), this->mutex)));
+		return $cast($Collections$SynchronizedSortedMap, $new(Collections$SynchronizedNavigableMap, $($nc(this->nm)->headMap(toKey, false)), this->mutex));
 	}
 }
 
 $SortedMap* Collections$SynchronizedNavigableMap::tailMap(Object$* fromKey) {
 	$synchronized(this->mutex) {
-		return static_cast<$SortedMap*>(static_cast<$Collections$SynchronizedSortedMap*>($new(Collections$SynchronizedNavigableMap, $($nc(this->nm)->tailMap(fromKey, true)), this->mutex)));
+		return $cast($Collections$SynchronizedSortedMap, $new(Collections$SynchronizedNavigableMap, $($nc(this->nm)->tailMap(fromKey, true)), this->mutex));
 	}
 }
 
@@ -392,7 +301,91 @@ Collections$SynchronizedNavigableMap::Collections$SynchronizedNavigableMap() {
 }
 
 $Class* Collections$SynchronizedNavigableMap::load$($String* name, bool initialize) {
-	$loadClass(Collections$SynchronizedNavigableMap, name, initialize, &_Collections$SynchronizedNavigableMap_ClassInfo_, allocate$Collections$SynchronizedNavigableMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SynchronizedNavigableMap, serialVersionUID)},
+		{"nm", "Ljava/util/NavigableMap;", "Ljava/util/NavigableMap<TK;TV;>;", $PRIVATE | $FINAL, $field(Collections$SynchronizedNavigableMap, nm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*comparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
+		{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*firstKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC},
+		{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/NavigableMap;)V", "(Ljava/util/NavigableMap<TK;TV;>;)V", 0, $method(Collections$SynchronizedNavigableMap, init$, void, $NavigableMap*)},
+		{"<init>", "(Ljava/util/NavigableMap;Ljava/lang/Object;)V", "(Ljava/util/NavigableMap<TK;TV;>;Ljava/lang/Object;)V", 0, $method(Collections$SynchronizedNavigableMap, init$, void, $NavigableMap*, Object$*)},
+		{"ceilingEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, ceilingEntry, $Map$Entry*, Object$*)},
+		{"ceilingKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, ceilingKey, $Object*, Object$*)},
+		{"descendingKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, descendingKeySet, $NavigableSet*)},
+		{"descendingMap", "()Ljava/util/NavigableMap;", "()Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, descendingMap, $NavigableMap*)},
+		{"firstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, firstEntry, $Map$Entry*)},
+		{"floorEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, floorEntry, $Map$Entry*, Object$*)},
+		{"floorKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, floorKey, $Object*, Object$*)},
+		{"headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, headMap, $SortedMap*, Object$*)},
+		{"headMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, headMap, $NavigableMap*, Object$*, bool)},
+		{"higherEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, higherEntry, $Map$Entry*, Object$*)},
+		{"higherKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, higherKey, $Object*, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"keySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, keySet, $Set*)},
+		{"lastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, lastEntry, $Map$Entry*)},
+		{"*lastKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"lowerEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, lowerEntry, $Map$Entry*, Object$*)},
+		{"lowerKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, lowerKey, $Object*, Object$*)},
+		{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"navigableKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, navigableKeySet, $NavigableSet*)},
+		{"pollFirstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, pollFirstEntry, $Map$Entry*)},
+		{"pollLastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, pollLastEntry, $Map$Entry*)},
+		{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
+		{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, subMap, $SortedMap*, Object$*, Object$*)},
+		{"subMap", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;ZTK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, subMap, $NavigableMap*, Object$*, bool, Object$*, bool)},
+		{"tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, tailMap, $SortedMap*, Object$*)},
+		{"tailMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedNavigableMap, tailMap, $NavigableMap*, Object$*, bool)},
+		{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$SynchronizedNavigableMap", "java.util.Collections", "SynchronizedNavigableMap", $STATIC},
+		{"java.util.Collections$SynchronizedSortedMap", "java.util.Collections", "SynchronizedSortedMap", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$SynchronizedNavigableMap",
+		"java.util.Collections$SynchronizedSortedMap",
+		"java.util.NavigableMap",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$SynchronizedSortedMap<TK;TV;>;Ljava/util/NavigableMap<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$SynchronizedNavigableMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$SynchronizedNavigableMap));
+	});
 	return class$;
 }
 

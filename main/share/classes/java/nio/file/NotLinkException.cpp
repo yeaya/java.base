@@ -1,5 +1,4 @@
 #include <java/nio/file/NotLinkException.h>
-
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $FileSystemException = ::java::nio::file::FileSystemException;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _NotLinkException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NotLinkException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NotLinkException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotLinkException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotLinkException, init$, void, $String*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _NotLinkException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.NotLinkException",
-	"java.nio.file.FileSystemException",
-	nullptr,
-	_NotLinkException_FieldInfo_,
-	_NotLinkException_MethodInfo_
-};
-
-$Object* allocate$NotLinkException($Class* clazz) {
-	return $of($alloc(NotLinkException));
-}
 
 void NotLinkException::init$($String* file) {
 	$FileSystemException::init$(file);
@@ -55,7 +30,26 @@ void NotLinkException::throw$() {
 }
 
 $Class* NotLinkException::load$($String* name, bool initialize) {
-	$loadClass(NotLinkException, name, initialize, &_NotLinkException_ClassInfo_, allocate$NotLinkException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NotLinkException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotLinkException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotLinkException, init$, void, $String*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.NotLinkException",
+		"java.nio.file.FileSystemException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotLinkException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotLinkException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Bug7130335.h>
-
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Calendar.h>
 #include <java/util/Date.h>
@@ -15,7 +14,6 @@
 #undef ZONES
 
 using $TimeZoneArray = $Array<::java::util::TimeZone>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -27,35 +25,6 @@ using $GregorianCalendar = ::java::util::GregorianCalendar;
 using $Locale = ::java::util::Locale;
 using $TimeZone = ::java::util::TimeZone;
 
-$FieldInfo _Bug7130335_FieldInfo_[] = {
-	{"MOSCOW", "Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7130335, MOSCOW)},
-	{"LONDON", "Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7130335, LONDON)},
-	{"LA", "Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7130335, LA)},
-	{"ZONES", "[Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7130335, ZONES)},
-	{}
-};
-
-$MethodInfo _Bug7130335_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7130335, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7130335, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/text/SimpleDateFormat;Ljava/util/Calendar;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug7130335, test, void, $SimpleDateFormat*, $Calendar*), "java.lang.Exception"},
-	{"test8000529", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug7130335, test8000529, void, $String*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Bug7130335_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug7130335",
-	"java.lang.Object",
-	nullptr,
-	_Bug7130335_FieldInfo_,
-	_Bug7130335_MethodInfo_
-};
-
-$Object* allocate$Bug7130335($Class* clazz) {
-	return $of($alloc(Bug7130335));
-}
-
 $TimeZone* Bug7130335::MOSCOW = nullptr;
 $TimeZone* Bug7130335::LONDON = nullptr;
 $TimeZone* Bug7130335::LA = nullptr;
@@ -66,7 +35,7 @@ void Bug7130335::init$() {
 
 void Bug7130335::main($StringArray* args) {
 	$init(Bug7130335);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, "yyyy-MM-dd HH:mm:ss.SSS z"_s, $Locale::US));
 	sdf->setTimeZone(Bug7130335::MOSCOW);
@@ -90,7 +59,7 @@ void Bug7130335::main($StringArray* args) {
 
 void Bug7130335::test($SimpleDateFormat* sdf, $Calendar* cal) {
 	$init(Bug7130335);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Date, d, $nc(cal)->getTime());
 	$var($String, f, $nc(sdf)->format(d));
 	$nc($System::out)->println(f);
@@ -104,31 +73,27 @@ void Bug7130335::test($SimpleDateFormat* sdf, $Calendar* cal) {
 
 void Bug7130335::test8000529($String* fmt) {
 	$init(Bug7130335);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($TimeZoneArray, arr$, Bug7130335::ZONES);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($TimeZone, tz, arr$->get(i$));
-			{
-				$init($Locale);
-				$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, fmt, $Locale::US));
-				sdf->setTimeZone(tz);
-				$var($Calendar, cal, $new($GregorianCalendar, tz, $Locale::US));
-				cal->clear();
-				cal->set(2012, 5, 22);
-				test(sdf, cal);
-				cal->set(2012, 11, 22);
-				test(sdf, cal);
-				cal->setTimeInMillis($System::currentTimeMillis());
-				test(sdf, cal);
-			}
+	$useLocalObjectStack();
+	$var($TimeZoneArray, arr$, Bug7130335::ZONES);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($TimeZone, tz, arr$->get(i$));
+		{
+			$init($Locale);
+			$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, fmt, $Locale::US));
+			sdf->setTimeZone(tz);
+			$var($Calendar, cal, $new($GregorianCalendar, tz, $Locale::US));
+			cal->clear();
+			cal->set(2012, 5, 22);
+			test(sdf, cal);
+			cal->set(2012, 11, 22);
+			test(sdf, cal);
+			cal->setTimeInMillis($System::currentTimeMillis());
+			test(sdf, cal);
 		}
 	}
 }
 
-void clinit$Bug7130335($Class* class$) {
+void Bug7130335::clinit$($Class* clazz) {
 	$assignStatic(Bug7130335::MOSCOW, $TimeZone::getTimeZone("Europe/Moscow"_s));
 	$assignStatic(Bug7130335::LONDON, $TimeZone::getTimeZone("Europe/London"_s));
 	$assignStatic(Bug7130335::LA, $TimeZone::getTimeZone("America/Los_Angeles"_s));
@@ -143,7 +108,31 @@ Bug7130335::Bug7130335() {
 }
 
 $Class* Bug7130335::load$($String* name, bool initialize) {
-	$loadClass(Bug7130335, name, initialize, &_Bug7130335_ClassInfo_, clinit$Bug7130335, allocate$Bug7130335);
+	$FieldInfo fieldInfos$$[] = {
+		{"MOSCOW", "Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7130335, MOSCOW)},
+		{"LONDON", "Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7130335, LONDON)},
+		{"LA", "Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7130335, LA)},
+		{"ZONES", "[Ljava/util/TimeZone;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7130335, ZONES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7130335, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7130335, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/text/SimpleDateFormat;Ljava/util/Calendar;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug7130335, test, void, $SimpleDateFormat*, $Calendar*), "java.lang.Exception"},
+		{"test8000529", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug7130335, test8000529, void, $String*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug7130335",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Bug7130335, name, initialize, &classInfo$$, Bug7130335::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug7130335);
+	});
 	return class$;
 }
 

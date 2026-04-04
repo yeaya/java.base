@@ -1,5 +1,4 @@
 #include <sun/security/ssl/InputRecord.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/Math.h>
@@ -32,7 +31,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $BufferUnderflowException = ::java::nio::BufferUnderflowException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
-using $Authenticator = ::sun::security::ssl::Authenticator;
 using $ContentType = ::sun::security::ssl::ContentType;
 using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $Plaintext = ::sun::security::ssl::Plaintext;
@@ -43,58 +41,6 @@ using $SSLCipher$SSLReadCipher = ::sun::security::ssl::SSLCipher$SSLReadCipher;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _InputRecord_FieldInfo_[] = {
-	{"readCipher", "Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, 0, $field(InputRecord, readCipher)},
-	{"tc", "Lsun/security/ssl/TransportContext;", nullptr, 0, $field(InputRecord, tc)},
-	{"handshakeHash", "Lsun/security/ssl/HandshakeHash;", nullptr, $FINAL, $field(InputRecord, handshakeHash)},
-	{"isClosed", "Z", nullptr, $VOLATILE, $field(InputRecord, isClosed$)},
-	{"helloVersion", "Lsun/security/ssl/ProtocolVersion;", nullptr, 0, $field(InputRecord, helloVersion)},
-	{"fragmentSize", "I", nullptr, 0, $field(InputRecord, fragmentSize)},
-	{"recordLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $FINAL, $field(InputRecord, recordLock)},
-	{}
-};
-
-$MethodInfo _InputRecord_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/security/ssl/HandshakeHash;Lsun/security/ssl/SSLCipher$SSLReadCipher;)V", nullptr, 0, $method(InputRecord, init$, void, $HandshakeHash*, $SSLCipher$SSLReadCipher*)},
-	{"acquirePlaintext", "()Lsun/security/ssl/Plaintext;", nullptr, 0, $virtualMethod(InputRecord, acquirePlaintext, $Plaintext*), "java.io.IOException,javax.crypto.BadPaddingException"},
-	{"bytesInCompletePacket", "([Ljava/nio/ByteBuffer;II)I", nullptr, 0, $virtualMethod(InputRecord, bytesInCompletePacket, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
-	{"bytesInCompletePacket", "()I", nullptr, 0, $virtualMethod(InputRecord, bytesInCompletePacket, int32_t), "java.io.IOException"},
-	{"changeFragmentSize", "(I)V", nullptr, 0, $virtualMethod(InputRecord, changeFragmentSize, void, int32_t)},
-	{"changeReadCiphers", "(Lsun/security/ssl/SSLCipher$SSLReadCipher;)V", nullptr, 0, $virtualMethod(InputRecord, changeReadCiphers, void, $SSLCipher$SSLReadCipher*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InputRecord, close, void), "java.io.IOException"},
-	{"convertToClientHello", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(InputRecord, convertToClientHello, $ByteBuffer*, $ByteBuffer*)},
-	{"decode", "([Ljava/nio/ByteBuffer;II)[Lsun/security/ssl/Plaintext;", nullptr, $ABSTRACT, $virtualMethod(InputRecord, decode, $PlaintextArray*, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException,javax.crypto.BadPaddingException"},
-	{"estimateFragmentSize", "(I)I", nullptr, 0, $virtualMethod(InputRecord, estimateFragmentSize, int32_t, int32_t)},
-	{"expectingFinishFlight", "()V", nullptr, 0, $virtualMethod(InputRecord, expectingFinishFlight, void)},
-	{"extract", "([Ljava/nio/ByteBuffer;III)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(InputRecord, extract, $ByteBuffer*, $ByteBufferArray*, int32_t, int32_t, int32_t)},
-	{"finishHandshake", "()V", nullptr, 0, $virtualMethod(InputRecord, finishHandshake, void)},
-	{"isClosed", "()Z", nullptr, 0, $virtualMethod(InputRecord, isClosed, bool)},
-	{"isEmpty", "()Z", nullptr, 0, $virtualMethod(InputRecord, isEmpty, bool)},
-	{"seqNumIsHuge", "()Z", nullptr, 0, $virtualMethod(InputRecord, seqNumIsHuge, bool)},
-	{"setDeliverStream", "(Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(InputRecord, setDeliverStream, void, $OutputStream*)},
-	{"setHelloVersion", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $virtualMethod(InputRecord, setHelloVersion, void, $ProtocolVersion*)},
-	{"setReceiverStream", "(Ljava/io/InputStream;)V", nullptr, 0, $virtualMethod(InputRecord, setReceiverStream, void, $InputStream*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _InputRecord_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.ssl.InputRecord",
-	"java.lang.Object",
-	"sun.security.ssl.Record,java.io.Closeable",
-	_InputRecord_FieldInfo_,
-	_InputRecord_MethodInfo_
-};
-
-$Object* allocate$InputRecord($Class* clazz) {
-	return $of($alloc(InputRecord));
-}
 
 int32_t InputRecord::hashCode() {
 	 return this->$Record::hashCode();
@@ -131,7 +77,7 @@ void InputRecord::setHelloVersion($ProtocolVersion* helloVersion) {
 }
 
 bool InputRecord::seqNumIsHuge() {
-	return ($nc(this->readCipher)->authenticator != nullptr) && $nc($nc(this->readCipher)->authenticator)->seqNumIsHuge();
+	return ($nc(this->readCipher)->authenticator != nullptr) && this->readCipher->authenticator->seqNumIsHuge();
 }
 
 bool InputRecord::isEmpty() {
@@ -145,22 +91,20 @@ void InputRecord::finishHandshake() {
 }
 
 void InputRecord::close() {
-	$nc(this->recordLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (!this->isClosed$) {
-				this->isClosed$ = true;
-				$nc(this->readCipher)->dispose();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->recordLock)->unlock();
+	this->recordLock->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!this->isClosed$) {
+			this->isClosed$ = true;
+			$nc(this->readCipher)->dispose();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->recordLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -210,30 +154,30 @@ $ByteBuffer* InputRecord::convertToClientHello($ByteBuffer* packet) {
 	int32_t srcPos = $nc(packet)->position();
 	int8_t firstByte = packet->get();
 	int8_t secondByte = packet->get();
-	int32_t recordLen = ((((int32_t)(firstByte & (uint32_t)127)) << 8) | ((int32_t)(secondByte & (uint32_t)255))) + 2;
+	int32_t recordLen = (((firstByte & 0x7f) << 8) | (secondByte & 0xff)) + 2;
 	packet->position(srcPos + 3);
 	int8_t majorVersion = packet->get();
 	int8_t minorVersion = packet->get();
-	int32_t var$0 = (((int32_t)(packet->get() & (uint32_t)255)) << 8);
-	int32_t cipherSpecLen = var$0 + ((int32_t)(packet->get() & (uint32_t)255));
-	int32_t var$1 = (((int32_t)(packet->get() & (uint32_t)255)) << 8);
-	int32_t sessionIdLen = var$1 + ((int32_t)(packet->get() & (uint32_t)255));
-	int32_t var$2 = (((int32_t)(packet->get() & (uint32_t)255)) << 8);
-	int32_t nonceLen = var$2 + ((int32_t)(packet->get() & (uint32_t)255));
+	int32_t var$0 = (packet->get() & 0xff) << 8;
+	int32_t cipherSpecLen = var$0 + (packet->get() & 0xff);
+	int32_t var$1 = (packet->get() & 0xff) << 8;
+	int32_t sessionIdLen = var$1 + (packet->get() & 0xff);
+	int32_t var$2 = (packet->get() & 0xff) << 8;
+	int32_t nonceLen = var$2 + (packet->get() & 0xff);
 	int32_t requiredSize = 48 + sessionIdLen + ((cipherSpecLen * 2) / 3);
 	$var($bytes, converted, $new($bytes, requiredSize));
 	$init($ContentType);
 	converted->set(0, $ContentType::HANDSHAKE->id);
 	converted->set(1, majorVersion);
 	converted->set(2, minorVersion);
-	converted->set(5, (int8_t)1);
+	converted->set(5, 1);
 	converted->set(9, majorVersion);
 	converted->set(10, minorVersion);
 	int32_t pointer = 11;
 	int32_t offset = srcPos + 11 + cipherSpecLen + sessionIdLen;
 	if (nonceLen < 32) {
 		for (int32_t i = 0; i < (32 - nonceLen); ++i) {
-			converted->set(pointer++, (int8_t)0);
+			converted->set(pointer++, 0);
 		}
 		packet->position(offset);
 		packet->get(converted, pointer, nonceLen);
@@ -244,7 +188,7 @@ $ByteBuffer* InputRecord::convertToClientHello($ByteBuffer* packet) {
 		pointer += 32;
 	}
 	offset -= sessionIdLen;
-	converted->set(pointer++, (int8_t)((int32_t)(sessionIdLen & (uint32_t)255)));
+	converted->set(pointer++, (int8_t)(sessionIdLen & 0xff));
 	packet->position(offset);
 	packet->get(converted, pointer, sessionIdLen);
 	int32_t j = 0;
@@ -261,18 +205,18 @@ $ByteBuffer* InputRecord::convertToClientHello($ByteBuffer* packet) {
 		converted->set(j++, packet->get());
 	}
 	j -= pointer + 2;
-	converted->set(pointer++, (int8_t)((int32_t)(((int32_t)((uint32_t)j >> 8)) & (uint32_t)255)));
-	converted->set(pointer++, (int8_t)((int32_t)(j & (uint32_t)255)));
+	converted->set(pointer++, (int8_t)(((int32_t)((uint32_t)j >> 8)) & 0xff));
+	converted->set(pointer++, (int8_t)(j & 0xff));
 	pointer += j;
-	converted->set(pointer++, (int8_t)1);
-	converted->set(pointer++, (int8_t)0);
+	converted->set(pointer++, 1);
+	converted->set(pointer++, 0);
 	int32_t fragLen = pointer - 5;
-	converted->set(3, (int8_t)((int32_t)(((int32_t)((uint32_t)fragLen >> 8)) & (uint32_t)255)));
-	converted->set(4, (int8_t)((int32_t)(fragLen & (uint32_t)255)));
+	converted->set(3, (int8_t)(((int32_t)((uint32_t)fragLen >> 8)) & 0xff));
+	converted->set(4, (int8_t)(fragLen & 0xff));
 	fragLen = pointer - 9;
-	converted->set(6, (int8_t)((int32_t)(((int32_t)((uint32_t)fragLen >> 16)) & (uint32_t)255)));
-	converted->set(7, (int8_t)((int32_t)(((int32_t)((uint32_t)fragLen >> 8)) & (uint32_t)255)));
-	converted->set(8, (int8_t)((int32_t)(fragLen & (uint32_t)255)));
+	converted->set(6, (int8_t)(((int32_t)((uint32_t)fragLen >> 16)) & 0xff));
+	converted->set(7, (int8_t)(((int32_t)((uint32_t)fragLen >> 8)) & 0xff));
+	converted->set(8, (int8_t)(fragLen & 0xff));
 	packet->position(srcPos + recordLen);
 	return $ByteBuffer::wrap(converted, 5, pointer - 5);
 }
@@ -281,21 +225,17 @@ $ByteBuffer* InputRecord::extract($ByteBufferArray* buffers, int32_t offset, int
 	$init(InputRecord);
 	bool hasFullHeader = false;
 	int32_t contentLen = -1;
-	{
-		int32_t i = offset;
-		int32_t j = 0;
-		for (; i < (offset + length) && j < headerSize; ++i) {
-			int32_t remains = $nc($nc(buffers)->get(i))->remaining();
-			int32_t pos = $nc(buffers->get(i))->position();
-			for (int32_t k = 0; k < remains && j < headerSize; ++j, ++k) {
-				int8_t b = $nc(buffers->get(i))->get(pos + k);
-				if (j == (headerSize - 2)) {
-					contentLen = (((int32_t)(b & (uint32_t)255)) << 8);
-				} else if (j == (headerSize - 1)) {
-					contentLen |= ((int32_t)(b & (uint32_t)255));
-					hasFullHeader = true;
-					break;
-				}
+	for (int32_t i = offset, j = 0; i < (offset + length) && j < headerSize; ++i) {
+		int32_t remains = $nc($nc(buffers)->get(i))->remaining();
+		int32_t pos = $nc(buffers->get(i))->position();
+		for (int32_t k = 0; k < remains && j < headerSize; ++j, ++k) {
+			int8_t b = $nc(buffers->get(i))->get(pos + k);
+			if (j == (headerSize - 2)) {
+				contentLen = ((b & 0xff) << 8);
+			} else if (j == (headerSize - 1)) {
+				contentLen |= (b & 0xff);
+				hasFullHeader = true;
+				break;
 			}
 		}
 	}
@@ -334,7 +274,54 @@ InputRecord::InputRecord() {
 }
 
 $Class* InputRecord::load$($String* name, bool initialize) {
-	$loadClass(InputRecord, name, initialize, &_InputRecord_ClassInfo_, allocate$InputRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"readCipher", "Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, 0, $field(InputRecord, readCipher)},
+		{"tc", "Lsun/security/ssl/TransportContext;", nullptr, 0, $field(InputRecord, tc)},
+		{"handshakeHash", "Lsun/security/ssl/HandshakeHash;", nullptr, $FINAL, $field(InputRecord, handshakeHash)},
+		{"isClosed", "Z", nullptr, $VOLATILE, $field(InputRecord, isClosed$)},
+		{"helloVersion", "Lsun/security/ssl/ProtocolVersion;", nullptr, 0, $field(InputRecord, helloVersion)},
+		{"fragmentSize", "I", nullptr, 0, $field(InputRecord, fragmentSize)},
+		{"recordLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $FINAL, $field(InputRecord, recordLock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/security/ssl/HandshakeHash;Lsun/security/ssl/SSLCipher$SSLReadCipher;)V", nullptr, 0, $method(InputRecord, init$, void, $HandshakeHash*, $SSLCipher$SSLReadCipher*)},
+		{"acquirePlaintext", "()Lsun/security/ssl/Plaintext;", nullptr, 0, $virtualMethod(InputRecord, acquirePlaintext, $Plaintext*), "java.io.IOException,javax.crypto.BadPaddingException"},
+		{"bytesInCompletePacket", "([Ljava/nio/ByteBuffer;II)I", nullptr, 0, $virtualMethod(InputRecord, bytesInCompletePacket, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+		{"bytesInCompletePacket", "()I", nullptr, 0, $virtualMethod(InputRecord, bytesInCompletePacket, int32_t), "java.io.IOException"},
+		{"changeFragmentSize", "(I)V", nullptr, 0, $virtualMethod(InputRecord, changeFragmentSize, void, int32_t)},
+		{"changeReadCiphers", "(Lsun/security/ssl/SSLCipher$SSLReadCipher;)V", nullptr, 0, $virtualMethod(InputRecord, changeReadCiphers, void, $SSLCipher$SSLReadCipher*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InputRecord, close, void), "java.io.IOException"},
+		{"convertToClientHello", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(InputRecord, convertToClientHello, $ByteBuffer*, $ByteBuffer*)},
+		{"decode", "([Ljava/nio/ByteBuffer;II)[Lsun/security/ssl/Plaintext;", nullptr, $ABSTRACT, $virtualMethod(InputRecord, decode, $PlaintextArray*, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException,javax.crypto.BadPaddingException"},
+		{"estimateFragmentSize", "(I)I", nullptr, 0, $virtualMethod(InputRecord, estimateFragmentSize, int32_t, int32_t)},
+		{"expectingFinishFlight", "()V", nullptr, 0, $virtualMethod(InputRecord, expectingFinishFlight, void)},
+		{"extract", "([Ljava/nio/ByteBuffer;III)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(InputRecord, extract, $ByteBuffer*, $ByteBufferArray*, int32_t, int32_t, int32_t)},
+		{"finishHandshake", "()V", nullptr, 0, $virtualMethod(InputRecord, finishHandshake, void)},
+		{"isClosed", "()Z", nullptr, 0, $virtualMethod(InputRecord, isClosed, bool)},
+		{"isEmpty", "()Z", nullptr, 0, $virtualMethod(InputRecord, isEmpty, bool)},
+		{"seqNumIsHuge", "()Z", nullptr, 0, $virtualMethod(InputRecord, seqNumIsHuge, bool)},
+		{"setDeliverStream", "(Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(InputRecord, setDeliverStream, void, $OutputStream*)},
+		{"setHelloVersion", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $virtualMethod(InputRecord, setHelloVersion, void, $ProtocolVersion*)},
+		{"setReceiverStream", "(Ljava/io/InputStream;)V", nullptr, 0, $virtualMethod(InputRecord, setReceiverStream, void, $InputStream*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.ssl.InputRecord",
+		"java.lang.Object",
+		"sun.security.ssl.Record,java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InputRecord));
+	});
 	return class$;
 }
 

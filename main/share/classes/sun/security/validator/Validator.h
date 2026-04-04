@@ -63,6 +63,7 @@ class $export Validator : public ::java::lang::Object {
 	$class(Validator, 0, ::java::lang::Object)
 public:
 	Validator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* type, $String* variant);
 	virtual $Array<::java::security::cert::X509Certificate>* engineValidate($Array<::java::security::cert::X509Certificate>* chain, ::java::util::Collection* otherCerts, ::java::util::List* responseList, ::java::security::AlgorithmConstraints* constraints, Object$* parameter) {return nullptr;}
 	static ::sun::security::validator::Validator* getInstance($String* type, $String* variant, ::java::security::KeyStore* ks);

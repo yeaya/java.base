@@ -74,6 +74,7 @@ class $import IPAddressUtil : public ::java::lang::Object {
 	$class(IPAddressUtil, $PRELOAD, ::java::lang::Object)
 public:
 	IPAddressUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* checkAuth($String* str);
 	static $String* checkAuthority(::java::net::URL* url);
@@ -113,9 +114,9 @@ public:
 	static const int64_t H_SLASH = (int64_t)0;
 	static const int64_t L_BACKSLASH = (int64_t)0;
 	static const int64_t H_BACKSLASH = (int64_t)268435456;
-	static const int64_t L_NON_PRINTABLE = (int64_t)0x00000000FFFFFFFF;
+	static const int64_t L_NON_PRINTABLE = (int64_t)0x00000000ffffffff;
 	static const int64_t H_NON_PRINTABLE = (int64_t)0x8000000000000000;
-	static const int64_t L_EXCLUDE = (int64_t)0x84008008FFFFFFFF;
+	static const int64_t L_EXCLUDE = (int64_t)0x84008008ffffffff;
 	static const int64_t H_EXCLUDE = (int64_t)0x8000000038000001;
 	static $chars* OTHERS;
 };

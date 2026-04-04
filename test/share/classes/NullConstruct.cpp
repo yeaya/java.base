@@ -1,5 +1,4 @@
 #include <NullConstruct.h>
-
 #include <java/io/Reader.h>
 #include <java/io/StreamTokenizer.h>
 #include <jcpp.h>
@@ -11,30 +10,11 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 
-$MethodInfo _NullConstruct_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullConstruct, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullConstruct, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _NullConstruct_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NullConstruct",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NullConstruct_MethodInfo_
-};
-
-$Object* allocate$NullConstruct($Class* clazz) {
-	return $of($alloc(NullConstruct));
-}
-
 void NullConstruct::init$() {
 }
 
 void NullConstruct::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Reader, in, nullptr);
 		$var($StreamTokenizer, st, $new($StreamTokenizer, in));
@@ -47,7 +27,22 @@ NullConstruct::NullConstruct() {
 }
 
 $Class* NullConstruct::load$($String* name, bool initialize) {
-	$loadClass(NullConstruct, name, initialize, &_NullConstruct_ClassInfo_, allocate$NullConstruct);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullConstruct, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullConstruct, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NullConstruct",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NullConstruct, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullConstruct);
+	});
 	return class$;
 }
 

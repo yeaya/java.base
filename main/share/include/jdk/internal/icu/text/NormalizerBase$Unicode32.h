@@ -27,6 +27,7 @@ class $import NormalizerBase$Unicode32 : public ::java::lang::Object {
 	$class(NormalizerBase$Unicode32, 0, ::java::lang::Object)
 public:
 	NormalizerBase$Unicode32();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::icu::text::UnicodeSet* INSTANCE;
 };

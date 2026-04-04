@@ -19,6 +19,7 @@ class $import FilePermCompat : public ::java::lang::Object {
 	$class(FilePermCompat, 0, ::java::lang::Object)
 public:
 	FilePermCompat();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::Permission* newPermPlusAltPath(::java::security::Permission* input);
 	static ::java::security::Permission* newPermUsingAltPath(::java::security::Permission* input);

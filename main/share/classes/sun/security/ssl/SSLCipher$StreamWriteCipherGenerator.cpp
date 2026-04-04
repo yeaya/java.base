@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLCipher$StreamWriteCipherGenerator.h>
-
 #include <java/security/Key.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -26,39 +25,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLCipher$StreamWriteCipherGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLCipher$StreamWriteCipherGenerator, init$, void)},
-	{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$StreamWriteCipherGenerator, createCipher, $SSLCipher$SSLWriteCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
-	{}
-};
-
-$InnerClassInfo _SSLCipher$StreamWriteCipherGenerator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLCipher$StreamWriteCipherGenerator", "sun.security.ssl.SSLCipher", "StreamWriteCipherGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLCipher$WriteCipherGenerator", "sun.security.ssl.SSLCipher", "WriteCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.security.ssl.SSLCipher$StreamWriteCipherGenerator$StreamWriteCipher", "sun.security.ssl.SSLCipher$StreamWriteCipherGenerator", "StreamWriteCipher", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLCipher$StreamWriteCipherGenerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLCipher$StreamWriteCipherGenerator",
-	"java.lang.Object",
-	"sun.security.ssl.SSLCipher$WriteCipherGenerator",
-	nullptr,
-	_SSLCipher$StreamWriteCipherGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLCipher$StreamWriteCipherGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLCipher"
-};
-
-$Object* allocate$SSLCipher$StreamWriteCipherGenerator($Class* clazz) {
-	return $of($alloc(SSLCipher$StreamWriteCipherGenerator));
-}
-
 void SSLCipher$StreamWriteCipherGenerator::init$() {
 }
 
@@ -70,7 +36,35 @@ SSLCipher$StreamWriteCipherGenerator::SSLCipher$StreamWriteCipherGenerator() {
 }
 
 $Class* SSLCipher$StreamWriteCipherGenerator::load$($String* name, bool initialize) {
-	$loadClass(SSLCipher$StreamWriteCipherGenerator, name, initialize, &_SSLCipher$StreamWriteCipherGenerator_ClassInfo_, allocate$SSLCipher$StreamWriteCipherGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLCipher$StreamWriteCipherGenerator, init$, void)},
+		{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$StreamWriteCipherGenerator, createCipher, $SSLCipher$SSLWriteCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLCipher$StreamWriteCipherGenerator", "sun.security.ssl.SSLCipher", "StreamWriteCipherGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLCipher$WriteCipherGenerator", "sun.security.ssl.SSLCipher", "WriteCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.security.ssl.SSLCipher$StreamWriteCipherGenerator$StreamWriteCipher", "sun.security.ssl.SSLCipher$StreamWriteCipherGenerator", "StreamWriteCipher", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLCipher$StreamWriteCipherGenerator",
+		"java.lang.Object",
+		"sun.security.ssl.SSLCipher$WriteCipherGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLCipher"
+	};
+	$loadClass(SSLCipher$StreamWriteCipherGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLCipher$StreamWriteCipherGenerator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/nio/DirectByteBufferR.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
@@ -93,65 +92,6 @@ using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 namespace java {
 	namespace nio {
 
-$FieldInfo _DirectByteBufferR_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectByteBufferR, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _DirectByteBufferR_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(DirectByteBufferR, init$, void, int32_t)},
-	{"<init>", "(IJLjava/io/FileDescriptor;Ljava/lang/Runnable;ZLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(DirectByteBufferR, init$, void, int32_t, int64_t, $FileDescriptor*, $Runnable*, bool, $MemorySegmentProxy*)},
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjava/io/FileDescriptor;ZLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectByteBufferR, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $FileDescriptor*, bool, $MemorySegmentProxy*)},
-	{"asCharBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asCharBuffer, $CharBuffer*)},
-	{"asDoubleBuffer", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asDoubleBuffer, $DoubleBuffer*)},
-	{"asFloatBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asFloatBuffer, $FloatBuffer*)},
-	{"asIntBuffer", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asIntBuffer, $IntBuffer*)},
-	{"asLongBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asLongBuffer, $LongBuffer*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asReadOnlyBuffer, $ByteBuffer*)},
-	{"asShortBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asShortBuffer, $ShortBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectByteBufferR, base, $Object*)},
-	{"compact", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, compact, $MappedByteBuffer*)},
-	{"duplicate", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, duplicate, $MappedByteBuffer*)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, isReadOnly, bool)},
-	{"put", "(B)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, put, $ByteBuffer*, int8_t)},
-	{"put", "(IB)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, put, $ByteBuffer*, int32_t, int8_t)},
-	{"putChar", "(JC)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putChar, $ByteBuffer*, int64_t, char16_t)},
-	{"putChar", "(C)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putChar, $ByteBuffer*, char16_t)},
-	{"putChar", "(IC)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putChar, $ByteBuffer*, int32_t, char16_t)},
-	{"putDouble", "(JD)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putDouble, $ByteBuffer*, int64_t, double)},
-	{"putDouble", "(D)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putDouble, $ByteBuffer*, double)},
-	{"putDouble", "(ID)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putDouble, $ByteBuffer*, int32_t, double)},
-	{"putFloat", "(JF)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putFloat, $ByteBuffer*, int64_t, float)},
-	{"putFloat", "(F)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putFloat, $ByteBuffer*, float)},
-	{"putFloat", "(IF)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putFloat, $ByteBuffer*, int32_t, float)},
-	{"putInt", "(JI)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putInt, $ByteBuffer*, int64_t, int32_t)},
-	{"putInt", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putInt, $ByteBuffer*, int32_t)},
-	{"putInt", "(II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putInt, $ByteBuffer*, int32_t, int32_t)},
-	{"putLong", "(JJ)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putLong, $ByteBuffer*, int64_t, int64_t)},
-	{"putLong", "(J)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putLong, $ByteBuffer*, int64_t)},
-	{"putLong", "(IJ)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putLong, $ByteBuffer*, int32_t, int64_t)},
-	{"putShort", "(JS)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putShort, $ByteBuffer*, int64_t, int16_t)},
-	{"putShort", "(S)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putShort, $ByteBuffer*, int16_t)},
-	{"putShort", "(IS)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putShort, $ByteBuffer*, int32_t, int16_t)},
-	{"slice", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, slice, $MappedByteBuffer*)},
-	{"slice", "(II)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, slice, $MappedByteBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DirectByteBufferR_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.DirectByteBufferR",
-	"java.nio.DirectByteBuffer",
-	nullptr,
-	_DirectByteBufferR_FieldInfo_,
-	_DirectByteBufferR_MethodInfo_
-};
-
-$Object* allocate$DirectByteBufferR($Class* clazz) {
-	return $of($alloc(DirectByteBufferR));
-}
-
 bool DirectByteBufferR::$assertionsDisabled = false;
 
 void DirectByteBufferR::init$(int32_t cap) {
@@ -170,7 +110,7 @@ void DirectByteBufferR::init$($DirectBuffer* db, int32_t mark, int32_t pos, int3
 }
 
 $Object* DirectByteBufferR::base() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $MappedByteBuffer* DirectByteBufferR::slice() {
@@ -181,20 +121,15 @@ $MappedByteBuffer* DirectByteBufferR::slice() {
 	if (!DirectByteBufferR::$assertionsDisabled && !(off >= 0)) {
 		$throwNew($AssertionError);
 	}
-	int32_t var$0 = rem;
-	int32_t var$1 = rem;
-	int32_t var$2 = off;
-	$var($FileDescriptor, var$3, fileDescriptor());
-	return $new(DirectByteBufferR, this, -1, 0, var$0, var$1, var$2, var$3, isSync(), this->segment);
+	$var($FileDescriptor, var$0, fileDescriptor());
+	return $new(DirectByteBufferR, this, -1, 0, rem, rem, off, var$0, isSync(), this->segment);
 }
 
 $MappedByteBuffer* DirectByteBufferR::slice(int32_t index, int32_t length) {
 	$Objects::checkFromIndexSize(index, length, limit());
-	int32_t var$0 = length;
-	int32_t var$1 = length;
-	int32_t var$2 = index << 0;
-	$var($FileDescriptor, var$3, fileDescriptor());
-	return $new(DirectByteBufferR, this, -1, 0, var$0, var$1, var$2, var$3, isSync(), this->segment);
+	int32_t var$0 = index << 0;
+	$var($FileDescriptor, var$1, fileDescriptor());
+	return $new(DirectByteBufferR, this, -1, 0, length, length, var$0, var$1, isSync(), this->segment);
 }
 
 $MappedByteBuffer* DirectByteBufferR::duplicate() {
@@ -258,9 +193,9 @@ $CharBuffer* DirectByteBufferR::asCharBuffer() {
 	int32_t size = rem >> 1;
 	$init($DirectByteBuffer);
 	if (!$DirectByteBuffer::UNALIGNED && ($mod((this->$Buffer::address + off), (1 << 1)) != 0)) {
-		return (this->bigEndian ? static_cast<$CharBuffer*>(($new($ByteBufferAsCharBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : static_cast<$CharBuffer*>(($new($ByteBufferAsCharBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
+		return (this->bigEndian ? $cast($CharBuffer, ($new($ByteBufferAsCharBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : $cast($CharBuffer, ($new($ByteBufferAsCharBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
 	} else {
-		return (this->nativeByteOrder ? static_cast<$CharBuffer*>(($new($DirectCharBufferRU, this, -1, 0, size, size, off, this->segment))) : static_cast<$CharBuffer*>(($new($DirectCharBufferRS, this, -1, 0, size, size, off, this->segment))));
+		return (this->nativeByteOrder ? $cast($CharBuffer, ($new($DirectCharBufferRU, this, -1, 0, size, size, off, this->segment))) : $cast($CharBuffer, ($new($DirectCharBufferRS, this, -1, 0, size, size, off, this->segment))));
 	}
 }
 
@@ -289,9 +224,9 @@ $ShortBuffer* DirectByteBufferR::asShortBuffer() {
 	int32_t size = rem >> 1;
 	$init($DirectByteBuffer);
 	if (!$DirectByteBuffer::UNALIGNED && ($mod((this->$Buffer::address + off), (1 << 1)) != 0)) {
-		return (this->bigEndian ? static_cast<$ShortBuffer*>(($new($ByteBufferAsShortBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : static_cast<$ShortBuffer*>(($new($ByteBufferAsShortBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
+		return (this->bigEndian ? $cast($ShortBuffer, ($new($ByteBufferAsShortBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : $cast($ShortBuffer, ($new($ByteBufferAsShortBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
 	} else {
-		return (this->nativeByteOrder ? static_cast<$ShortBuffer*>(($new($DirectShortBufferRU, this, -1, 0, size, size, off, this->segment))) : static_cast<$ShortBuffer*>(($new($DirectShortBufferRS, this, -1, 0, size, size, off, this->segment))));
+		return (this->nativeByteOrder ? $cast($ShortBuffer, ($new($DirectShortBufferRU, this, -1, 0, size, size, off, this->segment))) : $cast($ShortBuffer, ($new($DirectShortBufferRS, this, -1, 0, size, size, off, this->segment))));
 	}
 }
 
@@ -320,9 +255,9 @@ $IntBuffer* DirectByteBufferR::asIntBuffer() {
 	int32_t size = rem >> 2;
 	$init($DirectByteBuffer);
 	if (!$DirectByteBuffer::UNALIGNED && ($mod((this->$Buffer::address + off), (1 << 2)) != 0)) {
-		return (this->bigEndian ? static_cast<$IntBuffer*>(($new($ByteBufferAsIntBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : static_cast<$IntBuffer*>(($new($ByteBufferAsIntBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
+		return (this->bigEndian ? $cast($IntBuffer, ($new($ByteBufferAsIntBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : $cast($IntBuffer, ($new($ByteBufferAsIntBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
 	} else {
-		return (this->nativeByteOrder ? static_cast<$IntBuffer*>(($new($DirectIntBufferRU, this, -1, 0, size, size, off, this->segment))) : static_cast<$IntBuffer*>(($new($DirectIntBufferRS, this, -1, 0, size, size, off, this->segment))));
+		return (this->nativeByteOrder ? $cast($IntBuffer, ($new($DirectIntBufferRU, this, -1, 0, size, size, off, this->segment))) : $cast($IntBuffer, ($new($DirectIntBufferRS, this, -1, 0, size, size, off, this->segment))));
 	}
 }
 
@@ -351,9 +286,9 @@ $LongBuffer* DirectByteBufferR::asLongBuffer() {
 	int32_t size = rem >> 3;
 	$init($DirectByteBuffer);
 	if (!$DirectByteBuffer::UNALIGNED && ($mod((this->$Buffer::address + off), (1 << 3)) != 0)) {
-		return (this->bigEndian ? static_cast<$LongBuffer*>(($new($ByteBufferAsLongBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : static_cast<$LongBuffer*>(($new($ByteBufferAsLongBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
+		return (this->bigEndian ? $cast($LongBuffer, ($new($ByteBufferAsLongBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : $cast($LongBuffer, ($new($ByteBufferAsLongBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
 	} else {
-		return (this->nativeByteOrder ? static_cast<$LongBuffer*>(($new($DirectLongBufferRU, this, -1, 0, size, size, off, this->segment))) : static_cast<$LongBuffer*>(($new($DirectLongBufferRS, this, -1, 0, size, size, off, this->segment))));
+		return (this->nativeByteOrder ? $cast($LongBuffer, ($new($DirectLongBufferRU, this, -1, 0, size, size, off, this->segment))) : $cast($LongBuffer, ($new($DirectLongBufferRS, this, -1, 0, size, size, off, this->segment))));
 	}
 }
 
@@ -382,9 +317,9 @@ $FloatBuffer* DirectByteBufferR::asFloatBuffer() {
 	int32_t size = rem >> 2;
 	$init($DirectByteBuffer);
 	if (!$DirectByteBuffer::UNALIGNED && ($mod((this->$Buffer::address + off), (1 << 2)) != 0)) {
-		return (this->bigEndian ? static_cast<$FloatBuffer*>(($new($ByteBufferAsFloatBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : static_cast<$FloatBuffer*>(($new($ByteBufferAsFloatBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
+		return (this->bigEndian ? $cast($FloatBuffer, ($new($ByteBufferAsFloatBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : $cast($FloatBuffer, ($new($ByteBufferAsFloatBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
 	} else {
-		return (this->nativeByteOrder ? static_cast<$FloatBuffer*>(($new($DirectFloatBufferRU, this, -1, 0, size, size, off, this->segment))) : static_cast<$FloatBuffer*>(($new($DirectFloatBufferRS, this, -1, 0, size, size, off, this->segment))));
+		return (this->nativeByteOrder ? $cast($FloatBuffer, ($new($DirectFloatBufferRU, this, -1, 0, size, size, off, this->segment))) : $cast($FloatBuffer, ($new($DirectFloatBufferRS, this, -1, 0, size, size, off, this->segment))));
 	}
 }
 
@@ -413,13 +348,13 @@ $DoubleBuffer* DirectByteBufferR::asDoubleBuffer() {
 	int32_t size = rem >> 3;
 	$init($DirectByteBuffer);
 	if (!$DirectByteBuffer::UNALIGNED && ($mod((this->$Buffer::address + off), (1 << 3)) != 0)) {
-		return (this->bigEndian ? static_cast<$DoubleBuffer*>(($new($ByteBufferAsDoubleBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : static_cast<$DoubleBuffer*>(($new($ByteBufferAsDoubleBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
+		return (this->bigEndian ? $cast($DoubleBuffer, ($new($ByteBufferAsDoubleBufferRB, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))) : $cast($DoubleBuffer, ($new($ByteBufferAsDoubleBufferRL, this, -1, 0, size, size, this->$Buffer::address + off, this->segment))));
 	} else {
-		return (this->nativeByteOrder ? static_cast<$DoubleBuffer*>(($new($DirectDoubleBufferRU, this, -1, 0, size, size, off, this->segment))) : static_cast<$DoubleBuffer*>(($new($DirectDoubleBufferRS, this, -1, 0, size, size, off, this->segment))));
+		return (this->nativeByteOrder ? $cast($DoubleBuffer, ($new($DirectDoubleBufferRU, this, -1, 0, size, size, off, this->segment))) : $cast($DoubleBuffer, ($new($DirectDoubleBufferRS, this, -1, 0, size, size, off, this->segment))));
 	}
 }
 
-void clinit$DirectByteBufferR($Class* class$) {
+void DirectByteBufferR::clinit$($Class* clazz) {
 	DirectByteBufferR::$assertionsDisabled = !DirectByteBufferR::class$->desiredAssertionStatus();
 }
 
@@ -427,7 +362,61 @@ DirectByteBufferR::DirectByteBufferR() {
 }
 
 $Class* DirectByteBufferR::load$($String* name, bool initialize) {
-	$loadClass(DirectByteBufferR, name, initialize, &_DirectByteBufferR_ClassInfo_, clinit$DirectByteBufferR, allocate$DirectByteBufferR);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectByteBufferR, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(DirectByteBufferR, init$, void, int32_t)},
+		{"<init>", "(IJLjava/io/FileDescriptor;Ljava/lang/Runnable;ZLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(DirectByteBufferR, init$, void, int32_t, int64_t, $FileDescriptor*, $Runnable*, bool, $MemorySegmentProxy*)},
+		{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjava/io/FileDescriptor;ZLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectByteBufferR, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $FileDescriptor*, bool, $MemorySegmentProxy*)},
+		{"asCharBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asCharBuffer, $CharBuffer*)},
+		{"asDoubleBuffer", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asDoubleBuffer, $DoubleBuffer*)},
+		{"asFloatBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asFloatBuffer, $FloatBuffer*)},
+		{"asIntBuffer", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asIntBuffer, $IntBuffer*)},
+		{"asLongBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asLongBuffer, $LongBuffer*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asReadOnlyBuffer, $ByteBuffer*)},
+		{"asShortBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, asShortBuffer, $ShortBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectByteBufferR, base, $Object*)},
+		{"compact", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, compact, $MappedByteBuffer*)},
+		{"duplicate", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, duplicate, $MappedByteBuffer*)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, isReadOnly, bool)},
+		{"put", "(B)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, put, $ByteBuffer*, int8_t)},
+		{"put", "(IB)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, put, $ByteBuffer*, int32_t, int8_t)},
+		{"putChar", "(JC)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putChar, $ByteBuffer*, int64_t, char16_t)},
+		{"putChar", "(C)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putChar, $ByteBuffer*, char16_t)},
+		{"putChar", "(IC)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putChar, $ByteBuffer*, int32_t, char16_t)},
+		{"putDouble", "(JD)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putDouble, $ByteBuffer*, int64_t, double)},
+		{"putDouble", "(D)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putDouble, $ByteBuffer*, double)},
+		{"putDouble", "(ID)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putDouble, $ByteBuffer*, int32_t, double)},
+		{"putFloat", "(JF)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putFloat, $ByteBuffer*, int64_t, float)},
+		{"putFloat", "(F)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putFloat, $ByteBuffer*, float)},
+		{"putFloat", "(IF)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putFloat, $ByteBuffer*, int32_t, float)},
+		{"putInt", "(JI)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putInt, $ByteBuffer*, int64_t, int32_t)},
+		{"putInt", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putInt, $ByteBuffer*, int32_t)},
+		{"putInt", "(II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putInt, $ByteBuffer*, int32_t, int32_t)},
+		{"putLong", "(JJ)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putLong, $ByteBuffer*, int64_t, int64_t)},
+		{"putLong", "(J)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putLong, $ByteBuffer*, int64_t)},
+		{"putLong", "(IJ)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putLong, $ByteBuffer*, int32_t, int64_t)},
+		{"putShort", "(JS)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(DirectByteBufferR, putShort, $ByteBuffer*, int64_t, int16_t)},
+		{"putShort", "(S)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putShort, $ByteBuffer*, int16_t)},
+		{"putShort", "(IS)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, putShort, $ByteBuffer*, int32_t, int16_t)},
+		{"slice", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, slice, $MappedByteBuffer*)},
+		{"slice", "(II)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectByteBufferR, slice, $MappedByteBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.DirectByteBufferR",
+		"java.nio.DirectByteBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DirectByteBufferR, name, initialize, &classInfo$$, DirectByteBufferR::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectByteBufferR));
+	});
 	return class$;
 }
 

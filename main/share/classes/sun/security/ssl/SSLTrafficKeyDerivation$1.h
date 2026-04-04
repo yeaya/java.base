@@ -13,6 +13,7 @@ class SSLTrafficKeyDerivation$1 : public ::java::lang::Object {
 	$class(SSLTrafficKeyDerivation$1, 0, ::java::lang::Object)
 public:
 	SSLTrafficKeyDerivation$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$ssl$ProtocolVersion;
 };
 

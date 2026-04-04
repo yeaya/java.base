@@ -1,5 +1,4 @@
 #include <java/lang/Thread.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/IllegalThreadStateException.h>
@@ -22,7 +21,6 @@
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <java/util/concurrent/ConcurrentMap.h>
@@ -80,8 +78,6 @@ using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
@@ -95,260 +91,6 @@ using $SecurityConstants = ::sun::security::util::SecurityConstants;
 namespace java {
 	namespace lang {
 
-$NamedAttribute Thread_Attribute_var$0[] = {
-	{"value", 's', "tlr"},
-	{}
-};
-
-$CompoundAttribute _Thread_FieldAnnotations_threadLocalRandomSeed[] = {
-	{"Ljdk/internal/vm/annotation/Contended;", Thread_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute Thread_Attribute_var$1[] = {
-	{"value", 's', "tlr"},
-	{}
-};
-
-$CompoundAttribute _Thread_FieldAnnotations_threadLocalRandomProbe[] = {
-	{"Ljdk/internal/vm/annotation/Contended;", Thread_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute Thread_Attribute_var$2[] = {
-	{"value", 's', "tlr"},
-	{}
-};
-
-$CompoundAttribute _Thread_FieldAnnotations_threadLocalRandomSecondarySeed[] = {
-	{"Ljdk/internal/vm/annotation/Contended;", Thread_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute Thread_Attribute_var$3[] = {
-	{"since", 's', "17"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Thread_MethodAnnotations_checkAccess14[] = {
-	{"Ljava/lang/Deprecated;", Thread_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute Thread_Attribute_var$4[] = {
-	{"since", 's', "1.2"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Thread_MethodAnnotations_countStackFrames17[] = {
-	{"Ljava/lang/Deprecated;", Thread_Attribute_var$4},
-	{}
-};
-
-$CompoundAttribute _Thread_MethodAnnotations_currentThread18[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Thread_MethodAnnotations_getContextClassLoader25[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Thread_MethodAnnotations_onSpinWait48[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$NamedAttribute Thread_Attribute_var$5[] = {
-	{"since", 's', "1.2"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Thread_MethodAnnotations_resume51[] = {
-	{"Ljava/lang/Deprecated;", Thread_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute Thread_Attribute_var$6[] = {
-	{"since", 's', "1.2"},
-	{}
-};
-
-$CompoundAttribute _Thread_MethodAnnotations_stop66[] = {
-	{"Ljava/lang/Deprecated;", Thread_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute Thread_Attribute_var$7[] = {
-	{"since", 's', "1.2"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Thread_MethodAnnotations_suspend68[] = {
-	{"Ljava/lang/Deprecated;", Thread_Attribute_var$7},
-	{}
-};
-
-$FieldInfo _Thread_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(Thread, name)},
-	{"priority", "I", nullptr, $PRIVATE, $field(Thread, priority)},
-	{"daemon", "Z", nullptr, $PRIVATE, $field(Thread, daemon)},
-	{"interrupted", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Thread, interrupted$)},
-	{"stillborn", "Z", nullptr, $PRIVATE, $field(Thread, stillborn)},
-	{"eetop", "J", nullptr, $PRIVATE, $field(Thread, eetop)},
-	{"target", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(Thread, target)},
-	{"group", "Ljava/lang/ThreadGroup;", nullptr, $PRIVATE, $field(Thread, group)},
-	{"contextClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(Thread, contextClassLoader)},
-	{"inheritedAccessControlContext", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(Thread, inheritedAccessControlContext)},
-	{"threadInitNumber", "I", nullptr, $PRIVATE | $STATIC, $staticField(Thread, threadInitNumber)},
-	{"threadLocals", "Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0, $field(Thread, threadLocals)},
-	{"inheritableThreadLocals", "Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0, $field(Thread, inheritableThreadLocals)},
-	{"stackSize", "J", nullptr, $PRIVATE | $FINAL, $field(Thread, stackSize)},
-	{"tid", "J", nullptr, $PRIVATE | $FINAL, $field(Thread, tid)},
-	{"threadSeqNumber", "J", nullptr, $PRIVATE | $STATIC, $staticField(Thread, threadSeqNumber)},
-	{"threadStatus", "I", nullptr, $PRIVATE | $VOLATILE, $field(Thread, threadStatus)},
-	{"parkBlocker", "Ljava/lang/Object;", nullptr, $VOLATILE, $field(Thread, parkBlocker)},
-	{"blocker", "Lsun/nio/ch/Interruptible;", nullptr, $PRIVATE | $VOLATILE, $field(Thread, blocker)},
-	{"blockerLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Thread, blockerLock)},
-	{"MIN_PRIORITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Thread, MIN_PRIORITY)},
-	{"NORM_PRIORITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Thread, NORM_PRIORITY)},
-	{"MAX_PRIORITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Thread, MAX_PRIORITY)},
-	{"EMPTY_STACK_TRACE", "[Ljava/lang/StackTraceElement;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Thread, EMPTY_STACK_TRACE)},
-	{"uncaughtExceptionHandler", "Ljava/lang/Thread$UncaughtExceptionHandler;", nullptr, $PRIVATE | $VOLATILE, $field(Thread, uncaughtExceptionHandler)},
-	{"defaultUncaughtExceptionHandler", "Ljava/lang/Thread$UncaughtExceptionHandler;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Thread, defaultUncaughtExceptionHandler)},
-	{"threadLocalRandomSeed", "J", nullptr, 0, $field(Thread, threadLocalRandomSeed), _Thread_FieldAnnotations_threadLocalRandomSeed},
-	{"threadLocalRandomProbe", "I", nullptr, 0, $field(Thread, threadLocalRandomProbe), _Thread_FieldAnnotations_threadLocalRandomProbe},
-	{"threadLocalRandomSecondarySeed", "I", nullptr, 0, $field(Thread, threadLocalRandomSecondarySeed), _Thread_FieldAnnotations_threadLocalRandomSecondarySeed},
-	{"pendingAsyncException", "Ljava/lang/Throwable;", nullptr, 2, $field(Thread, pendingAsyncException)},
-	{}
-};
-
-$MethodInfo _Thread_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;JLjava/security/AccessControlContext;Z)V", nullptr, $PRIVATE, $method(Thread, init$, void, $ThreadGroup*, $Runnable*, $String*, int64_t, $AccessControlContext*, bool)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Thread, init$, void)},
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $Runnable*)},
-	{"<init>", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(Thread, init$, void, $Runnable*, $AccessControlContext*)},
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $ThreadGroup*, $Runnable*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $ThreadGroup*, $String*)},
-	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $Runnable*, $String*)},
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $ThreadGroup*, $Runnable*, $String*)},
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(Thread, init$, void, $ThreadGroup*, $Runnable*, $String*, int64_t)},
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;JZ)V", nullptr, $PUBLIC, $method(Thread, init$, void, $ThreadGroup*, $Runnable*, $String*, int64_t, bool)},
-	{"activeCount", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, activeCount, int32_t)},
-	{"auditSubclass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Thread, auditSubclass, bool, $Class*)},
-	{"blockedOn", "(Lsun/nio/ch/Interruptible;)V", nullptr, $STATIC, $staticMethod(Thread, blockedOn, void, $Interruptible*)},
-	{"checkAccess", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Thread, checkAccess, void), nullptr, nullptr, _Thread_MethodAnnotations_checkAccess14},
-	{"clearInterruptEvent", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Thread, clearInterruptEvent, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Thread, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"countStackFrames", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Thread, countStackFrames, int32_t), nullptr, nullptr, _Thread_MethodAnnotations_countStackFrames17},
-	{"currentThread", "()Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Thread, currentThread, Thread*), nullptr, nullptr, _Thread_MethodAnnotations_currentThread18},
-	{"dispatchUncaughtException", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(Thread, dispatchUncaughtException, void, $Throwable*)},
-	{"dumpStack", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, dumpStack, void)},
-	{"dumpThreads", "([Ljava/lang/Thread;)[[Ljava/lang/StackTraceElement;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Thread, dumpThreads, $StackTraceElementArray2*, $ThreadArray*)},
-	{"enumerate", "([Ljava/lang/Thread;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, enumerate, int32_t, $ThreadArray*)},
-	{"exit", "()V", nullptr, $PRIVATE, $method(Thread, exit, void)},
-	{"getAllStackTraces", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Thread;[Ljava/lang/StackTraceElement;>;", $PUBLIC | $STATIC, $staticMethod(Thread, getAllStackTraces, $Map*)},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(Thread, getContextClassLoader, $ClassLoader*), nullptr, nullptr, _Thread_MethodAnnotations_getContextClassLoader25},
-	{"getDefaultUncaughtExceptionHandler", "()Ljava/lang/Thread$UncaughtExceptionHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, getDefaultUncaughtExceptionHandler, $Thread$UncaughtExceptionHandler*)},
-	{"getId", "()J", nullptr, $PUBLIC, $virtualMethod(Thread, getId, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Thread, getName, $String*)},
-	{"getPriority", "()I", nullptr, $PUBLIC | $FINAL, $method(Thread, getPriority, int32_t)},
-	{"getStackTrace", "()[Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(Thread, getStackTrace, $StackTraceElementArray*)},
-	{"getState", "()Ljava/lang/Thread$State;", nullptr, $PUBLIC, $virtualMethod(Thread, getState, $Thread$State*)},
-	{"getThreadGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC | $FINAL, $method(Thread, getThreadGroup, $ThreadGroup*)},
-	{"getThreads", "()[Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Thread, getThreads, $ThreadArray*)},
-	{"getUncaughtExceptionHandler", "()Ljava/lang/Thread$UncaughtExceptionHandler;", nullptr, $PUBLIC, $virtualMethod(Thread, getUncaughtExceptionHandler, $Thread$UncaughtExceptionHandler*)},
-	{"holdsLock", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Thread, holdsLock, bool, Object$*)},
-	{"interrupt", "()V", nullptr, $PUBLIC, $virtualMethod(Thread, interrupt, void)},
-	{"interrupt0", "()V", nullptr, $PRIVATE | $NATIVE, $method(Thread, interrupt0, void)},
-	{"interrupted", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, interrupted, bool)},
-	{"isAlive", "()Z", nullptr, $PUBLIC | $FINAL | $NATIVE, $method(Thread, isAlive, bool)},
-	{"isCCLOverridden", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Thread, isCCLOverridden, bool, $Class*)},
-	{"isDaemon", "()Z", nullptr, $PUBLIC | $FINAL, $method(Thread, isDaemon, bool)},
-	{"isInterrupted", "()Z", nullptr, $PUBLIC, $virtualMethod(Thread, isInterrupted, bool)},
-	{"join", "(J)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Thread, join, void, int64_t), "java.lang.InterruptedException"},
-	{"join", "(JI)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Thread, join, void, int64_t, int32_t), "java.lang.InterruptedException"},
-	{"join", "()V", nullptr, $PUBLIC | $FINAL, $method(Thread, join, void), "java.lang.InterruptedException"},
-	{"nextThreadID", "()J", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Thread, nextThreadID, int64_t)},
-	{"nextThreadNum", "()I", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Thread, nextThreadNum, int32_t)},
-	{"onSpinWait", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, onSpinWait, void), nullptr, nullptr, _Thread_MethodAnnotations_onSpinWait48},
-	{"processQueue", "(Ljava/lang/ref/ReferenceQueue;Ljava/util/concurrent/ConcurrentMap;)V", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;Ljava/util/concurrent/ConcurrentMap<+Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;*>;)V", $STATIC, $staticMethod(Thread, processQueue, void, $ReferenceQueue*, $ConcurrentMap*)},
-	{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Thread, registerNatives, void)},
-	{"resume", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Thread, resume, void), nullptr, nullptr, _Thread_MethodAnnotations_resume51},
-	{"resume0", "()V", nullptr, $PRIVATE | $NATIVE, $method(Thread, resume0, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Thread, run, void)},
-	{"setContextClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(Thread, setContextClassLoader, void, $ClassLoader*)},
-	{"setDaemon", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(Thread, setDaemon, void, bool)},
-	{"setDefaultUncaughtExceptionHandler", "(Ljava/lang/Thread$UncaughtExceptionHandler;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, setDefaultUncaughtExceptionHandler, void, $Thread$UncaughtExceptionHandler*)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Thread, setName, void, $String*)},
-	{"setNativeName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(Thread, setNativeName, void, $String*)},
-	{"setPriority", "(I)V", nullptr, $PUBLIC | $FINAL, $method(Thread, setPriority, void, int32_t)},
-	{"setPriority0", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(Thread, setPriority0, void, int32_t)},
-	{"setUncaughtExceptionHandler", "(Ljava/lang/Thread$UncaughtExceptionHandler;)V", nullptr, $PUBLIC, $virtualMethod(Thread, setUncaughtExceptionHandler, void, $Thread$UncaughtExceptionHandler*)},
-	{"sleep", "(J)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Thread, sleep, void, int64_t), "java.lang.InterruptedException"},
-	{"sleep", "(JI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, sleep, void, int64_t, int32_t), "java.lang.InterruptedException"},
-	{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Thread, start, void)},
-	{"start0", "()V", nullptr, $PRIVATE | $NATIVE, $method(Thread, start0, void)},
-	{"stop", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Thread, stop, void), nullptr, nullptr, _Thread_MethodAnnotations_stop66},
-	{"stop0", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $NATIVE, $method(Thread, stop0, void, Object$*)},
-	{"suspend", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Thread, suspend, void), nullptr, nullptr, _Thread_MethodAnnotations_suspend68},
-	{"suspend0", "()V", nullptr, $PRIVATE | $NATIVE, $method(Thread, suspend0, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Thread, toString, $String*)},
-	{"yield", "()V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Thread, yield, void)},
-	{}
-};
-
-#define _METHOD_INDEX_clearInterruptEvent 15
-#define _METHOD_INDEX_currentThread 18
-#define _METHOD_INDEX_dumpThreads 21
-#define _METHOD_INDEX_getThreads 33
-#define _METHOD_INDEX_holdsLock 35
-#define _METHOD_INDEX_interrupt0 37
-#define _METHOD_INDEX_isAlive 39
-#define _METHOD_INDEX_registerNatives 50
-#define _METHOD_INDEX_resume0 52
-#define _METHOD_INDEX_setNativeName 58
-#define _METHOD_INDEX_setPriority0 60
-#define _METHOD_INDEX_sleep 62
-#define _METHOD_INDEX_start0 65
-#define _METHOD_INDEX_stop0 67
-#define _METHOD_INDEX_suspend0 69
-#define _METHOD_INDEX_yield 71
-
-$InnerClassInfo _Thread_InnerClassesInfo_[] = {
-	{"java.lang.Thread$WeakClassKey", "java.lang.Thread", "WeakClassKey", $STATIC},
-	{"java.lang.Thread$UncaughtExceptionHandler", "java.lang.Thread", "UncaughtExceptionHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.lang.Thread$State", "java.lang.Thread", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.lang.Thread$Caches", "java.lang.Thread", "Caches", $PRIVATE | $STATIC},
-	{"java.lang.Thread$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Thread_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.Thread",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Thread_FieldInfo_,
-	_Thread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Thread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.Thread$WeakClassKey,java.lang.Thread$UncaughtExceptionHandler,java.lang.Thread$State,java.lang.Thread$Caches,java.lang.Thread$1"
-};
-
-$Object* allocate$Thread($Class* clazz) {
-	return $of($alloc(Thread));
-}
-
 int32_t Thread::threadInitNumber = 0;
 int64_t Thread::threadSeqNumber = 0;
 $StackTraceElementArray* Thread::EMPTY_STACK_TRACE = nullptr;
@@ -358,14 +100,12 @@ void Thread::registerNatives() {
 }
 
 int32_t Thread::nextThreadNum() {
-	$load(Thread);
 	$synchronized(class$) {
 		return Thread::threadInitNumber++;
 	}
 }
 
 int64_t Thread::nextThreadID() {
-	$load(Thread);
 	$synchronized(class$) {
 		return ++Thread::threadSeqNumber;
 	}
@@ -394,7 +134,7 @@ void Thread::sleep(int64_t millis, int32_t nanos) {
 	if (millis < 0) {
 		$throwNew($IllegalArgumentException, "timeout value is negative"_s);
 	}
-	if (nanos < 0 || nanos > 0x000F423F) {
+	if (nanos < 0 || nanos > 999999) {
 		$throwNew($IllegalArgumentException, "nanosecond timeout value out of range"_s);
 	}
 	if (nanos > 0 && millis < $Long::MAX_VALUE) {
@@ -407,7 +147,7 @@ void Thread::onSpinWait() {
 }
 
 void Thread::init$($ThreadGroup* g$renamed, $Runnable* target, $String* name, int64_t stackSize, $AccessControlContext* acc, bool inheritThreadLocals) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, g, g$renamed);
 	$beforeCallerSensitive();
 	this->daemon = false;
@@ -440,7 +180,7 @@ void Thread::init$($ThreadGroup* g$renamed, $Runnable* target, $String* name, in
 	$set(this, group, g);
 	this->daemon = parent->isDaemon();
 	this->priority = parent->getPriority();
-	if (security == nullptr || isCCLOverridden($of(parent)->getClass())) {
+	if (security == nullptr || isCCLOverridden(parent->getClass())) {
 		$set(this, contextClassLoader, parent->getContextClassLoader());
 	} else {
 		$set(this, contextClassLoader, parent->contextClassLoader);
@@ -461,22 +201,22 @@ $Object* Thread::clone() {
 }
 
 void Thread::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Thread::init$(nullptr, nullptr, $$str({"Thread-"_s, $$str(nextThreadNum())}), 0);
 }
 
 void Thread::init$($Runnable* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Thread::init$(nullptr, target, $$str({"Thread-"_s, $$str(nextThreadNum())}), 0);
 }
 
 void Thread::init$($Runnable* target, $AccessControlContext* acc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Thread::init$(nullptr, target, $$str({"Thread-"_s, $$str(nextThreadNum())}), 0, acc, false);
 }
 
 void Thread::init$($ThreadGroup* group, $Runnable* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Thread::init$(group, target, $$str({"Thread-"_s, $$str(nextThreadNum())}), 0);
 }
 
@@ -511,24 +251,22 @@ void Thread::start() {
 		}
 		$nc(this->group)->add(this);
 		bool started = false;
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
+			start0();
+			started = true;
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
 			try {
-				start0();
-				started = true;
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				try {
-					if (!started) {
-						$nc(this->group)->threadStartFailed(this);
-					}
-				} catch ($Throwable& ignore) {
+				if (!started) {
+					this->group->threadStartFailed(this);
 				}
+			} catch ($Throwable& ignore) {
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -539,7 +277,7 @@ void Thread::start0() {
 
 void Thread::run() {
 	if (this->target != nullptr) {
-		$nc(this->target)->run();
+		this->target->run();
 	}
 }
 
@@ -549,7 +287,7 @@ void Thread::exit() {
 		$TerminatingThreadLocal::threadTerminated();
 	}
 	if (this->group != nullptr) {
-		$nc(this->group)->threadTerminated(this);
+		this->group->threadTerminated(this);
 		$set(this, group, nullptr);
 	}
 	$set(this, target, nullptr);
@@ -561,7 +299,7 @@ void Thread::exit() {
 }
 
 void Thread::stop() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		checkAccess();
@@ -661,13 +399,13 @@ $ThreadGroup* Thread::getThreadGroup() {
 }
 
 int32_t Thread::activeCount() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($(currentThread()))->getThreadGroup()))->activeCount();
+	$useLocalObjectStack();
+	return $$nc($$nc(currentThread())->getThreadGroup())->activeCount();
 }
 
 int32_t Thread::enumerate($ThreadArray* tarray) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($(currentThread()))->getThreadGroup()))->enumerate(tarray);
+	$useLocalObjectStack();
+	return $$nc($$nc(currentThread())->getThreadGroup())->enumerate(tarray);
 }
 
 int32_t Thread::countStackFrames() {
@@ -682,10 +420,10 @@ void Thread::join(int64_t millis) {
 				int64_t startTime = $System::nanoTime();
 				int64_t delay = millis;
 				bool var$0 = false;
+				$init($TimeUnit);
 				do {
 					$of(this)->wait(delay);
 					var$0 = isAlive();
-				$init($TimeUnit);
 				} while (var$0 && (delay = millis - $TimeUnit::NANOSECONDS->toMillis($System::nanoTime() - startTime)) > 0);
 			}
 		} else if (millis == 0) {
@@ -703,7 +441,7 @@ void Thread::join(int64_t millis, int32_t nanos) {
 		if (millis < 0) {
 			$throwNew($IllegalArgumentException, "timeout value is negative"_s);
 		}
-		if (nanos < 0 || nanos > 0x000F423F) {
+		if (nanos < 0 || nanos > 999999) {
 			$throwNew($IllegalArgumentException, "nanosecond timeout value out of range"_s);
 		}
 		if (nanos > 0 && millis < $Long::MAX_VALUE) {
@@ -741,18 +479,26 @@ void Thread::checkAccess() {
 }
 
 $String* Thread::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, group, getThreadGroup());
 	if (group != nullptr) {
-		$var($String, var$3, $$str({"Thread["_s, $(getName()), ","_s}));
-		$var($String, var$2, $$concat(var$3, $$str(getPriority())));
-		$var($String, var$1, $$concat(var$2, ","_s));
-		$var($String, var$0, $$concat(var$1, $(group->getName())));
-		return $concat(var$0, "]"_s);
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Thread["_s);
+		var$0->append($(getName()));
+		var$0->append(","_s);
+		var$0->append(getPriority());
+		var$0->append(","_s);
+		var$0->append($(group->getName()));
+		var$0->append("]"_s);
+		return $str(var$0);
 	} else {
-		$var($String, var$5, $$str({"Thread["_s, $(getName()), ","_s}));
-		$var($String, var$4, $$concat(var$5, $$str(getPriority())));
-		return $concat(var$4, ",]"_s);
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("Thread["_s);
+		var$1->append($(getName()));
+		var$1->append(","_s);
+		var$1->append(getPriority());
+		var$1->append(",]"_s);
+		return $str(var$1);
 	}
 }
 
@@ -768,7 +514,7 @@ $ClassLoader* Thread::getContextClassLoader() {
 }
 
 void Thread::setContextClassLoader($ClassLoader* cl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "setContextClassLoader"_s));
@@ -781,7 +527,7 @@ bool Thread::holdsLock(Object$* obj) {
 }
 
 $StackTraceElementArray* Thread::getStackTrace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this != Thread::currentThread()) {
 		$var($SecurityManager, security, $System::getSecurityManager());
 		if (security != nullptr) {
@@ -803,7 +549,7 @@ $StackTraceElementArray* Thread::getStackTrace() {
 }
 
 $Map* Thread::getAllStackTraces() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		$init($SecurityConstants);
@@ -813,7 +559,7 @@ $Map* Thread::getAllStackTraces() {
 	$var($ThreadArray, threads, getThreads());
 	$var($StackTraceElementArray2, traces, dumpThreads(threads));
 	$var($Map, m, $new($HashMap, $nc(threads)->length));
-	for (int32_t i = 0; i < $nc(threads)->length; ++i) {
+	for (int32_t i = 0; i < threads->length; ++i) {
 		$var($StackTraceElementArray, stackTrace, $nc(traces)->get(i));
 		if (stackTrace != nullptr) {
 			m->put(threads->get(i), stackTrace);
@@ -823,7 +569,7 @@ $Map* Thread::getAllStackTraces() {
 }
 
 bool Thread::isCCLOverridden($Class* cl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cl == Thread::class$) {
 		return false;
 	}
@@ -833,15 +579,15 @@ bool Thread::isCCLOverridden($Class* cl) {
 	$var($Boolean, result, $cast($Boolean, $nc($Thread$Caches::subclassAudits)->get(key)));
 	if (result == nullptr) {
 		$assign(result, $Boolean::valueOf(auditSubclass(cl)));
-		$nc($Thread$Caches::subclassAudits)->putIfAbsent(key, result);
+		$Thread$Caches::subclassAudits->putIfAbsent(key, result);
 	}
 	return $nc(result)->booleanValue();
 }
 
 bool Thread::auditSubclass($Class* subcl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($Boolean, result, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Thread$1, subcl)))));
+	$var($Boolean, result, $cast($Boolean, $AccessController::doPrivileged($$new($Thread$1, subcl))));
 	return $nc(result)->booleanValue();
 }
 
@@ -862,7 +608,7 @@ $Thread$State* Thread::getState() {
 }
 
 void Thread::setDefaultUncaughtExceptionHandler($Thread$UncaughtExceptionHandler* eh) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "setDefaultUncaughtExceptionHandler"_s));
@@ -875,7 +621,7 @@ $Thread$UncaughtExceptionHandler* Thread::getDefaultUncaughtExceptionHandler() {
 }
 
 $Thread$UncaughtExceptionHandler* Thread::getUncaughtExceptionHandler() {
-	return this->uncaughtExceptionHandler != nullptr ? $cast($Thread$UncaughtExceptionHandler, this->uncaughtExceptionHandler) : static_cast<$Thread$UncaughtExceptionHandler*>(this->group);
+	return this->uncaughtExceptionHandler != nullptr ? $cast($Thread$UncaughtExceptionHandler, this->uncaughtExceptionHandler) : $cast($Thread$UncaughtExceptionHandler, this->group);
 }
 
 void Thread::setUncaughtExceptionHandler($Thread$UncaughtExceptionHandler* eh) {
@@ -884,7 +630,7 @@ void Thread::setUncaughtExceptionHandler($Thread$UncaughtExceptionHandler* eh) {
 }
 
 void Thread::dispatchUncaughtException($Throwable* e) {
-	$nc($(getUncaughtExceptionHandler()))->uncaughtException(this, e);
+	$$nc(getUncaughtExceptionHandler())->uncaughtException(this, e);
 }
 
 void Thread::processQueue($ReferenceQueue* queue, $ConcurrentMap* map) {
@@ -922,7 +668,7 @@ void Thread::setNativeName($String* name) {
 	Platform::JVM_SetNativeThreadName(this, name);
 }
 
-void clinit$Thread($Class* class$) {
+void Thread::clinit$($Class* clazz) {
 	{
 		Thread::registerNatives();
 	}
@@ -931,6 +677,225 @@ void clinit$Thread($Class* class$) {
 
 Thread::Thread() {
 }
+
+$Class* Thread::load$($String* name, bool initialize) {
+	$NamedAttribute threadLocalRandomSeedfieldAnnotations$$$namedAttribute[] = {
+		{"value", 's', "tlr"},
+		{}
+	};
+	$CompoundAttribute threadLocalRandomSeedfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Contended;", threadLocalRandomSeedfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute threadLocalRandomProbefieldAnnotations$$$namedAttribute[] = {
+		{"value", 's', "tlr"},
+		{}
+	};
+	$CompoundAttribute threadLocalRandomProbefieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Contended;", threadLocalRandomProbefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute threadLocalRandomSecondarySeedfieldAnnotations$$$namedAttribute[] = {
+		{"value", 's', "tlr"},
+		{}
+	};
+	$CompoundAttribute threadLocalRandomSecondarySeedfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Contended;", threadLocalRandomSecondarySeedfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(Thread, name)},
+		{"priority", "I", nullptr, $PRIVATE, $field(Thread, priority)},
+		{"daemon", "Z", nullptr, $PRIVATE, $field(Thread, daemon)},
+		{"interrupted", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Thread, interrupted$)},
+		{"stillborn", "Z", nullptr, $PRIVATE, $field(Thread, stillborn)},
+		{"eetop", "J", nullptr, $PRIVATE, $field(Thread, eetop)},
+		{"target", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(Thread, target)},
+		{"group", "Ljava/lang/ThreadGroup;", nullptr, $PRIVATE, $field(Thread, group)},
+		{"contextClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(Thread, contextClassLoader)},
+		{"inheritedAccessControlContext", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(Thread, inheritedAccessControlContext)},
+		{"threadInitNumber", "I", nullptr, $PRIVATE | $STATIC, $staticField(Thread, threadInitNumber)},
+		{"threadLocals", "Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0, $field(Thread, threadLocals)},
+		{"inheritableThreadLocals", "Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0, $field(Thread, inheritableThreadLocals)},
+		{"stackSize", "J", nullptr, $PRIVATE | $FINAL, $field(Thread, stackSize)},
+		{"tid", "J", nullptr, $PRIVATE | $FINAL, $field(Thread, tid)},
+		{"threadSeqNumber", "J", nullptr, $PRIVATE | $STATIC, $staticField(Thread, threadSeqNumber)},
+		{"threadStatus", "I", nullptr, $PRIVATE | $VOLATILE, $field(Thread, threadStatus)},
+		{"parkBlocker", "Ljava/lang/Object;", nullptr, $VOLATILE, $field(Thread, parkBlocker)},
+		{"blocker", "Lsun/nio/ch/Interruptible;", nullptr, $PRIVATE | $VOLATILE, $field(Thread, blocker)},
+		{"blockerLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Thread, blockerLock)},
+		{"MIN_PRIORITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Thread, MIN_PRIORITY)},
+		{"NORM_PRIORITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Thread, NORM_PRIORITY)},
+		{"MAX_PRIORITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Thread, MAX_PRIORITY)},
+		{"EMPTY_STACK_TRACE", "[Ljava/lang/StackTraceElement;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Thread, EMPTY_STACK_TRACE)},
+		{"uncaughtExceptionHandler", "Ljava/lang/Thread$UncaughtExceptionHandler;", nullptr, $PRIVATE | $VOLATILE, $field(Thread, uncaughtExceptionHandler)},
+		{"defaultUncaughtExceptionHandler", "Ljava/lang/Thread$UncaughtExceptionHandler;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Thread, defaultUncaughtExceptionHandler)},
+		{"threadLocalRandomSeed", "J", nullptr, 0, $field(Thread, threadLocalRandomSeed), threadLocalRandomSeedfieldAnnotations$$},
+		{"threadLocalRandomProbe", "I", nullptr, 0, $field(Thread, threadLocalRandomProbe), threadLocalRandomProbefieldAnnotations$$},
+		{"threadLocalRandomSecondarySeed", "I", nullptr, 0, $field(Thread, threadLocalRandomSecondarySeed), threadLocalRandomSecondarySeedfieldAnnotations$$},
+		{"pendingAsyncException", "Ljava/lang/Throwable;", nullptr, 2, $field(Thread, pendingAsyncException)},
+		{}
+	};
+	$NamedAttribute checkAccessmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute checkAccessmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", checkAccessmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute countStackFramesmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute countStackFramesmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", countStackFramesmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute currentThreadmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute getContextClassLoadermethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute onSpinWaitmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$NamedAttribute resumemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute resumemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", resumemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute stopmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{}
+	};
+	$CompoundAttribute stopmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", stopmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute suspendmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute suspendmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", suspendmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;JLjava/security/AccessControlContext;Z)V", nullptr, $PRIVATE, $method(Thread, init$, void, $ThreadGroup*, $Runnable*, $String*, int64_t, $AccessControlContext*, bool)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Thread, init$, void)},
+		{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $Runnable*)},
+		{"<init>", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(Thread, init$, void, $Runnable*, $AccessControlContext*)},
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $ThreadGroup*, $Runnable*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $ThreadGroup*, $String*)},
+		{"<init>", "(Ljava/lang/Runnable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $Runnable*, $String*)},
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Thread, init$, void, $ThreadGroup*, $Runnable*, $String*)},
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(Thread, init$, void, $ThreadGroup*, $Runnable*, $String*, int64_t)},
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;JZ)V", nullptr, $PUBLIC, $method(Thread, init$, void, $ThreadGroup*, $Runnable*, $String*, int64_t, bool)},
+		{"activeCount", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, activeCount, int32_t)},
+		{"auditSubclass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Thread, auditSubclass, bool, $Class*)},
+		{"blockedOn", "(Lsun/nio/ch/Interruptible;)V", nullptr, $STATIC, $staticMethod(Thread, blockedOn, void, $Interruptible*)},
+		{"checkAccess", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Thread, checkAccess, void), nullptr, nullptr, checkAccessmethodAnnotations$$},
+		{"clearInterruptEvent", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Thread, clearInterruptEvent, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Thread, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"countStackFrames", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Thread, countStackFrames, int32_t), nullptr, nullptr, countStackFramesmethodAnnotations$$},
+		{"currentThread", "()Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Thread, currentThread, Thread*), nullptr, nullptr, currentThreadmethodAnnotations$$},
+		{"dispatchUncaughtException", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(Thread, dispatchUncaughtException, void, $Throwable*)},
+		{"dumpStack", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, dumpStack, void)},
+		{"dumpThreads", "([Ljava/lang/Thread;)[[Ljava/lang/StackTraceElement;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Thread, dumpThreads, $StackTraceElementArray2*, $ThreadArray*)},
+		{"enumerate", "([Ljava/lang/Thread;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, enumerate, int32_t, $ThreadArray*)},
+		{"exit", "()V", nullptr, $PRIVATE, $method(Thread, exit, void)},
+		{"getAllStackTraces", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Thread;[Ljava/lang/StackTraceElement;>;", $PUBLIC | $STATIC, $staticMethod(Thread, getAllStackTraces, $Map*)},
+		{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(Thread, getContextClassLoader, $ClassLoader*), nullptr, nullptr, getContextClassLoadermethodAnnotations$$},
+		{"getDefaultUncaughtExceptionHandler", "()Ljava/lang/Thread$UncaughtExceptionHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, getDefaultUncaughtExceptionHandler, $Thread$UncaughtExceptionHandler*)},
+		{"getId", "()J", nullptr, $PUBLIC, $virtualMethod(Thread, getId, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Thread, getName, $String*)},
+		{"getPriority", "()I", nullptr, $PUBLIC | $FINAL, $method(Thread, getPriority, int32_t)},
+		{"getStackTrace", "()[Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(Thread, getStackTrace, $StackTraceElementArray*)},
+		{"getState", "()Ljava/lang/Thread$State;", nullptr, $PUBLIC, $virtualMethod(Thread, getState, $Thread$State*)},
+		{"getThreadGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC | $FINAL, $method(Thread, getThreadGroup, $ThreadGroup*)},
+		{"getThreads", "()[Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Thread, getThreads, $ThreadArray*)},
+		{"getUncaughtExceptionHandler", "()Ljava/lang/Thread$UncaughtExceptionHandler;", nullptr, $PUBLIC, $virtualMethod(Thread, getUncaughtExceptionHandler, $Thread$UncaughtExceptionHandler*)},
+		{"holdsLock", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Thread, holdsLock, bool, Object$*)},
+		{"interrupt", "()V", nullptr, $PUBLIC, $virtualMethod(Thread, interrupt, void)},
+		{"interrupt0", "()V", nullptr, $PRIVATE | $NATIVE, $method(Thread, interrupt0, void)},
+		{"interrupted", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, interrupted, bool)},
+		{"isAlive", "()Z", nullptr, $PUBLIC | $FINAL | $NATIVE, $method(Thread, isAlive, bool)},
+		{"isCCLOverridden", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Thread, isCCLOverridden, bool, $Class*)},
+		{"isDaemon", "()Z", nullptr, $PUBLIC | $FINAL, $method(Thread, isDaemon, bool)},
+		{"isInterrupted", "()Z", nullptr, $PUBLIC, $virtualMethod(Thread, isInterrupted, bool)},
+		{"join", "(J)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Thread, join, void, int64_t), "java.lang.InterruptedException"},
+		{"join", "(JI)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Thread, join, void, int64_t, int32_t), "java.lang.InterruptedException"},
+		{"join", "()V", nullptr, $PUBLIC | $FINAL, $method(Thread, join, void), "java.lang.InterruptedException"},
+		{"nextThreadID", "()J", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Thread, nextThreadID, int64_t)},
+		{"nextThreadNum", "()I", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Thread, nextThreadNum, int32_t)},
+		{"onSpinWait", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, onSpinWait, void), nullptr, nullptr, onSpinWaitmethodAnnotations$$},
+		{"processQueue", "(Ljava/lang/ref/ReferenceQueue;Ljava/util/concurrent/ConcurrentMap;)V", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;Ljava/util/concurrent/ConcurrentMap<+Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;*>;)V", $STATIC, $staticMethod(Thread, processQueue, void, $ReferenceQueue*, $ConcurrentMap*)},
+		{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Thread, registerNatives, void)},
+		{"resume", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Thread, resume, void), nullptr, nullptr, resumemethodAnnotations$$},
+		{"resume0", "()V", nullptr, $PRIVATE | $NATIVE, $method(Thread, resume0, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Thread, run, void)},
+		{"setContextClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(Thread, setContextClassLoader, void, $ClassLoader*)},
+		{"setDaemon", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(Thread, setDaemon, void, bool)},
+		{"setDefaultUncaughtExceptionHandler", "(Ljava/lang/Thread$UncaughtExceptionHandler;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, setDefaultUncaughtExceptionHandler, void, $Thread$UncaughtExceptionHandler*)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Thread, setName, void, $String*)},
+		{"setNativeName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(Thread, setNativeName, void, $String*)},
+		{"setPriority", "(I)V", nullptr, $PUBLIC | $FINAL, $method(Thread, setPriority, void, int32_t)},
+		{"setPriority0", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(Thread, setPriority0, void, int32_t)},
+		{"setUncaughtExceptionHandler", "(Ljava/lang/Thread$UncaughtExceptionHandler;)V", nullptr, $PUBLIC, $virtualMethod(Thread, setUncaughtExceptionHandler, void, $Thread$UncaughtExceptionHandler*)},
+		{"sleep", "(J)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Thread, sleep, void, int64_t), "java.lang.InterruptedException"},
+		{"sleep", "(JI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread, sleep, void, int64_t, int32_t), "java.lang.InterruptedException"},
+		{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Thread, start, void)},
+		{"start0", "()V", nullptr, $PRIVATE | $NATIVE, $method(Thread, start0, void)},
+		{"stop", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Thread, stop, void), nullptr, nullptr, stopmethodAnnotations$$},
+		{"stop0", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $NATIVE, $method(Thread, stop0, void, Object$*)},
+		{"suspend", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Thread, suspend, void), nullptr, nullptr, suspendmethodAnnotations$$},
+		{"suspend0", "()V", nullptr, $PRIVATE | $NATIVE, $method(Thread, suspend0, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Thread, toString, $String*)},
+		{"yield", "()V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Thread, yield, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Thread$WeakClassKey", "java.lang.Thread", "WeakClassKey", $STATIC},
+		{"java.lang.Thread$UncaughtExceptionHandler", "java.lang.Thread", "UncaughtExceptionHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.lang.Thread$State", "java.lang.Thread", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.lang.Thread$Caches", "java.lang.Thread", "Caches", $PRIVATE | $STATIC},
+		{"java.lang.Thread$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.Thread",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.Thread$WeakClassKey,java.lang.Thread$UncaughtExceptionHandler,java.lang.Thread$State,java.lang.Thread$Caches,java.lang.Thread$1"
+	};
+	$loadClass(Thread, name, initialize, &classInfo$$, Thread::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Thread);
+	});
+	return class$;
+}
+
+$Class* Thread::class$ = nullptr;
 
 void Thread::park(bool isAbsolute, int64_t time) {
 	Platform::park(this, isAbsolute, time);
@@ -960,13 +925,6 @@ void Thread::init$(::java::lang::ThreadGroup* group) {
 	$set(this, inheritedAccessControlContext, $AccessController::getContext());
 	setPriority0(this->priority);
 }
-
-$Class* Thread::load$($String* name, bool initialize) {
-	$loadClass(Thread, name, initialize, &_Thread_ClassInfo_, clinit$Thread, allocate$Thread);
-	return class$;
-}
-
-$Class* Thread::class$ = nullptr;
 
 	} // lang
 } // java

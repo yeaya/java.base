@@ -27,7 +27,7 @@ public:
 	virtual void add(::java::security::Permission* permission) override;
 	virtual ::java::util::Enumeration* elements() override;
 	virtual bool implies(::java::security::Permission* permission) override;
-	static const int64_t serialVersionUID = (int64_t)0x6763FD70892731C8;
+	static const int64_t serialVersionUID = (int64_t)0x6763fd70892731c8;
 	bool all_allowed = false;
 };
 

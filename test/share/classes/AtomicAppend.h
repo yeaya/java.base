@@ -28,6 +28,7 @@ class $export AtomicAppend : public ::java::lang::Object {
 	$class(AtomicAppend, 0, ::java::lang::Object)
 public:
 	AtomicAppend();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::nio::channels::FileChannel* newFileChannel(::java::io::File* file);

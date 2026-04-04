@@ -13,6 +13,7 @@ class DirectMethodHandle$2 : public ::java::lang::Object {
 	$class(DirectMethodHandle$2, 0, ::java::lang::Object)
 public:
 	DirectMethodHandle$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$invoke$util$Wrapper;
 };
 

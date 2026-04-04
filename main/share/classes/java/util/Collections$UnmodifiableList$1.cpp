@@ -1,5 +1,4 @@
 #include <java/util/Collections$UnmodifiableList$1.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Collections$UnmodifiableList.h>
 #include <java/util/Iterator.h>
@@ -15,66 +14,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Collections$UnmodifiableList = ::java::util::Collections$UnmodifiableList;
-using $List = ::java::util::List;
-using $ListIterator = ::java::util::ListIterator;
 using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$UnmodifiableList$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/Collections$UnmodifiableList;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$UnmodifiableList$1, this$0)},
-	{"val$index", "I", nullptr, $FINAL | $SYNTHETIC, $field(Collections$UnmodifiableList$1, val$index)},
-	{"i", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<+TE;>;", $PRIVATE | $FINAL, $field(Collections$UnmodifiableList$1, i)},
-	{}
-};
-
-$MethodInfo _Collections$UnmodifiableList$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collections$UnmodifiableList;I)V", "()V", 0, $method(Collections$UnmodifiableList$1, init$, void, $Collections$UnmodifiableList*, int32_t)},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, add, void, Object$*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, hasNext, bool)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, hasPrevious, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, next, $Object*)},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, previousIndex, int32_t)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, remove, void)},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, set, void, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Collections$UnmodifiableList$1_EnclosingMethodInfo_ = {
-	"java.util.Collections$UnmodifiableList",
-	"listIterator",
-	"(I)Ljava/util/ListIterator;"
-};
-
-$InnerClassInfo _Collections$UnmodifiableList$1_InnerClassesInfo_[] = {
-	{"java.util.Collections$UnmodifiableList", "java.util.Collections", "UnmodifiableList", $STATIC},
-	{"java.util.Collections$UnmodifiableList$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Collections$UnmodifiableList$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$UnmodifiableList$1",
-	"java.lang.Object",
-	"java.util.ListIterator",
-	_Collections$UnmodifiableList$1_FieldInfo_,
-	_Collections$UnmodifiableList$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
-	&_Collections$UnmodifiableList$1_EnclosingMethodInfo_,
-	_Collections$UnmodifiableList$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$UnmodifiableList$1($Class* clazz) {
-	return $of($alloc(Collections$UnmodifiableList$1));
-}
 
 void Collections$UnmodifiableList$1::init$($Collections$UnmodifiableList* this$0, int32_t val$index) {
 	$set(this, this$0, this$0);
@@ -87,7 +30,7 @@ bool Collections$UnmodifiableList$1::hasNext() {
 }
 
 $Object* Collections$UnmodifiableList$1::next() {
-	return $of($nc(this->i)->next());
+	return $nc(this->i)->next();
 }
 
 bool Collections$UnmodifiableList$1::hasPrevious() {
@@ -95,7 +38,7 @@ bool Collections$UnmodifiableList$1::hasPrevious() {
 }
 
 $Object* Collections$UnmodifiableList$1::previous() {
-	return $of($nc(this->i)->previous());
+	return $nc(this->i)->previous();
 }
 
 int32_t Collections$UnmodifiableList$1::nextIndex() {
@@ -126,7 +69,54 @@ Collections$UnmodifiableList$1::Collections$UnmodifiableList$1() {
 }
 
 $Class* Collections$UnmodifiableList$1::load$($String* name, bool initialize) {
-	$loadClass(Collections$UnmodifiableList$1, name, initialize, &_Collections$UnmodifiableList$1_ClassInfo_, allocate$Collections$UnmodifiableList$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/Collections$UnmodifiableList;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$UnmodifiableList$1, this$0)},
+		{"val$index", "I", nullptr, $FINAL | $SYNTHETIC, $field(Collections$UnmodifiableList$1, val$index)},
+		{"i", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<+TE;>;", $PRIVATE | $FINAL, $field(Collections$UnmodifiableList$1, i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collections$UnmodifiableList;I)V", "()V", 0, $method(Collections$UnmodifiableList$1, init$, void, $Collections$UnmodifiableList*, int32_t)},
+		{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, add, void, Object$*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, hasNext, bool)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, hasPrevious, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, next, $Object*)},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, previousIndex, int32_t)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, remove, void)},
+		{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, set, void, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.Collections$UnmodifiableList",
+		"listIterator",
+		"(I)Ljava/util/ListIterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$UnmodifiableList", "java.util.Collections", "UnmodifiableList", $STATIC},
+		{"java.util.Collections$UnmodifiableList$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$UnmodifiableList$1",
+		"java.lang.Object",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$UnmodifiableList$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$UnmodifiableList$1);
+	});
 	return class$;
 }
 

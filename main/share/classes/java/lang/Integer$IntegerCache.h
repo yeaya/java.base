@@ -18,6 +18,7 @@ class Integer$IntegerCache : public ::java::lang::Object {
 	$class(Integer$IntegerCache, $PRELOAD, ::java::lang::Object)
 public:
 	Integer$IntegerCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool $assertionsDisabled;
 	static const int32_t low = (-128);

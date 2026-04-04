@@ -59,6 +59,7 @@ class $import SimpleValidator : public ::sun::security::validator::Validator {
 	$class(SimpleValidator, 0, ::sun::security::validator::Validator)
 public:
 	SimpleValidator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* variant, ::java::util::Collection* trustedCerts);
 	$Array<::java::security::cert::X509Certificate>* buildTrustedChain($Array<::java::security::cert::X509Certificate>* chain);
 	int32_t checkBasicConstraints(::java::security::cert::X509Certificate* cert, ::java::util::Set* critSet, int32_t maxPathLen);

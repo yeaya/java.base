@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateVerify$T10CertificateVerifyMessage.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/Key.h>
@@ -56,12 +55,10 @@ using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Alert = ::sun::security::ssl::Alert;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $JsseJce = ::sun::security::ssl::JsseJce;
 using $Record = ::sun::security::ssl::Record;
@@ -69,7 +66,6 @@ using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 using $X509Authentication$X509Credentials = ::sun::security::ssl::X509Authentication$X509Credentials;
 using $X509Authentication$X509Possession = ::sun::security::ssl::X509Authentication$X509Possession;
@@ -79,50 +75,8 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertificateVerify$T10CertificateVerifyMessage_FieldInfo_[] = {
-	{"signature", "[B", nullptr, $PRIVATE | $FINAL, $field(CertificateVerify$T10CertificateVerifyMessage, signature)},
-	{}
-};
-
-$MethodInfo _CertificateVerify$T10CertificateVerifyMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/X509Authentication$X509Possession;)V", nullptr, 0, $method(CertificateVerify$T10CertificateVerifyMessage, init$, void, $HandshakeContext*, $X509Authentication$X509Possession*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateVerify$T10CertificateVerifyMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateVerify$T10CertificateVerifyMessage, getSignature, $Signature*, $String*, $Key*), "java.security.GeneralSecurityException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T10CertificateVerifyMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T10CertificateVerifyMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T10CertificateVerifyMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T10CertificateVerifyMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CertificateVerify$T10CertificateVerifyMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateVerify$T10CertificateVerifyMessage", "sun.security.ssl.CertificateVerify", "T10CertificateVerifyMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CertificateVerify$T10CertificateVerifyMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateVerify$T10CertificateVerifyMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_CertificateVerify$T10CertificateVerifyMessage_FieldInfo_,
-	_CertificateVerify$T10CertificateVerifyMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateVerify$T10CertificateVerifyMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateVerify"
-};
-
-$Object* allocate$CertificateVerify$T10CertificateVerifyMessage($Class* clazz) {
-	return $of($alloc(CertificateVerify$T10CertificateVerifyMessage));
-}
-
 void CertificateVerify$T10CertificateVerifyMessage::init$($HandshakeContext* context, $X509Authentication$X509Possession* x509Possession) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($bytes, temporary, nullptr);
@@ -143,7 +97,7 @@ void CertificateVerify$T10CertificateVerifyMessage::init$($HandshakeContext* con
 }
 
 void CertificateVerify$T10CertificateVerifyMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if ($nc(m)->remaining() < 2) {
@@ -156,15 +110,13 @@ void CertificateVerify$T10CertificateVerifyMessage::init$($HandshakeContext* con
 		$var($Iterator, i$, $nc($nc(shc)->handshakeCredentials)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SSLCredentials, cd, $cast($SSLCredentials, i$->next()));
-			{
-				if ($instanceOf($X509Authentication$X509Credentials, cd)) {
-					$assign(x509Credentials, $cast($X509Authentication$X509Credentials, cd));
-					break;
-				}
+			if ($instanceOf($X509Authentication$X509Credentials, cd)) {
+				$assign(x509Credentials, $cast($X509Authentication$X509Credentials, cd));
+				break;
 			}
 		}
 	}
-	if (x509Credentials == nullptr || $nc(x509Credentials)->popPublicKey == nullptr) {
+	if (x509Credentials == nullptr || x509Credentials->popPublicKey == nullptr) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "No X509 credentials negotiated for CertificateVerify"_s)));
 	}
@@ -200,85 +152,67 @@ void CertificateVerify$T10CertificateVerifyMessage::send($HandshakeOutStream* ho
 }
 
 $String* CertificateVerify$T10CertificateVerifyMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"CertificateVerify\": \'{\'\n  \"signature\": \'{\'\n{0}\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
-	$var($ObjectArray, messageFields, $new($ObjectArray, {$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->signature)), "    "_s)))}));
+	$var($ObjectArray, messageFields, $new($ObjectArray, {$($Utilities::indent($(hexEncoder->encodeBuffer(this->signature)), "    "_s))}));
 	return messageFormat->format(messageFields);
 }
 
 $Signature* CertificateVerify$T10CertificateVerifyMessage::getSignature($String* algorithm, $Key* key) {
 	$init(CertificateVerify$T10CertificateVerifyMessage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Signature, signer, nullptr);
 	{
 		$var($String, s17443$, algorithm);
 		int32_t tmp17443$ = -1;
 		switch ($nc(s17443$)->hashCode()) {
-		case 0x00013E20:
-			{
-				if (s17443$->equals("RSA"_s)) {
-					tmp17443$ = 0;
-				}
-				break;
+		case 0x00013e20:
+			if (s17443$->equals("RSA"_s)) {
+				tmp17443$ = 0;
 			}
+			break;
 		case 0x00010992:
-			{
-				if (s17443$->equals("DSA"_s)) {
-					tmp17443$ = 1;
-				}
-				break;
+			if (s17443$->equals("DSA"_s)) {
+				tmp17443$ = 1;
 			}
+			break;
 		case 2206:
-			{
-				if (s17443$->equals("EC"_s)) {
-					tmp17443$ = 2;
-				}
-				break;
+			if (s17443$->equals("EC"_s)) {
+				tmp17443$ = 2;
 			}
-		case 0x03FAD473:
-			{
-				if (s17443$->equals("EdDSA"_s)) {
-					tmp17443$ = 3;
-				}
-				break;
+			break;
+		case 0x03fad473:
+			if (s17443$->equals("EdDSA"_s)) {
+				tmp17443$ = 3;
 			}
+			break;
 		}
 		switch (tmp17443$) {
 		case 0:
-			{
-				$init($JsseJce);
-				$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_RAWRSA));
-				break;
-			}
+			$init($JsseJce);
+			$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_RAWRSA));
+			break;
 		case 1:
-			{
-				$init($JsseJce);
-				$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_RAWDSA));
-				break;
-			}
+			$init($JsseJce);
+			$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_RAWDSA));
+			break;
 		case 2:
-			{
-				$init($JsseJce);
-				$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_RAWECDSA));
-				break;
-			}
+			$init($JsseJce);
+			$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_RAWECDSA));
+			break;
 		case 3:
-			{
-				$init($JsseJce);
-				$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_EDDSA));
-				break;
-			}
+			$init($JsseJce);
+			$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_EDDSA));
+			break;
 		default:
-			{
-				$throwNew($SignatureException, $$str({"Unrecognized algorithm: "_s, algorithm}));
-			}
+			$throwNew($SignatureException, $$str({"Unrecognized algorithm: "_s, algorithm}));
 		}
 	}
 	if (signer != nullptr) {
 		if ($instanceOf($PublicKey, key)) {
-			signer->initVerify(($cast($PublicKey, key)));
+			signer->initVerify($cast($PublicKey, key));
 		} else {
 			signer->initSign($cast($PrivateKey, key));
 		}
@@ -290,7 +224,43 @@ CertificateVerify$T10CertificateVerifyMessage::CertificateVerify$T10CertificateV
 }
 
 $Class* CertificateVerify$T10CertificateVerifyMessage::load$($String* name, bool initialize) {
-	$loadClass(CertificateVerify$T10CertificateVerifyMessage, name, initialize, &_CertificateVerify$T10CertificateVerifyMessage_ClassInfo_, allocate$CertificateVerify$T10CertificateVerifyMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"signature", "[B", nullptr, $PRIVATE | $FINAL, $field(CertificateVerify$T10CertificateVerifyMessage, signature)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/X509Authentication$X509Possession;)V", nullptr, 0, $method(CertificateVerify$T10CertificateVerifyMessage, init$, void, $HandshakeContext*, $X509Authentication$X509Possession*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateVerify$T10CertificateVerifyMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateVerify$T10CertificateVerifyMessage, getSignature, $Signature*, $String*, $Key*), "java.security.GeneralSecurityException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T10CertificateVerifyMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T10CertificateVerifyMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T10CertificateVerifyMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T10CertificateVerifyMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateVerify$T10CertificateVerifyMessage", "sun.security.ssl.CertificateVerify", "T10CertificateVerifyMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateVerify$T10CertificateVerifyMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateVerify"
+	};
+	$loadClass(CertificateVerify$T10CertificateVerifyMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateVerify$T10CertificateVerifyMessage);
+	});
 	return class$;
 }
 

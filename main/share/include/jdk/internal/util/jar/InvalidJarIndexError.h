@@ -19,7 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0;
 	InvalidJarIndexError(const InvalidJarIndexError& e);
 	virtual void throw$() override;
-	inline InvalidJarIndexError* operator ->() {
+	inline InvalidJarIndexError* operator ->() const {
+		return (InvalidJarIndexError*)throwing$;
+	}
+	inline operator InvalidJarIndexError*() const {
 		return (InvalidJarIndexError*)throwing$;
 	}
 };

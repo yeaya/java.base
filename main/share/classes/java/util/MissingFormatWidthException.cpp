@@ -1,5 +1,4 @@
 #include <java/util/MissingFormatWidthException.h>
-
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $IllegalFormatException = ::java::util::IllegalFormatException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _MissingFormatWidthException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MissingFormatWidthException, serialVersionUID)},
-	{"s", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MissingFormatWidthException, s)},
-	{}
-};
-
-$MethodInfo _MissingFormatWidthException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MissingFormatWidthException, init$, void, $String*)},
-	{"getFormatSpecifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatWidthException, getFormatSpecifier, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatWidthException, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _MissingFormatWidthException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.MissingFormatWidthException",
-	"java.util.IllegalFormatException",
-	nullptr,
-	_MissingFormatWidthException_FieldInfo_,
-	_MissingFormatWidthException_MethodInfo_
-};
-
-$Object* allocate$MissingFormatWidthException($Class* clazz) {
-	return $of($alloc(MissingFormatWidthException));
-}
 
 void MissingFormatWidthException::init$($String* s) {
 	$IllegalFormatException::init$();
@@ -65,7 +38,28 @@ void MissingFormatWidthException::throw$() {
 }
 
 $Class* MissingFormatWidthException::load$($String* name, bool initialize) {
-	$loadClass(MissingFormatWidthException, name, initialize, &_MissingFormatWidthException_ClassInfo_, allocate$MissingFormatWidthException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MissingFormatWidthException, serialVersionUID)},
+		{"s", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MissingFormatWidthException, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MissingFormatWidthException, init$, void, $String*)},
+		{"getFormatSpecifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatWidthException, getFormatSpecifier, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatWidthException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.MissingFormatWidthException",
+		"java.util.IllegalFormatException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MissingFormatWidthException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MissingFormatWidthException);
+	});
 	return class$;
 }
 

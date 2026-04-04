@@ -28,6 +28,7 @@ class ValueConversions$Handles : public ::java::lang::Object {
 	$class(ValueConversions$Handles, 0, ::java::lang::Object)
 public:
 	ValueConversions$Handles();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandle* CAST_REFERENCE;
 	static ::java::lang::invoke::MethodHandle* IGNORE;

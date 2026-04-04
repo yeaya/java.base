@@ -21,6 +21,7 @@ class UnsafeStaticFieldAccessorImpl : public ::jdk::internal::reflect::UnsafeFie
 	$class(UnsafeStaticFieldAccessorImpl, 0, ::jdk::internal::reflect::UnsafeFieldAccessorImpl)
 public:
 	UnsafeStaticFieldAccessorImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::Field* field);
 	$Object* base = nullptr;
 };

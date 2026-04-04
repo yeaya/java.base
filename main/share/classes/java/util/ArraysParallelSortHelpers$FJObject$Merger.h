@@ -21,7 +21,7 @@ public:
 	ArraysParallelSortHelpers$FJObject$Merger();
 	void init$(::java::util::concurrent::CountedCompleter* par, $ObjectArray* a, $ObjectArray* w, int32_t lbase, int32_t lsize, int32_t rbase, int32_t rsize, int32_t wbase, int32_t gran, ::java::util::Comparator* comparator);
 	virtual void compute() override;
-	static const int64_t serialVersionUID = (int64_t)0x21F3DDCE4497AB4C;
+	static const int64_t serialVersionUID = (int64_t)0x21f3ddce4497ab4c;
 	$ObjectArray* a = nullptr;
 	$ObjectArray* w = nullptr;
 	int32_t lbase = 0;

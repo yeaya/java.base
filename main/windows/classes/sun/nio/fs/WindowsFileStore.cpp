@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsFileStore.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -52,60 +51,11 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsFileStore_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsFileStore, $assertionsDisabled)},
-	{"root", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsFileStore, root)},
-	{"volInfo", "Lsun/nio/fs/WindowsNativeDispatcher$VolumeInformation;", nullptr, $PRIVATE | $FINAL, $field(WindowsFileStore, volInfo)},
-	{"volType", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileStore, volType)},
-	{"displayName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsFileStore, displayName)},
-	{"hashCode", "I", nullptr, $PRIVATE, $field(WindowsFileStore, hashCode$)},
-	{}
-};
-
-$MethodInfo _WindowsFileStore_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WindowsFileStore, init$, void, $String*), "sun.nio.fs.WindowsException"},
-	{"create", "(Ljava/lang/String;Z)Lsun/nio/fs/WindowsFileStore;", nullptr, $STATIC, $staticMethod(WindowsFileStore, create, WindowsFileStore*, $String*, bool), "java.io.IOException"},
-	{"create", "(Lsun/nio/fs/WindowsPath;)Lsun/nio/fs/WindowsFileStore;", nullptr, $STATIC, $staticMethod(WindowsFileStore, create, WindowsFileStore*, $WindowsPath*), "java.io.IOException"},
-	{"createFromPath", "(Ljava/lang/String;)Lsun/nio/fs/WindowsFileStore;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileStore, createFromPath, WindowsFileStore*, $String*), "sun.nio.fs.WindowsException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, equals, bool, Object$*)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, getAttribute, $Object*, $String*), "java.io.IOException"},
-	{"getBlockSize", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, getBlockSize, int64_t), "java.io.IOException"},
-	{"getFileStoreAttributeView", "(Ljava/lang/Class;)Ljava/nio/file/attribute/FileStoreAttributeView;", "<V::Ljava/nio/file/attribute/FileStoreAttributeView;>(Ljava/lang/Class<TV;>;)TV;", $PUBLIC, $virtualMethod(WindowsFileStore, getFileStoreAttributeView, $FileStoreAttributeView*, $Class*)},
-	{"getTotalSpace", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, getTotalSpace, int64_t), "java.io.IOException"},
-	{"getUnallocatedSpace", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, getUnallocatedSpace, int64_t), "java.io.IOException"},
-	{"getUsableSpace", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, getUsableSpace, int64_t), "java.io.IOException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, hashCode, int32_t)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, isReadOnly, bool)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, name, $String*)},
-	{"readDiskFreeSpace", "()Lsun/nio/fs/WindowsNativeDispatcher$DiskFreeSpace;", nullptr, $PRIVATE, $method(WindowsFileStore, readDiskFreeSpace, $WindowsNativeDispatcher$DiskFreeSpace*), "java.io.IOException"},
-	{"readDiskFreeSpaceEx", "()Lsun/nio/fs/WindowsNativeDispatcher$DiskFreeSpace;", nullptr, $PRIVATE, $method(WindowsFileStore, readDiskFreeSpaceEx, $WindowsNativeDispatcher$DiskFreeSpace*), "java.io.IOException"},
-	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(WindowsFileStore, supportsFileAttributeView, bool, $Class*)},
-	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, supportsFileAttributeView, bool, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, toString, $String*)},
-	{"type", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, type, $String*)},
-	{"volumeInformation", "()Lsun/nio/fs/WindowsNativeDispatcher$VolumeInformation;", nullptr, 0, $virtualMethod(WindowsFileStore, volumeInformation, $WindowsNativeDispatcher$VolumeInformation*)},
-	{"volumeType", "()I", nullptr, 0, $virtualMethod(WindowsFileStore, volumeType, int32_t)},
-	{}
-};
-
-$ClassInfo _WindowsFileStore_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsFileStore",
-	"java.nio.file.FileStore",
-	nullptr,
-	_WindowsFileStore_FieldInfo_,
-	_WindowsFileStore_MethodInfo_
-};
-
-$Object* allocate$WindowsFileStore($Class* clazz) {
-	return $of($alloc(WindowsFileStore));
-}
-
 bool WindowsFileStore::$assertionsDisabled = false;
 
 void WindowsFileStore::init$($String* root) {
 	$FileStore::init$();
-	if (!WindowsFileStore::$assertionsDisabled && !($nc(root)->charAt(root->length() - 1) == u'\\')) {
+	if (!WindowsFileStore::$assertionsDisabled && !($nc(root)->charAt($nc(root)->length() - 1) == u'\\')) {
 		$throwNew($AssertionError);
 	}
 	$set(this, root, root);
@@ -135,7 +85,7 @@ WindowsFileStore* WindowsFileStore::create($String* root, bool ignoreNotReady) {
 
 WindowsFileStore* WindowsFileStore::create($WindowsPath* file) {
 	$init(WindowsFileStore);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, target, $WindowsLinkSupport::getFinalPath(file, true));
 		try {
@@ -182,7 +132,7 @@ $String* WindowsFileStore::type() {
 }
 
 bool WindowsFileStore::isReadOnly() {
-	return (((int32_t)($nc(this->volInfo)->flags() & (uint32_t)0x00080000)) != 0);
+	return (($nc(this->volInfo)->flags() & 0x00080000) != 0);
 }
 
 $WindowsNativeDispatcher$DiskFreeSpace* WindowsFileStore::readDiskFreeSpaceEx() {
@@ -206,22 +156,22 @@ $WindowsNativeDispatcher$DiskFreeSpace* WindowsFileStore::readDiskFreeSpace() {
 }
 
 int64_t WindowsFileStore::getTotalSpace() {
-	int64_t space = $nc($(readDiskFreeSpaceEx()))->totalNumberOfBytes();
+	int64_t space = $$nc(readDiskFreeSpaceEx())->totalNumberOfBytes();
 	return space >= 0 ? space : $Long::MAX_VALUE;
 }
 
 int64_t WindowsFileStore::getUsableSpace() {
-	int64_t space = $nc($(readDiskFreeSpaceEx()))->freeBytesAvailable();
+	int64_t space = $$nc(readDiskFreeSpaceEx())->freeBytesAvailable();
 	return space >= 0 ? space : $Long::MAX_VALUE;
 }
 
 int64_t WindowsFileStore::getUnallocatedSpace() {
-	int64_t space = $nc($(readDiskFreeSpaceEx()))->freeBytesAvailable();
+	int64_t space = $$nc(readDiskFreeSpaceEx())->freeBytesAvailable();
 	return space >= 0 ? space : $Long::MAX_VALUE;
 }
 
 int64_t WindowsFileStore::getBlockSize() {
-	return $nc($(readDiskFreeSpace()))->bytesPerSector();
+	return $$nc(readDiskFreeSpace())->bytesPerSector();
 }
 
 $FileStoreAttributeView* WindowsFileStore::getFileStoreAttributeView($Class* type) {
@@ -235,22 +185,22 @@ $Object* WindowsFileStore::getAttribute($String* attribute) {
 	if ($nc(attribute)->equals("totalSpace"_s)) {
 		return $of($Long::valueOf(getTotalSpace()));
 	}
-	if ($nc(attribute)->equals("usableSpace"_s)) {
+	if (attribute->equals("usableSpace"_s)) {
 		return $of($Long::valueOf(getUsableSpace()));
 	}
-	if ($nc(attribute)->equals("unallocatedSpace"_s)) {
+	if (attribute->equals("unallocatedSpace"_s)) {
 		return $of($Long::valueOf(getUnallocatedSpace()));
 	}
-	if ($nc(attribute)->equals("bytesPerSector"_s)) {
+	if (attribute->equals("bytesPerSector"_s)) {
 		return $of($Long::valueOf(getBlockSize()));
 	}
-	if ($nc(attribute)->equals("volume:vsn"_s)) {
+	if (attribute->equals("volume:vsn"_s)) {
 		return $of($Integer::valueOf($nc(this->volInfo)->volumeSerialNumber()));
 	}
-	if ($nc(attribute)->equals("volume:isRemovable"_s)) {
+	if (attribute->equals("volume:isRemovable"_s)) {
 		return $of($Boolean::valueOf(this->volType == 2));
 	}
-	if ($nc(attribute)->equals("volume:isCdrom"_s)) {
+	if (attribute->equals("volume:isCdrom"_s)) {
 		return $of($Boolean::valueOf(this->volType == 5));
 	}
 	$throwNew($UnsupportedOperationException, $$str({"\'"_s, attribute, "\' not recognized"_s}));
@@ -268,29 +218,29 @@ bool WindowsFileStore::supportsFileAttributeView($Class* type) {
 	$load($AclFileAttributeView);
 	$load($FileOwnerAttributeView);
 	if (type == $AclFileAttributeView::class$ || type == $FileOwnerAttributeView::class$) {
-		return (((int32_t)($nc(this->volInfo)->flags() & (uint32_t)8)) != 0);
+		return (($nc(this->volInfo)->flags() & 8) != 0);
 	}
 	$load($UserDefinedFileAttributeView);
 	if (type == $UserDefinedFileAttributeView::class$) {
-		return (((int32_t)($nc(this->volInfo)->flags() & (uint32_t)0x00040000)) != 0);
+		return (($nc(this->volInfo)->flags() & 0x00040000) != 0);
 	}
 	return false;
 }
 
 bool WindowsFileStore::supportsFileAttributeView($String* name) {
 	bool var$0 = $nc(name)->equals("basic"_s);
-	if (var$0 || $nc(name)->equals("dos"_s)) {
+	if (var$0 || name->equals("dos"_s)) {
 		return true;
 	}
-	if ($nc(name)->equals("acl"_s)) {
+	if (name->equals("acl"_s)) {
 		$load($AclFileAttributeView);
 		return supportsFileAttributeView($AclFileAttributeView::class$);
 	}
-	if ($nc(name)->equals("owner"_s)) {
+	if (name->equals("owner"_s)) {
 		$load($FileOwnerAttributeView);
 		return supportsFileAttributeView($FileOwnerAttributeView::class$);
 	}
-	if ($nc(name)->equals("user"_s)) {
+	if (name->equals("user"_s)) {
 		$load($UserDefinedFileAttributeView);
 		return supportsFileAttributeView($UserDefinedFileAttributeView::class$);
 	}
@@ -312,8 +262,8 @@ bool WindowsFileStore::equals(Object$* ob) {
 			if ($nc(this->root)->equals($nc(other)->root)) {
 				return true;
 			}
-			if (this->volType == 3 && $nc(other)->volumeType() == 3) {
-				return $nc(this->root)->equalsIgnoreCase(other->root);
+			if (this->volType == 3 && other->volumeType() == 3) {
+				return this->root->equalsIgnoreCase(other->root);
 			}
 		}
 	}
@@ -331,7 +281,7 @@ int32_t WindowsFileStore::hashCode() {
 }
 
 $String* WindowsFileStore::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, this->displayName));
 	if (sb->length() > 0) {
 		sb->append(" "_s);
@@ -342,7 +292,7 @@ $String* WindowsFileStore::toString() {
 	return sb->toString();
 }
 
-void clinit$WindowsFileStore($Class* class$) {
+void WindowsFileStore::clinit$($Class* clazz) {
 	WindowsFileStore::$assertionsDisabled = !WindowsFileStore::class$->desiredAssertionStatus();
 }
 
@@ -350,7 +300,51 @@ WindowsFileStore::WindowsFileStore() {
 }
 
 $Class* WindowsFileStore::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileStore, name, initialize, &_WindowsFileStore_ClassInfo_, clinit$WindowsFileStore, allocate$WindowsFileStore);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsFileStore, $assertionsDisabled)},
+		{"root", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsFileStore, root)},
+		{"volInfo", "Lsun/nio/fs/WindowsNativeDispatcher$VolumeInformation;", nullptr, $PRIVATE | $FINAL, $field(WindowsFileStore, volInfo)},
+		{"volType", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsFileStore, volType)},
+		{"displayName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsFileStore, displayName)},
+		{"hashCode", "I", nullptr, $PRIVATE, $field(WindowsFileStore, hashCode$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WindowsFileStore, init$, void, $String*), "sun.nio.fs.WindowsException"},
+		{"create", "(Ljava/lang/String;Z)Lsun/nio/fs/WindowsFileStore;", nullptr, $STATIC, $staticMethod(WindowsFileStore, create, WindowsFileStore*, $String*, bool), "java.io.IOException"},
+		{"create", "(Lsun/nio/fs/WindowsPath;)Lsun/nio/fs/WindowsFileStore;", nullptr, $STATIC, $staticMethod(WindowsFileStore, create, WindowsFileStore*, $WindowsPath*), "java.io.IOException"},
+		{"createFromPath", "(Ljava/lang/String;)Lsun/nio/fs/WindowsFileStore;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileStore, createFromPath, WindowsFileStore*, $String*), "sun.nio.fs.WindowsException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, equals, bool, Object$*)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, getAttribute, $Object*, $String*), "java.io.IOException"},
+		{"getBlockSize", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, getBlockSize, int64_t), "java.io.IOException"},
+		{"getFileStoreAttributeView", "(Ljava/lang/Class;)Ljava/nio/file/attribute/FileStoreAttributeView;", "<V::Ljava/nio/file/attribute/FileStoreAttributeView;>(Ljava/lang/Class<TV;>;)TV;", $PUBLIC, $virtualMethod(WindowsFileStore, getFileStoreAttributeView, $FileStoreAttributeView*, $Class*)},
+		{"getTotalSpace", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, getTotalSpace, int64_t), "java.io.IOException"},
+		{"getUnallocatedSpace", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, getUnallocatedSpace, int64_t), "java.io.IOException"},
+		{"getUsableSpace", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, getUsableSpace, int64_t), "java.io.IOException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, hashCode, int32_t)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, isReadOnly, bool)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, name, $String*)},
+		{"readDiskFreeSpace", "()Lsun/nio/fs/WindowsNativeDispatcher$DiskFreeSpace;", nullptr, $PRIVATE, $method(WindowsFileStore, readDiskFreeSpace, $WindowsNativeDispatcher$DiskFreeSpace*), "java.io.IOException"},
+		{"readDiskFreeSpaceEx", "()Lsun/nio/fs/WindowsNativeDispatcher$DiskFreeSpace;", nullptr, $PRIVATE, $method(WindowsFileStore, readDiskFreeSpaceEx, $WindowsNativeDispatcher$DiskFreeSpace*), "java.io.IOException"},
+		{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(WindowsFileStore, supportsFileAttributeView, bool, $Class*)},
+		{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, supportsFileAttributeView, bool, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, toString, $String*)},
+		{"type", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileStore, type, $String*)},
+		{"volumeInformation", "()Lsun/nio/fs/WindowsNativeDispatcher$VolumeInformation;", nullptr, 0, $virtualMethod(WindowsFileStore, volumeInformation, $WindowsNativeDispatcher$VolumeInformation*)},
+		{"volumeType", "()I", nullptr, 0, $virtualMethod(WindowsFileStore, volumeType, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsFileStore",
+		"java.nio.file.FileStore",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsFileStore, name, initialize, &classInfo$$, WindowsFileStore::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFileStore);
+	});
 	return class$;
 }
 

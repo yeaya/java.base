@@ -1,5 +1,4 @@
 #include <sun/net/spi/DefaultProxySelector$2.h>
-
 #include <sun/net/NetProperties.h>
 #include <sun/net/spi/DefaultProxySelector.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ namespace sun {
 	namespace net {
 		namespace spi {
 
-$MethodInfo _DefaultProxySelector$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultProxySelector$2, init$, void)},
-	{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(DefaultProxySelector$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _DefaultProxySelector$2_EnclosingMethodInfo_ = {
-	"sun.net.spi.DefaultProxySelector",
-	"socksProxyVersion",
-	"()I"
-};
-
-$InnerClassInfo _DefaultProxySelector$2_InnerClassesInfo_[] = {
-	{"sun.net.spi.DefaultProxySelector$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DefaultProxySelector$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.spi.DefaultProxySelector$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_DefaultProxySelector$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Integer;>;",
-	&_DefaultProxySelector$2_EnclosingMethodInfo_,
-	_DefaultProxySelector$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.spi.DefaultProxySelector"
-};
-
-$Object* allocate$DefaultProxySelector$2($Class* clazz) {
-	return $of($alloc(DefaultProxySelector$2));
-}
-
 void DefaultProxySelector$2::init$() {
 }
 
@@ -62,7 +24,38 @@ DefaultProxySelector$2::DefaultProxySelector$2() {
 }
 
 $Class* DefaultProxySelector$2::load$($String* name, bool initialize) {
-	$loadClass(DefaultProxySelector$2, name, initialize, &_DefaultProxySelector$2_ClassInfo_, allocate$DefaultProxySelector$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultProxySelector$2, init$, void)},
+		{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(DefaultProxySelector$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.spi.DefaultProxySelector",
+		"socksProxyVersion",
+		"()I"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.spi.DefaultProxySelector$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.spi.DefaultProxySelector$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Integer;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.spi.DefaultProxySelector"
+	};
+	$loadClass(DefaultProxySelector$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultProxySelector$2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/nio/Buffer$1.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/nio/Bits.h>
@@ -40,58 +39,6 @@ using $VM$BufferPool = ::jdk::internal::misc::VM$BufferPool;
 namespace java {
 	namespace nio {
 
-$MethodInfo _Buffer$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Buffer$1, init$, void)},
-	{"acquireScope", "(Ljava/nio/Buffer;Z)Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, acquireScope, $ScopedMemoryAccess$Scope$Handle*, $Buffer*, bool)},
-	{"bufferSegment", "(Ljava/nio/Buffer;)Ljdk/internal/access/foreign/MemorySegmentProxy;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, bufferSegment, $MemorySegmentProxy*, $Buffer*)},
-	{"force", "(Ljava/io/FileDescriptor;JZJJ)V", nullptr, $PUBLIC, $virtualMethod(Buffer$1, force, void, $FileDescriptor*, int64_t, bool, int64_t, int64_t)},
-	{"getBufferAddress", "(Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC, $virtualMethod(Buffer$1, getBufferAddress, int64_t, $ByteBuffer*)},
-	{"getBufferBase", "(Ljava/nio/ByteBuffer;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, getBufferBase, $Object*, $ByteBuffer*)},
-	{"getDirectBufferPool", "()Ljdk/internal/misc/VM$BufferPool;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, getDirectBufferPool, $VM$BufferPool*)},
-	{"isLoaded", "(JZJ)Z", nullptr, $PUBLIC, $virtualMethod(Buffer$1, isLoaded, bool, int64_t, bool, int64_t)},
-	{"load", "(JZJ)V", nullptr, $PUBLIC, $virtualMethod(Buffer$1, load, void, int64_t, bool, int64_t)},
-	{"newDirectByteBuffer", "(JILjava/lang/Object;Ljdk/internal/access/foreign/MemorySegmentProxy;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, newDirectByteBuffer, $ByteBuffer*, int64_t, int32_t, Object$*, $MemorySegmentProxy*)},
-	{"newHeapByteBuffer", "([BIILjdk/internal/access/foreign/MemorySegmentProxy;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, newHeapByteBuffer, $ByteBuffer*, $bytes*, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"newMappedByteBuffer", "(Ljdk/internal/access/foreign/UnmapperProxy;JILjava/lang/Object;Ljdk/internal/access/foreign/MemorySegmentProxy;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, newMappedByteBuffer, $ByteBuffer*, $UnmapperProxy*, int64_t, int32_t, Object$*, $MemorySegmentProxy*)},
-	{"pageSize", "()I", nullptr, $PUBLIC, $virtualMethod(Buffer$1, pageSize, int32_t)},
-	{"reserveMemory", "(JJ)V", nullptr, $PUBLIC, $virtualMethod(Buffer$1, reserveMemory, void, int64_t, int64_t)},
-	{"unload", "(JZJ)V", nullptr, $PUBLIC, $virtualMethod(Buffer$1, unload, void, int64_t, bool, int64_t)},
-	{"unmapper", "(Ljava/nio/ByteBuffer;)Ljdk/internal/access/foreign/UnmapperProxy;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, unmapper, $UnmapperProxy*, $ByteBuffer*)},
-	{"unreserveMemory", "(JJ)V", nullptr, $PUBLIC, $virtualMethod(Buffer$1, unreserveMemory, void, int64_t, int64_t)},
-	{}
-};
-
-$EnclosingMethodInfo _Buffer$1_EnclosingMethodInfo_ = {
-	"java.nio.Buffer",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Buffer$1_InnerClassesInfo_[] = {
-	{"java.nio.Buffer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Buffer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.Buffer$1",
-	"java.lang.Object",
-	"jdk.internal.access.JavaNioAccess",
-	nullptr,
-	_Buffer$1_MethodInfo_,
-	nullptr,
-	&_Buffer$1_EnclosingMethodInfo_,
-	_Buffer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.Buffer"
-};
-
-$Object* allocate$Buffer$1($Class* clazz) {
-	return $of($alloc(Buffer$1));
-}
-
 void Buffer$1::init$() {
 }
 
@@ -105,12 +52,8 @@ $ByteBuffer* Buffer$1::newDirectByteBuffer(int64_t addr, int32_t cap, Object$* o
 }
 
 $ByteBuffer* Buffer$1::newMappedByteBuffer($UnmapperProxy* unmapperProxy, int64_t address, int32_t cap, Object$* obj, $MemorySegmentProxy* segment) {
-	$useLocalCurrentObjectStackCache();
-	int64_t var$0 = address;
-	int32_t var$1 = cap;
-	$var($Object, var$2, obj);
-	$var($FileDescriptor, var$3, $nc(unmapperProxy)->fileDescriptor());
-	return $new($DirectByteBuffer, var$0, var$1, var$2, var$3, unmapperProxy->isSync(), segment);
+	$var($FileDescriptor, var$0, $nc(unmapperProxy)->fileDescriptor());
+	return $new($DirectByteBuffer, address, cap, obj, var$0, unmapperProxy->isSync(), segment);
 }
 
 $ByteBuffer* Buffer$1::newHeapByteBuffer($bytes* hb, int32_t offset, int32_t capacity, $MemorySegmentProxy* segment) {
@@ -118,7 +61,7 @@ $ByteBuffer* Buffer$1::newHeapByteBuffer($bytes* hb, int32_t offset, int32_t cap
 }
 
 $Object* Buffer$1::getBufferBase($ByteBuffer* bb) {
-	return $of($nc(bb)->base());
+	return $nc(bb)->base();
 }
 
 int64_t Buffer$1::getBufferAddress($ByteBuffer* bb) {
@@ -127,7 +70,7 @@ int64_t Buffer$1::getBufferAddress($ByteBuffer* bb) {
 
 $UnmapperProxy* Buffer$1::unmapper($ByteBuffer* bb) {
 	if ($instanceOf($MappedByteBuffer, bb)) {
-		return $nc(($cast($MappedByteBuffer, bb)))->unmapper();
+		return $cast($MappedByteBuffer, bb)->unmapper();
 	} else {
 		return nullptr;
 	}
@@ -180,7 +123,53 @@ Buffer$1::Buffer$1() {
 }
 
 $Class* Buffer$1::load$($String* name, bool initialize) {
-	$loadClass(Buffer$1, name, initialize, &_Buffer$1_ClassInfo_, allocate$Buffer$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Buffer$1, init$, void)},
+		{"acquireScope", "(Ljava/nio/Buffer;Z)Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, acquireScope, $ScopedMemoryAccess$Scope$Handle*, $Buffer*, bool)},
+		{"bufferSegment", "(Ljava/nio/Buffer;)Ljdk/internal/access/foreign/MemorySegmentProxy;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, bufferSegment, $MemorySegmentProxy*, $Buffer*)},
+		{"force", "(Ljava/io/FileDescriptor;JZJJ)V", nullptr, $PUBLIC, $virtualMethod(Buffer$1, force, void, $FileDescriptor*, int64_t, bool, int64_t, int64_t)},
+		{"getBufferAddress", "(Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC, $virtualMethod(Buffer$1, getBufferAddress, int64_t, $ByteBuffer*)},
+		{"getBufferBase", "(Ljava/nio/ByteBuffer;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, getBufferBase, $Object*, $ByteBuffer*)},
+		{"getDirectBufferPool", "()Ljdk/internal/misc/VM$BufferPool;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, getDirectBufferPool, $VM$BufferPool*)},
+		{"isLoaded", "(JZJ)Z", nullptr, $PUBLIC, $virtualMethod(Buffer$1, isLoaded, bool, int64_t, bool, int64_t)},
+		{"load", "(JZJ)V", nullptr, $PUBLIC, $virtualMethod(Buffer$1, load, void, int64_t, bool, int64_t)},
+		{"newDirectByteBuffer", "(JILjava/lang/Object;Ljdk/internal/access/foreign/MemorySegmentProxy;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, newDirectByteBuffer, $ByteBuffer*, int64_t, int32_t, Object$*, $MemorySegmentProxy*)},
+		{"newHeapByteBuffer", "([BIILjdk/internal/access/foreign/MemorySegmentProxy;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, newHeapByteBuffer, $ByteBuffer*, $bytes*, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"newMappedByteBuffer", "(Ljdk/internal/access/foreign/UnmapperProxy;JILjava/lang/Object;Ljdk/internal/access/foreign/MemorySegmentProxy;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, newMappedByteBuffer, $ByteBuffer*, $UnmapperProxy*, int64_t, int32_t, Object$*, $MemorySegmentProxy*)},
+		{"pageSize", "()I", nullptr, $PUBLIC, $virtualMethod(Buffer$1, pageSize, int32_t)},
+		{"reserveMemory", "(JJ)V", nullptr, $PUBLIC, $virtualMethod(Buffer$1, reserveMemory, void, int64_t, int64_t)},
+		{"unload", "(JZJ)V", nullptr, $PUBLIC, $virtualMethod(Buffer$1, unload, void, int64_t, bool, int64_t)},
+		{"unmapper", "(Ljava/nio/ByteBuffer;)Ljdk/internal/access/foreign/UnmapperProxy;", nullptr, $PUBLIC, $virtualMethod(Buffer$1, unmapper, $UnmapperProxy*, $ByteBuffer*)},
+		{"unreserveMemory", "(JJ)V", nullptr, $PUBLIC, $virtualMethod(Buffer$1, unreserveMemory, void, int64_t, int64_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.Buffer",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.Buffer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.Buffer$1",
+		"java.lang.Object",
+		"jdk.internal.access.JavaNioAccess",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.Buffer"
+	};
+	$loadClass(Buffer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Buffer$1);
+	});
 	return class$;
 }
 

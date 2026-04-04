@@ -1,5 +1,4 @@
 #include <java/io/BufferedWriter.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Writer.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -15,43 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _BufferedWriter_FieldInfo_[] = {
-	{"out", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(BufferedWriter, out)},
-	{"cb", "[C", nullptr, $PRIVATE, $field(BufferedWriter, cb)},
-	{"nChars", "I", nullptr, $PRIVATE, $field(BufferedWriter, nChars)},
-	{"nextChar", "I", nullptr, $PRIVATE, $field(BufferedWriter, nextChar)},
-	{"defaultCharBufferSize", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferedWriter, defaultCharBufferSize)},
-	{}
-};
-
-$MethodInfo _BufferedWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(BufferedWriter, init$, void, $Writer*)},
-	{"<init>", "(Ljava/io/Writer;I)V", nullptr, $PUBLIC, $method(BufferedWriter, init$, void, $Writer*, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, close, void), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(BufferedWriter, ensureOpen, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, flush, void), "java.io.IOException"},
-	{"flushBuffer", "()V", nullptr, 0, $virtualMethod(BufferedWriter, flushBuffer, void), "java.io.IOException"},
-	{"min", "(II)I", nullptr, $PRIVATE, $method(BufferedWriter, min, int32_t, int32_t, int32_t)},
-	{"newLine", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, newLine, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, write, void, int32_t), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _BufferedWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.BufferedWriter",
-	"java.io.Writer",
-	nullptr,
-	_BufferedWriter_FieldInfo_,
-	_BufferedWriter_MethodInfo_
-};
-
-$Object* allocate$BufferedWriter($Class* clazz) {
-	return $of($alloc(BufferedWriter));
-}
 
 int32_t BufferedWriter::defaultCharBufferSize = 0;
 
@@ -160,55 +122,51 @@ void BufferedWriter::flush() {
 }
 
 void BufferedWriter::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if (this->out == nullptr) {
 			return;
 		}
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($Writer, w, this->out);
+			$var($Throwable, var$1, nullptr);
 			try {
-				$var($Writer, w, this->out);
-				{
-					$var($Throwable, var$1, nullptr);
-					try {
+				try {
+					flushBuffer();
+				} catch ($Throwable& t$) {
+					if (w != nullptr) {
 						try {
-							flushBuffer();
-						} catch ($Throwable& t$) {
-							if (w != nullptr) {
-								try {
-									w->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-							}
-							$throw(t$);
-						}
-					} catch ($Throwable& var$2) {
-						$assign(var$1, var$2);
-					} /*finally*/ {
-						if (w != nullptr) {
 							w->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
 						}
 					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
-					}
+					$throw(t$);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
+			} catch ($Throwable& var$2) {
+				$assign(var$1, var$2);
 			} /*finally*/ {
-				$set(this, out, nullptr);
-				$set(this, cb, nullptr);
+				if (w != nullptr) {
+					w->close();
+				}
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			if (var$1 != nullptr) {
+				$throw(var$1);
 			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			$set(this, out, nullptr);
+			$set(this, cb, nullptr);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
-void clinit$BufferedWriter($Class* class$) {
+void BufferedWriter::clinit$($Class* clazz) {
 	BufferedWriter::defaultCharBufferSize = 8192;
 }
 
@@ -216,7 +174,39 @@ BufferedWriter::BufferedWriter() {
 }
 
 $Class* BufferedWriter::load$($String* name, bool initialize) {
-	$loadClass(BufferedWriter, name, initialize, &_BufferedWriter_ClassInfo_, clinit$BufferedWriter, allocate$BufferedWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(BufferedWriter, out)},
+		{"cb", "[C", nullptr, $PRIVATE, $field(BufferedWriter, cb)},
+		{"nChars", "I", nullptr, $PRIVATE, $field(BufferedWriter, nChars)},
+		{"nextChar", "I", nullptr, $PRIVATE, $field(BufferedWriter, nextChar)},
+		{"defaultCharBufferSize", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferedWriter, defaultCharBufferSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(BufferedWriter, init$, void, $Writer*)},
+		{"<init>", "(Ljava/io/Writer;I)V", nullptr, $PUBLIC, $method(BufferedWriter, init$, void, $Writer*, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, close, void), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(BufferedWriter, ensureOpen, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, flush, void), "java.io.IOException"},
+		{"flushBuffer", "()V", nullptr, 0, $virtualMethod(BufferedWriter, flushBuffer, void), "java.io.IOException"},
+		{"min", "(II)I", nullptr, $PRIVATE, $method(BufferedWriter, min, int32_t, int32_t, int32_t)},
+		{"newLine", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, newLine, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, write, void, int32_t), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.BufferedWriter",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufferedWriter, name, initialize, &classInfo$$, BufferedWriter::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BufferedWriter));
+	});
 	return class$;
 }
 

@@ -44,7 +44,7 @@ public:
 	virtual ::java::util::NavigableMap* subMap(Object$* fromKey, bool fromInclusive, Object$* toKey, bool toInclusive) override;
 	using ::java::util::TreeMap$NavigableSubMap::tailMap;
 	virtual ::java::util::NavigableMap* tailMap(Object$* fromKey, bool inclusive) override;
-	static const int64_t serialVersionUID = (int64_t)0x0CAB946D1F0F9D0C;
+	static const int64_t serialVersionUID = (int64_t)0x0cab946d1f0f9d0c;
 	::java::util::Comparator* reverseComparator = nullptr;
 };
 

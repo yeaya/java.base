@@ -1,5 +1,4 @@
 #include <java/nio/file/CopyMoveHelper.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/nio/file/AtomicMoveNotSupportedException.h>
@@ -47,43 +46,11 @@ namespace java {
 	namespace nio {
 		namespace file {
 
-$MethodInfo _CopyMoveHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CopyMoveHelper, init$, void)},
-	{"convertMoveToCopyOptions", "([Ljava/nio/file/CopyOption;)[Ljava/nio/file/CopyOption;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper, convertMoveToCopyOptions, $CopyOptionArray*, $CopyOptionArray*), "java.nio.file.AtomicMoveNotSupportedException"},
-	{"copyToForeignTarget", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper, copyToForeignTarget, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{"moveToForeignTarget", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper, moveToForeignTarget, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CopyMoveHelper_InnerClassesInfo_[] = {
-	{"java.nio.file.CopyMoveHelper$CopyOptions", "java.nio.file.CopyMoveHelper", "CopyOptions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CopyMoveHelper_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.CopyMoveHelper",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CopyMoveHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CopyMoveHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.nio.file.CopyMoveHelper$CopyOptions"
-};
-
-$Object* allocate$CopyMoveHelper($Class* clazz) {
-	return $of($alloc(CopyMoveHelper));
-}
-
 void CopyMoveHelper::init$() {
 }
 
 $CopyOptionArray* CopyMoveHelper::convertMoveToCopyOptions($CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(options)->length;
 	$var($CopyOptionArray, newOptions, $new($CopyOptionArray, len + 2));
 	for (int32_t i = 0; i < len; ++i) {
@@ -102,7 +69,7 @@ $CopyOptionArray* CopyMoveHelper::convertMoveToCopyOptions($CopyOptionArray* opt
 }
 
 void CopyMoveHelper::copyToForeignTarget($Path* source, $Path* target, $CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CopyMoveHelper$CopyOptions, opts, $CopyMoveHelper$CopyOptions::parse(options));
 	$init($LinkOption);
 	$var($LinkOptionArray, linkOptions, ($nc(opts)->followLinks) ? $new($LinkOptionArray, 0) : $new($LinkOptionArray, {$LinkOption::NOFOLLOW_LINKS}));
@@ -111,49 +78,45 @@ void CopyMoveHelper::copyToForeignTarget($Path* source, $Path* target, $CopyOpti
 	if ($nc(attrs)->isSymbolicLink()) {
 		$throwNew($IOException, "Copying of symbolic links not supported"_s);
 	}
-	if ($nc(opts)->replaceExisting) {
+	if (opts->replaceExisting) {
 		$Files::deleteIfExists(target);
 	} else if ($Files::exists(target, $$new($LinkOptionArray, 0))) {
 		$throwNew($FileAlreadyExistsException, $($nc(target)->toString()));
 	}
-	if ($nc(attrs)->isDirectory()) {
+	if (attrs->isDirectory()) {
 		$Files::createDirectory(target, $$new($FileAttributeArray, 0));
 	} else {
-		{
-			$var($InputStream, in, $Files::newInputStream(source, $$new($OpenOptionArray, 0)));
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
+		$var($InputStream, in, $Files::newInputStream(source, $$new($OpenOptionArray, 0)));
+		$var($Throwable, var$0, nullptr);
+		try {
+			try {
+				$Files::copy(in, target, $$new($CopyOptionArray, 0));
+			} catch ($Throwable& t$) {
+				if (in != nullptr) {
 					try {
-						$Files::copy(in, target, $$new($CopyOptionArray, 0));
-					} catch ($Throwable& t$) {
-						if (in != nullptr) {
-							try {
-								in->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					if (in != nullptr) {
 						in->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+				$throw(t$);
+			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (in != nullptr) {
+				in->close();
 			}
 		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
 	}
-	if ($nc(opts)->copyAttributes) {
+	if (opts->copyAttributes) {
 		$load($BasicFileAttributeView);
 		$var($BasicFileAttributeView, view, $cast($BasicFileAttributeView, $Files::getFileAttributeView(target, $BasicFileAttributeView::class$, $$new($LinkOptionArray, 0))));
 		try {
-			$var($FileTime, var$2, $nc(attrs)->lastModifiedTime());
+			$var($FileTime, var$2, attrs->lastModifiedTime());
 			$var($FileTime, var$3, attrs->lastAccessTime());
 			$nc(view)->setTimes(var$2, var$3, $(attrs->creationTime()));
 		} catch ($Throwable& x) {
@@ -176,7 +139,34 @@ CopyMoveHelper::CopyMoveHelper() {
 }
 
 $Class* CopyMoveHelper::load$($String* name, bool initialize) {
-	$loadClass(CopyMoveHelper, name, initialize, &_CopyMoveHelper_ClassInfo_, allocate$CopyMoveHelper);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CopyMoveHelper, init$, void)},
+		{"convertMoveToCopyOptions", "([Ljava/nio/file/CopyOption;)[Ljava/nio/file/CopyOption;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper, convertMoveToCopyOptions, $CopyOptionArray*, $CopyOptionArray*), "java.nio.file.AtomicMoveNotSupportedException"},
+		{"copyToForeignTarget", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper, copyToForeignTarget, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{"moveToForeignTarget", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper, moveToForeignTarget, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.CopyMoveHelper$CopyOptions", "java.nio.file.CopyMoveHelper", "CopyOptions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.CopyMoveHelper",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.nio.file.CopyMoveHelper$CopyOptions"
+	};
+	$loadClass(CopyMoveHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CopyMoveHelper);
+	});
 	return class$;
 }
 

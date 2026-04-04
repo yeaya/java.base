@@ -1,5 +1,4 @@
 #include <java/util/Collections$UnmodifiableNavigableSet.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections$UnmodifiableNavigableSet$EmptyNavigableSet.h>
@@ -38,86 +37,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$UnmodifiableNavigableSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableNavigableSet, serialVersionUID)},
-	{"EMPTY_NAVIGABLE_SET", "Ljava/util/NavigableSet;", "Ljava/util/NavigableSet<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(Collections$UnmodifiableNavigableSet, EMPTY_NAVIGABLE_SET)},
-	{"ns", "Ljava/util/NavigableSet;", "Ljava/util/NavigableSet<TE;>;", $PRIVATE | $FINAL, $field(Collections$UnmodifiableNavigableSet, ns)},
-	{}
-};
-
-$MethodInfo _Collections$UnmodifiableNavigableSet_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*comparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*first", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"*headSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/NavigableSet;)V", "(Ljava/util/NavigableSet<TE;>;)V", 0, $method(Collections$UnmodifiableNavigableSet, init$, void, $NavigableSet*)},
-	{"ceiling", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, ceiling, $Object*, Object$*)},
-	{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, descendingIterator, $Iterator*)},
-	{"descendingSet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, descendingSet, $NavigableSet*)},
-	{"floor", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, floor, $Object*, Object$*)},
-	{"headSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, headSet, $NavigableSet*, Object$*, bool)},
-	{"higher", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, higher, $Object*, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"*last", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"lower", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, lower, $Object*, Object$*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{"pollFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, pollFirst, $Object*)},
-	{"pollLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, pollLast, $Object*)},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{"*subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", nullptr, $PUBLIC},
-	{"subSet", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;ZTE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, subSet, $NavigableSet*, Object$*, bool, Object$*, bool)},
-	{"*tailSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", nullptr, $PUBLIC},
-	{"tailSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, tailSet, $NavigableSet*, Object$*, bool)},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$UnmodifiableNavigableSet_InnerClassesInfo_[] = {
-	{"java.util.Collections$UnmodifiableNavigableSet", "java.util.Collections", "UnmodifiableNavigableSet", $STATIC},
-	{"java.util.Collections$UnmodifiableSortedSet", "java.util.Collections", "UnmodifiableSortedSet", $STATIC},
-	{"java.util.Collections$UnmodifiableNavigableSet$EmptyNavigableSet", "java.util.Collections$UnmodifiableNavigableSet", "EmptyNavigableSet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$UnmodifiableNavigableSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$UnmodifiableNavigableSet",
-	"java.util.Collections$UnmodifiableSortedSet",
-	"java.util.NavigableSet",
-	_Collections$UnmodifiableNavigableSet_FieldInfo_,
-	_Collections$UnmodifiableNavigableSet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableSortedSet<TE;>;Ljava/util/NavigableSet<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$UnmodifiableNavigableSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$UnmodifiableNavigableSet($Class* clazz) {
-	return $of($alloc(Collections$UnmodifiableNavigableSet));
-}
 
 $Comparator* Collections$UnmodifiableNavigableSet::comparator() {
 	 return this->$Collections$UnmodifiableSortedSet::comparator();
@@ -247,19 +166,19 @@ void Collections$UnmodifiableNavigableSet::init$($NavigableSet* s) {
 }
 
 $Object* Collections$UnmodifiableNavigableSet::lower(Object$* e) {
-	return $of($nc(this->ns)->lower(e));
+	return $nc(this->ns)->lower(e);
 }
 
 $Object* Collections$UnmodifiableNavigableSet::floor(Object$* e) {
-	return $of($nc(this->ns)->floor(e));
+	return $nc(this->ns)->floor(e);
 }
 
 $Object* Collections$UnmodifiableNavigableSet::ceiling(Object$* e) {
-	return $of($nc(this->ns)->ceiling(e));
+	return $nc(this->ns)->ceiling(e);
 }
 
 $Object* Collections$UnmodifiableNavigableSet::higher(Object$* e) {
-	return $of($nc(this->ns)->higher(e));
+	return $nc(this->ns)->higher(e);
 }
 
 $Object* Collections$UnmodifiableNavigableSet::pollFirst() {
@@ -277,7 +196,7 @@ $NavigableSet* Collections$UnmodifiableNavigableSet::descendingSet() {
 }
 
 $Iterator* Collections$UnmodifiableNavigableSet::descendingIterator() {
-	return $nc($(descendingSet()))->iterator();
+	return $$nc(descendingSet())->iterator();
 }
 
 $NavigableSet* Collections$UnmodifiableNavigableSet::subSet(Object$* fromElement, bool fromInclusive, Object$* toElement, bool toInclusive) {
@@ -292,7 +211,7 @@ $NavigableSet* Collections$UnmodifiableNavigableSet::tailSet(Object$* fromElemen
 	return $new(Collections$UnmodifiableNavigableSet, $($nc(this->ns)->tailSet(fromElement, inclusive)));
 }
 
-void clinit$Collections$UnmodifiableNavigableSet($Class* class$) {
+void Collections$UnmodifiableNavigableSet::clinit$($Class* clazz) {
 	$assignStatic(Collections$UnmodifiableNavigableSet::EMPTY_NAVIGABLE_SET, $new($Collections$UnmodifiableNavigableSet$EmptyNavigableSet));
 }
 
@@ -300,7 +219,81 @@ Collections$UnmodifiableNavigableSet::Collections$UnmodifiableNavigableSet() {
 }
 
 $Class* Collections$UnmodifiableNavigableSet::load$($String* name, bool initialize) {
-	$loadClass(Collections$UnmodifiableNavigableSet, name, initialize, &_Collections$UnmodifiableNavigableSet_ClassInfo_, clinit$Collections$UnmodifiableNavigableSet, allocate$Collections$UnmodifiableNavigableSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableNavigableSet, serialVersionUID)},
+		{"EMPTY_NAVIGABLE_SET", "Ljava/util/NavigableSet;", "Ljava/util/NavigableSet<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(Collections$UnmodifiableNavigableSet, EMPTY_NAVIGABLE_SET)},
+		{"ns", "Ljava/util/NavigableSet;", "Ljava/util/NavigableSet<TE;>;", $PRIVATE | $FINAL, $field(Collections$UnmodifiableNavigableSet, ns)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*comparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*first", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"*headSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/NavigableSet;)V", "(Ljava/util/NavigableSet<TE;>;)V", 0, $method(Collections$UnmodifiableNavigableSet, init$, void, $NavigableSet*)},
+		{"ceiling", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, ceiling, $Object*, Object$*)},
+		{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, descendingIterator, $Iterator*)},
+		{"descendingSet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, descendingSet, $NavigableSet*)},
+		{"floor", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, floor, $Object*, Object$*)},
+		{"headSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, headSet, $NavigableSet*, Object$*, bool)},
+		{"higher", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, higher, $Object*, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"*last", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"lower", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, lower, $Object*, Object$*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{"pollFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, pollFirst, $Object*)},
+		{"pollLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, pollLast, $Object*)},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{"*subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", nullptr, $PUBLIC},
+		{"subSet", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;ZTE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, subSet, $NavigableSet*, Object$*, bool, Object$*, bool)},
+		{"*tailSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", nullptr, $PUBLIC},
+		{"tailSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableSet, tailSet, $NavigableSet*, Object$*, bool)},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$UnmodifiableNavigableSet", "java.util.Collections", "UnmodifiableNavigableSet", $STATIC},
+		{"java.util.Collections$UnmodifiableSortedSet", "java.util.Collections", "UnmodifiableSortedSet", $STATIC},
+		{"java.util.Collections$UnmodifiableNavigableSet$EmptyNavigableSet", "java.util.Collections$UnmodifiableNavigableSet", "EmptyNavigableSet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$UnmodifiableNavigableSet",
+		"java.util.Collections$UnmodifiableSortedSet",
+		"java.util.NavigableSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableSortedSet<TE;>;Ljava/util/NavigableSet<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$UnmodifiableNavigableSet, name, initialize, &classInfo$$, Collections$UnmodifiableNavigableSet::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$UnmodifiableNavigableSet));
+	});
 	return class$;
 }
 

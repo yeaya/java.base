@@ -1,5 +1,4 @@
 #include <java/security/MessageDigest$Delegate$CloneableDelegate.h>
-
 #include <java/security/MessageDigest$Delegate.h>
 #include <java/security/MessageDigestSpi.h>
 #include <java/security/Provider.h>
@@ -14,42 +13,6 @@ using $Provider = ::java::security::Provider;
 
 namespace java {
 	namespace security {
-
-$MethodInfo _MessageDigest$Delegate$CloneableDelegate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/security/MessageDigestSpi;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PRIVATE, $method(MessageDigest$Delegate$CloneableDelegate, init$, void, $MessageDigestSpi*, $String*, $Provider*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MessageDigest$Delegate$CloneableDelegate_InnerClassesInfo_[] = {
-	{"java.security.MessageDigest$Delegate", "java.security.MessageDigest", "Delegate", $PRIVATE | $STATIC},
-	{"java.security.MessageDigest$Delegate$CloneableDelegate", "java.security.MessageDigest$Delegate", "CloneableDelegate", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MessageDigest$Delegate$CloneableDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.security.MessageDigest$Delegate$CloneableDelegate",
-	"java.security.MessageDigest$Delegate",
-	"java.lang.Cloneable",
-	nullptr,
-	_MessageDigest$Delegate$CloneableDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MessageDigest$Delegate$CloneableDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.MessageDigest"
-};
-
-$Object* allocate$MessageDigest$Delegate$CloneableDelegate($Class* clazz) {
-	return $of($alloc(MessageDigest$Delegate$CloneableDelegate));
-}
 
 $Object* MessageDigest$Delegate$CloneableDelegate::clone() {
 	 return this->$MessageDigest$Delegate::clone();
@@ -79,7 +42,38 @@ MessageDigest$Delegate$CloneableDelegate::MessageDigest$Delegate$CloneableDelega
 }
 
 $Class* MessageDigest$Delegate$CloneableDelegate::load$($String* name, bool initialize) {
-	$loadClass(MessageDigest$Delegate$CloneableDelegate, name, initialize, &_MessageDigest$Delegate$CloneableDelegate_ClassInfo_, allocate$MessageDigest$Delegate$CloneableDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/security/MessageDigestSpi;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PRIVATE, $method(MessageDigest$Delegate$CloneableDelegate, init$, void, $MessageDigestSpi*, $String*, $Provider*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.MessageDigest$Delegate", "java.security.MessageDigest", "Delegate", $PRIVATE | $STATIC},
+		{"java.security.MessageDigest$Delegate$CloneableDelegate", "java.security.MessageDigest$Delegate", "CloneableDelegate", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.security.MessageDigest$Delegate$CloneableDelegate",
+		"java.security.MessageDigest$Delegate",
+		"java.lang.Cloneable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.MessageDigest"
+	};
+	$loadClass(MessageDigest$Delegate$CloneableDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MessageDigest$Delegate$CloneableDelegate));
+	});
 	return class$;
 }
 

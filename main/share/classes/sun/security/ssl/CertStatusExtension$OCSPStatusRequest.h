@@ -25,6 +25,7 @@ class CertStatusExtension$OCSPStatusRequest : public ::sun::security::ssl::CertS
 	$class(CertStatusExtension$OCSPStatusRequest, 0, ::sun::security::ssl::CertStatusExtension$CertStatusRequest)
 public:
 	CertStatusExtension$OCSPStatusRequest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t statusType, $bytes* encoded);
 	virtual $String* toString() override;
 	static ::sun::security::ssl::CertStatusExtension$OCSPStatusRequest* EMPTY_OCSP;

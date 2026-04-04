@@ -1,5 +1,4 @@
 #include <IDNTest.h>
-
 #include <java/net/Socket.h>
 #include <java/net/UnknownHostException.h>
 #include <jcpp.h>
@@ -11,41 +10,22 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Socket = ::java::net::Socket;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
-$MethodInfo _IDNTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IDNTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IDNTest, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _IDNTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IDNTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IDNTest_MethodInfo_
-};
-
-$Object* allocate$IDNTest($Class* clazz) {
-	return $of($alloc(IDNTest));
-}
-
 void IDNTest::init$() {
 }
 
 void IDNTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Socket, s, $new($Socket, u"柴田芳樹"_s, 8000));
 	} catch ($UnknownHostException& e) {
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	try {
 		$var($Socket, s, $new($Socket, "ho st"_s, 8000));
 	} catch ($UnknownHostException& e) {
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -53,7 +33,22 @@ IDNTest::IDNTest() {
 }
 
 $Class* IDNTest::load$($String* name, bool initialize) {
-	$loadClass(IDNTest, name, initialize, &_IDNTest_ClassInfo_, allocate$IDNTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IDNTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IDNTest, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IDNTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IDNTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IDNTest);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/util/ArraysSupport.h>
-
 #include <java/lang/Error.h>
 #include <java/lang/Math.h>
 #include <java/lang/OutOfMemoryError.h>
@@ -54,65 +53,6 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 
-$CompoundAttribute _ArraysSupport_MethodAnnotations_vectorizedMismatch20[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _ArraysSupport_FieldInfo_[] = {
-	{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $STATIC | $FINAL, $staticField(ArraysSupport, U)},
-	{"BIG_ENDIAN", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ArraysSupport, BIG_ENDIAN)},
-	{"LOG2_ARRAY_BOOLEAN_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_BOOLEAN_INDEX_SCALE)},
-	{"LOG2_ARRAY_BYTE_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_BYTE_INDEX_SCALE)},
-	{"LOG2_ARRAY_CHAR_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_CHAR_INDEX_SCALE)},
-	{"LOG2_ARRAY_SHORT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_SHORT_INDEX_SCALE)},
-	{"LOG2_ARRAY_INT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_INT_INDEX_SCALE)},
-	{"LOG2_ARRAY_LONG_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_LONG_INDEX_SCALE)},
-	{"LOG2_ARRAY_FLOAT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_FLOAT_INDEX_SCALE)},
-	{"LOG2_ARRAY_DOUBLE_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_DOUBLE_INDEX_SCALE)},
-	{"LOG2_BYTE_BIT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_BYTE_BIT_SIZE)},
-	{"SOFT_MAX_ARRAY_LENGTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ArraysSupport, SOFT_MAX_ARRAY_LENGTH)},
-	{}
-};
-
-$MethodInfo _ArraysSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ArraysSupport, init$, void)},
-	{"exactLog2", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ArraysSupport, exactLog2, int32_t, int32_t)},
-	{"hugeLength", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ArraysSupport, hugeLength, int32_t, int32_t, int32_t)},
-	{"mismatch", "([Z[ZI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $booleans*, $booleans*, int32_t)},
-	{"mismatch", "([ZI[ZII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $booleans*, int32_t, $booleans*, int32_t, int32_t)},
-	{"mismatch", "([B[BI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $bytes*, $bytes*, int32_t)},
-	{"mismatch", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"mismatch", "([C[CI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $chars*, $chars*, int32_t)},
-	{"mismatch", "([CI[CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $chars*, int32_t, $chars*, int32_t, int32_t)},
-	{"mismatch", "([S[SI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $shorts*, $shorts*, int32_t)},
-	{"mismatch", "([SI[SII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $shorts*, int32_t, $shorts*, int32_t, int32_t)},
-	{"mismatch", "([I[II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $ints*, $ints*, int32_t)},
-	{"mismatch", "([II[III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $ints*, int32_t, $ints*, int32_t, int32_t)},
-	{"mismatch", "([F[FI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $floats*, $floats*, int32_t)},
-	{"mismatch", "([FI[FII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $floats*, int32_t, $floats*, int32_t, int32_t)},
-	{"mismatch", "([J[JI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $longs*, $longs*, int32_t)},
-	{"mismatch", "([JI[JII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $longs*, int32_t, $longs*, int32_t, int32_t)},
-	{"mismatch", "([D[DI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $doubles*, $doubles*, int32_t)},
-	{"mismatch", "([DI[DII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
-	{"newLength", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, newLength, int32_t, int32_t, int32_t, int32_t)},
-	{"vectorizedMismatch", "(Ljava/lang/Object;JLjava/lang/Object;JII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, vectorizedMismatch, int32_t, Object$*, int64_t, Object$*, int64_t, int32_t, int32_t), nullptr, nullptr, _ArraysSupport_MethodAnnotations_vectorizedMismatch20},
-	{}
-};
-
-$ClassInfo _ArraysSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.util.ArraysSupport",
-	"java.lang.Object",
-	nullptr,
-	_ArraysSupport_FieldInfo_,
-	_ArraysSupport_MethodInfo_
-};
-
-$Object* allocate$ArraysSupport($Class* clazz) {
-	return $of($alloc(ArraysSupport));
-}
-
 $Unsafe* ArraysSupport::U = nullptr;
 bool ArraysSupport::BIG_ENDIAN = false;
 int32_t ArraysSupport::LOG2_ARRAY_BOOLEAN_INDEX_SCALE = 0;
@@ -127,7 +67,7 @@ int32_t ArraysSupport::LOG2_BYTE_BIT_SIZE = 0;
 
 int32_t ArraysSupport::exactLog2(int32_t scale) {
 	$init(ArraysSupport);
-	if (((int32_t)(scale & (uint32_t)(scale - 1))) != 0) {
+	if ((scale & (scale - 1)) != 0) {
 		$throwNew($Error, "data type scale not a power of two"_s);
 	}
 	return $Integer::numberOfTrailingZeros(scale);
@@ -143,7 +83,7 @@ int32_t ArraysSupport::vectorizedMismatch(Object$* a, int64_t aOffset, Object$* 
 	for (; wi < $sr(length, log2ValuesPerWidth); ++wi) {
 		int64_t bi = $sl((int64_t)wi, ArraysSupport::LOG2_ARRAY_LONG_INDEX_SCALE);
 		int64_t av = $nc(ArraysSupport::U)->getLongUnaligned(a, aOffset + bi);
-		int64_t bv = $nc(ArraysSupport::U)->getLongUnaligned(b, bOffset + bi);
+		int64_t bv = ArraysSupport::U->getLongUnaligned(b, bOffset + bi);
 		if (av != bv) {
 			int64_t x = av ^ bv;
 			int32_t o = ArraysSupport::BIG_ENDIAN ? $sr($Long::numberOfLeadingZeros(x), ArraysSupport::LOG2_BYTE_BIT_SIZE + log2ArrayIndexScale) : $sr($Long::numberOfTrailingZeros(x), ArraysSupport::LOG2_BYTE_BIT_SIZE + log2ArrayIndexScale);
@@ -156,7 +96,7 @@ int32_t ArraysSupport::vectorizedMismatch(Object$* a, int64_t aOffset, Object$* 
 		if (tail >= wordTail) {
 			int64_t bi = $sl((int64_t)wi, ArraysSupport::LOG2_ARRAY_LONG_INDEX_SCALE);
 			int32_t av = $nc(ArraysSupport::U)->getIntUnaligned(a, aOffset + bi);
-			int32_t bv = $nc(ArraysSupport::U)->getIntUnaligned(b, bOffset + bi);
+			int32_t bv = ArraysSupport::U->getIntUnaligned(b, bOffset + bi);
 			if (av != bv) {
 				int32_t x = av ^ bv;
 				int32_t o = ArraysSupport::BIG_ENDIAN ? $sr($Integer::numberOfLeadingZeros(x), ArraysSupport::LOG2_BYTE_BIT_SIZE + log2ArrayIndexScale) : $sr($Integer::numberOfTrailingZeros(x), ArraysSupport::LOG2_BYTE_BIT_SIZE + log2ArrayIndexScale);
@@ -417,8 +357,8 @@ int32_t ArraysSupport::mismatch($floats* a, int32_t aFromIndex, $floats* b, int3
 			i = vectorizedMismatch(a, aOffset, b, bOffset, length, ArraysSupport::LOG2_ARRAY_FLOAT_INDEX_SCALE);
 		}
 		if (i >= 0) {
-			bool var$1 = !$Float::isNaN($nc(a)->get(aFromIndex + i));
-			if (var$1 || !$Float::isNaN($nc(b)->get(bFromIndex + i))) {
+			bool var$1 = !$Float::isNaN(a->get(aFromIndex + i));
+			if (var$1 || !$Float::isNaN(b->get(bFromIndex + i))) {
 				return i;
 			}
 			++i;
@@ -482,14 +422,14 @@ int32_t ArraysSupport::mismatch($doubles* a, int32_t aFromIndex, $doubles* b, in
 		i = vectorizedMismatch(a, aOffset, b, bOffset, length, ArraysSupport::LOG2_ARRAY_DOUBLE_INDEX_SCALE);
 	}
 	if (i >= 0) {
-		bool var$1 = !$Double::isNaN($nc(a)->get(aFromIndex + i));
-		if (var$1 || !$Double::isNaN($nc(b)->get(bFromIndex + i))) {
+		bool var$1 = !$Double::isNaN(a->get(aFromIndex + i));
+		if (var$1 || !$Double::isNaN(b->get(bFromIndex + i))) {
 			return i;
 		}
 		++i;
 		for (; i < length; ++i) {
-			int64_t var$2 = $Double::doubleToLongBits($nc(a)->get(aFromIndex + i));
-			if (var$2 != $Double::doubleToLongBits($nc(b)->get(bFromIndex + i))) {
+			int64_t var$2 = $Double::doubleToLongBits(a->get(aFromIndex + i));
+			if (var$2 != $Double::doubleToLongBits(b->get(bFromIndex + i))) {
 				return i;
 			}
 		}
@@ -509,7 +449,7 @@ int32_t ArraysSupport::newLength(int32_t oldLength, int32_t minGrowth, int32_t p
 
 int32_t ArraysSupport::hugeLength(int32_t oldLength, int32_t minGrowth) {
 	$init(ArraysSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t minLength = oldLength + minGrowth;
 	if (minLength < 0) {
 		$throwNew($OutOfMemoryError, $$str({"Required array length "_s, $$str(oldLength), " + "_s, $$str(minGrowth), " is too large"_s}));
@@ -520,7 +460,7 @@ int32_t ArraysSupport::hugeLength(int32_t oldLength, int32_t minGrowth) {
 	}
 }
 
-void clinit$ArraysSupport($Class* class$) {
+void ArraysSupport::clinit$($Class* clazz) {
 	$assignStatic(ArraysSupport::U, $Unsafe::getUnsafe());
 	ArraysSupport::BIG_ENDIAN = $nc(ArraysSupport::U)->isBigEndian();
 	ArraysSupport::LOG2_ARRAY_BOOLEAN_INDEX_SCALE = ArraysSupport::exactLog2($Unsafe::ARRAY_BOOLEAN_INDEX_SCALE);
@@ -538,7 +478,60 @@ ArraysSupport::ArraysSupport() {
 }
 
 $Class* ArraysSupport::load$($String* name, bool initialize) {
-	$loadClass(ArraysSupport, name, initialize, &_ArraysSupport_ClassInfo_, clinit$ArraysSupport, allocate$ArraysSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $STATIC | $FINAL, $staticField(ArraysSupport, U)},
+		{"BIG_ENDIAN", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ArraysSupport, BIG_ENDIAN)},
+		{"LOG2_ARRAY_BOOLEAN_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_BOOLEAN_INDEX_SCALE)},
+		{"LOG2_ARRAY_BYTE_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_BYTE_INDEX_SCALE)},
+		{"LOG2_ARRAY_CHAR_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_CHAR_INDEX_SCALE)},
+		{"LOG2_ARRAY_SHORT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_SHORT_INDEX_SCALE)},
+		{"LOG2_ARRAY_INT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_INT_INDEX_SCALE)},
+		{"LOG2_ARRAY_LONG_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_LONG_INDEX_SCALE)},
+		{"LOG2_ARRAY_FLOAT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_FLOAT_INDEX_SCALE)},
+		{"LOG2_ARRAY_DOUBLE_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_ARRAY_DOUBLE_INDEX_SCALE)},
+		{"LOG2_BYTE_BIT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ArraysSupport, LOG2_BYTE_BIT_SIZE)},
+		{"SOFT_MAX_ARRAY_LENGTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ArraysSupport, SOFT_MAX_ARRAY_LENGTH)},
+		{}
+	};
+	$CompoundAttribute vectorizedMismatchmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ArraysSupport, init$, void)},
+		{"exactLog2", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ArraysSupport, exactLog2, int32_t, int32_t)},
+		{"hugeLength", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ArraysSupport, hugeLength, int32_t, int32_t, int32_t)},
+		{"mismatch", "([Z[ZI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $booleans*, $booleans*, int32_t)},
+		{"mismatch", "([ZI[ZII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $booleans*, int32_t, $booleans*, int32_t, int32_t)},
+		{"mismatch", "([B[BI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $bytes*, $bytes*, int32_t)},
+		{"mismatch", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"mismatch", "([C[CI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $chars*, $chars*, int32_t)},
+		{"mismatch", "([CI[CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $chars*, int32_t, $chars*, int32_t, int32_t)},
+		{"mismatch", "([S[SI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $shorts*, $shorts*, int32_t)},
+		{"mismatch", "([SI[SII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $shorts*, int32_t, $shorts*, int32_t, int32_t)},
+		{"mismatch", "([I[II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $ints*, $ints*, int32_t)},
+		{"mismatch", "([II[III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $ints*, int32_t, $ints*, int32_t, int32_t)},
+		{"mismatch", "([F[FI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $floats*, $floats*, int32_t)},
+		{"mismatch", "([FI[FII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $floats*, int32_t, $floats*, int32_t, int32_t)},
+		{"mismatch", "([J[JI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $longs*, $longs*, int32_t)},
+		{"mismatch", "([JI[JII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $longs*, int32_t, $longs*, int32_t, int32_t)},
+		{"mismatch", "([D[DI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $doubles*, $doubles*, int32_t)},
+		{"mismatch", "([DI[DII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, mismatch, int32_t, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
+		{"newLength", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, newLength, int32_t, int32_t, int32_t, int32_t)},
+		{"vectorizedMismatch", "(Ljava/lang/Object;JLjava/lang/Object;JII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArraysSupport, vectorizedMismatch, int32_t, Object$*, int64_t, Object$*, int64_t, int32_t, int32_t), nullptr, nullptr, vectorizedMismatchmethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.util.ArraysSupport",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArraysSupport, name, initialize, &classInfo$$, ArraysSupport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ArraysSupport);
+	});
 	return class$;
 }
 

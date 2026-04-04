@@ -21,6 +21,7 @@ class $export AddTests : public ::java::lang::Object {
 	$class(AddTests, 0, ::java::lang::Object)
 public:
 	AddTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t addWithoutException(::java::math::BigDecimal* b1, ::java::math::BigDecimal* b2, ::java::math::MathContext* mc);
 	static int32_t arithmeticExceptionTest();

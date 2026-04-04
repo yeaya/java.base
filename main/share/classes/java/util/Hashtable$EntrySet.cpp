@@ -1,5 +1,4 @@
 #include <java/util/Hashtable$EntrySet.h>
-
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Hashtable$Entry.h>
@@ -22,49 +21,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 namespace java {
 	namespace util {
 
-$FieldInfo _Hashtable$EntrySet_FieldInfo_[] = {
-	{"this$0", "Ljava/util/Hashtable;", nullptr, $FINAL | $SYNTHETIC, $field(Hashtable$EntrySet, this$0)},
-	{}
-};
-
-$MethodInfo _Hashtable$EntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PRIVATE, $method(Hashtable$EntrySet, init$, void, $Hashtable*)},
-	{"add", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PUBLIC, $virtualMethod(Hashtable$EntrySet, add, bool, $Map$Entry*)},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Hashtable$EntrySet, add, bool, Object$*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, contains, bool, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Hashtable$EntrySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Hashtable$EntrySet_InnerClassesInfo_[] = {
-	{"java.util.Hashtable$EntrySet", "java.util.Hashtable", "EntrySet", $PRIVATE},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Hashtable$EntrySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Hashtable$EntrySet",
-	"java.util.AbstractSet",
-	nullptr,
-	_Hashtable$EntrySet_FieldInfo_,
-	_Hashtable$EntrySet_MethodInfo_,
-	"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_Hashtable$EntrySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Hashtable"
-};
-
-$Object* allocate$Hashtable$EntrySet($Class* clazz) {
-	return $of($alloc(Hashtable$EntrySet));
-}
-
 void Hashtable$EntrySet::init$($Hashtable* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractSet::init$();
@@ -79,7 +35,7 @@ bool Hashtable$EntrySet::add($Map$Entry* o) {
 }
 
 bool Hashtable$EntrySet::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -91,11 +47,11 @@ bool Hashtable$EntrySet::contains(Object$* o) {
 	}
 	$var($Object, key, $nc(entry)->getKey());
 	$var($Hashtable$EntryArray, tab, this->this$0->table);
-	int32_t hash = $nc($of(key))->hashCode();
-	int32_t index = $mod(((int32_t)(hash & (uint32_t)0x7FFFFFFF)), $nc(tab)->length);
+	int32_t hash = $nc(key)->hashCode();
+	int32_t index = $mod((hash & 0x7fffffff), $nc(tab)->length);
 	{
 		$var($Hashtable$Entry, e, tab->get(index));
-		for (; e != nullptr; $assign(e, $nc(e)->next)) {
+		for (; e != nullptr; $assign(e, e->next)) {
 			if (e->hash == hash && e->equals(entry)) {
 				return true;
 			}
@@ -105,7 +61,7 @@ bool Hashtable$EntrySet::contains(Object$* o) {
 }
 
 bool Hashtable$EntrySet::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -117,12 +73,12 @@ bool Hashtable$EntrySet::remove(Object$* o) {
 	}
 	$var($Object, key, $nc(entry)->getKey());
 	$var($Hashtable$EntryArray, tab, this->this$0->table);
-	int32_t hash = $nc($of(key))->hashCode();
-	int32_t index = $mod(((int32_t)(hash & (uint32_t)0x7FFFFFFF)), $nc(tab)->length);
+	int32_t hash = $nc(key)->hashCode();
+	int32_t index = $mod((hash & 0x7fffffff), $nc(tab)->length);
 	$var($Hashtable$Entry, e, tab->get(index));
 	{
 		$var($Hashtable$Entry, prev, nullptr);
-		for (; e != nullptr; $assign(prev, e), $assign(e, $nc(e)->next)) {
+		for (; e != nullptr; $assign(prev, e), $assign(e, e->next)) {
 			if (e->hash == hash && e->equals(entry)) {
 				if (prev != nullptr) {
 					$set(prev, next, e->next);
@@ -155,7 +111,44 @@ Hashtable$EntrySet::Hashtable$EntrySet() {
 }
 
 $Class* Hashtable$EntrySet::load$($String* name, bool initialize) {
-	$loadClass(Hashtable$EntrySet, name, initialize, &_Hashtable$EntrySet_ClassInfo_, allocate$Hashtable$EntrySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/Hashtable;", nullptr, $FINAL | $SYNTHETIC, $field(Hashtable$EntrySet, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PRIVATE, $method(Hashtable$EntrySet, init$, void, $Hashtable*)},
+		{"add", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PUBLIC, $virtualMethod(Hashtable$EntrySet, add, bool, $Map$Entry*)},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Hashtable$EntrySet, add, bool, Object$*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, contains, bool, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Hashtable$EntrySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Hashtable$EntrySet", "java.util.Hashtable", "EntrySet", $PRIVATE},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Hashtable$EntrySet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Hashtable"
+	};
+	$loadClass(Hashtable$EntrySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Hashtable$EntrySet));
+	});
 	return class$;
 }
 

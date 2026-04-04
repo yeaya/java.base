@@ -1,5 +1,4 @@
 #include <java/lang/ClassCastException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ClassCastException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassCastException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ClassCastException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassCastException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassCastException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ClassCastException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.ClassCastException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ClassCastException_FieldInfo_,
-	_ClassCastException_MethodInfo_
-};
-
-$Object* allocate$ClassCastException($Class* clazz) {
-	return $of($alloc(ClassCastException));
-}
 
 void ClassCastException::init$() {
 	$RuntimeException::init$();
@@ -53,7 +28,26 @@ void ClassCastException::throw$() {
 }
 
 $Class* ClassCastException::load$($String* name, bool initialize) {
-	$loadClass(ClassCastException, name, initialize, &_ClassCastException_ClassInfo_, allocate$ClassCastException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassCastException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClassCastException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassCastException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.ClassCastException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassCastException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassCastException);
+	});
 	return class$;
 }
 

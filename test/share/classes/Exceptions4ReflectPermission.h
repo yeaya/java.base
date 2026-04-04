@@ -15,6 +15,7 @@ class $export Exceptions4ReflectPermission : public ::java::lang::Object {
 	$class(Exceptions4ReflectPermission, 0, ::java::lang::Object)
 public:
 	Exceptions4ReflectPermission();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void fail($String* fs, $Throwable* ex);
 	static void main($StringArray* args);

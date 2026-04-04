@@ -14,10 +14,13 @@ class $export ReadOnlyFileSystemException : public ::java::lang::UnsupportedOper
 public:
 	ReadOnlyFileSystemException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xA151EE9E9500D6A3;
+	static const int64_t serialVersionUID = (int64_t)0xa151ee9e9500d6a3;
 	ReadOnlyFileSystemException(const ReadOnlyFileSystemException& e);
 	virtual void throw$() override;
-	inline ReadOnlyFileSystemException* operator ->() {
+	inline ReadOnlyFileSystemException* operator ->() const {
+		return (ReadOnlyFileSystemException*)throwing$;
+	}
+	inline operator ReadOnlyFileSystemException*() const {
 		return (ReadOnlyFileSystemException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <java/lang/ProcessBuilder$NullOutputStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/ProcessBuilder.h>
@@ -17,42 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 
-$FieldInfo _ProcessBuilder$NullOutputStream_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/lang/ProcessBuilder$NullOutputStream;", nullptr, $STATIC | $FINAL, $staticField(ProcessBuilder$NullOutputStream, INSTANCE)},
-	{}
-};
-
-$MethodInfo _ProcessBuilder$NullOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessBuilder$NullOutputStream, init$, void)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$NullOutputStream, write, void, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ProcessBuilder$NullOutputStream_InnerClassesInfo_[] = {
-	{"java.lang.ProcessBuilder$NullOutputStream", "java.lang.ProcessBuilder", "NullOutputStream", $STATIC},
-	{}
-};
-
-$ClassInfo _ProcessBuilder$NullOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ProcessBuilder$NullOutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	_ProcessBuilder$NullOutputStream_FieldInfo_,
-	_ProcessBuilder$NullOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessBuilder$NullOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessBuilder"
-};
-
-$Object* allocate$ProcessBuilder$NullOutputStream($Class* clazz) {
-	return $of($alloc(ProcessBuilder$NullOutputStream));
-}
-
 ProcessBuilder$NullOutputStream* ProcessBuilder$NullOutputStream::INSTANCE = nullptr;
 
 void ProcessBuilder$NullOutputStream::init$() {
@@ -63,7 +26,7 @@ void ProcessBuilder$NullOutputStream::write(int32_t b) {
 	$throwNew($IOException, "Stream closed"_s);
 }
 
-void clinit$ProcessBuilder$NullOutputStream($Class* class$) {
+void ProcessBuilder$NullOutputStream::clinit$($Class* clazz) {
 	$assignStatic(ProcessBuilder$NullOutputStream::INSTANCE, $new(ProcessBuilder$NullOutputStream));
 }
 
@@ -71,7 +34,37 @@ ProcessBuilder$NullOutputStream::ProcessBuilder$NullOutputStream() {
 }
 
 $Class* ProcessBuilder$NullOutputStream::load$($String* name, bool initialize) {
-	$loadClass(ProcessBuilder$NullOutputStream, name, initialize, &_ProcessBuilder$NullOutputStream_ClassInfo_, clinit$ProcessBuilder$NullOutputStream, allocate$ProcessBuilder$NullOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/lang/ProcessBuilder$NullOutputStream;", nullptr, $STATIC | $FINAL, $staticField(ProcessBuilder$NullOutputStream, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessBuilder$NullOutputStream, init$, void)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$NullOutputStream, write, void, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessBuilder$NullOutputStream", "java.lang.ProcessBuilder", "NullOutputStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ProcessBuilder$NullOutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessBuilder"
+	};
+	$loadClass(ProcessBuilder$NullOutputStream, name, initialize, &classInfo$$, ProcessBuilder$NullOutputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProcessBuilder$NullOutputStream));
+	});
 	return class$;
 }
 

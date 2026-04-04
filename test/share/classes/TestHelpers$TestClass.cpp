@@ -1,5 +1,4 @@
 #include <TestHelpers$TestClass.h>
-
 #include <TestHelpers$TestSuperclass.h>
 #include <TestHelpers.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -15,54 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-
-$FieldInfo _TestHelpers$TestClass_FieldInfo_[] = {
-	{"LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestHelpers$TestClass, LOOKUP)},
-	{"sf", "I", nullptr, $STATIC, $staticField(TestHelpers$TestClass, sf)},
-	{"f", "I", nullptr, 0, $field(TestHelpers$TestClass, f)},
-	{}
-};
-
-$MethodInfo _TestHelpers$TestClass_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestHelpers$TestClass, init$, void)},
-	{"m", "(I)I", nullptr, $PUBLIC, $virtualMethod(TestHelpers$TestClass, m, int32_t, int32_t)},
-	{"pm", "(I)I", nullptr, $PRIVATE, $method(TestHelpers$TestClass, pm, int32_t, int32_t)},
-	{"psm", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestHelpers$TestClass, psm, int32_t, int32_t)},
-	{"sm", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TestHelpers$TestClass, sm, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _TestHelpers$TestClass_InnerClassesInfo_[] = {
-	{"TestHelpers$TestClass", "TestHelpers", "TestClass", $STATIC},
-	{"TestHelpers$TestSuperclass", "TestHelpers", "TestSuperclass", $STATIC},
-	{"TestHelpers$TestInterface", "TestHelpers", "TestInterface", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TestHelpers$TestClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestHelpers$TestClass",
-	"TestHelpers$TestSuperclass",
-	"TestHelpers$TestInterface",
-	_TestHelpers$TestClass_FieldInfo_,
-	_TestHelpers$TestClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestHelpers$TestClass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestHelpers"
-};
-
-$Object* allocate$TestHelpers$TestClass($Class* clazz) {
-	return $of($alloc(TestHelpers$TestClass));
-}
 
 int32_t TestHelpers$TestClass::hashCode() {
 	 return this->$TestHelpers$TestSuperclass::hashCode();
@@ -109,7 +60,7 @@ int32_t TestHelpers$TestClass::pm(int32_t x) {
 	return x;
 }
 
-void clinit$TestHelpers$TestClass($Class* class$) {
+void TestHelpers$TestClass::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(TestHelpers$TestClass::LOOKUP, $MethodHandles::lookup());
 }
@@ -118,7 +69,49 @@ TestHelpers$TestClass::TestHelpers$TestClass() {
 }
 
 $Class* TestHelpers$TestClass::load$($String* name, bool initialize) {
-	$loadClass(TestHelpers$TestClass, name, initialize, &_TestHelpers$TestClass_ClassInfo_, clinit$TestHelpers$TestClass, allocate$TestHelpers$TestClass);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestHelpers$TestClass, LOOKUP)},
+		{"sf", "I", nullptr, $STATIC, $staticField(TestHelpers$TestClass, sf)},
+		{"f", "I", nullptr, 0, $field(TestHelpers$TestClass, f)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestHelpers$TestClass, init$, void)},
+		{"m", "(I)I", nullptr, $PUBLIC, $virtualMethod(TestHelpers$TestClass, m, int32_t, int32_t)},
+		{"pm", "(I)I", nullptr, $PRIVATE, $method(TestHelpers$TestClass, pm, int32_t, int32_t)},
+		{"psm", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestHelpers$TestClass, psm, int32_t, int32_t)},
+		{"sm", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TestHelpers$TestClass, sm, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestHelpers$TestClass", "TestHelpers", "TestClass", $STATIC},
+		{"TestHelpers$TestSuperclass", "TestHelpers", "TestSuperclass", $STATIC},
+		{"TestHelpers$TestInterface", "TestHelpers", "TestInterface", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestHelpers$TestClass",
+		"TestHelpers$TestSuperclass",
+		"TestHelpers$TestInterface",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestHelpers"
+	};
+	$loadClass(TestHelpers$TestClass, name, initialize, &classInfo$$, TestHelpers$TestClass::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestHelpers$TestClass));
+	});
 	return class$;
 }
 

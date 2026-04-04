@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -20,7 +19,6 @@
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/ECDHClientKeyExchange$ECDHClientKeyExchangeMessage.h>
 #include <sun/security/ssl/ECDHClientKeyExchange.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/NamedGroup$ExceptionSupplier.h>
 #include <sun/security/ssl/NamedGroup.h>
 #include <sun/security/ssl/NamedGroupPossession.h>
@@ -51,12 +49,10 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $Alert = ::sun::security::ssl::Alert;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $ECDHClientKeyExchange$ECDHClientKeyExchangeMessage = ::sun::security::ssl::ECDHClientKeyExchange$ECDHClientKeyExchangeMessage;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$ExceptionSupplier = ::sun::security::ssl::NamedGroup$ExceptionSupplier;
 using $NamedGroupPossession = ::sun::security::ssl::NamedGroupPossession;
@@ -65,10 +61,8 @@ using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLKeyExchange = ::sun::security::ssl::SSLKeyExchange;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $SSLTrafficKeyDerivation = ::sun::security::ssl::SSLTrafficKeyDerivation;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
@@ -84,76 +78,40 @@ public:
 	virtual void apply($String* s) override {
 		ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::lambda$consume$0(shc, ng, s);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0>());
-	}
 	$ServerHandshakeContext* shc = nullptr;
 	$NamedGroup* ng = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::fieldInfos[3] = {
-	{"shc", "Lsun/security/ssl/ServerHandshakeContext;", nullptr, $PUBLIC, $field(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, shc)},
-	{"ng", "Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC, $field(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, ng)},
-	{}
-};
-$MethodInfo ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::methodInfos[3] = {
-	{"<init>", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/NamedGroup;)V", nullptr, $PUBLIC, $method(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, init$, void, $ServerHandshakeContext*, $NamedGroup*)},
-	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, apply, void, $String*)},
-	{}
-};
-$ClassInfo ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.ssl.ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0",
-	"java.lang.Object",
-	"sun.security.ssl.NamedGroup$ExceptionSupplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::load$($String* name, bool initialize) {
-	$loadClass(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"shc", "Lsun/security/ssl/ServerHandshakeContext;", nullptr, $PUBLIC, $field(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, shc)},
+		{"ng", "Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC, $field(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, ng)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/NamedGroup;)V", nullptr, $PUBLIC, $method(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, init$, void, $ServerHandshakeContext*, $NamedGroup*)},
+		{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, apply, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.ssl.ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0",
+		"java.lang.Object",
+		"sun.security.ssl.NamedGroup$ExceptionSupplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0);
+	});
 	return class$;
 }
 $Class* ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::class$ = nullptr;
-
-$MethodInfo _ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
-	{"lambda$consume$0", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/NamedGroup;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer, lambda$consume$0, void, $ServerHandshakeContext*, $NamedGroup*, $String*), "javax.net.ssl.SSLException"},
-	{}
-};
-
-$InnerClassInfo _ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer", "sun.security.ssl.ECDHClientKeyExchange", "ECDHEClientKeyExchangeConsumer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLConsumer",
-	nullptr,
-	_ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECDHClientKeyExchange"
-};
-
-$Object* allocate$ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer($Class* clazz) {
-	return $of($alloc(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer));
-}
 
 void ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::init$() {
 }
 
 void ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($SSLPossession, sslPossession, nullptr);
 	$NamedGroup* namedGroup = nullptr;
@@ -161,13 +119,11 @@ void ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::consume($ConnectionCo
 		$var($Iterator, i$, $nc($nc(shc)->handshakePossessions)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SSLPossession, possession, $cast($SSLPossession, i$->next()));
-			{
-				if ($instanceOf($NamedGroupPossession, possession)) {
-					$var($NamedGroupPossession, poss, $cast($NamedGroupPossession, possession));
-					namedGroup = $nc(poss)->getNamedGroup();
-					$assign(sslPossession, poss);
-					break;
-				}
+			if ($instanceOf($NamedGroupPossession, possession)) {
+				$var($NamedGroupPossession, poss, $cast($NamedGroupPossession, possession));
+				namedGroup = poss->getNamedGroup();
+				$assign(sslPossession, poss);
+				break;
 			}
 		}
 	}
@@ -184,14 +140,14 @@ void ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::consume($ConnectionCo
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, "Not supported key exchange type"_s)));
 	}
-	$var($ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, cke, $new($ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, static_cast<$HandshakeContext*>(shc), message));
+	$var($ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, cke, $new($ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, shc, message));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Consuming ECDHE ClientKeyExchange handshake message"_s, $$new($ObjectArray, {$of(cke)}));
+		$SSLLogger::fine("Consuming ECDHE ClientKeyExchange handshake message"_s, $$new($ObjectArray, {cke}));
 	}
 	try {
 		$NamedGroup* ng = namedGroup;
-		$var($SSLCredentials, sslCredentials, $nc(namedGroup)->decodeCredentials(cke->encodedPoint, shc->algorithmConstraints, static_cast<$NamedGroup$ExceptionSupplier*>($$new(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, shc, ng))));
+		$var($SSLCredentials, sslCredentials, $nc(namedGroup)->decodeCredentials(cke->encodedPoint, shc->algorithmConstraints, $$new(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, shc, ng)));
 		$nc(shc->handshakeCredentials)->add(sslCredentials);
 	} catch ($GeneralSecurityException& e) {
 		$init($Alert);
@@ -205,7 +161,7 @@ void ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::consume($ConnectionCo
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Not supported key derivation: "_s, shc->negotiatedProtocol}))));
 	} else {
-		$set(shc, handshakeKeyDerivation, $nc(kd)->createKeyDerivation(shc, masterSecret));
+		$set(shc, handshakeKeyDerivation, kd->createKeyDerivation(shc, masterSecret));
 	}
 }
 
@@ -220,11 +176,38 @@ ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::ECDHClientKeyExchange$ECDH
 
 $Class* ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::classInfo$.name)) {
+		if (name->equals("sun.security.ssl.ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0")) {
 			return ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer, name, initialize, &_ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer_ClassInfo_, allocate$ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+		{"lambda$consume$0", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/NamedGroup;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer, lambda$consume$0, void, $ServerHandshakeContext*, $NamedGroup*, $String*), "javax.net.ssl.SSLException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer", "sun.security.ssl.ECDHClientKeyExchange", "ECDHEClientKeyExchangeConsumer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECDHClientKeyExchange"
+	};
+	$loadClass(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer);
+	});
 	return class$;
 }
 

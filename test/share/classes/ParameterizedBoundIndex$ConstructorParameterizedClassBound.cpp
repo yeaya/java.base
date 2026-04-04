@@ -1,5 +1,4 @@
 #include <ParameterizedBoundIndex$ConstructorParameterizedClassBound.h>
-
 #include <ParameterizedBoundIndex.h>
 #include <jcpp.h>
 
@@ -8,41 +7,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
 
-$TypeAnnotation _ParameterizedBoundIndex$ConstructorParameterizedClassBound_MethodTypeAnnotations_init$0[] = {
-	{"LParameterizedBoundIndex$TypeAnnotation;", nullptr, "METHOD_TYPE_PARAMETER_BOUND, param_index = 0, bound_index = 0"},
-	{}
-};
-
-$MethodInfo _ParameterizedBoundIndex$ConstructorParameterizedClassBound_MethodInfo_[] = {
-	{"<init>", "()V", "<T:Ljava/util/ArrayList<*>;>()V", 0, $method(ParameterizedBoundIndex$ConstructorParameterizedClassBound, init$, void), nullptr, nullptr, nullptr, _ParameterizedBoundIndex$ConstructorParameterizedClassBound_MethodTypeAnnotations_init$0},
-	{}
-};
-
-$InnerClassInfo _ParameterizedBoundIndex$ConstructorParameterizedClassBound_InnerClassesInfo_[] = {
-	{"ParameterizedBoundIndex$ConstructorParameterizedClassBound", "ParameterizedBoundIndex", "ConstructorParameterizedClassBound", $STATIC},
-	{}
-};
-
-$ClassInfo _ParameterizedBoundIndex$ConstructorParameterizedClassBound_ClassInfo_ = {
-	$ACC_SUPER,
-	"ParameterizedBoundIndex$ConstructorParameterizedClassBound",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ParameterizedBoundIndex$ConstructorParameterizedClassBound_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ParameterizedBoundIndex$ConstructorParameterizedClassBound_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ParameterizedBoundIndex"
-};
-
-$Object* allocate$ParameterizedBoundIndex$ConstructorParameterizedClassBound($Class* clazz) {
-	return $of($alloc(ParameterizedBoundIndex$ConstructorParameterizedClassBound));
-}
-
 void ParameterizedBoundIndex$ConstructorParameterizedClassBound::init$() {
 }
 
@@ -50,7 +14,36 @@ ParameterizedBoundIndex$ConstructorParameterizedClassBound::ParameterizedBoundIn
 }
 
 $Class* ParameterizedBoundIndex$ConstructorParameterizedClassBound::load$($String* name, bool initialize) {
-	$loadClass(ParameterizedBoundIndex$ConstructorParameterizedClassBound, name, initialize, &_ParameterizedBoundIndex$ConstructorParameterizedClassBound_ClassInfo_, allocate$ParameterizedBoundIndex$ConstructorParameterizedClassBound);
+	$TypeAnnotation init$methodTypeAnnotations$$[] = {
+		{"LParameterizedBoundIndex$TypeAnnotation;", nullptr, "METHOD_TYPE_PARAMETER_BOUND, param_index = 0, bound_index = 0"},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", "<T:Ljava/util/ArrayList<*>;>()V", 0, $method(ParameterizedBoundIndex$ConstructorParameterizedClassBound, init$, void), nullptr, nullptr, nullptr, init$methodTypeAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ParameterizedBoundIndex$ConstructorParameterizedClassBound", "ParameterizedBoundIndex", "ConstructorParameterizedClassBound", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ParameterizedBoundIndex$ConstructorParameterizedClassBound",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ParameterizedBoundIndex"
+	};
+	$loadClass(ParameterizedBoundIndex$ConstructorParameterizedClassBound, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParameterizedBoundIndex$ConstructorParameterizedClassBound);
+	});
 	return class$;
 }
 

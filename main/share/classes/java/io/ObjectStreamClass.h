@@ -76,6 +76,7 @@ class $export ObjectStreamClass : public ::java::io::Serializable {
 	$class(ObjectStreamClass, 0, ::java::io::Serializable)
 public:
 	ObjectStreamClass();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* cl);
 	void init$();
 	static ::java::lang::invoke::MethodHandle* canonicalRecordCtr($Class* cls);
@@ -158,7 +159,7 @@ public:
 	virtual void writeNonProxy(::java::io::ObjectOutputStream* out);
 	static bool $assertionsDisabled;
 	static $Array<::java::io::ObjectStreamField>* NO_FIELDS;
-	static const int64_t serialVersionUID = (int64_t)0xAB0E6F1AEEFE7B88;
+	static const int64_t serialVersionUID = (int64_t)0xab0e6f1aeefe7b88;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	static ::jdk::internal::reflect::ReflectionFactory* reflFactory;
 	$Class* cl = nullptr;

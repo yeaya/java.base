@@ -1,5 +1,4 @@
 #include <sun/security/ssl/StatusResponseManager$StaplingParameters.h>
-
 #include <java/util/Map.h>
 #include <sun/security/ssl/CertStatusExtension$CertStatusRequest.h>
 #include <sun/security/ssl/CertStatusExtension$CertStatusRequestType.h>
@@ -20,44 +19,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _StatusResponseManager$StaplingParameters_FieldInfo_[] = {
-	{"statusRespExt", "Lsun/security/ssl/SSLExtension;", nullptr, $FINAL, $field(StatusResponseManager$StaplingParameters, statusRespExt)},
-	{"statReqType", "Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $FINAL, $field(StatusResponseManager$StaplingParameters, statReqType)},
-	{"statReqData", "Lsun/security/ssl/CertStatusExtension$CertStatusRequest;", nullptr, $FINAL, $field(StatusResponseManager$StaplingParameters, statReqData)},
-	{"responseMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", $FINAL, $field(StatusResponseManager$StaplingParameters, responseMap)},
-	{}
-};
-
-$MethodInfo _StatusResponseManager$StaplingParameters_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;Ljava/util/Map;)V", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;)V", 0, $method(StatusResponseManager$StaplingParameters, init$, void, $SSLExtension*, $CertStatusExtension$CertStatusRequestType*, $CertStatusExtension$CertStatusRequest*, $Map*)},
-	{}
-};
-
-$InnerClassInfo _StatusResponseManager$StaplingParameters_InnerClassesInfo_[] = {
-	{"sun.security.ssl.StatusResponseManager$StaplingParameters", "sun.security.ssl.StatusResponseManager", "StaplingParameters", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StatusResponseManager$StaplingParameters_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.StatusResponseManager$StaplingParameters",
-	"java.lang.Object",
-	nullptr,
-	_StatusResponseManager$StaplingParameters_FieldInfo_,
-	_StatusResponseManager$StaplingParameters_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StatusResponseManager$StaplingParameters_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.StatusResponseManager"
-};
-
-$Object* allocate$StatusResponseManager$StaplingParameters($Class* clazz) {
-	return $of($alloc(StatusResponseManager$StaplingParameters));
-}
-
 void StatusResponseManager$StaplingParameters::init$($SSLExtension* ext, $CertStatusExtension$CertStatusRequestType* type, $CertStatusExtension$CertStatusRequest* req, $Map* responses) {
 	$set(this, statusRespExt, ext);
 	$set(this, statReqType, type);
@@ -69,7 +30,39 @@ StatusResponseManager$StaplingParameters::StatusResponseManager$StaplingParamete
 }
 
 $Class* StatusResponseManager$StaplingParameters::load$($String* name, bool initialize) {
-	$loadClass(StatusResponseManager$StaplingParameters, name, initialize, &_StatusResponseManager$StaplingParameters_ClassInfo_, allocate$StatusResponseManager$StaplingParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"statusRespExt", "Lsun/security/ssl/SSLExtension;", nullptr, $FINAL, $field(StatusResponseManager$StaplingParameters, statusRespExt)},
+		{"statReqType", "Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $FINAL, $field(StatusResponseManager$StaplingParameters, statReqType)},
+		{"statReqData", "Lsun/security/ssl/CertStatusExtension$CertStatusRequest;", nullptr, $FINAL, $field(StatusResponseManager$StaplingParameters, statReqData)},
+		{"responseMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", $FINAL, $field(StatusResponseManager$StaplingParameters, responseMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;Ljava/util/Map;)V", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;)V", 0, $method(StatusResponseManager$StaplingParameters, init$, void, $SSLExtension*, $CertStatusExtension$CertStatusRequestType*, $CertStatusExtension$CertStatusRequest*, $Map*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.StatusResponseManager$StaplingParameters", "sun.security.ssl.StatusResponseManager", "StaplingParameters", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.StatusResponseManager$StaplingParameters",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.StatusResponseManager"
+	};
+	$loadClass(StatusResponseManager$StaplingParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StatusResponseManager$StaplingParameters);
+	});
 	return class$;
 }
 

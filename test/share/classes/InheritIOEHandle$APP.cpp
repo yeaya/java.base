@@ -1,5 +1,4 @@
 #include <InheritIOEHandle$APP.h>
-
 #include <InheritIOEHandle.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -14,47 +13,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _InheritIOEHandle$APP_FieldInfo_[] = {
-	{"A", "LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(InheritIOEHandle$APP, A)},
-	{"B", "LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(InheritIOEHandle$APP, B)},
-	{"C", "LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(InheritIOEHandle$APP, C)},
-	{"$VALUES", "[LInheritIOEHandle$APP;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(InheritIOEHandle$APP, $VALUES)},
-	{}
-};
-
-$MethodInfo _InheritIOEHandle$APP_MethodInfo_[] = {
-	{"$values", "()[LInheritIOEHandle$APP;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InheritIOEHandle$APP, $values, $InheritIOEHandle$APPArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(InheritIOEHandle$APP, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritIOEHandle$APP, valueOf, InheritIOEHandle$APP*, $String*)},
-	{"values", "()[LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritIOEHandle$APP, values, $InheritIOEHandle$APPArray*)},
-	{}
-};
-
-$InnerClassInfo _InheritIOEHandle$APP_InnerClassesInfo_[] = {
-	{"InheritIOEHandle$APP", "InheritIOEHandle", "APP", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _InheritIOEHandle$APP_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"InheritIOEHandle$APP",
-	"java.lang.Enum",
-	nullptr,
-	_InheritIOEHandle$APP_FieldInfo_,
-	_InheritIOEHandle$APP_MethodInfo_,
-	"Ljava/lang/Enum<LInheritIOEHandle$APP;>;",
-	nullptr,
-	_InheritIOEHandle$APP_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"InheritIOEHandle"
-};
-
-$Object* allocate$InheritIOEHandle$APP($Class* clazz) {
-	return $of($alloc(InheritIOEHandle$APP));
-}
 
 InheritIOEHandle$APP* InheritIOEHandle$APP::A = nullptr;
 InheritIOEHandle$APP* InheritIOEHandle$APP::B = nullptr;
@@ -84,7 +42,7 @@ void InheritIOEHandle$APP::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$InheritIOEHandle$APP($Class* class$) {
+void InheritIOEHandle$APP::clinit$($Class* clazz) {
 	$assignStatic(InheritIOEHandle$APP::A, $new(InheritIOEHandle$APP, "A"_s, 0));
 	$assignStatic(InheritIOEHandle$APP::B, $new(InheritIOEHandle$APP, "B"_s, 1));
 	$assignStatic(InheritIOEHandle$APP::C, $new(InheritIOEHandle$APP, "C"_s, 2));
@@ -95,7 +53,42 @@ InheritIOEHandle$APP::InheritIOEHandle$APP() {
 }
 
 $Class* InheritIOEHandle$APP::load$($String* name, bool initialize) {
-	$loadClass(InheritIOEHandle$APP, name, initialize, &_InheritIOEHandle$APP_ClassInfo_, clinit$InheritIOEHandle$APP, allocate$InheritIOEHandle$APP);
+	$FieldInfo fieldInfos$$[] = {
+		{"A", "LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(InheritIOEHandle$APP, A)},
+		{"B", "LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(InheritIOEHandle$APP, B)},
+		{"C", "LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(InheritIOEHandle$APP, C)},
+		{"$VALUES", "[LInheritIOEHandle$APP;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(InheritIOEHandle$APP, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LInheritIOEHandle$APP;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InheritIOEHandle$APP, $values, $InheritIOEHandle$APPArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(InheritIOEHandle$APP, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritIOEHandle$APP, valueOf, InheritIOEHandle$APP*, $String*)},
+		{"values", "()[LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritIOEHandle$APP, values, $InheritIOEHandle$APPArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"InheritIOEHandle$APP", "InheritIOEHandle", "APP", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"InheritIOEHandle$APP",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LInheritIOEHandle$APP;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"InheritIOEHandle"
+	};
+	$loadClass(InheritIOEHandle$APP, name, initialize, &classInfo$$, InheritIOEHandle$APP::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InheritIOEHandle$APP));
+	});
 	return class$;
 }
 

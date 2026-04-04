@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/BidiBase$Isolate.h>
-
 #include <jdk/internal/icu/text/BidiBase.h>
 #include <jcpp.h>
 
@@ -13,44 +12,6 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$FieldInfo _BidiBase$Isolate_FieldInfo_[] = {
-	{"startON", "I", nullptr, 0, $field(BidiBase$Isolate, startON)},
-	{"start1", "I", nullptr, 0, $field(BidiBase$Isolate, start1)},
-	{"stateImp", "S", nullptr, 0, $field(BidiBase$Isolate, stateImp)},
-	{"state", "S", nullptr, 0, $field(BidiBase$Isolate, state)},
-	{}
-};
-
-$MethodInfo _BidiBase$Isolate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BidiBase$Isolate, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BidiBase$Isolate_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.BidiBase$Isolate", "jdk.internal.icu.text.BidiBase", "Isolate", $STATIC},
-	{}
-};
-
-$ClassInfo _BidiBase$Isolate_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.icu.text.BidiBase$Isolate",
-	"java.lang.Object",
-	nullptr,
-	_BidiBase$Isolate_FieldInfo_,
-	_BidiBase$Isolate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BidiBase$Isolate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.BidiBase"
-};
-
-$Object* allocate$BidiBase$Isolate($Class* clazz) {
-	return $of($alloc(BidiBase$Isolate));
-}
-
 void BidiBase$Isolate::init$() {
 }
 
@@ -58,7 +19,39 @@ BidiBase$Isolate::BidiBase$Isolate() {
 }
 
 $Class* BidiBase$Isolate::load$($String* name, bool initialize) {
-	$loadClass(BidiBase$Isolate, name, initialize, &_BidiBase$Isolate_ClassInfo_, allocate$BidiBase$Isolate);
+	$FieldInfo fieldInfos$$[] = {
+		{"startON", "I", nullptr, 0, $field(BidiBase$Isolate, startON)},
+		{"start1", "I", nullptr, 0, $field(BidiBase$Isolate, start1)},
+		{"stateImp", "S", nullptr, 0, $field(BidiBase$Isolate, stateImp)},
+		{"state", "S", nullptr, 0, $field(BidiBase$Isolate, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BidiBase$Isolate, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.BidiBase$Isolate", "jdk.internal.icu.text.BidiBase", "Isolate", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.icu.text.BidiBase$Isolate",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.BidiBase"
+	};
+	$loadClass(BidiBase$Isolate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BidiBase$Isolate);
+	});
 	return class$;
 }
 

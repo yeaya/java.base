@@ -1,5 +1,4 @@
 #include <ForInnerClass.h>
-
 #include <ForInnerClass$Inner.h>
 #include <ForInnerClass$Protected.h>
 #include <java/lang/reflect/Modifier.h>
@@ -17,49 +16,18 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Modifier = ::java::lang::reflect::Modifier;
 
-$MethodInfo _ForInnerClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ForInnerClass, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ForInnerClass, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ForInnerClass_InnerClassesInfo_[] = {
-	{"ForInnerClass$Protected", "ForInnerClass", "Protected", $PROTECTED},
-	{"ForInnerClass$Inner", "ForInnerClass", "Inner", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ForInnerClass_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ForInnerClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ForInnerClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ForInnerClass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ForInnerClass$Protected,ForInnerClass$Inner"
-};
-
-$Object* allocate$ForInnerClass($Class* clazz) {
-	return $of($alloc(ForInnerClass));
-}
-
 void ForInnerClass::init$() {
 }
 
 void ForInnerClass::main($StringArray* args) {
 	int32_t m = 0;
 	$load($ForInnerClass$Inner);
-	m = (int32_t)($ForInnerClass$Inner::class$->getModifiers() & (uint32_t)(~$Modifier::SYNCHRONIZED));
+	m = $ForInnerClass$Inner::class$->getModifiers() & (~$Modifier::SYNCHRONIZED);
 	if (m != $Modifier::PRIVATE) {
 		$throwNew($Exception, "Access bits for innerclass not from InnerClasses attribute"_s);
 	}
 	$load($ForInnerClass$Protected);
-	m = (int32_t)($ForInnerClass$Protected::class$->getModifiers() & (uint32_t)(~$Modifier::SYNCHRONIZED));
+	m = $ForInnerClass$Protected::class$->getModifiers() & (~$Modifier::SYNCHRONIZED);
 	if (m != $Modifier::PROTECTED) {
 		$throwNew($Exception, "Protected inner class wronged modifiers"_s);
 	}
@@ -69,7 +37,33 @@ ForInnerClass::ForInnerClass() {
 }
 
 $Class* ForInnerClass::load$($String* name, bool initialize) {
-	$loadClass(ForInnerClass, name, initialize, &_ForInnerClass_ClassInfo_, allocate$ForInnerClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ForInnerClass, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ForInnerClass, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ForInnerClass$Protected", "ForInnerClass", "Protected", $PROTECTED},
+		{"ForInnerClass$Inner", "ForInnerClass", "Inner", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ForInnerClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ForInnerClass$Protected,ForInnerClass$Inner"
+	};
+	$loadClass(ForInnerClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForInnerClass);
+	});
 	return class$;
 }
 

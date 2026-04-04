@@ -1,5 +1,4 @@
 #include <java/lang/StringBuffer.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
@@ -34,132 +33,6 @@ using $IntStream = ::java::util::stream::IntStream;
 
 namespace java {
 	namespace lang {
-
-$CompoundAttribute _StringBuffer_MethodAnnotations_init$0[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringBuffer_MethodAnnotations_init$1[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringBuffer_MethodAnnotations_init$2[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringBuffer_MethodAnnotations_append5[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringBuffer_MethodAnnotations_append13[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringBuffer_MethodAnnotations_append14[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringBuffer_MethodAnnotations_toString59[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _StringBuffer_FieldInfo_[] = {
-	{"toStringCache", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(StringBuffer, toStringCache)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(StringBuffer, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringBuffer, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _StringBuffer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringBuffer, init$, void), nullptr, nullptr, _StringBuffer_MethodAnnotations_init$0},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringBuffer, init$, void, int32_t), nullptr, nullptr, _StringBuffer_MethodAnnotations_init$1},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringBuffer, init$, void, $String*), nullptr, nullptr, _StringBuffer_MethodAnnotations_init$2},
-	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(StringBuffer, init$, void, $CharSequence*)},
-	{"append", "(Ljava/lang/Object;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, Object$*)},
-	{"append", "(Ljava/lang/String;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $String*), nullptr, nullptr, _StringBuffer_MethodAnnotations_append5},
-	{"append", "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, StringBuffer*)},
-	{"append", "(Ljava/lang/AbstractStringBuilder;)Ljava/lang/StringBuffer;", nullptr, $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $AbstractStringBuilder*)},
-	{"append", "(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $CharSequence*)},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $CharSequence*, int32_t, int32_t)},
-	{"append", "([C)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $chars*)},
-	{"append", "([CII)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $chars*, int32_t, int32_t)},
-	{"append", "(Z)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, bool)},
-	{"append", "(C)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, char16_t), nullptr, nullptr, _StringBuffer_MethodAnnotations_append13},
-	{"append", "(I)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, int32_t), nullptr, nullptr, _StringBuffer_MethodAnnotations_append14},
-	{"append", "(J)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, int64_t)},
-	{"append", "(F)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, float)},
-	{"append", "(D)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, double)},
-	{"appendCodePoint", "(I)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, appendCodePoint, StringBuffer*, int32_t)},
-	{"capacity", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, capacity, int32_t)},
-	{"charAt", "(I)C", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, charAt, char16_t, int32_t)},
-	{"chars", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringBuffer, chars, $IntStream*)},
-	{"codePointAt", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, codePointAt, int32_t, int32_t)},
-	{"codePointBefore", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, codePointBefore, int32_t, int32_t)},
-	{"codePointCount", "(II)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, codePointCount, int32_t, int32_t, int32_t)},
-	{"codePoints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringBuffer, codePoints, $IntStream*)},
-	{"compareTo", "(Ljava/lang/StringBuffer;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(StringBuffer, compareTo, int32_t, StringBuffer*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringBuffer, compareTo, int32_t, Object$*)},
-	{"delete", "(II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, delete$, StringBuffer*, int32_t, int32_t)},
-	{"deleteCharAt", "(I)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, deleteCharAt, StringBuffer*, int32_t)},
-	{"ensureCapacity", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, ensureCapacity, void, int32_t)},
-	{"getBytes", "([BIB)V", nullptr, $SYNCHRONIZED, $virtualMethod(StringBuffer, getBytes, void, $bytes*, int32_t, int8_t)},
-	{"getChars", "(II[CI)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, getChars, void, int32_t, int32_t, $chars*, int32_t)},
-	{"indexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(StringBuffer, indexOf, int32_t, $String*)},
-	{"indexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, indexOf, int32_t, $String*, int32_t)},
-	{"insert", "(I[CII)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, $chars*, int32_t, int32_t)},
-	{"insert", "(ILjava/lang/Object;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, Object$*)},
-	{"insert", "(ILjava/lang/String;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, $String*)},
-	{"insert", "(I[C)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, $chars*)},
-	{"insert", "(ILjava/lang/CharSequence;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, $CharSequence*)},
-	{"insert", "(ILjava/lang/CharSequence;II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"insert", "(IZ)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, bool)},
-	{"insert", "(IC)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, char16_t)},
-	{"insert", "(II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, int32_t)},
-	{"insert", "(IJ)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, int64_t)},
-	{"insert", "(IF)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, float)},
-	{"insert", "(ID)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, double)},
-	{"lastIndexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(StringBuffer, lastIndexOf, int32_t, $String*)},
-	{"lastIndexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, lastIndexOf, int32_t, $String*, int32_t)},
-	{"length", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, length, int32_t)},
-	{"offsetByCodePoints", "(II)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, offsetByCodePoints, int32_t, int32_t, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(StringBuffer, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"replace", "(IILjava/lang/String;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, replace, StringBuffer*, int32_t, int32_t, $String*)},
-	{"reverse", "()Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, reverse, StringBuffer*)},
-	{"setCharAt", "(IC)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, setCharAt, void, int32_t, char16_t)},
-	{"setLength", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, setLength, void, int32_t)},
-	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, subSequence, $CharSequence*, int32_t, int32_t)},
-	{"substring", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, substring, $String*, int32_t)},
-	{"substring", "(II)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, substring, $String*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, toString, $String*), nullptr, nullptr, _StringBuffer_MethodAnnotations_toString59},
-	{"trimToSize", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, trimToSize, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StringBuffer, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _StringBuffer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.StringBuffer",
-	"java.lang.AbstractStringBuilder",
-	"java.io.Serializable,java.lang.Comparable",
-	_StringBuffer_FieldInfo_,
-	_StringBuffer_MethodInfo_,
-	"Ljava/lang/AbstractStringBuilder;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/lang/StringBuffer;>;Ljava/lang/CharSequence;"
-};
-
-$Object* allocate$StringBuffer($Class* clazz) {
-	return $of($alloc(StringBuffer));
-}
 
 int32_t StringBuffer::hashCode() {
 	 return this->$AbstractStringBuilder::hashCode();
@@ -554,7 +427,7 @@ $String* StringBuffer::toString() {
 
 void StringBuffer::writeObject($ObjectOutputStream* s) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
 		$var($chars, val, $new($chars, capacity()));
 		if (isLatin1()) {
@@ -562,7 +435,7 @@ void StringBuffer::writeObject($ObjectOutputStream* s) {
 		} else {
 			$StringUTF16::getChars(this->value, 0, this->count, val, 0);
 		}
-		$nc(fields)->put("value"_s, $of(val));
+		$nc(fields)->put("value"_s, val);
 		fields->put("count"_s, this->count);
 		fields->put("shared"_s, false);
 		s->writeFields();
@@ -570,9 +443,9 @@ void StringBuffer::writeObject($ObjectOutputStream* s) {
 }
 
 void StringBuffer::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$var($chars, val, $cast($chars, $nc(fields)->get("value"_s, ($Object*)nullptr)));
+	$var($chars, val, $cast($chars, $nc(fields)->get("value"_s, nullptr)));
 	initBytes(val, 0, $nc(val)->length);
 	this->count = fields->get("count"_s, 0);
 }
@@ -595,11 +468,8 @@ int32_t StringBuffer::compareTo(Object$* another) {
 	return this->compareTo($cast(StringBuffer, another));
 }
 
-void clinit$StringBuffer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$load($chars);
-	$init($Integer);
-	$init($Boolean);
+void StringBuffer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(StringBuffer::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "value"_s, $getClass($chars)),
 		$$new($ObjectStreamField, "count"_s, $Integer::TYPE),
@@ -610,16 +480,130 @@ void clinit$StringBuffer($Class* class$) {
 StringBuffer::StringBuffer() {
 }
 
-StringBuffer* StringBuffer::append(const char* s) {
-	return append($$str(s));
-}
-
 $Class* StringBuffer::load$($String* name, bool initialize) {
-	$loadClass(StringBuffer, name, initialize, &_StringBuffer_ClassInfo_, clinit$StringBuffer, allocate$StringBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"toStringCache", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(StringBuffer, toStringCache)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(StringBuffer, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringBuffer, serialPersistentFields)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$2[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute appendmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute appendmethodAnnotations$$$9[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute appendmethodAnnotations$$$10[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute toStringmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringBuffer, init$, void), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringBuffer, init$, void, int32_t), nullptr, nullptr, init$methodAnnotations$$$1},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringBuffer, init$, void, $String*), nullptr, nullptr, init$methodAnnotations$$$2},
+		{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(StringBuffer, init$, void, $CharSequence*)},
+		{"append", "(Ljava/lang/Object;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, Object$*)},
+		{"append", "(Ljava/lang/String;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $String*), nullptr, nullptr, appendmethodAnnotations$$$1},
+		{"append", "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, StringBuffer*)},
+		{"append", "(Ljava/lang/AbstractStringBuilder;)Ljava/lang/StringBuffer;", nullptr, $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $AbstractStringBuilder*)},
+		{"append", "(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $CharSequence*)},
+		{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $CharSequence*, int32_t, int32_t)},
+		{"append", "([C)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $chars*)},
+		{"append", "([CII)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, $chars*, int32_t, int32_t)},
+		{"append", "(Z)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, bool)},
+		{"append", "(C)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, char16_t), nullptr, nullptr, appendmethodAnnotations$$$9},
+		{"append", "(I)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, int32_t), nullptr, nullptr, appendmethodAnnotations$$$10},
+		{"append", "(J)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, int64_t)},
+		{"append", "(F)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, float)},
+		{"append", "(D)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, append, StringBuffer*, double)},
+		{"appendCodePoint", "(I)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, appendCodePoint, StringBuffer*, int32_t)},
+		{"capacity", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, capacity, int32_t)},
+		{"charAt", "(I)C", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, charAt, char16_t, int32_t)},
+		{"chars", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringBuffer, chars, $IntStream*)},
+		{"codePointAt", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, codePointAt, int32_t, int32_t)},
+		{"codePointBefore", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, codePointBefore, int32_t, int32_t)},
+		{"codePointCount", "(II)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, codePointCount, int32_t, int32_t, int32_t)},
+		{"codePoints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringBuffer, codePoints, $IntStream*)},
+		{"compareTo", "(Ljava/lang/StringBuffer;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(StringBuffer, compareTo, int32_t, StringBuffer*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringBuffer, compareTo, int32_t, Object$*)},
+		{"delete", "(II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, delete$, StringBuffer*, int32_t, int32_t)},
+		{"deleteCharAt", "(I)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, deleteCharAt, StringBuffer*, int32_t)},
+		{"ensureCapacity", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, ensureCapacity, void, int32_t)},
+		{"getBytes", "([BIB)V", nullptr, $SYNCHRONIZED, $virtualMethod(StringBuffer, getBytes, void, $bytes*, int32_t, int8_t)},
+		{"getChars", "(II[CI)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, getChars, void, int32_t, int32_t, $chars*, int32_t)},
+		{"indexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(StringBuffer, indexOf, int32_t, $String*)},
+		{"indexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, indexOf, int32_t, $String*, int32_t)},
+		{"insert", "(I[CII)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, $chars*, int32_t, int32_t)},
+		{"insert", "(ILjava/lang/Object;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, Object$*)},
+		{"insert", "(ILjava/lang/String;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, $String*)},
+		{"insert", "(I[C)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, $chars*)},
+		{"insert", "(ILjava/lang/CharSequence;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, $CharSequence*)},
+		{"insert", "(ILjava/lang/CharSequence;II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"insert", "(IZ)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, bool)},
+		{"insert", "(IC)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, char16_t)},
+		{"insert", "(II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, int32_t)},
+		{"insert", "(IJ)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, int64_t)},
+		{"insert", "(IF)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, float)},
+		{"insert", "(ID)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringBuffer, insert, StringBuffer*, int32_t, double)},
+		{"lastIndexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(StringBuffer, lastIndexOf, int32_t, $String*)},
+		{"lastIndexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, lastIndexOf, int32_t, $String*, int32_t)},
+		{"length", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, length, int32_t)},
+		{"offsetByCodePoints", "(II)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, offsetByCodePoints, int32_t, int32_t, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(StringBuffer, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"replace", "(IILjava/lang/String;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, replace, StringBuffer*, int32_t, int32_t, $String*)},
+		{"reverse", "()Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, reverse, StringBuffer*)},
+		{"setCharAt", "(IC)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, setCharAt, void, int32_t, char16_t)},
+		{"setLength", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, setLength, void, int32_t)},
+		{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, subSequence, $CharSequence*, int32_t, int32_t)},
+		{"substring", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, substring, $String*, int32_t)},
+		{"substring", "(II)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, substring, $String*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, toString, $String*), nullptr, nullptr, toStringmethodAnnotations$$},
+		{"trimToSize", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBuffer, trimToSize, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StringBuffer, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.StringBuffer",
+		"java.lang.AbstractStringBuilder",
+		"java.io.Serializable,java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/AbstractStringBuilder;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/lang/StringBuffer;>;Ljava/lang/CharSequence;"
+	};
+	$loadClass(StringBuffer, name, initialize, &classInfo$$, StringBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringBuffer));
+	});
 	return class$;
 }
 
 $Class* StringBuffer::class$ = nullptr;
+
+StringBuffer* StringBuffer::append(const char* s) {
+	return append($$str(s));
+}
 
 	} // lang
 } // java

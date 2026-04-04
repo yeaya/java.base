@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/ReentrantLock$FairSync.h>
-
 #include <java/lang/Error.h>
 #include <java/util/concurrent/locks/AbstractOwnableSynchronizer.h>
 #include <java/util/concurrent/locks/AbstractQueuedSynchronizer.h>
@@ -18,44 +17,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 			namespace locks {
-
-$FieldInfo _ReentrantLock$FairSync_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReentrantLock$FairSync, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ReentrantLock$FairSync_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ReentrantLock$FairSync, init$, void)},
-	{"initialTryLock", "()Z", nullptr, $FINAL, $virtualMethod(ReentrantLock$FairSync, initialTryLock, bool)},
-	{"tryAcquire", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantLock$FairSync, tryAcquire, bool, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ReentrantLock$FairSync_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.ReentrantLock$FairSync", "java.util.concurrent.locks.ReentrantLock", "FairSync", $STATIC | $FINAL},
-	{"java.util.concurrent.locks.ReentrantLock$Sync", "java.util.concurrent.locks.ReentrantLock", "Sync", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ReentrantLock$FairSync_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.locks.ReentrantLock$FairSync",
-	"java.util.concurrent.locks.ReentrantLock$Sync",
-	nullptr,
-	_ReentrantLock$FairSync_FieldInfo_,
-	_ReentrantLock$FairSync_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReentrantLock$FairSync_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.ReentrantLock"
-};
-
-$Object* allocate$ReentrantLock$FairSync($Class* clazz) {
-	return $of($alloc(ReentrantLock$FairSync));
-}
 
 void ReentrantLock$FairSync::init$() {
 	$ReentrantLock$Sync::init$();
@@ -94,7 +55,39 @@ ReentrantLock$FairSync::ReentrantLock$FairSync() {
 }
 
 $Class* ReentrantLock$FairSync::load$($String* name, bool initialize) {
-	$loadClass(ReentrantLock$FairSync, name, initialize, &_ReentrantLock$FairSync_ClassInfo_, allocate$ReentrantLock$FairSync);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReentrantLock$FairSync, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ReentrantLock$FairSync, init$, void)},
+		{"initialTryLock", "()Z", nullptr, $FINAL, $virtualMethod(ReentrantLock$FairSync, initialTryLock, bool)},
+		{"tryAcquire", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantLock$FairSync, tryAcquire, bool, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.ReentrantLock$FairSync", "java.util.concurrent.locks.ReentrantLock", "FairSync", $STATIC | $FINAL},
+		{"java.util.concurrent.locks.ReentrantLock$Sync", "java.util.concurrent.locks.ReentrantLock", "Sync", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.locks.ReentrantLock$FairSync",
+		"java.util.concurrent.locks.ReentrantLock$Sync",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.ReentrantLock"
+	};
+	$loadClass(ReentrantLock$FairSync, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReentrantLock$FairSync);
+	});
 	return class$;
 }
 

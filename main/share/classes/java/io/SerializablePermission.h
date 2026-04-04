@@ -14,7 +14,7 @@ public:
 	SerializablePermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0x767A4535D602EFDA;
+	static const int64_t serialVersionUID = (int64_t)0x767a4535d602efda;
 	$String* actions = nullptr;
 };
 

@@ -1,5 +1,4 @@
 #include <java/lang/ProcessHandle.h>
-
 #include <java/lang/Comparable.h>
 #include <java/lang/ProcessHandle$Info.h>
 #include <java/lang/ProcessHandleImpl.h>
@@ -21,56 +20,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace lang {
-
-$CompoundAttribute _ProcessHandle_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$MethodInfo _ProcessHandle_MethodInfo_[] = {
-	{"allProcesses", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $STATIC, $staticMethod(ProcessHandle, allProcesses, $Stream*)},
-	{"children", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, children, $Stream*)},
-	{"compareTo", "(Ljava/lang/ProcessHandle;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, compareTo, int32_t, ProcessHandle*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessHandle, compareTo, int32_t, Object$*)},
-	{"current", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessHandle, current, ProcessHandle*)},
-	{"descendants", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, descendants, $Stream*)},
-	{"destroy", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, destroy, bool)},
-	{"destroyForcibly", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, destroyForcibly, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"info", "()Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, info, $ProcessHandle$Info*)},
-	{"isAlive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, isAlive, bool)},
-	{"of", "(J)Ljava/util/Optional;", "(J)Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $PUBLIC | $STATIC, $staticMethod(ProcessHandle, of, $Optional*, int64_t)},
-	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, onExit, $CompletableFuture*)},
-	{"parent", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, parent, $Optional*)},
-	{"pid", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, pid, int64_t)},
-	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, supportsNormalTermination, bool)},
-	{}
-};
-
-$InnerClassInfo _ProcessHandle_InnerClassesInfo_[] = {
-	{"java.lang.ProcessHandle$Info", "java.lang.ProcessHandle", "Info", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ProcessHandle_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.ProcessHandle",
-	nullptr,
-	"java.lang.Comparable",
-	nullptr,
-	_ProcessHandle_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/lang/ProcessHandle;>;",
-	nullptr,
-	_ProcessHandle_InnerClassesInfo_,
-	_ProcessHandle_Annotations_,
-	nullptr,
-	"java.lang.ProcessHandle$Info"
-};
-
-$Object* allocate$ProcessHandle($Class* clazz) {
-	return $of($alloc(ProcessHandle));
-}
 
 int32_t ProcessHandle::hashCode() {
 	 return this->$Comparable::hashCode();
@@ -100,7 +49,51 @@ int32_t ProcessHandle::compareTo(Object$* other) {
 }
 
 $Class* ProcessHandle::load$($String* name, bool initialize) {
-	$loadClass(ProcessHandle, name, initialize, &_ProcessHandle_ClassInfo_, allocate$ProcessHandle);
+	$MethodInfo methodInfos$$[] = {
+		{"allProcesses", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $STATIC, $staticMethod(ProcessHandle, allProcesses, $Stream*)},
+		{"children", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, children, $Stream*)},
+		{"compareTo", "(Ljava/lang/ProcessHandle;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, compareTo, int32_t, ProcessHandle*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessHandle, compareTo, int32_t, Object$*)},
+		{"current", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessHandle, current, ProcessHandle*)},
+		{"descendants", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, descendants, $Stream*)},
+		{"destroy", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, destroy, bool)},
+		{"destroyForcibly", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, destroyForcibly, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"info", "()Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, info, $ProcessHandle$Info*)},
+		{"isAlive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, isAlive, bool)},
+		{"of", "(J)Ljava/util/Optional;", "(J)Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $PUBLIC | $STATIC, $staticMethod(ProcessHandle, of, $Optional*, int64_t)},
+		{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, onExit, $CompletableFuture*)},
+		{"parent", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, parent, $Optional*)},
+		{"pid", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, pid, int64_t)},
+		{"supportsNormalTermination", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, supportsNormalTermination, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessHandle$Info", "java.lang.ProcessHandle", "Info", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.ProcessHandle",
+		nullptr,
+		"java.lang.Comparable",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/lang/ProcessHandle;>;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.lang.ProcessHandle$Info"
+	};
+	$loadClass(ProcessHandle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessHandle);
+	});
 	return class$;
 }
 

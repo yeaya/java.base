@@ -1,5 +1,4 @@
 #include <One.h>
-
 #include <One$1.h>
 #include <One$2.h>
 #include <One$3.h>
@@ -11,40 +10,6 @@ using $One$3 = ::One$3;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _One_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(One, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(One, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(One, test, void, $String*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _One_InnerClassesInfo_[] = {
-	{"One$Test", "One", "Test", $PRIVATE | $STATIC | $ABSTRACT},
-	{"One$3", nullptr, nullptr, 0},
-	{"One$2", nullptr, nullptr, 0},
-	{"One$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _One_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"One",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_One_MethodInfo_,
-	nullptr,
-	nullptr,
-	_One_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"One$Test,One$3,One$2,One$1"
-};
-
-$Object* allocate$One($Class* clazz) {
-	return $of($alloc(One));
-}
 
 void One::init$() {
 }
@@ -60,15 +25,44 @@ void One::main($StringArray* args) {
 	test("x"_s);
 	test("xy"_s);
 	test("xyz"_s);
-	test($cstr({0x10000}));
-	test($cstr({'x', 0x10000}));
+	test($cstr({0x00010000}));
+	test($cstr({'x', 0x00010000}));
 }
 
 One::One() {
 }
 
 $Class* One::load$($String* name, bool initialize) {
-	$loadClass(One, name, initialize, &_One_ClassInfo_, allocate$One);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(One, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(One, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(One, test, void, $String*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"One$Test", "One", "Test", $PRIVATE | $STATIC | $ABSTRACT},
+		{"One$3", nullptr, nullptr, 0},
+		{"One$2", nullptr, nullptr, 0},
+		{"One$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"One",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"One$Test,One$3,One$2,One$1"
+	};
+	$loadClass(One, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(One);
+	});
 	return class$;
 }
 

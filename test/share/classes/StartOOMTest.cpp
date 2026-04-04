@@ -1,5 +1,4 @@
 #include <StartOOMTest.h>
-
 #include <StartOOMTest$SleepRunnable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
@@ -9,7 +8,6 @@
 #include <jcpp.h>
 
 using $StartOOMTest$SleepRunnable = ::StartOOMTest$SleepRunnable;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -20,41 +18,11 @@ using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
-$MethodInfo _StartOOMTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StartOOMTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StartOOMTest, main, void, $StringArray*), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _StartOOMTest_InnerClassesInfo_[] = {
-	{"StartOOMTest$SleepRunnable", "StartOOMTest", "SleepRunnable", $STATIC},
-	{}
-};
-
-$ClassInfo _StartOOMTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StartOOMTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_StartOOMTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StartOOMTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"StartOOMTest$SleepRunnable"
-};
-
-$Object* allocate$StartOOMTest($Class* clazz) {
-	return $of($alloc(StartOOMTest));
-}
-
 void StartOOMTest::init$() {
 }
 
 void StartOOMTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Runnable, r, $new($StartOOMTest$SleepRunnable));
 	$var($ThreadGroup, tg, $new($ThreadGroup, "buggy"_s));
 	$var($List, threads, $new($ArrayList));
@@ -68,7 +36,7 @@ void StartOOMTest::main($StringArray* args) {
 		} catch ($Throwable& x) {
 			$assign(failedThread, t);
 			$nc($System::out)->println($of(x));
-			$nc($System::out)->println(i);
+			$System::out->println(i);
 			break;
 		}
 	}
@@ -108,7 +76,32 @@ StartOOMTest::StartOOMTest() {
 }
 
 $Class* StartOOMTest::load$($String* name, bool initialize) {
-	$loadClass(StartOOMTest, name, initialize, &_StartOOMTest_ClassInfo_, allocate$StartOOMTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StartOOMTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StartOOMTest, main, void, $StringArray*), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StartOOMTest$SleepRunnable", "StartOOMTest", "SleepRunnable", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StartOOMTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"StartOOMTest$SleepRunnable"
+	};
+	$loadClass(StartOOMTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StartOOMTest);
+	});
 	return class$;
 }
 

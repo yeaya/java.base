@@ -1,5 +1,4 @@
 #include <java/lang/Override.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,46 +9,39 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace lang {
 
-$Attribute Override_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'-'}
-};
-
-$NamedAttribute Override_Attribute_var$0[] = {
-	{"value", '[', Override_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute Override_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; SOURCE"},
-	{}
-};
-
-$CompoundAttribute _Override_Annotations_[] = {
-	{"Ljava/lang/annotation/Target;", Override_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", Override_Attribute_var$2},
-	{}
-};
-
-$ClassInfo _Override_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"java.lang.Override",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Override_Annotations_
-};
-
-$Object* allocate$Override($Class* clazz) {
-	return $of($alloc(Override));
-}
-
 $Class* Override::load$($String* name, bool initialize) {
-	$loadClass(Override, name, initialize, &_Override_ClassInfo_, allocate$Override);
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; SOURCE"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"java.lang.Override",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Override, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Override);
+	});
 	return class$;
 }
 

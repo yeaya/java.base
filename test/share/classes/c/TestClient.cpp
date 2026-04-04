@@ -1,50 +1,43 @@
 #include <c/TestClient.h>
-
 #include <java/lang/ClassLoader.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace c {
-
-$MethodInfo _TestClient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestClient, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestClient, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _TestClient_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"c.TestClient",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestClient_MethodInfo_
-};
-
-$Object* allocate$TestClient($Class* clazz) {
-	return $of($alloc(TestClient));
-}
 
 void TestClient::init$() {
 }
 
 void TestClient::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(TestClient);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$System::getProperty("test.src"_s);
-	$nc($System::out)->printf("ContextClassLoader: %s%n"_s, $$new($ObjectArray, {$($of($nc($of($($($Thread::currentThread())->getContextClassLoader())))->toString()))}));
+	$nc($System::out)->printf("ContextClassLoader: %s%n"_s, $$new($ObjectArray, {$($$nc($($Thread::currentThread())->getContextClassLoader())->toString())}));
 }
 
 TestClient::TestClient() {
 }
 
 $Class* TestClient::load$($String* name, bool initialize) {
-	$loadClass(TestClient, name, initialize, &_TestClient_ClassInfo_, allocate$TestClient);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestClient, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestClient, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"c.TestClient",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestClient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestClient);
+	});
 	return class$;
 }
 

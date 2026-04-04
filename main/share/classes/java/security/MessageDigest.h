@@ -36,6 +36,7 @@ class $export MessageDigest : public ::java::security::MessageDigestSpi {
 	$class(MessageDigest, 0, ::java::security::MessageDigestSpi)
 public:
 	MessageDigest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* algorithm);
 	void init$($String* algorithm, ::java::security::Provider* p);
 	virtual $Object* clone() override;

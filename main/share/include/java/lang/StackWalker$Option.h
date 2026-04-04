@@ -21,6 +21,7 @@ class $import StackWalker$Option : public ::java::lang::Enum {
 public:
 	StackWalker$Option();
 	static $Array<::java::lang::StackWalker$Option>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::lang::StackWalker$Option* valueOf($String* name);
 	static $Array<::java::lang::StackWalker$Option>* values();

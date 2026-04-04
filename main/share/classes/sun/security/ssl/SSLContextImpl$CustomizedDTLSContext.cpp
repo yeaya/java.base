@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl$CustomizedDTLSContext.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Iterator.h>
@@ -32,51 +31,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLContextImpl$CustomizedDTLSContext_FieldInfo_[] = {
-	{"clientDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedDTLSContext, clientDefaultProtocols)},
-	{"serverDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedDTLSContext, serverDefaultProtocols)},
-	{"clientDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedDTLSContext, clientDefaultCipherSuites)},
-	{"serverDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedDTLSContext, serverDefaultCipherSuites)},
-	{"reservedException", "Ljava/lang/IllegalArgumentException;", nullptr, $PRIVATE | $STATIC, $staticField(SSLContextImpl$CustomizedDTLSContext, reservedException)},
-	{}
-};
-
-$MethodInfo _SSLContextImpl$CustomizedDTLSContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(SSLContextImpl$CustomizedDTLSContext, init$, void)},
-	{"customizedProtocols", "(ZLjava/util/List;)Ljava/util/List;", "(ZLjava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl$CustomizedDTLSContext, customizedProtocols, $List*, bool, $List*)},
-	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$CustomizedDTLSContext, getClientDefaultCipherSuites, $List*)},
-	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$CustomizedDTLSContext, getClientDefaultProtocolVersions, $List*)},
-	{"getServerDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$CustomizedDTLSContext, getServerDefaultCipherSuites, $List*)},
-	{"getServerDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$CustomizedDTLSContext, getServerDefaultProtocolVersions, $List*)},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl$CustomizedDTLSContext_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$CustomizedDTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedDTLSContext", $PRIVATE | $STATIC},
-	{"sun.security.ssl.SSLContextImpl$AbstractDTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractDTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLContextImpl$CustomizedDTLSContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.SSLContextImpl$CustomizedDTLSContext",
-	"sun.security.ssl.SSLContextImpl$AbstractDTLSContext",
-	nullptr,
-	_SSLContextImpl$CustomizedDTLSContext_FieldInfo_,
-	_SSLContextImpl$CustomizedDTLSContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl$CustomizedDTLSContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl"
-};
-
-$Object* allocate$SSLContextImpl$CustomizedDTLSContext($Class* clazz) {
-	return $of($alloc(SSLContextImpl$CustomizedDTLSContext));
-}
-
 $List* SSLContextImpl$CustomizedDTLSContext::clientDefaultProtocols = nullptr;
 $List* SSLContextImpl$CustomizedDTLSContext::serverDefaultProtocols = nullptr;
 $List* SSLContextImpl$CustomizedDTLSContext::clientDefaultCipherSuites = nullptr;
@@ -85,16 +39,14 @@ $IllegalArgumentException* SSLContextImpl$CustomizedDTLSContext::reservedExcepti
 
 $List* SSLContextImpl$CustomizedDTLSContext::customizedProtocols(bool client, $List* customized) {
 	$init(SSLContextImpl$CustomizedDTLSContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, refactored, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(customized)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$ProtocolVersion* pv = $cast($ProtocolVersion, i$->next());
-			{
-				if ($nc(pv)->isDTLS) {
-					refactored->add(pv);
-				}
+			if ($nc(pv)->isDTLS) {
+				refactored->add(pv);
 			}
 		}
 	}
@@ -110,7 +62,7 @@ $List* SSLContextImpl$CustomizedDTLSContext::customizedProtocols(bool client, $L
 		}
 	} else {
 		$assign(candidates, $new($ProtocolVersionArray, customized->size()));
-		$assign(candidates, $fcast($ProtocolVersionArray, customized->toArray(candidates)));
+		$assign(candidates, $cast($ProtocolVersionArray, customized->toArray(candidates)));
 	}
 	return $SSLContextImpl::getAvailableProtocols(candidates);
 }
@@ -138,7 +90,7 @@ $List* SSLContextImpl$CustomizedDTLSContext::getServerDefaultCipherSuites() {
 	return SSLContextImpl$CustomizedDTLSContext::serverDefaultCipherSuites;
 }
 
-void clinit$SSLContextImpl$CustomizedDTLSContext($Class* class$) {
+void SSLContextImpl$CustomizedDTLSContext::clinit$($Class* clazz) {
 	{
 		$init($SSLContextImpl$CustomizedSSLProtocols);
 		$assignStatic(SSLContextImpl$CustomizedDTLSContext::reservedException, $SSLContextImpl$CustomizedSSLProtocols::reservedException);
@@ -160,7 +112,46 @@ SSLContextImpl$CustomizedDTLSContext::SSLContextImpl$CustomizedDTLSContext() {
 }
 
 $Class* SSLContextImpl$CustomizedDTLSContext::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl$CustomizedDTLSContext, name, initialize, &_SSLContextImpl$CustomizedDTLSContext_ClassInfo_, clinit$SSLContextImpl$CustomizedDTLSContext, allocate$SSLContextImpl$CustomizedDTLSContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"clientDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedDTLSContext, clientDefaultProtocols)},
+		{"serverDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedDTLSContext, serverDefaultProtocols)},
+		{"clientDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedDTLSContext, clientDefaultCipherSuites)},
+		{"serverDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedDTLSContext, serverDefaultCipherSuites)},
+		{"reservedException", "Ljava/lang/IllegalArgumentException;", nullptr, $PRIVATE | $STATIC, $staticField(SSLContextImpl$CustomizedDTLSContext, reservedException)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(SSLContextImpl$CustomizedDTLSContext, init$, void)},
+		{"customizedProtocols", "(ZLjava/util/List;)Ljava/util/List;", "(ZLjava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl$CustomizedDTLSContext, customizedProtocols, $List*, bool, $List*)},
+		{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$CustomizedDTLSContext, getClientDefaultCipherSuites, $List*)},
+		{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$CustomizedDTLSContext, getClientDefaultProtocolVersions, $List*)},
+		{"getServerDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$CustomizedDTLSContext, getServerDefaultCipherSuites, $List*)},
+		{"getServerDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$CustomizedDTLSContext, getServerDefaultProtocolVersions, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$CustomizedDTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedDTLSContext", $PRIVATE | $STATIC},
+		{"sun.security.ssl.SSLContextImpl$AbstractDTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractDTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.SSLContextImpl$CustomizedDTLSContext",
+		"sun.security.ssl.SSLContextImpl$AbstractDTLSContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl"
+	};
+	$loadClass(SSLContextImpl$CustomizedDTLSContext, name, initialize, &classInfo$$, SSLContextImpl$CustomizedDTLSContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl$CustomizedDTLSContext);
+	});
 	return class$;
 }
 

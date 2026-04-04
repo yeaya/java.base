@@ -9,6 +9,7 @@ class $export DecodeNonEncoded : public ::java::lang::Object {
 	$class(DecodeNonEncoded, 0, ::java::lang::Object)
 public:
 	DecodeNonEncoded();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $StringArray* errorStrings;

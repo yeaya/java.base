@@ -20,6 +20,7 @@ class CertStatusExtension$CertStatusRequestType : public ::java::lang::Enum {
 public:
 	CertStatusExtension$CertStatusRequestType();
 	static $Array<::sun::security::ssl::CertStatusExtension$CertStatusRequestType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name);
 	static $String* nameOf(int8_t id);
 	static ::sun::security::ssl::CertStatusExtension$CertStatusRequestType* valueOf($String* name);

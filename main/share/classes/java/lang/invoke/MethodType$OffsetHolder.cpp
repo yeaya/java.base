@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodType$OffsetHolder.h>
-
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodType.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -13,47 +12,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $MethodType = ::java::lang::invoke::MethodType;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _MethodType$OffsetHolder_FieldInfo_[] = {
-	{"rtypeOffset", "J", nullptr, $STATIC | $FINAL, $staticField(MethodType$OffsetHolder, rtypeOffset)},
-	{"ptypesOffset", "J", nullptr, $STATIC | $FINAL, $staticField(MethodType$OffsetHolder, ptypesOffset)},
-	{}
-};
-
-$MethodInfo _MethodType$OffsetHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MethodType$OffsetHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _MethodType$OffsetHolder_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodType$OffsetHolder", "java.lang.invoke.MethodType", "OffsetHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MethodType$OffsetHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.MethodType$OffsetHolder",
-	"java.lang.Object",
-	nullptr,
-	_MethodType$OffsetHolder_FieldInfo_,
-	_MethodType$OffsetHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodType$OffsetHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodType"
-};
-
-$Object* allocate$MethodType$OffsetHolder($Class* clazz) {
-	return $of($alloc(MethodType$OffsetHolder));
-}
 
 int64_t MethodType$OffsetHolder::rtypeOffset = 0;
 int64_t MethodType$OffsetHolder::ptypesOffset = 0;
@@ -61,18 +23,48 @@ int64_t MethodType$OffsetHolder::ptypesOffset = 0;
 void MethodType$OffsetHolder::init$() {
 }
 
-void clinit$MethodType$OffsetHolder($Class* class$) {
+void MethodType$OffsetHolder::clinit$($Class* clazz) {
 	$init($MethodHandleStatics);
 	$load($MethodType);
 	MethodType$OffsetHolder::rtypeOffset = $nc($MethodHandleStatics::UNSAFE)->objectFieldOffset($MethodType::class$, "rtype"_s);
-	MethodType$OffsetHolder::ptypesOffset = $nc($MethodHandleStatics::UNSAFE)->objectFieldOffset($MethodType::class$, "ptypes"_s);
+	MethodType$OffsetHolder::ptypesOffset = $MethodHandleStatics::UNSAFE->objectFieldOffset($MethodType::class$, "ptypes"_s);
 }
 
 MethodType$OffsetHolder::MethodType$OffsetHolder() {
 }
 
 $Class* MethodType$OffsetHolder::load$($String* name, bool initialize) {
-	$loadClass(MethodType$OffsetHolder, name, initialize, &_MethodType$OffsetHolder_ClassInfo_, clinit$MethodType$OffsetHolder, allocate$MethodType$OffsetHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"rtypeOffset", "J", nullptr, $STATIC | $FINAL, $staticField(MethodType$OffsetHolder, rtypeOffset)},
+		{"ptypesOffset", "J", nullptr, $STATIC | $FINAL, $staticField(MethodType$OffsetHolder, ptypesOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MethodType$OffsetHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodType$OffsetHolder", "java.lang.invoke.MethodType", "OffsetHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.MethodType$OffsetHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodType"
+	};
+	$loadClass(MethodType$OffsetHolder, name, initialize, &classInfo$$, MethodType$OffsetHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodType$OffsetHolder);
+	});
 	return class$;
 }
 

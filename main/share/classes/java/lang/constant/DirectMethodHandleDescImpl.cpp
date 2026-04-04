@@ -1,5 +1,4 @@
 #include <java/lang/constant/DirectMethodHandleDescImpl.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDescs.h>
@@ -41,58 +40,8 @@ namespace java {
 	namespace lang {
 		namespace constant {
 
-$FieldInfo _DirectMethodHandleDescImpl_FieldInfo_[] = {
-	{"kind", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandleDescImpl, kind$)},
-	{"owner", "Ljava/lang/constant/ClassDesc;", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandleDescImpl, owner$)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandleDescImpl, name)},
-	{"invocationType", "Ljava/lang/constant/MethodTypeDesc;", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandleDescImpl, invocationType$)},
-	{}
-};
-
-$MethodInfo _DirectMethodHandleDescImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc$Kind;Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)V", nullptr, 0, $method(DirectMethodHandleDescImpl, init$, void, $DirectMethodHandleDesc$Kind*, $ClassDesc*, $String*, $MethodTypeDesc*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, hashCode, int32_t)},
-	{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, invocationType, $MethodTypeDesc*)},
-	{"isOwnerInterface", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, isOwnerInterface, bool)},
-	{"kind", "()Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, kind, $DirectMethodHandleDesc$Kind*)},
-	{"lookupDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, lookupDescriptor, $String*)},
-	{"methodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, methodName, $String*)},
-	{"owner", "()Ljava/lang/constant/ClassDesc;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, owner, $ClassDesc*)},
-	{"refKind", "()I", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, refKind, int32_t)},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, toString, $String*)},
-	{"validateConstructor", "(Ljava/lang/constant/MethodTypeDesc;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandleDescImpl, validateConstructor, void, $MethodTypeDesc*)},
-	{"validateFieldType", "(Ljava/lang/constant/MethodTypeDesc;ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandleDescImpl, validateFieldType, void, $MethodTypeDesc*, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _DirectMethodHandleDescImpl_InnerClassesInfo_[] = {
-	{"java.lang.constant.DirectMethodHandleDescImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _DirectMethodHandleDescImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.constant.DirectMethodHandleDescImpl",
-	"java.lang.Object",
-	"java.lang.constant.DirectMethodHandleDesc",
-	_DirectMethodHandleDescImpl_FieldInfo_,
-	_DirectMethodHandleDescImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectMethodHandleDescImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.constant.DirectMethodHandleDescImpl$1"
-};
-
-$Object* allocate$DirectMethodHandleDescImpl($Class* clazz) {
-	return $of($alloc(DirectMethodHandleDescImpl));
-}
-
 void DirectMethodHandleDescImpl::init$($DirectMethodHandleDesc$Kind* kind, $ClassDesc* owner, $String* name$renamed, $MethodTypeDesc* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$init($DirectMethodHandleDesc$Kind);
 	if (kind == $DirectMethodHandleDesc$Kind::CONSTRUCTOR) {
@@ -105,69 +54,57 @@ void DirectMethodHandleDescImpl::init$($DirectMethodHandleDesc$Kind* kind, $Clas
 	$init($DirectMethodHandleDescImpl$1);
 	switch ($nc($DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->get((kind)->ordinal())) {
 	case 1:
-		{
-			validateConstructor(type);
-			break;
-		}
+		validateConstructor(type);
+		break;
 	case 2:
-		{
-			validateFieldType(type, false, true);
-			break;
-		}
+		validateFieldType(type, false, true);
+		break;
 	case 3:
-		{
-			validateFieldType(type, true, true);
-			break;
-		}
+		validateFieldType(type, true, true);
+		break;
 	case 4:
-		{
-			validateFieldType(type, false, false);
-			break;
-		}
+		validateFieldType(type, false, false);
+		break;
 	case 5:
-		{
-			validateFieldType(type, true, false);
-			break;
-		}
+		validateFieldType(type, true, false);
+		break;
 	}
 	$set(this, kind$, kind);
 	$set(this, owner$, owner);
 	$set(this, name, name);
 	if (kind->isVirtualMethod()) {
 		$set(this, invocationType$, type->insertParameterTypes(0, $$new($ClassDescArray, {owner})));
+	} else if (kind == $DirectMethodHandleDesc$Kind::CONSTRUCTOR) {
+		$set(this, invocationType$, type->changeReturnType(owner));
 	} else {
-		if (kind == $DirectMethodHandleDesc$Kind::CONSTRUCTOR) {
-			$set(this, invocationType$, type->changeReturnType(owner));
-		} else {
-			$set(this, invocationType$, type);
-		}
+		$set(this, invocationType$, type);
 	}
 }
 
 void DirectMethodHandleDescImpl::validateFieldType($MethodTypeDesc* type, bool isSetter, bool isVirtual) {
 	$init(DirectMethodHandleDescImpl);
-	$useLocalCurrentObjectStackCache();
-	bool isVoid = $nc($($nc($($cast($ClassDesc, $nc(type)->returnType())))->descriptorString()))->equals("V"_s);
+	$useLocalObjectStack();
+	bool isVoid = $$nc($$sure($ClassDesc, $nc(type)->returnType())->descriptorString())->equals("V"_s);
 	int32_t expectedParams = (isSetter ? 1 : 0) + (isVirtual ? 1 : 0);
 	bool var$0 = isVoid != isSetter || type->parameterCount() != expectedParams;
-	if (var$0 || (isVirtual && $nc($($cast($ClassDesc, type->parameterType(0))))->isPrimitive())) {
+	if (var$0 || (isVirtual && $$sure($ClassDesc, type->parameterType(0))->isPrimitive())) {
 		$var($String, expectedType, $String::format("(%s%s)%s"_s, $$new($ObjectArray, {
-			(isVirtual ? $of("R"_s) : $of(""_s)),
-			(isSetter ? $of("T"_s) : $of(""_s)),
-			(isSetter ? $of("V"_s) : $of("T"_s))
+			(isVirtual ? "R"_s : ""_s),
+			(isSetter ? "T"_s : ""_s),
+			(isSetter ? "V"_s : "T"_s)
 		})));
 		$throwNew($IllegalArgumentException, $($String::format("Expected type of %s for getter, found %s"_s, $$new($ObjectArray, {
-			$of(expectedType),
-			$of(type)
+			expectedType,
+			type
 		}))));
 	}
 }
 
 void DirectMethodHandleDescImpl::validateConstructor($MethodTypeDesc* type) {
 	$init(DirectMethodHandleDescImpl);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($nc($($cast($ClassDesc, $nc(type)->returnType())))->descriptorString()))->equals("V"_s)) {
-		$throwNew($IllegalArgumentException, $($String::format("Expected type of (T*)V for constructor, found %s"_s, $$new($ObjectArray, {$of(type)}))));
+	$useLocalObjectStack();
+	if (!$$nc($$sure($ClassDesc, $nc(type)->returnType())->descriptorString())->equals("V"_s)) {
+		$throwNew($IllegalArgumentException, $($String::format("Expected type of (T*)V for constructor, found %s"_s, $$new($ObjectArray, {type}))));
 	}
 }
 
@@ -196,124 +133,82 @@ $MethodTypeDesc* DirectMethodHandleDescImpl::invocationType() {
 }
 
 $String* DirectMethodHandleDescImpl::lookupDescriptor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DirectMethodHandleDescImpl$1);
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch ($nc($DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->get((this->kind$)->ordinal())) {
 	case 6:
-		{}
 	case 7:
-		{}
 	case 8:
-		{}
 	case 9:
-		{
-			$assign(var$0, $nc($($cast($MethodTypeDesc, $nc(this->invocationType$)->dropParameterTypes(0, 1))))->descriptorString());
-			break;
-		}
+		$assign(var$0, $$sure($MethodTypeDesc, $nc(this->invocationType$)->dropParameterTypes(0, 1))->descriptorString());
+		break;
 	case 10:
-		{}
 	case 11:
-		{
-			$assign(var$0, $nc(this->invocationType$)->descriptorString());
-			break;
-		}
+		$assign(var$0, $nc(this->invocationType$)->descriptorString());
+		break;
 	case 1:
-		{
-			$init($ConstantDescs);
-			$assign(var$0, $nc($($nc(this->invocationType$)->changeReturnType($ConstantDescs::CD_void)))->descriptorString());
-			break;
-		}
+		$init($ConstantDescs);
+		$assign(var$0, $$nc($nc(this->invocationType$)->changeReturnType($ConstantDescs::CD_void))->descriptorString());
+		break;
 	case 2:
-		{}
 	case 4:
-		{
-			$assign(var$0, $nc($($cast($ClassDesc, $nc(this->invocationType$)->returnType())))->descriptorString());
-			break;
-		}
+		$assign(var$0, $$sure($ClassDesc, $nc(this->invocationType$)->returnType())->descriptorString());
+		break;
 	case 3:
-		{
-			$assign(var$0, $nc($($cast($ClassDesc, $nc(this->invocationType$)->parameterType(1))))->descriptorString());
-			break;
-		}
+		$assign(var$0, $$sure($ClassDesc, $nc(this->invocationType$)->parameterType(1))->descriptorString());
+		break;
 	case 5:
-		{
-			$assign(var$0, $nc($($cast($ClassDesc, $nc(this->invocationType$)->parameterType(0))))->descriptorString());
-			break;
-		}
+		$assign(var$0, $$sure($ClassDesc, $nc(this->invocationType$)->parameterType(0))->descriptorString());
+		break;
 	default:
-		{
-			$throwNew($IllegalStateException, $(this->kind$->toString()));
-		}
+		$throwNew($IllegalStateException, $(this->kind$->toString()));
 	}
 	return var$0;
 }
 
 $Object* DirectMethodHandleDescImpl::resolveConstantDesc($MethodHandles$Lookup* lookup) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* resolvedOwner = $cast($Class, $nc(this->owner$)->resolveConstantDesc(lookup));
-	$var($MethodType, invocationType, $cast($MethodType, $nc($(this->invocationType()))->resolveConstantDesc(lookup)));
+	$var($MethodType, invocationType, $cast($MethodType, $$nc(this->invocationType())->resolveConstantDesc(lookup)));
 	$init($DirectMethodHandleDescImpl$1);
-
-	$var($MethodHandle, var$0, nullptr)
+	$var($MethodHandle, var$0, nullptr);
 	switch ($nc($DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->get((this->kind$)->ordinal())) {
 	case 10:
-		{}
 	case 11:
-		{
-			$assign(var$0, $nc(lookup)->findStatic(resolvedOwner, this->name, invocationType));
-			break;
-		}
+		$assign(var$0, $nc(lookup)->findStatic(resolvedOwner, this->name, invocationType));
+		break;
 	case 6:
-		{}
 	case 8:
-		{
-			$assign(var$0, $nc(lookup)->findVirtual(resolvedOwner, this->name, $($cast($MethodType, $nc(invocationType)->dropParameterTypes(0, 1)))));
-			break;
-		}
+		$assign(var$0, $nc(lookup)->findVirtual(resolvedOwner, this->name, $$cast($MethodType, $nc(invocationType)->dropParameterTypes(0, 1))));
+		break;
 	case 7:
-		{}
 	case 9:
 		{
-			$Class* var$1 = resolvedOwner;
-			$var($String, var$2, this->name);
-			$var($MethodType, var$3, $cast($MethodType, $nc(invocationType)->dropParameterTypes(0, 1)));
-			$assign(var$0, $nc(lookup)->findSpecial(var$1, var$2, var$3, lookup->lookupClass()));
+			$var($String, var$1, this->name);
+			$var($MethodType, var$2, $cast($MethodType, $nc(invocationType)->dropParameterTypes(0, 1)));
+			$assign(var$0, $nc(lookup)->findSpecial(resolvedOwner, var$1, var$2, $nc(lookup)->lookupClass()));
 			break;
 		}
 	case 1:
-		{
-			$init($Void);
-			$assign(var$0, $nc(lookup)->findConstructor(resolvedOwner, $($nc(invocationType)->changeReturnType($Void::TYPE))));
-			break;
-		}
+		$assign(var$0, $nc(lookup)->findConstructor(resolvedOwner, $($nc(invocationType)->changeReturnType($Void::TYPE))));
+		break;
 	case 2:
-		{
-			$assign(var$0, $nc(lookup)->findGetter(resolvedOwner, this->name, $($cast($Class, $nc(invocationType)->returnType()))));
-			break;
-		}
+		$assign(var$0, $nc(lookup)->findGetter(resolvedOwner, this->name, $$cast($Class, $nc(invocationType)->returnType())));
+		break;
 	case 4:
-		{
-			$assign(var$0, $nc(lookup)->findStaticGetter(resolvedOwner, this->name, $($cast($Class, $nc(invocationType)->returnType()))));
-			break;
-		}
+		$assign(var$0, $nc(lookup)->findStaticGetter(resolvedOwner, this->name, $$cast($Class, $nc(invocationType)->returnType())));
+		break;
 	case 3:
-		{
-			$assign(var$0, $nc(lookup)->findSetter(resolvedOwner, this->name, $($cast($Class, $nc(invocationType)->parameterType(1)))));
-			break;
-		}
+		$assign(var$0, $nc(lookup)->findSetter(resolvedOwner, this->name, $$cast($Class, $nc(invocationType)->parameterType(1))));
+		break;
 	case 5:
-		{
-			$assign(var$0, $nc(lookup)->findStaticSetter(resolvedOwner, this->name, $($cast($Class, $nc(invocationType)->parameterType(0)))));
-			break;
-		}
+		$assign(var$0, $nc(lookup)->findStaticSetter(resolvedOwner, this->name, $$cast($Class, $nc(invocationType)->parameterType(0))));
+		break;
 	default:
-		{
-			$throwNew($IllegalStateException, $(this->kind$->name()));
-		}
+		$throwNew($IllegalStateException, $(this->kind$->name()));
 	}
-	return $of(var$0);
+	return var$0;
 }
 
 bool DirectMethodHandleDescImpl::equals(Object$* o) {
@@ -322,7 +217,7 @@ bool DirectMethodHandleDescImpl::equals(Object$* o) {
 	}
 	bool var$0 = o == nullptr;
 	if (!var$0) {
-		var$0 = $of(this)->getClass() != $nc($of(o))->getClass();
+		var$0 = $of(this)->getClass() != $of(o)->getClass();
 	}
 	if (var$0) {
 		return false;
@@ -335,20 +230,20 @@ bool DirectMethodHandleDescImpl::equals(Object$* o) {
 
 int32_t DirectMethodHandleDescImpl::hashCode() {
 	return $Objects::hash($$new($ObjectArray, {
-		$of(this->kind$),
-		$of(this->owner$),
-		$of(this->name),
-		$of(this->invocationType$)
+		this->kind$,
+		this->owner$,
+		this->name,
+		this->invocationType$
 	}));
 }
 
 $String* DirectMethodHandleDescImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("MethodHandleDesc[%s/%s::%s%s]"_s, $$new($ObjectArray, {
-		$of(this->kind$),
-		$($of($nc(this->owner$)->displayName())),
-		$of(this->name),
-		$($of($nc(this->invocationType$)->displayDescriptor()))
+		this->kind$,
+		$($nc(this->owner$)->displayName()),
+		this->name,
+		$($nc(this->invocationType$)->displayDescriptor())
 	}));
 }
 
@@ -356,7 +251,51 @@ DirectMethodHandleDescImpl::DirectMethodHandleDescImpl() {
 }
 
 $Class* DirectMethodHandleDescImpl::load$($String* name, bool initialize) {
-	$loadClass(DirectMethodHandleDescImpl, name, initialize, &_DirectMethodHandleDescImpl_ClassInfo_, allocate$DirectMethodHandleDescImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"kind", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandleDescImpl, kind$)},
+		{"owner", "Ljava/lang/constant/ClassDesc;", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandleDescImpl, owner$)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandleDescImpl, name)},
+		{"invocationType", "Ljava/lang/constant/MethodTypeDesc;", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandleDescImpl, invocationType$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc$Kind;Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)V", nullptr, 0, $method(DirectMethodHandleDescImpl, init$, void, $DirectMethodHandleDesc$Kind*, $ClassDesc*, $String*, $MethodTypeDesc*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, hashCode, int32_t)},
+		{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, invocationType, $MethodTypeDesc*)},
+		{"isOwnerInterface", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, isOwnerInterface, bool)},
+		{"kind", "()Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, kind, $DirectMethodHandleDesc$Kind*)},
+		{"lookupDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, lookupDescriptor, $String*)},
+		{"methodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, methodName, $String*)},
+		{"owner", "()Ljava/lang/constant/ClassDesc;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, owner, $ClassDesc*)},
+		{"refKind", "()I", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, refKind, int32_t)},
+		{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, toString, $String*)},
+		{"validateConstructor", "(Ljava/lang/constant/MethodTypeDesc;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandleDescImpl, validateConstructor, void, $MethodTypeDesc*)},
+		{"validateFieldType", "(Ljava/lang/constant/MethodTypeDesc;ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandleDescImpl, validateFieldType, void, $MethodTypeDesc*, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.constant.DirectMethodHandleDescImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.constant.DirectMethodHandleDescImpl",
+		"java.lang.Object",
+		"java.lang.constant.DirectMethodHandleDesc",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.constant.DirectMethodHandleDescImpl$1"
+	};
+	$loadClass(DirectMethodHandleDescImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectMethodHandleDescImpl);
+	});
 	return class$;
 }
 

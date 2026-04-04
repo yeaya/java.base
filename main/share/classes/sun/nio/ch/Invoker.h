@@ -46,6 +46,7 @@ class Invoker : public ::java::lang::Object {
 	$class(Invoker, 0, ::java::lang::Object)
 public:
 	Invoker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void bindToGroup(::sun::nio::ch::AsynchronousChannelGroupImpl* group);
 	static ::sun::nio::ch::Invoker$GroupAndInvokeCount* getGroupAndInvokeCount();

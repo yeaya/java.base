@@ -82,6 +82,7 @@ class HttpClient : public ::sun::net::NetworkClient {
 	$class(HttpClient, 0, ::sun::net::NetworkClient)
 public:
 	HttpClient();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::net::URL* url);
 	void init$(::java::net::URL* url, bool proxyDisabled);

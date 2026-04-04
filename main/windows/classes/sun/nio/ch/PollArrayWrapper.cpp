@@ -1,5 +1,4 @@
 #include <sun/nio/ch/PollArrayWrapper.h>
-
 #include <sun/nio/ch/AllocatedNativeObject.h>
 #include <sun/nio/ch/Net.h>
 #include <sun/nio/ch/SelectionKeyImpl.h>
@@ -21,49 +20,12 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _PollArrayWrapper_FieldInfo_[] = {
-	{"pollArray", "Lsun/nio/ch/AllocatedNativeObject;", nullptr, $PRIVATE, $field(PollArrayWrapper, pollArray)},
-	{"pollArrayAddress", "J", nullptr, 0, $field(PollArrayWrapper, pollArrayAddress)},
-	{"FD_OFFSET", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PollArrayWrapper, FD_OFFSET)},
-	{"EVENT_OFFSET", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PollArrayWrapper, EVENT_OFFSET)},
-	{"SIZE_POLLFD", "S", nullptr, $STATIC, $staticField(PollArrayWrapper, SIZE_POLLFD)},
-	{"size", "I", nullptr, $PRIVATE, $field(PollArrayWrapper, size)},
-	{}
-};
-
-$MethodInfo _PollArrayWrapper_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(PollArrayWrapper, init$, void, int32_t)},
-	{"addWakeupSocket", "(II)V", nullptr, 0, $virtualMethod(PollArrayWrapper, addWakeupSocket, void, int32_t, int32_t)},
-	{"free", "()V", nullptr, 0, $virtualMethod(PollArrayWrapper, free, void)},
-	{"getDescriptor", "(I)I", nullptr, 0, $virtualMethod(PollArrayWrapper, getDescriptor, int32_t, int32_t)},
-	{"getEventOps", "(I)I", nullptr, 0, $virtualMethod(PollArrayWrapper, getEventOps, int32_t, int32_t)},
-	{"grow", "(I)V", nullptr, 0, $virtualMethod(PollArrayWrapper, grow, void, int32_t)},
-	{"putDescriptor", "(II)V", nullptr, 0, $virtualMethod(PollArrayWrapper, putDescriptor, void, int32_t, int32_t)},
-	{"putEntry", "(ILsun/nio/ch/SelectionKeyImpl;)V", nullptr, 0, $virtualMethod(PollArrayWrapper, putEntry, void, int32_t, $SelectionKeyImpl*)},
-	{"putEventOps", "(II)V", nullptr, 0, $virtualMethod(PollArrayWrapper, putEventOps, void, int32_t, int32_t)},
-	{"replaceEntry", "(Lsun/nio/ch/PollArrayWrapper;ILsun/nio/ch/PollArrayWrapper;I)V", nullptr, 0, $virtualMethod(PollArrayWrapper, replaceEntry, void, PollArrayWrapper*, int32_t, PollArrayWrapper*, int32_t)},
-	{}
-};
-
-$ClassInfo _PollArrayWrapper_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.PollArrayWrapper",
-	"java.lang.Object",
-	nullptr,
-	_PollArrayWrapper_FieldInfo_,
-	_PollArrayWrapper_MethodInfo_
-};
-
-$Object* allocate$PollArrayWrapper($Class* clazz) {
-	return $of($alloc(PollArrayWrapper));
-}
-
 int16_t PollArrayWrapper::SIZE_POLLFD = 0;
 
 void PollArrayWrapper::init$(int32_t newSize) {
 	int32_t allocationSize = newSize * PollArrayWrapper::SIZE_POLLFD;
 	$set(this, pollArray, $new($AllocatedNativeObject, allocationSize, true));
-	this->pollArrayAddress = $nc(this->pollArray)->address();
+	this->pollArrayAddress = this->pollArray->address();
 	this->size = newSize;
 }
 
@@ -74,7 +36,7 @@ void PollArrayWrapper::putEntry(int32_t index, $SelectionKeyImpl* ski) {
 
 void PollArrayWrapper::replaceEntry(PollArrayWrapper* source, int32_t sindex, PollArrayWrapper* target, int32_t tindex) {
 	$nc(target)->putDescriptor(tindex, $nc(source)->getDescriptor(sindex));
-	target->putEventOps(tindex, $nc(source)->getEventOps(sindex));
+	target->putEventOps(tindex, source->getEventOps(sindex));
 }
 
 void PollArrayWrapper::grow(int32_t newSize) {
@@ -114,15 +76,47 @@ void PollArrayWrapper::addWakeupSocket(int32_t fdVal, int32_t index) {
 	putEventOps(index, $Net::POLLIN);
 }
 
-void clinit$PollArrayWrapper($Class* class$) {
-	PollArrayWrapper::SIZE_POLLFD = (int16_t)8;
+void PollArrayWrapper::clinit$($Class* clazz) {
+	PollArrayWrapper::SIZE_POLLFD = 8;
 }
 
 PollArrayWrapper::PollArrayWrapper() {
 }
 
 $Class* PollArrayWrapper::load$($String* name, bool initialize) {
-	$loadClass(PollArrayWrapper, name, initialize, &_PollArrayWrapper_ClassInfo_, clinit$PollArrayWrapper, allocate$PollArrayWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"pollArray", "Lsun/nio/ch/AllocatedNativeObject;", nullptr, $PRIVATE, $field(PollArrayWrapper, pollArray)},
+		{"pollArrayAddress", "J", nullptr, 0, $field(PollArrayWrapper, pollArrayAddress)},
+		{"FD_OFFSET", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PollArrayWrapper, FD_OFFSET)},
+		{"EVENT_OFFSET", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PollArrayWrapper, EVENT_OFFSET)},
+		{"SIZE_POLLFD", "S", nullptr, $STATIC, $staticField(PollArrayWrapper, SIZE_POLLFD)},
+		{"size", "I", nullptr, $PRIVATE, $field(PollArrayWrapper, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(PollArrayWrapper, init$, void, int32_t)},
+		{"addWakeupSocket", "(II)V", nullptr, 0, $virtualMethod(PollArrayWrapper, addWakeupSocket, void, int32_t, int32_t)},
+		{"free", "()V", nullptr, 0, $virtualMethod(PollArrayWrapper, free, void)},
+		{"getDescriptor", "(I)I", nullptr, 0, $virtualMethod(PollArrayWrapper, getDescriptor, int32_t, int32_t)},
+		{"getEventOps", "(I)I", nullptr, 0, $virtualMethod(PollArrayWrapper, getEventOps, int32_t, int32_t)},
+		{"grow", "(I)V", nullptr, 0, $virtualMethod(PollArrayWrapper, grow, void, int32_t)},
+		{"putDescriptor", "(II)V", nullptr, 0, $virtualMethod(PollArrayWrapper, putDescriptor, void, int32_t, int32_t)},
+		{"putEntry", "(ILsun/nio/ch/SelectionKeyImpl;)V", nullptr, 0, $virtualMethod(PollArrayWrapper, putEntry, void, int32_t, $SelectionKeyImpl*)},
+		{"putEventOps", "(II)V", nullptr, 0, $virtualMethod(PollArrayWrapper, putEventOps, void, int32_t, int32_t)},
+		{"replaceEntry", "(Lsun/nio/ch/PollArrayWrapper;ILsun/nio/ch/PollArrayWrapper;I)V", nullptr, 0, $virtualMethod(PollArrayWrapper, replaceEntry, void, PollArrayWrapper*, int32_t, PollArrayWrapper*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.PollArrayWrapper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PollArrayWrapper, name, initialize, &classInfo$$, PollArrayWrapper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PollArrayWrapper);
+	});
 	return class$;
 }
 

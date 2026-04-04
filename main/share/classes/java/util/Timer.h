@@ -37,6 +37,7 @@ class $export Timer : public ::java::lang::Object {
 	$class(Timer, 0, ::java::lang::Object)
 public:
 	Timer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool isDaemon);
 	void init$($String* name);

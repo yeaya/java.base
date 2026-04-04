@@ -9,6 +9,7 @@ class $export ImplicitStringConcatManyLongs : public ::java::lang::Object {
 	$class(ImplicitStringConcatManyLongs, 0, ::java::lang::Object)
 public:
 	ImplicitStringConcatManyLongs();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test($String* expected, $String* actual);

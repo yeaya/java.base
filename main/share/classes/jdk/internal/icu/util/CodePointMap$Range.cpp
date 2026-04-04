@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/util/CodePointMap$Range.h>
-
 #include <jdk/internal/icu/util/CodePointMap.h>
 #include <jcpp.h>
 
@@ -12,47 +11,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace util {
-
-$FieldInfo _CodePointMap$Range_FieldInfo_[] = {
-	{"start", "I", nullptr, $PRIVATE, $field(CodePointMap$Range, start)},
-	{"end", "I", nullptr, $PRIVATE, $field(CodePointMap$Range, end)},
-	{"value", "I", nullptr, $PRIVATE, $field(CodePointMap$Range, value)},
-	{}
-};
-
-$MethodInfo _CodePointMap$Range_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CodePointMap$Range, init$, void)},
-	{"getEnd", "()I", nullptr, $PUBLIC, $method(CodePointMap$Range, getEnd, int32_t)},
-	{"getStart", "()I", nullptr, $PUBLIC, $method(CodePointMap$Range, getStart, int32_t)},
-	{"getValue", "()I", nullptr, $PUBLIC, $method(CodePointMap$Range, getValue, int32_t)},
-	{"set", "(III)V", nullptr, $PUBLIC, $method(CodePointMap$Range, set, void, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CodePointMap$Range_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.util.CodePointMap$Range", "jdk.internal.icu.util.CodePointMap", "Range", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CodePointMap$Range_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.icu.util.CodePointMap$Range",
-	"java.lang.Object",
-	nullptr,
-	_CodePointMap$Range_FieldInfo_,
-	_CodePointMap$Range_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CodePointMap$Range_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.util.CodePointMap"
-};
-
-$Object* allocate$CodePointMap$Range($Class* clazz) {
-	return $of($alloc(CodePointMap$Range));
-}
 
 void CodePointMap$Range::init$() {
 	this->start = (this->end = -1);
@@ -81,7 +39,42 @@ CodePointMap$Range::CodePointMap$Range() {
 }
 
 $Class* CodePointMap$Range::load$($String* name, bool initialize) {
-	$loadClass(CodePointMap$Range, name, initialize, &_CodePointMap$Range_ClassInfo_, allocate$CodePointMap$Range);
+	$FieldInfo fieldInfos$$[] = {
+		{"start", "I", nullptr, $PRIVATE, $field(CodePointMap$Range, start)},
+		{"end", "I", nullptr, $PRIVATE, $field(CodePointMap$Range, end)},
+		{"value", "I", nullptr, $PRIVATE, $field(CodePointMap$Range, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CodePointMap$Range, init$, void)},
+		{"getEnd", "()I", nullptr, $PUBLIC, $method(CodePointMap$Range, getEnd, int32_t)},
+		{"getStart", "()I", nullptr, $PUBLIC, $method(CodePointMap$Range, getStart, int32_t)},
+		{"getValue", "()I", nullptr, $PUBLIC, $method(CodePointMap$Range, getValue, int32_t)},
+		{"set", "(III)V", nullptr, $PUBLIC, $method(CodePointMap$Range, set, void, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.util.CodePointMap$Range", "jdk.internal.icu.util.CodePointMap", "Range", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.icu.util.CodePointMap$Range",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.util.CodePointMap"
+	};
+	$loadClass(CodePointMap$Range, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CodePointMap$Range);
+	});
 	return class$;
 }
 

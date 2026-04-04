@@ -1,5 +1,4 @@
 #include <MessageFormatsByArgumentIndex.h>
-
 #include <java/text/ChoiceFormat.h>
 #include <java/text/Format.h>
 #include <java/text/MessageFormat.h>
@@ -16,33 +15,6 @@ using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
 using $NumberFormat = ::java::text::NumberFormat;
 
-$FieldInfo _MessageFormatsByArgumentIndex_FieldInfo_[] = {
-	{"choicePattern", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MessageFormatsByArgumentIndex, choicePattern)},
-	{}
-};
-
-$MethodInfo _MessageFormatsByArgumentIndex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MessageFormatsByArgumentIndex, init$, void)},
-	{"checkPattern", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, checkPattern, void, $String*, $String*)},
-	{"checkSubformat", "([Ljava/text/Format;ILjava/text/Format;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, checkSubformat, void, $FormatArray*, int32_t, $Format*)},
-	{"checkSubformatLength", "([Ljava/text/Format;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, checkSubformatLength, void, $FormatArray*, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _MessageFormatsByArgumentIndex_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MessageFormatsByArgumentIndex",
-	"java.lang.Object",
-	nullptr,
-	_MessageFormatsByArgumentIndex_FieldInfo_,
-	_MessageFormatsByArgumentIndex_MethodInfo_
-};
-
-$Object* allocate$MessageFormatsByArgumentIndex($Class* clazz) {
-	return $of($alloc(MessageFormatsByArgumentIndex));
-}
-
 $String* MessageFormatsByArgumentIndex::choicePattern = nullptr;
 
 void MessageFormatsByArgumentIndex::init$() {
@@ -50,7 +22,7 @@ void MessageFormatsByArgumentIndex::init$() {
 
 void MessageFormatsByArgumentIndex::main($StringArray* args) {
 	$init(MessageFormatsByArgumentIndex);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FormatArray, subformats, nullptr);
 	$var($MessageFormat, format, $new($MessageFormat, $$str({"{3, choice,"_s, MessageFormatsByArgumentIndex::choicePattern, "}, {2}, {0}"_s})));
 	$assign(subformats, format->getFormatsByArgumentIndex());
@@ -101,7 +73,7 @@ void MessageFormatsByArgumentIndex::checkPattern($String* actual, $String* expec
 
 void MessageFormatsByArgumentIndex::checkSubformatLength($FormatArray* subformats, int32_t expected) {
 	$init(MessageFormatsByArgumentIndex);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(subformats)->length != expected) {
 		$throwNew($RuntimeException, $$str({"unexpected subformat length:\n expected: "_s, $$str(expected), "\n   actual: "_s, $$str(subformats->length)}));
 	}
@@ -109,18 +81,18 @@ void MessageFormatsByArgumentIndex::checkSubformatLength($FormatArray* subformat
 
 void MessageFormatsByArgumentIndex::checkSubformat($FormatArray* subformats, int32_t index, $Format* expected) {
 	$init(MessageFormatsByArgumentIndex);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Format, subformat, $nc(subformats)->get(index));
 	if (subformat == expected) {
 		return;
 	}
-	if ((subformat != nullptr) && $of(subformat)->equals(expected)) {
+	if ((subformat != nullptr) && subformat->equals(expected)) {
 		return;
 	}
 	$throwNew($RuntimeException, $$str({"found unexpected subformat for argument "_s, $$str(index), ":\n expected: "_s, expected, "\n   actual: "_s, subformat}));
 }
 
-void clinit$MessageFormatsByArgumentIndex($Class* class$) {
+void MessageFormatsByArgumentIndex::clinit$($Class* clazz) {
 	$assignStatic(MessageFormatsByArgumentIndex::choicePattern, "0.0#are no files|1.0#is one file|1.0<are {0,number,integer} files"_s);
 }
 
@@ -128,7 +100,29 @@ MessageFormatsByArgumentIndex::MessageFormatsByArgumentIndex() {
 }
 
 $Class* MessageFormatsByArgumentIndex::load$($String* name, bool initialize) {
-	$loadClass(MessageFormatsByArgumentIndex, name, initialize, &_MessageFormatsByArgumentIndex_ClassInfo_, clinit$MessageFormatsByArgumentIndex, allocate$MessageFormatsByArgumentIndex);
+	$FieldInfo fieldInfos$$[] = {
+		{"choicePattern", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MessageFormatsByArgumentIndex, choicePattern)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MessageFormatsByArgumentIndex, init$, void)},
+		{"checkPattern", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, checkPattern, void, $String*, $String*)},
+		{"checkSubformat", "([Ljava/text/Format;ILjava/text/Format;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, checkSubformat, void, $FormatArray*, int32_t, $Format*)},
+		{"checkSubformatLength", "([Ljava/text/Format;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, checkSubformatLength, void, $FormatArray*, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MessageFormatsByArgumentIndex",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MessageFormatsByArgumentIndex, name, initialize, &classInfo$$, MessageFormatsByArgumentIndex::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageFormatsByArgumentIndex);
+	});
 	return class$;
 }
 

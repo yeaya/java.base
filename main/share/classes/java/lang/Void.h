@@ -12,9 +12,10 @@ namespace java {
 	namespace lang {
 
 class $export Void : public ::java::lang::Object {
-	$class(Void, $PRELOAD, ::java::lang::Object)
+	$class(Void, $PRELOAD | $PREINIT, ::java::lang::Object)
 public:
 	Void();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Class* TYPE;
 	static ::java::lang::Void* VOID$;

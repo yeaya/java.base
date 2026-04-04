@@ -1,5 +1,4 @@
 #include <repeatingAnnotations/ExpectedAssociated.h>
-
 #include <repeatingAnnotations/Ann.h>
 #include <jcpp.h>
 
@@ -11,40 +10,34 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace repeatingAnnotations {
 
-$NamedAttribute ExpectedAssociated_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _ExpectedAssociated_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", ExpectedAssociated_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _ExpectedAssociated_MethodInfo_[] = {
-	{"value", "()[LrepeatingAnnotations/Ann;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedAssociated, value, $AnnArray*)},
-	{}
-};
-
-$ClassInfo _ExpectedAssociated_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"repeatingAnnotations.ExpectedAssociated",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_ExpectedAssociated_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ExpectedAssociated_Annotations_
-};
-
-$Object* allocate$ExpectedAssociated($Class* clazz) {
-	return $of($alloc(ExpectedAssociated));
-}
-
 $Class* ExpectedAssociated::load$($String* name, bool initialize) {
-	$loadClass(ExpectedAssociated, name, initialize, &_ExpectedAssociated_ClassInfo_, allocate$ExpectedAssociated);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[LrepeatingAnnotations/Ann;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedAssociated, value, $AnnArray*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"repeatingAnnotations.ExpectedAssociated",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ExpectedAssociated, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExpectedAssociated);
+	});
 	return class$;
 }
 

@@ -63,6 +63,7 @@ class WindowsChannelFactory : public ::java::lang::Object {
 	$class(WindowsChannelFactory, 0, ::java::lang::Object)
 public:
 	WindowsChannelFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::channels::AsynchronousFileChannel* newAsynchronousFileChannel($String* pathForWindows, $String* pathToCheck, ::java::util::Set* options, int64_t pSecurityDescriptor, ::sun::nio::ch::ThreadPool* pool);
 	static ::java::nio::channels::FileChannel* newFileChannel($String* pathForWindows, $String* pathToCheck, ::java::util::Set* options, int64_t pSecurityDescriptor);

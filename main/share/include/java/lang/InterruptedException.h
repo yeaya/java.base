@@ -14,10 +14,13 @@ public:
 	InterruptedException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x5CFDA8C301DEB7F9;
+	static const int64_t serialVersionUID = (int64_t)0x5cfda8c301deb7f9;
 	InterruptedException(const InterruptedException& e);
 	virtual void throw$() override;
-	inline InterruptedException* operator ->() {
+	inline InterruptedException* operator ->() const {
+		return (InterruptedException*)throwing$;
+	}
+	inline operator InterruptedException*() const {
 		return (InterruptedException*)throwing$;
 	}
 };

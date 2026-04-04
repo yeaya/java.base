@@ -67,7 +67,7 @@ public:
 	static const char16_t MAX_LOW = ((char16_t)57343);
 	static const int32_t MIN_CODE_POINT = 0;
 	static const int32_t MIN_SUPPLEMENTARY = 0x00010000;
-	static const int32_t MAX_SUPPLEMENTARY = 0x0010FFFF;
+	static const int32_t MAX_SUPPLEMENTARY = 0x0010ffff;
 	static const bool At = true;
 	static const bool Before = false;
 };

@@ -1,5 +1,4 @@
 #include <javax/crypto/SecretKeyFactory.h>
-
 #include <java/security/InvalidKeyException.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Provider$Service.h>
@@ -26,7 +25,6 @@ using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException;
 using $KeySpec = ::java::security::spec::KeySpec;
-using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $JceSecurity = ::javax::crypto::JceSecurity;
@@ -38,43 +36,6 @@ using $GetInstance$Instance = ::sun::security::jca::GetInstance$Instance;
 namespace javax {
 	namespace crypto {
 
-$FieldInfo _SecretKeyFactory_FieldInfo_[] = {
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(SecretKeyFactory, provider)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SecretKeyFactory, algorithm)},
-	{"spi", "Ljavax/crypto/SecretKeyFactorySpi;", nullptr, $PRIVATE | $VOLATILE, $field(SecretKeyFactory, spi)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SecretKeyFactory, lock)},
-	{"serviceIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PRIVATE, $field(SecretKeyFactory, serviceIterator)},
-	{}
-};
-
-$MethodInfo _SecretKeyFactory_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/SecretKeyFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(SecretKeyFactory, init$, void, $SecretKeyFactorySpi*, $Provider*, $String*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SecretKeyFactory, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"generateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, generateSecret, $SecretKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, getAlgorithm, $String*)},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecretKeyFactory, getInstance, SecretKeyFactory*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecretKeyFactory, getInstance, SecretKeyFactory*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecretKeyFactory, getInstance, SecretKeyFactory*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PUBLIC | $FINAL, $method(SecretKeyFactory, getKeySpec, $KeySpec*, $SecretKey*, $Class*), "java.security.spec.InvalidKeySpecException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, getProvider, $Provider*)},
-	{"nextSpi", "(Ljavax/crypto/SecretKeyFactorySpi;)Ljavax/crypto/SecretKeyFactorySpi;", nullptr, $PRIVATE, $method(SecretKeyFactory, nextSpi, $SecretKeyFactorySpi*, $SecretKeyFactorySpi*)},
-	{"translateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, translateKey, $SecretKey*, $SecretKey*), "java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _SecretKeyFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.SecretKeyFactory",
-	"java.lang.Object",
-	nullptr,
-	_SecretKeyFactory_FieldInfo_,
-	_SecretKeyFactory_MethodInfo_
-};
-
-$Object* allocate$SecretKeyFactory($Class* clazz) {
-	return $of($alloc(SecretKeyFactory));
-}
-
 void SecretKeyFactory::init$($SecretKeyFactorySpi* keyFacSpi, $Provider* provider, $String* algorithm) {
 	$set(this, lock, $new($Object));
 	$set(this, spi, keyFacSpi);
@@ -83,7 +44,7 @@ void SecretKeyFactory::init$($SecretKeyFactorySpi* keyFacSpi, $Provider* provide
 }
 
 void SecretKeyFactory::init$($String* algorithm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, lock, $new($Object));
 	$set(this, algorithm, algorithm);
 	$var($List, list, $GetInstance::getServices("SecretKeyFactory"_s, algorithm));
@@ -94,22 +55,22 @@ void SecretKeyFactory::init$($String* algorithm) {
 }
 
 SecretKeyFactory* SecretKeyFactory::getInstance($String* algorithm) {
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	return $new(SecretKeyFactory, algorithm);
 }
 
 SecretKeyFactory* SecretKeyFactory::getInstance($String* algorithm, $String* provider) {
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($SecretKeyFactorySpi);
 	$var($GetInstance$Instance, instance, $JceSecurity::getInstance("SecretKeyFactory"_s, $SecretKeyFactorySpi::class$, algorithm, provider));
-	return $new(SecretKeyFactory, $cast($SecretKeyFactorySpi, $nc(instance)->impl), instance->provider, algorithm);
+	return $new(SecretKeyFactory, $cast($SecretKeyFactorySpi, $nc(instance)->impl), $nc(instance)->provider, algorithm);
 }
 
 SecretKeyFactory* SecretKeyFactory::getInstance($String* algorithm, $Provider* provider) {
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($SecretKeyFactorySpi);
 	$var($GetInstance$Instance, instance, $JceSecurity::getInstance("SecretKeyFactory"_s, $SecretKeyFactorySpi::class$, algorithm, provider));
-	return $new(SecretKeyFactory, $cast($SecretKeyFactorySpi, $nc(instance)->impl), instance->provider, algorithm);
+	return $new(SecretKeyFactory, $cast($SecretKeyFactorySpi, $nc(instance)->impl), $nc(instance)->provider, algorithm);
 }
 
 $Provider* SecretKeyFactory::getProvider() {
@@ -124,7 +85,7 @@ $String* SecretKeyFactory::getAlgorithm() {
 }
 
 $SecretKeyFactorySpi* SecretKeyFactory::nextSpi($SecretKeyFactorySpi* oldSpi) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if ((oldSpi != nullptr) && (oldSpi != this->spi)) {
 			return this->spi;
@@ -133,12 +94,12 @@ $SecretKeyFactorySpi* SecretKeyFactory::nextSpi($SecretKeyFactorySpi* oldSpi) {
 			return nullptr;
 		}
 		while ($nc(this->serviceIterator)->hasNext()) {
-			$var($Provider$Service, s, $cast($Provider$Service, $nc(this->serviceIterator)->next()));
+			$var($Provider$Service, s, $cast($Provider$Service, this->serviceIterator->next()));
 			if ($JceSecurity::canUseProvider($($nc(s)->getProvider())) == false) {
 				continue;
 			}
 			try {
-				$var($Object, obj, $nc(s)->newInstance(nullptr));
+				$var($Object, obj, s->newInstance(nullptr));
 				if ($instanceOf($SecretKeyFactorySpi, obj) == false) {
 					continue;
 				}
@@ -155,7 +116,7 @@ $SecretKeyFactorySpi* SecretKeyFactory::nextSpi($SecretKeyFactorySpi* oldSpi) {
 }
 
 $SecretKey* SecretKeyFactory::generateSecret($KeySpec* keySpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineGenerateSecret(keySpec);
 	}
@@ -179,7 +140,7 @@ $SecretKey* SecretKeyFactory::generateSecret($KeySpec* keySpec) {
 }
 
 $KeySpec* SecretKeyFactory::getKeySpec($SecretKey* key, $Class* keySpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineGetKeySpec(key, keySpec);
 	}
@@ -203,7 +164,7 @@ $KeySpec* SecretKeyFactory::getKeySpec($SecretKey* key, $Class* keySpec) {
 }
 
 $SecretKey* SecretKeyFactory::translateKey($SecretKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineTranslateKey(key);
 	}
@@ -230,7 +191,39 @@ SecretKeyFactory::SecretKeyFactory() {
 }
 
 $Class* SecretKeyFactory::load$($String* name, bool initialize) {
-	$loadClass(SecretKeyFactory, name, initialize, &_SecretKeyFactory_ClassInfo_, allocate$SecretKeyFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(SecretKeyFactory, provider)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SecretKeyFactory, algorithm)},
+		{"spi", "Ljavax/crypto/SecretKeyFactorySpi;", nullptr, $PRIVATE | $VOLATILE, $field(SecretKeyFactory, spi)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SecretKeyFactory, lock)},
+		{"serviceIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PRIVATE, $field(SecretKeyFactory, serviceIterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/crypto/SecretKeyFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(SecretKeyFactory, init$, void, $SecretKeyFactorySpi*, $Provider*, $String*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SecretKeyFactory, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"generateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, generateSecret, $SecretKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, getAlgorithm, $String*)},
+		{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecretKeyFactory, getInstance, SecretKeyFactory*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecretKeyFactory, getInstance, SecretKeyFactory*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecretKeyFactory, getInstance, SecretKeyFactory*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PUBLIC | $FINAL, $method(SecretKeyFactory, getKeySpec, $KeySpec*, $SecretKey*, $Class*), "java.security.spec.InvalidKeySpecException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, getProvider, $Provider*)},
+		{"nextSpi", "(Ljavax/crypto/SecretKeyFactorySpi;)Ljavax/crypto/SecretKeyFactorySpi;", nullptr, $PRIVATE, $method(SecretKeyFactory, nextSpi, $SecretKeyFactorySpi*, $SecretKeyFactorySpi*)},
+		{"translateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, translateKey, $SecretKey*, $SecretKey*), "java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.SecretKeyFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SecretKeyFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SecretKeyFactory);
+	});
 	return class$;
 }
 

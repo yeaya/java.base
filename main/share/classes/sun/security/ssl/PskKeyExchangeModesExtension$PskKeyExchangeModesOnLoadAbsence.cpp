@@ -1,5 +1,4 @@
 #include <sun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence.h>
-
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/PskKeyExchangeModesExtension.h>
 #include <sun/security/ssl/SSLHandshake$HandshakeMessage.h>
@@ -20,42 +19,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence, init$, void)},
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesOnLoadAbsence", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeAbsence",
-	nullptr,
-	_PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PskKeyExchangeModesExtension"
-};
-
-$Object* allocate$PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence($Class* clazz) {
-	return $of($alloc(PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence));
-}
-
 void PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence::init$() {
 }
 
 void PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if ($nc(shc)->isResumption) {
 		shc->isResumption = false;
@@ -71,7 +39,33 @@ PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence::PskKeyExchangeMod
 }
 
 $Class* PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence::load$($String* name, bool initialize) {
-	$loadClass(PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence, name, initialize, &_PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence_ClassInfo_, allocate$PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence, init$, void)},
+		{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesOnLoadAbsence", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeAbsence",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PskKeyExchangeModesExtension"
+	};
+	$loadClass(PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence);
+	});
 	return class$;
 }
 

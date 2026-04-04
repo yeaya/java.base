@@ -44,7 +44,7 @@ public:
 	virtual int64_t transferTo(::java::io::OutputStream* out);
 	static const int32_t MAX_SKIP_BUFFER_SIZE = 2048;
 	static const int32_t DEFAULT_BUFFER_SIZE = 8192;
-	static const int32_t MAX_BUFFER_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
+	static const int32_t MAX_BUFFER_SIZE = 0x7ffffff7; // Integer.MAX_VALUE - 8
 };
 
 	} // io

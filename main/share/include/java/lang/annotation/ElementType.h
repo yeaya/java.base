@@ -40,6 +40,7 @@ class $import ElementType : public ::java::lang::Enum {
 public:
 	ElementType();
 	static $Array<::java::lang::annotation::ElementType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::lang::annotation::ElementType* valueOf($String* name);
 	static $Array<::java::lang::annotation::ElementType>* values();

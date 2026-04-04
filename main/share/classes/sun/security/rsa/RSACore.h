@@ -60,6 +60,7 @@ class $export RSACore : public ::java::lang::Object {
 	$class(RSACore, 0, ::java::lang::Object)
 public:
 	RSACore();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* convert($bytes* b, int32_t ofs, int32_t len);
 	static $bytes* crtCrypt($bytes* msg, ::java::security::interfaces::RSAPrivateCrtKey* key, bool verify);

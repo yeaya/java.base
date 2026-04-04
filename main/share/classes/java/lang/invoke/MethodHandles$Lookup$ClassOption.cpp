@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodHandles$Lookup$ClassOption.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
@@ -22,49 +21,6 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _MethodHandles$Lookup$ClassOption_FieldInfo_[] = {
-	{"NESTMATE", "Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MethodHandles$Lookup$ClassOption, NESTMATE)},
-	{"STRONG", "Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MethodHandles$Lookup$ClassOption, STRONG)},
-	{"$VALUES", "[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandles$Lookup$ClassOption, $VALUES)},
-	{"flag", "I", nullptr, $PRIVATE | $FINAL, $field(MethodHandles$Lookup$ClassOption, flag)},
-	{}
-};
-
-$MethodInfo _MethodHandles$Lookup$ClassOption_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles$Lookup$ClassOption, $values, $MethodHandles$Lookup$ClassOptionArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(MethodHandles$Lookup$ClassOption, init$, void, $String*, int32_t, int32_t)},
-	{"optionsToFlag", "(Ljava/util/Set;)I", "(Ljava/util/Set<Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;>;)I", $STATIC, $staticMethod(MethodHandles$Lookup$ClassOption, optionsToFlag, int32_t, $Set*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles$Lookup$ClassOption, valueOf, MethodHandles$Lookup$ClassOption*, $String*)},
-	{"values", "()[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles$Lookup$ClassOption, values, $MethodHandles$Lookup$ClassOptionArray*)},
-	{}
-};
-
-$InnerClassInfo _MethodHandles$Lookup$ClassOption_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodHandles$Lookup", "java.lang.invoke.MethodHandles", "Lookup", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.invoke.MethodHandles$Lookup$ClassOption", "java.lang.invoke.MethodHandles$Lookup", "ClassOption", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MethodHandles$Lookup$ClassOption_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.invoke.MethodHandles$Lookup$ClassOption",
-	"java.lang.Enum",
-	nullptr,
-	_MethodHandles$Lookup$ClassOption_FieldInfo_,
-	_MethodHandles$Lookup$ClassOption_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;>;",
-	nullptr,
-	_MethodHandles$Lookup$ClassOption_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodHandles"
-};
-
-$Object* allocate$MethodHandles$Lookup$ClassOption($Class* clazz) {
-	return $of($alloc(MethodHandles$Lookup$ClassOption));
-}
 
 MethodHandles$Lookup$ClassOption* MethodHandles$Lookup$ClassOption::NESTMATE = nullptr;
 MethodHandles$Lookup$ClassOption* MethodHandles$Lookup$ClassOption::STRONG = nullptr;
@@ -108,7 +64,7 @@ int32_t MethodHandles$Lookup$ClassOption::optionsToFlag($Set* options) {
 	return flags;
 }
 
-void clinit$MethodHandles$Lookup$ClassOption($Class* class$) {
+void MethodHandles$Lookup$ClassOption::clinit$($Class* clazz) {
 	$assignStatic(MethodHandles$Lookup$ClassOption::NESTMATE, $new(MethodHandles$Lookup$ClassOption, "NESTMATE"_s, 0, 1));
 	$assignStatic(MethodHandles$Lookup$ClassOption::STRONG, $new(MethodHandles$Lookup$ClassOption, "STRONG"_s, 1, 4));
 	$assignStatic(MethodHandles$Lookup$ClassOption::$VALUES, MethodHandles$Lookup$ClassOption::$values());
@@ -118,7 +74,44 @@ MethodHandles$Lookup$ClassOption::MethodHandles$Lookup$ClassOption() {
 }
 
 $Class* MethodHandles$Lookup$ClassOption::load$($String* name, bool initialize) {
-	$loadClass(MethodHandles$Lookup$ClassOption, name, initialize, &_MethodHandles$Lookup$ClassOption_ClassInfo_, clinit$MethodHandles$Lookup$ClassOption, allocate$MethodHandles$Lookup$ClassOption);
+	$FieldInfo fieldInfos$$[] = {
+		{"NESTMATE", "Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MethodHandles$Lookup$ClassOption, NESTMATE)},
+		{"STRONG", "Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MethodHandles$Lookup$ClassOption, STRONG)},
+		{"$VALUES", "[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandles$Lookup$ClassOption, $VALUES)},
+		{"flag", "I", nullptr, $PRIVATE | $FINAL, $field(MethodHandles$Lookup$ClassOption, flag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles$Lookup$ClassOption, $values, $MethodHandles$Lookup$ClassOptionArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(MethodHandles$Lookup$ClassOption, init$, void, $String*, int32_t, int32_t)},
+		{"optionsToFlag", "(Ljava/util/Set;)I", "(Ljava/util/Set<Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;>;)I", $STATIC, $staticMethod(MethodHandles$Lookup$ClassOption, optionsToFlag, int32_t, $Set*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles$Lookup$ClassOption, valueOf, MethodHandles$Lookup$ClassOption*, $String*)},
+		{"values", "()[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles$Lookup$ClassOption, values, $MethodHandles$Lookup$ClassOptionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodHandles$Lookup", "java.lang.invoke.MethodHandles", "Lookup", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.invoke.MethodHandles$Lookup$ClassOption", "java.lang.invoke.MethodHandles$Lookup", "ClassOption", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.invoke.MethodHandles$Lookup$ClassOption",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodHandles"
+	};
+	$loadClass(MethodHandles$Lookup$ClassOption, name, initialize, &classInfo$$, MethodHandles$Lookup$ClassOption::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MethodHandles$Lookup$ClassOption));
+	});
 	return class$;
 }
 

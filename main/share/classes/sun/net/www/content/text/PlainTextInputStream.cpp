@@ -1,5 +1,4 @@
 #include <sun/net/www/content/text/PlainTextInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
 #include <jcpp.h>
@@ -15,24 +14,6 @@ namespace sun {
 			namespace content {
 				namespace text {
 
-$MethodInfo _PlainTextInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(PlainTextInputStream, init$, void, $InputStream*)},
-	{}
-};
-
-$ClassInfo _PlainTextInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.content.text.PlainTextInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	nullptr,
-	_PlainTextInputStream_MethodInfo_
-};
-
-$Object* allocate$PlainTextInputStream($Class* clazz) {
-	return $of($alloc(PlainTextInputStream));
-}
-
 void PlainTextInputStream::init$($InputStream* is) {
 	$FilterInputStream::init$(is);
 }
@@ -41,7 +22,21 @@ PlainTextInputStream::PlainTextInputStream() {
 }
 
 $Class* PlainTextInputStream::load$($String* name, bool initialize) {
-	$loadClass(PlainTextInputStream, name, initialize, &_PlainTextInputStream_ClassInfo_, allocate$PlainTextInputStream);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(PlainTextInputStream, init$, void, $InputStream*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.content.text.PlainTextInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PlainTextInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlainTextInputStream);
+	});
 	return class$;
 }
 

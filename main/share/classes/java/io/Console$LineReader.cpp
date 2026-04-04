@@ -1,5 +1,4 @@
 #include <java/io/Console$LineReader.h>
-
 #include <java/io/Console.h>
 #include <java/io/Reader.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -15,49 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _Console$LineReader_FieldInfo_[] = {
-	{"this$0", "Ljava/io/Console;", nullptr, $FINAL | $SYNTHETIC, $field(Console$LineReader, this$0)},
-	{"in", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(Console$LineReader, in)},
-	{"cb", "[C", nullptr, $PRIVATE, $field(Console$LineReader, cb)},
-	{"nChars", "I", nullptr, $PRIVATE, $field(Console$LineReader, nChars)},
-	{"nextChar", "I", nullptr, $PRIVATE, $field(Console$LineReader, nextChar)},
-	{"leftoverLF", "Z", nullptr, 0, $field(Console$LineReader, leftoverLF)},
-	{}
-};
-
-$MethodInfo _Console$LineReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Console;Ljava/io/Reader;)V", nullptr, 0, $method(Console$LineReader, init$, void, $Console*, $Reader*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Console$LineReader, close, void)},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Console$LineReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(Console$LineReader, ready, bool), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Console$LineReader_InnerClassesInfo_[] = {
-	{"java.io.Console$LineReader", "java.io.Console", "LineReader", 0},
-	{}
-};
-
-$ClassInfo _Console$LineReader_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.Console$LineReader",
-	"java.io.Reader",
-	nullptr,
-	_Console$LineReader_FieldInfo_,
-	_Console$LineReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Console$LineReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.Console"
-};
-
-$Object* allocate$Console$LineReader($Class* clazz) {
-	return $of($alloc(Console$LineReader));
-}
 
 void Console$LineReader::init$($Console* this$0, $Reader* in) {
 	$set(this, this$0, this$0);
@@ -84,7 +40,7 @@ int32_t Console$LineReader::read($chars* cbuf$renamed, int32_t offset, int32_t l
 	}
 	$synchronized(this->this$0->readLock) {
 		bool eof = false;
-		char16_t c = (char16_t)0;
+		char16_t c = 0;
 		for (;;) {
 			if (this->nextChar >= this->nChars) {
 				int32_t n = 0;
@@ -94,7 +50,7 @@ int32_t Console$LineReader::read($chars* cbuf$renamed, int32_t offset, int32_t l
 				if (n > 0) {
 					this->nChars = n;
 					this->nextChar = 0;
-					if (n < $nc(this->cb)->length && $nc(this->cb)->get(n - 1) != u'\n' && $nc(this->cb)->get(n - 1) != u'\r') {
+					if (n < $nc(this->cb)->length && this->cb->get(n - 1) != u'\n' && this->cb->get(n - 1) != u'\r') {
 						eof = true;
 					}
 				} else {
@@ -110,7 +66,7 @@ int32_t Console$LineReader::read($chars* cbuf$renamed, int32_t offset, int32_t l
 			this->leftoverLF = false;
 			while (this->nextChar < this->nChars) {
 				c = ($nc(cbuf)->set(off++, $nc(this->cb)->get(this->nextChar)));
-				$nc(this->cb)->set(this->nextChar++, (char16_t)0);
+				this->cb->set(this->nextChar++, 0);
 				if (c == u'\n') {
 					return off - offset;
 				} else if (c == u'\r') {
@@ -124,10 +80,10 @@ int32_t Console$LineReader::read($chars* cbuf$renamed, int32_t offset, int32_t l
 						}
 					}
 					if (this->nextChar == this->nChars && $nc(this->in)->ready()) {
-						this->nChars = $nc(this->in)->read(this->cb, 0, $nc(this->cb)->length);
+						this->nChars = this->in->read(this->cb, 0, this->cb->length);
 						this->nextChar = 0;
 					}
-					if (this->nextChar < this->nChars && $nc(this->cb)->get(this->nextChar) == u'\n') {
+					if (this->nextChar < this->nChars && this->cb->get(this->nextChar) == u'\n') {
 						cbuf->set(off++, u'\n');
 						++this->nextChar;
 					}
@@ -152,7 +108,44 @@ Console$LineReader::Console$LineReader() {
 }
 
 $Class* Console$LineReader::load$($String* name, bool initialize) {
-	$loadClass(Console$LineReader, name, initialize, &_Console$LineReader_ClassInfo_, allocate$Console$LineReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/io/Console;", nullptr, $FINAL | $SYNTHETIC, $field(Console$LineReader, this$0)},
+		{"in", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(Console$LineReader, in)},
+		{"cb", "[C", nullptr, $PRIVATE, $field(Console$LineReader, cb)},
+		{"nChars", "I", nullptr, $PRIVATE, $field(Console$LineReader, nChars)},
+		{"nextChar", "I", nullptr, $PRIVATE, $field(Console$LineReader, nextChar)},
+		{"leftoverLF", "Z", nullptr, 0, $field(Console$LineReader, leftoverLF)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Console;Ljava/io/Reader;)V", nullptr, 0, $method(Console$LineReader, init$, void, $Console*, $Reader*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Console$LineReader, close, void)},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Console$LineReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(Console$LineReader, ready, bool), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.Console$LineReader", "java.io.Console", "LineReader", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.Console$LineReader",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.Console"
+	};
+	$loadClass(Console$LineReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Console$LineReader));
+	});
 	return class$;
 }
 

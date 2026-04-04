@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/RecordComponentWriter.h>
-
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationWriter.h>
 #include <jdk/internal/org/objectweb/asm/Attribute$Set.h>
@@ -32,44 +31,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 
-$FieldInfo _RecordComponentWriter_FieldInfo_[] = {
-	{"symbolTable", "Ljdk/internal/org/objectweb/asm/SymbolTable;", nullptr, $PRIVATE | $FINAL, $field(RecordComponentWriter, symbolTable)},
-	{"nameIndex", "I", nullptr, $PRIVATE | $FINAL, $field(RecordComponentWriter, nameIndex)},
-	{"descriptorIndex", "I", nullptr, $PRIVATE | $FINAL, $field(RecordComponentWriter, descriptorIndex)},
-	{"signatureIndex", "I", nullptr, $PRIVATE, $field(RecordComponentWriter, signatureIndex)},
-	{"lastRuntimeVisibleAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE, $field(RecordComponentWriter, lastRuntimeVisibleAnnotation)},
-	{"lastRuntimeInvisibleAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE, $field(RecordComponentWriter, lastRuntimeInvisibleAnnotation)},
-	{"lastRuntimeVisibleTypeAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE, $field(RecordComponentWriter, lastRuntimeVisibleTypeAnnotation)},
-	{"lastRuntimeInvisibleTypeAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE, $field(RecordComponentWriter, lastRuntimeInvisibleTypeAnnotation)},
-	{"firstAttribute", "Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PRIVATE, $field(RecordComponentWriter, firstAttribute)},
-	{}
-};
-
-$MethodInfo _RecordComponentWriter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(RecordComponentWriter, init$, void, $SymbolTable*, $String*, $String*, $String*)},
-	{"collectAttributePrototypes", "(Ljdk/internal/org/objectweb/asm/Attribute$Set;)V", nullptr, $FINAL, $method(RecordComponentWriter, collectAttributePrototypes, void, $Attribute$Set*)},
-	{"computeRecordComponentInfoSize", "()I", nullptr, 0, $method(RecordComponentWriter, computeRecordComponentInfoSize, int32_t)},
-	{"putRecordComponentInfo", "(Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(RecordComponentWriter, putRecordComponentInfo, void, $ByteVector*)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitAttribute, void, $Attribute*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitEnd, void)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{}
-};
-
-$ClassInfo _RecordComponentWriter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.RecordComponentWriter",
-	"jdk.internal.org.objectweb.asm.RecordComponentVisitor",
-	nullptr,
-	_RecordComponentWriter_FieldInfo_,
-	_RecordComponentWriter_MethodInfo_
-};
-
-$Object* allocate$RecordComponentWriter($Class* clazz) {
-	return $of($alloc(RecordComponentWriter));
-}
-
 void RecordComponentWriter::init$($SymbolTable* symbolTable, $String* name, $String* descriptor, $String* signature) {
 	$RecordComponentVisitor::init$($Opcodes::ASM8);
 	$set(this, symbolTable, symbolTable);
@@ -82,17 +43,17 @@ void RecordComponentWriter::init$($SymbolTable* symbolTable, $String* name, $Str
 
 $AnnotationVisitor* RecordComponentWriter::visitAnnotation($String* descriptor, bool visible) {
 	if (visible) {
-		return ($set(this, lastRuntimeVisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeVisibleAnnotation)));
+		return $set(this, lastRuntimeVisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeVisibleAnnotation));
 	} else {
-		return ($set(this, lastRuntimeInvisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeInvisibleAnnotation)));
+		return $set(this, lastRuntimeInvisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeInvisibleAnnotation));
 	}
 }
 
 $AnnotationVisitor* RecordComponentWriter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
 	if (visible) {
-		return ($set(this, lastRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeVisibleTypeAnnotation)));
+		return $set(this, lastRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeVisibleTypeAnnotation));
 	} else {
-		return ($set(this, lastRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeInvisibleTypeAnnotation)));
+		return $set(this, lastRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeInvisibleTypeAnnotation));
 	}
 }
 
@@ -109,13 +70,13 @@ int32_t RecordComponentWriter::computeRecordComponentInfoSize() {
 	size += $Attribute::computeAttributesSize(this->symbolTable, 0, this->signatureIndex);
 	size += $AnnotationWriter::computeAnnotationsSize(this->lastRuntimeVisibleAnnotation, this->lastRuntimeInvisibleAnnotation, this->lastRuntimeVisibleTypeAnnotation, this->lastRuntimeInvisibleTypeAnnotation);
 	if (this->firstAttribute != nullptr) {
-		size += $nc(this->firstAttribute)->computeAttributesSize(this->symbolTable);
+		size += this->firstAttribute->computeAttributesSize(this->symbolTable);
 	}
 	return size;
 }
 
 void RecordComponentWriter::putRecordComponentInfo($ByteVector* output) {
-	$nc($($nc(output)->putShort(this->nameIndex)))->putShort(this->descriptorIndex);
+	$$nc($nc(output)->putShort(this->nameIndex))->putShort(this->descriptorIndex);
 	int32_t attributesCount = 0;
 	if (this->signatureIndex != 0) {
 		++attributesCount;
@@ -133,13 +94,13 @@ void RecordComponentWriter::putRecordComponentInfo($ByteVector* output) {
 		++attributesCount;
 	}
 	if (this->firstAttribute != nullptr) {
-		attributesCount += $nc(this->firstAttribute)->getAttributeCount();
+		attributesCount += this->firstAttribute->getAttributeCount();
 	}
 	output->putShort(attributesCount);
 	$Attribute::putAttributes(this->symbolTable, 0, this->signatureIndex, output);
 	$AnnotationWriter::putAnnotations(this->symbolTable, this->lastRuntimeVisibleAnnotation, this->lastRuntimeInvisibleAnnotation, this->lastRuntimeVisibleTypeAnnotation, this->lastRuntimeInvisibleTypeAnnotation, output);
 	if (this->firstAttribute != nullptr) {
-		$nc(this->firstAttribute)->putAttributes(this->symbolTable, output);
+		this->firstAttribute->putAttributes(this->symbolTable, output);
 	}
 }
 
@@ -151,7 +112,40 @@ RecordComponentWriter::RecordComponentWriter() {
 }
 
 $Class* RecordComponentWriter::load$($String* name, bool initialize) {
-	$loadClass(RecordComponentWriter, name, initialize, &_RecordComponentWriter_ClassInfo_, allocate$RecordComponentWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"symbolTable", "Ljdk/internal/org/objectweb/asm/SymbolTable;", nullptr, $PRIVATE | $FINAL, $field(RecordComponentWriter, symbolTable)},
+		{"nameIndex", "I", nullptr, $PRIVATE | $FINAL, $field(RecordComponentWriter, nameIndex)},
+		{"descriptorIndex", "I", nullptr, $PRIVATE | $FINAL, $field(RecordComponentWriter, descriptorIndex)},
+		{"signatureIndex", "I", nullptr, $PRIVATE, $field(RecordComponentWriter, signatureIndex)},
+		{"lastRuntimeVisibleAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE, $field(RecordComponentWriter, lastRuntimeVisibleAnnotation)},
+		{"lastRuntimeInvisibleAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE, $field(RecordComponentWriter, lastRuntimeInvisibleAnnotation)},
+		{"lastRuntimeVisibleTypeAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE, $field(RecordComponentWriter, lastRuntimeVisibleTypeAnnotation)},
+		{"lastRuntimeInvisibleTypeAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE, $field(RecordComponentWriter, lastRuntimeInvisibleTypeAnnotation)},
+		{"firstAttribute", "Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PRIVATE, $field(RecordComponentWriter, firstAttribute)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(RecordComponentWriter, init$, void, $SymbolTable*, $String*, $String*, $String*)},
+		{"collectAttributePrototypes", "(Ljdk/internal/org/objectweb/asm/Attribute$Set;)V", nullptr, $FINAL, $method(RecordComponentWriter, collectAttributePrototypes, void, $Attribute$Set*)},
+		{"computeRecordComponentInfoSize", "()I", nullptr, 0, $method(RecordComponentWriter, computeRecordComponentInfoSize, int32_t)},
+		{"putRecordComponentInfo", "(Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(RecordComponentWriter, putRecordComponentInfo, void, $ByteVector*)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitAttribute, void, $Attribute*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitEnd, void)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.RecordComponentWriter",
+		"jdk.internal.org.objectweb.asm.RecordComponentVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RecordComponentWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RecordComponentWriter);
+	});
 	return class$;
 }
 

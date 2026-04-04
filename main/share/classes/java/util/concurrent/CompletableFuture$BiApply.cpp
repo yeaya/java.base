@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$BiApply.h>
-
 #include <java/util/concurrent/CompletableFuture$BiCompletion.h>
 #include <java/util/concurrent/CompletableFuture$UniCompletion.h>
 #include <java/util/concurrent/CompletableFuture.h>
@@ -20,50 +19,13 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _CompletableFuture$BiApply_FieldInfo_[] = {
-	{"fn", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<-TT;-TU;+TV;>;", 0, $field(CompletableFuture$BiApply, fn)},
-	{}
-};
-
-$MethodInfo _CompletableFuture$BiApply_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/BiFunction;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TV;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;Ljava/util/function/BiFunction<-TT;-TU;+TV;>;)V", 0, $method(CompletableFuture$BiApply, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $CompletableFuture*, $BiFunction*)},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TV;>;", $FINAL, $virtualMethod(CompletableFuture$BiApply, tryFire, $CompletableFuture*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$BiApply_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$BiApply", "java.util.concurrent.CompletableFuture", "BiApply", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$BiCompletion", "java.util.concurrent.CompletableFuture", "BiCompletion", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CompletableFuture$BiApply_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$BiApply",
-	"java.util.concurrent.CompletableFuture$BiCompletion",
-	nullptr,
-	_CompletableFuture$BiApply_FieldInfo_,
-	_CompletableFuture$BiApply_MethodInfo_,
-	"<T:Ljava/lang/Object;U:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture$BiCompletion<TT;TU;TV;>;",
-	nullptr,
-	_CompletableFuture$BiApply_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$BiApply($Class* clazz) {
-	return $of($alloc(CompletableFuture$BiApply));
-}
-
 void CompletableFuture$BiApply::init$($Executor* executor, $CompletableFuture* dep, $CompletableFuture* src, $CompletableFuture* snd, $BiFunction* fn) {
 	$CompletableFuture$BiCompletion::init$(executor, dep, src, snd);
 	$set(this, fn, fn);
 }
 
 $CompletableFuture* CompletableFuture$BiApply::tryFire(int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($CompletableFuture, b, nullptr);
@@ -87,7 +49,38 @@ CompletableFuture$BiApply::CompletableFuture$BiApply() {
 }
 
 $Class* CompletableFuture$BiApply::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$BiApply, name, initialize, &_CompletableFuture$BiApply_ClassInfo_, allocate$CompletableFuture$BiApply);
+	$FieldInfo fieldInfos$$[] = {
+		{"fn", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<-TT;-TU;+TV;>;", 0, $field(CompletableFuture$BiApply, fn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/BiFunction;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TV;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;Ljava/util/function/BiFunction<-TT;-TU;+TV;>;)V", 0, $method(CompletableFuture$BiApply, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $CompletableFuture*, $BiFunction*)},
+		{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TV;>;", $FINAL, $virtualMethod(CompletableFuture$BiApply, tryFire, $CompletableFuture*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$BiApply", "java.util.concurrent.CompletableFuture", "BiApply", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$BiCompletion", "java.util.concurrent.CompletableFuture", "BiCompletion", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$BiApply",
+		"java.util.concurrent.CompletableFuture$BiCompletion",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;U:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture$BiCompletion<TT;TU;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$BiApply, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompletableFuture$BiApply));
+	});
 	return class$;
 }
 

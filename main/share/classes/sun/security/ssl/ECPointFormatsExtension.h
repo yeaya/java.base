@@ -23,6 +23,7 @@ class ECPointFormatsExtension : public ::java::lang::Object {
 	$class(ECPointFormatsExtension, 0, ::java::lang::Object)
 public:
 	ECPointFormatsExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::HandshakeProducer* chNetworkProducer;
 	static ::sun::security::ssl::SSLExtension$ExtensionConsumer* chOnLoadConsumer;

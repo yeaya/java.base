@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/Trie$DefaultGetFoldingOffset.h>
-
 #include <jdk/internal/icu/impl/Trie.h>
 #include <jcpp.h>
 
@@ -12,38 +11,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$MethodInfo _Trie$DefaultGetFoldingOffset_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Trie$DefaultGetFoldingOffset, init$, void)},
-	{"getFoldingOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(Trie$DefaultGetFoldingOffset, getFoldingOffset, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Trie$DefaultGetFoldingOffset_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.Trie$DefaultGetFoldingOffset", "jdk.internal.icu.impl.Trie", "DefaultGetFoldingOffset", $PRIVATE | $STATIC},
-	{"jdk.internal.icu.impl.Trie$DataManipulate", "jdk.internal.icu.impl.Trie", "DataManipulate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Trie$DefaultGetFoldingOffset_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.icu.impl.Trie$DefaultGetFoldingOffset",
-	"java.lang.Object",
-	"jdk.internal.icu.impl.Trie$DataManipulate",
-	nullptr,
-	_Trie$DefaultGetFoldingOffset_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Trie$DefaultGetFoldingOffset_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.Trie"
-};
-
-$Object* allocate$Trie$DefaultGetFoldingOffset($Class* clazz) {
-	return $of($alloc(Trie$DefaultGetFoldingOffset));
-}
-
 void Trie$DefaultGetFoldingOffset::init$() {
 }
 
@@ -55,7 +22,34 @@ Trie$DefaultGetFoldingOffset::Trie$DefaultGetFoldingOffset() {
 }
 
 $Class* Trie$DefaultGetFoldingOffset::load$($String* name, bool initialize) {
-	$loadClass(Trie$DefaultGetFoldingOffset, name, initialize, &_Trie$DefaultGetFoldingOffset_ClassInfo_, allocate$Trie$DefaultGetFoldingOffset);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Trie$DefaultGetFoldingOffset, init$, void)},
+		{"getFoldingOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(Trie$DefaultGetFoldingOffset, getFoldingOffset, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.Trie$DefaultGetFoldingOffset", "jdk.internal.icu.impl.Trie", "DefaultGetFoldingOffset", $PRIVATE | $STATIC},
+		{"jdk.internal.icu.impl.Trie$DataManipulate", "jdk.internal.icu.impl.Trie", "DataManipulate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.icu.impl.Trie$DefaultGetFoldingOffset",
+		"java.lang.Object",
+		"jdk.internal.icu.impl.Trie$DataManipulate",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.Trie"
+	};
+	$loadClass(Trie$DefaultGetFoldingOffset, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Trie$DefaultGetFoldingOffset);
+	});
 	return class$;
 }
 

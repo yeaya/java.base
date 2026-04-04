@@ -1,5 +1,4 @@
 #include <java/util/IllformedLocaleException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,33 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _IllformedLocaleException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllformedLocaleException, serialVersionUID)},
-	{"_errIdx", "I", nullptr, $PRIVATE, $field(IllformedLocaleException, _errIdx)},
-	{}
-};
-
-$MethodInfo _IllformedLocaleException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllformedLocaleException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllformedLocaleException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(IllformedLocaleException, init$, void, $String*, int32_t)},
-	{"getErrorIndex", "()I", nullptr, $PUBLIC, $virtualMethod(IllformedLocaleException, getErrorIndex, int32_t)},
-	{}
-};
-
-$ClassInfo _IllformedLocaleException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.IllformedLocaleException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_IllformedLocaleException_FieldInfo_,
-	_IllformedLocaleException_MethodInfo_
-};
-
-$Object* allocate$IllformedLocaleException($Class* clazz) {
-	return $of($alloc(IllformedLocaleException));
-}
 
 void IllformedLocaleException::init$() {
 	$RuntimeException::init$();
@@ -48,7 +20,7 @@ void IllformedLocaleException::init$($String* message) {
 }
 
 void IllformedLocaleException::init$($String* message, int32_t errorIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RuntimeException::init$($$str({message, ((errorIndex < 0) ? ""_s : $$str({" [at index "_s, $$str(errorIndex), "]"_s}))}));
 	this->_errIdx = -1;
 	this->_errIdx = errorIndex;
@@ -69,7 +41,29 @@ void IllformedLocaleException::throw$() {
 }
 
 $Class* IllformedLocaleException::load$($String* name, bool initialize) {
-	$loadClass(IllformedLocaleException, name, initialize, &_IllformedLocaleException_ClassInfo_, allocate$IllformedLocaleException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllformedLocaleException, serialVersionUID)},
+		{"_errIdx", "I", nullptr, $PRIVATE, $field(IllformedLocaleException, _errIdx)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllformedLocaleException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllformedLocaleException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(IllformedLocaleException, init$, void, $String*, int32_t)},
+		{"getErrorIndex", "()I", nullptr, $PUBLIC, $virtualMethod(IllformedLocaleException, getErrorIndex, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.IllformedLocaleException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllformedLocaleException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllformedLocaleException);
+	});
 	return class$;
 }
 

@@ -24,6 +24,7 @@ class $import ModuleBootstrap$Counters : public ::java::lang::Object {
 	$class(ModuleBootstrap$Counters, $PRELOAD, ::java::lang::Object)
 public:
 	ModuleBootstrap$Counters();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void add($String* name);
 	static void publish($String* totalTimeName);

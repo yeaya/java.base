@@ -21,6 +21,7 @@ class $export SelectFdsLimit : public ::java::lang::Object {
 	$class(SelectFdsLimit, 0, ::java::lang::Object)
 public:
 	SelectFdsLimit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void openFiles(int32_t fn, ::java::io::File* f);

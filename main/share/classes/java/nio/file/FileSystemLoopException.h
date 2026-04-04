@@ -14,10 +14,13 @@ class $export FileSystemLoopException : public ::java::nio::file::FileSystemExce
 public:
 	FileSystemLoopException();
 	void init$($String* file);
-	static const int64_t serialVersionUID = (int64_t)0x4335EED96F492F51;
+	static const int64_t serialVersionUID = (int64_t)0x4335eed96f492f51;
 	FileSystemLoopException(const FileSystemLoopException& e);
 	virtual void throw$() override;
-	inline FileSystemLoopException* operator ->() {
+	inline FileSystemLoopException* operator ->() const {
+		return (FileSystemLoopException*)throwing$;
+	}
+	inline operator FileSystemLoopException*() const {
 		return (FileSystemLoopException*)throwing$;
 	}
 };

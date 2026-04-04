@@ -1,5 +1,4 @@
 #include <CloseRace$ExecLoop.h>
-
 #include <CloseRace.h>
 #include <java/io/InputStream.h>
 #include <java/lang/Error.h>
@@ -19,44 +18,12 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Process = ::java::lang::Process;
 using $ProcessBuilder = ::java::lang::ProcessBuilder;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-
-$MethodInfo _CloseRace$ExecLoop_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CloseRace$ExecLoop, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseRace$ExecLoop, run, void)},
-	{}
-};
-
-$InnerClassInfo _CloseRace$ExecLoop_InnerClassesInfo_[] = {
-	{"CloseRace$ExecLoop", "CloseRace", "ExecLoop", $STATIC},
-	{}
-};
-
-$ClassInfo _CloseRace$ExecLoop_ClassInfo_ = {
-	$ACC_SUPER,
-	"CloseRace$ExecLoop",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_CloseRace$ExecLoop_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CloseRace$ExecLoop_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"CloseRace"
-};
-
-$Object* allocate$CloseRace$ExecLoop($Class* clazz) {
-	return $of($alloc(CloseRace$ExecLoop));
-}
 
 void CloseRace$ExecLoop::init$() {
 }
 
 void CloseRace$ExecLoop::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($CloseRace);
 	$nc($CloseRace::threadsStarted)->countDown();
 	$var($ProcessBuilder, builder, $new($ProcessBuilder, $$new($StringArray, {"/bin/true"_s})));
@@ -74,7 +41,7 @@ void CloseRace$ExecLoop::run() {
 		} catch ($InterruptedException& e) {
 			break;
 		} catch ($Exception& e) {
-			$throwNew($Error, static_cast<$Throwable*>(e));
+			$throwNew($Error, e);
 		}
 	}
 }
@@ -83,7 +50,33 @@ CloseRace$ExecLoop::CloseRace$ExecLoop() {
 }
 
 $Class* CloseRace$ExecLoop::load$($String* name, bool initialize) {
-	$loadClass(CloseRace$ExecLoop, name, initialize, &_CloseRace$ExecLoop_ClassInfo_, allocate$CloseRace$ExecLoop);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CloseRace$ExecLoop, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseRace$ExecLoop, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CloseRace$ExecLoop", "CloseRace", "ExecLoop", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"CloseRace$ExecLoop",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"CloseRace"
+	};
+	$loadClass(CloseRace$ExecLoop, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CloseRace$ExecLoop);
+	});
 	return class$;
 }
 

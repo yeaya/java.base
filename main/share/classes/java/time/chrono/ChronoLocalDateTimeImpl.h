@@ -106,7 +106,7 @@ public:
 	virtual ::java::time::chrono::ChronoLocalDateTimeImpl* with(::java::time::temporal::TemporalField* field, int64_t newValue) override;
 	void writeExternal(::java::io::ObjectOutput* out);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x3F3A2D24660EEBE2;
+	static const int64_t serialVersionUID = (int64_t)0x3f3a2d24660eebe2;
 	static const int32_t HOURS_PER_DAY = 24;
 	static const int32_t MINUTES_PER_HOUR = 60;
 	static const int32_t MINUTES_PER_DAY = 1440; // MINUTES_PER_HOUR * HOURS_PER_DAY

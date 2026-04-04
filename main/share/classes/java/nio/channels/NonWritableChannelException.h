@@ -14,10 +14,13 @@ class $export NonWritableChannelException : public ::java::lang::IllegalStateExc
 public:
 	NonWritableChannelException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x9DDDF155FD37AEDB;
+	static const int64_t serialVersionUID = (int64_t)0x9dddf155fd37aedb;
 	NonWritableChannelException(const NonWritableChannelException& e);
 	virtual void throw$() override;
-	inline NonWritableChannelException* operator ->() {
+	inline NonWritableChannelException* operator ->() const {
+		return (NonWritableChannelException*)throwing$;
+	}
+	inline operator NonWritableChannelException*() const {
 		return (NonWritableChannelException*)throwing$;
 	}
 };

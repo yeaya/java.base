@@ -1,5 +1,4 @@
 #include <java/util/concurrent/atomic/AtomicMarkableReference.h>
-
 #include <java/lang/ExceptionInInitializerError.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -26,49 +25,6 @@ namespace java {
 		namespace concurrent {
 			namespace atomic {
 
-$FieldInfo _AtomicMarkableReference_FieldInfo_[] = {
-	{"pair", "Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;", "Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TV;>;", $PRIVATE | $VOLATILE, $field(AtomicMarkableReference, pair)},
-	{"PAIR", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AtomicMarkableReference, PAIR)},
-	{}
-};
-
-$MethodInfo _AtomicMarkableReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Z)V", "(TV;Z)V", $PUBLIC, $method(AtomicMarkableReference, init$, void, Object$*, bool)},
-	{"attemptMark", "(Ljava/lang/Object;Z)Z", "(TV;Z)Z", $PUBLIC, $virtualMethod(AtomicMarkableReference, attemptMark, bool, Object$*, bool)},
-	{"casPair", "(Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;)Z", "(Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TV;>;Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TV;>;)Z", $PRIVATE, $method(AtomicMarkableReference, casPair, bool, $AtomicMarkableReference$Pair*, $AtomicMarkableReference$Pair*)},
-	{"compareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;ZZ)Z", "(TV;TV;ZZ)Z", $PUBLIC, $virtualMethod(AtomicMarkableReference, compareAndSet, bool, Object$*, Object$*, bool, bool)},
-	{"get", "([Z)Ljava/lang/Object;", "([Z)TV;", $PUBLIC, $virtualMethod(AtomicMarkableReference, get, $Object*, $booleans*)},
-	{"getReference", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(AtomicMarkableReference, getReference, $Object*)},
-	{"isMarked", "()Z", nullptr, $PUBLIC, $virtualMethod(AtomicMarkableReference, isMarked, bool)},
-	{"set", "(Ljava/lang/Object;Z)V", "(TV;Z)V", $PUBLIC, $virtualMethod(AtomicMarkableReference, set, void, Object$*, bool)},
-	{"weakCompareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;ZZ)Z", "(TV;TV;ZZ)Z", $PUBLIC, $virtualMethod(AtomicMarkableReference, weakCompareAndSet, bool, Object$*, Object$*, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _AtomicMarkableReference_InnerClassesInfo_[] = {
-	{"java.util.concurrent.atomic.AtomicMarkableReference$Pair", "java.util.concurrent.atomic.AtomicMarkableReference", "Pair", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AtomicMarkableReference_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.atomic.AtomicMarkableReference",
-	"java.lang.Object",
-	nullptr,
-	_AtomicMarkableReference_FieldInfo_,
-	_AtomicMarkableReference_MethodInfo_,
-	"<V:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_AtomicMarkableReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.atomic.AtomicMarkableReference$Pair"
-};
-
-$Object* allocate$AtomicMarkableReference($Class* clazz) {
-	return $of($alloc(AtomicMarkableReference));
-}
-
 $VarHandle* AtomicMarkableReference::PAIR = nullptr;
 
 void AtomicMarkableReference::init$(Object$* initialRef, bool initialMark) {
@@ -76,7 +32,7 @@ void AtomicMarkableReference::init$(Object$* initialRef, bool initialMark) {
 }
 
 $Object* AtomicMarkableReference::getReference() {
-	return $of($nc(this->pair)->reference);
+	return $nc(this->pair)->reference;
 }
 
 bool AtomicMarkableReference::isMarked() {
@@ -86,7 +42,7 @@ bool AtomicMarkableReference::isMarked() {
 $Object* AtomicMarkableReference::get($booleans* markHolder) {
 	$var($AtomicMarkableReference$Pair, pair, this->pair);
 	$nc(markHolder)->set(0, $nc(pair)->mark);
-	return $of(pair->reference);
+	return pair->reference;
 }
 
 bool AtomicMarkableReference::weakCompareAndSet(Object$* expectedReference, Object$* newReference, bool expectedMark, bool newMark) {
@@ -94,29 +50,29 @@ bool AtomicMarkableReference::weakCompareAndSet(Object$* expectedReference, Obje
 }
 
 bool AtomicMarkableReference::compareAndSet(Object$* expectedReference, Object$* newReference, bool expectedMark, bool newMark) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AtomicMarkableReference$Pair, current, this->pair);
 	return $equals(expectedReference, $nc(current)->reference) && expectedMark == current->mark && (($equals(newReference, current->reference) && newMark == current->mark) || casPair(current, $($AtomicMarkableReference$Pair::of(newReference, newMark))));
 }
 
 void AtomicMarkableReference::set(Object$* newReference, bool newMark) {
 	$var($AtomicMarkableReference$Pair, current, this->pair);
-	if (!$equals(newReference, $nc(current)->reference) || newMark != $nc(current)->mark) {
+	if (!$equals(newReference, $nc(current)->reference) || newMark != current->mark) {
 		$set(this, pair, $AtomicMarkableReference$Pair::of(newReference, newMark));
 	}
 }
 
 bool AtomicMarkableReference::attemptMark(Object$* expectedReference, bool newMark) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AtomicMarkableReference$Pair, current, this->pair);
 	return $equals(expectedReference, $nc(current)->reference) && (newMark == current->mark || casPair(current, $($AtomicMarkableReference$Pair::of(expectedReference, newMark))));
 }
 
 bool AtomicMarkableReference::casPair($AtomicMarkableReference$Pair* cmp, $AtomicMarkableReference$Pair* val) {
-	return $nc(AtomicMarkableReference::PAIR)->compareAndSet($$new($ObjectArray, {$of(this), $of(cmp), $of(val)}));
+	return $nc(AtomicMarkableReference::PAIR)->compareAndSet($$new($ObjectArray, {this, cmp, val}));
 }
 
-void clinit$AtomicMarkableReference($Class* class$) {
+void AtomicMarkableReference::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		try {
@@ -124,7 +80,7 @@ void clinit$AtomicMarkableReference($Class* class$) {
 			$load($AtomicMarkableReference$Pair);
 			$assignStatic(AtomicMarkableReference::PAIR, $nc(l)->findVarHandle(AtomicMarkableReference::class$, "pair"_s, $AtomicMarkableReference$Pair::class$));
 		} catch ($ReflectiveOperationException& e) {
-			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
+			$throwNew($ExceptionInInitializerError, e);
 		}
 	}
 }
@@ -133,7 +89,44 @@ AtomicMarkableReference::AtomicMarkableReference() {
 }
 
 $Class* AtomicMarkableReference::load$($String* name, bool initialize) {
-	$loadClass(AtomicMarkableReference, name, initialize, &_AtomicMarkableReference_ClassInfo_, clinit$AtomicMarkableReference, allocate$AtomicMarkableReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"pair", "Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;", "Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TV;>;", $PRIVATE | $VOLATILE, $field(AtomicMarkableReference, pair)},
+		{"PAIR", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AtomicMarkableReference, PAIR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Z)V", "(TV;Z)V", $PUBLIC, $method(AtomicMarkableReference, init$, void, Object$*, bool)},
+		{"attemptMark", "(Ljava/lang/Object;Z)Z", "(TV;Z)Z", $PUBLIC, $virtualMethod(AtomicMarkableReference, attemptMark, bool, Object$*, bool)},
+		{"casPair", "(Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;)Z", "(Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TV;>;Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TV;>;)Z", $PRIVATE, $method(AtomicMarkableReference, casPair, bool, $AtomicMarkableReference$Pair*, $AtomicMarkableReference$Pair*)},
+		{"compareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;ZZ)Z", "(TV;TV;ZZ)Z", $PUBLIC, $virtualMethod(AtomicMarkableReference, compareAndSet, bool, Object$*, Object$*, bool, bool)},
+		{"get", "([Z)Ljava/lang/Object;", "([Z)TV;", $PUBLIC, $virtualMethod(AtomicMarkableReference, get, $Object*, $booleans*)},
+		{"getReference", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(AtomicMarkableReference, getReference, $Object*)},
+		{"isMarked", "()Z", nullptr, $PUBLIC, $virtualMethod(AtomicMarkableReference, isMarked, bool)},
+		{"set", "(Ljava/lang/Object;Z)V", "(TV;Z)V", $PUBLIC, $virtualMethod(AtomicMarkableReference, set, void, Object$*, bool)},
+		{"weakCompareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;ZZ)Z", "(TV;TV;ZZ)Z", $PUBLIC, $virtualMethod(AtomicMarkableReference, weakCompareAndSet, bool, Object$*, Object$*, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.atomic.AtomicMarkableReference$Pair", "java.util.concurrent.atomic.AtomicMarkableReference", "Pair", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.atomic.AtomicMarkableReference",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.atomic.AtomicMarkableReference$Pair"
+	};
+	$loadClass(AtomicMarkableReference, name, initialize, &classInfo$$, AtomicMarkableReference::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AtomicMarkableReference);
+	});
 	return class$;
 }
 

@@ -18,6 +18,7 @@ class ObjectStreamClass$EntryFuture : public ::java::lang::Object {
 	$class(ObjectStreamClass$EntryFuture, 0, ::java::lang::Object)
 public:
 	ObjectStreamClass$EntryFuture();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* get();
 	virtual $Thread* getOwner();

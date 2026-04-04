@@ -34,6 +34,7 @@ class $export Connect4DatagramChannel : public ::java::lang::Object {
 	$class(Connect4DatagramChannel, 0, ::java::lang::Object)
 public:
 	Connect4DatagramChannel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void invoke(::java::util::concurrent::ExecutorService* e, ::java::lang::Runnable* reader, ::java::lang::Runnable* writer);
 	static $Object* lambda$wait$0(::java::util::concurrent::CompletableFuture* future, $Throwable* ex);

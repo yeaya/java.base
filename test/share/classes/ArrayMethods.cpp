@@ -1,5 +1,4 @@
 #include <ArrayMethods.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/reflect/Method.h>
@@ -12,7 +11,6 @@ using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
 using $IntegerArray3 = $Array<::java::lang::Integer, 3>;
 using $ThrowableArray4 = $Array<::java::lang::Throwable, 4>;
-using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -21,35 +19,6 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
-
-$FieldInfo _ArrayMethods_FieldInfo_[] = {
-	{"failed", "I", nullptr, $PUBLIC, $field(ArrayMethods, failed)},
-	{}
-};
-
-$MethodInfo _ArrayMethods_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayMethods, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayMethods, main, void, $StringArray*), "java.lang.Exception"},
-	{"testGetDeclaredMethod", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetDeclaredMethod, void)},
-	{"testGetDeclaredMethods", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetDeclaredMethods, void)},
-	{"testGetInterfaces", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetInterfaces, void)},
-	{"testGetMethod", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetMethod, void)},
-	{"testGetMethods", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetMethods, void)},
-	{}
-};
-
-$ClassInfo _ArrayMethods_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ArrayMethods",
-	"java.lang.Object",
-	nullptr,
-	_ArrayMethods_FieldInfo_,
-	_ArrayMethods_MethodInfo_
-};
-
-$Object* allocate$ArrayMethods($Class* clazz) {
-	return $of($alloc(ArrayMethods));
-}
 
 void ArrayMethods::init$() {
 	this->failed = 0;
@@ -68,27 +37,26 @@ void ArrayMethods::main($StringArray* args) {
 }
 
 void ArrayMethods::testGetMethod() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		$var($Method, m, $of($$new($StringArray, 0))->getClass()->getMethod("clone"_s, ($ClassArray*)nullptr));
+		$var($Method, m, $$new($StringArray, 0)->getClass()->getMethod("clone"_s, ($ClassArray*)nullptr));
 		++this->failed;
 		$nc($System::out)->println("getMethod(\"clone\", null) Should not find clone()"_s);
 	} catch ($NoSuchMethodException& e) {
+		;
 	}
 }
 
 void ArrayMethods::testGetMethods() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($MethodArray, m, $of($$new($IntegerArray3, 0, 0, 0))->getClass()->getMethods());
+	$var($MethodArray, m, $$new($IntegerArray3, 0, 0, 0)->getClass()->getMethods());
 	{
 		$var($MethodArray, arr$, m);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Method, mm, arr$->get(i$));
-			if ($nc($($nc(mm)->getName()))->contentEquals(static_cast<$CharSequence*>("clone"_s))) {
+			if ($$nc($nc(mm)->getName())->contentEquals("clone"_s)) {
 				++this->failed;
 				$nc($System::out)->println("getMethods() Should not find clone()"_s);
 			}
@@ -97,20 +65,21 @@ void ArrayMethods::testGetMethods() {
 }
 
 void ArrayMethods::testGetDeclaredMethod() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		$var($Method, m, $of($$new($ObjectArray2, 0, 0))->getClass()->getDeclaredMethod("clone"_s, ($ClassArray*)nullptr));
+		$var($Method, m, $$new($ObjectArray2, 0, 0)->getClass()->getDeclaredMethod("clone"_s, ($ClassArray*)nullptr));
 		++this->failed;
 		$nc($System::out)->println("getDeclaredMethod(\"clone\", null) Should not find clone()"_s);
 	} catch ($NoSuchMethodException& e) {
+		;
 	}
 }
 
 void ArrayMethods::testGetDeclaredMethods() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($MethodArray, m, $of($$new($ThrowableArray4, 0, 0, 0, 0))->getClass()->getDeclaredMethods());
+	$var($MethodArray, m, $$new($ThrowableArray4, 0, 0, 0, 0)->getClass()->getDeclaredMethods());
 	if ($nc(m)->length != 0) {
 		++this->failed;
 		$nc($System::out)->println("getDeclaredMethods().length should be 0"_s);
@@ -118,22 +87,22 @@ void ArrayMethods::testGetDeclaredMethods() {
 }
 
 void ArrayMethods::testGetInterfaces() {
-	$useLocalCurrentObjectStackCache();
-	$var($ClassArray, is, $of($$new($IntegerArray, 0))->getClass()->getInterfaces());
+	$useLocalObjectStack();
+	$var($ClassArray, is, $$new($IntegerArray, 0)->getClass()->getInterfaces());
 	bool thisFailed = false;
 	if (is->length != 2) {
 		thisFailed = true;
 	}
-	if (!$nc($($nc(is->get(0))->getCanonicalName()))->equals("java.lang.Cloneable"_s)) {
+	if (!$$nc($nc(is->get(0))->getCanonicalName())->equals("java.lang.Cloneable"_s)) {
 		thisFailed = true;
 	}
-	if (!$nc($($nc(is->get(1))->getCanonicalName()))->equals("java.io.Serializable"_s)) {
+	if (!$$nc($nc(is->get(1))->getCanonicalName())->equals("java.io.Serializable"_s)) {
 		thisFailed = true;
 	}
 	if (thisFailed) {
 		++this->failed;
-		$nc($System::out)->println($($of($Arrays::asList(is))));
-		$nc($System::out)->println("Should contain exactly Cloneable, Serializable in that order."_s);
+		$nc($System::out)->println($($Arrays::asList(is)));
+		$System::out->println("Should contain exactly Cloneable, Serializable in that order."_s);
 	}
 }
 
@@ -141,7 +110,31 @@ ArrayMethods::ArrayMethods() {
 }
 
 $Class* ArrayMethods::load$($String* name, bool initialize) {
-	$loadClass(ArrayMethods, name, initialize, &_ArrayMethods_ClassInfo_, allocate$ArrayMethods);
+	$FieldInfo fieldInfos$$[] = {
+		{"failed", "I", nullptr, $PUBLIC, $field(ArrayMethods, failed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayMethods, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayMethods, main, void, $StringArray*), "java.lang.Exception"},
+		{"testGetDeclaredMethod", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetDeclaredMethod, void)},
+		{"testGetDeclaredMethods", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetDeclaredMethods, void)},
+		{"testGetInterfaces", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetInterfaces, void)},
+		{"testGetMethod", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetMethod, void)},
+		{"testGetMethods", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetMethods, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ArrayMethods",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArrayMethods, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayMethods);
+	});
 	return class$;
 }
 

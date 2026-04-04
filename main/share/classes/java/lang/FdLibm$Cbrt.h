@@ -23,10 +23,11 @@ class FdLibm$Cbrt : public ::java::lang::Object {
 	$class(FdLibm$Cbrt, 0, ::java::lang::Object)
 public:
 	FdLibm$Cbrt();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static double compute(double x);
-	static const int32_t B1 = 0x2A9F7893;
-	static const int32_t B2 = 0x297F7893;
+	static const int32_t B1 = 0x2a9f7893;
+	static const int32_t B2 = 0x297f7893;
 	static double C;
 	static double D;
 	static double E;

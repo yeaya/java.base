@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$NotBehindS.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/util/regex/Matcher.h>
@@ -21,38 +20,6 @@ using $Pattern$NotBehind = ::java::util::regex::Pattern$NotBehind;
 namespace java {
 	namespace util {
 		namespace regex {
-
-$MethodInfo _Pattern$NotBehindS_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;II)V", nullptr, 0, $method(Pattern$NotBehindS, init$, void, $Pattern$Node*, int32_t, int32_t)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$NotBehindS, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$NotBehindS_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$NotBehindS", "java.util.regex.Pattern", "NotBehindS", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$NotBehind", "java.util.regex.Pattern", "NotBehind", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$NotBehindS_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$NotBehindS",
-	"java.util.regex.Pattern$NotBehind",
-	nullptr,
-	nullptr,
-	_Pattern$NotBehindS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$NotBehindS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$NotBehindS($Class* clazz) {
-	return $of($alloc(Pattern$NotBehindS));
-}
 
 void Pattern$NotBehindS::init$($Pattern$Node* cond, int32_t rmax, int32_t rmin) {
 	$Pattern$NotBehind::init$(cond, rmax, rmin);
@@ -82,7 +49,34 @@ Pattern$NotBehindS::Pattern$NotBehindS() {
 }
 
 $Class* Pattern$NotBehindS::load$($String* name, bool initialize) {
-	$loadClass(Pattern$NotBehindS, name, initialize, &_Pattern$NotBehindS_ClassInfo_, allocate$Pattern$NotBehindS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$Node;II)V", nullptr, 0, $method(Pattern$NotBehindS, init$, void, $Pattern$Node*, int32_t, int32_t)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$NotBehindS, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$NotBehindS", "java.util.regex.Pattern", "NotBehindS", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$NotBehind", "java.util.regex.Pattern", "NotBehind", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$NotBehindS",
+		"java.util.regex.Pattern$NotBehind",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$NotBehindS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$NotBehindS);
+	});
 	return class$;
 }
 

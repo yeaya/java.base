@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$FractionPrinterParser.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/math/BigDecimal.h>
@@ -43,56 +42,11 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$FieldInfo _DateTimeFormatterBuilder$FractionPrinterParser_FieldInfo_[] = {
-	{"decimalPoint", "Z", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$FractionPrinterParser, decimalPoint)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$FractionPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalField;IIZ)V", nullptr, 0, $method(DateTimeFormatterBuilder$FractionPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, bool)},
-	{"<init>", "(Ljava/time/temporal/TemporalField;IIZI)V", nullptr, 0, $method(DateTimeFormatterBuilder$FractionPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, bool, int32_t)},
-	{"convertFromFraction", "(Ljava/math/BigDecimal;)J", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$FractionPrinterParser, convertFromFraction, int64_t, $BigDecimal*)},
-	{"convertToFraction", "(J)Ljava/math/BigDecimal;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$FractionPrinterParser, convertToFraction, $BigDecimal*, int64_t)},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
-	{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, isFixedWidth, bool, $DateTimeParseContext*)},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, toString, $String*)},
-	{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$FractionPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, withFixedWidth, DateTimeFormatterBuilder$FractionPrinterParser*)},
-	{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$FractionPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, withSubsequentWidth, DateTimeFormatterBuilder$FractionPrinterParser*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$FractionPrinterParser_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$FractionPrinterParser", "java.time.format.DateTimeFormatterBuilder", "FractionPrinterParser", $STATIC | $FINAL},
-	{"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser", "java.time.format.DateTimeFormatterBuilder", "NumberPrinterParser", $STATIC},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$FractionPrinterParser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$FractionPrinterParser",
-	"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser",
-	nullptr,
-	_DateTimeFormatterBuilder$FractionPrinterParser_FieldInfo_,
-	_DateTimeFormatterBuilder$FractionPrinterParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$FractionPrinterParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$FractionPrinterParser($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$FractionPrinterParser));
-}
-
 void DateTimeFormatterBuilder$FractionPrinterParser::init$($TemporalField* field, int32_t minWidth, int32_t maxWidth, bool decimalPoint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	DateTimeFormatterBuilder$FractionPrinterParser::init$(field, minWidth, maxWidth, decimalPoint, 0);
-	$Objects::requireNonNull($of(field), "field"_s);
-	if ($nc($($nc(field)->range()))->isFixed() == false) {
+	$Objects::requireNonNull(field, "field"_s);
+	if ($$nc($nc(field)->range())->isFixed() == false) {
 		$throwNew($IllegalArgumentException, $$str({"Field must have a fixed set of values: "_s, field}));
 	}
 	if (minWidth < 0 || minWidth > 9) {
@@ -131,7 +85,7 @@ bool DateTimeFormatterBuilder$FractionPrinterParser::isFixedWidth($DateTimeParse
 }
 
 bool DateTimeFormatterBuilder$FractionPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Long, value, $nc(context)->getValue(this->field));
 	if (value == nullptr) {
 		return false;
@@ -151,7 +105,7 @@ bool DateTimeFormatterBuilder$FractionPrinterParser::format($DateTimePrintContex
 		int32_t outputScale = $Math::min($Math::max(fraction->scale(), this->minWidth), this->maxWidth);
 		$init($RoundingMode);
 		$assign(fraction, fraction->setScale(outputScale, $RoundingMode::FLOOR));
-		$var($String, str, $nc($($nc(fraction)->toPlainString()))->substring(2));
+		$var($String, str, $(fraction->toPlainString())->substring(2));
 		$assign(str, $nc(decimalStyle)->convertNumberToI18N(str));
 		if (this->decimalPoint) {
 			$nc(buf)->append(decimalStyle->getDecimalSeparator());
@@ -162,10 +116,10 @@ bool DateTimeFormatterBuilder$FractionPrinterParser::format($DateTimePrintContex
 }
 
 int32_t DateTimeFormatterBuilder$FractionPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(context)->isStrict();
 	int32_t effectiveMin = (var$0 || isFixedWidth(context) ? this->minWidth : 0);
-	bool var$1 = $nc(context)->isStrict();
+	bool var$1 = context->isStrict();
 	int32_t effectiveMax = (var$1 || isFixedWidth(context) ? this->maxWidth : 9);
 	int32_t length = $nc(text)->length();
 	if (position == length) {
@@ -173,7 +127,7 @@ int32_t DateTimeFormatterBuilder$FractionPrinterParser::parse($DateTimeParseCont
 	}
 	if (this->decimalPoint) {
 		char16_t var$2 = text->charAt(position);
-		if (var$2 != $nc($($nc(context)->getDecimalStyle()))->getDecimalSeparator()) {
+		if (var$2 != $$nc(context->getDecimalStyle())->getDecimalSeparator()) {
 			return (effectiveMin > 0 ? ~position : position);
 		}
 		++position;
@@ -187,7 +141,7 @@ int32_t DateTimeFormatterBuilder$FractionPrinterParser::parse($DateTimeParseCont
 	int32_t pos = position;
 	while (pos < maxEndPos) {
 		char16_t ch = text->charAt(pos++);
-		int32_t digit = $nc($($nc(context)->getDecimalStyle()))->convertToDigit(ch);
+		int32_t digit = $$nc(context->getDecimalStyle())->convertToDigit(ch);
 		if (digit < 0) {
 			if (pos <= minEndPos) {
 				return ~position;
@@ -199,33 +153,33 @@ int32_t DateTimeFormatterBuilder$FractionPrinterParser::parse($DateTimeParseCont
 	}
 	$var($BigDecimal, fraction, $$new($BigDecimal, total)->movePointLeft(pos - position));
 	int64_t value = convertFromFraction(fraction);
-	return $nc(context)->setParsedField(this->field, value, position, pos);
+	return context->setParsedField(this->field, value, position, pos);
 }
 
 $BigDecimal* DateTimeFormatterBuilder$FractionPrinterParser::convertToFraction(int64_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ValueRange, range, $nc(this->field)->range());
 	$nc(range)->checkValidValue(value, this->field);
 	$var($BigDecimal, minBD, $BigDecimal::valueOf(range->getMinimum()));
-	$var($BigDecimal, rangeBD, $nc($($nc($($BigDecimal::valueOf(range->getMaximum())))->subtract(minBD)))->add($BigDecimal::ONE));
-	$var($BigDecimal, valueBD, $nc($($BigDecimal::valueOf(value)))->subtract(minBD));
+	$var($BigDecimal, rangeBD, $($($BigDecimal::valueOf(range->getMaximum()))->subtract(minBD))->add($BigDecimal::ONE));
+	$var($BigDecimal, valueBD, $($BigDecimal::valueOf(value))->subtract(minBD));
 	$init($RoundingMode);
-	$var($BigDecimal, fraction, $nc(valueBD)->divide(rangeBD, 9, $RoundingMode::FLOOR));
-	return $nc(fraction)->compareTo($BigDecimal::ZERO) == 0 ? $BigDecimal::ZERO : $nc(fraction)->stripTrailingZeros();
+	$var($BigDecimal, fraction, valueBD->divide(rangeBD, 9, $RoundingMode::FLOOR));
+	return fraction->compareTo($BigDecimal::ZERO) == 0 ? $BigDecimal::ZERO : fraction->stripTrailingZeros();
 }
 
 int64_t DateTimeFormatterBuilder$FractionPrinterParser::convertFromFraction($BigDecimal* fraction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ValueRange, range, $nc(this->field)->range());
 	$var($BigDecimal, minBD, $BigDecimal::valueOf($nc(range)->getMinimum()));
-	$var($BigDecimal, rangeBD, $nc($($nc($($BigDecimal::valueOf($nc(range)->getMaximum())))->subtract(minBD)))->add($BigDecimal::ONE));
+	$var($BigDecimal, rangeBD, $($($BigDecimal::valueOf(range->getMaximum()))->subtract(minBD))->add($BigDecimal::ONE));
 	$init($RoundingMode);
-	$var($BigDecimal, valueBD, $nc($($nc($($nc(fraction)->multiply(rangeBD)))->setScale(0, $RoundingMode::FLOOR)))->add(minBD));
-	return $nc(valueBD)->longValueExact();
+	$var($BigDecimal, valueBD, $($($nc(fraction)->multiply(rangeBD))->setScale(0, $RoundingMode::FLOOR))->add(minBD));
+	return valueBD->longValueExact();
 }
 
 $String* DateTimeFormatterBuilder$FractionPrinterParser::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, decimal, this->decimalPoint ? ",DecimalPoint"_s : ""_s);
 	return $str({"Fraction("_s, this->field, ","_s, $$str(this->minWidth), ","_s, $$str(this->maxWidth), decimal, ")"_s});
 }
@@ -234,7 +188,46 @@ DateTimeFormatterBuilder$FractionPrinterParser::DateTimeFormatterBuilder$Fractio
 }
 
 $Class* DateTimeFormatterBuilder$FractionPrinterParser::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$FractionPrinterParser, name, initialize, &_DateTimeFormatterBuilder$FractionPrinterParser_ClassInfo_, allocate$DateTimeFormatterBuilder$FractionPrinterParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"decimalPoint", "Z", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$FractionPrinterParser, decimalPoint)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/temporal/TemporalField;IIZ)V", nullptr, 0, $method(DateTimeFormatterBuilder$FractionPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, bool)},
+		{"<init>", "(Ljava/time/temporal/TemporalField;IIZI)V", nullptr, 0, $method(DateTimeFormatterBuilder$FractionPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, bool, int32_t)},
+		{"convertFromFraction", "(Ljava/math/BigDecimal;)J", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$FractionPrinterParser, convertFromFraction, int64_t, $BigDecimal*)},
+		{"convertToFraction", "(J)Ljava/math/BigDecimal;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$FractionPrinterParser, convertToFraction, $BigDecimal*, int64_t)},
+		{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+		{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, isFixedWidth, bool, $DateTimeParseContext*)},
+		{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, toString, $String*)},
+		{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$FractionPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, withFixedWidth, DateTimeFormatterBuilder$FractionPrinterParser*)},
+		{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$FractionPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, withSubsequentWidth, DateTimeFormatterBuilder$FractionPrinterParser*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$FractionPrinterParser", "java.time.format.DateTimeFormatterBuilder", "FractionPrinterParser", $STATIC | $FINAL},
+		{"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser", "java.time.format.DateTimeFormatterBuilder", "NumberPrinterParser", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$FractionPrinterParser",
+		"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$FractionPrinterParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$FractionPrinterParser);
+	});
 	return class$;
 }
 

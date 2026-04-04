@@ -1,5 +1,4 @@
 #include <java/util/Calendar$AvailableCalendarTypes.h>
-
 #include <java/util/Calendar.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
@@ -19,47 +18,12 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace util {
 
-$FieldInfo _Calendar$AvailableCalendarTypes_FieldInfo_[] = {
-	{"SET", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Calendar$AvailableCalendarTypes, SET)},
-	{}
-};
-
-$MethodInfo _Calendar$AvailableCalendarTypes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Calendar$AvailableCalendarTypes, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Calendar$AvailableCalendarTypes_InnerClassesInfo_[] = {
-	{"java.util.Calendar$AvailableCalendarTypes", "java.util.Calendar", "AvailableCalendarTypes", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Calendar$AvailableCalendarTypes_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Calendar$AvailableCalendarTypes",
-	"java.lang.Object",
-	nullptr,
-	_Calendar$AvailableCalendarTypes_FieldInfo_,
-	_Calendar$AvailableCalendarTypes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Calendar$AvailableCalendarTypes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Calendar"
-};
-
-$Object* allocate$Calendar$AvailableCalendarTypes($Class* clazz) {
-	return $of($alloc(Calendar$AvailableCalendarTypes));
-}
-
 $Set* Calendar$AvailableCalendarTypes::SET = nullptr;
 
 void Calendar$AvailableCalendarTypes::init$() {
 }
 
-void clinit$Calendar$AvailableCalendarTypes($Class* class$) {
+void Calendar$AvailableCalendarTypes::clinit$($Class* clazz) {
 	{
 		$var($Set, set, $new($HashSet, 3));
 		set->add("gregory"_s);
@@ -73,7 +37,36 @@ Calendar$AvailableCalendarTypes::Calendar$AvailableCalendarTypes() {
 }
 
 $Class* Calendar$AvailableCalendarTypes::load$($String* name, bool initialize) {
-	$loadClass(Calendar$AvailableCalendarTypes, name, initialize, &_Calendar$AvailableCalendarTypes_ClassInfo_, clinit$Calendar$AvailableCalendarTypes, allocate$Calendar$AvailableCalendarTypes);
+	$FieldInfo fieldInfos$$[] = {
+		{"SET", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Calendar$AvailableCalendarTypes, SET)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Calendar$AvailableCalendarTypes, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Calendar$AvailableCalendarTypes", "java.util.Calendar", "AvailableCalendarTypes", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Calendar$AvailableCalendarTypes",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Calendar"
+	};
+	$loadClass(Calendar$AvailableCalendarTypes, name, initialize, &classInfo$$, Calendar$AvailableCalendarTypes::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Calendar$AvailableCalendarTypes);
+	});
 	return class$;
 }
 

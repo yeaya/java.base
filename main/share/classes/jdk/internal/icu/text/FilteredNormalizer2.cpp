@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/FilteredNormalizer2.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/CharSequence.h>
@@ -28,41 +27,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace text {
-
-$FieldInfo _FilteredNormalizer2_FieldInfo_[] = {
-	{"norm2", "Ljdk/internal/icu/text/Normalizer2;", nullptr, $PRIVATE, $field(FilteredNormalizer2, norm2)},
-	{"set", "Ljdk/internal/icu/text/UnicodeSet;", nullptr, $PRIVATE, $field(FilteredNormalizer2, set)},
-	{}
-};
-
-$MethodInfo _FilteredNormalizer2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/text/Normalizer2;Ljdk/internal/icu/text/UnicodeSet;)V", nullptr, $PUBLIC, $method(FilteredNormalizer2, init$, void, $Normalizer2*, $UnicodeSet*)},
-	{"append", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, append, $StringBuilder*, $StringBuilder*, $CharSequence*)},
-	{"getCombiningClass", "(I)I", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, getCombiningClass, int32_t, int32_t)},
-	{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, getDecomposition, $String*, int32_t)},
-	{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, hasBoundaryBefore, bool, int32_t)},
-	{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, isNormalized, bool, $CharSequence*)},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, normalize, $StringBuilder*, $CharSequence*, $StringBuilder*)},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, normalize, $Appendable*, $CharSequence*, $Appendable*)},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;Ljdk/internal/icu/text/UnicodeSet$SpanCondition;)Ljava/lang/Appendable;", nullptr, $PRIVATE, $method(FilteredNormalizer2, normalize, $Appendable*, $CharSequence*, $Appendable*, $UnicodeSet$SpanCondition*)},
-	{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, normalizeSecondAndAppend, $StringBuilder*, $StringBuilder*, $CharSequence*)},
-	{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;Z)Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $method(FilteredNormalizer2, normalizeSecondAndAppend, $StringBuilder*, $StringBuilder*, $CharSequence*, bool)},
-	{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, spanQuickCheckYes, int32_t, $CharSequence*)},
-	{}
-};
-
-$ClassInfo _FilteredNormalizer2_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.icu.text.FilteredNormalizer2",
-	"jdk.internal.icu.text.Normalizer2",
-	nullptr,
-	_FilteredNormalizer2_FieldInfo_,
-	_FilteredNormalizer2_MethodInfo_
-};
-
-$Object* allocate$FilteredNormalizer2($Class* clazz) {
-	return $of($alloc(FilteredNormalizer2));
-}
 
 void FilteredNormalizer2::init$($Normalizer2* n2, $UnicodeSet* filterSet) {
 	$Normalizer2::init$();
@@ -105,7 +69,7 @@ int32_t FilteredNormalizer2::getCombiningClass(int32_t c) {
 }
 
 bool FilteredNormalizer2::isNormalized($CharSequence* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($UnicodeSet$SpanCondition);
 	$UnicodeSet$SpanCondition* spanCondition = $UnicodeSet$SpanCondition::SIMPLE;
 	for (int32_t prevSpanLimit = 0; prevSpanLimit < $nc(s)->length();) {
@@ -124,7 +88,7 @@ bool FilteredNormalizer2::isNormalized($CharSequence* s) {
 }
 
 int32_t FilteredNormalizer2::spanQuickCheckYes($CharSequence* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($UnicodeSet$SpanCondition);
 	$UnicodeSet$SpanCondition* spanCondition = $UnicodeSet$SpanCondition::SIMPLE;
 	for (int32_t prevSpanLimit = 0; prevSpanLimit < $nc(s)->length();) {
@@ -140,7 +104,7 @@ int32_t FilteredNormalizer2::spanQuickCheckYes($CharSequence* s) {
 		}
 		prevSpanLimit = spanLimit;
 	}
-	return $nc(s)->length();
+	return s->length();
 }
 
 bool FilteredNormalizer2::hasBoundaryBefore(int32_t c) {
@@ -149,7 +113,7 @@ bool FilteredNormalizer2::hasBoundaryBefore(int32_t c) {
 }
 
 $Appendable* FilteredNormalizer2::normalize($CharSequence* src, $Appendable* dest, $UnicodeSet$SpanCondition* spanCondition$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnicodeSet$SpanCondition, spanCondition, spanCondition$renamed);
 	$var($StringBuilder, tempDest, $new($StringBuilder));
 	try {
@@ -164,7 +128,7 @@ $Appendable* FilteredNormalizer2::normalize($CharSequence* src, $Appendable* des
 				spanCondition = $UnicodeSet$SpanCondition::SIMPLE;
 			} else {
 				if (spanLength != 0) {
-					$nc(dest)->append($(static_cast<$CharSequence*>($nc(this->norm2)->normalize($(src->subSequence(prevSpanLimit, spanLimit)), tempDest))));
+					$nc(dest)->append($($nc(this->norm2)->normalize($(src->subSequence(prevSpanLimit, spanLimit)), tempDest)));
 				}
 				spanCondition = $UnicodeSet$SpanCondition::NOT_CONTAINED;
 			}
@@ -177,7 +141,7 @@ $Appendable* FilteredNormalizer2::normalize($CharSequence* src, $Appendable* des
 }
 
 $StringBuilder* FilteredNormalizer2::normalizeSecondAndAppend($StringBuilder* first, $CharSequence* second, bool doNormalize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(first, second)) {
 		$throwNew($IllegalArgumentException);
 	}
@@ -192,7 +156,7 @@ $StringBuilder* FilteredNormalizer2::normalizeSecondAndAppend($StringBuilder* fi
 	int32_t prefixLimit = $nc(this->set)->span(second, 0, $UnicodeSet$SpanCondition::SIMPLE);
 	if (prefixLimit != 0) {
 		$var($CharSequence, prefix, $nc(second)->subSequence(0, prefixLimit));
-		int32_t suffixStart = $nc(this->set)->spanBack(first, 0x7FFFFFFF, $UnicodeSet$SpanCondition::SIMPLE);
+		int32_t suffixStart = this->set->spanBack(first, 0x7fffffff, $UnicodeSet$SpanCondition::SIMPLE);
 		if (suffixStart == 0) {
 			if (doNormalize) {
 				$nc(this->norm2)->normalizeSecondAndAppend(first, prefix);
@@ -200,13 +164,13 @@ $StringBuilder* FilteredNormalizer2::normalizeSecondAndAppend($StringBuilder* fi
 				$nc(this->norm2)->append(first, prefix);
 			}
 		} else {
-			$var($StringBuilder, middle, $new($StringBuilder, $($nc(first)->subSequence(suffixStart, first->length()))));
+			$var($StringBuilder, middle, $new($StringBuilder, $(first->subSequence(suffixStart, first->length()))));
 			if (doNormalize) {
 				$nc(this->norm2)->normalizeSecondAndAppend(middle, prefix);
 			} else {
 				$nc(this->norm2)->append(middle, prefix);
 			}
-			$nc($nc(first)->delete$(suffixStart, 0x7FFFFFFF))->append(static_cast<$CharSequence*>(middle));
+			$nc(first->delete$(suffixStart, 0x7fffffff))->append($cast($CharSequence, middle));
 		}
 	}
 	if (prefixLimit < $nc(second)->length()) {
@@ -214,7 +178,7 @@ $StringBuilder* FilteredNormalizer2::normalizeSecondAndAppend($StringBuilder* fi
 		if (doNormalize) {
 			normalize(rest, first, $UnicodeSet$SpanCondition::NOT_CONTAINED);
 		} else {
-			$nc(first)->append(rest);
+			first->append(rest);
 		}
 	}
 	return first;
@@ -224,7 +188,37 @@ FilteredNormalizer2::FilteredNormalizer2() {
 }
 
 $Class* FilteredNormalizer2::load$($String* name, bool initialize) {
-	$loadClass(FilteredNormalizer2, name, initialize, &_FilteredNormalizer2_ClassInfo_, allocate$FilteredNormalizer2);
+	$FieldInfo fieldInfos$$[] = {
+		{"norm2", "Ljdk/internal/icu/text/Normalizer2;", nullptr, $PRIVATE, $field(FilteredNormalizer2, norm2)},
+		{"set", "Ljdk/internal/icu/text/UnicodeSet;", nullptr, $PRIVATE, $field(FilteredNormalizer2, set)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/icu/text/Normalizer2;Ljdk/internal/icu/text/UnicodeSet;)V", nullptr, $PUBLIC, $method(FilteredNormalizer2, init$, void, $Normalizer2*, $UnicodeSet*)},
+		{"append", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, append, $StringBuilder*, $StringBuilder*, $CharSequence*)},
+		{"getCombiningClass", "(I)I", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, getCombiningClass, int32_t, int32_t)},
+		{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, getDecomposition, $String*, int32_t)},
+		{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, hasBoundaryBefore, bool, int32_t)},
+		{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, isNormalized, bool, $CharSequence*)},
+		{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, normalize, $StringBuilder*, $CharSequence*, $StringBuilder*)},
+		{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, normalize, $Appendable*, $CharSequence*, $Appendable*)},
+		{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;Ljdk/internal/icu/text/UnicodeSet$SpanCondition;)Ljava/lang/Appendable;", nullptr, $PRIVATE, $method(FilteredNormalizer2, normalize, $Appendable*, $CharSequence*, $Appendable*, $UnicodeSet$SpanCondition*)},
+		{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, normalizeSecondAndAppend, $StringBuilder*, $StringBuilder*, $CharSequence*)},
+		{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;Z)Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $method(FilteredNormalizer2, normalizeSecondAndAppend, $StringBuilder*, $StringBuilder*, $CharSequence*, bool)},
+		{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $virtualMethod(FilteredNormalizer2, spanQuickCheckYes, int32_t, $CharSequence*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.icu.text.FilteredNormalizer2",
+		"jdk.internal.icu.text.Normalizer2",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FilteredNormalizer2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilteredNormalizer2);
+	});
 	return class$;
 }
 

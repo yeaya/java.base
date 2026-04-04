@@ -1,5 +1,4 @@
 #include <java/security/KeyStore$LoadStoreParameter.h>
-
 #include <java/security/KeyStore$ProtectionParameter.h>
 #include <java/security/KeyStore.h>
 #include <jcpp.h>
@@ -12,38 +11,33 @@ using $KeyStore$ProtectionParameter = ::java::security::KeyStore$ProtectionParam
 namespace java {
 	namespace security {
 
-$MethodInfo _KeyStore$LoadStoreParameter_MethodInfo_[] = {
-	{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStore$LoadStoreParameter, getProtectionParameter, $KeyStore$ProtectionParameter*)},
-	{}
-};
-
-$InnerClassInfo _KeyStore$LoadStoreParameter_InnerClassesInfo_[] = {
-	{"java.security.KeyStore$LoadStoreParameter", "java.security.KeyStore", "LoadStoreParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeyStore$LoadStoreParameter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.KeyStore$LoadStoreParameter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_KeyStore$LoadStoreParameter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyStore$LoadStoreParameter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.KeyStore"
-};
-
-$Object* allocate$KeyStore$LoadStoreParameter($Class* clazz) {
-	return $of($alloc(KeyStore$LoadStoreParameter));
-}
-
 $Class* KeyStore$LoadStoreParameter::load$($String* name, bool initialize) {
-	$loadClass(KeyStore$LoadStoreParameter, name, initialize, &_KeyStore$LoadStoreParameter_ClassInfo_, allocate$KeyStore$LoadStoreParameter);
+	$MethodInfo methodInfos$$[] = {
+		{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStore$LoadStoreParameter, getProtectionParameter, $KeyStore$ProtectionParameter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyStore$LoadStoreParameter", "java.security.KeyStore", "LoadStoreParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.KeyStore$LoadStoreParameter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.KeyStore"
+	};
+	$loadClass(KeyStore$LoadStoreParameter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStore$LoadStoreParameter);
+	});
 	return class$;
 }
 

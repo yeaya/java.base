@@ -1,5 +1,4 @@
 #include <java/io/ExpiringCache$Entry.h>
-
 #include <java/io/ExpiringCache.h>
 #include <jcpp.h>
 
@@ -10,46 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _ExpiringCache$Entry_FieldInfo_[] = {
-	{"timestamp", "J", nullptr, $PRIVATE, $field(ExpiringCache$Entry, timestamp$)},
-	{"val", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExpiringCache$Entry, val$)},
-	{}
-};
-
-$MethodInfo _ExpiringCache$Entry_MethodInfo_[] = {
-	{"<init>", "(JLjava/lang/String;)V", nullptr, 0, $method(ExpiringCache$Entry, init$, void, int64_t, $String*)},
-	{"setTimestamp", "(J)V", nullptr, 0, $virtualMethod(ExpiringCache$Entry, setTimestamp, void, int64_t)},
-	{"setVal", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ExpiringCache$Entry, setVal, void, $String*)},
-	{"timestamp", "()J", nullptr, 0, $virtualMethod(ExpiringCache$Entry, timestamp, int64_t)},
-	{"val", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ExpiringCache$Entry, val, $String*)},
-	{}
-};
-
-$InnerClassInfo _ExpiringCache$Entry_InnerClassesInfo_[] = {
-	{"java.io.ExpiringCache$Entry", "java.io.ExpiringCache", "Entry", $STATIC},
-	{}
-};
-
-$ClassInfo _ExpiringCache$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ExpiringCache$Entry",
-	"java.lang.Object",
-	nullptr,
-	_ExpiringCache$Entry_FieldInfo_,
-	_ExpiringCache$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExpiringCache$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ExpiringCache"
-};
-
-$Object* allocate$ExpiringCache$Entry($Class* clazz) {
-	return $of($alloc(ExpiringCache$Entry));
-}
 
 void ExpiringCache$Entry::init$(int64_t timestamp, $String* val) {
 	this->timestamp$ = timestamp;
@@ -76,7 +35,41 @@ ExpiringCache$Entry::ExpiringCache$Entry() {
 }
 
 $Class* ExpiringCache$Entry::load$($String* name, bool initialize) {
-	$loadClass(ExpiringCache$Entry, name, initialize, &_ExpiringCache$Entry_ClassInfo_, allocate$ExpiringCache$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"timestamp", "J", nullptr, $PRIVATE, $field(ExpiringCache$Entry, timestamp$)},
+		{"val", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExpiringCache$Entry, val$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLjava/lang/String;)V", nullptr, 0, $method(ExpiringCache$Entry, init$, void, int64_t, $String*)},
+		{"setTimestamp", "(J)V", nullptr, 0, $virtualMethod(ExpiringCache$Entry, setTimestamp, void, int64_t)},
+		{"setVal", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ExpiringCache$Entry, setVal, void, $String*)},
+		{"timestamp", "()J", nullptr, 0, $virtualMethod(ExpiringCache$Entry, timestamp, int64_t)},
+		{"val", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ExpiringCache$Entry, val, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ExpiringCache$Entry", "java.io.ExpiringCache", "Entry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ExpiringCache$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ExpiringCache"
+	};
+	$loadClass(ExpiringCache$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExpiringCache$Entry);
+	});
 	return class$;
 }
 

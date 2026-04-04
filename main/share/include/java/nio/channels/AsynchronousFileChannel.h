@@ -61,6 +61,7 @@ class $import AsynchronousFileChannel : public ::java::nio::channels::Asynchrono
 	$class(AsynchronousFileChannel, 0, ::java::nio::channels::AsynchronousChannel)
 public:
 	AsynchronousFileChannel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void force(bool metaData) {}
 	virtual void lock(int64_t position, int64_t size, bool shared, Object$* attachment, ::java::nio::channels::CompletionHandler* handler) {}

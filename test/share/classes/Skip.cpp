@@ -1,5 +1,4 @@
 #include <Skip.h>
-
 #include <java/io/StringReader.h>
 #include <jcpp.h>
 
@@ -7,25 +6,6 @@ using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$MethodInfo _Skip_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Skip, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Skip, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Skip_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Skip",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Skip_MethodInfo_
-};
-
-$Object* allocate$Skip($Class* clazz) {
-	return $of($alloc(Skip));
-}
 
 void Skip::init$() {
 }
@@ -68,7 +48,22 @@ Skip::Skip() {
 }
 
 $Class* Skip::load$($String* name, bool initialize) {
-	$loadClass(Skip, name, initialize, &_Skip_ClassInfo_, allocate$Skip);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Skip, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Skip, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Skip",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Skip, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Skip);
+	});
 	return class$;
 }
 

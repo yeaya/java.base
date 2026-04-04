@@ -35,6 +35,7 @@ class VarHandleByteArrayAsFloats : public ::java::lang::invoke::VarHandleByteArr
 	$class(VarHandleByteArrayAsFloats, 0, ::java::lang::invoke::VarHandleByteArrayBase)
 public:
 	VarHandleByteArrayAsFloats();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t convEndian(bool big, float v);
 	static float convEndian(bool big, int32_t rv);

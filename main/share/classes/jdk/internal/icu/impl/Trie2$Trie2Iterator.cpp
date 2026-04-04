@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/Trie2$Trie2Iterator.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <jdk/internal/icu/impl/Trie2$Range.h>
 #include <jdk/internal/icu/impl/Trie2$ValueMapper.h>
@@ -20,51 +19,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$FieldInfo _Trie2$Trie2Iterator_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/icu/impl/Trie2;", nullptr, $FINAL | $SYNTHETIC, $field(Trie2$Trie2Iterator, this$0)},
-	{"mapper", "Ljdk/internal/icu/impl/Trie2$ValueMapper;", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, mapper)},
-	{"returnValue", "Ljdk/internal/icu/impl/Trie2$Range;", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, returnValue)},
-	{"nextStart", "I", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, nextStart)},
-	{"limitCP", "I", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, limitCP)},
-	{"doingCodePoints", "Z", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, doingCodePoints)},
-	{"doLeadSurrogates", "Z", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, doLeadSurrogates)},
-	{}
-};
-
-$MethodInfo _Trie2$Trie2Iterator_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/Trie2;Ljdk/internal/icu/impl/Trie2$ValueMapper;)V", nullptr, 0, $method(Trie2$Trie2Iterator, init$, void, $Trie2*, $Trie2$ValueMapper*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Trie2$Trie2Iterator, hasNext, bool)},
-	{"next", "()Ljdk/internal/icu/impl/Trie2$Range;", nullptr, $PUBLIC, $virtualMethod(Trie2$Trie2Iterator, next, $Object*)},
-	{"rangeEndLS", "(C)I", nullptr, $PRIVATE, $method(Trie2$Trie2Iterator, rangeEndLS, int32_t, char16_t)},
-	{}
-};
-
-$InnerClassInfo _Trie2$Trie2Iterator_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.Trie2$Trie2Iterator", "jdk.internal.icu.impl.Trie2", "Trie2Iterator", 0},
-	{"jdk.internal.icu.impl.Trie2$Range", "jdk.internal.icu.impl.Trie2", "Range", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Trie2$Trie2Iterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.icu.impl.Trie2$Trie2Iterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Trie2$Trie2Iterator_FieldInfo_,
-	_Trie2$Trie2Iterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljdk/internal/icu/impl/Trie2$Range;>;",
-	nullptr,
-	_Trie2$Trie2Iterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.Trie2"
-};
-
-$Object* allocate$Trie2$Trie2Iterator($Class* clazz) {
-	return $of($alloc(Trie2$Trie2Iterator));
-}
-
 void Trie2$Trie2Iterator::init$($Trie2* this$0, $Trie2$ValueMapper* vm) {
 	$set(this, this$0, this$0);
 	$set(this, returnValue, $new($Trie2$Range));
@@ -82,7 +36,7 @@ $Object* Trie2$Trie2Iterator::next() {
 	}
 	if (this->nextStart >= this->limitCP) {
 		this->doingCodePoints = false;
-		this->nextStart = 0x0000D800;
+		this->nextStart = 0x0000d800;
 	}
 	int32_t endOfRange = 0;
 	int32_t val = 0;
@@ -96,7 +50,7 @@ $Object* Trie2$Trie2Iterator::next() {
 				break;
 			}
 			val = this->this$0->get(endOfRange + 1);
-			if ($nc(this->mapper)->map(val) != mappedVal) {
+			if (this->mapper->map(val) != mappedVal) {
 				break;
 			}
 			endOfRange = this->this$0->rangeEnd(endOfRange + 1, this->limitCP, val);
@@ -106,35 +60,35 @@ $Object* Trie2$Trie2Iterator::next() {
 		mappedVal = $nc(this->mapper)->map(val);
 		endOfRange = rangeEndLS((char16_t)this->nextStart);
 		for (;;) {
-			if (endOfRange >= 0x0000DBFF) {
+			if (endOfRange >= 0x0000dbff) {
 				break;
 			}
 			val = this->this$0->getFromU16SingleLead((char16_t)(endOfRange + 1));
-			if ($nc(this->mapper)->map(val) != mappedVal) {
+			if (this->mapper->map(val) != mappedVal) {
 				break;
 			}
 			endOfRange = rangeEndLS((char16_t)(endOfRange + 1));
 		}
 	}
 	$nc(this->returnValue)->startCodePoint = this->nextStart;
-	$nc(this->returnValue)->endCodePoint = endOfRange;
-	$nc(this->returnValue)->value = mappedVal;
-	$nc(this->returnValue)->leadSurrogate = !this->doingCodePoints;
+	this->returnValue->endCodePoint = endOfRange;
+	this->returnValue->value = mappedVal;
+	this->returnValue->leadSurrogate = !this->doingCodePoints;
 	this->nextStart = endOfRange + 1;
-	return $of(this->returnValue);
+	return this->returnValue;
 }
 
 bool Trie2$Trie2Iterator::hasNext() {
-	return this->doingCodePoints && (this->doLeadSurrogates || this->nextStart < this->limitCP) || this->nextStart < 0x0000DC00;
+	return this->doingCodePoints && (this->doLeadSurrogates || this->nextStart < this->limitCP) || this->nextStart < 0x0000dc00;
 }
 
 int32_t Trie2$Trie2Iterator::rangeEndLS(char16_t startingLS) {
-	if (startingLS >= 0x0000DBFF) {
-		return 0x0000DBFF;
+	if (startingLS >= 0x0000dbff) {
+		return 0x0000dbff;
 	}
 	int32_t c = 0;
 	int32_t val = this->this$0->getFromU16SingleLead(startingLS);
-	for (c = startingLS + 1; c <= 0x0000DBFF; ++c) {
+	for (c = startingLS + 1; c <= 0x0000dbff; ++c) {
 		if (this->this$0->getFromU16SingleLead((char16_t)c) != val) {
 			break;
 		}
@@ -146,7 +100,46 @@ Trie2$Trie2Iterator::Trie2$Trie2Iterator() {
 }
 
 $Class* Trie2$Trie2Iterator::load$($String* name, bool initialize) {
-	$loadClass(Trie2$Trie2Iterator, name, initialize, &_Trie2$Trie2Iterator_ClassInfo_, allocate$Trie2$Trie2Iterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/icu/impl/Trie2;", nullptr, $FINAL | $SYNTHETIC, $field(Trie2$Trie2Iterator, this$0)},
+		{"mapper", "Ljdk/internal/icu/impl/Trie2$ValueMapper;", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, mapper)},
+		{"returnValue", "Ljdk/internal/icu/impl/Trie2$Range;", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, returnValue)},
+		{"nextStart", "I", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, nextStart)},
+		{"limitCP", "I", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, limitCP)},
+		{"doingCodePoints", "Z", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, doingCodePoints)},
+		{"doLeadSurrogates", "Z", nullptr, $PRIVATE, $field(Trie2$Trie2Iterator, doLeadSurrogates)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/icu/impl/Trie2;Ljdk/internal/icu/impl/Trie2$ValueMapper;)V", nullptr, 0, $method(Trie2$Trie2Iterator, init$, void, $Trie2*, $Trie2$ValueMapper*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Trie2$Trie2Iterator, hasNext, bool)},
+		{"next", "()Ljdk/internal/icu/impl/Trie2$Range;", nullptr, $PUBLIC, $virtualMethod(Trie2$Trie2Iterator, next, $Object*)},
+		{"rangeEndLS", "(C)I", nullptr, $PRIVATE, $method(Trie2$Trie2Iterator, rangeEndLS, int32_t, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.Trie2$Trie2Iterator", "jdk.internal.icu.impl.Trie2", "Trie2Iterator", 0},
+		{"jdk.internal.icu.impl.Trie2$Range", "jdk.internal.icu.impl.Trie2", "Range", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.icu.impl.Trie2$Trie2Iterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljdk/internal/icu/impl/Trie2$Range;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.Trie2"
+	};
+	$loadClass(Trie2$Trie2Iterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Trie2$Trie2Iterator);
+	});
 	return class$;
 }
 

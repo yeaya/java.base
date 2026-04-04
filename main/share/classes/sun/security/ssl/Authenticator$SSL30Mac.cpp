@@ -1,5 +1,4 @@
 #include <sun/security/ssl/Authenticator$SSL30Mac.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <javax/crypto/SecretKey.h>
 #include <sun/security/ssl/Authenticator$MacImpl.h>
@@ -23,50 +22,6 @@ using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _Authenticator$SSL30Mac_FieldInfo_[] = {
-	{"macImpl", "Lsun/security/ssl/Authenticator$MacImpl;", nullptr, $PRIVATE | $FINAL, $field(Authenticator$SSL30Mac, macImpl)},
-	{}
-};
-
-$MethodInfo _Authenticator$SSL30Mac_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $method(Authenticator$SSL30Mac, init$, void, $ProtocolVersion*, $CipherSuite$MacAlg*, $SecretKey*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"compute", "(BLjava/nio/ByteBuffer;[BZ)[B", nullptr, $PUBLIC, $virtualMethod(Authenticator$SSL30Mac, compute, $bytes*, int8_t, $ByteBuffer*, $bytes*, bool)},
-	{"macAlg", "()Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC, $virtualMethod(Authenticator$SSL30Mac, macAlg, $CipherSuite$MacAlg*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Authenticator$SSL30Mac_InnerClassesInfo_[] = {
-	{"sun.security.ssl.Authenticator$SSL30Mac", "sun.security.ssl.Authenticator", "SSL30Mac", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Authenticator$SSL30Authenticator", "sun.security.ssl.Authenticator", "SSL30Authenticator", $PRIVATE | $STATIC},
-	{"sun.security.ssl.Authenticator$MAC", "sun.security.ssl.Authenticator", "MAC", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Authenticator$SSL30Mac_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.Authenticator$SSL30Mac",
-	"sun.security.ssl.Authenticator$SSL30Authenticator",
-	"sun.security.ssl.Authenticator$MAC",
-	_Authenticator$SSL30Mac_FieldInfo_,
-	_Authenticator$SSL30Mac_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Authenticator$SSL30Mac_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.Authenticator"
-};
-
-$Object* allocate$Authenticator$SSL30Mac($Class* clazz) {
-	return $of($alloc(Authenticator$SSL30Mac));
-}
 
 int32_t Authenticator$SSL30Mac::hashCode() {
 	 return this->$Authenticator$SSL30Authenticator::hashCode();
@@ -105,7 +60,45 @@ Authenticator$SSL30Mac::Authenticator$SSL30Mac() {
 }
 
 $Class* Authenticator$SSL30Mac::load$($String* name, bool initialize) {
-	$loadClass(Authenticator$SSL30Mac, name, initialize, &_Authenticator$SSL30Mac_ClassInfo_, allocate$Authenticator$SSL30Mac);
+	$FieldInfo fieldInfos$$[] = {
+		{"macImpl", "Lsun/security/ssl/Authenticator$MacImpl;", nullptr, $PRIVATE | $FINAL, $field(Authenticator$SSL30Mac, macImpl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $method(Authenticator$SSL30Mac, init$, void, $ProtocolVersion*, $CipherSuite$MacAlg*, $SecretKey*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{"compute", "(BLjava/nio/ByteBuffer;[BZ)[B", nullptr, $PUBLIC, $virtualMethod(Authenticator$SSL30Mac, compute, $bytes*, int8_t, $ByteBuffer*, $bytes*, bool)},
+		{"macAlg", "()Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC, $virtualMethod(Authenticator$SSL30Mac, macAlg, $CipherSuite$MacAlg*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.Authenticator$SSL30Mac", "sun.security.ssl.Authenticator", "SSL30Mac", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Authenticator$SSL30Authenticator", "sun.security.ssl.Authenticator", "SSL30Authenticator", $PRIVATE | $STATIC},
+		{"sun.security.ssl.Authenticator$MAC", "sun.security.ssl.Authenticator", "MAC", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.Authenticator$SSL30Mac",
+		"sun.security.ssl.Authenticator$SSL30Authenticator",
+		"sun.security.ssl.Authenticator$MAC",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.Authenticator"
+	};
+	$loadClass(Authenticator$SSL30Mac, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Authenticator$SSL30Mac));
+	});
 	return class$;
 }
 

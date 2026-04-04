@@ -1,5 +1,4 @@
 #include <java/lang/UnknownError.h>
-
 #include <java/lang/VirtualMachineError.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $VirtualMachineError = ::java::lang::VirtualMachineError;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _UnknownError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnknownError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnknownError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _UnknownError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.UnknownError",
-	"java.lang.VirtualMachineError",
-	nullptr,
-	_UnknownError_FieldInfo_,
-	_UnknownError_MethodInfo_
-};
-
-$Object* allocate$UnknownError($Class* clazz) {
-	return $of($alloc(UnknownError));
-}
 
 void UnknownError::init$() {
 	$VirtualMachineError::init$();
@@ -54,7 +29,26 @@ void UnknownError::throw$() {
 }
 
 $Class* UnknownError::load$($String* name, bool initialize) {
-	$loadClass(UnknownError, name, initialize, &_UnknownError_ClassInfo_, allocate$UnknownError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnknownError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.UnknownError",
+		"java.lang.VirtualMachineError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnknownError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnknownError);
+	});
 	return class$;
 }
 

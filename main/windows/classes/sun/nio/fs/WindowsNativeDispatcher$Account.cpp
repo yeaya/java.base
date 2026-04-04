@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsNativeDispatcher$Account.h>
-
 #include <sun/nio/fs/WindowsNativeDispatcher.h>
 #include <jcpp.h>
 
@@ -11,46 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _WindowsNativeDispatcher$Account_FieldInfo_[] = {
-	{"domain", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$Account, domain$)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$Account, name$)},
-	{"use", "I", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$Account, use$)},
-	{}
-};
-
-$MethodInfo _WindowsNativeDispatcher$Account_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$Account, init$, void)},
-	{"domain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$Account, domain, $String*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$Account, name, $String*)},
-	{"use", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$Account, use, int32_t)},
-	{}
-};
-
-$InnerClassInfo _WindowsNativeDispatcher$Account_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsNativeDispatcher$Account", "sun.nio.fs.WindowsNativeDispatcher", "Account", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsNativeDispatcher$Account_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsNativeDispatcher$Account",
-	"java.lang.Object",
-	nullptr,
-	_WindowsNativeDispatcher$Account_FieldInfo_,
-	_WindowsNativeDispatcher$Account_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsNativeDispatcher$Account_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsNativeDispatcher"
-};
-
-$Object* allocate$WindowsNativeDispatcher$Account($Class* clazz) {
-	return $of($alloc(WindowsNativeDispatcher$Account));
-}
 
 void WindowsNativeDispatcher$Account::init$() {
 }
@@ -71,7 +30,41 @@ WindowsNativeDispatcher$Account::WindowsNativeDispatcher$Account() {
 }
 
 $Class* WindowsNativeDispatcher$Account::load$($String* name, bool initialize) {
-	$loadClass(WindowsNativeDispatcher$Account, name, initialize, &_WindowsNativeDispatcher$Account_ClassInfo_, allocate$WindowsNativeDispatcher$Account);
+	$FieldInfo fieldInfos$$[] = {
+		{"domain", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$Account, domain$)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$Account, name$)},
+		{"use", "I", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$Account, use$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$Account, init$, void)},
+		{"domain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$Account, domain, $String*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$Account, name, $String*)},
+		{"use", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$Account, use, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsNativeDispatcher$Account", "sun.nio.fs.WindowsNativeDispatcher", "Account", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsNativeDispatcher$Account",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsNativeDispatcher"
+	};
+	$loadClass(WindowsNativeDispatcher$Account, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsNativeDispatcher$Account);
+	});
 	return class$;
 }
 

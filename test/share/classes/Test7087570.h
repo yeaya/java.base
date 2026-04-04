@@ -30,6 +30,7 @@ class $export Test7087570 : public ::java::lang::Object {
 	$class(Test7087570, 0, ::java::lang::Object)
 public:
 	Test7087570();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void assertEquals(Object$* expect, Object$* observed);
 	static void assertRefKindEquals(int32_t expect, int32_t observed);

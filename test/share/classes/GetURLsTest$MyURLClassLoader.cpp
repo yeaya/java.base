@@ -1,5 +1,4 @@
 #include <GetURLsTest$MyURLClassLoader.h>
-
 #include <GetURLsTest.h>
 #include <java/net/URL.h>
 #include <java/net/URLClassLoader.h>
@@ -11,37 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
-
-$MethodInfo _GetURLsTest$MyURLClassLoader_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;)V", nullptr, $PUBLIC, $method(GetURLsTest$MyURLClassLoader, init$, void, $URLArray*)},
-	{"addURL", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(GetURLsTest$MyURLClassLoader, addURL, void, $URL*)},
-	{}
-};
-
-$InnerClassInfo _GetURLsTest$MyURLClassLoader_InnerClassesInfo_[] = {
-	{"GetURLsTest$MyURLClassLoader", "GetURLsTest", "MyURLClassLoader", $STATIC},
-	{}
-};
-
-$ClassInfo _GetURLsTest$MyURLClassLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"GetURLsTest$MyURLClassLoader",
-	"java.net.URLClassLoader",
-	nullptr,
-	nullptr,
-	_GetURLsTest$MyURLClassLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetURLsTest$MyURLClassLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetURLsTest"
-};
-
-$Object* allocate$GetURLsTest$MyURLClassLoader($Class* clazz) {
-	return $of($alloc(GetURLsTest$MyURLClassLoader));
-}
 
 void GetURLsTest$MyURLClassLoader::init$($URLArray* urls) {
 	$URLClassLoader::init$(urls);
@@ -55,7 +23,33 @@ GetURLsTest$MyURLClassLoader::GetURLsTest$MyURLClassLoader() {
 }
 
 $Class* GetURLsTest$MyURLClassLoader::load$($String* name, bool initialize) {
-	$loadClass(GetURLsTest$MyURLClassLoader, name, initialize, &_GetURLsTest$MyURLClassLoader_ClassInfo_, allocate$GetURLsTest$MyURLClassLoader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/net/URL;)V", nullptr, $PUBLIC, $method(GetURLsTest$MyURLClassLoader, init$, void, $URLArray*)},
+		{"addURL", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(GetURLsTest$MyURLClassLoader, addURL, void, $URL*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetURLsTest$MyURLClassLoader", "GetURLsTest", "MyURLClassLoader", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GetURLsTest$MyURLClassLoader",
+		"java.net.URLClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetURLsTest"
+	};
+	$loadClass(GetURLsTest$MyURLClassLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GetURLsTest$MyURLClassLoader));
+	});
 	return class$;
 }
 

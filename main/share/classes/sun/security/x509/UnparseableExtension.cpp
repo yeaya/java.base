@@ -1,5 +1,4 @@
 #include <sun/security/x509/UnparseableExtension.h>
-
 #include <java/lang/reflect/Field.h>
 #include <sun/security/util/HexDumpEncoder.h>
 #include <sun/security/util/ObjectIdentifier.h>
@@ -20,33 +19,8 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _UnparseableExtension_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnparseableExtension, name)},
-	{"exceptionDescription", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnparseableExtension, exceptionDescription)},
-	{}
-};
-
-$MethodInfo _UnparseableExtension_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/Extension;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(UnparseableExtension, init$, void, $Extension*, $Throwable*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnparseableExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _UnparseableExtension_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.x509.UnparseableExtension",
-	"sun.security.x509.Extension",
-	nullptr,
-	_UnparseableExtension_FieldInfo_,
-	_UnparseableExtension_MethodInfo_
-};
-
-$Object* allocate$UnparseableExtension($Class* clazz) {
-	return $of($alloc(UnparseableExtension));
-}
-
 void UnparseableExtension::init$($Extension* ext, $Throwable* why) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Extension::init$(ext);
 	$set(this, name, ""_s);
@@ -54,7 +28,7 @@ void UnparseableExtension::init$($Extension* ext, $Throwable* why) {
 		$Class* extClass = $OIDMap::getClass($($nc(ext)->getExtensionId()));
 		if (extClass != nullptr) {
 			$var($Field, field, extClass->getDeclaredField("NAME"_s));
-			$set(this, name, $str({($cast($String, $($nc(field)->get(nullptr)))), " "_s}));
+			$set(this, name, $str({$$cast($String, $nc(field)->get(nullptr)), " "_s}));
 		}
 	} catch ($Exception& e) {
 	}
@@ -62,16 +36,43 @@ void UnparseableExtension::init$($Extension* ext, $Throwable* why) {
 }
 
 $String* UnparseableExtension::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($Extension::toString()), "Unparseable "_s, this->name, "extension due to\n"_s, this->exceptionDescription, "\n\n"_s}));
-	return $concat(var$0, $($$new($HexDumpEncoder)->encodeBuffer($(getExtensionValue()))));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Extension::toString()));
+	var$0->append("Unparseable "_s);
+	var$0->append(this->name);
+	var$0->append("extension due to\n"_s);
+	var$0->append(this->exceptionDescription);
+	var$0->append("\n\n"_s);
+	var$0->append($($$new($HexDumpEncoder)->encodeBuffer($(getExtensionValue()))));
+	return $str(var$0);
 }
 
 UnparseableExtension::UnparseableExtension() {
 }
 
 $Class* UnparseableExtension::load$($String* name, bool initialize) {
-	$loadClass(UnparseableExtension, name, initialize, &_UnparseableExtension_ClassInfo_, allocate$UnparseableExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnparseableExtension, name)},
+		{"exceptionDescription", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnparseableExtension, exceptionDescription)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/x509/Extension;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(UnparseableExtension, init$, void, $Extension*, $Throwable*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnparseableExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.x509.UnparseableExtension",
+		"sun.security.x509.Extension",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnparseableExtension, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnparseableExtension);
+	});
 	return class$;
 }
 

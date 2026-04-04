@@ -21,6 +21,7 @@ class SecurityManagerClinit$SimplePolicy : public ::java::security::Policy {
 	$class(SecurityManagerClinit$SimplePolicy, 0, ::java::security::Policy)
 public:
 	SecurityManagerClinit$SimplePolicy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::java::security::Permission>* permissions);
 	virtual bool implies(::java::security::ProtectionDomain* pd, ::java::security::Permission* p) override;
 	static ::java::security::Policy* DEFAULT_POLICY;

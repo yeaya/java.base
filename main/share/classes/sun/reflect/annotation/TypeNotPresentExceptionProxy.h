@@ -25,7 +25,7 @@ public:
 	virtual $Throwable* getCause();
 	virtual $String* toString() override;
 	virtual $String* typeName();
-	static const int64_t serialVersionUID = (int64_t)0x4D3E23746CF8FE35;
+	static const int64_t serialVersionUID = (int64_t)0x4d3e23746cf8fe35;
 	$String* typeName$ = nullptr;
 	$Throwable* cause = nullptr;
 };

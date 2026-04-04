@@ -80,6 +80,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::time::chrono::ChronoLocalDate* date(::java::time::chrono::Era* era, int32_t yearOfEra, int32_t month, int32_t dayOfMonth) override;
 	virtual ::java::time::chrono::ChronoLocalDate* date(int32_t prolepticYear, int32_t month, int32_t dayOfMonth) override;
@@ -105,7 +106,7 @@ public:
 	virtual ::java::time::chrono::ChronoZonedDateTime* zonedDateTime(::java::time::temporal::TemporalAccessor* temporal) override;
 	virtual ::java::time::chrono::ChronoZonedDateTime* zonedDateTime(::java::time::Instant* instant, ::java::time::ZoneId* zone) override;
 	static ::java::time::chrono::ThaiBuddhistChronology* INSTANCE;
-	static const int64_t serialVersionUID = (int64_t)0x26862BEC417F21DA;
+	static const int64_t serialVersionUID = (int64_t)0x26862bec417f21da;
 	static const int32_t YEARS_DIFFERENCE = 543;
 	static ::java::util::HashMap* ERA_NARROW_NAMES;
 	static ::java::util::HashMap* ERA_SHORT_NAMES;

@@ -23,6 +23,7 @@ class $export CustomTimeZoneNameProvider : public ::java::util::spi::TimeZoneNam
 	$class(CustomTimeZoneNameProvider, 0, ::java::util::spi::TimeZoneNameProvider)
 public:
 	CustomTimeZoneNameProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::util::Locale>* getAvailableLocales() override;
 	virtual $String* getDisplayName($String* ID, bool daylight, int32_t style, ::java::util::Locale* locale) override;

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/UTF_16BE$Encoder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <sun/nio/cs/UTF_16BE.h>
 #include <sun/nio/cs/UnicodeEncoder.h>
@@ -17,36 +16,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$MethodInfo _UTF_16BE$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(UTF_16BE$Encoder, init$, void, $Charset*)},
-	{}
-};
-
-$InnerClassInfo _UTF_16BE$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.UTF_16BE$Encoder", "sun.nio.cs.UTF_16BE", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _UTF_16BE$Encoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.UTF_16BE$Encoder",
-	"sun.nio.cs.UnicodeEncoder",
-	nullptr,
-	nullptr,
-	_UTF_16BE$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UTF_16BE$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.UTF_16BE"
-};
-
-$Object* allocate$UTF_16BE$Encoder($Class* clazz) {
-	return $of($alloc(UTF_16BE$Encoder));
-}
-
 void UTF_16BE$Encoder::init$($Charset* cs) {
 	$UnicodeEncoder::init$(cs, $UnicodeEncoder::BIG, false);
 }
@@ -55,7 +24,32 @@ UTF_16BE$Encoder::UTF_16BE$Encoder() {
 }
 
 $Class* UTF_16BE$Encoder::load$($String* name, bool initialize) {
-	$loadClass(UTF_16BE$Encoder, name, initialize, &_UTF_16BE$Encoder_ClassInfo_, allocate$UTF_16BE$Encoder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(UTF_16BE$Encoder, init$, void, $Charset*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.UTF_16BE$Encoder", "sun.nio.cs.UTF_16BE", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.UTF_16BE$Encoder",
+		"sun.nio.cs.UnicodeEncoder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.UTF_16BE"
+	};
+	$loadClass(UTF_16BE$Encoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UTF_16BE$Encoder);
+	});
 	return class$;
 }
 

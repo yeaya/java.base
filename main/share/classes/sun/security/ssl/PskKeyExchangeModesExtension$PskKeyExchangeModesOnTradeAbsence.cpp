@@ -1,5 +1,4 @@
 #include <sun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence.h>
-
 #include <java/util/Map.h>
 #include <javax/net/ssl/SSLException.h>
 #include <sun/security/ssl/Alert.h>
@@ -18,55 +17,22 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLExtension$SSLExtensionSpec = ::sun::security::ssl::SSLExtension$SSLExtensionSpec;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence, init$, void)},
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeAbsence",
-	nullptr,
-	_PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PskKeyExchangeModesExtension"
-};
-
-$Object* allocate$PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence($Class* clazz) {
-	return $of($alloc(PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence));
-}
-
 void PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence::init$() {
 }
 
 void PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($SSLExtension$SSLExtensionSpec, spec, $cast($SSLExtension$SSLExtensionSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_PRE_SHARED_KEY)));
@@ -80,7 +46,33 @@ PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence::PskKeyExchangeMo
 }
 
 $Class* PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence::load$($String* name, bool initialize) {
-	$loadClass(PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence, name, initialize, &_PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence_ClassInfo_, allocate$PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence, init$, void)},
+		{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeAbsence",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PskKeyExchangeModesExtension"
+	};
+	$loadClass(PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence);
+	});
 	return class$;
 }
 

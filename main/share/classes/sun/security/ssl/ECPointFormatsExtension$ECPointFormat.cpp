@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECPointFormatsExtension$ECPointFormat.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/ssl/ECPointFormatsExtension.h>
 #include <jcpp.h>
@@ -17,50 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _ECPointFormatsExtension$ECPointFormat_FieldInfo_[] = {
-	{"UNCOMPRESSED", "Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ECPointFormatsExtension$ECPointFormat, UNCOMPRESSED)},
-	{"ANSIX962_COMPRESSED_PRIME", "Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ECPointFormatsExtension$ECPointFormat, ANSIX962_COMPRESSED_PRIME)},
-	{"FMT_ANSIX962_COMPRESSED_CHAR2", "Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ECPointFormatsExtension$ECPointFormat, FMT_ANSIX962_COMPRESSED_CHAR2)},
-	{"$VALUES", "[Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ECPointFormatsExtension$ECPointFormat, $VALUES)},
-	{"id", "B", nullptr, $FINAL, $field(ECPointFormatsExtension$ECPointFormat, id)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(ECPointFormatsExtension$ECPointFormat, name$)},
-	{}
-};
-
-$MethodInfo _ECPointFormatsExtension$ECPointFormat_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, $values, $ECPointFormatsExtension$ECPointFormatArray*)},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(ECPointFormatsExtension$ECPointFormat, init$, void, $String*, int32_t, int8_t, $String*)},
-	{"nameOf", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, nameOf, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, valueOf, ECPointFormatsExtension$ECPointFormat*, $String*)},
-	{"values", "()[Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, values, $ECPointFormatsExtension$ECPointFormatArray*)},
-	{}
-};
-
-$InnerClassInfo _ECPointFormatsExtension$ECPointFormat_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECPointFormatsExtension$ECPointFormat", "sun.security.ssl.ECPointFormatsExtension", "ECPointFormat", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ECPointFormatsExtension$ECPointFormat_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.ECPointFormatsExtension$ECPointFormat",
-	"java.lang.Enum",
-	nullptr,
-	_ECPointFormatsExtension$ECPointFormat_FieldInfo_,
-	_ECPointFormatsExtension$ECPointFormat_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;>;",
-	nullptr,
-	_ECPointFormatsExtension$ECPointFormat_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECPointFormatsExtension"
-};
-
-$Object* allocate$ECPointFormatsExtension$ECPointFormat($Class* clazz) {
-	return $of($alloc(ECPointFormatsExtension$ECPointFormat));
-}
 
 ECPointFormatsExtension$ECPointFormat* ECPointFormatsExtension$ECPointFormat::UNCOMPRESSED = nullptr;
 ECPointFormatsExtension$ECPointFormat* ECPointFormatsExtension$ECPointFormat::ANSIX962_COMPRESSED_PRIME = nullptr;
@@ -94,24 +49,20 @@ void ECPointFormatsExtension$ECPointFormat::init$($String* $enum$name, int32_t $
 
 $String* ECPointFormatsExtension$ECPointFormat::nameOf(int32_t id) {
 	$init(ECPointFormatsExtension$ECPointFormat);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($ECPointFormatsExtension$ECPointFormatArray, arr$, ECPointFormatsExtension$ECPointFormat::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			ECPointFormatsExtension$ECPointFormat* pf = arr$->get(i$);
-			{
-				if ($nc(pf)->id == id) {
-					return pf->name$;
-				}
+			if ($nc(pf)->id == id) {
+				return pf->name$;
 			}
 		}
 	}
 	return $str({"UNDEFINED-EC-POINT-FORMAT("_s, $$str(id), ")"_s});
 }
 
-void clinit$ECPointFormatsExtension$ECPointFormat($Class* class$) {
+void ECPointFormatsExtension$ECPointFormat::clinit$($Class* clazz) {
 	$assignStatic(ECPointFormatsExtension$ECPointFormat::UNCOMPRESSED, $new(ECPointFormatsExtension$ECPointFormat, "UNCOMPRESSED"_s, 0, (int8_t)0, "uncompressed"_s));
 	$assignStatic(ECPointFormatsExtension$ECPointFormat::ANSIX962_COMPRESSED_PRIME, $new(ECPointFormatsExtension$ECPointFormat, "ANSIX962_COMPRESSED_PRIME"_s, 1, (int8_t)1, "ansiX962_compressed_prime"_s));
 	$assignStatic(ECPointFormatsExtension$ECPointFormat::FMT_ANSIX962_COMPRESSED_CHAR2, $new(ECPointFormatsExtension$ECPointFormat, "FMT_ANSIX962_COMPRESSED_CHAR2"_s, 2, (int8_t)2, "ansiX962_compressed_char2"_s));
@@ -122,7 +73,45 @@ ECPointFormatsExtension$ECPointFormat::ECPointFormatsExtension$ECPointFormat() {
 }
 
 $Class* ECPointFormatsExtension$ECPointFormat::load$($String* name, bool initialize) {
-	$loadClass(ECPointFormatsExtension$ECPointFormat, name, initialize, &_ECPointFormatsExtension$ECPointFormat_ClassInfo_, clinit$ECPointFormatsExtension$ECPointFormat, allocate$ECPointFormatsExtension$ECPointFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNCOMPRESSED", "Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ECPointFormatsExtension$ECPointFormat, UNCOMPRESSED)},
+		{"ANSIX962_COMPRESSED_PRIME", "Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ECPointFormatsExtension$ECPointFormat, ANSIX962_COMPRESSED_PRIME)},
+		{"FMT_ANSIX962_COMPRESSED_CHAR2", "Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ECPointFormatsExtension$ECPointFormat, FMT_ANSIX962_COMPRESSED_CHAR2)},
+		{"$VALUES", "[Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ECPointFormatsExtension$ECPointFormat, $VALUES)},
+		{"id", "B", nullptr, $FINAL, $field(ECPointFormatsExtension$ECPointFormat, id)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(ECPointFormatsExtension$ECPointFormat, name$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, $values, $ECPointFormatsExtension$ECPointFormatArray*)},
+		{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(ECPointFormatsExtension$ECPointFormat, init$, void, $String*, int32_t, int8_t, $String*)},
+		{"nameOf", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, nameOf, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, valueOf, ECPointFormatsExtension$ECPointFormat*, $String*)},
+		{"values", "()[Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, values, $ECPointFormatsExtension$ECPointFormatArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECPointFormatsExtension$ECPointFormat", "sun.security.ssl.ECPointFormatsExtension", "ECPointFormat", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.ECPointFormatsExtension$ECPointFormat",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECPointFormatsExtension"
+	};
+	$loadClass(ECPointFormatsExtension$ECPointFormat, name, initialize, &classInfo$$, ECPointFormatsExtension$ECPointFormat::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ECPointFormatsExtension$ECPointFormat));
+	});
 	return class$;
 }
 

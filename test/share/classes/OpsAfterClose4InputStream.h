@@ -38,6 +38,7 @@ class $export OpsAfterClose4InputStream : public ::java::lang::Enum {
 public:
 	OpsAfterClose4InputStream();
 	static $Array<OpsAfterClose4InputStream>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool check(::java::io::InputStream* is) {return false;}
 	static void main($StringArray* args);

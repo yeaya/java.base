@@ -1,5 +1,4 @@
 #include <TestParameterizedTypeA.h>
-
 #include <ParameterizedOuter$ParameterizedInner.h>
 #include <TypeAnno.h>
 #include <jcpp.h>
@@ -10,132 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$0[] = {
-	{"value", 's', "M"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$1[] = {
-	{"value", 's', "S"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$2[] = {
-	{"value", 's', "I"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$3[] = {
-	{"value", 's', "I2"},
-	{}
-};
-
-$TypeAnnotation _TestParameterizedTypeA_TypeAnnotations_[] = {
-	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$0, "CLASS_EXTENDS, type_index = 0"},
-	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$1, "CLASS_EXTENDS, type_index = 0, location = (TYPE_ARGUMENT(0))"},
-	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$2, "CLASS_EXTENDS, type_index = 0, location = (TYPE_ARGUMENT(1))"},
-	{"LTypeAnno2;", TestParameterizedTypeA_Attribute_var$3, "CLASS_EXTENDS, type_index = 0, location = (TYPE_ARGUMENT(1))"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$4[] = {
-	{"value", 's', "FieldInner"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$5[] = {
-	{"value", 's', "String Arg"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$6[] = {
-	{"value", 's', "Map Arg"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$7[] = {
-	{"value", 's', "FieldOuter"},
-	{}
-};
-
-$TypeAnnotation _TestParameterizedTypeA_FieldTypeAnnotations_theField[] = {
-	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$4, "FIELD, location = (INNER_TYPE)"},
-	{"LTypeAnno2;", TestParameterizedTypeA_Attribute_var$5, "FIELD, location = (TYPE_ARGUMENT(0))"},
-	{"LTypeAnno2;", TestParameterizedTypeA_Attribute_var$6, "FIELD, location = (INNER_TYPE,TYPE_ARGUMENT(0))"},
-	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$7, "FIELD"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$8[] = {
-	{"value", 's', "I"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$9[] = {
-	{"value", 's', "S1"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$10[] = {
-	{"value", 's', "S2"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$11[] = {
-	{"value", 's', "I1"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$12[] = {
-	{"value", 's', "I2"},
-	{}
-};
-
-$NamedAttribute TestParameterizedTypeA_Attribute_var$13[] = {
-	{"value", 's', "O"},
-	{}
-};
-
-$TypeAnnotation _TestParameterizedTypeA_MethodTypeAnnotations_foo22[] = {
-	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$8, "METHOD_RETURN, location = (INNER_TYPE)"},
-	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$9, "METHOD_RETURN, location = (TYPE_ARGUMENT(0))"},
-	{"LTypeAnno2;", TestParameterizedTypeA_Attribute_var$10, "METHOD_RETURN, location = (TYPE_ARGUMENT(0))"},
-	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$11, "METHOD_RETURN, location = (INNER_TYPE,TYPE_ARGUMENT(0))"},
-	{"LTypeAnno2;", TestParameterizedTypeA_Attribute_var$12, "METHOD_RETURN, location = (INNER_TYPE,TYPE_ARGUMENT(0))"},
-	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$13, "METHOD_RETURN"},
-	{}
-};
-
-$FieldInfo _TestParameterizedTypeA_FieldInfo_[] = {
-	{"theField", "LParameterizedOuter$ParameterizedInner;", "LParameterizedOuter<Ljava/lang/String;>.ParameterizedInner<Ljava/util/Map;>;", $PUBLIC, $field(TestParameterizedTypeA, theField), nullptr, _TestParameterizedTypeA_FieldTypeAnnotations_theField},
-	{}
-};
-
-$MethodInfo _TestParameterizedTypeA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TestParameterizedTypeA, init$, void)},
-	{"foo", "()LParameterizedOuter$ParameterizedInner;", "()LParameterizedOuter<Ljava/lang/String;>.ParameterizedInner<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(TestParameterizedTypeA, foo, $ParameterizedOuter$ParameterizedInner*)},
-	{"foo2", "()LParameterizedOuter$ParameterizedInner;", "()LParameterizedOuter<Ljava/lang/String;>.ParameterizedInner<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(TestParameterizedTypeA, foo2, $ParameterizedOuter$ParameterizedInner*), nullptr, nullptr, nullptr, _TestParameterizedTypeA_MethodTypeAnnotations_foo22},
-	{}
-};
-
-$ClassInfo _TestParameterizedTypeA_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"TestParameterizedTypeA",
-	"java.lang.Object",
-	"java.util.Map",
-	_TestParameterizedTypeA_FieldInfo_,
-	_TestParameterizedTypeA_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TestParameterizedTypeA_TypeAnnotations_
-};
-
-$Object* allocate$TestParameterizedTypeA($Class* clazz) {
-	return $of($alloc(TestParameterizedTypeA));
-}
 
 void TestParameterizedTypeA::init$() {
 }
@@ -152,7 +25,111 @@ TestParameterizedTypeA::TestParameterizedTypeA() {
 }
 
 $Class* TestParameterizedTypeA::load$($String* name, bool initialize) {
-	$loadClass(TestParameterizedTypeA, name, initialize, &_TestParameterizedTypeA_ClassInfo_, allocate$TestParameterizedTypeA);
+	$NamedAttribute theFieldfieldTypeAnnotations$$$namedAttribute[] = {
+		{"value", 's', "FieldInner"},
+		{}
+	};
+	$NamedAttribute theFieldfieldTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 's', "String Arg"},
+		{}
+	};
+	$NamedAttribute theFieldfieldTypeAnnotations$$$namedAttribute$2[] = {
+		{"value", 's', "Map Arg"},
+		{}
+	};
+	$NamedAttribute theFieldfieldTypeAnnotations$$$namedAttribute$3[] = {
+		{"value", 's', "FieldOuter"},
+		{}
+	};
+	$TypeAnnotation theFieldfieldTypeAnnotations$$[] = {
+		{"LTypeAnno;", theFieldfieldTypeAnnotations$$$namedAttribute, "FIELD, location = (INNER_TYPE)"},
+		{"LTypeAnno2;", theFieldfieldTypeAnnotations$$$namedAttribute$1, "FIELD, location = (TYPE_ARGUMENT(0))"},
+		{"LTypeAnno2;", theFieldfieldTypeAnnotations$$$namedAttribute$2, "FIELD, location = (INNER_TYPE,TYPE_ARGUMENT(0))"},
+		{"LTypeAnno;", theFieldfieldTypeAnnotations$$$namedAttribute$3, "FIELD"},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"theField", "LParameterizedOuter$ParameterizedInner;", "LParameterizedOuter<Ljava/lang/String;>.ParameterizedInner<Ljava/util/Map;>;", $PUBLIC, $field(TestParameterizedTypeA, theField), nullptr, theFieldfieldTypeAnnotations$$},
+		{}
+	};
+	$NamedAttribute foo2methodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 's', "I"},
+		{}
+	};
+	$NamedAttribute foo2methodTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 's', "S1"},
+		{}
+	};
+	$NamedAttribute foo2methodTypeAnnotations$$$namedAttribute$2[] = {
+		{"value", 's', "S2"},
+		{}
+	};
+	$NamedAttribute foo2methodTypeAnnotations$$$namedAttribute$3[] = {
+		{"value", 's', "I1"},
+		{}
+	};
+	$NamedAttribute foo2methodTypeAnnotations$$$namedAttribute$4[] = {
+		{"value", 's', "I2"},
+		{}
+	};
+	$NamedAttribute foo2methodTypeAnnotations$$$namedAttribute$5[] = {
+		{"value", 's', "O"},
+		{}
+	};
+	$TypeAnnotation foo2methodTypeAnnotations$$[] = {
+		{"LTypeAnno;", foo2methodTypeAnnotations$$$namedAttribute, "METHOD_RETURN, location = (INNER_TYPE)"},
+		{"LTypeAnno;", foo2methodTypeAnnotations$$$namedAttribute$1, "METHOD_RETURN, location = (TYPE_ARGUMENT(0))"},
+		{"LTypeAnno2;", foo2methodTypeAnnotations$$$namedAttribute$2, "METHOD_RETURN, location = (TYPE_ARGUMENT(0))"},
+		{"LTypeAnno;", foo2methodTypeAnnotations$$$namedAttribute$3, "METHOD_RETURN, location = (INNER_TYPE,TYPE_ARGUMENT(0))"},
+		{"LTypeAnno2;", foo2methodTypeAnnotations$$$namedAttribute$4, "METHOD_RETURN, location = (INNER_TYPE,TYPE_ARGUMENT(0))"},
+		{"LTypeAnno;", foo2methodTypeAnnotations$$$namedAttribute$5, "METHOD_RETURN"},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TestParameterizedTypeA, init$, void)},
+		{"foo", "()LParameterizedOuter$ParameterizedInner;", "()LParameterizedOuter<Ljava/lang/String;>.ParameterizedInner<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(TestParameterizedTypeA, foo, $ParameterizedOuter$ParameterizedInner*)},
+		{"foo2", "()LParameterizedOuter$ParameterizedInner;", "()LParameterizedOuter<Ljava/lang/String;>.ParameterizedInner<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(TestParameterizedTypeA, foo2, $ParameterizedOuter$ParameterizedInner*), nullptr, nullptr, nullptr, foo2methodTypeAnnotations$$},
+		{}
+	};
+	$NamedAttribute typeAnnotations$$$namedAttribute[] = {
+		{"value", 's', "M"},
+		{}
+	};
+	$NamedAttribute typeAnnotations$$$namedAttribute$1[] = {
+		{"value", 's', "S"},
+		{}
+	};
+	$NamedAttribute typeAnnotations$$$namedAttribute$2[] = {
+		{"value", 's', "I"},
+		{}
+	};
+	$NamedAttribute typeAnnotations$$$namedAttribute$3[] = {
+		{"value", 's', "I2"},
+		{}
+	};
+	$TypeAnnotation typeAnnotations$$[] = {
+		{"LTypeAnno;", typeAnnotations$$$namedAttribute, "CLASS_EXTENDS, type_index = 0"},
+		{"LTypeAnno;", typeAnnotations$$$namedAttribute$1, "CLASS_EXTENDS, type_index = 0, location = (TYPE_ARGUMENT(0))"},
+		{"LTypeAnno;", typeAnnotations$$$namedAttribute$2, "CLASS_EXTENDS, type_index = 0, location = (TYPE_ARGUMENT(1))"},
+		{"LTypeAnno2;", typeAnnotations$$$namedAttribute$3, "CLASS_EXTENDS, type_index = 0, location = (TYPE_ARGUMENT(1))"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"TestParameterizedTypeA",
+		"java.lang.Object",
+		"java.util.Map",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;",
+		nullptr,
+		nullptr,
+		nullptr,
+		typeAnnotations$$
+	};
+	$loadClass(TestParameterizedTypeA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestParameterizedTypeA);
+	});
 	return class$;
 }
 

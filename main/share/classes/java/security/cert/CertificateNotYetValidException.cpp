@@ -1,5 +1,4 @@
 #include <java/security/cert/CertificateNotYetValidException.h>
-
 #include <java/security/cert/CertificateException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $CertificateException = ::java::security::cert::CertificateException;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _CertificateNotYetValidException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CertificateNotYetValidException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CertificateNotYetValidException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateNotYetValidException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateNotYetValidException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _CertificateNotYetValidException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.cert.CertificateNotYetValidException",
-	"java.security.cert.CertificateException",
-	nullptr,
-	_CertificateNotYetValidException_FieldInfo_,
-	_CertificateNotYetValidException_MethodInfo_
-};
-
-$Object* allocate$CertificateNotYetValidException($Class* clazz) {
-	return $of($alloc(CertificateNotYetValidException));
-}
 
 void CertificateNotYetValidException::init$() {
 	$CertificateException::init$();
@@ -55,7 +30,26 @@ void CertificateNotYetValidException::throw$() {
 }
 
 $Class* CertificateNotYetValidException::load$($String* name, bool initialize) {
-	$loadClass(CertificateNotYetValidException, name, initialize, &_CertificateNotYetValidException_ClassInfo_, allocate$CertificateNotYetValidException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CertificateNotYetValidException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateNotYetValidException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateNotYetValidException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.cert.CertificateNotYetValidException",
+		"java.security.cert.CertificateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertificateNotYetValidException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateNotYetValidException);
+	});
 	return class$;
 }
 

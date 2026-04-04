@@ -26,6 +26,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void checkAccess($String* file, bool checkRead, bool checkWrite);
 	virtual $String* name() override;

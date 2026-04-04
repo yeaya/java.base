@@ -1,5 +1,4 @@
 #include <java/lang/invoke/ProxyClassesDumper$1.h>
-
 #include <java/lang/invoke/ProxyClassesDumper.h>
 #include <java/nio/file/Path.h>
 #include <jcpp.h>
@@ -16,62 +15,55 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _ProxyClassesDumper$1_FieldInfo_[] = {
-	{"val$dir", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(ProxyClassesDumper$1, val$dir)},
-	{}
-};
-
-$MethodInfo _ProxyClassesDumper$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(ProxyClassesDumper$1, init$, void, $Path*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ProxyClassesDumper$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ProxyClassesDumper$1_EnclosingMethodInfo_ = {
-	"java.lang.invoke.ProxyClassesDumper",
-	"getInstance",
-	"(Ljava/lang/String;)Ljava/lang/invoke/ProxyClassesDumper;"
-};
-
-$InnerClassInfo _ProxyClassesDumper$1_InnerClassesInfo_[] = {
-	{"java.lang.invoke.ProxyClassesDumper$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProxyClassesDumper$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.ProxyClassesDumper$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ProxyClassesDumper$1_FieldInfo_,
-	_ProxyClassesDumper$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_ProxyClassesDumper$1_EnclosingMethodInfo_,
-	_ProxyClassesDumper$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.ProxyClassesDumper"
-};
-
-$Object* allocate$ProxyClassesDumper$1($Class* clazz) {
-	return $of($alloc(ProxyClassesDumper$1));
-}
-
 void ProxyClassesDumper$1::init$($Path* val$dir) {
 	$set(this, val$dir, val$dir);
 }
 
 $Object* ProxyClassesDumper$1::run() {
 	$ProxyClassesDumper::validateDumpDir(this->val$dir);
-	return $of(nullptr);
+	return nullptr;
 }
 
 ProxyClassesDumper$1::ProxyClassesDumper$1() {
 }
 
 $Class* ProxyClassesDumper$1::load$($String* name, bool initialize) {
-	$loadClass(ProxyClassesDumper$1, name, initialize, &_ProxyClassesDumper$1_ClassInfo_, allocate$ProxyClassesDumper$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$dir", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(ProxyClassesDumper$1, val$dir)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(ProxyClassesDumper$1, init$, void, $Path*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ProxyClassesDumper$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.invoke.ProxyClassesDumper",
+		"getInstance",
+		"(Ljava/lang/String;)Ljava/lang/invoke/ProxyClassesDumper;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.ProxyClassesDumper$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.ProxyClassesDumper$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.ProxyClassesDumper"
+	};
+	$loadClass(ProxyClassesDumper$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxyClassesDumper$1);
+	});
 	return class$;
 }
 

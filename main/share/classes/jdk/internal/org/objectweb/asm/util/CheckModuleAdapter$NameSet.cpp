@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckModuleAdapter$NameSet.h>
-
 #include <java/util/HashSet.h>
 #include <jdk/internal/org/objectweb/asm/util/CheckModuleAdapter.h>
 #include <jcpp.h>
@@ -18,43 +17,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$FieldInfo _CheckModuleAdapter$NameSet_FieldInfo_[] = {
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter$NameSet, type)},
-	{"names", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(CheckModuleAdapter$NameSet, names)},
-	{}
-};
-
-$MethodInfo _CheckModuleAdapter$NameSet_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CheckModuleAdapter$NameSet, init$, void, $String*)},
-	{"checkNameNotAlreadyDeclared", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CheckModuleAdapter$NameSet, checkNameNotAlreadyDeclared, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _CheckModuleAdapter$NameSet_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter$NameSet", "jdk.internal.org.objectweb.asm.util.CheckModuleAdapter", "NameSet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CheckModuleAdapter$NameSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter$NameSet",
-	"java.lang.Object",
-	nullptr,
-	_CheckModuleAdapter$NameSet_FieldInfo_,
-	_CheckModuleAdapter$NameSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CheckModuleAdapter$NameSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter"
-};
-
-$Object* allocate$CheckModuleAdapter$NameSet($Class* clazz) {
-	return $of($alloc(CheckModuleAdapter$NameSet));
-}
-
 void CheckModuleAdapter$NameSet::init$($String* type) {
 	$set(this, type, type);
 	$set(this, names, $new($HashSet));
@@ -70,7 +32,38 @@ CheckModuleAdapter$NameSet::CheckModuleAdapter$NameSet() {
 }
 
 $Class* CheckModuleAdapter$NameSet::load$($String* name, bool initialize) {
-	$loadClass(CheckModuleAdapter$NameSet, name, initialize, &_CheckModuleAdapter$NameSet_ClassInfo_, allocate$CheckModuleAdapter$NameSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter$NameSet, type)},
+		{"names", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(CheckModuleAdapter$NameSet, names)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CheckModuleAdapter$NameSet, init$, void, $String*)},
+		{"checkNameNotAlreadyDeclared", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CheckModuleAdapter$NameSet, checkNameNotAlreadyDeclared, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter$NameSet", "jdk.internal.org.objectweb.asm.util.CheckModuleAdapter", "NameSet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter$NameSet",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter"
+	};
+	$loadClass(CheckModuleAdapter$NameSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckModuleAdapter$NameSet);
+	});
 	return class$;
 }
 

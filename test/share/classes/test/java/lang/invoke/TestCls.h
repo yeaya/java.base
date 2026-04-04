@@ -25,6 +25,7 @@ class $export TestCls : public ::java::lang::Object {
 	$class(TestCls, 0, ::java::lang::Object)
 public:
 	TestCls();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandles$Lookup* getLookupForPrivateSIC();
 	static $Class* getPrivateSIC();

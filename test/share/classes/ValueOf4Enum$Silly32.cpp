@@ -1,5 +1,4 @@
 #include <ValueOf4Enum$Silly32.h>
-
 #include <ValueOf4Enum.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -10,76 +9,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _ValueOf4Enum$Silly32_FieldInfo_[] = {
-	{"e0", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e0)},
-	{"e1", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e1)},
-	{"e2", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e2)},
-	{"e3", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e3)},
-	{"e4", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e4)},
-	{"e5", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e5)},
-	{"e6", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e6)},
-	{"e7", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e7)},
-	{"e8", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e8)},
-	{"e9", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e9)},
-	{"e10", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e10)},
-	{"e11", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e11)},
-	{"e12", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e12)},
-	{"e13", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e13)},
-	{"e14", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e14)},
-	{"e15", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e15)},
-	{"e16", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e16)},
-	{"e17", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e17)},
-	{"e18", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e18)},
-	{"e19", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e19)},
-	{"e20", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e20)},
-	{"e21", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e21)},
-	{"e22", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e22)},
-	{"e23", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e23)},
-	{"e24", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e24)},
-	{"e25", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e25)},
-	{"e26", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e26)},
-	{"e27", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e27)},
-	{"e28", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e28)},
-	{"e29", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e29)},
-	{"e30", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e30)},
-	{"e31", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e31)},
-	{"$VALUES", "[LValueOf4Enum$Silly32;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ValueOf4Enum$Silly32, $VALUES)},
-	{}
-};
-
-$MethodInfo _ValueOf4Enum$Silly32_MethodInfo_[] = {
-	{"$values", "()[LValueOf4Enum$Silly32;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ValueOf4Enum$Silly32, $values, $ValueOf4Enum$Silly32Array*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ValueOf4Enum$Silly32, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Enum$Silly32, valueOf, ValueOf4Enum$Silly32*, $String*)},
-	{"values", "()[LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Enum$Silly32, values, $ValueOf4Enum$Silly32Array*)},
-	{}
-};
-
-$InnerClassInfo _ValueOf4Enum$Silly32_InnerClassesInfo_[] = {
-	{"ValueOf4Enum$Silly32", "ValueOf4Enum", "Silly32", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ValueOf4Enum$Silly32_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"ValueOf4Enum$Silly32",
-	"java.lang.Enum",
-	nullptr,
-	_ValueOf4Enum$Silly32_FieldInfo_,
-	_ValueOf4Enum$Silly32_MethodInfo_,
-	"Ljava/lang/Enum<LValueOf4Enum$Silly32;>;",
-	nullptr,
-	_ValueOf4Enum$Silly32_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ValueOf4Enum"
-};
-
-$Object* allocate$ValueOf4Enum$Silly32($Class* clazz) {
-	return $of($alloc(ValueOf4Enum$Silly32));
-}
 
 ValueOf4Enum$Silly32* ValueOf4Enum$Silly32::e0 = nullptr;
 ValueOf4Enum$Silly32* ValueOf4Enum$Silly32::e1 = nullptr;
@@ -167,7 +96,7 @@ void ValueOf4Enum$Silly32::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ValueOf4Enum$Silly32($Class* class$) {
+void ValueOf4Enum$Silly32::clinit$($Class* clazz) {
 	$assignStatic(ValueOf4Enum$Silly32::e0, $new(ValueOf4Enum$Silly32, "e0"_s, 0));
 	$assignStatic(ValueOf4Enum$Silly32::e1, $new(ValueOf4Enum$Silly32, "e1"_s, 1));
 	$assignStatic(ValueOf4Enum$Silly32::e2, $new(ValueOf4Enum$Silly32, "e2"_s, 2));
@@ -207,7 +136,71 @@ ValueOf4Enum$Silly32::ValueOf4Enum$Silly32() {
 }
 
 $Class* ValueOf4Enum$Silly32::load$($String* name, bool initialize) {
-	$loadClass(ValueOf4Enum$Silly32, name, initialize, &_ValueOf4Enum$Silly32_ClassInfo_, clinit$ValueOf4Enum$Silly32, allocate$ValueOf4Enum$Silly32);
+	$FieldInfo fieldInfos$$[] = {
+		{"e0", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e0)},
+		{"e1", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e1)},
+		{"e2", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e2)},
+		{"e3", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e3)},
+		{"e4", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e4)},
+		{"e5", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e5)},
+		{"e6", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e6)},
+		{"e7", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e7)},
+		{"e8", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e8)},
+		{"e9", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e9)},
+		{"e10", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e10)},
+		{"e11", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e11)},
+		{"e12", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e12)},
+		{"e13", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e13)},
+		{"e14", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e14)},
+		{"e15", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e15)},
+		{"e16", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e16)},
+		{"e17", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e17)},
+		{"e18", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e18)},
+		{"e19", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e19)},
+		{"e20", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e20)},
+		{"e21", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e21)},
+		{"e22", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e22)},
+		{"e23", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e23)},
+		{"e24", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e24)},
+		{"e25", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e25)},
+		{"e26", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e26)},
+		{"e27", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e27)},
+		{"e28", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e28)},
+		{"e29", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e29)},
+		{"e30", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e30)},
+		{"e31", "LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly32, e31)},
+		{"$VALUES", "[LValueOf4Enum$Silly32;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ValueOf4Enum$Silly32, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LValueOf4Enum$Silly32;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ValueOf4Enum$Silly32, $values, $ValueOf4Enum$Silly32Array*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ValueOf4Enum$Silly32, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Enum$Silly32, valueOf, ValueOf4Enum$Silly32*, $String*)},
+		{"values", "()[LValueOf4Enum$Silly32;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Enum$Silly32, values, $ValueOf4Enum$Silly32Array*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ValueOf4Enum$Silly32", "ValueOf4Enum", "Silly32", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"ValueOf4Enum$Silly32",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LValueOf4Enum$Silly32;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ValueOf4Enum"
+	};
+	$loadClass(ValueOf4Enum$Silly32, name, initialize, &classInfo$$, ValueOf4Enum$Silly32::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ValueOf4Enum$Silly32));
+	});
 	return class$;
 }
 

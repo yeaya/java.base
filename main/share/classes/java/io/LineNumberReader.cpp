@@ -1,5 +1,4 @@
 #include <java/io/LineNumberReader.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/Reader.h>
 #include <java/lang/Math.h>
@@ -20,48 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _LineNumberReader_FieldInfo_[] = {
-	{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberReader, NONE)},
-	{"CHAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberReader, CHAR)},
-	{"EOL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberReader, EOL)},
-	{"EOF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberReader, EOF)},
-	{"prevChar", "I", nullptr, $PRIVATE, $field(LineNumberReader, prevChar)},
-	{"lineNumber", "I", nullptr, $PRIVATE, $field(LineNumberReader, lineNumber)},
-	{"markedLineNumber", "I", nullptr, $PRIVATE, $field(LineNumberReader, markedLineNumber)},
-	{"skipLF", "Z", nullptr, $PRIVATE, $field(LineNumberReader, skipLF)},
-	{"markedSkipLF", "Z", nullptr, $PRIVATE, $field(LineNumberReader, markedSkipLF)},
-	{"maxSkipBufferSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberReader, maxSkipBufferSize)},
-	{"skipBuffer", "[C", nullptr, $PRIVATE, $field(LineNumberReader, skipBuffer)},
-	{}
-};
-
-$MethodInfo _LineNumberReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(LineNumberReader, init$, void, $Reader*)},
-	{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(LineNumberReader, init$, void, $Reader*, int32_t)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, getLineNumber, int32_t)},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, mark, void, int32_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, read, int32_t), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, readLine, $String*), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, reset, void), "java.io.IOException"},
-	{"setLineNumber", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, setLineNumber, void, int32_t)},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LineNumberReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.LineNumberReader",
-	"java.io.BufferedReader",
-	nullptr,
-	_LineNumberReader_FieldInfo_,
-	_LineNumberReader_MethodInfo_
-};
-
-$Object* allocate$LineNumberReader($Class* clazz) {
-	return $of($alloc(LineNumberReader));
-}
 
 void LineNumberReader::init$($Reader* in) {
 	$BufferedReader::init$(in);
@@ -96,28 +53,20 @@ int32_t LineNumberReader::read() {
 		}
 		switch (c) {
 		case u'\r':
-			{
-				this->skipLF = true;
-			}
+			this->skipLF = true;
 		case u'\n':
-			{
-				++this->lineNumber;
-				this->prevChar = LineNumberReader::EOL;
-				return u'\n';
-			}
+			++this->lineNumber;
+			this->prevChar = LineNumberReader::EOL;
+			return u'\n';
 		case -1:
-			{
-				if (this->prevChar == LineNumberReader::CHAR) {
-					++this->lineNumber;
-				}
-				this->prevChar = LineNumberReader::EOF;
-				break;
+			if (this->prevChar == LineNumberReader::CHAR) {
+				++this->lineNumber;
 			}
+			this->prevChar = LineNumberReader::EOF;
+			break;
 		default:
-			{
-				this->prevChar = LineNumberReader::CHAR;
-				break;
-			}
+			this->prevChar = LineNumberReader::CHAR;
+			break;
 		}
 		return c;
 	}
@@ -143,30 +92,21 @@ int32_t LineNumberReader::read($chars* cbuf, int32_t off, int32_t len) {
 			}
 			switch (c) {
 			case u'\r':
-				{
-					this->skipLF = true;
-				}
+				this->skipLF = true;
 			case u'\n':
-				{
-					++this->lineNumber;
-					break;
-				}
+				++this->lineNumber;
+				break;
 			}
 		}
 		if (n > 0) {
 			switch ((int32_t)$nc(cbuf)->get(off + n - 1)) {
 			case u'\r':
-				{}
 			case u'\n':
-				{
-					this->prevChar = LineNumberReader::EOL;
-					break;
-				}
+				this->prevChar = LineNumberReader::EOL;
+				break;
 			default:
-				{
-					this->prevChar = LineNumberReader::CHAR;
-					break;
-				}
+				this->prevChar = LineNumberReader::CHAR;
+				break;
 			}
 		}
 		return n;
@@ -174,7 +114,7 @@ int32_t LineNumberReader::read($chars* cbuf, int32_t off, int32_t len) {
 }
 
 $String* LineNumberReader::readLine() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		$var($booleans, term, $new($booleans, 1));
 		$var($String, l, $BufferedReader::readLine(this->skipLF, term));
@@ -198,7 +138,7 @@ int64_t LineNumberReader::skip(int64_t n) {
 	}
 	int32_t nn = (int32_t)$Math::min(n, (int64_t)LineNumberReader::maxSkipBufferSize);
 	$synchronized(this->lock) {
-		if ((this->skipBuffer == nullptr) || ($nc(this->skipBuffer)->length < nn)) {
+		if ((this->skipBuffer == nullptr) || (this->skipBuffer->length < nn)) {
 			$set(this, skipBuffer, $new($chars, nn));
 		}
 		int64_t r = n;
@@ -239,7 +179,44 @@ LineNumberReader::LineNumberReader() {
 }
 
 $Class* LineNumberReader::load$($String* name, bool initialize) {
-	$loadClass(LineNumberReader, name, initialize, &_LineNumberReader_ClassInfo_, allocate$LineNumberReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberReader, NONE)},
+		{"CHAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberReader, CHAR)},
+		{"EOL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberReader, EOL)},
+		{"EOF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberReader, EOF)},
+		{"prevChar", "I", nullptr, $PRIVATE, $field(LineNumberReader, prevChar)},
+		{"lineNumber", "I", nullptr, $PRIVATE, $field(LineNumberReader, lineNumber)},
+		{"markedLineNumber", "I", nullptr, $PRIVATE, $field(LineNumberReader, markedLineNumber)},
+		{"skipLF", "Z", nullptr, $PRIVATE, $field(LineNumberReader, skipLF)},
+		{"markedSkipLF", "Z", nullptr, $PRIVATE, $field(LineNumberReader, markedSkipLF)},
+		{"maxSkipBufferSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberReader, maxSkipBufferSize)},
+		{"skipBuffer", "[C", nullptr, $PRIVATE, $field(LineNumberReader, skipBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(LineNumberReader, init$, void, $Reader*)},
+		{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(LineNumberReader, init$, void, $Reader*, int32_t)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, getLineNumber, int32_t)},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, mark, void, int32_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, read, int32_t), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, readLine, $String*), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, reset, void), "java.io.IOException"},
+		{"setLineNumber", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, setLineNumber, void, int32_t)},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.LineNumberReader",
+		"java.io.BufferedReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineNumberReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LineNumberReader));
+	});
 	return class$;
 }
 

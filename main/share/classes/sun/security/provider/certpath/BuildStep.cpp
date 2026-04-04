@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/BuildStep.h>
-
 #include <java/security/cert/X509Certificate.h>
 #include <javax/security/auth/x500/X500Principal.h>
 #include <sun/security/provider/certpath/Vertex.h>
@@ -15,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $Vertex = ::sun::security::provider::certpath::Vertex;
 
 namespace sun {
@@ -23,54 +21,11 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _BuildStep_FieldInfo_[] = {
-	{"vertex", "Lsun/security/provider/certpath/Vertex;", nullptr, $PRIVATE, $field(BuildStep, vertex)},
-	{"cert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(BuildStep, cert)},
-	{"throwable", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(BuildStep, throwable)},
-	{"result", "I", nullptr, $PRIVATE, $field(BuildStep, result)},
-	{"POSSIBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BuildStep, POSSIBLE)},
-	{"BACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BuildStep, BACK)},
-	{"FOLLOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BuildStep, FOLLOW)},
-	{"FAIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BuildStep, FAIL)},
-	{"SUCCEED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BuildStep, SUCCEED)},
-	{}
-};
-
-$MethodInfo _BuildStep_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/certpath/Vertex;I)V", nullptr, $PUBLIC, $method(BuildStep, init$, void, $Vertex*, int32_t)},
-	{"fullToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, fullToString, $String*)},
-	{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getCertificate, $X509Certificate*)},
-	{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getIssuerName, $String*)},
-	{"getIssuerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getIssuerName, $String*, $String*)},
-	{"getResult", "()I", nullptr, $PUBLIC, $virtualMethod(BuildStep, getResult, int32_t)},
-	{"getSubjectName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getSubjectName, $String*)},
-	{"getSubjectName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getSubjectName, $String*, $String*)},
-	{"getThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getThrowable, $Throwable*)},
-	{"getVertex", "()Lsun/security/provider/certpath/Vertex;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getVertex, $Vertex*)},
-	{"resultToString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, resultToString, $String*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, toString, $String*)},
-	{"verboseToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, verboseToString, $String*)},
-	{}
-};
-
-$ClassInfo _BuildStep_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.certpath.BuildStep",
-	"java.lang.Object",
-	nullptr,
-	_BuildStep_FieldInfo_,
-	_BuildStep_MethodInfo_
-};
-
-$Object* allocate$BuildStep($Class* clazz) {
-	return $of($alloc(BuildStep));
-}
-
 void BuildStep::init$($Vertex* vtx, int32_t res) {
 	$set(this, vertex, vtx);
 	if (this->vertex != nullptr) {
-		$set(this, cert, $nc(this->vertex)->getCertificate());
-		$set(this, throwable, $nc(this->vertex)->getThrowable());
+		$set(this, cert, this->vertex->getCertificate());
+		$set(this, throwable, this->vertex->getThrowable());
 	}
 	this->result = res;
 }
@@ -88,7 +43,7 @@ $String* BuildStep::getIssuerName() {
 }
 
 $String* BuildStep::getIssuerName($String* defaultName) {
-	return (this->cert == nullptr ? defaultName : $nc($($nc(this->cert)->getIssuerX500Principal()))->toString());
+	return (this->cert == nullptr ? defaultName : $$nc(this->cert->getIssuerX500Principal())->toString());
 }
 
 $String* BuildStep::getSubjectName() {
@@ -96,7 +51,7 @@ $String* BuildStep::getSubjectName() {
 }
 
 $String* BuildStep::getSubjectName($String* defaultName) {
-	return (this->cert == nullptr ? defaultName : $nc($($nc(this->cert)->getSubjectX500Principal()))->toString());
+	return (this->cert == nullptr ? defaultName : $$nc(this->cert->getSubjectX500Principal())->toString());
 }
 
 $Throwable* BuildStep::getThrowable() {
@@ -111,109 +66,118 @@ $String* BuildStep::resultToString(int32_t res) {
 	$var($String, resultString, ""_s);
 	switch (res) {
 	case BuildStep::POSSIBLE:
-		{
-			$assign(resultString, "Certificate to be tried.\n"_s);
-			break;
-		}
+		$assign(resultString, "Certificate to be tried.\n"_s);
+		break;
 	case BuildStep::BACK:
-		{
-			$assign(resultString, "Certificate backed out since path does not satisfy build requirements.\n"_s);
-			break;
-		}
+		$assign(resultString, "Certificate backed out since path does not satisfy build requirements.\n"_s);
+		break;
 	case BuildStep::FOLLOW:
-		{
-			$assign(resultString, "Certificate satisfies conditions.\n"_s);
-			break;
-		}
+		$assign(resultString, "Certificate satisfies conditions.\n"_s);
+		break;
 	case BuildStep::FAIL:
-		{
-			$assign(resultString, "Certificate backed out since path does not satisfy conditions.\n"_s);
-			break;
-		}
+		$assign(resultString, "Certificate backed out since path does not satisfy conditions.\n"_s);
+		break;
 	case BuildStep::SUCCEED:
-		{
-			$assign(resultString, "Certificate satisfies conditions.\n"_s);
-			break;
-		}
+		$assign(resultString, "Certificate satisfies conditions.\n"_s);
+		break;
 	default:
-		{
-			$assign(resultString, "Internal error: Invalid step result value.\n"_s);
-		}
+		$assign(resultString, "Internal error: Invalid step result value.\n"_s);
 	}
 	return resultString;
 }
 
 $String* BuildStep::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, out, "Internal Error\n"_s);
 	switch (this->result) {
 	case BuildStep::BACK:
-		{}
 	case BuildStep::FAIL:
-		{
-			$assign(out, resultToString(this->result));
-			$assign(out, $str({out, $($nc(this->vertex)->throwableToString())}));
-			break;
-		}
+		$assign(out, resultToString(this->result));
+		$assign(out, $str({out, $($nc(this->vertex)->throwableToString())}));
+		break;
 	case BuildStep::FOLLOW:
-		{}
 	case BuildStep::SUCCEED:
-		{}
 	case BuildStep::POSSIBLE:
-		{
-			$assign(out, resultToString(this->result));
-			break;
-		}
+		$assign(out, resultToString(this->result));
+		break;
 	default:
-		{
-			$assign(out, "Internal Error: Invalid step result\n"_s);
-		}
+		$assign(out, "Internal Error: Invalid step result\n"_s);
 	}
 	return out;
 }
 
 $String* BuildStep::verboseToString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, out, resultToString(getResult()));
 	switch (this->result) {
 	case BuildStep::BACK:
-		{}
 	case BuildStep::FAIL:
-		{
-			$assign(out, $str({out, $($nc(this->vertex)->throwableToString())}));
-			break;
-		}
+		$assign(out, $str({out, $($nc(this->vertex)->throwableToString())}));
+		break;
 	case BuildStep::FOLLOW:
-		{}
 	case BuildStep::SUCCEED:
-		{
-			$assign(out, $str({out, $($nc(this->vertex)->moreToString())}));
-			break;
-		}
+		$assign(out, $str({out, $($nc(this->vertex)->moreToString())}));
+		break;
 	case BuildStep::POSSIBLE:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	$assign(out, $str({out, "Certificate contains:\n"_s, $($nc(this->vertex)->certToString())}));
 	return out;
 }
 
 $String* BuildStep::fullToString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $(resultToString(getResult())));
-	return $concat(var$0, $($nc(this->vertex)->toString()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(resultToString(getResult())));
+	var$0->append($($nc(this->vertex)->toString()));
+	return $str(var$0);
 }
 
 BuildStep::BuildStep() {
 }
 
 $Class* BuildStep::load$($String* name, bool initialize) {
-	$loadClass(BuildStep, name, initialize, &_BuildStep_ClassInfo_, allocate$BuildStep);
+	$FieldInfo fieldInfos$$[] = {
+		{"vertex", "Lsun/security/provider/certpath/Vertex;", nullptr, $PRIVATE, $field(BuildStep, vertex)},
+		{"cert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(BuildStep, cert)},
+		{"throwable", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(BuildStep, throwable)},
+		{"result", "I", nullptr, $PRIVATE, $field(BuildStep, result)},
+		{"POSSIBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BuildStep, POSSIBLE)},
+		{"BACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BuildStep, BACK)},
+		{"FOLLOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BuildStep, FOLLOW)},
+		{"FAIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BuildStep, FAIL)},
+		{"SUCCEED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BuildStep, SUCCEED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/provider/certpath/Vertex;I)V", nullptr, $PUBLIC, $method(BuildStep, init$, void, $Vertex*, int32_t)},
+		{"fullToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, fullToString, $String*)},
+		{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getCertificate, $X509Certificate*)},
+		{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getIssuerName, $String*)},
+		{"getIssuerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getIssuerName, $String*, $String*)},
+		{"getResult", "()I", nullptr, $PUBLIC, $virtualMethod(BuildStep, getResult, int32_t)},
+		{"getSubjectName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getSubjectName, $String*)},
+		{"getSubjectName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getSubjectName, $String*, $String*)},
+		{"getThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getThrowable, $Throwable*)},
+		{"getVertex", "()Lsun/security/provider/certpath/Vertex;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getVertex, $Vertex*)},
+		{"resultToString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, resultToString, $String*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, toString, $String*)},
+		{"verboseToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, verboseToString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.certpath.BuildStep",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BuildStep, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BuildStep);
+	});
 	return class$;
 }
 

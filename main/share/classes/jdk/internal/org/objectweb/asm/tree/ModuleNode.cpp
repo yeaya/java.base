@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/ModuleNode.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -36,48 +35,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace tree {
-
-$FieldInfo _ModuleNode_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleNode, name)},
-	{"access", "I", nullptr, $PUBLIC, $field(ModuleNode, access)},
-	{"version", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleNode, version)},
-	{"mainClass", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleNode, mainClass)},
-	{"packages", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleNode, packages)},
-	{"requires", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleRequireNode;>;", $PUBLIC, $field(ModuleNode, requires)},
-	{"exports", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleExportNode;>;", $PUBLIC, $field(ModuleNode, exports)},
-	{"opens", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleOpenNode;>;", $PUBLIC, $field(ModuleNode, opens)},
-	{"uses", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleNode, uses)},
-	{"provides", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleProvideNode;>;", $PUBLIC, $field(ModuleNode, provides)},
-	{}
-};
-
-$MethodInfo _ModuleNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleNode, init$, void, $String*, int32_t, $String*)},
-	{"<init>", "(ILjava/lang/String;ILjava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(ILjava/lang/String;ILjava/lang/String;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleRequireNode;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleExportNode;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleOpenNode;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleProvideNode;>;)V", $PUBLIC, $method(ModuleNode, init$, void, int32_t, $String*, int32_t, $String*, $List*, $List*, $List*, $List*, $List*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, accept, void, $ClassVisitor*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitEnd, void)},
-	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleNode, visitExport, void, $String*, int32_t, $StringArray*)},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitMainClass, void, $String*)},
-	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleNode, visitOpen, void, $String*, int32_t, $StringArray*)},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitPackage, void, $String*)},
-	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleNode, visitProvide, void, $String*, $StringArray*)},
-	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitRequire, void, $String*, int32_t, $String*)},
-	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitUse, void, $String*)},
-	{}
-};
-
-$ClassInfo _ModuleNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.ModuleNode",
-	"jdk.internal.org.objectweb.asm.ModuleVisitor",
-	nullptr,
-	_ModuleNode_FieldInfo_,
-	_ModuleNode_MethodInfo_
-};
-
-$Object* allocate$ModuleNode($Class* clazz) {
-	return $of($alloc(ModuleNode));
-}
 
 void ModuleNode::init$($String* name, int32_t access, $String* version) {
 	$ModuleVisitor::init$($Opcodes::ASM8);
@@ -120,7 +77,7 @@ void ModuleNode::visitRequire($String* module, int32_t access, $String* version)
 }
 
 void ModuleNode::visitExport($String* packaze, int32_t access, $StringArray* modules) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->exports == nullptr) {
 		$set(this, exports, $new($ArrayList, 5));
 	}
@@ -128,7 +85,7 @@ void ModuleNode::visitExport($String* packaze, int32_t access, $StringArray* mod
 }
 
 void ModuleNode::visitOpen($String* packaze, int32_t access, $StringArray* modules) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->opens == nullptr) {
 		$set(this, opens, $new($ArrayList, 5));
 	}
@@ -143,7 +100,7 @@ void ModuleNode::visitUse($String* service) {
 }
 
 void ModuleNode::visitProvide($String* service, $StringArray* providers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->provides == nullptr) {
 		$set(this, provides, $new($ArrayList, 5));
 	}
@@ -154,7 +111,7 @@ void ModuleNode::visitEnd() {
 }
 
 void ModuleNode::accept($ClassVisitor* classVisitor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModuleVisitor, moduleVisitor, $nc(classVisitor)->visitModule(this->name, this->access, this->version));
 	if (moduleVisitor == nullptr) {
 		return;
@@ -163,57 +120,33 @@ void ModuleNode::accept($ClassVisitor* classVisitor) {
 		$nc(moduleVisitor)->visitMainClass(this->mainClass);
 	}
 	if (this->packages != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->packages)->size();
-			for (; i < n; ++i) {
-				$nc(moduleVisitor)->visitPackage($cast($String, $($nc(this->packages)->get(i))));
-			}
+		for (int32_t i = 0, n = this->packages->size(); i < n; ++i) {
+			$nc(moduleVisitor)->visitPackage($$cast($String, this->packages->get(i)));
 		}
 	}
 	if (this->requires != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->requires)->size();
-			for (; i < n; ++i) {
-				$nc(($cast($ModuleRequireNode, $($nc(this->requires)->get(i)))))->accept(moduleVisitor);
-			}
+		for (int32_t i = 0, n = this->requires->size(); i < n; ++i) {
+			$$sure($ModuleRequireNode, this->requires->get(i))->accept(moduleVisitor);
 		}
 	}
 	if (this->exports != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->exports)->size();
-			for (; i < n; ++i) {
-				$nc(($cast($ModuleExportNode, $($nc(this->exports)->get(i)))))->accept(moduleVisitor);
-			}
+		for (int32_t i = 0, n = this->exports->size(); i < n; ++i) {
+			$$sure($ModuleExportNode, this->exports->get(i))->accept(moduleVisitor);
 		}
 	}
 	if (this->opens != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->opens)->size();
-			for (; i < n; ++i) {
-				$nc(($cast($ModuleOpenNode, $($nc(this->opens)->get(i)))))->accept(moduleVisitor);
-			}
+		for (int32_t i = 0, n = this->opens->size(); i < n; ++i) {
+			$$sure($ModuleOpenNode, this->opens->get(i))->accept(moduleVisitor);
 		}
 	}
 	if (this->uses != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->uses)->size();
-			for (; i < n; ++i) {
-				$nc(moduleVisitor)->visitUse($cast($String, $($nc(this->uses)->get(i))));
-			}
+		for (int32_t i = 0, n = this->uses->size(); i < n; ++i) {
+			$nc(moduleVisitor)->visitUse($$cast($String, this->uses->get(i)));
 		}
 	}
 	if (this->provides != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->provides)->size();
-			for (; i < n; ++i) {
-				$nc(($cast($ModuleProvideNode, $($nc(this->provides)->get(i)))))->accept(moduleVisitor);
-			}
+		for (int32_t i = 0, n = this->provides->size(); i < n; ++i) {
+			$$sure($ModuleProvideNode, this->provides->get(i))->accept(moduleVisitor);
 		}
 	}
 }
@@ -222,7 +155,44 @@ ModuleNode::ModuleNode() {
 }
 
 $Class* ModuleNode::load$($String* name, bool initialize) {
-	$loadClass(ModuleNode, name, initialize, &_ModuleNode_ClassInfo_, allocate$ModuleNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleNode, name)},
+		{"access", "I", nullptr, $PUBLIC, $field(ModuleNode, access)},
+		{"version", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleNode, version)},
+		{"mainClass", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleNode, mainClass)},
+		{"packages", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleNode, packages)},
+		{"requires", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleRequireNode;>;", $PUBLIC, $field(ModuleNode, requires)},
+		{"exports", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleExportNode;>;", $PUBLIC, $field(ModuleNode, exports)},
+		{"opens", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleOpenNode;>;", $PUBLIC, $field(ModuleNode, opens)},
+		{"uses", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleNode, uses)},
+		{"provides", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleProvideNode;>;", $PUBLIC, $field(ModuleNode, provides)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleNode, init$, void, $String*, int32_t, $String*)},
+		{"<init>", "(ILjava/lang/String;ILjava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(ILjava/lang/String;ILjava/lang/String;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleRequireNode;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleExportNode;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleOpenNode;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleProvideNode;>;)V", $PUBLIC, $method(ModuleNode, init$, void, int32_t, $String*, int32_t, $String*, $List*, $List*, $List*, $List*, $List*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, accept, void, $ClassVisitor*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitEnd, void)},
+		{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleNode, visitExport, void, $String*, int32_t, $StringArray*)},
+		{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitMainClass, void, $String*)},
+		{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleNode, visitOpen, void, $String*, int32_t, $StringArray*)},
+		{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitPackage, void, $String*)},
+		{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleNode, visitProvide, void, $String*, $StringArray*)},
+		{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitRequire, void, $String*, int32_t, $String*)},
+		{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitUse, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.ModuleNode",
+		"jdk.internal.org.objectweb.asm.ModuleVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleNode);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/time/temporal/TemporalQueries.h>
-
 #include <java/time/temporal/TemporalQueries$1.h>
 #include <java/time/temporal/TemporalQueries$2.h>
 #include <java/time/temporal/TemporalQueries$3.h>
@@ -34,59 +33,6 @@ using $TemporalQuery = ::java::time::temporal::TemporalQuery;
 namespace java {
 	namespace time {
 		namespace temporal {
-
-$FieldInfo _TemporalQueries_FieldInfo_[] = {
-	{"ZONE_ID", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;", $STATIC | $FINAL, $staticField(TemporalQueries, ZONE_ID)},
-	{"CHRONO", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/chrono/Chronology;>;", $STATIC | $FINAL, $staticField(TemporalQueries, CHRONO)},
-	{"PRECISION", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/temporal/TemporalUnit;>;", $STATIC | $FINAL, $staticField(TemporalQueries, PRECISION)},
-	{"OFFSET", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneOffset;>;", $STATIC | $FINAL, $staticField(TemporalQueries, OFFSET)},
-	{"ZONE", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;", $STATIC | $FINAL, $staticField(TemporalQueries, ZONE)},
-	{"LOCAL_DATE", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/LocalDate;>;", $STATIC | $FINAL, $staticField(TemporalQueries, LOCAL_DATE)},
-	{"LOCAL_TIME", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/LocalTime;>;", $STATIC | $FINAL, $staticField(TemporalQueries, LOCAL_TIME)},
-	{}
-};
-
-$MethodInfo _TemporalQueries_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TemporalQueries, init$, void)},
-	{"chronology", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/chrono/Chronology;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, chronology, $TemporalQuery*)},
-	{"localDate", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/LocalDate;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, localDate, $TemporalQuery*)},
-	{"localTime", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/LocalTime;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, localTime, $TemporalQuery*)},
-	{"offset", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneOffset;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, offset, $TemporalQuery*)},
-	{"precision", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/temporal/TemporalUnit;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, precision, $TemporalQuery*)},
-	{"zone", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, zone, $TemporalQuery*)},
-	{"zoneId", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, zoneId, $TemporalQuery*)},
-	{}
-};
-
-$InnerClassInfo _TemporalQueries_InnerClassesInfo_[] = {
-	{"java.time.temporal.TemporalQueries$7", nullptr, nullptr, 0},
-	{"java.time.temporal.TemporalQueries$6", nullptr, nullptr, 0},
-	{"java.time.temporal.TemporalQueries$5", nullptr, nullptr, 0},
-	{"java.time.temporal.TemporalQueries$4", nullptr, nullptr, 0},
-	{"java.time.temporal.TemporalQueries$3", nullptr, nullptr, 0},
-	{"java.time.temporal.TemporalQueries$2", nullptr, nullptr, 0},
-	{"java.time.temporal.TemporalQueries$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TemporalQueries_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.temporal.TemporalQueries",
-	"java.lang.Object",
-	nullptr,
-	_TemporalQueries_FieldInfo_,
-	_TemporalQueries_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TemporalQueries_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.time.temporal.TemporalQueries$7,java.time.temporal.TemporalQueries$6,java.time.temporal.TemporalQueries$5,java.time.temporal.TemporalQueries$4,java.time.temporal.TemporalQueries$3,java.time.temporal.TemporalQueries$2,java.time.temporal.TemporalQueries$1"
-};
-
-$Object* allocate$TemporalQueries($Class* clazz) {
-	return $of($alloc(TemporalQueries));
-}
 
 $TemporalQuery* TemporalQueries::ZONE_ID = nullptr;
 $TemporalQuery* TemporalQueries::CHRONO = nullptr;
@@ -134,7 +80,7 @@ $TemporalQuery* TemporalQueries::localTime() {
 	return TemporalQueries::LOCAL_TIME;
 }
 
-void clinit$TemporalQueries($Class* class$) {
+void TemporalQueries::clinit$($Class* clazz) {
 	$assignStatic(TemporalQueries::ZONE_ID, $new($TemporalQueries$1));
 	$assignStatic(TemporalQueries::CHRONO, $new($TemporalQueries$2));
 	$assignStatic(TemporalQueries::PRECISION, $new($TemporalQueries$3));
@@ -148,7 +94,54 @@ TemporalQueries::TemporalQueries() {
 }
 
 $Class* TemporalQueries::load$($String* name, bool initialize) {
-	$loadClass(TemporalQueries, name, initialize, &_TemporalQueries_ClassInfo_, clinit$TemporalQueries, allocate$TemporalQueries);
+	$FieldInfo fieldInfos$$[] = {
+		{"ZONE_ID", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;", $STATIC | $FINAL, $staticField(TemporalQueries, ZONE_ID)},
+		{"CHRONO", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/chrono/Chronology;>;", $STATIC | $FINAL, $staticField(TemporalQueries, CHRONO)},
+		{"PRECISION", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/temporal/TemporalUnit;>;", $STATIC | $FINAL, $staticField(TemporalQueries, PRECISION)},
+		{"OFFSET", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneOffset;>;", $STATIC | $FINAL, $staticField(TemporalQueries, OFFSET)},
+		{"ZONE", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;", $STATIC | $FINAL, $staticField(TemporalQueries, ZONE)},
+		{"LOCAL_DATE", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/LocalDate;>;", $STATIC | $FINAL, $staticField(TemporalQueries, LOCAL_DATE)},
+		{"LOCAL_TIME", "Ljava/time/temporal/TemporalQuery;", "Ljava/time/temporal/TemporalQuery<Ljava/time/LocalTime;>;", $STATIC | $FINAL, $staticField(TemporalQueries, LOCAL_TIME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TemporalQueries, init$, void)},
+		{"chronology", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/chrono/Chronology;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, chronology, $TemporalQuery*)},
+		{"localDate", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/LocalDate;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, localDate, $TemporalQuery*)},
+		{"localTime", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/LocalTime;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, localTime, $TemporalQuery*)},
+		{"offset", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneOffset;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, offset, $TemporalQuery*)},
+		{"precision", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/temporal/TemporalUnit;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, precision, $TemporalQuery*)},
+		{"zone", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, zone, $TemporalQuery*)},
+		{"zoneId", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;", $PUBLIC | $STATIC, $staticMethod(TemporalQueries, zoneId, $TemporalQuery*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.temporal.TemporalQueries$7", nullptr, nullptr, 0},
+		{"java.time.temporal.TemporalQueries$6", nullptr, nullptr, 0},
+		{"java.time.temporal.TemporalQueries$5", nullptr, nullptr, 0},
+		{"java.time.temporal.TemporalQueries$4", nullptr, nullptr, 0},
+		{"java.time.temporal.TemporalQueries$3", nullptr, nullptr, 0},
+		{"java.time.temporal.TemporalQueries$2", nullptr, nullptr, 0},
+		{"java.time.temporal.TemporalQueries$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.temporal.TemporalQueries",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.time.temporal.TemporalQueries$7,java.time.temporal.TemporalQueries$6,java.time.temporal.TemporalQueries$5,java.time.temporal.TemporalQueries$4,java.time.temporal.TemporalQueries$3,java.time.temporal.TemporalQueries$2,java.time.temporal.TemporalQueries$1"
+	};
+	$loadClass(TemporalQueries, name, initialize, &classInfo$$, TemporalQueries::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TemporalQueries);
+	});
 	return class$;
 }
 

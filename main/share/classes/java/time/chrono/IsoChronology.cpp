@@ -1,5 +1,4 @@
 #include <java/time/chrono/IsoChronology.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/ClassCastException.h>
@@ -85,64 +84,6 @@ namespace java {
 	namespace time {
 		namespace chrono {
 
-$FieldInfo _IsoChronology_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/time/chrono/IsoChronology;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IsoChronology, INSTANCE)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IsoChronology, serialVersionUID)},
-	{"DAYS_0000_TO_1970", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IsoChronology, DAYS_0000_TO_1970)},
-	{}
-};
-
-$MethodInfo _IsoChronology_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(IsoChronology, init$, void)},
-	{"date", "(Ljava/time/chrono/Era;III)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, date, $ChronoLocalDate*, $Era*, int32_t, int32_t, int32_t)},
-	{"date", "(III)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, date, $ChronoLocalDate*, int32_t, int32_t, int32_t)},
-	{"date", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, date, $ChronoLocalDate*, $TemporalAccessor*)},
-	{"dateEpochDay", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateEpochDay, $ChronoLocalDate*, int64_t)},
-	{"dateNow", "()Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateNow, $ChronoLocalDate*)},
-	{"dateNow", "(Ljava/time/ZoneId;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateNow, $ChronoLocalDate*, $ZoneId*)},
-	{"dateNow", "(Ljava/time/Clock;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateNow, $ChronoLocalDate*, $Clock*)},
-	{"dateYearDay", "(Ljava/time/chrono/Era;II)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateYearDay, $ChronoLocalDate*, $Era*, int32_t, int32_t)},
-	{"dateYearDay", "(II)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateYearDay, $ChronoLocalDate*, int32_t, int32_t)},
-	{"epochSecond", "(IIIIIILjava/time/ZoneOffset;)J", nullptr, $PUBLIC, $virtualMethod(IsoChronology, epochSecond, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ZoneOffset*)},
-	{"eraOf", "(I)Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, eraOf, $Era*, int32_t)},
-	{"eras", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/chrono/Era;>;", $PUBLIC, $virtualMethod(IsoChronology, eras, $List*)},
-	{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, getCalendarType, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, getId, $String*)},
-	{"isLeapYear", "(J)Z", nullptr, $PUBLIC, $virtualMethod(IsoChronology, isLeapYear, bool, int64_t)},
-	{"localDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, localDateTime, $ChronoLocalDateTime*, $TemporalAccessor*)},
-	{"numberOfDaysOfMonth", "(II)I", nullptr, $PRIVATE, $method(IsoChronology, numberOfDaysOfMonth, int32_t, int32_t, int32_t)},
-	{"period", "(III)Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, period, $ChronoPeriod*, int32_t, int32_t, int32_t)},
-	{"prolepticYear", "(Ljava/time/chrono/Era;I)I", nullptr, $PUBLIC, $virtualMethod(IsoChronology, prolepticYear, int32_t, $Era*, int32_t)},
-	{"range", "(Ljava/time/temporal/ChronoField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, range, $ValueRange*, $ChronoField*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(IsoChronology, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", $PUBLIC, $virtualMethod(IsoChronology, resolveDate, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"resolveProlepticMonth", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)V", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)V", 0, $virtualMethod(IsoChronology, resolveProlepticMonth, void, $Map*, $ResolverStyle*)},
-	{"resolveYMD", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", 0, $virtualMethod(IsoChronology, resolveYMD, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"resolveYearOfEra", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", 0, $virtualMethod(IsoChronology, resolveYearOfEra, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(IsoChronology, writeReplace, $Object*)},
-	{"zonedDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, zonedDateTime, $ChronoZonedDateTime*, $TemporalAccessor*)},
-	{"zonedDateTime", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, zonedDateTime, $ChronoZonedDateTime*, $Instant*, $ZoneId*)},
-	{}
-};
-
-$ClassInfo _IsoChronology_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.chrono.IsoChronology",
-	"java.time.chrono.AbstractChronology",
-	"java.io.Serializable",
-	_IsoChronology_FieldInfo_,
-	_IsoChronology_MethodInfo_
-};
-
-$Object* allocate$IsoChronology($Class* clazz) {
-	return $of($alloc(IsoChronology));
-}
-
 bool IsoChronology::equals(Object$* obj) {
 	 return this->$AbstractChronology::equals(obj);
 }
@@ -202,7 +143,7 @@ $ChronoLocalDate* IsoChronology::date($TemporalAccessor* temporal) {
 }
 
 int64_t IsoChronology::epochSecond(int32_t prolepticYear, int32_t month, int32_t dayOfMonth, int32_t hour, int32_t minute, int32_t second, $ZoneOffset* zoneOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
 	$ChronoField::YEAR->checkValidValue(prolepticYear);
 	$ChronoField::MONTH_OF_YEAR->checkValidValue(month);
@@ -210,14 +151,14 @@ int64_t IsoChronology::epochSecond(int32_t prolepticYear, int32_t month, int32_t
 	$ChronoField::HOUR_OF_DAY->checkValidValue(hour);
 	$ChronoField::MINUTE_OF_HOUR->checkValidValue(minute);
 	$ChronoField::SECOND_OF_MINUTE->checkValidValue(second);
-	$Objects::requireNonNull($of(zoneOffset), "zoneOffset"_s);
+	$Objects::requireNonNull(zoneOffset, "zoneOffset"_s);
 	if (dayOfMonth > 28) {
 		int32_t dom = numberOfDaysOfMonth(prolepticYear, month);
 		if (dayOfMonth > dom) {
 			if (dayOfMonth == 29) {
 				$throwNew($DateTimeException, $$str({"Invalid date \'February 29\' as \'"_s, $$str(prolepticYear), "\' is not a leap year"_s}));
 			} else {
-				$throwNew($DateTimeException, $$str({"Invalid date \'"_s, $($nc($($Month::of(month)))->name()), " "_s, $$str(dayOfMonth), "\'"_s}));
+				$throwNew($DateTimeException, $$str({"Invalid date \'"_s, $($$nc($Month::of(month))->name()), " "_s, $$str(dayOfMonth), "\'"_s}));
 			}
 		}
 	}
@@ -233,7 +174,7 @@ int64_t IsoChronology::epochSecond(int32_t prolepticYear, int32_t month, int32_t
 	totalDays += dayOfMonth - 1;
 	if (month > 2) {
 		--totalDays;
-		if ($nc(IsoChronology::INSTANCE)->isLeapYear(prolepticYear) == false) {
+		if (IsoChronology::INSTANCE->isLeapYear(prolepticYear) == false) {
 			--totalDays;
 		}
 	}
@@ -247,26 +188,17 @@ int32_t IsoChronology::numberOfDaysOfMonth(int32_t year, int32_t month) {
 	int32_t dom = 0;
 	switch (month) {
 	case 2:
-		{
-			dom = ($nc(IsoChronology::INSTANCE)->isLeapYear(year) ? 29 : 28);
-			break;
-		}
+		dom = (IsoChronology::INSTANCE->isLeapYear(year) ? 29 : 28);
+		break;
 	case 4:
-		{}
 	case 6:
-		{}
 	case 9:
-		{}
 	case 11:
-		{
-			dom = 30;
-			break;
-		}
+		dom = 30;
+		break;
 	default:
-		{
-			dom = 31;
-			break;
-		}
+		dom = 31;
+		break;
 	}
 	return dom;
 }
@@ -292,12 +224,12 @@ $ChronoLocalDate* IsoChronology::dateNow($ZoneId* zone) {
 }
 
 $ChronoLocalDate* IsoChronology::dateNow($Clock* clock) {
-	$Objects::requireNonNull($of(clock), "clock"_s);
+	$Objects::requireNonNull(clock, "clock"_s);
 	return date($($LocalDate::now(clock)));
 }
 
 bool IsoChronology::isLeapYear(int64_t prolepticYear) {
-	return (((int64_t)(prolepticYear & (uint64_t)(int64_t)3)) == 0) && ((prolepticYear % 100) != 0 || (prolepticYear % 400) == 0);
+	return ((prolepticYear & 3) == 0) && ((prolepticYear % 100) != 0 || (prolepticYear % 400) == 0);
 }
 
 int32_t IsoChronology::prolepticYear($Era* era, int32_t yearOfEra) {
@@ -334,7 +266,7 @@ void IsoChronology::resolveProlepticMonth($Map* fieldValues, $ResolverStyle* res
 }
 
 $ChronoLocalDate* IsoChronology::resolveYearOfEra($Map* fieldValues, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
 	$var($Long, yoeLong, $cast($Long, $nc(fieldValues)->remove($ChronoField::YEAR_OF_ERA)));
 	if (yoeLong != nullptr) {
@@ -352,35 +284,33 @@ $ChronoLocalDate* IsoChronology::resolveYearOfEra($Map* fieldValues, $ResolverSt
 					fieldValues->put($ChronoField::YEAR_OF_ERA, yoeLong);
 				}
 			} else {
-				addFieldValue(fieldValues, $ChronoField::YEAR, (year == nullptr || $nc(year)->longValue() > 0 ? yoeLong->longValue() : $Math::subtractExact((int64_t)1, yoeLong->longValue())));
+				addFieldValue(fieldValues, $ChronoField::YEAR, (year == nullptr || year->longValue() > 0 ? yoeLong->longValue() : $Math::subtractExact((int64_t)1, yoeLong->longValue())));
 			}
-		} else if ($nc(era)->longValue() == (int64_t)1) {
+		} else if (era->longValue() == 1) {
 			addFieldValue(fieldValues, $ChronoField::YEAR, yoeLong->longValue());
-		} else if (era->longValue() == (int64_t)0) {
+		} else if (era->longValue() == 0) {
 			addFieldValue(fieldValues, $ChronoField::YEAR, $Math::subtractExact((int64_t)1, yoeLong->longValue()));
 		} else {
 			$throwNew($DateTimeException, $$str({"Invalid value for era: "_s, era}));
 		}
-	} else {
-		if (fieldValues->containsKey($ChronoField::ERA)) {
-			$ChronoField::ERA->checkValidValue($nc(($cast($Long, $(fieldValues->get($ChronoField::ERA)))))->longValue());
-		}
+	} else if (fieldValues->containsKey($ChronoField::ERA)) {
+		$ChronoField::ERA->checkValidValue($$sure($Long, fieldValues->get($ChronoField::ERA))->longValue());
 	}
 	return nullptr;
 }
 
 $ChronoLocalDate* IsoChronology::resolveYMD($Map* fieldValues, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	int32_t y = $ChronoField::YEAR->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue());
+	int32_t y = $ChronoField::YEAR->checkValidIntValue($$sure($Long, $nc(fieldValues)->remove($ChronoField::YEAR))->longValue());
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t months = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), (int64_t)1);
-		int64_t days = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_MONTH)))))->longValue(), (int64_t)1);
-		return $nc($($nc($($LocalDate::of(y, 1, 1)))->plusMonths(months)))->plusDays(days);
+		int64_t months = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::MONTH_OF_YEAR))->longValue(), (int64_t)1);
+		int64_t days = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::DAY_OF_MONTH))->longValue(), (int64_t)1);
+		return $$nc($$nc($LocalDate::of(y, 1, 1))->plusMonths(months))->plusDays(days);
 	}
-	int32_t moy = $ChronoField::MONTH_OF_YEAR->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue());
-	int32_t dom = $ChronoField::DAY_OF_MONTH->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_MONTH)))))->longValue());
+	int32_t moy = $ChronoField::MONTH_OF_YEAR->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::MONTH_OF_YEAR))->longValue());
+	int32_t dom = $ChronoField::DAY_OF_MONTH->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::DAY_OF_MONTH))->longValue());
 	if (resolverStyle == $ResolverStyle::SMART) {
 		if (moy == 4 || moy == 6 || moy == 9 || moy == 11) {
 			dom = $Math::min(dom, 30);
@@ -401,14 +331,14 @@ $ChronoPeriod* IsoChronology::period(int32_t years, int32_t months, int32_t days
 }
 
 $Object* IsoChronology::writeReplace() {
-	return $of($AbstractChronology::writeReplace());
+	return $AbstractChronology::writeReplace();
 }
 
 void IsoChronology::readObject($ObjectInputStream* s) {
 	$throwNew($InvalidObjectException, "Deserialization via serialization delegate"_s);
 }
 
-void clinit$IsoChronology($Class* class$) {
+void IsoChronology::clinit$($Class* clazz) {
 	$assignStatic(IsoChronology::INSTANCE, $new(IsoChronology));
 }
 
@@ -416,7 +346,60 @@ IsoChronology::IsoChronology() {
 }
 
 $Class* IsoChronology::load$($String* name, bool initialize) {
-	$loadClass(IsoChronology, name, initialize, &_IsoChronology_ClassInfo_, clinit$IsoChronology, allocate$IsoChronology);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/time/chrono/IsoChronology;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IsoChronology, INSTANCE)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IsoChronology, serialVersionUID)},
+		{"DAYS_0000_TO_1970", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IsoChronology, DAYS_0000_TO_1970)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(IsoChronology, init$, void)},
+		{"date", "(Ljava/time/chrono/Era;III)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, date, $ChronoLocalDate*, $Era*, int32_t, int32_t, int32_t)},
+		{"date", "(III)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, date, $ChronoLocalDate*, int32_t, int32_t, int32_t)},
+		{"date", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, date, $ChronoLocalDate*, $TemporalAccessor*)},
+		{"dateEpochDay", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateEpochDay, $ChronoLocalDate*, int64_t)},
+		{"dateNow", "()Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateNow, $ChronoLocalDate*)},
+		{"dateNow", "(Ljava/time/ZoneId;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateNow, $ChronoLocalDate*, $ZoneId*)},
+		{"dateNow", "(Ljava/time/Clock;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateNow, $ChronoLocalDate*, $Clock*)},
+		{"dateYearDay", "(Ljava/time/chrono/Era;II)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateYearDay, $ChronoLocalDate*, $Era*, int32_t, int32_t)},
+		{"dateYearDay", "(II)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, dateYearDay, $ChronoLocalDate*, int32_t, int32_t)},
+		{"epochSecond", "(IIIIIILjava/time/ZoneOffset;)J", nullptr, $PUBLIC, $virtualMethod(IsoChronology, epochSecond, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ZoneOffset*)},
+		{"eraOf", "(I)Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, eraOf, $Era*, int32_t)},
+		{"eras", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/chrono/Era;>;", $PUBLIC, $virtualMethod(IsoChronology, eras, $List*)},
+		{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, getCalendarType, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, getId, $String*)},
+		{"isLeapYear", "(J)Z", nullptr, $PUBLIC, $virtualMethod(IsoChronology, isLeapYear, bool, int64_t)},
+		{"localDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, localDateTime, $ChronoLocalDateTime*, $TemporalAccessor*)},
+		{"numberOfDaysOfMonth", "(II)I", nullptr, $PRIVATE, $method(IsoChronology, numberOfDaysOfMonth, int32_t, int32_t, int32_t)},
+		{"period", "(III)Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, period, $ChronoPeriod*, int32_t, int32_t, int32_t)},
+		{"prolepticYear", "(Ljava/time/chrono/Era;I)I", nullptr, $PUBLIC, $virtualMethod(IsoChronology, prolepticYear, int32_t, $Era*, int32_t)},
+		{"range", "(Ljava/time/temporal/ChronoField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, range, $ValueRange*, $ChronoField*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(IsoChronology, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", $PUBLIC, $virtualMethod(IsoChronology, resolveDate, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"resolveProlepticMonth", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)V", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)V", 0, $virtualMethod(IsoChronology, resolveProlepticMonth, void, $Map*, $ResolverStyle*)},
+		{"resolveYMD", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", 0, $virtualMethod(IsoChronology, resolveYMD, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"resolveYearOfEra", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/LocalDate;", 0, $virtualMethod(IsoChronology, resolveYearOfEra, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(IsoChronology, writeReplace, $Object*)},
+		{"zonedDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, zonedDateTime, $ChronoZonedDateTime*, $TemporalAccessor*)},
+		{"zonedDateTime", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $virtualMethod(IsoChronology, zonedDateTime, $ChronoZonedDateTime*, $Instant*, $ZoneId*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.chrono.IsoChronology",
+		"java.time.chrono.AbstractChronology",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IsoChronology, name, initialize, &classInfo$$, IsoChronology::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IsoChronology));
+	});
 	return class$;
 }
 

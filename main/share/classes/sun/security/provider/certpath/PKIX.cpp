@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/PKIX.h>
-
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertPath.h>
@@ -35,46 +34,6 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _PKIX_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PKIX, debug)},
-	{}
-};
-
-$MethodInfo _PKIX_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PKIX, init$, void)},
-	{"checkBuilderParams", "(Ljava/security/cert/CertPathParameters;)Lsun/security/provider/certpath/PKIX$BuilderParams;", nullptr, $STATIC, $staticMethod(PKIX, checkBuilderParams, $PKIX$BuilderParams*, $CertPathParameters*), "java.security.InvalidAlgorithmParameterException"},
-	{"checkParams", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Lsun/security/provider/certpath/PKIX$ValidatorParams;", nullptr, $STATIC, $staticMethod(PKIX, checkParams, $PKIX$ValidatorParams*, $CertPath*, $CertPathParameters*), "java.security.InvalidAlgorithmParameterException"},
-	{"isDSAPublicKeyWithoutParams", "(Ljava/security/PublicKey;)Z", nullptr, $STATIC, $staticMethod(PKIX, isDSAPublicKeyWithoutParams, bool, $PublicKey*)},
-	{}
-};
-
-$InnerClassInfo _PKIX_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.PKIX$CertStoreComparator", "sun.security.provider.certpath.PKIX", "CertStoreComparator", $PRIVATE | $STATIC},
-	{"sun.security.provider.certpath.PKIX$CertStoreTypeException", "sun.security.provider.certpath.PKIX", "CertStoreTypeException", $STATIC},
-	{"sun.security.provider.certpath.PKIX$BuilderParams", "sun.security.provider.certpath.PKIX", "BuilderParams", $STATIC},
-	{"sun.security.provider.certpath.PKIX$ValidatorParams", "sun.security.provider.certpath.PKIX", "ValidatorParams", $STATIC},
-	{}
-};
-
-$ClassInfo _PKIX_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.PKIX",
-	"java.lang.Object",
-	nullptr,
-	_PKIX_FieldInfo_,
-	_PKIX_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PKIX_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.PKIX$CertStoreComparator,sun.security.provider.certpath.PKIX$CertStoreTypeException,sun.security.provider.certpath.PKIX$BuilderParams,sun.security.provider.certpath.PKIX$ValidatorParams"
-};
-
-$Object* allocate$PKIX($Class* clazz) {
-	return $of($alloc(PKIX));
-}
-
 $Debug* PKIX::debug = nullptr;
 
 void PKIX::init$() {
@@ -82,7 +41,7 @@ void PKIX::init$() {
 
 bool PKIX::isDSAPublicKeyWithoutParams($PublicKey* publicKey) {
 	$init(PKIX);
-	return ($instanceOf($DSAPublicKey, publicKey) && $nc(($cast($DSAPublicKey, publicKey)))->getParams() == nullptr);
+	return ($instanceOf($DSAPublicKey, publicKey) && $cast($DSAPublicKey, publicKey)->getParams() == nullptr);
 }
 
 $PKIX$ValidatorParams* PKIX::checkParams($CertPath* cp, $CertPathParameters* params) {
@@ -101,7 +60,7 @@ $PKIX$BuilderParams* PKIX::checkBuilderParams($CertPathParameters* params) {
 	return $new($PKIX$BuilderParams, $cast($PKIXBuilderParameters, params));
 }
 
-void clinit$PKIX($Class* class$) {
+void PKIX::clinit$($Class* clazz) {
 	$assignStatic(PKIX::debug, $Debug::getInstance("certpath"_s));
 }
 
@@ -109,7 +68,41 @@ PKIX::PKIX() {
 }
 
 $Class* PKIX::load$($String* name, bool initialize) {
-	$loadClass(PKIX, name, initialize, &_PKIX_ClassInfo_, clinit$PKIX, allocate$PKIX);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PKIX, debug)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PKIX, init$, void)},
+		{"checkBuilderParams", "(Ljava/security/cert/CertPathParameters;)Lsun/security/provider/certpath/PKIX$BuilderParams;", nullptr, $STATIC, $staticMethod(PKIX, checkBuilderParams, $PKIX$BuilderParams*, $CertPathParameters*), "java.security.InvalidAlgorithmParameterException"},
+		{"checkParams", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Lsun/security/provider/certpath/PKIX$ValidatorParams;", nullptr, $STATIC, $staticMethod(PKIX, checkParams, $PKIX$ValidatorParams*, $CertPath*, $CertPathParameters*), "java.security.InvalidAlgorithmParameterException"},
+		{"isDSAPublicKeyWithoutParams", "(Ljava/security/PublicKey;)Z", nullptr, $STATIC, $staticMethod(PKIX, isDSAPublicKeyWithoutParams, bool, $PublicKey*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.PKIX$CertStoreComparator", "sun.security.provider.certpath.PKIX", "CertStoreComparator", $PRIVATE | $STATIC},
+		{"sun.security.provider.certpath.PKIX$CertStoreTypeException", "sun.security.provider.certpath.PKIX", "CertStoreTypeException", $STATIC},
+		{"sun.security.provider.certpath.PKIX$BuilderParams", "sun.security.provider.certpath.PKIX", "BuilderParams", $STATIC},
+		{"sun.security.provider.certpath.PKIX$ValidatorParams", "sun.security.provider.certpath.PKIX", "ValidatorParams", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.PKIX",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.PKIX$CertStoreComparator,sun.security.provider.certpath.PKIX$CertStoreTypeException,sun.security.provider.certpath.PKIX$BuilderParams,sun.security.provider.certpath.PKIX$ValidatorParams"
+	};
+	$loadClass(PKIX, name, initialize, &classInfo$$, PKIX::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PKIX);
+	});
 	return class$;
 }
 

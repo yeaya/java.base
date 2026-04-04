@@ -14,6 +14,7 @@ class $export Resources_fr : public ::java::util::ListResourceBundle {
 	$class(Resources_fr, 0, ::java::util::ListResourceBundle)
 public:
 	Resources_fr();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $Array<::java::lang::Object, 2>* contents;

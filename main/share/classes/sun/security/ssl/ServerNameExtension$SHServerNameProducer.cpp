@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ServerNameExtension$SHServerNameProducer.h>
-
 #include <java/util/Map.h>
 #include <javax/net/ssl/SNIServerName.h>
 #include <sun/security/ssl/ConnectionContext.h>
@@ -19,7 +18,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
@@ -32,42 +30,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ServerNameExtension$SHServerNameProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerNameExtension$SHServerNameProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ServerNameExtension$SHServerNameProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ServerNameExtension$SHServerNameProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ServerNameExtension$SHServerNameProducer", "sun.security.ssl.ServerNameExtension", "SHServerNameProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ServerNameExtension$SHServerNameProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ServerNameExtension$SHServerNameProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_ServerNameExtension$SHServerNameProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerNameExtension$SHServerNameProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ServerNameExtension"
-};
-
-$Object* allocate$ServerNameExtension$SHServerNameProducer($Class* clazz) {
-	return $of($alloc(ServerNameExtension$SHServerNameProducer));
-}
-
 void ServerNameExtension$SHServerNameProducer::init$() {
 }
 
 $bytes* ServerNameExtension$SHServerNameProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($ServerNameExtension$CHServerNamesSpec, spec, $cast($ServerNameExtension$CHServerNamesSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_SERVER_NAME)));
@@ -86,7 +53,7 @@ $bytes* ServerNameExtension$SHServerNameProducer::produce($ConnectionContext* co
 		return nullptr;
 	}
 	$init($ServerNameExtension$SHServerNamesSpec);
-	$nc(shc->handshakeExtensions)->put($SSLExtension::SH_SERVER_NAME, $ServerNameExtension$SHServerNamesSpec::DEFAULT);
+	shc->handshakeExtensions->put($SSLExtension::SH_SERVER_NAME, $ServerNameExtension$SHServerNamesSpec::DEFAULT);
 	return ($new($bytes, 0));
 }
 
@@ -94,7 +61,33 @@ ServerNameExtension$SHServerNameProducer::ServerNameExtension$SHServerNameProduc
 }
 
 $Class* ServerNameExtension$SHServerNameProducer::load$($String* name, bool initialize) {
-	$loadClass(ServerNameExtension$SHServerNameProducer, name, initialize, &_ServerNameExtension$SHServerNameProducer_ClassInfo_, allocate$ServerNameExtension$SHServerNameProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServerNameExtension$SHServerNameProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ServerNameExtension$SHServerNameProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ServerNameExtension$SHServerNameProducer", "sun.security.ssl.ServerNameExtension", "SHServerNameProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ServerNameExtension$SHServerNameProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ServerNameExtension"
+	};
+	$loadClass(ServerNameExtension$SHServerNameProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerNameExtension$SHServerNameProducer);
+	});
 	return class$;
 }
 

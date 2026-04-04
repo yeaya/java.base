@@ -36,6 +36,7 @@ class $import AnchorCertificates : public ::java::lang::Object {
 	$class(AnchorCertificates, 0, ::java::lang::Object)
 public:
 	AnchorCertificates();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool contains(::java::security::cert::X509Certificate* cert);
 	static bool issuerOf(::java::security::cert::X509Certificate* cert);

@@ -1,5 +1,4 @@
 #include <java/io/BufferedOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
@@ -13,35 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _BufferedOutputStream_FieldInfo_[] = {
-	{"buf", "[B", nullptr, $PROTECTED, $field(BufferedOutputStream, buf)},
-	{"count", "I", nullptr, $PROTECTED, $field(BufferedOutputStream, count)},
-	{}
-};
-
-$MethodInfo _BufferedOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(BufferedOutputStream, init$, void, $OutputStream*)},
-	{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(BufferedOutputStream, init$, void, $OutputStream*, int32_t)},
-	{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedOutputStream, flush, void), "java.io.IOException"},
-	{"flushBuffer", "()V", nullptr, $PRIVATE, $method(BufferedOutputStream, flushBuffer, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _BufferedOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.BufferedOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_BufferedOutputStream_FieldInfo_,
-	_BufferedOutputStream_MethodInfo_
-};
-
-$Object* allocate$BufferedOutputStream($Class* clazz) {
-	return $of($alloc(BufferedOutputStream));
-}
 
 void BufferedOutputStream::init$($OutputStream* out) {
 	BufferedOutputStream::init$(out, 8192);
@@ -67,7 +37,7 @@ void BufferedOutputStream::write(int32_t b) {
 		if (this->count >= $nc(this->buf)->length) {
 			flushBuffer();
 		}
-		$nc(this->buf)->set(this->count++, (int8_t)b);
+		this->buf->set(this->count++, (int8_t)b);
 	}
 }
 
@@ -78,7 +48,7 @@ void BufferedOutputStream::write($bytes* b, int32_t off, int32_t len) {
 			$nc(this->out)->write(b, off, len);
 			return;
 		}
-		if (len > $nc(this->buf)->length - this->count) {
+		if (len > this->buf->length - this->count) {
 			flushBuffer();
 		}
 		$System::arraycopy(b, off, this->buf, this->count, len);
@@ -97,7 +67,31 @@ BufferedOutputStream::BufferedOutputStream() {
 }
 
 $Class* BufferedOutputStream::load$($String* name, bool initialize) {
-	$loadClass(BufferedOutputStream, name, initialize, &_BufferedOutputStream_ClassInfo_, allocate$BufferedOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[B", nullptr, $PROTECTED, $field(BufferedOutputStream, buf)},
+		{"count", "I", nullptr, $PROTECTED, $field(BufferedOutputStream, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(BufferedOutputStream, init$, void, $OutputStream*)},
+		{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(BufferedOutputStream, init$, void, $OutputStream*, int32_t)},
+		{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedOutputStream, flush, void), "java.io.IOException"},
+		{"flushBuffer", "()V", nullptr, $PRIVATE, $method(BufferedOutputStream, flushBuffer, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.BufferedOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufferedOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BufferedOutputStream));
+	});
 	return class$;
 }
 

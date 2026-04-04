@@ -1,5 +1,4 @@
 #include <sun/security/provider/FileInputStreamPool.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/IOException.h>
@@ -30,43 +29,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _FileInputStreamPool_FieldInfo_[] = {
-	{"pool", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/io/File;Lsun/security/provider/FileInputStreamPool$StreamRef;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FileInputStreamPool, pool)},
-	{"refQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Lsun/security/provider/FileInputStreamPool$UnclosableInputStream;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FileInputStreamPool, refQueue)},
-	{}
-};
-
-$MethodInfo _FileInputStreamPool_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FileInputStreamPool, init$, void)},
-	{"getInputStream", "(Ljava/io/File;)Ljava/io/InputStream;", nullptr, $STATIC, $staticMethod(FileInputStreamPool, getInputStream, $InputStream*, $File*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FileInputStreamPool_InnerClassesInfo_[] = {
-	{"sun.security.provider.FileInputStreamPool$UnclosableInputStream", "sun.security.provider.FileInputStreamPool", "UnclosableInputStream", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.provider.FileInputStreamPool$StreamRef", "sun.security.provider.FileInputStreamPool", "StreamRef", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FileInputStreamPool_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.FileInputStreamPool",
-	"java.lang.Object",
-	nullptr,
-	_FileInputStreamPool_FieldInfo_,
-	_FileInputStreamPool_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileInputStreamPool_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.FileInputStreamPool$UnclosableInputStream,sun.security.provider.FileInputStreamPool$StreamRef"
-};
-
-$Object* allocate$FileInputStreamPool($Class* clazz) {
-	return $of($alloc(FileInputStreamPool));
-}
-
 $ConcurrentMap* FileInputStreamPool::pool = nullptr;
 $ReferenceQueue* FileInputStreamPool::refQueue = nullptr;
 
@@ -75,21 +37,21 @@ void FileInputStreamPool::init$() {
 
 $InputStream* FileInputStreamPool::getInputStream($File* file) {
 	$init(FileInputStreamPool);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileInputStreamPool$StreamRef, oldRref, nullptr);
-	while (($assign(oldRref, $cast($FileInputStreamPool$StreamRef, $nc(FileInputStreamPool::refQueue)->poll()))) != nullptr) {
-		$nc(FileInputStreamPool::pool)->remove($nc(oldRref)->file, oldRref);
+	while (($assign(oldRref, $cast($FileInputStreamPool$StreamRef, FileInputStreamPool::refQueue->poll()))) != nullptr) {
+		FileInputStreamPool::pool->remove($nc(oldRref)->file, oldRref);
 	}
 	$var($File, cfile, $nc(file)->getCanonicalFile());
-	$assign(oldRref, $cast($FileInputStreamPool$StreamRef, $nc(FileInputStreamPool::pool)->get(cfile)));
-	$var($FileInputStreamPool$UnclosableInputStream, oldStream, (oldRref == nullptr) ? ($FileInputStreamPool$UnclosableInputStream*)nullptr : $cast($FileInputStreamPool$UnclosableInputStream, $nc(oldRref)->get()));
+	$assign(oldRref, $cast($FileInputStreamPool$StreamRef, FileInputStreamPool::pool->get(cfile)));
+	$var($FileInputStreamPool$UnclosableInputStream, oldStream, (oldRref == nullptr) ? ($FileInputStreamPool$UnclosableInputStream*)nullptr : $cast($FileInputStreamPool$UnclosableInputStream, oldRref->get()));
 	$var($FileInputStreamPool$StreamRef, newRef, nullptr);
 	$var($FileInputStreamPool$UnclosableInputStream, newStream, nullptr);
 	while (true) {
 		if (oldStream != nullptr) {
 			if (newStream != nullptr) {
 				try {
-					$nc($(newStream->getWrappedStream()))->close();
+					$$nc(newStream->getWrappedStream())->close();
 				} catch ($IOException& ignore) {
 				}
 			}
@@ -100,9 +62,9 @@ $InputStream* FileInputStreamPool::getInputStream($File* file) {
 				$assign(newRef, $new($FileInputStreamPool$StreamRef, cfile, newStream, FileInputStreamPool::refQueue));
 			}
 			if (oldRref == nullptr) {
-				$assign(oldRref, $cast($FileInputStreamPool$StreamRef, $nc(FileInputStreamPool::pool)->putIfAbsent(cfile, newRef)));
+				$assign(oldRref, $cast($FileInputStreamPool$StreamRef, FileInputStreamPool::pool->putIfAbsent(cfile, newRef)));
 			} else {
-				$assign(oldRref, $nc(FileInputStreamPool::pool)->replace(cfile, oldRref, newRef) ? ($FileInputStreamPool$StreamRef*)nullptr : $cast($FileInputStreamPool$StreamRef, $nc(FileInputStreamPool::pool)->get(cfile)));
+				$assign(oldRref, FileInputStreamPool::pool->replace(cfile, oldRref, newRef) ? ($FileInputStreamPool$StreamRef*)nullptr : $cast($FileInputStreamPool$StreamRef, FileInputStreamPool::pool->get(cfile)));
 			}
 			if (oldRref == nullptr) {
 				return newStream;
@@ -113,7 +75,7 @@ $InputStream* FileInputStreamPool::getInputStream($File* file) {
 	}
 }
 
-void clinit$FileInputStreamPool($Class* class$) {
+void FileInputStreamPool::clinit$($Class* clazz) {
 	$assignStatic(FileInputStreamPool::pool, $new($ConcurrentHashMap));
 	$assignStatic(FileInputStreamPool::refQueue, $new($ReferenceQueue));
 }
@@ -122,7 +84,38 @@ FileInputStreamPool::FileInputStreamPool() {
 }
 
 $Class* FileInputStreamPool::load$($String* name, bool initialize) {
-	$loadClass(FileInputStreamPool, name, initialize, &_FileInputStreamPool_ClassInfo_, clinit$FileInputStreamPool, allocate$FileInputStreamPool);
+	$FieldInfo fieldInfos$$[] = {
+		{"pool", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/io/File;Lsun/security/provider/FileInputStreamPool$StreamRef;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FileInputStreamPool, pool)},
+		{"refQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Lsun/security/provider/FileInputStreamPool$UnclosableInputStream;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FileInputStreamPool, refQueue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FileInputStreamPool, init$, void)},
+		{"getInputStream", "(Ljava/io/File;)Ljava/io/InputStream;", nullptr, $STATIC, $staticMethod(FileInputStreamPool, getInputStream, $InputStream*, $File*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.FileInputStreamPool$UnclosableInputStream", "sun.security.provider.FileInputStreamPool", "UnclosableInputStream", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.provider.FileInputStreamPool$StreamRef", "sun.security.provider.FileInputStreamPool", "StreamRef", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.FileInputStreamPool",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.FileInputStreamPool$UnclosableInputStream,sun.security.provider.FileInputStreamPool$StreamRef"
+	};
+	$loadClass(FileInputStreamPool, name, initialize, &classInfo$$, FileInputStreamPool::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileInputStreamPool);
+	});
 	return class$;
 }
 

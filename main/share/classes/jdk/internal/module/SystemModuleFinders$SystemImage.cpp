@@ -1,5 +1,4 @@
 #include <jdk/internal/module/SystemModuleFinders$SystemImage.h>
-
 #include <jdk/internal/jimage/ImageReader.h>
 #include <jdk/internal/jimage/ImageReaderFactory.h>
 #include <jdk/internal/module/SystemModuleFinders.h>
@@ -18,42 +17,6 @@ namespace jdk {
 	namespace internal {
 		namespace module {
 
-$FieldInfo _SystemModuleFinders$SystemImage_FieldInfo_[] = {
-	{"READER", "Ljdk/internal/jimage/ImageReader;", nullptr, $STATIC | $FINAL, $staticField(SystemModuleFinders$SystemImage, READER)},
-	{}
-};
-
-$MethodInfo _SystemModuleFinders$SystemImage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemImage, init$, void)},
-	{"reader", "()Ljdk/internal/jimage/ImageReader;", nullptr, $STATIC, $staticMethod(SystemModuleFinders$SystemImage, reader, $ImageReader*)},
-	{}
-};
-
-$InnerClassInfo _SystemModuleFinders$SystemImage_InnerClassesInfo_[] = {
-	{"jdk.internal.module.SystemModuleFinders$SystemImage", "jdk.internal.module.SystemModuleFinders", "SystemImage", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SystemModuleFinders$SystemImage_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.SystemModuleFinders$SystemImage",
-	"java.lang.Object",
-	nullptr,
-	_SystemModuleFinders$SystemImage_FieldInfo_,
-	_SystemModuleFinders$SystemImage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SystemModuleFinders$SystemImage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.SystemModuleFinders"
-};
-
-$Object* allocate$SystemModuleFinders$SystemImage($Class* clazz) {
-	return $of($alloc(SystemModuleFinders$SystemImage));
-}
-
 $ImageReader* SystemModuleFinders$SystemImage::READER = nullptr;
 
 void SystemModuleFinders$SystemImage::init$() {
@@ -64,7 +27,7 @@ $ImageReader* SystemModuleFinders$SystemImage::reader() {
 	return SystemModuleFinders$SystemImage::READER;
 }
 
-void clinit$SystemModuleFinders$SystemImage($Class* class$) {
+void SystemModuleFinders$SystemImage::clinit$($Class* clazz) {
 	$assignStatic(SystemModuleFinders$SystemImage::READER, $ImageReaderFactory::getImageReader());
 }
 
@@ -72,7 +35,37 @@ SystemModuleFinders$SystemImage::SystemModuleFinders$SystemImage() {
 }
 
 $Class* SystemModuleFinders$SystemImage::load$($String* name, bool initialize) {
-	$loadClass(SystemModuleFinders$SystemImage, name, initialize, &_SystemModuleFinders$SystemImage_ClassInfo_, clinit$SystemModuleFinders$SystemImage, allocate$SystemModuleFinders$SystemImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"READER", "Ljdk/internal/jimage/ImageReader;", nullptr, $STATIC | $FINAL, $staticField(SystemModuleFinders$SystemImage, READER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemImage, init$, void)},
+		{"reader", "()Ljdk/internal/jimage/ImageReader;", nullptr, $STATIC, $staticMethod(SystemModuleFinders$SystemImage, reader, $ImageReader*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.SystemModuleFinders$SystemImage", "jdk.internal.module.SystemModuleFinders", "SystemImage", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.SystemModuleFinders$SystemImage",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.SystemModuleFinders"
+	};
+	$loadClass(SystemModuleFinders$SystemImage, name, initialize, &classInfo$$, SystemModuleFinders$SystemImage::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemModuleFinders$SystemImage);
+	});
 	return class$;
 }
 

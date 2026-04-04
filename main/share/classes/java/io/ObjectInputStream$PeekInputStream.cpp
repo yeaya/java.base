@@ -1,5 +1,4 @@
 #include <java/io/ObjectInputStream$PeekInputStream.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
@@ -14,51 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _ObjectInputStream$PeekInputStream_FieldInfo_[] = {
-	{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$PeekInputStream, in)},
-	{"peekb", "I", nullptr, $PRIVATE, $field(ObjectInputStream$PeekInputStream, peekb)},
-	{"totalBytesRead", "J", nullptr, $PRIVATE, $field(ObjectInputStream$PeekInputStream, totalBytesRead)},
-	{}
-};
-
-$MethodInfo _ObjectInputStream$PeekInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(ObjectInputStream$PeekInputStream, init$, void, $InputStream*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, close, void), "java.io.IOException"},
-	{"getBytesRead", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, getBytesRead, int64_t)},
-	{"peek", "()I", nullptr, 0, $virtualMethod(ObjectInputStream$PeekInputStream, peek, int32_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readFully", "([BII)V", nullptr, 0, $virtualMethod(ObjectInputStream$PeekInputStream, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ObjectInputStream$PeekInputStream_InnerClassesInfo_[] = {
-	{"java.io.ObjectInputStream$PeekInputStream", "java.io.ObjectInputStream", "PeekInputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectInputStream$PeekInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectInputStream$PeekInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_ObjectInputStream$PeekInputStream_FieldInfo_,
-	_ObjectInputStream$PeekInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectInputStream$PeekInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectInputStream"
-};
-
-$Object* allocate$ObjectInputStream$PeekInputStream($Class* clazz) {
-	return $of($alloc(ObjectInputStream$PeekInputStream));
-}
 
 void ObjectInputStream$PeekInputStream::init$($InputStream* in) {
 	$InputStream::init$();
@@ -148,7 +102,46 @@ ObjectInputStream$PeekInputStream::ObjectInputStream$PeekInputStream() {
 }
 
 $Class* ObjectInputStream$PeekInputStream::load$($String* name, bool initialize) {
-	$loadClass(ObjectInputStream$PeekInputStream, name, initialize, &_ObjectInputStream$PeekInputStream_ClassInfo_, allocate$ObjectInputStream$PeekInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$PeekInputStream, in)},
+		{"peekb", "I", nullptr, $PRIVATE, $field(ObjectInputStream$PeekInputStream, peekb)},
+		{"totalBytesRead", "J", nullptr, $PRIVATE, $field(ObjectInputStream$PeekInputStream, totalBytesRead)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(ObjectInputStream$PeekInputStream, init$, void, $InputStream*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, close, void), "java.io.IOException"},
+		{"getBytesRead", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, getBytesRead, int64_t)},
+		{"peek", "()I", nullptr, 0, $virtualMethod(ObjectInputStream$PeekInputStream, peek, int32_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readFully", "([BII)V", nullptr, 0, $virtualMethod(ObjectInputStream$PeekInputStream, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectInputStream$PeekInputStream", "java.io.ObjectInputStream", "PeekInputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectInputStream$PeekInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectInputStream"
+	};
+	$loadClass(ObjectInputStream$PeekInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectInputStream$PeekInputStream);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Bug6609740.h>
-
 #include <java/lang/Number.h>
 #include <java/text/DecimalFormat.h>
 #include <java/text/NumberFormat.h>
@@ -20,32 +19,11 @@ using $NumberFormat = ::java::text::NumberFormat;
 using $ParseException = ::java::text::ParseException;
 using $Locale = ::java::util::Locale;
 
-$MethodInfo _Bug6609740_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6609740, init$, void)},
-	{"formatOnPattern", "(Ljava/text/NumberFormat;Ljava/lang/String;DLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6609740, formatOnPattern, void, $NumberFormat*, $String*, double, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6609740, main, void, $StringArray*)},
-	{"parseOnPattern", "(Ljava/text/NumberFormat;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Number;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6609740, parseOnPattern, void, $NumberFormat*, $String*, $String*, $Number*)},
-	{}
-};
-
-$ClassInfo _Bug6609740_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug6609740",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Bug6609740_MethodInfo_
-};
-
-$Object* allocate$Bug6609740($Class* clazz) {
-	return $of($alloc(Bug6609740));
-}
-
 void Bug6609740::init$() {
 }
 
 void Bug6609740::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double dNumber = -3456.349347;
 	$var($String, fOutput, "(3,456.35)"_s);
 	$var($StringArray, validCases, $new($StringArray, {
@@ -57,9 +35,7 @@ void Bug6609740::main($StringArray* args) {
 	$var($NumberFormat, nf, $NumberFormat::getInstance($Locale::US));
 	{
 		$var($StringArray, arr$, validCases);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, pattern, arr$->get(i$));
 			{
 				formatOnPattern(nf, pattern, dNumber, fOutput);
@@ -70,9 +46,7 @@ void Bug6609740::main($StringArray* args) {
 	$var($Number, pOutput, $Double::valueOf(-3456.35));
 	{
 		$var($StringArray, arr$, validCases);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, pattern, arr$->get(i$));
 			{
 				parseOnPattern(nf, pattern, parseString, pOutput);
@@ -85,13 +59,11 @@ void Bug6609740::main($StringArray* args) {
 	}));
 	{
 		$var($StringArray, arr$, invalidParseCases);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, pattern, arr$->get(i$));
 			{
 				if ($instanceOf($DecimalFormat, nf)) {
-					$nc(($cast($DecimalFormat, nf)))->applyPattern(pattern);
+					$cast($DecimalFormat, nf)->applyPattern(pattern);
 				}
 				try {
 					$nc(nf)->parse(parseString);
@@ -111,28 +83,24 @@ void Bug6609740::main($StringArray* args) {
 	}));
 	{
 		$var($StringArray, arr$, invalidPatterns);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, pattern, arr$->get(i$));
-			{
-				if ($instanceOf($DecimalFormat, nf)) {
-					try {
-						$nc(($cast($DecimalFormat, nf)))->applyPattern(pattern);
-					} catch ($IllegalArgumentException& ex) {
-						continue;
-					}
-					$throwNew($RuntimeException, $$str({"[FAILED: Should throw IllegalArgumentException for invalid pattern: "_s, pattern, "]"_s}));
+			if ($instanceOf($DecimalFormat, nf)) {
+				try {
+					$cast($DecimalFormat, nf)->applyPattern(pattern);
+				} catch ($IllegalArgumentException& ex) {
+					continue;
 				}
+				$throwNew($RuntimeException, $$str({"[FAILED: Should throw IllegalArgumentException for invalid pattern: "_s, pattern, "]"_s}));
 			}
 		}
 	}
 }
 
 void Bug6609740::formatOnPattern($NumberFormat* nf, $String* pattern, double number, $String* expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DecimalFormat, nf)) {
-		$nc(($cast($DecimalFormat, nf)))->applyPattern(pattern);
+		$cast($DecimalFormat, nf)->applyPattern(pattern);
 	}
 	$var($String, formatted, $nc(nf)->format(number));
 	if (!$nc(formatted)->equals(expected)) {
@@ -141,9 +109,9 @@ void Bug6609740::formatOnPattern($NumberFormat* nf, $String* pattern, double num
 }
 
 void Bug6609740::parseOnPattern($NumberFormat* nf, $String* pattern, $String* parseString, $Number* expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DecimalFormat, nf)) {
-		$nc(($cast($DecimalFormat, nf)))->applyPattern(pattern);
+		$cast($DecimalFormat, nf)->applyPattern(pattern);
 	}
 	try {
 		$var($Number, output, $nc(nf)->parse(parseString));
@@ -160,7 +128,24 @@ Bug6609740::Bug6609740() {
 }
 
 $Class* Bug6609740::load$($String* name, bool initialize) {
-	$loadClass(Bug6609740, name, initialize, &_Bug6609740_ClassInfo_, allocate$Bug6609740);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6609740, init$, void)},
+		{"formatOnPattern", "(Ljava/text/NumberFormat;Ljava/lang/String;DLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6609740, formatOnPattern, void, $NumberFormat*, $String*, double, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6609740, main, void, $StringArray*)},
+		{"parseOnPattern", "(Ljava/text/NumberFormat;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Number;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6609740, parseOnPattern, void, $NumberFormat*, $String*, $String*, $Number*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug6609740",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug6609740, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug6609740);
+	});
 	return class$;
 }
 

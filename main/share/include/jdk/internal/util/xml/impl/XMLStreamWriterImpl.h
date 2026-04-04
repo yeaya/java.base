@@ -82,6 +82,7 @@ class $import XMLStreamWriterImpl : public ::jdk::internal::util::xml::XMLStream
 	$class(XMLStreamWriterImpl, 0, ::jdk::internal::util::xml::XMLStreamWriter)
 public:
 	XMLStreamWriterImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::OutputStream* os);
 	void init$(::java::io::OutputStream* os, ::java::nio::charset::Charset* cs);
 	::java::nio::charset::Charset* checkCharset(::java::nio::charset::Charset* charset);

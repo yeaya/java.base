@@ -18,12 +18,15 @@ public:
 	virtual $String* getInput();
 	virtual $String* getMessage() override;
 	virtual $String* getReason();
-	static const int64_t serialVersionUID = (int64_t)0x1DABA13138E5D7FB;
+	static const int64_t serialVersionUID = (int64_t)0x1daba13138e5d7fb;
 	$String* input = nullptr;
 	int32_t index = 0;
 	URISyntaxException(const URISyntaxException& e);
 	virtual void throw$() override;
-	inline URISyntaxException* operator ->() {
+	inline URISyntaxException* operator ->() const {
+		return (URISyntaxException*)throwing$;
+	}
+	inline operator URISyntaxException*() const {
 		return (URISyntaxException*)throwing$;
 	}
 };

@@ -34,6 +34,7 @@ class $export Wildcard : public ::sun::reflect::generics::tree::TypeArgument {
 	$class(Wildcard, 0, ::sun::reflect::generics::tree::TypeArgument)
 public:
 	Wildcard();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::sun::reflect::generics::tree::FieldTypeSignature>* ubs, $Array<::sun::reflect::generics::tree::FieldTypeSignature>* lbs);
 	virtual void accept(::sun::reflect::generics::visitor::TypeTreeVisitor* v) override;
 	virtual $Array<::sun::reflect::generics::tree::FieldTypeSignature>* getLowerBounds();

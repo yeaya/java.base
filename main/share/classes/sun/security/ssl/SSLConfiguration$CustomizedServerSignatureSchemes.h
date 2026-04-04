@@ -19,6 +19,7 @@ class SSLConfiguration$CustomizedServerSignatureSchemes : public ::java::lang::O
 	$class(SSLConfiguration$CustomizedServerSignatureSchemes, 0, ::java::lang::Object)
 public:
 	SSLConfiguration$CustomizedServerSignatureSchemes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* signatureSchemes;
 };

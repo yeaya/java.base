@@ -1,5 +1,4 @@
 #include <sun/security/util/Event$Reporter.h>
-
 #include <sun/security/util/Event.h>
 #include <jcpp.h>
 
@@ -11,38 +10,33 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$MethodInfo _Event$Reporter_MethodInfo_[] = {
-	{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Event$Reporter, handle, void, $String*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _Event$Reporter_InnerClassesInfo_[] = {
-	{"sun.security.util.Event$Reporter", "sun.security.util.Event", "Reporter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Event$Reporter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.security.util.Event$Reporter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Event$Reporter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Event$Reporter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.Event"
-};
-
-$Object* allocate$Event$Reporter($Class* clazz) {
-	return $of($alloc(Event$Reporter));
-}
-
 $Class* Event$Reporter::load$($String* name, bool initialize) {
-	$loadClass(Event$Reporter, name, initialize, &_Event$Reporter_ClassInfo_, allocate$Event$Reporter);
+	$MethodInfo methodInfos$$[] = {
+		{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Event$Reporter, handle, void, $String*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.Event$Reporter", "sun.security.util.Event", "Reporter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.security.util.Event$Reporter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.Event"
+	};
+	$loadClass(Event$Reporter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Event$Reporter);
+	});
 	return class$;
 }
 

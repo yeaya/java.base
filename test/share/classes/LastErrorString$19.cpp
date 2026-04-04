@@ -1,54 +1,14 @@
 #include <LastErrorString$19.h>
-
 #include <LastErrorString$ReadOnlyRAFTest.h>
 #include <LastErrorString.h>
 #include <java/io/RandomAccessFile.h>
 #include <jcpp.h>
 
 using $LastErrorString$ReadOnlyRAFTest = ::LastErrorString$ReadOnlyRAFTest;
-using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _LastErrorString$19_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(LastErrorString$19, init$, void, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LastErrorString$19, run, void), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _LastErrorString$19_EnclosingMethodInfo_ = {
-	"LastErrorString",
-	"go",
-	"()V"
-};
-
-$InnerClassInfo _LastErrorString$19_InnerClassesInfo_[] = {
-	{"LastErrorString$19", nullptr, nullptr, 0},
-	{"LastErrorString$ReadOnlyRAFTest", "LastErrorString", "ReadOnlyRAFTest", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LastErrorString$19_ClassInfo_ = {
-	$ACC_SUPER,
-	"LastErrorString$19",
-	"LastErrorString$ReadOnlyRAFTest",
-	nullptr,
-	nullptr,
-	_LastErrorString$19_MethodInfo_,
-	nullptr,
-	&_LastErrorString$19_EnclosingMethodInfo_,
-	_LastErrorString$19_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LastErrorString"
-};
-
-$Object* allocate$LastErrorString$19($Class* clazz) {
-	return $of($alloc(LastErrorString$19));
-}
 
 void LastErrorString$19::init$($String* name) {
 	$LastErrorString$ReadOnlyRAFTest::init$(name);
@@ -62,7 +22,39 @@ LastErrorString$19::LastErrorString$19() {
 }
 
 $Class* LastErrorString$19::load$($String* name, bool initialize) {
-	$loadClass(LastErrorString$19, name, initialize, &_LastErrorString$19_ClassInfo_, allocate$LastErrorString$19);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(LastErrorString$19, init$, void, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LastErrorString$19, run, void), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"LastErrorString",
+		"go",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LastErrorString$19", nullptr, nullptr, 0},
+		{"LastErrorString$ReadOnlyRAFTest", "LastErrorString", "ReadOnlyRAFTest", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LastErrorString$19",
+		"LastErrorString$ReadOnlyRAFTest",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LastErrorString"
+	};
+	$loadClass(LastErrorString$19, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LastErrorString$19);
+	});
 	return class$;
 }
 

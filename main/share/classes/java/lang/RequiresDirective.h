@@ -32,6 +32,7 @@ public:
 	const char* flags = nullptr;
 
 	bool isEnd();
+	static RequiresDirective* cloneArray(RequiresDirective* array);
 };
 
     } // lang

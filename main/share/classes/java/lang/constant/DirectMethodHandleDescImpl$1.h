@@ -13,6 +13,7 @@ class DirectMethodHandleDescImpl$1 : public ::java::lang::Object {
 	$class(DirectMethodHandleDescImpl$1, 0, ::java::lang::Object)
 public:
 	DirectMethodHandleDescImpl$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind;
 };
 

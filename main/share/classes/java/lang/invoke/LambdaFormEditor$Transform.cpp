@@ -1,5 +1,4 @@
 #include <java/lang/invoke/LambdaFormEditor$Transform.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/LambdaForm.h>
 #include <java/lang/invoke/LambdaFormEditor$TransformKey.h>
@@ -23,48 +22,6 @@ using $Arrays = ::java::util::Arrays;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _LambdaFormEditor$Transform_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaFormEditor$Transform, $assertionsDisabled)},
-	{"packedBytes", "J", nullptr, $FINAL, $field(LambdaFormEditor$Transform, packedBytes)},
-	{"fullBytes", "[B", nullptr, $FINAL, $field(LambdaFormEditor$Transform, fullBytes)},
-	{}
-};
-
-$MethodInfo _LambdaFormEditor$Transform_MethodInfo_[] = {
-	{"<init>", "(J[BLjava/lang/invoke/LambdaForm;)V", nullptr, $PRIVATE, $method(LambdaFormEditor$Transform, init$, void, int64_t, $bytes*, $LambdaForm*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$Transform, equals, bool, Object$*)},
-	{"equals", "(Ljava/lang/invoke/LambdaFormEditor$TransformKey;)Z", nullptr, $PRIVATE, $method(LambdaFormEditor$Transform, equals, bool, $LambdaFormEditor$TransformKey*)},
-	{"equals", "(Ljava/lang/invoke/LambdaFormEditor$Transform;)Z", nullptr, $PRIVATE, $method(LambdaFormEditor$Transform, equals, bool, LambdaFormEditor$Transform*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$Transform, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$Transform, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _LambdaFormEditor$Transform_InnerClassesInfo_[] = {
-	{"java.lang.invoke.LambdaFormEditor$Transform", "java.lang.invoke.LambdaFormEditor", "Transform", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LambdaFormEditor$Transform_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.LambdaFormEditor$Transform",
-	"java.lang.ref.SoftReference",
-	nullptr,
-	_LambdaFormEditor$Transform_FieldInfo_,
-	_LambdaFormEditor$Transform_MethodInfo_,
-	"Ljava/lang/ref/SoftReference<Ljava/lang/invoke/LambdaForm;>;",
-	nullptr,
-	_LambdaFormEditor$Transform_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.LambdaFormEditor"
-};
-
-$Object* allocate$LambdaFormEditor$Transform($Class* clazz) {
-	return $of($alloc(LambdaFormEditor$Transform));
-}
 
 bool LambdaFormEditor$Transform::$assertionsDisabled = false;
 
@@ -100,18 +57,18 @@ int32_t LambdaFormEditor$Transform::hashCode() {
 }
 
 $String* LambdaFormEditor$Transform::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	buf->append($($$new($LambdaFormEditor$TransformKey, this->packedBytes, this->fullBytes)->toString()));
 	$var($LambdaForm, result, $cast($LambdaForm, get()));
 	if (result != nullptr) {
 		buf->append(" result="_s);
-		buf->append($of(result));
+		buf->append(result);
 	}
 	return buf->toString();
 }
 
-void clinit$LambdaFormEditor$Transform($Class* class$) {
+void LambdaFormEditor$Transform::clinit$($Class* clazz) {
 	$load($LambdaFormEditor);
 	LambdaFormEditor$Transform::$assertionsDisabled = !$LambdaFormEditor::class$->desiredAssertionStatus();
 }
@@ -120,7 +77,43 @@ LambdaFormEditor$Transform::LambdaFormEditor$Transform() {
 }
 
 $Class* LambdaFormEditor$Transform::load$($String* name, bool initialize) {
-	$loadClass(LambdaFormEditor$Transform, name, initialize, &_LambdaFormEditor$Transform_ClassInfo_, clinit$LambdaFormEditor$Transform, allocate$LambdaFormEditor$Transform);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaFormEditor$Transform, $assertionsDisabled)},
+		{"packedBytes", "J", nullptr, $FINAL, $field(LambdaFormEditor$Transform, packedBytes)},
+		{"fullBytes", "[B", nullptr, $FINAL, $field(LambdaFormEditor$Transform, fullBytes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J[BLjava/lang/invoke/LambdaForm;)V", nullptr, $PRIVATE, $method(LambdaFormEditor$Transform, init$, void, int64_t, $bytes*, $LambdaForm*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$Transform, equals, bool, Object$*)},
+		{"equals", "(Ljava/lang/invoke/LambdaFormEditor$TransformKey;)Z", nullptr, $PRIVATE, $method(LambdaFormEditor$Transform, equals, bool, $LambdaFormEditor$TransformKey*)},
+		{"equals", "(Ljava/lang/invoke/LambdaFormEditor$Transform;)Z", nullptr, $PRIVATE, $method(LambdaFormEditor$Transform, equals, bool, LambdaFormEditor$Transform*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$Transform, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$Transform, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.LambdaFormEditor$Transform", "java.lang.invoke.LambdaFormEditor", "Transform", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.LambdaFormEditor$Transform",
+		"java.lang.ref.SoftReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/SoftReference<Ljava/lang/invoke/LambdaForm;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.LambdaFormEditor"
+	};
+	$loadClass(LambdaFormEditor$Transform, name, initialize, &classInfo$$, LambdaFormEditor$Transform::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaFormEditor$Transform);
+	});
 	return class$;
 }
 

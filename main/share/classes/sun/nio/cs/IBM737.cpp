@@ -1,5 +1,4 @@
 #include <sun/nio/cs/IBM737.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -23,44 +22,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _IBM737_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IBM737, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(IBM737, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IBM737, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(IBM737, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(IBM737, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _IBM737_InnerClassesInfo_[] = {
-	{"sun.nio.cs.IBM737$Holder", "sun.nio.cs.IBM737", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _IBM737_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.IBM737",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_IBM737_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IBM737_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.IBM737$Holder"
-};
-
-$Object* allocate$IBM737($Class* clazz) {
-	return $of($alloc(IBM737));
-}
 
 int32_t IBM737::hashCode() {
 	 return this->$Charset::hashCode();
@@ -108,7 +69,40 @@ IBM737::IBM737() {
 }
 
 $Class* IBM737::load$($String* name, bool initialize) {
-	$loadClass(IBM737, name, initialize, &_IBM737_ClassInfo_, allocate$IBM737);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IBM737, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(IBM737, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IBM737, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(IBM737, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(IBM737, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.IBM737$Holder", "sun.nio.cs.IBM737", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.IBM737",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.IBM737$Holder"
+	};
+	$loadClass(IBM737, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IBM737));
+	});
 	return class$;
 }
 

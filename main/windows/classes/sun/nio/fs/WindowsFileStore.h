@@ -32,6 +32,7 @@ class WindowsFileStore : public ::java::nio::file::FileStore {
 	$class(WindowsFileStore, 0, ::java::nio::file::FileStore)
 public:
 	WindowsFileStore();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* root);
 	static ::sun::nio::fs::WindowsFileStore* create($String* root, bool ignoreNotReady);
 	static ::sun::nio::fs::WindowsFileStore* create(::sun::nio::fs::WindowsPath* file);

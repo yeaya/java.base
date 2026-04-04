@@ -15,6 +15,7 @@ class $import ProcessBuilder$NullOutputStream : public ::java::io::OutputStream 
 	$class(ProcessBuilder$NullOutputStream, 0, ::java::io::OutputStream)
 public:
 	ProcessBuilder$NullOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	using ::java::io::OutputStream::write;
 	virtual void write(int32_t b) override;

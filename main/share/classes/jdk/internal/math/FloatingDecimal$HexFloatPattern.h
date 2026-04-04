@@ -24,6 +24,7 @@ class $export FloatingDecimal$HexFloatPattern : public ::java::lang::Object {
 	$class(FloatingDecimal$HexFloatPattern, 0, ::java::lang::Object)
 public:
 	FloatingDecimal$HexFloatPattern();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::regex::Pattern* VALUE;
 };

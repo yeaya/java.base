@@ -51,6 +51,7 @@ class ExplodedImage : public ::jdk::internal::jrtfs::SystemImage {
 	$class(ExplodedImage, 0, ::jdk::internal::jrtfs::SystemImage)
 public:
 	ExplodedImage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::Path* modulesDir);
 	virtual void close() override;
 	virtual ::jdk::internal::jimage::ImageReader$Node* findModulesNode($String* str);

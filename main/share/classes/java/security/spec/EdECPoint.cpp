@@ -1,5 +1,4 @@
 #include <java/security/spec/EdECPoint.h>
-
 #include <java/math/BigInteger.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
@@ -14,34 +13,8 @@ namespace java {
 	namespace security {
 		namespace spec {
 
-$FieldInfo _EdECPoint_FieldInfo_[] = {
-	{"xOdd", "Z", nullptr, $PRIVATE | $FINAL, $field(EdECPoint, xOdd)},
-	{"y", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(EdECPoint, y)},
-	{}
-};
-
-$MethodInfo _EdECPoint_MethodInfo_[] = {
-	{"<init>", "(ZLjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(EdECPoint, init$, void, bool, $BigInteger*)},
-	{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(EdECPoint, getY, $BigInteger*)},
-	{"isXOdd", "()Z", nullptr, $PUBLIC, $method(EdECPoint, isXOdd, bool)},
-	{}
-};
-
-$ClassInfo _EdECPoint_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.security.spec.EdECPoint",
-	"java.lang.Object",
-	nullptr,
-	_EdECPoint_FieldInfo_,
-	_EdECPoint_MethodInfo_
-};
-
-$Object* allocate$EdECPoint($Class* clazz) {
-	return $of($alloc(EdECPoint));
-}
-
 void EdECPoint::init$(bool xOdd, $BigInteger* y) {
-	$Objects::requireNonNull($of(y), "y must not be null"_s);
+	$Objects::requireNonNull(y, "y must not be null"_s);
 	this->xOdd = xOdd;
 	$set(this, y, y);
 }
@@ -58,7 +31,28 @@ EdECPoint::EdECPoint() {
 }
 
 $Class* EdECPoint::load$($String* name, bool initialize) {
-	$loadClass(EdECPoint, name, initialize, &_EdECPoint_ClassInfo_, allocate$EdECPoint);
+	$FieldInfo fieldInfos$$[] = {
+		{"xOdd", "Z", nullptr, $PRIVATE | $FINAL, $field(EdECPoint, xOdd)},
+		{"y", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(EdECPoint, y)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(EdECPoint, init$, void, bool, $BigInteger*)},
+		{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(EdECPoint, getY, $BigInteger*)},
+		{"isXOdd", "()Z", nullptr, $PUBLIC, $method(EdECPoint, isXOdd, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.security.spec.EdECPoint",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EdECPoint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EdECPoint);
+	});
 	return class$;
 }
 

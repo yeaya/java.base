@@ -159,7 +159,7 @@ public:
 	virtual ::java::time::ZonedDateTime* withZoneSameLocal(::java::time::ZoneId* zone) override;
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0xA91C85AB777AC83E;
+	static const int64_t serialVersionUID = (int64_t)0xa91c85ab777ac83e;
 	::java::time::LocalDateTime* dateTime = nullptr;
 	::java::time::ZoneOffset* offset = nullptr;
 	::java::time::ZoneId* zone = nullptr;

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/atomic/AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalAccessException.h>
@@ -7,7 +6,6 @@
 #include <java/lang/reflect/Modifier.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/concurrent/atomic/AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1.h>
 #include <java/util/concurrent/atomic/AtomicIntegerFieldUpdater.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -32,7 +30,6 @@ using $Field = ::java::lang::reflect::Field;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $AtomicIntegerFieldUpdater = ::java::util::concurrent::atomic::AtomicIntegerFieldUpdater;
 using $AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1 = ::java::util::concurrent::atomic::AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
@@ -43,71 +40,16 @@ namespace java {
 		namespace concurrent {
 			namespace atomic {
 
-$FieldInfo _AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl_FieldInfo_[] = {
-	{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, U)},
-	{"offset", "J", nullptr, $PRIVATE | $FINAL, $field(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, offset)},
-	{"cclass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, cclass)},
-	{"tclass", "Ljava/lang/Class;", "Ljava/lang/Class<TT;>;", $PRIVATE | $FINAL, $field(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, tclass)},
-	{}
-};
-
-$MethodInfo _AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/Class<*>;)V", 0, $method(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, init$, void, $Class*, $String*, $Class*)},
-	{"accessCheck", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, accessCheck, void, Object$*)},
-	{"addAndGet", "(Ljava/lang/Object;I)I", "(TT;I)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, addAndGet, int32_t, Object$*, int32_t)},
-	{"compareAndSet", "(Ljava/lang/Object;II)Z", "(TT;II)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, compareAndSet, bool, Object$*, int32_t, int32_t)},
-	{"decrementAndGet", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, decrementAndGet, int32_t, Object$*)},
-	{"get", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, get, int32_t, Object$*)},
-	{"getAndAdd", "(Ljava/lang/Object;I)I", "(TT;I)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, getAndAdd, int32_t, Object$*, int32_t)},
-	{"getAndDecrement", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, getAndDecrement, int32_t, Object$*)},
-	{"getAndIncrement", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, getAndIncrement, int32_t, Object$*)},
-	{"getAndSet", "(Ljava/lang/Object;I)I", "(TT;I)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, getAndSet, int32_t, Object$*, int32_t)},
-	{"incrementAndGet", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, incrementAndGet, int32_t, Object$*)},
-	{"isAncestor", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, isAncestor, bool, $ClassLoader*, $ClassLoader*)},
-	{"isSamePackage", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, isSamePackage, bool, $Class*, $Class*)},
-	{"lazySet", "(Ljava/lang/Object;I)V", "(TT;I)V", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, lazySet, void, Object$*, int32_t)},
-	{"set", "(Ljava/lang/Object;I)V", "(TT;I)V", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, set, void, Object$*, int32_t)},
-	{"throwAccessCheckException", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, throwAccessCheckException, void, Object$*)},
-	{"weakCompareAndSet", "(Ljava/lang/Object;II)Z", "(TT;II)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, weakCompareAndSet, bool, Object$*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl_InnerClassesInfo_[] = {
-	{"java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl", "java.util.concurrent.atomic.AtomicIntegerFieldUpdater", "AtomicIntegerFieldUpdaterImpl", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl",
-	"java.util.concurrent.atomic.AtomicIntegerFieldUpdater",
-	nullptr,
-	_AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl_FieldInfo_,
-	_AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater<TT;>;",
-	nullptr,
-	_AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.atomic.AtomicIntegerFieldUpdater"
-};
-
-$Object* allocate$AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl($Class* clazz) {
-	return $of($alloc(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl));
-}
-
 $Unsafe* AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::U = nullptr;
 
 void AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::init$($Class* tclass, $String* fieldName, $Class* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$AtomicIntegerFieldUpdater::init$();
 	$var($Field, field, nullptr);
 	int32_t modifiers = 0;
 	try {
-		$assign(field, $cast($Field, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1, this, tclass, fieldName)))));
+		$assign(field, $cast($Field, $AccessController::doPrivileged($$new($AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1, this, tclass, fieldName))));
 		modifiers = $nc(field)->getModifiers();
 		$ReflectUtil::ensureMemberAccess(caller, tclass, nullptr, modifiers);
 		$var($ClassLoader, cl, $nc(tclass)->getClassLoader());
@@ -116,11 +58,10 @@ void AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::init$($Class* tcla
 			$ReflectUtil::checkPackageAccess(tclass);
 		}
 	} catch ($PrivilegedActionException& pae) {
-		$throwNew($RuntimeException, $(static_cast<$Throwable*>(pae->getException())));
+		$throwNew($RuntimeException, $(pae->getException()));
 	} catch ($Exception& ex) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
+		$throwNew($RuntimeException, ex);
 	}
-	$init($Integer);
 	if ($nc(field)->getType() != $Integer::TYPE) {
 		$throwNew($IllegalArgumentException, "Must be integer type"_s);
 	}
@@ -164,14 +105,18 @@ void AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::accessCheck(Object
 }
 
 void AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::throwAccessCheckException(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cclass == this->tclass) {
 		$throwNew($ClassCastException);
 	} else {
-		$var($String, var$2, $$str({"Class "_s, $($nc(this->cclass)->getName()), " can not access a protected member of class "_s}));
-		$var($String, var$1, $$concat(var$2, $($nc(this->tclass)->getName())));
-		$var($String, var$0, $$concat(var$1, " using an instance of "_s));
-		$throwNew($RuntimeException, static_cast<$Throwable*>($$new($IllegalAccessException, $$concat(var$0, $($nc($of(obj))->getClass()->getName())))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Class "_s);
+		var$0->append($($nc(this->cclass)->getName()));
+		var$0->append(" can not access a protected member of class "_s);
+		var$0->append($($nc(this->tclass)->getName()));
+		var$0->append(" using an instance of "_s);
+		var$0->append($($nc($of(obj))->getClass()->getName()));
+		$throwNew($RuntimeException, $$new($IllegalAccessException, $$str(var$0)));
 	}
 }
 
@@ -230,7 +175,7 @@ int32_t AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::addAndGet(Objec
 	return getAndAdd(obj, delta) + delta;
 }
 
-void clinit$AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl($Class* class$) {
+void AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::clinit$($Class* clazz) {
 	$assignStatic(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::U, $Unsafe::getUnsafe());
 }
 
@@ -238,7 +183,56 @@ AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::AtomicIntegerFieldUpdat
 }
 
 $Class* AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::load$($String* name, bool initialize) {
-	$loadClass(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, name, initialize, &_AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl_ClassInfo_, clinit$AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, allocate$AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, U)},
+		{"offset", "J", nullptr, $PRIVATE | $FINAL, $field(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, offset)},
+		{"cclass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, cclass)},
+		{"tclass", "Ljava/lang/Class;", "Ljava/lang/Class<TT;>;", $PRIVATE | $FINAL, $field(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, tclass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/Class<*>;)V", 0, $method(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, init$, void, $Class*, $String*, $Class*)},
+		{"accessCheck", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, accessCheck, void, Object$*)},
+		{"addAndGet", "(Ljava/lang/Object;I)I", "(TT;I)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, addAndGet, int32_t, Object$*, int32_t)},
+		{"compareAndSet", "(Ljava/lang/Object;II)Z", "(TT;II)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, compareAndSet, bool, Object$*, int32_t, int32_t)},
+		{"decrementAndGet", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, decrementAndGet, int32_t, Object$*)},
+		{"get", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, get, int32_t, Object$*)},
+		{"getAndAdd", "(Ljava/lang/Object;I)I", "(TT;I)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, getAndAdd, int32_t, Object$*, int32_t)},
+		{"getAndDecrement", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, getAndDecrement, int32_t, Object$*)},
+		{"getAndIncrement", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, getAndIncrement, int32_t, Object$*)},
+		{"getAndSet", "(Ljava/lang/Object;I)I", "(TT;I)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, getAndSet, int32_t, Object$*, int32_t)},
+		{"incrementAndGet", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, incrementAndGet, int32_t, Object$*)},
+		{"isAncestor", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, isAncestor, bool, $ClassLoader*, $ClassLoader*)},
+		{"isSamePackage", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, isSamePackage, bool, $Class*, $Class*)},
+		{"lazySet", "(Ljava/lang/Object;I)V", "(TT;I)V", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, lazySet, void, Object$*, int32_t)},
+		{"set", "(Ljava/lang/Object;I)V", "(TT;I)V", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, set, void, Object$*, int32_t)},
+		{"throwAccessCheckException", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, throwAccessCheckException, void, Object$*)},
+		{"weakCompareAndSet", "(Ljava/lang/Object;II)Z", "(TT;II)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, weakCompareAndSet, bool, Object$*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl", "java.util.concurrent.atomic.AtomicIntegerFieldUpdater", "AtomicIntegerFieldUpdaterImpl", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl",
+		"java.util.concurrent.atomic.AtomicIntegerFieldUpdater",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.atomic.AtomicIntegerFieldUpdater"
+	};
+	$loadClass(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, name, initialize, &classInfo$$, AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <T8032704.h>
-
 #include <T8032704other.h>
 #include <java/io/Closeable.h>
 #include <java/lang/AssertionError.h>
@@ -28,33 +27,6 @@ using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 
-$FieldInfo _T8032704_FieldInfo_[] = {
-	{"h", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticField(T8032704, h)},
-	{}
-};
-
-$MethodInfo _T8032704_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(T8032704, init$, void)},
-	{"here", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(T8032704, here, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(T8032704, main, void, $StringArray*), "java.lang.Throwable"},
-	{"mf", "(Ljava/lang/invoke/MethodHandles$Lookup;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(T8032704, mf, bool, $MethodHandles$Lookup*)},
-	{"mt", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(T8032704, mt, $MethodType*, $Class*)},
-	{}
-};
-
-$ClassInfo _T8032704_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"T8032704",
-	"java.lang.Object",
-	nullptr,
-	_T8032704_FieldInfo_,
-	_T8032704_MethodInfo_
-};
-
-$Object* allocate$T8032704($Class* clazz) {
-	return $of($alloc(T8032704));
-}
-
 $MethodHandle* T8032704::h = nullptr;
 
 void T8032704::init$() {
@@ -68,17 +40,15 @@ $MethodType* T8032704::mt($Class* k) {
 }
 
 bool T8032704::mf($MethodHandles$Lookup* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($MethodHandles$Lookup, var$0, l);
-		$var($String, var$1, "close"_s);
+		$var($String, var$0, "close"_s);
 		$load($Closeable);
-		$var($MethodType, var$2, mt($Closeable::class$));
-		$init($Void);
-		$var($MethodType, var$3, mt($Void::TYPE));
+		$var($MethodType, var$1, mt($Closeable::class$));
+		$var($MethodType, var$2, mt($Void::TYPE));
 		$init(T8032704);
-		$var($MethodHandle, var$4, T8032704::h);
-		$LambdaMetafactory::metafactory(var$0, var$1, var$2, var$3, var$4, $(mt($Void::TYPE)));
+		$var($MethodHandle, var$3, T8032704::h);
+		$LambdaMetafactory::metafactory(l, var$0, var$1, var$2, var$3, $(mt($Void::TYPE)));
 	} catch ($LambdaConversionException& e) {
 		return true;
 	}
@@ -86,12 +56,11 @@ bool T8032704::mf($MethodHandles$Lookup* l) {
 }
 
 void T8032704::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(T8032704);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandles$Lookup, ll, $MethodHandles::lookup());
 	$init(T8032704);
-	$init($Void);
 	$assignStatic(T8032704::h, $nc(ll)->findStatic(T8032704::class$, "here"_s, $(mt($Void::TYPE))));
 	if (mf(ll)) {
 		$throwNew($AssertionError, $of("Error: Should work"_s));
@@ -112,7 +81,29 @@ T8032704::T8032704() {
 }
 
 $Class* T8032704::load$($String* name, bool initialize) {
-	$loadClass(T8032704, name, initialize, &_T8032704_ClassInfo_, allocate$T8032704);
+	$FieldInfo fieldInfos$$[] = {
+		{"h", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticField(T8032704, h)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(T8032704, init$, void)},
+		{"here", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(T8032704, here, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(T8032704, main, void, $StringArray*), "java.lang.Throwable"},
+		{"mf", "(Ljava/lang/invoke/MethodHandles$Lookup;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(T8032704, mf, bool, $MethodHandles$Lookup*)},
+		{"mt", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(T8032704, mt, $MethodType*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"T8032704",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(T8032704, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(T8032704);
+	});
 	return class$;
 }
 

@@ -15,6 +15,7 @@ class $export UnixCommands : public ::java::lang::Object {
 	$class(UnixCommands, 0, ::java::lang::Object)
 public:
 	UnixCommands();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* cat();
 	static $String* echo();

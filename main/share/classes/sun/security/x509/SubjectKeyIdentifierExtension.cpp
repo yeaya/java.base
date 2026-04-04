@@ -1,5 +1,4 @@
 #include <sun/security/x509/SubjectKeyIdentifierExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -33,46 +32,6 @@ using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _SubjectKeyIdentifierExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectKeyIdentifierExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectKeyIdentifierExtension, NAME)},
-	{"KEY_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectKeyIdentifierExtension, KEY_ID)},
-	{"id", "Lsun/security/x509/KeyIdentifier;", nullptr, $PRIVATE, $field(SubjectKeyIdentifierExtension, id)},
-	{}
-};
-
-$MethodInfo _SubjectKeyIdentifierExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(SubjectKeyIdentifierExtension, init$, void, $bytes*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(SubjectKeyIdentifierExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(SubjectKeyIdentifierExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Lsun/security/x509/KeyIdentifier;", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SubjectKeyIdentifierExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.SubjectKeyIdentifierExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_SubjectKeyIdentifierExtension_FieldInfo_,
-	_SubjectKeyIdentifierExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$SubjectKeyIdentifierExtension($Class* clazz) {
-	return $of($alloc(SubjectKeyIdentifierExtension));
-}
 
 int32_t SubjectKeyIdentifierExtension::hashCode() {
 	 return this->$Extension::hashCode();
@@ -130,7 +89,7 @@ $String* SubjectKeyIdentifierExtension::toString() {
 }
 
 void SubjectKeyIdentifierExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -156,7 +115,7 @@ void SubjectKeyIdentifierExtension::set($String* name, Object$* obj) {
 
 $Object* SubjectKeyIdentifierExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(SubjectKeyIdentifierExtension::KEY_ID)) {
-		return $of((this->id));
+		return (this->id);
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:SubjectKeyIdentifierExtension."_s);
 	}
@@ -184,14 +143,49 @@ $String* SubjectKeyIdentifierExtension::getName() {
 SubjectKeyIdentifierExtension::SubjectKeyIdentifierExtension() {
 }
 
-void clinit$SubjectKeyIdentifierExtension($Class* class$) {
+void SubjectKeyIdentifierExtension::clinit$($Class* clazz) {
 	$assignStatic(SubjectKeyIdentifierExtension::IDENT, "x509.info.extensions.SubjectKeyIdentifier"_s);
 	$assignStatic(SubjectKeyIdentifierExtension::NAME, "SubjectKeyIdentifier"_s);
 	$assignStatic(SubjectKeyIdentifierExtension::KEY_ID, "key_id"_s);
 }
 
 $Class* SubjectKeyIdentifierExtension::load$($String* name, bool initialize) {
-	$loadClass(SubjectKeyIdentifierExtension, name, initialize, &_SubjectKeyIdentifierExtension_ClassInfo_, clinit$SubjectKeyIdentifierExtension, allocate$SubjectKeyIdentifierExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectKeyIdentifierExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectKeyIdentifierExtension, NAME)},
+		{"KEY_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectKeyIdentifierExtension, KEY_ID)},
+		{"id", "Lsun/security/x509/KeyIdentifier;", nullptr, $PRIVATE, $field(SubjectKeyIdentifierExtension, id)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(SubjectKeyIdentifierExtension, init$, void, $bytes*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(SubjectKeyIdentifierExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(SubjectKeyIdentifierExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Lsun/security/x509/KeyIdentifier;", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubjectKeyIdentifierExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.SubjectKeyIdentifierExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(SubjectKeyIdentifierExtension, name, initialize, &classInfo$$, SubjectKeyIdentifierExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SubjectKeyIdentifierExtension));
+	});
 	return class$;
 }
 

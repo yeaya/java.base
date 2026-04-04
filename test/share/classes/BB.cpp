@@ -1,5 +1,4 @@
 #include <BB.h>
-
 #include <AB.h>
 #include <jcpp.h>
 
@@ -11,36 +10,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute BB_Attribute_var$0[] = {
-	{"modifiers", 'I', "1025"},
-	{"declaringClass", 'c', "LBB;"},
-	{}
-};
-
-$CompoundAttribute _BB_MethodAnnotations_bar1[] = {
-	{"LExpectedModel;", BB_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _BB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BB, init$, void)},
-	{"bar", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BB, bar, void), nullptr, nullptr, _BB_MethodAnnotations_bar1},
-	{}
-};
-
-$ClassInfo _BB_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"BB",
-	"AB",
-	nullptr,
-	nullptr,
-	_BB_MethodInfo_
-};
-
-$Object* allocate$BB($Class* clazz) {
-	return $of($alloc(BB));
-}
-
 void BB::init$() {
 	$AB::init$();
 }
@@ -49,7 +18,31 @@ BB::BB() {
 }
 
 $Class* BB::load$($String* name, bool initialize) {
-	$loadClass(BB, name, initialize, &_BB_ClassInfo_, allocate$BB);
+	$NamedAttribute barmethodAnnotations$$$namedAttribute[] = {
+		{"modifiers", 'I', "1025"},
+		{"declaringClass", 'c', "LBB;"},
+		{}
+	};
+	$CompoundAttribute barmethodAnnotations$$[] = {
+		{"LExpectedModel;", barmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BB, init$, void)},
+		{"bar", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BB, bar, void), nullptr, nullptr, barmethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"BB",
+		"AB",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BB, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BB);
+	});
 	return class$;
 }
 

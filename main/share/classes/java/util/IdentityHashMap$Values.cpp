@@ -1,5 +1,4 @@
 #include <java/util/IdentityHashMap$Values.h>
-
 #include <java/lang/reflect/Array.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/ConcurrentModificationException.h>
@@ -26,49 +25,6 @@ using $Spliterator = ::java::util::Spliterator;
 namespace java {
 	namespace util {
 
-$FieldInfo _IdentityHashMap$Values_FieldInfo_[] = {
-	{"this$0", "Ljava/util/IdentityHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(IdentityHashMap$Values, this$0)},
-	{}
-};
-
-$MethodInfo _IdentityHashMap$Values_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(IdentityHashMap$Values, init$, void, $IdentityHashMap*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$Values, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$Values, contains, bool, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(IdentityHashMap$Values, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$Values, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$Values, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC, $virtualMethod(IdentityHashMap$Values, spliterator, $Spliterator*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$Values, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(IdentityHashMap$Values, toArray, $ObjectArray*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _IdentityHashMap$Values_InnerClassesInfo_[] = {
-	{"java.util.IdentityHashMap$Values", "java.util.IdentityHashMap", "Values", $PRIVATE},
-	{}
-};
-
-$ClassInfo _IdentityHashMap$Values_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.IdentityHashMap$Values",
-	"java.util.AbstractCollection",
-	nullptr,
-	_IdentityHashMap$Values_FieldInfo_,
-	_IdentityHashMap$Values_MethodInfo_,
-	"Ljava/util/AbstractCollection<TV;>;",
-	nullptr,
-	_IdentityHashMap$Values_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.IdentityHashMap"
-};
-
-$Object* allocate$IdentityHashMap$Values($Class* clazz) {
-	return $of($alloc(IdentityHashMap$Values));
-}
-
 void IdentityHashMap$Values::init$($IdentityHashMap* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractCollection::init$();
@@ -87,13 +43,11 @@ bool IdentityHashMap$Values::contains(Object$* o) {
 }
 
 bool IdentityHashMap$Values::remove(Object$* o) {
-	{
-		$var($Iterator, i, iterator());
-		for (; $nc(i)->hasNext();) {
-			if ($equals(i->next(), o)) {
-				i->remove();
-				return true;
-			}
+	$var($Iterator, i, iterator());
+	for (; $nc(i)->hasNext();) {
+		if ($equals(i->next(), o)) {
+			i->remove();
+			return true;
 		}
 	}
 	return false;
@@ -108,7 +62,7 @@ $ObjectArray* IdentityHashMap$Values::toArray() {
 }
 
 $ObjectArray* IdentityHashMap$Values::toArray($ObjectArray* a$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, a, a$renamed);
 	int32_t expectedModCount = this->this$0->modCount;
 	int32_t size = this->size();
@@ -122,13 +76,13 @@ $ObjectArray* IdentityHashMap$Values::toArray($ObjectArray* a$renamed) {
 			if (ti >= size) {
 				$throwNew($ConcurrentModificationException);
 			}
-			$nc(a)->set(ti++, tab->get(si + 1));
+			a->set(ti++, tab->get(si + 1));
 		}
 	}
 	if (ti < size || expectedModCount != this->this$0->modCount) {
 		$throwNew($ConcurrentModificationException);
 	}
-	if (ti < $nc(a)->length) {
+	if (ti < a->length) {
 		a->set(ti, nullptr);
 	}
 	return a;
@@ -142,7 +96,44 @@ IdentityHashMap$Values::IdentityHashMap$Values() {
 }
 
 $Class* IdentityHashMap$Values::load$($String* name, bool initialize) {
-	$loadClass(IdentityHashMap$Values, name, initialize, &_IdentityHashMap$Values_ClassInfo_, allocate$IdentityHashMap$Values);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/IdentityHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(IdentityHashMap$Values, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(IdentityHashMap$Values, init$, void, $IdentityHashMap*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$Values, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$Values, contains, bool, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(IdentityHashMap$Values, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$Values, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$Values, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC, $virtualMethod(IdentityHashMap$Values, spliterator, $Spliterator*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$Values, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(IdentityHashMap$Values, toArray, $ObjectArray*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.IdentityHashMap$Values", "java.util.IdentityHashMap", "Values", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.IdentityHashMap$Values",
+		"java.util.AbstractCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractCollection<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.IdentityHashMap"
+	};
+	$loadClass(IdentityHashMap$Values, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IdentityHashMap$Values);
+	});
 	return class$;
 }
 

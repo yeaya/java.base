@@ -1,5 +1,4 @@
 #include <sun/nio/cs/Johab.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -25,45 +24,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _Johab_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Johab, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Johab, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Johab, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Johab, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Johab, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _Johab_InnerClassesInfo_[] = {
-	{"sun.nio.cs.Johab$EncodeHolder", "sun.nio.cs.Johab", "EncodeHolder", $STATIC},
-	{"sun.nio.cs.Johab$DecodeHolder", "sun.nio.cs.Johab", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _Johab_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.Johab",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_Johab_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Johab_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.Johab$EncodeHolder,sun.nio.cs.Johab$DecodeHolder"
-};
-
-$Object* allocate$Johab($Class* clazz) {
-	return $of($alloc(Johab));
-}
 
 int32_t Johab::hashCode() {
 	 return this->$Charset::hashCode();
@@ -94,7 +54,7 @@ $String* Johab::historicalName() {
 }
 
 bool Johab::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(Johab, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(Johab, cs)));
 }
 
 $CharsetDecoder* Johab::newDecoder() {
@@ -111,7 +71,41 @@ Johab::Johab() {
 }
 
 $Class* Johab::load$($String* name, bool initialize) {
-	$loadClass(Johab, name, initialize, &_Johab_ClassInfo_, allocate$Johab);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Johab, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Johab, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Johab, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Johab, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Johab, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.Johab$EncodeHolder", "sun.nio.cs.Johab", "EncodeHolder", $STATIC},
+		{"sun.nio.cs.Johab$DecodeHolder", "sun.nio.cs.Johab", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.Johab",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.Johab$EncodeHolder,sun.nio.cs.Johab$DecodeHolder"
+	};
+	$loadClass(Johab, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Johab));
+	});
 	return class$;
 }
 

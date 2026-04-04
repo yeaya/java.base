@@ -49,6 +49,7 @@ class Invokers : public ::java::lang::Object {
 	$class(Invokers, 0, ::java::lang::Object)
 public:
 	Invokers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodType* targetType);
 	virtual ::java::lang::invoke::MethodHandle* basicInvoker();
 	::java::lang::invoke::MethodHandle* cachedInvoker(int32_t idx);

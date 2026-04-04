@@ -1,5 +1,4 @@
 #include <java/nio/DirectDoubleBufferU.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -40,63 +39,13 @@ using $DirectDoubleBufferRU = ::java::nio::DirectDoubleBufferRU;
 using $DoubleBuffer = ::java::nio::DoubleBuffer;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
 using $ScopedMemoryAccess$Scope$ScopedAccessError = ::jdk::internal::misc::ScopedMemoryAccess$Scope$ScopedAccessError;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Cleaner = ::jdk::internal::ref::Cleaner;
 using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _DirectDoubleBufferU_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectDoubleBufferU, $assertionsDisabled)},
-	{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectDoubleBufferU, ARRAY_BASE_OFFSET)},
-	{"UNALIGNED", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DirectDoubleBufferU, UNALIGNED)},
-	{"att", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(DirectDoubleBufferU, att)},
-	{}
-};
-
-$MethodInfo _DirectDoubleBufferU_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectDoubleBufferU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"address", "()J", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, address, int64_t)},
-	{"asReadOnlyBuffer", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, asReadOnlyBuffer, $DoubleBuffer*)},
-	{"attachment", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, attachment, $Object*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectDoubleBufferU, base, $Object*)},
-	{"cleaner", "()Ljdk/internal/ref/Cleaner;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, cleaner, $Cleaner*)},
-	{"compact", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, compact, $DoubleBuffer*)},
-	{"duplicate", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, duplicate, $DoubleBuffer*)},
-	{"get", "()D", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, get, double)},
-	{"get", "(I)D", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, get, double, int32_t)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, isReadOnly, bool)},
-	{"ix", "(I)J", nullptr, $PRIVATE, $method(DirectDoubleBufferU, ix, int64_t, int32_t)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, order, $ByteOrder*)},
-	{"put", "(D)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, put, $DoubleBuffer*, double)},
-	{"put", "(ID)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, put, $DoubleBuffer*, int32_t, double)},
-	{"slice", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, slice, $DoubleBuffer*)},
-	{"slice", "(II)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, slice, $DoubleBuffer*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DirectDoubleBufferU_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.DirectDoubleBufferU",
-	"java.nio.DoubleBuffer",
-	"sun.nio.ch.DirectBuffer",
-	_DirectDoubleBufferU_FieldInfo_,
-	_DirectDoubleBufferU_MethodInfo_
-};
-
-$Object* allocate$DirectDoubleBufferU($Class* clazz) {
-	return $of($alloc(DirectDoubleBufferU));
-}
 
 $String* DirectDoubleBufferU::toString() {
 	 return this->$DoubleBuffer::toString();
@@ -123,7 +72,7 @@ int64_t DirectDoubleBufferU::ARRAY_BASE_OFFSET = 0;
 bool DirectDoubleBufferU::UNALIGNED = false;
 
 $Object* DirectDoubleBufferU::attachment() {
-	return $of(this->att);
+	return this->att;
 }
 
 $Cleaner* DirectDoubleBufferU::cleaner() {
@@ -132,13 +81,13 @@ $Cleaner* DirectDoubleBufferU::cleaner() {
 
 void DirectDoubleBufferU::init$($DirectBuffer* db, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int32_t off, $MemorySegmentProxy* segment) {
 	$DoubleBuffer::init$(mark, pos, lim, cap, segment);
-	this->$Buffer::address = $nc(($cast($Buffer, db)))->address + off;
-	$var($Object, attachment, $nc(db)->attachment());
+	this->$Buffer::address = $nc($cast($Buffer, db))->address + off;
+	$var($Object, attachment, db->attachment());
 	$set(this, att, attachment == nullptr ? $of(db) : attachment);
 }
 
 $Object* DirectDoubleBufferU::base() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $DoubleBuffer* DirectDoubleBufferU::slice() {
@@ -191,122 +140,112 @@ int64_t DirectDoubleBufferU::ix(int32_t i) {
 }
 
 double DirectDoubleBufferU::get() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		double var$2 = 0.0;
-		bool return$1 = false;
-		try {
-			$init($Buffer);
-			$var($ScopedMemoryAccess$Scope, var$3, scope());
-			var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getDouble(var$3, nullptr, ix(nextGetIndex())));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	double var$2 = 0.0;
+	bool return$1 = false;
+	try {
+		$init($Buffer);
+		$var($ScopedMemoryAccess$Scope, var$3, scope());
+		var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getDouble(var$3, nullptr, ix(nextGetIndex())));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 double DirectDoubleBufferU::get(int32_t i) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		double var$2 = 0.0;
-		bool return$1 = false;
-		try {
-			$init($Buffer);
-			$var($ScopedMemoryAccess$Scope, var$3, scope());
-			var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getDouble(var$3, nullptr, ix(checkIndex(i))));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	double var$2 = 0.0;
+	bool return$1 = false;
+	try {
+		$init($Buffer);
+		$var($ScopedMemoryAccess$Scope, var$3, scope());
+		var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getDouble(var$3, nullptr, ix(checkIndex(i))));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $DoubleBuffer* DirectDoubleBufferU::put(double x) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($Buffer);
-			$var($ScopedMemoryAccess$Scope, var$1, scope());
-			$nc($Buffer::SCOPED_MEMORY_ACCESS)->putDouble(var$1, nullptr, ix(nextPutIndex()), (x));
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($Buffer);
+		$var($ScopedMemoryAccess$Scope, var$1, scope());
+		$nc($Buffer::SCOPED_MEMORY_ACCESS)->putDouble(var$1, nullptr, ix(nextPutIndex()), (x));
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return this;
 }
 
 $DoubleBuffer* DirectDoubleBufferU::put(int32_t i, double x) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($Buffer);
-			$var($ScopedMemoryAccess$Scope, var$1, scope());
-			$nc($Buffer::SCOPED_MEMORY_ACCESS)->putDouble(var$1, nullptr, ix(checkIndex(i)), (x));
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($Buffer);
+		$var($ScopedMemoryAccess$Scope, var$1, scope());
+		$nc($Buffer::SCOPED_MEMORY_ACCESS)->putDouble(var$1, nullptr, ix(checkIndex(i)), (x));
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return this;
 }
 
 $DoubleBuffer* DirectDoubleBufferU::compact() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!DirectDoubleBufferU::$assertionsDisabled && !(pos <= lim)) {
 		$throwNew($AssertionError);
 	}
 	int32_t rem = (pos <= lim ? lim - pos : 0);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($Buffer);
-			$var($ScopedMemoryAccess$Scope, var$1, scope());
-			int64_t var$2 = ix(pos);
-			$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$1, nullptr, nullptr, var$2, nullptr, ix(0), (int64_t)rem << 3);
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($Buffer);
+		$var($ScopedMemoryAccess$Scope, var$1, scope());
+		int64_t var$2 = ix(pos);
+		$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$1, nullptr, nullptr, var$2, nullptr, ix(0), (int64_t)rem << 3);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	position(rem);
 	limit(capacity());
@@ -327,10 +266,9 @@ $ByteOrder* DirectDoubleBufferU::order() {
 	return (($ByteOrder::nativeOrder() != $ByteOrder::BIG_ENDIAN) ? $ByteOrder::LITTLE_ENDIAN : $ByteOrder::BIG_ENDIAN);
 }
 
-void clinit$DirectDoubleBufferU($Class* class$) {
+void DirectDoubleBufferU::clinit$($Class* clazz) {
 	DirectDoubleBufferU::$assertionsDisabled = !DirectDoubleBufferU::class$->desiredAssertionStatus();
 	$init($Buffer);
-	$load($doubles);
 	DirectDoubleBufferU::ARRAY_BASE_OFFSET = $nc($Buffer::UNSAFE)->arrayBaseOffset($getClass($doubles));
 	DirectDoubleBufferU::UNALIGNED = $Bits::unaligned();
 }
@@ -339,7 +277,50 @@ DirectDoubleBufferU::DirectDoubleBufferU() {
 }
 
 $Class* DirectDoubleBufferU::load$($String* name, bool initialize) {
-	$loadClass(DirectDoubleBufferU, name, initialize, &_DirectDoubleBufferU_ClassInfo_, clinit$DirectDoubleBufferU, allocate$DirectDoubleBufferU);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectDoubleBufferU, $assertionsDisabled)},
+		{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectDoubleBufferU, ARRAY_BASE_OFFSET)},
+		{"UNALIGNED", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DirectDoubleBufferU, UNALIGNED)},
+		{"att", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(DirectDoubleBufferU, att)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectDoubleBufferU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"address", "()J", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, address, int64_t)},
+		{"asReadOnlyBuffer", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, asReadOnlyBuffer, $DoubleBuffer*)},
+		{"attachment", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, attachment, $Object*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectDoubleBufferU, base, $Object*)},
+		{"cleaner", "()Ljdk/internal/ref/Cleaner;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, cleaner, $Cleaner*)},
+		{"compact", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, compact, $DoubleBuffer*)},
+		{"duplicate", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, duplicate, $DoubleBuffer*)},
+		{"get", "()D", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, get, double)},
+		{"get", "(I)D", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, get, double, int32_t)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, isReadOnly, bool)},
+		{"ix", "(I)J", nullptr, $PRIVATE, $method(DirectDoubleBufferU, ix, int64_t, int32_t)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, order, $ByteOrder*)},
+		{"put", "(D)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, put, $DoubleBuffer*, double)},
+		{"put", "(ID)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, put, $DoubleBuffer*, int32_t, double)},
+		{"slice", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, slice, $DoubleBuffer*)},
+		{"slice", "(II)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferU, slice, $DoubleBuffer*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.DirectDoubleBufferU",
+		"java.nio.DoubleBuffer",
+		"sun.nio.ch.DirectBuffer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DirectDoubleBufferU, name, initialize, &classInfo$$, DirectDoubleBufferU::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectDoubleBufferU));
+	});
 	return class$;
 }
 

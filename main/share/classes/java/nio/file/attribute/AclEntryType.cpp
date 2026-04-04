@@ -1,5 +1,4 @@
 #include <java/nio/file/attribute/AclEntryType.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -18,37 +17,6 @@ namespace java {
 	namespace nio {
 		namespace file {
 			namespace attribute {
-
-$FieldInfo _AclEntryType_FieldInfo_[] = {
-	{"ALLOW", "Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryType, ALLOW)},
-	{"DENY", "Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryType, DENY)},
-	{"AUDIT", "Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryType, AUDIT)},
-	{"ALARM", "Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryType, ALARM)},
-	{"$VALUES", "[Ljava/nio/file/attribute/AclEntryType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AclEntryType, $VALUES)},
-	{}
-};
-
-$MethodInfo _AclEntryType_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/attribute/AclEntryType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AclEntryType, $values, $AclEntryTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AclEntryType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryType, valueOf, AclEntryType*, $String*)},
-	{"values", "()[Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryType, values, $AclEntryTypeArray*)},
-	{}
-};
-
-$ClassInfo _AclEntryType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.nio.file.attribute.AclEntryType",
-	"java.lang.Enum",
-	nullptr,
-	_AclEntryType_FieldInfo_,
-	_AclEntryType_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/nio/file/attribute/AclEntryType;>;"
-};
-
-$Object* allocate$AclEntryType($Class* clazz) {
-	return $of($alloc(AclEntryType));
-}
 
 AclEntryType* AclEntryType::ALLOW = nullptr;
 AclEntryType* AclEntryType::DENY = nullptr;
@@ -80,7 +48,7 @@ void AclEntryType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$AclEntryType($Class* class$) {
+void AclEntryType::clinit$($Class* clazz) {
 	$assignStatic(AclEntryType::ALLOW, $new(AclEntryType, "ALLOW"_s, 0));
 	$assignStatic(AclEntryType::DENY, $new(AclEntryType, "DENY"_s, 1));
 	$assignStatic(AclEntryType::AUDIT, $new(AclEntryType, "AUDIT"_s, 2));
@@ -92,7 +60,33 @@ AclEntryType::AclEntryType() {
 }
 
 $Class* AclEntryType::load$($String* name, bool initialize) {
-	$loadClass(AclEntryType, name, initialize, &_AclEntryType_ClassInfo_, clinit$AclEntryType, allocate$AclEntryType);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALLOW", "Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryType, ALLOW)},
+		{"DENY", "Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryType, DENY)},
+		{"AUDIT", "Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryType, AUDIT)},
+		{"ALARM", "Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryType, ALARM)},
+		{"$VALUES", "[Ljava/nio/file/attribute/AclEntryType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AclEntryType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/nio/file/attribute/AclEntryType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AclEntryType, $values, $AclEntryTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AclEntryType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryType, valueOf, AclEntryType*, $String*)},
+		{"values", "()[Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryType, values, $AclEntryTypeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.nio.file.attribute.AclEntryType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/nio/file/attribute/AclEntryType;>;"
+	};
+	$loadClass(AclEntryType, name, initialize, &classInfo$$, AclEntryType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AclEntryType));
+	});
 	return class$;
 }
 

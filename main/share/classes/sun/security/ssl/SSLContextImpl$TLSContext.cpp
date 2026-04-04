@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl$TLSContext.h>
-
 #include <sun/security/ssl/SSLContextImpl$CustomizedTLSContext.h>
 #include <sun/security/ssl/SSLContextImpl.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLContextImpl$TLSContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$TLSContext, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl$TLSContext_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$TLSContext", "sun.security.ssl.SSLContextImpl", "TLSContext", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$CustomizedTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedTLSContext", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLContextImpl$TLSContext_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLContextImpl$TLSContext",
-	"sun.security.ssl.SSLContextImpl$CustomizedTLSContext",
-	nullptr,
-	nullptr,
-	_SSLContextImpl$TLSContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl$TLSContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl"
-};
-
-$Object* allocate$SSLContextImpl$TLSContext($Class* clazz) {
-	return $of($alloc(SSLContextImpl$TLSContext));
-}
-
 void SSLContextImpl$TLSContext::init$() {
 	$SSLContextImpl$CustomizedTLSContext::init$();
 }
@@ -52,7 +20,33 @@ SSLContextImpl$TLSContext::SSLContextImpl$TLSContext() {
 }
 
 $Class* SSLContextImpl$TLSContext::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl$TLSContext, name, initialize, &_SSLContextImpl$TLSContext_ClassInfo_, allocate$SSLContextImpl$TLSContext);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$TLSContext, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$TLSContext", "sun.security.ssl.SSLContextImpl", "TLSContext", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$CustomizedTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedTLSContext", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLContextImpl$TLSContext",
+		"sun.security.ssl.SSLContextImpl$CustomizedTLSContext",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl"
+	};
+	$loadClass(SSLContextImpl$TLSContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl$TLSContext);
+	});
 	return class$;
 }
 

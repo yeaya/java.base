@@ -1,5 +1,4 @@
 #include <java/util/IdentityHashMap$EntrySpliterator.h>
-
 #include <java/util/AbstractMap$SimpleImmutableEntry.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/IdentityHashMap$IdentityHashMapSpliterator.h>
@@ -24,48 +23,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _IdentityHashMap$EntrySpliterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/IdentityHashMap;IIII)V", "(Ljava/util/IdentityHashMap<TK;TV;>;IIII)V", 0, $method(IdentityHashMap$EntrySpliterator, init$, void, $IdentityHashMap*, int32_t, int32_t, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$EntrySpliterator, characteristics, int32_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(IdentityHashMap$EntrySpliterator, forEachRemaining, void, $Consumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(IdentityHashMap$EntrySpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/IdentityHashMap$EntrySpliterator;", "()Ljava/util/IdentityHashMap$EntrySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(IdentityHashMap$EntrySpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _IdentityHashMap$EntrySpliterator_InnerClassesInfo_[] = {
-	{"java.util.IdentityHashMap$EntrySpliterator", "java.util.IdentityHashMap", "EntrySpliterator", $STATIC | $FINAL},
-	{"java.util.IdentityHashMap$IdentityHashMapSpliterator", "java.util.IdentityHashMap", "IdentityHashMapSpliterator", $STATIC},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _IdentityHashMap$EntrySpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.IdentityHashMap$EntrySpliterator",
-	"java.util.IdentityHashMap$IdentityHashMapSpliterator",
-	"java.util.Spliterator",
-	nullptr,
-	_IdentityHashMap$EntrySpliterator_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/IdentityHashMap$IdentityHashMapSpliterator<TK;TV;>;Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_IdentityHashMap$EntrySpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.IdentityHashMap"
-};
-
-$Object* allocate$IdentityHashMap$EntrySpliterator($Class* clazz) {
-	return $of($alloc(IdentityHashMap$EntrySpliterator));
-}
 
 int64_t IdentityHashMap$EntrySpliterator::estimateSize() {
 	 return this->$IdentityHashMap$IdentityHashMapSpliterator::estimateSize();
@@ -98,12 +55,12 @@ void IdentityHashMap$EntrySpliterator::init$($IdentityHashMap* m, int32_t origin
 $Spliterator* IdentityHashMap$EntrySpliterator::trySplit() {
 	int32_t hi = getFence();
 	int32_t lo = this->index;
-	int32_t mid = (int32_t)(((int32_t)((uint32_t)(lo + hi) >> 1)) & (uint32_t)~1);
-	return ((lo >= mid) ? (IdentityHashMap$EntrySpliterator*)nullptr : $new(IdentityHashMap$EntrySpliterator, this->map, lo, this->index = mid, $usrAssign(this->est, 1), this->expectedModCount));
+	int32_t mid = ((int32_t)((uint32_t)(lo + hi) >> 1)) & ~1;
+	return (lo >= mid) ? (IdentityHashMap$EntrySpliterator*)nullptr : $new(IdentityHashMap$EntrySpliterator, this->map, lo, this->index = mid, $usrAssign(this->est, 1), this->expectedModCount);
 }
 
 void IdentityHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -131,7 +88,7 @@ void IdentityHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool IdentityHashMap$EntrySpliterator::tryAdvance($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -144,7 +101,7 @@ bool IdentityHashMap$EntrySpliterator::tryAdvance($Consumer* action) {
 		if (key != nullptr) {
 			$var($Object, k, $IdentityHashMap::unmaskNull(key));
 			$nc(action)->accept($$new($AbstractMap$SimpleImmutableEntry, k, v));
-			if ($nc(this->map)->modCount != this->expectedModCount) {
+			if (this->map->modCount != this->expectedModCount) {
 				$throwNew($ConcurrentModificationException);
 			}
 			return true;
@@ -161,7 +118,44 @@ IdentityHashMap$EntrySpliterator::IdentityHashMap$EntrySpliterator() {
 }
 
 $Class* IdentityHashMap$EntrySpliterator::load$($String* name, bool initialize) {
-	$loadClass(IdentityHashMap$EntrySpliterator, name, initialize, &_IdentityHashMap$EntrySpliterator_ClassInfo_, allocate$IdentityHashMap$EntrySpliterator);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/IdentityHashMap;IIII)V", "(Ljava/util/IdentityHashMap<TK;TV;>;IIII)V", 0, $method(IdentityHashMap$EntrySpliterator, init$, void, $IdentityHashMap*, int32_t, int32_t, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$EntrySpliterator, characteristics, int32_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(IdentityHashMap$EntrySpliterator, forEachRemaining, void, $Consumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(IdentityHashMap$EntrySpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/IdentityHashMap$EntrySpliterator;", "()Ljava/util/IdentityHashMap$EntrySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(IdentityHashMap$EntrySpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.IdentityHashMap$EntrySpliterator", "java.util.IdentityHashMap", "EntrySpliterator", $STATIC | $FINAL},
+		{"java.util.IdentityHashMap$IdentityHashMapSpliterator", "java.util.IdentityHashMap", "IdentityHashMapSpliterator", $STATIC},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.IdentityHashMap$EntrySpliterator",
+		"java.util.IdentityHashMap$IdentityHashMapSpliterator",
+		"java.util.Spliterator",
+		nullptr,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/IdentityHashMap$IdentityHashMapSpliterator<TK;TV;>;Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.IdentityHashMap"
+	};
+	$loadClass(IdentityHashMap$EntrySpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IdentityHashMap$EntrySpliterator));
+	});
 	return class$;
 }
 

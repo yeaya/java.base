@@ -1,5 +1,4 @@
 #include <sun/nio/cs/Johab$EncodeHolder.h>
-
 #include <sun/nio/cs/DoubleByte$Encoder.h>
 #include <sun/nio/cs/Johab$DecodeHolder.h>
 #include <sun/nio/cs/Johab.h>
@@ -16,50 +15,14 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _Johab$EncodeHolder_FieldInfo_[] = {
-	{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(Johab$EncodeHolder, c2b)},
-	{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(Johab$EncodeHolder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _Johab$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Johab$EncodeHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Johab$EncodeHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.Johab$EncodeHolder", "sun.nio.cs.Johab", "EncodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _Johab$EncodeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.Johab$EncodeHolder",
-	"java.lang.Object",
-	nullptr,
-	_Johab$EncodeHolder_FieldInfo_,
-	_Johab$EncodeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Johab$EncodeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.Johab"
-};
-
-$Object* allocate$Johab$EncodeHolder($Class* clazz) {
-	return $of($alloc(Johab$EncodeHolder));
-}
-
 $chars* Johab$EncodeHolder::c2b = nullptr;
 $chars* Johab$EncodeHolder::c2bIndex = nullptr;
 
 void Johab$EncodeHolder::init$() {
 }
 
-void clinit$Johab$EncodeHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Johab$EncodeHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Johab$EncodeHolder::c2b, $new($chars, 0x00009200));
 	$assignStatic(Johab$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
@@ -74,7 +37,37 @@ Johab$EncodeHolder::Johab$EncodeHolder() {
 }
 
 $Class* Johab$EncodeHolder::load$($String* name, bool initialize) {
-	$loadClass(Johab$EncodeHolder, name, initialize, &_Johab$EncodeHolder_ClassInfo_, clinit$Johab$EncodeHolder, allocate$Johab$EncodeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(Johab$EncodeHolder, c2b)},
+		{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(Johab$EncodeHolder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Johab$EncodeHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.Johab$EncodeHolder", "sun.nio.cs.Johab", "EncodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.Johab$EncodeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.Johab"
+	};
+	$loadClass(Johab$EncodeHolder, name, initialize, &classInfo$$, Johab$EncodeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Johab$EncodeHolder);
+	});
 	return class$;
 }
 

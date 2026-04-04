@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLTrafficKeyDerivation.h>
-
 #include <java/lang/Enum.h>
 #include <javax/crypto/SecretKey.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -38,63 +37,6 @@ using $SSLTrafficKeyDerivation$T13TrafficKeyDerivationGenerator = ::sun::securit
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLTrafficKeyDerivation_FieldInfo_[] = {
-	{"SSL30", "Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation, SSL30)},
-	{"TLS10", "Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation, TLS10)},
-	{"TLS12", "Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation, TLS12)},
-	{"TLS13", "Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation, TLS13)},
-	{"$VALUES", "[Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLTrafficKeyDerivation, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLTrafficKeyDerivation, name$)},
-	{"keyDerivationGenerator", "Lsun/security/ssl/SSLKeyDerivationGenerator;", nullptr, $FINAL, $field(SSLTrafficKeyDerivation, keyDerivationGenerator)},
-	{}
-};
-
-$MethodInfo _SSLTrafficKeyDerivation_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLTrafficKeyDerivation, $values, $SSLTrafficKeyDerivationArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/SSLKeyDerivationGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/SSLKeyDerivationGenerator;)V", $PRIVATE, $method(SSLTrafficKeyDerivation, init$, void, $String*, int32_t, $String*, $SSLKeyDerivationGenerator*)},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLTrafficKeyDerivation, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*, $SecretKey*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation, valueOf, SSLTrafficKeyDerivation*, $String*)},
-	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $STATIC, $staticMethod(SSLTrafficKeyDerivation, valueOf, SSLTrafficKeyDerivation*, $ProtocolVersion*)},
-	{"values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation, values, $SSLTrafficKeyDerivationArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLTrafficKeyDerivation_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLTrafficKeyDerivation$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.security.ssl.SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation", "sun.security.ssl.SSLTrafficKeyDerivation", "LegacyTrafficKeyDerivation", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLTrafficKeyDerivation$KeySchedule", "sun.security.ssl.SSLTrafficKeyDerivation", "KeySchedule", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"sun.security.ssl.SSLTrafficKeyDerivation$T13TrafficKeyDerivation", "sun.security.ssl.SSLTrafficKeyDerivation", "T13TrafficKeyDerivation", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLTrafficKeyDerivation$T13TrafficKeyDerivationGenerator", "sun.security.ssl.SSLTrafficKeyDerivation", "T13TrafficKeyDerivationGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator", "sun.security.ssl.SSLTrafficKeyDerivation", "T12TrafficKeyDerivationGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLTrafficKeyDerivation$T10TrafficKeyDerivationGenerator", "sun.security.ssl.SSLTrafficKeyDerivation", "T10TrafficKeyDerivationGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLTrafficKeyDerivation$S30TrafficKeyDerivationGenerator", "sun.security.ssl.SSLTrafficKeyDerivation", "S30TrafficKeyDerivationGenerator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLTrafficKeyDerivation_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.SSLTrafficKeyDerivation",
-	"java.lang.Enum",
-	"sun.security.ssl.SSLKeyDerivationGenerator",
-	_SSLTrafficKeyDerivation_FieldInfo_,
-	_SSLTrafficKeyDerivation_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/SSLTrafficKeyDerivation;>;Lsun/security/ssl/SSLKeyDerivationGenerator;",
-	nullptr,
-	_SSLTrafficKeyDerivation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLTrafficKeyDerivation$1,sun.security.ssl.SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation,sun.security.ssl.SSLTrafficKeyDerivation$KeySchedule,sun.security.ssl.SSLTrafficKeyDerivation$T13TrafficKeyDerivation,sun.security.ssl.SSLTrafficKeyDerivation$T13TrafficKeyDerivationGenerator,sun.security.ssl.SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator,sun.security.ssl.SSLTrafficKeyDerivation$T10TrafficKeyDerivationGenerator,sun.security.ssl.SSLTrafficKeyDerivation$S30TrafficKeyDerivationGenerator"
-};
-
-$Object* allocate$SSLTrafficKeyDerivation($Class* clazz) {
-	return $of($alloc(SSLTrafficKeyDerivation));
-}
 
 $String* SSLTrafficKeyDerivation::toString() {
 	 return this->$Enum::toString();
@@ -153,27 +95,16 @@ SSLTrafficKeyDerivation* SSLTrafficKeyDerivation::valueOf($ProtocolVersion* prot
 	$init($SSLTrafficKeyDerivation$1);
 	switch ($nc($SSLTrafficKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->get($nc((protocolVersion))->ordinal())) {
 	case 1:
-		{
-			return SSLTrafficKeyDerivation::SSL30;
-		}
+		return SSLTrafficKeyDerivation::SSL30;
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{
-			return SSLTrafficKeyDerivation::TLS10;
-		}
+		return SSLTrafficKeyDerivation::TLS10;
 	case 5:
-		{}
 	case 6:
-		{
-			return SSLTrafficKeyDerivation::TLS12;
-		}
+		return SSLTrafficKeyDerivation::TLS12;
 	case 7:
-		{
-			return SSLTrafficKeyDerivation::TLS13;
-		}
+		return SSLTrafficKeyDerivation::TLS13;
 	}
 	return nullptr;
 }
@@ -182,8 +113,8 @@ $SSLKeyDerivation* SSLTrafficKeyDerivation::createKeyDerivation($HandshakeContex
 	return $nc(this->keyDerivationGenerator)->createKeyDerivation(context, secretKey);
 }
 
-void clinit$SSLTrafficKeyDerivation($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SSLTrafficKeyDerivation::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(SSLTrafficKeyDerivation::SSL30, $new(SSLTrafficKeyDerivation, "SSL30"_s, 0, "kdf_ssl30"_s, $$new($SSLTrafficKeyDerivation$S30TrafficKeyDerivationGenerator)));
 	$assignStatic(SSLTrafficKeyDerivation::TLS10, $new(SSLTrafficKeyDerivation, "TLS10"_s, 1, "kdf_tls10"_s, $$new($SSLTrafficKeyDerivation$T10TrafficKeyDerivationGenerator)));
 	$assignStatic(SSLTrafficKeyDerivation::TLS12, $new(SSLTrafficKeyDerivation, "TLS12"_s, 2, "kdf_tls12"_s, $$new($SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator)));
@@ -195,7 +126,58 @@ SSLTrafficKeyDerivation::SSLTrafficKeyDerivation() {
 }
 
 $Class* SSLTrafficKeyDerivation::load$($String* name, bool initialize) {
-	$loadClass(SSLTrafficKeyDerivation, name, initialize, &_SSLTrafficKeyDerivation_ClassInfo_, clinit$SSLTrafficKeyDerivation, allocate$SSLTrafficKeyDerivation);
+	$FieldInfo fieldInfos$$[] = {
+		{"SSL30", "Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation, SSL30)},
+		{"TLS10", "Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation, TLS10)},
+		{"TLS12", "Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation, TLS12)},
+		{"TLS13", "Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation, TLS13)},
+		{"$VALUES", "[Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLTrafficKeyDerivation, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLTrafficKeyDerivation, name$)},
+		{"keyDerivationGenerator", "Lsun/security/ssl/SSLKeyDerivationGenerator;", nullptr, $FINAL, $field(SSLTrafficKeyDerivation, keyDerivationGenerator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLTrafficKeyDerivation, $values, $SSLTrafficKeyDerivationArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/SSLKeyDerivationGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/SSLKeyDerivationGenerator;)V", $PRIVATE, $method(SSLTrafficKeyDerivation, init$, void, $String*, int32_t, $String*, $SSLKeyDerivationGenerator*)},
+		{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLTrafficKeyDerivation, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*, $SecretKey*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation, valueOf, SSLTrafficKeyDerivation*, $String*)},
+		{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $STATIC, $staticMethod(SSLTrafficKeyDerivation, valueOf, SSLTrafficKeyDerivation*, $ProtocolVersion*)},
+		{"values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation, values, $SSLTrafficKeyDerivationArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLTrafficKeyDerivation$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.security.ssl.SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation", "sun.security.ssl.SSLTrafficKeyDerivation", "LegacyTrafficKeyDerivation", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLTrafficKeyDerivation$KeySchedule", "sun.security.ssl.SSLTrafficKeyDerivation", "KeySchedule", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"sun.security.ssl.SSLTrafficKeyDerivation$T13TrafficKeyDerivation", "sun.security.ssl.SSLTrafficKeyDerivation", "T13TrafficKeyDerivation", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLTrafficKeyDerivation$T13TrafficKeyDerivationGenerator", "sun.security.ssl.SSLTrafficKeyDerivation", "T13TrafficKeyDerivationGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator", "sun.security.ssl.SSLTrafficKeyDerivation", "T12TrafficKeyDerivationGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLTrafficKeyDerivation$T10TrafficKeyDerivationGenerator", "sun.security.ssl.SSLTrafficKeyDerivation", "T10TrafficKeyDerivationGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLTrafficKeyDerivation$S30TrafficKeyDerivationGenerator", "sun.security.ssl.SSLTrafficKeyDerivation", "S30TrafficKeyDerivationGenerator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.SSLTrafficKeyDerivation",
+		"java.lang.Enum",
+		"sun.security.ssl.SSLKeyDerivationGenerator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/SSLTrafficKeyDerivation;>;Lsun/security/ssl/SSLKeyDerivationGenerator;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLTrafficKeyDerivation$1,sun.security.ssl.SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation,sun.security.ssl.SSLTrafficKeyDerivation$KeySchedule,sun.security.ssl.SSLTrafficKeyDerivation$T13TrafficKeyDerivation,sun.security.ssl.SSLTrafficKeyDerivation$T13TrafficKeyDerivationGenerator,sun.security.ssl.SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator,sun.security.ssl.SSLTrafficKeyDerivation$T10TrafficKeyDerivationGenerator,sun.security.ssl.SSLTrafficKeyDerivation$S30TrafficKeyDerivationGenerator"
+	};
+	$loadClass(SSLTrafficKeyDerivation, name, initialize, &classInfo$$, SSLTrafficKeyDerivation::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLTrafficKeyDerivation));
+	});
 	return class$;
 }
 

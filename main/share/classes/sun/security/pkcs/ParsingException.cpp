@@ -1,5 +1,4 @@
 #include <sun/security/pkcs/ParsingException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace pkcs {
-
-$FieldInfo _ParsingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParsingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ParsingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ParsingException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ParsingException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ParsingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.pkcs.ParsingException",
-	"java.io.IOException",
-	nullptr,
-	_ParsingException_FieldInfo_,
-	_ParsingException_MethodInfo_
-};
-
-$Object* allocate$ParsingException($Class* clazz) {
-	return $of($alloc(ParsingException));
-}
 
 void ParsingException::init$() {
 	$IOException::init$();
@@ -55,7 +30,26 @@ void ParsingException::throw$() {
 }
 
 $Class* ParsingException::load$($String* name, bool initialize) {
-	$loadClass(ParsingException, name, initialize, &_ParsingException_ClassInfo_, allocate$ParsingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParsingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ParsingException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ParsingException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.pkcs.ParsingException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ParsingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParsingException);
+	});
 	return class$;
 }
 

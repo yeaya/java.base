@@ -1,27 +1,8 @@
 #include <Obj.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _Obj_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Obj, init$, void)},
-	{}
-};
-
-$ClassInfo _Obj_ClassInfo_ = {
-	$ACC_SUPER,
-	"Obj",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Obj_MethodInfo_
-};
-
-$Object* allocate$Obj($Class* clazz) {
-	return $of($alloc(Obj));
-}
 
 void Obj::init$() {
 }
@@ -30,7 +11,21 @@ Obj::Obj() {
 }
 
 $Class* Obj::load$($String* name, bool initialize) {
-	$loadClass(Obj, name, initialize, &_Obj_ClassInfo_, allocate$Obj);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Obj, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Obj",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Obj, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Obj);
+	});
 	return class$;
 }
 

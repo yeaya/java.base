@@ -1,5 +1,4 @@
 #include <java/util/concurrent/LinkedBlockingQueue$Itr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Objects.h>
@@ -23,66 +22,21 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _LinkedBlockingQueue$Itr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/LinkedBlockingQueue;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedBlockingQueue$Itr, this$0)},
-	{"next", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", $PRIVATE, $field(LinkedBlockingQueue$Itr, next$)},
-	{"nextItem", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(LinkedBlockingQueue$Itr, nextItem)},
-	{"lastRet", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", $PRIVATE, $field(LinkedBlockingQueue$Itr, lastRet)},
-	{"ancestor", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", $PRIVATE, $field(LinkedBlockingQueue$Itr, ancestor)},
-	{}
-};
-
-$MethodInfo _LinkedBlockingQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/LinkedBlockingQueue;)V", nullptr, 0, $method(LinkedBlockingQueue$Itr, init$, void, $LinkedBlockingQueue*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, remove, void)},
-	{}
-};
-
-$InnerClassInfo _LinkedBlockingQueue$Itr_InnerClassesInfo_[] = {
-	{"java.util.concurrent.LinkedBlockingQueue$Itr", "java.util.concurrent.LinkedBlockingQueue", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _LinkedBlockingQueue$Itr_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.LinkedBlockingQueue$Itr",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_LinkedBlockingQueue$Itr_FieldInfo_,
-	_LinkedBlockingQueue$Itr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_LinkedBlockingQueue$Itr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.LinkedBlockingQueue"
-};
-
-$Object* allocate$LinkedBlockingQueue$Itr($Class* clazz) {
-	return $of($alloc(LinkedBlockingQueue$Itr));
-}
-
 void LinkedBlockingQueue$Itr::init$($LinkedBlockingQueue* this$0) {
 	$set(this, this$0, this$0);
 	this$0->fullyLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (($set(this, next$, $nc(this$0->head)->next)) != nullptr) {
-				$set(this, nextItem, $nc(this->next$)->item);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this$0->fullyUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (($set(this, next$, $nc(this$0->head)->next)) != nullptr) {
+			$set(this, nextItem, $nc(this->next$)->item);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this$0->fullyUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -91,7 +45,7 @@ bool LinkedBlockingQueue$Itr::hasNext() {
 }
 
 $Object* LinkedBlockingQueue$Itr::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedBlockingQueue$Node, p, nullptr);
 	if (($assign(p, this->next$)) == nullptr) {
 		$throwNew($NoSuchElementException);
@@ -99,29 +53,27 @@ $Object* LinkedBlockingQueue$Itr::next() {
 	$set(this, lastRet, p);
 	$var($Object, x, this->nextItem);
 	this->this$0->fullyLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Object, e, nullptr);
-			for ($assign(p, $nc(p)->next); p != nullptr && ($assign(e, p->item)) == nullptr;) {
-				$assign(p, this->this$0->succ(p));
-			}
-			$set(this, next$, p);
-			$set(this, nextItem, e);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->this$0->fullyUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Object, e, nullptr);
+		for ($assign(p, $nc(p)->next); p != nullptr && ($assign(e, p->item)) == nullptr;) {
+			$assign(p, this->this$0->succ(p));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$set(this, next$, p);
+		$set(this, nextItem, e);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->this$0->fullyUnlock();
 	}
-	return $of(x);
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	return x;
 }
 
 void LinkedBlockingQueue$Itr::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	$var($LinkedBlockingQueue$Node, p, nullptr);
 	if (($assign(p, this->next$)) == nullptr) {
@@ -135,65 +87,30 @@ void LinkedBlockingQueue$Itr::forEachRemaining($Consumer* action) {
 	int32_t len = 1;
 	do {
 		this->this$0->fullyLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (es == nullptr) {
-					$assign(p, $nc(p)->next);
-					{
-						$var($LinkedBlockingQueue$Node, q, p);
-						for (; q != nullptr; $assign(q, this->this$0->succ(q))) {
-							if (q->item != nullptr && ++len == batchSize) {
-								break;
-							}
-						}
-					}
-					$assign(es, $new($ObjectArray, len));
-					es->set(0, this->nextItem);
-					$set(this, nextItem, nullptr);
-					n = 1;
-				} else {
-					n = 0;
-				}
-				for (; p != nullptr && n < len; $assign(p, this->this$0->succ(p))) {
-					if (($nc(es)->set(n, p->item)) != nullptr) {
-						$set(this, lastRet, p);
-						++n;
-					}
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->this$0->fullyUnlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-		}
-		for (int32_t i = 0; i < n; ++i) {
-			$var($Object, e, $nc(es)->get(i));
-			action->accept(e);
-		}
-	} while (n > 0 && p != nullptr);
-}
-
-void LinkedBlockingQueue$Itr::remove() {
-	$useLocalCurrentObjectStackCache();
-	$var($LinkedBlockingQueue$Node, p, this->lastRet);
-	if (p == nullptr) {
-		$throwNew($IllegalStateException);
-	}
-	$set(this, lastRet, nullptr);
-	this->this$0->fullyLock();
-	{
 		$var($Throwable, var$0, nullptr);
 		try {
-			if ($nc(p)->item != nullptr) {
-				if (this->ancestor == nullptr) {
-					$set(this, ancestor, this->this$0->head);
+			if (es == nullptr) {
+				$assign(p, $nc(p)->next);
+				{
+					$var($LinkedBlockingQueue$Node, q, p);
+					for (; q != nullptr; $assign(q, this->this$0->succ(q))) {
+						if (q->item != nullptr && ++len == batchSize) {
+							break;
+						}
+					}
 				}
-				$set(this, ancestor, this->this$0->findPred(p, this->ancestor));
-				this->this$0->unlink(p, this->ancestor);
+				$assign(es, $new($ObjectArray, len));
+				es->set(0, this->nextItem);
+				$set(this, nextItem, nullptr);
+				n = 1;
+			} else {
+				n = 0;
+			}
+			for (; p != nullptr && n < len; $assign(p, this->this$0->succ(p))) {
+				if (($nc(es)->set(n, p->item)) != nullptr) {
+					$set(this, lastRet, p);
+					++n;
+				}
 			}
 		} catch ($Throwable& var$1) {
 			$assign(var$0, var$1);
@@ -203,6 +120,37 @@ void LinkedBlockingQueue$Itr::remove() {
 		if (var$0 != nullptr) {
 			$throw(var$0);
 		}
+		for (int32_t i = 0; i < n; ++i) {
+			$var($Object, e, $nc(es)->get(i));
+			action->accept(e);
+		}
+	} while (n > 0 && p != nullptr);
+}
+
+void LinkedBlockingQueue$Itr::remove() {
+	$useLocalObjectStack();
+	$var($LinkedBlockingQueue$Node, p, this->lastRet);
+	if (p == nullptr) {
+		$throwNew($IllegalStateException);
+	}
+	$set(this, lastRet, nullptr);
+	this->this$0->fullyLock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if ($nc(p)->item != nullptr) {
+			if (this->ancestor == nullptr) {
+				$set(this, ancestor, this->this$0->head);
+			}
+			$set(this, ancestor, this->this$0->findPred(p, this->ancestor));
+			this->this$0->unlink(p, this->ancestor);
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->this$0->fullyUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -210,7 +158,44 @@ LinkedBlockingQueue$Itr::LinkedBlockingQueue$Itr() {
 }
 
 $Class* LinkedBlockingQueue$Itr::load$($String* name, bool initialize) {
-	$loadClass(LinkedBlockingQueue$Itr, name, initialize, &_LinkedBlockingQueue$Itr_ClassInfo_, allocate$LinkedBlockingQueue$Itr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/LinkedBlockingQueue;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedBlockingQueue$Itr, this$0)},
+		{"next", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", $PRIVATE, $field(LinkedBlockingQueue$Itr, next$)},
+		{"nextItem", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(LinkedBlockingQueue$Itr, nextItem)},
+		{"lastRet", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", $PRIVATE, $field(LinkedBlockingQueue$Itr, lastRet)},
+		{"ancestor", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", $PRIVATE, $field(LinkedBlockingQueue$Itr, ancestor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/LinkedBlockingQueue;)V", nullptr, 0, $method(LinkedBlockingQueue$Itr, init$, void, $LinkedBlockingQueue*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.LinkedBlockingQueue$Itr", "java.util.concurrent.LinkedBlockingQueue", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.LinkedBlockingQueue$Itr",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.LinkedBlockingQueue"
+	};
+	$loadClass(LinkedBlockingQueue$Itr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedBlockingQueue$Itr);
+	});
 	return class$;
 }
 

@@ -35,6 +35,7 @@ class $export LoopCombinatorLongSignatureTest : public ::java::lang::Object {
 	$class(LoopCombinatorLongSignatureTest, 0, ::java::lang::Object)
 public:
 	LoopCombinatorLongSignatureTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void testLongSignature(int32_t loopArgs, bool excessive, bool run);

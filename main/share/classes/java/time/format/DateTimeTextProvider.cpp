@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeTextProvider.h>
-
 #include <java/time/chrono/Chronology.h>
 #include <java/time/chrono/IsoChronology.h>
 #include <java/time/chrono/JapaneseChronology.h>
@@ -76,7 +75,6 @@ using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $ResourceBundle = ::java::util::ResourceBundle;
-using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $CalendarDataUtility = ::sun::util::locale::provider::CalendarDataUtility;
@@ -86,54 +84,6 @@ using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 namespace java {
 	namespace time {
 		namespace format {
-
-$FieldInfo _DateTimeTextProvider_FieldInfo_[] = {
-	{"CACHE", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/util/Map$Entry<Ljava/time/temporal/TemporalField;Ljava/util/Locale;>;Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DateTimeTextProvider, CACHE)},
-	{"COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DateTimeTextProvider, COMPARATOR)},
-	{"INSTANCE", "Ljava/time/format/DateTimeTextProvider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DateTimeTextProvider, INSTANCE)},
-	{}
-};
-
-$MethodInfo _DateTimeTextProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DateTimeTextProvider, init$, void)},
-	{"createEntry", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;>(TA;TB;)Ljava/util/Map$Entry<TA;TB;>;", $PRIVATE | $STATIC, $staticMethod(DateTimeTextProvider, createEntry, $Map$Entry*, Object$*, Object$*)},
-	{"createStore", "(Ljava/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(DateTimeTextProvider, createStore, $Object*, $TemporalField*, $Locale*)},
-	{"findStore", "(Ljava/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(DateTimeTextProvider, findStore, $Object*, $TemporalField*, $Locale*)},
-	{"getInstance", "()Ljava/time/format/DateTimeTextProvider;", nullptr, $STATIC, $staticMethod(DateTimeTextProvider, getInstance, DateTimeTextProvider*)},
-	{"getLocalizedResource", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/util/Locale;)TT;", $STATIC, $staticMethod(DateTimeTextProvider, getLocalizedResource, $Object*, $String*, $Locale*)},
-	{"getText", "(Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeTextProvider, getText, $String*, $TemporalField*, int64_t, $TextStyle*, $Locale*)},
-	{"getText", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeTextProvider, getText, $String*, $Chronology*, $TemporalField*, int64_t, $TextStyle*, $Locale*)},
-	{"getTextIterator", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC, $virtualMethod(DateTimeTextProvider, getTextIterator, $Iterator*, $TemporalField*, $TextStyle*, $Locale*)},
-	{"getTextIterator", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC, $virtualMethod(DateTimeTextProvider, getTextIterator, $Iterator*, $Chronology*, $TemporalField*, $TextStyle*, $Locale*)},
-	{"toWeekDay", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DateTimeTextProvider, toWeekDay, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DateTimeTextProvider_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeTextProvider$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.time.format.DateTimeTextProvider$LocaleStore", "java.time.format.DateTimeTextProvider", "LocaleStore", $STATIC | $FINAL},
-	{"java.time.format.DateTimeTextProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DateTimeTextProvider_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.time.format.DateTimeTextProvider",
-	"java.lang.Object",
-	nullptr,
-	_DateTimeTextProvider_FieldInfo_,
-	_DateTimeTextProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeTextProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeTextProvider$2,java.time.format.DateTimeTextProvider$LocaleStore,java.time.format.DateTimeTextProvider$1"
-};
-
-$Object* allocate$DateTimeTextProvider($Class* clazz) {
-	return $of($alloc(DateTimeTextProvider));
-}
 
 $ConcurrentMap* DateTimeTextProvider::CACHE = nullptr;
 $Comparator* DateTimeTextProvider::COMPARATOR = nullptr;
@@ -150,7 +100,7 @@ DateTimeTextProvider* DateTimeTextProvider::getInstance() {
 $String* DateTimeTextProvider::getText($TemporalField* field, int64_t value, $TextStyle* style, $Locale* locale) {
 	$var($Object, store, findStore(field, locale));
 	if ($instanceOf($DateTimeTextProvider$LocaleStore, store)) {
-		return $nc(($cast($DateTimeTextProvider$LocaleStore, store)))->getText(value, style);
+		return $cast($DateTimeTextProvider$LocaleStore, store)->getText(value, style);
 	}
 	return nullptr;
 }
@@ -175,76 +125,58 @@ $String* DateTimeTextProvider::getText($Chronology* chrono, $TemporalField* fiel
 		} else {
 			fieldValue = (int32_t)value;
 		}
-	} else {
-		if ($equals(field, $ChronoField::MONTH_OF_YEAR)) {
-			fieldIndex = $Calendar::MONTH;
-			fieldValue = (int32_t)value - 1;
-		} else {
-			if ($equals(field, $ChronoField::DAY_OF_WEEK)) {
-				fieldIndex = $Calendar::DAY_OF_WEEK;
-				fieldValue = (int32_t)value + 1;
-				if (fieldValue > 7) {
-					fieldValue = $Calendar::SUNDAY;
-				}
-			} else {
-				if ($equals(field, $ChronoField::AMPM_OF_DAY)) {
-					fieldIndex = $Calendar::AM_PM;
-					fieldValue = (int32_t)value;
-				} else {
-					return nullptr;
-				}
-			}
+	} else if ($equals(field, $ChronoField::MONTH_OF_YEAR)) {
+		fieldIndex = $Calendar::MONTH;
+		fieldValue = (int32_t)value - 1;
+	} else if ($equals(field, $ChronoField::DAY_OF_WEEK)) {
+		fieldIndex = $Calendar::DAY_OF_WEEK;
+		fieldValue = (int32_t)value + 1;
+		if (fieldValue > 7) {
+			fieldValue = $Calendar::SUNDAY;
 		}
+	} else if ($equals(field, $ChronoField::AMPM_OF_DAY)) {
+		fieldIndex = $Calendar::AM_PM;
+		fieldValue = (int32_t)value;
+	} else {
+		return nullptr;
 	}
 	$var($String, var$0, $nc(chrono)->getCalendarType());
-	int32_t var$1 = fieldIndex;
-	int32_t var$2 = fieldValue;
-	return $CalendarDataUtility::retrieveJavaTimeFieldValueName(var$0, var$1, var$2, $nc(style)->toCalendarStyle(), locale);
+	return $CalendarDataUtility::retrieveJavaTimeFieldValueName(var$0, fieldIndex, fieldValue, $nc(style)->toCalendarStyle(), locale);
 }
 
 $Iterator* DateTimeTextProvider::getTextIterator($TemporalField* field, $TextStyle* style, $Locale* locale) {
 	$var($Object, store, findStore(field, locale));
 	if ($instanceOf($DateTimeTextProvider$LocaleStore, store)) {
-		return $nc(($cast($DateTimeTextProvider$LocaleStore, store)))->getTextIterator(style);
+		return $cast($DateTimeTextProvider$LocaleStore, store)->getTextIterator(style);
 	}
 	return nullptr;
 }
 
 $Iterator* DateTimeTextProvider::getTextIterator($Chronology* chrono, $TemporalField* field, $TextStyle* style, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($IsoChronology);
 	if ($equals(chrono, $IsoChronology::INSTANCE) || !($instanceOf($ChronoField, field))) {
 		return getTextIterator(field, style, locale);
 	}
 	int32_t fieldIndex = 0;
 	$init($DateTimeTextProvider$2);
-	switch ($nc($DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField)->get($nc(($cast($ChronoField, field)))->ordinal())) {
+	switch ($nc($DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField)->get($nc($cast($ChronoField, field))->ordinal())) {
 	case 1:
-		{
-			fieldIndex = $Calendar::ERA;
-			break;
-		}
+		fieldIndex = $Calendar::ERA;
+		break;
 	case 2:
-		{
-			fieldIndex = $Calendar::MONTH;
-			break;
-		}
+		fieldIndex = $Calendar::MONTH;
+		break;
 	case 3:
-		{
-			fieldIndex = $Calendar::DAY_OF_WEEK;
-			break;
-		}
+		fieldIndex = $Calendar::DAY_OF_WEEK;
+		break;
 	case 4:
-		{
-			fieldIndex = $Calendar::AM_PM;
-			break;
-		}
+		fieldIndex = $Calendar::AM_PM;
+		break;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
-	int32_t calendarStyle = (style == nullptr) ? $Calendar::ALL_STYLES : $nc(style)->toCalendarStyle();
+	int32_t calendarStyle = (style == nullptr) ? $Calendar::ALL_STYLES : style->toCalendarStyle();
 	$var($Map, map, $CalendarDataUtility::retrieveJavaTimeFieldValueNames($($nc(chrono)->getCalendarType()), fieldIndex, calendarStyle, locale));
 	if (map == nullptr) {
 		return nullptr;
@@ -253,65 +185,57 @@ $Iterator* DateTimeTextProvider::getTextIterator($Chronology* chrono, $TemporalF
 	switch (fieldIndex) {
 	case $Calendar::ERA:
 		{
-			{
-				$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-					{
-						int32_t era = $nc(($cast($Integer, $($nc(entry)->getValue()))))->intValue();
-						$init($JapaneseChronology);
-						if ($equals(chrono, $JapaneseChronology::INSTANCE)) {
-							if (era == 0) {
-								era = -999;
-							} else {
-								era -= 2;
-							}
+			$var($Iterator, i$, $$nc(map->entrySet())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+				{
+					int32_t era = $$sure($Integer, $nc(entry)->getValue())->intValue();
+					$init($JapaneseChronology);
+					if ($equals(chrono, $JapaneseChronology::INSTANCE)) {
+						if (era == 0) {
+							era = -999;
+						} else {
+							era -= 2;
 						}
-						$var($Object, var$0, $cast($String, entry->getKey()));
-						list->add($(createEntry(var$0, $($Long::valueOf((int64_t)era)))));
 					}
+					$var($Object, var$0, $cast($String, entry->getKey()));
+					list->add($(createEntry(var$0, $($Long::valueOf((int64_t)era)))));
 				}
 			}
 			break;
 		}
 	case $Calendar::MONTH:
 		{
-			{
-				$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-					{
-						$var($Object, var$1, $cast($String, $nc(entry)->getKey()));
-						list->add($(createEntry(var$1, $($Long::valueOf((int64_t)($nc(($cast($Integer, $(entry->getValue()))))->intValue() + 1))))));
-					}
+			$var($Iterator, i$, $$nc(map->entrySet())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+				{
+					$var($Object, var$1, $cast($String, $nc(entry)->getKey()));
+					list->add($(createEntry(var$1, $($Long::valueOf((int64_t)($$sure($Integer, entry->getValue())->intValue() + 1))))));
 				}
 			}
 			break;
 		}
 	case $Calendar::DAY_OF_WEEK:
 		{
-			{
-				$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-					{
-						$var($Object, var$2, $cast($String, $nc(entry)->getKey()));
-						list->add($(createEntry(var$2, $($Long::valueOf((int64_t)toWeekDay($nc(($cast($Integer, $(entry->getValue()))))->intValue()))))));
-					}
+			$var($Iterator, i$, $$nc(map->entrySet())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+				{
+					$var($Object, var$2, $cast($String, $nc(entry)->getKey()));
+					list->add($(createEntry(var$2, $($Long::valueOf((int64_t)toWeekDay($$sure($Integer, entry->getValue())->intValue()))))));
 				}
 			}
 			break;
 		}
 	default:
 		{
-			{
-				$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-					{
-						$var($Object, var$3, $cast($String, $nc(entry)->getKey()));
-						list->add($(createEntry(var$3, $($Long::valueOf((int64_t)$nc(($cast($Integer, $(entry->getValue()))))->intValue())))));
-					}
+			$var($Iterator, i$, $$nc(map->entrySet())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+				{
+					$var($Object, var$3, $cast($String, $nc(entry)->getKey()));
+					list->add($(createEntry(var$3, $($Long::valueOf((int64_t)$$sure($Integer, entry->getValue())->intValue())))));
 				}
 			}
 			break;
@@ -321,15 +245,15 @@ $Iterator* DateTimeTextProvider::getTextIterator($Chronology* chrono, $TemporalF
 }
 
 $Object* DateTimeTextProvider::findStore($TemporalField* field, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, key, createEntry(field, locale));
-	$var($Object, store, $nc(DateTimeTextProvider::CACHE)->get(key));
+	$var($Object, store, DateTimeTextProvider::CACHE->get(key));
 	if (store == nullptr) {
 		$assign(store, createStore(field, locale));
-		$nc(DateTimeTextProvider::CACHE)->putIfAbsent(key, store);
-		$assign(store, $nc(DateTimeTextProvider::CACHE)->get(key));
+		DateTimeTextProvider::CACHE->putIfAbsent(key, store);
+		$assign(store, DateTimeTextProvider::CACHE->get(key));
 	}
-	return $of(store);
+	return store;
 }
 
 int32_t DateTimeTextProvider::toWeekDay(int32_t calWeekDay) {
@@ -342,13 +266,13 @@ int32_t DateTimeTextProvider::toWeekDay(int32_t calWeekDay) {
 }
 
 $Object* DateTimeTextProvider::createStore($TemporalField* field, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, styleMap, $new($HashMap));
 	$init($ChronoField);
 	if ($equals(field, $ChronoField::ERA)) {
 		{
 			$var($TextStyleArray, arr$, $TextStyle::values());
-			int32_t len$ = $nc(arr$)->length;
+			int32_t len$ = arr$->length;
 			int32_t i$ = 0;
 			for (; i$ < len$; ++i$) {
 				$TextStyle* textStyle = arr$->get(i$);
@@ -356,16 +280,16 @@ $Object* DateTimeTextProvider::createStore($TemporalField* field, $Locale* local
 					if ($nc(textStyle)->isStandalone()) {
 						continue;
 					}
-					$var($Map, displayNames, $CalendarDataUtility::retrieveJavaTimeFieldValueNames("gregory"_s, $Calendar::ERA, $nc(textStyle)->toCalendarStyle(), locale));
+					$var($Map, displayNames, $CalendarDataUtility::retrieveJavaTimeFieldValueNames("gregory"_s, $Calendar::ERA, textStyle->toCalendarStyle(), locale));
 					if (displayNames != nullptr) {
 						$var($Map, map, $new($HashMap));
 						{
-							$var($Iterator, i$, $nc($(displayNames->entrySet()))->iterator());
+							$var($Iterator, i$, $$nc(displayNames->entrySet())->iterator());
 							for (; $nc(i$)->hasNext();) {
 								$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 								{
-									$var($Object, var$0, $of($Long::valueOf((int64_t)$nc(($cast($Integer, $($nc(entry)->getValue()))))->intValue())));
-									map->put(var$0, $cast($String, $($nc(entry)->getKey())));
+									$var($Object, var$0, $Long::valueOf((int64_t)$$sure($Integer, $nc(entry)->getValue())->intValue()));
+									map->put(var$0, $$cast($String, entry->getKey()));
 								}
 							}
 						}
@@ -376,19 +300,19 @@ $Object* DateTimeTextProvider::createStore($TemporalField* field, $Locale* local
 				}
 			}
 		}
-		return $of($new($DateTimeTextProvider$LocaleStore, styleMap));
+		return $new($DateTimeTextProvider$LocaleStore, styleMap);
 	}
 	if ($equals(field, $ChronoField::MONTH_OF_YEAR)) {
 		{
 			$var($TextStyleArray, arr$, $TextStyle::values());
-			int32_t len$ = $nc(arr$)->length;
+			int32_t len$ = arr$->length;
 			int32_t i$ = 0;
 			for (; i$ < len$; ++i$) {
 				$TextStyle* textStyle = arr$->get(i$);
 				{
 					$var($Map, map, $new($HashMap));
 					bool var$1 = $nc(textStyle)->equals($TextStyle::NARROW);
-					if (var$1 || $nc(textStyle)->equals($TextStyle::NARROW_STANDALONE)) {
+					if (var$1 || textStyle->equals($TextStyle::NARROW_STANDALONE)) {
 						for (int32_t month = $Calendar::JANUARY; month <= $Calendar::DECEMBER; ++month) {
 							$var($String, name, nullptr);
 							$assign(name, $CalendarDataUtility::retrieveJavaTimeFieldValueName("gregory"_s, $Calendar::MONTH, month, textStyle->toCalendarStyle(), locale));
@@ -400,14 +324,12 @@ $Object* DateTimeTextProvider::createStore($TemporalField* field, $Locale* local
 					} else {
 						$var($Map, displayNames, $CalendarDataUtility::retrieveJavaTimeFieldValueNames("gregory"_s, $Calendar::MONTH, textStyle->toCalendarStyle(), locale));
 						if (displayNames != nullptr) {
-							{
-								$var($Iterator, i$, $nc($(displayNames->entrySet()))->iterator());
-								for (; $nc(i$)->hasNext();) {
-									$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-									{
-										$var($Object, var$2, $of($Long::valueOf((int64_t)($nc(($cast($Integer, $($nc(entry)->getValue()))))->intValue() + 1))));
-										map->put(var$2, $cast($String, $($nc(entry)->getKey())));
-									}
+							$var($Iterator, i$, $$nc(displayNames->entrySet())->iterator());
+							for (; $nc(i$)->hasNext();) {
+								$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+								{
+									$var($Object, var$2, $Long::valueOf((int64_t)($$sure($Integer, $nc(entry)->getValue())->intValue() + 1)));
+									map->put(var$2, $$cast($String, entry->getKey()));
 								}
 							}
 						} else {
@@ -427,19 +349,19 @@ $Object* DateTimeTextProvider::createStore($TemporalField* field, $Locale* local
 				}
 			}
 		}
-		return $of($new($DateTimeTextProvider$LocaleStore, styleMap));
+		return $new($DateTimeTextProvider$LocaleStore, styleMap);
 	}
 	if ($equals(field, $ChronoField::DAY_OF_WEEK)) {
 		{
 			$var($TextStyleArray, arr$, $TextStyle::values());
-			int32_t len$ = $nc(arr$)->length;
+			int32_t len$ = arr$->length;
 			int32_t i$ = 0;
 			for (; i$ < len$; ++i$) {
 				$TextStyle* textStyle = arr$->get(i$);
 				{
 					$var($Map, map, $new($HashMap));
 					bool var$3 = $nc(textStyle)->equals($TextStyle::NARROW);
-					if (var$3 || $nc(textStyle)->equals($TextStyle::NARROW_STANDALONE)) {
+					if (var$3 || textStyle->equals($TextStyle::NARROW_STANDALONE)) {
 						for (int32_t wday = $Calendar::SUNDAY; wday <= $Calendar::SATURDAY; ++wday) {
 							$var($String, name, nullptr);
 							$assign(name, $CalendarDataUtility::retrieveJavaTimeFieldValueName("gregory"_s, $Calendar::DAY_OF_WEEK, wday, textStyle->toCalendarStyle(), locale));
@@ -451,14 +373,12 @@ $Object* DateTimeTextProvider::createStore($TemporalField* field, $Locale* local
 					} else {
 						$var($Map, displayNames, $CalendarDataUtility::retrieveJavaTimeFieldValueNames("gregory"_s, $Calendar::DAY_OF_WEEK, textStyle->toCalendarStyle(), locale));
 						if (displayNames != nullptr) {
-							{
-								$var($Iterator, i$, $nc($(displayNames->entrySet()))->iterator());
-								for (; $nc(i$)->hasNext();) {
-									$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-									{
-										$var($Object, var$4, $of($Long::valueOf((int64_t)toWeekDay($nc(($cast($Integer, $($nc(entry)->getValue()))))->intValue()))));
-										map->put(var$4, $cast($String, $($nc(entry)->getKey())));
-									}
+							$var($Iterator, i$, $$nc(displayNames->entrySet())->iterator());
+							for (; $nc(i$)->hasNext();) {
+								$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+								{
+									$var($Object, var$4, $Long::valueOf((int64_t)toWeekDay($$sure($Integer, $nc(entry)->getValue())->intValue())));
+									map->put(var$4, $$cast($String, entry->getKey()));
 								}
 							}
 						} else {
@@ -478,12 +398,12 @@ $Object* DateTimeTextProvider::createStore($TemporalField* field, $Locale* local
 				}
 			}
 		}
-		return $of($new($DateTimeTextProvider$LocaleStore, styleMap));
+		return $new($DateTimeTextProvider$LocaleStore, styleMap);
 	}
 	if ($equals(field, $ChronoField::AMPM_OF_DAY)) {
 		{
 			$var($TextStyleArray, arr$, $TextStyle::values());
-			int32_t len$ = $nc(arr$)->length;
+			int32_t len$ = arr$->length;
 			int32_t i$ = 0;
 			for (; i$ < len$; ++i$) {
 				$TextStyle* textStyle = arr$->get(i$);
@@ -491,16 +411,16 @@ $Object* DateTimeTextProvider::createStore($TemporalField* field, $Locale* local
 					if ($nc(textStyle)->isStandalone()) {
 						continue;
 					}
-					$var($Map, displayNames, $CalendarDataUtility::retrieveJavaTimeFieldValueNames("gregory"_s, $Calendar::AM_PM, $nc(textStyle)->toCalendarStyle(), locale));
+					$var($Map, displayNames, $CalendarDataUtility::retrieveJavaTimeFieldValueNames("gregory"_s, $Calendar::AM_PM, textStyle->toCalendarStyle(), locale));
 					if (displayNames != nullptr) {
 						$var($Map, map, $new($HashMap));
 						{
-							$var($Iterator, i$, $nc($(displayNames->entrySet()))->iterator());
+							$var($Iterator, i$, $$nc(displayNames->entrySet())->iterator());
 							for (; $nc(i$)->hasNext();) {
 								$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 								{
-									$var($Object, var$5, $of($Long::valueOf((int64_t)$nc(($cast($Integer, $($nc(entry)->getValue()))))->intValue())));
-									map->put(var$5, $cast($String, $($nc(entry)->getKey())));
+									$var($Object, var$5, $Long::valueOf((int64_t)$$sure($Integer, $nc(entry)->getValue())->intValue()));
+									map->put(var$5, $$cast($String, entry->getKey()));
 								}
 							}
 						}
@@ -511,7 +431,7 @@ $Object* DateTimeTextProvider::createStore($TemporalField* field, $Locale* local
 				}
 			}
 		}
-		return $of($new($DateTimeTextProvider$LocaleStore, styleMap));
+		return $new($DateTimeTextProvider$LocaleStore, styleMap);
 	}
 	$init($IsoFields);
 	if (field == $IsoFields::QUARTER_OF_YEAR) {
@@ -533,7 +453,7 @@ $Object* DateTimeTextProvider::createStore($TemporalField* field, $Locale* local
 				styleMap->put($($TextStyle::values())->get(i), map);
 			}
 		}
-		return $of($new($DateTimeTextProvider$LocaleStore, styleMap));
+		return $new($DateTimeTextProvider$LocaleStore, styleMap);
 	}
 	return $of(""_s);
 }
@@ -545,13 +465,13 @@ $Map$Entry* DateTimeTextProvider::createEntry(Object$* text, Object$* field) {
 
 $Object* DateTimeTextProvider::getLocalizedResource($String* key, $Locale* locale) {
 	$init(DateTimeTextProvider);
-	$useLocalCurrentObjectStackCache();
-	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources($($CalendarDataUtility::findRegionOverride(locale))));
+	$useLocalObjectStack();
+	$var($LocaleResources, lr, $$nc($LocaleProviderAdapter::getResourceBundleBased())->getLocaleResources($($CalendarDataUtility::findRegionOverride(locale))));
 	$var($ResourceBundle, rb, $nc(lr)->getJavaTimeFormatData());
-	return $of($nc(rb)->containsKey(key) ? $nc(rb)->getObject(key) : ($Object*)nullptr);
+	return $nc(rb)->containsKey(key) ? rb->getObject(key) : ($Object*)nullptr;
 }
 
-void clinit$DateTimeTextProvider($Class* class$) {
+void DateTimeTextProvider::clinit$($Class* clazz) {
 	$assignStatic(DateTimeTextProvider::CACHE, $new($ConcurrentHashMap, 16, 0.75f, 2));
 	$assignStatic(DateTimeTextProvider::COMPARATOR, $new($DateTimeTextProvider$1));
 	$assignStatic(DateTimeTextProvider::INSTANCE, $new(DateTimeTextProvider));
@@ -561,7 +481,49 @@ DateTimeTextProvider::DateTimeTextProvider() {
 }
 
 $Class* DateTimeTextProvider::load$($String* name, bool initialize) {
-	$loadClass(DateTimeTextProvider, name, initialize, &_DateTimeTextProvider_ClassInfo_, clinit$DateTimeTextProvider, allocate$DateTimeTextProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"CACHE", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/util/Map$Entry<Ljava/time/temporal/TemporalField;Ljava/util/Locale;>;Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DateTimeTextProvider, CACHE)},
+		{"COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DateTimeTextProvider, COMPARATOR)},
+		{"INSTANCE", "Ljava/time/format/DateTimeTextProvider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DateTimeTextProvider, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DateTimeTextProvider, init$, void)},
+		{"createEntry", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;>(TA;TB;)Ljava/util/Map$Entry<TA;TB;>;", $PRIVATE | $STATIC, $staticMethod(DateTimeTextProvider, createEntry, $Map$Entry*, Object$*, Object$*)},
+		{"createStore", "(Ljava/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(DateTimeTextProvider, createStore, $Object*, $TemporalField*, $Locale*)},
+		{"findStore", "(Ljava/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(DateTimeTextProvider, findStore, $Object*, $TemporalField*, $Locale*)},
+		{"getInstance", "()Ljava/time/format/DateTimeTextProvider;", nullptr, $STATIC, $staticMethod(DateTimeTextProvider, getInstance, DateTimeTextProvider*)},
+		{"getLocalizedResource", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/util/Locale;)TT;", $STATIC, $staticMethod(DateTimeTextProvider, getLocalizedResource, $Object*, $String*, $Locale*)},
+		{"getText", "(Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeTextProvider, getText, $String*, $TemporalField*, int64_t, $TextStyle*, $Locale*)},
+		{"getText", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeTextProvider, getText, $String*, $Chronology*, $TemporalField*, int64_t, $TextStyle*, $Locale*)},
+		{"getTextIterator", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC, $virtualMethod(DateTimeTextProvider, getTextIterator, $Iterator*, $TemporalField*, $TextStyle*, $Locale*)},
+		{"getTextIterator", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC, $virtualMethod(DateTimeTextProvider, getTextIterator, $Iterator*, $Chronology*, $TemporalField*, $TextStyle*, $Locale*)},
+		{"toWeekDay", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DateTimeTextProvider, toWeekDay, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeTextProvider$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.time.format.DateTimeTextProvider$LocaleStore", "java.time.format.DateTimeTextProvider", "LocaleStore", $STATIC | $FINAL},
+		{"java.time.format.DateTimeTextProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.time.format.DateTimeTextProvider",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeTextProvider$2,java.time.format.DateTimeTextProvider$LocaleStore,java.time.format.DateTimeTextProvider$1"
+	};
+	$loadClass(DateTimeTextProvider, name, initialize, &classInfo$$, DateTimeTextProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeTextProvider);
+	});
 	return class$;
 }
 

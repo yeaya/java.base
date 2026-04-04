@@ -31,6 +31,7 @@ class MethodHandleImpl$ArrayAccess : public ::java::lang::Enum {
 public:
 	MethodHandleImpl$ArrayAccess();
 	static $Array<::java::lang::invoke::MethodHandleImpl$ArrayAccess>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static int32_t cacheIndex(::java::lang::invoke::MethodHandleImpl$ArrayAccess* a);
 	static ::java::lang::invoke::MethodHandleImpl$Intrinsic* intrinsic(::java::lang::invoke::MethodHandleImpl$ArrayAccess* a);

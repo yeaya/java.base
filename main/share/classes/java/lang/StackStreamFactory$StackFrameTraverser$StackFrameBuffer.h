@@ -20,6 +20,7 @@ class StackStreamFactory$StackFrameTraverser$StackFrameBuffer : public ::java::l
 	$class(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, 0, ::java::lang::StackStreamFactory$FrameBuffer)
 public:
 	StackStreamFactory$StackFrameTraverser$StackFrameBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::StackStreamFactory$StackFrameTraverser* this$0, int32_t initialBatchSize);
 	virtual $Class* at(int32_t index) override;
 	virtual $ObjectArray* frames() override;

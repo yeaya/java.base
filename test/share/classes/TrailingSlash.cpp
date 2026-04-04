@@ -1,5 +1,4 @@
 #include <TrailingSlash.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
@@ -18,34 +17,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _TrailingSlash_FieldInfo_[] = {
-	{"log", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(TrailingSlash, log)},
-	{"failures", "I", nullptr, $STATIC, $staticField(TrailingSlash, failures)},
-	{}
-};
-
-$MethodInfo _TrailingSlash_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TrailingSlash, init$, void)},
-	{"check", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $STATIC, $staticMethod(TrailingSlash, check, void, $String*, $String*, bool, bool)},
-	{"go", "(Ljava/lang/String;ZZZ)V", nullptr, $STATIC, $staticMethod(TrailingSlash, go, void, $String*, bool, bool, bool), "java.io.IOException"},
-	{"go", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TrailingSlash, go, void, $String*, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TrailingSlash, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _TrailingSlash_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TrailingSlash",
-	"java.lang.Object",
-	nullptr,
-	_TrailingSlash_FieldInfo_,
-	_TrailingSlash_MethodInfo_
-};
-
-$Object* allocate$TrailingSlash($Class* clazz) {
-	return $of($alloc(TrailingSlash));
-}
-
 $PrintStream* TrailingSlash::log = nullptr;
 int32_t TrailingSlash::failures = 0;
 
@@ -62,7 +33,7 @@ void TrailingSlash::check($String* what, $String* fns, bool expected, bool threw
 
 void TrailingSlash::go($String* fns, bool fis, bool raf, bool fos) {
 	$init(TrailingSlash);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool threw = false;
 	threw = false;
 	try {
@@ -95,14 +66,14 @@ void TrailingSlash::go($String* fns, bool fis, bool raf, bool fos) {
 
 void TrailingSlash::go($String* fn, $String* fns) {
 	$init(TrailingSlash);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(TrailingSlash::log)->println($$str({"Test case: "_s, fns}));
 	$var($File, f, $new($File, fn));
 	f->delete$();
 	if (f->exists()) {
 		$throwNew($Exception, $$str({"Can\'t delete "_s, f}));
 	}
-	$nc(TrailingSlash::log)->println($$str({"  "_s, fn, " does not exist"_s}));
+	TrailingSlash::log->println($$str({"  "_s, fn, " does not exist"_s}));
 	go(fns, false, false, true);
 	f->delete$();
 	f->mkdir();
@@ -116,7 +87,7 @@ void TrailingSlash::go($String* fn, $String* fns) {
 
 void TrailingSlash::main($StringArray* args) {
 	$init(TrailingSlash);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	if ($File::separatorChar != u'/') {
 		return;
@@ -129,7 +100,7 @@ void TrailingSlash::main($StringArray* args) {
 	}
 }
 
-void clinit$TrailingSlash($Class* class$) {
+void TrailingSlash::clinit$($Class* clazz) {
 	$assignStatic(TrailingSlash::log, $System::err);
 	TrailingSlash::failures = 0;
 }
@@ -138,7 +109,30 @@ TrailingSlash::TrailingSlash() {
 }
 
 $Class* TrailingSlash::load$($String* name, bool initialize) {
-	$loadClass(TrailingSlash, name, initialize, &_TrailingSlash_ClassInfo_, clinit$TrailingSlash, allocate$TrailingSlash);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(TrailingSlash, log)},
+		{"failures", "I", nullptr, $STATIC, $staticField(TrailingSlash, failures)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TrailingSlash, init$, void)},
+		{"check", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $STATIC, $staticMethod(TrailingSlash, check, void, $String*, $String*, bool, bool)},
+		{"go", "(Ljava/lang/String;ZZZ)V", nullptr, $STATIC, $staticMethod(TrailingSlash, go, void, $String*, bool, bool, bool), "java.io.IOException"},
+		{"go", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TrailingSlash, go, void, $String*, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TrailingSlash, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TrailingSlash",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TrailingSlash, name, initialize, &classInfo$$, TrailingSlash::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TrailingSlash);
+	});
 	return class$;
 }
 

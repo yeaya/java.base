@@ -15,7 +15,7 @@ public:
 	Semaphore$NonfairSync();
 	void init$(int32_t permits);
 	virtual int32_t tryAcquireShared(int32_t acquires) override;
-	static const int64_t serialVersionUID = (int64_t)0xDA9C5636A11688E6;
+	static const int64_t serialVersionUID = (int64_t)0xda9c5636a11688e6;
 };
 
 		} // concurrent

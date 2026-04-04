@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/jar/URLJarFile$URLJarFileEntry.h>
-
 #include <java/security/CodeSigner.h>
 #include <java/security/cert/Certificate.h>
 #include <java/util/Map.h>
@@ -26,45 +25,6 @@ namespace sun {
 			namespace protocol {
 				namespace jar {
 
-$FieldInfo _URLJarFile$URLJarFileEntry_FieldInfo_[] = {
-	{"this$0", "Lsun/net/www/protocol/jar/URLJarFile;", nullptr, $FINAL | $SYNTHETIC, $field(URLJarFile$URLJarFileEntry, this$0)},
-	{"je", "Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $field(URLJarFile$URLJarFileEntry, je)},
-	{}
-};
-
-$MethodInfo _URLJarFile$URLJarFileEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/jar/URLJarFile;Ljava/util/jar/JarEntry;)V", nullptr, 0, $method(URLJarFile$URLJarFileEntry, init$, void, $URLJarFile*, $JarEntry*)},
-	{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(URLJarFile$URLJarFileEntry, getAttributes, $Attributes*), "java.io.IOException"},
-	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(URLJarFile$URLJarFileEntry, getCertificates, $CertificateArray*)},
-	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(URLJarFile$URLJarFileEntry, getCodeSigners, $CodeSignerArray*)},
-	{}
-};
-
-$InnerClassInfo _URLJarFile$URLJarFileEntry_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.jar.URLJarFile$URLJarFileEntry", "sun.net.www.protocol.jar.URLJarFile", "URLJarFileEntry", $PRIVATE},
-	{}
-};
-
-$ClassInfo _URLJarFile$URLJarFileEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.jar.URLJarFile$URLJarFileEntry",
-	"java.util.jar.JarEntry",
-	nullptr,
-	_URLJarFile$URLJarFileEntry_FieldInfo_,
-	_URLJarFile$URLJarFileEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URLJarFile$URLJarFileEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.jar.URLJarFile"
-};
-
-$Object* allocate$URLJarFile$URLJarFileEntry($Class* clazz) {
-	return $of($alloc(URLJarFile$URLJarFileEntry));
-}
-
 void URLJarFile$URLJarFileEntry::init$($URLJarFile* this$0, $JarEntry* je) {
 	$set(this, this$0, this$0);
 	$JarEntry::init$(je);
@@ -72,7 +32,7 @@ void URLJarFile$URLJarFileEntry::init$($URLJarFile* this$0, $JarEntry* je) {
 }
 
 $Attributes* URLJarFile$URLJarFileEntry::getAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->isSuperMan()) {
 		$var($Map, e, this->this$0->superEntries);
 		if (e != nullptr) {
@@ -87,19 +47,52 @@ $Attributes* URLJarFile$URLJarFileEntry::getAttributes() {
 
 $CertificateArray* URLJarFile$URLJarFileEntry::getCertificates() {
 	$var($CertificateArray, certs, $nc(this->je)->getCertificates());
-	return certs == nullptr ? ($CertificateArray*)nullptr : $cast($CertificateArray, $nc(certs)->clone());
+	return certs == nullptr ? ($CertificateArray*)nullptr : $cast($CertificateArray, certs->clone());
 }
 
 $CodeSignerArray* URLJarFile$URLJarFileEntry::getCodeSigners() {
 	$var($CodeSignerArray, csg, $nc(this->je)->getCodeSigners());
-	return csg == nullptr ? ($CodeSignerArray*)nullptr : $cast($CodeSignerArray, $nc(csg)->clone());
+	return csg == nullptr ? ($CodeSignerArray*)nullptr : $cast($CodeSignerArray, csg->clone());
 }
 
 URLJarFile$URLJarFileEntry::URLJarFile$URLJarFileEntry() {
 }
 
 $Class* URLJarFile$URLJarFileEntry::load$($String* name, bool initialize) {
-	$loadClass(URLJarFile$URLJarFileEntry, name, initialize, &_URLJarFile$URLJarFileEntry_ClassInfo_, allocate$URLJarFile$URLJarFileEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/www/protocol/jar/URLJarFile;", nullptr, $FINAL | $SYNTHETIC, $field(URLJarFile$URLJarFileEntry, this$0)},
+		{"je", "Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $field(URLJarFile$URLJarFileEntry, je)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/protocol/jar/URLJarFile;Ljava/util/jar/JarEntry;)V", nullptr, 0, $method(URLJarFile$URLJarFileEntry, init$, void, $URLJarFile*, $JarEntry*)},
+		{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(URLJarFile$URLJarFileEntry, getAttributes, $Attributes*), "java.io.IOException"},
+		{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(URLJarFile$URLJarFileEntry, getCertificates, $CertificateArray*)},
+		{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(URLJarFile$URLJarFileEntry, getCodeSigners, $CodeSignerArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.jar.URLJarFile$URLJarFileEntry", "sun.net.www.protocol.jar.URLJarFile", "URLJarFileEntry", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.jar.URLJarFile$URLJarFileEntry",
+		"java.util.jar.JarEntry",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.jar.URLJarFile"
+	};
+	$loadClass(URLJarFile$URLJarFileEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(URLJarFile$URLJarFileEntry));
+	});
 	return class$;
 }
 

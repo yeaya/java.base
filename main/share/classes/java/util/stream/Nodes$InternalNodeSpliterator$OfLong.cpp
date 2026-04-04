@@ -1,12 +1,10 @@
 #include <java/util/stream/Nodes$InternalNodeSpliterator$OfLong.h>
-
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator$OfLong.h>
 #include <java/util/Spliterator.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/function/LongConsumer.h>
 #include <java/util/stream/Node$OfLong.h>
-#include <java/util/stream/Node$OfPrimitive.h>
 #include <java/util/stream/Nodes$InternalNodeSpliterator$OfPrimitive.h>
 #include <java/util/stream/Nodes$InternalNodeSpliterator.h>
 #include <jcpp.h>
@@ -20,63 +18,11 @@ using $Spliterator$OfLong = ::java::util::Spliterator$OfLong;
 using $Consumer = ::java::util::function::Consumer;
 using $LongConsumer = ::java::util::function::LongConsumer;
 using $Node$OfLong = ::java::util::stream::Node$OfLong;
-using $Node$OfPrimitive = ::java::util::stream::Node$OfPrimitive;
 using $Nodes$InternalNodeSpliterator$OfPrimitive = ::java::util::stream::Nodes$InternalNodeSpliterator$OfPrimitive;
 
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _Nodes$InternalNodeSpliterator$OfLong_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/Node$OfLong;)V", nullptr, 0, $method(Nodes$InternalNodeSpliterator$OfLong, init$, void, $Node$OfLong*)},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Nodes$InternalNodeSpliterator$OfLong, forEachRemaining, void, $LongConsumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Nodes$InternalNodeSpliterator$OfLong, tryAdvance, bool, $LongConsumer*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$InternalNodeSpliterator$OfLong, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Nodes$InternalNodeSpliterator$OfLong_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$InternalNodeSpliterator", "java.util.stream.Nodes", "InternalNodeSpliterator", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Nodes$InternalNodeSpliterator$OfLong", "java.util.stream.Nodes$InternalNodeSpliterator", "OfLong", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive", "java.util.stream.Nodes$InternalNodeSpliterator", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Node$OfLong", "java.util.stream.Node", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$InternalNodeSpliterator$OfLong_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Nodes$InternalNodeSpliterator$OfLong",
-	"java.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive",
-	"java.util.Spliterator$OfLong",
-	nullptr,
-	_Nodes$InternalNodeSpliterator$OfLong_MethodInfo_,
-	"Ljava/util/stream/Nodes$InternalNodeSpliterator$OfPrimitive<Ljava/lang/Long;Ljava/util/function/LongConsumer;[JLjava/util/Spliterator$OfLong;Ljava/util/stream/Node$OfLong;>;Ljava/util/Spliterator$OfLong;",
-	nullptr,
-	_Nodes$InternalNodeSpliterator$OfLong_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$InternalNodeSpliterator$OfLong($Class* clazz) {
-	return $of($alloc(Nodes$InternalNodeSpliterator$OfLong));
-}
 
 bool Nodes$InternalNodeSpliterator$OfLong::tryAdvance(Object$* consumer) {
 	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::tryAdvance(consumer);
@@ -211,11 +157,11 @@ void Nodes$InternalNodeSpliterator$OfLong::init$($Node$OfLong* cur) {
 }
 
 void Nodes$InternalNodeSpliterator$OfLong::forEachRemaining($LongConsumer* consumer) {
-	$Nodes$InternalNodeSpliterator$OfPrimitive::forEachRemaining($of(consumer));
+	$Nodes$InternalNodeSpliterator$OfPrimitive::forEachRemaining(consumer);
 }
 
 bool Nodes$InternalNodeSpliterator$OfLong::tryAdvance($LongConsumer* consumer) {
-	return $Nodes$InternalNodeSpliterator$OfPrimitive::tryAdvance($of(consumer));
+	return $Nodes$InternalNodeSpliterator$OfPrimitive::tryAdvance(consumer);
 }
 
 $Spliterator* Nodes$InternalNodeSpliterator$OfLong::trySplit() {
@@ -226,7 +172,53 @@ Nodes$InternalNodeSpliterator$OfLong::Nodes$InternalNodeSpliterator$OfLong() {
 }
 
 $Class* Nodes$InternalNodeSpliterator$OfLong::load$($String* name, bool initialize) {
-	$loadClass(Nodes$InternalNodeSpliterator$OfLong, name, initialize, &_Nodes$InternalNodeSpliterator$OfLong_ClassInfo_, allocate$Nodes$InternalNodeSpliterator$OfLong);
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/stream/Node$OfLong;)V", nullptr, 0, $method(Nodes$InternalNodeSpliterator$OfLong, init$, void, $Node$OfLong*)},
+		{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Nodes$InternalNodeSpliterator$OfLong, forEachRemaining, void, $LongConsumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Nodes$InternalNodeSpliterator$OfLong, tryAdvance, bool, $LongConsumer*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$InternalNodeSpliterator$OfLong, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$InternalNodeSpliterator", "java.util.stream.Nodes", "InternalNodeSpliterator", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Nodes$InternalNodeSpliterator$OfLong", "java.util.stream.Nodes$InternalNodeSpliterator", "OfLong", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive", "java.util.stream.Nodes$InternalNodeSpliterator", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Node$OfLong", "java.util.stream.Node", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Nodes$InternalNodeSpliterator$OfLong",
+		"java.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive",
+		"java.util.Spliterator$OfLong",
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/stream/Nodes$InternalNodeSpliterator$OfPrimitive<Ljava/lang/Long;Ljava/util/function/LongConsumer;[JLjava/util/Spliterator$OfLong;Ljava/util/stream/Node$OfLong;>;Ljava/util/Spliterator$OfLong;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$InternalNodeSpliterator$OfLong, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$InternalNodeSpliterator$OfLong));
+	});
 	return class$;
 }
 

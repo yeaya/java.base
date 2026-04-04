@@ -1,5 +1,4 @@
 #include <sun/net/ResourceManager.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/net/SocketException.h>
@@ -21,33 +20,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace net {
 
-$FieldInfo _ResourceManager_FieldInfo_[] = {
-	{"DEFAULT_MAX_SOCKETS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResourceManager, DEFAULT_MAX_SOCKETS)},
-	{"maxSockets", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceManager, maxSockets)},
-	{"numSockets", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceManager, numSockets)},
-	{}
-};
-
-$MethodInfo _ResourceManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceManager, init$, void)},
-	{"afterUdpClose", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceManager, afterUdpClose, void)},
-	{"beforeUdpCreate", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceManager, beforeUdpCreate, void), "java.net.SocketException"},
-	{}
-};
-
-$ClassInfo _ResourceManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.ResourceManager",
-	"java.lang.Object",
-	nullptr,
-	_ResourceManager_FieldInfo_,
-	_ResourceManager_MethodInfo_
-};
-
-$Object* allocate$ResourceManager($Class* clazz) {
-	return $of($alloc(ResourceManager));
-}
-
 int32_t ResourceManager::maxSockets = 0;
 $AtomicInteger* ResourceManager::numSockets = nullptr;
 
@@ -58,7 +30,7 @@ void ResourceManager::beforeUdpCreate() {
 	$init(ResourceManager);
 	if ($System::getSecurityManager() != nullptr) {
 		if ($nc(ResourceManager::numSockets)->incrementAndGet() > ResourceManager::maxSockets) {
-			$nc(ResourceManager::numSockets)->decrementAndGet();
+			ResourceManager::numSockets->decrementAndGet();
 			$throwNew($SocketException, "maximum number of DatagramSockets reached"_s);
 		}
 	}
@@ -71,7 +43,7 @@ void ResourceManager::afterUdpClose() {
 	}
 }
 
-void clinit$ResourceManager($Class* class$) {
+void ResourceManager::clinit$($Class* clazz) {
 	{
 		$var($String, prop, $GetPropertyAction::privilegedGetProperty("sun.net.maxDatagramSockets"_s));
 		int32_t defmax = ResourceManager::DEFAULT_MAX_SOCKETS;
@@ -90,7 +62,29 @@ ResourceManager::ResourceManager() {
 }
 
 $Class* ResourceManager::load$($String* name, bool initialize) {
-	$loadClass(ResourceManager, name, initialize, &_ResourceManager_ClassInfo_, clinit$ResourceManager, allocate$ResourceManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_MAX_SOCKETS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResourceManager, DEFAULT_MAX_SOCKETS)},
+		{"maxSockets", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceManager, maxSockets)},
+		{"numSockets", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceManager, numSockets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceManager, init$, void)},
+		{"afterUdpClose", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceManager, afterUdpClose, void)},
+		{"beforeUdpCreate", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceManager, beforeUdpCreate, void), "java.net.SocketException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.ResourceManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResourceManager, name, initialize, &classInfo$$, ResourceManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceManager);
+	});
 	return class$;
 }
 

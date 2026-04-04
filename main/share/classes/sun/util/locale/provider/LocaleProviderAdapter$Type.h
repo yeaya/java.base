@@ -33,6 +33,7 @@ class $export LocaleProviderAdapter$Type : public ::java::lang::Enum {
 public:
 	LocaleProviderAdapter$Type();
 	static $Array<::sun::util::locale::provider::LocaleProviderAdapter$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* className);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* className, $String* util, $String* text);
 	virtual $String* getAdapterClassName();

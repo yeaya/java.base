@@ -1,41 +1,16 @@
 #include <Bar.h>
-
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _Bar_FieldInfo_[] = {
-	{"obj", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(Bar, obj)},
-	{}
-};
-
-$MethodInfo _Bar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Bar, init$, void)},
-	{}
-};
-
-$ClassInfo _Bar_ClassInfo_ = {
-	$ACC_SUPER,
-	"Bar",
-	"java.lang.Object",
-	nullptr,
-	_Bar_FieldInfo_,
-	_Bar_MethodInfo_
-};
-
-$Object* allocate$Bar($Class* clazz) {
-	return $of($alloc(Bar));
-}
 
 $Object* Bar::obj = nullptr;
 
 void Bar::init$() {
 }
 
-void clinit$Bar($Class* class$) {
+void Bar::clinit$($Class* clazz) {
 	{
 		$nc($System::out)->println("Bar.<clinit> called"_s);
 	}
@@ -46,7 +21,25 @@ Bar::Bar() {
 }
 
 $Class* Bar::load$($String* name, bool initialize) {
-	$loadClass(Bar, name, initialize, &_Bar_ClassInfo_, clinit$Bar, allocate$Bar);
+	$FieldInfo fieldInfos$$[] = {
+		{"obj", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(Bar, obj)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Bar, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Bar",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Bar, name, initialize, &classInfo$$, Bar::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bar);
+	});
 	return class$;
 }
 

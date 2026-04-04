@@ -1,5 +1,4 @@
 #include <MemoryLeak.h>
-
 #include <java/lang/ThreadLocal.h>
 #include <jcpp.h>
 
@@ -7,31 +6,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 
-$MethodInfo _MemoryLeak_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MemoryLeak, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryLeak, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _MemoryLeak_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MemoryLeak",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MemoryLeak_MethodInfo_
-};
-
-$Object* allocate$MemoryLeak($Class* clazz) {
-	return $of($alloc(MemoryLeak));
-}
-
 void MemoryLeak::init$() {
 }
 
 void MemoryLeak::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	for (int32_t i = 0; i < 0x0010C8E0; ++i) {
+	$useLocalObjectStack();
+	for (int32_t i = 0; i < 1100000; ++i) {
 		$var($ThreadLocal, t, $new($ThreadLocal));
 		t->set($$new($Object));
 		t->set(nullptr);
@@ -42,7 +22,22 @@ MemoryLeak::MemoryLeak() {
 }
 
 $Class* MemoryLeak::load$($String* name, bool initialize) {
-	$loadClass(MemoryLeak, name, initialize, &_MemoryLeak_ClassInfo_, allocate$MemoryLeak);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MemoryLeak, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryLeak, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MemoryLeak",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MemoryLeak, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryLeak);
+	});
 	return class$;
 }
 

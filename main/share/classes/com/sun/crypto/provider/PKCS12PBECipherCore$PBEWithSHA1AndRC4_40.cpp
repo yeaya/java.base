@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PKCS12PBECipherCore$PBEWithSHA1AndRC4_40.h>
-
 #include <com/sun/crypto/provider/ARCFOURCipher.h>
 #include <com/sun/crypto/provider/PKCS12PBECipherCore.h>
 #include <java/security/AlgorithmParameters.h>
@@ -32,59 +31,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _PKCS12PBECipherCore$PBEWithSHA1AndRC4_40_FieldInfo_[] = {
-	{"RC4_KEYSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, RC4_KEYSIZE)},
-	{"core", "Lcom/sun/crypto/provider/PKCS12PBECipherCore;", nullptr, $PRIVATE | $FINAL, $field(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, core)},
-	{"cipher", "Lcom/sun/crypto/provider/ARCFOURCipher;", nullptr, $PRIVATE | $FINAL, $field(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, cipher)},
-	{}
-};
-
-$MethodInfo _PKCS12PBECipherCore$PBEWithSHA1AndRC4_40_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, init$, void), "java.security.NoSuchAlgorithmException"},
-	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineGetBlockSize, int32_t)},
-	{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineGetIV, $bytes*)},
-	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineGetOutputSize, int32_t, int32_t)},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
-	{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
-	{}
-};
-
-$InnerClassInfo _PKCS12PBECipherCore$PBEWithSHA1AndRC4_40_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.PKCS12PBECipherCore$PBEWithSHA1AndRC4_40", "com.sun.crypto.provider.PKCS12PBECipherCore", "PBEWithSHA1AndRC4_40", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PKCS12PBECipherCore$PBEWithSHA1AndRC4_40_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.PKCS12PBECipherCore$PBEWithSHA1AndRC4_40",
-	"javax.crypto.CipherSpi",
-	nullptr,
-	_PKCS12PBECipherCore$PBEWithSHA1AndRC4_40_FieldInfo_,
-	_PKCS12PBECipherCore$PBEWithSHA1AndRC4_40_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PKCS12PBECipherCore$PBEWithSHA1AndRC4_40_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.PKCS12PBECipherCore"
-};
-
-$Object* allocate$PKCS12PBECipherCore$PBEWithSHA1AndRC4_40($Class* clazz) {
-	return $of($alloc(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40));
-}
-
 void PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::init$() {
 	$CipherSpi::init$();
 	$set(this, core, $new($PKCS12PBECipherCore, "RC4"_s, PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::RC4_KEYSIZE));
@@ -92,19 +38,19 @@ void PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::init$() {
 }
 
 $bytes* PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineDoFinal($bytes* in, int32_t inOff, int32_t inLen) {
-	return $nc(this->cipher)->engineDoFinal(in, inOff, inLen);
+	return this->cipher->engineDoFinal(in, inOff, inLen);
 }
 
 int32_t PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineDoFinal($bytes* in, int32_t inOff, int32_t inLen, $bytes* out, int32_t outOff) {
-	return $nc(this->cipher)->engineDoFinal(in, inOff, inLen, out, outOff);
+	return this->cipher->engineDoFinal(in, inOff, inLen, out, outOff);
 }
 
 int32_t PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineGetBlockSize() {
-	return $nc(this->cipher)->engineGetBlockSize();
+	return this->cipher->engineGetBlockSize();
 }
 
 $bytes* PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineGetIV() {
-	return $nc(this->cipher)->engineGetIV();
+	return this->cipher->engineGetIV();
 }
 
 int32_t PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineGetKeySize($Key* key) {
@@ -112,23 +58,23 @@ int32_t PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineGetKeySize($Key* key) {
 }
 
 int32_t PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineGetOutputSize(int32_t inLen) {
-	return $nc(this->cipher)->engineGetOutputSize(inLen);
+	return this->cipher->engineGetOutputSize(inLen);
 }
 
 $AlgorithmParameters* PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineGetParameters() {
-	return $nc(this->core)->implGetParameters();
+	return this->core->implGetParameters();
 }
 
 void PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
-	$nc(this->core)->implInit(opmode, key, params, random, static_cast<$CipherSpi*>(this->cipher));
+	this->core->implInit(opmode, key, params, random, this->cipher);
 }
 
 void PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
-	$nc(this->core)->implInit(opmode, key, params, random, static_cast<$CipherSpi*>(this->cipher));
+	this->core->implInit(opmode, key, params, random, this->cipher);
 }
 
 void PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineInit(int32_t opmode, $Key* key, $SecureRandom* random) {
-	$nc(this->core)->implInit(opmode, key, random, static_cast<$CipherSpi*>(this->cipher));
+	this->core->implInit(opmode, key, random, this->cipher);
 }
 
 void PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineSetMode($String* mode) {
@@ -144,26 +90,73 @@ void PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineSetPadding($String* padding
 }
 
 $Key* PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_t wrappedKeyType) {
-	return $nc(this->cipher)->engineUnwrap(wrappedKey, wrappedKeyAlgorithm, wrappedKeyType);
+	return this->cipher->engineUnwrap(wrappedKey, wrappedKeyAlgorithm, wrappedKeyType);
 }
 
 $bytes* PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineUpdate($bytes* in, int32_t inOff, int32_t inLen) {
-	return $nc(this->cipher)->engineUpdate(in, inOff, inLen);
+	return this->cipher->engineUpdate(in, inOff, inLen);
 }
 
 int32_t PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineUpdate($bytes* in, int32_t inOff, int32_t inLen, $bytes* out, int32_t outOff) {
-	return $nc(this->cipher)->engineUpdate(in, inOff, inLen, out, outOff);
+	return this->cipher->engineUpdate(in, inOff, inLen, out, outOff);
 }
 
 $bytes* PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::engineWrap($Key* key) {
-	return $nc(this->cipher)->engineWrap(key);
+	return this->cipher->engineWrap(key);
 }
 
 PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::PKCS12PBECipherCore$PBEWithSHA1AndRC4_40() {
 }
 
 $Class* PKCS12PBECipherCore$PBEWithSHA1AndRC4_40::load$($String* name, bool initialize) {
-	$loadClass(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, name, initialize, &_PKCS12PBECipherCore$PBEWithSHA1AndRC4_40_ClassInfo_, allocate$PKCS12PBECipherCore$PBEWithSHA1AndRC4_40);
+	$FieldInfo fieldInfos$$[] = {
+		{"RC4_KEYSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, RC4_KEYSIZE)},
+		{"core", "Lcom/sun/crypto/provider/PKCS12PBECipherCore;", nullptr, $PRIVATE | $FINAL, $field(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, core)},
+		{"cipher", "Lcom/sun/crypto/provider/ARCFOURCipher;", nullptr, $PRIVATE | $FINAL, $field(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, cipher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, init$, void), "java.security.NoSuchAlgorithmException"},
+		{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineGetBlockSize, int32_t)},
+		{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineGetIV, $bytes*)},
+		{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
+		{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineGetOutputSize, int32_t, int32_t)},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
+		{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+		{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.PKCS12PBECipherCore$PBEWithSHA1AndRC4_40", "com.sun.crypto.provider.PKCS12PBECipherCore", "PBEWithSHA1AndRC4_40", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.PKCS12PBECipherCore$PBEWithSHA1AndRC4_40",
+		"javax.crypto.CipherSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.PKCS12PBECipherCore"
+	};
+	$loadClass(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PKCS12PBECipherCore$PBEWithSHA1AndRC4_40);
+	});
 	return class$;
 }
 

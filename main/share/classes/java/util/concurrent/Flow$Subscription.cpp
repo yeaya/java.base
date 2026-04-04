@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Flow$Subscription.h>
-
 #include <java/util/concurrent/Flow.h>
 #include <jcpp.h>
 
@@ -11,39 +10,34 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$MethodInfo _Flow$Subscription_MethodInfo_[] = {
-	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Subscription, cancel, void)},
-	{"request", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Subscription, request, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _Flow$Subscription_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Flow$Subscription_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.concurrent.Flow$Subscription",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Flow$Subscription_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Flow$Subscription_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.Flow"
-};
-
-$Object* allocate$Flow$Subscription($Class* clazz) {
-	return $of($alloc(Flow$Subscription));
-}
-
 $Class* Flow$Subscription::load$($String* name, bool initialize) {
-	$loadClass(Flow$Subscription, name, initialize, &_Flow$Subscription_ClassInfo_, allocate$Flow$Subscription);
+	$MethodInfo methodInfos$$[] = {
+		{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Subscription, cancel, void)},
+		{"request", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Subscription, request, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.concurrent.Flow$Subscription",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.Flow"
+	};
+	$loadClass(Flow$Subscription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$Subscription);
+	});
 	return class$;
 }
 

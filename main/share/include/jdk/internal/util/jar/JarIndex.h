@@ -37,6 +37,7 @@ class $import JarIndex : public ::java::lang::Object {
 	$class(JarIndex, 0, ::java::lang::Object)
 public:
 	JarIndex();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::io::InputStream* is);
 	void init$($StringArray* files);

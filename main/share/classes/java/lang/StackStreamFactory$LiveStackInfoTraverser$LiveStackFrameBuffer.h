@@ -20,6 +20,7 @@ class StackStreamFactory$LiveStackInfoTraverser$LiveStackFrameBuffer : public ::
 	$class(StackStreamFactory$LiveStackInfoTraverser$LiveStackFrameBuffer, 0, ::java::lang::StackStreamFactory$FrameBuffer)
 public:
 	StackStreamFactory$LiveStackInfoTraverser$LiveStackFrameBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::StackStreamFactory$LiveStackInfoTraverser* this$0, int32_t initialBatchSize);
 	virtual $Class* at(int32_t index) override;
 	virtual $ObjectArray* frames() override;

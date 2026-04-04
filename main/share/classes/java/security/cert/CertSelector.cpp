@@ -1,5 +1,4 @@
 #include <java/security/cert/CertSelector.h>
-
 #include <java/lang/Cloneable.h>
 #include <java/security/cert/Certificate.h>
 #include <jcpp.h>
@@ -13,31 +12,27 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$MethodInfo _CertSelector_MethodInfo_[] = {
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"match", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertSelector, match, bool, $Certificate*)},
-	{}
-};
-
-$ClassInfo _CertSelector_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.cert.CertSelector",
-	nullptr,
-	"java.lang.Cloneable",
-	nullptr,
-	_CertSelector_MethodInfo_
-};
-
-$Object* allocate$CertSelector($Class* clazz) {
-	return $of($alloc(CertSelector));
-}
-
 $Object* CertSelector::clone() {
 	 return this->$Cloneable::clone();
 }
 
 $Class* CertSelector::load$($String* name, bool initialize) {
-	$loadClass(CertSelector, name, initialize, &_CertSelector_ClassInfo_, allocate$CertSelector);
+	$MethodInfo methodInfos$$[] = {
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"match", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertSelector, match, bool, $Certificate*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.cert.CertSelector",
+		nullptr,
+		"java.lang.Cloneable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CertSelector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertSelector);
+	});
 	return class$;
 }
 

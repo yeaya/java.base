@@ -20,6 +20,7 @@ class SSLLogger : public ::java::lang::Object {
 	$class(SSLLogger, 0, ::java::lang::Object)
 public:
 	SSLLogger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void fine($String* msg, $ObjectArray* params);
 	static void finer($String* msg, $ObjectArray* params);

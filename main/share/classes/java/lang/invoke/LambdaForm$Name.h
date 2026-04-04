@@ -25,6 +25,7 @@ class LambdaForm$Name : public ::java::lang::Object {
 	$class(LambdaForm$Name, 0, ::java::lang::Object)
 public:
 	LambdaForm$Name();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t index, ::java::lang::invoke::LambdaForm$BasicType* type, ::java::lang::invoke::LambdaForm$NamedFunction* function, $ObjectArray* arguments);
 	void init$(::java::lang::invoke::LambdaForm$Name* that, Object$* constraint);
 	void init$(::java::lang::invoke::MethodHandle* function, $ObjectArray* arguments);

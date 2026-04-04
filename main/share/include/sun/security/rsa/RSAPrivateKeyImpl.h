@@ -49,7 +49,7 @@ public:
 	virtual ::java::math::BigInteger* getPrivateExponent() override;
 	virtual bool isDestroyed() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xFF8A61A3985EAB56;
+	static const int64_t serialVersionUID = (int64_t)0xff8a61a3985eab56;
 	::java::math::BigInteger* n = nullptr;
 	::java::math::BigInteger* d = nullptr;
 	::sun::security::rsa::RSAUtil$KeyType* type = nullptr;

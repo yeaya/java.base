@@ -1,5 +1,4 @@
 #include <sun/security/util/SecurityProviderConstants.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <java/security/InvalidParameterException.h>
 #include <java/security/ProviderException.h>
@@ -47,41 +46,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _SecurityProviderConstants_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SecurityProviderConstants, debug)},
-	{"aliasesMap", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SecurityProviderConstants, aliasesMap)},
-	{"DEF_DSA_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_DSA_KEY_SIZE)},
-	{"DEF_RSA_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_RSA_KEY_SIZE)},
-	{"DEF_RSASSA_PSS_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_RSASSA_PSS_KEY_SIZE)},
-	{"DEF_DH_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_DH_KEY_SIZE)},
-	{"DEF_EC_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_EC_KEY_SIZE)},
-	{"DEF_ED_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_ED_KEY_SIZE)},
-	{"DEF_XEC_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_XEC_KEY_SIZE)},
-	{"KEY_LENGTH_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SecurityProviderConstants, KEY_LENGTH_PROP)},
-	{}
-};
-
-$MethodInfo _SecurityProviderConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SecurityProviderConstants, init$, void)},
-	{"getAliases", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(SecurityProviderConstants, getAliases, $List*, $String*)},
-	{"getDefDSASubprimeSize", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecurityProviderConstants, getDefDSASubprimeSize, int32_t, int32_t)},
-	{"store", "(Ljava/lang/String;Lsun/security/util/KnownOIDs;[Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Lsun/security/util/KnownOIDs;[Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SecurityProviderConstants, store, $List*, $String*, $KnownOIDs*, $StringArray*)},
-	{}
-};
-
-$ClassInfo _SecurityProviderConstants_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.util.SecurityProviderConstants",
-	"java.lang.Object",
-	nullptr,
-	_SecurityProviderConstants_FieldInfo_,
-	_SecurityProviderConstants_MethodInfo_
-};
-
-$Object* allocate$SecurityProviderConstants($Class* clazz) {
-	return $of($alloc(SecurityProviderConstants));
-}
-
 $Debug* SecurityProviderConstants::debug = nullptr;
 $ConcurrentHashMap* SecurityProviderConstants::aliasesMap = nullptr;
 int32_t SecurityProviderConstants::DEF_DSA_KEY_SIZE = 0;
@@ -98,7 +62,7 @@ void SecurityProviderConstants::init$() {
 
 $List* SecurityProviderConstants::store($String* stdName, $KnownOIDs* oid, $StringArray* extraAliases) {
 	$init(SecurityProviderConstants);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, value, nullptr);
 	if (oid == nullptr && $nc(extraAliases)->length != 0) {
 		$assign(value, $List::of(extraAliases));
@@ -109,24 +73,18 @@ $List* SecurityProviderConstants::store($String* stdName, $KnownOIDs* oid, $Stri
 			value->add($(oid->value()));
 			$var($StringArray, knownAliases, oid->aliases());
 			if (knownAliases != nullptr) {
-				{
-					$var($StringArray, arr$, knownAliases);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$var($String, ka, arr$->get(i$));
-						{
-							value->add(ka);
-						}
+				$var($StringArray, arr$, knownAliases);
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+					$var($String, ka, arr$->get(i$));
+					{
+						value->add(ka);
 					}
 				}
 			}
 		}
 		{
 			$var($StringArray, arr$, extraAliases);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, ea, arr$->get(i$));
 				{
 					value->add(ea);
@@ -140,7 +98,7 @@ $List* SecurityProviderConstants::store($String* stdName, $KnownOIDs* oid, $Stri
 
 $List* SecurityProviderConstants::getAliases($String* o) {
 	$init(SecurityProviderConstants);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, res, $cast($List, $nc(SecurityProviderConstants::aliasesMap)->get(o)));
 	if (res == nullptr) {
 		$KnownOIDs* e = $KnownOIDs::findMatch(o);
@@ -155,7 +113,7 @@ $List* SecurityProviderConstants::getAliases($String* o) {
 
 int32_t SecurityProviderConstants::getDefDSASubprimeSize(int32_t primeSize) {
 	$init(SecurityProviderConstants);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (primeSize <= 1024) {
 		return 160;
 	} else if (primeSize == 2048) {
@@ -167,8 +125,8 @@ int32_t SecurityProviderConstants::getDefDSASubprimeSize(int32_t primeSize) {
 	}
 }
 
-void clinit$SecurityProviderConstants($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SecurityProviderConstants::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(SecurityProviderConstants::KEY_LENGTH_PROP, "jdk.security.defaultKeySize"_s);
 	$assignStatic(SecurityProviderConstants::debug, $Debug::getInstance("jca"_s, "ProviderConfig"_s));
 	{
@@ -185,15 +143,13 @@ void clinit$SecurityProviderConstants($Class* class$) {
 				$var($StringArray, pairs, keyLengthStr->split(","_s));
 				{
 					$var($StringArray, arr$, pairs);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 						$var($String, p, arr$->get(i$));
 						{
 							$var($StringArray, algoAndValue, $nc(p)->split(":"_s));
 							if (algoAndValue->length != 2) {
 								if (SecurityProviderConstants::debug != nullptr) {
-									$nc(SecurityProviderConstants::debug)->println($$str({"Ignoring invalid pair in "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, p}));
+									SecurityProviderConstants::debug->println($$str({"Ignoring invalid pair in "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, p}));
 								}
 								continue;
 							}
@@ -203,7 +159,7 @@ void clinit$SecurityProviderConstants($Class* class$) {
 								value = $Integer::parseInt($($nc(algoAndValue->get(1))->trim()));
 							} catch ($NumberFormatException& nfe) {
 								if (SecurityProviderConstants::debug != nullptr) {
-									$nc(SecurityProviderConstants::debug)->println($$str({"Ignoring invalid value in "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, p}));
+									SecurityProviderConstants::debug->println($$str({"Ignoring invalid value in "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, p}));
 								}
 								continue;
 							}
@@ -223,19 +179,19 @@ void clinit$SecurityProviderConstants($Class* class$) {
 								xecKeySize = value;
 							} else {
 								if (SecurityProviderConstants::debug != nullptr) {
-									$nc(SecurityProviderConstants::debug)->println($$str({"Ignoring unsupported algo in "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, p}));
+									SecurityProviderConstants::debug->println($$str({"Ignoring unsupported algo in "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, p}));
 								}
 								continue;
 							}
 							if (SecurityProviderConstants::debug != nullptr) {
-								$nc(SecurityProviderConstants::debug)->println($$str({"Overriding default "_s, algoName, " keysize with value from "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, $$str(value)}));
+								SecurityProviderConstants::debug->println($$str({"Overriding default "_s, algoName, " keysize with value from "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, $$str(value)}));
 							}
 						}
 					}
 				}
 			} catch ($PatternSyntaxException& pse) {
 				if (SecurityProviderConstants::debug != nullptr) {
-					$nc(SecurityProviderConstants::debug)->println($$str({"Unexpected exception while parsing "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, pse}));
+					SecurityProviderConstants::debug->println($$str({"Unexpected exception while parsing "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, pse}));
 				}
 			}
 		}
@@ -278,7 +234,37 @@ SecurityProviderConstants::SecurityProviderConstants() {
 }
 
 $Class* SecurityProviderConstants::load$($String* name, bool initialize) {
-	$loadClass(SecurityProviderConstants, name, initialize, &_SecurityProviderConstants_ClassInfo_, clinit$SecurityProviderConstants, allocate$SecurityProviderConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SecurityProviderConstants, debug)},
+		{"aliasesMap", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SecurityProviderConstants, aliasesMap)},
+		{"DEF_DSA_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_DSA_KEY_SIZE)},
+		{"DEF_RSA_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_RSA_KEY_SIZE)},
+		{"DEF_RSASSA_PSS_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_RSASSA_PSS_KEY_SIZE)},
+		{"DEF_DH_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_DH_KEY_SIZE)},
+		{"DEF_EC_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_EC_KEY_SIZE)},
+		{"DEF_ED_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_ED_KEY_SIZE)},
+		{"DEF_XEC_KEY_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProviderConstants, DEF_XEC_KEY_SIZE)},
+		{"KEY_LENGTH_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SecurityProviderConstants, KEY_LENGTH_PROP)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SecurityProviderConstants, init$, void)},
+		{"getAliases", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(SecurityProviderConstants, getAliases, $List*, $String*)},
+		{"getDefDSASubprimeSize", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecurityProviderConstants, getDefDSASubprimeSize, int32_t, int32_t)},
+		{"store", "(Ljava/lang/String;Lsun/security/util/KnownOIDs;[Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Lsun/security/util/KnownOIDs;[Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SecurityProviderConstants, store, $List*, $String*, $KnownOIDs*, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.util.SecurityProviderConstants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SecurityProviderConstants, name, initialize, &classInfo$$, SecurityProviderConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SecurityProviderConstants);
+	});
 	return class$;
 }
 

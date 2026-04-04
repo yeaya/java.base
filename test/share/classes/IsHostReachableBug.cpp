@@ -1,5 +1,4 @@
 #include <IsHostReachableBug.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/FileWriter.h>
 #include <java/net/Inet6Address.h>
@@ -8,37 +7,17 @@
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $FileWriter = ::java::io::FileWriter;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Inet6Address = ::java::net::Inet6Address;
 using $InetAddress = ::java::net::InetAddress;
 
-$MethodInfo _IsHostReachableBug_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IsHostReachableBug, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsHostReachableBug, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _IsHostReachableBug_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IsHostReachableBug",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IsHostReachableBug_MethodInfo_
-};
-
-$Object* allocate$IsHostReachableBug($Class* clazz) {
-	return $of($alloc(IsHostReachableBug));
-}
-
 void IsHostReachableBug::init$() {
 }
 
 void IsHostReachableBug::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, hostName, "fec0::1:a00:20ff:feed:b08d"_s);
 	$var($BufferedReader, in, nullptr);
 	$var($FileWriter, fw, nullptr);
@@ -48,9 +27,9 @@ void IsHostReachableBug::main($StringArray* args) {
 	}
 	$var($InetAddress, addr, $InetAddress::getByName(hostName));
 	$nc($System::out)->println($$str({"InetAddress is : "_s, addr}));
-	$nc($System::out)->println($$str({"Is InetAddress instance of Inet6Address ? "_s, $$str(($instanceOf($Inet6Address, addr)))}));
+	$System::out->println($$str({"Is InetAddress instance of Inet6Address ? "_s, $$str(($instanceOf($Inet6Address, addr)))}));
 	if (!$nc(addr)->isReachable(10000)) {
-		$nc($System::out)->println($$str({hostName, " is not reachable"_s}));
+		$System::out->println($$str({hostName, " is not reachable"_s}));
 	} else {
 		$throwNew($RuntimeException, "IPv6 address should not be reachable"_s);
 	}
@@ -60,7 +39,22 @@ IsHostReachableBug::IsHostReachableBug() {
 }
 
 $Class* IsHostReachableBug::load$($String* name, bool initialize) {
-	$loadClass(IsHostReachableBug, name, initialize, &_IsHostReachableBug_ClassInfo_, allocate$IsHostReachableBug);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IsHostReachableBug, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsHostReachableBug, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IsHostReachableBug",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IsHostReachableBug, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IsHostReachableBug);
+	});
 	return class$;
 }
 

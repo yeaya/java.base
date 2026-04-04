@@ -34,7 +34,7 @@ public:
 	$volatile($Object*) item = nullptr;
 	$volatile(::java::util::concurrent::LinkedTransferQueue$Node*) next = nullptr;
 	$volatile($Thread*) waiter = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xD1261C33B18E3356;
+	static const int64_t serialVersionUID = (int64_t)0xd1261c33b18e3356;
 };
 
 		} // concurrent

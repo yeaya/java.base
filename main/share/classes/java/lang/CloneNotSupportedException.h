@@ -14,10 +14,13 @@ public:
 	CloneNotSupportedException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x481A29F4778B29FB;
+	static const int64_t serialVersionUID = (int64_t)0x481a29f4778b29fb;
 	CloneNotSupportedException(const CloneNotSupportedException& e);
 	virtual void throw$() override;
-	inline CloneNotSupportedException* operator ->() {
+	inline CloneNotSupportedException* operator ->() const {
+		return (CloneNotSupportedException*)throwing$;
+	}
+	inline operator CloneNotSupportedException*() const {
 		return (CloneNotSupportedException*)throwing$;
 	}
 };

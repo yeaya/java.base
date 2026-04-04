@@ -28,6 +28,7 @@ class BaseLocale$Key : public ::java::lang::Object {
 	$class(BaseLocale$Key, 0, ::java::lang::Object)
 public:
 	BaseLocale$Key();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* language, $String* script, $String* region, $String* variant, bool normalize);
 	virtual bool equals(Object$* obj) override;
 	::sun::util::locale::BaseLocale* getBaseLocale();

@@ -1,5 +1,4 @@
 #include <java/nio/ByteBufferAsFloatBufferB.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
@@ -27,51 +26,10 @@ using $ByteOrder = ::java::nio::ByteOrder;
 using $FloatBuffer = ::java::nio::FloatBuffer;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _ByteBufferAsFloatBufferB_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ByteBufferAsFloatBufferB, $assertionsDisabled)},
-	{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PROTECTED | $FINAL, $field(ByteBufferAsFloatBufferB, bb)},
-	{}
-};
-
-$MethodInfo _ByteBufferAsFloatBufferB_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsFloatBufferB, init$, void, $ByteBuffer*, $MemorySegmentProxy*)},
-	{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsFloatBufferB, init$, void, $ByteBuffer*, int32_t, int32_t, int32_t, int32_t, int64_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, asReadOnlyBuffer, $FloatBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ByteBufferAsFloatBufferB, base, $Object*)},
-	{"byteOffset", "(J)J", nullptr, $PROTECTED, $virtualMethod(ByteBufferAsFloatBufferB, byteOffset, int64_t, int64_t)},
-	{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, compact, $FloatBuffer*)},
-	{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, duplicate, $FloatBuffer*)},
-	{"get", "()F", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, get, float)},
-	{"get", "(I)F", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, get, float, int32_t)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, isReadOnly, bool)},
-	{"ix", "(I)I", nullptr, $PRIVATE, $method(ByteBufferAsFloatBufferB, ix, int32_t, int32_t)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, order, $ByteOrder*)},
-	{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, put, $FloatBuffer*, float)},
-	{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, put, $FloatBuffer*, int32_t, float)},
-	{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, slice, $FloatBuffer*)},
-	{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, slice, $FloatBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ByteBufferAsFloatBufferB_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.ByteBufferAsFloatBufferB",
-	"java.nio.FloatBuffer",
-	nullptr,
-	_ByteBufferAsFloatBufferB_FieldInfo_,
-	_ByteBufferAsFloatBufferB_MethodInfo_
-};
-
-$Object* allocate$ByteBufferAsFloatBufferB($Class* clazz) {
-	return $of($alloc(ByteBufferAsFloatBufferB));
-}
 
 bool ByteBufferAsFloatBufferB::$assertionsDisabled = false;
 
@@ -85,7 +43,7 @@ void ByteBufferAsFloatBufferB::init$($ByteBuffer* bb, $MemorySegmentProxy* segme
 	if (!ByteBufferAsFloatBufferB::$assertionsDisabled && !(pos <= cap)) {
 		$throwNew($AssertionError);
 	}
-	this->address = $nc(bb)->address;
+	this->address = bb->address;
 }
 
 void ByteBufferAsFloatBufferB::init$($ByteBuffer* bb, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int64_t addr, $MemorySegmentProxy* segment) {
@@ -98,7 +56,7 @@ void ByteBufferAsFloatBufferB::init$($ByteBuffer* bb, int32_t mark, int32_t pos,
 }
 
 $Object* ByteBufferAsFloatBufferB::base() {
-	return $of($nc(this->bb)->hb);
+	return $nc(this->bb)->hb;
 }
 
 $FloatBuffer* ByteBufferAsFloatBufferB::slice() {
@@ -140,45 +98,45 @@ int64_t ByteBufferAsFloatBufferB::byteOffset(int64_t i) {
 }
 
 float ByteBufferAsFloatBufferB::get() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
-	$var($Object, var$1, $of($nc(this->bb)->hb));
+	$var($Object, var$1, $nc(this->bb)->hb);
 	int32_t x = $nc($Buffer::SCOPED_MEMORY_ACCESS)->getIntUnaligned(var$0, var$1, byteOffset(nextGetIndex()), true);
 	return $Float::intBitsToFloat(x);
 }
 
 float ByteBufferAsFloatBufferB::get(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
-	$var($Object, var$1, $of($nc(this->bb)->hb));
+	$var($Object, var$1, $nc(this->bb)->hb);
 	int32_t x = $nc($Buffer::SCOPED_MEMORY_ACCESS)->getIntUnaligned(var$0, var$1, byteOffset(checkIndex(i)), true);
 	return $Float::intBitsToFloat(x);
 }
 
 $FloatBuffer* ByteBufferAsFloatBufferB::put(float x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t y = $Float::floatToRawIntBits(x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
-	$var($Object, var$1, $of($nc(this->bb)->hb));
+	$var($Object, var$1, $nc(this->bb)->hb);
 	$nc($Buffer::SCOPED_MEMORY_ACCESS)->putIntUnaligned(var$0, var$1, byteOffset(nextPutIndex()), y, true);
 	return this;
 }
 
 $FloatBuffer* ByteBufferAsFloatBufferB::put(int32_t i, float x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t y = $Float::floatToRawIntBits(x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
-	$var($Object, var$1, $of($nc(this->bb)->hb));
+	$var($Object, var$1, $nc(this->bb)->hb);
 	$nc($Buffer::SCOPED_MEMORY_ACCESS)->putIntUnaligned(var$0, var$1, byteOffset(checkIndex(i)), y, true);
 	return this;
 }
 
 $FloatBuffer* ByteBufferAsFloatBufferB::compact() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!ByteBufferAsFloatBufferB::$assertionsDisabled && !(pos <= lim)) {
@@ -210,7 +168,7 @@ $ByteOrder* ByteBufferAsFloatBufferB::order() {
 	return $ByteOrder::BIG_ENDIAN;
 }
 
-void clinit$ByteBufferAsFloatBufferB($Class* class$) {
+void ByteBufferAsFloatBufferB::clinit$($Class* clazz) {
 	ByteBufferAsFloatBufferB::$assertionsDisabled = !ByteBufferAsFloatBufferB::class$->desiredAssertionStatus();
 }
 
@@ -218,7 +176,42 @@ ByteBufferAsFloatBufferB::ByteBufferAsFloatBufferB() {
 }
 
 $Class* ByteBufferAsFloatBufferB::load$($String* name, bool initialize) {
-	$loadClass(ByteBufferAsFloatBufferB, name, initialize, &_ByteBufferAsFloatBufferB_ClassInfo_, clinit$ByteBufferAsFloatBufferB, allocate$ByteBufferAsFloatBufferB);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ByteBufferAsFloatBufferB, $assertionsDisabled)},
+		{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PROTECTED | $FINAL, $field(ByteBufferAsFloatBufferB, bb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsFloatBufferB, init$, void, $ByteBuffer*, $MemorySegmentProxy*)},
+		{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsFloatBufferB, init$, void, $ByteBuffer*, int32_t, int32_t, int32_t, int32_t, int64_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, asReadOnlyBuffer, $FloatBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ByteBufferAsFloatBufferB, base, $Object*)},
+		{"byteOffset", "(J)J", nullptr, $PROTECTED, $virtualMethod(ByteBufferAsFloatBufferB, byteOffset, int64_t, int64_t)},
+		{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, compact, $FloatBuffer*)},
+		{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, duplicate, $FloatBuffer*)},
+		{"get", "()F", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, get, float)},
+		{"get", "(I)F", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, get, float, int32_t)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, isReadOnly, bool)},
+		{"ix", "(I)I", nullptr, $PRIVATE, $method(ByteBufferAsFloatBufferB, ix, int32_t, int32_t)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, order, $ByteOrder*)},
+		{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, put, $FloatBuffer*, float)},
+		{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, put, $FloatBuffer*, int32_t, float)},
+		{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, slice, $FloatBuffer*)},
+		{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferB, slice, $FloatBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.ByteBufferAsFloatBufferB",
+		"java.nio.FloatBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteBufferAsFloatBufferB, name, initialize, &classInfo$$, ByteBufferAsFloatBufferB::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ByteBufferAsFloatBufferB));
+	});
 	return class$;
 }
 

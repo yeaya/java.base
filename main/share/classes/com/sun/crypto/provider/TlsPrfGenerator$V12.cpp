@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/TlsPrfGenerator$V12.h>
-
 #include <com/sun/crypto/provider/TlsPrfGenerator.h>
 #include <javax/crypto/SecretKey.h>
 #include <jcpp.h>
@@ -15,37 +14,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _TlsPrfGenerator$V12_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TlsPrfGenerator$V12, init$, void)},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator$V12, engineGenerateKey, $SecretKey*)},
-	{}
-};
-
-$InnerClassInfo _TlsPrfGenerator$V12_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.TlsPrfGenerator$V12", "com.sun.crypto.provider.TlsPrfGenerator", "V12", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TlsPrfGenerator$V12_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.crypto.provider.TlsPrfGenerator$V12",
-	"com.sun.crypto.provider.TlsPrfGenerator",
-	nullptr,
-	nullptr,
-	_TlsPrfGenerator$V12_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TlsPrfGenerator$V12_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.TlsPrfGenerator"
-};
-
-$Object* allocate$TlsPrfGenerator$V12($Class* clazz) {
-	return $of($alloc(TlsPrfGenerator$V12));
-}
-
 void TlsPrfGenerator$V12::init$() {
 	$TlsPrfGenerator::init$();
 }
@@ -58,7 +26,33 @@ TlsPrfGenerator$V12::TlsPrfGenerator$V12() {
 }
 
 $Class* TlsPrfGenerator$V12::load$($String* name, bool initialize) {
-	$loadClass(TlsPrfGenerator$V12, name, initialize, &_TlsPrfGenerator$V12_ClassInfo_, allocate$TlsPrfGenerator$V12);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TlsPrfGenerator$V12, init$, void)},
+		{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator$V12, engineGenerateKey, $SecretKey*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.TlsPrfGenerator$V12", "com.sun.crypto.provider.TlsPrfGenerator", "V12", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.crypto.provider.TlsPrfGenerator$V12",
+		"com.sun.crypto.provider.TlsPrfGenerator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.TlsPrfGenerator"
+	};
+	$loadClass(TlsPrfGenerator$V12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TlsPrfGenerator$V12);
+	});
 	return class$;
 }
 

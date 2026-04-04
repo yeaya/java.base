@@ -1,5 +1,4 @@
 #include <StringContentEqualsBug.h>
-
 #include <StringContentEqualsBug$Disturber.h>
 #include <StringContentEqualsBug$Task.h>
 #include <StringContentEqualsBug$Tester.h>
@@ -15,87 +14,45 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 
-$MethodInfo _StringContentEqualsBug_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringContentEqualsBug, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringContentEqualsBug, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _StringContentEqualsBug_InnerClassesInfo_[] = {
-	{"StringContentEqualsBug$Disturber", "StringContentEqualsBug", "Disturber", $STATIC},
-	{"StringContentEqualsBug$Tester", "StringContentEqualsBug", "Tester", $STATIC},
-	{"StringContentEqualsBug$Task", "StringContentEqualsBug", "Task", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StringContentEqualsBug_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StringContentEqualsBug",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_StringContentEqualsBug_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringContentEqualsBug_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"StringContentEqualsBug$Disturber,StringContentEqualsBug$Tester,StringContentEqualsBug$Task"
-};
-
-$Object* allocate$StringContentEqualsBug($Class* clazz) {
-	return $of($alloc(StringContentEqualsBug));
-}
-
 void StringContentEqualsBug::init$() {
 }
 
 void StringContentEqualsBug::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	$var($StringContentEqualsBug$TaskArray, tasks, $new($StringContentEqualsBug$TaskArray, 3));
 	$nc((tasks->set(0, $$new($StringContentEqualsBug$Tester, sb))))->start();
 	for (int32_t i = 1; i < tasks->length; ++i) {
 		$nc((tasks->set(i, $$new($StringContentEqualsBug$Disturber, sb))))->start();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			for (int32_t i = 0; i < 20; ++i) {
-				{
-					$var($StringContentEqualsBug$TaskArray, arr$, tasks);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$var($StringContentEqualsBug$Task, task, arr$->get(i$));
-						{
-							if ($nc(task)->exception != nullptr) {
-								$throw(task->exception);
-							}
-						}
-					}
-				}
-				$Thread::sleep(250);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
+	$var($Throwable, var$0, nullptr);
+	try {
+		for (int32_t i = 0; i < 20; ++i) {
 			{
 				$var($StringContentEqualsBug$TaskArray, arr$, tasks);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$var($StringContentEqualsBug$Task, task, arr$->get(i$));
-					{
-						$set($nc(task), sb, nullptr);
-						task->join();
+					if ($nc(task)->exception != nullptr) {
+						$throw(task->exception);
 					}
 				}
 			}
+			$Thread::sleep(250);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$var($StringContentEqualsBug$TaskArray, arr$, tasks);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($StringContentEqualsBug$Task, task, arr$->get(i$));
+			{
+				$set($nc(task), sb, nullptr);
+				task->join();
+			}
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -103,7 +60,34 @@ StringContentEqualsBug::StringContentEqualsBug() {
 }
 
 $Class* StringContentEqualsBug::load$($String* name, bool initialize) {
-	$loadClass(StringContentEqualsBug, name, initialize, &_StringContentEqualsBug_ClassInfo_, allocate$StringContentEqualsBug);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringContentEqualsBug, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringContentEqualsBug, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StringContentEqualsBug$Disturber", "StringContentEqualsBug", "Disturber", $STATIC},
+		{"StringContentEqualsBug$Tester", "StringContentEqualsBug", "Tester", $STATIC},
+		{"StringContentEqualsBug$Task", "StringContentEqualsBug", "Task", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StringContentEqualsBug",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"StringContentEqualsBug$Disturber,StringContentEqualsBug$Tester,StringContentEqualsBug$Task"
+	};
+	$loadClass(StringContentEqualsBug, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringContentEqualsBug);
+	});
 	return class$;
 }
 

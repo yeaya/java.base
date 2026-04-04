@@ -1,5 +1,4 @@
 #include <javax/crypto/KeyAgreementSpi.h>
-
 #include <java/security/Key.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -16,30 +15,6 @@ using $SecretKey = ::javax::crypto::SecretKey;
 namespace javax {
 	namespace crypto {
 
-$MethodInfo _KeyAgreementSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyAgreementSpi, init$, void)},
-	{"engineDoPhase", "(Ljava/security/Key;Z)Ljava/security/Key;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineDoPhase, $Key*, $Key*, bool), "java.security.InvalidKeyException,java.lang.IllegalStateException"},
-	{"engineGenerateSecret", "()[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineGenerateSecret, $bytes*), "java.lang.IllegalStateException"},
-	{"engineGenerateSecret", "([BI)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineGenerateSecret, int32_t, $bytes*, int32_t), "java.lang.IllegalStateException,javax.crypto.ShortBufferException"},
-	{"engineGenerateSecret", "(Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineGenerateSecret, $SecretKey*, $String*), "java.lang.IllegalStateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineInit, void, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineInit, void, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$ClassInfo _KeyAgreementSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.crypto.KeyAgreementSpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_KeyAgreementSpi_MethodInfo_
-};
-
-$Object* allocate$KeyAgreementSpi($Class* clazz) {
-	return $of($alloc(KeyAgreementSpi));
-}
-
 void KeyAgreementSpi::init$() {
 }
 
@@ -47,7 +22,27 @@ KeyAgreementSpi::KeyAgreementSpi() {
 }
 
 $Class* KeyAgreementSpi::load$($String* name, bool initialize) {
-	$loadClass(KeyAgreementSpi, name, initialize, &_KeyAgreementSpi_ClassInfo_, allocate$KeyAgreementSpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyAgreementSpi, init$, void)},
+		{"engineDoPhase", "(Ljava/security/Key;Z)Ljava/security/Key;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineDoPhase, $Key*, $Key*, bool), "java.security.InvalidKeyException,java.lang.IllegalStateException"},
+		{"engineGenerateSecret", "()[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineGenerateSecret, $bytes*), "java.lang.IllegalStateException"},
+		{"engineGenerateSecret", "([BI)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineGenerateSecret, int32_t, $bytes*, int32_t), "java.lang.IllegalStateException,javax.crypto.ShortBufferException"},
+		{"engineGenerateSecret", "(Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineGenerateSecret, $SecretKey*, $String*), "java.lang.IllegalStateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{"engineInit", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineInit, void, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineInit, void, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.crypto.KeyAgreementSpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyAgreementSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyAgreementSpi);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/io/ObjectInputStream$HandleTable.h>
-
 #include <java/io/ObjectInputStream$HandleTable$HandleList.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -24,59 +23,6 @@ using $Arrays = ::java::util::Arrays;
 namespace java {
 	namespace io {
 
-$FieldInfo _ObjectInputStream$HandleTable_FieldInfo_[] = {
-	{"STATUS_OK", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$HandleTable, STATUS_OK)},
-	{"STATUS_UNKNOWN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$HandleTable, STATUS_UNKNOWN)},
-	{"STATUS_EXCEPTION", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$HandleTable, STATUS_EXCEPTION)},
-	{"status", "[B", nullptr, 0, $field(ObjectInputStream$HandleTable, status)},
-	{"entries", "[Ljava/lang/Object;", nullptr, 0, $field(ObjectInputStream$HandleTable, entries)},
-	{"deps", "[Ljava/io/ObjectInputStream$HandleTable$HandleList;", nullptr, 0, $field(ObjectInputStream$HandleTable, deps)},
-	{"lowDep", "I", nullptr, 0, $field(ObjectInputStream$HandleTable, lowDep)},
-	{"size", "I", nullptr, 0, $field(ObjectInputStream$HandleTable, size$)},
-	{}
-};
-
-$MethodInfo _ObjectInputStream$HandleTable_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(ObjectInputStream$HandleTable, init$, void, int32_t)},
-	{"assign", "(Ljava/lang/Object;)I", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, assign, int32_t, Object$*)},
-	{"clear", "()V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, clear, void)},
-	{"finish", "(I)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, finish, void, int32_t)},
-	{"grow", "()V", nullptr, $PRIVATE, $method(ObjectInputStream$HandleTable, grow, void)},
-	{"lookupException", "(I)Ljava/lang/ClassNotFoundException;", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, lookupException, $ClassNotFoundException*, int32_t)},
-	{"lookupObject", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, lookupObject, $Object*, int32_t)},
-	{"markDependency", "(II)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, markDependency, void, int32_t, int32_t)},
-	{"markException", "(ILjava/lang/ClassNotFoundException;)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, markException, void, int32_t, $ClassNotFoundException*)},
-	{"setObject", "(ILjava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, setObject, void, int32_t, Object$*)},
-	{"size", "()I", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ObjectInputStream$HandleTable_InnerClassesInfo_[] = {
-	{"java.io.ObjectInputStream$HandleTable", "java.io.ObjectInputStream", "HandleTable", $PRIVATE | $STATIC},
-	{"java.io.ObjectInputStream$HandleTable$HandleList", "java.io.ObjectInputStream$HandleTable", "HandleList", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectInputStream$HandleTable_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectInputStream$HandleTable",
-	"java.lang.Object",
-	nullptr,
-	_ObjectInputStream$HandleTable_FieldInfo_,
-	_ObjectInputStream$HandleTable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectInputStream$HandleTable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectInputStream"
-};
-
-$Object* allocate$ObjectInputStream$HandleTable($Class* clazz) {
-	return $of($alloc(ObjectInputStream$HandleTable));
-}
-
 void ObjectInputStream$HandleTable::init$(int32_t initialCapacity) {
 	this->lowDep = -1;
 	this->size$ = 0;
@@ -90,7 +36,7 @@ int32_t ObjectInputStream$HandleTable::assign(Object$* obj) {
 		grow();
 	}
 	$nc(this->status)->set(this->size$, ObjectInputStream$HandleTable::STATUS_UNKNOWN);
-	$nc(this->entries)->set(this->size$, obj);
+	this->entries->set(this->size$, obj);
 	return this->size$++;
 }
 
@@ -100,73 +46,51 @@ void ObjectInputStream$HandleTable::markDependency(int32_t dependent, int32_t ta
 	}
 	switch ($nc(this->status)->get(dependent)) {
 	case ObjectInputStream$HandleTable::STATUS_UNKNOWN:
-		{
-			switch ($nc(this->status)->get(target)) {
-			case ObjectInputStream$HandleTable::STATUS_OK:
-				{
-					break;
-				}
-			case ObjectInputStream$HandleTable::STATUS_EXCEPTION:
-				{
-					markException(dependent, $cast($ClassNotFoundException, $nc(this->entries)->get(target)));
-					break;
-				}
-			case ObjectInputStream$HandleTable::STATUS_UNKNOWN:
-				{
-					if ($nc(this->deps)->get(target) == nullptr) {
-						$nc(this->deps)->set(target, $$new($ObjectInputStream$HandleTable$HandleList));
-					}
-					$nc($nc(this->deps)->get(target))->add(dependent);
-					if (this->lowDep < 0 || this->lowDep > target) {
-						this->lowDep = target;
-					}
-					break;
-				}
-			default:
-				{
-					$throwNew($InternalError);
-				}
+		switch (this->status->get(target)) {
+		case ObjectInputStream$HandleTable::STATUS_OK:
+			break;
+		case ObjectInputStream$HandleTable::STATUS_EXCEPTION:
+			markException(dependent, $cast($ClassNotFoundException, $nc(this->entries)->get(target)));
+			break;
+		case ObjectInputStream$HandleTable::STATUS_UNKNOWN:
+			if ($nc(this->deps)->get(target) == nullptr) {
+				this->deps->set(target, $$new($ObjectInputStream$HandleTable$HandleList));
+			}
+			$nc(this->deps->get(target))->add(dependent);
+			if (this->lowDep < 0 || this->lowDep > target) {
+				this->lowDep = target;
 			}
 			break;
-		}
-	case ObjectInputStream$HandleTable::STATUS_EXCEPTION:
-		{
-			break;
-		}
-	default:
-		{
+		default:
 			$throwNew($InternalError);
 		}
+		break;
+	case ObjectInputStream$HandleTable::STATUS_EXCEPTION:
+		break;
+	default:
+		$throwNew($InternalError);
 	}
 }
 
 void ObjectInputStream$HandleTable::markException(int32_t handle, $ClassNotFoundException* ex) {
-	{
-		$var($ObjectInputStream$HandleTable$HandleList, dlist, nullptr)
-		switch ($nc(this->status)->get(handle)) {
-		case ObjectInputStream$HandleTable::STATUS_UNKNOWN:
-			{
-				$nc(this->status)->set(handle, ObjectInputStream$HandleTable::STATUS_EXCEPTION);
-				$nc(this->entries)->set(handle, ex);
-				$assign(dlist, $nc(this->deps)->get(handle));
-				if (dlist != nullptr) {
-					int32_t ndeps = dlist->size();
-					for (int32_t i = 0; i < ndeps; ++i) {
-						markException(dlist->get(i), ex);
-					}
-					$nc(this->deps)->set(handle, nullptr);
-				}
-				break;
+	$var($ObjectInputStream$HandleTable$HandleList, dlist, nullptr);
+	switch ($nc(this->status)->get(handle)) {
+	case ObjectInputStream$HandleTable::STATUS_UNKNOWN:
+		this->status->set(handle, ObjectInputStream$HandleTable::STATUS_EXCEPTION);
+		$nc(this->entries)->set(handle, ex);
+		$assign(dlist, $nc(this->deps)->get(handle));
+		if (dlist != nullptr) {
+			int32_t ndeps = dlist->size();
+			for (int32_t i = 0; i < ndeps; ++i) {
+				markException(dlist->get(i), ex);
 			}
-		case ObjectInputStream$HandleTable::STATUS_EXCEPTION:
-			{
-				break;
-			}
-		default:
-			{
-				$throwNew($InternalError);
-			}
+			this->deps->set(handle, nullptr);
 		}
+		break;
+	case ObjectInputStream$HandleTable::STATUS_EXCEPTION:
+		break;
+	default:
+		$throwNew($InternalError);
 	}
 }
 
@@ -183,21 +107,14 @@ void ObjectInputStream$HandleTable::finish(int32_t handle) {
 	for (int32_t i = handle; i < end; ++i) {
 		switch ($nc(this->status)->get(i)) {
 		case ObjectInputStream$HandleTable::STATUS_UNKNOWN:
-			{
-				$nc(this->status)->set(i, ObjectInputStream$HandleTable::STATUS_OK);
-				$nc(this->deps)->set(i, nullptr);
-				break;
-			}
+			this->status->set(i, ObjectInputStream$HandleTable::STATUS_OK);
+			$nc(this->deps)->set(i, nullptr);
+			break;
 		case ObjectInputStream$HandleTable::STATUS_OK:
-			{}
 		case ObjectInputStream$HandleTable::STATUS_EXCEPTION:
-			{
-				break;
-			}
+			break;
 		default:
-			{
-				$throwNew($InternalError);
-			}
+			$throwNew($InternalError);
 		}
 	}
 }
@@ -205,25 +122,18 @@ void ObjectInputStream$HandleTable::finish(int32_t handle) {
 void ObjectInputStream$HandleTable::setObject(int32_t handle, Object$* obj) {
 	switch ($nc(this->status)->get(handle)) {
 	case ObjectInputStream$HandleTable::STATUS_UNKNOWN:
-		{}
 	case ObjectInputStream$HandleTable::STATUS_OK:
-		{
-			$nc(this->entries)->set(handle, obj);
-			break;
-		}
+		$nc(this->entries)->set(handle, obj);
+		break;
 	case ObjectInputStream$HandleTable::STATUS_EXCEPTION:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($InternalError);
-		}
+		$throwNew($InternalError);
 	}
 }
 
 $Object* ObjectInputStream$HandleTable::lookupObject(int32_t handle) {
-	return $of((handle != -1 && $nc(this->status)->get(handle) != ObjectInputStream$HandleTable::STATUS_EXCEPTION) ? $nc(this->entries)->get(handle) : ($Object*)nullptr);
+	return (handle != -1 && $nc(this->status)->get(handle) != ObjectInputStream$HandleTable::STATUS_EXCEPTION) ? $nc(this->entries)->get(handle) : ($Object*)nullptr;
 }
 
 $ClassNotFoundException* ObjectInputStream$HandleTable::lookupException(int32_t handle) {
@@ -232,8 +142,8 @@ $ClassNotFoundException* ObjectInputStream$HandleTable::lookupException(int32_t 
 
 void ObjectInputStream$HandleTable::clear() {
 	$Arrays::fill(this->status, 0, this->size$, (int8_t)0);
-	$Arrays::fill(this->entries, 0, this->size$, ($Object*)nullptr);
-	$Arrays::fill(this->deps, 0, this->size$, ($Object*)nullptr);
+	$Arrays::fill(this->entries, 0, this->size$, nullptr);
+	$Arrays::fill(this->deps, 0, this->size$, nullptr);
 	this->lowDep = -1;
 	this->size$ = 0;
 }
@@ -243,7 +153,7 @@ int32_t ObjectInputStream$HandleTable::size() {
 }
 
 void ObjectInputStream$HandleTable::grow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newCapacity = ($nc(this->entries)->length << 1) + 1;
 	$var($bytes, newStatus, $new($bytes, newCapacity));
 	$var($ObjectArray, newEntries, $new($ObjectArray, newCapacity));
@@ -260,7 +170,54 @@ ObjectInputStream$HandleTable::ObjectInputStream$HandleTable() {
 }
 
 $Class* ObjectInputStream$HandleTable::load$($String* name, bool initialize) {
-	$loadClass(ObjectInputStream$HandleTable, name, initialize, &_ObjectInputStream$HandleTable_ClassInfo_, allocate$ObjectInputStream$HandleTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"STATUS_OK", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$HandleTable, STATUS_OK)},
+		{"STATUS_UNKNOWN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$HandleTable, STATUS_UNKNOWN)},
+		{"STATUS_EXCEPTION", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$HandleTable, STATUS_EXCEPTION)},
+		{"status", "[B", nullptr, 0, $field(ObjectInputStream$HandleTable, status)},
+		{"entries", "[Ljava/lang/Object;", nullptr, 0, $field(ObjectInputStream$HandleTable, entries)},
+		{"deps", "[Ljava/io/ObjectInputStream$HandleTable$HandleList;", nullptr, 0, $field(ObjectInputStream$HandleTable, deps)},
+		{"lowDep", "I", nullptr, 0, $field(ObjectInputStream$HandleTable, lowDep)},
+		{"size", "I", nullptr, 0, $field(ObjectInputStream$HandleTable, size$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(ObjectInputStream$HandleTable, init$, void, int32_t)},
+		{"assign", "(Ljava/lang/Object;)I", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, assign, int32_t, Object$*)},
+		{"clear", "()V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, clear, void)},
+		{"finish", "(I)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, finish, void, int32_t)},
+		{"grow", "()V", nullptr, $PRIVATE, $method(ObjectInputStream$HandleTable, grow, void)},
+		{"lookupException", "(I)Ljava/lang/ClassNotFoundException;", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, lookupException, $ClassNotFoundException*, int32_t)},
+		{"lookupObject", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, lookupObject, $Object*, int32_t)},
+		{"markDependency", "(II)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, markDependency, void, int32_t, int32_t)},
+		{"markException", "(ILjava/lang/ClassNotFoundException;)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, markException, void, int32_t, $ClassNotFoundException*)},
+		{"setObject", "(ILjava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, setObject, void, int32_t, Object$*)},
+		{"size", "()I", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectInputStream$HandleTable", "java.io.ObjectInputStream", "HandleTable", $PRIVATE | $STATIC},
+		{"java.io.ObjectInputStream$HandleTable$HandleList", "java.io.ObjectInputStream$HandleTable", "HandleList", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectInputStream$HandleTable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectInputStream"
+	};
+	$loadClass(ObjectInputStream$HandleTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectInputStream$HandleTable);
+	});
 	return class$;
 }
 

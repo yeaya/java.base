@@ -1,5 +1,4 @@
 #include <sun/security/validator/PKIXValidator.h>
-
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -15,7 +14,6 @@
 #include <java/security/cert/CertPathValidatorResult.h>
 #include <java/security/cert/CertSelector.h>
 #include <java/security/cert/CertStore.h>
-#include <java/security/cert/CertStoreParameters.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/CertificateFactory.h>
 #include <java/security/cert/CollectionCertStoreParameters.h>
@@ -28,7 +26,6 @@
 #include <java/security/cert/X509CertSelector.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -71,11 +68,9 @@ using $PublicKey = ::java::security::PublicKey;
 using $Timestamp = ::java::security::Timestamp;
 using $CertPath = ::java::security::cert::CertPath;
 using $CertPathBuilder = ::java::security::cert::CertPathBuilder;
-using $CertPathParameters = ::java::security::cert::CertPathParameters;
 using $CertPathValidator = ::java::security::cert::CertPathValidator;
 using $CertSelector = ::java::security::cert::CertSelector;
 using $CertStore = ::java::security::cert::CertStore;
-using $CertStoreParameters = ::java::security::cert::CertStoreParameters;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $CertificateFactory = ::java::security::cert::CertificateFactory;
 using $CollectionCertStoreParameters = ::java::security::cert::CollectionCertStoreParameters;
@@ -88,7 +83,6 @@ using $TrustAnchor = ::java::security::cert::TrustAnchor;
 using $X509CertSelector = ::java::security::cert::X509CertSelector;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -112,51 +106,6 @@ namespace sun {
 	namespace security {
 		namespace validator {
 
-$FieldInfo _PKIXValidator_FieldInfo_[] = {
-	{"checkTLSRevocation", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PKIXValidator, checkTLSRevocation)},
-	{"ALLOW_NON_CA_ANCHOR", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PKIXValidator, ALLOW_NON_CA_ANCHOR)},
-	{"trustedCerts", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $FINAL, $field(PKIXValidator, trustedCerts)},
-	{"parameterTemplate", "Ljava/security/cert/PKIXBuilderParameters;", nullptr, $PRIVATE | $FINAL, $field(PKIXValidator, parameterTemplate)},
-	{"certPathLength", "I", nullptr, $PRIVATE, $field(PKIXValidator, certPathLength)},
-	{"trustedSubjects", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/security/auth/x500/X500Principal;Ljava/util/List<Ljava/security/PublicKey;>;>;", $PRIVATE | $FINAL, $field(PKIXValidator, trustedSubjects)},
-	{"factory", "Ljava/security/cert/CertificateFactory;", nullptr, $PRIVATE | $FINAL, $field(PKIXValidator, factory)},
-	{"plugin", "Z", nullptr, $PRIVATE | $FINAL, $field(PKIXValidator, plugin)},
-	{}
-};
-
-$MethodInfo _PKIXValidator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/Collection;)V", "(Ljava/lang/String;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)V", 0, $method(PKIXValidator, init$, void, $String*, $Collection*)},
-	{"<init>", "(Ljava/lang/String;Ljava/security/cert/PKIXBuilderParameters;)V", nullptr, 0, $method(PKIXValidator, init$, void, $String*, $PKIXBuilderParameters*)},
-	{"addResponses", "(Ljava/security/cert/PKIXBuilderParameters;[Ljava/security/cert/X509Certificate;Ljava/util/List;)V", "(Ljava/security/cert/PKIXBuilderParameters;[Ljava/security/cert/X509Certificate;Ljava/util/List<[B>;)V", $PRIVATE | $STATIC, $staticMethod(PKIXValidator, addResponses, void, $PKIXBuilderParameters*, $X509CertificateArray*, $List*)},
-	{"allowNonCaAnchor", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PKIXValidator, allowNonCaAnchor, bool)},
-	{"doBuild", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/security/cert/PKIXBuilderParameters;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/security/cert/PKIXBuilderParameters;)[Ljava/security/cert/X509Certificate;", $PRIVATE, $method(PKIXValidator, doBuild, $X509CertificateArray*, $X509CertificateArray*, $Collection*, $PKIXBuilderParameters*), "java.security.cert.CertificateException"},
-	{"doValidate", "([Ljava/security/cert/X509Certificate;Ljava/security/cert/PKIXBuilderParameters;)[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $method(PKIXValidator, doValidate, $X509CertificateArray*, $X509CertificateArray*, $PKIXBuilderParameters*), "java.security.cert.CertificateException"},
-	{"engineValidate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/util/List;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/util/List<[B>;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", 0, $virtualMethod(PKIXValidator, engineValidate, $X509CertificateArray*, $X509CertificateArray*, $Collection*, $List*, $AlgorithmConstraints*, Object$*), "java.security.cert.CertificateException"},
-	{"getCertPathLength", "()I", nullptr, $PUBLIC, $method(PKIXValidator, getCertPathLength, int32_t)},
-	{"getParameters", "()Ljava/security/cert/PKIXBuilderParameters;", nullptr, $PUBLIC, $method(PKIXValidator, getParameters, $PKIXBuilderParameters*)},
-	{"getTrustedCertificates", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC, $virtualMethod(PKIXValidator, getTrustedCertificates, $Collection*)},
-	{"isSignatureValid", "(Ljava/util/List;Ljava/security/cert/X509Certificate;)Z", "(Ljava/util/List<Ljava/security/PublicKey;>;Ljava/security/cert/X509Certificate;)Z", $PRIVATE, $method(PKIXValidator, isSignatureValid, bool, $List*, $X509Certificate*)},
-	{"setDate", "(Ljava/security/cert/PKIXBuilderParameters;)V", nullptr, $PRIVATE, $method(PKIXValidator, setDate, void, $PKIXBuilderParameters*)},
-	{"setDefaultParameters", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PKIXValidator, setDefaultParameters, void, $String*)},
-	{"setTrustedSubjects", "()Ljava/util/Map;", "()Ljava/util/Map<Ljavax/security/auth/x500/X500Principal;Ljava/util/List<Ljava/security/PublicKey;>;>;", $PRIVATE, $method(PKIXValidator, setTrustedSubjects, $Map*)},
-	{"toArray", "(Ljava/security/cert/CertPath;Ljava/security/cert/TrustAnchor;)[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $STATIC, $staticMethod(PKIXValidator, toArray, $X509CertificateArray*, $CertPath*, $TrustAnchor*), "java.security.cert.CertificateException"},
-	{"verifyTrustAnchor", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PKIXValidator, verifyTrustAnchor, void, $X509Certificate*), "sun.security.validator.ValidatorException"},
-	{}
-};
-
-$ClassInfo _PKIXValidator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.validator.PKIXValidator",
-	"sun.security.validator.Validator",
-	nullptr,
-	_PKIXValidator_FieldInfo_,
-	_PKIXValidator_MethodInfo_
-};
-
-$Object* allocate$PKIXValidator($Class* clazz) {
-	return $of($alloc(PKIXValidator));
-}
-
 bool PKIXValidator::checkTLSRevocation = false;
 bool PKIXValidator::ALLOW_NON_CA_ANCHOR = false;
 
@@ -166,17 +115,17 @@ bool PKIXValidator::allowNonCaAnchor() {
 	bool var$0 = prop != nullptr;
 	if (var$0) {
 		bool var$1 = prop->isEmpty();
-		var$0 = (var$1 || prop->equalsIgnoreCase("true"_s));
+		var$0 = var$1 || prop->equalsIgnoreCase("true"_s);
 	}
 	return var$0;
 }
 
 void PKIXValidator::init$($String* variant, $Collection* trustedCerts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Validator);
 	$Validator::init$($Validator::TYPE_PKIX, variant);
 	this->certPathLength = -1;
-	$set(this, trustedCerts, ($instanceOf($Set, trustedCerts)) ? $cast($Set, trustedCerts) : static_cast<$Set*>($new($HashSet, trustedCerts)));
+	$set(this, trustedCerts, ($instanceOf($Set, trustedCerts)) ? $cast($Set, trustedCerts) : $cast($Set, $new($HashSet, trustedCerts)));
 	$var($Set, trustAnchors, $new($HashSet));
 	{
 		$var($Iterator, i$, $nc(trustedCerts)->iterator());
@@ -188,7 +137,7 @@ void PKIXValidator::init$($String* variant, $Collection* trustedCerts) {
 		}
 	}
 	try {
-		$set(this, parameterTemplate, $new($PKIXBuilderParameters, trustAnchors, ($CertSelector*)nullptr));
+		$set(this, parameterTemplate, $new($PKIXBuilderParameters, trustAnchors, nullptr));
 		$set(this, factory, $CertificateFactory::getInstance("X.509"_s));
 	} catch ($InvalidAlgorithmParameterException& e) {
 		$throwNew($RuntimeException, $$str({"Unexpected error: "_s, $(e->toString())}), e);
@@ -201,19 +150,19 @@ void PKIXValidator::init$($String* variant, $Collection* trustedCerts) {
 }
 
 void PKIXValidator::init$($String* variant, $PKIXBuilderParameters* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Validator);
 	$Validator::init$($Validator::TYPE_PKIX, variant);
 	this->certPathLength = -1;
 	$set(this, trustedCerts, $new($HashSet));
 	{
-		$var($Iterator, i$, $nc($($nc(params)->getTrustAnchors()))->iterator());
+		$var($Iterator, i$, $$nc($nc(params)->getTrustAnchors())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($TrustAnchor, anchor, $cast($TrustAnchor, i$->next()));
 			{
 				$var($X509Certificate, cert, $nc(anchor)->getTrustedCert());
 				if (cert != nullptr) {
-					$nc(this->trustedCerts)->add(cert);
+					this->trustedCerts->add(cert);
 				}
 			}
 		}
@@ -229,7 +178,7 @@ void PKIXValidator::init$($String* variant, $PKIXBuilderParameters* params) {
 }
 
 $Map* PKIXValidator::setTrustedSubjects() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, subjectMap, $new($HashMap));
 	{
 		$var($Iterator, i$, $nc(this->trustedCerts)->iterator());
@@ -273,13 +222,13 @@ $PKIXBuilderParameters* PKIXValidator::getParameters() {
 }
 
 $X509CertificateArray* PKIXValidator::engineValidate($X509CertificateArray* chain, $Collection* otherCerts, $List* responseList, $AlgorithmConstraints* constraints, Object$* parameter) {
-	$useLocalCurrentObjectStackCache();
-	if ((chain == nullptr) || ($nc(chain)->length == 0)) {
+	$useLocalObjectStack();
+	if ((chain == nullptr) || (chain->length == 0)) {
 		$throwNew($CertificateException, "null or zero-length certificate chain"_s);
 	}
 	$var($PKIXBuilderParameters, pkixParameters, nullptr);
 	try {
-		$assign(pkixParameters, $new($PKIXExtendedParameters, $cast($PKIXBuilderParameters, $($nc(this->parameterTemplate)->clone())), ($instanceOf($Timestamp, parameter)) ? $cast($Timestamp, parameter) : ($Timestamp*)nullptr, this->variant));
+		$assign(pkixParameters, $new($PKIXExtendedParameters, $$cast($PKIXBuilderParameters, $nc(this->parameterTemplate)->clone()), ($instanceOf($Timestamp, parameter)) ? $cast($Timestamp, parameter) : ($Timestamp*)nullptr, this->variant));
 	} catch ($InvalidAlgorithmParameterException& e) {
 	}
 	if (constraints != nullptr) {
@@ -303,7 +252,7 @@ $X509CertificateArray* PKIXValidator::engineValidate($X509CertificateArray* chai
 			bool var$0 = $nc(this->trustedCerts)->contains(cert);
 			if (!var$0) {
 				bool var$1 = $nc(this->trustedSubjects)->containsKey(dn);
-				var$0 = (var$1 && $nc(($cast($List, $($nc(this->trustedSubjects)->get(dn)))))->contains($(cert->getPublicKey())));
+				var$0 = var$1 && $$sure($List, this->trustedSubjects->get(dn))->contains($(cert->getPublicKey()));
 			}
 			if (var$0) {
 				$var($X509CertificateArray, newChain, $new($X509CertificateArray, i));
@@ -313,11 +262,11 @@ $X509CertificateArray* PKIXValidator::engineValidate($X509CertificateArray* chai
 		}
 		$assign(prevIssuer, cert->getIssuerX500Principal());
 	}
-	$var($X509Certificate, last, $nc(chain)->get(chain->length - 1));
+	$var($X509Certificate, last, chain->get(chain->length - 1));
 	$var($X500Principal, issuer, $nc(last)->getIssuerX500Principal());
 	$var($X500Principal, subject, last->getSubjectX500Principal());
 	bool var$2 = $nc(this->trustedSubjects)->containsKey(issuer);
-	if (var$2 && isSignatureValid($cast($List, $($nc(this->trustedSubjects)->get(issuer))), last)) {
+	if (var$2 && isSignatureValid($$cast($List, this->trustedSubjects->get(issuer)), last)) {
 		return doValidate(chain, pkixParameters);
 	}
 	if (this->plugin) {
@@ -327,7 +276,7 @@ $X509CertificateArray* PKIXValidator::engineValidate($X509CertificateArray* chai
 			try {
 				$nc(pkixParameters)->setTrustAnchors($($Collections::singleton($$new($TrustAnchor, chain->get(chain->length - 1), nullptr))));
 			} catch ($InvalidAlgorithmParameterException& iape) {
-				$throwNew($CertificateException, static_cast<$Throwable*>(iape));
+				$throwNew($CertificateException, iape);
 			}
 			doValidate(newChain, pkixParameters);
 		}
@@ -338,20 +287,16 @@ $X509CertificateArray* PKIXValidator::engineValidate($X509CertificateArray* chai
 }
 
 bool PKIXValidator::isSignatureValid($List* keys, $X509Certificate* sub) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->plugin) {
-		{
-			$var($Iterator, i$, $nc(keys)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($PublicKey, key, $cast($PublicKey, i$->next()));
-				{
-					try {
-						$nc(sub)->verify(key);
-						return true;
-					} catch ($Exception& ex) {
-						continue;
-					}
-				}
+		$var($Iterator, i$, $nc(keys)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($PublicKey, key, $cast($PublicKey, i$->next()));
+			try {
+				$nc(sub)->verify(key);
+				return true;
+			} catch ($Exception& ex) {
+				continue;
 			}
 		}
 		return false;
@@ -361,7 +306,7 @@ bool PKIXValidator::isSignatureValid($List* keys, $X509Certificate* sub) {
 
 $X509CertificateArray* PKIXValidator::toArray($CertPath* path, $TrustAnchor* anchor) {
 	$init(PKIXValidator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X509Certificate, trustedCert, $nc(anchor)->getTrustedCert());
 	if (trustedCert == nullptr) {
 		$throwNew($ValidatorException, "TrustAnchor must be specified as certificate"_s);
@@ -382,7 +327,7 @@ void PKIXValidator::setDate($PKIXBuilderParameters* params) {
 }
 
 $X509CertificateArray* PKIXValidator::doValidate($X509CertificateArray* chain, $PKIXBuilderParameters* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		setDate(params);
 		$var($CertPathValidator, validator, $CertPathValidator::getInstance("PKIX"_s));
@@ -391,37 +336,37 @@ $X509CertificateArray* PKIXValidator::doValidate($X509CertificateArray* chain, $
 		$var($PKIXCertPathValidatorResult, result, $cast($PKIXCertPathValidatorResult, $nc(validator)->validate(path, params)));
 		return toArray(path, $($nc(result)->getTrustAnchor()));
 	} catch ($GeneralSecurityException& e) {
-		$throwNew($ValidatorException, $$str({"PKIX path validation failed: "_s, $(e->toString())}), static_cast<$Throwable*>(e));
+		$throwNew($ValidatorException, $$str({"PKIX path validation failed: "_s, $(e->toString())}), e);
 	}
 	$shouldNotReachHere();
 }
 
 void PKIXValidator::verifyTrustAnchor($X509Certificate* trustedCert) {
 	$init(PKIXValidator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (PKIXValidator::ALLOW_NON_CA_ANCHOR) {
 		return;
 	}
 	if ($nc(trustedCert)->getVersion() < 3) {
 		return;
 	}
-	if ($nc(trustedCert)->getBasicConstraints() == -1) {
+	if (trustedCert->getBasicConstraints() == -1) {
 		$throwNew($ValidatorException, $$str({"TrustAnchor with subject \""_s, $(trustedCert->getSubjectX500Principal()), "\" is not a CA certificate"_s}));
 	}
-	$var($booleans, keyUsageBits, $nc(trustedCert)->getKeyUsage());
+	$var($booleans, keyUsageBits, trustedCert->getKeyUsage());
 	if (keyUsageBits != nullptr && !keyUsageBits->get(5)) {
 		$throwNew($ValidatorException, $$str({"TrustAnchor with subject \""_s, $(trustedCert->getSubjectX500Principal()), "\" does not have keyCertSign bit set in KeyUsage extension"_s}));
 	}
 }
 
 $X509CertificateArray* PKIXValidator::doBuild($X509CertificateArray* chain, $Collection* otherCerts, $PKIXBuilderParameters* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		setDate(params);
 		$var($X509CertSelector, selector, $new($X509CertSelector));
 		selector->setCertificate($nc(chain)->get(0));
 		$nc(params)->setTargetCertConstraints(selector);
-		$var($Collection, certs, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList)))));
+		$var($Collection, certs, $cast($AbstractCollection, $new($ArrayList)));
 		certs->addAll($($Arrays::asList(chain)));
 		if (otherCerts != nullptr) {
 			certs->addAll(otherCerts);
@@ -433,14 +378,14 @@ $X509CertificateArray* PKIXValidator::doBuild($X509CertificateArray* chain, $Col
 		$var($CertPath, var$0, $nc(result)->getCertPath());
 		return toArray(var$0, $(result->getTrustAnchor()));
 	} catch ($GeneralSecurityException& e) {
-		$throwNew($ValidatorException, $$str({"PKIX path building failed: "_s, $(e->toString())}), static_cast<$Throwable*>(e));
+		$throwNew($ValidatorException, $$str({"PKIX path building failed: "_s, $(e->toString())}), e);
 	}
 	$shouldNotReachHere();
 }
 
 void PKIXValidator::addResponses($PKIXBuilderParameters* pkixParams, $X509CertificateArray* chain, $List* responseList) {
 	$init(PKIXValidator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		bool createdRevChk = false;
 		$var($PKIXRevocationChecker, revChecker, nullptr);
@@ -449,17 +394,15 @@ void PKIXValidator::addResponses($PKIXBuilderParameters* pkixParams, $X509Certif
 			$var($Iterator, i$, $nc(checkerList)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($PKIXCertPathChecker, checker, $cast($PKIXCertPathChecker, i$->next()));
-				{
-					if ($instanceOf($PKIXRevocationChecker, checker)) {
-						$assign(revChecker, $cast($PKIXRevocationChecker, checker));
-						break;
-					}
+				if ($instanceOf($PKIXRevocationChecker, checker)) {
+					$assign(revChecker, $cast($PKIXRevocationChecker, checker));
+					break;
 				}
 			}
 		}
 		if (revChecker == nullptr) {
 			if (pkixParams->isRevocationEnabled()) {
-				$assign(revChecker, $cast($PKIXRevocationChecker, $nc($($CertPathValidator::getInstance("PKIX"_s)))->getRevocationChecker()));
+				$assign(revChecker, $cast($PKIXRevocationChecker, $$nc($CertPathValidator::getInstance("PKIX"_s))->getRevocationChecker()));
 				createdRevChk = true;
 			} else {
 				return;
@@ -468,9 +411,9 @@ void PKIXValidator::addResponses($PKIXBuilderParameters* pkixParams, $X509Certif
 		$var($Map, responseMap, $nc(revChecker)->getOcspResponses());
 		int32_t limit = $Integer::min($nc(chain)->length, $nc(responseList)->size());
 		for (int32_t idx = 0; idx < limit; ++idx) {
-			$var($bytes, respBytes, $cast($bytes, $nc(responseList)->get(idx)));
-			if (respBytes != nullptr && respBytes->length > 0 && !$nc(responseMap)->containsKey($nc(chain)->get(idx))) {
-				responseMap->put($nc(chain)->get(idx), respBytes);
+			$var($bytes, respBytes, $cast($bytes, responseList->get(idx)));
+			if (respBytes != nullptr && respBytes->length > 0 && !$nc(responseMap)->containsKey(chain->get(idx))) {
+				responseMap->put(chain->get(idx), respBytes);
 			}
 		}
 		revChecker->setOcspResponses(responseMap);
@@ -483,7 +426,7 @@ void PKIXValidator::addResponses($PKIXBuilderParameters* pkixParams, $X509Certif
 	}
 }
 
-void clinit$PKIXValidator($Class* class$) {
+void PKIXValidator::clinit$($Class* clazz) {
 	PKIXValidator::checkTLSRevocation = $GetBooleanAction::privilegedGetProperty("com.sun.net.ssl.checkRevocation"_s);
 	PKIXValidator::ALLOW_NON_CA_ANCHOR = PKIXValidator::allowNonCaAnchor();
 }
@@ -492,7 +435,47 @@ PKIXValidator::PKIXValidator() {
 }
 
 $Class* PKIXValidator::load$($String* name, bool initialize) {
-	$loadClass(PKIXValidator, name, initialize, &_PKIXValidator_ClassInfo_, clinit$PKIXValidator, allocate$PKIXValidator);
+	$FieldInfo fieldInfos$$[] = {
+		{"checkTLSRevocation", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PKIXValidator, checkTLSRevocation)},
+		{"ALLOW_NON_CA_ANCHOR", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PKIXValidator, ALLOW_NON_CA_ANCHOR)},
+		{"trustedCerts", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $FINAL, $field(PKIXValidator, trustedCerts)},
+		{"parameterTemplate", "Ljava/security/cert/PKIXBuilderParameters;", nullptr, $PRIVATE | $FINAL, $field(PKIXValidator, parameterTemplate)},
+		{"certPathLength", "I", nullptr, $PRIVATE, $field(PKIXValidator, certPathLength)},
+		{"trustedSubjects", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/security/auth/x500/X500Principal;Ljava/util/List<Ljava/security/PublicKey;>;>;", $PRIVATE | $FINAL, $field(PKIXValidator, trustedSubjects)},
+		{"factory", "Ljava/security/cert/CertificateFactory;", nullptr, $PRIVATE | $FINAL, $field(PKIXValidator, factory)},
+		{"plugin", "Z", nullptr, $PRIVATE | $FINAL, $field(PKIXValidator, plugin)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/util/Collection;)V", "(Ljava/lang/String;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)V", 0, $method(PKIXValidator, init$, void, $String*, $Collection*)},
+		{"<init>", "(Ljava/lang/String;Ljava/security/cert/PKIXBuilderParameters;)V", nullptr, 0, $method(PKIXValidator, init$, void, $String*, $PKIXBuilderParameters*)},
+		{"addResponses", "(Ljava/security/cert/PKIXBuilderParameters;[Ljava/security/cert/X509Certificate;Ljava/util/List;)V", "(Ljava/security/cert/PKIXBuilderParameters;[Ljava/security/cert/X509Certificate;Ljava/util/List<[B>;)V", $PRIVATE | $STATIC, $staticMethod(PKIXValidator, addResponses, void, $PKIXBuilderParameters*, $X509CertificateArray*, $List*)},
+		{"allowNonCaAnchor", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PKIXValidator, allowNonCaAnchor, bool)},
+		{"doBuild", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/security/cert/PKIXBuilderParameters;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/security/cert/PKIXBuilderParameters;)[Ljava/security/cert/X509Certificate;", $PRIVATE, $method(PKIXValidator, doBuild, $X509CertificateArray*, $X509CertificateArray*, $Collection*, $PKIXBuilderParameters*), "java.security.cert.CertificateException"},
+		{"doValidate", "([Ljava/security/cert/X509Certificate;Ljava/security/cert/PKIXBuilderParameters;)[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $method(PKIXValidator, doValidate, $X509CertificateArray*, $X509CertificateArray*, $PKIXBuilderParameters*), "java.security.cert.CertificateException"},
+		{"engineValidate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/util/List;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/util/List<[B>;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", 0, $virtualMethod(PKIXValidator, engineValidate, $X509CertificateArray*, $X509CertificateArray*, $Collection*, $List*, $AlgorithmConstraints*, Object$*), "java.security.cert.CertificateException"},
+		{"getCertPathLength", "()I", nullptr, $PUBLIC, $method(PKIXValidator, getCertPathLength, int32_t)},
+		{"getParameters", "()Ljava/security/cert/PKIXBuilderParameters;", nullptr, $PUBLIC, $method(PKIXValidator, getParameters, $PKIXBuilderParameters*)},
+		{"getTrustedCertificates", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC, $virtualMethod(PKIXValidator, getTrustedCertificates, $Collection*)},
+		{"isSignatureValid", "(Ljava/util/List;Ljava/security/cert/X509Certificate;)Z", "(Ljava/util/List<Ljava/security/PublicKey;>;Ljava/security/cert/X509Certificate;)Z", $PRIVATE, $method(PKIXValidator, isSignatureValid, bool, $List*, $X509Certificate*)},
+		{"setDate", "(Ljava/security/cert/PKIXBuilderParameters;)V", nullptr, $PRIVATE, $method(PKIXValidator, setDate, void, $PKIXBuilderParameters*)},
+		{"setDefaultParameters", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PKIXValidator, setDefaultParameters, void, $String*)},
+		{"setTrustedSubjects", "()Ljava/util/Map;", "()Ljava/util/Map<Ljavax/security/auth/x500/X500Principal;Ljava/util/List<Ljava/security/PublicKey;>;>;", $PRIVATE, $method(PKIXValidator, setTrustedSubjects, $Map*)},
+		{"toArray", "(Ljava/security/cert/CertPath;Ljava/security/cert/TrustAnchor;)[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $STATIC, $staticMethod(PKIXValidator, toArray, $X509CertificateArray*, $CertPath*, $TrustAnchor*), "java.security.cert.CertificateException"},
+		{"verifyTrustAnchor", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PKIXValidator, verifyTrustAnchor, void, $X509Certificate*), "sun.security.validator.ValidatorException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.validator.PKIXValidator",
+		"sun.security.validator.Validator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PKIXValidator, name, initialize, &classInfo$$, PKIXValidator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PKIXValidator);
+	});
 	return class$;
 }
 

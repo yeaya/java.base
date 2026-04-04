@@ -30,6 +30,7 @@ class AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl : public ::jav
 	$class(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, 0, ::java::util::concurrent::atomic::AtomicReferenceFieldUpdater)
 public:
 	AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* tclass, $Class* vclass, $String* fieldName, $Class* caller);
 	void accessCheck(Object$* obj);
 	virtual bool compareAndSet(Object$* obj, Object$* expect, Object$* update) override;

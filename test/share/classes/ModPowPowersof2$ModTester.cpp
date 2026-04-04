@@ -1,56 +1,23 @@
 #include <ModPowPowersof2$ModTester.h>
-
 #include <ModPowPowersof2.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 
-$MethodInfo _ModPowPowersof2$ModTester_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModPowPowersof2$ModTester, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModPowPowersof2$ModTester, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _ModPowPowersof2$ModTester_InnerClassesInfo_[] = {
-	{"ModPowPowersof2$ModTester", "ModPowPowersof2", "ModTester", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ModPowPowersof2$ModTester_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ModPowPowersof2$ModTester",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ModPowPowersof2$ModTester_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModPowPowersof2$ModTester_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ModPowPowersof2"
-};
-
-$Object* allocate$ModPowPowersof2$ModTester($Class* clazz) {
-	return $of($alloc(ModPowPowersof2$ModTester));
-}
-
 void ModPowPowersof2$ModTester::init$() {
 }
 
 void ModPowPowersof2$ModTester::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$var($BigInteger, two, $BigInteger::valueOf((int64_t)2));
-	$var($BigInteger, four, $BigInteger::valueOf((int64_t)4));
-	$nc(two)->modPow(two, $($BigInteger::valueOf((int64_t)4)));
-	two->modPow(two, $($BigInteger::valueOf((int64_t)8)));
-	two->modPow(four, $($BigInteger::valueOf((int64_t)8)));
+	$useLocalObjectStack();
+	$var($BigInteger, two, $BigInteger::valueOf(2));
+	$var($BigInteger, four, $BigInteger::valueOf(4));
+	two->modPow(two, $($BigInteger::valueOf(4)));
+	two->modPow(two, $($BigInteger::valueOf(8)));
+	two->modPow(four, $($BigInteger::valueOf(8)));
 	$nc($System::out)->println("success"_s);
 }
 
@@ -58,7 +25,33 @@ ModPowPowersof2$ModTester::ModPowPowersof2$ModTester() {
 }
 
 $Class* ModPowPowersof2$ModTester::load$($String* name, bool initialize) {
-	$loadClass(ModPowPowersof2$ModTester, name, initialize, &_ModPowPowersof2$ModTester_ClassInfo_, allocate$ModPowPowersof2$ModTester);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModPowPowersof2$ModTester, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModPowPowersof2$ModTester, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ModPowPowersof2$ModTester", "ModPowPowersof2", "ModTester", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ModPowPowersof2$ModTester",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ModPowPowersof2"
+	};
+	$loadClass(ModPowPowersof2$ModTester, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModPowPowersof2$ModTester);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/util/stream/Nodes.h>
 #include <java/util/stream/StreamShape.h>
@@ -21,61 +20,25 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _Nodes$1_FieldInfo_[] = {
-	{"$SwitchMap$java$util$stream$StreamShape", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Nodes$1, $SwitchMap$java$util$stream$StreamShape)},
-	{}
-};
-
-$EnclosingMethodInfo _Nodes$1_EnclosingMethodInfo_ = {
-	"java.util.stream.Nodes",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Nodes$1_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Nodes$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.util.stream.Nodes$1",
-	"java.lang.Object",
-	nullptr,
-	_Nodes$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Nodes$1_EnclosingMethodInfo_,
-	_Nodes$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$1($Class* clazz) {
-	return $of($alloc(Nodes$1));
-}
-
 $ints* Nodes$1::$SwitchMap$java$util$stream$StreamShape = nullptr;
 
-void clinit$Nodes$1($Class* class$) {
+void Nodes$1::clinit$($Class* clazz) {
 	$assignStatic(Nodes$1::$SwitchMap$java$util$stream$StreamShape, $new($ints, $($StreamShape::values())->length));
 	{
 		try {
-			$nc(Nodes$1::$SwitchMap$java$util$stream$StreamShape)->set($StreamShape::REFERENCE->ordinal(), 1);
+			Nodes$1::$SwitchMap$java$util$stream$StreamShape->set($StreamShape::REFERENCE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Nodes$1::$SwitchMap$java$util$stream$StreamShape)->set($StreamShape::INT_VALUE->ordinal(), 2);
+			Nodes$1::$SwitchMap$java$util$stream$StreamShape->set($StreamShape::INT_VALUE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Nodes$1::$SwitchMap$java$util$stream$StreamShape)->set($StreamShape::LONG_VALUE->ordinal(), 3);
+			Nodes$1::$SwitchMap$java$util$stream$StreamShape->set($StreamShape::LONG_VALUE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Nodes$1::$SwitchMap$java$util$stream$StreamShape)->set($StreamShape::DOUBLE_VALUE->ordinal(), 4);
+			Nodes$1::$SwitchMap$java$util$stream$StreamShape->set($StreamShape::DOUBLE_VALUE->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -85,7 +48,37 @@ Nodes$1::Nodes$1() {
 }
 
 $Class* Nodes$1::load$($String* name, bool initialize) {
-	$loadClass(Nodes$1, name, initialize, &_Nodes$1_ClassInfo_, clinit$Nodes$1, allocate$Nodes$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$util$stream$StreamShape", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Nodes$1, $SwitchMap$java$util$stream$StreamShape)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.Nodes",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.util.stream.Nodes$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$1, name, initialize, &classInfo$$, Nodes$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Nodes$1);
+	});
 	return class$;
 }
 

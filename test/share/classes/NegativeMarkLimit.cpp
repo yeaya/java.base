@@ -1,5 +1,4 @@
 #include <NegativeMarkLimit.h>
-
 #include <java/io/StringReader.h>
 #include <jcpp.h>
 
@@ -8,25 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _NegativeMarkLimit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NegativeMarkLimit, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NegativeMarkLimit, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _NegativeMarkLimit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NegativeMarkLimit",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NegativeMarkLimit_MethodInfo_
-};
-
-$Object* allocate$NegativeMarkLimit($Class* clazz) {
-	return $of($alloc(NegativeMarkLimit));
-}
 
 void NegativeMarkLimit::init$() {
 }
@@ -45,7 +25,22 @@ NegativeMarkLimit::NegativeMarkLimit() {
 }
 
 $Class* NegativeMarkLimit::load$($String* name, bool initialize) {
-	$loadClass(NegativeMarkLimit, name, initialize, &_NegativeMarkLimit_ClassInfo_, allocate$NegativeMarkLimit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NegativeMarkLimit, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NegativeMarkLimit, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NegativeMarkLimit",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NegativeMarkLimit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NegativeMarkLimit);
+	});
 	return class$;
 }
 

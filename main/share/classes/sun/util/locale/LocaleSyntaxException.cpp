@@ -1,5 +1,4 @@
 #include <sun/util/locale/LocaleSyntaxException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,32 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace util {
 		namespace locale {
-
-$FieldInfo _LocaleSyntaxException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LocaleSyntaxException, serialVersionUID)},
-	{"index", "I", nullptr, $PRIVATE, $field(LocaleSyntaxException, index)},
-	{}
-};
-
-$MethodInfo _LocaleSyntaxException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LocaleSyntaxException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(LocaleSyntaxException, init$, void, $String*, int32_t)},
-	{"getErrorIndex", "()I", nullptr, $PUBLIC, $virtualMethod(LocaleSyntaxException, getErrorIndex, int32_t)},
-	{}
-};
-
-$ClassInfo _LocaleSyntaxException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.LocaleSyntaxException",
-	"java.lang.Exception",
-	nullptr,
-	_LocaleSyntaxException_FieldInfo_,
-	_LocaleSyntaxException_MethodInfo_
-};
-
-$Object* allocate$LocaleSyntaxException($Class* clazz) {
-	return $of($alloc(LocaleSyntaxException));
-}
 
 void LocaleSyntaxException::init$($String* msg) {
 	LocaleSyntaxException::init$(msg, 0);
@@ -62,7 +35,28 @@ void LocaleSyntaxException::throw$() {
 }
 
 $Class* LocaleSyntaxException::load$($String* name, bool initialize) {
-	$loadClass(LocaleSyntaxException, name, initialize, &_LocaleSyntaxException_ClassInfo_, allocate$LocaleSyntaxException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LocaleSyntaxException, serialVersionUID)},
+		{"index", "I", nullptr, $PRIVATE, $field(LocaleSyntaxException, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LocaleSyntaxException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(LocaleSyntaxException, init$, void, $String*, int32_t)},
+		{"getErrorIndex", "()I", nullptr, $PUBLIC, $virtualMethod(LocaleSyntaxException, getErrorIndex, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.LocaleSyntaxException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocaleSyntaxException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleSyntaxException);
+	});
 	return class$;
 }
 

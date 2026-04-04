@@ -1,5 +1,4 @@
 #include <sun/security/ssl/NewSessionTicket$NewSessionTicketMessage.h>
-
 #include <javax/net/ssl/SSLException.h>
 #include <sun/security/ssl/Alert.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -20,52 +19,10 @@ using $Alert = ::sun::security::ssl::Alert;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _NewSessionTicket$NewSessionTicketMessage_FieldInfo_[] = {
-	{"ticketLifetime", "I", nullptr, 0, $field(NewSessionTicket$NewSessionTicketMessage, ticketLifetime)},
-	{"ticket", "[B", nullptr, 0, $field(NewSessionTicket$NewSessionTicketMessage, ticket)},
-	{}
-};
-
-$MethodInfo _NewSessionTicket$NewSessionTicketMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(NewSessionTicket$NewSessionTicketMessage, init$, void, $HandshakeContext*)},
-	{"getTicketAgeAdd", "()I", nullptr, 0, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, getTicketAgeAdd, int32_t), "java.io.IOException"},
-	{"getTicketNonce", "()[B", nullptr, 0, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, getTicketNonce, $bytes*), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, handshakeType, $SSLHandshake*)},
-	{"isValid", "()Z", nullptr, 0, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, isValid, bool)},
-	{}
-};
-
-$InnerClassInfo _NewSessionTicket$NewSessionTicketMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage", "sun.security.ssl.NewSessionTicket", "NewSessionTicketMessage", $STATIC | $ABSTRACT},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NewSessionTicket$NewSessionTicketMessage_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_NewSessionTicket$NewSessionTicketMessage_FieldInfo_,
-	_NewSessionTicket$NewSessionTicketMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NewSessionTicket$NewSessionTicketMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.NewSessionTicket"
-};
-
-$Object* allocate$NewSessionTicket$NewSessionTicketMessage($Class* clazz) {
-	return $of($alloc(NewSessionTicket$NewSessionTicketMessage));
-}
 
 void NewSessionTicket$NewSessionTicketMessage::init$($HandshakeContext* context) {
 	$SSLHandshake$HandshakeMessage::init$(context);
@@ -97,7 +54,42 @@ NewSessionTicket$NewSessionTicketMessage::NewSessionTicket$NewSessionTicketMessa
 }
 
 $Class* NewSessionTicket$NewSessionTicketMessage::load$($String* name, bool initialize) {
-	$loadClass(NewSessionTicket$NewSessionTicketMessage, name, initialize, &_NewSessionTicket$NewSessionTicketMessage_ClassInfo_, allocate$NewSessionTicket$NewSessionTicketMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"ticketLifetime", "I", nullptr, 0, $field(NewSessionTicket$NewSessionTicketMessage, ticketLifetime)},
+		{"ticket", "[B", nullptr, 0, $field(NewSessionTicket$NewSessionTicketMessage, ticket)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(NewSessionTicket$NewSessionTicketMessage, init$, void, $HandshakeContext*)},
+		{"getTicketAgeAdd", "()I", nullptr, 0, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, getTicketAgeAdd, int32_t), "java.io.IOException"},
+		{"getTicketNonce", "()[B", nullptr, 0, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, getTicketNonce, $bytes*), "java.io.IOException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, handshakeType, $SSLHandshake*)},
+		{"isValid", "()Z", nullptr, 0, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, isValid, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage", "sun.security.ssl.NewSessionTicket", "NewSessionTicketMessage", $STATIC | $ABSTRACT},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.NewSessionTicket"
+	};
+	$loadClass(NewSessionTicket$NewSessionTicketMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewSessionTicket$NewSessionTicketMessage);
+	});
 	return class$;
 }
 

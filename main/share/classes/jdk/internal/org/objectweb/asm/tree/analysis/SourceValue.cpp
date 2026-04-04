@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/SourceValue.h>
-
 #include <java/util/Set.h>
 #include <jdk/internal/org/objectweb/asm/tree/AbstractInsnNode.h>
 #include <jdk/internal/org/objectweb/asm/tree/analysis/SmallSet.h>
@@ -20,37 +19,8 @@ namespace jdk {
 					namespace tree {
 						namespace analysis {
 
-$FieldInfo _SourceValue_FieldInfo_[] = {
-	{"size", "I", nullptr, $PUBLIC | $FINAL, $field(SourceValue, size)},
-	{"insns", "Ljava/util/Set;", "Ljava/util/Set<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;", $PUBLIC | $FINAL, $field(SourceValue, insns)},
-	{}
-};
-
-$MethodInfo _SourceValue_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SourceValue, init$, void, int32_t)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $method(SourceValue, init$, void, int32_t, $AbstractInsnNode*)},
-	{"<init>", "(ILjava/util/Set;)V", "(ILjava/util/Set<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;)V", $PUBLIC, $method(SourceValue, init$, void, int32_t, $Set*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SourceValue, equals, bool, Object$*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(SourceValue, getSize, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SourceValue, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _SourceValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.analysis.SourceValue",
-	"java.lang.Object",
-	"jdk.internal.org.objectweb.asm.tree.analysis.Value",
-	_SourceValue_FieldInfo_,
-	_SourceValue_MethodInfo_
-};
-
-$Object* allocate$SourceValue($Class* clazz) {
-	return $of($alloc(SourceValue));
-}
-
 void SourceValue::init$(int32_t size) {
-	SourceValue::init$(size, static_cast<$Set*>($$new($SmallSet)));
+	SourceValue::init$(size, $$new($SmallSet));
 }
 
 void SourceValue::init$(int32_t size, $AbstractInsnNode* insnNode) {
@@ -83,7 +53,31 @@ SourceValue::SourceValue() {
 }
 
 $Class* SourceValue::load$($String* name, bool initialize) {
-	$loadClass(SourceValue, name, initialize, &_SourceValue_ClassInfo_, allocate$SourceValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"size", "I", nullptr, $PUBLIC | $FINAL, $field(SourceValue, size)},
+		{"insns", "Ljava/util/Set;", "Ljava/util/Set<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;", $PUBLIC | $FINAL, $field(SourceValue, insns)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SourceValue, init$, void, int32_t)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $method(SourceValue, init$, void, int32_t, $AbstractInsnNode*)},
+		{"<init>", "(ILjava/util/Set;)V", "(ILjava/util/Set<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;)V", $PUBLIC, $method(SourceValue, init$, void, int32_t, $Set*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SourceValue, equals, bool, Object$*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(SourceValue, getSize, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SourceValue, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.analysis.SourceValue",
+		"java.lang.Object",
+		"jdk.internal.org.objectweb.asm.tree.analysis.Value",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SourceValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SourceValue);
+	});
 	return class$;
 }
 

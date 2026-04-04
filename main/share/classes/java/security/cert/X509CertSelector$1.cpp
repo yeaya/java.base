@@ -1,5 +1,4 @@
 #include <java/security/cert/X509CertSelector$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/security/cert/X509CertSelector.h>
 #include <sun/security/util/KnownOIDs.h>
@@ -16,65 +15,29 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$FieldInfo _X509CertSelector$1_FieldInfo_[] = {
-	{"$SwitchMap$sun$security$util$KnownOIDs", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(X509CertSelector$1, $SwitchMap$sun$security$util$KnownOIDs)},
-	{}
-};
-
-$EnclosingMethodInfo _X509CertSelector$1_EnclosingMethodInfo_ = {
-	"java.security.cert.X509CertSelector",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _X509CertSelector$1_InnerClassesInfo_[] = {
-	{"java.security.cert.X509CertSelector$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _X509CertSelector$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.security.cert.X509CertSelector$1",
-	"java.lang.Object",
-	nullptr,
-	_X509CertSelector$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_X509CertSelector$1_EnclosingMethodInfo_,
-	_X509CertSelector$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.cert.X509CertSelector"
-};
-
-$Object* allocate$X509CertSelector$1($Class* clazz) {
-	return $of($alloc(X509CertSelector$1));
-}
-
 $ints* X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs = nullptr;
 
-void clinit$X509CertSelector$1($Class* class$) {
+void X509CertSelector$1::clinit$($Class* clazz) {
 	$assignStatic(X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs, $new($ints, $($KnownOIDs::values())->length));
 	{
 		try {
-			$nc(X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs)->set($KnownOIDs::PrivateKeyUsage->ordinal(), 1);
+			X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs->set($KnownOIDs::PrivateKeyUsage->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs)->set($KnownOIDs::SubjectAlternativeName->ordinal(), 2);
+			X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs->set($KnownOIDs::SubjectAlternativeName->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs)->set($KnownOIDs::NameConstraints->ordinal(), 3);
+			X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs->set($KnownOIDs::NameConstraints->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs)->set($KnownOIDs::CertificatePolicies->ordinal(), 4);
+			X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs->set($KnownOIDs::CertificatePolicies->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs)->set($KnownOIDs::extendedKeyUsage->ordinal(), 5);
+			X509CertSelector$1::$SwitchMap$sun$security$util$KnownOIDs->set($KnownOIDs::extendedKeyUsage->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -84,7 +47,37 @@ X509CertSelector$1::X509CertSelector$1() {
 }
 
 $Class* X509CertSelector$1::load$($String* name, bool initialize) {
-	$loadClass(X509CertSelector$1, name, initialize, &_X509CertSelector$1_ClassInfo_, clinit$X509CertSelector$1, allocate$X509CertSelector$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$security$util$KnownOIDs", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(X509CertSelector$1, $SwitchMap$sun$security$util$KnownOIDs)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.security.cert.X509CertSelector",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.cert.X509CertSelector$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.security.cert.X509CertSelector$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.cert.X509CertSelector"
+	};
+	$loadClass(X509CertSelector$1, name, initialize, &classInfo$$, X509CertSelector$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(X509CertSelector$1);
+	});
 	return class$;
 }
 

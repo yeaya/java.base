@@ -1,5 +1,4 @@
 #include <java/util/AbstractList.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/AbstractCollection.h>
@@ -44,82 +43,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _AbstractList_FieldInfo_[] = {
-	{"modCount", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AbstractList, modCount)},
-	{}
-};
-
-$MethodInfo _AbstractList_MethodInfo_[] = {
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractList, init$, void)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(AbstractList, add, bool, Object$*)},
-	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(AbstractList, add, void, int32_t, Object$*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(AbstractList, addAll, bool, int32_t, $Collection*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractList, clear, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractList, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList, hashCode, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(AbstractList, indexOf, int32_t, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(AbstractList, iterator, $Iterator*)},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(AbstractList, lastIndexOf, int32_t, Object$*)},
-	{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(AbstractList, listIterator, $ListIterator*)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(AbstractList, listIterator, $ListIterator*, int32_t)},
-	{"outOfBoundsMsg", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(AbstractList, outOfBoundsMsg, $String*, int32_t)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(AbstractList, rangeCheckForAdd, void, int32_t)},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(AbstractList, remove, $Object*, int32_t)},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"removeRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(AbstractList, removeRange, void, int32_t, int32_t)},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(AbstractList, set, $Object*, int32_t, Object$*)},
-	{"*size", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(AbstractList, subList, $List*, int32_t, int32_t)},
-	{"subListRangeCheck", "(III)V", nullptr, $STATIC, $staticMethod(AbstractList, subListRangeCheck, void, int32_t, int32_t, int32_t)},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$InnerClassInfo _AbstractList_InnerClassesInfo_[] = {
-	{"java.util.AbstractList$RandomAccessSubList", "java.util.AbstractList", "RandomAccessSubList", $PRIVATE | $STATIC},
-	{"java.util.AbstractList$SubList", "java.util.AbstractList", "SubList", $PRIVATE | $STATIC},
-	{"java.util.AbstractList$RandomAccessSpliterator", "java.util.AbstractList", "RandomAccessSpliterator", $STATIC | $FINAL},
-	{"java.util.AbstractList$ListItr", "java.util.AbstractList", "ListItr", $PRIVATE},
-	{"java.util.AbstractList$Itr", "java.util.AbstractList", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AbstractList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.AbstractList",
-	"java.util.AbstractCollection",
-	"java.util.List",
-	_AbstractList_FieldInfo_,
-	_AbstractList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractCollection<TE;>;Ljava/util/List<TE;>;",
-	nullptr,
-	_AbstractList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.AbstractList$RandomAccessSubList,java.util.AbstractList$SubList,java.util.AbstractList$SubList$1,java.util.AbstractList$RandomAccessSpliterator,java.util.AbstractList$ListItr,java.util.AbstractList$Itr"
-};
-
-$Object* allocate$AbstractList($Class* clazz) {
-	return $of($alloc(AbstractList));
-}
 
 bool AbstractList::isEmpty() {
 	 return this->$AbstractCollection::isEmpty();
@@ -218,7 +141,7 @@ $Object* AbstractList::remove(int32_t index) {
 }
 
 int32_t AbstractList::indexOf(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListIterator, it, listIterator());
 	if (o == nullptr) {
 		while ($nc(it)->hasNext()) {
@@ -228,7 +151,7 @@ int32_t AbstractList::indexOf(Object$* o) {
 		}
 	} else {
 		while ($nc(it)->hasNext()) {
-			if ($nc($of(o))->equals($(it->next()))) {
+			if ($of(o)->equals($(it->next()))) {
 				return it->previousIndex();
 			}
 		}
@@ -237,7 +160,7 @@ int32_t AbstractList::indexOf(Object$* o) {
 }
 
 int32_t AbstractList::lastIndexOf(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListIterator, it, listIterator(size()));
 	if (o == nullptr) {
 		while ($nc(it)->hasPrevious()) {
@@ -247,7 +170,7 @@ int32_t AbstractList::lastIndexOf(Object$* o) {
 		}
 	} else {
 		while ($nc(it)->hasPrevious()) {
-			if ($nc($of(o))->equals($(it->previous()))) {
+			if ($of(o)->equals($(it->previous()))) {
 				return it->nextIndex();
 			}
 		}
@@ -260,7 +183,7 @@ void AbstractList::clear() {
 }
 
 bool AbstractList::addAll(int32_t index, $Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	rangeCheckForAdd(index);
 	bool modified = false;
 	{
@@ -291,12 +214,12 @@ $ListIterator* AbstractList::listIterator(int32_t index) {
 
 $List* AbstractList::subList(int32_t fromIndex, int32_t toIndex) {
 	subListRangeCheck(fromIndex, toIndex, size());
-	return ($instanceOf($RandomAccess, this) ? static_cast<$List*>($new($AbstractList$RandomAccessSubList, this, fromIndex, toIndex)) : static_cast<$List*>($new($AbstractList$SubList, this, fromIndex, toIndex)));
+	return ($instanceOf($RandomAccess, this) ? $cast($List, $new($AbstractList$RandomAccessSubList, this, fromIndex, toIndex)) : $cast($List, $new($AbstractList$SubList, this, fromIndex, toIndex)));
 }
 
 void AbstractList::subListRangeCheck(int32_t fromIndex, int32_t toIndex, int32_t size) {
 	$init(AbstractList);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fromIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"fromIndex = "_s, $$str(fromIndex)}));
 	}
@@ -309,7 +232,7 @@ void AbstractList::subListRangeCheck(int32_t fromIndex, int32_t toIndex, int32_t
 }
 
 bool AbstractList::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -317,7 +240,7 @@ bool AbstractList::equals(Object$* o) {
 		return false;
 	}
 	$var($ListIterator, e1, listIterator());
-	$var($ListIterator, e2, $nc(($cast($List, o)))->listIterator());
+	$var($ListIterator, e2, $nc($cast($List, o))->listIterator());
 	while (true) {
 		bool var$0 = $nc(e1)->hasNext();
 		if (!(var$0 && $nc(e2)->hasNext())) {
@@ -325,8 +248,8 @@ bool AbstractList::equals(Object$* o) {
 		}
 		{
 			$var($Object, o1, e1->next());
-			$var($Object, o2, e2->next());
-			if (!(o1 == nullptr ? o2 == nullptr : $nc($of(o1))->equals(o2))) {
+			$var($Object, o2, $nc(e2)->next());
+			if (!(o1 == nullptr ? o2 == nullptr : o1->equals(o2))) {
 				return false;
 			}
 		}
@@ -336,13 +259,13 @@ bool AbstractList::equals(Object$* o) {
 }
 
 int32_t AbstractList::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hashCode = 1;
 	{
 		$var($Iterator, i$, this->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, e, i$->next());
-			hashCode = 31 * hashCode + (e == nullptr ? 0 : $nc($of(e))->hashCode());
+			hashCode = 31 * hashCode + (e == nullptr ? 0 : e->hashCode());
 		}
 	}
 	return hashCode;
@@ -350,13 +273,9 @@ int32_t AbstractList::hashCode() {
 
 void AbstractList::removeRange(int32_t fromIndex, int32_t toIndex) {
 	$var($ListIterator, it, listIterator(fromIndex));
-	{
-		int32_t i = 0;
-		int32_t n = toIndex - fromIndex;
-		for (; i < n; ++i) {
-			$nc(it)->next();
-			it->remove();
-		}
+	for (int32_t i = 0, n = toIndex - fromIndex; i < n; ++i) {
+		$nc(it)->next();
+		it->remove();
 	}
 }
 
@@ -367,7 +286,7 @@ void AbstractList::rangeCheckForAdd(int32_t index) {
 }
 
 $String* AbstractList::outOfBoundsMsg(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Index: "_s, $$str(index), ", Size: "_s, $$str(size())});
 }
 
@@ -375,7 +294,77 @@ AbstractList::AbstractList() {
 }
 
 $Class* AbstractList::load$($String* name, bool initialize) {
-	$loadClass(AbstractList, name, initialize, &_AbstractList_ClassInfo_, allocate$AbstractList);
+	$FieldInfo fieldInfos$$[] = {
+		{"modCount", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AbstractList, modCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractList, init$, void)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(AbstractList, add, bool, Object$*)},
+		{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(AbstractList, add, void, int32_t, Object$*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(AbstractList, addAll, bool, int32_t, $Collection*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractList, clear, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractList, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList, hashCode, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(AbstractList, indexOf, int32_t, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(AbstractList, iterator, $Iterator*)},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(AbstractList, lastIndexOf, int32_t, Object$*)},
+		{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(AbstractList, listIterator, $ListIterator*)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(AbstractList, listIterator, $ListIterator*, int32_t)},
+		{"outOfBoundsMsg", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(AbstractList, outOfBoundsMsg, $String*, int32_t)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(AbstractList, rangeCheckForAdd, void, int32_t)},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(AbstractList, remove, $Object*, int32_t)},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"removeRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(AbstractList, removeRange, void, int32_t, int32_t)},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(AbstractList, set, $Object*, int32_t, Object$*)},
+		{"*size", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(AbstractList, subList, $List*, int32_t, int32_t)},
+		{"subListRangeCheck", "(III)V", nullptr, $STATIC, $staticMethod(AbstractList, subListRangeCheck, void, int32_t, int32_t, int32_t)},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.AbstractList$RandomAccessSubList", "java.util.AbstractList", "RandomAccessSubList", $PRIVATE | $STATIC},
+		{"java.util.AbstractList$SubList", "java.util.AbstractList", "SubList", $PRIVATE | $STATIC},
+		{"java.util.AbstractList$RandomAccessSpliterator", "java.util.AbstractList", "RandomAccessSpliterator", $STATIC | $FINAL},
+		{"java.util.AbstractList$ListItr", "java.util.AbstractList", "ListItr", $PRIVATE},
+		{"java.util.AbstractList$Itr", "java.util.AbstractList", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.AbstractList",
+		"java.util.AbstractCollection",
+		"java.util.List",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractCollection<TE;>;Ljava/util/List<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.AbstractList$RandomAccessSubList,java.util.AbstractList$SubList,java.util.AbstractList$SubList$1,java.util.AbstractList$RandomAccessSpliterator,java.util.AbstractList$ListItr,java.util.AbstractList$Itr"
+	};
+	$loadClass(AbstractList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractList));
+	});
 	return class$;
 }
 

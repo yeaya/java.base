@@ -29,6 +29,7 @@ class $export BaseLocaleDataMetaInfo : public ::sun::util::locale::provider::Loc
 	$class(BaseLocaleDataMetaInfo, 0, ::sun::util::locale::provider::LocaleDataMetaInfo)
 public:
 	BaseLocaleDataMetaInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* availableLanguageTags($String* category) override;
 	static $String* getSupportedLocaleString($String* resourceName);

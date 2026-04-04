@@ -1,5 +1,4 @@
 #include <java/lang/Process$CharsetHolder.h>
-
 #include <java/lang/Process.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/UnsupportedCharsetException.h>
@@ -17,42 +16,6 @@ using $StaticProperty = ::jdk::internal::util::StaticProperty;
 namespace java {
 	namespace lang {
 
-$FieldInfo _Process$CharsetHolder_FieldInfo_[] = {
-	{"nativeCharset", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Process$CharsetHolder, nativeCharset$)},
-	{}
-};
-
-$MethodInfo _Process$CharsetHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Process$CharsetHolder, init$, void)},
-	{"nativeCharset", "()Ljava/nio/charset/Charset;", nullptr, $STATIC, $staticMethod(Process$CharsetHolder, nativeCharset, $Charset*)},
-	{}
-};
-
-$InnerClassInfo _Process$CharsetHolder_InnerClassesInfo_[] = {
-	{"java.lang.Process$CharsetHolder", "java.lang.Process", "CharsetHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Process$CharsetHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Process$CharsetHolder",
-	"java.lang.Object",
-	nullptr,
-	_Process$CharsetHolder_FieldInfo_,
-	_Process$CharsetHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Process$CharsetHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Process"
-};
-
-$Object* allocate$Process$CharsetHolder($Class* clazz) {
-	return $of($alloc(Process$CharsetHolder));
-}
-
 $Charset* Process$CharsetHolder::nativeCharset$ = nullptr;
 
 void Process$CharsetHolder::init$() {
@@ -63,8 +26,8 @@ $Charset* Process$CharsetHolder::nativeCharset() {
 	return Process$CharsetHolder::nativeCharset$;
 }
 
-void clinit$Process$CharsetHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Process$CharsetHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($Charset, cs, nullptr);
 		try {
@@ -80,7 +43,37 @@ Process$CharsetHolder::Process$CharsetHolder() {
 }
 
 $Class* Process$CharsetHolder::load$($String* name, bool initialize) {
-	$loadClass(Process$CharsetHolder, name, initialize, &_Process$CharsetHolder_ClassInfo_, clinit$Process$CharsetHolder, allocate$Process$CharsetHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"nativeCharset", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Process$CharsetHolder, nativeCharset$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Process$CharsetHolder, init$, void)},
+		{"nativeCharset", "()Ljava/nio/charset/Charset;", nullptr, $STATIC, $staticMethod(Process$CharsetHolder, nativeCharset, $Charset*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Process$CharsetHolder", "java.lang.Process", "CharsetHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Process$CharsetHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Process"
+	};
+	$loadClass(Process$CharsetHolder, name, initialize, &classInfo$$, Process$CharsetHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Process$CharsetHolder);
+	});
 	return class$;
 }
 

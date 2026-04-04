@@ -1,5 +1,4 @@
 #include <sun/nio/ch/NativeDispatcher.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -14,34 +13,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$MethodInfo _NativeDispatcher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NativeDispatcher, init$, void)},
-	{"close", "(Ljava/io/FileDescriptor;)V", nullptr, $ABSTRACT, $virtualMethod(NativeDispatcher, close, void, $FileDescriptor*), "java.io.IOException"},
-	{"dup", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(NativeDispatcher, dup, void, $FileDescriptor*, $FileDescriptor*), "java.io.IOException"},
-	{"needsPositionLock", "()Z", nullptr, 0, $virtualMethod(NativeDispatcher, needsPositionLock, bool)},
-	{"preClose", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(NativeDispatcher, preClose, void, $FileDescriptor*), "java.io.IOException"},
-	{"pread", "(Ljava/io/FileDescriptor;JIJ)I", nullptr, 0, $virtualMethod(NativeDispatcher, pread, int32_t, $FileDescriptor*, int64_t, int32_t, int64_t), "java.io.IOException"},
-	{"pwrite", "(Ljava/io/FileDescriptor;JIJ)I", nullptr, 0, $virtualMethod(NativeDispatcher, pwrite, int32_t, $FileDescriptor*, int64_t, int32_t, int64_t), "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;JI)I", nullptr, $ABSTRACT, $virtualMethod(NativeDispatcher, read, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
-	{"readv", "(Ljava/io/FileDescriptor;JI)J", nullptr, $ABSTRACT, $virtualMethod(NativeDispatcher, readv, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/io/FileDescriptor;JI)I", nullptr, $ABSTRACT, $virtualMethod(NativeDispatcher, write, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
-	{"writev", "(Ljava/io/FileDescriptor;JI)J", nullptr, $ABSTRACT, $virtualMethod(NativeDispatcher, writev, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _NativeDispatcher_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.nio.ch.NativeDispatcher",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NativeDispatcher_MethodInfo_
-};
-
-$Object* allocate$NativeDispatcher($Class* clazz) {
-	return $of($alloc(NativeDispatcher));
-}
 
 void NativeDispatcher::init$() {
 }
@@ -71,7 +42,31 @@ NativeDispatcher::NativeDispatcher() {
 }
 
 $Class* NativeDispatcher::load$($String* name, bool initialize) {
-	$loadClass(NativeDispatcher, name, initialize, &_NativeDispatcher_ClassInfo_, allocate$NativeDispatcher);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NativeDispatcher, init$, void)},
+		{"close", "(Ljava/io/FileDescriptor;)V", nullptr, $ABSTRACT, $virtualMethod(NativeDispatcher, close, void, $FileDescriptor*), "java.io.IOException"},
+		{"dup", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(NativeDispatcher, dup, void, $FileDescriptor*, $FileDescriptor*), "java.io.IOException"},
+		{"needsPositionLock", "()Z", nullptr, 0, $virtualMethod(NativeDispatcher, needsPositionLock, bool)},
+		{"preClose", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(NativeDispatcher, preClose, void, $FileDescriptor*), "java.io.IOException"},
+		{"pread", "(Ljava/io/FileDescriptor;JIJ)I", nullptr, 0, $virtualMethod(NativeDispatcher, pread, int32_t, $FileDescriptor*, int64_t, int32_t, int64_t), "java.io.IOException"},
+		{"pwrite", "(Ljava/io/FileDescriptor;JIJ)I", nullptr, 0, $virtualMethod(NativeDispatcher, pwrite, int32_t, $FileDescriptor*, int64_t, int32_t, int64_t), "java.io.IOException"},
+		{"read", "(Ljava/io/FileDescriptor;JI)I", nullptr, $ABSTRACT, $virtualMethod(NativeDispatcher, read, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+		{"readv", "(Ljava/io/FileDescriptor;JI)J", nullptr, $ABSTRACT, $virtualMethod(NativeDispatcher, readv, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/io/FileDescriptor;JI)I", nullptr, $ABSTRACT, $virtualMethod(NativeDispatcher, write, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+		{"writev", "(Ljava/io/FileDescriptor;JI)J", nullptr, $ABSTRACT, $virtualMethod(NativeDispatcher, writev, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.nio.ch.NativeDispatcher",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NativeDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeDispatcher);
+	});
 	return class$;
 }
 

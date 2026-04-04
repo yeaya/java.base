@@ -1,5 +1,4 @@
 #include <TestReceiverTypeOwner$TypeAnnotation.h>
-
 #include <TestReceiverTypeOwner.h>
 #include <jcpp.h>
 
@@ -9,54 +8,46 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute TestReceiverTypeOwner$TypeAnnotation_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute TestReceiverTypeOwner$TypeAnnotation_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE_USE"},
-	{'-'}
-};
-
-$NamedAttribute TestReceiverTypeOwner$TypeAnnotation_Attribute_var$1[] = {
-	{"value", '[', TestReceiverTypeOwner$TypeAnnotation_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _TestReceiverTypeOwner$TypeAnnotation_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", TestReceiverTypeOwner$TypeAnnotation_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", TestReceiverTypeOwner$TypeAnnotation_Attribute_var$1},
-	{}
-};
-
-$InnerClassInfo _TestReceiverTypeOwner$TypeAnnotation_InnerClassesInfo_[] = {
-	{"TestReceiverTypeOwner$TypeAnnotation", "TestReceiverTypeOwner", "TypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _TestReceiverTypeOwner$TypeAnnotation_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"TestReceiverTypeOwner$TypeAnnotation",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_TestReceiverTypeOwner$TypeAnnotation_InnerClassesInfo_,
-	_TestReceiverTypeOwner$TypeAnnotation_Annotations_,
-	nullptr,
-	nullptr,
-	"TestReceiverTypeOwner"
-};
-
-$Object* allocate$TestReceiverTypeOwner$TypeAnnotation($Class* clazz) {
-	return $of($alloc(TestReceiverTypeOwner$TypeAnnotation));
-}
-
 $Class* TestReceiverTypeOwner$TypeAnnotation::load$($String* name, bool initialize) {
-	$loadClass(TestReceiverTypeOwner$TypeAnnotation, name, initialize, &_TestReceiverTypeOwner$TypeAnnotation_ClassInfo_, allocate$TestReceiverTypeOwner$TypeAnnotation);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestReceiverTypeOwner$TypeAnnotation", "TestReceiverTypeOwner", "TypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE_USE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"TestReceiverTypeOwner$TypeAnnotation",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"TestReceiverTypeOwner"
+	};
+	$loadClass(TestReceiverTypeOwner$TypeAnnotation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestReceiverTypeOwner$TypeAnnotation);
+	});
 	return class$;
 }
 

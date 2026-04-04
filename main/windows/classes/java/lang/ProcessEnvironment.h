@@ -30,6 +30,7 @@ class ProcessEnvironment : public ::java::util::HashMap {
 	$class(ProcessEnvironment, 0, ::java::util::HashMap)
 public:
 	ProcessEnvironment();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t capacity);
 	static void addToEnv(::java::lang::StringBuilder* sb, $String* name, $String* val);
@@ -54,7 +55,7 @@ public:
 	static $String* validateName($String* name);
 	static $String* validateValue($String* value);
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0x90BAE96840FD2AD8;
+	static const int64_t serialVersionUID = (int64_t)0x90bae96840fd2ad8;
 	static const int32_t MIN_NAME_LENGTH = 1;
 	static ::java::lang::ProcessEnvironment$NameComparator* nameComparator;
 	static ::java::lang::ProcessEnvironment$EntryComparator* entryComparator;

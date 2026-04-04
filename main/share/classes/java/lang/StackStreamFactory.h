@@ -51,6 +51,7 @@ class StackStreamFactory : public ::java::lang::Object {
 	$class(StackStreamFactory, 0, ::java::lang::Object)
 public:
 	StackStreamFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool checkStackWalkModes();
 	static bool filterStackWalkImpl($Class* c);

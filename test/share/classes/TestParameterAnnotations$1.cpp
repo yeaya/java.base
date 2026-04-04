@@ -1,5 +1,4 @@
 #include <TestParameterAnnotations$1.h>
-
 #include <TestParameterAnnotations.h>
 #include <jcpp.h>
 
@@ -7,43 +6,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _TestParameterAnnotations$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TestParameterAnnotations$1, init$, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestParameterAnnotations$1, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _TestParameterAnnotations$1_EnclosingMethodInfo_ = {
-	"TestParameterAnnotations",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _TestParameterAnnotations$1_InnerClassesInfo_[] = {
-	{"TestParameterAnnotations$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestParameterAnnotations$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestParameterAnnotations$1",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestParameterAnnotations$1_MethodInfo_,
-	nullptr,
-	&_TestParameterAnnotations$1_EnclosingMethodInfo_,
-	_TestParameterAnnotations$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestParameterAnnotations"
-};
-
-$Object* allocate$TestParameterAnnotations$1($Class* clazz) {
-	return $of($alloc(TestParameterAnnotations$1));
-}
 
 void TestParameterAnnotations$1::init$() {
 }
@@ -56,7 +18,38 @@ TestParameterAnnotations$1::TestParameterAnnotations$1() {
 }
 
 $Class* TestParameterAnnotations$1::load$($String* name, bool initialize) {
-	$loadClass(TestParameterAnnotations$1, name, initialize, &_TestParameterAnnotations$1_ClassInfo_, allocate$TestParameterAnnotations$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TestParameterAnnotations$1, init$, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestParameterAnnotations$1, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TestParameterAnnotations",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestParameterAnnotations$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestParameterAnnotations$1",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestParameterAnnotations"
+	};
+	$loadClass(TestParameterAnnotations$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestParameterAnnotations$1);
+	});
 	return class$;
 }
 

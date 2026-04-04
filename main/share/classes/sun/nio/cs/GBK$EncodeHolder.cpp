@@ -1,5 +1,4 @@
 #include <sun/nio/cs/GBK$EncodeHolder.h>
-
 #include <sun/nio/cs/DoubleByte$Encoder.h>
 #include <sun/nio/cs/GBK$DecodeHolder.h>
 #include <sun/nio/cs/GBK.h>
@@ -16,50 +15,14 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _GBK$EncodeHolder_FieldInfo_[] = {
-	{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(GBK$EncodeHolder, c2b)},
-	{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(GBK$EncodeHolder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _GBK$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GBK$EncodeHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _GBK$EncodeHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.GBK$EncodeHolder", "sun.nio.cs.GBK", "EncodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _GBK$EncodeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.GBK$EncodeHolder",
-	"java.lang.Object",
-	nullptr,
-	_GBK$EncodeHolder_FieldInfo_,
-	_GBK$EncodeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GBK$EncodeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.GBK"
-};
-
-$Object* allocate$GBK$EncodeHolder($Class* clazz) {
-	return $of($alloc(GBK$EncodeHolder));
-}
-
 $chars* GBK$EncodeHolder::c2b = nullptr;
 $chars* GBK$EncodeHolder::c2bIndex = nullptr;
 
 void GBK$EncodeHolder::init$() {
 }
 
-void clinit$GBK$EncodeHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void GBK$EncodeHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(GBK$EncodeHolder::c2b, $new($chars, 28672));
 	$assignStatic(GBK$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
@@ -74,7 +37,37 @@ GBK$EncodeHolder::GBK$EncodeHolder() {
 }
 
 $Class* GBK$EncodeHolder::load$($String* name, bool initialize) {
-	$loadClass(GBK$EncodeHolder, name, initialize, &_GBK$EncodeHolder_ClassInfo_, clinit$GBK$EncodeHolder, allocate$GBK$EncodeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(GBK$EncodeHolder, c2b)},
+		{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(GBK$EncodeHolder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GBK$EncodeHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.GBK$EncodeHolder", "sun.nio.cs.GBK", "EncodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.GBK$EncodeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.GBK"
+	};
+	$loadClass(GBK$EncodeHolder, name, initialize, &classInfo$$, GBK$EncodeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GBK$EncodeHolder);
+	});
 	return class$;
 }
 

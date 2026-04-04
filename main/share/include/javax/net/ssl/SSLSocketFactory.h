@@ -29,6 +29,7 @@ class $import SSLSocketFactory : public ::javax::net::SocketFactory {
 public:
 	SSLSocketFactory();
 	using ::javax::net::SocketFactory::createSocket;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::net::Socket* createSocket(::java::net::Socket* s, $String* host, int32_t port, bool autoClose) {return nullptr;}
 	virtual ::java::net::Socket* createSocket(::java::net::Socket* s, ::java::io::InputStream* consumed, bool autoClose);

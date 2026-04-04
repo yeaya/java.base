@@ -22,6 +22,7 @@ class DHKeyExchange : public ::java::lang::Object {
 	$class(DHKeyExchange, 0, ::java::lang::Object)
 public:
 	DHKeyExchange();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLPossessionGenerator* poGenerator;
 	static ::sun::security::ssl::SSLPossessionGenerator* poExportableGenerator;

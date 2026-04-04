@@ -1,5 +1,4 @@
 #include <java/util/stream/Streams$1.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/stream/Streams.h>
 #include <jcpp.h>
@@ -14,49 +13,6 @@ using $Runnable = ::java::lang::Runnable;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Streams$1_FieldInfo_[] = {
-	{"val$b", "Ljava/lang/Runnable;", nullptr, $FINAL | $SYNTHETIC, $field(Streams$1, val$b)},
-	{"val$a", "Ljava/lang/Runnable;", nullptr, $FINAL | $SYNTHETIC, $field(Streams$1, val$a)},
-	{}
-};
-
-$MethodInfo _Streams$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/Runnable;)V", "()V", 0, $method(Streams$1, init$, void, $Runnable*, $Runnable*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Streams$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Streams$1_EnclosingMethodInfo_ = {
-	"java.util.stream.Streams",
-	"composeWithExceptions",
-	"(Ljava/lang/Runnable;Ljava/lang/Runnable;)Ljava/lang/Runnable;"
-};
-
-$InnerClassInfo _Streams$1_InnerClassesInfo_[] = {
-	{"java.util.stream.Streams$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Streams$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.Streams$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Streams$1_FieldInfo_,
-	_Streams$1_MethodInfo_,
-	nullptr,
-	&_Streams$1_EnclosingMethodInfo_,
-	_Streams$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Streams"
-};
-
-$Object* allocate$Streams$1($Class* clazz) {
-	return $of($alloc(Streams$1));
-}
 
 void Streams$1::init$($Runnable* val$a, $Runnable* val$b) {
 	$set(this, val$a, val$a);
@@ -84,7 +40,43 @@ Streams$1::Streams$1() {
 }
 
 $Class* Streams$1::load$($String* name, bool initialize) {
-	$loadClass(Streams$1, name, initialize, &_Streams$1_ClassInfo_, allocate$Streams$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$b", "Ljava/lang/Runnable;", nullptr, $FINAL | $SYNTHETIC, $field(Streams$1, val$b)},
+		{"val$a", "Ljava/lang/Runnable;", nullptr, $FINAL | $SYNTHETIC, $field(Streams$1, val$a)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Runnable;Ljava/lang/Runnable;)V", "()V", 0, $method(Streams$1, init$, void, $Runnable*, $Runnable*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Streams$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.Streams",
+		"composeWithExceptions",
+		"(Ljava/lang/Runnable;Ljava/lang/Runnable;)Ljava/lang/Runnable;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Streams$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.Streams$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Streams"
+	};
+	$loadClass(Streams$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Streams$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <MockLo0Inet6Address.h>
-
 #include <jcpp.h>
 
 #undef BARE_LO0HOSTADDRESS
@@ -14,44 +13,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _MockLo0Inet6Address_FieldInfo_[] = {
-	{"LOOPBACKIPV6ADDRESS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, LOOPBACKIPV6ADDRESS)},
-	{"LOCALHOSTNAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, LOCALHOSTNAME)},
-	{"LO0HOSTADDRESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, LO0HOSTADDRESS)},
-	{"BARE_LO0HOSTADDRESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, BARE_LO0HOSTADDRESS)},
-	{"LO0HOSTADDRESS_WITHINDEX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, LO0HOSTADDRESS_WITHINDEX)},
-	{"SCOPE_ID_LO0", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MockLo0Inet6Address, SCOPE_ID_LO0)},
-	{"SCOPE_ID_ZERO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MockLo0Inet6Address, SCOPE_ID_ZERO)},
-	{"NETWORK_IF_LO0", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, NETWORK_IF_LO0)},
-	{}
-};
-
-$MethodInfo _MockLo0Inet6Address_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MockLo0Inet6Address, init$, void)},
-	{"getAddress", "()[B", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getAddress, $bytes*)},
-	{"getBareHostAddress", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getBareHostAddress, $String*)},
-	{"getHostAddress", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getHostAddress, $String*)},
-	{"getHostAddressWithIndex", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getHostAddressWithIndex, $String*)},
-	{"getHostName", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getHostName, $String*)},
-	{"getScopeId", "()I", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getScopeId, int32_t)},
-	{"getScopeIfName", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getScopeIfName, $String*)},
-	{"getScopeZero", "()I", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getScopeZero, int32_t)},
-	{}
-};
-
-$ClassInfo _MockLo0Inet6Address_ClassInfo_ = {
-	$ACC_SUPER,
-	"MockLo0Inet6Address",
-	"java.lang.Object",
-	nullptr,
-	_MockLo0Inet6Address_FieldInfo_,
-	_MockLo0Inet6Address_MethodInfo_
-};
-
-$Object* allocate$MockLo0Inet6Address($Class* clazz) {
-	return $of($alloc(MockLo0Inet6Address));
-}
 
 $bytes* MockLo0Inet6Address::LOOPBACKIPV6ADDRESS = nullptr;
 $String* MockLo0Inet6Address::LOCALHOSTNAME = nullptr;
@@ -103,7 +64,7 @@ $String* MockLo0Inet6Address::getScopeIfName() {
 	return MockLo0Inet6Address::NETWORK_IF_LO0;
 }
 
-void clinit$MockLo0Inet6Address($Class* class$) {
+void MockLo0Inet6Address::clinit$($Class* clazz) {
 	$assignStatic(MockLo0Inet6Address::LOCALHOSTNAME, "localhost"_s);
 	$assignStatic(MockLo0Inet6Address::LO0HOSTADDRESS, "0:0:0:0:0:0:0:1%lo0"_s);
 	$assignStatic(MockLo0Inet6Address::BARE_LO0HOSTADDRESS, "0:0:0:0:0:0:0:1"_s);
@@ -133,7 +94,40 @@ MockLo0Inet6Address::MockLo0Inet6Address() {
 }
 
 $Class* MockLo0Inet6Address::load$($String* name, bool initialize) {
-	$loadClass(MockLo0Inet6Address, name, initialize, &_MockLo0Inet6Address_ClassInfo_, clinit$MockLo0Inet6Address, allocate$MockLo0Inet6Address);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOOPBACKIPV6ADDRESS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, LOOPBACKIPV6ADDRESS)},
+		{"LOCALHOSTNAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, LOCALHOSTNAME)},
+		{"LO0HOSTADDRESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, LO0HOSTADDRESS)},
+		{"BARE_LO0HOSTADDRESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, BARE_LO0HOSTADDRESS)},
+		{"LO0HOSTADDRESS_WITHINDEX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, LO0HOSTADDRESS_WITHINDEX)},
+		{"SCOPE_ID_LO0", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MockLo0Inet6Address, SCOPE_ID_LO0)},
+		{"SCOPE_ID_ZERO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MockLo0Inet6Address, SCOPE_ID_ZERO)},
+		{"NETWORK_IF_LO0", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MockLo0Inet6Address, NETWORK_IF_LO0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MockLo0Inet6Address, init$, void)},
+		{"getAddress", "()[B", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getAddress, $bytes*)},
+		{"getBareHostAddress", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getBareHostAddress, $String*)},
+		{"getHostAddress", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getHostAddress, $String*)},
+		{"getHostAddressWithIndex", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getHostAddressWithIndex, $String*)},
+		{"getHostName", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getHostName, $String*)},
+		{"getScopeId", "()I", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getScopeId, int32_t)},
+		{"getScopeIfName", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getScopeIfName, $String*)},
+		{"getScopeZero", "()I", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getScopeZero, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MockLo0Inet6Address",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MockLo0Inet6Address, name, initialize, &classInfo$$, MockLo0Inet6Address::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MockLo0Inet6Address);
+	});
 	return class$;
 }
 

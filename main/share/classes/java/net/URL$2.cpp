@@ -1,5 +1,4 @@
 #include <java/net/URL$2.h>
-
 #include <java/net/URL.h>
 #include <java/net/URLStreamHandler.h>
 #include <java/net/spi/URLStreamHandlerProvider.h>
@@ -19,70 +18,63 @@ using $Iterator = ::java::util::Iterator;
 namespace java {
 	namespace net {
 
-$FieldInfo _URL$2_FieldInfo_[] = {
-	{"val$protocol", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(URL$2, val$protocol)},
-	{}
-};
-
-$MethodInfo _URL$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(URL$2, init$, void, $String*)},
-	{"run", "()Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(URL$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _URL$2_EnclosingMethodInfo_ = {
-	"java.net.URL",
-	"lookupViaProviders",
-	"(Ljava/lang/String;)Ljava/net/URLStreamHandler;"
-};
-
-$InnerClassInfo _URL$2_InnerClassesInfo_[] = {
-	{"java.net.URL$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URL$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.URL$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_URL$2_FieldInfo_,
-	_URL$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/URLStreamHandler;>;",
-	&_URL$2_EnclosingMethodInfo_,
-	_URL$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.URL"
-};
-
-$Object* allocate$URL$2($Class* clazz) {
-	return $of($alloc(URL$2));
-}
-
 void URL$2::init$($String* val$protocol) {
 	$set(this, val$protocol, val$protocol);
 }
 
 $Object* URL$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, itr, $URL::providers());
 	while ($nc(itr)->hasNext()) {
 		$var($URLStreamHandlerProvider, f, $cast($URLStreamHandlerProvider, itr->next()));
 		$var($URLStreamHandler, h, $nc(f)->createURLStreamHandler(this->val$protocol));
 		if (h != nullptr) {
-			return $of(h);
+			return h;
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 URL$2::URL$2() {
 }
 
 $Class* URL$2::load$($String* name, bool initialize) {
-	$loadClass(URL$2, name, initialize, &_URL$2_ClassInfo_, allocate$URL$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$protocol", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(URL$2, val$protocol)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(URL$2, init$, void, $String*)},
+		{"run", "()Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(URL$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.URL",
+		"lookupViaProviders",
+		"(Ljava/lang/String;)Ljava/net/URLStreamHandler;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.URL$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.URL$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/URLStreamHandler;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.URL"
+	};
+	$loadClass(URL$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URL$2);
+	});
 	return class$;
 }
 

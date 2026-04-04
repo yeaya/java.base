@@ -22,6 +22,7 @@ class $export StarInheritance : public ::java::lang::Object {
 	$class(StarInheritance, 0, ::java::lang::Object)
 public:
 	StarInheritance();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test($Array<::java::lang::reflect::Method>* ma, ::java::util::ArrayList* expect);

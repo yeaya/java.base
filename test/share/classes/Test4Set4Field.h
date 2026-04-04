@@ -9,6 +9,7 @@ class Test4Set4Field : public ::java::lang::Object {
 	$class(Test4Set4Field, 0, ::java::lang::Object)
 public:
 	Test4Set4Field();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool testAccessibleObject();
 	virtual bool testAccessiblePrimitive();

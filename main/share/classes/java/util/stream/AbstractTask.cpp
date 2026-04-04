@@ -1,5 +1,4 @@
 #include <java/util/stream/AbstractTask.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/CountedCompleter.h>
@@ -25,52 +24,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _AbstractTask_FieldInfo_[] = {
-	{"LEAF_TARGET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractTask, LEAF_TARGET)},
-	{"helper", "Ljava/util/stream/PipelineHelper;", "Ljava/util/stream/PipelineHelper<TP_OUT;>;", $PROTECTED | $FINAL, $field(AbstractTask, helper)},
-	{"spliterator", "Ljava/util/Spliterator;", "Ljava/util/Spliterator<TP_IN;>;", $PROTECTED, $field(AbstractTask, spliterator)},
-	{"targetSize", "J", nullptr, $PROTECTED, $field(AbstractTask, targetSize)},
-	{"leftChild", "Ljava/util/stream/AbstractTask;", "TK;", $PROTECTED, $field(AbstractTask, leftChild)},
-	{"rightChild", "Ljava/util/stream/AbstractTask;", "TK;", $PROTECTED, $field(AbstractTask, rightChild)},
-	{"localResult", "Ljava/lang/Object;", "TR;", $PRIVATE, $field(AbstractTask, localResult)},
-	{}
-};
-
-$MethodInfo _AbstractTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", $PROTECTED, $method(AbstractTask, init$, void, $PipelineHelper*, $Spliterator*)},
-	{"<init>", "(Ljava/util/stream/AbstractTask;Ljava/util/Spliterator;)V", "(TK;Ljava/util/Spliterator<TP_IN;>;)V", $PROTECTED, $method(AbstractTask, init$, void, AbstractTask*, $Spliterator*)},
-	{"compute", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractTask, compute, void)},
-	{"doLeaf", "()Ljava/lang/Object;", "()TR;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractTask, doLeaf, $Object*)},
-	{"getLeafTarget", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractTask, getLeafTarget, int32_t)},
-	{"getLocalResult", "()Ljava/lang/Object;", "()TR;", $PROTECTED, $virtualMethod(AbstractTask, getLocalResult, $Object*)},
-	{"getParent", "()Ljava/util/stream/AbstractTask;", "()TK;", $PROTECTED, $virtualMethod(AbstractTask, getParent, AbstractTask*)},
-	{"getRawResult", "()Ljava/lang/Object;", "()TR;", $PUBLIC, $virtualMethod(AbstractTask, getRawResult, $Object*)},
-	{"getTargetSize", "(J)J", nullptr, $PROTECTED | $FINAL, $method(AbstractTask, getTargetSize, int64_t, int64_t)},
-	{"isLeaf", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractTask, isLeaf, bool)},
-	{"isLeftmostNode", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractTask, isLeftmostNode, bool)},
-	{"isRoot", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractTask, isRoot, bool)},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", "(Ljava/util/Spliterator<TP_IN;>;)TK;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractTask, makeChild, AbstractTask*, $Spliterator*)},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC, $virtualMethod(AbstractTask, onCompletion, void, $CountedCompleter*)},
-	{"setLocalResult", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $virtualMethod(AbstractTask, setLocalResult, void, Object$*)},
-	{"setRawResult", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $virtualMethod(AbstractTask, setRawResult, void, Object$*)},
-	{"suggestTargetSize", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractTask, suggestTargetSize, int64_t, int64_t)},
-	{}
-};
-
-$ClassInfo _AbstractTask_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.AbstractTask",
-	"java.util.concurrent.CountedCompleter",
-	nullptr,
-	_AbstractTask_FieldInfo_,
-	_AbstractTask_MethodInfo_,
-	"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;R:Ljava/lang/Object;K:Ljava/util/stream/AbstractTask<TP_IN;TP_OUT;TR;TK;>;>Ljava/util/concurrent/CountedCompleter<TR;>;"
-};
-
-$Object* allocate$AbstractTask($Class* clazz) {
-	return $of($alloc(AbstractTask));
-}
-
 int32_t AbstractTask::LEAF_TARGET = 0;
 
 void AbstractTask::init$($PipelineHelper* helper, $Spliterator* spliterator) {
@@ -89,10 +42,10 @@ void AbstractTask::init$(AbstractTask* parent, $Spliterator* spliterator) {
 
 int32_t AbstractTask::getLeafTarget() {
 	$init(AbstractTask);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, t, $Thread::currentThread());
 	if ($instanceOf($ForkJoinWorkerThread, t)) {
-		return $nc($($nc(($cast($ForkJoinWorkerThread, t)))->getPool()))->getParallelism() << 2;
+		return $$nc($cast($ForkJoinWorkerThread, t)->getPool())->getParallelism() << 2;
 	} else {
 		return AbstractTask::LEAF_TARGET;
 	}
@@ -101,7 +54,7 @@ int32_t AbstractTask::getLeafTarget() {
 int64_t AbstractTask::suggestTargetSize(int64_t sizeEstimate) {
 	$init(AbstractTask);
 	int64_t est = $div(sizeEstimate, getLeafTarget());
-	return est > (int64_t)0 ? est : (int64_t)1;
+	return est > 0 ? est : 1;
 }
 
 int64_t AbstractTask::getTargetSize(int64_t sizeEstimate) {
@@ -110,7 +63,7 @@ int64_t AbstractTask::getTargetSize(int64_t sizeEstimate) {
 }
 
 $Object* AbstractTask::getRawResult() {
-	return $of(this->localResult);
+	return this->localResult;
 }
 
 void AbstractTask::setRawResult(Object$* result) {
@@ -120,7 +73,7 @@ void AbstractTask::setRawResult(Object$* result) {
 }
 
 $Object* AbstractTask::getLocalResult() {
-	return $of(this->localResult);
+	return this->localResult;
 }
 
 void AbstractTask::setLocalResult(Object$* localResult) {
@@ -140,19 +93,19 @@ AbstractTask* AbstractTask::getParent() {
 }
 
 void AbstractTask::compute() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Spliterator, rs, this->spliterator);
 	$var($Spliterator, ls, nullptr);
 	int64_t sizeEstimate = $nc(rs)->estimateSize();
 	int64_t sizeThreshold = getTargetSize(sizeEstimate);
 	bool forkRight = false;
 	$var(AbstractTask, task, this);
-	while (sizeEstimate > sizeThreshold && ($assign(ls, rs->trySplit())) != nullptr) {
+	while (sizeEstimate > sizeThreshold && ($assign(ls, $nc(rs)->trySplit())) != nullptr) {
 		$var(AbstractTask, leftChild, nullptr);
 		$var(AbstractTask, rightChild, nullptr);
 		$var(AbstractTask, taskToFork, nullptr);
-		$set($nc(task), leftChild, ($assign(leftChild, task->makeChild(ls))));
-		$set(task, rightChild, ($assign(rightChild, task->makeChild(rs))));
+		$set($nc(task), leftChild, $assign(leftChild, $nc(task)->makeChild(ls)));
+		$set(task, rightChild, $assign(rightChild, task->makeChild(rs)));
 		task->setPendingCount(1);
 		if (forkRight) {
 			forkRight = false;
@@ -165,19 +118,19 @@ void AbstractTask::compute() {
 			$assign(taskToFork, leftChild);
 		}
 		$nc(taskToFork)->fork();
-		sizeEstimate = rs->estimateSize();
+		sizeEstimate = $nc(rs)->estimateSize();
 	}
-	$nc(task)->setLocalResult($(task->doLeaf()));
+	$nc(task)->setLocalResult($($nc(task)->doLeaf()));
 	task->tryComplete();
 }
 
 void AbstractTask::onCompletion($CountedCompleter* caller) {
 	$set(this, spliterator, nullptr);
-	$set(this, leftChild, ($set(this, rightChild, nullptr)));
+	$set(this, leftChild, $set(this, rightChild, nullptr));
 }
 
 bool AbstractTask::isLeftmostNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(AbstractTask, node, this);
 	while (node != nullptr) {
 		$var(AbstractTask, parent, node->getParent());
@@ -189,7 +142,7 @@ bool AbstractTask::isLeftmostNode() {
 	return true;
 }
 
-void clinit$AbstractTask($Class* class$) {
+void AbstractTask::clinit$($Class* clazz) {
 	AbstractTask::LEAF_TARGET = $ForkJoinPool::getCommonPoolParallelism() << 2;
 }
 
@@ -197,7 +150,48 @@ AbstractTask::AbstractTask() {
 }
 
 $Class* AbstractTask::load$($String* name, bool initialize) {
-	$loadClass(AbstractTask, name, initialize, &_AbstractTask_ClassInfo_, clinit$AbstractTask, allocate$AbstractTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"LEAF_TARGET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractTask, LEAF_TARGET)},
+		{"helper", "Ljava/util/stream/PipelineHelper;", "Ljava/util/stream/PipelineHelper<TP_OUT;>;", $PROTECTED | $FINAL, $field(AbstractTask, helper)},
+		{"spliterator", "Ljava/util/Spliterator;", "Ljava/util/Spliterator<TP_IN;>;", $PROTECTED, $field(AbstractTask, spliterator)},
+		{"targetSize", "J", nullptr, $PROTECTED, $field(AbstractTask, targetSize)},
+		{"leftChild", "Ljava/util/stream/AbstractTask;", "TK;", $PROTECTED, $field(AbstractTask, leftChild)},
+		{"rightChild", "Ljava/util/stream/AbstractTask;", "TK;", $PROTECTED, $field(AbstractTask, rightChild)},
+		{"localResult", "Ljava/lang/Object;", "TR;", $PRIVATE, $field(AbstractTask, localResult)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", $PROTECTED, $method(AbstractTask, init$, void, $PipelineHelper*, $Spliterator*)},
+		{"<init>", "(Ljava/util/stream/AbstractTask;Ljava/util/Spliterator;)V", "(TK;Ljava/util/Spliterator<TP_IN;>;)V", $PROTECTED, $method(AbstractTask, init$, void, AbstractTask*, $Spliterator*)},
+		{"compute", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractTask, compute, void)},
+		{"doLeaf", "()Ljava/lang/Object;", "()TR;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractTask, doLeaf, $Object*)},
+		{"getLeafTarget", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractTask, getLeafTarget, int32_t)},
+		{"getLocalResult", "()Ljava/lang/Object;", "()TR;", $PROTECTED, $virtualMethod(AbstractTask, getLocalResult, $Object*)},
+		{"getParent", "()Ljava/util/stream/AbstractTask;", "()TK;", $PROTECTED, $virtualMethod(AbstractTask, getParent, AbstractTask*)},
+		{"getRawResult", "()Ljava/lang/Object;", "()TR;", $PUBLIC, $virtualMethod(AbstractTask, getRawResult, $Object*)},
+		{"getTargetSize", "(J)J", nullptr, $PROTECTED | $FINAL, $method(AbstractTask, getTargetSize, int64_t, int64_t)},
+		{"isLeaf", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractTask, isLeaf, bool)},
+		{"isLeftmostNode", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractTask, isLeftmostNode, bool)},
+		{"isRoot", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractTask, isRoot, bool)},
+		{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", "(Ljava/util/Spliterator<TP_IN;>;)TK;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractTask, makeChild, AbstractTask*, $Spliterator*)},
+		{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC, $virtualMethod(AbstractTask, onCompletion, void, $CountedCompleter*)},
+		{"setLocalResult", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $virtualMethod(AbstractTask, setLocalResult, void, Object$*)},
+		{"setRawResult", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $virtualMethod(AbstractTask, setRawResult, void, Object$*)},
+		{"suggestTargetSize", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractTask, suggestTargetSize, int64_t, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.AbstractTask",
+		"java.util.concurrent.CountedCompleter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;R:Ljava/lang/Object;K:Ljava/util/stream/AbstractTask<TP_IN;TP_OUT;TR;TK;>;>Ljava/util/concurrent/CountedCompleter<TR;>;"
+	};
+	$loadClass(AbstractTask, name, initialize, &classInfo$$, AbstractTask::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractTask));
+	});
 	return class$;
 }
 

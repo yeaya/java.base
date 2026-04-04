@@ -1,5 +1,4 @@
 #include <java/util/zip/CheckedOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/util/zip/Checksum.h>
@@ -15,32 +14,6 @@ using $Checksum = ::java::util::zip::Checksum;
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _CheckedOutputStream_FieldInfo_[] = {
-	{"cksum", "Ljava/util/zip/Checksum;", nullptr, $PRIVATE, $field(CheckedOutputStream, cksum)},
-	{}
-};
-
-$MethodInfo _CheckedOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Checksum;)V", nullptr, $PUBLIC, $method(CheckedOutputStream, init$, void, $OutputStream*, $Checksum*)},
-	{"getChecksum", "()Ljava/util/zip/Checksum;", nullptr, $PUBLIC, $virtualMethod(CheckedOutputStream, getChecksum, $Checksum*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(CheckedOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(CheckedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CheckedOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.CheckedOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_CheckedOutputStream_FieldInfo_,
-	_CheckedOutputStream_MethodInfo_
-};
-
-$Object* allocate$CheckedOutputStream($Class* clazz) {
-	return $of($alloc(CheckedOutputStream));
-}
 
 void CheckedOutputStream::init$($OutputStream* out, $Checksum* cksum) {
 	$FilterOutputStream::init$(out);
@@ -65,7 +38,28 @@ CheckedOutputStream::CheckedOutputStream() {
 }
 
 $Class* CheckedOutputStream::load$($String* name, bool initialize) {
-	$loadClass(CheckedOutputStream, name, initialize, &_CheckedOutputStream_ClassInfo_, allocate$CheckedOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"cksum", "Ljava/util/zip/Checksum;", nullptr, $PRIVATE, $field(CheckedOutputStream, cksum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Checksum;)V", nullptr, $PUBLIC, $method(CheckedOutputStream, init$, void, $OutputStream*, $Checksum*)},
+		{"getChecksum", "()Ljava/util/zip/Checksum;", nullptr, $PUBLIC, $virtualMethod(CheckedOutputStream, getChecksum, $Checksum*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(CheckedOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(CheckedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.CheckedOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CheckedOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CheckedOutputStream));
+	});
 	return class$;
 }
 

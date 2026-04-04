@@ -1,5 +1,4 @@
 #include <sun/nio/ch/Iocp$EventHandlerTask.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Runnable.h>
 #include <java/util/Map.h>
@@ -21,9 +20,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $Map = ::java::util::Map;
-using $Lock = ::java::util::concurrent::locks::Lock;
-using $ReadWriteLock = ::java::util::concurrent::locks::ReadWriteLock;
 using $Invoker = ::sun::nio::ch::Invoker;
 using $Invoker$GroupAndInvokeCount = ::sun::nio::ch::Invoker$GroupAndInvokeCount;
 using $Iocp = ::sun::nio::ch::Iocp;
@@ -36,137 +32,97 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _Iocp$EventHandlerTask_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/ch/Iocp;", nullptr, $FINAL | $SYNTHETIC, $field(Iocp$EventHandlerTask, this$0)},
-	{}
-};
-
-$MethodInfo _Iocp$EventHandlerTask_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/Iocp;)V", nullptr, $PRIVATE, $method(Iocp$EventHandlerTask, init$, void, $Iocp*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Iocp$EventHandlerTask, run, void)},
-	{}
-};
-
-$InnerClassInfo _Iocp$EventHandlerTask_InnerClassesInfo_[] = {
-	{"sun.nio.ch.Iocp$EventHandlerTask", "sun.nio.ch.Iocp", "EventHandlerTask", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Iocp$EventHandlerTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.Iocp$EventHandlerTask",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Iocp$EventHandlerTask_FieldInfo_,
-	_Iocp$EventHandlerTask_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Iocp$EventHandlerTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.Iocp"
-};
-
-$Object* allocate$Iocp$EventHandlerTask($Class* clazz) {
-	return $of($alloc(Iocp$EventHandlerTask));
-}
-
 void Iocp$EventHandlerTask::init$($Iocp* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void Iocp$EventHandlerTask::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Invoker$GroupAndInvokeCount, myGroupAndInvokeCount, $Invoker::getGroupAndInvokeCount());
 	bool canInvokeDirect = (myGroupAndInvokeCount != nullptr);
 	$var($Iocp$CompletionStatus, ioResult, $new($Iocp$CompletionStatus));
 	bool replaceMe = false;
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			for (;;) {
-				if (myGroupAndInvokeCount != nullptr) {
-					myGroupAndInvokeCount->resetInvokeCount();
-				}
-				replaceMe = false;
-				try {
-					$Iocp::getQueuedCompletionStatus(this->this$0->port, ioResult);
-				} catch ($IOException& x) {
-					x->printStackTrace();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		for (;;) {
+			if (myGroupAndInvokeCount != nullptr) {
+				myGroupAndInvokeCount->resetInvokeCount();
+			}
+			replaceMe = false;
+			try {
+				$Iocp::getQueuedCompletionStatus(this->this$0->port, ioResult);
+			} catch ($IOException& x) {
+				x->printStackTrace();
+				return$1 = true;
+				goto $finally;
+			}
+			bool var$2 = ioResult->completionKey() == 0;
+			if (var$2 && ioResult->overlapped() == 0) {
+				$var($Runnable, task, this->this$0->pollTask());
+				if (task == nullptr) {
 					return$1 = true;
 					goto $finally;
 				}
-				bool var$2 = ioResult->completionKey() == 0;
-				if (var$2 && ioResult->overlapped() == (int64_t)0) {
-					$var($Runnable, task, this->this$0->pollTask());
-					if (task == nullptr) {
-						return$1 = true;
-						goto $finally;
-					}
-					replaceMe = true;
-					$nc(task)->run();
-					continue;
-				}
-				$var($Iocp$OverlappedChannel, ch, nullptr);
-				$nc($($nc(this->this$0->keyToChannelLock)->readLock()))->lock();
-				{
-					$var($Throwable, var$3, nullptr);
-					bool continue$4 = false;
-					try {
-						$assign(ch, $cast($Iocp$OverlappedChannel, $nc(this->this$0->keyToChannel)->get($($Integer::valueOf(ioResult->completionKey())))));
-						if (ch == nullptr) {
-							this->this$0->checkIfStale(ioResult->overlapped());
-							// continue;
-							continue$4 = true;
-							goto $finally1;
-						}
-					} catch ($Throwable& var$5) {
-						$assign(var$3, var$5);
-					} $finally1: {
-						$nc($($nc(this->this$0->keyToChannelLock)->readLock()))->unlock();
-					}
-					if (var$3 != nullptr) {
-						$throw(var$3);
-					}
-					if (continue$4) {
-						continue;
-					}
-				}
-				$var($PendingFuture, result, $nc(ch)->getByOverlapped(ioResult->overlapped()));
-				if (result == nullptr) {
-					this->this$0->checkIfStale(ioResult->overlapped());
-					continue;
-				}
-				$synchronized(result) {
-					if ($nc(result)->isDone()) {
-						continue;
-					}
-				}
-				int32_t error = ioResult->error();
-				$var($Iocp$ResultHandler, rh, $cast($Iocp$ResultHandler, $nc(result)->getContext()));
 				replaceMe = true;
-				if (error == 0) {
-					$nc(rh)->completed(ioResult->bytesTransferred(), canInvokeDirect);
-				} else {
-					$nc(rh)->failed(error, $($Iocp::translateErrorToIOException(error)));
+				$nc(task)->run();
+				continue;
+			}
+			$var($Iocp$OverlappedChannel, ch, nullptr);
+			$$nc($nc(this->this$0->keyToChannelLock)->readLock())->lock();
+			$var($Throwable, var$3, nullptr);
+			bool continue$4 = false;
+			try {
+				$assign(ch, $cast($Iocp$OverlappedChannel, $nc(this->this$0->keyToChannel)->get($($Integer::valueOf(ioResult->completionKey())))));
+				if (ch == nullptr) {
+					this->this$0->checkIfStale(ioResult->overlapped());
+					// continue;
+					continue$4 = true;
+					goto $finally1;
+				}
+			} catch ($Throwable& var$5) {
+				$assign(var$3, var$5);
+			} $finally1: {
+				$$nc(this->this$0->keyToChannelLock->readLock())->unlock();
+			}
+			if (var$3 != nullptr) {
+				$throw(var$3);
+			}
+			if (continue$4) {
+				continue;
+			}
+			$var($PendingFuture, result, $nc(ch)->getByOverlapped(ioResult->overlapped()));
+			if (result == nullptr) {
+				this->this$0->checkIfStale(ioResult->overlapped());
+				continue;
+			}
+			$synchronized(result) {
+				if (result->isDone()) {
+					continue;
 				}
 			}
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} $finally: {
-			int32_t remaining = this->this$0->threadExit(this, replaceMe);
-			if (remaining == 0 && this->this$0->isShutdown()) {
-				this->this$0->implClose();
+			int32_t error = ioResult->error();
+			$var($Iocp$ResultHandler, rh, $cast($Iocp$ResultHandler, result->getContext()));
+			replaceMe = true;
+			if (error == 0) {
+				$nc(rh)->completed(ioResult->bytesTransferred(), canInvokeDirect);
+			} else {
+				$nc(rh)->failed(error, $($Iocp::translateErrorToIOException(error)));
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$6) {
+		$assign(var$0, var$6);
+	} $finally: {
+		int32_t remaining = this->this$0->threadExit(this, replaceMe);
+		if (remaining == 0 && this->this$0->isShutdown()) {
+			this->this$0->implClose();
 		}
-		if (return$1) {
-			return;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -174,7 +130,37 @@ Iocp$EventHandlerTask::Iocp$EventHandlerTask() {
 }
 
 $Class* Iocp$EventHandlerTask::load$($String* name, bool initialize) {
-	$loadClass(Iocp$EventHandlerTask, name, initialize, &_Iocp$EventHandlerTask_ClassInfo_, allocate$Iocp$EventHandlerTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/ch/Iocp;", nullptr, $FINAL | $SYNTHETIC, $field(Iocp$EventHandlerTask, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/Iocp;)V", nullptr, $PRIVATE, $method(Iocp$EventHandlerTask, init$, void, $Iocp*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Iocp$EventHandlerTask, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.Iocp$EventHandlerTask", "sun.nio.ch.Iocp", "EventHandlerTask", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.Iocp$EventHandlerTask",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.Iocp"
+	};
+	$loadClass(Iocp$EventHandlerTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Iocp$EventHandlerTask);
+	});
 	return class$;
 }
 

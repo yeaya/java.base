@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/ssl/SSLServerCertStore$GetChainTrustManager.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/Socket.h>
 #include <java/security/cert/X509Certificate.h>
@@ -28,50 +27,6 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 				namespace ssl {
-
-$FieldInfo _SSLServerCertStore$GetChainTrustManager_FieldInfo_[] = {
-	{"serverChain", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/X509Certificate;>;", $PRIVATE, $field(SSLServerCertStore$GetChainTrustManager, serverChain)},
-	{"exchangedServerCerts", "Z", nullptr, $PRIVATE, $field(SSLServerCertStore$GetChainTrustManager, exchangedServerCerts)},
-	{}
-};
-
-$MethodInfo _SSLServerCertStore$GetChainTrustManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLServerCertStore$GetChainTrustManager, init$, void)},
-	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkClientTrusted, void, $X509CertificateArray*, $String*), "java.security.cert.CertificateException"},
-	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkClientTrusted, void, $X509CertificateArray*, $String*, $Socket*), "java.security.cert.CertificateException"},
-	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkClientTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*), "java.security.cert.CertificateException"},
-	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkServerTrusted, void, $X509CertificateArray*, $String*), "java.security.cert.CertificateException"},
-	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkServerTrusted, void, $X509CertificateArray*, $String*, $Socket*), "java.security.cert.CertificateException"},
-	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkServerTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*), "java.security.cert.CertificateException"},
-	{"cleanup", "()V", nullptr, 0, $virtualMethod(SSLServerCertStore$GetChainTrustManager, cleanup, void)},
-	{"getAcceptedIssuers", "()[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, getAcceptedIssuers, $X509CertificateArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLServerCertStore$GetChainTrustManager_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.ssl.SSLServerCertStore$GetChainTrustManager", "sun.security.provider.certpath.ssl.SSLServerCertStore", "GetChainTrustManager", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLServerCertStore$GetChainTrustManager_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.ssl.SSLServerCertStore$GetChainTrustManager",
-	"javax.net.ssl.X509ExtendedTrustManager",
-	nullptr,
-	_SSLServerCertStore$GetChainTrustManager_FieldInfo_,
-	_SSLServerCertStore$GetChainTrustManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLServerCertStore$GetChainTrustManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.ssl.SSLServerCertStore"
-};
-
-$Object* allocate$SSLServerCertStore$GetChainTrustManager($Class* clazz) {
-	return $of($alloc(SSLServerCertStore$GetChainTrustManager));
-}
 
 void SSLServerCertStore$GetChainTrustManager::init$() {
 	$X509ExtendedTrustManager::init$();
@@ -117,7 +72,45 @@ SSLServerCertStore$GetChainTrustManager::SSLServerCertStore$GetChainTrustManager
 }
 
 $Class* SSLServerCertStore$GetChainTrustManager::load$($String* name, bool initialize) {
-	$loadClass(SSLServerCertStore$GetChainTrustManager, name, initialize, &_SSLServerCertStore$GetChainTrustManager_ClassInfo_, allocate$SSLServerCertStore$GetChainTrustManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"serverChain", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/X509Certificate;>;", $PRIVATE, $field(SSLServerCertStore$GetChainTrustManager, serverChain)},
+		{"exchangedServerCerts", "Z", nullptr, $PRIVATE, $field(SSLServerCertStore$GetChainTrustManager, exchangedServerCerts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLServerCertStore$GetChainTrustManager, init$, void)},
+		{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkClientTrusted, void, $X509CertificateArray*, $String*), "java.security.cert.CertificateException"},
+		{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkClientTrusted, void, $X509CertificateArray*, $String*, $Socket*), "java.security.cert.CertificateException"},
+		{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkClientTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*), "java.security.cert.CertificateException"},
+		{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkServerTrusted, void, $X509CertificateArray*, $String*), "java.security.cert.CertificateException"},
+		{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkServerTrusted, void, $X509CertificateArray*, $String*, $Socket*), "java.security.cert.CertificateException"},
+		{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, checkServerTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*), "java.security.cert.CertificateException"},
+		{"cleanup", "()V", nullptr, 0, $virtualMethod(SSLServerCertStore$GetChainTrustManager, cleanup, void)},
+		{"getAcceptedIssuers", "()[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$GetChainTrustManager, getAcceptedIssuers, $X509CertificateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.ssl.SSLServerCertStore$GetChainTrustManager", "sun.security.provider.certpath.ssl.SSLServerCertStore", "GetChainTrustManager", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.ssl.SSLServerCertStore$GetChainTrustManager",
+		"javax.net.ssl.X509ExtendedTrustManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.ssl.SSLServerCertStore"
+	};
+	$loadClass(SSLServerCertStore$GetChainTrustManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLServerCertStore$GetChainTrustManager);
+	});
 	return class$;
 }
 

@@ -27,6 +27,7 @@ class $export PathOps : public ::java::lang::Object {
 	$class(PathOps, 0, ::java::lang::Object)
 public:
 	PathOps();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* first, $StringArray* more);
 	virtual ::PathOps* absolute();
 	virtual void check(Object$* result, $String* expected);

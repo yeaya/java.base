@@ -65,7 +65,7 @@ public:
 	virtual $ObjectArray* toArray() override;
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x4BBDD092901569D7;
+	static const int64_t serialVersionUID = (int64_t)0x4bbdd092901569d7;
 	::java::util::concurrent::CopyOnWriteArrayList* al = nullptr;
 };
 

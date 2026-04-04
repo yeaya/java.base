@@ -17,6 +17,7 @@ class $export AuthCacheValue$Type : public ::java::lang::Enum {
 public:
 	AuthCacheValue$Type();
 	static $Array<::sun::net::www::protocol::http::AuthCacheValue$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::net::www::protocol::http::AuthCacheValue$Type* valueOf($String* name);
 	static $Array<::sun::net::www::protocol::http::AuthCacheValue$Type>* values();

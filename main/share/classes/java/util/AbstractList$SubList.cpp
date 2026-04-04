@@ -1,5 +1,4 @@
 #include <java/util/AbstractList$SubList.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/AbstractList$SubList$1.h>
 #include <java/util/AbstractList.h>
@@ -28,61 +27,6 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace util {
 
-$FieldInfo _AbstractList$SubList_FieldInfo_[] = {
-	{"root", "Ljava/util/AbstractList;", "Ljava/util/AbstractList<TE;>;", $PRIVATE | $FINAL, $field(AbstractList$SubList, root)},
-	{"parent", "Ljava/util/AbstractList$SubList;", "Ljava/util/AbstractList$SubList<TE;>;", $PRIVATE | $FINAL, $field(AbstractList$SubList, parent)},
-	{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractList$SubList, offset)},
-	{"size", "I", nullptr, $PROTECTED, $field(AbstractList$SubList, size$)},
-	{}
-};
-
-$MethodInfo _AbstractList$SubList_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/AbstractList;II)V", "(Ljava/util/AbstractList<TE;>;II)V", $PUBLIC, $method(AbstractList$SubList, init$, void, $AbstractList*, int32_t, int32_t)},
-	{"<init>", "(Ljava/util/AbstractList$SubList;II)V", "(Ljava/util/AbstractList$SubList<TE;>;II)V", $PROTECTED, $method(AbstractList$SubList, init$, void, AbstractList$SubList*, int32_t, int32_t)},
-	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(AbstractList$SubList, add, void, int32_t, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(AbstractList$SubList, addAll, bool, $Collection*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(AbstractList$SubList, addAll, bool, int32_t, $Collection*)},
-	{"checkForComodification", "()V", nullptr, $PRIVATE, $method(AbstractList$SubList, checkForComodification, void)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(AbstractList$SubList, get, $Object*, int32_t)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(AbstractList$SubList, iterator, $Iterator*)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(AbstractList$SubList, listIterator, $ListIterator*, int32_t)},
-	{"outOfBoundsMsg", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(AbstractList$SubList, outOfBoundsMsg, $String*, int32_t)},
-	{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(AbstractList$SubList, rangeCheckForAdd, void, int32_t)},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(AbstractList$SubList, remove, $Object*, int32_t)},
-	{"removeRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(AbstractList$SubList, removeRange, void, int32_t, int32_t)},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(AbstractList$SubList, set, $Object*, int32_t, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList, size, int32_t)},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(AbstractList$SubList, subList, $List*, int32_t, int32_t)},
-	{"updateSizeAndModCount", "(I)V", nullptr, $PRIVATE, $method(AbstractList$SubList, updateSizeAndModCount, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AbstractList$SubList_InnerClassesInfo_[] = {
-	{"java.util.AbstractList$SubList", "java.util.AbstractList", "SubList", $PRIVATE | $STATIC},
-	{"java.util.AbstractList$SubList$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractList$SubList_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.AbstractList$SubList",
-	"java.util.AbstractList",
-	nullptr,
-	_AbstractList$SubList_FieldInfo_,
-	_AbstractList$SubList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;",
-	nullptr,
-	_AbstractList$SubList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.AbstractList"
-};
-
-$Object* allocate$AbstractList$SubList($Class* clazz) {
-	return $of($alloc(AbstractList$SubList));
-}
-
 void AbstractList$SubList::init$($AbstractList* root, int32_t fromIndex, int32_t toIndex) {
 	$AbstractList::init$();
 	$set(this, root, root);
@@ -104,13 +48,13 @@ void AbstractList$SubList::init$(AbstractList$SubList* parent, int32_t fromIndex
 $Object* AbstractList$SubList::set(int32_t index, Object$* element) {
 	$Objects::checkIndex(index, this->size$);
 	checkForComodification();
-	return $of($nc(this->root)->set(this->offset + index, element));
+	return $nc(this->root)->set(this->offset + index, element);
 }
 
 $Object* AbstractList$SubList::get(int32_t index) {
 	$Objects::checkIndex(index, this->size$);
 	checkForComodification();
-	return $of($nc(this->root)->get(this->offset + index));
+	return $nc(this->root)->get(this->offset + index);
 }
 
 int32_t AbstractList$SubList::size() {
@@ -130,7 +74,7 @@ $Object* AbstractList$SubList::remove(int32_t index) {
 	checkForComodification();
 	$var($Object, result, $nc(this->root)->remove(this->offset + index));
 	updateSizeAndModCount(-1);
-	return $of(result);
+	return result;
 }
 
 void AbstractList$SubList::removeRange(int32_t fromIndex, int32_t toIndex) {
@@ -177,7 +121,7 @@ void AbstractList$SubList::rangeCheckForAdd(int32_t index) {
 }
 
 $String* AbstractList$SubList::outOfBoundsMsg(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Index: "_s, $$str(index), ", Size: "_s, $$str(this->size$)});
 }
 
@@ -190,7 +134,7 @@ void AbstractList$SubList::checkForComodification() {
 void AbstractList$SubList::updateSizeAndModCount(int32_t sizeChange) {
 	$var(AbstractList$SubList, slist, this);
 	do {
-		slist->size$ += sizeChange;
+		$nc(slist)->size$ += sizeChange;
 		slist->modCount = $nc(this->root)->modCount;
 		$assign(slist, slist->parent);
 	} while (slist != nullptr);
@@ -200,7 +144,56 @@ AbstractList$SubList::AbstractList$SubList() {
 }
 
 $Class* AbstractList$SubList::load$($String* name, bool initialize) {
-	$loadClass(AbstractList$SubList, name, initialize, &_AbstractList$SubList_ClassInfo_, allocate$AbstractList$SubList);
+	$FieldInfo fieldInfos$$[] = {
+		{"root", "Ljava/util/AbstractList;", "Ljava/util/AbstractList<TE;>;", $PRIVATE | $FINAL, $field(AbstractList$SubList, root)},
+		{"parent", "Ljava/util/AbstractList$SubList;", "Ljava/util/AbstractList$SubList<TE;>;", $PRIVATE | $FINAL, $field(AbstractList$SubList, parent)},
+		{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractList$SubList, offset)},
+		{"size", "I", nullptr, $PROTECTED, $field(AbstractList$SubList, size$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/AbstractList;II)V", "(Ljava/util/AbstractList<TE;>;II)V", $PUBLIC, $method(AbstractList$SubList, init$, void, $AbstractList*, int32_t, int32_t)},
+		{"<init>", "(Ljava/util/AbstractList$SubList;II)V", "(Ljava/util/AbstractList$SubList<TE;>;II)V", $PROTECTED, $method(AbstractList$SubList, init$, void, AbstractList$SubList*, int32_t, int32_t)},
+		{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(AbstractList$SubList, add, void, int32_t, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(AbstractList$SubList, addAll, bool, $Collection*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(AbstractList$SubList, addAll, bool, int32_t, $Collection*)},
+		{"checkForComodification", "()V", nullptr, $PRIVATE, $method(AbstractList$SubList, checkForComodification, void)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(AbstractList$SubList, get, $Object*, int32_t)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(AbstractList$SubList, iterator, $Iterator*)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(AbstractList$SubList, listIterator, $ListIterator*, int32_t)},
+		{"outOfBoundsMsg", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(AbstractList$SubList, outOfBoundsMsg, $String*, int32_t)},
+		{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(AbstractList$SubList, rangeCheckForAdd, void, int32_t)},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(AbstractList$SubList, remove, $Object*, int32_t)},
+		{"removeRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(AbstractList$SubList, removeRange, void, int32_t, int32_t)},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(AbstractList$SubList, set, $Object*, int32_t, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList, size, int32_t)},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(AbstractList$SubList, subList, $List*, int32_t, int32_t)},
+		{"updateSizeAndModCount", "(I)V", nullptr, $PRIVATE, $method(AbstractList$SubList, updateSizeAndModCount, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.AbstractList$SubList", "java.util.AbstractList", "SubList", $PRIVATE | $STATIC},
+		{"java.util.AbstractList$SubList$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.AbstractList$SubList",
+		"java.util.AbstractList",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.AbstractList"
+	};
+	$loadClass(AbstractList$SubList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractList$SubList));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/Finished$VerifyDataScheme.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <sun/security/ssl/Finished$1.h>
@@ -38,52 +37,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _Finished$VerifyDataScheme_FieldInfo_[] = {
-	{"SSL30", "Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Finished$VerifyDataScheme, SSL30)},
-	{"TLS10", "Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Finished$VerifyDataScheme, TLS10)},
-	{"TLS12", "Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Finished$VerifyDataScheme, TLS12)},
-	{"TLS13", "Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Finished$VerifyDataScheme, TLS13)},
-	{"$VALUES", "[Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Finished$VerifyDataScheme, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(Finished$VerifyDataScheme, name$)},
-	{"generator", "Lsun/security/ssl/Finished$VerifyDataGenerator;", nullptr, $FINAL, $field(Finished$VerifyDataScheme, generator)},
-	{}
-};
-
-$MethodInfo _Finished$VerifyDataScheme_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Finished$VerifyDataScheme, $values, $Finished$VerifyDataSchemeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/Finished$VerifyDataGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/Finished$VerifyDataGenerator;)V", $PRIVATE, $method(Finished$VerifyDataScheme, init$, void, $String*, int32_t, $String*, $Finished$VerifyDataGenerator*)},
-	{"createVerifyData", "(Lsun/security/ssl/HandshakeContext;Z)[B", nullptr, $PUBLIC, $method(Finished$VerifyDataScheme, createVerifyData, $bytes*, $HandshakeContext*, bool), "java.io.IOException"},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(Finished$VerifyDataScheme, valueOf, Finished$VerifyDataScheme*, $String*)},
-	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $STATIC, $staticMethod(Finished$VerifyDataScheme, valueOf, Finished$VerifyDataScheme*, $ProtocolVersion*)},
-	{"values", "()[Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(Finished$VerifyDataScheme, values, $Finished$VerifyDataSchemeArray*)},
-	{}
-};
-
-$InnerClassInfo _Finished$VerifyDataScheme_InnerClassesInfo_[] = {
-	{"sun.security.ssl.Finished$VerifyDataScheme", "sun.security.ssl.Finished", "VerifyDataScheme", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Finished$VerifyDataScheme_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.Finished$VerifyDataScheme",
-	"java.lang.Enum",
-	nullptr,
-	_Finished$VerifyDataScheme_FieldInfo_,
-	_Finished$VerifyDataScheme_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/Finished$VerifyDataScheme;>;",
-	nullptr,
-	_Finished$VerifyDataScheme_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.Finished"
-};
-
-$Object* allocate$Finished$VerifyDataScheme($Class* clazz) {
-	return $of($alloc(Finished$VerifyDataScheme));
-}
-
 Finished$VerifyDataScheme* Finished$VerifyDataScheme::SSL30 = nullptr;
 Finished$VerifyDataScheme* Finished$VerifyDataScheme::TLS10 = nullptr;
 Finished$VerifyDataScheme* Finished$VerifyDataScheme::TLS12 = nullptr;
@@ -121,43 +74,30 @@ Finished$VerifyDataScheme* Finished$VerifyDataScheme::valueOf($ProtocolVersion* 
 	$init($Finished$1);
 	switch ($nc($Finished$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->get($nc((protocolVersion))->ordinal())) {
 	case 1:
-		{
-			return Finished$VerifyDataScheme::SSL30;
-		}
+		return Finished$VerifyDataScheme::SSL30;
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{
-			return Finished$VerifyDataScheme::TLS10;
-		}
+		return Finished$VerifyDataScheme::TLS10;
 	case 5:
-		{}
 	case 6:
-		{
-			return Finished$VerifyDataScheme::TLS12;
-		}
+		return Finished$VerifyDataScheme::TLS12;
 	case 7:
-		{
-			return Finished$VerifyDataScheme::TLS13;
-		}
+		return Finished$VerifyDataScheme::TLS13;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 $bytes* Finished$VerifyDataScheme::createVerifyData($HandshakeContext* context, bool isValidation) {
 	if (this->generator != nullptr) {
-		return $nc(this->generator)->createVerifyData(context, isValidation);
+		return this->generator->createVerifyData(context, isValidation);
 	}
 	$throwNew($UnsupportedOperationException, "Not supported yet."_s);
 }
 
-void clinit$Finished$VerifyDataScheme($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Finished$VerifyDataScheme::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Finished$VerifyDataScheme::SSL30, $new(Finished$VerifyDataScheme, "SSL30"_s, 0, "kdf_ssl30"_s, $$new($Finished$S30VerifyDataGenerator)));
 	$assignStatic(Finished$VerifyDataScheme::TLS10, $new(Finished$VerifyDataScheme, "TLS10"_s, 1, "kdf_tls10"_s, $$new($Finished$T10VerifyDataGenerator)));
 	$assignStatic(Finished$VerifyDataScheme::TLS12, $new(Finished$VerifyDataScheme, "TLS12"_s, 2, "kdf_tls12"_s, $$new($Finished$T12VerifyDataGenerator)));
@@ -169,7 +109,47 @@ Finished$VerifyDataScheme::Finished$VerifyDataScheme() {
 }
 
 $Class* Finished$VerifyDataScheme::load$($String* name, bool initialize) {
-	$loadClass(Finished$VerifyDataScheme, name, initialize, &_Finished$VerifyDataScheme_ClassInfo_, clinit$Finished$VerifyDataScheme, allocate$Finished$VerifyDataScheme);
+	$FieldInfo fieldInfos$$[] = {
+		{"SSL30", "Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Finished$VerifyDataScheme, SSL30)},
+		{"TLS10", "Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Finished$VerifyDataScheme, TLS10)},
+		{"TLS12", "Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Finished$VerifyDataScheme, TLS12)},
+		{"TLS13", "Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Finished$VerifyDataScheme, TLS13)},
+		{"$VALUES", "[Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Finished$VerifyDataScheme, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(Finished$VerifyDataScheme, name$)},
+		{"generator", "Lsun/security/ssl/Finished$VerifyDataGenerator;", nullptr, $FINAL, $field(Finished$VerifyDataScheme, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Finished$VerifyDataScheme, $values, $Finished$VerifyDataSchemeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/Finished$VerifyDataGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/Finished$VerifyDataGenerator;)V", $PRIVATE, $method(Finished$VerifyDataScheme, init$, void, $String*, int32_t, $String*, $Finished$VerifyDataGenerator*)},
+		{"createVerifyData", "(Lsun/security/ssl/HandshakeContext;Z)[B", nullptr, $PUBLIC, $method(Finished$VerifyDataScheme, createVerifyData, $bytes*, $HandshakeContext*, bool), "java.io.IOException"},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(Finished$VerifyDataScheme, valueOf, Finished$VerifyDataScheme*, $String*)},
+		{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $STATIC, $staticMethod(Finished$VerifyDataScheme, valueOf, Finished$VerifyDataScheme*, $ProtocolVersion*)},
+		{"values", "()[Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(Finished$VerifyDataScheme, values, $Finished$VerifyDataSchemeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.Finished$VerifyDataScheme", "sun.security.ssl.Finished", "VerifyDataScheme", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.Finished$VerifyDataScheme",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/Finished$VerifyDataScheme;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.Finished"
+	};
+	$loadClass(Finished$VerifyDataScheme, name, initialize, &classInfo$$, Finished$VerifyDataScheme::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Finished$VerifyDataScheme));
+	});
 	return class$;
 }
 

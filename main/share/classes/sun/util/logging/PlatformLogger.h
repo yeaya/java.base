@@ -33,6 +33,7 @@ class $export PlatformLogger : public ::java::lang::Object {
 	$class(PlatformLogger, 0, ::java::lang::Object)
 public:
 	PlatformLogger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::util::logging::PlatformLogger$Bridge* loggerProxy);
 	virtual void config($String* msg);
 	virtual void config($String* msg, $Throwable* t);

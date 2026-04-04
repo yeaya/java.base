@@ -1,11 +1,9 @@
 #include <sun/security/ssl/CertificateRequest$T13CertificateRequestProducer.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap.h>
 #include <sun/security/ssl/CertificateRequest$T13CertificateRequestMessage.h>
 #include <sun/security/ssl/CertificateRequest.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeOutStream.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/SSLConfiguration.h>
@@ -26,13 +24,8 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $CertificateRequest$T13CertificateRequestMessage = ::sun::security::ssl::CertificateRequest$T13CertificateRequestMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
-using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -42,56 +35,25 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertificateRequest$T13CertificateRequestProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateRequest$T13CertificateRequestProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T13CertificateRequestProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CertificateRequest$T13CertificateRequestProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateRequest$T13CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T13CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertificateRequest$T13CertificateRequestProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateRequest$T13CertificateRequestProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_CertificateRequest$T13CertificateRequestProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateRequest$T13CertificateRequestProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateRequest"
-};
-
-$Object* allocate$CertificateRequest$T13CertificateRequestProducer($Class* clazz) {
-	return $of($alloc(CertificateRequest$T13CertificateRequestProducer));
-}
-
 void CertificateRequest$T13CertificateRequestProducer::init$() {
 }
 
 $bytes* CertificateRequest$T13CertificateRequestProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($CertificateRequest$T13CertificateRequestMessage, crm, $new($CertificateRequest$T13CertificateRequestMessage, shc));
 	$init($SSLHandshake);
-	$var($SSLExtensionArray, extTypes, $nc($nc(shc)->sslConfig)->getEnabledExtensions($SSLHandshake::CERTIFICATE_REQUEST, shc->negotiatedProtocol));
+	$var($SSLExtensionArray, extTypes, $nc($nc(shc)->sslConfig)->getEnabledExtensions($SSLHandshake::CERTIFICATE_REQUEST, $nc(shc)->negotiatedProtocol));
 	$nc(crm->extensions)->produce(shc, extTypes);
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Produced CertificateRequest message"_s, $$new($ObjectArray, {$of(crm)}));
+		$SSLLogger::fine("Produced CertificateRequest message"_s, $$new($ObjectArray, {crm}));
 	}
 	crm->write(shc->handshakeOutput);
 	$nc(shc->handshakeOutput)->flush();
 	$set(shc, certRequestContext, $cast($bytes, $nc(crm->requestContext)->clone()));
 	$nc(shc->handshakeConsumers)->put($($Byte::valueOf($SSLHandshake::CERTIFICATE->id)), $SSLHandshake::CERTIFICATE);
-	$nc(shc->handshakeConsumers)->put($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)), $SSLHandshake::CERTIFICATE_VERIFY);
+	shc->handshakeConsumers->put($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)), $SSLHandshake::CERTIFICATE_VERIFY);
 	return nullptr;
 }
 
@@ -99,7 +61,33 @@ CertificateRequest$T13CertificateRequestProducer::CertificateRequest$T13Certific
 }
 
 $Class* CertificateRequest$T13CertificateRequestProducer::load$($String* name, bool initialize) {
-	$loadClass(CertificateRequest$T13CertificateRequestProducer, name, initialize, &_CertificateRequest$T13CertificateRequestProducer_ClassInfo_, allocate$CertificateRequest$T13CertificateRequestProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateRequest$T13CertificateRequestProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T13CertificateRequestProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateRequest$T13CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T13CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateRequest$T13CertificateRequestProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateRequest"
+	};
+	$loadClass(CertificateRequest$T13CertificateRequestProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateRequest$T13CertificateRequestProducer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <BadEnvp.h>
-
 #include <java/io/File.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
@@ -12,35 +11,16 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Runtime = ::java::lang::Runtime;
 
-$MethodInfo _BadEnvp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BadEnvp, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BadEnvp, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _BadEnvp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"BadEnvp",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_BadEnvp_MethodInfo_
-};
-
-$Object* allocate$BadEnvp($Class* clazz) {
-	return $of($alloc(BadEnvp));
-}
-
 void BadEnvp::init$() {
 }
 
 void BadEnvp::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Runtime, r, $Runtime::getRuntime());
 	$var($File, dir, $new($File, "."_s));
 	$var($StringArray, envpWithNull, $new($StringArray, {
 		"FOO=BAR"_s,
-		($String*)nullptr
+		nullptr
 	}));
 	try {
 		$nc(r)->exec("echo"_s, envpWithNull);
@@ -68,7 +48,22 @@ BadEnvp::BadEnvp() {
 }
 
 $Class* BadEnvp::load$($String* name, bool initialize) {
-	$loadClass(BadEnvp, name, initialize, &_BadEnvp_ClassInfo_, allocate$BadEnvp);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BadEnvp, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BadEnvp, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"BadEnvp",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BadEnvp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BadEnvp);
+	});
 	return class$;
 }
 

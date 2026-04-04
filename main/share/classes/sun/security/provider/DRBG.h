@@ -38,6 +38,7 @@ class $export DRBG : public ::java::security::SecureRandomSpi {
 	$class(DRBG, 0, ::java::security::SecureRandomSpi)
 public:
 	DRBG();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::SecureRandomParameters* params);
 	static void checkTwice(bool flag, $String* name);
 	void createImpl();

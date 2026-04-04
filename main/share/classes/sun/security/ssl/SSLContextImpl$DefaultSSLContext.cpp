@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl$DefaultSSLContext.h>
-
 #include <java/security/KeyManagementException.h>
 #include <java/security/SecureRandom.h>
 #include <javax/net/ssl/KeyManager.h>
@@ -29,39 +28,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLContextImpl$DefaultSSLContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$DefaultSSLContext, init$, void), "java.lang.Exception"},
-	{"engineInit", "([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl$DefaultSSLContext, engineInit, void, $KeyManagerArray*, $TrustManagerArray*, $SecureRandom*), "java.security.KeyManagementException"},
-	{"getDefaultImpl", "()Lsun/security/ssl/SSLContextImpl;", nullptr, $STATIC, $staticMethod(SSLContextImpl$DefaultSSLContext, getDefaultImpl, $SSLContextImpl*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl$DefaultSSLContext_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$DefaultSSLContext", "sun.security.ssl.SSLContextImpl", "DefaultSSLContext", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$CustomizedTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedTLSContext", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLContextImpl$DefaultSSLContext_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLContextImpl$DefaultSSLContext",
-	"sun.security.ssl.SSLContextImpl$CustomizedTLSContext",
-	nullptr,
-	nullptr,
-	_SSLContextImpl$DefaultSSLContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl$DefaultSSLContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl"
-};
-
-$Object* allocate$SSLContextImpl$DefaultSSLContext($Class* clazz) {
-	return $of($alloc(SSLContextImpl$DefaultSSLContext));
-}
-
 void SSLContextImpl$DefaultSSLContext::init$() {
 	$SSLContextImpl$CustomizedTLSContext::init$();
 	$init($SSLContextImpl$DefaultManagersHolder);
@@ -73,7 +39,7 @@ void SSLContextImpl$DefaultSSLContext::init$() {
 	} catch ($Exception& e) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,defaultctx"_s)) {
-			$SSLLogger::fine("default context init failed: "_s, $$new($ObjectArray, {$of(e)}));
+			$SSLLogger::fine("default context init failed: "_s, $$new($ObjectArray, {e}));
 		}
 		$throw(e);
 	}
@@ -96,7 +62,35 @@ SSLContextImpl$DefaultSSLContext::SSLContextImpl$DefaultSSLContext() {
 }
 
 $Class* SSLContextImpl$DefaultSSLContext::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl$DefaultSSLContext, name, initialize, &_SSLContextImpl$DefaultSSLContext_ClassInfo_, allocate$SSLContextImpl$DefaultSSLContext);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$DefaultSSLContext, init$, void), "java.lang.Exception"},
+		{"engineInit", "([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl$DefaultSSLContext, engineInit, void, $KeyManagerArray*, $TrustManagerArray*, $SecureRandom*), "java.security.KeyManagementException"},
+		{"getDefaultImpl", "()Lsun/security/ssl/SSLContextImpl;", nullptr, $STATIC, $staticMethod(SSLContextImpl$DefaultSSLContext, getDefaultImpl, $SSLContextImpl*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$DefaultSSLContext", "sun.security.ssl.SSLContextImpl", "DefaultSSLContext", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$CustomizedTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedTLSContext", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLContextImpl$DefaultSSLContext",
+		"sun.security.ssl.SSLContextImpl$CustomizedTLSContext",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl"
+	};
+	$loadClass(SSLContextImpl$DefaultSSLContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl$DefaultSSLContext);
+	});
 	return class$;
 }
 

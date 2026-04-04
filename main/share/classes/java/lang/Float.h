@@ -47,11 +47,12 @@ namespace java {
 	namespace lang {
 
 class $export Float : public ::java::lang::Number, public ::java::lang::Comparable, public ::java::lang::constant::Constable, public ::java::lang::constant::ConstantDesc {
-	$class(Float, 0, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable, ::java::lang::constant::ConstantDesc)
+	$class(Float, $PREINIT, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable, ::java::lang::constant::ConstantDesc)
 public:
 	Float();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(float value);
 	void init$(double value);
 	void init$($String* s);
@@ -98,7 +99,7 @@ public:
 	static const int32_t BYTES = 4; // SIZE / Byte.SIZE
 	static $Class* TYPE;
 	float value = 0.0;
-	static const int64_t serialVersionUID = (int64_t)0xDAEDC9A2DB3CF0EC;
+	static const int64_t serialVersionUID = (int64_t)0xdaedc9a2db3cf0ec;
 	static float mod(float a, float b);
 };
 

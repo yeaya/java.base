@@ -182,6 +182,7 @@ public:
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $String* name);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $String* name, ::sun::security::ssl::SSLHandshake* handshakeType, $Array<::sun::security::ssl::ProtocolVersion>* supportedProtocols, ::sun::security::ssl::HandshakeProducer* producer, ::sun::security::ssl::SSLExtension$ExtensionConsumer* onLoadConsumer, ::sun::security::ssl::HandshakeAbsence* onLoadAbsence, ::sun::security::ssl::HandshakeConsumer* onTradeConsumer, ::sun::security::ssl::HandshakeAbsence* onTradeAbsence, ::sun::security::ssl::SSLStringizer* stringize);
 	virtual void absentOnLoad(::sun::security::ssl::ConnectionContext* context, ::sun::security::ssl::SSLHandshake$HandshakeMessage* message);

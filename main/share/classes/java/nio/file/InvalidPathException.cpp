@@ -1,5 +1,4 @@
 #include <java/nio/file/InvalidPathException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,36 +10,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _InvalidPathException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(InvalidPathException, serialVersionUID)},
-	{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InvalidPathException, input)},
-	{"index", "I", nullptr, $PRIVATE, $field(InvalidPathException, index)},
-	{}
-};
-
-$MethodInfo _InvalidPathException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(InvalidPathException, init$, void, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidPathException, init$, void, $String*, $String*)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getIndex, int32_t)},
-	{"getInput", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getInput, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getMessage, $String*)},
-	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getReason, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidPathException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.InvalidPathException",
-	"java.lang.IllegalArgumentException",
-	nullptr,
-	_InvalidPathException_FieldInfo_,
-	_InvalidPathException_MethodInfo_
-};
-
-$Object* allocate$InvalidPathException($Class* clazz) {
-	return $of($alloc(InvalidPathException));
-}
 
 void InvalidPathException::init$($String* input, $String* reason, int32_t index) {
 	$IllegalArgumentException::init$(reason);
@@ -71,7 +40,7 @@ int32_t InvalidPathException::getIndex() {
 }
 
 $String* InvalidPathException::getMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($(getReason()));
 	if (this->index > -1) {
@@ -94,7 +63,32 @@ void InvalidPathException::throw$() {
 }
 
 $Class* InvalidPathException::load$($String* name, bool initialize) {
-	$loadClass(InvalidPathException, name, initialize, &_InvalidPathException_ClassInfo_, allocate$InvalidPathException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(InvalidPathException, serialVersionUID)},
+		{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InvalidPathException, input)},
+		{"index", "I", nullptr, $PRIVATE, $field(InvalidPathException, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(InvalidPathException, init$, void, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidPathException, init$, void, $String*, $String*)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getIndex, int32_t)},
+		{"getInput", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getInput, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getMessage, $String*)},
+		{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getReason, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.InvalidPathException",
+		"java.lang.IllegalArgumentException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidPathException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidPathException);
+	});
 	return class$;
 }
 

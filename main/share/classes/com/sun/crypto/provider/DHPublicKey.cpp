@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DHPublicKey.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -52,48 +51,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _DHPublicKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DHPublicKey, serialVersionUID)},
-	{"y", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPublicKey, y)},
-	{"key", "[B", nullptr, $PRIVATE, $field(DHPublicKey, key)},
-	{"encodedKey", "[B", nullptr, $PRIVATE, $field(DHPublicKey, encodedKey)},
-	{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPublicKey, p)},
-	{"g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPublicKey, g)},
-	{"l", "I", nullptr, $PRIVATE, $field(DHPublicKey, l)},
-	{"DH_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $STATIC, $staticField(DHPublicKey, DH_OID)},
-	{}
-};
-
-$MethodInfo _DHPublicKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(DHPublicKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;I)V", nullptr, 0, $method(DHPublicKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, int32_t)},
-	{"<init>", "([B)V", nullptr, 0, $method(DHPublicKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, equals, bool, Object$*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, getAlgorithm, $String*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DHPublicKey, getEncoded, $bytes*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, getFormat, $String*)},
-	{"getParams", "()Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, getParams, $DHParameterSpec*)},
-	{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, getY, $BigInteger*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, hashCode, int32_t)},
-	{"parseKeyBits", "()V", nullptr, $PRIVATE, $method(DHPublicKey, parseKeyBits, void), "java.security.InvalidKeyException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, toString, $String*)},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DHPublicKey, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$ClassInfo _DHPublicKey_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DHPublicKey",
-	"java.lang.Object",
-	"javax.crypto.interfaces.DHPublicKey",
-	_DHPublicKey_FieldInfo_,
-	_DHPublicKey_MethodInfo_
-};
-
-$Object* allocate$DHPublicKey($Class* clazz) {
-	return $of($alloc(DHPublicKey));
-}
-
 $ObjectIdentifier* DHPublicKey::DH_OID = nullptr;
 
 void DHPublicKey::init$($BigInteger* y, $BigInteger* p, $BigInteger* g) {
@@ -101,7 +58,7 @@ void DHPublicKey::init$($BigInteger* y, $BigInteger* p, $BigInteger* g) {
 }
 
 void DHPublicKey::init$($BigInteger* y, $BigInteger* p, $BigInteger* g, int32_t l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, y, y);
 	$set(this, p, p);
 	$set(this, g, g);
@@ -115,7 +72,7 @@ void DHPublicKey::init$($BigInteger* y, $BigInteger* p, $BigInteger* g, int32_t 
 }
 
 void DHPublicKey::init$($bytes* encodedKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, inStream, $new($ByteArrayInputStream, encodedKey));
 	try {
 		$var($DerValue, derKeyVal, $new($DerValue, inStream));
@@ -126,7 +83,7 @@ void DHPublicKey::init$($bytes* encodedKey) {
 		if ($nc(algid)->tag != $DerValue::tag_Sequence) {
 			$throwNew($InvalidKeyException, "AlgId is not a SEQUENCE"_s);
 		}
-		$var($DerInputStream, derInStream, $nc(algid)->toDerInputStream());
+		$var($DerInputStream, derInStream, algid->toDerInputStream());
 		$var($ObjectIdentifier, oid, $nc(derInStream)->getOID());
 		if (oid == nullptr) {
 			$throwNew($InvalidKeyException, "Null OID"_s);
@@ -138,21 +95,21 @@ void DHPublicKey::init$($bytes* encodedKey) {
 		if ($nc(params)->tag == $DerValue::tag_Null) {
 			$throwNew($InvalidKeyException, "Null parameters"_s);
 		}
-		if ($nc(params)->tag != $DerValue::tag_Sequence) {
+		if (params->tag != $DerValue::tag_Sequence) {
 			$throwNew($InvalidKeyException, "Parameters not a SEQUENCE"_s);
 		}
-		$nc($nc(params)->data$)->reset();
-		$set(this, p, $nc(params->data$)->getBigInteger());
-		$set(this, g, $nc(params->data$)->getBigInteger());
-		if ($nc(params->data$)->available() != 0) {
-			this->l = $nc(params->data$)->getInteger();
+		$nc(params->data$)->reset();
+		$set(this, p, params->data$->getBigInteger());
+		$set(this, g, params->data$->getBigInteger());
+		if (params->data$->available() != 0) {
+			this->l = params->data$->getInteger();
 		}
-		if ($nc(params->data$)->available() != 0) {
+		if (params->data$->available() != 0) {
 			$throwNew($InvalidKeyException, "Extra parameter data"_s);
 		}
-		$set(this, key, $nc(derKeyVal->data$)->getBitString());
+		$set(this, key, derKeyVal->data$->getBitString());
 		parseKeyBits();
-		if ($nc(derKeyVal->data$)->available() != 0) {
+		if (derKeyVal->data$->available() != 0) {
 			$throwNew($InvalidKeyException, "Excess key data"_s);
 		}
 		$set(this, encodedKey, $cast($bytes, $nc(encodedKey)->clone()));
@@ -173,7 +130,7 @@ $String* DHPublicKey::getAlgorithm() {
 
 $bytes* DHPublicKey::getEncoded() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->encodedKey == nullptr) {
 			try {
 				$var($DerOutputStream, algid, $new($DerOutputStream));
@@ -213,14 +170,23 @@ $DHParameterSpec* DHPublicKey::getParams() {
 }
 
 $String* DHPublicKey::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, LINE_SEP, $System::lineSeparator());
-	$var($String, var$4, $$str({"SunJCE Diffie-Hellman Public Key:"_s, LINE_SEP, "y:"_s, LINE_SEP, $($Debug::toHexString(this->y)), LINE_SEP, "p:"_s, LINE_SEP}));
-	$var($String, var$3, $$concat(var$4, $($Debug::toHexString(this->p))));
-	$var($String, var$2, $$concat(var$3, LINE_SEP));
-	$var($String, var$1, $$concat(var$2, "g:"_s));
-	$var($String, var$0, $$concat(var$1, LINE_SEP));
-	$var($StringBuilder, sb, $new($StringBuilder, $$concat(var$0, $($Debug::toHexString(this->g)))));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("SunJCE Diffie-Hellman Public Key:"_s);
+	var$0->append(LINE_SEP);
+	var$0->append("y:"_s);
+	var$0->append(LINE_SEP);
+	var$0->append($($Debug::toHexString(this->y)));
+	var$0->append(LINE_SEP);
+	var$0->append("p:"_s);
+	var$0->append(LINE_SEP);
+	var$0->append($($Debug::toHexString(this->p)));
+	var$0->append(LINE_SEP);
+	var$0->append("g:"_s);
+	var$0->append(LINE_SEP);
+	var$0->append($($Debug::toHexString(this->g)));
+	$var($StringBuilder, sb, $new($StringBuilder, $$str(var$0)));
 	if (this->l != 0) {
 		sb->append($$str({LINE_SEP, "l:"_s, LINE_SEP, "    "_s, $$str(this->l)}));
 	}
@@ -228,7 +194,7 @@ $String* DHPublicKey::toString() {
 }
 
 void DHPublicKey::parseKeyBits() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($DerInputStream, in, $new($DerInputStream, this->key));
 		$set(this, y, in->getBigInteger());
@@ -239,14 +205,14 @@ void DHPublicKey::parseKeyBits() {
 
 int32_t DHPublicKey::hashCode() {
 	return $Objects::hash($$new($ObjectArray, {
-		$of(this->y),
-		$of(this->p),
-		$of(this->g)
+		this->y,
+		this->p,
+		this->g
 	}));
 }
 
 bool DHPublicKey::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -255,21 +221,21 @@ bool DHPublicKey::equals(Object$* obj) {
 	}
 	$var($DHPublicKey, other, $cast($DHPublicKey, obj));
 	$var($DHParameterSpec, otherParams, $nc(other)->getParams());
-	bool var$1 = ($nc(this->y)->compareTo($(other->getY())) == 0);
+	bool var$1 = $nc(this->y)->compareTo($(other->getY())) == 0;
 	bool var$0 = var$1 && ($nc(this->p)->compareTo($($nc(otherParams)->getP())) == 0);
-	return (var$0 && ($nc(this->g)->compareTo($($nc(otherParams)->getG())) == 0));
+	return (var$0 && ($nc(this->g)->compareTo($(otherParams->getG())) == 0));
 }
 
 $Object* DHPublicKey::writeReplace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::PUBLIC);
 	$var($String, var$1, getAlgorithm());
 	$var($String, var$2, getFormat());
-	return $of($new($KeyRep, var$0, var$1, var$2, $(getEncoded())));
+	return $new($KeyRep, var$0, var$1, var$2, $(getEncoded()));
 }
 
-void clinit$DHPublicKey($Class* class$) {
+void DHPublicKey::clinit$($Class* clazz) {
 	$init($KnownOIDs);
 	$assignStatic(DHPublicKey::DH_OID, $ObjectIdentifier::of($KnownOIDs::DiffieHellman));
 }
@@ -278,7 +244,44 @@ DHPublicKey::DHPublicKey() {
 }
 
 $Class* DHPublicKey::load$($String* name, bool initialize) {
-	$loadClass(DHPublicKey, name, initialize, &_DHPublicKey_ClassInfo_, clinit$DHPublicKey, allocate$DHPublicKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DHPublicKey, serialVersionUID)},
+		{"y", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPublicKey, y)},
+		{"key", "[B", nullptr, $PRIVATE, $field(DHPublicKey, key)},
+		{"encodedKey", "[B", nullptr, $PRIVATE, $field(DHPublicKey, encodedKey)},
+		{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPublicKey, p)},
+		{"g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPublicKey, g)},
+		{"l", "I", nullptr, $PRIVATE, $field(DHPublicKey, l)},
+		{"DH_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $STATIC, $staticField(DHPublicKey, DH_OID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(DHPublicKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;I)V", nullptr, 0, $method(DHPublicKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, int32_t)},
+		{"<init>", "([B)V", nullptr, 0, $method(DHPublicKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, equals, bool, Object$*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, getAlgorithm, $String*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DHPublicKey, getEncoded, $bytes*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, getFormat, $String*)},
+		{"getParams", "()Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, getParams, $DHParameterSpec*)},
+		{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, getY, $BigInteger*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, hashCode, int32_t)},
+		{"parseKeyBits", "()V", nullptr, $PRIVATE, $method(DHPublicKey, parseKeyBits, void), "java.security.InvalidKeyException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPublicKey, toString, $String*)},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DHPublicKey, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DHPublicKey",
+		"java.lang.Object",
+		"javax.crypto.interfaces.DHPublicKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DHPublicKey, name, initialize, &classInfo$$, DHPublicKey::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DHPublicKey));
+	});
 	return class$;
 }
 

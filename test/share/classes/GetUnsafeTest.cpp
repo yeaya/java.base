@@ -1,5 +1,4 @@
 #include <GetUnsafeTest.h>
-
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -13,7 +12,6 @@
 #undef NAME
 
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -22,36 +20,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StackTraceElement = ::java::lang::StackTraceElement;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
-
-$FieldInfo _GetUnsafeTest_FieldInfo_[] = {
-	{"NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GetUnsafeTest, NAME)},
-	{"isTestFailed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(GetUnsafeTest, isTestFailed)},
-	{}
-};
-
-$MethodInfo _GetUnsafeTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetUnsafeTest, init$, void)},
-	{"fail", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetUnsafeTest, fail, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetUnsafeTest, main, void, $StringArray*), "java.lang.Throwable"},
-	{}
-};
-
-$ClassInfo _GetUnsafeTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetUnsafeTest",
-	"java.lang.Object",
-	nullptr,
-	_GetUnsafeTest_FieldInfo_,
-	_GetUnsafeTest_MethodInfo_
-};
-
-$Object* allocate$GetUnsafeTest($Class* clazz) {
-	return $of($alloc(GetUnsafeTest));
-}
 
 $String* GetUnsafeTest::NAME = nullptr;
 bool GetUnsafeTest::isTestFailed = false;
@@ -61,38 +32,38 @@ void GetUnsafeTest::init$() {
 
 void GetUnsafeTest::fail() {
 	$init(GetUnsafeTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	GetUnsafeTest::isTestFailed = true;
 	try {
 		$throwNew($Exception);
 	} catch ($Throwable& e) {
 		$var($StackTraceElement, frame, $nc($(e->getStackTrace()))->get(1));
 		$nc($System::out)->printf("Failed at %s:%d\n"_s, $$new($ObjectArray, {
-			$($of($nc(frame)->getFileName())),
-			$($of($Integer::valueOf(frame->getLineNumber())))
+			$($nc(frame)->getFileName()),
+			$($Integer::valueOf($nc(frame)->getLineNumber()))
 		}));
 	}
 }
 
 void GetUnsafeTest::main($StringArray* args) {
 	$init(GetUnsafeTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		$var($MethodType, mt, $MethodType::methodType($Class::class$, $String::class$));
-		$var($MethodHandle, mh, $nc($($MethodHandles::lookup()))->findStatic($Class::class$, "forName"_s, mt));
+		$var($MethodHandle, mh, $$nc($MethodHandles::lookup())->findStatic($Class::class$, "forName"_s, mt));
 		try {
 			$Class::forName(GetUnsafeTest::NAME);
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
-			$nc(mh)->invoke($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}));
+			$nc(mh)->invoke($$new($ObjectArray, {GetUnsafeTest::NAME}));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
-			$nc($($nc(mh)->bindTo(GetUnsafeTest::NAME)))->invoke($$new($ObjectArray, 0));
+			$$nc($nc(mh)->bindTo(GetUnsafeTest::NAME))->invoke($$new($ObjectArray, 0));
 			fail();
 		} catch ($Throwable& e) {
 		}
@@ -102,111 +73,109 @@ void GetUnsafeTest::main($StringArray* args) {
 		} catch ($Throwable& e) {
 		}
 		try {
-			$nc(mh)->invokeWithArguments($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}));
+			$nc(mh)->invokeWithArguments($$new($ObjectArray, {GetUnsafeTest::NAME}));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
-			$Class* cls = $cast($Class, $nc(mh)->invokeExact($$new($ObjectArray, {$of(GetUnsafeTest::NAME)})));
+			$Class* cls = $cast($Class, $nc(mh)->invokeExact($$new($ObjectArray, {GetUnsafeTest::NAME})));
 			fail();
 		} catch ($Throwable& e) {
 		}
 	}
 	{
 		$var($Method, fnMethod, $Class::class$->getMethod("forName"_s, $$new($ClassArray, {$String::class$})));
-		$load($ObjectArray);
 		$var($MethodType, mt, $MethodType::methodType($Object::class$, $Object::class$, $$new($ClassArray, {$getClass($ObjectArray)})));
 		$load($Method);
-		$var($MethodHandle, mh, $nc($($nc($($MethodHandles::lookup()))->findVirtual($Method::class$, "invoke"_s, mt)))->bindTo(fnMethod));
+		$var($MethodHandle, mh, $$nc($$nc($MethodHandles::lookup())->findVirtual($Method::class$, "invoke"_s, mt))->bindTo(fnMethod));
 		try {
-			$nc(fnMethod)->invoke(nullptr, $$new($ObjectArray, {$of(GetUnsafeTest::NAME)}));
+			$nc(fnMethod)->invoke(nullptr, $$new($ObjectArray, {GetUnsafeTest::NAME}));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
-			$nc($($nc($($nc(mh)->bindTo(nullptr)))->bindTo($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))))->invoke($$new($ObjectArray, 0));
+			$$nc($$nc($nc(mh)->bindTo(nullptr))->bindTo($$new($ObjectArray, {GetUnsafeTest::NAME})))->invoke($$new($ObjectArray, 0));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
-			$nc(mh)->invoke($$new($ObjectArray, {($Object*)nullptr, $of($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))}));
+			$nc(mh)->invoke($$new($ObjectArray, {nullptr, $$new($ObjectArray, {GetUnsafeTest::NAME})}));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($$new($ObjectArray, {
-				($Object*)nullptr,
-				$of($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))
+				nullptr,
+				$$new($ObjectArray, {GetUnsafeTest::NAME})
 			}));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($($Arrays::asList($$new($ObjectArray2, {
-				($ObjectArray*)nullptr,
-				$$new($ObjectArray, {$of(GetUnsafeTest::NAME)})
+				nullptr,
+				$$new($ObjectArray, {GetUnsafeTest::NAME})
 			}))));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
-			$var($Object, obj, $nc(mh)->invokeExact($$new($ObjectArray, {($Object*)nullptr, $of($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))})));
+			$var($Object, obj, $nc(mh)->invokeExact($$new($ObjectArray, {($Object*)nullptr, $$new($ObjectArray, {GetUnsafeTest::NAME})})));
 			fail();
 		} catch ($Throwable& e) {
 		}
 	}
 	{
 		$var($Method, fnMethod, $Class::class$->getMethod("forName"_s, $$new($ClassArray, {$String::class$})));
-		$load($ObjectArray);
 		$var($MethodType, mt, $MethodType::methodType($Object::class$, $Object::class$, $$new($ClassArray, {$getClass($ObjectArray)})));
-		$var($MethodHandle, mh, $nc($($MethodHandles::lookup()))->bind(fnMethod, "invoke"_s, mt));
+		$var($MethodHandle, mh, $$nc($MethodHandles::lookup())->bind(fnMethod, "invoke"_s, mt));
 		try {
-			$nc($($nc($($nc(mh)->bindTo(nullptr)))->bindTo($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))))->invoke($$new($ObjectArray, 0));
+			$$nc($$nc($nc(mh)->bindTo(nullptr))->bindTo($$new($ObjectArray, {GetUnsafeTest::NAME})))->invoke($$new($ObjectArray, 0));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
-			$nc(mh)->invoke($$new($ObjectArray, {($Object*)nullptr, $of($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))}));
+			$nc(mh)->invoke($$new($ObjectArray, {nullptr, $$new($ObjectArray, {GetUnsafeTest::NAME})}));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($$new($ObjectArray, {
-				($Object*)nullptr,
-				$of(GetUnsafeTest::NAME)
+				nullptr,
+				GetUnsafeTest::NAME
 			}));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($($Arrays::asList($$new($StringArray, {
-				($String*)nullptr,
+				nullptr,
 				GetUnsafeTest::NAME
 			}))));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
-			$var($Object, obj, $nc(mh)->invokeExact($$new($ObjectArray, {($Object*)nullptr, $of($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))})));
+			$var($Object, obj, $nc(mh)->invokeExact($$new($ObjectArray, {($Object*)nullptr, $$new($ObjectArray, {GetUnsafeTest::NAME})})));
 			fail();
 		} catch ($Throwable& e) {
 		}
 	}
 	{
 		$var($Method, fnMethod, $Class::class$->getMethod("forName"_s, $$new($ClassArray, {$String::class$})));
-		$var($MethodHandle, mh, $nc($($MethodHandles::lookup()))->unreflect(fnMethod));
+		$var($MethodHandle, mh, $$nc($MethodHandles::lookup())->unreflect(fnMethod));
 		try {
-			$nc($($nc(mh)->bindTo(GetUnsafeTest::NAME)))->invoke($$new($ObjectArray, 0));
+			$$nc($nc(mh)->bindTo(GetUnsafeTest::NAME))->invoke($$new($ObjectArray, 0));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
-			$nc(mh)->invoke($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}));
+			$nc(mh)->invoke($$new($ObjectArray, {GetUnsafeTest::NAME}));
 			fail();
 		} catch ($Throwable& e) {
 		}
 		try {
-			$nc(mh)->invokeWithArguments($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}));
+			$nc(mh)->invokeWithArguments($$new($ObjectArray, {GetUnsafeTest::NAME}));
 			fail();
 		} catch ($Throwable& e) {
 		}
@@ -216,7 +185,7 @@ void GetUnsafeTest::main($StringArray* args) {
 		} catch ($Throwable& e) {
 		}
 		try {
-			$Class* cls = $cast($Class, $nc(mh)->invokeExact($$new($ObjectArray, {$of(GetUnsafeTest::NAME)})));
+			$Class* cls = $cast($Class, $nc(mh)->invokeExact($$new($ObjectArray, {GetUnsafeTest::NAME})));
 			fail();
 		} catch ($Throwable& e) {
 		}
@@ -229,7 +198,7 @@ void GetUnsafeTest::main($StringArray* args) {
 	}
 }
 
-void clinit$GetUnsafeTest($Class* class$) {
+void GetUnsafeTest::clinit$($Class* clazz) {
 	$assignStatic(GetUnsafeTest::NAME, "sun.misc.Unsafe"_s);
 	GetUnsafeTest::isTestFailed = false;
 }
@@ -238,7 +207,28 @@ GetUnsafeTest::GetUnsafeTest() {
 }
 
 $Class* GetUnsafeTest::load$($String* name, bool initialize) {
-	$loadClass(GetUnsafeTest, name, initialize, &_GetUnsafeTest_ClassInfo_, clinit$GetUnsafeTest, allocate$GetUnsafeTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GetUnsafeTest, NAME)},
+		{"isTestFailed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(GetUnsafeTest, isTestFailed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetUnsafeTest, init$, void)},
+		{"fail", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetUnsafeTest, fail, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetUnsafeTest, main, void, $StringArray*), "java.lang.Throwable"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetUnsafeTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GetUnsafeTest, name, initialize, &classInfo$$, GetUnsafeTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GetUnsafeTest);
+	});
 	return class$;
 }
 

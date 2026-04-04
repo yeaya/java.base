@@ -13,6 +13,7 @@ class WindowsPath$1 : public ::java::lang::Object {
 	$class(WindowsPath$1, 0, ::java::lang::Object)
 public:
 	WindowsPath$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$nio$fs$WindowsPathType;
 };
 

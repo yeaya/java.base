@@ -15,6 +15,7 @@ class $export Basic4ThreadLocal : public ::java::lang::Object {
 	$class(Basic4ThreadLocal, 0, ::java::lang::Object)
 public:
 	Basic4ThreadLocal();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::lang::ThreadLocal* n;

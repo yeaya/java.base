@@ -24,6 +24,7 @@ class AVAComparator : public ::java::util::Comparator {
 	$class(AVAComparator, 0, ::java::util::Comparator)
 public:
 	AVAComparator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t compare(::sun::security::x509::AVA* a1, ::sun::security::x509::AVA* a2);
 	virtual int32_t compare(Object$* a1, Object$* a2) override;

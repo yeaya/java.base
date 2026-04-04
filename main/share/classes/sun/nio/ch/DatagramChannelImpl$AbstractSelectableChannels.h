@@ -40,6 +40,7 @@ class DatagramChannelImpl$AbstractSelectableChannels : public ::java::lang::Obje
 	$class(DatagramChannelImpl$AbstractSelectableChannels, 0, ::java::lang::Object)
 public:
 	DatagramChannelImpl$AbstractSelectableChannels();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void forEach(::java::nio::channels::spi::AbstractSelectableChannel* ch, ::java::util::function::Consumer* action);
 	static ::java::lang::reflect::Method* lambda$static$0();

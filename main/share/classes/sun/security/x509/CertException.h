@@ -20,7 +20,7 @@ public:
 	virtual int32_t getVerfCode();
 	virtual $String* getVerfDescription();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x602F1F8C76DB42BE;
+	static const int64_t serialVersionUID = (int64_t)0x602f1f8c76db42be;
 	static const int32_t verf_INVALID_SIG = 1;
 	static const int32_t verf_INVALID_REVOKED = 2;
 	static const int32_t verf_INVALID_NOTBEFORE = 3;
@@ -37,7 +37,10 @@ public:
 	$String* moreData = nullptr;
 	CertException(const CertException& e);
 	virtual void throw$() override;
-	inline CertException* operator ->() {
+	inline CertException* operator ->() const {
+		return (CertException*)throwing$;
+	}
+	inline operator CertException*() const {
 		return (CertException*)throwing$;
 	}
 };

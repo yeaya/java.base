@@ -1,5 +1,4 @@
 #include <java/lang/reflect/AccessibleObject.h>
-
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/IllegalCallerException.h>
 #include <java/lang/InternalError.h>
@@ -22,8 +21,6 @@
 #include <java/lang/reflect/ReflectPermission.h>
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
-#include <jdk/internal/access/JavaLangReflectAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jdk/internal/misc/VM.h>
 #include <jdk/internal/reflect/Reflection.h>
@@ -64,9 +61,6 @@ using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $ReflectAccess = ::java::lang::reflect::ReflectAccess;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $JavaLangReflectAccess = ::jdk::internal::access::JavaLangReflectAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $VM = ::jdk::internal::misc::VM;
 using $Reflection = ::jdk::internal::reflect::Reflection;
@@ -78,110 +72,6 @@ using $SecurityConstants = ::sun::security::util::SecurityConstants;
 namespace java {
 	namespace lang {
 		namespace reflect {
-
-$NamedAttribute AccessibleObject_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _AccessibleObject_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", AccessibleObject_Attribute_var$0},
-	{}
-};
-
-$CompoundAttribute _AccessibleObject_MethodAnnotations_canAccess1[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$NamedAttribute AccessibleObject_Attribute_var$1[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _AccessibleObject_MethodAnnotations_isAccessible16[] = {
-	{"Ljava/lang/Deprecated;", AccessibleObject_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _AccessibleObject_MethodAnnotations_setAccessible20[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _AccessibleObject_MethodAnnotations_setAccessible21[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _AccessibleObject_MethodAnnotations_trySetAccessible25[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$FieldInfo _AccessibleObject_FieldInfo_[] = {
-	{"override", "Z", nullptr, 0, $field(AccessibleObject, override$)},
-	{"reflectionFactory", "Ljdk/internal/reflect/ReflectionFactory;", nullptr, $STATIC | $FINAL, $staticField(AccessibleObject, reflectionFactory)},
-	{"accessCheckCache", "Ljava/lang/Object;", nullptr, $VOLATILE, $field(AccessibleObject, accessCheckCache)},
-	{"printStackWhenAccessFails", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(AccessibleObject, printStackWhenAccessFails)},
-	{"printStackPropertiesSet", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(AccessibleObject, printStackPropertiesSet)},
-	{}
-};
-
-$MethodInfo _AccessibleObject_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(AccessibleObject, init$, void), nullptr, nullptr, _AccessibleObject_MethodAnnotations_init$0},
-	{"canAccess", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $method(AccessibleObject, canAccess, bool, Object$*), nullptr, nullptr, _AccessibleObject_MethodAnnotations_canAccess1},
-	{"checkAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)V", $FINAL, $method(AccessibleObject, checkAccess, void, $Class*, $Class*, $Class*, int32_t), "java.lang.IllegalAccessException"},
-	{"checkCanSetAccessible", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $virtualMethod(AccessibleObject, checkCanSetAccessible, void, $Class*)},
-	{"checkCanSetAccessible", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $FINAL, $method(AccessibleObject, checkCanSetAccessible, void, $Class*, $Class*)},
-	{"checkCanSetAccessible", "(Ljava/lang/Class;Ljava/lang/Class;Z)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Z", $PRIVATE, $method(AccessibleObject, checkCanSetAccessible, bool, $Class*, $Class*, bool)},
-	{"checkPermission", "()V", nullptr, $STATIC, $staticMethod(AccessibleObject, checkPermission, void)},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(AccessibleObject, getAnnotation, $Annotation*, $Class*)},
-	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(AccessibleObject, getAnnotations, $AnnotationArray*)},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AccessibleObject, getAnnotationsByType, $AnnotationArray*, $Class*)},
-	{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(AccessibleObject, getDeclaredAnnotation, $Annotation*, $Class*)},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(AccessibleObject, getDeclaredAnnotations, $AnnotationArray*)},
-	{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AccessibleObject, getDeclaredAnnotationsByType, $AnnotationArray*, $Class*)},
-	{"getRoot", "()Ljava/lang/reflect/AccessibleObject;", nullptr, 0, $virtualMethod(AccessibleObject, getRoot, AccessibleObject*)},
-	{"isAccessChecked", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AccessibleObject, isAccessChecked, bool, $Class*, $Class*)},
-	{"isAccessChecked", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AccessibleObject, isAccessChecked, bool, $Class*)},
-	{"isAccessible", "()Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(AccessibleObject, isAccessible, bool), nullptr, nullptr, _AccessibleObject_MethodAnnotations_isAccessible16},
-	{"isAnnotationPresent", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Z", $PUBLIC, $virtualMethod(AccessibleObject, isAnnotationPresent, bool, $Class*)},
-	{"isSubclassOf", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AccessibleObject, isSubclassOf, bool, $Class*, $Class*)},
-	{"printStackTraceWhenAccessFails", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AccessibleObject, printStackTraceWhenAccessFails, bool)},
-	{"setAccessible", "([Ljava/lang/reflect/AccessibleObject;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AccessibleObject, setAccessible, void, $AccessibleObjectArray*, bool), nullptr, nullptr, _AccessibleObject_MethodAnnotations_setAccessible20},
-	{"setAccessible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AccessibleObject, setAccessible, void, bool), nullptr, nullptr, _AccessibleObject_MethodAnnotations_setAccessible21},
-	{"setAccessible0", "(Z)Z", nullptr, 0, $virtualMethod(AccessibleObject, setAccessible0, bool, bool)},
-	{"slowVerifyAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Z", $PRIVATE, $method(AccessibleObject, slowVerifyAccess, bool, $Class*, $Class*, $Class*, int32_t)},
-	{"toShortString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AccessibleObject, toShortString, $String*)},
-	{"trySetAccessible", "()Z", nullptr, $PUBLIC | $FINAL, $method(AccessibleObject, trySetAccessible, bool), nullptr, nullptr, _AccessibleObject_MethodAnnotations_trySetAccessible25},
-	{"verifyAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Z", $FINAL, $method(AccessibleObject, verifyAccess, bool, $Class*, $Class*, $Class*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AccessibleObject_InnerClassesInfo_[] = {
-	{"java.lang.reflect.AccessibleObject$Cache", "java.lang.reflect.AccessibleObject", "Cache", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AccessibleObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.reflect.AccessibleObject",
-	"java.lang.Object",
-	"java.lang.reflect.AnnotatedElement",
-	_AccessibleObject_FieldInfo_,
-	_AccessibleObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.reflect.AccessibleObject$Cache"
-};
-
-$Object* allocate$AccessibleObject($Class* clazz) {
-	return $of($alloc(AccessibleObject));
-}
 
 $ReflectionFactory* AccessibleObject::reflectionFactory = nullptr;
 $volatile(bool) AccessibleObject::printStackWhenAccessFails = false;
@@ -198,7 +88,7 @@ void AccessibleObject::checkPermission() {
 
 void AccessibleObject::setAccessible($AccessibleObjectArray* array$renamed, bool flag) {
 	$init(AccessibleObject);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleObjectArray, array, array$renamed);
 	checkPermission();
 	if (flag) {
@@ -206,9 +96,7 @@ void AccessibleObject::setAccessible($AccessibleObjectArray* array$renamed, bool
 		$assign(array, $cast($AccessibleObjectArray, $nc(array)->clone()));
 		{
 			$var($AccessibleObjectArray, arr$, array);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var(AccessibleObject, ao, arr$->get(i$));
 				{
 					$nc(ao)->checkCanSetAccessible(caller);
@@ -218,9 +106,7 @@ void AccessibleObject::setAccessible($AccessibleObjectArray* array$renamed, bool
 	}
 	{
 		$var($AccessibleObjectArray, arr$, array);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var(AccessibleObject, ao, arr$->get(i$));
 			{
 				$nc(ao)->setAccessible0(flag);
@@ -248,7 +134,7 @@ bool AccessibleObject::trySetAccessible() {
 	if (!$Member::class$->isInstance(this)) {
 		return setAccessible0(true);
 	}
-	$Class* declaringClass = $nc(($cast($Member, this)))->getDeclaringClass();
+	$Class* declaringClass = $cast($Member, this)->getDeclaringClass();
 	if (declaringClass == $Class::class$ && $instanceOf($Constructor, this)) {
 		return false;
 	}
@@ -267,7 +153,7 @@ void AccessibleObject::checkCanSetAccessible($Class* caller, $Class* declaringCl
 }
 
 bool AccessibleObject::checkCanSetAccessible($Class* caller, $Class* declaringClass, bool throwExceptionIfDenied) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($MethodHandle);
 	if (caller == $MethodHandle::class$) {
 		$throwNew($IllegalCallerException);
@@ -286,12 +172,12 @@ bool AccessibleObject::checkCanSetAccessible($Class* caller, $Class* declaringCl
 	$var($String, pn, declaringClass->getPackageName());
 	int32_t modifiers = 0;
 	if ($instanceOf($Executable, this)) {
-		modifiers = $nc(($cast($Executable, this)))->getModifiers();
+		modifiers = $cast($Executable, this)->getModifiers();
 	} else {
-		modifiers = $nc(($cast($Field, this)))->getModifiers();
+		modifiers = $cast($Field, this)->getModifiers();
 	}
 	bool isClassPublic = $Modifier::isPublic(declaringClass->getModifiers());
-	if (isClassPublic && $nc(declaringModule)->isExported(pn, callerModule)) {
+	if (isClassPublic && declaringModule->isExported(pn, callerModule)) {
 		if ($Modifier::isPublic(modifiers)) {
 			return true;
 		}
@@ -301,7 +187,7 @@ bool AccessibleObject::checkCanSetAccessible($Class* caller, $Class* declaringCl
 			return true;
 		}
 	}
-	if ($nc(declaringModule)->isOpen(pn, callerModule)) {
+	if (declaringModule->isOpen(pn, callerModule)) {
 		return true;
 	}
 	if (throwExceptionIfDenied) {
@@ -344,13 +230,13 @@ bool AccessibleObject::isAccessible() {
 }
 
 bool AccessibleObject::canAccess(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Member);
 	if (!$Member::class$->isInstance(this)) {
 		return this->override$;
 	}
-	$Class* declaringClass = $nc(($cast($Member, this)))->getDeclaringClass();
-	int32_t modifiers = $nc(($cast($Member, this)))->getModifiers();
+	$Class* declaringClass = $cast($Member, this)->getDeclaringClass();
+	int32_t modifiers = $cast($Member, this)->getModifiers();
 	if (!$Modifier::isStatic(modifiers) && ($instanceOf($Method, this) || $instanceOf($Field, this))) {
 		if (obj == nullptr) {
 			$throwNew($IllegalArgumentException, $$str({"null object for "_s, this}));
@@ -411,17 +297,17 @@ $AnnotationArray* AccessibleObject::getDeclaredAnnotations() {
 bool AccessibleObject::isAccessChecked($Class* caller, $Class* targetClass) {
 	$var($Object, cache, this->accessCheckCache);
 	if ($instanceOf($AccessibleObject$Cache, cache)) {
-		return $nc(($cast($AccessibleObject$Cache, cache)))->isCacheFor(caller, targetClass);
+		return $cast($AccessibleObject$Cache, cache)->isCacheFor(caller, targetClass);
 	}
 	return false;
 }
 
 bool AccessibleObject::isAccessChecked($Class* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, cache, this->accessCheckCache);
 	if ($instanceOf($WeakReference, cache)) {
 		$var($WeakReference, ref, $cast($WeakReference, cache));
-		return $nc(ref)->refersTo(caller);
+		return ref->refersTo(caller);
 	}
 	return false;
 }
@@ -479,20 +365,110 @@ AccessibleObject* AccessibleObject::getRoot() {
 	$shouldNotReachHere();
 }
 
-void clinit$AccessibleObject($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AccessibleObject::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		$SharedSecrets::setJavaLangReflectAccess($$new($ReflectAccess));
 	}
-	$assignStatic(AccessibleObject::reflectionFactory, $cast($ReflectionFactory, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ReflectionFactory$GetReflectionFactoryAction)))));
+	$assignStatic(AccessibleObject::reflectionFactory, $cast($ReflectionFactory, $AccessController::doPrivileged($$new($ReflectionFactory$GetReflectionFactoryAction))));
 }
 
 AccessibleObject::AccessibleObject() {
 }
 
 $Class* AccessibleObject::load$($String* name, bool initialize) {
-	$loadClass(AccessibleObject, name, initialize, &_AccessibleObject_ClassInfo_, clinit$AccessibleObject, allocate$AccessibleObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"override", "Z", nullptr, 0, $field(AccessibleObject, override$)},
+		{"reflectionFactory", "Ljdk/internal/reflect/ReflectionFactory;", nullptr, $STATIC | $FINAL, $staticField(AccessibleObject, reflectionFactory)},
+		{"accessCheckCache", "Ljava/lang/Object;", nullptr, $VOLATILE, $field(AccessibleObject, accessCheckCache)},
+		{"printStackWhenAccessFails", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(AccessibleObject, printStackWhenAccessFails)},
+		{"printStackPropertiesSet", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(AccessibleObject, printStackPropertiesSet)},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute canAccessmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$NamedAttribute isAccessiblemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute isAccessiblemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", isAccessiblemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute setAccessiblemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute setAccessiblemethodAnnotations$$$1[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute trySetAccessiblemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(AccessibleObject, init$, void), nullptr, nullptr, init$methodAnnotations$$},
+		{"canAccess", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $method(AccessibleObject, canAccess, bool, Object$*), nullptr, nullptr, canAccessmethodAnnotations$$},
+		{"checkAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)V", $FINAL, $method(AccessibleObject, checkAccess, void, $Class*, $Class*, $Class*, int32_t), "java.lang.IllegalAccessException"},
+		{"checkCanSetAccessible", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $virtualMethod(AccessibleObject, checkCanSetAccessible, void, $Class*)},
+		{"checkCanSetAccessible", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $FINAL, $method(AccessibleObject, checkCanSetAccessible, void, $Class*, $Class*)},
+		{"checkCanSetAccessible", "(Ljava/lang/Class;Ljava/lang/Class;Z)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Z", $PRIVATE, $method(AccessibleObject, checkCanSetAccessible, bool, $Class*, $Class*, bool)},
+		{"checkPermission", "()V", nullptr, $STATIC, $staticMethod(AccessibleObject, checkPermission, void)},
+		{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(AccessibleObject, getAnnotation, $Annotation*, $Class*)},
+		{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(AccessibleObject, getAnnotations, $AnnotationArray*)},
+		{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AccessibleObject, getAnnotationsByType, $AnnotationArray*, $Class*)},
+		{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(AccessibleObject, getDeclaredAnnotation, $Annotation*, $Class*)},
+		{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(AccessibleObject, getDeclaredAnnotations, $AnnotationArray*)},
+		{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AccessibleObject, getDeclaredAnnotationsByType, $AnnotationArray*, $Class*)},
+		{"getRoot", "()Ljava/lang/reflect/AccessibleObject;", nullptr, 0, $virtualMethod(AccessibleObject, getRoot, AccessibleObject*)},
+		{"isAccessChecked", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AccessibleObject, isAccessChecked, bool, $Class*, $Class*)},
+		{"isAccessChecked", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AccessibleObject, isAccessChecked, bool, $Class*)},
+		{"isAccessible", "()Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(AccessibleObject, isAccessible, bool), nullptr, nullptr, isAccessiblemethodAnnotations$$},
+		{"isAnnotationPresent", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Z", $PUBLIC, $virtualMethod(AccessibleObject, isAnnotationPresent, bool, $Class*)},
+		{"isSubclassOf", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AccessibleObject, isSubclassOf, bool, $Class*, $Class*)},
+		{"printStackTraceWhenAccessFails", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AccessibleObject, printStackTraceWhenAccessFails, bool)},
+		{"setAccessible", "([Ljava/lang/reflect/AccessibleObject;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AccessibleObject, setAccessible, void, $AccessibleObjectArray*, bool), nullptr, nullptr, setAccessiblemethodAnnotations$$},
+		{"setAccessible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AccessibleObject, setAccessible, void, bool), nullptr, nullptr, setAccessiblemethodAnnotations$$$1},
+		{"setAccessible0", "(Z)Z", nullptr, 0, $virtualMethod(AccessibleObject, setAccessible0, bool, bool)},
+		{"slowVerifyAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Z", $PRIVATE, $method(AccessibleObject, slowVerifyAccess, bool, $Class*, $Class*, $Class*, int32_t)},
+		{"toShortString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AccessibleObject, toShortString, $String*)},
+		{"trySetAccessible", "()Z", nullptr, $PUBLIC | $FINAL, $method(AccessibleObject, trySetAccessible, bool), nullptr, nullptr, trySetAccessiblemethodAnnotations$$},
+		{"verifyAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Z", $FINAL, $method(AccessibleObject, verifyAccess, bool, $Class*, $Class*, $Class*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.reflect.AccessibleObject$Cache", "java.lang.reflect.AccessibleObject", "Cache", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.reflect.AccessibleObject",
+		"java.lang.Object",
+		"java.lang.reflect.AnnotatedElement",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.reflect.AccessibleObject$Cache"
+	};
+	$loadClass(AccessibleObject, name, initialize, &classInfo$$, AccessibleObject::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessibleObject);
+	});
 	return class$;
 }
 

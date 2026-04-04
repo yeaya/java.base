@@ -62,6 +62,7 @@ public:
 	using ::java::security::SignatureSpi::engineInitSign;
 	using ::java::security::SignatureSpi::engineSign;
 	using ::java::security::SignatureSpi::engineVerify;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkKeyLength(::java::security::interfaces::RSAKey* key, int32_t digestLen, int32_t saltLen);
 	bool decodeSignature($bytes* mHash, $bytes* em);

@@ -30,6 +30,7 @@ class AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl : public ::java::u
 	$class(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl, 0, ::java::util::concurrent::atomic::AtomicIntegerFieldUpdater)
 public:
 	AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* tclass, $String* fieldName, $Class* caller);
 	void accessCheck(Object$* obj);
 	virtual int32_t addAndGet(Object$* obj, int32_t delta) override;

@@ -1,5 +1,4 @@
 #include <TestProvider$TestFileSystem.h>
-
 #include <TestProvider$TestPath.h>
 #include <TestProvider.h>
 #include <java/lang/Iterable.h>
@@ -33,56 +32,6 @@ using $UserPrincipalLookupService = ::java::nio::file::attribute::UserPrincipalL
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $Set = ::java::util::Set;
 
-$FieldInfo _TestProvider$TestFileSystem_FieldInfo_[] = {
-	{"delegate", "Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $FINAL, $field(TestProvider$TestFileSystem, delegate)},
-	{"provider", "LTestProvider;", nullptr, $PRIVATE | $FINAL, $field(TestProvider$TestFileSystem, provider$)},
-	{}
-};
-
-$MethodInfo _TestProvider$TestFileSystem_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/FileSystem;LTestProvider;)V", nullptr, 0, $method(TestProvider$TestFileSystem, init$, void, $FileSystem*, $TestProvider*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, close, void), "java.io.IOException"},
-	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, getFileStores, $Iterable*)},
-	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider$TestFileSystem, getPath, $Path*, $String*, $StringArray*)},
-	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, getPathMatcher, $PathMatcher*, $String*)},
-	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, getRootDirectories, $Iterable*)},
-	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, getSeparator, $String*)},
-	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, getUserPrincipalLookupService, $UserPrincipalLookupService*)},
-	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, isOpen, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, isReadOnly, bool)},
-	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, newWatchService, $WatchService*), "java.io.IOException"},
-	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, provider, $FileSystemProvider*)},
-	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, supportedFileAttributeViews, $Set*)},
-	{"unwrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(TestProvider$TestFileSystem, unwrap, $Path*, $Path*)},
-	{"wrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(TestProvider$TestFileSystem, wrap, $Path*, $Path*)},
-	{}
-};
-
-$InnerClassInfo _TestProvider$TestFileSystem_InnerClassesInfo_[] = {
-	{"TestProvider$TestFileSystem", "TestProvider", "TestFileSystem", $STATIC},
-	{}
-};
-
-$ClassInfo _TestProvider$TestFileSystem_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestProvider$TestFileSystem",
-	"java.nio.file.FileSystem",
-	nullptr,
-	_TestProvider$TestFileSystem_FieldInfo_,
-	_TestProvider$TestFileSystem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestProvider$TestFileSystem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestProvider"
-};
-
-$Object* allocate$TestProvider$TestFileSystem($Class* clazz) {
-	return $of($alloc(TestProvider$TestFileSystem));
-}
-
 void TestProvider$TestFileSystem::init$($FileSystem* delegate, $TestProvider* provider) {
 	$FileSystem::init$();
 	$set(this, delegate, delegate);
@@ -90,7 +39,7 @@ void TestProvider$TestFileSystem::init$($FileSystem* delegate, $TestProvider* pr
 }
 
 $Path* TestProvider$TestFileSystem::wrap($Path* path) {
-	return (path != nullptr) ? static_cast<$Path*>($new($TestProvider$TestPath, this, path)) : ($Path*)nullptr;
+	return (path != nullptr) ? $cast($Path, $new($TestProvider$TestPath, this, path)) : ($Path*)nullptr;
 }
 
 $Path* TestProvider$TestFileSystem::unwrap($Path* wrapper) {
@@ -100,7 +49,7 @@ $Path* TestProvider$TestFileSystem::unwrap($Path* wrapper) {
 	if (!($instanceOf($TestProvider$TestPath, wrapper))) {
 		$throwNew($ProviderMismatchException);
 	}
-	return $nc(($cast($TestProvider$TestPath, wrapper)))->unwrap();
+	return $nc($cast($TestProvider$TestPath, wrapper))->unwrap();
 }
 
 $FileSystemProvider* TestProvider$TestFileSystem::provider() {
@@ -159,7 +108,51 @@ TestProvider$TestFileSystem::TestProvider$TestFileSystem() {
 }
 
 $Class* TestProvider$TestFileSystem::load$($String* name, bool initialize) {
-	$loadClass(TestProvider$TestFileSystem, name, initialize, &_TestProvider$TestFileSystem_ClassInfo_, allocate$TestProvider$TestFileSystem);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $FINAL, $field(TestProvider$TestFileSystem, delegate)},
+		{"provider", "LTestProvider;", nullptr, $PRIVATE | $FINAL, $field(TestProvider$TestFileSystem, provider$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/FileSystem;LTestProvider;)V", nullptr, 0, $method(TestProvider$TestFileSystem, init$, void, $FileSystem*, $TestProvider*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, close, void), "java.io.IOException"},
+		{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, getFileStores, $Iterable*)},
+		{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider$TestFileSystem, getPath, $Path*, $String*, $StringArray*)},
+		{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, getPathMatcher, $PathMatcher*, $String*)},
+		{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, getRootDirectories, $Iterable*)},
+		{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, getSeparator, $String*)},
+		{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, getUserPrincipalLookupService, $UserPrincipalLookupService*)},
+		{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, isOpen, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, isReadOnly, bool)},
+		{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, newWatchService, $WatchService*), "java.io.IOException"},
+		{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, provider, $FileSystemProvider*)},
+		{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(TestProvider$TestFileSystem, supportedFileAttributeViews, $Set*)},
+		{"unwrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(TestProvider$TestFileSystem, unwrap, $Path*, $Path*)},
+		{"wrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(TestProvider$TestFileSystem, wrap, $Path*, $Path*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestProvider$TestFileSystem", "TestProvider", "TestFileSystem", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestProvider$TestFileSystem",
+		"java.nio.file.FileSystem",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestProvider"
+	};
+	$loadClass(TestProvider$TestFileSystem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestProvider$TestFileSystem);
+	});
 	return class$;
 }
 

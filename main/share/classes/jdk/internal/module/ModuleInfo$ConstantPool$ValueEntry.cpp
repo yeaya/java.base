@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleInfo$ConstantPool$ValueEntry.h>
-
 #include <jdk/internal/module/ModuleInfo$ConstantPool$Entry.h>
 #include <jdk/internal/module/ModuleInfo$ConstantPool.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ namespace jdk {
 	namespace internal {
 		namespace module {
 
-$FieldInfo _ModuleInfo$ConstantPool$ValueEntry_FieldInfo_[] = {
-	{"value", "Ljava/lang/Object;", nullptr, $FINAL, $field(ModuleInfo$ConstantPool$ValueEntry, value)},
-	{}
-};
-
-$MethodInfo _ModuleInfo$ConstantPool$ValueEntry_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Object;)V", nullptr, 0, $method(ModuleInfo$ConstantPool$ValueEntry, init$, void, int32_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ModuleInfo$ConstantPool$ValueEntry_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModuleInfo$ConstantPool", "jdk.internal.module.ModuleInfo", "ConstantPool", $PRIVATE | $STATIC},
-	{"jdk.internal.module.ModuleInfo$ConstantPool$ValueEntry", "jdk.internal.module.ModuleInfo$ConstantPool", "ValueEntry", $PRIVATE | $STATIC},
-	{"jdk.internal.module.ModuleInfo$ConstantPool$Entry", "jdk.internal.module.ModuleInfo$ConstantPool", "Entry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ModuleInfo$ConstantPool$ValueEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.ModuleInfo$ConstantPool$ValueEntry",
-	"jdk.internal.module.ModuleInfo$ConstantPool$Entry",
-	nullptr,
-	_ModuleInfo$ConstantPool$ValueEntry_FieldInfo_,
-	_ModuleInfo$ConstantPool$ValueEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleInfo$ConstantPool$ValueEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModuleInfo"
-};
-
-$Object* allocate$ModuleInfo$ConstantPool$ValueEntry($Class* clazz) {
-	return $of($alloc(ModuleInfo$ConstantPool$ValueEntry));
-}
-
 void ModuleInfo$ConstantPool$ValueEntry::init$(int32_t tag, Object$* value) {
 	$ModuleInfo$ConstantPool$Entry::init$(tag);
 	$set(this, value, value);
@@ -60,7 +22,38 @@ ModuleInfo$ConstantPool$ValueEntry::ModuleInfo$ConstantPool$ValueEntry() {
 }
 
 $Class* ModuleInfo$ConstantPool$ValueEntry::load$($String* name, bool initialize) {
-	$loadClass(ModuleInfo$ConstantPool$ValueEntry, name, initialize, &_ModuleInfo$ConstantPool$ValueEntry_ClassInfo_, allocate$ModuleInfo$ConstantPool$ValueEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/Object;", nullptr, $FINAL, $field(ModuleInfo$ConstantPool$ValueEntry, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/Object;)V", nullptr, 0, $method(ModuleInfo$ConstantPool$ValueEntry, init$, void, int32_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModuleInfo$ConstantPool", "jdk.internal.module.ModuleInfo", "ConstantPool", $PRIVATE | $STATIC},
+		{"jdk.internal.module.ModuleInfo$ConstantPool$ValueEntry", "jdk.internal.module.ModuleInfo$ConstantPool", "ValueEntry", $PRIVATE | $STATIC},
+		{"jdk.internal.module.ModuleInfo$ConstantPool$Entry", "jdk.internal.module.ModuleInfo$ConstantPool", "Entry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.ModuleInfo$ConstantPool$ValueEntry",
+		"jdk.internal.module.ModuleInfo$ConstantPool$Entry",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModuleInfo"
+	};
+	$loadClass(ModuleInfo$ConstantPool$ValueEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleInfo$ConstantPool$ValueEntry);
+	});
 	return class$;
 }
 

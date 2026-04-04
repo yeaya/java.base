@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/TraceClassVisitor.h>
-
 #include <java/io/PrintWriter.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
@@ -50,52 +49,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$CompoundAttribute _TraceClassVisitor_MethodAnnotations_visitPermittedSubclassExperimental14[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _TraceClassVisitor_FieldInfo_[] = {
-	{"printWriter", "Ljava/io/PrintWriter;", nullptr, $PRIVATE | $FINAL, $field(TraceClassVisitor, printWriter)},
-	{"p", "Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $FINAL, $field(TraceClassVisitor, p)},
-	{}
-};
-
-$MethodInfo _TraceClassVisitor_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(TraceClassVisitor, init$, void, $PrintWriter*)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(TraceClassVisitor, init$, void, $ClassVisitor*, $PrintWriter*)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(TraceClassVisitor, init$, void, $ClassVisitor*, $Printer*, $PrintWriter*)},
-	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitAttribute, void, $Attribute*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitEnd, void)},
-	{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitField, $FieldVisitor*, int32_t, $String*, $String*, $String*, Object$*)},
-	{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
-	{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitMethod, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
-	{"visitNestHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitNestHost, void, $String*)},
-	{"visitNestMember", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitNestMember, void, $String*)},
-	{"visitOuterClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitOuterClass, void, $String*, $String*, $String*)},
-	{"visitPermittedSubclassExperimental", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TraceClassVisitor, visitPermittedSubclassExperimental, void, $String*), nullptr, nullptr, _TraceClassVisitor_MethodAnnotations_visitPermittedSubclassExperimental14},
-	{"visitRecordComponent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitRecordComponent, $RecordComponentVisitor*, $String*, $String*, $String*)},
-	{"visitSource", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitSource, void, $String*, $String*)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{}
-};
-
-$ClassInfo _TraceClassVisitor_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.TraceClassVisitor",
-	"jdk.internal.org.objectweb.asm.ClassVisitor",
-	nullptr,
-	_TraceClassVisitor_FieldInfo_,
-	_TraceClassVisitor_MethodInfo_
-};
-
-$Object* allocate$TraceClassVisitor($Class* clazz) {
-	return $of($alloc(TraceClassVisitor));
-}
-
 void TraceClassVisitor::init$($PrintWriter* printWriter) {
 	TraceClassVisitor::init$(nullptr, printWriter);
 }
@@ -121,7 +74,7 @@ void TraceClassVisitor::visitSource($String* file, $String* debug) {
 }
 
 $ModuleVisitor* TraceClassVisitor::visitModule($String* name, int32_t flags, $String* version) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, modulePrinter, $nc(this->p)->visitModule(name, flags, version));
 	return $new($TraceModuleVisitor, $($ClassVisitor::visitModule(name, flags, version)), modulePrinter);
 }
@@ -137,13 +90,13 @@ void TraceClassVisitor::visitOuterClass($String* owner, $String* name, $String* 
 }
 
 $AnnotationVisitor* TraceClassVisitor::visitAnnotation($String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitClassAnnotation(descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($ClassVisitor::visitAnnotation(descriptor, visible)), annotationPrinter);
 }
 
 $AnnotationVisitor* TraceClassVisitor::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitClassTypeAnnotation(typeRef, typePath, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($ClassVisitor::visitTypeAnnotation(typeRef, typePath, descriptor, visible)), annotationPrinter);
 }
@@ -169,19 +122,19 @@ void TraceClassVisitor::visitInnerClass($String* name, $String* outerName, $Stri
 }
 
 $RecordComponentVisitor* TraceClassVisitor::visitRecordComponent($String* name, $String* descriptor, $String* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, recordComponentPrinter, $nc(this->p)->visitRecordComponent(name, descriptor, signature));
 	return $new($TraceRecordComponentVisitor, $($ClassVisitor::visitRecordComponent(name, descriptor, signature)), recordComponentPrinter);
 }
 
 $FieldVisitor* TraceClassVisitor::visitField(int32_t access, $String* name, $String* descriptor, $String* signature, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, fieldPrinter, $nc(this->p)->visitField(access, name, descriptor, signature, value));
 	return $new($TraceFieldVisitor, $($ClassVisitor::visitField(access, name, descriptor, signature, value)), fieldPrinter);
 }
 
 $MethodVisitor* TraceClassVisitor::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, methodPrinter, $nc(this->p)->visitMethod(access, name, descriptor, signature, exceptions));
 	return $new($TraceMethodVisitor, $($ClassVisitor::visitMethod(access, name, descriptor, signature, exceptions)), methodPrinter);
 }
@@ -189,8 +142,8 @@ $MethodVisitor* TraceClassVisitor::visitMethod(int32_t access, $String* name, $S
 void TraceClassVisitor::visitEnd() {
 	$nc(this->p)->visitClassEnd();
 	if (this->printWriter != nullptr) {
-		$nc(this->p)->print(this->printWriter);
-		$nc(this->printWriter)->flush();
+		this->p->print(this->printWriter);
+		this->printWriter->flush();
 	}
 	$ClassVisitor::visitEnd();
 }
@@ -199,7 +152,47 @@ TraceClassVisitor::TraceClassVisitor() {
 }
 
 $Class* TraceClassVisitor::load$($String* name, bool initialize) {
-	$loadClass(TraceClassVisitor, name, initialize, &_TraceClassVisitor_ClassInfo_, allocate$TraceClassVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"printWriter", "Ljava/io/PrintWriter;", nullptr, $PRIVATE | $FINAL, $field(TraceClassVisitor, printWriter)},
+		{"p", "Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $FINAL, $field(TraceClassVisitor, p)},
+		{}
+	};
+	$CompoundAttribute visitPermittedSubclassExperimentalmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(TraceClassVisitor, init$, void, $PrintWriter*)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(TraceClassVisitor, init$, void, $ClassVisitor*, $PrintWriter*)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(TraceClassVisitor, init$, void, $ClassVisitor*, $Printer*, $PrintWriter*)},
+		{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitAttribute, void, $Attribute*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitEnd, void)},
+		{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitField, $FieldVisitor*, int32_t, $String*, $String*, $String*, Object$*)},
+		{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
+		{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitMethod, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
+		{"visitNestHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitNestHost, void, $String*)},
+		{"visitNestMember", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitNestMember, void, $String*)},
+		{"visitOuterClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitOuterClass, void, $String*, $String*, $String*)},
+		{"visitPermittedSubclassExperimental", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TraceClassVisitor, visitPermittedSubclassExperimental, void, $String*), nullptr, nullptr, visitPermittedSubclassExperimentalmethodAnnotations$$},
+		{"visitRecordComponent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitRecordComponent, $RecordComponentVisitor*, $String*, $String*, $String*)},
+		{"visitSource", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitSource, void, $String*, $String*)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceClassVisitor, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.TraceClassVisitor",
+		"jdk.internal.org.objectweb.asm.ClassVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TraceClassVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TraceClassVisitor);
+	});
 	return class$;
 }
 

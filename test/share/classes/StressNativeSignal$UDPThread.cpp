@@ -1,5 +1,4 @@
 #include <StressNativeSignal$UDPThread.h>
-
 #include <StressNativeSignal.h>
 #include <java/io/IOException.h>
 #include <java/net/InetSocketAddress.h>
@@ -23,49 +22,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $SocketAddress = ::java::net::SocketAddress;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-
-$FieldInfo _StressNativeSignal$UDPThread_FieldInfo_[] = {
-	{"this$0", "LStressNativeSignal;", nullptr, $FINAL | $SYNTHETIC, $field(StressNativeSignal$UDPThread, this$0)},
-	{"channel", "Ljava/nio/channels/DatagramChannel;", nullptr, $PRIVATE, $field(StressNativeSignal$UDPThread, channel)},
-	{"shouldTerminate", "Z", nullptr, $PRIVATE | $VOLATILE, $field(StressNativeSignal$UDPThread, shouldTerminate)},
-	{}
-};
-
-$MethodInfo _StressNativeSignal$UDPThread_MethodInfo_[] = {
-	{"<init>", "(LStressNativeSignal;)V", nullptr, $PUBLIC, $method(StressNativeSignal$UDPThread, init$, void, $StressNativeSignal*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$UDPThread, run, void)},
-	{"terminate", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$UDPThread, terminate, void)},
-	{}
-};
-
-$InnerClassInfo _StressNativeSignal$UDPThread_InnerClassesInfo_[] = {
-	{"StressNativeSignal$UDPThread", "StressNativeSignal", "UDPThread", $PUBLIC},
-	{}
-};
-
-$ClassInfo _StressNativeSignal$UDPThread_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StressNativeSignal$UDPThread",
-	"java.lang.Thread",
-	nullptr,
-	_StressNativeSignal$UDPThread_FieldInfo_,
-	_StressNativeSignal$UDPThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StressNativeSignal$UDPThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"StressNativeSignal"
-};
-
-$Object* allocate$StressNativeSignal$UDPThread($Class* clazz) {
-	return $of($alloc(StressNativeSignal$UDPThread));
-}
 
 void StressNativeSignal$UDPThread::init$($StressNativeSignal* this$0) {
 	$set(this, this$0, this$0);
@@ -73,12 +32,12 @@ void StressNativeSignal$UDPThread::init$($StressNativeSignal* this$0) {
 }
 
 void StressNativeSignal$UDPThread::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$set(this, channel, $DatagramChannel::open());
 		$init($StandardSocketOptions);
 		$nc(this->channel)->setOption($StandardSocketOptions::SO_RCVBUF, $($Integer::valueOf(0x00640000)));
-		$nc(this->channel)->bind($$new($InetSocketAddress, 19870));
+		this->channel->bind($$new($InetSocketAddress, 19870));
 	} catch ($IOException& z) {
 		z->printStackTrace($System::err);
 	}
@@ -109,7 +68,40 @@ StressNativeSignal$UDPThread::StressNativeSignal$UDPThread() {
 }
 
 $Class* StressNativeSignal$UDPThread::load$($String* name, bool initialize) {
-	$loadClass(StressNativeSignal$UDPThread, name, initialize, &_StressNativeSignal$UDPThread_ClassInfo_, allocate$StressNativeSignal$UDPThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LStressNativeSignal;", nullptr, $FINAL | $SYNTHETIC, $field(StressNativeSignal$UDPThread, this$0)},
+		{"channel", "Ljava/nio/channels/DatagramChannel;", nullptr, $PRIVATE, $field(StressNativeSignal$UDPThread, channel)},
+		{"shouldTerminate", "Z", nullptr, $PRIVATE | $VOLATILE, $field(StressNativeSignal$UDPThread, shouldTerminate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LStressNativeSignal;)V", nullptr, $PUBLIC, $method(StressNativeSignal$UDPThread, init$, void, $StressNativeSignal*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$UDPThread, run, void)},
+		{"terminate", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$UDPThread, terminate, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StressNativeSignal$UDPThread", "StressNativeSignal", "UDPThread", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StressNativeSignal$UDPThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"StressNativeSignal"
+	};
+	$loadClass(StressNativeSignal$UDPThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StressNativeSignal$UDPThread);
+	});
 	return class$;
 }
 

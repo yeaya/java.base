@@ -1,5 +1,4 @@
 #include <sun/security/ssl/NewSessionTicket$T13NewSessionTicketMessage.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/SecureRandom.h>
 #include <java/text/MessageFormat.h>
@@ -41,63 +40,15 @@ using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $NewSessionTicket$NewSessionTicketMessage = ::sun::security::ssl::NewSessionTicket$NewSessionTicketMessage;
 using $Record = ::sun::security::ssl::Record;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
-using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _NewSessionTicket$T13NewSessionTicketMessage_FieldInfo_[] = {
-	{"ticketAgeAdd", "I", nullptr, 0, $field(NewSessionTicket$T13NewSessionTicketMessage, ticketAgeAdd)},
-	{"ticketNonce", "[B", nullptr, 0, $field(NewSessionTicket$T13NewSessionTicketMessage, ticketNonce)},
-	{"extensions", "Lsun/security/ssl/SSLExtensions;", nullptr, 0, $field(NewSessionTicket$T13NewSessionTicketMessage, extensions)},
-	{}
-};
-
-$MethodInfo _NewSessionTicket$T13NewSessionTicketMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;ILjava/security/SecureRandom;[B[B)V", nullptr, 0, $method(NewSessionTicket$T13NewSessionTicketMessage, init$, void, $HandshakeContext*, int32_t, $SecureRandom*, $bytes*, $bytes*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(NewSessionTicket$T13NewSessionTicketMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"getTicketAgeAdd", "()I", nullptr, 0, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, getTicketAgeAdd, int32_t)},
-	{"getTicketNonce", "()[B", nullptr, 0, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, getTicketNonce, $bytes*)},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _NewSessionTicket$T13NewSessionTicketMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.NewSessionTicket$T13NewSessionTicketMessage", "sun.security.ssl.NewSessionTicket", "T13NewSessionTicketMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage", "sun.security.ssl.NewSessionTicket", "NewSessionTicketMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NewSessionTicket$T13NewSessionTicketMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.NewSessionTicket$T13NewSessionTicketMessage",
-	"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage",
-	nullptr,
-	_NewSessionTicket$T13NewSessionTicketMessage_FieldInfo_,
-	_NewSessionTicket$T13NewSessionTicketMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NewSessionTicket$T13NewSessionTicketMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.NewSessionTicket"
-};
-
-$Object* allocate$NewSessionTicket$T13NewSessionTicketMessage($Class* clazz) {
-	return $of($alloc(NewSessionTicket$T13NewSessionTicketMessage));
-}
 
 void NewSessionTicket$T13NewSessionTicketMessage::init$($HandshakeContext* context, int32_t ticketLifetime, $SecureRandom* generator, $bytes* ticketNonce, $bytes* ticket) {
 	$NewSessionTicket$NewSessionTicketMessage::init$(context);
@@ -109,7 +60,7 @@ void NewSessionTicket$T13NewSessionTicketMessage::init$($HandshakeContext* conte
 }
 
 void NewSessionTicket$T13NewSessionTicketMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$NewSessionTicket$NewSessionTicketMessage::init$(context);
 	if ($nc(m)->remaining() < 14) {
 		$init($Alert);
@@ -118,7 +69,7 @@ void NewSessionTicket$T13NewSessionTicketMessage::init$($HandshakeContext* conte
 	this->ticketLifetime = $Record::getInt32(m);
 	this->ticketAgeAdd = $Record::getInt32(m);
 	$set(this, ticketNonce, $Record::getBytes8(m));
-	if ($nc(m)->remaining() < 5) {
+	if (m->remaining() < 5) {
 		$init($Alert);
 		$throw($($nc($nc(context)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Invalid NewSessionTicket message: insufficient ticket data"_s)));
 	}
@@ -129,7 +80,7 @@ void NewSessionTicket$T13NewSessionTicketMessage::init$($HandshakeContext* conte
 			$SSLLogger::fine("No ticket in the NewSessionTicket handshake message"_s, $$new($ObjectArray, 0));
 		}
 	}
-	if ($nc(m)->remaining() < 2) {
+	if (m->remaining() < 2) {
 		$init($Alert);
 		$throw($($nc($nc(context)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Invalid NewSessionTicket message: extra data"_s)));
 	}
@@ -167,21 +118,21 @@ void NewSessionTicket$T13NewSessionTicketMessage::send($HandshakeOutStream* hos)
 	if ($nc(this->extensions)->length() == 0) {
 		hos->putInt16(0);
 	} else {
-		$nc(this->extensions)->send(hos);
+		this->extensions->send(hos);
 	}
 }
 
 $String* NewSessionTicket$T13NewSessionTicketMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"NewSessionTicket\": \'{\'\n  \"ticket_lifetime\"      : \"{0}\",\n  \"ticket_age_add\"       : \"{1}\",\n  \"ticket_nonce\"         : \"{2}\",\n  \"ticket\"               : \'{\'\n{3}\n  \'}\'  \"extensions\"           : [\n{4}\n  ]\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$($of($Integer::valueOf(this->ticketLifetime))),
-		$of("<omitted>"_s),
-		$($of($Utilities::toHexString(this->ticketNonce))),
-		$($of($Utilities::indent($(hexEncoder->encode(this->ticket)), "    "_s))),
-		$($of($Utilities::indent($($nc(this->extensions)->toString()), "    "_s)))
+		$($Integer::valueOf(this->ticketLifetime)),
+		"<omitted>"_s,
+		$($Utilities::toHexString(this->ticketNonce)),
+		$($Utilities::indent($(hexEncoder->encode(this->ticket)), "    "_s)),
+		$($Utilities::indent($($nc(this->extensions)->toString()), "    "_s))
 	}));
 	return messageFormat->format(messageFields);
 }
@@ -190,7 +141,46 @@ NewSessionTicket$T13NewSessionTicketMessage::NewSessionTicket$T13NewSessionTicke
 }
 
 $Class* NewSessionTicket$T13NewSessionTicketMessage::load$($String* name, bool initialize) {
-	$loadClass(NewSessionTicket$T13NewSessionTicketMessage, name, initialize, &_NewSessionTicket$T13NewSessionTicketMessage_ClassInfo_, allocate$NewSessionTicket$T13NewSessionTicketMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"ticketAgeAdd", "I", nullptr, 0, $field(NewSessionTicket$T13NewSessionTicketMessage, ticketAgeAdd)},
+		{"ticketNonce", "[B", nullptr, 0, $field(NewSessionTicket$T13NewSessionTicketMessage, ticketNonce)},
+		{"extensions", "Lsun/security/ssl/SSLExtensions;", nullptr, 0, $field(NewSessionTicket$T13NewSessionTicketMessage, extensions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;ILjava/security/SecureRandom;[B[B)V", nullptr, 0, $method(NewSessionTicket$T13NewSessionTicketMessage, init$, void, $HandshakeContext*, int32_t, $SecureRandom*, $bytes*, $bytes*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(NewSessionTicket$T13NewSessionTicketMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"getTicketAgeAdd", "()I", nullptr, 0, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, getTicketAgeAdd, int32_t)},
+		{"getTicketNonce", "()[B", nullptr, 0, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, getTicketNonce, $bytes*)},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.NewSessionTicket$T13NewSessionTicketMessage", "sun.security.ssl.NewSessionTicket", "T13NewSessionTicketMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage", "sun.security.ssl.NewSessionTicket", "NewSessionTicketMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.NewSessionTicket$T13NewSessionTicketMessage",
+		"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.NewSessionTicket"
+	};
+	$loadClass(NewSessionTicket$T13NewSessionTicketMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewSessionTicket$T13NewSessionTicketMessage);
+	});
 	return class$;
 }
 

@@ -62,6 +62,7 @@ class Nodes : public ::java::lang::Object {
 	$class(Nodes, 0, ::java::lang::Object)
 public:
 	Nodes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::stream::Node$Builder* builder(int64_t exactSizeIfKnown, ::java::util::function::IntFunction* generator);
 	static ::java::util::stream::Node$Builder* builder();

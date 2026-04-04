@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/RecordComponentVisitor.h>
-
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
 #include <jdk/internal/org/objectweb/asm/Constants.h>
@@ -30,42 +29,12 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 
-$FieldInfo _RecordComponentVisitor_FieldInfo_[] = {
-	{"api", "I", nullptr, $PROTECTED | $FINAL, $field(RecordComponentVisitor, api)},
-	{"delegate", "Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, 0, $field(RecordComponentVisitor, delegate)},
-	{}
-};
-
-$MethodInfo _RecordComponentVisitor_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(RecordComponentVisitor, init$, void, int32_t)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/RecordComponentVisitor;)V", nullptr, $PUBLIC, $method(RecordComponentVisitor, init$, void, int32_t, RecordComponentVisitor*)},
-	{"getDelegate", "()Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, getDelegate, RecordComponentVisitor*)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitAttribute, void, $Attribute*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitEnd, void)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{}
-};
-
-$ClassInfo _RecordComponentVisitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.org.objectweb.asm.RecordComponentVisitor",
-	"java.lang.Object",
-	nullptr,
-	_RecordComponentVisitor_FieldInfo_,
-	_RecordComponentVisitor_MethodInfo_
-};
-
-$Object* allocate$RecordComponentVisitor($Class* clazz) {
-	return $of($alloc(RecordComponentVisitor));
-}
-
 void RecordComponentVisitor::init$(int32_t api) {
 	RecordComponentVisitor::init$(api, nullptr);
 }
 
 void RecordComponentVisitor::init$(int32_t api, RecordComponentVisitor* recordComponentVisitor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (api != $Opcodes::ASM8 && api != $Opcodes::ASM7 && api != $Opcodes::ASM6 && api != $Opcodes::ASM5 && api != $Opcodes::ASM4 && api != $Opcodes::ASM9_EXPERIMENTAL) {
 		$throwNew($IllegalArgumentException, $$str({"Unsupported api "_s, $$str(api)}));
 	}
@@ -82,27 +51,27 @@ RecordComponentVisitor* RecordComponentVisitor::getDelegate() {
 
 $AnnotationVisitor* RecordComponentVisitor::visitAnnotation($String* descriptor, bool visible) {
 	if (this->delegate != nullptr) {
-		return $nc(this->delegate)->visitAnnotation(descriptor, visible);
+		return this->delegate->visitAnnotation(descriptor, visible);
 	}
 	return nullptr;
 }
 
 $AnnotationVisitor* RecordComponentVisitor::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
 	if (this->delegate != nullptr) {
-		return $nc(this->delegate)->visitTypeAnnotation(typeRef, typePath, descriptor, visible);
+		return this->delegate->visitTypeAnnotation(typeRef, typePath, descriptor, visible);
 	}
 	return nullptr;
 }
 
 void RecordComponentVisitor::visitAttribute($Attribute* attribute) {
 	if (this->delegate != nullptr) {
-		$nc(this->delegate)->visitAttribute(attribute);
+		this->delegate->visitAttribute(attribute);
 	}
 }
 
 void RecordComponentVisitor::visitEnd() {
 	if (this->delegate != nullptr) {
-		$nc(this->delegate)->visitEnd();
+		this->delegate->visitEnd();
 	}
 }
 
@@ -110,7 +79,32 @@ RecordComponentVisitor::RecordComponentVisitor() {
 }
 
 $Class* RecordComponentVisitor::load$($String* name, bool initialize) {
-	$loadClass(RecordComponentVisitor, name, initialize, &_RecordComponentVisitor_ClassInfo_, allocate$RecordComponentVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"api", "I", nullptr, $PROTECTED | $FINAL, $field(RecordComponentVisitor, api)},
+		{"delegate", "Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, 0, $field(RecordComponentVisitor, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(RecordComponentVisitor, init$, void, int32_t)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/RecordComponentVisitor;)V", nullptr, $PUBLIC, $method(RecordComponentVisitor, init$, void, int32_t, RecordComponentVisitor*)},
+		{"getDelegate", "()Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, getDelegate, RecordComponentVisitor*)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitAttribute, void, $Attribute*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitEnd, void)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.org.objectweb.asm.RecordComponentVisitor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RecordComponentVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RecordComponentVisitor);
+	});
 	return class$;
 }
 

@@ -22,7 +22,10 @@ public:
 	void init$(::java::lang::Exception* cause);
 	InvokerBytecodeGenerator$BytecodeGenerationException(const InvokerBytecodeGenerator$BytecodeGenerationException& e);
 	virtual void throw$() override;
-	inline InvokerBytecodeGenerator$BytecodeGenerationException* operator ->() {
+	inline InvokerBytecodeGenerator$BytecodeGenerationException* operator ->() const {
+		return (InvokerBytecodeGenerator$BytecodeGenerationException*)throwing$;
+	}
+	inline operator InvokerBytecodeGenerator$BytecodeGenerationException*() const {
 		return (InvokerBytecodeGenerator$BytecodeGenerationException*)throwing$;
 	}
 };

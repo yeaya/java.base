@@ -18,6 +18,7 @@ namespace java {
 class $export Checksum : public ::java::lang::Object {
 	$interface(Checksum, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual int64_t getValue() {return 0;}
 	virtual void reset() {}
 	virtual void update(int32_t b) {}

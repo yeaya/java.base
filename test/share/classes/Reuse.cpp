@@ -1,5 +1,4 @@
 #include <Reuse.h>
-
 #include <java/net/BindException.h>
 #include <java/net/MulticastSocket.h>
 #include <jcpp.h>
@@ -10,30 +9,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BindException = ::java::net::BindException;
 using $MulticastSocket = ::java::net::MulticastSocket;
 
-$MethodInfo _Reuse_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Reuse, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Reuse, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Reuse_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Reuse",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Reuse_MethodInfo_
-};
-
-$Object* allocate$Reuse($Class* clazz) {
-	return $of($alloc(Reuse));
-}
-
 void Reuse::init$() {
 }
 
 void Reuse::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MulticastSocket, s1, nullptr);
 	$var($MulticastSocket, s2, nullptr);
 	try {
@@ -50,7 +30,22 @@ Reuse::Reuse() {
 }
 
 $Class* Reuse::load$($String* name, bool initialize) {
-	$loadClass(Reuse, name, initialize, &_Reuse_ClassInfo_, allocate$Reuse);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Reuse, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Reuse, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Reuse",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Reuse, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Reuse);
+	});
 	return class$;
 }
 

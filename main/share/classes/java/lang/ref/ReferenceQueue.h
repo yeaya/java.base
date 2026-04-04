@@ -34,6 +34,7 @@ class $export ReferenceQueue : public ::java::lang::Object {
 	$class(ReferenceQueue, $PRELOAD, ::java::lang::Object)
 public:
 	ReferenceQueue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool enqueue(::java::lang::ref::Reference* r);
 	virtual void forEach(::java::util::function::Consumer* action);

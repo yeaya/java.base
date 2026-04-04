@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandle$1.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/util/function/BiFunction.h>
 #include <jcpp.h>
@@ -14,44 +13,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$MethodInfo _VarHandle$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(VarHandle$1, init$, void)},
-	{"apply", "(Ljava/lang/String;)Ljava/lang/ArrayIndexOutOfBoundsException;", nullptr, $PUBLIC, $virtualMethod(VarHandle$1, apply, $ArrayIndexOutOfBoundsException*, $String*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(VarHandle$1, apply, $Object*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _VarHandle$1_EnclosingMethodInfo_ = {
-	"java.lang.invoke.VarHandle",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _VarHandle$1_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandle$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _VarHandle$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.VarHandle$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	_VarHandle$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ArrayIndexOutOfBoundsException;>;",
-	&_VarHandle$1_EnclosingMethodInfo_,
-	_VarHandle$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandle"
-};
-
-$Object* allocate$VarHandle$1($Class* clazz) {
-	return $of($alloc(VarHandle$1));
-}
-
 void VarHandle$1::init$() {
 }
 
@@ -60,14 +21,46 @@ $ArrayIndexOutOfBoundsException* VarHandle$1::apply($String* s) {
 }
 
 $Object* VarHandle$1::apply(Object$* s) {
-	return $of(this->apply($cast($String, s)));
+	return this->apply($cast($String, s));
 }
 
 VarHandle$1::VarHandle$1() {
 }
 
 $Class* VarHandle$1::load$($String* name, bool initialize) {
-	$loadClass(VarHandle$1, name, initialize, &_VarHandle$1_ClassInfo_, allocate$VarHandle$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(VarHandle$1, init$, void)},
+		{"apply", "(Ljava/lang/String;)Ljava/lang/ArrayIndexOutOfBoundsException;", nullptr, $PUBLIC, $virtualMethod(VarHandle$1, apply, $ArrayIndexOutOfBoundsException*, $String*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(VarHandle$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.invoke.VarHandle",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandle$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.VarHandle$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ArrayIndexOutOfBoundsException;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandle"
+	};
+	$loadClass(VarHandle$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandle$1);
+	});
 	return class$;
 }
 

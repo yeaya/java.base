@@ -1,5 +1,4 @@
 #include <java/util/zip/ZipFile$EntrySpliterator.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/Spliterators$AbstractSpliterator.h>
 #include <java/util/function/Consumer.h>
@@ -24,51 +23,10 @@ using $Spliterators$AbstractSpliterator = ::java::util::Spliterators$AbstractSpl
 using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
 using $ZipFile = ::java::util::zip::ZipFile;
-using $ZipFile$Source = ::java::util::zip::ZipFile$Source;
 
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _ZipFile$EntrySpliterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/zip/ZipFile;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFile$EntrySpliterator, this$0)},
-	{"index", "I", nullptr, $PRIVATE, $field(ZipFile$EntrySpliterator, index)},
-	{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(ZipFile$EntrySpliterator, fence)},
-	{"gen", "Ljava/util/function/IntFunction;", "Ljava/util/function/IntFunction<TT;>;", $PRIVATE | $FINAL, $field(ZipFile$EntrySpliterator, gen)},
-	{}
-};
-
-$MethodInfo _ZipFile$EntrySpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;IILjava/util/function/IntFunction;)V", "(IILjava/util/function/IntFunction<TT;>;)V", 0, $method(ZipFile$EntrySpliterator, init$, void, $ZipFile*, int32_t, int32_t, $IntFunction*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(ZipFile$EntrySpliterator, tryAdvance, bool, $Consumer*)},
-	{}
-};
-
-$InnerClassInfo _ZipFile$EntrySpliterator_InnerClassesInfo_[] = {
-	{"java.util.zip.ZipFile$EntrySpliterator", "java.util.zip.ZipFile", "EntrySpliterator", $PRIVATE},
-	{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ZipFile$EntrySpliterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.zip.ZipFile$EntrySpliterator",
-	"java.util.Spliterators$AbstractSpliterator",
-	nullptr,
-	_ZipFile$EntrySpliterator_FieldInfo_,
-	_ZipFile$EntrySpliterator_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/Spliterators$AbstractSpliterator<TT;>;",
-	nullptr,
-	_ZipFile$EntrySpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.zip.ZipFile"
-};
-
-$Object* allocate$ZipFile$EntrySpliterator($Class* clazz) {
-	return $of($alloc(ZipFile$EntrySpliterator));
-}
 
 void ZipFile$EntrySpliterator::init$($ZipFile* this$0, int32_t index, int32_t fence, $IntFunction* gen) {
 	$set(this, this$0, this$0);
@@ -96,7 +54,41 @@ ZipFile$EntrySpliterator::ZipFile$EntrySpliterator() {
 }
 
 $Class* ZipFile$EntrySpliterator::load$($String* name, bool initialize) {
-	$loadClass(ZipFile$EntrySpliterator, name, initialize, &_ZipFile$EntrySpliterator_ClassInfo_, allocate$ZipFile$EntrySpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/zip/ZipFile;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFile$EntrySpliterator, this$0)},
+		{"index", "I", nullptr, $PRIVATE, $field(ZipFile$EntrySpliterator, index)},
+		{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(ZipFile$EntrySpliterator, fence)},
+		{"gen", "Ljava/util/function/IntFunction;", "Ljava/util/function/IntFunction<TT;>;", $PRIVATE | $FINAL, $field(ZipFile$EntrySpliterator, gen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/zip/ZipFile;IILjava/util/function/IntFunction;)V", "(IILjava/util/function/IntFunction<TT;>;)V", 0, $method(ZipFile$EntrySpliterator, init$, void, $ZipFile*, int32_t, int32_t, $IntFunction*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(ZipFile$EntrySpliterator, tryAdvance, bool, $Consumer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.zip.ZipFile$EntrySpliterator", "java.util.zip.ZipFile", "EntrySpliterator", $PRIVATE},
+		{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.zip.ZipFile$EntrySpliterator",
+		"java.util.Spliterators$AbstractSpliterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/Spliterators$AbstractSpliterator<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.zip.ZipFile"
+	};
+	$loadClass(ZipFile$EntrySpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipFile$EntrySpliterator);
+	});
 	return class$;
 }
 

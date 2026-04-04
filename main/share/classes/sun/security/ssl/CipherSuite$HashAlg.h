@@ -22,6 +22,7 @@ class CipherSuite$HashAlg : public ::java::lang::Enum {
 public:
 	CipherSuite$HashAlg();
 	static $Array<::sun::security::ssl::CipherSuite$HashAlg>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* hashAlg, int32_t hashLength, int32_t blockSize);
 	virtual $String* toString() override;
 	static ::sun::security::ssl::CipherSuite$HashAlg* valueOf($String* name);

@@ -1,5 +1,4 @@
 #include <sun/text/RuleBasedBreakIterator.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassCastException.h>
 #include <java/nio/BufferUnderflowException.h>
@@ -44,94 +43,12 @@ using $SupplementaryCharacterData = ::sun::text::SupplementaryCharacterData;
 namespace sun {
 	namespace text {
 
-$FieldInfo _RuleBasedBreakIterator_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RuleBasedBreakIterator, $assertionsDisabled)},
-	{"IGNORE", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RuleBasedBreakIterator, IGNORE)},
-	{"START_STATE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuleBasedBreakIterator, START_STATE)},
-	{"STOP_STATE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuleBasedBreakIterator, STOP_STATE)},
-	{"LABEL", "[B", nullptr, $STATIC | $FINAL, $staticField(RuleBasedBreakIterator, LABEL)},
-	{"LABEL_LENGTH", "I", nullptr, $STATIC | $FINAL, $staticField(RuleBasedBreakIterator, LABEL_LENGTH)},
-	{"supportedVersion", "B", nullptr, $STATIC | $FINAL, $constField(RuleBasedBreakIterator, supportedVersion)},
-	{"BMP_INDICES_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuleBasedBreakIterator, BMP_INDICES_LENGTH)},
-	{"charCategoryTable", "Lsun/text/CompactByteArray;", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, charCategoryTable)},
-	{"supplementaryCharCategoryTable", "Lsun/text/SupplementaryCharacterData;", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, supplementaryCharCategoryTable)},
-	{"stateTable", "[S", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, stateTable)},
-	{"backwardsStateTable", "[S", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, backwardsStateTable)},
-	{"endStates", "[Z", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, endStates)},
-	{"lookaheadStates", "[Z", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, lookaheadStates)},
-	{"additionalData", "[B", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, additionalData)},
-	{"numCategories", "I", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, numCategories)},
-	{"text", "Ljava/text/CharacterIterator;", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, text)},
-	{"checksum", "J", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, checksum)},
-	{"cachedLastKnownBreak", "I", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, cachedLastKnownBreak)},
-	{}
-};
-
-$MethodInfo _RuleBasedBreakIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(RuleBasedBreakIterator, init$, void, $String*, $bytes*)},
-	{"checkOffset", "(ILjava/text/CharacterIterator;)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(RuleBasedBreakIterator, checkOffset, void, int32_t, $CharacterIterator*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, clone, $Object*)},
-	{"current", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, current, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, equals, bool, Object$*)},
-	{"first", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, first, int32_t)},
-	{"following", "(I)I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, following, int32_t, int32_t)},
-	{"getAdditionalData", "()[B", nullptr, 0, $virtualMethod(RuleBasedBreakIterator, getAdditionalData, $bytes*)},
-	{"getCurrent", "()I", nullptr, 0, $virtualMethod(RuleBasedBreakIterator, getCurrent, int32_t)},
-	{"getCurrentCodePointCount", "()I", nullptr, $PRIVATE, $method(RuleBasedBreakIterator, getCurrentCodePointCount, int32_t)},
-	{"getNext", "()I", nullptr, 0, $virtualMethod(RuleBasedBreakIterator, getNext, int32_t)},
-	{"getNextIndex", "()I", nullptr, $PRIVATE, $method(RuleBasedBreakIterator, getNextIndex, int32_t)},
-	{"getPrevious", "()I", nullptr, $PRIVATE, $method(RuleBasedBreakIterator, getPrevious, int32_t)},
-	{"getText", "()Ljava/text/CharacterIterator;", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, getText, $CharacterIterator*)},
-	{"handleNext", "()I", nullptr, $PROTECTED, $virtualMethod(RuleBasedBreakIterator, handleNext, int32_t)},
-	{"handlePrevious", "()I", nullptr, $PROTECTED, $virtualMethod(RuleBasedBreakIterator, handlePrevious, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, hashCode, int32_t)},
-	{"isBoundary", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, isBoundary, bool, int32_t)},
-	{"last", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, last, int32_t)},
-	{"lookupBackwardState", "(II)I", nullptr, $PROTECTED, $virtualMethod(RuleBasedBreakIterator, lookupBackwardState, int32_t, int32_t, int32_t)},
-	{"lookupCategory", "(I)I", nullptr, $PROTECTED, $virtualMethod(RuleBasedBreakIterator, lookupCategory, int32_t, int32_t)},
-	{"lookupState", "(II)I", nullptr, $PROTECTED, $virtualMethod(RuleBasedBreakIterator, lookupState, int32_t, int32_t, int32_t)},
-	{"next", "(I)I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, next, int32_t, int32_t)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, next, int32_t)},
-	{"preceding", "(I)I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, preceding, int32_t, int32_t)},
-	{"previous", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, previous, int32_t)},
-	{"setAdditionalData", "([B)V", nullptr, 0, $virtualMethod(RuleBasedBreakIterator, setAdditionalData, void, $bytes*)},
-	{"setText", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, setText, void, $CharacterIterator*)},
-	{"setupTables", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(RuleBasedBreakIterator, setupTables, void, $String*, $ByteBuffer*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, toString, $String*)},
-	{"validateRuleData", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(RuleBasedBreakIterator, validateRuleData, void, $String*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _RuleBasedBreakIterator_InnerClassesInfo_[] = {
-	{"sun.text.RuleBasedBreakIterator$SafeCharIterator", "sun.text.RuleBasedBreakIterator", "SafeCharIterator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RuleBasedBreakIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.RuleBasedBreakIterator",
-	"java.text.BreakIterator",
-	nullptr,
-	_RuleBasedBreakIterator_FieldInfo_,
-	_RuleBasedBreakIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RuleBasedBreakIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.text.RuleBasedBreakIterator$SafeCharIterator"
-};
-
-$Object* allocate$RuleBasedBreakIterator($Class* clazz) {
-	return $of($alloc(RuleBasedBreakIterator));
-}
-
 bool RuleBasedBreakIterator::$assertionsDisabled = false;
 $bytes* RuleBasedBreakIterator::LABEL = nullptr;
 int32_t RuleBasedBreakIterator::LABEL_LENGTH = 0;
 
 void RuleBasedBreakIterator::init$($String* ruleFile, $bytes* ruleData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BreakIterator::init$();
 	$set(this, charCategoryTable, nullptr);
 	$set(this, supplementaryCharCategoryTable, nullptr);
@@ -155,7 +72,7 @@ void RuleBasedBreakIterator::init$($String* ruleFile, $bytes* ruleData) {
 }
 
 void RuleBasedBreakIterator::setupTables($String* ruleFile, $ByteBuffer* bb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t stateTableLength = $nc(bb)->getInt();
 	int32_t backwardsStateTableLength = bb->getInt();
 	int32_t endStatesLength = bb->getInt();
@@ -208,9 +125,9 @@ void RuleBasedBreakIterator::setupTables($String* ruleFile, $ByteBuffer* bb) {
 }
 
 void RuleBasedBreakIterator::validateRuleData($String* ruleFile, $ByteBuffer* bb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < RuleBasedBreakIterator::LABEL_LENGTH; ++i) {
-		if ($nc(bb)->get() != $nc(RuleBasedBreakIterator::LABEL)->get(i)) {
+		if ($nc(bb)->get() != RuleBasedBreakIterator::LABEL->get(i)) {
 			$throwNew($MissingResourceException, "Wrong magic number"_s, ruleFile, ""_s);
 		}
 	}
@@ -236,9 +153,9 @@ void RuleBasedBreakIterator::setAdditionalData($bytes* b) {
 $Object* RuleBasedBreakIterator::clone() {
 	$var(RuleBasedBreakIterator, result, $cast(RuleBasedBreakIterator, $BreakIterator::clone()));
 	if (this->text != nullptr) {
-		$set($nc(result), text, $cast($CharacterIterator, $nc(this->text)->clone()));
+		$set($nc(result), text, $cast($CharacterIterator, this->text->clone()));
 	}
-	return $of(result);
+	return result;
 }
 
 bool RuleBasedBreakIterator::equals(Object$* that) {
@@ -251,9 +168,9 @@ bool RuleBasedBreakIterator::equals(Object$* that) {
 			return false;
 		}
 		if (this->text == nullptr) {
-			return $nc(other)->text == nullptr;
+			return other->text == nullptr;
 		} else {
-			return $nc($of(this->text))->equals($nc(other)->text);
+			return this->text->equals(other->text);
 		}
 	} catch ($ClassCastException& e) {
 		return false;
@@ -262,7 +179,7 @@ bool RuleBasedBreakIterator::equals(Object$* that) {
 }
 
 $String* RuleBasedBreakIterator::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"[checksum=0x"_s, $($Long::toHexString(this->checksum)), $$str(u']')});
 }
 
@@ -278,7 +195,7 @@ int32_t RuleBasedBreakIterator::first() {
 
 int32_t RuleBasedBreakIterator::last() {
 	$var($CharacterIterator, t, getText());
-	$nc(t)->setIndex(t->getEndIndex());
+	$nc(t)->setIndex($nc(t)->getEndIndex());
 	return t->getIndex();
 }
 
@@ -311,14 +228,14 @@ int32_t RuleBasedBreakIterator::previous() {
 		getPrevious();
 		lastResult = handlePrevious();
 	} else {
-		$nc(text)->setIndex(lastResult);
+		text->setIndex(lastResult);
 	}
 	int32_t result = lastResult;
 	while (result != $BreakIterator::DONE && result < start) {
 		lastResult = result;
 		result = handleNext();
 	}
-	$nc(text)->setIndex(lastResult);
+	text->setIndex(lastResult);
 	this->cachedLastKnownBreak = lastResult;
 	return lastResult;
 }
@@ -327,15 +244,15 @@ int32_t RuleBasedBreakIterator::getPrevious() {
 	char16_t c2 = $nc(this->text)->previous();
 	bool var$0 = $Character::isLowSurrogate(c2);
 	if (var$0) {
-		int32_t var$1 = $nc(this->text)->getIndex();
-		var$0 = var$1 > $nc(this->text)->getBeginIndex();
+		int32_t var$1 = this->text->getIndex();
+		var$0 = var$1 > this->text->getBeginIndex();
 	}
 	if (var$0) {
-		char16_t c1 = $nc(this->text)->previous();
+		char16_t c1 = this->text->previous();
 		if ($Character::isHighSurrogate(c1)) {
 			return $Character::toCodePoint(c1, c2);
 		} else {
-			$nc(this->text)->next();
+			this->text->next();
 		}
 	}
 	return (int32_t)c2;
@@ -345,12 +262,12 @@ int32_t RuleBasedBreakIterator::getCurrent() {
 	char16_t c1 = $nc(this->text)->current();
 	bool var$0 = $Character::isHighSurrogate(c1);
 	if (var$0) {
-		int32_t var$1 = $nc(this->text)->getIndex();
-		var$0 = var$1 < $nc(this->text)->getEndIndex();
+		int32_t var$1 = this->text->getIndex();
+		var$0 = var$1 < this->text->getEndIndex();
 	}
 	if (var$0) {
-		char16_t c2 = $nc(this->text)->next();
-		$nc(this->text)->previous();
+		char16_t c2 = this->text->next();
+		this->text->previous();
 		if ($Character::isLowSurrogate(c2)) {
 			return $Character::toCodePoint(c1, c2);
 		}
@@ -362,12 +279,12 @@ int32_t RuleBasedBreakIterator::getCurrentCodePointCount() {
 	char16_t c1 = $nc(this->text)->current();
 	bool var$0 = $Character::isHighSurrogate(c1);
 	if (var$0) {
-		int32_t var$1 = $nc(this->text)->getIndex();
-		var$0 = var$1 < $nc(this->text)->getEndIndex();
+		int32_t var$1 = this->text->getIndex();
+		var$0 = var$1 < this->text->getEndIndex();
 	}
 	if (var$0) {
-		char16_t c2 = $nc(this->text)->next();
-		$nc(this->text)->previous();
+		char16_t c2 = this->text->next();
+		this->text->previous();
 		if ($Character::isLowSurrogate(c2)) {
 			return 2;
 		}
@@ -377,18 +294,18 @@ int32_t RuleBasedBreakIterator::getCurrentCodePointCount() {
 
 int32_t RuleBasedBreakIterator::getNext() {
 	int32_t index = $nc(this->text)->getIndex();
-	int32_t endIndex = $nc(this->text)->getEndIndex();
+	int32_t endIndex = this->text->getEndIndex();
 	if (index == endIndex || (index += getCurrentCodePointCount()) >= endIndex) {
 		return $CharacterIterator::DONE;
 	}
-	$nc(this->text)->setIndex(index);
+	this->text->setIndex(index);
 	return getCurrent();
 }
 
 int32_t RuleBasedBreakIterator::getNextIndex() {
 	int32_t var$0 = $nc(this->text)->getIndex();
 	int32_t index = var$0 + getCurrentCodePointCount();
-	int32_t endIndex = $nc(this->text)->getEndIndex();
+	int32_t endIndex = this->text->getEndIndex();
 	if (index > endIndex) {
 		return endIndex;
 	} else {
@@ -399,7 +316,7 @@ int32_t RuleBasedBreakIterator::getNextIndex() {
 void RuleBasedBreakIterator::checkOffset(int32_t offset, $CharacterIterator* text) {
 	$init(RuleBasedBreakIterator);
 	bool var$0 = offset < $nc(text)->getBeginIndex();
-	if (var$0 || offset > $nc(text)->getEndIndex()) {
+	if (var$0 || offset > text->getEndIndex()) {
 		$throwNew($IllegalArgumentException, "offset out of bounds"_s);
 	}
 }
@@ -443,7 +360,7 @@ bool RuleBasedBreakIterator::isBoundary(int32_t offset) {
 }
 
 int32_t RuleBasedBreakIterator::current() {
-	return $nc($(getText()))->getIndex();
+	return $$nc(getText())->getIndex();
 }
 
 $CharacterIterator* RuleBasedBreakIterator::getText() {
@@ -498,10 +415,10 @@ int32_t RuleBasedBreakIterator::handleNext() {
 		}
 		c = getNext();
 	}
-	if (c == $CharacterIterator::DONE && lookaheadResult == $nc(text)->getEndIndex()) {
+	if (c == $CharacterIterator::DONE && lookaheadResult == text->getEndIndex()) {
 		result = lookaheadResult;
 	}
-	$nc(text)->setIndex(result);
+	text->setIndex(result);
 	return result;
 }
 
@@ -546,7 +463,7 @@ int32_t RuleBasedBreakIterator::lookupBackwardState(int32_t state, int32_t categ
 	return $nc(this->backwardsStateTable)->get(state * this->numCategories + category);
 }
 
-void clinit$RuleBasedBreakIterator($Class* class$) {
+void RuleBasedBreakIterator::clinit$($Class* clazz) {
 	RuleBasedBreakIterator::$assertionsDisabled = !RuleBasedBreakIterator::class$->desiredAssertionStatus();
 	$assignStatic(RuleBasedBreakIterator::LABEL, $new($bytes, {
 		(int8_t)u'B',
@@ -557,14 +474,90 @@ void clinit$RuleBasedBreakIterator($Class* class$) {
 		(int8_t)u'a',
 		(int8_t)u'\0'
 	}));
-	RuleBasedBreakIterator::LABEL_LENGTH = $nc(RuleBasedBreakIterator::LABEL)->length;
+	RuleBasedBreakIterator::LABEL_LENGTH = RuleBasedBreakIterator::LABEL->length;
 }
 
 RuleBasedBreakIterator::RuleBasedBreakIterator() {
 }
 
 $Class* RuleBasedBreakIterator::load$($String* name, bool initialize) {
-	$loadClass(RuleBasedBreakIterator, name, initialize, &_RuleBasedBreakIterator_ClassInfo_, clinit$RuleBasedBreakIterator, allocate$RuleBasedBreakIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RuleBasedBreakIterator, $assertionsDisabled)},
+		{"IGNORE", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RuleBasedBreakIterator, IGNORE)},
+		{"START_STATE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuleBasedBreakIterator, START_STATE)},
+		{"STOP_STATE", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuleBasedBreakIterator, STOP_STATE)},
+		{"LABEL", "[B", nullptr, $STATIC | $FINAL, $staticField(RuleBasedBreakIterator, LABEL)},
+		{"LABEL_LENGTH", "I", nullptr, $STATIC | $FINAL, $staticField(RuleBasedBreakIterator, LABEL_LENGTH)},
+		{"supportedVersion", "B", nullptr, $STATIC | $FINAL, $constField(RuleBasedBreakIterator, supportedVersion)},
+		{"BMP_INDICES_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuleBasedBreakIterator, BMP_INDICES_LENGTH)},
+		{"charCategoryTable", "Lsun/text/CompactByteArray;", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, charCategoryTable)},
+		{"supplementaryCharCategoryTable", "Lsun/text/SupplementaryCharacterData;", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, supplementaryCharCategoryTable)},
+		{"stateTable", "[S", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, stateTable)},
+		{"backwardsStateTable", "[S", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, backwardsStateTable)},
+		{"endStates", "[Z", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, endStates)},
+		{"lookaheadStates", "[Z", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, lookaheadStates)},
+		{"additionalData", "[B", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, additionalData)},
+		{"numCategories", "I", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, numCategories)},
+		{"text", "Ljava/text/CharacterIterator;", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, text)},
+		{"checksum", "J", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, checksum)},
+		{"cachedLastKnownBreak", "I", nullptr, $PRIVATE, $field(RuleBasedBreakIterator, cachedLastKnownBreak)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(RuleBasedBreakIterator, init$, void, $String*, $bytes*)},
+		{"checkOffset", "(ILjava/text/CharacterIterator;)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(RuleBasedBreakIterator, checkOffset, void, int32_t, $CharacterIterator*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, clone, $Object*)},
+		{"current", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, current, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, equals, bool, Object$*)},
+		{"first", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, first, int32_t)},
+		{"following", "(I)I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, following, int32_t, int32_t)},
+		{"getAdditionalData", "()[B", nullptr, 0, $virtualMethod(RuleBasedBreakIterator, getAdditionalData, $bytes*)},
+		{"getCurrent", "()I", nullptr, 0, $virtualMethod(RuleBasedBreakIterator, getCurrent, int32_t)},
+		{"getCurrentCodePointCount", "()I", nullptr, $PRIVATE, $method(RuleBasedBreakIterator, getCurrentCodePointCount, int32_t)},
+		{"getNext", "()I", nullptr, 0, $virtualMethod(RuleBasedBreakIterator, getNext, int32_t)},
+		{"getNextIndex", "()I", nullptr, $PRIVATE, $method(RuleBasedBreakIterator, getNextIndex, int32_t)},
+		{"getPrevious", "()I", nullptr, $PRIVATE, $method(RuleBasedBreakIterator, getPrevious, int32_t)},
+		{"getText", "()Ljava/text/CharacterIterator;", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, getText, $CharacterIterator*)},
+		{"handleNext", "()I", nullptr, $PROTECTED, $virtualMethod(RuleBasedBreakIterator, handleNext, int32_t)},
+		{"handlePrevious", "()I", nullptr, $PROTECTED, $virtualMethod(RuleBasedBreakIterator, handlePrevious, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, hashCode, int32_t)},
+		{"isBoundary", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, isBoundary, bool, int32_t)},
+		{"last", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, last, int32_t)},
+		{"lookupBackwardState", "(II)I", nullptr, $PROTECTED, $virtualMethod(RuleBasedBreakIterator, lookupBackwardState, int32_t, int32_t, int32_t)},
+		{"lookupCategory", "(I)I", nullptr, $PROTECTED, $virtualMethod(RuleBasedBreakIterator, lookupCategory, int32_t, int32_t)},
+		{"lookupState", "(II)I", nullptr, $PROTECTED, $virtualMethod(RuleBasedBreakIterator, lookupState, int32_t, int32_t, int32_t)},
+		{"next", "(I)I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, next, int32_t, int32_t)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, next, int32_t)},
+		{"preceding", "(I)I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, preceding, int32_t, int32_t)},
+		{"previous", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, previous, int32_t)},
+		{"setAdditionalData", "([B)V", nullptr, 0, $virtualMethod(RuleBasedBreakIterator, setAdditionalData, void, $bytes*)},
+		{"setText", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, setText, void, $CharacterIterator*)},
+		{"setupTables", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(RuleBasedBreakIterator, setupTables, void, $String*, $ByteBuffer*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator, toString, $String*)},
+		{"validateRuleData", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(RuleBasedBreakIterator, validateRuleData, void, $String*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.text.RuleBasedBreakIterator$SafeCharIterator", "sun.text.RuleBasedBreakIterator", "SafeCharIterator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.RuleBasedBreakIterator",
+		"java.text.BreakIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.text.RuleBasedBreakIterator$SafeCharIterator"
+	};
+	$loadClass(RuleBasedBreakIterator, name, initialize, &classInfo$$, RuleBasedBreakIterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RuleBasedBreakIterator);
+	});
 	return class$;
 }
 

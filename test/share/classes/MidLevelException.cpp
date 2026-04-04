@@ -1,28 +1,9 @@
 #include <MidLevelException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _MidLevelException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(MidLevelException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _MidLevelException_ClassInfo_ = {
-	$ACC_SUPER,
-	"MidLevelException",
-	"java.lang.Exception",
-	nullptr,
-	nullptr,
-	_MidLevelException_MethodInfo_
-};
-
-$Object* allocate$MidLevelException($Class* clazz) {
-	return $of($alloc(MidLevelException));
-}
 
 void MidLevelException::init$($Throwable* cause) {
 	$Exception::init$(cause);
@@ -39,7 +20,21 @@ void MidLevelException::throw$() {
 }
 
 $Class* MidLevelException::load$($String* name, bool initialize) {
-	$loadClass(MidLevelException, name, initialize, &_MidLevelException_ClassInfo_, allocate$MidLevelException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(MidLevelException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MidLevelException",
+		"java.lang.Exception",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MidLevelException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MidLevelException);
+	});
 	return class$;
 }
 

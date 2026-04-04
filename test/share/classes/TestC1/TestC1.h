@@ -11,6 +11,7 @@ class $export TestC1 : public ::java::lang::Object {
 	$class(TestC1, 0, ::java::lang::Object)
 public:
 	TestC1();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void testConstructor();

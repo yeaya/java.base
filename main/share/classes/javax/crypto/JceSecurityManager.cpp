@@ -1,12 +1,9 @@
 #include <javax/crypto/JceSecurityManager.h>
-
 #include <java/lang/Module.h>
 #include <java/lang/SecurityManager.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/Provider.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/util/Enumeration.h>
@@ -37,9 +34,7 @@ using $Module = ::java::lang::Module;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Enumeration = ::java::util::Enumeration;
@@ -58,50 +53,6 @@ using $ProviderVerifier = ::javax::crypto::ProviderVerifier;
 namespace javax {
 	namespace crypto {
 
-$FieldInfo _JceSecurityManager_FieldInfo_[] = {
-	{"defaultPolicy", "Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, defaultPolicy)},
-	{"exemptPolicy", "Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, exemptPolicy)},
-	{"allPerm", "Ljavax/crypto/CryptoAllPermission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, allPerm)},
-	{"TrustedCallersCache", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, TrustedCallersCache)},
-	{"exemptCache", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/net/URL;Ljavax/crypto/CryptoPermissions;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, exemptCache)},
-	{"CACHE_NULL_MARK", "Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, CACHE_NULL_MARK)},
-	{"INSTANCE", "Ljavax/crypto/JceSecurityManager;", nullptr, $STATIC | $FINAL, $staticField(JceSecurityManager, INSTANCE)},
-	{}
-};
-
-$MethodInfo _JceSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JceSecurityManager, init$, void)},
-	{"getAppPermissions", "(Ljava/net/URL;)Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE | $STATIC, $staticMethod(JceSecurityManager, getAppPermissions, $CryptoPermissions*, $URL*)},
-	{"getCryptoPermission", "(Ljava/lang/String;)Ljavax/crypto/CryptoPermission;", nullptr, 0, $method(JceSecurityManager, getCryptoPermission, $CryptoPermission*, $String*)},
-	{"getDefaultPermission", "(Ljava/lang/String;)Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(JceSecurityManager, getDefaultPermission, $CryptoPermission*, $String*)},
-	{"isCallerTrusted", "(Ljava/security/Provider;)Z", nullptr, 0, $method(JceSecurityManager, isCallerTrusted, bool, $Provider*)},
-	{}
-};
-
-$InnerClassInfo _JceSecurityManager_InnerClassesInfo_[] = {
-	{"javax.crypto.JceSecurityManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JceSecurityManager_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.crypto.JceSecurityManager",
-	"java.lang.SecurityManager",
-	nullptr,
-	_JceSecurityManager_FieldInfo_,
-	_JceSecurityManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JceSecurityManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.crypto.JceSecurityManager$1"
-};
-
-$Object* allocate$JceSecurityManager($Class* clazz) {
-	return $of($alloc(JceSecurityManager));
-}
-
 $CryptoPermissions* JceSecurityManager::defaultPolicy = nullptr;
 $CryptoPermissions* JceSecurityManager::exemptPolicy = nullptr;
 $CryptoAllPermission* JceSecurityManager::allPerm = nullptr;
@@ -115,7 +66,7 @@ void JceSecurityManager::init$() {
 }
 
 $CryptoPermission* JceSecurityManager::getCryptoPermission($String* alg$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, alg, alg$renamed);
 	$init($Locale);
 	$assign(alg, $nc(alg)->toUpperCase($Locale::ENGLISH));
@@ -133,22 +84,22 @@ $CryptoPermission* JceSecurityManager::getCryptoPermission($String* alg$renamed)
 		if (callerCodeBase != nullptr) {
 			break;
 		} else {
-			if ($nc($($nc(cls)->getName()))->startsWith("javax.crypto."_s)) {
+			if ($$nc($nc(cls)->getName())->startsWith("javax.crypto."_s)) {
 				continue;
 			}
 			return defaultPerm;
 		}
 	}
-	if (i == $nc(context)->length) {
+	if (i == context->length) {
 		return defaultPerm;
 	}
-	$var($CryptoPermissions, appPerms, $cast($CryptoPermissions, $nc(JceSecurityManager::exemptCache)->get(callerCodeBase)));
+	$var($CryptoPermissions, appPerms, $cast($CryptoPermissions, JceSecurityManager::exemptCache->get(callerCodeBase)));
 	if (appPerms == nullptr) {
-		$synchronized($of(this)->getClass()) {
-			$assign(appPerms, $cast($CryptoPermissions, $nc(JceSecurityManager::exemptCache)->get(callerCodeBase)));
+		$synchronized(this->getClass()) {
+			$assign(appPerms, $cast($CryptoPermissions, JceSecurityManager::exemptCache->get(callerCodeBase)));
 			if (appPerms == nullptr) {
 				$assign(appPerms, getAppPermissions(callerCodeBase));
-				$nc(JceSecurityManager::exemptCache)->putIfAbsent(callerCodeBase, (appPerms == nullptr ? JceSecurityManager::CACHE_NULL_MARK : appPerms));
+				JceSecurityManager::exemptCache->putIfAbsent(callerCodeBase, (appPerms == nullptr ? JceSecurityManager::CACHE_NULL_MARK : appPerms));
 			}
 		}
 	}
@@ -158,7 +109,7 @@ $CryptoPermission* JceSecurityManager::getCryptoPermission($String* alg$renamed)
 	if ($nc(appPerms)->implies(JceSecurityManager::allPerm)) {
 		return JceSecurityManager::allPerm;
 	}
-	$var($PermissionCollection, appPc, $nc(appPerms)->getPermissionCollection(alg));
+	$var($PermissionCollection, appPc, appPerms->getPermissionCollection(alg));
 	if (appPc == nullptr) {
 		return defaultPerm;
 	}
@@ -178,17 +129,15 @@ $CryptoPermission* JceSecurityManager::getCryptoPermission($String* alg$renamed)
 		$var($CryptoPermission, cp, $cast($CryptoPermission, enum_->nextElement()));
 		try {
 			$ExemptionMechanism::getInstance($($nc(cp)->getExemptionMechanism()));
-			if ($nc($($nc(cp)->getAlgorithm()))->equals($CryptoPermission::ALG_NAME_WILDCARD)) {
+			if ($$nc(cp->getAlgorithm())->equals($CryptoPermission::ALG_NAME_WILDCARD)) {
 				$var($CryptoPermission, newCp, nullptr);
 				if (cp->getCheckParam()) {
-					$var($String, var$0, alg);
-					int32_t var$1 = cp->getMaxKeySize();
-					$var($AlgorithmParameterSpec, var$2, cp->getAlgorithmParameterSpec());
-					$assign(newCp, $new($CryptoPermission, var$0, var$1, var$2, $(cp->getExemptionMechanism())));
+					int32_t var$0 = cp->getMaxKeySize();
+					$var($AlgorithmParameterSpec, var$1, cp->getAlgorithmParameterSpec());
+					$assign(newCp, $new($CryptoPermission, alg, var$0, var$1, $(cp->getExemptionMechanism())));
 				} else {
-					$var($String, var$3, alg);
-					int32_t var$4 = cp->getMaxKeySize();
-					$assign(newCp, $new($CryptoPermission, var$3, var$4, $(cp->getExemptionMechanism())));
+					int32_t var$2 = cp->getMaxKeySize();
+					$assign(newCp, $new($CryptoPermission, alg, var$2, $(cp->getExemptionMechanism())));
 				}
 				if (appPerms->implies(newCp)) {
 					return newCp;
@@ -215,13 +164,13 @@ $CryptoPermissions* JceSecurityManager::getAppPermissions($URL* callerCodeBase) 
 }
 
 $CryptoPermission* JceSecurityManager::getDefaultPermission($String* alg) {
-	$useLocalCurrentObjectStackCache();
-	$var($Enumeration, enum_, $nc($($nc(JceSecurityManager::defaultPolicy)->getPermissionCollection(alg)))->elements());
+	$useLocalObjectStack();
+	$var($Enumeration, enum_, $$nc($nc(JceSecurityManager::defaultPolicy)->getPermissionCollection(alg))->elements());
 	return $cast($CryptoPermission, $nc(enum_)->nextElement());
 }
 
 bool JceSecurityManager::isCallerTrusted($Provider* provider$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Provider, provider, provider$renamed);
 	$var($ClassArray, context, getClassContext());
 	if ($nc(context)->length >= 3) {
@@ -230,15 +179,15 @@ bool JceSecurityManager::isCallerTrusted($Provider* provider$renamed) {
 		if (callerCodeBase == nullptr) {
 			return true;
 		}
-		if ($nc(JceSecurityManager::TrustedCallersCache)->contains(caller)) {
+		if (JceSecurityManager::TrustedCallersCache->contains(caller)) {
 			return true;
 		}
 		$Class* pCls = $nc($of(provider))->getClass();
-		$var($Module, pMod, $nc(pCls)->getModule());
-		bool sameOrigin = ($nc(pMod)->isNamed() ? $nc($of($($nc(caller)->getModule())))->equals(pMod) : $nc(callerCodeBase)->equals($($JceSecurity::getCodeBase(pCls))));
+		$var($Module, pMod, pCls->getModule());
+		bool sameOrigin = ($nc(pMod)->isNamed() ? $$nc($nc(caller)->getModule())->equals(pMod) : $nc(callerCodeBase)->equals($($JceSecurity::getCodeBase(pCls))));
 		if (sameOrigin) {
 			if ($ProviderVerifier::isTrustedCryptoProvider(provider)) {
-				$nc(JceSecurityManager::TrustedCallersCache)->addElement(caller);
+				JceSecurityManager::TrustedCallersCache->addElement(caller);
 				return true;
 			}
 		} else {
@@ -249,13 +198,13 @@ bool JceSecurityManager::isCallerTrusted($Provider* provider$renamed) {
 		} catch ($Exception& e2) {
 			return false;
 		}
-		$nc(JceSecurityManager::TrustedCallersCache)->addElement(caller);
+		JceSecurityManager::TrustedCallersCache->addElement(caller);
 		return true;
 	}
 	return false;
 }
 
-void clinit$JceSecurityManager($Class* class$) {
+void JceSecurityManager::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(JceSecurityManager::TrustedCallersCache, $new($Vector, 2));
 	$assignStatic(JceSecurityManager::exemptCache, $new($ConcurrentHashMap));
@@ -265,7 +214,7 @@ void clinit$JceSecurityManager($Class* class$) {
 		$assignStatic(JceSecurityManager::exemptPolicy, $JceSecurity::getExemptPolicy());
 		$init($CryptoAllPermission);
 		$assignStatic(JceSecurityManager::allPerm, $CryptoAllPermission::INSTANCE);
-		$assignStatic(JceSecurityManager::INSTANCE, $cast(JceSecurityManager, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($JceSecurityManager$1)))));
+		$assignStatic(JceSecurityManager::INSTANCE, $cast(JceSecurityManager, $AccessController::doPrivileged($$new($JceSecurityManager$1))));
 	}
 }
 
@@ -273,7 +222,45 @@ JceSecurityManager::JceSecurityManager() {
 }
 
 $Class* JceSecurityManager::load$($String* name, bool initialize) {
-	$loadClass(JceSecurityManager, name, initialize, &_JceSecurityManager_ClassInfo_, clinit$JceSecurityManager, allocate$JceSecurityManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultPolicy", "Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, defaultPolicy)},
+		{"exemptPolicy", "Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, exemptPolicy)},
+		{"allPerm", "Ljavax/crypto/CryptoAllPermission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, allPerm)},
+		{"TrustedCallersCache", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, TrustedCallersCache)},
+		{"exemptCache", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/net/URL;Ljavax/crypto/CryptoPermissions;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, exemptCache)},
+		{"CACHE_NULL_MARK", "Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JceSecurityManager, CACHE_NULL_MARK)},
+		{"INSTANCE", "Ljavax/crypto/JceSecurityManager;", nullptr, $STATIC | $FINAL, $staticField(JceSecurityManager, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JceSecurityManager, init$, void)},
+		{"getAppPermissions", "(Ljava/net/URL;)Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE | $STATIC, $staticMethod(JceSecurityManager, getAppPermissions, $CryptoPermissions*, $URL*)},
+		{"getCryptoPermission", "(Ljava/lang/String;)Ljavax/crypto/CryptoPermission;", nullptr, 0, $method(JceSecurityManager, getCryptoPermission, $CryptoPermission*, $String*)},
+		{"getDefaultPermission", "(Ljava/lang/String;)Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(JceSecurityManager, getDefaultPermission, $CryptoPermission*, $String*)},
+		{"isCallerTrusted", "(Ljava/security/Provider;)Z", nullptr, 0, $method(JceSecurityManager, isCallerTrusted, bool, $Provider*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.crypto.JceSecurityManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.crypto.JceSecurityManager",
+		"java.lang.SecurityManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.crypto.JceSecurityManager$1"
+	};
+	$loadClass(JceSecurityManager, name, initialize, &classInfo$$, JceSecurityManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JceSecurityManager);
+	});
 	return class$;
 }
 

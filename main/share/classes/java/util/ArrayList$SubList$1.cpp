@@ -1,5 +1,4 @@
 #include <java/util/ArrayList$SubList$1.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/ArrayList$SubList.h>
@@ -27,63 +26,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 
-$FieldInfo _ArrayList$SubList$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/ArrayList$SubList;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayList$SubList$1, this$0)},
-	{"val$index", "I", nullptr, $FINAL | $SYNTHETIC, $field(ArrayList$SubList$1, val$index)},
-	{"cursor", "I", nullptr, 0, $field(ArrayList$SubList$1, cursor)},
-	{"lastRet", "I", nullptr, 0, $field(ArrayList$SubList$1, lastRet)},
-	{"expectedModCount", "I", nullptr, 0, $field(ArrayList$SubList$1, expectedModCount)},
-	{}
-};
-
-$MethodInfo _ArrayList$SubList$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayList$SubList;I)V", "()V", 0, $method(ArrayList$SubList$1, init$, void, $ArrayList$SubList*, int32_t)},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ArrayList$SubList$1, add, void, Object$*)},
-	{"checkForComodification", "()V", nullptr, $FINAL, $method(ArrayList$SubList$1, checkForComodification, void)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList$SubList$1, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, hasNext, bool)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, hasPrevious, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayList$SubList$1, next, $Object*)},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayList$SubList$1, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, previousIndex, int32_t)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, remove, void)},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ArrayList$SubList$1, set, void, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _ArrayList$SubList$1_EnclosingMethodInfo_ = {
-	"java.util.ArrayList$SubList",
-	"listIterator",
-	"(I)Ljava/util/ListIterator;"
-};
-
-$InnerClassInfo _ArrayList$SubList$1_InnerClassesInfo_[] = {
-	{"java.util.ArrayList$SubList", "java.util.ArrayList", "SubList", $PRIVATE | $STATIC},
-	{"java.util.ArrayList$SubList$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ArrayList$SubList$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ArrayList$SubList$1",
-	"java.lang.Object",
-	"java.util.ListIterator",
-	_ArrayList$SubList$1_FieldInfo_,
-	_ArrayList$SubList$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
-	&_ArrayList$SubList$1_EnclosingMethodInfo_,
-	_ArrayList$SubList$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ArrayList"
-};
-
-$Object* allocate$ArrayList$SubList$1($Class* clazz) {
-	return $of($alloc(ArrayList$SubList$1));
-}
-
 void ArrayList$SubList$1::init$($ArrayList$SubList* this$0, int32_t val$index) {
 	$set(this, this$0, this$0);
 	this->val$index = val$index;
@@ -107,7 +49,7 @@ $Object* ArrayList$SubList$1::next() {
 		$throwNew($ConcurrentModificationException);
 	}
 	this->cursor = i + 1;
-	return $of($nc(elementData)->get(this->this$0->offset + (this->lastRet = i)));
+	return elementData->get(this->this$0->offset + (this->lastRet = i));
 }
 
 bool ArrayList$SubList$1::hasPrevious() {
@@ -125,11 +67,11 @@ $Object* ArrayList$SubList$1::previous() {
 		$throwNew($ConcurrentModificationException);
 	}
 	this->cursor = i;
-	return $of($nc(elementData)->get(this->this$0->offset + (this->lastRet = i)));
+	return elementData->get(this->this$0->offset + (this->lastRet = i));
 }
 
 void ArrayList$SubList$1::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	int32_t size = this->this$0->size$;
 	int32_t i = this->cursor;
@@ -138,7 +80,7 @@ void ArrayList$SubList$1::forEachRemaining($Consumer* action) {
 		if (this->this$0->offset + i >= $nc(es)->length) {
 			$throwNew($ConcurrentModificationException);
 		}
-		for (; i < size && $nc(this->this$0->root)->modCount == this->expectedModCount; ++i) {
+		for (; i < size && this->this$0->root->modCount == this->expectedModCount; ++i) {
 			action->accept($($ArrayList::elementAt(es, this->this$0->offset + i)));
 		}
 		this->cursor = i;
@@ -205,7 +147,57 @@ ArrayList$SubList$1::ArrayList$SubList$1() {
 }
 
 $Class* ArrayList$SubList$1::load$($String* name, bool initialize) {
-	$loadClass(ArrayList$SubList$1, name, initialize, &_ArrayList$SubList$1_ClassInfo_, allocate$ArrayList$SubList$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/ArrayList$SubList;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayList$SubList$1, this$0)},
+		{"val$index", "I", nullptr, $FINAL | $SYNTHETIC, $field(ArrayList$SubList$1, val$index)},
+		{"cursor", "I", nullptr, 0, $field(ArrayList$SubList$1, cursor)},
+		{"lastRet", "I", nullptr, 0, $field(ArrayList$SubList$1, lastRet)},
+		{"expectedModCount", "I", nullptr, 0, $field(ArrayList$SubList$1, expectedModCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ArrayList$SubList;I)V", "()V", 0, $method(ArrayList$SubList$1, init$, void, $ArrayList$SubList*, int32_t)},
+		{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ArrayList$SubList$1, add, void, Object$*)},
+		{"checkForComodification", "()V", nullptr, $FINAL, $method(ArrayList$SubList$1, checkForComodification, void)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList$SubList$1, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, hasNext, bool)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, hasPrevious, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayList$SubList$1, next, $Object*)},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayList$SubList$1, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, previousIndex, int32_t)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, remove, void)},
+		{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ArrayList$SubList$1, set, void, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.ArrayList$SubList",
+		"listIterator",
+		"(I)Ljava/util/ListIterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ArrayList$SubList", "java.util.ArrayList", "SubList", $PRIVATE | $STATIC},
+		{"java.util.ArrayList$SubList$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ArrayList$SubList$1",
+		"java.lang.Object",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ArrayList"
+	};
+	$loadClass(ArrayList$SubList$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayList$SubList$1);
+	});
 	return class$;
 }
 

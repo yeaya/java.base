@@ -1,5 +1,4 @@
 #include <sun/security/util/math/intpoly/IntegerPolynomial1305.h>
-
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/math/BigInteger.h>
@@ -32,47 +31,6 @@ namespace sun {
 		namespace util {
 			namespace math {
 				namespace intpoly {
-
-$FieldInfo _IntegerPolynomial1305_FieldInfo_[] = {
-	{"SUBTRAHEND", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(IntegerPolynomial1305, SUBTRAHEND)},
-	{"NUM_LIMBS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(IntegerPolynomial1305, NUM_LIMBS)},
-	{"POWER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial1305, POWER)},
-	{"BITS_PER_LIMB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial1305, BITS_PER_LIMB)},
-	{"MODULUS", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntegerPolynomial1305, MODULUS)},
-	{"AS_LONG_LE", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntegerPolynomial1305, AS_LONG_LE)},
-	{}
-};
-
-$MethodInfo _IntegerPolynomial1305_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerPolynomial1305, init$, void)},
-	{"carryReduce", "([JJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomial1305, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryValue", "(J)J", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, carryValue, int64_t, int64_t)},
-	{"encode", "(Ljava/nio/ByteBuffer;IB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, encode, void, $ByteBuffer*, int32_t, int8_t, $longs*)},
-	{"encode", "(JJB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, encode, void, int64_t, int64_t, int8_t, $longs*)},
-	{"encode", "([BIIB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, encode, void, $bytes*, int32_t, int32_t, int8_t, $longs*)},
-	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, finalCarryReduceLast, void, $longs*)},
-	{"modReduce", "([JII)V", nullptr, $PROTECTED | $FINAL, $method(IntegerPolynomial1305, modReduce, void, $longs*, int32_t, int32_t)},
-	{"modReduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, modReduce, void, $longs*)},
-	{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, mult, void, $longs*, $longs*, $longs*)},
-	{"postEncodeCarry", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, postEncodeCarry, void, $longs*)},
-	{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, reduce, void, $longs*)},
-	{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, reduceIn, void, $longs*, int64_t, int32_t)},
-	{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, square, void, $longs*, $longs*)},
-	{}
-};
-
-$ClassInfo _IntegerPolynomial1305_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.math.intpoly.IntegerPolynomial1305",
-	"sun.security.util.math.intpoly.IntegerPolynomial",
-	nullptr,
-	_IntegerPolynomial1305_FieldInfo_,
-	_IntegerPolynomial1305_MethodInfo_
-};
-
-$Object* allocate$IntegerPolynomial1305($Class* clazz) {
-	return $of($alloc(IntegerPolynomial1305));
-}
 
 $BigInteger* IntegerPolynomial1305::MODULUS = nullptr;
 $VarHandle* IntegerPolynomial1305::AS_LONG_LE = nullptr;
@@ -109,7 +67,7 @@ void IntegerPolynomial1305::carryReduce($longs* r, int64_t c0, int64_t c1, int64
 }
 
 void IntegerPolynomial1305::square($longs* a, $longs* r) {
-	int64_t c0 = ($nc(a)->get(0) * a->get(0));
+	int64_t c0 = ($nc(a)->get(0) * $nc(a)->get(0));
 	int64_t c1 = 2 * (a->get(0) * a->get(1));
 	int64_t c2 = 2 * (a->get(0) * a->get(2)) + (a->get(1) * a->get(1));
 	int64_t c3 = 2 * (a->get(0) * a->get(3) + a->get(1) * a->get(2));
@@ -132,18 +90,18 @@ void IntegerPolynomial1305::encode($ByteBuffer* buf, int32_t length, int8_t high
 }
 
 void IntegerPolynomial1305::encode(int64_t high, int64_t low, int8_t highByte, $longs* result) {
-	$nc(result)->set(0, (int64_t)(low & (uint64_t)(int64_t)67108863));
-	result->set(1, (int64_t)(((int64_t)((uint64_t)low >> 26)) & (uint64_t)(int64_t)67108863));
-	result->set(2, ((int64_t)((uint64_t)low >> 52)) + (((int64_t)(high & (uint64_t)(int64_t)16383)) << 12));
-	result->set(3, (int64_t)(((int64_t)((uint64_t)high >> 14)) & (uint64_t)(int64_t)67108863));
-	result->set(4, ((int64_t)((uint64_t)high >> 40)) + ($sl((int32_t)highByte, 24)));
+	$nc(result)->set(0, low & (int64_t)0x03ffffff);
+	result->set(1, ((int64_t)((uint64_t)low >> 26)) & (int64_t)0x03ffffff);
+	result->set(2, ((int64_t)((uint64_t)low >> 52)) + ((high & (int64_t)0x3fff) << 12));
+	result->set(3, ((int64_t)((uint64_t)high >> 14)) & (int64_t)0x03ffffff);
+	result->set(4, ((int64_t)((uint64_t)high >> 40)) + ($sl(highByte, 24)));
 }
 
 void IntegerPolynomial1305::encode($bytes* v, int32_t offset, int32_t length, int8_t highByte, $longs* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (length == 16) {
-		int64_t low = $longValue($nc(IntegerPolynomial1305::AS_LONG_LE)->get($$new($ObjectArray, {$of(v), $$of(offset)})));
-		int64_t high = $longValue($nc(IntegerPolynomial1305::AS_LONG_LE)->get($$new($ObjectArray, {$of(v), $$of((offset + 8))})));
+		int64_t low = $longValue($nc(IntegerPolynomial1305::AS_LONG_LE)->get($$new($ObjectArray, {v, $$of(offset)})));
+		int64_t high = $longValue(IntegerPolynomial1305::AS_LONG_LE->get($$new($ObjectArray, {v, $$of(offset + 8)})));
 		encode(high, low, highByte, result);
 	} else {
 		$IntegerPolynomial::encode(v, offset, length, highByte, result);
@@ -164,7 +122,7 @@ void IntegerPolynomial1305::finalCarryReduceLast($longs* limbs) {
 void IntegerPolynomial1305::modReduce($longs* limbs, int32_t start, int32_t end) {
 	for (int32_t i = start; i < end; ++i) {
 		reduceIn(limbs, $nc(limbs)->get(i), i);
-		$nc(limbs)->set(i, 0);
+		limbs->set(i, 0);
 	}
 }
 
@@ -188,11 +146,10 @@ void IntegerPolynomial1305::reduce($longs* limbs) {
 	carry(limbs);
 }
 
-void clinit$IntegerPolynomial1305($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void IntegerPolynomial1305::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($IntegerPolynomial);
-	$assignStatic(IntegerPolynomial1305::MODULUS, $nc($($nc($IntegerPolynomial::TWO)->pow(IntegerPolynomial1305::POWER)))->subtract($($BigInteger::valueOf((int64_t)IntegerPolynomial1305::SUBTRAHEND))));
-	$load($longs);
+	$assignStatic(IntegerPolynomial1305::MODULUS, $($nc($IntegerPolynomial::TWO)->pow(IntegerPolynomial1305::POWER))->subtract($($BigInteger::valueOf(IntegerPolynomial1305::SUBTRAHEND))));
 	$init($ByteOrder);
 	$assignStatic(IntegerPolynomial1305::AS_LONG_LE, $MethodHandles::byteArrayViewVarHandle($getClass($longs), $ByteOrder::LITTLE_ENDIAN));
 }
@@ -201,7 +158,43 @@ IntegerPolynomial1305::IntegerPolynomial1305() {
 }
 
 $Class* IntegerPolynomial1305::load$($String* name, bool initialize) {
-	$loadClass(IntegerPolynomial1305, name, initialize, &_IntegerPolynomial1305_ClassInfo_, clinit$IntegerPolynomial1305, allocate$IntegerPolynomial1305);
+	$FieldInfo fieldInfos$$[] = {
+		{"SUBTRAHEND", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(IntegerPolynomial1305, SUBTRAHEND)},
+		{"NUM_LIMBS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(IntegerPolynomial1305, NUM_LIMBS)},
+		{"POWER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial1305, POWER)},
+		{"BITS_PER_LIMB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial1305, BITS_PER_LIMB)},
+		{"MODULUS", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntegerPolynomial1305, MODULUS)},
+		{"AS_LONG_LE", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntegerPolynomial1305, AS_LONG_LE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerPolynomial1305, init$, void)},
+		{"carryReduce", "([JJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomial1305, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryValue", "(J)J", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, carryValue, int64_t, int64_t)},
+		{"encode", "(Ljava/nio/ByteBuffer;IB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, encode, void, $ByteBuffer*, int32_t, int8_t, $longs*)},
+		{"encode", "(JJB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, encode, void, int64_t, int64_t, int8_t, $longs*)},
+		{"encode", "([BIIB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, encode, void, $bytes*, int32_t, int32_t, int8_t, $longs*)},
+		{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, finalCarryReduceLast, void, $longs*)},
+		{"modReduce", "([JII)V", nullptr, $PROTECTED | $FINAL, $method(IntegerPolynomial1305, modReduce, void, $longs*, int32_t, int32_t)},
+		{"modReduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, modReduce, void, $longs*)},
+		{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, mult, void, $longs*, $longs*, $longs*)},
+		{"postEncodeCarry", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, postEncodeCarry, void, $longs*)},
+		{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, reduce, void, $longs*)},
+		{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, reduceIn, void, $longs*, int64_t, int32_t)},
+		{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, square, void, $longs*, $longs*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.math.intpoly.IntegerPolynomial1305",
+		"sun.security.util.math.intpoly.IntegerPolynomial",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntegerPolynomial1305, name, initialize, &classInfo$$, IntegerPolynomial1305::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerPolynomial1305);
+	});
 	return class$;
 }
 

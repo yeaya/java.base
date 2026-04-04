@@ -1,5 +1,4 @@
 #include <sun/security/ssl/Authenticator$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <sun/security/ssl/Authenticator.h>
 #include <sun/security/ssl/CipherSuite$MacAlg.h>
@@ -21,61 +20,25 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _Authenticator$1_FieldInfo_[] = {
-	{"$SwitchMap$sun$security$ssl$CipherSuite$MacAlg", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Authenticator$1, $SwitchMap$sun$security$ssl$CipherSuite$MacAlg)},
-	{}
-};
-
-$EnclosingMethodInfo _Authenticator$1_EnclosingMethodInfo_ = {
-	"sun.security.ssl.Authenticator",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Authenticator$1_InnerClassesInfo_[] = {
-	{"sun.security.ssl.Authenticator$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Authenticator$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"sun.security.ssl.Authenticator$1",
-	"java.lang.Object",
-	nullptr,
-	_Authenticator$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Authenticator$1_EnclosingMethodInfo_,
-	_Authenticator$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.Authenticator"
-};
-
-$Object* allocate$Authenticator$1($Class* clazz) {
-	return $of($alloc(Authenticator$1));
-}
-
 $ints* Authenticator$1::$SwitchMap$sun$security$ssl$CipherSuite$MacAlg = nullptr;
 
-void clinit$Authenticator$1($Class* class$) {
+void Authenticator$1::clinit$($Class* clazz) {
 	$assignStatic(Authenticator$1::$SwitchMap$sun$security$ssl$CipherSuite$MacAlg, $new($ints, $($CipherSuite$MacAlg::values())->length));
 	{
 		try {
-			$nc(Authenticator$1::$SwitchMap$sun$security$ssl$CipherSuite$MacAlg)->set($CipherSuite$MacAlg::M_MD5->ordinal(), 1);
+			Authenticator$1::$SwitchMap$sun$security$ssl$CipherSuite$MacAlg->set($CipherSuite$MacAlg::M_MD5->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Authenticator$1::$SwitchMap$sun$security$ssl$CipherSuite$MacAlg)->set($CipherSuite$MacAlg::M_SHA->ordinal(), 2);
+			Authenticator$1::$SwitchMap$sun$security$ssl$CipherSuite$MacAlg->set($CipherSuite$MacAlg::M_SHA->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Authenticator$1::$SwitchMap$sun$security$ssl$CipherSuite$MacAlg)->set($CipherSuite$MacAlg::M_SHA256->ordinal(), 3);
+			Authenticator$1::$SwitchMap$sun$security$ssl$CipherSuite$MacAlg->set($CipherSuite$MacAlg::M_SHA256->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Authenticator$1::$SwitchMap$sun$security$ssl$CipherSuite$MacAlg)->set($CipherSuite$MacAlg::M_SHA384->ordinal(), 4);
+			Authenticator$1::$SwitchMap$sun$security$ssl$CipherSuite$MacAlg->set($CipherSuite$MacAlg::M_SHA384->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -85,7 +48,37 @@ Authenticator$1::Authenticator$1() {
 }
 
 $Class* Authenticator$1::load$($String* name, bool initialize) {
-	$loadClass(Authenticator$1, name, initialize, &_Authenticator$1_ClassInfo_, clinit$Authenticator$1, allocate$Authenticator$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$security$ssl$CipherSuite$MacAlg", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Authenticator$1, $SwitchMap$sun$security$ssl$CipherSuite$MacAlg)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.ssl.Authenticator",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.Authenticator$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"sun.security.ssl.Authenticator$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.Authenticator"
+	};
+	$loadClass(Authenticator$1, name, initialize, &classInfo$$, Authenticator$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Authenticator$1);
+	});
 	return class$;
 }
 

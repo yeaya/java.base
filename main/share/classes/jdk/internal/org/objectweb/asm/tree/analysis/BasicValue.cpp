@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/BasicValue.h>
-
 #include <jdk/internal/org/objectweb/asm/Type.h>
 #include <jcpp.h>
 
@@ -31,42 +30,6 @@ namespace jdk {
 					namespace tree {
 						namespace analysis {
 
-$FieldInfo _BasicValue_FieldInfo_[] = {
-	{"UNINITIALIZED_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, UNINITIALIZED_VALUE)},
-	{"INT_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, INT_VALUE)},
-	{"FLOAT_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, FLOAT_VALUE)},
-	{"LONG_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, LONG_VALUE)},
-	{"DOUBLE_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, DOUBLE_VALUE)},
-	{"REFERENCE_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, REFERENCE_VALUE)},
-	{"RETURNADDRESS_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, RETURNADDRESS_VALUE)},
-	{"type", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $FINAL, $field(BasicValue, type)},
-	{}
-};
-
-$MethodInfo _BasicValue_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $method(BasicValue, init$, void, $Type*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicValue, equals, bool, Object$*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(BasicValue, getSize, int32_t)},
-	{"getType", "()Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(BasicValue, getType, $Type*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicValue, hashCode, int32_t)},
-	{"isReference", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicValue, isReference, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicValue, toString, $String*)},
-	{}
-};
-
-$ClassInfo _BasicValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.analysis.BasicValue",
-	"java.lang.Object",
-	"jdk.internal.org.objectweb.asm.tree.analysis.Value",
-	_BasicValue_FieldInfo_,
-	_BasicValue_MethodInfo_
-};
-
-$Object* allocate$BasicValue($Class* clazz) {
-	return $of($alloc(BasicValue));
-}
-
 BasicValue* BasicValue::UNINITIALIZED_VALUE = nullptr;
 BasicValue* BasicValue::INT_VALUE = nullptr;
 BasicValue* BasicValue::FLOAT_VALUE = nullptr;
@@ -91,8 +54,8 @@ int32_t BasicValue::getSize() {
 bool BasicValue::isReference() {
 	bool var$0 = this->type != nullptr;
 	if (var$0) {
-		bool var$1 = $nc(this->type)->getSort() == $Type::OBJECT;
-		var$0 = (var$1 || $nc(this->type)->getSort() == $Type::ARRAY);
+		bool var$1 = this->type->getSort() == $Type::OBJECT;
+		var$0 = var$1 || this->type->getSort() == $Type::ARRAY;
 	}
 	return var$0;
 }
@@ -102,9 +65,9 @@ bool BasicValue::equals(Object$* value) {
 		return true;
 	} else if ($instanceOf(BasicValue, value)) {
 		if (this->type == nullptr) {
-			return $nc(($cast(BasicValue, value)))->type == nullptr;
+			return $cast(BasicValue, value)->type == nullptr;
 		} else {
-			return $nc(this->type)->equals($nc(($cast(BasicValue, value)))->type);
+			return this->type->equals($cast(BasicValue, value)->type);
 		}
 	} else {
 		return false;
@@ -112,7 +75,7 @@ bool BasicValue::equals(Object$* value) {
 }
 
 int32_t BasicValue::hashCode() {
-	return this->type == nullptr ? 0 : $nc(this->type)->hashCode();
+	return this->type == nullptr ? 0 : this->type->hashCode();
 }
 
 $String* BasicValue::toString() {
@@ -127,7 +90,7 @@ $String* BasicValue::toString() {
 	}
 }
 
-void clinit$BasicValue($Class* class$) {
+void BasicValue::clinit$($Class* clazz) {
 	$assignStatic(BasicValue::UNINITIALIZED_VALUE, $new(BasicValue, nullptr));
 	$init($Type);
 	$assignStatic(BasicValue::INT_VALUE, $new(BasicValue, $Type::INT_TYPE));
@@ -142,7 +105,38 @@ BasicValue::BasicValue() {
 }
 
 $Class* BasicValue::load$($String* name, bool initialize) {
-	$loadClass(BasicValue, name, initialize, &_BasicValue_ClassInfo_, clinit$BasicValue, allocate$BasicValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNINITIALIZED_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, UNINITIALIZED_VALUE)},
+		{"INT_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, INT_VALUE)},
+		{"FLOAT_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, FLOAT_VALUE)},
+		{"LONG_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, LONG_VALUE)},
+		{"DOUBLE_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, DOUBLE_VALUE)},
+		{"REFERENCE_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, REFERENCE_VALUE)},
+		{"RETURNADDRESS_VALUE", "Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicValue, RETURNADDRESS_VALUE)},
+		{"type", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $FINAL, $field(BasicValue, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $method(BasicValue, init$, void, $Type*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicValue, equals, bool, Object$*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(BasicValue, getSize, int32_t)},
+		{"getType", "()Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(BasicValue, getType, $Type*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicValue, hashCode, int32_t)},
+		{"isReference", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicValue, isReference, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicValue, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.analysis.BasicValue",
+		"java.lang.Object",
+		"jdk.internal.org.objectweb.asm.tree.analysis.Value",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicValue, name, initialize, &classInfo$$, BasicValue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicValue);
+	});
 	return class$;
 }
 

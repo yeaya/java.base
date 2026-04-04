@@ -1,5 +1,4 @@
 #include <EmptyPath.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileNotFoundException.h>
@@ -14,30 +13,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _EmptyPath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyPath, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmptyPath, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _EmptyPath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"EmptyPath",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_EmptyPath_MethodInfo_
-};
-
-$Object* allocate$EmptyPath($Class* clazz) {
-	return $of($alloc(EmptyPath));
-}
-
 void EmptyPath::init$() {
 }
 
 void EmptyPath::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $new($File, ""_s));
 	f->mkdir();
 	try {
@@ -57,7 +37,22 @@ EmptyPath::EmptyPath() {
 }
 
 $Class* EmptyPath::load$($String* name, bool initialize) {
-	$loadClass(EmptyPath, name, initialize, &_EmptyPath_ClassInfo_, allocate$EmptyPath);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyPath, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmptyPath, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"EmptyPath",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EmptyPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EmptyPath);
+	});
 	return class$;
 }
 

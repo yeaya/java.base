@@ -1,5 +1,4 @@
 #include <sun/security/provider/DigestBase.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
 #include <java/security/DigestException.h>
@@ -24,58 +23,6 @@ using $Objects = ::java::util::Objects;
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$CompoundAttribute _DigestBase_MethodAnnotations_implCompressMultiBlock010[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _DigestBase_FieldInfo_[] = {
-	{"oneByte", "[B", nullptr, $PRIVATE, $field(DigestBase, oneByte)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DigestBase, algorithm)},
-	{"digestLength", "I", nullptr, $PRIVATE | $FINAL, $field(DigestBase, digestLength)},
-	{"blockSize", "I", nullptr, $PRIVATE | $FINAL, $field(DigestBase, blockSize)},
-	{"buffer", "[B", nullptr, 0, $field(DigestBase, buffer)},
-	{"bufOfs", "I", nullptr, $PRIVATE, $field(DigestBase, bufOfs)},
-	{"bytesProcessed", "J", nullptr, 0, $field(DigestBase, bytesProcessed)},
-	{"padding", "[B", nullptr, $STATIC | $FINAL, $staticField(DigestBase, padding)},
-	{}
-};
-
-$MethodInfo _DigestBase_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(DigestBase, init$, void, $String*, int32_t, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DigestBase, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"engineDigest", "()[B", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineDigest, $bytes*)},
-	{"engineDigest", "([BII)I", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineDigest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
-	{"engineGetDigestLength", "()I", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineGetDigestLength, int32_t)},
-	{"engineReset", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineReset, void)},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineUpdate, void, int8_t)},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineUpdate, void, $bytes*, int32_t, int32_t)},
-	{"implCompress", "([BI)V", nullptr, $ABSTRACT, $virtualMethod(DigestBase, implCompress, void, $bytes*, int32_t)},
-	{"implCompressMultiBlock", "([BII)I", nullptr, $PRIVATE, $method(DigestBase, implCompressMultiBlock, int32_t, $bytes*, int32_t, int32_t)},
-	{"implCompressMultiBlock0", "([BII)I", nullptr, $PRIVATE, $method(DigestBase, implCompressMultiBlock0, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _DigestBase_MethodAnnotations_implCompressMultiBlock010},
-	{"implCompressMultiBlockCheck", "([BII)V", nullptr, $PRIVATE, $method(DigestBase, implCompressMultiBlockCheck, void, $bytes*, int32_t, int32_t)},
-	{"implDigest", "([BI)V", nullptr, $ABSTRACT, $virtualMethod(DigestBase, implDigest, void, $bytes*, int32_t)},
-	{"implReset", "()V", nullptr, $ABSTRACT, $virtualMethod(DigestBase, implReset, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DigestBase_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.provider.DigestBase",
-	"java.security.MessageDigestSpi",
-	"java.lang.Cloneable",
-	_DigestBase_FieldInfo_,
-	_DigestBase_MethodInfo_
-};
-
-$Object* allocate$DigestBase($Class* clazz) {
-	return $of($alloc(DigestBase));
-}
 
 int32_t DigestBase::hashCode() {
 	 return this->$MessageDigestSpi::hashCode();
@@ -185,18 +132,18 @@ void DigestBase::engineReset() {
 }
 
 $bytes* DigestBase::engineDigest() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, b, $new($bytes, this->digestLength));
 	try {
 		engineDigest(b, 0, b->length);
 	} catch ($DigestException& e) {
-		$throw($cast($ProviderException, $($$new($ProviderException, "Internal error"_s)->initCause(e))));
+		$throw($$cast($ProviderException, $$new($ProviderException, "Internal error"_s)->initCause(e)));
 	}
 	return b;
 }
 
 int32_t DigestBase::engineDigest($bytes* out, int32_t ofs, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len < this->digestLength) {
 		$throwNew($DigestException, $$str({"Length must be at least "_s, $$str(this->digestLength), " for "_s, this->algorithm, "digests"_s}));
 	}
@@ -213,15 +160,15 @@ int32_t DigestBase::engineDigest($bytes* out, int32_t ofs, int32_t len) {
 
 $Object* DigestBase::clone() {
 	$var(DigestBase, copy, $cast(DigestBase, $MessageDigestSpi::clone()));
-	$set($nc(copy), buffer, $cast($bytes, $nc(copy->buffer)->clone()));
+	$set($nc(copy), buffer, $cast($bytes, $nc($nc(copy)->buffer)->clone()));
 	$set(copy, oneByte, nullptr);
 	return $of(copy);
 }
 
-void clinit$DigestBase($Class* class$) {
+void DigestBase::clinit$($Class* clazz) {
 	{
 		$assignStatic(DigestBase::padding, $new($bytes, 136));
-		$nc(DigestBase::padding)->set(0, (int8_t)128);
+		DigestBase::padding->set(0, (int8_t)128);
 	}
 }
 
@@ -229,7 +176,53 @@ DigestBase::DigestBase() {
 }
 
 $Class* DigestBase::load$($String* name, bool initialize) {
-	$loadClass(DigestBase, name, initialize, &_DigestBase_ClassInfo_, clinit$DigestBase, allocate$DigestBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"oneByte", "[B", nullptr, $PRIVATE, $field(DigestBase, oneByte)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DigestBase, algorithm)},
+		{"digestLength", "I", nullptr, $PRIVATE | $FINAL, $field(DigestBase, digestLength)},
+		{"blockSize", "I", nullptr, $PRIVATE | $FINAL, $field(DigestBase, blockSize)},
+		{"buffer", "[B", nullptr, 0, $field(DigestBase, buffer)},
+		{"bufOfs", "I", nullptr, $PRIVATE, $field(DigestBase, bufOfs)},
+		{"bytesProcessed", "J", nullptr, 0, $field(DigestBase, bytesProcessed)},
+		{"padding", "[B", nullptr, $STATIC | $FINAL, $staticField(DigestBase, padding)},
+		{}
+	};
+	$CompoundAttribute implCompressMultiBlock0methodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(DigestBase, init$, void, $String*, int32_t, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DigestBase, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"engineDigest", "()[B", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineDigest, $bytes*)},
+		{"engineDigest", "([BII)I", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineDigest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
+		{"engineGetDigestLength", "()I", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineGetDigestLength, int32_t)},
+		{"engineReset", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineReset, void)},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineUpdate, void, int8_t)},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(DigestBase, engineUpdate, void, $bytes*, int32_t, int32_t)},
+		{"implCompress", "([BI)V", nullptr, $ABSTRACT, $virtualMethod(DigestBase, implCompress, void, $bytes*, int32_t)},
+		{"implCompressMultiBlock", "([BII)I", nullptr, $PRIVATE, $method(DigestBase, implCompressMultiBlock, int32_t, $bytes*, int32_t, int32_t)},
+		{"implCompressMultiBlock0", "([BII)I", nullptr, $PRIVATE, $method(DigestBase, implCompressMultiBlock0, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, implCompressMultiBlock0methodAnnotations$$},
+		{"implCompressMultiBlockCheck", "([BII)V", nullptr, $PRIVATE, $method(DigestBase, implCompressMultiBlockCheck, void, $bytes*, int32_t, int32_t)},
+		{"implDigest", "([BI)V", nullptr, $ABSTRACT, $virtualMethod(DigestBase, implDigest, void, $bytes*, int32_t)},
+		{"implReset", "()V", nullptr, $ABSTRACT, $virtualMethod(DigestBase, implReset, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.provider.DigestBase",
+		"java.security.MessageDigestSpi",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DigestBase, name, initialize, &classInfo$$, DigestBase::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DigestBase));
+	});
 	return class$;
 }
 

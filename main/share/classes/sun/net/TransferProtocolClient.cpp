@@ -1,16 +1,11 @@
 #include <sun/net/TransferProtocolClient.h>
-
 #include <java/io/InputStream.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/util/Vector.h>
 #include <sun/net/NetworkClient.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
@@ -23,38 +18,8 @@ using $NetworkClient = ::sun::net::NetworkClient;
 namespace sun {
 	namespace net {
 
-$FieldInfo _TransferProtocolClient_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $STATIC | $FINAL, $constField(TransferProtocolClient, debug)},
-	{"serverResponse", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PROTECTED, $field(TransferProtocolClient, serverResponse)},
-	{"lastReplyCode", "I", nullptr, $PROTECTED, $field(TransferProtocolClient, lastReplyCode)},
-	{}
-};
-
-$MethodInfo _TransferProtocolClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(TransferProtocolClient, init$, void, $String*, int32_t), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransferProtocolClient, init$, void)},
-	{"getResponseString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TransferProtocolClient, getResponseString, $String*)},
-	{"getResponseStrings", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(TransferProtocolClient, getResponseStrings, $Vector*)},
-	{"readServerResponse", "()I", nullptr, $PUBLIC, $virtualMethod(TransferProtocolClient, readServerResponse, int32_t), "java.io.IOException"},
-	{"sendServer", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransferProtocolClient, sendServer, void, $String*)},
-	{}
-};
-
-$ClassInfo _TransferProtocolClient_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.TransferProtocolClient",
-	"sun.net.NetworkClient",
-	nullptr,
-	_TransferProtocolClient_FieldInfo_,
-	_TransferProtocolClient_MethodInfo_
-};
-
-$Object* allocate$TransferProtocolClient($Class* clazz) {
-	return $of($alloc(TransferProtocolClient));
-}
-
 int32_t TransferProtocolClient::readServerResponse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, replyBuf, $new($StringBuilder, 32));
 	int32_t c = 0;
 	int32_t continuingCode = -1;
@@ -64,7 +29,7 @@ int32_t TransferProtocolClient::readServerResponse() {
 	while (true) {
 		while ((c = $nc(this->serverInput)->read()) != -1) {
 			if (c == u'\r') {
-				if ((c = $nc(this->serverInput)->read()) != u'\n') {
+				if ((c = this->serverInput->read()) != u'\n') {
 					replyBuf->append(u'\r');
 				}
 			}
@@ -75,7 +40,8 @@ int32_t TransferProtocolClient::readServerResponse() {
 		}
 		$assign(response, replyBuf->toString());
 		replyBuf->setLength(0);
-		if ($nc(response)->isEmpty()) {
+		;
+		if (response->isEmpty()) {
 			code = -1;
 		} else {
 			try {
@@ -86,12 +52,12 @@ int32_t TransferProtocolClient::readServerResponse() {
 				continue;
 			}
 		}
-		$nc(this->serverResponse)->addElement(response);
+		this->serverResponse->addElement(response);
 		if (continuingCode != -1) {
 			bool var$0 = code != continuingCode;
 			if (!var$0) {
-				bool var$1 = $nc(response)->length() >= 4;
-				var$0 = (var$1 && response->charAt(3) == u'-');
+				bool var$1 = response->length() >= 4;
+				var$0 = var$1 && response->charAt(3) == u'-';
 			}
 			if (var$0) {
 				continue;
@@ -100,8 +66,8 @@ int32_t TransferProtocolClient::readServerResponse() {
 				break;
 			}
 		} else {
-			bool var$3 = $nc(response)->length() >= 4;
-			if (var$3 && response->charAt(3) == u'-') {
+			bool var$2 = response->length() >= 4;
+			if (var$2 && response->charAt(3) == u'-') {
 				continuingCode = code;
 				continue;
 			} else {
@@ -114,6 +80,7 @@ int32_t TransferProtocolClient::readServerResponse() {
 
 void TransferProtocolClient::sendServer($String* cmd) {
 	$nc(this->serverOutput)->print(cmd);
+	;
 }
 
 $String* TransferProtocolClient::getResponseString() {
@@ -138,7 +105,32 @@ TransferProtocolClient::TransferProtocolClient() {
 }
 
 $Class* TransferProtocolClient::load$($String* name, bool initialize) {
-	$loadClass(TransferProtocolClient, name, initialize, &_TransferProtocolClient_ClassInfo_, allocate$TransferProtocolClient);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $STATIC | $FINAL, $constField(TransferProtocolClient, debug)},
+		{"serverResponse", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PROTECTED, $field(TransferProtocolClient, serverResponse)},
+		{"lastReplyCode", "I", nullptr, $PROTECTED, $field(TransferProtocolClient, lastReplyCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(TransferProtocolClient, init$, void, $String*, int32_t), "java.io.IOException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransferProtocolClient, init$, void)},
+		{"getResponseString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TransferProtocolClient, getResponseString, $String*)},
+		{"getResponseStrings", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(TransferProtocolClient, getResponseStrings, $Vector*)},
+		{"readServerResponse", "()I", nullptr, $PUBLIC, $virtualMethod(TransferProtocolClient, readServerResponse, int32_t), "java.io.IOException"},
+		{"sendServer", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransferProtocolClient, sendServer, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.TransferProtocolClient",
+		"sun.net.NetworkClient",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TransferProtocolClient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransferProtocolClient);
+	});
 	return class$;
 }
 

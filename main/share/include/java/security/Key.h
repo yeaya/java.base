@@ -15,7 +15,7 @@ public:
 	virtual $String* getAlgorithm() {return nullptr;}
 	virtual $bytes* getEncoded() {return nullptr;}
 	virtual $String* getFormat() {return nullptr;}
-	static const int64_t serialVersionUID = (int64_t)0x5BA3EEE69414EEA6;
+	static const int64_t serialVersionUID = (int64_t)0x5ba3eee69414eea6;
 };
 
 	} // security

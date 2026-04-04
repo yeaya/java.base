@@ -14,10 +14,13 @@ public:
 	AEADBadTagException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xF93A10D72DEE19FB;
+	static const int64_t serialVersionUID = (int64_t)0xf93a10d72dee19fb;
 	AEADBadTagException(const AEADBadTagException& e);
 	virtual void throw$() override;
-	inline AEADBadTagException* operator ->() {
+	inline AEADBadTagException* operator ->() const {
+		return (AEADBadTagException*)throwing$;
+	}
+	inline operator AEADBadTagException*() const {
 		return (AEADBadTagException*)throwing$;
 	}
 };

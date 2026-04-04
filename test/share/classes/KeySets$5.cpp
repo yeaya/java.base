@@ -1,5 +1,4 @@
 #include <KeySets$5.h>
-
 #include <KeySets$Adder.h>
 #include <KeySets$Catch.h>
 #include <KeySets.h>
@@ -14,51 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Set = ::java::util::Set;
-
-$FieldInfo _KeySets$5_FieldInfo_[] = {
-	{"val$s", "Ljava/util/Set;", nullptr, $FINAL | $SYNTHETIC, $field(KeySets$5, val$s)},
-	{"val$adder", "LKeySets$Adder;", nullptr, $FINAL | $SYNTHETIC, $field(KeySets$5, val$adder)},
-	{}
-};
-
-$MethodInfo _KeySets$5_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;LKeySets$Adder;Ljava/util/Set;)V", nullptr, 0, $method(KeySets$5, init$, void, $Class*, $KeySets$Adder*, $Set*), "java.lang.Exception"},
-	{"go", "()V", nullptr, 0, $virtualMethod(KeySets$5, go, void), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _KeySets$5_EnclosingMethodInfo_ = {
-	"KeySets",
-	"testNoRemoval",
-	"(Ljava/util/Set;LKeySets$Adder;)V"
-};
-
-$InnerClassInfo _KeySets$5_InnerClassesInfo_[] = {
-	{"KeySets$5", nullptr, nullptr, 0},
-	{"KeySets$Catch", "KeySets", "Catch", $STATIC | $ABSTRACT},
-	{"KeySets$Adder", "KeySets", "Adder", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeySets$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"KeySets$5",
-	"KeySets$Catch",
-	nullptr,
-	_KeySets$5_FieldInfo_,
-	_KeySets$5_MethodInfo_,
-	nullptr,
-	&_KeySets$5_EnclosingMethodInfo_,
-	_KeySets$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"KeySets"
-};
-
-$Object* allocate$KeySets$5($Class* clazz) {
-	return $of($alloc(KeySets$5));
-}
 
 void KeySets$5::init$($Class* xc, $KeySets$Adder* val$adder, $Set* val$s) {
 	$set(this, val$adder, val$adder);
@@ -75,7 +29,45 @@ KeySets$5::KeySets$5() {
 }
 
 $Class* KeySets$5::load$($String* name, bool initialize) {
-	$loadClass(KeySets$5, name, initialize, &_KeySets$5_ClassInfo_, allocate$KeySets$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$s", "Ljava/util/Set;", nullptr, $FINAL | $SYNTHETIC, $field(KeySets$5, val$s)},
+		{"val$adder", "LKeySets$Adder;", nullptr, $FINAL | $SYNTHETIC, $field(KeySets$5, val$adder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;LKeySets$Adder;Ljava/util/Set;)V", nullptr, 0, $method(KeySets$5, init$, void, $Class*, $KeySets$Adder*, $Set*), "java.lang.Exception"},
+		{"go", "()V", nullptr, 0, $virtualMethod(KeySets$5, go, void), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"KeySets",
+		"testNoRemoval",
+		"(Ljava/util/Set;LKeySets$Adder;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"KeySets$5", nullptr, nullptr, 0},
+		{"KeySets$Catch", "KeySets", "Catch", $STATIC | $ABSTRACT},
+		{"KeySets$Adder", "KeySets", "Adder", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"KeySets$5",
+		"KeySets$Catch",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"KeySets"
+	};
+	$loadClass(KeySets$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeySets$5);
+	});
 	return class$;
 }
 

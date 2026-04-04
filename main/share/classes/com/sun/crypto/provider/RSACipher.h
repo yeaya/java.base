@@ -62,6 +62,7 @@ public:
 	RSACipher();
 	using ::javax::crypto::CipherSpi::engineUpdate;
 	using ::javax::crypto::CipherSpi::engineDoFinal;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$bytes* doFinal();
 	virtual $bytes* engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) override;

@@ -1,5 +1,4 @@
 #include <sun/util/logging/PlatformLogger.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Module.h>
 #include <java/lang/System$Logger$Level.h>
@@ -46,95 +45,22 @@ namespace sun {
 	namespace util {
 		namespace logging {
 
-$CompoundAttribute _PlatformLogger_MethodAnnotations_setLevel21[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _PlatformLogger_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PlatformLogger, $assertionsDisabled)},
-	{"loggers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/ref/WeakReference<Lsun/util/logging/PlatformLogger;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(PlatformLogger, loggers)},
-	{"loggerProxy", "Lsun/util/logging/PlatformLogger$Bridge;", nullptr, $PRIVATE | $FINAL, $field(PlatformLogger, loggerProxy)},
-	{"spi2platformLevelMapping", "[Lsun/util/logging/PlatformLogger$Level;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PlatformLogger, spi2platformLevelMapping)},
-	{}
-};
-
-$MethodInfo _PlatformLogger_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/logging/PlatformLogger$Bridge;)V", nullptr, $PRIVATE, $method(PlatformLogger, init$, void, $PlatformLogger$Bridge*)},
-	{"config", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, config, void, $String*)},
-	{"config", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, config, void, $String*, $Throwable*)},
-	{"config", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, config, void, $String*, $ObjectArray*)},
-	{"fine", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, fine, void, $String*)},
-	{"fine", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, fine, void, $String*, $Throwable*)},
-	{"fine", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, fine, void, $String*, $ObjectArray*)},
-	{"finer", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, finer, void, $String*)},
-	{"finer", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, finer, void, $String*, $Throwable*)},
-	{"finer", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, finer, void, $String*, $ObjectArray*)},
-	{"finest", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, finest, void, $String*)},
-	{"finest", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, finest, void, $String*, $Throwable*)},
-	{"finest", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, finest, void, $String*, $ObjectArray*)},
-	{"getLogger", "(Ljava/lang/String;)Lsun/util/logging/PlatformLogger;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(PlatformLogger, getLogger, PlatformLogger*, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, getName, $String*)},
-	{"info", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, info, void, $String*)},
-	{"info", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, info, void, $String*, $Throwable*)},
-	{"info", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, info, void, $String*, $ObjectArray*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, isEnabled, bool)},
-	{"isLoggable", "(Lsun/util/logging/PlatformLogger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, isLoggable, bool, $PlatformLogger$Level*)},
-	{"level", "()Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, level, $PlatformLogger$Level*)},
-	{"setLevel", "(Lsun/util/logging/PlatformLogger$Level;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(PlatformLogger, setLevel, void, $PlatformLogger$Level*), nullptr, nullptr, _PlatformLogger_MethodAnnotations_setLevel21},
-	{"severe", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, severe, void, $String*)},
-	{"severe", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, severe, void, $String*, $Throwable*)},
-	{"severe", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, severe, void, $String*, $ObjectArray*)},
-	{"toPlatformLevel", "(Ljava/lang/System$Logger$Level;)Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformLogger, toPlatformLevel, $PlatformLogger$Level*, $System$Logger$Level*)},
-	{"warning", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, warning, void, $String*)},
-	{"warning", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, warning, void, $String*, $Throwable*)},
-	{"warning", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, warning, void, $String*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _PlatformLogger_InnerClassesInfo_[] = {
-	{"sun.util.logging.PlatformLogger$ConfigurableBridge", "sun.util.logging.PlatformLogger", "ConfigurableBridge", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.util.logging.PlatformLogger$Bridge", "sun.util.logging.PlatformLogger", "Bridge", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.util.logging.PlatformLogger$Level", "sun.util.logging.PlatformLogger", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _PlatformLogger_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.logging.PlatformLogger",
-	"java.lang.Object",
-	nullptr,
-	_PlatformLogger_FieldInfo_,
-	_PlatformLogger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PlatformLogger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.logging.PlatformLogger$ConfigurableBridge,sun.util.logging.PlatformLogger$ConfigurableBridge$LoggerConfiguration,sun.util.logging.PlatformLogger$Bridge,sun.util.logging.PlatformLogger$Level"
-};
-
-$Object* allocate$PlatformLogger($Class* clazz) {
-	return $of($alloc(PlatformLogger));
-}
-
 bool PlatformLogger::$assertionsDisabled = false;
 $Map* PlatformLogger::loggers = nullptr;
 $PlatformLogger$LevelArray* PlatformLogger::spi2platformLevelMapping = nullptr;
 
 PlatformLogger* PlatformLogger::getLogger($String* name) {
-	$load(PlatformLogger);
+	$init(PlatformLogger);
 	$synchronized(class$) {
-		$init(PlatformLogger);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var(PlatformLogger, log, nullptr);
-		$var($WeakReference, ref, $cast($WeakReference, $nc(PlatformLogger::loggers)->get(name)));
+		$var($WeakReference, ref, $cast($WeakReference, PlatformLogger::loggers->get(name)));
 		if (ref != nullptr) {
 			$assign(log, $cast(PlatformLogger, ref->get()));
 		}
 		if (log == nullptr) {
 			$assign(log, $new(PlatformLogger, $($PlatformLogger$Bridge::convert($($LazyLoggers::getLazyLogger(name, $(PlatformLogger::class$->getModule())))))));
-			$nc(PlatformLogger::loggers)->put(name, $$new($WeakReference, log));
+			PlatformLogger::loggers->put(name, $$new($WeakReference, log));
 		}
 		return log;
 	}
@@ -161,11 +87,12 @@ bool PlatformLogger::isLoggable($PlatformLogger$Level* level) {
 
 $PlatformLogger$Level* PlatformLogger::level() {
 	$var($PlatformLogger$ConfigurableBridge$LoggerConfiguration, spi, $PlatformLogger$ConfigurableBridge::getLoggerConfiguration(this->loggerProxy));
-	return spi == nullptr ? ($PlatformLogger$Level*)nullptr : $nc(spi)->getPlatformLevel();
+	return spi == nullptr ? ($PlatformLogger$Level*)nullptr : spi->getPlatformLevel();
 }
 
 void PlatformLogger::setLevel($PlatformLogger$Level* newLevel) {
 	$var($PlatformLogger$ConfigurableBridge$LoggerConfiguration, spi, $PlatformLogger$ConfigurableBridge::getLoggerConfiguration(this->loggerProxy));
+	;
 	if (spi != nullptr) {
 		spi->setPlatformLevel(newLevel);
 	}
@@ -281,13 +208,13 @@ $PlatformLogger$Level* PlatformLogger::toPlatformLevel($System$Logger$Level* lev
 	if (level == nullptr) {
 		return nullptr;
 	}
-	if (!PlatformLogger::$assertionsDisabled && !($nc(level)->ordinal() < $nc(PlatformLogger::spi2platformLevelMapping)->length)) {
+	if (!PlatformLogger::$assertionsDisabled && !($nc(level)->ordinal() < PlatformLogger::spi2platformLevelMapping->length)) {
 		$throwNew($AssertionError);
 	}
-	return $nc(PlatformLogger::spi2platformLevelMapping)->get($nc(level)->ordinal());
+	return PlatformLogger::spi2platformLevelMapping->get($nc(level)->ordinal());
 }
 
-void clinit$PlatformLogger($Class* class$) {
+void PlatformLogger::clinit$($Class* clazz) {
 	PlatformLogger::$assertionsDisabled = !PlatformLogger::class$->desiredAssertionStatus();
 	$assignStatic(PlatformLogger::loggers, $new($HashMap));
 	$init($PlatformLogger$Level);
@@ -306,7 +233,72 @@ PlatformLogger::PlatformLogger() {
 }
 
 $Class* PlatformLogger::load$($String* name, bool initialize) {
-	$loadClass(PlatformLogger, name, initialize, &_PlatformLogger_ClassInfo_, clinit$PlatformLogger, allocate$PlatformLogger);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PlatformLogger, $assertionsDisabled)},
+		{"loggers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/ref/WeakReference<Lsun/util/logging/PlatformLogger;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(PlatformLogger, loggers)},
+		{"loggerProxy", "Lsun/util/logging/PlatformLogger$Bridge;", nullptr, $PRIVATE | $FINAL, $field(PlatformLogger, loggerProxy)},
+		{"spi2platformLevelMapping", "[Lsun/util/logging/PlatformLogger$Level;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PlatformLogger, spi2platformLevelMapping)},
+		{}
+	};
+	$CompoundAttribute setLevelmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/util/logging/PlatformLogger$Bridge;)V", nullptr, $PRIVATE, $method(PlatformLogger, init$, void, $PlatformLogger$Bridge*)},
+		{"config", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, config, void, $String*)},
+		{"config", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, config, void, $String*, $Throwable*)},
+		{"config", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, config, void, $String*, $ObjectArray*)},
+		{"fine", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, fine, void, $String*)},
+		{"fine", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, fine, void, $String*, $Throwable*)},
+		{"fine", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, fine, void, $String*, $ObjectArray*)},
+		{"finer", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, finer, void, $String*)},
+		{"finer", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, finer, void, $String*, $Throwable*)},
+		{"finer", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, finer, void, $String*, $ObjectArray*)},
+		{"finest", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, finest, void, $String*)},
+		{"finest", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, finest, void, $String*, $Throwable*)},
+		{"finest", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, finest, void, $String*, $ObjectArray*)},
+		{"getLogger", "(Ljava/lang/String;)Lsun/util/logging/PlatformLogger;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(PlatformLogger, getLogger, PlatformLogger*, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, getName, $String*)},
+		{"info", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, info, void, $String*)},
+		{"info", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, info, void, $String*, $Throwable*)},
+		{"info", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, info, void, $String*, $ObjectArray*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, isEnabled, bool)},
+		{"isLoggable", "(Lsun/util/logging/PlatformLogger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, isLoggable, bool, $PlatformLogger$Level*)},
+		{"level", "()Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, level, $PlatformLogger$Level*)},
+		{"setLevel", "(Lsun/util/logging/PlatformLogger$Level;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(PlatformLogger, setLevel, void, $PlatformLogger$Level*), nullptr, nullptr, setLevelmethodAnnotations$$},
+		{"severe", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, severe, void, $String*)},
+		{"severe", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, severe, void, $String*, $Throwable*)},
+		{"severe", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, severe, void, $String*, $ObjectArray*)},
+		{"toPlatformLevel", "(Ljava/lang/System$Logger$Level;)Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformLogger, toPlatformLevel, $PlatformLogger$Level*, $System$Logger$Level*)},
+		{"warning", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, warning, void, $String*)},
+		{"warning", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(PlatformLogger, warning, void, $String*, $Throwable*)},
+		{"warning", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PlatformLogger, warning, void, $String*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.logging.PlatformLogger$ConfigurableBridge", "sun.util.logging.PlatformLogger", "ConfigurableBridge", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.util.logging.PlatformLogger$Bridge", "sun.util.logging.PlatformLogger", "Bridge", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.util.logging.PlatformLogger$Level", "sun.util.logging.PlatformLogger", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.logging.PlatformLogger",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.logging.PlatformLogger$ConfigurableBridge,sun.util.logging.PlatformLogger$ConfigurableBridge$LoggerConfiguration,sun.util.logging.PlatformLogger$Bridge,sun.util.logging.PlatformLogger$Level"
+	};
+	$loadClass(PlatformLogger, name, initialize, &classInfo$$, PlatformLogger::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformLogger);
+	});
 	return class$;
 }
 

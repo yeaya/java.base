@@ -1,5 +1,4 @@
 #include <java/util/stream/LongPipeline$3.h>
-
 #include <java/util/function/LongUnaryOperator.h>
 #include <java/util/stream/AbstractPipeline.h>
 #include <java/util/stream/LongPipeline$3$1.h>
@@ -26,51 +25,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _LongPipeline$3_FieldInfo_[] = {
-	{"this$0", "Ljava/util/stream/LongPipeline;", nullptr, $FINAL | $SYNTHETIC, $field(LongPipeline$3, this$0)},
-	{"val$mapper", "Ljava/util/function/LongUnaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(LongPipeline$3, val$mapper)},
-	{}
-};
-
-$MethodInfo _LongPipeline$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/LongPipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/LongUnaryOperator;)V", nullptr, 0, $method(LongPipeline$3, init$, void, $LongPipeline*, $AbstractPipeline*, $StreamShape*, int32_t, $LongUnaryOperator*)},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Long;>;)Ljava/util/stream/Sink<Ljava/lang/Long;>;", 0, $virtualMethod(LongPipeline$3, opWrapSink, $Sink*, int32_t, $Sink*)},
-	{}
-};
-
-$EnclosingMethodInfo _LongPipeline$3_EnclosingMethodInfo_ = {
-	"java.util.stream.LongPipeline",
-	"map",
-	"(Ljava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;"
-};
-
-$InnerClassInfo _LongPipeline$3_InnerClassesInfo_[] = {
-	{"java.util.stream.LongPipeline$3", nullptr, nullptr, 0},
-	{"java.util.stream.LongPipeline$StatelessOp", "java.util.stream.LongPipeline", "StatelessOp", $STATIC | $ABSTRACT},
-	{"java.util.stream.LongPipeline$3$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LongPipeline$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.LongPipeline$3",
-	"java.util.stream.LongPipeline$StatelessOp",
-	nullptr,
-	_LongPipeline$3_FieldInfo_,
-	_LongPipeline$3_MethodInfo_,
-	"Ljava/util/stream/LongPipeline$StatelessOp<Ljava/lang/Long;>;",
-	&_LongPipeline$3_EnclosingMethodInfo_,
-	_LongPipeline$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.LongPipeline"
-};
-
-$Object* allocate$LongPipeline$3($Class* clazz) {
-	return $of($alloc(LongPipeline$3));
-}
-
 void LongPipeline$3::init$($LongPipeline* this$0, $AbstractPipeline* upstream, $StreamShape* inputShape, int32_t opFlags, $LongUnaryOperator* val$mapper) {
 	$set(this, this$0, this$0);
 	$set(this, val$mapper, val$mapper);
@@ -85,7 +39,45 @@ LongPipeline$3::LongPipeline$3() {
 }
 
 $Class* LongPipeline$3::load$($String* name, bool initialize) {
-	$loadClass(LongPipeline$3, name, initialize, &_LongPipeline$3_ClassInfo_, allocate$LongPipeline$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/stream/LongPipeline;", nullptr, $FINAL | $SYNTHETIC, $field(LongPipeline$3, this$0)},
+		{"val$mapper", "Ljava/util/function/LongUnaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(LongPipeline$3, val$mapper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/LongPipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/LongUnaryOperator;)V", nullptr, 0, $method(LongPipeline$3, init$, void, $LongPipeline*, $AbstractPipeline*, $StreamShape*, int32_t, $LongUnaryOperator*)},
+		{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Long;>;)Ljava/util/stream/Sink<Ljava/lang/Long;>;", 0, $virtualMethod(LongPipeline$3, opWrapSink, $Sink*, int32_t, $Sink*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.LongPipeline",
+		"map",
+		"(Ljava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.LongPipeline$3", nullptr, nullptr, 0},
+		{"java.util.stream.LongPipeline$StatelessOp", "java.util.stream.LongPipeline", "StatelessOp", $STATIC | $ABSTRACT},
+		{"java.util.stream.LongPipeline$3$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.LongPipeline$3",
+		"java.util.stream.LongPipeline$StatelessOp",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/LongPipeline$StatelessOp<Ljava/lang/Long;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.LongPipeline"
+	};
+	$loadClass(LongPipeline$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LongPipeline$3));
+	});
 	return class$;
 }
 

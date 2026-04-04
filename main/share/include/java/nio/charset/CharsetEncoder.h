@@ -50,6 +50,7 @@ class $import CharsetEncoder : public ::java::lang::Object {
 	$class(CharsetEncoder, $PRELOAD, ::java::lang::Object)
 public:
 	CharsetEncoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs, float averageBytesPerChar, float maxBytesPerChar, $bytes* replacement);
 	void init$(::java::nio::charset::Charset* cs, float averageBytesPerChar, float maxBytesPerChar);
 	float averageBytesPerChar();

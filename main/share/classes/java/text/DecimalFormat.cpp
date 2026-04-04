@@ -1,5 +1,4 @@
 #include <java/text/DecimalFormat.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/AssertionError.h>
@@ -119,185 +118,10 @@ using $Locale$Category = ::java::util::Locale$Category;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
-using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 using $ResourceBundleBasedAdapter = ::sun::util::locale::provider::ResourceBundleBasedAdapter;
 
 namespace java {
 	namespace text {
-
-$FieldInfo _DecimalFormat_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DecimalFormat, $assertionsDisabled)},
-	{"bigIntegerMultiplier", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, bigIntegerMultiplier)},
-	{"bigDecimalMultiplier", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, bigDecimalMultiplier)},
-	{"STATUS_INFINITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, STATUS_INFINITE)},
-	{"STATUS_POSITIVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, STATUS_POSITIVE)},
-	{"STATUS_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, STATUS_LENGTH)},
-	{"digitList", "Ljava/text/DigitList;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, digitList)},
-	{"positivePrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, positivePrefix)},
-	{"positiveSuffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, positiveSuffix)},
-	{"negativePrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, negativePrefix)},
-	{"negativeSuffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, negativeSuffix)},
-	{"posPrefixPattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, posPrefixPattern)},
-	{"posSuffixPattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, posSuffixPattern)},
-	{"negPrefixPattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, negPrefixPattern)},
-	{"negSuffixPattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, negSuffixPattern)},
-	{"multiplier", "I", nullptr, $PRIVATE, $field(DecimalFormat, multiplier)},
-	{"groupingSize", "B", nullptr, $PRIVATE, $field(DecimalFormat, groupingSize)},
-	{"decimalSeparatorAlwaysShown", "Z", nullptr, $PRIVATE, $field(DecimalFormat, decimalSeparatorAlwaysShown)},
-	{"parseBigDecimal", "Z", nullptr, $PRIVATE, $field(DecimalFormat, parseBigDecimal)},
-	{"isCurrencyFormat", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, isCurrencyFormat)},
-	{"symbols", "Ljava/text/DecimalFormatSymbols;", nullptr, $PRIVATE, $field(DecimalFormat, symbols)},
-	{"useExponentialNotation", "Z", nullptr, $PRIVATE, $field(DecimalFormat, useExponentialNotation)},
-	{"positivePrefixFieldPositions", "[Ljava/text/FieldPosition;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, positivePrefixFieldPositions)},
-	{"positiveSuffixFieldPositions", "[Ljava/text/FieldPosition;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, positiveSuffixFieldPositions)},
-	{"negativePrefixFieldPositions", "[Ljava/text/FieldPosition;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, negativePrefixFieldPositions)},
-	{"negativeSuffixFieldPositions", "[Ljava/text/FieldPosition;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, negativeSuffixFieldPositions)},
-	{"minExponentDigits", "B", nullptr, $PRIVATE, $field(DecimalFormat, minExponentDigits)},
-	{"maximumIntegerDigits", "I", nullptr, $PRIVATE, $field(DecimalFormat, maximumIntegerDigits)},
-	{"minimumIntegerDigits", "I", nullptr, $PRIVATE, $field(DecimalFormat, minimumIntegerDigits)},
-	{"maximumFractionDigits", "I", nullptr, $PRIVATE, $field(DecimalFormat, maximumFractionDigits)},
-	{"minimumFractionDigits", "I", nullptr, $PRIVATE, $field(DecimalFormat, minimumFractionDigits)},
-	{"roundingMode", "Ljava/math/RoundingMode;", nullptr, $PRIVATE, $field(DecimalFormat, roundingMode)},
-	{"isFastPath", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, isFastPath)},
-	{"fastPathCheckNeeded", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, fastPathCheckNeeded)},
-	{"fastPathData", "Ljava/text/DecimalFormat$FastPathData;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, fastPathData)},
-	{"currentSerialVersion", "I", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, currentSerialVersion)},
-	{"serialVersionOnStream", "I", nullptr, $PRIVATE, $field(DecimalFormat, serialVersionOnStream)},
-	{"MAX_INT_AS_DOUBLE", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DecimalFormat, MAX_INT_AS_DOUBLE)},
-	{"PATTERN_ZERO_DIGIT", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_ZERO_DIGIT)},
-	{"PATTERN_GROUPING_SEPARATOR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_GROUPING_SEPARATOR)},
-	{"PATTERN_DECIMAL_SEPARATOR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_DECIMAL_SEPARATOR)},
-	{"PATTERN_PER_MILLE", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_PER_MILLE)},
-	{"PATTERN_PERCENT", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_PERCENT)},
-	{"PATTERN_DIGIT", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_DIGIT)},
-	{"PATTERN_SEPARATOR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_SEPARATOR)},
-	{"PATTERN_EXPONENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DecimalFormat, PATTERN_EXPONENT)},
-	{"PATTERN_MINUS", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_MINUS)},
-	{"CURRENCY_SIGN", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, CURRENCY_SIGN)},
-	{"QUOTE", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, QUOTE)},
-	{"EmptyFieldPositionArray", "[Ljava/text/FieldPosition;", nullptr, $PRIVATE | $STATIC, $staticField(DecimalFormat, EmptyFieldPositionArray)},
-	{"DOUBLE_INTEGER_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, DOUBLE_INTEGER_DIGITS)},
-	{"DOUBLE_FRACTION_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, DOUBLE_FRACTION_DIGITS)},
-	{"MAXIMUM_INTEGER_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, MAXIMUM_INTEGER_DIGITS)},
-	{"MAXIMUM_FRACTION_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, MAXIMUM_FRACTION_DIGITS)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DecimalFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DecimalFormat, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DecimalFormat, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/text/DecimalFormatSymbols;)V", nullptr, $PUBLIC, $method(DecimalFormat, init$, void, $String*, $DecimalFormatSymbols*)},
-	{"addAffixes", "([C[C[C)V", nullptr, $PRIVATE, $method(DecimalFormat, addAffixes, void, $chars*, $chars*, $chars*)},
-	{"append", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/text/Format$FieldDelegate;[Ljava/text/FieldPosition;Ljava/text/Format$Field;)V", nullptr, $PRIVATE, $method(DecimalFormat, append, void, $StringBuffer*, $String*, $Format$FieldDelegate*, $FieldPositionArray*, $Format$Field*)},
-	{"appendAffix", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(DecimalFormat, appendAffix, void, $StringBuffer*, $String*, $String*, bool)},
-	{"appendAffix", "(Ljava/lang/StringBuffer;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(DecimalFormat, appendAffix, void, $StringBuffer*, $String*, bool)},
-	{"appendSuffix", "([CI[C)V", nullptr, $PRIVATE, $method(DecimalFormat, appendSuffix, void, $chars*, int32_t, $chars*)},
-	{"applyLocalizedPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, applyLocalizedPattern, void, $String*)},
-	{"applyPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, applyPattern, void, $String*)},
-	{"applyPattern", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(DecimalFormat, applyPattern, void, $String*, bool)},
-	{"checkAndSetFastPathStatus", "()Z", nullptr, $PRIVATE, $method(DecimalFormat, checkAndSetFastPathStatus, bool)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, clone, $Object*)},
-	{"collectFractionalDigits", "(I[CI)V", nullptr, $PRIVATE, $method(DecimalFormat, collectFractionalDigits, void, int32_t, $chars*, int32_t)},
-	{"collectIntegralDigits", "(I[CI)V", nullptr, $PRIVATE, $method(DecimalFormat, collectIntegralDigits, void, int32_t, $chars*, int32_t)},
-	{"doubleSubformat", "(DLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;Z)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(DecimalFormat, doubleSubformat, $StringBuffer*, double, $StringBuffer*, $Format$FieldDelegate*, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, equals, bool, Object$*)},
-	{"exactRoundUp", "(DI)Z", nullptr, $PRIVATE, $method(DecimalFormat, exactRoundUp, bool, double, int32_t)},
-	{"expandAffix", "(Ljava/lang/String;Ljava/lang/StringBuffer;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DecimalFormat, expandAffix, $String*, $String*, $StringBuffer*)},
-	{"expandAffix", "(Ljava/lang/String;)[Ljava/text/FieldPosition;", nullptr, $PRIVATE, $method(DecimalFormat, expandAffix, $FieldPositionArray*, $String*)},
-	{"expandAffixes", "()V", nullptr, $PRIVATE, $method(DecimalFormat, expandAffixes, void)},
-	{"fastDoubleFormat", "(DZ)V", nullptr, $PRIVATE, $method(DecimalFormat, fastDoubleFormat, void, double, bool)},
-	{"fastFormat", "(D)Ljava/lang/String;", nullptr, 0, $virtualMethod(DecimalFormat, fastFormat, $String*, double)},
-	{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DecimalFormat, format, $StringBuffer*, Object$*, $StringBuffer*, $FieldPosition*)},
-	{"format", "(DLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, format, $StringBuffer*, double, $StringBuffer*, $FieldPosition*)},
-	{"format", "(DLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(DecimalFormat, format, $StringBuffer*, double, $StringBuffer*, $Format$FieldDelegate*)},
-	{"format", "(JLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, format, $StringBuffer*, int64_t, $StringBuffer*, $FieldPosition*)},
-	{"format", "(JLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(DecimalFormat, format, $StringBuffer*, int64_t, $StringBuffer*, $Format$FieldDelegate*)},
-	{"format", "(Ljava/math/BigDecimal;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(DecimalFormat, format, $StringBuffer*, $BigDecimal*, $StringBuffer*, $FieldPosition*)},
-	{"format", "(Ljava/math/BigDecimal;Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(DecimalFormat, format, $StringBuffer*, $BigDecimal*, $StringBuffer*, $Format$FieldDelegate*)},
-	{"format", "(Ljava/math/BigInteger;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(DecimalFormat, format, $StringBuffer*, $BigInteger*, $StringBuffer*, $FieldPosition*)},
-	{"format", "(Ljava/math/BigInteger;Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;Z)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(DecimalFormat, format, $StringBuffer*, $BigInteger*, $StringBuffer*, $Format$FieldDelegate*, bool)},
-	{"formatToCharacterIterator", "(Ljava/lang/Object;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, formatToCharacterIterator, $AttributedCharacterIterator*, Object$*)},
-	{"getBigDecimalMultiplier", "()Ljava/math/BigDecimal;", nullptr, $PRIVATE, $method(DecimalFormat, getBigDecimalMultiplier, $BigDecimal*)},
-	{"getBigIntegerMultiplier", "()Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DecimalFormat, getBigIntegerMultiplier, $BigInteger*)},
-	{"getCurrency", "()Ljava/util/Currency;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getCurrency, $Currency*)},
-	{"getDecimalFormatSymbols", "()Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getDecimalFormatSymbols, $DecimalFormatSymbols*)},
-	{"getGroupingSize", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getGroupingSize, int32_t)},
-	{"getMaximumFractionDigits", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getMaximumFractionDigits, int32_t)},
-	{"getMaximumIntegerDigits", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getMaximumIntegerDigits, int32_t)},
-	{"getMinimumFractionDigits", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getMinimumFractionDigits, int32_t)},
-	{"getMinimumIntegerDigits", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getMinimumIntegerDigits, int32_t)},
-	{"getMultiplier", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getMultiplier, int32_t)},
-	{"getNegativePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getNegativePrefix, $String*)},
-	{"getNegativePrefixFieldPositions", "()[Ljava/text/FieldPosition;", nullptr, $PRIVATE, $method(DecimalFormat, getNegativePrefixFieldPositions, $FieldPositionArray*)},
-	{"getNegativeSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getNegativeSuffix, $String*)},
-	{"getNegativeSuffixFieldPositions", "()[Ljava/text/FieldPosition;", nullptr, $PRIVATE, $method(DecimalFormat, getNegativeSuffixFieldPositions, $FieldPositionArray*)},
-	{"getPositivePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getPositivePrefix, $String*)},
-	{"getPositivePrefixFieldPositions", "()[Ljava/text/FieldPosition;", nullptr, $PRIVATE, $method(DecimalFormat, getPositivePrefixFieldPositions, $FieldPositionArray*)},
-	{"getPositiveSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getPositiveSuffix, $String*)},
-	{"getPositiveSuffixFieldPositions", "()[Ljava/text/FieldPosition;", nullptr, $PRIVATE, $method(DecimalFormat, getPositiveSuffixFieldPositions, $FieldPositionArray*)},
-	{"getRoundingMode", "()Ljava/math/RoundingMode;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getRoundingMode, $RoundingMode*)},
-	{"handleInfinity", "(DLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;Z)Z", nullptr, 0, $virtualMethod(DecimalFormat, handleInfinity, bool, double, $StringBuffer*, $Format$FieldDelegate*, bool)},
-	{"handleNaN", "(DLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Z", nullptr, 0, $virtualMethod(DecimalFormat, handleNaN, bool, double, $StringBuffer*, $Format$FieldDelegate*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, hashCode, int32_t)},
-	{"isDecimalSeparatorAlwaysShown", "()Z", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, isDecimalSeparatorAlwaysShown, bool)},
-	{"isParseBigDecimal", "()Z", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, isParseBigDecimal, bool)},
-	{"localizeDigits", "([C)V", nullptr, $PRIVATE, $method(DecimalFormat, localizeDigits, void, $chars*)},
-	{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, parse, $Number*, $String*, $ParsePosition*)},
-	{"prependPrefix", "([CI[C)V", nullptr, $PRIVATE, $method(DecimalFormat, prependPrefix, void, $chars*, int32_t, $chars*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DecimalFormat, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resetFastPathData", "(Z)V", nullptr, $PRIVATE, $method(DecimalFormat, resetFastPathData, void, bool)},
-	{"setCurrency", "(Ljava/util/Currency;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setCurrency, void, $Currency*)},
-	{"setDecimalFormatSymbols", "(Ljava/text/DecimalFormatSymbols;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setDecimalFormatSymbols, void, $DecimalFormatSymbols*)},
-	{"setDecimalSeparatorAlwaysShown", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setDecimalSeparatorAlwaysShown, void, bool)},
-	{"setDigitList", "(Ljava/lang/Number;ZI)V", nullptr, 0, $virtualMethod(DecimalFormat, setDigitList, void, $Number*, bool, int32_t)},
-	{"setGroupingSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setGroupingSize, void, int32_t)},
-	{"setGroupingUsed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setGroupingUsed, void, bool)},
-	{"setMaximumFractionDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setMaximumFractionDigits, void, int32_t)},
-	{"setMaximumIntegerDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setMaximumIntegerDigits, void, int32_t)},
-	{"setMinimumFractionDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setMinimumFractionDigits, void, int32_t)},
-	{"setMinimumIntegerDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setMinimumIntegerDigits, void, int32_t)},
-	{"setMultiplier", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setMultiplier, void, int32_t)},
-	{"setNegativePrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setNegativePrefix, void, $String*)},
-	{"setNegativeSuffix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setNegativeSuffix, void, $String*)},
-	{"setParseBigDecimal", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setParseBigDecimal, void, bool)},
-	{"setPositivePrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setPositivePrefix, void, $String*)},
-	{"setPositiveSuffix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setPositiveSuffix, void, $String*)},
-	{"setRoundingMode", "(Ljava/math/RoundingMode;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setRoundingMode, void, $RoundingMode*)},
-	{"subformat", "(Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;ZZIIII)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(DecimalFormat, subformat, $StringBuffer*, $StringBuffer*, $Format$FieldDelegate*, bool, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"subformatNumber", "(Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;ZZIIII)V", nullptr, 0, $virtualMethod(DecimalFormat, subformatNumber, void, $StringBuffer*, $Format$FieldDelegate*, bool, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"subparse", "(Ljava/lang/String;Ljava/text/ParsePosition;Ljava/lang/String;Ljava/lang/String;Ljava/text/DigitList;Z[Z)Z", nullptr, $PRIVATE | $FINAL, $method(DecimalFormat, subparse, bool, $String*, $ParsePosition*, $String*, $String*, $DigitList*, bool, $booleans*)},
-	{"subparseNumber", "(Ljava/lang/String;ILjava/text/DigitList;ZZ[Z)I", nullptr, 0, $virtualMethod(DecimalFormat, subparseNumber, int32_t, $String*, int32_t, $DigitList*, bool, bool, $booleans*)},
-	{"toLocalizedPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, toLocalizedPattern, $String*)},
-	{"toPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, toPattern, $String*)},
-	{"toPattern", "(Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(DecimalFormat, toPattern, $String*, bool)},
-	{}
-};
-
-$InnerClassInfo _DecimalFormat_InnerClassesInfo_[] = {
-	{"java.text.DecimalFormat$DigitArrays", "java.text.DecimalFormat", "DigitArrays", $PRIVATE | $STATIC},
-	{"java.text.DecimalFormat$FastPathData", "java.text.DecimalFormat", "FastPathData", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DecimalFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.text.DecimalFormat",
-	"java.text.NumberFormat",
-	nullptr,
-	_DecimalFormat_FieldInfo_,
-	_DecimalFormat_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DecimalFormat_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.text.DecimalFormat$DigitArrays,java.text.DecimalFormat$FastPathData"
-};
-
-$Object* allocate$DecimalFormat($Class* clazz) {
-	return $of($alloc(DecimalFormat));
-}
 
 bool DecimalFormat::$assertionsDisabled = false;
 double DecimalFormat::MAX_INT_AS_DOUBLE = 0.0;
@@ -305,7 +129,7 @@ $String* DecimalFormat::PATTERN_EXPONENT = nullptr;
 $FieldPositionArray* DecimalFormat::EmptyFieldPositionArray = nullptr;
 
 void DecimalFormat::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$NumberFormat::init$();
 	$set(this, digitList, $new($DigitList));
 	$set(this, positivePrefix, ""_s);
@@ -313,7 +137,7 @@ void DecimalFormat::init$() {
 	$set(this, negativePrefix, "-"_s);
 	$set(this, negativeSuffix, ""_s);
 	this->multiplier = 1;
-	this->groupingSize = (int8_t)3;
+	this->groupingSize = 3;
 	this->decimalSeparatorAlwaysShown = false;
 	this->parseBigDecimal = false;
 	this->isCurrencyFormat = false;
@@ -334,7 +158,7 @@ void DecimalFormat::init$() {
 	if (!($instanceOf($ResourceBundleBasedAdapter, adapter))) {
 		$assign(adapter, $LocaleProviderAdapter::getResourceBundleBased());
 	}
-	$var($StringArray, all, $nc($($nc(adapter)->getLocaleResources(def)))->getNumberPatterns());
+	$var($StringArray, all, $$nc($nc(adapter)->getLocaleResources(def))->getNumberPatterns());
 	$set(this, symbols, $DecimalFormatSymbols::getInstance(def));
 	applyPattern($nc(all)->get(0), false);
 }
@@ -347,7 +171,7 @@ void DecimalFormat::init$($String* pattern) {
 	$set(this, negativePrefix, "-"_s);
 	$set(this, negativeSuffix, ""_s);
 	this->multiplier = 1;
-	this->groupingSize = (int8_t)3;
+	this->groupingSize = 3;
 	this->decimalSeparatorAlwaysShown = false;
 	this->parseBigDecimal = false;
 	this->isCurrencyFormat = false;
@@ -374,7 +198,7 @@ void DecimalFormat::init$($String* pattern, $DecimalFormatSymbols* symbols) {
 	$set(this, negativePrefix, "-"_s);
 	$set(this, negativeSuffix, ""_s);
 	this->multiplier = 1;
-	this->groupingSize = (int8_t)3;
+	this->groupingSize = 3;
 	this->decimalSeparatorAlwaysShown = false;
 	this->parseBigDecimal = false;
 	this->isCurrencyFormat = false;
@@ -393,21 +217,21 @@ void DecimalFormat::init$($String* pattern, $DecimalFormatSymbols* symbols) {
 }
 
 $StringBuffer* DecimalFormat::format(Object$* number, $StringBuffer* toAppendTo, $FieldPosition* pos) {
-	if ($instanceOf($Long, number) || $instanceOf($Integer, number) || $instanceOf($Short, number) || $instanceOf($Byte, number) || $instanceOf($AtomicInteger, number) || $instanceOf($AtomicLong, number) || ($instanceOf($BigInteger, number) && $nc(($cast($BigInteger, number)))->bitLength() < 64)) {
-		return format($nc(($cast($Number, number)))->longValue(), toAppendTo, pos);
+	if ($instanceOf($Long, number) || $instanceOf($Integer, number) || $instanceOf($Short, number) || $instanceOf($Byte, number) || $instanceOf($AtomicInteger, number) || $instanceOf($AtomicLong, number) || ($instanceOf($BigInteger, number) && $cast($BigInteger, number)->bitLength() < 64)) {
+		return format($nc($cast($Number, number))->longValue(), toAppendTo, pos);
 	} else if ($instanceOf($BigDecimal, number)) {
 		return format($cast($BigDecimal, number), toAppendTo, pos);
 	} else if ($instanceOf($BigInteger, number)) {
 		return format($cast($BigInteger, number), toAppendTo, pos);
 	} else if ($instanceOf($Number, number)) {
-		return format($nc(($cast($Number, number)))->doubleValue(), toAppendTo, pos);
+		return format($cast($Number, number)->doubleValue(), toAppendTo, pos);
 	} else {
 		$throwNew($IllegalArgumentException, "Cannot format given Object as a Number"_s);
 	}
 }
 
 $StringBuffer* DecimalFormat::format(double number, $StringBuffer* result, $FieldPosition* fieldPosition) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool tryFastPath = false;
 	$init($DontCareFieldPosition);
 	if (fieldPosition == $DontCareFieldPosition::INSTANCE) {
@@ -461,7 +285,7 @@ bool DecimalFormat::handleNaN(double number, $StringBuffer* result, $Format$Fiel
 }
 
 bool DecimalFormat::handleInfinity(double number, $StringBuffer* result, $Format$FieldDelegate* delegate, bool isNegative) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($Double::isInfinite(number)) {
 		if (isNegative) {
 			$init($NumberFormat$Field);
@@ -490,7 +314,7 @@ $StringBuffer* DecimalFormat::doubleSubformat(double number, $StringBuffer* resu
 		int32_t minIntDigits = $NumberFormat::getMinimumIntegerDigits();
 		int32_t maxFraDigits = $NumberFormat::getMaximumFractionDigits();
 		int32_t minFraDigits = $NumberFormat::getMinimumFractionDigits();
-		$nc(this->digitList)->set(isNegative, number, this->useExponentialNotation ? maxIntDigits + maxFraDigits : maxFraDigits, !this->useExponentialNotation);
+		this->digitList->set(isNegative, number, this->useExponentialNotation ? maxIntDigits + maxFraDigits : maxFraDigits, !this->useExponentialNotation);
 		return subformat(result, delegate, isNegative, false, maxIntDigits, minIntDigits, maxFraDigits, minFraDigits);
 	}
 }
@@ -537,7 +361,7 @@ $StringBuffer* DecimalFormat::format(int64_t number, $StringBuffer* result, $For
 		int32_t minIntDigits = $NumberFormat::getMinimumIntegerDigits();
 		int32_t maxFraDigits = $NumberFormat::getMaximumFractionDigits();
 		int32_t minFraDigits = $NumberFormat::getMinimumFractionDigits();
-		$nc(this->digitList)->set(isNegative, number, this->useExponentialNotation ? maxIntDigits + maxFraDigits : 0);
+		this->digitList->set(isNegative, number, this->useExponentialNotation ? maxIntDigits + maxFraDigits : 0);
 		return subformat(result, delegate, isNegative, true, maxIntDigits, minIntDigits, maxFraDigits, minFraDigits);
 	}
 }
@@ -549,7 +373,7 @@ $StringBuffer* DecimalFormat::format($BigDecimal* number, $StringBuffer* result,
 }
 
 $StringBuffer* DecimalFormat::format($BigDecimal* number$renamed, $StringBuffer* result, $Format$FieldDelegate* delegate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigDecimal, number, number$renamed);
 	if (this->multiplier != 1) {
 		$assign(number, $nc(number)->multiply($(getBigDecimalMultiplier())));
@@ -564,7 +388,7 @@ $StringBuffer* DecimalFormat::format($BigDecimal* number$renamed, $StringBuffer*
 		int32_t maxFraDigits = getMaximumFractionDigits();
 		int32_t minFraDigits = getMinimumFractionDigits();
 		int32_t maximumDigits = maxIntDigits + maxFraDigits;
-		$nc(this->digitList)->set(isNegative, number, this->useExponentialNotation ? ((maximumDigits < 0) ? $Integer::MAX_VALUE : maximumDigits) : maxFraDigits, !this->useExponentialNotation);
+		this->digitList->set(isNegative, number, this->useExponentialNotation ? ((maximumDigits < 0) ? $Integer::MAX_VALUE : maximumDigits) : maxFraDigits, !this->useExponentialNotation);
 		return subformat(result, delegate, isNegative, false, maxIntDigits, minIntDigits, maxFraDigits, minFraDigits);
 	}
 }
@@ -576,7 +400,7 @@ $StringBuffer* DecimalFormat::format($BigInteger* number, $StringBuffer* result,
 }
 
 $StringBuffer* DecimalFormat::format($BigInteger* number$renamed, $StringBuffer* result, $Format$FieldDelegate* delegate, bool formatLong) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, number, number$renamed);
 	if (this->multiplier != 1) {
 		$assign(number, $nc(number)->multiply($(getBigIntegerMultiplier())));
@@ -607,21 +431,21 @@ $StringBuffer* DecimalFormat::format($BigInteger* number$renamed, $StringBuffer*
 				maximumDigits = $Integer::MAX_VALUE;
 			}
 		}
-		$nc(this->digitList)->set(isNegative, number, this->useExponentialNotation ? maximumDigits : 0);
+		this->digitList->set(isNegative, number, this->useExponentialNotation ? maximumDigits : 0);
 		return subformat(result, delegate, isNegative, true, maxIntDigits, minIntDigits, maxFraDigits, minFraDigits);
 	}
 }
 
 $AttributedCharacterIterator* DecimalFormat::formatToCharacterIterator(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CharacterIteratorFieldDelegate, delegate, $new($CharacterIteratorFieldDelegate));
 	$var($StringBuffer, sb, $new($StringBuffer));
 	if ($instanceOf($Double, obj) || $instanceOf($Float, obj)) {
-		format($nc(($cast($Number, obj)))->doubleValue(), sb, static_cast<$Format$FieldDelegate*>(delegate));
+		format($nc($cast($Number, obj))->doubleValue(), sb, delegate);
 	} else if ($instanceOf($Long, obj) || $instanceOf($Integer, obj) || $instanceOf($Short, obj) || $instanceOf($Byte, obj) || $instanceOf($AtomicInteger, obj) || $instanceOf($AtomicLong, obj)) {
-		format($nc(($cast($Number, obj)))->longValue(), sb, static_cast<$Format$FieldDelegate*>(delegate));
+		format($nc($cast($Number, obj))->longValue(), sb, delegate);
 	} else if ($instanceOf($BigDecimal, obj)) {
-		format($cast($BigDecimal, obj), sb, static_cast<$Format$FieldDelegate*>(delegate));
+		format($cast($BigDecimal, obj), sb, delegate);
 	} else if ($instanceOf($BigInteger, obj)) {
 		format($cast($BigInteger, obj), sb, delegate, false);
 	} else if (obj == nullptr) {
@@ -660,37 +484,37 @@ void DecimalFormat::resetFastPathData(bool fastPathWasOn) {
 			$set(this, fastPathData, $new($DecimalFormat$FastPathData));
 		}
 		$nc(this->fastPathData)->zeroDelta = $nc(this->symbols)->getZeroDigit() - u'0';
-		$nc(this->fastPathData)->groupingChar = this->isCurrencyFormat ? $nc(this->symbols)->getMonetaryGroupingSeparator() : $nc(this->symbols)->getGroupingSeparator();
-		$nc(this->fastPathData)->fractionalMaxIntBound = (this->isCurrencyFormat) ? 99 : 999;
-		$nc(this->fastPathData)->fractionalScaleFactor = (this->isCurrencyFormat) ? 100.0 : 1000.0;
+		this->fastPathData->groupingChar = this->isCurrencyFormat ? this->symbols->getMonetaryGroupingSeparator() : this->symbols->getGroupingSeparator();
+		this->fastPathData->fractionalMaxIntBound = (this->isCurrencyFormat) ? 99 : 999;
+		this->fastPathData->fractionalScaleFactor = (this->isCurrencyFormat) ? 100.0 : 1000.0;
 		bool var$0 = !$nc(this->positivePrefix)->isEmpty();
-		$nc(this->fastPathData)->positiveAffixesRequired = var$0 || !$nc(this->positiveSuffix)->isEmpty();
+		this->fastPathData->positiveAffixesRequired = var$0 || !$nc(this->positiveSuffix)->isEmpty();
 		bool var$1 = !$nc(this->negativePrefix)->isEmpty();
-		$nc(this->fastPathData)->negativeAffixesRequired = var$1 || !$nc(this->negativeSuffix)->isEmpty();
+		this->fastPathData->negativeAffixesRequired = var$1 || !$nc(this->negativeSuffix)->isEmpty();
 		int32_t maxNbIntegralDigits = 10;
 		int32_t maxNbGroups = 3;
-		int32_t var$3 = $nc(this->positivePrefix)->length();
-		int32_t var$2 = $Math::max(var$3, $nc(this->negativePrefix)->length()) + maxNbIntegralDigits + maxNbGroups + 1 + this->maximumFractionDigits;
+		int32_t var$3 = this->positivePrefix->length();
+		int32_t var$2 = $Math::max(var$3, this->negativePrefix->length()) + maxNbIntegralDigits + maxNbGroups + 1 + this->maximumFractionDigits;
 		int32_t var$5 = $nc(this->positiveSuffix)->length();
 		int32_t var$4 = $Math::max(var$5, $nc(this->negativeSuffix)->length());
 		int32_t containerSize = var$2 + var$4;
-		$set($nc(this->fastPathData), fastPathContainer, $new($chars, containerSize));
-		$set($nc(this->fastPathData), charsPositiveSuffix, $nc(this->positiveSuffix)->toCharArray());
-		$set($nc(this->fastPathData), charsNegativeSuffix, $nc(this->negativeSuffix)->toCharArray());
-		$set($nc(this->fastPathData), charsPositivePrefix, $nc(this->positivePrefix)->toCharArray());
-		$set($nc(this->fastPathData), charsNegativePrefix, $nc(this->negativePrefix)->toCharArray());
-		int32_t var$6 = $nc(this->positivePrefix)->length();
-		int32_t longestPrefixLength = $Math::max(var$6, $nc(this->negativePrefix)->length());
+		$set(this->fastPathData, fastPathContainer, $new($chars, containerSize));
+		$set(this->fastPathData, charsPositiveSuffix, this->positiveSuffix->toCharArray());
+		$set(this->fastPathData, charsNegativeSuffix, this->negativeSuffix->toCharArray());
+		$set(this->fastPathData, charsPositivePrefix, this->positivePrefix->toCharArray());
+		$set(this->fastPathData, charsNegativePrefix, this->negativePrefix->toCharArray());
+		int32_t var$6 = this->positivePrefix->length();
+		int32_t longestPrefixLength = $Math::max(var$6, this->negativePrefix->length());
 		int32_t decimalPointIndex = maxNbIntegralDigits + maxNbGroups + longestPrefixLength;
-		$nc(this->fastPathData)->integralLastIndex = decimalPointIndex - 1;
-		$nc(this->fastPathData)->fractionalFirstIndex = decimalPointIndex + 1;
-		$nc($nc(this->fastPathData)->fastPathContainer)->set(decimalPointIndex, this->isCurrencyFormat ? $nc(this->symbols)->getMonetaryDecimalSeparator() : $nc(this->symbols)->getDecimalSeparator());
+		this->fastPathData->integralLastIndex = decimalPointIndex - 1;
+		this->fastPathData->fractionalFirstIndex = decimalPointIndex + 1;
+		this->fastPathData->fastPathContainer->set(decimalPointIndex, this->isCurrencyFormat ? this->symbols->getMonetaryDecimalSeparator() : this->symbols->getDecimalSeparator());
 	} else if (fastPathWasOn) {
 		$set($nc(this->fastPathData), fastPathContainer, nullptr);
-		$set($nc(this->fastPathData), charsPositiveSuffix, nullptr);
-		$set($nc(this->fastPathData), charsNegativeSuffix, nullptr);
-		$set($nc(this->fastPathData), charsPositivePrefix, nullptr);
-		$set($nc(this->fastPathData), charsNegativePrefix, nullptr);
+		$set(this->fastPathData, charsPositiveSuffix, nullptr);
+		$set(this->fastPathData, charsNegativeSuffix, nullptr);
+		$set(this->fastPathData, charsPositivePrefix, nullptr);
+		$set(this->fastPathData, charsNegativePrefix, nullptr);
 	}
 }
 
@@ -737,7 +561,7 @@ bool DecimalFormat::exactRoundUp(double fractionalPart, int32_t scaledFractional
 		return true;
 	} else if (scaledFractionalRoundoff < 0.0) {
 		return false;
-	} else if (((int32_t)(scaledFractionalPartAsInt & (uint32_t)1)) != 0) {
+	} else if ((scaledFractionalPartAsInt & 1) != 0) {
 		return true;
 	}
 	return false;
@@ -803,7 +627,7 @@ void DecimalFormat::addAffixes($chars* container, $chars* prefix, $chars* suffix
 
 void DecimalFormat::prependPrefix($chars* prefix, int32_t len, $chars* container) {
 	$nc(this->fastPathData)->firstUsedIndex -= len;
-	int32_t startIndex = $nc(this->fastPathData)->firstUsedIndex;
+	int32_t startIndex = this->fastPathData->firstUsedIndex;
 	if (len == 1) {
 		$nc(container)->set(startIndex, $nc(prefix)->get(0));
 	} else if (len <= 4) {
@@ -842,7 +666,7 @@ void DecimalFormat::appendSuffix($chars* suffix, int32_t len, $chars* container)
 	} else {
 		$System::arraycopy(suffix, 0, container, startIndex, len);
 	}
-	$nc(this->fastPathData)->lastFreeIndex += len;
+	this->fastPathData->lastFreeIndex += len;
 }
 
 void DecimalFormat::localizeDigits($chars* digitsBuffer) {
@@ -850,9 +674,9 @@ void DecimalFormat::localizeDigits($chars* digitsBuffer) {
 	if (digitsCounter < 0) {
 		digitsCounter = this->groupingSize;
 	}
-	for (int32_t cursor = $nc(this->fastPathData)->lastFreeIndex - 1; cursor >= $nc(this->fastPathData)->firstUsedIndex; --cursor) {
+	for (int32_t cursor = this->fastPathData->lastFreeIndex - 1; cursor >= this->fastPathData->firstUsedIndex; --cursor) {
 		if (digitsCounter != 0) {
-			(*$nc(digitsBuffer))[cursor] += $nc(this->fastPathData)->zeroDelta;
+			(*$nc(digitsBuffer))[cursor] += this->fastPathData->zeroDelta;
 			--digitsCounter;
 		} else {
 			digitsCounter = this->groupingSize;
@@ -864,7 +688,7 @@ void DecimalFormat::fastDoubleFormat(double d, bool negative) {
 	$var($chars, container, $nc(this->fastPathData)->fastPathContainer);
 	int32_t integralPartAsInt = $cast(int32_t, d);
 	double exactFractionalPart = d - (double)integralPartAsInt;
-	double scaledFractional = exactFractionalPart * $nc(this->fastPathData)->fractionalScaleFactor;
+	double scaledFractional = exactFractionalPart * this->fastPathData->fractionalScaleFactor;
 	int32_t fractionalPartAsInt = $cast(int32_t, scaledFractional);
 	scaledFractional = scaledFractional - (double)fractionalPartAsInt;
 	bool roundItUp = false;
@@ -875,7 +699,7 @@ void DecimalFormat::fastDoubleFormat(double d, bool negative) {
 			roundItUp = true;
 		}
 		if (roundItUp) {
-			if (fractionalPartAsInt < $nc(this->fastPathData)->fractionalMaxIntBound) {
+			if (fractionalPartAsInt < this->fastPathData->fractionalMaxIntBound) {
 				++fractionalPartAsInt;
 			} else {
 				fractionalPartAsInt = 0;
@@ -883,17 +707,17 @@ void DecimalFormat::fastDoubleFormat(double d, bool negative) {
 			}
 		}
 	}
-	collectFractionalDigits(fractionalPartAsInt, container, $nc(this->fastPathData)->fractionalFirstIndex);
-	collectIntegralDigits(integralPartAsInt, container, $nc(this->fastPathData)->integralLastIndex);
-	if ($nc(this->fastPathData)->zeroDelta != 0) {
+	collectFractionalDigits(fractionalPartAsInt, container, this->fastPathData->fractionalFirstIndex);
+	collectIntegralDigits(integralPartAsInt, container, this->fastPathData->integralLastIndex);
+	if (this->fastPathData->zeroDelta != 0) {
 		localizeDigits(container);
 	}
 	if (negative) {
-		if ($nc(this->fastPathData)->negativeAffixesRequired) {
-			addAffixes(container, $nc(this->fastPathData)->charsNegativePrefix, $nc(this->fastPathData)->charsNegativeSuffix);
+		if (this->fastPathData->negativeAffixesRequired) {
+			addAffixes(container, this->fastPathData->charsNegativePrefix, this->fastPathData->charsNegativeSuffix);
 		}
-	} else if ($nc(this->fastPathData)->positiveAffixesRequired) {
-		addAffixes(container, $nc(this->fastPathData)->charsPositivePrefix, $nc(this->fastPathData)->charsPositiveSuffix);
+	} else if (this->fastPathData->positiveAffixesRequired) {
+		addAffixes(container, this->fastPathData->charsPositivePrefix, this->fastPathData->charsPositiveSuffix);
 	}
 }
 
@@ -929,18 +753,18 @@ $String* DecimalFormat::fastFormat(double d) {
 
 void DecimalFormat::setDigitList($Number* number, bool isNegative, int32_t maxDigits) {
 	if ($instanceOf($Double, number)) {
-		$nc(this->digitList)->set(isNegative, $nc(($cast($Double, number)))->doubleValue(), maxDigits, true);
+		$nc(this->digitList)->set(isNegative, $cast($Double, number)->doubleValue(), maxDigits, true);
 	} else if ($instanceOf($BigDecimal, number)) {
 		$nc(this->digitList)->set(isNegative, $cast($BigDecimal, number), maxDigits, true);
 	} else if ($instanceOf($Long, number)) {
-		$nc(this->digitList)->set(isNegative, $nc(($cast($Long, number)))->longValue(), maxDigits);
+		$nc(this->digitList)->set(isNegative, $cast($Long, number)->longValue(), maxDigits);
 	} else if ($instanceOf($BigInteger, number)) {
 		$nc(this->digitList)->set(isNegative, $cast($BigInteger, number), maxDigits);
 	}
 }
 
 $StringBuffer* DecimalFormat::subformat($StringBuffer* result, $Format$FieldDelegate* delegate, bool isNegative, bool isInteger, int32_t maxIntDigits, int32_t minIntDigits, int32_t maxFraDigits, int32_t minFraDigits) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isNegative) {
 		$init($NumberFormat$Field);
 		append(result, this->negativePrefix, delegate, $(getNegativePrefixFieldPositions()), $NumberFormat$Field::SIGN);
@@ -960,19 +784,19 @@ $StringBuffer* DecimalFormat::subformat($StringBuffer* result, $Format$FieldDele
 }
 
 void DecimalFormat::subformatNumber($StringBuffer* result, $Format$FieldDelegate* delegate, bool isNegative, bool isInteger, int32_t maxIntDigits, int32_t minIntDigits, int32_t maxFraDigits, int32_t minFraDigits) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	char16_t grouping = this->isCurrencyFormat ? $nc(this->symbols)->getMonetaryGroupingSeparator() : $nc(this->symbols)->getGroupingSeparator();
 	char16_t zero = $nc(this->symbols)->getZeroDigit();
 	int32_t zeroDelta = zero - u'0';
-	char16_t decimal = this->isCurrencyFormat ? $nc(this->symbols)->getMonetaryDecimalSeparator() : $nc(this->symbols)->getDecimalSeparator();
+	char16_t decimal = this->isCurrencyFormat ? this->symbols->getMonetaryDecimalSeparator() : this->symbols->getDecimalSeparator();
 	if ($nc(this->digitList)->isZero()) {
-		$nc(this->digitList)->decimalAt = 0;
+		this->digitList->decimalAt = 0;
 	}
 	if (this->useExponentialNotation) {
 		int32_t iFieldStart = $nc(result)->length();
 		int32_t iFieldEnd = -1;
 		int32_t fFieldStart = -1;
-		int32_t exponent = $nc(this->digitList)->decimalAt;
+		int32_t exponent = this->digitList->decimalAt;
 		int32_t repeat = maxIntDigits;
 		int32_t minimumIntegerDigits = minIntDigits;
 		if (repeat > 1 && repeat > minIntDigits) {
@@ -989,11 +813,11 @@ void DecimalFormat::subformatNumber($StringBuffer* result, $Format$FieldDelegate
 		if (minimumDigits < 0) {
 			minimumDigits = $Integer::MAX_VALUE;
 		}
-		int32_t integerDigits = $nc(this->digitList)->isZero() ? minimumIntegerDigits : $nc(this->digitList)->decimalAt - exponent;
+		int32_t integerDigits = this->digitList->isZero() ? minimumIntegerDigits : this->digitList->decimalAt - exponent;
 		if (minimumDigits < integerDigits) {
 			minimumDigits = integerDigits;
 		}
-		int32_t totalDigits = $nc(this->digitList)->count;
+		int32_t totalDigits = this->digitList->count;
 		if (minimumDigits > totalDigits) {
 			totalDigits = minimumDigits;
 		}
@@ -1005,7 +829,7 @@ void DecimalFormat::subformatNumber($StringBuffer* result, $Format$FieldDelegate
 				addedDecimalSeparator = true;
 				fFieldStart = result->length();
 			}
-			result->append((i < $nc(this->digitList)->count) ? (char16_t)($nc($nc(this->digitList)->digits)->get(i) + zeroDelta) : zero);
+			result->append((i < this->digitList->count) ? (char16_t)($nc(this->digitList->digits)->get(i) + zeroDelta) : zero);
 		}
 		if (this->decimalSeparatorAlwaysShown && totalDigits == integerDigits) {
 			iFieldEnd = result->length();
@@ -1026,42 +850,42 @@ void DecimalFormat::subformatNumber($StringBuffer* result, $Format$FieldDelegate
 		}
 		delegate->formatted($NumberFormat::FRACTION_FIELD, $NumberFormat$Field::FRACTION, $NumberFormat$Field::FRACTION, fFieldStart, result->length(), result);
 		int32_t fieldStart = result->length();
-		result->append($($nc(this->symbols)->getExponentSeparator()));
+		result->append($(this->symbols->getExponentSeparator()));
 		delegate->formatted($NumberFormat$Field::EXPONENT_SYMBOL, $NumberFormat$Field::EXPONENT_SYMBOL, fieldStart, result->length(), result);
-		if ($nc(this->digitList)->isZero()) {
+		if (this->digitList->isZero()) {
 			exponent = 0;
 		}
 		bool negativeExponent = exponent < 0;
 		if (negativeExponent) {
 			exponent = -exponent;
 			fieldStart = result->length();
-			result->append($($nc(this->symbols)->getMinusSignText()));
+			result->append($(this->symbols->getMinusSignText()));
 			delegate->formatted($NumberFormat$Field::EXPONENT_SIGN, $NumberFormat$Field::EXPONENT_SIGN, fieldStart, result->length(), result);
 		}
-		$nc(this->digitList)->set(negativeExponent, exponent);
+		this->digitList->set(negativeExponent, exponent);
 		int32_t eFieldStart = result->length();
-		for (int32_t i = $nc(this->digitList)->decimalAt; i < this->minExponentDigits; ++i) {
+		for (int32_t i = this->digitList->decimalAt; i < this->minExponentDigits; ++i) {
 			result->append(zero);
 		}
-		for (int32_t i = 0; i < $nc(this->digitList)->decimalAt; ++i) {
-			result->append((i < $nc(this->digitList)->count) ? (char16_t)($nc($nc(this->digitList)->digits)->get(i) + zeroDelta) : zero);
+		for (int32_t i = 0; i < this->digitList->decimalAt; ++i) {
+			result->append((i < this->digitList->count) ? (char16_t)($nc(this->digitList->digits)->get(i) + zeroDelta) : zero);
 		}
 		delegate->formatted($NumberFormat$Field::EXPONENT, $NumberFormat$Field::EXPONENT, eFieldStart, result->length(), result);
 	} else {
 		int32_t iFieldStart = $nc(result)->length();
 		int32_t count = minIntDigits;
 		int32_t digitIndex = 0;
-		if ($nc(this->digitList)->decimalAt > 0 && count < $nc(this->digitList)->decimalAt) {
-			count = $nc(this->digitList)->decimalAt;
+		if (this->digitList->decimalAt > 0 && count < this->digitList->decimalAt) {
+			count = this->digitList->decimalAt;
 		}
 		if (count > maxIntDigits) {
 			count = maxIntDigits;
-			digitIndex = $nc(this->digitList)->decimalAt - count;
+			digitIndex = this->digitList->decimalAt - count;
 		}
 		int32_t sizeBeforeIntegerPart = result->length();
 		for (int32_t i = count - 1; i >= 0; --i) {
-			if (i < $nc(this->digitList)->decimalAt && digitIndex < $nc(this->digitList)->count) {
-				result->append((char16_t)($nc($nc(this->digitList)->digits)->get(digitIndex++) + zeroDelta));
+			if (i < this->digitList->decimalAt && digitIndex < this->digitList->count) {
+				result->append((char16_t)($nc(this->digitList->digits)->get(digitIndex++) + zeroDelta));
 			} else {
 				result->append(zero);
 			}
@@ -1072,7 +896,7 @@ void DecimalFormat::subformatNumber($StringBuffer* result, $Format$FieldDelegate
 				$nc(delegate)->formatted($NumberFormat$Field::GROUPING_SEPARATOR, $NumberFormat$Field::GROUPING_SEPARATOR, gStart, result->length(), result);
 			}
 		}
-		bool fractionPresent = (minFraDigits > 0) || (!isInteger && digitIndex < $nc(this->digitList)->count);
+		bool fractionPresent = (minFraDigits > 0) || (!isInteger && digitIndex < this->digitList->count);
 		if (!fractionPresent && result->length() == sizeBeforeIntegerPart) {
 			result->append(zero);
 		}
@@ -1087,15 +911,15 @@ void DecimalFormat::subformatNumber($StringBuffer* result, $Format$FieldDelegate
 		}
 		int32_t fFieldStart = result->length();
 		for (int32_t i = 0; i < maxFraDigits; ++i) {
-			if (i >= minFraDigits && (isInteger || digitIndex >= $nc(this->digitList)->count)) {
+			if (i >= minFraDigits && (isInteger || digitIndex >= this->digitList->count)) {
 				break;
 			}
-			if (-1 - i > ($nc(this->digitList)->decimalAt - 1)) {
+			if (-1 - i > (this->digitList->decimalAt - 1)) {
 				result->append(zero);
 				continue;
 			}
-			if (!isInteger && digitIndex < $nc(this->digitList)->count) {
-				result->append((char16_t)($nc($nc(this->digitList)->digits)->get(digitIndex++) + zeroDelta));
+			if (!isInteger && digitIndex < this->digitList->count) {
+				result->append((char16_t)($nc(this->digitList->digits)->get(digitIndex++) + zeroDelta));
 			} else {
 				result->append(zero);
 			}
@@ -1105,36 +929,29 @@ void DecimalFormat::subformatNumber($StringBuffer* result, $Format$FieldDelegate
 }
 
 void DecimalFormat::append($StringBuffer* result, $String* string, $Format$FieldDelegate* delegate, $FieldPositionArray* positions, $Format$Field* signAttribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t start = $nc(result)->length();
 	if (!$nc(string)->isEmpty()) {
 		result->append(string);
-		{
-			int32_t counter = 0;
-			int32_t max = $nc(positions)->length;
-			for (; counter < max; ++counter) {
-				$var($FieldPosition, fp, positions->get(counter));
-				$var($Format$Field, attribute, $nc(fp)->getFieldAttribute());
-				$init($NumberFormat$Field);
-				if ($equals(attribute, $NumberFormat$Field::SIGN)) {
-					$assign(attribute, signAttribute);
-				}
-				$var($Format$Field, var$0, attribute);
-				$var($Object, var$1, $of(attribute));
-				int32_t var$2 = start + fp->getBeginIndex();
-				$nc(delegate)->formatted(var$0, var$1, var$2, start + fp->getEndIndex(), result);
+		for (int32_t counter = 0, max = $nc(positions)->length; counter < max; ++counter) {
+			$var($FieldPosition, fp, positions->get(counter));
+			$var($Format$Field, attribute, $nc(fp)->getFieldAttribute());
+			$init($NumberFormat$Field);
+			if ($equals(attribute, $NumberFormat$Field::SIGN)) {
+				$assign(attribute, signAttribute);
 			}
+			int32_t var$0 = start + fp->getBeginIndex();
+			$nc(delegate)->formatted(attribute, attribute, var$0, start + fp->getEndIndex(), result);
 		}
 	}
 }
 
 $Number* DecimalFormat::parse($String* text, $ParsePosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(pos)->index;
 	$var($String, var$1, $nc(this->symbols)->getNaN());
-	if ($nc(text)->regionMatches(var$0, var$1, 0, $nc($($nc(this->symbols)->getNaN()))->length())) {
-		$nc(pos)->index = pos->index + $nc($($nc(this->symbols)->getNaN()))->length();
-		$init($Double);
+	if ($nc(text)->regionMatches(var$0, var$1, 0, $$nc(this->symbols->getNaN())->length())) {
+		pos->index = pos->index + $$nc(this->symbols->getNaN())->length();
 		return $Double::valueOf($Double::NaN);
 	}
 	$var($booleans, status, $new($booleans, DecimalFormat::STATUS_LENGTH));
@@ -1143,22 +960,17 @@ $Number* DecimalFormat::parse($String* text, $ParsePosition* pos) {
 	}
 	if (status->get(DecimalFormat::STATUS_INFINITE)) {
 		if (status->get(DecimalFormat::STATUS_POSITIVE) == (this->multiplier >= 0)) {
-			$init($Double);
 			return $Double::valueOf($Double::POSITIVE_INFINITY);
 		} else {
-			$init($Double);
 			return $Double::valueOf($Double::NEGATIVE_INFINITY);
 		}
 	}
 	if (this->multiplier == 0) {
 		if ($nc(this->digitList)->isZero()) {
-			$init($Double);
 			return $Double::valueOf($Double::NaN);
 		} else if (status->get(DecimalFormat::STATUS_POSITIVE)) {
-			$init($Double);
 			return $Double::valueOf($Double::POSITIVE_INFINITY);
 		} else {
-			$init($Double);
 			return $Double::valueOf($Double::NEGATIVE_INFINITY);
 		}
 	}
@@ -1182,12 +994,12 @@ $Number* DecimalFormat::parse($String* text, $ParsePosition* pos) {
 		int64_t longResult = 0;
 		if ($nc(this->digitList)->fitsIntoLong(status->get(DecimalFormat::STATUS_POSITIVE), isParseIntegerOnly())) {
 			gotDouble = false;
-			longResult = $nc(this->digitList)->getLong();
+			longResult = this->digitList->getLong();
 			if (longResult < 0) {
 				gotLongMinimum = true;
 			}
 		} else {
-			doubleResult = $nc(this->digitList)->getDouble();
+			doubleResult = this->digitList->getDouble();
 		}
 		if (this->multiplier != 1) {
 			if (gotDouble) {
@@ -1207,13 +1019,13 @@ $Number* DecimalFormat::parse($String* text, $ParsePosition* pos) {
 			longResult = $cast(int64_t, doubleResult);
 			gotDouble = ((doubleResult != (double)longResult) || (doubleResult == 0.0 && 1 / doubleResult < 0.0)) && !isParseIntegerOnly();
 		}
-		return gotDouble ? static_cast<$Number*>($Double::valueOf(doubleResult)) : static_cast<$Number*>($Long::valueOf(longResult));
+		return gotDouble ? $cast($Number, $Double::valueOf(doubleResult)) : $cast($Number, $Long::valueOf(longResult));
 	}
 }
 
 $BigInteger* DecimalFormat::getBigIntegerMultiplier() {
 	if (this->bigIntegerMultiplier == nullptr) {
-		$set(this, bigIntegerMultiplier, $BigInteger::valueOf((int64_t)this->multiplier));
+		$set(this, bigIntegerMultiplier, $BigInteger::valueOf(this->multiplier));
 	}
 	return this->bigIntegerMultiplier;
 }
@@ -1233,20 +1045,20 @@ bool DecimalFormat::subparse($String* text, $ParsePosition* parsePosition, $Stri
 	gotPositive = $nc(text)->regionMatches(position, positivePrefix, 0, $nc(positivePrefix)->length());
 	gotNegative = text->regionMatches(position, negativePrefix, 0, $nc(negativePrefix)->length());
 	if (gotPositive && gotNegative) {
-		int32_t var$0 = $nc(positivePrefix)->length();
-		if (var$0 > $nc(negativePrefix)->length()) {
+		int32_t var$0 = positivePrefix->length();
+		if (var$0 > negativePrefix->length()) {
 			gotNegative = false;
 		} else {
-			int32_t var$2 = positivePrefix->length();
-			if (var$2 < negativePrefix->length()) {
+			int32_t var$1 = positivePrefix->length();
+			if (var$1 < negativePrefix->length()) {
 				gotPositive = false;
 			}
 		}
 	}
 	if (gotPositive) {
-		position += $nc(positivePrefix)->length();
+		position += positivePrefix->length();
 	} else if (gotNegative) {
-		position += $nc(negativePrefix)->length();
+		position += negativePrefix->length();
 	} else {
 		parsePosition->errorIndex = position;
 		return false;
@@ -1265,12 +1077,12 @@ bool DecimalFormat::subparse($String* text, $ParsePosition* parsePosition, $Stri
 			gotNegative = text->regionMatches(position, this->negativeSuffix, 0, $nc(this->negativeSuffix)->length());
 		}
 		if (gotPositive && gotNegative) {
-			int32_t var$3 = $nc(this->positiveSuffix)->length();
-			if (var$3 > $nc(this->negativeSuffix)->length()) {
+			int32_t var$2 = $nc(this->positiveSuffix)->length();
+			if (var$2 > $nc(this->negativeSuffix)->length()) {
 				gotNegative = false;
 			} else {
-				int32_t var$5 = $nc(this->positiveSuffix)->length();
-				if (var$5 < $nc(this->negativeSuffix)->length()) {
+				int32_t var$3 = this->positiveSuffix->length();
+				if (var$3 < this->negativeSuffix->length()) {
 					gotPositive = false;
 				}
 			}
@@ -1292,30 +1104,29 @@ bool DecimalFormat::subparse($String* text, $ParsePosition* parsePosition, $Stri
 }
 
 int32_t DecimalFormat::subparseNumber($String* text, int32_t position, $DigitList* digits, bool checkExponent, bool isExponent, $booleans* status) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(status)->set(DecimalFormat::STATUS_INFINITE, false);
 	bool var$0 = !isExponent;
 	if (var$0) {
-		int32_t var$1 = position;
-		$var($String, var$2, $nc(this->symbols)->getInfinity());
-		var$0 = $nc(text)->regionMatches(var$1, var$2, 0, $nc($($nc(this->symbols)->getInfinity()))->length());
+		$var($String, var$1, $nc(this->symbols)->getInfinity());
+		var$0 = $nc(text)->regionMatches(position, var$1, 0, $$nc(this->symbols->getInfinity())->length());
 	}
 	if (var$0) {
-		position += $nc($($nc(this->symbols)->getInfinity()))->length();
+		position += $$nc($nc(this->symbols)->getInfinity())->length();
 		status->set(DecimalFormat::STATUS_INFINITE, true);
 	} else {
-		$nc(digits)->decimalAt = (digits->count = 0);
+		$nc(digits)->decimalAt = ($nc(digits)->count = 0);
 		char16_t zero = $nc(this->symbols)->getZeroDigit();
-		char16_t decimal = this->isCurrencyFormat ? $nc(this->symbols)->getMonetaryDecimalSeparator() : $nc(this->symbols)->getDecimalSeparator();
-		char16_t grouping = this->isCurrencyFormat ? $nc(this->symbols)->getMonetaryGroupingSeparator() : $nc(this->symbols)->getGroupingSeparator();
-		$var($String, exponentString, $nc(this->symbols)->getExponentSeparator());
+		char16_t decimal = this->isCurrencyFormat ? this->symbols->getMonetaryDecimalSeparator() : this->symbols->getDecimalSeparator();
+		char16_t grouping = this->isCurrencyFormat ? this->symbols->getMonetaryGroupingSeparator() : this->symbols->getGroupingSeparator();
+		$var($String, exponentString, this->symbols->getExponentSeparator());
 		bool sawDecimal = false;
 		bool sawExponent = false;
 		bool sawDigit = false;
 		int32_t exponent = 0;
 		int32_t digitCount = 0;
 		int32_t backup = -1;
-		for (; position < text->length(); ++position) {
+		for (; position < $nc(text)->length(); ++position) {
 			char16_t ch = text->charAt(position);
 			int32_t digit = ch - zero;
 			if (digit < 0 || digit > 9) {
@@ -1350,11 +1161,11 @@ int32_t DecimalFormat::subparseNumber($String* text, int32_t position, $DigitLis
 				}
 				backup = position;
 			} else if (checkExponent && !isExponent && text->regionMatches(position, exponentString, 0, $nc(exponentString)->length()) && !sawExponent) {
-				$var($ParsePosition, pos, $new($ParsePosition, position + $nc(exponentString)->length()));
+				$var($ParsePosition, pos, $new($ParsePosition, position + exponentString->length()));
 				$var($booleans, stat, $new($booleans, DecimalFormat::STATUS_LENGTH));
 				$var($DigitList, exponentDigits, $new($DigitList));
-				bool var$3 = subparse(text, pos, ""_s, $($nc(this->symbols)->getMinusSignText()), exponentDigits, true, stat);
-				if (var$3 && exponentDigits->fitsIntoLong(stat->get(DecimalFormat::STATUS_POSITIVE), true)) {
+				bool var$2 = subparse(text, pos, ""_s, $(this->symbols->getMinusSignText()), exponentDigits, true, stat);
+				if (var$2 && exponentDigits->fitsIntoLong(stat->get(DecimalFormat::STATUS_POSITIVE), true)) {
 					position = pos->index;
 					exponent = (int32_t)exponentDigits->getLong();
 					if (!stat->get(DecimalFormat::STATUS_POSITIVE)) {
@@ -1505,7 +1316,7 @@ int32_t DecimalFormat::getGroupingSize() {
 }
 
 void DecimalFormat::setGroupingSize(int32_t newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (newValue < 0 || newValue > $Byte::MAX_VALUE) {
 		$throwNew($IllegalArgumentException, $$str({"newValue is out of valid range. value: "_s, $$str(newValue)}));
 	}
@@ -1548,23 +1359,23 @@ bool DecimalFormat::equals(Object$* obj) {
 		return false;
 	}
 	$var(DecimalFormat, other, $cast(DecimalFormat, obj));
-	bool var$4 = (this->posPrefixPattern == $nc(other)->posPrefixPattern && $nc(this->positivePrefix)->equals(other->positivePrefix));
-	bool var$3 = (var$4 || (this->posPrefixPattern != nullptr && $nc(this->posPrefixPattern)->equals($nc(other)->posPrefixPattern)));
+	bool var$4 = this->posPrefixPattern == $nc(other)->posPrefixPattern && $nc(this->positivePrefix)->equals(other->positivePrefix);
+	bool var$3 = var$4 || (this->posPrefixPattern != nullptr && this->posPrefixPattern->equals(other->posPrefixPattern));
 	if (var$3) {
-		bool var$5 = (this->posSuffixPattern == $nc(other)->posSuffixPattern && $nc(this->positiveSuffix)->equals(other->positiveSuffix));
-		var$3 = (var$5 || (this->posSuffixPattern != nullptr && $nc(this->posSuffixPattern)->equals($nc(other)->posSuffixPattern)));
+		bool var$5 = this->posSuffixPattern == other->posSuffixPattern && $nc(this->positiveSuffix)->equals(other->positiveSuffix);
+		var$3 = var$5 || (this->posSuffixPattern != nullptr && this->posSuffixPattern->equals(other->posSuffixPattern));
 	}
 	bool var$2 = var$3;
 	if (var$2) {
-		bool var$6 = (this->negPrefixPattern == $nc(other)->negPrefixPattern && $nc(this->negativePrefix)->equals(other->negativePrefix));
-		var$2 = (var$6 || (this->negPrefixPattern != nullptr && $nc(this->negPrefixPattern)->equals($nc(other)->negPrefixPattern)));
+		bool var$6 = this->negPrefixPattern == other->negPrefixPattern && $nc(this->negativePrefix)->equals(other->negativePrefix);
+		var$2 = var$6 || (this->negPrefixPattern != nullptr && this->negPrefixPattern->equals(other->negPrefixPattern));
 	}
 	bool var$1 = var$2;
 	if (var$1) {
-		bool var$7 = (this->negSuffixPattern == $nc(other)->negSuffixPattern && $nc(this->negativeSuffix)->equals(other->negativeSuffix));
-		var$1 = (var$7 || (this->negSuffixPattern != nullptr && $nc(this->negSuffixPattern)->equals($nc(other)->negSuffixPattern)));
+		bool var$7 = this->negSuffixPattern == other->negSuffixPattern && $nc(this->negativeSuffix)->equals(other->negativeSuffix);
+		var$1 = var$7 || (this->negSuffixPattern != nullptr && this->negSuffixPattern->equals(other->negSuffixPattern));
 	}
-	bool var$0 = var$1 && this->multiplier == $nc(other)->multiplier && this->groupingSize == other->groupingSize && this->decimalSeparatorAlwaysShown == other->decimalSeparatorAlwaysShown && this->parseBigDecimal == other->parseBigDecimal && this->useExponentialNotation == other->useExponentialNotation && (!this->useExponentialNotation || this->minExponentDigits == $nc(other)->minExponentDigits) && this->maximumIntegerDigits == other->maximumIntegerDigits && this->minimumIntegerDigits == other->minimumIntegerDigits && this->maximumFractionDigits == other->maximumFractionDigits && this->minimumFractionDigits == other->minimumFractionDigits && this->roundingMode == other->roundingMode;
+	bool var$0 = var$1 && this->multiplier == other->multiplier && this->groupingSize == other->groupingSize && this->decimalSeparatorAlwaysShown == other->decimalSeparatorAlwaysShown && this->parseBigDecimal == other->parseBigDecimal && this->useExponentialNotation == other->useExponentialNotation && (!this->useExponentialNotation || this->minExponentDigits == other->minExponentDigits) && this->maximumIntegerDigits == other->maximumIntegerDigits && this->minimumIntegerDigits == other->minimumIntegerDigits && this->maximumFractionDigits == other->maximumFractionDigits && this->minimumFractionDigits == other->minimumFractionDigits && this->roundingMode == other->roundingMode;
 	return var$0 && $nc(this->symbols)->equals(other->symbols);
 }
 
@@ -1602,7 +1413,7 @@ void DecimalFormat::expandAffixes() {
 }
 
 $String* DecimalFormat::expandAffix($String* pattern, $StringBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(buffer)->setLength(0);
 	for (int32_t i = 0; i < $nc(pattern)->length();) {
 		char16_t c = pattern->charAt(i++);
@@ -1621,20 +1432,14 @@ $String* DecimalFormat::expandAffix($String* pattern, $StringBuffer* buffer) {
 					continue;
 				}
 			case DecimalFormat::PATTERN_PERCENT:
-				{
-					buffer->append($($nc(this->symbols)->getPercentText()));
-					continue;
-				}
+				buffer->append($($nc(this->symbols)->getPercentText()));
+				continue;
 			case DecimalFormat::PATTERN_PER_MILLE:
-				{
-					buffer->append($($nc(this->symbols)->getPerMillText()));
-					continue;
-				}
+				buffer->append($($nc(this->symbols)->getPerMillText()));
+				continue;
 			case DecimalFormat::PATTERN_MINUS:
-				{
-					buffer->append($($nc(this->symbols)->getMinusSignText()));
-					continue;
-				}
+				buffer->append($($nc(this->symbols)->getMinusSignText()));
+				continue;
 			}
 		}
 		buffer->append(c);
@@ -1643,7 +1448,7 @@ $String* DecimalFormat::expandAffix($String* pattern, $StringBuffer* buffer) {
 }
 
 $FieldPositionArray* DecimalFormat::expandAffix($String* pattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, positions, nullptr);
 	int32_t stringIndex = 0;
 	for (int32_t i = 0; i < $nc(pattern)->length();) {
@@ -1667,26 +1472,20 @@ $FieldPositionArray* DecimalFormat::expandAffix($String* pattern) {
 					break;
 				}
 			case DecimalFormat::PATTERN_PERCENT:
-				{
-					$assign(string, $nc(this->symbols)->getPercentText());
-					$init($NumberFormat$Field);
-					$assign(fieldID, $NumberFormat$Field::PERCENT);
-					break;
-				}
+				$assign(string, $nc(this->symbols)->getPercentText());
+				$init($NumberFormat$Field);
+				$assign(fieldID, $NumberFormat$Field::PERCENT);
+				break;
 			case DecimalFormat::PATTERN_PER_MILLE:
-				{
-					$assign(string, $nc(this->symbols)->getPerMillText());
-					$init($NumberFormat$Field);
-					$assign(fieldID, $NumberFormat$Field::PERMILLE);
-					break;
-				}
+				$assign(string, $nc(this->symbols)->getPerMillText());
+				$init($NumberFormat$Field);
+				$assign(fieldID, $NumberFormat$Field::PERMILLE);
+				break;
 			case DecimalFormat::PATTERN_MINUS:
-				{
-					$assign(string, $nc(this->symbols)->getMinusSignText());
-					$init($NumberFormat$Field);
-					$assign(fieldID, $NumberFormat$Field::SIGN);
-					break;
-				}
+				$assign(string, $nc(this->symbols)->getMinusSignText());
+				$init($NumberFormat$Field);
+				$assign(fieldID, $NumberFormat$Field::SIGN);
+				break;
 			}
 			if (fieldID != nullptr && !$nc(string)->isEmpty()) {
 				if (positions == nullptr) {
@@ -1703,19 +1502,19 @@ $FieldPositionArray* DecimalFormat::expandAffix($String* pattern) {
 		++stringIndex;
 	}
 	if (positions != nullptr) {
-		return $fcast($FieldPositionArray, positions->toArray(DecimalFormat::EmptyFieldPositionArray));
+		return $cast($FieldPositionArray, positions->toArray(DecimalFormat::EmptyFieldPositionArray));
 	}
 	return DecimalFormat::EmptyFieldPositionArray;
 }
 
 void DecimalFormat::appendAffix($StringBuffer* buffer, $String* affixPattern, $String* expAffix, bool localized) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (affixPattern == nullptr) {
 		appendAffix(buffer, expAffix, localized);
 	} else {
 		int32_t i = 0;
-		for (int32_t pos = 0; pos < $nc(affixPattern)->length(); pos = i) {
-			i = affixPattern->indexOf((int32_t)DecimalFormat::QUOTE, pos);
+		for (int32_t pos = 0; pos < affixPattern->length(); pos = i) {
+			i = affixPattern->indexOf(DecimalFormat::QUOTE, pos);
 			if (i < 0) {
 				appendAffix(buffer, $(affixPattern->substring(pos)), localized);
 				break;
@@ -1728,27 +1527,21 @@ void DecimalFormat::appendAffix($StringBuffer* buffer, $String* affixPattern, $S
 			if (c == DecimalFormat::QUOTE) {
 				$nc(buffer)->append(c);
 			} else {
-				bool var$1 = c == DecimalFormat::CURRENCY_SIGN && i < affixPattern->length();
-				if (var$1 && affixPattern->charAt(i) == DecimalFormat::CURRENCY_SIGN) {
+				bool var$0 = c == DecimalFormat::CURRENCY_SIGN && i < affixPattern->length();
+				if (var$0 && affixPattern->charAt(i) == DecimalFormat::CURRENCY_SIGN) {
 					++i;
 					$nc(buffer)->append(c);
 				} else if (localized) {
 					switch (c) {
 					case DecimalFormat::PATTERN_PERCENT:
-						{
-							$nc(buffer)->append($($nc(this->symbols)->getPercentText()));
-							continue;
-						}
+						$nc(buffer)->append($($nc(this->symbols)->getPercentText()));
+						continue;
 					case DecimalFormat::PATTERN_PER_MILLE:
-						{
-							$nc(buffer)->append($($nc(this->symbols)->getPerMillText()));
-							continue;
-						}
+						$nc(buffer)->append($($nc(this->symbols)->getPerMillText()));
+						continue;
 					case DecimalFormat::PATTERN_MINUS:
-						{
-							$nc(buffer)->append($($nc(this->symbols)->getMinusSignText()));
-							continue;
-						}
+						$nc(buffer)->append($($nc(this->symbols)->getMinusSignText()));
+						continue;
 					}
 				}
 			}
@@ -1758,33 +1551,33 @@ void DecimalFormat::appendAffix($StringBuffer* buffer, $String* affixPattern, $S
 }
 
 void DecimalFormat::appendAffix($StringBuffer* buffer, $String* affix, bool localized) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool needQuote = false;
 	if (localized) {
-		bool var$7 = $nc(affix)->indexOf((int32_t)$nc(this->symbols)->getZeroDigit()) >= 0;
-		bool var$6 = var$7 || $nc(affix)->indexOf((int32_t)$nc(this->symbols)->getGroupingSeparator()) >= 0;
-		bool var$5 = var$6 || $nc(affix)->indexOf((int32_t)$nc(this->symbols)->getDecimalSeparator()) >= 0;
-		bool var$4 = var$5 || $nc(affix)->indexOf($($nc(this->symbols)->getPercentText())) >= 0;
-		bool var$3 = var$4 || $nc(affix)->indexOf($($nc(this->symbols)->getPerMillText())) >= 0;
-		bool var$2 = var$3 || $nc(affix)->indexOf((int32_t)$nc(this->symbols)->getDigit()) >= 0;
-		bool var$1 = var$2 || $nc(affix)->indexOf((int32_t)$nc(this->symbols)->getPatternSeparator()) >= 0;
-		bool var$0 = var$1 || $nc(affix)->indexOf($($nc(this->symbols)->getMinusSignText())) >= 0;
-		needQuote = var$0 || $nc(affix)->indexOf((int32_t)DecimalFormat::CURRENCY_SIGN) >= 0;
+		bool var$7 = $nc(affix)->indexOf($nc(this->symbols)->getZeroDigit()) >= 0;
+		bool var$6 = var$7 || affix->indexOf(this->symbols->getGroupingSeparator()) >= 0;
+		bool var$5 = var$6 || affix->indexOf(this->symbols->getDecimalSeparator()) >= 0;
+		bool var$4 = var$5 || affix->indexOf($(this->symbols->getPercentText())) >= 0;
+		bool var$3 = var$4 || affix->indexOf($(this->symbols->getPerMillText())) >= 0;
+		bool var$2 = var$3 || affix->indexOf(this->symbols->getDigit()) >= 0;
+		bool var$1 = var$2 || affix->indexOf(this->symbols->getPatternSeparator()) >= 0;
+		bool var$0 = var$1 || affix->indexOf($(this->symbols->getMinusSignText())) >= 0;
+		needQuote = var$0 || affix->indexOf(DecimalFormat::CURRENCY_SIGN) >= 0;
 	} else {
-		bool var$15 = $nc(affix)->indexOf((int32_t)DecimalFormat::PATTERN_ZERO_DIGIT) >= 0;
-		bool var$14 = var$15 || $nc(affix)->indexOf((int32_t)DecimalFormat::PATTERN_GROUPING_SEPARATOR) >= 0;
-		bool var$13 = var$14 || $nc(affix)->indexOf((int32_t)DecimalFormat::PATTERN_DECIMAL_SEPARATOR) >= 0;
-		bool var$12 = var$13 || $nc(affix)->indexOf((int32_t)DecimalFormat::PATTERN_PERCENT) >= 0;
-		bool var$11 = var$12 || $nc(affix)->indexOf((int32_t)DecimalFormat::PATTERN_PER_MILLE) >= 0;
-		bool var$10 = var$11 || $nc(affix)->indexOf((int32_t)DecimalFormat::PATTERN_DIGIT) >= 0;
-		bool var$9 = var$10 || $nc(affix)->indexOf((int32_t)DecimalFormat::PATTERN_SEPARATOR) >= 0;
-		bool var$8 = var$9 || $nc(affix)->indexOf((int32_t)DecimalFormat::PATTERN_MINUS) >= 0;
-		needQuote = var$8 || $nc(affix)->indexOf((int32_t)DecimalFormat::CURRENCY_SIGN) >= 0;
+		bool var$15 = $nc(affix)->indexOf(DecimalFormat::PATTERN_ZERO_DIGIT) >= 0;
+		bool var$14 = var$15 || affix->indexOf(DecimalFormat::PATTERN_GROUPING_SEPARATOR) >= 0;
+		bool var$13 = var$14 || affix->indexOf(DecimalFormat::PATTERN_DECIMAL_SEPARATOR) >= 0;
+		bool var$12 = var$13 || affix->indexOf(DecimalFormat::PATTERN_PERCENT) >= 0;
+		bool var$11 = var$12 || affix->indexOf(DecimalFormat::PATTERN_PER_MILLE) >= 0;
+		bool var$10 = var$11 || affix->indexOf(DecimalFormat::PATTERN_DIGIT) >= 0;
+		bool var$9 = var$10 || affix->indexOf(DecimalFormat::PATTERN_SEPARATOR) >= 0;
+		bool var$8 = var$9 || affix->indexOf(DecimalFormat::PATTERN_MINUS) >= 0;
+		needQuote = var$8 || affix->indexOf(DecimalFormat::CURRENCY_SIGN) >= 0;
 	}
 	if (needQuote) {
 		$nc(buffer)->append(u'\'');
 	}
-	if ($nc(affix)->indexOf((int32_t)u'\'') < 0) {
+	if ($nc(affix)->indexOf(u'\'') < 0) {
 		$nc(buffer)->append(affix);
 	} else {
 		for (int32_t j = 0; j < affix->length(); ++j) {
@@ -1801,7 +1594,7 @@ void DecimalFormat::appendAffix($StringBuffer* buffer, $String* affix, bool loca
 }
 
 $String* DecimalFormat::toPattern(bool localized) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, result, $new($StringBuffer));
 	for (int32_t j = 1; j >= 0; --j) {
 		if (j == 1) {
@@ -1810,7 +1603,7 @@ $String* DecimalFormat::toPattern(bool localized) {
 			appendAffix(result, this->negPrefixPattern, this->negativePrefix, localized);
 		}
 		int32_t i = 0;
-		int32_t digitCount = this->useExponentialNotation ? getMaximumIntegerDigits() : $Math::max((int32_t)this->groupingSize, getMinimumIntegerDigits()) + 1;
+		int32_t digitCount = this->useExponentialNotation ? getMaximumIntegerDigits() : $Math::max(this->groupingSize, getMinimumIntegerDigits()) + 1;
 		for (i = digitCount; i > 0; --i) {
 			if (i != digitCount && isGroupingUsed() && this->groupingSize != 0 && $mod(i, this->groupingSize) == 0) {
 				result->append(localized ? $nc(this->symbols)->getGroupingSeparator() : DecimalFormat::PATTERN_GROUPING_SEPARATOR);
@@ -1835,9 +1628,9 @@ $String* DecimalFormat::toPattern(bool localized) {
 		}
 		if (j == 1) {
 			appendAffix(result, this->posSuffixPattern, this->positiveSuffix, localized);
-			bool var$0 = (this->negSuffixPattern == this->posSuffixPattern && $nc(this->negativeSuffix)->equals(this->positiveSuffix));
-			if (var$0 || (this->negSuffixPattern != nullptr && $nc(this->negSuffixPattern)->equals(this->posSuffixPattern))) {
-				bool var$1 = (this->negPrefixPattern != nullptr && this->posPrefixPattern != nullptr && $nc(this->negPrefixPattern)->equals($$str({"\'-"_s, this->posPrefixPattern})));
+			bool var$0 = this->negSuffixPattern == this->posSuffixPattern && $nc(this->negativeSuffix)->equals(this->positiveSuffix);
+			if (var$0 || (this->negSuffixPattern != nullptr && this->negSuffixPattern->equals(this->posSuffixPattern))) {
+				bool var$1 = this->negPrefixPattern != nullptr && this->posPrefixPattern != nullptr && this->negPrefixPattern->equals($$str({"\'-"_s, this->posPrefixPattern}));
 				if (var$1 || (this->negPrefixPattern == this->posPrefixPattern && $nc(this->negativePrefix)->equals($$str({$($nc(this->symbols)->getMinusSignText()), this->positivePrefix})))) {
 					break;
 				}
@@ -1859,7 +1652,7 @@ void DecimalFormat::applyLocalizedPattern($String* pattern) {
 }
 
 void DecimalFormat::applyPattern($String* pattern, bool localized) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	char16_t zeroDigit = DecimalFormat::PATTERN_ZERO_DIGIT;
 	char16_t groupingSeparator = DecimalFormat::PATTERN_GROUPING_SEPARATOR;
 	char16_t decimalSeparator = DecimalFormat::PATTERN_DECIMAL_SEPARATOR;
@@ -1871,14 +1664,14 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 	char16_t minus = DecimalFormat::PATTERN_MINUS;
 	if (localized) {
 		zeroDigit = $nc(this->symbols)->getZeroDigit();
-		groupingSeparator = $nc(this->symbols)->getGroupingSeparator();
-		decimalSeparator = $nc(this->symbols)->getDecimalSeparator();
-		percent = $nc(this->symbols)->getPercent();
-		perMill = $nc(this->symbols)->getPerMill();
-		digit = $nc(this->symbols)->getDigit();
-		separator = $nc(this->symbols)->getPatternSeparator();
-		$assign(exponent, $nc(this->symbols)->getExponentSeparator());
-		minus = $nc(this->symbols)->getMinusSign();
+		groupingSeparator = this->symbols->getGroupingSeparator();
+		decimalSeparator = this->symbols->getDecimalSeparator();
+		percent = this->symbols->getPercent();
+		perMill = this->symbols->getPerMill();
+		digit = this->symbols->getDigit();
+		separator = this->symbols->getPatternSeparator();
+		$assign(exponent, this->symbols->getExponentSeparator());
+		minus = this->symbols->getMinusSign();
 	}
 	bool gotNegative = false;
 	this->decimalSeparatorAlwaysShown = false;
@@ -1894,153 +1687,148 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 		int32_t digitLeftCount = 0;
 		int32_t zeroDigitCount = 0;
 		int32_t digitRightCount = 0;
-		int8_t groupingCount = (int8_t)-1;
+		int8_t groupingCount = -1;
 		int32_t phase = 0;
 		$var($StringBuffer, affix, prefix);
 		for (int32_t pos = start; pos < pattern->length(); ++pos) {
 			char16_t ch = pattern->charAt(pos);
 			switch (phase) {
 			case 0:
-				{}
 			case 2:
-				{
-					if (inQuote) {
-						if (ch == DecimalFormat::QUOTE) {
-							bool var$0 = (pos + 1) < pattern->length();
-							if (var$0 && pattern->charAt(pos + 1) == DecimalFormat::QUOTE) {
-								++pos;
-								affix->append("\'\'"_s);
-							} else {
-								inQuote = false;
-							}
-							continue;
+				if (inQuote) {
+					if (ch == DecimalFormat::QUOTE) {
+						bool var$0 = (pos + 1) < pattern->length();
+						if (var$0 && pattern->charAt(pos + 1) == DecimalFormat::QUOTE) {
+							++pos;
+							affix->append("\'\'"_s);
+						} else {
+							inQuote = false;
 						}
-					} else if (ch == digit || ch == zeroDigit || ch == groupingSeparator || ch == decimalSeparator) {
-						phase = 1;
-						--pos;
 						continue;
-					} else if (ch == DecimalFormat::CURRENCY_SIGN) {
-						bool var$1 = (pos + 1) < pattern->length();
-						bool doubled = var$1 && pattern->charAt(pos + 1) == DecimalFormat::CURRENCY_SIGN;
-						if (doubled) {
+					}
+				} else if (ch == digit || ch == zeroDigit || ch == groupingSeparator || ch == decimalSeparator) {
+					phase = 1;
+					--pos;
+					continue;
+				} else if (ch == DecimalFormat::CURRENCY_SIGN) {
+					bool var$1 = (pos + 1) < pattern->length();
+					bool doubled = var$1 && pattern->charAt(pos + 1) == DecimalFormat::CURRENCY_SIGN;
+					if (doubled) {
+						++pos;
+					}
+					this->isCurrencyFormat = true;
+					affix->append(doubled ? u"\'¤¤"_s : u"\'¤"_s);
+					continue;
+				} else if (ch == DecimalFormat::QUOTE) {
+					if (ch == DecimalFormat::QUOTE) {
+						bool var$2 = (pos + 1) < pattern->length();
+						if (var$2 && pattern->charAt(pos + 1) == DecimalFormat::QUOTE) {
+							++pos;
+							affix->append("\'\'"_s);
+						} else {
+							inQuote = true;
+						}
+						continue;
+					}
+				} else if (ch == separator) {
+					if (phase == 0 || j == 0) {
+						$throwNew($IllegalArgumentException, $$str({"Unquoted special character \'"_s, $$str(ch), "\' in pattern \""_s, pattern, $$str(u'\"')}));
+					}
+					start = pos + 1;
+					pos = pattern->length();
+					continue;
+				} else if (ch == percent) {
+					if (multiplier != 1) {
+						$throwNew($IllegalArgumentException, $$str({"Too many percent/per mille characters in pattern \""_s, pattern, $$str(u'\"')}));
+					}
+					multiplier = 100;
+					affix->append("\'%"_s);
+					continue;
+				} else if (ch == perMill) {
+					if (multiplier != 1) {
+						$throwNew($IllegalArgumentException, $$str({"Too many percent/per mille characters in pattern \""_s, pattern, $$str(u'\"')}));
+					}
+					multiplier = 1000;
+					affix->append(u"\'‰"_s);
+					continue;
+				} else if (ch == minus) {
+					affix->append("\'-"_s);
+					continue;
+				}
+				affix->append(ch);
+				break;
+			case 1:
+				if (j == 0) {
+					while (pos < pattern->length()) {
+						char16_t negPatternChar = pattern->charAt(pos);
+						if (negPatternChar == digit || negPatternChar == zeroDigit || negPatternChar == groupingSeparator || negPatternChar == decimalSeparator) {
+							++pos;
+						} else if (pattern->regionMatches(pos, exponent, 0, $nc(exponent)->length())) {
+							pos = pos + exponent->length();
+						} else {
+							--pos;
+							phase = 2;
+							$assign(affix, suffix);
+							break;
+						}
+					}
+					continue;
+				}
+				if (ch == digit) {
+					if (zeroDigitCount > 0) {
+						++digitRightCount;
+					} else {
+						++digitLeftCount;
+					}
+					if (groupingCount >= 0 && decimalPos < 0) {
+						++groupingCount;
+					}
+				} else if (ch == zeroDigit) {
+					if (digitRightCount > 0) {
+						$throwNew($IllegalArgumentException, $$str({"Unexpected \'0\' in pattern \""_s, pattern, $$str(u'\"')}));
+					}
+					++zeroDigitCount;
+					if (groupingCount >= 0 && decimalPos < 0) {
+						++groupingCount;
+					}
+				} else if (ch == groupingSeparator) {
+					groupingCount = 0;
+				} else if (ch == decimalSeparator) {
+					if (decimalPos >= 0) {
+						$throwNew($IllegalArgumentException, $$str({"Multiple decimal separators in pattern \""_s, pattern, $$str(u'\"')}));
+					}
+					decimalPos = digitLeftCount + zeroDigitCount + digitRightCount;
+				} else if (pattern->regionMatches(pos, exponent, 0, $nc(exponent)->length())) {
+					if (this->useExponentialNotation) {
+						$throwNew($IllegalArgumentException, $$str({"Multiple exponential symbols in pattern \""_s, pattern, $$str(u'\"')}));
+					}
+					this->useExponentialNotation = true;
+					this->minExponentDigits = 0;
+					pos = pos + exponent->length();
+					while (true) {
+						bool var$3 = pos < pattern->length();
+						if (!(var$3 && pattern->charAt(pos) == zeroDigit)) {
+							break;
+						}
+						{
+							++this->minExponentDigits;
 							++pos;
 						}
-						this->isCurrencyFormat = true;
-						affix->append(doubled ? u"\'¤¤"_s : u"\'¤"_s);
-						continue;
-					} else if (ch == DecimalFormat::QUOTE) {
-						if (ch == DecimalFormat::QUOTE) {
-							bool var$2 = (pos + 1) < pattern->length();
-							if (var$2 && pattern->charAt(pos + 1) == DecimalFormat::QUOTE) {
-								++pos;
-								affix->append("\'\'"_s);
-							} else {
-								inQuote = true;
-							}
-							continue;
-						}
-					} else if (ch == separator) {
-						if (phase == 0 || j == 0) {
-							$throwNew($IllegalArgumentException, $$str({"Unquoted special character \'"_s, $$str(ch), "\' in pattern \""_s, pattern, $$str(u'\"')}));
-						}
-						start = pos + 1;
-						pos = pattern->length();
-						continue;
-					} else if (ch == percent) {
-						if (multiplier != 1) {
-							$throwNew($IllegalArgumentException, $$str({"Too many percent/per mille characters in pattern \""_s, pattern, $$str(u'\"')}));
-						}
-						multiplier = 100;
-						affix->append("\'%"_s);
-						continue;
-					} else if (ch == perMill) {
-						if (multiplier != 1) {
-							$throwNew($IllegalArgumentException, $$str({"Too many percent/per mille characters in pattern \""_s, pattern, $$str(u'\"')}));
-						}
-						multiplier = 1000;
-						affix->append(u"\'‰"_s);
-						continue;
-					} else if (ch == minus) {
-						affix->append("\'-"_s);
-						continue;
 					}
-					affix->append(ch);
-					break;
+					if ((digitLeftCount + zeroDigitCount) < 1 || this->minExponentDigits < 1) {
+						$throwNew($IllegalArgumentException, $$str({"Malformed exponential pattern \""_s, pattern, $$str(u'\"')}));
+					}
+					phase = 2;
+					$assign(affix, suffix);
+					--pos;
+					continue;
+				} else {
+					phase = 2;
+					$assign(affix, suffix);
+					--pos;
+					continue;
 				}
-			case 1:
-				{
-					if (j == 0) {
-						while (pos < pattern->length()) {
-							char16_t negPatternChar = pattern->charAt(pos);
-							if (negPatternChar == digit || negPatternChar == zeroDigit || negPatternChar == groupingSeparator || negPatternChar == decimalSeparator) {
-								++pos;
-							} else if (pattern->regionMatches(pos, exponent, 0, $nc(exponent)->length())) {
-								pos = pos + $nc(exponent)->length();
-							} else {
-								--pos;
-								phase = 2;
-								$assign(affix, suffix);
-								break;
-							}
-						}
-						continue;
-					}
-					if (ch == digit) {
-						if (zeroDigitCount > 0) {
-							++digitRightCount;
-						} else {
-							++digitLeftCount;
-						}
-						if (groupingCount >= 0 && decimalPos < 0) {
-							++groupingCount;
-						}
-					} else if (ch == zeroDigit) {
-						if (digitRightCount > 0) {
-							$throwNew($IllegalArgumentException, $$str({"Unexpected \'0\' in pattern \""_s, pattern, $$str(u'\"')}));
-						}
-						++zeroDigitCount;
-						if (groupingCount >= 0 && decimalPos < 0) {
-							++groupingCount;
-						}
-					} else if (ch == groupingSeparator) {
-						groupingCount = (int8_t)0;
-					} else if (ch == decimalSeparator) {
-						if (decimalPos >= 0) {
-							$throwNew($IllegalArgumentException, $$str({"Multiple decimal separators in pattern \""_s, pattern, $$str(u'\"')}));
-						}
-						decimalPos = digitLeftCount + zeroDigitCount + digitRightCount;
-					} else if (pattern->regionMatches(pos, exponent, 0, $nc(exponent)->length())) {
-						if (this->useExponentialNotation) {
-							$throwNew($IllegalArgumentException, $$str({"Multiple exponential symbols in pattern \""_s, pattern, $$str(u'\"')}));
-						}
-						this->useExponentialNotation = true;
-						this->minExponentDigits = (int8_t)0;
-						pos = pos + $nc(exponent)->length();
-						while (true) {
-							bool var$3 = pos < pattern->length();
-							if (!(var$3 && pattern->charAt(pos) == zeroDigit)) {
-								break;
-							}
-							{
-								++this->minExponentDigits;
-								++pos;
-							}
-						}
-						if ((digitLeftCount + zeroDigitCount) < 1 || this->minExponentDigits < 1) {
-							$throwNew($IllegalArgumentException, $$str({"Malformed exponential pattern \""_s, pattern, $$str(u'\"')}));
-						}
-						phase = 2;
-						$assign(affix, suffix);
-						--pos;
-						continue;
-					} else {
-						phase = 2;
-						$assign(affix, suffix);
-						--pos;
-						continue;
-					}
-					break;
-				}
+				break;
 			}
 		}
 		if (zeroDigitCount == 0 && digitLeftCount > 0 && decimalPos >= 0) {
@@ -2067,7 +1855,7 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 			setMaximumFractionDigits(decimalPos >= 0 ? (digitTotalCount - decimalPos) : 0);
 			setMinimumFractionDigits(decimalPos >= 0 ? (digitLeftCount + zeroDigitCount - decimalPos) : 0);
 			setGroupingUsed(groupingCount > 0);
-			this->groupingSize = (groupingCount > 0) ? groupingCount : (int8_t)0;
+			this->groupingSize = (groupingCount > 0) ? groupingCount : 0;
 			this->multiplier = multiplier;
 			setDecimalSeparatorAlwaysShown(decimalPos == 0 || decimalPos == digitTotalCount);
 		} else {
@@ -2077,7 +1865,7 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 		}
 	}
 	if ($nc(pattern)->isEmpty()) {
-		$set(this, posPrefixPattern, ($set(this, posSuffixPattern, ""_s)));
+		$set(this, posPrefixPattern, $set(this, posSuffixPattern, ""_s));
 		setMinimumIntegerDigits(0);
 		setMaximumIntegerDigits(DecimalFormat::MAXIMUM_INTEGER_DIGITS);
 		setMinimumFractionDigits(0);
@@ -2086,7 +1874,7 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 	bool var$4 = !gotNegative;
 	if (!var$4) {
 		bool var$5 = $nc(this->negPrefixPattern)->equals(this->posPrefixPattern);
-		var$4 = (var$5 && $nc(this->negSuffixPattern)->equals(this->posSuffixPattern));
+		var$4 = var$5 && $nc(this->negSuffixPattern)->equals(this->posSuffixPattern);
 	}
 	if (var$4) {
 		$set(this, negSuffixPattern, this->posSuffixPattern);
@@ -2157,7 +1945,7 @@ $Currency* DecimalFormat::getCurrency() {
 
 void DecimalFormat::setCurrency($Currency* currency) {
 	if (currency != $nc(this->symbols)->getCurrency()) {
-		$nc(this->symbols)->setCurrency(currency);
+		this->symbols->setCurrency(currency);
 		if (this->isCurrencyFormat) {
 			expandAffixes();
 		}
@@ -2204,12 +1992,12 @@ void DecimalFormat::readObject($ObjectInputStream* stream) {
 		this->useExponentialNotation = false;
 	}
 	if (this->groupingSize < 0) {
-		this->groupingSize = (int8_t)3;
+		this->groupingSize = 3;
 	}
 	this->serialVersionOnStream = DecimalFormat::currentSerialVersion;
 }
 
-void clinit$DecimalFormat($Class* class$) {
+void DecimalFormat::clinit$($Class* clazz) {
 	DecimalFormat::MAX_INT_AS_DOUBLE = (double)$Integer::MAX_VALUE;
 	$assignStatic(DecimalFormat::PATTERN_EXPONENT, "E"_s);
 	DecimalFormat::$assertionsDisabled = !DecimalFormat::class$->desiredAssertionStatus();
@@ -2220,7 +2008,175 @@ DecimalFormat::DecimalFormat() {
 }
 
 $Class* DecimalFormat::load$($String* name, bool initialize) {
-	$loadClass(DecimalFormat, name, initialize, &_DecimalFormat_ClassInfo_, clinit$DecimalFormat, allocate$DecimalFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DecimalFormat, $assertionsDisabled)},
+		{"bigIntegerMultiplier", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, bigIntegerMultiplier)},
+		{"bigDecimalMultiplier", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, bigDecimalMultiplier)},
+		{"STATUS_INFINITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, STATUS_INFINITE)},
+		{"STATUS_POSITIVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, STATUS_POSITIVE)},
+		{"STATUS_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, STATUS_LENGTH)},
+		{"digitList", "Ljava/text/DigitList;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, digitList)},
+		{"positivePrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, positivePrefix)},
+		{"positiveSuffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, positiveSuffix)},
+		{"negativePrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, negativePrefix)},
+		{"negativeSuffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, negativeSuffix)},
+		{"posPrefixPattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, posPrefixPattern)},
+		{"posSuffixPattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, posSuffixPattern)},
+		{"negPrefixPattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, negPrefixPattern)},
+		{"negSuffixPattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalFormat, negSuffixPattern)},
+		{"multiplier", "I", nullptr, $PRIVATE, $field(DecimalFormat, multiplier)},
+		{"groupingSize", "B", nullptr, $PRIVATE, $field(DecimalFormat, groupingSize)},
+		{"decimalSeparatorAlwaysShown", "Z", nullptr, $PRIVATE, $field(DecimalFormat, decimalSeparatorAlwaysShown)},
+		{"parseBigDecimal", "Z", nullptr, $PRIVATE, $field(DecimalFormat, parseBigDecimal)},
+		{"isCurrencyFormat", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, isCurrencyFormat)},
+		{"symbols", "Ljava/text/DecimalFormatSymbols;", nullptr, $PRIVATE, $field(DecimalFormat, symbols)},
+		{"useExponentialNotation", "Z", nullptr, $PRIVATE, $field(DecimalFormat, useExponentialNotation)},
+		{"positivePrefixFieldPositions", "[Ljava/text/FieldPosition;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, positivePrefixFieldPositions)},
+		{"positiveSuffixFieldPositions", "[Ljava/text/FieldPosition;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, positiveSuffixFieldPositions)},
+		{"negativePrefixFieldPositions", "[Ljava/text/FieldPosition;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, negativePrefixFieldPositions)},
+		{"negativeSuffixFieldPositions", "[Ljava/text/FieldPosition;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, negativeSuffixFieldPositions)},
+		{"minExponentDigits", "B", nullptr, $PRIVATE, $field(DecimalFormat, minExponentDigits)},
+		{"maximumIntegerDigits", "I", nullptr, $PRIVATE, $field(DecimalFormat, maximumIntegerDigits)},
+		{"minimumIntegerDigits", "I", nullptr, $PRIVATE, $field(DecimalFormat, minimumIntegerDigits)},
+		{"maximumFractionDigits", "I", nullptr, $PRIVATE, $field(DecimalFormat, maximumFractionDigits)},
+		{"minimumFractionDigits", "I", nullptr, $PRIVATE, $field(DecimalFormat, minimumFractionDigits)},
+		{"roundingMode", "Ljava/math/RoundingMode;", nullptr, $PRIVATE, $field(DecimalFormat, roundingMode)},
+		{"isFastPath", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, isFastPath)},
+		{"fastPathCheckNeeded", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, fastPathCheckNeeded)},
+		{"fastPathData", "Ljava/text/DecimalFormat$FastPathData;", nullptr, $PRIVATE | $TRANSIENT, $field(DecimalFormat, fastPathData)},
+		{"currentSerialVersion", "I", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, currentSerialVersion)},
+		{"serialVersionOnStream", "I", nullptr, $PRIVATE, $field(DecimalFormat, serialVersionOnStream)},
+		{"MAX_INT_AS_DOUBLE", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DecimalFormat, MAX_INT_AS_DOUBLE)},
+		{"PATTERN_ZERO_DIGIT", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_ZERO_DIGIT)},
+		{"PATTERN_GROUPING_SEPARATOR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_GROUPING_SEPARATOR)},
+		{"PATTERN_DECIMAL_SEPARATOR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_DECIMAL_SEPARATOR)},
+		{"PATTERN_PER_MILLE", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_PER_MILLE)},
+		{"PATTERN_PERCENT", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_PERCENT)},
+		{"PATTERN_DIGIT", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_DIGIT)},
+		{"PATTERN_SEPARATOR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_SEPARATOR)},
+		{"PATTERN_EXPONENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DecimalFormat, PATTERN_EXPONENT)},
+		{"PATTERN_MINUS", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, PATTERN_MINUS)},
+		{"CURRENCY_SIGN", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, CURRENCY_SIGN)},
+		{"QUOTE", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DecimalFormat, QUOTE)},
+		{"EmptyFieldPositionArray", "[Ljava/text/FieldPosition;", nullptr, $PRIVATE | $STATIC, $staticField(DecimalFormat, EmptyFieldPositionArray)},
+		{"DOUBLE_INTEGER_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, DOUBLE_INTEGER_DIGITS)},
+		{"DOUBLE_FRACTION_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, DOUBLE_FRACTION_DIGITS)},
+		{"MAXIMUM_INTEGER_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, MAXIMUM_INTEGER_DIGITS)},
+		{"MAXIMUM_FRACTION_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, MAXIMUM_FRACTION_DIGITS)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DecimalFormat, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DecimalFormat, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DecimalFormat, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/text/DecimalFormatSymbols;)V", nullptr, $PUBLIC, $method(DecimalFormat, init$, void, $String*, $DecimalFormatSymbols*)},
+		{"addAffixes", "([C[C[C)V", nullptr, $PRIVATE, $method(DecimalFormat, addAffixes, void, $chars*, $chars*, $chars*)},
+		{"append", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/text/Format$FieldDelegate;[Ljava/text/FieldPosition;Ljava/text/Format$Field;)V", nullptr, $PRIVATE, $method(DecimalFormat, append, void, $StringBuffer*, $String*, $Format$FieldDelegate*, $FieldPositionArray*, $Format$Field*)},
+		{"appendAffix", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(DecimalFormat, appendAffix, void, $StringBuffer*, $String*, $String*, bool)},
+		{"appendAffix", "(Ljava/lang/StringBuffer;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(DecimalFormat, appendAffix, void, $StringBuffer*, $String*, bool)},
+		{"appendSuffix", "([CI[C)V", nullptr, $PRIVATE, $method(DecimalFormat, appendSuffix, void, $chars*, int32_t, $chars*)},
+		{"applyLocalizedPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, applyLocalizedPattern, void, $String*)},
+		{"applyPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, applyPattern, void, $String*)},
+		{"applyPattern", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(DecimalFormat, applyPattern, void, $String*, bool)},
+		{"checkAndSetFastPathStatus", "()Z", nullptr, $PRIVATE, $method(DecimalFormat, checkAndSetFastPathStatus, bool)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, clone, $Object*)},
+		{"collectFractionalDigits", "(I[CI)V", nullptr, $PRIVATE, $method(DecimalFormat, collectFractionalDigits, void, int32_t, $chars*, int32_t)},
+		{"collectIntegralDigits", "(I[CI)V", nullptr, $PRIVATE, $method(DecimalFormat, collectIntegralDigits, void, int32_t, $chars*, int32_t)},
+		{"doubleSubformat", "(DLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;Z)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(DecimalFormat, doubleSubformat, $StringBuffer*, double, $StringBuffer*, $Format$FieldDelegate*, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, equals, bool, Object$*)},
+		{"exactRoundUp", "(DI)Z", nullptr, $PRIVATE, $method(DecimalFormat, exactRoundUp, bool, double, int32_t)},
+		{"expandAffix", "(Ljava/lang/String;Ljava/lang/StringBuffer;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DecimalFormat, expandAffix, $String*, $String*, $StringBuffer*)},
+		{"expandAffix", "(Ljava/lang/String;)[Ljava/text/FieldPosition;", nullptr, $PRIVATE, $method(DecimalFormat, expandAffix, $FieldPositionArray*, $String*)},
+		{"expandAffixes", "()V", nullptr, $PRIVATE, $method(DecimalFormat, expandAffixes, void)},
+		{"fastDoubleFormat", "(DZ)V", nullptr, $PRIVATE, $method(DecimalFormat, fastDoubleFormat, void, double, bool)},
+		{"fastFormat", "(D)Ljava/lang/String;", nullptr, 0, $virtualMethod(DecimalFormat, fastFormat, $String*, double)},
+		{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DecimalFormat, format, $StringBuffer*, Object$*, $StringBuffer*, $FieldPosition*)},
+		{"format", "(DLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, format, $StringBuffer*, double, $StringBuffer*, $FieldPosition*)},
+		{"format", "(DLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(DecimalFormat, format, $StringBuffer*, double, $StringBuffer*, $Format$FieldDelegate*)},
+		{"format", "(JLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, format, $StringBuffer*, int64_t, $StringBuffer*, $FieldPosition*)},
+		{"format", "(JLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(DecimalFormat, format, $StringBuffer*, int64_t, $StringBuffer*, $Format$FieldDelegate*)},
+		{"format", "(Ljava/math/BigDecimal;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(DecimalFormat, format, $StringBuffer*, $BigDecimal*, $StringBuffer*, $FieldPosition*)},
+		{"format", "(Ljava/math/BigDecimal;Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(DecimalFormat, format, $StringBuffer*, $BigDecimal*, $StringBuffer*, $Format$FieldDelegate*)},
+		{"format", "(Ljava/math/BigInteger;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(DecimalFormat, format, $StringBuffer*, $BigInteger*, $StringBuffer*, $FieldPosition*)},
+		{"format", "(Ljava/math/BigInteger;Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;Z)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(DecimalFormat, format, $StringBuffer*, $BigInteger*, $StringBuffer*, $Format$FieldDelegate*, bool)},
+		{"formatToCharacterIterator", "(Ljava/lang/Object;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, formatToCharacterIterator, $AttributedCharacterIterator*, Object$*)},
+		{"getBigDecimalMultiplier", "()Ljava/math/BigDecimal;", nullptr, $PRIVATE, $method(DecimalFormat, getBigDecimalMultiplier, $BigDecimal*)},
+		{"getBigIntegerMultiplier", "()Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DecimalFormat, getBigIntegerMultiplier, $BigInteger*)},
+		{"getCurrency", "()Ljava/util/Currency;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getCurrency, $Currency*)},
+		{"getDecimalFormatSymbols", "()Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getDecimalFormatSymbols, $DecimalFormatSymbols*)},
+		{"getGroupingSize", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getGroupingSize, int32_t)},
+		{"getMaximumFractionDigits", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getMaximumFractionDigits, int32_t)},
+		{"getMaximumIntegerDigits", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getMaximumIntegerDigits, int32_t)},
+		{"getMinimumFractionDigits", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getMinimumFractionDigits, int32_t)},
+		{"getMinimumIntegerDigits", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getMinimumIntegerDigits, int32_t)},
+		{"getMultiplier", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getMultiplier, int32_t)},
+		{"getNegativePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getNegativePrefix, $String*)},
+		{"getNegativePrefixFieldPositions", "()[Ljava/text/FieldPosition;", nullptr, $PRIVATE, $method(DecimalFormat, getNegativePrefixFieldPositions, $FieldPositionArray*)},
+		{"getNegativeSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getNegativeSuffix, $String*)},
+		{"getNegativeSuffixFieldPositions", "()[Ljava/text/FieldPosition;", nullptr, $PRIVATE, $method(DecimalFormat, getNegativeSuffixFieldPositions, $FieldPositionArray*)},
+		{"getPositivePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getPositivePrefix, $String*)},
+		{"getPositivePrefixFieldPositions", "()[Ljava/text/FieldPosition;", nullptr, $PRIVATE, $method(DecimalFormat, getPositivePrefixFieldPositions, $FieldPositionArray*)},
+		{"getPositiveSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getPositiveSuffix, $String*)},
+		{"getPositiveSuffixFieldPositions", "()[Ljava/text/FieldPosition;", nullptr, $PRIVATE, $method(DecimalFormat, getPositiveSuffixFieldPositions, $FieldPositionArray*)},
+		{"getRoundingMode", "()Ljava/math/RoundingMode;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, getRoundingMode, $RoundingMode*)},
+		{"handleInfinity", "(DLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;Z)Z", nullptr, 0, $virtualMethod(DecimalFormat, handleInfinity, bool, double, $StringBuffer*, $Format$FieldDelegate*, bool)},
+		{"handleNaN", "(DLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Z", nullptr, 0, $virtualMethod(DecimalFormat, handleNaN, bool, double, $StringBuffer*, $Format$FieldDelegate*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, hashCode, int32_t)},
+		{"isDecimalSeparatorAlwaysShown", "()Z", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, isDecimalSeparatorAlwaysShown, bool)},
+		{"isParseBigDecimal", "()Z", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, isParseBigDecimal, bool)},
+		{"localizeDigits", "([C)V", nullptr, $PRIVATE, $method(DecimalFormat, localizeDigits, void, $chars*)},
+		{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, parse, $Number*, $String*, $ParsePosition*)},
+		{"prependPrefix", "([CI[C)V", nullptr, $PRIVATE, $method(DecimalFormat, prependPrefix, void, $chars*, int32_t, $chars*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DecimalFormat, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"resetFastPathData", "(Z)V", nullptr, $PRIVATE, $method(DecimalFormat, resetFastPathData, void, bool)},
+		{"setCurrency", "(Ljava/util/Currency;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setCurrency, void, $Currency*)},
+		{"setDecimalFormatSymbols", "(Ljava/text/DecimalFormatSymbols;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setDecimalFormatSymbols, void, $DecimalFormatSymbols*)},
+		{"setDecimalSeparatorAlwaysShown", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setDecimalSeparatorAlwaysShown, void, bool)},
+		{"setDigitList", "(Ljava/lang/Number;ZI)V", nullptr, 0, $virtualMethod(DecimalFormat, setDigitList, void, $Number*, bool, int32_t)},
+		{"setGroupingSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setGroupingSize, void, int32_t)},
+		{"setGroupingUsed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setGroupingUsed, void, bool)},
+		{"setMaximumFractionDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setMaximumFractionDigits, void, int32_t)},
+		{"setMaximumIntegerDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setMaximumIntegerDigits, void, int32_t)},
+		{"setMinimumFractionDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setMinimumFractionDigits, void, int32_t)},
+		{"setMinimumIntegerDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setMinimumIntegerDigits, void, int32_t)},
+		{"setMultiplier", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setMultiplier, void, int32_t)},
+		{"setNegativePrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setNegativePrefix, void, $String*)},
+		{"setNegativeSuffix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setNegativeSuffix, void, $String*)},
+		{"setParseBigDecimal", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setParseBigDecimal, void, bool)},
+		{"setPositivePrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setPositivePrefix, void, $String*)},
+		{"setPositiveSuffix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setPositiveSuffix, void, $String*)},
+		{"setRoundingMode", "(Ljava/math/RoundingMode;)V", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, setRoundingMode, void, $RoundingMode*)},
+		{"subformat", "(Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;ZZIIII)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(DecimalFormat, subformat, $StringBuffer*, $StringBuffer*, $Format$FieldDelegate*, bool, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"subformatNumber", "(Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;ZZIIII)V", nullptr, 0, $virtualMethod(DecimalFormat, subformatNumber, void, $StringBuffer*, $Format$FieldDelegate*, bool, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"subparse", "(Ljava/lang/String;Ljava/text/ParsePosition;Ljava/lang/String;Ljava/lang/String;Ljava/text/DigitList;Z[Z)Z", nullptr, $PRIVATE | $FINAL, $method(DecimalFormat, subparse, bool, $String*, $ParsePosition*, $String*, $String*, $DigitList*, bool, $booleans*)},
+		{"subparseNumber", "(Ljava/lang/String;ILjava/text/DigitList;ZZ[Z)I", nullptr, 0, $virtualMethod(DecimalFormat, subparseNumber, int32_t, $String*, int32_t, $DigitList*, bool, bool, $booleans*)},
+		{"toLocalizedPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, toLocalizedPattern, $String*)},
+		{"toPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DecimalFormat, toPattern, $String*)},
+		{"toPattern", "(Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(DecimalFormat, toPattern, $String*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.DecimalFormat$DigitArrays", "java.text.DecimalFormat", "DigitArrays", $PRIVATE | $STATIC},
+		{"java.text.DecimalFormat$FastPathData", "java.text.DecimalFormat", "FastPathData", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.text.DecimalFormat",
+		"java.text.NumberFormat",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.text.DecimalFormat$DigitArrays,java.text.DecimalFormat$FastPathData"
+	};
+	$loadClass(DecimalFormat, name, initialize, &classInfo$$, DecimalFormat::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DecimalFormat));
+	});
 	return class$;
 }
 

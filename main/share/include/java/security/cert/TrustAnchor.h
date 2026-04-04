@@ -42,6 +42,7 @@ class $import TrustAnchor : public ::java::lang::Object {
 	$class(TrustAnchor, 0, ::java::lang::Object)
 public:
 	TrustAnchor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::cert::X509Certificate* trustedCert, $bytes* nameConstraints);
 	void init$(::javax::security::auth::x500::X500Principal* caPrincipal, ::java::security::PublicKey* pubKey, $bytes* nameConstraints);
 	void init$($String* caName, ::java::security::PublicKey* pubKey, $bytes* nameConstraints);

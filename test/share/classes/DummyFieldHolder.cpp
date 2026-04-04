@@ -1,5 +1,4 @@
 #include <DummyFieldHolder.h>
-
 #include <jcpp.h>
 
 using $LongArray = $Array<::java::lang::Long>;
@@ -7,31 +6,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _DummyFieldHolder_FieldInfo_[] = {
-	{"staticField", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticField(DummyFieldHolder, staticField)},
-	{"instanceField", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DummyFieldHolder, instanceField)},
-	{"instanceByteField", "B", nullptr, $PUBLIC, $field(DummyFieldHolder, instanceByteField)},
-	{}
-};
-
-$MethodInfo _DummyFieldHolder_MethodInfo_[] = {
-	{"<init>", "(B[Ljava/lang/Long;)V", nullptr, $PUBLIC | $TRANSIENT, $method(DummyFieldHolder, init$, void, int8_t, $LongArray*)},
-	{}
-};
-
-$ClassInfo _DummyFieldHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"DummyFieldHolder",
-	"java.lang.Object",
-	nullptr,
-	_DummyFieldHolder_FieldInfo_,
-	_DummyFieldHolder_MethodInfo_
-};
-
-$Object* allocate$DummyFieldHolder($Class* clazz) {
-	return $of($alloc(DummyFieldHolder));
-}
 
 $Integer* DummyFieldHolder::staticField = nullptr;
 
@@ -42,7 +16,27 @@ DummyFieldHolder::DummyFieldHolder() {
 }
 
 $Class* DummyFieldHolder::load$($String* name, bool initialize) {
-	$loadClass(DummyFieldHolder, name, initialize, &_DummyFieldHolder_ClassInfo_, allocate$DummyFieldHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"staticField", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticField(DummyFieldHolder, staticField)},
+		{"instanceField", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DummyFieldHolder, instanceField)},
+		{"instanceByteField", "B", nullptr, $PUBLIC, $field(DummyFieldHolder, instanceByteField)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(B[Ljava/lang/Long;)V", nullptr, $PUBLIC | $TRANSIENT, $method(DummyFieldHolder, init$, void, int8_t, $LongArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"DummyFieldHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DummyFieldHolder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DummyFieldHolder);
+	});
 	return class$;
 }
 

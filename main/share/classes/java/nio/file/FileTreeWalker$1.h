@@ -13,6 +13,7 @@ class FileTreeWalker$1 : public ::java::lang::Object {
 	$class(FileTreeWalker$1, 0, ::java::lang::Object)
 public:
 	FileTreeWalker$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$nio$file$FileVisitOption;
 };
 

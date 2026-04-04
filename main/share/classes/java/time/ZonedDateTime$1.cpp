@@ -1,5 +1,4 @@
 #include <java/time/ZonedDateTime$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/ZonedDateTime.h>
 #include <java/time/temporal/ChronoField.h>
@@ -18,53 +17,17 @@ using $ChronoField = ::java::time::temporal::ChronoField;
 namespace java {
 	namespace time {
 
-$FieldInfo _ZonedDateTime$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ZonedDateTime$1, $SwitchMap$java$time$temporal$ChronoField)},
-	{}
-};
-
-$EnclosingMethodInfo _ZonedDateTime$1_EnclosingMethodInfo_ = {
-	"java.time.ZonedDateTime",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ZonedDateTime$1_InnerClassesInfo_[] = {
-	{"java.time.ZonedDateTime$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ZonedDateTime$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.ZonedDateTime$1",
-	"java.lang.Object",
-	nullptr,
-	_ZonedDateTime$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ZonedDateTime$1_EnclosingMethodInfo_,
-	_ZonedDateTime$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.ZonedDateTime"
-};
-
-$Object* allocate$ZonedDateTime$1($Class* clazz) {
-	return $of($alloc(ZonedDateTime$1));
-}
-
 $ints* ZonedDateTime$1::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
-void clinit$ZonedDateTime$1($Class* class$) {
+void ZonedDateTime$1::clinit$($Class* clazz) {
 	$assignStatic(ZonedDateTime$1::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
-			$nc(ZonedDateTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::INSTANT_SECONDS->ordinal(), 1);
+			ZonedDateTime$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::INSTANT_SECONDS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ZonedDateTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::OFFSET_SECONDS->ordinal(), 2);
+			ZonedDateTime$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::OFFSET_SECONDS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -74,7 +37,37 @@ ZonedDateTime$1::ZonedDateTime$1() {
 }
 
 $Class* ZonedDateTime$1::load$($String* name, bool initialize) {
-	$loadClass(ZonedDateTime$1, name, initialize, &_ZonedDateTime$1_ClassInfo_, clinit$ZonedDateTime$1, allocate$ZonedDateTime$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ZonedDateTime$1, $SwitchMap$java$time$temporal$ChronoField)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.ZonedDateTime",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.ZonedDateTime$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.ZonedDateTime$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.ZonedDateTime"
+	};
+	$loadClass(ZonedDateTime$1, name, initialize, &classInfo$$, ZonedDateTime$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ZonedDateTime$1);
+	});
 	return class$;
 }
 

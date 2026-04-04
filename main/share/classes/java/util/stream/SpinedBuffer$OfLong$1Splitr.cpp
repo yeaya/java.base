@@ -1,5 +1,4 @@
 #include <java/util/stream/SpinedBuffer$OfLong$1Splitr.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator$OfLong.h>
@@ -9,7 +8,6 @@
 #include <java/util/function/LongConsumer.h>
 #include <java/util/stream/SpinedBuffer$OfLong.h>
 #include <java/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator.h>
-#include <java/util/stream/SpinedBuffer$OfPrimitive.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -25,79 +23,11 @@ using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $Consumer = ::java::util::function::Consumer;
 using $LongConsumer = ::java::util::function::LongConsumer;
 using $SpinedBuffer$OfLong = ::java::util::stream::SpinedBuffer$OfLong;
-using $SpinedBuffer$OfPrimitive = ::java::util::stream::SpinedBuffer$OfPrimitive;
 using $SpinedBuffer$OfPrimitive$BaseSpliterator = ::java::util::stream::SpinedBuffer$OfPrimitive$BaseSpliterator;
 
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _SpinedBuffer$OfLong$1Splitr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/stream/SpinedBuffer$OfLong;", nullptr, $FINAL | $SYNTHETIC, $field(SpinedBuffer$OfLong$1Splitr, this$0)},
-	{}
-};
-
-$MethodInfo _SpinedBuffer$OfLong$1Splitr_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/SpinedBuffer$OfLong;IIII)V", nullptr, 0, $method(SpinedBuffer$OfLong$1Splitr, init$, void, $SpinedBuffer$OfLong*, int32_t, int32_t, int32_t, int32_t)},
-	{"arrayForOne", "([JILjava/util/function/LongConsumer;)V", nullptr, 0, $virtualMethod(SpinedBuffer$OfLong$1Splitr, arrayForOne, void, $longs*, int32_t, $LongConsumer*)},
-	{"arrayForOne", "(Ljava/lang/Object;ILjava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong$1Splitr, arrayForOne, void, Object$*, int32_t, Object$*)},
-	{"arraySpliterator", "([JII)Ljava/util/Spliterator$OfLong;", nullptr, 0, $virtualMethod(SpinedBuffer$OfLong$1Splitr, arraySpliterator, $Spliterator$OfLong*, $longs*, int32_t, int32_t)},
-	{"arraySpliterator", "(Ljava/lang/Object;II)Ljava/util/Spliterator$OfPrimitive;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong$1Splitr, arraySpliterator, $Spliterator$OfPrimitive*, Object$*, int32_t, int32_t)},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong$1Splitr, forEachRemaining, void, $LongConsumer*)},
-	{"newSpliterator", "(IIII)Ljava/util/stream/SpinedBuffer$OfLong$1Splitr;", nullptr, 0, $virtualMethod(SpinedBuffer$OfLong$1Splitr, newSpliterator, $Spliterator$OfPrimitive*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong$1Splitr, tryAdvance, bool, $LongConsumer*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong$1Splitr, trySplit, $Spliterator*)},
-	{}
-};
-
-$EnclosingMethodInfo _SpinedBuffer$OfLong$1Splitr_EnclosingMethodInfo_ = {
-	"java.util.stream.SpinedBuffer$OfLong",
-	"spliterator",
-	"()Ljava/util/Spliterator$OfLong;"
-};
-
-$InnerClassInfo _SpinedBuffer$OfLong$1Splitr_InnerClassesInfo_[] = {
-	{"java.util.stream.SpinedBuffer$OfLong", "java.util.stream.SpinedBuffer", "OfLong", $STATIC},
-	{"java.util.stream.SpinedBuffer$OfLong$1Splitr", nullptr, "Splitr", 0},
-	{"java.util.stream.SpinedBuffer$OfPrimitive", "java.util.stream.SpinedBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
-	{"java.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator", "java.util.stream.SpinedBuffer$OfPrimitive", "BaseSpliterator", $ABSTRACT},
-	{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SpinedBuffer$OfLong$1Splitr_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.SpinedBuffer$OfLong$1Splitr",
-	"java.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator",
-	"java.util.Spliterator$OfLong",
-	_SpinedBuffer$OfLong$1Splitr_FieldInfo_,
-	_SpinedBuffer$OfLong$1Splitr_MethodInfo_,
-	"Ljava/util/stream/SpinedBuffer$OfPrimitive<Ljava/lang/Long;[JLjava/util/function/LongConsumer;>.BaseSpliterator<Ljava/util/Spliterator$OfLong;>;Ljava/util/Spliterator$OfLong;",
-	&_SpinedBuffer$OfLong$1Splitr_EnclosingMethodInfo_,
-	_SpinedBuffer$OfLong$1Splitr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SpinedBuffer"
-};
-
-$Object* allocate$SpinedBuffer$OfLong$1Splitr($Class* clazz) {
-	return $of($alloc(SpinedBuffer$OfLong$1Splitr));
-}
 
 int64_t SpinedBuffer$OfLong$1Splitr::estimateSize() {
 	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::estimateSize();
@@ -233,7 +163,7 @@ void SpinedBuffer$OfLong$1Splitr::init$($SpinedBuffer$OfLong* this$0, int32_t fi
 }
 
 $Spliterator$OfPrimitive* SpinedBuffer$OfLong$1Splitr::newSpliterator(int32_t firstSpineIndex, int32_t lastSpineIndex, int32_t firstSpineElementIndex, int32_t lastSpineElementFence) {
-	return static_cast<$Spliterator$OfPrimitive*>(static_cast<$SpinedBuffer$OfPrimitive$BaseSpliterator*>($new(SpinedBuffer$OfLong$1Splitr, this->this$0, firstSpineIndex, lastSpineIndex, firstSpineElementIndex, lastSpineElementFence)));
+	return $cast($SpinedBuffer$OfPrimitive$BaseSpliterator, $new(SpinedBuffer$OfLong$1Splitr, this->this$0, firstSpineIndex, lastSpineIndex, firstSpineElementIndex, lastSpineElementFence));
 }
 
 void SpinedBuffer$OfLong$1Splitr::arrayForOne($longs* array, int32_t index, $LongConsumer* consumer) {
@@ -253,11 +183,11 @@ void SpinedBuffer$OfLong$1Splitr::arrayForOne(Object$* array, int32_t index, Obj
 }
 
 void SpinedBuffer$OfLong$1Splitr::forEachRemaining($LongConsumer* consumer) {
-	$SpinedBuffer$OfPrimitive$BaseSpliterator::forEachRemaining($of(consumer));
+	$SpinedBuffer$OfPrimitive$BaseSpliterator::forEachRemaining(consumer);
 }
 
 bool SpinedBuffer$OfLong$1Splitr::tryAdvance($LongConsumer* consumer) {
-	return $SpinedBuffer$OfPrimitive$BaseSpliterator::tryAdvance($of(consumer));
+	return $SpinedBuffer$OfPrimitive$BaseSpliterator::tryAdvance(consumer);
 }
 
 $Spliterator* SpinedBuffer$OfLong$1Splitr::trySplit() {
@@ -268,7 +198,67 @@ SpinedBuffer$OfLong$1Splitr::SpinedBuffer$OfLong$1Splitr() {
 }
 
 $Class* SpinedBuffer$OfLong$1Splitr::load$($String* name, bool initialize) {
-	$loadClass(SpinedBuffer$OfLong$1Splitr, name, initialize, &_SpinedBuffer$OfLong$1Splitr_ClassInfo_, allocate$SpinedBuffer$OfLong$1Splitr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/stream/SpinedBuffer$OfLong;", nullptr, $FINAL | $SYNTHETIC, $field(SpinedBuffer$OfLong$1Splitr, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/stream/SpinedBuffer$OfLong;IIII)V", nullptr, 0, $method(SpinedBuffer$OfLong$1Splitr, init$, void, $SpinedBuffer$OfLong*, int32_t, int32_t, int32_t, int32_t)},
+		{"arrayForOne", "([JILjava/util/function/LongConsumer;)V", nullptr, 0, $virtualMethod(SpinedBuffer$OfLong$1Splitr, arrayForOne, void, $longs*, int32_t, $LongConsumer*)},
+		{"arrayForOne", "(Ljava/lang/Object;ILjava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong$1Splitr, arrayForOne, void, Object$*, int32_t, Object$*)},
+		{"arraySpliterator", "([JII)Ljava/util/Spliterator$OfLong;", nullptr, 0, $virtualMethod(SpinedBuffer$OfLong$1Splitr, arraySpliterator, $Spliterator$OfLong*, $longs*, int32_t, int32_t)},
+		{"arraySpliterator", "(Ljava/lang/Object;II)Ljava/util/Spliterator$OfPrimitive;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong$1Splitr, arraySpliterator, $Spliterator$OfPrimitive*, Object$*, int32_t, int32_t)},
+		{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong$1Splitr, forEachRemaining, void, $LongConsumer*)},
+		{"newSpliterator", "(IIII)Ljava/util/stream/SpinedBuffer$OfLong$1Splitr;", nullptr, 0, $virtualMethod(SpinedBuffer$OfLong$1Splitr, newSpliterator, $Spliterator$OfPrimitive*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong$1Splitr, tryAdvance, bool, $LongConsumer*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong$1Splitr, trySplit, $Spliterator*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.SpinedBuffer$OfLong",
+		"spliterator",
+		"()Ljava/util/Spliterator$OfLong;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SpinedBuffer$OfLong", "java.util.stream.SpinedBuffer", "OfLong", $STATIC},
+		{"java.util.stream.SpinedBuffer$OfLong$1Splitr", nullptr, "Splitr", 0},
+		{"java.util.stream.SpinedBuffer$OfPrimitive", "java.util.stream.SpinedBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
+		{"java.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator", "java.util.stream.SpinedBuffer$OfPrimitive", "BaseSpliterator", $ABSTRACT},
+		{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.SpinedBuffer$OfLong$1Splitr",
+		"java.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator",
+		"java.util.Spliterator$OfLong",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/SpinedBuffer$OfPrimitive<Ljava/lang/Long;[JLjava/util/function/LongConsumer;>.BaseSpliterator<Ljava/util/Spliterator$OfLong;>;Ljava/util/Spliterator$OfLong;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SpinedBuffer"
+	};
+	$loadClass(SpinedBuffer$OfLong$1Splitr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SpinedBuffer$OfLong$1Splitr));
+	});
 	return class$;
 }
 

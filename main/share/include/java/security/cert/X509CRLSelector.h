@@ -51,6 +51,7 @@ class $import X509CRLSelector : public ::java::security::cert::CRLSelector {
 	$class(X509CRLSelector, 0, ::java::security::cert::CRLSelector)
 public:
 	X509CRLSelector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addIssuer(::javax::security::auth::x500::X500Principal* issuer);
 	virtual void addIssuerName($String* name);

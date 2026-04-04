@@ -39,6 +39,7 @@ class $import AuthorityInfoAccessExtension : public ::sun::security::x509::Exten
 	$class(AuthorityInfoAccessExtension, 0, ::sun::security::x509::Extension, ::sun::security::x509::CertAttrSet)
 public:
 	AuthorityInfoAccessExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::security::x509::Extension::encode;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

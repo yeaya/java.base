@@ -266,6 +266,7 @@ class CipherSuite : public ::java::lang::Enum {
 public:
 	CipherSuite();
 	static $Array<::sun::security::ssl::CipherSuite>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, int32_t id);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, bool isDefaultEnabled, $String* name, $Array<::sun::security::ssl::ProtocolVersion>* supportedProtocols, ::sun::security::ssl::SSLCipher* bulkCipher, ::sun::security::ssl::CipherSuite$HashAlg* hashAlg);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, bool isDefaultEnabled, $String* name, $String* aliases, $Array<::sun::security::ssl::ProtocolVersion>* supportedProtocols, ::sun::security::ssl::CipherSuite$KeyExchange* keyExchange, ::sun::security::ssl::SSLCipher* cipher, ::sun::security::ssl::CipherSuite$MacAlg* macAlg, ::sun::security::ssl::CipherSuite$HashAlg* hashAlg);

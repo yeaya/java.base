@@ -1,5 +1,4 @@
 #include <sun/security/ssl/StatusResponseManager$StatusInfo.h>
-
 #include <java/math/BigInteger.h>
 #include <java/net/URI.h>
 #include <java/security/cert/X509Certificate.h>
@@ -23,50 +22,8 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _StatusResponseManager$StatusInfo_FieldInfo_[] = {
-	{"this$0", "Lsun/security/ssl/StatusResponseManager;", nullptr, $FINAL | $SYNTHETIC, $field(StatusResponseManager$StatusInfo, this$0)},
-	{"cert", "Ljava/security/cert/X509Certificate;", nullptr, $FINAL, $field(StatusResponseManager$StatusInfo, cert)},
-	{"cid", "Lsun/security/provider/certpath/CertId;", nullptr, $FINAL, $field(StatusResponseManager$StatusInfo, cid)},
-	{"responder", "Ljava/net/URI;", nullptr, $FINAL, $field(StatusResponseManager$StatusInfo, responder)},
-	{"responseData", "Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;", nullptr, 0, $field(StatusResponseManager$StatusInfo, responseData)},
-	{}
-};
-
-$MethodInfo _StatusResponseManager$StatusInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(StatusResponseManager$StatusInfo, init$, void, $StatusResponseManager*, $X509Certificate*, $X509Certificate*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Ljava/security/cert/X509Certificate;Lsun/security/provider/certpath/CertId;)V", nullptr, 0, $method(StatusResponseManager$StatusInfo, init$, void, $StatusResponseManager*, $X509Certificate*, $CertId*)},
-	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Lsun/security/ssl/StatusResponseManager$StatusInfo;)V", nullptr, 0, $method(StatusResponseManager$StatusInfo, init$, void, $StatusResponseManager*, StatusResponseManager$StatusInfo*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StatusResponseManager$StatusInfo, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _StatusResponseManager$StatusInfo_InnerClassesInfo_[] = {
-	{"sun.security.ssl.StatusResponseManager$StatusInfo", "sun.security.ssl.StatusResponseManager", "StatusInfo", 0},
-	{}
-};
-
-$ClassInfo _StatusResponseManager$StatusInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.StatusResponseManager$StatusInfo",
-	"java.lang.Object",
-	nullptr,
-	_StatusResponseManager$StatusInfo_FieldInfo_,
-	_StatusResponseManager$StatusInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StatusResponseManager$StatusInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.StatusResponseManager"
-};
-
-$Object* allocate$StatusResponseManager$StatusInfo($Class* clazz) {
-	return $of($alloc(StatusResponseManager$StatusInfo));
-}
-
 void StatusResponseManager$StatusInfo::init$($StatusResponseManager* this$0, $X509Certificate* subjectCert, $X509Certificate* issuerCert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	StatusResponseManager$StatusInfo::init$(this$0, subjectCert, $$new($CertId, issuerCert, $$new($SerialNumber, $($nc(subjectCert)->getSerialNumber()))));
 }
 
@@ -87,12 +44,12 @@ void StatusResponseManager$StatusInfo::init$($StatusResponseManager* this$0, Sta
 }
 
 $String* StatusResponseManager$StatusInfo::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, "StatusInfo:"_s));
-	sb->append("\n\tCert: "_s)->append($($of($nc(this->cert)->getSubjectX500Principal())));
-	sb->append("\n\tSerial: "_s)->append($($of($nc(this->cert)->getSerialNumber())));
-	sb->append("\n\tResponder: "_s)->append($of(this->responder));
-	sb->append("\n\tResponse data: "_s)->append(this->responseData != nullptr ? ($$str({$$str($nc($nc(this->responseData)->ocspBytes)->length), " bytes"_s})) : "<NULL>"_s);
+	sb->append("\n\tCert: "_s)->append($($nc(this->cert)->getSubjectX500Principal()));
+	sb->append("\n\tSerial: "_s)->append($(this->cert->getSerialNumber()));
+	sb->append("\n\tResponder: "_s)->append(this->responder);
+	sb->append("\n\tResponse data: "_s)->append(this->responseData != nullptr ? ($$str({$$str($nc(this->responseData->ocspBytes)->length), " bytes"_s})) : "<NULL>"_s);
 	return sb->toString();
 }
 
@@ -100,7 +57,43 @@ StatusResponseManager$StatusInfo::StatusResponseManager$StatusInfo() {
 }
 
 $Class* StatusResponseManager$StatusInfo::load$($String* name, bool initialize) {
-	$loadClass(StatusResponseManager$StatusInfo, name, initialize, &_StatusResponseManager$StatusInfo_ClassInfo_, allocate$StatusResponseManager$StatusInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/ssl/StatusResponseManager;", nullptr, $FINAL | $SYNTHETIC, $field(StatusResponseManager$StatusInfo, this$0)},
+		{"cert", "Ljava/security/cert/X509Certificate;", nullptr, $FINAL, $field(StatusResponseManager$StatusInfo, cert)},
+		{"cid", "Lsun/security/provider/certpath/CertId;", nullptr, $FINAL, $field(StatusResponseManager$StatusInfo, cid)},
+		{"responder", "Ljava/net/URI;", nullptr, $FINAL, $field(StatusResponseManager$StatusInfo, responder)},
+		{"responseData", "Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;", nullptr, 0, $field(StatusResponseManager$StatusInfo, responseData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/StatusResponseManager;Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(StatusResponseManager$StatusInfo, init$, void, $StatusResponseManager*, $X509Certificate*, $X509Certificate*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/ssl/StatusResponseManager;Ljava/security/cert/X509Certificate;Lsun/security/provider/certpath/CertId;)V", nullptr, 0, $method(StatusResponseManager$StatusInfo, init$, void, $StatusResponseManager*, $X509Certificate*, $CertId*)},
+		{"<init>", "(Lsun/security/ssl/StatusResponseManager;Lsun/security/ssl/StatusResponseManager$StatusInfo;)V", nullptr, 0, $method(StatusResponseManager$StatusInfo, init$, void, $StatusResponseManager*, StatusResponseManager$StatusInfo*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StatusResponseManager$StatusInfo, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.StatusResponseManager$StatusInfo", "sun.security.ssl.StatusResponseManager", "StatusInfo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.StatusResponseManager$StatusInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.StatusResponseManager"
+	};
+	$loadClass(StatusResponseManager$StatusInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StatusResponseManager$StatusInfo);
+	});
 	return class$;
 }
 

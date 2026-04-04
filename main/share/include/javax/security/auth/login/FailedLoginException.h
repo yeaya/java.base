@@ -16,10 +16,13 @@ public:
 	FailedLoginException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x0B234144CCFA47DE;
+	static const int64_t serialVersionUID = (int64_t)0x0b234144ccfa47de;
 	FailedLoginException(const FailedLoginException& e);
 	virtual void throw$() override;
-	inline FailedLoginException* operator ->() {
+	inline FailedLoginException* operator ->() const {
+		return (FailedLoginException*)throwing$;
+	}
+	inline operator FailedLoginException*() const {
 		return (FailedLoginException*)throwing$;
 	}
 };

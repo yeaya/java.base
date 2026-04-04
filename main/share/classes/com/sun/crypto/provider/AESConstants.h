@@ -18,6 +18,7 @@ namespace com {
 class AESConstants : public ::java::lang::Object {
 	$interface(AESConstants, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static const int32_t AES_BLOCK_SIZE = 16;
 	static $ints* AES_KEYSIZES;
 };

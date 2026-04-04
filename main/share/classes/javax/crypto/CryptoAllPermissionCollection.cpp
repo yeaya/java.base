@@ -1,5 +1,4 @@
 #include <javax/crypto/CryptoAllPermissionCollection.h>
-
 #include <java/lang/SecurityException.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
@@ -24,33 +23,6 @@ using $CryptoPermission = ::javax::crypto::CryptoPermission;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _CryptoAllPermissionCollection_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CryptoAllPermissionCollection, serialVersionUID)},
-	{"all_allowed", "Z", nullptr, $PRIVATE, $field(CryptoAllPermissionCollection, all_allowed)},
-	{}
-};
-
-$MethodInfo _CryptoAllPermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CryptoAllPermissionCollection, init$, void)},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(CryptoAllPermissionCollection, add, void, $Permission*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(CryptoAllPermissionCollection, elements, $Enumeration*)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(CryptoAllPermissionCollection, implies, bool, $Permission*)},
-	{}
-};
-
-$ClassInfo _CryptoAllPermissionCollection_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.crypto.CryptoAllPermissionCollection",
-	"java.security.PermissionCollection",
-	nullptr,
-	_CryptoAllPermissionCollection_FieldInfo_,
-	_CryptoAllPermissionCollection_MethodInfo_
-};
-
-$Object* allocate$CryptoAllPermissionCollection($Class* clazz) {
-	return $of($alloc(CryptoAllPermissionCollection));
-}
 
 void CryptoAllPermissionCollection::init$() {
 	$PermissionCollection::init$();
@@ -88,7 +60,29 @@ CryptoAllPermissionCollection::CryptoAllPermissionCollection() {
 }
 
 $Class* CryptoAllPermissionCollection::load$($String* name, bool initialize) {
-	$loadClass(CryptoAllPermissionCollection, name, initialize, &_CryptoAllPermissionCollection_ClassInfo_, allocate$CryptoAllPermissionCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CryptoAllPermissionCollection, serialVersionUID)},
+		{"all_allowed", "Z", nullptr, $PRIVATE, $field(CryptoAllPermissionCollection, all_allowed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CryptoAllPermissionCollection, init$, void)},
+		{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(CryptoAllPermissionCollection, add, void, $Permission*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(CryptoAllPermissionCollection, elements, $Enumeration*)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(CryptoAllPermissionCollection, implies, bool, $Permission*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.crypto.CryptoAllPermissionCollection",
+		"java.security.PermissionCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CryptoAllPermissionCollection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CryptoAllPermissionCollection);
+	});
 	return class$;
 }
 

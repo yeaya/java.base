@@ -67,6 +67,7 @@ class $import System : public ::java::lang::Object {
 	$class(System, $PRELOAD | $PREINIT, ::java::lang::Object)
 public:
 	System();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool allowSecurityManager();
 	static void arraycopy(Object$* src, int32_t srcPos, Object$* dest, int32_t destPos, int32_t length);
@@ -140,7 +141,6 @@ public:
 #endif
 	static void run(String* mainClass, $StringArray* args);
 	static String* getSystemClassPath();
-	static void* loadNativeMethod(Class* clazz, MethodInfo* methodInfo);
 };
 
 	} // lang

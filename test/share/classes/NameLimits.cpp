@@ -1,5 +1,4 @@
 #include <NameLimits.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
@@ -12,7 +11,6 @@
 
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -22,39 +20,11 @@ using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 
-$FieldInfo _NameLimits_FieldInfo_[] = {
-	{"MAX_PATH", "I", nullptr, $STATIC | $FINAL, $constField(NameLimits, MAX_PATH)},
-	{"MIN_PATH", "I", nullptr, $STATIC | $FINAL, $constField(NameLimits, MIN_PATH)},
-	{}
-};
-
-$MethodInfo _NameLimits_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NameLimits, init$, void)},
-	{"generatePath", "(I)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(NameLimits, generatePath, $Path*, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NameLimits, main, void, $StringArray*), "java.lang.Exception"},
-	{"tryCreateDirectory", "(I)Z", nullptr, $STATIC, $staticMethod(NameLimits, tryCreateDirectory, bool, int32_t), "java.io.IOException"},
-	{"tryCreateFile", "(I)Z", nullptr, $STATIC, $staticMethod(NameLimits, tryCreateFile, bool, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _NameLimits_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NameLimits",
-	"java.lang.Object",
-	nullptr,
-	_NameLimits_FieldInfo_,
-	_NameLimits_MethodInfo_
-};
-
-$Object* allocate$NameLimits($Class* clazz) {
-	return $of($alloc(NameLimits));
-}
-
 void NameLimits::init$() {
 }
 
 $Path* NameLimits::generatePath(int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len < NameLimits::MIN_PATH) {
 		$throwNew($RuntimeException, "Attempting to generate path less than MIN_PATH"_s);
 	}
@@ -67,15 +37,15 @@ $Path* NameLimits::generatePath(int32_t len) {
 }
 
 bool NameLimits::tryCreateFile(int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, name, generatePath(len));
 	try {
 		$Files::createFile(name, $$new($FileAttributeArray, 0));
 	} catch ($IOException& ioe) {
 		$nc($System::err)->format("Unable to create file of length %d (full path %d), %s%n"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf($nc($($nc(name)->toString()))->length()))),
-			$($of($Integer::valueOf($nc($($nc($($nc(name)->toAbsolutePath()))->toString()))->length()))),
-			$of(ioe)
+			$($Integer::valueOf($$nc($nc(name)->toString())->length())),
+			$($Integer::valueOf($$nc($$nc($nc(name)->toAbsolutePath())->toString())->length())),
+			ioe
 		}));
 		return false;
 	}
@@ -84,15 +54,15 @@ bool NameLimits::tryCreateFile(int32_t len) {
 }
 
 bool NameLimits::tryCreateDirectory(int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, name, generatePath(len));
 	try {
 		$Files::createDirectory(name, $$new($FileAttributeArray, 0));
 	} catch ($IOException& ioe) {
 		$nc($System::err)->format("Unable to create directory of length %d (full path %d), %s%n"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf($nc($($nc(name)->toString()))->length()))),
-			$($of($Integer::valueOf($nc($($nc($($nc(name)->toAbsolutePath()))->toString()))->length()))),
-			$of(ioe)
+			$($Integer::valueOf($$nc($nc(name)->toString())->length())),
+			$($Integer::valueOf($$nc($$nc($nc(name)->toAbsolutePath())->toString())->length())),
+			ioe
 		}));
 		return false;
 	}
@@ -101,15 +71,15 @@ bool NameLimits::tryCreateDirectory(int32_t len) {
 }
 
 void NameLimits::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = 0;
 	len = NameLimits::MAX_PATH;
 	while (!tryCreateFile(len)) {
 		--len;
 	}
 	$nc($System::out)->format("Testing createFile on paths %d .. %d%n"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(NameLimits::MIN_PATH))),
-		$($of($Integer::valueOf(len)))
+		$($Integer::valueOf(NameLimits::MIN_PATH)),
+		$($Integer::valueOf(len))
 	}));
 	while (len >= NameLimits::MIN_PATH) {
 		if (!tryCreateFile(len--)) {
@@ -120,9 +90,9 @@ void NameLimits::main($StringArray* args) {
 	while (!tryCreateDirectory(len)) {
 		--len;
 	}
-	$nc($System::out)->format("Testing createDirectory on paths %d .. %d%n"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(NameLimits::MIN_PATH))),
-		$($of($Integer::valueOf(len)))
+	$System::out->format("Testing createDirectory on paths %d .. %d%n"_s, $$new($ObjectArray, {
+		$($Integer::valueOf(NameLimits::MIN_PATH)),
+		$($Integer::valueOf(len))
 	}));
 	while (len >= NameLimits::MIN_PATH) {
 		if (!tryCreateDirectory(len--)) {
@@ -135,7 +105,30 @@ NameLimits::NameLimits() {
 }
 
 $Class* NameLimits::load$($String* name, bool initialize) {
-	$loadClass(NameLimits, name, initialize, &_NameLimits_ClassInfo_, allocate$NameLimits);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_PATH", "I", nullptr, $STATIC | $FINAL, $constField(NameLimits, MAX_PATH)},
+		{"MIN_PATH", "I", nullptr, $STATIC | $FINAL, $constField(NameLimits, MIN_PATH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NameLimits, init$, void)},
+		{"generatePath", "(I)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(NameLimits, generatePath, $Path*, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NameLimits, main, void, $StringArray*), "java.lang.Exception"},
+		{"tryCreateDirectory", "(I)Z", nullptr, $STATIC, $staticMethod(NameLimits, tryCreateDirectory, bool, int32_t), "java.io.IOException"},
+		{"tryCreateFile", "(I)Z", nullptr, $STATIC, $staticMethod(NameLimits, tryCreateFile, bool, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NameLimits",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NameLimits, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NameLimits);
+	});
 	return class$;
 }
 

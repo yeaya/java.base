@@ -42,6 +42,7 @@ class WhileOps$DropWhileTask : public ::java::util::stream::AbstractTask {
 	$class(WhileOps$DropWhileTask, 0, ::java::util::stream::AbstractTask)
 public:
 	WhileOps$DropWhileTask();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::stream::AbstractPipeline* op, ::java::util::stream::PipelineHelper* helper, ::java::util::Spliterator* spliterator, ::java::util::function::IntFunction* generator);
 	void init$(::java::util::stream::WhileOps$DropWhileTask* parent, ::java::util::Spliterator* spliterator);
 	virtual $Object* doLeaf() override;

@@ -19,7 +19,10 @@ public:
 	int32_t p = 0;
 	IllegalFormatPrecisionException(const IllegalFormatPrecisionException& e);
 	virtual void throw$() override;
-	inline IllegalFormatPrecisionException* operator ->() {
+	inline IllegalFormatPrecisionException* operator ->() const {
+		return (IllegalFormatPrecisionException*)throwing$;
+	}
+	inline operator IllegalFormatPrecisionException*() const {
 		return (IllegalFormatPrecisionException*)throwing$;
 	}
 };

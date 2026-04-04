@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CookieExtension$CookieStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/CookieExtension$CookieSpec.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CookieExtension$CookieStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CookieExtension$CookieStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CookieExtension$CookieStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _CookieExtension$CookieStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CookieExtension$CookieStringizer", "sun.security.ssl.CookieExtension", "CookieStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CookieExtension$CookieStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CookieExtension$CookieStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_CookieExtension$CookieStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CookieExtension$CookieStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CookieExtension"
-};
-
-$Object* allocate$CookieExtension$CookieStringizer($Class* clazz) {
-	return $of($alloc(CookieExtension$CookieStringizer));
-}
-
 void CookieExtension$CookieStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ CookieExtension$CookieStringizer::CookieExtension$CookieStringizer() {
 }
 
 $Class* CookieExtension$CookieStringizer::load$($String* name, bool initialize) {
-	$loadClass(CookieExtension$CookieStringizer, name, initialize, &_CookieExtension$CookieStringizer_ClassInfo_, allocate$CookieExtension$CookieStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CookieExtension$CookieStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CookieExtension$CookieStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CookieExtension$CookieStringizer", "sun.security.ssl.CookieExtension", "CookieStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CookieExtension$CookieStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CookieExtension"
+	};
+	$loadClass(CookieExtension$CookieStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CookieExtension$CookieStringizer);
+	});
 	return class$;
 }
 

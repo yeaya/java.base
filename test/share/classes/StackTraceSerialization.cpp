@@ -1,5 +1,4 @@
 #include <StackTraceSerialization.h>
-
 #include <HighLevelException.h>
 #include <LowLevelException.h>
 #include <MidLevelException.h>
@@ -7,10 +6,8 @@
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/StackTraceElement.h>
@@ -29,14 +26,11 @@ using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -45,53 +39,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $StackTraceElement = ::java::lang::StackTraceElement;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
-
-$FieldInfo _StackTraceSerialization_FieldInfo_[] = {
-	{"OUR_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceSerialization, OUR_CLASS)},
-	{"OUR_FILE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceSerialization, OUR_FILE_NAME)},
-	{}
-};
-
-$MethodInfo _StackTraceSerialization_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackTraceSerialization, init$, void)},
-	{"a", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, a, void), "HighLevelException"},
-	{"assertEmptyStackTrace", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, assertEmptyStackTrace, void, $Throwable*)},
-	{"b", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, b, void), "MidLevelException"},
-	{"c", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, c, void), "MidLevelException"},
-	{"check", "(Ljava/lang/StackTraceElement;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, check, void, $StackTraceElement*, $String*, int32_t)},
-	{"d", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, d, void), "LowLevelException"},
-	{"e", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, e, void), "LowLevelException"},
-	{"equal", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, equal, bool, $Throwable*, $Throwable*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceSerialization, main, void, $StringArray*), "java.lang.Exception"},
-	{"reconstitute", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, reconstitute, $Throwable*, $Throwable*)},
-	{"testWithFillInStackTrace", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, testWithFillInStackTrace, void)},
-	{"testWithSetStackTrace", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, testWithSetStackTrace, void)},
-	{}
-};
-
-$InnerClassInfo _StackTraceSerialization_InnerClassesInfo_[] = {
-	{"StackTraceSerialization$TestThrowable", "StackTraceSerialization", "TestThrowable", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _StackTraceSerialization_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StackTraceSerialization",
-	"java.lang.Object",
-	nullptr,
-	_StackTraceSerialization_FieldInfo_,
-	_StackTraceSerialization_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StackTraceSerialization_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"StackTraceSerialization$TestThrowable"
-};
-
-$Object* allocate$StackTraceSerialization($Class* clazz) {
-	return $of($alloc(StackTraceSerialization));
-}
 
 $String* StackTraceSerialization::OUR_CLASS = nullptr;
 $String* StackTraceSerialization::OUR_FILE_NAME = nullptr;
@@ -107,7 +54,7 @@ void StackTraceSerialization::main($StringArray* args) {
 
 void StackTraceSerialization::testWithSetStackTrace() {
 	$init(StackTraceSerialization);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StackTraceElementArray, stackTrace, $new($StackTraceElementArray, {$$new($StackTraceElement, "foo"_s, "bar"_s, "baz"_s, -1)}));
 	$var($Throwable, t, $new($StackTraceSerialization$TestThrowable, true, false));
 	assertEmptyStackTrace(t);
@@ -122,7 +69,7 @@ void StackTraceSerialization::testWithSetStackTrace() {
 		assertEmptyStackTrace(t);
 	}
 	try {
-		t->setStackTrace($$new($StackTraceElementArray, {($StackTraceElement*)nullptr}));
+		t->setStackTrace($$new($StackTraceElementArray, {nullptr}));
 		$throwNew($RuntimeException, "No NPE on a null stack trace element."_s);
 	} catch ($NullPointerException& npe) {
 		assertEmptyStackTrace(t);
@@ -146,7 +93,7 @@ void StackTraceSerialization::assertEmptyStackTrace($Throwable* t) {
 
 void StackTraceSerialization::testWithFillInStackTrace() {
 	$init(StackTraceSerialization);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, original, nullptr);
 	try {
 		a();
@@ -160,127 +107,119 @@ void StackTraceSerialization::testWithFillInStackTrace() {
 
 $Throwable* StackTraceSerialization::reconstitute($Throwable* t) {
 	$init(StackTraceSerialization);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, result, nullptr);
 	try {
 		$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($ObjectOutputStream, out, $new($ObjectOutputStream, bout));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($ObjectOutputStream, out, $new($ObjectOutputStream, bout));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								out->writeObject(t);
-								out->flush();
-								{
-									$var($ByteArrayInputStream, bin, $new($ByteArrayInputStream, $(bout->toByteArray())));
-									{
-										$var($Throwable, var$2, nullptr);
-										try {
-											try {
-												$var($ObjectInputStream, in, $new($ObjectInputStream, bin));
-												{
-													$var($Throwable, var$3, nullptr);
-													try {
-														try {
-															$assign(result, $cast($Throwable, in->readObject()));
-														} catch ($Throwable& t$) {
-															try {
-																in->close();
-															} catch ($Throwable& x2) {
-																t$->addSuppressed(x2);
-															}
-															$throw(t$);
-														}
-													} catch ($Throwable& var$4) {
-														$assign(var$3, var$4);
-													} /*finally*/ {
-														in->close();
-													}
-													if (var$3 != nullptr) {
-														$throw(var$3);
-													}
-												}
-											} catch ($Throwable& t$) {
-												try {
-													bin->close();
-												} catch ($Throwable& x2) {
-													t$->addSuppressed(x2);
-												}
-												$throw(t$);
-											}
-										} catch ($Throwable& var$5) {
-											$assign(var$2, var$5);
-										} /*finally*/ {
-											bin->close();
-										}
-										if (var$2 != nullptr) {
-											$throw(var$2);
-										}
-									}
-								}
-							} catch ($Throwable& t$) {
-								try {
-									out->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$6) {
-							$assign(var$1, var$6);
-						} /*finally*/ {
-							out->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						bout->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						out->writeObject(t);
+						out->flush();
+						{
+							$var($ByteArrayInputStream, bin, $new($ByteArrayInputStream, $(bout->toByteArray())));
+							$var($Throwable, var$2, nullptr);
+							try {
+								try {
+									$var($ObjectInputStream, in, $new($ObjectInputStream, bin));
+									$var($Throwable, var$3, nullptr);
+									try {
+										try {
+											$assign(result, $cast($Throwable, in->readObject()));
+										} catch ($Throwable& t$) {
+											try {
+												in->close();
+											} catch ($Throwable& x2) {
+												t$->addSuppressed(x2);
+											}
+											$throw(t$);
+										}
+									} catch ($Throwable& var$4) {
+										$assign(var$3, var$4);
+									} /*finally*/ {
+										in->close();
+									}
+									if (var$3 != nullptr) {
+										$throw(var$3);
+									}
+								} catch ($Throwable& t$) {
+									try {
+										bin->close();
+									} catch ($Throwable& x2) {
+										t$->addSuppressed(x2);
+									}
+									$throw(t$);
+								}
+							} catch ($Throwable& var$5) {
+								$assign(var$2, var$5);
+							} /*finally*/ {
+								bin->close();
+							}
+							if (var$2 != nullptr) {
+								$throw(var$2);
+							}
+						}
+					} catch ($Throwable& t$) {
+						try {
+							out->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$6) {
+					$assign(var$1, var$6);
+				} /*finally*/ {
+					out->close();
 				}
-			} catch ($Throwable& var$7) {
-				$assign(var$0, var$7);
-			} /*finally*/ {
-				bout->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					bout->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
+		} /*finally*/ {
+			bout->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IOException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	return result;
 }
 
 bool StackTraceSerialization::equal($Throwable* t1, $Throwable* t2) {
 	$init(StackTraceSerialization);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = t1 == t2;
 	if (!var$0) {
 		$var($ObjectArray, var$3, $nc(t1)->getStackTrace());
 		bool var$2 = $Arrays::equals(var$3, $($nc(t2)->getStackTrace()));
 		if (var$2) {
-			$var($Throwable, var$4, $nc(t1)->getCause());
-			var$2 = equal(var$4, $($nc(t2)->getCause()));
+			$var($Throwable, var$4, t1->getCause());
+			var$2 = equal(var$4, $(t2->getCause()));
 		}
 		bool var$1 = var$2;
 		if (var$1) {
-			$var($Object, var$5, $of($nc(t1)->getSuppressed()));
-			var$1 = $Objects::equals(var$5, $($nc(t2)->getSuppressed()));
+			$var($Object, var$5, t1->getSuppressed());
+			var$1 = $Objects::equals(var$5, $(t2->getSuppressed()));
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	return var$0;
 }
@@ -320,22 +259,22 @@ void StackTraceSerialization::e() {
 
 void StackTraceSerialization::check($StackTraceElement* e, $String* methodName, int32_t n) {
 	$init(StackTraceSerialization);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($nc(e)->getClassName()))->equals(StackTraceSerialization::OUR_CLASS)) {
+	$useLocalObjectStack();
+	if (!$$nc($nc(e)->getClassName())->equals(StackTraceSerialization::OUR_CLASS)) {
 		$throwNew($RuntimeException, $$str({"Class: "_s, e}));
 	}
-	if (!$nc($($nc(e)->getMethodName()))->equals(methodName)) {
+	if (!$$nc(e->getMethodName())->equals(methodName)) {
 		$throwNew($RuntimeException, $$str({"Method name: "_s, e}));
 	}
-	if (!$nc($($nc(e)->getFileName()))->equals(StackTraceSerialization::OUR_FILE_NAME)) {
+	if (!$$nc(e->getFileName())->equals(StackTraceSerialization::OUR_FILE_NAME)) {
 		$throwNew($RuntimeException, $$str({"File name: "_s, e}));
 	}
-	if ($nc(e)->getLineNumber() != n) {
+	if (e->getLineNumber() != n) {
 		$throwNew($RuntimeException, $$str({"Line number: "_s, e}));
 	}
 }
 
-void clinit$StackTraceSerialization($Class* class$) {
+void StackTraceSerialization::clinit$($Class* clazz) {
 	$assignStatic(StackTraceSerialization::OUR_FILE_NAME, "StackTraceSerialization.java"_s);
 	$assignStatic(StackTraceSerialization::OUR_CLASS, StackTraceSerialization::class$->getName());
 }
@@ -344,7 +283,48 @@ StackTraceSerialization::StackTraceSerialization() {
 }
 
 $Class* StackTraceSerialization::load$($String* name, bool initialize) {
-	$loadClass(StackTraceSerialization, name, initialize, &_StackTraceSerialization_ClassInfo_, clinit$StackTraceSerialization, allocate$StackTraceSerialization);
+	$FieldInfo fieldInfos$$[] = {
+		{"OUR_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceSerialization, OUR_CLASS)},
+		{"OUR_FILE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceSerialization, OUR_FILE_NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackTraceSerialization, init$, void)},
+		{"a", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, a, void), "HighLevelException"},
+		{"assertEmptyStackTrace", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, assertEmptyStackTrace, void, $Throwable*)},
+		{"b", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, b, void), "MidLevelException"},
+		{"c", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, c, void), "MidLevelException"},
+		{"check", "(Ljava/lang/StackTraceElement;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, check, void, $StackTraceElement*, $String*, int32_t)},
+		{"d", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, d, void), "LowLevelException"},
+		{"e", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, e, void), "LowLevelException"},
+		{"equal", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, equal, bool, $Throwable*, $Throwable*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceSerialization, main, void, $StringArray*), "java.lang.Exception"},
+		{"reconstitute", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, reconstitute, $Throwable*, $Throwable*)},
+		{"testWithFillInStackTrace", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, testWithFillInStackTrace, void)},
+		{"testWithSetStackTrace", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, testWithSetStackTrace, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StackTraceSerialization$TestThrowable", "StackTraceSerialization", "TestThrowable", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StackTraceSerialization",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"StackTraceSerialization$TestThrowable"
+	};
+	$loadClass(StackTraceSerialization, name, initialize, &classInfo$$, StackTraceSerialization::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StackTraceSerialization);
+	});
 	return class$;
 }
 

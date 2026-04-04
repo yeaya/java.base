@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/ModuleResolutionAttribute.h>
-
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
 #include <jdk/internal/org/objectweb/asm/ByteVector.h>
 #include <jdk/internal/org/objectweb/asm/ClassReader.h>
@@ -28,36 +27,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$FieldInfo _ModuleResolutionAttribute_FieldInfo_[] = {
-	{"RESOLUTION_DO_NOT_RESOLVE_BY_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModuleResolutionAttribute, RESOLUTION_DO_NOT_RESOLVE_BY_DEFAULT)},
-	{"RESOLUTION_WARN_DEPRECATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModuleResolutionAttribute, RESOLUTION_WARN_DEPRECATED)},
-	{"RESOLUTION_WARN_DEPRECATED_FOR_REMOVAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModuleResolutionAttribute, RESOLUTION_WARN_DEPRECATED_FOR_REMOVAL)},
-	{"RESOLUTION_WARN_INCUBATING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModuleResolutionAttribute, RESOLUTION_WARN_INCUBATING)},
-	{"resolution", "I", nullptr, $PUBLIC, $field(ModuleResolutionAttribute, resolution)},
-	{}
-};
-
-$MethodInfo _ModuleResolutionAttribute_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ModuleResolutionAttribute, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleResolutionAttribute, init$, void)},
-	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(ModuleResolutionAttribute, read, $Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
-	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(ModuleResolutionAttribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ModuleResolutionAttribute_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.ModuleResolutionAttribute",
-	"jdk.internal.org.objectweb.asm.Attribute",
-	nullptr,
-	_ModuleResolutionAttribute_FieldInfo_,
-	_ModuleResolutionAttribute_MethodInfo_
-};
-
-$Object* allocate$ModuleResolutionAttribute($Class* clazz) {
-	return $of($alloc(ModuleResolutionAttribute));
-}
-
 void ModuleResolutionAttribute::init$(int32_t resolution) {
 	$Attribute::init$("ModuleResolution"_s);
 	this->resolution = resolution;
@@ -81,7 +50,32 @@ ModuleResolutionAttribute::ModuleResolutionAttribute() {
 }
 
 $Class* ModuleResolutionAttribute::load$($String* name, bool initialize) {
-	$loadClass(ModuleResolutionAttribute, name, initialize, &_ModuleResolutionAttribute_ClassInfo_, allocate$ModuleResolutionAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"RESOLUTION_DO_NOT_RESOLVE_BY_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModuleResolutionAttribute, RESOLUTION_DO_NOT_RESOLVE_BY_DEFAULT)},
+		{"RESOLUTION_WARN_DEPRECATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModuleResolutionAttribute, RESOLUTION_WARN_DEPRECATED)},
+		{"RESOLUTION_WARN_DEPRECATED_FOR_REMOVAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModuleResolutionAttribute, RESOLUTION_WARN_DEPRECATED_FOR_REMOVAL)},
+		{"RESOLUTION_WARN_INCUBATING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModuleResolutionAttribute, RESOLUTION_WARN_INCUBATING)},
+		{"resolution", "I", nullptr, $PUBLIC, $field(ModuleResolutionAttribute, resolution)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ModuleResolutionAttribute, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleResolutionAttribute, init$, void)},
+		{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(ModuleResolutionAttribute, read, $Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
+		{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(ModuleResolutionAttribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.ModuleResolutionAttribute",
+		"jdk.internal.org.objectweb.asm.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleResolutionAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleResolutionAttribute);
+	});
 	return class$;
 }
 

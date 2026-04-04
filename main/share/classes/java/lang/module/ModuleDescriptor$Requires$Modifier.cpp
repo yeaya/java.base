@@ -1,5 +1,4 @@
 #include <java/lang/module/ModuleDescriptor$Requires$Modifier.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/module/ModuleDescriptor$Requires.h>
 #include <java/lang/module/ModuleDescriptor.h>
@@ -20,49 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace module {
-
-$FieldInfo _ModuleDescriptor$Requires$Modifier_FieldInfo_[] = {
-	{"TRANSITIVE", "Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Requires$Modifier, TRANSITIVE)},
-	{"STATIC", "Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Requires$Modifier, STATIC)},
-	{"SYNTHETIC", "Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Requires$Modifier, SYNTHETIC)},
-	{"MANDATED", "Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Requires$Modifier, MANDATED)},
-	{"$VALUES", "[Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleDescriptor$Requires$Modifier, $VALUES)},
-	{}
-};
-
-$MethodInfo _ModuleDescriptor$Requires$Modifier_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleDescriptor$Requires$Modifier, $values, $ModuleDescriptor$Requires$ModifierArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ModuleDescriptor$Requires$Modifier, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor$Requires$Modifier, valueOf, ModuleDescriptor$Requires$Modifier*, $String*)},
-	{"values", "()[Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor$Requires$Modifier, values, $ModuleDescriptor$Requires$ModifierArray*)},
-	{}
-};
-
-$InnerClassInfo _ModuleDescriptor$Requires$Modifier_InnerClassesInfo_[] = {
-	{"java.lang.module.ModuleDescriptor$Requires", "java.lang.module.ModuleDescriptor", "Requires", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.module.ModuleDescriptor$Requires$Modifier", "java.lang.module.ModuleDescriptor$Requires", "Modifier", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ModuleDescriptor$Requires$Modifier_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.module.ModuleDescriptor$Requires$Modifier",
-	"java.lang.Enum",
-	nullptr,
-	_ModuleDescriptor$Requires$Modifier_FieldInfo_,
-	_ModuleDescriptor$Requires$Modifier_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;",
-	nullptr,
-	_ModuleDescriptor$Requires$Modifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.module.ModuleDescriptor"
-};
-
-$Object* allocate$ModuleDescriptor$Requires$Modifier($Class* clazz) {
-	return $of($alloc(ModuleDescriptor$Requires$Modifier));
-}
 
 ModuleDescriptor$Requires$Modifier* ModuleDescriptor$Requires$Modifier::TRANSITIVE = nullptr;
 ModuleDescriptor$Requires$Modifier* ModuleDescriptor$Requires$Modifier::STATIC = nullptr;
@@ -94,7 +50,7 @@ void ModuleDescriptor$Requires$Modifier::init$($String* $enum$name, int32_t $enu
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ModuleDescriptor$Requires$Modifier($Class* class$) {
+void ModuleDescriptor$Requires$Modifier::clinit$($Class* clazz) {
 	$assignStatic(ModuleDescriptor$Requires$Modifier::TRANSITIVE, $new(ModuleDescriptor$Requires$Modifier, "TRANSITIVE"_s, 0));
 	$assignStatic(ModuleDescriptor$Requires$Modifier::STATIC, $new(ModuleDescriptor$Requires$Modifier, "STATIC"_s, 1));
 	$assignStatic(ModuleDescriptor$Requires$Modifier::SYNTHETIC, $new(ModuleDescriptor$Requires$Modifier, "SYNTHETIC"_s, 2));
@@ -106,7 +62,44 @@ ModuleDescriptor$Requires$Modifier::ModuleDescriptor$Requires$Modifier() {
 }
 
 $Class* ModuleDescriptor$Requires$Modifier::load$($String* name, bool initialize) {
-	$loadClass(ModuleDescriptor$Requires$Modifier, name, initialize, &_ModuleDescriptor$Requires$Modifier_ClassInfo_, clinit$ModuleDescriptor$Requires$Modifier, allocate$ModuleDescriptor$Requires$Modifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRANSITIVE", "Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Requires$Modifier, TRANSITIVE)},
+		{"STATIC", "Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Requires$Modifier, STATIC)},
+		{"SYNTHETIC", "Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Requires$Modifier, SYNTHETIC)},
+		{"MANDATED", "Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleDescriptor$Requires$Modifier, MANDATED)},
+		{"$VALUES", "[Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleDescriptor$Requires$Modifier, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleDescriptor$Requires$Modifier, $values, $ModuleDescriptor$Requires$ModifierArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ModuleDescriptor$Requires$Modifier, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor$Requires$Modifier, valueOf, ModuleDescriptor$Requires$Modifier*, $String*)},
+		{"values", "()[Ljava/lang/module/ModuleDescriptor$Requires$Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor$Requires$Modifier, values, $ModuleDescriptor$Requires$ModifierArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.module.ModuleDescriptor$Requires", "java.lang.module.ModuleDescriptor", "Requires", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.module.ModuleDescriptor$Requires$Modifier", "java.lang.module.ModuleDescriptor$Requires", "Modifier", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.module.ModuleDescriptor$Requires$Modifier",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.module.ModuleDescriptor"
+	};
+	$loadClass(ModuleDescriptor$Requires$Modifier, name, initialize, &classInfo$$, ModuleDescriptor$Requires$Modifier::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ModuleDescriptor$Requires$Modifier));
+	});
 	return class$;
 }
 

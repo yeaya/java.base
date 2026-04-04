@@ -1,5 +1,4 @@
 #include <Append.h>
-
 #include <java/io/BufferedWriter.h>
 #include <java/io/CharArrayWriter.h>
 #include <java/io/FileWriter.h>
@@ -35,33 +34,6 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 
-$FieldInfo _Append_FieldInfo_[] = {
-	{"io", "[Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC, $staticField(Append, io)},
-	{"nio", "[Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC, $staticField(Append, nio)},
-	{}
-};
-
-$MethodInfo _Append_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Append, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Append, main, void, $StringArray*)},
-	{"test", "(Ljava/lang/Class;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Append, test, void, $Class*, bool)},
-	{"test", "(Ljava/lang/reflect/Method;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Append, test, void, $Method*, bool)},
-	{}
-};
-
-$ClassInfo _Append_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Append",
-	"java.lang.Object",
-	nullptr,
-	_Append_FieldInfo_,
-	_Append_MethodInfo_
-};
-
-$Object* allocate$Append($Class* clazz) {
-	return $of($alloc(Append));
-}
-
 $ClassArray* Append::io = nullptr;
 $ClassArray* Append::nio = nullptr;
 
@@ -71,24 +43,23 @@ void Append::init$() {
 void Append::main($StringArray* args) {
 	$init(Append);
 	for (int32_t i = 0; i < $nc(Append::io)->length; ++i) {
-		test($nc(Append::io)->get(i), true);
+		test(Append::io->get(i), true);
 	}
 	for (int32_t i = 0; i < $nc(Append::nio)->length; ++i) {
-		test($nc(Append::nio)->get(i), false);
+		test(Append::nio->get(i), false);
 	}
 }
 
 void Append::test($Class* c, bool io) {
 	$init(Append);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		$init($Character);
 		$var($ClassArray, cparams, $new($ClassArray, {$Character::TYPE}));
 		test($($nc(c)->getMethod("append"_s, cparams)), io);
 		$load($CharSequence);
 		$var($ClassArray, csparams, $new($ClassArray, {$CharSequence::class$}));
-		test($($nc(c)->getMethod("append"_s, csparams)), io);
+		test($(c->getMethod("append"_s, csparams)), io);
 	} catch ($NoSuchMethodException& x) {
 		$throwNew($RuntimeException, "No append method found"_s);
 	}
@@ -100,7 +71,7 @@ void Append::test($Method* m, bool io) {
 	bool found = false;
 	for (int32_t i = 0; i < $nc(ca)->length; ++i) {
 		$load($IOException);
-		if ($nc($of(ca->get(i)))->equals($IOException::class$)) {
+		if ($nc(ca->get(i))->equals($IOException::class$)) {
 			found = true;
 			break;
 		}
@@ -113,7 +84,7 @@ void Append::test($Method* m, bool io) {
 	}
 }
 
-void clinit$Append($Class* class$) {
+void Append::clinit$($Class* clazz) {
 	$load($Writer);
 	$load($BufferedWriter);
 	$load($FilterWriter);
@@ -142,7 +113,29 @@ Append::Append() {
 }
 
 $Class* Append::load$($String* name, bool initialize) {
-	$loadClass(Append, name, initialize, &_Append_ClassInfo_, clinit$Append, allocate$Append);
+	$FieldInfo fieldInfos$$[] = {
+		{"io", "[Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC, $staticField(Append, io)},
+		{"nio", "[Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC, $staticField(Append, nio)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Append, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Append, main, void, $StringArray*)},
+		{"test", "(Ljava/lang/Class;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Append, test, void, $Class*, bool)},
+		{"test", "(Ljava/lang/reflect/Method;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Append, test, void, $Method*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Append",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Append, name, initialize, &classInfo$$, Append::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Append);
+	});
 	return class$;
 }
 

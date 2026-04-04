@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl$8.h>
-
 #include <java/util/Currency.h>
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
@@ -15,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Currency = ::java::util::Currency;
 using $Locale = ::java::util::Locale;
-using $Set = ::java::util::Set;
 using $CurrencyNameProvider = ::java::util::spi::CurrencyNameProvider;
 using $HostLocaleProviderAdapterImpl = ::sun::util::locale::provider::HostLocaleProviderAdapterImpl;
 
@@ -23,46 +21,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$MethodInfo _HostLocaleProviderAdapterImpl$8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$8, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, getAvailableLocales, $LocaleArray*)},
-	{"getDisplayName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, getDisplayName, $String*, $String*, $Locale*)},
-	{"getSymbol", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, getSymbol, $String*, $String*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, isSupportedLocale, bool, $Locale*)},
-	{}
-};
-
-$EnclosingMethodInfo _HostLocaleProviderAdapterImpl$8_EnclosingMethodInfo_ = {
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
-	"getCurrencyNameProvider",
-	"()Ljava/util/spi/CurrencyNameProvider;"
-};
-
-$InnerClassInfo _HostLocaleProviderAdapterImpl$8_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$8", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HostLocaleProviderAdapterImpl$8_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl$8",
-	"java.util.spi.CurrencyNameProvider",
-	nullptr,
-	nullptr,
-	_HostLocaleProviderAdapterImpl$8_MethodInfo_,
-	nullptr,
-	&_HostLocaleProviderAdapterImpl$8_EnclosingMethodInfo_,
-	_HostLocaleProviderAdapterImpl$8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
-};
-
-$Object* allocate$HostLocaleProviderAdapterImpl$8($Class* clazz) {
-	return $of($alloc(HostLocaleProviderAdapterImpl$8));
-}
 
 void HostLocaleProviderAdapterImpl$8::init$() {
 	$CurrencyNameProvider::init$();
@@ -74,16 +32,16 @@ $LocaleArray* HostLocaleProviderAdapterImpl$8::getAvailableLocales() {
 }
 
 bool HostLocaleProviderAdapterImpl$8::isSupportedLocale($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HostLocaleProviderAdapterImpl);
 	bool var$0 = $nc($HostLocaleProviderAdapterImpl::supportedLocaleSet)->contains($($nc(locale)->stripExtensions()));
-	return var$0 && $nc($($nc(locale)->getLanguage()))->equals($HostLocaleProviderAdapterImpl::nativeDisplayLanguage);
+	return var$0 && $$nc(locale->getLanguage())->equals($HostLocaleProviderAdapterImpl::nativeDisplayLanguage);
 }
 
 $String* HostLocaleProviderAdapterImpl$8::getSymbol($String* currencyCode, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		if ($nc($($nc($($Currency::getInstance(locale)))->getCurrencyCode()))->equals(currencyCode)) {
+		if ($$nc($$nc($Currency::getInstance(locale))->getCurrencyCode())->equals(currencyCode)) {
 			return $HostLocaleProviderAdapterImpl::getDisplayString($($nc(locale)->toLanguageTag()), 1, currencyCode);
 		}
 	} catch ($IllegalArgumentException& iae) {
@@ -92,9 +50,9 @@ $String* HostLocaleProviderAdapterImpl$8::getSymbol($String* currencyCode, $Loca
 }
 
 $String* HostLocaleProviderAdapterImpl$8::getDisplayName($String* currencyCode, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		if ($nc($($nc($($Currency::getInstance(locale)))->getCurrencyCode()))->equals(currencyCode)) {
+		if ($$nc($$nc($Currency::getInstance(locale))->getCurrencyCode())->equals(currencyCode)) {
 			return $HostLocaleProviderAdapterImpl::getDisplayString($($nc(locale)->toLanguageTag()), 0, currencyCode);
 		}
 	} catch ($IllegalArgumentException& iae) {
@@ -106,7 +64,41 @@ HostLocaleProviderAdapterImpl$8::HostLocaleProviderAdapterImpl$8() {
 }
 
 $Class* HostLocaleProviderAdapterImpl$8::load$($String* name, bool initialize) {
-	$loadClass(HostLocaleProviderAdapterImpl$8, name, initialize, &_HostLocaleProviderAdapterImpl$8_ClassInfo_, allocate$HostLocaleProviderAdapterImpl$8);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$8, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, getAvailableLocales, $LocaleArray*)},
+		{"getDisplayName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, getDisplayName, $String*, $String*, $Locale*)},
+		{"getSymbol", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, getSymbol, $String*, $String*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, isSupportedLocale, bool, $Locale*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
+		"getCurrencyNameProvider",
+		"()Ljava/util/spi/CurrencyNameProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$8", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl$8",
+		"java.util.spi.CurrencyNameProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
+	};
+	$loadClass(HostLocaleProviderAdapterImpl$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostLocaleProviderAdapterImpl$8);
+	});
 	return class$;
 }
 

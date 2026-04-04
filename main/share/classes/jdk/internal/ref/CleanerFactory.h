@@ -21,6 +21,7 @@ class $export CleanerFactory : public ::java::lang::Object {
 	$class(CleanerFactory, 0, ::java::lang::Object)
 public:
 	CleanerFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::ref::Cleaner* cleaner();
 	static ::java::lang::ref::Cleaner* commonCleaner;

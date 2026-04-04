@@ -13,6 +13,7 @@ class JrtPath$2 : public ::java::lang::Object {
 	$class(JrtPath$2, 0, ::java::lang::Object)
 public:
 	JrtPath$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$nio$file$AccessMode;
 };
 

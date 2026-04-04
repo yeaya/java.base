@@ -1,5 +1,4 @@
 #include <Bug4990596$MutableInteger.h>
-
 #include <Bug4990596.h>
 #include <java/lang/Number.h>
 #include <jcpp.h>
@@ -9,46 +8,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
-
-$FieldInfo _Bug4990596$MutableInteger_FieldInfo_[] = {
-	{"value", "I", nullptr, $PUBLIC, $field(Bug4990596$MutableInteger, value)},
-	{}
-};
-
-$MethodInfo _Bug4990596$MutableInteger_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4990596$MutableInteger, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Bug4990596$MutableInteger, init$, void, int32_t)},
-	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, doubleValue, double)},
-	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, floatValue, float)},
-	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, intValue, int32_t)},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, longValue, int64_t)},
-	{}
-};
-
-$InnerClassInfo _Bug4990596$MutableInteger_InnerClassesInfo_[] = {
-	{"Bug4990596$MutableInteger", "Bug4990596", "MutableInteger", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Bug4990596$MutableInteger_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug4990596$MutableInteger",
-	"java.lang.Number",
-	nullptr,
-	_Bug4990596$MutableInteger_FieldInfo_,
-	_Bug4990596$MutableInteger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Bug4990596$MutableInteger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Bug4990596"
-};
-
-$Object* allocate$Bug4990596$MutableInteger($Class* clazz) {
-	return $of($alloc(Bug4990596$MutableInteger));
-}
 
 void Bug4990596$MutableInteger::init$() {
 	$Number::init$();
@@ -79,7 +38,41 @@ Bug4990596$MutableInteger::Bug4990596$MutableInteger() {
 }
 
 $Class* Bug4990596$MutableInteger::load$($String* name, bool initialize) {
-	$loadClass(Bug4990596$MutableInteger, name, initialize, &_Bug4990596$MutableInteger_ClassInfo_, allocate$Bug4990596$MutableInteger);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "I", nullptr, $PUBLIC, $field(Bug4990596$MutableInteger, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4990596$MutableInteger, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Bug4990596$MutableInteger, init$, void, int32_t)},
+		{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, doubleValue, double)},
+		{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, floatValue, float)},
+		{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, intValue, int32_t)},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, longValue, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Bug4990596$MutableInteger", "Bug4990596", "MutableInteger", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug4990596$MutableInteger",
+		"java.lang.Number",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Bug4990596"
+	};
+	$loadClass(Bug4990596$MutableInteger, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug4990596$MutableInteger);
+	});
 	return class$;
 }
 

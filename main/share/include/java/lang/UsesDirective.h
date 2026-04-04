@@ -31,6 +31,7 @@ public:
 	const char* service = nullptr;
 
 	bool isEnd();
+	static UsesDirective* cloneArray(UsesDirective* array);
 };
 
     } // lang

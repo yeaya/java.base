@@ -1,5 +1,4 @@
 #include <HostOfMemberNotInstanceHost$MemberNotInstanceHost.h>
-
 #include <HostOfMemberNotInstanceHost.h>
 #include <jcpp.h>
 
@@ -8,41 +7,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _HostOfMemberNotInstanceHost$MemberNotInstanceHost_FieldInfo_[] = {
-	{"oa", "[Ljava/lang/Object;", nullptr, 0, $field(HostOfMemberNotInstanceHost$MemberNotInstanceHost, oa)},
-	{}
-};
-
-$MethodInfo _HostOfMemberNotInstanceHost$MemberNotInstanceHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostOfMemberNotInstanceHost$MemberNotInstanceHost, init$, void)},
-	{}
-};
-
-$InnerClassInfo _HostOfMemberNotInstanceHost$MemberNotInstanceHost_InnerClassesInfo_[] = {
-	{"HostOfMemberNotInstanceHost$MemberNotInstanceHost", "HostOfMemberNotInstanceHost", "MemberNotInstanceHost", $STATIC},
-	{}
-};
-
-$ClassInfo _HostOfMemberNotInstanceHost$MemberNotInstanceHost_ClassInfo_ = {
-	$ACC_SUPER,
-	"HostOfMemberNotInstanceHost$MemberNotInstanceHost",
-	"java.lang.Object",
-	nullptr,
-	_HostOfMemberNotInstanceHost$MemberNotInstanceHost_FieldInfo_,
-	_HostOfMemberNotInstanceHost$MemberNotInstanceHost_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HostOfMemberNotInstanceHost$MemberNotInstanceHost_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HostOfMemberNotInstanceHost"
-};
-
-$Object* allocate$HostOfMemberNotInstanceHost$MemberNotInstanceHost($Class* clazz) {
-	return $of($alloc(HostOfMemberNotInstanceHost$MemberNotInstanceHost));
-}
-
 void HostOfMemberNotInstanceHost$MemberNotInstanceHost::init$() {
 }
 
@@ -50,7 +14,36 @@ HostOfMemberNotInstanceHost$MemberNotInstanceHost::HostOfMemberNotInstanceHost$M
 }
 
 $Class* HostOfMemberNotInstanceHost$MemberNotInstanceHost::load$($String* name, bool initialize) {
-	$loadClass(HostOfMemberNotInstanceHost$MemberNotInstanceHost, name, initialize, &_HostOfMemberNotInstanceHost$MemberNotInstanceHost_ClassInfo_, allocate$HostOfMemberNotInstanceHost$MemberNotInstanceHost);
+	$FieldInfo fieldInfos$$[] = {
+		{"oa", "[Ljava/lang/Object;", nullptr, 0, $field(HostOfMemberNotInstanceHost$MemberNotInstanceHost, oa)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostOfMemberNotInstanceHost$MemberNotInstanceHost, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HostOfMemberNotInstanceHost$MemberNotInstanceHost", "HostOfMemberNotInstanceHost", "MemberNotInstanceHost", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HostOfMemberNotInstanceHost$MemberNotInstanceHost",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HostOfMemberNotInstanceHost"
+	};
+	$loadClass(HostOfMemberNotInstanceHost$MemberNotInstanceHost, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostOfMemberNotInstanceHost$MemberNotInstanceHost);
+	});
 	return class$;
 }
 

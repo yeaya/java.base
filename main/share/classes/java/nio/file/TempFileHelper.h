@@ -35,6 +35,7 @@ class TempFileHelper : public ::java::lang::Object {
 	$class(TempFileHelper, 0, ::java::lang::Object)
 public:
 	TempFileHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::file::Path* create(::java::nio::file::Path* dir, $String* prefix, $String* suffix, bool createDirectory, $Array<::java::nio::file::attribute::FileAttribute>* attrs);
 	static ::java::nio::file::Path* createTempDirectory(::java::nio::file::Path* dir, $String* prefix, $Array<::java::nio::file::attribute::FileAttribute>* attrs);

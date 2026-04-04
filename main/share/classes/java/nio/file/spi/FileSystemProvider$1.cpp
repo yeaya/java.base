@@ -1,5 +1,4 @@
 #include <java/nio/file/spi/FileSystemProvider$1.h>
-
 #include <java/nio/file/spi/FileSystemProvider.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -15,55 +14,49 @@ namespace java {
 		namespace file {
 			namespace spi {
 
-$MethodInfo _FileSystemProvider$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FileSystemProvider$1, init$, void)},
-	{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileSystemProvider;>;", $PUBLIC, $virtualMethod(FileSystemProvider$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _FileSystemProvider$1_EnclosingMethodInfo_ = {
-	"java.nio.file.spi.FileSystemProvider",
-	"installedProviders",
-	"()Ljava/util/List;"
-};
-
-$InnerClassInfo _FileSystemProvider$1_InnerClassesInfo_[] = {
-	{"java.nio.file.spi.FileSystemProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileSystemProvider$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.spi.FileSystemProvider$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_FileSystemProvider$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/List<Ljava/nio/file/spi/FileSystemProvider;>;>;",
-	&_FileSystemProvider$1_EnclosingMethodInfo_,
-	_FileSystemProvider$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.spi.FileSystemProvider"
-};
-
-$Object* allocate$FileSystemProvider$1($Class* clazz) {
-	return $of($alloc(FileSystemProvider$1));
-}
-
 void FileSystemProvider$1::init$() {
 }
 
 $Object* FileSystemProvider$1::run() {
-	return $of($FileSystemProvider::loadInstalledProviders());
+	return $FileSystemProvider::loadInstalledProviders();
 }
 
 FileSystemProvider$1::FileSystemProvider$1() {
 }
 
 $Class* FileSystemProvider$1::load$($String* name, bool initialize) {
-	$loadClass(FileSystemProvider$1, name, initialize, &_FileSystemProvider$1_ClassInfo_, allocate$FileSystemProvider$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FileSystemProvider$1, init$, void)},
+		{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileSystemProvider;>;", $PUBLIC, $virtualMethod(FileSystemProvider$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.file.spi.FileSystemProvider",
+		"installedProviders",
+		"()Ljava/util/List;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.spi.FileSystemProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.spi.FileSystemProvider$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/List<Ljava/nio/file/spi/FileSystemProvider;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.spi.FileSystemProvider"
+	};
+	$loadClass(FileSystemProvider$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemProvider$1);
+	});
 	return class$;
 }
 

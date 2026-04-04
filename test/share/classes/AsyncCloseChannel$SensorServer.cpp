@@ -1,5 +1,4 @@
 #include <AsyncCloseChannel$SensorServer.h>
-
 #include <AsyncCloseChannel$SensorServer$1.h>
 #include <AsyncCloseChannel$ServerThread.h>
 #include <AsyncCloseChannel.h>
@@ -12,52 +11,17 @@ using $AsyncCloseChannel = ::AsyncCloseChannel;
 using $AsyncCloseChannel$SensorServer$1 = ::AsyncCloseChannel$SensorServer$1;
 using $AsyncCloseChannel$ServerThread = ::AsyncCloseChannel$ServerThread;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
-
-$MethodInfo _AsyncCloseChannel$SensorServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AsyncCloseChannel$SensorServer, init$, void)},
-	{"runEx", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$SensorServer, runEx, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _AsyncCloseChannel$SensorServer_InnerClassesInfo_[] = {
-	{"AsyncCloseChannel$SensorServer", "AsyncCloseChannel", "SensorServer", $STATIC},
-	{"AsyncCloseChannel$ServerThread", "AsyncCloseChannel", "ServerThread", $STATIC | $ABSTRACT},
-	{"AsyncCloseChannel$SensorServer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AsyncCloseChannel$SensorServer_ClassInfo_ = {
-	$ACC_SUPER,
-	"AsyncCloseChannel$SensorServer",
-	"AsyncCloseChannel$ServerThread",
-	nullptr,
-	nullptr,
-	_AsyncCloseChannel$SensorServer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AsyncCloseChannel$SensorServer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"AsyncCloseChannel"
-};
-
-$Object* allocate$AsyncCloseChannel$SensorServer($Class* clazz) {
-	return $of($alloc(AsyncCloseChannel$SensorServer));
-}
 
 void AsyncCloseChannel$SensorServer::init$() {
 	$AsyncCloseChannel$ServerThread::init$();
 }
 
 void AsyncCloseChannel$SensorServer::runEx() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AsyncCloseChannel);
 	while ($AsyncCloseChannel::keepGoing) {
 		try {
@@ -73,7 +37,35 @@ AsyncCloseChannel$SensorServer::AsyncCloseChannel$SensorServer() {
 }
 
 $Class* AsyncCloseChannel$SensorServer::load$($String* name, bool initialize) {
-	$loadClass(AsyncCloseChannel$SensorServer, name, initialize, &_AsyncCloseChannel$SensorServer_ClassInfo_, allocate$AsyncCloseChannel$SensorServer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AsyncCloseChannel$SensorServer, init$, void)},
+		{"runEx", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$SensorServer, runEx, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AsyncCloseChannel$SensorServer", "AsyncCloseChannel", "SensorServer", $STATIC},
+		{"AsyncCloseChannel$ServerThread", "AsyncCloseChannel", "ServerThread", $STATIC | $ABSTRACT},
+		{"AsyncCloseChannel$SensorServer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"AsyncCloseChannel$SensorServer",
+		"AsyncCloseChannel$ServerThread",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"AsyncCloseChannel"
+	};
+	$loadClass(AsyncCloseChannel$SensorServer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AsyncCloseChannel$SensorServer);
+	});
 	return class$;
 }
 

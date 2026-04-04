@@ -1,5 +1,4 @@
 #include <java/util/Spliterators$ArraySpliterator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator.h>
@@ -24,51 +23,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 
-$FieldInfo _Spliterators$ArraySpliterator_FieldInfo_[] = {
-	{"array", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Spliterators$ArraySpliterator, array)},
-	{"index", "I", nullptr, $PRIVATE, $field(Spliterators$ArraySpliterator, index)},
-	{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(Spliterators$ArraySpliterator, fence)},
-	{"characteristics", "I", nullptr, $PRIVATE | $FINAL, $field(Spliterators$ArraySpliterator, characteristics$)},
-	{}
-};
-
-$MethodInfo _Spliterators$ArraySpliterator_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC, $method(Spliterators$ArraySpliterator, init$, void, $ObjectArray*, int32_t)},
-	{"<init>", "([Ljava/lang/Object;III)V", nullptr, $PUBLIC, $method(Spliterators$ArraySpliterator, init$, void, $ObjectArray*, int32_t, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, forEachRemaining, void, $Consumer*)},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, getComparator, $Comparator*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Spliterators$ArraySpliterator_InnerClassesInfo_[] = {
-	{"java.util.Spliterators$ArraySpliterator", "java.util.Spliterators", "ArraySpliterator", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Spliterators$ArraySpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.Spliterators$ArraySpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_Spliterators$ArraySpliterator_FieldInfo_,
-	_Spliterators$ArraySpliterator_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Spliterator<TT;>;",
-	nullptr,
-	_Spliterators$ArraySpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Spliterators"
-};
-
-$Object* allocate$Spliterators$ArraySpliterator($Class* clazz) {
-	return $of($alloc(Spliterators$ArraySpliterator));
-}
-
 void Spliterators$ArraySpliterator::init$($ObjectArray* array, int32_t additionalCharacteristics) {
 	Spliterators$ArraySpliterator::init$(array, 0, $nc(array)->length, additionalCharacteristics);
 }
@@ -83,7 +37,7 @@ void Spliterators$ArraySpliterator::init$($ObjectArray* array, int32_t origin, i
 $Spliterator* Spliterators$ArraySpliterator::trySplit() {
 	int32_t lo = this->index;
 	int32_t mid = (int32_t)((uint32_t)(lo + this->fence) >> 1);
-	return (lo >= mid) ? ($Spliterator*)nullptr : static_cast<$Spliterator*>($new(Spliterators$ArraySpliterator, this->array, lo, this->index = mid, this->characteristics$));
+	return (lo >= mid) ? ($Spliterator*)nullptr : $cast($Spliterator, $new(Spliterators$ArraySpliterator, this->array, lo, this->index = mid, this->characteristics$));
 }
 
 void Spliterators$ArraySpliterator::forEachRemaining($Consumer* action) {
@@ -132,7 +86,46 @@ Spliterators$ArraySpliterator::Spliterators$ArraySpliterator() {
 }
 
 $Class* Spliterators$ArraySpliterator::load$($String* name, bool initialize) {
-	$loadClass(Spliterators$ArraySpliterator, name, initialize, &_Spliterators$ArraySpliterator_ClassInfo_, allocate$Spliterators$ArraySpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Spliterators$ArraySpliterator, array)},
+		{"index", "I", nullptr, $PRIVATE, $field(Spliterators$ArraySpliterator, index)},
+		{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(Spliterators$ArraySpliterator, fence)},
+		{"characteristics", "I", nullptr, $PRIVATE | $FINAL, $field(Spliterators$ArraySpliterator, characteristics$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC, $method(Spliterators$ArraySpliterator, init$, void, $ObjectArray*, int32_t)},
+		{"<init>", "([Ljava/lang/Object;III)V", nullptr, $PUBLIC, $method(Spliterators$ArraySpliterator, init$, void, $ObjectArray*, int32_t, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, forEachRemaining, void, $Consumer*)},
+		{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, getComparator, $Comparator*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterators$ArraySpliterator", "java.util.Spliterators", "ArraySpliterator", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.Spliterators$ArraySpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Spliterator<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Spliterators"
+	};
+	$loadClass(Spliterators$ArraySpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spliterators$ArraySpliterator);
+	});
 	return class$;
 }
 

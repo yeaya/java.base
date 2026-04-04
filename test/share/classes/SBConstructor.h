@@ -15,6 +15,7 @@ class $export SBConstructor : public ::java::lang::Object {
 	$class(SBConstructor, 0, ::java::lang::Object)
 public:
 	SBConstructor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* argvs);
 	static ::java::util::Random* rnd;

@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/LocaleResources$ResourceReference.h>
-
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/SoftReference.h>
 #include <sun/util/locale/provider/LocaleResources.h>
@@ -17,42 +16,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _LocaleResources$ResourceReference_FieldInfo_[] = {
-	{"cacheKey", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LocaleResources$ResourceReference, cacheKey)},
-	{}
-};
-
-$MethodInfo _LocaleResources$ResourceReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", 0, $method(LocaleResources$ResourceReference, init$, void, $String*, Object$*, $ReferenceQueue*)},
-	{"getCacheKey", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(LocaleResources$ResourceReference, getCacheKey, $String*)},
-	{}
-};
-
-$InnerClassInfo _LocaleResources$ResourceReference_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.LocaleResources$ResourceReference", "sun.util.locale.provider.LocaleResources", "ResourceReference", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LocaleResources$ResourceReference_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.LocaleResources$ResourceReference",
-	"java.lang.ref.SoftReference",
-	nullptr,
-	_LocaleResources$ResourceReference_FieldInfo_,
-	_LocaleResources$ResourceReference_MethodInfo_,
-	"Ljava/lang/ref/SoftReference<Ljava/lang/Object;>;",
-	nullptr,
-	_LocaleResources$ResourceReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.LocaleResources"
-};
-
-$Object* allocate$LocaleResources$ResourceReference($Class* clazz) {
-	return $of($alloc(LocaleResources$ResourceReference));
-}
-
 void LocaleResources$ResourceReference::init$($String* cacheKey, Object$* o, $ReferenceQueue* q) {
 	$SoftReference::init$(o, q);
 	$set(this, cacheKey, cacheKey);
@@ -66,7 +29,37 @@ LocaleResources$ResourceReference::LocaleResources$ResourceReference() {
 }
 
 $Class* LocaleResources$ResourceReference::load$($String* name, bool initialize) {
-	$loadClass(LocaleResources$ResourceReference, name, initialize, &_LocaleResources$ResourceReference_ClassInfo_, allocate$LocaleResources$ResourceReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"cacheKey", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LocaleResources$ResourceReference, cacheKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", 0, $method(LocaleResources$ResourceReference, init$, void, $String*, Object$*, $ReferenceQueue*)},
+		{"getCacheKey", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(LocaleResources$ResourceReference, getCacheKey, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.LocaleResources$ResourceReference", "sun.util.locale.provider.LocaleResources", "ResourceReference", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.LocaleResources$ResourceReference",
+		"java.lang.ref.SoftReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/SoftReference<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.LocaleResources"
+	};
+	$loadClass(LocaleResources$ResourceReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleResources$ResourceReference);
+	});
 	return class$;
 }
 

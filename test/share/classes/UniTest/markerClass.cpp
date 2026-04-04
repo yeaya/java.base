@@ -1,5 +1,4 @@
 #include <UniTest/markerClass.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,33 +7,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace UniTest {
 
-$CompoundAttribute _markerClass_Annotations_[] = {
-	{"LUniTest/Marker;", nullptr},
-	{}
-};
-
-$MethodInfo _markerClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(markerClass, init$, void)},
-	{}
-};
-
-$ClassInfo _markerClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.markerClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_markerClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_markerClass_Annotations_
-};
-
-$Object* allocate$markerClass($Class* clazz) {
-	return $of($alloc(markerClass));
-}
-
 void markerClass::init$() {
 }
 
@@ -42,7 +14,29 @@ markerClass::markerClass() {
 }
 
 $Class* markerClass::load$($String* name, bool initialize) {
-	$loadClass(markerClass, name, initialize, &_markerClass_ClassInfo_, allocate$markerClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(markerClass, init$, void)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/Marker;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.markerClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(markerClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(markerClass);
+	});
 	return class$;
 }
 

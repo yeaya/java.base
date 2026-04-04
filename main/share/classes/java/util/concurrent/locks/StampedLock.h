@@ -82,6 +82,7 @@ class $export StampedLock : public ::java::io::Serializable {
 	$class(StampedLock, 0, ::java::io::Serializable)
 public:
 	StampedLock();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int64_t acquireRead(bool interruptible, bool timed, int64_t time);
 	int64_t acquireWrite(bool interruptible, bool timed, int64_t time);
@@ -133,7 +134,7 @@ public:
 	virtual bool validate(int64_t stamp);
 	virtual int64_t writeLock();
 	virtual int64_t writeLockInterruptibly();
-	static const int64_t serialVersionUID = (int64_t)0xACB606331AC7AFFD;
+	static const int64_t serialVersionUID = (int64_t)0xacb606331ac7affd;
 	static const int32_t LG_READERS = 7;
 	static const int64_t RUNIT = (int64_t)1;
 	static const int64_t WBIT = 128; // 1L << LG_READERS

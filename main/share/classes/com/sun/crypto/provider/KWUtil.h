@@ -35,6 +35,7 @@ class KWUtil : public ::java::lang::Object {
 	$class(KWUtil, 0, ::java::lang::Object)
 public:
 	KWUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t W($bytes* icvIn, $bytes* in, int32_t inLen, ::com::sun::crypto::provider::SymmetricCipher* cipher);
 	static int32_t W_INV($bytes* in, int32_t inLen, $bytes* icvOut, ::com::sun::crypto::provider::SymmetricCipher* cipher);

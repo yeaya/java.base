@@ -35,6 +35,7 @@ class $import SimpleConsoleLogger$CallerFinder : public ::java::util::function::
 	$class(SimpleConsoleLogger$CallerFinder, 0, ::java::util::function::Predicate)
 public:
 	SimpleConsoleLogger$CallerFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::util::Optional* get();
 	bool isLoggerImplFrame($String* cname);

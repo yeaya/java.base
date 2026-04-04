@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/UnsafeQualifiedStaticBooleanFieldAccessorImpl.h>
-
 #include <java/lang/reflect/Field.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jdk/internal/reflect/UnsafeFieldAccessorImpl.h>
@@ -11,49 +10,12 @@ using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Field = ::java::lang::reflect::Field;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $UnsafeFieldAccessorImpl = ::jdk::internal::reflect::UnsafeFieldAccessorImpl;
 using $UnsafeQualifiedStaticFieldAccessorImpl = ::jdk::internal::reflect::UnsafeQualifiedStaticFieldAccessorImpl;
 
 namespace jdk {
 	namespace internal {
 		namespace reflect {
-
-$MethodInfo _UnsafeQualifiedStaticBooleanFieldAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Field;Z)V", nullptr, 0, $method(UnsafeQualifiedStaticBooleanFieldAccessorImpl, init$, void, $Field*, bool)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, get, $Object*, Object$*), "java.lang.IllegalArgumentException"},
-	{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getBoolean, bool, Object$*), "java.lang.IllegalArgumentException"},
-	{"getByte", "(Ljava/lang/Object;)B", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getByte, int8_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getChar", "(Ljava/lang/Object;)C", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getChar, char16_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getDouble, double, Object$*), "java.lang.IllegalArgumentException"},
-	{"getFloat", "(Ljava/lang/Object;)F", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getFloat, float, Object$*), "java.lang.IllegalArgumentException"},
-	{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getInt, int32_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getLong, int64_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getShort", "(Ljava/lang/Object;)S", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getShort, int16_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, set, void, Object$*, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setBoolean", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setBoolean, void, Object$*, bool), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setByte", "(Ljava/lang/Object;B)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setByte, void, Object$*, int8_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setChar", "(Ljava/lang/Object;C)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setChar, void, Object$*, char16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setDouble", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setDouble, void, Object$*, double), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setFloat", "(Ljava/lang/Object;F)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setFloat, void, Object$*, float), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setInt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setInt, void, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setLong", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setLong, void, Object$*, int64_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setShort", "(Ljava/lang/Object;S)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setShort, void, Object$*, int16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{}
-};
-
-$ClassInfo _UnsafeQualifiedStaticBooleanFieldAccessorImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.reflect.UnsafeQualifiedStaticBooleanFieldAccessorImpl",
-	"jdk.internal.reflect.UnsafeQualifiedStaticFieldAccessorImpl",
-	nullptr,
-	nullptr,
-	_UnsafeQualifiedStaticBooleanFieldAccessorImpl_MethodInfo_
-};
-
-$Object* allocate$UnsafeQualifiedStaticBooleanFieldAccessorImpl($Class* clazz) {
-	return $of($alloc(UnsafeQualifiedStaticBooleanFieldAccessorImpl));
-}
 
 void UnsafeQualifiedStaticBooleanFieldAccessorImpl::init$($Field* field, bool isReadOnly) {
 	$UnsafeQualifiedStaticFieldAccessorImpl::init$(field, isReadOnly);
@@ -112,7 +74,7 @@ void UnsafeQualifiedStaticBooleanFieldAccessorImpl::set(Object$* obj, Object$* v
 	}
 	if ($instanceOf($Boolean, value)) {
 		$init($UnsafeFieldAccessorImpl);
-		$nc($UnsafeFieldAccessorImpl::unsafe)->putBooleanVolatile(this->base, this->fieldOffset, $nc(($cast($Boolean, value)))->booleanValue());
+		$nc($UnsafeFieldAccessorImpl::unsafe)->putBooleanVolatile(this->base, this->fieldOffset, $cast($Boolean, value)->booleanValue());
 		return;
 	}
 	throwSetIllegalArgumentException(value);
@@ -158,7 +120,39 @@ UnsafeQualifiedStaticBooleanFieldAccessorImpl::UnsafeQualifiedStaticBooleanField
 }
 
 $Class* UnsafeQualifiedStaticBooleanFieldAccessorImpl::load$($String* name, bool initialize) {
-	$loadClass(UnsafeQualifiedStaticBooleanFieldAccessorImpl, name, initialize, &_UnsafeQualifiedStaticBooleanFieldAccessorImpl_ClassInfo_, allocate$UnsafeQualifiedStaticBooleanFieldAccessorImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Field;Z)V", nullptr, 0, $method(UnsafeQualifiedStaticBooleanFieldAccessorImpl, init$, void, $Field*, bool)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, get, $Object*, Object$*), "java.lang.IllegalArgumentException"},
+		{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getBoolean, bool, Object$*), "java.lang.IllegalArgumentException"},
+		{"getByte", "(Ljava/lang/Object;)B", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getByte, int8_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getChar", "(Ljava/lang/Object;)C", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getChar, char16_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getDouble, double, Object$*), "java.lang.IllegalArgumentException"},
+		{"getFloat", "(Ljava/lang/Object;)F", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getFloat, float, Object$*), "java.lang.IllegalArgumentException"},
+		{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getInt, int32_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getLong, int64_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getShort", "(Ljava/lang/Object;)S", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, getShort, int16_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, set, void, Object$*, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setBoolean", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setBoolean, void, Object$*, bool), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setByte", "(Ljava/lang/Object;B)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setByte, void, Object$*, int8_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setChar", "(Ljava/lang/Object;C)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setChar, void, Object$*, char16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setDouble", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setDouble, void, Object$*, double), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setFloat", "(Ljava/lang/Object;F)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setFloat, void, Object$*, float), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setInt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setInt, void, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setLong", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setLong, void, Object$*, int64_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setShort", "(Ljava/lang/Object;S)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedStaticBooleanFieldAccessorImpl, setShort, void, Object$*, int16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.reflect.UnsafeQualifiedStaticBooleanFieldAccessorImpl",
+		"jdk.internal.reflect.UnsafeQualifiedStaticFieldAccessorImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnsafeQualifiedStaticBooleanFieldAccessorImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnsafeQualifiedStaticBooleanFieldAccessorImpl));
+	});
 	return class$;
 }
 

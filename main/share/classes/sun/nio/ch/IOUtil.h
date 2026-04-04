@@ -55,6 +55,7 @@ class $export IOUtil : public ::java::lang::Object {
 	$class(IOUtil, 0, ::java::lang::Object)
 public:
 	IOUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::misc::ScopedMemoryAccess$Scope$Handle* acquireScope(::java::nio::ByteBuffer* bb, bool async);
 	static ::java::lang::Runnable* acquireScopes($Array<::java::nio::ByteBuffer>* buffers);

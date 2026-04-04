@@ -1,5 +1,4 @@
 #include <TestC2.h>
-
 #include <C0B.h>
 #include <C2B.h>
 #include <I1B.h>
@@ -23,7 +22,6 @@ using $I2B = ::I2B;
 using $I3B = ::I3B;
 using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $TypeVariableArray = $Array<::java::lang::reflect::TypeVariable>;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,37 +33,6 @@ using $Method = ::java::lang::reflect::Method;
 using $ParameterizedType = ::java::lang::reflect::ParameterizedType;
 using $Type = ::java::lang::reflect::Type;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
-
-$FieldInfo _TestC2_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TestC2, $assertionsDisabled)},
-	{"cls", "Ljava/lang/Class;", "Ljava/lang/Class<LC2B;>;", $STATIC, $staticField(TestC2, cls)},
-	{}
-};
-
-$MethodInfo _TestC2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestC2, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestC2, main, void, $StringArray*), "java.lang.Throwable"},
-	{"testConstructors", "()V", nullptr, $STATIC, $staticMethod(TestC2, testConstructors, void), "java.lang.NoSuchMethodException"},
-	{"testFields", "()V", nullptr, $STATIC, $staticMethod(TestC2, testFields, void), "java.lang.NoSuchFieldException"},
-	{"testMethods", "()V", nullptr, $STATIC, $staticMethod(TestC2, testMethods, void), "java.lang.NoSuchMethodException"},
-	{"testSuperInterfaces", "()V", nullptr, $STATIC, $staticMethod(TestC2, testSuperInterfaces, void)},
-	{"testSuperclass", "()V", nullptr, $STATIC, $staticMethod(TestC2, testSuperclass, void)},
-	{"testTypeParameters", "()V", nullptr, $STATIC, $staticMethod(TestC2, testTypeParameters, void)},
-	{}
-};
-
-$ClassInfo _TestC2_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestC2",
-	"java.lang.Object",
-	nullptr,
-	_TestC2_FieldInfo_,
-	_TestC2_MethodInfo_
-};
-
-$Object* allocate$TestC2($Class* clazz) {
-	return $of($alloc(TestC2));
-}
 
 bool TestC2::$assertionsDisabled = false;
 $Class* TestC2::cls = nullptr;
@@ -85,7 +52,7 @@ void TestC2::main($StringArray* args) {
 
 void TestC2::testSuperclass() {
 	$init(TestC2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("testing superclass"_s);
 	$var($Type, sc, $nc(TestC2::cls)->getGenericSuperclass());
 	if (!TestC2::$assertionsDisabled && !$instanceOf($ParameterizedType, sc)) {
@@ -105,7 +72,7 @@ void TestC2::testSuperclass() {
 		$throwNew($AssertionError, $of("Type argument to superclass of C2B should be a type variable"_s));
 	}
 	$var($TypeVariable, tv, $cast($TypeVariable, t));
-	if (!TestC2::$assertionsDisabled && !$nc($($nc(tv)->getName()))->equals("T1"_s)) {
+	if (!TestC2::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T1"_s)) {
 		$throwNew($AssertionError, $of("Name of type argument to superclass of C2B should be T1"_s));
 	}
 	$var($TypeArray, bs, $nc(tv)->getBounds());
@@ -122,35 +89,35 @@ void TestC2::testSuperclass() {
 		$throwNew($AssertionError, $of("The raw bound of T1 should be C2B"_s));
 	}
 	$assign(tas, $nc(pt)->getActualTypeArguments());
-	if (!TestC2::$assertionsDisabled && !(tas->length == 3)) {
+	if (!TestC2::$assertionsDisabled && !($nc(tas)->length == 3)) {
 		$throwNew($AssertionError, $of("Bound of T1 should have three type arguments"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !$instanceOf($TypeVariable, tas->get(0))) {
+	if (!TestC2::$assertionsDisabled && !$instanceOf($TypeVariable, $nc(tas)->get(0))) {
 		$throwNew($AssertionError, $of("First argument to bound of T1 is a type variable"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !$instanceOf($TypeVariable, tas->get(1))) {
+	if (!TestC2::$assertionsDisabled && !$instanceOf($TypeVariable, $nc(tas)->get(1))) {
 		$throwNew($AssertionError, $of("Second argument to bound of T1 is a type variable"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !$instanceOf($TypeVariable, tas->get(2))) {
+	if (!TestC2::$assertionsDisabled && !$instanceOf($TypeVariable, $nc(tas)->get(2))) {
 		$throwNew($AssertionError, $of("Third argument to bound of T1 is a type variable"_s));
 	}
-	$var($TypeVariable, tv1, $cast($TypeVariable, tas->get(0)));
+	$var($TypeVariable, tv1, $cast($TypeVariable, $nc(tas)->get(0)));
 	$var($TypeVariable, tv2, $cast($TypeVariable, tas->get(1)));
 	$var($TypeVariable, tv3, $cast($TypeVariable, tas->get(2)));
-	if (!TestC2::$assertionsDisabled && !$nc($($nc(tv1)->getName()))->equals("T1"_s)) {
+	if (!TestC2::$assertionsDisabled && !$$nc($nc(tv1)->getName())->equals("T1"_s)) {
 		$throwNew($AssertionError, $of("First type arg to bound of T1 is T1"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !$nc($($nc(tv2)->getName()))->equals("T2"_s)) {
+	if (!TestC2::$assertionsDisabled && !$$nc($nc(tv2)->getName())->equals("T2"_s)) {
 		$throwNew($AssertionError, $of("Seconmd type arg to bound of T1 is T2"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !$nc($($nc(tv3)->getName()))->equals("T3"_s)) {
+	if (!TestC2::$assertionsDisabled && !$$nc($nc(tv3)->getName())->equals("T3"_s)) {
 		$throwNew($AssertionError, $of("Third type arg to bound of T1 is T3"_s));
 	}
 }
 
 void TestC2::testSuperInterfaces() {
 	$init(TestC2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("testing superinterfaces"_s);
 	$var($TypeArray, sis, $nc(TestC2::cls)->getGenericInterfaces());
 	if (!TestC2::$assertionsDisabled && !($nc(sis)->length == 3)) {
@@ -175,10 +142,10 @@ void TestC2::testSuperInterfaces() {
 	}
 	$assign(pt, $cast($ParameterizedType, t));
 	$load($I2B);
-	if (!TestC2::$assertionsDisabled && !$equals(pt->getRawType(), $I2B::class$)) {
+	if (!TestC2::$assertionsDisabled && !$equals($nc(pt)->getRawType(), $I2B::class$)) {
 		$throwNew($AssertionError, $of("Second super interface of C2B is instantiation of I2B"_s));
 	}
-	$assign(tas, pt->getActualTypeArguments());
+	$assign(tas, $nc(pt)->getActualTypeArguments());
 	if (!TestC2::$assertionsDisabled && !($nc(tas)->length == 3)) {
 		$throwNew($AssertionError, $of("Second super interface of C2B has 3 type arguments"_s));
 	}
@@ -191,10 +158,10 @@ void TestC2::testSuperInterfaces() {
 	if (!TestC2::$assertionsDisabled && !($nc(tvs)->length == 2)) {
 		$throwNew($AssertionError, $of("I3B has two formal type parameters"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !$nc($($nc($nc(tvs)->get(0))->getName()))->equals("X1"_s)) {
+	if (!TestC2::$assertionsDisabled && !$$nc($nc($nc(tvs)->get(0))->getName())->equals("X1"_s)) {
 		$throwNew($AssertionError, $of("Name of first formal type arg of I1B is X1"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !$nc($($nc($nc(tvs)->get(1))->getName()))->equals("X2"_s)) {
+	if (!TestC2::$assertionsDisabled && !$$nc($nc($nc(tvs)->get(1))->getName())->equals("X2"_s)) {
 		$throwNew($AssertionError, $of("Name of second formal type arg of I1B is X2"_s));
 	}
 	bool var$0 = !TestC2::$assertionsDisabled;
@@ -205,23 +172,23 @@ void TestC2::testSuperInterfaces() {
 		$throwNew($AssertionError, $of("The generic and non-generic superclasses of an interface must be the same"_s));
 	}
 	$assign(sis, $I1B::class$->getGenericInterfaces());
-	if (!TestC2::$assertionsDisabled && !(sis->length == 1)) {
+	if (!TestC2::$assertionsDisabled && !($nc(sis)->length == 1)) {
 		$throwNew($AssertionError, $of("I1B has one generic superinterface"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !$equals(sis->get(0), $I3B::class$)) {
+	if (!TestC2::$assertionsDisabled && !$equals($nc(sis)->get(0), $I3B::class$)) {
 		$throwNew($AssertionError, $of("Superinterface of I1B is I3B"_s));
 	}
 	$assign(tvs, $I2B::class$->getTypeParameters());
 	if (!TestC2::$assertionsDisabled && !($nc(tvs)->length == 3)) {
 		$throwNew($AssertionError, $of("I3B has three formal type parameters"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !$nc($($nc($nc(tvs)->get(0))->getName()))->equals("E1"_s)) {
+	if (!TestC2::$assertionsDisabled && !$$nc($nc($nc(tvs)->get(0))->getName())->equals("E1"_s)) {
 		$throwNew($AssertionError, $of("Name of first formal type arg of I2B is E1"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !$nc($($nc($nc(tvs)->get(1))->getName()))->equals("E2"_s)) {
+	if (!TestC2::$assertionsDisabled && !$$nc($nc($nc(tvs)->get(1))->getName())->equals("E2"_s)) {
 		$throwNew($AssertionError, $of("Name of second formal type arg of I2B is E2"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !$nc($($nc($nc(tvs)->get(2))->getName()))->equals("E3"_s)) {
+	if (!TestC2::$assertionsDisabled && !$$nc($nc($nc(tvs)->get(2))->getName())->equals("E3"_s)) {
 		$throwNew($AssertionError, $of("Name of third formal type arg of I2B is E3"_s));
 	}
 	bool var$1 = !TestC2::$assertionsDisabled;
@@ -246,7 +213,7 @@ void TestC2::testSuperInterfaces() {
 
 void TestC2::testTypeParameters() {
 	$init(TestC2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("testing type parameters"_s);
 	$var($TypeVariableArray, tvs, $nc(TestC2::cls)->getTypeParameters());
 	if (!TestC2::$assertionsDisabled && !($nc(tvs)->length == 3)) {
@@ -261,7 +228,7 @@ void TestC2::testTypeParameters() {
 		$throwNew($AssertionError, $of("The bound of T1 should be a parameterized type"_s));
 	}
 	$assign(tv, tvs->get(1));
-	$assign(bs, tv->getBounds());
+	$assign(bs, $nc(tv)->getBounds());
 	if (!TestC2::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("T2 should have one bound"_s));
 	}
@@ -269,7 +236,7 @@ void TestC2::testTypeParameters() {
 		$throwNew($AssertionError, $of("The bound of T2 should be a parameterized type"_s));
 	}
 	$assign(tv, tvs->get(2));
-	$assign(bs, tv->getBounds());
+	$assign(bs, $nc(tv)->getBounds());
 	if (!TestC2::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("T3 should have one bound"_s));
 	}
@@ -280,7 +247,7 @@ void TestC2::testTypeParameters() {
 
 void TestC2::testMethods() {
 	$init(TestC2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::out)->println("testing methods"_s);
 	$var($ClassArray, params1, $new($ClassArray, 3));
@@ -293,8 +260,8 @@ void TestC2::testMethods() {
 	$var($ClassArray, params3, $new($ClassArray, 1));
 	params3->set(0, $C0B::class$);
 	$var($Method, mc1t, $nc(TestC2::cls)->getMethod("mc1t"_s, params1));
-	$var($Method, mc1, $nc(TestC2::cls)->getMethod("mc1"_s, params2));
-	$var($Method, mt, $nc(TestC2::cls)->getMethod("mt"_s, params3));
+	$var($Method, mc1, TestC2::cls->getMethod("mc1"_s, params2));
+	$var($Method, mt, TestC2::cls->getMethod("mt"_s, params3));
 	$var($Type, rt_mc1t, $nc(mc1t)->getGenericReturnType());
 	if (!TestC2::$assertionsDisabled && !$instanceOf($ParameterizedType, rt_mc1t)) {
 		$throwNew($AssertionError, $of("The return type of mc1t should be a parameterized type"_s));
@@ -330,8 +297,8 @@ void TestC2::testMethods() {
 		$throwNew($AssertionError, $of("Generic type of the 1st parameter of mc1t(T) is a type variable"_s));
 	}
 	$var($TypeVariable, tv, $cast($TypeVariable, p1_mc1t));
-	if (!TestC2::$assertionsDisabled && !$nc($($nc(tv)->getName()))->equals("T3"_s)) {
-		$throwNew($AssertionError, $of($$str({"Name of 1st type parameter of mc1t is T3, not "_s, $(tv->getName())})));
+	if (!TestC2::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T3"_s)) {
+		$throwNew($AssertionError, $$of($str({"Name of 1st type parameter of mc1t is T3, not "_s, $(tv->getName())})));
 	}
 	$var($TypeArray, bs, $nc(tv)->getBounds());
 	if (!TestC2::$assertionsDisabled && !($nc(bs)->length == 1)) {
@@ -345,13 +312,13 @@ void TestC2::testMethods() {
 		$throwNew($AssertionError, $of("The type of parameter 2 of mc1t is a parameterized type"_s));
 	}
 	$assign(pt, $cast($ParameterizedType, p2_mc1t));
-	if (!TestC2::$assertionsDisabled && !$equals(pt->getRawType(), $C0B::class$)) {
+	if (!TestC2::$assertionsDisabled && !$equals($nc(pt)->getRawType(), $C0B::class$)) {
 		$throwNew($AssertionError, $of("Type of parameter 2 of mc1t is instantiation of C0B"_s));
 	}
-	if (!TestC2::$assertionsDisabled && !(pt->getOwnerType() == nullptr)) {
+	if (!TestC2::$assertionsDisabled && !($nc(pt)->getOwnerType() == nullptr)) {
 		$throwNew($AssertionError, $of("Type of parameter 2 of mc1t is has null owner"_s));
 	}
-	$assign(tas, pt->getActualTypeArguments());
+	$assign(tas, $nc(pt)->getActualTypeArguments());
 	if (!TestC2::$assertionsDisabled && !($nc(tas)->length == 1)) {
 		$throwNew($AssertionError, $of("The type of parameter 2 of mc1t has one type argument"_s));
 	}
@@ -360,10 +327,10 @@ void TestC2::testMethods() {
 		$throwNew($AssertionError, $of("The actual type arg of C0B<T> is a type variable (mc1t)"_s));
 	}
 	$assign(tv, $cast($TypeVariable, ta));
-	if (!TestC2::$assertionsDisabled && !$nc($(tv->getName()))->equals("T"_s)) {
-		$throwNew($AssertionError, $of($$str({"mc1t: Name of the type arg of C0B<T> is T, not "_s, $(tv->getName())})));
+	if (!TestC2::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T"_s)) {
+		$throwNew($AssertionError, $$of($str({"mc1t: Name of the type arg of C0B<T> is T, not "_s, $(tv->getName())})));
 	}
-	$assign(bs, tv->getBounds());
+	$assign(bs, $nc(tv)->getBounds());
 	if (!TestC2::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("mc1t: The type argument of C0B<T>  should have one bound"_s));
 	}
@@ -387,10 +354,10 @@ void TestC2::testMethods() {
 		$throwNew($AssertionError, $of("The generic type of the parameter of mt(T) is a type variable"_s));
 	}
 	$assign(tv, $cast($TypeVariable, p_mt));
-	if (!TestC2::$assertionsDisabled && !$nc($(tv->getName()))->equals("T2"_s)) {
-		$throwNew($AssertionError, $of($$str({"The name of the type parameter of mt is T2, not "_s, $(tv->getName())})));
+	if (!TestC2::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T2"_s)) {
+		$throwNew($AssertionError, $$of($str({"The name of the type parameter of mt is T2, not "_s, $(tv->getName())})));
 	}
-	$assign(bs, tv->getBounds());
+	$assign(bs, $nc(tv)->getBounds());
 	if (!TestC2::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("T2 should have one bound"_s));
 	}
@@ -425,20 +392,20 @@ void TestC2::testMethods() {
 
 void TestC2::testFields() {
 	$init(TestC2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::out)->println("testing fields"_s);
 	$var($Field, ft, $nc(TestC2::cls)->getField("ft"_s));
-	$var($Field, fc1t, $nc(TestC2::cls)->getField("fc1t"_s));
-	$var($Field, fc1, $nc(TestC2::cls)->getField("fc1"_s));
-	$var($Field, fi, $nc(TestC2::cls)->getField("fi"_s));
+	$var($Field, fc1t, TestC2::cls->getField("fc1t"_s));
+	$var($Field, fc1, TestC2::cls->getField("fc1"_s));
+	$var($Field, fi, TestC2::cls->getField("fi"_s));
 	$var($Type, gt_ft, $nc(ft)->getGenericType());
 	if (!TestC2::$assertionsDisabled && !$instanceOf($TypeVariable, gt_ft)) {
 		$throwNew($AssertionError, $of("The generic type of C0B.ft is a type variable"_s));
 	}
 	$var($TypeVariable, tv, $cast($TypeVariable, gt_ft));
-	if (!TestC2::$assertionsDisabled && !$nc($($nc(tv)->getName()))->equals("T1"_s)) {
-		$throwNew($AssertionError, $of($$str({"The name of the type of ft is T1, not "_s, $(tv->getName())})));
+	if (!TestC2::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T1"_s)) {
+		$throwNew($AssertionError, $$of($str({"The name of the type of ft is T1, not "_s, $(tv->getName())})));
 	}
 	$var($TypeArray, bs, $nc(tv)->getBounds());
 	if (!TestC2::$assertionsDisabled && !($nc(bs)->length == 1)) {
@@ -469,7 +436,6 @@ void TestC2::testFields() {
 		$throwNew($AssertionError, $of(" Type of C2B.fc1 should be C0B"_s));
 	}
 	$var($Type, gt_fi, $nc(fi)->getGenericType());
-	$init($Integer);
 	if (!TestC2::$assertionsDisabled && !$equals(gt_fi, $Integer::TYPE)) {
 		$throwNew($AssertionError, $of(" Type of C2B.fi should be int"_s));
 	}
@@ -477,7 +443,7 @@ void TestC2::testFields() {
 
 void TestC2::testConstructors() {
 	$init(TestC2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::out)->println("testing constructors"_s);
 	$var($ClassArray, params1, $new($ClassArray, 1));
@@ -493,8 +459,8 @@ void TestC2::testConstructors() {
 		$throwNew($AssertionError, $of("The generic type of the parameter of C0B(T2) is a type variable"_s));
 	}
 	$var($TypeVariable, tv, $cast($TypeVariable, pt));
-	if (!TestC2::$assertionsDisabled && !$nc($($nc(tv)->getName()))->equals("T2"_s)) {
-		$throwNew($AssertionError, $of($$str({"The name of the type parameter of C2B is T2, not "_s, $(tv->getName())})));
+	if (!TestC2::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T2"_s)) {
+		$throwNew($AssertionError, $$of($str({"The name of the type parameter of C2B is T2, not "_s, $(tv->getName())})));
 	}
 	$var($TypeArray, bs, $nc(tv)->getBounds());
 	if (!TestC2::$assertionsDisabled && !($nc(bs)->length == 1)) {
@@ -510,20 +476,20 @@ void TestC2::testConstructors() {
 	}
 	$var($ClassArray, params2, $new($ClassArray, 1));
 	params2->set(0, $Object::class$);
-	$assign(con, $nc(TestC2::cls)->getDeclaredConstructor(params2));
-	$assign(pt_con, con->getGenericParameterTypes());
-	if (!TestC2::$assertionsDisabled && !(pt_con->length == 1)) {
+	$assign(con, TestC2::cls->getDeclaredConstructor(params2));
+	$assign(pt_con, $nc(con)->getGenericParameterTypes());
+	if (!TestC2::$assertionsDisabled && !($nc(pt_con)->length == 1)) {
 		$throwNew($AssertionError, $of("Constructor C0B(T) should have one generic parameter type"_s));
 	}
-	$assign(pt, pt_con->get(0));
+	$assign(pt, $nc(pt_con)->get(0));
 	if (!TestC2::$assertionsDisabled && !$instanceOf($TypeVariable, pt)) {
 		$throwNew($AssertionError, $of("The generic type of the parameter of C2B(T) is a type variable"_s));
 	}
 	$assign(tv, $cast($TypeVariable, pt));
-	if (!TestC2::$assertionsDisabled && !$nc($(tv->getName()))->equals("T"_s)) {
-		$throwNew($AssertionError, $of($$str({"The name of the type parameter of C2B is T, not "_s, $(tv->getName())})));
+	if (!TestC2::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T"_s)) {
+		$throwNew($AssertionError, $$of($str({"The name of the type parameter of C2B is T, not "_s, $(tv->getName())})));
 	}
-	$assign(bs, tv->getBounds());
+	$assign(bs, $nc(tv)->getBounds());
 	if (!TestC2::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("T should have one bound"_s));
 	}
@@ -539,20 +505,20 @@ void TestC2::testConstructors() {
 	params3->set(0, $Object::class$);
 	params3->set(1, $Object::class$);
 	params3->set(2, $Object::class$);
-	$assign(con, $nc(TestC2::cls)->getDeclaredConstructor(params3));
-	$assign(pt_con, con->getGenericParameterTypes());
-	if (!TestC2::$assertionsDisabled && !(pt_con->length == 3)) {
+	$assign(con, TestC2::cls->getDeclaredConstructor(params3));
+	$assign(pt_con, $nc(con)->getGenericParameterTypes());
+	if (!TestC2::$assertionsDisabled && !($nc(pt_con)->length == 3)) {
 		$throwNew($AssertionError, $of("Constructor C2B(T1,T2,T4) should have three generic parameter types"_s));
 	}
-	$assign(pt, pt_con->get(0));
+	$assign(pt, $nc(pt_con)->get(0));
 	if (!TestC2::$assertionsDisabled && !$instanceOf($TypeVariable, pt)) {
 		$throwNew($AssertionError, $of("The generic type of the first parameter of C2B(T1,T2,T4) is a type variable"_s));
 	}
 	$assign(tv, $cast($TypeVariable, pt));
-	if (!TestC2::$assertionsDisabled && !$nc($(tv->getName()))->equals("T1"_s)) {
-		$throwNew($AssertionError, $of($$str({"The name of the type parameter of C2B(T1,T2,T4) is T1, not "_s, $(tv->getName())})));
+	if (!TestC2::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T1"_s)) {
+		$throwNew($AssertionError, $$of($str({"The name of the type parameter of C2B(T1,T2,T4) is T1, not "_s, $(tv->getName())})));
 	}
-	$assign(bs, tv->getBounds());
+	$assign(bs, $nc(tv)->getBounds());
 	if (!TestC2::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("T should have one bound"_s));
 	}
@@ -565,9 +531,9 @@ void TestC2::testConstructors() {
 		$throwNew($AssertionError, $of("Constructor C2B(T1,T2,T4) should have four type parameters"_s));
 	}
 	$var($ClassArray, params4, $new($ClassArray, 0));
-	$assign(con, $nc(TestC2::cls)->getDeclaredConstructor(params4));
-	$assign(pt_con, con->getGenericParameterTypes());
-	if (!TestC2::$assertionsDisabled && !(pt_con->length == 0)) {
+	$assign(con, TestC2::cls->getDeclaredConstructor(params4));
+	$assign(pt_con, $nc(con)->getGenericParameterTypes());
+	if (!TestC2::$assertionsDisabled && !($nc(pt_con)->length == 0)) {
 		$throwNew($AssertionError, $of("Constructor C2B() should have no generic parameter types"_s));
 	}
 	$assign(et_con, con->getGenericExceptionTypes());
@@ -580,7 +546,7 @@ void TestC2::testConstructors() {
 	}
 }
 
-void clinit$TestC2($Class* class$) {
+void TestC2::clinit$($Class* clazz) {
 	TestC2::$assertionsDisabled = !TestC2::class$->desiredAssertionStatus();
 	$load($C2B);
 	$assignStatic(TestC2::cls, $C2B::class$);
@@ -590,7 +556,33 @@ TestC2::TestC2() {
 }
 
 $Class* TestC2::load$($String* name, bool initialize) {
-	$loadClass(TestC2, name, initialize, &_TestC2_ClassInfo_, clinit$TestC2, allocate$TestC2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TestC2, $assertionsDisabled)},
+		{"cls", "Ljava/lang/Class;", "Ljava/lang/Class<LC2B;>;", $STATIC, $staticField(TestC2, cls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestC2, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestC2, main, void, $StringArray*), "java.lang.Throwable"},
+		{"testConstructors", "()V", nullptr, $STATIC, $staticMethod(TestC2, testConstructors, void), "java.lang.NoSuchMethodException"},
+		{"testFields", "()V", nullptr, $STATIC, $staticMethod(TestC2, testFields, void), "java.lang.NoSuchFieldException"},
+		{"testMethods", "()V", nullptr, $STATIC, $staticMethod(TestC2, testMethods, void), "java.lang.NoSuchMethodException"},
+		{"testSuperInterfaces", "()V", nullptr, $STATIC, $staticMethod(TestC2, testSuperInterfaces, void)},
+		{"testSuperclass", "()V", nullptr, $STATIC, $staticMethod(TestC2, testSuperclass, void)},
+		{"testTypeParameters", "()V", nullptr, $STATIC, $staticMethod(TestC2, testTypeParameters, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestC2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestC2, name, initialize, &classInfo$$, TestC2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestC2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/invoke/InjectedProfile.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -11,47 +10,40 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$Attribute InjectedProfile_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
-	{'-'}
-};
-
-$NamedAttribute InjectedProfile_Attribute_var$0[] = {
-	{"value", '[', InjectedProfile_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute InjectedProfile_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _InjectedProfile_Annotations_[] = {
-	{"Ljava/lang/annotation/Target;", InjectedProfile_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", InjectedProfile_Attribute_var$2},
-	{}
-};
-
-$ClassInfo _InjectedProfile_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"java.lang.invoke.InjectedProfile",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_InjectedProfile_Annotations_
-};
-
-$Object* allocate$InjectedProfile($Class* clazz) {
-	return $of($alloc(InjectedProfile));
-}
-
 $Class* InjectedProfile::load$($String* name, bool initialize) {
-	$loadClass(InjectedProfile, name, initialize, &_InjectedProfile_ClassInfo_, allocate$InjectedProfile);
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"java.lang.invoke.InjectedProfile",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(InjectedProfile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InjectedProfile);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLExtensions.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/Iterator.h>
@@ -10,7 +9,6 @@
 #include <java/util/Set.h>
 #include <javax/net/ssl/SSLException.h>
 #include <sun/security/ssl/Alert.h>
-#include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/HandshakeAbsence.h>
 #include <sun/security/ssl/HandshakeConsumer.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -46,9 +44,7 @@ using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Alert = ::sun::security::ssl::Alert;
-using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $Record = ::sun::security::ssl::Record;
@@ -56,7 +52,6 @@ using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
 
@@ -64,62 +59,26 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLExtensions_FieldInfo_[] = {
-	{"handshakeMessage", "Lsun/security/ssl/SSLHandshake$HandshakeMessage;", nullptr, $PRIVATE | $FINAL, $field(SSLExtensions, handshakeMessage)},
-	{"extMap", "Ljava/util/Map;", "Ljava/util/Map<Lsun/security/ssl/SSLExtension;[B>;", $PRIVATE | $FINAL, $field(SSLExtensions, extMap)},
-	{"encodedLength", "I", nullptr, $PRIVATE, $field(SSLExtensions, encodedLength)},
-	{"logMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;[B>;", $PRIVATE | $FINAL, $field(SSLExtensions, logMap)},
-	{}
-};
-
-$MethodInfo _SSLExtensions_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, 0, $method(SSLExtensions, init$, void, $SSLHandshake$HandshakeMessage*)},
-	{"<init>", "(Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, init$, void, $SSLHandshake$HandshakeMessage*, $ByteBuffer*, $SSLExtensionArray*), "java.io.IOException"},
-	{"consumeOnLoad", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, consumeOnLoad, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
-	{"consumeOnTrade", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, consumeOnTrade, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
-	{"get", "(Lsun/security/ssl/SSLExtension;)[B", nullptr, 0, $method(SSLExtensions, get, $bytes*, $SSLExtension*)},
-	{"length", "()I", nullptr, 0, $method(SSLExtensions, length, int32_t)},
-	{"produce", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, produce, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
-	{"reproduce", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, reproduce, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $method(SSLExtensions, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLExtensions, toString, $String*)},
-	{"toString", "(I[B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLExtensions, toString, $String*, int32_t, $bytes*)},
-	{}
-};
-
-$ClassInfo _SSLExtensions_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLExtensions",
-	"java.lang.Object",
-	nullptr,
-	_SSLExtensions_FieldInfo_,
-	_SSLExtensions_MethodInfo_
-};
-
-$Object* allocate$SSLExtensions($Class* clazz) {
-	return $of($alloc(SSLExtensions));
-}
-
 void SSLExtensions::init$($SSLHandshake$HandshakeMessage* handshakeMessage) {
 	$set(this, extMap, $new($LinkedHashMap));
 	$init($SSLLogger);
-	$set(this, logMap, $SSLLogger::isOn$ ? static_cast<$Map*>($new($LinkedHashMap)) : ($Map*)nullptr);
+	$set(this, logMap, $SSLLogger::isOn$ ? $cast($Map, $new($LinkedHashMap)) : ($Map*)nullptr);
 	$set(this, handshakeMessage, handshakeMessage);
 	this->encodedLength = 2;
 }
 
 void SSLExtensions::init$($SSLHandshake$HandshakeMessage* hm, $ByteBuffer* m, $SSLExtensionArray* extensions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, extMap, $new($LinkedHashMap));
 	$init($SSLLogger);
-	$set(this, logMap, $SSLLogger::isOn$ ? static_cast<$Map*>($new($LinkedHashMap)) : ($Map*)nullptr);
+	$set(this, logMap, $SSLLogger::isOn$ ? $cast($Map, $new($LinkedHashMap)) : ($Map*)nullptr);
 	$set(this, handshakeMessage, hm);
 	if ($nc(m)->remaining() < 2) {
 		$init($Alert);
 		$throw($($nc($nc($nc(hm)->handshakeContext)->conContext)->fatal($Alert::DECODE_ERROR, "Incorrect extensions: no length field"_s)));
 	}
 	int32_t len = $Record::getInt16(m);
-	if (len > $nc(m)->remaining()) {
+	if (len > m->remaining()) {
 		$init($Alert);
 		$throw($($nc($nc($nc(hm)->handshakeContext)->conContext)->fatal($Alert::DECODE_ERROR, "Insufficient extensions data"_s)));
 	}
@@ -127,7 +86,7 @@ void SSLExtensions::init$($SSLHandshake$HandshakeMessage* hm, $ByteBuffer* m, $S
 	while (len > 0) {
 		int32_t extId = $Record::getInt16(m);
 		int32_t extLen = $Record::getInt16(m);
-		if (extLen > $nc(m)->remaining()) {
+		if (extLen > m->remaining()) {
 			$init($Alert);
 			$throw($($nc($nc($nc(hm)->handshakeContext)->conContext)->fatal($Alert::DECODE_ERROR, $$str({"Error parsing extension ("_s, $$str(extId), "): no sufficient data"_s}))));
 		}
@@ -141,36 +100,32 @@ void SSLExtensions::init$($SSLHandshake$HandshakeMessage* hm, $ByteBuffer* m, $S
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 					$SSLLogger::warning("Received buggy supported_groups extension in the ServerHello handshake message"_s, $$new($ObjectArray, 0));
 				}
+			} else if (handshakeType == $SSLHandshake::SERVER_HELLO) {
+				$init($Alert);
+				$throw($($nc($nc(hm->handshakeContext)->conContext)->fatal($Alert::UNSUPPORTED_EXTENSION, $$str({"extension ("_s, $$str(extId), ") should not be presented in "_s, handshakeType->name$}))));
 			} else {
-				if (handshakeType == $SSLHandshake::SERVER_HELLO) {
-					$init($Alert);
-					$throw($($nc($nc(hm->handshakeContext)->conContext)->fatal($Alert::UNSUPPORTED_EXTENSION, $$str({"extension ("_s, $$str(extId), ") should not be presented in "_s, handshakeType->name$}))));
-				} else {
-					isSupported = false;
-				}
+				isSupported = false;
 			}
 		}
 		if (isSupported) {
 			isSupported = false;
 			{
 				$var($SSLExtensionArray, arr$, extensions);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$SSLExtension* extension = arr$->get(i$);
 					{
-						if (($nc(extension)->id != extId) || ($nc(extension)->onLoadConsumer == nullptr)) {
+						if (($nc(extension)->id != extId) || (extension->onLoadConsumer == nullptr)) {
 							continue;
 						}
-						if ($nc(extension)->handshakeType != handshakeType) {
+						if (extension->handshakeType != handshakeType) {
 							$init($Alert);
 							$throw($($nc($nc(hm->handshakeContext)->conContext)->fatal($Alert::UNSUPPORTED_EXTENSION, $$str({"extension ("_s, $$str(extId), ") should not be presented in "_s, $nc(handshakeType)->name$}))));
 						}
 						$var($bytes, extData, $new($bytes, extLen));
-						$nc(m)->get(extData);
-						$nc(this->extMap)->put(extension, extData);
+						m->get(extData);
+						this->extMap->put(extension, extData);
 						if (this->logMap != nullptr) {
-							$nc(this->logMap)->put($($Integer::valueOf(extId)), extData);
+							this->logMap->put($($Integer::valueOf(extId)), extData);
 						}
 						isSupported = true;
 						break;
@@ -181,13 +136,13 @@ void SSLExtensions::init$($SSLHandshake$HandshakeMessage* hm, $ByteBuffer* m, $S
 		if (!isSupported) {
 			if (this->logMap != nullptr) {
 				$var($bytes, extData, $new($bytes, extLen));
-				$nc(m)->get(extData);
-				$nc(this->logMap)->put($($Integer::valueOf(extId)), extData);
+				m->get(extData);
+				this->logMap->put($($Integer::valueOf(extId)), extData);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-					$SSLLogger::fine("Ignore unknown or unsupported extension"_s, $$new($ObjectArray, {$($of(toString(extId, extData)))}));
+					$SSLLogger::fine("Ignore unknown or unsupported extension"_s, $$new($ObjectArray, {$(toString(extId, extData))}));
 				}
 			} else {
-				int32_t pos = $nc(m)->position() + extLen;
+				int32_t pos = m->position() + extLen;
 				m->position(pos);
 			}
 		}
@@ -200,119 +155,107 @@ $bytes* SSLExtensions::get($SSLExtension* ext) {
 }
 
 void SSLExtensions::consumeOnLoad($HandshakeContext* context, $SSLExtensionArray* extensions) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($SSLExtensionArray, arr$, extensions);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$SSLExtension* extension = arr$->get(i$);
-			{
-				if ($nc(context)->negotiatedProtocol != nullptr && !$nc(extension)->isAvailable(context->negotiatedProtocol)) {
-					$init($SSLLogger);
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-						$SSLLogger::fine($$str({"Ignore unsupported extension: "_s, extension->name$}), $$new($ObjectArray, 0));
-					}
-					continue;
-				}
-				if (!$nc(this->extMap)->containsKey(extension)) {
-					if ($nc(extension)->onLoadAbsence != nullptr) {
-						extension->absentOnLoad(context, this->handshakeMessage);
-					} else {
-						$init($SSLLogger);
-						if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-							$SSLLogger::fine($$str({"Ignore unavailable extension: "_s, extension->name$}), $$new($ObjectArray, 0));
-						}
-					}
-					continue;
-				}
-				if ($nc(extension)->onLoadConsumer == nullptr) {
-					$init($SSLLogger);
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-						$SSLLogger::warning($$str({"Ignore unsupported extension: "_s, extension->name$}), $$new($ObjectArray, 0));
-					}
-					continue;
-				}
-				$var($ByteBuffer, m, $ByteBuffer::wrap($cast($bytes, $($nc(this->extMap)->get(extension)))));
-				$nc(extension)->consumeOnLoad(context, this->handshakeMessage, m);
+	$useLocalObjectStack();
+	$var($SSLExtensionArray, arr$, extensions);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$SSLExtension* extension = arr$->get(i$);
+		{
+			if ($nc(context)->negotiatedProtocol != nullptr && !$nc(extension)->isAvailable(context->negotiatedProtocol)) {
 				$init($SSLLogger);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-					$SSLLogger::fine($$str({"Consumed extension: "_s, extension->name$}), $$new($ObjectArray, 0));
+					$SSLLogger::fine($$str({"Ignore unsupported extension: "_s, extension->name$}), $$new($ObjectArray, 0));
 				}
+				continue;
+			}
+			if (!$nc(this->extMap)->containsKey(extension)) {
+				if ($nc(extension)->onLoadAbsence != nullptr) {
+					extension->absentOnLoad(context, this->handshakeMessage);
+				} else {
+					$init($SSLLogger);
+					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
+						$SSLLogger::fine($$str({"Ignore unavailable extension: "_s, extension->name$}), $$new($ObjectArray, 0));
+					}
+				}
+				continue;
+			}
+			if ($nc(extension)->onLoadConsumer == nullptr) {
+				$init($SSLLogger);
+				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
+					$SSLLogger::warning($$str({"Ignore unsupported extension: "_s, extension->name$}), $$new($ObjectArray, 0));
+				}
+				continue;
+			}
+			$var($ByteBuffer, m, $ByteBuffer::wrap($$cast($bytes, this->extMap->get(extension))));
+			extension->consumeOnLoad(context, this->handshakeMessage, m);
+			$init($SSLLogger);
+			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
+				$SSLLogger::fine($$str({"Consumed extension: "_s, extension->name$}), $$new($ObjectArray, 0));
 			}
 		}
 	}
 }
 
 void SSLExtensions::consumeOnTrade($HandshakeContext* context, $SSLExtensionArray* extensions) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($SSLExtensionArray, arr$, extensions);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$SSLExtension* extension = arr$->get(i$);
-			{
-				if (!$nc(this->extMap)->containsKey(extension)) {
-					if ($nc(extension)->onTradeAbsence != nullptr) {
-						extension->absentOnTrade(context, this->handshakeMessage);
-					} else {
-						$init($SSLLogger);
-						if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-							$SSLLogger::fine($$str({"Ignore unavailable extension: "_s, extension->name$}), $$new($ObjectArray, 0));
-						}
-					}
-					continue;
-				}
-				if ($nc(extension)->onTradeConsumer == nullptr) {
+	$useLocalObjectStack();
+	$var($SSLExtensionArray, arr$, extensions);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$SSLExtension* extension = arr$->get(i$);
+		{
+			if (!$nc(this->extMap)->containsKey(extension)) {
+				if ($nc(extension)->onTradeAbsence != nullptr) {
+					extension->absentOnTrade(context, this->handshakeMessage);
+				} else {
 					$init($SSLLogger);
 					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-						$SSLLogger::warning($$str({"Ignore impact of unsupported extension: "_s, extension->name$}), $$new($ObjectArray, 0));
+						$SSLLogger::fine($$str({"Ignore unavailable extension: "_s, extension->name$}), $$new($ObjectArray, 0));
 					}
-					continue;
 				}
-				$nc(extension)->consumeOnTrade(context, this->handshakeMessage);
+				continue;
+			}
+			if ($nc(extension)->onTradeConsumer == nullptr) {
 				$init($SSLLogger);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-					$SSLLogger::fine($$str({"Populated with extension: "_s, extension->name$}), $$new($ObjectArray, 0));
+					$SSLLogger::warning($$str({"Ignore impact of unsupported extension: "_s, extension->name$}), $$new($ObjectArray, 0));
 				}
+				continue;
+			}
+			extension->consumeOnTrade(context, this->handshakeMessage);
+			$init($SSLLogger);
+			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
+				$SSLLogger::fine($$str({"Populated with extension: "_s, extension->name$}), $$new($ObjectArray, 0));
 			}
 		}
 	}
 }
 
 void SSLExtensions::produce($HandshakeContext* context, $SSLExtensionArray* extensions) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($SSLExtensionArray, arr$, extensions);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$SSLExtension* extension = arr$->get(i$);
-			{
-				if ($nc(this->extMap)->containsKey(extension)) {
-					$init($SSLLogger);
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-						$SSLLogger::fine($$str({"Ignore, duplicated extension: "_s, $nc(extension)->name$}), $$new($ObjectArray, 0));
-					}
-					continue;
+	$useLocalObjectStack();
+	$var($SSLExtensionArray, arr$, extensions);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$SSLExtension* extension = arr$->get(i$);
+		{
+			if ($nc(this->extMap)->containsKey(extension)) {
+				$init($SSLLogger);
+				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
+					$SSLLogger::fine($$str({"Ignore, duplicated extension: "_s, $nc(extension)->name$}), $$new($ObjectArray, 0));
 				}
-				if ($nc(extension)->networkProducer == nullptr) {
-					$init($SSLLogger);
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-						$SSLLogger::warning($$str({"Ignore, no extension producer defined: "_s, extension->name$}), $$new($ObjectArray, 0));
-					}
-					continue;
+				continue;
+			}
+			if ($nc(extension)->networkProducer == nullptr) {
+				$init($SSLLogger);
+				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
+					$SSLLogger::warning($$str({"Ignore, no extension producer defined: "_s, extension->name$}), $$new($ObjectArray, 0));
 				}
-				$var($bytes, encoded, $nc(extension)->produce(context, this->handshakeMessage));
-				if (encoded != nullptr) {
-					$nc(this->extMap)->put(extension, encoded);
-					this->encodedLength += encoded->length + 4;
-				} else {
-					$init($SSLLogger);
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-						$SSLLogger::fine($$str({"Ignore, context unavailable extension: "_s, extension->name$}), $$new($ObjectArray, 0));
-					}
+				continue;
+			}
+			$var($bytes, encoded, extension->produce(context, this->handshakeMessage));
+			if (encoded != nullptr) {
+				this->extMap->put(extension, encoded);
+				this->encodedLength += encoded->length + 4;
+			} else {
+				$init($SSLLogger);
+				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
+					$SSLLogger::fine($$str({"Ignore, context unavailable extension: "_s, extension->name$}), $$new($ObjectArray, 0));
 				}
 			}
 		}
@@ -320,38 +263,34 @@ void SSLExtensions::produce($HandshakeContext* context, $SSLExtensionArray* exte
 }
 
 void SSLExtensions::reproduce($HandshakeContext* context, $SSLExtensionArray* extensions) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($SSLExtensionArray, arr$, extensions);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$SSLExtension* extension = arr$->get(i$);
-			{
-				if ($nc(extension)->networkProducer == nullptr) {
-					$init($SSLLogger);
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-						$SSLLogger::warning($$str({"Ignore, no extension producer defined: "_s, extension->name$}), $$new($ObjectArray, 0));
-					}
-					continue;
+	$useLocalObjectStack();
+	$var($SSLExtensionArray, arr$, extensions);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$SSLExtension* extension = arr$->get(i$);
+		{
+			if ($nc(extension)->networkProducer == nullptr) {
+				$init($SSLLogger);
+				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
+					$SSLLogger::warning($$str({"Ignore, no extension producer defined: "_s, extension->name$}), $$new($ObjectArray, 0));
 				}
-				$var($bytes, encoded, $nc(extension)->produce(context, this->handshakeMessage));
-				if (encoded != nullptr) {
-					if ($nc(this->extMap)->containsKey(extension)) {
-						$var($bytes, old, $cast($bytes, $nc(this->extMap)->replace(extension, encoded)));
-						if (old != nullptr) {
-							this->encodedLength -= old->length + 4;
-						}
-						this->encodedLength += encoded->length + 4;
-					} else {
-						$nc(this->extMap)->put(extension, encoded);
-						this->encodedLength += encoded->length + 4;
+				continue;
+			}
+			$var($bytes, encoded, extension->produce(context, this->handshakeMessage));
+			if (encoded != nullptr) {
+				if ($nc(this->extMap)->containsKey(extension)) {
+					$var($bytes, old, $cast($bytes, this->extMap->replace(extension, encoded)));
+					if (old != nullptr) {
+						this->encodedLength -= old->length + 4;
 					}
+					this->encodedLength += encoded->length + 4;
 				} else {
-					$init($SSLLogger);
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-						$SSLLogger::fine($$str({"Ignore, context unavailable extension: "_s, extension->name$}), $$new($ObjectArray, 0));
-					}
+					this->extMap->put(extension, encoded);
+					this->encodedLength += encoded->length + 4;
+				}
+			} else {
+				$init($SSLLogger);
+				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
+					$SSLLogger::fine($$str({"Ignore, context unavailable extension: "_s, extension->name$}), $$new($ObjectArray, 0));
 				}
 			}
 		}
@@ -367,7 +306,7 @@ int32_t SSLExtensions::length() {
 }
 
 void SSLExtensions::send($HandshakeOutStream* hos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t extsLen = length();
 	if (extsLen == 0) {
 		return;
@@ -375,9 +314,7 @@ void SSLExtensions::send($HandshakeOutStream* hos) {
 	$nc(hos)->putInt16(extsLen - 2);
 	{
 		$var($SSLExtensionArray, arr$, $SSLExtension::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$SSLExtension* ext = arr$->get(i$);
 			{
 				$var($bytes, extData, $cast($bytes, $nc(this->extMap)->get(ext)));
@@ -391,28 +328,28 @@ void SSLExtensions::send($HandshakeOutStream* hos) {
 }
 
 $String* SSLExtensions::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->extMap)->isEmpty();
-	if (var$0 && (this->logMap == nullptr || $nc(this->logMap)->isEmpty())) {
+	if (var$0 && (this->logMap == nullptr || this->logMap->isEmpty())) {
 		return "<no extension>"_s;
 	} else {
 		$var($StringBuilder, builder, $new($StringBuilder, 512));
-		if (this->logMap != nullptr && !$nc(this->logMap)->isEmpty()) {
+		if (this->logMap != nullptr && !this->logMap->isEmpty()) {
 			{
-				$var($Iterator, i$, $nc($($nc(this->logMap)->entrySet()))->iterator());
+				$var($Iterator, i$, $$nc(this->logMap->entrySet())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Map$Entry, en, $cast($Map$Entry, i$->next()));
 					{
 						$var($SSLHandshake, var$1, $nc(this->handshakeMessage)->handshakeType());
-						$SSLExtension* ext = $SSLExtension::valueOf(var$1, $nc(($cast($Integer, $($nc(en)->getKey()))))->intValue());
+						$SSLExtension* ext = $SSLExtension::valueOf(var$1, $$sure($Integer, $nc(en)->getKey())->intValue());
 						if (builder->length() != 0) {
 							builder->append(",\n"_s);
 						}
 						if (ext != nullptr) {
-							builder->append($(ext->toString($nc(this->handshakeMessage)->handshakeContext, $($ByteBuffer::wrap($cast($bytes, $($nc(en)->getValue())))))));
+							builder->append($(ext->toString(this->handshakeMessage->handshakeContext, $($ByteBuffer::wrap($$cast($bytes, en->getValue()))))));
 						} else {
-							int32_t var$2 = $nc(($cast($Integer, $($nc(en)->getKey()))))->intValue();
-							builder->append($(toString(var$2, $cast($bytes, $(en->getValue())))));
+							int32_t var$2 = $$sure($Integer, en->getKey())->intValue();
+							builder->append($(toString(var$2, $$cast($bytes, en->getValue()))));
 						}
 					}
 				}
@@ -420,14 +357,14 @@ $String* SSLExtensions::toString() {
 			return builder->toString();
 		} else {
 			{
-				$var($Iterator, i$, $nc($($nc(this->extMap)->entrySet()))->iterator());
+				$var($Iterator, i$, $$nc(this->extMap->entrySet())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Map$Entry, en, $cast($Map$Entry, i$->next()));
 					{
 						if (builder->length() != 0) {
 							builder->append(",\n"_s);
 						}
-						builder->append($($nc(($cast($SSLExtension, $($nc(en)->getKey()))))->toString($nc(this->handshakeMessage)->handshakeContext, $($ByteBuffer::wrap($cast($bytes, $(en->getValue())))))));
+						builder->append($($$sure($SSLExtension, $nc(en)->getKey())->toString($nc(this->handshakeMessage)->handshakeContext, $($ByteBuffer::wrap($$cast($bytes, $nc(en)->getValue()))))));
 					}
 				}
 			}
@@ -437,16 +374,16 @@ $String* SSLExtensions::toString() {
 }
 
 $String* SSLExtensions::toString(int32_t extId, $bytes* extData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, extName, $SSLExtension::nameOf(extId));
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"{0} ({1})\": \'{\'\n{2}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 	$var($String, encoded, hexEncoder->encodeBuffer(extData));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$of(extName),
-		$($of($Integer::valueOf(extId))),
-		$($of($Utilities::indent(encoded)))
+		extName,
+		$($Integer::valueOf(extId)),
+		$($Utilities::indent(encoded))
 	}));
 	return messageFormat->format(messageFields);
 }
@@ -455,7 +392,38 @@ SSLExtensions::SSLExtensions() {
 }
 
 $Class* SSLExtensions::load$($String* name, bool initialize) {
-	$loadClass(SSLExtensions, name, initialize, &_SSLExtensions_ClassInfo_, allocate$SSLExtensions);
+	$FieldInfo fieldInfos$$[] = {
+		{"handshakeMessage", "Lsun/security/ssl/SSLHandshake$HandshakeMessage;", nullptr, $PRIVATE | $FINAL, $field(SSLExtensions, handshakeMessage)},
+		{"extMap", "Ljava/util/Map;", "Ljava/util/Map<Lsun/security/ssl/SSLExtension;[B>;", $PRIVATE | $FINAL, $field(SSLExtensions, extMap)},
+		{"encodedLength", "I", nullptr, $PRIVATE, $field(SSLExtensions, encodedLength)},
+		{"logMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;[B>;", $PRIVATE | $FINAL, $field(SSLExtensions, logMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, 0, $method(SSLExtensions, init$, void, $SSLHandshake$HandshakeMessage*)},
+		{"<init>", "(Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, init$, void, $SSLHandshake$HandshakeMessage*, $ByteBuffer*, $SSLExtensionArray*), "java.io.IOException"},
+		{"consumeOnLoad", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, consumeOnLoad, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
+		{"consumeOnTrade", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, consumeOnTrade, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
+		{"get", "(Lsun/security/ssl/SSLExtension;)[B", nullptr, 0, $method(SSLExtensions, get, $bytes*, $SSLExtension*)},
+		{"length", "()I", nullptr, 0, $method(SSLExtensions, length, int32_t)},
+		{"produce", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, produce, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
+		{"reproduce", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, reproduce, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $method(SSLExtensions, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLExtensions, toString, $String*)},
+		{"toString", "(I[B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLExtensions, toString, $String*, int32_t, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLExtensions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLExtensions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLExtensions);
+	});
 	return class$;
 }
 

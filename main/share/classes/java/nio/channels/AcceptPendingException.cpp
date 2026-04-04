@@ -1,5 +1,4 @@
 #include <java/nio/channels/AcceptPendingException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _AcceptPendingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AcceptPendingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AcceptPendingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AcceptPendingException, init$, void)},
-	{}
-};
-
-$ClassInfo _AcceptPendingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.AcceptPendingException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_AcceptPendingException_FieldInfo_,
-	_AcceptPendingException_MethodInfo_
-};
-
-$Object* allocate$AcceptPendingException($Class* clazz) {
-	return $of($alloc(AcceptPendingException));
-}
 
 void AcceptPendingException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void AcceptPendingException::throw$() {
 }
 
 $Class* AcceptPendingException::load$($String* name, bool initialize) {
-	$loadClass(AcceptPendingException, name, initialize, &_AcceptPendingException_ClassInfo_, allocate$AcceptPendingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AcceptPendingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AcceptPendingException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.AcceptPendingException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AcceptPendingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AcceptPendingException);
+	});
 	return class$;
 }
 

@@ -23,6 +23,7 @@ class $export NullQueue : public ::java::lang::Object {
 	$class(NullQueue, 0, ::java::lang::Object)
 public:
 	NullQueue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Thread* findThread($String* name);
 	static void fork(::java::lang::Runnable* proc);

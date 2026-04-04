@@ -1,5 +1,4 @@
 #include <java/net/InterfaceAddress.h>
-
 #include <java/net/Inet4Address.h>
 #include <java/net/InetAddress.h>
 #include <java/util/Objects.h>
@@ -8,48 +7,16 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Inet4Address = ::java::net::Inet4Address;
 using $InetAddress = ::java::net::InetAddress;
 using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace net {
 
-$FieldInfo _InterfaceAddress_FieldInfo_[] = {
-	{"address", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(InterfaceAddress, address)},
-	{"broadcast", "Ljava/net/Inet4Address;", nullptr, $PRIVATE, $field(InterfaceAddress, broadcast)},
-	{"maskLength", "S", nullptr, $PRIVATE, $field(InterfaceAddress, maskLength)},
-	{}
-};
-
-$MethodInfo _InterfaceAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InterfaceAddress, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, equals, bool, Object$*)},
-	{"getAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, getAddress, $InetAddress*)},
-	{"getBroadcast", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, getBroadcast, $InetAddress*)},
-	{"getNetworkPrefixLength", "()S", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, getNetworkPrefixLength, int16_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, toString, $String*)},
-	{}
-};
-
-$ClassInfo _InterfaceAddress_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.InterfaceAddress",
-	"java.lang.Object",
-	nullptr,
-	_InterfaceAddress_FieldInfo_,
-	_InterfaceAddress_MethodInfo_
-};
-
-$Object* allocate$InterfaceAddress($Class* clazz) {
-	return $of($alloc(InterfaceAddress));
-}
-
 void InterfaceAddress::init$() {
 	$set(this, address, nullptr);
 	$set(this, broadcast, nullptr);
-	this->maskLength = (int16_t)0;
+	this->maskLength = 0;
 }
 
 $InetAddress* InterfaceAddress::getAddress() {
@@ -73,13 +40,13 @@ bool InterfaceAddress::equals(Object$* obj) {
 	}
 	bool var$2 = var$3;
 	bool var$1 = var$2 && $Objects::equals(this->address, $nc(cmp)->address);
-	bool var$0 = var$1 && $Objects::equals(this->broadcast, $nc(cmp)->broadcast);
-	return var$0 && this->maskLength == $nc(cmp)->maskLength;
+	bool var$0 = var$1 && $Objects::equals(this->broadcast, cmp->broadcast);
+	return var$0 && this->maskLength == cmp->maskLength;
 }
 
 int32_t InterfaceAddress::hashCode() {
 	int32_t var$0 = $nc(this->address)->hashCode();
-	return var$0 + ((this->broadcast != nullptr) ? $nc(this->broadcast)->hashCode() : 0) + this->maskLength;
+	return var$0 + ((this->broadcast != nullptr) ? this->broadcast->hashCode() : 0) + this->maskLength;
 }
 
 $String* InterfaceAddress::toString() {
@@ -90,7 +57,33 @@ InterfaceAddress::InterfaceAddress() {
 }
 
 $Class* InterfaceAddress::load$($String* name, bool initialize) {
-	$loadClass(InterfaceAddress, name, initialize, &_InterfaceAddress_ClassInfo_, allocate$InterfaceAddress);
+	$FieldInfo fieldInfos$$[] = {
+		{"address", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(InterfaceAddress, address)},
+		{"broadcast", "Ljava/net/Inet4Address;", nullptr, $PRIVATE, $field(InterfaceAddress, broadcast)},
+		{"maskLength", "S", nullptr, $PRIVATE, $field(InterfaceAddress, maskLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InterfaceAddress, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, equals, bool, Object$*)},
+		{"getAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, getAddress, $InetAddress*)},
+		{"getBroadcast", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, getBroadcast, $InetAddress*)},
+		{"getNetworkPrefixLength", "()S", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, getNetworkPrefixLength, int16_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.InterfaceAddress",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InterfaceAddress, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InterfaceAddress);
+	});
 	return class$;
 }
 

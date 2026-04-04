@@ -14,10 +14,13 @@ public:
 	ObjectStreamException();
 	void init$($String* message);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x64C3E46B8D39FBDF;
+	static const int64_t serialVersionUID = (int64_t)0x64c3e46b8d39fbdf;
 	ObjectStreamException(const ObjectStreamException& e);
 	virtual void throw$() override;
-	inline ObjectStreamException* operator ->() {
+	inline ObjectStreamException* operator ->() const {
+		return (ObjectStreamException*)throwing$;
+	}
+	inline operator ObjectStreamException*() const {
 		return (ObjectStreamException*)throwing$;
 	}
 };

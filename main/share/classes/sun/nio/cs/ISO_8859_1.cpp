@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ISO_8859_1.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -26,50 +25,6 @@ using $US_ASCII = ::sun::nio::cs::US_ASCII;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _ISO_8859_1_FieldInfo_[] = {
-	{"INSTANCE", "Lsun/nio/cs/ISO_8859_1;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ISO_8859_1, INSTANCE)},
-	{}
-};
-
-$MethodInfo _ISO_8859_1_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO_8859_1, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _ISO_8859_1_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ISO_8859_1$Encoder", "sun.nio.cs.ISO_8859_1", "Encoder", $PRIVATE | $STATIC},
-	{"sun.nio.cs.ISO_8859_1$Decoder", "sun.nio.cs.ISO_8859_1", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO_8859_1_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ISO_8859_1",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	_ISO_8859_1_FieldInfo_,
-	_ISO_8859_1_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO_8859_1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ISO_8859_1$Encoder,sun.nio.cs.ISO_8859_1$Decoder"
-};
-
-$Object* allocate$ISO_8859_1($Class* clazz) {
-	return $of($alloc(ISO_8859_1));
-}
 
 int32_t ISO_8859_1::hashCode() {
 	 return this->$Charset::hashCode();
@@ -113,7 +68,7 @@ $CharsetEncoder* ISO_8859_1::newEncoder() {
 	return $new($ISO_8859_1$Encoder, this);
 }
 
-void clinit$ISO_8859_1($Class* class$) {
+void ISO_8859_1::clinit$($Class* clazz) {
 	$assignStatic(ISO_8859_1::INSTANCE, $new(ISO_8859_1));
 }
 
@@ -121,7 +76,45 @@ ISO_8859_1::ISO_8859_1() {
 }
 
 $Class* ISO_8859_1::load$($String* name, bool initialize) {
-	$loadClass(ISO_8859_1, name, initialize, &_ISO_8859_1_ClassInfo_, clinit$ISO_8859_1, allocate$ISO_8859_1);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lsun/nio/cs/ISO_8859_1;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ISO_8859_1, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ISO_8859_1, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ISO_8859_1$Encoder", "sun.nio.cs.ISO_8859_1", "Encoder", $PRIVATE | $STATIC},
+		{"sun.nio.cs.ISO_8859_1$Decoder", "sun.nio.cs.ISO_8859_1", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ISO_8859_1",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ISO_8859_1$Encoder,sun.nio.cs.ISO_8859_1$Decoder"
+	};
+	$loadClass(ISO_8859_1, name, initialize, &classInfo$$, ISO_8859_1::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ISO_8859_1));
+	});
 	return class$;
 }
 

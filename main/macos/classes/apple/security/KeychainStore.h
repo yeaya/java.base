@@ -60,6 +60,7 @@ public:
 	KeychainStore();
 	using ::java::security::KeyStoreSpi::engineStore;
 	using ::java::security::KeyStoreSpi::engineLoad;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int64_t _addItemToKeychain($String* alias, bool isCertificate, $bytes* datablob, $chars* password);
 	$bytes* _getEncodedKeyData(int64_t secKeyRef, $chars* password);

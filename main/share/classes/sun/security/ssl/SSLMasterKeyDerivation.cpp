@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLMasterKeyDerivation.h>
-
 #include <java/lang/Enum.h>
 #include <javax/crypto/SecretKey.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -29,55 +28,6 @@ using $SSLMasterKeyDerivation$LegacyMasterKeyDerivation = ::sun::security::ssl::
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLMasterKeyDerivation_FieldInfo_[] = {
-	{"SSL30", "Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLMasterKeyDerivation, SSL30)},
-	{"TLS10", "Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLMasterKeyDerivation, TLS10)},
-	{"TLS12", "Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLMasterKeyDerivation, TLS12)},
-	{"$VALUES", "[Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLMasterKeyDerivation, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLMasterKeyDerivation, name$)},
-	{}
-};
-
-$MethodInfo _SSLMasterKeyDerivation_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLMasterKeyDerivation, $values, $SSLMasterKeyDerivationArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(SSLMasterKeyDerivation, init$, void, $String*, int32_t, $String*)},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLMasterKeyDerivation, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*, $SecretKey*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLMasterKeyDerivation, valueOf, SSLMasterKeyDerivation*, $String*)},
-	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $STATIC, $staticMethod(SSLMasterKeyDerivation, valueOf, SSLMasterKeyDerivation*, $ProtocolVersion*)},
-	{"values", "()[Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLMasterKeyDerivation, values, $SSLMasterKeyDerivationArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLMasterKeyDerivation_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLMasterKeyDerivation$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.security.ssl.SSLMasterKeyDerivation$LegacyMasterKeyDerivation", "sun.security.ssl.SSLMasterKeyDerivation", "LegacyMasterKeyDerivation", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLMasterKeyDerivation_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.SSLMasterKeyDerivation",
-	"java.lang.Enum",
-	"sun.security.ssl.SSLKeyDerivationGenerator",
-	_SSLMasterKeyDerivation_FieldInfo_,
-	_SSLMasterKeyDerivation_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/SSLMasterKeyDerivation;>;Lsun/security/ssl/SSLKeyDerivationGenerator;",
-	nullptr,
-	_SSLMasterKeyDerivation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLMasterKeyDerivation$1,sun.security.ssl.SSLMasterKeyDerivation$LegacyMasterKeyDerivation"
-};
-
-$Object* allocate$SSLMasterKeyDerivation($Class* clazz) {
-	return $of($alloc(SSLMasterKeyDerivation));
-}
 
 $String* SSLMasterKeyDerivation::toString() {
 	 return this->$Enum::toString();
@@ -133,27 +83,16 @@ SSLMasterKeyDerivation* SSLMasterKeyDerivation::valueOf($ProtocolVersion* protoc
 	$init($SSLMasterKeyDerivation$1);
 	switch ($nc($SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->get($nc((protocolVersion))->ordinal())) {
 	case 1:
-		{
-			return SSLMasterKeyDerivation::SSL30;
-		}
+		return SSLMasterKeyDerivation::SSL30;
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{
-			return SSLMasterKeyDerivation::TLS10;
-		}
+		return SSLMasterKeyDerivation::TLS10;
 	case 5:
-		{}
 	case 6:
-		{
-			return SSLMasterKeyDerivation::TLS12;
-		}
+		return SSLMasterKeyDerivation::TLS12;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
@@ -161,7 +100,7 @@ $SSLKeyDerivation* SSLMasterKeyDerivation::createKeyDerivation($HandshakeContext
 	return $new($SSLMasterKeyDerivation$LegacyMasterKeyDerivation, context, secretKey);
 }
 
-void clinit$SSLMasterKeyDerivation($Class* class$) {
+void SSLMasterKeyDerivation::clinit$($Class* clazz) {
 	$assignStatic(SSLMasterKeyDerivation::SSL30, $new(SSLMasterKeyDerivation, "SSL30"_s, 0, "kdf_ssl30"_s));
 	$assignStatic(SSLMasterKeyDerivation::TLS10, $new(SSLMasterKeyDerivation, "TLS10"_s, 1, "kdf_tls10"_s));
 	$assignStatic(SSLMasterKeyDerivation::TLS12, $new(SSLMasterKeyDerivation, "TLS12"_s, 2, "kdf_tls12"_s));
@@ -172,7 +111,50 @@ SSLMasterKeyDerivation::SSLMasterKeyDerivation() {
 }
 
 $Class* SSLMasterKeyDerivation::load$($String* name, bool initialize) {
-	$loadClass(SSLMasterKeyDerivation, name, initialize, &_SSLMasterKeyDerivation_ClassInfo_, clinit$SSLMasterKeyDerivation, allocate$SSLMasterKeyDerivation);
+	$FieldInfo fieldInfos$$[] = {
+		{"SSL30", "Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLMasterKeyDerivation, SSL30)},
+		{"TLS10", "Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLMasterKeyDerivation, TLS10)},
+		{"TLS12", "Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLMasterKeyDerivation, TLS12)},
+		{"$VALUES", "[Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLMasterKeyDerivation, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLMasterKeyDerivation, name$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLMasterKeyDerivation, $values, $SSLMasterKeyDerivationArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(SSLMasterKeyDerivation, init$, void, $String*, int32_t, $String*)},
+		{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLMasterKeyDerivation, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*, $SecretKey*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLMasterKeyDerivation, valueOf, SSLMasterKeyDerivation*, $String*)},
+		{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $STATIC, $staticMethod(SSLMasterKeyDerivation, valueOf, SSLMasterKeyDerivation*, $ProtocolVersion*)},
+		{"values", "()[Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLMasterKeyDerivation, values, $SSLMasterKeyDerivationArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLMasterKeyDerivation$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.security.ssl.SSLMasterKeyDerivation$LegacyMasterKeyDerivation", "sun.security.ssl.SSLMasterKeyDerivation", "LegacyMasterKeyDerivation", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.SSLMasterKeyDerivation",
+		"java.lang.Enum",
+		"sun.security.ssl.SSLKeyDerivationGenerator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/SSLMasterKeyDerivation;>;Lsun/security/ssl/SSLKeyDerivationGenerator;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLMasterKeyDerivation$1,sun.security.ssl.SSLMasterKeyDerivation$LegacyMasterKeyDerivation"
+	};
+	$loadClass(SSLMasterKeyDerivation, name, initialize, &classInfo$$, SSLMasterKeyDerivation::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLMasterKeyDerivation));
+	});
 	return class$;
 }
 

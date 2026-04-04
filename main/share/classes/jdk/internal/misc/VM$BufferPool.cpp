@@ -1,5 +1,4 @@
 #include <jdk/internal/misc/VM$BufferPool.h>
-
 #include <jdk/internal/misc/VM.h>
 #include <jcpp.h>
 
@@ -11,41 +10,36 @@ namespace jdk {
 	namespace internal {
 		namespace misc {
 
-$MethodInfo _VM$BufferPool_MethodInfo_[] = {
-	{"getCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getCount, int64_t)},
-	{"getMemoryUsed", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getMemoryUsed, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getName, $String*)},
-	{"getTotalCapacity", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getTotalCapacity, int64_t)},
-	{}
-};
-
-$InnerClassInfo _VM$BufferPool_InnerClassesInfo_[] = {
-	{"jdk.internal.misc.VM$BufferPool", "jdk.internal.misc.VM", "BufferPool", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VM$BufferPool_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.misc.VM$BufferPool",
-	nullptr,
-	nullptr,
-	nullptr,
-	_VM$BufferPool_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VM$BufferPool_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.misc.VM"
-};
-
-$Object* allocate$VM$BufferPool($Class* clazz) {
-	return $of($alloc(VM$BufferPool));
-}
-
 $Class* VM$BufferPool::load$($String* name, bool initialize) {
-	$loadClass(VM$BufferPool, name, initialize, &_VM$BufferPool_ClassInfo_, allocate$VM$BufferPool);
+	$MethodInfo methodInfos$$[] = {
+		{"getCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getCount, int64_t)},
+		{"getMemoryUsed", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getMemoryUsed, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getName, $String*)},
+		{"getTotalCapacity", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getTotalCapacity, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.misc.VM$BufferPool", "jdk.internal.misc.VM", "BufferPool", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.misc.VM$BufferPool",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.misc.VM"
+	};
+	$loadClass(VM$BufferPool, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VM$BufferPool);
+	});
 	return class$;
 }
 

@@ -48,6 +48,7 @@ class $export IntegerPolynomial1305 : public ::sun::security::util::math::intpol
 public:
 	IntegerPolynomial1305();
 	using ::sun::security::util::math::intpoly::IntegerPolynomial::getElement;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void carryReduce($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8);
 	virtual int64_t carryValue(int64_t x) override;

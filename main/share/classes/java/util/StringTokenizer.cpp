@@ -1,5 +1,4 @@
 #include <java/util/StringTokenizer.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
 
@@ -16,51 +15,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace util {
 
-$FieldInfo _StringTokenizer_FieldInfo_[] = {
-	{"currentPosition", "I", nullptr, $PRIVATE, $field(StringTokenizer, currentPosition)},
-	{"newPosition", "I", nullptr, $PRIVATE, $field(StringTokenizer, newPosition)},
-	{"maxPosition", "I", nullptr, $PRIVATE, $field(StringTokenizer, maxPosition)},
-	{"str", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringTokenizer, str)},
-	{"delimiters", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringTokenizer, delimiters)},
-	{"retDelims", "Z", nullptr, $PRIVATE, $field(StringTokenizer, retDelims)},
-	{"delimsChanged", "Z", nullptr, $PRIVATE, $field(StringTokenizer, delimsChanged)},
-	{"maxDelimCodePoint", "I", nullptr, $PRIVATE, $field(StringTokenizer, maxDelimCodePoint)},
-	{"hasSurrogates", "Z", nullptr, $PRIVATE, $field(StringTokenizer, hasSurrogates)},
-	{"delimiterCodePoints", "[I", nullptr, $PRIVATE, $field(StringTokenizer, delimiterCodePoints)},
-	{}
-};
-
-$MethodInfo _StringTokenizer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(StringTokenizer, init$, void, $String*, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringTokenizer, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringTokenizer, init$, void, $String*)},
-	{"countTokens", "()I", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, countTokens, int32_t)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, hasMoreElements, bool)},
-	{"hasMoreTokens", "()Z", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, hasMoreTokens, bool)},
-	{"isDelimiter", "(I)Z", nullptr, $PRIVATE, $method(StringTokenizer, isDelimiter, bool, int32_t)},
-	{"nextElement", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, nextElement, $Object*)},
-	{"nextToken", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, nextToken, $String*)},
-	{"nextToken", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, nextToken, $String*, $String*)},
-	{"scanToken", "(I)I", nullptr, $PRIVATE, $method(StringTokenizer, scanToken, int32_t, int32_t)},
-	{"setMaxDelimCodePoint", "()V", nullptr, $PRIVATE, $method(StringTokenizer, setMaxDelimCodePoint, void)},
-	{"skipDelimiters", "(I)I", nullptr, $PRIVATE, $method(StringTokenizer, skipDelimiters, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _StringTokenizer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.StringTokenizer",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_StringTokenizer_FieldInfo_,
-	_StringTokenizer_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/Object;>;"
-};
-
-$Object* allocate$StringTokenizer($Class* clazz) {
-	return $of($alloc(StringTokenizer));
-}
-
 void StringTokenizer::setMaxDelimCodePoint() {
 	if (this->delimiters == nullptr) {
 		this->maxDelimCodePoint = 0;
@@ -70,9 +24,9 @@ void StringTokenizer::setMaxDelimCodePoint() {
 	int32_t c = 0;
 	int32_t count = 0;
 	for (int32_t i = 0; i < $nc(this->delimiters)->length(); i += $Character::charCount(c)) {
-		c = $nc(this->delimiters)->charAt(i);
+		c = this->delimiters->charAt(i);
 		if (c >= $Character::MIN_HIGH_SURROGATE && c <= $Character::MAX_LOW_SURROGATE) {
-			c = $nc(this->delimiters)->codePointAt(i);
+			c = this->delimiters->codePointAt(i);
 			this->hasSurrogates = true;
 		}
 		if (m < c) {
@@ -83,13 +37,9 @@ void StringTokenizer::setMaxDelimCodePoint() {
 	this->maxDelimCodePoint = m;
 	if (this->hasSurrogates) {
 		$set(this, delimiterCodePoints, $new($ints, count));
-		{
-			int32_t i = 0;
-			int32_t j = 0;
-			for (; i < count; ++i, j += $Character::charCount(c)) {
-				c = $nc(this->delimiters)->codePointAt(j);
-				$nc(this->delimiterCodePoints)->set(i, c);
-			}
+		for (int32_t i = 0, j = 0; i < count; ++i, j += $Character::charCount(c)) {
+			c = this->delimiters->codePointAt(j);
+			this->delimiterCodePoints->set(i, c);
 		}
 	}
 }
@@ -122,7 +72,7 @@ int32_t StringTokenizer::skipDelimiters(int32_t startPos) {
 	while (!this->retDelims && position < this->maxPosition) {
 		if (!this->hasSurrogates) {
 			char16_t c = $nc(this->str)->charAt(position);
-			if ((c > this->maxDelimCodePoint) || ($nc(this->delimiters)->indexOf((int32_t)c) < 0)) {
+			if ((c > this->maxDelimCodePoint) || ($nc(this->delimiters)->indexOf(c) < 0)) {
 				break;
 			}
 			++position;
@@ -142,7 +92,7 @@ int32_t StringTokenizer::scanToken(int32_t startPos) {
 	while (position < this->maxPosition) {
 		if (!this->hasSurrogates) {
 			char16_t c = $nc(this->str)->charAt(position);
-			if ((c <= this->maxDelimCodePoint) && ($nc(this->delimiters)->indexOf((int32_t)c) >= 0)) {
+			if ((c <= this->maxDelimCodePoint) && ($nc(this->delimiters)->indexOf(c) >= 0)) {
 				break;
 			}
 			++position;
@@ -157,7 +107,7 @@ int32_t StringTokenizer::scanToken(int32_t startPos) {
 	if (this->retDelims && (startPos == position)) {
 		if (!this->hasSurrogates) {
 			char16_t c = $nc(this->str)->charAt(position);
-			if ((c <= this->maxDelimCodePoint) && ($nc(this->delimiters)->indexOf((int32_t)c) >= 0)) {
+			if ((c <= this->maxDelimCodePoint) && ($nc(this->delimiters)->indexOf(c) >= 0)) {
 				++position;
 			}
 		} else {
@@ -171,17 +121,11 @@ int32_t StringTokenizer::scanToken(int32_t startPos) {
 }
 
 bool StringTokenizer::isDelimiter(int32_t codePoint) {
-	{
-		$var($ints, arr$, this->delimiterCodePoints);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			int32_t delimiterCodePoint = arr$->get(i$);
-			{
-				if (delimiterCodePoint == codePoint) {
-					return true;
-				}
-			}
+	$var($ints, arr$, this->delimiterCodePoints);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		int32_t delimiterCodePoint = arr$->get(i$);
+		if (delimiterCodePoint == codePoint) {
+			return true;
 		}
 	}
 	return false;
@@ -237,7 +181,47 @@ StringTokenizer::StringTokenizer() {
 }
 
 $Class* StringTokenizer::load$($String* name, bool initialize) {
-	$loadClass(StringTokenizer, name, initialize, &_StringTokenizer_ClassInfo_, allocate$StringTokenizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"currentPosition", "I", nullptr, $PRIVATE, $field(StringTokenizer, currentPosition)},
+		{"newPosition", "I", nullptr, $PRIVATE, $field(StringTokenizer, newPosition)},
+		{"maxPosition", "I", nullptr, $PRIVATE, $field(StringTokenizer, maxPosition)},
+		{"str", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringTokenizer, str)},
+		{"delimiters", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringTokenizer, delimiters)},
+		{"retDelims", "Z", nullptr, $PRIVATE, $field(StringTokenizer, retDelims)},
+		{"delimsChanged", "Z", nullptr, $PRIVATE, $field(StringTokenizer, delimsChanged)},
+		{"maxDelimCodePoint", "I", nullptr, $PRIVATE, $field(StringTokenizer, maxDelimCodePoint)},
+		{"hasSurrogates", "Z", nullptr, $PRIVATE, $field(StringTokenizer, hasSurrogates)},
+		{"delimiterCodePoints", "[I", nullptr, $PRIVATE, $field(StringTokenizer, delimiterCodePoints)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(StringTokenizer, init$, void, $String*, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringTokenizer, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringTokenizer, init$, void, $String*)},
+		{"countTokens", "()I", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, countTokens, int32_t)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, hasMoreElements, bool)},
+		{"hasMoreTokens", "()Z", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, hasMoreTokens, bool)},
+		{"isDelimiter", "(I)Z", nullptr, $PRIVATE, $method(StringTokenizer, isDelimiter, bool, int32_t)},
+		{"nextElement", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, nextElement, $Object*)},
+		{"nextToken", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, nextToken, $String*)},
+		{"nextToken", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, nextToken, $String*, $String*)},
+		{"scanToken", "(I)I", nullptr, $PRIVATE, $method(StringTokenizer, scanToken, int32_t, int32_t)},
+		{"setMaxDelimCodePoint", "()V", nullptr, $PRIVATE, $method(StringTokenizer, setMaxDelimCodePoint, void)},
+		{"skipDelimiters", "(I)I", nullptr, $PRIVATE, $method(StringTokenizer, skipDelimiters, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.StringTokenizer",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/Object;>;"
+	};
+	$loadClass(StringTokenizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringTokenizer);
+	});
 	return class$;
 }
 

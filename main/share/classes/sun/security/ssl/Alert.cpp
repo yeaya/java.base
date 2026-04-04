@@ -1,5 +1,4 @@
 #include <sun/security/ssl/Alert.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Enum.h>
 #include <javax/net/ssl/SSLException.h>
@@ -60,87 +59,6 @@ using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _Alert_FieldInfo_[] = {
-	{"CLOSE_NOTIFY", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CLOSE_NOTIFY)},
-	{"UNEXPECTED_MESSAGE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNEXPECTED_MESSAGE)},
-	{"BAD_RECORD_MAC", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, BAD_RECORD_MAC)},
-	{"DECRYPTION_FAILED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, DECRYPTION_FAILED)},
-	{"RECORD_OVERFLOW", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, RECORD_OVERFLOW)},
-	{"DECOMPRESSION_FAILURE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, DECOMPRESSION_FAILURE)},
-	{"HANDSHAKE_FAILURE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, HANDSHAKE_FAILURE)},
-	{"NO_CERTIFICATE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, NO_CERTIFICATE)},
-	{"BAD_CERTIFICATE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, BAD_CERTIFICATE)},
-	{"UNSUPPORTED_CERTIFICATE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNSUPPORTED_CERTIFICATE)},
-	{"CERTIFICATE_REVOKED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CERTIFICATE_REVOKED)},
-	{"CERTIFICATE_EXPIRED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CERTIFICATE_EXPIRED)},
-	{"CERTIFICATE_UNKNOWN", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CERTIFICATE_UNKNOWN)},
-	{"ILLEGAL_PARAMETER", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, ILLEGAL_PARAMETER)},
-	{"UNKNOWN_CA", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNKNOWN_CA)},
-	{"ACCESS_DENIED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, ACCESS_DENIED)},
-	{"DECODE_ERROR", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, DECODE_ERROR)},
-	{"DECRYPT_ERROR", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, DECRYPT_ERROR)},
-	{"EXPORT_RESTRICTION", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, EXPORT_RESTRICTION)},
-	{"PROTOCOL_VERSION", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, PROTOCOL_VERSION)},
-	{"INSUFFICIENT_SECURITY", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, INSUFFICIENT_SECURITY)},
-	{"INTERNAL_ERROR", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, INTERNAL_ERROR)},
-	{"INAPPROPRIATE_FALLBACK", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, INAPPROPRIATE_FALLBACK)},
-	{"USER_CANCELED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, USER_CANCELED)},
-	{"NO_RENEGOTIATION", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, NO_RENEGOTIATION)},
-	{"MISSING_EXTENSION", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, MISSING_EXTENSION)},
-	{"UNSUPPORTED_EXTENSION", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNSUPPORTED_EXTENSION)},
-	{"CERT_UNOBTAINABLE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CERT_UNOBTAINABLE)},
-	{"UNRECOGNIZED_NAME", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNRECOGNIZED_NAME)},
-	{"BAD_CERT_STATUS_RESPONSE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, BAD_CERT_STATUS_RESPONSE)},
-	{"BAD_CERT_HASH_VALUE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, BAD_CERT_HASH_VALUE)},
-	{"UNKNOWN_PSK_IDENTITY", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNKNOWN_PSK_IDENTITY)},
-	{"CERTIFICATE_REQUIRED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CERTIFICATE_REQUIRED)},
-	{"NO_APPLICATION_PROTOCOL", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, NO_APPLICATION_PROTOCOL)},
-	{"$VALUES", "[Lsun/security/ssl/Alert;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Alert, $VALUES)},
-	{"id", "B", nullptr, $FINAL, $field(Alert, id)},
-	{"description", "Ljava/lang/String;", nullptr, $FINAL, $field(Alert, description)},
-	{"handshakeOnly", "Z", nullptr, $FINAL, $field(Alert, handshakeOnly)},
-	{"alertConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(Alert, alertConsumer)},
-	{}
-};
-
-$MethodInfo _Alert_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/Alert;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Alert, $values, $AlertArray*)},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;Z)V", "(BLjava/lang/String;Z)V", $PRIVATE, $method(Alert, init$, void, $String*, int32_t, int8_t, $String*, bool)},
-	{"createSSLException", "(Ljava/lang/String;)Ljavax/net/ssl/SSLException;", nullptr, 0, $method(Alert, createSSLException, $SSLException*, $String*)},
-	{"createSSLException", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljavax/net/ssl/SSLException;", nullptr, 0, $method(Alert, createSSLException, $SSLException*, $String*, $Throwable*)},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Alert, nameOf, $String*, int8_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Alert, valueOf, Alert*, $String*)},
-	{"valueOf", "(B)Lsun/security/ssl/Alert;", nullptr, $STATIC, $staticMethod(Alert, valueOf, Alert*, int8_t)},
-	{"values", "()[Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Alert, values, $AlertArray*)},
-	{}
-};
-
-$InnerClassInfo _Alert_InnerClassesInfo_[] = {
-	{"sun.security.ssl.Alert$AlertConsumer", "sun.security.ssl.Alert", "AlertConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Alert$AlertMessage", "sun.security.ssl.Alert", "AlertMessage", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Alert$Level", "sun.security.ssl.Alert", "Level", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Alert_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.Alert",
-	"java.lang.Enum",
-	nullptr,
-	_Alert_FieldInfo_,
-	_Alert_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/Alert;>;",
-	nullptr,
-	_Alert_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.Alert$AlertConsumer,sun.security.ssl.Alert$AlertMessage,sun.security.ssl.Alert$Level"
-};
-
-$Object* allocate$Alert($Class* clazz) {
-	return $of($alloc(Alert));
-}
 
 Alert* Alert::CLOSE_NOTIFY = nullptr;
 Alert* Alert::UNEXPECTED_MESSAGE = nullptr;
@@ -238,17 +156,11 @@ void Alert::init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String
 
 Alert* Alert::valueOf(int8_t id) {
 	$init(Alert);
-	{
-		$var($AlertArray, arr$, Alert::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			Alert* al = arr$->get(i$);
-			{
-				if ($nc(al)->id == id) {
-					return al;
-				}
-			}
+	$var($AlertArray, arr$, Alert::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		Alert* al = arr$->get(i$);
+		if ($nc(al)->id == id) {
+			return al;
 		}
 	}
 	return nullptr;
@@ -256,21 +168,17 @@ Alert* Alert::valueOf(int8_t id) {
 
 $String* Alert::nameOf(int8_t id) {
 	$init(Alert);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($AlertArray, arr$, Alert::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			Alert* al = arr$->get(i$);
-			{
-				if ($nc(al)->id == id) {
-					return al->description;
-				}
+			if ($nc(al)->id == id) {
+				return al->description;
 			}
 		}
 	}
-	return $str({"UNKNOWN ALERT ("_s, $$str(((int32_t)(id & (uint32_t)255))), ")"_s});
+	return $str({"UNKNOWN ALERT ("_s, $$str((id & 0xff)), ")"_s});
 }
 
 $SSLException* Alert::createSSLException($String* reason) {
@@ -278,10 +186,10 @@ $SSLException* Alert::createSSLException($String* reason) {
 }
 
 $SSLException* Alert::createSSLException($String* reason$renamed, $Throwable* cause) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, reason, reason$renamed);
 	if (reason == nullptr) {
-		$assign(reason, (cause != nullptr) ? $nc(cause)->getMessage() : ""_s);
+		$assign(reason, (cause != nullptr) ? cause->getMessage() : ""_s);
 	}
 	$var($SSLException, ssle, nullptr);
 	if ($instanceOf($IOException, cause)) {
@@ -299,7 +207,7 @@ $SSLException* Alert::createSSLException($String* reason$renamed, $Throwable* ca
 	return ssle;
 }
 
-void clinit$Alert($Class* class$) {
+void Alert::clinit$($Class* clazz) {
 	$assignStatic(Alert::CLOSE_NOTIFY, $new(Alert, "CLOSE_NOTIFY"_s, 0, (int8_t)0, "close_notify"_s, false));
 	$assignStatic(Alert::UNEXPECTED_MESSAGE, $new(Alert, "UNEXPECTED_MESSAGE"_s, 1, (int8_t)10, "unexpected_message"_s, false));
 	$assignStatic(Alert::BAD_RECORD_MAC, $new(Alert, "BAD_RECORD_MAC"_s, 2, (int8_t)20, "bad_record_mac"_s, false));
@@ -342,7 +250,82 @@ Alert::Alert() {
 }
 
 $Class* Alert::load$($String* name, bool initialize) {
-	$loadClass(Alert, name, initialize, &_Alert_ClassInfo_, clinit$Alert, allocate$Alert);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLOSE_NOTIFY", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CLOSE_NOTIFY)},
+		{"UNEXPECTED_MESSAGE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNEXPECTED_MESSAGE)},
+		{"BAD_RECORD_MAC", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, BAD_RECORD_MAC)},
+		{"DECRYPTION_FAILED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, DECRYPTION_FAILED)},
+		{"RECORD_OVERFLOW", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, RECORD_OVERFLOW)},
+		{"DECOMPRESSION_FAILURE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, DECOMPRESSION_FAILURE)},
+		{"HANDSHAKE_FAILURE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, HANDSHAKE_FAILURE)},
+		{"NO_CERTIFICATE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, NO_CERTIFICATE)},
+		{"BAD_CERTIFICATE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, BAD_CERTIFICATE)},
+		{"UNSUPPORTED_CERTIFICATE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNSUPPORTED_CERTIFICATE)},
+		{"CERTIFICATE_REVOKED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CERTIFICATE_REVOKED)},
+		{"CERTIFICATE_EXPIRED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CERTIFICATE_EXPIRED)},
+		{"CERTIFICATE_UNKNOWN", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CERTIFICATE_UNKNOWN)},
+		{"ILLEGAL_PARAMETER", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, ILLEGAL_PARAMETER)},
+		{"UNKNOWN_CA", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNKNOWN_CA)},
+		{"ACCESS_DENIED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, ACCESS_DENIED)},
+		{"DECODE_ERROR", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, DECODE_ERROR)},
+		{"DECRYPT_ERROR", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, DECRYPT_ERROR)},
+		{"EXPORT_RESTRICTION", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, EXPORT_RESTRICTION)},
+		{"PROTOCOL_VERSION", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, PROTOCOL_VERSION)},
+		{"INSUFFICIENT_SECURITY", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, INSUFFICIENT_SECURITY)},
+		{"INTERNAL_ERROR", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, INTERNAL_ERROR)},
+		{"INAPPROPRIATE_FALLBACK", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, INAPPROPRIATE_FALLBACK)},
+		{"USER_CANCELED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, USER_CANCELED)},
+		{"NO_RENEGOTIATION", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, NO_RENEGOTIATION)},
+		{"MISSING_EXTENSION", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, MISSING_EXTENSION)},
+		{"UNSUPPORTED_EXTENSION", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNSUPPORTED_EXTENSION)},
+		{"CERT_UNOBTAINABLE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CERT_UNOBTAINABLE)},
+		{"UNRECOGNIZED_NAME", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNRECOGNIZED_NAME)},
+		{"BAD_CERT_STATUS_RESPONSE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, BAD_CERT_STATUS_RESPONSE)},
+		{"BAD_CERT_HASH_VALUE", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, BAD_CERT_HASH_VALUE)},
+		{"UNKNOWN_PSK_IDENTITY", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, UNKNOWN_PSK_IDENTITY)},
+		{"CERTIFICATE_REQUIRED", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, CERTIFICATE_REQUIRED)},
+		{"NO_APPLICATION_PROTOCOL", "Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Alert, NO_APPLICATION_PROTOCOL)},
+		{"$VALUES", "[Lsun/security/ssl/Alert;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Alert, $VALUES)},
+		{"id", "B", nullptr, $FINAL, $field(Alert, id)},
+		{"description", "Ljava/lang/String;", nullptr, $FINAL, $field(Alert, description)},
+		{"handshakeOnly", "Z", nullptr, $FINAL, $field(Alert, handshakeOnly)},
+		{"alertConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(Alert, alertConsumer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/Alert;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Alert, $values, $AlertArray*)},
+		{"<init>", "(Ljava/lang/String;IBLjava/lang/String;Z)V", "(BLjava/lang/String;Z)V", $PRIVATE, $method(Alert, init$, void, $String*, int32_t, int8_t, $String*, bool)},
+		{"createSSLException", "(Ljava/lang/String;)Ljavax/net/ssl/SSLException;", nullptr, 0, $method(Alert, createSSLException, $SSLException*, $String*)},
+		{"createSSLException", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljavax/net/ssl/SSLException;", nullptr, 0, $method(Alert, createSSLException, $SSLException*, $String*, $Throwable*)},
+		{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Alert, nameOf, $String*, int8_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Alert, valueOf, Alert*, $String*)},
+		{"valueOf", "(B)Lsun/security/ssl/Alert;", nullptr, $STATIC, $staticMethod(Alert, valueOf, Alert*, int8_t)},
+		{"values", "()[Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Alert, values, $AlertArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.Alert$AlertConsumer", "sun.security.ssl.Alert", "AlertConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Alert$AlertMessage", "sun.security.ssl.Alert", "AlertMessage", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Alert$Level", "sun.security.ssl.Alert", "Level", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.Alert",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/Alert;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.Alert$AlertConsumer,sun.security.ssl.Alert$AlertMessage,sun.security.ssl.Alert$Level"
+	};
+	$loadClass(Alert, name, initialize, &classInfo$$, Alert::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Alert));
+	});
 	return class$;
 }
 

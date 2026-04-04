@@ -14,7 +14,7 @@ class $export SynchronousQueue$FifoWaitQueue : public ::java::util::concurrent::
 public:
 	SynchronousQueue$FifoWaitQueue();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xCDB81D8CA9343E9A;
+	static const int64_t serialVersionUID = (int64_t)0xcdb81d8ca9343e9a;
 };
 
 		} // concurrent

@@ -12,7 +12,10 @@ public:
 	void init$(bool enableSuppression, bool writableStackTrace);
 	StackTraceSerialization$TestThrowable(const StackTraceSerialization$TestThrowable& e);
 	virtual void throw$() override;
-	inline StackTraceSerialization$TestThrowable* operator ->() {
+	inline StackTraceSerialization$TestThrowable* operator ->() const {
+		return (StackTraceSerialization$TestThrowable*)throwing$;
+	}
+	inline operator StackTraceSerialization$TestThrowable*() const {
 		return (StackTraceSerialization$TestThrowable*)throwing$;
 	}
 };

@@ -21,6 +21,7 @@ class ThreadPool$DefaultThreadPoolHolder : public ::java::lang::Object {
 	$class(ThreadPool$DefaultThreadPoolHolder, 0, ::java::lang::Object)
 public:
 	ThreadPool$DefaultThreadPoolHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::ch::ThreadPool* defaultThreadPool;
 };

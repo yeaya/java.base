@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/jar/JarFileFactory.h>
-
 #include <java/io/FileNotFoundException.h>
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
@@ -13,7 +12,6 @@
 #include <java/util/HashMap.h>
 #include <java/util/jar/JarFile.h>
 #include <sun/net/util/URLUtil.h>
-#include <sun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController.h>
 #include <sun/net/www/protocol/jar/URLJarFile.h>
 #include <jcpp.h>
 
@@ -35,59 +33,12 @@ using $HashMap = ::java::util::HashMap;
 using $JarFile = ::java::util::jar::JarFile;
 using $URLUtil = ::sun::net::util::URLUtil;
 using $URLJarFile = ::sun::net::www::protocol::jar::URLJarFile;
-using $URLJarFile$URLJarFileCloseController = ::sun::net::www::protocol::jar::URLJarFile$URLJarFileCloseController;
 
 namespace sun {
 	namespace net {
 		namespace www {
 			namespace protocol {
 				namespace jar {
-
-$FieldInfo _JarFileFactory_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JarFileFactory, $assertionsDisabled)},
-	{"fileCache", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/jar/JarFile;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JarFileFactory, fileCache)},
-	{"urlCache", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/util/jar/JarFile;Ljava/net/URL;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JarFileFactory, urlCache)},
-	{"instance", "Lsun/net/www/protocol/jar/JarFileFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFileFactory, instance)},
-	{}
-};
-
-$MethodInfo _JarFileFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JarFileFactory, init$, void)},
-	{"cacheIfAbsent", "(Ljava/net/URL;Ljava/util/jar/JarFile;)Z", nullptr, 0, $virtualMethod(JarFileFactory, cacheIfAbsent, bool, $URL*, $JarFile*)},
-	{"close", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $virtualMethod(JarFileFactory, close, void, $JarFile*)},
-	{"closeIfNotCached", "(Ljava/net/URL;Ljava/util/jar/JarFile;)Z", nullptr, 0, $virtualMethod(JarFileFactory, closeIfNotCached, bool, $URL*, $JarFile*), "java.io.IOException"},
-	{"get", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PUBLIC, $virtualMethod(JarFileFactory, get, $JarFile*, $URL*), "java.io.IOException"},
-	{"get", "(Ljava/net/URL;Z)Ljava/util/jar/JarFile;", nullptr, 0, $virtualMethod(JarFileFactory, get, $JarFile*, $URL*, bool), "java.io.IOException"},
-	{"getCachedJarFile", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PRIVATE, $method(JarFileFactory, getCachedJarFile, $JarFile*, $URL*)},
-	{"getConnection", "(Ljava/util/jar/JarFile;)Ljava/net/URLConnection;", nullptr, 0, $virtualMethod(JarFileFactory, getConnection, $URLConnection*, $JarFile*), "java.io.IOException"},
-	{"getInstance", "()Lsun/net/www/protocol/jar/JarFileFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarFileFactory, getInstance, JarFileFactory*)},
-	{"getOrCreate", "(Ljava/net/URL;Z)Ljava/util/jar/JarFile;", nullptr, 0, $virtualMethod(JarFileFactory, getOrCreate, $JarFile*, $URL*, bool), "java.io.IOException"},
-	{"getPermission", "(Ljava/util/jar/JarFile;)Ljava/security/Permission;", nullptr, $PRIVATE, $method(JarFileFactory, getPermission, $Permission*, $JarFile*)},
-	{"urlFor", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $PRIVATE, $method(JarFileFactory, urlFor, $URL*, $URL*), "java.io.IOException"},
-	{"urlKey", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JarFileFactory, urlKey, $String*, $URL*)},
-	{}
-};
-
-$InnerClassInfo _JarFileFactory_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.jar.URLJarFile$URLJarFileCloseController", "sun.net.www.protocol.jar.URLJarFile", "URLJarFileCloseController", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JarFileFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.jar.JarFileFactory",
-	"java.lang.Object",
-	"sun.net.www.protocol.jar.URLJarFile$URLJarFileCloseController",
-	_JarFileFactory_FieldInfo_,
-	_JarFileFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JarFileFactory_InnerClassesInfo_
-};
-
-$Object* allocate$JarFileFactory($Class* clazz) {
-	return $of($alloc(JarFileFactory));
-}
 
 bool JarFileFactory::$assertionsDisabled = false;
 $HashMap* JarFileFactory::fileCache = nullptr;
@@ -105,7 +56,7 @@ JarFileFactory* JarFileFactory::getInstance() {
 $URLConnection* JarFileFactory::getConnection($JarFile* jarFile) {
 	$var($URL, u, nullptr);
 	$synchronized(JarFileFactory::instance) {
-		$assign(u, $cast($URL, $nc(JarFileFactory::urlCache)->get(jarFile)));
+		$assign(u, $cast($URL, JarFileFactory::urlCache->get(jarFile)));
 	}
 	if (u != nullptr) {
 		return u->openConnection();
@@ -118,7 +69,7 @@ $JarFile* JarFileFactory::get($URL* url) {
 }
 
 $JarFile* JarFileFactory::getOrCreate($URL* url, bool useCaches) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (useCaches == false) {
 		return get(url, false);
 	}
@@ -140,7 +91,7 @@ $JarFile* JarFileFactory::getOrCreate($URL* url, bool useCaches) {
 }
 
 bool JarFileFactory::closeIfNotCached($URL* url$renamed, $JarFile* jarFile) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, url$renamed);
 	$assign(url, urlFor(url));
 	$var($JarFile, result, nullptr);
@@ -154,7 +105,7 @@ bool JarFileFactory::closeIfNotCached($URL* url$renamed, $JarFile* jarFile) {
 }
 
 bool JarFileFactory::cacheIfAbsent($URL* url$renamed, $JarFile* jarFile) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, url$renamed);
 	try {
 		$assign(url, urlFor(url));
@@ -164,19 +115,19 @@ bool JarFileFactory::cacheIfAbsent($URL* url$renamed, $JarFile* jarFile) {
 	$var($JarFile, cached, nullptr);
 	$synchronized(JarFileFactory::instance) {
 		$var($String, key, urlKey(url));
-		$assign(cached, $cast($JarFile, $nc(JarFileFactory::fileCache)->get(key)));
+		$assign(cached, $cast($JarFile, JarFileFactory::fileCache->get(key)));
 		if (cached == nullptr) {
-			$nc(JarFileFactory::fileCache)->put(key, jarFile);
-			$nc(JarFileFactory::urlCache)->put(jarFile, url);
+			JarFileFactory::fileCache->put(key, jarFile);
+			JarFileFactory::urlCache->put(jarFile, url);
 		}
 	}
 	return cached == nullptr || cached == jarFile;
 }
 
 $URL* JarFileFactory::urlFor($URL* url$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, url$renamed);
-	if ($nc($($nc(url)->getProtocol()))->equalsIgnoreCase("file"_s)) {
+	if ($$nc($nc(url)->getProtocol())->equalsIgnoreCase("file"_s)) {
 		$var($String, host, url->getHost());
 		bool var$0 = host != nullptr && !host->isEmpty();
 		if (var$0 && !host->equalsIgnoreCase("localhost"_s)) {
@@ -187,7 +138,7 @@ $URL* JarFileFactory::urlFor($URL* url$renamed) {
 }
 
 $JarFile* JarFileFactory::get($URL* url$renamed, bool useCaches) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, url$renamed);
 	$assign(url, urlFor(url));
 	$var($JarFile, result, nullptr);
@@ -201,8 +152,8 @@ $JarFile* JarFileFactory::get($URL* url$renamed, bool useCaches) {
 			$synchronized(JarFileFactory::instance) {
 				$assign(result, getCachedJarFile(url));
 				if (result == nullptr) {
-					$nc(JarFileFactory::fileCache)->put($(urlKey(url)), local_result);
-					$nc(JarFileFactory::urlCache)->put(local_result, url);
+					JarFileFactory::fileCache->put($(urlKey(url)), local_result);
+					JarFileFactory::urlCache->put(local_result, url);
 					$assign(result, local_result);
 				} else if (local_result != nullptr) {
 					local_result->close();
@@ -219,21 +170,21 @@ $JarFile* JarFileFactory::get($URL* url$renamed, bool useCaches) {
 }
 
 void JarFileFactory::close($JarFile* jarFile) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(JarFileFactory::instance) {
-		$var($URL, urlRemoved, $cast($URL, $nc(JarFileFactory::urlCache)->remove(jarFile)));
+		$var($URL, urlRemoved, $cast($URL, JarFileFactory::urlCache->remove(jarFile)));
 		if (urlRemoved != nullptr) {
-			$nc(JarFileFactory::fileCache)->remove($(urlKey(urlRemoved)));
+			JarFileFactory::fileCache->remove($(urlKey(urlRemoved)));
 		}
 	}
 }
 
 $JarFile* JarFileFactory::getCachedJarFile($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!JarFileFactory::$assertionsDisabled && !$Thread::holdsLock(JarFileFactory::instance)) {
 		$throwNew($AssertionError);
 	}
-	$var($JarFile, result, $cast($JarFile, $nc(JarFileFactory::fileCache)->get($(urlKey(url)))));
+	$var($JarFile, result, $cast($JarFile, JarFileFactory::fileCache->get($(urlKey(url)))));
 	if (result != nullptr) {
 		$var($SecurityManager, sm, $System::getSecurityManager());
 		if (sm != nullptr) {
@@ -242,9 +193,9 @@ $JarFile* JarFileFactory::getCachedJarFile($URL* url) {
 				try {
 					sm->checkPermission(perm);
 				} catch ($SecurityException& se) {
-					if (($instanceOf($FilePermission, perm)) && $nc($(perm->getActions()))->indexOf("read"_s) != -1) {
+					if (($instanceOf($FilePermission, perm)) && $$nc(perm->getActions())->indexOf("read"_s) != -1) {
 						sm->checkRead($(perm->getName()));
-					} else if (($instanceOf($SocketPermission, perm)) && $nc($(perm->getActions()))->indexOf("connect"_s) != -1) {
+					} else if (($instanceOf($SocketPermission, perm)) && $$nc(perm->getActions())->indexOf("connect"_s) != -1) {
 						$var($String, var$0, $nc(url)->getHost());
 						sm->checkConnect(var$0, url->getPort());
 					} else {
@@ -258,7 +209,7 @@ $JarFile* JarFileFactory::getCachedJarFile($URL* url) {
 }
 
 $String* JarFileFactory::urlKey($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, urlstr, $URLUtil::urlNoFragString(url));
 	if ("runtime"_s->equals($($nc(url)->getRef()))) {
 		$plusAssign(urlstr, "#runtime"_s);
@@ -277,7 +228,7 @@ $Permission* JarFileFactory::getPermission($JarFile* jarFile) {
 	return nullptr;
 }
 
-void clinit$JarFileFactory($Class* class$) {
+void JarFileFactory::clinit$($Class* clazz) {
 	JarFileFactory::$assertionsDisabled = !JarFileFactory::class$->desiredAssertionStatus();
 	$assignStatic(JarFileFactory::fileCache, $new($HashMap));
 	$assignStatic(JarFileFactory::urlCache, $new($HashMap));
@@ -288,7 +239,47 @@ JarFileFactory::JarFileFactory() {
 }
 
 $Class* JarFileFactory::load$($String* name, bool initialize) {
-	$loadClass(JarFileFactory, name, initialize, &_JarFileFactory_ClassInfo_, clinit$JarFileFactory, allocate$JarFileFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JarFileFactory, $assertionsDisabled)},
+		{"fileCache", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/jar/JarFile;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JarFileFactory, fileCache)},
+		{"urlCache", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/util/jar/JarFile;Ljava/net/URL;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JarFileFactory, urlCache)},
+		{"instance", "Lsun/net/www/protocol/jar/JarFileFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFileFactory, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JarFileFactory, init$, void)},
+		{"cacheIfAbsent", "(Ljava/net/URL;Ljava/util/jar/JarFile;)Z", nullptr, 0, $virtualMethod(JarFileFactory, cacheIfAbsent, bool, $URL*, $JarFile*)},
+		{"close", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $virtualMethod(JarFileFactory, close, void, $JarFile*)},
+		{"closeIfNotCached", "(Ljava/net/URL;Ljava/util/jar/JarFile;)Z", nullptr, 0, $virtualMethod(JarFileFactory, closeIfNotCached, bool, $URL*, $JarFile*), "java.io.IOException"},
+		{"get", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PUBLIC, $virtualMethod(JarFileFactory, get, $JarFile*, $URL*), "java.io.IOException"},
+		{"get", "(Ljava/net/URL;Z)Ljava/util/jar/JarFile;", nullptr, 0, $virtualMethod(JarFileFactory, get, $JarFile*, $URL*, bool), "java.io.IOException"},
+		{"getCachedJarFile", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PRIVATE, $method(JarFileFactory, getCachedJarFile, $JarFile*, $URL*)},
+		{"getConnection", "(Ljava/util/jar/JarFile;)Ljava/net/URLConnection;", nullptr, 0, $virtualMethod(JarFileFactory, getConnection, $URLConnection*, $JarFile*), "java.io.IOException"},
+		{"getInstance", "()Lsun/net/www/protocol/jar/JarFileFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarFileFactory, getInstance, JarFileFactory*)},
+		{"getOrCreate", "(Ljava/net/URL;Z)Ljava/util/jar/JarFile;", nullptr, 0, $virtualMethod(JarFileFactory, getOrCreate, $JarFile*, $URL*, bool), "java.io.IOException"},
+		{"getPermission", "(Ljava/util/jar/JarFile;)Ljava/security/Permission;", nullptr, $PRIVATE, $method(JarFileFactory, getPermission, $Permission*, $JarFile*)},
+		{"urlFor", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $PRIVATE, $method(JarFileFactory, urlFor, $URL*, $URL*), "java.io.IOException"},
+		{"urlKey", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JarFileFactory, urlKey, $String*, $URL*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.jar.URLJarFile$URLJarFileCloseController", "sun.net.www.protocol.jar.URLJarFile", "URLJarFileCloseController", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.jar.JarFileFactory",
+		"java.lang.Object",
+		"sun.net.www.protocol.jar.URLJarFile$URLJarFileCloseController",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(JarFileFactory, name, initialize, &classInfo$$, JarFileFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JarFileFactory);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/ResourceBundle$BundleReference.h>
-
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/SoftReference.h>
 #include <java/util/ResourceBundle$CacheKey.h>
@@ -17,48 +16,6 @@ using $ResourceBundle$CacheKey = ::java::util::ResourceBundle$CacheKey;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _ResourceBundle$BundleReference_FieldInfo_[] = {
-	{"cacheKey", "Ljava/util/ResourceBundle$CacheKey;", nullptr, $PRIVATE | $FINAL, $field(ResourceBundle$BundleReference, cacheKey)},
-	{}
-};
-
-$MethodInfo _ResourceBundle$BundleReference_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/ResourceBundle;Ljava/lang/ref/ReferenceQueue;Ljava/util/ResourceBundle$CacheKey;)V", "(Ljava/util/ResourceBundle;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;Ljava/util/ResourceBundle$CacheKey;)V", 0, $method(ResourceBundle$BundleReference, init$, void, $ResourceBundle*, $ReferenceQueue*, $ResourceBundle$CacheKey*)},
-	{"getCacheKey", "()Ljava/util/ResourceBundle$CacheKey;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$BundleReference, getCacheKey, $ResourceBundle$CacheKey*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ResourceBundle$BundleReference_InnerClassesInfo_[] = {
-	{"java.util.ResourceBundle$BundleReference", "java.util.ResourceBundle", "BundleReference", $PRIVATE | $STATIC},
-	{"java.util.ResourceBundle$CacheKeyReference", "java.util.ResourceBundle", "CacheKeyReference", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResourceBundle$BundleReference_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ResourceBundle$BundleReference",
-	"java.lang.ref.SoftReference",
-	"java.util.ResourceBundle$CacheKeyReference",
-	_ResourceBundle$BundleReference_FieldInfo_,
-	_ResourceBundle$BundleReference_MethodInfo_,
-	"Ljava/lang/ref/SoftReference<Ljava/util/ResourceBundle;>;Ljava/util/ResourceBundle$CacheKeyReference;",
-	nullptr,
-	_ResourceBundle$BundleReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ResourceBundle"
-};
-
-$Object* allocate$ResourceBundle$BundleReference($Class* clazz) {
-	return $of($alloc(ResourceBundle$BundleReference));
-}
 
 $Object* ResourceBundle$BundleReference::clone() {
 	 return this->$SoftReference::clone();
@@ -93,7 +50,43 @@ ResourceBundle$BundleReference::ResourceBundle$BundleReference() {
 }
 
 $Class* ResourceBundle$BundleReference::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$BundleReference, name, initialize, &_ResourceBundle$BundleReference_ClassInfo_, allocate$ResourceBundle$BundleReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"cacheKey", "Ljava/util/ResourceBundle$CacheKey;", nullptr, $PRIVATE | $FINAL, $field(ResourceBundle$BundleReference, cacheKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/ResourceBundle;Ljava/lang/ref/ReferenceQueue;Ljava/util/ResourceBundle$CacheKey;)V", "(Ljava/util/ResourceBundle;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;Ljava/util/ResourceBundle$CacheKey;)V", 0, $method(ResourceBundle$BundleReference, init$, void, $ResourceBundle*, $ReferenceQueue*, $ResourceBundle$CacheKey*)},
+		{"getCacheKey", "()Ljava/util/ResourceBundle$CacheKey;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$BundleReference, getCacheKey, $ResourceBundle$CacheKey*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ResourceBundle$BundleReference", "java.util.ResourceBundle", "BundleReference", $PRIVATE | $STATIC},
+		{"java.util.ResourceBundle$CacheKeyReference", "java.util.ResourceBundle", "CacheKeyReference", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ResourceBundle$BundleReference",
+		"java.lang.ref.SoftReference",
+		"java.util.ResourceBundle$CacheKeyReference",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/SoftReference<Ljava/util/ResourceBundle;>;Ljava/util/ResourceBundle$CacheKeyReference;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ResourceBundle"
+	};
+	$loadClass(ResourceBundle$BundleReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ResourceBundle$BundleReference));
+	});
 	return class$;
 }
 

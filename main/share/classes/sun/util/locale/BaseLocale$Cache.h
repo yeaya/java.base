@@ -25,6 +25,7 @@ class BaseLocale$Cache : public ::sun::util::locale::LocaleObjectCache {
 	$class(BaseLocale$Cache, 0, ::sun::util::locale::LocaleObjectCache)
 public:
 	BaseLocale$Cache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::sun::util::locale::BaseLocale* createObject(::sun::util::locale::BaseLocale$Key* key);
 	virtual $Object* createObject(Object$* key) override;

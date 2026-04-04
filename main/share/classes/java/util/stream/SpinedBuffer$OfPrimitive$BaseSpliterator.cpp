@@ -1,5 +1,4 @@
 #include <java/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator$OfPrimitive.h>
@@ -23,57 +22,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _SpinedBuffer$OfPrimitive$BaseSpliterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/stream/SpinedBuffer$OfPrimitive;", nullptr, $FINAL | $SYNTHETIC, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SpinedBuffer$OfPrimitive$BaseSpliterator, $assertionsDisabled)},
-	{"splSpineIndex", "I", nullptr, 0, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, splSpineIndex)},
-	{"lastSpineIndex", "I", nullptr, $FINAL, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, lastSpineIndex)},
-	{"splElementIndex", "I", nullptr, 0, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, splElementIndex)},
-	{"lastSpineElementFence", "I", nullptr, $FINAL, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, lastSpineElementFence)},
-	{"splChunk", "Ljava/lang/Object;", "TT_ARR;", 0, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, splChunk)},
-	{}
-};
-
-$MethodInfo _SpinedBuffer$OfPrimitive$BaseSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/SpinedBuffer$OfPrimitive;IIII)V", nullptr, 0, $method(SpinedBuffer$OfPrimitive$BaseSpliterator, init$, void, $SpinedBuffer$OfPrimitive*, int32_t, int32_t, int32_t, int32_t)},
-	{"arrayForOne", "(Ljava/lang/Object;ILjava/lang/Object;)V", "(TT_ARR;ITT_CONS;)V", $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, arrayForOne, void, Object$*, int32_t, Object$*)},
-	{"arraySpliterator", "(Ljava/lang/Object;II)Ljava/util/Spliterator$OfPrimitive;", "(TT_ARR;II)TT_SPLITR;", $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, arraySpliterator, $Spliterator$OfPrimitive*, Object$*, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, forEachRemaining, void, Object$*)},
-	{"newSpliterator", "(IIII)Ljava/util/Spliterator$OfPrimitive;", "(IIII)TT_SPLITR;", $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, newSpliterator, $Spliterator$OfPrimitive*, int32_t, int32_t, int32_t, int32_t)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", "()TT_SPLITR;", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _SpinedBuffer$OfPrimitive$BaseSpliterator_InnerClassesInfo_[] = {
-	{"java.util.stream.SpinedBuffer$OfPrimitive", "java.util.stream.SpinedBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
-	{"java.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator", "java.util.stream.SpinedBuffer$OfPrimitive", "BaseSpliterator", $ABSTRACT},
-	{"java.util.Spliterator$OfPrimitive", "java.util.Spliterator", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SpinedBuffer$OfPrimitive$BaseSpliterator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator$OfPrimitive",
-	_SpinedBuffer$OfPrimitive$BaseSpliterator_FieldInfo_,
-	_SpinedBuffer$OfPrimitive$BaseSpliterator_MethodInfo_,
-	"<T_SPLITR::Ljava/util/Spliterator$OfPrimitive<TE;TT_CONS;TT_SPLITR;>;>Ljava/lang/Object;Ljava/util/Spliterator$OfPrimitive<TE;TT_CONS;TT_SPLITR;>;",
-	nullptr,
-	_SpinedBuffer$OfPrimitive$BaseSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SpinedBuffer"
-};
-
-$Object* allocate$SpinedBuffer$OfPrimitive$BaseSpliterator($Class* clazz) {
-	return $of($alloc(SpinedBuffer$OfPrimitive$BaseSpliterator));
-}
-
 bool SpinedBuffer$OfPrimitive$BaseSpliterator::$assertionsDisabled = false;
 
 void SpinedBuffer$OfPrimitive$BaseSpliterator::init$($SpinedBuffer$OfPrimitive* this$0, int32_t firstSpineIndex, int32_t lastSpineIndex, int32_t firstSpineElementIndex, int32_t lastSpineElementFence) {
@@ -85,7 +33,7 @@ void SpinedBuffer$OfPrimitive$BaseSpliterator::init$($SpinedBuffer$OfPrimitive* 
 	if (!SpinedBuffer$OfPrimitive$BaseSpliterator::$assertionsDisabled && !(this$0->spine != nullptr || firstSpineIndex == 0 && lastSpineIndex == 0)) {
 		$throwNew($AssertionError);
 	}
-	$set(this, splChunk, (this$0->spine == nullptr) ? this$0->curChunk : $nc(this$0->spine)->get(firstSpineIndex));
+	$set(this, splChunk, (this$0->spine == nullptr) ? this$0->curChunk : this$0->spine->get(firstSpineIndex));
 }
 
 int64_t SpinedBuffer$OfPrimitive$BaseSpliterator::estimateSize() {
@@ -104,7 +52,7 @@ bool SpinedBuffer$OfPrimitive$BaseSpliterator::tryAdvance(Object$* consumer) {
 			this->splElementIndex = 0;
 			++this->splSpineIndex;
 			if (this->this$0->spine != nullptr && this->splSpineIndex <= this->lastSpineIndex) {
-				$set(this, splChunk, $nc(this->this$0->spine)->get(this->splSpineIndex));
+				$set(this, splChunk, this->this$0->spine->get(this->splSpineIndex));
 			}
 		}
 		return true;
@@ -113,7 +61,7 @@ bool SpinedBuffer$OfPrimitive$BaseSpliterator::tryAdvance(Object$* consumer) {
 }
 
 void SpinedBuffer$OfPrimitive$BaseSpliterator::forEachRemaining(Object$* consumer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(consumer);
 	if (this->splSpineIndex < this->lastSpineIndex || (this->splSpineIndex == this->lastSpineIndex && this->splElementIndex < this->lastSpineElementFence)) {
 		int32_t i = this->splElementIndex;
@@ -130,7 +78,7 @@ void SpinedBuffer$OfPrimitive$BaseSpliterator::forEachRemaining(Object$* consume
 }
 
 $Spliterator* SpinedBuffer$OfPrimitive$BaseSpliterator::trySplit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->splSpineIndex < this->lastSpineIndex) {
 		$var($Spliterator$OfPrimitive, ret, newSpliterator(this->splSpineIndex, this->lastSpineIndex - 1, this->splElementIndex, this->this$0->arrayLength($nc(this->this$0->spine)->get(this->lastSpineIndex - 1))));
 		this->splSpineIndex = this->lastSpineIndex;
@@ -151,7 +99,7 @@ $Spliterator* SpinedBuffer$OfPrimitive$BaseSpliterator::trySplit() {
 	}
 }
 
-void clinit$SpinedBuffer$OfPrimitive$BaseSpliterator($Class* class$) {
+void SpinedBuffer$OfPrimitive$BaseSpliterator::clinit$($Class* clazz) {
 	$load($SpinedBuffer);
 	SpinedBuffer$OfPrimitive$BaseSpliterator::$assertionsDisabled = !$SpinedBuffer::class$->desiredAssertionStatus();
 }
@@ -160,7 +108,52 @@ SpinedBuffer$OfPrimitive$BaseSpliterator::SpinedBuffer$OfPrimitive$BaseSpliterat
 }
 
 $Class* SpinedBuffer$OfPrimitive$BaseSpliterator::load$($String* name, bool initialize) {
-	$loadClass(SpinedBuffer$OfPrimitive$BaseSpliterator, name, initialize, &_SpinedBuffer$OfPrimitive$BaseSpliterator_ClassInfo_, clinit$SpinedBuffer$OfPrimitive$BaseSpliterator, allocate$SpinedBuffer$OfPrimitive$BaseSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/stream/SpinedBuffer$OfPrimitive;", nullptr, $FINAL | $SYNTHETIC, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SpinedBuffer$OfPrimitive$BaseSpliterator, $assertionsDisabled)},
+		{"splSpineIndex", "I", nullptr, 0, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, splSpineIndex)},
+		{"lastSpineIndex", "I", nullptr, $FINAL, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, lastSpineIndex)},
+		{"splElementIndex", "I", nullptr, 0, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, splElementIndex)},
+		{"lastSpineElementFence", "I", nullptr, $FINAL, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, lastSpineElementFence)},
+		{"splChunk", "Ljava/lang/Object;", "TT_ARR;", 0, $field(SpinedBuffer$OfPrimitive$BaseSpliterator, splChunk)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/SpinedBuffer$OfPrimitive;IIII)V", nullptr, 0, $method(SpinedBuffer$OfPrimitive$BaseSpliterator, init$, void, $SpinedBuffer$OfPrimitive*, int32_t, int32_t, int32_t, int32_t)},
+		{"arrayForOne", "(Ljava/lang/Object;ILjava/lang/Object;)V", "(TT_ARR;ITT_CONS;)V", $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, arrayForOne, void, Object$*, int32_t, Object$*)},
+		{"arraySpliterator", "(Ljava/lang/Object;II)Ljava/util/Spliterator$OfPrimitive;", "(TT_ARR;II)TT_SPLITR;", $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, arraySpliterator, $Spliterator$OfPrimitive*, Object$*, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, forEachRemaining, void, Object$*)},
+		{"newSpliterator", "(IIII)Ljava/util/Spliterator$OfPrimitive;", "(IIII)TT_SPLITR;", $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, newSpliterator, $Spliterator$OfPrimitive*, int32_t, int32_t, int32_t, int32_t)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", "()TT_SPLITR;", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SpinedBuffer$OfPrimitive", "java.util.stream.SpinedBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
+		{"java.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator", "java.util.stream.SpinedBuffer$OfPrimitive", "BaseSpliterator", $ABSTRACT},
+		{"java.util.Spliterator$OfPrimitive", "java.util.Spliterator", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator$OfPrimitive",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T_SPLITR::Ljava/util/Spliterator$OfPrimitive<TE;TT_CONS;TT_SPLITR;>;>Ljava/lang/Object;Ljava/util/Spliterator$OfPrimitive<TE;TT_CONS;TT_SPLITR;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SpinedBuffer"
+	};
+	$loadClass(SpinedBuffer$OfPrimitive$BaseSpliterator, name, initialize, &classInfo$$, SpinedBuffer$OfPrimitive$BaseSpliterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SpinedBuffer$OfPrimitive$BaseSpliterator);
+	});
 	return class$;
 }
 

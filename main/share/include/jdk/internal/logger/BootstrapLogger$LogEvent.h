@@ -54,6 +54,7 @@ class $import BootstrapLogger$LogEvent : public ::java::lang::Object {
 	$class(BootstrapLogger$LogEvent, 0, ::java::lang::Object)
 public:
 	BootstrapLogger$LogEvent();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::logger::BootstrapLogger* bootstrap, ::java::lang::System$Logger$Level* level, ::java::util::ResourceBundle* bundle, $String* msg, $Throwable* thrown, $ObjectArray* params);
 	void init$(::jdk::internal::logger::BootstrapLogger* bootstrap, ::java::lang::System$Logger$Level* level, ::java::util::function::Supplier* msgSupplier, $Throwable* thrown, $ObjectArray* params);
 	void init$(::jdk::internal::logger::BootstrapLogger* bootstrap, ::sun::util::logging::PlatformLogger$Level* platformLevel, $String* sourceClass, $String* sourceMethod, ::java::util::ResourceBundle* bundle, $String* msg, $Throwable* thrown, $ObjectArray* params);

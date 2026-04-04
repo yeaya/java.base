@@ -1,9 +1,7 @@
 #include <java/io/FileReader.h>
-
 #include <java/io/File.h>
 #include <java/io/FileDescriptor.h>
 #include <java/io/FileInputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/nio/charset/Charset.h>
 #include <jcpp.h>
@@ -11,7 +9,6 @@
 using $File = ::java::io::File;
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $FileInputStream = ::java::io::FileInputStream;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -19,28 +16,6 @@ using $Charset = ::java::nio::charset::Charset;
 
 namespace java {
 	namespace io {
-
-$MethodInfo _FileReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $String*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $File*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $FileDescriptor*)},
-	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $String*, $Charset*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $File*, $Charset*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _FileReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.FileReader",
-	"java.io.InputStreamReader",
-	nullptr,
-	nullptr,
-	_FileReader_MethodInfo_
-};
-
-$Object* allocate$FileReader($Class* clazz) {
-	return $of($alloc(FileReader));
-}
 
 void FileReader::init$($String* fileName) {
 	$InputStreamReader::init$($$new($FileInputStream, fileName));
@@ -55,18 +30,36 @@ void FileReader::init$($FileDescriptor* fd) {
 }
 
 void FileReader::init$($String* fileName, $Charset* charset) {
-	$InputStreamReader::init$(static_cast<$InputStream*>($$new($FileInputStream, fileName)), charset);
+	$InputStreamReader::init$($$new($FileInputStream, fileName), charset);
 }
 
 void FileReader::init$($File* file, $Charset* charset) {
-	$InputStreamReader::init$(static_cast<$InputStream*>($$new($FileInputStream, file)), charset);
+	$InputStreamReader::init$($$new($FileInputStream, file), charset);
 }
 
 FileReader::FileReader() {
 }
 
 $Class* FileReader::load$($String* name, bool initialize) {
-	$loadClass(FileReader, name, initialize, &_FileReader_ClassInfo_, allocate$FileReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $String*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $File*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $FileDescriptor*)},
+		{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $String*, $Charset*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $File*, $Charset*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.FileReader",
+		"java.io.InputStreamReader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FileReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileReader));
+	});
 	return class$;
 }
 

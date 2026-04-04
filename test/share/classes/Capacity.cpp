@@ -1,11 +1,9 @@
 #include <Capacity.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/StringBuffer.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -14,46 +12,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Random = ::java::util::Random;
 
-$FieldInfo _Capacity_FieldInfo_[] = {
-	{"passed", "I", nullptr, $VOLATILE, $field(Capacity, passed)},
-	{"failed", "I", nullptr, $VOLATILE, $field(Capacity, failed)},
-	{}
-};
-
-$MethodInfo _Capacity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Capacity, init$, void)},
-	{"check", "(Z)V", nullptr, 0, $virtualMethod(Capacity, check, void, bool)},
-	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Capacity, equal, void, Object$*, Object$*)},
-	{"fail", "()V", nullptr, 0, $virtualMethod(Capacity, fail, void)},
-	{"fail", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Capacity, fail, void, $String*)},
-	{"instanceMain", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Capacity, instanceMain, void, $StringArray*), "java.lang.Throwable"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Capacity, main, void, $StringArray*), "java.lang.Throwable"},
-	{"pass", "()V", nullptr, 0, $virtualMethod(Capacity, pass, void)},
-	{"test", "([Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Capacity, test, void, $StringArray*), "java.lang.Throwable"},
-	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Capacity, unexpected, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _Capacity_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Capacity",
-	"java.lang.Object",
-	nullptr,
-	_Capacity_FieldInfo_,
-	_Capacity_MethodInfo_
-};
-
-$Object* allocate$Capacity($Class* clazz) {
-	return $of($alloc(Capacity));
-}
-
 void Capacity::init$() {
 	this->passed = 0;
 	this->failed = 0;
 }
 
 void Capacity::test($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Random, rnd, $new($Random));
 	$var($ints, sizes, $new($ints, {
 		0,
@@ -63,53 +28,51 @@ void Capacity::test($StringArray* args) {
 	}));
 	{
 		$var($ints, arr$, sizes);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t size = arr$->get(i$);
 			{
-				$var($Object, var$0, $of($Integer::valueOf(16)));
+				$var($Object, var$0, $Integer::valueOf(16));
 				equal(var$0, $($Integer::valueOf($$new($StringBuffer)->capacity())));
-				$var($Object, var$1, $of($Integer::valueOf(16)));
+				$var($Object, var$1, $Integer::valueOf(16));
 				equal(var$1, $($Integer::valueOf($$new($StringBuilder)->capacity())));
 				$var($StringBuffer, buff, $new($StringBuffer, size));
 				$var($StringBuilder, bild, $new($StringBuilder, size));
-				$var($Object, var$2, $of($Integer::valueOf(size)));
+				$var($Object, var$2, $Integer::valueOf(size));
 				equal(var$2, $($Integer::valueOf(buff->capacity())));
-				$var($Object, var$3, $of($Integer::valueOf(size)));
+				$var($Object, var$3, $Integer::valueOf(size));
 				equal(var$3, $($Integer::valueOf(bild->capacity())));
 				buff->ensureCapacity(size);
 				bild->ensureCapacity(size);
-				$var($Object, var$4, $of($Integer::valueOf(size)));
+				$var($Object, var$4, $Integer::valueOf(size));
 				equal(var$4, $($Integer::valueOf(buff->capacity())));
-				$var($Object, var$5, $of($Integer::valueOf(size)));
+				$var($Object, var$5, $Integer::valueOf(size));
 				equal(var$5, $($Integer::valueOf(bild->capacity())));
 				buff->ensureCapacity(size + 1);
 				bild->ensureCapacity(size + 1);
-				$var($Object, var$6, $of($Integer::valueOf(size * 2 + 2)));
+				$var($Object, var$6, $Integer::valueOf(size * 2 + 2));
 				equal(var$6, $($Integer::valueOf(buff->capacity())));
-				$var($Object, var$7, $of($Integer::valueOf(size * 2 + 2)));
+				$var($Object, var$7, $Integer::valueOf(size * 2 + 2));
 				equal(var$7, $($Integer::valueOf(bild->capacity())));
 				size = buff->capacity();
 				buff->ensureCapacity(size * 2 + 1);
 				bild->ensureCapacity(size * 2 + 1);
-				$var($Object, var$8, $of($Integer::valueOf(size * 2 + 2)));
+				$var($Object, var$8, $Integer::valueOf(size * 2 + 2));
 				equal(var$8, $($Integer::valueOf(buff->capacity())));
-				$var($Object, var$9, $of($Integer::valueOf(size * 2 + 2)));
+				$var($Object, var$9, $Integer::valueOf(size * 2 + 2));
 				equal(var$9, $($Integer::valueOf(bild->capacity())));
 				size = buff->capacity();
 				int32_t newSize = size * 2 + 3;
 				buff->ensureCapacity(newSize);
 				bild->ensureCapacity(newSize);
-				$var($Object, var$10, $of($Integer::valueOf(newSize)));
+				$var($Object, var$10, $Integer::valueOf(newSize));
 				equal(var$10, $($Integer::valueOf(buff->capacity())));
-				$var($Object, var$11, $of($Integer::valueOf(newSize)));
+				$var($Object, var$11, $Integer::valueOf(newSize));
 				equal(var$11, $($Integer::valueOf(bild->capacity())));
 				buff->ensureCapacity(0);
 				bild->ensureCapacity(0);
-				$var($Object, var$12, $of($Integer::valueOf(newSize)));
+				$var($Object, var$12, $Integer::valueOf(newSize));
 				equal(var$12, $($Integer::valueOf(buff->capacity())));
-				$var($Object, var$13, $of($Integer::valueOf(newSize)));
+				$var($Object, var$13, $Integer::valueOf(newSize));
 				equal(var$13, $($Integer::valueOf(bild->capacity())));
 			}
 		}
@@ -144,7 +107,7 @@ void Capacity::check(bool cond) {
 }
 
 void Capacity::equal(Object$* x, Object$* y) {
-	if (x == nullptr ? y == nullptr : $nc($of(x))->equals(y)) {
+	if (x == nullptr ? y == nullptr : $of(x)->equals(y)) {
 		pass();
 	} else {
 		fail($$str({x, " not equal to "_s, y}));
@@ -156,15 +119,15 @@ void Capacity::main($StringArray* args) {
 }
 
 void Capacity::instanceMain($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		test(args);
 	} catch ($Throwable& t) {
 		unexpected(t);
 	}
 	$nc($System::out)->printf("%nPassed = %d, failed = %d%n%n"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(this->passed))),
-		$($of($Integer::valueOf(this->failed)))
+		$($Integer::valueOf(this->passed)),
+		$($Integer::valueOf(this->failed))
 	}));
 	if (this->failed > 0) {
 		$throwNew($AssertionError, $of("Some tests failed"_s));
@@ -175,7 +138,35 @@ Capacity::Capacity() {
 }
 
 $Class* Capacity::load$($String* name, bool initialize) {
-	$loadClass(Capacity, name, initialize, &_Capacity_ClassInfo_, allocate$Capacity);
+	$FieldInfo fieldInfos$$[] = {
+		{"passed", "I", nullptr, $VOLATILE, $field(Capacity, passed)},
+		{"failed", "I", nullptr, $VOLATILE, $field(Capacity, failed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Capacity, init$, void)},
+		{"check", "(Z)V", nullptr, 0, $virtualMethod(Capacity, check, void, bool)},
+		{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Capacity, equal, void, Object$*, Object$*)},
+		{"fail", "()V", nullptr, 0, $virtualMethod(Capacity, fail, void)},
+		{"fail", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Capacity, fail, void, $String*)},
+		{"instanceMain", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Capacity, instanceMain, void, $StringArray*), "java.lang.Throwable"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Capacity, main, void, $StringArray*), "java.lang.Throwable"},
+		{"pass", "()V", nullptr, 0, $virtualMethod(Capacity, pass, void)},
+		{"test", "([Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Capacity, test, void, $StringArray*), "java.lang.Throwable"},
+		{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Capacity, unexpected, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Capacity",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Capacity, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Capacity);
+	});
 	return class$;
 }
 

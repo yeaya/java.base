@@ -14,6 +14,7 @@ class $export StringRepeat : public ::java::lang::Object {
 	$class(StringRepeat, 0, ::java::lang::Object)
 public:
 	StringRepeat();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test1();

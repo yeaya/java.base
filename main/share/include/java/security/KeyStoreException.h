@@ -22,10 +22,13 @@ public:
 	void init$($String* msg);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xF0774236C8491BD2;
+	static const int64_t serialVersionUID = (int64_t)0xf0774236c8491bd2;
 	KeyStoreException(const KeyStoreException& e);
 	virtual void throw$() override;
-	inline KeyStoreException* operator ->() {
+	inline KeyStoreException* operator ->() const {
+		return (KeyStoreException*)throwing$;
+	}
+	inline operator KeyStoreException*() const {
 		return (KeyStoreException*)throwing$;
 	}
 };

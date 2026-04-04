@@ -1,5 +1,4 @@
 #include <java/security/PolicySpi.h>
-
 #include <java/security/CodeSource.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
@@ -22,43 +21,6 @@ using $ProtectionDomain = ::java::security::ProtectionDomain;
 namespace java {
 	namespace security {
 
-$NamedAttribute PolicySpi_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _PolicySpi_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", PolicySpi_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _PolicySpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PolicySpi, init$, void)},
-	{"engineGetPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpi, engineGetPermissions, $PermissionCollection*, $CodeSource*)},
-	{"engineGetPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpi, engineGetPermissions, $PermissionCollection*, $ProtectionDomain*)},
-	{"engineImplies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PolicySpi, engineImplies, bool, $ProtectionDomain*, $Permission*)},
-	{"engineRefresh", "()V", nullptr, $PROTECTED, $virtualMethod(PolicySpi, engineRefresh, void)},
-	{}
-};
-
-$ClassInfo _PolicySpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.PolicySpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PolicySpi_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_PolicySpi_Annotations_
-};
-
-$Object* allocate$PolicySpi($Class* clazz) {
-	return $of($alloc(PolicySpi));
-}
-
 void PolicySpi::init$() {
 }
 
@@ -79,7 +41,38 @@ PolicySpi::PolicySpi() {
 }
 
 $Class* PolicySpi::load$($String* name, bool initialize) {
-	$loadClass(PolicySpi, name, initialize, &_PolicySpi_ClassInfo_, allocate$PolicySpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PolicySpi, init$, void)},
+		{"engineGetPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpi, engineGetPermissions, $PermissionCollection*, $CodeSource*)},
+		{"engineGetPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpi, engineGetPermissions, $PermissionCollection*, $ProtectionDomain*)},
+		{"engineImplies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PolicySpi, engineImplies, bool, $ProtectionDomain*, $Permission*)},
+		{"engineRefresh", "()V", nullptr, $PROTECTED, $virtualMethod(PolicySpi, engineRefresh, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.PolicySpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(PolicySpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PolicySpi);
+	});
 	return class$;
 }
 

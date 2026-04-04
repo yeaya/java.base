@@ -1,5 +1,4 @@
 #include <java/util/SplittableRandom$AbstractSplittableGeneratorProxy.h>
-
 #include <java/util/SplittableRandom.h>
 #include <java/util/random/RandomGenerator$SplittableGenerator.h>
 #include <java/util/random/RandomGenerator.h>
@@ -16,45 +15,6 @@ using $RandomSupport$AbstractSplittableGenerator = ::jdk::internal::util::random
 
 namespace java {
 	namespace util {
-
-$FieldInfo _SplittableRandom$AbstractSplittableGeneratorProxy_FieldInfo_[] = {
-	{"this$0", "Ljava/util/SplittableRandom;", nullptr, $FINAL | $SYNTHETIC, $field(SplittableRandom$AbstractSplittableGeneratorProxy, this$0)},
-	{}
-};
-
-$MethodInfo _SplittableRandom$AbstractSplittableGeneratorProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/SplittableRandom;)V", nullptr, $PRIVATE, $method(SplittableRandom$AbstractSplittableGeneratorProxy, init$, void, $SplittableRandom*)},
-	{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(SplittableRandom$AbstractSplittableGeneratorProxy, nextInt, int32_t)},
-	{"nextLong", "()J", nullptr, $PUBLIC, $virtualMethod(SplittableRandom$AbstractSplittableGeneratorProxy, nextLong, int64_t)},
-	{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/SplittableRandom;", nullptr, $PUBLIC, $virtualMethod(SplittableRandom$AbstractSplittableGeneratorProxy, split, $RandomGenerator$SplittableGenerator*, $RandomGenerator$SplittableGenerator*)},
-	{}
-};
-
-$InnerClassInfo _SplittableRandom$AbstractSplittableGeneratorProxy_InnerClassesInfo_[] = {
-	{"java.util.SplittableRandom$AbstractSplittableGeneratorProxy", "java.util.SplittableRandom", "AbstractSplittableGeneratorProxy", $PRIVATE},
-	{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSplittableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SplittableRandom$AbstractSplittableGeneratorProxy_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.SplittableRandom$AbstractSplittableGeneratorProxy",
-	"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator",
-	nullptr,
-	_SplittableRandom$AbstractSplittableGeneratorProxy_FieldInfo_,
-	_SplittableRandom$AbstractSplittableGeneratorProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SplittableRandom$AbstractSplittableGeneratorProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.SplittableRandom"
-};
-
-$Object* allocate$SplittableRandom$AbstractSplittableGeneratorProxy($Class* clazz) {
-	return $of($alloc(SplittableRandom$AbstractSplittableGeneratorProxy));
-}
 
 void SplittableRandom$AbstractSplittableGeneratorProxy::init$($SplittableRandom* this$0) {
 	$set(this, this$0, this$0);
@@ -78,7 +38,40 @@ SplittableRandom$AbstractSplittableGeneratorProxy::SplittableRandom$AbstractSpli
 }
 
 $Class* SplittableRandom$AbstractSplittableGeneratorProxy::load$($String* name, bool initialize) {
-	$loadClass(SplittableRandom$AbstractSplittableGeneratorProxy, name, initialize, &_SplittableRandom$AbstractSplittableGeneratorProxy_ClassInfo_, allocate$SplittableRandom$AbstractSplittableGeneratorProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/SplittableRandom;", nullptr, $FINAL | $SYNTHETIC, $field(SplittableRandom$AbstractSplittableGeneratorProxy, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/SplittableRandom;)V", nullptr, $PRIVATE, $method(SplittableRandom$AbstractSplittableGeneratorProxy, init$, void, $SplittableRandom*)},
+		{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(SplittableRandom$AbstractSplittableGeneratorProxy, nextInt, int32_t)},
+		{"nextLong", "()J", nullptr, $PUBLIC, $virtualMethod(SplittableRandom$AbstractSplittableGeneratorProxy, nextLong, int64_t)},
+		{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/SplittableRandom;", nullptr, $PUBLIC, $virtualMethod(SplittableRandom$AbstractSplittableGeneratorProxy, split, $RandomGenerator$SplittableGenerator*, $RandomGenerator$SplittableGenerator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.SplittableRandom$AbstractSplittableGeneratorProxy", "java.util.SplittableRandom", "AbstractSplittableGeneratorProxy", $PRIVATE},
+		{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSplittableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.SplittableRandom$AbstractSplittableGeneratorProxy",
+		"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.SplittableRandom"
+	};
+	$loadClass(SplittableRandom$AbstractSplittableGeneratorProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SplittableRandom$AbstractSplittableGeneratorProxy));
+	});
 	return class$;
 }
 

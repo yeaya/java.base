@@ -22,6 +22,7 @@ class DummyScope : public ::sun::reflect::generics::scope::Scope {
 	$class(DummyScope, 0, ::sun::reflect::generics::scope::Scope)
 public:
 	DummyScope();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::lang::reflect::TypeVariable* lookup($String* name) override;
 	static ::sun::reflect::generics::scope::DummyScope* make();

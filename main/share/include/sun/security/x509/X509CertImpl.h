@@ -130,6 +130,7 @@ class $import X509CertImpl : public ::java::security::cert::X509Certificate, pub
 	$class(X509CertImpl, 0, ::java::security::cert::X509Certificate, ::sun::security::util::DerEncoder)
 public:
 	X509CertImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
@@ -216,7 +217,7 @@ public:
 	virtual void verify(::java::security::PublicKey* key) override;
 	virtual void verify(::java::security::PublicKey* key, $String* sigProvider) override;
 	virtual void verify(::java::security::PublicKey* key, ::java::security::Provider* sigProvider) override;
-	static const int64_t serialVersionUID = (int64_t)0xD0041754F90963EA;
+	static const int64_t serialVersionUID = (int64_t)0xd0041754f90963ea;
 	static const char16_t DOT = ((char16_t)46);
 	static $String* NAME;
 	static $String* INFO;

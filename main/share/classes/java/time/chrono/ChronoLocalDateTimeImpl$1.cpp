@@ -1,5 +1,4 @@
 #include <java/time/chrono/ChronoLocalDateTimeImpl$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/chrono/ChronoLocalDateTimeImpl.h>
 #include <java/time/temporal/ChronoUnit.h>
@@ -24,73 +23,37 @@ namespace java {
 	namespace time {
 		namespace chrono {
 
-$FieldInfo _ChronoLocalDateTimeImpl$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ChronoLocalDateTimeImpl$1, $SwitchMap$java$time$temporal$ChronoUnit)},
-	{}
-};
-
-$EnclosingMethodInfo _ChronoLocalDateTimeImpl$1_EnclosingMethodInfo_ = {
-	"java.time.chrono.ChronoLocalDateTimeImpl",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ChronoLocalDateTimeImpl$1_InnerClassesInfo_[] = {
-	{"java.time.chrono.ChronoLocalDateTimeImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ChronoLocalDateTimeImpl$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.chrono.ChronoLocalDateTimeImpl$1",
-	"java.lang.Object",
-	nullptr,
-	_ChronoLocalDateTimeImpl$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ChronoLocalDateTimeImpl$1_EnclosingMethodInfo_,
-	_ChronoLocalDateTimeImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.chrono.ChronoLocalDateTimeImpl"
-};
-
-$Object* allocate$ChronoLocalDateTimeImpl$1($Class* clazz) {
-	return $of($alloc(ChronoLocalDateTimeImpl$1));
-}
-
 $ints* ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit = nullptr;
 
-void clinit$ChronoLocalDateTimeImpl$1($Class* class$) {
+void ChronoLocalDateTimeImpl$1::clinit$($Class* clazz) {
 	$assignStatic(ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit, $new($ints, $($ChronoUnit::values())->length));
 	{
 		try {
-			$nc(ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::NANOS->ordinal(), 1);
+			ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::NANOS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MICROS->ordinal(), 2);
+			ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MICROS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MILLIS->ordinal(), 3);
+			ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MILLIS->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::SECONDS->ordinal(), 4);
+			ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::SECONDS->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MINUTES->ordinal(), 5);
+			ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MINUTES->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::HOURS->ordinal(), 6);
+			ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::HOURS->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::HALF_DAYS->ordinal(), 7);
+			ChronoLocalDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::HALF_DAYS->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -100,7 +63,37 @@ ChronoLocalDateTimeImpl$1::ChronoLocalDateTimeImpl$1() {
 }
 
 $Class* ChronoLocalDateTimeImpl$1::load$($String* name, bool initialize) {
-	$loadClass(ChronoLocalDateTimeImpl$1, name, initialize, &_ChronoLocalDateTimeImpl$1_ClassInfo_, clinit$ChronoLocalDateTimeImpl$1, allocate$ChronoLocalDateTimeImpl$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ChronoLocalDateTimeImpl$1, $SwitchMap$java$time$temporal$ChronoUnit)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.chrono.ChronoLocalDateTimeImpl",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.chrono.ChronoLocalDateTimeImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.chrono.ChronoLocalDateTimeImpl$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.chrono.ChronoLocalDateTimeImpl"
+	};
+	$loadClass(ChronoLocalDateTimeImpl$1, name, initialize, &classInfo$$, ChronoLocalDateTimeImpl$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ChronoLocalDateTimeImpl$1);
+	});
 	return class$;
 }
 

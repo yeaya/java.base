@@ -1,5 +1,4 @@
 #include <java/net/ProtocolFamily.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,26 +7,22 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace net {
 
-$MethodInfo _ProtocolFamily_MethodInfo_[] = {
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProtocolFamily, name, $String*)},
-	{}
-};
-
-$ClassInfo _ProtocolFamily_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.net.ProtocolFamily",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ProtocolFamily_MethodInfo_
-};
-
-$Object* allocate$ProtocolFamily($Class* clazz) {
-	return $of($alloc(ProtocolFamily));
-}
-
 $Class* ProtocolFamily::load$($String* name, bool initialize) {
-	$loadClass(ProtocolFamily, name, initialize, &_ProtocolFamily_ClassInfo_, allocate$ProtocolFamily);
+	$MethodInfo methodInfos$$[] = {
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProtocolFamily, name, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.net.ProtocolFamily",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProtocolFamily, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProtocolFamily);
+	});
 	return class$;
 }
 

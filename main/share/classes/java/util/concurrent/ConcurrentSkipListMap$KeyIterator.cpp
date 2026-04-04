@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentSkipListMap$KeyIterator.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <java/util/concurrent/ConcurrentSkipListMap$Iter.h>
 #include <java/util/concurrent/ConcurrentSkipListMap$Node.h>
@@ -19,64 +18,58 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _ConcurrentSkipListMap$KeyIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/ConcurrentSkipListMap;", nullptr, $FINAL | $SYNTHETIC, $field(ConcurrentSkipListMap$KeyIterator, this$0)},
-	{}
-};
-
-$MethodInfo _ConcurrentSkipListMap$KeyIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap;)V", nullptr, 0, $method(ConcurrentSkipListMap$KeyIterator, init$, void, $ConcurrentSkipListMap*)},
-	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeyIterator, next, $Object*)},
-	{}
-};
-
-$InnerClassInfo _ConcurrentSkipListMap$KeyIterator_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentSkipListMap$KeyIterator", "java.util.concurrent.ConcurrentSkipListMap", "KeyIterator", $FINAL},
-	{"java.util.concurrent.ConcurrentSkipListMap$Iter", "java.util.concurrent.ConcurrentSkipListMap", "Iter", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ConcurrentSkipListMap$KeyIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ConcurrentSkipListMap$KeyIterator",
-	"java.util.concurrent.ConcurrentSkipListMap$Iter",
-	nullptr,
-	_ConcurrentSkipListMap$KeyIterator_FieldInfo_,
-	_ConcurrentSkipListMap$KeyIterator_MethodInfo_,
-	"Ljava/util/concurrent/ConcurrentSkipListMap<TK;TV;>.Iter<TK;>;",
-	nullptr,
-	_ConcurrentSkipListMap$KeyIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentSkipListMap"
-};
-
-$Object* allocate$ConcurrentSkipListMap$KeyIterator($Class* clazz) {
-	return $of($alloc(ConcurrentSkipListMap$KeyIterator));
-}
-
 void ConcurrentSkipListMap$KeyIterator::init$($ConcurrentSkipListMap* this$0) {
 	$set(this, this$0, this$0);
 	$ConcurrentSkipListMap$Iter::init$(this$0);
 }
 
 $Object* ConcurrentSkipListMap$KeyIterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	if (($assign(n, this->$ConcurrentSkipListMap$Iter::next$)) == nullptr) {
 		$throwNew($NoSuchElementException);
 	}
 	$var($Object, k, $nc(n)->key);
 	advance(n);
-	return $of(k);
+	return k;
 }
 
 ConcurrentSkipListMap$KeyIterator::ConcurrentSkipListMap$KeyIterator() {
 }
 
 $Class* ConcurrentSkipListMap$KeyIterator::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentSkipListMap$KeyIterator, name, initialize, &_ConcurrentSkipListMap$KeyIterator_ClassInfo_, allocate$ConcurrentSkipListMap$KeyIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/ConcurrentSkipListMap;", nullptr, $FINAL | $SYNTHETIC, $field(ConcurrentSkipListMap$KeyIterator, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap;)V", nullptr, 0, $method(ConcurrentSkipListMap$KeyIterator, init$, void, $ConcurrentSkipListMap*)},
+		{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeyIterator, next, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentSkipListMap$KeyIterator", "java.util.concurrent.ConcurrentSkipListMap", "KeyIterator", $FINAL},
+		{"java.util.concurrent.ConcurrentSkipListMap$Iter", "java.util.concurrent.ConcurrentSkipListMap", "Iter", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ConcurrentSkipListMap$KeyIterator",
+		"java.util.concurrent.ConcurrentSkipListMap$Iter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/concurrent/ConcurrentSkipListMap<TK;TV;>.Iter<TK;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentSkipListMap"
+	};
+	$loadClass(ConcurrentSkipListMap$KeyIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConcurrentSkipListMap$KeyIterator);
+	});
 	return class$;
 }
 

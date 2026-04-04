@@ -1,5 +1,4 @@
 #include <java/lang/VirtualMachineError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _VirtualMachineError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(VirtualMachineError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _VirtualMachineError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _VirtualMachineError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.lang.VirtualMachineError",
-	"java.lang.Error",
-	nullptr,
-	_VirtualMachineError_FieldInfo_,
-	_VirtualMachineError_MethodInfo_
-};
-
-$Object* allocate$VirtualMachineError($Class* clazz) {
-	return $of($alloc(VirtualMachineError));
-}
 
 void VirtualMachineError::init$() {
 	$Error::init$();
@@ -64,7 +37,28 @@ void VirtualMachineError::throw$() {
 }
 
 $Class* VirtualMachineError::load$($String* name, bool initialize) {
-	$loadClass(VirtualMachineError, name, initialize, &_VirtualMachineError_ClassInfo_, allocate$VirtualMachineError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(VirtualMachineError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.lang.VirtualMachineError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VirtualMachineError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VirtualMachineError);
+	});
 	return class$;
 }
 

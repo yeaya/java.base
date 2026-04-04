@@ -1,5 +1,4 @@
 #include <sun/security/x509/KeyUsageExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -42,60 +41,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _KeyUsageExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, NAME)},
-	{"DIGITAL_SIGNATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, DIGITAL_SIGNATURE)},
-	{"NON_REPUDIATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, NON_REPUDIATION)},
-	{"KEY_ENCIPHERMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, KEY_ENCIPHERMENT)},
-	{"DATA_ENCIPHERMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, DATA_ENCIPHERMENT)},
-	{"KEY_AGREEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, KEY_AGREEMENT)},
-	{"KEY_CERTSIGN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, KEY_CERTSIGN)},
-	{"CRL_SIGN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, CRL_SIGN)},
-	{"ENCIPHER_ONLY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, ENCIPHER_ONLY)},
-	{"DECIPHER_ONLY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, DECIPHER_ONLY)},
-	{"bitString", "[Z", nullptr, $PRIVATE, $field(KeyUsageExtension, bitString)},
-	{}
-};
-
-$MethodInfo _KeyUsageExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(KeyUsageExtension, init$, void, $bytes*), "java.io.IOException"},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(KeyUsageExtension, init$, void, $booleans*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $method(KeyUsageExtension, init$, void, $BitArray*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(KeyUsageExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyUsageExtension, init$, void)},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(KeyUsageExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getBits", "()[Z", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, getBits, $booleans*)},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(KeyUsageExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, getName, $String*)},
-	{"isSet", "(I)Z", nullptr, $PRIVATE, $method(KeyUsageExtension, isSet, bool, int32_t)},
-	{"set", "(IZ)V", nullptr, $PRIVATE, $method(KeyUsageExtension, set, void, int32_t, bool)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _KeyUsageExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.KeyUsageExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_KeyUsageExtension_FieldInfo_,
-	_KeyUsageExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$KeyUsageExtension($Class* clazz) {
-	return $of($alloc(KeyUsageExtension));
-}
-
 int32_t KeyUsageExtension::hashCode() {
 	 return this->$Extension::hashCode();
 }
@@ -125,23 +70,23 @@ $String* KeyUsageExtension::ENCIPHER_ONLY = nullptr;
 $String* KeyUsageExtension::DECIPHER_ONLY = nullptr;
 
 void KeyUsageExtension::encodeThis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, os, $new($DerOutputStream));
 	os->putTruncatedUnalignedBitString($$new($BitArray, this->bitString));
 	$set(this, extensionValue, os->toByteArray());
 }
 
 bool KeyUsageExtension::isSet(int32_t position) {
-	return (position < $nc(this->bitString)->length) && $nc(this->bitString)->get(position);
+	return (position < $nc(this->bitString)->length) && this->bitString->get(position);
 }
 
 void KeyUsageExtension::set(int32_t position, bool val) {
 	if (position >= $nc(this->bitString)->length) {
 		$var($booleans, tmp, $new($booleans, position + 1));
-		$System::arraycopy(this->bitString, 0, tmp, 0, $nc(this->bitString)->length);
+		$System::arraycopy(this->bitString, 0, tmp, 0, this->bitString->length);
 		$set(this, bitString, tmp);
 	}
-	$nc(this->bitString)->set(position, val);
+	this->bitString->set(position, val);
 }
 
 void KeyUsageExtension::init$($bytes* bitString) {
@@ -172,7 +117,7 @@ void KeyUsageExtension::init$($BitArray* bitString) {
 }
 
 void KeyUsageExtension::init$($Boolean* critical, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$();
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::KeyUsage_Id);
@@ -184,7 +129,7 @@ void KeyUsageExtension::init$($Boolean* critical, Object$* value) {
 		$set(this, extensionValue, extValue);
 	}
 	$var($DerValue, val, $new($DerValue, this->extensionValue));
-	$set(this, bitString, $nc($(val->getUnalignedBitString()))->toBooleanArray());
+	$set(this, bitString, $$nc(val->getUnalignedBitString())->toBooleanArray());
 }
 
 void KeyUsageExtension::init$() {
@@ -199,7 +144,7 @@ void KeyUsageExtension::set($String* name, Object$* obj) {
 	if (!($instanceOf($Boolean, obj))) {
 		$throwNew($IOException, "Attribute must be of type Boolean."_s);
 	}
-	bool val = $nc(($cast($Boolean, obj)))->booleanValue();
+	bool val = $nc($cast($Boolean, obj))->booleanValue();
 	if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DIGITAL_SIGNATURE)) {
 		set(0, val);
 	} else if (name->equalsIgnoreCase(KeyUsageExtension::NON_REPUDIATION)) {
@@ -274,7 +219,7 @@ void KeyUsageExtension::delete$($String* name) {
 }
 
 $String* KeyUsageExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()));
 	sb->append("KeyUsage [\n"_s);
@@ -310,7 +255,7 @@ $String* KeyUsageExtension::toString() {
 }
 
 void KeyUsageExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -347,7 +292,7 @@ $String* KeyUsageExtension::getName() {
 KeyUsageExtension::KeyUsageExtension() {
 }
 
-void clinit$KeyUsageExtension($Class* class$) {
+void KeyUsageExtension::clinit$($Class* clazz) {
 	$assignStatic(KeyUsageExtension::IDENT, "x509.info.extensions.KeyUsage"_s);
 	$assignStatic(KeyUsageExtension::NAME, "KeyUsage"_s);
 	$assignStatic(KeyUsageExtension::DIGITAL_SIGNATURE, "digital_signature"_s);
@@ -362,7 +307,56 @@ void clinit$KeyUsageExtension($Class* class$) {
 }
 
 $Class* KeyUsageExtension::load$($String* name, bool initialize) {
-	$loadClass(KeyUsageExtension, name, initialize, &_KeyUsageExtension_ClassInfo_, clinit$KeyUsageExtension, allocate$KeyUsageExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, NAME)},
+		{"DIGITAL_SIGNATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, DIGITAL_SIGNATURE)},
+		{"NON_REPUDIATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, NON_REPUDIATION)},
+		{"KEY_ENCIPHERMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, KEY_ENCIPHERMENT)},
+		{"DATA_ENCIPHERMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, DATA_ENCIPHERMENT)},
+		{"KEY_AGREEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, KEY_AGREEMENT)},
+		{"KEY_CERTSIGN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, KEY_CERTSIGN)},
+		{"CRL_SIGN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, CRL_SIGN)},
+		{"ENCIPHER_ONLY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, ENCIPHER_ONLY)},
+		{"DECIPHER_ONLY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyUsageExtension, DECIPHER_ONLY)},
+		{"bitString", "[Z", nullptr, $PRIVATE, $field(KeyUsageExtension, bitString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(KeyUsageExtension, init$, void, $bytes*), "java.io.IOException"},
+		{"<init>", "([Z)V", nullptr, $PUBLIC, $method(KeyUsageExtension, init$, void, $booleans*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $method(KeyUsageExtension, init$, void, $BitArray*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(KeyUsageExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyUsageExtension, init$, void)},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(KeyUsageExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getBits", "()[Z", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, getBits, $booleans*)},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(KeyUsageExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, getName, $String*)},
+		{"isSet", "(I)Z", nullptr, $PRIVATE, $method(KeyUsageExtension, isSet, bool, int32_t)},
+		{"set", "(IZ)V", nullptr, $PRIVATE, $method(KeyUsageExtension, set, void, int32_t, bool)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyUsageExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.KeyUsageExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(KeyUsageExtension, name, initialize, &classInfo$$, KeyUsageExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KeyUsageExtension));
+	});
 	return class$;
 }
 

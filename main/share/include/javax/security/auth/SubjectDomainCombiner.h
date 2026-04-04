@@ -41,6 +41,7 @@ class $import SubjectDomainCombiner : public ::java::security::DomainCombiner {
 	$class(SubjectDomainCombiner, 0, ::java::security::DomainCombiner)
 public:
 	SubjectDomainCombiner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::security::auth::Subject* subject);
 	virtual $Array<::java::security::ProtectionDomain>* combine($Array<::java::security::ProtectionDomain>* currentDomains, $Array<::java::security::ProtectionDomain>* assignedDomains) override;
 	virtual ::javax::security::auth::Subject* getSubject();

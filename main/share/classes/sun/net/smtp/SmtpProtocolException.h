@@ -14,10 +14,13 @@ class SmtpProtocolException : public ::java::io::IOException {
 public:
 	SmtpProtocolException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x97432F17D547C784;
+	static const int64_t serialVersionUID = (int64_t)0x97432f17d547c784;
 	SmtpProtocolException(const SmtpProtocolException& e);
 	virtual void throw$() override;
-	inline SmtpProtocolException* operator ->() {
+	inline SmtpProtocolException* operator ->() const {
+		return (SmtpProtocolException*)throwing$;
+	}
+	inline operator SmtpProtocolException*() const {
 		return (SmtpProtocolException*)throwing$;
 	}
 };

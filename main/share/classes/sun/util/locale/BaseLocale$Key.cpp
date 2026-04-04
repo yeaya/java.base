@@ -1,5 +1,4 @@
 #include <sun/util/locale/BaseLocale$Key.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ref/SoftReference.h>
 #include <sun/util/locale/BaseLocale.h>
@@ -18,50 +17,6 @@ using $LocaleUtils = ::sun::util::locale::LocaleUtils;
 namespace sun {
 	namespace util {
 		namespace locale {
-
-$FieldInfo _BaseLocale$Key_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BaseLocale$Key, $assertionsDisabled)},
-	{"holderRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Lsun/util/locale/BaseLocale;>;", $PRIVATE | $FINAL, $field(BaseLocale$Key, holderRef)},
-	{"holder", "Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE | $FINAL, $field(BaseLocale$Key, holder)},
-	{"normalized", "Z", nullptr, $PRIVATE | $FINAL, $field(BaseLocale$Key, normalized)},
-	{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(BaseLocale$Key, hash)},
-	{}
-};
-
-$MethodInfo _BaseLocale$Key_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(BaseLocale$Key, init$, void, $String*, $String*, $String*, $String*, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BaseLocale$Key, equals, bool, Object$*)},
-	{"getBaseLocale", "()Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE, $method(BaseLocale$Key, getBaseLocale, $BaseLocale*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BaseLocale$Key, hashCode, int32_t)},
-	{"hashCode", "(Lsun/util/locale/BaseLocale;)I", nullptr, $PRIVATE, $method(BaseLocale$Key, hashCode, int32_t, $BaseLocale*)},
-	{"normalize", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale$Key;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseLocale$Key, normalize, BaseLocale$Key*, BaseLocale$Key*)},
-	{}
-};
-
-$InnerClassInfo _BaseLocale$Key_InnerClassesInfo_[] = {
-	{"sun.util.locale.BaseLocale$Key", "sun.util.locale.BaseLocale", "Key", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _BaseLocale$Key_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.util.locale.BaseLocale$Key",
-	"java.lang.Object",
-	nullptr,
-	_BaseLocale$Key_FieldInfo_,
-	_BaseLocale$Key_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaseLocale$Key_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.BaseLocale"
-};
-
-$Object* allocate$BaseLocale$Key($Class* clazz) {
-	return $of($alloc(BaseLocale$Key));
-}
 
 bool BaseLocale$Key::$assertionsDisabled = false;
 
@@ -83,7 +38,7 @@ int32_t BaseLocale$Key::hashCode() {
 }
 
 int32_t BaseLocale$Key::hashCode($BaseLocale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t h = 0;
 	$var($String, lang, $nc(locale)->getLanguage());
 	int32_t len = $nc(lang)->length();
@@ -113,12 +68,12 @@ $BaseLocale* BaseLocale$Key::getBaseLocale() {
 }
 
 bool BaseLocale$Key::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
-	if ($instanceOf(BaseLocale$Key, obj) && this->hash == $nc(($cast(BaseLocale$Key, obj)))->hash) {
-		$var($BaseLocale, other, ($cast(BaseLocale$Key, obj))->getBaseLocale());
+	if ($instanceOf(BaseLocale$Key, obj) && this->hash == $cast(BaseLocale$Key, obj)->hash) {
+		$var($BaseLocale, other, $cast(BaseLocale$Key, obj)->getBaseLocale());
 		$var($BaseLocale, locale, this->getBaseLocale());
 		bool var$3 = other != nullptr && locale != nullptr;
 		if (var$3) {
@@ -127,16 +82,16 @@ bool BaseLocale$Key::equals(Object$* obj) {
 		}
 		bool var$2 = var$3;
 		if (var$2) {
-			$var($String, var$5, other->getScript());
-			var$2 = $LocaleUtils::caseIgnoreMatch(var$5, $(locale->getScript()));
+			$var($String, var$5, $nc(other)->getScript());
+			var$2 = $LocaleUtils::caseIgnoreMatch(var$5, $($nc(locale)->getScript()));
 		}
 		bool var$1 = var$2;
 		if (var$1) {
-			$var($String, var$6, other->getRegion());
-			var$1 = $LocaleUtils::caseIgnoreMatch(var$6, $(locale->getRegion()));
+			$var($String, var$6, $nc(other)->getRegion());
+			var$1 = $LocaleUtils::caseIgnoreMatch(var$6, $($nc(locale)->getRegion()));
 		}
 		bool var$0 = var$1;
-		if (var$0 && $nc($(other->getVariant()))->equals($(locale->getVariant()))) {
+		if (var$0 && $$nc($nc(other)->getVariant())->equals($($nc(locale)->getVariant()))) {
 			return true;
 		}
 	}
@@ -145,21 +100,21 @@ bool BaseLocale$Key::equals(Object$* obj) {
 
 BaseLocale$Key* BaseLocale$Key::normalize(BaseLocale$Key* key) {
 	$init(BaseLocale$Key);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(key)->normalized) {
 		return key;
 	}
-	if (!BaseLocale$Key::$assertionsDisabled && !($nc(key)->holder != nullptr && key->holderRef == nullptr)) {
+	if (!BaseLocale$Key::$assertionsDisabled && !(key->holder != nullptr && key->holderRef == nullptr)) {
 		$throwNew($AssertionError);
 	}
-	$var($BaseLocale, locale, $nc(key)->holder);
+	$var($BaseLocale, locale, key->holder);
 	$var($String, var$0, $nc(locale)->getLanguage());
 	$var($String, var$1, locale->getScript());
 	$var($String, var$2, locale->getRegion());
 	return $new(BaseLocale$Key, var$0, var$1, var$2, $(locale->getVariant()), true);
 }
 
-void clinit$BaseLocale$Key($Class* class$) {
+void BaseLocale$Key::clinit$($Class* clazz) {
 	$load($BaseLocale);
 	BaseLocale$Key::$assertionsDisabled = !$BaseLocale::class$->desiredAssertionStatus();
 }
@@ -168,7 +123,45 @@ BaseLocale$Key::BaseLocale$Key() {
 }
 
 $Class* BaseLocale$Key::load$($String* name, bool initialize) {
-	$loadClass(BaseLocale$Key, name, initialize, &_BaseLocale$Key_ClassInfo_, clinit$BaseLocale$Key, allocate$BaseLocale$Key);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BaseLocale$Key, $assertionsDisabled)},
+		{"holderRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Lsun/util/locale/BaseLocale;>;", $PRIVATE | $FINAL, $field(BaseLocale$Key, holderRef)},
+		{"holder", "Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE | $FINAL, $field(BaseLocale$Key, holder)},
+		{"normalized", "Z", nullptr, $PRIVATE | $FINAL, $field(BaseLocale$Key, normalized)},
+		{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(BaseLocale$Key, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(BaseLocale$Key, init$, void, $String*, $String*, $String*, $String*, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BaseLocale$Key, equals, bool, Object$*)},
+		{"getBaseLocale", "()Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE, $method(BaseLocale$Key, getBaseLocale, $BaseLocale*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BaseLocale$Key, hashCode, int32_t)},
+		{"hashCode", "(Lsun/util/locale/BaseLocale;)I", nullptr, $PRIVATE, $method(BaseLocale$Key, hashCode, int32_t, $BaseLocale*)},
+		{"normalize", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale$Key;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseLocale$Key, normalize, BaseLocale$Key*, BaseLocale$Key*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.BaseLocale$Key", "sun.util.locale.BaseLocale", "Key", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.util.locale.BaseLocale$Key",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.BaseLocale"
+	};
+	$loadClass(BaseLocale$Key, name, initialize, &classInfo$$, BaseLocale$Key::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BaseLocale$Key);
+	});
 	return class$;
 }
 

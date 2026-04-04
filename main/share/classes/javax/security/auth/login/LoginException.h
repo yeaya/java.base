@@ -16,10 +16,13 @@ public:
 	LoginException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xBF1086F575DFD518;
+	static const int64_t serialVersionUID = (int64_t)0xbf1086f575dfd518;
 	LoginException(const LoginException& e);
 	virtual void throw$() override;
-	inline LoginException* operator ->() {
+	inline LoginException* operator ->() const {
+		return (LoginException*)throwing$;
+	}
+	inline operator LoginException*() const {
 		return (LoginException*)throwing$;
 	}
 };

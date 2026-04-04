@@ -1,5 +1,4 @@
 #include <test/java/lang/invoke/CallStaticInitOrder$Init4.h>
-
 #include <test/java/lang/invoke/CallStaticInitOrder.h>
 #include <jcpp.h>
 
@@ -13,37 +12,6 @@ namespace test {
 		namespace lang {
 			namespace invoke {
 
-$MethodInfo _CallStaticInitOrder$Init4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CallStaticInitOrder$Init4, init$, void)},
-	{"bat", "()I", nullptr, $STATIC, $staticMethod(CallStaticInitOrder$Init4, bat, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CallStaticInitOrder$Init4_InnerClassesInfo_[] = {
-	{"test.java.lang.invoke.CallStaticInitOrder$Init4", "test.java.lang.invoke.CallStaticInitOrder", "Init4", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CallStaticInitOrder$Init4_ClassInfo_ = {
-	$ACC_SUPER,
-	"test.java.lang.invoke.CallStaticInitOrder$Init4",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CallStaticInitOrder$Init4_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CallStaticInitOrder$Init4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"test.java.lang.invoke.CallStaticInitOrder"
-};
-
-$Object* allocate$CallStaticInitOrder$Init4($Class* clazz) {
-	return $of($alloc(CallStaticInitOrder$Init4));
-}
-
 void CallStaticInitOrder$Init4::init$() {
 }
 
@@ -53,7 +21,7 @@ int32_t CallStaticInitOrder$Init4::bat() {
 	return $CallStaticInitOrder::Init4Tick;
 }
 
-void clinit$CallStaticInitOrder$Init4($Class* class$) {
+void CallStaticInitOrder$Init4::clinit$($Class* clazz) {
 	{
 		$init($CallStaticInitOrder);
 		$CallStaticInitOrder::Init4Tick = $CallStaticInitOrder::tick("bat -> Init4.<clinit>"_s);
@@ -64,7 +32,33 @@ CallStaticInitOrder$Init4::CallStaticInitOrder$Init4() {
 }
 
 $Class* CallStaticInitOrder$Init4::load$($String* name, bool initialize) {
-	$loadClass(CallStaticInitOrder$Init4, name, initialize, &_CallStaticInitOrder$Init4_ClassInfo_, clinit$CallStaticInitOrder$Init4, allocate$CallStaticInitOrder$Init4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CallStaticInitOrder$Init4, init$, void)},
+		{"bat", "()I", nullptr, $STATIC, $staticMethod(CallStaticInitOrder$Init4, bat, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"test.java.lang.invoke.CallStaticInitOrder$Init4", "test.java.lang.invoke.CallStaticInitOrder", "Init4", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"test.java.lang.invoke.CallStaticInitOrder$Init4",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"test.java.lang.invoke.CallStaticInitOrder"
+	};
+	$loadClass(CallStaticInitOrder$Init4, name, initialize, &classInfo$$, CallStaticInitOrder$Init4::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CallStaticInitOrder$Init4);
+	});
 	return class$;
 }
 

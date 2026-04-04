@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/jmod/Handler.h>
-
 #include <java/io/IOException.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
@@ -21,31 +20,12 @@ namespace sun {
 			namespace protocol {
 				namespace jmod {
 
-$MethodInfo _Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Handler, init$, void)},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Handler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.jmod.Handler",
-	"java.net.URLStreamHandler",
-	nullptr,
-	nullptr,
-	_Handler_MethodInfo_
-};
-
-$Object* allocate$Handler($Class* clazz) {
-	return $of($alloc(Handler));
-}
-
 void Handler::init$() {
 	$URLStreamHandler::init$();
 }
 
 $URLConnection* Handler::openConnection($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $nc(url)->toString());
 	int32_t index = $nc(s)->indexOf("!/"_s);
 	if (index == -1) {
@@ -59,7 +39,22 @@ Handler::Handler() {
 }
 
 $Class* Handler::load$($String* name, bool initialize) {
-	$loadClass(Handler, name, initialize, &_Handler_ClassInfo_, allocate$Handler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Handler, init$, void)},
+		{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.jmod.Handler",
+		"java.net.URLStreamHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Handler);
+	});
 	return class$;
 }
 

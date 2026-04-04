@@ -1,5 +1,4 @@
 #include <java/lang/Terminator.h>
-
 #include <java/lang/Terminator$1.h>
 #include <jdk/internal/misc/Signal$Handler.h>
 #include <jdk/internal/misc/Signal.h>
@@ -17,42 +16,6 @@ using $Signal$Handler = ::jdk::internal::misc::Signal$Handler;
 namespace java {
 	namespace lang {
 
-$FieldInfo _Terminator_FieldInfo_[] = {
-	{"handler", "Ljdk/internal/misc/Signal$Handler;", nullptr, $PRIVATE | $STATIC, $staticField(Terminator, handler)},
-	{}
-};
-
-$MethodInfo _Terminator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Terminator, init$, void)},
-	{"setup", "()V", nullptr, $STATIC, $staticMethod(Terminator, setup, void)},
-	{"teardown", "()V", nullptr, $STATIC, $staticMethod(Terminator, teardown, void)},
-	{}
-};
-
-$InnerClassInfo _Terminator_InnerClassesInfo_[] = {
-	{"java.lang.Terminator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Terminator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Terminator",
-	"java.lang.Object",
-	nullptr,
-	_Terminator_FieldInfo_,
-	_Terminator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Terminator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.Terminator$1"
-};
-
-$Object* allocate$Terminator($Class* clazz) {
-	return $of($alloc(Terminator));
-}
-
 $Signal$Handler* Terminator::handler = nullptr;
 
 void Terminator::init$() {
@@ -60,7 +23,7 @@ void Terminator::init$() {
 
 void Terminator::setup() {
 	$init(Terminator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Terminator::handler != nullptr) {
 		return;
 	}
@@ -80,7 +43,7 @@ void Terminator::teardown() {
 	$init(Terminator);
 }
 
-void clinit$Terminator($Class* class$) {
+void Terminator::clinit$($Class* clazz) {
 	$assignStatic(Terminator::handler, nullptr);
 }
 
@@ -88,7 +51,37 @@ Terminator::Terminator() {
 }
 
 $Class* Terminator::load$($String* name, bool initialize) {
-	$loadClass(Terminator, name, initialize, &_Terminator_ClassInfo_, clinit$Terminator, allocate$Terminator);
+	$FieldInfo fieldInfos$$[] = {
+		{"handler", "Ljdk/internal/misc/Signal$Handler;", nullptr, $PRIVATE | $STATIC, $staticField(Terminator, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Terminator, init$, void)},
+		{"setup", "()V", nullptr, $STATIC, $staticMethod(Terminator, setup, void)},
+		{"teardown", "()V", nullptr, $STATIC, $staticMethod(Terminator, teardown, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Terminator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Terminator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.Terminator$1"
+	};
+	$loadClass(Terminator, name, initialize, &classInfo$$, Terminator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Terminator);
+	});
 	return class$;
 }
 

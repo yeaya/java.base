@@ -15,6 +15,7 @@ class $export Serialize : public ::java::lang::Object {
 	$class(Serialize, 0, ::java::lang::Object)
 public:
 	Serialize();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static bool test(::java::net::Inet6Address* obj);

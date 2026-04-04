@@ -48,6 +48,7 @@ class $export ScopedMemoryAccess : public ::java::lang::Object {
 	$class(ScopedMemoryAccess, $PRELOAD, ::java::lang::Object)
 public:
 	ScopedMemoryAccess();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool closeScope(::jdk::internal::misc::ScopedMemoryAccess$Scope* scope);
 	virtual bool closeScope0(::jdk::internal::misc::ScopedMemoryAccess$Scope* scope, ::jdk::internal::misc::ScopedMemoryAccess$Scope$ScopedAccessError* exception);

@@ -45,9 +45,10 @@ class $import NumberFormat$Field : public ::java::text::Format$Field {
 	$class(NumberFormat$Field, 0, ::java::text::Format$Field)
 public:
 	NumberFormat$Field();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual $Object* readResolve() override;
-	static const int64_t serialVersionUID = (int64_t)0x6802A038193FF37A;
+	static const int64_t serialVersionUID = (int64_t)0x6802a038193ff37a;
 	static ::java::util::Map* instanceMap;
 	static ::java::text::NumberFormat$Field* INTEGER;
 	static ::java::text::NumberFormat$Field* FRACTION;

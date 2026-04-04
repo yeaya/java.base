@@ -16,6 +16,7 @@ class $export TIFFContentGuesser : public ::java::lang::Object {
 	$class(TIFFContentGuesser, 0, ::java::lang::Object)
 public:
 	TIFFContentGuesser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $bytes* LITTLE_ENDIAN_MAGIC;

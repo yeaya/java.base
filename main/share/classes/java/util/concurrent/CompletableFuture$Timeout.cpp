@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$Timeout.h>
-
 #include <java/util/concurrent/CompletableFuture.h>
 #include <java/util/concurrent/TimeoutException.h>
 #include <jcpp.h>
@@ -15,49 +14,13 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _CompletableFuture$Timeout_FieldInfo_[] = {
-	{"f", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<*>;", $FINAL, $field(CompletableFuture$Timeout, f)},
-	{}
-};
-
-$MethodInfo _CompletableFuture$Timeout_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/CompletableFuture<*>;)V", 0, $method(CompletableFuture$Timeout, init$, void, $CompletableFuture*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$Timeout, run, void)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$Timeout_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$Timeout", "java.util.concurrent.CompletableFuture", "Timeout", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CompletableFuture$Timeout_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$Timeout",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_CompletableFuture$Timeout_FieldInfo_,
-	_CompletableFuture$Timeout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CompletableFuture$Timeout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$Timeout($Class* clazz) {
-	return $of($alloc(CompletableFuture$Timeout));
-}
-
 void CompletableFuture$Timeout::init$($CompletableFuture* f) {
 	$set(this, f, f);
 }
 
 void CompletableFuture$Timeout::run() {
-	if (this->f != nullptr && !$nc(this->f)->isDone()) {
-		$nc(this->f)->completeExceptionally($$new($TimeoutException));
+	if (this->f != nullptr && !this->f->isDone()) {
+		this->f->completeExceptionally($$new($TimeoutException));
 	}
 }
 
@@ -65,7 +28,37 @@ CompletableFuture$Timeout::CompletableFuture$Timeout() {
 }
 
 $Class* CompletableFuture$Timeout::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$Timeout, name, initialize, &_CompletableFuture$Timeout_ClassInfo_, allocate$CompletableFuture$Timeout);
+	$FieldInfo fieldInfos$$[] = {
+		{"f", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<*>;", $FINAL, $field(CompletableFuture$Timeout, f)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/CompletableFuture<*>;)V", 0, $method(CompletableFuture$Timeout, init$, void, $CompletableFuture*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$Timeout, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$Timeout", "java.util.concurrent.CompletableFuture", "Timeout", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$Timeout",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$Timeout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompletableFuture$Timeout);
+	});
 	return class$;
 }
 

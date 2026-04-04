@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLEngineInputRecord.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
@@ -53,42 +52,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLEngineInputRecord_FieldInfo_[] = {
-	{"formatVerified", "Z", nullptr, $PRIVATE, $field(SSLEngineInputRecord, formatVerified)},
-	{"handshakeBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(SSLEngineInputRecord, handshakeBuffer)},
-	{}
-};
-
-$MethodInfo _SSLEngineInputRecord_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/security/ssl/HandshakeHash;)V", nullptr, 0, $method(SSLEngineInputRecord, init$, void, $HandshakeHash*)},
-	{"bytesInCompletePacket", "([Ljava/nio/ByteBuffer;II)I", nullptr, 0, $virtualMethod(SSLEngineInputRecord, bytesInCompletePacket, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
-	{"bytesInCompletePacket", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(SSLEngineInputRecord, bytesInCompletePacket, int32_t, $ByteBuffer*), "javax.net.ssl.SSLException"},
-	{"decode", "([Ljava/nio/ByteBuffer;II)[Lsun/security/ssl/Plaintext;", nullptr, 0, $virtualMethod(SSLEngineInputRecord, decode, $PlaintextArray*, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException,javax.crypto.BadPaddingException"},
-	{"decode", "(Ljava/nio/ByteBuffer;)[Lsun/security/ssl/Plaintext;", nullptr, $PRIVATE, $method(SSLEngineInputRecord, decode, $PlaintextArray*, $ByteBuffer*), "java.io.IOException,javax.crypto.BadPaddingException"},
-	{"decodeInputRecord", "(Ljava/nio/ByteBuffer;)[Lsun/security/ssl/Plaintext;", nullptr, $PRIVATE, $method(SSLEngineInputRecord, decodeInputRecord, $PlaintextArray*, $ByteBuffer*), "java.io.IOException,javax.crypto.BadPaddingException"},
-	{"estimateFragmentSize", "(I)I", nullptr, 0, $virtualMethod(SSLEngineInputRecord, estimateFragmentSize, int32_t, int32_t)},
-	{"handleUnknownRecord", "(Ljava/nio/ByteBuffer;)[Lsun/security/ssl/Plaintext;", nullptr, $PRIVATE, $method(SSLEngineInputRecord, handleUnknownRecord, $PlaintextArray*, $ByteBuffer*), "java.io.IOException,javax.crypto.BadPaddingException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SSLEngineInputRecord_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLEngineInputRecord",
-	"sun.security.ssl.InputRecord",
-	"sun.security.ssl.SSLRecord",
-	_SSLEngineInputRecord_FieldInfo_,
-	_SSLEngineInputRecord_MethodInfo_
-};
-
-$Object* allocate$SSLEngineInputRecord($Class* clazz) {
-	return $of($alloc(SSLEngineInputRecord));
-}
-
 int32_t SSLEngineInputRecord::hashCode() {
 	 return this->$InputRecord::hashCode();
 }
@@ -128,11 +91,11 @@ int32_t SSLEngineInputRecord::bytesInCompletePacket($ByteBufferArray* srcs, int3
 }
 
 int32_t SSLEngineInputRecord::bytesInCompletePacket($ByteBuffer* packet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(packet)->remaining() < 5) {
 		return -1;
 	}
-	int32_t pos = $nc(packet)->position();
+	int32_t pos = packet->position();
 	int8_t byteZero = packet->get(pos);
 	int32_t len = 0;
 	$init($ContentType);
@@ -143,14 +106,14 @@ int32_t SSLEngineInputRecord::bytesInCompletePacket($ByteBuffer* packet) {
 			$throwNew($SSLException, $$str({"Unrecognized record version "_s, $($ProtocolVersion::nameOf(majorVersion, minorVersion)), " , plaintext connection?"_s}));
 		}
 		this->formatVerified = true;
-		int32_t var$0 = (((int32_t)(packet->get(pos + 3) & (uint32_t)255)) << 8);
-		len = var$0 + ((int32_t)(packet->get(pos + 4) & (uint32_t)255)) + $SSLRecord::headerSize;
+		int32_t var$0 = (packet->get(pos + 3) & 0xff) << 8;
+		len = var$0 + (packet->get(pos + 4) & 0xff) + $SSLRecord::headerSize;
 	} else {
-		bool isShort = (((int32_t)(byteZero & (uint32_t)128)) != 0);
+		bool isShort = ((byteZero & 0x80) != 0);
 		bool var$1 = isShort;
 		if (var$1) {
-			bool var$2 = (packet->get(pos + 2) == 1);
-			var$1 = (var$2 || packet->get(pos + 2) == 4);
+			bool var$2 = packet->get(pos + 2) == 1;
+			var$1 = var$2 || packet->get(pos + 2) == 4;
 		}
 		if (var$1) {
 			int8_t majorVersion = packet->get(pos + 3);
@@ -159,7 +122,7 @@ int32_t SSLEngineInputRecord::bytesInCompletePacket($ByteBuffer* packet) {
 				$throwNew($SSLException, $$str({"Unrecognized record version "_s, $($ProtocolVersion::nameOf(majorVersion, minorVersion)), " , plaintext connection?"_s}));
 			}
 			int32_t mask = (isShort ? 127 : 63);
-			len = (((int32_t)(byteZero & (uint32_t)mask)) << 8) + ((int32_t)(packet->get(pos + 1) & (uint32_t)255)) + (isShort ? 2 : 3);
+			len = ((byteZero & mask) << 8) + (packet->get(pos + 1) & 0xff) + (isShort ? 2 : 3);
 		} else {
 			$throwNew($SSLException, "Unrecognized SSL message, plaintext connection?"_s);
 		}
@@ -168,10 +131,10 @@ int32_t SSLEngineInputRecord::bytesInCompletePacket($ByteBuffer* packet) {
 }
 
 $PlaintextArray* SSLEngineInputRecord::decode($ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength) {
-	if (srcs == nullptr || $nc(srcs)->length == 0 || srcsLength == 0) {
+	if (srcs == nullptr || srcs->length == 0 || srcsLength == 0) {
 		return $new($PlaintextArray, 0);
 	} else if (srcsLength == 1) {
-		return decode($nc(srcs)->get(srcsOffset));
+		return decode(srcs->get(srcsOffset));
 	} else {
 		$var($ByteBuffer, packet, extract(srcs, srcsOffset, srcsLength, $SSLRecord::headerSize));
 		return decode(packet);
@@ -184,7 +147,7 @@ $PlaintextArray* SSLEngineInputRecord::decode($ByteBuffer* packet) {
 	}
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
-		$SSLLogger::fine("Raw read"_s, $$new($ObjectArray, {$of(packet)}));
+		$SSLLogger::fine("Raw read"_s, $$new($ObjectArray, {packet}));
 	}
 	if (!this->formatVerified) {
 		this->formatVerified = true;
@@ -199,7 +162,7 @@ $PlaintextArray* SSLEngineInputRecord::decode($ByteBuffer* packet) {
 }
 
 $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t srcPos = $nc(packet)->position();
 	int32_t srcLim = packet->limit();
 	int8_t contentType = packet->get();
@@ -208,10 +171,14 @@ $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
 	int32_t contentLen = $Record::getInt16(packet);
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
-		$var($String, var$2, $$str({"READ: "_s, $($ProtocolVersion::nameOf(majorVersion, minorVersion)), " "_s}));
-		$var($String, var$1, $$concat(var$2, $($ContentType::nameOf(contentType))));
-		$var($String, var$0, $$concat(var$1, ", length = "_s));
-		$SSLLogger::fine($$concat(var$0, $$str(contentLen)), $$new($ObjectArray, 0));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("READ: "_s);
+		var$0->append($($ProtocolVersion::nameOf(majorVersion, minorVersion)));
+		var$0->append(" "_s);
+		var$0->append($($ContentType::nameOf(contentType)));
+		var$0->append(", length = "_s);
+		var$0->append(contentLen);
+		$SSLLogger::fine($$str(var$0), $$new($ObjectArray, 0));
 	}
 	if (contentLen < 0 || contentLen > $SSLRecord::maxLargeRecordSize - $SSLRecord::headerSize) {
 		$throwNew($SSLProtocolException, $$str({"Bad input record size, TLSCiphertext.length = "_s, $$str(contentLen)}));
@@ -220,37 +187,35 @@ $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
 	packet->limit(recLim);
 	packet->position(srcPos + $SSLRecord::headerSize);
 	$var($ByteBuffer, fragment, nullptr);
-	{
-		$var($Throwable, var$3, nullptr);
+	$var($Throwable, var$1, nullptr);
+	try {
 		try {
-			try {
-				$var($Plaintext, plaintext, $nc(this->readCipher)->decrypt(contentType, packet, nullptr));
-				$assign(fragment, $nc(plaintext)->fragment);
-				contentType = plaintext->contentType;
-			} catch ($BadPaddingException& bpe) {
-				$throw(bpe);
-			} catch ($GeneralSecurityException& gse) {
-				$throw($cast($SSLProtocolException, $(($$new($SSLProtocolException, "Unexpected exception"_s))->initCause(gse))));
-			}
-		} catch ($Throwable& var$4) {
-			$assign(var$3, var$4);
-		} /*finally*/ {
-			packet->limit(srcLim);
-			packet->position(recLim);
+			$var($Plaintext, plaintext, $nc(this->readCipher)->decrypt(contentType, packet, nullptr));
+			$assign(fragment, $nc(plaintext)->fragment);
+			contentType = plaintext->contentType;
+		} catch ($BadPaddingException& bpe) {
+			$throw(bpe);
+		} catch ($GeneralSecurityException& gse) {
+			$throw($$cast($SSLProtocolException, ($$new($SSLProtocolException, "Unexpected exception"_s))->initCause(gse)));
 		}
-		if (var$3 != nullptr) {
-			$throw(var$3);
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$1, var$2);
+	} /*finally*/ {
+		packet->limit(srcLim);
+		packet->position(recLim);
+	}
+	if (var$1 != nullptr) {
+		$throw(var$1);
 	}
 	$init($ContentType);
-	if (contentType != $ContentType::HANDSHAKE->id && this->handshakeBuffer != nullptr && $nc(this->handshakeBuffer)->hasRemaining()) {
+	if (contentType != $ContentType::HANDSHAKE->id && this->handshakeBuffer != nullptr && this->handshakeBuffer->hasRemaining()) {
 		$throwNew($SSLProtocolException, $$str({"Expecting a handshake fragment, but received "_s, $($ContentType::nameOf(contentType))}));
 	}
 	if (contentType == $ContentType::HANDSHAKE->id) {
 		$var($ByteBuffer, handshakeFrag, fragment);
-		if ((this->handshakeBuffer != nullptr) && ($nc(this->handshakeBuffer)->remaining() != 0)) {
-			int32_t var$5 = $nc(this->handshakeBuffer)->remaining();
-			$var($ByteBuffer, bb, $ByteBuffer::wrap($$new($bytes, var$5 + $nc(fragment)->remaining())));
+		if ((this->handshakeBuffer != nullptr) && (this->handshakeBuffer->remaining() != 0)) {
+			int32_t var$3 = this->handshakeBuffer->remaining();
+			$var($ByteBuffer, bb, $ByteBuffer::wrap($$new($bytes, var$3 + $nc(fragment)->remaining())));
 			$nc(bb)->put(this->handshakeBuffer);
 			bb->put(fragment);
 			$assign(handshakeFrag, bb->rewind());
@@ -268,7 +233,7 @@ $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
 			handshakeFrag->mark();
 			int8_t handshakeType = handshakeFrag->get();
 			if (!$SSLHandshake::isKnown(handshakeType)) {
-				$throwNew($SSLProtocolException, $$str({"Unknown handshake type size, Handshake.msg_type = "_s, $$str(((int32_t)(handshakeType & (uint32_t)255)))}));
+				$throwNew($SSLProtocolException, $$str({"Unknown handshake type size, Handshake.msg_type = "_s, $$str((handshakeType & 0xff))}));
 			}
 			int32_t handshakeBodyLen = $Record::getInt24(handshakeFrag);
 			$init($SSLConfiguration);
@@ -284,7 +249,7 @@ $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
 				break;
 			} else if (remaining == handshakeMessageLen) {
 				if ($nc(this->handshakeHash)->isHashable(handshakeType)) {
-					$nc(this->handshakeHash)->receive(handshakeFrag);
+					this->handshakeHash->receive(handshakeFrag);
 				}
 				plaintexts->add($$new($Plaintext, contentType, majorVersion, minorVersion, -1, -1, handshakeFrag));
 				break;
@@ -294,25 +259,25 @@ $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
 				int32_t nextPos = fragPos + handshakeMessageLen;
 				handshakeFrag->limit(nextPos);
 				if ($nc(this->handshakeHash)->isHashable(handshakeType)) {
-					$nc(this->handshakeHash)->receive(handshakeFrag);
+					this->handshakeHash->receive(handshakeFrag);
 				}
 				plaintexts->add($$new($Plaintext, contentType, majorVersion, minorVersion, -1, -1, $(handshakeFrag->slice())));
 				handshakeFrag->position(nextPos);
 				handshakeFrag->limit(fragLim);
 			}
 		}
-		return $fcast($PlaintextArray, plaintexts->toArray($$new($PlaintextArray, 0)));
+		return $cast($PlaintextArray, plaintexts->toArray($$new($PlaintextArray, 0)));
 	}
 	return $new($PlaintextArray, {$$new($Plaintext, contentType, majorVersion, minorVersion, -1, -1, fragment)});
 }
 
 $PlaintextArray* SSLEngineInputRecord::handleUnknownRecord($ByteBuffer* packet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t srcPos = $nc(packet)->position();
 	int32_t srcLim = packet->limit();
 	int8_t firstByte = packet->get(srcPos);
 	int8_t thirdByte = packet->get(srcPos + 2);
-	if ((((int32_t)(firstByte & (uint32_t)128)) != 0) && (thirdByte == 1)) {
+	if (((firstByte & 0x80) != 0) && (thirdByte == 1)) {
 		$init($ProtocolVersion);
 		if (this->helloVersion != $ProtocolVersion::SSL20Hello) {
 			$throwNew($SSLHandshakeException, "SSLv2Hello is not enabled"_s);
@@ -332,12 +297,12 @@ $PlaintextArray* SSLEngineInputRecord::handleUnknownRecord($ByteBuffer* packet) 
 		$var($ByteBuffer, converted, convertToClientHello(packet));
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
-			$SSLLogger::fine("[Converted] ClientHello"_s, $$new($ObjectArray, {$of(converted)}));
+			$SSLLogger::fine("[Converted] ClientHello"_s, $$new($ObjectArray, {converted}));
 		}
 		$init($ContentType);
 		return $new($PlaintextArray, {$$new($Plaintext, $ContentType::HANDSHAKE->id, majorVersion, minorVersion, -1, -1, converted)});
 	} else {
-		if ((((int32_t)(firstByte & (uint32_t)128)) != 0) && (thirdByte == 4)) {
+		if (((firstByte & 0x80) != 0) && (thirdByte == 4)) {
 			$throwNew($SSLException, "SSL V2.0 servers are not supported."_s);
 		}
 		$throwNew($SSLException, "Unsupported or unrecognized SSL message"_s);
@@ -348,7 +313,38 @@ SSLEngineInputRecord::SSLEngineInputRecord() {
 }
 
 $Class* SSLEngineInputRecord::load$($String* name, bool initialize) {
-	$loadClass(SSLEngineInputRecord, name, initialize, &_SSLEngineInputRecord_ClassInfo_, allocate$SSLEngineInputRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"formatVerified", "Z", nullptr, $PRIVATE, $field(SSLEngineInputRecord, formatVerified)},
+		{"handshakeBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(SSLEngineInputRecord, handshakeBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/security/ssl/HandshakeHash;)V", nullptr, 0, $method(SSLEngineInputRecord, init$, void, $HandshakeHash*)},
+		{"bytesInCompletePacket", "([Ljava/nio/ByteBuffer;II)I", nullptr, 0, $virtualMethod(SSLEngineInputRecord, bytesInCompletePacket, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+		{"bytesInCompletePacket", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(SSLEngineInputRecord, bytesInCompletePacket, int32_t, $ByteBuffer*), "javax.net.ssl.SSLException"},
+		{"decode", "([Ljava/nio/ByteBuffer;II)[Lsun/security/ssl/Plaintext;", nullptr, 0, $virtualMethod(SSLEngineInputRecord, decode, $PlaintextArray*, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException,javax.crypto.BadPaddingException"},
+		{"decode", "(Ljava/nio/ByteBuffer;)[Lsun/security/ssl/Plaintext;", nullptr, $PRIVATE, $method(SSLEngineInputRecord, decode, $PlaintextArray*, $ByteBuffer*), "java.io.IOException,javax.crypto.BadPaddingException"},
+		{"decodeInputRecord", "(Ljava/nio/ByteBuffer;)[Lsun/security/ssl/Plaintext;", nullptr, $PRIVATE, $method(SSLEngineInputRecord, decodeInputRecord, $PlaintextArray*, $ByteBuffer*), "java.io.IOException,javax.crypto.BadPaddingException"},
+		{"estimateFragmentSize", "(I)I", nullptr, 0, $virtualMethod(SSLEngineInputRecord, estimateFragmentSize, int32_t, int32_t)},
+		{"handleUnknownRecord", "(Ljava/nio/ByteBuffer;)[Lsun/security/ssl/Plaintext;", nullptr, $PRIVATE, $method(SSLEngineInputRecord, handleUnknownRecord, $PlaintextArray*, $ByteBuffer*), "java.io.IOException,javax.crypto.BadPaddingException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLEngineInputRecord",
+		"sun.security.ssl.InputRecord",
+		"sun.security.ssl.SSLRecord",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLEngineInputRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLEngineInputRecord));
+	});
 	return class$;
 }
 

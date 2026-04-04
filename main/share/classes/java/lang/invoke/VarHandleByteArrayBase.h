@@ -30,6 +30,7 @@ class VarHandleByteArrayBase : public ::java::lang::Object {
 	$class(VarHandleByteArrayBase, 0, ::java::lang::Object)
 public:
 	VarHandleByteArrayBase();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::IllegalStateException* newIllegalStateExceptionForMisalignedAccess(int32_t index);
 	static int64_t BUFFER_ADDRESS;

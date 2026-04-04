@@ -1,5 +1,4 @@
 #include <java/lang/Float2/Extrema.h>
-
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -15,37 +14,17 @@ namespace java {
 	namespace lang {
 		namespace Float2 {
 
-$MethodInfo _Extrema_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Extrema, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Extrema, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Extrema_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.Float2.Extrema",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Extrema_MethodInfo_
-};
-
-$Object* allocate$Extrema($Class* clazz) {
-	return $of($alloc(Extrema));
-}
-
 void Extrema::init$() {
 }
 
 void Extrema::main($StringArray* args) {
-	$init($Float);
 	if ($Float::MIN_VALUE != $Float::intBitsToFloat(1)) {
 		$throwNew($RuntimeException, "Float.MIN_VALUE is not equal to intBitsToFloat(0x1)."_s);
 	}
 	if ($Float::MIN_NORMAL != $Float::intBitsToFloat(0x00800000)) {
 		$throwNew($RuntimeException, "Float.MIN_NORMAL is not equal to intBitsToFloat(0x00800000)."_s);
 	}
-	if ($Float::MAX_VALUE != $Float::intBitsToFloat(0x7F7FFFFF)) {
+	if ($Float::MAX_VALUE != $Float::intBitsToFloat(0x7f7fffff)) {
 		$throwNew($RuntimeException, "Float.MAX_VALUE is not equal to intBitsToFloat(0x7f7fffff)."_s);
 	}
 }
@@ -54,7 +33,22 @@ Extrema::Extrema() {
 }
 
 $Class* Extrema::load$($String* name, bool initialize) {
-	$loadClass(Extrema, name, initialize, &_Extrema_ClassInfo_, allocate$Extrema);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Extrema, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Extrema, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.Float2.Extrema",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Extrema, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Extrema);
+	});
 	return class$;
 }
 

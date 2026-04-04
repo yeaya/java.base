@@ -1,5 +1,4 @@
 #include <IPv6Numeric.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <jcpp.h>
@@ -11,30 +10,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
-$MethodInfo _IPv6Numeric_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IPv6Numeric, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IPv6Numeric, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _IPv6Numeric_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IPv6Numeric",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IPv6Numeric_MethodInfo_
-};
-
-$Object* allocate$IPv6Numeric($Class* clazz) {
-	return $of($alloc(IPv6Numeric));
-}
-
 void IPv6Numeric::init$() {
 }
 
 void IPv6Numeric::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InetAddress, addr, $InetAddress::getByName(":"_s));
 	} catch ($UnknownHostException& uhe) {
@@ -47,7 +27,22 @@ IPv6Numeric::IPv6Numeric() {
 }
 
 $Class* IPv6Numeric::load$($String* name, bool initialize) {
-	$loadClass(IPv6Numeric, name, initialize, &_IPv6Numeric_ClassInfo_, allocate$IPv6Numeric);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IPv6Numeric, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IPv6Numeric, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IPv6Numeric",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IPv6Numeric, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IPv6Numeric);
+	});
 	return class$;
 }
 

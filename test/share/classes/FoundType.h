@@ -12,6 +12,7 @@ class $export FoundType : public ::java::lang::Object {
 	$class(FoundType, 0, ::java::lang::Object)
 public:
 	FoundType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* TYPE;

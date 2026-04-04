@@ -1,5 +1,4 @@
 #include <sun/security/ssl/KeyShareExtension.h>
-
 #include <sun/security/ssl/HandshakeAbsence.h>
 #include <sun/security/ssl/HandshakeProducer.h>
 #include <sun/security/ssl/KeyShareExtension$CHKeyShareConsumer.h>
@@ -43,66 +42,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _KeyShareExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, chOnLoadConsumer)},
-	{"chOnTradAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, chOnTradAbsence)},
-	{"chStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, chStringizer)},
-	{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, shNetworkProducer)},
-	{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, shOnLoadConsumer)},
-	{"shOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, shOnLoadAbsence)},
-	{"shStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, shStringizer)},
-	{"hrrNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, hrrNetworkProducer)},
-	{"hrrOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, hrrOnLoadConsumer)},
-	{"hrrNetworkReproducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, hrrNetworkReproducer)},
-	{"hrrStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, hrrStringizer)},
-	{}
-};
-
-$MethodInfo _KeyShareExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(KeyShareExtension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _KeyShareExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.KeyShareExtension$HRRKeyShareConsumer", "sun.security.ssl.KeyShareExtension", "HRRKeyShareConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$HRRKeyShareReproducer", "sun.security.ssl.KeyShareExtension", "HRRKeyShareReproducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$HRRKeyShareProducer", "sun.security.ssl.KeyShareExtension", "HRRKeyShareProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$HRRKeyShareStringizer", "sun.security.ssl.KeyShareExtension", "HRRKeyShareStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$HRRKeyShareSpec", "sun.security.ssl.KeyShareExtension", "HRRKeyShareSpec", $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$SHKeyShareAbsence", "sun.security.ssl.KeyShareExtension", "SHKeyShareAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$SHKeyShareConsumer", "sun.security.ssl.KeyShareExtension", "SHKeyShareConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$SHKeyShareProducer", "sun.security.ssl.KeyShareExtension", "SHKeyShareProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$SHKeyShareStringizer", "sun.security.ssl.KeyShareExtension", "SHKeyShareStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$SHKeyShareSpec", "sun.security.ssl.KeyShareExtension", "SHKeyShareSpec", $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$CHKeyShareOnTradeAbsence", "sun.security.ssl.KeyShareExtension", "CHKeyShareOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$CHKeyShareConsumer", "sun.security.ssl.KeyShareExtension", "CHKeyShareConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$CHKeyShareProducer", "sun.security.ssl.KeyShareExtension", "CHKeyShareProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$CHKeyShareStringizer", "sun.security.ssl.KeyShareExtension", "CHKeyShareStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$CHKeyShareSpec", "sun.security.ssl.KeyShareExtension", "CHKeyShareSpec", $STATIC | $FINAL},
-	{"sun.security.ssl.KeyShareExtension$KeyShareEntry", "sun.security.ssl.KeyShareExtension", "KeyShareEntry", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KeyShareExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.KeyShareExtension",
-	"java.lang.Object",
-	nullptr,
-	_KeyShareExtension_FieldInfo_,
-	_KeyShareExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyShareExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.KeyShareExtension$HRRKeyShareConsumer,sun.security.ssl.KeyShareExtension$HRRKeyShareReproducer,sun.security.ssl.KeyShareExtension$HRRKeyShareProducer,sun.security.ssl.KeyShareExtension$HRRKeyShareStringizer,sun.security.ssl.KeyShareExtension$HRRKeyShareSpec,sun.security.ssl.KeyShareExtension$SHKeyShareAbsence,sun.security.ssl.KeyShareExtension$SHKeyShareConsumer,sun.security.ssl.KeyShareExtension$SHKeyShareProducer,sun.security.ssl.KeyShareExtension$SHKeyShareStringizer,sun.security.ssl.KeyShareExtension$SHKeyShareSpec,sun.security.ssl.KeyShareExtension$CHKeyShareOnTradeAbsence,sun.security.ssl.KeyShareExtension$CHKeyShareConsumer,sun.security.ssl.KeyShareExtension$CHKeyShareProducer,sun.security.ssl.KeyShareExtension$CHKeyShareStringizer,sun.security.ssl.KeyShareExtension$CHKeyShareSpec,sun.security.ssl.KeyShareExtension$KeyShareEntry"
-};
-
-$Object* allocate$KeyShareExtension($Class* clazz) {
-	return $of($alloc(KeyShareExtension));
-}
-
 $HandshakeProducer* KeyShareExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* KeyShareExtension::chOnLoadConsumer = nullptr;
 $HandshakeAbsence* KeyShareExtension::chOnTradAbsence = nullptr;
@@ -119,7 +58,7 @@ $SSLStringizer* KeyShareExtension::hrrStringizer = nullptr;
 void KeyShareExtension::init$() {
 }
 
-void clinit$KeyShareExtension($Class* class$) {
+void KeyShareExtension::clinit$($Class* clazz) {
 	$assignStatic(KeyShareExtension::chNetworkProducer, $new($KeyShareExtension$CHKeyShareProducer));
 	$assignStatic(KeyShareExtension::chOnLoadConsumer, $new($KeyShareExtension$CHKeyShareConsumer));
 	$assignStatic(KeyShareExtension::chOnTradAbsence, $new($KeyShareExtension$CHKeyShareOnTradeAbsence));
@@ -138,7 +77,61 @@ KeyShareExtension::KeyShareExtension() {
 }
 
 $Class* KeyShareExtension::load$($String* name, bool initialize) {
-	$loadClass(KeyShareExtension, name, initialize, &_KeyShareExtension_ClassInfo_, clinit$KeyShareExtension, allocate$KeyShareExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, chOnLoadConsumer)},
+		{"chOnTradAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, chOnTradAbsence)},
+		{"chStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, chStringizer)},
+		{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, shNetworkProducer)},
+		{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, shOnLoadConsumer)},
+		{"shOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, shOnLoadAbsence)},
+		{"shStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, shStringizer)},
+		{"hrrNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, hrrNetworkProducer)},
+		{"hrrOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, hrrOnLoadConsumer)},
+		{"hrrNetworkReproducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, hrrNetworkReproducer)},
+		{"hrrStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(KeyShareExtension, hrrStringizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(KeyShareExtension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.KeyShareExtension$HRRKeyShareConsumer", "sun.security.ssl.KeyShareExtension", "HRRKeyShareConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$HRRKeyShareReproducer", "sun.security.ssl.KeyShareExtension", "HRRKeyShareReproducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$HRRKeyShareProducer", "sun.security.ssl.KeyShareExtension", "HRRKeyShareProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$HRRKeyShareStringizer", "sun.security.ssl.KeyShareExtension", "HRRKeyShareStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$HRRKeyShareSpec", "sun.security.ssl.KeyShareExtension", "HRRKeyShareSpec", $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$SHKeyShareAbsence", "sun.security.ssl.KeyShareExtension", "SHKeyShareAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$SHKeyShareConsumer", "sun.security.ssl.KeyShareExtension", "SHKeyShareConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$SHKeyShareProducer", "sun.security.ssl.KeyShareExtension", "SHKeyShareProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$SHKeyShareStringizer", "sun.security.ssl.KeyShareExtension", "SHKeyShareStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$SHKeyShareSpec", "sun.security.ssl.KeyShareExtension", "SHKeyShareSpec", $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$CHKeyShareOnTradeAbsence", "sun.security.ssl.KeyShareExtension", "CHKeyShareOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$CHKeyShareConsumer", "sun.security.ssl.KeyShareExtension", "CHKeyShareConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$CHKeyShareProducer", "sun.security.ssl.KeyShareExtension", "CHKeyShareProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$CHKeyShareStringizer", "sun.security.ssl.KeyShareExtension", "CHKeyShareStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$CHKeyShareSpec", "sun.security.ssl.KeyShareExtension", "CHKeyShareSpec", $STATIC | $FINAL},
+		{"sun.security.ssl.KeyShareExtension$KeyShareEntry", "sun.security.ssl.KeyShareExtension", "KeyShareEntry", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.KeyShareExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.KeyShareExtension$HRRKeyShareConsumer,sun.security.ssl.KeyShareExtension$HRRKeyShareReproducer,sun.security.ssl.KeyShareExtension$HRRKeyShareProducer,sun.security.ssl.KeyShareExtension$HRRKeyShareStringizer,sun.security.ssl.KeyShareExtension$HRRKeyShareSpec,sun.security.ssl.KeyShareExtension$SHKeyShareAbsence,sun.security.ssl.KeyShareExtension$SHKeyShareConsumer,sun.security.ssl.KeyShareExtension$SHKeyShareProducer,sun.security.ssl.KeyShareExtension$SHKeyShareStringizer,sun.security.ssl.KeyShareExtension$SHKeyShareSpec,sun.security.ssl.KeyShareExtension$CHKeyShareOnTradeAbsence,sun.security.ssl.KeyShareExtension$CHKeyShareConsumer,sun.security.ssl.KeyShareExtension$CHKeyShareProducer,sun.security.ssl.KeyShareExtension$CHKeyShareStringizer,sun.security.ssl.KeyShareExtension$CHKeyShareSpec,sun.security.ssl.KeyShareExtension$KeyShareEntry"
+	};
+	$loadClass(KeyShareExtension, name, initialize, &classInfo$$, KeyShareExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyShareExtension);
+	});
 	return class$;
 }
 

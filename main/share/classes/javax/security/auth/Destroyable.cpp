@@ -1,5 +1,4 @@
 #include <javax/security/auth/Destroyable.h>
-
 #include <javax/security/auth/DestroyFailedException.h>
 #include <jcpp.h>
 
@@ -11,25 +10,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 
-$MethodInfo _Destroyable_MethodInfo_[] = {
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(Destroyable, destroy, void), "javax.security.auth.DestroyFailedException"},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(Destroyable, isDestroyed, bool)},
-	{}
-};
-
-$ClassInfo _Destroyable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.security.auth.Destroyable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Destroyable_MethodInfo_
-};
-
-$Object* allocate$Destroyable($Class* clazz) {
-	return $of($alloc(Destroyable));
-}
-
 void Destroyable::destroy() {
 	$throwNew($DestroyFailedException);
 }
@@ -39,7 +19,22 @@ bool Destroyable::isDestroyed() {
 }
 
 $Class* Destroyable::load$($String* name, bool initialize) {
-	$loadClass(Destroyable, name, initialize, &_Destroyable_ClassInfo_, allocate$Destroyable);
+	$MethodInfo methodInfos$$[] = {
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(Destroyable, destroy, void), "javax.security.auth.DestroyFailedException"},
+		{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(Destroyable, isDestroyed, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.security.auth.Destroyable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Destroyable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Destroyable);
+	});
 	return class$;
 }
 

@@ -32,6 +32,7 @@ class $export NonPublicProxyClass : public ::java::lang::Object {
 	$class(NonPublicProxyClass, 0, ::java::lang::Object)
 public:
 	NonPublicProxyClass();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ClassLoader* loader, $ClassArray* intfs);
 	bool hasAccess();
 	static void main($StringArray* args);

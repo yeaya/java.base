@@ -24,6 +24,7 @@ class Tripwire : public ::java::lang::Object {
 	$class(Tripwire, 0, ::java::lang::Object)
 public:
 	Tripwire();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::Boolean* lambda$static$0();
 	static void trip($Class* trippingClass, $String* msg);

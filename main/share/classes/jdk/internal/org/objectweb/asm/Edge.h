@@ -34,7 +34,7 @@ public:
 	Edge();
 	void init$(int32_t info, ::jdk::internal::org::objectweb::asm$::Label* successor, ::jdk::internal::org::objectweb::asm$::Edge* nextEdge);
 	static const int32_t JUMP = 0;
-	static const int32_t EXCEPTION = 0x7FFFFFFF;
+	static const int32_t EXCEPTION = 0x7fffffff;
 	int32_t info = 0;
 	::jdk::internal::org::objectweb::asm$::Label* successor = nullptr;
 	::jdk::internal::org::objectweb::asm$::Edge* nextEdge = nullptr;

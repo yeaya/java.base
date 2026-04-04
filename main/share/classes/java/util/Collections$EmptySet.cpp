@@ -1,5 +1,4 @@
 #include <java/util/Collections$EmptySet.h>
-
 #include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -30,58 +29,6 @@ using $Predicate = ::java::util::function::Predicate;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$EmptySet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$EmptySet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Collections$EmptySet_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Collections$EmptySet, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, contains, bool, Object$*)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$EmptySet, containsAll, bool, $Collection*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$EmptySet, forEach, void, $Consumer*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$EmptySet, iterator, $Iterator*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Collections$EmptySet, readResolve, $Object*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(Collections$EmptySet, removeIf, bool, $Predicate*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$EmptySet, spliterator, $Spliterator*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$EmptySet, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$EmptySet_InnerClassesInfo_[] = {
-	{"java.util.Collections$EmptySet", "java.util.Collections", "EmptySet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$EmptySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$EmptySet",
-	"java.util.AbstractSet",
-	"java.io.Serializable",
-	_Collections$EmptySet_FieldInfo_,
-	_Collections$EmptySet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractSet<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$EmptySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$EmptySet($Class* clazz) {
-	return $of($alloc(Collections$EmptySet));
-}
 
 bool Collections$EmptySet::equals(Object$* o) {
 	 return this->$AbstractSet::equals(o);
@@ -152,7 +99,7 @@ $Spliterator* Collections$EmptySet::spliterator() {
 
 $Object* Collections$EmptySet::readResolve() {
 	$init($Collections);
-	return $of($Collections::EMPTY_SET);
+	return $Collections::EMPTY_SET;
 }
 
 int32_t Collections$EmptySet::hashCode() {
@@ -163,7 +110,53 @@ Collections$EmptySet::Collections$EmptySet() {
 }
 
 $Class* Collections$EmptySet::load$($String* name, bool initialize) {
-	$loadClass(Collections$EmptySet, name, initialize, &_Collections$EmptySet_ClassInfo_, allocate$Collections$EmptySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$EmptySet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Collections$EmptySet, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, contains, bool, Object$*)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$EmptySet, containsAll, bool, $Collection*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$EmptySet, forEach, void, $Consumer*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$EmptySet, iterator, $Iterator*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Collections$EmptySet, readResolve, $Object*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(Collections$EmptySet, removeIf, bool, $Predicate*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$EmptySet, spliterator, $Spliterator*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$EmptySet, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$EmptySet, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$EmptySet", "java.util.Collections", "EmptySet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$EmptySet",
+		"java.util.AbstractSet",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractSet<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$EmptySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$EmptySet));
+	});
 	return class$;
 }
 

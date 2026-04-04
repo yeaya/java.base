@@ -1,5 +1,4 @@
 #include <java/util/PrimitiveIterator.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,39 +8,34 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 
-$MethodInfo _PrimitiveIterator_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveIterator, forEachRemaining, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _PrimitiveIterator_InnerClassesInfo_[] = {
-	{"java.util.PrimitiveIterator$OfDouble", "java.util.PrimitiveIterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.PrimitiveIterator$OfLong", "java.util.PrimitiveIterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.PrimitiveIterator$OfInt", "java.util.PrimitiveIterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PrimitiveIterator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.PrimitiveIterator",
-	nullptr,
-	"java.util.Iterator",
-	nullptr,
-	_PrimitiveIterator_MethodInfo_,
-	"<T:Ljava/lang/Object;T_CONS:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
-	nullptr,
-	_PrimitiveIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.PrimitiveIterator$OfDouble,java.util.PrimitiveIterator$OfLong,java.util.PrimitiveIterator$OfInt"
-};
-
-$Object* allocate$PrimitiveIterator($Class* clazz) {
-	return $of($alloc(PrimitiveIterator));
-}
-
 $Class* PrimitiveIterator::load$($String* name, bool initialize) {
-	$loadClass(PrimitiveIterator, name, initialize, &_PrimitiveIterator_ClassInfo_, allocate$PrimitiveIterator);
+	$MethodInfo methodInfos$$[] = {
+		{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveIterator, forEachRemaining, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.PrimitiveIterator$OfDouble", "java.util.PrimitiveIterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.PrimitiveIterator$OfLong", "java.util.PrimitiveIterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.PrimitiveIterator$OfInt", "java.util.PrimitiveIterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.PrimitiveIterator",
+		nullptr,
+		"java.util.Iterator",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;T_CONS:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.PrimitiveIterator$OfDouble,java.util.PrimitiveIterator$OfLong,java.util.PrimitiveIterator$OfInt"
+	};
+	$loadClass(PrimitiveIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrimitiveIterator);
+	});
 	return class$;
 }
 

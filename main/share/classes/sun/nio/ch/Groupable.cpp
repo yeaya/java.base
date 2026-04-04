@@ -1,5 +1,4 @@
 #include <sun/nio/ch/Groupable.h>
-
 #include <sun/nio/ch/AsynchronousChannelGroupImpl.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$MethodInfo _Groupable_MethodInfo_[] = {
-	{"group", "()Lsun/nio/ch/AsynchronousChannelGroupImpl;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Groupable, group, $AsynchronousChannelGroupImpl*)},
-	{}
-};
-
-$ClassInfo _Groupable_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.nio.ch.Groupable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Groupable_MethodInfo_
-};
-
-$Object* allocate$Groupable($Class* clazz) {
-	return $of($alloc(Groupable));
-}
-
 $Class* Groupable::load$($String* name, bool initialize) {
-	$loadClass(Groupable, name, initialize, &_Groupable_ClassInfo_, allocate$Groupable);
+	$MethodInfo methodInfos$$[] = {
+		{"group", "()Lsun/nio/ch/AsynchronousChannelGroupImpl;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Groupable, group, $AsynchronousChannelGroupImpl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.nio.ch.Groupable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Groupable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Groupable);
+	});
 	return class$;
 }
 

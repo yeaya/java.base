@@ -42,6 +42,7 @@ public:
 	virtual ::java::lang::invoke::MethodType* getMethodType() override;
 	virtual int32_t hashCode() override;
 	virtual bool isNativeMethod() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::StackWalker* walker);
 	static ::java::lang::LiveStackFrame$PrimitiveSlot* asPrimitive(int32_t value);
 	static ::java::lang::LiveStackFrame$PrimitiveSlot* asPrimitive(int64_t value);

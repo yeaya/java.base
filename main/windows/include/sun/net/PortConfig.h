@@ -15,8 +15,8 @@ public:
 	void init$();
 	static int32_t getLower();
 	static int32_t getUpper();
-	static const int32_t defaultLower = 0x0000C000;
-	static const int32_t defaultUpper = 0x0000FFFF;
+	static const int32_t defaultLower = 0x0000c000;
+	static const int32_t defaultUpper = 0x0000ffff;
 };
 
 	} // net

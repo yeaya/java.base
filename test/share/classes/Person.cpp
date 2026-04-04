@@ -1,5 +1,4 @@
 #include <Person.h>
-
 #include <java/lang/Record.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -11,37 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Record = ::java::lang::Record;
-
-$FieldInfo _Person_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Person, name$)},
-	{"age", "I", nullptr, $PRIVATE | $FINAL, $field(Person, age$)},
-	{"d", "D", nullptr, $PRIVATE | $FINAL, $field(Person, d$)},
-	{}
-};
-
-$MethodInfo _Person_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ID)V", nullptr, 0, $method(Person, init$, void, $String*, int32_t, double)},
-	{"age", "()I", nullptr, $PUBLIC, $method(Person, age, int32_t)},
-	{"d", "()D", nullptr, $PUBLIC, $method(Person, d, double)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Person, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Person, hashCode, int32_t)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Person, name, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Person, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Person_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"Person",
-	"java.lang.Record",
-	nullptr,
-	_Person_FieldInfo_,
-	_Person_MethodInfo_
-};
-
-$Object* allocate$Person($Class* clazz) {
-	return $of($alloc(Person));
-}
 
 void Person::init$($String* name, int32_t age, double d) {
 	$Record::init$();
@@ -78,7 +46,33 @@ Person::Person() {
 }
 
 $Class* Person::load$($String* name, bool initialize) {
-	$loadClass(Person, name, initialize, &_Person_ClassInfo_, allocate$Person);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Person, name$)},
+		{"age", "I", nullptr, $PRIVATE | $FINAL, $field(Person, age$)},
+		{"d", "D", nullptr, $PRIVATE | $FINAL, $field(Person, d$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ID)V", nullptr, 0, $method(Person, init$, void, $String*, int32_t, double)},
+		{"age", "()I", nullptr, $PUBLIC, $method(Person, age, int32_t)},
+		{"d", "()D", nullptr, $PUBLIC, $method(Person, d, double)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Person, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Person, hashCode, int32_t)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Person, name, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Person, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"Person",
+		"java.lang.Record",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Person, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Person);
+	});
 	return class$;
 }
 

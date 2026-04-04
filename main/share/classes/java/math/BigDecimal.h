@@ -91,6 +91,7 @@ public:
 	BigDecimal();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::math::BigInteger* intVal, int64_t val, int32_t scale, int32_t prec);
 	void init$($chars* in, int32_t offset, int32_t len);
 	void init$($chars* in, int32_t offset, int32_t len, ::java::math::MathContext* mc);
@@ -267,11 +268,11 @@ public:
 	static ::java::math::BigInteger* INFLATED_BIGINT;
 	int64_t intCompact = 0;
 	static const int32_t MAX_COMPACT_DIGITS = 18;
-	static const int64_t serialVersionUID = (int64_t)0x54C71557F981284F;
+	static const int64_t serialVersionUID = (int64_t)0x54c71557f981284f;
 	static $Array<::java::math::BigDecimal>* ZERO_THROUGH_TEN;
 	static $Array<::java::math::BigDecimal>* ZERO_SCALED_BY;
-	static const int64_t HALF_LONG_MAX_VALUE = 0x3FFFFFFFFFFFFFFF; // Long.MAX_VALUE / 2
-	static const int64_t HALF_LONG_MIN_VALUE = 0xC000000000000000; // Long.MIN_VALUE / 2
+	static const int64_t HALF_LONG_MAX_VALUE = 0x3fffffffffffffff; // Long.MAX_VALUE / 2
+	static const int64_t HALF_LONG_MIN_VALUE = 0xc000000000000000; // Long.MIN_VALUE / 2
 	static ::java::math::BigDecimal* ZERO;
 	static ::java::math::BigDecimal* ONE;
 	static ::java::math::BigDecimal* TEN;

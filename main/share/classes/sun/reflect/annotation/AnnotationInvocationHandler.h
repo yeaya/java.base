@@ -50,6 +50,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* type, ::java::util::Map* memberValues);
 	::sun::reflect::annotation::AnnotationInvocationHandler* asOneOfUs(Object$* o);
 	$Object* cloneArray(Object$* array);
@@ -81,7 +82,7 @@ public:
 	$String* toStringImpl();
 	void validateAnnotationMethods($Array<::java::lang::reflect::Method>* memberMethods);
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0x55CAF50F15CB7EA5;
+	static const int64_t serialVersionUID = (int64_t)0x55caf50f15cb7ea5;
 	$Class* type = nullptr;
 	::java::util::Map* memberValues = nullptr;
 	$volatile($Array<::java::lang::reflect::Method>*) memberMethods = nullptr;

@@ -1,5 +1,4 @@
 #include <java/util/stream/SliceOps$4.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Math.h>
 #include <java/lang/invoke/CallSite.h>
@@ -8,7 +7,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/Spliterator$OfDouble.h>
-#include <java/util/Spliterator$OfPrimitive.h>
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/ForkJoinTask.h>
 #include <java/util/function/IntFunction.h>
@@ -43,7 +41,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfDouble = ::java::util::Spliterator$OfDouble;
-using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $IntFunction = ::java::util::function::IntFunction;
 using $AbstractPipeline = ::java::util::stream::AbstractPipeline;
 using $DoublePipeline$StatefulOp = ::java::util::stream::DoublePipeline$StatefulOp;
@@ -70,83 +67,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(SliceOps$4::lambda$opEvaluateParallelLazy$0(x$0));
+		 return SliceOps$4::lambda$opEvaluateParallelLazy$0(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0::load$($String* name, bool initialize) {
-	$loadClass(SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0);
+	});
 	return class$;
 }
 $Class* SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0::class$ = nullptr;
-
-$FieldInfo _SliceOps$4_FieldInfo_[] = {
-	{"val$limit", "J", nullptr, $FINAL | $SYNTHETIC, $field(SliceOps$4, val$limit)},
-	{"val$normalizedLimit", "J", nullptr, $FINAL | $SYNTHETIC, $field(SliceOps$4, val$normalizedLimit)},
-	{"val$skip", "J", nullptr, $FINAL | $SYNTHETIC, $field(SliceOps$4, val$skip)},
-	{}
-};
-
-$MethodInfo _SliceOps$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;IJJJ)V", nullptr, 0, $method(SliceOps$4, init$, void, $AbstractPipeline*, $StreamShape*, int32_t, int64_t, int64_t, int64_t)},
-	{"exactOutputSize", "(J)J", nullptr, 0, $virtualMethod(SliceOps$4, exactOutputSize, int64_t, int64_t)},
-	{"lambda$opEvaluateParallelLazy$0", "(I)[Ljava/lang/Double;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SliceOps$4, lambda$opEvaluateParallelLazy$0, $DoubleArray*, int32_t)},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node<Ljava/lang/Double;>;", 0, $virtualMethod(SliceOps$4, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
-	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<Ljava/lang/Double;>;", 0, $virtualMethod(SliceOps$4, opEvaluateParallelLazy, $Spliterator*, $PipelineHelper*, $Spliterator*)},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/stream/Sink<Ljava/lang/Double;>;", 0, $virtualMethod(SliceOps$4, opWrapSink, $Sink*, int32_t, $Sink*)},
-	{"unorderedSkipLimitSpliterator", "(Ljava/util/Spliterator$OfDouble;JJJ)Ljava/util/Spliterator$OfDouble;", nullptr, 0, $virtualMethod(SliceOps$4, unorderedSkipLimitSpliterator, $Spliterator$OfDouble*, $Spliterator$OfDouble*, int64_t, int64_t, int64_t)},
-	{}
-};
-
-$EnclosingMethodInfo _SliceOps$4_EnclosingMethodInfo_ = {
-	"java.util.stream.SliceOps",
-	"makeDouble",
-	"(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/DoubleStream;"
-};
-
-$InnerClassInfo _SliceOps$4_InnerClassesInfo_[] = {
-	{"java.util.stream.SliceOps$4", nullptr, nullptr, 0},
-	{"java.util.stream.DoublePipeline$StatefulOp", "java.util.stream.DoublePipeline", "StatefulOp", $STATIC | $ABSTRACT},
-	{"java.util.stream.SliceOps$4$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SliceOps$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.SliceOps$4",
-	"java.util.stream.DoublePipeline$StatefulOp",
-	nullptr,
-	_SliceOps$4_FieldInfo_,
-	_SliceOps$4_MethodInfo_,
-	"Ljava/util/stream/DoublePipeline$StatefulOp<Ljava/lang/Double;>;",
-	&_SliceOps$4_EnclosingMethodInfo_,
-	_SliceOps$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SliceOps"
-};
-
-$Object* allocate$SliceOps$4($Class* clazz) {
-	return $of($alloc(SliceOps$4));
-}
 
 void SliceOps$4::init$($AbstractPipeline* upstream, $StreamShape* inputShape, int32_t opFlags, int64_t val$skip, int64_t val$normalizedLimit, int64_t val$limit) {
 	this->val$skip = val$skip;
@@ -168,24 +111,24 @@ $Spliterator$OfDouble* SliceOps$4::unorderedSkipLimitSpliterator($Spliterator$Of
 }
 
 $Spliterator* SliceOps$4::opEvaluateParallelLazy($PipelineHelper* helper, $Spliterator* spliterator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t size = $nc(helper)->exactOutputSizeIfKnown(spliterator);
 	if (size > 0 && $nc(spliterator)->hasCharacteristics($Spliterator::SUBSIZED)) {
 		$var($Spliterator$OfDouble, var$0, $cast($Spliterator$OfDouble, helper->wrapSpliterator(spliterator)));
 		int64_t var$1 = this->val$skip;
-		return static_cast<$Spliterator*>(static_cast<$Spliterator$OfPrimitive*>(static_cast<$StreamSpliterators$SliceSpliterator$OfPrimitive*>($new($StreamSpliterators$SliceSpliterator$OfDouble, var$0, var$1, $SliceOps::calcSliceFence(this->val$skip, this->val$limit)))));
+		return $cast($StreamSpliterators$SliceSpliterator$OfPrimitive, $new($StreamSpliterators$SliceSpliterator$OfDouble, var$0, var$1, $SliceOps::calcSliceFence(this->val$skip, this->val$limit)));
 	} else {
 		$init($StreamOpFlag);
 		if (!$StreamOpFlag::ORDERED->isKnown(helper->getStreamAndOpFlags())) {
-			return unorderedSkipLimitSpliterator($cast($Spliterator$OfDouble, $(helper->wrapSpliterator(spliterator))), this->val$skip, this->val$limit, size);
+			return unorderedSkipLimitSpliterator($$cast($Spliterator$OfDouble, helper->wrapSpliterator(spliterator)), this->val$skip, this->val$limit, size);
 		} else {
-			return $nc(($cast($Node, $($$new($SliceOps$SliceTask, this, helper, spliterator, static_cast<$IntFunction*>($$new(SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0)), this->val$skip, this->val$limit)->invoke()))))->spliterator();
+			return $$sure($Node, $$new($SliceOps$SliceTask, this, helper, spliterator, $$new(SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0), this->val$skip, this->val$limit)->invoke())->spliterator();
 		}
 	}
 }
 
 $Node* SliceOps$4::opEvaluateParallel($PipelineHelper* helper, $Spliterator* spliterator, $IntFunction* generator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t size = $nc(helper)->exactOutputSizeIfKnown(spliterator);
 	if (size > 0 && $nc(spliterator)->hasCharacteristics($Spliterator::SUBSIZED)) {
 		$var($Spliterator, s, $SliceOps::sliceSpliterator($(helper->getSourceShape()), spliterator, this->val$skip, this->val$limit));
@@ -193,7 +136,7 @@ $Node* SliceOps$4::opEvaluateParallel($PipelineHelper* helper, $Spliterator* spl
 	} else {
 		$init($StreamOpFlag);
 		if (!$StreamOpFlag::ORDERED->isKnown(helper->getStreamAndOpFlags())) {
-			$var($Spliterator$OfDouble, s, unorderedSkipLimitSpliterator($cast($Spliterator$OfDouble, $(helper->wrapSpliterator(spliterator))), this->val$skip, this->val$limit, size));
+			$var($Spliterator$OfDouble, s, unorderedSkipLimitSpliterator($$cast($Spliterator$OfDouble, helper->wrapSpliterator(spliterator)), this->val$skip, this->val$limit, size));
 			return $Nodes::collectDouble(this, s, true);
 		} else {
 			return $cast($Node, $$new($SliceOps$SliceTask, this, helper, spliterator, generator, this->val$skip, this->val$limit)->invoke());
@@ -215,11 +158,55 @@ SliceOps$4::SliceOps$4() {
 
 $Class* SliceOps$4::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0::classInfo$.name)) {
+		if (name->equals("java.util.stream.SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0")) {
 			return SliceOps$4$$Lambda$lambda$opEvaluateParallelLazy$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SliceOps$4, name, initialize, &_SliceOps$4_ClassInfo_, allocate$SliceOps$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$limit", "J", nullptr, $FINAL | $SYNTHETIC, $field(SliceOps$4, val$limit)},
+		{"val$normalizedLimit", "J", nullptr, $FINAL | $SYNTHETIC, $field(SliceOps$4, val$normalizedLimit)},
+		{"val$skip", "J", nullptr, $FINAL | $SYNTHETIC, $field(SliceOps$4, val$skip)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;IJJJ)V", nullptr, 0, $method(SliceOps$4, init$, void, $AbstractPipeline*, $StreamShape*, int32_t, int64_t, int64_t, int64_t)},
+		{"exactOutputSize", "(J)J", nullptr, 0, $virtualMethod(SliceOps$4, exactOutputSize, int64_t, int64_t)},
+		{"lambda$opEvaluateParallelLazy$0", "(I)[Ljava/lang/Double;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SliceOps$4, lambda$opEvaluateParallelLazy$0, $DoubleArray*, int32_t)},
+		{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node<Ljava/lang/Double;>;", 0, $virtualMethod(SliceOps$4, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+		{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<Ljava/lang/Double;>;", 0, $virtualMethod(SliceOps$4, opEvaluateParallelLazy, $Spliterator*, $PipelineHelper*, $Spliterator*)},
+		{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/stream/Sink<Ljava/lang/Double;>;", 0, $virtualMethod(SliceOps$4, opWrapSink, $Sink*, int32_t, $Sink*)},
+		{"unorderedSkipLimitSpliterator", "(Ljava/util/Spliterator$OfDouble;JJJ)Ljava/util/Spliterator$OfDouble;", nullptr, 0, $virtualMethod(SliceOps$4, unorderedSkipLimitSpliterator, $Spliterator$OfDouble*, $Spliterator$OfDouble*, int64_t, int64_t, int64_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.SliceOps",
+		"makeDouble",
+		"(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/DoubleStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SliceOps$4", nullptr, nullptr, 0},
+		{"java.util.stream.DoublePipeline$StatefulOp", "java.util.stream.DoublePipeline", "StatefulOp", $STATIC | $ABSTRACT},
+		{"java.util.stream.SliceOps$4$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.SliceOps$4",
+		"java.util.stream.DoublePipeline$StatefulOp",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/DoublePipeline$StatefulOp<Ljava/lang/Double;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SliceOps"
+	};
+	$loadClass(SliceOps$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SliceOps$4));
+	});
 	return class$;
 }
 

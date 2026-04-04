@@ -1,41 +1,19 @@
 #include <IntegerMinValue.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
 #undef MIN_VALUE
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _IntegerMinValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerMinValue, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IntegerMinValue, main, void, $StringArray*)},
-	{"test", "()V", nullptr, $PUBLIC, $virtualMethod(IntegerMinValue, test, void)},
-	{}
-};
-
-$ClassInfo _IntegerMinValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IntegerMinValue",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IntegerMinValue_MethodInfo_
-};
-
-$Object* allocate$IntegerMinValue($Class* clazz) {
-	return $of($alloc(IntegerMinValue));
-}
-
 void IntegerMinValue::init$() {
 }
 
 void IntegerMinValue::test() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = $Integer::MIN_VALUE;
 	$var($String, s, $str({""_s, $$str(i)}));
 	if (!"-2147483648"_s->equals(s)) {
@@ -46,7 +24,7 @@ void IntegerMinValue::test() {
 
 void IntegerMinValue::main($StringArray* strArr) {
 	$var(IntegerMinValue, t, $new(IntegerMinValue));
-	for (int32_t i = 0; i < 0x000186A0; ++i) {
+	for (int32_t i = 0; i < 100000; ++i) {
 		t->test();
 	}
 }
@@ -55,7 +33,23 @@ IntegerMinValue::IntegerMinValue() {
 }
 
 $Class* IntegerMinValue::load$($String* name, bool initialize) {
-	$loadClass(IntegerMinValue, name, initialize, &_IntegerMinValue_ClassInfo_, allocate$IntegerMinValue);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerMinValue, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IntegerMinValue, main, void, $StringArray*)},
+		{"test", "()V", nullptr, $PUBLIC, $virtualMethod(IntegerMinValue, test, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IntegerMinValue",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IntegerMinValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerMinValue);
+	});
 	return class$;
 }
 

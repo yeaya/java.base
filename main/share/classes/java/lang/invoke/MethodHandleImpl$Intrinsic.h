@@ -38,6 +38,7 @@ class MethodHandleImpl$Intrinsic : public ::java::lang::Enum {
 public:
 	MethodHandleImpl$Intrinsic();
 	static $Array<::java::lang::invoke::MethodHandleImpl$Intrinsic>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::lang::invoke::MethodHandleImpl$Intrinsic* valueOf($String* name);
 	static $Array<::java::lang::invoke::MethodHandleImpl$Intrinsic>* values();

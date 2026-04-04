@@ -24,6 +24,7 @@ class $export AbstractFileTypeDetector : public ::java::nio::file::spi::FileType
 	$class(AbstractFileTypeDetector, 0, ::java::nio::file::spi::FileTypeDetector)
 public:
 	AbstractFileTypeDetector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$String* getExtension($String* name);
 	virtual $String* implProbeContentType(::java::nio::file::Path* file) {return nullptr;}

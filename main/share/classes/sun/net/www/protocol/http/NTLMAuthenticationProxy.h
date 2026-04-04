@@ -46,6 +46,7 @@ class NTLMAuthenticationProxy : public ::java::lang::Object {
 	$class(NTLMAuthenticationProxy, 0, ::java::lang::Object)
 public:
 	NTLMAuthenticationProxy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::Constructor* fourArgCtr, ::java::lang::reflect::Constructor* sixArgCtr);
 	virtual ::sun::net::www::protocol::http::AuthenticationInfo* create(bool isProxy, ::java::net::URL* url, ::java::net::PasswordAuthentication* pw, $String* authenticatorKey);
 	virtual ::sun::net::www::protocol::http::AuthenticationInfo* create(bool isProxy, $String* host, int32_t port, ::java::net::PasswordAuthentication* pw, $String* authenticatorKey);

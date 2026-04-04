@@ -27,6 +27,7 @@ class $export SiblingIOEHandle : public ::java::lang::Object {
 	$class(SiblingIOEHandle, 0, ::java::lang::Object)
 public:
 	SiblingIOEHandle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* getCommandArray($String* processName);
 	static void main($StringArray* args);

@@ -1,5 +1,4 @@
 #include <java/security/Provider$UString.h>
-
 #include <java/security/Provider.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ using $Locale = ::java::util::Locale;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _Provider$UString_FieldInfo_[] = {
-	{"string", "Ljava/lang/String;", nullptr, $FINAL, $field(Provider$UString, string)},
-	{"lowerString", "Ljava/lang/String;", nullptr, $FINAL, $field(Provider$UString, lowerString)},
-	{}
-};
-
-$MethodInfo _Provider$UString_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Provider$UString, init$, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Provider$UString, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Provider$UString, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Provider$UString, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Provider$UString_InnerClassesInfo_[] = {
-	{"java.security.Provider$UString", "java.security.Provider", "UString", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Provider$UString_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.Provider$UString",
-	"java.lang.Object",
-	nullptr,
-	_Provider$UString_FieldInfo_,
-	_Provider$UString_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Provider$UString_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.Provider"
-};
-
-$Object* allocate$Provider$UString($Class* clazz) {
-	return $of($alloc(Provider$UString));
-}
 
 void Provider$UString::init$($String* s) {
 	$set(this, string, s);
@@ -86,7 +46,40 @@ Provider$UString::Provider$UString() {
 }
 
 $Class* Provider$UString::load$($String* name, bool initialize) {
-	$loadClass(Provider$UString, name, initialize, &_Provider$UString_ClassInfo_, allocate$Provider$UString);
+	$FieldInfo fieldInfos$$[] = {
+		{"string", "Ljava/lang/String;", nullptr, $FINAL, $field(Provider$UString, string)},
+		{"lowerString", "Ljava/lang/String;", nullptr, $FINAL, $field(Provider$UString, lowerString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Provider$UString, init$, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Provider$UString, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Provider$UString, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Provider$UString, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.Provider$UString", "java.security.Provider", "UString", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.Provider$UString",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.Provider"
+	};
+	$loadClass(Provider$UString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Provider$UString);
+	});
 	return class$;
 }
 

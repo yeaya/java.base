@@ -1,5 +1,4 @@
 #include <sun/security/ssl/AlpnExtension$SHAlpnProducer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/List.h>
@@ -31,8 +30,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $BiFunction = ::java::util::function::BiFunction;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
 using $Alert = ::sun::security::ssl::Alert;
@@ -44,48 +41,16 @@ using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _AlpnExtension$SHAlpnProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AlpnExtension$SHAlpnProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$SHAlpnProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _AlpnExtension$SHAlpnProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.AlpnExtension$SHAlpnProducer", "sun.security.ssl.AlpnExtension", "SHAlpnProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AlpnExtension$SHAlpnProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.AlpnExtension$SHAlpnProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_AlpnExtension$SHAlpnProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AlpnExtension$SHAlpnProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.AlpnExtension"
-};
-
-$Object* allocate$AlpnExtension$SHAlpnProducer($Class* clazz) {
-	return $of($alloc(AlpnExtension$SHAlpnProducer));
-}
-
 void AlpnExtension$SHAlpnProducer::init$() {
 }
 
 $bytes* AlpnExtension$SHAlpnProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($AlpnExtension$AlpnSpec, requestedAlps, $cast($AlpnExtension$AlpnSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_ALPN)));
@@ -101,34 +66,34 @@ $bytes* AlpnExtension$SHAlpnProducer::produce($ConnectionContext* context, $SSLH
 	$var($List, alps, $nc(requestedAlps)->applicationProtocols);
 	if ($instanceOf($SSLEngine, $nc(shc->conContext)->transport)) {
 		if ($nc(shc->sslConfig)->engineAPSelector != nullptr) {
-			$var($SSLEngine, engine, $cast($SSLEngine, $nc(shc->conContext)->transport));
-			$set(shc, applicationProtocol, $cast($String, $nc($nc(shc->sslConfig)->engineAPSelector)->apply(engine, alps)));
-			bool var$0 = (shc->applicationProtocol == nullptr);
+			$var($SSLEngine, engine, $cast($SSLEngine, shc->conContext->transport));
+			$set(shc, applicationProtocol, $cast($String, shc->sslConfig->engineAPSelector->apply(engine, alps)));
+			bool var$0 = shc->applicationProtocol == nullptr;
 			if (!var$0) {
-				bool var$1 = !$nc(shc->applicationProtocol)->isEmpty();
-				var$0 = (var$1 && !$nc(alps)->contains(shc->applicationProtocol));
+				bool var$1 = !shc->applicationProtocol->isEmpty();
+				var$0 = var$1 && !$nc(alps)->contains(shc->applicationProtocol);
 			}
 			if (var$0) {
 				$init($Alert);
-				$throw($($nc(shc->conContext)->fatal($Alert::NO_APPLICATION_PROTOCOL, "No matching application layer protocol values"_s)));
+				$throw($(shc->conContext->fatal($Alert::NO_APPLICATION_PROTOCOL, "No matching application layer protocol values"_s)));
 			}
 		}
 	} else if ($nc(shc->sslConfig)->socketAPSelector != nullptr) {
-		$var($SSLSocket, socket, $cast($SSLSocket, $nc(shc->conContext)->transport));
-		$set(shc, applicationProtocol, $cast($String, $nc($nc(shc->sslConfig)->socketAPSelector)->apply(socket, alps)));
-		bool var$2 = (shc->applicationProtocol == nullptr);
+		$var($SSLSocket, socket, $cast($SSLSocket, shc->conContext->transport));
+		$set(shc, applicationProtocol, $cast($String, shc->sslConfig->socketAPSelector->apply(socket, alps)));
+		bool var$2 = shc->applicationProtocol == nullptr;
 		if (!var$2) {
-			bool var$3 = !$nc(shc->applicationProtocol)->isEmpty();
-			var$2 = (var$3 && !$nc(alps)->contains(shc->applicationProtocol));
+			bool var$3 = !shc->applicationProtocol->isEmpty();
+			var$2 = var$3 && !$nc(alps)->contains(shc->applicationProtocol);
 		}
 		if (var$2) {
 			$init($Alert);
-			$throw($($nc(shc->conContext)->fatal($Alert::NO_APPLICATION_PROTOCOL, "No matching application layer protocol values"_s)));
+			$throw($(shc->conContext->fatal($Alert::NO_APPLICATION_PROTOCOL, "No matching application layer protocol values"_s)));
 		}
 	}
-	if ((shc->applicationProtocol == nullptr) || ($nc(shc->applicationProtocol)->isEmpty())) {
+	if ((shc->applicationProtocol == nullptr) || (shc->applicationProtocol->isEmpty())) {
 		$set(shc, applicationProtocol, ""_s);
-		$set($nc(shc->conContext), applicationProtocol, ""_s);
+		$set(shc->conContext, applicationProtocol, ""_s);
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::warning("Ignore, no negotiated application layer protocol"_s, $$new($ObjectArray, 0));
@@ -142,8 +107,8 @@ $bytes* AlpnExtension$SHAlpnProducer::produce($ConnectionContext* context, $SSLH
 	$var($ByteBuffer, m, $ByteBuffer::wrap(extData));
 	$Record::putInt16(m, listLen);
 	$Record::putBytes8(m, bytes);
-	$set($nc(shc->conContext), applicationProtocol, shc->applicationProtocol);
-	$nc(shc->handshakeExtensions)->remove($SSLExtension::CH_ALPN);
+	$set(shc->conContext, applicationProtocol, shc->applicationProtocol);
+	shc->handshakeExtensions->remove($SSLExtension::CH_ALPN);
 	return extData;
 }
 
@@ -151,7 +116,33 @@ AlpnExtension$SHAlpnProducer::AlpnExtension$SHAlpnProducer() {
 }
 
 $Class* AlpnExtension$SHAlpnProducer::load$($String* name, bool initialize) {
-	$loadClass(AlpnExtension$SHAlpnProducer, name, initialize, &_AlpnExtension$SHAlpnProducer_ClassInfo_, allocate$AlpnExtension$SHAlpnProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AlpnExtension$SHAlpnProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$SHAlpnProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.AlpnExtension$SHAlpnProducer", "sun.security.ssl.AlpnExtension", "SHAlpnProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.AlpnExtension$SHAlpnProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.AlpnExtension"
+	};
+	$loadClass(AlpnExtension$SHAlpnProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlpnExtension$SHAlpnProducer);
+	});
 	return class$;
 }
 

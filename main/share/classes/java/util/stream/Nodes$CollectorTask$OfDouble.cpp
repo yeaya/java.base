@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$CollectorTask$OfDouble.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -44,27 +43,24 @@ public:
 	virtual $Object* apply(int64_t exactSizeIfKnown) override {
 		 return $of($Nodes::doubleBuilder(exactSizeIfKnown));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder, init$, void)},
-	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder, apply, $Object*, int64_t)},
-	{}
-};
-$ClassInfo Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder",
-	"java.lang.Object",
-	"java.util.function.LongFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder::load$($String* name, bool initialize) {
-	$loadClass(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder, init$, void)},
+		{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder, apply, $Object*, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder",
+		"java.lang.Object",
+		"java.util.function.LongFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder);
+	});
 	return class$;
 }
 $Class* Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder::class$ = nullptr;
@@ -77,77 +73,36 @@ public:
 	virtual $Object* apply(Object$* left, Object$* right) override {
 		 return $of($new($Nodes$ConcNode$OfDouble, $cast($Node$OfDouble, left), $cast($Node$OfDouble, right)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1",
-	"java.lang.Object",
-	"java.util.function.BinaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::load$($String* name, bool initialize) {
-	$loadClass(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1",
+		"java.lang.Object",
+		"java.util.function.BinaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1);
+	});
 	return class$;
 }
 $Class* Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::class$ = nullptr;
 
-$MethodInfo _Nodes$CollectorTask$OfDouble_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(Nodes$CollectorTask$OfDouble, init$, void, $PipelineHelper*, $Spliterator*)},
-	{"doLeaf", "()Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfDouble, doLeaf, $Object*)},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfDouble, makeChild, $Nodes$CollectorTask*, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Nodes$CollectorTask$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$CollectorTask", "java.util.stream.Nodes", "CollectorTask", $PRIVATE | $STATIC},
-	{"java.util.stream.Nodes$CollectorTask$OfDouble", "java.util.stream.Nodes$CollectorTask", "OfDouble", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.Node$OfDouble", "java.util.stream.Node", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Node$Builder$OfDouble", "java.util.stream.Node$Builder", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$CollectorTask$OfDouble_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Nodes$CollectorTask$OfDouble",
-	"java.util.stream.Nodes$CollectorTask",
-	nullptr,
-	nullptr,
-	_Nodes$CollectorTask$OfDouble_MethodInfo_,
-	"<P_IN:Ljava/lang/Object;>Ljava/util/stream/Nodes$CollectorTask<TP_IN;Ljava/lang/Double;Ljava/util/stream/Node$OfDouble;Ljava/util/stream/Node$Builder$OfDouble;>;",
-	nullptr,
-	_Nodes$CollectorTask$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$CollectorTask$OfDouble($Class* clazz) {
-	return $of($alloc(Nodes$CollectorTask$OfDouble));
-}
-
 void Nodes$CollectorTask$OfDouble::init$($PipelineHelper* helper, $Spliterator* spliterator) {
-	$useLocalCurrentObjectStackCache();
-	$var($PipelineHelper, var$0, helper);
-	$var($Spliterator, var$1, spliterator);
-	$var($LongFunction, var$2, static_cast<$LongFunction*>($new(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder)));
-	$Nodes$CollectorTask::init$(var$0, var$1, var$2, static_cast<$BinaryOperator*>($$new(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1)));
+	$useLocalObjectStack();
+	$var($LongFunction, var$0, $new(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder));
+	$Nodes$CollectorTask::init$(helper, spliterator, var$0, $$new(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1));
 }
 
 $Object* Nodes$CollectorTask$OfDouble::doLeaf() {
-	return $of($Nodes$CollectorTask::doLeaf());
+	return $Nodes$CollectorTask::doLeaf();
 }
 
 $Nodes$CollectorTask* Nodes$CollectorTask$OfDouble::makeChild($Spliterator* spliterator) {
@@ -159,14 +114,45 @@ Nodes$CollectorTask$OfDouble::Nodes$CollectorTask$OfDouble() {
 
 $Class* Nodes$CollectorTask$OfDouble::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder::classInfo$.name)) {
+		if (name->equals("java.util.stream.Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder")) {
 			return Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder::load$(name, initialize);
 		}
-		if (name->equals(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::classInfo$.name)) {
+		if (name->equals("java.util.stream.Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1")) {
 			return Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Nodes$CollectorTask$OfDouble, name, initialize, &_Nodes$CollectorTask$OfDouble_ClassInfo_, allocate$Nodes$CollectorTask$OfDouble);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(Nodes$CollectorTask$OfDouble, init$, void, $PipelineHelper*, $Spliterator*)},
+		{"doLeaf", "()Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfDouble, doLeaf, $Object*)},
+		{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfDouble, makeChild, $Nodes$CollectorTask*, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$CollectorTask", "java.util.stream.Nodes", "CollectorTask", $PRIVATE | $STATIC},
+		{"java.util.stream.Nodes$CollectorTask$OfDouble", "java.util.stream.Nodes$CollectorTask", "OfDouble", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.Node$OfDouble", "java.util.stream.Node", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Node$Builder$OfDouble", "java.util.stream.Node$Builder", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Nodes$CollectorTask$OfDouble",
+		"java.util.stream.Nodes$CollectorTask",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<P_IN:Ljava/lang/Object;>Ljava/util/stream/Nodes$CollectorTask<TP_IN;Ljava/lang/Double;Ljava/util/stream/Node$OfDouble;Ljava/util/stream/Node$Builder$OfDouble;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$CollectorTask$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$CollectorTask$OfDouble));
+	});
 	return class$;
 }
 

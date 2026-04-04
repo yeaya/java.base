@@ -25,7 +25,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)292;
 	BootstrapMethodError(const BootstrapMethodError& e);
 	virtual void throw$() override;
-	inline BootstrapMethodError* operator ->() {
+	inline BootstrapMethodError* operator ->() const {
+		return (BootstrapMethodError*)throwing$;
+	}
+	inline operator BootstrapMethodError*() const {
 		return (BootstrapMethodError*)throwing$;
 	}
 };

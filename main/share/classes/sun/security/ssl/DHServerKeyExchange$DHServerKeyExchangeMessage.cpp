@@ -1,5 +1,4 @@
 #include <sun/security/ssl/DHServerKeyExchange$DHServerKeyExchangeMessage.h>
-
 #include <java/math/BigInteger.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmConstraints.h>
@@ -12,7 +11,6 @@
 #include <java/security/PublicKey.h>
 #include <java/security/Signature.h>
 #include <java/security/SignatureException.h>
-#include <java/security/spec/KeySpec.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -68,10 +66,8 @@ using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
 using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map$Entry = ::java::util::Map$Entry;
 using $DHPublicKey = ::javax::crypto::interfaces::DHPublicKey;
@@ -83,7 +79,6 @@ using $DHKeyExchange$DHEPossession = ::sun::security::ssl::DHKeyExchange$DHEPoss
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $JsseJce = ::sun::security::ssl::JsseJce;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $RSASignature = ::sun::security::ssl::RSASignature;
 using $Record = ::sun::security::ssl::Record;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
@@ -92,7 +87,6 @@ using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$Handsh
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 using $SignatureScheme = ::sun::security::ssl::SignatureScheme;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 using $X509Authentication$X509Credentials = ::sun::security::ssl::X509Authentication$X509Credentials;
 using $X509Authentication$X509Possession = ::sun::security::ssl::X509Authentication$X509Possession;
@@ -103,56 +97,8 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _DHServerKeyExchange$DHServerKeyExchangeMessage_FieldInfo_[] = {
-	{"p", "[B", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, p)},
-	{"g", "[B", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, g)},
-	{"y", "[B", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, y)},
-	{"useExplicitSigAlgorithm", "Z", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, useExplicitSigAlgorithm)},
-	{"signatureScheme", "Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, signatureScheme)},
-	{"paramsSignature", "[B", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, paramsSignature)},
-	{}
-};
-
-$MethodInfo _DHServerKeyExchange$DHServerKeyExchangeMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(DHServerKeyExchange$DHServerKeyExchangeMessage, init$, void, $HandshakeContext*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(DHServerKeyExchange$DHServerKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, getSignature, $Signature*, $String*, $Key*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, toString, $String*)},
-	{"updateSignature", "(Ljava/security/Signature;[B[B)V", nullptr, $PRIVATE, $method(DHServerKeyExchange$DHServerKeyExchangeMessage, updateSignature, void, $Signature*, $bytes*, $bytes*), "java.security.SignatureException"},
-	{}
-};
-
-$InnerClassInfo _DHServerKeyExchange$DHServerKeyExchangeMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeMessage", "sun.security.ssl.DHServerKeyExchange", "DHServerKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DHServerKeyExchange$DHServerKeyExchangeMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_DHServerKeyExchange$DHServerKeyExchangeMessage_FieldInfo_,
-	_DHServerKeyExchange$DHServerKeyExchangeMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DHServerKeyExchange$DHServerKeyExchangeMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.DHServerKeyExchange"
-};
-
-$Object* allocate$DHServerKeyExchange$DHServerKeyExchangeMessage($Class* clazz) {
-	return $of($alloc(DHServerKeyExchange$DHServerKeyExchangeMessage));
-}
-
 void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* handshakeContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, handshakeContext));
 	$var($DHKeyExchange$DHEPossession, dhePossession, nullptr);
@@ -161,17 +107,15 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 		$var($Iterator, i$, $nc($nc(shc)->handshakePossessions)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SSLPossession, possession, $cast($SSLPossession, i$->next()));
-			{
-				if ($instanceOf($DHKeyExchange$DHEPossession, possession)) {
-					$assign(dhePossession, $cast($DHKeyExchange$DHEPossession, possession));
-					if (x509Possession != nullptr) {
-						break;
-					}
-				} else if ($instanceOf($X509Authentication$X509Possession, possession)) {
-					$assign(x509Possession, $cast($X509Authentication$X509Possession, possession));
-					if (dhePossession != nullptr) {
-						break;
-					}
+			if ($instanceOf($DHKeyExchange$DHEPossession, possession)) {
+				$assign(dhePossession, $cast($DHKeyExchange$DHEPossession, possession));
+				if (x509Possession != nullptr) {
+					break;
+				}
+			} else if ($instanceOf($X509Authentication$X509Possession, possession)) {
+				$assign(x509Possession, $cast($X509Authentication$X509Possession, possession));
+				if (dhePossession != nullptr) {
+					break;
 				}
 			}
 		}
@@ -183,7 +127,7 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 	$var($DHPublicKey, publicKey, $nc(dhePossession)->publicKey);
 	$var($DHParameterSpec, params, $nc(publicKey)->getParams());
 	$set(this, p, $Utilities::toByteArray($($nc(params)->getP())));
-	$set(this, g, $Utilities::toByteArray($($nc(params)->getG())));
+	$set(this, g, $Utilities::toByteArray($(params->getG())));
 	$set(this, y, $Utilities::toByteArray($(publicKey->getY())));
 	if (x509Possession == nullptr) {
 		$set(this, paramsSignature, nullptr);
@@ -196,21 +140,21 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 			$var($Map$Entry, schemeAndSigner, $SignatureScheme::getSignerOfPreferableAlgorithm(shc->algorithmConstraints, shc->peerRequestedSignatureSchemes, x509Possession, shc->negotiatedProtocol));
 			if (schemeAndSigner == nullptr) {
 				$init($Alert);
-				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"No supported signature algorithm for "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm()), "  key"_s}))));
+				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"No supported signature algorithm for "_s, $($nc(x509Possession->popPrivateKey)->getAlgorithm()), "  key"_s}))));
 			} else {
-				$set(this, signatureScheme, $cast($SignatureScheme, $nc(schemeAndSigner)->getKey()));
+				$set(this, signatureScheme, $cast($SignatureScheme, schemeAndSigner->getKey()));
 				$assign(signer, $cast($Signature, schemeAndSigner->getValue()));
 			}
 		} else {
 			$set(this, signatureScheme, nullptr);
 			try {
-				$assign(signer, getSignature($($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm()), x509Possession->popPrivateKey));
+				$assign(signer, getSignature($($nc(x509Possession->popPrivateKey)->getAlgorithm()), x509Possession->popPrivateKey));
 			} catch ($NoSuchAlgorithmException& e) {
 				$init($Alert);
-				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm())}), e)));
+				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc(x509Possession->popPrivateKey)->getAlgorithm())}), e)));
 			} catch ($InvalidKeyException& e) {
 				$init($Alert);
-				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm())}), e)));
+				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc(x509Possession->popPrivateKey)->getAlgorithm())}), e)));
 			}
 		}
 		$var($bytes, signature, nullptr);
@@ -219,14 +163,14 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 			$assign(signature, $nc(signer)->sign());
 		} catch ($SignatureException& ex) {
 			$init($Alert);
-			$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Failed to sign dhe parameters: "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm())}), ex)));
+			$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Failed to sign dhe parameters: "_s, $($nc(x509Possession->popPrivateKey)->getAlgorithm())}), ex)));
 		}
 		$set(this, paramsSignature, signature);
 	}
 }
 
 void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, handshakeContext));
 	$set(this, p, $Record::getBytes16(m));
@@ -235,7 +179,7 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 	try {
 		$var($BigInteger, var$0, $new($BigInteger, 1, this->y));
 		$var($BigInteger, var$1, $new($BigInteger, 1, this->p));
-		$KeyUtil::validate(static_cast<$KeySpec*>($$new($DHPublicKeySpec, var$0, var$1, $$new($BigInteger, 1, this->p))));
+		$KeyUtil::validate($$new($DHPublicKeySpec, var$0, var$1, $$new($BigInteger, 1, this->p)));
 	} catch ($InvalidKeyException& ike) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Invalid DH ServerKeyExchange: invalid parameters"_s, ike)));
@@ -245,11 +189,9 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 		$var($Iterator, i$, $nc($nc(chc)->handshakeCredentials)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SSLCredentials, cd, $cast($SSLCredentials, i$->next()));
-			{
-				if ($instanceOf($X509Authentication$X509Credentials, cd)) {
-					$assign(x509Credentials, $cast($X509Authentication$X509Credentials, cd));
-					break;
-				}
+			if ($instanceOf($X509Authentication$X509Credentials, cd)) {
+				$assign(x509Credentials, $cast($X509Authentication$X509Credentials, cd));
+				break;
 			}
 		}
 	}
@@ -295,7 +237,7 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 		}
 	} else {
 		try {
-			$assign(signer, getSignature($($nc($nc(x509Credentials)->popPublicKey)->getAlgorithm()), x509Credentials->popPublicKey));
+			$assign(signer, getSignature($($nc($nc(x509Credentials)->popPublicKey)->getAlgorithm()), $nc(x509Credentials)->popPublicKey));
 		} catch ($NoSuchAlgorithmException& e) {
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc($nc(x509Credentials)->popPublicKey)->getAlgorithm())}), e)));
@@ -324,7 +266,7 @@ $SSLHandshake* DHServerKeyExchange$DHServerKeyExchangeMessage::handshakeType() {
 int32_t DHServerKeyExchange$DHServerKeyExchangeMessage::messageLength() {
 	int32_t sigLen = 0;
 	if (this->paramsSignature != nullptr) {
-		sigLen = 2 + $nc(this->paramsSignature)->length;
+		sigLen = 2 + this->paramsSignature->length;
 		if (this->useExplicitSigAlgorithm) {
 			sigLen += $SignatureScheme::sizeInRecord();
 		}
@@ -345,15 +287,15 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::send($HandshakeOutStream* h
 }
 
 $String* DHServerKeyExchange$DHServerKeyExchangeMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->paramsSignature == nullptr) {
 		$init($Locale);
 		$var($MessageFormat, messageFormat, $new($MessageFormat, "\"DH ServerKeyExchange\": \'{\'\n  \"parameters\": \'{\'\n    \"dh_p\": \'{\'\n{0}\n    \'}\',\n    \"dh_g\": \'{\'\n{1}\n    \'}\',\n    \"dh_Ys\": \'{\'\n{2}\n    \'}\',\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 		$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 		$var($ObjectArray, messageFields, $new($ObjectArray, {
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->p)), "      "_s))),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->g)), "      "_s))),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->y)), "      "_s)))
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->p)), "      "_s)),
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->g)), "      "_s)),
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->y)), "      "_s))
 		}));
 		return messageFormat->format(messageFields);
 	}
@@ -362,11 +304,11 @@ $String* DHServerKeyExchange$DHServerKeyExchangeMessage::toString() {
 		$var($MessageFormat, messageFormat, $new($MessageFormat, "\"DH ServerKeyExchange\": \'{\'\n  \"parameters\": \'{\'\n    \"dh_p\": \'{\'\n{0}\n    \'}\',\n    \"dh_g\": \'{\'\n{1}\n    \'}\',\n    \"dh_Ys\": \'{\'\n{2}\n    \'}\',\n  \'}\',\n  \"digital signature\":  \'{\'\n    \"signature algorithm\": \"{3}\"\n    \"signature\": \'{\'\n{4}\n    \'}\',\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 		$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 		$var($ObjectArray, messageFields, $new($ObjectArray, {
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->p)), "      "_s))),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->g)), "      "_s))),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->y)), "      "_s))),
-			$of(this->signatureScheme->name$),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->paramsSignature)), "      "_s)))
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->p)), "      "_s)),
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->g)), "      "_s)),
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->y)), "      "_s)),
+			this->signatureScheme->name$,
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->paramsSignature)), "      "_s))
 		}));
 		return messageFormat->format(messageFields);
 	} else {
@@ -374,10 +316,10 @@ $String* DHServerKeyExchange$DHServerKeyExchangeMessage::toString() {
 		$var($MessageFormat, messageFormat, $new($MessageFormat, "\"DH ServerKeyExchange\": \'{\'\n  \"parameters\": \'{\'\n    \"dh_p\": \'{\'\n{0}\n    \'}\',\n    \"dh_g\": \'{\'\n{1}\n    \'}\',\n    \"dh_Ys\": \'{\'\n{2}\n    \'}\',\n  \'}\',\n  \"signature\": \'{\'\n{3}\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 		$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 		$var($ObjectArray, messageFields, $new($ObjectArray, {
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->p)), "      "_s))),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->g)), "      "_s))),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->y)), "      "_s))),
-			$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->paramsSignature)), "    "_s)))
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->p)), "      "_s)),
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->g)), "      "_s)),
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->y)), "      "_s)),
+			$($Utilities::indent($(hexEncoder->encodeBuffer(this->paramsSignature)), "    "_s))
 		}));
 		return messageFormat->format(messageFields);
 	}
@@ -385,48 +327,38 @@ $String* DHServerKeyExchange$DHServerKeyExchangeMessage::toString() {
 
 $Signature* DHServerKeyExchange$DHServerKeyExchangeMessage::getSignature($String* keyAlgorithm, $Key* key) {
 	$init(DHServerKeyExchange$DHServerKeyExchangeMessage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Signature, signer, nullptr);
 	{
 		$var($String, s17344$, keyAlgorithm);
 		int32_t tmp17344$ = -1;
 		switch ($nc(s17344$)->hashCode()) {
 		case 0x00010992:
-			{
-				if (s17344$->equals("DSA"_s)) {
-					tmp17344$ = 0;
-				}
-				break;
+			if (s17344$->equals("DSA"_s)) {
+				tmp17344$ = 0;
 			}
-		case 0x00013E20:
-			{
-				if (s17344$->equals("RSA"_s)) {
-					tmp17344$ = 1;
-				}
-				break;
+			break;
+		case 0x00013e20:
+			if (s17344$->equals("RSA"_s)) {
+				tmp17344$ = 1;
 			}
+			break;
 		}
 		switch (tmp17344$) {
 		case 0:
-			{
-				$init($JsseJce);
-				$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_DSA));
-				break;
-			}
+			$init($JsseJce);
+			$assign(signer, $Signature::getInstance($JsseJce::SIGNATURE_DSA));
+			break;
 		case 1:
-			{
-				$assign(signer, $RSASignature::getInstance());
-				break;
-			}
+			$assign(signer, $RSASignature::getInstance());
+			break;
 		default:
-			{
-				$throwNew($NoSuchAlgorithmException, $$str({"neither an RSA or a DSA key : "_s, keyAlgorithm}));
-			}
+			$throwNew($NoSuchAlgorithmException, $$str({"neither an RSA or a DSA key : "_s, keyAlgorithm}));
 		}
 	}
 	if (signer != nullptr) {
 		if ($instanceOf($PublicKey, key)) {
-			signer->initVerify(($cast($PublicKey, key)));
+			signer->initVerify($cast($PublicKey, key));
 		} else {
 			signer->initSign($cast($PrivateKey, key));
 		}
@@ -439,13 +371,13 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::updateSignature($Signature*
 	$nc(sig)->update(clntNonce);
 	sig->update(svrNonce);
 	sig->update((int8_t)($nc(this->p)->length >> 8));
-	sig->update((int8_t)((int32_t)($nc(this->p)->length & (uint32_t)255)));
+	sig->update((int8_t)(this->p->length & 0xff));
 	sig->update(this->p);
 	sig->update((int8_t)($nc(this->g)->length >> 8));
-	sig->update((int8_t)((int32_t)($nc(this->g)->length & (uint32_t)255)));
+	sig->update((int8_t)(this->g->length & 0xff));
 	sig->update(this->g);
 	sig->update((int8_t)($nc(this->y)->length >> 8));
-	sig->update((int8_t)((int32_t)($nc(this->y)->length & (uint32_t)255)));
+	sig->update((int8_t)(this->y->length & 0xff));
 	sig->update(this->y);
 }
 
@@ -453,7 +385,49 @@ DHServerKeyExchange$DHServerKeyExchangeMessage::DHServerKeyExchange$DHServerKeyE
 }
 
 $Class* DHServerKeyExchange$DHServerKeyExchangeMessage::load$($String* name, bool initialize) {
-	$loadClass(DHServerKeyExchange$DHServerKeyExchangeMessage, name, initialize, &_DHServerKeyExchange$DHServerKeyExchangeMessage_ClassInfo_, allocate$DHServerKeyExchange$DHServerKeyExchangeMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"p", "[B", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, p)},
+		{"g", "[B", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, g)},
+		{"y", "[B", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, y)},
+		{"useExplicitSigAlgorithm", "Z", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, useExplicitSigAlgorithm)},
+		{"signatureScheme", "Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, signatureScheme)},
+		{"paramsSignature", "[B", nullptr, $PRIVATE | $FINAL, $field(DHServerKeyExchange$DHServerKeyExchangeMessage, paramsSignature)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(DHServerKeyExchange$DHServerKeyExchangeMessage, init$, void, $HandshakeContext*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(DHServerKeyExchange$DHServerKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, getSignature, $Signature*, $String*, $Key*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, toString, $String*)},
+		{"updateSignature", "(Ljava/security/Signature;[B[B)V", nullptr, $PRIVATE, $method(DHServerKeyExchange$DHServerKeyExchangeMessage, updateSignature, void, $Signature*, $bytes*, $bytes*), "java.security.SignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeMessage", "sun.security.ssl.DHServerKeyExchange", "DHServerKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.DHServerKeyExchange"
+	};
+	$loadClass(DHServerKeyExchange$DHServerKeyExchangeMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHServerKeyExchange$DHServerKeyExchangeMessage);
+	});
 	return class$;
 }
 

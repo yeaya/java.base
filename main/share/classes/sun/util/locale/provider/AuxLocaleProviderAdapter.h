@@ -79,6 +79,7 @@ class $export AuxLocaleProviderAdapter : public ::sun::util::locale::provider::L
 	$class(AuxLocaleProviderAdapter, 0, ::sun::util::locale::provider::LocaleProviderAdapter)
 public:
 	AuxLocaleProviderAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::spi::LocaleServiceProvider* findInstalledProvider($Class* c) {return nullptr;}
 	virtual $Array<::java::util::Locale>* getAvailableLocales() override;

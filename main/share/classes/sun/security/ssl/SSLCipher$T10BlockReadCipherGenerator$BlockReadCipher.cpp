@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/Key.h>
 #include <java/security/Provider.h>
@@ -30,7 +29,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Key = ::java::security::Key;
-using $Provider = ::java::security::Provider;
 using $SecureRandom = ::java::security::SecureRandom;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $BadPaddingException = ::javax::crypto::BadPaddingException;
@@ -48,47 +46,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher_FieldInfo_[] = {
-	{"cipher", "Ljavax/crypto/Cipher;", nullptr, $PRIVATE | $FINAL, $field(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, cipher)},
-	{}
-};
-
-$MethodInfo _SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, init$, void, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
-	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, decrypt, $Plaintext*, int8_t, $ByteBuffer*, $bytes*), "java.security.GeneralSecurityException"},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, dispose, void)},
-	{"estimateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, estimateFragmentSize, int32_t, int32_t, int32_t)},
-	{"sanityCheck", "(II)Z", nullptr, $PRIVATE, $method(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, sanityCheck, bool, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLCipher$T10BlockReadCipherGenerator", "sun.security.ssl.SSLCipher", "T10BlockReadCipherGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher", "sun.security.ssl.SSLCipher$T10BlockReadCipherGenerator", "BlockReadCipher", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLCipher$SSLReadCipher", "sun.security.ssl.SSLCipher", "SSLReadCipher", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher",
-	"sun.security.ssl.SSLCipher$SSLReadCipher",
-	nullptr,
-	_SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher_FieldInfo_,
-	_SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLCipher"
-};
-
-$Object* allocate$SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher($Class* clazz) {
-	return $of($alloc(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher));
-}
-
 void SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::init$($Authenticator* authenticator, $ProtocolVersion* protocolVersion, $String* algorithm, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
 	$SSLCipher$SSLReadCipher::init$(authenticator, protocolVersion);
 	$set(this, cipher, $Cipher::getInstance(algorithm));
@@ -96,7 +53,7 @@ void SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::init$($Authenticator
 }
 
 $Plaintext* SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::decrypt(int8_t contentType, $ByteBuffer* bb, $bytes* sequence) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BadPaddingException, reservedBPE, nullptr);
 	$var($Authenticator$MAC, signer, $cast($Authenticator$MAC, this->authenticator));
 	int32_t cipheredLength = $nc(bb)->remaining();
@@ -118,11 +75,11 @@ $Plaintext* SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::decrypt(int8_
 			$throwNew($RuntimeException, "Unexpected ByteBuffer position"_s);
 		}
 	} catch ($ShortBufferException& sbe) {
-		$throwNew($RuntimeException, $$str({"Cipher buffering error in JCE provider "_s, $($nc($($nc(this->cipher)->getProvider()))->getName())}), sbe);
+		$throwNew($RuntimeException, $$str({"Cipher buffering error in JCE provider "_s, $($$nc($nc(this->cipher)->getProvider())->getName())}), sbe);
 	}
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("plaintext"_s)) {
-		$SSLLogger::fine("Padded plaintext after DECRYPTION"_s, $$new($ObjectArray, {$($of($nc($(bb->duplicate()))->position(pos)))}));
+		$SSLLogger::fine("Padded plaintext after DECRYPTION"_s, $$new($ObjectArray, {$($$nc(bb->duplicate())->position(pos))}));
 	}
 	int32_t blockSize = $nc(this->cipher)->getBlockSize();
 	bb->position(pos);
@@ -154,14 +111,14 @@ $Plaintext* SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::decrypt(int8_
 void SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::dispose() {
 	if (this->cipher != nullptr) {
 		try {
-			$nc(this->cipher)->doFinal();
+			this->cipher->doFinal();
 		} catch ($Exception& e) {
 		}
 	}
 }
 
 int32_t SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::estimateFragmentSize(int32_t packetSize, int32_t headerSize) {
-	int32_t macLen = $nc($($nc(($cast($Authenticator$MAC, this->authenticator)))->macAlg()))->size;
+	int32_t macLen = $nc($($nc($cast($Authenticator$MAC, this->authenticator))->macAlg()))->size;
 	return packetSize - headerSize - macLen - 1;
 }
 
@@ -179,7 +136,42 @@ SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::SSLCipher$T10BlockReadCip
 }
 
 $Class* SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::load$($String* name, bool initialize) {
-	$loadClass(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, name, initialize, &_SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher_ClassInfo_, allocate$SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher);
+	$FieldInfo fieldInfos$$[] = {
+		{"cipher", "Ljavax/crypto/Cipher;", nullptr, $PRIVATE | $FINAL, $field(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, cipher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, init$, void, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+		{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, decrypt, $Plaintext*, int8_t, $ByteBuffer*, $bytes*), "java.security.GeneralSecurityException"},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, dispose, void)},
+		{"estimateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, estimateFragmentSize, int32_t, int32_t, int32_t)},
+		{"sanityCheck", "(II)Z", nullptr, $PRIVATE, $method(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, sanityCheck, bool, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLCipher$T10BlockReadCipherGenerator", "sun.security.ssl.SSLCipher", "T10BlockReadCipherGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher", "sun.security.ssl.SSLCipher$T10BlockReadCipherGenerator", "BlockReadCipher", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLCipher$SSLReadCipher", "sun.security.ssl.SSLCipher", "SSLReadCipher", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher",
+		"sun.security.ssl.SSLCipher$SSLReadCipher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLCipher"
+	};
+	$loadClass(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher);
+	});
 	return class$;
 }
 

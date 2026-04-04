@@ -1,5 +1,4 @@
 #include <java/util/stream/ReferencePipeline$6.h>
-
 #include <java/util/function/ToDoubleFunction.h>
 #include <java/util/stream/AbstractPipeline.h>
 #include <java/util/stream/DoublePipeline$StatelessOp.h>
@@ -26,51 +25,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _ReferencePipeline$6_FieldInfo_[] = {
-	{"this$0", "Ljava/util/stream/ReferencePipeline;", nullptr, $FINAL | $SYNTHETIC, $field(ReferencePipeline$6, this$0)},
-	{"val$mapper", "Ljava/util/function/ToDoubleFunction;", nullptr, $FINAL | $SYNTHETIC, $field(ReferencePipeline$6, val$mapper)},
-	{}
-};
-
-$MethodInfo _ReferencePipeline$6_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/ReferencePipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/ToDoubleFunction;)V", nullptr, 0, $method(ReferencePipeline$6, init$, void, $ReferencePipeline*, $AbstractPipeline*, $StreamShape*, int32_t, $ToDoubleFunction*)},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/stream/Sink<TP_OUT;>;", 0, $virtualMethod(ReferencePipeline$6, opWrapSink, $Sink*, int32_t, $Sink*)},
-	{}
-};
-
-$EnclosingMethodInfo _ReferencePipeline$6_EnclosingMethodInfo_ = {
-	"java.util.stream.ReferencePipeline",
-	"mapToDouble",
-	"(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/DoubleStream;"
-};
-
-$InnerClassInfo _ReferencePipeline$6_InnerClassesInfo_[] = {
-	{"java.util.stream.ReferencePipeline$6", nullptr, nullptr, 0},
-	{"java.util.stream.DoublePipeline$StatelessOp", "java.util.stream.DoublePipeline", "StatelessOp", $STATIC | $ABSTRACT},
-	{"java.util.stream.ReferencePipeline$6$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ReferencePipeline$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.ReferencePipeline$6",
-	"java.util.stream.DoublePipeline$StatelessOp",
-	nullptr,
-	_ReferencePipeline$6_FieldInfo_,
-	_ReferencePipeline$6_MethodInfo_,
-	"Ljava/util/stream/DoublePipeline$StatelessOp<TP_OUT;>;",
-	&_ReferencePipeline$6_EnclosingMethodInfo_,
-	_ReferencePipeline$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ReferencePipeline"
-};
-
-$Object* allocate$ReferencePipeline$6($Class* clazz) {
-	return $of($alloc(ReferencePipeline$6));
-}
-
 void ReferencePipeline$6::init$($ReferencePipeline* this$0, $AbstractPipeline* upstream, $StreamShape* inputShape, int32_t opFlags, $ToDoubleFunction* val$mapper) {
 	$set(this, this$0, this$0);
 	$set(this, val$mapper, val$mapper);
@@ -85,7 +39,45 @@ ReferencePipeline$6::ReferencePipeline$6() {
 }
 
 $Class* ReferencePipeline$6::load$($String* name, bool initialize) {
-	$loadClass(ReferencePipeline$6, name, initialize, &_ReferencePipeline$6_ClassInfo_, allocate$ReferencePipeline$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/stream/ReferencePipeline;", nullptr, $FINAL | $SYNTHETIC, $field(ReferencePipeline$6, this$0)},
+		{"val$mapper", "Ljava/util/function/ToDoubleFunction;", nullptr, $FINAL | $SYNTHETIC, $field(ReferencePipeline$6, val$mapper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/ReferencePipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/ToDoubleFunction;)V", nullptr, 0, $method(ReferencePipeline$6, init$, void, $ReferencePipeline*, $AbstractPipeline*, $StreamShape*, int32_t, $ToDoubleFunction*)},
+		{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/stream/Sink<TP_OUT;>;", 0, $virtualMethod(ReferencePipeline$6, opWrapSink, $Sink*, int32_t, $Sink*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.ReferencePipeline",
+		"mapToDouble",
+		"(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/DoubleStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ReferencePipeline$6", nullptr, nullptr, 0},
+		{"java.util.stream.DoublePipeline$StatelessOp", "java.util.stream.DoublePipeline", "StatelessOp", $STATIC | $ABSTRACT},
+		{"java.util.stream.ReferencePipeline$6$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.ReferencePipeline$6",
+		"java.util.stream.DoublePipeline$StatelessOp",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/DoublePipeline$StatelessOp<TP_OUT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ReferencePipeline"
+	};
+	$loadClass(ReferencePipeline$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReferencePipeline$6));
+	});
 	return class$;
 }
 

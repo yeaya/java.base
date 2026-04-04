@@ -32,6 +32,7 @@ class PBEKeyFactory : public ::javax::crypto::SecretKeyFactorySpi {
 	$class(PBEKeyFactory, 0, ::javax::crypto::SecretKeyFactorySpi)
 public:
 	PBEKeyFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* keytype);
 	virtual ::javax::crypto::SecretKey* engineGenerateSecret(::java::security::spec::KeySpec* keySpec) override;
 	virtual ::java::security::spec::KeySpec* engineGetKeySpec(::javax::crypto::SecretKey* key, $Class* keySpecCl) override;

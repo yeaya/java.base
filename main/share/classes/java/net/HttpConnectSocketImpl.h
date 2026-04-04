@@ -37,6 +37,7 @@ class HttpConnectSocketImpl : public ::java::net::DelegatingSocketImpl {
 	$class(HttpConnectSocketImpl, 0, ::java::net::DelegatingSocketImpl)
 public:
 	HttpConnectSocketImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::Proxy* proxy, ::java::net::SocketImpl* delegate, ::java::net::Socket* socket);
 	virtual void accept(::java::net::SocketImpl* s) override;
 	virtual void connect($String* host, int32_t port) override;

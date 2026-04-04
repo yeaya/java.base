@@ -28,6 +28,7 @@ class ProxyClassesDumper : public ::java::lang::Object {
 	$class(ProxyClassesDumper, 0, ::java::lang::Object)
 public:
 	ProxyClassesDumper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::Path* path);
 	void dumpClass($String* className, $bytes* classBytes);
 	static $String* encodeForFilename($String* className);

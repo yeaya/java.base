@@ -19,6 +19,7 @@ class $export FinalizerHistogramTest : public ::java::lang::Object {
 	$class(FinalizerHistogramTest, 0, ::java::lang::Object)
 public:
 	FinalizerHistogramTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* argvs);
 	static ::java::util::concurrent::locks::ReentrantLock* lock;

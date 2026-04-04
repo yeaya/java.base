@@ -1,5 +1,4 @@
 #include <java/io/ByteArrayOutputStream.h>
-
 #include <java/io/OutputStream.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/Arrays.h>
@@ -21,55 +20,12 @@ using $ArraysSupport = ::jdk::internal::util::ArraysSupport;
 namespace java {
 	namespace io {
 
-$CompoundAttribute _ByteArrayOutputStream_MethodAnnotations_toString10[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ByteArrayOutputStream_FieldInfo_[] = {
-	{"buf", "[B", nullptr, $PROTECTED, $field(ByteArrayOutputStream, buf)},
-	{"count", "I", nullptr, $PROTECTED, $field(ByteArrayOutputStream, count)},
-	{}
-};
-
-$MethodInfo _ByteArrayOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ByteArrayOutputStream, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ByteArrayOutputStream, init$, void, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ByteArrayOutputStream, close, void), "java.io.IOException"},
-	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(ByteArrayOutputStream, ensureCapacity, void, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, reset, void)},
-	{"size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, size, int32_t)},
-	{"toByteArray", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toByteArray, $bytes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toString, $String*)},
-	{"toString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toString, $String*, $String*), "java.io.UnsupportedEncodingException"},
-	{"toString", "(Ljava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toString, $String*, $Charset*)},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(ByteArrayOutputStream, toString, $String*, int32_t), nullptr, nullptr, _ByteArrayOutputStream_MethodAnnotations_toString10},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, write, void, int32_t)},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, write, void, $bytes*, int32_t, int32_t)},
-	{"writeBytes", "([B)V", nullptr, $PUBLIC, $virtualMethod(ByteArrayOutputStream, writeBytes, void, $bytes*)},
-	{"writeTo", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, writeTo, void, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ByteArrayOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.ByteArrayOutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	_ByteArrayOutputStream_FieldInfo_,
-	_ByteArrayOutputStream_MethodInfo_
-};
-
-$Object* allocate$ByteArrayOutputStream($Class* clazz) {
-	return $of($alloc(ByteArrayOutputStream));
-}
-
 void ByteArrayOutputStream::init$() {
 	ByteArrayOutputStream::init$(32);
 }
 
 void ByteArrayOutputStream::init$(int32_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$OutputStream::init$();
 	if (size < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Negative initial size: "_s, $$str(size)}));
@@ -161,7 +117,44 @@ ByteArrayOutputStream::ByteArrayOutputStream() {
 }
 
 $Class* ByteArrayOutputStream::load$($String* name, bool initialize) {
-	$loadClass(ByteArrayOutputStream, name, initialize, &_ByteArrayOutputStream_ClassInfo_, allocate$ByteArrayOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[B", nullptr, $PROTECTED, $field(ByteArrayOutputStream, buf)},
+		{"count", "I", nullptr, $PROTECTED, $field(ByteArrayOutputStream, count)},
+		{}
+	};
+	$CompoundAttribute toStringmethodAnnotations$$$3[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ByteArrayOutputStream, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ByteArrayOutputStream, init$, void, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ByteArrayOutputStream, close, void), "java.io.IOException"},
+		{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(ByteArrayOutputStream, ensureCapacity, void, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, reset, void)},
+		{"size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, size, int32_t)},
+		{"toByteArray", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toByteArray, $bytes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toString, $String*)},
+		{"toString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toString, $String*, $String*), "java.io.UnsupportedEncodingException"},
+		{"toString", "(Ljava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toString, $String*, $Charset*)},
+		{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(ByteArrayOutputStream, toString, $String*, int32_t), nullptr, nullptr, toStringmethodAnnotations$$$3},
+		{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, write, void, int32_t)},
+		{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, write, void, $bytes*, int32_t, int32_t)},
+		{"writeBytes", "([B)V", nullptr, $PUBLIC, $virtualMethod(ByteArrayOutputStream, writeBytes, void, $bytes*)},
+		{"writeTo", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, writeTo, void, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.ByteArrayOutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteArrayOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ByteArrayOutputStream));
+	});
 	return class$;
 }
 

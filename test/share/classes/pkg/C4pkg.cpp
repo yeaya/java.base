@@ -1,5 +1,4 @@
 #include <pkg/C4pkg.h>
-
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/util/Set.h>
@@ -12,26 +11,6 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $Set = ::java::util::Set;
 
 namespace pkg {
-
-$MethodInfo _C4pkg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(C4pkg, init$, void)},
-	{"inaccessibleFields", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(C4pkg, inaccessibleFields, $Set*)},
-	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(C4pkg, lookup, $MethodHandles$Lookup*)},
-	{}
-};
-
-$ClassInfo _C4pkg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"pkg.C4pkg",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_C4pkg_MethodInfo_
-};
-
-$Object* allocate$C4pkg($Class* clazz) {
-	return $of($alloc(C4pkg));
-}
 
 void C4pkg::init$() {
 }
@@ -50,7 +29,23 @@ C4pkg::C4pkg() {
 }
 
 $Class* C4pkg::load$($String* name, bool initialize) {
-	$loadClass(C4pkg, name, initialize, &_C4pkg_ClassInfo_, allocate$C4pkg);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(C4pkg, init$, void)},
+		{"inaccessibleFields", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(C4pkg, inaccessibleFields, $Set*)},
+		{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(C4pkg, lookup, $MethodHandles$Lookup*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"pkg.C4pkg",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(C4pkg, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(C4pkg);
+	});
 	return class$;
 }
 

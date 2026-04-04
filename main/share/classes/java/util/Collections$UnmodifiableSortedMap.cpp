@@ -1,5 +1,4 @@
 #include <java/util/Collections$UnmodifiableSortedMap.h>
-
 #include <java/util/Collection.h>
 #include <java/util/Collections$UnmodifiableMap.h>
 #include <java/util/Collections.h>
@@ -28,77 +27,6 @@ using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$UnmodifiableSortedMap_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableSortedMap, serialVersionUID)},
-	{"sm", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<TK;+TV;>;", $PRIVATE | $FINAL, $field(Collections$UnmodifiableSortedMap, sm)},
-	{}
-};
-
-$MethodInfo _Collections$UnmodifiableSortedMap_MethodInfo_[] = {
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC},
-	{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/SortedMap;)V", "(Ljava/util/SortedMap<TK;+TV;>;)V", 0, $method(Collections$UnmodifiableSortedMap, init$, void, $SortedMap*)},
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, comparator, $Comparator*)},
-	{"firstKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, firstKey, $Object*)},
-	{"headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, headMap, $SortedMap*, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*keySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"lastKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, lastKey, $Object*)},
-	{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
-	{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, subMap, $SortedMap*, Object$*, Object$*)},
-	{"tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, tailMap, $SortedMap*, Object$*)},
-	{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$UnmodifiableSortedMap_InnerClassesInfo_[] = {
-	{"java.util.Collections$UnmodifiableSortedMap", "java.util.Collections", "UnmodifiableSortedMap", $STATIC},
-	{"java.util.Collections$UnmodifiableMap", "java.util.Collections", "UnmodifiableMap", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$UnmodifiableSortedMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$UnmodifiableSortedMap",
-	"java.util.Collections$UnmodifiableMap",
-	"java.util.SortedMap",
-	_Collections$UnmodifiableSortedMap_FieldInfo_,
-	_Collections$UnmodifiableSortedMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableMap<TK;TV;>;Ljava/util/SortedMap<TK;TV;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$UnmodifiableSortedMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$UnmodifiableSortedMap($Class* clazz) {
-	return $of($alloc(Collections$UnmodifiableSortedMap));
-}
 
 int32_t Collections$UnmodifiableSortedMap::size() {
 	 return this->$Collections$UnmodifiableMap::size();
@@ -234,18 +162,83 @@ $SortedMap* Collections$UnmodifiableSortedMap::tailMap(Object$* fromKey) {
 }
 
 $Object* Collections$UnmodifiableSortedMap::firstKey() {
-	return $of($nc(this->sm)->firstKey());
+	return $nc(this->sm)->firstKey();
 }
 
 $Object* Collections$UnmodifiableSortedMap::lastKey() {
-	return $of($nc(this->sm)->lastKey());
+	return $nc(this->sm)->lastKey();
 }
 
 Collections$UnmodifiableSortedMap::Collections$UnmodifiableSortedMap() {
 }
 
 $Class* Collections$UnmodifiableSortedMap::load$($String* name, bool initialize) {
-	$loadClass(Collections$UnmodifiableSortedMap, name, initialize, &_Collections$UnmodifiableSortedMap_ClassInfo_, allocate$Collections$UnmodifiableSortedMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableSortedMap, serialVersionUID)},
+		{"sm", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<TK;+TV;>;", $PRIVATE | $FINAL, $field(Collections$UnmodifiableSortedMap, sm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC},
+		{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/SortedMap;)V", "(Ljava/util/SortedMap<TK;+TV;>;)V", 0, $method(Collections$UnmodifiableSortedMap, init$, void, $SortedMap*)},
+		{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, comparator, $Comparator*)},
+		{"firstKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, firstKey, $Object*)},
+		{"headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, headMap, $SortedMap*, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*keySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"lastKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, lastKey, $Object*)},
+		{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
+		{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, subMap, $SortedMap*, Object$*, Object$*)},
+		{"tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableSortedMap, tailMap, $SortedMap*, Object$*)},
+		{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$UnmodifiableSortedMap", "java.util.Collections", "UnmodifiableSortedMap", $STATIC},
+		{"java.util.Collections$UnmodifiableMap", "java.util.Collections", "UnmodifiableMap", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$UnmodifiableSortedMap",
+		"java.util.Collections$UnmodifiableMap",
+		"java.util.SortedMap",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableMap<TK;TV;>;Ljava/util/SortedMap<TK;TV;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$UnmodifiableSortedMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$UnmodifiableSortedMap));
+	});
 	return class$;
 }
 

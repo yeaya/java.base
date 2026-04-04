@@ -24,6 +24,7 @@ class $export SSLEngineResult$Status : public ::java::lang::Enum {
 public:
 	SSLEngineResult$Status();
 	static $Array<::javax::net::ssl::SSLEngineResult$Status>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::net::ssl::SSLEngineResult$Status* valueOf($String* name);
 	static $Array<::javax::net::ssl::SSLEngineResult$Status>* values();

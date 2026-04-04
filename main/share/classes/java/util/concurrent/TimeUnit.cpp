@@ -1,5 +1,4 @@
 #include <java/util/concurrent/TimeUnit.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Enum.h>
 #include <java/time/Duration.h>
@@ -45,81 +44,6 @@ using $TimeUnit$1 = ::java::util::concurrent::TimeUnit$1;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _TimeUnit_FieldInfo_[] = {
-	{"NANOSECONDS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, NANOSECONDS)},
-	{"MICROSECONDS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, MICROSECONDS)},
-	{"MILLISECONDS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, MILLISECONDS)},
-	{"SECONDS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, SECONDS)},
-	{"MINUTES", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, MINUTES)},
-	{"HOURS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, HOURS)},
-	{"DAYS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, DAYS)},
-	{"$VALUES", "[Ljava/util/concurrent/TimeUnit;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TimeUnit, $VALUES)},
-	{"NANO_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, NANO_SCALE)},
-	{"MICRO_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, MICRO_SCALE)},
-	{"MILLI_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, MILLI_SCALE)},
-	{"SECOND_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, SECOND_SCALE)},
-	{"MINUTE_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, MINUTE_SCALE)},
-	{"HOUR_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, HOUR_SCALE)},
-	{"DAY_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, DAY_SCALE)},
-	{"scale", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, scale)},
-	{"maxNanos", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, maxNanos)},
-	{"maxMicros", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, maxMicros)},
-	{"maxMillis", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, maxMillis)},
-	{"maxSecs", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, maxSecs)},
-	{"microRatio", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, microRatio)},
-	{"milliRatio", "I", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, milliRatio)},
-	{"secRatio", "I", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, secRatio)},
-	{}
-};
-
-$MethodInfo _TimeUnit_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/concurrent/TimeUnit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TimeUnit, $values, $TimeUnitArray*)},
-	{"<init>", "(Ljava/lang/String;IJ)V", "(J)V", $PRIVATE, $method(TimeUnit, init$, void, $String*, int32_t, int64_t)},
-	{"convert", "(JLjava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC, $method(TimeUnit, convert, int64_t, int64_t, TimeUnit*)},
-	{"convert", "(Ljava/time/Duration;)J", nullptr, $PUBLIC, $method(TimeUnit, convert, int64_t, $Duration*)},
-	{"cvt", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeUnit, cvt, int64_t, int64_t, int64_t, int64_t)},
-	{"excessNanos", "(JJ)I", nullptr, $PRIVATE, $method(TimeUnit, excessNanos, int32_t, int64_t, int64_t)},
-	{"of", "(Ljava/time/temporal/ChronoUnit;)Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeUnit, of, TimeUnit*, $ChronoUnit*)},
-	{"sleep", "(J)V", nullptr, $PUBLIC, $method(TimeUnit, sleep, void, int64_t), "java.lang.InterruptedException"},
-	{"timedJoin", "(Ljava/lang/Thread;J)V", nullptr, $PUBLIC, $method(TimeUnit, timedJoin, void, $Thread*, int64_t), "java.lang.InterruptedException"},
-	{"timedWait", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC, $method(TimeUnit, timedWait, void, Object$*, int64_t), "java.lang.InterruptedException"},
-	{"toChronoUnit", "()Ljava/time/temporal/ChronoUnit;", nullptr, $PUBLIC, $method(TimeUnit, toChronoUnit, $ChronoUnit*)},
-	{"toDays", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toDays, int64_t, int64_t)},
-	{"toHours", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toHours, int64_t, int64_t)},
-	{"toMicros", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toMicros, int64_t, int64_t)},
-	{"toMillis", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toMillis, int64_t, int64_t)},
-	{"toMinutes", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toMinutes, int64_t, int64_t)},
-	{"toNanos", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toNanos, int64_t, int64_t)},
-	{"toSeconds", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toSeconds, int64_t, int64_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeUnit, valueOf, TimeUnit*, $String*)},
-	{"values", "()[Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeUnit, values, $TimeUnitArray*)},
-	{}
-};
-
-$InnerClassInfo _TimeUnit_InnerClassesInfo_[] = {
-	{"java.util.concurrent.TimeUnit$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _TimeUnit_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.util.concurrent.TimeUnit",
-	"java.lang.Enum",
-	nullptr,
-	_TimeUnit_FieldInfo_,
-	_TimeUnit_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/util/concurrent/TimeUnit;>;",
-	nullptr,
-	_TimeUnit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.TimeUnit$1"
-};
-
-$Object* allocate$TimeUnit($Class* clazz) {
-	return $of($alloc(TimeUnit));
-}
 
 TimeUnit* TimeUnit::NANOSECONDS = nullptr;
 TimeUnit* TimeUnit::MICROSECONDS = nullptr;
@@ -189,25 +113,15 @@ int64_t TimeUnit::convert(int64_t sourceDuration, TimeUnit* sourceUnit) {
 	$init($TimeUnit$1);
 	switch ($nc($TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit)->get((this)->ordinal())) {
 	case 1:
-		{
-			return $nc(sourceUnit)->toNanos(sourceDuration);
-		}
+		return $nc(sourceUnit)->toNanos(sourceDuration);
 	case 2:
-		{
-			return $nc(sourceUnit)->toMicros(sourceDuration);
-		}
+		return $nc(sourceUnit)->toMicros(sourceDuration);
 	case 3:
-		{
-			return $nc(sourceUnit)->toMillis(sourceDuration);
-		}
+		return $nc(sourceUnit)->toMillis(sourceDuration);
 	case 4:
-		{
-			return $nc(sourceUnit)->toSeconds(sourceDuration);
-		}
+		return $nc(sourceUnit)->toSeconds(sourceDuration);
 	default:
-		{
-			return cvt(sourceDuration, this->scale, $nc(sourceUnit)->scale);
-		}
+		return cvt(sourceDuration, this->scale, $nc(sourceUnit)->scale);
 	}
 }
 
@@ -340,87 +254,55 @@ $ChronoUnit* TimeUnit::toChronoUnit() {
 	$init($TimeUnit$1);
 	switch ($nc($TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit)->get((this)->ordinal())) {
 	case 1:
-		{
-			$init($ChronoUnit);
-			return $ChronoUnit::NANOS;
-		}
+		$init($ChronoUnit);
+		return $ChronoUnit::NANOS;
 	case 2:
-		{
-			$init($ChronoUnit);
-			return $ChronoUnit::MICROS;
-		}
+		$init($ChronoUnit);
+		return $ChronoUnit::MICROS;
 	case 3:
-		{
-			$init($ChronoUnit);
-			return $ChronoUnit::MILLIS;
-		}
+		$init($ChronoUnit);
+		return $ChronoUnit::MILLIS;
 	case 4:
-		{
-			$init($ChronoUnit);
-			return $ChronoUnit::SECONDS;
-		}
+		$init($ChronoUnit);
+		return $ChronoUnit::SECONDS;
 	case 5:
-		{
-			$init($ChronoUnit);
-			return $ChronoUnit::MINUTES;
-		}
+		$init($ChronoUnit);
+		return $ChronoUnit::MINUTES;
 	case 6:
-		{
-			$init($ChronoUnit);
-			return $ChronoUnit::HOURS;
-		}
+		$init($ChronoUnit);
+		return $ChronoUnit::HOURS;
 	case 7:
-		{
-			$init($ChronoUnit);
-			return $ChronoUnit::DAYS;
-		}
+		$init($ChronoUnit);
+		return $ChronoUnit::DAYS;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
 TimeUnit* TimeUnit::of($ChronoUnit* chronoUnit) {
 	$init(TimeUnit);
 	$init($TimeUnit$1);
-	switch ($nc($TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc(($cast($ChronoUnit, $Objects::requireNonNull($of(chronoUnit), "chronoUnit"_s))))->ordinal())) {
+	switch ($nc($TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($sure($ChronoUnit, $Objects::requireNonNull(chronoUnit, "chronoUnit"_s))->ordinal())) {
 	case 1:
-		{
-			return TimeUnit::NANOSECONDS;
-		}
+		return TimeUnit::NANOSECONDS;
 	case 2:
-		{
-			return TimeUnit::MICROSECONDS;
-		}
+		return TimeUnit::MICROSECONDS;
 	case 3:
-		{
-			return TimeUnit::MILLISECONDS;
-		}
+		return TimeUnit::MILLISECONDS;
 	case 4:
-		{
-			return TimeUnit::SECONDS;
-		}
+		return TimeUnit::SECONDS;
 	case 5:
-		{
-			return TimeUnit::MINUTES;
-		}
+		return TimeUnit::MINUTES;
 	case 6:
-		{
-			return TimeUnit::HOURS;
-		}
+		return TimeUnit::HOURS;
 	case 7:
-		{
-			return TimeUnit::DAYS;
-		}
+		return TimeUnit::DAYS;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"No TimeUnit equivalent for "_s, chronoUnit}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"No TimeUnit equivalent for "_s, chronoUnit}));
 	}
 }
 
-void clinit$TimeUnit($Class* class$) {
+void TimeUnit::clinit$($Class* clazz) {
 	$assignStatic(TimeUnit::NANOSECONDS, $new(TimeUnit, "NANOSECONDS"_s, 0, TimeUnit::NANO_SCALE));
 	$assignStatic(TimeUnit::MICROSECONDS, $new(TimeUnit, "MICROSECONDS"_s, 1, TimeUnit::MICRO_SCALE));
 	$assignStatic(TimeUnit::MILLISECONDS, $new(TimeUnit, "MILLISECONDS"_s, 2, TimeUnit::MILLI_SCALE));
@@ -435,7 +317,76 @@ TimeUnit::TimeUnit() {
 }
 
 $Class* TimeUnit::load$($String* name, bool initialize) {
-	$loadClass(TimeUnit, name, initialize, &_TimeUnit_ClassInfo_, clinit$TimeUnit, allocate$TimeUnit);
+	$FieldInfo fieldInfos$$[] = {
+		{"NANOSECONDS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, NANOSECONDS)},
+		{"MICROSECONDS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, MICROSECONDS)},
+		{"MILLISECONDS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, MILLISECONDS)},
+		{"SECONDS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, SECONDS)},
+		{"MINUTES", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, MINUTES)},
+		{"HOURS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, HOURS)},
+		{"DAYS", "Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TimeUnit, DAYS)},
+		{"$VALUES", "[Ljava/util/concurrent/TimeUnit;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TimeUnit, $VALUES)},
+		{"NANO_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, NANO_SCALE)},
+		{"MICRO_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, MICRO_SCALE)},
+		{"MILLI_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, MILLI_SCALE)},
+		{"SECOND_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, SECOND_SCALE)},
+		{"MINUTE_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, MINUTE_SCALE)},
+		{"HOUR_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, HOUR_SCALE)},
+		{"DAY_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeUnit, DAY_SCALE)},
+		{"scale", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, scale)},
+		{"maxNanos", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, maxNanos)},
+		{"maxMicros", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, maxMicros)},
+		{"maxMillis", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, maxMillis)},
+		{"maxSecs", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, maxSecs)},
+		{"microRatio", "J", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, microRatio)},
+		{"milliRatio", "I", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, milliRatio)},
+		{"secRatio", "I", nullptr, $PRIVATE | $FINAL, $field(TimeUnit, secRatio)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/util/concurrent/TimeUnit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TimeUnit, $values, $TimeUnitArray*)},
+		{"<init>", "(Ljava/lang/String;IJ)V", "(J)V", $PRIVATE, $method(TimeUnit, init$, void, $String*, int32_t, int64_t)},
+		{"convert", "(JLjava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC, $method(TimeUnit, convert, int64_t, int64_t, TimeUnit*)},
+		{"convert", "(Ljava/time/Duration;)J", nullptr, $PUBLIC, $method(TimeUnit, convert, int64_t, $Duration*)},
+		{"cvt", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeUnit, cvt, int64_t, int64_t, int64_t, int64_t)},
+		{"excessNanos", "(JJ)I", nullptr, $PRIVATE, $method(TimeUnit, excessNanos, int32_t, int64_t, int64_t)},
+		{"of", "(Ljava/time/temporal/ChronoUnit;)Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeUnit, of, TimeUnit*, $ChronoUnit*)},
+		{"sleep", "(J)V", nullptr, $PUBLIC, $method(TimeUnit, sleep, void, int64_t), "java.lang.InterruptedException"},
+		{"timedJoin", "(Ljava/lang/Thread;J)V", nullptr, $PUBLIC, $method(TimeUnit, timedJoin, void, $Thread*, int64_t), "java.lang.InterruptedException"},
+		{"timedWait", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC, $method(TimeUnit, timedWait, void, Object$*, int64_t), "java.lang.InterruptedException"},
+		{"toChronoUnit", "()Ljava/time/temporal/ChronoUnit;", nullptr, $PUBLIC, $method(TimeUnit, toChronoUnit, $ChronoUnit*)},
+		{"toDays", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toDays, int64_t, int64_t)},
+		{"toHours", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toHours, int64_t, int64_t)},
+		{"toMicros", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toMicros, int64_t, int64_t)},
+		{"toMillis", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toMillis, int64_t, int64_t)},
+		{"toMinutes", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toMinutes, int64_t, int64_t)},
+		{"toNanos", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toNanos, int64_t, int64_t)},
+		{"toSeconds", "(J)J", nullptr, $PUBLIC, $method(TimeUnit, toSeconds, int64_t, int64_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeUnit, valueOf, TimeUnit*, $String*)},
+		{"values", "()[Ljava/util/concurrent/TimeUnit;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeUnit, values, $TimeUnitArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.TimeUnit$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.util.concurrent.TimeUnit",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/util/concurrent/TimeUnit;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.TimeUnit$1"
+	};
+	$loadClass(TimeUnit, name, initialize, &classInfo$$, TimeUnit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TimeUnit));
+	});
 	return class$;
 }
 

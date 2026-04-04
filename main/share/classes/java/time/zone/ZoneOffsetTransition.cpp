@@ -1,10 +1,8 @@
 #include <java/time/zone/ZoneOffsetTransition.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Comparable.h>
 #include <java/time/Duration.h>
@@ -22,7 +20,6 @@ using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Comparable = ::java::lang::Comparable;
@@ -43,60 +40,6 @@ namespace java {
 	namespace time {
 		namespace zone {
 
-$FieldInfo _ZoneOffsetTransition_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ZoneOffsetTransition, $assertionsDisabled)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneOffsetTransition, serialVersionUID)},
-	{"epochSecond", "J", nullptr, $PRIVATE | $FINAL, $field(ZoneOffsetTransition, epochSecond)},
-	{"transition", "Ljava/time/LocalDateTime;", nullptr, $PRIVATE | $FINAL, $field(ZoneOffsetTransition, transition)},
-	{"offsetBefore", "Ljava/time/ZoneOffset;", nullptr, $PRIVATE | $FINAL, $field(ZoneOffsetTransition, offsetBefore)},
-	{"offsetAfter", "Ljava/time/ZoneOffset;", nullptr, $PRIVATE | $FINAL, $field(ZoneOffsetTransition, offsetAfter)},
-	{}
-};
-
-$MethodInfo _ZoneOffsetTransition_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;Ljava/time/ZoneOffset;)V", nullptr, 0, $method(ZoneOffsetTransition, init$, void, $LocalDateTime*, $ZoneOffset*, $ZoneOffset*)},
-	{"<init>", "(JLjava/time/ZoneOffset;Ljava/time/ZoneOffset;)V", nullptr, 0, $method(ZoneOffsetTransition, init$, void, int64_t, $ZoneOffset*, $ZoneOffset*)},
-	{"compareTo", "(Ljava/time/zone/ZoneOffsetTransition;)I", nullptr, $PUBLIC, $method(ZoneOffsetTransition, compareTo, int32_t, ZoneOffsetTransition*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ZoneOffsetTransition, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneOffsetTransition, equals, bool, Object$*)},
-	{"getDateTimeAfter", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getDateTimeAfter, $LocalDateTime*)},
-	{"getDateTimeBefore", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getDateTimeBefore, $LocalDateTime*)},
-	{"getDuration", "()Ljava/time/Duration;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getDuration, $Duration*)},
-	{"getDurationSeconds", "()I", nullptr, $PRIVATE, $method(ZoneOffsetTransition, getDurationSeconds, int32_t)},
-	{"getInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getInstant, $Instant*)},
-	{"getOffsetAfter", "()Ljava/time/ZoneOffset;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getOffsetAfter, $ZoneOffset*)},
-	{"getOffsetBefore", "()Ljava/time/ZoneOffset;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getOffsetBefore, $ZoneOffset*)},
-	{"getValidOffsets", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/ZoneOffset;>;", 0, $method(ZoneOffsetTransition, getValidOffsets, $List*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneOffsetTransition, hashCode, int32_t)},
-	{"isGap", "()Z", nullptr, $PUBLIC, $method(ZoneOffsetTransition, isGap, bool)},
-	{"isOverlap", "()Z", nullptr, $PUBLIC, $method(ZoneOffsetTransition, isOverlap, bool)},
-	{"isValidOffset", "(Ljava/time/ZoneOffset;)Z", nullptr, $PUBLIC, $method(ZoneOffsetTransition, isValidOffset, bool, $ZoneOffset*)},
-	{"of", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;Ljava/time/ZoneOffset;)Ljava/time/zone/ZoneOffsetTransition;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffsetTransition, of, ZoneOffsetTransition*, $LocalDateTime*, $ZoneOffset*, $ZoneOffset*)},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/zone/ZoneOffsetTransition;", nullptr, $STATIC, $staticMethod(ZoneOffsetTransition, readExternal, ZoneOffsetTransition*, $DataInput*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneOffsetTransition, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"toEpochSecond", "()J", nullptr, $PUBLIC, $method(ZoneOffsetTransition, toEpochSecond, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneOffsetTransition, toString, $String*)},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(ZoneOffsetTransition, writeExternal, void, $DataOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ZoneOffsetTransition, writeReplace, $Object*)},
-	{}
-};
-
-$ClassInfo _ZoneOffsetTransition_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.zone.ZoneOffsetTransition",
-	"java.lang.Object",
-	"java.lang.Comparable,java.io.Serializable",
-	_ZoneOffsetTransition_FieldInfo_,
-	_ZoneOffsetTransition_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/time/zone/ZoneOffsetTransition;>;Ljava/io/Serializable;"
-};
-
-$Object* allocate$ZoneOffsetTransition($Class* clazz) {
-	return $of($alloc(ZoneOffsetTransition));
-}
-
 $Object* ZoneOffsetTransition::clone() {
 	 return this->$Comparable::clone();
 }
@@ -109,9 +52,9 @@ bool ZoneOffsetTransition::$assertionsDisabled = false;
 
 ZoneOffsetTransition* ZoneOffsetTransition::of($LocalDateTime* transition, $ZoneOffset* offsetBefore, $ZoneOffset* offsetAfter) {
 	$init(ZoneOffsetTransition);
-	$Objects::requireNonNull($of(transition), "transition"_s);
-	$Objects::requireNonNull($of(offsetBefore), "offsetBefore"_s);
-	$Objects::requireNonNull($of(offsetAfter), "offsetAfter"_s);
+	$Objects::requireNonNull(transition, "transition"_s);
+	$Objects::requireNonNull(offsetBefore, "offsetBefore"_s);
+	$Objects::requireNonNull(offsetAfter, "offsetAfter"_s);
 	if ($nc(offsetBefore)->equals(offsetAfter)) {
 		$throwNew($IllegalArgumentException, "Offsets must not be equal"_s);
 	}
@@ -143,7 +86,7 @@ void ZoneOffsetTransition::readObject($ObjectInputStream* s) {
 }
 
 $Object* ZoneOffsetTransition::writeReplace() {
-	return $of($new($Ser, $Ser::ZOT, this));
+	return $new($Ser, $Ser::ZOT, this);
 }
 
 void ZoneOffsetTransition::writeExternal($DataOutput* out) {
@@ -154,7 +97,7 @@ void ZoneOffsetTransition::writeExternal($DataOutput* out) {
 
 ZoneOffsetTransition* ZoneOffsetTransition::readExternal($DataInput* in) {
 	$init(ZoneOffsetTransition);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t epochSecond = $Ser::readEpochSec(in);
 	$var($ZoneOffset, before, $Ser::readOffset(in));
 	$var($ZoneOffset, after, $Ser::readOffset(in));
@@ -193,41 +136,41 @@ $Duration* ZoneOffsetTransition::getDuration() {
 }
 
 int32_t ZoneOffsetTransition::getDurationSeconds() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $nc($(getOffsetAfter()))->getTotalSeconds();
-	return var$0 - $nc($(getOffsetBefore()))->getTotalSeconds();
+	$useLocalObjectStack();
+	int32_t var$0 = $$nc(getOffsetAfter())->getTotalSeconds();
+	return var$0 - $$nc(getOffsetBefore())->getTotalSeconds();
 }
 
 bool ZoneOffsetTransition::isGap() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $nc($(getOffsetAfter()))->getTotalSeconds();
-	return var$0 > $nc($(getOffsetBefore()))->getTotalSeconds();
+	$useLocalObjectStack();
+	int32_t var$0 = $$nc(getOffsetAfter())->getTotalSeconds();
+	return var$0 > $$nc(getOffsetBefore())->getTotalSeconds();
 }
 
 bool ZoneOffsetTransition::isOverlap() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $nc($(getOffsetAfter()))->getTotalSeconds();
-	return var$0 < $nc($(getOffsetBefore()))->getTotalSeconds();
+	$useLocalObjectStack();
+	int32_t var$0 = $$nc(getOffsetAfter())->getTotalSeconds();
+	return var$0 < $$nc(getOffsetBefore())->getTotalSeconds();
 }
 
 bool ZoneOffsetTransition::isValidOffset($ZoneOffset* offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = false;
 	if (isGap()) {
 		var$0 = false;
 	} else {
-		bool var$1 = $nc($(getOffsetBefore()))->equals(offset);
-		var$0 = (var$1 || $nc($(getOffsetAfter()))->equals(offset));
+		bool var$1 = $$nc(getOffsetBefore())->equals(offset);
+		var$0 = (var$1 || $$nc(getOffsetAfter())->equals(offset));
 	}
 	return var$0;
 }
 
 $List* ZoneOffsetTransition::getValidOffsets() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isGap()) {
 		return $List::of();
 	}
-	$var($Object, var$0, $of(getOffsetBefore()));
+	$var($Object, var$0, getOffsetBefore());
 	return $List::of(var$0, $(getOffsetAfter()));
 }
 
@@ -245,7 +188,7 @@ bool ZoneOffsetTransition::equals(Object$* other) {
 		$assign(d, $cast(ZoneOffsetTransition, other));
 		var$3 = true;
 	}
-	bool var$2 = (var$3);
+	bool var$2 = var$3;
 	bool var$1 = var$2 && this->epochSecond == $nc(d)->epochSecond;
 	bool var$0 = var$1 && $nc(this->offsetBefore)->equals(d->offsetBefore);
 	return var$0 && $nc(this->offsetAfter)->equals(d->offsetAfter);
@@ -259,7 +202,7 @@ int32_t ZoneOffsetTransition::hashCode() {
 
 $String* ZoneOffsetTransition::toString() {
 	$var($StringBuilder, buf, $new($StringBuilder));
-	buf->append("Transition["_s)->append(isGap() ? "Gap"_s : "Overlap"_s)->append(" at "_s)->append($of(this->transition))->append($of(this->offsetBefore))->append(" to "_s)->append($of(this->offsetAfter))->append(u']');
+	buf->append("Transition["_s)->append(isGap() ? "Gap"_s : "Overlap"_s)->append(" at "_s)->append(this->transition)->append(this->offsetBefore)->append(" to "_s)->append(this->offsetAfter)->append(u']');
 	return buf->toString();
 }
 
@@ -267,7 +210,7 @@ int32_t ZoneOffsetTransition::compareTo(Object$* transition) {
 	return this->compareTo($cast(ZoneOffsetTransition, transition));
 }
 
-void clinit$ZoneOffsetTransition($Class* class$) {
+void ZoneOffsetTransition::clinit$($Class* clazz) {
 	ZoneOffsetTransition::$assertionsDisabled = !ZoneOffsetTransition::class$->desiredAssertionStatus();
 }
 
@@ -275,7 +218,56 @@ ZoneOffsetTransition::ZoneOffsetTransition() {
 }
 
 $Class* ZoneOffsetTransition::load$($String* name, bool initialize) {
-	$loadClass(ZoneOffsetTransition, name, initialize, &_ZoneOffsetTransition_ClassInfo_, clinit$ZoneOffsetTransition, allocate$ZoneOffsetTransition);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ZoneOffsetTransition, $assertionsDisabled)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneOffsetTransition, serialVersionUID)},
+		{"epochSecond", "J", nullptr, $PRIVATE | $FINAL, $field(ZoneOffsetTransition, epochSecond)},
+		{"transition", "Ljava/time/LocalDateTime;", nullptr, $PRIVATE | $FINAL, $field(ZoneOffsetTransition, transition)},
+		{"offsetBefore", "Ljava/time/ZoneOffset;", nullptr, $PRIVATE | $FINAL, $field(ZoneOffsetTransition, offsetBefore)},
+		{"offsetAfter", "Ljava/time/ZoneOffset;", nullptr, $PRIVATE | $FINAL, $field(ZoneOffsetTransition, offsetAfter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;Ljava/time/ZoneOffset;)V", nullptr, 0, $method(ZoneOffsetTransition, init$, void, $LocalDateTime*, $ZoneOffset*, $ZoneOffset*)},
+		{"<init>", "(JLjava/time/ZoneOffset;Ljava/time/ZoneOffset;)V", nullptr, 0, $method(ZoneOffsetTransition, init$, void, int64_t, $ZoneOffset*, $ZoneOffset*)},
+		{"compareTo", "(Ljava/time/zone/ZoneOffsetTransition;)I", nullptr, $PUBLIC, $method(ZoneOffsetTransition, compareTo, int32_t, ZoneOffsetTransition*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ZoneOffsetTransition, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneOffsetTransition, equals, bool, Object$*)},
+		{"getDateTimeAfter", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getDateTimeAfter, $LocalDateTime*)},
+		{"getDateTimeBefore", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getDateTimeBefore, $LocalDateTime*)},
+		{"getDuration", "()Ljava/time/Duration;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getDuration, $Duration*)},
+		{"getDurationSeconds", "()I", nullptr, $PRIVATE, $method(ZoneOffsetTransition, getDurationSeconds, int32_t)},
+		{"getInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getInstant, $Instant*)},
+		{"getOffsetAfter", "()Ljava/time/ZoneOffset;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getOffsetAfter, $ZoneOffset*)},
+		{"getOffsetBefore", "()Ljava/time/ZoneOffset;", nullptr, $PUBLIC, $method(ZoneOffsetTransition, getOffsetBefore, $ZoneOffset*)},
+		{"getValidOffsets", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/ZoneOffset;>;", 0, $method(ZoneOffsetTransition, getValidOffsets, $List*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneOffsetTransition, hashCode, int32_t)},
+		{"isGap", "()Z", nullptr, $PUBLIC, $method(ZoneOffsetTransition, isGap, bool)},
+		{"isOverlap", "()Z", nullptr, $PUBLIC, $method(ZoneOffsetTransition, isOverlap, bool)},
+		{"isValidOffset", "(Ljava/time/ZoneOffset;)Z", nullptr, $PUBLIC, $method(ZoneOffsetTransition, isValidOffset, bool, $ZoneOffset*)},
+		{"of", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;Ljava/time/ZoneOffset;)Ljava/time/zone/ZoneOffsetTransition;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffsetTransition, of, ZoneOffsetTransition*, $LocalDateTime*, $ZoneOffset*, $ZoneOffset*)},
+		{"readExternal", "(Ljava/io/DataInput;)Ljava/time/zone/ZoneOffsetTransition;", nullptr, $STATIC, $staticMethod(ZoneOffsetTransition, readExternal, ZoneOffsetTransition*, $DataInput*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneOffsetTransition, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"toEpochSecond", "()J", nullptr, $PUBLIC, $method(ZoneOffsetTransition, toEpochSecond, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneOffsetTransition, toString, $String*)},
+		{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(ZoneOffsetTransition, writeExternal, void, $DataOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ZoneOffsetTransition, writeReplace, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.zone.ZoneOffsetTransition",
+		"java.lang.Object",
+		"java.lang.Comparable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/time/zone/ZoneOffsetTransition;>;Ljava/io/Serializable;"
+	};
+	$loadClass(ZoneOffsetTransition, name, initialize, &classInfo$$, ZoneOffsetTransition::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZoneOffsetTransition));
+	});
 	return class$;
 }
 

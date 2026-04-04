@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimePrintContext.h>
-
 #include <java/time/DateTimeException.h>
 #include <java/time/Instant.h>
 #include <java/time/ZoneId.h>
@@ -48,7 +47,6 @@ using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;
 using $TemporalQuery = ::java::time::temporal::TemporalQuery;
-using $ZoneRules = ::java::time::zone::ZoneRules;
 using $Locale = ::java::util::Locale;
 using $Objects = ::java::util::Objects;
 
@@ -56,58 +54,13 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$FieldInfo _DateTimePrintContext_FieldInfo_[] = {
-	{"temporal", "Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE, $field(DateTimePrintContext, temporal)},
-	{"formatter", "Ljava/time/format/DateTimeFormatter;", nullptr, $PRIVATE, $field(DateTimePrintContext, formatter)},
-	{"optional", "I", nullptr, $PRIVATE, $field(DateTimePrintContext, optional)},
-	{}
-};
-
-$MethodInfo _DateTimePrintContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalAccessor;Ljava/time/format/DateTimeFormatter;)V", nullptr, 0, $method(DateTimePrintContext, init$, void, $TemporalAccessor*, $DateTimeFormatter*)},
-	{"adjust", "(Ljava/time/temporal/TemporalAccessor;Ljava/time/format/DateTimeFormatter;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE | $STATIC, $staticMethod(DateTimePrintContext, adjust, $TemporalAccessor*, $TemporalAccessor*, $DateTimeFormatter*)},
-	{"endOptional", "()V", nullptr, 0, $method(DateTimePrintContext, endOptional, void)},
-	{"getDecimalStyle", "()Ljava/time/format/DecimalStyle;", nullptr, 0, $method(DateTimePrintContext, getDecimalStyle, $DecimalStyle*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(DateTimePrintContext, getLocale, $Locale*)},
-	{"getTemporal", "()Ljava/time/temporal/TemporalAccessor;", nullptr, 0, $method(DateTimePrintContext, getTemporal, $TemporalAccessor*)},
-	{"getValue", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", 0, $method(DateTimePrintContext, getValue, $Object*, $TemporalQuery*)},
-	{"getValue", "(Ljava/time/temporal/TemporalField;)Ljava/lang/Long;", nullptr, 0, $method(DateTimePrintContext, getValue, $Long*, $TemporalField*)},
-	{"startOptional", "()V", nullptr, 0, $method(DateTimePrintContext, startOptional, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimePrintContext, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DateTimePrintContext_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimePrintContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DateTimePrintContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.format.DateTimePrintContext",
-	"java.lang.Object",
-	nullptr,
-	_DateTimePrintContext_FieldInfo_,
-	_DateTimePrintContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimePrintContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimePrintContext$1"
-};
-
-$Object* allocate$DateTimePrintContext($Class* clazz) {
-	return $of($alloc(DateTimePrintContext));
-}
-
 void DateTimePrintContext::init$($TemporalAccessor* temporal, $DateTimeFormatter* formatter) {
 	$set(this, temporal, adjust(temporal, formatter));
 	$set(this, formatter, formatter);
 }
 
 $TemporalAccessor* DateTimePrintContext::adjust($TemporalAccessor* temporal, $DateTimeFormatter* formatter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Chronology, overrideChrono, $nc(formatter)->getChronology());
 	$var($ZoneId, overrideZone, formatter->getZone());
 	if (overrideChrono == nullptr && overrideZone == nullptr) {
@@ -137,7 +90,7 @@ $TemporalAccessor* DateTimePrintContext::adjust($TemporalAccessor* temporal, $Da
 		if (var$0) {
 			int32_t var$2 = temporal->get($ChronoField::OFFSET_SECONDS);
 			$init($Instant);
-			var$0 = var$2 != $nc($($nc($(overrideZone->getRules()))->getOffset($Instant::EPOCH)))->getTotalSeconds();
+			var$0 = var$2 != $$nc($$nc(overrideZone->getRules())->getOffset($Instant::EPOCH))->getTotalSeconds();
 		}
 		if (var$0) {
 			$throwNew($DateTimeException, $$str({"Unable to apply override zone \'"_s, overrideZone, "\' because the temporal object being formatted has a different offset but does not represent an instant: "_s, temporal}));
@@ -152,17 +105,13 @@ $TemporalAccessor* DateTimePrintContext::adjust($TemporalAccessor* temporal, $Da
 		} else {
 			$init($IsoChronology);
 			if (!($equals(overrideChrono, $IsoChronology::INSTANCE) && temporalChrono == nullptr)) {
-				{
-					$var($ChronoFieldArray, arr$, $ChronoField::values());
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$ChronoField* f = arr$->get(i$);
-						{
-							bool var$3 = $nc(f)->isDateBased();
-							if (var$3 && temporal->isSupported(f)) {
-								$throwNew($DateTimeException, $$str({"Unable to apply override chronology \'"_s, overrideChrono, "\' because the temporal object being formatted contains date fields but does not represent a whole date: "_s, temporal}));
-							}
+				$var($ChronoFieldArray, arr$, $ChronoField::values());
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+					$ChronoField* f = arr$->get(i$);
+					{
+						bool var$3 = $nc(f)->isDateBased();
+						if (var$3 && temporal->isSupported(f)) {
+							$throwNew($DateTimeException, $$str({"Unable to apply override chronology \'"_s, overrideChrono, "\' because the temporal object being formatted contains date fields but does not represent a whole date: "_s, temporal}));
 						}
 					}
 				}
@@ -196,12 +145,12 @@ void DateTimePrintContext::endOptional() {
 }
 
 $Object* DateTimePrintContext::getValue($TemporalQuery* query) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, result, $nc(this->temporal)->query(query));
 	if (result == nullptr && this->optional == 0) {
 		$throwNew($DateTimeException, $$str({"Unable to extract "_s, query, " from temporal "_s, this->temporal}));
 	}
-	return $of(result);
+	return result;
 }
 
 $Long* DateTimePrintContext::getValue($TemporalField* field) {
@@ -212,14 +161,53 @@ $Long* DateTimePrintContext::getValue($TemporalField* field) {
 }
 
 $String* DateTimePrintContext::toString() {
-	return $nc($of(this->temporal))->toString();
+	return $nc(this->temporal)->toString();
 }
 
 DateTimePrintContext::DateTimePrintContext() {
 }
 
 $Class* DateTimePrintContext::load$($String* name, bool initialize) {
-	$loadClass(DateTimePrintContext, name, initialize, &_DateTimePrintContext_ClassInfo_, allocate$DateTimePrintContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"temporal", "Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE, $field(DateTimePrintContext, temporal)},
+		{"formatter", "Ljava/time/format/DateTimeFormatter;", nullptr, $PRIVATE, $field(DateTimePrintContext, formatter)},
+		{"optional", "I", nullptr, $PRIVATE, $field(DateTimePrintContext, optional)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/temporal/TemporalAccessor;Ljava/time/format/DateTimeFormatter;)V", nullptr, 0, $method(DateTimePrintContext, init$, void, $TemporalAccessor*, $DateTimeFormatter*)},
+		{"adjust", "(Ljava/time/temporal/TemporalAccessor;Ljava/time/format/DateTimeFormatter;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE | $STATIC, $staticMethod(DateTimePrintContext, adjust, $TemporalAccessor*, $TemporalAccessor*, $DateTimeFormatter*)},
+		{"endOptional", "()V", nullptr, 0, $method(DateTimePrintContext, endOptional, void)},
+		{"getDecimalStyle", "()Ljava/time/format/DecimalStyle;", nullptr, 0, $method(DateTimePrintContext, getDecimalStyle, $DecimalStyle*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(DateTimePrintContext, getLocale, $Locale*)},
+		{"getTemporal", "()Ljava/time/temporal/TemporalAccessor;", nullptr, 0, $method(DateTimePrintContext, getTemporal, $TemporalAccessor*)},
+		{"getValue", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", 0, $method(DateTimePrintContext, getValue, $Object*, $TemporalQuery*)},
+		{"getValue", "(Ljava/time/temporal/TemporalField;)Ljava/lang/Long;", nullptr, 0, $method(DateTimePrintContext, getValue, $Long*, $TemporalField*)},
+		{"startOptional", "()V", nullptr, 0, $method(DateTimePrintContext, startOptional, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimePrintContext, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimePrintContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.format.DateTimePrintContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimePrintContext$1"
+	};
+	$loadClass(DateTimePrintContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimePrintContext);
+	});
 	return class$;
 }
 

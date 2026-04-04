@@ -35,13 +35,14 @@ namespace java {
 	namespace lang {
 
 class $export AbstractStringBuilder : public ::java::lang::Appendable, public ::java::lang::CharSequence {
-	$class(AbstractStringBuilder, $PRELOAD, ::java::lang::Appendable, ::java::lang::CharSequence)
+	$class(AbstractStringBuilder, $PRELOAD | $PREINIT, ::java::lang::Appendable, ::java::lang::CharSequence)
 public:
 	AbstractStringBuilder();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t capacity);
 	void init$($String* str);
@@ -125,7 +126,7 @@ public:
 	int8_t coder = 0;
 	int32_t count = 0;
 	static $bytes* EMPTYVALUE;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
+	static const int32_t MAX_ARRAY_SIZE = 0x7ffffff7; // Integer.MAX_VALUE - 8
 };
 
 	} // lang

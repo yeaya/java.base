@@ -1,5 +1,4 @@
 #include <java/nio/HeapShortBuffer.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/BufferOverflowException.h>
@@ -28,56 +27,9 @@ using $HeapShortBufferR = ::java::nio::HeapShortBufferR;
 using $ShortBuffer = ::java::nio::ShortBuffer;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _HeapShortBuffer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HeapShortBuffer, $assertionsDisabled)},
-	{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapShortBuffer, ARRAY_BASE_OFFSET)},
-	{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapShortBuffer, ARRAY_INDEX_SCALE)},
-	{}
-};
-
-$MethodInfo _HeapShortBuffer_MethodInfo_[] = {
-	{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapShortBuffer, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([SIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapShortBuffer, init$, void, $shorts*, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([SIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapShortBuffer, init$, void, $shorts*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, asReadOnlyBuffer, $ShortBuffer*)},
-	{"compact", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, compact, $ShortBuffer*)},
-	{"duplicate", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, duplicate, $ShortBuffer*)},
-	{"get", "()S", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, get, int16_t)},
-	{"get", "(I)S", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, get, int16_t, int32_t)},
-	{"get", "([SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, get, $ShortBuffer*, $shorts*, int32_t, int32_t)},
-	{"get", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, get, $ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, isReadOnly, bool)},
-	{"ix", "(I)I", nullptr, $PROTECTED, $virtualMethod(HeapShortBuffer, ix, int32_t, int32_t)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, order, $ByteOrder*)},
-	{"put", "(S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, int16_t)},
-	{"put", "(IS)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, int32_t, int16_t)},
-	{"put", "([SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, $shorts*, int32_t, int32_t)},
-	{"put", "(Ljava/nio/ShortBuffer;)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, $ShortBuffer*)},
-	{"put", "(ILjava/nio/ShortBuffer;II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, int32_t, $ShortBuffer*, int32_t, int32_t)},
-	{"put", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
-	{"slice", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, slice, $ShortBuffer*)},
-	{"slice", "(II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, slice, $ShortBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _HeapShortBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.HeapShortBuffer",
-	"java.nio.ShortBuffer",
-	nullptr,
-	_HeapShortBuffer_FieldInfo_,
-	_HeapShortBuffer_MethodInfo_
-};
-
-$Object* allocate$HeapShortBuffer($Class* clazz) {
-	return $of($alloc(HeapShortBuffer));
-}
 
 bool HeapShortBuffer::$assertionsDisabled = false;
 int64_t HeapShortBuffer::ARRAY_BASE_OFFSET = 0;
@@ -209,16 +161,16 @@ $ShortBuffer* HeapShortBuffer::put(int32_t index, $shorts* src, int32_t offset, 
 }
 
 $ShortBuffer* HeapShortBuffer::compact() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!HeapShortBuffer::$assertionsDisabled && !(pos <= lim)) {
 		$throwNew($AssertionError);
 	}
 	int32_t rem = (pos <= lim ? lim - pos : 0);
-	$var($Object, var$0, $of(this->hb));
+	$var($Object, var$0, this->hb);
 	int32_t var$1 = ix(pos);
-	$var($Object, var$2, $of(this->hb));
+	$var($Object, var$2, this->hb);
 	$System::arraycopy(var$0, var$1, var$2, ix(0), rem);
 	position(rem);
 	limit(capacity());
@@ -230,19 +182,59 @@ $ByteOrder* HeapShortBuffer::order() {
 	return $ByteOrder::nativeOrder();
 }
 
-void clinit$HeapShortBuffer($Class* class$) {
+void HeapShortBuffer::clinit$($Class* clazz) {
 	HeapShortBuffer::$assertionsDisabled = !HeapShortBuffer::class$->desiredAssertionStatus();
 	$init($Buffer);
-	$load($shorts);
 	HeapShortBuffer::ARRAY_BASE_OFFSET = $nc($Buffer::UNSAFE)->arrayBaseOffset($getClass($shorts));
-	HeapShortBuffer::ARRAY_INDEX_SCALE = $nc($Buffer::UNSAFE)->arrayIndexScale($getClass($shorts));
+	HeapShortBuffer::ARRAY_INDEX_SCALE = $Buffer::UNSAFE->arrayIndexScale($getClass($shorts));
 }
 
 HeapShortBuffer::HeapShortBuffer() {
 }
 
 $Class* HeapShortBuffer::load$($String* name, bool initialize) {
-	$loadClass(HeapShortBuffer, name, initialize, &_HeapShortBuffer_ClassInfo_, clinit$HeapShortBuffer, allocate$HeapShortBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HeapShortBuffer, $assertionsDisabled)},
+		{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapShortBuffer, ARRAY_BASE_OFFSET)},
+		{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapShortBuffer, ARRAY_INDEX_SCALE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapShortBuffer, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([SIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapShortBuffer, init$, void, $shorts*, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([SIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapShortBuffer, init$, void, $shorts*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, asReadOnlyBuffer, $ShortBuffer*)},
+		{"compact", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, compact, $ShortBuffer*)},
+		{"duplicate", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, duplicate, $ShortBuffer*)},
+		{"get", "()S", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, get, int16_t)},
+		{"get", "(I)S", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, get, int16_t, int32_t)},
+		{"get", "([SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, get, $ShortBuffer*, $shorts*, int32_t, int32_t)},
+		{"get", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, get, $ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, isReadOnly, bool)},
+		{"ix", "(I)I", nullptr, $PROTECTED, $virtualMethod(HeapShortBuffer, ix, int32_t, int32_t)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, order, $ByteOrder*)},
+		{"put", "(S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, int16_t)},
+		{"put", "(IS)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, int32_t, int16_t)},
+		{"put", "([SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, $shorts*, int32_t, int32_t)},
+		{"put", "(Ljava/nio/ShortBuffer;)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, $ShortBuffer*)},
+		{"put", "(ILjava/nio/ShortBuffer;II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, int32_t, $ShortBuffer*, int32_t, int32_t)},
+		{"put", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, put, $ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
+		{"slice", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, slice, $ShortBuffer*)},
+		{"slice", "(II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapShortBuffer, slice, $ShortBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.HeapShortBuffer",
+		"java.nio.ShortBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HeapShortBuffer, name, initialize, &classInfo$$, HeapShortBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeapShortBuffer));
+	});
 	return class$;
 }
 

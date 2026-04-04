@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/InsnList.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/Iterator.h>
 #include <java/util/ListIterator.h>
@@ -28,66 +27,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace tree {
-
-$FieldInfo _InsnList_FieldInfo_[] = {
-	{"size", "I", nullptr, $PRIVATE, $field(InsnList, size$)},
-	{"firstInsn", "Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PRIVATE, $field(InsnList, firstInsn)},
-	{"lastInsn", "Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PRIVATE, $field(InsnList, lastInsn)},
-	{"cache", "[Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, 0, $field(InsnList, cache)},
-	{}
-};
-
-$MethodInfo _InsnList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InsnList, init$, void)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, accept, void, $MethodVisitor*)},
-	{"add", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, add, void, $AbstractInsnNode*)},
-	{"add", "(Ljdk/internal/org/objectweb/asm/tree/InsnList;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, add, void, InsnList*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(InsnList, clear, void)},
-	{"contains", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)Z", nullptr, $PUBLIC, $virtualMethod(InsnList, contains, bool, $AbstractInsnNode*)},
-	{"get", "(I)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PUBLIC, $virtualMethod(InsnList, get, $AbstractInsnNode*, int32_t)},
-	{"getFirst", "()Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PUBLIC, $virtualMethod(InsnList, getFirst, $AbstractInsnNode*)},
-	{"getLast", "()Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PUBLIC, $virtualMethod(InsnList, getLast, $AbstractInsnNode*)},
-	{"indexOf", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)I", nullptr, $PUBLIC, $virtualMethod(InsnList, indexOf, int32_t, $AbstractInsnNode*)},
-	{"insert", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insert, void, $AbstractInsnNode*)},
-	{"insert", "(Ljdk/internal/org/objectweb/asm/tree/InsnList;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insert, void, InsnList*)},
-	{"insert", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insert, void, $AbstractInsnNode*, $AbstractInsnNode*)},
-	{"insert", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/InsnList;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insert, void, $AbstractInsnNode*, InsnList*)},
-	{"insertBefore", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insertBefore, void, $AbstractInsnNode*, $AbstractInsnNode*)},
-	{"insertBefore", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/InsnList;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insertBefore, void, $AbstractInsnNode*, InsnList*)},
-	{"iterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;", $PUBLIC, $virtualMethod(InsnList, iterator, $Iterator*)},
-	{"iterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;", $PUBLIC, $virtualMethod(InsnList, iterator, $ListIterator*, int32_t)},
-	{"remove", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, remove, void, $AbstractInsnNode*)},
-	{"removeAll", "(Z)V", nullptr, 0, $virtualMethod(InsnList, removeAll, void, bool)},
-	{"resetLabels", "()V", nullptr, $PUBLIC, $virtualMethod(InsnList, resetLabels, void)},
-	{"set", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, set, void, $AbstractInsnNode*, $AbstractInsnNode*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(InsnList, size, int32_t)},
-	{"toArray", "()[Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PUBLIC, $virtualMethod(InsnList, toArray, $AbstractInsnNodeArray*)},
-	{}
-};
-
-$InnerClassInfo _InsnList_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.tree.InsnList$InsnListIterator", "jdk.internal.org.objectweb.asm.tree.InsnList", "InsnListIterator", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _InsnList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.InsnList",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	_InsnList_FieldInfo_,
-	_InsnList_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Iterable<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;",
-	nullptr,
-	_InsnList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.tree.InsnList$InsnListIterator"
-};
-
-$Object* allocate$InsnList($Class* clazz) {
-	return $of($alloc(InsnList));
-}
 
 void InsnList::init$() {
 }
@@ -146,7 +85,7 @@ $ListIterator* InsnList::iterator(int32_t index) {
 }
 
 $AbstractInsnNodeArray* InsnList::toArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentInsnIndex = 0;
 	$var($AbstractInsnNode, currentInsn, this->firstInsn);
 	$var($AbstractInsnNodeArray, insnNodeArray, $new($AbstractInsnNodeArray, this->size$));
@@ -159,7 +98,7 @@ $AbstractInsnNodeArray* InsnList::toArray() {
 }
 
 void InsnList::set($AbstractInsnNode* oldInsnNode, $AbstractInsnNode* newInsnNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractInsnNode, nextInsn, $nc(oldInsnNode)->nextInsn);
 	$set($nc(newInsnNode), nextInsn, nextInsn);
 	if (nextInsn != nullptr) {
@@ -176,7 +115,7 @@ void InsnList::set($AbstractInsnNode* oldInsnNode, $AbstractInsnNode* newInsnNod
 	}
 	if (this->cache != nullptr) {
 		int32_t index = oldInsnNode->index;
-		$nc(this->cache)->set(index, newInsnNode);
+		this->cache->set(index, newInsnNode);
 		newInsnNode->index = index;
 	} else {
 		newInsnNode->index = 0;
@@ -192,7 +131,7 @@ void InsnList::add($AbstractInsnNode* insnNode) {
 		$set(this, firstInsn, insnNode);
 		$set(this, lastInsn, insnNode);
 	} else {
-		$set($nc(this->lastInsn), nextInsn, insnNode);
+		$set(this->lastInsn, nextInsn, insnNode);
 		$set($nc(insnNode), previousInsn, this->lastInsn);
 	}
 	$set(this, lastInsn, insnNode);
@@ -204,13 +143,13 @@ void InsnList::add(InsnList* insnList) {
 	if ($nc(insnList)->size$ == 0) {
 		return;
 	}
-	this->size$ += $nc(insnList)->size$;
+	this->size$ += insnList->size$;
 	if (this->lastInsn == nullptr) {
 		$set(this, firstInsn, insnList->firstInsn);
 		$set(this, lastInsn, insnList->lastInsn);
 	} else {
 		$var($AbstractInsnNode, firstInsnListElement, insnList->firstInsn);
-		$set($nc(this->lastInsn), nextInsn, firstInsnListElement);
+		$set(this->lastInsn, nextInsn, firstInsnListElement);
 		$set($nc(firstInsnListElement), previousInsn, this->lastInsn);
 		$set(this, lastInsn, insnList->lastInsn);
 	}
@@ -224,7 +163,7 @@ void InsnList::insert($AbstractInsnNode* insnNode) {
 		$set(this, firstInsn, insnNode);
 		$set(this, lastInsn, insnNode);
 	} else {
-		$set($nc(this->firstInsn), previousInsn, insnNode);
+		$set(this->firstInsn, previousInsn, insnNode);
 		$set($nc(insnNode), nextInsn, this->firstInsn);
 	}
 	$set(this, firstInsn, insnNode);
@@ -236,13 +175,13 @@ void InsnList::insert(InsnList* insnList) {
 	if ($nc(insnList)->size$ == 0) {
 		return;
 	}
-	this->size$ += $nc(insnList)->size$;
+	this->size$ += insnList->size$;
 	if (this->firstInsn == nullptr) {
 		$set(this, firstInsn, insnList->firstInsn);
 		$set(this, lastInsn, insnList->lastInsn);
 	} else {
 		$var($AbstractInsnNode, lastInsnListElement, insnList->lastInsn);
-		$set($nc(this->firstInsn), previousInsn, lastInsnListElement);
+		$set(this->firstInsn, previousInsn, lastInsnListElement);
 		$set($nc(lastInsnListElement), nextInsn, this->firstInsn);
 		$set(this, firstInsn, insnList->firstInsn);
 	}
@@ -256,7 +195,7 @@ void InsnList::insert($AbstractInsnNode* previousInsn, $AbstractInsnNode* insnNo
 	if (nextInsn == nullptr) {
 		$set(this, lastInsn, insnNode);
 	} else {
-		$set($nc(nextInsn), previousInsn, insnNode);
+		$set(nextInsn, previousInsn, insnNode);
 	}
 	$set(previousInsn, nextInsn, insnNode);
 	$set($nc(insnNode), nextInsn, nextInsn);
@@ -266,18 +205,18 @@ void InsnList::insert($AbstractInsnNode* previousInsn, $AbstractInsnNode* insnNo
 }
 
 void InsnList::insert($AbstractInsnNode* previousInsn, InsnList* insnList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(insnList)->size$ == 0) {
 		return;
 	}
-	this->size$ += $nc(insnList)->size$;
+	this->size$ += insnList->size$;
 	$var($AbstractInsnNode, firstInsnListElement, insnList->firstInsn);
 	$var($AbstractInsnNode, lastInsnListElement, insnList->lastInsn);
 	$var($AbstractInsnNode, nextInsn, $nc(previousInsn)->nextInsn);
 	if (nextInsn == nullptr) {
 		$set(this, lastInsn, lastInsnListElement);
 	} else {
-		$set($nc(nextInsn), previousInsn, lastInsnListElement);
+		$set(nextInsn, previousInsn, lastInsnListElement);
 	}
 	$set(previousInsn, nextInsn, firstInsnListElement);
 	$set($nc(lastInsnListElement), nextInsn, nextInsn);
@@ -292,7 +231,7 @@ void InsnList::insertBefore($AbstractInsnNode* nextInsn, $AbstractInsnNode* insn
 	if (previousInsn == nullptr) {
 		$set(this, firstInsn, insnNode);
 	} else {
-		$set($nc(previousInsn), nextInsn, insnNode);
+		$set(previousInsn, nextInsn, insnNode);
 	}
 	$set(nextInsn, previousInsn, insnNode);
 	$set($nc(insnNode), nextInsn, nextInsn);
@@ -302,18 +241,18 @@ void InsnList::insertBefore($AbstractInsnNode* nextInsn, $AbstractInsnNode* insn
 }
 
 void InsnList::insertBefore($AbstractInsnNode* nextInsn, InsnList* insnList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(insnList)->size$ == 0) {
 		return;
 	}
-	this->size$ += $nc(insnList)->size$;
+	this->size$ += insnList->size$;
 	$var($AbstractInsnNode, firstInsnListElement, insnList->firstInsn);
 	$var($AbstractInsnNode, lastInsnListElement, insnList->lastInsn);
 	$var($AbstractInsnNode, previousInsn, $nc(nextInsn)->previousInsn);
 	if (previousInsn == nullptr) {
 		$set(this, firstInsn, firstInsnListElement);
 	} else {
-		$set($nc(previousInsn), nextInsn, firstInsnListElement);
+		$set(previousInsn, nextInsn, firstInsnListElement);
 	}
 	$set(nextInsn, previousInsn, lastInsnListElement);
 	$set($nc(lastInsnListElement), nextInsn, nextInsn);
@@ -323,7 +262,7 @@ void InsnList::insertBefore($AbstractInsnNode* nextInsn, InsnList* insnList) {
 }
 
 void InsnList::remove($AbstractInsnNode* insnNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	--this->size$;
 	$var($AbstractInsnNode, nextInsn, $nc(insnNode)->nextInsn);
 	$var($AbstractInsnNode, previousInsn, insnNode->previousInsn);
@@ -332,15 +271,15 @@ void InsnList::remove($AbstractInsnNode* insnNode) {
 			$set(this, firstInsn, nullptr);
 			$set(this, lastInsn, nullptr);
 		} else {
-			$set($nc(previousInsn), nextInsn, nullptr);
+			$set(previousInsn, nextInsn, nullptr);
 			$set(this, lastInsn, previousInsn);
 		}
 	} else if (previousInsn == nullptr) {
 		$set(this, firstInsn, nextInsn);
-		$set($nc(nextInsn), previousInsn, nullptr);
+		$set(nextInsn, previousInsn, nullptr);
 	} else {
-		$set($nc(previousInsn), nextInsn, nextInsn);
-		$set($nc(nextInsn), previousInsn, previousInsn);
+		$set(previousInsn, nextInsn, nextInsn);
+		$set(nextInsn, previousInsn, previousInsn);
 	}
 	$set(this, cache, nullptr);
 	insnNode->index = -1;
@@ -349,7 +288,7 @@ void InsnList::remove($AbstractInsnNode* insnNode) {
 }
 
 void InsnList::removeAll(bool mark) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mark) {
 		$var($AbstractInsnNode, currentInsn, this->firstInsn);
 		while (currentInsn != nullptr) {
@@ -374,7 +313,7 @@ void InsnList::resetLabels() {
 	$var($AbstractInsnNode, currentInsn, this->firstInsn);
 	while (currentInsn != nullptr) {
 		if ($instanceOf($LabelNode, currentInsn)) {
-			$nc(($cast($LabelNode, currentInsn)))->resetLabel();
+			$cast($LabelNode, currentInsn)->resetLabel();
 		}
 		$assign(currentInsn, currentInsn->nextInsn);
 	}
@@ -384,7 +323,61 @@ InsnList::InsnList() {
 }
 
 $Class* InsnList::load$($String* name, bool initialize) {
-	$loadClass(InsnList, name, initialize, &_InsnList_ClassInfo_, allocate$InsnList);
+	$FieldInfo fieldInfos$$[] = {
+		{"size", "I", nullptr, $PRIVATE, $field(InsnList, size$)},
+		{"firstInsn", "Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PRIVATE, $field(InsnList, firstInsn)},
+		{"lastInsn", "Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PRIVATE, $field(InsnList, lastInsn)},
+		{"cache", "[Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, 0, $field(InsnList, cache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InsnList, init$, void)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, accept, void, $MethodVisitor*)},
+		{"add", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, add, void, $AbstractInsnNode*)},
+		{"add", "(Ljdk/internal/org/objectweb/asm/tree/InsnList;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, add, void, InsnList*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(InsnList, clear, void)},
+		{"contains", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)Z", nullptr, $PUBLIC, $virtualMethod(InsnList, contains, bool, $AbstractInsnNode*)},
+		{"get", "(I)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PUBLIC, $virtualMethod(InsnList, get, $AbstractInsnNode*, int32_t)},
+		{"getFirst", "()Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PUBLIC, $virtualMethod(InsnList, getFirst, $AbstractInsnNode*)},
+		{"getLast", "()Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PUBLIC, $virtualMethod(InsnList, getLast, $AbstractInsnNode*)},
+		{"indexOf", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)I", nullptr, $PUBLIC, $virtualMethod(InsnList, indexOf, int32_t, $AbstractInsnNode*)},
+		{"insert", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insert, void, $AbstractInsnNode*)},
+		{"insert", "(Ljdk/internal/org/objectweb/asm/tree/InsnList;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insert, void, InsnList*)},
+		{"insert", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insert, void, $AbstractInsnNode*, $AbstractInsnNode*)},
+		{"insert", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/InsnList;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insert, void, $AbstractInsnNode*, InsnList*)},
+		{"insertBefore", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insertBefore, void, $AbstractInsnNode*, $AbstractInsnNode*)},
+		{"insertBefore", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/InsnList;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, insertBefore, void, $AbstractInsnNode*, InsnList*)},
+		{"iterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;", $PUBLIC, $virtualMethod(InsnList, iterator, $Iterator*)},
+		{"iterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;", $PUBLIC, $virtualMethod(InsnList, iterator, $ListIterator*, int32_t)},
+		{"remove", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, remove, void, $AbstractInsnNode*)},
+		{"removeAll", "(Z)V", nullptr, 0, $virtualMethod(InsnList, removeAll, void, bool)},
+		{"resetLabels", "()V", nullptr, $PUBLIC, $virtualMethod(InsnList, resetLabels, void)},
+		{"set", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $virtualMethod(InsnList, set, void, $AbstractInsnNode*, $AbstractInsnNode*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(InsnList, size, int32_t)},
+		{"toArray", "()[Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", nullptr, $PUBLIC, $virtualMethod(InsnList, toArray, $AbstractInsnNodeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.tree.InsnList$InsnListIterator", "jdk.internal.org.objectweb.asm.tree.InsnList", "InsnListIterator", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.InsnList",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Iterable<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.tree.InsnList$InsnListIterator"
+	};
+	$loadClass(InsnList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InsnList);
+	});
 	return class$;
 }
 

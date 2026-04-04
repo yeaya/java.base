@@ -1,5 +1,4 @@
 #include <sun/security/ssl/JsseJce$EcAvailability.h>
-
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/KeyFactory.h>
 #include <java/security/KeyPairGenerator.h>
@@ -23,47 +22,12 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _JsseJce$EcAvailability_FieldInfo_[] = {
-	{"isAvailable", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JsseJce$EcAvailability, isAvailable)},
-	{}
-};
-
-$MethodInfo _JsseJce$EcAvailability_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JsseJce$EcAvailability, init$, void)},
-	{}
-};
-
-$InnerClassInfo _JsseJce$EcAvailability_InnerClassesInfo_[] = {
-	{"sun.security.ssl.JsseJce$EcAvailability", "sun.security.ssl.JsseJce", "EcAvailability", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JsseJce$EcAvailability_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.JsseJce$EcAvailability",
-	"java.lang.Object",
-	nullptr,
-	_JsseJce$EcAvailability_FieldInfo_,
-	_JsseJce$EcAvailability_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JsseJce$EcAvailability_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.JsseJce"
-};
-
-$Object* allocate$JsseJce$EcAvailability($Class* clazz) {
-	return $of($alloc(JsseJce$EcAvailability));
-}
-
 bool JsseJce$EcAvailability::isAvailable = false;
 
 void JsseJce$EcAvailability::init$() {
 }
 
-void clinit$JsseJce$EcAvailability($Class* class$) {
+void JsseJce$EcAvailability::clinit$($Class* clazz) {
 	{
 		bool mediator = true;
 		try {
@@ -84,7 +48,36 @@ JsseJce$EcAvailability::JsseJce$EcAvailability() {
 }
 
 $Class* JsseJce$EcAvailability::load$($String* name, bool initialize) {
-	$loadClass(JsseJce$EcAvailability, name, initialize, &_JsseJce$EcAvailability_ClassInfo_, clinit$JsseJce$EcAvailability, allocate$JsseJce$EcAvailability);
+	$FieldInfo fieldInfos$$[] = {
+		{"isAvailable", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JsseJce$EcAvailability, isAvailable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JsseJce$EcAvailability, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.JsseJce$EcAvailability", "sun.security.ssl.JsseJce", "EcAvailability", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.JsseJce$EcAvailability",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.JsseJce"
+	};
+	$loadClass(JsseJce$EcAvailability, name, initialize, &classInfo$$, JsseJce$EcAvailability::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JsseJce$EcAvailability);
+	});
 	return class$;
 }
 

@@ -31,6 +31,7 @@ class $import HashDrbg : public ::sun::security::provider::AbstractHashDrbg {
 	$class(HashDrbg, 0, ::sun::security::provider::AbstractHashDrbg)
 public:
 	HashDrbg();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::SecureRandomParameters* params);
 	static void addBytes($bytes* out, int32_t len, $Array<int8_t, 2>* data);
 	virtual void generateAlgorithm($bytes* result, $bytes* additionalInput) override;

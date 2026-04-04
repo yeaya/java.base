@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ISO_8859_1$Encoder.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
@@ -36,55 +35,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$CompoundAttribute _ISO_8859_1$Encoder_MethodAnnotations_implEncodeISOArray7[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _ISO_8859_1$Encoder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ISO_8859_1$Encoder, $assertionsDisabled)},
-	{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE | $FINAL, $field(ISO_8859_1$Encoder, sgp)},
-	{}
-};
-
-$MethodInfo _ISO_8859_1$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ISO_8859_1$Encoder, init$, void, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1$Encoder, canEncode, bool, char16_t)},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO_8859_1$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO_8859_1$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeISOArray", "([CI[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ISO_8859_1$Encoder, encodeISOArray, int32_t, $chars*, int32_t, $bytes*, int32_t, int32_t)},
-	{"encodeISOArrayCheck", "([CI[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ISO_8859_1$Encoder, encodeISOArrayCheck, void, $chars*, int32_t, $bytes*, int32_t, int32_t)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO_8859_1$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"implEncodeISOArray", "([CI[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ISO_8859_1$Encoder, implEncodeISOArray, int32_t, $chars*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _ISO_8859_1$Encoder_MethodAnnotations_implEncodeISOArray7},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1$Encoder, isLegalReplacement, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _ISO_8859_1$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ISO_8859_1$Encoder", "sun.nio.cs.ISO_8859_1", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO_8859_1$Encoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ISO_8859_1$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	nullptr,
-	_ISO_8859_1$Encoder_FieldInfo_,
-	_ISO_8859_1$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO_8859_1$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ISO_8859_1"
-};
-
-$Object* allocate$ISO_8859_1$Encoder($Class* clazz) {
-	return $of($alloc(ISO_8859_1$Encoder));
-}
-
 bool ISO_8859_1$Encoder::$assertionsDisabled = false;
 
 void ISO_8859_1$Encoder::init$($Charset* cs) {
@@ -93,7 +43,7 @@ void ISO_8859_1$Encoder::init$($Charset* cs) {
 }
 
 bool ISO_8859_1$Encoder::canEncode(char16_t c) {
-	return c <= (char16_t)0xFF;
+	return c <= (char16_t)0xff;
 }
 
 bool ISO_8859_1$Encoder::isLegalReplacement($bytes* repl) {
@@ -114,7 +64,7 @@ int32_t ISO_8859_1$Encoder::implEncodeISOArray($chars* sa, int32_t sp, $bytes* d
 	int32_t i = 0;
 	for (; i < len; ++i) {
 		char16_t c = $nc(sa)->get(sp++);
-		if (c > (char16_t)0xFF) {
+		if (c > (char16_t)0xff) {
 			break;
 		}
 		$nc(da)->set(dp++, (int8_t)c);
@@ -143,7 +93,7 @@ void ISO_8859_1$Encoder::encodeISOArrayCheck($chars* sa, int32_t sp, $bytes* da,
 }
 
 $CoderResult* ISO_8859_1$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t soff = src->arrayOffset();
 	int32_t sp = soff + src->position();
@@ -163,95 +113,91 @@ $CoderResult* ISO_8859_1$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer*
 	int32_t dlen = dl - dp;
 	int32_t slen = sl - sp;
 	int32_t len = (dlen < slen) ? dlen : slen;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			int32_t ret = encodeISOArray(sa, sp, da, dp, len);
-			sp = sp + ret;
-			dp = dp + ret;
-			if (ret != len) {
-				if ($nc(this->sgp)->parse($nc(sa)->get(sp), sa, sp, sl) < 0) {
-					$assign(var$2, $nc(this->sgp)->error());
-					return$1 = true;
-					goto $finally;
-				}
-				$assign(var$2, $nc(this->sgp)->unmappableResult());
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		int32_t ret = encodeISOArray(sa, sp, da, dp, len);
+		sp = sp + ret;
+		dp = dp + ret;
+		if (ret != len) {
+			if (this->sgp->parse($nc(sa)->get(sp), sa, sp, sl) < 0) {
+				$assign(var$2, this->sgp->error());
 				return$1 = true;
 				goto $finally;
 			}
-			if (len < slen) {
-				$init($CoderResult);
-				$assign(var$2, $CoderResult::OVERFLOW);
-				return$1 = true;
-				goto $finally;
-			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
+			$assign(var$2, this->sgp->unmappableResult());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(sp - soff);
-			dst->position(dp - doff);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (len < slen) {
+			$init($CoderResult);
+			$assign(var$2, $CoderResult::OVERFLOW);
+			return$1 = true;
+			goto $finally;
 		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(sp - soff);
+		dst->position(dp - doff);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $CoderResult* ISO_8859_1$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mark = $nc(src)->position();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				char16_t c = src->get();
-				if (c <= (char16_t)0xFF) {
-					if (!$nc(dst)->hasRemaining()) {
-						$init($CoderResult);
-						$assign(var$2, $CoderResult::OVERFLOW);
-						return$1 = true;
-						goto $finally;
-					}
-					$nc(dst)->put((int8_t)c);
-					++mark;
-					continue;
-				}
-				if ($nc(this->sgp)->parse(c, src) < 0) {
-					$assign(var$2, $nc(this->sgp)->error());
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			char16_t c = src->get();
+			if (c <= (char16_t)0xff) {
+				if (!$nc(dst)->hasRemaining()) {
+					$init($CoderResult);
+					$assign(var$2, $CoderResult::OVERFLOW);
 					return$1 = true;
 					goto $finally;
 				}
-				$assign(var$2, $nc(this->sgp)->unmappableResult());
+				dst->put((int8_t)c);
+				++mark;
+				continue;
+			}
+			if (this->sgp->parse(c, src) < 0) {
+				$assign(var$2, this->sgp->error());
 				return$1 = true;
 				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
+			$assign(var$2, this->sgp->unmappableResult());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -265,7 +211,7 @@ $CoderResult* ISO_8859_1$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst)
 	}
 }
 
-void clinit$ISO_8859_1$Encoder($Class* class$) {
+void ISO_8859_1$Encoder::clinit$($Class* clazz) {
 	$load($ISO_8859_1);
 	ISO_8859_1$Encoder::$assertionsDisabled = !$ISO_8859_1::class$->desiredAssertionStatus();
 }
@@ -274,7 +220,49 @@ ISO_8859_1$Encoder::ISO_8859_1$Encoder() {
 }
 
 $Class* ISO_8859_1$Encoder::load$($String* name, bool initialize) {
-	$loadClass(ISO_8859_1$Encoder, name, initialize, &_ISO_8859_1$Encoder_ClassInfo_, clinit$ISO_8859_1$Encoder, allocate$ISO_8859_1$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ISO_8859_1$Encoder, $assertionsDisabled)},
+		{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE | $FINAL, $field(ISO_8859_1$Encoder, sgp)},
+		{}
+	};
+	$CompoundAttribute implEncodeISOArraymethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ISO_8859_1$Encoder, init$, void, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1$Encoder, canEncode, bool, char16_t)},
+		{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO_8859_1$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO_8859_1$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeISOArray", "([CI[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ISO_8859_1$Encoder, encodeISOArray, int32_t, $chars*, int32_t, $bytes*, int32_t, int32_t)},
+		{"encodeISOArrayCheck", "([CI[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ISO_8859_1$Encoder, encodeISOArrayCheck, void, $chars*, int32_t, $bytes*, int32_t, int32_t)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO_8859_1$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"implEncodeISOArray", "([CI[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ISO_8859_1$Encoder, implEncodeISOArray, int32_t, $chars*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, implEncodeISOArraymethodAnnotations$$},
+		{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1$Encoder, isLegalReplacement, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ISO_8859_1$Encoder", "sun.nio.cs.ISO_8859_1", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ISO_8859_1$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ISO_8859_1"
+	};
+	$loadClass(ISO_8859_1$Encoder, name, initialize, &classInfo$$, ISO_8859_1$Encoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO_8859_1$Encoder);
+	});
 	return class$;
 }
 

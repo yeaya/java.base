@@ -62,6 +62,7 @@ public:
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::sun::net::www::http::HttpClient* get(::java::net::URL* url, Object$* obj);
 	static int32_t getMaxConnections();
@@ -75,7 +76,7 @@ public:
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* stream);
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0xD73D10D10495D483;
+	static const int64_t serialVersionUID = (int64_t)0xd73d10d10495d483;
 	static const int32_t MAX_CONNECTIONS = 5;
 	static int32_t result;
 	static const int32_t LIFETIME = 5000;

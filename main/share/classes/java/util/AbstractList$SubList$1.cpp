@@ -1,5 +1,4 @@
 #include <java/util/AbstractList$SubList$1.h>
-
 #include <java/util/AbstractList$SubList.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ListIterator.h>
@@ -11,66 +10,11 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $AbstractList$SubList = ::java::util::AbstractList$SubList;
-using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _AbstractList$SubList$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/AbstractList$SubList;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractList$SubList$1, this$0)},
-	{"val$index", "I", nullptr, $FINAL | $SYNTHETIC, $field(AbstractList$SubList$1, val$index)},
-	{"i", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<TE;>;", $PRIVATE | $FINAL, $field(AbstractList$SubList$1, i)},
-	{}
-};
-
-$MethodInfo _AbstractList$SubList$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/AbstractList$SubList;I)V", "()V", 0, $method(AbstractList$SubList$1, init$, void, $AbstractList$SubList*, int32_t)},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(AbstractList$SubList$1, add, void, Object$*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, hasNext, bool)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, hasPrevious, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractList$SubList$1, next, $Object*)},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractList$SubList$1, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, previousIndex, int32_t)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, remove, void)},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(AbstractList$SubList$1, set, void, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _AbstractList$SubList$1_EnclosingMethodInfo_ = {
-	"java.util.AbstractList$SubList",
-	"listIterator",
-	"(I)Ljava/util/ListIterator;"
-};
-
-$InnerClassInfo _AbstractList$SubList$1_InnerClassesInfo_[] = {
-	{"java.util.AbstractList$SubList", "java.util.AbstractList", "SubList", $PRIVATE | $STATIC},
-	{"java.util.AbstractList$SubList$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractList$SubList$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.AbstractList$SubList$1",
-	"java.lang.Object",
-	"java.util.ListIterator",
-	_AbstractList$SubList$1_FieldInfo_,
-	_AbstractList$SubList$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
-	&_AbstractList$SubList$1_EnclosingMethodInfo_,
-	_AbstractList$SubList$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.AbstractList"
-};
-
-$Object* allocate$AbstractList$SubList$1($Class* clazz) {
-	return $of($alloc(AbstractList$SubList$1));
-}
 
 void AbstractList$SubList$1::init$($AbstractList$SubList* this$0, int32_t val$index) {
 	$set(this, this$0, this$0);
@@ -84,7 +28,7 @@ bool AbstractList$SubList$1::hasNext() {
 
 $Object* AbstractList$SubList$1::next() {
 	if (hasNext()) {
-		return $of($nc(this->i)->next());
+		return $nc(this->i)->next();
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -96,7 +40,7 @@ bool AbstractList$SubList$1::hasPrevious() {
 
 $Object* AbstractList$SubList$1::previous() {
 	if (hasPrevious()) {
-		return $of($nc(this->i)->previous());
+		return $nc(this->i)->previous();
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -128,7 +72,53 @@ AbstractList$SubList$1::AbstractList$SubList$1() {
 }
 
 $Class* AbstractList$SubList$1::load$($String* name, bool initialize) {
-	$loadClass(AbstractList$SubList$1, name, initialize, &_AbstractList$SubList$1_ClassInfo_, allocate$AbstractList$SubList$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/AbstractList$SubList;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractList$SubList$1, this$0)},
+		{"val$index", "I", nullptr, $FINAL | $SYNTHETIC, $field(AbstractList$SubList$1, val$index)},
+		{"i", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<TE;>;", $PRIVATE | $FINAL, $field(AbstractList$SubList$1, i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/AbstractList$SubList;I)V", "()V", 0, $method(AbstractList$SubList$1, init$, void, $AbstractList$SubList*, int32_t)},
+		{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(AbstractList$SubList$1, add, void, Object$*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, hasNext, bool)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, hasPrevious, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractList$SubList$1, next, $Object*)},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractList$SubList$1, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, previousIndex, int32_t)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, remove, void)},
+		{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(AbstractList$SubList$1, set, void, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.AbstractList$SubList",
+		"listIterator",
+		"(I)Ljava/util/ListIterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.AbstractList$SubList", "java.util.AbstractList", "SubList", $PRIVATE | $STATIC},
+		{"java.util.AbstractList$SubList$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.AbstractList$SubList$1",
+		"java.lang.Object",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.AbstractList"
+	};
+	$loadClass(AbstractList$SubList$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractList$SubList$1);
+	});
 	return class$;
 }
 

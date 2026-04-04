@@ -1,8 +1,6 @@
 #include <java/security/UnresolvedPermission.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -31,7 +29,6 @@
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,56 +50,11 @@ using $X509Certificate = ::java::security::cert::X509Certificate;
 using $ArrayList = ::java::util::ArrayList;
 using $Hashtable = ::java::util::Hashtable;
 using $List = ::java::util::List;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $Debug = ::sun::security::util::Debug;
 using $IOUtils = ::sun::security::util::IOUtils;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _UnresolvedPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnresolvedPermission, serialVersionUID)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnresolvedPermission, debug)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnresolvedPermission, type)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnresolvedPermission, name)},
-	{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnresolvedPermission, actions)},
-	{"certs", "[Ljava/security/cert/Certificate;", nullptr, $PRIVATE | $TRANSIENT, $field(UnresolvedPermission, certs)},
-	{"PARAMS0", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnresolvedPermission, PARAMS0)},
-	{"PARAMS1", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnresolvedPermission, PARAMS1)},
-	{"PARAMS2", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnresolvedPermission, PARAMS2)},
-	{}
-};
-
-$MethodInfo _UnresolvedPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(UnresolvedPermission, init$, void, $String*, $String*, $String*, $CertificateArray*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, equals, bool, Object$*)},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, getActions, $String*)},
-	{"getUnresolvedActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedActions, $String*)},
-	{"getUnresolvedCerts", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedCerts, $CertificateArray*)},
-	{"getUnresolvedName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedName, $String*)},
-	{"getUnresolvedType", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedType, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, hashCode, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, implies, bool, $Permission*)},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, newPermissionCollection, $PermissionCollection*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resolve", "(Ljava/security/Permission;[Ljava/security/cert/Certificate;)Ljava/security/Permission;", nullptr, 0, $method(UnresolvedPermission, resolve, $Permission*, $Permission*, $CertificateArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _UnresolvedPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.security.UnresolvedPermission",
-	"java.security.Permission",
-	nullptr,
-	_UnresolvedPermission_FieldInfo_,
-	_UnresolvedPermission_MethodInfo_
-};
-
-$Object* allocate$UnresolvedPermission($Class* clazz) {
-	return $of($alloc(UnresolvedPermission));
-}
 
 $Debug* UnresolvedPermission::debug = nullptr;
 $ClassArray* UnresolvedPermission::PARAMS0 = nullptr;
@@ -110,7 +62,7 @@ $ClassArray* UnresolvedPermission::PARAMS1 = nullptr;
 $ClassArray* UnresolvedPermission::PARAMS2 = nullptr;
 
 void UnresolvedPermission::init$($String* type, $String* name, $String* actions, $CertificateArray* certs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Permission::init$(type);
 	if (type == nullptr) {
 		$throwNew($NullPointerException, "type can\'t be null"_s);
@@ -130,7 +82,7 @@ void UnresolvedPermission::init$($String* type, $String* name, $String* actions,
 			int32_t count = 0;
 			while (i < certs->length) {
 				++count;
-				while (((i + 1) < certs->length) && $nc($($nc(($cast($X509Certificate, certs->get(i))))->getIssuerX500Principal()))->equals($($nc(($cast($X509Certificate, certs->get(i + 1))))->getSubjectX500Principal()))) {
+				while (((i + 1) < certs->length) && $$nc($nc($cast($X509Certificate, certs->get(i)))->getIssuerX500Principal())->equals($($nc($cast($X509Certificate, certs->get(i + 1)))->getSubjectX500Principal()))) {
 					++i;
 				}
 				++i;
@@ -143,7 +95,7 @@ void UnresolvedPermission::init$($String* type, $String* name, $String* actions,
 				i = 0;
 				while (i < certs->length) {
 					signerCerts->add(certs->get(i));
-					while (((i + 1) < certs->length) && $nc($($nc(($cast($X509Certificate, certs->get(i))))->getIssuerX500Principal()))->equals($($nc(($cast($X509Certificate, certs->get(i + 1))))->getSubjectX500Principal()))) {
+					while (((i + 1) < certs->length) && $$nc($nc($cast($X509Certificate, certs->get(i)))->getIssuerX500Principal())->equals($($nc($cast($X509Certificate, certs->get(i + 1)))->getSubjectX500Principal()))) {
 						++i;
 					}
 					++i;
@@ -156,17 +108,17 @@ void UnresolvedPermission::init$($String* type, $String* name, $String* actions,
 }
 
 $Permission* UnresolvedPermission::resolve($Permission* p, $CertificateArray* certs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->certs != nullptr) {
 		if (certs == nullptr) {
 			return nullptr;
 		}
 		bool match = false;
-		for (int32_t i = 0; i < $nc(this->certs)->length; ++i) {
+		for (int32_t i = 0; i < this->certs->length; ++i) {
 			match = false;
 			for (int32_t j = 0; j < $nc(certs)->length; ++j) {
-				if ($nc($nc(this->certs)->get(i))->equals(certs->get(j))) {
+				if ($nc(this->certs->get(i))->equals(certs->get(j))) {
 					match = true;
 					break;
 				}
@@ -180,47 +132,47 @@ $Permission* UnresolvedPermission::resolve($Permission* p, $CertificateArray* ce
 		$Class* pc = $nc($of(p))->getClass();
 		if (this->name == nullptr && this->actions == nullptr) {
 			try {
-				$var($Constructor, c, $nc(pc)->getConstructor(UnresolvedPermission::PARAMS0));
+				$var($Constructor, c, pc->getConstructor(UnresolvedPermission::PARAMS0));
 				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, 0)));
 			} catch ($NoSuchMethodException& ne) {
 				try {
-					$var($Constructor, c, $nc(pc)->getConstructor(UnresolvedPermission::PARAMS1));
-					return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {$of(this->name)})));
+					$var($Constructor, c, pc->getConstructor(UnresolvedPermission::PARAMS1));
+					return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {this->name})));
 				} catch ($NoSuchMethodException& ne1) {
-					$var($Constructor, c, $nc(pc)->getConstructor(UnresolvedPermission::PARAMS2));
+					$var($Constructor, c, pc->getConstructor(UnresolvedPermission::PARAMS2));
 					return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
-						$of(this->name),
-						$of(this->actions)
+						this->name,
+						this->actions
 					})));
 				}
 			}
 		} else if (this->name != nullptr && this->actions == nullptr) {
 			try {
-				$var($Constructor, c, $nc(pc)->getConstructor(UnresolvedPermission::PARAMS1));
-				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {$of(this->name)})));
+				$var($Constructor, c, pc->getConstructor(UnresolvedPermission::PARAMS1));
+				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {this->name})));
 			} catch ($NoSuchMethodException& ne) {
-				$var($Constructor, c, $nc(pc)->getConstructor(UnresolvedPermission::PARAMS2));
+				$var($Constructor, c, pc->getConstructor(UnresolvedPermission::PARAMS2));
 				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
-					$of(this->name),
-					$of(this->actions)
+					this->name,
+					this->actions
 				})));
 			}
 		} else {
-			$var($Constructor, c, $nc(pc)->getConstructor(UnresolvedPermission::PARAMS2));
+			$var($Constructor, c, pc->getConstructor(UnresolvedPermission::PARAMS2));
 			return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
-				$of(this->name),
-				$of(this->actions)
+				this->name,
+				this->actions
 			})));
 		}
 	} catch ($NoSuchMethodException& nsme) {
 		if (UnresolvedPermission::debug != nullptr) {
-			$nc(UnresolvedPermission::debug)->println($$str({"NoSuchMethodException:\n  could not find proper constructor for "_s, this->type}));
+			UnresolvedPermission::debug->println($$str({"NoSuchMethodException:\n  could not find proper constructor for "_s, this->type}));
 			nsme->printStackTrace();
 		}
 		return nullptr;
 	} catch ($Exception& e) {
 		if (UnresolvedPermission::debug != nullptr) {
-			$nc(UnresolvedPermission::debug)->println($$str({"unable to instantiate "_s, this->name}));
+			UnresolvedPermission::debug->println($$str({"unable to instantiate "_s, this->name}));
 			e->printStackTrace();
 		}
 		return nullptr;
@@ -249,29 +201,29 @@ bool UnresolvedPermission::equals(Object$* obj) {
 		return false;
 	}
 	if (this->name == nullptr) {
-		if ($nc(that)->name != nullptr) {
+		if (that->name != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->name)->equals($nc(that)->name)) {
+	} else if (!this->name->equals(that->name)) {
 		return false;
 	}
 	if (this->actions == nullptr) {
-		if ($nc(that)->actions != nullptr) {
+		if (that->actions != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->actions)->equals($nc(that)->actions)) {
+	} else if (!this->actions->equals(that->actions)) {
 		return false;
 	}
-	if ((this->certs == nullptr && $nc(that)->certs != nullptr) || (this->certs != nullptr && $nc(that)->certs == nullptr) || (this->certs != nullptr && $nc(that)->certs != nullptr && $nc(this->certs)->length != $nc(that->certs)->length)) {
+	if ((this->certs == nullptr && that->certs != nullptr) || (this->certs != nullptr && that->certs == nullptr) || (this->certs != nullptr && that->certs != nullptr && this->certs->length != that->certs->length)) {
 		return false;
 	}
 	int32_t i = 0;
 	int32_t j = 0;
 	bool match = false;
-	for (i = 0; this->certs != nullptr && i < $nc(this->certs)->length; ++i) {
+	for (i = 0; this->certs != nullptr && i < this->certs->length; ++i) {
 		match = false;
-		for (j = 0; j < $nc($nc(that)->certs)->length; ++j) {
-			if ($nc($nc(this->certs)->get(i))->equals($nc(that->certs)->get(j))) {
+		for (j = 0; j < $nc(that->certs)->length; ++j) {
+			if ($nc(this->certs->get(i))->equals(that->certs->get(j))) {
 				match = true;
 				break;
 			}
@@ -280,10 +232,10 @@ bool UnresolvedPermission::equals(Object$* obj) {
 			return false;
 		}
 	}
-	for (i = 0; $nc(that)->certs != nullptr && i < $nc(that->certs)->length; ++i) {
+	for (i = 0; that->certs != nullptr && i < that->certs->length; ++i) {
 		match = false;
 		for (j = 0; j < $nc(this->certs)->length; ++j) {
-			if ($nc($nc(that->certs)->get(i))->equals($nc(this->certs)->get(j))) {
+			if ($nc(that->certs->get(i))->equals(this->certs->get(j))) {
 				match = true;
 				break;
 			}
@@ -298,10 +250,10 @@ bool UnresolvedPermission::equals(Object$* obj) {
 int32_t UnresolvedPermission::hashCode() {
 	int32_t hash = $nc(this->type)->hashCode();
 	if (this->name != nullptr) {
-		hash ^= $nc(this->name)->hashCode();
+		hash ^= this->name->hashCode();
 	}
 	if (this->actions != nullptr) {
-		hash ^= $nc(this->actions)->hashCode();
+		hash ^= this->actions->hashCode();
 	}
 	return hash;
 }
@@ -323,7 +275,7 @@ $String* UnresolvedPermission::getUnresolvedActions() {
 }
 
 $CertificateArray* UnresolvedPermission::getUnresolvedCerts() {
-	return (this->certs == nullptr) ? ($CertificateArray*)nullptr : $cast($CertificateArray, $nc(this->certs)->clone());
+	return (this->certs == nullptr) ? ($CertificateArray*)nullptr : $cast($CertificateArray, this->certs->clone());
 }
 
 $String* UnresolvedPermission::toString() {
@@ -335,17 +287,17 @@ $PermissionCollection* UnresolvedPermission::newPermissionCollection() {
 }
 
 void UnresolvedPermission::writeObject($ObjectOutputStream* oos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(oos)->defaultWriteObject();
-	if (this->certs == nullptr || $nc(this->certs)->length == 0) {
+	if (this->certs == nullptr || this->certs->length == 0) {
 		oos->writeInt(0);
 	} else {
-		oos->writeInt($nc(this->certs)->length);
-		for (int32_t i = 0; i < $nc(this->certs)->length; ++i) {
-			$var($Certificate, cert, $nc(this->certs)->get(i));
+		oos->writeInt(this->certs->length);
+		for (int32_t i = 0; i < this->certs->length; ++i) {
+			$var($Certificate, cert, this->certs->get(i));
 			try {
 				oos->writeUTF($($nc(cert)->getType()));
-				$var($bytes, encoded, $nc(cert)->getEncoded());
+				$var($bytes, encoded, cert->getEncoded());
 				oos->writeInt($nc(encoded)->length);
 				oos->write(encoded);
 			} catch ($CertificateEncodingException& cee) {
@@ -356,7 +308,7 @@ void UnresolvedPermission::writeObject($ObjectOutputStream* oos) {
 }
 
 void UnresolvedPermission::readObject($ObjectInputStream* ois) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CertificateFactory, cf, nullptr);
 	$var($Hashtable, cfs, nullptr);
 	$var($List, certList, nullptr);
@@ -393,11 +345,11 @@ void UnresolvedPermission::readObject($ObjectInputStream* ois) {
 		bais->close();
 	}
 	if (certList != nullptr) {
-		$set(this, certs, $fcast($CertificateArray, certList->toArray($$new($CertificateArray, size))));
+		$set(this, certs, $cast($CertificateArray, certList->toArray($$new($CertificateArray, size))));
 	}
 }
 
-void clinit$UnresolvedPermission($Class* class$) {
+void UnresolvedPermission::clinit$($Class* clazz) {
 	$assignStatic(UnresolvedPermission::debug, $Debug::getInstance("policy,access"_s, "UnresolvedPermission"_s));
 	$assignStatic(UnresolvedPermission::PARAMS0, $new($ClassArray, 0));
 	$assignStatic(UnresolvedPermission::PARAMS1, $new($ClassArray, {$String::class$}));
@@ -411,7 +363,46 @@ UnresolvedPermission::UnresolvedPermission() {
 }
 
 $Class* UnresolvedPermission::load$($String* name, bool initialize) {
-	$loadClass(UnresolvedPermission, name, initialize, &_UnresolvedPermission_ClassInfo_, clinit$UnresolvedPermission, allocate$UnresolvedPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnresolvedPermission, serialVersionUID)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnresolvedPermission, debug)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnresolvedPermission, type)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnresolvedPermission, name)},
+		{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnresolvedPermission, actions)},
+		{"certs", "[Ljava/security/cert/Certificate;", nullptr, $PRIVATE | $TRANSIENT, $field(UnresolvedPermission, certs)},
+		{"PARAMS0", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnresolvedPermission, PARAMS0)},
+		{"PARAMS1", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnresolvedPermission, PARAMS1)},
+		{"PARAMS2", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnresolvedPermission, PARAMS2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(UnresolvedPermission, init$, void, $String*, $String*, $String*, $CertificateArray*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, equals, bool, Object$*)},
+		{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, getActions, $String*)},
+		{"getUnresolvedActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedActions, $String*)},
+		{"getUnresolvedCerts", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedCerts, $CertificateArray*)},
+		{"getUnresolvedName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedName, $String*)},
+		{"getUnresolvedType", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedType, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, hashCode, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, implies, bool, $Permission*)},
+		{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, newPermissionCollection, $PermissionCollection*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"resolve", "(Ljava/security/Permission;[Ljava/security/cert/Certificate;)Ljava/security/Permission;", nullptr, 0, $method(UnresolvedPermission, resolve, $Permission*, $Permission*, $CertificateArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.security.UnresolvedPermission",
+		"java.security.Permission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnresolvedPermission, name, initialize, &classInfo$$, UnresolvedPermission::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnresolvedPermission));
+	});
 	return class$;
 }
 

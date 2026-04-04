@@ -1,5 +1,4 @@
 #include <javax/security/auth/DestroyFailedException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace security {
 		namespace auth {
-
-$FieldInfo _DestroyFailedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DestroyFailedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DestroyFailedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DestroyFailedException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DestroyFailedException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _DestroyFailedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.DestroyFailedException",
-	"java.lang.Exception",
-	nullptr,
-	_DestroyFailedException_FieldInfo_,
-	_DestroyFailedException_MethodInfo_
-};
-
-$Object* allocate$DestroyFailedException($Class* clazz) {
-	return $of($alloc(DestroyFailedException));
-}
 
 void DestroyFailedException::init$() {
 	$Exception::init$();
@@ -54,7 +29,26 @@ void DestroyFailedException::throw$() {
 }
 
 $Class* DestroyFailedException::load$($String* name, bool initialize) {
-	$loadClass(DestroyFailedException, name, initialize, &_DestroyFailedException_ClassInfo_, allocate$DestroyFailedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DestroyFailedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DestroyFailedException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DestroyFailedException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.DestroyFailedException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DestroyFailedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DestroyFailedException);
+	});
 	return class$;
 }
 

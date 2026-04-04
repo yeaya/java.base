@@ -1,5 +1,4 @@
 #include <java/net/HttpRetryException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,35 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _HttpRetryException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpRetryException, serialVersionUID)},
-	{"responseCode", "I", nullptr, $PRIVATE, $field(HttpRetryException, responseCode$)},
-	{"location", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpRetryException, location)},
-	{}
-};
-
-$MethodInfo _HttpRetryException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(HttpRetryException, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(HttpRetryException, init$, void, $String*, int32_t, $String*)},
-	{"getLocation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpRetryException, getLocation, $String*)},
-	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpRetryException, getReason, $String*)},
-	{"responseCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpRetryException, responseCode, int32_t)},
-	{}
-};
-
-$ClassInfo _HttpRetryException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.HttpRetryException",
-	"java.io.IOException",
-	nullptr,
-	_HttpRetryException_FieldInfo_,
-	_HttpRetryException_MethodInfo_
-};
-
-$Object* allocate$HttpRetryException($Class* clazz) {
-	return $of($alloc(HttpRetryException));
-}
 
 void HttpRetryException::init$($String* detail, int32_t code) {
 	$IOException::init$(detail);
@@ -74,7 +44,31 @@ void HttpRetryException::throw$() {
 }
 
 $Class* HttpRetryException::load$($String* name, bool initialize) {
-	$loadClass(HttpRetryException, name, initialize, &_HttpRetryException_ClassInfo_, allocate$HttpRetryException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpRetryException, serialVersionUID)},
+		{"responseCode", "I", nullptr, $PRIVATE, $field(HttpRetryException, responseCode$)},
+		{"location", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpRetryException, location)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(HttpRetryException, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(HttpRetryException, init$, void, $String*, int32_t, $String*)},
+		{"getLocation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpRetryException, getLocation, $String*)},
+		{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpRetryException, getReason, $String*)},
+		{"responseCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpRetryException, responseCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.HttpRetryException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpRetryException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpRetryException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <ABCReader.h>
-
 #include <java/io/Reader.h>
 #include <jcpp.h>
 
@@ -7,34 +6,6 @@ using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _ABCReader_FieldInfo_[] = {
-	{"len", "I", nullptr, 0, $field(ABCReader, len)},
-	{"count", "I", nullptr, 0, $field(ABCReader, count)},
-	{"next", "C", nullptr, 0, $field(ABCReader, next)},
-	{}
-};
-
-$MethodInfo _ABCReader_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(ABCReader, init$, void, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ABCReader, close, void)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ABCReader, read, int32_t)},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ABCReader, read, int32_t, $chars*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ABCReader_ClassInfo_ = {
-	$ACC_SUPER,
-	"ABCReader",
-	"java.io.Reader",
-	nullptr,
-	_ABCReader_FieldInfo_,
-	_ABCReader_MethodInfo_
-};
-
-$Object* allocate$ABCReader($Class* clazz) {
-	return $of($alloc(ABCReader));
-}
 
 void ABCReader::init$(int32_t len) {
 	$Reader::init$();
@@ -82,7 +53,30 @@ ABCReader::ABCReader() {
 }
 
 $Class* ABCReader::load$($String* name, bool initialize) {
-	$loadClass(ABCReader, name, initialize, &_ABCReader_ClassInfo_, allocate$ABCReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"len", "I", nullptr, 0, $field(ABCReader, len)},
+		{"count", "I", nullptr, 0, $field(ABCReader, count)},
+		{"next", "C", nullptr, 0, $field(ABCReader, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(ABCReader, init$, void, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ABCReader, close, void)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ABCReader, read, int32_t)},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ABCReader, read, int32_t, $chars*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ABCReader",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ABCReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ABCReader));
+	});
 	return class$;
 }
 

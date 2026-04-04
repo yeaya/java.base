@@ -1,5 +1,4 @@
 #include <sun/net/www/http/KeepAliveKey.h>
-
 #include <java/net/URL.h>
 #include <jcpp.h>
 
@@ -12,34 +11,6 @@ namespace sun {
 	namespace net {
 		namespace www {
 			namespace http {
-
-$FieldInfo _KeepAliveKey_FieldInfo_[] = {
-	{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeepAliveKey, protocol)},
-	{"host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeepAliveKey, host)},
-	{"port", "I", nullptr, $PRIVATE, $field(KeepAliveKey, port)},
-	{"obj", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(KeepAliveKey, obj)},
-	{}
-};
-
-$MethodInfo _KeepAliveKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(KeepAliveKey, init$, void, $URL*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeepAliveKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeepAliveKey, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _KeepAliveKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.http.KeepAliveKey",
-	"java.lang.Object",
-	nullptr,
-	_KeepAliveKey_FieldInfo_,
-	_KeepAliveKey_MethodInfo_
-};
-
-$Object* allocate$KeepAliveKey($Class* clazz) {
-	return $of($alloc(KeepAliveKey));
-}
 
 void KeepAliveKey::init$($URL* url, Object$* obj) {
 	$set(this, protocol, nullptr);
@@ -57,19 +28,19 @@ bool KeepAliveKey::equals(Object$* obj) {
 		return false;
 	}
 	$var(KeepAliveKey, kae, $cast(KeepAliveKey, obj));
-	bool var$0 = $nc(this->host)->equals($nc(kae)->host) && (this->port == $nc(kae)->port);
+	bool var$0 = $nc(this->host)->equals($nc(kae)->host) && (this->port == kae->port);
 	return var$0 && $nc(this->protocol)->equals(kae->protocol) && $equals(this->obj, kae->obj);
 }
 
 int32_t KeepAliveKey::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $str({this->protocol, this->host, $$str(this->port)}));
 	int32_t var$0 = 0;
 	if (this->obj == nullptr) {
-		var$0 = $nc(str)->hashCode();
+		var$0 = str->hashCode();
 	} else {
 		int32_t var$1 = str->hashCode();
-		var$0 = var$1 + $nc($of(this->obj))->hashCode();
+		var$0 = var$1 + $nc(this->obj)->hashCode();
 	}
 	return var$0;
 }
@@ -78,7 +49,30 @@ KeepAliveKey::KeepAliveKey() {
 }
 
 $Class* KeepAliveKey::load$($String* name, bool initialize) {
-	$loadClass(KeepAliveKey, name, initialize, &_KeepAliveKey_ClassInfo_, allocate$KeepAliveKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeepAliveKey, protocol)},
+		{"host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeepAliveKey, host)},
+		{"port", "I", nullptr, $PRIVATE, $field(KeepAliveKey, port)},
+		{"obj", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(KeepAliveKey, obj)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(KeepAliveKey, init$, void, $URL*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeepAliveKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeepAliveKey, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.http.KeepAliveKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeepAliveKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeepAliveKey);
+	});
 	return class$;
 }
 

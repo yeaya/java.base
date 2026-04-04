@@ -1,5 +1,4 @@
 #include <WriteBytes.h>
-
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
@@ -15,31 +14,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Arrays = ::java::util::Arrays;
 
-$MethodInfo _WriteBytes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WriteBytes, init$, void)},
-	{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WriteBytes, assertTrue, void, bool, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteBytes, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _WriteBytes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WriteBytes",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WriteBytes_MethodInfo_
-};
-
-$Object* allocate$WriteBytes($Class* clazz) {
-	return $of($alloc(WriteBytes));
-}
-
 void WriteBytes::init$() {
 }
 
 void WriteBytes::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	$var($OutputStream, out, $new($BufferedOutputStream, baos, 512));
 	$var($PrintStream, ps, $new($PrintStream, out, false));
@@ -57,7 +36,7 @@ void WriteBytes::main($StringArray* args) {
 	bool var$1 = baos->size() == 2 * buf->length;
 	assertTrue(var$1, $$str({"Stream size "_s, $$str(baos->size()), " but expected "_s, $$str(2 * buf->length)}));
 	$var($bytes, arr, baos->toByteArray());
-	assertTrue($nc(arr)->length == 2 * buf->length, $$str({"Array length "_s, $$str(arr->length), " but expected "_s, $$str(2 * buf->length)}));
+	assertTrue($nc(arr)->length == 2 * buf->length, $$str({"Array length "_s, $$str($nc(arr)->length), " but expected "_s, $$str(2 * buf->length)}));
 	assertTrue($Arrays::equals(buf, 0, buf->length, arr, 0, buf->length), "First write not equal"_s);
 	assertTrue($Arrays::equals(buf, 0, buf->length, arr, buf->length, 2 * buf->length), "Second write not equal"_s);
 	ps->close();
@@ -75,7 +54,23 @@ WriteBytes::WriteBytes() {
 }
 
 $Class* WriteBytes::load$($String* name, bool initialize) {
-	$loadClass(WriteBytes, name, initialize, &_WriteBytes_ClassInfo_, allocate$WriteBytes);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WriteBytes, init$, void)},
+		{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WriteBytes, assertTrue, void, bool, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteBytes, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WriteBytes",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WriteBytes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WriteBytes);
+	});
 	return class$;
 }
 

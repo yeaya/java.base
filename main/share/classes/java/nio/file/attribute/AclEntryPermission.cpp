@@ -1,5 +1,4 @@
 #include <java/nio/file/attribute/AclEntryPermission.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -31,50 +30,6 @@ namespace java {
 	namespace nio {
 		namespace file {
 			namespace attribute {
-
-$FieldInfo _AclEntryPermission_FieldInfo_[] = {
-	{"READ_DATA", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, READ_DATA)},
-	{"WRITE_DATA", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, WRITE_DATA)},
-	{"APPEND_DATA", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, APPEND_DATA)},
-	{"READ_NAMED_ATTRS", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, READ_NAMED_ATTRS)},
-	{"WRITE_NAMED_ATTRS", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, WRITE_NAMED_ATTRS)},
-	{"EXECUTE", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, EXECUTE)},
-	{"DELETE_CHILD", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, DELETE_CHILD)},
-	{"READ_ATTRIBUTES", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, READ_ATTRIBUTES)},
-	{"WRITE_ATTRIBUTES", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, WRITE_ATTRIBUTES)},
-	{"DELETE", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, DELETE)},
-	{"READ_ACL", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, READ_ACL)},
-	{"WRITE_ACL", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, WRITE_ACL)},
-	{"WRITE_OWNER", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, WRITE_OWNER)},
-	{"SYNCHRONIZE", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, SYNCHRONIZE)},
-	{"$VALUES", "[Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AclEntryPermission, $VALUES)},
-	{"LIST_DIRECTORY", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AclEntryPermission, LIST_DIRECTORY)},
-	{"ADD_FILE", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AclEntryPermission, ADD_FILE)},
-	{"ADD_SUBDIRECTORY", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AclEntryPermission, ADD_SUBDIRECTORY)},
-	{}
-};
-
-$MethodInfo _AclEntryPermission_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AclEntryPermission, $values, $AclEntryPermissionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AclEntryPermission, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryPermission, valueOf, AclEntryPermission*, $String*)},
-	{"values", "()[Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryPermission, values, $AclEntryPermissionArray*)},
-	{}
-};
-
-$ClassInfo _AclEntryPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.nio.file.attribute.AclEntryPermission",
-	"java.lang.Enum",
-	nullptr,
-	_AclEntryPermission_FieldInfo_,
-	_AclEntryPermission_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/nio/file/attribute/AclEntryPermission;>;"
-};
-
-$Object* allocate$AclEntryPermission($Class* clazz) {
-	return $of($alloc(AclEntryPermission));
-}
 
 AclEntryPermission* AclEntryPermission::READ_DATA = nullptr;
 AclEntryPermission* AclEntryPermission::WRITE_DATA = nullptr;
@@ -129,7 +84,7 @@ void AclEntryPermission::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$AclEntryPermission($Class* class$) {
+void AclEntryPermission::clinit$($Class* clazz) {
 	$assignStatic(AclEntryPermission::READ_DATA, $new(AclEntryPermission, "READ_DATA"_s, 0));
 	$assignStatic(AclEntryPermission::WRITE_DATA, $new(AclEntryPermission, "WRITE_DATA"_s, 1));
 	$assignStatic(AclEntryPermission::APPEND_DATA, $new(AclEntryPermission, "APPEND_DATA"_s, 2));
@@ -154,7 +109,46 @@ AclEntryPermission::AclEntryPermission() {
 }
 
 $Class* AclEntryPermission::load$($String* name, bool initialize) {
-	$loadClass(AclEntryPermission, name, initialize, &_AclEntryPermission_ClassInfo_, clinit$AclEntryPermission, allocate$AclEntryPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"READ_DATA", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, READ_DATA)},
+		{"WRITE_DATA", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, WRITE_DATA)},
+		{"APPEND_DATA", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, APPEND_DATA)},
+		{"READ_NAMED_ATTRS", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, READ_NAMED_ATTRS)},
+		{"WRITE_NAMED_ATTRS", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, WRITE_NAMED_ATTRS)},
+		{"EXECUTE", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, EXECUTE)},
+		{"DELETE_CHILD", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, DELETE_CHILD)},
+		{"READ_ATTRIBUTES", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, READ_ATTRIBUTES)},
+		{"WRITE_ATTRIBUTES", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, WRITE_ATTRIBUTES)},
+		{"DELETE", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, DELETE)},
+		{"READ_ACL", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, READ_ACL)},
+		{"WRITE_ACL", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, WRITE_ACL)},
+		{"WRITE_OWNER", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, WRITE_OWNER)},
+		{"SYNCHRONIZE", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryPermission, SYNCHRONIZE)},
+		{"$VALUES", "[Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AclEntryPermission, $VALUES)},
+		{"LIST_DIRECTORY", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AclEntryPermission, LIST_DIRECTORY)},
+		{"ADD_FILE", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AclEntryPermission, ADD_FILE)},
+		{"ADD_SUBDIRECTORY", "Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AclEntryPermission, ADD_SUBDIRECTORY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AclEntryPermission, $values, $AclEntryPermissionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AclEntryPermission, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryPermission, valueOf, AclEntryPermission*, $String*)},
+		{"values", "()[Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryPermission, values, $AclEntryPermissionArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.nio.file.attribute.AclEntryPermission",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/nio/file/attribute/AclEntryPermission;>;"
+	};
+	$loadClass(AclEntryPermission, name, initialize, &classInfo$$, AclEntryPermission::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AclEntryPermission));
+	});
 	return class$;
 }
 

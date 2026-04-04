@@ -1,7 +1,5 @@
 #include <sun/nio/cs/UTF_8$Encoder.h>
-
 #include <java/lang/Math.h>
-#include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -21,7 +19,6 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
@@ -33,48 +30,6 @@ using $UTF_8 = ::sun::nio::cs::UTF_8;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _UTF_8$Encoder_FieldInfo_[] = {
-	{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE, $field(UTF_8$Encoder, sgp)},
-	{}
-};
-
-$MethodInfo _UTF_8$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(UTF_8$Encoder, init$, void, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(UTF_8$Encoder, canEncode, bool, char16_t)},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(UTF_8$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(UTF_8$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED | $FINAL, $virtualMethod(UTF_8$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(UTF_8$Encoder, isLegalReplacement, bool, $bytes*)},
-	{"overflow", "(Ljava/nio/CharBuffer;ILjava/nio/ByteBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Encoder, overflow, $CoderResult*, $CharBuffer*, int32_t, $ByteBuffer*, int32_t)},
-	{"overflow", "(Ljava/nio/CharBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Encoder, overflow, $CoderResult*, $CharBuffer*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UTF_8$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.UTF_8$Encoder", "sun.nio.cs.UTF_8", "Encoder", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _UTF_8$Encoder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.nio.cs.UTF_8$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	nullptr,
-	_UTF_8$Encoder_FieldInfo_,
-	_UTF_8$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UTF_8$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.UTF_8"
-};
-
-$Object* allocate$UTF_8$Encoder($Class* clazz) {
-	return $of($alloc(UTF_8$Encoder));
-}
 
 void UTF_8$Encoder::init$($Charset* cs) {
 	$CharsetEncoder::init$(cs, 1.1f, 3.0f);
@@ -103,7 +58,7 @@ $CoderResult* UTF_8$Encoder::overflow($CharBuffer* src, int32_t mark) {
 }
 
 $CoderResult* UTF_8$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -129,8 +84,8 @@ $CoderResult* UTF_8$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst)
 			if (dl - dp < 2) {
 				return overflow(src, sp, dst, dp);
 			}
-			$nc(da)->set(dp++, (int8_t)(192 | (c >> 6)));
-			da->set(dp++, (int8_t)(128 | ((int32_t)(c & (uint32_t)63))));
+			$nc(da)->set(dp++, (int8_t)(0xc0 | (c >> 6)));
+			da->set(dp++, (int8_t)(0x80 | (c & 0x3f)));
 		} else if ($Character::isSurrogate(c)) {
 			if (this->sgp == nullptr) {
 				$set(this, sgp, $new($Surrogate$Parser));
@@ -138,23 +93,23 @@ $CoderResult* UTF_8$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst)
 			int32_t uc = $nc(this->sgp)->parse(c, sa, sp, sl);
 			if (uc < 0) {
 				$UTF_8::updatePositions(src, sp, dst, dp);
-				return $nc(this->sgp)->error();
+				return this->sgp->error();
 			}
 			if (dl - dp < 4) {
 				return overflow(src, sp, dst, dp);
 			}
-			$nc(da)->set(dp++, (int8_t)(240 | (uc >> 18)));
-			da->set(dp++, (int8_t)(128 | ((int32_t)((uc >> 12) & (uint32_t)63))));
-			da->set(dp++, (int8_t)(128 | ((int32_t)((uc >> 6) & (uint32_t)63))));
-			da->set(dp++, (int8_t)(128 | ((int32_t)(uc & (uint32_t)63))));
+			$nc(da)->set(dp++, (int8_t)(0xf0 | (uc >> 18)));
+			da->set(dp++, (int8_t)(0x80 | ((uc >> 12) & 0x3f)));
+			da->set(dp++, (int8_t)(0x80 | ((uc >> 6) & 0x3f)));
+			da->set(dp++, (int8_t)(0x80 | (uc & 0x3f)));
 			++sp;
 		} else {
 			if (dl - dp < 3) {
 				return overflow(src, sp, dst, dp);
 			}
-			$nc(da)->set(dp++, (int8_t)(224 | (c >> 12)));
-			da->set(dp++, (int8_t)(128 | ((int32_t)((c >> 6) & (uint32_t)63))));
-			da->set(dp++, (int8_t)(128 | ((int32_t)(c & (uint32_t)63))));
+			$nc(da)->set(dp++, (int8_t)(0xe0 | (c >> 12)));
+			da->set(dp++, (int8_t)(0x80 | ((c >> 6) & 0x3f)));
+			da->set(dp++, (int8_t)(0x80 | (c & 0x3f)));
 		}
 		++sp;
 	}
@@ -171,13 +126,13 @@ $CoderResult* UTF_8$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst
 			if (!$nc(dst)->hasRemaining()) {
 				return overflow(src, mark);
 			}
-			$nc(dst)->put((int8_t)c);
+			dst->put((int8_t)c);
 		} else if (c < 2048) {
 			if ($nc(dst)->remaining() < 2) {
 				return overflow(src, mark);
 			}
-			$nc(dst)->put((int8_t)(192 | (c >> 6)));
-			dst->put((int8_t)(128 | ((int32_t)(c & (uint32_t)63))));
+			dst->put((int8_t)(0xc0 | (c >> 6)));
+			dst->put((int8_t)(0x80 | (c & 0x3f)));
 		} else if ($Character::isSurrogate(c)) {
 			if (this->sgp == nullptr) {
 				$set(this, sgp, $new($Surrogate$Parser));
@@ -190,18 +145,18 @@ $CoderResult* UTF_8$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst
 			if ($nc(dst)->remaining() < 4) {
 				return overflow(src, mark);
 			}
-			$nc(dst)->put((int8_t)(240 | (uc >> 18)));
-			dst->put((int8_t)(128 | ((int32_t)((uc >> 12) & (uint32_t)63))));
-			dst->put((int8_t)(128 | ((int32_t)((uc >> 6) & (uint32_t)63))));
-			dst->put((int8_t)(128 | ((int32_t)(uc & (uint32_t)63))));
+			dst->put((int8_t)(0xf0 | (uc >> 18)));
+			dst->put((int8_t)(0x80 | ((uc >> 12) & 0x3f)));
+			dst->put((int8_t)(0x80 | ((uc >> 6) & 0x3f)));
+			dst->put((int8_t)(0x80 | (uc & 0x3f)));
 			++mark;
 		} else {
 			if ($nc(dst)->remaining() < 3) {
 				return overflow(src, mark);
 			}
-			$nc(dst)->put((int8_t)(224 | (c >> 12)));
-			dst->put((int8_t)(128 | ((int32_t)((c >> 6) & (uint32_t)63))));
-			dst->put((int8_t)(128 | ((int32_t)(c & (uint32_t)63))));
+			dst->put((int8_t)(0xe0 | (c >> 12)));
+			dst->put((int8_t)(0x80 | ((c >> 6) & 0x3f)));
+			dst->put((int8_t)(0x80 | (c & 0x3f)));
 		}
 		++mark;
 	}
@@ -223,7 +178,43 @@ UTF_8$Encoder::UTF_8$Encoder() {
 }
 
 $Class* UTF_8$Encoder::load$($String* name, bool initialize) {
-	$loadClass(UTF_8$Encoder, name, initialize, &_UTF_8$Encoder_ClassInfo_, allocate$UTF_8$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE, $field(UTF_8$Encoder, sgp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(UTF_8$Encoder, init$, void, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(UTF_8$Encoder, canEncode, bool, char16_t)},
+		{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(UTF_8$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(UTF_8$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED | $FINAL, $virtualMethod(UTF_8$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(UTF_8$Encoder, isLegalReplacement, bool, $bytes*)},
+		{"overflow", "(Ljava/nio/CharBuffer;ILjava/nio/ByteBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Encoder, overflow, $CoderResult*, $CharBuffer*, int32_t, $ByteBuffer*, int32_t)},
+		{"overflow", "(Ljava/nio/CharBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Encoder, overflow, $CoderResult*, $CharBuffer*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.UTF_8$Encoder", "sun.nio.cs.UTF_8", "Encoder", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.nio.cs.UTF_8$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.UTF_8"
+	};
+	$loadClass(UTF_8$Encoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UTF_8$Encoder);
+	});
 	return class$;
 }
 

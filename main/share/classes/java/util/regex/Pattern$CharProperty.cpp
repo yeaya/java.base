@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$CharProperty.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$CharPredicate.h>
@@ -23,44 +22,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$CharProperty_FieldInfo_[] = {
-	{"predicate", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $FINAL, $field(Pattern$CharProperty, predicate)},
-	{}
-};
-
-$MethodInfo _Pattern$CharProperty_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, 0, $method(Pattern$CharProperty, init$, void, $Pattern$CharPredicate*)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$CharProperty, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$CharProperty, study, bool, $Pattern$TreeInfo*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$CharProperty_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$CharProperty", "java.util.regex.Pattern", "CharProperty", $STATIC},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$CharProperty_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Pattern$CharProperty",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$CharProperty_FieldInfo_,
-	_Pattern$CharProperty_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$CharProperty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$CharProperty($Class* clazz) {
-	return $of($alloc(Pattern$CharProperty));
-}
-
 void Pattern$CharProperty::init$($Pattern$CharPredicate* predicate) {
 	$Pattern$Node::init$();
 	$set(this, predicate, predicate);
@@ -75,7 +36,7 @@ bool Pattern$CharProperty::match($Matcher* matcher, int32_t i, $CharSequence* se
 			return var$0 && $nc(this->next)->match(matcher, i, seq);
 		}
 	}
-	$nc(matcher)->hitEnd$ = true;
+	matcher->hitEnd$ = true;
 	return false;
 }
 
@@ -89,7 +50,39 @@ Pattern$CharProperty::Pattern$CharProperty() {
 }
 
 $Class* Pattern$CharProperty::load$($String* name, bool initialize) {
-	$loadClass(Pattern$CharProperty, name, initialize, &_Pattern$CharProperty_ClassInfo_, allocate$Pattern$CharProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"predicate", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $FINAL, $field(Pattern$CharProperty, predicate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, 0, $method(Pattern$CharProperty, init$, void, $Pattern$CharPredicate*)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$CharProperty, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$CharProperty, study, bool, $Pattern$TreeInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$CharProperty", "java.util.regex.Pattern", "CharProperty", $STATIC},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Pattern$CharProperty",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$CharProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$CharProperty);
+	});
 	return class$;
 }
 

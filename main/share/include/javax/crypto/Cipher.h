@@ -95,6 +95,7 @@ class $import Cipher : public ::java::lang::Object {
 	$class(Cipher, 0, ::java::lang::Object)
 public:
 	Cipher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::crypto::CipherSpi* cipherSpi, ::java::security::Provider* provider, $String* transformation);
 	void init$(::javax::crypto::CipherSpi* cipherSpi, $String* transformation);
 	void init$(::javax::crypto::CipherSpi* firstSpi, ::java::security::Provider$Service* firstService, ::java::util::Iterator* serviceIterator, $String* transformation, ::java::util::List* transforms);

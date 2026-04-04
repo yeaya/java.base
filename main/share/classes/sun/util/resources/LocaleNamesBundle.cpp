@@ -1,5 +1,4 @@
 #include <sun/util/resources/LocaleNamesBundle.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace sun {
 	namespace util {
 		namespace resources {
 
-$MethodInfo _LocaleNamesBundle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(LocaleNamesBundle, init$, void)},
-	{}
-};
-
-$ClassInfo _LocaleNamesBundle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.util.resources.LocaleNamesBundle",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNamesBundle_MethodInfo_
-};
-
-$Object* allocate$LocaleNamesBundle($Class* clazz) {
-	return $of($alloc(LocaleNamesBundle));
-}
-
 void LocaleNamesBundle::init$() {
 	$OpenListResourceBundle::init$();
 }
@@ -37,7 +18,21 @@ LocaleNamesBundle::LocaleNamesBundle() {
 }
 
 $Class* LocaleNamesBundle::load$($String* name, bool initialize) {
-	$loadClass(LocaleNamesBundle, name, initialize, &_LocaleNamesBundle_ClassInfo_, allocate$LocaleNamesBundle);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(LocaleNamesBundle, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.util.resources.LocaleNamesBundle",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNamesBundle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNamesBundle);
+	});
 	return class$;
 }
 

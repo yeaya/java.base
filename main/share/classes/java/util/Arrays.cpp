@@ -1,5 +1,4 @@
 #include <java/util/Arrays.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
@@ -137,35 +136,31 @@ public:
 	virtual void accept(int32_t i) override {
 		Arrays::lambda$parallelSetAll$0(array, generator, i);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Arrays$$Lambda$lambda$parallelSetAll$0>());
-	}
 	$ObjectArray* array = nullptr;
 	$IntFunction* generator = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Arrays$$Lambda$lambda$parallelSetAll$0::fieldInfos[3] = {
-	{"array", "[Ljava/lang/Object;", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$0, array)},
-	{"generator", "Ljava/util/function/IntFunction;", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$0, generator)},
-	{}
-};
-$MethodInfo Arrays$$Lambda$lambda$parallelSetAll$0::methodInfos[3] = {
-	{"<init>", "([Ljava/lang/Object;Ljava/util/function/IntFunction;)V", nullptr, $PUBLIC, $method(Arrays$$Lambda$lambda$parallelSetAll$0, init$, void, $ObjectArray*, $IntFunction*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Arrays$$Lambda$lambda$parallelSetAll$0, accept, void, int32_t)},
-	{}
-};
-$ClassInfo Arrays$$Lambda$lambda$parallelSetAll$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Arrays$$Lambda$lambda$parallelSetAll$0",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Arrays$$Lambda$lambda$parallelSetAll$0::load$($String* name, bool initialize) {
-	$loadClass(Arrays$$Lambda$lambda$parallelSetAll$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[Ljava/lang/Object;", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$0, array)},
+		{"generator", "Ljava/util/function/IntFunction;", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$0, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/Object;Ljava/util/function/IntFunction;)V", nullptr, $PUBLIC, $method(Arrays$$Lambda$lambda$parallelSetAll$0, init$, void, $ObjectArray*, $IntFunction*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Arrays$$Lambda$lambda$parallelSetAll$0, accept, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Arrays$$Lambda$lambda$parallelSetAll$0",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Arrays$$Lambda$lambda$parallelSetAll$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Arrays$$Lambda$lambda$parallelSetAll$0);
+	});
 	return class$;
 }
 $Class* Arrays$$Lambda$lambda$parallelSetAll$0::class$ = nullptr;
@@ -180,35 +175,31 @@ public:
 	virtual void accept(int32_t i) override {
 		Arrays::lambda$parallelSetAll$1(array, generator, i);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Arrays$$Lambda$lambda$parallelSetAll$1$1>());
-	}
 	$ints* array = nullptr;
 	$IntUnaryOperator* generator = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Arrays$$Lambda$lambda$parallelSetAll$1$1::fieldInfos[3] = {
-	{"array", "[I", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$1$1, array)},
-	{"generator", "Ljava/util/function/IntUnaryOperator;", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$1$1, generator)},
-	{}
-};
-$MethodInfo Arrays$$Lambda$lambda$parallelSetAll$1$1::methodInfos[3] = {
-	{"<init>", "([ILjava/util/function/IntUnaryOperator;)V", nullptr, $PUBLIC, $method(Arrays$$Lambda$lambda$parallelSetAll$1$1, init$, void, $ints*, $IntUnaryOperator*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Arrays$$Lambda$lambda$parallelSetAll$1$1, accept, void, int32_t)},
-	{}
-};
-$ClassInfo Arrays$$Lambda$lambda$parallelSetAll$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Arrays$$Lambda$lambda$parallelSetAll$1$1",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Arrays$$Lambda$lambda$parallelSetAll$1$1::load$($String* name, bool initialize) {
-	$loadClass(Arrays$$Lambda$lambda$parallelSetAll$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[I", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$1$1, array)},
+		{"generator", "Ljava/util/function/IntUnaryOperator;", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$1$1, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([ILjava/util/function/IntUnaryOperator;)V", nullptr, $PUBLIC, $method(Arrays$$Lambda$lambda$parallelSetAll$1$1, init$, void, $ints*, $IntUnaryOperator*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Arrays$$Lambda$lambda$parallelSetAll$1$1, accept, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Arrays$$Lambda$lambda$parallelSetAll$1$1",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Arrays$$Lambda$lambda$parallelSetAll$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Arrays$$Lambda$lambda$parallelSetAll$1$1);
+	});
 	return class$;
 }
 $Class* Arrays$$Lambda$lambda$parallelSetAll$1$1::class$ = nullptr;
@@ -223,35 +214,31 @@ public:
 	virtual void accept(int32_t i) override {
 		Arrays::lambda$parallelSetAll$2(array, generator, i);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Arrays$$Lambda$lambda$parallelSetAll$2$2>());
-	}
 	$longs* array = nullptr;
 	$IntToLongFunction* generator = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Arrays$$Lambda$lambda$parallelSetAll$2$2::fieldInfos[3] = {
-	{"array", "[J", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$2$2, array)},
-	{"generator", "Ljava/util/function/IntToLongFunction;", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$2$2, generator)},
-	{}
-};
-$MethodInfo Arrays$$Lambda$lambda$parallelSetAll$2$2::methodInfos[3] = {
-	{"<init>", "([JLjava/util/function/IntToLongFunction;)V", nullptr, $PUBLIC, $method(Arrays$$Lambda$lambda$parallelSetAll$2$2, init$, void, $longs*, $IntToLongFunction*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Arrays$$Lambda$lambda$parallelSetAll$2$2, accept, void, int32_t)},
-	{}
-};
-$ClassInfo Arrays$$Lambda$lambda$parallelSetAll$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Arrays$$Lambda$lambda$parallelSetAll$2$2",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Arrays$$Lambda$lambda$parallelSetAll$2$2::load$($String* name, bool initialize) {
-	$loadClass(Arrays$$Lambda$lambda$parallelSetAll$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[J", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$2$2, array)},
+		{"generator", "Ljava/util/function/IntToLongFunction;", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$2$2, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([JLjava/util/function/IntToLongFunction;)V", nullptr, $PUBLIC, $method(Arrays$$Lambda$lambda$parallelSetAll$2$2, init$, void, $longs*, $IntToLongFunction*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Arrays$$Lambda$lambda$parallelSetAll$2$2, accept, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Arrays$$Lambda$lambda$parallelSetAll$2$2",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Arrays$$Lambda$lambda$parallelSetAll$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Arrays$$Lambda$lambda$parallelSetAll$2$2);
+	});
 	return class$;
 }
 $Class* Arrays$$Lambda$lambda$parallelSetAll$2$2::class$ = nullptr;
@@ -266,340 +253,34 @@ public:
 	virtual void accept(int32_t i) override {
 		Arrays::lambda$parallelSetAll$3(array, generator, i);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Arrays$$Lambda$lambda$parallelSetAll$3$3>());
-	}
 	$doubles* array = nullptr;
 	$IntToDoubleFunction* generator = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Arrays$$Lambda$lambda$parallelSetAll$3$3::fieldInfos[3] = {
-	{"array", "[D", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$3$3, array)},
-	{"generator", "Ljava/util/function/IntToDoubleFunction;", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$3$3, generator)},
-	{}
-};
-$MethodInfo Arrays$$Lambda$lambda$parallelSetAll$3$3::methodInfos[3] = {
-	{"<init>", "([DLjava/util/function/IntToDoubleFunction;)V", nullptr, $PUBLIC, $method(Arrays$$Lambda$lambda$parallelSetAll$3$3, init$, void, $doubles*, $IntToDoubleFunction*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Arrays$$Lambda$lambda$parallelSetAll$3$3, accept, void, int32_t)},
-	{}
-};
-$ClassInfo Arrays$$Lambda$lambda$parallelSetAll$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Arrays$$Lambda$lambda$parallelSetAll$3$3",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Arrays$$Lambda$lambda$parallelSetAll$3$3::load$($String* name, bool initialize) {
-	$loadClass(Arrays$$Lambda$lambda$parallelSetAll$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[D", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$3$3, array)},
+		{"generator", "Ljava/util/function/IntToDoubleFunction;", nullptr, $PUBLIC, $field(Arrays$$Lambda$lambda$parallelSetAll$3$3, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([DLjava/util/function/IntToDoubleFunction;)V", nullptr, $PUBLIC, $method(Arrays$$Lambda$lambda$parallelSetAll$3$3, init$, void, $doubles*, $IntToDoubleFunction*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Arrays$$Lambda$lambda$parallelSetAll$3$3, accept, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Arrays$$Lambda$lambda$parallelSetAll$3$3",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Arrays$$Lambda$lambda$parallelSetAll$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Arrays$$Lambda$lambda$parallelSetAll$3$3);
+	});
 	return class$;
 }
 $Class* Arrays$$Lambda$lambda$parallelSetAll$3$3::class$ = nullptr;
-
-$CompoundAttribute _Arrays_MethodAnnotations_asList1[] = {
-	{"Ljava/lang/SafeVarargs;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Arrays_MethodAnnotations_copyOf58[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Arrays_MethodAnnotations_copyOfRange68[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Arrays_MethodAnnotations_equals88[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Arrays_MethodAnnotations_equals90[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _Arrays_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Arrays, $assertionsDisabled)},
-	{"MIN_ARRAY_SORT_GRAN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Arrays, MIN_ARRAY_SORT_GRAN)},
-	{"INSERTIONSORT_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Arrays, INSERTIONSORT_THRESHOLD)},
-	{}
-};
-
-$MethodInfo _Arrays_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Arrays, init$, void)},
-	{"asList", "([Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/List<TT;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Arrays, asList, $List*, $ObjectArray*), nullptr, nullptr, _Arrays_MethodAnnotations_asList1},
-	{"binarySearch", "([JJ)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $longs*, int64_t)},
-	{"binarySearch", "([JIIJ)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $longs*, int32_t, int32_t, int64_t)},
-	{"binarySearch", "([II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ints*, int32_t)},
-	{"binarySearch", "([IIII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ints*, int32_t, int32_t, int32_t)},
-	{"binarySearch", "([SS)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $shorts*, int16_t)},
-	{"binarySearch", "([SIIS)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $shorts*, int32_t, int32_t, int16_t)},
-	{"binarySearch", "([CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $chars*, char16_t)},
-	{"binarySearch", "([CIIC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $chars*, int32_t, int32_t, char16_t)},
-	{"binarySearch", "([BB)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $bytes*, int8_t)},
-	{"binarySearch", "([BIIB)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $bytes*, int32_t, int32_t, int8_t)},
-	{"binarySearch", "([DD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $doubles*, double)},
-	{"binarySearch", "([DIID)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $doubles*, int32_t, int32_t, double)},
-	{"binarySearch", "([FF)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $floats*, float)},
-	{"binarySearch", "([FIIF)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $floats*, int32_t, int32_t, float)},
-	{"binarySearch", "([Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ObjectArray*, Object$*)},
-	{"binarySearch", "([Ljava/lang/Object;IILjava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ObjectArray*, int32_t, int32_t, Object$*)},
-	{"binarySearch", "([Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;TT;Ljava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ObjectArray*, Object$*, $Comparator*)},
-	{"binarySearch", "([Ljava/lang/Object;IILjava/lang/Object;Ljava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;IITT;Ljava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ObjectArray*, int32_t, int32_t, Object$*, $Comparator*)},
-	{"binarySearch0", "([JIIJ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $longs*, int32_t, int32_t, int64_t)},
-	{"binarySearch0", "([IIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $ints*, int32_t, int32_t, int32_t)},
-	{"binarySearch0", "([SIIS)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $shorts*, int32_t, int32_t, int16_t)},
-	{"binarySearch0", "([CIIC)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $chars*, int32_t, int32_t, char16_t)},
-	{"binarySearch0", "([BIIB)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $bytes*, int32_t, int32_t, int8_t)},
-	{"binarySearch0", "([DIID)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $doubles*, int32_t, int32_t, double)},
-	{"binarySearch0", "([FIIF)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $floats*, int32_t, int32_t, float)},
-	{"binarySearch0", "([Ljava/lang/Object;IILjava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $ObjectArray*, int32_t, int32_t, Object$*)},
-	{"binarySearch0", "([Ljava/lang/Object;IILjava/lang/Object;Ljava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;IITT;Ljava/util/Comparator<-TT;>;)I", $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $ObjectArray*, int32_t, int32_t, Object$*, $Comparator*)},
-	{"compare", "([Z[Z)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $booleans*, $booleans*)},
-	{"compare", "([ZII[ZII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $booleans*, int32_t, int32_t, $booleans*, int32_t, int32_t)},
-	{"compare", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $bytes*, $bytes*)},
-	{"compare", "([BII[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t)},
-	{"compare", "([S[S)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $shorts*, $shorts*)},
-	{"compare", "([SII[SII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $shorts*, int32_t, int32_t, $shorts*, int32_t, int32_t)},
-	{"compare", "([C[C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $chars*, $chars*)},
-	{"compare", "([CII[CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $chars*, int32_t, int32_t, $chars*, int32_t, int32_t)},
-	{"compare", "([I[I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ints*, $ints*)},
-	{"compare", "([III[III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"compare", "([J[J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $longs*, $longs*)},
-	{"compare", "([JII[JII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $longs*, int32_t, int32_t, $longs*, int32_t, int32_t)},
-	{"compare", "([F[F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $floats*, $floats*)},
-	{"compare", "([FII[FII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $floats*, int32_t, int32_t, $floats*, int32_t, int32_t)},
-	{"compare", "([D[D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $doubles*, $doubles*)},
-	{"compare", "([DII[DII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $doubles*, int32_t, int32_t, $doubles*, int32_t, int32_t)},
-	{"compare", "([Ljava/lang/Comparable;[Ljava/lang/Comparable;)I", "<T::Ljava/lang/Comparable<-TT;>;>([TT;[TT;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ComparableArray*, $ComparableArray*)},
-	{"compare", "([Ljava/lang/Comparable;II[Ljava/lang/Comparable;II)I", "<T::Ljava/lang/Comparable<-TT;>;>([TT;II[TT;II)I", $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ComparableArray*, int32_t, int32_t, $ComparableArray*, int32_t, int32_t)},
-	{"compare", "([Ljava/lang/Object;[Ljava/lang/Object;Ljava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;[TT;Ljava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ObjectArray*, $ObjectArray*, $Comparator*)},
-	{"compare", "([Ljava/lang/Object;II[Ljava/lang/Object;IILjava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;II[TT;IILjava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t, $Comparator*)},
-	{"compareUnsigned", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $bytes*, $bytes*)},
-	{"compareUnsigned", "([BII[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t)},
-	{"compareUnsigned", "([S[S)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $shorts*, $shorts*)},
-	{"compareUnsigned", "([SII[SII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $shorts*, int32_t, int32_t, $shorts*, int32_t, int32_t)},
-	{"compareUnsigned", "([I[I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $ints*, $ints*)},
-	{"compareUnsigned", "([III[III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"compareUnsigned", "([J[J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $longs*, $longs*)},
-	{"compareUnsigned", "([JII[JII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $longs*, int32_t, int32_t, $longs*, int32_t, int32_t)},
-	{"copyOf", "([Ljava/lang/Object;I)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;I)[TT;", $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $ObjectArray*, $ObjectArray*, int32_t)},
-	{"copyOf", "([Ljava/lang/Object;ILjava/lang/Class;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>([TU;ILjava/lang/Class<+[TT;>;)[TT;", $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $ObjectArray*, $ObjectArray*, int32_t, $Class*), nullptr, nullptr, _Arrays_MethodAnnotations_copyOf58},
-	{"copyOf", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $bytes*, $bytes*, int32_t)},
-	{"copyOf", "([SI)[S", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $shorts*, $shorts*, int32_t)},
-	{"copyOf", "([II)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $ints*, $ints*, int32_t)},
-	{"copyOf", "([JI)[J", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $longs*, $longs*, int32_t)},
-	{"copyOf", "([CI)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $chars*, $chars*, int32_t)},
-	{"copyOf", "([FI)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $floats*, $floats*, int32_t)},
-	{"copyOf", "([DI)[D", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $doubles*, $doubles*, int32_t)},
-	{"copyOf", "([ZI)[Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $booleans*, $booleans*, int32_t)},
-	{"copyOfRange", "([Ljava/lang/Object;II)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;II)[TT;", $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $ObjectArray*, $ObjectArray*, int32_t, int32_t)},
-	{"copyOfRange", "([Ljava/lang/Object;IILjava/lang/Class;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>([TU;IILjava/lang/Class<+[TT;>;)[TT;", $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $ObjectArray*, $ObjectArray*, int32_t, int32_t, $Class*), nullptr, nullptr, _Arrays_MethodAnnotations_copyOfRange68},
-	{"copyOfRange", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $bytes*, $bytes*, int32_t, int32_t)},
-	{"copyOfRange", "([SII)[S", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $shorts*, $shorts*, int32_t, int32_t)},
-	{"copyOfRange", "([III)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $ints*, $ints*, int32_t, int32_t)},
-	{"copyOfRange", "([JII)[J", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $longs*, $longs*, int32_t, int32_t)},
-	{"copyOfRange", "([CII)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $chars*, $chars*, int32_t, int32_t)},
-	{"copyOfRange", "([FII)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $floats*, $floats*, int32_t, int32_t)},
-	{"copyOfRange", "([DII)[D", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $doubles*, $doubles*, int32_t, int32_t)},
-	{"copyOfRange", "([ZII)[Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $booleans*, $booleans*, int32_t, int32_t)},
-	{"deepEquals", "([Ljava/lang/Object;[Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, deepEquals, bool, $ObjectArray*, $ObjectArray*)},
-	{"deepEquals0", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $STATIC, $staticMethod(Arrays, deepEquals0, bool, Object$*, Object$*)},
-	{"deepHashCode", "([Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, deepHashCode, int32_t, $ObjectArray*)},
-	{"deepToString", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, deepToString, $String*, $ObjectArray*)},
-	{"deepToString", "([Ljava/lang/Object;Ljava/lang/StringBuilder;Ljava/util/Set;)V", "([Ljava/lang/Object;Ljava/lang/StringBuilder;Ljava/util/Set<[Ljava/lang/Object;>;)V", $PRIVATE | $STATIC, $staticMethod(Arrays, deepToString, void, $ObjectArray*, $StringBuilder*, $Set*)},
-	{"equals", "([J[J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $longs*, $longs*)},
-	{"equals", "([JII[JII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $longs*, int32_t, int32_t, $longs*, int32_t, int32_t)},
-	{"equals", "([I[I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ints*, $ints*)},
-	{"equals", "([III[III)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"equals", "([S[S)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $shorts*, $shorts*)},
-	{"equals", "([SII[SII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $shorts*, int32_t, int32_t, $shorts*, int32_t, int32_t)},
-	{"equals", "([C[C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $chars*, $chars*), nullptr, nullptr, _Arrays_MethodAnnotations_equals88},
-	{"equals", "([CII[CII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $chars*, int32_t, int32_t, $chars*, int32_t, int32_t)},
-	{"equals", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $bytes*, $bytes*), nullptr, nullptr, _Arrays_MethodAnnotations_equals90},
-	{"equals", "([BII[BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t)},
-	{"equals", "([Z[Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $booleans*, $booleans*)},
-	{"equals", "([ZII[ZII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $booleans*, int32_t, int32_t, $booleans*, int32_t, int32_t)},
-	{"equals", "([D[D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $doubles*, $doubles*)},
-	{"equals", "([DII[DII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $doubles*, int32_t, int32_t, $doubles*, int32_t, int32_t)},
-	{"equals", "([F[F)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $floats*, $floats*)},
-	{"equals", "([FII[FII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $floats*, int32_t, int32_t, $floats*, int32_t, int32_t)},
-	{"equals", "([Ljava/lang/Object;[Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ObjectArray*, $ObjectArray*)},
-	{"equals", "([Ljava/lang/Object;II[Ljava/lang/Object;II)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t)},
-	{"equals", "([Ljava/lang/Object;[Ljava/lang/Object;Ljava/util/Comparator;)Z", "<T:Ljava/lang/Object;>([TT;[TT;Ljava/util/Comparator<-TT;>;)Z", $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ObjectArray*, $ObjectArray*, $Comparator*)},
-	{"equals", "([Ljava/lang/Object;II[Ljava/lang/Object;IILjava/util/Comparator;)Z", "<T:Ljava/lang/Object;>([TT;II[TT;IILjava/util/Comparator<-TT;>;)Z", $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t, $Comparator*)},
-	{"fill", "([JJ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $longs*, int64_t)},
-	{"fill", "([JIIJ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $longs*, int32_t, int32_t, int64_t)},
-	{"fill", "([II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $ints*, int32_t)},
-	{"fill", "([IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $ints*, int32_t, int32_t, int32_t)},
-	{"fill", "([SS)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $shorts*, int16_t)},
-	{"fill", "([SIIS)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $shorts*, int32_t, int32_t, int16_t)},
-	{"fill", "([CC)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $chars*, char16_t)},
-	{"fill", "([CIIC)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $chars*, int32_t, int32_t, char16_t)},
-	{"fill", "([BB)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $bytes*, int8_t)},
-	{"fill", "([BIIB)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $bytes*, int32_t, int32_t, int8_t)},
-	{"fill", "([ZZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $booleans*, bool)},
-	{"fill", "([ZIIZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $booleans*, int32_t, int32_t, bool)},
-	{"fill", "([DD)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $doubles*, double)},
-	{"fill", "([DIID)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $doubles*, int32_t, int32_t, double)},
-	{"fill", "([FF)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $floats*, float)},
-	{"fill", "([FIIF)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $floats*, int32_t, int32_t, float)},
-	{"fill", "([Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $ObjectArray*, Object$*)},
-	{"fill", "([Ljava/lang/Object;IILjava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $ObjectArray*, int32_t, int32_t, Object$*)},
-	{"hashCode", "([J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $longs*)},
-	{"hashCode", "([I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $ints*)},
-	{"hashCode", "([S)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $shorts*)},
-	{"hashCode", "([C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $chars*)},
-	{"hashCode", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $bytes*)},
-	{"hashCode", "([Z)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $booleans*)},
-	{"hashCode", "([F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $floats*)},
-	{"hashCode", "([D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $doubles*)},
-	{"hashCode", "([Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $ObjectArray*)},
-	{"lambda$parallelSetAll$0", "([Ljava/lang/Object;Ljava/util/function/IntFunction;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Arrays, lambda$parallelSetAll$0, void, $ObjectArray*, $IntFunction*, int32_t)},
-	{"lambda$parallelSetAll$1", "([ILjava/util/function/IntUnaryOperator;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Arrays, lambda$parallelSetAll$1, void, $ints*, $IntUnaryOperator*, int32_t)},
-	{"lambda$parallelSetAll$2", "([JLjava/util/function/IntToLongFunction;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Arrays, lambda$parallelSetAll$2, void, $longs*, $IntToLongFunction*, int32_t)},
-	{"lambda$parallelSetAll$3", "([DLjava/util/function/IntToDoubleFunction;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Arrays, lambda$parallelSetAll$3, void, $doubles*, $IntToDoubleFunction*, int32_t)},
-	{"legacyMergeSort", "([Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, legacyMergeSort, void, $ObjectArray*)},
-	{"legacyMergeSort", "([Ljava/lang/Object;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, legacyMergeSort, void, $ObjectArray*, int32_t, int32_t)},
-	{"legacyMergeSort", "([Ljava/lang/Object;Ljava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/Comparator<-TT;>;)V", $PRIVATE | $STATIC, $staticMethod(Arrays, legacyMergeSort, void, $ObjectArray*, $Comparator*)},
-	{"legacyMergeSort", "([Ljava/lang/Object;IILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;IILjava/util/Comparator<-TT;>;)V", $PRIVATE | $STATIC, $staticMethod(Arrays, legacyMergeSort, void, $ObjectArray*, int32_t, int32_t, $Comparator*)},
-	{"mergeSort", "([Ljava/lang/Object;[Ljava/lang/Object;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, mergeSort, void, $ObjectArray*, $ObjectArray*, int32_t, int32_t, int32_t)},
-	{"mergeSort", "([Ljava/lang/Object;[Ljava/lang/Object;IIILjava/util/Comparator;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, mergeSort, void, $ObjectArray*, $ObjectArray*, int32_t, int32_t, int32_t, $Comparator*)},
-	{"mismatch", "([Z[Z)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $booleans*, $booleans*)},
-	{"mismatch", "([ZII[ZII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $booleans*, int32_t, int32_t, $booleans*, int32_t, int32_t)},
-	{"mismatch", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $bytes*, $bytes*)},
-	{"mismatch", "([BII[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t)},
-	{"mismatch", "([C[C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $chars*, $chars*)},
-	{"mismatch", "([CII[CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $chars*, int32_t, int32_t, $chars*, int32_t, int32_t)},
-	{"mismatch", "([S[S)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $shorts*, $shorts*)},
-	{"mismatch", "([SII[SII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $shorts*, int32_t, int32_t, $shorts*, int32_t, int32_t)},
-	{"mismatch", "([I[I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ints*, $ints*)},
-	{"mismatch", "([III[III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"mismatch", "([J[J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $longs*, $longs*)},
-	{"mismatch", "([JII[JII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $longs*, int32_t, int32_t, $longs*, int32_t, int32_t)},
-	{"mismatch", "([F[F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $floats*, $floats*)},
-	{"mismatch", "([FII[FII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $floats*, int32_t, int32_t, $floats*, int32_t, int32_t)},
-	{"mismatch", "([D[D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $doubles*, $doubles*)},
-	{"mismatch", "([DII[DII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $doubles*, int32_t, int32_t, $doubles*, int32_t, int32_t)},
-	{"mismatch", "([Ljava/lang/Object;[Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ObjectArray*, $ObjectArray*)},
-	{"mismatch", "([Ljava/lang/Object;II[Ljava/lang/Object;II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t)},
-	{"mismatch", "([Ljava/lang/Object;[Ljava/lang/Object;Ljava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;[TT;Ljava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ObjectArray*, $ObjectArray*, $Comparator*)},
-	{"mismatch", "([Ljava/lang/Object;II[Ljava/lang/Object;IILjava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;II[TT;IILjava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t, $Comparator*)},
-	{"parallelPrefix", "([Ljava/lang/Object;Ljava/util/function/BinaryOperator;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/function/BinaryOperator<TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $ObjectArray*, $BinaryOperator*)},
-	{"parallelPrefix", "([Ljava/lang/Object;IILjava/util/function/BinaryOperator;)V", "<T:Ljava/lang/Object;>([TT;IILjava/util/function/BinaryOperator<TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $ObjectArray*, int32_t, int32_t, $BinaryOperator*)},
-	{"parallelPrefix", "([JLjava/util/function/LongBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $longs*, $LongBinaryOperator*)},
-	{"parallelPrefix", "([JIILjava/util/function/LongBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $longs*, int32_t, int32_t, $LongBinaryOperator*)},
-	{"parallelPrefix", "([DLjava/util/function/DoubleBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $doubles*, $DoubleBinaryOperator*)},
-	{"parallelPrefix", "([DIILjava/util/function/DoubleBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $doubles*, int32_t, int32_t, $DoubleBinaryOperator*)},
-	{"parallelPrefix", "([ILjava/util/function/IntBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $ints*, $IntBinaryOperator*)},
-	{"parallelPrefix", "([IIILjava/util/function/IntBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $ints*, int32_t, int32_t, $IntBinaryOperator*)},
-	{"parallelSetAll", "([Ljava/lang/Object;Ljava/util/function/IntFunction;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/function/IntFunction<+TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSetAll, void, $ObjectArray*, $IntFunction*)},
-	{"parallelSetAll", "([ILjava/util/function/IntUnaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSetAll, void, $ints*, $IntUnaryOperator*)},
-	{"parallelSetAll", "([JLjava/util/function/IntToLongFunction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSetAll, void, $longs*, $IntToLongFunction*)},
-	{"parallelSetAll", "([DLjava/util/function/IntToDoubleFunction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSetAll, void, $doubles*, $IntToDoubleFunction*)},
-	{"parallelSort", "([B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $bytes*)},
-	{"parallelSort", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $bytes*, int32_t, int32_t)},
-	{"parallelSort", "([C)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $chars*)},
-	{"parallelSort", "([CII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $chars*, int32_t, int32_t)},
-	{"parallelSort", "([S)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $shorts*)},
-	{"parallelSort", "([SII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $shorts*, int32_t, int32_t)},
-	{"parallelSort", "([I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ints*)},
-	{"parallelSort", "([III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ints*, int32_t, int32_t)},
-	{"parallelSort", "([J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $longs*)},
-	{"parallelSort", "([JII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $longs*, int32_t, int32_t)},
-	{"parallelSort", "([F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $floats*)},
-	{"parallelSort", "([FII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $floats*, int32_t, int32_t)},
-	{"parallelSort", "([D)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $doubles*)},
-	{"parallelSort", "([DII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $doubles*, int32_t, int32_t)},
-	{"parallelSort", "([Ljava/lang/Comparable;)V", "<T::Ljava/lang/Comparable<-TT;>;>([TT;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ComparableArray*)},
-	{"parallelSort", "([Ljava/lang/Comparable;II)V", "<T::Ljava/lang/Comparable<-TT;>;>([TT;II)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ComparableArray*, int32_t, int32_t)},
-	{"parallelSort", "([Ljava/lang/Object;Ljava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/Comparator<-TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ObjectArray*, $Comparator*)},
-	{"parallelSort", "([Ljava/lang/Object;IILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;IILjava/util/Comparator<-TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ObjectArray*, int32_t, int32_t, $Comparator*)},
-	{"primitiveArrayHashCode", "(Ljava/lang/Object;Ljava/lang/Class;)I", "(Ljava/lang/Object;Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $staticMethod(Arrays, primitiveArrayHashCode, int32_t, Object$*, $Class*)},
-	{"rangeCheck", "(III)V", nullptr, $STATIC, $staticMethod(Arrays, rangeCheck, void, int32_t, int32_t, int32_t)},
-	{"setAll", "([Ljava/lang/Object;Ljava/util/function/IntFunction;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/function/IntFunction<+TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, setAll, void, $ObjectArray*, $IntFunction*)},
-	{"setAll", "([ILjava/util/function/IntUnaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, setAll, void, $ints*, $IntUnaryOperator*)},
-	{"setAll", "([JLjava/util/function/IntToLongFunction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, setAll, void, $longs*, $IntToLongFunction*)},
-	{"setAll", "([DLjava/util/function/IntToDoubleFunction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, setAll, void, $doubles*, $IntToDoubleFunction*)},
-	{"sort", "([I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ints*)},
-	{"sort", "([III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ints*, int32_t, int32_t)},
-	{"sort", "([J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $longs*)},
-	{"sort", "([JII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $longs*, int32_t, int32_t)},
-	{"sort", "([S)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $shorts*)},
-	{"sort", "([SII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $shorts*, int32_t, int32_t)},
-	{"sort", "([C)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $chars*)},
-	{"sort", "([CII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $chars*, int32_t, int32_t)},
-	{"sort", "([B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $bytes*)},
-	{"sort", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $bytes*, int32_t, int32_t)},
-	{"sort", "([F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $floats*)},
-	{"sort", "([FII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $floats*, int32_t, int32_t)},
-	{"sort", "([D)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $doubles*)},
-	{"sort", "([DII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $doubles*, int32_t, int32_t)},
-	{"sort", "([Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ObjectArray*)},
-	{"sort", "([Ljava/lang/Object;II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ObjectArray*, int32_t, int32_t)},
-	{"sort", "([Ljava/lang/Object;Ljava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/Comparator<-TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ObjectArray*, $Comparator*)},
-	{"sort", "([Ljava/lang/Object;IILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;IILjava/util/Comparator<-TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ObjectArray*, int32_t, int32_t, $Comparator*)},
-	{"spliterator", "([Ljava/lang/Object;)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator*, $ObjectArray*)},
-	{"spliterator", "([Ljava/lang/Object;II)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>([TT;II)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator*, $ObjectArray*, int32_t, int32_t)},
-	{"spliterator", "([I)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfInt*, $ints*)},
-	{"spliterator", "([III)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfInt*, $ints*, int32_t, int32_t)},
-	{"spliterator", "([J)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfLong*, $longs*)},
-	{"spliterator", "([JII)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfLong*, $longs*, int32_t, int32_t)},
-	{"spliterator", "([D)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfDouble*, $doubles*)},
-	{"spliterator", "([DII)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfDouble*, $doubles*, int32_t, int32_t)},
-	{"stream", "([Ljava/lang/Object;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $Stream*, $ObjectArray*)},
-	{"stream", "([Ljava/lang/Object;II)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>([TT;II)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $Stream*, $ObjectArray*, int32_t, int32_t)},
-	{"stream", "([I)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $IntStream*, $ints*)},
-	{"stream", "([III)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $IntStream*, $ints*, int32_t, int32_t)},
-	{"stream", "([J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $LongStream*, $longs*)},
-	{"stream", "([JII)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $LongStream*, $longs*, int32_t, int32_t)},
-	{"stream", "([D)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $DoubleStream*, $doubles*)},
-	{"stream", "([DII)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $DoubleStream*, $doubles*, int32_t, int32_t)},
-	{"swap", "([Ljava/lang/Object;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, swap, void, $ObjectArray*, int32_t, int32_t)},
-	{"toString", "([J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $longs*)},
-	{"toString", "([I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $ints*)},
-	{"toString", "([S)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $shorts*)},
-	{"toString", "([C)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $chars*)},
-	{"toString", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $bytes*)},
-	{"toString", "([Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $booleans*)},
-	{"toString", "([F)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $floats*)},
-	{"toString", "([D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $doubles*)},
-	{"toString", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _Arrays_InnerClassesInfo_[] = {
-	{"java.util.Arrays$ArrayItr", "java.util.Arrays", "ArrayItr", $PRIVATE | $STATIC},
-	{"java.util.Arrays$ArrayList", "java.util.Arrays", "ArrayList", $PRIVATE | $STATIC},
-	{"java.util.Arrays$LegacyMergeSort", "java.util.Arrays", "LegacyMergeSort", $STATIC | $FINAL},
-	{"java.util.Arrays$NaturalOrder", "java.util.Arrays", "NaturalOrder", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Arrays_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.Arrays",
-	"java.lang.Object",
-	nullptr,
-	_Arrays_FieldInfo_,
-	_Arrays_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Arrays_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.Arrays$ArrayItr,java.util.Arrays$ArrayList,java.util.Arrays$LegacyMergeSort,java.util.Arrays$NaturalOrder"
-};
-
-$Object* allocate$Arrays($Class* clazz) {
-	return $of($alloc(Arrays));
-}
 
 bool Arrays::$assertionsDisabled = false;
 
@@ -762,7 +443,7 @@ void Arrays::parallelSort($doubles* a, int32_t fromIndex, int32_t toIndex) {
 
 void Arrays::rangeCheck(int32_t arrayLength, int32_t fromIndex, int32_t toIndex) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fromIndex > toIndex) {
 		$throwNew($IllegalArgumentException, $$str({"fromIndex("_s, $$str(fromIndex), ") > toIndex("_s, $$str(toIndex), ")"_s}));
 	}
@@ -776,7 +457,7 @@ void Arrays::rangeCheck(int32_t arrayLength, int32_t fromIndex, int32_t toIndex)
 
 void Arrays::parallelSort($ComparableArray* a) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(a)->length;
 	int32_t p = 0;
 	int32_t g = 0;
@@ -785,13 +466,13 @@ void Arrays::parallelSort($ComparableArray* a) {
 		$TimSort::sort(a, 0, n, $Arrays$NaturalOrder::INSTANCE, nullptr, 0, 0);
 	} else {
 		$init($Arrays$NaturalOrder);
-		$$new($ArraysParallelSortHelpers$FJObject$Sorter, nullptr, a, $cast($ComparableArray, $($1Array::newInstance($of(a)->getClass()->getComponentType(), n))), 0, n, 0, ((g = $div(n, (p << 2))) <= Arrays::MIN_ARRAY_SORT_GRAN) ? Arrays::MIN_ARRAY_SORT_GRAN : g, $Arrays$NaturalOrder::INSTANCE)->invoke();
+		$$new($ArraysParallelSortHelpers$FJObject$Sorter, nullptr, a, $$cast($ComparableArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), n)), 0, n, 0, ((g = $div(n, (p << 2))) <= Arrays::MIN_ARRAY_SORT_GRAN) ? Arrays::MIN_ARRAY_SORT_GRAN : g, $Arrays$NaturalOrder::INSTANCE)->invoke();
 	}
 }
 
 void Arrays::parallelSort($ComparableArray* a, int32_t fromIndex, int32_t toIndex) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	rangeCheck($nc(a)->length, fromIndex, toIndex);
 	int32_t n = toIndex - fromIndex;
 	int32_t p = 0;
@@ -801,13 +482,13 @@ void Arrays::parallelSort($ComparableArray* a, int32_t fromIndex, int32_t toInde
 		$TimSort::sort(a, fromIndex, toIndex, $Arrays$NaturalOrder::INSTANCE, nullptr, 0, 0);
 	} else {
 		$init($Arrays$NaturalOrder);
-		$$new($ArraysParallelSortHelpers$FJObject$Sorter, nullptr, a, $cast($ComparableArray, $($1Array::newInstance($nc($of(a))->getClass()->getComponentType(), n))), fromIndex, n, 0, ((g = $div(n, (p << 2))) <= Arrays::MIN_ARRAY_SORT_GRAN) ? Arrays::MIN_ARRAY_SORT_GRAN : g, $Arrays$NaturalOrder::INSTANCE)->invoke();
+		$$new($ArraysParallelSortHelpers$FJObject$Sorter, nullptr, a, $$cast($ComparableArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), n)), fromIndex, n, 0, ((g = $div(n, (p << 2))) <= Arrays::MIN_ARRAY_SORT_GRAN) ? Arrays::MIN_ARRAY_SORT_GRAN : g, $Arrays$NaturalOrder::INSTANCE)->invoke();
 	}
 }
 
 void Arrays::parallelSort($ObjectArray* a, $Comparator* cmp$renamed) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Comparator, cmp, cmp$renamed);
 	if (cmp == nullptr) {
 		$init($Arrays$NaturalOrder);
@@ -819,13 +500,13 @@ void Arrays::parallelSort($ObjectArray* a, $Comparator* cmp$renamed) {
 	if (n <= Arrays::MIN_ARRAY_SORT_GRAN || (p = $ForkJoinPool::getCommonPoolParallelism()) == 1) {
 		$TimSort::sort(a, 0, n, cmp, nullptr, 0, 0);
 	} else {
-		$$new($ArraysParallelSortHelpers$FJObject$Sorter, nullptr, a, $cast($ObjectArray, $($1Array::newInstance($of(a)->getClass()->getComponentType(), n))), 0, n, 0, ((g = $div(n, (p << 2))) <= Arrays::MIN_ARRAY_SORT_GRAN) ? Arrays::MIN_ARRAY_SORT_GRAN : g, cmp)->invoke();
+		$$new($ArraysParallelSortHelpers$FJObject$Sorter, nullptr, a, $$cast($ObjectArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), n)), 0, n, 0, ((g = $div(n, (p << 2))) <= Arrays::MIN_ARRAY_SORT_GRAN) ? Arrays::MIN_ARRAY_SORT_GRAN : g, cmp)->invoke();
 	}
 }
 
 void Arrays::parallelSort($ObjectArray* a, int32_t fromIndex, int32_t toIndex, $Comparator* cmp$renamed) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Comparator, cmp, cmp$renamed);
 	rangeCheck($nc(a)->length, fromIndex, toIndex);
 	if (cmp == nullptr) {
@@ -838,7 +519,7 @@ void Arrays::parallelSort($ObjectArray* a, int32_t fromIndex, int32_t toIndex, $
 	if (n <= Arrays::MIN_ARRAY_SORT_GRAN || (p = $ForkJoinPool::getCommonPoolParallelism()) == 1) {
 		$TimSort::sort(a, fromIndex, toIndex, cmp, nullptr, 0, 0);
 	} else {
-		$$new($ArraysParallelSortHelpers$FJObject$Sorter, nullptr, a, $cast($ObjectArray, $($1Array::newInstance($nc($of(a))->getClass()->getComponentType(), n))), fromIndex, n, 0, ((g = $div(n, (p << 2))) <= Arrays::MIN_ARRAY_SORT_GRAN) ? Arrays::MIN_ARRAY_SORT_GRAN : g, cmp)->invoke();
+		$$new($ArraysParallelSortHelpers$FJObject$Sorter, nullptr, a, $$cast($ObjectArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), n)), fromIndex, n, 0, ((g = $div(n, (p << 2))) <= Arrays::MIN_ARRAY_SORT_GRAN) ? Arrays::MIN_ARRAY_SORT_GRAN : g, cmp)->invoke();
 	}
 }
 
@@ -880,7 +561,7 @@ void Arrays::mergeSort($ObjectArray* src, $ObjectArray* dest, int32_t low, int32
 	int32_t length = high - low;
 	if (length < Arrays::INSERTIONSORT_THRESHOLD) {
 		for (int32_t i = low; i < high; ++i) {
-			for (int32_t j = i; j > low && $nc(($cast($Comparable, $nc(dest)->get(j - 1))))->compareTo(dest->get(j)) > 0; --j) {
+			for (int32_t j = i; j > low && $nc($cast($Comparable, $nc(dest)->get(j - 1)))->compareTo($nc(dest)->get(j)) > 0; --j) {
 				swap(dest, j, j - 1);
 			}
 		}
@@ -893,20 +574,15 @@ void Arrays::mergeSort($ObjectArray* src, $ObjectArray* dest, int32_t low, int32
 	int32_t mid = (int32_t)((uint32_t)(low + high) >> 1);
 	mergeSort(dest, src, low, mid, -off);
 	mergeSort(dest, src, mid, high, -off);
-	if ($nc(($cast($Comparable, $nc(src)->get(mid - 1))))->compareTo(src->get(mid)) <= 0) {
+	if ($nc($cast($Comparable, $nc(src)->get(mid - 1)))->compareTo($nc(src)->get(mid)) <= 0) {
 		$System::arraycopy(src, low, dest, destLow, length);
 		return;
 	}
-	{
-		int32_t i = destLow;
-		int32_t p = low;
-		int32_t q = mid;
-		for (; i < destHigh; ++i) {
-			if (q >= high || p < mid && $nc(($cast($Comparable, $nc(src)->get(p))))->compareTo(src->get(q)) <= 0) {
-				$nc(dest)->set(i, src->get(p++));
-			} else {
-				$nc(dest)->set(i, src->get(q++));
-			}
+	for (int32_t i = destLow, p = low, q = mid; i < destHigh; ++i) {
+		if (q >= high || p < mid && $nc($cast($Comparable, src->get(p)))->compareTo(src->get(q)) <= 0) {
+			$nc(dest)->set(i, src->get(p++));
+		} else {
+			$nc(dest)->set(i, src->get(q++));
 		}
 	}
 }
@@ -972,7 +648,7 @@ void Arrays::mergeSort($ObjectArray* src, $ObjectArray* dest, int32_t low, int32
 	int32_t length = high - low;
 	if (length < Arrays::INSERTIONSORT_THRESHOLD) {
 		for (int32_t i = low; i < high; ++i) {
-			for (int32_t j = i; j > low && $nc(c)->compare($nc(dest)->get(j - 1), dest->get(j)) > 0; --j) {
+			for (int32_t j = i; j > low && $nc(c)->compare($nc(dest)->get(j - 1), $nc(dest)->get(j)) > 0; --j) {
 				swap(dest, j, j - 1);
 			}
 		}
@@ -985,20 +661,15 @@ void Arrays::mergeSort($ObjectArray* src, $ObjectArray* dest, int32_t low, int32
 	int32_t mid = (int32_t)((uint32_t)(low + high) >> 1);
 	mergeSort(dest, src, low, mid, -off, c);
 	mergeSort(dest, src, mid, high, -off, c);
-	if ($nc(c)->compare($nc(src)->get(mid - 1), src->get(mid)) <= 0) {
+	if ($nc(c)->compare($nc(src)->get(mid - 1), $nc(src)->get(mid)) <= 0) {
 		$System::arraycopy(src, low, dest, destLow, length);
 		return;
 	}
-	{
-		int32_t i = destLow;
-		int32_t p = low;
-		int32_t q = mid;
-		for (; i < destHigh; ++i) {
-			if (q >= high || p < mid && $nc(c)->compare($nc(src)->get(p), src->get(q)) <= 0) {
-				$nc(dest)->set(i, $nc(src)->get(p++));
-			} else {
-				$nc(dest)->set(i, $nc(src)->get(q++));
-			}
+	for (int32_t i = destLow, p = low, q = mid; i < destHigh; ++i) {
+		if (q >= high || p < mid && c->compare(src->get(p), src->get(q)) <= 0) {
+			$nc(dest)->set(i, src->get(p++));
+		} else {
+			$nc(dest)->set(i, src->get(q++));
 		}
 	}
 }
@@ -1303,7 +974,7 @@ int32_t Arrays::binarySearch($ObjectArray* a, int32_t fromIndex, int32_t toIndex
 
 int32_t Arrays::binarySearch0($ObjectArray* a, int32_t fromIndex, int32_t toIndex, Object$* key) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t low = fromIndex;
 	int32_t high = toIndex - 1;
 	while (low <= high) {
@@ -1334,7 +1005,7 @@ int32_t Arrays::binarySearch($ObjectArray* a, int32_t fromIndex, int32_t toIndex
 
 int32_t Arrays::binarySearch0($ObjectArray* a, int32_t fromIndex, int32_t toIndex, Object$* key, $Comparator* c) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		return binarySearch0(a, fromIndex, toIndex, key);
 	}
@@ -1584,7 +1255,7 @@ bool Arrays::equals($ObjectArray* a, $ObjectArray* a2) {
 		return false;
 	}
 	for (int32_t i = 0; i < length; ++i) {
-		if (!$Objects::equals(a->get(i), $nc(a2)->get(i))) {
+		if (!$Objects::equals(a->get(i), a2->get(i))) {
 			return false;
 		}
 	}
@@ -1601,7 +1272,7 @@ bool Arrays::equals($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, $Obje
 		return false;
 	}
 	for (int32_t i = 0; i < aLength; ++i) {
-		if (!$Objects::equals($nc(a)->get(aFromIndex++), $nc(b)->get(bFromIndex++))) {
+		if (!$Objects::equals(a->get(aFromIndex++), b->get(bFromIndex++))) {
 			return false;
 		}
 	}
@@ -1622,7 +1293,7 @@ bool Arrays::equals($ObjectArray* a, $ObjectArray* a2, $Comparator* cmp) {
 		return false;
 	}
 	for (int32_t i = 0; i < length; ++i) {
-		if (cmp->compare(a->get(i), $nc(a2)->get(i)) != 0) {
+		if (cmp->compare(a->get(i), a2->get(i)) != 0) {
 			return false;
 		}
 	}
@@ -1640,7 +1311,7 @@ bool Arrays::equals($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, $Obje
 		return false;
 	}
 	for (int32_t i = 0; i < aLength; ++i) {
-		if (cmp->compare($nc(a)->get(aFromIndex++), $nc(b)->get(bFromIndex++)) != 0) {
+		if (cmp->compare(a->get(aFromIndex++), b->get(bFromIndex++)) != 0) {
 			return false;
 		}
 	}
@@ -1892,9 +1563,7 @@ int32_t Arrays::hashCode($longs* a) {
 	int32_t result = 1;
 	{
 		$var($longs, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int64_t element = arr$->get(i$);
 			{
 				int32_t elementHash = (int32_t)(element ^ ((int64_t)((uint64_t)element >> 32)));
@@ -1913,9 +1582,7 @@ int32_t Arrays::hashCode($ints* a) {
 	int32_t result = 1;
 	{
 		$var($ints, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t element = arr$->get(i$);
 			result = 31 * result + element;
 		}
@@ -1931,9 +1598,7 @@ int32_t Arrays::hashCode($shorts* a) {
 	int32_t result = 1;
 	{
 		$var($shorts, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int16_t element = arr$->get(i$);
 			result = 31 * result + element;
 		}
@@ -1949,9 +1614,7 @@ int32_t Arrays::hashCode($chars* a) {
 	int32_t result = 1;
 	{
 		$var($chars, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			char16_t element = arr$->get(i$);
 			result = 31 * result + element;
 		}
@@ -1967,9 +1630,7 @@ int32_t Arrays::hashCode($bytes* a) {
 	int32_t result = 1;
 	{
 		$var($bytes, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int8_t element = arr$->get(i$);
 			result = 31 * result + element;
 		}
@@ -1985,9 +1646,7 @@ int32_t Arrays::hashCode($booleans* a) {
 	int32_t result = 1;
 	{
 		$var($booleans, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			bool element = arr$->get(i$);
 			result = 31 * result + (element ? 1231 : 1237);
 		}
@@ -2003,9 +1662,7 @@ int32_t Arrays::hashCode($floats* a) {
 	int32_t result = 1;
 	{
 		$var($floats, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			float element = arr$->get(i$);
 			result = 31 * result + $Float::floatToIntBits(element);
 		}
@@ -2021,9 +1678,7 @@ int32_t Arrays::hashCode($doubles* a) {
 	int32_t result = 1;
 	{
 		$var($doubles, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			double element = arr$->get(i$);
 			{
 				int64_t bits = $Double::doubleToLongBits(element);
@@ -2036,18 +1691,16 @@ int32_t Arrays::hashCode($doubles* a) {
 
 int32_t Arrays::hashCode($ObjectArray* a) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return 0;
 	}
 	int32_t result = 1;
 	{
 		$var($ObjectArray, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, element, arr$->get(i$));
-			result = 31 * result + (element == nullptr ? 0 : $nc($of(element))->hashCode());
+			result = 31 * result + (element == nullptr ? 0 : element->hashCode());
 		}
 	}
 	return result;
@@ -2055,24 +1708,22 @@ int32_t Arrays::hashCode($ObjectArray* a) {
 
 int32_t Arrays::deepHashCode($ObjectArray* a) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return 0;
 	}
 	int32_t result = 1;
 	{
 		$var($ObjectArray, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, element, arr$->get(i$));
 			{
 				int32_t elementHash = 0;
 				$Class* cl = nullptr;
 				if (element == nullptr) {
 					elementHash = 0;
-				} else if ((cl = $nc($of(element))->getClass()->getComponentType()) == nullptr) {
-					elementHash = $of(element)->hashCode();
+				} else if ((cl = element->getClass()->getComponentType()) == nullptr) {
+					elementHash = element->hashCode();
 				} else if ($instanceOf($ObjectArray, element)) {
 					elementHash = deepHashCode($cast($ObjectArray, element));
 				} else {
@@ -2087,19 +1738,12 @@ int32_t Arrays::deepHashCode($ObjectArray* a) {
 
 int32_t Arrays::primitiveArrayHashCode(Object$* a, $Class* cl) {
 	$init(Arrays);
-	$init($Byte);
-	$init($Integer);
-	$init($Long);
-	$init($Character);
-	$init($Short);
-	$init($Boolean);
-	$init($Double);
 	return (cl == $Byte::TYPE) ? hashCode($cast($bytes, a)) : (cl == $Integer::TYPE) ? hashCode($cast($ints, a)) : (cl == $Long::TYPE) ? hashCode($cast($longs, a)) : (cl == $Character::TYPE) ? hashCode($cast($chars, a)) : (cl == $Short::TYPE) ? hashCode($cast($shorts, a)) : (cl == $Boolean::TYPE) ? hashCode($cast($booleans, a)) : (cl == $Double::TYPE) ? hashCode($cast($doubles, a)) : hashCode($cast($floats, a));
 }
 
 bool Arrays::deepEquals($ObjectArray* a1, $ObjectArray* a2) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a1 == a2) {
 		return true;
 	}
@@ -2112,7 +1756,7 @@ bool Arrays::deepEquals($ObjectArray* a1, $ObjectArray* a2) {
 	}
 	for (int32_t i = 0; i < length; ++i) {
 		$var($Object0, e1, a1->get(i));
-		$var($Object0, e2, $nc(a2)->get(i));
+		$var($Object0, e2, a2->get(i));
 		if ($equals(e1, e2)) {
 			continue;
 		}
@@ -2319,7 +1963,7 @@ $String* Arrays::toString($doubles* a) {
 
 $String* Arrays::toString($ObjectArray* a) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return "null"_s;
 	}
@@ -2340,7 +1984,7 @@ $String* Arrays::toString($ObjectArray* a) {
 
 $String* Arrays::deepToString($ObjectArray* a) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return "null"_s;
 	}
@@ -2355,7 +1999,7 @@ $String* Arrays::deepToString($ObjectArray* a) {
 
 void Arrays::deepToString($ObjectArray* a, $StringBuilder* buf, $Set* dejaVu) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		$nc(buf)->append("null"_s);
 		return;
@@ -2372,53 +2016,31 @@ void Arrays::deepToString($ObjectArray* a, $StringBuilder* buf, $Set* dejaVu) {
 		if (element == nullptr) {
 			buf->append("null"_s);
 		} else {
-			$Class* eClass = $nc($of(element))->getClass();
-			if ($nc(eClass)->isArray()) {
-				$load($bytes);
+			$Class* eClass = element->getClass();
+			if (eClass->isArray()) {
 				if (eClass == $getClass($bytes)) {
 					buf->append($(toString($cast($bytes, element))));
+				} else if (eClass == $getClass($shorts)) {
+					buf->append($(toString($cast($shorts, element))));
+				} else if (eClass == $getClass($ints)) {
+					buf->append($(toString($cast($ints, element))));
+				} else if (eClass == $getClass($longs)) {
+					buf->append($(toString($cast($longs, element))));
+				} else if (eClass == $getClass($chars)) {
+					buf->append($(toString($cast($chars, element))));
+				} else if (eClass == $getClass($floats)) {
+					buf->append($(toString($cast($floats, element))));
+				} else if (eClass == $getClass($doubles)) {
+					buf->append($(toString($cast($doubles, element))));
+				} else if (eClass == $getClass($booleans)) {
+					buf->append($(toString($cast($booleans, element))));
+				} else if (dejaVu->contains(element)) {
+					buf->append("[...]"_s);
 				} else {
-					$load($shorts);
-					if (eClass == $getClass($shorts)) {
-						buf->append($(toString($cast($shorts, element))));
-					} else {
-						$load($ints);
-						if (eClass == $getClass($ints)) {
-							buf->append($(toString($cast($ints, element))));
-						} else {
-							$load($longs);
-							if (eClass == $getClass($longs)) {
-								buf->append($(toString($cast($longs, element))));
-							} else {
-								$load($chars);
-								if (eClass == $getClass($chars)) {
-									buf->append($(toString($cast($chars, element))));
-								} else {
-									$load($floats);
-									if (eClass == $getClass($floats)) {
-										buf->append($(toString($cast($floats, element))));
-									} else {
-										$load($doubles);
-										if (eClass == $getClass($doubles)) {
-											buf->append($(toString($cast($doubles, element))));
-										} else {
-											$load($booleans);
-											if (eClass == $getClass($booleans)) {
-												buf->append($(toString($cast($booleans, element))));
-											} else if (dejaVu->contains(element)) {
-												buf->append("[...]"_s);
-											} else {
-												deepToString($cast($ObjectArray, element), buf, dejaVu);
-											}
-										}
-									}
-								}
-							}
-						}
-					}
+					deepToString($cast($ObjectArray, element), buf, dejaVu);
 				}
 			} else {
-				buf->append($($of(element)->toString()));
+				buf->append($(element->toString()));
 			}
 		}
 		if (i == iMax) {
@@ -2432,7 +2054,7 @@ void Arrays::deepToString($ObjectArray* a, $StringBuilder* buf, $Set* dejaVu) {
 
 void Arrays::setAll($ObjectArray* array, $IntFunction* generator) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(generator);
 	for (int32_t i = 0; i < $nc(array)->length; ++i) {
 		array->set(i, $(generator->apply(i)));
@@ -2441,9 +2063,9 @@ void Arrays::setAll($ObjectArray* array, $IntFunction* generator) {
 
 void Arrays::parallelSetAll($ObjectArray* array, $IntFunction* generator) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(generator);
-	$nc($($nc($($IntStream::range(0, $nc(array)->length)))->parallel()))->forEach(static_cast<$IntConsumer*>($$new(Arrays$$Lambda$lambda$parallelSetAll$0, array, generator)));
+	$$nc($$nc($IntStream::range(0, $nc(array)->length))->parallel())->forEach($$new(Arrays$$Lambda$lambda$parallelSetAll$0, array, generator));
 }
 
 void Arrays::setAll($ints* array, $IntUnaryOperator* generator) {
@@ -2456,9 +2078,9 @@ void Arrays::setAll($ints* array, $IntUnaryOperator* generator) {
 
 void Arrays::parallelSetAll($ints* array, $IntUnaryOperator* generator) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(generator);
-	$nc($($nc($($IntStream::range(0, $nc(array)->length)))->parallel()))->forEach(static_cast<$IntConsumer*>($$new(Arrays$$Lambda$lambda$parallelSetAll$1$1, array, generator)));
+	$$nc($$nc($IntStream::range(0, $nc(array)->length))->parallel())->forEach($$new(Arrays$$Lambda$lambda$parallelSetAll$1$1, array, generator));
 }
 
 void Arrays::setAll($longs* array, $IntToLongFunction* generator) {
@@ -2471,9 +2093,9 @@ void Arrays::setAll($longs* array, $IntToLongFunction* generator) {
 
 void Arrays::parallelSetAll($longs* array, $IntToLongFunction* generator) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(generator);
-	$nc($($nc($($IntStream::range(0, $nc(array)->length)))->parallel()))->forEach(static_cast<$IntConsumer*>($$new(Arrays$$Lambda$lambda$parallelSetAll$2$2, array, generator)));
+	$$nc($$nc($IntStream::range(0, $nc(array)->length))->parallel())->forEach($$new(Arrays$$Lambda$lambda$parallelSetAll$2$2, array, generator));
 }
 
 void Arrays::setAll($doubles* array, $IntToDoubleFunction* generator) {
@@ -2486,9 +2108,9 @@ void Arrays::setAll($doubles* array, $IntToDoubleFunction* generator) {
 
 void Arrays::parallelSetAll($doubles* array, $IntToDoubleFunction* generator) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(generator);
-	$nc($($nc($($IntStream::range(0, $nc(array)->length)))->parallel()))->forEach(static_cast<$IntConsumer*>($$new(Arrays$$Lambda$lambda$parallelSetAll$3$3, array, generator)));
+	$$nc($$nc($IntStream::range(0, $nc(array)->length))->parallel())->forEach($$new(Arrays$$Lambda$lambda$parallelSetAll$3$3, array, generator));
 }
 
 $Spliterator* Arrays::spliterator($ObjectArray* array) {
@@ -2581,9 +2203,9 @@ int32_t Arrays::compare($booleans* a, $booleans* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Boolean::compare($nc(a)->get(i), $nc(b)->get(i));
+		return $Boolean::compare(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compare($booleans* a, int32_t aFromIndex, int32_t aToIndex, $booleans* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2594,7 +2216,7 @@ int32_t Arrays::compare($booleans* a, int32_t aFromIndex, int32_t aToIndex, $boo
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Boolean::compare($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Boolean::compare(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
@@ -2609,9 +2231,9 @@ int32_t Arrays::compare($bytes* a, $bytes* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Byte::compare($nc(a)->get(i), $nc(b)->get(i));
+		return $Byte::compare(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compare($bytes* a, int32_t aFromIndex, int32_t aToIndex, $bytes* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2622,7 +2244,7 @@ int32_t Arrays::compare($bytes* a, int32_t aFromIndex, int32_t aToIndex, $bytes*
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Byte::compare($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Byte::compare(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
@@ -2637,9 +2259,9 @@ int32_t Arrays::compareUnsigned($bytes* a, $bytes* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Byte::compareUnsigned($nc(a)->get(i), $nc(b)->get(i));
+		return $Byte::compareUnsigned(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compareUnsigned($bytes* a, int32_t aFromIndex, int32_t aToIndex, $bytes* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2650,7 +2272,7 @@ int32_t Arrays::compareUnsigned($bytes* a, int32_t aFromIndex, int32_t aToIndex,
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Byte::compareUnsigned($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Byte::compareUnsigned(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
@@ -2665,9 +2287,9 @@ int32_t Arrays::compare($shorts* a, $shorts* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Short::compare($nc(a)->get(i), $nc(b)->get(i));
+		return $Short::compare(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compare($shorts* a, int32_t aFromIndex, int32_t aToIndex, $shorts* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2678,7 +2300,7 @@ int32_t Arrays::compare($shorts* a, int32_t aFromIndex, int32_t aToIndex, $short
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Short::compare($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Short::compare(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
@@ -2693,9 +2315,9 @@ int32_t Arrays::compareUnsigned($shorts* a, $shorts* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Short::compareUnsigned($nc(a)->get(i), $nc(b)->get(i));
+		return $Short::compareUnsigned(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compareUnsigned($shorts* a, int32_t aFromIndex, int32_t aToIndex, $shorts* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2706,7 +2328,7 @@ int32_t Arrays::compareUnsigned($shorts* a, int32_t aFromIndex, int32_t aToIndex
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Short::compareUnsigned($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Short::compareUnsigned(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
@@ -2721,9 +2343,9 @@ int32_t Arrays::compare($chars* a, $chars* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Character::compare($nc(a)->get(i), $nc(b)->get(i));
+		return $Character::compare(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compare($chars* a, int32_t aFromIndex, int32_t aToIndex, $chars* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2734,7 +2356,7 @@ int32_t Arrays::compare($chars* a, int32_t aFromIndex, int32_t aToIndex, $chars*
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Character::compare($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Character::compare(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
@@ -2749,9 +2371,9 @@ int32_t Arrays::compare($ints* a, $ints* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Integer::compare($nc(a)->get(i), $nc(b)->get(i));
+		return $Integer::compare(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compare($ints* a, int32_t aFromIndex, int32_t aToIndex, $ints* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2762,7 +2384,7 @@ int32_t Arrays::compare($ints* a, int32_t aFromIndex, int32_t aToIndex, $ints* b
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Integer::compare($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Integer::compare(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
@@ -2777,9 +2399,9 @@ int32_t Arrays::compareUnsigned($ints* a, $ints* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Integer::compareUnsigned($nc(a)->get(i), $nc(b)->get(i));
+		return $Integer::compareUnsigned(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compareUnsigned($ints* a, int32_t aFromIndex, int32_t aToIndex, $ints* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2790,7 +2412,7 @@ int32_t Arrays::compareUnsigned($ints* a, int32_t aFromIndex, int32_t aToIndex, 
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Integer::compareUnsigned($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Integer::compareUnsigned(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
@@ -2805,9 +2427,9 @@ int32_t Arrays::compare($longs* a, $longs* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Long::compare($nc(a)->get(i), $nc(b)->get(i));
+		return $Long::compare(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compare($longs* a, int32_t aFromIndex, int32_t aToIndex, $longs* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2818,7 +2440,7 @@ int32_t Arrays::compare($longs* a, int32_t aFromIndex, int32_t aToIndex, $longs*
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Long::compare($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Long::compare(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
@@ -2833,9 +2455,9 @@ int32_t Arrays::compareUnsigned($longs* a, $longs* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Long::compareUnsigned($nc(a)->get(i), $nc(b)->get(i));
+		return $Long::compareUnsigned(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compareUnsigned($longs* a, int32_t aFromIndex, int32_t aToIndex, $longs* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2846,7 +2468,7 @@ int32_t Arrays::compareUnsigned($longs* a, int32_t aFromIndex, int32_t aToIndex,
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Long::compareUnsigned($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Long::compareUnsigned(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
@@ -2861,9 +2483,9 @@ int32_t Arrays::compare($floats* a, $floats* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Float::compare($nc(a)->get(i), $nc(b)->get(i));
+		return $Float::compare(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compare($floats* a, int32_t aFromIndex, int32_t aToIndex, $floats* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2874,7 +2496,7 @@ int32_t Arrays::compare($floats* a, int32_t aFromIndex, int32_t aToIndex, $float
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Float::compare($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Float::compare(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
@@ -2889,9 +2511,9 @@ int32_t Arrays::compare($doubles* a, $doubles* b) {
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, $Math::min($nc(a)->length, $nc(b)->length));
 	if (i >= 0) {
-		return $Double::compare($nc(a)->get(i), $nc(b)->get(i));
+		return $Double::compare(a->get(i), b->get(i));
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compare($doubles* a, int32_t aFromIndex, int32_t aToIndex, $doubles* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -2902,14 +2524,14 @@ int32_t Arrays::compare($doubles* a, int32_t aFromIndex, int32_t aToIndex, $doub
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t i = $ArraysSupport::mismatch(a, aFromIndex, b, bFromIndex, $Math::min(aLength, bLength));
 	if (i >= 0) {
-		return $Double::compare($nc(a)->get(aFromIndex + i), $nc(b)->get(bFromIndex + i));
+		return $Double::compare(a->get(aFromIndex + i), b->get(bFromIndex + i));
 	}
 	return aLength - bLength;
 }
 
 int32_t Arrays::compare($ComparableArray* a, $ComparableArray* b) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == b) {
 		return 0;
 	}
@@ -2918,8 +2540,8 @@ int32_t Arrays::compare($ComparableArray* a, $ComparableArray* b) {
 	}
 	int32_t length = $Math::min($nc(a)->length, $nc(b)->length);
 	for (int32_t i = 0; i < length; ++i) {
-		$var($Comparable, oa, $nc(a)->get(i));
-		$var($Comparable, ob, $nc(b)->get(i));
+		$var($Comparable, oa, a->get(i));
+		$var($Comparable, ob, b->get(i));
 		if (oa != ob) {
 			if (oa == nullptr || ob == nullptr) {
 				return oa == nullptr ? -1 : 1;
@@ -2930,20 +2552,20 @@ int32_t Arrays::compare($ComparableArray* a, $ComparableArray* b) {
 			}
 		}
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compare($ComparableArray* a, int32_t aFromIndex, int32_t aToIndex, $ComparableArray* b, int32_t bFromIndex, int32_t bToIndex) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	rangeCheck($nc(a)->length, aFromIndex, aToIndex);
 	rangeCheck($nc(b)->length, bFromIndex, bToIndex);
 	int32_t aLength = aToIndex - aFromIndex;
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t length = $Math::min(aLength, bLength);
 	for (int32_t i = 0; i < length; ++i) {
-		$var($Comparable, oa, $nc(a)->get(aFromIndex++));
-		$var($Comparable, ob, $nc(b)->get(bFromIndex++));
+		$var($Comparable, oa, a->get(aFromIndex++));
+		$var($Comparable, ob, b->get(bFromIndex++));
 		if (oa != ob) {
 			if (oa == nullptr || ob == nullptr) {
 				return oa == nullptr ? -1 : 1;
@@ -2959,7 +2581,7 @@ int32_t Arrays::compare($ComparableArray* a, int32_t aFromIndex, int32_t aToInde
 
 int32_t Arrays::compare($ObjectArray* a, $ObjectArray* b, $Comparator* cmp) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(cmp);
 	if (a == b) {
 		return 0;
@@ -2969,8 +2591,8 @@ int32_t Arrays::compare($ObjectArray* a, $ObjectArray* b, $Comparator* cmp) {
 	}
 	int32_t length = $Math::min($nc(a)->length, $nc(b)->length);
 	for (int32_t i = 0; i < length; ++i) {
-		$var($Object0, oa, $nc(a)->get(i));
-		$var($Object0, ob, $nc(b)->get(i));
+		$var($Object0, oa, a->get(i));
+		$var($Object0, ob, b->get(i));
 		if (!$equals(oa, ob)) {
 			int32_t v = cmp->compare(oa, ob);
 			if (v != 0) {
@@ -2978,12 +2600,12 @@ int32_t Arrays::compare($ObjectArray* a, $ObjectArray* b, $Comparator* cmp) {
 			}
 		}
 	}
-	return $nc(a)->length - $nc(b)->length;
+	return a->length - b->length;
 }
 
 int32_t Arrays::compare($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, $ObjectArray* b, int32_t bFromIndex, int32_t bToIndex, $Comparator* cmp) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(cmp);
 	rangeCheck($nc(a)->length, aFromIndex, aToIndex);
 	rangeCheck($nc(b)->length, bFromIndex, bToIndex);
@@ -2991,8 +2613,8 @@ int32_t Arrays::compare($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, $
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t length = $Math::min(aLength, bLength);
 	for (int32_t i = 0; i < length; ++i) {
-		$var($Object0, oa, $nc(a)->get(aFromIndex++));
-		$var($Object0, ob, $nc(b)->get(bFromIndex++));
+		$var($Object0, oa, a->get(aFromIndex++));
+		$var($Object0, ob, b->get(bFromIndex++));
 		if (!$equals(oa, ob)) {
 			int32_t v = cmp->compare(oa, ob);
 			if (v != 0) {
@@ -3010,7 +2632,7 @@ int32_t Arrays::mismatch($booleans* a, $booleans* b) {
 		return -1;
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, length);
-	return (i < 0 && $nc(a)->length != $nc(b)->length) ? length : i;
+	return (i < 0 && a->length != b->length) ? length : i;
 }
 
 int32_t Arrays::mismatch($booleans* a, int32_t aFromIndex, int32_t aToIndex, $booleans* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -3031,7 +2653,7 @@ int32_t Arrays::mismatch($bytes* a, $bytes* b) {
 		return -1;
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, length);
-	return (i < 0 && $nc(a)->length != $nc(b)->length) ? length : i;
+	return (i < 0 && a->length != b->length) ? length : i;
 }
 
 int32_t Arrays::mismatch($bytes* a, int32_t aFromIndex, int32_t aToIndex, $bytes* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -3052,7 +2674,7 @@ int32_t Arrays::mismatch($chars* a, $chars* b) {
 		return -1;
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, length);
-	return (i < 0 && $nc(a)->length != $nc(b)->length) ? length : i;
+	return (i < 0 && a->length != b->length) ? length : i;
 }
 
 int32_t Arrays::mismatch($chars* a, int32_t aFromIndex, int32_t aToIndex, $chars* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -3073,7 +2695,7 @@ int32_t Arrays::mismatch($shorts* a, $shorts* b) {
 		return -1;
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, length);
-	return (i < 0 && $nc(a)->length != $nc(b)->length) ? length : i;
+	return (i < 0 && a->length != b->length) ? length : i;
 }
 
 int32_t Arrays::mismatch($shorts* a, int32_t aFromIndex, int32_t aToIndex, $shorts* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -3094,7 +2716,7 @@ int32_t Arrays::mismatch($ints* a, $ints* b) {
 		return -1;
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, length);
-	return (i < 0 && $nc(a)->length != $nc(b)->length) ? length : i;
+	return (i < 0 && a->length != b->length) ? length : i;
 }
 
 int32_t Arrays::mismatch($ints* a, int32_t aFromIndex, int32_t aToIndex, $ints* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -3115,7 +2737,7 @@ int32_t Arrays::mismatch($longs* a, $longs* b) {
 		return -1;
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, length);
-	return (i < 0 && $nc(a)->length != $nc(b)->length) ? length : i;
+	return (i < 0 && a->length != b->length) ? length : i;
 }
 
 int32_t Arrays::mismatch($longs* a, int32_t aFromIndex, int32_t aToIndex, $longs* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -3136,7 +2758,7 @@ int32_t Arrays::mismatch($floats* a, $floats* b) {
 		return -1;
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, length);
-	return (i < 0 && $nc(a)->length != $nc(b)->length) ? length : i;
+	return (i < 0 && a->length != b->length) ? length : i;
 }
 
 int32_t Arrays::mismatch($floats* a, int32_t aFromIndex, int32_t aToIndex, $floats* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -3157,7 +2779,7 @@ int32_t Arrays::mismatch($doubles* a, $doubles* b) {
 		return -1;
 	}
 	int32_t i = $ArraysSupport::mismatch(a, b, length);
-	return (i < 0 && $nc(a)->length != $nc(b)->length) ? length : i;
+	return (i < 0 && a->length != b->length) ? length : i;
 }
 
 int32_t Arrays::mismatch($doubles* a, int32_t aFromIndex, int32_t aToIndex, $doubles* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -3178,11 +2800,11 @@ int32_t Arrays::mismatch($ObjectArray* a, $ObjectArray* b) {
 		return -1;
 	}
 	for (int32_t i = 0; i < length; ++i) {
-		if (!$Objects::equals($nc(a)->get(i), $nc(b)->get(i))) {
+		if (!$Objects::equals(a->get(i), b->get(i))) {
 			return i;
 		}
 	}
-	return $nc(a)->length != $nc(b)->length ? length : -1;
+	return a->length != b->length ? length : -1;
 }
 
 int32_t Arrays::mismatch($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, $ObjectArray* b, int32_t bFromIndex, int32_t bToIndex) {
@@ -3193,7 +2815,7 @@ int32_t Arrays::mismatch($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, 
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t length = $Math::min(aLength, bLength);
 	for (int32_t i = 0; i < length; ++i) {
-		if (!$Objects::equals($nc(a)->get(aFromIndex++), $nc(b)->get(bFromIndex++))) {
+		if (!$Objects::equals(a->get(aFromIndex++), b->get(bFromIndex++))) {
 			return i;
 		}
 	}
@@ -3202,15 +2824,15 @@ int32_t Arrays::mismatch($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, 
 
 int32_t Arrays::mismatch($ObjectArray* a, $ObjectArray* b, $Comparator* cmp) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(cmp);
 	int32_t length = $Math::min($nc(a)->length, $nc(b)->length);
 	if (a == b) {
 		return -1;
 	}
 	for (int32_t i = 0; i < length; ++i) {
-		$var($Object0, oa, $nc(a)->get(i));
-		$var($Object0, ob, $nc(b)->get(i));
+		$var($Object0, oa, a->get(i));
+		$var($Object0, ob, b->get(i));
 		if (!$equals(oa, ob)) {
 			int32_t v = cmp->compare(oa, ob);
 			if (v != 0) {
@@ -3218,12 +2840,12 @@ int32_t Arrays::mismatch($ObjectArray* a, $ObjectArray* b, $Comparator* cmp) {
 			}
 		}
 	}
-	return $nc(a)->length != $nc(b)->length ? length : -1;
+	return a->length != b->length ? length : -1;
 }
 
 int32_t Arrays::mismatch($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, $ObjectArray* b, int32_t bFromIndex, int32_t bToIndex, $Comparator* cmp) {
 	$init(Arrays);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(cmp);
 	rangeCheck($nc(a)->length, aFromIndex, aToIndex);
 	rangeCheck($nc(b)->length, bFromIndex, bToIndex);
@@ -3231,8 +2853,8 @@ int32_t Arrays::mismatch($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, 
 	int32_t bLength = bToIndex - bFromIndex;
 	int32_t length = $Math::min(aLength, bLength);
 	for (int32_t i = 0; i < length; ++i) {
-		$var($Object0, oa, $nc(a)->get(aFromIndex++));
-		$var($Object0, ob, $nc(b)->get(bFromIndex++));
+		$var($Object0, oa, a->get(aFromIndex++));
+		$var($Object0, ob, b->get(bFromIndex++));
 		if (!$equals(oa, ob)) {
 			int32_t v = cmp->compare(oa, ob);
 			if (v != 0) {
@@ -3263,7 +2885,7 @@ void Arrays::lambda$parallelSetAll$0($ObjectArray* array, $IntFunction* generato
 	$nc(array)->set(i, $($nc(generator)->apply(i)));
 }
 
-void clinit$Arrays($Class* class$) {
+void Arrays::clinit$($Class* clazz) {
 	Arrays::$assertionsDisabled = !Arrays::class$->desiredAssertionStatus();
 }
 
@@ -3272,20 +2894,311 @@ Arrays::Arrays() {
 
 $Class* Arrays::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Arrays$$Lambda$lambda$parallelSetAll$0::classInfo$.name)) {
+		if (name->equals("java.util.Arrays$$Lambda$lambda$parallelSetAll$0")) {
 			return Arrays$$Lambda$lambda$parallelSetAll$0::load$(name, initialize);
 		}
-		if (name->equals(Arrays$$Lambda$lambda$parallelSetAll$1$1::classInfo$.name)) {
+		if (name->equals("java.util.Arrays$$Lambda$lambda$parallelSetAll$1$1")) {
 			return Arrays$$Lambda$lambda$parallelSetAll$1$1::load$(name, initialize);
 		}
-		if (name->equals(Arrays$$Lambda$lambda$parallelSetAll$2$2::classInfo$.name)) {
+		if (name->equals("java.util.Arrays$$Lambda$lambda$parallelSetAll$2$2")) {
 			return Arrays$$Lambda$lambda$parallelSetAll$2$2::load$(name, initialize);
 		}
-		if (name->equals(Arrays$$Lambda$lambda$parallelSetAll$3$3::classInfo$.name)) {
+		if (name->equals("java.util.Arrays$$Lambda$lambda$parallelSetAll$3$3")) {
 			return Arrays$$Lambda$lambda$parallelSetAll$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(Arrays, name, initialize, &_Arrays_ClassInfo_, clinit$Arrays, allocate$Arrays);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Arrays, $assertionsDisabled)},
+		{"MIN_ARRAY_SORT_GRAN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Arrays, MIN_ARRAY_SORT_GRAN)},
+		{"INSERTIONSORT_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Arrays, INSERTIONSORT_THRESHOLD)},
+		{}
+	};
+	$CompoundAttribute asListmethodAnnotations$$[] = {
+		{"Ljava/lang/SafeVarargs;", nullptr},
+		{}
+	};
+	$CompoundAttribute copyOfmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute copyOfRangemethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute equalsmethodAnnotations$$$6[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute equalsmethodAnnotations$$$8[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Arrays, init$, void)},
+		{"asList", "([Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/List<TT;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Arrays, asList, $List*, $ObjectArray*), nullptr, nullptr, asListmethodAnnotations$$},
+		{"binarySearch", "([JJ)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $longs*, int64_t)},
+		{"binarySearch", "([JIIJ)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $longs*, int32_t, int32_t, int64_t)},
+		{"binarySearch", "([II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ints*, int32_t)},
+		{"binarySearch", "([IIII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ints*, int32_t, int32_t, int32_t)},
+		{"binarySearch", "([SS)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $shorts*, int16_t)},
+		{"binarySearch", "([SIIS)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $shorts*, int32_t, int32_t, int16_t)},
+		{"binarySearch", "([CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $chars*, char16_t)},
+		{"binarySearch", "([CIIC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $chars*, int32_t, int32_t, char16_t)},
+		{"binarySearch", "([BB)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $bytes*, int8_t)},
+		{"binarySearch", "([BIIB)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $bytes*, int32_t, int32_t, int8_t)},
+		{"binarySearch", "([DD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $doubles*, double)},
+		{"binarySearch", "([DIID)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $doubles*, int32_t, int32_t, double)},
+		{"binarySearch", "([FF)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $floats*, float)},
+		{"binarySearch", "([FIIF)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $floats*, int32_t, int32_t, float)},
+		{"binarySearch", "([Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ObjectArray*, Object$*)},
+		{"binarySearch", "([Ljava/lang/Object;IILjava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ObjectArray*, int32_t, int32_t, Object$*)},
+		{"binarySearch", "([Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;TT;Ljava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ObjectArray*, Object$*, $Comparator*)},
+		{"binarySearch", "([Ljava/lang/Object;IILjava/lang/Object;Ljava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;IITT;Ljava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, binarySearch, int32_t, $ObjectArray*, int32_t, int32_t, Object$*, $Comparator*)},
+		{"binarySearch0", "([JIIJ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $longs*, int32_t, int32_t, int64_t)},
+		{"binarySearch0", "([IIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $ints*, int32_t, int32_t, int32_t)},
+		{"binarySearch0", "([SIIS)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $shorts*, int32_t, int32_t, int16_t)},
+		{"binarySearch0", "([CIIC)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $chars*, int32_t, int32_t, char16_t)},
+		{"binarySearch0", "([BIIB)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $bytes*, int32_t, int32_t, int8_t)},
+		{"binarySearch0", "([DIID)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $doubles*, int32_t, int32_t, double)},
+		{"binarySearch0", "([FIIF)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $floats*, int32_t, int32_t, float)},
+		{"binarySearch0", "([Ljava/lang/Object;IILjava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $ObjectArray*, int32_t, int32_t, Object$*)},
+		{"binarySearch0", "([Ljava/lang/Object;IILjava/lang/Object;Ljava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;IITT;Ljava/util/Comparator<-TT;>;)I", $PRIVATE | $STATIC, $staticMethod(Arrays, binarySearch0, int32_t, $ObjectArray*, int32_t, int32_t, Object$*, $Comparator*)},
+		{"compare", "([Z[Z)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $booleans*, $booleans*)},
+		{"compare", "([ZII[ZII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $booleans*, int32_t, int32_t, $booleans*, int32_t, int32_t)},
+		{"compare", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $bytes*, $bytes*)},
+		{"compare", "([BII[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t)},
+		{"compare", "([S[S)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $shorts*, $shorts*)},
+		{"compare", "([SII[SII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $shorts*, int32_t, int32_t, $shorts*, int32_t, int32_t)},
+		{"compare", "([C[C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $chars*, $chars*)},
+		{"compare", "([CII[CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $chars*, int32_t, int32_t, $chars*, int32_t, int32_t)},
+		{"compare", "([I[I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ints*, $ints*)},
+		{"compare", "([III[III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"compare", "([J[J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $longs*, $longs*)},
+		{"compare", "([JII[JII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $longs*, int32_t, int32_t, $longs*, int32_t, int32_t)},
+		{"compare", "([F[F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $floats*, $floats*)},
+		{"compare", "([FII[FII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $floats*, int32_t, int32_t, $floats*, int32_t, int32_t)},
+		{"compare", "([D[D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $doubles*, $doubles*)},
+		{"compare", "([DII[DII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $doubles*, int32_t, int32_t, $doubles*, int32_t, int32_t)},
+		{"compare", "([Ljava/lang/Comparable;[Ljava/lang/Comparable;)I", "<T::Ljava/lang/Comparable<-TT;>;>([TT;[TT;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ComparableArray*, $ComparableArray*)},
+		{"compare", "([Ljava/lang/Comparable;II[Ljava/lang/Comparable;II)I", "<T::Ljava/lang/Comparable<-TT;>;>([TT;II[TT;II)I", $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ComparableArray*, int32_t, int32_t, $ComparableArray*, int32_t, int32_t)},
+		{"compare", "([Ljava/lang/Object;[Ljava/lang/Object;Ljava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;[TT;Ljava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ObjectArray*, $ObjectArray*, $Comparator*)},
+		{"compare", "([Ljava/lang/Object;II[Ljava/lang/Object;IILjava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;II[TT;IILjava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, compare, int32_t, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t, $Comparator*)},
+		{"compareUnsigned", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $bytes*, $bytes*)},
+		{"compareUnsigned", "([BII[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t)},
+		{"compareUnsigned", "([S[S)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $shorts*, $shorts*)},
+		{"compareUnsigned", "([SII[SII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $shorts*, int32_t, int32_t, $shorts*, int32_t, int32_t)},
+		{"compareUnsigned", "([I[I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $ints*, $ints*)},
+		{"compareUnsigned", "([III[III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"compareUnsigned", "([J[J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $longs*, $longs*)},
+		{"compareUnsigned", "([JII[JII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, compareUnsigned, int32_t, $longs*, int32_t, int32_t, $longs*, int32_t, int32_t)},
+		{"copyOf", "([Ljava/lang/Object;I)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;I)[TT;", $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $ObjectArray*, $ObjectArray*, int32_t)},
+		{"copyOf", "([Ljava/lang/Object;ILjava/lang/Class;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>([TU;ILjava/lang/Class<+[TT;>;)[TT;", $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $ObjectArray*, $ObjectArray*, int32_t, $Class*), nullptr, nullptr, copyOfmethodAnnotations$$$1},
+		{"copyOf", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $bytes*, $bytes*, int32_t)},
+		{"copyOf", "([SI)[S", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $shorts*, $shorts*, int32_t)},
+		{"copyOf", "([II)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $ints*, $ints*, int32_t)},
+		{"copyOf", "([JI)[J", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $longs*, $longs*, int32_t)},
+		{"copyOf", "([CI)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $chars*, $chars*, int32_t)},
+		{"copyOf", "([FI)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $floats*, $floats*, int32_t)},
+		{"copyOf", "([DI)[D", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $doubles*, $doubles*, int32_t)},
+		{"copyOf", "([ZI)[Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOf, $booleans*, $booleans*, int32_t)},
+		{"copyOfRange", "([Ljava/lang/Object;II)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;II)[TT;", $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $ObjectArray*, $ObjectArray*, int32_t, int32_t)},
+		{"copyOfRange", "([Ljava/lang/Object;IILjava/lang/Class;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>([TU;IILjava/lang/Class<+[TT;>;)[TT;", $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $ObjectArray*, $ObjectArray*, int32_t, int32_t, $Class*), nullptr, nullptr, copyOfRangemethodAnnotations$$$1},
+		{"copyOfRange", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $bytes*, $bytes*, int32_t, int32_t)},
+		{"copyOfRange", "([SII)[S", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $shorts*, $shorts*, int32_t, int32_t)},
+		{"copyOfRange", "([III)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $ints*, $ints*, int32_t, int32_t)},
+		{"copyOfRange", "([JII)[J", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $longs*, $longs*, int32_t, int32_t)},
+		{"copyOfRange", "([CII)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $chars*, $chars*, int32_t, int32_t)},
+		{"copyOfRange", "([FII)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $floats*, $floats*, int32_t, int32_t)},
+		{"copyOfRange", "([DII)[D", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $doubles*, $doubles*, int32_t, int32_t)},
+		{"copyOfRange", "([ZII)[Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, copyOfRange, $booleans*, $booleans*, int32_t, int32_t)},
+		{"deepEquals", "([Ljava/lang/Object;[Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, deepEquals, bool, $ObjectArray*, $ObjectArray*)},
+		{"deepEquals0", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $STATIC, $staticMethod(Arrays, deepEquals0, bool, Object$*, Object$*)},
+		{"deepHashCode", "([Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, deepHashCode, int32_t, $ObjectArray*)},
+		{"deepToString", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, deepToString, $String*, $ObjectArray*)},
+		{"deepToString", "([Ljava/lang/Object;Ljava/lang/StringBuilder;Ljava/util/Set;)V", "([Ljava/lang/Object;Ljava/lang/StringBuilder;Ljava/util/Set<[Ljava/lang/Object;>;)V", $PRIVATE | $STATIC, $staticMethod(Arrays, deepToString, void, $ObjectArray*, $StringBuilder*, $Set*)},
+		{"equals", "([J[J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $longs*, $longs*)},
+		{"equals", "([JII[JII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $longs*, int32_t, int32_t, $longs*, int32_t, int32_t)},
+		{"equals", "([I[I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ints*, $ints*)},
+		{"equals", "([III[III)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"equals", "([S[S)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $shorts*, $shorts*)},
+		{"equals", "([SII[SII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $shorts*, int32_t, int32_t, $shorts*, int32_t, int32_t)},
+		{"equals", "([C[C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $chars*, $chars*), nullptr, nullptr, equalsmethodAnnotations$$$6},
+		{"equals", "([CII[CII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $chars*, int32_t, int32_t, $chars*, int32_t, int32_t)},
+		{"equals", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $bytes*, $bytes*), nullptr, nullptr, equalsmethodAnnotations$$$8},
+		{"equals", "([BII[BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t)},
+		{"equals", "([Z[Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $booleans*, $booleans*)},
+		{"equals", "([ZII[ZII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $booleans*, int32_t, int32_t, $booleans*, int32_t, int32_t)},
+		{"equals", "([D[D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $doubles*, $doubles*)},
+		{"equals", "([DII[DII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $doubles*, int32_t, int32_t, $doubles*, int32_t, int32_t)},
+		{"equals", "([F[F)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $floats*, $floats*)},
+		{"equals", "([FII[FII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $floats*, int32_t, int32_t, $floats*, int32_t, int32_t)},
+		{"equals", "([Ljava/lang/Object;[Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ObjectArray*, $ObjectArray*)},
+		{"equals", "([Ljava/lang/Object;II[Ljava/lang/Object;II)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t)},
+		{"equals", "([Ljava/lang/Object;[Ljava/lang/Object;Ljava/util/Comparator;)Z", "<T:Ljava/lang/Object;>([TT;[TT;Ljava/util/Comparator<-TT;>;)Z", $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ObjectArray*, $ObjectArray*, $Comparator*)},
+		{"equals", "([Ljava/lang/Object;II[Ljava/lang/Object;IILjava/util/Comparator;)Z", "<T:Ljava/lang/Object;>([TT;II[TT;IILjava/util/Comparator<-TT;>;)Z", $PUBLIC | $STATIC, $staticMethod(Arrays, equals, bool, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t, $Comparator*)},
+		{"fill", "([JJ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $longs*, int64_t)},
+		{"fill", "([JIIJ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $longs*, int32_t, int32_t, int64_t)},
+		{"fill", "([II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $ints*, int32_t)},
+		{"fill", "([IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $ints*, int32_t, int32_t, int32_t)},
+		{"fill", "([SS)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $shorts*, int16_t)},
+		{"fill", "([SIIS)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $shorts*, int32_t, int32_t, int16_t)},
+		{"fill", "([CC)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $chars*, char16_t)},
+		{"fill", "([CIIC)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $chars*, int32_t, int32_t, char16_t)},
+		{"fill", "([BB)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $bytes*, int8_t)},
+		{"fill", "([BIIB)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $bytes*, int32_t, int32_t, int8_t)},
+		{"fill", "([ZZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $booleans*, bool)},
+		{"fill", "([ZIIZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $booleans*, int32_t, int32_t, bool)},
+		{"fill", "([DD)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $doubles*, double)},
+		{"fill", "([DIID)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $doubles*, int32_t, int32_t, double)},
+		{"fill", "([FF)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $floats*, float)},
+		{"fill", "([FIIF)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $floats*, int32_t, int32_t, float)},
+		{"fill", "([Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $ObjectArray*, Object$*)},
+		{"fill", "([Ljava/lang/Object;IILjava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, fill, void, $ObjectArray*, int32_t, int32_t, Object$*)},
+		{"hashCode", "([J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $longs*)},
+		{"hashCode", "([I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $ints*)},
+		{"hashCode", "([S)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $shorts*)},
+		{"hashCode", "([C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $chars*)},
+		{"hashCode", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $bytes*)},
+		{"hashCode", "([Z)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $booleans*)},
+		{"hashCode", "([F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $floats*)},
+		{"hashCode", "([D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $doubles*)},
+		{"hashCode", "([Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, hashCode, int32_t, $ObjectArray*)},
+		{"lambda$parallelSetAll$0", "([Ljava/lang/Object;Ljava/util/function/IntFunction;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Arrays, lambda$parallelSetAll$0, void, $ObjectArray*, $IntFunction*, int32_t)},
+		{"lambda$parallelSetAll$1", "([ILjava/util/function/IntUnaryOperator;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Arrays, lambda$parallelSetAll$1, void, $ints*, $IntUnaryOperator*, int32_t)},
+		{"lambda$parallelSetAll$2", "([JLjava/util/function/IntToLongFunction;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Arrays, lambda$parallelSetAll$2, void, $longs*, $IntToLongFunction*, int32_t)},
+		{"lambda$parallelSetAll$3", "([DLjava/util/function/IntToDoubleFunction;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Arrays, lambda$parallelSetAll$3, void, $doubles*, $IntToDoubleFunction*, int32_t)},
+		{"legacyMergeSort", "([Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, legacyMergeSort, void, $ObjectArray*)},
+		{"legacyMergeSort", "([Ljava/lang/Object;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, legacyMergeSort, void, $ObjectArray*, int32_t, int32_t)},
+		{"legacyMergeSort", "([Ljava/lang/Object;Ljava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/Comparator<-TT;>;)V", $PRIVATE | $STATIC, $staticMethod(Arrays, legacyMergeSort, void, $ObjectArray*, $Comparator*)},
+		{"legacyMergeSort", "([Ljava/lang/Object;IILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;IILjava/util/Comparator<-TT;>;)V", $PRIVATE | $STATIC, $staticMethod(Arrays, legacyMergeSort, void, $ObjectArray*, int32_t, int32_t, $Comparator*)},
+		{"mergeSort", "([Ljava/lang/Object;[Ljava/lang/Object;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, mergeSort, void, $ObjectArray*, $ObjectArray*, int32_t, int32_t, int32_t)},
+		{"mergeSort", "([Ljava/lang/Object;[Ljava/lang/Object;IIILjava/util/Comparator;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, mergeSort, void, $ObjectArray*, $ObjectArray*, int32_t, int32_t, int32_t, $Comparator*)},
+		{"mismatch", "([Z[Z)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $booleans*, $booleans*)},
+		{"mismatch", "([ZII[ZII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $booleans*, int32_t, int32_t, $booleans*, int32_t, int32_t)},
+		{"mismatch", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $bytes*, $bytes*)},
+		{"mismatch", "([BII[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t)},
+		{"mismatch", "([C[C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $chars*, $chars*)},
+		{"mismatch", "([CII[CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $chars*, int32_t, int32_t, $chars*, int32_t, int32_t)},
+		{"mismatch", "([S[S)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $shorts*, $shorts*)},
+		{"mismatch", "([SII[SII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $shorts*, int32_t, int32_t, $shorts*, int32_t, int32_t)},
+		{"mismatch", "([I[I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ints*, $ints*)},
+		{"mismatch", "([III[III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"mismatch", "([J[J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $longs*, $longs*)},
+		{"mismatch", "([JII[JII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $longs*, int32_t, int32_t, $longs*, int32_t, int32_t)},
+		{"mismatch", "([F[F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $floats*, $floats*)},
+		{"mismatch", "([FII[FII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $floats*, int32_t, int32_t, $floats*, int32_t, int32_t)},
+		{"mismatch", "([D[D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $doubles*, $doubles*)},
+		{"mismatch", "([DII[DII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $doubles*, int32_t, int32_t, $doubles*, int32_t, int32_t)},
+		{"mismatch", "([Ljava/lang/Object;[Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ObjectArray*, $ObjectArray*)},
+		{"mismatch", "([Ljava/lang/Object;II[Ljava/lang/Object;II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t)},
+		{"mismatch", "([Ljava/lang/Object;[Ljava/lang/Object;Ljava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;[TT;Ljava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ObjectArray*, $ObjectArray*, $Comparator*)},
+		{"mismatch", "([Ljava/lang/Object;II[Ljava/lang/Object;IILjava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;II[TT;IILjava/util/Comparator<-TT;>;)I", $PUBLIC | $STATIC, $staticMethod(Arrays, mismatch, int32_t, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t, $Comparator*)},
+		{"parallelPrefix", "([Ljava/lang/Object;Ljava/util/function/BinaryOperator;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/function/BinaryOperator<TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $ObjectArray*, $BinaryOperator*)},
+		{"parallelPrefix", "([Ljava/lang/Object;IILjava/util/function/BinaryOperator;)V", "<T:Ljava/lang/Object;>([TT;IILjava/util/function/BinaryOperator<TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $ObjectArray*, int32_t, int32_t, $BinaryOperator*)},
+		{"parallelPrefix", "([JLjava/util/function/LongBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $longs*, $LongBinaryOperator*)},
+		{"parallelPrefix", "([JIILjava/util/function/LongBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $longs*, int32_t, int32_t, $LongBinaryOperator*)},
+		{"parallelPrefix", "([DLjava/util/function/DoubleBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $doubles*, $DoubleBinaryOperator*)},
+		{"parallelPrefix", "([DIILjava/util/function/DoubleBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $doubles*, int32_t, int32_t, $DoubleBinaryOperator*)},
+		{"parallelPrefix", "([ILjava/util/function/IntBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $ints*, $IntBinaryOperator*)},
+		{"parallelPrefix", "([IIILjava/util/function/IntBinaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelPrefix, void, $ints*, int32_t, int32_t, $IntBinaryOperator*)},
+		{"parallelSetAll", "([Ljava/lang/Object;Ljava/util/function/IntFunction;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/function/IntFunction<+TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSetAll, void, $ObjectArray*, $IntFunction*)},
+		{"parallelSetAll", "([ILjava/util/function/IntUnaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSetAll, void, $ints*, $IntUnaryOperator*)},
+		{"parallelSetAll", "([JLjava/util/function/IntToLongFunction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSetAll, void, $longs*, $IntToLongFunction*)},
+		{"parallelSetAll", "([DLjava/util/function/IntToDoubleFunction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSetAll, void, $doubles*, $IntToDoubleFunction*)},
+		{"parallelSort", "([B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $bytes*)},
+		{"parallelSort", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $bytes*, int32_t, int32_t)},
+		{"parallelSort", "([C)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $chars*)},
+		{"parallelSort", "([CII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $chars*, int32_t, int32_t)},
+		{"parallelSort", "([S)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $shorts*)},
+		{"parallelSort", "([SII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $shorts*, int32_t, int32_t)},
+		{"parallelSort", "([I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ints*)},
+		{"parallelSort", "([III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ints*, int32_t, int32_t)},
+		{"parallelSort", "([J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $longs*)},
+		{"parallelSort", "([JII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $longs*, int32_t, int32_t)},
+		{"parallelSort", "([F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $floats*)},
+		{"parallelSort", "([FII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $floats*, int32_t, int32_t)},
+		{"parallelSort", "([D)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $doubles*)},
+		{"parallelSort", "([DII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $doubles*, int32_t, int32_t)},
+		{"parallelSort", "([Ljava/lang/Comparable;)V", "<T::Ljava/lang/Comparable<-TT;>;>([TT;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ComparableArray*)},
+		{"parallelSort", "([Ljava/lang/Comparable;II)V", "<T::Ljava/lang/Comparable<-TT;>;>([TT;II)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ComparableArray*, int32_t, int32_t)},
+		{"parallelSort", "([Ljava/lang/Object;Ljava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/Comparator<-TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ObjectArray*, $Comparator*)},
+		{"parallelSort", "([Ljava/lang/Object;IILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;IILjava/util/Comparator<-TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, parallelSort, void, $ObjectArray*, int32_t, int32_t, $Comparator*)},
+		{"primitiveArrayHashCode", "(Ljava/lang/Object;Ljava/lang/Class;)I", "(Ljava/lang/Object;Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $staticMethod(Arrays, primitiveArrayHashCode, int32_t, Object$*, $Class*)},
+		{"rangeCheck", "(III)V", nullptr, $STATIC, $staticMethod(Arrays, rangeCheck, void, int32_t, int32_t, int32_t)},
+		{"setAll", "([Ljava/lang/Object;Ljava/util/function/IntFunction;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/function/IntFunction<+TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, setAll, void, $ObjectArray*, $IntFunction*)},
+		{"setAll", "([ILjava/util/function/IntUnaryOperator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, setAll, void, $ints*, $IntUnaryOperator*)},
+		{"setAll", "([JLjava/util/function/IntToLongFunction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, setAll, void, $longs*, $IntToLongFunction*)},
+		{"setAll", "([DLjava/util/function/IntToDoubleFunction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, setAll, void, $doubles*, $IntToDoubleFunction*)},
+		{"sort", "([I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ints*)},
+		{"sort", "([III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ints*, int32_t, int32_t)},
+		{"sort", "([J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $longs*)},
+		{"sort", "([JII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $longs*, int32_t, int32_t)},
+		{"sort", "([S)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $shorts*)},
+		{"sort", "([SII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $shorts*, int32_t, int32_t)},
+		{"sort", "([C)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $chars*)},
+		{"sort", "([CII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $chars*, int32_t, int32_t)},
+		{"sort", "([B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $bytes*)},
+		{"sort", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $bytes*, int32_t, int32_t)},
+		{"sort", "([F)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $floats*)},
+		{"sort", "([FII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $floats*, int32_t, int32_t)},
+		{"sort", "([D)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $doubles*)},
+		{"sort", "([DII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $doubles*, int32_t, int32_t)},
+		{"sort", "([Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ObjectArray*)},
+		{"sort", "([Ljava/lang/Object;II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ObjectArray*, int32_t, int32_t)},
+		{"sort", "([Ljava/lang/Object;Ljava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;Ljava/util/Comparator<-TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ObjectArray*, $Comparator*)},
+		{"sort", "([Ljava/lang/Object;IILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;IILjava/util/Comparator<-TT;>;)V", $PUBLIC | $STATIC, $staticMethod(Arrays, sort, void, $ObjectArray*, int32_t, int32_t, $Comparator*)},
+		{"spliterator", "([Ljava/lang/Object;)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator*, $ObjectArray*)},
+		{"spliterator", "([Ljava/lang/Object;II)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>([TT;II)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator*, $ObjectArray*, int32_t, int32_t)},
+		{"spliterator", "([I)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfInt*, $ints*)},
+		{"spliterator", "([III)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfInt*, $ints*, int32_t, int32_t)},
+		{"spliterator", "([J)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfLong*, $longs*)},
+		{"spliterator", "([JII)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfLong*, $longs*, int32_t, int32_t)},
+		{"spliterator", "([D)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfDouble*, $doubles*)},
+		{"spliterator", "([DII)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, spliterator, $Spliterator$OfDouble*, $doubles*, int32_t, int32_t)},
+		{"stream", "([Ljava/lang/Object;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $Stream*, $ObjectArray*)},
+		{"stream", "([Ljava/lang/Object;II)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>([TT;II)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $Stream*, $ObjectArray*, int32_t, int32_t)},
+		{"stream", "([I)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $IntStream*, $ints*)},
+		{"stream", "([III)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $IntStream*, $ints*, int32_t, int32_t)},
+		{"stream", "([J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $LongStream*, $longs*)},
+		{"stream", "([JII)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $LongStream*, $longs*, int32_t, int32_t)},
+		{"stream", "([D)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $DoubleStream*, $doubles*)},
+		{"stream", "([DII)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, stream, $DoubleStream*, $doubles*, int32_t, int32_t)},
+		{"swap", "([Ljava/lang/Object;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Arrays, swap, void, $ObjectArray*, int32_t, int32_t)},
+		{"toString", "([J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $longs*)},
+		{"toString", "([I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $ints*)},
+		{"toString", "([S)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $shorts*)},
+		{"toString", "([C)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $chars*)},
+		{"toString", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $bytes*)},
+		{"toString", "([Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $booleans*)},
+		{"toString", "([F)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $floats*)},
+		{"toString", "([D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $doubles*)},
+		{"toString", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arrays, toString, $String*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Arrays$ArrayItr", "java.util.Arrays", "ArrayItr", $PRIVATE | $STATIC},
+		{"java.util.Arrays$ArrayList", "java.util.Arrays", "ArrayList", $PRIVATE | $STATIC},
+		{"java.util.Arrays$LegacyMergeSort", "java.util.Arrays", "LegacyMergeSort", $STATIC | $FINAL},
+		{"java.util.Arrays$NaturalOrder", "java.util.Arrays", "NaturalOrder", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.Arrays",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.Arrays$ArrayItr,java.util.Arrays$ArrayList,java.util.Arrays$LegacyMergeSort,java.util.Arrays$NaturalOrder"
+	};
+	$loadClass(Arrays, name, initialize, &classInfo$$, Arrays::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Arrays);
+	});
 	return class$;
 }
 

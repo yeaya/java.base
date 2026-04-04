@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/UnicodeSetStringSpan.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/ArrayList.h>
 #include <jdk/internal/icu/impl/UCharacterProperty.h>
@@ -42,81 +41,13 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$FieldInfo _UnicodeSetStringSpan_FieldInfo_[] = {
-	{"WITH_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, WITH_COUNT)},
-	{"FWD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, FWD)},
-	{"BACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, BACK)},
-	{"CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, CONTAINED)},
-	{"NOT_CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, NOT_CONTAINED)},
-	{"ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, ALL)},
-	{"FWD_UTF16_CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, FWD_UTF16_CONTAINED)},
-	{"FWD_UTF16_NOT_CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, FWD_UTF16_NOT_CONTAINED)},
-	{"BACK_UTF16_CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, BACK_UTF16_CONTAINED)},
-	{"BACK_UTF16_NOT_CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, BACK_UTF16_NOT_CONTAINED)},
-	{"ALL_CP_CONTAINED", "S", nullptr, $STATIC | $FINAL, $constField(UnicodeSetStringSpan, ALL_CP_CONTAINED)},
-	{"LONG_SPAN", "S", nullptr, $STATIC | $FINAL, $constField(UnicodeSetStringSpan, LONG_SPAN)},
-	{"spanSet", "Ljdk/internal/icu/text/UnicodeSet;", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, spanSet)},
-	{"spanNotSet", "Ljdk/internal/icu/text/UnicodeSet;", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, spanNotSet)},
-	{"strings", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $field(UnicodeSetStringSpan, strings)},
-	{"spanLengths", "[S", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, spanLengths)},
-	{"maxLength16", "I", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, maxLength16)},
-	{"someRelevant", "Z", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, someRelevant)},
-	{"all", "Z", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, all)},
-	{"offsets", "Ljdk/internal/icu/impl/UnicodeSetStringSpan$OffsetList;", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, offsets)},
-	{}
-};
-
-$MethodInfo _UnicodeSetStringSpan_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/util/ArrayList;I)V", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/util/ArrayList<Ljava/lang/String;>;I)V", $PUBLIC, $method(UnicodeSetStringSpan, init$, void, $UnicodeSet*, $ArrayList*, int32_t)},
-	{"addToSpanNotSet", "(I)V", nullptr, $PRIVATE, $method(UnicodeSetStringSpan, addToSpanNotSet, void, int32_t)},
-	{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, contains, bool, int32_t)},
-	{"makeSpanLengthByte", "(I)S", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, makeSpanLengthByte, int16_t, int32_t)},
-	{"matches16", "(Ljava/lang/CharSequence;ILjava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UnicodeSetStringSpan, matches16, bool, $CharSequence*, int32_t, $String*, int32_t)},
-	{"matches16CPB", "(Ljava/lang/CharSequence;IILjava/lang/String;I)Z", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, matches16CPB, bool, $CharSequence*, int32_t, int32_t, $String*, int32_t)},
-	{"needsStringSpanUTF16", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, needsStringSpanUTF16, bool)},
-	{"span", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, span, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*)},
-	{"spanAndCount", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;Ljdk/internal/icu/util/OutputInt;)I", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, spanAndCount, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*, $OutputInt*)},
-	{"spanBack", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UnicodeSetStringSpan, spanBack, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*)},
-	{"spanContainedAndCount", "(Ljava/lang/CharSequence;ILjdk/internal/icu/util/OutputInt;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(UnicodeSetStringSpan, spanContainedAndCount, int32_t, $CharSequence*, int32_t, $OutputInt*)},
-	{"spanNot", "(Ljava/lang/CharSequence;ILjdk/internal/icu/util/OutputInt;)I", nullptr, $PRIVATE, $method(UnicodeSetStringSpan, spanNot, int32_t, $CharSequence*, int32_t, $OutputInt*)},
-	{"spanNotBack", "(Ljava/lang/CharSequence;I)I", nullptr, $PRIVATE, $method(UnicodeSetStringSpan, spanNotBack, int32_t, $CharSequence*, int32_t)},
-	{"spanOne", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/lang/CharSequence;II)I", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, spanOne, int32_t, $UnicodeSet*, $CharSequence*, int32_t, int32_t)},
-	{"spanOneBack", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/lang/CharSequence;I)I", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, spanOneBack, int32_t, $UnicodeSet*, $CharSequence*, int32_t)},
-	{"spanWithStrings", "(Ljava/lang/CharSequence;IILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(UnicodeSetStringSpan, spanWithStrings, int32_t, $CharSequence*, int32_t, int32_t, $UnicodeSet$SpanCondition*)},
-	{}
-};
-
-$InnerClassInfo _UnicodeSetStringSpan_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.UnicodeSetStringSpan$OffsetList", "jdk.internal.icu.impl.UnicodeSetStringSpan", "OffsetList", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _UnicodeSetStringSpan_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.icu.impl.UnicodeSetStringSpan",
-	"java.lang.Object",
-	nullptr,
-	_UnicodeSetStringSpan_FieldInfo_,
-	_UnicodeSetStringSpan_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnicodeSetStringSpan_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.UnicodeSetStringSpan$OffsetList"
-};
-
-$Object* allocate$UnicodeSetStringSpan($Class* clazz) {
-	return $of($alloc(UnicodeSetStringSpan));
-}
-
 void UnicodeSetStringSpan::init$($UnicodeSet* set, $ArrayList* setStrings, int32_t which) {
-	$useLocalCurrentObjectStackCache();
-	$set(this, spanSet, $new($UnicodeSet, 0, 0x0010FFFF));
+	$useLocalObjectStack();
+	$set(this, spanSet, $new($UnicodeSet, 0, 0x0010ffff));
 	$set(this, strings, setStrings);
 	this->all = (which == UnicodeSetStringSpan::ALL);
-	$nc(this->spanSet)->retainAll(set);
-	if (0 != ((int32_t)(which & (uint32_t)UnicodeSetStringSpan::NOT_CONTAINED))) {
+	this->spanSet->retainAll(set);
+	if (0 != (which & UnicodeSetStringSpan::NOT_CONTAINED)) {
 		$set(this, spanNotSet, this->spanSet);
 	}
 	$set(this, offsets, $new($UnicodeSetStringSpan$OffsetList));
@@ -125,10 +56,10 @@ void UnicodeSetStringSpan::init$($UnicodeSet* set, $ArrayList* setStrings, int32
 	int32_t spanLength = 0;
 	this->someRelevant = false;
 	for (i = 0; i < stringsLength; ++i) {
-		$var($String, string, $cast($String, $nc(this->strings)->get(i)));
+		$var($String, string, $cast($String, this->strings->get(i)));
 		int32_t length16 = $nc(string)->length();
 		$init($UnicodeSet$SpanCondition);
-		spanLength = $nc(this->spanSet)->span(string, $UnicodeSet$SpanCondition::CONTAINED);
+		spanLength = this->spanSet->span(string, $UnicodeSet$SpanCondition::CONTAINED);
 		if (spanLength < length16) {
 			this->someRelevant = true;
 		}
@@ -136,11 +67,11 @@ void UnicodeSetStringSpan::init$($UnicodeSet* set, $ArrayList* setStrings, int32
 			this->maxLength16 = length16;
 		}
 	}
-	if (!this->someRelevant && ((int32_t)(which & (uint32_t)UnicodeSetStringSpan::WITH_COUNT)) == 0) {
+	if (!this->someRelevant && (which & UnicodeSetStringSpan::WITH_COUNT) == 0) {
 		return;
 	}
 	if (this->all) {
-		$nc(this->spanSet)->freeze();
+		this->spanSet->freeze();
 	}
 	int32_t spanBackLengthsOffset = 0;
 	int32_t allocSize = 0;
@@ -156,41 +87,39 @@ void UnicodeSetStringSpan::init$($UnicodeSet* set, $ArrayList* setStrings, int32
 		spanBackLengthsOffset = 0;
 	}
 	for (i = 0; i < stringsLength; ++i) {
-		$var($String, string, $cast($String, $nc(this->strings)->get(i)));
+		$var($String, string, $cast($String, this->strings->get(i)));
 		int32_t length16 = $nc(string)->length();
 		$init($UnicodeSet$SpanCondition);
-		spanLength = $nc(this->spanSet)->span(string, $UnicodeSet$SpanCondition::CONTAINED);
+		spanLength = this->spanSet->span(string, $UnicodeSet$SpanCondition::CONTAINED);
 		if (spanLength < length16) {
-			{
-				if (0 != ((int32_t)(which & (uint32_t)UnicodeSetStringSpan::CONTAINED))) {
-					if (0 != ((int32_t)(which & (uint32_t)UnicodeSetStringSpan::FWD))) {
-						$nc(this->spanLengths)->set(i, makeSpanLengthByte(spanLength));
-					}
-					if (0 != ((int32_t)(which & (uint32_t)UnicodeSetStringSpan::BACK))) {
-						spanLength = length16 - $nc(this->spanSet)->spanBack(string, length16, $UnicodeSet$SpanCondition::CONTAINED);
-						$nc(this->spanLengths)->set(spanBackLengthsOffset + i, makeSpanLengthByte(spanLength));
-					}
-				} else {
-					int32_t var$0 = i;
-					$nc(this->spanLengths)->set(var$0, $nc(this->spanLengths)->set(spanBackLengthsOffset + i, (int16_t)0));
+			if (0 != (which & UnicodeSetStringSpan::CONTAINED)) {
+				if (0 != (which & UnicodeSetStringSpan::FWD)) {
+					this->spanLengths->set(i, makeSpanLengthByte(spanLength));
 				}
+				if (0 != (which & UnicodeSetStringSpan::BACK)) {
+					spanLength = length16 - this->spanSet->spanBack(string, length16, $UnicodeSet$SpanCondition::CONTAINED);
+					this->spanLengths->set(spanBackLengthsOffset + i, makeSpanLengthByte(spanLength));
+				}
+			} else {
+				int32_t var$0 = i;
+				this->spanLengths->set(var$0, this->spanLengths->set(spanBackLengthsOffset + i, 0));
 			}
-			if (0 != ((int32_t)(which & (uint32_t)UnicodeSetStringSpan::NOT_CONTAINED))) {
+			if (0 != (which & UnicodeSetStringSpan::NOT_CONTAINED)) {
 				int32_t c = 0;
-				if (0 != ((int32_t)(which & (uint32_t)UnicodeSetStringSpan::FWD))) {
+				if (0 != (which & UnicodeSetStringSpan::FWD)) {
 					c = string->codePointAt(0);
 					addToSpanNotSet(c);
 				}
-				if (0 != ((int32_t)(which & (uint32_t)UnicodeSetStringSpan::BACK))) {
+				if (0 != (which & UnicodeSetStringSpan::BACK)) {
 					c = string->codePointBefore(length16);
 					addToSpanNotSet(c);
 				}
 			}
 		} else if (this->all) {
 			int32_t var$1 = i;
-			$nc(this->spanLengths)->set(var$1, $nc(this->spanLengths)->set(spanBackLengthsOffset + i, UnicodeSetStringSpan::ALL_CP_CONTAINED));
+			this->spanLengths->set(var$1, this->spanLengths->set(spanBackLengthsOffset + i, UnicodeSetStringSpan::ALL_CP_CONTAINED));
 		} else {
-			$nc(this->spanLengths)->set(i, UnicodeSetStringSpan::ALL_CP_CONTAINED);
+			this->spanLengths->set(i, UnicodeSetStringSpan::ALL_CP_CONTAINED);
 		}
 	}
 	if (this->all) {
@@ -211,7 +140,7 @@ void UnicodeSetStringSpan::addToSpanNotSet(int32_t c) {
 		if ($nc(this->spanSet)->contains(c)) {
 			return;
 		}
-		$set(this, spanNotSet, $nc(this->spanSet)->cloneAsThawed());
+		$set(this, spanNotSet, this->spanSet->cloneAsThawed());
 	}
 	$nc(this->spanNotSet)->add(c);
 }
@@ -230,7 +159,7 @@ int32_t UnicodeSetStringSpan::span($CharSequence* s, int32_t start, $UnicodeSet$
 
 int32_t UnicodeSetStringSpan::spanWithStrings($CharSequence* s, int32_t start, int32_t spanLimit, $UnicodeSet$SpanCondition* spanCondition) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		int32_t initSize = 0;
 		$init($UnicodeSet$SpanCondition);
 		if (spanCondition == $UnicodeSet$SpanCondition::CONTAINED) {
@@ -250,7 +179,7 @@ int32_t UnicodeSetStringSpan::spanWithStrings($CharSequence* s, int32_t start, i
 					if (overlap == UnicodeSetStringSpan::ALL_CP_CONTAINED) {
 						continue;
 					}
-					$var($String, string, $cast($String, $nc(this->strings)->get(i)));
+					$var($String, string, $cast($String, this->strings->get(i)));
 					int32_t length16 = $nc(string)->length();
 					if (overlap >= UnicodeSetStringSpan::LONG_SPAN) {
 						overlap = length16;
@@ -264,12 +193,12 @@ int32_t UnicodeSetStringSpan::spanWithStrings($CharSequence* s, int32_t start, i
 						if (inc > rest) {
 							break;
 						}
-						bool var$0 = !$nc(this->offsets)->containsOffset(inc);
+						bool var$0 = !this->offsets->containsOffset(inc);
 						if (var$0 && matches16CPB(s, pos - overlap, length, string, length16)) {
 							if (inc == rest) {
 								return length;
 							}
-							$nc(this->offsets)->addOffset(inc);
+							this->offsets->addOffset(inc);
 						}
 						if (overlap == 0) {
 							break;
@@ -283,7 +212,7 @@ int32_t UnicodeSetStringSpan::spanWithStrings($CharSequence* s, int32_t start, i
 				int32_t maxOverlap = 0;
 				for (i = 0; i < stringsLength; ++i) {
 					int32_t overlap = $nc(this->spanLengths)->get(i);
-					$var($String, string, $cast($String, $nc(this->strings)->get(i)));
+					$var($String, string, $cast($String, this->strings->get(i)));
 					int32_t length16 = $nc(string)->length();
 					if (overlap >= UnicodeSetStringSpan::LONG_SPAN) {
 						overlap = length16;
@@ -316,10 +245,10 @@ int32_t UnicodeSetStringSpan::spanWithStrings($CharSequence* s, int32_t start, i
 				}
 			}
 			if (spanLength != 0 || pos == 0) {
-				if ($nc(this->offsets)->isEmpty()) {
+				if (this->offsets->isEmpty()) {
 					return pos;
 				}
-			} else if ($nc(this->offsets)->isEmpty()) {
+			} else if (this->offsets->isEmpty()) {
 				spanLimit = $nc(this->spanSet)->span(s, pos, $UnicodeSet$SpanCondition::CONTAINED);
 				spanLength = spanLimit - pos;
 				if (spanLength == rest || spanLength == 0) {
@@ -336,12 +265,12 @@ int32_t UnicodeSetStringSpan::spanWithStrings($CharSequence* s, int32_t start, i
 					}
 					pos += spanLength;
 					rest -= spanLength;
-					$nc(this->offsets)->shift(spanLength);
+					this->offsets->shift(spanLength);
 					spanLength = 0;
 					continue;
 				}
 			}
-			int32_t minOffset = $nc(this->offsets)->popMinimum(nullptr);
+			int32_t minOffset = this->offsets->popMinimum(nullptr);
 			pos += minOffset;
 			rest -= minOffset;
 			spanLength = 0;
@@ -350,7 +279,7 @@ int32_t UnicodeSetStringSpan::spanWithStrings($CharSequence* s, int32_t start, i
 }
 
 int32_t UnicodeSetStringSpan::spanAndCount($CharSequence* s, int32_t start, $UnicodeSet$SpanCondition* spanCondition, $OutputInt* outCount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($UnicodeSet$SpanCondition);
 	if (spanCondition == $UnicodeSet$SpanCondition::NOT_CONTAINED) {
 		return spanNot(s, start, outCount);
@@ -367,7 +296,7 @@ int32_t UnicodeSetStringSpan::spanAndCount($CharSequence* s, int32_t start, $Uni
 		int32_t cpLength = spanOne(this->spanSet, s, pos, rest);
 		int32_t maxInc = (cpLength > 0) ? cpLength : 0;
 		for (int32_t i = 0; i < stringsLength; ++i) {
-			$var($String, string, $cast($String, $nc(this->strings)->get(i)));
+			$var($String, string, $cast($String, this->strings->get(i)));
 			int32_t length16 = $nc(string)->length();
 			if (maxInc < length16 && length16 <= rest && matches16CPB(s, pos, length, string, length16)) {
 				maxInc = length16;
@@ -387,7 +316,7 @@ int32_t UnicodeSetStringSpan::spanAndCount($CharSequence* s, int32_t start, $Uni
 
 int32_t UnicodeSetStringSpan::spanContainedAndCount($CharSequence* s, int32_t start, $OutputInt* outCount) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$nc(this->offsets)->setMaxLength(this->maxLength16);
 		int32_t stringsLength = $nc(this->strings)->size();
 		int32_t length = $nc(s)->length();
@@ -397,21 +326,21 @@ int32_t UnicodeSetStringSpan::spanContainedAndCount($CharSequence* s, int32_t st
 		while (rest != 0) {
 			int32_t cpLength = spanOne(this->spanSet, s, pos, rest);
 			if (cpLength > 0) {
-				$nc(this->offsets)->addOffsetAndCount(cpLength, count + 1);
+				this->offsets->addOffsetAndCount(cpLength, count + 1);
 			}
 			for (int32_t i = 0; i < stringsLength; ++i) {
-				$var($String, string, $cast($String, $nc(this->strings)->get(i)));
+				$var($String, string, $cast($String, this->strings->get(i)));
 				int32_t length16 = $nc(string)->length();
-				bool var$0 = length16 <= rest && !$nc(this->offsets)->hasCountAtOffset(length16, count + 1);
+				bool var$0 = length16 <= rest && !this->offsets->hasCountAtOffset(length16, count + 1);
 				if (var$0 && matches16CPB(s, pos, length, string, length16)) {
-					$nc(this->offsets)->addOffsetAndCount(length16, count + 1);
+					this->offsets->addOffsetAndCount(length16, count + 1);
 				}
 			}
-			if ($nc(this->offsets)->isEmpty()) {
+			if (this->offsets->isEmpty()) {
 				$nc(outCount)->value = count;
 				return pos;
 			}
-			int32_t minOffset = $nc(this->offsets)->popMinimum(outCount);
+			int32_t minOffset = this->offsets->popMinimum(outCount);
 			count = $nc(outCount)->value;
 			pos += minOffset;
 			rest -= minOffset;
@@ -423,7 +352,7 @@ int32_t UnicodeSetStringSpan::spanContainedAndCount($CharSequence* s, int32_t st
 
 int32_t UnicodeSetStringSpan::spanBack($CharSequence* s, int32_t length, $UnicodeSet$SpanCondition* spanCondition) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$init($UnicodeSet$SpanCondition);
 		if (spanCondition == $UnicodeSet$SpanCondition::NOT_CONTAINED) {
 			return spanNotBack(s, length);
@@ -451,7 +380,7 @@ int32_t UnicodeSetStringSpan::spanBack($CharSequence* s, int32_t length, $Unicod
 					if (overlap == UnicodeSetStringSpan::ALL_CP_CONTAINED) {
 						continue;
 					}
-					$var($String, string, $cast($String, $nc(this->strings)->get(i)));
+					$var($String, string, $cast($String, this->strings->get(i)));
 					int32_t length16 = $nc(string)->length();
 					if (overlap >= UnicodeSetStringSpan::LONG_SPAN) {
 						overlap = length16;
@@ -467,12 +396,12 @@ int32_t UnicodeSetStringSpan::spanBack($CharSequence* s, int32_t length, $Unicod
 						if (dec > pos) {
 							break;
 						}
-						bool var$0 = !$nc(this->offsets)->containsOffset(dec);
+						bool var$0 = !this->offsets->containsOffset(dec);
 						if (var$0 && matches16CPB(s, pos - dec, length, string, length16)) {
 							if (dec == pos) {
 								return 0;
 							}
-							$nc(this->offsets)->addOffset(dec);
+							this->offsets->addOffset(dec);
 						}
 						if (overlap == 0) {
 							break;
@@ -486,7 +415,7 @@ int32_t UnicodeSetStringSpan::spanBack($CharSequence* s, int32_t length, $Unicod
 				int32_t maxOverlap = 0;
 				for (i = 0; i < stringsLength; ++i) {
 					int32_t overlap = $nc(this->spanLengths)->get(spanBackLengthsOffset + i);
-					$var($String, string, $cast($String, $nc(this->strings)->get(i)));
+					$var($String, string, $cast($String, this->strings->get(i)));
 					int32_t length16 = $nc(string)->length();
 					if (overlap >= UnicodeSetStringSpan::LONG_SPAN) {
 						overlap = length16;
@@ -518,12 +447,12 @@ int32_t UnicodeSetStringSpan::spanBack($CharSequence* s, int32_t length, $Unicod
 				}
 			}
 			if (spanLength != 0 || pos == length) {
-				if ($nc(this->offsets)->isEmpty()) {
+				if (this->offsets->isEmpty()) {
 					return pos;
 				}
-			} else if ($nc(this->offsets)->isEmpty()) {
+			} else if (this->offsets->isEmpty()) {
 				int32_t oldPos = pos;
-				pos = $nc(this->spanSet)->spanBack(s, oldPos, $UnicodeSet$SpanCondition::CONTAINED);
+				pos = this->spanSet->spanBack(s, oldPos, $UnicodeSet$SpanCondition::CONTAINED);
 				spanLength = oldPos - pos;
 				if (pos == 0 || spanLength == 0) {
 					return pos;
@@ -536,19 +465,19 @@ int32_t UnicodeSetStringSpan::spanBack($CharSequence* s, int32_t length, $Unicod
 						return 0;
 					}
 					pos -= spanLength;
-					$nc(this->offsets)->shift(spanLength);
+					this->offsets->shift(spanLength);
 					spanLength = 0;
 					continue;
 				}
 			}
-			pos -= $nc(this->offsets)->popMinimum(nullptr);
+			pos -= this->offsets->popMinimum(nullptr);
 			spanLength = 0;
 		}
 	}
 }
 
 int32_t UnicodeSetStringSpan::spanNot($CharSequence* s, int32_t start, $OutputInt* outCount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(s)->length();
 	int32_t pos = start;
 	int32_t rest = length - start;
@@ -562,7 +491,7 @@ int32_t UnicodeSetStringSpan::spanNot($CharSequence* s, int32_t start, $OutputIn
 		} else {
 			$init($UnicodeSet$SpanCondition);
 			spanLimit = $nc(this->spanNotSet)->spanAndCount(s, pos, $UnicodeSet$SpanCondition::NOT_CONTAINED, outCount);
-			$nc(outCount)->value = (count = count + outCount->value);
+			outCount->value = (count = count + outCount->value);
 		}
 		if (spanLimit == length) {
 			return length;
@@ -577,7 +506,7 @@ int32_t UnicodeSetStringSpan::spanNot($CharSequence* s, int32_t start, $OutputIn
 			if ($nc(this->spanLengths)->get(i) == UnicodeSetStringSpan::ALL_CP_CONTAINED) {
 				continue;
 			}
-			$var($String, string, $cast($String, $nc(this->strings)->get(i)));
+			$var($String, string, $cast($String, this->strings->get(i)));
 			int32_t length16 = $nc(string)->length();
 			if (length16 <= rest && matches16CPB(s, pos, length, string, length16)) {
 				return pos;
@@ -594,7 +523,7 @@ int32_t UnicodeSetStringSpan::spanNot($CharSequence* s, int32_t start, $OutputIn
 }
 
 int32_t UnicodeSetStringSpan::spanNotBack($CharSequence* s, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = length;
 	int32_t i = 0;
 	int32_t stringsLength = $nc(this->strings)->size();
@@ -612,7 +541,7 @@ int32_t UnicodeSetStringSpan::spanNotBack($CharSequence* s, int32_t length) {
 			if ($nc(this->spanLengths)->get(i) == UnicodeSetStringSpan::ALL_CP_CONTAINED) {
 				continue;
 			}
-			$var($String, string, $cast($String, $nc(this->strings)->get(i)));
+			$var($String, string, $cast($String, this->strings->get(i)));
 			int32_t length16 = $nc(string)->length();
 			if (length16 <= pos && matches16CPB(s, pos - length16, length, string, length16)) {
 				return pos;
@@ -642,19 +571,19 @@ bool UnicodeSetStringSpan::matches16CPB($CharSequence* s, int32_t start, int32_t
 	bool var$1 = matches16(s, start, t, tlength);
 	if (var$1) {
 		bool var$2 = 0 < start && $Character::isHighSurrogate($nc(s)->charAt(start - 1));
-		var$1 = !(var$2 && $Character::isLowSurrogate($nc(s)->charAt(start)));
+		var$1 = !(var$2 && $Character::isLowSurrogate(s->charAt(start)));
 	}
 	bool var$0 = var$1;
 	if (var$0) {
 		bool var$3 = (start + tlength) < limit && $Character::isHighSurrogate($nc(s)->charAt(start + tlength - 1));
-		var$0 = !(var$3 && $Character::isLowSurrogate($nc(s)->charAt(start + tlength)));
+		var$0 = !(var$3 && $Character::isLowSurrogate(s->charAt(start + tlength)));
 	}
 	return var$0;
 }
 
 int32_t UnicodeSetStringSpan::spanOne($UnicodeSet* set, $CharSequence* s, int32_t start, int32_t length) {
 	char16_t c = $nc(s)->charAt(start);
-	if (c >= 0x0000D800 && c <= 0x0000DBFF && length >= 2) {
+	if (c >= 0x0000d800 && c <= 0x0000dbff && length >= 2) {
 		char16_t c2 = s->charAt(start + 1);
 		if ($UTF16::isTrailSurrogate(c2)) {
 			int32_t supplementary = $UCharacterProperty::getRawSupplementary(c, c2);
@@ -666,7 +595,7 @@ int32_t UnicodeSetStringSpan::spanOne($UnicodeSet* set, $CharSequence* s, int32_
 
 int32_t UnicodeSetStringSpan::spanOneBack($UnicodeSet* set, $CharSequence* s, int32_t length) {
 	char16_t c = $nc(s)->charAt(length - 1);
-	if (c >= 0x0000DC00 && c <= 0x0000DFFF && length >= 2) {
+	if (c >= 0x0000dc00 && c <= 0x0000dfff && length >= 2) {
 		char16_t c2 = s->charAt(length - 2);
 		if ($UTF16::isLeadSurrogate(c2)) {
 			int32_t supplementary = $UCharacterProperty::getRawSupplementary(c2, c);
@@ -680,7 +609,69 @@ UnicodeSetStringSpan::UnicodeSetStringSpan() {
 }
 
 $Class* UnicodeSetStringSpan::load$($String* name, bool initialize) {
-	$loadClass(UnicodeSetStringSpan, name, initialize, &_UnicodeSetStringSpan_ClassInfo_, allocate$UnicodeSetStringSpan);
+	$FieldInfo fieldInfos$$[] = {
+		{"WITH_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, WITH_COUNT)},
+		{"FWD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, FWD)},
+		{"BACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, BACK)},
+		{"CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, CONTAINED)},
+		{"NOT_CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, NOT_CONTAINED)},
+		{"ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, ALL)},
+		{"FWD_UTF16_CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, FWD_UTF16_CONTAINED)},
+		{"FWD_UTF16_NOT_CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, FWD_UTF16_NOT_CONTAINED)},
+		{"BACK_UTF16_CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, BACK_UTF16_CONTAINED)},
+		{"BACK_UTF16_NOT_CONTAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSetStringSpan, BACK_UTF16_NOT_CONTAINED)},
+		{"ALL_CP_CONTAINED", "S", nullptr, $STATIC | $FINAL, $constField(UnicodeSetStringSpan, ALL_CP_CONTAINED)},
+		{"LONG_SPAN", "S", nullptr, $STATIC | $FINAL, $constField(UnicodeSetStringSpan, LONG_SPAN)},
+		{"spanSet", "Ljdk/internal/icu/text/UnicodeSet;", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, spanSet)},
+		{"spanNotSet", "Ljdk/internal/icu/text/UnicodeSet;", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, spanNotSet)},
+		{"strings", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $field(UnicodeSetStringSpan, strings)},
+		{"spanLengths", "[S", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, spanLengths)},
+		{"maxLength16", "I", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, maxLength16)},
+		{"someRelevant", "Z", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, someRelevant)},
+		{"all", "Z", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, all)},
+		{"offsets", "Ljdk/internal/icu/impl/UnicodeSetStringSpan$OffsetList;", nullptr, $PRIVATE, $field(UnicodeSetStringSpan, offsets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/util/ArrayList;I)V", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/util/ArrayList<Ljava/lang/String;>;I)V", $PUBLIC, $method(UnicodeSetStringSpan, init$, void, $UnicodeSet*, $ArrayList*, int32_t)},
+		{"addToSpanNotSet", "(I)V", nullptr, $PRIVATE, $method(UnicodeSetStringSpan, addToSpanNotSet, void, int32_t)},
+		{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, contains, bool, int32_t)},
+		{"makeSpanLengthByte", "(I)S", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, makeSpanLengthByte, int16_t, int32_t)},
+		{"matches16", "(Ljava/lang/CharSequence;ILjava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UnicodeSetStringSpan, matches16, bool, $CharSequence*, int32_t, $String*, int32_t)},
+		{"matches16CPB", "(Ljava/lang/CharSequence;IILjava/lang/String;I)Z", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, matches16CPB, bool, $CharSequence*, int32_t, int32_t, $String*, int32_t)},
+		{"needsStringSpanUTF16", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, needsStringSpanUTF16, bool)},
+		{"span", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, span, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*)},
+		{"spanAndCount", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;Ljdk/internal/icu/util/OutputInt;)I", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, spanAndCount, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*, $OutputInt*)},
+		{"spanBack", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UnicodeSetStringSpan, spanBack, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*)},
+		{"spanContainedAndCount", "(Ljava/lang/CharSequence;ILjdk/internal/icu/util/OutputInt;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(UnicodeSetStringSpan, spanContainedAndCount, int32_t, $CharSequence*, int32_t, $OutputInt*)},
+		{"spanNot", "(Ljava/lang/CharSequence;ILjdk/internal/icu/util/OutputInt;)I", nullptr, $PRIVATE, $method(UnicodeSetStringSpan, spanNot, int32_t, $CharSequence*, int32_t, $OutputInt*)},
+		{"spanNotBack", "(Ljava/lang/CharSequence;I)I", nullptr, $PRIVATE, $method(UnicodeSetStringSpan, spanNotBack, int32_t, $CharSequence*, int32_t)},
+		{"spanOne", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/lang/CharSequence;II)I", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, spanOne, int32_t, $UnicodeSet*, $CharSequence*, int32_t, int32_t)},
+		{"spanOneBack", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/lang/CharSequence;I)I", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, spanOneBack, int32_t, $UnicodeSet*, $CharSequence*, int32_t)},
+		{"spanWithStrings", "(Ljava/lang/CharSequence;IILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(UnicodeSetStringSpan, spanWithStrings, int32_t, $CharSequence*, int32_t, int32_t, $UnicodeSet$SpanCondition*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.UnicodeSetStringSpan$OffsetList", "jdk.internal.icu.impl.UnicodeSetStringSpan", "OffsetList", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.icu.impl.UnicodeSetStringSpan",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.UnicodeSetStringSpan$OffsetList"
+	};
+	$loadClass(UnicodeSetStringSpan, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicodeSetStringSpan);
+	});
 	return class$;
 }
 

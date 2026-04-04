@@ -38,6 +38,7 @@ class ForwardBuilder$PKIXCertComparator : public ::java::util::Comparator {
 	$class(ForwardBuilder$PKIXCertComparator, 0, ::java::util::Comparator)
 public:
 	ForwardBuilder$PKIXCertComparator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Set* trustedSubjectDNs, ::sun::security::x509::X509CertImpl* previousCert);
 	virtual int32_t compare(::java::security::cert::X509Certificate* oCert1, ::java::security::cert::X509Certificate* oCert2);
 	virtual int32_t compare(Object$* oCert1, Object$* oCert2) override;

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/UTF_8$Decoder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/nio/Buffer.h>
@@ -39,58 +38,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _UTF_8$Decoder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UTF_8$Decoder, $assertionsDisabled)},
-	{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UTF_8$Decoder, JLA)},
-	{}
-};
-
-$MethodInfo _UTF_8$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(UTF_8$Decoder, init$, void, $Charset*)},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(UTF_8$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(UTF_8$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(UTF_8$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"isMalformed3", "(III)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isMalformed3, bool, int32_t, int32_t, int32_t)},
-	{"isMalformed3_2", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isMalformed3_2, bool, int32_t, int32_t)},
-	{"isMalformed4", "(III)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isMalformed4, bool, int32_t, int32_t, int32_t)},
-	{"isMalformed4_2", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isMalformed4_2, bool, int32_t, int32_t)},
-	{"isMalformed4_3", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isMalformed4_3, bool, int32_t)},
-	{"isNotContinuation", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isNotContinuation, bool, int32_t)},
-	{"malformed", "(Ljava/nio/ByteBuffer;ILjava/nio/CharBuffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, malformed, $CoderResult*, $ByteBuffer*, int32_t, $CharBuffer*, int32_t, int32_t)},
-	{"malformed", "(Ljava/nio/ByteBuffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, malformed, $CoderResult*, $ByteBuffer*, int32_t, int32_t)},
-	{"malformedForLength", "(Ljava/nio/ByteBuffer;ILjava/nio/CharBuffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, malformedForLength, $CoderResult*, $ByteBuffer*, int32_t, $CharBuffer*, int32_t, int32_t)},
-	{"malformedForLength", "(Ljava/nio/ByteBuffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, malformedForLength, $CoderResult*, $ByteBuffer*, int32_t, int32_t)},
-	{"malformedN", "(Ljava/nio/ByteBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, malformedN, $CoderResult*, $ByteBuffer*, int32_t)},
-	{"xflow", "(Ljava/nio/Buffer;IILjava/nio/Buffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, xflow, $CoderResult*, $Buffer*, int32_t, int32_t, $Buffer*, int32_t, int32_t)},
-	{"xflow", "(Ljava/nio/Buffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, xflow, $CoderResult*, $Buffer*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UTF_8$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.UTF_8$Decoder", "sun.nio.cs.UTF_8", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _UTF_8$Decoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.UTF_8$Decoder",
-	"java.nio.charset.CharsetDecoder",
-	nullptr,
-	_UTF_8$Decoder_FieldInfo_,
-	_UTF_8$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UTF_8$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.UTF_8"
-};
-
-$Object* allocate$UTF_8$Decoder($Class* clazz) {
-	return $of($alloc(UTF_8$Decoder));
-}
-
 bool UTF_8$Decoder::$assertionsDisabled = false;
 $JavaLangAccess* UTF_8$Decoder::JLA = nullptr;
 
@@ -100,78 +47,67 @@ void UTF_8$Decoder::init$($Charset* cs) {
 
 bool UTF_8$Decoder::isNotContinuation(int32_t b) {
 	$init(UTF_8$Decoder);
-	return ((int32_t)(b & (uint32_t)192)) != 128;
+	return (b & 0xc0) != 0x80;
 }
 
 bool UTF_8$Decoder::isMalformed3(int32_t b1, int32_t b2, int32_t b3) {
 	$init(UTF_8$Decoder);
-	return (b1 == (int8_t)224 && ((int32_t)(b2 & (uint32_t)224)) == 128) || ((int32_t)(b2 & (uint32_t)192)) != 128 || ((int32_t)(b3 & (uint32_t)192)) != 128;
+	return (b1 == (int8_t)224 && (b2 & 0xe0) == 0x80) || (b2 & 0xc0) != 0x80 || (b3 & 0xc0) != 0x80;
 }
 
 bool UTF_8$Decoder::isMalformed3_2(int32_t b1, int32_t b2) {
 	$init(UTF_8$Decoder);
-	return (b1 == (int8_t)224 && ((int32_t)(b2 & (uint32_t)224)) == 128) || ((int32_t)(b2 & (uint32_t)192)) != 128;
+	return (b1 == (int8_t)224 && (b2 & 0xe0) == 0x80) || (b2 & 0xc0) != 0x80;
 }
 
 bool UTF_8$Decoder::isMalformed4(int32_t b2, int32_t b3, int32_t b4) {
 	$init(UTF_8$Decoder);
-	return ((int32_t)(b2 & (uint32_t)192)) != 128 || ((int32_t)(b3 & (uint32_t)192)) != 128 || ((int32_t)(b4 & (uint32_t)192)) != 128;
+	return (b2 & 0xc0) != 0x80 || (b3 & 0xc0) != 0x80 || (b4 & 0xc0) != 0x80;
 }
 
 bool UTF_8$Decoder::isMalformed4_2(int32_t b1, int32_t b2) {
 	$init(UTF_8$Decoder);
-	return (b1 == 240 && (b2 < 144 || b2 > 191)) || (b1 == 244 && ((int32_t)(b2 & (uint32_t)240)) != 128) || ((int32_t)(b2 & (uint32_t)192)) != 128;
+	return (b1 == 240 && (b2 < 144 || b2 > 191)) || (b1 == 244 && (b2 & 0xf0) != 0x80) || (b2 & 0xc0) != 0x80;
 }
 
 bool UTF_8$Decoder::isMalformed4_3(int32_t b3) {
 	$init(UTF_8$Decoder);
-	return ((int32_t)(b3 & (uint32_t)192)) != 128;
+	return (b3 & 0xc0) != 0x80;
 }
 
 $CoderResult* UTF_8$Decoder::malformedN($ByteBuffer* src, int32_t nb) {
 	$init(UTF_8$Decoder);
-	{
-		int32_t b1 = 0;
-		int32_t b2 = 0;
-		switch (nb) {
-		case 1:
-			{}
-		case 2:
-			{
-				return $CoderResult::malformedForLength(1);
-			}
-		case 3:
-			{
-				b1 = $nc(src)->get();
-				b2 = src->get();
-				return $CoderResult::malformedForLength(((b1 == (int8_t)224 && ((int32_t)(b2 & (uint32_t)224)) == 128) || isNotContinuation(b2)) ? 1 : 2);
-			}
-		case 4:
-			{
-				b1 = (int32_t)(src->get() & (uint32_t)255);
-				b2 = (int32_t)(src->get() & (uint32_t)255);
-				if (b1 > 244 || (b1 == 240 && (b2 < 144 || b2 > 191)) || (b1 == 244 && ((int32_t)(b2 & (uint32_t)240)) != 128) || isNotContinuation(b2)) {
-					return $CoderResult::malformedForLength(1);
-				}
-				if (isNotContinuation(src->get())) {
-					return $CoderResult::malformedForLength(2);
-				}
-				return $CoderResult::malformedForLength(3);
-			}
-		default:
-			{
-				if (!UTF_8$Decoder::$assertionsDisabled) {
-					$throwNew($AssertionError);
-				}
-				return nullptr;
-			}
+	int32_t b1 = 0;
+	int32_t b2 = 0;
+	switch (nb) {
+	case 1:
+	case 2:
+		return $CoderResult::malformedForLength(1);
+	case 3:
+		b1 = $nc(src)->get();
+		b2 = src->get();
+		return $CoderResult::malformedForLength(((b1 == (int8_t)224 && (b2 & 0xe0) == 0x80) || isNotContinuation(b2)) ? 1 : 2);
+	case 4:
+		b1 = $nc(src)->get() & 0xff;
+		b2 = src->get() & 0xff;
+		if (b1 > 244 || (b1 == 240 && (b2 < 144 || b2 > 191)) || (b1 == 244 && (b2 & 0xf0) != 0x80) || isNotContinuation(b2)) {
+			return $CoderResult::malformedForLength(1);
 		}
+		if (isNotContinuation(src->get())) {
+			return $CoderResult::malformedForLength(2);
+		}
+		return $CoderResult::malformedForLength(3);
+	default:
+		if (!UTF_8$Decoder::$assertionsDisabled) {
+			$throwNew($AssertionError);
+		}
+		return nullptr;
 	}
 }
 
 $CoderResult* UTF_8$Decoder::malformed($ByteBuffer* src, int32_t sp, $CharBuffer* dst, int32_t dp, int32_t nb) {
 	$init(UTF_8$Decoder);
-	$nc(src)->position(sp - src->arrayOffset());
+	$nc(src)->position(sp - $nc(src)->arrayOffset());
 	$var($CoderResult, cr, malformedN(src, nb));
 	$UTF_8::updatePositions(src, sp, dst, dp);
 	return cr;
@@ -212,7 +148,7 @@ $CoderResult* UTF_8$Decoder::xflow($Buffer* src, int32_t mark, int32_t nb) {
 }
 
 $CoderResult* UTF_8$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t soff = src->arrayOffset();
 	int32_t sp = soff + src->position();
@@ -232,7 +168,7 @@ $CoderResult* UTF_8$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst)
 			}
 			$nc(da)->set(dp++, (char16_t)b1);
 			++sp;
-		} else if ((b1 >> 5) == -2 && ((int32_t)(b1 & (uint32_t)30)) != 0) {
+		} else if ((b1 >> 5) == -2 && (b1 & 0x1e) != 0) {
 			if (sl - sp < 2 || dp >= dl) {
 				return xflow(src, sp, sl, dst, dp, 2);
 			}
@@ -265,7 +201,7 @@ $CoderResult* UTF_8$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst)
 			int32_t srcRemaining = sl - sp;
 			if (srcRemaining < 4 || dl - dp < 2) {
 				b1 &= (uint32_t)255;
-				if (b1 > 244 || srcRemaining > 1 && isMalformed4_2(b1, (int32_t)(sa->get(sp + 1) & (uint32_t)255))) {
+				if (b1 > 244 || srcRemaining > 1 && isMalformed4_2(b1, sa->get(sp + 1) & 0xff)) {
 					return malformedForLength(src, sp, dst, dp, 1);
 				}
 				if (srcRemaining > 2 && isMalformed4_3(sa->get(sp + 2))) {
@@ -300,9 +236,9 @@ $CoderResult* UTF_8$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst
 			if ($nc(dst)->remaining() < 1) {
 				return xflow(src, mark, 1);
 			}
-			$nc(dst)->put((char16_t)b1);
+			dst->put((char16_t)b1);
 			++mark;
-		} else if ((b1 >> 5) == -2 && ((int32_t)(b1 & (uint32_t)30)) != 0) {
+		} else if ((b1 >> 5) == -2 && (b1 & 0x1e) != 0) {
 			if (limit - mark < 2 || $nc(dst)->remaining() < 1) {
 				return xflow(src, mark, 2);
 			}
@@ -335,7 +271,7 @@ $CoderResult* UTF_8$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst
 			int32_t srcRemaining = limit - mark;
 			if (srcRemaining < 4 || $nc(dst)->remaining() < 2) {
 				b1 &= (uint32_t)255;
-				if (b1 > 244 || srcRemaining > 1 && isMalformed4_2(b1, (int32_t)(src->get() & (uint32_t)255))) {
+				if (b1 > 244 || srcRemaining > 1 && isMalformed4_2(b1, src->get() & 0xff)) {
 					return malformedForLength(src, mark, 1);
 				}
 				if (srcRemaining > 2 && isMalformed4_3(src->get())) {
@@ -370,7 +306,7 @@ $CoderResult* UTF_8$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst) {
 	}
 }
 
-void clinit$UTF_8$Decoder($Class* class$) {
+void UTF_8$Decoder::clinit$($Class* clazz) {
 	$load($UTF_8);
 	UTF_8$Decoder::$assertionsDisabled = !$UTF_8::class$->desiredAssertionStatus();
 	$assignStatic(UTF_8$Decoder::JLA, $SharedSecrets::getJavaLangAccess());
@@ -380,7 +316,53 @@ UTF_8$Decoder::UTF_8$Decoder() {
 }
 
 $Class* UTF_8$Decoder::load$($String* name, bool initialize) {
-	$loadClass(UTF_8$Decoder, name, initialize, &_UTF_8$Decoder_ClassInfo_, clinit$UTF_8$Decoder, allocate$UTF_8$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UTF_8$Decoder, $assertionsDisabled)},
+		{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UTF_8$Decoder, JLA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(UTF_8$Decoder, init$, void, $Charset*)},
+		{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(UTF_8$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(UTF_8$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(UTF_8$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"isMalformed3", "(III)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isMalformed3, bool, int32_t, int32_t, int32_t)},
+		{"isMalformed3_2", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isMalformed3_2, bool, int32_t, int32_t)},
+		{"isMalformed4", "(III)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isMalformed4, bool, int32_t, int32_t, int32_t)},
+		{"isMalformed4_2", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isMalformed4_2, bool, int32_t, int32_t)},
+		{"isMalformed4_3", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isMalformed4_3, bool, int32_t)},
+		{"isNotContinuation", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, isNotContinuation, bool, int32_t)},
+		{"malformed", "(Ljava/nio/ByteBuffer;ILjava/nio/CharBuffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, malformed, $CoderResult*, $ByteBuffer*, int32_t, $CharBuffer*, int32_t, int32_t)},
+		{"malformed", "(Ljava/nio/ByteBuffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, malformed, $CoderResult*, $ByteBuffer*, int32_t, int32_t)},
+		{"malformedForLength", "(Ljava/nio/ByteBuffer;ILjava/nio/CharBuffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, malformedForLength, $CoderResult*, $ByteBuffer*, int32_t, $CharBuffer*, int32_t, int32_t)},
+		{"malformedForLength", "(Ljava/nio/ByteBuffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, malformedForLength, $CoderResult*, $ByteBuffer*, int32_t, int32_t)},
+		{"malformedN", "(Ljava/nio/ByteBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, malformedN, $CoderResult*, $ByteBuffer*, int32_t)},
+		{"xflow", "(Ljava/nio/Buffer;IILjava/nio/Buffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, xflow, $CoderResult*, $Buffer*, int32_t, int32_t, $Buffer*, int32_t, int32_t)},
+		{"xflow", "(Ljava/nio/Buffer;II)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Decoder, xflow, $CoderResult*, $Buffer*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.UTF_8$Decoder", "sun.nio.cs.UTF_8", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.UTF_8$Decoder",
+		"java.nio.charset.CharsetDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.UTF_8"
+	};
+	$loadClass(UTF_8$Decoder, name, initialize, &classInfo$$, UTF_8$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UTF_8$Decoder);
+	});
 	return class$;
 }
 

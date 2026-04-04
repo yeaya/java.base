@@ -44,6 +44,7 @@ public:
 	using ::java::lang::invoke::VarHandleByteArrayAsShorts$ByteArrayViewVarHandle::getOpaque;
 	using ::java::lang::invoke::VarHandleByteArrayAsShorts$ByteArrayViewVarHandle::getAcquire;
 	using ::java::lang::invoke::VarHandleByteArrayAsShorts$ByteArrayViewVarHandle::accessModeTypeUncached;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool be);
 	void init$(bool be, bool exact);
 	virtual ::java::lang::invoke::MethodType* accessModeTypeUncached(::java::lang::invoke::VarHandle$AccessType* at) override;

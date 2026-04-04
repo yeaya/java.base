@@ -28,6 +28,7 @@ class SignatureUtil$PSSParamsHolder : public ::java::lang::Object {
 	$class(SignatureUtil$PSSParamsHolder, 0, ::java::lang::Object)
 public:
 	SignatureUtil$PSSParamsHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::spec::PSSParameterSpec* PSS_256_SPEC;
 	static ::java::security::spec::PSSParameterSpec* PSS_384_SPEC;

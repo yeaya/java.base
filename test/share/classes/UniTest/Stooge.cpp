@@ -1,5 +1,4 @@
 #include <UniTest/Stooge.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -14,36 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace UniTest {
-
-$FieldInfo _Stooge_FieldInfo_[] = {
-	{"LARRY", "LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Stooge, LARRY)},
-	{"MOE", "LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Stooge, MOE)},
-	{"CURLY", "LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Stooge, CURLY)},
-	{"$VALUES", "[LUniTest/Stooge;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Stooge, $VALUES)},
-	{}
-};
-
-$MethodInfo _Stooge_MethodInfo_[] = {
-	{"$values", "()[LUniTest/Stooge;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stooge, $values, $StoogeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Stooge, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC, $staticMethod(Stooge, valueOf, Stooge*, $String*)},
-	{"values", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC, $staticMethod(Stooge, values, $StoogeArray*)},
-	{}
-};
-
-$ClassInfo _Stooge_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"UniTest.Stooge",
-	"java.lang.Enum",
-	nullptr,
-	_Stooge_FieldInfo_,
-	_Stooge_MethodInfo_,
-	"Ljava/lang/Enum<LUniTest/Stooge;>;"
-};
-
-$Object* allocate$Stooge($Class* clazz) {
-	return $of($alloc(Stooge));
-}
 
 Stooge* Stooge::LARRY = nullptr;
 Stooge* Stooge::MOE = nullptr;
@@ -73,7 +42,7 @@ void Stooge::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Stooge($Class* class$) {
+void Stooge::clinit$($Class* clazz) {
 	$assignStatic(Stooge::LARRY, $new(Stooge, "LARRY"_s, 0));
 	$assignStatic(Stooge::MOE, $new(Stooge, "MOE"_s, 1));
 	$assignStatic(Stooge::CURLY, $new(Stooge, "CURLY"_s, 2));
@@ -84,7 +53,32 @@ Stooge::Stooge() {
 }
 
 $Class* Stooge::load$($String* name, bool initialize) {
-	$loadClass(Stooge, name, initialize, &_Stooge_ClassInfo_, clinit$Stooge, allocate$Stooge);
+	$FieldInfo fieldInfos$$[] = {
+		{"LARRY", "LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Stooge, LARRY)},
+		{"MOE", "LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Stooge, MOE)},
+		{"CURLY", "LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Stooge, CURLY)},
+		{"$VALUES", "[LUniTest/Stooge;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Stooge, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LUniTest/Stooge;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stooge, $values, $StoogeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Stooge, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC, $staticMethod(Stooge, valueOf, Stooge*, $String*)},
+		{"values", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC, $staticMethod(Stooge, values, $StoogeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"UniTest.Stooge",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LUniTest/Stooge;>;"
+	};
+	$loadClass(Stooge, name, initialize, &classInfo$$, Stooge::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Stooge));
+	});
 	return class$;
 }
 

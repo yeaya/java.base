@@ -29,6 +29,7 @@ class SSLContextImpl$CustomizedSSLProtocols : public ::java::lang::Object {
 	$class(SSLContextImpl$CustomizedSSLProtocols, 0, ::java::lang::Object)
 public:
 	SSLContextImpl$CustomizedSSLProtocols();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void populate($String* propname, ::java::util::ArrayList* arrayList);
 	static $String* JDK_TLS_CLIENT_PROTOCOLS;

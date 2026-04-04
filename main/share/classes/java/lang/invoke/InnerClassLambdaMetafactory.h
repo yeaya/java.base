@@ -88,6 +88,7 @@ class InnerClassLambdaMetafactory : public ::java::lang::invoke::AbstractValidat
 	$class(InnerClassLambdaMetafactory, 0, ::java::lang::invoke::AbstractValidatingLambdaMetafactory)
 public:
 	InnerClassLambdaMetafactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodHandles$Lookup* caller, ::java::lang::invoke::MethodType* factoryType, $String* interfaceMethodName, ::java::lang::invoke::MethodType* interfaceMethodType, ::java::lang::invoke::MethodHandle* implementation, ::java::lang::invoke::MethodType* dynamicMethodType, bool isSerializable, $ClassArray* altInterfaces, $Array<::java::lang::invoke::MethodType>* altMethods);
 	virtual ::java::lang::invoke::CallSite* buildCallSite() override;
 	void generateClassInitializer();

@@ -1,5 +1,4 @@
 #include <javax/security/auth/x500/X500Principal.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
@@ -38,48 +37,6 @@ namespace javax {
 		namespace auth {
 			namespace x500 {
 
-$FieldInfo _X500Principal_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X500Principal, serialVersionUID)},
-	{"RFC1779", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Principal, RFC1779)},
-	{"RFC2253", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Principal, RFC2253)},
-	{"CANONICAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Principal, CANONICAL)},
-	{"thisX500Name", "Lsun/security/x509/X500Name;", nullptr, $PRIVATE | $TRANSIENT, $field(X500Principal, thisX500Name)},
-	{}
-};
-
-$MethodInfo _X500Principal_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lsun/security/x509/X500Name;)V", nullptr, 0, $method(X500Principal, init$, void, $X500Name*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X500Principal, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(X500Principal, init$, void, $String*, $Map*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(X500Principal, init$, void, $bytes*)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(X500Principal, init$, void, $InputStream*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X500Principal, equals, bool, Object$*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $method(X500Principal, getEncoded, $bytes*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Principal, getName, $String*)},
-	{"getName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(X500Principal, getName, $String*, $String*)},
-	{"getName", "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $method(X500Principal, getName, $String*, $String*, $Map*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X500Principal, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(X500Principal, readObject, void, $ObjectInputStream*), "java.io.IOException,java.io.NotActiveException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Principal, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(X500Principal, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _X500Principal_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.security.auth.x500.X500Principal",
-	"java.lang.Object",
-	"java.security.Principal,java.io.Serializable",
-	_X500Principal_FieldInfo_,
-	_X500Principal_MethodInfo_
-};
-
-$Object* allocate$X500Principal($Class* clazz) {
-	return $of($alloc(X500Principal));
-}
-
 $Object* X500Principal::clone() {
 	 return this->$Principal::clone();
 }
@@ -101,7 +58,7 @@ void X500Principal::init$($String* name) {
 }
 
 void X500Principal::init$($String* name, $Map* keywordMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($NullPointerException, $($ResourcesMgr::getString("provided.null.name"_s)));
 	}
@@ -128,7 +85,7 @@ void X500Principal::init$($bytes* name) {
 }
 
 void X500Principal::init$($InputStream* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (is == nullptr) {
 		$throwNew($NullPointerException, "provided null input stream"_s);
 	}
@@ -218,20 +175,57 @@ void X500Principal::writeObject($ObjectOutputStream* s) {
 }
 
 void X500Principal::readObject($ObjectInputStream* s) {
-	$set(this, thisX500Name, $new($X500Name, $cast($bytes, $($nc(s)->readObject()))));
+	$set(this, thisX500Name, $new($X500Name, $$cast($bytes, $nc(s)->readObject())));
 }
 
 X500Principal::X500Principal() {
 }
 
-void clinit$X500Principal($Class* class$) {
+void X500Principal::clinit$($Class* clazz) {
 	$assignStatic(X500Principal::RFC1779, "RFC1779"_s);
 	$assignStatic(X500Principal::RFC2253, "RFC2253"_s);
 	$assignStatic(X500Principal::CANONICAL, "CANONICAL"_s);
 }
 
 $Class* X500Principal::load$($String* name, bool initialize) {
-	$loadClass(X500Principal, name, initialize, &_X500Principal_ClassInfo_, clinit$X500Principal, allocate$X500Principal);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X500Principal, serialVersionUID)},
+		{"RFC1779", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Principal, RFC1779)},
+		{"RFC2253", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Principal, RFC2253)},
+		{"CANONICAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Principal, CANONICAL)},
+		{"thisX500Name", "Lsun/security/x509/X500Name;", nullptr, $PRIVATE | $TRANSIENT, $field(X500Principal, thisX500Name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Lsun/security/x509/X500Name;)V", nullptr, 0, $method(X500Principal, init$, void, $X500Name*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X500Principal, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(X500Principal, init$, void, $String*, $Map*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(X500Principal, init$, void, $bytes*)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(X500Principal, init$, void, $InputStream*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X500Principal, equals, bool, Object$*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $method(X500Principal, getEncoded, $bytes*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Principal, getName, $String*)},
+		{"getName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(X500Principal, getName, $String*, $String*)},
+		{"getName", "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $method(X500Principal, getName, $String*, $String*, $Map*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X500Principal, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(X500Principal, readObject, void, $ObjectInputStream*), "java.io.IOException,java.io.NotActiveException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Principal, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(X500Principal, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.security.auth.x500.X500Principal",
+		"java.lang.Object",
+		"java.security.Principal,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X500Principal, name, initialize, &classInfo$$, X500Principal::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X500Principal));
+	});
 	return class$;
 }
 

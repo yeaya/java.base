@@ -12,6 +12,7 @@ class $export GetUnsafeTest : public ::java::lang::Object {
 	$class(GetUnsafeTest, 0, ::java::lang::Object)
 public:
 	GetUnsafeTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void fail();
 	static void main($StringArray* args);

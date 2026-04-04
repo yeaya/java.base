@@ -24,6 +24,7 @@ class $export ShortSignature : public ::sun::reflect::generics::tree::BaseType {
 	$class(ShortSignature, 0, ::sun::reflect::generics::tree::BaseType)
 public:
 	ShortSignature();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void accept(::sun::reflect::generics::visitor::TypeTreeVisitor* v) override;
 	static ::sun::reflect::generics::tree::ShortSignature* make();

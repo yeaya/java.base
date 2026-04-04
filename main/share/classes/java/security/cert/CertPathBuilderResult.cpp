@@ -1,5 +1,4 @@
 #include <java/security/cert/CertPathBuilderResult.h>
-
 #include <java/lang/Cloneable.h>
 #include <java/security/cert/CertPath.h>
 #include <jcpp.h>
@@ -13,31 +12,27 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$MethodInfo _CertPathBuilderResult_MethodInfo_[] = {
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPathBuilderResult, getCertPath, $CertPath*)},
-	{}
-};
-
-$ClassInfo _CertPathBuilderResult_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.cert.CertPathBuilderResult",
-	nullptr,
-	"java.lang.Cloneable",
-	nullptr,
-	_CertPathBuilderResult_MethodInfo_
-};
-
-$Object* allocate$CertPathBuilderResult($Class* clazz) {
-	return $of($alloc(CertPathBuilderResult));
-}
-
 $Object* CertPathBuilderResult::clone() {
 	 return this->$Cloneable::clone();
 }
 
 $Class* CertPathBuilderResult::load$($String* name, bool initialize) {
-	$loadClass(CertPathBuilderResult, name, initialize, &_CertPathBuilderResult_ClassInfo_, allocate$CertPathBuilderResult);
+	$MethodInfo methodInfos$$[] = {
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPathBuilderResult, getCertPath, $CertPath*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.cert.CertPathBuilderResult",
+		nullptr,
+		"java.lang.Cloneable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CertPathBuilderResult, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertPathBuilderResult);
+	});
 	return class$;
 }
 

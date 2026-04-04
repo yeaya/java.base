@@ -1,5 +1,4 @@
 #include <java/lang/NullPointerException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,37 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _NullPointerException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NullPointerException, serialVersionUID)},
-	{"extendedMessageState", "I", nullptr, $PRIVATE | $TRANSIENT, $field(NullPointerException, extendedMessageState)},
-	{"extendedMessage", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(NullPointerException, extendedMessage)},
-	{}
-};
-
-$MethodInfo _NullPointerException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullPointerException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NullPointerException, init$, void, $String*)},
-	{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NullPointerException, fillInStackTrace, $Throwable*)},
-	{"getExtendedNPEMessage", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(NullPointerException, getExtendedNPEMessage, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NullPointerException, getMessage, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_getExtendedNPEMessage 3
-
-$ClassInfo _NullPointerException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.NullPointerException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_NullPointerException_FieldInfo_,
-	_NullPointerException_MethodInfo_
-};
-
-$Object* allocate$NullPointerException($Class* clazz) {
-	return $of($alloc(NullPointerException));
-}
 
 void NullPointerException::init$() {
 	$RuntimeException::init$();
@@ -76,9 +44,8 @@ $String* NullPointerException::getMessage() {
 }
 
 $String* NullPointerException::getExtendedNPEMessage() {
-	$var($String, $ret, nullptr);
-	$prepareNative(NullPointerException, getExtendedNPEMessage, $String*);
-	$assign($ret, $invokeNativeObject());
+	$prepareNative(getExtendedNPEMessage, $String*);
+	$var($String, $ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
@@ -93,16 +60,40 @@ void NullPointerException::throw$() {
 	throw *this;
 }
 
-void NullPointerException::throwNew$() {
-	$throwNew(NullPointerException);
-}
-
 $Class* NullPointerException::load$($String* name, bool initialize) {
-	$loadClass(NullPointerException, name, initialize, &_NullPointerException_ClassInfo_, allocate$NullPointerException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NullPointerException, serialVersionUID)},
+		{"extendedMessageState", "I", nullptr, $PRIVATE | $TRANSIENT, $field(NullPointerException, extendedMessageState)},
+		{"extendedMessage", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(NullPointerException, extendedMessage)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullPointerException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NullPointerException, init$, void, $String*)},
+		{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NullPointerException, fillInStackTrace, $Throwable*)},
+		{"getExtendedNPEMessage", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(NullPointerException, getExtendedNPEMessage, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NullPointerException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.NullPointerException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NullPointerException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullPointerException);
+	});
 	return class$;
 }
 
 $Class* NullPointerException::class$ = nullptr;
+
+void NullPointerException::throwNew$() {
+	$throwNew(NullPointerException);
+}
 
 	} // lang
 } // java

@@ -1,5 +1,4 @@
 #include <sun/security/util/Event.h>
-
 #include <sun/security/util/Event$Reporter.h>
 #include <sun/security/util/Event$ReporterCategory.h>
 #include <jcpp.h>
@@ -13,39 +12,6 @@ using $Event$ReporterCategory = ::sun::security::util::Event$ReporterCategory;
 namespace sun {
 	namespace security {
 		namespace util {
-
-$MethodInfo _Event_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Event, init$, void)},
-	{"clearReportListener", "(Lsun/security/util/Event$ReporterCategory;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Event, clearReportListener, void, $Event$ReporterCategory*)},
-	{"report", "(Lsun/security/util/Event$ReporterCategory;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Event, report, void, $Event$ReporterCategory*, $String*, $ObjectArray*)},
-	{"setReportListener", "(Lsun/security/util/Event$ReporterCategory;Lsun/security/util/Event$Reporter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Event, setReportListener, void, $Event$ReporterCategory*, $Event$Reporter*)},
-	{}
-};
-
-$InnerClassInfo _Event_InnerClassesInfo_[] = {
-	{"sun.security.util.Event$Reporter", "sun.security.util.Event", "Reporter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.security.util.Event$ReporterCategory", "sun.security.util.Event", "ReporterCategory", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Event_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.util.Event",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Event_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Event_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.Event$Reporter,sun.security.util.Event$ReporterCategory"
-};
-
-$Object* allocate$Event($Class* clazz) {
-	return $of($alloc(Event));
-}
 
 void Event::init$() {
 }
@@ -69,7 +35,35 @@ Event::Event() {
 }
 
 $Class* Event::load$($String* name, bool initialize) {
-	$loadClass(Event, name, initialize, &_Event_ClassInfo_, allocate$Event);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Event, init$, void)},
+		{"clearReportListener", "(Lsun/security/util/Event$ReporterCategory;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Event, clearReportListener, void, $Event$ReporterCategory*)},
+		{"report", "(Lsun/security/util/Event$ReporterCategory;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Event, report, void, $Event$ReporterCategory*, $String*, $ObjectArray*)},
+		{"setReportListener", "(Lsun/security/util/Event$ReporterCategory;Lsun/security/util/Event$Reporter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Event, setReportListener, void, $Event$ReporterCategory*, $Event$Reporter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.Event$Reporter", "sun.security.util.Event", "Reporter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.security.util.Event$ReporterCategory", "sun.security.util.Event", "ReporterCategory", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.util.Event",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.Event$Reporter,sun.security.util.Event$ReporterCategory"
+	};
+	$loadClass(Event, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Event);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/util/JarConstraintsParameters.h>
-
 #include <java/security/CodeSigner.h>
 #include <java/security/Key.h>
 #include <java/security/PublicKey.h>
@@ -39,67 +38,29 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _JarConstraintsParameters_FieldInfo_[] = {
-	{"anchorIsJdkCA", "Z", nullptr, $PRIVATE, $field(JarConstraintsParameters, anchorIsJdkCA$)},
-	{"anchorIsJdkCASet", "Z", nullptr, $PRIVATE, $field(JarConstraintsParameters, anchorIsJdkCASet)},
-	{"timestamp", "Ljava/util/Date;", nullptr, $PRIVATE, $field(JarConstraintsParameters, timestamp)},
-	{"keys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/Key;>;", $PRIVATE | $FINAL, $field(JarConstraintsParameters, keys)},
-	{"certsIssuedByAnchor", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $FINAL, $field(JarConstraintsParameters, certsIssuedByAnchor)},
-	{"message", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JarConstraintsParameters, message)},
-	{}
-};
-
-$MethodInfo _JarConstraintsParameters_MethodInfo_[] = {
-	{"<init>", "([Ljava/security/CodeSigner;)V", nullptr, $PUBLIC, $method(JarConstraintsParameters, init$, void, $CodeSignerArray*)},
-	{"anchorIsJdkCA", "()Z", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, anchorIsJdkCA, bool)},
-	{"extendedExceptionMsg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, extendedExceptionMsg, $String*)},
-	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, getDate, $Date*)},
-	{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/Key;>;", $PUBLIC, $virtualMethod(JarConstraintsParameters, getKeys, $Set*)},
-	{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, getVariant, $String*)},
-	{"init", "(Ljava/security/cert/CertPath;)V", nullptr, $PRIVATE, $method(JarConstraintsParameters, init, void, $CertPath*)},
-	{"setExtendedExceptionMsg", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, setExtendedExceptionMsg, void, $String*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, toString, $String*)},
-	{}
-};
-
-$ClassInfo _JarConstraintsParameters_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.JarConstraintsParameters",
-	"java.lang.Object",
-	"sun.security.util.ConstraintsParameters",
-	_JarConstraintsParameters_FieldInfo_,
-	_JarConstraintsParameters_MethodInfo_
-};
-
-$Object* allocate$JarConstraintsParameters($Class* clazz) {
-	return $of($alloc(JarConstraintsParameters));
-}
-
 void JarConstraintsParameters::init$($CodeSignerArray* signers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, keys, $new($HashSet));
 	$set(this, certsIssuedByAnchor, $new($HashSet));
 	$var($Date, latestTimestamp, nullptr);
 	bool skipTimestamp = false;
 	{
 		$var($CodeSignerArray, arr$, signers);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CodeSigner, signer, arr$->get(i$));
 			{
 				init($($nc(signer)->getSignerCertPath()));
-				$var($Timestamp, timestamp, $nc(signer)->getTimestamp());
+				$var($Timestamp, timestamp, signer->getTimestamp());
 				if (timestamp == nullptr) {
 					$assign(latestTimestamp, nullptr);
 					skipTimestamp = true;
 				} else {
-					init($($nc(timestamp)->getSignerCertPath()));
+					init($(timestamp->getSignerCertPath()));
 					if (!skipTimestamp) {
-						$var($Date, timestampDate, $nc(timestamp)->getTimestamp());
+						$var($Date, timestampDate, timestamp->getTimestamp());
 						if (latestTimestamp == nullptr) {
 							$assign(latestTimestamp, timestampDate);
-						} else if ($nc(latestTimestamp)->before(timestampDate)) {
+						} else if (latestTimestamp->before(timestampDate)) {
 							$assign(latestTimestamp, timestampDate);
 						}
 					}
@@ -111,11 +72,11 @@ void JarConstraintsParameters::init$($CodeSignerArray* signers) {
 }
 
 void JarConstraintsParameters::init($CertPath* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, chain, $nc(cp)->getCertificates());
 	if (!$nc(chain)->isEmpty()) {
-		$nc(this->certsIssuedByAnchor)->add($cast($X509Certificate, $(chain->get(chain->size() - 1))));
-		$nc(this->keys)->add($($nc(($cast($X509Certificate, $(chain->get(0)))))->getPublicKey()));
+		this->certsIssuedByAnchor->add($$cast($X509Certificate, chain->get(chain->size() - 1)));
+		this->keys->add($($$sure($X509Certificate, chain->get(0))->getPublicKey()));
 	}
 }
 
@@ -125,7 +86,7 @@ $String* JarConstraintsParameters::getVariant() {
 }
 
 bool JarConstraintsParameters::anchorIsJdkCA() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->anchorIsJdkCASet) {
 		return this->anchorIsJdkCA$;
 	}
@@ -133,11 +94,9 @@ bool JarConstraintsParameters::anchorIsJdkCA() {
 		$var($Iterator, i$, $nc(this->certsIssuedByAnchor)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($X509Certificate, cert, $cast($X509Certificate, i$->next()));
-			{
-				if ($AnchorCertificates::issuerOf(cert)) {
-					this->anchorIsJdkCA$ = true;
-					break;
-				}
+			if ($AnchorCertificates::issuerOf(cert)) {
+				this->anchorIsJdkCA$ = true;
+				break;
 			}
 		}
 	}
@@ -162,7 +121,7 @@ $String* JarConstraintsParameters::extendedExceptionMsg() {
 }
 
 $String* JarConstraintsParameters::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, "[\n"_s));
 	sb->append("\n  Variant: "_s)->append($(getVariant()));
 	sb->append("\n  Certs Issued by Anchor:"_s);
@@ -171,8 +130,8 @@ $String* JarConstraintsParameters::toString() {
 		for (; $nc(i$)->hasNext();) {
 			$var($X509Certificate, cert, $cast($X509Certificate, i$->next()));
 			{
-				sb->append("\n    Cert Issuer: "_s)->append($($of($nc(cert)->getIssuerX500Principal())));
-				sb->append("\n    Cert Subject: "_s)->append($($of($nc(cert)->getSubjectX500Principal())));
+				sb->append("\n    Cert Issuer: "_s)->append($($nc(cert)->getIssuerX500Principal()));
+				sb->append("\n    Cert Subject: "_s)->append($(cert->getSubjectX500Principal()));
 			}
 		}
 	}
@@ -186,7 +145,7 @@ $String* JarConstraintsParameters::toString() {
 		}
 	}
 	if (this->timestamp != nullptr) {
-		sb->append("\n  Timestamp: "_s)->append($of(this->timestamp));
+		sb->append("\n  Timestamp: "_s)->append(this->timestamp);
 	}
 	sb->append("\n]"_s);
 	return sb->toString();
@@ -196,7 +155,38 @@ JarConstraintsParameters::JarConstraintsParameters() {
 }
 
 $Class* JarConstraintsParameters::load$($String* name, bool initialize) {
-	$loadClass(JarConstraintsParameters, name, initialize, &_JarConstraintsParameters_ClassInfo_, allocate$JarConstraintsParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"anchorIsJdkCA", "Z", nullptr, $PRIVATE, $field(JarConstraintsParameters, anchorIsJdkCA$)},
+		{"anchorIsJdkCASet", "Z", nullptr, $PRIVATE, $field(JarConstraintsParameters, anchorIsJdkCASet)},
+		{"timestamp", "Ljava/util/Date;", nullptr, $PRIVATE, $field(JarConstraintsParameters, timestamp)},
+		{"keys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/Key;>;", $PRIVATE | $FINAL, $field(JarConstraintsParameters, keys)},
+		{"certsIssuedByAnchor", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $FINAL, $field(JarConstraintsParameters, certsIssuedByAnchor)},
+		{"message", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JarConstraintsParameters, message)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/security/CodeSigner;)V", nullptr, $PUBLIC, $method(JarConstraintsParameters, init$, void, $CodeSignerArray*)},
+		{"anchorIsJdkCA", "()Z", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, anchorIsJdkCA, bool)},
+		{"extendedExceptionMsg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, extendedExceptionMsg, $String*)},
+		{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, getDate, $Date*)},
+		{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/Key;>;", $PUBLIC, $virtualMethod(JarConstraintsParameters, getKeys, $Set*)},
+		{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, getVariant, $String*)},
+		{"init", "(Ljava/security/cert/CertPath;)V", nullptr, $PRIVATE, $method(JarConstraintsParameters, init, void, $CertPath*)},
+		{"setExtendedExceptionMsg", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, setExtendedExceptionMsg, void, $String*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.JarConstraintsParameters",
+		"java.lang.Object",
+		"sun.security.util.ConstraintsParameters",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JarConstraintsParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarConstraintsParameters);
+	});
 	return class$;
 }
 

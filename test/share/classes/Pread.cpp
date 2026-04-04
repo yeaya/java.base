@@ -1,12 +1,9 @@
 #include <Pread.h>
-
 #include <java/io/BufferedWriter.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/Writer.h>
 #include <java/lang/StringBuffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
@@ -20,10 +17,8 @@ using $BufferedWriter = ::java::io::BufferedWriter;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PrintStream = ::java::io::PrintStream;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -36,36 +31,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $NonReadableChannelException = ::java::nio::channels::NonReadableChannelException;
 using $Random = ::java::util::Random;
-
-$FieldInfo _Pread_FieldInfo_[] = {
-	{"err", "Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC, $staticField(Pread, err)},
-	{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(Pread, generator)},
-	{"CHARS_PER_LINE", "I", nullptr, $PRIVATE | $STATIC, $staticField(Pread, CHARS_PER_LINE)},
-	{}
-};
-
-$MethodInfo _Pread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Pread, init$, void)},
-	{"genericTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, genericTest, void), "java.lang.Exception"},
-	{"initTestFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, initTestFile, void, $File*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Pread, main, void, $StringArray*), "java.lang.Exception"},
-	{"testNegativePosition", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, testNegativePosition, void), "java.lang.Exception"},
-	{"testUnreadableChannel", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, testUnreadableChannel, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Pread_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Pread",
-	"java.lang.Object",
-	nullptr,
-	_Pread_FieldInfo_,
-	_Pread_MethodInfo_
-};
-
-$Object* allocate$Pread($Class* clazz) {
-	return $of($alloc(Pread));
-}
 
 $PrintStream* Pread::err = nullptr;
 $Random* Pread::generator = nullptr;
@@ -83,64 +48,60 @@ void Pread::main($StringArray* args) {
 
 void Pread::testNegativePosition() {
 	$init(Pread);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, blah, $File::createTempFile("blah1"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
 	fos->write($$new($bytes, 128));
 	fos->close();
 	$var($FileChannel, fc, ($$new($FileInputStream, blah))->getChannel());
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(fc)->read($($ByteBuffer::allocate(256)), -1);
-				$throwNew($RuntimeException, "Expected exception not thrown"_s);
-			} catch ($IllegalArgumentException& e) {
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(fc)->close();
-			blah->delete$();
+			$nc(fc)->read($($ByteBuffer::allocate(256)), -1);
+			$throwNew($RuntimeException, "Expected exception not thrown"_s);
+		} catch ($IllegalArgumentException& e) {
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(fc)->close();
+		blah->delete$();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Pread::testUnreadableChannel() {
 	$init(Pread);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, blah, $File::createTempFile("blah2"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		fos->write($$new($bytes, 128));
+		$var($FileChannel, fc, fos->getChannel());
 		try {
-			fos->write($$new($bytes, 128));
-			$var($FileChannel, fc, fos->getChannel());
-			try {
-				$nc(fc)->read($($ByteBuffer::allocate(256)), 1);
-				$throwNew($RuntimeException, "Expected exception not thrown"_s);
-			} catch ($NonReadableChannelException& e) {
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			fos->close();
-			blah->delete$();
+			$nc(fc)->read($($ByteBuffer::allocate(256)), 1);
+			$throwNew($RuntimeException, "Expected exception not thrown"_s);
+		} catch ($NonReadableChannelException& e) {
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		fos->close();
+		blah->delete$();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Pread::genericTest() {
 	$init(Pread);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->setLength(4);
 	$var($File, blah, $File::createTempFile("blah3"_s, nullptr));
@@ -170,7 +131,7 @@ void Pread::genericTest() {
 		int32_t result = $Integer::parseInt($(sb->toString()));
 		if (result != expectedResult) {
 			$nc(Pread::err)->println($$str({"I expected "_s, $$str(expectedResult)}));
-			$nc(Pread::err)->println($$str({"I got "_s, $$str(result)}));
+			Pread::err->println($$str({"I got "_s, $$str(result)}));
 			$throwNew($Exception, "Read test failed"_s);
 		}
 		if (originalPosition != newPosition) {
@@ -184,12 +145,12 @@ void Pread::genericTest() {
 
 void Pread::initTestFile($File* blah) {
 	$init(Pread);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
-	$var($BufferedWriter, awriter, $new($BufferedWriter, $$new($OutputStreamWriter, static_cast<$OutputStream*>(fos), "8859_1"_s)));
+	$var($BufferedWriter, awriter, $new($BufferedWriter, $$new($OutputStreamWriter, fos, "8859_1"_s)));
 	for (int32_t i = 0; i < 4000; ++i) {
 		$var($String, number, $$new($Integer, i)->toString());
-		for (int32_t h = 0; h < 4 - $nc(number)->length(); ++h) {
+		for (int32_t h = 0; h < 4 - number->length(); ++h) {
 			awriter->write("0"_s);
 		}
 		awriter->write($$str({""_s, $$str(i)}));
@@ -199,7 +160,7 @@ void Pread::initTestFile($File* blah) {
 	awriter->close();
 }
 
-void clinit$Pread($Class* class$) {
+void Pread::clinit$($Class* clazz) {
 	$assignStatic(Pread::err, $System::err);
 	$assignStatic(Pread::generator, $new($Random));
 	$init($File);
@@ -210,7 +171,32 @@ Pread::Pread() {
 }
 
 $Class* Pread::load$($String* name, bool initialize) {
-	$loadClass(Pread, name, initialize, &_Pread_ClassInfo_, clinit$Pread, allocate$Pread);
+	$FieldInfo fieldInfos$$[] = {
+		{"err", "Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC, $staticField(Pread, err)},
+		{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(Pread, generator)},
+		{"CHARS_PER_LINE", "I", nullptr, $PRIVATE | $STATIC, $staticField(Pread, CHARS_PER_LINE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Pread, init$, void)},
+		{"genericTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, genericTest, void), "java.lang.Exception"},
+		{"initTestFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, initTestFile, void, $File*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Pread, main, void, $StringArray*), "java.lang.Exception"},
+		{"testNegativePosition", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, testNegativePosition, void), "java.lang.Exception"},
+		{"testUnreadableChannel", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, testUnreadableChannel, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Pread",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pread, name, initialize, &classInfo$$, Pread::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Pread);
+	});
 	return class$;
 }
 

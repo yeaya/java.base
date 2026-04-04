@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateStatus.h>
-
 #include <sun/security/ssl/CertificateStatus$CertificateStatusAbsence.h>
 #include <sun/security/ssl/CertificateStatus$CertificateStatusConsumer.h>
 #include <sun/security/ssl/CertificateStatus$CertificateStatusProducer.h>
@@ -23,45 +22,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertificateStatus_FieldInfo_[] = {
-	{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateStatus, handshakeConsumer)},
-	{"handshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateStatus, handshakeProducer)},
-	{"handshakeAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(CertificateStatus, handshakeAbsence)},
-	{}
-};
-
-$MethodInfo _CertificateStatus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CertificateStatus, init$, void)},
-	{}
-};
-
-$InnerClassInfo _CertificateStatus_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateStatus$CertificateStatusAbsence", "sun.security.ssl.CertificateStatus", "CertificateStatusAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateStatus$CertificateStatusProducer", "sun.security.ssl.CertificateStatus", "CertificateStatusProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateStatus$CertificateStatusConsumer", "sun.security.ssl.CertificateStatus", "CertificateStatusConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateStatus$CertificateStatusMessage", "sun.security.ssl.CertificateStatus", "CertificateStatusMessage", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertificateStatus_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateStatus",
-	"java.lang.Object",
-	nullptr,
-	_CertificateStatus_FieldInfo_,
-	_CertificateStatus_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateStatus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateStatus$CertificateStatusAbsence,sun.security.ssl.CertificateStatus$CertificateStatusProducer,sun.security.ssl.CertificateStatus$CertificateStatusConsumer,sun.security.ssl.CertificateStatus$CertificateStatusMessage"
-};
-
-$Object* allocate$CertificateStatus($Class* clazz) {
-	return $of($alloc(CertificateStatus));
-}
-
 $SSLConsumer* CertificateStatus::handshakeConsumer = nullptr;
 $HandshakeProducer* CertificateStatus::handshakeProducer = nullptr;
 $HandshakeAbsence* CertificateStatus::handshakeAbsence = nullptr;
@@ -69,7 +29,7 @@ $HandshakeAbsence* CertificateStatus::handshakeAbsence = nullptr;
 void CertificateStatus::init$() {
 }
 
-void clinit$CertificateStatus($Class* class$) {
+void CertificateStatus::clinit$($Class* clazz) {
 	$assignStatic(CertificateStatus::handshakeConsumer, $new($CertificateStatus$CertificateStatusConsumer));
 	$assignStatic(CertificateStatus::handshakeProducer, $new($CertificateStatus$CertificateStatusProducer));
 	$assignStatic(CertificateStatus::handshakeAbsence, $new($CertificateStatus$CertificateStatusAbsence));
@@ -79,7 +39,40 @@ CertificateStatus::CertificateStatus() {
 }
 
 $Class* CertificateStatus::load$($String* name, bool initialize) {
-	$loadClass(CertificateStatus, name, initialize, &_CertificateStatus_ClassInfo_, clinit$CertificateStatus, allocate$CertificateStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateStatus, handshakeConsumer)},
+		{"handshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateStatus, handshakeProducer)},
+		{"handshakeAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(CertificateStatus, handshakeAbsence)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CertificateStatus, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateStatus$CertificateStatusAbsence", "sun.security.ssl.CertificateStatus", "CertificateStatusAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateStatus$CertificateStatusProducer", "sun.security.ssl.CertificateStatus", "CertificateStatusProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateStatus$CertificateStatusConsumer", "sun.security.ssl.CertificateStatus", "CertificateStatusConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateStatus$CertificateStatusMessage", "sun.security.ssl.CertificateStatus", "CertificateStatusMessage", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateStatus",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateStatus$CertificateStatusAbsence,sun.security.ssl.CertificateStatus$CertificateStatusProducer,sun.security.ssl.CertificateStatus$CertificateStatusConsumer,sun.security.ssl.CertificateStatus$CertificateStatusMessage"
+	};
+	$loadClass(CertificateStatus, name, initialize, &classInfo$$, CertificateStatus::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateStatus);
+	});
 	return class$;
 }
 

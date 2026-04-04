@@ -1,5 +1,4 @@
 #include <jdk/internal/util/xml/impl/ReaderUTF8.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
 #include <java/io/UnsupportedEncodingException.h>
@@ -18,32 +17,6 @@ namespace jdk {
 			namespace xml {
 				namespace impl {
 
-$FieldInfo _ReaderUTF8_FieldInfo_[] = {
-	{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(ReaderUTF8, is)},
-	{}
-};
-
-$MethodInfo _ReaderUTF8_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ReaderUTF8, init$, void, $InputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ReaderUTF8, close, void), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ReaderUTF8, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReaderUTF8, read, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ReaderUTF8_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.util.xml.impl.ReaderUTF8",
-	"java.io.Reader",
-	nullptr,
-	_ReaderUTF8_FieldInfo_,
-	_ReaderUTF8_MethodInfo_
-};
-
-$Object* allocate$ReaderUTF8($Class* clazz) {
-	return $of($alloc(ReaderUTF8));
-}
-
 void ReaderUTF8::init$($InputStream* is) {
 	$Reader::init$();
 	$set(this, is, is);
@@ -56,29 +29,22 @@ int32_t ReaderUTF8::read($chars* cbuf, int32_t off, int32_t len) {
 		if ((val = $nc(this->is)->read()) < 0) {
 			return (num != 0) ? num : -1;
 		}
-		switch ((int32_t)(val & (uint32_t)240)) {
+		switch (val & 0xf0) {
 		case 192:
-			{}
 		case 208:
-			{
-				$nc(cbuf)->set(off++, (char16_t)((((int32_t)(val & (uint32_t)31)) << 6) | ((int32_t)($nc(this->is)->read() & (uint32_t)63))));
-				break;
-			}
+			$nc(cbuf)->set(off++, (char16_t)(((val & 0x1f) << 6) | (this->is->read() & 0x3f)));
+			break;
 		case 224:
 			{
-				int32_t var$0 = (((int32_t)(val & (uint32_t)15)) << 12) | (((int32_t)($nc(this->is)->read() & (uint32_t)63)) << 6);
-				$nc(cbuf)->set(off++, (char16_t)(var$0 | ((int32_t)($nc(this->is)->read() & (uint32_t)63))));
+				int32_t var$0 = ((val & 0x0f) << 12) | ((this->is->read() & 0x3f) << 6);
+				$nc(cbuf)->set(off++, (char16_t)(var$0 | (this->is->read() & 0x3f)));
 				break;
 			}
 		case 240:
-			{
-				$throwNew($UnsupportedEncodingException, "UTF-32 (or UCS-4) encoding not supported."_s);
-			}
+			$throwNew($UnsupportedEncodingException, "UTF-32 (or UCS-4) encoding not supported."_s);
 		default:
-			{
-				$nc(cbuf)->set(off++, (char16_t)val);
-				break;
-			}
+			$nc(cbuf)->set(off++, (char16_t)val);
+			break;
 		}
 		++num;
 	}
@@ -90,28 +56,21 @@ int32_t ReaderUTF8::read() {
 	if ((val = $nc(this->is)->read()) < 0) {
 		return -1;
 	}
-	switch ((int32_t)(val & (uint32_t)240)) {
+	switch (val & 0xf0) {
 	case 192:
-		{}
 	case 208:
-		{
-			val = (((int32_t)(val & (uint32_t)31)) << 6) | ((int32_t)($nc(this->is)->read() & (uint32_t)63));
-			break;
-		}
+		val = ((val & 0x1f) << 6) | (this->is->read() & 0x3f);
+		break;
 	case 224:
 		{
-			int32_t var$0 = (((int32_t)(val & (uint32_t)15)) << 12) | (((int32_t)($nc(this->is)->read() & (uint32_t)63)) << 6);
-			val = var$0 | ((int32_t)($nc(this->is)->read() & (uint32_t)63));
+			int32_t var$0 = ((val & 0x0f) << 12) | ((this->is->read() & 0x3f) << 6);
+			val = var$0 | (this->is->read() & 0x3f);
 			break;
 		}
 	case 240:
-		{
-			$throwNew($UnsupportedEncodingException);
-		}
+		$throwNew($UnsupportedEncodingException);
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	return val;
 }
@@ -124,7 +83,28 @@ ReaderUTF8::ReaderUTF8() {
 }
 
 $Class* ReaderUTF8::load$($String* name, bool initialize) {
-	$loadClass(ReaderUTF8, name, initialize, &_ReaderUTF8_ClassInfo_, allocate$ReaderUTF8);
+	$FieldInfo fieldInfos$$[] = {
+		{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(ReaderUTF8, is)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ReaderUTF8, init$, void, $InputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ReaderUTF8, close, void), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ReaderUTF8, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReaderUTF8, read, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.util.xml.impl.ReaderUTF8",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReaderUTF8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReaderUTF8));
+	});
 	return class$;
 }
 

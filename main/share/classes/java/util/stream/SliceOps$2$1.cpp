@@ -1,5 +1,4 @@
 #include <java/util/stream/SliceOps$2$1.h>
-
 #include <java/util/stream/Sink$ChainedInt.h>
 #include <java/util/stream/Sink.h>
 #include <java/util/stream/SliceOps$2.h>
@@ -19,54 +18,6 @@ using $SliceOps$2 = ::java::util::stream::SliceOps$2;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _SliceOps$2$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/stream/SliceOps$2;", nullptr, $FINAL | $SYNTHETIC, $field(SliceOps$2$1, this$0)},
-	{"n", "J", nullptr, 0, $field(SliceOps$2$1, n)},
-	{"m", "J", nullptr, 0, $field(SliceOps$2$1, m)},
-	{}
-};
-
-$MethodInfo _SliceOps$2$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/SliceOps$2;Ljava/util/stream/Sink;)V", nullptr, 0, $method(SliceOps$2$1, init$, void, $SliceOps$2*, $Sink*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(SliceOps$2$1, accept, void, int32_t)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(SliceOps$2$1, begin, void, int64_t)},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(SliceOps$2$1, cancellationRequested, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _SliceOps$2$1_EnclosingMethodInfo_ = {
-	"java.util.stream.SliceOps$2",
-	"opWrapSink",
-	"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
-};
-
-$InnerClassInfo _SliceOps$2$1_InnerClassesInfo_[] = {
-	{"java.util.stream.SliceOps$2", nullptr, nullptr, 0},
-	{"java.util.stream.SliceOps$2$1", nullptr, nullptr, 0},
-	{"java.util.stream.Sink$ChainedInt", "java.util.stream.Sink", "ChainedInt", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SliceOps$2$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.SliceOps$2$1",
-	"java.util.stream.Sink$ChainedInt",
-	nullptr,
-	_SliceOps$2$1_FieldInfo_,
-	_SliceOps$2$1_MethodInfo_,
-	"Ljava/util/stream/Sink$ChainedInt<Ljava/lang/Integer;>;",
-	&_SliceOps$2$1_EnclosingMethodInfo_,
-	_SliceOps$2$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SliceOps"
-};
-
-$Object* allocate$SliceOps$2$1($Class* clazz) {
-	return $of($alloc(SliceOps$2$1));
-}
 
 void SliceOps$2$1::init$($SliceOps$2* this$0, $Sink* downstream) {
 	$set(this, this$0, this$0);
@@ -98,7 +49,48 @@ SliceOps$2$1::SliceOps$2$1() {
 }
 
 $Class* SliceOps$2$1::load$($String* name, bool initialize) {
-	$loadClass(SliceOps$2$1, name, initialize, &_SliceOps$2$1_ClassInfo_, allocate$SliceOps$2$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/stream/SliceOps$2;", nullptr, $FINAL | $SYNTHETIC, $field(SliceOps$2$1, this$0)},
+		{"n", "J", nullptr, 0, $field(SliceOps$2$1, n)},
+		{"m", "J", nullptr, 0, $field(SliceOps$2$1, m)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/SliceOps$2;Ljava/util/stream/Sink;)V", nullptr, 0, $method(SliceOps$2$1, init$, void, $SliceOps$2*, $Sink*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(SliceOps$2$1, accept, void, int32_t)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(SliceOps$2$1, begin, void, int64_t)},
+		{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(SliceOps$2$1, cancellationRequested, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.SliceOps$2",
+		"opWrapSink",
+		"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SliceOps$2", nullptr, nullptr, 0},
+		{"java.util.stream.SliceOps$2$1", nullptr, nullptr, 0},
+		{"java.util.stream.Sink$ChainedInt", "java.util.stream.Sink", "ChainedInt", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.SliceOps$2$1",
+		"java.util.stream.Sink$ChainedInt",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/Sink$ChainedInt<Ljava/lang/Integer;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SliceOps"
+	};
+	$loadClass(SliceOps$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SliceOps$2$1));
+	});
 	return class$;
 }
 

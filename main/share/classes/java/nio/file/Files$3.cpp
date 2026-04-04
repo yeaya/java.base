@@ -1,5 +1,4 @@
 #include <java/nio/file/Files$3.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/nio/file/FileTreeWalker$EventType.h>
 #include <java/nio/file/FileTreeWalker.h>
@@ -21,57 +20,21 @@ namespace java {
 	namespace nio {
 		namespace file {
 
-$FieldInfo _Files$3_FieldInfo_[] = {
-	{"$SwitchMap$java$nio$file$FileTreeWalker$EventType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Files$3, $SwitchMap$java$nio$file$FileTreeWalker$EventType)},
-	{}
-};
-
-$EnclosingMethodInfo _Files$3_EnclosingMethodInfo_ = {
-	"java.nio.file.Files",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Files$3_InnerClassesInfo_[] = {
-	{"java.nio.file.Files$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Files$3_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.nio.file.Files$3",
-	"java.lang.Object",
-	nullptr,
-	_Files$3_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Files$3_EnclosingMethodInfo_,
-	_Files$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.Files"
-};
-
-$Object* allocate$Files$3($Class* clazz) {
-	return $of($alloc(Files$3));
-}
-
 $ints* Files$3::$SwitchMap$java$nio$file$FileTreeWalker$EventType = nullptr;
 
-void clinit$Files$3($Class* class$) {
+void Files$3::clinit$($Class* clazz) {
 	$assignStatic(Files$3::$SwitchMap$java$nio$file$FileTreeWalker$EventType, $new($ints, $($FileTreeWalker$EventType::values())->length));
 	{
 		try {
-			$nc(Files$3::$SwitchMap$java$nio$file$FileTreeWalker$EventType)->set($FileTreeWalker$EventType::ENTRY->ordinal(), 1);
+			Files$3::$SwitchMap$java$nio$file$FileTreeWalker$EventType->set($FileTreeWalker$EventType::ENTRY->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Files$3::$SwitchMap$java$nio$file$FileTreeWalker$EventType)->set($FileTreeWalker$EventType::START_DIRECTORY->ordinal(), 2);
+			Files$3::$SwitchMap$java$nio$file$FileTreeWalker$EventType->set($FileTreeWalker$EventType::START_DIRECTORY->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Files$3::$SwitchMap$java$nio$file$FileTreeWalker$EventType)->set($FileTreeWalker$EventType::END_DIRECTORY->ordinal(), 3);
+			Files$3::$SwitchMap$java$nio$file$FileTreeWalker$EventType->set($FileTreeWalker$EventType::END_DIRECTORY->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -81,7 +44,37 @@ Files$3::Files$3() {
 }
 
 $Class* Files$3::load$($String* name, bool initialize) {
-	$loadClass(Files$3, name, initialize, &_Files$3_ClassInfo_, clinit$Files$3, allocate$Files$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$nio$file$FileTreeWalker$EventType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Files$3, $SwitchMap$java$nio$file$FileTreeWalker$EventType)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.file.Files",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.Files$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.nio.file.Files$3",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.Files"
+	};
+	$loadClass(Files$3, name, initialize, &classInfo$$, Files$3::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Files$3);
+	});
 	return class$;
 }
 

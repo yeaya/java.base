@@ -26,6 +26,7 @@ class StackTraceElement$HashedModules : public ::java::lang::Object {
 	$class(StackTraceElement$HashedModules, 0, ::java::lang::Object)
 public:
 	StackTraceElement$HashedModules();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool contains(::java::lang::Module* m);
 	static ::java::util::Set* hashedModules();

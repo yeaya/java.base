@@ -1,5 +1,4 @@
 #include <java/lang/NoClassDefFoundError.h>
-
 #include <java/lang/LinkageError.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _NoClassDefFoundError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoClassDefFoundError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoClassDefFoundError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NoClassDefFoundError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoClassDefFoundError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NoClassDefFoundError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.NoClassDefFoundError",
-	"java.lang.LinkageError",
-	nullptr,
-	_NoClassDefFoundError_FieldInfo_,
-	_NoClassDefFoundError_MethodInfo_
-};
-
-$Object* allocate$NoClassDefFoundError($Class* clazz) {
-	return $of($alloc(NoClassDefFoundError));
-}
 
 void NoClassDefFoundError::init$() {
 	$LinkageError::init$();
@@ -54,7 +29,26 @@ void NoClassDefFoundError::throw$() {
 }
 
 $Class* NoClassDefFoundError::load$($String* name, bool initialize) {
-	$loadClass(NoClassDefFoundError, name, initialize, &_NoClassDefFoundError_ClassInfo_, allocate$NoClassDefFoundError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoClassDefFoundError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NoClassDefFoundError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoClassDefFoundError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.NoClassDefFoundError",
+		"java.lang.LinkageError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoClassDefFoundError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoClassDefFoundError);
+	});
 	return class$;
 }
 

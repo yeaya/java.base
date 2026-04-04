@@ -14,7 +14,7 @@ class $export SynchronousQueue$LifoWaitQueue : public ::java::util::concurrent::
 public:
 	SynchronousQueue$LifoWaitQueue();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xCD94969A39733E9A;
+	static const int64_t serialVersionUID = (int64_t)0xcd94969a39733e9a;
 };
 
 		} // concurrent

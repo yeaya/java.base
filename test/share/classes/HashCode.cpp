@@ -1,30 +1,10 @@
 #include <HashCode.h>
-
 #include <java/net/URL.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-
-$MethodInfo _HashCode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HashCode, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HashCode, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _HashCode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HashCode",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HashCode_MethodInfo_
-};
-
-$Object* allocate$HashCode($Class* clazz) {
-	return $of($alloc(HashCode));
-}
 
 void HashCode::init$() {
 }
@@ -38,7 +18,22 @@ HashCode::HashCode() {
 }
 
 $Class* HashCode::load$($String* name, bool initialize) {
-	$loadClass(HashCode, name, initialize, &_HashCode_ClassInfo_, allocate$HashCode);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HashCode, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HashCode, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HashCode",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HashCode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HashCode);
+	});
 	return class$;
 }
 

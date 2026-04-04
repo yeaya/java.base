@@ -1,5 +1,4 @@
 #include <SPIProviderTest.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Number.h>
 #include <java/lang/invoke/CallSite.h>
@@ -21,7 +20,6 @@
 #undef SHORT
 
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -36,7 +34,6 @@ using $ParseException = ::java::text::ParseException;
 using $Arrays = ::java::util::Arrays;
 using $Locale = ::java::util::Locale;
 using $Consumer = ::java::util::function::Consumer;
-using $Stream = ::java::util::stream::Stream;
 
 class SPIProviderTest$$Lambda$testSPIProvider : public $Consumer {
 	$class(SPIProviderTest$$Lambda$testSPIProvider, $NO_CLASS_INIT, $Consumer)
@@ -46,57 +43,27 @@ public:
 	virtual void accept(Object$* args) override {
 		SPIProviderTest::testSPIProvider($cast($ObjectArray, args));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SPIProviderTest$$Lambda$testSPIProvider>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SPIProviderTest$$Lambda$testSPIProvider::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SPIProviderTest$$Lambda$testSPIProvider, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SPIProviderTest$$Lambda$testSPIProvider, accept, void, Object$*)},
-	{}
-};
-$ClassInfo SPIProviderTest$$Lambda$testSPIProvider::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"SPIProviderTest$$Lambda$testSPIProvider",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* SPIProviderTest$$Lambda$testSPIProvider::load$($String* name, bool initialize) {
-	$loadClass(SPIProviderTest$$Lambda$testSPIProvider, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SPIProviderTest$$Lambda$testSPIProvider, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SPIProviderTest$$Lambda$testSPIProvider, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"SPIProviderTest$$Lambda$testSPIProvider",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SPIProviderTest$$Lambda$testSPIProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SPIProviderTest$$Lambda$testSPIProvider);
+	});
 	return class$;
 }
 $Class* SPIProviderTest$$Lambda$testSPIProvider::class$ = nullptr;
-
-$FieldInfo _SPIProviderTest_FieldInfo_[] = {
-	{"QAA", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SPIProviderTest, QAA)},
-	{"QAB", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SPIProviderTest, QAB)},
-	{}
-};
-
-$MethodInfo _SPIProviderTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SPIProviderTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SPIProviderTest, main, void, $StringArray*)},
-	{"testData", "()[[Ljava/lang/Object;", nullptr, 0, $virtualMethod(SPIProviderTest, testData, $ObjectArray2*)},
-	{"testSPIProvider", "([Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SPIProviderTest, testSPIProvider, void, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _SPIProviderTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SPIProviderTest",
-	"java.lang.Object",
-	nullptr,
-	_SPIProviderTest_FieldInfo_,
-	_SPIProviderTest_MethodInfo_
-};
-
-$Object* allocate$SPIProviderTest($Class* clazz) {
-	return $of($alloc(SPIProviderTest));
-}
 
 $Locale* SPIProviderTest::QAA = nullptr;
 $Locale* SPIProviderTest::QAB = nullptr;
@@ -107,177 +74,177 @@ void SPIProviderTest::main($StringArray* args) {
 }
 
 void SPIProviderTest::init$() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($Arrays::stream($(testData()))))->forEach(static_cast<$Consumer*>($$new(SPIProviderTest$$Lambda$testSPIProvider)));
+	$useLocalObjectStack();
+	$$nc($Arrays::stream($(testData())))->forEach($$new(SPIProviderTest$$Lambda$testSPIProvider));
 }
 
 $ObjectArray2* SPIProviderTest::testData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAA),
-			$($of($Integer::valueOf(1000))),
-			$of("1K"_s)
+			SPIProviderTest::QAA,
+			$($Integer::valueOf(1000)),
+			"1K"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAA),
-			$($of($Integer::valueOf(-1000))),
-			$of("-1K"_s)
+			SPIProviderTest::QAA,
+			$($Integer::valueOf(-1000)),
+			"-1K"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAA),
-			$($of($Integer::valueOf(2000))),
-			$of("2K"_s)
+			SPIProviderTest::QAA,
+			$($Integer::valueOf(2000)),
+			"2K"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAA),
-			$($of($Integer::valueOf(-2000))),
-			$of("-2K"_s)
+			SPIProviderTest::QAA,
+			$($Integer::valueOf(-2000)),
+			"-2K"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAA),
-			$($of($Integer::valueOf(0x000F4240))),
-			$of("1M"_s)
+			SPIProviderTest::QAA,
+			$($Integer::valueOf(1000000)),
+			"1M"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAA),
-			$($of($Integer::valueOf((int32_t)0xFFF0BDC0))),
-			$of("-1M"_s)
+			SPIProviderTest::QAA,
+			$($Integer::valueOf(-1000000)),
+			"-1M"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAA),
-			$($of($Integer::valueOf(0x001E8480))),
-			$of("2M"_s)
+			SPIProviderTest::QAA,
+			$($Integer::valueOf(2000000)),
+			"2M"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAA),
-			$($of($Integer::valueOf((int32_t)0xFFE17B80))),
-			$of("-2M"_s)
+			SPIProviderTest::QAA,
+			$($Integer::valueOf(-2000000)),
+			"-2M"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(1000))),
-			$of("1K"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(1000)),
+			"1K"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(-1000))),
-			$of("(1K)"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(-1000)),
+			"(1K)"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(2000))),
-			$of("2KK"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(2000)),
+			"2KK"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(-2000))),
-			$of("-2KK"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(-2000)),
+			"-2KK"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(3000))),
-			$of("3KKK"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(3000)),
+			"3KKK"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(-3000))),
-			$of("-3KKK"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(-3000)),
+			"-3KKK"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(5000))),
-			$of("5KKKK"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(5000)),
+			"5KKKK"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(-5000))),
-			$of("-5KKKK"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(-5000)),
+			"-5KKKK"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(10000))),
-			$of("10000"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(10000)),
+			"10000"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(-10000))),
-			$of("-10000"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(-10000)),
+			"-10000"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(0x000F4240))),
-			$of("1 M"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(1000000)),
+			"1 M"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf((int32_t)0xFFF0BDC0))),
-			$of("(1 M)"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(-1000000)),
+			"(1 M)"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(0x001E8480))),
-			$of("2 MM"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(2000000)),
+			"2 MM"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf((int32_t)0xFFE17B80))),
-			$of("(2 MM)"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(-2000000)),
+			"(2 MM)"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(0x002DC6C0))),
-			$of("3 MMM"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(3000000)),
+			"3 MMM"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf((int32_t)0xFFD23940))),
-			$of("-3 MMM"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(-3000000)),
+			"-3 MMM"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf(0x004C4B40))),
-			$of("5 MMMM"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(5000000)),
+			"5 MMMM"_s
 		}),
 		$$new($ObjectArray, {
-			$of(SPIProviderTest::QAB),
-			$($of($Integer::valueOf((int32_t)0xFFB3B4C0))),
-			$of("-5 MMMM"_s)
+			SPIProviderTest::QAB,
+			$($Integer::valueOf(-5000000)),
+			"-5 MMMM"_s
 		})
 	});
 }
 
 void SPIProviderTest::testSPIProvider($ObjectArray* args) {
 	$init(SPIProviderTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, loc, $cast($Locale, $nc(args)->get(0)));
 	$var($Number, number, $cast($Number, args->get(1)));
 	$var($String, expected, $cast($String, args->get(2)));
 	$nc($System::out)->printf("Testing locale: %s, number: %d, expected: %s\n"_s, $$new($ObjectArray, {
-		$of(loc),
-		$of(number),
-		$of(expected)
+		loc,
+		number,
+		expected
 	}));
 	$init($NumberFormat$Style);
 	$var($NumberFormat, nf, $NumberFormat::getCompactNumberInstance(loc, $NumberFormat$Style::SHORT));
 	$var($String, formatted, $nc(nf)->format(number));
-	$nc($System::out)->printf("    formatted: %s\n"_s, $$new($ObjectArray, {$of(formatted)}));
+	$System::out->printf("    formatted: %s\n"_s, $$new($ObjectArray, {formatted}));
 	if (!$nc(formatted)->equals(expected)) {
 		$throwNew($RuntimeException, "formatted and expected strings do not match."_s);
 	}
 	try {
 		$var($Number, parsed, nf->parse(formatted));
-		$nc($System::out)->printf("    parsed: %s\n"_s, $$new($ObjectArray, {$of(parsed)}));
+		$System::out->printf("    parsed: %s\n"_s, $$new($ObjectArray, {parsed}));
 		int32_t var$0 = $nc(parsed)->intValue();
 		if (var$0 != $nc(number)->intValue()) {
 			$throwNew($RuntimeException, "parsed and input numbers do not match."_s);
 		}
 	} catch ($ParseException& pe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(pe));
+		$throwNew($RuntimeException, pe);
 	}
 }
 
-void clinit$SPIProviderTest($Class* class$) {
+void SPIProviderTest::clinit$($Class* clazz) {
 	$assignStatic(SPIProviderTest::QAA, $Locale::forLanguageTag("qaa"_s));
 	$assignStatic(SPIProviderTest::QAB, $Locale::forLanguageTag("qab"_s));
 }
@@ -287,11 +254,33 @@ SPIProviderTest::SPIProviderTest() {
 
 $Class* SPIProviderTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SPIProviderTest$$Lambda$testSPIProvider::classInfo$.name)) {
+		if (name->equals("SPIProviderTest$$Lambda$testSPIProvider")) {
 			return SPIProviderTest$$Lambda$testSPIProvider::load$(name, initialize);
 		}
 	}
-	$loadClass(SPIProviderTest, name, initialize, &_SPIProviderTest_ClassInfo_, clinit$SPIProviderTest, allocate$SPIProviderTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"QAA", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SPIProviderTest, QAA)},
+		{"QAB", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SPIProviderTest, QAB)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SPIProviderTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SPIProviderTest, main, void, $StringArray*)},
+		{"testData", "()[[Ljava/lang/Object;", nullptr, 0, $virtualMethod(SPIProviderTest, testData, $ObjectArray2*)},
+		{"testSPIProvider", "([Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SPIProviderTest, testSPIProvider, void, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SPIProviderTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SPIProviderTest, name, initialize, &classInfo$$, SPIProviderTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SPIProviderTest);
+	});
 	return class$;
 }
 

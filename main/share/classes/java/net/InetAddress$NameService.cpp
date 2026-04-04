@@ -1,5 +1,4 @@
 #include <java/net/InetAddress$NameService.h>
-
 #include <java/net/InetAddress.h>
 #include <jcpp.h>
 
@@ -11,39 +10,34 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace net {
 
-$MethodInfo _InetAddress$NameService_MethodInfo_[] = {
-	{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddress$NameService, getHostByAddr, $String*, $bytes*), "java.net.UnknownHostException"},
-	{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddress$NameService, lookupAllHostAddr, $InetAddressArray*, $String*), "java.net.UnknownHostException"},
-	{}
-};
-
-$InnerClassInfo _InetAddress$NameService_InnerClassesInfo_[] = {
-	{"java.net.InetAddress$NameService", "java.net.InetAddress", "NameService", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _InetAddress$NameService_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.net.InetAddress$NameService",
-	nullptr,
-	nullptr,
-	nullptr,
-	_InetAddress$NameService_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InetAddress$NameService_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.InetAddress"
-};
-
-$Object* allocate$InetAddress$NameService($Class* clazz) {
-	return $of($alloc(InetAddress$NameService));
-}
-
 $Class* InetAddress$NameService::load$($String* name, bool initialize) {
-	$loadClass(InetAddress$NameService, name, initialize, &_InetAddress$NameService_ClassInfo_, allocate$InetAddress$NameService);
+	$MethodInfo methodInfos$$[] = {
+		{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddress$NameService, getHostByAddr, $String*, $bytes*), "java.net.UnknownHostException"},
+		{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddress$NameService, lookupAllHostAddr, $InetAddressArray*, $String*), "java.net.UnknownHostException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.InetAddress$NameService", "java.net.InetAddress", "NameService", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.net.InetAddress$NameService",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.InetAddress"
+	};
+	$loadClass(InetAddress$NameService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InetAddress$NameService);
+	});
 	return class$;
 }
 

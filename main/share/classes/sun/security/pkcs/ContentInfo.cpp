@@ -1,5 +1,4 @@
 #include <sun/security/pkcs/ContentInfo.h>
-
 #include <java/io/IOException.h>
 #include <sun/security/pkcs/ParsingException.h>
 #include <sun/security/util/DerInputStream.h>
@@ -38,50 +37,6 @@ namespace sun {
 	namespace security {
 		namespace pkcs {
 
-$FieldInfo _ContentInfo_FieldInfo_[] = {
-	{"PKCS7_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, PKCS7_OID)},
-	{"DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, DATA_OID)},
-	{"SIGNED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, SIGNED_DATA_OID)},
-	{"ENVELOPED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, ENVELOPED_DATA_OID)},
-	{"SIGNED_AND_ENVELOPED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, SIGNED_AND_ENVELOPED_DATA_OID)},
-	{"DIGESTED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, DIGESTED_DATA_OID)},
-	{"ENCRYPTED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, ENCRYPTED_DATA_OID)},
-	{"OLD_SIGNED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, OLD_SIGNED_DATA_OID)},
-	{"OLD_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, OLD_DATA_OID)},
-	{"NETSCAPE_CERT_SEQUENCE_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, NETSCAPE_CERT_SEQUENCE_OID)},
-	{"TIMESTAMP_TOKEN_INFO_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, TIMESTAMP_TOKEN_INFO_OID)},
-	{"contentType", "Lsun/security/util/ObjectIdentifier;", nullptr, 0, $field(ContentInfo, contentType)},
-	{"content", "Lsun/security/util/DerValue;", nullptr, 0, $field(ContentInfo, content)},
-	{}
-};
-
-$MethodInfo _ContentInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $ObjectIdentifier*, $DerValue*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $bytes*)},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $DerInputStream*), "java.io.IOException,sun.security.pkcs.ParsingException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;Z)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $DerInputStream*, bool), "java.io.IOException,sun.security.pkcs.ParsingException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ContentInfo, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"getContent", "()Lsun/security/util/DerValue;", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getContent, $DerValue*)},
-	{"getContentBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getContentBytes, $bytes*), "java.io.IOException"},
-	{"getContentType", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getContentType, $ObjectIdentifier*)},
-	{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getData, $bytes*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ContentInfo, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ContentInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.pkcs.ContentInfo",
-	"java.lang.Object",
-	nullptr,
-	_ContentInfo_FieldInfo_,
-	_ContentInfo_MethodInfo_
-};
-
-$Object* allocate$ContentInfo($Class* clazz) {
-	return $of($alloc(ContentInfo));
-}
-
 $ObjectIdentifier* ContentInfo::PKCS7_OID = nullptr;
 $ObjectIdentifier* ContentInfo::DATA_OID = nullptr;
 $ObjectIdentifier* ContentInfo::SIGNED_DATA_OID = nullptr;
@@ -110,7 +65,7 @@ void ContentInfo::init$($DerInputStream* derin) {
 }
 
 void ContentInfo::init$($DerInputStream* derin, bool oldStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerInputStream, disType, nullptr);
 	$var($DerInputStream, disTaggedContent, nullptr);
 	$var($DerValue, type, nullptr);
@@ -118,10 +73,10 @@ void ContentInfo::init$($DerInputStream* derin, bool oldStyle) {
 	$var($DerValueArray, typeAndContent, nullptr);
 	$var($DerValueArray, contents, nullptr);
 	$assign(typeAndContent, $nc(derin)->getSequence(2));
-	if ($nc(typeAndContent)->length < 1 || $nc(typeAndContent)->length > 2) {
+	if ($nc(typeAndContent)->length < 1 || typeAndContent->length > 2) {
 		$throwNew($ParsingException, "Invalid length for ContentInfo"_s);
 	}
-	$assign(type, $nc(typeAndContent)->get(0));
+	$assign(type, typeAndContent->get(0));
 	$assign(disType, $new($DerInputStream, $($nc(type)->toByteArray())));
 	$set(this, contentType, disType->getOID());
 	if (oldStyle) {
@@ -133,7 +88,7 @@ void ContentInfo::init$($DerInputStream* derin, bool oldStyle) {
 		if ($nc(contents)->length != 1) {
 			$throwNew($ParsingException, "ContentInfo encoding error"_s);
 		}
-		$set(this, content, $nc(contents)->get(0));
+		$set(this, content, contents->get(0));
 	}
 }
 
@@ -147,19 +102,19 @@ $ObjectIdentifier* ContentInfo::getContentType() {
 
 $bytes* ContentInfo::getData() {
 	bool var$1 = $nc(this->contentType)->equals(ContentInfo::DATA_OID);
-	bool var$0 = var$1 || $nc(this->contentType)->equals(ContentInfo::OLD_DATA_OID);
-	if (var$0 || $nc(this->contentType)->equals(ContentInfo::TIMESTAMP_TOKEN_INFO_OID)) {
+	bool var$0 = var$1 || this->contentType->equals(ContentInfo::OLD_DATA_OID);
+	if (var$0 || this->contentType->equals(ContentInfo::TIMESTAMP_TOKEN_INFO_OID)) {
 		if (this->content == nullptr) {
 			return nullptr;
 		} else {
-			return $nc(this->content)->getOctetString();
+			return this->content->getOctetString();
 		}
 	}
 	$throwNew($IOException, $$str({"content type is not DATA: "_s, this->contentType}));
 }
 
 void ContentInfo::encode($DerOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, contentDerCode, nullptr);
 	$var($DerOutputStream, seq, nullptr);
 	$assign(seq, $new($DerOutputStream));
@@ -167,7 +122,7 @@ void ContentInfo::encode($DerOutputStream* out) {
 	if (this->content != nullptr) {
 		$var($DerValue, taggedContent, nullptr);
 		$assign(contentDerCode, $new($DerOutputStream));
-		$nc(this->content)->encode(contentDerCode);
+		this->content->encode(contentDerCode);
 		$assign(taggedContent, $new($DerValue, (int8_t)160, $(contentDerCode->toByteArray())));
 		seq->putDerValue(taggedContent);
 	}
@@ -175,7 +130,7 @@ void ContentInfo::encode($DerOutputStream* out) {
 }
 
 $bytes* ContentInfo::getContentBytes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->content == nullptr) {
 		return nullptr;
 	}
@@ -184,14 +139,14 @@ $bytes* ContentInfo::getContentBytes() {
 }
 
 $String* ContentInfo::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, out, ""_s);
 	$plusAssign(out, $$str({"Content Info Sequence\n\tContent type: "_s, this->contentType, "\n"_s}));
 	$plusAssign(out, $$str({"\tContent: "_s, this->content}));
 	return out;
 }
 
-void clinit$ContentInfo($Class* class$) {
+void ContentInfo::clinit$($Class* clazz) {
 	$init($KnownOIDs);
 	$assignStatic(ContentInfo::PKCS7_OID, $ObjectIdentifier::of($KnownOIDs::PKCS7));
 	$assignStatic(ContentInfo::DATA_OID, $ObjectIdentifier::of($KnownOIDs::Data));
@@ -210,7 +165,46 @@ ContentInfo::ContentInfo() {
 }
 
 $Class* ContentInfo::load$($String* name, bool initialize) {
-	$loadClass(ContentInfo, name, initialize, &_ContentInfo_ClassInfo_, clinit$ContentInfo, allocate$ContentInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"PKCS7_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, PKCS7_OID)},
+		{"DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, DATA_OID)},
+		{"SIGNED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, SIGNED_DATA_OID)},
+		{"ENVELOPED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, ENVELOPED_DATA_OID)},
+		{"SIGNED_AND_ENVELOPED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, SIGNED_AND_ENVELOPED_DATA_OID)},
+		{"DIGESTED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, DIGESTED_DATA_OID)},
+		{"ENCRYPTED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, ENCRYPTED_DATA_OID)},
+		{"OLD_SIGNED_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, OLD_SIGNED_DATA_OID)},
+		{"OLD_DATA_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, OLD_DATA_OID)},
+		{"NETSCAPE_CERT_SEQUENCE_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, NETSCAPE_CERT_SEQUENCE_OID)},
+		{"TIMESTAMP_TOKEN_INFO_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(ContentInfo, TIMESTAMP_TOKEN_INFO_OID)},
+		{"contentType", "Lsun/security/util/ObjectIdentifier;", nullptr, 0, $field(ContentInfo, contentType)},
+		{"content", "Lsun/security/util/DerValue;", nullptr, 0, $field(ContentInfo, content)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $ObjectIdentifier*, $DerValue*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $bytes*)},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $DerInputStream*), "java.io.IOException,sun.security.pkcs.ParsingException"},
+		{"<init>", "(Lsun/security/util/DerInputStream;Z)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $DerInputStream*, bool), "java.io.IOException,sun.security.pkcs.ParsingException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ContentInfo, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"getContent", "()Lsun/security/util/DerValue;", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getContent, $DerValue*)},
+		{"getContentBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getContentBytes, $bytes*), "java.io.IOException"},
+		{"getContentType", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getContentType, $ObjectIdentifier*)},
+		{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getData, $bytes*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ContentInfo, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.pkcs.ContentInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ContentInfo, name, initialize, &classInfo$$, ContentInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ContentInfo);
+	});
 	return class$;
 }
 

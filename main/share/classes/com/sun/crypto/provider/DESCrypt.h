@@ -21,6 +21,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void cipherBlock($bytes* in, int32_t inOffset, $bytes* out, int32_t outOffset);
 	virtual void decryptBlock($bytes* cipher, int32_t cipherOffset, $bytes* plain, int32_t plainOffset) override;

@@ -23,6 +23,7 @@
 #include <java/io/DataOutputStream.h>
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
+#include <string.h>
 
 using ::java::io::DataOutputStream;
 
@@ -71,6 +72,42 @@ void CompoundAttribute::visit(::jdk::internal::reflect::ConstantPool* cp) {
 	//for (; field != nullptr; field++) {
 
 	//}
+}
+
+CompoundAttribute* CompoundAttribute::clone() {
+	CompoundAttribute* newCompoundAttribute = $allocRawStatic(CompoundAttribute);
+	memcpy(newCompoundAttribute, this, sizeof(CompoundAttribute));
+	newCompoundAttribute->cloneSelf();
+	return newCompoundAttribute;
+}
+
+void CompoundAttribute::cloneSelf() {
+	attributes = NamedAttribute::cloneArray(attributes);
+}
+
+CompoundAttribute* CompoundAttribute::cloneArray(CompoundAttribute* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	CompoundAttribute* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	CompoundAttribute* newArray = $allocRawStatic(CompoundAttribute, count);
+	memcpy(newArray, array, sizeof(CompoundAttribute) * count);
+	it = newArray;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		it->cloneSelf();
+	}
+	return newArray;
 }
 
 	} // lang

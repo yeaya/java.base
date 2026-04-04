@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/DelegatingClassLoader.h>
-
 #include <java/lang/ClassLoader.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace jdk {
 	namespace internal {
 		namespace reflect {
 
-$MethodInfo _DelegatingClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(DelegatingClassLoader, init$, void, $ClassLoader*)},
-	{}
-};
-
-$ClassInfo _DelegatingClassLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.reflect.DelegatingClassLoader",
-	"java.lang.ClassLoader",
-	nullptr,
-	nullptr,
-	_DelegatingClassLoader_MethodInfo_
-};
-
-$Object* allocate$DelegatingClassLoader($Class* clazz) {
-	return $of($alloc(DelegatingClassLoader));
-}
-
 void DelegatingClassLoader::init$($ClassLoader* parent) {
 	$ClassLoader::init$(parent);
 }
@@ -37,7 +18,21 @@ DelegatingClassLoader::DelegatingClassLoader() {
 }
 
 $Class* DelegatingClassLoader::load$($String* name, bool initialize) {
-	$loadClass(DelegatingClassLoader, name, initialize, &_DelegatingClassLoader_ClassInfo_, allocate$DelegatingClassLoader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(DelegatingClassLoader, init$, void, $ClassLoader*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.reflect.DelegatingClassLoader",
+		"java.lang.ClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DelegatingClassLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DelegatingClassLoader);
+	});
 	return class$;
 }
 

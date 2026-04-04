@@ -1,5 +1,4 @@
 #include <java/security/KeyFactory.h>
-
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
 #include <java/security/KeyFactorySpi.h>
@@ -33,7 +32,6 @@ using $Provider$Service = ::java::security::Provider$Service;
 using $PublicKey = ::java::security::PublicKey;
 using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException;
 using $KeySpec = ::java::security::spec::KeySpec;
-using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $GetInstance = ::sun::security::jca::GetInstance;
@@ -42,45 +40,6 @@ using $Debug = ::sun::security::util::Debug;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _KeyFactory_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyFactory, debug)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyFactory, algorithm)},
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(KeyFactory, provider)},
-	{"spi", "Ljava/security/KeyFactorySpi;", nullptr, $PRIVATE | $VOLATILE, $field(KeyFactory, spi)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(KeyFactory, lock)},
-	{"serviceIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PRIVATE, $field(KeyFactory, serviceIterator)},
-	{}
-};
-
-$MethodInfo _KeyFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(KeyFactory, init$, void, $KeyFactorySpi*, $Provider*, $String*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(KeyFactory, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"generatePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, generatePrivate, $PrivateKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
-	{"generatePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, generatePublic, $PublicKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, getAlgorithm, $String*)},
-	{"getInstance", "(Ljava/lang/String;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyFactory, getInstance, KeyFactory*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyFactory, getInstance, KeyFactory*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyFactory, getInstance, KeyFactory*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getKeySpec", "(Ljava/security/Key;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "<T::Ljava/security/spec/KeySpec;>(Ljava/security/Key;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $FINAL, $method(KeyFactory, getKeySpec, $KeySpec*, $Key*, $Class*), "java.security.spec.InvalidKeySpecException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, getProvider, $Provider*)},
-	{"nextSpi", "(Ljava/security/KeyFactorySpi;)Ljava/security/KeyFactorySpi;", nullptr, $PRIVATE, $method(KeyFactory, nextSpi, $KeyFactorySpi*, $KeyFactorySpi*)},
-	{"translateKey", "(Ljava/security/Key;)Ljava/security/Key;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, translateKey, $Key*, $Key*), "java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _KeyFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.KeyFactory",
-	"java.lang.Object",
-	nullptr,
-	_KeyFactory_FieldInfo_,
-	_KeyFactory_MethodInfo_
-};
-
-$Object* allocate$KeyFactory($Class* clazz) {
-	return $of($alloc(KeyFactory));
-}
 
 $Debug* KeyFactory::debug = nullptr;
 
@@ -92,7 +51,7 @@ void KeyFactory::init$($KeyFactorySpi* keyFacSpi, $Provider* provider, $String* 
 }
 
 void KeyFactory::init$($String* algorithm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, lock, $new($Object));
 	$set(this, algorithm, algorithm);
 	$var($List, list, $GetInstance::getServices("KeyFactory"_s, algorithm));
@@ -104,24 +63,24 @@ void KeyFactory::init$($String* algorithm) {
 
 KeyFactory* KeyFactory::getInstance($String* algorithm) {
 	$init(KeyFactory);
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	return $new(KeyFactory, algorithm);
 }
 
 KeyFactory* KeyFactory::getInstance($String* algorithm, $String* provider) {
 	$init(KeyFactory);
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($KeyFactorySpi);
 	$var($GetInstance$Instance, instance, $GetInstance::getInstance("KeyFactory"_s, $KeyFactorySpi::class$, algorithm, provider));
-	return $new(KeyFactory, $cast($KeyFactorySpi, $nc(instance)->impl), instance->provider, algorithm);
+	return $new(KeyFactory, $cast($KeyFactorySpi, $nc(instance)->impl), $nc(instance)->provider, algorithm);
 }
 
 KeyFactory* KeyFactory::getInstance($String* algorithm, $Provider* provider) {
 	$init(KeyFactory);
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($KeyFactorySpi);
 	$var($GetInstance$Instance, instance, $GetInstance::getInstance("KeyFactory"_s, $KeyFactorySpi::class$, algorithm, provider));
-	return $new(KeyFactory, $cast($KeyFactorySpi, $nc(instance)->impl), instance->provider, algorithm);
+	return $new(KeyFactory, $cast($KeyFactorySpi, $nc(instance)->impl), $nc(instance)->provider, algorithm);
 }
 
 $Provider* KeyFactory::getProvider() {
@@ -136,7 +95,7 @@ $String* KeyFactory::getAlgorithm() {
 }
 
 $KeyFactorySpi* KeyFactory::nextSpi($KeyFactorySpi* oldSpi) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if ((oldSpi != nullptr) && (oldSpi != this->spi)) {
 			return this->spi;
@@ -145,7 +104,7 @@ $KeyFactorySpi* KeyFactory::nextSpi($KeyFactorySpi* oldSpi) {
 			return nullptr;
 		}
 		while ($nc(this->serviceIterator)->hasNext()) {
-			$var($Provider$Service, s, $cast($Provider$Service, $nc(this->serviceIterator)->next()));
+			$var($Provider$Service, s, $cast($Provider$Service, this->serviceIterator->next()));
 			try {
 				$var($Object, obj, $nc(s)->newInstance(nullptr));
 				$var($KeyFactorySpi, spi, nullptr);
@@ -169,7 +128,7 @@ $KeyFactorySpi* KeyFactory::nextSpi($KeyFactorySpi* oldSpi) {
 }
 
 $PublicKey* KeyFactory::generatePublic($KeySpec* keySpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineGeneratePublic(keySpec);
 	}
@@ -196,7 +155,7 @@ $PublicKey* KeyFactory::generatePublic($KeySpec* keySpec) {
 }
 
 $PrivateKey* KeyFactory::generatePrivate($KeySpec* keySpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineGeneratePrivate(keySpec);
 	}
@@ -223,7 +182,7 @@ $PrivateKey* KeyFactory::generatePrivate($KeySpec* keySpec) {
 }
 
 $KeySpec* KeyFactory::getKeySpec($Key* key, $Class* keySpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineGetKeySpec(key, keySpec);
 	}
@@ -250,7 +209,7 @@ $KeySpec* KeyFactory::getKeySpec($Key* key, $Class* keySpec) {
 }
 
 $Key* KeyFactory::translateKey($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineTranslateKey(key);
 	}
@@ -276,7 +235,7 @@ $Key* KeyFactory::translateKey($Key* key) {
 	$shouldNotReachHere();
 }
 
-void clinit$KeyFactory($Class* class$) {
+void KeyFactory::clinit$($Class* clazz) {
 	$assignStatic(KeyFactory::debug, $Debug::getInstance("jca"_s, "KeyFactory"_s));
 }
 
@@ -284,7 +243,41 @@ KeyFactory::KeyFactory() {
 }
 
 $Class* KeyFactory::load$($String* name, bool initialize) {
-	$loadClass(KeyFactory, name, initialize, &_KeyFactory_ClassInfo_, clinit$KeyFactory, allocate$KeyFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyFactory, debug)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyFactory, algorithm)},
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(KeyFactory, provider)},
+		{"spi", "Ljava/security/KeyFactorySpi;", nullptr, $PRIVATE | $VOLATILE, $field(KeyFactory, spi)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(KeyFactory, lock)},
+		{"serviceIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PRIVATE, $field(KeyFactory, serviceIterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/KeyFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(KeyFactory, init$, void, $KeyFactorySpi*, $Provider*, $String*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(KeyFactory, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"generatePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, generatePrivate, $PrivateKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+		{"generatePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, generatePublic, $PublicKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, getAlgorithm, $String*)},
+		{"getInstance", "(Ljava/lang/String;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyFactory, getInstance, KeyFactory*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyFactory, getInstance, KeyFactory*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyFactory, getInstance, KeyFactory*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getKeySpec", "(Ljava/security/Key;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "<T::Ljava/security/spec/KeySpec;>(Ljava/security/Key;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $FINAL, $method(KeyFactory, getKeySpec, $KeySpec*, $Key*, $Class*), "java.security.spec.InvalidKeySpecException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, getProvider, $Provider*)},
+		{"nextSpi", "(Ljava/security/KeyFactorySpi;)Ljava/security/KeyFactorySpi;", nullptr, $PRIVATE, $method(KeyFactory, nextSpi, $KeyFactorySpi*, $KeyFactorySpi*)},
+		{"translateKey", "(Ljava/security/Key;)Ljava/security/Key;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, translateKey, $Key*, $Key*), "java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.KeyFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyFactory, name, initialize, &classInfo$$, KeyFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyFactory);
+	});
 	return class$;
 }
 

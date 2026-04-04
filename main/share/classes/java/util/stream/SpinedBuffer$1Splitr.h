@@ -29,6 +29,7 @@ class SpinedBuffer$1Splitr : public ::java::util::Spliterator {
 	$class(SpinedBuffer$1Splitr, 0, ::java::util::Spliterator)
 public:
 	SpinedBuffer$1Splitr();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::stream::SpinedBuffer* this$0, int32_t firstSpineIndex, int32_t lastSpineIndex, int32_t firstSpineElementIndex, int32_t lastSpineElementFence);
 	virtual int32_t characteristics() override;
 	virtual int64_t estimateSize() override;

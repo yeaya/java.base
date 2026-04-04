@@ -48,15 +48,16 @@ class KeyProtector : public ::java::lang::Object {
 	$class(KeyProtector, 0, ::java::lang::Object)
 public:
 	KeyProtector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($chars* password);
 	$bytes* protect(::java::security::PrivateKey* key);
 	::java::security::Key* recover(::com::sun::crypto::provider::EncryptedPrivateKeyInfo* encrInfo);
 	$bytes* recover($bytes* protectedKey);
 	::javax::crypto::SealedObject* seal(::java::security::Key* key);
 	::java::security::Key* unseal(::javax::crypto::SealedObject* so, int32_t maxLength);
-	static const int32_t MAX_ITERATION_COUNT = 0x004C4B40;
+	static const int32_t MAX_ITERATION_COUNT = 0x004c4b40;
 	static const int32_t MIN_ITERATION_COUNT = 10000;
-	static const int32_t DEFAULT_ITERATION_COUNT = 0x00030D40;
+	static const int32_t DEFAULT_ITERATION_COUNT = 0x00030d40;
 	static const int32_t SALT_LEN = 20;
 	static const int32_t DIGEST_LEN = 20;
 	static int32_t ITERATION_COUNT;

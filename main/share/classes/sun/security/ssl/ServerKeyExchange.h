@@ -22,6 +22,7 @@ class ServerKeyExchange : public ::java::lang::Object {
 	$class(ServerKeyExchange, 0, ::java::lang::Object)
 public:
 	ServerKeyExchange();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLConsumer* handshakeConsumer;
 	static ::sun::security::ssl::HandshakeProducer* handshakeProducer;

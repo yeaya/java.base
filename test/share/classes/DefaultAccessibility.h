@@ -9,6 +9,7 @@ class $export DefaultAccessibility : public ::java::lang::Object {
 	$class(DefaultAccessibility, 0, ::java::lang::Object)
 public:
 	DefaultAccessibility();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static int32_t f;

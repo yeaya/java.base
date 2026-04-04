@@ -1,38 +1,17 @@
 #include <UserDirChangedTest.h>
-
 #include <java/io/File.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$MethodInfo _UserDirChangedTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UserDirChangedTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UserDirChangedTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _UserDirChangedTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"UserDirChangedTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_UserDirChangedTest_MethodInfo_
-};
-
-$Object* allocate$UserDirChangedTest($Class* clazz) {
-	return $of($alloc(UserDirChangedTest));
-}
 
 void UserDirChangedTest::init$() {
 }
 
 void UserDirChangedTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, keyUserDir, "user.dir"_s);
 	$var($String, userDirNew, "/home/a/b/c/"_s);
 	$var($String, fileName, "./a"_s);
@@ -42,12 +21,12 @@ void UserDirChangedTest::main($StringArray* args) {
 	$System::setProperty(keyUserDir, userDirNew);
 	$var($String, newCanFilePath, file->getCanonicalPath());
 	$nc($System::out)->format("%24s %48s%n"_s, $$new($ObjectArray, {
-		$of("Canonical Path = "_s),
-		$of(canFilePath)
+		"Canonical Path = "_s,
+		canFilePath
 	}));
-	$nc($System::out)->format("%24s %48s%n"_s, $$new($ObjectArray, {
-		$of("new Canonical Path = "_s),
-		$of(newCanFilePath)
+	$System::out->format("%24s %48s%n"_s, $$new($ObjectArray, {
+		"new Canonical Path = "_s,
+		newCanFilePath
 	}));
 	if (!$nc(canFilePath)->equals(newCanFilePath)) {
 		$throwNew($RuntimeException, "Changing property user.dir should have no effect on getCanonicalPath"_s);
@@ -58,7 +37,22 @@ UserDirChangedTest::UserDirChangedTest() {
 }
 
 $Class* UserDirChangedTest::load$($String* name, bool initialize) {
-	$loadClass(UserDirChangedTest, name, initialize, &_UserDirChangedTest_ClassInfo_, allocate$UserDirChangedTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UserDirChangedTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UserDirChangedTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"UserDirChangedTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UserDirChangedTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UserDirChangedTest);
+	});
 	return class$;
 }
 

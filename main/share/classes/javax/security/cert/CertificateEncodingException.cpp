@@ -1,5 +1,4 @@
 #include <javax/security/cert/CertificateEncodingException.h>
-
 #include <javax/security/cert/CertificateException.h>
 #include <jcpp.h>
 
@@ -13,45 +12,6 @@ using $CertificateException = ::javax::security::cert::CertificateException;
 namespace javax {
 	namespace security {
 		namespace cert {
-
-$NamedAttribute CertificateEncodingException_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _CertificateEncodingException_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", CertificateEncodingException_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _CertificateEncodingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateEncodingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CertificateEncodingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _CertificateEncodingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.cert.CertificateEncodingException",
-	"javax.security.cert.CertificateException",
-	nullptr,
-	_CertificateEncodingException_FieldInfo_,
-	_CertificateEncodingException_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_CertificateEncodingException_Annotations_
-};
-
-$Object* allocate$CertificateEncodingException($Class* clazz) {
-	return $of($alloc(CertificateEncodingException));
-}
 
 void CertificateEncodingException::init$() {
 	$CertificateException::init$();
@@ -72,7 +32,39 @@ void CertificateEncodingException::throw$() {
 }
 
 $Class* CertificateEncodingException::load$($String* name, bool initialize) {
-	$loadClass(CertificateEncodingException, name, initialize, &_CertificateEncodingException_ClassInfo_, allocate$CertificateEncodingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateEncodingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $String*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.cert.CertificateEncodingException",
+		"javax.security.cert.CertificateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(CertificateEncodingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateEncodingException);
+	});
 	return class$;
 }
 

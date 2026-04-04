@@ -1,5 +1,4 @@
 #include <java/lang/Math2/AbsPositiveZero.h>
-
 #include <java/lang/Math.h>
 #include <jcpp.h>
 
@@ -16,27 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace Math2 {
-
-$MethodInfo _AbsPositiveZero_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AbsPositiveZero, init$, void)},
-	{"isPositiveZero", "(F)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsPositiveZero, isPositiveZero, bool, float)},
-	{"isPositiveZero", "(D)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsPositiveZero, isPositiveZero, bool, double)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AbsPositiveZero, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _AbsPositiveZero_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.Math2.AbsPositiveZero",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AbsPositiveZero_MethodInfo_
-};
-
-$Object* allocate$AbsPositiveZero($Class* clazz) {
-	return $of($alloc(AbsPositiveZero));
-}
 
 void AbsPositiveZero::init$() {
 }
@@ -58,7 +36,6 @@ void AbsPositiveZero::main($StringArray* args) {
 	if (!isPositiveZero($Math::abs(+0.0))) {
 		$throwNew($Exception, "abs(+0.0d) failed"_s);
 	}
-	$init($Double);
 	if ($Math::abs($Double::POSITIVE_INFINITY) != $Double::POSITIVE_INFINITY) {
 		$throwNew($Exception, "abs(+Inf) failed"_s);
 	}
@@ -75,7 +52,6 @@ void AbsPositiveZero::main($StringArray* args) {
 	if (!isPositiveZero($Math::abs(+0.0f))) {
 		$throwNew($Exception, "abs(+0.0f) failed"_s);
 	}
-	$init($Float);
 	if ($Math::abs($Float::POSITIVE_INFINITY) != $Float::POSITIVE_INFINITY) {
 		$throwNew($Exception, "abs(+Inf) failed"_s);
 	}
@@ -92,7 +68,24 @@ AbsPositiveZero::AbsPositiveZero() {
 }
 
 $Class* AbsPositiveZero::load$($String* name, bool initialize) {
-	$loadClass(AbsPositiveZero, name, initialize, &_AbsPositiveZero_ClassInfo_, allocate$AbsPositiveZero);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AbsPositiveZero, init$, void)},
+		{"isPositiveZero", "(F)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsPositiveZero, isPositiveZero, bool, float)},
+		{"isPositiveZero", "(D)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsPositiveZero, isPositiveZero, bool, double)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AbsPositiveZero, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.Math2.AbsPositiveZero",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AbsPositiveZero, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbsPositiveZero);
+	});
 	return class$;
 }
 

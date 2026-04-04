@@ -1,5 +1,4 @@
 #include <sun/nio/ch/MembershipKeyImpl$Type4.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/NetworkInterface.h>
 #include <java/nio/channels/MulticastChannel.h>
@@ -18,46 +17,6 @@ using $MembershipKeyImpl = ::sun::nio::ch::MembershipKeyImpl;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _MembershipKeyImpl$Type4_FieldInfo_[] = {
-	{"groupAddress", "I", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type4, groupAddress$)},
-	{"interfAddress", "I", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type4, interfAddress)},
-	{"sourceAddress", "I", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type4, sourceAddress$)},
-	{}
-};
-
-$MethodInfo _MembershipKeyImpl$Type4_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/MulticastChannel;Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;III)V", nullptr, 0, $method(MembershipKeyImpl$Type4, init$, void, $MulticastChannel*, $InetAddress*, $NetworkInterface*, $InetAddress*, int32_t, int32_t, int32_t)},
-	{"groupAddress", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type4, groupAddress, int32_t)},
-	{"interfaceAddress", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type4, interfaceAddress, int32_t)},
-	{"source", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type4, source, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MembershipKeyImpl$Type4_InnerClassesInfo_[] = {
-	{"sun.nio.ch.MembershipKeyImpl$Type4", "sun.nio.ch.MembershipKeyImpl", "Type4", $STATIC},
-	{}
-};
-
-$ClassInfo _MembershipKeyImpl$Type4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.MembershipKeyImpl$Type4",
-	"sun.nio.ch.MembershipKeyImpl",
-	nullptr,
-	_MembershipKeyImpl$Type4_FieldInfo_,
-	_MembershipKeyImpl$Type4_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MembershipKeyImpl$Type4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.MembershipKeyImpl"
-};
-
-$Object* allocate$MembershipKeyImpl$Type4($Class* clazz) {
-	return $of($alloc(MembershipKeyImpl$Type4));
-}
 
 void MembershipKeyImpl$Type4::init$($MulticastChannel* ch, $InetAddress* group, $NetworkInterface* interf, $InetAddress* source, int32_t groupAddress, int32_t interfAddress, int32_t sourceAddress) {
 	$MembershipKeyImpl::init$(ch, group, interf, source);
@@ -82,7 +41,41 @@ MembershipKeyImpl$Type4::MembershipKeyImpl$Type4() {
 }
 
 $Class* MembershipKeyImpl$Type4::load$($String* name, bool initialize) {
-	$loadClass(MembershipKeyImpl$Type4, name, initialize, &_MembershipKeyImpl$Type4_ClassInfo_, allocate$MembershipKeyImpl$Type4);
+	$FieldInfo fieldInfos$$[] = {
+		{"groupAddress", "I", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type4, groupAddress$)},
+		{"interfAddress", "I", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type4, interfAddress)},
+		{"sourceAddress", "I", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type4, sourceAddress$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/MulticastChannel;Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;III)V", nullptr, 0, $method(MembershipKeyImpl$Type4, init$, void, $MulticastChannel*, $InetAddress*, $NetworkInterface*, $InetAddress*, int32_t, int32_t, int32_t)},
+		{"groupAddress", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type4, groupAddress, int32_t)},
+		{"interfaceAddress", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type4, interfaceAddress, int32_t)},
+		{"source", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type4, source, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.MembershipKeyImpl$Type4", "sun.nio.ch.MembershipKeyImpl", "Type4", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.MembershipKeyImpl$Type4",
+		"sun.nio.ch.MembershipKeyImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.MembershipKeyImpl"
+	};
+	$loadClass(MembershipKeyImpl$Type4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MembershipKeyImpl$Type4);
+	});
 	return class$;
 }
 

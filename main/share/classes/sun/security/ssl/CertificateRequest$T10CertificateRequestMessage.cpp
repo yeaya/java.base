@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateRequest$T10CertificateRequestMessage.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/text/MessageFormat.h>
@@ -52,65 +51,18 @@ using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $Record = ::sun::security::ssl::Record;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertificateRequest$T10CertificateRequestMessage_FieldInfo_[] = {
-	{"types", "[B", nullptr, $FINAL, $field(CertificateRequest$T10CertificateRequestMessage, types)},
-	{"authorities", "Ljava/util/List;", "Ljava/util/List<[B>;", $FINAL, $field(CertificateRequest$T10CertificateRequestMessage, authorities)},
-	{}
-};
-
-$MethodInfo _CertificateRequest$T10CertificateRequestMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;[Ljava/security/cert/X509Certificate;Lsun/security/ssl/CipherSuite$KeyExchange;)V", nullptr, 0, $method(CertificateRequest$T10CertificateRequestMessage, init$, void, $HandshakeContext*, $X509CertificateArray*, $CipherSuite$KeyExchange*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateRequest$T10CertificateRequestMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"getAuthorities", "()[Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(CertificateRequest$T10CertificateRequestMessage, getAuthorities, $X500PrincipalArray*)},
-	{"getKeyTypes", "()[Ljava/lang/String;", nullptr, 0, $method(CertificateRequest$T10CertificateRequestMessage, getKeyTypes, $StringArray*)},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CertificateRequest$T10CertificateRequestMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateRequest$T10CertificateRequestMessage", "sun.security.ssl.CertificateRequest", "T10CertificateRequestMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CertificateRequest$T10CertificateRequestMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateRequest$T10CertificateRequestMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_CertificateRequest$T10CertificateRequestMessage_FieldInfo_,
-	_CertificateRequest$T10CertificateRequestMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateRequest$T10CertificateRequestMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateRequest"
-};
-
-$Object* allocate$CertificateRequest$T10CertificateRequestMessage($Class* clazz) {
-	return $of($alloc(CertificateRequest$T10CertificateRequestMessage));
-}
-
 void CertificateRequest$T10CertificateRequestMessage::init$($HandshakeContext* handshakeContext, $X509CertificateArray* trustedCerts, $CipherSuite$KeyExchange* keyExchange) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$set(this, authorities, $new($ArrayList, $nc(trustedCerts)->length));
 	{
 		$var($X509CertificateArray, arr$, trustedCerts);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($X509Certificate, cert, arr$->get(i$));
 			{
 				$var($X500Principal, x500Principal, $nc(cert)->getSubjectX500Principal());
@@ -123,7 +75,7 @@ void CertificateRequest$T10CertificateRequestMessage::init$($HandshakeContext* h
 }
 
 void CertificateRequest$T10CertificateRequestMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	if ($nc(m)->remaining() < 4) {
 		$init($Alert);
@@ -131,7 +83,7 @@ void CertificateRequest$T10CertificateRequestMessage::init$($HandshakeContext* h
 	}
 	$set(this, types, $Record::getBytes8(m));
 	int32_t listLen = $Record::getInt16(m);
-	if (listLen > $nc(m)->remaining()) {
+	if (listLen > m->remaining()) {
 		$init($Alert);
 		$throw($($nc($nc(handshakeContext)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Incorrect CertificateRequest message:no sufficient data"_s)));
 	}
@@ -152,11 +104,11 @@ $StringArray* CertificateRequest$T10CertificateRequestMessage::getKeyTypes() {
 }
 
 $X500PrincipalArray* CertificateRequest$T10CertificateRequestMessage::getAuthorities() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X500PrincipalArray, principals, $new($X500PrincipalArray, $nc(this->authorities)->size()));
 	int32_t i = 0;
 	{
-		$var($Iterator, i$, $nc(this->authorities)->iterator());
+		$var($Iterator, i$, this->authorities->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($bytes, encoded, $cast($bytes, i$->next()));
 			{
@@ -173,7 +125,7 @@ $SSLHandshake* CertificateRequest$T10CertificateRequestMessage::handshakeType() 
 }
 
 int32_t CertificateRequest$T10CertificateRequestMessage::messageLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = 1 + $nc(this->types)->length + 2;
 	{
 		$var($Iterator, i$, $nc(this->authorities)->iterator());
@@ -188,7 +140,7 @@ int32_t CertificateRequest$T10CertificateRequestMessage::messageLength() {
 }
 
 void CertificateRequest$T10CertificateRequestMessage::send($HandshakeOutStream* hos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(hos)->putBytes8(this->types);
 	int32_t listLen = 0;
 	{
@@ -202,7 +154,7 @@ void CertificateRequest$T10CertificateRequestMessage::send($HandshakeOutStream* 
 	}
 	hos->putInt16(listLen);
 	{
-		$var($Iterator, i$, $nc(this->authorities)->iterator());
+		$var($Iterator, i$, this->authorities->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($bytes, encoded, $cast($bytes, i$->next()));
 			{
@@ -213,15 +165,13 @@ void CertificateRequest$T10CertificateRequestMessage::send($HandshakeOutStream* 
 }
 
 $String* CertificateRequest$T10CertificateRequestMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"CertificateRequest\": \'{\'\n  \"certificate types\": {0}\n  \"certificate authorities\": {1}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($List, typeNames, $new($ArrayList, $nc(this->types)->length));
 	{
 		$var($bytes, arr$, this->types);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int8_t type = arr$->get(i$);
 			{
 				typeNames->add($($CertificateRequest$ClientCertificateType::nameOf(type)));
@@ -230,7 +180,7 @@ $String* CertificateRequest$T10CertificateRequestMessage::toString() {
 	}
 	$var($List, authorityNames, $new($ArrayList, $nc(this->authorities)->size()));
 	{
-		$var($Iterator, i$, $nc(this->authorities)->iterator());
+		$var($Iterator, i$, this->authorities->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($bytes, encoded, $cast($bytes, i$->next()));
 			{
@@ -240,8 +190,8 @@ $String* CertificateRequest$T10CertificateRequestMessage::toString() {
 		}
 	}
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$of(typeNames),
-		$of(authorityNames)
+		typeNames,
+		authorityNames
 	}));
 	return messageFormat->format(messageFields);
 }
@@ -250,7 +200,45 @@ CertificateRequest$T10CertificateRequestMessage::CertificateRequest$T10Certifica
 }
 
 $Class* CertificateRequest$T10CertificateRequestMessage::load$($String* name, bool initialize) {
-	$loadClass(CertificateRequest$T10CertificateRequestMessage, name, initialize, &_CertificateRequest$T10CertificateRequestMessage_ClassInfo_, allocate$CertificateRequest$T10CertificateRequestMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"types", "[B", nullptr, $FINAL, $field(CertificateRequest$T10CertificateRequestMessage, types)},
+		{"authorities", "Ljava/util/List;", "Ljava/util/List<[B>;", $FINAL, $field(CertificateRequest$T10CertificateRequestMessage, authorities)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;[Ljava/security/cert/X509Certificate;Lsun/security/ssl/CipherSuite$KeyExchange;)V", nullptr, 0, $method(CertificateRequest$T10CertificateRequestMessage, init$, void, $HandshakeContext*, $X509CertificateArray*, $CipherSuite$KeyExchange*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateRequest$T10CertificateRequestMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"getAuthorities", "()[Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(CertificateRequest$T10CertificateRequestMessage, getAuthorities, $X500PrincipalArray*)},
+		{"getKeyTypes", "()[Ljava/lang/String;", nullptr, 0, $method(CertificateRequest$T10CertificateRequestMessage, getKeyTypes, $StringArray*)},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateRequest$T10CertificateRequestMessage", "sun.security.ssl.CertificateRequest", "T10CertificateRequestMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateRequest$T10CertificateRequestMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateRequest"
+	};
+	$loadClass(CertificateRequest$T10CertificateRequestMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateRequest$T10CertificateRequestMessage);
+	});
 	return class$;
 }
 

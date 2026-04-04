@@ -1,5 +1,4 @@
 #include <java/util/Map$Entry.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Comparable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -39,27 +38,24 @@ public:
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
 		 return Map$Entry::lambda$comparingByKey$bbdbfea9$1($cast(Map$Entry, c1), $cast(Map$Entry, c2));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1",
-	"java.lang.Object",
-	"java.util.Comparator,java.io.Serializable",
-	nullptr,
-	methodInfos
 };
 $Class* Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1::load$($String* name, bool initialize) {
-	$loadClass(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1",
+		"java.lang.Object",
+		"java.util.Comparator,java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1));
+	});
 	return class$;
 }
 $Class* Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1::class$ = nullptr;
@@ -72,27 +68,24 @@ public:
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
 		 return Map$Entry::lambda$comparingByValue$1065357e$1($cast(Map$Entry, c1), $cast(Map$Entry, c2));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1",
-	"java.lang.Object",
-	"java.util.Comparator,java.io.Serializable",
-	nullptr,
-	methodInfos
 };
 $Class* Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1::load$($String* name, bool initialize) {
-	$loadClass(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1",
+		"java.lang.Object",
+		"java.util.Comparator,java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1));
+	});
 	return class$;
 }
 $Class* Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1::class$ = nullptr;
@@ -106,33 +99,29 @@ public:
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
 		 return Map$Entry::lambda$comparingByKey$6d558cbf$1(cmp, $cast(Map$Entry, c1), $cast(Map$Entry, c2));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2>());
-	}
 	$Comparator* cmp = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2::fieldInfos[2] = {
-	{"cmp", "Ljava/util/Comparator;", nullptr, $PUBLIC, $field(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, cmp)},
-	{}
-};
-$MethodInfo Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, init$, void, $Comparator*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2",
-	"java.lang.Object",
-	"java.util.Comparator,java.io.Serializable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2::load$($String* name, bool initialize) {
-	$loadClass(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"cmp", "Ljava/util/Comparator;", nullptr, $PUBLIC, $field(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, cmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, init$, void, $Comparator*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2",
+		"java.lang.Object",
+		"java.util.Comparator,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2));
+	});
 	return class$;
 }
 $Class* Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2::class$ = nullptr;
@@ -146,80 +135,32 @@ public:
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
 		 return Map$Entry::lambda$comparingByValue$827a17d5$1(cmp, $cast(Map$Entry, c1), $cast(Map$Entry, c2));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3>());
-	}
 	$Comparator* cmp = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3::fieldInfos[2] = {
-	{"cmp", "Ljava/util/Comparator;", nullptr, $PUBLIC, $field(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, cmp)},
-	{}
-};
-$MethodInfo Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, init$, void, $Comparator*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3",
-	"java.lang.Object",
-	"java.util.Comparator,java.io.Serializable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3::load$($String* name, bool initialize) {
-	$loadClass(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"cmp", "Ljava/util/Comparator;", nullptr, $PUBLIC, $field(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, cmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, init$, void, $Comparator*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3",
+		"java.lang.Object",
+		"java.util.Comparator,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3));
+	});
 	return class$;
 }
 $Class* Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3::class$ = nullptr;
-
-$MethodInfo _Map$Entry_MethodInfo_[] = {
-	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Map$Entry, $deserializeLambda$, $Object*, $SerializedLambda*)},
-	{"comparingByKey", "()Ljava/util/Comparator;", "<K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>()Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $STATIC, $staticMethod(Map$Entry, comparingByKey, $Comparator*)},
-	{"comparingByKey", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Comparator<-TK;>;)Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $STATIC, $staticMethod(Map$Entry, comparingByKey, $Comparator*, $Comparator*)},
-	{"comparingByValue", "()Ljava/util/Comparator;", "<K:Ljava/lang/Object;V::Ljava/lang/Comparable<-TV;>;>()Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $STATIC, $staticMethod(Map$Entry, comparingByValue, $Comparator*)},
-	{"comparingByValue", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Comparator<-TV;>;)Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $STATIC, $staticMethod(Map$Entry, comparingByValue, $Comparator*, $Comparator*)},
-	{"copyOf", "(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map$Entry<+TK;+TV;>;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $STATIC, $staticMethod(Map$Entry, copyOf, Map$Entry*, Map$Entry*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $ABSTRACT, $virtualMethod(Map$Entry, getKey, $Object*)},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Map$Entry, getValue, $Object*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"lambda$comparingByKey$6d558cbf$1", "(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Map$Entry, lambda$comparingByKey$6d558cbf$1, int32_t, $Comparator*, Map$Entry*, Map$Entry*)},
-	{"lambda$comparingByKey$bbdbfea9$1", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Map$Entry, lambda$comparingByKey$bbdbfea9$1, int32_t, Map$Entry*, Map$Entry*)},
-	{"lambda$comparingByValue$1065357e$1", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Map$Entry, lambda$comparingByValue$1065357e$1, int32_t, Map$Entry*, Map$Entry*)},
-	{"lambda$comparingByValue$827a17d5$1", "(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Map$Entry, lambda$comparingByValue$827a17d5$1, int32_t, $Comparator*, Map$Entry*, Map$Entry*)},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Map$Entry, setValue, $Object*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Map$Entry_InnerClassesInfo_[] = {
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Map$Entry_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.Map$Entry",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Map$Entry_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_Map$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Map"
-};
-
-$Object* allocate$Map$Entry($Class* clazz) {
-	return $of($alloc(Map$Entry));
-}
 
 bool Map$Entry::equals(Object$* o) {
 	 return this->$Object::equals(o);
@@ -230,25 +171,25 @@ int32_t Map$Entry::hashCode() {
 }
 
 $Comparator* Map$Entry::comparingByKey() {
-	return $cast($Comparator, $cast($Serializable, static_cast<$Comparator*>($new(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1))));
+	return $cast($Comparator, $cast($Serializable, $new(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1)));
 }
 
 $Comparator* Map$Entry::comparingByValue() {
-	return $cast($Comparator, $cast($Serializable, static_cast<$Comparator*>($new(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1))));
+	return $cast($Comparator, $cast($Serializable, $new(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1)));
 }
 
 $Comparator* Map$Entry::comparingByKey($Comparator* cmp) {
 	$Objects::requireNonNull(cmp);
-	return $cast($Comparator, $cast($Serializable, static_cast<$Comparator*>($new(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, cmp))));
+	return $cast($Comparator, $cast($Serializable, $new(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, cmp)));
 }
 
 $Comparator* Map$Entry::comparingByValue($Comparator* cmp) {
 	$Objects::requireNonNull(cmp);
-	return $cast($Comparator, $cast($Serializable, static_cast<$Comparator*>($new(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, cmp))));
+	return $cast($Comparator, $cast($Serializable, $new(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, cmp)));
 }
 
 Map$Entry* Map$Entry::copyOf(Map$Entry* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(e);
 	if ($instanceOf($KeyValueHolder, e)) {
 		return e;
@@ -259,86 +200,78 @@ Map$Entry* Map$Entry::copyOf(Map$Entry* e) {
 }
 
 $Object* Map$Entry::$deserializeLambda$($SerializedLambda* lambda) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($String, s21596$, $nc(lambda)->getImplMethodName());
 		int32_t tmp21596$ = -1;
 		switch ($nc(s21596$)->hashCode()) {
 		case 0x33855477:
-			{
-				if (s21596$->equals("lambda$comparingByValue$827a17d5$1"_s)) {
-					tmp21596$ = 0;
-				}
-				break;
+			if (s21596$->equals("lambda$comparingByValue$827a17d5$1"_s)) {
+				tmp21596$ = 0;
 			}
-		case (int32_t)0xD4D0DF83:
-			{
-				if (s21596$->equals("lambda$comparingByKey$bbdbfea9$1"_s)) {
-					tmp21596$ = 1;
-				}
-				break;
+			break;
+		case (int32_t)0xd4d0df83:
+			if (s21596$->equals("lambda$comparingByKey$bbdbfea9$1"_s)) {
+				tmp21596$ = 1;
 			}
-		case (int32_t)0xE0C0C44A:
-			{
-				if (s21596$->equals("lambda$comparingByValue$1065357e$1"_s)) {
-					tmp21596$ = 2;
-				}
-				break;
+			break;
+		case (int32_t)0xe0c0c44a:
+			if (s21596$->equals("lambda$comparingByValue$1065357e$1"_s)) {
+				tmp21596$ = 2;
 			}
-		case 0x5350A68B:
-			{
-				if (s21596$->equals("lambda$comparingByKey$6d558cbf$1"_s)) {
-					tmp21596$ = 3;
-				}
-				break;
+			break;
+		case 0x5350a68b:
+			if (s21596$->equals("lambda$comparingByKey$6d558cbf$1"_s)) {
+				tmp21596$ = 3;
 			}
+			break;
 		}
 		switch (tmp21596$) {
 		case 0:
 			{
 				bool var$4 = lambda->getImplMethodKind() == 6;
-				bool var$3 = var$4 && $nc($of($(lambda->getFunctionalInterfaceClass())))->equals("java/util/Comparator"_s);
-				bool var$2 = var$3 && $nc($of($(lambda->getFunctionalInterfaceMethodName())))->equals("compare"_s);
-				bool var$1 = var$2 && $nc($of($(lambda->getFunctionalInterfaceMethodSignature())))->equals("(Ljava/lang/Object;Ljava/lang/Object;)I"_s);
-				bool var$0 = var$1 && $nc($of($(lambda->getImplClass())))->equals("java/util/Map$Entry"_s);
-				if (var$0 && $nc($of($(lambda->getImplMethodSignature())))->equals("(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I"_s)) {
-					return $of(static_cast<$Comparator*>($new(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, $cast($Comparator, $(lambda->getCapturedArg(0))))));
+				bool var$3 = var$4 && $$nc(lambda->getFunctionalInterfaceClass())->equals("java/util/Comparator"_s);
+				bool var$2 = var$3 && $$nc(lambda->getFunctionalInterfaceMethodName())->equals("compare"_s);
+				bool var$1 = var$2 && $$nc(lambda->getFunctionalInterfaceMethodSignature())->equals("(Ljava/lang/Object;Ljava/lang/Object;)I"_s);
+				bool var$0 = var$1 && $$nc(lambda->getImplClass())->equals("java/util/Map$Entry"_s);
+				if (var$0 && $$nc(lambda->getImplMethodSignature())->equals("(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I"_s)) {
+					return $of($new(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, $$cast($Comparator, lambda->getCapturedArg(0))));
 				}
 				break;
 			}
 		case 1:
 			{
 				bool var$9 = lambda->getImplMethodKind() == 6;
-				bool var$8 = var$9 && $nc($of($(lambda->getFunctionalInterfaceClass())))->equals("java/util/Comparator"_s);
-				bool var$7 = var$8 && $nc($of($(lambda->getFunctionalInterfaceMethodName())))->equals("compare"_s);
-				bool var$6 = var$7 && $nc($of($(lambda->getFunctionalInterfaceMethodSignature())))->equals("(Ljava/lang/Object;Ljava/lang/Object;)I"_s);
-				bool var$5 = var$6 && $nc($of($(lambda->getImplClass())))->equals("java/util/Map$Entry"_s);
-				if (var$5 && $nc($of($(lambda->getImplMethodSignature())))->equals("(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I"_s)) {
-					return $of(static_cast<$Comparator*>($new(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1)));
+				bool var$8 = var$9 && $$nc(lambda->getFunctionalInterfaceClass())->equals("java/util/Comparator"_s);
+				bool var$7 = var$8 && $$nc(lambda->getFunctionalInterfaceMethodName())->equals("compare"_s);
+				bool var$6 = var$7 && $$nc(lambda->getFunctionalInterfaceMethodSignature())->equals("(Ljava/lang/Object;Ljava/lang/Object;)I"_s);
+				bool var$5 = var$6 && $$nc(lambda->getImplClass())->equals("java/util/Map$Entry"_s);
+				if (var$5 && $$nc(lambda->getImplMethodSignature())->equals("(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I"_s)) {
+					return $of($new(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1));
 				}
 				break;
 			}
 		case 2:
 			{
 				bool var$14 = lambda->getImplMethodKind() == 6;
-				bool var$13 = var$14 && $nc($of($(lambda->getFunctionalInterfaceClass())))->equals("java/util/Comparator"_s);
-				bool var$12 = var$13 && $nc($of($(lambda->getFunctionalInterfaceMethodName())))->equals("compare"_s);
-				bool var$11 = var$12 && $nc($of($(lambda->getFunctionalInterfaceMethodSignature())))->equals("(Ljava/lang/Object;Ljava/lang/Object;)I"_s);
-				bool var$10 = var$11 && $nc($of($(lambda->getImplClass())))->equals("java/util/Map$Entry"_s);
-				if (var$10 && $nc($of($(lambda->getImplMethodSignature())))->equals("(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I"_s)) {
-					return $of(static_cast<$Comparator*>($new(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1)));
+				bool var$13 = var$14 && $$nc(lambda->getFunctionalInterfaceClass())->equals("java/util/Comparator"_s);
+				bool var$12 = var$13 && $$nc(lambda->getFunctionalInterfaceMethodName())->equals("compare"_s);
+				bool var$11 = var$12 && $$nc(lambda->getFunctionalInterfaceMethodSignature())->equals("(Ljava/lang/Object;Ljava/lang/Object;)I"_s);
+				bool var$10 = var$11 && $$nc(lambda->getImplClass())->equals("java/util/Map$Entry"_s);
+				if (var$10 && $$nc(lambda->getImplMethodSignature())->equals("(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I"_s)) {
+					return $of($new(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1));
 				}
 				break;
 			}
 		case 3:
 			{
 				bool var$19 = lambda->getImplMethodKind() == 6;
-				bool var$18 = var$19 && $nc($of($(lambda->getFunctionalInterfaceClass())))->equals("java/util/Comparator"_s);
-				bool var$17 = var$18 && $nc($of($(lambda->getFunctionalInterfaceMethodName())))->equals("compare"_s);
-				bool var$16 = var$17 && $nc($of($(lambda->getFunctionalInterfaceMethodSignature())))->equals("(Ljava/lang/Object;Ljava/lang/Object;)I"_s);
-				bool var$15 = var$16 && $nc($of($(lambda->getImplClass())))->equals("java/util/Map$Entry"_s);
-				if (var$15 && $nc($of($(lambda->getImplMethodSignature())))->equals("(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I"_s)) {
-					return $of(static_cast<$Comparator*>($new(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, $cast($Comparator, $(lambda->getCapturedArg(0))))));
+				bool var$18 = var$19 && $$nc(lambda->getFunctionalInterfaceClass())->equals("java/util/Comparator"_s);
+				bool var$17 = var$18 && $$nc(lambda->getFunctionalInterfaceMethodName())->equals("compare"_s);
+				bool var$16 = var$17 && $$nc(lambda->getFunctionalInterfaceMethodSignature())->equals("(Ljava/lang/Object;Ljava/lang/Object;)I"_s);
+				bool var$15 = var$16 && $$nc(lambda->getImplClass())->equals("java/util/Map$Entry"_s);
+				if (var$15 && $$nc(lambda->getImplMethodSignature())->equals("(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I"_s)) {
+					return $of($new(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, $$cast($Comparator, lambda->getCapturedArg(0))));
 				}
 				break;
 			}
@@ -348,43 +281,82 @@ $Object* Map$Entry::$deserializeLambda$($SerializedLambda* lambda) {
 }
 
 int32_t Map$Entry::lambda$comparingByValue$827a17d5$1($Comparator* cmp, Map$Entry* c1, Map$Entry* c2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, var$0, $nc(c1)->getValue());
 	return $nc(cmp)->compare(var$0, $($nc(c2)->getValue()));
 }
 
 int32_t Map$Entry::lambda$comparingByKey$6d558cbf$1($Comparator* cmp, Map$Entry* c1, Map$Entry* c2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, var$0, $nc(c1)->getKey());
 	return $nc(cmp)->compare(var$0, $($nc(c2)->getKey()));
 }
 
 int32_t Map$Entry::lambda$comparingByValue$1065357e$1(Map$Entry* c1, Map$Entry* c2) {
-	$useLocalCurrentObjectStackCache();
-	return $nc(($cast($Comparable, $($nc(c1)->getValue()))))->compareTo($($nc(c2)->getValue()));
+	$useLocalObjectStack();
+	return $$sure($Comparable, $nc(c1)->getValue())->compareTo($($nc(c2)->getValue()));
 }
 
 int32_t Map$Entry::lambda$comparingByKey$bbdbfea9$1(Map$Entry* c1, Map$Entry* c2) {
-	$useLocalCurrentObjectStackCache();
-	return $nc(($cast($Comparable, $($nc(c1)->getKey()))))->compareTo($($nc(c2)->getKey()));
+	$useLocalObjectStack();
+	return $$sure($Comparable, $nc(c1)->getKey())->compareTo($($nc(c2)->getKey()));
 }
 
 $Class* Map$Entry::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1::classInfo$.name)) {
+		if (name->equals("java.util.Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1")) {
 			return Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1::load$(name, initialize);
 		}
-		if (name->equals(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1::classInfo$.name)) {
+		if (name->equals("java.util.Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1")) {
 			return Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1::load$(name, initialize);
 		}
-		if (name->equals(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2::classInfo$.name)) {
+		if (name->equals("java.util.Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2")) {
 			return Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2::load$(name, initialize);
 		}
-		if (name->equals(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3::classInfo$.name)) {
+		if (name->equals("java.util.Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3")) {
 			return Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3::load$(name, initialize);
 		}
 	}
-	$loadClass(Map$Entry, name, initialize, &_Map$Entry_ClassInfo_, allocate$Map$Entry);
+	$MethodInfo methodInfos$$[] = {
+		{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Map$Entry, $deserializeLambda$, $Object*, $SerializedLambda*)},
+		{"comparingByKey", "()Ljava/util/Comparator;", "<K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>()Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $STATIC, $staticMethod(Map$Entry, comparingByKey, $Comparator*)},
+		{"comparingByKey", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Comparator<-TK;>;)Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $STATIC, $staticMethod(Map$Entry, comparingByKey, $Comparator*, $Comparator*)},
+		{"comparingByValue", "()Ljava/util/Comparator;", "<K:Ljava/lang/Object;V::Ljava/lang/Comparable<-TV;>;>()Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $STATIC, $staticMethod(Map$Entry, comparingByValue, $Comparator*)},
+		{"comparingByValue", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Comparator<-TV;>;)Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $STATIC, $staticMethod(Map$Entry, comparingByValue, $Comparator*, $Comparator*)},
+		{"copyOf", "(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map$Entry<+TK;+TV;>;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $STATIC, $staticMethod(Map$Entry, copyOf, Map$Entry*, Map$Entry*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $ABSTRACT, $virtualMethod(Map$Entry, getKey, $Object*)},
+		{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Map$Entry, getValue, $Object*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"lambda$comparingByKey$6d558cbf$1", "(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Map$Entry, lambda$comparingByKey$6d558cbf$1, int32_t, $Comparator*, Map$Entry*, Map$Entry*)},
+		{"lambda$comparingByKey$bbdbfea9$1", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Map$Entry, lambda$comparingByKey$bbdbfea9$1, int32_t, Map$Entry*, Map$Entry*)},
+		{"lambda$comparingByValue$1065357e$1", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Map$Entry, lambda$comparingByValue$1065357e$1, int32_t, Map$Entry*, Map$Entry*)},
+		{"lambda$comparingByValue$827a17d5$1", "(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Map$Entry, lambda$comparingByValue$827a17d5$1, int32_t, $Comparator*, Map$Entry*, Map$Entry*)},
+		{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Map$Entry, setValue, $Object*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.Map$Entry",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Map"
+	};
+	$loadClass(Map$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Map$Entry);
+	});
 	return class$;
 }
 

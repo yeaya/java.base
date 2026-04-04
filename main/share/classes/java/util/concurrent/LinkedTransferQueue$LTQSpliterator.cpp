@@ -1,5 +1,4 @@
 #include <java/util/concurrent/LinkedTransferQueue$LTQSpliterator.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
@@ -32,58 +31,12 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _LinkedTransferQueue$LTQSpliterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/LinkedTransferQueue;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedTransferQueue$LTQSpliterator, this$0)},
-	{"MAX_BATCH", "I", nullptr, $STATIC | $FINAL, $constField(LinkedTransferQueue$LTQSpliterator, MAX_BATCH)},
-	{"current", "Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, 0, $field(LinkedTransferQueue$LTQSpliterator, current$)},
-	{"batch", "I", nullptr, 0, $field(LinkedTransferQueue$LTQSpliterator, batch)},
-	{"exhausted", "Z", nullptr, 0, $field(LinkedTransferQueue$LTQSpliterator, exhausted)},
-	{}
-};
-
-$MethodInfo _LinkedTransferQueue$LTQSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/LinkedTransferQueue;)V", nullptr, 0, $method(LinkedTransferQueue$LTQSpliterator, init$, void, $LinkedTransferQueue*)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, characteristics, int32_t)},
-	{"current", "()Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $PRIVATE, $method(LinkedTransferQueue$LTQSpliterator, current, $LinkedTransferQueue$Node*)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, forEachRemaining, void, $Consumer*)},
-	{"setCurrent", "(Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $PRIVATE, $method(LinkedTransferQueue$LTQSpliterator, setCurrent, void, $LinkedTransferQueue$Node*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _LinkedTransferQueue$LTQSpliterator_InnerClassesInfo_[] = {
-	{"java.util.concurrent.LinkedTransferQueue$LTQSpliterator", "java.util.concurrent.LinkedTransferQueue", "LTQSpliterator", $FINAL},
-	{}
-};
-
-$ClassInfo _LinkedTransferQueue$LTQSpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.LinkedTransferQueue$LTQSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_LinkedTransferQueue$LTQSpliterator_FieldInfo_,
-	_LinkedTransferQueue$LTQSpliterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
-	nullptr,
-	_LinkedTransferQueue$LTQSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.LinkedTransferQueue"
-};
-
-$Object* allocate$LinkedTransferQueue$LTQSpliterator($Class* clazz) {
-	return $of($alloc(LinkedTransferQueue$LTQSpliterator));
-}
-
 void LinkedTransferQueue$LTQSpliterator::init$($LinkedTransferQueue* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Spliterator* LinkedTransferQueue$LTQSpliterator::trySplit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedTransferQueue$Node, p, nullptr);
 	$var($LinkedTransferQueue$Node, q, nullptr);
 	if (($assign(p, current())) == nullptr || ($assign(q, $nc(p)->next)) == nullptr) {
@@ -125,7 +78,7 @@ void LinkedTransferQueue$LTQSpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool LinkedTransferQueue$LTQSpliterator::tryAdvance($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	$var($LinkedTransferQueue$Node, p, nullptr);
 	if (($assign(p, current())) != nullptr) {
@@ -181,7 +134,47 @@ LinkedTransferQueue$LTQSpliterator::LinkedTransferQueue$LTQSpliterator() {
 }
 
 $Class* LinkedTransferQueue$LTQSpliterator::load$($String* name, bool initialize) {
-	$loadClass(LinkedTransferQueue$LTQSpliterator, name, initialize, &_LinkedTransferQueue$LTQSpliterator_ClassInfo_, allocate$LinkedTransferQueue$LTQSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/LinkedTransferQueue;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedTransferQueue$LTQSpliterator, this$0)},
+		{"MAX_BATCH", "I", nullptr, $STATIC | $FINAL, $constField(LinkedTransferQueue$LTQSpliterator, MAX_BATCH)},
+		{"current", "Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, 0, $field(LinkedTransferQueue$LTQSpliterator, current$)},
+		{"batch", "I", nullptr, 0, $field(LinkedTransferQueue$LTQSpliterator, batch)},
+		{"exhausted", "Z", nullptr, 0, $field(LinkedTransferQueue$LTQSpliterator, exhausted)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/LinkedTransferQueue;)V", nullptr, 0, $method(LinkedTransferQueue$LTQSpliterator, init$, void, $LinkedTransferQueue*)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, characteristics, int32_t)},
+		{"current", "()Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $PRIVATE, $method(LinkedTransferQueue$LTQSpliterator, current, $LinkedTransferQueue$Node*)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, forEachRemaining, void, $Consumer*)},
+		{"setCurrent", "(Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $PRIVATE, $method(LinkedTransferQueue$LTQSpliterator, setCurrent, void, $LinkedTransferQueue$Node*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.LinkedTransferQueue$LTQSpliterator", "java.util.concurrent.LinkedTransferQueue", "LTQSpliterator", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.LinkedTransferQueue$LTQSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.LinkedTransferQueue"
+	};
+	$loadClass(LinkedTransferQueue$LTQSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedTransferQueue$LTQSpliterator);
+	});
 	return class$;
 }
 

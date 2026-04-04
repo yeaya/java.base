@@ -18,6 +18,7 @@ class StrictMath$RandomNumberGeneratorHolder : public ::java::lang::Object {
 	$class(StrictMath$RandomNumberGeneratorHolder, 0, ::java::lang::Object)
 public:
 	StrictMath$RandomNumberGeneratorHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Random* randomNumberGenerator;
 };

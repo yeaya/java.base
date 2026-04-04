@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CountDownLatch.h>
-
 #include <java/util/concurrent/CountDownLatch$Sync.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
@@ -15,45 +14,6 @@ using $TimeUnit = ::java::util::concurrent::TimeUnit;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _CountDownLatch_FieldInfo_[] = {
-	{"sync", "Ljava/util/concurrent/CountDownLatch$Sync;", nullptr, $PRIVATE | $FINAL, $field(CountDownLatch, sync)},
-	{}
-};
-
-$MethodInfo _CountDownLatch_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CountDownLatch, init$, void, int32_t)},
-	{"await", "()V", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, await, void), "java.lang.InterruptedException"},
-	{"await", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, await, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"countDown", "()V", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, countDown, void)},
-	{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, getCount, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CountDownLatch_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CountDownLatch$Sync", "java.util.concurrent.CountDownLatch", "Sync", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CountDownLatch_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.CountDownLatch",
-	"java.lang.Object",
-	nullptr,
-	_CountDownLatch_FieldInfo_,
-	_CountDownLatch_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CountDownLatch_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CountDownLatch$Sync"
-};
-
-$Object* allocate$CountDownLatch($Class* clazz) {
-	return $of($alloc(CountDownLatch));
-}
 
 void CountDownLatch::init$(int32_t count) {
 	if (count < 0) {
@@ -79,17 +39,53 @@ int64_t CountDownLatch::getCount() {
 }
 
 $String* CountDownLatch::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$($Object::toString()), "[Count = "_s}));
-	$var($String, var$0, $$concat(var$1, $$str($nc(this->sync)->getCount())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Object::toString()));
+	var$0->append("[Count = "_s);
+	var$0->append($nc(this->sync)->getCount());
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 CountDownLatch::CountDownLatch() {
 }
 
 $Class* CountDownLatch::load$($String* name, bool initialize) {
-	$loadClass(CountDownLatch, name, initialize, &_CountDownLatch_ClassInfo_, allocate$CountDownLatch);
+	$FieldInfo fieldInfos$$[] = {
+		{"sync", "Ljava/util/concurrent/CountDownLatch$Sync;", nullptr, $PRIVATE | $FINAL, $field(CountDownLatch, sync)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(CountDownLatch, init$, void, int32_t)},
+		{"await", "()V", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, await, void), "java.lang.InterruptedException"},
+		{"await", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, await, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"countDown", "()V", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, countDown, void)},
+		{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, getCount, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CountDownLatch$Sync", "java.util.concurrent.CountDownLatch", "Sync", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.CountDownLatch",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CountDownLatch$Sync"
+	};
+	$loadClass(CountDownLatch, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CountDownLatch);
+	});
 	return class$;
 }
 

@@ -76,6 +76,7 @@ public:
 	LocalDateTime();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::LocalDate* date, ::java::time::LocalTime* time);
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal) override;
 	::java::time::OffsetDateTime* atOffset(::java::time::ZoneOffset* offset);
@@ -163,7 +164,7 @@ public:
 	$Object* writeReplace();
 	static ::java::time::LocalDateTime* MIN;
 	static ::java::time::LocalDateTime* MAX;
-	static const int64_t serialVersionUID = (int64_t)0x56266AA6A95FFF2E;
+	static const int64_t serialVersionUID = (int64_t)0x56266aa6a95fff2e;
 	::java::time::LocalDate* date = nullptr;
 	::java::time::LocalTime* time = nullptr;
 };

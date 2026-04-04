@@ -128,6 +128,7 @@ public:
 	URI();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* str);
 	void init$($String* scheme, $String* userInfo, $String* host, int32_t port, $String* path, $String* query, $String* fragment);
@@ -204,7 +205,7 @@ public:
 	static bool validSchemeAndPath($String* scheme, $String* path);
 	void writeObject(::java::io::ObjectOutputStream* os);
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0xAC01782E439E49AB;
+	static const int64_t serialVersionUID = (int64_t)0xac01782e439e49ab;
 	$String* scheme = nullptr;
 	$String* fragment = nullptr;
 	$String* authority = nullptr;
@@ -222,48 +223,48 @@ public:
 	$String* decodedFragment = nullptr;
 	$String* decodedSchemeSpecificPart = nullptr;
 	$volatile($String*) string = nullptr;
-	static const int64_t L_DIGIT = (int64_t)0x03FF000000000000;
+	static const int64_t L_DIGIT = (int64_t)0x03ff000000000000;
 	static const int64_t H_DIGIT = (int64_t)0;
 	static const int64_t L_UPALPHA = (int64_t)0;
 	static const int64_t H_UPALPHA = (int64_t)134217726;
 	static const int64_t L_LOWALPHA = (int64_t)0;
-	static const int64_t H_LOWALPHA = (int64_t)0x07FFFFFE00000000;
+	static const int64_t H_LOWALPHA = (int64_t)0x07fffffe00000000;
 	static const int64_t L_ALPHA = 0; // L_LOWALPHA | L_UPALPHA
-	static const int64_t H_ALPHA = 0x07FFFFFE07FFFFFE; // H_LOWALPHA | H_UPALPHA
-	static const int64_t L_ALPHANUM = 0x03FF000000000000; // L_DIGIT | L_ALPHA
-	static const int64_t H_ALPHANUM = 0x07FFFFFE07FFFFFE; // H_DIGIT | H_ALPHA
+	static const int64_t H_ALPHA = 0x07fffffe07fffffe; // H_LOWALPHA | H_UPALPHA
+	static const int64_t L_ALPHANUM = 0x03ff000000000000; // L_DIGIT | L_ALPHA
+	static const int64_t H_ALPHANUM = 0x07fffffe07fffffe; // H_DIGIT | H_ALPHA
 	static const int64_t L_HEX = L_DIGIT;
-	static const int64_t H_HEX = (int64_t)0x0000007E0000007E;
+	static const int64_t H_HEX = (int64_t)0x0000007e0000007e;
 	static const int64_t L_MARK = (int64_t)0x0000678200000000;
 	static const int64_t H_MARK = (int64_t)0x4000000080000000;
-	static const int64_t L_UNRESERVED = 0x03FF678200000000; // L_ALPHANUM | L_MARK
-	static const int64_t H_UNRESERVED = 0x47FFFFFE87FFFFFE; // H_ALPHANUM | H_MARK
-	static const int64_t L_RESERVED = (int64_t)0xAC00985000000000;
+	static const int64_t L_UNRESERVED = 0x03ff678200000000; // L_ALPHANUM | L_MARK
+	static const int64_t H_UNRESERVED = 0x47fffffe87fffffe; // H_ALPHANUM | H_MARK
+	static const int64_t L_RESERVED = (int64_t)0xac00985000000000;
 	static const int64_t H_RESERVED = (int64_t)671088641;
 	static const int64_t L_ESCAPED = (int64_t)1;
 	static const int64_t H_ESCAPED = (int64_t)0;
-	static const int64_t L_URIC = 0xAFFFFFD200000001; // L_RESERVED | L_UNRESERVED | L_ESCAPED
-	static const int64_t H_URIC = 0x47FFFFFEAFFFFFFF; // H_RESERVED | H_UNRESERVED | H_ESCAPED
-	static const int64_t L_PCHAR = 0x27FF7FD200000001; // L_UNRESERVED | L_ESCAPED | 2594100117241856000L
-	static const int64_t H_PCHAR = 0x47FFFFFE87FFFFFF; // H_UNRESERVED | H_ESCAPED | 1L
-	static const int64_t L_PATH = 0x2FFFFFD200000001; // L_PCHAR | 576601489791778816L
+	static const int64_t L_URIC = 0xafffffd200000001; // L_RESERVED | L_UNRESERVED | L_ESCAPED
+	static const int64_t H_URIC = 0x47fffffeafffffff; // H_RESERVED | H_UNRESERVED | H_ESCAPED
+	static const int64_t L_PCHAR = 0x27ff7fd200000001; // L_UNRESERVED | L_ESCAPED | 2594100117241856000L
+	static const int64_t H_PCHAR = 0x47fffffe87ffffff; // H_UNRESERVED | H_ESCAPED | 1L
+	static const int64_t L_PATH = 0x2fffffd200000001; // L_PCHAR | 576601489791778816L
 	static const int64_t H_PATH = H_PCHAR;
 	static const int64_t L_DASH = (int64_t)0x0000200000000000;
 	static const int64_t H_DASH = (int64_t)0;
 	static const int64_t L_DOT = (int64_t)0x0000400000000000;
 	static const int64_t H_DOT = (int64_t)0;
-	static const int64_t L_USERINFO = 0x2FFF7FD200000001; // L_UNRESERVED | L_ESCAPED | 3170560869545279488L
-	static const int64_t H_USERINFO = 0x47FFFFFE87FFFFFE; // H_UNRESERVED | H_ESCAPED
-	static const int64_t L_REG_NAME = 0x2FFF7FD200000001; // L_UNRESERVED | L_ESCAPED | 3170560869545279488L
-	static const int64_t H_REG_NAME = 0x47FFFFFE87FFFFFF; // H_UNRESERVED | H_ESCAPED | 1L
-	static const int64_t L_SERVER = 0x2FFF7FD200000001; // L_USERINFO | L_ALPHANUM | L_DASH | 288300744895889408L
-	static const int64_t H_SERVER = 0x47FFFFFEAFFFFFFF; // H_USERINFO | H_ALPHANUM | H_DASH | 671088641L
-	static const int64_t L_SERVER_PERCENT = 0x2FFF7FF200000001; // L_SERVER | 137438953472L
+	static const int64_t L_USERINFO = 0x2fff7fd200000001; // L_UNRESERVED | L_ESCAPED | 3170560869545279488L
+	static const int64_t H_USERINFO = 0x47fffffe87fffffe; // H_UNRESERVED | H_ESCAPED
+	static const int64_t L_REG_NAME = 0x2fff7fd200000001; // L_UNRESERVED | L_ESCAPED | 3170560869545279488L
+	static const int64_t H_REG_NAME = 0x47fffffe87ffffff; // H_UNRESERVED | H_ESCAPED | 1L
+	static const int64_t L_SERVER = 0x2fff7fd200000001; // L_USERINFO | L_ALPHANUM | L_DASH | 288300744895889408L
+	static const int64_t H_SERVER = 0x47fffffeafffffff; // H_USERINFO | H_ALPHANUM | H_DASH | 671088641L
+	static const int64_t L_SERVER_PERCENT = 0x2fff7ff200000001; // L_SERVER | 137438953472L
 	static const int64_t H_SERVER_PERCENT = H_SERVER;
-	static const int64_t L_SCHEME = 0x03FF680000000000; // L_ALPHA | L_DIGIT | 114349209288704L
-	static const int64_t H_SCHEME = 0x07FFFFFE07FFFFFE; // H_ALPHA | H_DIGIT
-	static const int64_t L_SCOPE_ID = 0x03FF400000000000; // L_ALPHANUM | 70368744177664L
-	static const int64_t H_SCOPE_ID = 0x07FFFFFE87FFFFFE; // H_ALPHANUM | 2147483648L
+	static const int64_t L_SCHEME = 0x03ff680000000000; // L_ALPHA | L_DIGIT | 114349209288704L
+	static const int64_t H_SCHEME = 0x07fffffe07fffffe; // H_ALPHA | H_DIGIT
+	static const int64_t L_SCOPE_ID = 0x03ff400000000000; // L_ALPHANUM | 70368744177664L
+	static const int64_t H_SCOPE_ID = 0x07fffffe87fffffe; // H_ALPHANUM | 2147483648L
 	static $chars* hexDigits;
 };
 

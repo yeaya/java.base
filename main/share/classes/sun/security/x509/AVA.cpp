@@ -1,5 +1,4 @@
 #include <sun/security/x509/AVA.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -41,7 +40,6 @@ using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Reader = ::java::io::Reader;
-using $Appendable = ::java::lang::Appendable;
 using $Byte = ::java::lang::Byte;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
@@ -75,70 +73,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _AVA_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, debug)},
-	{"PRESERVE_OLD_DC_ENCODING", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, PRESERVE_OLD_DC_ENCODING)},
-	{"DEFAULT", "I", nullptr, $STATIC | $FINAL, $constField(AVA, DEFAULT)},
-	{"RFC1779", "I", nullptr, $STATIC | $FINAL, $constField(AVA, RFC1779)},
-	{"RFC2253", "I", nullptr, $STATIC | $FINAL, $constField(AVA, RFC2253)},
-	{"oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $FINAL, $field(AVA, oid)},
-	{"value", "Lsun/security/util/DerValue;", nullptr, $FINAL, $field(AVA, value)},
-	{"specialChars1779", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, specialChars1779)},
-	{"specialChars2253", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, specialChars2253)},
-	{"specialCharsDefault", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, specialCharsDefault)},
-	{"escapedDefault", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, escapedDefault)},
-	{}
-};
-
-$MethodInfo _AVA_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(AVA, init$, void, $ObjectIdentifier*, $DerValue*)},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, 0, $method(AVA, init$, void, $Reader*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/Reader;Ljava/util/Map;)V", "(Ljava/io/Reader;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(AVA, init$, void, $Reader*, $Map*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/Reader;I)V", nullptr, 0, $method(AVA, init$, void, $Reader*, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/io/Reader;ILjava/util/Map;)V", "(Ljava/io/Reader;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(AVA, init$, void, $Reader*, int32_t, $Map*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, 0, $method(AVA, init$, void, $DerValue*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, 0, $method(AVA, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AVA, derEncode, void, $OutputStream*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AVA, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AVA, equals, bool, Object$*)},
-	{"getDerValue", "()Lsun/security/util/DerValue;", nullptr, $PUBLIC, $virtualMethod(AVA, getDerValue, $DerValue*)},
-	{"getEmbeddedHexPair", "(ILjava/io/Reader;)Ljava/lang/Byte;", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, getEmbeddedHexPair, $Byte*, int32_t, $Reader*), "java.io.IOException"},
-	{"getEmbeddedHexString", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Ljava/lang/Byte;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(AVA, getEmbeddedHexString, $String*, $List*)},
-	{"getObjectIdentifier", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(AVA, getObjectIdentifier, $ObjectIdentifier*)},
-	{"getValueString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AVA, getValueString, $String*)},
-	{"hasRFC2253Keyword", "()Z", nullptr, 0, $virtualMethod(AVA, hasRFC2253Keyword, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AVA, hashCode, int32_t)},
-	{"isDerString", "(Lsun/security/util/DerValue;Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, isDerString, bool, $DerValue*, bool)},
-	{"isTerminator", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, isTerminator, bool, int32_t, int32_t)},
-	{"parseHexString", "(Ljava/io/Reader;I)Lsun/security/util/DerValue;", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, parseHexString, $DerValue*, $Reader*, int32_t), "java.io.IOException"},
-	{"parseQuotedString", "(Ljava/io/Reader;Ljava/lang/StringBuilder;)Lsun/security/util/DerValue;", nullptr, $PRIVATE, $method(AVA, parseQuotedString, $DerValue*, $Reader*, $StringBuilder*), "java.io.IOException"},
-	{"parseString", "(Ljava/io/Reader;IILjava/lang/StringBuilder;)Lsun/security/util/DerValue;", nullptr, $PRIVATE, $method(AVA, parseString, $DerValue*, $Reader*, int32_t, int32_t, $StringBuilder*), "java.io.IOException"},
-	{"readChar", "(Ljava/io/Reader;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, readChar, int32_t, $Reader*, $String*), "java.io.IOException"},
-	{"toKeyword", "(ILjava/util/Map;)Ljava/lang/String;", "(ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE, $method(AVA, toKeyword, $String*, int32_t, $Map*)},
-	{"toKeywordValueString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(AVA, toKeywordValueString, $String*, $String*)},
-	{"toRFC1779String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AVA, toRFC1779String, $String*)},
-	{"toRFC1779String", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(AVA, toRFC1779String, $String*, $Map*)},
-	{"toRFC2253CanonicalString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AVA, toRFC2253CanonicalString, $String*)},
-	{"toRFC2253String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AVA, toRFC2253String, $String*)},
-	{"toRFC2253String", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(AVA, toRFC2253String, $String*, $Map*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AVA, toString, $String*)},
-	{"trailingSpace", "(Ljava/io/Reader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, trailingSpace, bool, $Reader*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AVA_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.AVA",
-	"java.lang.Object",
-	"sun.security.util.DerEncoder",
-	_AVA_FieldInfo_,
-	_AVA_MethodInfo_
-};
-
-$Object* allocate$AVA($Class* clazz) {
-	return $of($alloc(AVA));
-}
-
 $Debug* AVA::debug = nullptr;
 bool AVA::PRESERVE_OLD_DC_ENCODING = false;
 $String* AVA::specialChars1779 = nullptr;
@@ -167,7 +101,7 @@ void AVA::init$($Reader* in, int32_t format) {
 }
 
 void AVA::init$($Reader* in, int32_t format, $Map* keywordMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, temp, $new($StringBuilder));
 	int32_t c = 0;
 	while (true) {
@@ -211,7 +145,7 @@ $DerValue* AVA::getDerValue() {
 }
 
 $String* AVA::getValueString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, s, $nc(this->value)->getAsString());
 		if (s == nullptr) {
@@ -226,10 +160,10 @@ $String* AVA::getValueString() {
 
 $DerValue* AVA::parseHexString($Reader* in, int32_t format) {
 	$init(AVA);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t c = 0;
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
-	int8_t b = (int8_t)0;
+	int8_t b = 0;
 	int32_t cNdx = 0;
 	while (true) {
 		c = $nc(in)->read();
@@ -240,7 +174,7 @@ $DerValue* AVA::parseHexString($Reader* in, int32_t format) {
 			int32_t cVal = $HexFormat::fromHexDigit(c);
 			if ((cNdx % 2) == 1) {
 				b = (int8_t)((b * 16) + (int8_t)(cVal));
-				baos->write((int32_t)b);
+				baos->write(b);
 			} else {
 				b = (int8_t)(cVal);
 			}
@@ -259,7 +193,7 @@ $DerValue* AVA::parseHexString($Reader* in, int32_t format) {
 }
 
 $DerValue* AVA::parseQuotedString($Reader* in, $StringBuilder* temp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t c = readChar(in, "Quoted string did not end in quote"_s);
 	$var($List, embeddedHex, $new($ArrayList));
 	bool isPrintableString = true;
@@ -273,7 +207,7 @@ $DerValue* AVA::parseQuotedString($Reader* in, $StringBuilder* temp) {
 				c = $nc(in)->read();
 				continue;
 			}
-			if ($nc(AVA::specialChars1779)->indexOf((int32_t)(char16_t)c) < 0) {
+			if (AVA::specialChars1779->indexOf((char16_t)c) < 0) {
 				$throwNew($IOException, $$str({"Invalid escaped character in AVA: "_s, $$str((char16_t)c)}));
 			}
 		}
@@ -300,17 +234,17 @@ $DerValue* AVA::parseQuotedString($Reader* in, $StringBuilder* temp) {
 	$init($PKCS9Attribute);
 	bool var$0 = $nc(this->oid)->equals($PKCS9Attribute::EMAIL_ADDRESS_OID);
 	$init($X500Name);
-	if (var$0 || ($nc(this->oid)->equals($X500Name::DOMAIN_COMPONENT_OID) && AVA::PRESERVE_OLD_DC_ENCODING == false)) {
-		return $new($DerValue, $DerValue::tag_IA5String, $($nc($($nc(temp)->toString()))->trim()));
+	if (var$0 || (this->oid->equals($X500Name::DOMAIN_COMPONENT_OID) && AVA::PRESERVE_OLD_DC_ENCODING == false)) {
+		return $new($DerValue, $DerValue::tag_IA5String, $($($nc(temp)->toString())->trim()));
 	} else if (isPrintableString) {
-		return $new($DerValue, $($nc($($nc(temp)->toString()))->trim()));
+		return $new($DerValue, $($($nc(temp)->toString())->trim()));
 	} else {
-		return $new($DerValue, $DerValue::tag_UTF8String, $($nc($($nc(temp)->toString()))->trim()));
+		return $new($DerValue, $DerValue::tag_UTF8String, $($($nc(temp)->toString())->trim()));
 	}
 }
 
 $DerValue* AVA::parseString($Reader* in, int32_t c, int32_t format, $StringBuilder* temp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, embeddedHex, $new($ArrayList));
 	bool isPrintableString = true;
 	bool escape = false;
@@ -329,7 +263,7 @@ $DerValue* AVA::parseString($Reader* in, int32_t c, int32_t format, $StringBuild
 				leadingChar = false;
 				continue;
 			}
-			if (format == AVA::DEFAULT && $nc(AVA::specialCharsDefault)->indexOf((int32_t)(char16_t)c) == -1) {
+			if (format == AVA::DEFAULT && AVA::specialCharsDefault->indexOf((char16_t)c) == -1) {
 				$throwNew($IOException, $$str({"Invalid escaped character in AVA: \'"_s, $$str((char16_t)c), "\'"_s}));
 			} else if (format == AVA::RFC2253) {
 				if (c == u' ') {
@@ -340,15 +274,15 @@ $DerValue* AVA::parseString($Reader* in, int32_t c, int32_t format, $StringBuild
 					if (!leadingChar) {
 						$throwNew($IOException, "Invalid escaped \'#\' character in AVA.  Only a leading \'#\' can be escaped."_s);
 					}
-				} else if ($nc(AVA::specialChars2253)->indexOf((int32_t)(char16_t)c) == -1) {
+				} else if (AVA::specialChars2253->indexOf((char16_t)c) == -1) {
 					$throwNew($IOException, $$str({"Invalid escaped character in AVA: \'"_s, $$str((char16_t)c), "\'"_s}));
 				}
 			}
 		} else if (format == AVA::RFC2253) {
-			if ($nc(AVA::specialChars2253)->indexOf((int32_t)(char16_t)c) != -1) {
+			if (AVA::specialChars2253->indexOf((char16_t)c) != -1) {
 				$throwNew($IOException, $$str({"Character \'"_s, $$str((char16_t)c), "\' in AVA appears without escape"_s}));
 			}
-		} else if ($nc(AVA::escapedDefault)->indexOf((int32_t)(char16_t)c) != -1) {
+		} else if (AVA::escapedDefault->indexOf((char16_t)c) != -1) {
 			$throwNew($IOException, $$str({"Character \'"_s, $$str((char16_t)c), "\' in AVA appears without escape"_s}));
 		}
 		if (embeddedHex->size() > 0) {
@@ -384,7 +318,7 @@ $DerValue* AVA::parseString($Reader* in, int32_t c, int32_t format, $StringBuild
 	$init($PKCS9Attribute);
 	bool var$0 = $nc(this->oid)->equals($PKCS9Attribute::EMAIL_ADDRESS_OID);
 	$init($X500Name);
-	if (var$0 || ($nc(this->oid)->equals($X500Name::DOMAIN_COMPONENT_OID) && AVA::PRESERVE_OLD_DC_ENCODING == false)) {
+	if (var$0 || (this->oid->equals($X500Name::DOMAIN_COMPONENT_OID) && AVA::PRESERVE_OLD_DC_ENCODING == false)) {
 		return $new($DerValue, $DerValue::tag_IA5String, $($nc(temp)->toString()));
 	} else if (isPrintableString) {
 		return $new($DerValue, $($nc(temp)->toString()));
@@ -410,11 +344,11 @@ $Byte* AVA::getEmbeddedHexPair(int32_t c1, $Reader* in) {
 
 $String* AVA::getEmbeddedHexString($List* hexList) {
 	$init(AVA);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(hexList)->size();
 	$var($bytes, hexBytes, $new($bytes, n));
 	for (int32_t i = 0; i < n; ++i) {
-		hexBytes->set(i, $nc(($cast($Byte, $(hexList->get(i)))))->byteValue());
+		hexBytes->set(i, $$sure($Byte, hexList->get(i))->byteValue());
 	}
 	$init($StandardCharsets);
 	return $new($String, hexBytes, $StandardCharsets::UTF_8);
@@ -424,21 +358,13 @@ bool AVA::isTerminator(int32_t ch, int32_t format) {
 	$init(AVA);
 	switch (ch) {
 	case -1:
-		{}
 	case u'+':
-		{}
 	case u',':
-		{
-			return true;
-		}
+		return true;
 	case u';':
-		{
-			return format != AVA::RFC2253;
-		}
+		return format != AVA::RFC2253;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
@@ -482,14 +408,14 @@ bool AVA::trailingSpace($Reader* in) {
 }
 
 void AVA::init$($DerValue* derval) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(derval)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "AVA not a sequence"_s);
 	}
-	$set(this, oid, $nc($nc(derval)->data$)->getOID());
-	$set(this, value, $nc(derval->data$)->getDerValue());
-	if ($nc(derval->data$)->available() != 0) {
-		$throwNew($IOException, $$str({"AVA, extra bytes = "_s, $$str($nc(derval->data$)->available())}));
+	$set(this, oid, $nc(derval->data$)->getOID());
+	$set(this, value, derval->data$->getDerValue());
+	if (derval->data$->available() != 0) {
+		$throwNew($IOException, $$str({"AVA, extra bytes = "_s, $$str(derval->data$->available())}));
 	}
 }
 
@@ -498,7 +424,7 @@ void AVA::init$($DerInputStream* in) {
 }
 
 bool AVA::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -506,11 +432,11 @@ bool AVA::equals(Object$* obj) {
 		return false;
 	}
 	$var(AVA, other, $cast(AVA, obj));
-	return $nc($(this->toRFC2253CanonicalString()))->equals($($nc(other)->toRFC2253CanonicalString()));
+	return $$nc(this->toRFC2253CanonicalString())->equals($($nc(other)->toRFC2253CanonicalString()));
 }
 
 int32_t AVA::hashCode() {
-	return $nc($(toRFC2253CanonicalString()))->hashCode();
+	return $$nc(toRFC2253CanonicalString())->hashCode();
 }
 
 void AVA::encode($DerOutputStream* out) {
@@ -518,7 +444,7 @@ void AVA::encode($DerOutputStream* out) {
 }
 
 void AVA::derEncode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$var($DerOutputStream, tmp2, $new($DerOutputStream));
 	tmp->putOID(this->oid);
@@ -532,7 +458,7 @@ $String* AVA::toKeyword(int32_t format, $Map* oidMap) {
 }
 
 $String* AVA::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return toKeywordValueString($(toKeyword(AVA::DEFAULT, $($Collections::emptyMap()))));
 }
 
@@ -549,12 +475,12 @@ $String* AVA::toRFC2253String() {
 }
 
 $String* AVA::toRFC2253String($Map* oidMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, typeAndValue, $new($StringBuilder, 100));
 	typeAndValue->append($(toKeyword(AVA::RFC2253, oidMap)));
 	typeAndValue->append(u'=');
 	bool var$1 = typeAndValue->charAt(0) >= u'0';
-	bool var$0 = (var$1 && typeAndValue->charAt(0) <= u'9');
+	bool var$0 = var$1 && typeAndValue->charAt(0) <= u'9';
 	if (var$0 || !isDerString(this->value, false)) {
 		$var($bytes, data, nullptr);
 		try {
@@ -563,7 +489,7 @@ $String* AVA::toRFC2253String($Map* oidMap) {
 			$throwNew($IllegalArgumentException, "DER Value conversion"_s);
 		}
 		typeAndValue->append(u'#');
-		$nc($($HexFormat::of()))->formatHex(typeAndValue, data);
+		$$nc($HexFormat::of())->formatHex(typeAndValue, data);
 	} else {
 		$var($String, valStr, nullptr);
 		try {
@@ -577,8 +503,8 @@ $String* AVA::toRFC2253String($Map* oidMap) {
 		for (int32_t i = 0; i < $nc(valStr)->length(); ++i) {
 			char16_t c = valStr->charAt(i);
 			bool var$2 = $DerValue::isPrintableStringChar(c);
-			if (var$2 || escapees->indexOf((int32_t)c) >= 0) {
-				if (escapees->indexOf((int32_t)c) >= 0) {
+			if (var$2 || escapees->indexOf(c) >= 0) {
+				if (escapees->indexOf(c) >= 0) {
 					sbuffer->append(u'\\');
 				}
 				sbuffer->append(c);
@@ -586,13 +512,13 @@ $String* AVA::toRFC2253String($Map* oidMap) {
 				sbuffer->append("\\00"_s);
 			} else if (AVA::debug != nullptr && $Debug::isOn("ava"_s)) {
 				$init($StandardCharsets);
-				$var($bytes, valueBytes, $nc($($Character::toString(c)))->getBytes($StandardCharsets::UTF_8));
-				$nc($($nc($($nc($($HexFormat::of()))->withPrefix("\\"_s)))->withUpperCase()))->formatHex(sbuffer, valueBytes);
+				$var($bytes, valueBytes, $($Character::toString(c))->getBytes($StandardCharsets::UTF_8));
+				$$nc($$nc($$nc($HexFormat::of())->withPrefix("\\"_s))->withUpperCase())->formatHex(sbuffer, valueBytes);
 			} else {
 				sbuffer->append(c);
 			}
 		}
-		$var($chars, chars, $nc($(sbuffer->toString()))->toCharArray());
+		$var($chars, chars, $(sbuffer->toString())->toCharArray());
 		$assign(sbuffer, $new($StringBuilder));
 		int32_t lead = 0;
 		for (lead = 0; lead < chars->length; ++lead) {
@@ -613,18 +539,18 @@ $String* AVA::toRFC2253String($Map* oidMap) {
 			}
 			sbuffer->append(c);
 		}
-		typeAndValue->append(static_cast<$CharSequence*>(sbuffer));
+		typeAndValue->append($cast($CharSequence, sbuffer));
 	}
 	return typeAndValue->toString();
 }
 
 $String* AVA::toRFC2253CanonicalString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, typeAndValue, $new($StringBuilder, 40));
 	typeAndValue->append($(toKeyword(AVA::RFC2253, $($Collections::emptyMap()))));
 	typeAndValue->append(u'=');
 	bool var$1 = typeAndValue->charAt(0) >= u'0';
-	bool var$0 = (var$1 && typeAndValue->charAt(0) <= u'9');
+	bool var$0 = var$1 && typeAndValue->charAt(0) <= u'9';
 	if (var$0 || !isDerString(this->value, true)) {
 		$var($bytes, data, nullptr);
 		try {
@@ -633,7 +559,7 @@ $String* AVA::toRFC2253CanonicalString() {
 			$throwNew($IllegalArgumentException, "DER Value conversion"_s);
 		}
 		typeAndValue->append(u'#');
-		$nc($($HexFormat::of()))->formatHex(typeAndValue, data);
+		$$nc($HexFormat::of())->formatHex(typeAndValue, data);
 	} else {
 		$var($String, valStr, nullptr);
 		try {
@@ -648,8 +574,8 @@ $String* AVA::toRFC2253CanonicalString() {
 		for (int32_t i = 0; i < $nc(valStr)->length(); ++i) {
 			char16_t c = valStr->charAt(i);
 			bool var$2 = $DerValue::isPrintableStringChar(c);
-			if (var$2 || escapees->indexOf((int32_t)c) >= 0 || (i == 0 && c == u'#')) {
-				if ((i == 0 && c == u'#') || escapees->indexOf((int32_t)c) >= 0) {
+			if (var$2 || escapees->indexOf(c) >= 0 || (i == 0 && c == u'#')) {
+				if ((i == 0 && c == u'#') || escapees->indexOf(c) >= 0) {
 					sbuffer->append(u'\\');
 				}
 				if (!$Character::isWhitespace(c)) {
@@ -664,18 +590,18 @@ $String* AVA::toRFC2253CanonicalString() {
 			} else if (AVA::debug != nullptr && $Debug::isOn("ava"_s)) {
 				previousWhite = false;
 				$init($StandardCharsets);
-				$var($bytes, valueBytes, $nc($($Character::toString(c)))->getBytes($StandardCharsets::UTF_8));
-				$nc($($nc($($nc($($HexFormat::of()))->withPrefix("\\"_s)))->withUpperCase()))->formatHex(sbuffer, valueBytes);
+				$var($bytes, valueBytes, $($Character::toString(c))->getBytes($StandardCharsets::UTF_8));
+				$$nc($$nc($$nc($HexFormat::of())->withPrefix("\\"_s))->withUpperCase())->formatHex(sbuffer, valueBytes);
 			} else {
 				previousWhite = false;
 				sbuffer->append(c);
 			}
 		}
-		typeAndValue->append($($nc($(sbuffer->toString()))->trim()));
+		typeAndValue->append($($(sbuffer->toString())->trim()));
 	}
 	$var($String, canon, typeAndValue->toString());
 	$init($Locale);
-	$assign(canon, $($nc(canon)->toUpperCase($Locale::US))->toLowerCase($Locale::US));
+	$assign(canon, $(canon->toUpperCase($Locale::US))->toLowerCase($Locale::US));
 	$init($Normalizer$Form);
 	return $Normalizer::normalize(canon, $Normalizer$Form::NFKD);
 }
@@ -685,36 +611,22 @@ bool AVA::isDerString($DerValue* value, bool canonical) {
 	if (canonical) {
 		switch ($nc(value)->tag) {
 		case $DerValue::tag_PrintableString:
-			{}
 		case $DerValue::tag_UTF8String:
-			{
-				return true;
-			}
+			return true;
 		default:
-			{
-				return false;
-			}
+			return false;
 		}
 	} else {
 		switch ($nc(value)->tag) {
 		case $DerValue::tag_PrintableString:
-			{}
 		case $DerValue::tag_T61String:
-			{}
 		case $DerValue::tag_IA5String:
-			{}
 		case $DerValue::tag_GeneralString:
-			{}
 		case $DerValue::tag_BMPString:
-			{}
 		case $DerValue::tag_UTF8String:
-			{
-				return true;
-			}
+			return true;
 		default:
-			{
-				return false;
-			}
+			return false;
 		}
 	}
 }
@@ -724,22 +636,22 @@ bool AVA::hasRFC2253Keyword() {
 }
 
 $String* AVA::toKeywordValueString($String* keyword) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, retval, $new($StringBuilder, 40));
 	retval->append(keyword);
 	retval->append(u'=');
 	try {
 		$var($String, valStr, $nc(this->value)->getAsString());
 		if (valStr == nullptr) {
-			$var($bytes, data, $nc(this->value)->toByteArray());
+			$var($bytes, data, this->value->toByteArray());
 			retval->append(u'#');
-			$nc($($HexFormat::of()))->formatHex(retval, data);
+			$$nc($HexFormat::of())->formatHex(retval, data);
 		} else {
 			bool quoteNeeded = false;
 			$var($StringBuilder, sbuffer, $new($StringBuilder));
 			bool previousWhite = false;
 			$var($String, escapees, ",+=\n<>#;\\\""_s);
-			int32_t length = $nc(valStr)->length();
+			int32_t length = valStr->length();
 			bool var$0 = length > 1 && valStr->charAt(0) == u'\"';
 			bool alreadyQuoted = (var$0 && valStr->charAt(length - 1) == u'\"');
 			for (int32_t i = 0; i < length; ++i) {
@@ -749,8 +661,8 @@ $String* AVA::toKeywordValueString($String* keyword) {
 					continue;
 				}
 				bool var$1 = $DerValue::isPrintableStringChar(c);
-				if (var$1 || escapees->indexOf((int32_t)c) >= 0) {
-					if (!quoteNeeded && ((i == 0 && (c == u' ' || c == u'\n')) || escapees->indexOf((int32_t)c) >= 0)) {
+				if (var$1 || escapees->indexOf(c) >= 0) {
+					if (!quoteNeeded && ((i == 0 && (c == u' ' || c == u'\n')) || escapees->indexOf(c) >= 0)) {
 						quoteNeeded = true;
 					}
 					if (!(c == u' ' || c == u'\n')) {
@@ -768,8 +680,8 @@ $String* AVA::toKeywordValueString($String* keyword) {
 				} else if (AVA::debug != nullptr && $Debug::isOn("ava"_s)) {
 					previousWhite = false;
 					$init($StandardCharsets);
-					$var($bytes, valueBytes, $nc($($Character::toString(c)))->getBytes($StandardCharsets::UTF_8));
-					$nc($($nc($($nc($($HexFormat::of()))->withPrefix("\\"_s)))->withUpperCase()))->formatHex(sbuffer, valueBytes);
+					$var($bytes, valueBytes, $($Character::toString(c))->getBytes($StandardCharsets::UTF_8));
+					$$nc($$nc($$nc($HexFormat::of())->withPrefix("\\"_s))->withUpperCase())->formatHex(sbuffer, valueBytes);
 				} else {
 					previousWhite = false;
 					sbuffer->append(c);
@@ -782,9 +694,9 @@ $String* AVA::toKeywordValueString($String* keyword) {
 				}
 			}
 			if (!alreadyQuoted && quoteNeeded) {
-				retval->append(u'\"')->append(static_cast<$CharSequence*>(sbuffer))->append(u'\"');
+				retval->append(u'\"')->append($cast($CharSequence, sbuffer))->append(u'\"');
 			} else {
-				retval->append(static_cast<$CharSequence*>(sbuffer));
+				retval->append($cast($CharSequence, sbuffer));
 			}
 		}
 	} catch ($IOException& e) {
@@ -793,7 +705,7 @@ $String* AVA::toKeywordValueString($String* keyword) {
 	return retval->toString();
 }
 
-void clinit$AVA($Class* class$) {
+void AVA::clinit$($Class* clazz) {
 	$assignStatic(AVA::specialChars1779, ",=\n+<>#;\\\""_s);
 	$assignStatic(AVA::specialChars2253, ",=+<>#;\\\""_s);
 	$assignStatic(AVA::specialCharsDefault, ",=\n+<>#;\\\" "_s);
@@ -806,7 +718,66 @@ AVA::AVA() {
 }
 
 $Class* AVA::load$($String* name, bool initialize) {
-	$loadClass(AVA, name, initialize, &_AVA_ClassInfo_, clinit$AVA, allocate$AVA);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, debug)},
+		{"PRESERVE_OLD_DC_ENCODING", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, PRESERVE_OLD_DC_ENCODING)},
+		{"DEFAULT", "I", nullptr, $STATIC | $FINAL, $constField(AVA, DEFAULT)},
+		{"RFC1779", "I", nullptr, $STATIC | $FINAL, $constField(AVA, RFC1779)},
+		{"RFC2253", "I", nullptr, $STATIC | $FINAL, $constField(AVA, RFC2253)},
+		{"oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $FINAL, $field(AVA, oid)},
+		{"value", "Lsun/security/util/DerValue;", nullptr, $FINAL, $field(AVA, value)},
+		{"specialChars1779", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, specialChars1779)},
+		{"specialChars2253", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, specialChars2253)},
+		{"specialCharsDefault", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, specialCharsDefault)},
+		{"escapedDefault", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AVA, escapedDefault)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(AVA, init$, void, $ObjectIdentifier*, $DerValue*)},
+		{"<init>", "(Ljava/io/Reader;)V", nullptr, 0, $method(AVA, init$, void, $Reader*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/Reader;Ljava/util/Map;)V", "(Ljava/io/Reader;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(AVA, init$, void, $Reader*, $Map*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/Reader;I)V", nullptr, 0, $method(AVA, init$, void, $Reader*, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/io/Reader;ILjava/util/Map;)V", "(Ljava/io/Reader;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(AVA, init$, void, $Reader*, int32_t, $Map*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, 0, $method(AVA, init$, void, $DerValue*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, 0, $method(AVA, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AVA, derEncode, void, $OutputStream*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AVA, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AVA, equals, bool, Object$*)},
+		{"getDerValue", "()Lsun/security/util/DerValue;", nullptr, $PUBLIC, $virtualMethod(AVA, getDerValue, $DerValue*)},
+		{"getEmbeddedHexPair", "(ILjava/io/Reader;)Ljava/lang/Byte;", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, getEmbeddedHexPair, $Byte*, int32_t, $Reader*), "java.io.IOException"},
+		{"getEmbeddedHexString", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Ljava/lang/Byte;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(AVA, getEmbeddedHexString, $String*, $List*)},
+		{"getObjectIdentifier", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(AVA, getObjectIdentifier, $ObjectIdentifier*)},
+		{"getValueString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AVA, getValueString, $String*)},
+		{"hasRFC2253Keyword", "()Z", nullptr, 0, $virtualMethod(AVA, hasRFC2253Keyword, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AVA, hashCode, int32_t)},
+		{"isDerString", "(Lsun/security/util/DerValue;Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, isDerString, bool, $DerValue*, bool)},
+		{"isTerminator", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, isTerminator, bool, int32_t, int32_t)},
+		{"parseHexString", "(Ljava/io/Reader;I)Lsun/security/util/DerValue;", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, parseHexString, $DerValue*, $Reader*, int32_t), "java.io.IOException"},
+		{"parseQuotedString", "(Ljava/io/Reader;Ljava/lang/StringBuilder;)Lsun/security/util/DerValue;", nullptr, $PRIVATE, $method(AVA, parseQuotedString, $DerValue*, $Reader*, $StringBuilder*), "java.io.IOException"},
+		{"parseString", "(Ljava/io/Reader;IILjava/lang/StringBuilder;)Lsun/security/util/DerValue;", nullptr, $PRIVATE, $method(AVA, parseString, $DerValue*, $Reader*, int32_t, int32_t, $StringBuilder*), "java.io.IOException"},
+		{"readChar", "(Ljava/io/Reader;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, readChar, int32_t, $Reader*, $String*), "java.io.IOException"},
+		{"toKeyword", "(ILjava/util/Map;)Ljava/lang/String;", "(ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE, $method(AVA, toKeyword, $String*, int32_t, $Map*)},
+		{"toKeywordValueString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(AVA, toKeywordValueString, $String*, $String*)},
+		{"toRFC1779String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AVA, toRFC1779String, $String*)},
+		{"toRFC1779String", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(AVA, toRFC1779String, $String*, $Map*)},
+		{"toRFC2253CanonicalString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AVA, toRFC2253CanonicalString, $String*)},
+		{"toRFC2253String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AVA, toRFC2253String, $String*)},
+		{"toRFC2253String", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(AVA, toRFC2253String, $String*, $Map*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AVA, toString, $String*)},
+		{"trailingSpace", "(Ljava/io/Reader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AVA, trailingSpace, bool, $Reader*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.AVA",
+		"java.lang.Object",
+		"sun.security.util.DerEncoder",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AVA, name, initialize, &classInfo$$, AVA::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AVA);
+	});
 	return class$;
 }
 

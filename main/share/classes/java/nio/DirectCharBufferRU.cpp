@@ -1,5 +1,4 @@
 #include <java/nio/DirectCharBufferRU.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -34,43 +33,6 @@ using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 namespace java {
 	namespace nio {
 
-$FieldInfo _DirectCharBufferRU_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectCharBufferRU, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _DirectCharBufferRU_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectCharBufferRU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, asReadOnlyBuffer, $CharBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectCharBufferRU, base, $Object*)},
-	{"charRegionOrder", "()Ljava/nio/ByteOrder;", nullptr, 0, $virtualMethod(DirectCharBufferRU, charRegionOrder, $ByteOrder*)},
-	{"compact", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, compact, $CharBuffer*)},
-	{"duplicate", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, duplicate, $CharBuffer*)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, order, $ByteOrder*)},
-	{"put", "(C)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, put, $CharBuffer*, char16_t)},
-	{"put", "(IC)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, put, $CharBuffer*, int32_t, char16_t)},
-	{"slice", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, slice, $CharBuffer*)},
-	{"slice", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, slice, $CharBuffer*, int32_t, int32_t)},
-	{"subSequence", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, subSequence, $CharSequence*, int32_t, int32_t)},
-	{"toString", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, toString, $String*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DirectCharBufferRU_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.DirectCharBufferRU",
-	"java.nio.DirectCharBufferU",
-	nullptr,
-	_DirectCharBufferRU_FieldInfo_,
-	_DirectCharBufferRU_MethodInfo_
-};
-
-$Object* allocate$DirectCharBufferRU($Class* clazz) {
-	return $of($alloc(DirectCharBufferRU));
-}
-
 bool DirectCharBufferRU::$assertionsDisabled = false;
 
 void DirectCharBufferRU::init$($DirectBuffer* db, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int32_t off, $MemorySegmentProxy* segment) {
@@ -79,7 +41,7 @@ void DirectCharBufferRU::init$($DirectBuffer* db, int32_t mark, int32_t pos, int
 }
 
 $Object* DirectCharBufferRU::base() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $CharBuffer* DirectCharBufferRU::slice() {
@@ -133,7 +95,7 @@ bool DirectCharBufferRU::isReadOnly() {
 }
 
 $String* DirectCharBufferRU::toString(int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::checkFromToIndex(start, end, limit());
 	try {
 		int32_t len = end - start;
@@ -171,7 +133,7 @@ $ByteOrder* DirectCharBufferRU::charRegionOrder() {
 	return order();
 }
 
-void clinit$DirectCharBufferRU($Class* class$) {
+void DirectCharBufferRU::clinit$($Class* clazz) {
 	DirectCharBufferRU::$assertionsDisabled = !DirectCharBufferRU::class$->desiredAssertionStatus();
 }
 
@@ -179,7 +141,39 @@ DirectCharBufferRU::DirectCharBufferRU() {
 }
 
 $Class* DirectCharBufferRU::load$($String* name, bool initialize) {
-	$loadClass(DirectCharBufferRU, name, initialize, &_DirectCharBufferRU_ClassInfo_, clinit$DirectCharBufferRU, allocate$DirectCharBufferRU);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectCharBufferRU, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectCharBufferRU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, asReadOnlyBuffer, $CharBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectCharBufferRU, base, $Object*)},
+		{"charRegionOrder", "()Ljava/nio/ByteOrder;", nullptr, 0, $virtualMethod(DirectCharBufferRU, charRegionOrder, $ByteOrder*)},
+		{"compact", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, compact, $CharBuffer*)},
+		{"duplicate", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, duplicate, $CharBuffer*)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, order, $ByteOrder*)},
+		{"put", "(C)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, put, $CharBuffer*, char16_t)},
+		{"put", "(IC)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, put, $CharBuffer*, int32_t, char16_t)},
+		{"slice", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, slice, $CharBuffer*)},
+		{"slice", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, slice, $CharBuffer*, int32_t, int32_t)},
+		{"subSequence", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, subSequence, $CharSequence*, int32_t, int32_t)},
+		{"toString", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, toString, $String*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.DirectCharBufferRU",
+		"java.nio.DirectCharBufferU",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DirectCharBufferRU, name, initialize, &classInfo$$, DirectCharBufferRU::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectCharBufferRU));
+	});
 	return class$;
 }
 

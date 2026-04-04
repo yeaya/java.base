@@ -1,5 +1,4 @@
 #include <java/util/stream/MatchOps$MatchKind.h>
-
 #include <java/lang/Enum.h>
 #include <java/util/stream/MatchOps.h>
 #include <jcpp.h>
@@ -18,49 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _MatchOps$MatchKind_FieldInfo_[] = {
-	{"ANY", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MatchOps$MatchKind, ANY)},
-	{"ALL", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MatchOps$MatchKind, ALL)},
-	{"NONE", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MatchOps$MatchKind, NONE)},
-	{"$VALUES", "[Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MatchOps$MatchKind, $VALUES)},
-	{"stopOnPredicateMatches", "Z", nullptr, $PRIVATE | $FINAL, $field(MatchOps$MatchKind, stopOnPredicateMatches)},
-	{"shortCircuitResult", "Z", nullptr, $PRIVATE | $FINAL, $field(MatchOps$MatchKind, shortCircuitResult)},
-	{}
-};
-
-$MethodInfo _MatchOps$MatchKind_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MatchOps$MatchKind, $values, $MatchOps$MatchKindArray*)},
-	{"<init>", "(Ljava/lang/String;IZZ)V", "(ZZ)V", $PRIVATE, $method(MatchOps$MatchKind, init$, void, $String*, int32_t, bool, bool)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchOps$MatchKind, valueOf, MatchOps$MatchKind*, $String*)},
-	{"values", "()[Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchOps$MatchKind, values, $MatchOps$MatchKindArray*)},
-	{}
-};
-
-$InnerClassInfo _MatchOps$MatchKind_InnerClassesInfo_[] = {
-	{"java.util.stream.MatchOps$MatchKind", "java.util.stream.MatchOps", "MatchKind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MatchOps$MatchKind_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.util.stream.MatchOps$MatchKind",
-	"java.lang.Enum",
-	nullptr,
-	_MatchOps$MatchKind_FieldInfo_,
-	_MatchOps$MatchKind_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/util/stream/MatchOps$MatchKind;>;",
-	nullptr,
-	_MatchOps$MatchKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.MatchOps"
-};
-
-$Object* allocate$MatchOps$MatchKind($Class* clazz) {
-	return $of($alloc(MatchOps$MatchKind));
-}
 
 MatchOps$MatchKind* MatchOps$MatchKind::ANY = nullptr;
 MatchOps$MatchKind* MatchOps$MatchKind::ALL = nullptr;
@@ -92,7 +48,7 @@ void MatchOps$MatchKind::init$($String* $enum$name, int32_t $enum$ordinal, bool 
 	this->shortCircuitResult = shortCircuitResult;
 }
 
-void clinit$MatchOps$MatchKind($Class* class$) {
+void MatchOps$MatchKind::clinit$($Class* clazz) {
 	$assignStatic(MatchOps$MatchKind::ANY, $new(MatchOps$MatchKind, "ANY"_s, 0, true, true));
 	$assignStatic(MatchOps$MatchKind::ALL, $new(MatchOps$MatchKind, "ALL"_s, 1, false, false));
 	$assignStatic(MatchOps$MatchKind::NONE, $new(MatchOps$MatchKind, "NONE"_s, 2, true, false));
@@ -103,7 +59,44 @@ MatchOps$MatchKind::MatchOps$MatchKind() {
 }
 
 $Class* MatchOps$MatchKind::load$($String* name, bool initialize) {
-	$loadClass(MatchOps$MatchKind, name, initialize, &_MatchOps$MatchKind_ClassInfo_, clinit$MatchOps$MatchKind, allocate$MatchOps$MatchKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"ANY", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MatchOps$MatchKind, ANY)},
+		{"ALL", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MatchOps$MatchKind, ALL)},
+		{"NONE", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MatchOps$MatchKind, NONE)},
+		{"$VALUES", "[Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MatchOps$MatchKind, $VALUES)},
+		{"stopOnPredicateMatches", "Z", nullptr, $PRIVATE | $FINAL, $field(MatchOps$MatchKind, stopOnPredicateMatches)},
+		{"shortCircuitResult", "Z", nullptr, $PRIVATE | $FINAL, $field(MatchOps$MatchKind, shortCircuitResult)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MatchOps$MatchKind, $values, $MatchOps$MatchKindArray*)},
+		{"<init>", "(Ljava/lang/String;IZZ)V", "(ZZ)V", $PRIVATE, $method(MatchOps$MatchKind, init$, void, $String*, int32_t, bool, bool)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchOps$MatchKind, valueOf, MatchOps$MatchKind*, $String*)},
+		{"values", "()[Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchOps$MatchKind, values, $MatchOps$MatchKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.MatchOps$MatchKind", "java.util.stream.MatchOps", "MatchKind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.util.stream.MatchOps$MatchKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/util/stream/MatchOps$MatchKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.MatchOps"
+	};
+	$loadClass(MatchOps$MatchKind, name, initialize, &classInfo$$, MatchOps$MatchKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MatchOps$MatchKind));
+	});
 	return class$;
 }
 

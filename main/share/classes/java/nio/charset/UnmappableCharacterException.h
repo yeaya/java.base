@@ -16,11 +16,14 @@ public:
 	void init$(int32_t inputLength);
 	virtual int32_t getInputLength();
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0x9E7B36F41A756375;
+	static const int64_t serialVersionUID = (int64_t)0x9e7b36f41a756375;
 	int32_t inputLength = 0;
 	UnmappableCharacterException(const UnmappableCharacterException& e);
 	virtual void throw$() override;
-	inline UnmappableCharacterException* operator ->() {
+	inline UnmappableCharacterException* operator ->() const {
+		return (UnmappableCharacterException*)throwing$;
+	}
+	inline operator UnmappableCharacterException*() const {
 		return (UnmappableCharacterException*)throwing$;
 	}
 };

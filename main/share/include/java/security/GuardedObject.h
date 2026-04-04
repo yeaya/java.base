@@ -26,7 +26,7 @@ public:
 	void init$(Object$* object, ::java::security::Guard* guard);
 	virtual $Object* getObject();
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0xB7462E670F2DA63C;
+	static const int64_t serialVersionUID = (int64_t)0xb7462e670f2da63c;
 	$Object* object = nullptr;
 	::java::security::Guard* guard = nullptr;
 };

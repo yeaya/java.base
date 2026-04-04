@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SNIHostName.h>
-
 #include <java/net/IDN.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -32,9 +31,7 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $IDN = ::java::net::IDN;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $CharBuffer = ::java::nio::CharBuffer;
 using $CharacterCodingException = ::java::nio::charset::CharacterCodingException;
-using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
@@ -49,64 +46,23 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$FieldInfo _SNIHostName_FieldInfo_[] = {
-	{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SNIHostName, hostname)},
-	{}
-};
-
-$MethodInfo _SNIHostName_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SNIHostName, init$, void, $String*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(SNIHostName, init$, void, $bytes*)},
-	{"checkHostName", "()V", nullptr, $PRIVATE, $method(SNIHostName, checkHostName, void)},
-	{"createSNIMatcher", "(Ljava/lang/String;)Ljavax/net/ssl/SNIMatcher;", nullptr, $PUBLIC | $STATIC, $staticMethod(SNIHostName, createSNIMatcher, $SNIMatcher*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SNIHostName, equals, bool, Object$*)},
-	{"getAsciiName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SNIHostName, getAsciiName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SNIHostName, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SNIHostName, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _SNIHostName_InnerClassesInfo_[] = {
-	{"javax.net.ssl.SNIHostName$SNIHostNameMatcher", "javax.net.ssl.SNIHostName", "SNIHostNameMatcher", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SNIHostName_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.net.ssl.SNIHostName",
-	"javax.net.ssl.SNIServerName",
-	nullptr,
-	_SNIHostName_FieldInfo_,
-	_SNIHostName_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SNIHostName_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.net.ssl.SNIHostName$SNIHostNameMatcher"
-};
-
-$Object* allocate$SNIHostName($Class* clazz) {
-	return $of($alloc(SNIHostName));
-}
-
 void SNIHostName::init$($String* hostname$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, hostname, hostname$renamed);
 	$init($StandardCharsets);
-	$SNIServerName::init$($StandardConstants::SNI_HOST_NAME, $($nc(($assign(hostname, $IDN::toASCII($cast($String, $Objects::requireNonNull($of(hostname), "Server name value of host_name cannot be null"_s)), $IDN::USE_STD3_ASCII_RULES))))->getBytes($StandardCharsets::US_ASCII)));
+	$SNIServerName::init$($StandardConstants::SNI_HOST_NAME, $($nc(($assign(hostname, $IDN::toASCII($cast($String, $Objects::requireNonNull(hostname, "Server name value of host_name cannot be null"_s)), $IDN::USE_STD3_ASCII_RULES))))->getBytes($StandardCharsets::US_ASCII)));
 	$set(this, hostname, hostname);
 	checkHostName();
 }
 
 void SNIHostName::init$($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SNIServerName::init$($StandardConstants::SNI_HOST_NAME, encoded);
 	try {
 		$init($StandardCharsets);
 		$init($CodingErrorAction);
-		$var($CharsetDecoder, decoder, $nc($($nc($($nc($StandardCharsets::UTF_8)->newDecoder()))->onMalformedInput($CodingErrorAction::REPORT)))->onUnmappableCharacter($CodingErrorAction::REPORT));
-		$set(this, hostname, $IDN::toASCII($($nc($($nc(decoder)->decode($($ByteBuffer::wrap(encoded)))))->toString()), $IDN::USE_STD3_ASCII_RULES));
+		$var($CharsetDecoder, decoder, $$nc($$nc($nc($StandardCharsets::UTF_8)->newDecoder())->onMalformedInput($CodingErrorAction::REPORT))->onUnmappableCharacter($CodingErrorAction::REPORT));
+		$set(this, hostname, $IDN::toASCII($($$nc($nc(decoder)->decode($($ByteBuffer::wrap(encoded))))->toString()), $IDN::USE_STD3_ASCII_RULES));
 	} catch ($RuntimeException& e) {
 		$throwNew($IllegalArgumentException, "The encoded server name value is invalid"_s, e);
 	} catch ($CharacterCodingException& e) {
@@ -124,7 +80,7 @@ bool SNIHostName::equals(Object$* other) {
 		return true;
 	}
 	if ($instanceOf(SNIHostName, other)) {
-		return $nc(this->hostname)->equalsIgnoreCase($nc(($cast(SNIHostName, other)))->hostname);
+		return $nc(this->hostname)->equalsIgnoreCase($cast(SNIHostName, other)->hostname);
 	}
 	return false;
 }
@@ -152,7 +108,7 @@ void SNIHostName::checkHostName() {
 	if ($nc(this->hostname)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "Server name value of host_name cannot be empty"_s);
 	}
-	if ($nc(this->hostname)->endsWith("."_s)) {
+	if (this->hostname->endsWith("."_s)) {
 		$throwNew($IllegalArgumentException, "Server name value of host_name cannot have the trailing dot"_s);
 	}
 }
@@ -161,7 +117,42 @@ SNIHostName::SNIHostName() {
 }
 
 $Class* SNIHostName::load$($String* name, bool initialize) {
-	$loadClass(SNIHostName, name, initialize, &_SNIHostName_ClassInfo_, allocate$SNIHostName);
+	$FieldInfo fieldInfos$$[] = {
+		{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SNIHostName, hostname)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SNIHostName, init$, void, $String*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(SNIHostName, init$, void, $bytes*)},
+		{"checkHostName", "()V", nullptr, $PRIVATE, $method(SNIHostName, checkHostName, void)},
+		{"createSNIMatcher", "(Ljava/lang/String;)Ljavax/net/ssl/SNIMatcher;", nullptr, $PUBLIC | $STATIC, $staticMethod(SNIHostName, createSNIMatcher, $SNIMatcher*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SNIHostName, equals, bool, Object$*)},
+		{"getAsciiName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SNIHostName, getAsciiName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SNIHostName, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SNIHostName, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.net.ssl.SNIHostName$SNIHostNameMatcher", "javax.net.ssl.SNIHostName", "SNIHostNameMatcher", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.net.ssl.SNIHostName",
+		"javax.net.ssl.SNIServerName",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.net.ssl.SNIHostName$SNIHostNameMatcher"
+	};
+	$loadClass(SNIHostName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SNIHostName);
+	});
 	return class$;
 }
 

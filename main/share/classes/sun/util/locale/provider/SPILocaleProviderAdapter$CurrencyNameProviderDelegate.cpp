@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/SPILocaleProviderAdapter$CurrencyNameProviderDelegate.h>
-
 #include <java/util/AbstractMap.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -27,52 +26,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _SPILocaleProviderAdapter$CurrencyNameProviderDelegate_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/CurrencyNameProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, map)},
-	{}
-};
-
-$MethodInfo _SPILocaleProviderAdapter$CurrencyNameProviderDelegate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, getAvailableLocales, $LocaleArray*)},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/CurrencyNameProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, getDelegateMap, $Map*)},
-	{"getDisplayName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, getDisplayName, $String*, $String*, $Locale*)},
-	{"getSymbol", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, getSymbol, $String*, $String*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SPILocaleProviderAdapter$CurrencyNameProviderDelegate_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$CurrencyNameProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "CurrencyNameProviderDelegate", $STATIC},
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SPILocaleProviderAdapter$CurrencyNameProviderDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.SPILocaleProviderAdapter$CurrencyNameProviderDelegate",
-	"java.util.spi.CurrencyNameProvider",
-	"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
-	_SPILocaleProviderAdapter$CurrencyNameProviderDelegate_FieldInfo_,
-	_SPILocaleProviderAdapter$CurrencyNameProviderDelegate_MethodInfo_,
-	"Ljava/util/spi/CurrencyNameProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/util/spi/CurrencyNameProvider;>;",
-	nullptr,
-	_SPILocaleProviderAdapter$CurrencyNameProviderDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.SPILocaleProviderAdapter"
-};
-
-$Object* allocate$SPILocaleProviderAdapter$CurrencyNameProviderDelegate($Class* clazz) {
-	return $of($alloc(SPILocaleProviderAdapter$CurrencyNameProviderDelegate));
-}
-
 int32_t SPILocaleProviderAdapter$CurrencyNameProviderDelegate::hashCode() {
 	 return this->$CurrencyNameProvider::hashCode();
 }
@@ -95,7 +48,7 @@ void SPILocaleProviderAdapter$CurrencyNameProviderDelegate::finalize() {
 
 void SPILocaleProviderAdapter$CurrencyNameProviderDelegate::init$() {
 	$CurrencyNameProvider::init$();
-	$set(this, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, map, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 $Map* SPILocaleProviderAdapter$CurrencyNameProviderDelegate::getDelegateMap() {
@@ -111,7 +64,7 @@ bool SPILocaleProviderAdapter$CurrencyNameProviderDelegate::isSupportedLocale($L
 }
 
 $String* SPILocaleProviderAdapter$CurrencyNameProviderDelegate::getSymbol($String* currencyCode, $Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CurrencyNameProvider, cnp, $cast($CurrencyNameProvider, getImpl(locale)));
@@ -119,7 +72,7 @@ $String* SPILocaleProviderAdapter$CurrencyNameProviderDelegate::getSymbol($Strin
 }
 
 $String* SPILocaleProviderAdapter$CurrencyNameProviderDelegate::getDisplayName($String* currencyCode, $Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CurrencyNameProvider, cnp, $cast($CurrencyNameProvider, getImpl(locale)));
@@ -130,7 +83,47 @@ SPILocaleProviderAdapter$CurrencyNameProviderDelegate::SPILocaleProviderAdapter$
 }
 
 $Class* SPILocaleProviderAdapter$CurrencyNameProviderDelegate::load$($String* name, bool initialize) {
-	$loadClass(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, name, initialize, &_SPILocaleProviderAdapter$CurrencyNameProviderDelegate_ClassInfo_, allocate$SPILocaleProviderAdapter$CurrencyNameProviderDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/CurrencyNameProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, getAvailableLocales, $LocaleArray*)},
+		{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/CurrencyNameProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, getDelegateMap, $Map*)},
+		{"getDisplayName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, getDisplayName, $String*, $String*, $Locale*)},
+		{"getSymbol", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, getSymbol, $String*, $String*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$CurrencyNameProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "CurrencyNameProviderDelegate", $STATIC},
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.SPILocaleProviderAdapter$CurrencyNameProviderDelegate",
+		"java.util.spi.CurrencyNameProvider",
+		"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/spi/CurrencyNameProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/util/spi/CurrencyNameProvider;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.SPILocaleProviderAdapter"
+	};
+	$loadClass(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SPILocaleProviderAdapter$CurrencyNameProviderDelegate));
+	});
 	return class$;
 }
 

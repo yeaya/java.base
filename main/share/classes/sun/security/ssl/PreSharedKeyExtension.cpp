@@ -1,10 +1,8 @@
 #include <sun/security/ssl/PreSharedKeyExtension.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
-#include <java/security/Key.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Principal.h>
@@ -27,7 +25,6 @@
 #include <sun/security/ssl/HandshakeHash.h>
 #include <sun/security/ssl/HandshakeOutStream.h>
 #include <sun/security/ssl/HandshakeProducer.h>
-#include <sun/security/ssl/OutputRecord.h>
 #include <sun/security/ssl/PreSharedKeyExtension$CHPreSharedKeyConsumer.h>
 #include <sun/security/ssl/PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence.h>
 #include <sun/security/ssl/PreSharedKeyExtension$CHPreSharedKeyOnTradeAbsence.h>
@@ -64,12 +61,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
-using $List = ::java::util::List;
 using $Mac = ::javax::crypto::Mac;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $SSLPeerUnverifiedException = ::javax::net::ssl::SSLPeerUnverifiedException;
@@ -84,7 +79,6 @@ using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
-using $OutputRecord = ::sun::security::ssl::OutputRecord;
 using $PreSharedKeyExtension$CHPreSharedKeyConsumer = ::sun::security::ssl::PreSharedKeyExtension$CHPreSharedKeyConsumer;
 using $PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence = ::sun::security::ssl::PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence;
 using $PreSharedKeyExtension$CHPreSharedKeyOnTradeAbsence = ::sun::security::ssl::PreSharedKeyExtension$CHPreSharedKeyOnTradeAbsence;
@@ -106,73 +100,10 @@ using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $SSLStringizer = ::sun::security::ssl::SSLStringizer;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 using $SignatureScheme = ::sun::security::ssl::SignatureScheme;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _PreSharedKeyExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chOnLoadConsumer)},
-	{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chOnLoadAbsence)},
-	{"chOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chOnTradeConsumer)},
-	{"chOnTradAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chOnTradAbsence)},
-	{"chStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chStringizer)},
-	{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, shNetworkProducer)},
-	{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, shOnLoadConsumer)},
-	{"shOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, shOnLoadAbsence)},
-	{"shStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, shStringizer)},
-	{}
-};
-
-$MethodInfo _PreSharedKeyExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PreSharedKeyExtension, init$, void)},
-	{"canRejoin", "(Lsun/security/ssl/ClientHello$ClientHelloMessage;Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/SSLSessionImpl;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, canRejoin, bool, $ClientHello$ClientHelloMessage*, $ServerHandshakeContext*, $SSLSessionImpl*)},
-	{"checkBinder", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/SSLSessionImpl;Lsun/security/ssl/HandshakeHash;[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, checkBinder, void, $ServerHandshakeContext*, $SSLSessionImpl*, $HandshakeHash*, $bytes*), "java.io.IOException"},
-	{"computeBinder", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;Lsun/security/ssl/SSLSessionImpl;Lsun/security/ssl/HandshakeHash;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, computeBinder, $bytes*, $HandshakeContext*, $SecretKey*, $SSLSessionImpl*, $HandshakeHash*), "java.io.IOException"},
-	{"computeBinder", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;Lsun/security/ssl/HandshakeHash;Lsun/security/ssl/SSLSessionImpl;Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;Lsun/security/ssl/PreSharedKeyExtension$CHPreSharedKeySpec;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, computeBinder, $bytes*, $HandshakeContext*, $SecretKey*, $HandshakeHash*, $SSLSessionImpl*, $HandshakeContext*, $ClientHello$ClientHelloMessage*, $PreSharedKeyExtension$CHPreSharedKeySpec*), "java.io.IOException"},
-	{"computeBinder", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;Lsun/security/ssl/SSLSessionImpl;[B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, computeBinder, $bytes*, $HandshakeContext*, $SecretKey*, $SSLSessionImpl*, $bytes*), "java.io.IOException"},
-	{"deriveBinderKey", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;Lsun/security/ssl/SSLSessionImpl;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, deriveBinderKey, $SecretKey*, $HandshakeContext*, $SecretKey*, $SSLSessionImpl*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _PreSharedKeyExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyProducer", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyAbsence", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyConsumer", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnTradeAbsence", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyOnLoadAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyProducer", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$PartialClientHelloMessage", "sun.security.ssl.PreSharedKeyExtension", "PartialClientHelloMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyUpdate", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyUpdate", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyConsumer", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyStringizer", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeySpec", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeySpec", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyStringizer", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeySpec", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeySpec", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PreSharedKeyExtension$PskIdentity", "sun.security.ssl.PreSharedKeyExtension", "PskIdentity", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PreSharedKeyExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PreSharedKeyExtension",
-	"java.lang.Object",
-	nullptr,
-	_PreSharedKeyExtension_FieldInfo_,
-	_PreSharedKeyExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PreSharedKeyExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyProducer,sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyAbsence,sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyConsumer,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnTradeAbsence,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyProducer,sun.security.ssl.PreSharedKeyExtension$PartialClientHelloMessage,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyUpdate,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyConsumer,sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyStringizer,sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeySpec,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyStringizer,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeySpec,sun.security.ssl.PreSharedKeyExtension$PskIdentity"
-};
-
-$Object* allocate$PreSharedKeyExtension($Class* clazz) {
-	return $of($alloc(PreSharedKeyExtension));
-}
 
 $HandshakeProducer* PreSharedKeyExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* PreSharedKeyExtension::chOnLoadConsumer = nullptr;
@@ -190,7 +121,7 @@ void PreSharedKeyExtension::init$() {
 
 bool PreSharedKeyExtension::canRejoin($ClientHello$ClientHelloMessage* clientHello, $ServerHandshakeContext* shc, $SSLSessionImpl* s) {
 	$init(PreSharedKeyExtension);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(s)->isRejoinable();
 	bool result = var$0 && (s->getPreSharedKey() != nullptr);
 	if (result && s->getProtocolVersion() != $nc(shc)->negotiatedProtocol) {
@@ -204,7 +135,7 @@ bool PreSharedKeyExtension::canRejoin($ClientHello$ClientHelloMessage* clientHel
 		$set(shc, localSupportedSignAlgs, $SignatureScheme::getSupportedAlgorithms(shc->sslConfig, shc->algorithmConstraints, shc->activeProtocols));
 	}
 	$init($ClientAuthType);
-	if (result && ($nc($nc(shc)->sslConfig)->clientAuthType == $ClientAuthType::CLIENT_AUTH_REQUIRED)) {
+	if (result && ($nc(shc->sslConfig)->clientAuthType == $ClientAuthType::CLIENT_AUTH_REQUIRED)) {
 		try {
 			s->getPeerPrincipal();
 		} catch ($SSLPeerUnverifiedException& e) {
@@ -223,7 +154,7 @@ bool PreSharedKeyExtension::canRejoin($ClientHello$ClientHelloMessage* clientHel
 			result = false;
 		}
 	}
-	$var($String, identityAlg, $nc($nc(shc)->sslConfig)->identificationProtocol);
+	$var($String, identityAlg, $nc(shc->sslConfig)->identificationProtocol);
 	if (result && identityAlg != nullptr) {
 		$var($String, sessionIdentityAlg, s->getIdentificationProtocol());
 		if (!identityAlg->equalsIgnoreCase(sessionIdentityAlg)) {
@@ -237,7 +168,7 @@ bool PreSharedKeyExtension::canRejoin($ClientHello$ClientHelloMessage* clientHel
 	bool var$1 = result;
 	if (var$1) {
 		bool var$2 = !shc->isNegotiable($(s->getSuite()));
-		var$1 = (var$2 || !$nc($nc(clientHello)->cipherSuites)->contains($(s->getSuite())));
+		var$1 = var$2 || !$nc($nc(clientHello)->cipherSuites)->contains($(s->getSuite()));
 	}
 	if (var$1) {
 		$init($SSLLogger);
@@ -251,14 +182,14 @@ bool PreSharedKeyExtension::canRejoin($ClientHello$ClientHelloMessage* clientHel
 
 void PreSharedKeyExtension::checkBinder($ServerHandshakeContext* shc, $SSLSessionImpl* session, $HandshakeHash* pskBinderHash, $bytes* binder) {
 	$init(PreSharedKeyExtension);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecretKey, psk, $nc(session)->getPreSharedKey());
 	if (psk == nullptr) {
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::INTERNAL_ERROR, "Session has no PSK"_s)));
 	}
 	$var($SecretKey, binderKey, deriveBinderKey(shc, psk, session));
-	$var($bytes, computedBinder, computeBinder(static_cast<$HandshakeContext*>(shc), binderKey, session, pskBinderHash));
+	$var($bytes, computedBinder, computeBinder(shc, binderKey, session, pskBinderHash));
 	if (!$Arrays::equals(binder, computedBinder)) {
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Incorect PSK binder value"_s)));
@@ -267,63 +198,63 @@ void PreSharedKeyExtension::checkBinder($ServerHandshakeContext* shc, $SSLSessio
 
 $bytes* PreSharedKeyExtension::computeBinder($HandshakeContext* context, $SecretKey* binderKey, $SSLSessionImpl* session, $HandshakeHash* pskBinderHash) {
 	$init(PreSharedKeyExtension);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProtocolVersion, var$0, $nc(session)->getProtocolVersion());
 	$nc(pskBinderHash)->determine(var$0, $(session->getSuite()));
-	pskBinderHash->update();
+	$nc(pskBinderHash)->update();
 	$var($bytes, digest, pskBinderHash->digest());
 	return computeBinder(context, binderKey, session, digest);
 }
 
 $bytes* PreSharedKeyExtension::computeBinder($HandshakeContext* context, $SecretKey* binderKey, $HandshakeHash* hash, $SSLSessionImpl* session, $HandshakeContext* ctx, $ClientHello$ClientHelloMessage* hello, $PreSharedKeyExtension$CHPreSharedKeySpec* pskPrototype) {
 	$init(PreSharedKeyExtension);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PreSharedKeyExtension$PartialClientHelloMessage, partialMsg, $new($PreSharedKeyExtension$PartialClientHelloMessage, ctx, hello, pskPrototype));
 	$var($SSLEngineOutputRecord, record, $new($SSLEngineOutputRecord, hash));
 	$var($HandshakeOutStream, hos, $new($HandshakeOutStream, record));
 	partialMsg->write(hos);
 	$var($ProtocolVersion, var$0, $nc(session)->getProtocolVersion());
 	$nc(hash)->determine(var$0, $(session->getSuite()));
-	hash->update();
+	$nc(hash)->update();
 	$var($bytes, digest, hash->digest());
 	return computeBinder(context, binderKey, session, digest);
 }
 
 $bytes* PreSharedKeyExtension::computeBinder($HandshakeContext* context, $SecretKey* binderKey, $SSLSessionImpl* session, $bytes* digest) {
 	$init(PreSharedKeyExtension);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$CipherSuite$HashAlg* hashAlg = $nc($($nc(session)->getSuite()))->hashAlg;
 		$var($HKDF, hkdf, $new($HKDF, $nc(hashAlg)->name$));
 		$var($bytes, label, ("tls13 finished"_s)->getBytes());
-		$var($bytes, hkdfInfo, $SSLSecretDerivation::createHkdfInfo(label, $$new($bytes, 0), $nc(hashAlg)->hashLength));
-		$var($SecretKey, finishedKey, hkdf->expand(binderKey, hkdfInfo, $nc(hashAlg)->hashLength, "TlsBinderKey"_s));
-		$var($String, hmacAlg, $str({"Hmac"_s, $($nc($nc(hashAlg)->name$)->replace(static_cast<$CharSequence*>("-"_s), static_cast<$CharSequence*>(""_s)))}));
+		$var($bytes, hkdfInfo, $SSLSecretDerivation::createHkdfInfo(label, $$new($bytes, 0), hashAlg->hashLength));
+		$var($SecretKey, finishedKey, hkdf->expand(binderKey, hkdfInfo, hashAlg->hashLength, "TlsBinderKey"_s));
+		$var($String, hmacAlg, $str({"Hmac"_s, $($nc(hashAlg->name$)->replace("-"_s, ""_s))}));
 		try {
 			$var($Mac, hmac, $Mac::getInstance(hmacAlg));
 			$nc(hmac)->init(finishedKey);
 			return hmac->doFinal(digest);
 		} catch ($NoSuchAlgorithmException& ex) {
 			$init($Alert);
-			$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, static_cast<$Throwable*>(ex))));
+			$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, ex)));
 		} catch ($InvalidKeyException& ex) {
 			$init($Alert);
-			$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, static_cast<$Throwable*>(ex))));
+			$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, ex)));
 		}
 	} catch ($GeneralSecurityException& ex) {
 		$init($Alert);
-		$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, static_cast<$Throwable*>(ex))));
+		$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, ex)));
 	}
 	$shouldNotReachHere();
 }
 
 $SecretKey* PreSharedKeyExtension::deriveBinderKey($HandshakeContext* context, $SecretKey* psk, $SSLSessionImpl* session) {
 	$init(PreSharedKeyExtension);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$CipherSuite$HashAlg* hashAlg = $nc($($nc(session)->getSuite()))->hashAlg;
 		$var($HKDF, hkdf, $new($HKDF, $nc(hashAlg)->name$));
-		$var($bytes, zeros, $new($bytes, $nc(hashAlg)->hashLength));
+		$var($bytes, zeros, $new($bytes, hashAlg->hashLength));
 		$var($SecretKey, earlySecret, hkdf->extract(zeros, psk, "TlsEarlySecret"_s));
 		$var($bytes, label, ("tls13 res binder"_s)->getBytes());
 		$var($MessageDigest, md, $MessageDigest::getInstance(hashAlg->name$));
@@ -331,12 +262,12 @@ $SecretKey* PreSharedKeyExtension::deriveBinderKey($HandshakeContext* context, $
 		return hkdf->expand(earlySecret, hkdfInfo, hashAlg->hashLength, "TlsBinderKey"_s);
 	} catch ($GeneralSecurityException& ex) {
 		$init($Alert);
-		$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, static_cast<$Throwable*>(ex))));
+		$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, ex)));
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$PreSharedKeyExtension($Class* class$) {
+void PreSharedKeyExtension::clinit$($Class* clazz) {
 	$assignStatic(PreSharedKeyExtension::chNetworkProducer, $new($PreSharedKeyExtension$CHPreSharedKeyProducer));
 	$assignStatic(PreSharedKeyExtension::chOnLoadConsumer, $new($PreSharedKeyExtension$CHPreSharedKeyConsumer));
 	$assignStatic(PreSharedKeyExtension::chOnLoadAbsence, $new($PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence));
@@ -353,7 +284,63 @@ PreSharedKeyExtension::PreSharedKeyExtension() {
 }
 
 $Class* PreSharedKeyExtension::load$($String* name, bool initialize) {
-	$loadClass(PreSharedKeyExtension, name, initialize, &_PreSharedKeyExtension_ClassInfo_, clinit$PreSharedKeyExtension, allocate$PreSharedKeyExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chOnLoadConsumer)},
+		{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chOnLoadAbsence)},
+		{"chOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chOnTradeConsumer)},
+		{"chOnTradAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chOnTradAbsence)},
+		{"chStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, chStringizer)},
+		{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, shNetworkProducer)},
+		{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, shOnLoadConsumer)},
+		{"shOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, shOnLoadAbsence)},
+		{"shStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(PreSharedKeyExtension, shStringizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PreSharedKeyExtension, init$, void)},
+		{"canRejoin", "(Lsun/security/ssl/ClientHello$ClientHelloMessage;Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/SSLSessionImpl;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, canRejoin, bool, $ClientHello$ClientHelloMessage*, $ServerHandshakeContext*, $SSLSessionImpl*)},
+		{"checkBinder", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/SSLSessionImpl;Lsun/security/ssl/HandshakeHash;[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, checkBinder, void, $ServerHandshakeContext*, $SSLSessionImpl*, $HandshakeHash*, $bytes*), "java.io.IOException"},
+		{"computeBinder", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;Lsun/security/ssl/SSLSessionImpl;Lsun/security/ssl/HandshakeHash;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, computeBinder, $bytes*, $HandshakeContext*, $SecretKey*, $SSLSessionImpl*, $HandshakeHash*), "java.io.IOException"},
+		{"computeBinder", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;Lsun/security/ssl/HandshakeHash;Lsun/security/ssl/SSLSessionImpl;Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;Lsun/security/ssl/PreSharedKeyExtension$CHPreSharedKeySpec;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, computeBinder, $bytes*, $HandshakeContext*, $SecretKey*, $HandshakeHash*, $SSLSessionImpl*, $HandshakeContext*, $ClientHello$ClientHelloMessage*, $PreSharedKeyExtension$CHPreSharedKeySpec*), "java.io.IOException"},
+		{"computeBinder", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;Lsun/security/ssl/SSLSessionImpl;[B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, computeBinder, $bytes*, $HandshakeContext*, $SecretKey*, $SSLSessionImpl*, $bytes*), "java.io.IOException"},
+		{"deriveBinderKey", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;Lsun/security/ssl/SSLSessionImpl;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(PreSharedKeyExtension, deriveBinderKey, $SecretKey*, $HandshakeContext*, $SecretKey*, $SSLSessionImpl*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyProducer", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyAbsence", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyConsumer", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnTradeAbsence", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyOnLoadAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyProducer", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$PartialClientHelloMessage", "sun.security.ssl.PreSharedKeyExtension", "PartialClientHelloMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyUpdate", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyUpdate", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyConsumer", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyStringizer", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeySpec", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeySpec", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyStringizer", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeySpec", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeySpec", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PreSharedKeyExtension$PskIdentity", "sun.security.ssl.PreSharedKeyExtension", "PskIdentity", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PreSharedKeyExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyProducer,sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyAbsence,sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyConsumer,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnTradeAbsence,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyProducer,sun.security.ssl.PreSharedKeyExtension$PartialClientHelloMessage,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyUpdate,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyConsumer,sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyStringizer,sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeySpec,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyStringizer,sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeySpec,sun.security.ssl.PreSharedKeyExtension$PskIdentity"
+	};
+	$loadClass(PreSharedKeyExtension, name, initialize, &classInfo$$, PreSharedKeyExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PreSharedKeyExtension);
+	});
 	return class$;
 }
 

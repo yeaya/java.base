@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$1.h>
-
 #include <java/time/chrono/Chronology.h>
 #include <java/time/format/DateTimeFormatterBuilder.h>
 #include <java/time/format/DateTimeTextProvider$LocaleStore.h>
@@ -28,52 +27,6 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$FieldInfo _DateTimeFormatterBuilder$1_FieldInfo_[] = {
-	{"this$0", "Ljava/time/format/DateTimeFormatterBuilder;", nullptr, $FINAL | $SYNTHETIC, $field(DateTimeFormatterBuilder$1, this$0)},
-	{"val$store", "Ljava/time/format/DateTimeTextProvider$LocaleStore;", nullptr, $FINAL | $SYNTHETIC, $field(DateTimeFormatterBuilder$1, val$store)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder;Ljava/time/format/DateTimeTextProvider$LocaleStore;)V", nullptr, 0, $method(DateTimeFormatterBuilder$1, init$, void, $DateTimeFormatterBuilder*, $DateTimeTextProvider$LocaleStore*)},
-	{"getText", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$1, getText, $String*, $Chronology*, $TemporalField*, int64_t, $TextStyle*, $Locale*)},
-	{"getText", "(Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$1, getText, $String*, $TemporalField*, int64_t, $TextStyle*, $Locale*)},
-	{"getTextIterator", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$1, getTextIterator, $Iterator*, $Chronology*, $TemporalField*, $TextStyle*, $Locale*)},
-	{"getTextIterator", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$1, getTextIterator, $Iterator*, $TemporalField*, $TextStyle*, $Locale*)},
-	{}
-};
-
-$EnclosingMethodInfo _DateTimeFormatterBuilder$1_EnclosingMethodInfo_ = {
-	"java.time.format.DateTimeFormatterBuilder",
-	"appendText",
-	"(Ljava/time/temporal/TemporalField;Ljava/util/Map;)Ljava/time/format/DateTimeFormatterBuilder;"
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$1_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$1",
-	"java.time.format.DateTimeTextProvider",
-	nullptr,
-	_DateTimeFormatterBuilder$1_FieldInfo_,
-	_DateTimeFormatterBuilder$1_MethodInfo_,
-	nullptr,
-	&_DateTimeFormatterBuilder$1_EnclosingMethodInfo_,
-	_DateTimeFormatterBuilder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$1($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$1));
-}
-
 void DateTimeFormatterBuilder$1::init$($DateTimeFormatterBuilder* this$0, $DateTimeTextProvider$LocaleStore* val$store) {
 	$set(this, this$0, this$0);
 	$set(this, val$store, val$store);
@@ -100,7 +53,46 @@ DateTimeFormatterBuilder$1::DateTimeFormatterBuilder$1() {
 }
 
 $Class* DateTimeFormatterBuilder$1::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$1, name, initialize, &_DateTimeFormatterBuilder$1_ClassInfo_, allocate$DateTimeFormatterBuilder$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/time/format/DateTimeFormatterBuilder;", nullptr, $FINAL | $SYNTHETIC, $field(DateTimeFormatterBuilder$1, this$0)},
+		{"val$store", "Ljava/time/format/DateTimeTextProvider$LocaleStore;", nullptr, $FINAL | $SYNTHETIC, $field(DateTimeFormatterBuilder$1, val$store)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder;Ljava/time/format/DateTimeTextProvider$LocaleStore;)V", nullptr, 0, $method(DateTimeFormatterBuilder$1, init$, void, $DateTimeFormatterBuilder*, $DateTimeTextProvider$LocaleStore*)},
+		{"getText", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$1, getText, $String*, $Chronology*, $TemporalField*, int64_t, $TextStyle*, $Locale*)},
+		{"getText", "(Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$1, getText, $String*, $TemporalField*, int64_t, $TextStyle*, $Locale*)},
+		{"getTextIterator", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$1, getTextIterator, $Iterator*, $Chronology*, $TemporalField*, $TextStyle*, $Locale*)},
+		{"getTextIterator", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$1, getTextIterator, $Iterator*, $TemporalField*, $TextStyle*, $Locale*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.format.DateTimeFormatterBuilder",
+		"appendText",
+		"(Ljava/time/temporal/TemporalField;Ljava/util/Map;)Ljava/time/format/DateTimeFormatterBuilder;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$1",
+		"java.time.format.DateTimeTextProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$1);
+	});
 	return class$;
 }
 

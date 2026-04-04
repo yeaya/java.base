@@ -1,5 +1,4 @@
 #include <java/util/concurrent/atomic/AtomicInteger.h>
-
 #include <java/lang/Number.h>
 #include <java/util/function/IntBinaryOperator.h>
 #include <java/util/function/IntUnaryOperator.h>
@@ -24,77 +23,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 			namespace atomic {
-
-$NamedAttribute AtomicInteger_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _AtomicInteger_MethodAnnotations_weakCompareAndSet31[] = {
-	{"Ljava/lang/Deprecated;", AtomicInteger_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _AtomicInteger_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AtomicInteger, serialVersionUID)},
-	{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AtomicInteger, U)},
-	{"VALUE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AtomicInteger, VALUE)},
-	{"value", "I", nullptr, $PRIVATE | $VOLATILE, $field(AtomicInteger, value)},
-	{}
-};
-
-$MethodInfo _AtomicInteger_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(AtomicInteger, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AtomicInteger, init$, void)},
-	{"accumulateAndGet", "(ILjava/util/function/IntBinaryOperator;)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, accumulateAndGet, int32_t, int32_t, $IntBinaryOperator*)},
-	{"addAndGet", "(I)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, addAndGet, int32_t, int32_t)},
-	{"compareAndExchange", "(II)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, compareAndExchange, int32_t, int32_t, int32_t)},
-	{"compareAndExchangeAcquire", "(II)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, compareAndExchangeAcquire, int32_t, int32_t, int32_t)},
-	{"compareAndExchangeRelease", "(II)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, compareAndExchangeRelease, int32_t, int32_t, int32_t)},
-	{"compareAndSet", "(II)Z", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, compareAndSet, bool, int32_t, int32_t)},
-	{"decrementAndGet", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, decrementAndGet, int32_t)},
-	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(AtomicInteger, doubleValue, double)},
-	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(AtomicInteger, floatValue, float)},
-	{"get", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, get, int32_t)},
-	{"getAcquire", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAcquire, int32_t)},
-	{"getAndAccumulate", "(ILjava/util/function/IntBinaryOperator;)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndAccumulate, int32_t, int32_t, $IntBinaryOperator*)},
-	{"getAndAdd", "(I)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndAdd, int32_t, int32_t)},
-	{"getAndDecrement", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndDecrement, int32_t)},
-	{"getAndIncrement", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndIncrement, int32_t)},
-	{"getAndSet", "(I)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndSet, int32_t, int32_t)},
-	{"getAndUpdate", "(Ljava/util/function/IntUnaryOperator;)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndUpdate, int32_t, $IntUnaryOperator*)},
-	{"getOpaque", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getOpaque, int32_t)},
-	{"getPlain", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getPlain, int32_t)},
-	{"incrementAndGet", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, incrementAndGet, int32_t)},
-	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(AtomicInteger, intValue, int32_t)},
-	{"lazySet", "(I)V", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, lazySet, void, int32_t)},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(AtomicInteger, longValue, int64_t)},
-	{"set", "(I)V", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, set, void, int32_t)},
-	{"setOpaque", "(I)V", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, setOpaque, void, int32_t)},
-	{"setPlain", "(I)V", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, setPlain, void, int32_t)},
-	{"setRelease", "(I)V", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, setRelease, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AtomicInteger, toString, $String*)},
-	{"updateAndGet", "(Ljava/util/function/IntUnaryOperator;)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, updateAndGet, int32_t, $IntUnaryOperator*)},
-	{"weakCompareAndSet", "(II)Z", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(AtomicInteger, weakCompareAndSet, bool, int32_t, int32_t), nullptr, nullptr, _AtomicInteger_MethodAnnotations_weakCompareAndSet31},
-	{"weakCompareAndSetAcquire", "(II)Z", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, weakCompareAndSetAcquire, bool, int32_t, int32_t)},
-	{"weakCompareAndSetPlain", "(II)Z", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, weakCompareAndSetPlain, bool, int32_t, int32_t)},
-	{"weakCompareAndSetRelease", "(II)Z", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, weakCompareAndSetRelease, bool, int32_t, int32_t)},
-	{"weakCompareAndSetVolatile", "(II)Z", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, weakCompareAndSetVolatile, bool, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _AtomicInteger_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.atomic.AtomicInteger",
-	"java.lang.Number",
-	nullptr,
-	_AtomicInteger_FieldInfo_,
-	_AtomicInteger_MethodInfo_
-};
-
-$Object* allocate$AtomicInteger($Class* clazz) {
-	return $of($alloc(AtomicInteger));
-}
 
 $Unsafe* AtomicInteger::U = nullptr;
 int64_t AtomicInteger::VALUE = 0;
@@ -288,7 +216,7 @@ bool AtomicInteger::weakCompareAndSetRelease(int32_t expectedValue, int32_t newV
 	return $nc(AtomicInteger::U)->weakCompareAndSetIntRelease(this, AtomicInteger::VALUE, expectedValue, newValue);
 }
 
-void clinit$AtomicInteger($Class* class$) {
+void AtomicInteger::clinit$($Class* clazz) {
 	$assignStatic(AtomicInteger::U, $Unsafe::getUnsafe());
 	AtomicInteger::VALUE = $nc(AtomicInteger::U)->objectFieldOffset(AtomicInteger::class$, "value"_s);
 }
@@ -297,7 +225,71 @@ AtomicInteger::AtomicInteger() {
 }
 
 $Class* AtomicInteger::load$($String* name, bool initialize) {
-	$loadClass(AtomicInteger, name, initialize, &_AtomicInteger_ClassInfo_, clinit$AtomicInteger, allocate$AtomicInteger);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AtomicInteger, serialVersionUID)},
+		{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AtomicInteger, U)},
+		{"VALUE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AtomicInteger, VALUE)},
+		{"value", "I", nullptr, $PRIVATE | $VOLATILE, $field(AtomicInteger, value)},
+		{}
+	};
+	$NamedAttribute weakCompareAndSetmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", weakCompareAndSetmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(AtomicInteger, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AtomicInteger, init$, void)},
+		{"accumulateAndGet", "(ILjava/util/function/IntBinaryOperator;)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, accumulateAndGet, int32_t, int32_t, $IntBinaryOperator*)},
+		{"addAndGet", "(I)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, addAndGet, int32_t, int32_t)},
+		{"compareAndExchange", "(II)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, compareAndExchange, int32_t, int32_t, int32_t)},
+		{"compareAndExchangeAcquire", "(II)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, compareAndExchangeAcquire, int32_t, int32_t, int32_t)},
+		{"compareAndExchangeRelease", "(II)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, compareAndExchangeRelease, int32_t, int32_t, int32_t)},
+		{"compareAndSet", "(II)Z", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, compareAndSet, bool, int32_t, int32_t)},
+		{"decrementAndGet", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, decrementAndGet, int32_t)},
+		{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(AtomicInteger, doubleValue, double)},
+		{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(AtomicInteger, floatValue, float)},
+		{"get", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, get, int32_t)},
+		{"getAcquire", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAcquire, int32_t)},
+		{"getAndAccumulate", "(ILjava/util/function/IntBinaryOperator;)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndAccumulate, int32_t, int32_t, $IntBinaryOperator*)},
+		{"getAndAdd", "(I)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndAdd, int32_t, int32_t)},
+		{"getAndDecrement", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndDecrement, int32_t)},
+		{"getAndIncrement", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndIncrement, int32_t)},
+		{"getAndSet", "(I)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndSet, int32_t, int32_t)},
+		{"getAndUpdate", "(Ljava/util/function/IntUnaryOperator;)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getAndUpdate, int32_t, $IntUnaryOperator*)},
+		{"getOpaque", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getOpaque, int32_t)},
+		{"getPlain", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, getPlain, int32_t)},
+		{"incrementAndGet", "()I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, incrementAndGet, int32_t)},
+		{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(AtomicInteger, intValue, int32_t)},
+		{"lazySet", "(I)V", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, lazySet, void, int32_t)},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(AtomicInteger, longValue, int64_t)},
+		{"set", "(I)V", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, set, void, int32_t)},
+		{"setOpaque", "(I)V", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, setOpaque, void, int32_t)},
+		{"setPlain", "(I)V", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, setPlain, void, int32_t)},
+		{"setRelease", "(I)V", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, setRelease, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AtomicInteger, toString, $String*)},
+		{"updateAndGet", "(Ljava/util/function/IntUnaryOperator;)I", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, updateAndGet, int32_t, $IntUnaryOperator*)},
+		{"weakCompareAndSet", "(II)Z", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(AtomicInteger, weakCompareAndSet, bool, int32_t, int32_t), nullptr, nullptr, weakCompareAndSetmethodAnnotations$$},
+		{"weakCompareAndSetAcquire", "(II)Z", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, weakCompareAndSetAcquire, bool, int32_t, int32_t)},
+		{"weakCompareAndSetPlain", "(II)Z", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, weakCompareAndSetPlain, bool, int32_t, int32_t)},
+		{"weakCompareAndSetRelease", "(II)Z", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, weakCompareAndSetRelease, bool, int32_t, int32_t)},
+		{"weakCompareAndSetVolatile", "(II)Z", nullptr, $PUBLIC | $FINAL, $method(AtomicInteger, weakCompareAndSetVolatile, bool, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.atomic.AtomicInteger",
+		"java.lang.Number",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AtomicInteger, name, initialize, &classInfo$$, AtomicInteger::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AtomicInteger);
+	});
 	return class$;
 }
 

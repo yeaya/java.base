@@ -1,10 +1,8 @@
 #include <Bug6970930.h>
-
 #include <java/text/ParseException.h>
 #include <java/text/RuleBasedCollator.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -13,31 +11,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ParseException = ::java::text::ParseException;
 using $RuleBasedCollator = ::java::text::RuleBasedCollator;
-
-$FieldInfo _Bug6970930_FieldInfo_[] = {
-	{"err", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Bug6970930, err)},
-	{}
-};
-
-$MethodInfo _Bug6970930_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6970930, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6970930, main, void, $StringArray*)},
-	{"test1", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6970930, test1, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _Bug6970930_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug6970930",
-	"java.lang.Object",
-	nullptr,
-	_Bug6970930_FieldInfo_,
-	_Bug6970930_MethodInfo_
-};
-
-$Object* allocate$Bug6970930($Class* clazz) {
-	return $of($alloc(Bug6970930));
-}
 
 bool Bug6970930::err = false;
 
@@ -58,7 +31,7 @@ void Bug6970930::main($StringArray* args) {
 
 void Bug6970930::test1($String* s1, $String* s2) {
 	$init(Bug6970930);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RuleBasedCollator, col, nullptr);
 	try {
 		$assign(col, $new($RuleBasedCollator, "< a < b"_s));
@@ -79,7 +52,7 @@ void Bug6970930::test1($String* s1, $String* s2) {
 	}
 }
 
-void clinit$Bug6970930($Class* class$) {
+void Bug6970930::clinit$($Class* clazz) {
 	Bug6970930::err = false;
 }
 
@@ -87,7 +60,27 @@ Bug6970930::Bug6970930() {
 }
 
 $Class* Bug6970930::load$($String* name, bool initialize) {
-	$loadClass(Bug6970930, name, initialize, &_Bug6970930_ClassInfo_, clinit$Bug6970930, allocate$Bug6970930);
+	$FieldInfo fieldInfos$$[] = {
+		{"err", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Bug6970930, err)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6970930, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6970930, main, void, $StringArray*)},
+		{"test1", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6970930, test1, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug6970930",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Bug6970930, name, initialize, &classInfo$$, Bug6970930::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug6970930);
+	});
 	return class$;
 }
 

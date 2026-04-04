@@ -39,6 +39,7 @@ class $import RSAKeyPairGenerator : public ::java::security::KeyPairGeneratorSpi
 	$class(RSAKeyPairGenerator, 0, ::java::security::KeyPairGeneratorSpi)
 public:
 	RSAKeyPairGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::rsa::RSAUtil$KeyType* type, int32_t defKeySize);
 	static ::java::security::KeyPair* createKeyPair(::sun::security::rsa::RSAUtil$KeyType* type, ::java::security::spec::AlgorithmParameterSpec* keyParams, ::java::math::BigInteger* n, ::java::math::BigInteger* e, ::java::math::BigInteger* p, ::java::math::BigInteger* q);
 	virtual ::java::security::KeyPair* generateKeyPair() override;

@@ -1,5 +1,4 @@
 #include <java/util/HashSet.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -43,60 +42,12 @@ using $HashMap$KeySpliterator = ::java::util::HashMap$KeySpliterator;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $Set = ::java::util::Set;
+using $Map$Entry = ::java::util::Map$Entry;
 using $Spliterator = ::java::util::Spliterator;
-using $JavaObjectInputStreamAccess = ::jdk::internal::access::JavaObjectInputStreamAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _HashSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(HashSet, serialVersionUID)},
-	{"map", "Ljava/util/HashMap;", "Ljava/util/HashMap<TE;Ljava/lang/Object;>;", $PRIVATE | $TRANSIENT, $field(HashSet, map)},
-	{"PRESENT", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HashSet, PRESENT)},
-	{}
-};
-
-$MethodInfo _HashSet_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HashSet, init$, void)},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(HashSet, init$, void, $Collection*)},
-	{"<init>", "(IF)V", nullptr, $PUBLIC, $method(HashSet, init$, void, int32_t, float)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(HashSet, init$, void, int32_t)},
-	{"<init>", "(IFZ)V", nullptr, 0, $method(HashSet, init$, void, int32_t, float, bool)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(HashSet, add, bool, Object$*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(HashSet, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HashSet, clone, $Object*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashSet, contains, bool, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(HashSet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(HashSet, iterator, $Iterator*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(HashSet, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashSet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(HashSet, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(HashSet, spliterator, $Spliterator*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HashSet, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(HashSet, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(HashSet, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _HashSet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.HashSet",
-	"java.util.AbstractSet",
-	"java.lang.Cloneable,java.io.Serializable",
-	_HashSet_FieldInfo_,
-	_HashSet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractSet<TE;>;Ljava/util/Set<TE;>;Ljava/lang/Cloneable;Ljava/io/Serializable;"
-};
-
-$Object* allocate$HashSet($Class* clazz) {
-	return $of($alloc(HashSet));
-}
 
 bool HashSet::equals(Object$* o) {
 	 return this->$AbstractSet::equals(o);
@@ -143,7 +94,7 @@ void HashSet::init$(int32_t initialCapacity, float loadFactor, bool dummy) {
 }
 
 $Iterator* HashSet::iterator() {
-	return $nc($($nc(this->map)->keySet()))->iterator();
+	return $$nc($nc(this->map)->keySet())->iterator();
 }
 
 int32_t HashSet::size() {
@@ -176,19 +127,19 @@ $Object* HashSet::clone() {
 		$set($nc(newSet), map, $cast($HashMap, $nc(this->map)->clone()));
 		return $of(newSet);
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
 
 void HashSet::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultWriteObject();
 	s->writeInt($nc(this->map)->capacity());
-	s->writeFloat($nc(this->map)->loadFactor());
-	s->writeInt($nc(this->map)->size());
+	s->writeFloat(this->map->loadFactor());
+	s->writeInt(this->map->size());
 	{
-		$var($Iterator, i$, $nc($($nc(this->map)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc(this->map->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, e, i$->next());
 			s->writeObject(e);
@@ -197,7 +148,7 @@ void HashSet::writeObject($ObjectOutputStream* s) {
 }
 
 void HashSet::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	int32_t capacity = s->readInt();
 	if (capacity < 0) {
@@ -212,9 +163,9 @@ void HashSet::readObject($ObjectInputStream* s) {
 		$throwNew($InvalidObjectException, $$str({"Illegal size: "_s, $$str(size)}));
 	}
 	capacity = $cast(int32_t, $Math::min(size * $Math::min(1 / loadFactor, 4.0f), (float)$HashMap::MAXIMUM_CAPACITY));
-	$load($Map$EntryArray);
-	$nc($($SharedSecrets::getJavaObjectInputStreamAccess()))->checkArray(s, $getClass($Map$EntryArray), $HashMap::tableSizeFor(capacity));
-	$set(this, map, $instanceOf($LinkedHashSet, this) ? static_cast<$HashMap*>($new($LinkedHashMap, capacity, loadFactor)) : $new($HashMap, capacity, loadFactor));
+	$load($Map$Entry);
+	$$nc($SharedSecrets::getJavaObjectInputStreamAccess())->checkArray(s, $getClass($Map$EntryArray), $HashMap::tableSizeFor(capacity));
+	$set(this, map, $instanceOf($LinkedHashSet, this) ? $cast($HashMap, $new($LinkedHashMap, capacity, loadFactor)) : $new($HashMap, capacity, loadFactor));
 	for (int32_t i = 0; i < size; ++i) {
 		$var($Object, e, s->readObject());
 		$nc(this->map)->put(e, HashSet::PRESENT);
@@ -233,7 +184,7 @@ $ObjectArray* HashSet::toArray($ObjectArray* a) {
 	return $nc(this->map)->keysToArray($($nc(this->map)->prepareArray(a)));
 }
 
-void clinit$HashSet($Class* class$) {
+void HashSet::clinit$($Class* clazz) {
 	$assignStatic(HashSet::PRESENT, $new($Object));
 }
 
@@ -241,7 +192,49 @@ HashSet::HashSet() {
 }
 
 $Class* HashSet::load$($String* name, bool initialize) {
-	$loadClass(HashSet, name, initialize, &_HashSet_ClassInfo_, clinit$HashSet, allocate$HashSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(HashSet, serialVersionUID)},
+		{"map", "Ljava/util/HashMap;", "Ljava/util/HashMap<TE;Ljava/lang/Object;>;", $PRIVATE | $TRANSIENT, $field(HashSet, map)},
+		{"PRESENT", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HashSet, PRESENT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HashSet, init$, void)},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(HashSet, init$, void, $Collection*)},
+		{"<init>", "(IF)V", nullptr, $PUBLIC, $method(HashSet, init$, void, int32_t, float)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(HashSet, init$, void, int32_t)},
+		{"<init>", "(IFZ)V", nullptr, 0, $method(HashSet, init$, void, int32_t, float, bool)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(HashSet, add, bool, Object$*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(HashSet, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HashSet, clone, $Object*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashSet, contains, bool, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(HashSet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(HashSet, iterator, $Iterator*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(HashSet, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HashSet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(HashSet, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(HashSet, spliterator, $Spliterator*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HashSet, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(HashSet, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(HashSet, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.HashSet",
+		"java.util.AbstractSet",
+		"java.lang.Cloneable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractSet<TE;>;Ljava/util/Set<TE;>;Ljava/lang/Cloneable;Ljava/io/Serializable;"
+	};
+	$loadClass(HashSet, name, initialize, &classInfo$$, HashSet::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HashSet));
+	});
 	return class$;
 }
 

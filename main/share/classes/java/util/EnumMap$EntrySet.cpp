@@ -1,5 +1,4 @@
 #include <java/util/EnumMap$EntrySet.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/reflect/Array.h>
 #include <java/util/AbstractMap$SimpleEntry.h>
@@ -25,50 +24,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 namespace java {
 	namespace util {
 
-$FieldInfo _EnumMap$EntrySet_FieldInfo_[] = {
-	{"this$0", "Ljava/util/EnumMap;", nullptr, $FINAL | $SYNTHETIC, $field(EnumMap$EntrySet, this$0)},
-	{}
-};
-
-$MethodInfo _EnumMap$EntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(EnumMap$EntrySet, init$, void, $EnumMap*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, contains, bool, Object$*)},
-	{"fillEntryArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(EnumMap$EntrySet, fillEntryArray, $ObjectArray*, $ObjectArray*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(EnumMap$EntrySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, size, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(EnumMap$EntrySet, toArray, $ObjectArray*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _EnumMap$EntrySet_InnerClassesInfo_[] = {
-	{"java.util.EnumMap$EntrySet", "java.util.EnumMap", "EntrySet", $PRIVATE},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _EnumMap$EntrySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.EnumMap$EntrySet",
-	"java.util.AbstractSet",
-	nullptr,
-	_EnumMap$EntrySet_FieldInfo_,
-	_EnumMap$EntrySet_MethodInfo_,
-	"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_EnumMap$EntrySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.EnumMap"
-};
-
-$Object* allocate$EnumMap$EntrySet($Class* clazz) {
-	return $of($alloc(EnumMap$EntrySet));
-}
-
 void EnumMap$EntrySet::init$($EnumMap* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractSet::init$();
@@ -79,7 +34,7 @@ $Iterator* EnumMap$EntrySet::iterator() {
 }
 
 bool EnumMap$EntrySet::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, entry, nullptr);
 	bool var$1 = $instanceOf($Map$Entry, o);
 	if (var$1) {
@@ -95,7 +50,7 @@ bool EnumMap$EntrySet::contains(Object$* o) {
 }
 
 bool EnumMap$EntrySet::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, entry, nullptr);
 	bool var$1 = $instanceOf($Map$Entry, o);
 	if (var$1) {
@@ -128,18 +83,18 @@ $ObjectArray* EnumMap$EntrySet::toArray($ObjectArray* a$renamed) {
 	if ($nc(a)->length < size) {
 		$assign(a, $cast($ObjectArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), size)));
 	}
-	if ($nc(a)->length > size) {
+	if (a->length > size) {
 		a->set(size, nullptr);
 	}
 	return fillEntryArray(a);
 }
 
 $ObjectArray* EnumMap$EntrySet::fillEntryArray($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t j = 0;
 	for (int32_t i = 0; i < $nc(this->this$0->vals)->length; ++i) {
-		if ($nc(this->this$0->vals)->get(i) != nullptr) {
-			$nc(a)->set(j++, $$new($AbstractMap$SimpleEntry, $nc(this->this$0->keyUniverse)->get(i), $(this->this$0->unmaskNull($nc(this->this$0->vals)->get(i)))));
+		if (this->this$0->vals->get(i) != nullptr) {
+			$nc(a)->set(j++, $$new($AbstractMap$SimpleEntry, $nc(this->this$0->keyUniverse)->get(i), $(this->this$0->unmaskNull(this->this$0->vals->get(i)))));
 		}
 	}
 	return a;
@@ -149,7 +104,45 @@ EnumMap$EntrySet::EnumMap$EntrySet() {
 }
 
 $Class* EnumMap$EntrySet::load$($String* name, bool initialize) {
-	$loadClass(EnumMap$EntrySet, name, initialize, &_EnumMap$EntrySet_ClassInfo_, allocate$EnumMap$EntrySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/EnumMap;", nullptr, $FINAL | $SYNTHETIC, $field(EnumMap$EntrySet, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(EnumMap$EntrySet, init$, void, $EnumMap*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, contains, bool, Object$*)},
+		{"fillEntryArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(EnumMap$EntrySet, fillEntryArray, $ObjectArray*, $ObjectArray*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(EnumMap$EntrySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, size, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(EnumMap$EntrySet, toArray, $ObjectArray*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.EnumMap$EntrySet", "java.util.EnumMap", "EntrySet", $PRIVATE},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.EnumMap$EntrySet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.EnumMap"
+	};
+	$loadClass(EnumMap$EntrySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EnumMap$EntrySet));
+	});
 	return class$;
 }
 

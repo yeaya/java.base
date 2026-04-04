@@ -1,5 +1,4 @@
 #include <java/util/ResourceBundle$ResourceBundleControlProviderHolder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/invoke/CallSite.h>
@@ -33,7 +32,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $List = ::java::util::List;
-using $Optional = ::java::util::Optional;
 using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $ServiceLoader$Provider = ::java::util::ServiceLoader$Provider;
@@ -50,29 +48,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ResourceBundle$ResourceBundleControlProviderHolder::lambda$static$0());
+		 return ResourceBundle$ResourceBundleControlProviderHolder::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0::class$ = nullptr;
@@ -84,35 +79,31 @@ public:
 		$set(this, baseName, baseName);
 	}
 	virtual $Object* apply(Object$* provider) override {
-		 return $of(ResourceBundle$ResourceBundleControlProviderHolder::lambda$getControl$1(baseName, $cast($ResourceBundleControlProvider, provider)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1>());
+		 return ResourceBundle$ResourceBundleControlProviderHolder::lambda$getControl$1(baseName, $cast($ResourceBundleControlProvider, provider));
 	}
 	$String* baseName = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1::fieldInfos[2] = {
-	{"baseName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, baseName)},
-	{}
-};
-$MethodInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, init$, void, $String*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"baseName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, baseName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, init$, void, $String*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1);
+	});
 	return class$;
 }
 $Class* ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1::class$ = nullptr;
@@ -125,69 +116,27 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $sure($ServiceLoader$Provider, inst$)->get();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2);
+	});
 	return class$;
 }
 $Class* ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2::class$ = nullptr;
-
-$FieldInfo _ResourceBundle$ResourceBundleControlProviderHolder_FieldInfo_[] = {
-	{"pa", "Ljava/security/PrivilegedAction;", "Ljava/security/PrivilegedAction<Ljava/util/List<Ljava/util/spi/ResourceBundleControlProvider;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle$ResourceBundleControlProviderHolder, pa)},
-	{"CONTROL_PROVIDERS", "Ljava/util/List;", "Ljava/util/List<Ljava/util/spi/ResourceBundleControlProvider;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle$ResourceBundleControlProviderHolder, CONTROL_PROVIDERS)},
-	{}
-};
-
-$MethodInfo _ResourceBundle$ResourceBundleControlProviderHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ResourceBundle$ResourceBundleControlProviderHolder, init$, void)},
-	{"getControl", "(Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle$ResourceBundleControlProviderHolder, getControl, $ResourceBundle$Control*, $String*)},
-	{"lambda$getControl$1", "(Ljava/lang/String;Ljava/util/spi/ResourceBundleControlProvider;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle$ResourceBundleControlProviderHolder, lambda$getControl$1, $Stream*, $String*, $ResourceBundleControlProvider*)},
-	{"lambda$static$0", "()Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle$ResourceBundleControlProviderHolder, lambda$static$0, $List*)},
-	{}
-};
-
-$InnerClassInfo _ResourceBundle$ResourceBundleControlProviderHolder_InnerClassesInfo_[] = {
-	{"java.util.ResourceBundle$ResourceBundleControlProviderHolder", "java.util.ResourceBundle", "ResourceBundleControlProviderHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ResourceBundle$ResourceBundleControlProviderHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ResourceBundle$ResourceBundleControlProviderHolder",
-	"java.lang.Object",
-	nullptr,
-	_ResourceBundle$ResourceBundleControlProviderHolder_FieldInfo_,
-	_ResourceBundle$ResourceBundleControlProviderHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResourceBundle$ResourceBundleControlProviderHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ResourceBundle"
-};
-
-$Object* allocate$ResourceBundle$ResourceBundleControlProviderHolder($Class* clazz) {
-	return $of($alloc(ResourceBundle$ResourceBundleControlProviderHolder));
-}
 
 $PrivilegedAction* ResourceBundle$ResourceBundleControlProviderHolder::pa = nullptr;
 $List* ResourceBundle$ResourceBundleControlProviderHolder::CONTROL_PROVIDERS = nullptr;
@@ -197,9 +146,9 @@ void ResourceBundle$ResourceBundleControlProviderHolder::init$() {
 
 $ResourceBundle$Control* ResourceBundle$ResourceBundleControlProviderHolder::getControl($String* baseName) {
 	$init(ResourceBundle$ResourceBundleControlProviderHolder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ResourceBundle$Control);
-	return $nc(ResourceBundle$ResourceBundleControlProviderHolder::CONTROL_PROVIDERS)->isEmpty() ? $ResourceBundle$Control::INSTANCE : $cast($ResourceBundle$Control, $nc($($nc($($nc($($nc(ResourceBundle$ResourceBundleControlProviderHolder::CONTROL_PROVIDERS)->stream()))->flatMap(static_cast<$Function*>($$new(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, baseName)))))->findFirst()))->orElse($ResourceBundle$Control::INSTANCE));
+	return $nc(ResourceBundle$ResourceBundleControlProviderHolder::CONTROL_PROVIDERS)->isEmpty() ? $ResourceBundle$Control::INSTANCE : $cast($ResourceBundle$Control, $$nc($$nc($$nc(ResourceBundle$ResourceBundleControlProviderHolder::CONTROL_PROVIDERS->stream())->flatMap($$new(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, baseName)))->findFirst())->orElse($ResourceBundle$Control::INSTANCE));
 }
 
 $Stream* ResourceBundle$ResourceBundleControlProviderHolder::lambda$getControl$1($String* baseName, $ResourceBundleControlProvider* provider) {
@@ -209,15 +158,15 @@ $Stream* ResourceBundle$ResourceBundleControlProviderHolder::lambda$getControl$1
 
 $List* ResourceBundle$ResourceBundleControlProviderHolder::lambda$static$0() {
 	$init(ResourceBundle$ResourceBundleControlProviderHolder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($ResourceBundleControlProvider);
-	return $nc($($nc($($nc($($ServiceLoader::load($ResourceBundleControlProvider::class$, $($ClassLoader::getSystemClassLoader()))))->stream()))->map(static_cast<$Function*>($$new(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2)))))->toList();
+	return $$nc($$nc($$nc($ServiceLoader::load($ResourceBundleControlProvider::class$, $($ClassLoader::getSystemClassLoader())))->stream())->map($$new(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2)))->toList();
 }
 
-void clinit$ResourceBundle$ResourceBundleControlProviderHolder($Class* class$) {
+void ResourceBundle$ResourceBundleControlProviderHolder::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
-	$assignStatic(ResourceBundle$ResourceBundleControlProviderHolder::pa, static_cast<$PrivilegedAction*>($new(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0)));
+	$assignStatic(ResourceBundle$ResourceBundleControlProviderHolder::pa, $new(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0));
 	$assignStatic(ResourceBundle$ResourceBundleControlProviderHolder::CONTROL_PROVIDERS, $cast($List, $AccessController::doPrivileged(ResourceBundle$ResourceBundleControlProviderHolder::pa)));
 }
 
@@ -226,17 +175,50 @@ ResourceBundle$ResourceBundleControlProviderHolder::ResourceBundle$ResourceBundl
 
 $Class* ResourceBundle$ResourceBundleControlProviderHolder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("java.util.ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0")) {
 			return ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0::load$(name, initialize);
 		}
-		if (name->equals(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1::classInfo$.name)) {
+		if (name->equals("java.util.ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1")) {
 			return ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1::load$(name, initialize);
 		}
-		if (name->equals(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2::classInfo$.name)) {
+		if (name->equals("java.util.ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2")) {
 			return ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2::load$(name, initialize);
 		}
 	}
-	$loadClass(ResourceBundle$ResourceBundleControlProviderHolder, name, initialize, &_ResourceBundle$ResourceBundleControlProviderHolder_ClassInfo_, clinit$ResourceBundle$ResourceBundleControlProviderHolder, allocate$ResourceBundle$ResourceBundleControlProviderHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"pa", "Ljava/security/PrivilegedAction;", "Ljava/security/PrivilegedAction<Ljava/util/List<Ljava/util/spi/ResourceBundleControlProvider;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle$ResourceBundleControlProviderHolder, pa)},
+		{"CONTROL_PROVIDERS", "Ljava/util/List;", "Ljava/util/List<Ljava/util/spi/ResourceBundleControlProvider;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle$ResourceBundleControlProviderHolder, CONTROL_PROVIDERS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ResourceBundle$ResourceBundleControlProviderHolder, init$, void)},
+		{"getControl", "(Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle$ResourceBundleControlProviderHolder, getControl, $ResourceBundle$Control*, $String*)},
+		{"lambda$getControl$1", "(Ljava/lang/String;Ljava/util/spi/ResourceBundleControlProvider;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle$ResourceBundleControlProviderHolder, lambda$getControl$1, $Stream*, $String*, $ResourceBundleControlProvider*)},
+		{"lambda$static$0", "()Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle$ResourceBundleControlProviderHolder, lambda$static$0, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ResourceBundle$ResourceBundleControlProviderHolder", "java.util.ResourceBundle", "ResourceBundleControlProviderHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ResourceBundle$ResourceBundleControlProviderHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ResourceBundle"
+	};
+	$loadClass(ResourceBundle$ResourceBundleControlProviderHolder, name, initialize, &classInfo$$, ResourceBundle$ResourceBundleControlProviderHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$ResourceBundleControlProviderHolder);
+	});
 	return class$;
 }
 

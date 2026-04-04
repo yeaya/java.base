@@ -1,8 +1,6 @@
 #include <sun/security/provider/certpath/PolicyChecker.h>
-
 #include <java/io/IOException.h>
 #include <java/security/cert/CertPath.h>
-#include <java/security/cert/CertPathValidatorException$Reason.h>
 #include <java/security/cert/CertPathValidatorException.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateException.h>
@@ -48,7 +46,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CertPath = ::java::security::cert::CertPath;
 using $CertPathValidatorException = ::java::security::cert::CertPathValidatorException;
-using $CertPathValidatorException$Reason = ::java::security::cert::CertPathValidatorException$Reason;
 using $Certificate = ::java::security::cert::Certificate;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $PKIXCertPathChecker = ::java::security::cert::PKIXCertPathChecker;
@@ -64,9 +61,7 @@ using $Set = ::java::util::Set;
 using $PolicyNodeImpl = ::sun::security::provider::certpath::PolicyNodeImpl;
 using $Debug = ::sun::security::util::Debug;
 using $KnownOIDs = ::sun::security::util::KnownOIDs;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $CertificatePoliciesExtension = ::sun::security::x509::CertificatePoliciesExtension;
-using $CertificatePolicyId = ::sun::security::x509::CertificatePolicyId;
 using $CertificatePolicyMap = ::sun::security::x509::CertificatePolicyMap;
 using $InhibitAnyPolicyExtension = ::sun::security::x509::InhibitAnyPolicyExtension;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
@@ -80,56 +75,6 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _PolicyChecker_FieldInfo_[] = {
-	{"initPolicies", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(PolicyChecker, initPolicies)},
-	{"certPathLen", "I", nullptr, $PRIVATE | $FINAL, $field(PolicyChecker, certPathLen)},
-	{"expPolicyRequired", "Z", nullptr, $PRIVATE | $FINAL, $field(PolicyChecker, expPolicyRequired)},
-	{"polMappingInhibited", "Z", nullptr, $PRIVATE | $FINAL, $field(PolicyChecker, polMappingInhibited)},
-	{"anyPolicyInhibited", "Z", nullptr, $PRIVATE | $FINAL, $field(PolicyChecker, anyPolicyInhibited)},
-	{"rejectPolicyQualifiers", "Z", nullptr, $PRIVATE | $FINAL, $field(PolicyChecker, rejectPolicyQualifiers)},
-	{"rootNode", "Lsun/security/provider/certpath/PolicyNodeImpl;", nullptr, $PRIVATE, $field(PolicyChecker, rootNode)},
-	{"explicitPolicy", "I", nullptr, $PRIVATE, $field(PolicyChecker, explicitPolicy)},
-	{"policyMapping", "I", nullptr, $PRIVATE, $field(PolicyChecker, policyMapping)},
-	{"inhibitAnyPolicy", "I", nullptr, $PRIVATE, $field(PolicyChecker, inhibitAnyPolicy)},
-	{"certIndex", "I", nullptr, $PRIVATE, $field(PolicyChecker, certIndex)},
-	{"supportedExts", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(PolicyChecker, supportedExts)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyChecker, debug)},
-	{"ANY_POLICY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PolicyChecker, ANY_POLICY)},
-	{}
-};
-
-$MethodInfo _PolicyChecker_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;IZZZZLsun/security/provider/certpath/PolicyNodeImpl;)V", "(Ljava/util/Set<Ljava/lang/String;>;IZZZZLsun/security/provider/certpath/PolicyNodeImpl;)V", 0, $method(PolicyChecker, init$, void, $Set*, int32_t, bool, bool, bool, bool, $PolicyNodeImpl*)},
-	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(PolicyChecker, check, void, $Certificate*, $Collection*), "java.security.cert.CertPathValidatorException"},
-	{"checkPolicy", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(PolicyChecker, checkPolicy, void, $X509Certificate*), "java.security.cert.CertPathValidatorException"},
-	{"getPolicyTree", "()Ljava/security/cert/PolicyNode;", nullptr, 0, $virtualMethod(PolicyChecker, getPolicyTree, $PolicyNode*)},
-	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PolicyChecker, getSupportedExtensions, $Set*)},
-	{"init", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PolicyChecker, init, void, bool), "java.security.cert.CertPathValidatorException"},
-	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(PolicyChecker, isForwardCheckingSupported, bool)},
-	{"mergeExplicitPolicy", "(ILsun/security/x509/X509CertImpl;Z)I", nullptr, $STATIC, $staticMethod(PolicyChecker, mergeExplicitPolicy, int32_t, int32_t, $X509CertImpl*, bool), "java.security.cert.CertPathValidatorException"},
-	{"mergeInhibitAnyPolicy", "(ILsun/security/x509/X509CertImpl;)I", nullptr, $STATIC, $staticMethod(PolicyChecker, mergeInhibitAnyPolicy, int32_t, int32_t, $X509CertImpl*), "java.security.cert.CertPathValidatorException"},
-	{"mergePolicyMapping", "(ILsun/security/x509/X509CertImpl;)I", nullptr, $STATIC, $staticMethod(PolicyChecker, mergePolicyMapping, int32_t, int32_t, $X509CertImpl*), "java.security.cert.CertPathValidatorException"},
-	{"processParents", "(IZZLsun/security/provider/certpath/PolicyNodeImpl;Ljava/lang/String;Ljava/util/Set;Z)Z", "(IZZLsun/security/provider/certpath/PolicyNodeImpl;Ljava/lang/String;Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;Z)Z", $PRIVATE | $STATIC, $staticMethod(PolicyChecker, processParents, bool, int32_t, bool, bool, $PolicyNodeImpl*, $String*, $Set*, bool), "java.security.cert.CertPathValidatorException"},
-	{"processPolicies", "(ILjava/util/Set;IIIZLsun/security/provider/certpath/PolicyNodeImpl;Lsun/security/x509/X509CertImpl;Z)Lsun/security/provider/certpath/PolicyNodeImpl;", "(ILjava/util/Set<Ljava/lang/String;>;IIIZLsun/security/provider/certpath/PolicyNodeImpl;Lsun/security/x509/X509CertImpl;Z)Lsun/security/provider/certpath/PolicyNodeImpl;", $STATIC, $staticMethod(PolicyChecker, processPolicies, $PolicyNodeImpl*, int32_t, $Set*, int32_t, int32_t, int32_t, bool, $PolicyNodeImpl*, $X509CertImpl*, bool), "java.security.cert.CertPathValidatorException"},
-	{"processPolicyMappings", "(Lsun/security/x509/X509CertImpl;IILsun/security/provider/certpath/PolicyNodeImpl;ZLjava/util/Set;)Lsun/security/provider/certpath/PolicyNodeImpl;", "(Lsun/security/x509/X509CertImpl;IILsun/security/provider/certpath/PolicyNodeImpl;ZLjava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;)Lsun/security/provider/certpath/PolicyNodeImpl;", $PRIVATE | $STATIC, $staticMethod(PolicyChecker, processPolicyMappings, $PolicyNodeImpl*, $X509CertImpl*, int32_t, int32_t, $PolicyNodeImpl*, bool, $Set*), "java.security.cert.CertPathValidatorException"},
-	{"removeInvalidNodes", "(Lsun/security/provider/certpath/PolicyNodeImpl;ILjava/util/Set;Lsun/security/x509/CertificatePoliciesExtension;)Lsun/security/provider/certpath/PolicyNodeImpl;", "(Lsun/security/provider/certpath/PolicyNodeImpl;ILjava/util/Set<Ljava/lang/String;>;Lsun/security/x509/CertificatePoliciesExtension;)Lsun/security/provider/certpath/PolicyNodeImpl;", $PRIVATE | $STATIC, $staticMethod(PolicyChecker, removeInvalidNodes, $PolicyNodeImpl*, $PolicyNodeImpl*, int32_t, $Set*, $CertificatePoliciesExtension*), "java.security.cert.CertPathValidatorException"},
-	{"rewriteLeafNodes", "(ILjava/util/Set;Lsun/security/provider/certpath/PolicyNodeImpl;)Lsun/security/provider/certpath/PolicyNodeImpl;", "(ILjava/util/Set<Ljava/lang/String;>;Lsun/security/provider/certpath/PolicyNodeImpl;)Lsun/security/provider/certpath/PolicyNodeImpl;", $PRIVATE | $STATIC, $staticMethod(PolicyChecker, rewriteLeafNodes, $PolicyNodeImpl*, int32_t, $Set*, $PolicyNodeImpl*)},
-	{}
-};
-
-$ClassInfo _PolicyChecker_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.PolicyChecker",
-	"java.security.cert.PKIXCertPathChecker",
-	nullptr,
-	_PolicyChecker_FieldInfo_,
-	_PolicyChecker_MethodInfo_
-};
-
-$Object* allocate$PolicyChecker($Class* clazz) {
-	return $of($alloc(PolicyChecker));
-}
-
 $Debug* PolicyChecker::debug = nullptr;
 $String* PolicyChecker::ANY_POLICY = nullptr;
 
@@ -137,9 +82,9 @@ void PolicyChecker::init$($Set* initialPolicies, int32_t certPathLen, bool expPo
 	$PKIXCertPathChecker::init$();
 	if ($nc(initialPolicies)->isEmpty()) {
 		$set(this, initPolicies, $new($HashSet, 1));
-		$nc(this->initPolicies)->add(PolicyChecker::ANY_POLICY);
+		this->initPolicies->add(PolicyChecker::ANY_POLICY);
 	} else {
-		$set(this, initPolicies, $new($HashSet, static_cast<$Collection*>(initialPolicies)));
+		$set(this, initPolicies, $new($HashSet, initialPolicies));
 	}
 	this->certPathLen = certPathLen;
 	this->expPolicyRequired = expPolicyRequired;
@@ -164,21 +109,21 @@ bool PolicyChecker::isForwardCheckingSupported() {
 }
 
 $Set* PolicyChecker::getSupportedExtensions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->supportedExts == nullptr) {
 		$set(this, supportedExts, $new($HashSet, 4));
 		$init($PKIXExtensions);
-		$nc(this->supportedExts)->add($($nc($PKIXExtensions::CertificatePolicies_Id)->toString()));
-		$nc(this->supportedExts)->add($($nc($PKIXExtensions::PolicyMappings_Id)->toString()));
-		$nc(this->supportedExts)->add($($nc($PKIXExtensions::PolicyConstraints_Id)->toString()));
-		$nc(this->supportedExts)->add($($nc($PKIXExtensions::InhibitAnyPolicy_Id)->toString()));
+		this->supportedExts->add($($nc($PKIXExtensions::CertificatePolicies_Id)->toString()));
+		this->supportedExts->add($($nc($PKIXExtensions::PolicyMappings_Id)->toString()));
+		this->supportedExts->add($($nc($PKIXExtensions::PolicyConstraints_Id)->toString()));
+		this->supportedExts->add($($nc($PKIXExtensions::InhibitAnyPolicy_Id)->toString()));
 		$set(this, supportedExts, $Collections::unmodifiableSet(this->supportedExts));
 	}
 	return this->supportedExts;
 }
 
 void PolicyChecker::check($Certificate* cert, $Collection* unresCritExts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkPolicy($cast($X509Certificate, cert));
 	if (unresCritExts != nullptr && !unresCritExts->isEmpty()) {
 		$init($PKIXExtensions);
@@ -190,21 +135,21 @@ void PolicyChecker::check($Certificate* cert, $Collection* unresCritExts) {
 }
 
 void PolicyChecker::checkPolicy($X509Certificate* currCert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, msg, "certificate policies"_s);
 	if (PolicyChecker::debug != nullptr) {
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() ---checking "_s, msg, "..."_s}));
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() certIndex = "_s, $$str(this->certIndex)}));
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() BEFORE PROCESSING: explicitPolicy = "_s, $$str(this->explicitPolicy)}));
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() BEFORE PROCESSING: policyMapping = "_s, $$str(this->policyMapping)}));
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() BEFORE PROCESSING: inhibitAnyPolicy = "_s, $$str(this->inhibitAnyPolicy)}));
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() BEFORE PROCESSING: policyTree = "_s, this->rootNode}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.checkPolicy() ---checking "_s, msg, "..."_s}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.checkPolicy() certIndex = "_s, $$str(this->certIndex)}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.checkPolicy() BEFORE PROCESSING: explicitPolicy = "_s, $$str(this->explicitPolicy)}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.checkPolicy() BEFORE PROCESSING: policyMapping = "_s, $$str(this->policyMapping)}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.checkPolicy() BEFORE PROCESSING: inhibitAnyPolicy = "_s, $$str(this->inhibitAnyPolicy)}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.checkPolicy() BEFORE PROCESSING: policyTree = "_s, this->rootNode}));
 	}
 	$var($X509CertImpl, currCertImpl, nullptr);
 	try {
 		$assign(currCertImpl, $X509CertImpl::toImpl(currCert));
 	} catch ($CertificateException& ce) {
-		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(ce));
+		$throwNew($CertPathValidatorException, ce);
 	}
 	bool finalCert = (this->certIndex == this->certPathLen);
 	$set(this, rootNode, processPolicies(this->certIndex, this->initPolicies, this->explicitPolicy, this->policyMapping, this->inhibitAnyPolicy, this->rejectPolicyQualifiers, this->rootNode, currCertImpl, finalCert));
@@ -215,17 +160,17 @@ void PolicyChecker::checkPolicy($X509Certificate* currCert) {
 	}
 	++this->certIndex;
 	if (PolicyChecker::debug != nullptr) {
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() AFTER PROCESSING: explicitPolicy = "_s, $$str(this->explicitPolicy)}));
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() AFTER PROCESSING: policyMapping = "_s, $$str(this->policyMapping)}));
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() AFTER PROCESSING: inhibitAnyPolicy = "_s, $$str(this->inhibitAnyPolicy)}));
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() AFTER PROCESSING: policyTree = "_s, this->rootNode}));
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() "_s, msg, " verified"_s}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.checkPolicy() AFTER PROCESSING: explicitPolicy = "_s, $$str(this->explicitPolicy)}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.checkPolicy() AFTER PROCESSING: policyMapping = "_s, $$str(this->policyMapping)}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.checkPolicy() AFTER PROCESSING: inhibitAnyPolicy = "_s, $$str(this->inhibitAnyPolicy)}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.checkPolicy() AFTER PROCESSING: policyTree = "_s, this->rootNode}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.checkPolicy() "_s, msg, " verified"_s}));
 	}
 }
 
 int32_t PolicyChecker::mergeExplicitPolicy(int32_t explicitPolicy, $X509CertImpl* currCert, bool finalCert) {
 	$init(PolicyChecker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((explicitPolicy > 0) && !$X509CertImpl::isSelfIssued(currCert)) {
 		--explicitPolicy;
 	}
@@ -235,9 +180,9 @@ int32_t PolicyChecker::mergeExplicitPolicy(int32_t explicitPolicy, $X509CertImpl
 			return explicitPolicy;
 		}
 		$init($PolicyConstraintsExtension);
-		int32_t require = $nc($($cast($Integer, $nc(polConstExt)->get($PolicyConstraintsExtension::REQUIRE))))->intValue();
+		int32_t require = $$sure($Integer, $nc(polConstExt)->get($PolicyConstraintsExtension::REQUIRE))->intValue();
 		if (PolicyChecker::debug != nullptr) {
-			$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.mergeExplicitPolicy() require Index from cert = "_s, $$str(require)}));
+			PolicyChecker::debug->println($$str({"PolicyChecker.mergeExplicitPolicy() require Index from cert = "_s, $$str(require)}));
 		}
 		if (!finalCert) {
 			if (require != -1) {
@@ -250,17 +195,17 @@ int32_t PolicyChecker::mergeExplicitPolicy(int32_t explicitPolicy, $X509CertImpl
 		}
 	} catch ($IOException& e) {
 		if (PolicyChecker::debug != nullptr) {
-			$nc(PolicyChecker::debug)->println("PolicyChecker.mergeExplicitPolicy unexpected exception"_s);
+			PolicyChecker::debug->println("PolicyChecker.mergeExplicitPolicy unexpected exception"_s);
 			e->printStackTrace();
 		}
-		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(e));
+		$throwNew($CertPathValidatorException, e);
 	}
 	return explicitPolicy;
 }
 
 int32_t PolicyChecker::mergePolicyMapping(int32_t policyMapping, $X509CertImpl* currCert) {
 	$init(PolicyChecker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((policyMapping > 0) && !$X509CertImpl::isSelfIssued(currCert)) {
 		--policyMapping;
 	}
@@ -270,9 +215,9 @@ int32_t PolicyChecker::mergePolicyMapping(int32_t policyMapping, $X509CertImpl* 
 			return policyMapping;
 		}
 		$init($PolicyConstraintsExtension);
-		int32_t inhibit = $nc($($cast($Integer, $nc(polConstExt)->get($PolicyConstraintsExtension::INHIBIT))))->intValue();
+		int32_t inhibit = $$sure($Integer, $nc(polConstExt)->get($PolicyConstraintsExtension::INHIBIT))->intValue();
 		if (PolicyChecker::debug != nullptr) {
-			$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.mergePolicyMapping() inhibit Index from cert = "_s, $$str(inhibit)}));
+			PolicyChecker::debug->println($$str({"PolicyChecker.mergePolicyMapping() inhibit Index from cert = "_s, $$str(inhibit)}));
 		}
 		if (inhibit != -1) {
 			if ((policyMapping == -1) || (inhibit < policyMapping)) {
@@ -281,17 +226,17 @@ int32_t PolicyChecker::mergePolicyMapping(int32_t policyMapping, $X509CertImpl* 
 		}
 	} catch ($IOException& e) {
 		if (PolicyChecker::debug != nullptr) {
-			$nc(PolicyChecker::debug)->println("PolicyChecker.mergePolicyMapping unexpected exception"_s);
+			PolicyChecker::debug->println("PolicyChecker.mergePolicyMapping unexpected exception"_s);
 			e->printStackTrace();
 		}
-		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(e));
+		$throwNew($CertPathValidatorException, e);
 	}
 	return policyMapping;
 }
 
 int32_t PolicyChecker::mergeInhibitAnyPolicy(int32_t inhibitAnyPolicy, $X509CertImpl* currCert) {
 	$init(PolicyChecker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((inhibitAnyPolicy > 0) && !$X509CertImpl::isSelfIssued(currCert)) {
 		--inhibitAnyPolicy;
 	}
@@ -302,9 +247,9 @@ int32_t PolicyChecker::mergeInhibitAnyPolicy(int32_t inhibitAnyPolicy, $X509Cert
 			return inhibitAnyPolicy;
 		}
 		$init($InhibitAnyPolicyExtension);
-		int32_t skipCerts = $nc($($cast($Integer, $nc(inhAnyPolExt)->get($InhibitAnyPolicyExtension::SKIP_CERTS))))->intValue();
+		int32_t skipCerts = $$sure($Integer, $nc(inhAnyPolExt)->get($InhibitAnyPolicyExtension::SKIP_CERTS))->intValue();
 		if (PolicyChecker::debug != nullptr) {
-			$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.mergeInhibitAnyPolicy() skipCerts Index from cert = "_s, $$str(skipCerts)}));
+			PolicyChecker::debug->println($$str({"PolicyChecker.mergeInhibitAnyPolicy() skipCerts Index from cert = "_s, $$str(skipCerts)}));
 		}
 		if (skipCerts != -1) {
 			if (skipCerts < inhibitAnyPolicy) {
@@ -313,17 +258,17 @@ int32_t PolicyChecker::mergeInhibitAnyPolicy(int32_t inhibitAnyPolicy, $X509Cert
 		}
 	} catch ($IOException& e) {
 		if (PolicyChecker::debug != nullptr) {
-			$nc(PolicyChecker::debug)->println("PolicyChecker.mergeInhibitAnyPolicy unexpected exception"_s);
+			PolicyChecker::debug->println("PolicyChecker.mergeInhibitAnyPolicy unexpected exception"_s);
 			e->printStackTrace();
 		}
-		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(e));
+		$throwNew($CertPathValidatorException, e);
 	}
 	return inhibitAnyPolicy;
 }
 
 $PolicyNodeImpl* PolicyChecker::processPolicies(int32_t certIndex, $Set* initPolicies, int32_t explicitPolicy, int32_t policyMapping, int32_t inhibitAnyPolicy, bool rejectPolicyQualifiers, $PolicyNodeImpl* origRootNode, $X509CertImpl* currCert, bool finalCert) {
 	$init(PolicyChecker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool policiesCritical = false;
 	$var($List, policyInfo, nullptr);
 	$var($PolicyNodeImpl, rootNode, nullptr);
@@ -331,13 +276,13 @@ $PolicyNodeImpl* PolicyChecker::processPolicies(int32_t certIndex, $Set* initPol
 	if (origRootNode == nullptr) {
 		$assign(rootNode, nullptr);
 	} else {
-		$assign(rootNode, $nc(origRootNode)->copyTree());
+		$assign(rootNode, origRootNode->copyTree());
 	}
 	$var($CertificatePoliciesExtension, currCertPolicies, $nc(currCert)->getCertificatePoliciesExtension());
 	if ((currCertPolicies != nullptr) && (rootNode != nullptr)) {
 		policiesCritical = currCertPolicies->isCritical();
 		if (PolicyChecker::debug != nullptr) {
-			$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicies() policiesCritical = "_s, $$str(policiesCritical)}));
+			PolicyChecker::debug->println($$str({"PolicyChecker.processPolicies() policiesCritical = "_s, $$str(policiesCritical)}));
 		}
 		try {
 			$assign(policyInfo, $cast($List, currCertPolicies->get($CertificatePoliciesExtension::POLICIES)));
@@ -345,7 +290,7 @@ $PolicyNodeImpl* PolicyChecker::processPolicies(int32_t certIndex, $Set* initPol
 			$throwNew($CertPathValidatorException, "Exception while retrieving policyOIDs"_s, ioe);
 		}
 		if (PolicyChecker::debug != nullptr) {
-			$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicies() rejectPolicyQualifiers = "_s, $$str(rejectPolicyQualifiers)}));
+			PolicyChecker::debug->println($$str({"PolicyChecker.processPolicies() rejectPolicyQualifiers = "_s, $$str(rejectPolicyQualifiers)}));
 		}
 		bool foundAnyPolicy = false;
 		{
@@ -353,13 +298,13 @@ $PolicyNodeImpl* PolicyChecker::processPolicies(int32_t certIndex, $Set* initPol
 			for (; $nc(i$)->hasNext();) {
 				$var($PolicyInformation, curPolInfo, $cast($PolicyInformation, i$->next()));
 				{
-					$var($String, curPolicy, $nc($($nc($($nc(curPolInfo)->getPolicyIdentifier()))->getIdentifier()))->toString());
+					$var($String, curPolicy, $$nc($$nc($nc(curPolInfo)->getPolicyIdentifier())->getIdentifier())->toString());
 					if ($nc(curPolicy)->equals(PolicyChecker::ANY_POLICY)) {
 						foundAnyPolicy = true;
 						$assign(anyQuals, curPolInfo->getPolicyQualifiers());
 					} else {
 						if (PolicyChecker::debug != nullptr) {
-							$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicies() processing policy: "_s, curPolicy}));
+							PolicyChecker::debug->println($$str({"PolicyChecker.processPolicies() processing policy: "_s, curPolicy}));
 						}
 						$var($Set, pQuals, curPolInfo->getPolicyQualifiers());
 						if (!$nc(pQuals)->isEmpty() && rejectPolicyQualifiers && policiesCritical) {
@@ -377,18 +322,18 @@ $PolicyNodeImpl* PolicyChecker::processPolicies(int32_t certIndex, $Set* initPol
 		if (foundAnyPolicy) {
 			if ((inhibitAnyPolicy > 0) || (!finalCert && $X509CertImpl::isSelfIssued(currCert))) {
 				if (PolicyChecker::debug != nullptr) {
-					$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicies() processing policy: "_s, PolicyChecker::ANY_POLICY}));
+					PolicyChecker::debug->println($$str({"PolicyChecker.processPolicies() processing policy: "_s, PolicyChecker::ANY_POLICY}));
 				}
 				processParents(certIndex, policiesCritical, rejectPolicyQualifiers, rootNode, PolicyChecker::ANY_POLICY, anyQuals, true);
 			}
 		}
 		rootNode->prune(certIndex);
-		if (!$nc($(rootNode->getChildren()))->hasNext()) {
+		if (!$$nc(rootNode->getChildren())->hasNext()) {
 			$assign(rootNode, nullptr);
 		}
 	} else if (currCertPolicies == nullptr) {
 		if (PolicyChecker::debug != nullptr) {
-			$nc(PolicyChecker::debug)->println("PolicyChecker.processPolicies() no policies present in cert"_s);
+			PolicyChecker::debug->println("PolicyChecker.processPolicies() no policies present in cert"_s);
 		}
 		$assign(rootNode, nullptr);
 	}
@@ -415,18 +360,18 @@ $PolicyNodeImpl* PolicyChecker::processPolicies(int32_t certIndex, $Set* initPol
 
 $PolicyNodeImpl* PolicyChecker::rewriteLeafNodes(int32_t certIndex, $Set* initPolicies, $PolicyNodeImpl* rootNode$renamed) {
 	$init(PolicyChecker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PolicyNodeImpl, rootNode, rootNode$renamed);
 	$var($Set, anyNodes, $nc(rootNode)->getPolicyNodesValid(certIndex, PolicyChecker::ANY_POLICY));
 	if ($nc(anyNodes)->isEmpty()) {
 		return rootNode;
 	}
-	$var($PolicyNodeImpl, anyNode, $cast($PolicyNodeImpl, $nc($($nc(anyNodes)->iterator()))->next()));
+	$var($PolicyNodeImpl, anyNode, $cast($PolicyNodeImpl, $$nc(anyNodes->iterator())->next()));
 	$var($PolicyNodeImpl, parentNode, $cast($PolicyNodeImpl, $nc(anyNode)->getParent()));
 	$nc(parentNode)->deleteChild(anyNode);
-	$var($Set, initial, $new($HashSet, static_cast<$Collection*>(initPolicies)));
+	$var($Set, initial, $new($HashSet, initPolicies));
 	{
-		$var($Iterator, i$, $nc($(rootNode->getPolicyNodes(certIndex)))->iterator());
+		$var($Iterator, i$, $$nc(rootNode->getPolicyNodes(certIndex))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($PolicyNodeImpl, node, $cast($PolicyNodeImpl, i$->next()));
 			{
@@ -436,7 +381,7 @@ $PolicyNodeImpl* PolicyChecker::rewriteLeafNodes(int32_t certIndex, $Set* initPo
 	}
 	if (initial->isEmpty()) {
 		rootNode->prune(certIndex);
-		if ($nc($(rootNode->getChildren()))->hasNext() == false) {
+		if ($$nc(rootNode->getChildren())->hasNext() == false) {
 			$assign(rootNode, nullptr);
 		}
 	} else {
@@ -458,10 +403,10 @@ $PolicyNodeImpl* PolicyChecker::rewriteLeafNodes(int32_t certIndex, $Set* initPo
 
 bool PolicyChecker::processParents(int32_t certIndex, bool policiesCritical, bool rejectPolicyQualifiers, $PolicyNodeImpl* rootNode, $String* curPolicy, $Set* pQuals, bool matchAny) {
 	$init(PolicyChecker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool foundMatch = false;
 	if (PolicyChecker::debug != nullptr) {
-		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processParents(): matchAny = "_s, $$str(matchAny)}));
+		PolicyChecker::debug->println($$str({"PolicyChecker.processParents(): matchAny = "_s, $$str(matchAny)}));
 	}
 	$var($Set, parentNodes, $nc(rootNode)->getPolicyNodesExpected(certIndex - 1, curPolicy, matchAny));
 	{
@@ -470,7 +415,7 @@ bool PolicyChecker::processParents(int32_t certIndex, bool policiesCritical, boo
 			$var($PolicyNodeImpl, curParent, $cast($PolicyNodeImpl, i$->next()));
 			{
 				if (PolicyChecker::debug != nullptr) {
-					$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processParents() found parent:\n"_s, $($nc(curParent)->asString())}));
+					PolicyChecker::debug->println($$str({"PolicyChecker.processParents() found parent:\n"_s, $($nc(curParent)->asString())}));
 				}
 				foundMatch = true;
 				$var($String, curParPolicy, $nc(curParent)->getValidPolicy());
@@ -479,31 +424,29 @@ bool PolicyChecker::processParents(int32_t certIndex, bool policiesCritical, boo
 				if ($nc(curPolicy)->equals(PolicyChecker::ANY_POLICY)) {
 					$var($Set, parExpPols, curParent->getExpectedPolicies());
 					bool parentExplicitPolicies$continue = false;
-					{
-						$var($Iterator, i$, $nc(parExpPols)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($String, curParExpPol, $cast($String, i$->next()));
-							{
-								$var($Iterator, childIter, curParent->getChildren());
-								while ($nc(childIter)->hasNext()) {
-									$var($PolicyNodeImpl, childNode, $cast($PolicyNodeImpl, childIter->next()));
-									$var($String, childPolicy, $nc(childNode)->getValidPolicy());
-									if ($nc(curParExpPol)->equals(childPolicy)) {
-										if (PolicyChecker::debug != nullptr) {
-											$nc(PolicyChecker::debug)->println($$str({childPolicy, " in parent\'s expected policy set already appears in child node"_s}));
-										}
-										parentExplicitPolicies$continue = true;
-										break;
+					$var($Iterator, i$, $nc(parExpPols)->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($String, curParExpPol, $cast($String, i$->next()));
+						{
+							$var($Iterator, childIter, curParent->getChildren());
+							while ($nc(childIter)->hasNext()) {
+								$var($PolicyNodeImpl, childNode, $cast($PolicyNodeImpl, childIter->next()));
+								$var($String, childPolicy, $nc(childNode)->getValidPolicy());
+								if ($nc(curParExpPol)->equals(childPolicy)) {
+									if (PolicyChecker::debug != nullptr) {
+										PolicyChecker::debug->println($$str({childPolicy, " in parent\'s expected policy set already appears in child node"_s}));
 									}
+									parentExplicitPolicies$continue = true;
+									break;
 								}
-								if (parentExplicitPolicies$continue) {
-									parentExplicitPolicies$continue = false;
-									continue;
-								}
-								$var($Set, expPols, $new($HashSet));
-								expPols->add(curParExpPol);
-								$assign(curNode, $new($PolicyNodeImpl, curParent, curParExpPol, pQuals, policiesCritical, expPols, false));
 							}
+							if (parentExplicitPolicies$continue) {
+								parentExplicitPolicies$continue = false;
+								continue;
+							}
+							$var($Set, expPols, $new($HashSet));
+							expPols->add(curParExpPol);
+							$assign(curNode, $new($PolicyNodeImpl, curParent, curParExpPol, pQuals, policiesCritical, expPols, false));
 						}
 					}
 				} else {
@@ -519,14 +462,14 @@ bool PolicyChecker::processParents(int32_t certIndex, bool policiesCritical, boo
 
 $PolicyNodeImpl* PolicyChecker::processPolicyMappings($X509CertImpl* currCert, int32_t certIndex, int32_t policyMapping, $PolicyNodeImpl* rootNode$renamed, bool policiesCritical, $Set* anyQuals) {
 	$init(PolicyChecker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PolicyNodeImpl, rootNode, rootNode$renamed);
 	$var($PolicyMappingsExtension, polMappingsExt, $nc(currCert)->getPolicyMappingsExtension());
 	if (polMappingsExt == nullptr) {
 		return rootNode;
 	}
 	if (PolicyChecker::debug != nullptr) {
-		$nc(PolicyChecker::debug)->println("PolicyChecker.processPolicyMappings() inside policyMapping check"_s);
+		PolicyChecker::debug->println("PolicyChecker.processPolicyMappings() inside policyMapping check"_s);
 	}
 	$var($List, maps, nullptr);
 	try {
@@ -534,7 +477,7 @@ $PolicyNodeImpl* PolicyChecker::processPolicyMappings($X509CertImpl* currCert, i
 		$assign(maps, $cast($List, $nc(polMappingsExt)->get($PolicyMappingsExtension::MAP)));
 	} catch ($IOException& e) {
 		if (PolicyChecker::debug != nullptr) {
-			$nc(PolicyChecker::debug)->println("PolicyChecker.processPolicyMappings() mapping exception"_s);
+			PolicyChecker::debug->println("PolicyChecker.processPolicyMappings() mapping exception"_s);
 			e->printStackTrace();
 		}
 		$throwNew($CertPathValidatorException, "Exception while checking mapping"_s, e);
@@ -545,11 +488,11 @@ $PolicyNodeImpl* PolicyChecker::processPolicyMappings($X509CertImpl* currCert, i
 		for (; $nc(i$)->hasNext();) {
 			$var($CertificatePolicyMap, polMap, $cast($CertificatePolicyMap, i$->next()));
 			{
-				$var($String, issuerDomain, $nc($($nc($($nc(polMap)->getIssuerIdentifier()))->getIdentifier()))->toString());
-				$var($String, subjectDomain, $nc($($nc($(polMap->getSubjectIdentifier()))->getIdentifier()))->toString());
+				$var($String, issuerDomain, $$nc($$nc($nc(polMap)->getIssuerIdentifier())->getIdentifier())->toString());
+				$var($String, subjectDomain, $$nc($$nc(polMap->getSubjectIdentifier())->getIdentifier())->toString());
 				if (PolicyChecker::debug != nullptr) {
-					$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicyMappings() issuerDomain = "_s, issuerDomain}));
-					$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicyMappings() subjectDomain = "_s, subjectDomain}));
+					PolicyChecker::debug->println($$str({"PolicyChecker.processPolicyMappings() issuerDomain = "_s, issuerDomain}));
+					PolicyChecker::debug->println($$str({"PolicyChecker.processPolicyMappings() subjectDomain = "_s, subjectDomain}));
 				}
 				if ($nc(issuerDomain)->equals(PolicyChecker::ANY_POLICY)) {
 					$init($PKIXReason);
@@ -561,24 +504,20 @@ $PolicyNodeImpl* PolicyChecker::processPolicyMappings($X509CertImpl* currCert, i
 				}
 				$var($Set, validNodes, $nc(rootNode)->getPolicyNodesValid(certIndex, issuerDomain));
 				if (!$nc(validNodes)->isEmpty()) {
-					{
-						$var($Iterator, i$, validNodes->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($PolicyNodeImpl, curNode, $cast($PolicyNodeImpl, i$->next()));
-							{
-								if ((policyMapping > 0) || (policyMapping == -1)) {
-									$nc(curNode)->addExpectedPolicy(subjectDomain);
-								} else if (policyMapping == 0) {
-									$var($PolicyNodeImpl, parentNode, $cast($PolicyNodeImpl, $nc(curNode)->getParent()));
-									if (PolicyChecker::debug != nullptr) {
-										$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicyMappings() before deleting: policy tree = "_s, rootNode}));
-									}
-									$nc(parentNode)->deleteChild(curNode);
-									childDeleted = true;
-									if (PolicyChecker::debug != nullptr) {
-										$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicyMappings() after deleting: policy tree = "_s, rootNode}));
-									}
-								}
+					$var($Iterator, i$, validNodes->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($PolicyNodeImpl, curNode, $cast($PolicyNodeImpl, i$->next()));
+						if ((policyMapping > 0) || (policyMapping == -1)) {
+							$nc(curNode)->addExpectedPolicy(subjectDomain);
+						} else if (policyMapping == 0) {
+							$var($PolicyNodeImpl, parentNode, $cast($PolicyNodeImpl, $nc(curNode)->getParent()));
+							if (PolicyChecker::debug != nullptr) {
+								PolicyChecker::debug->println($$str({"PolicyChecker.processPolicyMappings() before deleting: policy tree = "_s, rootNode}));
+							}
+							$nc(parentNode)->deleteChild(curNode);
+							childDeleted = true;
+							if (PolicyChecker::debug != nullptr) {
+								PolicyChecker::debug->println($$str({"PolicyChecker.processPolicyMappings() after deleting: policy tree = "_s, rootNode}));
 							}
 						}
 					}
@@ -602,9 +541,9 @@ $PolicyNodeImpl* PolicyChecker::processPolicyMappings($X509CertImpl* currCert, i
 	}
 	if (childDeleted) {
 		$nc(rootNode)->prune(certIndex);
-		if (!$nc($(rootNode->getChildren()))->hasNext()) {
+		if (!$$nc(rootNode->getChildren())->hasNext()) {
 			if (PolicyChecker::debug != nullptr) {
-				$nc(PolicyChecker::debug)->println("setting rootNode to null"_s);
+				PolicyChecker::debug->println("setting rootNode to null"_s);
 			}
 			$assign(rootNode, nullptr);
 		}
@@ -614,7 +553,7 @@ $PolicyNodeImpl* PolicyChecker::processPolicyMappings($X509CertImpl* currCert, i
 
 $PolicyNodeImpl* PolicyChecker::removeInvalidNodes($PolicyNodeImpl* rootNode$renamed, int32_t certIndex, $Set* initPolicies, $CertificatePoliciesExtension* currCertPolicies) {
 	$init(PolicyChecker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PolicyNodeImpl, rootNode, rootNode$renamed);
 	$var($List, policyInfo, nullptr);
 	try {
@@ -629,9 +568,9 @@ $PolicyNodeImpl* PolicyChecker::removeInvalidNodes($PolicyNodeImpl* rootNode$ren
 		for (; $nc(i$)->hasNext();) {
 			$var($PolicyInformation, curPolInfo, $cast($PolicyInformation, i$->next()));
 			{
-				$var($String, curPolicy, $nc($($nc($($nc(curPolInfo)->getPolicyIdentifier()))->getIdentifier()))->toString());
+				$var($String, curPolicy, $$nc($$nc($nc(curPolInfo)->getPolicyIdentifier())->getIdentifier())->toString());
 				if (PolicyChecker::debug != nullptr) {
-					$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicies() processing policy second time: "_s, curPolicy}));
+					PolicyChecker::debug->println($$str({"PolicyChecker.processPolicies() processing policy second time: "_s, curPolicy}));
 				}
 				$var($Set, validNodes, $nc(rootNode)->getPolicyNodesValid(certIndex, curPolicy));
 				{
@@ -640,16 +579,16 @@ $PolicyNodeImpl* PolicyChecker::removeInvalidNodes($PolicyNodeImpl* rootNode$ren
 						$var($PolicyNodeImpl, curNode, $cast($PolicyNodeImpl, i$->next()));
 						{
 							$var($PolicyNodeImpl, parentNode, $cast($PolicyNodeImpl, $nc(curNode)->getParent()));
-							if ($nc($($nc(parentNode)->getValidPolicy()))->equals(PolicyChecker::ANY_POLICY)) {
-								bool var$0 = (!$nc(initPolicies)->contains(curPolicy));
+							if ($$nc($nc(parentNode)->getValidPolicy())->equals(PolicyChecker::ANY_POLICY)) {
+								bool var$0 = !$nc(initPolicies)->contains(curPolicy);
 								if (var$0 && (!$nc(curPolicy)->equals(PolicyChecker::ANY_POLICY))) {
 									if (PolicyChecker::debug != nullptr) {
-										$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicies() before deleting: policy tree = "_s, rootNode}));
+										PolicyChecker::debug->println($$str({"PolicyChecker.processPolicies() before deleting: policy tree = "_s, rootNode}));
 									}
 									parentNode->deleteChild(curNode);
 									childDeleted = true;
 									if (PolicyChecker::debug != nullptr) {
-										$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicies() after deleting: policy tree = "_s, rootNode}));
+										PolicyChecker::debug->println($$str({"PolicyChecker.processPolicies() after deleting: policy tree = "_s, rootNode}));
 									}
 								}
 							}
@@ -661,7 +600,7 @@ $PolicyNodeImpl* PolicyChecker::removeInvalidNodes($PolicyNodeImpl* rootNode$ren
 	}
 	if (childDeleted) {
 		$nc(rootNode)->prune(certIndex);
-		if (!$nc($(rootNode->getChildren()))->hasNext()) {
+		if (!$$nc(rootNode->getChildren())->hasNext()) {
 			$assign(rootNode, nullptr);
 		}
 	}
@@ -672,13 +611,13 @@ $PolicyNode* PolicyChecker::getPolicyTree() {
 	if (this->rootNode == nullptr) {
 		return nullptr;
 	} else {
-		$var($PolicyNodeImpl, policyTree, $nc(this->rootNode)->copyTree());
+		$var($PolicyNodeImpl, policyTree, this->rootNode->copyTree());
 		$nc(policyTree)->setImmutable();
 		return policyTree;
 	}
 }
 
-void clinit$PolicyChecker($Class* class$) {
+void PolicyChecker::clinit$($Class* clazz) {
 	$assignStatic(PolicyChecker::debug, $Debug::getInstance("certpath"_s));
 	$init($KnownOIDs);
 	$assignStatic(PolicyChecker::ANY_POLICY, $KnownOIDs::CE_CERT_POLICIES_ANY->value());
@@ -688,7 +627,52 @@ PolicyChecker::PolicyChecker() {
 }
 
 $Class* PolicyChecker::load$($String* name, bool initialize) {
-	$loadClass(PolicyChecker, name, initialize, &_PolicyChecker_ClassInfo_, clinit$PolicyChecker, allocate$PolicyChecker);
+	$FieldInfo fieldInfos$$[] = {
+		{"initPolicies", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(PolicyChecker, initPolicies)},
+		{"certPathLen", "I", nullptr, $PRIVATE | $FINAL, $field(PolicyChecker, certPathLen)},
+		{"expPolicyRequired", "Z", nullptr, $PRIVATE | $FINAL, $field(PolicyChecker, expPolicyRequired)},
+		{"polMappingInhibited", "Z", nullptr, $PRIVATE | $FINAL, $field(PolicyChecker, polMappingInhibited)},
+		{"anyPolicyInhibited", "Z", nullptr, $PRIVATE | $FINAL, $field(PolicyChecker, anyPolicyInhibited)},
+		{"rejectPolicyQualifiers", "Z", nullptr, $PRIVATE | $FINAL, $field(PolicyChecker, rejectPolicyQualifiers)},
+		{"rootNode", "Lsun/security/provider/certpath/PolicyNodeImpl;", nullptr, $PRIVATE, $field(PolicyChecker, rootNode)},
+		{"explicitPolicy", "I", nullptr, $PRIVATE, $field(PolicyChecker, explicitPolicy)},
+		{"policyMapping", "I", nullptr, $PRIVATE, $field(PolicyChecker, policyMapping)},
+		{"inhibitAnyPolicy", "I", nullptr, $PRIVATE, $field(PolicyChecker, inhibitAnyPolicy)},
+		{"certIndex", "I", nullptr, $PRIVATE, $field(PolicyChecker, certIndex)},
+		{"supportedExts", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(PolicyChecker, supportedExts)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyChecker, debug)},
+		{"ANY_POLICY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PolicyChecker, ANY_POLICY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;IZZZZLsun/security/provider/certpath/PolicyNodeImpl;)V", "(Ljava/util/Set<Ljava/lang/String;>;IZZZZLsun/security/provider/certpath/PolicyNodeImpl;)V", 0, $method(PolicyChecker, init$, void, $Set*, int32_t, bool, bool, bool, bool, $PolicyNodeImpl*)},
+		{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(PolicyChecker, check, void, $Certificate*, $Collection*), "java.security.cert.CertPathValidatorException"},
+		{"checkPolicy", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(PolicyChecker, checkPolicy, void, $X509Certificate*), "java.security.cert.CertPathValidatorException"},
+		{"getPolicyTree", "()Ljava/security/cert/PolicyNode;", nullptr, 0, $virtualMethod(PolicyChecker, getPolicyTree, $PolicyNode*)},
+		{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PolicyChecker, getSupportedExtensions, $Set*)},
+		{"init", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PolicyChecker, init, void, bool), "java.security.cert.CertPathValidatorException"},
+		{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(PolicyChecker, isForwardCheckingSupported, bool)},
+		{"mergeExplicitPolicy", "(ILsun/security/x509/X509CertImpl;Z)I", nullptr, $STATIC, $staticMethod(PolicyChecker, mergeExplicitPolicy, int32_t, int32_t, $X509CertImpl*, bool), "java.security.cert.CertPathValidatorException"},
+		{"mergeInhibitAnyPolicy", "(ILsun/security/x509/X509CertImpl;)I", nullptr, $STATIC, $staticMethod(PolicyChecker, mergeInhibitAnyPolicy, int32_t, int32_t, $X509CertImpl*), "java.security.cert.CertPathValidatorException"},
+		{"mergePolicyMapping", "(ILsun/security/x509/X509CertImpl;)I", nullptr, $STATIC, $staticMethod(PolicyChecker, mergePolicyMapping, int32_t, int32_t, $X509CertImpl*), "java.security.cert.CertPathValidatorException"},
+		{"processParents", "(IZZLsun/security/provider/certpath/PolicyNodeImpl;Ljava/lang/String;Ljava/util/Set;Z)Z", "(IZZLsun/security/provider/certpath/PolicyNodeImpl;Ljava/lang/String;Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;Z)Z", $PRIVATE | $STATIC, $staticMethod(PolicyChecker, processParents, bool, int32_t, bool, bool, $PolicyNodeImpl*, $String*, $Set*, bool), "java.security.cert.CertPathValidatorException"},
+		{"processPolicies", "(ILjava/util/Set;IIIZLsun/security/provider/certpath/PolicyNodeImpl;Lsun/security/x509/X509CertImpl;Z)Lsun/security/provider/certpath/PolicyNodeImpl;", "(ILjava/util/Set<Ljava/lang/String;>;IIIZLsun/security/provider/certpath/PolicyNodeImpl;Lsun/security/x509/X509CertImpl;Z)Lsun/security/provider/certpath/PolicyNodeImpl;", $STATIC, $staticMethod(PolicyChecker, processPolicies, $PolicyNodeImpl*, int32_t, $Set*, int32_t, int32_t, int32_t, bool, $PolicyNodeImpl*, $X509CertImpl*, bool), "java.security.cert.CertPathValidatorException"},
+		{"processPolicyMappings", "(Lsun/security/x509/X509CertImpl;IILsun/security/provider/certpath/PolicyNodeImpl;ZLjava/util/Set;)Lsun/security/provider/certpath/PolicyNodeImpl;", "(Lsun/security/x509/X509CertImpl;IILsun/security/provider/certpath/PolicyNodeImpl;ZLjava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;)Lsun/security/provider/certpath/PolicyNodeImpl;", $PRIVATE | $STATIC, $staticMethod(PolicyChecker, processPolicyMappings, $PolicyNodeImpl*, $X509CertImpl*, int32_t, int32_t, $PolicyNodeImpl*, bool, $Set*), "java.security.cert.CertPathValidatorException"},
+		{"removeInvalidNodes", "(Lsun/security/provider/certpath/PolicyNodeImpl;ILjava/util/Set;Lsun/security/x509/CertificatePoliciesExtension;)Lsun/security/provider/certpath/PolicyNodeImpl;", "(Lsun/security/provider/certpath/PolicyNodeImpl;ILjava/util/Set<Ljava/lang/String;>;Lsun/security/x509/CertificatePoliciesExtension;)Lsun/security/provider/certpath/PolicyNodeImpl;", $PRIVATE | $STATIC, $staticMethod(PolicyChecker, removeInvalidNodes, $PolicyNodeImpl*, $PolicyNodeImpl*, int32_t, $Set*, $CertificatePoliciesExtension*), "java.security.cert.CertPathValidatorException"},
+		{"rewriteLeafNodes", "(ILjava/util/Set;Lsun/security/provider/certpath/PolicyNodeImpl;)Lsun/security/provider/certpath/PolicyNodeImpl;", "(ILjava/util/Set<Ljava/lang/String;>;Lsun/security/provider/certpath/PolicyNodeImpl;)Lsun/security/provider/certpath/PolicyNodeImpl;", $PRIVATE | $STATIC, $staticMethod(PolicyChecker, rewriteLeafNodes, $PolicyNodeImpl*, int32_t, $Set*, $PolicyNodeImpl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.PolicyChecker",
+		"java.security.cert.PKIXCertPathChecker",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PolicyChecker, name, initialize, &classInfo$$, PolicyChecker::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PolicyChecker));
+	});
 	return class$;
 }
 

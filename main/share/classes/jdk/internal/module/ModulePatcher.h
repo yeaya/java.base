@@ -62,6 +62,7 @@ class $export ModulePatcher : public ::java::lang::Object {
 	$class(ModulePatcher, $PRELOAD, ::java::lang::Object)
 public:
 	ModulePatcher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Map* input);
 	bool hasPatches();
 	bool isHidden(::java::nio::file::Path* file);

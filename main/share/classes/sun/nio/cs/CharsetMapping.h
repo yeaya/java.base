@@ -52,6 +52,7 @@ class $export CharsetMapping : public ::java::lang::Object {
 	$class(CharsetMapping, 0, ::java::lang::Object)
 public:
 	CharsetMapping();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $chars* decodeComposite(::sun::nio::cs::CharsetMapping$Entry* comp, $chars* cc);
 	virtual char16_t decodeDouble(int32_t b1, int32_t b2);
@@ -75,7 +76,7 @@ public:
 	static bool readNBytes(::java::io::InputStream* in, $bytes* bb, int32_t N);
 	virtual void readSINGLEBYTE();
 	static const char16_t UNMAPPABLE_DECODING = ((char16_t)65533);
-	static const int32_t UNMAPPABLE_ENCODING = 0x0000FFFD;
+	static const int32_t UNMAPPABLE_ENCODING = 0x0000fffd;
 	$chars* b2cSB = nullptr;
 	$chars* b2cDB1 = nullptr;
 	$chars* b2cDB2 = nullptr;

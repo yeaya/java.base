@@ -1,5 +1,4 @@
 #include <sun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PskKeyExchangeModesExtension"
-};
-
-$Object* allocate$PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer($Class* clazz) {
-	return $of($alloc(PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer));
-}
-
 void PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer::PskKeyExchangeModesE
 }
 
 $Class* PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer::load$($String* name, bool initialize) {
-	$loadClass(PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer, name, initialize, &_PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer_ClassInfo_, allocate$PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PskKeyExchangeModesExtension"
+	};
+	$loadClass(PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer);
+	});
 	return class$;
 }
 

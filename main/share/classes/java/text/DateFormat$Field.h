@@ -56,11 +56,12 @@ class $export DateFormat$Field : public ::java::text::Format$Field {
 	$class(DateFormat$Field, 0, ::java::text::Format$Field)
 public:
 	DateFormat$Field();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t calendarField);
 	virtual int32_t getCalendarField();
 	static ::java::text::DateFormat$Field* ofCalendarField(int32_t calendarField);
 	virtual $Object* readResolve() override;
-	static const int64_t serialVersionUID = (int64_t)0x6744FC81F123E710;
+	static const int64_t serialVersionUID = (int64_t)0x6744fc81f123e710;
 	static ::java::util::Map* instanceMap;
 	static $Array<::java::text::DateFormat$Field>* calendarToFieldMapping;
 	int32_t calendarField = 0;

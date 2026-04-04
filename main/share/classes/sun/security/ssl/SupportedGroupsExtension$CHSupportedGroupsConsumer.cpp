@@ -1,11 +1,9 @@
 #include <sun/security/ssl/SupportedGroupsExtension$CHSupportedGroupsConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/LinkedList.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/NamedGroup.h>
 #include <sun/security/ssl/SSLConfiguration.h>
 #include <sun/security/ssl/SSLExtension.h>
@@ -24,11 +22,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -39,43 +34,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SupportedGroupsExtension$CHSupportedGroupsConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedGroupsExtension$CHSupportedGroupsConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SupportedGroupsExtension$CHSupportedGroupsConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SupportedGroupsExtension$CHSupportedGroupsConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsConsumer", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SupportedGroupsExtension$CHSupportedGroupsConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLExtension$ExtensionConsumer",
-	nullptr,
-	_SupportedGroupsExtension$CHSupportedGroupsConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SupportedGroupsExtension$CHSupportedGroupsConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SupportedGroupsExtension"
-};
-
-$Object* allocate$SupportedGroupsExtension$CHSupportedGroupsConsumer($Class* clazz) {
-	return $of($alloc(SupportedGroupsExtension$CHSupportedGroupsConsumer));
-}
-
 void SupportedGroupsExtension$CHSupportedGroupsConsumer::init$() {
 }
 
 void SupportedGroupsExtension$CHSupportedGroupsConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::CH_SUPPORTED_GROUPS)) {
@@ -89,9 +52,7 @@ void SupportedGroupsExtension$CHSupportedGroupsConsumer::consume($ConnectionCont
 	$var($List, knownNamedGroups, $new($LinkedList));
 	{
 		$var($ints, arr$, spec->namedGroupsIds);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t id = arr$->get(i$);
 			{
 				$NamedGroup* ng = $NamedGroup::valueOf(id);
@@ -101,7 +62,7 @@ void SupportedGroupsExtension$CHSupportedGroupsConsumer::consume($ConnectionCont
 			}
 		}
 	}
-	$set($nc(shc), clientRequestedNamedGroups, knownNamedGroups);
+	$set(shc, clientRequestedNamedGroups, knownNamedGroups);
 	$nc(shc->handshakeExtensions)->put($SSLExtension::CH_SUPPORTED_GROUPS, spec);
 }
 
@@ -109,7 +70,34 @@ SupportedGroupsExtension$CHSupportedGroupsConsumer::SupportedGroupsExtension$CHS
 }
 
 $Class* SupportedGroupsExtension$CHSupportedGroupsConsumer::load$($String* name, bool initialize) {
-	$loadClass(SupportedGroupsExtension$CHSupportedGroupsConsumer, name, initialize, &_SupportedGroupsExtension$CHSupportedGroupsConsumer_ClassInfo_, allocate$SupportedGroupsExtension$CHSupportedGroupsConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedGroupsExtension$CHSupportedGroupsConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SupportedGroupsExtension$CHSupportedGroupsConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsConsumer", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLExtension$ExtensionConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SupportedGroupsExtension"
+	};
+	$loadClass(SupportedGroupsExtension$CHSupportedGroupsConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SupportedGroupsExtension$CHSupportedGroupsConsumer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleReferences$ExplodedModuleReader.h>
-
 #include <java/io/IOError.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -62,33 +61,29 @@ public:
 	virtual $Object* apply(Object$* f) override {
 		 return $of($nc(inst$)->lambda$list$0($cast($Path, f)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0>());
-	}
 	ModuleReferences$ExplodedModuleReader* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, inst$)},
-	{}
-};
-$MethodInfo ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleReferences$ExplodedModuleReader;)V", nullptr, $PUBLIC, $method(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, init$, void, ModuleReferences$ExplodedModuleReader*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::load$($String* name, bool initialize) {
-	$loadClass(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModuleReferences$ExplodedModuleReader;)V", nullptr, $PUBLIC, $method(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, init$, void, ModuleReferences$ExplodedModuleReader*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0);
+	});
 	return class$;
 }
 $Class* ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::class$ = nullptr;
@@ -101,77 +96,30 @@ public:
 	virtual bool test(Object$* s) override {
 		 return ModuleReferences$ExplodedModuleReader::lambda$list$1($cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1::load$($String* name, bool initialize) {
-	$loadClass(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1);
+	});
 	return class$;
 }
 $Class* ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1::class$ = nullptr;
 
-$FieldInfo _ModuleReferences$ExplodedModuleReader_FieldInfo_[] = {
-	{"dir", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferences$ExplodedModuleReader, dir)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ModuleReferences$ExplodedModuleReader, closed)},
-	{}
-};
-
-$MethodInfo _ModuleReferences$ExplodedModuleReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(ModuleReferences$ExplodedModuleReader, init$, void, $Path*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, close, void)},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ModuleReferences$ExplodedModuleReader, ensureOpen, void), "java.io.IOException"},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, find, $Optional*, $String*), "java.io.IOException"},
-	{"lambda$list$0", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleReferences$ExplodedModuleReader, lambda$list$0, $String*, $Path*)},
-	{"lambda$list$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleReferences$ExplodedModuleReader, lambda$list$1, bool, $String*)},
-	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, list, $Stream*), "java.io.IOException"},
-	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, open, $Optional*, $String*), "java.io.IOException"},
-	{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, read, $Optional*, $String*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ModuleReferences$ExplodedModuleReader_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModuleReferences$ExplodedModuleReader", "jdk.internal.module.ModuleReferences", "ExplodedModuleReader", $STATIC},
-	{}
-};
-
-$ClassInfo _ModuleReferences$ExplodedModuleReader_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.ModuleReferences$ExplodedModuleReader",
-	"java.lang.Object",
-	"java.lang.module.ModuleReader",
-	_ModuleReferences$ExplodedModuleReader_FieldInfo_,
-	_ModuleReferences$ExplodedModuleReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleReferences$ExplodedModuleReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModuleReferences"
-};
-
-$Object* allocate$ModuleReferences$ExplodedModuleReader($Class* clazz) {
-	return $of($alloc(ModuleReferences$ExplodedModuleReader));
-}
-
 void ModuleReferences$ExplodedModuleReader::init$($Path* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, dir, dir);
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -186,14 +134,14 @@ void ModuleReferences$ExplodedModuleReader::ensureOpen() {
 }
 
 $Optional* ModuleReferences$ExplodedModuleReader::find($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
 	$var($Path, path, $Resources::toFilePath(this->dir, name));
 	if (path != nullptr) {
 		try {
 			return $Optional::of($(path->toUri()));
 		} catch ($IOError& e) {
-			$throw($cast($IOException, $(e->getCause())));
+			$throw($$cast($IOException, e->getCause()));
 		}
 	} else {
 		return $Optional::empty();
@@ -201,7 +149,7 @@ $Optional* ModuleReferences$ExplodedModuleReader::find($String* name) {
 }
 
 $Optional* ModuleReferences$ExplodedModuleReader::open($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
 	$var($Path, path, $Resources::toFilePath(this->dir, name));
 	if (path != nullptr) {
@@ -212,7 +160,7 @@ $Optional* ModuleReferences$ExplodedModuleReader::open($String* name) {
 }
 
 $Optional* ModuleReferences$ExplodedModuleReader::read($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
 	$var($Path, path, $Resources::toFilePath(this->dir, name));
 	if (path != nullptr) {
@@ -223,9 +171,9 @@ $Optional* ModuleReferences$ExplodedModuleReader::read($String* name) {
 }
 
 $Stream* ModuleReferences$ExplodedModuleReader::list() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
-	return $nc($($nc($($Files::walk(this->dir, $Integer::MAX_VALUE, $$new($FileVisitOptionArray, 0))))->map(static_cast<$Function*>($$new(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, this)))))->filter(static_cast<$Predicate*>($$new(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1)));
+	return $$nc($$nc($Files::walk(this->dir, $Integer::MAX_VALUE, $$new($FileVisitOptionArray, 0)))->map($$new(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, this)))->filter($$new(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1));
 }
 
 void ModuleReferences$ExplodedModuleReader::close() {
@@ -246,14 +194,52 @@ ModuleReferences$ExplodedModuleReader::ModuleReferences$ExplodedModuleReader() {
 
 $Class* ModuleReferences$ExplodedModuleReader::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0")) {
 			return ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::load$(name, initialize);
 		}
-		if (name->equals(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1")) {
 			return ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ModuleReferences$ExplodedModuleReader, name, initialize, &_ModuleReferences$ExplodedModuleReader_ClassInfo_, allocate$ModuleReferences$ExplodedModuleReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"dir", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferences$ExplodedModuleReader, dir)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ModuleReferences$ExplodedModuleReader, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(ModuleReferences$ExplodedModuleReader, init$, void, $Path*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, close, void)},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ModuleReferences$ExplodedModuleReader, ensureOpen, void), "java.io.IOException"},
+		{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, find, $Optional*, $String*), "java.io.IOException"},
+		{"lambda$list$0", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleReferences$ExplodedModuleReader, lambda$list$0, $String*, $Path*)},
+		{"lambda$list$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleReferences$ExplodedModuleReader, lambda$list$1, bool, $String*)},
+		{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, list, $Stream*), "java.io.IOException"},
+		{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, open, $Optional*, $String*), "java.io.IOException"},
+		{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, read, $Optional*, $String*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModuleReferences$ExplodedModuleReader", "jdk.internal.module.ModuleReferences", "ExplodedModuleReader", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.ModuleReferences$ExplodedModuleReader",
+		"java.lang.Object",
+		"java.lang.module.ModuleReader",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModuleReferences"
+	};
+	$loadClass(ModuleReferences$ExplodedModuleReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleReferences$ExplodedModuleReader);
+	});
 	return class$;
 }
 

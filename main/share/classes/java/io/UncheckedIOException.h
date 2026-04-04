@@ -28,10 +28,13 @@ public:
 	void init$(::java::io::IOException* cause);
 	virtual $Throwable* getCause() override;
 	void readObject(::java::io::ObjectInputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x8F1D24A4D1F93517;
+	static const int64_t serialVersionUID = (int64_t)0x8f1d24a4d1f93517;
 	UncheckedIOException(const UncheckedIOException& e);
 	virtual void throw$() override;
-	inline UncheckedIOException* operator ->() {
+	inline UncheckedIOException* operator ->() const {
+		return (UncheckedIOException*)throwing$;
+	}
+	inline operator UncheckedIOException*() const {
 		return (UncheckedIOException*)throwing$;
 	}
 };

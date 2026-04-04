@@ -77,6 +77,7 @@ public:
 	ChaCha20Cipher();
 	using ::javax::crypto::CipherSpi::engineUpdate;
 	using ::javax::crypto::CipherSpi::engineDoFinal;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void authFinalizeData($bytes* data, int32_t dataOff, int32_t length, $bytes* out, int32_t outOff);
 	void authPad16(int64_t dataLen);
@@ -113,9 +114,9 @@ public:
 	static const int32_t MODE_NONE = 0;
 	static const int32_t MODE_AEAD = 1;
 	static const int32_t STATE_CONST_0 = 0x61707865;
-	static const int32_t STATE_CONST_1 = 0x3320646E;
-	static const int32_t STATE_CONST_2 = 0x79622D32;
-	static const int32_t STATE_CONST_3 = 0x6B206574;
+	static const int32_t STATE_CONST_1 = 0x3320646e;
+	static const int32_t STATE_CONST_2 = 0x79622d32;
+	static const int32_t STATE_CONST_3 = 0x6b206574;
 	static const int32_t KEYSTREAM_SIZE = 64;
 	static const int32_t KS_SIZE_INTS = 16; // KEYSTREAM_SIZE / Integer.BYTES
 	static const int32_t CIPHERBUF_BASE = 1024;
@@ -125,7 +126,7 @@ public:
 	bool aadDone = false;
 	$bytes* keyBytes = nullptr;
 	$bytes* nonce = nullptr;
-	static const int64_t MAX_UINT32 = (int64_t)0x00000000FFFFFFFF;
+	static const int64_t MAX_UINT32 = (int64_t)0x00000000ffffffff;
 	int64_t finalCounterValue = 0;
 	int64_t counter = 0;
 	$ints* startState = nullptr;

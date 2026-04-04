@@ -1,5 +1,4 @@
 #include <java/security/cert/CRLException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _CRLException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CRLException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CRLException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CRLException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CRLException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CRLException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CRLException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _CRLException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.cert.CRLException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_CRLException_FieldInfo_,
-	_CRLException_MethodInfo_
-};
-
-$Object* allocate$CRLException($Class* clazz) {
-	return $of($alloc(CRLException));
-}
 
 void CRLException::init$() {
 	$GeneralSecurityException::init$();
@@ -65,7 +38,28 @@ void CRLException::throw$() {
 }
 
 $Class* CRLException::load$($String* name, bool initialize) {
-	$loadClass(CRLException, name, initialize, &_CRLException_ClassInfo_, allocate$CRLException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CRLException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CRLException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CRLException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CRLException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CRLException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.cert.CRLException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CRLException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CRLException);
+	});
 	return class$;
 }
 

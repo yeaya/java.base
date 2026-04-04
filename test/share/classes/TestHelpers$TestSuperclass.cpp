@@ -1,42 +1,10 @@
 #include <TestHelpers$TestSuperclass.h>
-
 #include <TestHelpers.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _TestHelpers$TestSuperclass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TestHelpers$TestSuperclass, init$, void)},
-	{"m", "(I)I", nullptr, $PUBLIC, $virtualMethod(TestHelpers$TestSuperclass, m, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TestHelpers$TestSuperclass_InnerClassesInfo_[] = {
-	{"TestHelpers$TestSuperclass", "TestHelpers", "TestSuperclass", $STATIC},
-	{}
-};
-
-$ClassInfo _TestHelpers$TestSuperclass_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestHelpers$TestSuperclass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestHelpers$TestSuperclass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestHelpers$TestSuperclass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestHelpers"
-};
-
-$Object* allocate$TestHelpers$TestSuperclass($Class* clazz) {
-	return $of($alloc(TestHelpers$TestSuperclass));
-}
 
 void TestHelpers$TestSuperclass::init$() {
 }
@@ -49,7 +17,33 @@ TestHelpers$TestSuperclass::TestHelpers$TestSuperclass() {
 }
 
 $Class* TestHelpers$TestSuperclass::load$($String* name, bool initialize) {
-	$loadClass(TestHelpers$TestSuperclass, name, initialize, &_TestHelpers$TestSuperclass_ClassInfo_, allocate$TestHelpers$TestSuperclass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TestHelpers$TestSuperclass, init$, void)},
+		{"m", "(I)I", nullptr, $PUBLIC, $virtualMethod(TestHelpers$TestSuperclass, m, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestHelpers$TestSuperclass", "TestHelpers", "TestSuperclass", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestHelpers$TestSuperclass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestHelpers"
+	};
+	$loadClass(TestHelpers$TestSuperclass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestHelpers$TestSuperclass);
+	});
 	return class$;
 }
 

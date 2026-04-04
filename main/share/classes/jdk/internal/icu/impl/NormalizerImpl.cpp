@@ -1,12 +1,9 @@
 #include <jdk/internal/icu/impl/NormalizerImpl.h>
-
 #include <java/io/IOException.h>
-#include <java/lang/Appendable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/InternalError.h>
 #include <java/nio/ByteBuffer.h>
-#include <jdk/internal/icu/impl/ICUBinary$Authenticate.h>
 #include <jdk/internal/icu/impl/ICUBinary.h>
 #include <jdk/internal/icu/impl/NormalizerImpl$Hangul.h>
 #include <jdk/internal/icu/impl/NormalizerImpl$IsAcceptable.h>
@@ -74,7 +71,6 @@
 #undef OFFSET_SHIFT
 
 using $IOException = ::java::io::IOException;
-using $Appendable = ::java::lang::Appendable;
 using $AssertionError = ::java::lang::AssertionError;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
@@ -85,7 +81,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ICUBinary = ::jdk::internal::icu::impl::ICUBinary;
-using $ICUBinary$Authenticate = ::jdk::internal::icu::impl::ICUBinary$Authenticate;
 using $NormalizerImpl$Hangul = ::jdk::internal::icu::impl::NormalizerImpl$Hangul;
 using $NormalizerImpl$IsAcceptable = ::jdk::internal::icu::impl::NormalizerImpl$IsAcceptable;
 using $NormalizerImpl$NextCCArgs = ::jdk::internal::icu::impl::NormalizerImpl$NextCCArgs;
@@ -101,171 +96,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace impl {
-
-$FieldInfo _NormalizerImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NormalizerImpl, $assertionsDisabled)},
-	{"IS_ACCEPTABLE", "Ljdk/internal/icu/impl/NormalizerImpl$IsAcceptable;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NormalizerImpl, IS_ACCEPTABLE)},
-	{"DATA_FORMAT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NormalizerImpl, DATA_FORMAT)},
-	{"MIN_YES_YES_WITH_CC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MIN_YES_YES_WITH_CC)},
-	{"JAMO_VT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, JAMO_VT)},
-	{"MIN_NORMAL_MAYBE_YES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MIN_NORMAL_MAYBE_YES)},
-	{"JAMO_L", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, JAMO_L)},
-	{"INERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, INERT)},
-	{"HAS_COMP_BOUNDARY_AFTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, HAS_COMP_BOUNDARY_AFTER)},
-	{"OFFSET_SHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, OFFSET_SHIFT)},
-	{"DELTA_TCCC_0", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, DELTA_TCCC_0)},
-	{"DELTA_TCCC_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, DELTA_TCCC_1)},
-	{"DELTA_TCCC_GT_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, DELTA_TCCC_GT_1)},
-	{"DELTA_TCCC_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, DELTA_TCCC_MASK)},
-	{"DELTA_SHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, DELTA_SHIFT)},
-	{"MAX_DELTA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MAX_DELTA)},
-	{"IX_NORM_TRIE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_NORM_TRIE_OFFSET)},
-	{"IX_EXTRA_DATA_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_EXTRA_DATA_OFFSET)},
-	{"IX_SMALL_FCD_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_SMALL_FCD_OFFSET)},
-	{"IX_RESERVED3_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_RESERVED3_OFFSET)},
-	{"IX_TOTAL_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_TOTAL_SIZE)},
-	{"MIN_CCC_LCCC_CP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MIN_CCC_LCCC_CP)},
-	{"IX_MIN_DECOMP_NO_CP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_DECOMP_NO_CP)},
-	{"IX_MIN_COMP_NO_MAYBE_CP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_COMP_NO_MAYBE_CP)},
-	{"IX_MIN_YES_NO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_YES_NO)},
-	{"IX_MIN_NO_NO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_NO_NO)},
-	{"IX_LIMIT_NO_NO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_LIMIT_NO_NO)},
-	{"IX_MIN_MAYBE_YES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_MAYBE_YES)},
-	{"IX_MIN_YES_NO_MAPPINGS_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_YES_NO_MAPPINGS_ONLY)},
-	{"IX_MIN_NO_NO_COMP_BOUNDARY_BEFORE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_NO_NO_COMP_BOUNDARY_BEFORE)},
-	{"IX_MIN_NO_NO_COMP_NO_MAYBE_CC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_NO_NO_COMP_NO_MAYBE_CC)},
-	{"IX_MIN_NO_NO_EMPTY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_NO_NO_EMPTY)},
-	{"IX_MIN_LCCC_CP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_LCCC_CP)},
-	{"IX_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_COUNT)},
-	{"MAPPING_HAS_CCC_LCCC_WORD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MAPPING_HAS_CCC_LCCC_WORD)},
-	{"MAPPING_HAS_RAW_MAPPING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MAPPING_HAS_RAW_MAPPING)},
-	{"MAPPING_LENGTH_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MAPPING_LENGTH_MASK)},
-	{"COMP_1_LAST_TUPLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_1_LAST_TUPLE)},
-	{"COMP_1_TRIPLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_1_TRIPLE)},
-	{"COMP_1_TRAIL_LIMIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_1_TRAIL_LIMIT)},
-	{"COMP_1_TRAIL_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_1_TRAIL_MASK)},
-	{"COMP_1_TRAIL_SHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_1_TRAIL_SHIFT)},
-	{"COMP_2_TRAIL_SHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_2_TRAIL_SHIFT)},
-	{"COMP_2_TRAIL_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_2_TRAIL_MASK)},
-	{"dataVersion", "Ljdk/internal/icu/util/VersionInfo;", nullptr, $PRIVATE, $field(NormalizerImpl, dataVersion)},
-	{"minDecompNoCP", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minDecompNoCP)},
-	{"minCompNoMaybeCP", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minCompNoMaybeCP)},
-	{"minLcccCP", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minLcccCP)},
-	{"minYesNo", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minYesNo)},
-	{"minYesNoMappingsOnly", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minYesNoMappingsOnly)},
-	{"minNoNo", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minNoNo)},
-	{"minNoNoCompBoundaryBefore", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minNoNoCompBoundaryBefore)},
-	{"minNoNoCompNoMaybeCC", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minNoNoCompNoMaybeCC)},
-	{"minNoNoEmpty", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minNoNoEmpty)},
-	{"limitNoNo", "I", nullptr, $PRIVATE, $field(NormalizerImpl, limitNoNo)},
-	{"centerNoNoDelta", "I", nullptr, $PRIVATE, $field(NormalizerImpl, centerNoNoDelta)},
-	{"minMaybeYes", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minMaybeYes)},
-	{"normTrie", "Ljdk/internal/icu/util/CodePointTrie$Fast16;", nullptr, $PRIVATE, $field(NormalizerImpl, normTrie)},
-	{"maybeYesCompositions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NormalizerImpl, maybeYesCompositions)},
-	{"extraData", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NormalizerImpl, extraData)},
-	{"smallFCD", "[B", nullptr, $PRIVATE, $field(NormalizerImpl, smallFCD)},
-	{}
-};
-
-$MethodInfo _NormalizerImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NormalizerImpl, init$, void)},
-	{"canonicalDecomposeWithSingleQuotation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl, canonicalDecomposeWithSingleQuotation, $String*, $String*)},
-	{"combine", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, combine, int32_t, $String*, int32_t, int32_t)},
-	{"compose", "(Ljava/lang/CharSequence;IIZZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)Z", nullptr, $PUBLIC, $method(NormalizerImpl, compose, bool, $CharSequence*, int32_t, int32_t, bool, bool, $NormalizerImpl$ReorderingBuffer*)},
-	{"composeAndAppend", "(Ljava/lang/CharSequence;ZZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PUBLIC, $method(NormalizerImpl, composeAndAppend, void, $CharSequence*, bool, bool, $NormalizerImpl$ReorderingBuffer*)},
-	{"composeQuickCheck", "(Ljava/lang/CharSequence;IIZZ)I", nullptr, $PUBLIC, $method(NormalizerImpl, composeQuickCheck, int32_t, $CharSequence*, int32_t, int32_t, bool, bool)},
-	{"decompose", "(Ljava/lang/CharSequence;IILjava/lang/StringBuilder;I)V", nullptr, $PUBLIC, $method(NormalizerImpl, decompose, void, $CharSequence*, int32_t, int32_t, $StringBuilder*, int32_t)},
-	{"decompose", "(Ljava/lang/CharSequence;IILjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)I", nullptr, $PUBLIC, $method(NormalizerImpl, decompose, int32_t, $CharSequence*, int32_t, int32_t, $NormalizerImpl$ReorderingBuffer*)},
-	{"decompose", "(IILjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PRIVATE, $method(NormalizerImpl, decompose, void, int32_t, int32_t, $NormalizerImpl$ReorderingBuffer*)},
-	{"decomposeAndAppend", "(Ljava/lang/CharSequence;ZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PUBLIC, $method(NormalizerImpl, decomposeAndAppend, void, $CharSequence*, bool, $NormalizerImpl$ReorderingBuffer*)},
-	{"decomposeShort", "(Ljava/lang/CharSequence;IIZZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)I", nullptr, $PRIVATE, $method(NormalizerImpl, decomposeShort, int32_t, $CharSequence*, int32_t, int32_t, bool, bool, $NormalizerImpl$ReorderingBuffer*)},
-	{"findNextCompBoundary", "(Ljava/lang/CharSequence;IIZ)I", nullptr, $PRIVATE, $method(NormalizerImpl, findNextCompBoundary, int32_t, $CharSequence*, int32_t, int32_t, bool)},
-	{"findNextFCDBoundary", "(Ljava/lang/CharSequence;II)I", nullptr, $PRIVATE, $method(NormalizerImpl, findNextFCDBoundary, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"findPreviousCompBoundary", "(Ljava/lang/CharSequence;IZ)I", nullptr, $PRIVATE, $method(NormalizerImpl, findPreviousCompBoundary, int32_t, $CharSequence*, int32_t, bool)},
-	{"getCC", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getCC, int32_t, int32_t)},
-	{"getCCFromNoNo", "(I)I", nullptr, $PRIVATE, $method(NormalizerImpl, getCCFromNoNo, int32_t, int32_t)},
-	{"getCCFromNormalYesOrMaybe", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl, getCCFromNormalYesOrMaybe, int32_t, int32_t)},
-	{"getCCFromYesOrMaybe", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl, getCCFromYesOrMaybe, int32_t, int32_t)},
-	{"getCCFromYesOrMaybeCP", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getCCFromYesOrMaybeCP, int32_t, int32_t)},
-	{"getCompositionsListForComposite", "(I)I", nullptr, $PRIVATE, $method(NormalizerImpl, getCompositionsListForComposite, int32_t, int32_t)},
-	{"getCompositionsListForDecompYes", "(I)I", nullptr, $PRIVATE, $method(NormalizerImpl, getCompositionsListForDecompYes, int32_t, int32_t)},
-	{"getDecompose", "([I[Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl, getDecompose, int32_t, $ints*, $StringArray*)},
-	{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(NormalizerImpl, getDecomposition, $String*, int32_t)},
-	{"getFCD16", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getFCD16, int32_t, int32_t)},
-	{"getFCD16FromNormData", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getFCD16FromNormData, int32_t, int32_t)},
-	{"getNextCC", "(Ljdk/internal/icu/impl/NormalizerImpl$NextCCArgs;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, getNextCC, int32_t, $NormalizerImpl$NextCCArgs*)},
-	{"getNorm16", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getNorm16, int32_t, int32_t)},
-	{"getPrevCC", "(Ljdk/internal/icu/impl/NormalizerImpl$PrevArgs;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, getPrevCC, int32_t, $NormalizerImpl$PrevArgs*)},
-	{"getPreviousTrailCC", "(Ljava/lang/CharSequence;II)I", nullptr, $PRIVATE, $method(NormalizerImpl, getPreviousTrailCC, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"getRawNorm16", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getRawNorm16, int32_t, int32_t)},
-	{"getTrailCCFromCompYesAndZeroCC", "(I)I", nullptr, 0, $method(NormalizerImpl, getTrailCCFromCompYesAndZeroCC, int32_t, int32_t)},
-	{"hangulLVT", "()I", nullptr, $PRIVATE, $method(NormalizerImpl, hangulLVT, int32_t)},
-	{"hasCompBoundaryAfter", "(IZ)Z", nullptr, $PUBLIC, $method(NormalizerImpl, hasCompBoundaryAfter, bool, int32_t, bool)},
-	{"hasCompBoundaryAfter", "(Ljava/lang/CharSequence;IIZ)Z", nullptr, $PRIVATE, $method(NormalizerImpl, hasCompBoundaryAfter, bool, $CharSequence*, int32_t, int32_t, bool)},
-	{"hasCompBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, hasCompBoundaryBefore, bool, int32_t)},
-	{"hasCompBoundaryBefore", "(II)Z", nullptr, $PRIVATE, $method(NormalizerImpl, hasCompBoundaryBefore, bool, int32_t, int32_t)},
-	{"hasCompBoundaryBefore", "(Ljava/lang/CharSequence;II)Z", nullptr, $PRIVATE, $method(NormalizerImpl, hasCompBoundaryBefore, bool, $CharSequence*, int32_t, int32_t)},
-	{"hasDecompBoundaryAfter", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, hasDecompBoundaryAfter, bool, int32_t)},
-	{"hasDecompBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, hasDecompBoundaryBefore, bool, int32_t)},
-	{"insertOrdered", "([CIIICCI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, insertOrdered, int32_t, $chars*, int32_t, int32_t, int32_t, char16_t, char16_t, int32_t)},
-	{"isAlgorithmicNoNo", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, isAlgorithmicNoNo, bool, int32_t)},
-	{"isCompNo", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, isCompNo, bool, int32_t)},
-	{"isCompYesAndZeroCC", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isCompYesAndZeroCC, bool, int32_t)},
-	{"isDecompInert", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, isDecompInert, bool, int32_t)},
-	{"isDecompNoAlgorithmic", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isDecompNoAlgorithmic, bool, int32_t)},
-	{"isDecompYes", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, isDecompYes, bool, int32_t)},
-	{"isDecompYesAndZeroCC", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isDecompYesAndZeroCC, bool, int32_t)},
-	{"isHangulLV", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isHangulLV, bool, int32_t)},
-	{"isHangulLVT", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isHangulLVT, bool, int32_t)},
-	{"isInert", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, isInert, bool, int32_t)},
-	{"isJamoVT", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, isJamoVT, bool, int32_t)},
-	{"isMaybe", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isMaybe, bool, int32_t)},
-	{"isMaybeOrNonZeroCC", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isMaybeOrNonZeroCC, bool, int32_t)},
-	{"isMostDecompYesAndZeroCC", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isMostDecompYesAndZeroCC, bool, int32_t)},
-	{"isTrailCC01ForCompBoundaryAfter", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isTrailCC01ForCompBoundaryAfter, bool, int32_t)},
-	{"load", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/impl/NormalizerImpl;", nullptr, $PUBLIC, $method(NormalizerImpl, load, NormalizerImpl*, $ByteBuffer*)},
-	{"load", "(Ljava/lang/String;)Ljdk/internal/icu/impl/NormalizerImpl;", nullptr, $PUBLIC, $method(NormalizerImpl, load, NormalizerImpl*, $String*)},
-	{"makeFCD", "(Ljava/lang/CharSequence;IILjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)I", nullptr, $PUBLIC, $method(NormalizerImpl, makeFCD, int32_t, $CharSequence*, int32_t, int32_t, $NormalizerImpl$ReorderingBuffer*)},
-	{"mapAlgorithmic", "(II)I", nullptr, $PRIVATE, $method(NormalizerImpl, mapAlgorithmic, int32_t, int32_t, int32_t)},
-	{"mergeOrdered", "([CII[CII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, mergeOrdered, int32_t, $chars*, int32_t, int32_t, $chars*, int32_t, int32_t)},
-	{"needSingleQuotation", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, needSingleQuotation, bool, char16_t)},
-	{"norm16HasCompBoundaryAfter", "(IZ)Z", nullptr, $PRIVATE, $method(NormalizerImpl, norm16HasCompBoundaryAfter, bool, int32_t, bool)},
-	{"norm16HasCompBoundaryBefore", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, norm16HasCompBoundaryBefore, bool, int32_t)},
-	{"norm16HasDecompBoundaryAfter", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, norm16HasDecompBoundaryAfter, bool, int32_t)},
-	{"norm16HasDecompBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, norm16HasDecompBoundaryBefore, bool, int32_t)},
-	{"recompose", "(Ljdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;IZ)V", nullptr, $PRIVATE, $method(NormalizerImpl, recompose, void, $NormalizerImpl$ReorderingBuffer*, int32_t, bool)},
-	{"singleLeadMightHaveNonZeroFCD16", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, singleLeadMightHaveNonZeroFCD16, bool, int32_t)},
-	{}
-};
-
-$InnerClassInfo _NormalizerImpl_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.NormalizerImpl$NextCCArgs", "jdk.internal.icu.impl.NormalizerImpl", "NextCCArgs", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.NormalizerImpl$PrevArgs", "jdk.internal.icu.impl.NormalizerImpl", "PrevArgs", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.NormalizerImpl$IsAcceptable", "jdk.internal.icu.impl.NormalizerImpl", "IsAcceptable", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.NormalizerImpl$UTF16Plus", "jdk.internal.icu.impl.NormalizerImpl", "UTF16Plus", $PUBLIC | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.NormalizerImpl$ReorderingBuffer", "jdk.internal.icu.impl.NormalizerImpl", "ReorderingBuffer", $PUBLIC | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.NormalizerImpl$Hangul", "jdk.internal.icu.impl.NormalizerImpl", "Hangul", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NormalizerImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.NormalizerImpl",
-	"java.lang.Object",
-	nullptr,
-	_NormalizerImpl_FieldInfo_,
-	_NormalizerImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NormalizerImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.NormalizerImpl$NextCCArgs,jdk.internal.icu.impl.NormalizerImpl$PrevArgs,jdk.internal.icu.impl.NormalizerImpl$IsAcceptable,jdk.internal.icu.impl.NormalizerImpl$UTF16Plus,jdk.internal.icu.impl.NormalizerImpl$ReorderingBuffer,jdk.internal.icu.impl.NormalizerImpl$Hangul"
-};
-
-$Object* allocate$NormalizerImpl($Class* clazz) {
-	return $of($alloc(NormalizerImpl));
-}
 
 bool NormalizerImpl::$assertionsDisabled = false;
 $NormalizerImpl$IsAcceptable* NormalizerImpl::IS_ACCEPTABLE = nullptr;
@@ -296,7 +126,7 @@ NormalizerImpl* NormalizerImpl::load($ByteBuffer* bytes) {
 		this->minNoNoEmpty = inIndexes->get(NormalizerImpl::IX_MIN_NO_NO_EMPTY);
 		this->limitNoNo = inIndexes->get(NormalizerImpl::IX_LIMIT_NO_NO);
 		this->minMaybeYes = inIndexes->get(NormalizerImpl::IX_MIN_MAYBE_YES);
-		if (!NormalizerImpl::$assertionsDisabled && !(((int32_t)(this->minMaybeYes & (uint32_t)7)) == 0)) {
+		if (!NormalizerImpl::$assertionsDisabled && !((this->minMaybeYes & 7) == 0)) {
 			$throwNew($AssertionError);
 		}
 		this->centerNoNoDelta = ($sr(this->minMaybeYes, NormalizerImpl::DELTA_SHIFT)) - NormalizerImpl::MAX_DELTA - 1;
@@ -321,7 +151,7 @@ NormalizerImpl* NormalizerImpl::load($ByteBuffer* bytes) {
 		bytes->get(this->smallFCD);
 		return this;
 	} catch ($IOException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -362,7 +192,7 @@ int32_t NormalizerImpl::getCC(int32_t norm16) {
 
 int32_t NormalizerImpl::getCCFromNormalYesOrMaybe(int32_t norm16) {
 	$init(NormalizerImpl);
-	return (int32_t)(($sr(norm16, NormalizerImpl::OFFSET_SHIFT)) & (uint32_t)255);
+	return ($sr(norm16, NormalizerImpl::OFFSET_SHIFT)) & 0xff;
 }
 
 int32_t NormalizerImpl::getCCFromYesOrMaybe(int32_t norm16) {
@@ -380,7 +210,7 @@ int32_t NormalizerImpl::getCCFromYesOrMaybeCP(int32_t c) {
 int32_t NormalizerImpl::getFCD16(int32_t c) {
 	if (c < this->minDecompNoCP) {
 		return 0;
-	} else if (c <= 0x0000FFFF) {
+	} else if (c <= 0x0000ffff) {
 		if (!singleLeadMightHaveNonZeroFCD16(c)) {
 			return 0;
 		}
@@ -393,7 +223,7 @@ bool NormalizerImpl::singleLeadMightHaveNonZeroFCD16(int32_t lead) {
 	if (bits == 0) {
 		return false;
 	}
-	return ((int32_t)(($sr((int32_t)bits, (int32_t)((lead >> 5) & (uint32_t)7))) & (uint32_t)1)) != 0;
+	return (($sr(bits, (lead >> 5) & 7)) & 1) != 0;
 }
 
 int32_t NormalizerImpl::getFCD16FromNormData(int32_t c) {
@@ -405,7 +235,7 @@ int32_t NormalizerImpl::getFCD16FromNormData(int32_t c) {
 		} else if (norm16 >= this->minMaybeYes) {
 			return 0;
 		} else {
-			int32_t deltaTrailCC = (int32_t)(norm16 & (uint32_t)NormalizerImpl::DELTA_TCCC_MASK);
+			int32_t deltaTrailCC = norm16 & NormalizerImpl::DELTA_TCCC_MASK;
 			if (deltaTrailCC <= NormalizerImpl::DELTA_TCCC_1) {
 				return $sr(deltaTrailCC, NormalizerImpl::OFFSET_SHIFT);
 			}
@@ -419,8 +249,8 @@ int32_t NormalizerImpl::getFCD16FromNormData(int32_t c) {
 	int32_t mapping = $sr(norm16, NormalizerImpl::OFFSET_SHIFT);
 	int32_t firstUnit = $nc(this->extraData)->charAt(mapping);
 	int32_t fcd16 = firstUnit >> 8;
-	if (((int32_t)(firstUnit & (uint32_t)NormalizerImpl::MAPPING_HAS_CCC_LCCC_WORD)) != 0) {
-		fcd16 |= (int32_t)($nc(this->extraData)->charAt(mapping - 1) & (uint32_t)0x0000FF00);
+	if ((firstUnit & NormalizerImpl::MAPPING_HAS_CCC_LCCC_WORD) != 0) {
+		fcd16 |= this->extraData->charAt(mapping - 1) & 0xff00;
 	}
 	return fcd16;
 }
@@ -442,16 +272,16 @@ $String* NormalizerImpl::getDecomposition(int32_t c) {
 			return $UTF16::valueOf(decomp);
 		}
 	} else {
-		bool var$1 = isHangulLV(norm16);
-		if (var$1 || isHangulLVT(norm16)) {
+		bool var$0 = isHangulLV(norm16);
+		if (var$0 || isHangulLVT(norm16)) {
 			$var($StringBuilder, buffer, $new($StringBuilder));
 			$NormalizerImpl$Hangul::decompose(c, buffer);
 			return buffer->toString();
 		}
 	}
 	int32_t mapping = $sr(norm16, NormalizerImpl::OFFSET_SHIFT);
-	int32_t length = (int32_t)($nc(this->extraData)->charAt(mapping++) & (uint32_t)NormalizerImpl::MAPPING_LENGTH_MASK);
-	return $nc(this->extraData)->substring(mapping, mapping + length);
+	int32_t length = $nc(this->extraData)->charAt(mapping++) & NormalizerImpl::MAPPING_LENGTH_MASK;
+	return this->extraData->substring(mapping, mapping + length);
 }
 
 void NormalizerImpl::decompose($CharSequence* s, int32_t src, int32_t limit, $StringBuilder* dest, int32_t destLengthEstimate) {
@@ -479,7 +309,7 @@ int32_t NormalizerImpl::decompose($CharSequence* s, int32_t src, int32_t limit, 
 				break;
 			} else {
 				char16_t c2 = 0;
-				if ((src + 1) != limit && $Character::isLowSurrogate(c2 = $nc(s)->charAt(src + 1))) {
+				if ((src + 1) != limit && $Character::isLowSurrogate(c2 = s->charAt(src + 1))) {
 					c = $Character::toCodePoint((char16_t)c, c2);
 					norm16 = $nc(this->normTrie)->suppGet(c);
 					if (isMostDecompYesAndZeroCC(norm16)) {
@@ -547,6 +377,7 @@ void NormalizerImpl::decomposeAndAppend($CharSequence* s, bool doDecompose, $Nor
 		c = $Character::codePointAt(s, src);
 		cc = getCC(getNorm16(c));
 	}
+	;
 	$nc(buffer)->append(s, 0, src, false, firstCC, prevCC);
 	buffer->append(s, src, limit);
 }
@@ -574,7 +405,7 @@ bool NormalizerImpl::compose($CharSequence* s, int32_t src, int32_t limit, bool 
 					break;
 				} else {
 					char16_t c2 = 0;
-					if (src != limit && $Character::isLowSurrogate(c2 = $nc(s)->charAt(src))) {
+					if (src != limit && $Character::isLowSurrogate(c2 = s->charAt(src))) {
 						++src;
 						c = $Character::toCodePoint((char16_t)c, c2);
 						norm16 = $nc(this->normTrie)->suppGet(c);
@@ -606,7 +437,7 @@ bool NormalizerImpl::compose($CharSequence* s, int32_t src, int32_t limit, bool 
 						$nc(buffer)->append(s, prevBoundary, prevSrc);
 					}
 					int32_t mapping = $sr(norm16, NormalizerImpl::OFFSET_SHIFT);
-					int32_t length = (int32_t)($nc(this->extraData)->charAt(mapping++) & (uint32_t)NormalizerImpl::MAPPING_LENGTH_MASK);
+					int32_t length = $nc(this->extraData)->charAt(mapping++) & NormalizerImpl::MAPPING_LENGTH_MASK;
 					$nc(buffer)->append(this->extraData, mapping, mapping + length);
 					prevBoundary = src;
 					continue;
@@ -746,7 +577,7 @@ int32_t NormalizerImpl::composeQuickCheck($CharSequence* s, int32_t src, int32_t
 					break;
 				} else {
 					char16_t c2 = 0;
-					if (src != limit && $Character::isLowSurrogate(c2 = $nc(s)->charAt(src))) {
+					if (src != limit && $Character::isLowSurrogate(c2 = s->charAt(src))) {
 						++src;
 						c = $Character::toCodePoint((char16_t)c, c2);
 						norm16 = $nc(this->normTrie)->suppGet(c);
@@ -809,18 +640,17 @@ int32_t NormalizerImpl::composeQuickCheck($CharSequence* s, int32_t src, int32_t
 }
 
 void NormalizerImpl::composeAndAppend($CharSequence* s, bool doCompose, bool onlyContiguous, $NormalizerImpl$ReorderingBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t src = 0;
 	int32_t limit = $nc(s)->length();
 	if (!$nc(buffer)->isEmpty()) {
 		int32_t firstStarterInSrc = findNextCompBoundary(s, 0, limit, onlyContiguous);
 		if (0 != firstStarterInSrc) {
-			$var($CharSequence, var$0, static_cast<$CharSequence*>(buffer->getStringBuilder()));
+			$var($CharSequence, var$0, buffer->getStringBuilder());
 			int32_t lastStarterInDest = findPreviousCompBoundary(var$0, buffer->length(), onlyContiguous);
 			$var($StringBuilder, middle, $new($StringBuilder, (buffer->length() - lastStarterInDest) + firstStarterInSrc + 16));
-			$var($CharSequence, var$1, static_cast<$CharSequence*>(buffer->getStringBuilder()));
-			int32_t var$2 = lastStarterInDest;
-			middle->append(var$1, var$2, buffer->length());
+			$var($CharSequence, var$1, buffer->getStringBuilder());
+			middle->append(var$1, lastStarterInDest, buffer->length());
 			buffer->removeSuffix(buffer->length() - lastStarterInDest);
 			middle->append(s, 0, firstStarterInSrc);
 			compose(middle, 0, middle->length(), onlyContiguous, true, buffer);
@@ -830,7 +660,7 @@ void NormalizerImpl::composeAndAppend($CharSequence* s, bool doCompose, bool onl
 	if (doCompose) {
 		compose(s, src, limit, onlyContiguous, true, buffer);
 	} else {
-		$nc(buffer)->append(s, src, limit);
+		buffer->append(s, src, limit);
 	}
 }
 
@@ -884,9 +714,9 @@ int32_t NormalizerImpl::makeFCD($CharSequence* s, int32_t src, int32_t limit, $N
 			} else {
 				int32_t p = src - 1;
 				bool var$0 = $Character::isLowSurrogate($nc(s)->charAt(p)) && prevSrc < p;
-				if (var$0 && $Character::isHighSurrogate($nc(s)->charAt(p - 1))) {
+				if (var$0 && $Character::isHighSurrogate(s->charAt(p - 1))) {
 					--p;
-					char16_t var$1 = $nc(s)->charAt(p);
+					char16_t var$1 = s->charAt(p);
 					prevFCD16 = getFCD16FromNormData($Character::toCodePoint(var$1, s->charAt(p + 1)));
 				}
 				if (prevFCD16 > 1) {
@@ -902,8 +732,8 @@ int32_t NormalizerImpl::makeFCD($CharSequence* s, int32_t src, int32_t limit, $N
 			break;
 		}
 		src += $Character::charCount(c);
-		if (((int32_t)(prevFCD16 & (uint32_t)255)) <= (fcd16 >> 8)) {
-			if (((int32_t)(fcd16 & (uint32_t)255)) <= 1) {
+		if ((prevFCD16 & 0xff) <= (fcd16 >> 8)) {
+			if ((fcd16 & 0xff) <= 1) {
 				prevBoundary = src;
 			}
 			if (buffer != nullptr) {
@@ -914,7 +744,7 @@ int32_t NormalizerImpl::makeFCD($CharSequence* s, int32_t src, int32_t limit, $N
 		} else if (buffer == nullptr) {
 			return prevBoundary;
 		} else {
-			$nc(buffer)->removeSuffix(prevSrc - prevBoundary);
+			buffer->removeSuffix(prevSrc - prevBoundary);
 			src = findNextFCDBoundary(s, src, limit);
 			decomposeShort(s, prevBoundary, src, false, false, buffer);
 			prevBoundary = src;
@@ -925,7 +755,7 @@ int32_t NormalizerImpl::makeFCD($CharSequence* s, int32_t src, int32_t limit, $N
 }
 
 bool NormalizerImpl::hasDecompBoundaryBefore(int32_t c) {
-	bool var$0 = c < this->minLcccCP || (c <= 0x0000FFFF && !singleLeadMightHaveNonZeroFCD16(c));
+	bool var$0 = c < this->minLcccCP || (c <= 0x0000ffff && !singleLeadMightHaveNonZeroFCD16(c));
 	return var$0 || norm16HasDecompBoundaryBefore(getNorm16(c));
 }
 
@@ -938,14 +768,14 @@ bool NormalizerImpl::norm16HasDecompBoundaryBefore(int32_t norm16) {
 	}
 	int32_t mapping = $sr(norm16, NormalizerImpl::OFFSET_SHIFT);
 	int32_t firstUnit = $nc(this->extraData)->charAt(mapping);
-	return ((int32_t)(firstUnit & (uint32_t)NormalizerImpl::MAPPING_HAS_CCC_LCCC_WORD)) == 0 || ((int32_t)($nc(this->extraData)->charAt(mapping - 1) & (uint32_t)0x0000FF00)) == 0;
+	return (firstUnit & NormalizerImpl::MAPPING_HAS_CCC_LCCC_WORD) == 0 || (this->extraData->charAt(mapping - 1) & 0xff00) == 0;
 }
 
 bool NormalizerImpl::hasDecompBoundaryAfter(int32_t c) {
 	if (c < this->minDecompNoCP) {
 		return true;
 	}
-	if (c <= 0x0000FFFF && !singleLeadMightHaveNonZeroFCD16(c)) {
+	if (c <= 0x0000ffff && !singleLeadMightHaveNonZeroFCD16(c)) {
 		return true;
 	}
 	return norm16HasDecompBoundaryAfter(getNorm16(c));
@@ -959,7 +789,7 @@ bool NormalizerImpl::norm16HasDecompBoundaryAfter(int32_t norm16) {
 		if (isMaybeOrNonZeroCC(norm16)) {
 			return norm16 <= NormalizerImpl::MIN_NORMAL_MAYBE_YES || norm16 == NormalizerImpl::JAMO_VT;
 		}
-		return ((int32_t)(norm16 & (uint32_t)NormalizerImpl::DELTA_TCCC_MASK)) <= NormalizerImpl::DELTA_TCCC_1;
+		return (norm16 & NormalizerImpl::DELTA_TCCC_MASK) <= NormalizerImpl::DELTA_TCCC_1;
 	}
 	int32_t mapping = $sr(norm16, NormalizerImpl::OFFSET_SHIFT);
 	int32_t firstUnit = $nc(this->extraData)->charAt(mapping);
@@ -969,7 +799,7 @@ bool NormalizerImpl::norm16HasDecompBoundaryAfter(int32_t norm16) {
 	if (firstUnit <= 255) {
 		return true;
 	}
-	return ((int32_t)(firstUnit & (uint32_t)NormalizerImpl::MAPPING_HAS_CCC_LCCC_WORD)) == 0 || ((int32_t)($nc(this->extraData)->charAt(mapping - 1) & (uint32_t)0x0000FF00)) == 0;
+	return (firstUnit & NormalizerImpl::MAPPING_HAS_CCC_LCCC_WORD) == 0 || (this->extraData->charAt(mapping - 1) & 0xff00) == 0;
 }
 
 bool NormalizerImpl::isDecompInert(int32_t c) {
@@ -1032,8 +862,8 @@ bool NormalizerImpl::isDecompNoAlgorithmic(int32_t norm16) {
 
 int32_t NormalizerImpl::getCCFromNoNo(int32_t norm16) {
 	int32_t mapping = $sr(norm16, NormalizerImpl::OFFSET_SHIFT);
-	if (((int32_t)($nc(this->extraData)->charAt(mapping) & (uint32_t)NormalizerImpl::MAPPING_HAS_CCC_LCCC_WORD)) != 0) {
-		return (int32_t)($nc(this->extraData)->charAt(mapping - 1) & (uint32_t)255);
+	if (($nc(this->extraData)->charAt(mapping) & NormalizerImpl::MAPPING_HAS_CCC_LCCC_WORD) != 0) {
+		return this->extraData->charAt(mapping - 1) & 0xff;
 	} else {
 		return 0;
 	}
@@ -1065,7 +895,7 @@ int32_t NormalizerImpl::getCompositionsListForDecompYes(int32_t norm16) {
 int32_t NormalizerImpl::getCompositionsListForComposite(int32_t norm16) {
 	int32_t list = $sr((NormalizerImpl::MIN_NORMAL_MAYBE_YES - this->minMaybeYes) + norm16, NormalizerImpl::OFFSET_SHIFT);
 	int32_t firstUnit = $nc(this->maybeYesCompositions)->charAt(list);
-	return list + 1 + ((int32_t)(firstUnit & (uint32_t)NormalizerImpl::MAPPING_LENGTH_MASK));
+	return list + 1 + (firstUnit & NormalizerImpl::MAPPING_LENGTH_MASK);
 }
 
 int32_t NormalizerImpl::decomposeShort($CharSequence* s, int32_t src, int32_t limit, bool stopAtCompBoundary, bool onlyContiguous, $NormalizerImpl$ReorderingBuffer* buffer) {
@@ -1099,18 +929,18 @@ void NormalizerImpl::decompose(int32_t c, int32_t norm16, $NormalizerImpl$Reorde
 	if (norm16 < this->minYesNo) {
 		$nc(buffer)->append(c, 0);
 	} else {
-		bool var$1 = isHangulLV(norm16);
-		if (var$1 || isHangulLVT(norm16)) {
+		bool var$0 = isHangulLV(norm16);
+		if (var$0 || isHangulLVT(norm16)) {
 			$NormalizerImpl$Hangul::decompose(c, buffer);
 		} else {
 			int32_t mapping = $sr(norm16, NormalizerImpl::OFFSET_SHIFT);
 			int32_t firstUnit = $nc(this->extraData)->charAt(mapping);
-			int32_t length = (int32_t)(firstUnit & (uint32_t)NormalizerImpl::MAPPING_LENGTH_MASK);
+			int32_t length = firstUnit & NormalizerImpl::MAPPING_LENGTH_MASK;
 			int32_t leadCC = 0;
 			int32_t trailCC = 0;
 			trailCC = firstUnit >> 8;
-			if (((int32_t)(firstUnit & (uint32_t)NormalizerImpl::MAPPING_HAS_CCC_LCCC_WORD)) != 0) {
-				leadCC = $nc(this->extraData)->charAt(mapping - 1) >> 8;
+			if ((firstUnit & NormalizerImpl::MAPPING_HAS_CCC_LCCC_WORD) != 0) {
+				leadCC = this->extraData->charAt(mapping - 1) >> 8;
 			} else {
 				leadCC = 0;
 			}
@@ -1127,32 +957,32 @@ int32_t NormalizerImpl::combine($String* compositions, int32_t list, int32_t tra
 	if (trail < NormalizerImpl::COMP_1_TRAIL_LIMIT) {
 		key1 = (trail << 1);
 		while (key1 > (firstUnit = $nc(compositions)->charAt(list))) {
-			list += 2 + ((int32_t)(firstUnit & (uint32_t)NormalizerImpl::COMP_1_TRIPLE));
+			list += 2 + (firstUnit & NormalizerImpl::COMP_1_TRIPLE);
 		}
-		if (key1 == ((int32_t)(firstUnit & (uint32_t)NormalizerImpl::COMP_1_TRAIL_MASK))) {
-			if (((int32_t)(firstUnit & (uint32_t)NormalizerImpl::COMP_1_TRIPLE)) != 0) {
-				int32_t var$0 = ($nc(compositions)->charAt(list + 1) << 16);
+		if (key1 == (firstUnit & NormalizerImpl::COMP_1_TRAIL_MASK)) {
+			if ((firstUnit & NormalizerImpl::COMP_1_TRIPLE) != 0) {
+				int32_t var$0 = compositions->charAt(list + 1) << 16;
 				return var$0 | compositions->charAt(list + 2);
 			} else {
-				return $nc(compositions)->charAt(list + 1);
+				return compositions->charAt(list + 1);
 			}
 		}
 	} else {
-		key1 = NormalizerImpl::COMP_1_TRAIL_LIMIT + ((int32_t)(($sr(trail, NormalizerImpl::COMP_1_TRAIL_SHIFT)) & (uint32_t)~NormalizerImpl::COMP_1_TRIPLE));
-		int32_t key2 = (int32_t)(($sl(trail, NormalizerImpl::COMP_2_TRAIL_SHIFT)) & (uint32_t)0x0000FFFF);
+		key1 = NormalizerImpl::COMP_1_TRAIL_LIMIT + (($sr(trail, NormalizerImpl::COMP_1_TRAIL_SHIFT)) & ~NormalizerImpl::COMP_1_TRIPLE);
+		int32_t key2 = ($sl(trail, NormalizerImpl::COMP_2_TRAIL_SHIFT)) & 0xffff;
 		int32_t secondUnit = 0;
 		for (;;) {
 			if (key1 > (firstUnit = $nc(compositions)->charAt(list))) {
-				list += 2 + ((int32_t)(firstUnit & (uint32_t)NormalizerImpl::COMP_1_TRIPLE));
-			} else if (key1 == ((int32_t)(firstUnit & (uint32_t)NormalizerImpl::COMP_1_TRAIL_MASK))) {
+				list += 2 + (firstUnit & NormalizerImpl::COMP_1_TRIPLE);
+			} else if (key1 == (firstUnit & NormalizerImpl::COMP_1_TRAIL_MASK)) {
 				if (key2 > (secondUnit = compositions->charAt(list + 1))) {
-					if (((int32_t)(firstUnit & (uint32_t)NormalizerImpl::COMP_1_LAST_TUPLE)) != 0) {
+					if ((firstUnit & NormalizerImpl::COMP_1_LAST_TUPLE) != 0) {
 						break;
 					} else {
 						list += 3;
 					}
-				} else if (key2 == ((int32_t)(secondUnit & (uint32_t)NormalizerImpl::COMP_2_TRAIL_MASK))) {
-					return (((int32_t)(secondUnit & (uint32_t)~NormalizerImpl::COMP_2_TRAIL_MASK)) << 16) | compositions->charAt(list + 2);
+				} else if (key2 == (secondUnit & NormalizerImpl::COMP_2_TRAIL_MASK)) {
+					return ((secondUnit & ~NormalizerImpl::COMP_2_TRAIL_MASK) << 16) | compositions->charAt(list + 2);
 				} else {
 					break;
 				}
@@ -1184,7 +1014,7 @@ void NormalizerImpl::recompose($NormalizerImpl$ReorderingBuffer* buffer, int32_t
 	starterIsSupplementary = false;
 	prevCC = 0;
 	for (;;) {
-		c = $nc(sb)->codePointAt(p);
+		c = sb->codePointAt(p);
 		p += $Character::charCount(c);
 		norm16 = getNorm16(c);
 		cc = getCCFromYesOrMaybe(norm16);
@@ -1217,7 +1047,7 @@ void NormalizerImpl::recompose($NormalizerImpl$ReorderingBuffer* buffer, int32_t
 				sb->delete$(pRemove, p);
 				p = pRemove;
 				if (starterIsSupplementary) {
-					if (composite > 0x0000FFFF) {
+					if (composite > 0x0000ffff) {
 						sb->setCharAt(starter, $UTF16::getLeadSurrogate(composite));
 						sb->setCharAt(starter + 1, $UTF16::getTrailSurrogate(composite));
 					} else {
@@ -1226,7 +1056,7 @@ void NormalizerImpl::recompose($NormalizerImpl$ReorderingBuffer* buffer, int32_t
 						starterIsSupplementary = false;
 						--p;
 					}
-				} else if (composite > 0x0000FFFF) {
+				} else if (composite > 0x0000ffff) {
 					starterIsSupplementary = true;
 					sb->setCharAt(starter, $UTF16::getLeadSurrogate(composite));
 					sb->insert(starter + 1, $UTF16::getTrailSurrogate(composite));
@@ -1237,7 +1067,7 @@ void NormalizerImpl::recompose($NormalizerImpl$ReorderingBuffer* buffer, int32_t
 				if (p == sb->length()) {
 					break;
 				}
-				if (((int32_t)(compositeAndFwd & (uint32_t)1)) != 0) {
+				if ((compositeAndFwd & 1) != 0) {
 					compositionsList = getCompositionsListForComposite(getRawNorm16(composite));
 				} else {
 					compositionsList = -1;
@@ -1251,7 +1081,7 @@ void NormalizerImpl::recompose($NormalizerImpl$ReorderingBuffer* buffer, int32_t
 		}
 		if (cc == 0) {
 			if ((compositionsList = getCompositionsListForDecompYes(norm16)) >= 0) {
-				if (c <= 0x0000FFFF) {
+				if (c <= 0x0000ffff) {
 					starterIsSupplementary = false;
 					starter = p - 1;
 				} else {
@@ -1279,7 +1109,7 @@ bool NormalizerImpl::hasCompBoundaryBefore($CharSequence* s, int32_t src, int32_
 }
 
 bool NormalizerImpl::norm16HasCompBoundaryAfter(int32_t norm16, bool onlyContiguous) {
-	return ((int32_t)(norm16 & (uint32_t)NormalizerImpl::HAS_COMP_BOUNDARY_AFTER)) != 0 && (!onlyContiguous || isTrailCC01ForCompBoundaryAfter(norm16));
+	return (norm16 & NormalizerImpl::HAS_COMP_BOUNDARY_AFTER) != 0 && (!onlyContiguous || isTrailCC01ForCompBoundaryAfter(norm16));
 }
 
 bool NormalizerImpl::hasCompBoundaryAfter($CharSequence* s, int32_t start, int32_t p, bool onlyContiguous) {
@@ -1288,7 +1118,7 @@ bool NormalizerImpl::hasCompBoundaryAfter($CharSequence* s, int32_t start, int32
 
 bool NormalizerImpl::isTrailCC01ForCompBoundaryAfter(int32_t norm16) {
 	bool var$0 = isInert(norm16);
-	return var$0 || (isDecompNoAlgorithmic(norm16) ? ((int32_t)(norm16 & (uint32_t)NormalizerImpl::DELTA_TCCC_MASK)) <= NormalizerImpl::DELTA_TCCC_1 : $nc(this->extraData)->charAt($sr(norm16, NormalizerImpl::OFFSET_SHIFT)) <= 511);
+	return var$0 || (isDecompNoAlgorithmic(norm16) ? (norm16 & NormalizerImpl::DELTA_TCCC_MASK) <= NormalizerImpl::DELTA_TCCC_1 : $nc(this->extraData)->charAt($sr(norm16, NormalizerImpl::OFFSET_SHIFT)) <= 511);
 }
 
 int32_t NormalizerImpl::findPreviousCompBoundary($CharSequence* s, int32_t p, bool onlyContiguous) {
@@ -1338,19 +1168,19 @@ int32_t NormalizerImpl::findNextFCDBoundary($CharSequence* s, int32_t p, int32_t
 
 int32_t NormalizerImpl::getDecompose($ints* chars, $StringArray* decomps) {
 	$init(NormalizerImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Normalizer2, impl, $Normalizer2::getNFDInstance());
 	int32_t length = 0;
 	int32_t norm16 = 0;
 	int32_t ch = -1;
 	int32_t i = 0;
-	while (++ch < 0x0002FA1E) {
+	while (++ch < 0x0002fa1e) {
 		if (ch == 12543) {
-			ch = 0x0000F900;
-		} else if (ch == 0x000115BC) {
-			ch = 0x0001D15E;
-		} else if (ch == 0x0001D1C1) {
-			ch = 0x0002F800;
+			ch = 0x0000f900;
+		} else if (ch == 0x000115bc) {
+			ch = 0x0001d15e;
+		} else if (ch == 0x0001d1c1) {
+			ch = 0x0002f800;
 		}
 		$var($String, s, $nc(impl)->getDecomposition(ch));
 		if (s != nullptr && i < $nc(chars)->length) {
@@ -1368,7 +1198,7 @@ bool NormalizerImpl::needSingleQuotation(char16_t c) {
 
 $String* NormalizerImpl::canonicalDecomposeWithSingleQuotation($String* string) {
 	$init(NormalizerImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Normalizer2, impl, $Normalizer2::getNFDInstance());
 	$var($chars, src, $nc(string)->toCharArray());
 	int32_t srcIndex = 0;
@@ -1395,10 +1225,10 @@ $String* NormalizerImpl::canonicalDecomposeWithSingleQuotation($String* string) 
 	cp = 0;
 	pStart = 0;
 	cc = (trailCC = -1);
-	c1 = (char16_t)0;
+	c1 = 0;
 	for (;;) {
 		prevSrc = srcIndex;
-		while (srcIndex != srcLimit && ((c1 = src->get(srcIndex)) < minNoMaybe || ($assign(norm, $nc(impl)->getDecomposition(cp = string->codePointAt(srcIndex)))) == nullptr || (c1 >= (char16_t)0xAC00 && c1 <= (char16_t)0xD7A3))) {
+		while (srcIndex != srcLimit && ((c1 = src->get(srcIndex)) < minNoMaybe || ($assign(norm, $nc(impl)->getDecomposition(cp = string->codePointAt(srcIndex)))) == nullptr || (c1 >= (char16_t)0xac00 && c1 <= (char16_t)0xd7a3))) {
 			prevCC = 0;
 			srcIndex += (cp < 0x00010000) ? 1 : 2;
 		}
@@ -1415,7 +1245,7 @@ $String* NormalizerImpl::canonicalDecomposeWithSingleQuotation($String* string) 
 		}
 		srcIndex += (cp < 0x00010000) ? 1 : 2;
 		if (cp < $Character::MIN_SUPPLEMENTARY_CODE_POINT) {
-			c2 = (char16_t)0;
+			c2 = 0;
 			length = 1;
 			bool var$0 = $Character::isHighSurrogate(c1);
 			if (var$0 || $Character::isLowSurrogate(c1)) {
@@ -1431,14 +1261,14 @@ $String* NormalizerImpl::canonicalDecomposeWithSingleQuotation($String* string) 
 			pStart = -1;
 		} else {
 			pStart = 0;
-			$assign(p, $nc(norm)->toCharArray());
+			$assign(p, norm->toCharArray());
 			length = p->length;
 			int32_t cpNum = norm->codePointCount(0, length);
 			cc = $UCharacter::getCombiningClass(norm->codePointAt(0));
 			trailCC = $UCharacter::getCombiningClass(norm->codePointAt(cpNum - 1));
 			if (length == 1) {
 				c1 = p->get(pStart);
-				c2 = (char16_t)0;
+				c2 = 0;
 				$assign(p, nullptr);
 				pStart = -1;
 			}
@@ -1453,7 +1283,7 @@ $String* NormalizerImpl::canonicalDecomposeWithSingleQuotation($String* string) 
 			int32_t reorderSplit = destIndex;
 			if (p == nullptr) {
 				if (needSingleQuotation(c1)) {
-					dest->set(destIndex++, u'\'');
+					$nc(dest)->set(destIndex++, u'\'');
 					dest->set(destIndex++, c1);
 					dest->set(destIndex++, u'\'');
 					trailCC = 0;
@@ -1461,14 +1291,14 @@ $String* NormalizerImpl::canonicalDecomposeWithSingleQuotation($String* string) 
 					destIndex += length;
 					trailCC = insertOrdered(dest, reorderStartIndex, reorderSplit, destIndex, c1, c2, cc);
 				} else {
-					dest->set(destIndex++, c1);
+					$nc(dest)->set(destIndex++, c1);
 					if (c2 != 0) {
 						dest->set(destIndex++, c2);
 					}
 				}
-			} else if (needSingleQuotation($nc(p)->get(pStart))) {
-				dest->set(destIndex++, u'\'');
-				dest->set(destIndex++, $nc(p)->get(pStart++));
+			} else if (needSingleQuotation(p->get(pStart))) {
+				$nc(dest)->set(destIndex++, u'\'');
+				dest->set(destIndex++, p->get(pStart++));
 				dest->set(destIndex++, u'\'');
 				--length;
 				do {
@@ -1479,7 +1309,7 @@ $String* NormalizerImpl::canonicalDecomposeWithSingleQuotation($String* string) 
 				trailCC = mergeOrdered(dest, reorderStartIndex, reorderSplit, p, pStart, pStart + length);
 			} else {
 				do {
-					dest->set(destIndex++, $nc(p)->get(pStart++));
+					$nc(dest)->set(destIndex++, p->get(pStart++));
 				} while (--length > 0);
 			}
 		}
@@ -1521,7 +1351,7 @@ int32_t NormalizerImpl::insertOrdered($chars* source, int32_t start, int32_t cur
 			}
 			r = p;
 			do {
-				$nc(source)->set(--r, source->get(--current));
+				$nc(source)->set(--r, $nc(source)->get(--current));
 			} while (back != current);
 		}
 	}
@@ -1534,7 +1364,7 @@ int32_t NormalizerImpl::insertOrdered($chars* source, int32_t start, int32_t cur
 
 int32_t NormalizerImpl::mergeOrdered($chars* source, int32_t start, int32_t current, $chars* data, int32_t next, int32_t limit) {
 	$init(NormalizerImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t r = 0;
 	int32_t cc = 0;
 	int32_t trailCC = 0;
@@ -1584,36 +1414,36 @@ int32_t NormalizerImpl::mergeOrdered($chars* source, int32_t start, int32_t curr
 
 int32_t NormalizerImpl::getNextCC($NormalizerImpl$NextCCArgs* args) {
 	$init(NormalizerImpl);
-	$nc(args)->c1 = $nc(args->source)->get(args->next++);
-	args->c2 = (char16_t)0;
+	$nc(args)->c1 = $nc($nc(args)->source)->get($nc(args)->next++);
+	args->c2 = 0;
 	if ($UTF16::isTrailSurrogate(args->c1)) {
 		return 0;
 	} else if (!$UTF16::isLeadSurrogate(args->c1)) {
 		return $UCharacter::getCombiningClass(args->c1);
-	} else if (args->next != args->limit && $UTF16::isTrailSurrogate(args->c2 = $nc(args->source)->get(args->next))) {
+	} else if (args->next != args->limit && $UTF16::isTrailSurrogate(args->c2 = args->source->get(args->next))) {
 		++args->next;
 		return $UCharacter::getCombiningClass($Character::toCodePoint(args->c1, args->c2));
 	} else {
-		args->c2 = (char16_t)0;
+		args->c2 = 0;
 		return 0;
 	}
 }
 
 int32_t NormalizerImpl::getPrevCC($NormalizerImpl$PrevArgs* args) {
 	$init(NormalizerImpl);
-	$nc(args)->c1 = $nc(args->src)->get(--args->current);
-	args->c2 = (char16_t)0;
+	$nc(args)->c1 = $nc($nc(args)->src)->get(--$nc(args)->current);
+	args->c2 = 0;
 	if (args->c1 < NormalizerImpl::MIN_CCC_LCCC_CP) {
 		return 0;
 	} else if ($UTF16::isLeadSurrogate(args->c1)) {
 		return 0;
 	} else if (!$UTF16::isTrailSurrogate(args->c1)) {
 		return $UCharacter::getCombiningClass(args->c1);
-	} else if (args->current != args->start && $UTF16::isLeadSurrogate(args->c2 = $nc(args->src)->get(args->current - 1))) {
+	} else if (args->current != args->start && $UTF16::isLeadSurrogate(args->c2 = args->src->get(args->current - 1))) {
 		--args->current;
 		return $UCharacter::getCombiningClass($Character::toCodePoint(args->c2, args->c1));
 	} else {
-		args->c2 = (char16_t)0;
+		args->c2 = 0;
 		return 0;
 	}
 }
@@ -1625,7 +1455,7 @@ int32_t NormalizerImpl::getPreviousTrailCC($CharSequence* s, int32_t start, int3
 	return getFCD16($Character::codePointBefore(s, p));
 }
 
-void clinit$NormalizerImpl($Class* class$) {
+void NormalizerImpl::clinit$($Class* clazz) {
 	NormalizerImpl::$assertionsDisabled = !NormalizerImpl::class$->desiredAssertionStatus();
 	$assignStatic(NormalizerImpl::IS_ACCEPTABLE, $new($NormalizerImpl$IsAcceptable));
 }
@@ -1634,7 +1464,166 @@ NormalizerImpl::NormalizerImpl() {
 }
 
 $Class* NormalizerImpl::load$($String* name, bool initialize) {
-	$loadClass(NormalizerImpl, name, initialize, &_NormalizerImpl_ClassInfo_, clinit$NormalizerImpl, allocate$NormalizerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NormalizerImpl, $assertionsDisabled)},
+		{"IS_ACCEPTABLE", "Ljdk/internal/icu/impl/NormalizerImpl$IsAcceptable;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NormalizerImpl, IS_ACCEPTABLE)},
+		{"DATA_FORMAT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NormalizerImpl, DATA_FORMAT)},
+		{"MIN_YES_YES_WITH_CC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MIN_YES_YES_WITH_CC)},
+		{"JAMO_VT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, JAMO_VT)},
+		{"MIN_NORMAL_MAYBE_YES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MIN_NORMAL_MAYBE_YES)},
+		{"JAMO_L", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, JAMO_L)},
+		{"INERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, INERT)},
+		{"HAS_COMP_BOUNDARY_AFTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, HAS_COMP_BOUNDARY_AFTER)},
+		{"OFFSET_SHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, OFFSET_SHIFT)},
+		{"DELTA_TCCC_0", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, DELTA_TCCC_0)},
+		{"DELTA_TCCC_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, DELTA_TCCC_1)},
+		{"DELTA_TCCC_GT_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, DELTA_TCCC_GT_1)},
+		{"DELTA_TCCC_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, DELTA_TCCC_MASK)},
+		{"DELTA_SHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, DELTA_SHIFT)},
+		{"MAX_DELTA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MAX_DELTA)},
+		{"IX_NORM_TRIE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_NORM_TRIE_OFFSET)},
+		{"IX_EXTRA_DATA_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_EXTRA_DATA_OFFSET)},
+		{"IX_SMALL_FCD_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_SMALL_FCD_OFFSET)},
+		{"IX_RESERVED3_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_RESERVED3_OFFSET)},
+		{"IX_TOTAL_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_TOTAL_SIZE)},
+		{"MIN_CCC_LCCC_CP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MIN_CCC_LCCC_CP)},
+		{"IX_MIN_DECOMP_NO_CP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_DECOMP_NO_CP)},
+		{"IX_MIN_COMP_NO_MAYBE_CP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_COMP_NO_MAYBE_CP)},
+		{"IX_MIN_YES_NO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_YES_NO)},
+		{"IX_MIN_NO_NO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_NO_NO)},
+		{"IX_LIMIT_NO_NO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_LIMIT_NO_NO)},
+		{"IX_MIN_MAYBE_YES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_MAYBE_YES)},
+		{"IX_MIN_YES_NO_MAPPINGS_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_YES_NO_MAPPINGS_ONLY)},
+		{"IX_MIN_NO_NO_COMP_BOUNDARY_BEFORE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_NO_NO_COMP_BOUNDARY_BEFORE)},
+		{"IX_MIN_NO_NO_COMP_NO_MAYBE_CC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_NO_NO_COMP_NO_MAYBE_CC)},
+		{"IX_MIN_NO_NO_EMPTY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_NO_NO_EMPTY)},
+		{"IX_MIN_LCCC_CP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_MIN_LCCC_CP)},
+		{"IX_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, IX_COUNT)},
+		{"MAPPING_HAS_CCC_LCCC_WORD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MAPPING_HAS_CCC_LCCC_WORD)},
+		{"MAPPING_HAS_RAW_MAPPING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MAPPING_HAS_RAW_MAPPING)},
+		{"MAPPING_LENGTH_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, MAPPING_LENGTH_MASK)},
+		{"COMP_1_LAST_TUPLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_1_LAST_TUPLE)},
+		{"COMP_1_TRIPLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_1_TRIPLE)},
+		{"COMP_1_TRAIL_LIMIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_1_TRAIL_LIMIT)},
+		{"COMP_1_TRAIL_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_1_TRAIL_MASK)},
+		{"COMP_1_TRAIL_SHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_1_TRAIL_SHIFT)},
+		{"COMP_2_TRAIL_SHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_2_TRAIL_SHIFT)},
+		{"COMP_2_TRAIL_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NormalizerImpl, COMP_2_TRAIL_MASK)},
+		{"dataVersion", "Ljdk/internal/icu/util/VersionInfo;", nullptr, $PRIVATE, $field(NormalizerImpl, dataVersion)},
+		{"minDecompNoCP", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minDecompNoCP)},
+		{"minCompNoMaybeCP", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minCompNoMaybeCP)},
+		{"minLcccCP", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minLcccCP)},
+		{"minYesNo", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minYesNo)},
+		{"minYesNoMappingsOnly", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minYesNoMappingsOnly)},
+		{"minNoNo", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minNoNo)},
+		{"minNoNoCompBoundaryBefore", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minNoNoCompBoundaryBefore)},
+		{"minNoNoCompNoMaybeCC", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minNoNoCompNoMaybeCC)},
+		{"minNoNoEmpty", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minNoNoEmpty)},
+		{"limitNoNo", "I", nullptr, $PRIVATE, $field(NormalizerImpl, limitNoNo)},
+		{"centerNoNoDelta", "I", nullptr, $PRIVATE, $field(NormalizerImpl, centerNoNoDelta)},
+		{"minMaybeYes", "I", nullptr, $PRIVATE, $field(NormalizerImpl, minMaybeYes)},
+		{"normTrie", "Ljdk/internal/icu/util/CodePointTrie$Fast16;", nullptr, $PRIVATE, $field(NormalizerImpl, normTrie)},
+		{"maybeYesCompositions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NormalizerImpl, maybeYesCompositions)},
+		{"extraData", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NormalizerImpl, extraData)},
+		{"smallFCD", "[B", nullptr, $PRIVATE, $field(NormalizerImpl, smallFCD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NormalizerImpl, init$, void)},
+		{"canonicalDecomposeWithSingleQuotation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl, canonicalDecomposeWithSingleQuotation, $String*, $String*)},
+		{"combine", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, combine, int32_t, $String*, int32_t, int32_t)},
+		{"compose", "(Ljava/lang/CharSequence;IIZZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)Z", nullptr, $PUBLIC, $method(NormalizerImpl, compose, bool, $CharSequence*, int32_t, int32_t, bool, bool, $NormalizerImpl$ReorderingBuffer*)},
+		{"composeAndAppend", "(Ljava/lang/CharSequence;ZZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PUBLIC, $method(NormalizerImpl, composeAndAppend, void, $CharSequence*, bool, bool, $NormalizerImpl$ReorderingBuffer*)},
+		{"composeQuickCheck", "(Ljava/lang/CharSequence;IIZZ)I", nullptr, $PUBLIC, $method(NormalizerImpl, composeQuickCheck, int32_t, $CharSequence*, int32_t, int32_t, bool, bool)},
+		{"decompose", "(Ljava/lang/CharSequence;IILjava/lang/StringBuilder;I)V", nullptr, $PUBLIC, $method(NormalizerImpl, decompose, void, $CharSequence*, int32_t, int32_t, $StringBuilder*, int32_t)},
+		{"decompose", "(Ljava/lang/CharSequence;IILjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)I", nullptr, $PUBLIC, $method(NormalizerImpl, decompose, int32_t, $CharSequence*, int32_t, int32_t, $NormalizerImpl$ReorderingBuffer*)},
+		{"decompose", "(IILjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PRIVATE, $method(NormalizerImpl, decompose, void, int32_t, int32_t, $NormalizerImpl$ReorderingBuffer*)},
+		{"decomposeAndAppend", "(Ljava/lang/CharSequence;ZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PUBLIC, $method(NormalizerImpl, decomposeAndAppend, void, $CharSequence*, bool, $NormalizerImpl$ReorderingBuffer*)},
+		{"decomposeShort", "(Ljava/lang/CharSequence;IIZZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)I", nullptr, $PRIVATE, $method(NormalizerImpl, decomposeShort, int32_t, $CharSequence*, int32_t, int32_t, bool, bool, $NormalizerImpl$ReorderingBuffer*)},
+		{"findNextCompBoundary", "(Ljava/lang/CharSequence;IIZ)I", nullptr, $PRIVATE, $method(NormalizerImpl, findNextCompBoundary, int32_t, $CharSequence*, int32_t, int32_t, bool)},
+		{"findNextFCDBoundary", "(Ljava/lang/CharSequence;II)I", nullptr, $PRIVATE, $method(NormalizerImpl, findNextFCDBoundary, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"findPreviousCompBoundary", "(Ljava/lang/CharSequence;IZ)I", nullptr, $PRIVATE, $method(NormalizerImpl, findPreviousCompBoundary, int32_t, $CharSequence*, int32_t, bool)},
+		{"getCC", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getCC, int32_t, int32_t)},
+		{"getCCFromNoNo", "(I)I", nullptr, $PRIVATE, $method(NormalizerImpl, getCCFromNoNo, int32_t, int32_t)},
+		{"getCCFromNormalYesOrMaybe", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl, getCCFromNormalYesOrMaybe, int32_t, int32_t)},
+		{"getCCFromYesOrMaybe", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl, getCCFromYesOrMaybe, int32_t, int32_t)},
+		{"getCCFromYesOrMaybeCP", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getCCFromYesOrMaybeCP, int32_t, int32_t)},
+		{"getCompositionsListForComposite", "(I)I", nullptr, $PRIVATE, $method(NormalizerImpl, getCompositionsListForComposite, int32_t, int32_t)},
+		{"getCompositionsListForDecompYes", "(I)I", nullptr, $PRIVATE, $method(NormalizerImpl, getCompositionsListForDecompYes, int32_t, int32_t)},
+		{"getDecompose", "([I[Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl, getDecompose, int32_t, $ints*, $StringArray*)},
+		{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(NormalizerImpl, getDecomposition, $String*, int32_t)},
+		{"getFCD16", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getFCD16, int32_t, int32_t)},
+		{"getFCD16FromNormData", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getFCD16FromNormData, int32_t, int32_t)},
+		{"getNextCC", "(Ljdk/internal/icu/impl/NormalizerImpl$NextCCArgs;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, getNextCC, int32_t, $NormalizerImpl$NextCCArgs*)},
+		{"getNorm16", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getNorm16, int32_t, int32_t)},
+		{"getPrevCC", "(Ljdk/internal/icu/impl/NormalizerImpl$PrevArgs;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, getPrevCC, int32_t, $NormalizerImpl$PrevArgs*)},
+		{"getPreviousTrailCC", "(Ljava/lang/CharSequence;II)I", nullptr, $PRIVATE, $method(NormalizerImpl, getPreviousTrailCC, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"getRawNorm16", "(I)I", nullptr, $PUBLIC, $method(NormalizerImpl, getRawNorm16, int32_t, int32_t)},
+		{"getTrailCCFromCompYesAndZeroCC", "(I)I", nullptr, 0, $method(NormalizerImpl, getTrailCCFromCompYesAndZeroCC, int32_t, int32_t)},
+		{"hangulLVT", "()I", nullptr, $PRIVATE, $method(NormalizerImpl, hangulLVT, int32_t)},
+		{"hasCompBoundaryAfter", "(IZ)Z", nullptr, $PUBLIC, $method(NormalizerImpl, hasCompBoundaryAfter, bool, int32_t, bool)},
+		{"hasCompBoundaryAfter", "(Ljava/lang/CharSequence;IIZ)Z", nullptr, $PRIVATE, $method(NormalizerImpl, hasCompBoundaryAfter, bool, $CharSequence*, int32_t, int32_t, bool)},
+		{"hasCompBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, hasCompBoundaryBefore, bool, int32_t)},
+		{"hasCompBoundaryBefore", "(II)Z", nullptr, $PRIVATE, $method(NormalizerImpl, hasCompBoundaryBefore, bool, int32_t, int32_t)},
+		{"hasCompBoundaryBefore", "(Ljava/lang/CharSequence;II)Z", nullptr, $PRIVATE, $method(NormalizerImpl, hasCompBoundaryBefore, bool, $CharSequence*, int32_t, int32_t)},
+		{"hasDecompBoundaryAfter", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, hasDecompBoundaryAfter, bool, int32_t)},
+		{"hasDecompBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, hasDecompBoundaryBefore, bool, int32_t)},
+		{"insertOrdered", "([CIIICCI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, insertOrdered, int32_t, $chars*, int32_t, int32_t, int32_t, char16_t, char16_t, int32_t)},
+		{"isAlgorithmicNoNo", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, isAlgorithmicNoNo, bool, int32_t)},
+		{"isCompNo", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, isCompNo, bool, int32_t)},
+		{"isCompYesAndZeroCC", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isCompYesAndZeroCC, bool, int32_t)},
+		{"isDecompInert", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, isDecompInert, bool, int32_t)},
+		{"isDecompNoAlgorithmic", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isDecompNoAlgorithmic, bool, int32_t)},
+		{"isDecompYes", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, isDecompYes, bool, int32_t)},
+		{"isDecompYesAndZeroCC", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isDecompYesAndZeroCC, bool, int32_t)},
+		{"isHangulLV", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isHangulLV, bool, int32_t)},
+		{"isHangulLVT", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isHangulLVT, bool, int32_t)},
+		{"isInert", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, isInert, bool, int32_t)},
+		{"isJamoVT", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, isJamoVT, bool, int32_t)},
+		{"isMaybe", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isMaybe, bool, int32_t)},
+		{"isMaybeOrNonZeroCC", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isMaybeOrNonZeroCC, bool, int32_t)},
+		{"isMostDecompYesAndZeroCC", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isMostDecompYesAndZeroCC, bool, int32_t)},
+		{"isTrailCC01ForCompBoundaryAfter", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, isTrailCC01ForCompBoundaryAfter, bool, int32_t)},
+		{"load", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/impl/NormalizerImpl;", nullptr, $PUBLIC, $method(NormalizerImpl, load, NormalizerImpl*, $ByteBuffer*)},
+		{"load", "(Ljava/lang/String;)Ljdk/internal/icu/impl/NormalizerImpl;", nullptr, $PUBLIC, $method(NormalizerImpl, load, NormalizerImpl*, $String*)},
+		{"makeFCD", "(Ljava/lang/CharSequence;IILjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)I", nullptr, $PUBLIC, $method(NormalizerImpl, makeFCD, int32_t, $CharSequence*, int32_t, int32_t, $NormalizerImpl$ReorderingBuffer*)},
+		{"mapAlgorithmic", "(II)I", nullptr, $PRIVATE, $method(NormalizerImpl, mapAlgorithmic, int32_t, int32_t, int32_t)},
+		{"mergeOrdered", "([CII[CII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, mergeOrdered, int32_t, $chars*, int32_t, int32_t, $chars*, int32_t, int32_t)},
+		{"needSingleQuotation", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalizerImpl, needSingleQuotation, bool, char16_t)},
+		{"norm16HasCompBoundaryAfter", "(IZ)Z", nullptr, $PRIVATE, $method(NormalizerImpl, norm16HasCompBoundaryAfter, bool, int32_t, bool)},
+		{"norm16HasCompBoundaryBefore", "(I)Z", nullptr, $PRIVATE, $method(NormalizerImpl, norm16HasCompBoundaryBefore, bool, int32_t)},
+		{"norm16HasDecompBoundaryAfter", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, norm16HasDecompBoundaryAfter, bool, int32_t)},
+		{"norm16HasDecompBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, norm16HasDecompBoundaryBefore, bool, int32_t)},
+		{"recompose", "(Ljdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;IZ)V", nullptr, $PRIVATE, $method(NormalizerImpl, recompose, void, $NormalizerImpl$ReorderingBuffer*, int32_t, bool)},
+		{"singleLeadMightHaveNonZeroFCD16", "(I)Z", nullptr, $PUBLIC, $method(NormalizerImpl, singleLeadMightHaveNonZeroFCD16, bool, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.NormalizerImpl$NextCCArgs", "jdk.internal.icu.impl.NormalizerImpl", "NextCCArgs", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.NormalizerImpl$PrevArgs", "jdk.internal.icu.impl.NormalizerImpl", "PrevArgs", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.NormalizerImpl$IsAcceptable", "jdk.internal.icu.impl.NormalizerImpl", "IsAcceptable", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.NormalizerImpl$UTF16Plus", "jdk.internal.icu.impl.NormalizerImpl", "UTF16Plus", $PUBLIC | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.NormalizerImpl$ReorderingBuffer", "jdk.internal.icu.impl.NormalizerImpl", "ReorderingBuffer", $PUBLIC | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.NormalizerImpl$Hangul", "jdk.internal.icu.impl.NormalizerImpl", "Hangul", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.NormalizerImpl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.NormalizerImpl$NextCCArgs,jdk.internal.icu.impl.NormalizerImpl$PrevArgs,jdk.internal.icu.impl.NormalizerImpl$IsAcceptable,jdk.internal.icu.impl.NormalizerImpl$UTF16Plus,jdk.internal.icu.impl.NormalizerImpl$ReorderingBuffer,jdk.internal.icu.impl.NormalizerImpl$Hangul"
+	};
+	$loadClass(NormalizerImpl, name, initialize, &classInfo$$, NormalizerImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalizerImpl);
+	});
 	return class$;
 }
 

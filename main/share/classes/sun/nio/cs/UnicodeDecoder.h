@@ -45,8 +45,8 @@ public:
 	char16_t decode(int32_t b1, int32_t b2);
 	virtual ::java::nio::charset::CoderResult* decodeLoop(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst) override;
 	virtual void implReset() override;
-	static const char16_t BYTE_ORDER_MARK = (char16_t)0x0000FEFF;
-	static const char16_t REVERSED_MARK = (char16_t)0x0000FFFE;
+	static const char16_t BYTE_ORDER_MARK = (char16_t)0x0000feff;
+	static const char16_t REVERSED_MARK = (char16_t)0x0000fffe;
 	static const int32_t NONE = 0;
 	static const int32_t BIG = 1;
 	static const int32_t LITTLE = 2;

@@ -22,6 +22,7 @@ class $export DNSName : public ::sun::security::x509::GeneralNameInterface {
 	$class(DNSName, 0, ::sun::security::x509::GeneralNameInterface)
 public:
 	DNSName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::util::DerValue* derValue);
 	void init$($String* name, bool allowWildcard);
 	void init$($String* name);

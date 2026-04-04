@@ -1,5 +1,4 @@
 #include <java/lang/ProcessImpl$LaunchMechanism.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/ProcessImpl.h>
 #include <jcpp.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ProcessImpl$LaunchMechanism_FieldInfo_[] = {
-	{"FORK", "Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessImpl$LaunchMechanism, FORK)},
-	{"POSIX_SPAWN", "Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessImpl$LaunchMechanism, POSIX_SPAWN)},
-	{"VFORK", "Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessImpl$LaunchMechanism, VFORK)},
-	{"$VALUES", "[Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ProcessImpl$LaunchMechanism, $VALUES)},
-	{}
-};
-
-$MethodInfo _ProcessImpl$LaunchMechanism_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessImpl$LaunchMechanism, $values, $ProcessImpl$LaunchMechanismArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ProcessImpl$LaunchMechanism, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessImpl$LaunchMechanism, valueOf, ProcessImpl$LaunchMechanism*, $String*)},
-	{"values", "()[Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessImpl$LaunchMechanism, values, $ProcessImpl$LaunchMechanismArray*)},
-	{}
-};
-
-$InnerClassInfo _ProcessImpl$LaunchMechanism_InnerClassesInfo_[] = {
-	{"java.lang.ProcessImpl$LaunchMechanism", "java.lang.ProcessImpl", "LaunchMechanism", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ProcessImpl$LaunchMechanism_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.ProcessImpl$LaunchMechanism",
-	"java.lang.Enum",
-	nullptr,
-	_ProcessImpl$LaunchMechanism_FieldInfo_,
-	_ProcessImpl$LaunchMechanism_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/ProcessImpl$LaunchMechanism;>;",
-	nullptr,
-	_ProcessImpl$LaunchMechanism_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessImpl"
-};
-
-$Object* allocate$ProcessImpl$LaunchMechanism($Class* clazz) {
-	return $of($alloc(ProcessImpl$LaunchMechanism));
-}
 
 ProcessImpl$LaunchMechanism* ProcessImpl$LaunchMechanism::FORK = nullptr;
 ProcessImpl$LaunchMechanism* ProcessImpl$LaunchMechanism::POSIX_SPAWN = nullptr;
@@ -87,7 +45,7 @@ void ProcessImpl$LaunchMechanism::init$($String* $enum$name, int32_t $enum$ordin
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ProcessImpl$LaunchMechanism($Class* class$) {
+void ProcessImpl$LaunchMechanism::clinit$($Class* clazz) {
 	$assignStatic(ProcessImpl$LaunchMechanism::FORK, $new(ProcessImpl$LaunchMechanism, "FORK"_s, 0));
 	$assignStatic(ProcessImpl$LaunchMechanism::POSIX_SPAWN, $new(ProcessImpl$LaunchMechanism, "POSIX_SPAWN"_s, 1));
 	$assignStatic(ProcessImpl$LaunchMechanism::VFORK, $new(ProcessImpl$LaunchMechanism, "VFORK"_s, 2));
@@ -98,7 +56,42 @@ ProcessImpl$LaunchMechanism::ProcessImpl$LaunchMechanism() {
 }
 
 $Class* ProcessImpl$LaunchMechanism::load$($String* name, bool initialize) {
-	$loadClass(ProcessImpl$LaunchMechanism, name, initialize, &_ProcessImpl$LaunchMechanism_ClassInfo_, clinit$ProcessImpl$LaunchMechanism, allocate$ProcessImpl$LaunchMechanism);
+	$FieldInfo fieldInfos$$[] = {
+		{"FORK", "Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessImpl$LaunchMechanism, FORK)},
+		{"POSIX_SPAWN", "Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessImpl$LaunchMechanism, POSIX_SPAWN)},
+		{"VFORK", "Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessImpl$LaunchMechanism, VFORK)},
+		{"$VALUES", "[Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ProcessImpl$LaunchMechanism, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessImpl$LaunchMechanism, $values, $ProcessImpl$LaunchMechanismArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ProcessImpl$LaunchMechanism, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessImpl$LaunchMechanism, valueOf, ProcessImpl$LaunchMechanism*, $String*)},
+		{"values", "()[Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessImpl$LaunchMechanism, values, $ProcessImpl$LaunchMechanismArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessImpl$LaunchMechanism", "java.lang.ProcessImpl", "LaunchMechanism", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.ProcessImpl$LaunchMechanism",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/ProcessImpl$LaunchMechanism;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessImpl"
+	};
+	$loadClass(ProcessImpl$LaunchMechanism, name, initialize, &classInfo$$, ProcessImpl$LaunchMechanism::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProcessImpl$LaunchMechanism));
+	});
 	return class$;
 }
 

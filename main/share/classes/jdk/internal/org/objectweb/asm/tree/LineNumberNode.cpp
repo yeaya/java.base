@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/LineNumberNode.h>
-
 #include <java/util/Map.h>
 #include <jdk/internal/org/objectweb/asm/Label.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
@@ -24,33 +23,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 
-$FieldInfo _LineNumberNode_FieldInfo_[] = {
-	{"line", "I", nullptr, $PUBLIC, $field(LineNumberNode, line)},
-	{"start", "Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, $PUBLIC, $field(LineNumberNode, start)},
-	{}
-};
-
-$MethodInfo _LineNumberNode_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/tree/LabelNode;)V", nullptr, $PUBLIC, $method(LineNumberNode, init$, void, int32_t, $LabelNode*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(LineNumberNode, accept, void, $MethodVisitor*)},
-	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(LineNumberNode, clone, $AbstractInsnNode*, $Map*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberNode, getType, int32_t)},
-	{}
-};
-
-$ClassInfo _LineNumberNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.LineNumberNode",
-	"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
-	nullptr,
-	_LineNumberNode_FieldInfo_,
-	_LineNumberNode_MethodInfo_
-};
-
-$Object* allocate$LineNumberNode($Class* clazz) {
-	return $of($alloc(LineNumberNode));
-}
-
 void LineNumberNode::init$(int32_t line, $LabelNode* start) {
 	$AbstractInsnNode::init$(-1);
 	this->line = line;
@@ -73,7 +45,29 @@ LineNumberNode::LineNumberNode() {
 }
 
 $Class* LineNumberNode::load$($String* name, bool initialize) {
-	$loadClass(LineNumberNode, name, initialize, &_LineNumberNode_ClassInfo_, allocate$LineNumberNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"line", "I", nullptr, $PUBLIC, $field(LineNumberNode, line)},
+		{"start", "Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, $PUBLIC, $field(LineNumberNode, start)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/tree/LabelNode;)V", nullptr, $PUBLIC, $method(LineNumberNode, init$, void, int32_t, $LabelNode*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(LineNumberNode, accept, void, $MethodVisitor*)},
+		{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(LineNumberNode, clone, $AbstractInsnNode*, $Map*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberNode, getType, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.LineNumberNode",
+		"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineNumberNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LineNumberNode);
+	});
 	return class$;
 }
 

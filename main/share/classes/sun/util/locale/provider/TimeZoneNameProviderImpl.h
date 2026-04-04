@@ -31,6 +31,7 @@ class $export TimeZoneNameProviderImpl : public ::java::util::spi::TimeZoneNameP
 	$class(TimeZoneNameProviderImpl, 0, ::java::util::spi::TimeZoneNameProvider)
 public:
 	TimeZoneNameProviderImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::util::locale::provider::LocaleProviderAdapter$Type* type, ::java::util::Set* langtags);
 	virtual $Array<::java::util::Locale>* getAvailableLocales() override;
 	virtual $String* getDisplayName($String* id, bool daylight, int32_t style, ::java::util::Locale* locale) override;

@@ -58,6 +58,7 @@ class $import InnocuousThread : public ::java::lang::Thread {
 	$class(InnocuousThread, 0, ::java::lang::Thread)
 public:
 	InnocuousThread();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ThreadGroup* group, ::java::lang::Runnable* target, $String* name, ::java::lang::ClassLoader* tccl);
 	static $Thread* createThread($String* name, ::java::lang::Runnable* target, ::java::lang::ClassLoader* loader, int32_t priority);
 	void eraseThreadLocals();

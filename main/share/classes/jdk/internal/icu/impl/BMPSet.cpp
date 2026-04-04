@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/BMPSet.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <jdk/internal/icu/impl/UCharacterProperty.h>
@@ -23,42 +22,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$FieldInfo _BMPSet_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BMPSet, $assertionsDisabled)},
-	{"latin1Contains", "[Z", nullptr, $PRIVATE, $field(BMPSet, latin1Contains)},
-	{"table7FF", "[I", nullptr, $PRIVATE, $field(BMPSet, table7FF)},
-	{"bmpBlockBits", "[I", nullptr, $PRIVATE, $field(BMPSet, bmpBlockBits)},
-	{"list4kStarts", "[I", nullptr, $PRIVATE, $field(BMPSet, list4kStarts)},
-	{"list", "[I", nullptr, $PRIVATE | $FINAL, $field(BMPSet, list)},
-	{"listLength", "I", nullptr, $PRIVATE | $FINAL, $field(BMPSet, listLength)},
-	{}
-};
-
-$MethodInfo _BMPSet_MethodInfo_[] = {
-	{"<init>", "([II)V", nullptr, $PUBLIC, $method(BMPSet, init$, void, $ints*, int32_t)},
-	{"contains", "(I)Z", nullptr, $PUBLIC, $method(BMPSet, contains, bool, int32_t)},
-	{"containsSlow", "(III)Z", nullptr, $PRIVATE | $FINAL, $method(BMPSet, containsSlow, bool, int32_t, int32_t, int32_t)},
-	{"findCodePoint", "(III)I", nullptr, $PRIVATE, $method(BMPSet, findCodePoint, int32_t, int32_t, int32_t, int32_t)},
-	{"initBits", "()V", nullptr, $PRIVATE, $method(BMPSet, initBits, void)},
-	{"set32x64Bits", "([III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BMPSet, set32x64Bits, void, $ints*, int32_t, int32_t)},
-	{"span", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;Ljdk/internal/icu/util/OutputInt;)I", nullptr, $PUBLIC | $FINAL, $method(BMPSet, span, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*, $OutputInt*)},
-	{"spanBack", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC | $FINAL, $method(BMPSet, spanBack, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*)},
-	{}
-};
-
-$ClassInfo _BMPSet_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.BMPSet",
-	"java.lang.Object",
-	nullptr,
-	_BMPSet_FieldInfo_,
-	_BMPSet_MethodInfo_
-};
-
-$Object* allocate$BMPSet($Class* clazz) {
-	return $of($alloc(BMPSet));
-}
-
 bool BMPSet::$assertionsDisabled = false;
 
 void BMPSet::init$($ints* parentList, int32_t parentListLength) {
@@ -68,12 +31,12 @@ void BMPSet::init$($ints* parentList, int32_t parentListLength) {
 	$set(this, table7FF, $new($ints, 64));
 	$set(this, bmpBlockBits, $new($ints, 64));
 	$set(this, list4kStarts, $new($ints, 18));
-	$nc(this->list4kStarts)->set(0, findCodePoint(2048, 0, this->listLength - 1));
+	this->list4kStarts->set(0, findCodePoint(2048, 0, this->listLength - 1));
 	int32_t i = 0;
 	for (i = 1; i <= 16; ++i) {
-		$nc(this->list4kStarts)->set(i, findCodePoint(i << 12, $nc(this->list4kStarts)->get(i - 1), this->listLength - 1));
+		this->list4kStarts->set(i, findCodePoint(i << 12, this->list4kStarts->get(i - 1), this->listLength - 1));
 	}
-	$nc(this->list4kStarts)->set(17, this->listLength - 1);
+	this->list4kStarts->set(17, this->listLength - 1);
 	initBits();
 }
 
@@ -81,16 +44,16 @@ bool BMPSet::contains(int32_t c) {
 	if (c <= 255) {
 		return ($nc(this->latin1Contains)->get(c));
 	} else if (c <= 2047) {
-		return (((int32_t)($nc(this->table7FF)->get((int32_t)(c & (uint32_t)63)) & (uint32_t)($sl(1, c >> 6)))) != 0);
-	} else if (c < 0x0000D800 || (c >= 0x0000E000 && c <= 0x0000FFFF)) {
+		return (($nc(this->table7FF)->get(c & 0x3f) & ($sl(1, c >> 6))) != 0);
+	} else if (c < 0x0000d800 || (c >= 0x0000e000 && c <= 0x0000ffff)) {
 		int32_t lead = c >> 12;
-		int32_t twoBits = (int32_t)(($sr($nc(this->bmpBlockBits)->get((int32_t)((c >> 6) & (uint32_t)63)), lead)) & (uint32_t)0x00010001);
+		int32_t twoBits = ($sr($nc(this->bmpBlockBits)->get((c >> 6) & 0x3f), lead)) & 0x00010001;
 		if (twoBits <= 1) {
 			return (0 != twoBits);
 		} else {
 			return containsSlow(c, $nc(this->list4kStarts)->get(lead), $nc(this->list4kStarts)->get(lead + 1));
 		}
-	} else if (c <= 0x0010FFFF) {
+	} else if (c <= 0x0010ffff) {
 		return containsSlow(c, $nc(this->list4kStarts)->get(13), $nc(this->list4kStarts)->get(17));
 	} else {
 		return false;
@@ -112,12 +75,12 @@ int32_t BMPSet::span($CharSequence* s, int32_t start, $UnicodeSet$SpanCondition*
 					break;
 				}
 			} else if (c <= 2047) {
-				if (((int32_t)($nc(this->table7FF)->get((int32_t)(c & (uint32_t)63)) & (uint32_t)($sl(1, c >> 6)))) == 0) {
+				if (($nc(this->table7FF)->get(c & 0x3f) & ($sl(1, c >> 6))) == 0) {
 					break;
 				}
-			} else if (c < 0x0000D800 || c >= 0x0000DC00 || (i + 1) == limit || (c2 = s->charAt(i + 1)) < 0x0000DC00 || c2 >= 0x0000E000) {
+			} else if (c < 0x0000d800 || c >= 0x0000dc00 || (i + 1) == limit || (c2 = s->charAt(i + 1)) < 0x0000dc00 || c2 >= 0x0000e000) {
 				int32_t lead = c >> 12;
-				int32_t twoBits = (int32_t)(($sr($nc(this->bmpBlockBits)->get((int32_t)((c >> 6) & (uint32_t)63)), lead)) & (uint32_t)0x00010001);
+				int32_t twoBits = ($sr($nc(this->bmpBlockBits)->get((c >> 6) & 0x3f), lead)) & 0x00010001;
 				if (twoBits <= 1) {
 					if (twoBits == 0) {
 						break;
@@ -143,12 +106,12 @@ int32_t BMPSet::span($CharSequence* s, int32_t start, $UnicodeSet$SpanCondition*
 					break;
 				}
 			} else if (c <= 2047) {
-				if (((int32_t)($nc(this->table7FF)->get((int32_t)(c & (uint32_t)63)) & (uint32_t)($sl(1, c >> 6)))) != 0) {
+				if (($nc(this->table7FF)->get(c & 0x3f) & ($sl(1, c >> 6))) != 0) {
 					break;
 				}
-			} else if (c < 0x0000D800 || c >= 0x0000DC00 || (i + 1) == limit || (c2 = s->charAt(i + 1)) < 0x0000DC00 || c2 >= 0x0000E000) {
+			} else if (c < 0x0000d800 || c >= 0x0000dc00 || (i + 1) == limit || (c2 = s->charAt(i + 1)) < 0x0000dc00 || c2 >= 0x0000e000) {
 				int32_t lead = c >> 12;
-				int32_t twoBits = (int32_t)(($sr($nc(this->bmpBlockBits)->get((int32_t)((c >> 6) & (uint32_t)63)), lead)) & (uint32_t)0x00010001);
+				int32_t twoBits = ($sr($nc(this->bmpBlockBits)->get((c >> 6) & 0x3f), lead)) & 0x00010001;
 				if (twoBits <= 1) {
 					if (twoBits != 0) {
 						break;
@@ -186,12 +149,12 @@ int32_t BMPSet::spanBack($CharSequence* s, int32_t limit, $UnicodeSet$SpanCondit
 					break;
 				}
 			} else if (c <= 2047) {
-				if (((int32_t)($nc(this->table7FF)->get((int32_t)(c & (uint32_t)63)) & (uint32_t)($sl(1, c >> 6)))) == 0) {
+				if (($nc(this->table7FF)->get(c & 0x3f) & ($sl(1, c >> 6))) == 0) {
 					break;
 				}
-			} else if (c < 0x0000D800 || c < 0x0000DC00 || 0 == limit || (c2 = s->charAt(limit - 1)) < 0x0000D800 || c2 >= 0x0000DC00) {
+			} else if (c < 0x0000d800 || c < 0x0000dc00 || 0 == limit || (c2 = s->charAt(limit - 1)) < 0x0000d800 || c2 >= 0x0000dc00) {
 				int32_t lead = c >> 12;
-				int32_t twoBits = (int32_t)(($sr($nc(this->bmpBlockBits)->get((int32_t)((c >> 6) & (uint32_t)63)), lead)) & (uint32_t)0x00010001);
+				int32_t twoBits = ($sr($nc(this->bmpBlockBits)->get((c >> 6) & 0x3f), lead)) & 0x00010001;
 				if (twoBits <= 1) {
 					if (twoBits == 0) {
 						break;
@@ -218,12 +181,12 @@ int32_t BMPSet::spanBack($CharSequence* s, int32_t limit, $UnicodeSet$SpanCondit
 					break;
 				}
 			} else if (c <= 2047) {
-				if (((int32_t)($nc(this->table7FF)->get((int32_t)(c & (uint32_t)63)) & (uint32_t)($sl(1, c >> 6)))) != 0) {
+				if (($nc(this->table7FF)->get(c & 0x3f) & ($sl(1, c >> 6))) != 0) {
 					break;
 				}
-			} else if (c < 0x0000D800 || c < 0x0000DC00 || 0 == limit || (c2 = s->charAt(limit - 1)) < 0x0000D800 || c2 >= 0x0000DC00) {
+			} else if (c < 0x0000d800 || c < 0x0000dc00 || 0 == limit || (c2 = s->charAt(limit - 1)) < 0x0000d800 || c2 >= 0x0000dc00) {
 				int32_t lead = c >> 12;
-				int32_t twoBits = (int32_t)(($sr($nc(this->bmpBlockBits)->get((int32_t)((c >> 6) & (uint32_t)63)), lead)) & (uint32_t)0x00010001);
+				int32_t twoBits = ($sr($nc(this->bmpBlockBits)->get((c >> 6) & 0x3f), lead)) & 0x00010001;
 				if (twoBits <= 1) {
 					if (twoBits != 0) {
 						break;
@@ -252,14 +215,14 @@ void BMPSet::set32x64Bits($ints* table, int32_t start, int32_t limit) {
 		$throwNew($AssertionError);
 	}
 	int32_t lead = start >> 6;
-	int32_t trail = (int32_t)(start & (uint32_t)63);
+	int32_t trail = start & 0x3f;
 	int32_t bits = $sl(1, lead);
 	if ((start + 1) == limit) {
 		(*$nc(table))[trail] |= bits;
 		return;
 	}
 	int32_t limitLead = limit >> 6;
-	int32_t limitTrail = (int32_t)(limit & (uint32_t)63);
+	int32_t limitTrail = limit & 0x3f;
 	if (lead == limitLead) {
 		while (trail < limitTrail) {
 			(*$nc(table))[trail++] |= bits;
@@ -294,7 +257,7 @@ void BMPSet::initBits() {
 	do {
 		start = $nc(this->list)->get(listIndex++);
 		if (listIndex < this->listLength) {
-			limit = $nc(this->list)->get(listIndex++);
+			limit = this->list->get(listIndex++);
 		} else {
 			limit = 0x00110000;
 		}
@@ -313,7 +276,7 @@ void BMPSet::initBits() {
 		}
 		start = $nc(this->list)->get(listIndex++);
 		if (listIndex < this->listLength) {
-			limit = $nc(this->list)->get(listIndex++);
+			limit = this->list->get(listIndex++);
 		} else {
 			limit = 0x00110000;
 		}
@@ -327,19 +290,19 @@ void BMPSet::initBits() {
 			start = minStart;
 		}
 		if (start < limit) {
-			if (0 != ((int32_t)(start & (uint32_t)63))) {
+			if (0 != (start & 0x3f)) {
 				start >>= 6;
-				(*$nc(this->bmpBlockBits))[(int32_t)(start & (uint32_t)63)] |= $sl(0x00010001, start >> 6);
+				(*$nc(this->bmpBlockBits))[start & 0x3f] |= $sl(0x00010001, start >> 6);
 				start = (start + 1) << 6;
 				minStart = start;
 			}
 			if (start < limit) {
-				if (start < ((int32_t)(limit & (uint32_t)~63))) {
+				if (start < (limit & ~0x3f)) {
 					set32x64Bits(this->bmpBlockBits, start >> 6, limit >> 6);
 				}
-				if (0 != ((int32_t)(limit & (uint32_t)63))) {
+				if (0 != (limit & 0x3f)) {
 					limit >>= 6;
-					(*$nc(this->bmpBlockBits))[(int32_t)(limit & (uint32_t)63)] |= $sl(0x00010001, limit >> 6);
+					(*$nc(this->bmpBlockBits))[limit & 0x3f] |= $sl(0x00010001, limit >> 6);
 					limit = (limit + 1) << 6;
 					minStart = limit;
 				}
@@ -350,7 +313,7 @@ void BMPSet::initBits() {
 		}
 		start = $nc(this->list)->get(listIndex++);
 		if (listIndex < this->listLength) {
-			limit = $nc(this->list)->get(listIndex++);
+			limit = this->list->get(listIndex++);
 		} else {
 			limit = 0x00110000;
 		}
@@ -361,14 +324,14 @@ int32_t BMPSet::findCodePoint(int32_t c, int32_t lo, int32_t hi) {
 	if (c < $nc(this->list)->get(lo)) {
 		return lo;
 	}
-	if (lo >= hi || c >= $nc(this->list)->get(hi - 1)) {
+	if (lo >= hi || c >= this->list->get(hi - 1)) {
 		return hi;
 	}
 	for (;;) {
 		int32_t i = (int32_t)((uint32_t)(lo + hi) >> 1);
 		if (i == lo) {
 			break;
-		} else if (c < $nc(this->list)->get(i)) {
+		} else if (c < this->list->get(i)) {
 			hi = i;
 		} else {
 			lo = i;
@@ -378,10 +341,10 @@ int32_t BMPSet::findCodePoint(int32_t c, int32_t lo, int32_t hi) {
 }
 
 bool BMPSet::containsSlow(int32_t c, int32_t lo, int32_t hi) {
-	return (0 != ((int32_t)(findCodePoint(c, lo, hi) & (uint32_t)1)));
+	return (0 != (findCodePoint(c, lo, hi) & 1));
 }
 
-void clinit$BMPSet($Class* class$) {
+void BMPSet::clinit$($Class* clazz) {
 	BMPSet::$assertionsDisabled = !BMPSet::class$->desiredAssertionStatus();
 }
 
@@ -389,7 +352,38 @@ BMPSet::BMPSet() {
 }
 
 $Class* BMPSet::load$($String* name, bool initialize) {
-	$loadClass(BMPSet, name, initialize, &_BMPSet_ClassInfo_, clinit$BMPSet, allocate$BMPSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BMPSet, $assertionsDisabled)},
+		{"latin1Contains", "[Z", nullptr, $PRIVATE, $field(BMPSet, latin1Contains)},
+		{"table7FF", "[I", nullptr, $PRIVATE, $field(BMPSet, table7FF)},
+		{"bmpBlockBits", "[I", nullptr, $PRIVATE, $field(BMPSet, bmpBlockBits)},
+		{"list4kStarts", "[I", nullptr, $PRIVATE, $field(BMPSet, list4kStarts)},
+		{"list", "[I", nullptr, $PRIVATE | $FINAL, $field(BMPSet, list)},
+		{"listLength", "I", nullptr, $PRIVATE | $FINAL, $field(BMPSet, listLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([II)V", nullptr, $PUBLIC, $method(BMPSet, init$, void, $ints*, int32_t)},
+		{"contains", "(I)Z", nullptr, $PUBLIC, $method(BMPSet, contains, bool, int32_t)},
+		{"containsSlow", "(III)Z", nullptr, $PRIVATE | $FINAL, $method(BMPSet, containsSlow, bool, int32_t, int32_t, int32_t)},
+		{"findCodePoint", "(III)I", nullptr, $PRIVATE, $method(BMPSet, findCodePoint, int32_t, int32_t, int32_t, int32_t)},
+		{"initBits", "()V", nullptr, $PRIVATE, $method(BMPSet, initBits, void)},
+		{"set32x64Bits", "([III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BMPSet, set32x64Bits, void, $ints*, int32_t, int32_t)},
+		{"span", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;Ljdk/internal/icu/util/OutputInt;)I", nullptr, $PUBLIC | $FINAL, $method(BMPSet, span, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*, $OutputInt*)},
+		{"spanBack", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC | $FINAL, $method(BMPSet, spanBack, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.BMPSet",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BMPSet, name, initialize, &classInfo$$, BMPSet::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPSet);
+	});
 	return class$;
 }
 

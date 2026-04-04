@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/decompressor/ResourceDecompressorRepository.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <java/util/Properties.h>
@@ -25,31 +24,6 @@ namespace jdk {
 		namespace jimage {
 			namespace decompressor {
 
-$FieldInfo _ResourceDecompressorRepository_FieldInfo_[] = {
-	{"factories", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/jimage/decompressor/ResourceDecompressorFactory;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourceDecompressorRepository, factories)},
-	{}
-};
-
-$MethodInfo _ResourceDecompressorRepository_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ResourceDecompressorRepository, init$, void)},
-	{"newResourceDecompressor", "(Ljava/util/Properties;Ljava/lang/String;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceDecompressorRepository, newResourceDecompressor, $ResourceDecompressor*, $Properties*, $String*), "java.io.IOException"},
-	{"registerReaderProvider", "(Ljdk/internal/jimage/decompressor/ResourceDecompressorFactory;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceDecompressorRepository, registerReaderProvider, void, $ResourceDecompressorFactory*)},
-	{}
-};
-
-$ClassInfo _ResourceDecompressorRepository_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.jimage.decompressor.ResourceDecompressorRepository",
-	"java.lang.Object",
-	nullptr,
-	_ResourceDecompressorRepository_FieldInfo_,
-	_ResourceDecompressorRepository_MethodInfo_
-};
-
-$Object* allocate$ResourceDecompressorRepository($Class* clazz) {
-	return $of($alloc(ResourceDecompressorRepository));
-}
-
 $Map* ResourceDecompressorRepository::factories = nullptr;
 
 void ResourceDecompressorRepository::init$() {
@@ -57,7 +31,7 @@ void ResourceDecompressorRepository::init$() {
 
 $ResourceDecompressor* ResourceDecompressorRepository::newResourceDecompressor($Properties* properties, $String* name) {
 	$init(ResourceDecompressorRepository);
-	$var($ResourceDecompressorFactory, fact, $cast($ResourceDecompressorFactory, $nc(ResourceDecompressorRepository::factories)->get(name)));
+	$var($ResourceDecompressorFactory, fact, $cast($ResourceDecompressorFactory, ResourceDecompressorRepository::factories->get(name)));
 	if (fact != nullptr) {
 		return fact->newDecompressor(properties);
 	}
@@ -66,11 +40,11 @@ $ResourceDecompressor* ResourceDecompressorRepository::newResourceDecompressor($
 
 void ResourceDecompressorRepository::registerReaderProvider($ResourceDecompressorFactory* factory) {
 	$init(ResourceDecompressorRepository);
-	$nc(ResourceDecompressorRepository::factories)->put($($nc(factory)->getName()), factory);
+	ResourceDecompressorRepository::factories->put($($nc(factory)->getName()), factory);
 }
 
-void clinit$ResourceDecompressorRepository($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ResourceDecompressorRepository::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ResourceDecompressorRepository::factories, $new($HashMap));
 	{
 		ResourceDecompressorRepository::registerReaderProvider($$new($ZipDecompressorFactory));
@@ -82,7 +56,27 @@ ResourceDecompressorRepository::ResourceDecompressorRepository() {
 }
 
 $Class* ResourceDecompressorRepository::load$($String* name, bool initialize) {
-	$loadClass(ResourceDecompressorRepository, name, initialize, &_ResourceDecompressorRepository_ClassInfo_, clinit$ResourceDecompressorRepository, allocate$ResourceDecompressorRepository);
+	$FieldInfo fieldInfos$$[] = {
+		{"factories", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/jimage/decompressor/ResourceDecompressorFactory;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourceDecompressorRepository, factories)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ResourceDecompressorRepository, init$, void)},
+		{"newResourceDecompressor", "(Ljava/util/Properties;Ljava/lang/String;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceDecompressorRepository, newResourceDecompressor, $ResourceDecompressor*, $Properties*, $String*), "java.io.IOException"},
+		{"registerReaderProvider", "(Ljdk/internal/jimage/decompressor/ResourceDecompressorFactory;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceDecompressorRepository, registerReaderProvider, void, $ResourceDecompressorFactory*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.jimage.decompressor.ResourceDecompressorRepository",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResourceDecompressorRepository, name, initialize, &classInfo$$, ResourceDecompressorRepository::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceDecompressorRepository);
+	});
 	return class$;
 }
 

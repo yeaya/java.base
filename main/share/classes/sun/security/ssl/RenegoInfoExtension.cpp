@@ -1,5 +1,4 @@
 #include <sun/security/ssl/RenegoInfoExtension.h>
-
 #include <sun/security/ssl/HandshakeAbsence.h>
 #include <sun/security/ssl/HandshakeProducer.h>
 #include <sun/security/ssl/RenegoInfoExtension$CHRenegotiationInfoAbsence.h>
@@ -33,53 +32,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _RenegoInfoExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, chOnLoadConsumer)},
-	{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, chOnLoadAbsence)},
-	{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, shNetworkProducer)},
-	{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, shOnLoadConsumer)},
-	{"shOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, shOnLoadAbsence)},
-	{"rniStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, rniStringizer)},
-	{}
-};
-
-$MethodInfo _RenegoInfoExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RenegoInfoExtension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _RenegoInfoExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoAbsence", "sun.security.ssl.RenegoInfoExtension", "SHRenegotiationInfoAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoConsumer", "sun.security.ssl.RenegoInfoExtension", "SHRenegotiationInfoConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoProducer", "sun.security.ssl.RenegoInfoExtension", "SHRenegotiationInfoProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoAbsence", "sun.security.ssl.RenegoInfoExtension", "CHRenegotiationInfoAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoConsumer", "sun.security.ssl.RenegoInfoExtension", "CHRenegotiationInfoConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoProducer", "sun.security.ssl.RenegoInfoExtension", "CHRenegotiationInfoProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.RenegoInfoExtension$RenegotiationInfoStringizer", "sun.security.ssl.RenegoInfoExtension", "RenegotiationInfoStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.RenegoInfoExtension$RenegotiationInfoSpec", "sun.security.ssl.RenegoInfoExtension", "RenegotiationInfoSpec", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RenegoInfoExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.RenegoInfoExtension",
-	"java.lang.Object",
-	nullptr,
-	_RenegoInfoExtension_FieldInfo_,
-	_RenegoInfoExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RenegoInfoExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoAbsence,sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoConsumer,sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoProducer,sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoAbsence,sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoConsumer,sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoProducer,sun.security.ssl.RenegoInfoExtension$RenegotiationInfoStringizer,sun.security.ssl.RenegoInfoExtension$RenegotiationInfoSpec"
-};
-
-$Object* allocate$RenegoInfoExtension($Class* clazz) {
-	return $of($alloc(RenegoInfoExtension));
-}
-
 $HandshakeProducer* RenegoInfoExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* RenegoInfoExtension::chOnLoadConsumer = nullptr;
 $HandshakeAbsence* RenegoInfoExtension::chOnLoadAbsence = nullptr;
@@ -91,7 +43,7 @@ $SSLStringizer* RenegoInfoExtension::rniStringizer = nullptr;
 void RenegoInfoExtension::init$() {
 }
 
-void clinit$RenegoInfoExtension($Class* class$) {
+void RenegoInfoExtension::clinit$($Class* clazz) {
 	$assignStatic(RenegoInfoExtension::chNetworkProducer, $new($RenegoInfoExtension$CHRenegotiationInfoProducer));
 	$assignStatic(RenegoInfoExtension::chOnLoadConsumer, $new($RenegoInfoExtension$CHRenegotiationInfoConsumer));
 	$assignStatic(RenegoInfoExtension::chOnLoadAbsence, $new($RenegoInfoExtension$CHRenegotiationInfoAbsence));
@@ -105,7 +57,48 @@ RenegoInfoExtension::RenegoInfoExtension() {
 }
 
 $Class* RenegoInfoExtension::load$($String* name, bool initialize) {
-	$loadClass(RenegoInfoExtension, name, initialize, &_RenegoInfoExtension_ClassInfo_, clinit$RenegoInfoExtension, allocate$RenegoInfoExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, chOnLoadConsumer)},
+		{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, chOnLoadAbsence)},
+		{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, shNetworkProducer)},
+		{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, shOnLoadConsumer)},
+		{"shOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, shOnLoadAbsence)},
+		{"rniStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(RenegoInfoExtension, rniStringizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RenegoInfoExtension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoAbsence", "sun.security.ssl.RenegoInfoExtension", "SHRenegotiationInfoAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoConsumer", "sun.security.ssl.RenegoInfoExtension", "SHRenegotiationInfoConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoProducer", "sun.security.ssl.RenegoInfoExtension", "SHRenegotiationInfoProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoAbsence", "sun.security.ssl.RenegoInfoExtension", "CHRenegotiationInfoAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoConsumer", "sun.security.ssl.RenegoInfoExtension", "CHRenegotiationInfoConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoProducer", "sun.security.ssl.RenegoInfoExtension", "CHRenegotiationInfoProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.RenegoInfoExtension$RenegotiationInfoStringizer", "sun.security.ssl.RenegoInfoExtension", "RenegotiationInfoStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.RenegoInfoExtension$RenegotiationInfoSpec", "sun.security.ssl.RenegoInfoExtension", "RenegotiationInfoSpec", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.RenegoInfoExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoAbsence,sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoConsumer,sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoProducer,sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoAbsence,sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoConsumer,sun.security.ssl.RenegoInfoExtension$CHRenegotiationInfoProducer,sun.security.ssl.RenegoInfoExtension$RenegotiationInfoStringizer,sun.security.ssl.RenegoInfoExtension$RenegotiationInfoSpec"
+	};
+	$loadClass(RenegoInfoExtension, name, initialize, &classInfo$$, RenegoInfoExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RenegoInfoExtension);
+	});
 	return class$;
 }
 

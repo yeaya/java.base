@@ -14,10 +14,13 @@ public:
 	UnsupportedClassVersionError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x9D25074BF027AE63;
+	static const int64_t serialVersionUID = (int64_t)0x9d25074bf027ae63;
 	UnsupportedClassVersionError(const UnsupportedClassVersionError& e);
 	virtual void throw$() override;
-	inline UnsupportedClassVersionError* operator ->() {
+	inline UnsupportedClassVersionError* operator ->() const {
+		return (UnsupportedClassVersionError*)throwing$;
+	}
+	inline operator UnsupportedClassVersionError*() const {
 		return (UnsupportedClassVersionError*)throwing$;
 	}
 };

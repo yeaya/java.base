@@ -14,10 +14,13 @@ class $export NotDirectoryException : public ::java::nio::file::FileSystemExcept
 public:
 	NotDirectoryException();
 	void init$($String* file);
-	static const int64_t serialVersionUID = (int64_t)0x82F0DF36F87CE379;
+	static const int64_t serialVersionUID = (int64_t)0x82f0df36f87ce379;
 	NotDirectoryException(const NotDirectoryException& e);
 	virtual void throw$() override;
-	inline NotDirectoryException* operator ->() {
+	inline NotDirectoryException* operator ->() const {
+		return (NotDirectoryException*)throwing$;
+	}
+	inline operator NotDirectoryException*() const {
 		return (NotDirectoryException*)throwing$;
 	}
 };

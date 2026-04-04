@@ -1,5 +1,4 @@
 #include <sun/nio/fs/AbstractWatchService$1.h>
-
 #include <java/nio/file/Path.h>
 #include <java/nio/file/WatchKey.h>
 #include <sun/nio/fs/AbstractWatchKey.h>
@@ -19,49 +18,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _AbstractWatchService$1_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/fs/AbstractWatchService;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractWatchService$1, this$0)},
-	{}
-};
-
-$MethodInfo _AbstractWatchService$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/AbstractWatchService;Ljava/nio/file/Path;Lsun/nio/fs/AbstractWatchService;)V", nullptr, 0, $method(AbstractWatchService$1, init$, void, $AbstractWatchService*, $Path*, $AbstractWatchService*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractWatchService$1, cancel, void)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractWatchService$1, isValid, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _AbstractWatchService$1_EnclosingMethodInfo_ = {
-	"sun.nio.fs.AbstractWatchService",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AbstractWatchService$1_InnerClassesInfo_[] = {
-	{"sun.nio.fs.AbstractWatchService$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractWatchService$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.AbstractWatchService$1",
-	"sun.nio.fs.AbstractWatchKey",
-	nullptr,
-	_AbstractWatchService$1_FieldInfo_,
-	_AbstractWatchService$1_MethodInfo_,
-	nullptr,
-	&_AbstractWatchService$1_EnclosingMethodInfo_,
-	_AbstractWatchService$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.AbstractWatchService"
-};
-
-$Object* allocate$AbstractWatchService$1($Class* clazz) {
-	return $of($alloc(AbstractWatchService$1));
-}
-
 void AbstractWatchService$1::init$($AbstractWatchService* this$0, $Path* dir, $AbstractWatchService* watcher) {
 	$set(this, this$0, this$0);
 	$AbstractWatchKey::init$(dir, watcher);
@@ -78,7 +34,43 @@ AbstractWatchService$1::AbstractWatchService$1() {
 }
 
 $Class* AbstractWatchService$1::load$($String* name, bool initialize) {
-	$loadClass(AbstractWatchService$1, name, initialize, &_AbstractWatchService$1_ClassInfo_, allocate$AbstractWatchService$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/fs/AbstractWatchService;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractWatchService$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/AbstractWatchService;Ljava/nio/file/Path;Lsun/nio/fs/AbstractWatchService;)V", nullptr, 0, $method(AbstractWatchService$1, init$, void, $AbstractWatchService*, $Path*, $AbstractWatchService*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractWatchService$1, cancel, void)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractWatchService$1, isValid, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.fs.AbstractWatchService",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.AbstractWatchService$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.AbstractWatchService$1",
+		"sun.nio.fs.AbstractWatchKey",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.AbstractWatchService"
+	};
+	$loadClass(AbstractWatchService$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractWatchService$1);
+	});
 	return class$;
 }
 

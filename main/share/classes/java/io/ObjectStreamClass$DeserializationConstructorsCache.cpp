@@ -1,5 +1,4 @@
 #include <java/io/ObjectStreamClass$DeserializationConstructorsCache.h>
-
 #include <java/io/ObjectStreamClass$DeserializationConstructorsCache$Key$Impl.h>
 #include <java/io/ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup.h>
 #include <java/io/ObjectStreamClass.h>
@@ -26,47 +25,6 @@ using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 namespace java {
 	namespace io {
 
-$FieldInfo _ObjectStreamClass$DeserializationConstructorsCache_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ObjectStreamClass$DeserializationConstructorsCache, $assertionsDisabled)},
-	{"MAX_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectStreamClass$DeserializationConstructorsCache, MAX_SIZE)},
-	{"first", "Ljava/io/ObjectStreamClass$DeserializationConstructorsCache$Key$Impl;", nullptr, $PRIVATE, $field(ObjectStreamClass$DeserializationConstructorsCache, first)},
-	{"last", "Ljava/io/ObjectStreamClass$DeserializationConstructorsCache$Key$Impl;", nullptr, $PRIVATE, $field(ObjectStreamClass$DeserializationConstructorsCache, last)},
-	{}
-};
-
-$MethodInfo _ObjectStreamClass$DeserializationConstructorsCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache, init$, void)},
-	{"get", "([Ljava/io/ObjectStreamField;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache, get, $MethodHandle*, $ObjectStreamFieldArray*)},
-	{"putIfAbsentAndGet", "([Ljava/io/ObjectStreamField;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $SYNCHRONIZED, $method(ObjectStreamClass$DeserializationConstructorsCache, putIfAbsentAndGet, $MethodHandle*, $ObjectStreamFieldArray*, $MethodHandle*)},
-	{}
-};
-
-$InnerClassInfo _ObjectStreamClass$DeserializationConstructorsCache_InnerClassesInfo_[] = {
-	{"java.io.ObjectStreamClass$DeserializationConstructorsCache", "java.io.ObjectStreamClass", "DeserializationConstructorsCache", $PRIVATE | $STATIC | $FINAL},
-	{"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key", "java.io.ObjectStreamClass$DeserializationConstructorsCache", "Key", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ObjectStreamClass$DeserializationConstructorsCache_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.io.ObjectStreamClass$DeserializationConstructorsCache",
-	"java.util.concurrent.ConcurrentHashMap",
-	nullptr,
-	_ObjectStreamClass$DeserializationConstructorsCache_FieldInfo_,
-	_ObjectStreamClass$DeserializationConstructorsCache_MethodInfo_,
-	"Ljava/util/concurrent/ConcurrentHashMap<Ljava/io/ObjectStreamClass$DeserializationConstructorsCache$Key;Ljava/lang/invoke/MethodHandle;>;",
-	nullptr,
-	_ObjectStreamClass$DeserializationConstructorsCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectStreamClass"
-};
-
-$Object* allocate$ObjectStreamClass$DeserializationConstructorsCache($Class* clazz) {
-	return $of($alloc(ObjectStreamClass$DeserializationConstructorsCache));
-}
-
 bool ObjectStreamClass$DeserializationConstructorsCache::$assertionsDisabled = false;
 
 void ObjectStreamClass$DeserializationConstructorsCache::init$() {
@@ -79,16 +37,16 @@ $MethodHandle* ObjectStreamClass$DeserializationConstructorsCache::get($ObjectSt
 
 $MethodHandle* ObjectStreamClass$DeserializationConstructorsCache::putIfAbsentAndGet($ObjectStreamFieldArray* fields, $MethodHandle* mh) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, key, $new($ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fields));
 		$var($MethodHandle, oldMh, $cast($MethodHandle, putIfAbsent(key, mh)));
 		if (oldMh != nullptr) {
 			return oldMh;
 		}
 		if (this->last == nullptr) {
-			$set(this, last, ($set(this, first, key)));
+			$set(this, last, $set(this, first, key));
 		} else {
-			$set(this, last, ($set($nc(this->last), next, key)));
+			$set(this, last, $set(this->last, next, key));
 		}
 		if (size() > ObjectStreamClass$DeserializationConstructorsCache::MAX_SIZE) {
 			if (!ObjectStreamClass$DeserializationConstructorsCache::$assertionsDisabled && !(this->first != nullptr)) {
@@ -104,7 +62,7 @@ $MethodHandle* ObjectStreamClass$DeserializationConstructorsCache::putIfAbsentAn
 	}
 }
 
-void clinit$ObjectStreamClass$DeserializationConstructorsCache($Class* class$) {
+void ObjectStreamClass$DeserializationConstructorsCache::clinit$($Class* clazz) {
 	$load($ObjectStreamClass);
 	ObjectStreamClass$DeserializationConstructorsCache::$assertionsDisabled = !$ObjectStreamClass::class$->desiredAssertionStatus();
 }
@@ -113,7 +71,42 @@ ObjectStreamClass$DeserializationConstructorsCache::ObjectStreamClass$Deserializ
 }
 
 $Class* ObjectStreamClass$DeserializationConstructorsCache::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$DeserializationConstructorsCache, name, initialize, &_ObjectStreamClass$DeserializationConstructorsCache_ClassInfo_, clinit$ObjectStreamClass$DeserializationConstructorsCache, allocate$ObjectStreamClass$DeserializationConstructorsCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ObjectStreamClass$DeserializationConstructorsCache, $assertionsDisabled)},
+		{"MAX_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectStreamClass$DeserializationConstructorsCache, MAX_SIZE)},
+		{"first", "Ljava/io/ObjectStreamClass$DeserializationConstructorsCache$Key$Impl;", nullptr, $PRIVATE, $field(ObjectStreamClass$DeserializationConstructorsCache, first)},
+		{"last", "Ljava/io/ObjectStreamClass$DeserializationConstructorsCache$Key$Impl;", nullptr, $PRIVATE, $field(ObjectStreamClass$DeserializationConstructorsCache, last)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache, init$, void)},
+		{"get", "([Ljava/io/ObjectStreamField;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache, get, $MethodHandle*, $ObjectStreamFieldArray*)},
+		{"putIfAbsentAndGet", "([Ljava/io/ObjectStreamField;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $SYNCHRONIZED, $method(ObjectStreamClass$DeserializationConstructorsCache, putIfAbsentAndGet, $MethodHandle*, $ObjectStreamFieldArray*, $MethodHandle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectStreamClass$DeserializationConstructorsCache", "java.io.ObjectStreamClass", "DeserializationConstructorsCache", $PRIVATE | $STATIC | $FINAL},
+		{"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key", "java.io.ObjectStreamClass$DeserializationConstructorsCache", "Key", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.io.ObjectStreamClass$DeserializationConstructorsCache",
+		"java.util.concurrent.ConcurrentHashMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/concurrent/ConcurrentHashMap<Ljava/io/ObjectStreamClass$DeserializationConstructorsCache$Key;Ljava/lang/invoke/MethodHandle;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectStreamClass"
+	};
+	$loadClass(ObjectStreamClass$DeserializationConstructorsCache, name, initialize, &classInfo$$, ObjectStreamClass$DeserializationConstructorsCache::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ObjectStreamClass$DeserializationConstructorsCache));
+	});
 	return class$;
 }
 

@@ -21,6 +21,7 @@ class $export MyThreadFactory : public ::java::util::concurrent::ThreadFactory {
 	$class(MyThreadFactory, 0, ::java::util::concurrent::ThreadFactory)
 public:
 	MyThreadFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool created($Thread* t);
 	virtual $Thread* newThread(::java::lang::Runnable* r) override;

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/MS950.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -25,45 +24,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _MS950_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MS950, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS950, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MS950, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MS950, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MS950, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _MS950_InnerClassesInfo_[] = {
-	{"sun.nio.cs.MS950$EncodeHolder", "sun.nio.cs.MS950", "EncodeHolder", $STATIC},
-	{"sun.nio.cs.MS950$DecodeHolder", "sun.nio.cs.MS950", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _MS950_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.MS950",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_MS950_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MS950_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.MS950$EncodeHolder,sun.nio.cs.MS950$DecodeHolder"
-};
-
-$Object* allocate$MS950($Class* clazz) {
-	return $of($alloc(MS950));
-}
 
 int32_t MS950::hashCode() {
 	 return this->$Charset::hashCode();
@@ -94,7 +54,7 @@ $String* MS950::historicalName() {
 }
 
 bool MS950::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(MS950, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(MS950, cs)));
 }
 
 $CharsetDecoder* MS950::newDecoder() {
@@ -111,7 +71,41 @@ MS950::MS950() {
 }
 
 $Class* MS950::load$($String* name, bool initialize) {
-	$loadClass(MS950, name, initialize, &_MS950_ClassInfo_, allocate$MS950);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MS950, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS950, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MS950, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MS950, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MS950, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.MS950$EncodeHolder", "sun.nio.cs.MS950", "EncodeHolder", $STATIC},
+		{"sun.nio.cs.MS950$DecodeHolder", "sun.nio.cs.MS950", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.MS950",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.MS950$EncodeHolder,sun.nio.cs.MS950$DecodeHolder"
+	};
+	$loadClass(MS950, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MS950));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/security/UnresolvedPermissionCollection.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
@@ -10,7 +9,6 @@
 #include <java/security/UnresolvedPermission.h>
 #include <java/security/UnresolvedPermissionCollection$1.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -23,7 +21,6 @@
 #include <java/util/Vector.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <java/util/concurrent/CopyOnWriteArrayList.h>
-#include <java/util/function/BiFunction.h>
 #include <jcpp.h>
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
@@ -42,9 +39,7 @@ using $PermissionCollection = ::java::security::PermissionCollection;
 using $UnresolvedPermission = ::java::security::UnresolvedPermission;
 using $UnresolvedPermissionCollection$1 = ::java::security::UnresolvedPermissionCollection$1;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
@@ -55,52 +50,9 @@ using $Set = ::java::util::Set;
 using $Vector = ::java::util::Vector;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
-using $BiFunction = ::java::util::function::BiFunction;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _UnresolvedPermissionCollection_FieldInfo_[] = {
-	{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/util/List<Ljava/security/UnresolvedPermission;>;>;", $PRIVATE | $TRANSIENT, $field(UnresolvedPermissionCollection, perms)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnresolvedPermissionCollection, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnresolvedPermissionCollection, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _UnresolvedPermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnresolvedPermissionCollection, init$, void)},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermissionCollection, add, void, $Permission*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(UnresolvedPermissionCollection, elements, $Enumeration*)},
-	{"getUnresolvedPermissions", "(Ljava/security/Permission;)Ljava/util/List;", "(Ljava/security/Permission;)Ljava/util/List<Ljava/security/UnresolvedPermission;>;", 0, $method(UnresolvedPermissionCollection, getUnresolvedPermissions, $List*, $Permission*)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermissionCollection, implies, bool, $Permission*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _UnresolvedPermissionCollection_InnerClassesInfo_[] = {
-	{"java.security.UnresolvedPermissionCollection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _UnresolvedPermissionCollection_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.security.UnresolvedPermissionCollection",
-	"java.security.PermissionCollection",
-	nullptr,
-	_UnresolvedPermissionCollection_FieldInfo_,
-	_UnresolvedPermissionCollection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnresolvedPermissionCollection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.security.UnresolvedPermissionCollection$1"
-};
-
-$Object* allocate$UnresolvedPermissionCollection($Class* clazz) {
-	return $of($alloc(UnresolvedPermissionCollection));
-}
 
 $ObjectStreamFieldArray* UnresolvedPermissionCollection::serialPersistentFields = nullptr;
 
@@ -110,7 +62,7 @@ void UnresolvedPermissionCollection::init$() {
 }
 
 void UnresolvedPermissionCollection::add($Permission* permission) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnresolvedPermission, unresolvedPermission, nullptr);
 	bool var$0 = $instanceOf($UnresolvedPermission, permission);
 	if (var$0) {
@@ -120,7 +72,7 @@ void UnresolvedPermissionCollection::add($Permission* permission) {
 	if (!(var$0)) {
 		$throwNew($IllegalArgumentException, $$str({"invalid permission: "_s, permission}));
 	}
-	$var($Object, var$1, $of($nc(unresolvedPermission)->getName()));
+	$var($Object, var$1, $nc(unresolvedPermission)->getName());
 	$nc(this->perms)->compute(var$1, $$new($UnresolvedPermissionCollection$1, this, unresolvedPermission));
 }
 
@@ -133,10 +85,10 @@ bool UnresolvedPermissionCollection::implies($Permission* permission) {
 }
 
 $Enumeration* UnresolvedPermissionCollection::elements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, results, $new($ArrayList));
 	{
-		$var($Iterator, i$, $nc($($nc(this->perms)->values()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->perms)->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($List, l, $cast($List, i$->next()));
 			{
@@ -148,7 +100,7 @@ $Enumeration* UnresolvedPermissionCollection::elements() {
 }
 
 void UnresolvedPermissionCollection::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, permissions, $new($Hashtable, $nc(this->perms)->size() * 2));
 	$var($Set, set, $nc(this->perms)->entrySet());
 	{
@@ -157,36 +109,36 @@ void UnresolvedPermissionCollection::writeObject($ObjectOutputStream* out) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
 				$var($List, list, $cast($List, $nc(e)->getValue()));
-				$var($Vector, vec, $new($Vector, static_cast<$Collection*>(list)));
-				permissions->put($cast($String, $(e->getKey())), vec);
+				$var($Vector, vec, $new($Vector, list));
+				permissions->put($$cast($String, e->getKey()), vec);
 			}
 		}
 	}
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
-	$nc(pfields)->put("permissions"_s, $of(permissions));
+	$nc(pfields)->put("permissions"_s, permissions);
 	out->writeFields();
 }
 
 void UnresolvedPermissionCollection::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
-	$var($Hashtable, permissions, $cast($Hashtable, $nc(gfields)->get("permissions"_s, ($Object*)nullptr)));
+	$var($Hashtable, permissions, $cast($Hashtable, $nc(gfields)->get("permissions"_s, nullptr)));
 	$set(this, perms, $new($ConcurrentHashMap, $nc(permissions)->size() * 2));
-	$var($Set, set, $nc(permissions)->entrySet());
+	$var($Set, set, permissions->entrySet());
 	{
 		$var($Iterator, i$, $nc(set)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
 				$var($Vector, vec, $cast($Vector, $nc(e)->getValue()));
-				$var($List, list, $new($CopyOnWriteArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(vec)))));
-				$nc(this->perms)->put($cast($String, $(e->getKey())), list);
+				$var($List, list, $new($CopyOnWriteArrayList, $cast($AbstractCollection, vec)));
+				$nc(this->perms)->put($$cast($String, e->getKey()), list);
 			}
 		}
 	}
 }
 
-void clinit$UnresolvedPermissionCollection($Class* class$) {
+void UnresolvedPermissionCollection::clinit$($Class* clazz) {
 	$load($Hashtable);
 	$assignStatic(UnresolvedPermissionCollection::serialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "permissions"_s, $Hashtable::class$)}));
 }
@@ -195,7 +147,43 @@ UnresolvedPermissionCollection::UnresolvedPermissionCollection() {
 }
 
 $Class* UnresolvedPermissionCollection::load$($String* name, bool initialize) {
-	$loadClass(UnresolvedPermissionCollection, name, initialize, &_UnresolvedPermissionCollection_ClassInfo_, clinit$UnresolvedPermissionCollection, allocate$UnresolvedPermissionCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/util/List<Ljava/security/UnresolvedPermission;>;>;", $PRIVATE | $TRANSIENT, $field(UnresolvedPermissionCollection, perms)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnresolvedPermissionCollection, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnresolvedPermissionCollection, serialPersistentFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnresolvedPermissionCollection, init$, void)},
+		{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermissionCollection, add, void, $Permission*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(UnresolvedPermissionCollection, elements, $Enumeration*)},
+		{"getUnresolvedPermissions", "(Ljava/security/Permission;)Ljava/util/List;", "(Ljava/security/Permission;)Ljava/util/List<Ljava/security/UnresolvedPermission;>;", 0, $method(UnresolvedPermissionCollection, getUnresolvedPermissions, $List*, $Permission*)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermissionCollection, implies, bool, $Permission*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.UnresolvedPermissionCollection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.security.UnresolvedPermissionCollection",
+		"java.security.PermissionCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.security.UnresolvedPermissionCollection$1"
+	};
+	$loadClass(UnresolvedPermissionCollection, name, initialize, &classInfo$$, UnresolvedPermissionCollection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnresolvedPermissionCollection);
+	});
 	return class$;
 }
 

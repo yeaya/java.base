@@ -35,6 +35,7 @@ class $import AtomicInteger : public ::java::lang::Number {
 	$class(AtomicInteger, $PRELOAD, ::java::lang::Number)
 public:
 	AtomicInteger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t initialValue);
 	void init$();
 	int32_t accumulateAndGet(int32_t x, ::java::util::function::IntBinaryOperator* accumulatorFunction);
@@ -71,7 +72,7 @@ public:
 	bool weakCompareAndSetPlain(int32_t expectedValue, int32_t newValue);
 	bool weakCompareAndSetRelease(int32_t expectedValue, int32_t newValue);
 	bool weakCompareAndSetVolatile(int32_t expectedValue, int32_t newValue);
-	static const int64_t serialVersionUID = (int64_t)0x563F5ECC8C6C168A;
+	static const int64_t serialVersionUID = (int64_t)0x563f5ecc8c6c168a;
 	static ::jdk::internal::misc::Unsafe* U;
 	static int64_t VALUE;
 	$volatile(int32_t) value = 0;

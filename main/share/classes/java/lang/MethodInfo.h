@@ -101,6 +101,8 @@ public:
 	bool isEnd();
 	void encode(::java::io::DataOutputStream* os, ::jdk::internal::reflect::ConstantPool* cp);
 	void visit(::jdk::internal::reflect::ConstantPool* cp);
+	void cloneSelf();
+	static MethodInfo* cloneArray(MethodInfo* array);
 };
 
     } // lang

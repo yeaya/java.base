@@ -1,5 +1,4 @@
 #include <sun/security/provider/DSAParameterGenerator.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParameterGeneratorSpi.h>
 #include <java/security/AlgorithmParameters.h>
@@ -51,38 +50,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _DSAParameterGenerator_FieldInfo_[] = {
-	{"valueL", "I", nullptr, $PRIVATE, $field(DSAParameterGenerator, valueL)},
-	{"valueN", "I", nullptr, $PRIVATE, $field(DSAParameterGenerator, valueN)},
-	{"seedLen", "I", nullptr, $PRIVATE, $field(DSAParameterGenerator, seedLen)},
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(DSAParameterGenerator, random)},
-	{}
-};
-
-$MethodInfo _DSAParameterGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DSAParameterGenerator, init$, void)},
-	{"engineGenerateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(DSAParameterGenerator, engineGenerateParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DSAParameterGenerator, engineInit, void, int32_t, $SecureRandom*)},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DSAParameterGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"generateG", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(DSAParameterGenerator, generateG, $BigInteger*, $BigInteger*, $BigInteger*)},
-	{"generatePandQ", "(Ljava/security/SecureRandom;III)[Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(DSAParameterGenerator, generatePandQ, $BigIntegerArray*, $SecureRandom*, int32_t, int32_t, int32_t)},
-	{"toByteArray", "(Ljava/math/BigInteger;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(DSAParameterGenerator, toByteArray, $bytes*, $BigInteger*)},
-	{}
-};
-
-$ClassInfo _DSAParameterGenerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.DSAParameterGenerator",
-	"java.security.AlgorithmParameterGeneratorSpi",
-	nullptr,
-	_DSAParameterGenerator_FieldInfo_,
-	_DSAParameterGenerator_MethodInfo_
-};
-
-$Object* allocate$DSAParameterGenerator($Class* clazz) {
-	return $of($alloc(DSAParameterGenerator));
-}
-
 void DSAParameterGenerator::init$() {
 	$AlgorithmParameterGeneratorSpi::init$();
 	this->valueL = -1;
@@ -91,7 +58,7 @@ void DSAParameterGenerator::init$() {
 }
 
 void DSAParameterGenerator::engineInit(int32_t strength, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((strength != 2048) && (strength != 3072) && ((strength < 512) || (strength > 1024) || (strength % 64 != 0))) {
 		$throwNew($InvalidParameterException, $$str({"Unexpected strength (size of prime): "_s, $$str(strength), ". Prime size should be 512-1024, 2048, or 3072"_s}));
 	}
@@ -113,7 +80,7 @@ void DSAParameterGenerator::engineInit($AlgorithmParameterSpec* genParamSpec, $S
 }
 
 $AlgorithmParameters* DSAParameterGenerator::engineGenerateParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AlgorithmParameters, algParams, nullptr);
 	try {
 		if (this->random == nullptr) {
@@ -129,7 +96,7 @@ $AlgorithmParameters* DSAParameterGenerator::engineGenerateParameters() {
 		$var($BigInteger, paramG, generateG(paramP, paramQ));
 		$var($DSAParameterSpec, dsaParamSpec, $new($DSAParameterSpec, paramP, paramQ, paramG));
 		$assign(algParams, $AlgorithmParameters::getInstance("DSA"_s, "SUN"_s));
-		$nc(algParams)->init(static_cast<$AlgorithmParameterSpec*>(dsaParamSpec));
+		$nc(algParams)->init(dsaParamSpec);
 	} catch ($InvalidParameterSpecException& e) {
 		$throwNew($RuntimeException, $(e->getMessage()));
 	} catch ($NoSuchAlgorithmException& e) {
@@ -142,7 +109,7 @@ $AlgorithmParameters* DSAParameterGenerator::engineGenerateParameters() {
 
 $BigIntegerArray* DSAParameterGenerator::generatePandQ($SecureRandom* random, int32_t valueL, int32_t valueN, int32_t seedLen) {
 	$init(DSAParameterGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, hashAlg, nullptr);
 	if (valueN == 160) {
 		$assign(hashAlg, "SHA"_s);
@@ -182,48 +149,48 @@ $BigIntegerArray* DSAParameterGenerator::generatePandQ($SecureRandom* random, in
 		do {
 			$nc(random)->nextBytes(seedBytes);
 			$assign(seed, $new($BigInteger, 1, seedBytes));
-			$var($BigInteger, U, $$new($BigInteger, 1, $(hashObj->digest(seedBytes)))->mod($($nc($BigInteger::TWO)->pow(valueN - 1))));
-			$assign(resultQ, $nc($($nc($($nc($($nc($BigInteger::TWO)->pow(valueN - 1)))->add(U)))->add($BigInteger::ONE)))->subtract($($nc(U)->mod($BigInteger::TWO))));
+			$var($BigInteger, U, $$new($BigInteger, 1, $(hashObj->digest(seedBytes)))->mod($($BigInteger::TWO->pow(valueN - 1))));
+			$assign(resultQ, $($($($BigInteger::TWO->pow(valueN - 1))->add(U))->add($BigInteger::ONE))->subtract($(U->mod($BigInteger::TWO))));
 		} while (!$nc(resultQ)->isProbablePrime(primeCertainty));
 		$var($BigInteger, offset, $BigInteger::ONE);
 		for (counter = 0; counter < 4 * valueL; ++counter) {
 			$var($BigIntegerArray, V, $new($BigIntegerArray, n + 1));
 			for (int32_t j = 0; j <= n; ++j) {
-				$var($BigInteger, J, $BigInteger::valueOf((int64_t)j));
-				$var($BigInteger, tmp, $nc(($($nc($($nc(seed)->add(offset)))->add(J))))->mod(twoSl));
+				$var($BigInteger, J, $BigInteger::valueOf(j));
+				$var($BigInteger, tmp, ($($($nc(seed)->add(offset))->add(J)))->mod(twoSl));
 				$var($bytes, vjBytes, hashObj->digest($(toByteArray(tmp))));
 				V->set(j, $$new($BigInteger, 1, vjBytes));
 			}
 			$var($BigInteger, W, V->get(0));
 			for (int32_t i = 1; i < n; ++i) {
-				$assign(W, $nc(W)->add($($nc(V->get(i))->multiply($($nc($BigInteger::TWO)->pow(i * outLen))))));
+				$assign(W, $nc(W)->add($($nc(V->get(i))->multiply($($BigInteger::TWO->pow(i * outLen))))));
 			}
-			$assign(W, $nc(W)->add($($nc(($($nc(V->get(n))->mod($($nc($BigInteger::TWO)->pow(b))))))->multiply($($nc($BigInteger::TWO)->pow(n * outLen))))));
-			$var($BigInteger, twoLm1, $nc($BigInteger::TWO)->pow(valueL - 1));
+			$assign(W, $nc(W)->add($(($($nc(V->get(n))->mod($($BigInteger::TWO->pow(b)))))->multiply($($BigInteger::TWO->pow(n * outLen))))));
+			$var($BigInteger, twoLm1, $BigInteger::TWO->pow(valueL - 1));
 			$var($BigInteger, X, W->add(twoLm1));
-			$var($BigInteger, c, $nc(X)->mod($(resultQ->multiply($BigInteger::TWO))));
-			$assign(resultP, X->subtract($($nc(c)->subtract($BigInteger::ONE))));
-			bool var$0 = $nc(resultP)->compareTo(twoLm1) > -1;
+			$var($BigInteger, c, X->mod($($nc(resultQ)->multiply($BigInteger::TWO))));
+			$assign(resultP, X->subtract($(c->subtract($BigInteger::ONE))));
+			bool var$0 = resultP->compareTo(twoLm1) > -1;
 			if (var$0 && resultP->isProbablePrime(primeCertainty)) {
 				$var($BigIntegerArray, result, $new($BigIntegerArray, {
 					resultP,
 					resultQ,
 					seed,
-					$($BigInteger::valueOf((int64_t)counter))
+					$($BigInteger::valueOf(counter))
 				}));
 				return result;
 			}
-			$assign(offset, $nc($($nc(offset)->add($($BigInteger::valueOf((int64_t)n)))))->add($BigInteger::ONE));
+			$assign(offset, $($nc(offset)->add($($BigInteger::valueOf(n))))->add($BigInteger::ONE));
 		}
 	}
 }
 
 $BigInteger* DSAParameterGenerator::generateG($BigInteger* p, $BigInteger* q) {
 	$init(DSAParameterGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BigInteger);
 	$var($BigInteger, h, $BigInteger::ONE);
-	$var($BigInteger, pMinusOneOverQ, $nc(($($nc(p)->subtract($BigInteger::ONE))))->divide(q));
+	$var($BigInteger, pMinusOneOverQ, ($($nc(p)->subtract($BigInteger::ONE)))->divide(q));
 	$var($BigInteger, resultG, $BigInteger::ONE);
 	while ($nc(resultG)->compareTo($BigInteger::TWO) < 0) {
 		$assign(resultG, $nc(h)->modPow(pMinusOneOverQ, p));
@@ -234,9 +201,9 @@ $BigInteger* DSAParameterGenerator::generateG($BigInteger* p, $BigInteger* q) {
 
 $bytes* DSAParameterGenerator::toByteArray($BigInteger* bigInt) {
 	$init(DSAParameterGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, result, $nc(bigInt)->toByteArray());
-	if ($nc(result)->get(0) == 0) {
+	if (result->get(0) == 0) {
 		$var($bytes, tmp, $new($bytes, result->length - 1));
 		$System::arraycopy(result, 1, tmp, 0, tmp->length);
 		$assign(result, tmp);
@@ -248,7 +215,34 @@ DSAParameterGenerator::DSAParameterGenerator() {
 }
 
 $Class* DSAParameterGenerator::load$($String* name, bool initialize) {
-	$loadClass(DSAParameterGenerator, name, initialize, &_DSAParameterGenerator_ClassInfo_, allocate$DSAParameterGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"valueL", "I", nullptr, $PRIVATE, $field(DSAParameterGenerator, valueL)},
+		{"valueN", "I", nullptr, $PRIVATE, $field(DSAParameterGenerator, valueN)},
+		{"seedLen", "I", nullptr, $PRIVATE, $field(DSAParameterGenerator, seedLen)},
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(DSAParameterGenerator, random)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DSAParameterGenerator, init$, void)},
+		{"engineGenerateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(DSAParameterGenerator, engineGenerateParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DSAParameterGenerator, engineInit, void, int32_t, $SecureRandom*)},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DSAParameterGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"generateG", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(DSAParameterGenerator, generateG, $BigInteger*, $BigInteger*, $BigInteger*)},
+		{"generatePandQ", "(Ljava/security/SecureRandom;III)[Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(DSAParameterGenerator, generatePandQ, $BigIntegerArray*, $SecureRandom*, int32_t, int32_t, int32_t)},
+		{"toByteArray", "(Ljava/math/BigInteger;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(DSAParameterGenerator, toByteArray, $bytes*, $BigInteger*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.DSAParameterGenerator",
+		"java.security.AlgorithmParameterGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DSAParameterGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DSAParameterGenerator);
+	});
 	return class$;
 }
 

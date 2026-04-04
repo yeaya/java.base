@@ -1,5 +1,4 @@
 #include <StackStreamTest$G.h>
-
 #include <StackStreamTest.h>
 #include <java/io/Serializable.h>
 #include <java/lang/StackTraceElement.h>
@@ -30,7 +29,6 @@
 #undef STE_WALKER
 
 using $StackStreamTest = ::StackStreamTest;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -60,29 +58,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(StackStreamTest$G::lambda$g$0($cast($Stream, s)));
+		 return StackStreamTest$G::lambda$g$0($cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$lambda$g$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$lambda$g$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$lambda$g$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$lambda$g$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$lambda$g$0::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$lambda$g$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$lambda$g$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$lambda$g$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$lambda$g$0);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$lambda$g$0::class$ = nullptr;
@@ -93,29 +88,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(StackStreamTest$G::lambda$g$1($cast($Stream, s)));
+		 return StackStreamTest$G::lambda$g$1($cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$lambda$g$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$lambda$g$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$1$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$lambda$g$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$lambda$g$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$lambda$g$1$1::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$lambda$g$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$1$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$lambda$g$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$lambda$g$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$lambda$g$1$1);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$lambda$g$1$1::class$ = nullptr;
@@ -128,27 +120,24 @@ public:
 	virtual $Object* apply(Object$* s) override {
 		 return StackStreamTest$G::lambda$g$3($cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$lambda$g$3$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$lambda$g$3$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$3$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$3$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$lambda$g$3$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$lambda$g$3$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$lambda$g$3$2::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$lambda$g$3$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$3$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$3$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$lambda$g$3$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$lambda$g$3$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$lambda$g$3$2);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$lambda$g$3$2::class$ = nullptr;
@@ -159,29 +148,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(StackStreamTest$G::lambda$g$4($cast($Stream, s)));
+		 return StackStreamTest$G::lambda$g$4($cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$lambda$g$4$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$lambda$g$4$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$4$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$4$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$lambda$g$4$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$lambda$g$4$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$lambda$g$4$3::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$lambda$g$4$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$4$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$4$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$lambda$g$4$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$lambda$g$4$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$lambda$g$4$3);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$lambda$g$4$3::class$ = nullptr;
@@ -194,27 +180,24 @@ public:
 	virtual void accept(Object$* e) override {
 		StackStreamTest$G::lambda$firstFrame$5($cast($StackWalker$StackFrame, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$lambda$firstFrame$5$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$lambda$firstFrame$5$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4, accept, void, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$lambda$firstFrame$5$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$lambda$firstFrame$5$4",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$lambda$firstFrame$5$4::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$lambda$firstFrame$5$4",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$lambda$firstFrame$5$4::class$ = nullptr;
@@ -225,29 +208,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(StackStreamTest$G::lambda$firstFrame$7($cast($Stream, s)));
+		 return StackStreamTest$G::lambda$firstFrame$7($cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$lambda$firstFrame$7$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$lambda$firstFrame$7$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$lambda$firstFrame$7$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$lambda$firstFrame$7$5",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$lambda$firstFrame$7$5::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$lambda$firstFrame$7$5",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$lambda$firstFrame$7$5::class$ = nullptr;
@@ -260,27 +240,24 @@ public:
 	virtual bool test(Object$* e) override {
 		 return StackStreamTest$G::lambda$firstFrame$6($cast($StackWalker$StackFrame, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$lambda$firstFrame$6$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$lambda$firstFrame$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6, test, bool, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$lambda$firstFrame$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$lambda$firstFrame$6$6",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$lambda$firstFrame$6$6::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$lambda$firstFrame$6$6",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$lambda$firstFrame$6$6::class$ = nullptr;
@@ -293,27 +270,24 @@ public:
 	virtual bool test(Object$* f) override {
 		 return $StackStreamTest::isTestClass($cast($StackWalker$StackFrame, f));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$isTestClass$7>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$isTestClass$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$isTestClass$7, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$isTestClass$7, test, bool, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$isTestClass$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$isTestClass$7",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$isTestClass$7::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$isTestClass$7, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$isTestClass$7, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$isTestClass$7, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$isTestClass$7",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$isTestClass$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$isTestClass$7);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$isTestClass$7::class$ = nullptr;
@@ -324,29 +298,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($StackWalker$StackFrame, inst$)->toStackTraceElement());
+		 return $sure($StackWalker$StackFrame, inst$)->toStackTraceElement();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$toStackTraceElement$8>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$toStackTraceElement$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$toStackTraceElement$8, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$toStackTraceElement$8, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$toStackTraceElement$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$toStackTraceElement$8",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$toStackTraceElement$8::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$toStackTraceElement$8, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$toStackTraceElement$8, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$toStackTraceElement$8, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$toStackTraceElement$8",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$toStackTraceElement$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$toStackTraceElement$8);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$toStackTraceElement$8::class$ = nullptr;
@@ -359,27 +330,24 @@ public:
 	virtual void accept(Object$* ste) override {
 		StackStreamTest$G::lambda$g$2($cast($StackTraceElement, ste));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$lambda$g$2$9>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$lambda$g$2$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$2$9, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$2$9, accept, void, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$lambda$g$2$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$lambda$g$2$9",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$lambda$g$2$9::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$lambda$g$2$9, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$2$9, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$2$9, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$lambda$g$2$9",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$lambda$g$2$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$lambda$g$2$9);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$lambda$g$2$9::class$ = nullptr;
@@ -392,27 +360,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($StackWalker$StackFrame, inst$)->getMethodName());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$getMethodName$10>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$getMethodName$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$getMethodName$10, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$getMethodName$10, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$getMethodName$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$getMethodName$10",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$getMethodName$10::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$getMethodName$10, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$getMethodName$10, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$getMethodName$10, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$getMethodName$10",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$getMethodName$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$getMethodName$10);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$getMethodName$10::class$ = nullptr;
@@ -425,80 +390,27 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($StackWalker$StackFrame, inst$)->getClassName());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamTest$G$$Lambda$getClassName$11>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamTest$G$$Lambda$getClassName$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$getClassName$11, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$getClassName$11, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackStreamTest$G$$Lambda$getClassName$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamTest$G$$Lambda$getClassName$11",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamTest$G$$Lambda$getClassName$11::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$G$$Lambda$getClassName$11, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$getClassName$11, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$getClassName$11, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamTest$G$$Lambda$getClassName$11",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamTest$G$$Lambda$getClassName$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G$$Lambda$getClassName$11);
+	});
 	return class$;
 }
 $Class* StackStreamTest$G$$Lambda$getClassName$11::class$ = nullptr;
-
-$FieldInfo _StackStreamTest$G_FieldInfo_[] = {
-	{"STE_WALKER", "Ljava/lang/StackWalker;", nullptr, $STATIC, $staticField(StackStreamTest$G, STE_WALKER)},
-	{"DEFAULT_WALKER", "Ljava/lang/StackWalker;", nullptr, $STATIC, $staticField(StackStreamTest$G, DEFAULT_WALKER)},
-	{"GOLDEN_CLASS_NAMES", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(StackStreamTest$G, GOLDEN_CLASS_NAMES)},
-	{"GOLDEN_METHOD_NAMES", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(StackStreamTest$G, GOLDEN_METHOD_NAMES)},
-	{}
-};
-
-$MethodInfo _StackStreamTest$G_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StackStreamTest$G, init$, void)},
-	{"checkStackTraceElements", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/StackTraceElement;>;)V", $STATIC, $staticMethod(StackStreamTest$G, checkStackTraceElements, void, $List*, $List*, $List*)},
-	{"dumpSTEInfo", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/StackTraceElement;>;)V", $STATIC, $staticMethod(StackStreamTest$G, dumpSTEInfo, void, $List*, $List*, $List*)},
-	{"firstFrame", "()V", nullptr, $STATIC, $staticMethod(StackStreamTest$G, firstFrame, void)},
-	{"g", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackStreamTest$G, g, void)},
-	{"lambda$firstFrame$5", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$firstFrame$5, void, $StackWalker$StackFrame*)},
-	{"lambda$firstFrame$6", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$firstFrame$6, bool, $StackWalker$StackFrame*)},
-	{"lambda$firstFrame$7", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$firstFrame$7, $Optional*, $Stream*)},
-	{"lambda$g$0", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$0, $List*, $Stream*)},
-	{"lambda$g$1", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$1, $List*, $Stream*)},
-	{"lambda$g$2", "(Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$2, void, $StackTraceElement*)},
-	{"lambda$g$3", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$3, $Object*, $Stream*)},
-	{"lambda$g$4", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$4, $List*, $Stream*)},
-	{}
-};
-
-$InnerClassInfo _StackStreamTest$G_InnerClassesInfo_[] = {
-	{"StackStreamTest$G", "StackStreamTest", "G", $STATIC},
-	{}
-};
-
-$ClassInfo _StackStreamTest$G_ClassInfo_ = {
-	$ACC_SUPER,
-	"StackStreamTest$G",
-	"java.lang.Object",
-	nullptr,
-	_StackStreamTest$G_FieldInfo_,
-	_StackStreamTest$G_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StackStreamTest$G_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"StackStreamTest"
-};
-
-$Object* allocate$StackStreamTest$G($Class* clazz) {
-	return $of($alloc(StackStreamTest$G));
-}
 
 $StackWalker* StackStreamTest$G::STE_WALKER = nullptr;
 $StackWalker* StackStreamTest$G::DEFAULT_WALKER = nullptr;
@@ -510,33 +422,33 @@ void StackStreamTest$G::init$() {
 
 void StackStreamTest$G::g() {
 	$init(StackStreamTest$G);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::out)->println("Thread dump"_s);
 	$Thread::dumpStack();
 	$StackStreamTest::caller();
 	firstFrame();
-	$nc($System::out)->println("check class names"_s);
-	$var($List, sfs, $cast($List, $nc(StackStreamTest$G::DEFAULT_WALKER)->walk(static_cast<$Function*>($$new(StackStreamTest$G$$Lambda$lambda$g$0)))));
+	$System::out->println("check class names"_s);
+	$var($List, sfs, $cast($List, $nc(StackStreamTest$G::DEFAULT_WALKER)->walk($$new(StackStreamTest$G$$Lambda$lambda$g$0))));
 	$StackStreamTest::equalsOrThrow("class names"_s, sfs, StackStreamTest$G::GOLDEN_CLASS_NAMES);
-	$nc($System::out)->println("methodNames()"_s);
-	$assign(sfs, $cast($List, $nc(StackStreamTest$G::DEFAULT_WALKER)->walk(static_cast<$Function*>($$new(StackStreamTest$G$$Lambda$lambda$g$1$1)))));
+	$System::out->println("methodNames()"_s);
+	$assign(sfs, $cast($List, $nc(StackStreamTest$G::DEFAULT_WALKER)->walk($$new(StackStreamTest$G$$Lambda$lambda$g$1$1))));
 	$StackStreamTest::equalsOrThrow("method names"_s, sfs, StackStreamTest$G::GOLDEN_METHOD_NAMES);
 	$var($Exception, exc, $new($Exception, "G.g stack"_s));
 	exc->printStackTrace();
-	$nc($System::out)->println("Stream of StackTraceElement"_s);
-	$nc($($StackWalker::getInstance()))->walk(static_cast<$Function*>($$new(StackStreamTest$G$$Lambda$lambda$g$3$2)));
-	$nc($System::out)->println("Collect StackTraceElement"_s);
-	$var($List, stacktrace, $cast($List, $nc(StackStreamTest$G::STE_WALKER)->walk(static_cast<$Function*>($$new(StackStreamTest$G$$Lambda$lambda$g$4$3)))));
+	$System::out->println("Stream of StackTraceElement"_s);
+	$$nc($StackWalker::getInstance())->walk($$new(StackStreamTest$G$$Lambda$lambda$g$3$2));
+	$System::out->println("Collect StackTraceElement"_s);
+	$var($List, stacktrace, $cast($List, $nc(StackStreamTest$G::STE_WALKER)->walk($$new(StackStreamTest$G$$Lambda$lambda$g$4$3))));
 	int32_t i = 0;
 	{
 		$var($Iterator, i$, $nc(stacktrace)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($StackTraceElement, s, $cast($StackTraceElement, i$->next()));
 			{
-				$nc($System::out)->format("  %d: %s%n"_s, $$new($ObjectArray, {
-					$($of($Integer::valueOf(i++))),
-					$of(s)
+				$System::out->format("  %d: %s%n"_s, $$new($ObjectArray, {
+					$($Integer::valueOf(i++)),
+					s
 				}));
 			}
 		}
@@ -546,19 +458,19 @@ void StackStreamTest$G::g() {
 
 void StackStreamTest$G::checkStackTraceElements($List* classNames, $List* methodNames, $List* stes) {
 	$init(StackStreamTest$G);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(classNames)->size();
 	if (var$0 != $nc(methodNames)->size()) {
 		$throwNew($RuntimeException, "Test error: classNames and methodNames should be same size"_s);
 	}
-	int32_t var$1 = $nc(classNames)->size();
+	int32_t var$1 = classNames->size();
 	if (var$1 != $nc(stes)->size()) {
 		dumpSTEInfo(classNames, methodNames, stes);
 		$throwNew($RuntimeException, "wrong number of elements in stes"_s);
 	}
-	for (int32_t i = 0; i < $nc(classNames)->size(); ++i) {
-		bool var$2 = !$nc(($cast($String, $(classNames->get(i)))))->equals($($nc(($cast($StackTraceElement, $($nc(stes)->get(i)))))->getClassName()));
-		if (var$2 || !$nc(($cast($String, $($nc(methodNames)->get(i)))))->equals($($nc(($cast($StackTraceElement, $($nc(stes)->get(i)))))->getMethodName()))) {
+	for (int32_t i = 0; i < classNames->size(); ++i) {
+		bool var$2 = !$$sure($String, classNames->get(i))->equals($($$sure($StackTraceElement, stes->get(i))->getClassName()));
+		if (var$2 || !$$sure($String, methodNames->get(i))->equals($($$sure($StackTraceElement, stes->get(i))->getMethodName()))) {
 			dumpSTEInfo(classNames, methodNames, stes);
 			$throwNew($RuntimeException, "class & method names don\'t match"_s);
 		}
@@ -567,37 +479,45 @@ void StackStreamTest$G::checkStackTraceElements($List* classNames, $List* method
 
 void StackStreamTest$G::dumpSTEInfo($List* classNames, $List* methodNames, $List* stes) {
 	$init(StackStreamTest$G);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("Observed class, method names:"_s);
 	{
 		$var($Iterator, i$, $nc(stes)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($StackTraceElement, ste, $cast($StackTraceElement, i$->next()));
 			{
-				$var($String, var$0, $$str({"  "_s, $($nc(ste)->getClassName()), ", "_s}));
-				$nc($System::out)->println($$concat(var$0, $(ste->getMethodName())));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("  "_s);
+				var$0->append($($nc(ste)->getClassName()));
+				var$0->append(", "_s);
+				var$0->append($(ste->getMethodName()));
+				$System::out->println($$str(var$0));
 			}
 		}
 	}
-	$nc($System::out)->println("Expected class, method names:"_s);
+	$System::out->println("Expected class, method names:"_s);
 	for (int32_t i = 0; i < $nc(classNames)->size(); ++i) {
-		$var($String, var$1, $$str({"  "_s, $cast($String, $(classNames->get(i))), ", "_s}));
-		$nc($System::out)->println($$concat(var$1, $cast($String, $($nc(methodNames)->get(i)))));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("  "_s);
+		var$1->append($$cast($String, classNames->get(i)));
+		var$1->append(", "_s);
+		var$1->append($$cast($String, $nc(methodNames)->get(i)));
+		$System::out->println($$str(var$1));
 	}
 }
 
 void StackStreamTest$G::firstFrame() {
 	$init(StackStreamTest$G);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::out)->println("first frame()"_s);
 	$init($StackWalker$Option);
 	$var($StackWalker, sw, $StackWalker::getInstance($StackWalker$Option::RETAIN_CLASS_REFERENCE));
-	$nc(sw)->forEach(static_cast<$Consumer*>($$new(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4)));
-	$nc($System::out)->println("\n"_s);
-	$var($Optional, frame, $cast($Optional, sw->walk(static_cast<$Function*>($$new(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5)))));
-	$Class* c = $nc(($cast($StackWalker$StackFrame, $($nc(frame)->get()))))->getDeclaringClass();
-	$nc($System::out)->println($$str({"\nfirst frame: "_s, c}));
+	$nc(sw)->forEach($$new(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4));
+	$System::out->println("\n"_s);
+	$var($Optional, frame, $cast($Optional, sw->walk($$new(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5))));
+	$Class* c = $$sure($StackWalker$StackFrame, $nc(frame)->get())->getDeclaringClass();
+	$System::out->println($$str({"\nfirst frame: "_s, c}));
 	$load($StackStreamTest);
 	if (c != $StackStreamTest::class$) {
 		$throwNew($RuntimeException, $$str({"Unexpected first caller class "_s, c}));
@@ -606,37 +526,43 @@ void StackStreamTest$G::firstFrame() {
 
 $Optional* StackStreamTest$G::lambda$firstFrame$7($Stream* s) {
 	$init(StackStreamTest$G);
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc(s)->filter(static_cast<$Predicate*>($$new(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6)))))->findFirst();
+	$useLocalObjectStack();
+	return $$nc($nc(s)->filter($$new(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6)))->findFirst();
 }
 
 bool StackStreamTest$G::lambda$firstFrame$6($StackWalker$StackFrame* e) {
 	$init(StackStreamTest$G);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($nc(e)->getClassName()), " == "_s}));
-	$nc($System::err)->println($$concat(var$0, $$str($nc($(e->getClassName()))->equals("StackStreamTest"_s))));
-	return $nc($($nc(e)->getClassName()))->equals("StackStreamTest"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc(e)->getClassName()));
+	var$0->append(" == "_s);
+	var$0->append($$nc(e->getClassName())->equals("StackStreamTest"_s));
+	$nc($System::err)->println($$str(var$0));
+	return $$nc($nc(e)->getClassName())->equals("StackStreamTest"_s);
 }
 
 void StackStreamTest$G::lambda$firstFrame$5($StackWalker$StackFrame* e) {
 	$init(StackStreamTest$G);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($nc(e)->getClassName()), ","_s}));
-	$nc($System::out)->println($$concat(var$0, $(e->getMethodName())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc(e)->getClassName()));
+	var$0->append(","_s);
+	var$0->append($(e->getMethodName()));
+	$nc($System::out)->println($$str(var$0));
 }
 
 $List* StackStreamTest$G::lambda$g$4($Stream* s) {
 	$init(StackStreamTest$G);
-	$useLocalCurrentObjectStackCache();
-	$var($Function, var$0, static_cast<$Function*>($new(StackStreamTest$G$$Lambda$toStackTraceElement$8)));
-	return $cast($List, $nc($($nc(s)->filter(static_cast<$Predicate*>($$new(StackStreamTest$G$$Lambda$isTestClass$7)))))->collect($($Collectors::mapping(var$0, $($Collectors::toList())))));
+	$useLocalObjectStack();
+	$var($Function, var$0, $new(StackStreamTest$G$$Lambda$toStackTraceElement$8));
+	return $cast($List, $$nc($nc(s)->filter($$new(StackStreamTest$G$$Lambda$isTestClass$7)))->collect($($Collectors::mapping(var$0, $($Collectors::toList())))));
 }
 
 $Object* StackStreamTest$G::lambda$g$3($Stream* s) {
 	$init(StackStreamTest$G);
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(s)->map(static_cast<$Function*>($$new(StackStreamTest$G$$Lambda$toStackTraceElement$8)))))->forEach(static_cast<$Consumer*>($$new(StackStreamTest$G$$Lambda$lambda$g$2$9)));
-	return $of(nullptr);
+	$useLocalObjectStack();
+	$$nc($nc(s)->map($$new(StackStreamTest$G$$Lambda$toStackTraceElement$8)))->forEach($$new(StackStreamTest$G$$Lambda$lambda$g$2$9));
+	return nullptr;
 }
 
 void StackStreamTest$G::lambda$g$2($StackTraceElement* ste) {
@@ -646,18 +572,18 @@ void StackStreamTest$G::lambda$g$2($StackTraceElement* ste) {
 
 $List* StackStreamTest$G::lambda$g$1($Stream* s) {
 	$init(StackStreamTest$G);
-	$useLocalCurrentObjectStackCache();
-	return $cast($List, $nc($($nc($($nc(s)->filter(static_cast<$Predicate*>($$new(StackStreamTest$G$$Lambda$isTestClass$7)))))->map(static_cast<$Function*>($$new(StackStreamTest$G$$Lambda$getMethodName$10)))))->collect($($Collectors::toList())));
+	$useLocalObjectStack();
+	return $cast($List, $$nc($$nc($nc(s)->filter($$new(StackStreamTest$G$$Lambda$isTestClass$7)))->map($$new(StackStreamTest$G$$Lambda$getMethodName$10)))->collect($($Collectors::toList())));
 }
 
 $List* StackStreamTest$G::lambda$g$0($Stream* s) {
 	$init(StackStreamTest$G);
-	$useLocalCurrentObjectStackCache();
-	return $cast($List, $nc($($nc($($nc(s)->filter(static_cast<$Predicate*>($$new(StackStreamTest$G$$Lambda$isTestClass$7)))))->map(static_cast<$Function*>($$new(StackStreamTest$G$$Lambda$getClassName$11)))))->collect($($Collectors::toList())));
+	$useLocalObjectStack();
+	return $cast($List, $$nc($$nc($nc(s)->filter($$new(StackStreamTest$G$$Lambda$isTestClass$7)))->map($$new(StackStreamTest$G$$Lambda$getClassName$11)))->collect($($Collectors::toList())));
 }
 
-void clinit$StackStreamTest$G($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void StackStreamTest$G::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(StackStreamTest$G::STE_WALKER, $StackWalker::getInstance());
 	$assignStatic(StackStreamTest$G::DEFAULT_WALKER, $StackWalker::getInstance());
 	$assignStatic(StackStreamTest$G::GOLDEN_CLASS_NAMES, $Arrays::asList($$new($StringArray, {
@@ -689,44 +615,88 @@ StackStreamTest$G::StackStreamTest$G() {
 
 $Class* StackStreamTest$G::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(StackStreamTest$G$$Lambda$lambda$g$0::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$lambda$g$0")) {
 			return StackStreamTest$G$$Lambda$lambda$g$0::load$(name, initialize);
 		}
-		if (name->equals(StackStreamTest$G$$Lambda$lambda$g$1$1::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$lambda$g$1$1")) {
 			return StackStreamTest$G$$Lambda$lambda$g$1$1::load$(name, initialize);
 		}
-		if (name->equals(StackStreamTest$G$$Lambda$lambda$g$3$2::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$lambda$g$3$2")) {
 			return StackStreamTest$G$$Lambda$lambda$g$3$2::load$(name, initialize);
 		}
-		if (name->equals(StackStreamTest$G$$Lambda$lambda$g$4$3::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$lambda$g$4$3")) {
 			return StackStreamTest$G$$Lambda$lambda$g$4$3::load$(name, initialize);
 		}
-		if (name->equals(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$lambda$firstFrame$5$4")) {
 			return StackStreamTest$G$$Lambda$lambda$firstFrame$5$4::load$(name, initialize);
 		}
-		if (name->equals(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$lambda$firstFrame$7$5")) {
 			return StackStreamTest$G$$Lambda$lambda$firstFrame$7$5::load$(name, initialize);
 		}
-		if (name->equals(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$lambda$firstFrame$6$6")) {
 			return StackStreamTest$G$$Lambda$lambda$firstFrame$6$6::load$(name, initialize);
 		}
-		if (name->equals(StackStreamTest$G$$Lambda$isTestClass$7::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$isTestClass$7")) {
 			return StackStreamTest$G$$Lambda$isTestClass$7::load$(name, initialize);
 		}
-		if (name->equals(StackStreamTest$G$$Lambda$toStackTraceElement$8::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$toStackTraceElement$8")) {
 			return StackStreamTest$G$$Lambda$toStackTraceElement$8::load$(name, initialize);
 		}
-		if (name->equals(StackStreamTest$G$$Lambda$lambda$g$2$9::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$lambda$g$2$9")) {
 			return StackStreamTest$G$$Lambda$lambda$g$2$9::load$(name, initialize);
 		}
-		if (name->equals(StackStreamTest$G$$Lambda$getMethodName$10::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$getMethodName$10")) {
 			return StackStreamTest$G$$Lambda$getMethodName$10::load$(name, initialize);
 		}
-		if (name->equals(StackStreamTest$G$$Lambda$getClassName$11::classInfo$.name)) {
+		if (name->equals("StackStreamTest$G$$Lambda$getClassName$11")) {
 			return StackStreamTest$G$$Lambda$getClassName$11::load$(name, initialize);
 		}
 	}
-	$loadClass(StackStreamTest$G, name, initialize, &_StackStreamTest$G_ClassInfo_, clinit$StackStreamTest$G, allocate$StackStreamTest$G);
+	$FieldInfo fieldInfos$$[] = {
+		{"STE_WALKER", "Ljava/lang/StackWalker;", nullptr, $STATIC, $staticField(StackStreamTest$G, STE_WALKER)},
+		{"DEFAULT_WALKER", "Ljava/lang/StackWalker;", nullptr, $STATIC, $staticField(StackStreamTest$G, DEFAULT_WALKER)},
+		{"GOLDEN_CLASS_NAMES", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(StackStreamTest$G, GOLDEN_CLASS_NAMES)},
+		{"GOLDEN_METHOD_NAMES", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(StackStreamTest$G, GOLDEN_METHOD_NAMES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StackStreamTest$G, init$, void)},
+		{"checkStackTraceElements", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/StackTraceElement;>;)V", $STATIC, $staticMethod(StackStreamTest$G, checkStackTraceElements, void, $List*, $List*, $List*)},
+		{"dumpSTEInfo", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/StackTraceElement;>;)V", $STATIC, $staticMethod(StackStreamTest$G, dumpSTEInfo, void, $List*, $List*, $List*)},
+		{"firstFrame", "()V", nullptr, $STATIC, $staticMethod(StackStreamTest$G, firstFrame, void)},
+		{"g", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackStreamTest$G, g, void)},
+		{"lambda$firstFrame$5", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$firstFrame$5, void, $StackWalker$StackFrame*)},
+		{"lambda$firstFrame$6", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$firstFrame$6, bool, $StackWalker$StackFrame*)},
+		{"lambda$firstFrame$7", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$firstFrame$7, $Optional*, $Stream*)},
+		{"lambda$g$0", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$0, $List*, $Stream*)},
+		{"lambda$g$1", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$1, $List*, $Stream*)},
+		{"lambda$g$2", "(Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$2, void, $StackTraceElement*)},
+		{"lambda$g$3", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$3, $Object*, $Stream*)},
+		{"lambda$g$4", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$4, $List*, $Stream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StackStreamTest$G", "StackStreamTest", "G", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"StackStreamTest$G",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"StackStreamTest"
+	};
+	$loadClass(StackStreamTest$G, name, initialize, &classInfo$$, StackStreamTest$G::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$G);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Test6987555.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -25,50 +24,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
-
-$FieldInfo _Test6987555_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Test6987555, $assertionsDisabled)},
-	{"CLASS", "Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6987555, CLASS)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6987555, NAME)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6987555, DEBUG)},
-	{}
-};
-
-$MethodInfo _Test6987555_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test6987555, init$, void)},
-	{"doboolean", "(Z)V", nullptr, $STATIC, $staticMethod(Test6987555, doboolean, void, bool), "java.lang.Throwable"},
-	{"dobyte", "(B)V", nullptr, $STATIC, $staticMethod(Test6987555, dobyte, void, int8_t), "java.lang.Throwable"},
-	{"dochar", "(C)V", nullptr, $STATIC, $staticMethod(Test6987555, dochar, void, char16_t), "java.lang.Throwable"},
-	{"doint", "(I)V", nullptr, $STATIC, $staticMethod(Test6987555, doint, void, int32_t), "java.lang.Throwable"},
-	{"doshort", "(S)V", nullptr, $STATIC, $staticMethod(Test6987555, doshort, void, int16_t), "java.lang.Throwable"},
-	{"foo", "(Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, foo, bool, bool)},
-	{"foo", "(B)B", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, foo, int8_t, int8_t)},
-	{"foo", "(C)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, foo, char16_t, char16_t)},
-	{"foo", "(S)S", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, foo, int16_t, int16_t)},
-	{"foo", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, foo, int32_t, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, main, void, $StringArray*), "java.lang.Throwable"},
-	{"testboolean", "()V", nullptr, $STATIC, $staticMethod(Test6987555, testboolean, void), "java.lang.Throwable"},
-	{"testbyte", "()V", nullptr, $STATIC, $staticMethod(Test6987555, testbyte, void), "java.lang.Throwable"},
-	{"testchar", "()V", nullptr, $STATIC, $staticMethod(Test6987555, testchar, void), "java.lang.Throwable"},
-	{"testint", "()V", nullptr, $STATIC, $staticMethod(Test6987555, testint, void), "java.lang.Throwable"},
-	{"testshort", "()V", nullptr, $STATIC, $staticMethod(Test6987555, testshort, void), "java.lang.Throwable"},
-	{}
-};
-
-$ClassInfo _Test6987555_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test6987555",
-	"java.lang.Object",
-	nullptr,
-	_Test6987555_FieldInfo_,
-	_Test6987555_MethodInfo_
-};
-
-$Object* allocate$Test6987555($Class* clazz) {
-	return $of($alloc(Test6987555));
-}
 
 bool Test6987555::$assertionsDisabled = false;
 $Class* Test6987555::CLASS = nullptr;
@@ -94,15 +50,15 @@ void Test6987555::testboolean() {
 
 void Test6987555::doboolean(bool x) {
 	$init(Test6987555);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$init($Boolean);
-	$var($MethodHandle, mh1, $nc($($MethodHandles::lookup()))->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Boolean::TYPE, $Boolean::TYPE))));
+	;
+	$var($MethodHandle, mh1, $$nc($MethodHandles::lookup())->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Boolean::TYPE, $Boolean::TYPE))));
 	$var($MethodHandle, mh2, $nc(mh1)->asType($($MethodType::methodType($Boolean::TYPE, $Boolean::class$))));
 	bool a = $booleanValue(mh1->invokeExact($$new($ObjectArray, {$$of(x)})));
-	bool b = $booleanValue($nc(mh2)->invokeExact($$new($ObjectArray, {$($of($Boolean::valueOf(x)))})));
+	bool b = $booleanValue($nc(mh2)->invokeExact($$new($ObjectArray, {$($Boolean::valueOf(x))})));
 	if (!Test6987555::$assertionsDisabled && !(a == b)) {
-		$throwNew($AssertionError, $of($$str({$$str(a), " != "_s, $$str(b)})));
+		$throwNew($AssertionError, $$of($str({$$str(a), " != "_s, $$str(b)})));
 	}
 }
 
@@ -111,11 +67,11 @@ void Test6987555::testbyte() {
 	$var($bytes, a, $new($bytes, {
 		$Byte::MIN_VALUE,
 		(int8_t)($Byte::MIN_VALUE + 1),
-		(int8_t)(-(int8_t)15),
-		(int8_t)-1,
-		(int8_t)0,
-		(int8_t)1,
-		(int8_t)15,
+		(int8_t)-15,
+		-1,
+		0,
+		1,
+		15,
 		(int8_t)($Byte::MAX_VALUE - 1),
 		$Byte::MAX_VALUE
 	}));
@@ -126,15 +82,15 @@ void Test6987555::testbyte() {
 
 void Test6987555::dobyte(int8_t x) {
 	$init(Test6987555);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$init($Byte);
-	$var($MethodHandle, mh1, $nc($($MethodHandles::lookup()))->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Byte::TYPE, $Byte::TYPE))));
+	;
+	$var($MethodHandle, mh1, $$nc($MethodHandles::lookup())->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Byte::TYPE, $Byte::TYPE))));
 	$var($MethodHandle, mh2, $nc(mh1)->asType($($MethodType::methodType($Byte::TYPE, $Byte::class$))));
 	int8_t a = $byteValue(mh1->invokeExact($$new($ObjectArray, {$$of(x)})));
-	int8_t b = $byteValue($nc(mh2)->invokeExact($$new($ObjectArray, {$($of($Byte::valueOf(x)))})));
+	int8_t b = $byteValue($nc(mh2)->invokeExact($$new($ObjectArray, {$($Byte::valueOf(x))})));
 	if (!Test6987555::$assertionsDisabled && !(a == b)) {
-		$throwNew($AssertionError, $of($$str({$$str(a), " != "_s, $$str(b)})));
+		$throwNew($AssertionError, $$of($str({$$str(a), " != "_s, $$str(b)})));
 	}
 }
 
@@ -143,9 +99,9 @@ void Test6987555::testchar() {
 	$var($chars, a, $new($chars, {
 		$Character::MIN_VALUE,
 		(char16_t)($Character::MIN_VALUE + 1),
-		(char16_t)15,
-		(char16_t)255,
-		(char16_t)4095,
+		15,
+		255,
+		4095,
 		(char16_t)($Character::MAX_VALUE - 1),
 		$Character::MAX_VALUE
 	}));
@@ -156,15 +112,15 @@ void Test6987555::testchar() {
 
 void Test6987555::dochar(char16_t x) {
 	$init(Test6987555);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$init($Character);
-	$var($MethodHandle, mh1, $nc($($MethodHandles::lookup()))->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Character::TYPE, $Character::TYPE))));
+	;
+	$var($MethodHandle, mh1, $$nc($MethodHandles::lookup())->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Character::TYPE, $Character::TYPE))));
 	$var($MethodHandle, mh2, $nc(mh1)->asType($($MethodType::methodType($Character::TYPE, $Character::class$))));
 	char16_t a = $charValue(mh1->invokeExact($$new($ObjectArray, {$$of(x)})));
-	char16_t b = $charValue($nc(mh2)->invokeExact($$new($ObjectArray, {$($of($Character::valueOf(x)))})));
+	char16_t b = $charValue($nc(mh2)->invokeExact($$new($ObjectArray, {$($Character::valueOf(x))})));
 	if (!Test6987555::$assertionsDisabled && !(a == b)) {
-		$throwNew($AssertionError, $of($$str({$$str(a), " != "_s, $$str(b)})));
+		$throwNew($AssertionError, $$of($str({$$str(a), " != "_s, $$str(b)})));
 	}
 }
 
@@ -173,15 +129,15 @@ void Test6987555::testshort() {
 	$var($shorts, a, $new($shorts, {
 		$Short::MIN_VALUE,
 		(int16_t)($Short::MIN_VALUE + 1),
-		(int16_t)(-(int16_t)4095),
-		(int16_t)(-(int16_t)255),
-		(int16_t)(-(int16_t)15),
-		(int16_t)-1,
-		(int16_t)0,
-		(int16_t)1,
-		(int16_t)15,
-		(int16_t)255,
-		(int16_t)4095,
+		(int16_t)-4095,
+		(int16_t)-255,
+		(int16_t)-15,
+		-1,
+		0,
+		1,
+		15,
+		255,
+		4095,
 		(int16_t)($Short::MAX_VALUE - 1),
 		$Short::MAX_VALUE
 	}));
@@ -192,15 +148,15 @@ void Test6987555::testshort() {
 
 void Test6987555::doshort(int16_t x) {
 	$init(Test6987555);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$init($Short);
-	$var($MethodHandle, mh1, $nc($($MethodHandles::lookup()))->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Short::TYPE, $Short::TYPE))));
+	;
+	$var($MethodHandle, mh1, $$nc($MethodHandles::lookup())->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Short::TYPE, $Short::TYPE))));
 	$var($MethodHandle, mh2, $nc(mh1)->asType($($MethodType::methodType($Short::TYPE, $Short::class$))));
 	int16_t a = $shortValue(mh1->invokeExact($$new($ObjectArray, {$$of(x)})));
-	int16_t b = $shortValue($nc(mh2)->invokeExact($$new($ObjectArray, {$($of($Short::valueOf(x)))})));
+	int16_t b = $shortValue($nc(mh2)->invokeExact($$new($ObjectArray, {$($Short::valueOf(x))})));
 	if (!Test6987555::$assertionsDisabled && !(a == b)) {
-		$throwNew($AssertionError, $of($$str({$$str(a), " != "_s, $$str(b)})));
+		$throwNew($AssertionError, $$of($str({$$str(a), " != "_s, $$str(b)})));
 	}
 }
 
@@ -209,9 +165,9 @@ void Test6987555::testint() {
 	$var($ints, a, $new($ints, {
 		$Integer::MIN_VALUE,
 		$Integer::MIN_VALUE + 1,
-		- 4095,
-		- 255,
-		- 15,
+		-4095,
+		-255,
+		-15,
 		-1,
 		0,
 		1,
@@ -228,15 +184,15 @@ void Test6987555::testint() {
 
 void Test6987555::doint(int32_t x) {
 	$init(Test6987555);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$init($Integer);
-	$var($MethodHandle, mh1, $nc($($MethodHandles::lookup()))->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Integer::TYPE, $Integer::TYPE))));
+	;
+	$var($MethodHandle, mh1, $$nc($MethodHandles::lookup())->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Integer::TYPE, $Integer::TYPE))));
 	$var($MethodHandle, mh2, $nc(mh1)->asType($($MethodType::methodType($Integer::TYPE, $Integer::class$))));
 	int32_t a = $intValue(mh1->invokeExact($$new($ObjectArray, {$$of(x)})));
-	int32_t b = $intValue($nc(mh2)->invokeExact($$new($ObjectArray, {$($of($Integer::valueOf(x)))})));
+	int32_t b = $intValue($nc(mh2)->invokeExact($$new($ObjectArray, {$($Integer::valueOf(x))})));
 	if (!Test6987555::$assertionsDisabled && !(a == b)) {
-		$throwNew($AssertionError, $of($$str({$$str(a), " != "_s, $$str(b)})));
+		$throwNew($AssertionError, $$of($str({$$str(a), " != "_s, $$str(b)})));
 	}
 }
 
@@ -265,7 +221,7 @@ int32_t Test6987555::foo(int32_t i) {
 	return i;
 }
 
-void clinit$Test6987555($Class* class$) {
+void Test6987555::clinit$($Class* clazz) {
 	$assignStatic(Test6987555::NAME, "foo"_s);
 	Test6987555::$assertionsDisabled = !Test6987555::class$->desiredAssertionStatus();
 	$assignStatic(Test6987555::CLASS, Test6987555::class$);
@@ -275,7 +231,44 @@ Test6987555::Test6987555() {
 }
 
 $Class* Test6987555::load$($String* name, bool initialize) {
-	$loadClass(Test6987555, name, initialize, &_Test6987555_ClassInfo_, clinit$Test6987555, allocate$Test6987555);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Test6987555, $assertionsDisabled)},
+		{"CLASS", "Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6987555, CLASS)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6987555, NAME)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6987555, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test6987555, init$, void)},
+		{"doboolean", "(Z)V", nullptr, $STATIC, $staticMethod(Test6987555, doboolean, void, bool), "java.lang.Throwable"},
+		{"dobyte", "(B)V", nullptr, $STATIC, $staticMethod(Test6987555, dobyte, void, int8_t), "java.lang.Throwable"},
+		{"dochar", "(C)V", nullptr, $STATIC, $staticMethod(Test6987555, dochar, void, char16_t), "java.lang.Throwable"},
+		{"doint", "(I)V", nullptr, $STATIC, $staticMethod(Test6987555, doint, void, int32_t), "java.lang.Throwable"},
+		{"doshort", "(S)V", nullptr, $STATIC, $staticMethod(Test6987555, doshort, void, int16_t), "java.lang.Throwable"},
+		{"foo", "(Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, foo, bool, bool)},
+		{"foo", "(B)B", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, foo, int8_t, int8_t)},
+		{"foo", "(C)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, foo, char16_t, char16_t)},
+		{"foo", "(S)S", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, foo, int16_t, int16_t)},
+		{"foo", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, foo, int32_t, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6987555, main, void, $StringArray*), "java.lang.Throwable"},
+		{"testboolean", "()V", nullptr, $STATIC, $staticMethod(Test6987555, testboolean, void), "java.lang.Throwable"},
+		{"testbyte", "()V", nullptr, $STATIC, $staticMethod(Test6987555, testbyte, void), "java.lang.Throwable"},
+		{"testchar", "()V", nullptr, $STATIC, $staticMethod(Test6987555, testchar, void), "java.lang.Throwable"},
+		{"testint", "()V", nullptr, $STATIC, $staticMethod(Test6987555, testint, void), "java.lang.Throwable"},
+		{"testshort", "()V", nullptr, $STATIC, $staticMethod(Test6987555, testshort, void), "java.lang.Throwable"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test6987555",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test6987555, name, initialize, &classInfo$$, Test6987555::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6987555);
+	});
 	return class$;
 }
 

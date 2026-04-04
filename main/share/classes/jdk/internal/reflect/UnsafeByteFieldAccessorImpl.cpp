@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/UnsafeByteFieldAccessorImpl.h>
-
 #include <java/lang/reflect/Field.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jdk/internal/reflect/UnsafeFieldAccessorImpl.h>
@@ -9,48 +8,11 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Field = ::java::lang::reflect::Field;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $UnsafeFieldAccessorImpl = ::jdk::internal::reflect::UnsafeFieldAccessorImpl;
 
 namespace jdk {
 	namespace internal {
 		namespace reflect {
-
-$MethodInfo _UnsafeByteFieldAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Field;)V", nullptr, 0, $method(UnsafeByteFieldAccessorImpl, init$, void, $Field*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, get, $Object*, Object$*), "java.lang.IllegalArgumentException"},
-	{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getBoolean, bool, Object$*), "java.lang.IllegalArgumentException"},
-	{"getByte", "(Ljava/lang/Object;)B", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getByte, int8_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getChar", "(Ljava/lang/Object;)C", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getChar, char16_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getDouble, double, Object$*), "java.lang.IllegalArgumentException"},
-	{"getFloat", "(Ljava/lang/Object;)F", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getFloat, float, Object$*), "java.lang.IllegalArgumentException"},
-	{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getInt, int32_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getLong, int64_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getShort", "(Ljava/lang/Object;)S", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getShort, int16_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, set, void, Object$*, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setBoolean", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setBoolean, void, Object$*, bool), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setByte", "(Ljava/lang/Object;B)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setByte, void, Object$*, int8_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setChar", "(Ljava/lang/Object;C)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setChar, void, Object$*, char16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setDouble", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setDouble, void, Object$*, double), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setFloat", "(Ljava/lang/Object;F)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setFloat, void, Object$*, float), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setInt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setInt, void, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setLong", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setLong, void, Object$*, int64_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setShort", "(Ljava/lang/Object;S)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setShort, void, Object$*, int16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{}
-};
-
-$ClassInfo _UnsafeByteFieldAccessorImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.reflect.UnsafeByteFieldAccessorImpl",
-	"jdk.internal.reflect.UnsafeFieldAccessorImpl",
-	nullptr,
-	nullptr,
-	_UnsafeByteFieldAccessorImpl_MethodInfo_
-};
-
-$Object* allocate$UnsafeByteFieldAccessorImpl($Class* clazz) {
-	return $of($alloc(UnsafeByteFieldAccessorImpl));
-}
 
 void UnsafeByteFieldAccessorImpl::init$($Field* field) {
 	$UnsafeFieldAccessorImpl::init$(field);
@@ -106,7 +68,7 @@ void UnsafeByteFieldAccessorImpl::set(Object$* obj, Object$* value) {
 	}
 	if ($instanceOf($Byte, value)) {
 		$init($UnsafeFieldAccessorImpl);
-		$nc($UnsafeFieldAccessorImpl::unsafe)->putByte(obj, this->fieldOffset, $nc(($cast($Byte, value)))->byteValue());
+		$nc($UnsafeFieldAccessorImpl::unsafe)->putByte(obj, this->fieldOffset, $cast($Byte, value)->byteValue());
 		return;
 	}
 	throwSetIllegalArgumentException(value);
@@ -153,7 +115,39 @@ UnsafeByteFieldAccessorImpl::UnsafeByteFieldAccessorImpl() {
 }
 
 $Class* UnsafeByteFieldAccessorImpl::load$($String* name, bool initialize) {
-	$loadClass(UnsafeByteFieldAccessorImpl, name, initialize, &_UnsafeByteFieldAccessorImpl_ClassInfo_, allocate$UnsafeByteFieldAccessorImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Field;)V", nullptr, 0, $method(UnsafeByteFieldAccessorImpl, init$, void, $Field*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, get, $Object*, Object$*), "java.lang.IllegalArgumentException"},
+		{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getBoolean, bool, Object$*), "java.lang.IllegalArgumentException"},
+		{"getByte", "(Ljava/lang/Object;)B", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getByte, int8_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getChar", "(Ljava/lang/Object;)C", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getChar, char16_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getDouble, double, Object$*), "java.lang.IllegalArgumentException"},
+		{"getFloat", "(Ljava/lang/Object;)F", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getFloat, float, Object$*), "java.lang.IllegalArgumentException"},
+		{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getInt, int32_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getLong, int64_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getShort", "(Ljava/lang/Object;)S", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, getShort, int16_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, set, void, Object$*, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setBoolean", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setBoolean, void, Object$*, bool), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setByte", "(Ljava/lang/Object;B)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setByte, void, Object$*, int8_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setChar", "(Ljava/lang/Object;C)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setChar, void, Object$*, char16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setDouble", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setDouble, void, Object$*, double), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setFloat", "(Ljava/lang/Object;F)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setFloat, void, Object$*, float), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setInt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setInt, void, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setLong", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setLong, void, Object$*, int64_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setShort", "(Ljava/lang/Object;S)V", nullptr, $PUBLIC, $virtualMethod(UnsafeByteFieldAccessorImpl, setShort, void, Object$*, int16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.reflect.UnsafeByteFieldAccessorImpl",
+		"jdk.internal.reflect.UnsafeFieldAccessorImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnsafeByteFieldAccessorImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnsafeByteFieldAccessorImpl));
+	});
 	return class$;
 }
 

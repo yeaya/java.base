@@ -31,6 +31,7 @@ class $import LauncherHelper$FXHelper : public ::java::lang::Object {
 	$class(LauncherHelper$FXHelper, 0, ::java::lang::Object)
 public:
 	LauncherHelper$FXHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void setFXLaunchParameters($String* what, int32_t mode);

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/RSASignature.h>
-
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/DigestException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -40,45 +39,6 @@ using $JsseJce = ::sun::security::ssl::JsseJce;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _RSASignature_FieldInfo_[] = {
-	{"rawRsa", "Ljava/security/Signature;", nullptr, $PRIVATE | $FINAL, $field(RSASignature, rawRsa)},
-	{"mdMD5", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(RSASignature, mdMD5)},
-	{"mdSHA", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(RSASignature, mdSHA)},
-	{}
-};
-
-$MethodInfo _RSASignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RSASignature, init$, void), "java.security.NoSuchAlgorithmException"},
-	{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineGetParameter, $Object*, $String*), "java.security.InvalidParameterException"},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
-	{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitSign, void, $PrivateKey*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
-	{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineSetParameter, void, $String*, Object$*), "java.security.InvalidParameterException"},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineSetParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineSign, $bytes*), "java.security.SignatureException"},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineUpdate, void, int8_t)},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineUpdate, void, $bytes*, int32_t, int32_t)},
-	{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineVerify, bool, $bytes*), "java.security.SignatureException"},
-	{"engineVerify", "([BII)Z", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineVerify, bool, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
-	{"getDigest", "()[B", nullptr, $PRIVATE, $method(RSASignature, getDigest, $bytes*), "java.security.SignatureException"},
-	{"getInstance", "()Ljava/security/Signature;", nullptr, $STATIC, $staticMethod(RSASignature, getInstance, $Signature*), "java.security.NoSuchAlgorithmException"},
-	{}
-};
-
-$ClassInfo _RSASignature_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.ssl.RSASignature",
-	"java.security.SignatureSpi",
-	nullptr,
-	_RSASignature_FieldInfo_,
-	_RSASignature_MethodInfo_
-};
-
-$Object* allocate$RSASignature($Class* clazz) {
-	return $of($alloc(RSASignature));
-}
 
 void RSASignature::init$() {
 	$SignatureSpi::init$();
@@ -133,14 +93,14 @@ $bytes* RSASignature::getDigest() {
 		$nc(this->mdSHA)->digest(data, 16, 20);
 		return data;
 	} catch ($DigestException& e) {
-		$throwNew($SignatureException, static_cast<$Throwable*>(e));
+		$throwNew($SignatureException, e);
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* RSASignature::engineSign() {
 	$nc(this->rawRsa)->update($(getDigest()));
-	return $nc(this->rawRsa)->sign();
+	return this->rawRsa->sign();
 }
 
 bool RSASignature::engineVerify($bytes* sigBytes) {
@@ -149,7 +109,7 @@ bool RSASignature::engineVerify($bytes* sigBytes) {
 
 bool RSASignature::engineVerify($bytes* sigBytes, int32_t offset, int32_t length) {
 	$nc(this->rawRsa)->update($(getDigest()));
-	return $nc(this->rawRsa)->verify(sigBytes, offset, length);
+	return this->rawRsa->verify(sigBytes, offset, length);
 }
 
 void RSASignature::engineSetParameter($String* param, Object$* value) {
@@ -175,7 +135,41 @@ RSASignature::RSASignature() {
 }
 
 $Class* RSASignature::load$($String* name, bool initialize) {
-	$loadClass(RSASignature, name, initialize, &_RSASignature_ClassInfo_, allocate$RSASignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"rawRsa", "Ljava/security/Signature;", nullptr, $PRIVATE | $FINAL, $field(RSASignature, rawRsa)},
+		{"mdMD5", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(RSASignature, mdMD5)},
+		{"mdSHA", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(RSASignature, mdSHA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RSASignature, init$, void), "java.security.NoSuchAlgorithmException"},
+		{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineGetParameter, $Object*, $String*), "java.security.InvalidParameterException"},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
+		{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitSign, void, $PrivateKey*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
+		{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineSetParameter, void, $String*, Object$*), "java.security.InvalidParameterException"},
+		{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineSetParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineSign, $bytes*), "java.security.SignatureException"},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineUpdate, void, int8_t)},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineUpdate, void, $bytes*, int32_t, int32_t)},
+		{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineVerify, bool, $bytes*), "java.security.SignatureException"},
+		{"engineVerify", "([BII)Z", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineVerify, bool, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
+		{"getDigest", "()[B", nullptr, $PRIVATE, $method(RSASignature, getDigest, $bytes*), "java.security.SignatureException"},
+		{"getInstance", "()Ljava/security/Signature;", nullptr, $STATIC, $staticMethod(RSASignature, getInstance, $Signature*), "java.security.NoSuchAlgorithmException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.ssl.RSASignature",
+		"java.security.SignatureSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RSASignature, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSASignature);
+	});
 	return class$;
 }
 

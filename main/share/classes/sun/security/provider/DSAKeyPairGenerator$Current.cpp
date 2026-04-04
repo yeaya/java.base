@@ -1,5 +1,4 @@
 #include <sun/security/provider/DSAKeyPairGenerator$Current.h>
-
 #include <java/security/KeyPair.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -22,39 +21,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$MethodInfo _DSAKeyPairGenerator$Current_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DSAKeyPairGenerator$Current, init$, void)},
-	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Current, generateKeyPair, $KeyPair*)},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Current, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Current, initialize, void, int32_t, $SecureRandom*)},
-	{}
-};
-
-$InnerClassInfo _DSAKeyPairGenerator$Current_InnerClassesInfo_[] = {
-	{"sun.security.provider.DSAKeyPairGenerator$Current", "sun.security.provider.DSAKeyPairGenerator", "Current", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DSAKeyPairGenerator$Current_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.DSAKeyPairGenerator$Current",
-	"sun.security.provider.DSAKeyPairGenerator",
-	nullptr,
-	nullptr,
-	_DSAKeyPairGenerator$Current_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DSAKeyPairGenerator$Current_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.DSAKeyPairGenerator"
-};
-
-$Object* allocate$DSAKeyPairGenerator$Current($Class* clazz) {
-	return $of($alloc(DSAKeyPairGenerator$Current));
-}
-
 void DSAKeyPairGenerator$Current::init$() {
 	$init($SecurityProviderConstants);
 	$DSAKeyPairGenerator::init$($SecurityProviderConstants::DEF_DSA_KEY_SIZE);
@@ -76,7 +42,35 @@ DSAKeyPairGenerator$Current::DSAKeyPairGenerator$Current() {
 }
 
 $Class* DSAKeyPairGenerator$Current::load$($String* name, bool initialize) {
-	$loadClass(DSAKeyPairGenerator$Current, name, initialize, &_DSAKeyPairGenerator$Current_ClassInfo_, allocate$DSAKeyPairGenerator$Current);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DSAKeyPairGenerator$Current, init$, void)},
+		{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Current, generateKeyPair, $KeyPair*)},
+		{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Current, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Current, initialize, void, int32_t, $SecureRandom*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.DSAKeyPairGenerator$Current", "sun.security.provider.DSAKeyPairGenerator", "Current", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.DSAKeyPairGenerator$Current",
+		"sun.security.provider.DSAKeyPairGenerator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.DSAKeyPairGenerator"
+	};
+	$loadClass(DSAKeyPairGenerator$Current, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DSAKeyPairGenerator$Current);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/invoke/AbstractConstantGroup$SubGroup.h>
-
 #include <java/lang/invoke/AbstractConstantGroup$AsList.h>
 #include <java/lang/invoke/AbstractConstantGroup.h>
 #include <java/lang/invoke/ConstantGroup.h>
@@ -21,51 +20,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _AbstractConstantGroup$SubGroup_FieldInfo_[] = {
-	{"self", "Ljava/lang/invoke/ConstantGroup;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$SubGroup, self)},
-	{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$SubGroup, offset)},
-	{}
-};
-
-$MethodInfo _AbstractConstantGroup$SubGroup_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(AbstractConstantGroup$SubGroup, init$, void, $ConstantGroup*, int32_t, int32_t)},
-	{"asList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, asList, $List*)},
-	{"asList", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, asList, $List*, Object$*)},
-	{"copyConstants", "(II[Ljava/lang/Object;I)I", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, copyConstants, int32_t, int32_t, int32_t, $ObjectArray*, int32_t), "java.lang.LinkageError"},
-	{"copyConstants", "(II[Ljava/lang/Object;ILjava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, copyConstants, int32_t, int32_t, int32_t, $ObjectArray*, int32_t, Object$*)},
-	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, get, $Object*, int32_t)},
-	{"get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, get, $Object*, int32_t, Object$*)},
-	{"isPresent", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, isPresent, bool, int32_t)},
-	{"mapIndex", "(I)I", nullptr, $PRIVATE, $method(AbstractConstantGroup$SubGroup, mapIndex, int32_t, int32_t)},
-	{"subGroup", "(II)Ljava/lang/invoke/ConstantGroup;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, subGroup, $ConstantGroup*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AbstractConstantGroup$SubGroup_InnerClassesInfo_[] = {
-	{"java.lang.invoke.AbstractConstantGroup$SubGroup", "java.lang.invoke.AbstractConstantGroup", "SubGroup", $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractConstantGroup$SubGroup_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.AbstractConstantGroup$SubGroup",
-	"java.lang.invoke.AbstractConstantGroup",
-	nullptr,
-	_AbstractConstantGroup$SubGroup_FieldInfo_,
-	_AbstractConstantGroup$SubGroup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractConstantGroup$SubGroup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.AbstractConstantGroup"
-};
-
-$Object* allocate$AbstractConstantGroup$SubGroup($Class* clazz) {
-	return $of($alloc(AbstractConstantGroup$SubGroup));
-}
-
 void AbstractConstantGroup$SubGroup::init$($ConstantGroup* self, int32_t start, int32_t end) {
 	$AbstractConstantGroup::init$(end - start);
 	$set(this, self, self);
@@ -78,11 +32,11 @@ int32_t AbstractConstantGroup$SubGroup::mapIndex(int32_t index) {
 }
 
 $Object* AbstractConstantGroup$SubGroup::get(int32_t index) {
-	return $of($nc(this->self)->get(mapIndex(index)));
+	return $nc(this->self)->get(mapIndex(index));
 }
 
 $Object* AbstractConstantGroup$SubGroup::get(int32_t index, Object$* ifNotPresent) {
-	return $of($nc(this->self)->get(mapIndex(index), ifNotPresent));
+	return $nc(this->self)->get(mapIndex(index), ifNotPresent);
 }
 
 bool AbstractConstantGroup$SubGroup::isPresent(int32_t index) {
@@ -116,7 +70,46 @@ AbstractConstantGroup$SubGroup::AbstractConstantGroup$SubGroup() {
 }
 
 $Class* AbstractConstantGroup$SubGroup::load$($String* name, bool initialize) {
-	$loadClass(AbstractConstantGroup$SubGroup, name, initialize, &_AbstractConstantGroup$SubGroup_ClassInfo_, allocate$AbstractConstantGroup$SubGroup);
+	$FieldInfo fieldInfos$$[] = {
+		{"self", "Ljava/lang/invoke/ConstantGroup;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$SubGroup, self)},
+		{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$SubGroup, offset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(AbstractConstantGroup$SubGroup, init$, void, $ConstantGroup*, int32_t, int32_t)},
+		{"asList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, asList, $List*)},
+		{"asList", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, asList, $List*, Object$*)},
+		{"copyConstants", "(II[Ljava/lang/Object;I)I", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, copyConstants, int32_t, int32_t, int32_t, $ObjectArray*, int32_t), "java.lang.LinkageError"},
+		{"copyConstants", "(II[Ljava/lang/Object;ILjava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, copyConstants, int32_t, int32_t, int32_t, $ObjectArray*, int32_t, Object$*)},
+		{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, get, $Object*, int32_t)},
+		{"get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, get, $Object*, int32_t, Object$*)},
+		{"isPresent", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, isPresent, bool, int32_t)},
+		{"mapIndex", "(I)I", nullptr, $PRIVATE, $method(AbstractConstantGroup$SubGroup, mapIndex, int32_t, int32_t)},
+		{"subGroup", "(II)Ljava/lang/invoke/ConstantGroup;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, subGroup, $ConstantGroup*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.AbstractConstantGroup$SubGroup", "java.lang.invoke.AbstractConstantGroup", "SubGroup", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.AbstractConstantGroup$SubGroup",
+		"java.lang.invoke.AbstractConstantGroup",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.AbstractConstantGroup"
+	};
+	$loadClass(AbstractConstantGroup$SubGroup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractConstantGroup$SubGroup);
+	});
 	return class$;
 }
 

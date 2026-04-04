@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberBooleanClass.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,38 +8,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberBooleanClass_Attribute_var$0[] = {
-	{"value", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberBooleanClass_Annotations_[] = {
-	{"LUniTest/SingleMemberBoolean;", SingleMemberBooleanClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberBooleanClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberBooleanClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberBooleanClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberBooleanClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberBooleanClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberBooleanClass_Annotations_
-};
-
-$Object* allocate$SingleMemberBooleanClass($Class* clazz) {
-	return $of($alloc(SingleMemberBooleanClass));
-}
-
 void SingleMemberBooleanClass::init$() {
 }
 
@@ -48,7 +15,33 @@ SingleMemberBooleanClass::SingleMemberBooleanClass() {
 }
 
 $Class* SingleMemberBooleanClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberBooleanClass, name, initialize, &_SingleMemberBooleanClass_ClassInfo_, allocate$SingleMemberBooleanClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberBooleanClass, init$, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberBoolean;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberBooleanClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberBooleanClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberBooleanClass);
+	});
 	return class$;
 }
 

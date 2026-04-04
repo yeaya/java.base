@@ -19,12 +19,32 @@
  */
 
 #include <java/lang/UsesDirective.h>
+#include <jcpp.h>
+#include <string.h>
 
 namespace java {
 	namespace lang {
 
 bool UsesDirective::isEnd() {
 	return service == nullptr;
+}
+
+UsesDirective* UsesDirective::cloneArray(UsesDirective* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	UsesDirective* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	UsesDirective* newArray = $allocRawStatic(UsesDirective, count);
+	memcpy(newArray, array, sizeof(UsesDirective) * count);
+	return newArray;
 }
 
 	} // lang

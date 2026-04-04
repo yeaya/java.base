@@ -1,5 +1,4 @@
 #include <java/util/StringJoiner.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/util/Arrays.h>
@@ -24,45 +23,6 @@ using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 namespace java {
 	namespace util {
 
-$FieldInfo _StringJoiner_FieldInfo_[] = {
-	{"EMPTY_STRING_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringJoiner, EMPTY_STRING_ARRAY)},
-	{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(StringJoiner, prefix)},
-	{"delimiter", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(StringJoiner, delimiter)},
-	{"suffix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(StringJoiner, suffix)},
-	{"elts", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(StringJoiner, elts)},
-	{"size", "I", nullptr, $PRIVATE, $field(StringJoiner, size)},
-	{"len", "I", nullptr, $PRIVATE, $field(StringJoiner, len)},
-	{"emptyValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringJoiner, emptyValue)},
-	{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringJoiner, JLA)},
-	{}
-};
-
-$MethodInfo _StringJoiner_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(StringJoiner, init$, void, $CharSequence*)},
-	{"<init>", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(StringJoiner, init$, void, $CharSequence*, $CharSequence*, $CharSequence*)},
-	{"add", "(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(StringJoiner, add, StringJoiner*, $CharSequence*)},
-	{"checkAddLength", "(II)I", nullptr, $PRIVATE, $method(StringJoiner, checkAddLength, int32_t, int32_t, int32_t)},
-	{"compactElts", "()V", nullptr, $PRIVATE, $method(StringJoiner, compactElts, void)},
-	{"length", "()I", nullptr, $PUBLIC, $method(StringJoiner, length, int32_t)},
-	{"merge", "(Ljava/util/StringJoiner;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(StringJoiner, merge, StringJoiner*, StringJoiner*)},
-	{"setEmptyValue", "(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(StringJoiner, setEmptyValue, StringJoiner*, $CharSequence*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringJoiner, toString, $String*)},
-	{}
-};
-
-$ClassInfo _StringJoiner_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.StringJoiner",
-	"java.lang.Object",
-	nullptr,
-	_StringJoiner_FieldInfo_,
-	_StringJoiner_MethodInfo_
-};
-
-$Object* allocate$StringJoiner($Class* clazz) {
-	return $of($alloc(StringJoiner));
-}
-
 $StringArray* StringJoiner::EMPTY_STRING_ARRAY = nullptr;
 $JavaLangAccess* StringJoiner::JLA = nullptr;
 
@@ -71,9 +31,9 @@ void StringJoiner::init$($CharSequence* delimiter) {
 }
 
 void StringJoiner::init$($CharSequence* delimiter, $CharSequence* prefix, $CharSequence* suffix) {
-	$Objects::requireNonNull($of(prefix), "The prefix must not be null"_s);
-	$Objects::requireNonNull($of(delimiter), "The delimiter must not be null"_s);
-	$Objects::requireNonNull($of(suffix), "The suffix must not be null"_s);
+	$Objects::requireNonNull(prefix, "The prefix must not be null"_s);
+	$Objects::requireNonNull(delimiter, "The delimiter must not be null"_s);
+	$Objects::requireNonNull(suffix, "The suffix must not be null"_s);
 	$set(this, prefix, $nc(prefix)->toString());
 	$set(this, delimiter, $nc(delimiter)->toString());
 	$set(this, suffix, $nc(suffix)->toString());
@@ -81,7 +41,7 @@ void StringJoiner::init$($CharSequence* delimiter, $CharSequence* prefix, $CharS
 }
 
 StringJoiner* StringJoiner::setEmptyValue($CharSequence* emptyValue) {
-	$set(this, emptyValue, $nc(($cast($CharSequence, $Objects::requireNonNull($of(emptyValue), "The empty value must not be null"_s))))->toString());
+	$set(this, emptyValue, $sure($CharSequence, $Objects::requireNonNull(emptyValue, "The empty value must not be null"_s))->toString());
 	return this;
 }
 
@@ -98,12 +58,12 @@ $String* StringJoiner::toString() {
 }
 
 StringJoiner* StringJoiner::add($CharSequence* newElement) {
-	$var($String, elt, $String::valueOf($of(newElement)));
+	$var($String, elt, $String::valueOf(newElement));
 	if (this->elts == nullptr) {
 		$set(this, elts, $new($StringArray, 8));
 	} else {
-		if (this->size == $nc(this->elts)->length) {
-			$set(this, elts, $fcast($StringArray, $Arrays::copyOf(this->elts, 2 * this->size)));
+		if (this->size == this->elts->length) {
+			$set(this, elts, $cast($StringArray, $Arrays::copyOf(this->elts, 2 * this->size)));
 		}
 		this->len = checkAddLength(this->len, $nc(this->delimiter)->length());
 	}
@@ -135,7 +95,7 @@ void StringJoiner::compactElts() {
 	int32_t sz = this->size;
 	if (sz > 1) {
 		$nc(this->elts)->set(0, $($nc(StringJoiner::JLA)->join(""_s, ""_s, this->delimiter, this->elts, sz)));
-		$Arrays::fill(this->elts, 1, sz, ($Object*)nullptr);
+		$Arrays::fill(this->elts, 1, sz, nullptr);
 		this->size = 1;
 	}
 }
@@ -151,7 +111,7 @@ int32_t StringJoiner::length() {
 	return var$0;
 }
 
-void clinit$StringJoiner($Class* class$) {
+void StringJoiner::clinit$($Class* clazz) {
 	$assignStatic(StringJoiner::EMPTY_STRING_ARRAY, $new($StringArray, 0));
 	$assignStatic(StringJoiner::JLA, $SharedSecrets::getJavaLangAccess());
 }
@@ -160,7 +120,41 @@ StringJoiner::StringJoiner() {
 }
 
 $Class* StringJoiner::load$($String* name, bool initialize) {
-	$loadClass(StringJoiner, name, initialize, &_StringJoiner_ClassInfo_, clinit$StringJoiner, allocate$StringJoiner);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_STRING_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringJoiner, EMPTY_STRING_ARRAY)},
+		{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(StringJoiner, prefix)},
+		{"delimiter", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(StringJoiner, delimiter)},
+		{"suffix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(StringJoiner, suffix)},
+		{"elts", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(StringJoiner, elts)},
+		{"size", "I", nullptr, $PRIVATE, $field(StringJoiner, size)},
+		{"len", "I", nullptr, $PRIVATE, $field(StringJoiner, len)},
+		{"emptyValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringJoiner, emptyValue)},
+		{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringJoiner, JLA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(StringJoiner, init$, void, $CharSequence*)},
+		{"<init>", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(StringJoiner, init$, void, $CharSequence*, $CharSequence*, $CharSequence*)},
+		{"add", "(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(StringJoiner, add, StringJoiner*, $CharSequence*)},
+		{"checkAddLength", "(II)I", nullptr, $PRIVATE, $method(StringJoiner, checkAddLength, int32_t, int32_t, int32_t)},
+		{"compactElts", "()V", nullptr, $PRIVATE, $method(StringJoiner, compactElts, void)},
+		{"length", "()I", nullptr, $PUBLIC, $method(StringJoiner, length, int32_t)},
+		{"merge", "(Ljava/util/StringJoiner;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(StringJoiner, merge, StringJoiner*, StringJoiner*)},
+		{"setEmptyValue", "(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(StringJoiner, setEmptyValue, StringJoiner*, $CharSequence*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringJoiner, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.StringJoiner",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringJoiner, name, initialize, &classInfo$$, StringJoiner::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StringJoiner);
+	});
 	return class$;
 }
 

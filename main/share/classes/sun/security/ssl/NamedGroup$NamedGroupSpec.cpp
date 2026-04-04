@@ -1,5 +1,4 @@
 #include <sun/security/ssl/NamedGroup$NamedGroupSpec.h>
-
 #include <java/lang/Enum.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/SecureRandom.h>
@@ -52,63 +51,6 @@ using $SSLPossession = ::sun::security::ssl::SSLPossession;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _NamedGroup$NamedGroupSpec_FieldInfo_[] = {
-	{"NAMED_GROUP_ECDHE", "Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NamedGroup$NamedGroupSpec, NAMED_GROUP_ECDHE)},
-	{"NAMED_GROUP_FFDHE", "Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NamedGroup$NamedGroupSpec, NAMED_GROUP_FFDHE)},
-	{"NAMED_GROUP_XDH", "Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NamedGroup$NamedGroupSpec, NAMED_GROUP_XDH)},
-	{"NAMED_GROUP_ARBITRARY", "Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NamedGroup$NamedGroupSpec, NAMED_GROUP_ARBITRARY)},
-	{"NAMED_GROUP_NONE", "Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NamedGroup$NamedGroupSpec, NAMED_GROUP_NONE)},
-	{"$VALUES", "[Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(NamedGroup$NamedGroupSpec, $VALUES)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NamedGroup$NamedGroupSpec, algorithm)},
-	{"scheme", "Lsun/security/ssl/NamedGroup$NamedGroupScheme;", nullptr, $PRIVATE | $FINAL, $field(NamedGroup$NamedGroupSpec, scheme)},
-	{}
-};
-
-$MethodInfo _NamedGroup$NamedGroupSpec_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NamedGroup$NamedGroupSpec, $values, $NamedGroup$NamedGroupSpecArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/NamedGroup$NamedGroupScheme;)V", "(Ljava/lang/String;Lsun/security/ssl/NamedGroup$NamedGroupScheme;)V", $PRIVATE, $method(NamedGroup$NamedGroupSpec, init$, void, $String*, int32_t, $String*, $NamedGroup$NamedGroupScheme*)},
-	{"arrayContains", "([Lsun/security/ssl/NamedGroup$NamedGroupSpec;Lsun/security/ssl/NamedGroup$NamedGroupSpec;)Z", nullptr, $STATIC, $staticMethod(NamedGroup$NamedGroupSpec, arrayContains, bool, $NamedGroup$NamedGroupSpecArray*, NamedGroup$NamedGroupSpec*)},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$NamedGroupSpec, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
-	{"createPossession", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$NamedGroupSpec, createPossession, $SSLPossession*, $NamedGroup*, $SecureRandom*)},
-	{"decodeCredentials", "(Lsun/security/ssl/NamedGroup;[BLjava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$ExceptionSupplier;)Lsun/security/ssl/SSLCredentials;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$NamedGroupSpec, decodeCredentials, $SSLCredentials*, $NamedGroup*, $bytes*, $AlgorithmConstraints*, $NamedGroup$ExceptionSupplier*), "java.io.IOException,java.security.GeneralSecurityException"},
-	{"encodePossessionPublicKey", "(Lsun/security/ssl/NamedGroupPossession;)[B", nullptr, $PUBLIC, $virtualMethod(NamedGroup$NamedGroupSpec, encodePossessionPublicKey, $bytes*, $NamedGroupPossession*)},
-	{"isSupported", "(Ljava/util/List;)Z", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;)Z", 0, $method(NamedGroup$NamedGroupSpec, isSupported, bool, $List*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(NamedGroup$NamedGroupSpec, valueOf, NamedGroup$NamedGroupSpec*, $String*)},
-	{"values", "()[Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(NamedGroup$NamedGroupSpec, values, $NamedGroup$NamedGroupSpecArray*)},
-	{}
-};
-
-$InnerClassInfo _NamedGroup$NamedGroupSpec_InnerClassesInfo_[] = {
-	{"sun.security.ssl.NamedGroup$NamedGroupSpec", "sun.security.ssl.NamedGroup", "NamedGroupSpec", $STATIC | $FINAL | $ENUM},
-	{"sun.security.ssl.NamedGroup$NamedGroupScheme", "sun.security.ssl.NamedGroup", "NamedGroupScheme", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NamedGroup$NamedGroupSpec_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.NamedGroup$NamedGroupSpec",
-	"java.lang.Enum",
-	"sun.security.ssl.NamedGroup$NamedGroupScheme",
-	_NamedGroup$NamedGroupSpec_FieldInfo_,
-	_NamedGroup$NamedGroupSpec_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/NamedGroup$NamedGroupSpec;>;Lsun/security/ssl/NamedGroup$NamedGroupScheme;",
-	nullptr,
-	_NamedGroup$NamedGroupSpec_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.NamedGroup"
-};
-
-$Object* allocate$NamedGroup$NamedGroupSpec($Class* clazz) {
-	return $of($alloc(NamedGroup$NamedGroupSpec));
-}
 
 $String* NamedGroup$NamedGroupSpec::toString() {
 	 return this->$Enum::toString();
@@ -165,15 +107,11 @@ void NamedGroup$NamedGroupSpec::init$($String* $enum$name, int32_t $enum$ordinal
 }
 
 bool NamedGroup$NamedGroupSpec::isSupported($List* cipherSuites) {
-	{
-		$var($Iterator, i$, $nc(cipherSuites)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$CipherSuite* cs = $cast($CipherSuite, i$->next());
-			{
-				if ($nc(cs)->keyExchange == nullptr || arrayContains($nc(cs)->keyExchange->groupTypes, this)) {
-					return true;
-				}
-			}
+	$var($Iterator, i$, $nc(cipherSuites)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$CipherSuite* cs = $cast($CipherSuite, i$->next());
+		if ($nc(cs)->keyExchange == nullptr || arrayContains(cs->keyExchange->groupTypes, this)) {
+			return true;
 		}
 	}
 	return false;
@@ -181,17 +119,11 @@ bool NamedGroup$NamedGroupSpec::isSupported($List* cipherSuites) {
 
 bool NamedGroup$NamedGroupSpec::arrayContains($NamedGroup$NamedGroupSpecArray* namedGroupTypes, NamedGroup$NamedGroupSpec* namedGroupType) {
 	$init(NamedGroup$NamedGroupSpec);
-	{
-		$var($NamedGroup$NamedGroupSpecArray, arr$, namedGroupTypes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			NamedGroup$NamedGroupSpec* ng = arr$->get(i$);
-			{
-				if (ng == namedGroupType) {
-					return true;
-				}
-			}
+	$var($NamedGroup$NamedGroupSpecArray, arr$, namedGroupTypes);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		NamedGroup$NamedGroupSpec* ng = arr$->get(i$);
+		if (ng == namedGroupType) {
+			return true;
 		}
 	}
 	return false;
@@ -199,33 +131,33 @@ bool NamedGroup$NamedGroupSpec::arrayContains($NamedGroup$NamedGroupSpecArray* n
 
 $bytes* NamedGroup$NamedGroupSpec::encodePossessionPublicKey($NamedGroupPossession* namedGroupPossession) {
 	if (this->scheme != nullptr) {
-		return $nc(this->scheme)->encodePossessionPublicKey(namedGroupPossession);
+		return this->scheme->encodePossessionPublicKey(namedGroupPossession);
 	}
 	return nullptr;
 }
 
 $SSLCredentials* NamedGroup$NamedGroupSpec::decodeCredentials($NamedGroup* ng, $bytes* encoded, $AlgorithmConstraints* constraints, $NamedGroup$ExceptionSupplier* onConstraintFail) {
 	if (this->scheme != nullptr) {
-		return $nc(this->scheme)->decodeCredentials(ng, encoded, constraints, onConstraintFail);
+		return this->scheme->decodeCredentials(ng, encoded, constraints, onConstraintFail);
 	}
 	return nullptr;
 }
 
 $SSLPossession* NamedGroup$NamedGroupSpec::createPossession($NamedGroup* ng, $SecureRandom* random) {
 	if (this->scheme != nullptr) {
-		return $nc(this->scheme)->createPossession(ng, random);
+		return this->scheme->createPossession(ng, random);
 	}
 	return nullptr;
 }
 
 $SSLKeyDerivation* NamedGroup$NamedGroupSpec::createKeyDerivation($HandshakeContext* hc) {
 	if (this->scheme != nullptr) {
-		return $nc(this->scheme)->createKeyDerivation(hc);
+		return this->scheme->createKeyDerivation(hc);
 	}
 	return nullptr;
 }
 
-void clinit$NamedGroup$NamedGroupSpec($Class* class$) {
+void NamedGroup$NamedGroupSpec::clinit$($Class* clazz) {
 	$init($NamedGroup$ECDHEScheme);
 	$assignStatic(NamedGroup$NamedGroupSpec::NAMED_GROUP_ECDHE, $new(NamedGroup$NamedGroupSpec, "NAMED_GROUP_ECDHE"_s, 0, "EC"_s, $NamedGroup$ECDHEScheme::instance));
 	$init($NamedGroup$FFDHEScheme);
@@ -241,7 +173,58 @@ NamedGroup$NamedGroupSpec::NamedGroup$NamedGroupSpec() {
 }
 
 $Class* NamedGroup$NamedGroupSpec::load$($String* name, bool initialize) {
-	$loadClass(NamedGroup$NamedGroupSpec, name, initialize, &_NamedGroup$NamedGroupSpec_ClassInfo_, clinit$NamedGroup$NamedGroupSpec, allocate$NamedGroup$NamedGroupSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAMED_GROUP_ECDHE", "Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NamedGroup$NamedGroupSpec, NAMED_GROUP_ECDHE)},
+		{"NAMED_GROUP_FFDHE", "Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NamedGroup$NamedGroupSpec, NAMED_GROUP_FFDHE)},
+		{"NAMED_GROUP_XDH", "Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NamedGroup$NamedGroupSpec, NAMED_GROUP_XDH)},
+		{"NAMED_GROUP_ARBITRARY", "Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NamedGroup$NamedGroupSpec, NAMED_GROUP_ARBITRARY)},
+		{"NAMED_GROUP_NONE", "Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NamedGroup$NamedGroupSpec, NAMED_GROUP_NONE)},
+		{"$VALUES", "[Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(NamedGroup$NamedGroupSpec, $VALUES)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NamedGroup$NamedGroupSpec, algorithm)},
+		{"scheme", "Lsun/security/ssl/NamedGroup$NamedGroupScheme;", nullptr, $PRIVATE | $FINAL, $field(NamedGroup$NamedGroupSpec, scheme)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NamedGroup$NamedGroupSpec, $values, $NamedGroup$NamedGroupSpecArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/NamedGroup$NamedGroupScheme;)V", "(Ljava/lang/String;Lsun/security/ssl/NamedGroup$NamedGroupScheme;)V", $PRIVATE, $method(NamedGroup$NamedGroupSpec, init$, void, $String*, int32_t, $String*, $NamedGroup$NamedGroupScheme*)},
+		{"arrayContains", "([Lsun/security/ssl/NamedGroup$NamedGroupSpec;Lsun/security/ssl/NamedGroup$NamedGroupSpec;)Z", nullptr, $STATIC, $staticMethod(NamedGroup$NamedGroupSpec, arrayContains, bool, $NamedGroup$NamedGroupSpecArray*, NamedGroup$NamedGroupSpec*)},
+		{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$NamedGroupSpec, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
+		{"createPossession", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$NamedGroupSpec, createPossession, $SSLPossession*, $NamedGroup*, $SecureRandom*)},
+		{"decodeCredentials", "(Lsun/security/ssl/NamedGroup;[BLjava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$ExceptionSupplier;)Lsun/security/ssl/SSLCredentials;", nullptr, $PUBLIC, $virtualMethod(NamedGroup$NamedGroupSpec, decodeCredentials, $SSLCredentials*, $NamedGroup*, $bytes*, $AlgorithmConstraints*, $NamedGroup$ExceptionSupplier*), "java.io.IOException,java.security.GeneralSecurityException"},
+		{"encodePossessionPublicKey", "(Lsun/security/ssl/NamedGroupPossession;)[B", nullptr, $PUBLIC, $virtualMethod(NamedGroup$NamedGroupSpec, encodePossessionPublicKey, $bytes*, $NamedGroupPossession*)},
+		{"isSupported", "(Ljava/util/List;)Z", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;)Z", 0, $method(NamedGroup$NamedGroupSpec, isSupported, bool, $List*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(NamedGroup$NamedGroupSpec, valueOf, NamedGroup$NamedGroupSpec*, $String*)},
+		{"values", "()[Lsun/security/ssl/NamedGroup$NamedGroupSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(NamedGroup$NamedGroupSpec, values, $NamedGroup$NamedGroupSpecArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.NamedGroup$NamedGroupSpec", "sun.security.ssl.NamedGroup", "NamedGroupSpec", $STATIC | $FINAL | $ENUM},
+		{"sun.security.ssl.NamedGroup$NamedGroupScheme", "sun.security.ssl.NamedGroup", "NamedGroupScheme", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.NamedGroup$NamedGroupSpec",
+		"java.lang.Enum",
+		"sun.security.ssl.NamedGroup$NamedGroupScheme",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/NamedGroup$NamedGroupSpec;>;Lsun/security/ssl/NamedGroup$NamedGroupScheme;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.NamedGroup"
+	};
+	$loadClass(NamedGroup$NamedGroupSpec, name, initialize, &classInfo$$, NamedGroup$NamedGroupSpec::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NamedGroup$NamedGroupSpec));
+	});
 	return class$;
 }
 

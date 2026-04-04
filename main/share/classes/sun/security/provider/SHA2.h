@@ -24,6 +24,7 @@ class SHA2 : public ::sun::security::provider::DigestBase {
 public:
 	SHA2();
 	using ::sun::security::provider::DigestBase::engineUpdate;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t digestLength, $ints* initialHashes);
 	virtual $Object* clone() override;
 	virtual void implCompress($bytes* buf, int32_t ofs) override;

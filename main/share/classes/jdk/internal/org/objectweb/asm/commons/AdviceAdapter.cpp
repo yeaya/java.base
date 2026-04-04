@@ -1,7 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/commons/AdviceAdapter.h>
-
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -177,10 +175,8 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $ConstantDynamic = ::jdk::internal::org::objectweb::asm$::ConstantDynamic;
 using $Handle = ::jdk::internal::org::objectweb::asm$::Handle;
 using $Label = ::jdk::internal::org::objectweb::asm$::Label;
@@ -195,65 +191,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace commons {
-
-$FieldInfo _AdviceAdapter_FieldInfo_[] = {
-	{"UNINITIALIZED_THIS", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AdviceAdapter, UNINITIALIZED_THIS)},
-	{"OTHER", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AdviceAdapter, OTHER)},
-	{"INVALID_OPCODE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AdviceAdapter, INVALID_OPCODE)},
-	{"methodAccess", "I", nullptr, $PROTECTED, $field(AdviceAdapter, methodAccess)},
-	{"methodDesc", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AdviceAdapter, methodDesc)},
-	{"isConstructor", "Z", nullptr, $PRIVATE | $FINAL, $field(AdviceAdapter, isConstructor)},
-	{"superClassConstructorCalled", "Z", nullptr, $PRIVATE, $field(AdviceAdapter, superClassConstructorCalled)},
-	{"stackFrame", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE, $field(AdviceAdapter, stackFrame)},
-	{"forwardJumpStackFrames", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/util/List<Ljava/lang/Object;>;>;", $PRIVATE, $field(AdviceAdapter, forwardJumpStackFrames)},
-	{}
-};
-
-$MethodInfo _AdviceAdapter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AdviceAdapter, init$, void, int32_t, $MethodVisitor*, int32_t, $String*, $String*)},
-	{"addForwardJump", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PRIVATE, $method(AdviceAdapter, addForwardJump, void, $Label*)},
-	{"addForwardJumps", "(Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PRIVATE, $method(AdviceAdapter, addForwardJumps, void, $Label*, $LabelArray*)},
-	{"doVisitMethodInsn", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(AdviceAdapter, doVisitMethodInsn, void, int32_t, $String*)},
-	{"onMethodEnter", "()V", nullptr, $PROTECTED, $virtualMethod(AdviceAdapter, onMethodEnter, void)},
-	{"onMethodExit", "(I)V", nullptr, $PROTECTED, $virtualMethod(AdviceAdapter, onMethodExit, void, int32_t)},
-	{"peekValue", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(AdviceAdapter, peekValue, $Object*)},
-	{"popValue", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(AdviceAdapter, popValue, $Object*)},
-	{"pushValue", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AdviceAdapter, pushValue, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"visitCode", "()V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitCode, void)},
-	{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
-	{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitInsn, void, int32_t)},
-	{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitIntInsn, void, int32_t, int32_t)},
-	{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(AdviceAdapter, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitJumpInsn, void, int32_t, $Label*)},
-	{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitLabel, void, $Label*)},
-	{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitLdcInsn, void, Object$*)},
-	{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
-	{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
-	{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitMultiANewArrayInsn, void, $String*, int32_t)},
-	{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(AdviceAdapter, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
-	{"visitTryCatchBlock", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitTryCatchBlock, void, $Label*, $Label*, $Label*, $String*)},
-	{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitTypeInsn, void, int32_t, $String*)},
-	{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitVarInsn, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _AdviceAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.org.objectweb.asm.commons.AdviceAdapter",
-	"jdk.internal.org.objectweb.asm.commons.GeneratorAdapter",
-	"jdk.internal.org.objectweb.asm.Opcodes",
-	_AdviceAdapter_FieldInfo_,
-	_AdviceAdapter_MethodInfo_
-};
-
-$Object* allocate$AdviceAdapter($Class* clazz) {
-	return $of($alloc(AdviceAdapter));
-}
 
 int32_t AdviceAdapter::hashCode() {
 	 return this->$GeneratorAdapter::hashCode();
@@ -299,431 +236,266 @@ void AdviceAdapter::visitCode() {
 void AdviceAdapter::visitLabel($Label* label) {
 	$GeneratorAdapter::visitLabel(label);
 	if (this->isConstructor && this->forwardJumpStackFrames != nullptr) {
-		$var($List, labelStackFrame, $cast($List, $nc(this->forwardJumpStackFrames)->get(label)));
+		$var($List, labelStackFrame, $cast($List, this->forwardJumpStackFrames->get(label)));
 		if (labelStackFrame != nullptr) {
 			$set(this, stackFrame, labelStackFrame);
 			this->superClassConstructorCalled = false;
-			$nc(this->forwardJumpStackFrames)->remove(label);
+			this->forwardJumpStackFrames->remove(label);
 		}
 	}
 }
 
 void AdviceAdapter::visitInsn(int32_t opcode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isConstructor && !this->superClassConstructorCalled) {
 		int32_t stackSize = 0;
 		switch (opcode) {
 		case $Opcodes::IRETURN:
-			{}
 		case $Opcodes::FRETURN:
-			{}
 		case $Opcodes::ARETURN:
-			{}
 		case $Opcodes::LRETURN:
-			{}
 		case $Opcodes::DRETURN:
-			{
-				$throwNew($IllegalArgumentException, "Invalid return in constructor"_s);
-			}
+			$throwNew($IllegalArgumentException, "Invalid return in constructor"_s);
 		case $Opcodes::RETURN:
-			{
-				onMethodExit(opcode);
-				break;
-			}
+			onMethodExit(opcode);
+			break;
 		case $Opcodes::ATHROW:
-			{
-				popValue();
-				onMethodExit(opcode);
-				break;
-			}
+			popValue();
+			onMethodExit(opcode);
+			break;
 		case $Opcodes::NOP:
-			{}
 		case $Opcodes::LALOAD:
-			{}
 		case $Opcodes::DALOAD:
-			{}
 		case $Opcodes::LNEG:
-			{}
 		case $Opcodes::DNEG:
-			{}
 		case $Opcodes::FNEG:
-			{}
 		case $Opcodes::INEG:
-			{}
 		case $Opcodes::L2D:
-			{}
 		case $Opcodes::D2L:
-			{}
 		case $Opcodes::F2I:
-			{}
 		case $Opcodes::I2B:
-			{}
 		case $Opcodes::I2C:
-			{}
 		case $Opcodes::I2S:
-			{}
 		case $Opcodes::I2F:
-			{}
 		case $Opcodes::ARRAYLENGTH:
-			{
-				break;
-			}
+			break;
 		case $Opcodes::ACONST_NULL:
-			{}
 		case $Opcodes::ICONST_M1:
-			{}
 		case $Opcodes::ICONST_0:
-			{}
 		case $Opcodes::ICONST_1:
-			{}
 		case $Opcodes::ICONST_2:
-			{}
 		case $Opcodes::ICONST_3:
-			{}
 		case $Opcodes::ICONST_4:
-			{}
 		case $Opcodes::ICONST_5:
-			{}
 		case $Opcodes::FCONST_0:
-			{}
 		case $Opcodes::FCONST_1:
-			{}
 		case $Opcodes::FCONST_2:
-			{}
 		case $Opcodes::F2L:
-			{}
 		case $Opcodes::F2D:
-			{}
 		case $Opcodes::I2L:
-			{}
 		case $Opcodes::I2D:
-			{
-				pushValue(AdviceAdapter::OTHER);
-				break;
-			}
+			pushValue(AdviceAdapter::OTHER);
+			break;
 		case $Opcodes::LCONST_0:
-			{}
 		case $Opcodes::LCONST_1:
-			{}
 		case $Opcodes::DCONST_0:
-			{}
 		case $Opcodes::DCONST_1:
-			{
-				pushValue(AdviceAdapter::OTHER);
-				pushValue(AdviceAdapter::OTHER);
-				break;
-			}
+			pushValue(AdviceAdapter::OTHER);
+			pushValue(AdviceAdapter::OTHER);
+			break;
 		case $Opcodes::IALOAD:
-			{}
 		case $Opcodes::FALOAD:
-			{}
 		case $Opcodes::AALOAD:
-			{}
 		case $Opcodes::BALOAD:
-			{}
 		case $Opcodes::CALOAD:
-			{}
 		case $Opcodes::SALOAD:
-			{}
 		case $Opcodes::POP:
-			{}
 		case $Opcodes::IADD:
-			{}
 		case $Opcodes::FADD:
-			{}
 		case $Opcodes::ISUB:
-			{}
 		case $Opcodes::LSHL:
-			{}
 		case $Opcodes::LSHR:
-			{}
 		case $Opcodes::LUSHR:
-			{}
 		case $Opcodes::L2I:
-			{}
 		case $Opcodes::L2F:
-			{}
 		case $Opcodes::D2I:
-			{}
 		case $Opcodes::D2F:
-			{}
 		case $Opcodes::FSUB:
-			{}
 		case $Opcodes::FMUL:
-			{}
 		case $Opcodes::FDIV:
-			{}
 		case $Opcodes::FREM:
-			{}
 		case $Opcodes::FCMPL:
-			{}
 		case $Opcodes::FCMPG:
-			{}
 		case $Opcodes::IMUL:
-			{}
 		case $Opcodes::IDIV:
-			{}
 		case $Opcodes::IREM:
-			{}
 		case $Opcodes::ISHL:
-			{}
 		case $Opcodes::ISHR:
-			{}
 		case $Opcodes::IUSHR:
-			{}
 		case $Opcodes::IAND:
-			{}
 		case $Opcodes::IOR:
-			{}
 		case $Opcodes::IXOR:
-			{}
 		case $Opcodes::MONITORENTER:
-			{}
 		case $Opcodes::MONITOREXIT:
-			{
-				popValue();
-				break;
-			}
+			popValue();
+			break;
 		case $Opcodes::POP2:
-			{}
 		case $Opcodes::LSUB:
-			{}
 		case $Opcodes::LMUL:
-			{}
 		case $Opcodes::LDIV:
-			{}
 		case $Opcodes::LREM:
-			{}
 		case $Opcodes::LADD:
-			{}
 		case $Opcodes::LAND:
-			{}
 		case $Opcodes::LOR:
-			{}
 		case $Opcodes::LXOR:
-			{}
 		case $Opcodes::DADD:
-			{}
 		case $Opcodes::DMUL:
-			{}
 		case $Opcodes::DSUB:
-			{}
 		case $Opcodes::DDIV:
-			{}
 		case $Opcodes::DREM:
-			{
-				popValue();
-				popValue();
-				break;
-			}
+			popValue();
+			popValue();
+			break;
 		case $Opcodes::IASTORE:
-			{}
 		case $Opcodes::FASTORE:
-			{}
 		case $Opcodes::AASTORE:
-			{}
 		case $Opcodes::BASTORE:
-			{}
 		case $Opcodes::CASTORE:
-			{}
 		case $Opcodes::SASTORE:
-			{}
 		case $Opcodes::LCMP:
-			{}
 		case $Opcodes::DCMPL:
-			{}
 		case $Opcodes::DCMPG:
-			{
-				popValue();
-				popValue();
-				popValue();
-				break;
-			}
+			popValue();
+			popValue();
+			popValue();
+			break;
 		case $Opcodes::LASTORE:
-			{}
 		case $Opcodes::DASTORE:
-			{
-				popValue();
-				popValue();
-				popValue();
-				popValue();
-				break;
-			}
+			popValue();
+			popValue();
+			popValue();
+			popValue();
+			break;
 		case $Opcodes::DUP:
-			{
-				pushValue($(peekValue()));
-				break;
-			}
+			pushValue($(peekValue()));
+			break;
 		case $Opcodes::DUP_X1:
-			{
-				stackSize = $nc(this->stackFrame)->size();
-				$nc(this->stackFrame)->add(stackSize - 2, $($nc(this->stackFrame)->get(stackSize - 1)));
-				break;
-			}
+			stackSize = $nc(this->stackFrame)->size();
+			this->stackFrame->add(stackSize - 2, $(this->stackFrame->get(stackSize - 1)));
+			break;
 		case $Opcodes::DUP_X2:
-			{
-				stackSize = $nc(this->stackFrame)->size();
-				$nc(this->stackFrame)->add(stackSize - 3, $($nc(this->stackFrame)->get(stackSize - 1)));
-				break;
-			}
+			stackSize = $nc(this->stackFrame)->size();
+			this->stackFrame->add(stackSize - 3, $(this->stackFrame->get(stackSize - 1)));
+			break;
 		case $Opcodes::DUP2:
-			{
-				stackSize = $nc(this->stackFrame)->size();
-				$nc(this->stackFrame)->add(stackSize - 2, $($nc(this->stackFrame)->get(stackSize - 1)));
-				$nc(this->stackFrame)->add(stackSize - 2, $($nc(this->stackFrame)->get(stackSize - 1)));
-				break;
-			}
+			stackSize = $nc(this->stackFrame)->size();
+			this->stackFrame->add(stackSize - 2, $(this->stackFrame->get(stackSize - 1)));
+			this->stackFrame->add(stackSize - 2, $(this->stackFrame->get(stackSize - 1)));
+			break;
 		case $Opcodes::DUP2_X1:
-			{
-				stackSize = $nc(this->stackFrame)->size();
-				$nc(this->stackFrame)->add(stackSize - 3, $($nc(this->stackFrame)->get(stackSize - 1)));
-				$nc(this->stackFrame)->add(stackSize - 3, $($nc(this->stackFrame)->get(stackSize - 1)));
-				break;
-			}
+			stackSize = $nc(this->stackFrame)->size();
+			this->stackFrame->add(stackSize - 3, $(this->stackFrame->get(stackSize - 1)));
+			this->stackFrame->add(stackSize - 3, $(this->stackFrame->get(stackSize - 1)));
+			break;
 		case $Opcodes::DUP2_X2:
-			{
-				stackSize = $nc(this->stackFrame)->size();
-				$nc(this->stackFrame)->add(stackSize - 4, $($nc(this->stackFrame)->get(stackSize - 1)));
-				$nc(this->stackFrame)->add(stackSize - 4, $($nc(this->stackFrame)->get(stackSize - 1)));
-				break;
-			}
+			stackSize = $nc(this->stackFrame)->size();
+			this->stackFrame->add(stackSize - 4, $(this->stackFrame->get(stackSize - 1)));
+			this->stackFrame->add(stackSize - 4, $(this->stackFrame->get(stackSize - 1)));
+			break;
 		case $Opcodes::SWAP:
-			{
-				stackSize = $nc(this->stackFrame)->size();
-				$nc(this->stackFrame)->add(stackSize - 2, $($nc(this->stackFrame)->get(stackSize - 1)));
-				$nc(this->stackFrame)->remove(stackSize);
-				break;
-			}
+			stackSize = $nc(this->stackFrame)->size();
+			this->stackFrame->add(stackSize - 2, $(this->stackFrame->get(stackSize - 1)));
+			this->stackFrame->remove(stackSize);
+			break;
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({AdviceAdapter::INVALID_OPCODE, $$str(opcode)}));
-			}
+			$throwNew($IllegalArgumentException, $$str({AdviceAdapter::INVALID_OPCODE, $$str(opcode)}));
 		}
 	} else {
 		switch (opcode) {
 		case $Opcodes::RETURN:
-			{}
 		case $Opcodes::IRETURN:
-			{}
 		case $Opcodes::FRETURN:
-			{}
 		case $Opcodes::ARETURN:
-			{}
 		case $Opcodes::LRETURN:
-			{}
 		case $Opcodes::DRETURN:
-			{}
 		case $Opcodes::ATHROW:
-			{
-				onMethodExit(opcode);
-				break;
-			}
+			onMethodExit(opcode);
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 	$GeneratorAdapter::visitInsn(opcode);
 }
 
 void AdviceAdapter::visitVarInsn(int32_t opcode, int32_t var) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GeneratorAdapter::visitVarInsn(opcode, var);
 	if (this->isConstructor && !this->superClassConstructorCalled) {
 		switch (opcode) {
 		case $Opcodes::ILOAD:
-			{}
 		case $Opcodes::FLOAD:
-			{
-				pushValue(AdviceAdapter::OTHER);
-				break;
-			}
+			pushValue(AdviceAdapter::OTHER);
+			break;
 		case $Opcodes::LLOAD:
-			{}
 		case $Opcodes::DLOAD:
-			{
-				pushValue(AdviceAdapter::OTHER);
-				pushValue(AdviceAdapter::OTHER);
-				break;
-			}
+			pushValue(AdviceAdapter::OTHER);
+			pushValue(AdviceAdapter::OTHER);
+			break;
 		case $Opcodes::ALOAD:
-			{
-				pushValue(var == 0 ? AdviceAdapter::UNINITIALIZED_THIS : AdviceAdapter::OTHER);
-				break;
-			}
+			pushValue(var == 0 ? AdviceAdapter::UNINITIALIZED_THIS : AdviceAdapter::OTHER);
+			break;
 		case $Opcodes::ASTORE:
-			{}
 		case $Opcodes::ISTORE:
-			{}
 		case $Opcodes::FSTORE:
-			{
-				popValue();
-				break;
-			}
+			popValue();
+			break;
 		case $Opcodes::LSTORE:
-			{}
 		case $Opcodes::DSTORE:
-			{
-				popValue();
-				popValue();
-				break;
-			}
+			popValue();
+			popValue();
+			break;
 		case $Opcodes::RET:
-			{
-				break;
-			}
+			break;
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({AdviceAdapter::INVALID_OPCODE, $$str(opcode)}));
-			}
+			$throwNew($IllegalArgumentException, $$str({AdviceAdapter::INVALID_OPCODE, $$str(opcode)}));
 		}
 	}
 }
 
 void AdviceAdapter::visitFieldInsn(int32_t opcode, $String* owner, $String* name, $String* descriptor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GeneratorAdapter::visitFieldInsn(opcode, owner, name, descriptor);
 	if (this->isConstructor && !this->superClassConstructorCalled) {
 		char16_t firstDescriptorChar = $nc(descriptor)->charAt(0);
 		bool longOrDouble = firstDescriptorChar == u'J' || firstDescriptorChar == u'D';
 		switch (opcode) {
 		case $Opcodes::GETSTATIC:
-			{
+			pushValue(AdviceAdapter::OTHER);
+			if (longOrDouble) {
 				pushValue(AdviceAdapter::OTHER);
-				if (longOrDouble) {
-					pushValue(AdviceAdapter::OTHER);
-				}
-				break;
 			}
+			break;
 		case $Opcodes::PUTSTATIC:
-			{
+			popValue();
+			if (longOrDouble) {
 				popValue();
-				if (longOrDouble) {
-					popValue();
-				}
-				break;
 			}
+			break;
 		case $Opcodes::PUTFIELD:
-			{
+			popValue();
+			popValue();
+			if (longOrDouble) {
 				popValue();
-				popValue();
-				if (longOrDouble) {
-					popValue();
-				}
-				break;
 			}
+			break;
 		case $Opcodes::GETFIELD:
-			{
-				if (longOrDouble) {
-					pushValue(AdviceAdapter::OTHER);
-				}
-				break;
+			if (longOrDouble) {
+				pushValue(AdviceAdapter::OTHER);
 			}
+			break;
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({AdviceAdapter::INVALID_OPCODE, $$str(opcode)}));
-			}
+			$throwNew($IllegalArgumentException, $$str({AdviceAdapter::INVALID_OPCODE, $$str(opcode)}));
 		}
 	}
 }
@@ -739,7 +511,7 @@ void AdviceAdapter::visitLdcInsn(Object$* value) {
 	$GeneratorAdapter::visitLdcInsn(value);
 	if (this->isConstructor && !this->superClassConstructorCalled) {
 		pushValue(AdviceAdapter::OTHER);
-		if ($instanceOf($Double, value) || $instanceOf($Long, value) || ($instanceOf($ConstantDynamic, value) && $nc(($cast($ConstantDynamic, value)))->getSize() == 2)) {
+		if ($instanceOf($Double, value) || $instanceOf($Long, value) || ($instanceOf($ConstantDynamic, value) && $cast($ConstantDynamic, value)->getSize() == 2)) {
 			pushValue(AdviceAdapter::OTHER);
 		}
 	}
@@ -763,23 +535,21 @@ void AdviceAdapter::visitTypeInsn(int32_t opcode, $String* type) {
 }
 
 void AdviceAdapter::visitMethodInsn(int32_t opcodeAndSource, $String* owner, $String* name, $String* descriptor, bool isInterface) {
-	if (this->api < $Opcodes::ASM5 && ((int32_t)(opcodeAndSource & (uint32_t)$Opcodes::SOURCE_DEPRECATED)) == 0) {
+	if (this->api < $Opcodes::ASM5 && (opcodeAndSource & $Opcodes::SOURCE_DEPRECATED) == 0) {
 		$GeneratorAdapter::visitMethodInsn(opcodeAndSource, owner, name, descriptor, isInterface);
 		return;
 	}
 	$GeneratorAdapter::visitMethodInsn(opcodeAndSource, owner, name, descriptor, isInterface);
-	int32_t opcode = (int32_t)(opcodeAndSource & (uint32_t)~$Opcodes::SOURCE_MASK);
+	int32_t opcode = opcodeAndSource & ~$Opcodes::SOURCE_MASK;
 	doVisitMethodInsn(opcode, descriptor);
 }
 
 void AdviceAdapter::doVisitMethodInsn(int32_t opcode, $String* descriptor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isConstructor && !this->superClassConstructorCalled) {
 		{
 			$var($TypeArray, arr$, $Type::getArgumentTypes(descriptor));
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Type, argumentType, arr$->get(i$));
 				{
 					popValue();
@@ -790,28 +560,21 @@ void AdviceAdapter::doVisitMethodInsn(int32_t opcode, $String* descriptor) {
 			}
 		}
 		{
-			$var($Object, value, nullptr)
+			$var($Object, value, nullptr);
 			switch (opcode) {
 			case $Opcodes::INVOKEINTERFACE:
-				{}
 			case $Opcodes::INVOKEVIRTUAL:
-				{
-					popValue();
-					break;
-				}
+				popValue();
+				break;
 			case $Opcodes::INVOKESPECIAL:
-				{
-					$assign(value, popValue());
-					if ($equals(value, AdviceAdapter::UNINITIALIZED_THIS) && !this->superClassConstructorCalled) {
-						this->superClassConstructorCalled = true;
-						onMethodEnter();
-					}
-					break;
+				$assign(value, popValue());
+				if ($equals(value, AdviceAdapter::UNINITIALIZED_THIS) && !this->superClassConstructorCalled) {
+					this->superClassConstructorCalled = true;
+					onMethodEnter();
 				}
+				break;
 			default:
-				{
-					break;
-				}
+				break;
 			}
 		}
 		$var($Type, returnType, $Type::getReturnType(descriptor));
@@ -834,53 +597,31 @@ void AdviceAdapter::visitJumpInsn(int32_t opcode, $Label* label) {
 	if (this->isConstructor && !this->superClassConstructorCalled) {
 		switch (opcode) {
 		case $Opcodes::IFEQ:
-			{}
 		case $Opcodes::IFNE:
-			{}
 		case $Opcodes::IFLT:
-			{}
 		case $Opcodes::IFGE:
-			{}
 		case $Opcodes::IFGT:
-			{}
 		case $Opcodes::IFLE:
-			{}
 		case $Opcodes::IFNULL:
-			{}
 		case $Opcodes::IFNONNULL:
-			{
-				popValue();
-				break;
-			}
+			popValue();
+			break;
 		case $Opcodes::IF_ICMPEQ:
-			{}
 		case $Opcodes::IF_ICMPNE:
-			{}
 		case $Opcodes::IF_ICMPLT:
-			{}
 		case $Opcodes::IF_ICMPGE:
-			{}
 		case $Opcodes::IF_ICMPGT:
-			{}
 		case $Opcodes::IF_ICMPLE:
-			{}
 		case $Opcodes::IF_ACMPEQ:
-			{}
 		case $Opcodes::IF_ACMPNE:
-			{
-				popValue();
-				popValue();
-				break;
-			}
+			popValue();
+			popValue();
+			break;
 		case $Opcodes::JSR:
-			{
-				pushValue(AdviceAdapter::OTHER);
-				break;
-			}
+			pushValue(AdviceAdapter::OTHER);
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 		addForwardJump(label);
 	}
@@ -907,18 +648,16 @@ void AdviceAdapter::visitTryCatchBlock($Label* start, $Label* end, $Label* handl
 	if (this->isConstructor && !$nc(this->forwardJumpStackFrames)->containsKey(handler)) {
 		$var($List, handlerStackFrame, $new($ArrayList));
 		handlerStackFrame->add(AdviceAdapter::OTHER);
-		$nc(this->forwardJumpStackFrames)->put(handler, handlerStackFrame);
+		this->forwardJumpStackFrames->put(handler, handlerStackFrame);
 	}
 }
 
 void AdviceAdapter::addForwardJumps($Label* dflt, $LabelArray* labels) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	addForwardJump(dflt);
 	{
 		$var($LabelArray, arr$, labels);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Label, label, arr$->get(i$));
 			{
 				addForwardJump(label);
@@ -931,15 +670,15 @@ void AdviceAdapter::addForwardJump($Label* label) {
 	if ($nc(this->forwardJumpStackFrames)->containsKey(label)) {
 		return;
 	}
-	$nc(this->forwardJumpStackFrames)->put(label, $$new($ArrayList, static_cast<$Collection*>(this->stackFrame)));
+	this->forwardJumpStackFrames->put(label, $$new($ArrayList, this->stackFrame));
 }
 
 $Object* AdviceAdapter::popValue() {
-	return $of($nc(this->stackFrame)->remove($nc(this->stackFrame)->size() - 1));
+	return $nc(this->stackFrame)->remove($nc(this->stackFrame)->size() - 1);
 }
 
 $Object* AdviceAdapter::peekValue() {
-	return $of($nc(this->stackFrame)->get($nc(this->stackFrame)->size() - 1));
+	return $nc(this->stackFrame)->get($nc(this->stackFrame)->size() - 1);
 }
 
 void AdviceAdapter::pushValue(Object$* value) {
@@ -952,7 +691,7 @@ void AdviceAdapter::onMethodEnter() {
 void AdviceAdapter::onMethodExit(int32_t opcode) {
 }
 
-void clinit$AdviceAdapter($Class* class$) {
+void AdviceAdapter::clinit$($Class* clazz) {
 	$assignStatic(AdviceAdapter::INVALID_OPCODE, "Invalid opcode "_s);
 	$assignStatic(AdviceAdapter::UNINITIALIZED_THIS, $new($Object));
 	$assignStatic(AdviceAdapter::OTHER, $new($Object));
@@ -962,7 +701,61 @@ AdviceAdapter::AdviceAdapter() {
 }
 
 $Class* AdviceAdapter::load$($String* name, bool initialize) {
-	$loadClass(AdviceAdapter, name, initialize, &_AdviceAdapter_ClassInfo_, clinit$AdviceAdapter, allocate$AdviceAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNINITIALIZED_THIS", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AdviceAdapter, UNINITIALIZED_THIS)},
+		{"OTHER", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AdviceAdapter, OTHER)},
+		{"INVALID_OPCODE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AdviceAdapter, INVALID_OPCODE)},
+		{"methodAccess", "I", nullptr, $PROTECTED, $field(AdviceAdapter, methodAccess)},
+		{"methodDesc", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AdviceAdapter, methodDesc)},
+		{"isConstructor", "Z", nullptr, $PRIVATE | $FINAL, $field(AdviceAdapter, isConstructor)},
+		{"superClassConstructorCalled", "Z", nullptr, $PRIVATE, $field(AdviceAdapter, superClassConstructorCalled)},
+		{"stackFrame", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE, $field(AdviceAdapter, stackFrame)},
+		{"forwardJumpStackFrames", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/util/List<Ljava/lang/Object;>;>;", $PRIVATE, $field(AdviceAdapter, forwardJumpStackFrames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AdviceAdapter, init$, void, int32_t, $MethodVisitor*, int32_t, $String*, $String*)},
+		{"addForwardJump", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PRIVATE, $method(AdviceAdapter, addForwardJump, void, $Label*)},
+		{"addForwardJumps", "(Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PRIVATE, $method(AdviceAdapter, addForwardJumps, void, $Label*, $LabelArray*)},
+		{"doVisitMethodInsn", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(AdviceAdapter, doVisitMethodInsn, void, int32_t, $String*)},
+		{"onMethodEnter", "()V", nullptr, $PROTECTED, $virtualMethod(AdviceAdapter, onMethodEnter, void)},
+		{"onMethodExit", "(I)V", nullptr, $PROTECTED, $virtualMethod(AdviceAdapter, onMethodExit, void, int32_t)},
+		{"peekValue", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(AdviceAdapter, peekValue, $Object*)},
+		{"popValue", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(AdviceAdapter, popValue, $Object*)},
+		{"pushValue", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AdviceAdapter, pushValue, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"visitCode", "()V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitCode, void)},
+		{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
+		{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitInsn, void, int32_t)},
+		{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitIntInsn, void, int32_t, int32_t)},
+		{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(AdviceAdapter, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitJumpInsn, void, int32_t, $Label*)},
+		{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitLabel, void, $Label*)},
+		{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitLdcInsn, void, Object$*)},
+		{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
+		{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
+		{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitMultiANewArrayInsn, void, $String*, int32_t)},
+		{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(AdviceAdapter, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
+		{"visitTryCatchBlock", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitTryCatchBlock, void, $Label*, $Label*, $Label*, $String*)},
+		{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitTypeInsn, void, int32_t, $String*)},
+		{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(AdviceAdapter, visitVarInsn, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.org.objectweb.asm.commons.AdviceAdapter",
+		"jdk.internal.org.objectweb.asm.commons.GeneratorAdapter",
+		"jdk.internal.org.objectweb.asm.Opcodes",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AdviceAdapter, name, initialize, &classInfo$$, AdviceAdapter::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AdviceAdapter));
+	});
 	return class$;
 }
 

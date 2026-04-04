@@ -1,5 +1,4 @@
 #include <java/lang/invoke/BoundMethodHandle.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Error.h>
 #include <java/lang/InternalError.h>
@@ -56,80 +55,11 @@ using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $MethodTypeForm = ::java::lang::invoke::MethodTypeForm;
 using $SimpleMethodHandle = ::java::lang::invoke::SimpleMethodHandle;
-using $List = ::java::util::List;
 using $ValueConversions = ::sun::invoke::util::ValueConversions;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _BoundMethodHandle_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BoundMethodHandle, $assertionsDisabled)},
-	{"FIELD_COUNT_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BoundMethodHandle, FIELD_COUNT_THRESHOLD)},
-	{"FORM_EXPRESSION_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BoundMethodHandle, FORM_EXPRESSION_THRESHOLD)},
-	{"SPECIALIZER", "Ljava/lang/invoke/BoundMethodHandle$Specializer;", nullptr, $STATIC | $FINAL, $staticField(BoundMethodHandle, SPECIALIZER)},
-	{}
-};
-
-$MethodInfo _BoundMethodHandle_MethodInfo_[] = {
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT},
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)V", nullptr, 0, $method(BoundMethodHandle, init$, void, $MethodType*, $LambdaForm*)},
-	{"arg", "(I)Ljava/lang/Object;", nullptr, $FINAL, $method(BoundMethodHandle, arg, $Object*, int32_t)},
-	{"bindArgumentD", "(ID)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, bindArgumentD, BoundMethodHandle*, int32_t, double)},
-	{"bindArgumentF", "(IF)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, bindArgumentF, BoundMethodHandle*, int32_t, float)},
-	{"bindArgumentI", "(II)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, bindArgumentI, BoundMethodHandle*, int32_t, int32_t)},
-	{"bindArgumentJ", "(IJ)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, bindArgumentJ, BoundMethodHandle*, int32_t, int64_t)},
-	{"bindArgumentL", "(ILjava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, bindArgumentL, BoundMethodHandle*, int32_t, Object$*)},
-	{"bindSingle", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/LambdaForm$BasicType;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, bindSingle, BoundMethodHandle*, $MethodType*, $LambdaForm*, $LambdaForm$BasicType*, Object$*)},
-	{"bindSingle", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, bindSingle, BoundMethodHandle*, $MethodType*, $LambdaForm*, Object$*)},
-	{"copyWithExtendD", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;D)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, copyWithExtendD, BoundMethodHandle*, $MethodType*, $LambdaForm*, double)},
-	{"copyWithExtendF", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;F)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, copyWithExtendF, BoundMethodHandle*, $MethodType*, $LambdaForm*, float)},
-	{"copyWithExtendI", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;I)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, copyWithExtendI, BoundMethodHandle*, $MethodType*, $LambdaForm*, int32_t)},
-	{"copyWithExtendJ", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;J)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, copyWithExtendJ, BoundMethodHandle*, $MethodType*, $LambdaForm*, int64_t)},
-	{"copyWithExtendL", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, copyWithExtendL, BoundMethodHandle*, $MethodType*, $LambdaForm*, Object$*)},
-	{"editor", "()Ljava/lang/invoke/LambdaFormEditor;", nullptr, 0, $virtualMethod(BoundMethodHandle, editor, $LambdaFormEditor*)},
-	{"fieldCount", "()I", nullptr, $FINAL, $method(BoundMethodHandle, fieldCount, int32_t)},
-	{"internalProperties", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(BoundMethodHandle, internalProperties, $Object*)},
-	{"internalValues", "()Ljava/lang/String;", nullptr, $FINAL, $virtualMethod(BoundMethodHandle, internalValues, $Object*)},
-	{"makeReinvoker", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, makeReinvoker, BoundMethodHandle*, $MethodHandle*)},
-	{"rebind", "()Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, rebind, BoundMethodHandle*)},
-	{"speciesData", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, speciesData, $BoundMethodHandle$SpeciesData*)},
-	{"speciesDataFor", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesDataFor, $BoundMethodHandle$SpeciesData*, $LambdaForm*)},
-	{"speciesData_L", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesData_L, $BoundMethodHandle$SpeciesData*)},
-	{"speciesData_LL", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesData_LL, $BoundMethodHandle$SpeciesData*)},
-	{"speciesData_LLL", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesData_LLL, $BoundMethodHandle$SpeciesData*)},
-	{"speciesData_LLLL", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesData_LLLL, $BoundMethodHandle$SpeciesData*)},
-	{"speciesData_LLLLL", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesData_LLLLL, $BoundMethodHandle$SpeciesData*)},
-	{"tooComplex", "()Z", nullptr, $PRIVATE, $method(BoundMethodHandle, tooComplex, bool)},
-	{}
-};
-
-$InnerClassInfo _BoundMethodHandle_InnerClassesInfo_[] = {
-	{"java.lang.invoke.BoundMethodHandle$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.lang.invoke.BoundMethodHandle$Specializer", "java.lang.invoke.BoundMethodHandle", "Specializer", $STATIC | $FINAL},
-	{"java.lang.invoke.BoundMethodHandle$SpeciesData", "java.lang.invoke.BoundMethodHandle", "SpeciesData", $STATIC | $FINAL},
-	{"java.lang.invoke.BoundMethodHandle$Species_L", "java.lang.invoke.BoundMethodHandle", "Species_L", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _BoundMethodHandle_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.lang.invoke.BoundMethodHandle",
-	"java.lang.invoke.MethodHandle",
-	nullptr,
-	_BoundMethodHandle_FieldInfo_,
-	_BoundMethodHandle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BoundMethodHandle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.BoundMethodHandle$1,java.lang.invoke.BoundMethodHandle$Specializer,java.lang.invoke.BoundMethodHandle$Specializer$Factory,java.lang.invoke.BoundMethodHandle$SpeciesData,java.lang.invoke.BoundMethodHandle$Species_L"
-};
-
-$Object* allocate$BoundMethodHandle($Class* clazz) {
-	return $of($alloc(BoundMethodHandle));
-}
 
 bool BoundMethodHandle::$assertionsDisabled = false;
 $BoundMethodHandle$Specializer* BoundMethodHandle::SPECIALIZER = nullptr;
@@ -147,45 +77,28 @@ void BoundMethodHandle::init$($MethodType* type, $LambdaForm* form) {
 
 BoundMethodHandle* BoundMethodHandle::bindSingle($MethodType* type, $LambdaForm* form, $LambdaForm$BasicType* xtype, Object$* x) {
 	$init(BoundMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($BoundMethodHandle$1);
-
-		$var(BoundMethodHandle, var$0, nullptr)
+		$var(BoundMethodHandle, var$0, nullptr);
 		switch ($nc($BoundMethodHandle$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get($nc((xtype))->ordinal())) {
 		case 1:
-			{
-				$assign(var$0, bindSingle(type, form, x));
-				break;
-			}
+			$assign(var$0, bindSingle(type, form, x));
+			break;
 		case 2:
-			{
-				$init($LambdaForm$BasicType);
-				$assign(var$0, $cast(BoundMethodHandle, $nc($($nc($($nc(($cast($BoundMethodHandle$SpeciesData, $($nc(BoundMethodHandle::SPECIALIZER)->topSpecies()))))->extendWith($LambdaForm$BasicType::I_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(type), $of(form), $$of($ValueConversions::widenSubword(x))}))));
-				break;
-			}
+			$assign(var$0, $cast(BoundMethodHandle, $$nc($$nc($$sure($BoundMethodHandle$SpeciesData, BoundMethodHandle::SPECIALIZER->topSpecies())->extendWith($LambdaForm$BasicType::I_TYPE_NUM))->factory())->invokeBasic($$new($ObjectArray, {type, form, $of($ValueConversions::widenSubword(x))}))));
+			break;
 		case 3:
-			{
-				$init($LambdaForm$BasicType);
-				$assign(var$0, $cast(BoundMethodHandle, $nc($($nc($($nc(($cast($BoundMethodHandle$SpeciesData, $($nc(BoundMethodHandle::SPECIALIZER)->topSpecies()))))->extendWith($LambdaForm$BasicType::J_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(type), $of(form), $$of($nc(($cast($Long, x)))->longValue())}))));
-				break;
-			}
+			$assign(var$0, $cast(BoundMethodHandle, $$nc($$nc($$sure($BoundMethodHandle$SpeciesData, BoundMethodHandle::SPECIALIZER->topSpecies())->extendWith($LambdaForm$BasicType::J_TYPE_NUM))->factory())->invokeBasic($$new($ObjectArray, {type, form, $$of($nc($cast($Long, x))->longValue())}))));
+			break;
 		case 4:
-			{
-				$init($LambdaForm$BasicType);
-				$assign(var$0, $cast(BoundMethodHandle, $nc($($nc($($nc(($cast($BoundMethodHandle$SpeciesData, $($nc(BoundMethodHandle::SPECIALIZER)->topSpecies()))))->extendWith($LambdaForm$BasicType::F_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(type), $of(form), $$of($nc(($cast($Float, x)))->floatValue())}))));
-				break;
-			}
+			$assign(var$0, $cast(BoundMethodHandle, $$nc($$nc($$sure($BoundMethodHandle$SpeciesData, BoundMethodHandle::SPECIALIZER->topSpecies())->extendWith($LambdaForm$BasicType::F_TYPE_NUM))->factory())->invokeBasic($$new($ObjectArray, {type, form, $$of($nc($cast($Float, x))->floatValue())}))));
+			break;
 		case 5:
-			{
-				$init($LambdaForm$BasicType);
-				$assign(var$0, $cast(BoundMethodHandle, $nc($($nc($($nc(($cast($BoundMethodHandle$SpeciesData, $($nc(BoundMethodHandle::SPECIALIZER)->topSpecies()))))->extendWith($LambdaForm$BasicType::D_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(type), $of(form), $$of($nc(($cast($Double, x)))->doubleValue())}))));
-				break;
-			}
+			$assign(var$0, $cast(BoundMethodHandle, $$nc($$nc($$sure($BoundMethodHandle$SpeciesData, BoundMethodHandle::SPECIALIZER->topSpecies())->extendWith($LambdaForm$BasicType::D_TYPE_NUM))->factory())->invokeBasic($$new($ObjectArray, {type, form, $$of($nc($cast($Double, x))->doubleValue())}))));
+			break;
 		default:
-			{
-				$throw($($MethodHandleStatics::newInternalError($$str({"unexpected xtype: "_s, xtype}))));
-			}
+			$throw($($MethodHandleStatics::newInternalError($$str({"unexpected xtype: "_s, xtype}))));
 		}
 		return var$0;
 	} catch ($Throwable& t) {
@@ -204,23 +117,23 @@ BoundMethodHandle* BoundMethodHandle::bindSingle($MethodType* type, $LambdaForm*
 }
 
 BoundMethodHandle* BoundMethodHandle::bindArgumentL(int32_t pos, Object$* value) {
-	return $nc($(editor()))->bindArgumentL(this, pos, value);
+	return $$nc(editor())->bindArgumentL(this, pos, value);
 }
 
 BoundMethodHandle* BoundMethodHandle::bindArgumentI(int32_t pos, int32_t value) {
-	return $nc($(editor()))->bindArgumentI(this, pos, value);
+	return $$nc(editor())->bindArgumentI(this, pos, value);
 }
 
 BoundMethodHandle* BoundMethodHandle::bindArgumentJ(int32_t pos, int64_t value) {
-	return $nc($(editor()))->bindArgumentJ(this, pos, value);
+	return $$nc(editor())->bindArgumentJ(this, pos, value);
 }
 
 BoundMethodHandle* BoundMethodHandle::bindArgumentF(int32_t pos, float value) {
-	return $nc($(editor()))->bindArgumentF(this, pos, value);
+	return $$nc(editor())->bindArgumentF(this, pos, value);
 }
 
 BoundMethodHandle* BoundMethodHandle::bindArgumentD(int32_t pos, double value) {
-	return $nc($(editor()))->bindArgumentD(this, pos, value);
+	return $$nc(editor())->bindArgumentD(this, pos, value);
 }
 
 BoundMethodHandle* BoundMethodHandle::rebind() {
@@ -237,7 +150,7 @@ bool BoundMethodHandle::tooComplex() {
 
 BoundMethodHandle* BoundMethodHandle::makeReinvoker($MethodHandle* target) {
 	$init(BoundMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BoundMethodHandle$Species_L);
 	$var($LambdaForm, form, $DelegatingMethodHandle::makeReinvokerForm(target, $MethodTypeForm::LF_REBIND, $BoundMethodHandle$Species_L::BMH_SPECIES, $($nc($BoundMethodHandle$Species_L::BMH_SPECIES)->getterFunction(0))));
 	return $BoundMethodHandle$Species_L::make($($nc(target)->type()), form, target);
@@ -249,19 +162,19 @@ $BoundMethodHandle$SpeciesData* BoundMethodHandle::speciesDataFor($LambdaForm* f
 	if ($instanceOf($BoundMethodHandle$SpeciesData, c)) {
 		return $cast($BoundMethodHandle$SpeciesData, c);
 	}
-	return $cast($BoundMethodHandle$SpeciesData, $nc(BoundMethodHandle::SPECIALIZER)->topSpecies());
+	return $cast($BoundMethodHandle$SpeciesData, BoundMethodHandle::SPECIALIZER->topSpecies());
 }
 
 int32_t BoundMethodHandle::fieldCount() {
-	return $nc($(speciesData()))->fieldCount();
+	return $$nc(speciesData())->fieldCount();
 }
 
 $Object* BoundMethodHandle::internalProperties() {
-	return $of($str({"\n& BMH="_s, $($cast($String, internalValues()))}));
+	return $of($str({"\n& BMH="_s, $$cast($String, internalValues())}));
 }
 
 $Object* BoundMethodHandle::internalValues() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = fieldCount();
 	if (count == 1) {
 		return $of($str({"["_s, $(arg(0)), "]"_s}));
@@ -274,36 +187,26 @@ $Object* BoundMethodHandle::internalValues() {
 }
 
 $Object* BoundMethodHandle::arg(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$Class* fieldType = $cast($Class, $nc($($nc($(speciesData()))->fieldTypes()))->get(i));
+		$Class* fieldType = $cast($Class, $$nc($$nc(speciesData())->fieldTypes())->get(i));
 		$init($BoundMethodHandle$1);
-		switch ($nc($BoundMethodHandle$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get($nc(($($LambdaForm$BasicType::basicType(fieldType))))->ordinal())) {
+		switch ($nc($BoundMethodHandle$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get(($$nc($LambdaForm$BasicType::basicType(fieldType)))->ordinal())) {
 		case 1:
-			{
-				return $of($nc($($nc($(speciesData()))->getter(i)))->invokeBasic($$new($ObjectArray, {$of(this)})));
-			}
+			return $$nc($$nc(speciesData())->getter(i))->invokeBasic($$new($ObjectArray, {this}));
 		case 2:
-			{
-				return $of($Integer::valueOf($intValue($nc($($nc($(speciesData()))->getter(i)))->invokeBasic($$new($ObjectArray, {$of(this)})))));
-			}
+			return $of($Integer::valueOf($intValue($$nc($$nc(speciesData())->getter(i))->invokeBasic($$new($ObjectArray, {this})))));
 		case 3:
-			{
-				return $of($Long::valueOf($longValue($nc($($nc($(speciesData()))->getter(i)))->invokeBasic($$new($ObjectArray, {$of(this)})))));
-			}
+			return $of($Long::valueOf($longValue($$nc($$nc(speciesData())->getter(i))->invokeBasic($$new($ObjectArray, {this})))));
 		case 4:
-			{
-				return $of($Float::valueOf($floatValue($nc($($nc($(speciesData()))->getter(i)))->invokeBasic($$new($ObjectArray, {$of(this)})))));
-			}
+			return $of($Float::valueOf($floatValue($$nc($$nc(speciesData())->getter(i))->invokeBasic($$new($ObjectArray, {this})))));
 		case 5:
-			{
-				return $of($Double::valueOf($doubleValue($nc($($nc($(speciesData()))->getter(i)))->invokeBasic($$new($ObjectArray, {$of(this)})))));
-			}
+			return $of($Double::valueOf($doubleValue($$nc($$nc(speciesData())->getter(i))->invokeBasic($$new($ObjectArray, {this})))));
 		}
 	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
-	$throwNew($InternalError, $$str({"unexpected type: "_s, $cast($String, $($nc($(speciesData()))->key())), "."_s, $$str(i)}));
+	$throwNew($InternalError, $$str({"unexpected type: "_s, $$cast($String, $$nc(speciesData())->key()), "."_s, $$str(i)}));
 	$shouldNotReachHere();
 }
 
@@ -315,32 +218,32 @@ $BoundMethodHandle$SpeciesData* BoundMethodHandle::speciesData_L() {
 
 $BoundMethodHandle$SpeciesData* BoundMethodHandle::speciesData_LL() {
 	$init(BoundMethodHandle);
-	return $cast($BoundMethodHandle$SpeciesData, $nc(BoundMethodHandle::SPECIALIZER)->findSpecies("LL"_s));
+	return $cast($BoundMethodHandle$SpeciesData, BoundMethodHandle::SPECIALIZER->findSpecies("LL"_s));
 }
 
 $BoundMethodHandle$SpeciesData* BoundMethodHandle::speciesData_LLL() {
 	$init(BoundMethodHandle);
-	return $cast($BoundMethodHandle$SpeciesData, $nc(BoundMethodHandle::SPECIALIZER)->findSpecies("LLL"_s));
+	return $cast($BoundMethodHandle$SpeciesData, BoundMethodHandle::SPECIALIZER->findSpecies("LLL"_s));
 }
 
 $BoundMethodHandle$SpeciesData* BoundMethodHandle::speciesData_LLLL() {
 	$init(BoundMethodHandle);
-	return $cast($BoundMethodHandle$SpeciesData, $nc(BoundMethodHandle::SPECIALIZER)->findSpecies("LLLL"_s));
+	return $cast($BoundMethodHandle$SpeciesData, BoundMethodHandle::SPECIALIZER->findSpecies("LLLL"_s));
 }
 
 $BoundMethodHandle$SpeciesData* BoundMethodHandle::speciesData_LLLLL() {
 	$init(BoundMethodHandle);
-	return $cast($BoundMethodHandle$SpeciesData, $nc(BoundMethodHandle::SPECIALIZER)->findSpecies("LLLLL"_s));
+	return $cast($BoundMethodHandle$SpeciesData, BoundMethodHandle::SPECIALIZER->findSpecies("LLLLL"_s));
 }
 
-void clinit$BoundMethodHandle($Class* class$) {
+void BoundMethodHandle::clinit$($Class* clazz) {
 	BoundMethodHandle::$assertionsDisabled = !BoundMethodHandle::class$->desiredAssertionStatus();
 	$assignStatic(BoundMethodHandle::SPECIALIZER, $new($BoundMethodHandle$Specializer));
 	{
 		$init($SimpleMethodHandle);
-		$assignStatic($SimpleMethodHandle::BMH_SPECIES, $cast($BoundMethodHandle$SpeciesData, $nc(BoundMethodHandle::SPECIALIZER)->findSpecies(""_s)));
+		$assignStatic($SimpleMethodHandle::BMH_SPECIES, $cast($BoundMethodHandle$SpeciesData, BoundMethodHandle::SPECIALIZER->findSpecies(""_s)));
 		$init($BoundMethodHandle$Species_L);
-		$assignStatic($BoundMethodHandle$Species_L::BMH_SPECIES, $cast($BoundMethodHandle$SpeciesData, $nc(BoundMethodHandle::SPECIALIZER)->findSpecies("L"_s)));
+		$assignStatic($BoundMethodHandle$Species_L::BMH_SPECIES, $cast($BoundMethodHandle$SpeciesData, BoundMethodHandle::SPECIALIZER->findSpecies("L"_s)));
 	}
 }
 
@@ -348,7 +251,69 @@ BoundMethodHandle::BoundMethodHandle() {
 }
 
 $Class* BoundMethodHandle::load$($String* name, bool initialize) {
-	$loadClass(BoundMethodHandle, name, initialize, &_BoundMethodHandle_ClassInfo_, clinit$BoundMethodHandle, allocate$BoundMethodHandle);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BoundMethodHandle, $assertionsDisabled)},
+		{"FIELD_COUNT_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BoundMethodHandle, FIELD_COUNT_THRESHOLD)},
+		{"FORM_EXPRESSION_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BoundMethodHandle, FORM_EXPRESSION_THRESHOLD)},
+		{"SPECIALIZER", "Ljava/lang/invoke/BoundMethodHandle$Specializer;", nullptr, $STATIC | $FINAL, $staticField(BoundMethodHandle, SPECIALIZER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT},
+		{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)V", nullptr, 0, $method(BoundMethodHandle, init$, void, $MethodType*, $LambdaForm*)},
+		{"arg", "(I)Ljava/lang/Object;", nullptr, $FINAL, $method(BoundMethodHandle, arg, $Object*, int32_t)},
+		{"bindArgumentD", "(ID)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, bindArgumentD, BoundMethodHandle*, int32_t, double)},
+		{"bindArgumentF", "(IF)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, bindArgumentF, BoundMethodHandle*, int32_t, float)},
+		{"bindArgumentI", "(II)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, bindArgumentI, BoundMethodHandle*, int32_t, int32_t)},
+		{"bindArgumentJ", "(IJ)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, bindArgumentJ, BoundMethodHandle*, int32_t, int64_t)},
+		{"bindArgumentL", "(ILjava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, bindArgumentL, BoundMethodHandle*, int32_t, Object$*)},
+		{"bindSingle", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/LambdaForm$BasicType;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, bindSingle, BoundMethodHandle*, $MethodType*, $LambdaForm*, $LambdaForm$BasicType*, Object$*)},
+		{"bindSingle", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, bindSingle, BoundMethodHandle*, $MethodType*, $LambdaForm*, Object$*)},
+		{"copyWithExtendD", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;D)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, copyWithExtendD, BoundMethodHandle*, $MethodType*, $LambdaForm*, double)},
+		{"copyWithExtendF", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;F)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, copyWithExtendF, BoundMethodHandle*, $MethodType*, $LambdaForm*, float)},
+		{"copyWithExtendI", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;I)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, copyWithExtendI, BoundMethodHandle*, $MethodType*, $LambdaForm*, int32_t)},
+		{"copyWithExtendJ", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;J)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, copyWithExtendJ, BoundMethodHandle*, $MethodType*, $LambdaForm*, int64_t)},
+		{"copyWithExtendL", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, copyWithExtendL, BoundMethodHandle*, $MethodType*, $LambdaForm*, Object$*)},
+		{"editor", "()Ljava/lang/invoke/LambdaFormEditor;", nullptr, 0, $virtualMethod(BoundMethodHandle, editor, $LambdaFormEditor*)},
+		{"fieldCount", "()I", nullptr, $FINAL, $method(BoundMethodHandle, fieldCount, int32_t)},
+		{"internalProperties", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(BoundMethodHandle, internalProperties, $Object*)},
+		{"internalValues", "()Ljava/lang/String;", nullptr, $FINAL, $virtualMethod(BoundMethodHandle, internalValues, $Object*)},
+		{"makeReinvoker", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, makeReinvoker, BoundMethodHandle*, $MethodHandle*)},
+		{"rebind", "()Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(BoundMethodHandle, rebind, BoundMethodHandle*)},
+		{"speciesData", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $ABSTRACT, $virtualMethod(BoundMethodHandle, speciesData, $BoundMethodHandle$SpeciesData*)},
+		{"speciesDataFor", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesDataFor, $BoundMethodHandle$SpeciesData*, $LambdaForm*)},
+		{"speciesData_L", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesData_L, $BoundMethodHandle$SpeciesData*)},
+		{"speciesData_LL", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesData_LL, $BoundMethodHandle$SpeciesData*)},
+		{"speciesData_LLL", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesData_LLL, $BoundMethodHandle$SpeciesData*)},
+		{"speciesData_LLLL", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesData_LLLL, $BoundMethodHandle$SpeciesData*)},
+		{"speciesData_LLLLL", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $STATIC, $staticMethod(BoundMethodHandle, speciesData_LLLLL, $BoundMethodHandle$SpeciesData*)},
+		{"tooComplex", "()Z", nullptr, $PRIVATE, $method(BoundMethodHandle, tooComplex, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.BoundMethodHandle$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.lang.invoke.BoundMethodHandle$Specializer", "java.lang.invoke.BoundMethodHandle", "Specializer", $STATIC | $FINAL},
+		{"java.lang.invoke.BoundMethodHandle$SpeciesData", "java.lang.invoke.BoundMethodHandle", "SpeciesData", $STATIC | $FINAL},
+		{"java.lang.invoke.BoundMethodHandle$Species_L", "java.lang.invoke.BoundMethodHandle", "Species_L", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.lang.invoke.BoundMethodHandle",
+		"java.lang.invoke.MethodHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.BoundMethodHandle$1,java.lang.invoke.BoundMethodHandle$Specializer,java.lang.invoke.BoundMethodHandle$Specializer$Factory,java.lang.invoke.BoundMethodHandle$SpeciesData,java.lang.invoke.BoundMethodHandle$Species_L"
+	};
+	$loadClass(BoundMethodHandle, name, initialize, &classInfo$$, BoundMethodHandle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BoundMethodHandle);
+	});
 	return class$;
 }
 

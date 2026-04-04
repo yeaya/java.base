@@ -1,5 +1,4 @@
 #include <FlushAfterClose.h>
-
 #include <java/io/IOException.h>
 #include <java/io/PipedReader.h>
 #include <java/io/PipedWriter.h>
@@ -12,30 +11,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _FlushAfterClose_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FlushAfterClose, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FlushAfterClose, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _FlushAfterClose_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FlushAfterClose",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_FlushAfterClose_MethodInfo_
-};
-
-$Object* allocate$FlushAfterClose($Class* clazz) {
-	return $of($alloc(FlushAfterClose));
-}
-
 void FlushAfterClose::init$() {
 }
 
 void FlushAfterClose::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PipedReader, pr, $new($PipedReader));
 	$var($PipedWriter, pw, $new($PipedWriter, pr));
 	pw->close();
@@ -50,7 +30,22 @@ FlushAfterClose::FlushAfterClose() {
 }
 
 $Class* FlushAfterClose::load$($String* name, bool initialize) {
-	$loadClass(FlushAfterClose, name, initialize, &_FlushAfterClose_ClassInfo_, allocate$FlushAfterClose);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FlushAfterClose, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FlushAfterClose, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FlushAfterClose",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FlushAfterClose, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlushAfterClose);
+	});
 	return class$;
 }
 

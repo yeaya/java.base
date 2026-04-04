@@ -36,6 +36,7 @@ class $export AbstractDrbg : public ::java::lang::Object {
 	$class(AbstractDrbg, 0, ::java::lang::Object)
 public:
 	AbstractDrbg();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::security::SecureRandomParameters* params);
 	virtual void chooseAlgorithmAndStrength() {}

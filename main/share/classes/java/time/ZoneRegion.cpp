@@ -1,10 +1,8 @@
 #include <java/time/ZoneRegion.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/io/Serializable.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/Ser.h>
 #include <java/time/ZoneId.h>
@@ -20,7 +18,6 @@ using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -35,43 +32,9 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace time {
 
-$FieldInfo _ZoneRegion_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneRegion, serialVersionUID)},
-	{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ZoneRegion, id)},
-	{"rules", "Ljava/time/zone/ZoneRules;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(ZoneRegion, rules)},
-	{}
-};
-
-$MethodInfo _ZoneRegion_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/time/zone/ZoneRules;)V", nullptr, 0, $method(ZoneRegion, init$, void, $String*, $ZoneRules*)},
-	{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneRegion, checkName, void, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneRegion, getId, $String*)},
-	{"getRules", "()Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC, $virtualMethod(ZoneRegion, getRules, $ZoneRules*)},
-	{"ofId", "(Ljava/lang/String;Z)Ljava/time/ZoneRegion;", nullptr, $STATIC, $staticMethod(ZoneRegion, ofId, ZoneRegion*, $String*, bool)},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/ZoneId;", nullptr, $STATIC, $staticMethod(ZoneRegion, readExternal, $ZoneId*, $DataInput*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneRegion, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"write", "(Ljava/io/DataOutput;)V", nullptr, 0, $virtualMethod(ZoneRegion, write, void, $DataOutput*), "java.io.IOException"},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(ZoneRegion, writeExternal, void, $DataOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ZoneRegion, writeReplace, $Object*)},
-	{}
-};
-
-$ClassInfo _ZoneRegion_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.ZoneRegion",
-	"java.time.ZoneId",
-	nullptr,
-	_ZoneRegion_FieldInfo_,
-	_ZoneRegion_MethodInfo_
-};
-
-$Object* allocate$ZoneRegion($Class* clazz) {
-	return $of($alloc(ZoneRegion));
-}
-
 ZoneRegion* ZoneRegion::ofId($String* zoneId, bool checkAvailable) {
 	$init(ZoneRegion);
-	$Objects::requireNonNull($of(zoneId), "zoneId"_s);
+	$Objects::requireNonNull(zoneId, "zoneId"_s);
 	checkName(zoneId);
 	$var($ZoneRules, rules, nullptr);
 	try {
@@ -86,7 +49,7 @@ ZoneRegion* ZoneRegion::ofId($String* zoneId, bool checkAvailable) {
 
 void ZoneRegion::checkName($String* zoneId) {
 	$init(ZoneRegion);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(zoneId)->length();
 	if (n < 2) {
 		$throwNew($DateTimeException, $$str({"Invalid ID for region-based ZoneId, invalid format: "_s, zoneId}));
@@ -139,7 +102,7 @@ $ZoneRules* ZoneRegion::getRules() {
 }
 
 $Object* ZoneRegion::writeReplace() {
-	return $of($new($Ser, $Ser::ZONE_REGION_TYPE, this));
+	return $new($Ser, $Ser::ZONE_REGION_TYPE, this);
 }
 
 void ZoneRegion::readObject($ObjectInputStream* s) {
@@ -165,7 +128,36 @@ ZoneRegion::ZoneRegion() {
 }
 
 $Class* ZoneRegion::load$($String* name, bool initialize) {
-	$loadClass(ZoneRegion, name, initialize, &_ZoneRegion_ClassInfo_, allocate$ZoneRegion);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneRegion, serialVersionUID)},
+		{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ZoneRegion, id)},
+		{"rules", "Ljava/time/zone/ZoneRules;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(ZoneRegion, rules)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/time/zone/ZoneRules;)V", nullptr, 0, $method(ZoneRegion, init$, void, $String*, $ZoneRules*)},
+		{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneRegion, checkName, void, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneRegion, getId, $String*)},
+		{"getRules", "()Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC, $virtualMethod(ZoneRegion, getRules, $ZoneRules*)},
+		{"ofId", "(Ljava/lang/String;Z)Ljava/time/ZoneRegion;", nullptr, $STATIC, $staticMethod(ZoneRegion, ofId, ZoneRegion*, $String*, bool)},
+		{"readExternal", "(Ljava/io/DataInput;)Ljava/time/ZoneId;", nullptr, $STATIC, $staticMethod(ZoneRegion, readExternal, $ZoneId*, $DataInput*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneRegion, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"write", "(Ljava/io/DataOutput;)V", nullptr, 0, $virtualMethod(ZoneRegion, write, void, $DataOutput*), "java.io.IOException"},
+		{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(ZoneRegion, writeExternal, void, $DataOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ZoneRegion, writeReplace, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.ZoneRegion",
+		"java.time.ZoneId",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ZoneRegion, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZoneRegion);
+	});
 	return class$;
 }
 

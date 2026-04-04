@@ -1,5 +1,4 @@
 #include <ReadAhead$LimitedInputStream.h>
-
 #include <ReadAhead.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -11,44 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _ReadAhead$LimitedInputStream_FieldInfo_[] = {
-	{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ReadAhead$LimitedInputStream, input)},
-	{"limit", "I", nullptr, $PRIVATE, $field(ReadAhead$LimitedInputStream, limit)},
-	{"next", "I", nullptr, $PRIVATE, $field(ReadAhead$LimitedInputStream, next)},
-	{}
-};
-
-$MethodInfo _ReadAhead$LimitedInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ReadAhead$LimitedInputStream, init$, void, $String*, int32_t)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedInputStream, read, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ReadAhead$LimitedInputStream_InnerClassesInfo_[] = {
-	{"ReadAhead$LimitedInputStream", "ReadAhead", "LimitedInputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ReadAhead$LimitedInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"ReadAhead$LimitedInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_ReadAhead$LimitedInputStream_FieldInfo_,
-	_ReadAhead$LimitedInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReadAhead$LimitedInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ReadAhead"
-};
-
-$Object* allocate$ReadAhead$LimitedInputStream($Class* clazz) {
-	return $of($alloc(ReadAhead$LimitedInputStream));
-}
 
 void ReadAhead$LimitedInputStream::init$($String* input, int32_t limit) {
 	$InputStream::init$();
@@ -68,7 +29,39 @@ ReadAhead$LimitedInputStream::ReadAhead$LimitedInputStream() {
 }
 
 $Class* ReadAhead$LimitedInputStream::load$($String* name, bool initialize) {
-	$loadClass(ReadAhead$LimitedInputStream, name, initialize, &_ReadAhead$LimitedInputStream_ClassInfo_, allocate$ReadAhead$LimitedInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ReadAhead$LimitedInputStream, input)},
+		{"limit", "I", nullptr, $PRIVATE, $field(ReadAhead$LimitedInputStream, limit)},
+		{"next", "I", nullptr, $PRIVATE, $field(ReadAhead$LimitedInputStream, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ReadAhead$LimitedInputStream, init$, void, $String*, int32_t)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedInputStream, read, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ReadAhead$LimitedInputStream", "ReadAhead", "LimitedInputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ReadAhead$LimitedInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ReadAhead"
+	};
+	$loadClass(ReadAhead$LimitedInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReadAhead$LimitedInputStream);
+	});
 	return class$;
 }
 

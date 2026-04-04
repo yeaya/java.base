@@ -51,6 +51,7 @@ class GenerateJLIClassesHelper : public ::java::lang::Object {
 	$class(GenerateJLIClassesHelper, 0, ::java::lang::Object)
 public:
 	GenerateJLIClassesHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* generateBasicFormsClassBytes($String* className);
 	static $bytes* generateCodeBytesForLFs($String* className, $StringArray* names, $Array<::java::lang::invoke::LambdaForm>* forms);

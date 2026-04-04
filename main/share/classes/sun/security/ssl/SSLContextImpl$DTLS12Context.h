@@ -19,6 +19,7 @@ class SSLContextImpl$DTLS12Context : public ::sun::security::ssl::SSLContextImpl
 	$class(SSLContextImpl$DTLS12Context, 0, ::sun::security::ssl::SSLContextImpl$AbstractDTLSContext)
 public:
 	SSLContextImpl$DTLS12Context();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::List* getClientDefaultCipherSuites() override;
 	virtual ::java::util::List* getClientDefaultProtocolVersions() override;

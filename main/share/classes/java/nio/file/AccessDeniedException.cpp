@@ -1,5 +1,4 @@
 #include <java/nio/file/AccessDeniedException.h>
-
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $FileSystemException = ::java::nio::file::FileSystemException;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _AccessDeniedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AccessDeniedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AccessDeniedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccessDeniedException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccessDeniedException, init$, void, $String*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _AccessDeniedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.AccessDeniedException",
-	"java.nio.file.FileSystemException",
-	nullptr,
-	_AccessDeniedException_FieldInfo_,
-	_AccessDeniedException_MethodInfo_
-};
-
-$Object* allocate$AccessDeniedException($Class* clazz) {
-	return $of($alloc(AccessDeniedException));
-}
 
 void AccessDeniedException::init$($String* file) {
 	$FileSystemException::init$(file);
@@ -55,7 +30,26 @@ void AccessDeniedException::throw$() {
 }
 
 $Class* AccessDeniedException::load$($String* name, bool initialize) {
-	$loadClass(AccessDeniedException, name, initialize, &_AccessDeniedException_ClassInfo_, allocate$AccessDeniedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AccessDeniedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccessDeniedException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccessDeniedException, init$, void, $String*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.AccessDeniedException",
+		"java.nio.file.FileSystemException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AccessDeniedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessDeniedException);
+	});
 	return class$;
 }
 

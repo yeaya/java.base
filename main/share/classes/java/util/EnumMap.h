@@ -39,6 +39,7 @@ class $export EnumMap : public ::java::util::AbstractMap, public ::java::io::Ser
 public:
 	EnumMap();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* keyType);
 	void init$(::java::util::EnumMap* m);
 	void init$(::java::util::Map* m);
@@ -76,7 +77,7 @@ public:
 	int32_t size$ = 0;
 	static $Object* NULL;
 	::java::util::Set* entrySet$ = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x065D7DF7BE907CA1;
+	static const int64_t serialVersionUID = (int64_t)0x065d7df7be907ca1;
 };
 
 	} // util

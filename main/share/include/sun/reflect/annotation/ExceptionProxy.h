@@ -21,7 +21,7 @@ public:
 	ExceptionProxy();
 	void init$();
 	virtual ::java::lang::RuntimeException* generateException() {return nullptr;}
-	static const int64_t serialVersionUID = (int64_t)0x64808102765006E9;
+	static const int64_t serialVersionUID = (int64_t)0x64808102765006e9;
 };
 
 		} // annotation

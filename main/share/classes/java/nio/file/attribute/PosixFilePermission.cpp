@@ -1,5 +1,4 @@
 #include <java/nio/file/attribute/PosixFilePermission.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -23,42 +22,6 @@ namespace java {
 	namespace nio {
 		namespace file {
 			namespace attribute {
-
-$FieldInfo _PosixFilePermission_FieldInfo_[] = {
-	{"OWNER_READ", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OWNER_READ)},
-	{"OWNER_WRITE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OWNER_WRITE)},
-	{"OWNER_EXECUTE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OWNER_EXECUTE)},
-	{"GROUP_READ", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, GROUP_READ)},
-	{"GROUP_WRITE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, GROUP_WRITE)},
-	{"GROUP_EXECUTE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, GROUP_EXECUTE)},
-	{"OTHERS_READ", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OTHERS_READ)},
-	{"OTHERS_WRITE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OTHERS_WRITE)},
-	{"OTHERS_EXECUTE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OTHERS_EXECUTE)},
-	{"$VALUES", "[Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PosixFilePermission, $VALUES)},
-	{}
-};
-
-$MethodInfo _PosixFilePermission_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PosixFilePermission, $values, $PosixFilePermissionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PosixFilePermission, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(PosixFilePermission, valueOf, PosixFilePermission*, $String*)},
-	{"values", "()[Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(PosixFilePermission, values, $PosixFilePermissionArray*)},
-	{}
-};
-
-$ClassInfo _PosixFilePermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.nio.file.attribute.PosixFilePermission",
-	"java.lang.Enum",
-	nullptr,
-	_PosixFilePermission_FieldInfo_,
-	_PosixFilePermission_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/nio/file/attribute/PosixFilePermission;>;"
-};
-
-$Object* allocate$PosixFilePermission($Class* clazz) {
-	return $of($alloc(PosixFilePermission));
-}
 
 PosixFilePermission* PosixFilePermission::OWNER_READ = nullptr;
 PosixFilePermission* PosixFilePermission::OWNER_WRITE = nullptr;
@@ -100,7 +63,7 @@ void PosixFilePermission::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$PosixFilePermission($Class* class$) {
+void PosixFilePermission::clinit$($Class* clazz) {
 	$assignStatic(PosixFilePermission::OWNER_READ, $new(PosixFilePermission, "OWNER_READ"_s, 0));
 	$assignStatic(PosixFilePermission::OWNER_WRITE, $new(PosixFilePermission, "OWNER_WRITE"_s, 1));
 	$assignStatic(PosixFilePermission::OWNER_EXECUTE, $new(PosixFilePermission, "OWNER_EXECUTE"_s, 2));
@@ -117,7 +80,38 @@ PosixFilePermission::PosixFilePermission() {
 }
 
 $Class* PosixFilePermission::load$($String* name, bool initialize) {
-	$loadClass(PosixFilePermission, name, initialize, &_PosixFilePermission_ClassInfo_, clinit$PosixFilePermission, allocate$PosixFilePermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"OWNER_READ", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OWNER_READ)},
+		{"OWNER_WRITE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OWNER_WRITE)},
+		{"OWNER_EXECUTE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OWNER_EXECUTE)},
+		{"GROUP_READ", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, GROUP_READ)},
+		{"GROUP_WRITE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, GROUP_WRITE)},
+		{"GROUP_EXECUTE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, GROUP_EXECUTE)},
+		{"OTHERS_READ", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OTHERS_READ)},
+		{"OTHERS_WRITE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OTHERS_WRITE)},
+		{"OTHERS_EXECUTE", "Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PosixFilePermission, OTHERS_EXECUTE)},
+		{"$VALUES", "[Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PosixFilePermission, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PosixFilePermission, $values, $PosixFilePermissionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PosixFilePermission, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(PosixFilePermission, valueOf, PosixFilePermission*, $String*)},
+		{"values", "()[Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(PosixFilePermission, values, $PosixFilePermissionArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.nio.file.attribute.PosixFilePermission",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/nio/file/attribute/PosixFilePermission;>;"
+	};
+	$loadClass(PosixFilePermission, name, initialize, &classInfo$$, PosixFilePermission::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PosixFilePermission));
+	});
 	return class$;
 }
 

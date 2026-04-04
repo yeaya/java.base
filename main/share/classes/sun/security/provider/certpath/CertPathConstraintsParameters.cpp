@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/CertPathConstraintsParameters.h>
-
 #include <java/security/Key.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/TrustAnchor.h>
@@ -29,41 +28,6 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _CertPathConstraintsParameters_FieldInfo_[] = {
-	{"key", "Ljava/security/Key;", nullptr, $PRIVATE | $FINAL, $field(CertPathConstraintsParameters, key)},
-	{"anchor", "Ljava/security/cert/TrustAnchor;", nullptr, $PRIVATE | $FINAL, $field(CertPathConstraintsParameters, anchor)},
-	{"date", "Ljava/util/Date;", nullptr, $PRIVATE | $FINAL, $field(CertPathConstraintsParameters, date)},
-	{"variant", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(CertPathConstraintsParameters, variant)},
-	{"cert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $FINAL, $field(CertPathConstraintsParameters, cert)},
-	{}
-};
-
-$MethodInfo _CertPathConstraintsParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/security/cert/TrustAnchor;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(CertPathConstraintsParameters, init$, void, $X509Certificate*, $String*, $TrustAnchor*, $Date*)},
-	{"<init>", "(Ljava/security/Key;Ljava/lang/String;Ljava/security/cert/TrustAnchor;)V", nullptr, $PUBLIC, $method(CertPathConstraintsParameters, init$, void, $Key*, $String*, $TrustAnchor*)},
-	{"<init>", "(Ljava/security/Key;Ljava/lang/String;Ljava/security/cert/TrustAnchor;Ljava/util/Date;Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(CertPathConstraintsParameters, init$, void, $Key*, $String*, $TrustAnchor*, $Date*, $X509Certificate*)},
-	{"anchorIsJdkCA", "()Z", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, anchorIsJdkCA, bool)},
-	{"extendedExceptionMsg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, extendedExceptionMsg, $String*)},
-	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, getDate, $Date*)},
-	{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/Key;>;", $PUBLIC, $virtualMethod(CertPathConstraintsParameters, getKeys, $Set*)},
-	{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, getVariant, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CertPathConstraintsParameters_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.CertPathConstraintsParameters",
-	"java.lang.Object",
-	"sun.security.util.ConstraintsParameters",
-	_CertPathConstraintsParameters_FieldInfo_,
-	_CertPathConstraintsParameters_MethodInfo_
-};
-
-$Object* allocate$CertPathConstraintsParameters($Class* clazz) {
-	return $of($alloc(CertPathConstraintsParameters));
-}
-
 void CertPathConstraintsParameters::init$($X509Certificate* cert, $String* variant, $TrustAnchor* anchor, $Date* date) {
 	CertPathConstraintsParameters::init$($($nc(cert)->getPublicKey()), variant, anchor, date, cert);
 }
@@ -86,7 +50,7 @@ bool CertPathConstraintsParameters::anchorIsJdkCA() {
 }
 
 $Set* CertPathConstraintsParameters::getKeys() {
-	return (this->key == nullptr) ? $Set::of() : $Set::of($of(this->key));
+	return (this->key == nullptr) ? $Set::of() : $Set::of(this->key);
 }
 
 $Date* CertPathConstraintsParameters::getDate() {
@@ -98,25 +62,25 @@ $String* CertPathConstraintsParameters::getVariant() {
 }
 
 $String* CertPathConstraintsParameters::extendedExceptionMsg() {
-	return (this->cert == nullptr ? "."_s : $str({" used with certificate: "_s, $($nc(this->cert)->getSubjectX500Principal())}));
+	return (this->cert == nullptr ? "."_s : $str({" used with certificate: "_s, $(this->cert->getSubjectX500Principal())}));
 }
 
 $String* CertPathConstraintsParameters::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, "[\n"_s));
 	sb->append("\n  Variant: "_s)->append(this->variant);
 	if (this->anchor != nullptr) {
-		sb->append("\n  Anchor: "_s)->append($of(this->anchor));
+		sb->append("\n  Anchor: "_s)->append(this->anchor);
 	}
 	if (this->cert != nullptr) {
-		sb->append("\n  Cert Issuer: "_s)->append($($of($nc(this->cert)->getIssuerX500Principal())));
-		sb->append("\n  Cert Subject: "_s)->append($($of($nc(this->cert)->getSubjectX500Principal())));
+		sb->append("\n  Cert Issuer: "_s)->append($(this->cert->getIssuerX500Principal()));
+		sb->append("\n  Cert Subject: "_s)->append($(this->cert->getSubjectX500Principal()));
 	}
 	if (this->key != nullptr) {
-		sb->append("\n  Key: "_s)->append($($nc(this->key)->getAlgorithm()));
+		sb->append("\n  Key: "_s)->append($(this->key->getAlgorithm()));
 	}
 	if (this->date != nullptr) {
-		sb->append("\n  Date: "_s)->append($of(this->date));
+		sb->append("\n  Date: "_s)->append(this->date);
 	}
 	sb->append("\n]"_s);
 	return sb->toString();
@@ -126,7 +90,37 @@ CertPathConstraintsParameters::CertPathConstraintsParameters() {
 }
 
 $Class* CertPathConstraintsParameters::load$($String* name, bool initialize) {
-	$loadClass(CertPathConstraintsParameters, name, initialize, &_CertPathConstraintsParameters_ClassInfo_, allocate$CertPathConstraintsParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/security/Key;", nullptr, $PRIVATE | $FINAL, $field(CertPathConstraintsParameters, key)},
+		{"anchor", "Ljava/security/cert/TrustAnchor;", nullptr, $PRIVATE | $FINAL, $field(CertPathConstraintsParameters, anchor)},
+		{"date", "Ljava/util/Date;", nullptr, $PRIVATE | $FINAL, $field(CertPathConstraintsParameters, date)},
+		{"variant", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(CertPathConstraintsParameters, variant)},
+		{"cert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $FINAL, $field(CertPathConstraintsParameters, cert)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/security/cert/TrustAnchor;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(CertPathConstraintsParameters, init$, void, $X509Certificate*, $String*, $TrustAnchor*, $Date*)},
+		{"<init>", "(Ljava/security/Key;Ljava/lang/String;Ljava/security/cert/TrustAnchor;)V", nullptr, $PUBLIC, $method(CertPathConstraintsParameters, init$, void, $Key*, $String*, $TrustAnchor*)},
+		{"<init>", "(Ljava/security/Key;Ljava/lang/String;Ljava/security/cert/TrustAnchor;Ljava/util/Date;Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(CertPathConstraintsParameters, init$, void, $Key*, $String*, $TrustAnchor*, $Date*, $X509Certificate*)},
+		{"anchorIsJdkCA", "()Z", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, anchorIsJdkCA, bool)},
+		{"extendedExceptionMsg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, extendedExceptionMsg, $String*)},
+		{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, getDate, $Date*)},
+		{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/Key;>;", $PUBLIC, $virtualMethod(CertPathConstraintsParameters, getKeys, $Set*)},
+		{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, getVariant, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.CertPathConstraintsParameters",
+		"java.lang.Object",
+		"sun.security.util.ConstraintsParameters",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertPathConstraintsParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertPathConstraintsParameters);
+	});
 	return class$;
 }
 

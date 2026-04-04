@@ -30,6 +30,7 @@ class $export Security : public ::java::lang::Object {
 	$class(Security, 0, ::java::lang::Object)
 public:
 	Security();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void call(::Security$Command* r, $Class* expectedException);
 	static void close($Array<::java::nio::channels::NetworkChannel>* channels);

@@ -1,5 +1,4 @@
 #include <java/util/IdentityHashMap$IdentityHashMapIterator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/IdentityHashMap.h>
@@ -18,49 +17,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace util {
 
-$FieldInfo _IdentityHashMap$IdentityHashMapIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/IdentityHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(IdentityHashMap$IdentityHashMapIterator, this$0)},
-	{"index", "I", nullptr, 0, $field(IdentityHashMap$IdentityHashMapIterator, index)},
-	{"expectedModCount", "I", nullptr, 0, $field(IdentityHashMap$IdentityHashMapIterator, expectedModCount)},
-	{"lastReturnedIndex", "I", nullptr, 0, $field(IdentityHashMap$IdentityHashMapIterator, lastReturnedIndex)},
-	{"indexValid", "Z", nullptr, 0, $field(IdentityHashMap$IdentityHashMapIterator, indexValid)},
-	{"traversalTable", "[Ljava/lang/Object;", nullptr, 0, $field(IdentityHashMap$IdentityHashMapIterator, traversalTable)},
-	{}
-};
-
-$MethodInfo _IdentityHashMap$IdentityHashMapIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(IdentityHashMap$IdentityHashMapIterator, init$, void, $IdentityHashMap*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$IdentityHashMapIterator, hasNext, bool)},
-	{"nextIndex", "()I", nullptr, $PROTECTED, $virtualMethod(IdentityHashMap$IdentityHashMapIterator, nextIndex, int32_t)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$IdentityHashMapIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _IdentityHashMap$IdentityHashMapIterator_InnerClassesInfo_[] = {
-	{"java.util.IdentityHashMap$IdentityHashMapIterator", "java.util.IdentityHashMap", "IdentityHashMapIterator", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _IdentityHashMap$IdentityHashMapIterator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.IdentityHashMap$IdentityHashMapIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_IdentityHashMap$IdentityHashMapIterator_FieldInfo_,
-	_IdentityHashMap$IdentityHashMapIterator_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
-	nullptr,
-	_IdentityHashMap$IdentityHashMapIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.IdentityHashMap"
-};
-
-$Object* allocate$IdentityHashMap$IdentityHashMapIterator($Class* clazz) {
-	return $of($alloc(IdentityHashMap$IdentityHashMapIterator));
-}
-
 void IdentityHashMap$IdentityHashMapIterator::init$($IdentityHashMap* this$0) {
 	$set(this, this$0, this$0);
 	this->index = (this->this$0->size$ != 0 ? 0 : $nc(this->this$0->table)->length);
@@ -70,7 +26,7 @@ void IdentityHashMap$IdentityHashMapIterator::init$($IdentityHashMap* this$0) {
 }
 
 bool IdentityHashMap$IdentityHashMapIterator::hasNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, tab, this->traversalTable);
 	for (int32_t i = this->index; i < $nc(tab)->length; i += 2) {
 		$var($Object0, key, tab->get(i));
@@ -79,7 +35,7 @@ bool IdentityHashMap$IdentityHashMapIterator::hasNext() {
 			return this->indexValid = true;
 		}
 	}
-	this->index = $nc(tab)->length;
+	this->index = tab->length;
 	return false;
 }
 
@@ -97,7 +53,7 @@ int32_t IdentityHashMap$IdentityHashMapIterator::nextIndex() {
 }
 
 void IdentityHashMap$IdentityHashMapIterator::remove() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->lastReturnedIndex == -1) {
 		$throwNew($IllegalStateException);
 	}
@@ -145,7 +101,44 @@ IdentityHashMap$IdentityHashMapIterator::IdentityHashMap$IdentityHashMapIterator
 }
 
 $Class* IdentityHashMap$IdentityHashMapIterator::load$($String* name, bool initialize) {
-	$loadClass(IdentityHashMap$IdentityHashMapIterator, name, initialize, &_IdentityHashMap$IdentityHashMapIterator_ClassInfo_, allocate$IdentityHashMap$IdentityHashMapIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/IdentityHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(IdentityHashMap$IdentityHashMapIterator, this$0)},
+		{"index", "I", nullptr, 0, $field(IdentityHashMap$IdentityHashMapIterator, index)},
+		{"expectedModCount", "I", nullptr, 0, $field(IdentityHashMap$IdentityHashMapIterator, expectedModCount)},
+		{"lastReturnedIndex", "I", nullptr, 0, $field(IdentityHashMap$IdentityHashMapIterator, lastReturnedIndex)},
+		{"indexValid", "Z", nullptr, 0, $field(IdentityHashMap$IdentityHashMapIterator, indexValid)},
+		{"traversalTable", "[Ljava/lang/Object;", nullptr, 0, $field(IdentityHashMap$IdentityHashMapIterator, traversalTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(IdentityHashMap$IdentityHashMapIterator, init$, void, $IdentityHashMap*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$IdentityHashMapIterator, hasNext, bool)},
+		{"nextIndex", "()I", nullptr, $PROTECTED, $virtualMethod(IdentityHashMap$IdentityHashMapIterator, nextIndex, int32_t)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$IdentityHashMapIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.IdentityHashMap$IdentityHashMapIterator", "java.util.IdentityHashMap", "IdentityHashMapIterator", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.IdentityHashMap$IdentityHashMapIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.IdentityHashMap"
+	};
+	$loadClass(IdentityHashMap$IdentityHashMapIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IdentityHashMap$IdentityHashMapIterator);
+	});
 	return class$;
 }
 

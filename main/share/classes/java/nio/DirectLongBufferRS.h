@@ -37,6 +37,7 @@ public:
 	DirectLongBufferRS();
 	using ::java::nio::DirectLongBufferS::get;
 	using ::java::nio::DirectLongBufferS::limit;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::ch::DirectBuffer* db, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int32_t off, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	virtual ::java::nio::LongBuffer* asReadOnlyBuffer() override;
 	virtual $Object* base() override;

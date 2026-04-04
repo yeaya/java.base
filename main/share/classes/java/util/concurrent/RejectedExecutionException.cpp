@@ -1,5 +1,4 @@
 #include <java/util/concurrent/RejectedExecutionException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,32 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _RejectedExecutionException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RejectedExecutionException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RejectedExecutionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _RejectedExecutionException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.RejectedExecutionException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_RejectedExecutionException_FieldInfo_,
-	_RejectedExecutionException_MethodInfo_
-};
-
-$Object* allocate$RejectedExecutionException($Class* clazz) {
-	return $of($alloc(RejectedExecutionException));
-}
 
 void RejectedExecutionException::init$() {
 	$RuntimeException::init$();
@@ -64,7 +37,28 @@ void RejectedExecutionException::throw$() {
 }
 
 $Class* RejectedExecutionException::load$($String* name, bool initialize) {
-	$loadClass(RejectedExecutionException, name, initialize, &_RejectedExecutionException_ClassInfo_, allocate$RejectedExecutionException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RejectedExecutionException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.RejectedExecutionException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RejectedExecutionException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RejectedExecutionException);
+	});
 	return class$;
 }
 

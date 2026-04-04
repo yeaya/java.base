@@ -1,5 +1,4 @@
 #include <java/io/NotSerializableException.h>
-
 #include <java/io/ObjectStreamException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _NotSerializableException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotSerializableException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NotSerializableException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotSerializableException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NotSerializableException, init$, void)},
-	{}
-};
-
-$ClassInfo _NotSerializableException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.NotSerializableException",
-	"java.io.ObjectStreamException",
-	nullptr,
-	_NotSerializableException_FieldInfo_,
-	_NotSerializableException_MethodInfo_
-};
-
-$Object* allocate$NotSerializableException($Class* clazz) {
-	return $of($alloc(NotSerializableException));
-}
 
 void NotSerializableException::init$($String* classname) {
 	$ObjectStreamException::init$(classname);
@@ -54,7 +29,26 @@ void NotSerializableException::throw$() {
 }
 
 $Class* NotSerializableException::load$($String* name, bool initialize) {
-	$loadClass(NotSerializableException, name, initialize, &_NotSerializableException_ClassInfo_, allocate$NotSerializableException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotSerializableException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotSerializableException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NotSerializableException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.NotSerializableException",
+		"java.io.ObjectStreamException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotSerializableException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotSerializableException);
+	});
 	return class$;
 }
 

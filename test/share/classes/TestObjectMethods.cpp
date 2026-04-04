@@ -1,5 +1,4 @@
 #include <TestObjectMethods.h>
-
 #include <TestObjectMethods$1.h>
 #include <TestObjectMethods$AnnotTypeInfo.h>
 #include <TestObjectMethods$AnnotatedTypeHost.h>
@@ -27,7 +26,6 @@ using $TestObjectMethods$TypeHost = ::TestObjectMethods$TypeHost;
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -46,56 +44,6 @@ using $Type = ::java::lang::reflect::Type;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 
-$FieldInfo _TestObjectMethods_FieldInfo_[] = {
-	{"errors", "I", nullptr, $PRIVATE | $STATIC, $staticField(TestObjectMethods, errors)},
-	{"annotationRegex", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestObjectMethods, annotationRegex)},
-	{}
-};
-
-$MethodInfo _TestObjectMethods_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestObjectMethods, init$, void)},
-	{"checkTypesForEquality", "(Ljava/lang/reflect/AnnotatedType;Ljava/lang/reflect/AnnotatedType;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestObjectMethods, checkTypesForEquality, void, $AnnotatedType*, $AnnotatedType*, bool)},
-	{"extractWildcard", "(Ljava/lang/String;)Ljava/lang/reflect/AnnotatedWildcardType;", nullptr, $PRIVATE | $STATIC, $staticMethod(TestObjectMethods, extractWildcard, $AnnotatedWildcardType*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestObjectMethods, main, void, $StringArray*)},
-	{"testAnnotationsMatterForEquals", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testAnnotationsMatterForEquals, void, $Class*, $Class*)},
-	{"testEquals", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testEquals, void, $Class*)},
-	{"testEqualsReflexivity", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testEqualsReflexivity, void, $Class*)},
-	{"testFbounds", "()V", nullptr, $STATIC, $staticMethod(TestObjectMethods, testFbounds, void)},
-	{"testGetAnnotations", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $STATIC, $staticMethod(TestObjectMethods, testGetAnnotations, void, $Class*, bool)},
-	{"testToString", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testToString, void, $Class*)},
-	{"testWildcards", "()V", nullptr, $STATIC, $staticMethod(TestObjectMethods, testWildcards, void)},
-	{}
-};
-
-$InnerClassInfo _TestObjectMethods_InnerClassesInfo_[] = {
-	{"TestObjectMethods$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"TestObjectMethods$AnnotatedTypeHost", "TestObjectMethods", "AnnotatedTypeHost", $STATIC},
-	{"TestObjectMethods$Relation", "TestObjectMethods", "Relation", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"TestObjectMethods$AnnotTypeInfo", "TestObjectMethods", "AnnotTypeInfo", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"TestObjectMethods$AnnotType", "TestObjectMethods", "AnnotType", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"TestObjectMethods$TypeHost", "TestObjectMethods", "TypeHost", $STATIC},
-	{}
-};
-
-$ClassInfo _TestObjectMethods_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestObjectMethods",
-	"java.lang.Object",
-	nullptr,
-	_TestObjectMethods_FieldInfo_,
-	_TestObjectMethods_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestObjectMethods_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestObjectMethods$1,TestObjectMethods$AnnotatedTypeHost,TestObjectMethods$Relation,TestObjectMethods$AnnotTypeInfo,TestObjectMethods$AnnotType,TestObjectMethods$TypeHost"
-};
-
-$Object* allocate$TestObjectMethods($Class* clazz) {
-	return $of($alloc(TestObjectMethods));
-}
-
 int32_t TestObjectMethods::errors = 0;
 $Pattern* TestObjectMethods::annotationRegex = nullptr;
 
@@ -104,7 +52,7 @@ void TestObjectMethods::init$() {
 
 void TestObjectMethods::main($StringArray* args) {
 	$init(TestObjectMethods);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($TestObjectMethods$TypeHost);
 	$load($TestObjectMethods$AnnotatedTypeHost);
 	$var($ClassArray, testClasses, $new($ClassArray, {
@@ -113,9 +61,7 @@ void TestObjectMethods::main($StringArray* args) {
 	}));
 	{
 		$var($ClassArray, arr$, testClasses);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* clazz = arr$->get(i$);
 			{
 				testEqualsReflexivity(clazz);
@@ -137,15 +83,13 @@ void TestObjectMethods::main($StringArray* args) {
 
 void TestObjectMethods::testToString($Class* clazz) {
 	$init(TestObjectMethods);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::err)->println($$str({"Testing toString on methods of class "_s, $($nc(clazz)->getName())}));
-	$var($MethodArray, methods, $nc(clazz)->getDeclaredMethods());
+	$var($MethodArray, methods, clazz->getDeclaredMethods());
 	{
 		$var($MethodArray, arr$, methods);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Method, m, arr$->get(i$));
 			{
 				$load($TestObjectMethods$AnnotTypeInfo);
@@ -153,23 +97,21 @@ void TestObjectMethods::testToString($Class* clazz) {
 				int32_t expectedAnnotCount = $nc(annotTypeInfo)->count();
 				$TestObjectMethods$Relation* relation = annotTypeInfo->relation();
 				$var($AnnotatedType, annotType, m->getAnnotatedReturnType());
-				$var($String, annotTypeString, $nc($of(annotType))->toString());
+				$var($String, annotTypeString, $nc(annotType)->toString());
 				$var($Type, type, m->getGenericReturnType());
-				$var($String, typeString, ($instanceOf($Class, type)) ? $nc(type)->getTypeName() : $of(type)->toString());
+				$var($String, typeString, ($instanceOf($Class, type)) ? type->getTypeName() : $nc(type)->toString());
 				bool isArray = $instanceOf($AnnotatedArrayType, annotType);
 				bool isVoid = "void"_s->equals(typeString);
 				bool valid = false;
-				$init($TestObjectMethods$1);
 				{
-					$var($String, stripped, nullptr)
-					$var($AnnotatedType, componentType, nullptr)
-					$var($String, componentName, nullptr)
+					$init($TestObjectMethods$1);
+					$var($String, stripped, nullptr);
+					$var($AnnotatedType, componentType, nullptr);
+					$var($String, componentName, nullptr);
 					switch ($nc($TestObjectMethods$1::$SwitchMap$TestObjectMethods$Relation)->get($nc((relation))->ordinal())) {
 					case 1:
-						{
-							valid = $nc(annotTypeString)->equals(typeString);
-							break;
-						}
+						valid = $nc(annotTypeString)->equals(typeString);
+						break;
 					case 2:
 						{
 							bool var$0 = $nc(annotTypeString)->endsWith(typeString);
@@ -177,32 +119,24 @@ void TestObjectMethods::testToString($Class* clazz) {
 							break;
 						}
 					case 3:
-						{
-							$assign(stripped, $nc($($nc(TestObjectMethods::annotationRegex)->matcher(annotTypeString)))->replaceAll(""_s));
-							valid = $($nc(typeString)->replace(static_cast<$CharSequence*>(" "_s), static_cast<$CharSequence*>(""_s)))->equals($($nc(stripped)->replace(static_cast<$CharSequence*>(" "_s), static_cast<$CharSequence*>(""_s))));
-							break;
-						}
+						$assign(stripped, $$nc($nc(TestObjectMethods::annotationRegex)->matcher(annotTypeString))->replaceAll(""_s));
+						valid = $($nc(typeString)->replace(" "_s, ""_s))->equals($($nc(stripped)->replace(" "_s, ""_s)));
+						break;
 					case 4:
-						{
-							$assign(typeString, nullptr);
-							$assign(componentType, annotType);
-							while ($instanceOf($AnnotatedArrayType, componentType)) {
-								$var($AnnotatedArrayType, annotatedArrayType, $cast($AnnotatedArrayType, componentType));
-								$assign(componentType, $nc(annotatedArrayType)->getAnnotatedGenericComponentType());
-							}
-							$assign(componentName, $nc($($nc(componentType)->getType()))->getTypeName());
-							valid = $nc(annotTypeString)->contains(componentName);
-							break;
+						$assign(typeString, nullptr);
+						$assign(componentType, annotType);
+						while ($instanceOf($AnnotatedArrayType, componentType)) {
+							$var($AnnotatedArrayType, annotatedArrayType, $cast($AnnotatedArrayType, componentType));
+							$assign(componentType, annotatedArrayType->getAnnotatedGenericComponentType());
 						}
+						$assign(componentName, $$nc($nc(componentType)->getType())->getTypeName());
+						valid = $nc(annotTypeString)->contains(componentName);
+						break;
 					case 5:
-						{
-							valid = true;
-							break;
-						}
+						valid = true;
+						break;
 					default:
-						{
-							$throwNew($AssertionError, $of("Shouldn\'t be reached"_s));
-						}
+						$throwNew($AssertionError, $of("Shouldn\'t be reached"_s));
 					}
 				}
 				$var($Matcher, matcher, $nc(TestObjectMethods::annotationRegex)->matcher(annotTypeString));
@@ -216,18 +150,18 @@ void TestObjectMethods::testToString($Class* clazz) {
 							++annotCount;
 						} else {
 							++TestObjectMethods::errors;
-							$nc($System::err)->println($$str({"\tExpected annotation not found: "_s, annotTypeString}));
+							$System::err->println($$str({"\tExpected annotation not found: "_s, annotTypeString}));
 						}
 					}
 				}
 				bool found = $nc(matcher)->find();
 				if (found) {
 					++TestObjectMethods::errors;
-					$nc($System::err)->println($$str({"\tAnnotation found unexpectedly: "_s, annotTypeString}));
+					$System::err->println($$str({"\tAnnotation found unexpectedly: "_s, annotTypeString}));
 				}
 				if (!valid) {
 					++TestObjectMethods::errors;
-					$nc($System::err)->println($$str({typeString, "\n"_s, annotTypeString, "\n "_s, $$str(valid), "\n\n"_s}));
+					$System::err->println($$str({typeString, "\n"_s, annotTypeString, "\n "_s, $$str(valid), "\n\n"_s}));
 				}
 			}
 		}
@@ -236,29 +170,27 @@ void TestObjectMethods::testToString($Class* clazz) {
 
 void TestObjectMethods::testGetAnnotations($Class* clazz, bool annotationsExpectedOnMethods) {
 	$init(TestObjectMethods);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::err)->println($$str({"Testing getAnnotations on methods of class "_s, $($nc(clazz)->getName())}));
-	$var($MethodArray, methods, $nc(clazz)->getDeclaredMethods());
+	$var($MethodArray, methods, clazz->getDeclaredMethods());
 	{
 		$var($MethodArray, arr$, methods);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Method, m, arr$->get(i$));
 			{
 				$var($Type, type, $nc(m)->getGenericReturnType());
 				$var($AnnotatedType, annotType, m->getAnnotatedReturnType());
 				$var($AnnotationArray, annotations, $nc(annotType)->getAnnotations());
-				bool isVoid = "void"_s->equals($($nc($of(type))->toString()));
+				bool isVoid = "void"_s->equals($($nc(type)->toString()));
 				if (annotationsExpectedOnMethods && !isVoid) {
 					if ($nc(annotations)->length == 0) {
 						++TestObjectMethods::errors;
-						$nc($System::err)->println($$str({"Expected annotations missing on "_s, annotType}));
+						$System::err->println($$str({"Expected annotations missing on "_s, annotType}));
 					}
 				} else if ($nc(annotations)->length > 0) {
 					++TestObjectMethods::errors;
-					$nc($System::err)->println($$str({"Unexpected annotations present on "_s, annotType}));
+					$System::err->println($$str({"Unexpected annotations present on "_s, annotType}));
 				}
 			}
 		}
@@ -267,15 +199,13 @@ void TestObjectMethods::testGetAnnotations($Class* clazz, bool annotationsExpect
 
 void TestObjectMethods::testEqualsReflexivity($Class* clazz) {
 	$init(TestObjectMethods);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::err)->println($$str({"Testing reflexivity of equals on methods of class "_s, $($nc(clazz)->getName())}));
-	$var($MethodArray, methods, $nc(clazz)->getDeclaredMethods());
+	$var($MethodArray, methods, clazz->getDeclaredMethods());
 	{
 		$var($MethodArray, arr$, methods);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Method, m, arr$->get(i$));
 			{
 				$var($AnnotatedType, var$0, $nc(m)->getAnnotatedReturnType());
@@ -287,7 +217,7 @@ void TestObjectMethods::testEqualsReflexivity($Class* clazz) {
 
 void TestObjectMethods::checkTypesForEquality($AnnotatedType* annotType1, $AnnotatedType* annotType2, bool expected) {
 	$init(TestObjectMethods);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool comparison = $nc($of(annotType1))->equals(annotType2);
 	if (comparison) {
 		int32_t hash1 = $of(annotType1)->hashCode();
@@ -295,23 +225,23 @@ void TestObjectMethods::checkTypesForEquality($AnnotatedType* annotType1, $Annot
 		if (hash1 != hash2) {
 			++TestObjectMethods::errors;
 			$nc($System::err)->format("Equal AnnotatedTypes with unequal hash codes: %n%s%n%s%n"_s, $$new($ObjectArray, {
-				$($of($of(annotType1)->toString())),
-				$($of($of(annotType2)->toString()))
+				$($of(annotType1)->toString()),
+				$($of(annotType2)->toString())
 			}));
 		}
 	}
 	if (comparison != expected) {
 		++TestObjectMethods::errors;
-		$nc($System::err)->println($of(annotType1));
-		$nc($System::err)->println(expected ? " is not equal to "_s : " is equal to "_s);
-		$nc($System::err)->println($of(annotType2));
-		$nc($System::err)->println();
+		$nc($System::err)->println(annotType1);
+		$System::err->println(expected ? " is not equal to "_s : " is equal to "_s);
+		$System::err->println(annotType2);
+		$System::err->println();
 	}
 }
 
 void TestObjectMethods::testEquals($Class* clazz) {
 	$init(TestObjectMethods);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($MethodArray, methods, $nc(clazz)->getDeclaredMethods());
 	for (int32_t i = 0; i < $nc(methods)->length; ++i) {
@@ -328,27 +258,25 @@ void TestObjectMethods::testEquals($Class* clazz) {
 
 void TestObjectMethods::testAnnotationsMatterForEquals($Class* clazz1, $Class* clazz2) {
 	$init(TestObjectMethods);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::err)->println("Testing that presence/absence of annotations matters for equals comparison."_s);
 	$var($String, methodName, nullptr);
 	{
 		$var($MethodArray, arr$, $nc(clazz1)->getDeclaredMethods());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Method, method, arr$->get(i$));
 			{
 				if ("void"_s->equals($($nc($nc(method)->getReturnType())->toString()))) {
 					continue;
 				}
-				$assign(methodName, $nc(method)->getName());
+				$assign(methodName, method->getName());
 				try {
 					$var($AnnotatedType, var$0, method->getAnnotatedReturnType());
-					checkTypesForEquality(var$0, $($nc($($nc(clazz2)->getDeclaredMethod(methodName, $$new($ClassArray, 0))))->getAnnotatedReturnType()), false);
+					checkTypesForEquality(var$0, $($$nc($nc(clazz2)->getDeclaredMethod(methodName, $$new($ClassArray, 0)))->getAnnotatedReturnType()), false);
 				} catch ($Exception& e) {
 					++TestObjectMethods::errors;
-					$nc($System::err)->println($$str({"Method "_s, methodName, " not found."_s}));
+					$System::err->println($$str({"Method "_s, methodName, " not found."_s}));
 				}
 			}
 		}
@@ -357,38 +285,37 @@ void TestObjectMethods::testAnnotationsMatterForEquals($Class* clazz1, $Class* c
 
 void TestObjectMethods::testWildcards() {
 	$init(TestObjectMethods);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->println("Testing wildcards"_s);
 	$var($AnnotatedWildcardType, awt1, extractWildcard("fooNumberSet"_s));
 	$var($AnnotatedWildcardType, awt2, extractWildcard("fooNumberSet2"_s));
-	bool var$0 = !$nc($of(awt1))->equals($(extractWildcard("fooNumberSet"_s)));
-	if (var$0 || !$nc($of(awt2))->equals($(extractWildcard("fooNumberSet2"_s)))) {
+	bool var$0 = !$nc(awt1)->equals($(extractWildcard("fooNumberSet"_s)));
+	if (var$0 || !$nc(awt2)->equals($(extractWildcard("fooNumberSet2"_s)))) {
 		++TestObjectMethods::errors;
-		$nc($System::err)->println("Bad equality comparison on wildcards."_s);
+		$System::err->println("Bad equality comparison on wildcards."_s);
 	}
 	checkTypesForEquality(awt1, awt2, false);
 	if ($nc($($nc(awt2)->getAnnotations()))->length == 0) {
 		++TestObjectMethods::errors;
-		$nc($System::err)->println("Expected annotations not found."_s);
+		$System::err->println("Expected annotations not found."_s);
 	}
 }
 
 $AnnotatedWildcardType* TestObjectMethods::extractWildcard($String* methodName) {
 	$init(TestObjectMethods);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$load($TestObjectMethods$AnnotatedTypeHost);
-		return ($cast($AnnotatedWildcardType, $nc($($nc((($cast($AnnotatedParameterizedType, $($nc($($TestObjectMethods$AnnotatedTypeHost::class$->getMethod(methodName, $$new($ClassArray, 0))))->getAnnotatedReturnType())))))->getAnnotatedActualTypeArguments()))->get(0)));
+		return $cast($AnnotatedWildcardType, $nc($($$cast($AnnotatedParameterizedType, $$nc($TestObjectMethods$AnnotatedTypeHost::class$->getMethod(methodName, $$new($ClassArray, 0)))->getAnnotatedReturnType())->getAnnotatedActualTypeArguments()))->get(0));
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$shouldNotReachHere();
 }
 
 void TestObjectMethods::testFbounds() {
 	$init(TestObjectMethods);
-	$load($Enum);
 	$var($AnnotatedTypeArray, types, $Enum::class$->getAnnotatedInterfaces());
 	for (int32_t i = 0; i < $nc(types)->length; ++i) {
 		for (int32_t j = 0; j < types->length; ++j) {
@@ -397,7 +324,7 @@ void TestObjectMethods::testFbounds() {
 	}
 }
 
-void clinit$TestObjectMethods($Class* class$) {
+void TestObjectMethods::clinit$($Class* clazz) {
 	TestObjectMethods::errors = 0;
 	$assignStatic(TestObjectMethods::annotationRegex, $Pattern::compile("@TestObjectMethods\\$AnnotType\\((\\p{Digit})+\\)"_s));
 }
@@ -406,7 +333,51 @@ TestObjectMethods::TestObjectMethods() {
 }
 
 $Class* TestObjectMethods::load$($String* name, bool initialize) {
-	$loadClass(TestObjectMethods, name, initialize, &_TestObjectMethods_ClassInfo_, clinit$TestObjectMethods, allocate$TestObjectMethods);
+	$FieldInfo fieldInfos$$[] = {
+		{"errors", "I", nullptr, $PRIVATE | $STATIC, $staticField(TestObjectMethods, errors)},
+		{"annotationRegex", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestObjectMethods, annotationRegex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestObjectMethods, init$, void)},
+		{"checkTypesForEquality", "(Ljava/lang/reflect/AnnotatedType;Ljava/lang/reflect/AnnotatedType;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestObjectMethods, checkTypesForEquality, void, $AnnotatedType*, $AnnotatedType*, bool)},
+		{"extractWildcard", "(Ljava/lang/String;)Ljava/lang/reflect/AnnotatedWildcardType;", nullptr, $PRIVATE | $STATIC, $staticMethod(TestObjectMethods, extractWildcard, $AnnotatedWildcardType*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestObjectMethods, main, void, $StringArray*)},
+		{"testAnnotationsMatterForEquals", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testAnnotationsMatterForEquals, void, $Class*, $Class*)},
+		{"testEquals", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testEquals, void, $Class*)},
+		{"testEqualsReflexivity", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testEqualsReflexivity, void, $Class*)},
+		{"testFbounds", "()V", nullptr, $STATIC, $staticMethod(TestObjectMethods, testFbounds, void)},
+		{"testGetAnnotations", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $STATIC, $staticMethod(TestObjectMethods, testGetAnnotations, void, $Class*, bool)},
+		{"testToString", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testToString, void, $Class*)},
+		{"testWildcards", "()V", nullptr, $STATIC, $staticMethod(TestObjectMethods, testWildcards, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestObjectMethods$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"TestObjectMethods$AnnotatedTypeHost", "TestObjectMethods", "AnnotatedTypeHost", $STATIC},
+		{"TestObjectMethods$Relation", "TestObjectMethods", "Relation", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"TestObjectMethods$AnnotTypeInfo", "TestObjectMethods", "AnnotTypeInfo", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"TestObjectMethods$AnnotType", "TestObjectMethods", "AnnotType", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"TestObjectMethods$TypeHost", "TestObjectMethods", "TypeHost", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestObjectMethods",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestObjectMethods$1,TestObjectMethods$AnnotatedTypeHost,TestObjectMethods$Relation,TestObjectMethods$AnnotTypeInfo,TestObjectMethods$AnnotType,TestObjectMethods$TypeHost"
+	};
+	$loadClass(TestObjectMethods, name, initialize, &classInfo$$, TestObjectMethods::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestObjectMethods);
+	});
 	return class$;
 }
 

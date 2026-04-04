@@ -41,7 +41,7 @@ public:
 	::java::util::List* normalizeMethods($String* methods);
 	void parseURI($String* url);
 	void readObject(::java::io::ObjectInputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xDA7EEB7A86DE1AA6;
+	static const int64_t serialVersionUID = (int64_t)0xda7eeb7a86de1aa6;
 	$String* scheme = nullptr;
 	$String* ssp = nullptr;
 	$String* path = nullptr;

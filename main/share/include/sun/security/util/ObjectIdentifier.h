@@ -45,6 +45,7 @@ class $import ObjectIdentifier : public ::java::io::Serializable {
 	$class(ObjectIdentifier, 0, ::java::io::Serializable)
 public:
 	ObjectIdentifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* oid);
 	void init$($bytes* encoding);
 	void init$(::sun::security::util::DerInputStream* in);
@@ -76,7 +77,7 @@ public:
 	static const int32_t MAXIMUM_OID_SIZE = 4096;
 	$bytes* encoding = nullptr;
 	$volatile($String*) stringForm = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x78B20EEC64177F2E;
+	static const int64_t serialVersionUID = (int64_t)0x78b20eec64177f2e;
 	$Object* components = nullptr;
 	int32_t componentLen = 0;
 	bool componentsCalculated = false;

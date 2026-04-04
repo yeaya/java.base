@@ -1,5 +1,4 @@
 #include <HashSpread.h>
-
 #include <java/lang/Error.h>
 #include <java/lang/StringBuffer.h>
 #include <java/net/InetAddress.h>
@@ -25,31 +24,6 @@ using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $Random = ::java::util::Random;
 
-$FieldInfo _HashSpread_FieldInfo_[] = {
-	{"r", "Ljava/util/Random;", nullptr, $STATIC, $staticField(HashSpread, r)},
-	{}
-};
-
-$MethodInfo _HashSpread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HashSpread, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HashSpread, main, void, $StringArray*), "java.lang.Exception"},
-	{"randomIPv6Adress", "()Ljava/net/InetAddress;", nullptr, $STATIC, $staticMethod(HashSpread, randomIPv6Adress, $InetAddress*)},
-	{}
-};
-
-$ClassInfo _HashSpread_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HashSpread",
-	"java.lang.Object",
-	nullptr,
-	_HashSpread_FieldInfo_,
-	_HashSpread_MethodInfo_
-};
-
-$Object* allocate$HashSpread($Class* clazz) {
-	return $of($alloc(HashSpread));
-}
-
 $Random* HashSpread::r = nullptr;
 
 void HashSpread::init$() {
@@ -57,7 +31,7 @@ void HashSpread::init$() {
 
 $InetAddress* HashSpread::randomIPv6Adress() {
 	$init(HashSpread);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	for (int32_t i = 0; i < 8; ++i) {
 		if (i > 0) {
@@ -83,7 +57,7 @@ $InetAddress* HashSpread::randomIPv6Adress() {
 
 void HashSpread::main($StringArray* args) {
 	$init(HashSpread);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t iterations = 10000;
 	if ($nc(args)->length > 0) {
 		iterations = $Integer::parseInt(args->get(0));
@@ -92,7 +66,7 @@ void HashSpread::main($StringArray* args) {
 	int32_t MAX_SHORT = (int32_t)$Short::MAX_VALUE;
 	int32_t narrow = 0;
 	for (int32_t i = 0; i < iterations; ++i) {
-		int32_t hc = $nc($(randomIPv6Adress()))->hashCode();
+		int32_t hc = $$nc(randomIPv6Adress())->hashCode();
 		if (hc >= MIN_SHORT && hc <= MAX_SHORT) {
 			++narrow;
 		}
@@ -103,7 +77,7 @@ void HashSpread::main($StringArray* args) {
 	}
 }
 
-void clinit$HashSpread($Class* class$) {
+void HashSpread::clinit$($Class* clazz) {
 	$assignStatic(HashSpread::r, $new($Random));
 }
 
@@ -111,7 +85,27 @@ HashSpread::HashSpread() {
 }
 
 $Class* HashSpread::load$($String* name, bool initialize) {
-	$loadClass(HashSpread, name, initialize, &_HashSpread_ClassInfo_, clinit$HashSpread, allocate$HashSpread);
+	$FieldInfo fieldInfos$$[] = {
+		{"r", "Ljava/util/Random;", nullptr, $STATIC, $staticField(HashSpread, r)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HashSpread, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HashSpread, main, void, $StringArray*), "java.lang.Exception"},
+		{"randomIPv6Adress", "()Ljava/net/InetAddress;", nullptr, $STATIC, $staticMethod(HashSpread, randomIPv6Adress, $InetAddress*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HashSpread",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HashSpread, name, initialize, &classInfo$$, HashSpread::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HashSpread);
+	});
 	return class$;
 }
 

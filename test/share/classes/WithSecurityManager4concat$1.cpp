@@ -1,5 +1,4 @@
 #include <WithSecurityManager4concat$1.h>
-
 #include <WithSecurityManager4concat.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/Permission.h>
@@ -12,49 +11,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Permission = ::java::security::Permission;
 
-$MethodInfo _WithSecurityManager4concat$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WithSecurityManager4concat$1, init$, void)},
-	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(WithSecurityManager4concat$1, checkPermission, void, $Permission*)},
-	{}
-};
-
-$EnclosingMethodInfo _WithSecurityManager4concat$1_EnclosingMethodInfo_ = {
-	"WithSecurityManager4concat",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _WithSecurityManager4concat$1_InnerClassesInfo_[] = {
-	{"WithSecurityManager4concat$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WithSecurityManager4concat$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"WithSecurityManager4concat$1",
-	"java.lang.SecurityManager",
-	nullptr,
-	nullptr,
-	_WithSecurityManager4concat$1_MethodInfo_,
-	nullptr,
-	&_WithSecurityManager4concat$1_EnclosingMethodInfo_,
-	_WithSecurityManager4concat$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"WithSecurityManager4concat"
-};
-
-$Object* allocate$WithSecurityManager4concat$1($Class* clazz) {
-	return $of($alloc(WithSecurityManager4concat$1));
-}
-
 void WithSecurityManager4concat$1::init$() {
 	$SecurityManager::init$();
 }
 
 void WithSecurityManager4concat$1::checkPermission($Permission* perm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, abc, "abc"_s);
 	int32_t ival = $nc(perm)->hashCode();
 	$var($String, full, $str({abc, "abc"_s}));
@@ -66,7 +28,38 @@ WithSecurityManager4concat$1::WithSecurityManager4concat$1() {
 }
 
 $Class* WithSecurityManager4concat$1::load$($String* name, bool initialize) {
-	$loadClass(WithSecurityManager4concat$1, name, initialize, &_WithSecurityManager4concat$1_ClassInfo_, allocate$WithSecurityManager4concat$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WithSecurityManager4concat$1, init$, void)},
+		{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(WithSecurityManager4concat$1, checkPermission, void, $Permission*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"WithSecurityManager4concat",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"WithSecurityManager4concat$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"WithSecurityManager4concat$1",
+		"java.lang.SecurityManager",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"WithSecurityManager4concat"
+	};
+	$loadClass(WithSecurityManager4concat$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WithSecurityManager4concat$1);
+	});
 	return class$;
 }
 

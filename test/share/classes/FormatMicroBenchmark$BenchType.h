@@ -34,6 +34,7 @@ class $export FormatMicroBenchmark$BenchType : public ::java::lang::Enum {
 public:
 	FormatMicroBenchmark$BenchType();
 	static $Array<FormatMicroBenchmark$BenchType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name);
 	virtual $String* runBenchAndPrintStatistics(int32_t nbRuns, ::java::text::NumberFormat* nf, bool isCurrency);
 	static ::FormatMicroBenchmark$BenchType* valueOf($String* name);

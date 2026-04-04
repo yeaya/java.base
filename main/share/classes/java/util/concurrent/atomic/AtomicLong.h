@@ -37,6 +37,7 @@ class $export AtomicLong : public ::java::lang::Number {
 	$class(AtomicLong, 0, ::java::lang::Number)
 public:
 	AtomicLong();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t initialValue);
 	void init$();
 	static bool VMSupportsCS8();
@@ -74,7 +75,7 @@ public:
 	bool weakCompareAndSetPlain(int64_t expectedValue, int64_t newValue);
 	bool weakCompareAndSetRelease(int64_t expectedValue, int64_t newValue);
 	bool weakCompareAndSetVolatile(int64_t expectedValue, int64_t newValue);
-	static const int64_t serialVersionUID = (int64_t)0x1AC0FAB477001718;
+	static const int64_t serialVersionUID = (int64_t)0x1ac0fab477001718;
 	static bool VM_SUPPORTS_LONG_CAS;
 	static ::jdk::internal::misc::Unsafe* U;
 	static int64_t VALUE;

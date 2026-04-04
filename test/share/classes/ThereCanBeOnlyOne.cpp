@@ -1,5 +1,4 @@
 #include <ThereCanBeOnlyOne.h>
-
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -10,11 +9,9 @@
 #include <java/nio/channels/SelectableChannel.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $PortUnreachableException = ::java::net::PortUnreachableException;
@@ -22,34 +19,14 @@ using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 
-$MethodInfo _ThereCanBeOnlyOne_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ThereCanBeOnlyOne, init$, void)},
-	{"doTest", "(Ljava/net/InetAddress;Z)V", nullptr, $STATIC, $staticMethod(ThereCanBeOnlyOne, doTest, void, $InetAddress*, bool), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ThereCanBeOnlyOne, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ThereCanBeOnlyOne_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ThereCanBeOnlyOne",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ThereCanBeOnlyOne_MethodInfo_
-};
-
-$Object* allocate$ThereCanBeOnlyOne($Class* clazz) {
-	return $of($alloc(ThereCanBeOnlyOne));
-}
-
 void ThereCanBeOnlyOne::init$() {
 }
 
 void ThereCanBeOnlyOne::doTest($InetAddress* ia, bool testSend) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DatagramChannel, dc1, $DatagramChannel::open());
-	$nc($($nc(dc1)->socket()))->bind(($SocketAddress*)nullptr);
-	int32_t port = $nc($(dc1->socket()))->getLocalPort();
+	$$nc($nc(dc1)->socket())->bind(($SocketAddress*)nullptr);
+	int32_t port = $$nc(dc1->socket())->getLocalPort();
 	$var($InetSocketAddress, isa, $new($InetSocketAddress, ia, port));
 	dc1->connect(isa);
 	$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(512));
@@ -110,7 +87,23 @@ ThereCanBeOnlyOne::ThereCanBeOnlyOne() {
 }
 
 $Class* ThereCanBeOnlyOne::load$($String* name, bool initialize) {
-	$loadClass(ThereCanBeOnlyOne, name, initialize, &_ThereCanBeOnlyOne_ClassInfo_, allocate$ThereCanBeOnlyOne);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ThereCanBeOnlyOne, init$, void)},
+		{"doTest", "(Ljava/net/InetAddress;Z)V", nullptr, $STATIC, $staticMethod(ThereCanBeOnlyOne, doTest, void, $InetAddress*, bool), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ThereCanBeOnlyOne, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ThereCanBeOnlyOne",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ThereCanBeOnlyOne, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThereCanBeOnlyOne);
+	});
 	return class$;
 }
 

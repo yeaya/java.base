@@ -36,6 +36,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::StackWalker* walker, ::java::util::function::Function* function);
 	void init$(::java::lang::StackWalker* walker, ::java::util::function::Function* function, int32_t mode);
 	virtual int32_t batchSize(int32_t lastBatchFrameCount) override;

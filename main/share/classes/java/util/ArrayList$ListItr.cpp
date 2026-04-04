@@ -1,5 +1,4 @@
 #include <java/util/ArrayList$ListItr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/ArrayList$Itr.h>
@@ -23,57 +22,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _ArrayList$ListItr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/ArrayList;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayList$ListItr, this$0)},
-	{}
-};
-
-$MethodInfo _ArrayList$ListItr_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"*hasNext", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/ArrayList;I)V", nullptr, 0, $method(ArrayList$ListItr, init$, void, $ArrayList*, int32_t)},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ArrayList$ListItr, add, void, Object$*)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$ListItr, hasPrevious, bool)},
-	{"*next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$ListItr, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayList$ListItr, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$ListItr, previousIndex, int32_t)},
-	{"*remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ArrayList$ListItr, set, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ArrayList$ListItr_InnerClassesInfo_[] = {
-	{"java.util.ArrayList$ListItr", "java.util.ArrayList", "ListItr", $PRIVATE},
-	{"java.util.ArrayList$Itr", "java.util.ArrayList", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ArrayList$ListItr_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ArrayList$ListItr",
-	"java.util.ArrayList$Itr",
-	"java.util.ListIterator",
-	_ArrayList$ListItr_FieldInfo_,
-	_ArrayList$ListItr_MethodInfo_,
-	"Ljava/util/ArrayList<TE;>.Itr;Ljava/util/ListIterator<TE;>;",
-	nullptr,
-	_ArrayList$ListItr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ArrayList"
-};
-
-$Object* allocate$ArrayList$ListItr($Class* clazz) {
-	return $of($alloc(ArrayList$ListItr));
-}
 
 bool ArrayList$ListItr::hasNext() {
 	 return this->$ArrayList$Itr::hasNext();
@@ -140,7 +88,7 @@ $Object* ArrayList$ListItr::previous() {
 		$throwNew($ConcurrentModificationException);
 	}
 	this->cursor = i;
-	return $of($nc(elementData)->get(this->lastRet = i));
+	return elementData->get(this->lastRet = i);
 }
 
 void ArrayList$ListItr::set(Object$* e) {
@@ -172,7 +120,52 @@ ArrayList$ListItr::ArrayList$ListItr() {
 }
 
 $Class* ArrayList$ListItr::load$($String* name, bool initialize) {
-	$loadClass(ArrayList$ListItr, name, initialize, &_ArrayList$ListItr_ClassInfo_, allocate$ArrayList$ListItr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/ArrayList;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayList$ListItr, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"*hasNext", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/ArrayList;I)V", nullptr, 0, $method(ArrayList$ListItr, init$, void, $ArrayList*, int32_t)},
+		{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ArrayList$ListItr, add, void, Object$*)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$ListItr, hasPrevious, bool)},
+		{"*next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$ListItr, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayList$ListItr, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$ListItr, previousIndex, int32_t)},
+		{"*remove", "()V", nullptr, $PUBLIC},
+		{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ArrayList$ListItr, set, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ArrayList$ListItr", "java.util.ArrayList", "ListItr", $PRIVATE},
+		{"java.util.ArrayList$Itr", "java.util.ArrayList", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ArrayList$ListItr",
+		"java.util.ArrayList$Itr",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/ArrayList<TE;>.Itr;Ljava/util/ListIterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ArrayList"
+	};
+	$loadClass(ArrayList$ListItr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArrayList$ListItr));
+	});
 	return class$;
 }
 

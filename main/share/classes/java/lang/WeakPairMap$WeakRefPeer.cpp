@@ -1,5 +1,4 @@
 #include <java/lang/WeakPairMap$WeakRefPeer.h>
-
 #include <java/lang/WeakPairMap$Pair$Weak.h>
 #include <java/lang/WeakPairMap.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -18,37 +17,6 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace lang {
 
-$MethodInfo _WeakPairMap$WeakRefPeer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TK;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", 0, $method(WeakPairMap$WeakRefPeer, init$, void, Object$*, $ReferenceQueue*)},
-	{"weakPair", "()Ljava/lang/WeakPairMap$Pair$Weak;", "()Ljava/lang/WeakPairMap$Pair$Weak<**>;", $ABSTRACT, $virtualMethod(WeakPairMap$WeakRefPeer, weakPair, $WeakPairMap$Pair$Weak*)},
-	{}
-};
-
-$InnerClassInfo _WeakPairMap$WeakRefPeer_InnerClassesInfo_[] = {
-	{"java.lang.WeakPairMap$WeakRefPeer", "java.lang.WeakPairMap", "WeakRefPeer", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WeakPairMap$WeakRefPeer_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.lang.WeakPairMap$WeakRefPeer",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	nullptr,
-	_WeakPairMap$WeakRefPeer_MethodInfo_,
-	"<K:Ljava/lang/Object;>Ljava/lang/ref/WeakReference<TK;>;",
-	nullptr,
-	_WeakPairMap$WeakRefPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.WeakPairMap"
-};
-
-$Object* allocate$WeakPairMap$WeakRefPeer($Class* clazz) {
-	return $of($alloc(WeakPairMap$WeakRefPeer));
-}
-
 void WeakPairMap$WeakRefPeer::init$(Object$* k, $ReferenceQueue* queue) {
 	$WeakReference::init$($Objects::requireNonNull(k), queue);
 }
@@ -57,7 +25,33 @@ WeakPairMap$WeakRefPeer::WeakPairMap$WeakRefPeer() {
 }
 
 $Class* WeakPairMap$WeakRefPeer::load$($String* name, bool initialize) {
-	$loadClass(WeakPairMap$WeakRefPeer, name, initialize, &_WeakPairMap$WeakRefPeer_ClassInfo_, allocate$WeakPairMap$WeakRefPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TK;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", 0, $method(WeakPairMap$WeakRefPeer, init$, void, Object$*, $ReferenceQueue*)},
+		{"weakPair", "()Ljava/lang/WeakPairMap$Pair$Weak;", "()Ljava/lang/WeakPairMap$Pair$Weak<**>;", $ABSTRACT, $virtualMethod(WeakPairMap$WeakRefPeer, weakPair, $WeakPairMap$Pair$Weak*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.WeakPairMap$WeakRefPeer", "java.lang.WeakPairMap", "WeakRefPeer", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.lang.WeakPairMap$WeakRefPeer",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;>Ljava/lang/ref/WeakReference<TK;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.WeakPairMap"
+	};
+	$loadClass(WeakPairMap$WeakRefPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WeakPairMap$WeakRefPeer);
+	});
 	return class$;
 }
 

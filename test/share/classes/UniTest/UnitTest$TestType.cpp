@@ -1,5 +1,4 @@
 #include <UniTest/UnitTest$TestType.h>
-
 #include <UniTest/UnitTest.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -15,1561 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
-
-$NamedAttribute UnitTest$TestType_Attribute_var$2[] = {
-	{"x", 'I', "1"},
-	{"y", 'I', "2"},
-	{}
-};
-
-$CompoundAttribute UnitTest$TestType_CompoundAttribute_var$1 = {
-"LUniTest/Point;", UnitTest$TestType_Attribute_var$2
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$0[] = {
-	{"b", 'B', "1"},
-	{"s", 'S', "2"},
-	{"i", 'I', "3"},
-	{"l", 'J', "4"},
-	{"c", 'C', "5"},
-	{"f", 'F', "6.0"},
-	{"d", 'D', "7.0"},
-	{"bool", 'Z', "true"},
-	{"str", 's', "custom"},
-	{"cls", 'c', "Ljava/util/Map;"},
-	{"e", 'e', "LUniTest/Stooge; MOE"},
-	{"a", '@', &UnitTest$TestType_CompoundAttribute_var$1},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_scalarTypesField[] = {
-	{"LUniTest/ScalarTypes;", UnitTest$TestType_Attribute_var$0},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_scalarTypesAcceptDefaultField[] = {
-	{"LUniTest/ScalarTypesWithDefault;", nullptr},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$3[] = {
-	{"b", 'B', "1"},
-	{"s", 'S', "2"},
-	{"i", 'I', "3"},
-	{"l", 'J', "4"},
-	{"c", 'C', "5"},
-	{"f", 'F', "6.0"},
-	{"d", 'D', "7.0"},
-	{"bool", 'Z', "true"},
-	{"str", 's', "custom"},
-	{"cls", 'c', "Ljava/util/Map;"},
-	{"e", 'e', "LUniTest/Stooge; MOE"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_scalarTypesOverrideDefaultField[] = {
-	{"LUniTest/ScalarTypesWithDefault;", UnitTest$TestType_Attribute_var$3},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$5[] = {
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$6[] = {
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$7[] = {
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$8[] = {
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$9[] = {
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$10[] = {
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$11[] = {
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$12[] = {
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$13[] = {
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$14[] = {
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$15[] = {
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$16[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$4[] = {
-	{"b", '[', UnitTest$TestType_Attribute_var$5},
-	{"s", '[', UnitTest$TestType_Attribute_var$6},
-	{"i", '[', UnitTest$TestType_Attribute_var$7},
-	{"l", '[', UnitTest$TestType_Attribute_var$8},
-	{"c", '[', UnitTest$TestType_Attribute_var$9},
-	{"f", '[', UnitTest$TestType_Attribute_var$10},
-	{"d", '[', UnitTest$TestType_Attribute_var$11},
-	{"bool", '[', UnitTest$TestType_Attribute_var$12},
-	{"str", '[', UnitTest$TestType_Attribute_var$13},
-	{"cls", '[', UnitTest$TestType_Attribute_var$14},
-	{"e", '[', UnitTest$TestType_Attribute_var$15},
-	{"a", '[', UnitTest$TestType_Attribute_var$16},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_emptyArrayTypesField[] = {
-	{"LUniTest/ArrayTypes;", UnitTest$TestType_Attribute_var$4},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$18[] = {
-	{'B', "1"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$19[] = {
-	{'S', "2"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$20[] = {
-	{'I', "3"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$21[] = {
-	{'J', "4"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$22[] = {
-	{'C', "5"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$23[] = {
-	{'F', "6.0"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$24[] = {
-	{'D', "7.0"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$25[] = {
-	{'Z', "true"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$26[] = {
-	{'s', "custom"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$27[] = {
-	{'c', "Ljava/util/Map;"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$28[] = {
-	{'e', "LUniTest/Stooge; MOE"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$31[] = {
-	{"x", 'I', "1"},
-	{"y", 'I', "2"},
-	{}
-};
-
-$CompoundAttribute UnitTest$TestType_CompoundAttribute_var$30 = {
-"LUniTest/Point;", UnitTest$TestType_Attribute_var$31
-};
-
-$Attribute UnitTest$TestType_Attribute_var$29[] = {
-	{'@', &UnitTest$TestType_CompoundAttribute_var$30},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$17[] = {
-	{"b", '[', UnitTest$TestType_Attribute_var$18},
-	{"s", '[', UnitTest$TestType_Attribute_var$19},
-	{"i", '[', UnitTest$TestType_Attribute_var$20},
-	{"l", '[', UnitTest$TestType_Attribute_var$21},
-	{"c", '[', UnitTest$TestType_Attribute_var$22},
-	{"f", '[', UnitTest$TestType_Attribute_var$23},
-	{"d", '[', UnitTest$TestType_Attribute_var$24},
-	{"bool", '[', UnitTest$TestType_Attribute_var$25},
-	{"str", '[', UnitTest$TestType_Attribute_var$26},
-	{"cls", '[', UnitTest$TestType_Attribute_var$27},
-	{"e", '[', UnitTest$TestType_Attribute_var$28},
-	{"a", '[', UnitTest$TestType_Attribute_var$29},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_singleElementArrayTypesField[] = {
-	{"LUniTest/ArrayTypes;", UnitTest$TestType_Attribute_var$17},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$33[] = {
-	{'B', "1"},
-	{'B', "2"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$34[] = {
-	{'S', "2"},
-	{'S', "3"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$35[] = {
-	{'I', "3"},
-	{'I', "4"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$36[] = {
-	{'J', "4"},
-	{'J', "5"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$37[] = {
-	{'C', "5"},
-	{'C', "6"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$38[] = {
-	{'F', "6.0"},
-	{'F', "7.0"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$39[] = {
-	{'D', "7.0"},
-	{'D', "8.0"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$40[] = {
-	{'Z', "true"},
-	{'Z', "false"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$41[] = {
-	{'s', "custom"},
-	{'s', "paint"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$42[] = {
-	{'c', "Ljava/util/Map;"},
-	{'c', "Ljava/util/Set;"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$43[] = {
-	{'e', "LUniTest/Stooge; MOE"},
-	{'e', "LUniTest/Stooge; CURLY"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$46[] = {
-	{"x", 'I', "1"},
-	{"y", 'I', "2"},
-	{}
-};
-
-$CompoundAttribute UnitTest$TestType_CompoundAttribute_var$45 = {
-"LUniTest/Point;", UnitTest$TestType_Attribute_var$46
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$48[] = {
-	{"x", 'I', "3"},
-	{"y", 'I', "4"},
-	{}
-};
-
-$CompoundAttribute UnitTest$TestType_CompoundAttribute_var$47 = {
-"LUniTest/Point;", UnitTest$TestType_Attribute_var$48
-};
-
-$Attribute UnitTest$TestType_Attribute_var$44[] = {
-	{'@', &UnitTest$TestType_CompoundAttribute_var$45},
-	{'@', &UnitTest$TestType_CompoundAttribute_var$47},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$32[] = {
-	{"b", '[', UnitTest$TestType_Attribute_var$33},
-	{"s", '[', UnitTest$TestType_Attribute_var$34},
-	{"i", '[', UnitTest$TestType_Attribute_var$35},
-	{"l", '[', UnitTest$TestType_Attribute_var$36},
-	{"c", '[', UnitTest$TestType_Attribute_var$37},
-	{"f", '[', UnitTest$TestType_Attribute_var$38},
-	{"d", '[', UnitTest$TestType_Attribute_var$39},
-	{"bool", '[', UnitTest$TestType_Attribute_var$40},
-	{"str", '[', UnitTest$TestType_Attribute_var$41},
-	{"cls", '[', UnitTest$TestType_Attribute_var$42},
-	{"e", '[', UnitTest$TestType_Attribute_var$43},
-	{"a", '[', UnitTest$TestType_Attribute_var$44},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_twoElementArrayTypesField[] = {
-	{"LUniTest/ArrayTypes;", UnitTest$TestType_Attribute_var$32},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_arrayTypesAcceptDefaultField[] = {
-	{"LUniTest/ArrayTypesWithDefault;", nullptr},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$50[] = {
-	{'B', "1"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$51[] = {
-	{'S', "2"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$52[] = {
-	{'I', "3"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$53[] = {
-	{'J', "4"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$54[] = {
-	{'C', "5"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$55[] = {
-	{'F', "6.0"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$56[] = {
-	{'D', "7.0"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$57[] = {
-	{'Z', "true"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$58[] = {
-	{'s', "custom"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$59[] = {
-	{'c', "Ljava/util/Map;"},
-	{'-'}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$60[] = {
-	{'e', "LUniTest/Stooge; MOE"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$63[] = {
-	{"x", 'I', "1"},
-	{"y", 'I', "2"},
-	{}
-};
-
-$CompoundAttribute UnitTest$TestType_CompoundAttribute_var$62 = {
-"LUniTest/Point;", UnitTest$TestType_Attribute_var$63
-};
-
-$Attribute UnitTest$TestType_Attribute_var$61[] = {
-	{'@', &UnitTest$TestType_CompoundAttribute_var$62},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$49[] = {
-	{"b", '[', UnitTest$TestType_Attribute_var$50},
-	{"s", '[', UnitTest$TestType_Attribute_var$51},
-	{"i", '[', UnitTest$TestType_Attribute_var$52},
-	{"l", '[', UnitTest$TestType_Attribute_var$53},
-	{"c", '[', UnitTest$TestType_Attribute_var$54},
-	{"f", '[', UnitTest$TestType_Attribute_var$55},
-	{"d", '[', UnitTest$TestType_Attribute_var$56},
-	{"bool", '[', UnitTest$TestType_Attribute_var$57},
-	{"str", '[', UnitTest$TestType_Attribute_var$58},
-	{"cls", '[', UnitTest$TestType_Attribute_var$59},
-	{"e", '[', UnitTest$TestType_Attribute_var$60},
-	{"a", '[', UnitTest$TestType_Attribute_var$61},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_arrayTypesOverrideDefaultField[] = {
-	{"LUniTest/ArrayTypesWithDefault;", UnitTest$TestType_Attribute_var$49},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_marker[] = {
-	{"LUniTest/Marker;", nullptr},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$64[] = {
-	{"value", 'B', "1"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberByte[] = {
-	{"LUniTest/SingleMemberByte;", UnitTest$TestType_Attribute_var$64},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$65[] = {
-	{"value", 'S', "2"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberShort[] = {
-	{"LUniTest/SingleMemberShort;", UnitTest$TestType_Attribute_var$65},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$66[] = {
-	{"value", 'I', "3"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberInt[] = {
-	{"LUniTest/SingleMemberInt;", UnitTest$TestType_Attribute_var$66},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$67[] = {
-	{"value", 'J', "4"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberLong[] = {
-	{"LUniTest/SingleMemberLong;", UnitTest$TestType_Attribute_var$67},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$68[] = {
-	{"value", 'C', "5"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberChar[] = {
-	{"LUniTest/SingleMemberChar;", UnitTest$TestType_Attribute_var$68},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$69[] = {
-	{"value", 'F', "6.0"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberFloat[] = {
-	{"LUniTest/SingleMemberFloat;", UnitTest$TestType_Attribute_var$69},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$70[] = {
-	{"value", 'D', "7.0"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberDouble[] = {
-	{"LUniTest/SingleMemberDouble;", UnitTest$TestType_Attribute_var$70},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$71[] = {
-	{"value", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberBoolean[] = {
-	{"LUniTest/SingleMemberBoolean;", UnitTest$TestType_Attribute_var$71},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$72[] = {
-	{"value", 's', "custom"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberString[] = {
-	{"LUniTest/SingleMemberString;", UnitTest$TestType_Attribute_var$72},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$73[] = {
-	{"value", 'c', "Ljava/util/Map;"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberClass[] = {
-	{"LUniTest/SingleMemberClass;", UnitTest$TestType_Attribute_var$73},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$74[] = {
-	{"value", 'e', "LUniTest/Stooge; MOE"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberEnum[] = {
-	{"LUniTest/SingleMemberEnum;", UnitTest$TestType_Attribute_var$74},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$75[] = {
-	{"value", 'B', "1"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberByteOvrdDef[] = {
-	{"LUniTest/SingleMemberByteWithDef;", UnitTest$TestType_Attribute_var$75},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$76[] = {
-	{"value", 'S', "2"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberShortOvrdDef[] = {
-	{"LUniTest/SingleMemberShortWithDef;", UnitTest$TestType_Attribute_var$76},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$77[] = {
-	{"value", 'I', "3"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberIntOvrdDef[] = {
-	{"LUniTest/SingleMemberIntWithDef;", UnitTest$TestType_Attribute_var$77},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$78[] = {
-	{"value", 'J', "4"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberLongOvrdDef[] = {
-	{"LUniTest/SingleMemberLongWithDef;", UnitTest$TestType_Attribute_var$78},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$79[] = {
-	{"value", 'C', "5"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberCharOvrdDef[] = {
-	{"LUniTest/SingleMemberCharWithDef;", UnitTest$TestType_Attribute_var$79},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$80[] = {
-	{"value", 'F', "6.0"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberFloatOvrdDef[] = {
-	{"LUniTest/SingleMemberFloatWithDef;", UnitTest$TestType_Attribute_var$80},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$81[] = {
-	{"value", 'D', "7.0"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleOvrdDef[] = {
-	{"LUniTest/SingleMemberDoubleWithDef;", UnitTest$TestType_Attribute_var$81},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$82[] = {
-	{"value", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanOvrdDef[] = {
-	{"LUniTest/SingleMemberBooleanWithDef;", UnitTest$TestType_Attribute_var$82},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$83[] = {
-	{"value", 's', "custom"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberStringOvrdDef[] = {
-	{"LUniTest/SingleMemberStringWithDef;", UnitTest$TestType_Attribute_var$83},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$84[] = {
-	{"value", 'c', "Ljava/util/Map;"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberClassOvrdDef[] = {
-	{"LUniTest/SingleMemberClassWithDef;", UnitTest$TestType_Attribute_var$84},
-	{}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$85[] = {
-	{"value", 'e', "LUniTest/Stooge; MOE"},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberEnumOvrdDef[] = {
-	{"LUniTest/SingleMemberEnumWithDef;", UnitTest$TestType_Attribute_var$85},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberByteAcceptDef[] = {
-	{"LUniTest/SingleMemberByteWithDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberShortAcceptDef[] = {
-	{"LUniTest/SingleMemberShortWithDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberIntAcceptDef[] = {
-	{"LUniTest/SingleMemberIntWithDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberLongAcceptDef[] = {
-	{"LUniTest/SingleMemberLongWithDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberCharAcceptDef[] = {
-	{"LUniTest/SingleMemberCharWithDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberFloatAcceptDef[] = {
-	{"LUniTest/SingleMemberFloatWithDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleAcceptDef[] = {
-	{"LUniTest/SingleMemberDoubleWithDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanAcceptDef[] = {
-	{"LUniTest/SingleMemberBooleanWithDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberStringAcceptDef[] = {
-	{"LUniTest/SingleMemberStringWithDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberClassAcceptDef[] = {
-	{"LUniTest/SingleMemberClassWithDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberEnumAcceptDef[] = {
-	{"LUniTest/SingleMemberEnumWithDef;", nullptr},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$87[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$86[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$87},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberByteArrEmpty[] = {
-	{"LUniTest/SingleMemberByteArray;", UnitTest$TestType_Attribute_var$86},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$89[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$88[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$89},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberShortArrEmpty[] = {
-	{"LUniTest/SingleMemberShortArray;", UnitTest$TestType_Attribute_var$88},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$91[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$90[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$91},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberIntArrEmpty[] = {
-	{"LUniTest/SingleMemberIntArray;", UnitTest$TestType_Attribute_var$90},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$93[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$92[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$93},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberLongArrEmpty[] = {
-	{"LUniTest/SingleMemberLongArray;", UnitTest$TestType_Attribute_var$92},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$95[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$94[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$95},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberCharArrEmpty[] = {
-	{"LUniTest/SingleMemberCharArray;", UnitTest$TestType_Attribute_var$94},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$97[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$96[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$97},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberFloatArrEmpty[] = {
-	{"LUniTest/SingleMemberFloatArray;", UnitTest$TestType_Attribute_var$96},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$99[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$98[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$99},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleArrEmpty[] = {
-	{"LUniTest/SingleMemberDoubleArray;", UnitTest$TestType_Attribute_var$98},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$101[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$100[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$101},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanArrEmpty[] = {
-	{"LUniTest/SingleMemberBooleanArray;", UnitTest$TestType_Attribute_var$100},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$103[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$102[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$103},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberStringArrEmpty[] = {
-	{"LUniTest/SingleMemberStringArray;", UnitTest$TestType_Attribute_var$102},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$105[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$104[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$105},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberClassArrEmpty[] = {
-	{"LUniTest/SingleMemberClassArray;", UnitTest$TestType_Attribute_var$104},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$107[] = {
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$106[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$107},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberEnumArrEmpty[] = {
-	{"LUniTest/SingleMemberEnumArray;", UnitTest$TestType_Attribute_var$106},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$109[] = {
-	{'B', "1"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$108[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$109},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberByteArrOne[] = {
-	{"LUniTest/SingleMemberByteArray;", UnitTest$TestType_Attribute_var$108},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$111[] = {
-	{'S', "2"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$110[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$111},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberShortArrOne[] = {
-	{"LUniTest/SingleMemberShortArray;", UnitTest$TestType_Attribute_var$110},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$113[] = {
-	{'I', "3"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$112[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$113},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberIntArrOne[] = {
-	{"LUniTest/SingleMemberIntArray;", UnitTest$TestType_Attribute_var$112},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$115[] = {
-	{'J', "4"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$114[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$115},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberLongArrOne[] = {
-	{"LUniTest/SingleMemberLongArray;", UnitTest$TestType_Attribute_var$114},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$117[] = {
-	{'C', "5"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$116[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$117},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberCharArrOne[] = {
-	{"LUniTest/SingleMemberCharArray;", UnitTest$TestType_Attribute_var$116},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$119[] = {
-	{'F', "6.0"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$118[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$119},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberFloatArrOne[] = {
-	{"LUniTest/SingleMemberFloatArray;", UnitTest$TestType_Attribute_var$118},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$121[] = {
-	{'D', "7.0"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$120[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$121},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleArrOne[] = {
-	{"LUniTest/SingleMemberDoubleArray;", UnitTest$TestType_Attribute_var$120},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$123[] = {
-	{'Z', "true"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$122[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$123},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanArrOne[] = {
-	{"LUniTest/SingleMemberBooleanArray;", UnitTest$TestType_Attribute_var$122},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$125[] = {
-	{'s', "custom"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$124[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$125},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberStringArrOne[] = {
-	{"LUniTest/SingleMemberStringArray;", UnitTest$TestType_Attribute_var$124},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$127[] = {
-	{'c', "Ljava/util/Map;"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$126[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$127},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberClassArrOne[] = {
-	{"LUniTest/SingleMemberClassArray;", UnitTest$TestType_Attribute_var$126},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$129[] = {
-	{'e', "LUniTest/Stooge; MOE"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$128[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$129},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberEnumArrOne[] = {
-	{"LUniTest/SingleMemberEnumArray;", UnitTest$TestType_Attribute_var$128},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$131[] = {
-	{'B', "1"},
-	{'B', "2"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$130[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$131},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberByteArrTwo[] = {
-	{"LUniTest/SingleMemberByteArray;", UnitTest$TestType_Attribute_var$130},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$133[] = {
-	{'S', "2"},
-	{'S', "3"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$132[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$133},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberShortArrTwo[] = {
-	{"LUniTest/SingleMemberShortArray;", UnitTest$TestType_Attribute_var$132},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$135[] = {
-	{'I', "3"},
-	{'I', "4"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$134[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$135},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberIntArrTwo[] = {
-	{"LUniTest/SingleMemberIntArray;", UnitTest$TestType_Attribute_var$134},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$137[] = {
-	{'J', "4"},
-	{'J', "5"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$136[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$137},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberLongArrTwo[] = {
-	{"LUniTest/SingleMemberLongArray;", UnitTest$TestType_Attribute_var$136},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$139[] = {
-	{'C', "5"},
-	{'C', "6"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$138[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$139},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberCharArrTwo[] = {
-	{"LUniTest/SingleMemberCharArray;", UnitTest$TestType_Attribute_var$138},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$141[] = {
-	{'F', "6.0"},
-	{'F', "7.0"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$140[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$141},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberFloatArrTwo[] = {
-	{"LUniTest/SingleMemberFloatArray;", UnitTest$TestType_Attribute_var$140},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$143[] = {
-	{'D', "7.0"},
-	{'D', "8.0"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$142[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$143},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleArrTwo[] = {
-	{"LUniTest/SingleMemberDoubleArray;", UnitTest$TestType_Attribute_var$142},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$145[] = {
-	{'Z', "true"},
-	{'Z', "false"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$144[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$145},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanArrTwo[] = {
-	{"LUniTest/SingleMemberBooleanArray;", UnitTest$TestType_Attribute_var$144},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$147[] = {
-	{'s', "custom"},
-	{'s', "paint"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$146[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$147},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberStringArrTwo[] = {
-	{"LUniTest/SingleMemberStringArray;", UnitTest$TestType_Attribute_var$146},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$149[] = {
-	{'c', "Ljava/util/Map;"},
-	{'c', "Ljava/util/Set;"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$148[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$149},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberClassArrTwo[] = {
-	{"LUniTest/SingleMemberClassArray;", UnitTest$TestType_Attribute_var$148},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$151[] = {
-	{'e', "LUniTest/Stooge; MOE"},
-	{'e', "LUniTest/Stooge; CURLY"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$150[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$151},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberEnumArrTwo[] = {
-	{"LUniTest/SingleMemberEnumArray;", UnitTest$TestType_Attribute_var$150},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$153[] = {
-	{'B', "1"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$152[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$153},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberByteArrOvrdDef[] = {
-	{"LUniTest/SingleMemberByteArrayDef;", UnitTest$TestType_Attribute_var$152},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$155[] = {
-	{'S', "2"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$154[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$155},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberShortArrOvrdDef[] = {
-	{"LUniTest/SingleMemberShortArrayDef;", UnitTest$TestType_Attribute_var$154},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$157[] = {
-	{'I', "3"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$156[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$157},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberIntArrOvrdDef[] = {
-	{"LUniTest/SingleMemberIntArrayDef;", UnitTest$TestType_Attribute_var$156},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$159[] = {
-	{'J', "4"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$158[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$159},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberLongArrOvrdDef[] = {
-	{"LUniTest/SingleMemberLongArrayDef;", UnitTest$TestType_Attribute_var$158},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$161[] = {
-	{'C', "5"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$160[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$161},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberCharArrOvrdDef[] = {
-	{"LUniTest/SingleMemberCharArrayDef;", UnitTest$TestType_Attribute_var$160},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$163[] = {
-	{'F', "6.0"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$162[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$163},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberFloatArrOvrdDef[] = {
-	{"LUniTest/SingleMemberFloatArrayDef;", UnitTest$TestType_Attribute_var$162},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$165[] = {
-	{'D', "7.0"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$164[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$165},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleArrOvrdDef[] = {
-	{"LUniTest/SingleMemberDoubleArrayDef;", UnitTest$TestType_Attribute_var$164},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$167[] = {
-	{'Z', "true"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$166[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$167},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanArrOvrdDef[] = {
-	{"LUniTest/SingleMemberBooleanArrayDef;", UnitTest$TestType_Attribute_var$166},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$169[] = {
-	{'s', "custom"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$168[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$169},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberStringArrOvrdDef[] = {
-	{"LUniTest/SingleMemberStringArrayDef;", UnitTest$TestType_Attribute_var$168},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$171[] = {
-	{'c', "Ljava/util/Map;"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$170[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$171},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberClassArrOvrdDef[] = {
-	{"LUniTest/SingleMemberClassArrayDef;", UnitTest$TestType_Attribute_var$170},
-	{}
-};
-
-$Attribute UnitTest$TestType_Attribute_var$173[] = {
-	{'e', "LUniTest/Stooge; MOE"},
-	{'-'}
-};
-
-$NamedAttribute UnitTest$TestType_Attribute_var$172[] = {
-	{"value", '[', UnitTest$TestType_Attribute_var$173},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberEnumArrOvrdDef[] = {
-	{"LUniTest/SingleMemberEnumArrayDef;", UnitTest$TestType_Attribute_var$172},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberByteArrAcceptDef[] = {
-	{"LUniTest/SingleMemberByteArrayDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberShortArrAcceptDef[] = {
-	{"LUniTest/SingleMemberShortArrayDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberIntArrAcceptDef[] = {
-	{"LUniTest/SingleMemberIntArrayDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberLongArrAcceptDef[] = {
-	{"LUniTest/SingleMemberLongArrayDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberCharArrAcceptDef[] = {
-	{"LUniTest/SingleMemberCharArrayDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberFloatArrAcceptDef[] = {
-	{"LUniTest/SingleMemberFloatArrayDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleArrAcceptDef[] = {
-	{"LUniTest/SingleMemberDoubleArrayDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanArrAcceptDef[] = {
-	{"LUniTest/SingleMemberBooleanArrayDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberStringArrAcceptDef[] = {
-	{"LUniTest/SingleMemberStringArrayDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberClassArrAcceptDef[] = {
-	{"LUniTest/SingleMemberClassArrayDef;", nullptr},
-	{}
-};
-
-$CompoundAttribute _UnitTest$TestType_FieldAnnotations_SingleMemberEnumArrAcceptDef[] = {
-	{"LUniTest/SingleMemberEnumArrayDef;", nullptr},
-	{}
-};
-
-$FieldInfo _UnitTest$TestType_FieldInfo_[] = {
-	{"scalarTypesField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, scalarTypesField), _UnitTest$TestType_FieldAnnotations_scalarTypesField},
-	{"scalarTypesAcceptDefaultField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, scalarTypesAcceptDefaultField), _UnitTest$TestType_FieldAnnotations_scalarTypesAcceptDefaultField},
-	{"scalarTypesOverrideDefaultField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, scalarTypesOverrideDefaultField), _UnitTest$TestType_FieldAnnotations_scalarTypesOverrideDefaultField},
-	{"emptyArrayTypesField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, emptyArrayTypesField), _UnitTest$TestType_FieldAnnotations_emptyArrayTypesField},
-	{"singleElementArrayTypesField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, singleElementArrayTypesField), _UnitTest$TestType_FieldAnnotations_singleElementArrayTypesField},
-	{"twoElementArrayTypesField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, twoElementArrayTypesField), _UnitTest$TestType_FieldAnnotations_twoElementArrayTypesField},
-	{"arrayTypesAcceptDefaultField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, arrayTypesAcceptDefaultField), _UnitTest$TestType_FieldAnnotations_arrayTypesAcceptDefaultField},
-	{"arrayTypesOverrideDefaultField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, arrayTypesOverrideDefaultField), _UnitTest$TestType_FieldAnnotations_arrayTypesOverrideDefaultField},
-	{"marker", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, marker), _UnitTest$TestType_FieldAnnotations_marker},
-	{"SingleMemberByte", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByte), _UnitTest$TestType_FieldAnnotations_SingleMemberByte},
-	{"SingleMemberShort", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShort), _UnitTest$TestType_FieldAnnotations_SingleMemberShort},
-	{"SingleMemberInt", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberInt), _UnitTest$TestType_FieldAnnotations_SingleMemberInt},
-	{"SingleMemberLong", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLong), _UnitTest$TestType_FieldAnnotations_SingleMemberLong},
-	{"SingleMemberChar", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberChar), _UnitTest$TestType_FieldAnnotations_SingleMemberChar},
-	{"SingleMemberFloat", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloat), _UnitTest$TestType_FieldAnnotations_SingleMemberFloat},
-	{"SingleMemberDouble", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDouble), _UnitTest$TestType_FieldAnnotations_SingleMemberDouble},
-	{"SingleMemberBoolean", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBoolean), _UnitTest$TestType_FieldAnnotations_SingleMemberBoolean},
-	{"SingleMemberString", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberString), _UnitTest$TestType_FieldAnnotations_SingleMemberString},
-	{"SingleMemberClass", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClass), _UnitTest$TestType_FieldAnnotations_SingleMemberClass},
-	{"SingleMemberEnum", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnum), _UnitTest$TestType_FieldAnnotations_SingleMemberEnum},
-	{"SingleMemberByteOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberByteOvrdDef},
-	{"SingleMemberShortOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberShortOvrdDef},
-	{"SingleMemberIntOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberIntOvrdDef},
-	{"SingleMemberLongOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberLongOvrdDef},
-	{"SingleMemberCharOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberCharOvrdDef},
-	{"SingleMemberFloatOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberFloatOvrdDef},
-	{"SingleMemberDoubleOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleOvrdDef},
-	{"SingleMemberBooleanOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanOvrdDef},
-	{"SingleMemberStringOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberStringOvrdDef},
-	{"SingleMemberClassOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberClassOvrdDef},
-	{"SingleMemberEnumOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberEnumOvrdDef},
-	{"SingleMemberByteAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberByteAcceptDef},
-	{"SingleMemberShortAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberShortAcceptDef},
-	{"SingleMemberIntAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberIntAcceptDef},
-	{"SingleMemberLongAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberLongAcceptDef},
-	{"SingleMemberCharAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberCharAcceptDef},
-	{"SingleMemberFloatAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberFloatAcceptDef},
-	{"SingleMemberDoubleAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleAcceptDef},
-	{"SingleMemberBooleanAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanAcceptDef},
-	{"SingleMemberStringAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberStringAcceptDef},
-	{"SingleMemberClassAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberClassAcceptDef},
-	{"SingleMemberEnumAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberEnumAcceptDef},
-	{"SingleMemberByteArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteArrEmpty), _UnitTest$TestType_FieldAnnotations_SingleMemberByteArrEmpty},
-	{"SingleMemberShortArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortArrEmpty), _UnitTest$TestType_FieldAnnotations_SingleMemberShortArrEmpty},
-	{"SingleMemberIntArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntArrEmpty), _UnitTest$TestType_FieldAnnotations_SingleMemberIntArrEmpty},
-	{"SingleMemberLongArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongArrEmpty), _UnitTest$TestType_FieldAnnotations_SingleMemberLongArrEmpty},
-	{"SingleMemberCharArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharArrEmpty), _UnitTest$TestType_FieldAnnotations_SingleMemberCharArrEmpty},
-	{"SingleMemberFloatArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatArrEmpty), _UnitTest$TestType_FieldAnnotations_SingleMemberFloatArrEmpty},
-	{"SingleMemberDoubleArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleArrEmpty), _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleArrEmpty},
-	{"SingleMemberBooleanArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanArrEmpty), _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanArrEmpty},
-	{"SingleMemberStringArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringArrEmpty), _UnitTest$TestType_FieldAnnotations_SingleMemberStringArrEmpty},
-	{"SingleMemberClassArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassArrEmpty), _UnitTest$TestType_FieldAnnotations_SingleMemberClassArrEmpty},
-	{"SingleMemberEnumArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumArrEmpty), _UnitTest$TestType_FieldAnnotations_SingleMemberEnumArrEmpty},
-	{"SingleMemberByteArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteArrOne), _UnitTest$TestType_FieldAnnotations_SingleMemberByteArrOne},
-	{"SingleMemberShortArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortArrOne), _UnitTest$TestType_FieldAnnotations_SingleMemberShortArrOne},
-	{"SingleMemberIntArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntArrOne), _UnitTest$TestType_FieldAnnotations_SingleMemberIntArrOne},
-	{"SingleMemberLongArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongArrOne), _UnitTest$TestType_FieldAnnotations_SingleMemberLongArrOne},
-	{"SingleMemberCharArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharArrOne), _UnitTest$TestType_FieldAnnotations_SingleMemberCharArrOne},
-	{"SingleMemberFloatArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatArrOne), _UnitTest$TestType_FieldAnnotations_SingleMemberFloatArrOne},
-	{"SingleMemberDoubleArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleArrOne), _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleArrOne},
-	{"SingleMemberBooleanArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanArrOne), _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanArrOne},
-	{"SingleMemberStringArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringArrOne), _UnitTest$TestType_FieldAnnotations_SingleMemberStringArrOne},
-	{"SingleMemberClassArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassArrOne), _UnitTest$TestType_FieldAnnotations_SingleMemberClassArrOne},
-	{"SingleMemberEnumArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumArrOne), _UnitTest$TestType_FieldAnnotations_SingleMemberEnumArrOne},
-	{"SingleMemberByteArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteArrTwo), _UnitTest$TestType_FieldAnnotations_SingleMemberByteArrTwo},
-	{"SingleMemberShortArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortArrTwo), _UnitTest$TestType_FieldAnnotations_SingleMemberShortArrTwo},
-	{"SingleMemberIntArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntArrTwo), _UnitTest$TestType_FieldAnnotations_SingleMemberIntArrTwo},
-	{"SingleMemberLongArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongArrTwo), _UnitTest$TestType_FieldAnnotations_SingleMemberLongArrTwo},
-	{"SingleMemberCharArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharArrTwo), _UnitTest$TestType_FieldAnnotations_SingleMemberCharArrTwo},
-	{"SingleMemberFloatArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatArrTwo), _UnitTest$TestType_FieldAnnotations_SingleMemberFloatArrTwo},
-	{"SingleMemberDoubleArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleArrTwo), _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleArrTwo},
-	{"SingleMemberBooleanArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanArrTwo), _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanArrTwo},
-	{"SingleMemberStringArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringArrTwo), _UnitTest$TestType_FieldAnnotations_SingleMemberStringArrTwo},
-	{"SingleMemberClassArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassArrTwo), _UnitTest$TestType_FieldAnnotations_SingleMemberClassArrTwo},
-	{"SingleMemberEnumArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumArrTwo), _UnitTest$TestType_FieldAnnotations_SingleMemberEnumArrTwo},
-	{"SingleMemberByteArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteArrOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberByteArrOvrdDef},
-	{"SingleMemberShortArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortArrOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberShortArrOvrdDef},
-	{"SingleMemberIntArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntArrOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberIntArrOvrdDef},
-	{"SingleMemberLongArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongArrOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberLongArrOvrdDef},
-	{"SingleMemberCharArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharArrOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberCharArrOvrdDef},
-	{"SingleMemberFloatArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatArrOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberFloatArrOvrdDef},
-	{"SingleMemberDoubleArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleArrOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleArrOvrdDef},
-	{"SingleMemberBooleanArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanArrOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanArrOvrdDef},
-	{"SingleMemberStringArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringArrOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberStringArrOvrdDef},
-	{"SingleMemberClassArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassArrOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberClassArrOvrdDef},
-	{"SingleMemberEnumArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumArrOvrdDef), _UnitTest$TestType_FieldAnnotations_SingleMemberEnumArrOvrdDef},
-	{"SingleMemberByteArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteArrAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberByteArrAcceptDef},
-	{"SingleMemberShortArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortArrAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberShortArrAcceptDef},
-	{"SingleMemberIntArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntArrAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberIntArrAcceptDef},
-	{"SingleMemberLongArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongArrAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberLongArrAcceptDef},
-	{"SingleMemberCharArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharArrAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberCharArrAcceptDef},
-	{"SingleMemberFloatArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatArrAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberFloatArrAcceptDef},
-	{"SingleMemberDoubleArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleArrAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberDoubleArrAcceptDef},
-	{"SingleMemberBooleanArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanArrAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberBooleanArrAcceptDef},
-	{"SingleMemberStringArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringArrAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberStringArrAcceptDef},
-	{"SingleMemberClassArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassArrAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberClassArrAcceptDef},
-	{"SingleMemberEnumArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumArrAcceptDef), _UnitTest$TestType_FieldAnnotations_SingleMemberEnumArrAcceptDef},
-	{"$VALUES", "[LUniTest/UnitTest$TestType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UnitTest$TestType, $VALUES)},
-	{}
-};
-
-$MethodInfo _UnitTest$TestType_MethodInfo_[] = {
-	{"$values", "()[LUniTest/UnitTest$TestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnitTest$TestType, $values, $UnitTest$TestTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnitTest$TestType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnitTest$TestType, valueOf, UnitTest$TestType*, $String*)},
-	{"values", "()[LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnitTest$TestType, values, $UnitTest$TestTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _UnitTest$TestType_InnerClassesInfo_[] = {
-	{"UniTest.UnitTest$TestType", "UniTest.UnitTest", "TestType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _UnitTest$TestType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"UniTest.UnitTest$TestType",
-	"java.lang.Enum",
-	nullptr,
-	_UnitTest$TestType_FieldInfo_,
-	_UnitTest$TestType_MethodInfo_,
-	"Ljava/lang/Enum<LUniTest/UnitTest$TestType;>;",
-	nullptr,
-	_UnitTest$TestType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"UniTest.UnitTest"
-};
-
-$Object* allocate$UnitTest$TestType($Class* clazz) {
-	return $of($alloc(UnitTest$TestType));
-}
 
 UnitTest$TestType* UnitTest$TestType::scalarTypesField = nullptr;
 UnitTest$TestType* UnitTest$TestType::scalarTypesAcceptDefaultField = nullptr;
@@ -1787,7 +231,7 @@ void UnitTest$TestType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$UnitTest$TestType($Class* class$) {
+void UnitTest$TestType::clinit$($Class* clazz) {
 	$assignStatic(UnitTest$TestType::scalarTypesField, $new(UnitTest$TestType, "scalarTypesField"_s, 0));
 	$assignStatic(UnitTest$TestType::scalarTypesAcceptDefaultField, $new(UnitTest$TestType, "scalarTypesAcceptDefaultField"_s, 1));
 	$assignStatic(UnitTest$TestType::scalarTypesOverrideDefaultField, $new(UnitTest$TestType, "scalarTypesOverrideDefaultField"_s, 2));
@@ -1892,7 +336,1285 @@ UnitTest$TestType::UnitTest$TestType() {
 }
 
 $Class* UnitTest$TestType::load$($String* name, bool initialize) {
-	$loadClass(UnitTest$TestType, name, initialize, &_UnitTest$TestType_ClassInfo_, clinit$UnitTest$TestType, allocate$UnitTest$TestType);
+	$NamedAttribute scalarTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute[] = {
+		{"x", 'I', "1"},
+		{"y", 'I', "2"},
+		{}
+	};
+$CompoundAttribute scalarTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute = {
+	"LUniTest/Point;", scalarTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute
+};
+	$NamedAttribute scalarTypesFieldfieldAnnotations$$$namedAttribute[] = {
+		{"b", 'B', "1"},
+		{"s", 'S', "2"},
+		{"i", 'I', "3"},
+		{"l", 'J', "4"},
+		{"c", 'C', "5"},
+		{"f", 'F', "6.0"},
+		{"d", 'D', "7.0"},
+		{"bool", 'Z', "true"},
+		{"str", 's', "custom"},
+		{"cls", 'c', "Ljava/util/Map;"},
+		{"e", 'e', "LUniTest/Stooge; MOE"},
+		{"a", '@', &scalarTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute},
+		{}
+	};
+	$CompoundAttribute scalarTypesFieldfieldAnnotations$$[] = {
+		{"LUniTest/ScalarTypes;", scalarTypesFieldfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute scalarTypesAcceptDefaultFieldfieldAnnotations$$[] = {
+		{"LUniTest/ScalarTypesWithDefault;", nullptr},
+		{}
+	};
+	$NamedAttribute scalarTypesOverrideDefaultFieldfieldAnnotations$$$namedAttribute[] = {
+		{"b", 'B', "1"},
+		{"s", 'S', "2"},
+		{"i", 'I', "3"},
+		{"l", 'J', "4"},
+		{"c", 'C', "5"},
+		{"f", 'F', "6.0"},
+		{"d", 'D', "7.0"},
+		{"bool", 'Z', "true"},
+		{"str", 's', "custom"},
+		{"cls", 'c', "Ljava/util/Map;"},
+		{"e", 'e', "LUniTest/Stooge; MOE"},
+		{}
+	};
+	$CompoundAttribute scalarTypesOverrideDefaultFieldfieldAnnotations$$[] = {
+		{"LUniTest/ScalarTypesWithDefault;", scalarTypesOverrideDefaultFieldfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'-'}
+	};
+	$Attribute $attribute$1[] = {
+		{'-'}
+	};
+	$Attribute $attribute$2[] = {
+		{'-'}
+	};
+	$Attribute $attribute$3[] = {
+		{'-'}
+	};
+	$Attribute $attribute$4[] = {
+		{'-'}
+	};
+	$Attribute $attribute$5[] = {
+		{'-'}
+	};
+	$Attribute $attribute$6[] = {
+		{'-'}
+	};
+	$Attribute $attribute$7[] = {
+		{'-'}
+	};
+	$Attribute $attribute$8[] = {
+		{'-'}
+	};
+	$Attribute $attribute$9[] = {
+		{'-'}
+	};
+	$Attribute $attribute$10[] = {
+		{'-'}
+	};
+	$Attribute $attribute$11[] = {
+		{'-'}
+	};
+	$NamedAttribute emptyArrayTypesFieldfieldAnnotations$$$namedAttribute[] = {
+		{"b", '[', $attribute},
+		{"s", '[', $attribute$1},
+		{"i", '[', $attribute$2},
+		{"l", '[', $attribute$3},
+		{"c", '[', $attribute$4},
+		{"f", '[', $attribute$5},
+		{"d", '[', $attribute$6},
+		{"bool", '[', $attribute$7},
+		{"str", '[', $attribute$8},
+		{"cls", '[', $attribute$9},
+		{"e", '[', $attribute$10},
+		{"a", '[', $attribute$11},
+		{}
+	};
+	$CompoundAttribute emptyArrayTypesFieldfieldAnnotations$$[] = {
+		{"LUniTest/ArrayTypes;", emptyArrayTypesFieldfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$12[] = {
+		{'B', "1"},
+		{'-'}
+	};
+	$Attribute $attribute$13[] = {
+		{'S', "2"},
+		{'-'}
+	};
+	$Attribute $attribute$14[] = {
+		{'I', "3"},
+		{'-'}
+	};
+	$Attribute $attribute$15[] = {
+		{'J', "4"},
+		{'-'}
+	};
+	$Attribute $attribute$16[] = {
+		{'C', "5"},
+		{'-'}
+	};
+	$Attribute $attribute$17[] = {
+		{'F', "6.0"},
+		{'-'}
+	};
+	$Attribute $attribute$18[] = {
+		{'D', "7.0"},
+		{'-'}
+	};
+	$Attribute $attribute$19[] = {
+		{'Z', "true"},
+		{'-'}
+	};
+	$Attribute $attribute$20[] = {
+		{'s', "custom"},
+		{'-'}
+	};
+	$Attribute $attribute$21[] = {
+		{'c', "Ljava/util/Map;"},
+		{'-'}
+	};
+	$Attribute $attribute$22[] = {
+		{'e', "LUniTest/Stooge; MOE"},
+		{'-'}
+	};
+	$NamedAttribute singleElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute[] = {
+		{"x", 'I', "1"},
+		{"y", 'I', "2"},
+		{}
+	};
+$CompoundAttribute singleElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute = {
+	"LUniTest/Point;", singleElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute
+};
+	$Attribute $attribute$23[] = {
+		{'@', &singleElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute},
+		{'-'}
+	};
+	$NamedAttribute singleElementArrayTypesFieldfieldAnnotations$$$namedAttribute[] = {
+		{"b", '[', $attribute$12},
+		{"s", '[', $attribute$13},
+		{"i", '[', $attribute$14},
+		{"l", '[', $attribute$15},
+		{"c", '[', $attribute$16},
+		{"f", '[', $attribute$17},
+		{"d", '[', $attribute$18},
+		{"bool", '[', $attribute$19},
+		{"str", '[', $attribute$20},
+		{"cls", '[', $attribute$21},
+		{"e", '[', $attribute$22},
+		{"a", '[', $attribute$23},
+		{}
+	};
+	$CompoundAttribute singleElementArrayTypesFieldfieldAnnotations$$[] = {
+		{"LUniTest/ArrayTypes;", singleElementArrayTypesFieldfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$24[] = {
+		{'B', "1"},
+		{'B', "2"},
+		{'-'}
+	};
+	$Attribute $attribute$25[] = {
+		{'S', "2"},
+		{'S', "3"},
+		{'-'}
+	};
+	$Attribute $attribute$26[] = {
+		{'I', "3"},
+		{'I', "4"},
+		{'-'}
+	};
+	$Attribute $attribute$27[] = {
+		{'J', "4"},
+		{'J', "5"},
+		{'-'}
+	};
+	$Attribute $attribute$28[] = {
+		{'C', "5"},
+		{'C', "6"},
+		{'-'}
+	};
+	$Attribute $attribute$29[] = {
+		{'F', "6.0"},
+		{'F', "7.0"},
+		{'-'}
+	};
+	$Attribute $attribute$30[] = {
+		{'D', "7.0"},
+		{'D', "8.0"},
+		{'-'}
+	};
+	$Attribute $attribute$31[] = {
+		{'Z', "true"},
+		{'Z', "false"},
+		{'-'}
+	};
+	$Attribute $attribute$32[] = {
+		{'s', "custom"},
+		{'s', "paint"},
+		{'-'}
+	};
+	$Attribute $attribute$33[] = {
+		{'c', "Ljava/util/Map;"},
+		{'c', "Ljava/util/Set;"},
+		{'-'}
+	};
+	$Attribute $attribute$34[] = {
+		{'e', "LUniTest/Stooge; MOE"},
+		{'e', "LUniTest/Stooge; CURLY"},
+		{'-'}
+	};
+	$NamedAttribute twoElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute[] = {
+		{"x", 'I', "1"},
+		{"y", 'I', "2"},
+		{}
+	};
+$CompoundAttribute twoElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute = {
+	"LUniTest/Point;", twoElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute
+};
+	$NamedAttribute twoElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute$namedAttribute[] = {
+		{"x", 'I', "3"},
+		{"y", 'I', "4"},
+		{}
+	};
+$CompoundAttribute twoElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute = {
+	"LUniTest/Point;", twoElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute$namedAttribute
+};
+	$Attribute $attribute$35[] = {
+		{'@', &twoElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute},
+		{'@', &twoElementArrayTypesFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute},
+		{'-'}
+	};
+	$NamedAttribute twoElementArrayTypesFieldfieldAnnotations$$$namedAttribute[] = {
+		{"b", '[', $attribute$24},
+		{"s", '[', $attribute$25},
+		{"i", '[', $attribute$26},
+		{"l", '[', $attribute$27},
+		{"c", '[', $attribute$28},
+		{"f", '[', $attribute$29},
+		{"d", '[', $attribute$30},
+		{"bool", '[', $attribute$31},
+		{"str", '[', $attribute$32},
+		{"cls", '[', $attribute$33},
+		{"e", '[', $attribute$34},
+		{"a", '[', $attribute$35},
+		{}
+	};
+	$CompoundAttribute twoElementArrayTypesFieldfieldAnnotations$$[] = {
+		{"LUniTest/ArrayTypes;", twoElementArrayTypesFieldfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute arrayTypesAcceptDefaultFieldfieldAnnotations$$[] = {
+		{"LUniTest/ArrayTypesWithDefault;", nullptr},
+		{}
+	};
+	$Attribute $attribute$36[] = {
+		{'B', "1"},
+		{'-'}
+	};
+	$Attribute $attribute$37[] = {
+		{'S', "2"},
+		{'-'}
+	};
+	$Attribute $attribute$38[] = {
+		{'I', "3"},
+		{'-'}
+	};
+	$Attribute $attribute$39[] = {
+		{'J', "4"},
+		{'-'}
+	};
+	$Attribute $attribute$40[] = {
+		{'C', "5"},
+		{'-'}
+	};
+	$Attribute $attribute$41[] = {
+		{'F', "6.0"},
+		{'-'}
+	};
+	$Attribute $attribute$42[] = {
+		{'D', "7.0"},
+		{'-'}
+	};
+	$Attribute $attribute$43[] = {
+		{'Z', "true"},
+		{'-'}
+	};
+	$Attribute $attribute$44[] = {
+		{'s', "custom"},
+		{'-'}
+	};
+	$Attribute $attribute$45[] = {
+		{'c', "Ljava/util/Map;"},
+		{'-'}
+	};
+	$Attribute $attribute$46[] = {
+		{'e', "LUniTest/Stooge; MOE"},
+		{'-'}
+	};
+	$NamedAttribute arrayTypesOverrideDefaultFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute[] = {
+		{"x", 'I', "1"},
+		{"y", 'I', "2"},
+		{}
+	};
+$CompoundAttribute arrayTypesOverrideDefaultFieldfieldAnnotations$$$namedAttribute$compoundAttribute = {
+	"LUniTest/Point;", arrayTypesOverrideDefaultFieldfieldAnnotations$$$namedAttribute$compoundAttribute$namedAttribute
+};
+	$Attribute $attribute$47[] = {
+		{'@', &arrayTypesOverrideDefaultFieldfieldAnnotations$$$namedAttribute$compoundAttribute},
+		{'-'}
+	};
+	$NamedAttribute arrayTypesOverrideDefaultFieldfieldAnnotations$$$namedAttribute[] = {
+		{"b", '[', $attribute$36},
+		{"s", '[', $attribute$37},
+		{"i", '[', $attribute$38},
+		{"l", '[', $attribute$39},
+		{"c", '[', $attribute$40},
+		{"f", '[', $attribute$41},
+		{"d", '[', $attribute$42},
+		{"bool", '[', $attribute$43},
+		{"str", '[', $attribute$44},
+		{"cls", '[', $attribute$45},
+		{"e", '[', $attribute$46},
+		{"a", '[', $attribute$47},
+		{}
+	};
+	$CompoundAttribute arrayTypesOverrideDefaultFieldfieldAnnotations$$[] = {
+		{"LUniTest/ArrayTypesWithDefault;", arrayTypesOverrideDefaultFieldfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute markerfieldAnnotations$$[] = {
+		{"LUniTest/Marker;", nullptr},
+		{}
+	};
+	$NamedAttribute SingleMemberBytefieldAnnotations$$$namedAttribute[] = {
+		{"value", 'B', "1"},
+		{}
+	};
+	$CompoundAttribute SingleMemberBytefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberByte;", SingleMemberBytefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberShortfieldAnnotations$$$namedAttribute[] = {
+		{"value", 'S', "2"},
+		{}
+	};
+	$CompoundAttribute SingleMemberShortfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberShort;", SingleMemberShortfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberIntfieldAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "3"},
+		{}
+	};
+	$CompoundAttribute SingleMemberIntfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberInt;", SingleMemberIntfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberLongfieldAnnotations$$$namedAttribute[] = {
+		{"value", 'J', "4"},
+		{}
+	};
+	$CompoundAttribute SingleMemberLongfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberLong;", SingleMemberLongfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberCharfieldAnnotations$$$namedAttribute[] = {
+		{"value", 'C', "5"},
+		{}
+	};
+	$CompoundAttribute SingleMemberCharfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberChar;", SingleMemberCharfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberFloatfieldAnnotations$$$namedAttribute[] = {
+		{"value", 'F', "6.0"},
+		{}
+	};
+	$CompoundAttribute SingleMemberFloatfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberFloat;", SingleMemberFloatfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberDoublefieldAnnotations$$$namedAttribute[] = {
+		{"value", 'D', "7.0"},
+		{}
+	};
+	$CompoundAttribute SingleMemberDoublefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberDouble;", SingleMemberDoublefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberBooleanfieldAnnotations$$$namedAttribute[] = {
+		{"value", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute SingleMemberBooleanfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberBoolean;", SingleMemberBooleanfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberStringfieldAnnotations$$$namedAttribute[] = {
+		{"value", 's', "custom"},
+		{}
+	};
+	$CompoundAttribute SingleMemberStringfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberString;", SingleMemberStringfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberClassfieldAnnotations$$$namedAttribute[] = {
+		{"value", 'c', "Ljava/util/Map;"},
+		{}
+	};
+	$CompoundAttribute SingleMemberClassfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberClass;", SingleMemberClassfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberEnumfieldAnnotations$$$namedAttribute[] = {
+		{"value", 'e', "LUniTest/Stooge; MOE"},
+		{}
+	};
+	$CompoundAttribute SingleMemberEnumfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberEnum;", SingleMemberEnumfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberByteOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", 'B', "1"},
+		{}
+	};
+	$CompoundAttribute SingleMemberByteOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberByteWithDef;", SingleMemberByteOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberShortOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", 'S', "2"},
+		{}
+	};
+	$CompoundAttribute SingleMemberShortOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberShortWithDef;", SingleMemberShortOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberIntOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "3"},
+		{}
+	};
+	$CompoundAttribute SingleMemberIntOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberIntWithDef;", SingleMemberIntOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberLongOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", 'J', "4"},
+		{}
+	};
+	$CompoundAttribute SingleMemberLongOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberLongWithDef;", SingleMemberLongOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberCharOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", 'C', "5"},
+		{}
+	};
+	$CompoundAttribute SingleMemberCharOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberCharWithDef;", SingleMemberCharOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberFloatOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", 'F', "6.0"},
+		{}
+	};
+	$CompoundAttribute SingleMemberFloatOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberFloatWithDef;", SingleMemberFloatOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberDoubleOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", 'D', "7.0"},
+		{}
+	};
+	$CompoundAttribute SingleMemberDoubleOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberDoubleWithDef;", SingleMemberDoubleOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberBooleanOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute SingleMemberBooleanOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberBooleanWithDef;", SingleMemberBooleanOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberStringOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", 's', "custom"},
+		{}
+	};
+	$CompoundAttribute SingleMemberStringOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberStringWithDef;", SingleMemberStringOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberClassOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", 'c', "Ljava/util/Map;"},
+		{}
+	};
+	$CompoundAttribute SingleMemberClassOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberClassWithDef;", SingleMemberClassOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute SingleMemberEnumOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", 'e', "LUniTest/Stooge; MOE"},
+		{}
+	};
+	$CompoundAttribute SingleMemberEnumOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberEnumWithDef;", SingleMemberEnumOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute SingleMemberByteAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberByteWithDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberShortAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberShortWithDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberIntAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberIntWithDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberLongAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberLongWithDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberCharAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberCharWithDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberFloatAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberFloatWithDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberDoubleAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberDoubleWithDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberBooleanAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberBooleanWithDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberStringAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberStringWithDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberClassAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberClassWithDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberEnumAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberEnumWithDef;", nullptr},
+		{}
+	};
+	$Attribute $attribute$48[] = {
+		{'-'}
+	};
+	$NamedAttribute SingleMemberByteArrEmptyfieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$48},
+		{}
+	};
+	$CompoundAttribute SingleMemberByteArrEmptyfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberByteArray;", SingleMemberByteArrEmptyfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$49[] = {
+		{'-'}
+	};
+	$NamedAttribute SingleMemberShortArrEmptyfieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$49},
+		{}
+	};
+	$CompoundAttribute SingleMemberShortArrEmptyfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberShortArray;", SingleMemberShortArrEmptyfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$50[] = {
+		{'-'}
+	};
+	$NamedAttribute SingleMemberIntArrEmptyfieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$50},
+		{}
+	};
+	$CompoundAttribute SingleMemberIntArrEmptyfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberIntArray;", SingleMemberIntArrEmptyfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$51[] = {
+		{'-'}
+	};
+	$NamedAttribute SingleMemberLongArrEmptyfieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$51},
+		{}
+	};
+	$CompoundAttribute SingleMemberLongArrEmptyfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberLongArray;", SingleMemberLongArrEmptyfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$52[] = {
+		{'-'}
+	};
+	$NamedAttribute SingleMemberCharArrEmptyfieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$52},
+		{}
+	};
+	$CompoundAttribute SingleMemberCharArrEmptyfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberCharArray;", SingleMemberCharArrEmptyfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$53[] = {
+		{'-'}
+	};
+	$NamedAttribute SingleMemberFloatArrEmptyfieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$53},
+		{}
+	};
+	$CompoundAttribute SingleMemberFloatArrEmptyfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberFloatArray;", SingleMemberFloatArrEmptyfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$54[] = {
+		{'-'}
+	};
+	$NamedAttribute SingleMemberDoubleArrEmptyfieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$54},
+		{}
+	};
+	$CompoundAttribute SingleMemberDoubleArrEmptyfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberDoubleArray;", SingleMemberDoubleArrEmptyfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$55[] = {
+		{'-'}
+	};
+	$NamedAttribute SingleMemberBooleanArrEmptyfieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$55},
+		{}
+	};
+	$CompoundAttribute SingleMemberBooleanArrEmptyfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberBooleanArray;", SingleMemberBooleanArrEmptyfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$56[] = {
+		{'-'}
+	};
+	$NamedAttribute SingleMemberStringArrEmptyfieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$56},
+		{}
+	};
+	$CompoundAttribute SingleMemberStringArrEmptyfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberStringArray;", SingleMemberStringArrEmptyfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$57[] = {
+		{'-'}
+	};
+	$NamedAttribute SingleMemberClassArrEmptyfieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$57},
+		{}
+	};
+	$CompoundAttribute SingleMemberClassArrEmptyfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberClassArray;", SingleMemberClassArrEmptyfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$58[] = {
+		{'-'}
+	};
+	$NamedAttribute SingleMemberEnumArrEmptyfieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$58},
+		{}
+	};
+	$CompoundAttribute SingleMemberEnumArrEmptyfieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberEnumArray;", SingleMemberEnumArrEmptyfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$59[] = {
+		{'B', "1"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberByteArrOnefieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$59},
+		{}
+	};
+	$CompoundAttribute SingleMemberByteArrOnefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberByteArray;", SingleMemberByteArrOnefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$60[] = {
+		{'S', "2"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberShortArrOnefieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$60},
+		{}
+	};
+	$CompoundAttribute SingleMemberShortArrOnefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberShortArray;", SingleMemberShortArrOnefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$61[] = {
+		{'I', "3"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberIntArrOnefieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$61},
+		{}
+	};
+	$CompoundAttribute SingleMemberIntArrOnefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberIntArray;", SingleMemberIntArrOnefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$62[] = {
+		{'J', "4"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberLongArrOnefieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$62},
+		{}
+	};
+	$CompoundAttribute SingleMemberLongArrOnefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberLongArray;", SingleMemberLongArrOnefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$63[] = {
+		{'C', "5"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberCharArrOnefieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$63},
+		{}
+	};
+	$CompoundAttribute SingleMemberCharArrOnefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberCharArray;", SingleMemberCharArrOnefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$64[] = {
+		{'F', "6.0"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberFloatArrOnefieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$64},
+		{}
+	};
+	$CompoundAttribute SingleMemberFloatArrOnefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberFloatArray;", SingleMemberFloatArrOnefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$65[] = {
+		{'D', "7.0"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberDoubleArrOnefieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$65},
+		{}
+	};
+	$CompoundAttribute SingleMemberDoubleArrOnefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberDoubleArray;", SingleMemberDoubleArrOnefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$66[] = {
+		{'Z', "true"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberBooleanArrOnefieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$66},
+		{}
+	};
+	$CompoundAttribute SingleMemberBooleanArrOnefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberBooleanArray;", SingleMemberBooleanArrOnefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$67[] = {
+		{'s', "custom"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberStringArrOnefieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$67},
+		{}
+	};
+	$CompoundAttribute SingleMemberStringArrOnefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberStringArray;", SingleMemberStringArrOnefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$68[] = {
+		{'c', "Ljava/util/Map;"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberClassArrOnefieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$68},
+		{}
+	};
+	$CompoundAttribute SingleMemberClassArrOnefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberClassArray;", SingleMemberClassArrOnefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$69[] = {
+		{'e', "LUniTest/Stooge; MOE"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberEnumArrOnefieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$69},
+		{}
+	};
+	$CompoundAttribute SingleMemberEnumArrOnefieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberEnumArray;", SingleMemberEnumArrOnefieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$70[] = {
+		{'B', "1"},
+		{'B', "2"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberByteArrTwofieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$70},
+		{}
+	};
+	$CompoundAttribute SingleMemberByteArrTwofieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberByteArray;", SingleMemberByteArrTwofieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$71[] = {
+		{'S', "2"},
+		{'S', "3"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberShortArrTwofieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$71},
+		{}
+	};
+	$CompoundAttribute SingleMemberShortArrTwofieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberShortArray;", SingleMemberShortArrTwofieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$72[] = {
+		{'I', "3"},
+		{'I', "4"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberIntArrTwofieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$72},
+		{}
+	};
+	$CompoundAttribute SingleMemberIntArrTwofieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberIntArray;", SingleMemberIntArrTwofieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$73[] = {
+		{'J', "4"},
+		{'J', "5"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberLongArrTwofieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$73},
+		{}
+	};
+	$CompoundAttribute SingleMemberLongArrTwofieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberLongArray;", SingleMemberLongArrTwofieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$74[] = {
+		{'C', "5"},
+		{'C', "6"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberCharArrTwofieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$74},
+		{}
+	};
+	$CompoundAttribute SingleMemberCharArrTwofieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberCharArray;", SingleMemberCharArrTwofieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$75[] = {
+		{'F', "6.0"},
+		{'F', "7.0"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberFloatArrTwofieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$75},
+		{}
+	};
+	$CompoundAttribute SingleMemberFloatArrTwofieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberFloatArray;", SingleMemberFloatArrTwofieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$76[] = {
+		{'D', "7.0"},
+		{'D', "8.0"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberDoubleArrTwofieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$76},
+		{}
+	};
+	$CompoundAttribute SingleMemberDoubleArrTwofieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberDoubleArray;", SingleMemberDoubleArrTwofieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$77[] = {
+		{'Z', "true"},
+		{'Z', "false"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberBooleanArrTwofieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$77},
+		{}
+	};
+	$CompoundAttribute SingleMemberBooleanArrTwofieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberBooleanArray;", SingleMemberBooleanArrTwofieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$78[] = {
+		{'s', "custom"},
+		{'s', "paint"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberStringArrTwofieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$78},
+		{}
+	};
+	$CompoundAttribute SingleMemberStringArrTwofieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberStringArray;", SingleMemberStringArrTwofieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$79[] = {
+		{'c', "Ljava/util/Map;"},
+		{'c', "Ljava/util/Set;"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberClassArrTwofieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$79},
+		{}
+	};
+	$CompoundAttribute SingleMemberClassArrTwofieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberClassArray;", SingleMemberClassArrTwofieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$80[] = {
+		{'e', "LUniTest/Stooge; MOE"},
+		{'e', "LUniTest/Stooge; CURLY"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberEnumArrTwofieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$80},
+		{}
+	};
+	$CompoundAttribute SingleMemberEnumArrTwofieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberEnumArray;", SingleMemberEnumArrTwofieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$81[] = {
+		{'B', "1"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberByteArrOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$81},
+		{}
+	};
+	$CompoundAttribute SingleMemberByteArrOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberByteArrayDef;", SingleMemberByteArrOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$82[] = {
+		{'S', "2"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberShortArrOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$82},
+		{}
+	};
+	$CompoundAttribute SingleMemberShortArrOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberShortArrayDef;", SingleMemberShortArrOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$83[] = {
+		{'I', "3"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberIntArrOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$83},
+		{}
+	};
+	$CompoundAttribute SingleMemberIntArrOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberIntArrayDef;", SingleMemberIntArrOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$84[] = {
+		{'J', "4"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberLongArrOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$84},
+		{}
+	};
+	$CompoundAttribute SingleMemberLongArrOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberLongArrayDef;", SingleMemberLongArrOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$85[] = {
+		{'C', "5"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberCharArrOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$85},
+		{}
+	};
+	$CompoundAttribute SingleMemberCharArrOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberCharArrayDef;", SingleMemberCharArrOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$86[] = {
+		{'F', "6.0"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberFloatArrOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$86},
+		{}
+	};
+	$CompoundAttribute SingleMemberFloatArrOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberFloatArrayDef;", SingleMemberFloatArrOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$87[] = {
+		{'D', "7.0"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberDoubleArrOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$87},
+		{}
+	};
+	$CompoundAttribute SingleMemberDoubleArrOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberDoubleArrayDef;", SingleMemberDoubleArrOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$88[] = {
+		{'Z', "true"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberBooleanArrOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$88},
+		{}
+	};
+	$CompoundAttribute SingleMemberBooleanArrOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberBooleanArrayDef;", SingleMemberBooleanArrOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$89[] = {
+		{'s', "custom"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberStringArrOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$89},
+		{}
+	};
+	$CompoundAttribute SingleMemberStringArrOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberStringArrayDef;", SingleMemberStringArrOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$90[] = {
+		{'c', "Ljava/util/Map;"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberClassArrOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$90},
+		{}
+	};
+	$CompoundAttribute SingleMemberClassArrOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberClassArrayDef;", SingleMemberClassArrOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$91[] = {
+		{'e', "LUniTest/Stooge; MOE"},
+		{'-'}
+	};
+	$NamedAttribute SingleMemberEnumArrOvrdDeffieldAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute$91},
+		{}
+	};
+	$CompoundAttribute SingleMemberEnumArrOvrdDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberEnumArrayDef;", SingleMemberEnumArrOvrdDeffieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute SingleMemberByteArrAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberByteArrayDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberShortArrAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberShortArrayDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberIntArrAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberIntArrayDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberLongArrAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberLongArrayDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberCharArrAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberCharArrayDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberFloatArrAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberFloatArrayDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberDoubleArrAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberDoubleArrayDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberBooleanArrAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberBooleanArrayDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberStringArrAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberStringArrayDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberClassArrAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberClassArrayDef;", nullptr},
+		{}
+	};
+	$CompoundAttribute SingleMemberEnumArrAcceptDeffieldAnnotations$$[] = {
+		{"LUniTest/SingleMemberEnumArrayDef;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"scalarTypesField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, scalarTypesField), scalarTypesFieldfieldAnnotations$$},
+		{"scalarTypesAcceptDefaultField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, scalarTypesAcceptDefaultField), scalarTypesAcceptDefaultFieldfieldAnnotations$$},
+		{"scalarTypesOverrideDefaultField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, scalarTypesOverrideDefaultField), scalarTypesOverrideDefaultFieldfieldAnnotations$$},
+		{"emptyArrayTypesField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, emptyArrayTypesField), emptyArrayTypesFieldfieldAnnotations$$},
+		{"singleElementArrayTypesField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, singleElementArrayTypesField), singleElementArrayTypesFieldfieldAnnotations$$},
+		{"twoElementArrayTypesField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, twoElementArrayTypesField), twoElementArrayTypesFieldfieldAnnotations$$},
+		{"arrayTypesAcceptDefaultField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, arrayTypesAcceptDefaultField), arrayTypesAcceptDefaultFieldfieldAnnotations$$},
+		{"arrayTypesOverrideDefaultField", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, arrayTypesOverrideDefaultField), arrayTypesOverrideDefaultFieldfieldAnnotations$$},
+		{"marker", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, marker), markerfieldAnnotations$$},
+		{"SingleMemberByte", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByte), SingleMemberBytefieldAnnotations$$},
+		{"SingleMemberShort", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShort), SingleMemberShortfieldAnnotations$$},
+		{"SingleMemberInt", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberInt), SingleMemberIntfieldAnnotations$$},
+		{"SingleMemberLong", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLong), SingleMemberLongfieldAnnotations$$},
+		{"SingleMemberChar", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberChar), SingleMemberCharfieldAnnotations$$},
+		{"SingleMemberFloat", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloat), SingleMemberFloatfieldAnnotations$$},
+		{"SingleMemberDouble", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDouble), SingleMemberDoublefieldAnnotations$$},
+		{"SingleMemberBoolean", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBoolean), SingleMemberBooleanfieldAnnotations$$},
+		{"SingleMemberString", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberString), SingleMemberStringfieldAnnotations$$},
+		{"SingleMemberClass", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClass), SingleMemberClassfieldAnnotations$$},
+		{"SingleMemberEnum", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnum), SingleMemberEnumfieldAnnotations$$},
+		{"SingleMemberByteOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteOvrdDef), SingleMemberByteOvrdDeffieldAnnotations$$},
+		{"SingleMemberShortOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortOvrdDef), SingleMemberShortOvrdDeffieldAnnotations$$},
+		{"SingleMemberIntOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntOvrdDef), SingleMemberIntOvrdDeffieldAnnotations$$},
+		{"SingleMemberLongOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongOvrdDef), SingleMemberLongOvrdDeffieldAnnotations$$},
+		{"SingleMemberCharOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharOvrdDef), SingleMemberCharOvrdDeffieldAnnotations$$},
+		{"SingleMemberFloatOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatOvrdDef), SingleMemberFloatOvrdDeffieldAnnotations$$},
+		{"SingleMemberDoubleOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleOvrdDef), SingleMemberDoubleOvrdDeffieldAnnotations$$},
+		{"SingleMemberBooleanOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanOvrdDef), SingleMemberBooleanOvrdDeffieldAnnotations$$},
+		{"SingleMemberStringOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringOvrdDef), SingleMemberStringOvrdDeffieldAnnotations$$},
+		{"SingleMemberClassOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassOvrdDef), SingleMemberClassOvrdDeffieldAnnotations$$},
+		{"SingleMemberEnumOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumOvrdDef), SingleMemberEnumOvrdDeffieldAnnotations$$},
+		{"SingleMemberByteAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteAcceptDef), SingleMemberByteAcceptDeffieldAnnotations$$},
+		{"SingleMemberShortAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortAcceptDef), SingleMemberShortAcceptDeffieldAnnotations$$},
+		{"SingleMemberIntAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntAcceptDef), SingleMemberIntAcceptDeffieldAnnotations$$},
+		{"SingleMemberLongAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongAcceptDef), SingleMemberLongAcceptDeffieldAnnotations$$},
+		{"SingleMemberCharAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharAcceptDef), SingleMemberCharAcceptDeffieldAnnotations$$},
+		{"SingleMemberFloatAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatAcceptDef), SingleMemberFloatAcceptDeffieldAnnotations$$},
+		{"SingleMemberDoubleAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleAcceptDef), SingleMemberDoubleAcceptDeffieldAnnotations$$},
+		{"SingleMemberBooleanAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanAcceptDef), SingleMemberBooleanAcceptDeffieldAnnotations$$},
+		{"SingleMemberStringAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringAcceptDef), SingleMemberStringAcceptDeffieldAnnotations$$},
+		{"SingleMemberClassAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassAcceptDef), SingleMemberClassAcceptDeffieldAnnotations$$},
+		{"SingleMemberEnumAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumAcceptDef), SingleMemberEnumAcceptDeffieldAnnotations$$},
+		{"SingleMemberByteArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteArrEmpty), SingleMemberByteArrEmptyfieldAnnotations$$},
+		{"SingleMemberShortArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortArrEmpty), SingleMemberShortArrEmptyfieldAnnotations$$},
+		{"SingleMemberIntArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntArrEmpty), SingleMemberIntArrEmptyfieldAnnotations$$},
+		{"SingleMemberLongArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongArrEmpty), SingleMemberLongArrEmptyfieldAnnotations$$},
+		{"SingleMemberCharArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharArrEmpty), SingleMemberCharArrEmptyfieldAnnotations$$},
+		{"SingleMemberFloatArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatArrEmpty), SingleMemberFloatArrEmptyfieldAnnotations$$},
+		{"SingleMemberDoubleArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleArrEmpty), SingleMemberDoubleArrEmptyfieldAnnotations$$},
+		{"SingleMemberBooleanArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanArrEmpty), SingleMemberBooleanArrEmptyfieldAnnotations$$},
+		{"SingleMemberStringArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringArrEmpty), SingleMemberStringArrEmptyfieldAnnotations$$},
+		{"SingleMemberClassArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassArrEmpty), SingleMemberClassArrEmptyfieldAnnotations$$},
+		{"SingleMemberEnumArrEmpty", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumArrEmpty), SingleMemberEnumArrEmptyfieldAnnotations$$},
+		{"SingleMemberByteArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteArrOne), SingleMemberByteArrOnefieldAnnotations$$},
+		{"SingleMemberShortArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortArrOne), SingleMemberShortArrOnefieldAnnotations$$},
+		{"SingleMemberIntArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntArrOne), SingleMemberIntArrOnefieldAnnotations$$},
+		{"SingleMemberLongArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongArrOne), SingleMemberLongArrOnefieldAnnotations$$},
+		{"SingleMemberCharArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharArrOne), SingleMemberCharArrOnefieldAnnotations$$},
+		{"SingleMemberFloatArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatArrOne), SingleMemberFloatArrOnefieldAnnotations$$},
+		{"SingleMemberDoubleArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleArrOne), SingleMemberDoubleArrOnefieldAnnotations$$},
+		{"SingleMemberBooleanArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanArrOne), SingleMemberBooleanArrOnefieldAnnotations$$},
+		{"SingleMemberStringArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringArrOne), SingleMemberStringArrOnefieldAnnotations$$},
+		{"SingleMemberClassArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassArrOne), SingleMemberClassArrOnefieldAnnotations$$},
+		{"SingleMemberEnumArrOne", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumArrOne), SingleMemberEnumArrOnefieldAnnotations$$},
+		{"SingleMemberByteArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteArrTwo), SingleMemberByteArrTwofieldAnnotations$$},
+		{"SingleMemberShortArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortArrTwo), SingleMemberShortArrTwofieldAnnotations$$},
+		{"SingleMemberIntArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntArrTwo), SingleMemberIntArrTwofieldAnnotations$$},
+		{"SingleMemberLongArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongArrTwo), SingleMemberLongArrTwofieldAnnotations$$},
+		{"SingleMemberCharArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharArrTwo), SingleMemberCharArrTwofieldAnnotations$$},
+		{"SingleMemberFloatArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatArrTwo), SingleMemberFloatArrTwofieldAnnotations$$},
+		{"SingleMemberDoubleArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleArrTwo), SingleMemberDoubleArrTwofieldAnnotations$$},
+		{"SingleMemberBooleanArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanArrTwo), SingleMemberBooleanArrTwofieldAnnotations$$},
+		{"SingleMemberStringArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringArrTwo), SingleMemberStringArrTwofieldAnnotations$$},
+		{"SingleMemberClassArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassArrTwo), SingleMemberClassArrTwofieldAnnotations$$},
+		{"SingleMemberEnumArrTwo", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumArrTwo), SingleMemberEnumArrTwofieldAnnotations$$},
+		{"SingleMemberByteArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteArrOvrdDef), SingleMemberByteArrOvrdDeffieldAnnotations$$},
+		{"SingleMemberShortArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortArrOvrdDef), SingleMemberShortArrOvrdDeffieldAnnotations$$},
+		{"SingleMemberIntArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntArrOvrdDef), SingleMemberIntArrOvrdDeffieldAnnotations$$},
+		{"SingleMemberLongArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongArrOvrdDef), SingleMemberLongArrOvrdDeffieldAnnotations$$},
+		{"SingleMemberCharArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharArrOvrdDef), SingleMemberCharArrOvrdDeffieldAnnotations$$},
+		{"SingleMemberFloatArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatArrOvrdDef), SingleMemberFloatArrOvrdDeffieldAnnotations$$},
+		{"SingleMemberDoubleArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleArrOvrdDef), SingleMemberDoubleArrOvrdDeffieldAnnotations$$},
+		{"SingleMemberBooleanArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanArrOvrdDef), SingleMemberBooleanArrOvrdDeffieldAnnotations$$},
+		{"SingleMemberStringArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringArrOvrdDef), SingleMemberStringArrOvrdDeffieldAnnotations$$},
+		{"SingleMemberClassArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassArrOvrdDef), SingleMemberClassArrOvrdDeffieldAnnotations$$},
+		{"SingleMemberEnumArrOvrdDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumArrOvrdDef), SingleMemberEnumArrOvrdDeffieldAnnotations$$},
+		{"SingleMemberByteArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberByteArrAcceptDef), SingleMemberByteArrAcceptDeffieldAnnotations$$},
+		{"SingleMemberShortArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberShortArrAcceptDef), SingleMemberShortArrAcceptDeffieldAnnotations$$},
+		{"SingleMemberIntArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberIntArrAcceptDef), SingleMemberIntArrAcceptDeffieldAnnotations$$},
+		{"SingleMemberLongArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberLongArrAcceptDef), SingleMemberLongArrAcceptDeffieldAnnotations$$},
+		{"SingleMemberCharArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberCharArrAcceptDef), SingleMemberCharArrAcceptDeffieldAnnotations$$},
+		{"SingleMemberFloatArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberFloatArrAcceptDef), SingleMemberFloatArrAcceptDeffieldAnnotations$$},
+		{"SingleMemberDoubleArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberDoubleArrAcceptDef), SingleMemberDoubleArrAcceptDeffieldAnnotations$$},
+		{"SingleMemberBooleanArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberBooleanArrAcceptDef), SingleMemberBooleanArrAcceptDeffieldAnnotations$$},
+		{"SingleMemberStringArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberStringArrAcceptDef), SingleMemberStringArrAcceptDeffieldAnnotations$$},
+		{"SingleMemberClassArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberClassArrAcceptDef), SingleMemberClassArrAcceptDeffieldAnnotations$$},
+		{"SingleMemberEnumArrAcceptDef", "LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnitTest$TestType, SingleMemberEnumArrAcceptDef), SingleMemberEnumArrAcceptDeffieldAnnotations$$},
+		{"$VALUES", "[LUniTest/UnitTest$TestType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UnitTest$TestType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LUniTest/UnitTest$TestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnitTest$TestType, $values, $UnitTest$TestTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnitTest$TestType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnitTest$TestType, valueOf, UnitTest$TestType*, $String*)},
+		{"values", "()[LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnitTest$TestType, values, $UnitTest$TestTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"UniTest.UnitTest$TestType", "UniTest.UnitTest", "TestType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"UniTest.UnitTest$TestType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LUniTest/UnitTest$TestType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"UniTest.UnitTest"
+	};
+	$loadClass(UnitTest$TestType, name, initialize, &classInfo$$, UnitTest$TestType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnitTest$TestType));
+	});
 	return class$;
 }
 

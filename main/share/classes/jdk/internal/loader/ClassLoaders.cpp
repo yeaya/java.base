@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/ClassLoaders.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/lang/ClassLoader.h>
@@ -26,7 +25,6 @@
 #undef PLATFORM_LOADER
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
-using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -34,7 +32,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $InvalidPathException = ::java::nio::file::InvalidPathException;
 using $Path = ::java::nio::file::Path;
@@ -53,55 +50,6 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$CompoundAttribute _ClassLoaders_MethodAnnotations_toFileURL5[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ClassLoaders_FieldInfo_[] = {
-	{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassLoaders, JLA)},
-	{"BOOT_LOADER", "Ljdk/internal/loader/ClassLoaders$BootClassLoader;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassLoaders, BOOT_LOADER)},
-	{"PLATFORM_LOADER", "Ljdk/internal/loader/ClassLoaders$PlatformClassLoader;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassLoaders, PLATFORM_LOADER)},
-	{"APP_LOADER", "Ljdk/internal/loader/ClassLoaders$AppClassLoader;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassLoaders, APP_LOADER)},
-	{}
-};
-
-$MethodInfo _ClassLoaders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ClassLoaders, init$, void)},
-	{"appClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassLoaders, appClassLoader, $ClassLoader*)},
-	{"bootLoader", "()Ljdk/internal/loader/BuiltinClassLoader;", nullptr, $STATIC, $staticMethod(ClassLoaders, bootLoader, $BuiltinClassLoader*)},
-	{"platformClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassLoaders, platformClassLoader, $ClassLoader*)},
-	{"setArchivedServicesCatalog", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ClassLoaders, setArchivedServicesCatalog, void, $ClassLoader*)},
-	{"toFileURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC | $DEPRECATED, $staticMethod(ClassLoaders, toFileURL, $URL*, $String*), nullptr, nullptr, _ClassLoaders_MethodAnnotations_toFileURL5},
-	{}
-};
-
-$InnerClassInfo _ClassLoaders_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.ClassLoaders$AppClassLoader", "jdk.internal.loader.ClassLoaders", "AppClassLoader", $PRIVATE | $STATIC},
-	{"jdk.internal.loader.ClassLoaders$PlatformClassLoader", "jdk.internal.loader.ClassLoaders", "PlatformClassLoader", $PRIVATE | $STATIC},
-	{"jdk.internal.loader.ClassLoaders$BootClassLoader", "jdk.internal.loader.ClassLoaders", "BootClassLoader", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ClassLoaders_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.loader.ClassLoaders",
-	"java.lang.Object",
-	nullptr,
-	_ClassLoaders_FieldInfo_,
-	_ClassLoaders_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassLoaders_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.ClassLoaders$AppClassLoader,jdk.internal.loader.ClassLoaders$PlatformClassLoader,jdk.internal.loader.ClassLoaders$BootClassLoader"
-};
-
-$Object* allocate$ClassLoaders($Class* clazz) {
-	return $of($alloc(ClassLoaders));
-}
-
 $JavaLangAccess* ClassLoaders::JLA = nullptr;
 $ClassLoaders$BootClassLoader* ClassLoaders::BOOT_LOADER = nullptr;
 $ClassLoaders$PlatformClassLoader* ClassLoaders::PLATFORM_LOADER = nullptr;
@@ -112,8 +60,8 @@ void ClassLoaders::init$() {
 
 void ClassLoaders::setArchivedServicesCatalog($ClassLoader* loader) {
 	$init(ClassLoaders);
-	$useLocalCurrentObjectStackCache();
-	$var($ServicesCatalog, catalog, $nc($($ArchivedClassLoaders::get()))->servicesCatalog(loader));
+	$useLocalObjectStack();
+	$var($ServicesCatalog, catalog, $$nc($ArchivedClassLoaders::get())->servicesCatalog(loader));
 	$ServicesCatalog::putServicesCatalog(loader, catalog);
 }
 
@@ -134,9 +82,9 @@ $ClassLoader* ClassLoaders::appClassLoader() {
 
 $URL* ClassLoaders::toFileURL($String* s) {
 	$init(ClassLoaders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		return $nc($($nc($($nc($($nc($($Path::of(s, $$new($StringArray, 0))))->toRealPath($$new($LinkOptionArray, 0))))->toFile()))->toURI()))->toURL();
+		return $$nc($$nc($$nc($$nc($Path::of(s, $$new($StringArray, 0)))->toRealPath($$new($LinkOptionArray, 0)))->toFile())->toURI())->toURL();
 	} catch ($InvalidPathException& ignore) {
 		return nullptr;
 	} catch ($IOException& ignore) {
@@ -145,8 +93,8 @@ $URL* ClassLoaders::toFileURL($String* s) {
 	$shouldNotReachHere();
 }
 
-void clinit$ClassLoaders($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ClassLoaders::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ClassLoaders::JLA, $SharedSecrets::getJavaLangAccess());
 	{
 		$var($ArchivedClassLoaders, archivedClassLoaders, $ArchivedClassLoaders::get());
@@ -162,7 +110,7 @@ void clinit$ClassLoaders($Class* class$) {
 			$assignStatic(ClassLoaders::PLATFORM_LOADER, $new($ClassLoaders$PlatformClassLoader, ClassLoaders::BOOT_LOADER));
 		}
 		$var($String, cp, $System::getProperty("java.class.path"_s));
-		if (cp == nullptr || $nc(cp)->isEmpty()) {
+		if (cp == nullptr || cp->isEmpty()) {
 			$var($String, initialModuleName, $System::getProperty("jdk.module.main"_s));
 			$assign(cp, (initialModuleName == nullptr) ? ""_s : ($String*)nullptr);
 		}
@@ -182,7 +130,49 @@ ClassLoaders::ClassLoaders() {
 }
 
 $Class* ClassLoaders::load$($String* name, bool initialize) {
-	$loadClass(ClassLoaders, name, initialize, &_ClassLoaders_ClassInfo_, clinit$ClassLoaders, allocate$ClassLoaders);
+	$FieldInfo fieldInfos$$[] = {
+		{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassLoaders, JLA)},
+		{"BOOT_LOADER", "Ljdk/internal/loader/ClassLoaders$BootClassLoader;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassLoaders, BOOT_LOADER)},
+		{"PLATFORM_LOADER", "Ljdk/internal/loader/ClassLoaders$PlatformClassLoader;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassLoaders, PLATFORM_LOADER)},
+		{"APP_LOADER", "Ljdk/internal/loader/ClassLoaders$AppClassLoader;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassLoaders, APP_LOADER)},
+		{}
+	};
+	$CompoundAttribute toFileURLmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ClassLoaders, init$, void)},
+		{"appClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassLoaders, appClassLoader, $ClassLoader*)},
+		{"bootLoader", "()Ljdk/internal/loader/BuiltinClassLoader;", nullptr, $STATIC, $staticMethod(ClassLoaders, bootLoader, $BuiltinClassLoader*)},
+		{"platformClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassLoaders, platformClassLoader, $ClassLoader*)},
+		{"setArchivedServicesCatalog", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ClassLoaders, setArchivedServicesCatalog, void, $ClassLoader*)},
+		{"toFileURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC | $DEPRECATED, $staticMethod(ClassLoaders, toFileURL, $URL*, $String*), nullptr, nullptr, toFileURLmethodAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.ClassLoaders$AppClassLoader", "jdk.internal.loader.ClassLoaders", "AppClassLoader", $PRIVATE | $STATIC},
+		{"jdk.internal.loader.ClassLoaders$PlatformClassLoader", "jdk.internal.loader.ClassLoaders", "PlatformClassLoader", $PRIVATE | $STATIC},
+		{"jdk.internal.loader.ClassLoaders$BootClassLoader", "jdk.internal.loader.ClassLoaders", "BootClassLoader", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.loader.ClassLoaders",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.ClassLoaders$AppClassLoader,jdk.internal.loader.ClassLoaders$PlatformClassLoader,jdk.internal.loader.ClassLoaders$BootClassLoader"
+	};
+	$loadClass(ClassLoaders, name, initialize, &classInfo$$, ClassLoaders::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassLoaders);
+	});
 	return class$;
 }
 

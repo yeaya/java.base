@@ -25,7 +25,7 @@ public:
 	virtual ::java::math::BigInteger* getY() {return nullptr;}
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xA4043EED23DF4DE7;
+	static const int64_t serialVersionUID = (int64_t)0xa4043eed23df4de7;
 };
 
 		} // interfaces

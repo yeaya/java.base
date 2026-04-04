@@ -12,6 +12,7 @@ class Month$1 : public ::java::lang::Object {
 	$class(Month$1, 0, ::java::lang::Object)
 public:
 	Month$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$time$Month;
 };
 

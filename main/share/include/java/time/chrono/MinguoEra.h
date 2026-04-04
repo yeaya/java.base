@@ -39,6 +39,7 @@ public:
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual $String* getDisplayName(::java::time::format::TextStyle* style, ::java::util::Locale* locale) override;
 	virtual int32_t getValue() override;

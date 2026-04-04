@@ -1,7 +1,5 @@
 #include <java/security/MessageDigest.h>
-
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
 #include <java/nio/ByteBuffer.h>
@@ -19,7 +17,6 @@
 #undef IN_PROGRESS
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
@@ -42,65 +39,6 @@ using $Debug = ::sun::security::util::Debug;
 namespace java {
 	namespace security {
 
-$FieldInfo _MessageDigest_FieldInfo_[] = {
-	{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageDigest, pdebug)},
-	{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageDigest, skipDebug)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MessageDigest, algorithm)},
-	{"INITIAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageDigest, INITIAL)},
-	{"IN_PROGRESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageDigest, IN_PROGRESS)},
-	{"state", "I", nullptr, $PRIVATE, $field(MessageDigest, state)},
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(MessageDigest, provider)},
-	{}
-};
-
-$MethodInfo _MessageDigest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(MessageDigest, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PRIVATE, $method(MessageDigest, init$, void, $String*, $Provider*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageDigest, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"digest", "()[B", nullptr, $PUBLIC, $virtualMethod(MessageDigest, digest, $bytes*)},
-	{"digest", "([BII)I", nullptr, $PUBLIC, $virtualMethod(MessageDigest, digest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
-	{"digest", "([B)[B", nullptr, $PUBLIC, $virtualMethod(MessageDigest, digest, $bytes*, $bytes*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(MessageDigest, getAlgorithm, $String*)},
-	{"getDigestLength", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageDigest, getDigestLength, int32_t)},
-	{"getInstance", "(Ljava/lang/String;)Ljava/security/MessageDigest;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigest, getInstance, MessageDigest*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/MessageDigest;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigest, getInstance, MessageDigest*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/MessageDigest;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigest, getInstance, MessageDigest*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(MessageDigest, getProvider, $Provider*)},
-	{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MessageDigest, getProviderName, $String*)},
-	{"isEqual", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigest, isEqual, bool, $bytes*, $bytes*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(MessageDigest, reset, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageDigest, toString, $String*)},
-	{"update", "(B)V", nullptr, $PUBLIC, $virtualMethod(MessageDigest, update, void, int8_t)},
-	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(MessageDigest, update, void, $bytes*, int32_t, int32_t)},
-	{"update", "([B)V", nullptr, $PUBLIC, $virtualMethod(MessageDigest, update, void, $bytes*)},
-	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(MessageDigest, update, void, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _MessageDigest_InnerClassesInfo_[] = {
-	{"java.security.MessageDigest$Delegate", "java.security.MessageDigest", "Delegate", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MessageDigest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.MessageDigest",
-	"java.security.MessageDigestSpi",
-	nullptr,
-	_MessageDigest_FieldInfo_,
-	_MessageDigest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MessageDigest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.security.MessageDigest$Delegate,java.security.MessageDigest$Delegate$CloneableDelegate"
-};
-
-$Object* allocate$MessageDigest($Class* clazz) {
-	return $of($alloc(MessageDigest));
-}
-
 $Debug* MessageDigest::pdebug = nullptr;
 bool MessageDigest::skipDebug = false;
 
@@ -119,8 +57,8 @@ void MessageDigest::init$($String* algorithm, $Provider* p) {
 
 MessageDigest* MessageDigest::getInstance($String* algorithm) {
 	$init(MessageDigest);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$var(MessageDigest, md, nullptr);
 	$load($MessageDigestSpi);
 	$var($GetInstance$Instance, instance, $GetInstance::getInstance("MessageDigest"_s, $MessageDigestSpi::class$, algorithm));
@@ -136,20 +74,20 @@ MessageDigest* MessageDigest::getInstance($String* algorithm) {
 			$assign(md, messageDigest);
 			$set($nc(md), provider, $nc(instance)->provider);
 		} else {
-			$assign(md, $MessageDigest$Delegate::of($cast($MessageDigestSpi, $nc(instance)->impl), algorithm, instance->provider));
+			$assign(md, $MessageDigest$Delegate::of($cast($MessageDigestSpi, $nc(instance)->impl), algorithm, $nc(instance)->provider));
 		}
 	}
 	if (!MessageDigest::skipDebug && MessageDigest::pdebug != nullptr) {
-		$nc(MessageDigest::pdebug)->println($$str({"MessageDigest."_s, algorithm, " algorithm from: "_s, $($nc($nc(md)->provider)->getName())}));
+		MessageDigest::pdebug->println($$str({"MessageDigest."_s, algorithm, " algorithm from: "_s, $($nc($nc(md)->provider)->getName())}));
 	}
 	return md;
 }
 
 MessageDigest* MessageDigest::getInstance($String* algorithm, $String* provider) {
 	$init(MessageDigest);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
-	if (provider == nullptr || $nc(provider)->isEmpty()) {
+	$useLocalObjectStack();
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
+	if (provider == nullptr || provider->isEmpty()) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
 	}
 	$var(MessageDigest, md, nullptr);
@@ -167,7 +105,7 @@ MessageDigest* MessageDigest::getInstance($String* algorithm, $String* provider)
 			$assign(md, messageDigest);
 			$set($nc(md), provider, $nc(instance)->provider);
 		} else {
-			$assign(md, $MessageDigest$Delegate::of($cast($MessageDigestSpi, $nc(instance)->impl), algorithm, instance->provider));
+			$assign(md, $MessageDigest$Delegate::of($cast($MessageDigestSpi, $nc(instance)->impl), algorithm, $nc(instance)->provider));
 		}
 	}
 	return md;
@@ -175,8 +113,8 @@ MessageDigest* MessageDigest::getInstance($String* algorithm, $String* provider)
 
 MessageDigest* MessageDigest::getInstance($String* algorithm, $Provider* provider) {
 	$init(MessageDigest);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
 	}
@@ -193,7 +131,7 @@ MessageDigest* MessageDigest::getInstance($String* algorithm, $Provider* provide
 			$set($nc(md), provider, $cast($Provider, $nc(objs)->get(1)));
 			return md;
 		} else {
-			$var(MessageDigest, delegate, $MessageDigest$Delegate::of($cast($MessageDigestSpi, $nc(objs)->get(0)), algorithm, $cast($Provider, objs->get(1))));
+			$var(MessageDigest, delegate, $MessageDigest$Delegate::of($cast($MessageDigestSpi, $nc(objs)->get(0)), algorithm, $cast($Provider, $nc(objs)->get(1))));
 			return delegate;
 		}
 	}
@@ -256,25 +194,21 @@ $bytes* MessageDigest::digest($bytes* input) {
 }
 
 $String* MessageDigest::getProviderName() {
-	return (this->provider == nullptr) ? "(no provider)"_s : $nc(this->provider)->getName();
+	return (this->provider == nullptr) ? "(no provider)"_s : this->provider->getName();
 }
 
 $String* MessageDigest::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
-	$var($PrintStream, p, $new($PrintStream, static_cast<$OutputStream*>(baos)));
+	$var($PrintStream, p, $new($PrintStream, baos));
 	p->print($$str({this->algorithm, " Message Digest from "_s, $(getProviderName()), ", "_s}));
 	switch (this->state) {
 	case MessageDigest::INITIAL:
-		{
-			p->print("<initialized>"_s);
-			break;
-		}
+		p->print("<initialized>"_s);
+		break;
 	case MessageDigest::IN_PROGRESS:
-		{
-			p->print("<in progress>"_s);
-			break;
-		}
+		p->print("<in progress>"_s);
+		break;
 	}
 	p->println();
 	return (baos->toString());
@@ -312,7 +246,7 @@ $String* MessageDigest::getAlgorithm() {
 }
 
 int32_t MessageDigest::getDigestLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t digestLen = engineGetDigestLength();
 	if (digestLen == 0) {
 		try {
@@ -328,13 +262,13 @@ int32_t MessageDigest::getDigestLength() {
 
 $Object* MessageDigest::clone() {
 	if ($instanceOf($Cloneable, this)) {
-		return $of($MessageDigestSpi::clone());
+		return $MessageDigestSpi::clone();
 	} else {
 		$throwNew($CloneNotSupportedException);
 	}
 }
 
-void clinit$MessageDigest($Class* class$) {
+void MessageDigest::clinit$($Class* clazz) {
 	$assignStatic(MessageDigest::pdebug, $Debug::getInstance("provider"_s, "Provider"_s));
 	bool var$0 = $Debug::isOn("engine="_s);
 	MessageDigest::skipDebug = var$0 && !$Debug::isOn("messagedigest"_s);
@@ -344,7 +278,60 @@ MessageDigest::MessageDigest() {
 }
 
 $Class* MessageDigest::load$($String* name, bool initialize) {
-	$loadClass(MessageDigest, name, initialize, &_MessageDigest_ClassInfo_, clinit$MessageDigest, allocate$MessageDigest);
+	$FieldInfo fieldInfos$$[] = {
+		{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageDigest, pdebug)},
+		{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageDigest, skipDebug)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MessageDigest, algorithm)},
+		{"INITIAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageDigest, INITIAL)},
+		{"IN_PROGRESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageDigest, IN_PROGRESS)},
+		{"state", "I", nullptr, $PRIVATE, $field(MessageDigest, state)},
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(MessageDigest, provider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(MessageDigest, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PRIVATE, $method(MessageDigest, init$, void, $String*, $Provider*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageDigest, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"digest", "()[B", nullptr, $PUBLIC, $virtualMethod(MessageDigest, digest, $bytes*)},
+		{"digest", "([BII)I", nullptr, $PUBLIC, $virtualMethod(MessageDigest, digest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
+		{"digest", "([B)[B", nullptr, $PUBLIC, $virtualMethod(MessageDigest, digest, $bytes*, $bytes*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(MessageDigest, getAlgorithm, $String*)},
+		{"getDigestLength", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageDigest, getDigestLength, int32_t)},
+		{"getInstance", "(Ljava/lang/String;)Ljava/security/MessageDigest;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigest, getInstance, MessageDigest*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/MessageDigest;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigest, getInstance, MessageDigest*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/MessageDigest;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigest, getInstance, MessageDigest*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(MessageDigest, getProvider, $Provider*)},
+		{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MessageDigest, getProviderName, $String*)},
+		{"isEqual", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigest, isEqual, bool, $bytes*, $bytes*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(MessageDigest, reset, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageDigest, toString, $String*)},
+		{"update", "(B)V", nullptr, $PUBLIC, $virtualMethod(MessageDigest, update, void, int8_t)},
+		{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(MessageDigest, update, void, $bytes*, int32_t, int32_t)},
+		{"update", "([B)V", nullptr, $PUBLIC, $virtualMethod(MessageDigest, update, void, $bytes*)},
+		{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(MessageDigest, update, void, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.MessageDigest$Delegate", "java.security.MessageDigest", "Delegate", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.MessageDigest",
+		"java.security.MessageDigestSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.security.MessageDigest$Delegate,java.security.MessageDigest$Delegate$CloneableDelegate"
+	};
+	$loadClass(MessageDigest, name, initialize, &classInfo$$, MessageDigest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageDigest);
+	});
 	return class$;
 }
 

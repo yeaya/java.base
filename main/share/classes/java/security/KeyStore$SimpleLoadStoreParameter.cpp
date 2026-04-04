@@ -1,5 +1,4 @@
 #include <java/security/KeyStore$SimpleLoadStoreParameter.h>
-
 #include <java/security/KeyStore$ProtectionParameter.h>
 #include <java/security/KeyStore.h>
 #include <jcpp.h>
@@ -13,43 +12,6 @@ using $KeyStore$ProtectionParameter = ::java::security::KeyStore$ProtectionParam
 namespace java {
 	namespace security {
 
-$FieldInfo _KeyStore$SimpleLoadStoreParameter_FieldInfo_[] = {
-	{"protection", "Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PRIVATE | $FINAL, $field(KeyStore$SimpleLoadStoreParameter, protection)},
-	{}
-};
-
-$MethodInfo _KeyStore$SimpleLoadStoreParameter_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, 0, $method(KeyStore$SimpleLoadStoreParameter, init$, void, $KeyStore$ProtectionParameter*)},
-	{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC, $virtualMethod(KeyStore$SimpleLoadStoreParameter, getProtectionParameter, $KeyStore$ProtectionParameter*)},
-	{}
-};
-
-$InnerClassInfo _KeyStore$SimpleLoadStoreParameter_InnerClassesInfo_[] = {
-	{"java.security.KeyStore$SimpleLoadStoreParameter", "java.security.KeyStore", "SimpleLoadStoreParameter", $STATIC},
-	{"java.security.KeyStore$LoadStoreParameter", "java.security.KeyStore", "LoadStoreParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeyStore$SimpleLoadStoreParameter_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.KeyStore$SimpleLoadStoreParameter",
-	"java.lang.Object",
-	"java.security.KeyStore$LoadStoreParameter",
-	_KeyStore$SimpleLoadStoreParameter_FieldInfo_,
-	_KeyStore$SimpleLoadStoreParameter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyStore$SimpleLoadStoreParameter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.KeyStore"
-};
-
-$Object* allocate$KeyStore$SimpleLoadStoreParameter($Class* clazz) {
-	return $of($alloc(KeyStore$SimpleLoadStoreParameter));
-}
-
 void KeyStore$SimpleLoadStoreParameter::init$($KeyStore$ProtectionParameter* protection) {
 	$set(this, protection, protection);
 }
@@ -62,7 +24,38 @@ KeyStore$SimpleLoadStoreParameter::KeyStore$SimpleLoadStoreParameter() {
 }
 
 $Class* KeyStore$SimpleLoadStoreParameter::load$($String* name, bool initialize) {
-	$loadClass(KeyStore$SimpleLoadStoreParameter, name, initialize, &_KeyStore$SimpleLoadStoreParameter_ClassInfo_, allocate$KeyStore$SimpleLoadStoreParameter);
+	$FieldInfo fieldInfos$$[] = {
+		{"protection", "Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PRIVATE | $FINAL, $field(KeyStore$SimpleLoadStoreParameter, protection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, 0, $method(KeyStore$SimpleLoadStoreParameter, init$, void, $KeyStore$ProtectionParameter*)},
+		{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC, $virtualMethod(KeyStore$SimpleLoadStoreParameter, getProtectionParameter, $KeyStore$ProtectionParameter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyStore$SimpleLoadStoreParameter", "java.security.KeyStore", "SimpleLoadStoreParameter", $STATIC},
+		{"java.security.KeyStore$LoadStoreParameter", "java.security.KeyStore", "LoadStoreParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.KeyStore$SimpleLoadStoreParameter",
+		"java.lang.Object",
+		"java.security.KeyStore$LoadStoreParameter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.KeyStore"
+	};
+	$loadClass(KeyStore$SimpleLoadStoreParameter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStore$SimpleLoadStoreParameter);
+	});
 	return class$;
 }
 

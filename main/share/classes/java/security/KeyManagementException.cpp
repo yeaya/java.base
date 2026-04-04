@@ -1,5 +1,4 @@
 #include <java/security/KeyManagementException.h>
-
 #include <java/security/KeyException.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $KeyException = ::java::security::KeyException;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _KeyManagementException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyManagementException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _KeyManagementException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _KeyManagementException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.KeyManagementException",
-	"java.security.KeyException",
-	nullptr,
-	_KeyManagementException_FieldInfo_,
-	_KeyManagementException_MethodInfo_
-};
-
-$Object* allocate$KeyManagementException($Class* clazz) {
-	return $of($alloc(KeyManagementException));
-}
 
 void KeyManagementException::init$() {
 	$KeyException::init$();
@@ -64,7 +37,28 @@ void KeyManagementException::throw$() {
 }
 
 $Class* KeyManagementException::load$($String* name, bool initialize) {
-	$loadClass(KeyManagementException, name, initialize, &_KeyManagementException_ClassInfo_, allocate$KeyManagementException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyManagementException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.KeyManagementException",
+		"java.security.KeyException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyManagementException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyManagementException);
+	});
 	return class$;
 }
 

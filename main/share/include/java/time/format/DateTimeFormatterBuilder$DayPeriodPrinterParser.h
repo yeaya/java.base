@@ -48,6 +48,7 @@ class $import DateTimeFormatterBuilder$DayPeriodPrinterParser : public ::java::t
 	$class(DateTimeFormatterBuilder$DayPeriodPrinterParser, 0, ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser)
 public:
 	DateTimeFormatterBuilder$DayPeriodPrinterParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::format::TextStyle* textStyle);
 	static ::java::time::format::DateTimeTextProvider$LocaleStore* findDayPeriodStore(::java::util::Locale* locale);
 	virtual bool format(::java::time::format::DateTimePrintContext* context, ::java::lang::StringBuilder* buf) override;

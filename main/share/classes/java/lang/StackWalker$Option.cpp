@@ -1,5 +1,4 @@
 #include <java/lang/StackWalker$Option.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/StackWalker.h>
 #include <jcpp.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _StackWalker$Option_FieldInfo_[] = {
-	{"RETAIN_CLASS_REFERENCE", "Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StackWalker$Option, RETAIN_CLASS_REFERENCE)},
-	{"SHOW_REFLECT_FRAMES", "Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StackWalker$Option, SHOW_REFLECT_FRAMES)},
-	{"SHOW_HIDDEN_FRAMES", "Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StackWalker$Option, SHOW_HIDDEN_FRAMES)},
-	{"$VALUES", "[Ljava/lang/StackWalker$Option;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StackWalker$Option, $VALUES)},
-	{}
-};
-
-$MethodInfo _StackWalker$Option_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/StackWalker$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackWalker$Option, $values, $StackWalker$OptionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StackWalker$Option, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker$Option, valueOf, StackWalker$Option*, $String*)},
-	{"values", "()[Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker$Option, values, $StackWalker$OptionArray*)},
-	{}
-};
-
-$InnerClassInfo _StackWalker$Option_InnerClassesInfo_[] = {
-	{"java.lang.StackWalker$Option", "java.lang.StackWalker", "Option", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _StackWalker$Option_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.StackWalker$Option",
-	"java.lang.Enum",
-	nullptr,
-	_StackWalker$Option_FieldInfo_,
-	_StackWalker$Option_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/StackWalker$Option;>;",
-	nullptr,
-	_StackWalker$Option_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.StackWalker"
-};
-
-$Object* allocate$StackWalker$Option($Class* clazz) {
-	return $of($alloc(StackWalker$Option));
-}
 
 StackWalker$Option* StackWalker$Option::RETAIN_CLASS_REFERENCE = nullptr;
 StackWalker$Option* StackWalker$Option::SHOW_REFLECT_FRAMES = nullptr;
@@ -87,7 +45,7 @@ void StackWalker$Option::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$StackWalker$Option($Class* class$) {
+void StackWalker$Option::clinit$($Class* clazz) {
 	$assignStatic(StackWalker$Option::RETAIN_CLASS_REFERENCE, $new(StackWalker$Option, "RETAIN_CLASS_REFERENCE"_s, 0));
 	$assignStatic(StackWalker$Option::SHOW_REFLECT_FRAMES, $new(StackWalker$Option, "SHOW_REFLECT_FRAMES"_s, 1));
 	$assignStatic(StackWalker$Option::SHOW_HIDDEN_FRAMES, $new(StackWalker$Option, "SHOW_HIDDEN_FRAMES"_s, 2));
@@ -98,7 +56,42 @@ StackWalker$Option::StackWalker$Option() {
 }
 
 $Class* StackWalker$Option::load$($String* name, bool initialize) {
-	$loadClass(StackWalker$Option, name, initialize, &_StackWalker$Option_ClassInfo_, clinit$StackWalker$Option, allocate$StackWalker$Option);
+	$FieldInfo fieldInfos$$[] = {
+		{"RETAIN_CLASS_REFERENCE", "Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StackWalker$Option, RETAIN_CLASS_REFERENCE)},
+		{"SHOW_REFLECT_FRAMES", "Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StackWalker$Option, SHOW_REFLECT_FRAMES)},
+		{"SHOW_HIDDEN_FRAMES", "Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StackWalker$Option, SHOW_HIDDEN_FRAMES)},
+		{"$VALUES", "[Ljava/lang/StackWalker$Option;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StackWalker$Option, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/StackWalker$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackWalker$Option, $values, $StackWalker$OptionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StackWalker$Option, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker$Option, valueOf, StackWalker$Option*, $String*)},
+		{"values", "()[Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker$Option, values, $StackWalker$OptionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StackWalker$Option", "java.lang.StackWalker", "Option", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.StackWalker$Option",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/StackWalker$Option;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.StackWalker"
+	};
+	$loadClass(StackWalker$Option, name, initialize, &classInfo$$, StackWalker$Option::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StackWalker$Option));
+	});
 	return class$;
 }
 

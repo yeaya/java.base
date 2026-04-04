@@ -28,7 +28,7 @@ public:
 	virtual void engineReseed(::java::security::SecureRandomParameters* params);
 	virtual void engineSetSeed($bytes* seed) {}
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xD67ACC7DF945D46A;
+	static const int64_t serialVersionUID = (int64_t)0xd67acc7df945d46a;
 };
 
 	} // security

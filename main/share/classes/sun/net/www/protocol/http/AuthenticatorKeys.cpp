@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/AuthenticatorKeys.h>
-
 #include <java/lang/InternalError.h>
 #include <java/net/Authenticator.h>
 #include <java/util/concurrent/atomic/AtomicLong.h>
@@ -24,45 +23,6 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$FieldInfo _AuthenticatorKeys_FieldInfo_[] = {
-	{"DEFAULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthenticatorKeys, DEFAULT)},
-	{"IDS", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuthenticatorKeys, IDS)},
-	{"authenticatorKeyAccess", "Lsun/net/www/protocol/http/AuthenticatorKeys$AuthenticatorKeyAccess;", nullptr, $PRIVATE | $STATIC, $staticField(AuthenticatorKeys, authenticatorKeyAccess)},
-	{}
-};
-
-$MethodInfo _AuthenticatorKeys_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AuthenticatorKeys, init$, void)},
-	{"computeKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthenticatorKeys, computeKey, $String*, $Authenticator*)},
-	{"getKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthenticatorKeys, getKey, $String*, $Authenticator*)},
-	{"setAuthenticatorKeyAccess", "(Lsun/net/www/protocol/http/AuthenticatorKeys$AuthenticatorKeyAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthenticatorKeys, setAuthenticatorKeyAccess, void, $AuthenticatorKeys$AuthenticatorKeyAccess*)},
-	{}
-};
-
-$InnerClassInfo _AuthenticatorKeys_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.AuthenticatorKeys$AuthenticatorKeyAccess", "sun.net.www.protocol.http.AuthenticatorKeys", "AuthenticatorKeyAccess", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AuthenticatorKeys_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.net.www.protocol.http.AuthenticatorKeys",
-	"java.lang.Object",
-	nullptr,
-	_AuthenticatorKeys_FieldInfo_,
-	_AuthenticatorKeys_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AuthenticatorKeys_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.AuthenticatorKeys$AuthenticatorKeyAccess"
-};
-
-$Object* allocate$AuthenticatorKeys($Class* clazz) {
-	return $of($alloc(AuthenticatorKeys));
-}
-
 $String* AuthenticatorKeys::DEFAULT = nullptr;
 $AtomicLong* AuthenticatorKeys::IDS = nullptr;
 $AuthenticatorKeys$AuthenticatorKeyAccess* AuthenticatorKeys::authenticatorKeyAccess = nullptr;
@@ -73,11 +33,14 @@ void AuthenticatorKeys::init$() {
 
 $String* AuthenticatorKeys::computeKey($Authenticator* a) {
 	$init(AuthenticatorKeys);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, $$str({$$str($System::identityHashCode(a)), "-"_s}));
-	$var($String, var$1, $$concat(var$2, $$str($nc(AuthenticatorKeys::IDS)->incrementAndGet())));
-	$var($String, var$0, $$concat(var$1, "@"_s));
-	return $concat(var$0, $($nc($of(a))->getClass()->getName()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($System::identityHashCode(a));
+	var$0->append("-"_s);
+	var$0->append(AuthenticatorKeys::IDS->incrementAndGet());
+	var$0->append("@"_s);
+	var$0->append($($nc($of(a))->getClass()->getName()));
+	return $str(var$0);
 }
 
 $String* AuthenticatorKeys::getKey($Authenticator* authenticator) {
@@ -95,7 +58,7 @@ void AuthenticatorKeys::setAuthenticatorKeyAccess($AuthenticatorKeys$Authenticat
 	}
 }
 
-void clinit$AuthenticatorKeys($Class* class$) {
+void AuthenticatorKeys::clinit$($Class* clazz) {
 	$assignStatic(AuthenticatorKeys::DEFAULT, "default"_s);
 	$assignStatic(AuthenticatorKeys::IDS, $new($AtomicLong));
 }
@@ -104,7 +67,40 @@ AuthenticatorKeys::AuthenticatorKeys() {
 }
 
 $Class* AuthenticatorKeys::load$($String* name, bool initialize) {
-	$loadClass(AuthenticatorKeys, name, initialize, &_AuthenticatorKeys_ClassInfo_, clinit$AuthenticatorKeys, allocate$AuthenticatorKeys);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthenticatorKeys, DEFAULT)},
+		{"IDS", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuthenticatorKeys, IDS)},
+		{"authenticatorKeyAccess", "Lsun/net/www/protocol/http/AuthenticatorKeys$AuthenticatorKeyAccess;", nullptr, $PRIVATE | $STATIC, $staticField(AuthenticatorKeys, authenticatorKeyAccess)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AuthenticatorKeys, init$, void)},
+		{"computeKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthenticatorKeys, computeKey, $String*, $Authenticator*)},
+		{"getKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthenticatorKeys, getKey, $String*, $Authenticator*)},
+		{"setAuthenticatorKeyAccess", "(Lsun/net/www/protocol/http/AuthenticatorKeys$AuthenticatorKeyAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthenticatorKeys, setAuthenticatorKeyAccess, void, $AuthenticatorKeys$AuthenticatorKeyAccess*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.AuthenticatorKeys$AuthenticatorKeyAccess", "sun.net.www.protocol.http.AuthenticatorKeys", "AuthenticatorKeyAccess", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.net.www.protocol.http.AuthenticatorKeys",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.AuthenticatorKeys$AuthenticatorKeyAccess"
+	};
+	$loadClass(AuthenticatorKeys, name, initialize, &classInfo$$, AuthenticatorKeys::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthenticatorKeys);
+	});
 	return class$;
 }
 

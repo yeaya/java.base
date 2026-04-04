@@ -1,5 +1,4 @@
 #include <java/lang/Module$ArchivedData.h>
-
 #include <java/lang/Module.h>
 #include <java/util/Set.h>
 #include <jdk/internal/misc/CDS.h>
@@ -19,47 +18,6 @@ using $CDS = ::jdk::internal::misc::CDS;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _Module$ArchivedData_FieldInfo_[] = {
-	{"archivedData", "Ljava/lang/Module$ArchivedData;", nullptr, $PRIVATE | $STATIC, $staticField(Module$ArchivedData, archivedData)},
-	{"allUnnamedModule", "Ljava/lang/Module;", nullptr, $PRIVATE | $FINAL, $field(Module$ArchivedData, allUnnamedModule)},
-	{"allUnnamedModules", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Module;>;", $PRIVATE | $FINAL, $field(Module$ArchivedData, allUnnamedModules)},
-	{"everyoneModule", "Ljava/lang/Module;", nullptr, $PRIVATE | $FINAL, $field(Module$ArchivedData, everyoneModule)},
-	{"everyoneSet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Module;>;", $PRIVATE | $FINAL, $field(Module$ArchivedData, everyoneSet)},
-	{}
-};
-
-$MethodInfo _Module$ArchivedData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Module$ArchivedData, init$, void)},
-	{"archive", "()V", nullptr, $STATIC, $staticMethod(Module$ArchivedData, archive, void)},
-	{"get", "()Ljava/lang/Module$ArchivedData;", nullptr, $STATIC, $staticMethod(Module$ArchivedData, get, Module$ArchivedData*)},
-	{}
-};
-
-$InnerClassInfo _Module$ArchivedData_InnerClassesInfo_[] = {
-	{"java.lang.Module$ArchivedData", "java.lang.Module", "ArchivedData", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Module$ArchivedData_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Module$ArchivedData",
-	"java.lang.Object",
-	nullptr,
-	_Module$ArchivedData_FieldInfo_,
-	_Module$ArchivedData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Module$ArchivedData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Module"
-};
-
-$Object* allocate$Module$ArchivedData($Class* clazz) {
-	return $of($alloc(Module$ArchivedData));
-}
 
 Module$ArchivedData* Module$ArchivedData::archivedData = nullptr;
 
@@ -81,7 +39,7 @@ Module$ArchivedData* Module$ArchivedData::get() {
 	return Module$ArchivedData::archivedData;
 }
 
-void clinit$Module$ArchivedData($Class* class$) {
+void Module$ArchivedData::clinit$($Class* clazz) {
 	{
 		$CDS::initializeFromArchive(Module$ArchivedData::class$);
 	}
@@ -91,7 +49,42 @@ Module$ArchivedData::Module$ArchivedData() {
 }
 
 $Class* Module$ArchivedData::load$($String* name, bool initialize) {
-	$loadClass(Module$ArchivedData, name, initialize, &_Module$ArchivedData_ClassInfo_, clinit$Module$ArchivedData, allocate$Module$ArchivedData);
+	$FieldInfo fieldInfos$$[] = {
+		{"archivedData", "Ljava/lang/Module$ArchivedData;", nullptr, $PRIVATE | $STATIC, $staticField(Module$ArchivedData, archivedData)},
+		{"allUnnamedModule", "Ljava/lang/Module;", nullptr, $PRIVATE | $FINAL, $field(Module$ArchivedData, allUnnamedModule)},
+		{"allUnnamedModules", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Module;>;", $PRIVATE | $FINAL, $field(Module$ArchivedData, allUnnamedModules)},
+		{"everyoneModule", "Ljava/lang/Module;", nullptr, $PRIVATE | $FINAL, $field(Module$ArchivedData, everyoneModule)},
+		{"everyoneSet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Module;>;", $PRIVATE | $FINAL, $field(Module$ArchivedData, everyoneSet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Module$ArchivedData, init$, void)},
+		{"archive", "()V", nullptr, $STATIC, $staticMethod(Module$ArchivedData, archive, void)},
+		{"get", "()Ljava/lang/Module$ArchivedData;", nullptr, $STATIC, $staticMethod(Module$ArchivedData, get, Module$ArchivedData*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Module$ArchivedData", "java.lang.Module", "ArchivedData", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Module$ArchivedData",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Module"
+	};
+	$loadClass(Module$ArchivedData, name, initialize, &classInfo$$, Module$ArchivedData::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Module$ArchivedData);
+	});
 	return class$;
 }
 

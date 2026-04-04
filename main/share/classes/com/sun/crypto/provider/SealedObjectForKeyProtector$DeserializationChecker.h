@@ -24,6 +24,7 @@ class SealedObjectForKeyProtector$DeserializationChecker : public ::java::io::Ob
 	$class(SealedObjectForKeyProtector$DeserializationChecker, 0, ::java::io::ObjectInputFilter)
 public:
 	SealedObjectForKeyProtector$DeserializationChecker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t maxLength);
 	virtual ::java::io::ObjectInputFilter$Status* checkInput(::java::io::ObjectInputFilter$FilterInfo* info) override;
 	static $String* lambda$static$0();

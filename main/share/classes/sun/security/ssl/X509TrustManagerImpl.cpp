@@ -1,5 +1,4 @@
 #include <sun/security/ssl/X509TrustManagerImpl.h>
-
 #include <java/net/Socket.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/cert/CertificateException.h>
@@ -53,7 +52,6 @@ using $ExtendedSSLSession = ::javax::net::ssl::ExtendedSSLSession;
 using $SNIHostName = ::javax::net::ssl::SNIHostName;
 using $SNIServerName = ::javax::net::ssl::SNIServerName;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
-using $SSLParameters = ::javax::net::ssl::SSLParameters;
 using $SSLSession = ::javax::net::ssl::SSLSession;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
 using $StandardConstants = ::javax::net::ssl::StandardConstants;
@@ -69,55 +67,8 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _X509TrustManagerImpl_FieldInfo_[] = {
-	{"validatorType", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(X509TrustManagerImpl, validatorType)},
-	{"trustedCerts", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $FINAL, $field(X509TrustManagerImpl, trustedCerts)},
-	{"pkixParams", "Ljava/security/cert/PKIXBuilderParameters;", nullptr, $PRIVATE | $FINAL, $field(X509TrustManagerImpl, pkixParams)},
-	{"clientValidator", "Lsun/security/validator/Validator;", nullptr, $PRIVATE | $VOLATILE, $field(X509TrustManagerImpl, clientValidator)},
-	{"serverValidator", "Lsun/security/validator/Validator;", nullptr, $PRIVATE | $VOLATILE, $field(X509TrustManagerImpl, serverValidator)},
-	{"validatorLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(X509TrustManagerImpl, validatorLock)},
-	{}
-};
-
-$MethodInfo _X509TrustManagerImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/Collection;)V", "(Ljava/lang/String;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)V", 0, $method(X509TrustManagerImpl, init$, void, $String*, $Collection*)},
-	{"<init>", "(Ljava/lang/String;Ljava/security/cert/PKIXBuilderParameters;)V", nullptr, 0, $method(X509TrustManagerImpl, init$, void, $String*, $PKIXBuilderParameters*)},
-	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkClientTrusted, void, $X509CertificateArray*, $String*), "java.security.cert.CertificateException"},
-	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkClientTrusted, void, $X509CertificateArray*, $String*, $Socket*), "java.security.cert.CertificateException"},
-	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkClientTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*), "java.security.cert.CertificateException"},
-	{"checkIdentity", "(Ljavax/net/ssl/SSLSession;[Ljava/security/cert/X509Certificate;Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(X509TrustManagerImpl, checkIdentity, void, $SSLSession*, $X509CertificateArray*, $String*, bool), "java.security.cert.CertificateException"},
-	{"checkIdentity", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(X509TrustManagerImpl, checkIdentity, void, $String*, $X509Certificate*, $String*), "java.security.cert.CertificateException"},
-	{"checkIdentity", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(X509TrustManagerImpl, checkIdentity, void, $String*, $X509Certificate*, $String*, bool), "java.security.cert.CertificateException"},
-	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkServerTrusted, void, $X509CertificateArray*, $String*), "java.security.cert.CertificateException"},
-	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkServerTrusted, void, $X509CertificateArray*, $String*, $Socket*), "java.security.cert.CertificateException"},
-	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkServerTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*), "java.security.cert.CertificateException"},
-	{"checkTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;Z)V", nullptr, $PRIVATE, $method(X509TrustManagerImpl, checkTrusted, void, $X509CertificateArray*, $String*, $Socket*, bool), "java.security.cert.CertificateException"},
-	{"checkTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;Z)V", nullptr, $PRIVATE, $method(X509TrustManagerImpl, checkTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*, bool), "java.security.cert.CertificateException"},
-	{"checkTrustedInit", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Z)Lsun/security/validator/Validator;", nullptr, $PRIVATE, $method(X509TrustManagerImpl, checkTrustedInit, $Validator*, $X509CertificateArray*, $String*, bool)},
-	{"getAcceptedIssuers", "()[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, getAcceptedIssuers, $X509CertificateArray*)},
-	{"getHostNameInSNI", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(X509TrustManagerImpl, getHostNameInSNI, $String*, $List*)},
-	{"getRequestedServerNames", "(Ljava/net/Socket;)Ljava/util/List;", "(Ljava/net/Socket;)Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $STATIC, $staticMethod(X509TrustManagerImpl, getRequestedServerNames, $List*, $Socket*)},
-	{"getRequestedServerNames", "(Ljavax/net/ssl/SSLEngine;)Ljava/util/List;", "(Ljavax/net/ssl/SSLEngine;)Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $STATIC, $staticMethod(X509TrustManagerImpl, getRequestedServerNames, $List*, $SSLEngine*)},
-	{"getRequestedServerNames", "(Ljavax/net/ssl/SSLSession;)Ljava/util/List;", "(Ljavax/net/ssl/SSLSession;)Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $PRIVATE | $STATIC, $staticMethod(X509TrustManagerImpl, getRequestedServerNames, $List*, $SSLSession*)},
-	{"getValidator", "(Ljava/lang/String;)Lsun/security/validator/Validator;", nullptr, $PRIVATE, $method(X509TrustManagerImpl, getValidator, $Validator*, $String*)},
-	{}
-};
-
-$ClassInfo _X509TrustManagerImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.X509TrustManagerImpl",
-	"javax.net.ssl.X509ExtendedTrustManager",
-	nullptr,
-	_X509TrustManagerImpl_FieldInfo_,
-	_X509TrustManagerImpl_MethodInfo_
-};
-
-$Object* allocate$X509TrustManagerImpl($Class* clazz) {
-	return $of($alloc(X509TrustManagerImpl));
-}
-
 void X509TrustManagerImpl::init$($String* validatorType, $Collection* trustedCerts$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Collection, trustedCerts, trustedCerts$renamed);
 	$X509ExtendedTrustManager::init$();
 	$set(this, validatorLock, $new($ReentrantLock));
@@ -134,7 +85,7 @@ void X509TrustManagerImpl::init$($String* validatorType, $Collection* trustedCer
 }
 
 void X509TrustManagerImpl::init$($String* validatorType, $PKIXBuilderParameters* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$X509ExtendedTrustManager::init$();
 	$set(this, validatorLock, $new($ReentrantLock));
 	$set(this, validatorType, validatorType);
@@ -159,7 +110,7 @@ void X509TrustManagerImpl::checkServerTrusted($X509CertificateArray* chain, $Str
 
 $X509CertificateArray* X509TrustManagerImpl::getAcceptedIssuers() {
 	$var($X509CertificateArray, certsArray, $new($X509CertificateArray, $nc(this->trustedCerts)->size()));
-	$nc(this->trustedCerts)->toArray(certsArray);
+	this->trustedCerts->toArray(certsArray);
 	return certsArray;
 }
 
@@ -180,11 +131,11 @@ void X509TrustManagerImpl::checkServerTrusted($X509CertificateArray* chain, $Str
 }
 
 $Validator* X509TrustManagerImpl::checkTrustedInit($X509CertificateArray* chain, $String* authType, bool checkClientTrusted) {
-	$useLocalCurrentObjectStackCache();
-	if (chain == nullptr || $nc(chain)->length == 0) {
+	$useLocalObjectStack();
+	if (chain == nullptr || chain->length == 0) {
 		$throwNew($IllegalArgumentException, "null or zero-length certificate chain"_s);
 	}
-	if (authType == nullptr || $nc(authType)->isEmpty()) {
+	if (authType == nullptr || authType->isEmpty()) {
 		$throwNew($IllegalArgumentException, "null or zero-length authentication type"_s);
 	}
 	$var($Validator, v, nullptr);
@@ -192,46 +143,42 @@ $Validator* X509TrustManagerImpl::checkTrustedInit($X509CertificateArray* chain,
 		$assign(v, this->clientValidator);
 		if (v == nullptr) {
 			$nc(this->validatorLock)->lock();
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					$assign(v, this->clientValidator);
-					if (v == nullptr) {
-						$init($Validator);
-						$assign(v, getValidator($Validator::VAR_TLS_CLIENT));
-						$set(this, clientValidator, v);
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					$nc(this->validatorLock)->unlock();
+			$var($Throwable, var$0, nullptr);
+			try {
+				$assign(v, this->clientValidator);
+				if (v == nullptr) {
+					$init($Validator);
+					$assign(v, getValidator($Validator::VAR_TLS_CLIENT));
+					$set(this, clientValidator, v);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				this->validatorLock->unlock();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	} else {
 		$assign(v, this->serverValidator);
 		if (v == nullptr) {
 			$nc(this->validatorLock)->lock();
-			{
-				$var($Throwable, var$2, nullptr);
-				try {
-					$assign(v, this->serverValidator);
-					if (v == nullptr) {
-						$init($Validator);
-						$assign(v, getValidator($Validator::VAR_TLS_SERVER));
-						$set(this, serverValidator, v);
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$2, var$3);
-				} /*finally*/ {
-					$nc(this->validatorLock)->unlock();
+			$var($Throwable, var$2, nullptr);
+			try {
+				$assign(v, this->serverValidator);
+				if (v == nullptr) {
+					$init($Validator);
+					$assign(v, getValidator($Validator::VAR_TLS_SERVER));
+					$set(this, serverValidator, v);
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
+			} /*finally*/ {
+				this->validatorLock->unlock();
+			}
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}
@@ -239,7 +186,7 @@ $Validator* X509TrustManagerImpl::checkTrustedInit($X509CertificateArray* chain,
 }
 
 void X509TrustManagerImpl::checkTrusted($X509CertificateArray* chain, $String* authType, $Socket* socket, bool checkClientTrusted) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Validator, v, checkTrustedInit(chain, authType, checkClientTrusted));
 	$var($X509CertificateArray, trustedChain, nullptr);
 	if ((socket != nullptr) && socket->isConnected() && ($instanceOf($SSLSocket, socket))) {
@@ -252,17 +199,17 @@ void X509TrustManagerImpl::checkTrusted($X509CertificateArray* chain, $String* a
 		$var($AlgorithmConstraints, constraints, nullptr);
 		if (isExtSession && $ProtocolVersion::useTLS12PlusSpec($($nc(session)->getProtocol()))) {
 			$var($ExtendedSSLSession, extSession, $cast($ExtendedSSLSession, session));
-			$var($StringArray, localSupportedSignAlgs, $nc(extSession)->getLocalSupportedSignatureAlgorithms());
+			$var($StringArray, localSupportedSignAlgs, extSession->getLocalSupportedSignatureAlgorithms());
 			$assign(constraints, $new($SSLAlgorithmConstraints, sslSocket, localSupportedSignAlgs, false));
 		} else {
 			$assign(constraints, $new($SSLAlgorithmConstraints, sslSocket, false));
 		}
 		$var($List, responseList, $Collections::emptyList());
 		if (!checkClientTrusted && isExtSession) {
-			$assign(responseList, $nc(($cast($ExtendedSSLSession, session)))->getStatusResponses());
+			$assign(responseList, $nc($cast($ExtendedSSLSession, session))->getStatusResponses());
 		}
 		$assign(trustedChain, $nc(v)->validate(chain, nullptr, responseList, constraints, checkClientTrusted ? ($Object*)nullptr : $of(authType)));
-		$var($String, identityAlg, $nc($(sslSocket->getSSLParameters()))->getEndpointIdentificationAlgorithm());
+		$var($String, identityAlg, $$nc(sslSocket->getSSLParameters())->getEndpointIdentificationAlgorithm());
 		if (identityAlg != nullptr && !identityAlg->isEmpty()) {
 			checkIdentity(session, trustedChain, identityAlg, checkClientTrusted);
 		}
@@ -271,12 +218,12 @@ void X509TrustManagerImpl::checkTrusted($X509CertificateArray* chain, $String* a
 	}
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,trustmanager"_s)) {
-		$SSLLogger::fine("Found trusted certificate"_s, $$new($ObjectArray, {$of($nc(trustedChain)->get(trustedChain->length - 1))}));
+		$SSLLogger::fine("Found trusted certificate"_s, $$new($ObjectArray, {$nc(trustedChain)->get($nc(trustedChain)->length - 1)}));
 	}
 }
 
 void X509TrustManagerImpl::checkTrusted($X509CertificateArray* chain, $String* authType, $SSLEngine* engine, bool checkClientTrusted) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Validator, v, checkTrustedInit(chain, authType, checkClientTrusted));
 	$var($X509CertificateArray, trustedChain, nullptr);
 	if (engine != nullptr) {
@@ -288,17 +235,17 @@ void X509TrustManagerImpl::checkTrusted($X509CertificateArray* chain, $String* a
 		$var($AlgorithmConstraints, constraints, nullptr);
 		if (isExtSession && $ProtocolVersion::useTLS12PlusSpec($($nc(session)->getProtocol()))) {
 			$var($ExtendedSSLSession, extSession, $cast($ExtendedSSLSession, session));
-			$var($StringArray, localSupportedSignAlgs, $nc(extSession)->getLocalSupportedSignatureAlgorithms());
+			$var($StringArray, localSupportedSignAlgs, extSession->getLocalSupportedSignatureAlgorithms());
 			$assign(constraints, $new($SSLAlgorithmConstraints, engine, localSupportedSignAlgs, false));
 		} else {
 			$assign(constraints, $new($SSLAlgorithmConstraints, engine, false));
 		}
 		$var($List, responseList, $Collections::emptyList());
 		if (!checkClientTrusted && isExtSession) {
-			$assign(responseList, $nc(($cast($ExtendedSSLSession, session)))->getStatusResponses());
+			$assign(responseList, $nc($cast($ExtendedSSLSession, session))->getStatusResponses());
 		}
 		$assign(trustedChain, $nc(v)->validate(chain, nullptr, responseList, constraints, checkClientTrusted ? ($Object*)nullptr : $of(authType)));
-		$var($String, identityAlg, $nc($(engine->getSSLParameters()))->getEndpointIdentificationAlgorithm());
+		$var($String, identityAlg, $$nc(engine->getSSLParameters())->getEndpointIdentificationAlgorithm());
 		if (identityAlg != nullptr && !identityAlg->isEmpty()) {
 			checkIdentity(session, trustedChain, identityAlg, checkClientTrusted);
 		}
@@ -307,7 +254,7 @@ void X509TrustManagerImpl::checkTrusted($X509CertificateArray* chain, $String* a
 	}
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,trustmanager"_s)) {
-		$SSLLogger::fine("Found trusted certificate"_s, $$new($ObjectArray, {$of($nc(trustedChain)->get(trustedChain->length - 1))}));
+		$SSLLogger::fine("Found trusted certificate"_s, $$new($ObjectArray, {$nc(trustedChain)->get($nc(trustedChain)->length - 1)}));
 	}
 }
 
@@ -323,7 +270,7 @@ $Validator* X509TrustManagerImpl::getValidator($String* variant) {
 
 $String* X509TrustManagerImpl::getHostNameInSNI($List* sniNames) {
 	$init(X509TrustManagerImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SNIHostName, hostname, nullptr);
 	{
 		$var($Iterator, i$, $nc(sniNames)->iterator());
@@ -337,7 +284,7 @@ $String* X509TrustManagerImpl::getHostNameInSNI($List* sniNames) {
 					$assign(hostname, $cast($SNIHostName, sniName));
 				} else {
 					try {
-						$assign(hostname, $new($SNIHostName, $($nc(sniName)->getEncoded())));
+						$assign(hostname, $new($SNIHostName, $(sniName->getEncoded())));
 					} catch ($IllegalArgumentException& iae) {
 						$init($SSLLogger);
 						if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,trustmanager"_s)) {
@@ -358,7 +305,7 @@ $String* X509TrustManagerImpl::getHostNameInSNI($List* sniNames) {
 $List* X509TrustManagerImpl::getRequestedServerNames($Socket* socket) {
 	$init(X509TrustManagerImpl);
 	if (socket != nullptr && socket->isConnected() && $instanceOf($SSLSocket, socket)) {
-		return getRequestedServerNames($($nc(($cast($SSLSocket, socket)))->getHandshakeSession()));
+		return getRequestedServerNames($($cast($SSLSocket, socket)->getHandshakeSession()));
 	}
 	return $Collections::emptyList();
 }
@@ -374,15 +321,15 @@ $List* X509TrustManagerImpl::getRequestedServerNames($SSLEngine* engine) {
 $List* X509TrustManagerImpl::getRequestedServerNames($SSLSession* session) {
 	$init(X509TrustManagerImpl);
 	if ($instanceOf($ExtendedSSLSession, session)) {
-		return $nc(($cast($ExtendedSSLSession, session)))->getRequestedServerNames();
+		return $cast($ExtendedSSLSession, session)->getRequestedServerNames();
 	}
 	return $Collections::emptyList();
 }
 
 void X509TrustManagerImpl::checkIdentity($SSLSession* session, $X509CertificateArray* trustedChain, $String* algorithm, bool checkClientTrusted) {
 	$init(X509TrustManagerImpl);
-	$useLocalCurrentObjectStackCache();
-	bool chainsToPublicCA = $AnchorCertificates::contains($nc(trustedChain)->get(trustedChain->length - 1));
+	$useLocalObjectStack();
+	bool chainsToPublicCA = $AnchorCertificates::contains($nc(trustedChain)->get($nc(trustedChain)->length - 1));
 	bool identifiable = false;
 	$var($String, peerHost, $nc(session)->getPeerHost());
 	if (!checkClientTrusted) {
@@ -390,7 +337,7 @@ void X509TrustManagerImpl::checkIdentity($SSLSession* session, $X509CertificateA
 		$var($String, sniHostName, getHostNameInSNI(sniNames));
 		if (sniHostName != nullptr) {
 			try {
-				checkIdentity(sniHostName, $nc(trustedChain)->get(0), algorithm, chainsToPublicCA);
+				checkIdentity(sniHostName, trustedChain->get(0), algorithm, chainsToPublicCA);
 				identifiable = true;
 			} catch ($CertificateException& ce) {
 				if (sniHostName->equalsIgnoreCase(peerHost)) {
@@ -400,7 +347,7 @@ void X509TrustManagerImpl::checkIdentity($SSLSession* session, $X509CertificateA
 		}
 	}
 	if (!identifiable) {
-		checkIdentity(peerHost, $nc(trustedChain)->get(0), algorithm, chainsToPublicCA);
+		checkIdentity(peerHost, trustedChain->get(0), algorithm, chainsToPublicCA);
 	}
 }
 
@@ -411,7 +358,7 @@ void X509TrustManagerImpl::checkIdentity($String* hostname, $X509Certificate* ce
 
 void X509TrustManagerImpl::checkIdentity($String* hostname$renamed, $X509Certificate* cert, $String* algorithm, bool chainsToPublicCA) {
 	$init(X509TrustManagerImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, hostname, hostname$renamed);
 	if (algorithm != nullptr && !algorithm->isEmpty()) {
 		bool var$0 = (hostname != nullptr) && hostname->startsWith("["_s);
@@ -419,11 +366,11 @@ void X509TrustManagerImpl::checkIdentity($String* hostname$renamed, $X509Certifi
 			$assign(hostname, hostname->substring(1, hostname->length() - 1));
 		}
 		if (algorithm->equalsIgnoreCase("HTTPS"_s)) {
-			$nc($($HostnameChecker::getInstance($HostnameChecker::TYPE_TLS)))->match(hostname, cert, chainsToPublicCA);
+			$$nc($HostnameChecker::getInstance($HostnameChecker::TYPE_TLS))->match(hostname, cert, chainsToPublicCA);
 		} else {
-			bool var$2 = algorithm->equalsIgnoreCase("LDAP"_s);
-			if (var$2 || algorithm->equalsIgnoreCase("LDAPS"_s)) {
-				$nc($($HostnameChecker::getInstance($HostnameChecker::TYPE_LDAP)))->match(hostname, cert, chainsToPublicCA);
+			bool var$1 = algorithm->equalsIgnoreCase("LDAP"_s);
+			if (var$1 || algorithm->equalsIgnoreCase("LDAPS"_s)) {
+				$$nc($HostnameChecker::getInstance($HostnameChecker::TYPE_LDAP))->match(hostname, cert, chainsToPublicCA);
 			} else {
 				$throwNew($CertificateException, $$str({"Unknown identification algorithm: "_s, algorithm}));
 			}
@@ -435,7 +382,49 @@ X509TrustManagerImpl::X509TrustManagerImpl() {
 }
 
 $Class* X509TrustManagerImpl::load$($String* name, bool initialize) {
-	$loadClass(X509TrustManagerImpl, name, initialize, &_X509TrustManagerImpl_ClassInfo_, allocate$X509TrustManagerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"validatorType", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(X509TrustManagerImpl, validatorType)},
+		{"trustedCerts", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $FINAL, $field(X509TrustManagerImpl, trustedCerts)},
+		{"pkixParams", "Ljava/security/cert/PKIXBuilderParameters;", nullptr, $PRIVATE | $FINAL, $field(X509TrustManagerImpl, pkixParams)},
+		{"clientValidator", "Lsun/security/validator/Validator;", nullptr, $PRIVATE | $VOLATILE, $field(X509TrustManagerImpl, clientValidator)},
+		{"serverValidator", "Lsun/security/validator/Validator;", nullptr, $PRIVATE | $VOLATILE, $field(X509TrustManagerImpl, serverValidator)},
+		{"validatorLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(X509TrustManagerImpl, validatorLock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/util/Collection;)V", "(Ljava/lang/String;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)V", 0, $method(X509TrustManagerImpl, init$, void, $String*, $Collection*)},
+		{"<init>", "(Ljava/lang/String;Ljava/security/cert/PKIXBuilderParameters;)V", nullptr, 0, $method(X509TrustManagerImpl, init$, void, $String*, $PKIXBuilderParameters*)},
+		{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkClientTrusted, void, $X509CertificateArray*, $String*), "java.security.cert.CertificateException"},
+		{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkClientTrusted, void, $X509CertificateArray*, $String*, $Socket*), "java.security.cert.CertificateException"},
+		{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkClientTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*), "java.security.cert.CertificateException"},
+		{"checkIdentity", "(Ljavax/net/ssl/SSLSession;[Ljava/security/cert/X509Certificate;Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(X509TrustManagerImpl, checkIdentity, void, $SSLSession*, $X509CertificateArray*, $String*, bool), "java.security.cert.CertificateException"},
+		{"checkIdentity", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(X509TrustManagerImpl, checkIdentity, void, $String*, $X509Certificate*, $String*), "java.security.cert.CertificateException"},
+		{"checkIdentity", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(X509TrustManagerImpl, checkIdentity, void, $String*, $X509Certificate*, $String*, bool), "java.security.cert.CertificateException"},
+		{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkServerTrusted, void, $X509CertificateArray*, $String*), "java.security.cert.CertificateException"},
+		{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkServerTrusted, void, $X509CertificateArray*, $String*, $Socket*), "java.security.cert.CertificateException"},
+		{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, checkServerTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*), "java.security.cert.CertificateException"},
+		{"checkTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;Z)V", nullptr, $PRIVATE, $method(X509TrustManagerImpl, checkTrusted, void, $X509CertificateArray*, $String*, $Socket*, bool), "java.security.cert.CertificateException"},
+		{"checkTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;Z)V", nullptr, $PRIVATE, $method(X509TrustManagerImpl, checkTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*, bool), "java.security.cert.CertificateException"},
+		{"checkTrustedInit", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Z)Lsun/security/validator/Validator;", nullptr, $PRIVATE, $method(X509TrustManagerImpl, checkTrustedInit, $Validator*, $X509CertificateArray*, $String*, bool)},
+		{"getAcceptedIssuers", "()[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(X509TrustManagerImpl, getAcceptedIssuers, $X509CertificateArray*)},
+		{"getHostNameInSNI", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(X509TrustManagerImpl, getHostNameInSNI, $String*, $List*)},
+		{"getRequestedServerNames", "(Ljava/net/Socket;)Ljava/util/List;", "(Ljava/net/Socket;)Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $STATIC, $staticMethod(X509TrustManagerImpl, getRequestedServerNames, $List*, $Socket*)},
+		{"getRequestedServerNames", "(Ljavax/net/ssl/SSLEngine;)Ljava/util/List;", "(Ljavax/net/ssl/SSLEngine;)Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $STATIC, $staticMethod(X509TrustManagerImpl, getRequestedServerNames, $List*, $SSLEngine*)},
+		{"getRequestedServerNames", "(Ljavax/net/ssl/SSLSession;)Ljava/util/List;", "(Ljavax/net/ssl/SSLSession;)Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $PRIVATE | $STATIC, $staticMethod(X509TrustManagerImpl, getRequestedServerNames, $List*, $SSLSession*)},
+		{"getValidator", "(Ljava/lang/String;)Lsun/security/validator/Validator;", nullptr, $PRIVATE, $method(X509TrustManagerImpl, getValidator, $Validator*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.X509TrustManagerImpl",
+		"javax.net.ssl.X509ExtendedTrustManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X509TrustManagerImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X509TrustManagerImpl);
+	});
 	return class$;
 }
 

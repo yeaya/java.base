@@ -38,7 +38,7 @@ public:
 	virtual $String* toString() override;
 	::java::lang::Runnable* runnable = nullptr;
 	$Object* result = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x489D6925990D6E4E;
+	static const int64_t serialVersionUID = (int64_t)0x489d6925990d6e4e;
 };
 
 		} // concurrent

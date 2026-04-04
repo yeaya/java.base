@@ -27,6 +27,7 @@ class $export Basic : public ::java::lang::Object {
 	$class(Basic, 0, ::java::lang::Object)
 public:
 	Basic();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void cmp(int64_t v1, ::java::util::concurrent::TimeUnit* u1, int64_t v2, ::java::util::concurrent::TimeUnit* u2, int32_t expected);
 	static void cmp(::java::time::Instant* ins, int64_t v2, ::java::util::concurrent::TimeUnit* u2, int32_t expected);

@@ -14,10 +14,13 @@ class $import AlreadyBoundException : public ::java::lang::IllegalStateException
 public:
 	AlreadyBoundException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x5E50805F0694BBB8;
+	static const int64_t serialVersionUID = (int64_t)0x5e50805f0694bbb8;
 	AlreadyBoundException(const AlreadyBoundException& e);
 	virtual void throw$() override;
-	inline AlreadyBoundException* operator ->() {
+	inline AlreadyBoundException* operator ->() const {
+		return (AlreadyBoundException*)throwing$;
+	}
+	inline operator AlreadyBoundException*() const {
 		return (AlreadyBoundException*)throwing$;
 	}
 };

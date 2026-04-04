@@ -51,14 +51,17 @@ public:
 	virtual ::java::security::cert::CRLReason* getRevocationReason();
 	void readObject(::java::io::ObjectInputStream* ois);
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0x6CCD4365F915B433;
+	static const int64_t serialVersionUID = (int64_t)0x6ccd4365f915b433;
 	::java::util::Date* revocationDate = nullptr;
 	::java::security::cert::CRLReason* reason = nullptr;
 	::javax::security::auth::x500::X500Principal* authority = nullptr;
 	::java::util::Map* extensions = nullptr;
 	CertificateRevokedException(const CertificateRevokedException& e);
 	virtual void throw$() override;
-	inline CertificateRevokedException* operator ->() {
+	inline CertificateRevokedException* operator ->() const {
+		return (CertificateRevokedException*)throwing$;
+	}
+	inline operator CertificateRevokedException*() const {
 		return (CertificateRevokedException*)throwing$;
 	}
 };

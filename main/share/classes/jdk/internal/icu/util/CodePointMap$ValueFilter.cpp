@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/util/CodePointMap$ValueFilter.h>
-
 #include <jdk/internal/icu/util/CodePointMap.h>
 #include <jcpp.h>
 
@@ -12,38 +11,33 @@ namespace jdk {
 		namespace icu {
 			namespace util {
 
-$MethodInfo _CodePointMap$ValueFilter_MethodInfo_[] = {
-	{"apply", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointMap$ValueFilter, apply, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CodePointMap$ValueFilter_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.util.CodePointMap$ValueFilter", "jdk.internal.icu.util.CodePointMap", "ValueFilter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CodePointMap$ValueFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.icu.util.CodePointMap$ValueFilter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_CodePointMap$ValueFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CodePointMap$ValueFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.util.CodePointMap"
-};
-
-$Object* allocate$CodePointMap$ValueFilter($Class* clazz) {
-	return $of($alloc(CodePointMap$ValueFilter));
-}
-
 $Class* CodePointMap$ValueFilter::load$($String* name, bool initialize) {
-	$loadClass(CodePointMap$ValueFilter, name, initialize, &_CodePointMap$ValueFilter_ClassInfo_, allocate$CodePointMap$ValueFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointMap$ValueFilter, apply, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.util.CodePointMap$ValueFilter", "jdk.internal.icu.util.CodePointMap", "ValueFilter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.icu.util.CodePointMap$ValueFilter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.util.CodePointMap"
+	};
+	$loadClass(CodePointMap$ValueFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CodePointMap$ValueFilter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberStringClass.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,38 +8,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberStringClass_Attribute_var$0[] = {
-	{"value", 's', "custom"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberStringClass_Annotations_[] = {
-	{"LUniTest/SingleMemberString;", SingleMemberStringClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberStringClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberStringClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberStringClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberStringClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberStringClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberStringClass_Annotations_
-};
-
-$Object* allocate$SingleMemberStringClass($Class* clazz) {
-	return $of($alloc(SingleMemberStringClass));
-}
-
 void SingleMemberStringClass::init$() {
 }
 
@@ -48,7 +15,33 @@ SingleMemberStringClass::SingleMemberStringClass() {
 }
 
 $Class* SingleMemberStringClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberStringClass, name, initialize, &_SingleMemberStringClass_ClassInfo_, allocate$SingleMemberStringClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberStringClass, init$, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 's', "custom"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberString;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberStringClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberStringClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberStringClass);
+	});
 	return class$;
 }
 

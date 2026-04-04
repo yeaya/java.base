@@ -55,6 +55,7 @@ class JsseJce : public ::java::lang::Object {
 	$class(JsseJce, 0, ::java::lang::Object)
 public:
 	JsseJce();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getRSAKeyLength(::java::security::PublicKey* key);
 	static ::java::security::spec::RSAPublicKeySpec* getRSAPublicKeySpec(::java::security::PublicKey* key);

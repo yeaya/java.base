@@ -1,5 +1,4 @@
 #include <java/util/PrimitiveIterator$OfDouble.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -37,72 +36,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual void accept(double t) override {
-		$nc(inst$)->accept($$of(t));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PrimitiveIterator$OfDouble$$Lambda$accept>());
+		$nc(inst$)->accept($of(t));
 	}
 	$Consumer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PrimitiveIterator$OfDouble$$Lambda$accept::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PrimitiveIterator$OfDouble$$Lambda$accept, inst$)},
-	{}
-};
-$MethodInfo PrimitiveIterator$OfDouble$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(PrimitiveIterator$OfDouble$$Lambda$accept, init$, void, $Consumer*)},
-	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble$$Lambda$accept, accept, void, double)},
-	{}
-};
-$ClassInfo PrimitiveIterator$OfDouble$$Lambda$accept::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.PrimitiveIterator$OfDouble$$Lambda$accept",
-	"java.lang.Object",
-	"java.util.function.DoubleConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* PrimitiveIterator$OfDouble$$Lambda$accept::load$($String* name, bool initialize) {
-	$loadClass(PrimitiveIterator$OfDouble$$Lambda$accept, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PrimitiveIterator$OfDouble$$Lambda$accept, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(PrimitiveIterator$OfDouble$$Lambda$accept, init$, void, $Consumer*)},
+		{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble$$Lambda$accept, accept, void, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.PrimitiveIterator$OfDouble$$Lambda$accept",
+		"java.lang.Object",
+		"java.util.function.DoubleConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrimitiveIterator$OfDouble$$Lambda$accept, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrimitiveIterator$OfDouble$$Lambda$accept);
+	});
 	return class$;
 }
 $Class* PrimitiveIterator$OfDouble$$Lambda$accept::class$ = nullptr;
-
-$MethodInfo _PrimitiveIterator$OfDouble_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble, forEachRemaining, void, $DoubleConsumer*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Double;>;)V", $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble, forEachRemaining, void, $Consumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrimitiveIterator$OfDouble, forEachRemaining, void, Object$*)},
-	{"next", "()Ljava/lang/Double;", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble, next, $Object*)},
-	{"nextDouble", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveIterator$OfDouble, nextDouble, double)},
-	{}
-};
-
-$InnerClassInfo _PrimitiveIterator$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.PrimitiveIterator$OfDouble", "java.util.PrimitiveIterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PrimitiveIterator$OfDouble_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.PrimitiveIterator$OfDouble",
-	nullptr,
-	"java.util.PrimitiveIterator",
-	nullptr,
-	_PrimitiveIterator$OfDouble_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/PrimitiveIterator<Ljava/lang/Double;Ljava/util/function/DoubleConsumer;>;",
-	nullptr,
-	_PrimitiveIterator$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.PrimitiveIterator"
-};
-
-$Object* allocate$PrimitiveIterator$OfDouble($Class* clazz) {
-	return $of($alloc(PrimitiveIterator$OfDouble));
-}
 
 void PrimitiveIterator$OfDouble::forEachRemaining($DoubleConsumer* action) {
 	$Objects::requireNonNull(action);
@@ -128,7 +89,7 @@ void PrimitiveIterator$OfDouble::forEachRemaining($Consumer* action) {
 		if ($Tripwire::ENABLED) {
 			$Tripwire::trip($of(this)->getClass(), "{0} calling PrimitiveIterator.OfDouble.forEachRemainingDouble(action::accept)"_s);
 		}
-		forEachRemaining(static_cast<$DoubleConsumer*>($$new(PrimitiveIterator$OfDouble$$Lambda$accept, static_cast<$Consumer*>(action))));
+		forEachRemaining($cast($DoubleConsumer, $$new(PrimitiveIterator$OfDouble$$Lambda$accept, action)));
 	}
 }
 
@@ -138,11 +99,40 @@ void PrimitiveIterator$OfDouble::forEachRemaining(Object$* action) {
 
 $Class* PrimitiveIterator$OfDouble::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PrimitiveIterator$OfDouble$$Lambda$accept::classInfo$.name)) {
+		if (name->equals("java.util.PrimitiveIterator$OfDouble$$Lambda$accept")) {
 			return PrimitiveIterator$OfDouble$$Lambda$accept::load$(name, initialize);
 		}
 	}
-	$loadClass(PrimitiveIterator$OfDouble, name, initialize, &_PrimitiveIterator$OfDouble_ClassInfo_, allocate$PrimitiveIterator$OfDouble);
+	$MethodInfo methodInfos$$[] = {
+		{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble, forEachRemaining, void, $DoubleConsumer*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Double;>;)V", $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble, forEachRemaining, void, $Consumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrimitiveIterator$OfDouble, forEachRemaining, void, Object$*)},
+		{"next", "()Ljava/lang/Double;", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble, next, $Object*)},
+		{"nextDouble", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveIterator$OfDouble, nextDouble, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.PrimitiveIterator$OfDouble", "java.util.PrimitiveIterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.PrimitiveIterator$OfDouble",
+		nullptr,
+		"java.util.PrimitiveIterator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/PrimitiveIterator<Ljava/lang/Double;Ljava/util/function/DoubleConsumer;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.PrimitiveIterator"
+	};
+	$loadClass(PrimitiveIterator$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrimitiveIterator$OfDouble);
+	});
 	return class$;
 }
 

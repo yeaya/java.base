@@ -98,6 +98,7 @@ public:
 	ConcurrentSkipListMap();
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Comparator* comparator);
 	void init$(::java::util::Map* m);
@@ -181,7 +182,7 @@ public:
 	::java::util::concurrent::ConcurrentSkipListMap$ValueSpliterator* valueSpliterator();
 	virtual ::java::util::Collection* values() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x884675AE061146A7;
+	static const int64_t serialVersionUID = (int64_t)0x884675ae061146a7;
 	::java::util::Comparator* comparator$ = nullptr;
 	::java::util::concurrent::ConcurrentSkipListMap$Index* head = nullptr;
 	::java::util::concurrent::atomic::LongAdder* adder = nullptr;

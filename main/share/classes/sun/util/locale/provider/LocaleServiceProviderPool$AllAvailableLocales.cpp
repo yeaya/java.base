@@ -1,6 +1,4 @@
 #include <sun/util/locale/provider/LocaleServiceProviderPool$AllAvailableLocales.h>
-
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
@@ -12,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $LocaleServiceProviderPool = ::sun::util::locale::provider::LocaleServiceProviderPool;
@@ -22,56 +19,19 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _LocaleServiceProviderPool$AllAvailableLocales_FieldInfo_[] = {
-	{"allAvailableLocales", "[Ljava/util/Locale;", nullptr, $STATIC | $FINAL, $staticField(LocaleServiceProviderPool$AllAvailableLocales, allAvailableLocales)},
-	{}
-};
-
-$MethodInfo _LocaleServiceProviderPool$AllAvailableLocales_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleServiceProviderPool$AllAvailableLocales, init$, void)},
-	{}
-};
-
-$InnerClassInfo _LocaleServiceProviderPool$AllAvailableLocales_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.LocaleServiceProviderPool$AllAvailableLocales", "sun.util.locale.provider.LocaleServiceProviderPool", "AllAvailableLocales", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LocaleServiceProviderPool$AllAvailableLocales_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.LocaleServiceProviderPool$AllAvailableLocales",
-	"java.lang.Object",
-	nullptr,
-	_LocaleServiceProviderPool$AllAvailableLocales_FieldInfo_,
-	_LocaleServiceProviderPool$AllAvailableLocales_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LocaleServiceProviderPool$AllAvailableLocales_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.LocaleServiceProviderPool"
-};
-
-$Object* allocate$LocaleServiceProviderPool$AllAvailableLocales($Class* clazz) {
-	return $of($alloc(LocaleServiceProviderPool$AllAvailableLocales));
-}
-
 $LocaleArray* LocaleServiceProviderPool$AllAvailableLocales::allAvailableLocales = nullptr;
 
 void LocaleServiceProviderPool$AllAvailableLocales::init$() {
 }
 
-void clinit$LocaleServiceProviderPool$AllAvailableLocales($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LocaleServiceProviderPool$AllAvailableLocales::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($Set, all, $new($HashSet));
 		{
 			$init($LocaleServiceProviderPool);
 			$var($ClassArray, arr$, $LocaleServiceProviderPool::spiClasses);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$Class* c = arr$->get(i$);
 				{
 					$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool(c));
@@ -79,7 +39,7 @@ void clinit$LocaleServiceProviderPool$AllAvailableLocales($Class* class$) {
 				}
 			}
 		}
-		$assignStatic(LocaleServiceProviderPool$AllAvailableLocales::allAvailableLocales, $fcast($LocaleArray, all->toArray($$new($LocaleArray, 0))));
+		$assignStatic(LocaleServiceProviderPool$AllAvailableLocales::allAvailableLocales, $cast($LocaleArray, all->toArray($$new($LocaleArray, 0))));
 	}
 }
 
@@ -87,7 +47,36 @@ LocaleServiceProviderPool$AllAvailableLocales::LocaleServiceProviderPool$AllAvai
 }
 
 $Class* LocaleServiceProviderPool$AllAvailableLocales::load$($String* name, bool initialize) {
-	$loadClass(LocaleServiceProviderPool$AllAvailableLocales, name, initialize, &_LocaleServiceProviderPool$AllAvailableLocales_ClassInfo_, clinit$LocaleServiceProviderPool$AllAvailableLocales, allocate$LocaleServiceProviderPool$AllAvailableLocales);
+	$FieldInfo fieldInfos$$[] = {
+		{"allAvailableLocales", "[Ljava/util/Locale;", nullptr, $STATIC | $FINAL, $staticField(LocaleServiceProviderPool$AllAvailableLocales, allAvailableLocales)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleServiceProviderPool$AllAvailableLocales, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.LocaleServiceProviderPool$AllAvailableLocales", "sun.util.locale.provider.LocaleServiceProviderPool", "AllAvailableLocales", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.LocaleServiceProviderPool$AllAvailableLocales",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.LocaleServiceProviderPool"
+	};
+	$loadClass(LocaleServiceProviderPool$AllAvailableLocales, name, initialize, &classInfo$$, LocaleServiceProviderPool$AllAvailableLocales::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleServiceProviderPool$AllAvailableLocales);
+	});
 	return class$;
 }
 

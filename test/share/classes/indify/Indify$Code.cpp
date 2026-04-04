@@ -1,5 +1,4 @@
 #include <indify/Indify$Code.h>
-
 #include <indify/Indify$Attr.h>
 #include <indify/Indify$CountedList.h>
 #include <indify/Indify$InnerOuter.h>
@@ -28,57 +27,6 @@ using $List = ::java::util::List;
 
 namespace indify {
 
-$FieldInfo _Indify$Code_FieldInfo_[] = {
-	{"stacks", "S", nullptr, $PUBLIC, $field(Indify$Code, stacks)},
-	{"locals", "S", nullptr, $PUBLIC, $field(Indify$Code, locals)},
-	{"bytes", "[B", nullptr, $PUBLIC, $field(Indify$Code, bytes)},
-	{"etable", "Ljava/util/List;", "Ljava/util/List<[Ljava/lang/Short;>;", $PUBLIC | $FINAL, $field(Indify$Code, etable)},
-	{"attrs", "Ljava/util/List;", "Ljava/util/List<Lindify/Indify$Attr;>;", $PUBLIC | $FINAL, $field(Indify$Code, attrs$)},
-	{}
-};
-
-$MethodInfo _Indify$Code_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Indify$Code, init$, void)},
-	{"attrs", "()Ljava/util/List;", "()Ljava/util/List<Lindify/Indify$Attr;>;", $PUBLIC, $virtualMethod(Indify$Code, attrs, $List*)},
-	{"inners", "()Ljava/util/List;", "()Ljava/util/List<Lindify/Indify$Attr;>;", $PUBLIC, $virtualMethod(Indify$Code, inners, $List*)},
-	{"instructions", "()Lindify/Indify$Instruction;", nullptr, $PUBLIC, $virtualMethod(Indify$Code, instructions, $Indify$Instruction*)},
-	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$Code, readFrom, void, $DataInputStream*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$Code, writeTo, void, $DataOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Indify$Code_InnerClassesInfo_[] = {
-	{"indify.Indify$Code", "indify.Indify", "Code", $PUBLIC | $STATIC},
-	{"indify.Indify$InnerOuter", "indify.Indify", "InnerOuter", $PUBLIC | $STATIC | $ABSTRACT},
-	{"indify.Indify$Chunk", "indify.Indify", "Chunk", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Indify$Code_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"indify.Indify$Code",
-	"indify.Indify$InnerOuter",
-	"indify.Indify$Chunk",
-	_Indify$Code_FieldInfo_,
-	_Indify$Code_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Indify$Code_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"indify.Indify"
-};
-
-$Object* allocate$Indify$Code($Class* clazz) {
-	return $of($alloc(Indify$Code));
-}
-
 int32_t Indify$Code::hashCode() {
 	 return this->$Indify$InnerOuter::hashCode();
 }
@@ -101,7 +49,6 @@ void Indify$Code::finalize() {
 
 void Indify$Code::init$() {
 	$Indify$InnerOuter::init$();
-	$load($ShortArray);
 	$set(this, etable, $new($Indify$CountedList, $getClass($ShortArray), 4));
 	$load($Indify$Attr);
 	$set(this, attrs$, $new($Indify$CountedList, $Indify$Attr::class$));
@@ -112,20 +59,20 @@ void Indify$Code::readFrom($DataInputStream* in) {
 	this->locals = in->readShort();
 	$set(this, bytes, $Indify::readRawBytes(in, in->readInt()));
 	$Indify::readInputs(in, $$new($ObjectArray, {
-		$of(this->etable),
-		$of(this->attrs$)
+		this->etable,
+		this->attrs$
 	}));
 }
 
 void Indify$Code::writeTo($DataOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Indify::writeOutputs(out, $$new($ObjectArray, {
-		$($of($Short::valueOf(this->stacks))),
-		$($of($Short::valueOf(this->locals))),
-		$($of($Integer::valueOf($nc(this->bytes)->length))),
-		$of(this->bytes),
-		$of(this->etable),
-		$of(this->attrs$)
+		$($Short::valueOf(this->stacks)),
+		$($Short::valueOf(this->locals)),
+		$($Integer::valueOf($nc(this->bytes)->length)),
+		this->bytes,
+		this->etable,
+		this->attrs$
 	}));
 }
 
@@ -145,7 +92,52 @@ Indify$Code::Indify$Code() {
 }
 
 $Class* Indify$Code::load$($String* name, bool initialize) {
-	$loadClass(Indify$Code, name, initialize, &_Indify$Code_ClassInfo_, allocate$Indify$Code);
+	$FieldInfo fieldInfos$$[] = {
+		{"stacks", "S", nullptr, $PUBLIC, $field(Indify$Code, stacks)},
+		{"locals", "S", nullptr, $PUBLIC, $field(Indify$Code, locals)},
+		{"bytes", "[B", nullptr, $PUBLIC, $field(Indify$Code, bytes)},
+		{"etable", "Ljava/util/List;", "Ljava/util/List<[Ljava/lang/Short;>;", $PUBLIC | $FINAL, $field(Indify$Code, etable)},
+		{"attrs", "Ljava/util/List;", "Ljava/util/List<Lindify/Indify$Attr;>;", $PUBLIC | $FINAL, $field(Indify$Code, attrs$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Indify$Code, init$, void)},
+		{"attrs", "()Ljava/util/List;", "()Ljava/util/List<Lindify/Indify$Attr;>;", $PUBLIC, $virtualMethod(Indify$Code, attrs, $List*)},
+		{"inners", "()Ljava/util/List;", "()Ljava/util/List<Lindify/Indify$Attr;>;", $PUBLIC, $virtualMethod(Indify$Code, inners, $List*)},
+		{"instructions", "()Lindify/Indify$Instruction;", nullptr, $PUBLIC, $virtualMethod(Indify$Code, instructions, $Indify$Instruction*)},
+		{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$Code, readFrom, void, $DataInputStream*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$Code, writeTo, void, $DataOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"indify.Indify$Code", "indify.Indify", "Code", $PUBLIC | $STATIC},
+		{"indify.Indify$InnerOuter", "indify.Indify", "InnerOuter", $PUBLIC | $STATIC | $ABSTRACT},
+		{"indify.Indify$Chunk", "indify.Indify", "Chunk", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"indify.Indify$Code",
+		"indify.Indify$InnerOuter",
+		"indify.Indify$Chunk",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"indify.Indify"
+	};
+	$loadClass(Indify$Code, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Indify$Code));
+	});
 	return class$;
 }
 

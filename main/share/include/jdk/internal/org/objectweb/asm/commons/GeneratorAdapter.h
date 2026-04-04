@@ -124,6 +124,7 @@ class $import GeneratorAdapter : public ::jdk::internal::org::objectweb::asm$::c
 	$class(GeneratorAdapter, 0, ::jdk::internal::org::objectweb::asm$::commons::LocalVariablesSorter)
 public:
 	GeneratorAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::org::objectweb::asm$::MethodVisitor* methodVisitor, int32_t access, $String* name, $String* descriptor);
 	void init$(int32_t api, ::jdk::internal::org::objectweb::asm$::MethodVisitor* methodVisitor, int32_t access, $String* name, $String* descriptor);
 	void init$(int32_t access, ::jdk::internal::org::objectweb::asm$::commons::Method* method, ::jdk::internal::org::objectweb::asm$::MethodVisitor* methodVisitor);

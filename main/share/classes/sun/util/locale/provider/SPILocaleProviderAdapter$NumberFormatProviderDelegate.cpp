@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/SPILocaleProviderAdapter$NumberFormatProviderDelegate.h>
-
 #include <java/text/NumberFormat$Style.h>
 #include <java/text/NumberFormat.h>
 #include <java/text/spi/NumberFormatProvider.h>
@@ -31,55 +30,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _SPILocaleProviderAdapter$NumberFormatProviderDelegate_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/NumberFormatProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$NumberFormatProviderDelegate, map)},
-	{}
-};
-
-$MethodInfo _SPILocaleProviderAdapter$NumberFormatProviderDelegate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$NumberFormatProviderDelegate, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getAvailableLocales, $LocaleArray*)},
-	{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getCompactNumberInstance, $NumberFormat*, $Locale*, $NumberFormat$Style*)},
-	{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getCurrencyInstance, $NumberFormat*, $Locale*)},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/NumberFormatProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getDelegateMap, $Map*)},
-	{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getIntegerInstance, $NumberFormat*, $Locale*)},
-	{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getNumberInstance, $NumberFormat*, $Locale*)},
-	{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getPercentInstance, $NumberFormat*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SPILocaleProviderAdapter$NumberFormatProviderDelegate_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$NumberFormatProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "NumberFormatProviderDelegate", $STATIC},
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SPILocaleProviderAdapter$NumberFormatProviderDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.SPILocaleProviderAdapter$NumberFormatProviderDelegate",
-	"java.text.spi.NumberFormatProvider",
-	"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
-	_SPILocaleProviderAdapter$NumberFormatProviderDelegate_FieldInfo_,
-	_SPILocaleProviderAdapter$NumberFormatProviderDelegate_MethodInfo_,
-	"Ljava/text/spi/NumberFormatProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/text/spi/NumberFormatProvider;>;",
-	nullptr,
-	_SPILocaleProviderAdapter$NumberFormatProviderDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.SPILocaleProviderAdapter"
-};
-
-$Object* allocate$SPILocaleProviderAdapter$NumberFormatProviderDelegate($Class* clazz) {
-	return $of($alloc(SPILocaleProviderAdapter$NumberFormatProviderDelegate));
-}
-
 int32_t SPILocaleProviderAdapter$NumberFormatProviderDelegate::hashCode() {
 	 return this->$NumberFormatProvider::hashCode();
 }
@@ -102,7 +52,7 @@ void SPILocaleProviderAdapter$NumberFormatProviderDelegate::finalize() {
 
 void SPILocaleProviderAdapter$NumberFormatProviderDelegate::init$() {
 	$NumberFormatProvider::init$();
-	$set(this, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, map, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 $Map* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getDelegateMap() {
@@ -118,7 +68,7 @@ bool SPILocaleProviderAdapter$NumberFormatProviderDelegate::isSupportedLocale($L
 }
 
 $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getCurrencyInstance($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($NumberFormatProvider, nfp, $cast($NumberFormatProvider, getImpl(locale)));
@@ -126,7 +76,7 @@ $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getCurrenc
 }
 
 $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getIntegerInstance($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($NumberFormatProvider, nfp, $cast($NumberFormatProvider, getImpl(locale)));
@@ -134,7 +84,7 @@ $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getInteger
 }
 
 $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getNumberInstance($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($NumberFormatProvider, nfp, $cast($NumberFormatProvider, getImpl(locale)));
@@ -142,7 +92,7 @@ $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getNumberI
 }
 
 $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getPercentInstance($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($NumberFormatProvider, nfp, $cast($NumberFormatProvider, getImpl(locale)));
@@ -150,7 +100,7 @@ $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getPercent
 }
 
 $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getCompactNumberInstance($Locale* locale$renamed, $NumberFormat$Style* style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($NumberFormatProvider, nfp, $cast($NumberFormatProvider, getImpl(locale)));
@@ -161,7 +111,50 @@ SPILocaleProviderAdapter$NumberFormatProviderDelegate::SPILocaleProviderAdapter$
 }
 
 $Class* SPILocaleProviderAdapter$NumberFormatProviderDelegate::load$($String* name, bool initialize) {
-	$loadClass(SPILocaleProviderAdapter$NumberFormatProviderDelegate, name, initialize, &_SPILocaleProviderAdapter$NumberFormatProviderDelegate_ClassInfo_, allocate$SPILocaleProviderAdapter$NumberFormatProviderDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/NumberFormatProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$NumberFormatProviderDelegate, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$NumberFormatProviderDelegate, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getAvailableLocales, $LocaleArray*)},
+		{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getCompactNumberInstance, $NumberFormat*, $Locale*, $NumberFormat$Style*)},
+		{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getCurrencyInstance, $NumberFormat*, $Locale*)},
+		{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/NumberFormatProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getDelegateMap, $Map*)},
+		{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getIntegerInstance, $NumberFormat*, $Locale*)},
+		{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getNumberInstance, $NumberFormat*, $Locale*)},
+		{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, getPercentInstance, $NumberFormat*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$NumberFormatProviderDelegate, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$NumberFormatProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "NumberFormatProviderDelegate", $STATIC},
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.SPILocaleProviderAdapter$NumberFormatProviderDelegate",
+		"java.text.spi.NumberFormatProvider",
+		"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/text/spi/NumberFormatProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/text/spi/NumberFormatProvider;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.SPILocaleProviderAdapter"
+	};
+	$loadClass(SPILocaleProviderAdapter$NumberFormatProviderDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SPILocaleProviderAdapter$NumberFormatProviderDelegate));
+	});
 	return class$;
 }
 

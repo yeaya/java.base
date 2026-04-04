@@ -1,10 +1,8 @@
 #include <sun/security/provider/MD4.h>
-
 #include <java/lang/invoke/VarHandle.h>
 #include <java/security/AccessController.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/Provider.h>
 #include <java/security/ProviderException.h>
 #include <sun/security/provider/ByteArrayAccess$LE.h>
@@ -27,11 +25,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $VarHandle = ::java::lang::invoke::VarHandle;
 using $AccessController = ::java::security::AccessController;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $ProviderException = ::java::security::ProviderException;
 using $ByteArrayAccess = ::sun::security::provider::ByteArrayAccess;
@@ -45,63 +41,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _MD4_FieldInfo_[] = {
-	{"state", "[I", nullptr, $PRIVATE, $field(MD4, state)},
-	{"S11", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S11)},
-	{"S12", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S12)},
-	{"S13", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S13)},
-	{"S14", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S14)},
-	{"S21", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S21)},
-	{"S22", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S22)},
-	{"S23", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S23)},
-	{"S24", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S24)},
-	{"S31", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S31)},
-	{"S32", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S32)},
-	{"S33", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S33)},
-	{"S34", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S34)},
-	{"md4Provider", "Ljava/security/Provider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MD4, md4Provider)},
-	{}
-};
-
-$MethodInfo _MD4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MD4, init$, void)},
-	{"FF", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD4, FF, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"GG", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD4, GG, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"HH", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD4, HH, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MD4, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"getInstance", "()Ljava/security/MessageDigest;", nullptr, $PUBLIC | $STATIC, $staticMethod(MD4, getInstance, $MessageDigest*)},
-	{"implCompress", "([BI)V", nullptr, 0, $virtualMethod(MD4, implCompress, void, $bytes*, int32_t)},
-	{"implDigest", "([BI)V", nullptr, 0, $virtualMethod(MD4, implDigest, void, $bytes*, int32_t)},
-	{"implReset", "()V", nullptr, 0, $virtualMethod(MD4, implReset, void)},
-	{"resetHashes", "()V", nullptr, $PRIVATE, $method(MD4, resetHashes, void)},
-	{}
-};
-
-$InnerClassInfo _MD4_InnerClassesInfo_[] = {
-	{"sun.security.provider.MD4$2", nullptr, nullptr, 0},
-	{"sun.security.provider.MD4$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MD4_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.MD4",
-	"sun.security.provider.DigestBase",
-	nullptr,
-	_MD4_FieldInfo_,
-	_MD4_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MD4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.MD4$2,sun.security.provider.MD4$1"
-};
-
-$Object* allocate$MD4($Class* clazz) {
-	return $of($alloc(MD4));
-}
-
 $Provider* MD4::md4Provider = nullptr;
 
 $MessageDigest* MD4::getInstance() {
@@ -109,7 +48,7 @@ $MessageDigest* MD4::getInstance() {
 	try {
 		return $MessageDigest::getInstance("MD4"_s, MD4::md4Provider);
 	} catch ($NoSuchAlgorithmException& e) {
-		$throwNew($ProviderException, static_cast<$Throwable*>(e));
+		$throwNew($ProviderException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -122,7 +61,7 @@ void MD4::init$() {
 
 $Object* MD4::clone() {
 	$var(MD4, copy, $cast(MD4, $DigestBase::clone()));
-	$set($nc(copy), state, $cast($ints, $nc(copy->state)->clone()));
+	$set($nc(copy), state, $cast($ints, $nc($nc(copy)->state)->clone()));
 	return $of(copy);
 }
 
@@ -132,14 +71,14 @@ void MD4::implReset() {
 
 void MD4::resetHashes() {
 	$nc(this->state)->set(0, 0x67452301);
-	$nc(this->state)->set(1, (int32_t)0xEFCDAB89);
-	$nc(this->state)->set(2, (int32_t)0x98BADCFE);
-	$nc(this->state)->set(3, 0x10325476);
+	this->state->set(1, (int32_t)0xefcdab89);
+	this->state->set(2, (int32_t)0x98badcfe);
+	this->state->set(3, 0x10325476);
 }
 
 void MD4::implDigest($bytes* out, int32_t ofs) {
 	int64_t bitsProcessed = this->bytesProcessed << 3;
-	int32_t index = (int32_t)((int32_t)this->bytesProcessed & (uint32_t)63);
+	int32_t index = (int32_t)this->bytesProcessed & 0x3f;
 	int32_t padLen = (index < 56) ? (56 - index) : (120 - index);
 	$init($DigestBase);
 	engineUpdate($DigestBase::padding, 0, padLen);
@@ -151,45 +90,45 @@ void MD4::implDigest($bytes* out, int32_t ofs) {
 
 int32_t MD4::FF(int32_t a, int32_t b, int32_t c, int32_t d, int32_t x, int32_t s) {
 	$init(MD4);
-	a += (((int32_t)(b & (uint32_t)c)) | ((int32_t)((~b) & (uint32_t)d))) + x;
+	a += ((b & c) | ((~b) & d)) + x;
 	return (($sl(a, s)) | ($usr(a, 32 - s)));
 }
 
 int32_t MD4::GG(int32_t a, int32_t b, int32_t c, int32_t d, int32_t x, int32_t s) {
 	$init(MD4);
-	a += ((((int32_t)(b & (uint32_t)c)) | ((int32_t)(b & (uint32_t)d))) | ((int32_t)(c & (uint32_t)d))) + x + 0x5A827999;
+	a += (((b & c) | (b & d)) | (c & d)) + x + 0x5a827999;
 	return (($sl(a, s)) | ($usr(a, 32 - s)));
 }
 
 int32_t MD4::HH(int32_t a, int32_t b, int32_t c, int32_t d, int32_t x, int32_t s) {
 	$init(MD4);
-	a += ((b ^ c) ^ d) + x + 0x6ED9EBA1;
+	a += ((b ^ c) ^ d) + x + 0x6ed9eba1;
 	return (($sl(a, s)) | ($usr(a, 32 - s)));
 }
 
 void MD4::implCompress($bytes* buf, int32_t ofs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ByteArrayAccess$LE);
-	int32_t x0 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of(ofs)})));
-	int32_t x1 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 4))})));
-	int32_t x2 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 8))})));
-	int32_t x3 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 12))})));
-	int32_t x4 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 16))})));
-	int32_t x5 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 20))})));
-	int32_t x6 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 24))})));
-	int32_t x7 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 28))})));
-	int32_t x8 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 32))})));
-	int32_t x9 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 36))})));
-	int32_t x10 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 40))})));
-	int32_t x11 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 44))})));
-	int32_t x12 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 48))})));
-	int32_t x13 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 52))})));
-	int32_t x14 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 56))})));
-	int32_t x15 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 60))})));
+	int32_t x0 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {buf, $$of(ofs)})));
+	int32_t x1 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 4)})));
+	int32_t x2 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 8)})));
+	int32_t x3 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 12)})));
+	int32_t x4 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 16)})));
+	int32_t x5 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 20)})));
+	int32_t x6 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 24)})));
+	int32_t x7 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 28)})));
+	int32_t x8 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 32)})));
+	int32_t x9 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 36)})));
+	int32_t x10 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 40)})));
+	int32_t x11 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 44)})));
+	int32_t x12 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 48)})));
+	int32_t x13 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 52)})));
+	int32_t x14 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 56)})));
+	int32_t x15 = $intValue($ByteArrayAccess$LE::INT_ARRAY->get($$new($ObjectArray, {buf, $$of(ofs + 60)})));
 	int32_t a = $nc(this->state)->get(0);
-	int32_t b = $nc(this->state)->get(1);
-	int32_t c = $nc(this->state)->get(2);
-	int32_t d = $nc(this->state)->get(3);
+	int32_t b = this->state->get(1);
+	int32_t c = this->state->get(2);
+	int32_t d = this->state->get(3);
 	a = FF(a, b, c, d, x0, MD4::S11);
 	d = FF(d, a, b, c, x1, MD4::S12);
 	c = FF(c, d, a, b, x2, MD4::S13);
@@ -238,19 +177,19 @@ void MD4::implCompress($bytes* buf, int32_t ofs) {
 	d = HH(d, a, b, c, x11, MD4::S32);
 	c = HH(c, d, a, b, x7, MD4::S33);
 	b = HH(b, c, d, a, x15, MD4::S34);
-	(*$nc(this->state))[0] += a;
-	(*$nc(this->state))[1] += b;
-	(*$nc(this->state))[2] += c;
-	(*$nc(this->state))[3] += d;
+	(*this->state)[0] += a;
+	(*this->state)[1] += b;
+	(*this->state)[2] += c;
+	(*this->state)[3] += d;
 }
 
-void clinit$MD4($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MD4::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		$init($SecurityConstants);
 		$assignStatic(MD4::md4Provider, $new($MD4$1, "MD4Provider"_s, $SecurityConstants::PROVIDER_VER, "MD4 MessageDigest"_s));
-		$var($Void, dummy, $cast($Void, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($MD4$2)))));
+		$var($Void, dummy, $cast($Void, $AccessController::doPrivileged($$new($MD4$2))));
 	}
 }
 
@@ -258,7 +197,58 @@ MD4::MD4() {
 }
 
 $Class* MD4::load$($String* name, bool initialize) {
-	$loadClass(MD4, name, initialize, &_MD4_ClassInfo_, clinit$MD4, allocate$MD4);
+	$FieldInfo fieldInfos$$[] = {
+		{"state", "[I", nullptr, $PRIVATE, $field(MD4, state)},
+		{"S11", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S11)},
+		{"S12", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S12)},
+		{"S13", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S13)},
+		{"S14", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S14)},
+		{"S21", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S21)},
+		{"S22", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S22)},
+		{"S23", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S23)},
+		{"S24", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S24)},
+		{"S31", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S31)},
+		{"S32", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S32)},
+		{"S33", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S33)},
+		{"S34", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4, S34)},
+		{"md4Provider", "Ljava/security/Provider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MD4, md4Provider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MD4, init$, void)},
+		{"FF", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD4, FF, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"GG", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD4, GG, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"HH", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD4, HH, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MD4, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"getInstance", "()Ljava/security/MessageDigest;", nullptr, $PUBLIC | $STATIC, $staticMethod(MD4, getInstance, $MessageDigest*)},
+		{"implCompress", "([BI)V", nullptr, 0, $virtualMethod(MD4, implCompress, void, $bytes*, int32_t)},
+		{"implDigest", "([BI)V", nullptr, 0, $virtualMethod(MD4, implDigest, void, $bytes*, int32_t)},
+		{"implReset", "()V", nullptr, 0, $virtualMethod(MD4, implReset, void)},
+		{"resetHashes", "()V", nullptr, $PRIVATE, $method(MD4, resetHashes, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.MD4$2", nullptr, nullptr, 0},
+		{"sun.security.provider.MD4$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.MD4",
+		"sun.security.provider.DigestBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.MD4$2,sun.security.provider.MD4$1"
+	};
+	$loadClass(MD4, name, initialize, &classInfo$$, MD4::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MD4));
+	});
 	return class$;
 }
 

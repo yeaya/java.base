@@ -1,9 +1,7 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/SourceInterpreter.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
@@ -64,7 +62,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
@@ -87,47 +84,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 						namespace analysis {
-
-$MethodInfo _SourceInterpreter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SourceInterpreter, init$, void)},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(SourceInterpreter, init$, void, int32_t)},
-	{"binaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, binaryOperation, $SourceValue*, $AbstractInsnNode*, $SourceValue*, $SourceValue*)},
-	{"binaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, binaryOperation, $1Value*, $AbstractInsnNode*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"containsAll", "(Ljava/util/Set;Ljava/util/Set;)Z", "<E:Ljava/lang/Object;>(Ljava/util/Set<TE;>;Ljava/util/Set<TE;>;)Z", $PRIVATE | $STATIC, $staticMethod(SourceInterpreter, containsAll, bool, $Set*, $Set*)},
-	{"copyOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, copyOperation, $SourceValue*, $AbstractInsnNode*, $SourceValue*)},
-	{"copyOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, copyOperation, $1Value*, $AbstractInsnNode*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, merge, $SourceValue*, $SourceValue*, $SourceValue*)},
-	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, merge, $1Value*, $1Value*, $1Value*)},
-	{"naryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List<+Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;>;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", $PUBLIC, $virtualMethod(SourceInterpreter, naryOperation, $1Value*, $AbstractInsnNode*, $List*)},
-	{"newOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, newOperation, $1Value*, $AbstractInsnNode*)},
-	{"newValue", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, newValue, $1Value*, $Type*)},
-	{"returnOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)V", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, returnOperation, void, $AbstractInsnNode*, $SourceValue*, $SourceValue*)},
-	{"returnOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, returnOperation, void, $AbstractInsnNode*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"ternaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, ternaryOperation, $SourceValue*, $AbstractInsnNode*, $SourceValue*, $SourceValue*, $SourceValue*)},
-	{"ternaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, ternaryOperation, $1Value*, $AbstractInsnNode*, $1Value*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, unaryOperation, $SourceValue*, $AbstractInsnNode*, $SourceValue*)},
-	{"unaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, unaryOperation, $1Value*, $AbstractInsnNode*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{}
-};
-
-$ClassInfo _SourceInterpreter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.analysis.SourceInterpreter",
-	"jdk.internal.org.objectweb.asm.tree.analysis.Interpreter",
-	"jdk.internal.org.objectweb.asm.Opcodes",
-	nullptr,
-	_SourceInterpreter_MethodInfo_,
-	"Ljdk/internal/org/objectweb/asm/tree/analysis/Interpreter<Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;>;Ljdk/internal/org/objectweb/asm/Opcodes;"
-};
-
-$Object* allocate$SourceInterpreter($Class* clazz) {
-	return $of($alloc(SourceInterpreter));
-}
 
 int32_t SourceInterpreter::hashCode() {
 	 return this->$Interpreter::hashCode();
@@ -165,42 +121,31 @@ $1Value* SourceInterpreter::newValue($Type* type) {
 	if (type == $Type::VOID_TYPE) {
 		return nullptr;
 	}
-	return $new($SourceValue, type == nullptr ? 1 : $nc(type)->getSize());
+	return $new($SourceValue, type == nullptr ? 1 : type->getSize());
 }
 
 $1Value* SourceInterpreter::newOperation($AbstractInsnNode* insn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = 0;
 	{
-		$var($Object, value, nullptr)
+		$var($Object, value, nullptr);
 		switch ($nc(insn)->getOpcode()) {
 		case $Opcodes::LCONST_0:
-			{}
 		case $Opcodes::LCONST_1:
-			{}
 		case $Opcodes::DCONST_0:
-			{}
 		case $Opcodes::DCONST_1:
-			{
-				size = 2;
-				break;
-			}
+			size = 2;
+			break;
 		case $Opcodes::LDC:
-			{
-				$assign(value, $nc(($cast($LdcInsnNode, insn)))->cst);
-				size = $instanceOf($Long, value) || $instanceOf($Double, value) ? 2 : 1;
-				break;
-			}
+			$assign(value, $cast($LdcInsnNode, insn)->cst);
+			size = $instanceOf($Long, value) || $instanceOf($Double, value) ? 2 : 1;
+			break;
 		case $Opcodes::GETSTATIC:
-			{
-				size = $nc($($Type::getType($nc(($cast($FieldInsnNode, insn)))->desc)))->getSize();
-				break;
-			}
+			size = $$nc($Type::getType($cast($FieldInsnNode, insn)->desc))->getSize();
+			break;
 		default:
-			{
-				size = 1;
-				break;
-			}
+			size = 1;
+			break;
 		}
 	}
 	return $new($SourceValue, size, insn);
@@ -214,34 +159,21 @@ $SourceValue* SourceInterpreter::unaryOperation($AbstractInsnNode* insn, $Source
 	int32_t size = 0;
 	switch ($nc(insn)->getOpcode()) {
 	case $Opcodes::LNEG:
-		{}
 	case $Opcodes::DNEG:
-		{}
 	case $Opcodes::I2L:
-		{}
 	case $Opcodes::I2D:
-		{}
 	case $Opcodes::L2D:
-		{}
 	case $Opcodes::F2L:
-		{}
 	case $Opcodes::F2D:
-		{}
 	case $Opcodes::D2L:
-		{
-			size = 2;
-			break;
-		}
+		size = 2;
+		break;
 	case $Opcodes::GETFIELD:
-		{
-			size = $nc($($Type::getType($nc(($cast($FieldInsnNode, insn)))->desc)))->getSize();
-			break;
-		}
+		size = $$nc($Type::getType($cast($FieldInsnNode, insn)->desc))->getSize();
+		break;
 	default:
-		{
-			size = 1;
-			break;
-		}
+		size = 1;
+		break;
 	}
 	return $new($SourceValue, size, insn);
 }
@@ -250,49 +182,28 @@ $SourceValue* SourceInterpreter::binaryOperation($AbstractInsnNode* insn, $Sourc
 	int32_t size = 0;
 	switch ($nc(insn)->getOpcode()) {
 	case $Opcodes::LALOAD:
-		{}
 	case $Opcodes::DALOAD:
-		{}
 	case $Opcodes::LADD:
-		{}
 	case $Opcodes::DADD:
-		{}
 	case $Opcodes::LSUB:
-		{}
 	case $Opcodes::DSUB:
-		{}
 	case $Opcodes::LMUL:
-		{}
 	case $Opcodes::DMUL:
-		{}
 	case $Opcodes::LDIV:
-		{}
 	case $Opcodes::DDIV:
-		{}
 	case $Opcodes::LREM:
-		{}
 	case $Opcodes::DREM:
-		{}
 	case $Opcodes::LSHL:
-		{}
 	case $Opcodes::LSHR:
-		{}
 	case $Opcodes::LUSHR:
-		{}
 	case $Opcodes::LAND:
-		{}
 	case $Opcodes::LOR:
-		{}
 	case $Opcodes::LXOR:
-		{
-			size = 2;
-			break;
-		}
+		size = 2;
+		break;
 	default:
-		{
-			size = 1;
-			break;
-		}
+		size = 1;
+		break;
 	}
 	return $new($SourceValue, size, insn);
 }
@@ -302,15 +213,15 @@ $SourceValue* SourceInterpreter::ternaryOperation($AbstractInsnNode* insn, $Sour
 }
 
 $1Value* SourceInterpreter::naryOperation($AbstractInsnNode* insn, $List* values) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = 0;
 	int32_t opcode = $nc(insn)->getOpcode();
 	if (opcode == $Opcodes::MULTIANEWARRAY) {
 		size = 1;
 	} else if (opcode == $Opcodes::INVOKEDYNAMIC) {
-		size = $nc($($Type::getReturnType($nc(($cast($InvokeDynamicInsnNode, insn)))->desc)))->getSize();
+		size = $$nc($Type::getReturnType($cast($InvokeDynamicInsnNode, insn)->desc))->getSize();
 	} else {
-		size = $nc($($Type::getReturnType($nc(($cast($MethodInsnNode, insn)))->desc)))->getSize();
+		size = $$nc($Type::getReturnType($cast($MethodInsnNode, insn)->desc))->getSize();
 	}
 	return $new($SourceValue, size, insn);
 }
@@ -319,20 +230,20 @@ void SourceInterpreter::returnOperation($AbstractInsnNode* insn, $SourceValue* v
 }
 
 $SourceValue* SourceInterpreter::merge($SourceValue* value1, $SourceValue* value2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($SmallSet, $nc(value1)->insns) && $instanceOf($SmallSet, $nc(value2)->insns)) {
-		$var($Set, setUnion, $nc(($cast($SmallSet, value1->insns)))->union$($cast($SmallSet, value2->insns)));
+		$var($Set, setUnion, $cast($SmallSet, value1->insns)->union$($cast($SmallSet, value2->insns)));
 		if (setUnion == value1->insns && value1->size == value2->size) {
 			return value1;
 		} else {
 			return $new($SourceValue, $Math::min(value1->size, value2->size), setUnion);
 		}
 	}
-	if ($nc(value1)->size != $nc(value2)->size || !containsAll($nc(value1)->insns, $nc(value2)->insns)) {
+	if (value1->size != $nc(value2)->size || !containsAll(value1->insns, value2->insns)) {
 		$var($HashSet, setUnion, $new($HashSet));
-		setUnion->addAll($nc(value1)->insns);
-		setUnion->addAll($nc(value2)->insns);
-		return $new($SourceValue, $Math::min($nc(value1)->size, $nc(value2)->size), static_cast<$Set*>(setUnion));
+		setUnion->addAll(value1->insns);
+		setUnion->addAll(value2->insns);
+		return $new($SourceValue, $Math::min(value1->size, value2->size), setUnion);
 	}
 	return value1;
 }
@@ -343,7 +254,7 @@ bool SourceInterpreter::containsAll($Set* self, $Set* other) {
 	if (var$0 < $nc(other)->size()) {
 		return false;
 	}
-	return $nc(self)->containsAll(other);
+	return self->containsAll(other);
 }
 
 $1Value* SourceInterpreter::merge($1Value* value1, $1Value* value2) {
@@ -374,7 +285,44 @@ SourceInterpreter::SourceInterpreter() {
 }
 
 $Class* SourceInterpreter::load$($String* name, bool initialize) {
-	$loadClass(SourceInterpreter, name, initialize, &_SourceInterpreter_ClassInfo_, allocate$SourceInterpreter);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SourceInterpreter, init$, void)},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(SourceInterpreter, init$, void, int32_t)},
+		{"binaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, binaryOperation, $SourceValue*, $AbstractInsnNode*, $SourceValue*, $SourceValue*)},
+		{"binaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, binaryOperation, $1Value*, $AbstractInsnNode*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"containsAll", "(Ljava/util/Set;Ljava/util/Set;)Z", "<E:Ljava/lang/Object;>(Ljava/util/Set<TE;>;Ljava/util/Set<TE;>;)Z", $PRIVATE | $STATIC, $staticMethod(SourceInterpreter, containsAll, bool, $Set*, $Set*)},
+		{"copyOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, copyOperation, $SourceValue*, $AbstractInsnNode*, $SourceValue*)},
+		{"copyOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, copyOperation, $1Value*, $AbstractInsnNode*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, merge, $SourceValue*, $SourceValue*, $SourceValue*)},
+		{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, merge, $1Value*, $1Value*, $1Value*)},
+		{"naryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List<+Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;>;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", $PUBLIC, $virtualMethod(SourceInterpreter, naryOperation, $1Value*, $AbstractInsnNode*, $List*)},
+		{"newOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, newOperation, $1Value*, $AbstractInsnNode*)},
+		{"newValue", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, newValue, $1Value*, $Type*)},
+		{"returnOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)V", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, returnOperation, void, $AbstractInsnNode*, $SourceValue*, $SourceValue*)},
+		{"returnOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, returnOperation, void, $AbstractInsnNode*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"ternaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, ternaryOperation, $SourceValue*, $AbstractInsnNode*, $SourceValue*, $SourceValue*, $SourceValue*)},
+		{"ternaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, ternaryOperation, $1Value*, $AbstractInsnNode*, $1Value*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;", nullptr, $PUBLIC, $virtualMethod(SourceInterpreter, unaryOperation, $SourceValue*, $AbstractInsnNode*, $SourceValue*)},
+		{"unaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SourceInterpreter, unaryOperation, $1Value*, $AbstractInsnNode*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.analysis.SourceInterpreter",
+		"jdk.internal.org.objectweb.asm.tree.analysis.Interpreter",
+		"jdk.internal.org.objectweb.asm.Opcodes",
+		nullptr,
+		methodInfos$$,
+		"Ljdk/internal/org/objectweb/asm/tree/analysis/Interpreter<Ljdk/internal/org/objectweb/asm/tree/analysis/SourceValue;>;Ljdk/internal/org/objectweb/asm/Opcodes;"
+	};
+	$loadClass(SourceInterpreter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SourceInterpreter));
+	});
 	return class$;
 }
 

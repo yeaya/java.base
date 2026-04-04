@@ -39,6 +39,7 @@ class $export NativeLibraries : public ::java::lang::Object {
 	$class(NativeLibraries, $PRELOAD, ::java::lang::Object)
 public:
 	NativeLibraries();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ClassLoader* loader);
 	void init$($Class* caller, bool searchJavaLibraryPath);
 	int64_t find($String* name);

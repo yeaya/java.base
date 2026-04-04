@@ -32,6 +32,7 @@ class Streams$RangeLongSpliterator : public ::java::util::Spliterator$OfLong {
 public:
 	Streams$RangeLongSpliterator();
 	using ::java::util::Spliterator$OfLong::forEachRemaining;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t from, int64_t upTo, bool closed);
 	void init$(int64_t from, int64_t upTo, int32_t last);
 	virtual int32_t characteristics() override;

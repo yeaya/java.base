@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsFileCopy$1.h>
-
 #include <sun/nio/fs/Cancellable.h>
 #include <sun/nio/fs/WindowsException.h>
 #include <sun/nio/fs/WindowsFileCopy.h>
@@ -20,53 +19,6 @@ using $WindowsPath = ::sun::nio::fs::WindowsPath;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _WindowsFileCopy$1_FieldInfo_[] = {
-	{"val$target", "Lsun/nio/fs/WindowsPath;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileCopy$1, val$target)},
-	{"val$source", "Lsun/nio/fs/WindowsPath;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileCopy$1, val$source)},
-	{"val$flags", "I", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileCopy$1, val$flags)},
-	{"val$targetPath", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileCopy$1, val$targetPath)},
-	{"val$sourcePath", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileCopy$1, val$sourcePath)},
-	{}
-};
-
-$MethodInfo _WindowsFileCopy$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;)V", nullptr, 0, $method(WindowsFileCopy$1, init$, void, $String*, $String*, int32_t, $WindowsPath*, $WindowsPath*)},
-	{"cancelValue", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsFileCopy$1, cancelValue, int32_t)},
-	{"implRun", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsFileCopy$1, implRun, void), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsFileCopy$1_EnclosingMethodInfo_ = {
-	"sun.nio.fs.WindowsFileCopy",
-	"copy",
-	"(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;[Ljava/nio/file/CopyOption;)V"
-};
-
-$InnerClassInfo _WindowsFileCopy$1_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsFileCopy$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsFileCopy$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsFileCopy$1",
-	"sun.nio.fs.Cancellable",
-	nullptr,
-	_WindowsFileCopy$1_FieldInfo_,
-	_WindowsFileCopy$1_MethodInfo_,
-	nullptr,
-	&_WindowsFileCopy$1_EnclosingMethodInfo_,
-	_WindowsFileCopy$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsFileCopy"
-};
-
-$Object* allocate$WindowsFileCopy$1($Class* clazz) {
-	return $of($alloc(WindowsFileCopy$1));
-}
 
 void WindowsFileCopy$1::init$($String* val$sourcePath, $String* val$targetPath, int32_t val$flags, $WindowsPath* val$source, $WindowsPath* val$target) {
 	$set(this, val$sourcePath, val$sourcePath);
@@ -93,7 +45,47 @@ WindowsFileCopy$1::WindowsFileCopy$1() {
 }
 
 $Class* WindowsFileCopy$1::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileCopy$1, name, initialize, &_WindowsFileCopy$1_ClassInfo_, allocate$WindowsFileCopy$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$target", "Lsun/nio/fs/WindowsPath;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileCopy$1, val$target)},
+		{"val$source", "Lsun/nio/fs/WindowsPath;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileCopy$1, val$source)},
+		{"val$flags", "I", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileCopy$1, val$flags)},
+		{"val$targetPath", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileCopy$1, val$targetPath)},
+		{"val$sourcePath", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileCopy$1, val$sourcePath)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;)V", nullptr, 0, $method(WindowsFileCopy$1, init$, void, $String*, $String*, int32_t, $WindowsPath*, $WindowsPath*)},
+		{"cancelValue", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsFileCopy$1, cancelValue, int32_t)},
+		{"implRun", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsFileCopy$1, implRun, void), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.fs.WindowsFileCopy",
+		"copy",
+		"(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;[Ljava/nio/file/CopyOption;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsFileCopy$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsFileCopy$1",
+		"sun.nio.fs.Cancellable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsFileCopy"
+	};
+	$loadClass(WindowsFileCopy$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFileCopy$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/rsa/SunRsaSignEntries.h>
-
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <java/util/HashMap.h>
@@ -20,50 +19,23 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $SecurityProviderConstants = ::sun::security::util::SecurityProviderConstants;
 
 namespace sun {
 	namespace security {
 		namespace rsa {
 
-$FieldInfo _SunRsaSignEntries_FieldInfo_[] = {
-	{"services", "Ljava/util/LinkedHashSet;", "Ljava/util/LinkedHashSet<Ljava/security/Provider$Service;>;", $PRIVATE, $field(SunRsaSignEntries, services)},
-	{}
-};
-
-$MethodInfo _SunRsaSignEntries_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SunRsaSignEntries, init$, void, $Provider*)},
-	{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunRsaSignEntries, add, void, $Provider*, $String*, $String*, $String*, $List*, $HashMap*)},
-	{"addA", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunRsaSignEntries, addA, void, $Provider*, $String*, $String*, $String*, $HashMap*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PUBLIC, $method(SunRsaSignEntries, iterator, $Iterator*)},
-	{}
-};
-
-$ClassInfo _SunRsaSignEntries_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.rsa.SunRsaSignEntries",
-	"java.lang.Object",
-	nullptr,
-	_SunRsaSignEntries_FieldInfo_,
-	_SunRsaSignEntries_MethodInfo_
-};
-
-$Object* allocate$SunRsaSignEntries($Class* clazz) {
-	return $of($alloc(SunRsaSignEntries));
-}
-
 void SunRsaSignEntries::add($Provider* p, $String* type, $String* algo, $String* cn, $List* aliases, $HashMap* attrs) {
 	$nc(this->services)->add($$new($Provider$Service, p, type, algo, cn, aliases, attrs));
 }
 
 void SunRsaSignEntries::addA($Provider* p, $String* type, $String* algo, $String* cn, $HashMap* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->services)->add($$new($Provider$Service, p, type, algo, cn, $($SecurityProviderConstants::getAliases(algo)), attrs));
 }
 
 void SunRsaSignEntries::init$($Provider* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, services, $new($LinkedHashSet, 20, 0.9f));
 	$var($HashMap, attrs, $new($HashMap, 3));
 	attrs->put("SupportedKeyClasses"_s, "java.security.interfaces.RSAPublicKey|java.security.interfaces.RSAPrivateKey"_s);
@@ -96,7 +68,28 @@ SunRsaSignEntries::SunRsaSignEntries() {
 }
 
 $Class* SunRsaSignEntries::load$($String* name, bool initialize) {
-	$loadClass(SunRsaSignEntries, name, initialize, &_SunRsaSignEntries_ClassInfo_, allocate$SunRsaSignEntries);
+	$FieldInfo fieldInfos$$[] = {
+		{"services", "Ljava/util/LinkedHashSet;", "Ljava/util/LinkedHashSet<Ljava/security/Provider$Service;>;", $PRIVATE, $field(SunRsaSignEntries, services)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SunRsaSignEntries, init$, void, $Provider*)},
+		{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunRsaSignEntries, add, void, $Provider*, $String*, $String*, $String*, $List*, $HashMap*)},
+		{"addA", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunRsaSignEntries, addA, void, $Provider*, $String*, $String*, $String*, $HashMap*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PUBLIC, $method(SunRsaSignEntries, iterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.rsa.SunRsaSignEntries",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SunRsaSignEntries, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunRsaSignEntries);
+	});
 	return class$;
 }
 

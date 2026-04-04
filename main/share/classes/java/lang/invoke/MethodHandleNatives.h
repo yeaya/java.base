@@ -44,6 +44,7 @@ class MethodHandleNatives : public ::java::lang::Object {
 	$class(MethodHandleNatives, 0, ::java::lang::Object)
 public:
 	MethodHandleNatives();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool canBeCalledVirtual(::java::lang::invoke::MemberName* mem);
 	static bool canBeCalledVirtual(::java::lang::invoke::MemberName* symbolicRef, $Class* definingClass);

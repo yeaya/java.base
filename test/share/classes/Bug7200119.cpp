@@ -1,5 +1,4 @@
 #include <Bug7200119.h>
-
 #include <java/text/Collator.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -16,30 +15,11 @@ using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 
-$MethodInfo _Bug7200119_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7200119, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7200119, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _Bug7200119_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug7200119",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Bug7200119_MethodInfo_
-};
-
-$Object* allocate$Bug7200119($Class* clazz) {
-	return $of($alloc(Bug7200119));
-}
-
 void Bug7200119::init$() {
 }
 
 void Bug7200119::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, avail, $Arrays::asList($($Collator::getAvailableLocales())));
 	$init($Locale);
 	if (!$nc(avail)->contains($Locale::US)) {
@@ -51,7 +31,22 @@ Bug7200119::Bug7200119() {
 }
 
 $Class* Bug7200119::load$($String* name, bool initialize) {
-	$loadClass(Bug7200119, name, initialize, &_Bug7200119_ClassInfo_, allocate$Bug7200119);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7200119, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7200119, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug7200119",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug7200119, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug7200119);
+	});
 	return class$;
 }
 

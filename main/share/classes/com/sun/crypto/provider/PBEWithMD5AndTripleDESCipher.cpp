@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PBEWithMD5AndTripleDESCipher.h>
-
 #include <com/sun/crypto/provider/PBES1Core.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -30,45 +29,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _PBEWithMD5AndTripleDESCipher_FieldInfo_[] = {
-	{"core", "Lcom/sun/crypto/provider/PBES1Core;", nullptr, $PRIVATE, $field(PBEWithMD5AndTripleDESCipher, core)},
-	{}
-};
-
-$MethodInfo _PBEWithMD5AndTripleDESCipher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PBEWithMD5AndTripleDESCipher, init$, void), "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
-	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineGetBlockSize, int32_t)},
-	{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineGetIV, $bytes*)},
-	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineGetOutputSize, int32_t, int32_t)},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
-	{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _PBEWithMD5AndTripleDESCipher_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.PBEWithMD5AndTripleDESCipher",
-	"javax.crypto.CipherSpi",
-	nullptr,
-	_PBEWithMD5AndTripleDESCipher_FieldInfo_,
-	_PBEWithMD5AndTripleDESCipher_MethodInfo_
-};
-
-$Object* allocate$PBEWithMD5AndTripleDESCipher($Class* clazz) {
-	return $of($alloc(PBEWithMD5AndTripleDESCipher));
-}
 
 void PBEWithMD5AndTripleDESCipher::init$() {
 	$CipherSpi::init$();
@@ -153,7 +113,41 @@ PBEWithMD5AndTripleDESCipher::PBEWithMD5AndTripleDESCipher() {
 }
 
 $Class* PBEWithMD5AndTripleDESCipher::load$($String* name, bool initialize) {
-	$loadClass(PBEWithMD5AndTripleDESCipher, name, initialize, &_PBEWithMD5AndTripleDESCipher_ClassInfo_, allocate$PBEWithMD5AndTripleDESCipher);
+	$FieldInfo fieldInfos$$[] = {
+		{"core", "Lcom/sun/crypto/provider/PBES1Core;", nullptr, $PRIVATE, $field(PBEWithMD5AndTripleDESCipher, core)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PBEWithMD5AndTripleDESCipher, init$, void), "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
+		{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineGetBlockSize, int32_t)},
+		{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineGetIV, $bytes*)},
+		{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
+		{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineGetOutputSize, int32_t, int32_t)},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
+		{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+		{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(PBEWithMD5AndTripleDESCipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.PBEWithMD5AndTripleDESCipher",
+		"javax.crypto.CipherSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PBEWithMD5AndTripleDESCipher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PBEWithMD5AndTripleDESCipher);
+	});
 	return class$;
 }
 

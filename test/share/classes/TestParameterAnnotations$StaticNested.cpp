@@ -1,5 +1,4 @@
 #include <TestParameterAnnotations$StaticNested.h>
-
 #include <TestParameterAnnotations.h>
 #include <jcpp.h>
 
@@ -8,41 +7,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ParameterAnnotation = ::java::lang::ParameterAnnotation;
 
-$ParameterAnnotation _TestParameterAnnotations$StaticNested_MethodParamAnnotations_init$0[] = {
-	{"LMarker;", nullptr, 0},
-	{}
-};
-
-$MethodInfo _TestParameterAnnotations$StaticNested_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestParameterAnnotations$StaticNested, init$, void, Object$*), nullptr, nullptr, nullptr, nullptr, _TestParameterAnnotations$StaticNested_MethodParamAnnotations_init$0},
-	{}
-};
-
-$InnerClassInfo _TestParameterAnnotations$StaticNested_InnerClassesInfo_[] = {
-	{"TestParameterAnnotations$StaticNested", "TestParameterAnnotations", "StaticNested", $STATIC},
-	{}
-};
-
-$ClassInfo _TestParameterAnnotations$StaticNested_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestParameterAnnotations$StaticNested",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestParameterAnnotations$StaticNested_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestParameterAnnotations$StaticNested_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestParameterAnnotations"
-};
-
-$Object* allocate$TestParameterAnnotations$StaticNested($Class* clazz) {
-	return $of($alloc(TestParameterAnnotations$StaticNested));
-}
-
 void TestParameterAnnotations$StaticNested::init$(Object$* o) {
 }
 
@@ -50,7 +14,36 @@ TestParameterAnnotations$StaticNested::TestParameterAnnotations$StaticNested() {
 }
 
 $Class* TestParameterAnnotations$StaticNested::load$($String* name, bool initialize) {
-	$loadClass(TestParameterAnnotations$StaticNested, name, initialize, &_TestParameterAnnotations$StaticNested_ClassInfo_, allocate$TestParameterAnnotations$StaticNested);
+	$ParameterAnnotation init$methodParamAnnotations$$[] = {
+		{"LMarker;", nullptr, 0},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestParameterAnnotations$StaticNested, init$, void, Object$*), nullptr, nullptr, nullptr, nullptr, init$methodParamAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestParameterAnnotations$StaticNested", "TestParameterAnnotations", "StaticNested", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestParameterAnnotations$StaticNested",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestParameterAnnotations"
+	};
+	$loadClass(TestParameterAnnotations$StaticNested, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestParameterAnnotations$StaticNested);
+	});
 	return class$;
 }
 

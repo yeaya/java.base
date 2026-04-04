@@ -1,5 +1,4 @@
 #include <java/security/spec/EdDSAParameterSpec.h>
-
 #include <java/security/InvalidParameterException.h>
 #include <java/util/Objects.h>
 #include <java/util/Optional.h>
@@ -16,45 +15,18 @@ namespace java {
 	namespace security {
 		namespace spec {
 
-$FieldInfo _EdDSAParameterSpec_FieldInfo_[] = {
-	{"prehash", "Z", nullptr, $PRIVATE | $FINAL, $field(EdDSAParameterSpec, prehash)},
-	{"context", "[B", nullptr, $PRIVATE | $FINAL, $field(EdDSAParameterSpec, context)},
-	{}
-};
-
-$MethodInfo _EdDSAParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(EdDSAParameterSpec, init$, void, bool)},
-	{"<init>", "(Z[B)V", nullptr, $PUBLIC, $method(EdDSAParameterSpec, init$, void, bool, $bytes*)},
-	{"getContext", "()Ljava/util/Optional;", "()Ljava/util/Optional<[B>;", $PUBLIC, $virtualMethod(EdDSAParameterSpec, getContext, $Optional*)},
-	{"isPrehash", "()Z", nullptr, $PUBLIC, $virtualMethod(EdDSAParameterSpec, isPrehash, bool)},
-	{}
-};
-
-$ClassInfo _EdDSAParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.EdDSAParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec",
-	_EdDSAParameterSpec_FieldInfo_,
-	_EdDSAParameterSpec_MethodInfo_
-};
-
-$Object* allocate$EdDSAParameterSpec($Class* clazz) {
-	return $of($alloc(EdDSAParameterSpec));
-}
-
 void EdDSAParameterSpec::init$(bool prehash) {
 	this->prehash = prehash;
 	$set(this, context, nullptr);
 }
 
 void EdDSAParameterSpec::init$(bool prehash, $bytes* context) {
-	$Objects::requireNonNull($of(context), "context may not be null"_s);
+	$Objects::requireNonNull(context, "context may not be null"_s);
 	if ($nc(context)->length > 255) {
 		$throwNew($InvalidParameterException, "context length cannot be greater than 255"_s);
 	}
 	this->prehash = prehash;
-	$set(this, context, $cast($bytes, $nc(context)->clone()));
+	$set(this, context, $cast($bytes, context->clone()));
 }
 
 bool EdDSAParameterSpec::isPrehash() {
@@ -65,7 +37,7 @@ $Optional* EdDSAParameterSpec::getContext() {
 	if (this->context == nullptr) {
 		return $Optional::empty();
 	} else {
-		return $Optional::of($cast($bytes, $($nc(this->context)->clone())));
+		return $Optional::of($$cast($bytes, this->context->clone()));
 	}
 }
 
@@ -73,7 +45,29 @@ EdDSAParameterSpec::EdDSAParameterSpec() {
 }
 
 $Class* EdDSAParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(EdDSAParameterSpec, name, initialize, &_EdDSAParameterSpec_ClassInfo_, allocate$EdDSAParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"prehash", "Z", nullptr, $PRIVATE | $FINAL, $field(EdDSAParameterSpec, prehash)},
+		{"context", "[B", nullptr, $PRIVATE | $FINAL, $field(EdDSAParameterSpec, context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(EdDSAParameterSpec, init$, void, bool)},
+		{"<init>", "(Z[B)V", nullptr, $PUBLIC, $method(EdDSAParameterSpec, init$, void, bool, $bytes*)},
+		{"getContext", "()Ljava/util/Optional;", "()Ljava/util/Optional<[B>;", $PUBLIC, $virtualMethod(EdDSAParameterSpec, getContext, $Optional*)},
+		{"isPrehash", "()Z", nullptr, $PUBLIC, $virtualMethod(EdDSAParameterSpec, isPrehash, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.EdDSAParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EdDSAParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EdDSAParameterSpec);
+	});
 	return class$;
 }
 

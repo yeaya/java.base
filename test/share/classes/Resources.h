@@ -15,6 +15,7 @@ class $export Resources : public ::java::lang::Object {
 	$class(Resources, 0, ::java::lang::Object)
 public:
 	Resources();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::io::PrintStream* out;

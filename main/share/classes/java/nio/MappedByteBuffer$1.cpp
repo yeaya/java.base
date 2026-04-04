@@ -1,7 +1,5 @@
 #include <java/nio/MappedByteBuffer$1.h>
-
 #include <java/io/FileDescriptor.h>
-#include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
@@ -12,57 +10,11 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
 using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _MappedByteBuffer$1_FieldInfo_[] = {
-	{"this$0", "Ljava/nio/MappedByteBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(MappedByteBuffer$1, this$0)},
-	{}
-};
-
-$MethodInfo _MappedByteBuffer$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/MappedByteBuffer;)V", nullptr, 0, $method(MappedByteBuffer$1, init$, void, $MappedByteBuffer*)},
-	{"address", "()J", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, address, int64_t)},
-	{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, fileDescriptor, $FileDescriptor*)},
-	{"isSync", "()Z", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, isSync, bool)},
-	{"unmap", "()V", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, unmap, void)},
-	{}
-};
-
-$EnclosingMethodInfo _MappedByteBuffer$1_EnclosingMethodInfo_ = {
-	"java.nio.MappedByteBuffer",
-	"unmapper",
-	"()Ljdk/internal/access/foreign/UnmapperProxy;"
-};
-
-$InnerClassInfo _MappedByteBuffer$1_InnerClassesInfo_[] = {
-	{"java.nio.MappedByteBuffer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MappedByteBuffer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.MappedByteBuffer$1",
-	"java.lang.Object",
-	"jdk.internal.access.foreign.UnmapperProxy",
-	_MappedByteBuffer$1_FieldInfo_,
-	_MappedByteBuffer$1_MethodInfo_,
-	nullptr,
-	&_MappedByteBuffer$1_EnclosingMethodInfo_,
-	_MappedByteBuffer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.MappedByteBuffer"
-};
-
-$Object* allocate$MappedByteBuffer$1($Class* clazz) {
-	return $of($alloc(MappedByteBuffer$1));
-}
 
 void MappedByteBuffer$1::init$($MappedByteBuffer* this$0) {
 	$set(this, this$0, this$0);
@@ -81,14 +33,52 @@ bool MappedByteBuffer$1::isSync() {
 }
 
 void MappedByteBuffer$1::unmap() {
-	$nc($($Unsafe::getUnsafe()))->invokeCleaner(this->this$0);
+	$$nc($Unsafe::getUnsafe())->invokeCleaner(this->this$0);
 }
 
 MappedByteBuffer$1::MappedByteBuffer$1() {
 }
 
 $Class* MappedByteBuffer$1::load$($String* name, bool initialize) {
-	$loadClass(MappedByteBuffer$1, name, initialize, &_MappedByteBuffer$1_ClassInfo_, allocate$MappedByteBuffer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/nio/MappedByteBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(MappedByteBuffer$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/MappedByteBuffer;)V", nullptr, 0, $method(MappedByteBuffer$1, init$, void, $MappedByteBuffer*)},
+		{"address", "()J", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, address, int64_t)},
+		{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, fileDescriptor, $FileDescriptor*)},
+		{"isSync", "()Z", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, isSync, bool)},
+		{"unmap", "()V", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, unmap, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.MappedByteBuffer",
+		"unmapper",
+		"()Ljdk/internal/access/foreign/UnmapperProxy;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.MappedByteBuffer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.MappedByteBuffer$1",
+		"java.lang.Object",
+		"jdk.internal.access.foreign.UnmapperProxy",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.MappedByteBuffer"
+	};
+	$loadClass(MappedByteBuffer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MappedByteBuffer$1);
+	});
 	return class$;
 }
 

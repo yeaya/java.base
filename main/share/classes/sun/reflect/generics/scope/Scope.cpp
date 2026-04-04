@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/scope/Scope.h>
-
 #include <java/lang/reflect/TypeVariable.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace sun {
 		namespace generics {
 			namespace scope {
 
-$MethodInfo _Scope_MethodInfo_[] = {
-	{"lookup", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(Scope, lookup, $TypeVariable*, $String*)},
-	{}
-};
-
-$ClassInfo _Scope_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.reflect.generics.scope.Scope",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Scope_MethodInfo_
-};
-
-$Object* allocate$Scope($Class* clazz) {
-	return $of($alloc(Scope));
-}
-
 $Class* Scope::load$($String* name, bool initialize) {
-	$loadClass(Scope, name, initialize, &_Scope_ClassInfo_, allocate$Scope);
+	$MethodInfo methodInfos$$[] = {
+		{"lookup", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(Scope, lookup, $TypeVariable*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.reflect.generics.scope.Scope",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Scope, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scope);
+	});
 	return class$;
 }
 

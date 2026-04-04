@@ -39,6 +39,7 @@ class ImageBufferCache : public ::java::lang::Object {
 	$class(ImageBufferCache, 0, ::java::lang::Object)
 public:
 	ImageBufferCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::ByteBuffer* allocateBuffer(int64_t size);
 	static ::java::nio::ByteBuffer* getBuffer(int64_t size);

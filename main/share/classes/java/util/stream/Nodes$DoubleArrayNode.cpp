@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$DoubleArrayNode.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/Spliterator$OfDouble.h>
 #include <java/util/Spliterator.h>
@@ -21,54 +20,8 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _Nodes$DoubleArrayNode_FieldInfo_[] = {
-	{"array", "[D", nullptr, $FINAL, $field(Nodes$DoubleArrayNode, array)},
-	{"curSize", "I", nullptr, 0, $field(Nodes$DoubleArrayNode, curSize)},
-	{}
-};
-
-$MethodInfo _Nodes$DoubleArrayNode_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(Nodes$DoubleArrayNode, init$, void, int64_t)},
-	{"<init>", "([D)V", nullptr, 0, $method(Nodes$DoubleArrayNode, init$, void, $doubles*)},
-	{"asPrimitiveArray", "()[D", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, asPrimitiveArray, $Object*)},
-	{"copyInto", "([DI)V", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, copyInto, void, $doubles*, int32_t)},
-	{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$DoubleArrayNode, copyInto, void, Object$*, int32_t)},
-	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, count, int64_t)},
-	{"forEach", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, forEach, void, $DoubleConsumer*)},
-	{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$DoubleArrayNode, forEach, void, Object$*)},
-	{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, spliterator, $Spliterator*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Nodes$DoubleArrayNode_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$DoubleArrayNode", "java.util.stream.Nodes", "DoubleArrayNode", $PRIVATE | $STATIC},
-	{"java.util.stream.Node$OfDouble", "java.util.stream.Node", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$DoubleArrayNode_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.Nodes$DoubleArrayNode",
-	"java.lang.Object",
-	"java.util.stream.Node$OfDouble",
-	_Nodes$DoubleArrayNode_FieldInfo_,
-	_Nodes$DoubleArrayNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Nodes$DoubleArrayNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$DoubleArrayNode($Class* clazz) {
-	return $of($alloc(Nodes$DoubleArrayNode));
-}
-
 void Nodes$DoubleArrayNode::init$(int64_t size) {
-	if (size >= (int64_t)2147483639) {
+	if (size >= 2147483639) {
 		$throwNew($IllegalArgumentException, "Stream size exceeds max array size"_s);
 	}
 	$set(this, array, $new($doubles, (int32_t)size));
@@ -86,9 +39,9 @@ $Spliterator* Nodes$DoubleArrayNode::spliterator() {
 
 $Object* Nodes$DoubleArrayNode::asPrimitiveArray() {
 	if ($nc(this->array)->length == this->curSize) {
-		return $of(this->array);
+		return this->array;
 	} else {
-		return $of($Arrays::copyOf(this->array, this->curSize));
+		return $Arrays::copyOf(this->array, this->curSize);
 	}
 }
 
@@ -107,10 +60,10 @@ void Nodes$DoubleArrayNode::forEach($DoubleConsumer* consumer) {
 }
 
 $String* Nodes$DoubleArrayNode::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("DoubleArrayNode[%d][%s]"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf($nc(this->array)->length - this->curSize))),
-		$($of($Arrays::toString(this->array)))
+		$($Integer::valueOf($nc(this->array)->length - this->curSize)),
+		$($Arrays::toString(this->array))
 	}));
 }
 
@@ -126,7 +79,47 @@ Nodes$DoubleArrayNode::Nodes$DoubleArrayNode() {
 }
 
 $Class* Nodes$DoubleArrayNode::load$($String* name, bool initialize) {
-	$loadClass(Nodes$DoubleArrayNode, name, initialize, &_Nodes$DoubleArrayNode_ClassInfo_, allocate$Nodes$DoubleArrayNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[D", nullptr, $FINAL, $field(Nodes$DoubleArrayNode, array)},
+		{"curSize", "I", nullptr, 0, $field(Nodes$DoubleArrayNode, curSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, 0, $method(Nodes$DoubleArrayNode, init$, void, int64_t)},
+		{"<init>", "([D)V", nullptr, 0, $method(Nodes$DoubleArrayNode, init$, void, $doubles*)},
+		{"asPrimitiveArray", "()[D", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, asPrimitiveArray, $Object*)},
+		{"copyInto", "([DI)V", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, copyInto, void, $doubles*, int32_t)},
+		{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$DoubleArrayNode, copyInto, void, Object$*, int32_t)},
+		{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, count, int64_t)},
+		{"forEach", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, forEach, void, $DoubleConsumer*)},
+		{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$DoubleArrayNode, forEach, void, Object$*)},
+		{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, spliterator, $Spliterator*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$DoubleArrayNode", "java.util.stream.Nodes", "DoubleArrayNode", $PRIVATE | $STATIC},
+		{"java.util.stream.Node$OfDouble", "java.util.stream.Node", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.Nodes$DoubleArrayNode",
+		"java.lang.Object",
+		"java.util.stream.Node$OfDouble",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$DoubleArrayNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Nodes$DoubleArrayNode);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <DeleteInterference.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -36,7 +35,6 @@ using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -66,33 +64,29 @@ public:
 	virtual void run() override {
 		DeleteInterference::lambda$main$0(dir);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DeleteInterference$$Lambda$lambda$main$0>());
-	}
 	$Path* dir = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DeleteInterference$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"dir", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(DeleteInterference$$Lambda$lambda$main$0, dir)},
-	{}
-};
-$MethodInfo DeleteInterference$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(DeleteInterference$$Lambda$lambda$main$0, init$, void, $Path*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeleteInterference$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo DeleteInterference$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DeleteInterference$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* DeleteInterference$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(DeleteInterference$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"dir", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(DeleteInterference$$Lambda$lambda$main$0, dir)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(DeleteInterference$$Lambda$lambda$main$0, init$, void, $Path*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeleteInterference$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DeleteInterference$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeleteInterference$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeleteInterference$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* DeleteInterference$$Lambda$lambda$main$0::class$ = nullptr;
@@ -106,85 +100,101 @@ public:
 	virtual void run() override {
 		DeleteInterference::lambda$main$1(dir);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DeleteInterference$$Lambda$lambda$main$1$1>());
-	}
 	$Path* dir = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DeleteInterference$$Lambda$lambda$main$1$1::fieldInfos[2] = {
-	{"dir", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(DeleteInterference$$Lambda$lambda$main$1$1, dir)},
-	{}
-};
-$MethodInfo DeleteInterference$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(DeleteInterference$$Lambda$lambda$main$1$1, init$, void, $Path*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeleteInterference$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo DeleteInterference$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DeleteInterference$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* DeleteInterference$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(DeleteInterference$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"dir", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(DeleteInterference$$Lambda$lambda$main$1$1, dir)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(DeleteInterference$$Lambda$lambda$main$1$1, init$, void, $Path*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeleteInterference$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DeleteInterference$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeleteInterference$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeleteInterference$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* DeleteInterference$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$FieldInfo _DeleteInterference_FieldInfo_[] = {
-	{"ITERATIONS_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DeleteInterference, ITERATIONS_COUNT)},
-	{}
-};
-
-$MethodInfo _DeleteInterference_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DeleteInterference, init$, void)},
-	{"deleteAndRecreateDirectory", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeleteInterference, deleteAndRecreateDirectory, void, $Path*)},
-	{"deleteFileTree", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeleteInterference, deleteFileTree, void, $Path*)},
-	{"lambda$main$0", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeleteInterference, lambda$main$0, void, $Path*)},
-	{"lambda$main$1", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeleteInterference, lambda$main$1, void, $Path*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeleteInterference, main, void, $StringArray*), "java.lang.Exception"},
-	{"openAndCloseWatcher", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeleteInterference, openAndCloseWatcher, void, $Path*)},
-	{}
-};
-
-$ClassInfo _DeleteInterference_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DeleteInterference",
-	"java.lang.Object",
-	nullptr,
-	_DeleteInterference_FieldInfo_,
-	_DeleteInterference_MethodInfo_
-};
-
-$Object* allocate$DeleteInterference($Class* clazz) {
-	return $of($alloc(DeleteInterference));
-}
 
 void DeleteInterference::init$() {
 }
 
 void DeleteInterference::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, testDir, $Paths::get($($System::getProperty("test.dir"_s, "."_s)), $$new($StringArray, 0)));
 	$var($Path, dir, $Files::createTempDirectory(testDir, "DeleteInterference"_s, $$new($FileAttributeArray, 0)));
 	$var($ExecutorService, pool, $Executors::newCachedThreadPool());
-	{
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Future, task1, $nc(pool)->submit($$new(DeleteInterference$$Lambda$lambda$main$0, dir)));
+		$var($Future, task2, pool->submit($$new(DeleteInterference$$Lambda$lambda$main$1$1, dir)));
+		$nc(task1)->get();
+		$nc(task2)->get();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(pool)->shutdown();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+}
+
+void DeleteInterference::openAndCloseWatcher($Path* dir) {
+	$useLocalObjectStack();
+	$var($FileSystem, fs, $FileSystems::getDefault());
+	for (int32_t i = 0; i < DeleteInterference::ITERATIONS_COUNT; ++i) {
+		$nc($System::out)->printf("open %d begin%n"_s, $$new($ObjectArray, {$($Integer::valueOf(i))}));
 		$var($Throwable, var$0, nullptr);
 		try {
-			$var($Future, task1, $nc(pool)->submit(static_cast<$Runnable*>($$new(DeleteInterference$$Lambda$lambda$main$0, dir))));
-			$var($Future, task2, pool->submit(static_cast<$Runnable*>($$new(DeleteInterference$$Lambda$lambda$main$1$1, dir))));
-			$nc(task1)->get();
-			$nc(task2)->get();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
+			try {
+				$var($WatchService, watcher, $nc(fs)->newWatchService());
+				$var($Throwable, var$1, nullptr);
+				try {
+					try {
+						$init($StandardWatchEventKinds);
+						$nc(dir)->register$(watcher, $$new($WatchEvent$KindArray, {
+							$StandardWatchEventKinds::ENTRY_CREATE,
+							$StandardWatchEventKinds::ENTRY_DELETE,
+							$StandardWatchEventKinds::ENTRY_MODIFY
+						}));
+					} catch ($Throwable& t$) {
+						if (watcher != nullptr) {
+							try {
+								watcher->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
+						}
+						$throw(t$);
+					}
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					if (watcher != nullptr) {
+						watcher->close();
+					}
+				}
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($IOException& ioe) {
+			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
-			$nc(pool)->shutdown();
+			$System::out->printf("open %d end%n"_s, $$new($ObjectArray, {$($Integer::valueOf(i))}));
 		}
 		if (var$0 != nullptr) {
 			$throw(var$0);
@@ -192,126 +202,63 @@ void DeleteInterference::main($StringArray* args) {
 	}
 }
 
-void DeleteInterference::openAndCloseWatcher($Path* dir) {
-	$useLocalCurrentObjectStackCache();
-	$var($FileSystem, fs, $FileSystems::getDefault());
-	for (int32_t i = 0; i < DeleteInterference::ITERATIONS_COUNT; ++i) {
-		$nc($System::out)->printf("open %d begin%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				try {
-					$var($WatchService, watcher, $nc(fs)->newWatchService());
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$init($StandardWatchEventKinds);
-								$nc(dir)->register$(watcher, $$new($WatchEvent$KindArray, {
-									$StandardWatchEventKinds::ENTRY_CREATE,
-									$StandardWatchEventKinds::ENTRY_DELETE,
-									$StandardWatchEventKinds::ENTRY_MODIFY
-								}));
-							} catch ($Throwable& t$) {
-								if (watcher != nullptr) {
-									try {
-										watcher->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							if (watcher != nullptr) {
-								watcher->close();
-							}
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($IOException& ioe) {
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				$nc($System::out)->printf("open %d end%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-		}
-	}
-}
-
 void DeleteInterference::deleteAndRecreateDirectory($Path* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < DeleteInterference::ITERATIONS_COUNT; ++i) {
-		$nc($System::out)->printf("del %d begin%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
-		{
-			$var($Throwable, var$0, nullptr);
+		$nc($System::out)->printf("del %d begin%n"_s, $$new($ObjectArray, {$($Integer::valueOf(i))}));
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					deleteFileTree(dir);
-					$var($Path, subdir, $Files::createDirectories($($nc(dir)->resolve("subdir"_s)), $$new($FileAttributeArray, 0)));
-					$Files::createFile($($nc(subdir)->resolve("test"_s)), $$new($FileAttributeArray, 0));
-				} catch ($IOException& ioe) {
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc($System::out)->printf("del %d end%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
+				deleteFileTree(dir);
+				$var($Path, subdir, $Files::createDirectories($($nc(dir)->resolve("subdir"_s)), $$new($FileAttributeArray, 0)));
+				$Files::createFile($($nc(subdir)->resolve("test"_s)), $$new($FileAttributeArray, 0));
+			} catch ($IOException& ioe) {
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$System::out->printf("del %d end%n"_s, $$new($ObjectArray, {$($Integer::valueOf(i))}));
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void DeleteInterference::deleteFileTree($Path* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($Files::isDirectory(file, $$new($LinkOptionArray, 0))) {
-			{
-				$var($DirectoryStream, stream, $Files::newDirectoryStream(file));
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
+			$var($DirectoryStream, stream, $Files::newDirectoryStream(file));
+			$var($Throwable, var$0, nullptr);
+			try {
+				try {
+					$var($Iterator, i$, $nc(stream)->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($Path, pa, $cast($Path, i$->next()));
+						{
+							deleteFileTree(pa);
+						}
+					}
+				} catch ($Throwable& t$) {
+					if (stream != nullptr) {
 						try {
-							{
-								$var($Iterator, i$, $nc(stream)->iterator());
-								for (; $nc(i$)->hasNext();) {
-									$var($Path, pa, $cast($Path, i$->next()));
-									{
-										deleteFileTree(pa);
-									}
-								}
-							}
-						} catch ($Throwable& t$) {
-							if (stream != nullptr) {
-								try {
-									stream->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-							}
-							$throw(t$);
-						}
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						if (stream != nullptr) {
 							stream->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
 						}
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
+					$throw(t$);
 				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (stream != nullptr) {
+					stream->close();
+				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 		$Files::delete$(file);
@@ -332,14 +279,38 @@ DeleteInterference::DeleteInterference() {
 
 $Class* DeleteInterference::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DeleteInterference$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("DeleteInterference$$Lambda$lambda$main$0")) {
 			return DeleteInterference$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(DeleteInterference$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("DeleteInterference$$Lambda$lambda$main$1$1")) {
 			return DeleteInterference$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(DeleteInterference, name, initialize, &_DeleteInterference_ClassInfo_, allocate$DeleteInterference);
+	$FieldInfo fieldInfos$$[] = {
+		{"ITERATIONS_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DeleteInterference, ITERATIONS_COUNT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DeleteInterference, init$, void)},
+		{"deleteAndRecreateDirectory", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeleteInterference, deleteAndRecreateDirectory, void, $Path*)},
+		{"deleteFileTree", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeleteInterference, deleteFileTree, void, $Path*)},
+		{"lambda$main$0", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeleteInterference, lambda$main$0, void, $Path*)},
+		{"lambda$main$1", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeleteInterference, lambda$main$1, void, $Path*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeleteInterference, main, void, $StringArray*), "java.lang.Exception"},
+		{"openAndCloseWatcher", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeleteInterference, openAndCloseWatcher, void, $Path*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DeleteInterference",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeleteInterference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeleteInterference);
+	});
 	return class$;
 }
 

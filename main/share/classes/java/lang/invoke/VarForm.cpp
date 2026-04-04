@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarForm.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/MemberName.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -41,85 +40,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$CompoundAttribute _VarForm_FieldAnnotations_methodType_table[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarForm_FieldAnnotations_memberName_table[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarForm_FieldAnnotations_methodType_V_table[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarForm_MethodAnnotations_getMemberName2[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarForm_MethodAnnotations_getMemberNameOrNull3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarForm_MethodAnnotations_getMethodType4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarForm_MethodAnnotations_getMethodType_V5[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarForm_MethodAnnotations_getMethodType_V_init6[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarForm_MethodAnnotations_resolveMemberName8[] = {
-	{"Ljdk/internal/vm/annotation/DontInline;", nullptr},
-	{}
-};
-
-$FieldInfo _VarForm_FieldInfo_[] = {
-	{"implClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(VarForm, implClass)},
-	{"methodType_table", "[Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(VarForm, methodType_table), _VarForm_FieldAnnotations_methodType_table},
-	{"memberName_table", "[Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $field(VarForm, memberName_table), _VarForm_FieldAnnotations_memberName_table},
-	{"methodType_V_table", "[Ljava/lang/invoke/MethodType;", nullptr, 0, $field(VarForm, methodType_V_table), _VarForm_FieldAnnotations_methodType_V_table},
-	{}
-};
-
-$MethodInfo _VarForm_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", $TRANSIENT, $method(VarForm, init$, void, $Class*, $Class*, $Class*, $ClassArray*)},
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", 0, $method(VarForm, init$, void, $Class*, $ClassArray*)},
-	{"getMemberName", "(I)Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $method(VarForm, getMemberName, $MemberName*, int32_t), nullptr, nullptr, _VarForm_MethodAnnotations_getMemberName2},
-	{"getMemberNameOrNull", "(I)Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $method(VarForm, getMemberNameOrNull, $MemberName*, int32_t), nullptr, nullptr, _VarForm_MethodAnnotations_getMemberNameOrNull3},
-	{"getMethodType", "(I)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(VarForm, getMethodType, $MethodType*, int32_t), nullptr, nullptr, _VarForm_MethodAnnotations_getMethodType4},
-	{"getMethodType_V", "(I)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(VarForm, getMethodType_V, $MethodType*, int32_t), nullptr, nullptr, _VarForm_MethodAnnotations_getMethodType_V5},
-	{"getMethodType_V_init", "()[Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(VarForm, getMethodType_V_init, $MethodTypeArray*), nullptr, nullptr, _VarForm_MethodAnnotations_getMethodType_V_init6},
-	{"initMethodTypes", "(Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", $TRANSIENT, $method(VarForm, initMethodTypes, void, $Class*, $ClassArray*)},
-	{"resolveMemberName", "(I)Ljava/lang/invoke/MemberName;", nullptr, 0, $method(VarForm, resolveMemberName, $MemberName*, int32_t), nullptr, nullptr, _VarForm_MethodAnnotations_resolveMemberName8},
-	{}
-};
-
-$ClassInfo _VarForm_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.VarForm",
-	"java.lang.Object",
-	nullptr,
-	_VarForm_FieldInfo_,
-	_VarForm_MethodInfo_
-};
-
-$Object* allocate$VarForm($Class* clazz) {
-	return $of($alloc(VarForm));
-}
-
 void VarForm::init$($Class* implClass, $Class* receiver, $Class* value, $ClassArray* intermediate) {
 	$init($VarHandle$AccessType);
 	$set(this, methodType_table, $new($MethodTypeArray, $VarHandle$AccessType::COUNT));
@@ -145,7 +65,7 @@ void VarForm::init$($Class* value, $ClassArray* coordinates) {
 }
 
 void VarForm::initMethodTypes($Class* value, $ClassArray* coordinates$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassArray, coordinates, coordinates$renamed);
 	$Class* erasedValue = $MethodTypeForm::canonicalize(value, $MethodTypeForm::ERASE);
 	$var($ClassArray, erasedCoordinates, $MethodTypeForm::canonicalizeAll(coordinates, $MethodTypeForm::ERASE));
@@ -159,15 +79,13 @@ void VarForm::initMethodTypes($Class* value, $ClassArray* coordinates$renamed) {
 	$init($VarHandle$AccessType);
 	$nc(this->methodType_table)->set($VarHandle$AccessType::GET->ordinal(), type);
 	int32_t var$0 = $VarHandle$AccessType::GET_AND_UPDATE->ordinal();
-	$assign(type, ($nc(this->methodType_table)->set(var$0, $($nc(type)->appendParameterTypes($$new($ClassArray, {value}))))));
+	$assign(type, this->methodType_table->set(var$0, $($nc(type)->appendParameterTypes($$new($ClassArray, {value})))));
 	int32_t var$1 = $VarHandle$AccessType::SET->ordinal();
-	$init($Void);
-	$nc(this->methodType_table)->set(var$1, $(type->changeReturnType($Void::TYPE)));
+	this->methodType_table->set(var$1, $($nc(type)->changeReturnType($Void::TYPE)));
 	int32_t var$2 = $VarHandle$AccessType::COMPARE_AND_EXCHANGE->ordinal();
-	$assign(type, ($nc(this->methodType_table)->set(var$2, $(type->appendParameterTypes($$new($ClassArray, {value}))))));
+	$assign(type, this->methodType_table->set(var$2, $(type->appendParameterTypes($$new($ClassArray, {value})))));
 	int32_t var$3 = $VarHandle$AccessType::COMPARE_AND_SET->ordinal();
-	$init($Boolean);
-	$nc(this->methodType_table)->set(var$3, $(type->changeReturnType($Boolean::TYPE)));
+	this->methodType_table->set(var$3, $($nc(type)->changeReturnType($Boolean::TYPE)));
 }
 
 $MethodType* VarForm::getMethodType(int32_t type) {
@@ -191,21 +109,20 @@ $MemberName* VarForm::getMemberNameOrNull(int32_t mode) {
 }
 
 $MemberName* VarForm::resolveMemberName(int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$VarHandle$AccessMode* value = $($VarHandle$AccessMode::values())->get(mode);
 	$var($String, methodName, $nc(value)->methodName());
 	$load($VarHandle);
 	$var($MethodType, type, $nc($nc(this->methodType_table)->get(value->at->ordinal()))->insertParameterTypes(0, $$new($ClassArray, {$VarHandle::class$})));
 	$init($MethodHandles$Lookup);
-	return $nc(this->memberName_table)->set(mode, $($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrNull((int8_t)6, this->implClass, methodName, type)));
+	return $nc(this->memberName_table)->set(mode, $($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrNull(6, this->implClass, methodName, type)));
 }
 
 $MethodTypeArray* VarForm::getMethodType_V_init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodTypeArray, table, $new($MethodTypeArray, $($VarHandle$AccessType::values())->length));
 	for (int32_t i = 0; i < $nc(this->methodType_table)->length; ++i) {
-		$var($MethodType, mt, $nc(this->methodType_table)->get(i));
-		$init($Void);
+		$var($MethodType, mt, this->methodType_table->get(i));
 		table->set(i, $($nc(mt)->changeReturnType($Void::TYPE)));
 	}
 	$set(this, methodType_V_table, table);
@@ -224,7 +141,72 @@ VarForm::VarForm() {
 }
 
 $Class* VarForm::load$($String* name, bool initialize) {
-	$loadClass(VarForm, name, initialize, &_VarForm_ClassInfo_, allocate$VarForm);
+	$CompoundAttribute methodType_tablefieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute memberName_tablefieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute methodType_V_tablefieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"implClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(VarForm, implClass)},
+		{"methodType_table", "[Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(VarForm, methodType_table), methodType_tablefieldAnnotations$$},
+		{"memberName_table", "[Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $field(VarForm, memberName_table), memberName_tablefieldAnnotations$$},
+		{"methodType_V_table", "[Ljava/lang/invoke/MethodType;", nullptr, 0, $field(VarForm, methodType_V_table), methodType_V_tablefieldAnnotations$$},
+		{}
+	};
+	$CompoundAttribute getMemberNamemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getMemberNameOrNullmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getMethodTypemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getMethodType_VmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getMethodType_V_initmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute resolveMemberNamemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/DontInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", $TRANSIENT, $method(VarForm, init$, void, $Class*, $Class*, $Class*, $ClassArray*)},
+		{"<init>", "(Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", 0, $method(VarForm, init$, void, $Class*, $ClassArray*)},
+		{"getMemberName", "(I)Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $method(VarForm, getMemberName, $MemberName*, int32_t), nullptr, nullptr, getMemberNamemethodAnnotations$$},
+		{"getMemberNameOrNull", "(I)Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $method(VarForm, getMemberNameOrNull, $MemberName*, int32_t), nullptr, nullptr, getMemberNameOrNullmethodAnnotations$$},
+		{"getMethodType", "(I)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(VarForm, getMethodType, $MethodType*, int32_t), nullptr, nullptr, getMethodTypemethodAnnotations$$},
+		{"getMethodType_V", "(I)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(VarForm, getMethodType_V, $MethodType*, int32_t), nullptr, nullptr, getMethodType_VmethodAnnotations$$},
+		{"getMethodType_V_init", "()[Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(VarForm, getMethodType_V_init, $MethodTypeArray*), nullptr, nullptr, getMethodType_V_initmethodAnnotations$$},
+		{"initMethodTypes", "(Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", $TRANSIENT, $method(VarForm, initMethodTypes, void, $Class*, $ClassArray*)},
+		{"resolveMemberName", "(I)Ljava/lang/invoke/MemberName;", nullptr, 0, $method(VarForm, resolveMemberName, $MemberName*, int32_t), nullptr, nullptr, resolveMemberNamemethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.VarForm",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VarForm, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VarForm);
+	});
 	return class$;
 }
 

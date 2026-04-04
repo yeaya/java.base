@@ -22,10 +22,13 @@ public:
 	void init$($String* msg);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x6838D7805E1E2FD6;
+	static const int64_t serialVersionUID = (int64_t)0x6838d7805e1e2fd6;
 	SignatureException(const SignatureException& e);
 	virtual void throw$() override;
-	inline SignatureException* operator ->() {
+	inline SignatureException* operator ->() const {
+		return (SignatureException*)throwing$;
+	}
+	inline operator SignatureException*() const {
 		return (SignatureException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <TestUtil$1.h>
-
 #include <TestUtil.h>
 #include <java/io/IOException.h>
 #include <java/nio/file/FileVisitResult.h>
@@ -11,7 +10,6 @@
 #undef CONTINUE
 
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -20,50 +18,6 @@ using $FileVisitResult = ::java::nio::file::FileVisitResult;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
-
-$MethodInfo _TestUtil$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TestUtil$1, init$, void)},
-	{"postVisitDirectory", "(Ljava/nio/file/Path;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(TestUtil$1, postVisitDirectory, $FileVisitResult*, $Path*, $IOException*)},
-	{"postVisitDirectory", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TestUtil$1, postVisitDirectory, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
-	{"preVisitDirectory", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(TestUtil$1, preVisitDirectory, $FileVisitResult*, $Path*, $BasicFileAttributes*)},
-	{"preVisitDirectory", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TestUtil$1, preVisitDirectory, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
-	{"visitFile", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(TestUtil$1, visitFile, $FileVisitResult*, $Path*, $BasicFileAttributes*)},
-	{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TestUtil$1, visitFile, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
-	{"visitFileFailed", "(Ljava/nio/file/Path;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(TestUtil$1, visitFileFailed, $FileVisitResult*, $Path*, $IOException*)},
-	{"visitFileFailed", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TestUtil$1, visitFileFailed, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _TestUtil$1_EnclosingMethodInfo_ = {
-	"TestUtil",
-	"removeAll",
-	"(Ljava/nio/file/Path;)V"
-};
-
-$InnerClassInfo _TestUtil$1_InnerClassesInfo_[] = {
-	{"TestUtil$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestUtil$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestUtil$1",
-	"java.lang.Object",
-	"java.nio.file.FileVisitor",
-	nullptr,
-	_TestUtil$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/nio/file/FileVisitor<Ljava/nio/file/Path;>;",
-	&_TestUtil$1_EnclosingMethodInfo_,
-	_TestUtil$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestUtil"
-};
-
-$Object* allocate$TestUtil$1($Class* clazz) {
-	return $of($alloc(TestUtil$1));
-}
 
 void TestUtil$1::init$() {
 }
@@ -78,8 +32,8 @@ $FileVisitResult* TestUtil$1::visitFile($Path* file, $BasicFileAttributes* attrs
 		$Files::delete$(file);
 	} catch ($IOException& x) {
 		$nc($System::err)->format("Unable to delete %s: %s\n"_s, $$new($ObjectArray, {
-			$of(file),
-			$of(x)
+			file,
+			x
 		}));
 	}
 	$init($FileVisitResult);
@@ -91,8 +45,8 @@ $FileVisitResult* TestUtil$1::postVisitDirectory($Path* dir, $IOException* exc) 
 		$Files::delete$(dir);
 	} catch ($IOException& x) {
 		$nc($System::err)->format("Unable to delete %s: %s\n"_s, $$new($ObjectArray, {
-			$of(dir),
-			$of(x)
+			dir,
+			x
 		}));
 	}
 	$init($FileVisitResult);
@@ -101,8 +55,8 @@ $FileVisitResult* TestUtil$1::postVisitDirectory($Path* dir, $IOException* exc) 
 
 $FileVisitResult* TestUtil$1::visitFileFailed($Path* file, $IOException* exc) {
 	$nc($System::err)->format("Unable to visit %s: %s\n"_s, $$new($ObjectArray, {
-		$of(file),
-		$of(exc)
+		file,
+		exc
 	}));
 	$init($FileVisitResult);
 	return $FileVisitResult::CONTINUE;
@@ -128,7 +82,45 @@ TestUtil$1::TestUtil$1() {
 }
 
 $Class* TestUtil$1::load$($String* name, bool initialize) {
-	$loadClass(TestUtil$1, name, initialize, &_TestUtil$1_ClassInfo_, allocate$TestUtil$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TestUtil$1, init$, void)},
+		{"postVisitDirectory", "(Ljava/nio/file/Path;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(TestUtil$1, postVisitDirectory, $FileVisitResult*, $Path*, $IOException*)},
+		{"postVisitDirectory", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TestUtil$1, postVisitDirectory, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
+		{"preVisitDirectory", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(TestUtil$1, preVisitDirectory, $FileVisitResult*, $Path*, $BasicFileAttributes*)},
+		{"preVisitDirectory", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TestUtil$1, preVisitDirectory, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
+		{"visitFile", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(TestUtil$1, visitFile, $FileVisitResult*, $Path*, $BasicFileAttributes*)},
+		{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TestUtil$1, visitFile, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
+		{"visitFileFailed", "(Ljava/nio/file/Path;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(TestUtil$1, visitFileFailed, $FileVisitResult*, $Path*, $IOException*)},
+		{"visitFileFailed", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TestUtil$1, visitFileFailed, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TestUtil",
+		"removeAll",
+		"(Ljava/nio/file/Path;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestUtil$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestUtil$1",
+		"java.lang.Object",
+		"java.nio.file.FileVisitor",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/nio/file/FileVisitor<Ljava/nio/file/Path;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestUtil"
+	};
+	$loadClass(TestUtil$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestUtil$1);
+	});
 	return class$;
 }
 

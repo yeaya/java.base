@@ -1,5 +1,4 @@
 #include <FormatMicroBenchmark.h>
-
 #include <FormatMicroBenchmark$BenchType.h>
 #include <java/lang/Math.h>
 #include <java/lang/Runtime.h>
@@ -21,7 +20,6 @@
 #undef US
 
 using $FormatMicroBenchmark$BenchType = ::FormatMicroBenchmark$BenchType;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -32,80 +30,6 @@ using $Runtime = ::java::lang::Runtime;
 using $DecimalFormat = ::java::text::DecimalFormat;
 using $NumberFormat = ::java::text::NumberFormat;
 using $Locale = ::java::util::Locale;
-
-$FieldInfo _FormatMicroBenchmark_FieldInfo_[] = {
-	{"NB_RUNS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FormatMicroBenchmark, NB_RUNS)},
-	{"MAX_RANGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FormatMicroBenchmark, MAX_RANGE)},
-	{"Verbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FormatMicroBenchmark, Verbose)},
-	{"DoIt", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FormatMicroBenchmark, DoIt)},
-	{"INTEGER_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, INTEGER_BENCH)},
-	{"FRACTIONAL_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, FRACTIONAL_BENCH)},
-	{"SMALL_INTEGRAL_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, SMALL_INTEGRAL_BENCH)},
-	{"FAIR_SIMPLE_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, FAIR_SIMPLE_BENCH)},
-	{"FRACTIONAL_ALL_NINES_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, FRACTIONAL_ALL_NINES_BENCH)},
-	{"ALL_NINES_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, ALL_NINES_BENCH)},
-	{"FAIR_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, FAIR_BENCH)},
-	{"TIE_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, TIE_BENCH)},
-	{}
-};
-
-$MethodInfo _FormatMicroBenchmark_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatMicroBenchmark, init$, void)},
-	{"allNinesThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, allNinesThroughputLoad, double)},
-	{"benchFormatAllNines", "(Ljava/text/NumberFormat;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatAllNines, $String*, $NumberFormat*, bool)},
-	{"benchFormatFair", "(Ljava/text/NumberFormat;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatFair, $String*, $NumberFormat*)},
-	{"benchFormatFairSimple", "(Ljava/text/NumberFormat;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatFairSimple, $String*, $NumberFormat*, bool)},
-	{"benchFormatFractional", "(Ljava/text/NumberFormat;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatFractional, $String*, $NumberFormat*)},
-	{"benchFormatFractionalAllNines", "(Ljava/text/NumberFormat;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatFractionalAllNines, $String*, $NumberFormat*, bool)},
-	{"benchFormatInteger", "(Ljava/text/NumberFormat;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatInteger, $String*, $NumberFormat*)},
-	{"benchFormatSmallIntegral", "(Ljava/text/NumberFormat;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatSmallIntegral, $String*, $NumberFormat*)},
-	{"benchFormatTie", "(Ljava/text/NumberFormat;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatTie, $String*, $NumberFormat*, bool)},
-	{"calculateAllNinesThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateAllNinesThroughputLoad, void)},
-	{"calculateFairSimpleThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateFairSimpleThroughputLoad, void)},
-	{"calculateFairThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateFairThroughputLoad, void)},
-	{"calculateFractionalAllNinesThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateFractionalAllNinesThroughputLoad, void)},
-	{"calculateFractionalThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateFractionalThroughputLoad, void)},
-	{"calculateIntegerThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateIntegerThroughputLoad, void)},
-	{"calculateSmallIntegralThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateSmallIntegralThroughputLoad, void)},
-	{"calculateTieThroughputLoad", "(Z)V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateTieThroughputLoad, void, bool)},
-	{"fairSimpleThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, fairSimpleThroughputLoad, double)},
-	{"fairThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, fairThroughputLoad, double)},
-	{"fractionalAllNinesThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, fractionalAllNinesThroughputLoad, double)},
-	{"fractionalThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, fractionalThroughputLoad, double)},
-	{"integerThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, integerThroughputLoad, double)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FormatMicroBenchmark, main, void, $StringArray*)},
-	{"printPerfResults", "([JLjava/lang/String;)V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, printPerfResults, void, $longs*, $String*)},
-	{"smallIntegralThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, smallIntegralThroughputLoad, double)},
-	{"stabilizeMemory", "(Z)J", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, stabilizeMemory, int64_t, bool)},
-	{"tieThroughputLoad", "(Z)D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, tieThroughputLoad, double, bool)},
-	{"usage", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, usage, void)},
-	{}
-};
-
-$InnerClassInfo _FormatMicroBenchmark_InnerClassesInfo_[] = {
-	{"FormatMicroBenchmark$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"FormatMicroBenchmark$BenchType", "FormatMicroBenchmark", "BenchType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _FormatMicroBenchmark_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FormatMicroBenchmark",
-	"java.lang.Object",
-	nullptr,
-	_FormatMicroBenchmark_FieldInfo_,
-	_FormatMicroBenchmark_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FormatMicroBenchmark_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"FormatMicroBenchmark$1,FormatMicroBenchmark$BenchType"
-};
-
-$Object* allocate$FormatMicroBenchmark($Class* clazz) {
-	return $of($alloc(FormatMicroBenchmark));
-}
 
 bool FormatMicroBenchmark::Verbose = false;
 bool FormatMicroBenchmark::DoIt = false;
@@ -128,17 +52,17 @@ void FormatMicroBenchmark::usage() {
 
 int64_t FormatMicroBenchmark::stabilizeMemory(bool reportConsumedMemory) {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t oneMegabyte = (int64_t)1024 * (int64_t)1024;
 	int64_t refMemory = 0;
-	int64_t initialMemoryLeft = $nc($($Runtime::getRuntime()))->freeMemory();
+	int64_t initialMemoryLeft = $$nc($Runtime::getRuntime())->freeMemory();
 	int64_t currMemoryLeft = initialMemoryLeft;
 	int32_t nbGCCalls = 0;
 	do {
 		++nbGCCalls;
 		refMemory = currMemoryLeft;
 		$System::gc();
-		currMemoryLeft = $nc($($Runtime::getRuntime()))->freeMemory();
+		currMemoryLeft = $$nc($Runtime::getRuntime())->freeMemory();
 	} while (($Math::abs(currMemoryLeft - refMemory) > oneMegabyte) && (nbGCCalls < 10));
 	if (FormatMicroBenchmark::Verbose && reportConsumedMemory) {
 		$nc($System::out)->println($$str({"Memory consumed by previous run : "_s, $$str($div((currMemoryLeft - initialMemoryLeft), oneMegabyte)), "Mbs."_s}));
@@ -166,7 +90,7 @@ double FormatMicroBenchmark::integerThroughputLoad() {
 
 void FormatMicroBenchmark::calculateIntegerThroughputLoad() {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -205,7 +129,7 @@ double FormatMicroBenchmark::fractionalThroughputLoad() {
 
 void FormatMicroBenchmark::calculateFractionalThroughputLoad() {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -242,7 +166,7 @@ double FormatMicroBenchmark::smallIntegralThroughputLoad() {
 
 void FormatMicroBenchmark::calculateSmallIntegralThroughputLoad() {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -284,7 +208,7 @@ double FormatMicroBenchmark::fairSimpleThroughputLoad() {
 
 void FormatMicroBenchmark::calculateFairSimpleThroughputLoad() {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -309,7 +233,7 @@ $String* FormatMicroBenchmark::benchFormatFractionalAllNines($NumberFormat* nf, 
 	double fractional = 0.0;
 	double d = 0.0;
 	for (int32_t j = -FormatMicroBenchmark::MAX_RANGE; j <= FormatMicroBenchmark::MAX_RANGE; ++j) {
-		if (((int32_t)(j & (uint32_t)1)) == 0) {
+		if ((j & 1) == 0) {
 			fractional = fractionalEven;
 		} else {
 			fractional = fractionalOdd;
@@ -331,7 +255,7 @@ double FormatMicroBenchmark::fractionalAllNinesThroughputLoad() {
 	double fractional = 0.0;
 	double d = 0.0;
 	for (int32_t j = -FormatMicroBenchmark::MAX_RANGE; j <= FormatMicroBenchmark::MAX_RANGE; ++j) {
-		if (((int32_t)(j & (uint32_t)1)) == 0) {
+		if ((j & 1) == 0) {
 			fractional = fractionalEven;
 		} else {
 			fractional = fractionalOdd;
@@ -347,7 +271,7 @@ double FormatMicroBenchmark::fractionalAllNinesThroughputLoad() {
 
 void FormatMicroBenchmark::calculateFractionalAllNinesThroughputLoad() {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -366,7 +290,7 @@ void FormatMicroBenchmark::calculateFractionalAllNinesThroughputLoad() {
 
 $String* FormatMicroBenchmark::benchFormatAllNines($NumberFormat* nf, bool isCurrency) {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, ""_s);
 	$var($doubles, decimaAllNines, $new($doubles, {
 		9.9993,
@@ -396,7 +320,7 @@ $String* FormatMicroBenchmark::benchFormatAllNines($NumberFormat* nf, bool isCur
 	int32_t id = 0;
 	for (int32_t j = -FormatMicroBenchmark::MAX_RANGE; j <= FormatMicroBenchmark::MAX_RANGE; ++j) {
 		id = (j >= 0) ? j % 9 : -j % 9;
-		if (((int32_t)(j & (uint32_t)1)) == 0) {
+		if ((j & 1) == 0) {
 			d = $nc(valuesArray)->get(id) + id * seed;
 		} else {
 			d = $nc(valuesArray)->get(id) - id * seed;
@@ -408,7 +332,7 @@ $String* FormatMicroBenchmark::benchFormatAllNines($NumberFormat* nf, bool isCur
 
 double FormatMicroBenchmark::allNinesThroughputLoad() {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, decimaAllNines, $new($doubles, {
 		9.9993,
 		99.9993,
@@ -426,7 +350,7 @@ double FormatMicroBenchmark::allNinesThroughputLoad() {
 	int32_t id = 0;
 	for (int32_t j = -FormatMicroBenchmark::MAX_RANGE; j <= FormatMicroBenchmark::MAX_RANGE; ++j) {
 		id = (j >= 0) ? j % 9 : -j % 9;
-		if (((int32_t)(j & (uint32_t)1)) == 0) {
+		if ((j & 1) == 0) {
 			d = valuesArray->get(id) + id * seed;
 		} else {
 			d = valuesArray->get(id) - id * seed;
@@ -437,7 +361,7 @@ double FormatMicroBenchmark::allNinesThroughputLoad() {
 
 void FormatMicroBenchmark::calculateAllNinesThroughputLoad() {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -494,7 +418,7 @@ double FormatMicroBenchmark::fairThroughputLoad() {
 
 void FormatMicroBenchmark::calculateFairThroughputLoad() {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -537,7 +461,7 @@ double FormatMicroBenchmark::tieThroughputLoad(bool isCurrency) {
 
 void FormatMicroBenchmark::calculateTieThroughputLoad(bool isCurrency) {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -556,27 +480,27 @@ void FormatMicroBenchmark::calculateTieThroughputLoad(bool isCurrency) {
 
 void FormatMicroBenchmark::printPerfResults($longs* times, $String* benchName) {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nbBenches = $nc(times)->length;
 	int64_t totalTimeSpent = 0;
 	int64_t meanTimeSpent = 0;
-	double variance = (double)0;
-	double standardDeviation = (double)0;
+	double variance = 0;
+	double standardDeviation = 0;
 	for (int32_t i = 1; i <= nbBenches; ++i) {
 		totalTimeSpent += times->get(i - 1);
 	}
 	meanTimeSpent = $div(totalTimeSpent, nbBenches);
 	for (int32_t j = 1; j <= nbBenches; ++j) {
-		variance += $Math::pow(((double)times->get(j - 1) - (double)meanTimeSpent), (double)2);
+		variance += $Math::pow(((double)times->get(j - 1) - (double)meanTimeSpent), 2);
 	}
 	variance = variance / (double)times->length;
 	standardDeviation = $Math::sqrt(variance) / meanTimeSpent;
-	$nc($System::out)->println($$str({"Statistics (starting at 4th bench) for bench "_s, benchName, "\n for last "_s, $$str(nbBenches), " runs out of "_s, $$str(FormatMicroBenchmark::NB_RUNS), " , each with 2x"_s, $$str(FormatMicroBenchmark::MAX_RANGE), " format(double) calls : \n  mean exec time = "_s, $$str(meanTimeSpent), " microseconds\n  standard deviation = "_s, $($String::format("%.3f"_s, $$new($ObjectArray, {$($of($Double::valueOf(standardDeviation)))}))), "% \n"_s}));
+	$nc($System::out)->println($$str({"Statistics (starting at 4th bench) for bench "_s, benchName, "\n for last "_s, $$str(nbBenches), " runs out of "_s, $$str(FormatMicroBenchmark::NB_RUNS), " , each with 2x"_s, $$str(FormatMicroBenchmark::MAX_RANGE), " format(double) calls : \n  mean exec time = "_s, $$str(meanTimeSpent), " microseconds\n  standard deviation = "_s, $($String::format("%.3f"_s, $$new($ObjectArray, {$($Double::valueOf(standardDeviation))}))), "% \n"_s}));
 }
 
 void FormatMicroBenchmark::main($StringArray* args) {
 	$init(FormatMicroBenchmark);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(args)->length >= 1) {
 		if ($nc(args->get(0))->equals("-help"_s)) {
 			usage();
@@ -584,16 +508,12 @@ void FormatMicroBenchmark::main($StringArray* args) {
 		}
 		{
 			$var($StringArray, arr$, args);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, s, arr$->get(i$));
-				{
-					if ($nc(s)->equals("-doit"_s)) {
-						FormatMicroBenchmark::DoIt = true;
-					} else if (s->equals("-verbose"_s)) {
-						FormatMicroBenchmark::Verbose = true;
-					}
+				if ($nc(s)->equals("-doit"_s)) {
+					FormatMicroBenchmark::DoIt = true;
+				} else if (s->equals("-verbose"_s)) {
+					FormatMicroBenchmark::Verbose = true;
 				}
 			}
 		}
@@ -612,7 +532,7 @@ void FormatMicroBenchmark::main($StringArray* args) {
 	$var($String, fooString, ""_s);
 	$init($Locale);
 	$var($DecimalFormat, df, $cast($DecimalFormat, $NumberFormat::getInstance($Locale::US)));
-	$nc($System::out)->println("Running with a decimal instance of DecimalFormat."_s);
+	$System::out->println("Running with a decimal instance of DecimalFormat."_s);
 	calculateIntegerThroughputLoad();
 	$init($FormatMicroBenchmark$BenchType);
 	$assign(fooString, $FormatMicroBenchmark$BenchType::INTEGER_BENCH->runBenchAndPrintStatistics(FormatMicroBenchmark::NB_RUNS, df, false));
@@ -631,7 +551,7 @@ void FormatMicroBenchmark::main($StringArray* args) {
 	calculateTieThroughputLoad(false);
 	$assign(fooString, $FormatMicroBenchmark$BenchType::TIE_BENCH->runBenchAndPrintStatistics(FormatMicroBenchmark::NB_RUNS, df, false));
 	$var($DecimalFormat, cf, $cast($DecimalFormat, $NumberFormat::getCurrencyInstance($Locale::US)));
-	$nc($System::out)->println("Running with a currency instance of DecimalFormat."_s);
+	$System::out->println("Running with a currency instance of DecimalFormat."_s);
 	calculateIntegerThroughputLoad();
 	$assign(fooString, $FormatMicroBenchmark$BenchType::INTEGER_BENCH->runBenchAndPrintStatistics(FormatMicroBenchmark::NB_RUNS, cf, false));
 	calculateFractionalThroughputLoad();
@@ -650,7 +570,7 @@ void FormatMicroBenchmark::main($StringArray* args) {
 	$assign(fooString, $FormatMicroBenchmark$BenchType::TIE_BENCH->runBenchAndPrintStatistics(FormatMicroBenchmark::NB_RUNS, cf, false));
 }
 
-void clinit$FormatMicroBenchmark($Class* class$) {
+void FormatMicroBenchmark::clinit$($Class* clazz) {
 	$assignStatic(FormatMicroBenchmark::INTEGER_BENCH, "benchFormatInteger"_s);
 	$assignStatic(FormatMicroBenchmark::FRACTIONAL_BENCH, "benchFormatFractional"_s);
 	$assignStatic(FormatMicroBenchmark::SMALL_INTEGRAL_BENCH, "benchFormatSmallIntegral"_s);
@@ -667,7 +587,75 @@ FormatMicroBenchmark::FormatMicroBenchmark() {
 }
 
 $Class* FormatMicroBenchmark::load$($String* name, bool initialize) {
-	$loadClass(FormatMicroBenchmark, name, initialize, &_FormatMicroBenchmark_ClassInfo_, clinit$FormatMicroBenchmark, allocate$FormatMicroBenchmark);
+	$FieldInfo fieldInfos$$[] = {
+		{"NB_RUNS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FormatMicroBenchmark, NB_RUNS)},
+		{"MAX_RANGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FormatMicroBenchmark, MAX_RANGE)},
+		{"Verbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FormatMicroBenchmark, Verbose)},
+		{"DoIt", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FormatMicroBenchmark, DoIt)},
+		{"INTEGER_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, INTEGER_BENCH)},
+		{"FRACTIONAL_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, FRACTIONAL_BENCH)},
+		{"SMALL_INTEGRAL_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, SMALL_INTEGRAL_BENCH)},
+		{"FAIR_SIMPLE_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, FAIR_SIMPLE_BENCH)},
+		{"FRACTIONAL_ALL_NINES_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, FRACTIONAL_ALL_NINES_BENCH)},
+		{"ALL_NINES_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, ALL_NINES_BENCH)},
+		{"FAIR_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, FAIR_BENCH)},
+		{"TIE_BENCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FormatMicroBenchmark, TIE_BENCH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatMicroBenchmark, init$, void)},
+		{"allNinesThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, allNinesThroughputLoad, double)},
+		{"benchFormatAllNines", "(Ljava/text/NumberFormat;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatAllNines, $String*, $NumberFormat*, bool)},
+		{"benchFormatFair", "(Ljava/text/NumberFormat;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatFair, $String*, $NumberFormat*)},
+		{"benchFormatFairSimple", "(Ljava/text/NumberFormat;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatFairSimple, $String*, $NumberFormat*, bool)},
+		{"benchFormatFractional", "(Ljava/text/NumberFormat;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatFractional, $String*, $NumberFormat*)},
+		{"benchFormatFractionalAllNines", "(Ljava/text/NumberFormat;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatFractionalAllNines, $String*, $NumberFormat*, bool)},
+		{"benchFormatInteger", "(Ljava/text/NumberFormat;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatInteger, $String*, $NumberFormat*)},
+		{"benchFormatSmallIntegral", "(Ljava/text/NumberFormat;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatSmallIntegral, $String*, $NumberFormat*)},
+		{"benchFormatTie", "(Ljava/text/NumberFormat;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, benchFormatTie, $String*, $NumberFormat*, bool)},
+		{"calculateAllNinesThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateAllNinesThroughputLoad, void)},
+		{"calculateFairSimpleThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateFairSimpleThroughputLoad, void)},
+		{"calculateFairThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateFairThroughputLoad, void)},
+		{"calculateFractionalAllNinesThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateFractionalAllNinesThroughputLoad, void)},
+		{"calculateFractionalThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateFractionalThroughputLoad, void)},
+		{"calculateIntegerThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateIntegerThroughputLoad, void)},
+		{"calculateSmallIntegralThroughputLoad", "()V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateSmallIntegralThroughputLoad, void)},
+		{"calculateTieThroughputLoad", "(Z)V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, calculateTieThroughputLoad, void, bool)},
+		{"fairSimpleThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, fairSimpleThroughputLoad, double)},
+		{"fairThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, fairThroughputLoad, double)},
+		{"fractionalAllNinesThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, fractionalAllNinesThroughputLoad, double)},
+		{"fractionalThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, fractionalThroughputLoad, double)},
+		{"integerThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, integerThroughputLoad, double)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FormatMicroBenchmark, main, void, $StringArray*)},
+		{"printPerfResults", "([JLjava/lang/String;)V", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, printPerfResults, void, $longs*, $String*)},
+		{"smallIntegralThroughputLoad", "()D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, smallIntegralThroughputLoad, double)},
+		{"stabilizeMemory", "(Z)J", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, stabilizeMemory, int64_t, bool)},
+		{"tieThroughputLoad", "(Z)D", nullptr, $STATIC, $staticMethod(FormatMicroBenchmark, tieThroughputLoad, double, bool)},
+		{"usage", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FormatMicroBenchmark, usage, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FormatMicroBenchmark$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"FormatMicroBenchmark$BenchType", "FormatMicroBenchmark", "BenchType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FormatMicroBenchmark",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"FormatMicroBenchmark$1,FormatMicroBenchmark$BenchType"
+	};
+	$loadClass(FormatMicroBenchmark, name, initialize, &classInfo$$, FormatMicroBenchmark::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatMicroBenchmark);
+	});
 	return class$;
 }
 

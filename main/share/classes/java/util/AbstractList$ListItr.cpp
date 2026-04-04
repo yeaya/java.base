@@ -1,5 +1,4 @@
 #include <java/util/AbstractList$ListItr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/AbstractList$Itr.h>
@@ -23,57 +22,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _AbstractList$ListItr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/AbstractList;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractList$ListItr, this$0)},
-	{}
-};
-
-$MethodInfo _AbstractList$ListItr_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hasNext", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/AbstractList;I)V", nullptr, 0, $method(AbstractList$ListItr, init$, void, $AbstractList*, int32_t)},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(AbstractList$ListItr, add, void, Object$*)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractList$ListItr, hasPrevious, bool)},
-	{"*next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$ListItr, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractList$ListItr, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$ListItr, previousIndex, int32_t)},
-	{"*remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(AbstractList$ListItr, set, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AbstractList$ListItr_InnerClassesInfo_[] = {
-	{"java.util.AbstractList$ListItr", "java.util.AbstractList", "ListItr", $PRIVATE},
-	{"java.util.AbstractList$Itr", "java.util.AbstractList", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AbstractList$ListItr_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.AbstractList$ListItr",
-	"java.util.AbstractList$Itr",
-	"java.util.ListIterator",
-	_AbstractList$ListItr_FieldInfo_,
-	_AbstractList$ListItr_MethodInfo_,
-	"Ljava/util/AbstractList<TE;>.Itr;Ljava/util/ListIterator<TE;>;",
-	nullptr,
-	_AbstractList$ListItr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.AbstractList"
-};
-
-$Object* allocate$AbstractList$ListItr($Class* clazz) {
-	return $of($alloc(AbstractList$ListItr));
-}
 
 bool AbstractList$ListItr::hasNext() {
 	 return this->$AbstractList$Itr::hasNext();
@@ -127,10 +75,10 @@ $Object* AbstractList$ListItr::previous() {
 		int32_t i = this->cursor - 1;
 		$var($Object, previous, this->this$0->get(i));
 		this->lastRet = (this->cursor = i);
-		return $of(previous);
+		return previous;
 	} catch ($IndexOutOfBoundsException& e) {
 		checkForComodification();
-		$throwNew($NoSuchElementException, static_cast<$Throwable*>(e));
+		$throwNew($NoSuchElementException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -173,7 +121,52 @@ AbstractList$ListItr::AbstractList$ListItr() {
 }
 
 $Class* AbstractList$ListItr::load$($String* name, bool initialize) {
-	$loadClass(AbstractList$ListItr, name, initialize, &_AbstractList$ListItr_ClassInfo_, allocate$AbstractList$ListItr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/AbstractList;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractList$ListItr, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hasNext", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/AbstractList;I)V", nullptr, 0, $method(AbstractList$ListItr, init$, void, $AbstractList*, int32_t)},
+		{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(AbstractList$ListItr, add, void, Object$*)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractList$ListItr, hasPrevious, bool)},
+		{"*next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$ListItr, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractList$ListItr, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$ListItr, previousIndex, int32_t)},
+		{"*remove", "()V", nullptr, $PUBLIC},
+		{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(AbstractList$ListItr, set, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.AbstractList$ListItr", "java.util.AbstractList", "ListItr", $PRIVATE},
+		{"java.util.AbstractList$Itr", "java.util.AbstractList", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.AbstractList$ListItr",
+		"java.util.AbstractList$Itr",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractList<TE;>.Itr;Ljava/util/ListIterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.AbstractList"
+	};
+	$loadClass(AbstractList$ListItr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractList$ListItr));
+	});
 	return class$;
 }
 

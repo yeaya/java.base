@@ -1,5 +1,4 @@
 #include <sun/nio/ch/Util$1.h>
-
 #include <java/lang/ThreadLocal.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/misc/TerminatingThreadLocal.h>
@@ -20,56 +19,16 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$MethodInfo _Util$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Util$1, init$, void)},
-	{"initialValue", "()Lsun/nio/ch/Util$BufferCache;", nullptr, $PROTECTED, $virtualMethod(Util$1, initialValue, $Object*)},
-	{"threadTerminated", "(Lsun/nio/ch/Util$BufferCache;)V", nullptr, $PROTECTED, $virtualMethod(Util$1, threadTerminated, void, $Util$BufferCache*)},
-	{"threadTerminated", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Util$1, threadTerminated, void, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Util$1_EnclosingMethodInfo_ = {
-	"sun.nio.ch.Util",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Util$1_InnerClassesInfo_[] = {
-	{"sun.nio.ch.Util$1", nullptr, nullptr, 0},
-	{"sun.nio.ch.Util$BufferCache", "sun.nio.ch.Util", "BufferCache", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Util$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.Util$1",
-	"jdk.internal.misc.TerminatingThreadLocal",
-	nullptr,
-	nullptr,
-	_Util$1_MethodInfo_,
-	"Ljdk/internal/misc/TerminatingThreadLocal<Lsun/nio/ch/Util$BufferCache;>;",
-	&_Util$1_EnclosingMethodInfo_,
-	_Util$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.Util"
-};
-
-$Object* allocate$Util$1($Class* clazz) {
-	return $of($alloc(Util$1));
-}
-
 void Util$1::init$() {
 	$TerminatingThreadLocal::init$();
 }
 
 $Object* Util$1::initialValue() {
-	return $of($new($Util$BufferCache));
+	return $new($Util$BufferCache);
 }
 
 void Util$1::threadTerminated($Util$BufferCache* cache) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (!$nc(cache)->isEmpty()) {
 		$var($ByteBuffer, bb, cache->removeFirst());
 		$Util::free(bb);
@@ -84,7 +43,41 @@ Util$1::Util$1() {
 }
 
 $Class* Util$1::load$($String* name, bool initialize) {
-	$loadClass(Util$1, name, initialize, &_Util$1_ClassInfo_, allocate$Util$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Util$1, init$, void)},
+		{"initialValue", "()Lsun/nio/ch/Util$BufferCache;", nullptr, $PROTECTED, $virtualMethod(Util$1, initialValue, $Object*)},
+		{"threadTerminated", "(Lsun/nio/ch/Util$BufferCache;)V", nullptr, $PROTECTED, $virtualMethod(Util$1, threadTerminated, void, $Util$BufferCache*)},
+		{"threadTerminated", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Util$1, threadTerminated, void, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.ch.Util",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.Util$1", nullptr, nullptr, 0},
+		{"sun.nio.ch.Util$BufferCache", "sun.nio.ch.Util", "BufferCache", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.Util$1",
+		"jdk.internal.misc.TerminatingThreadLocal",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljdk/internal/misc/TerminatingThreadLocal<Lsun/nio/ch/Util$BufferCache;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.Util"
+	};
+	$loadClass(Util$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Util$1);
+	});
 	return class$;
 }
 

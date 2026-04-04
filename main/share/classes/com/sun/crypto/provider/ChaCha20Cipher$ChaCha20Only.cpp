@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/ChaCha20Cipher$ChaCha20Only.h>
-
 #include <com/sun/crypto/provider/ChaCha20Cipher.h>
 #include <jcpp.h>
 
@@ -13,36 +12,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _ChaCha20Cipher$ChaCha20Only_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ChaCha20Cipher$ChaCha20Only, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ChaCha20Cipher$ChaCha20Only_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Only", "com.sun.crypto.provider.ChaCha20Cipher", "ChaCha20Only", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ChaCha20Cipher$ChaCha20Only_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Only",
-	"com.sun.crypto.provider.ChaCha20Cipher",
-	nullptr,
-	nullptr,
-	_ChaCha20Cipher$ChaCha20Only_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ChaCha20Cipher$ChaCha20Only_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.ChaCha20Cipher"
-};
-
-$Object* allocate$ChaCha20Cipher$ChaCha20Only($Class* clazz) {
-	return $of($alloc(ChaCha20Cipher$ChaCha20Only));
-}
-
 void ChaCha20Cipher$ChaCha20Only::init$() {
 	$ChaCha20Cipher::init$();
 	this->mode = 0;
@@ -52,7 +21,32 @@ ChaCha20Cipher$ChaCha20Only::ChaCha20Cipher$ChaCha20Only() {
 }
 
 $Class* ChaCha20Cipher$ChaCha20Only::load$($String* name, bool initialize) {
-	$loadClass(ChaCha20Cipher$ChaCha20Only, name, initialize, &_ChaCha20Cipher$ChaCha20Only_ClassInfo_, allocate$ChaCha20Cipher$ChaCha20Only);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ChaCha20Cipher$ChaCha20Only, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Only", "com.sun.crypto.provider.ChaCha20Cipher", "ChaCha20Only", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Only",
+		"com.sun.crypto.provider.ChaCha20Cipher",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.ChaCha20Cipher"
+	};
+	$loadClass(ChaCha20Cipher$ChaCha20Only, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ChaCha20Cipher$ChaCha20Only);
+	});
 	return class$;
 }
 

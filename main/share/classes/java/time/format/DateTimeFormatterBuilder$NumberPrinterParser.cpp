@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$NumberPrinterParser.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/math/BigInteger.h>
@@ -42,56 +41,6 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$FieldInfo _DateTimeFormatterBuilder$NumberPrinterParser_FieldInfo_[] = {
-	{"EXCEED_POINTS", "[J", nullptr, $STATIC | $FINAL, $staticField(DateTimeFormatterBuilder$NumberPrinterParser, EXCEED_POINTS)},
-	{"field", "Ljava/time/temporal/TemporalField;", nullptr, $FINAL, $field(DateTimeFormatterBuilder$NumberPrinterParser, field)},
-	{"minWidth", "I", nullptr, $FINAL, $field(DateTimeFormatterBuilder$NumberPrinterParser, minWidth)},
-	{"maxWidth", "I", nullptr, $FINAL, $field(DateTimeFormatterBuilder$NumberPrinterParser, maxWidth)},
-	{"signStyle", "Ljava/time/format/SignStyle;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$NumberPrinterParser, signStyle)},
-	{"subsequentWidth", "I", nullptr, $FINAL, $field(DateTimeFormatterBuilder$NumberPrinterParser, subsequentWidth)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$NumberPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalField;IILjava/time/format/SignStyle;)V", nullptr, 0, $method(DateTimeFormatterBuilder$NumberPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, $SignStyle*)},
-	{"<init>", "(Ljava/time/temporal/TemporalField;IILjava/time/format/SignStyle;I)V", nullptr, $PROTECTED, $method(DateTimeFormatterBuilder$NumberPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, $SignStyle*, int32_t)},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
-	{"getValue", "(Ljava/time/format/DateTimePrintContext;J)J", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, getValue, int64_t, $DateTimePrintContext*, int64_t)},
-	{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, isFixedWidth, bool, $DateTimeParseContext*)},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
-	{"setValue", "(Ljava/time/format/DateTimeParseContext;JII)I", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, setValue, int32_t, $DateTimeParseContext*, int64_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, toString, $String*)},
-	{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, withFixedWidth, DateTimeFormatterBuilder$NumberPrinterParser*)},
-	{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, withSubsequentWidth, DateTimeFormatterBuilder$NumberPrinterParser*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$NumberPrinterParser_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser", "java.time.format.DateTimeFormatterBuilder", "NumberPrinterParser", $STATIC},
-	{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$NumberPrinterParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser",
-	"java.lang.Object",
-	"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
-	_DateTimeFormatterBuilder$NumberPrinterParser_FieldInfo_,
-	_DateTimeFormatterBuilder$NumberPrinterParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$NumberPrinterParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$NumberPrinterParser($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$NumberPrinterParser));
-}
-
 $longs* DateTimeFormatterBuilder$NumberPrinterParser::EXCEED_POINTS = nullptr;
 
 void DateTimeFormatterBuilder$NumberPrinterParser::init$($TemporalField* field, int32_t minWidth, int32_t maxWidth, $SignStyle* signStyle) {
@@ -122,7 +71,7 @@ DateTimeFormatterBuilder$NumberPrinterParser* DateTimeFormatterBuilder$NumberPri
 }
 
 bool DateTimeFormatterBuilder$NumberPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Long, valueLong, $nc(context)->getValue(this->field));
 	if (valueLong == nullptr) {
 		return false;
@@ -138,34 +87,24 @@ bool DateTimeFormatterBuilder$NumberPrinterParser::format($DateTimePrintContext*
 		$init($DateTimeFormatterBuilder$2);
 		switch ($nc($DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle)->get((this->signStyle)->ordinal())) {
 		case 1:
-			{
-				if (this->minWidth < 19 && value >= $nc(DateTimeFormatterBuilder$NumberPrinterParser::EXCEED_POINTS)->get(this->minWidth)) {
-					$nc(buf)->append(decimalStyle->getPositiveSign());
-				}
-				break;
-			}
-		case 2:
-			{
+			if (this->minWidth < 19 && value >= DateTimeFormatterBuilder$NumberPrinterParser::EXCEED_POINTS->get(this->minWidth)) {
 				$nc(buf)->append(decimalStyle->getPositiveSign());
-				break;
 			}
+			break;
+		case 2:
+			$nc(buf)->append(decimalStyle->getPositiveSign());
+			break;
 		}
 	} else {
 		$init($DateTimeFormatterBuilder$2);
 		switch ($nc($DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle)->get((this->signStyle)->ordinal())) {
 		case 3:
-			{}
 		case 1:
-			{}
 		case 2:
-			{
-				$nc(buf)->append(decimalStyle->getNegativeSign());
-				break;
-			}
+			$nc(buf)->append(decimalStyle->getNegativeSign());
+			break;
 		case 4:
-			{
-				$throwNew($DateTimeException, $$str({"Field "_s, this->field, " cannot be printed as the value "_s, $$str(value), " cannot be negative according to the SignStyle"_s}));
-			}
+			$throwNew($DateTimeException, $$str({"Field "_s, this->field, " cannot be printed as the value "_s, $$str(value), " cannot be negative according to the SignStyle"_s}));
 		}
 	}
 	for (int32_t i = 0; i < this->minWidth - $nc(str)->length(); ++i) {
@@ -185,7 +124,7 @@ bool DateTimeFormatterBuilder$NumberPrinterParser::isFixedWidth($DateTimeParseCo
 }
 
 int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(text)->length();
 	if (position == length) {
 		return ~position;
@@ -193,13 +132,13 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContex
 	char16_t sign = text->charAt(position);
 	bool negative = false;
 	bool positive = false;
-	if (sign == $nc($($nc(context)->getDecimalStyle()))->getPositiveSign()) {
+	if (sign == $$nc($nc(context)->getDecimalStyle())->getPositiveSign()) {
 		if (this->signStyle->parse(true, context->isStrict(), this->minWidth == this->maxWidth) == false) {
 			return ~position;
 		}
 		positive = true;
 		++position;
-	} else if (sign == $nc($(context->getDecimalStyle()))->getNegativeSign()) {
+	} else if (sign == $$nc(context->getDecimalStyle())->getNegativeSign()) {
 		if (this->signStyle->parse(false, context->isStrict(), this->minWidth == this->maxWidth) == false) {
 			return ~position;
 		}
@@ -211,14 +150,14 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContex
 			return ~position;
 		}
 	}
-	bool var$0 = $nc(context)->isStrict();
+	bool var$0 = context->isStrict();
 	int32_t effMinWidth = (var$0 || isFixedWidth(context) ? this->minWidth : 1);
 	int32_t minEndPos = position + effMinWidth;
 	if (minEndPos > length) {
 		return ~position;
 	}
-	bool var$2 = $nc(context)->isStrict();
-	int32_t var$1 = (var$2 || isFixedWidth(context) ? this->maxWidth : 9);
+	bool var$2 = context->isStrict();
+	int32_t var$1 = var$2 || isFixedWidth(context) ? this->maxWidth : 9;
 	int32_t effMaxWidth = var$1 + $Math::max(this->subsequentWidth, 0);
 	int64_t total = 0;
 	$var($BigInteger, totalBig, nullptr);
@@ -227,7 +166,7 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContex
 		int32_t maxEndPos = $Math::min(pos + effMaxWidth, length);
 		while (pos < maxEndPos) {
 			char16_t ch = text->charAt(pos++);
-			int32_t digit = $nc($($nc(context)->getDecimalStyle()))->convertToDigit(ch);
+			int32_t digit = $$nc(context->getDecimalStyle())->convertToDigit(ch);
 			if (digit < 0) {
 				--pos;
 				if (pos < minEndPos) {
@@ -240,7 +179,7 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContex
 					$assign(totalBig, $BigInteger::valueOf(total));
 				}
 				$init($BigInteger);
-				$assign(totalBig, $nc($($nc(totalBig)->multiply($BigInteger::TEN)))->add($($BigInteger::valueOf((int64_t)digit))));
+				$assign(totalBig, $($nc(totalBig)->multiply($BigInteger::TEN))->add($($BigInteger::valueOf(digit))));
 			} else {
 				total = total * 10 + digit;
 			}
@@ -259,19 +198,19 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContex
 		if (totalBig != nullptr) {
 			$init($BigInteger);
 			bool var$3 = totalBig->equals($BigInteger::ZERO);
-			if (var$3 && $nc(context)->isStrict()) {
+			if (var$3 && context->isStrict()) {
 				return ~(position - 1);
 			}
 			$assign(totalBig, totalBig->negate());
 		} else {
-			if (total == 0 && $nc(context)->isStrict()) {
+			if (total == 0 && context->isStrict()) {
 				return ~(position - 1);
 			}
 			total = -total;
 		}
 	} else {
 		$init($SignStyle);
-		if (this->signStyle == $SignStyle::EXCEEDS_PAD && $nc(context)->isStrict()) {
+		if (this->signStyle == $SignStyle::EXCEEDS_PAD && context->isStrict()) {
 			int32_t parseLen = pos - position;
 			if (positive) {
 				if (parseLen <= this->minWidth) {
@@ -284,7 +223,6 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContex
 	}
 	if (totalBig != nullptr) {
 		if (totalBig->bitLength() > 63) {
-			$init($BigInteger);
 			$assign(totalBig, totalBig->divide($BigInteger::TEN));
 			--pos;
 		}
@@ -298,7 +236,7 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::setValue($DateTimeParseCon
 }
 
 $String* DateTimeFormatterBuilder$NumberPrinterParser::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SignStyle);
 	if (this->minWidth == 1 && this->maxWidth == 19 && this->signStyle == $SignStyle::NORMAL) {
 		return $str({"Value("_s, this->field, ")"_s});
@@ -309,19 +247,19 @@ $String* DateTimeFormatterBuilder$NumberPrinterParser::toString() {
 	return $str({"Value("_s, this->field, ","_s, $$str(this->minWidth), ","_s, $$str(this->maxWidth), ","_s, this->signStyle, ")"_s});
 }
 
-void clinit$DateTimeFormatterBuilder$NumberPrinterParser($Class* class$) {
+void DateTimeFormatterBuilder$NumberPrinterParser::clinit$($Class* clazz) {
 	$assignStatic(DateTimeFormatterBuilder$NumberPrinterParser::EXCEED_POINTS, $new($longs, {
-		(int64_t)0,
-		(int64_t)10,
-		(int64_t)100,
-		(int64_t)1000,
-		(int64_t)10000,
-		(int64_t)100000,
-		(int64_t)1000000,
-		(int64_t)10000000,
-		(int64_t)100000000,
-		(int64_t)1000000000,
-		(int64_t)0x00000002540BE400
+		0,
+		10,
+		100,
+		1000,
+		10000,
+		100000,
+		1000000,
+		10000000,
+		100000000,
+		1000000000,
+		(int64_t)10000000000
 	}));
 }
 
@@ -329,7 +267,51 @@ DateTimeFormatterBuilder$NumberPrinterParser::DateTimeFormatterBuilder$NumberPri
 }
 
 $Class* DateTimeFormatterBuilder$NumberPrinterParser::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$NumberPrinterParser, name, initialize, &_DateTimeFormatterBuilder$NumberPrinterParser_ClassInfo_, clinit$DateTimeFormatterBuilder$NumberPrinterParser, allocate$DateTimeFormatterBuilder$NumberPrinterParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXCEED_POINTS", "[J", nullptr, $STATIC | $FINAL, $staticField(DateTimeFormatterBuilder$NumberPrinterParser, EXCEED_POINTS)},
+		{"field", "Ljava/time/temporal/TemporalField;", nullptr, $FINAL, $field(DateTimeFormatterBuilder$NumberPrinterParser, field)},
+		{"minWidth", "I", nullptr, $FINAL, $field(DateTimeFormatterBuilder$NumberPrinterParser, minWidth)},
+		{"maxWidth", "I", nullptr, $FINAL, $field(DateTimeFormatterBuilder$NumberPrinterParser, maxWidth)},
+		{"signStyle", "Ljava/time/format/SignStyle;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$NumberPrinterParser, signStyle)},
+		{"subsequentWidth", "I", nullptr, $FINAL, $field(DateTimeFormatterBuilder$NumberPrinterParser, subsequentWidth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/temporal/TemporalField;IILjava/time/format/SignStyle;)V", nullptr, 0, $method(DateTimeFormatterBuilder$NumberPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, $SignStyle*)},
+		{"<init>", "(Ljava/time/temporal/TemporalField;IILjava/time/format/SignStyle;I)V", nullptr, $PROTECTED, $method(DateTimeFormatterBuilder$NumberPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, $SignStyle*, int32_t)},
+		{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+		{"getValue", "(Ljava/time/format/DateTimePrintContext;J)J", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, getValue, int64_t, $DateTimePrintContext*, int64_t)},
+		{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, isFixedWidth, bool, $DateTimeParseContext*)},
+		{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+		{"setValue", "(Ljava/time/format/DateTimeParseContext;JII)I", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, setValue, int32_t, $DateTimeParseContext*, int64_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, toString, $String*)},
+		{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, withFixedWidth, DateTimeFormatterBuilder$NumberPrinterParser*)},
+		{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, withSubsequentWidth, DateTimeFormatterBuilder$NumberPrinterParser*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser", "java.time.format.DateTimeFormatterBuilder", "NumberPrinterParser", $STATIC},
+		{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser",
+		"java.lang.Object",
+		"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$NumberPrinterParser, name, initialize, &classInfo$$, DateTimeFormatterBuilder$NumberPrinterParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$NumberPrinterParser);
+	});
 	return class$;
 }
 

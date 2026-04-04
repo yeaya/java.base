@@ -1,42 +1,13 @@
 #include <TranslateEscapes.h>
-
 #include <java/lang/CharSequence.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$MethodInfo _TranslateEscapes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TranslateEscapes, init$, void)},
-	{"exceptionThrown", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, exceptionThrown, void, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TranslateEscapes, main, void, $StringArray*)},
-	{"test1", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test1, void)},
-	{"test2", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test2, void)},
-	{"test3", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test3, void)},
-	{"test4", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test4, void)},
-	{"verifyEscape", "(Ljava/lang/String;C)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, verifyEscape, void, $String*, char16_t)},
-	{"verifyLineTerminator", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, verifyLineTerminator, void, $String*)},
-	{"verifyOctalEscape", "(Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, verifyOctalEscape, void, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _TranslateEscapes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TranslateEscapes",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TranslateEscapes_MethodInfo_
-};
-
-$Object* allocate$TranslateEscapes($Class* clazz) {
-	return $of($alloc(TranslateEscapes));
-}
 
 void TranslateEscapes::init$() {
 }
@@ -85,45 +56,45 @@ void TranslateEscapes::test4() {
 }
 
 void TranslateEscapes::verifyEscape($String* string, char16_t ch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, escapes, $str({"\\"_s, string}));
-	if ($($nc(escapes)->translateEscapes())->charAt(0) != ch) {
+	if ($(escapes->translateEscapes())->charAt(0) != ch) {
 		$nc($System::err)->format("\"%s\" not escape \"%s\"\'%n"_s, $$new($ObjectArray, {
-			$of(string),
-			$of(escapes)
+			string,
+			escapes
 		}));
 		$throwNew($RuntimeException);
 	}
 }
 
 void TranslateEscapes::verifyOctalEscape($String* string, int32_t octal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, escapes, $str({"\\"_s, string}));
-	if ($($nc(escapes)->translateEscapes())->charAt(0) != octal) {
+	if ($(escapes->translateEscapes())->charAt(0) != octal) {
 		$nc($System::err)->format("\"%s\" not octal %o%n"_s, $$new($ObjectArray, {
-			$of(string),
-			$($of($Integer::valueOf(octal)))
+			string,
+			$($Integer::valueOf(octal))
 		}));
 		$throwNew($RuntimeException);
 	}
 }
 
 void TranslateEscapes::exceptionThrown($String* string) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, escapes, $str({"\\"_s, string}));
 	try {
-		$nc(escapes)->translateEscapes();
-		$nc($System::err)->format("escape not thrown for %s%n"_s, $$new($ObjectArray, {$of(string)}));
+		escapes->translateEscapes();
+		$nc($System::err)->format("escape not thrown for %s%n"_s, $$new($ObjectArray, {string}));
 		$throwNew($RuntimeException);
 	} catch ($IllegalArgumentException& ex) {
 	}
 }
 
 void TranslateEscapes::verifyLineTerminator($String* string) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, escapes, $str({"\\"_s, string}));
-	if (!$($nc(escapes)->translateEscapes())->isEmpty()) {
-		$nc($System::err)->format("escape for line terminator not handled %s%n"_s, $$new($ObjectArray, {$($of($($nc(string)->replace(static_cast<$CharSequence*>("\n"_s), static_cast<$CharSequence*>("\\n"_s)))->replace(static_cast<$CharSequence*>("\r"_s), static_cast<$CharSequence*>("\\r"_s))))}));
+	if (!$(escapes->translateEscapes())->isEmpty()) {
+		$nc($System::err)->format("escape for line terminator not handled %s%n"_s, $$new($ObjectArray, {$($($nc(string)->replace("\n"_s, "\\n"_s))->replace("\r"_s, "\\r"_s))}));
 		$throwNew($RuntimeException);
 	}
 }
@@ -132,7 +103,30 @@ TranslateEscapes::TranslateEscapes() {
 }
 
 $Class* TranslateEscapes::load$($String* name, bool initialize) {
-	$loadClass(TranslateEscapes, name, initialize, &_TranslateEscapes_ClassInfo_, allocate$TranslateEscapes);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TranslateEscapes, init$, void)},
+		{"exceptionThrown", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, exceptionThrown, void, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TranslateEscapes, main, void, $StringArray*)},
+		{"test1", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test1, void)},
+		{"test2", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test2, void)},
+		{"test3", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test3, void)},
+		{"test4", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test4, void)},
+		{"verifyEscape", "(Ljava/lang/String;C)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, verifyEscape, void, $String*, char16_t)},
+		{"verifyLineTerminator", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, verifyLineTerminator, void, $String*)},
+		{"verifyOctalEscape", "(Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, verifyOctalEscape, void, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TranslateEscapes",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TranslateEscapes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TranslateEscapes);
+	});
 	return class$;
 }
 

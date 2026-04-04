@@ -25,6 +25,7 @@ class $export AttributedCharacterIterator$Attribute : public ::java::io::Seriali
 	$class(AttributedCharacterIterator$Attribute, 0, ::java::io::Serializable)
 public:
 	AttributedCharacterIterator$Attribute();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual bool equals(Object$* obj) override;
 	virtual $String* getName();
@@ -36,7 +37,7 @@ public:
 	static ::java::text::AttributedCharacterIterator$Attribute* LANGUAGE;
 	static ::java::text::AttributedCharacterIterator$Attribute* READING;
 	static ::java::text::AttributedCharacterIterator$Attribute* INPUT_METHOD_SEGMENT;
-	static const int64_t serialVersionUID = (int64_t)0x811E7426CD47175C;
+	static const int64_t serialVersionUID = (int64_t)0x811e7426cd47175c;
 };
 
 	} // text

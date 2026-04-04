@@ -1,8 +1,6 @@
 #include <java/util/Timer.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
 #include <java/util/Date.h>
@@ -27,9 +25,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $Cleaner = ::java::lang::ref::Cleaner;
-using $Cleaner$Cleanable = ::java::lang::ref::Cleaner$Cleanable;
 using $Date = ::java::util::Date;
 using $TaskQueue = ::java::util::TaskQueue;
 using $Timer$ThreadReaper = ::java::util::Timer$ThreadReaper;
@@ -41,70 +36,20 @@ using $CleanerFactory = ::jdk::internal::ref::CleanerFactory;
 namespace java {
 	namespace util {
 
-$FieldInfo _Timer_FieldInfo_[] = {
-	{"queue", "Ljava/util/TaskQueue;", nullptr, $PRIVATE | $FINAL, $field(Timer, queue)},
-	{"thread", "Ljava/util/TimerThread;", nullptr, $PRIVATE | $FINAL, $field(Timer, thread)},
-	{"cleanup", "Ljava/lang/ref/Cleaner$Cleanable;", nullptr, $PRIVATE | $FINAL, $field(Timer, cleanup)},
-	{"nextSerialNumber", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Timer, nextSerialNumber)},
-	{}
-};
-
-$MethodInfo _Timer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Timer, init$, void)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(Timer, init$, void, bool)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Timer, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Timer, init$, void, $String*, bool)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(Timer, cancel, void)},
-	{"purge", "()I", nullptr, $PUBLIC, $virtualMethod(Timer, purge, int32_t)},
-	{"sched", "(Ljava/util/TimerTask;JJ)V", nullptr, $PRIVATE, $method(Timer, sched, void, $TimerTask*, int64_t, int64_t)},
-	{"schedule", "(Ljava/util/TimerTask;J)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, int64_t)},
-	{"schedule", "(Ljava/util/TimerTask;Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, $Date*)},
-	{"schedule", "(Ljava/util/TimerTask;JJ)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, int64_t, int64_t)},
-	{"schedule", "(Ljava/util/TimerTask;Ljava/util/Date;J)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, $Date*, int64_t)},
-	{"scheduleAtFixedRate", "(Ljava/util/TimerTask;JJ)V", nullptr, $PUBLIC, $virtualMethod(Timer, scheduleAtFixedRate, void, $TimerTask*, int64_t, int64_t)},
-	{"scheduleAtFixedRate", "(Ljava/util/TimerTask;Ljava/util/Date;J)V", nullptr, $PUBLIC, $virtualMethod(Timer, scheduleAtFixedRate, void, $TimerTask*, $Date*, int64_t)},
-	{"serialNumber", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Timer, serialNumber, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Timer_InnerClassesInfo_[] = {
-	{"java.util.Timer$ThreadReaper", "java.util.Timer", "ThreadReaper", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Timer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.Timer",
-	"java.lang.Object",
-	nullptr,
-	_Timer_FieldInfo_,
-	_Timer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Timer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.Timer$ThreadReaper"
-};
-
-$Object* allocate$Timer($Class* clazz) {
-	return $of($alloc(Timer));
-}
-
 $AtomicInteger* Timer::nextSerialNumber = nullptr;
 
 int32_t Timer::serialNumber() {
 	$init(Timer);
-	return $nc(Timer::nextSerialNumber)->getAndIncrement();
+	return Timer::nextSerialNumber->getAndIncrement();
 }
 
 void Timer::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Timer::init$($$str({"Timer-"_s, $$str(serialNumber())}));
 }
 
 void Timer::init$(bool isDaemon) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Timer::init$($$str({"Timer-"_s, $$str(serialNumber())}), isDaemon);
 }
 
@@ -113,14 +58,14 @@ void Timer::init$($String* name) {
 }
 
 void Timer::init$($String* name, bool isDaemon) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, queue, $new($TaskQueue));
 	$set(this, thread, $new($TimerThread, this->queue));
 	$var($Timer$ThreadReaper, threadReaper, $new($Timer$ThreadReaper, this->queue, this->thread));
-	$set(this, cleanup, $nc($($CleanerFactory::cleaner()))->register$(this, threadReaper));
-	$nc(this->thread)->setName(name);
-	$nc(this->thread)->setDaemon(isDaemon);
-	$nc(this->thread)->start();
+	$set(this, cleanup, $$nc($CleanerFactory::cleaner())->register$(this, threadReaper));
+	this->thread->setName(name);
+	this->thread->setDaemon(isDaemon);
+	this->thread->start();
 }
 
 void Timer::schedule($TimerTask* task, int64_t delay) {
@@ -187,38 +132,38 @@ void Timer::sched($TimerTask* task, int64_t time, int64_t period) {
 			task->period = period;
 			task->state = $TimerTask::SCHEDULED;
 		}
-		$nc(this->queue)->add(task);
-		if ($nc(this->queue)->getMin() == task) {
-			$nc($of(this->queue))->notify();
+		this->queue->add(task);
+		if (this->queue->getMin() == task) {
+			this->queue->notify();
 		}
 	}
 }
 
 void Timer::cancel() {
 	$synchronized(this->queue) {
-		$nc(this->queue)->clear();
+		this->queue->clear();
 		$nc(this->cleanup)->clean();
 	}
 }
 
 int32_t Timer::purge() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = 0;
 	$synchronized(this->queue) {
-		for (int32_t i = $nc(this->queue)->size(); i > 0; --i) {
-			if ($nc($($nc(this->queue)->get(i)))->state == $TimerTask::CANCELLED) {
-				$nc(this->queue)->quickRemove(i);
+		for (int32_t i = this->queue->size(); i > 0; --i) {
+			if ($nc($(this->queue->get(i)))->state == $TimerTask::CANCELLED) {
+				this->queue->quickRemove(i);
 				++result;
 			}
 		}
 		if (result != 0) {
-			$nc(this->queue)->heapify();
+			this->queue->heapify();
 		}
 	}
 	return result;
 }
 
-void clinit$Timer($Class* class$) {
+void Timer::clinit$($Class* clazz) {
 	$assignStatic(Timer::nextSerialNumber, $new($AtomicInteger));
 }
 
@@ -226,7 +171,51 @@ Timer::Timer() {
 }
 
 $Class* Timer::load$($String* name, bool initialize) {
-	$loadClass(Timer, name, initialize, &_Timer_ClassInfo_, clinit$Timer, allocate$Timer);
+	$FieldInfo fieldInfos$$[] = {
+		{"queue", "Ljava/util/TaskQueue;", nullptr, $PRIVATE | $FINAL, $field(Timer, queue)},
+		{"thread", "Ljava/util/TimerThread;", nullptr, $PRIVATE | $FINAL, $field(Timer, thread)},
+		{"cleanup", "Ljava/lang/ref/Cleaner$Cleanable;", nullptr, $PRIVATE | $FINAL, $field(Timer, cleanup)},
+		{"nextSerialNumber", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Timer, nextSerialNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Timer, init$, void)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(Timer, init$, void, bool)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Timer, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Timer, init$, void, $String*, bool)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(Timer, cancel, void)},
+		{"purge", "()I", nullptr, $PUBLIC, $virtualMethod(Timer, purge, int32_t)},
+		{"sched", "(Ljava/util/TimerTask;JJ)V", nullptr, $PRIVATE, $method(Timer, sched, void, $TimerTask*, int64_t, int64_t)},
+		{"schedule", "(Ljava/util/TimerTask;J)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, int64_t)},
+		{"schedule", "(Ljava/util/TimerTask;Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, $Date*)},
+		{"schedule", "(Ljava/util/TimerTask;JJ)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, int64_t, int64_t)},
+		{"schedule", "(Ljava/util/TimerTask;Ljava/util/Date;J)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, $Date*, int64_t)},
+		{"scheduleAtFixedRate", "(Ljava/util/TimerTask;JJ)V", nullptr, $PUBLIC, $virtualMethod(Timer, scheduleAtFixedRate, void, $TimerTask*, int64_t, int64_t)},
+		{"scheduleAtFixedRate", "(Ljava/util/TimerTask;Ljava/util/Date;J)V", nullptr, $PUBLIC, $virtualMethod(Timer, scheduleAtFixedRate, void, $TimerTask*, $Date*, int64_t)},
+		{"serialNumber", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Timer, serialNumber, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Timer$ThreadReaper", "java.util.Timer", "ThreadReaper", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.Timer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.Timer$ThreadReaper"
+	};
+	$loadClass(Timer, name, initialize, &classInfo$$, Timer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Timer);
+	});
 	return class$;
 }
 

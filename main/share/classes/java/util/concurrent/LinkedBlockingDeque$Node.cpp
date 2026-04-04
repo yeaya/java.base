@@ -1,5 +1,4 @@
 #include <java/util/concurrent/LinkedBlockingDeque$Node.h>
-
 #include <java/util/concurrent/LinkedBlockingDeque.h>
 #include <jcpp.h>
 
@@ -12,43 +11,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _LinkedBlockingDeque$Node_FieldInfo_[] = {
-	{"item", "Ljava/lang/Object;", "TE;", 0, $field(LinkedBlockingDeque$Node, item)},
-	{"prev", "Ljava/util/concurrent/LinkedBlockingDeque$Node;", "Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", 0, $field(LinkedBlockingDeque$Node, prev)},
-	{"next", "Ljava/util/concurrent/LinkedBlockingDeque$Node;", "Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", 0, $field(LinkedBlockingDeque$Node, next)},
-	{}
-};
-
-$MethodInfo _LinkedBlockingDeque$Node_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(LinkedBlockingDeque$Node, init$, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _LinkedBlockingDeque$Node_InnerClassesInfo_[] = {
-	{"java.util.concurrent.LinkedBlockingDeque$Node", "java.util.concurrent.LinkedBlockingDeque", "Node", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LinkedBlockingDeque$Node_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.LinkedBlockingDeque$Node",
-	"java.lang.Object",
-	nullptr,
-	_LinkedBlockingDeque$Node_FieldInfo_,
-	_LinkedBlockingDeque$Node_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_LinkedBlockingDeque$Node_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.LinkedBlockingDeque"
-};
-
-$Object* allocate$LinkedBlockingDeque$Node($Class* clazz) {
-	return $of($alloc(LinkedBlockingDeque$Node));
-}
-
 void LinkedBlockingDeque$Node::init$(Object$* x) {
 	$set(this, item, x);
 }
@@ -57,7 +19,38 @@ LinkedBlockingDeque$Node::LinkedBlockingDeque$Node() {
 }
 
 $Class* LinkedBlockingDeque$Node::load$($String* name, bool initialize) {
-	$loadClass(LinkedBlockingDeque$Node, name, initialize, &_LinkedBlockingDeque$Node_ClassInfo_, allocate$LinkedBlockingDeque$Node);
+	$FieldInfo fieldInfos$$[] = {
+		{"item", "Ljava/lang/Object;", "TE;", 0, $field(LinkedBlockingDeque$Node, item)},
+		{"prev", "Ljava/util/concurrent/LinkedBlockingDeque$Node;", "Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", 0, $field(LinkedBlockingDeque$Node, prev)},
+		{"next", "Ljava/util/concurrent/LinkedBlockingDeque$Node;", "Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", 0, $field(LinkedBlockingDeque$Node, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(LinkedBlockingDeque$Node, init$, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.LinkedBlockingDeque$Node", "java.util.concurrent.LinkedBlockingDeque", "Node", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.LinkedBlockingDeque$Node",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.LinkedBlockingDeque"
+	};
+	$loadClass(LinkedBlockingDeque$Node, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedBlockingDeque$Node);
+	});
 	return class$;
 }
 

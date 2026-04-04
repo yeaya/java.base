@@ -1,5 +1,4 @@
 #include <sun/security/provider/EntropySource.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,26 +8,22 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$MethodInfo _EntropySource_MethodInfo_[] = {
-	{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EntropySource, getEntropy, $bytes*, int32_t, int32_t, int32_t, bool)},
-	{}
-};
-
-$ClassInfo _EntropySource_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.security.provider.EntropySource",
-	nullptr,
-	nullptr,
-	nullptr,
-	_EntropySource_MethodInfo_
-};
-
-$Object* allocate$EntropySource($Class* clazz) {
-	return $of($alloc(EntropySource));
-}
-
 $Class* EntropySource::load$($String* name, bool initialize) {
-	$loadClass(EntropySource, name, initialize, &_EntropySource_ClassInfo_, allocate$EntropySource);
+	$MethodInfo methodInfos$$[] = {
+		{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EntropySource, getEntropy, $bytes*, int32_t, int32_t, int32_t, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.security.provider.EntropySource",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EntropySource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EntropySource);
+	});
 	return class$;
 }
 

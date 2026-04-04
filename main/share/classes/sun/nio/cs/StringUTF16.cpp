@@ -1,5 +1,4 @@
 #include <sun/nio/cs/StringUTF16.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
@@ -15,30 +14,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _StringUTF16_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringUTF16, unsafe)},
-	{}
-};
-
-$MethodInfo _StringUTF16_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StringUTF16, init$, void)},
-	{"getChar", "([BI)C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, getChar, char16_t, $bytes*, int32_t)},
-	{}
-};
-
-$ClassInfo _StringUTF16_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.StringUTF16",
-	"java.lang.Object",
-	nullptr,
-	_StringUTF16_FieldInfo_,
-	_StringUTF16_MethodInfo_
-};
-
-$Object* allocate$StringUTF16($Class* clazz) {
-	return $of($alloc(StringUTF16));
-}
-
 $Unsafe* StringUTF16::unsafe = nullptr;
 
 void StringUTF16::init$() {
@@ -50,7 +25,7 @@ char16_t StringUTF16::getChar($bytes* val, int32_t index) {
 	return $nc(StringUTF16::unsafe)->getChar(val, $Unsafe::ARRAY_BYTE_BASE_OFFSET + $Unsafe::ARRAY_BYTE_INDEX_SCALE * index * (int64_t)2);
 }
 
-void clinit$StringUTF16($Class* class$) {
+void StringUTF16::clinit$($Class* clazz) {
 	$assignStatic(StringUTF16::unsafe, $Unsafe::getUnsafe());
 }
 
@@ -58,7 +33,26 @@ StringUTF16::StringUTF16() {
 }
 
 $Class* StringUTF16::load$($String* name, bool initialize) {
-	$loadClass(StringUTF16, name, initialize, &_StringUTF16_ClassInfo_, clinit$StringUTF16, allocate$StringUTF16);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringUTF16, unsafe)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StringUTF16, init$, void)},
+		{"getChar", "([BI)C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, getChar, char16_t, $bytes*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.StringUTF16",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringUTF16, name, initialize, &classInfo$$, StringUTF16::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StringUTF16);
+	});
 	return class$;
 }
 

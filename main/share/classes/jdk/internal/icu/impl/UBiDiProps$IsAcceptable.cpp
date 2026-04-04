@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/UBiDiProps$IsAcceptable.h>
-
 #include <jdk/internal/icu/impl/UBiDiProps.h>
 #include <jcpp.h>
 
@@ -12,38 +11,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$MethodInfo _UBiDiProps$IsAcceptable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(UBiDiProps$IsAcceptable, init$, void)},
-	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(UBiDiProps$IsAcceptable, isDataVersionAcceptable, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _UBiDiProps$IsAcceptable_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.UBiDiProps$IsAcceptable", "jdk.internal.icu.impl.UBiDiProps", "IsAcceptable", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.ICUBinary$Authenticate", "jdk.internal.icu.impl.ICUBinary", "Authenticate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _UBiDiProps$IsAcceptable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.UBiDiProps$IsAcceptable",
-	"java.lang.Object",
-	"jdk.internal.icu.impl.ICUBinary$Authenticate",
-	nullptr,
-	_UBiDiProps$IsAcceptable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UBiDiProps$IsAcceptable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.UBiDiProps"
-};
-
-$Object* allocate$UBiDiProps$IsAcceptable($Class* clazz) {
-	return $of($alloc(UBiDiProps$IsAcceptable));
-}
-
 void UBiDiProps$IsAcceptable::init$() {
 }
 
@@ -55,7 +22,34 @@ UBiDiProps$IsAcceptable::UBiDiProps$IsAcceptable() {
 }
 
 $Class* UBiDiProps$IsAcceptable::load$($String* name, bool initialize) {
-	$loadClass(UBiDiProps$IsAcceptable, name, initialize, &_UBiDiProps$IsAcceptable_ClassInfo_, allocate$UBiDiProps$IsAcceptable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(UBiDiProps$IsAcceptable, init$, void)},
+		{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(UBiDiProps$IsAcceptable, isDataVersionAcceptable, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.UBiDiProps$IsAcceptable", "jdk.internal.icu.impl.UBiDiProps", "IsAcceptable", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.ICUBinary$Authenticate", "jdk.internal.icu.impl.ICUBinary", "Authenticate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.UBiDiProps$IsAcceptable",
+		"java.lang.Object",
+		"jdk.internal.icu.impl.ICUBinary$Authenticate",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.UBiDiProps"
+	};
+	$loadClass(UBiDiProps$IsAcceptable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UBiDiProps$IsAcceptable);
+	});
 	return class$;
 }
 

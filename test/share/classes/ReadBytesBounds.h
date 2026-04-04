@@ -16,6 +16,7 @@ class $export ReadBytesBounds : public ::java::lang::Object {
 	$class(ReadBytesBounds, 0, ::java::lang::Object)
 public:
 	ReadBytesBounds();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* argv);
 	static void testRead(int32_t off, int32_t len, bool expected);

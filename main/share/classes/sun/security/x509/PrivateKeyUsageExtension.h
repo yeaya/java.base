@@ -45,6 +45,7 @@ class $export PrivateKeyUsageExtension : public ::sun::security::x509::Extension
 	$class(PrivateKeyUsageExtension, 0, ::sun::security::x509::Extension, ::sun::security::x509::CertAttrSet)
 public:
 	PrivateKeyUsageExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::security::x509::Extension::encode;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

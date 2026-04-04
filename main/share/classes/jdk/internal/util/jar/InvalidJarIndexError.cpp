@@ -1,5 +1,4 @@
 #include <jdk/internal/util/jar/InvalidJarIndexError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 			namespace jar {
-
-$FieldInfo _InvalidJarIndexError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(InvalidJarIndexError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidJarIndexError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidJarIndexError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidJarIndexError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidJarIndexError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.util.jar.InvalidJarIndexError",
-	"java.lang.Error",
-	nullptr,
-	_InvalidJarIndexError_FieldInfo_,
-	_InvalidJarIndexError_MethodInfo_
-};
-
-$Object* allocate$InvalidJarIndexError($Class* clazz) {
-	return $of($alloc(InvalidJarIndexError));
-}
 
 void InvalidJarIndexError::init$() {
 	$Error::init$();
@@ -56,7 +31,26 @@ void InvalidJarIndexError::throw$() {
 }
 
 $Class* InvalidJarIndexError::load$($String* name, bool initialize) {
-	$loadClass(InvalidJarIndexError, name, initialize, &_InvalidJarIndexError_ClassInfo_, allocate$InvalidJarIndexError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(InvalidJarIndexError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidJarIndexError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidJarIndexError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.util.jar.InvalidJarIndexError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidJarIndexError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidJarIndexError);
+	});
 	return class$;
 }
 

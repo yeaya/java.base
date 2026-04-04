@@ -1,5 +1,4 @@
 #include <sun/util/spi/CalendarProvider.h>
-
 #include <java/util/Calendar.h>
 #include <java/util/Locale.h>
 #include <java/util/TimeZone.h>
@@ -17,25 +16,6 @@ namespace sun {
 	namespace util {
 		namespace spi {
 
-$MethodInfo _CalendarProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(CalendarProvider, init$, void)},
-	{"getInstance", "(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarProvider, getInstance, $Calendar*, $TimeZone*, $Locale*)},
-	{}
-};
-
-$ClassInfo _CalendarProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.util.spi.CalendarProvider",
-	"java.util.spi.LocaleServiceProvider",
-	nullptr,
-	nullptr,
-	_CalendarProvider_MethodInfo_
-};
-
-$Object* allocate$CalendarProvider($Class* clazz) {
-	return $of($alloc(CalendarProvider));
-}
-
 void CalendarProvider::init$() {
 	$LocaleServiceProvider::init$();
 }
@@ -44,7 +24,22 @@ CalendarProvider::CalendarProvider() {
 }
 
 $Class* CalendarProvider::load$($String* name, bool initialize) {
-	$loadClass(CalendarProvider, name, initialize, &_CalendarProvider_ClassInfo_, allocate$CalendarProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(CalendarProvider, init$, void)},
+		{"getInstance", "(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarProvider, getInstance, $Calendar*, $TimeZone*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.util.spi.CalendarProvider",
+		"java.util.spi.LocaleServiceProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CalendarProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CalendarProvider);
+	});
 	return class$;
 }
 

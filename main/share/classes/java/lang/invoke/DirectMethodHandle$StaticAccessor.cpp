@@ -1,5 +1,4 @@
 #include <java/lang/invoke/DirectMethodHandle$StaticAccessor.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/DirectMethodHandle.h>
 #include <java/lang/invoke/LambdaForm.h>
@@ -23,48 +22,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _DirectMethodHandle$StaticAccessor_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandle$StaticAccessor, $assertionsDisabled)},
-	{"fieldType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(DirectMethodHandle$StaticAccessor, fieldType)},
-	{"staticBase", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandle$StaticAccessor, staticBase)},
-	{"staticOffset", "J", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandle$StaticAccessor, staticOffset)},
-	{}
-};
-
-$MethodInfo _DirectMethodHandle$StaticAccessor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/Object;J)V", nullptr, $PRIVATE, $method(DirectMethodHandle$StaticAccessor, init$, void, $MethodType*, $LambdaForm*, $MemberName*, bool, Object$*, int64_t)},
-	{"checkCast", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectMethodHandle$StaticAccessor, checkCast, $Object*, Object$*)},
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$StaticAccessor, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
-	{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DirectMethodHandle$StaticAccessor, internalProperties, $Object*)},
-	{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$StaticAccessor, viewAsType, $MethodHandle*, $MethodType*, bool)},
-	{}
-};
-
-$InnerClassInfo _DirectMethodHandle$StaticAccessor_InnerClassesInfo_[] = {
-	{"java.lang.invoke.DirectMethodHandle$StaticAccessor", "java.lang.invoke.DirectMethodHandle", "StaticAccessor", $STATIC},
-	{}
-};
-
-$ClassInfo _DirectMethodHandle$StaticAccessor_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.DirectMethodHandle$StaticAccessor",
-	"java.lang.invoke.DirectMethodHandle",
-	nullptr,
-	_DirectMethodHandle$StaticAccessor_FieldInfo_,
-	_DirectMethodHandle$StaticAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectMethodHandle$StaticAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.DirectMethodHandle"
-};
-
-$Object* allocate$DirectMethodHandle$StaticAccessor($Class* clazz) {
-	return $of($alloc(DirectMethodHandle$StaticAccessor));
-}
-
 bool DirectMethodHandle$StaticAccessor::$assertionsDisabled = false;
 
 void DirectMethodHandle$StaticAccessor::init$($MethodType* mtype, $LambdaForm* form, $MemberName* member, bool crackable, Object$* staticBase, int64_t staticOffset) {
@@ -75,7 +32,7 @@ void DirectMethodHandle$StaticAccessor::init$($MethodType* mtype, $LambdaForm* f
 }
 
 $Object* DirectMethodHandle$StaticAccessor::checkCast(Object$* obj) {
-	return $of($nc(this->fieldType)->cast(obj));
+	return $nc(this->fieldType)->cast(obj);
 }
 
 $MethodHandle* DirectMethodHandle$StaticAccessor::copyWith($MethodType* mt, $LambdaForm* lf) {
@@ -90,10 +47,10 @@ $MethodHandle* DirectMethodHandle$StaticAccessor::viewAsType($MethodType* newTyp
 }
 
 $Object* DirectMethodHandle$StaticAccessor::internalProperties() {
-	return $of($DirectMethodHandle::internalProperties());
+	return $DirectMethodHandle::internalProperties();
 }
 
-void clinit$DirectMethodHandle$StaticAccessor($Class* class$) {
+void DirectMethodHandle$StaticAccessor::clinit$($Class* clazz) {
 	$load($DirectMethodHandle);
 	DirectMethodHandle$StaticAccessor::$assertionsDisabled = !$DirectMethodHandle::class$->desiredAssertionStatus();
 }
@@ -102,7 +59,43 @@ DirectMethodHandle$StaticAccessor::DirectMethodHandle$StaticAccessor() {
 }
 
 $Class* DirectMethodHandle$StaticAccessor::load$($String* name, bool initialize) {
-	$loadClass(DirectMethodHandle$StaticAccessor, name, initialize, &_DirectMethodHandle$StaticAccessor_ClassInfo_, clinit$DirectMethodHandle$StaticAccessor, allocate$DirectMethodHandle$StaticAccessor);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandle$StaticAccessor, $assertionsDisabled)},
+		{"fieldType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(DirectMethodHandle$StaticAccessor, fieldType)},
+		{"staticBase", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandle$StaticAccessor, staticBase)},
+		{"staticOffset", "J", nullptr, $PRIVATE | $FINAL, $field(DirectMethodHandle$StaticAccessor, staticOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/Object;J)V", nullptr, $PRIVATE, $method(DirectMethodHandle$StaticAccessor, init$, void, $MethodType*, $LambdaForm*, $MemberName*, bool, Object$*, int64_t)},
+		{"checkCast", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectMethodHandle$StaticAccessor, checkCast, $Object*, Object$*)},
+		{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$StaticAccessor, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
+		{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DirectMethodHandle$StaticAccessor, internalProperties, $Object*)},
+		{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$StaticAccessor, viewAsType, $MethodHandle*, $MethodType*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.DirectMethodHandle$StaticAccessor", "java.lang.invoke.DirectMethodHandle", "StaticAccessor", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.DirectMethodHandle$StaticAccessor",
+		"java.lang.invoke.DirectMethodHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.DirectMethodHandle"
+	};
+	$loadClass(DirectMethodHandle$StaticAccessor, name, initialize, &classInfo$$, DirectMethodHandle$StaticAccessor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectMethodHandle$StaticAccessor);
+	});
 	return class$;
 }
 

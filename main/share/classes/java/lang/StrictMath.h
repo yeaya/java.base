@@ -21,6 +21,7 @@ class $export StrictMath : public ::java::lang::Object {
 	$class(StrictMath, 0, ::java::lang::Object)
 public:
 	StrictMath();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static double IEEEremainder(double f1, double f2);
 	static int32_t abs(int32_t a);

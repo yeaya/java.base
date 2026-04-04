@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertStatusExtension$CertStatusRequestV2Spec.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/ArrayList.h>
@@ -44,51 +43,11 @@ using $CertStatusExtension$OCSPStatusRequest = ::sun::security::ssl::CertStatusE
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $Record = ::sun::security::ssl::Record;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _CertStatusExtension$CertStatusRequestV2Spec_FieldInfo_[] = {
-	{"DEFAULT", "Lsun/security/ssl/CertStatusExtension$CertStatusRequestV2Spec;", nullptr, $STATIC | $FINAL, $staticField(CertStatusExtension$CertStatusRequestV2Spec, DEFAULT)},
-	{"certStatusRequests", "[Lsun/security/ssl/CertStatusExtension$CertStatusRequest;", nullptr, $FINAL, $field(CertStatusExtension$CertStatusRequestV2Spec, certStatusRequests)},
-	{}
-};
-
-$MethodInfo _CertStatusExtension$CertStatusRequestV2Spec_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/ssl/CertStatusExtension$CertStatusRequest;)V", nullptr, $PRIVATE, $method(CertStatusExtension$CertStatusRequestV2Spec, init$, void, $CertStatusExtension$CertStatusRequestArray*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(CertStatusExtension$CertStatusRequestV2Spec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CertStatusRequestV2Spec, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CertStatusExtension$CertStatusRequestV2Spec_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertStatusExtension$CertStatusRequestV2Spec", "sun.security.ssl.CertStatusExtension", "CertStatusRequestV2Spec", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$SSLExtensionSpec", "sun.security.ssl.SSLExtension", "SSLExtensionSpec", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CertStatusExtension$CertStatusRequestV2Spec_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertStatusExtension$CertStatusRequestV2Spec",
-	"java.lang.Object",
-	"sun.security.ssl.SSLExtension$SSLExtensionSpec",
-	_CertStatusExtension$CertStatusRequestV2Spec_FieldInfo_,
-	_CertStatusExtension$CertStatusRequestV2Spec_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertStatusExtension$CertStatusRequestV2Spec_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertStatusExtension"
-};
-
-$Object* allocate$CertStatusExtension$CertStatusRequestV2Spec($Class* clazz) {
-	return $of($alloc(CertStatusExtension$CertStatusRequestV2Spec));
-}
 
 CertStatusExtension$CertStatusRequestV2Spec* CertStatusExtension$CertStatusRequestV2Spec::DEFAULT = nullptr;
 
@@ -97,32 +56,32 @@ void CertStatusExtension$CertStatusRequestV2Spec::init$($CertStatusExtension$Cer
 }
 
 void CertStatusExtension$CertStatusRequestV2Spec::init$($HandshakeContext* hc, $ByteBuffer* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(message)->remaining() == 0) {
 		$set(this, certStatusRequests, $new($CertStatusExtension$CertStatusRequestArray, 0));
 		return;
 	}
-	if ($nc(message)->remaining() < 5) {
+	if (message->remaining() < 5) {
 		$init($Alert);
-		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid status_request_v2 extension: insufficient data"_s)))));
+		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, $$new($SSLProtocolException, "Invalid status_request_v2 extension: insufficient data"_s))));
 	}
 	int32_t listLen = $Record::getInt16(message);
 	if (listLen <= 0) {
 		$init($Alert);
-		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, $$str({"certificate_status_req_list length must be positive (received length: "_s, $$str(listLen), ")"_s}))))));
+		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, $$new($SSLProtocolException, $$str({"certificate_status_req_list length must be positive (received length: "_s, $$str(listLen), ")"_s})))));
 	}
 	int32_t remaining = listLen;
 	$var($List, statusRequests, $new($ArrayList));
 	while (remaining > 0) {
 		int8_t statusType = (int8_t)$Record::getInt8(message);
 		int32_t requestLen = $Record::getInt16(message);
-		if ($nc(message)->remaining() < requestLen) {
+		if (message->remaining() < requestLen) {
 			$init($Alert);
-			$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, $$str({"Invalid status_request_v2 extension: insufficient data (request_length="_s, $$str(requestLen), ", remining="_s, $$str(message->remaining()), ")"_s}))))));
+			$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, $$new($SSLProtocolException, $$str({"Invalid status_request_v2 extension: insufficient data (request_length="_s, $$str(requestLen), ", remining="_s, $$str(message->remaining()), ")"_s})))));
 		}
 		$var($bytes, encoded, $new($bytes, requestLen));
 		if (encoded->length != 0) {
-			$nc(message)->get(encoded);
+			message->get(encoded);
 		}
 		remaining -= 3;
 		remaining -= requestLen;
@@ -130,7 +89,7 @@ void CertStatusExtension$CertStatusRequestV2Spec::init$($HandshakeContext* hc, $
 		if (statusType == $CertStatusExtension$CertStatusRequestType::OCSP->id || statusType == $CertStatusExtension$CertStatusRequestType::OCSP_MULTI->id) {
 			if (encoded->length < 4) {
 				$init($Alert);
-				$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid status_request_v2 extension: insufficient data"_s)))));
+				$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, $$new($SSLProtocolException, "Invalid status_request_v2 extension: insufficient data"_s))));
 			}
 			statusRequests->add($$new($CertStatusExtension$OCSPStatusRequest, statusType, encoded));
 		} else {
@@ -141,12 +100,12 @@ void CertStatusExtension$CertStatusRequestV2Spec::init$($HandshakeContext* hc, $
 			statusRequests->add($$new($CertStatusExtension$CertStatusRequest, statusType, encoded));
 		}
 	}
-	$set(this, certStatusRequests, $fcast($CertStatusExtension$CertStatusRequestArray, statusRequests->toArray($$new($CertStatusExtension$CertStatusRequestArray, 0))));
+	$set(this, certStatusRequests, $cast($CertStatusExtension$CertStatusRequestArray, statusRequests->toArray($$new($CertStatusExtension$CertStatusRequestArray, 0))));
 }
 
 $String* CertStatusExtension$CertStatusRequestV2Spec::toString() {
-	$useLocalCurrentObjectStackCache();
-	if (this->certStatusRequests == nullptr || $nc(this->certStatusRequests)->length == 0) {
+	$useLocalObjectStack();
+	if (this->certStatusRequests == nullptr || this->certStatusRequests->length == 0) {
 		return "<empty>"_s;
 	} else {
 		$init($Locale);
@@ -155,9 +114,7 @@ $String* CertStatusExtension$CertStatusRequestV2Spec::toString() {
 		bool isFirst = true;
 		{
 			$var($CertStatusExtension$CertStatusRequestArray, arr$, this->certStatusRequests);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($CertStatusExtension$CertStatusRequest, csr, arr$->get(i$));
 				{
 					if (isFirst) {
@@ -165,7 +122,7 @@ $String* CertStatusExtension$CertStatusRequestV2Spec::toString() {
 					} else {
 						builder->append(", "_s);
 					}
-					$var($ObjectArray, messageFields, $new($ObjectArray, {$($of($Utilities::indent($($nc(csr)->toString()))))}));
+					$var($ObjectArray, messageFields, $new($ObjectArray, {$($Utilities::indent($($nc(csr)->toString())))}));
 					builder->append($(messageFormat->format(messageFields)));
 				}
 			}
@@ -174,16 +131,49 @@ $String* CertStatusExtension$CertStatusRequestV2Spec::toString() {
 	}
 }
 
-void clinit$CertStatusExtension$CertStatusRequestV2Spec($Class* class$) {
+void CertStatusExtension$CertStatusRequestV2Spec::clinit$($Class* clazz) {
 	$init($CertStatusExtension$OCSPStatusRequest);
-	$assignStatic(CertStatusExtension$CertStatusRequestV2Spec::DEFAULT, $new(CertStatusExtension$CertStatusRequestV2Spec, $$new($CertStatusExtension$CertStatusRequestArray, {static_cast<$CertStatusExtension$CertStatusRequest*>($CertStatusExtension$OCSPStatusRequest::EMPTY_OCSP_MULTI)})));
+	$assignStatic(CertStatusExtension$CertStatusRequestV2Spec::DEFAULT, $new(CertStatusExtension$CertStatusRequestV2Spec, $$new($CertStatusExtension$CertStatusRequestArray, {$CertStatusExtension$OCSPStatusRequest::EMPTY_OCSP_MULTI})));
 }
 
 CertStatusExtension$CertStatusRequestV2Spec::CertStatusExtension$CertStatusRequestV2Spec() {
 }
 
 $Class* CertStatusExtension$CertStatusRequestV2Spec::load$($String* name, bool initialize) {
-	$loadClass(CertStatusExtension$CertStatusRequestV2Spec, name, initialize, &_CertStatusExtension$CertStatusRequestV2Spec_ClassInfo_, clinit$CertStatusExtension$CertStatusRequestV2Spec, allocate$CertStatusExtension$CertStatusRequestV2Spec);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT", "Lsun/security/ssl/CertStatusExtension$CertStatusRequestV2Spec;", nullptr, $STATIC | $FINAL, $staticField(CertStatusExtension$CertStatusRequestV2Spec, DEFAULT)},
+		{"certStatusRequests", "[Lsun/security/ssl/CertStatusExtension$CertStatusRequest;", nullptr, $FINAL, $field(CertStatusExtension$CertStatusRequestV2Spec, certStatusRequests)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lsun/security/ssl/CertStatusExtension$CertStatusRequest;)V", nullptr, $PRIVATE, $method(CertStatusExtension$CertStatusRequestV2Spec, init$, void, $CertStatusExtension$CertStatusRequestArray*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(CertStatusExtension$CertStatusRequestV2Spec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CertStatusRequestV2Spec, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertStatusExtension$CertStatusRequestV2Spec", "sun.security.ssl.CertStatusExtension", "CertStatusRequestV2Spec", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$SSLExtensionSpec", "sun.security.ssl.SSLExtension", "SSLExtensionSpec", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertStatusExtension$CertStatusRequestV2Spec",
+		"java.lang.Object",
+		"sun.security.ssl.SSLExtension$SSLExtensionSpec",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertStatusExtension"
+	};
+	$loadClass(CertStatusExtension$CertStatusRequestV2Spec, name, initialize, &classInfo$$, CertStatusExtension$CertStatusRequestV2Spec::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertStatusExtension$CertStatusRequestV2Spec);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ForkJoinPool$InvokeAnyTask.h>
-
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/ForkJoinPool$InvokeAnyRoot.h>
 #include <java/util/concurrent/ForkJoinPool.h>
@@ -17,48 +16,6 @@ using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _ForkJoinPool$InvokeAnyTask_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ForkJoinPool$InvokeAnyTask, serialVersionUID)},
-	{"root", "Ljava/util/concurrent/ForkJoinPool$InvokeAnyRoot;", "Ljava/util/concurrent/ForkJoinPool$InvokeAnyRoot<TE;>;", $FINAL, $field(ForkJoinPool$InvokeAnyTask, root)},
-	{"callable", "Ljava/util/concurrent/Callable;", "Ljava/util/concurrent/Callable<TE;>;", $FINAL, $field(ForkJoinPool$InvokeAnyTask, callable)},
-	{"runner", "Ljava/lang/Thread;", nullptr, $VOLATILE | $TRANSIENT, $field(ForkJoinPool$InvokeAnyTask, runner)},
-	{}
-};
-
-$MethodInfo _ForkJoinPool$InvokeAnyTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ForkJoinPool$InvokeAnyRoot;Ljava/util/concurrent/Callable;)V", "(Ljava/util/concurrent/ForkJoinPool$InvokeAnyRoot<TE;>;Ljava/util/concurrent/Callable<TE;>;)V", 0, $method(ForkJoinPool$InvokeAnyTask, init$, void, $ForkJoinPool$InvokeAnyRoot*, $Callable*)},
-	{"cancel", "(Z)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinPool$InvokeAnyTask, cancel, bool, bool)},
-	{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinPool$InvokeAnyTask, exec, bool)},
-	{"getRawResult", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $FINAL, $virtualMethod(ForkJoinPool$InvokeAnyTask, getRawResult, $Object*)},
-	{"setRawResult", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC | $FINAL, $virtualMethod(ForkJoinPool$InvokeAnyTask, setRawResult, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ForkJoinPool$InvokeAnyTask_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ForkJoinPool$InvokeAnyTask", "java.util.concurrent.ForkJoinPool", "InvokeAnyTask", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ForkJoinPool$InvokeAnyTask_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ForkJoinPool$InvokeAnyTask",
-	"java.util.concurrent.ForkJoinTask",
-	nullptr,
-	_ForkJoinPool$InvokeAnyTask_FieldInfo_,
-	_ForkJoinPool$InvokeAnyTask_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/concurrent/ForkJoinTask<TE;>;",
-	nullptr,
-	_ForkJoinPool$InvokeAnyTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ForkJoinPool"
-};
-
-$Object* allocate$ForkJoinPool$InvokeAnyTask($Class* clazz) {
-	return $of($alloc(ForkJoinPool$InvokeAnyTask));
-}
 
 void ForkJoinPool$InvokeAnyTask::init$($ForkJoinPool$InvokeAnyRoot* root, $Callable* callable) {
 	$ForkJoinTask::init$();
@@ -91,14 +48,50 @@ void ForkJoinPool$InvokeAnyTask::setRawResult(Object$* v) {
 }
 
 $Object* ForkJoinPool$InvokeAnyTask::getRawResult() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 ForkJoinPool$InvokeAnyTask::ForkJoinPool$InvokeAnyTask() {
 }
 
 $Class* ForkJoinPool$InvokeAnyTask::load$($String* name, bool initialize) {
-	$loadClass(ForkJoinPool$InvokeAnyTask, name, initialize, &_ForkJoinPool$InvokeAnyTask_ClassInfo_, allocate$ForkJoinPool$InvokeAnyTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ForkJoinPool$InvokeAnyTask, serialVersionUID)},
+		{"root", "Ljava/util/concurrent/ForkJoinPool$InvokeAnyRoot;", "Ljava/util/concurrent/ForkJoinPool$InvokeAnyRoot<TE;>;", $FINAL, $field(ForkJoinPool$InvokeAnyTask, root)},
+		{"callable", "Ljava/util/concurrent/Callable;", "Ljava/util/concurrent/Callable<TE;>;", $FINAL, $field(ForkJoinPool$InvokeAnyTask, callable)},
+		{"runner", "Ljava/lang/Thread;", nullptr, $VOLATILE | $TRANSIENT, $field(ForkJoinPool$InvokeAnyTask, runner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ForkJoinPool$InvokeAnyRoot;Ljava/util/concurrent/Callable;)V", "(Ljava/util/concurrent/ForkJoinPool$InvokeAnyRoot<TE;>;Ljava/util/concurrent/Callable<TE;>;)V", 0, $method(ForkJoinPool$InvokeAnyTask, init$, void, $ForkJoinPool$InvokeAnyRoot*, $Callable*)},
+		{"cancel", "(Z)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinPool$InvokeAnyTask, cancel, bool, bool)},
+		{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinPool$InvokeAnyTask, exec, bool)},
+		{"getRawResult", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $FINAL, $virtualMethod(ForkJoinPool$InvokeAnyTask, getRawResult, $Object*)},
+		{"setRawResult", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC | $FINAL, $virtualMethod(ForkJoinPool$InvokeAnyTask, setRawResult, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ForkJoinPool$InvokeAnyTask", "java.util.concurrent.ForkJoinPool", "InvokeAnyTask", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ForkJoinPool$InvokeAnyTask",
+		"java.util.concurrent.ForkJoinTask",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/concurrent/ForkJoinTask<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ForkJoinPool"
+	};
+	$loadClass(ForkJoinPool$InvokeAnyTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ForkJoinPool$InvokeAnyTask));
+	});
 	return class$;
 }
 

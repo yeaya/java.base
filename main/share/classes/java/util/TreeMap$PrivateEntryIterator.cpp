@@ -1,5 +1,4 @@
 #include <java/util/TreeMap$PrivateEntryIterator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/NoSuchElementException.h>
@@ -19,48 +18,6 @@ using $TreeMap$Entry = ::java::util::TreeMap$Entry;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _TreeMap$PrivateEntryIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/TreeMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$PrivateEntryIterator, this$0)},
-	{"next", "Ljava/util/TreeMap$Entry;", "Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $field(TreeMap$PrivateEntryIterator, next$)},
-	{"lastReturned", "Ljava/util/TreeMap$Entry;", "Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $field(TreeMap$PrivateEntryIterator, lastReturned)},
-	{"expectedModCount", "I", nullptr, 0, $field(TreeMap$PrivateEntryIterator, expectedModCount)},
-	{}
-};
-
-$MethodInfo _TreeMap$PrivateEntryIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(TreeMap$PrivateEntryIterator, init$, void, $TreeMap*, $TreeMap$Entry*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeMap$PrivateEntryIterator, hasNext, bool)},
-	{"nextEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(TreeMap$PrivateEntryIterator, nextEntry, $TreeMap$Entry*)},
-	{"prevEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(TreeMap$PrivateEntryIterator, prevEntry, $TreeMap$Entry*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$PrivateEntryIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _TreeMap$PrivateEntryIterator_InnerClassesInfo_[] = {
-	{"java.util.TreeMap$PrivateEntryIterator", "java.util.TreeMap", "PrivateEntryIterator", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TreeMap$PrivateEntryIterator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.TreeMap$PrivateEntryIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_TreeMap$PrivateEntryIterator_FieldInfo_,
-	_TreeMap$PrivateEntryIterator_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
-	nullptr,
-	_TreeMap$PrivateEntryIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.TreeMap"
-};
-
-$Object* allocate$TreeMap$PrivateEntryIterator($Class* clazz) {
-	return $of($alloc(TreeMap$PrivateEntryIterator));
-}
 
 void TreeMap$PrivateEntryIterator::init$($TreeMap* this$0, $TreeMap$Entry* first) {
 	$set(this, this$0, this$0);
@@ -106,7 +63,7 @@ void TreeMap$PrivateEntryIterator::remove() {
 	if (this->this$0->modCount != this->expectedModCount) {
 		$throwNew($ConcurrentModificationException);
 	}
-	if ($nc(this->lastReturned)->left != nullptr && $nc(this->lastReturned)->right != nullptr) {
+	if ($nc(this->lastReturned)->left != nullptr && this->lastReturned->right != nullptr) {
 		$set(this, next$, this->lastReturned);
 	}
 	this->this$0->deleteEntry(this->lastReturned);
@@ -118,7 +75,43 @@ TreeMap$PrivateEntryIterator::TreeMap$PrivateEntryIterator() {
 }
 
 $Class* TreeMap$PrivateEntryIterator::load$($String* name, bool initialize) {
-	$loadClass(TreeMap$PrivateEntryIterator, name, initialize, &_TreeMap$PrivateEntryIterator_ClassInfo_, allocate$TreeMap$PrivateEntryIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/TreeMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$PrivateEntryIterator, this$0)},
+		{"next", "Ljava/util/TreeMap$Entry;", "Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $field(TreeMap$PrivateEntryIterator, next$)},
+		{"lastReturned", "Ljava/util/TreeMap$Entry;", "Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $field(TreeMap$PrivateEntryIterator, lastReturned)},
+		{"expectedModCount", "I", nullptr, 0, $field(TreeMap$PrivateEntryIterator, expectedModCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(TreeMap$PrivateEntryIterator, init$, void, $TreeMap*, $TreeMap$Entry*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeMap$PrivateEntryIterator, hasNext, bool)},
+		{"nextEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(TreeMap$PrivateEntryIterator, nextEntry, $TreeMap$Entry*)},
+		{"prevEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(TreeMap$PrivateEntryIterator, prevEntry, $TreeMap$Entry*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$PrivateEntryIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.TreeMap$PrivateEntryIterator", "java.util.TreeMap", "PrivateEntryIterator", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.TreeMap$PrivateEntryIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.TreeMap"
+	};
+	$loadClass(TreeMap$PrivateEntryIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeMap$PrivateEntryIterator);
+	});
 	return class$;
 }
 

@@ -42,7 +42,7 @@ public:
 	static ::java::security::PrivateKey* parseKey($bytes* encoded);
 	void readObject(::java::io::ObjectInputStream* stream);
 	virtual $Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0xCAC0A0C88C95426C;
+	static const int64_t serialVersionUID = (int64_t)0xcac0a0c88c95426c;
 	::sun::security::x509::AlgorithmId* algid = nullptr;
 	$bytes* key = nullptr;
 	$bytes* encodedKey = nullptr;

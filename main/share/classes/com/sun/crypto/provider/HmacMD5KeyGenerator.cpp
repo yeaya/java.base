@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/HmacMD5KeyGenerator.h>
-
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/SecureRandom.h>
@@ -27,34 +26,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _HmacMD5KeyGenerator_FieldInfo_[] = {
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(HmacMD5KeyGenerator, random)},
-	{"keysize", "I", nullptr, $PRIVATE, $field(HmacMD5KeyGenerator, keysize)},
-	{}
-};
-
-$MethodInfo _HmacMD5KeyGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HmacMD5KeyGenerator, init$, void)},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineGenerateKey, $SecretKey*)},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineInit, void, $SecureRandom*)},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
-	{}
-};
-
-$ClassInfo _HmacMD5KeyGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.HmacMD5KeyGenerator",
-	"javax.crypto.KeyGeneratorSpi",
-	nullptr,
-	_HmacMD5KeyGenerator_FieldInfo_,
-	_HmacMD5KeyGenerator_MethodInfo_
-};
-
-$Object* allocate$HmacMD5KeyGenerator($Class* clazz) {
-	return $of($alloc(HmacMD5KeyGenerator));
-}
-
 void HmacMD5KeyGenerator::init$() {
 	$KeyGeneratorSpi::init$();
 	$set(this, random, nullptr);
@@ -75,31 +46,29 @@ void HmacMD5KeyGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* HmacMD5KeyGenerator::engineGenerateKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
 	}
 	$var($bytes, keyBytes, $new($bytes, this->keysize));
 	$nc(this->random)->nextBytes(keyBytes);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($SecretKey, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $new($SecretKeySpec, keyBytes, "HmacMD5"_s));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(keyBytes, (int8_t)0);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($SecretKey, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $new($SecretKeySpec, keyBytes, "HmacMD5"_s));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(keyBytes, (int8_t)0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -108,7 +77,30 @@ HmacMD5KeyGenerator::HmacMD5KeyGenerator() {
 }
 
 $Class* HmacMD5KeyGenerator::load$($String* name, bool initialize) {
-	$loadClass(HmacMD5KeyGenerator, name, initialize, &_HmacMD5KeyGenerator_ClassInfo_, allocate$HmacMD5KeyGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(HmacMD5KeyGenerator, random)},
+		{"keysize", "I", nullptr, $PRIVATE, $field(HmacMD5KeyGenerator, keysize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HmacMD5KeyGenerator, init$, void)},
+		{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineGenerateKey, $SecretKey*)},
+		{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineInit, void, $SecureRandom*)},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.HmacMD5KeyGenerator",
+		"javax.crypto.KeyGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HmacMD5KeyGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HmacMD5KeyGenerator);
+	});
 	return class$;
 }
 

@@ -26,6 +26,7 @@ class $import SHA3 : public ::sun::security::provider::DigestBase {
 public:
 	SHA3();
 	using ::sun::security::provider::DigestBase::engineUpdate;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t digestLength, int8_t suffix, int32_t c);
 	static void bytes2Lanes($bytes* s, $longs* m);
 	virtual $Object* clone() override;

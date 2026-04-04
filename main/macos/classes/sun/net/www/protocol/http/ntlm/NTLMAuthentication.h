@@ -63,6 +63,7 @@ class NTLMAuthentication : public ::sun::net::www::protocol::http::Authenticatio
 	$class(NTLMAuthentication, 0, ::sun::net::www::protocol::http::AuthenticationInfo)
 public:
 	NTLMAuthentication();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool isProxy, ::java::net::URL* url, ::java::net::PasswordAuthentication* pw, $String* authenticatorKey);
 	void init$(bool isProxy, $String* host, int32_t port, ::java::net::PasswordAuthentication* pw, $String* authenticatorKey);
 	$String* buildType1Msg();

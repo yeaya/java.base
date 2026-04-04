@@ -1,5 +1,4 @@
 #include <TestPort.h>
-
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
@@ -13,30 +12,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 
-$MethodInfo _TestPort_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestPort, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestPort, main, void, $StringArray*), "java.net.MalformedURLException"},
-	{}
-};
-
-$ClassInfo _TestPort_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestPort",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestPort_MethodInfo_
-};
-
-$Object* allocate$TestPort($Class* clazz) {
-	return $of($alloc(TestPort));
-}
-
 void TestPort::init$() {
 }
 
 void TestPort::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, $new($URL, "http"_s, "server"_s, $Integer::MAX_VALUE, "/path"_s));
 	$assign(url, $new($URL, $$str({"http://server:"_s, $$str($Integer::MAX_VALUE), "/path"_s})));
 	$assign(url, $new($URL, "http://server/path"_s));
@@ -57,7 +37,22 @@ TestPort::TestPort() {
 }
 
 $Class* TestPort::load$($String* name, bool initialize) {
-	$loadClass(TestPort, name, initialize, &_TestPort_ClassInfo_, allocate$TestPort);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestPort, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestPort, main, void, $StringArray*), "java.net.MalformedURLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestPort",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestPort, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestPort);
+	});
 	return class$;
 }
 

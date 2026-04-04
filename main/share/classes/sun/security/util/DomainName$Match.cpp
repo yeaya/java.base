@@ -1,5 +1,4 @@
 #include <sun/security/util/DomainName$Match.h>
-
 #include <sun/security/util/DomainName$Rule$Type.h>
 #include <sun/security/util/DomainName.h>
 #include <sun/security/util/RegisteredDomain.h>
@@ -15,39 +14,34 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$MethodInfo _DomainName$Match_MethodInfo_[] = {
-	{"registeredDomain", "()Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DomainName$Match, registeredDomain, $RegisteredDomain*)},
-	{"type", "()Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DomainName$Match, type, $DomainName$Rule$Type*)},
-	{}
-};
-
-$InnerClassInfo _DomainName$Match_InnerClassesInfo_[] = {
-	{"sun.security.util.DomainName$Match", "sun.security.util.DomainName", "Match", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DomainName$Match_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.security.util.DomainName$Match",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DomainName$Match_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DomainName$Match_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.DomainName"
-};
-
-$Object* allocate$DomainName$Match($Class* clazz) {
-	return $of($alloc(DomainName$Match));
-}
-
 $Class* DomainName$Match::load$($String* name, bool initialize) {
-	$loadClass(DomainName$Match, name, initialize, &_DomainName$Match_ClassInfo_, allocate$DomainName$Match);
+	$MethodInfo methodInfos$$[] = {
+		{"registeredDomain", "()Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DomainName$Match, registeredDomain, $RegisteredDomain*)},
+		{"type", "()Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DomainName$Match, type, $DomainName$Rule$Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.DomainName$Match", "sun.security.util.DomainName", "Match", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.security.util.DomainName$Match",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.DomainName"
+	};
+	$loadClass(DomainName$Match, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DomainName$Match);
+	});
 	return class$;
 }
 

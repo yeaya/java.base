@@ -16,6 +16,7 @@ class $import Globs : public ::java::lang::Object {
 	$class(Globs, 0, ::java::lang::Object)
 public:
 	Globs();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isGlobMeta(char16_t c);
 	static bool isRegexMeta(char16_t c);

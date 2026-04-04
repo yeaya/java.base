@@ -1,5 +1,4 @@
 #include <jdk/internal/invoke/ABIDescriptorProxy.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,26 +8,22 @@ namespace jdk {
 	namespace internal {
 		namespace invoke {
 
-$MethodInfo _ABIDescriptorProxy_MethodInfo_[] = {
-	{"shadowSpaceBytes", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ABIDescriptorProxy, shadowSpaceBytes, int32_t)},
-	{}
-};
-
-$ClassInfo _ABIDescriptorProxy_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.invoke.ABIDescriptorProxy",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ABIDescriptorProxy_MethodInfo_
-};
-
-$Object* allocate$ABIDescriptorProxy($Class* clazz) {
-	return $of($alloc(ABIDescriptorProxy));
-}
-
 $Class* ABIDescriptorProxy::load$($String* name, bool initialize) {
-	$loadClass(ABIDescriptorProxy, name, initialize, &_ABIDescriptorProxy_ClassInfo_, allocate$ABIDescriptorProxy);
+	$MethodInfo methodInfos$$[] = {
+		{"shadowSpaceBytes", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ABIDescriptorProxy, shadowSpaceBytes, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.invoke.ABIDescriptorProxy",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ABIDescriptorProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ABIDescriptorProxy);
+	});
 	return class$;
 }
 

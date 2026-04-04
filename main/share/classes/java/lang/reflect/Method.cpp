@@ -1,5 +1,4 @@
 #include <java/lang/reflect/Method.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/TypeNotPresentException.h>
 #include <java/lang/annotation/Annotation.h>
@@ -7,7 +6,6 @@
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/AnnotatedType.h>
 #include <java/lang/reflect/Executable.h>
-#include <java/lang/reflect/GenericDeclaration.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Type.h>
 #include <java/lang/reflect/TypeVariable.h>
@@ -55,17 +53,14 @@ using $AnnotationFormatError = ::java::lang::annotation::AnnotationFormatError;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Executable = ::java::lang::reflect::Executable;
-using $GenericDeclaration = ::java::lang::reflect::GenericDeclaration;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Type = ::java::lang::reflect::Type;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $StringJoiner = ::java::util::StringJoiner;
-using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $ConstantPool = ::jdk::internal::reflect::ConstantPool;
 using $MethodAccessor = ::jdk::internal::reflect::MethodAccessor;
 using $Reflection = ::jdk::internal::reflect::Reflection;
-using $ReflectionFactory = ::jdk::internal::reflect::ReflectionFactory;
 using $AnnotationParser = ::sun::reflect::annotation::AnnotationParser;
 using $AnnotationType = ::sun::reflect::annotation::AnnotationType;
 using $ExceptionProxy = ::sun::reflect::annotation::ExceptionProxy;
@@ -75,114 +70,10 @@ using $GenericsFactory = ::sun::reflect::generics::factory::GenericsFactory;
 using $ConstructorRepository = ::sun::reflect::generics::repository::ConstructorRepository;
 using $MethodRepository = ::sun::reflect::generics::repository::MethodRepository;
 using $MethodScope = ::sun::reflect::generics::scope::MethodScope;
-using $Scope = ::sun::reflect::generics::scope::Scope;
 
 namespace java {
 	namespace lang {
 		namespace reflect {
-
-$CompoundAttribute _Method_FieldAnnotations_clazz[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Method_FieldAnnotations_modifiers[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Method_MethodAnnotations_invoke32[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Method_MethodAnnotations_setAccessible38[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$FieldInfo _Method_FieldInfo_[] = {
-	{"clazz", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Method, clazz), _Method_FieldAnnotations_clazz},
-	{"slot", "I", nullptr, $PRIVATE, $field(Method, slot)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Method, name)},
-	{"returnType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Method, returnType)},
-	{"parameterTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(Method, parameterTypes)},
-	{"exceptionTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(Method, exceptionTypes)},
-	{"modifiers", "I", nullptr, $PRIVATE, $field(Method, modifiers), _Method_FieldAnnotations_modifiers},
-	{"signature", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(Method, signature)},
-	{"genericInfo", "Lsun/reflect/generics/repository/MethodRepository;", nullptr, $PRIVATE | $TRANSIENT, $field(Method, genericInfo)},
-	{"annotations", "[B", nullptr, $PRIVATE, $field(Method, annotations)},
-	{"parameterAnnotations", "[B", nullptr, $PRIVATE, $field(Method, parameterAnnotations)},
-	{"annotationDefault", "[B", nullptr, $PRIVATE, $field(Method, annotationDefault)},
-	{"methodAccessor", "Ljdk/internal/reflect/MethodAccessor;", nullptr, $PRIVATE | $VOLATILE, $field(Method, methodAccessor)},
-	{"root", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(Method, root)},
-	{}
-};
-
-$MethodInfo _Method_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;IILjava/lang/String;[B[B[B)V", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;IILjava/lang/String;[B[B[B)V", 0, $method(Method, init$, void, $Class*, $String*, $ClassArray*, $Class*, $ClassArray*, int32_t, int32_t, $String*, $bytes*, $bytes*, $bytes*)},
-	{"acquireMethodAccessor", "()Ljdk/internal/reflect/MethodAccessor;", nullptr, $PRIVATE, $method(Method, acquireMethodAccessor, $MethodAccessor*)},
-	{"checkCanSetAccessible", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $virtualMethod(Method, checkCanSetAccessible, void, $Class*)},
-	{"copy", "()Ljava/lang/reflect/Method;", nullptr, 0, $method(Method, copy, Method*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Method, equals, bool, Object$*)},
-	{"getAnnotatedReturnType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(Method, getAnnotatedReturnType, $AnnotatedType*)},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(Method, getAnnotation, $Annotation*, $Class*)},
-	{"getAnnotationBytes", "()[B", nullptr, 0, $virtualMethod(Method, getAnnotationBytes, $bytes*)},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Method, getDeclaredAnnotations, $AnnotationArray*)},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Method, getDeclaringClass, $Class*)},
-	{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(Method, getDefaultValue, $Object*)},
-	{"getExceptionTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Method, getExceptionTypes, $ClassArray*)},
-	{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(Method, getFactory, $GenericsFactory*)},
-	{"getGenericExceptionTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(Method, getGenericExceptionTypes, $TypeArray*)},
-	{"getGenericInfo", "()Lsun/reflect/generics/repository/MethodRepository;", nullptr, 0, $virtualMethod(Method, getGenericInfo, $ConstructorRepository*)},
-	{"getGenericParameterTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(Method, getGenericParameterTypes, $TypeArray*)},
-	{"getGenericReturnType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $method(Method, getGenericReturnType, $Type*)},
-	{"getGenericSignature", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Method, getGenericSignature, $String*)},
-	{"getMethodAccessor", "()Ljdk/internal/reflect/MethodAccessor;", nullptr, 0, $method(Method, getMethodAccessor, $MethodAccessor*)},
-	{"getModifiers", "()I", nullptr, $PUBLIC, $virtualMethod(Method, getModifiers, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, getName, $String*)},
-	{"getParameterAnnotations", "()[[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Method, getParameterAnnotations, $AnnotationArray2*)},
-	{"getParameterCount", "()I", nullptr, $PUBLIC, $virtualMethod(Method, getParameterCount, int32_t)},
-	{"getParameterTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Method, getParameterTypes, $ClassArray*)},
-	{"getReturnType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Method, getReturnType, $Class*)},
-	{"getRoot", "()Ljava/lang/reflect/Method;", nullptr, 0, $virtualMethod(Method, getRoot, Method*)},
-	{"getSharedExceptionTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", 0, $virtualMethod(Method, getSharedExceptionTypes, $ClassArray*)},
-	{"getSharedParameterTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", 0, $virtualMethod(Method, getSharedParameterTypes, $ClassArray*)},
-	{"getTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<Ljava/lang/reflect/Method;>;", $PUBLIC, $virtualMethod(Method, getTypeParameters, $TypeVariableArray*)},
-	{"handleParameterNumberMismatch", "(I[Ljava/lang/Class;)Z", "(I[Ljava/lang/Class<*>;)Z", 0, $virtualMethod(Method, handleParameterNumberMismatch, bool, int32_t, $ClassArray*)},
-	{"hasGenericInformation", "()Z", nullptr, 0, $virtualMethod(Method, hasGenericInformation, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Method, hashCode, int32_t)},
-	{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT, $method(Method, invoke, $Object*, Object$*, $ObjectArray*), "java.lang.IllegalAccessException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException", nullptr, _Method_MethodAnnotations_invoke32},
-	{"isBridge", "()Z", nullptr, $PUBLIC, $method(Method, isBridge, bool)},
-	{"isDefault", "()Z", nullptr, $PUBLIC, $method(Method, isDefault, bool)},
-	{"isSynthetic", "()Z", nullptr, $PUBLIC, $virtualMethod(Method, isSynthetic, bool)},
-	{"isVarArgs", "()Z", nullptr, $PUBLIC, $virtualMethod(Method, isVarArgs, bool)},
-	{"leafCopy", "()Ljava/lang/reflect/Method;", nullptr, 0, $method(Method, leafCopy, Method*)},
-	{"setAccessible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Method, setAccessible, void, bool), nullptr, nullptr, _Method_MethodAnnotations_setAccessible38},
-	{"setMethodAccessor", "(Ljdk/internal/reflect/MethodAccessor;)V", nullptr, 0, $method(Method, setMethodAccessor, void, $MethodAccessor*)},
-	{"specificToGenericStringHeader", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(Method, specificToGenericStringHeader, void, $StringBuilder*)},
-	{"specificToStringHeader", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(Method, specificToStringHeader, void, $StringBuilder*)},
-	{"toGenericString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, toGenericString, $String*)},
-	{"toShortSignature", "()Ljava/lang/String;", nullptr, 0, $method(Method, toShortSignature, $String*)},
-	{"toShortString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Method, toShortString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Method_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.reflect.Method",
-	"java.lang.reflect.Executable",
-	nullptr,
-	_Method_FieldInfo_,
-	_Method_MethodInfo_
-};
-
-$Object* allocate$Method($Class* clazz) {
-	return $of($alloc(Method));
-}
 
 $String* Method::getGenericSignature() {
 	return this->signature;
@@ -193,7 +84,7 @@ $GenericsFactory* Method::getFactory() {
 }
 
 $ConstructorRepository* Method::getGenericInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->genericInfo == nullptr) {
 		$var($String, var$0, getGenericSignature());
 		$set(this, genericInfo, $MethodRepository::make(var$0, $(getFactory())));
@@ -278,7 +169,7 @@ int32_t Method::getModifiers() {
 
 $TypeVariableArray* Method::getTypeParameters() {
 	if (getGenericSignature() != nullptr) {
-		return $nc($($cast($MethodRepository, getGenericInfo())))->getTypeParameters();
+		return $$sure($MethodRepository, getGenericInfo())->getTypeParameters();
 	} else {
 		return $new($TypeVariableArray, 0);
 	}
@@ -290,7 +181,7 @@ $Class* Method::getReturnType() {
 
 $Type* Method::getGenericReturnType() {
 	if (getGenericSignature() != nullptr) {
-		return $nc($($cast($MethodRepository, getGenericInfo())))->getReturnType();
+		return $$sure($MethodRepository, getGenericInfo())->getReturnType();
 	} else {
 		return getReturnType();
 	}
@@ -333,12 +224,12 @@ bool Method::equals(Object$* obj) {
 			var$0 = true;
 		}
 		if (var$0) {
-			bool var$1 = (getDeclaringClass() == $nc(other)->getDeclaringClass());
+			bool var$1 = getDeclaringClass() == $nc(other)->getDeclaringClass();
 			if (var$1) {
-				var$1 = (getName() == other->getName());
+				var$1 = getName() == other->getName();
 			}
 			if (var$1) {
-				if (!$nc($of(this->returnType))->equals(other->getReturnType())) {
+				if (!$nc(this->returnType)->equals(other->getReturnType())) {
 					return false;
 				}
 				return equalParamTypes(this->parameterTypes, other->parameterTypes);
@@ -349,9 +240,9 @@ bool Method::equals(Object$* obj) {
 }
 
 int32_t Method::hashCode() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $nc($($nc(getDeclaringClass())->getName()))->hashCode();
-	return var$0 ^ $nc($(getName()))->hashCode();
+	$useLocalObjectStack();
+	int32_t var$0 = $$nc($nc(getDeclaringClass())->getName())->hashCode();
+	return var$0 ^ $$nc(getName())->hashCode();
 }
 
 $String* Method::toString() {
@@ -360,26 +251,28 @@ $String* Method::toString() {
 }
 
 void Method::specificToStringHeader($StringBuilder* sb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(sb)->append($($nc(getReturnType())->getTypeName()))->append(u' ');
 	sb->append($($nc(getDeclaringClass())->getTypeName()))->append(u'.');
 	sb->append($(getName()));
 }
 
 $String* Method::toShortString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({"method "_s, $($nc(getDeclaringClass())->getTypeName()), $$str(u'.')}));
-	return $concat(var$0, $(toShortSignature()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("method "_s);
+	var$0->append($($nc(getDeclaringClass())->getTypeName()));
+	var$0->append(u'.');
+	var$0->append($(toShortSignature()));
+	return $str(var$0);
 }
 
 $String* Method::toShortSignature() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringJoiner, sj, $new($StringJoiner, ","_s, $$str({$(getName()), "("_s}), ")"_s));
 	{
 		$var($ClassArray, arr$, getParameterTypes());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* parameterType = arr$->get(i$);
 			{
 				sj->add($($nc(parameterType)->getTypeName()));
@@ -395,7 +288,7 @@ $String* Method::toGenericString() {
 }
 
 void Method::specificToGenericStringHeader($StringBuilder* sb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, genRetType, getGenericReturnType());
 	$nc(sb)->append($($nc(genRetType)->getTypeName()))->append(u' ');
 	sb->append($($nc(getDeclaringClass())->getTypeName()))->append(u'.');
@@ -411,11 +304,11 @@ $Object* Method::invoke(Object$* obj, $ObjectArray* args) {
 	if (ma == nullptr) {
 		$assign(ma, acquireMethodAccessor());
 	}
-	return $of($nc(ma)->invoke(obj, args));
+	return $nc(ma)->invoke(obj, args);
 }
 
 bool Method::isBridge() {
-	return ((int32_t)(getModifiers() & (uint32_t)$Modifier::BRIDGE)) != 0;
+	return (getModifiers() & $Modifier::BRIDGE) != 0;
 }
 
 bool Method::isVarArgs() {
@@ -427,14 +320,14 @@ bool Method::isSynthetic() {
 }
 
 bool Method::isDefault() {
-	bool var$0 = (((int32_t)(getModifiers() & (uint32_t)(($Modifier::ABSTRACT | $Modifier::PUBLIC) | $Modifier::STATIC))) == $Modifier::PUBLIC);
+	bool var$0 = (getModifiers() & (($Modifier::ABSTRACT | $Modifier::PUBLIC) | $Modifier::STATIC)) == $Modifier::PUBLIC;
 	return var$0 && $nc(getDeclaringClass())->isInterface();
 }
 
 $MethodAccessor* Method::acquireMethodAccessor() {
 	$var($MethodAccessor, tmp, nullptr);
 	if (this->root != nullptr) {
-		$assign(tmp, $nc(this->root)->getMethodAccessor());
+		$assign(tmp, this->root->getMethodAccessor());
 	}
 	if (tmp != nullptr) {
 		$set(this, methodAccessor, tmp);
@@ -453,36 +346,35 @@ $MethodAccessor* Method::getMethodAccessor() {
 void Method::setMethodAccessor($MethodAccessor* accessor) {
 	$set(this, methodAccessor, accessor);
 	if (this->root != nullptr) {
-		$nc(this->root)->setMethodAccessor(accessor);
+		this->root->setMethodAccessor(accessor);
 	}
 }
 
 $Object* Method::getDefaultValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->annotationDefault == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$Class* memberType = $AnnotationType::invocationHandlerReturnType(getReturnType());
-	$Class* var$0 = memberType;
-	$var($ByteBuffer, var$1, $ByteBuffer::wrap(this->annotationDefault));
-	$var($ConstantPool, var$2, $nc($($SharedSecrets::getJavaLangAccess()))->getConstantPool(getDeclaringClass()));
-	$var($Object, result, $AnnotationParser::parseMemberValue(var$0, var$1, var$2, getDeclaringClass()));
+	$var($ByteBuffer, var$0, $ByteBuffer::wrap(this->annotationDefault));
+	$var($ConstantPool, var$1, $$nc($SharedSecrets::getJavaLangAccess())->getConstantPool(getDeclaringClass()));
+	$var($Object, result, $AnnotationParser::parseMemberValue(memberType, var$0, var$1, getDeclaringClass()));
 	if ($instanceOf($ExceptionProxy, result)) {
 		{
 			$var($TypeNotPresentExceptionProxy, proxy, nullptr);
-			bool var$3 = $instanceOf($TypeNotPresentExceptionProxy, result);
-			if (var$3) {
+			bool var$2 = $instanceOf($TypeNotPresentExceptionProxy, result);
+			if (var$2) {
 				$assign(proxy, $cast($TypeNotPresentExceptionProxy, result));
-				var$3 = true;
+				var$2 = true;
 			}
-			if (var$3) {
-				$var($String, var$4, $nc(proxy)->typeName());
-				$throwNew($TypeNotPresentException, var$4, $(proxy->getCause()));
+			if (var$2) {
+				$var($String, var$3, $nc(proxy)->typeName());
+				$throwNew($TypeNotPresentException, var$3, $(proxy->getCause()));
 			}
 		}
 		$throwNew($AnnotationFormatError, $$str({"Invalid default: "_s, this}));
 	}
-	return $of(result);
+	return result;
 }
 
 $Annotation* Method::getAnnotation($Class* annotationClass) {
@@ -508,6 +400,107 @@ bool Method::handleParameterNumberMismatch(int32_t resultLength, $ClassArray* pa
 
 Method::Method() {
 }
+
+$Class* Method::load$($String* name, bool initialize) {
+	$CompoundAttribute clazzfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute modifiersfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"clazz", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Method, clazz), clazzfieldAnnotations$$},
+		{"slot", "I", nullptr, $PRIVATE, $field(Method, slot)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Method, name)},
+		{"returnType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Method, returnType)},
+		{"parameterTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(Method, parameterTypes)},
+		{"exceptionTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(Method, exceptionTypes)},
+		{"modifiers", "I", nullptr, $PRIVATE, $field(Method, modifiers), modifiersfieldAnnotations$$},
+		{"signature", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(Method, signature)},
+		{"genericInfo", "Lsun/reflect/generics/repository/MethodRepository;", nullptr, $PRIVATE | $TRANSIENT, $field(Method, genericInfo)},
+		{"annotations", "[B", nullptr, $PRIVATE, $field(Method, annotations)},
+		{"parameterAnnotations", "[B", nullptr, $PRIVATE, $field(Method, parameterAnnotations)},
+		{"annotationDefault", "[B", nullptr, $PRIVATE, $field(Method, annotationDefault)},
+		{"methodAccessor", "Ljdk/internal/reflect/MethodAccessor;", nullptr, $PRIVATE | $VOLATILE, $field(Method, methodAccessor)},
+		{"root", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(Method, root)},
+		{}
+	};
+	$CompoundAttribute invokemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute setAccessiblemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;IILjava/lang/String;[B[B[B)V", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;IILjava/lang/String;[B[B[B)V", 0, $method(Method, init$, void, $Class*, $String*, $ClassArray*, $Class*, $ClassArray*, int32_t, int32_t, $String*, $bytes*, $bytes*, $bytes*)},
+		{"acquireMethodAccessor", "()Ljdk/internal/reflect/MethodAccessor;", nullptr, $PRIVATE, $method(Method, acquireMethodAccessor, $MethodAccessor*)},
+		{"checkCanSetAccessible", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $virtualMethod(Method, checkCanSetAccessible, void, $Class*)},
+		{"copy", "()Ljava/lang/reflect/Method;", nullptr, 0, $method(Method, copy, Method*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Method, equals, bool, Object$*)},
+		{"getAnnotatedReturnType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(Method, getAnnotatedReturnType, $AnnotatedType*)},
+		{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(Method, getAnnotation, $Annotation*, $Class*)},
+		{"getAnnotationBytes", "()[B", nullptr, 0, $virtualMethod(Method, getAnnotationBytes, $bytes*)},
+		{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Method, getDeclaredAnnotations, $AnnotationArray*)},
+		{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Method, getDeclaringClass, $Class*)},
+		{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(Method, getDefaultValue, $Object*)},
+		{"getExceptionTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Method, getExceptionTypes, $ClassArray*)},
+		{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(Method, getFactory, $GenericsFactory*)},
+		{"getGenericExceptionTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(Method, getGenericExceptionTypes, $TypeArray*)},
+		{"getGenericInfo", "()Lsun/reflect/generics/repository/MethodRepository;", nullptr, 0, $virtualMethod(Method, getGenericInfo, $ConstructorRepository*)},
+		{"getGenericParameterTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(Method, getGenericParameterTypes, $TypeArray*)},
+		{"getGenericReturnType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $method(Method, getGenericReturnType, $Type*)},
+		{"getGenericSignature", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Method, getGenericSignature, $String*)},
+		{"getMethodAccessor", "()Ljdk/internal/reflect/MethodAccessor;", nullptr, 0, $method(Method, getMethodAccessor, $MethodAccessor*)},
+		{"getModifiers", "()I", nullptr, $PUBLIC, $virtualMethod(Method, getModifiers, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, getName, $String*)},
+		{"getParameterAnnotations", "()[[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Method, getParameterAnnotations, $AnnotationArray2*)},
+		{"getParameterCount", "()I", nullptr, $PUBLIC, $virtualMethod(Method, getParameterCount, int32_t)},
+		{"getParameterTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Method, getParameterTypes, $ClassArray*)},
+		{"getReturnType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Method, getReturnType, $Class*)},
+		{"getRoot", "()Ljava/lang/reflect/Method;", nullptr, 0, $virtualMethod(Method, getRoot, Method*)},
+		{"getSharedExceptionTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", 0, $virtualMethod(Method, getSharedExceptionTypes, $ClassArray*)},
+		{"getSharedParameterTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", 0, $virtualMethod(Method, getSharedParameterTypes, $ClassArray*)},
+		{"getTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<Ljava/lang/reflect/Method;>;", $PUBLIC, $virtualMethod(Method, getTypeParameters, $TypeVariableArray*)},
+		{"handleParameterNumberMismatch", "(I[Ljava/lang/Class;)Z", "(I[Ljava/lang/Class<*>;)Z", 0, $virtualMethod(Method, handleParameterNumberMismatch, bool, int32_t, $ClassArray*)},
+		{"hasGenericInformation", "()Z", nullptr, 0, $virtualMethod(Method, hasGenericInformation, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Method, hashCode, int32_t)},
+		{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT, $method(Method, invoke, $Object*, Object$*, $ObjectArray*), "java.lang.IllegalAccessException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException", nullptr, invokemethodAnnotations$$},
+		{"isBridge", "()Z", nullptr, $PUBLIC, $method(Method, isBridge, bool)},
+		{"isDefault", "()Z", nullptr, $PUBLIC, $method(Method, isDefault, bool)},
+		{"isSynthetic", "()Z", nullptr, $PUBLIC, $virtualMethod(Method, isSynthetic, bool)},
+		{"isVarArgs", "()Z", nullptr, $PUBLIC, $virtualMethod(Method, isVarArgs, bool)},
+		{"leafCopy", "()Ljava/lang/reflect/Method;", nullptr, 0, $method(Method, leafCopy, Method*)},
+		{"setAccessible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Method, setAccessible, void, bool), nullptr, nullptr, setAccessiblemethodAnnotations$$},
+		{"setMethodAccessor", "(Ljdk/internal/reflect/MethodAccessor;)V", nullptr, 0, $method(Method, setMethodAccessor, void, $MethodAccessor*)},
+		{"specificToGenericStringHeader", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(Method, specificToGenericStringHeader, void, $StringBuilder*)},
+		{"specificToStringHeader", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(Method, specificToStringHeader, void, $StringBuilder*)},
+		{"toGenericString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, toGenericString, $String*)},
+		{"toShortSignature", "()Ljava/lang/String;", nullptr, 0, $method(Method, toShortSignature, $String*)},
+		{"toShortString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Method, toShortString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.reflect.Method",
+		"java.lang.reflect.Executable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Method, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Method));
+	});
+	return class$;
+}
+
+$Class* Method::class$ = nullptr;
 
 bool Method::isStatic() {
 	return (getModifiers() & Modifier::STATIC) != 0;
@@ -554,13 +547,6 @@ $String* Method::getDescriptor() {
 	sb->append($ref(returnType->descriptorString()));
 	return $ref(sb->toString())->replace(u'.', u'/');
 }
-
-$Class* Method::load$($String* name, bool initialize) {
-	$loadClass(Method, name, initialize, &_Method_ClassInfo_, allocate$Method);
-	return class$;
-}
-
-$Class* Method::class$ = nullptr;
 
 		} // reflect
 	} // lang

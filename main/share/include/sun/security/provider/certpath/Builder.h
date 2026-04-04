@@ -59,6 +59,7 @@ class $import Builder : public ::java::lang::Object {
 	$class(Builder, 0, ::java::lang::Object)
 public:
 	Builder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::provider::certpath::PKIX$BuilderParams* buildParams);
 	virtual void addCertToPath(::java::security::cert::X509Certificate* cert, ::java::util::LinkedList* certPathList) {}
 	virtual bool addMatchingCerts(::java::security::cert::X509CertSelector* selector, ::java::util::Collection* certStores, ::java::util::Collection* resultCerts, bool checkAll);

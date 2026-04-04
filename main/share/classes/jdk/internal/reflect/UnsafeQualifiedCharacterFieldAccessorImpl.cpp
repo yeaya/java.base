@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/UnsafeQualifiedCharacterFieldAccessorImpl.h>
-
 #include <java/lang/reflect/Field.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jdk/internal/reflect/UnsafeFieldAccessorImpl.h>
@@ -10,49 +9,12 @@ using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Field = ::java::lang::reflect::Field;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $UnsafeFieldAccessorImpl = ::jdk::internal::reflect::UnsafeFieldAccessorImpl;
 using $UnsafeQualifiedFieldAccessorImpl = ::jdk::internal::reflect::UnsafeQualifiedFieldAccessorImpl;
 
 namespace jdk {
 	namespace internal {
 		namespace reflect {
-
-$MethodInfo _UnsafeQualifiedCharacterFieldAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Field;Z)V", nullptr, 0, $method(UnsafeQualifiedCharacterFieldAccessorImpl, init$, void, $Field*, bool)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, get, $Object*, Object$*), "java.lang.IllegalArgumentException"},
-	{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getBoolean, bool, Object$*), "java.lang.IllegalArgumentException"},
-	{"getByte", "(Ljava/lang/Object;)B", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getByte, int8_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getChar", "(Ljava/lang/Object;)C", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getChar, char16_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getDouble, double, Object$*), "java.lang.IllegalArgumentException"},
-	{"getFloat", "(Ljava/lang/Object;)F", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getFloat, float, Object$*), "java.lang.IllegalArgumentException"},
-	{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getInt, int32_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getLong, int64_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"getShort", "(Ljava/lang/Object;)S", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getShort, int16_t, Object$*), "java.lang.IllegalArgumentException"},
-	{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, set, void, Object$*, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setBoolean", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setBoolean, void, Object$*, bool), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setByte", "(Ljava/lang/Object;B)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setByte, void, Object$*, int8_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setChar", "(Ljava/lang/Object;C)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setChar, void, Object$*, char16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setDouble", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setDouble, void, Object$*, double), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setFloat", "(Ljava/lang/Object;F)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setFloat, void, Object$*, float), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setInt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setInt, void, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setLong", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setLong, void, Object$*, int64_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{"setShort", "(Ljava/lang/Object;S)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setShort, void, Object$*, int16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
-	{}
-};
-
-$ClassInfo _UnsafeQualifiedCharacterFieldAccessorImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.reflect.UnsafeQualifiedCharacterFieldAccessorImpl",
-	"jdk.internal.reflect.UnsafeQualifiedFieldAccessorImpl",
-	nullptr,
-	nullptr,
-	_UnsafeQualifiedCharacterFieldAccessorImpl_MethodInfo_
-};
-
-$Object* allocate$UnsafeQualifiedCharacterFieldAccessorImpl($Class* clazz) {
-	return $of($alloc(UnsafeQualifiedCharacterFieldAccessorImpl));
-}
 
 void UnsafeQualifiedCharacterFieldAccessorImpl::init$($Field* field, bool isReadOnly) {
 	$UnsafeQualifiedFieldAccessorImpl::init$(field, isReadOnly);
@@ -109,7 +71,7 @@ void UnsafeQualifiedCharacterFieldAccessorImpl::set(Object$* obj, Object$* value
 	}
 	if ($instanceOf($Character, value)) {
 		$init($UnsafeFieldAccessorImpl);
-		$nc($UnsafeFieldAccessorImpl::unsafe)->putCharVolatile(obj, this->fieldOffset, $nc(($cast($Character, value)))->charValue());
+		$nc($UnsafeFieldAccessorImpl::unsafe)->putCharVolatile(obj, this->fieldOffset, $cast($Character, value)->charValue());
 		return;
 	}
 	throwSetIllegalArgumentException(value);
@@ -156,7 +118,39 @@ UnsafeQualifiedCharacterFieldAccessorImpl::UnsafeQualifiedCharacterFieldAccessor
 }
 
 $Class* UnsafeQualifiedCharacterFieldAccessorImpl::load$($String* name, bool initialize) {
-	$loadClass(UnsafeQualifiedCharacterFieldAccessorImpl, name, initialize, &_UnsafeQualifiedCharacterFieldAccessorImpl_ClassInfo_, allocate$UnsafeQualifiedCharacterFieldAccessorImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Field;Z)V", nullptr, 0, $method(UnsafeQualifiedCharacterFieldAccessorImpl, init$, void, $Field*, bool)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, get, $Object*, Object$*), "java.lang.IllegalArgumentException"},
+		{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getBoolean, bool, Object$*), "java.lang.IllegalArgumentException"},
+		{"getByte", "(Ljava/lang/Object;)B", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getByte, int8_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getChar", "(Ljava/lang/Object;)C", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getChar, char16_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getDouble, double, Object$*), "java.lang.IllegalArgumentException"},
+		{"getFloat", "(Ljava/lang/Object;)F", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getFloat, float, Object$*), "java.lang.IllegalArgumentException"},
+		{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getInt, int32_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getLong, int64_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"getShort", "(Ljava/lang/Object;)S", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, getShort, int16_t, Object$*), "java.lang.IllegalArgumentException"},
+		{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, set, void, Object$*, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setBoolean", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setBoolean, void, Object$*, bool), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setByte", "(Ljava/lang/Object;B)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setByte, void, Object$*, int8_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setChar", "(Ljava/lang/Object;C)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setChar, void, Object$*, char16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setDouble", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setDouble, void, Object$*, double), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setFloat", "(Ljava/lang/Object;F)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setFloat, void, Object$*, float), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setInt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setInt, void, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setLong", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setLong, void, Object$*, int64_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{"setShort", "(Ljava/lang/Object;S)V", nullptr, $PUBLIC, $virtualMethod(UnsafeQualifiedCharacterFieldAccessorImpl, setShort, void, Object$*, int16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.reflect.UnsafeQualifiedCharacterFieldAccessorImpl",
+		"jdk.internal.reflect.UnsafeQualifiedFieldAccessorImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnsafeQualifiedCharacterFieldAccessorImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnsafeQualifiedCharacterFieldAccessorImpl));
+	});
 	return class$;
 }
 

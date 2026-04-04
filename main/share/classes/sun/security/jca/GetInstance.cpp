@@ -1,5 +1,4 @@
 #include <sun/security/jca/GetInstance.h>
-
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/NoSuchProviderException.h>
 #include <java/security/Provider$Service.h>
@@ -30,60 +29,11 @@ namespace sun {
 	namespace security {
 		namespace jca {
 
-$CompoundAttribute _GetInstance_MethodAnnotations_getServices14[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _GetInstance_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GetInstance, init$, void)},
-	{"checkSuperClass", "(Ljava/security/Provider$Service;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/security/Provider$Service;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(GetInstance, checkSuperClass, void, $Provider$Service*, $Class*, $Class*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Object;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, Object$*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, Object$*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Object;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, Object$*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/security/Provider$Service;Ljava/lang/Class;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/security/Provider$Service;Ljava/lang/Class<*>;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $Provider$Service*, $Class*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/security/Provider$Service;Ljava/lang/Class;Ljava/lang/Object;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/security/Provider$Service;Ljava/lang/Class<*>;Ljava/lang/Object;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $Provider$Service*, $Class*, Object$*), "java.security.NoSuchAlgorithmException"},
-	{"getService", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/Provider$Service;", nullptr, $PUBLIC | $STATIC, $staticMethod(GetInstance, getService, $Provider$Service*, $String*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getService", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/security/Provider$Service;", nullptr, $PUBLIC | $STATIC, $staticMethod(GetInstance, getService, $Provider$Service*, $String*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getService", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)Ljava/security/Provider$Service;", nullptr, $PUBLIC | $STATIC, $staticMethod(GetInstance, getService, $Provider$Service*, $String*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getServices", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getServices, $List*, $String*, $String*)},
-	{"getServices", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(GetInstance, getServices, $List*, $String*, $List*), nullptr, nullptr, _GetInstance_MethodAnnotations_getServices14},
-	{"getServices", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Lsun/security/jca/ServiceId;>;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getServices, $List*, $List*)},
-	{}
-};
-
-$InnerClassInfo _GetInstance_InnerClassesInfo_[] = {
-	{"sun.security.jca.GetInstance$Instance", "sun.security.jca.GetInstance", "Instance", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _GetInstance_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jca.GetInstance",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_GetInstance_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetInstance_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jca.GetInstance$Instance"
-};
-
-$Object* allocate$GetInstance($Class* clazz) {
-	return $of($alloc(GetInstance));
-}
-
 void GetInstance::init$() {
 }
 
 $Provider$Service* GetInstance::getService($String* type, $String* algorithm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProviderList, list, $Providers::getProviderList());
 	$var($Provider$Service, s, $nc(list)->getService(type, algorithm));
 	if (s == nullptr) {
@@ -93,11 +43,11 @@ $Provider$Service* GetInstance::getService($String* type, $String* algorithm) {
 }
 
 $Provider$Service* GetInstance::getService($String* type, $String* algorithm, $String* provider) {
-	$useLocalCurrentObjectStackCache();
-	if (provider == nullptr || $nc(provider)->isEmpty()) {
+	$useLocalObjectStack();
+	if (provider == nullptr || provider->isEmpty()) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
 	}
-	$var($Provider, p, $nc($($Providers::getProviderList()))->getProvider(provider));
+	$var($Provider, p, $$nc($Providers::getProviderList())->getProvider(provider));
 	if (p == nullptr) {
 		$throwNew($NoSuchProviderException, $$str({"no such provider: "_s, provider}));
 	}
@@ -109,7 +59,7 @@ $Provider$Service* GetInstance::getService($String* type, $String* algorithm, $S
 }
 
 $Provider$Service* GetInstance::getService($String* type, $String* algorithm, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
 	}
@@ -136,7 +86,7 @@ $List* GetInstance::getServices($List* ids) {
 }
 
 $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $String* algorithm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProviderList, list, $Providers::getProviderList());
 	$var($Provider$Service, firstService, $nc(list)->getService(type, algorithm));
 	if (firstService == nullptr) {
@@ -149,7 +99,7 @@ $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $S
 		$assign(failure, e);
 	}
 	{
-		$var($Iterator, i$, $nc($(list->getServices(type, algorithm)))->iterator());
+		$var($Iterator, i$, $$nc(list->getServices(type, algorithm))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Provider$Service, s, $cast($Provider$Service, i$->next()));
 			{
@@ -169,19 +119,17 @@ $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $S
 }
 
 $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $String* algorithm, Object$* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, services, getServices(type, algorithm));
 	$var($NoSuchAlgorithmException, failure, nullptr);
 	{
 		$var($Iterator, i$, $nc(services)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Provider$Service, s, $cast($Provider$Service, i$->next()));
-			{
-				try {
-					return getInstance(s, clazz, param);
-				} catch ($NoSuchAlgorithmException& e) {
-					$assign(failure, e);
-				}
+			try {
+				return getInstance(s, clazz, param);
+			} catch ($NoSuchAlgorithmException& e) {
+				$assign(failure, e);
 			}
 		}
 	}
@@ -210,29 +158,33 @@ $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $S
 }
 
 $GetInstance$Instance* GetInstance::getInstance($Provider$Service* s, $Class* clazz) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, instance, $nc(s)->newInstance(nullptr));
-	checkSuperClass(s, $nc($of(instance))->getClass(), clazz);
+	checkSuperClass(s, $nc(instance)->getClass(), clazz);
 	return $new($GetInstance$Instance, $(s->getProvider()), instance);
 }
 
 $GetInstance$Instance* GetInstance::getInstance($Provider$Service* s, $Class* clazz, Object$* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, instance, $nc(s)->newInstance(param));
-	checkSuperClass(s, $nc($of(instance))->getClass(), clazz);
+	checkSuperClass(s, $nc(instance)->getClass(), clazz);
 	return $new($GetInstance$Instance, $(s->getProvider()), instance);
 }
 
 void GetInstance::checkSuperClass($Provider$Service* s, $Class* subClass, $Class* superClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (superClass == nullptr) {
 		return;
 	}
 	if ($nc(superClass)->isAssignableFrom(subClass) == false) {
-		$var($String, var$2, $$str({"class configured for "_s, $($nc(s)->getType()), ": "_s}));
-		$var($String, var$1, $$concat(var$2, $(s->getClassName())));
-		$var($String, var$0, $$concat(var$1, " not a "_s));
-		$throwNew($NoSuchAlgorithmException, $$concat(var$0, $(s->getType())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("class configured for "_s);
+		var$0->append($($nc(s)->getType()));
+		var$0->append(": "_s);
+		var$0->append($(s->getClassName()));
+		var$0->append(" not a "_s);
+		var$0->append($(s->getType()));
+		$throwNew($NoSuchAlgorithmException, $$str(var$0));
 	}
 }
 
@@ -240,7 +192,50 @@ GetInstance::GetInstance() {
 }
 
 $Class* GetInstance::load$($String* name, bool initialize) {
-	$loadClass(GetInstance, name, initialize, &_GetInstance_ClassInfo_, allocate$GetInstance);
+	$CompoundAttribute getServicesmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GetInstance, init$, void)},
+		{"checkSuperClass", "(Ljava/security/Provider$Service;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/security/Provider$Service;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(GetInstance, checkSuperClass, void, $Provider$Service*, $Class*, $Class*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Object;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, Object$*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, Object$*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Object;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, Object$*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/security/Provider$Service;Ljava/lang/Class;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/security/Provider$Service;Ljava/lang/Class<*>;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $Provider$Service*, $Class*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/security/Provider$Service;Ljava/lang/Class;Ljava/lang/Object;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/security/Provider$Service;Ljava/lang/Class<*>;Ljava/lang/Object;)Lsun/security/jca/GetInstance$Instance;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getInstance, $GetInstance$Instance*, $Provider$Service*, $Class*, Object$*), "java.security.NoSuchAlgorithmException"},
+		{"getService", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/Provider$Service;", nullptr, $PUBLIC | $STATIC, $staticMethod(GetInstance, getService, $Provider$Service*, $String*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getService", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/security/Provider$Service;", nullptr, $PUBLIC | $STATIC, $staticMethod(GetInstance, getService, $Provider$Service*, $String*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getService", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)Ljava/security/Provider$Service;", nullptr, $PUBLIC | $STATIC, $staticMethod(GetInstance, getService, $Provider$Service*, $String*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getServices", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getServices, $List*, $String*, $String*)},
+		{"getServices", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(GetInstance, getServices, $List*, $String*, $List*), nullptr, nullptr, getServicesmethodAnnotations$$$1},
+		{"getServices", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Lsun/security/jca/ServiceId;>;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC | $STATIC, $staticMethod(GetInstance, getServices, $List*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jca.GetInstance$Instance", "sun.security.jca.GetInstance", "Instance", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jca.GetInstance",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jca.GetInstance$Instance"
+	};
+	$loadClass(GetInstance, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetInstance);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/time/chrono/Era.h>
-
 #include <java/time/format/DateTimeFormatter.h>
 #include <java/time/format/DateTimeFormatterBuilder.h>
 #include <java/time/format/TextStyle.h>
@@ -20,7 +19,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $TextStyle = ::java::time::format::TextStyle;
 using $ChronoField = ::java::time::temporal::ChronoField;
@@ -37,36 +35,6 @@ using $Locale = ::java::util::Locale;
 namespace java {
 	namespace time {
 		namespace chrono {
-
-$MethodInfo _Era_MethodInfo_[] = {
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Era, adjustInto, $Temporal*, $Temporal*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(Era, get, int32_t, $TemporalField*)},
-	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Era, getDisplayName, $String*, $TextStyle*, $Locale*)},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(Era, getLong, int64_t, $TemporalField*)},
-	{"getValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Era, getValue, int32_t)},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(Era, isSupported, bool, $TemporalField*)},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(Era, query, $Object*, $TemporalQuery*)},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(Era, range, $ValueRange*, $TemporalField*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Era_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.time.chrono.Era",
-	nullptr,
-	"java.time.temporal.TemporalAccessor,java.time.temporal.TemporalAdjuster",
-	nullptr,
-	_Era_MethodInfo_
-};
-
-$Object* allocate$Era($Class* clazz) {
-	return $of($alloc(Era));
-}
 
 int32_t Era::hashCode() {
 	 return this->$TemporalAccessor::hashCode();
@@ -121,9 +89,9 @@ int64_t Era::getLong($TemporalField* field) {
 $Object* Era::query($TemporalQuery* query) {
 	if (query == $TemporalQueries::precision()) {
 		$init($ChronoUnit);
-		return $of($of($ChronoUnit::ERAS));
+		return $of($ChronoUnit::ERAS);
 	}
-	return $of($TemporalAccessor::query(query));
+	return $TemporalAccessor::query(query);
 }
 
 $Temporal* Era::adjustInto($Temporal* temporal) {
@@ -132,13 +100,39 @@ $Temporal* Era::adjustInto($Temporal* temporal) {
 }
 
 $String* Era::getDisplayName($TextStyle* style, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	return $nc($($nc($($$new($DateTimeFormatterBuilder)->appendText(static_cast<$TemporalField*>($ChronoField::ERA), style)))->toFormatter(locale)))->format(this);
+	return $$nc($$nc($$new($DateTimeFormatterBuilder)->appendText($ChronoField::ERA, style))->toFormatter(locale))->format(this);
 }
 
 $Class* Era::load$($String* name, bool initialize) {
-	$loadClass(Era, name, initialize, &_Era_ClassInfo_, allocate$Era);
+	$MethodInfo methodInfos$$[] = {
+		{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Era, adjustInto, $Temporal*, $Temporal*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(Era, get, int32_t, $TemporalField*)},
+		{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Era, getDisplayName, $String*, $TextStyle*, $Locale*)},
+		{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(Era, getLong, int64_t, $TemporalField*)},
+		{"getValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Era, getValue, int32_t)},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(Era, isSupported, bool, $TemporalField*)},
+		{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(Era, query, $Object*, $TemporalQuery*)},
+		{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(Era, range, $ValueRange*, $TemporalField*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.time.chrono.Era",
+		nullptr,
+		"java.time.temporal.TemporalAccessor,java.time.temporal.TemporalAdjuster",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Era, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Era));
+	});
 	return class$;
 }
 

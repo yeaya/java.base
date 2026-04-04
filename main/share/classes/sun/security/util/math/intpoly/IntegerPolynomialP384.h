@@ -36,6 +36,7 @@ class $export IntegerPolynomialP384 : public ::sun::security::util::math::intpol
 public:
 	IntegerPolynomialP384();
 	using ::sun::security::util::math::intpoly::IntegerPolynomial::getElement;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void carryReduce($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13, int64_t c14, int64_t c15, int64_t c16, int64_t c17, int64_t c18, int64_t c19, int64_t c20, int64_t c21, int64_t c22, int64_t c23, int64_t c24, int64_t c25, int64_t c26);
 	void carryReduce($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13);
@@ -51,7 +52,7 @@ public:
 	static const int32_t MAX_ADDS = 2;
 	static ::java::math::BigInteger* MODULUS;
 	static const int64_t CARRY_ADD = 134217728; // 1 << 27
-	static const int32_t LIMB_MASK = 0x0FFFFFFF; // -1 >>> (64 - BITS_PER_LIMB)
+	static const int32_t LIMB_MASK = 0x0fffffff; // -1 >>> (64 - BITS_PER_LIMB)
 };
 
 				} // intpoly

@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl$9.h>
-
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
 #include <java/util/spi/LocaleNameProvider.h>
@@ -12,7 +11,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
-using $Set = ::java::util::Set;
 using $LocaleNameProvider = ::java::util::spi::LocaleNameProvider;
 using $HostLocaleProviderAdapterImpl = ::sun::util::locale::provider::HostLocaleProviderAdapterImpl;
 
@@ -20,48 +18,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$MethodInfo _HostLocaleProviderAdapterImpl$9_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$9, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, getAvailableLocales, $LocaleArray*)},
-	{"getDisplayCountry", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, getDisplayCountry, $String*, $String*, $Locale*)},
-	{"getDisplayLanguage", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, getDisplayLanguage, $String*, $String*, $Locale*)},
-	{"getDisplayScript", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, getDisplayScript, $String*, $String*, $Locale*)},
-	{"getDisplayVariant", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, getDisplayVariant, $String*, $String*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, isSupportedLocale, bool, $Locale*)},
-	{}
-};
-
-$EnclosingMethodInfo _HostLocaleProviderAdapterImpl$9_EnclosingMethodInfo_ = {
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
-	"getLocaleNameProvider",
-	"()Ljava/util/spi/LocaleNameProvider;"
-};
-
-$InnerClassInfo _HostLocaleProviderAdapterImpl$9_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$9", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HostLocaleProviderAdapterImpl$9_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl$9",
-	"java.util.spi.LocaleNameProvider",
-	nullptr,
-	nullptr,
-	_HostLocaleProviderAdapterImpl$9_MethodInfo_,
-	nullptr,
-	&_HostLocaleProviderAdapterImpl$9_EnclosingMethodInfo_,
-	_HostLocaleProviderAdapterImpl$9_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
-};
-
-$Object* allocate$HostLocaleProviderAdapterImpl$9($Class* clazz) {
-	return $of($alloc(HostLocaleProviderAdapterImpl$9));
-}
 
 void HostLocaleProviderAdapterImpl$9::init$() {
 	$LocaleNameProvider::init$();
@@ -73,10 +29,10 @@ $LocaleArray* HostLocaleProviderAdapterImpl$9::getAvailableLocales() {
 }
 
 bool HostLocaleProviderAdapterImpl$9::isSupportedLocale($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HostLocaleProviderAdapterImpl);
 	bool var$0 = $nc($HostLocaleProviderAdapterImpl::supportedLocaleSet)->contains($($nc(locale)->stripExtensions()));
-	return var$0 && $nc($($nc(locale)->getLanguage()))->equals($HostLocaleProviderAdapterImpl::nativeDisplayLanguage);
+	return var$0 && $$nc(locale->getLanguage())->equals($HostLocaleProviderAdapterImpl::nativeDisplayLanguage);
 }
 
 $String* HostLocaleProviderAdapterImpl$9::getDisplayLanguage($String* languageCode, $Locale* locale) {
@@ -84,7 +40,7 @@ $String* HostLocaleProviderAdapterImpl$9::getDisplayLanguage($String* languageCo
 }
 
 $String* HostLocaleProviderAdapterImpl$9::getDisplayCountry($String* countryCode, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HostLocaleProviderAdapterImpl);
 	$var($String, str, $HostLocaleProviderAdapterImpl::getDisplayString($($nc(locale)->toLanguageTag()), 4, $$str({$HostLocaleProviderAdapterImpl::nativeDisplayLanguage, "-"_s, countryCode})));
 	if (str != nullptr && str->endsWith($$str({"("_s, countryCode, ")"_s}))) {
@@ -105,7 +61,43 @@ HostLocaleProviderAdapterImpl$9::HostLocaleProviderAdapterImpl$9() {
 }
 
 $Class* HostLocaleProviderAdapterImpl$9::load$($String* name, bool initialize) {
-	$loadClass(HostLocaleProviderAdapterImpl$9, name, initialize, &_HostLocaleProviderAdapterImpl$9_ClassInfo_, allocate$HostLocaleProviderAdapterImpl$9);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$9, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, getAvailableLocales, $LocaleArray*)},
+		{"getDisplayCountry", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, getDisplayCountry, $String*, $String*, $Locale*)},
+		{"getDisplayLanguage", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, getDisplayLanguage, $String*, $String*, $Locale*)},
+		{"getDisplayScript", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, getDisplayScript, $String*, $String*, $Locale*)},
+		{"getDisplayVariant", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, getDisplayVariant, $String*, $String*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$9, isSupportedLocale, bool, $Locale*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
+		"getLocaleNameProvider",
+		"()Ljava/util/spi/LocaleNameProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$9", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl$9",
+		"java.util.spi.LocaleNameProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
+	};
+	$loadClass(HostLocaleProviderAdapterImpl$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostLocaleProviderAdapterImpl$9);
+	});
 	return class$;
 }
 

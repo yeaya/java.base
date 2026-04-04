@@ -1,5 +1,4 @@
 #include <sun/security/pkcs12/MacData.h>
-
 #include <java/security/AlgorithmParameters.h>
 #include <sun/security/pkcs/ParsingException.h>
 #include <sun/security/util/DerInputStream.h>
@@ -25,58 +24,23 @@ namespace sun {
 	namespace security {
 		namespace pkcs12 {
 
-$FieldInfo _MacData_FieldInfo_[] = {
-	{"digestAlgorithmName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MacData, digestAlgorithmName)},
-	{"digestAlgorithmParams", "Ljava/security/AlgorithmParameters;", nullptr, $PRIVATE, $field(MacData, digestAlgorithmParams)},
-	{"digest", "[B", nullptr, $PRIVATE, $field(MacData, digest)},
-	{"macSalt", "[B", nullptr, $PRIVATE, $field(MacData, macSalt)},
-	{"iterations", "I", nullptr, $PRIVATE, $field(MacData, iterations)},
-	{"encoded", "[B", nullptr, $PRIVATE, $field(MacData, encoded)},
-	{}
-};
-
-$MethodInfo _MacData_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, 0, $method(MacData, init$, void, $DerInputStream*), "java.io.IOException,sun.security.pkcs.ParsingException"},
-	{"<init>", "(Ljava/lang/String;[B[BI)V", nullptr, 0, $method(MacData, init$, void, $String*, $bytes*, $bytes*, int32_t), "java.security.NoSuchAlgorithmException"},
-	{"<init>", "(Ljava/security/AlgorithmParameters;[B[BI)V", nullptr, 0, $method(MacData, init$, void, $AlgorithmParameters*, $bytes*, $bytes*, int32_t), "java.security.NoSuchAlgorithmException"},
-	{"getDigest", "()[B", nullptr, 0, $virtualMethod(MacData, getDigest, $bytes*)},
-	{"getDigestAlgName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MacData, getDigestAlgName, $String*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(MacData, getEncoded, $bytes*), "java.security.NoSuchAlgorithmException,java.io.IOException"},
-	{"getIterations", "()I", nullptr, 0, $virtualMethod(MacData, getIterations, int32_t)},
-	{"getSalt", "()[B", nullptr, 0, $virtualMethod(MacData, getSalt, $bytes*)},
-	{}
-};
-
-$ClassInfo _MacData_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.pkcs12.MacData",
-	"java.lang.Object",
-	nullptr,
-	_MacData_FieldInfo_,
-	_MacData_MethodInfo_
-};
-
-$Object* allocate$MacData($Class* clazz) {
-	return $of($alloc(MacData));
-}
-
 void MacData::init$($DerInputStream* derin) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, encoded, nullptr);
 	$var($DerValueArray, macData, $nc(derin)->getSequence(2));
-	if ($nc(macData)->length < 2 || $nc(macData)->length > 3) {
+	if ($nc(macData)->length < 2 || macData->length > 3) {
 		$throwNew($ParsingException, "Invalid length for MacData"_s);
 	}
-	$var($DerInputStream, digestIn, $new($DerInputStream, $($nc($nc(macData)->get(0))->toByteArray())));
+	$var($DerInputStream, digestIn, $new($DerInputStream, $($nc(macData->get(0))->toByteArray())));
 	$var($DerValueArray, digestInfo, digestIn->getSequence(2));
 	if ($nc(digestInfo)->length != 2) {
 		$throwNew($ParsingException, "Invalid length for DigestInfo"_s);
 	}
-	$var($AlgorithmId, digestAlgorithmId, $AlgorithmId::parse($nc(digestInfo)->get(0)));
+	$var($AlgorithmId, digestAlgorithmId, $AlgorithmId::parse(digestInfo->get(0)));
 	$set(this, digestAlgorithmName, $nc(digestAlgorithmId)->getName());
 	$set(this, digestAlgorithmParams, digestAlgorithmId->getParameters());
-	$set(this, digest, $nc($nc(digestInfo)->get(1))->getOctetString());
-	$set(this, macSalt, $nc($nc(macData)->get(1))->getOctetString());
+	$set(this, digest, $nc(digestInfo->get(1))->getOctetString());
+	$set(this, macSalt, $nc(macData->get(1))->getOctetString());
 	if (macData->length > 2) {
 		this->iterations = $nc(macData->get(2))->getInteger();
 	} else {
@@ -94,7 +58,7 @@ void MacData::init$($String* algName, $bytes* digest, $bytes* salt, int32_t iter
 	$set(this, digestAlgorithmParams, algid->getParameters());
 	if (digest == nullptr) {
 		$throwNew($NullPointerException, "the digest parameter must be non-null"_s);
-	} else if ($nc(digest)->length == 0) {
+	} else if (digest->length == 0) {
 		$throwNew($IllegalArgumentException, "the digest parameter must not be empty"_s);
 	} else {
 		$set(this, digest, $cast($bytes, digest->clone()));
@@ -114,7 +78,7 @@ void MacData::init$($AlgorithmParameters* algParams, $bytes* digest, $bytes* sal
 	$set(this, digestAlgorithmParams, algid->getParameters());
 	if (digest == nullptr) {
 		$throwNew($NullPointerException, "the digest parameter must be non-null"_s);
-	} else if ($nc(digest)->length == 0) {
+	} else if (digest->length == 0) {
 		$throwNew($IllegalArgumentException, "the digest parameter must not be empty"_s);
 	} else {
 		$set(this, digest, $cast($bytes, digest->clone()));
@@ -141,9 +105,9 @@ $bytes* MacData::getDigest() {
 }
 
 $bytes* MacData::getEncoded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->encoded != nullptr) {
-		return $cast($bytes, $nc(this->encoded)->clone());
+		return $cast($bytes, this->encoded->clone());
 	}
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -163,7 +127,37 @@ MacData::MacData() {
 }
 
 $Class* MacData::load$($String* name, bool initialize) {
-	$loadClass(MacData, name, initialize, &_MacData_ClassInfo_, allocate$MacData);
+	$FieldInfo fieldInfos$$[] = {
+		{"digestAlgorithmName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MacData, digestAlgorithmName)},
+		{"digestAlgorithmParams", "Ljava/security/AlgorithmParameters;", nullptr, $PRIVATE, $field(MacData, digestAlgorithmParams)},
+		{"digest", "[B", nullptr, $PRIVATE, $field(MacData, digest)},
+		{"macSalt", "[B", nullptr, $PRIVATE, $field(MacData, macSalt)},
+		{"iterations", "I", nullptr, $PRIVATE, $field(MacData, iterations)},
+		{"encoded", "[B", nullptr, $PRIVATE, $field(MacData, encoded)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, 0, $method(MacData, init$, void, $DerInputStream*), "java.io.IOException,sun.security.pkcs.ParsingException"},
+		{"<init>", "(Ljava/lang/String;[B[BI)V", nullptr, 0, $method(MacData, init$, void, $String*, $bytes*, $bytes*, int32_t), "java.security.NoSuchAlgorithmException"},
+		{"<init>", "(Ljava/security/AlgorithmParameters;[B[BI)V", nullptr, 0, $method(MacData, init$, void, $AlgorithmParameters*, $bytes*, $bytes*, int32_t), "java.security.NoSuchAlgorithmException"},
+		{"getDigest", "()[B", nullptr, 0, $virtualMethod(MacData, getDigest, $bytes*)},
+		{"getDigestAlgName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MacData, getDigestAlgName, $String*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(MacData, getEncoded, $bytes*), "java.security.NoSuchAlgorithmException,java.io.IOException"},
+		{"getIterations", "()I", nullptr, 0, $virtualMethod(MacData, getIterations, int32_t)},
+		{"getSalt", "()[B", nullptr, 0, $virtualMethod(MacData, getSalt, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.pkcs12.MacData",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MacData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MacData);
+	});
 	return class$;
 }
 

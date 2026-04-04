@@ -57,6 +57,7 @@ class $import FilePermission : public ::java::security::Permission {
 	$class(FilePermission, 0, ::java::security::Permission)
 public:
 	FilePermission();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, ::java::io::FilePermission* input, ::java::nio::file::Path* npath, ::java::nio::file::Path* npath2, int32_t mask, $String* actions);
 	void init$($String* path, $String* actions);
 	void init$($String* path, int32_t mask);
@@ -93,7 +94,7 @@ public:
 	bool invalid = false;
 	static const char16_t RECURSIVE_CHAR = ((char16_t)45);
 	static const char16_t WILD_CHAR = ((char16_t)42);
-	static const int64_t serialVersionUID = (int64_t)0x6E0F9F93F4C0A9BB;
+	static const int64_t serialVersionUID = (int64_t)0x6e0f9f93f4c0a9bb;
 	static ::java::nio::file::FileSystem* builtInFS;
 	static ::java::nio::file::Path* here;
 	static ::java::nio::file::Path* EMPTY_PATH;

@@ -1,5 +1,4 @@
 #include <Test7157574$1C.h>
-
 #include <Test7157574$Sub.h>
 #include <Test7157574$Super.h>
 #include <Test7157574.h>
@@ -11,50 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$MethodInfo _Test7157574$1C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Test7157574$1C, init$, void)},
-	{"ig", "()V", nullptr, $PRIVATE, $method(Test7157574$1C, ig, void)},
-	{"ig1", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig1, void)},
-	{"ig2", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig2, void)},
-	{"ig3", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig3, void)},
-	{"ig4", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig4, void)},
-	{"m1", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, m1, void)},
-	{"m2", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, m2, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Test7157574$1C_EnclosingMethodInfo_ = {
-	"Test7157574",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Test7157574$1C_InnerClassesInfo_[] = {
-	{"Test7157574$1C", nullptr, "C", 0},
-	{"Test7157574$Sub", "Test7157574", "Sub", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Test7157574$1C_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test7157574$1C",
-	"Test7157574$Sub",
-	nullptr,
-	nullptr,
-	_Test7157574$1C_MethodInfo_,
-	nullptr,
-	&_Test7157574$1C_EnclosingMethodInfo_,
-	_Test7157574$1C_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test7157574"
-};
-
-$Object* allocate$Test7157574$1C($Class* clazz) {
-	return $of($alloc(Test7157574$1C));
-}
 
 void Test7157574$1C::init$() {
 	$Test7157574$Sub::init$();
@@ -92,7 +47,45 @@ Test7157574$1C::Test7157574$1C() {
 }
 
 $Class* Test7157574$1C::load$($String* name, bool initialize) {
-	$loadClass(Test7157574$1C, name, initialize, &_Test7157574$1C_ClassInfo_, allocate$Test7157574$1C);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Test7157574$1C, init$, void)},
+		{"ig", "()V", nullptr, $PRIVATE, $method(Test7157574$1C, ig, void)},
+		{"ig1", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig1, void)},
+		{"ig2", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig2, void)},
+		{"ig3", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig3, void)},
+		{"ig4", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig4, void)},
+		{"m1", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, m1, void)},
+		{"m2", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, m2, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Test7157574",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test7157574$1C", nullptr, "C", 0},
+		{"Test7157574$Sub", "Test7157574", "Sub", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test7157574$1C",
+		"Test7157574$Sub",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test7157574"
+	};
+	$loadClass(Test7157574$1C, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test7157574$1C);
+	});
 	return class$;
 }
 

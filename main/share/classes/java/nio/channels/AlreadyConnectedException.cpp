@@ -1,5 +1,4 @@
 #include <java/nio/channels/AlreadyConnectedException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _AlreadyConnectedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlreadyConnectedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AlreadyConnectedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AlreadyConnectedException, init$, void)},
-	{}
-};
-
-$ClassInfo _AlreadyConnectedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.AlreadyConnectedException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_AlreadyConnectedException_FieldInfo_,
-	_AlreadyConnectedException_MethodInfo_
-};
-
-$Object* allocate$AlreadyConnectedException($Class* clazz) {
-	return $of($alloc(AlreadyConnectedException));
-}
 
 void AlreadyConnectedException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void AlreadyConnectedException::throw$() {
 }
 
 $Class* AlreadyConnectedException::load$($String* name, bool initialize) {
-	$loadClass(AlreadyConnectedException, name, initialize, &_AlreadyConnectedException_ClassInfo_, allocate$AlreadyConnectedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlreadyConnectedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AlreadyConnectedException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.AlreadyConnectedException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AlreadyConnectedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlreadyConnectedException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/ch/WindowsAsynchronousSocketChannelImpl$WriteTask.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
@@ -41,74 +40,17 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousCloseException = ::java::nio::channels::AsynchronousCloseException;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $InterruptedByTimeoutException = ::java::nio::channels::InterruptedByTimeoutException;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 using $IOStatus = ::sun::nio::ch::IOStatus;
 using $IOUtil = ::sun::nio::ch::IOUtil;
 using $Invoker = ::sun::nio::ch::Invoker;
 using $PendingFuture = ::sun::nio::ch::PendingFuture;
-using $PendingIoCache = ::sun::nio::ch::PendingIoCache;
 using $Util = ::sun::nio::ch::Util;
 using $WindowsAsynchronousSocketChannelImpl = ::sun::nio::ch::WindowsAsynchronousSocketChannelImpl;
 
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _WindowsAsynchronousSocketChannelImpl$WriteTask_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsAsynchronousSocketChannelImpl$WriteTask, $assertionsDisabled)},
-	{"bufs", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, bufs)},
-	{"numBufs", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, numBufs)},
-	{"gatheringWrite", "Z", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, gatheringWrite)},
-	{"result", "Lsun/nio/ch/PendingFuture;", "Lsun/nio/ch/PendingFuture<TV;TA;>;", $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, result)},
-	{"shadow", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, shadow)},
-	{"scopeHandleReleasers", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, scopeHandleReleasers)},
-	{}
-};
-
-$MethodInfo _WindowsAsynchronousSocketChannelImpl$WriteTask_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;[Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture;)V", "([Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture<TV;TA;>;)V", 0, $method(WindowsAsynchronousSocketChannelImpl$WriteTask, init$, void, $WindowsAsynchronousSocketChannelImpl*, $ByteBufferArray*, bool, $PendingFuture*)},
-	{"completed", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, completed, void, int32_t, bool)},
-	{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, failed, void, int32_t, $IOException*)},
-	{"prepareBuffers", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, prepareBuffers, void)},
-	{"releaseBuffers", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, releaseBuffers, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, run, void)},
-	{"timeout", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, timeout, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateBuffers", "(I)V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, updateBuffers, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _WindowsAsynchronousSocketChannelImpl$WriteTask_InnerClassesInfo_[] = {
-	{"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$WriteTask", "sun.nio.ch.WindowsAsynchronousSocketChannelImpl", "WriteTask", $PRIVATE},
-	{"sun.nio.ch.Iocp$ResultHandler", "sun.nio.ch.Iocp", "ResultHandler", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WindowsAsynchronousSocketChannelImpl$WriteTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$WriteTask",
-	"java.lang.Object",
-	"java.lang.Runnable,sun.nio.ch.Iocp$ResultHandler",
-	_WindowsAsynchronousSocketChannelImpl$WriteTask_FieldInfo_,
-	_WindowsAsynchronousSocketChannelImpl$WriteTask_MethodInfo_,
-	"<V:Ljava/lang/Object;A:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Runnable;Lsun/nio/ch/Iocp$ResultHandler;",
-	nullptr,
-	_WindowsAsynchronousSocketChannelImpl$WriteTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.WindowsAsynchronousSocketChannelImpl"
-};
-
-$Object* allocate$WindowsAsynchronousSocketChannelImpl$WriteTask($Class* clazz) {
-	return $of($alloc(WindowsAsynchronousSocketChannelImpl$WriteTask));
-}
 
 int32_t WindowsAsynchronousSocketChannelImpl$WriteTask::hashCode() {
 	 return this->$Runnable::hashCode();
@@ -135,13 +77,13 @@ bool WindowsAsynchronousSocketChannelImpl$WriteTask::$assertionsDisabled = false
 void WindowsAsynchronousSocketChannelImpl$WriteTask::init$($WindowsAsynchronousSocketChannelImpl* this$0, $ByteBufferArray* bufs, bool gatheringWrite, $PendingFuture* result) {
 	$set(this, this$0, this$0);
 	$set(this, bufs, bufs);
-	this->numBufs = ($nc(bufs)->length > 16) ? 16 : $nc(bufs)->length;
+	this->numBufs = ($nc(bufs)->length > 16) ? 16 : bufs->length;
 	this->gatheringWrite = gatheringWrite;
 	$set(this, result, result);
 }
 
 void WindowsAsynchronousSocketChannelImpl$WriteTask::prepareBuffers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, scopeHandleReleasers, $IOUtil::acquireScopes(this->bufs));
 	$set(this, shadow, $new($ByteBufferArray, this->numBufs));
 	int64_t address = this->this$0->writeBufferArray;
@@ -165,15 +107,14 @@ void WindowsAsynchronousSocketChannelImpl$WriteTask::prepareBuffers() {
 			$nc(this->shadow)->set(i, src);
 			a = $IOUtil::bufferAddress(src) + pos;
 		}
-		$init($WindowsAsynchronousSocketChannelImpl);
 		$nc($WindowsAsynchronousSocketChannelImpl::unsafe)->putAddress(address + $WindowsAsynchronousSocketChannelImpl::OFFSETOF_BUF, a);
-		$nc($WindowsAsynchronousSocketChannelImpl::unsafe)->putInt(address + 0, rem);
+		$WindowsAsynchronousSocketChannelImpl::unsafe->putInt(address + 0, rem);
 		address += $WindowsAsynchronousSocketChannelImpl::SIZEOF_WSABUF;
 	}
 }
 
 void WindowsAsynchronousSocketChannelImpl$WriteTask::updateBuffers(int32_t bytesWritten) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->numBufs; ++i) {
 		$var($ByteBuffer, nextBuffer, $nc(this->bufs)->get(i));
 		int32_t pos = $nc(nextBuffer)->position();
@@ -216,72 +157,70 @@ void WindowsAsynchronousSocketChannelImpl$WriteTask::run() {
 	bool prepared = false;
 	bool pending = false;
 	bool shutdown = false;
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				this->this$0->begin();
-				prepareBuffers();
-				prepared = true;
-				overlapped = $nc(this->this$0->ioCache)->add(this->result);
-				int32_t n = $WindowsAsynchronousSocketChannelImpl::write0(this->this$0->handle$, this->numBufs, this->this$0->writeBufferArray, overlapped);
-				if (n == $IOStatus::UNAVAILABLE) {
-					pending = true;
-					return$1 = true;
-					goto $finally;
-				}
-				if (n == $IOStatus::EOF) {
-					shutdown = true;
-					$throwNew($ClosedChannelException);
-				}
-				$throwNew($InternalError, "Write completed immediately"_s);
-			} catch ($Throwable& x) {
-				this->this$0->enableWriting();
-				if (!shutdown && ($instanceOf($ClosedChannelException, x))) {
-					$assign(x, $new($AsynchronousCloseException));
-				}
-				if (!($instanceOf($IOException, x))) {
-					$assign(x, $new($IOException, $cast($Throwable, x)));
-				}
-				$nc(this->result)->setFailure(x);
+			this->this$0->begin();
+			prepareBuffers();
+			prepared = true;
+			overlapped = $nc(this->this$0->ioCache)->add(this->result);
+			int32_t n = $WindowsAsynchronousSocketChannelImpl::write0(this->this$0->handle$, this->numBufs, this->this$0->writeBufferArray, overlapped);
+			if (n == $IOStatus::UNAVAILABLE) {
+				pending = true;
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			if (!pending) {
-				if (overlapped != (int64_t)0) {
-					$nc(this->this$0->ioCache)->remove(overlapped);
-				}
-				if (prepared) {
-					releaseBuffers();
-				}
+			if (n == $IOStatus::EOF) {
+				shutdown = true;
+				$throwNew($ClosedChannelException);
 			}
-			this->this$0->end();
+			$throwNew($InternalError, "Write completed immediately"_s);
+		} catch ($Throwable& x) {
+			this->this$0->enableWriting();
+			if (!shutdown && ($instanceOf($ClosedChannelException, x))) {
+				$assign(x, $new($AsynchronousCloseException));
+			}
+			if (!($instanceOf($IOException, x))) {
+				$assign(x, $new($IOException, x));
+			}
+			$nc(this->result)->setFailure(x);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		if (!pending) {
+			if (overlapped != 0) {
+				$nc(this->this$0->ioCache)->remove(overlapped);
+			}
+			if (prepared) {
+				releaseBuffers();
+			}
 		}
-		if (return$1) {
-			return;
-		}
+		this->this$0->end();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 	$Invoker::invoke(this->result);
 }
 
 void WindowsAsynchronousSocketChannelImpl$WriteTask::completed(int32_t bytesTransferred, bool canInvokeDirect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	updateBuffers(bytesTransferred);
 	releaseBuffers();
 	$synchronized(this->result) {
-		if ($nc(this->result)->isDone()) {
+		if (this->result->isDone()) {
 			return;
 		}
 		this->this$0->enableWriting();
 		if (this->gatheringWrite) {
-			$nc(this->result)->setResult($of($($Long::valueOf((int64_t)bytesTransferred))));
+			this->result->setResult($$of($Long::valueOf(bytesTransferred)));
 		} else {
-			$nc(this->result)->setResult($of($($Integer::valueOf(bytesTransferred))));
+			this->result->setResult($$of($Integer::valueOf(bytesTransferred)));
 		}
 	}
 	if (canInvokeDirect) {
@@ -298,27 +237,27 @@ void WindowsAsynchronousSocketChannelImpl$WriteTask::failed(int32_t error, $IOEx
 		$assign(x, $new($AsynchronousCloseException));
 	}
 	$synchronized(this->result) {
-		if ($nc(this->result)->isDone()) {
+		if (this->result->isDone()) {
 			return;
 		}
 		this->this$0->enableWriting();
-		$nc(this->result)->setFailure(x);
+		this->result->setFailure(x);
 	}
 	$Invoker::invoke(this->result);
 }
 
 void WindowsAsynchronousSocketChannelImpl$WriteTask::timeout() {
 	$synchronized(this->result) {
-		if ($nc(this->result)->isDone()) {
+		if (this->result->isDone()) {
 			return;
 		}
 		this->this$0->enableWriting(true);
-		$nc(this->result)->setFailure($$new($InterruptedByTimeoutException));
+		this->result->setFailure($$new($InterruptedByTimeoutException));
 	}
 	$Invoker::invoke(this->result);
 }
 
-void clinit$WindowsAsynchronousSocketChannelImpl$WriteTask($Class* class$) {
+void WindowsAsynchronousSocketChannelImpl$WriteTask::clinit$($Class* clazz) {
 	$load($WindowsAsynchronousSocketChannelImpl);
 	WindowsAsynchronousSocketChannelImpl$WriteTask::$assertionsDisabled = !$WindowsAsynchronousSocketChannelImpl::class$->desiredAssertionStatus();
 }
@@ -327,7 +266,56 @@ WindowsAsynchronousSocketChannelImpl$WriteTask::WindowsAsynchronousSocketChannel
 }
 
 $Class* WindowsAsynchronousSocketChannelImpl$WriteTask::load$($String* name, bool initialize) {
-	$loadClass(WindowsAsynchronousSocketChannelImpl$WriteTask, name, initialize, &_WindowsAsynchronousSocketChannelImpl$WriteTask_ClassInfo_, clinit$WindowsAsynchronousSocketChannelImpl$WriteTask, allocate$WindowsAsynchronousSocketChannelImpl$WriteTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsAsynchronousSocketChannelImpl$WriteTask, $assertionsDisabled)},
+		{"bufs", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, bufs)},
+		{"numBufs", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, numBufs)},
+		{"gatheringWrite", "Z", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, gatheringWrite)},
+		{"result", "Lsun/nio/ch/PendingFuture;", "Lsun/nio/ch/PendingFuture<TV;TA;>;", $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, result)},
+		{"shadow", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, shadow)},
+		{"scopeHandleReleasers", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(WindowsAsynchronousSocketChannelImpl$WriteTask, scopeHandleReleasers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;[Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture;)V", "([Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture<TV;TA;>;)V", 0, $method(WindowsAsynchronousSocketChannelImpl$WriteTask, init$, void, $WindowsAsynchronousSocketChannelImpl*, $ByteBufferArray*, bool, $PendingFuture*)},
+		{"completed", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, completed, void, int32_t, bool)},
+		{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, failed, void, int32_t, $IOException*)},
+		{"prepareBuffers", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, prepareBuffers, void)},
+		{"releaseBuffers", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, releaseBuffers, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, run, void)},
+		{"timeout", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, timeout, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateBuffers", "(I)V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, updateBuffers, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$WriteTask", "sun.nio.ch.WindowsAsynchronousSocketChannelImpl", "WriteTask", $PRIVATE},
+		{"sun.nio.ch.Iocp$ResultHandler", "sun.nio.ch.Iocp", "ResultHandler", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$WriteTask",
+		"java.lang.Object",
+		"java.lang.Runnable,sun.nio.ch.Iocp$ResultHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;A:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Runnable;Lsun/nio/ch/Iocp$ResultHandler;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.WindowsAsynchronousSocketChannelImpl"
+	};
+	$loadClass(WindowsAsynchronousSocketChannelImpl$WriteTask, name, initialize, &classInfo$$, WindowsAsynchronousSocketChannelImpl$WriteTask::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsAsynchronousSocketChannelImpl$WriteTask));
+	});
 	return class$;
 }
 

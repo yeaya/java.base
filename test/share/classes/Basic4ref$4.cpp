@@ -1,5 +1,4 @@
 #include <Basic4ref$4.h>
-
 #include <Basic4ref$ClearFinalizerThread.h>
 #include <Basic4ref.h>
 #include <jcpp.h>
@@ -9,43 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _Basic4ref$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Basic4ref$4, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4ref$4, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Basic4ref$4_EnclosingMethodInfo_ = {
-	"Basic4ref",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Basic4ref$4_InnerClassesInfo_[] = {
-	{"Basic4ref$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Basic4ref$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"Basic4ref$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_Basic4ref$4_MethodInfo_,
-	nullptr,
-	&_Basic4ref$4_EnclosingMethodInfo_,
-	_Basic4ref$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Basic4ref"
-};
-
-$Object* allocate$Basic4ref$4($Class* clazz) {
-	return $of($alloc(Basic4ref$4));
-}
 
 void Basic4ref$4::init$() {
 }
@@ -58,7 +20,38 @@ Basic4ref$4::Basic4ref$4() {
 }
 
 $Class* Basic4ref$4::load$($String* name, bool initialize) {
-	$loadClass(Basic4ref$4, name, initialize, &_Basic4ref$4_ClassInfo_, allocate$Basic4ref$4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Basic4ref$4, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4ref$4, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Basic4ref",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic4ref$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Basic4ref$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Basic4ref"
+	};
+	$loadClass(Basic4ref$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic4ref$4);
+	});
 	return class$;
 }
 

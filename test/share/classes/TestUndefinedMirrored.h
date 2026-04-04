@@ -9,6 +9,7 @@ class $export TestUndefinedMirrored : public ::java::lang::Object {
 	$class(TestUndefinedMirrored, 0, ::java::lang::Object)
 public:
 	TestUndefinedMirrored();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static int32_t endValue;

@@ -34,6 +34,7 @@ class $export AuthCacheValue : public ::java::io::Serializable {
 	$class(AuthCacheValue, 0, ::java::io::Serializable)
 public:
 	AuthCacheValue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::net::PasswordAuthentication* credentials() {return nullptr;}
 	virtual ::sun::net::www::protocol::http::AuthScheme* getAuthScheme() {return nullptr;}
@@ -44,7 +45,7 @@ public:
 	virtual $String* getProtocolScheme() {return nullptr;}
 	virtual $String* getRealm() {return nullptr;}
 	static void setAuthCache(::sun::net::www::protocol::http::AuthCache* map);
-	static const int64_t serialVersionUID = (int64_t)0x0A34215FB27A6F9B;
+	static const int64_t serialVersionUID = (int64_t)0x0a34215fb27a6f9b;
 	static ::sun::net::www::protocol::http::AuthCache* cache;
 };
 

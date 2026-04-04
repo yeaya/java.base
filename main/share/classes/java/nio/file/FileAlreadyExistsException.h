@@ -15,10 +15,13 @@ public:
 	FileAlreadyExistsException();
 	void init$($String* file);
 	void init$($String* file, $String* other, $String* reason);
-	static const int64_t serialVersionUID = (int64_t)0x692FF0526155CB4D;
+	static const int64_t serialVersionUID = (int64_t)0x692ff0526155cb4d;
 	FileAlreadyExistsException(const FileAlreadyExistsException& e);
 	virtual void throw$() override;
-	inline FileAlreadyExistsException* operator ->() {
+	inline FileAlreadyExistsException* operator ->() const {
+		return (FileAlreadyExistsException*)throwing$;
+	}
+	inline operator FileAlreadyExistsException*() const {
 		return (FileAlreadyExistsException*)throwing$;
 	}
 };

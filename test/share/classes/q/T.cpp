@@ -1,5 +1,4 @@
 #include <q/T.h>
-
 #include <jcpp.h>
 
 #undef T
@@ -9,24 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace q {
 
-$MethodInfo _T_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(T, init$, void)},
-	{}
-};
-
-$ClassInfo _T_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"q.T",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_T_MethodInfo_
-};
-
-$Object* allocate$T($Class* clazz) {
-	return $of($alloc(T));
-}
-
 void T::init$() {
 }
 
@@ -34,7 +15,21 @@ T::T() {
 }
 
 $Class* T::load$($String* name, bool initialize) {
-	$loadClass(T, name, initialize, &_T_ClassInfo_, allocate$T);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(T, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"q.T",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(T, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(T);
+	});
 	return class$;
 }
 

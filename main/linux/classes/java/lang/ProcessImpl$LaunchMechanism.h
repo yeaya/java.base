@@ -21,6 +21,7 @@ class ProcessImpl$LaunchMechanism : public ::java::lang::Enum {
 public:
 	ProcessImpl$LaunchMechanism();
 	static $Array<::java::lang::ProcessImpl$LaunchMechanism>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::lang::ProcessImpl$LaunchMechanism* valueOf($String* name);
 	static $Array<::java::lang::ProcessImpl$LaunchMechanism>* values();

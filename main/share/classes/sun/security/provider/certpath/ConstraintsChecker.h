@@ -44,6 +44,7 @@ class ConstraintsChecker : public ::java::security::cert::PKIXCertPathChecker {
 public:
 	ConstraintsChecker();
 	using ::java::security::cert::PKIXCertPathChecker::check;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t certPathLength);
 	virtual void check(::java::security::cert::Certificate* cert, ::java::util::Collection* unresCritExts) override;
 	void checkBasicConstraints(::java::security::cert::X509Certificate* currCert);

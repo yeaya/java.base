@@ -24,7 +24,7 @@ public:
 	using ::java::util::Comparator::thenComparing;
 	virtual ::java::util::Comparator* thenComparing(::java::util::Comparator* other) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x96F39D4DB70ADE48;
+	static const int64_t serialVersionUID = (int64_t)0x96f39d4db70ade48;
 	bool nullFirst = false;
 	::java::util::Comparator* real = nullptr;
 };

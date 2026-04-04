@@ -1,5 +1,4 @@
 #include <java/lang/ApplicationShutdownHooks$1.h>
-
 #include <java/lang/ApplicationShutdownHooks.h>
 #include <jcpp.h>
 
@@ -12,43 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 
-$MethodInfo _ApplicationShutdownHooks$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ApplicationShutdownHooks$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ApplicationShutdownHooks$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _ApplicationShutdownHooks$1_EnclosingMethodInfo_ = {
-	"java.lang.ApplicationShutdownHooks",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ApplicationShutdownHooks$1_InnerClassesInfo_[] = {
-	{"java.lang.ApplicationShutdownHooks$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ApplicationShutdownHooks$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ApplicationShutdownHooks$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_ApplicationShutdownHooks$1_MethodInfo_,
-	nullptr,
-	&_ApplicationShutdownHooks$1_EnclosingMethodInfo_,
-	_ApplicationShutdownHooks$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ApplicationShutdownHooks"
-};
-
-$Object* allocate$ApplicationShutdownHooks$1($Class* clazz) {
-	return $of($alloc(ApplicationShutdownHooks$1));
-}
-
 void ApplicationShutdownHooks$1::init$() {
 }
 
@@ -60,7 +22,38 @@ ApplicationShutdownHooks$1::ApplicationShutdownHooks$1() {
 }
 
 $Class* ApplicationShutdownHooks$1::load$($String* name, bool initialize) {
-	$loadClass(ApplicationShutdownHooks$1, name, initialize, &_ApplicationShutdownHooks$1_ClassInfo_, allocate$ApplicationShutdownHooks$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ApplicationShutdownHooks$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ApplicationShutdownHooks$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.ApplicationShutdownHooks",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ApplicationShutdownHooks$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ApplicationShutdownHooks$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ApplicationShutdownHooks"
+	};
+	$loadClass(ApplicationShutdownHooks$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ApplicationShutdownHooks$1);
+	});
 	return class$;
 }
 

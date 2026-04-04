@@ -1,5 +1,4 @@
 #include <sun/text/ComposedCharIter.h>
-
 #include <jdk/internal/icu/impl/NormalizerImpl.h>
 #include <jcpp.h>
 
@@ -12,35 +11,6 @@ using $NormalizerImpl = ::jdk::internal::icu::impl::NormalizerImpl;
 
 namespace sun {
 	namespace text {
-
-$FieldInfo _ComposedCharIter_FieldInfo_[] = {
-	{"DONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ComposedCharIter, DONE)},
-	{"chars", "[I", nullptr, $PRIVATE | $STATIC, $staticField(ComposedCharIter, chars)},
-	{"decomps", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ComposedCharIter, decomps)},
-	{"decompNum", "I", nullptr, $PRIVATE | $STATIC, $staticField(ComposedCharIter, decompNum)},
-	{"curChar", "I", nullptr, $PRIVATE, $field(ComposedCharIter, curChar)},
-	{}
-};
-
-$MethodInfo _ComposedCharIter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ComposedCharIter, init$, void)},
-	{"decomposition", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ComposedCharIter, decomposition, $String*)},
-	{"next", "()I", nullptr, $PUBLIC, $method(ComposedCharIter, next, int32_t)},
-	{}
-};
-
-$ClassInfo _ComposedCharIter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.text.ComposedCharIter",
-	"java.lang.Object",
-	nullptr,
-	_ComposedCharIter_FieldInfo_,
-	_ComposedCharIter_MethodInfo_
-};
-
-$Object* allocate$ComposedCharIter($Class* clazz) {
-	return $of($alloc(ComposedCharIter));
-}
 
 $ints* ComposedCharIter::chars = nullptr;
 $StringArray* ComposedCharIter::decomps = nullptr;
@@ -61,7 +31,7 @@ $String* ComposedCharIter::decomposition() {
 	return $nc(ComposedCharIter::decomps)->get(this->curChar);
 }
 
-void clinit$ComposedCharIter($Class* class$) {
+void ComposedCharIter::clinit$($Class* clazz) {
 	{
 		int32_t maxNum = 2100;
 		$assignStatic(ComposedCharIter::chars, $new($ints, maxNum));
@@ -74,7 +44,31 @@ ComposedCharIter::ComposedCharIter() {
 }
 
 $Class* ComposedCharIter::load$($String* name, bool initialize) {
-	$loadClass(ComposedCharIter, name, initialize, &_ComposedCharIter_ClassInfo_, clinit$ComposedCharIter, allocate$ComposedCharIter);
+	$FieldInfo fieldInfos$$[] = {
+		{"DONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ComposedCharIter, DONE)},
+		{"chars", "[I", nullptr, $PRIVATE | $STATIC, $staticField(ComposedCharIter, chars)},
+		{"decomps", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ComposedCharIter, decomps)},
+		{"decompNum", "I", nullptr, $PRIVATE | $STATIC, $staticField(ComposedCharIter, decompNum)},
+		{"curChar", "I", nullptr, $PRIVATE, $field(ComposedCharIter, curChar)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ComposedCharIter, init$, void)},
+		{"decomposition", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ComposedCharIter, decomposition, $String*)},
+		{"next", "()I", nullptr, $PUBLIC, $method(ComposedCharIter, next, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.text.ComposedCharIter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ComposedCharIter, name, initialize, &classInfo$$, ComposedCharIter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ComposedCharIter);
+	});
 	return class$;
 }
 

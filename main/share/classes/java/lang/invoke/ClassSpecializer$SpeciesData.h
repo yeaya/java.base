@@ -30,6 +30,7 @@ class ClassSpecializer$SpeciesData : public ::java::lang::Object {
 	$class(ClassSpecializer$SpeciesData, 0, ::java::lang::Object)
 public:
 	ClassSpecializer$SpeciesData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::ClassSpecializer* this$0, Object$* key);
 	virtual $String* deriveClassName();
 	virtual ::java::util::List* deriveFieldTypes(Object$* key) {return nullptr;}

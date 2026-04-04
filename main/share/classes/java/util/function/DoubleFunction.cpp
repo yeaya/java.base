@@ -1,5 +1,4 @@
 #include <java/util/function/DoubleFunction.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,35 +9,30 @@ namespace java {
 	namespace util {
 		namespace function {
 
-$CompoundAttribute _DoubleFunction_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _DoubleFunction_MethodInfo_[] = {
-	{"apply", "(D)Ljava/lang/Object;", "(D)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(DoubleFunction, apply, $Object*, double)},
-	{}
-};
-
-$ClassInfo _DoubleFunction_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.DoubleFunction",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DoubleFunction_MethodInfo_,
-	"<R:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	nullptr,
-	_DoubleFunction_Annotations_
-};
-
-$Object* allocate$DoubleFunction($Class* clazz) {
-	return $of($alloc(DoubleFunction));
-}
-
 $Class* DoubleFunction::load$($String* name, bool initialize) {
-	$loadClass(DoubleFunction, name, initialize, &_DoubleFunction_ClassInfo_, allocate$DoubleFunction);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(D)Ljava/lang/Object;", "(D)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(DoubleFunction, apply, $Object*, double)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.DoubleFunction",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<R:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(DoubleFunction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleFunction);
+	});
 	return class$;
 }
 

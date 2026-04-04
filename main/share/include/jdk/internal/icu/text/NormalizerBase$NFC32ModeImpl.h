@@ -27,6 +27,7 @@ class $import NormalizerBase$NFC32ModeImpl : public ::java::lang::Object {
 	$class(NormalizerBase$NFC32ModeImpl, 0, ::java::lang::Object)
 public:
 	NormalizerBase$NFC32ModeImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::icu::text::NormalizerBase$ModeImpl* INSTANCE;
 };

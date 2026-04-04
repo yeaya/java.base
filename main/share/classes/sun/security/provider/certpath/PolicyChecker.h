@@ -58,6 +58,7 @@ class PolicyChecker : public ::java::security::cert::PKIXCertPathChecker {
 public:
 	PolicyChecker();
 	using ::java::security::cert::PKIXCertPathChecker::check;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Set* initialPolicies, int32_t certPathLen, bool expPolicyRequired, bool polMappingInhibited, bool anyPolicyInhibited, bool rejectPolicyQualifiers, ::sun::security::provider::certpath::PolicyNodeImpl* rootNode);
 	virtual void check(::java::security::cert::Certificate* cert, ::java::util::Collection* unresCritExts) override;
 	void checkPolicy(::java::security::cert::X509Certificate* currCert);

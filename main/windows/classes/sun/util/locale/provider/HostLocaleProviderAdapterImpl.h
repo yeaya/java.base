@@ -95,6 +95,7 @@ class $export HostLocaleProviderAdapterImpl : public ::java::lang::Object {
 	$class(HostLocaleProviderAdapterImpl, 0, ::java::lang::Object)
 public:
 	HostLocaleProviderAdapterImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* convertDateTimePattern($String* winPattern);
 	static $StringArray* getAmPmStrings($String* langTag, $StringArray* ampm);

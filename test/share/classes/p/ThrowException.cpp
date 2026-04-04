@@ -1,5 +1,4 @@
 #include <p/ThrowException.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -8,25 +7,6 @@ using $Error = ::java::lang::Error;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace p {
-
-$MethodInfo _ThrowException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ThrowException, init$, void)},
-	{"throwError", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ThrowException, throwError, void)},
-	{}
-};
-
-$ClassInfo _ThrowException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"p.ThrowException",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ThrowException_MethodInfo_
-};
-
-$Object* allocate$ThrowException($Class* clazz) {
-	return $of($alloc(ThrowException));
-}
 
 void ThrowException::init$() {
 }
@@ -39,7 +19,22 @@ ThrowException::ThrowException() {
 }
 
 $Class* ThrowException::load$($String* name, bool initialize) {
-	$loadClass(ThrowException, name, initialize, &_ThrowException_ClassInfo_, allocate$ThrowException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ThrowException, init$, void)},
+		{"throwError", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ThrowException, throwError, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"p.ThrowException",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ThrowException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThrowException);
+	});
 	return class$;
 }
 

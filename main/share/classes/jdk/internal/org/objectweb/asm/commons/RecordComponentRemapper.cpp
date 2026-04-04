@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/RecordComponentRemapper.h>
-
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jdk/internal/org/objectweb/asm/RecordComponentVisitor.h>
@@ -27,33 +26,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$FieldInfo _RecordComponentRemapper_FieldInfo_[] = {
-	{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PROTECTED | $FINAL, $field(RecordComponentRemapper, remapper)},
-	{}
-};
-
-$MethodInfo _RecordComponentRemapper_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(RecordComponentRemapper, init$, void, $RecordComponentVisitor*, $Remapper*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/RecordComponentVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(RecordComponentRemapper, init$, void, int32_t, $RecordComponentVisitor*, $Remapper*)},
-	{"createAnnotationRemapper", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PROTECTED, $virtualMethod(RecordComponentRemapper, createAnnotationRemapper, $AnnotationVisitor*, $AnnotationVisitor*)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentRemapper, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentRemapper, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{}
-};
-
-$ClassInfo _RecordComponentRemapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.RecordComponentRemapper",
-	"jdk.internal.org.objectweb.asm.RecordComponentVisitor",
-	nullptr,
-	_RecordComponentRemapper_FieldInfo_,
-	_RecordComponentRemapper_MethodInfo_
-};
-
-$Object* allocate$RecordComponentRemapper($Class* clazz) {
-	return $of($alloc(RecordComponentRemapper));
-}
-
 void RecordComponentRemapper::init$($RecordComponentVisitor* recordComponentVisitor, $Remapper* remapper) {
 	RecordComponentRemapper::init$($Opcodes::ASM8, recordComponentVisitor, remapper);
 }
@@ -64,13 +36,13 @@ void RecordComponentRemapper::init$(int32_t api, $RecordComponentVisitor* record
 }
 
 $AnnotationVisitor* RecordComponentRemapper::visitAnnotation($String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $RecordComponentVisitor::visitAnnotation($($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : createAnnotationRemapper(annotationVisitor);
 }
 
 $AnnotationVisitor* RecordComponentRemapper::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $RecordComponentVisitor::visitTypeAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : createAnnotationRemapper(annotationVisitor);
 }
@@ -83,7 +55,29 @@ RecordComponentRemapper::RecordComponentRemapper() {
 }
 
 $Class* RecordComponentRemapper::load$($String* name, bool initialize) {
-	$loadClass(RecordComponentRemapper, name, initialize, &_RecordComponentRemapper_ClassInfo_, allocate$RecordComponentRemapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PROTECTED | $FINAL, $field(RecordComponentRemapper, remapper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(RecordComponentRemapper, init$, void, $RecordComponentVisitor*, $Remapper*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/RecordComponentVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(RecordComponentRemapper, init$, void, int32_t, $RecordComponentVisitor*, $Remapper*)},
+		{"createAnnotationRemapper", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PROTECTED, $virtualMethod(RecordComponentRemapper, createAnnotationRemapper, $AnnotationVisitor*, $AnnotationVisitor*)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentRemapper, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentRemapper, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.RecordComponentRemapper",
+		"jdk.internal.org.objectweb.asm.RecordComponentVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RecordComponentRemapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RecordComponentRemapper);
+	});
 	return class$;
 }
 

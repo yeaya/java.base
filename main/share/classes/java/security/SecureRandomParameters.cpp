@@ -1,5 +1,4 @@
 #include <java/security/SecureRandomParameters.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -7,17 +6,14 @@ using $ClassInfo = ::java::lang::ClassInfo;
 namespace java {
 	namespace security {
 
-$ClassInfo _SecureRandomParameters_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.SecureRandomParameters"
-};
-
-$Object* allocate$SecureRandomParameters($Class* clazz) {
-	return $of($alloc(SecureRandomParameters));
-}
-
 $Class* SecureRandomParameters::load$($String* name, bool initialize) {
-	$loadClass(SecureRandomParameters, name, initialize, &_SecureRandomParameters_ClassInfo_, allocate$SecureRandomParameters);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.SecureRandomParameters"
+	};
+	$loadClass(SecureRandomParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SecureRandomParameters);
+	});
 	return class$;
 }
 

@@ -120,6 +120,7 @@ class $export Files : public ::java::lang::Object {
 	$class(Files, 0, ::java::lang::Object)
 public:
 	Files();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::Runnable* asUncheckedRunnable(::java::io::Closeable* c);
 	static ::java::nio::file::Path* copy(::java::nio::file::Path* source, ::java::nio::file::Path* target, $Array<::java::nio::file::CopyOption>* options);

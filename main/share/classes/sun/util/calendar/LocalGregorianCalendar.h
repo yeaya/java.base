@@ -33,6 +33,7 @@ class $export LocalGregorianCalendar : public ::sun::util::calendar::BaseCalenda
 public:
 	LocalGregorianCalendar();
 	using ::sun::util::calendar::BaseCalendar::isLeapYear;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $Array<::sun::util::calendar::Era>* eras);
 	::sun::util::calendar::LocalGregorianCalendar$Date* adjustYear(::sun::util::calendar::LocalGregorianCalendar$Date* ldate, int64_t millis, int32_t zoneOffset);
 	static $String* convertUnicodeEscape($String* src);

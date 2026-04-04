@@ -1,5 +1,4 @@
 #include <java/io/File.h>
-
 #include <java/io/DefaultFileSystem.h>
 #include <java/io/DeleteOnExitHook.h>
 #include <java/io/File$PathStatus.h>
@@ -77,133 +76,14 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $URL = ::java::net::URL;
-using $1FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Path = ::java::nio::file::Path;
-using $Permission = ::java::security::Permission;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace io {
-
-$CompoundAttribute _File_MethodAnnotations_toURL61[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _File_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(File, $assertionsDisabled)},
-	{"fs", "Ljava/io/FileSystem;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File, fs)},
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(File, path)},
-	{"status", "Ljava/io/File$PathStatus;", nullptr, $PRIVATE | $TRANSIENT, $field(File, status)},
-	{"prefixLength", "I", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(File, prefixLength)},
-	{"separatorChar", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(File, separatorChar)},
-	{"separator", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(File, separator)},
-	{"pathSeparatorChar", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(File, pathSeparatorChar)},
-	{"pathSeparator", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(File, pathSeparator)},
-	{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File, UNSAFE)},
-	{"PATH_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File, PATH_OFFSET)},
-	{"PREFIX_LENGTH_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File, PREFIX_LENGTH_OFFSET)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(File, serialVersionUID)},
-	{"filePath", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(File, filePath)},
-	{}
-};
-
-$MethodInfo _File_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(File, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/io/File;)V", nullptr, $PRIVATE, $method(File, init$, void, $String*, File*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(File, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(File, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(File, init$, void, File*, $String*)},
-	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(File, init$, void, $URI*)},
-	{"canExecute", "()Z", nullptr, $PUBLIC, $virtualMethod(File, canExecute, bool)},
-	{"canRead", "()Z", nullptr, $PUBLIC, $virtualMethod(File, canRead, bool)},
-	{"canWrite", "()Z", nullptr, $PUBLIC, $virtualMethod(File, canWrite, bool)},
-	{"compareTo", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(File, compareTo, int32_t, File*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(File, compareTo, int32_t, Object$*)},
-	{"createNewFile", "()Z", nullptr, $PUBLIC, $virtualMethod(File, createNewFile, bool), "java.io.IOException"},
-	{"createTempFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $staticMethod(File, createTempFile, File*, $String*, $String*, File*), "java.io.IOException"},
-	{"createTempFile", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $staticMethod(File, createTempFile, File*, $String*, $String*), "java.io.IOException"},
-	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(File, delete$, bool)},
-	{"deleteOnExit", "()V", nullptr, $PUBLIC, $virtualMethod(File, deleteOnExit, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(File, equals, bool, Object$*)},
-	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(File, exists, bool)},
-	{"getAbsoluteFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, getAbsoluteFile, File*)},
-	{"getAbsolutePath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, getAbsolutePath, $String*)},
-	{"getCanonicalFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, getCanonicalFile, File*), "java.io.IOException"},
-	{"getCanonicalPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, getCanonicalPath, $String*), "java.io.IOException"},
-	{"getFreeSpace", "()J", nullptr, $PUBLIC, $virtualMethod(File, getFreeSpace, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, getName, $String*)},
-	{"getParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, getParent, $String*)},
-	{"getParentFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, getParentFile, File*)},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, getPath, $String*)},
-	{"getPrefixLength", "()I", nullptr, 0, $virtualMethod(File, getPrefixLength, int32_t)},
-	{"getTotalSpace", "()J", nullptr, $PUBLIC, $virtualMethod(File, getTotalSpace, int64_t)},
-	{"getUsableSpace", "()J", nullptr, $PUBLIC, $virtualMethod(File, getUsableSpace, int64_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(File, hashCode, int32_t)},
-	{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(File, isAbsolute, bool)},
-	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(File, isDirectory, bool)},
-	{"isFile", "()Z", nullptr, $PUBLIC, $virtualMethod(File, isFile, bool)},
-	{"isHidden", "()Z", nullptr, $PUBLIC, $virtualMethod(File, isHidden, bool)},
-	{"isInvalid", "()Z", nullptr, $FINAL, $method(File, isInvalid, bool)},
-	{"lastModified", "()J", nullptr, $PUBLIC, $virtualMethod(File, lastModified, int64_t)},
-	{"length", "()J", nullptr, $PUBLIC, $virtualMethod(File, length, int64_t)},
-	{"list", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, list, $StringArray*)},
-	{"list", "(Ljava/io/FilenameFilter;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, list, $StringArray*, $FilenameFilter*)},
-	{"listFiles", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, listFiles, $FileArray*)},
-	{"listFiles", "(Ljava/io/FilenameFilter;)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, listFiles, $FileArray*, $FilenameFilter*)},
-	{"listFiles", "(Ljava/io/FileFilter;)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, listFiles, $FileArray*, $FileFilter*)},
-	{"listRoots", "()[Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $staticMethod(File, listRoots, $FileArray*)},
-	{"mkdir", "()Z", nullptr, $PUBLIC, $virtualMethod(File, mkdir, bool)},
-	{"mkdirs", "()Z", nullptr, $PUBLIC, $virtualMethod(File, mkdirs, bool)},
-	{"normalizedList", "()[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(File, normalizedList, $StringArray*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(File, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"renameTo", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(File, renameTo, bool, File*)},
-	{"setExecutable", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(File, setExecutable, bool, bool, bool)},
-	{"setExecutable", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(File, setExecutable, bool, bool)},
-	{"setLastModified", "(J)Z", nullptr, $PUBLIC, $virtualMethod(File, setLastModified, bool, int64_t)},
-	{"setReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(File, setReadOnly, bool)},
-	{"setReadable", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(File, setReadable, bool, bool, bool)},
-	{"setReadable", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(File, setReadable, bool, bool)},
-	{"setWritable", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(File, setWritable, bool, bool, bool)},
-	{"setWritable", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(File, setWritable, bool, bool)},
-	{"slashify", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(File, slashify, $String*, $String*, bool)},
-	{"toPath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(File, toPath, $Path*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, toString, $String*)},
-	{"toURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(File, toURI, $URI*)},
-	{"toURL", "()Ljava/net/URL;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(File, toURL, $URL*), "java.net.MalformedURLException", nullptr, _File_MethodAnnotations_toURL61},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(File, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _File_InnerClassesInfo_[] = {
-	{"java.io.File$TempDirectory", "java.io.File", "TempDirectory", $PRIVATE | $STATIC},
-	{"java.io.File$PathStatus", "java.io.File", "PathStatus", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _File_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.File",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Comparable",
-	_File_FieldInfo_,
-	_File_MethodInfo_,
-	"Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/io/File;>;",
-	nullptr,
-	_File_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.io.File$TempDirectory,java.io.File$PathStatus"
-};
-
-$Object* allocate$File($Class* clazz) {
-	return $of($alloc(File));
-}
 
 $Object* File::clone() {
 	 return this->$Serializable::clone();
@@ -227,7 +107,7 @@ bool File::isInvalid() {
 	$File$PathStatus* s = this->status;
 	if (s == nullptr) {
 		$init($File$PathStatus);
-		s = ($nc(this->path)->indexOf((int32_t)u'\0') < 0) ? $File$PathStatus::CHECKED : $File$PathStatus::INVALID;
+		s = ($nc(this->path)->indexOf(u'\0') < 0) ? $File$PathStatus::CHECKED : $File$PathStatus::INVALID;
 		$set(this, status, s);
 	}
 	$init($File$PathStatus);
@@ -253,7 +133,7 @@ void File::init$($String* child, File* parent) {
 		$throwNew($AssertionError);
 	}
 	$set(this, path, $nc(File::fs)->resolve($nc(parent)->path, child));
-	this->prefixLength = $nc(parent)->prefixLength;
+	this->prefixLength = parent->prefixLength;
 }
 
 void File::init$($String* pathname) {
@@ -262,11 +142,11 @@ void File::init$($String* pathname) {
 		$throwNew($NullPointerException);
 	}
 	$set(this, path, $nc(File::fs)->normalize(pathname));
-	this->prefixLength = $nc(File::fs)->prefixLength(this->path);
+	this->prefixLength = File::fs->prefixLength(this->path);
 }
 
 void File::init$($String* parent, $String* child) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, status, nullptr);
 	if (child == nullptr) {
 		$throwNew($NullPointerException);
@@ -274,10 +154,10 @@ void File::init$($String* parent, $String* child) {
 	if (parent != nullptr) {
 		if (parent->isEmpty()) {
 			$var($String, var$0, $nc(File::fs)->getDefaultParent());
-			$set(this, path, $nc(File::fs)->resolve(var$0, $($nc(File::fs)->normalize(child))));
+			$set(this, path, $nc(File::fs)->resolve(var$0, $(File::fs->normalize(child))));
 		} else {
 			$var($String, var$1, $nc(File::fs)->normalize(parent));
-			$set(this, path, $nc(File::fs)->resolve(var$1, $($nc(File::fs)->normalize(child))));
+			$set(this, path, $nc(File::fs)->resolve(var$1, $(File::fs->normalize(child))));
 		}
 	} else {
 		$set(this, path, $nc(File::fs)->normalize(child));
@@ -286,7 +166,7 @@ void File::init$($String* parent, $String* child) {
 }
 
 void File::init$(File* parent, $String* child) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, status, nullptr);
 	if (child == nullptr) {
 		$throwNew($NullPointerException);
@@ -294,7 +174,7 @@ void File::init$(File* parent, $String* child) {
 	if (parent != nullptr) {
 		if ($nc(parent->path)->isEmpty()) {
 			$var($String, var$0, $nc(File::fs)->getDefaultParent());
-			$set(this, path, $nc(File::fs)->resolve(var$0, $($nc(File::fs)->normalize(child))));
+			$set(this, path, $nc(File::fs)->resolve(var$0, $(File::fs->normalize(child))));
 		} else {
 			$set(this, path, $nc(File::fs)->resolve(parent->path, $($nc(File::fs)->normalize(child))));
 		}
@@ -305,16 +185,16 @@ void File::init$(File* parent, $String* child) {
 }
 
 void File::init$($URI* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, status, nullptr);
 	if (!$nc(uri)->isAbsolute()) {
 		$throwNew($IllegalArgumentException, "URI is not absolute"_s);
 	}
-	if ($nc(uri)->isOpaque()) {
+	if (uri->isOpaque()) {
 		$throwNew($IllegalArgumentException, "URI is not hierarchical"_s);
 	}
-	$var($String, scheme, $nc(uri)->getScheme());
-	if ((scheme == nullptr) || !$nc(scheme)->equalsIgnoreCase("file"_s)) {
+	$var($String, scheme, uri->getScheme());
+	if ((scheme == nullptr) || !scheme->equalsIgnoreCase("file"_s)) {
 		$throwNew($IllegalArgumentException, "URI scheme is not \"file\""_s);
 	}
 	if (uri->getRawAuthority() != nullptr) {
@@ -334,27 +214,27 @@ void File::init$($URI* uri) {
 	if (File::separatorChar != u'/') {
 		$assign(p, $nc(p)->replace(u'/', File::separatorChar));
 	}
-	$set(this, path, $nc(File::fs)->normalize(p));
-	this->prefixLength = $nc(File::fs)->prefixLength(this->path);
+	$set(this, path, File::fs->normalize(p));
+	this->prefixLength = File::fs->prefixLength(this->path);
 }
 
 $String* File::getName() {
-	int32_t index = $nc(this->path)->lastIndexOf((int32_t)File::separatorChar);
+	int32_t index = $nc(this->path)->lastIndexOf(File::separatorChar);
 	if (index < this->prefixLength) {
-		return $nc(this->path)->substring(this->prefixLength);
+		return this->path->substring(this->prefixLength);
 	}
-	return $nc(this->path)->substring(index + 1);
+	return this->path->substring(index + 1);
 }
 
 $String* File::getParent() {
-	int32_t index = $nc(this->path)->lastIndexOf((int32_t)File::separatorChar);
+	int32_t index = $nc(this->path)->lastIndexOf(File::separatorChar);
 	if (index < this->prefixLength) {
-		if ((this->prefixLength > 0) && ($nc(this->path)->length() > this->prefixLength)) {
-			return $nc(this->path)->substring(0, this->prefixLength);
+		if ((this->prefixLength > 0) && (this->path->length() > this->prefixLength)) {
+			return this->path->substring(0, this->prefixLength);
 		}
 		return nullptr;
 	}
-	return $nc(this->path)->substring(0, index);
+	return this->path->substring(0, index);
 }
 
 File* File::getParentFile() {
@@ -412,14 +292,14 @@ $String* File::slashify($String* path, bool isDirectory) {
 	if (!$nc(p)->startsWith("/"_s)) {
 		$assign(p, $str({"/"_s, p}));
 	}
-	if (!$nc(p)->endsWith("/"_s) && isDirectory) {
+	if (!p->endsWith("/"_s) && isDirectory) {
 		$assign(p, $str({p, "/"_s}));
 	}
 	return p;
 }
 
 $URL* File::toURL() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isInvalid()) {
 		$throwNew($MalformedURLException, "Invalid file path"_s);
 	}
@@ -428,7 +308,7 @@ $URL* File::toURL() {
 }
 
 $URI* File::toURI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(File, f, getAbsoluteFile());
 		$var($String, var$0, $nc(f)->getPath());
@@ -438,7 +318,7 @@ $URI* File::toURI() {
 		}
 		return $new($URI, "file"_s, nullptr, sp, nullptr);
 	} catch ($URISyntaxException& x) {
-		$throwNew($Error, static_cast<$Throwable*>(x));
+		$throwNew($Error, x);
 	}
 	$shouldNotReachHere();
 }
@@ -569,7 +449,7 @@ $StringArray* File::list() {
 }
 
 $StringArray* File::normalizedList() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkRead(this->path);
@@ -581,7 +461,7 @@ $StringArray* File::normalizedList() {
 	if (s != nullptr && $of(this)->getClass() != File::class$) {
 		$var($StringArray, normalized, $new($StringArray, s->length));
 		for (int32_t i = 0; i < s->length; ++i) {
-			normalized->set(i, $($nc(File::fs)->normalize(s->get(i))));
+			normalized->set(i, $(File::fs->normalize(s->get(i))));
 		}
 		$assign(s, normalized);
 	}
@@ -589,7 +469,7 @@ $StringArray* File::normalizedList() {
 }
 
 $StringArray* File::list($FilenameFilter* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, names, normalizedList());
 	if ((names == nullptr) || (filter == nullptr)) {
 		return names;
@@ -600,11 +480,11 @@ $StringArray* File::list($FilenameFilter* filter) {
 			v->add(names->get(i));
 		}
 	}
-	return $fcast($StringArray, v->toArray($$new($StringArray, v->size())));
+	return $cast($StringArray, v->toArray($$new($StringArray, v->size())));
 }
 
 $FileArray* File::listFiles() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, ss, normalizedList());
 	if (ss == nullptr) {
 		return nullptr;
@@ -618,7 +498,7 @@ $FileArray* File::listFiles() {
 }
 
 $FileArray* File::listFiles($FilenameFilter* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, ss, normalizedList());
 	if (ss == nullptr) {
 		return nullptr;
@@ -626,20 +506,18 @@ $FileArray* File::listFiles($FilenameFilter* filter) {
 	$var($ArrayList, files, $new($ArrayList));
 	{
 		$var($StringArray, arr$, ss);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, s, arr$->get(i$));
-			if ((filter == nullptr) || $nc(filter)->accept(this, s)) {
+			if ((filter == nullptr) || filter->accept(this, s)) {
 				files->add($$new(File, s, this));
 			}
 		}
 	}
-	return $fcast($FileArray, files->toArray($$new($FileArray, files->size())));
+	return $cast($FileArray, files->toArray($$new($FileArray, files->size())));
 }
 
 $FileArray* File::listFiles($FileFilter* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, ss, normalizedList());
 	if (ss == nullptr) {
 		return nullptr;
@@ -647,19 +525,17 @@ $FileArray* File::listFiles($FileFilter* filter) {
 	$var($ArrayList, files, $new($ArrayList));
 	{
 		$var($StringArray, arr$, ss);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, s, arr$->get(i$));
 			{
 				$var(File, f, $new(File, s, this));
-				if ((filter == nullptr) || $nc(filter)->accept(f)) {
+				if ((filter == nullptr) || filter->accept(f)) {
 					files->add(f);
 				}
 			}
 		}
 	}
-	return $fcast($FileArray, files->toArray($$new($FileArray, files->size())));
+	return $cast($FileArray, files->toArray($$new($FileArray, files->size())));
 }
 
 bool File::mkdir() {
@@ -674,7 +550,7 @@ bool File::mkdir() {
 }
 
 bool File::mkdirs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (exists()) {
 		return false;
 	}
@@ -691,7 +567,7 @@ bool File::mkdirs() {
 	bool var$1 = parent != nullptr;
 	if (var$1) {
 		bool var$2 = parent->mkdirs();
-		var$1 = (var$2 || parent->exists());
+		var$1 = var$2 || parent->exists();
 	}
 	bool var$0 = var$1;
 	return (var$0 && canonFile->mkdir());
@@ -800,7 +676,7 @@ $FileArray* File::listRoots() {
 }
 
 int64_t File::getTotalSpace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "getFileSystemAttributes"_s));
@@ -810,11 +686,11 @@ int64_t File::getTotalSpace() {
 		return 0;
 	}
 	int64_t space = $nc(File::fs)->getSpace(this, $FileSystem::SPACE_TOTAL);
-	return space >= (int64_t)0 ? space : $Long::MAX_VALUE;
+	return space >= 0 ? space : $Long::MAX_VALUE;
 }
 
 int64_t File::getFreeSpace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "getFileSystemAttributes"_s));
@@ -824,11 +700,11 @@ int64_t File::getFreeSpace() {
 		return 0;
 	}
 	int64_t space = $nc(File::fs)->getSpace(this, $FileSystem::SPACE_FREE);
-	return space >= (int64_t)0 ? space : $Long::MAX_VALUE;
+	return space >= 0 ? space : $Long::MAX_VALUE;
 }
 
 int64_t File::getUsableSpace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "getFileSystemAttributes"_s));
@@ -838,12 +714,12 @@ int64_t File::getUsableSpace() {
 		return 0;
 	}
 	int64_t space = $nc(File::fs)->getSpace(this, $FileSystem::SPACE_USABLE);
-	return space >= (int64_t)0 ? space : $Long::MAX_VALUE;
+	return space >= 0 ? space : $Long::MAX_VALUE;
 }
 
 File* File::createTempFile($String* prefix, $String* suffix$renamed, File* directory) {
 	$init(File);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, suffix, suffix$renamed);
 	if ($nc(prefix)->length() < 3) {
 		$throwNew($IllegalArgumentException, $$str({"Prefix string \""_s, prefix, "\" too short: length must be at least 3"_s}));
@@ -914,27 +790,27 @@ void File::writeObject($ObjectOutputStream* s) {
 
 void File::readObject($ObjectInputStream* s) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-		$var($String, pathField, $cast($String, $nc(fields)->get("path"_s, ($Object*)nullptr)));
+		$var($String, pathField, $cast($String, $nc(fields)->get("path"_s, nullptr)));
 		char16_t sep = s->readChar();
 		if (sep != File::separatorChar) {
 			$assign(pathField, $nc(pathField)->replace(sep, File::separatorChar));
 		}
 		$var($String, path, $nc(File::fs)->normalize(pathField));
 		$nc(File::UNSAFE)->putReference(this, File::PATH_OFFSET, path);
-		$nc(File::UNSAFE)->putIntVolatile(this, File::PREFIX_LENGTH_OFFSET, $nc(File::fs)->prefixLength(path));
+		File::UNSAFE->putIntVolatile(this, File::PREFIX_LENGTH_OFFSET, File::fs->prefixLength(path));
 	}
 }
 
 $Path* File::toPath() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, result, this->filePath);
 	if (result == nullptr) {
 		$synchronized(this) {
 			$assign(result, this->filePath);
 			if (result == nullptr) {
-				$assign(result, $nc($($FileSystems::getDefault()))->getPath(this->path, $$new($StringArray, 0)));
+				$assign(result, $$nc($FileSystems::getDefault())->getPath(this->path, $$new($StringArray, 0)));
 				$set(this, filePath, result);
 			}
 		}
@@ -946,24 +822,134 @@ int32_t File::compareTo(Object$* pathname) {
 	return this->compareTo($cast(File, pathname));
 }
 
-void clinit$File($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void File::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	File::$assertionsDisabled = !File::class$->desiredAssertionStatus();
 	$assignStatic(File::fs, $DefaultFileSystem::getFileSystem());
 	File::separatorChar = $nc(File::fs)->getSeparator();
 	$assignStatic(File::separator, $str({""_s, $$str(File::separatorChar)}));
-	File::pathSeparatorChar = $nc(File::fs)->getPathSeparator();
+	File::pathSeparatorChar = File::fs->getPathSeparator();
 	$assignStatic(File::pathSeparator, $str({""_s, $$str(File::pathSeparatorChar)}));
 	$assignStatic(File::UNSAFE, $Unsafe::getUnsafe());
 	File::PATH_OFFSET = $nc(File::UNSAFE)->objectFieldOffset(File::class$, "path"_s);
-	File::PREFIX_LENGTH_OFFSET = $nc(File::UNSAFE)->objectFieldOffset(File::class$, "prefixLength"_s);
+	File::PREFIX_LENGTH_OFFSET = File::UNSAFE->objectFieldOffset(File::class$, "prefixLength"_s);
 }
 
 File::File() {
 }
 
 $Class* File::load$($String* name, bool initialize) {
-	$loadClass(File, name, initialize, &_File_ClassInfo_, clinit$File, allocate$File);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(File, $assertionsDisabled)},
+		{"fs", "Ljava/io/FileSystem;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File, fs)},
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(File, path)},
+		{"status", "Ljava/io/File$PathStatus;", nullptr, $PRIVATE | $TRANSIENT, $field(File, status)},
+		{"prefixLength", "I", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(File, prefixLength)},
+		{"separatorChar", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(File, separatorChar)},
+		{"separator", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(File, separator)},
+		{"pathSeparatorChar", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(File, pathSeparatorChar)},
+		{"pathSeparator", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(File, pathSeparator)},
+		{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File, UNSAFE)},
+		{"PATH_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File, PATH_OFFSET)},
+		{"PREFIX_LENGTH_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File, PREFIX_LENGTH_OFFSET)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(File, serialVersionUID)},
+		{"filePath", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(File, filePath)},
+		{}
+	};
+	$CompoundAttribute toURLmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(File, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/io/File;)V", nullptr, $PRIVATE, $method(File, init$, void, $String*, File*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(File, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(File, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(File, init$, void, File*, $String*)},
+		{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(File, init$, void, $URI*)},
+		{"canExecute", "()Z", nullptr, $PUBLIC, $virtualMethod(File, canExecute, bool)},
+		{"canRead", "()Z", nullptr, $PUBLIC, $virtualMethod(File, canRead, bool)},
+		{"canWrite", "()Z", nullptr, $PUBLIC, $virtualMethod(File, canWrite, bool)},
+		{"compareTo", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(File, compareTo, int32_t, File*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(File, compareTo, int32_t, Object$*)},
+		{"createNewFile", "()Z", nullptr, $PUBLIC, $virtualMethod(File, createNewFile, bool), "java.io.IOException"},
+		{"createTempFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $staticMethod(File, createTempFile, File*, $String*, $String*, File*), "java.io.IOException"},
+		{"createTempFile", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $staticMethod(File, createTempFile, File*, $String*, $String*), "java.io.IOException"},
+		{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(File, delete$, bool)},
+		{"deleteOnExit", "()V", nullptr, $PUBLIC, $virtualMethod(File, deleteOnExit, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(File, equals, bool, Object$*)},
+		{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(File, exists, bool)},
+		{"getAbsoluteFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, getAbsoluteFile, File*)},
+		{"getAbsolutePath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, getAbsolutePath, $String*)},
+		{"getCanonicalFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, getCanonicalFile, File*), "java.io.IOException"},
+		{"getCanonicalPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, getCanonicalPath, $String*), "java.io.IOException"},
+		{"getFreeSpace", "()J", nullptr, $PUBLIC, $virtualMethod(File, getFreeSpace, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, getName, $String*)},
+		{"getParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, getParent, $String*)},
+		{"getParentFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, getParentFile, File*)},
+		{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, getPath, $String*)},
+		{"getPrefixLength", "()I", nullptr, 0, $virtualMethod(File, getPrefixLength, int32_t)},
+		{"getTotalSpace", "()J", nullptr, $PUBLIC, $virtualMethod(File, getTotalSpace, int64_t)},
+		{"getUsableSpace", "()J", nullptr, $PUBLIC, $virtualMethod(File, getUsableSpace, int64_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(File, hashCode, int32_t)},
+		{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(File, isAbsolute, bool)},
+		{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(File, isDirectory, bool)},
+		{"isFile", "()Z", nullptr, $PUBLIC, $virtualMethod(File, isFile, bool)},
+		{"isHidden", "()Z", nullptr, $PUBLIC, $virtualMethod(File, isHidden, bool)},
+		{"isInvalid", "()Z", nullptr, $FINAL, $method(File, isInvalid, bool)},
+		{"lastModified", "()J", nullptr, $PUBLIC, $virtualMethod(File, lastModified, int64_t)},
+		{"length", "()J", nullptr, $PUBLIC, $virtualMethod(File, length, int64_t)},
+		{"list", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, list, $StringArray*)},
+		{"list", "(Ljava/io/FilenameFilter;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, list, $StringArray*, $FilenameFilter*)},
+		{"listFiles", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, listFiles, $FileArray*)},
+		{"listFiles", "(Ljava/io/FilenameFilter;)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, listFiles, $FileArray*, $FilenameFilter*)},
+		{"listFiles", "(Ljava/io/FileFilter;)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(File, listFiles, $FileArray*, $FileFilter*)},
+		{"listRoots", "()[Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $staticMethod(File, listRoots, $FileArray*)},
+		{"mkdir", "()Z", nullptr, $PUBLIC, $virtualMethod(File, mkdir, bool)},
+		{"mkdirs", "()Z", nullptr, $PUBLIC, $virtualMethod(File, mkdirs, bool)},
+		{"normalizedList", "()[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(File, normalizedList, $StringArray*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(File, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"renameTo", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(File, renameTo, bool, File*)},
+		{"setExecutable", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(File, setExecutable, bool, bool, bool)},
+		{"setExecutable", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(File, setExecutable, bool, bool)},
+		{"setLastModified", "(J)Z", nullptr, $PUBLIC, $virtualMethod(File, setLastModified, bool, int64_t)},
+		{"setReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(File, setReadOnly, bool)},
+		{"setReadable", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(File, setReadable, bool, bool, bool)},
+		{"setReadable", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(File, setReadable, bool, bool)},
+		{"setWritable", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(File, setWritable, bool, bool, bool)},
+		{"setWritable", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(File, setWritable, bool, bool)},
+		{"slashify", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(File, slashify, $String*, $String*, bool)},
+		{"toPath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(File, toPath, $Path*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(File, toString, $String*)},
+		{"toURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(File, toURI, $URI*)},
+		{"toURL", "()Ljava/net/URL;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(File, toURL, $URL*), "java.net.MalformedURLException", nullptr, toURLmethodAnnotations$$},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(File, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.File$TempDirectory", "java.io.File", "TempDirectory", $PRIVATE | $STATIC},
+		{"java.io.File$PathStatus", "java.io.File", "PathStatus", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.File",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/io/File;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.io.File$TempDirectory,java.io.File$PathStatus"
+	};
+	$loadClass(File, name, initialize, &classInfo$$, File::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(File));
+	});
 	return class$;
 }
 

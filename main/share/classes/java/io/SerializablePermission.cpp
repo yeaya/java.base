@@ -1,5 +1,4 @@
 #include <java/io/SerializablePermission.h>
-
 #include <java/security/BasicPermission.h>
 #include <jcpp.h>
 
@@ -10,31 +9,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _SerializablePermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SerializablePermission, serialVersionUID)},
-	{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerializablePermission, actions)},
-	{}
-};
-
-$MethodInfo _SerializablePermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SerializablePermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SerializablePermission, init$, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _SerializablePermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.io.SerializablePermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_SerializablePermission_FieldInfo_,
-	_SerializablePermission_MethodInfo_
-};
-
-$Object* allocate$SerializablePermission($Class* clazz) {
-	return $of($alloc(SerializablePermission));
-}
 
 void SerializablePermission::init$($String* name) {
 	$BasicPermission::init$(name);
@@ -48,7 +22,27 @@ SerializablePermission::SerializablePermission() {
 }
 
 $Class* SerializablePermission::load$($String* name, bool initialize) {
-	$loadClass(SerializablePermission, name, initialize, &_SerializablePermission_ClassInfo_, allocate$SerializablePermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SerializablePermission, serialVersionUID)},
+		{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerializablePermission, actions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SerializablePermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SerializablePermission, init$, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.io.SerializablePermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SerializablePermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SerializablePermission));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/net/ftp/FtpReplyCode.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -65,100 +64,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace net {
 		namespace ftp {
-
-$FieldInfo _FtpReplyCode_FieldInfo_[] = {
-	{"RESTART_MARKER", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, RESTART_MARKER)},
-	{"SERVICE_READY_IN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SERVICE_READY_IN)},
-	{"DATA_CONNECTION_ALREADY_OPEN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, DATA_CONNECTION_ALREADY_OPEN)},
-	{"FILE_STATUS_OK", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_STATUS_OK)},
-	{"COMMAND_OK", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, COMMAND_OK)},
-	{"NOT_IMPLEMENTED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NOT_IMPLEMENTED)},
-	{"SYSTEM_STATUS", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SYSTEM_STATUS)},
-	{"DIRECTORY_STATUS", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, DIRECTORY_STATUS)},
-	{"FILE_STATUS", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_STATUS)},
-	{"HELP_MESSAGE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, HELP_MESSAGE)},
-	{"NAME_SYSTEM_TYPE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NAME_SYSTEM_TYPE)},
-	{"SERVICE_READY", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SERVICE_READY)},
-	{"SERVICE_CLOSING", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SERVICE_CLOSING)},
-	{"DATA_CONNECTION_OPEN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, DATA_CONNECTION_OPEN)},
-	{"CLOSING_DATA_CONNECTION", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, CLOSING_DATA_CONNECTION)},
-	{"ENTERING_PASSIVE_MODE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, ENTERING_PASSIVE_MODE)},
-	{"ENTERING_EXT_PASSIVE_MODE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, ENTERING_EXT_PASSIVE_MODE)},
-	{"LOGGED_IN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, LOGGED_IN)},
-	{"SECURELY_LOGGED_IN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SECURELY_LOGGED_IN)},
-	{"SECURITY_EXCHANGE_OK", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SECURITY_EXCHANGE_OK)},
-	{"SECURITY_EXCHANGE_COMPLETE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SECURITY_EXCHANGE_COMPLETE)},
-	{"FILE_ACTION_OK", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_ACTION_OK)},
-	{"PATHNAME_CREATED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, PATHNAME_CREATED)},
-	{"NEED_PASSWORD", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_PASSWORD)},
-	{"NEED_ACCOUNT", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_ACCOUNT)},
-	{"NEED_ADAT", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_ADAT)},
-	{"NEED_MORE_ADAT", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_MORE_ADAT)},
-	{"FILE_ACTION_PENDING", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_ACTION_PENDING)},
-	{"SERVICE_NOT_AVAILABLE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SERVICE_NOT_AVAILABLE)},
-	{"CANT_OPEN_DATA_CONNECTION", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, CANT_OPEN_DATA_CONNECTION)},
-	{"CONNECTION_CLOSED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, CONNECTION_CLOSED)},
-	{"NEED_SECURITY_RESOURCE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_SECURITY_RESOURCE)},
-	{"FILE_ACTION_NOT_TAKEN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_ACTION_NOT_TAKEN)},
-	{"ACTION_ABORTED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, ACTION_ABORTED)},
-	{"INSUFFICIENT_STORAGE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, INSUFFICIENT_STORAGE)},
-	{"COMMAND_UNRECOGNIZED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, COMMAND_UNRECOGNIZED)},
-	{"INVALID_PARAMETER", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, INVALID_PARAMETER)},
-	{"BAD_SEQUENCE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, BAD_SEQUENCE)},
-	{"NOT_IMPLEMENTED_FOR_PARAMETER", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NOT_IMPLEMENTED_FOR_PARAMETER)},
-	{"NOT_LOGGED_IN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NOT_LOGGED_IN)},
-	{"NEED_ACCOUNT_FOR_STORING", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_ACCOUNT_FOR_STORING)},
-	{"PROT_LEVEL_DENIED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, PROT_LEVEL_DENIED)},
-	{"REQUEST_DENIED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, REQUEST_DENIED)},
-	{"FAILED_SECURITY_CHECK", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FAILED_SECURITY_CHECK)},
-	{"UNSUPPORTED_PROT_LEVEL", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, UNSUPPORTED_PROT_LEVEL)},
-	{"PROT_LEVEL_NOT_SUPPORTED_BY_SECURITY", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, PROT_LEVEL_NOT_SUPPORTED_BY_SECURITY)},
-	{"FILE_UNAVAILABLE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_UNAVAILABLE)},
-	{"PAGE_TYPE_UNKNOWN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, PAGE_TYPE_UNKNOWN)},
-	{"EXCEEDED_STORAGE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, EXCEEDED_STORAGE)},
-	{"FILE_NAME_NOT_ALLOWED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_NAME_NOT_ALLOWED)},
-	{"PROTECTED_REPLY", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, PROTECTED_REPLY)},
-	{"UNKNOWN_ERROR", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, UNKNOWN_ERROR)},
-	{"$VALUES", "[Lsun/net/ftp/FtpReplyCode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FtpReplyCode, $VALUES)},
-	{"value", "I", nullptr, $PRIVATE | $FINAL, $field(FtpReplyCode, value)},
-	{}
-};
-
-$MethodInfo _FtpReplyCode_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/ftp/FtpReplyCode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FtpReplyCode, $values, $FtpReplyCodeArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(FtpReplyCode, init$, void, $String*, int32_t, int32_t)},
-	{"find", "(I)Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpReplyCode, find, FtpReplyCode*, int32_t)},
-	{"getValue", "()I", nullptr, $PUBLIC, $method(FtpReplyCode, getValue, int32_t)},
-	{"isAuthentication", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isAuthentication, bool)},
-	{"isConnection", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isConnection, bool)},
-	{"isFileSystem", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isFileSystem, bool)},
-	{"isInformation", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isInformation, bool)},
-	{"isPermanentNegative", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isPermanentNegative, bool)},
-	{"isPositiveCompletion", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isPositiveCompletion, bool)},
-	{"isPositiveIntermediate", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isPositiveIntermediate, bool)},
-	{"isPositivePreliminary", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isPositivePreliminary, bool)},
-	{"isProtectedReply", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isProtectedReply, bool)},
-	{"isSyntax", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isSyntax, bool)},
-	{"isTransientNegative", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isTransientNegative, bool)},
-	{"isUnspecified", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isUnspecified, bool)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpReplyCode, valueOf, FtpReplyCode*, $String*)},
-	{"values", "()[Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpReplyCode, values, $FtpReplyCodeArray*)},
-	{}
-};
-
-$ClassInfo _FtpReplyCode_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.net.ftp.FtpReplyCode",
-	"java.lang.Enum",
-	nullptr,
-	_FtpReplyCode_FieldInfo_,
-	_FtpReplyCode_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/net/ftp/FtpReplyCode;>;"
-};
-
-$Object* allocate$FtpReplyCode($Class* clazz) {
-	return $of($alloc(FtpReplyCode));
-}
 
 FtpReplyCode* FtpReplyCode::RESTART_MARKER = nullptr;
 FtpReplyCode* FtpReplyCode::SERVICE_READY_IN = nullptr;
@@ -343,21 +248,17 @@ FtpReplyCode* FtpReplyCode::find(int32_t v) {
 	$init(FtpReplyCode);
 	{
 		$var($FtpReplyCodeArray, arr$, FtpReplyCode::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			FtpReplyCode* code = arr$->get(i$);
-			{
-				if ($nc(code)->getValue() == v) {
-					return code;
-				}
+			if ($nc(code)->getValue() == v) {
+				return code;
 			}
 		}
 	}
 	return FtpReplyCode::UNKNOWN_ERROR;
 }
 
-void clinit$FtpReplyCode($Class* class$) {
+void FtpReplyCode::clinit$($Class* clazz) {
 	$assignStatic(FtpReplyCode::RESTART_MARKER, $new(FtpReplyCode, "RESTART_MARKER"_s, 0, 110));
 	$assignStatic(FtpReplyCode::SERVICE_READY_IN, $new(FtpReplyCode, "SERVICE_READY_IN"_s, 1, 120));
 	$assignStatic(FtpReplyCode::DATA_CONNECTION_ALREADY_OPEN, $new(FtpReplyCode, "DATA_CONNECTION_ALREADY_OPEN"_s, 2, 125));
@@ -417,7 +318,96 @@ FtpReplyCode::FtpReplyCode() {
 }
 
 $Class* FtpReplyCode::load$($String* name, bool initialize) {
-	$loadClass(FtpReplyCode, name, initialize, &_FtpReplyCode_ClassInfo_, clinit$FtpReplyCode, allocate$FtpReplyCode);
+	$FieldInfo fieldInfos$$[] = {
+		{"RESTART_MARKER", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, RESTART_MARKER)},
+		{"SERVICE_READY_IN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SERVICE_READY_IN)},
+		{"DATA_CONNECTION_ALREADY_OPEN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, DATA_CONNECTION_ALREADY_OPEN)},
+		{"FILE_STATUS_OK", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_STATUS_OK)},
+		{"COMMAND_OK", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, COMMAND_OK)},
+		{"NOT_IMPLEMENTED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NOT_IMPLEMENTED)},
+		{"SYSTEM_STATUS", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SYSTEM_STATUS)},
+		{"DIRECTORY_STATUS", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, DIRECTORY_STATUS)},
+		{"FILE_STATUS", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_STATUS)},
+		{"HELP_MESSAGE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, HELP_MESSAGE)},
+		{"NAME_SYSTEM_TYPE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NAME_SYSTEM_TYPE)},
+		{"SERVICE_READY", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SERVICE_READY)},
+		{"SERVICE_CLOSING", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SERVICE_CLOSING)},
+		{"DATA_CONNECTION_OPEN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, DATA_CONNECTION_OPEN)},
+		{"CLOSING_DATA_CONNECTION", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, CLOSING_DATA_CONNECTION)},
+		{"ENTERING_PASSIVE_MODE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, ENTERING_PASSIVE_MODE)},
+		{"ENTERING_EXT_PASSIVE_MODE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, ENTERING_EXT_PASSIVE_MODE)},
+		{"LOGGED_IN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, LOGGED_IN)},
+		{"SECURELY_LOGGED_IN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SECURELY_LOGGED_IN)},
+		{"SECURITY_EXCHANGE_OK", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SECURITY_EXCHANGE_OK)},
+		{"SECURITY_EXCHANGE_COMPLETE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SECURITY_EXCHANGE_COMPLETE)},
+		{"FILE_ACTION_OK", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_ACTION_OK)},
+		{"PATHNAME_CREATED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, PATHNAME_CREATED)},
+		{"NEED_PASSWORD", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_PASSWORD)},
+		{"NEED_ACCOUNT", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_ACCOUNT)},
+		{"NEED_ADAT", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_ADAT)},
+		{"NEED_MORE_ADAT", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_MORE_ADAT)},
+		{"FILE_ACTION_PENDING", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_ACTION_PENDING)},
+		{"SERVICE_NOT_AVAILABLE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, SERVICE_NOT_AVAILABLE)},
+		{"CANT_OPEN_DATA_CONNECTION", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, CANT_OPEN_DATA_CONNECTION)},
+		{"CONNECTION_CLOSED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, CONNECTION_CLOSED)},
+		{"NEED_SECURITY_RESOURCE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_SECURITY_RESOURCE)},
+		{"FILE_ACTION_NOT_TAKEN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_ACTION_NOT_TAKEN)},
+		{"ACTION_ABORTED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, ACTION_ABORTED)},
+		{"INSUFFICIENT_STORAGE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, INSUFFICIENT_STORAGE)},
+		{"COMMAND_UNRECOGNIZED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, COMMAND_UNRECOGNIZED)},
+		{"INVALID_PARAMETER", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, INVALID_PARAMETER)},
+		{"BAD_SEQUENCE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, BAD_SEQUENCE)},
+		{"NOT_IMPLEMENTED_FOR_PARAMETER", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NOT_IMPLEMENTED_FOR_PARAMETER)},
+		{"NOT_LOGGED_IN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NOT_LOGGED_IN)},
+		{"NEED_ACCOUNT_FOR_STORING", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, NEED_ACCOUNT_FOR_STORING)},
+		{"PROT_LEVEL_DENIED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, PROT_LEVEL_DENIED)},
+		{"REQUEST_DENIED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, REQUEST_DENIED)},
+		{"FAILED_SECURITY_CHECK", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FAILED_SECURITY_CHECK)},
+		{"UNSUPPORTED_PROT_LEVEL", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, UNSUPPORTED_PROT_LEVEL)},
+		{"PROT_LEVEL_NOT_SUPPORTED_BY_SECURITY", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, PROT_LEVEL_NOT_SUPPORTED_BY_SECURITY)},
+		{"FILE_UNAVAILABLE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_UNAVAILABLE)},
+		{"PAGE_TYPE_UNKNOWN", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, PAGE_TYPE_UNKNOWN)},
+		{"EXCEEDED_STORAGE", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, EXCEEDED_STORAGE)},
+		{"FILE_NAME_NOT_ALLOWED", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, FILE_NAME_NOT_ALLOWED)},
+		{"PROTECTED_REPLY", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, PROTECTED_REPLY)},
+		{"UNKNOWN_ERROR", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpReplyCode, UNKNOWN_ERROR)},
+		{"$VALUES", "[Lsun/net/ftp/FtpReplyCode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FtpReplyCode, $VALUES)},
+		{"value", "I", nullptr, $PRIVATE | $FINAL, $field(FtpReplyCode, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/net/ftp/FtpReplyCode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FtpReplyCode, $values, $FtpReplyCodeArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(FtpReplyCode, init$, void, $String*, int32_t, int32_t)},
+		{"find", "(I)Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpReplyCode, find, FtpReplyCode*, int32_t)},
+		{"getValue", "()I", nullptr, $PUBLIC, $method(FtpReplyCode, getValue, int32_t)},
+		{"isAuthentication", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isAuthentication, bool)},
+		{"isConnection", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isConnection, bool)},
+		{"isFileSystem", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isFileSystem, bool)},
+		{"isInformation", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isInformation, bool)},
+		{"isPermanentNegative", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isPermanentNegative, bool)},
+		{"isPositiveCompletion", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isPositiveCompletion, bool)},
+		{"isPositiveIntermediate", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isPositiveIntermediate, bool)},
+		{"isPositivePreliminary", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isPositivePreliminary, bool)},
+		{"isProtectedReply", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isProtectedReply, bool)},
+		{"isSyntax", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isSyntax, bool)},
+		{"isTransientNegative", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isTransientNegative, bool)},
+		{"isUnspecified", "()Z", nullptr, $PUBLIC, $method(FtpReplyCode, isUnspecified, bool)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpReplyCode, valueOf, FtpReplyCode*, $String*)},
+		{"values", "()[Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpReplyCode, values, $FtpReplyCodeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.net.ftp.FtpReplyCode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/net/ftp/FtpReplyCode;>;"
+	};
+	$loadClass(FtpReplyCode, name, initialize, &classInfo$$, FtpReplyCode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FtpReplyCode));
+	});
 	return class$;
 }
 

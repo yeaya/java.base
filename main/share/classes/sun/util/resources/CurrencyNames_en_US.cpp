@@ -1,5 +1,4 @@
 #include <sun/util/resources/CurrencyNames_en_US.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -12,33 +11,14 @@ namespace sun {
 	namespace util {
 		namespace resources {
 
-$MethodInfo _CurrencyNames_en_US_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_en_US, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_en_US, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_en_US_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.CurrencyNames_en_US",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_en_US_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_en_US($Class* clazz) {
-	return $of($alloc(CurrencyNames_en_US));
-}
-
 void CurrencyNames_en_US::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_en_US::getContents() {
 	return $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("USD"_s),
-		$of("$"_s)
+		"USD"_s,
+		"$"_s
 	})});
 }
 
@@ -46,7 +26,22 @@ CurrencyNames_en_US::CurrencyNames_en_US() {
 }
 
 $Class* CurrencyNames_en_US::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_en_US, name, initialize, &_CurrencyNames_en_US_ClassInfo_, allocate$CurrencyNames_en_US);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_en_US, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_en_US, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.CurrencyNames_en_US",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_en_US, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_en_US);
+	});
 	return class$;
 }
 

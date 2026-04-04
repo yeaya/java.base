@@ -38,6 +38,7 @@ class DummyX509TrustManager : public ::javax::net::ssl::X509ExtendedTrustManager
 	$class(DummyX509TrustManager, 0, ::javax::net::ssl::X509ExtendedTrustManager)
 public:
 	DummyX509TrustManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void checkClientTrusted($Array<::java::security::cert::X509Certificate>* chain, $String* authType) override;
 	virtual void checkClientTrusted($Array<::java::security::cert::X509Certificate>* chain, $String* authType, ::java::net::Socket* socket) override;

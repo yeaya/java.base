@@ -55,7 +55,7 @@ public:
 	static $String* stringFromMUTF8($bytes* bytes);
 	static int32_t unmaskedHashCode($String* s, int32_t seed);
 	static const int32_t HASH_MULTIPLIER = 0x01000193;
-	static const int32_t POSITIVE_MASK = 0x7FFFFFFF;
+	static const int32_t POSITIVE_MASK = 0x7fffffff;
 	::jdk::internal::jimage::BasicImageReader* reader = nullptr;
 };
 

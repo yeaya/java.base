@@ -1,5 +1,4 @@
 #include <java/lang/ProcessEnvironment$Variable.h>
-
 #include <java/lang/ProcessEnvironment$ExternalData.h>
 #include <java/lang/ProcessEnvironment.h>
 #include <jcpp.h>
@@ -12,48 +11,6 @@ using $ProcessEnvironment$ExternalData = ::java::lang::ProcessEnvironment$Extern
 
 namespace java {
 	namespace lang {
-
-$MethodInfo _ProcessEnvironment$Variable_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(ProcessEnvironment$Variable, init$, void, $String*, $bytes*)},
-	{"compareTo", "(Ljava/lang/ProcessEnvironment$Variable;)I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$Variable, compareTo, int32_t, ProcessEnvironment$Variable*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessEnvironment$Variable, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$Variable, equals, bool, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOf, ProcessEnvironment$Variable*, $String*)},
-	{"valueOf", "([B)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOf, ProcessEnvironment$Variable*, $bytes*)},
-	{"valueOfQueryOnly", "(Ljava/lang/Object;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOfQueryOnly, ProcessEnvironment$Variable*, Object$*)},
-	{"valueOfQueryOnly", "(Ljava/lang/String;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOfQueryOnly, ProcessEnvironment$Variable*, $String*)},
-	{}
-};
-
-$InnerClassInfo _ProcessEnvironment$Variable_InnerClassesInfo_[] = {
-	{"java.lang.ProcessEnvironment$Variable", "java.lang.ProcessEnvironment", "Variable", $PRIVATE | $STATIC},
-	{"java.lang.ProcessEnvironment$ExternalData", "java.lang.ProcessEnvironment", "ExternalData", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ProcessEnvironment$Variable_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ProcessEnvironment$Variable",
-	"java.lang.ProcessEnvironment$ExternalData",
-	"java.lang.Comparable",
-	nullptr,
-	_ProcessEnvironment$Variable_MethodInfo_,
-	"Ljava/lang/ProcessEnvironment$ExternalData;Ljava/lang/Comparable<Ljava/lang/ProcessEnvironment$Variable;>;",
-	nullptr,
-	_ProcessEnvironment$Variable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessEnvironment"
-};
-
-$Object* allocate$ProcessEnvironment$Variable($Class* clazz) {
-	return $of($alloc(ProcessEnvironment$Variable));
-}
 
 $String* ProcessEnvironment$Variable::toString() {
 	 return this->$ProcessEnvironment$ExternalData::toString();
@@ -97,7 +54,7 @@ ProcessEnvironment$Variable* ProcessEnvironment$Variable::valueOf($bytes* bytes)
 }
 
 int32_t ProcessEnvironment$Variable::compareTo(ProcessEnvironment$Variable* variable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, var$0, getBytes());
 	return $ProcessEnvironment::arrayCompare(var$0, $($nc(variable)->getBytes()));
 }
@@ -114,7 +71,44 @@ ProcessEnvironment$Variable::ProcessEnvironment$Variable() {
 }
 
 $Class* ProcessEnvironment$Variable::load$($String* name, bool initialize) {
-	$loadClass(ProcessEnvironment$Variable, name, initialize, &_ProcessEnvironment$Variable_ClassInfo_, allocate$ProcessEnvironment$Variable);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(ProcessEnvironment$Variable, init$, void, $String*, $bytes*)},
+		{"compareTo", "(Ljava/lang/ProcessEnvironment$Variable;)I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$Variable, compareTo, int32_t, ProcessEnvironment$Variable*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessEnvironment$Variable, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$Variable, equals, bool, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOf, ProcessEnvironment$Variable*, $String*)},
+		{"valueOf", "([B)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOf, ProcessEnvironment$Variable*, $bytes*)},
+		{"valueOfQueryOnly", "(Ljava/lang/Object;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOfQueryOnly, ProcessEnvironment$Variable*, Object$*)},
+		{"valueOfQueryOnly", "(Ljava/lang/String;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOfQueryOnly, ProcessEnvironment$Variable*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessEnvironment$Variable", "java.lang.ProcessEnvironment", "Variable", $PRIVATE | $STATIC},
+		{"java.lang.ProcessEnvironment$ExternalData", "java.lang.ProcessEnvironment", "ExternalData", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ProcessEnvironment$Variable",
+		"java.lang.ProcessEnvironment$ExternalData",
+		"java.lang.Comparable",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/ProcessEnvironment$ExternalData;Ljava/lang/Comparable<Ljava/lang/ProcessEnvironment$Variable;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessEnvironment"
+	};
+	$loadClass(ProcessEnvironment$Variable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProcessEnvironment$Variable));
+	});
 	return class$;
 }
 

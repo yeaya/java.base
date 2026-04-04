@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLCipher$SSLReadCipher.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/SecureRandom.h>
@@ -32,52 +31,6 @@ using $SSLCipher = ::sun::security::ssl::SSLCipher;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLCipher$SSLReadCipher_FieldInfo_[] = {
-	{"authenticator", "Lsun/security/ssl/Authenticator;", nullptr, $FINAL, $field(SSLCipher$SSLReadCipher, authenticator)},
-	{"protocolVersion", "Lsun/security/ssl/ProtocolVersion;", nullptr, $FINAL, $field(SSLCipher$SSLReadCipher, protocolVersion)},
-	{"keyLimitEnabled", "Z", nullptr, 0, $field(SSLCipher$SSLReadCipher, keyLimitEnabled)},
-	{"keyLimitCountdown", "J", nullptr, 0, $field(SSLCipher$SSLReadCipher, keyLimitCountdown)},
-	{"baseSecret", "Ljavax/crypto/SecretKey;", nullptr, 0, $field(SSLCipher$SSLReadCipher, baseSecret)},
-	{}
-};
-
-$MethodInfo _SSLCipher$SSLReadCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(SSLCipher$SSLReadCipher, init$, void, $Authenticator*, $ProtocolVersion*)},
-	{"atKeyLimit", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLCipher$SSLReadCipher, atKeyLimit, bool)},
-	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $ABSTRACT, $virtualMethod(SSLCipher$SSLReadCipher, decrypt, $Plaintext*, int8_t, $ByteBuffer*, $bytes*), "java.security.GeneralSecurityException"},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$SSLReadCipher, dispose, void)},
-	{"estimateFragmentSize", "(II)I", nullptr, $ABSTRACT, $virtualMethod(SSLCipher$SSLReadCipher, estimateFragmentSize, int32_t, int32_t, int32_t)},
-	{"isNullCipher", "()Z", nullptr, 0, $virtualMethod(SSLCipher$SSLReadCipher, isNullCipher, bool)},
-	{"nullDTlsReadCipher", "()Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $STATIC | $FINAL, $staticMethod(SSLCipher$SSLReadCipher, nullDTlsReadCipher, SSLCipher$SSLReadCipher*)},
-	{"nullTlsReadCipher", "()Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $STATIC | $FINAL, $staticMethod(SSLCipher$SSLReadCipher, nullTlsReadCipher, SSLCipher$SSLReadCipher*)},
-	{}
-};
-
-$InnerClassInfo _SSLCipher$SSLReadCipher_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLCipher$SSLReadCipher", "sun.security.ssl.SSLCipher", "SSLReadCipher", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLCipher$SSLReadCipher_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.ssl.SSLCipher$SSLReadCipher",
-	"java.lang.Object",
-	nullptr,
-	_SSLCipher$SSLReadCipher_FieldInfo_,
-	_SSLCipher$SSLReadCipher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLCipher$SSLReadCipher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLCipher"
-};
-
-$Object* allocate$SSLCipher$SSLReadCipher($Class* clazz) {
-	return $of($alloc(SSLCipher$SSLReadCipher));
-}
 
 void SSLCipher$SSLReadCipher::init$($Authenticator* authenticator, $ProtocolVersion* protocolVersion) {
 	this->keyLimitEnabled = false;
@@ -127,7 +80,47 @@ SSLCipher$SSLReadCipher::SSLCipher$SSLReadCipher() {
 }
 
 $Class* SSLCipher$SSLReadCipher::load$($String* name, bool initialize) {
-	$loadClass(SSLCipher$SSLReadCipher, name, initialize, &_SSLCipher$SSLReadCipher_ClassInfo_, allocate$SSLCipher$SSLReadCipher);
+	$FieldInfo fieldInfos$$[] = {
+		{"authenticator", "Lsun/security/ssl/Authenticator;", nullptr, $FINAL, $field(SSLCipher$SSLReadCipher, authenticator)},
+		{"protocolVersion", "Lsun/security/ssl/ProtocolVersion;", nullptr, $FINAL, $field(SSLCipher$SSLReadCipher, protocolVersion)},
+		{"keyLimitEnabled", "Z", nullptr, 0, $field(SSLCipher$SSLReadCipher, keyLimitEnabled)},
+		{"keyLimitCountdown", "J", nullptr, 0, $field(SSLCipher$SSLReadCipher, keyLimitCountdown)},
+		{"baseSecret", "Ljavax/crypto/SecretKey;", nullptr, 0, $field(SSLCipher$SSLReadCipher, baseSecret)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(SSLCipher$SSLReadCipher, init$, void, $Authenticator*, $ProtocolVersion*)},
+		{"atKeyLimit", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLCipher$SSLReadCipher, atKeyLimit, bool)},
+		{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $ABSTRACT, $virtualMethod(SSLCipher$SSLReadCipher, decrypt, $Plaintext*, int8_t, $ByteBuffer*, $bytes*), "java.security.GeneralSecurityException"},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$SSLReadCipher, dispose, void)},
+		{"estimateFragmentSize", "(II)I", nullptr, $ABSTRACT, $virtualMethod(SSLCipher$SSLReadCipher, estimateFragmentSize, int32_t, int32_t, int32_t)},
+		{"isNullCipher", "()Z", nullptr, 0, $virtualMethod(SSLCipher$SSLReadCipher, isNullCipher, bool)},
+		{"nullDTlsReadCipher", "()Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $STATIC | $FINAL, $staticMethod(SSLCipher$SSLReadCipher, nullDTlsReadCipher, SSLCipher$SSLReadCipher*)},
+		{"nullTlsReadCipher", "()Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $STATIC | $FINAL, $staticMethod(SSLCipher$SSLReadCipher, nullTlsReadCipher, SSLCipher$SSLReadCipher*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLCipher$SSLReadCipher", "sun.security.ssl.SSLCipher", "SSLReadCipher", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.ssl.SSLCipher$SSLReadCipher",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLCipher"
+	};
+	$loadClass(SSLCipher$SSLReadCipher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLCipher$SSLReadCipher);
+	});
 	return class$;
 }
 

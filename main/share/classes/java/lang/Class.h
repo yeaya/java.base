@@ -145,6 +145,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ClassLoader* loader, $Class* arrayComponentType);
 	static void addAll(::java::util::Collection* c, $Array<::java::lang::reflect::Field>* o);
 	::java::lang::Class$AnnotationData* annotationData();
@@ -319,7 +320,7 @@ public:
 	$volatile(int32_t) classRedefinedCount = 0;
 	$volatile(::sun::reflect::generics::repository::ClassRepository*) genericInfo = nullptr;
 	static $ClassArray* EMPTY_CLASS_ARRAY;
-	static const int64_t serialVersionUID = (int64_t)0x2C7E5503D9BF9553;
+	static const int64_t serialVersionUID = (int64_t)0x2c7e5503d9bf9553;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	static ::jdk::internal::reflect::ReflectionFactory* reflectionFactory;
 	$volatile($ObjectArray*) enumConstants = nullptr;
@@ -356,7 +357,7 @@ public:
 	::java::lang::reflect::Method* refMethod($String* name, $String* descriptor);
 
 	::java::lang::reflect::Method* getMethodEx($String* name, $ClassArray* parameterTypes);
-	::java::lang::reflect::Method* getMethodsRecursiveEx($String* name, $ClassArray* parameterTypes, bool includeStatic);
+	::java::lang::reflect::Method* getMethodEx($String* name, $ClassArray* parameterTypes, bool includeStatic);
 	::java::lang::reflect::Method* getMethodEx($String* name, $String* descriptor);
 	::java::lang::reflect::Constructor* getDeclaredConstructor($String* descriptor);
 	$Array<::java::lang::reflect::Method>* getDeclaredMethods(bool publicOnly, bool withStar);
@@ -426,6 +427,8 @@ public:
 	void recordObjectFieldOffset(int32_t offset);
 	void recordObjectFieldOffset0(int32_t offset);
 	void ensureConstantPoolInitialized();
+
+	void* loadNativeMethod(const char* methodName, const char* descriptor);
 
 	Class* arrayType0();
 	Class* arrayType(int32_t dim);

@@ -1,5 +1,4 @@
 #include <java/util/ConcurrentModificationException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,32 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _ConcurrentModificationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConcurrentModificationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ConcurrentModificationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _ConcurrentModificationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.ConcurrentModificationException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ConcurrentModificationException_FieldInfo_,
-	_ConcurrentModificationException_MethodInfo_
-};
-
-$Object* allocate$ConcurrentModificationException($Class* clazz) {
-	return $of($alloc(ConcurrentModificationException));
-}
 
 void ConcurrentModificationException::init$() {
 	$RuntimeException::init$();
@@ -63,7 +36,28 @@ void ConcurrentModificationException::throw$() {
 }
 
 $Class* ConcurrentModificationException::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentModificationException, name, initialize, &_ConcurrentModificationException_ClassInfo_, allocate$ConcurrentModificationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConcurrentModificationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.ConcurrentModificationException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConcurrentModificationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConcurrentModificationException);
+	});
 	return class$;
 }
 

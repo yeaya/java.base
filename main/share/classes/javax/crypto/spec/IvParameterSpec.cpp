@@ -1,5 +1,4 @@
 #include <javax/crypto/spec/IvParameterSpec.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace crypto {
 		namespace spec {
-
-$FieldInfo _IvParameterSpec_FieldInfo_[] = {
-	{"iv", "[B", nullptr, $PRIVATE, $field(IvParameterSpec, iv)},
-	{}
-};
-
-$MethodInfo _IvParameterSpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(IvParameterSpec, init$, void, $bytes*)},
-	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(IvParameterSpec, init$, void, $bytes*, int32_t, int32_t)},
-	{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(IvParameterSpec, getIV, $bytes*)},
-	{}
-};
-
-$ClassInfo _IvParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.spec.IvParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec",
-	_IvParameterSpec_FieldInfo_,
-	_IvParameterSpec_MethodInfo_
-};
-
-$Object* allocate$IvParameterSpec($Class* clazz) {
-	return $of($alloc(IvParameterSpec));
-}
 
 void IvParameterSpec::init$($bytes* iv) {
 	IvParameterSpec::init$(iv, 0, $nc(iv)->length);
@@ -64,7 +38,27 @@ IvParameterSpec::IvParameterSpec() {
 }
 
 $Class* IvParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(IvParameterSpec, name, initialize, &_IvParameterSpec_ClassInfo_, allocate$IvParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"iv", "[B", nullptr, $PRIVATE, $field(IvParameterSpec, iv)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(IvParameterSpec, init$, void, $bytes*)},
+		{"<init>", "([BII)V", nullptr, $PUBLIC, $method(IvParameterSpec, init$, void, $bytes*, int32_t, int32_t)},
+		{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(IvParameterSpec, getIV, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.spec.IvParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IvParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IvParameterSpec);
+	});
 	return class$;
 }
 

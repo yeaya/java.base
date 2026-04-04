@@ -1,5 +1,4 @@
 #include <java/lang/ProcessBuilder$Redirect$Type.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/ProcessBuilder$Redirect.h>
 #include <java/lang/ProcessBuilder.h>
@@ -20,50 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ProcessBuilder$Redirect$Type_FieldInfo_[] = {
-	{"PIPE", "Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessBuilder$Redirect$Type, PIPE)},
-	{"INHERIT", "Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessBuilder$Redirect$Type, INHERIT)},
-	{"READ", "Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessBuilder$Redirect$Type, READ)},
-	{"WRITE", "Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessBuilder$Redirect$Type, WRITE)},
-	{"APPEND", "Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessBuilder$Redirect$Type, APPEND)},
-	{"$VALUES", "[Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ProcessBuilder$Redirect$Type, $VALUES)},
-	{}
-};
-
-$MethodInfo _ProcessBuilder$Redirect$Type_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessBuilder$Redirect$Type, $values, $ProcessBuilder$Redirect$TypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ProcessBuilder$Redirect$Type, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect$Type, valueOf, ProcessBuilder$Redirect$Type*, $String*)},
-	{"values", "()[Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect$Type, values, $ProcessBuilder$Redirect$TypeArray*)},
-	{}
-};
-
-$InnerClassInfo _ProcessBuilder$Redirect$Type_InnerClassesInfo_[] = {
-	{"java.lang.ProcessBuilder$Redirect", "java.lang.ProcessBuilder", "Redirect", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.lang.ProcessBuilder$Redirect$Type", "java.lang.ProcessBuilder$Redirect", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ProcessBuilder$Redirect$Type_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.ProcessBuilder$Redirect$Type",
-	"java.lang.Enum",
-	nullptr,
-	_ProcessBuilder$Redirect$Type_FieldInfo_,
-	_ProcessBuilder$Redirect$Type_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/ProcessBuilder$Redirect$Type;>;",
-	nullptr,
-	_ProcessBuilder$Redirect$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessBuilder"
-};
-
-$Object* allocate$ProcessBuilder$Redirect$Type($Class* clazz) {
-	return $of($alloc(ProcessBuilder$Redirect$Type));
-}
 
 ProcessBuilder$Redirect$Type* ProcessBuilder$Redirect$Type::PIPE = nullptr;
 ProcessBuilder$Redirect$Type* ProcessBuilder$Redirect$Type::INHERIT = nullptr;
@@ -97,7 +52,7 @@ void ProcessBuilder$Redirect$Type::init$($String* $enum$name, int32_t $enum$ordi
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ProcessBuilder$Redirect$Type($Class* class$) {
+void ProcessBuilder$Redirect$Type::clinit$($Class* clazz) {
 	$assignStatic(ProcessBuilder$Redirect$Type::PIPE, $new(ProcessBuilder$Redirect$Type, "PIPE"_s, 0));
 	$assignStatic(ProcessBuilder$Redirect$Type::INHERIT, $new(ProcessBuilder$Redirect$Type, "INHERIT"_s, 1));
 	$assignStatic(ProcessBuilder$Redirect$Type::READ, $new(ProcessBuilder$Redirect$Type, "READ"_s, 2));
@@ -110,7 +65,45 @@ ProcessBuilder$Redirect$Type::ProcessBuilder$Redirect$Type() {
 }
 
 $Class* ProcessBuilder$Redirect$Type::load$($String* name, bool initialize) {
-	$loadClass(ProcessBuilder$Redirect$Type, name, initialize, &_ProcessBuilder$Redirect$Type_ClassInfo_, clinit$ProcessBuilder$Redirect$Type, allocate$ProcessBuilder$Redirect$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"PIPE", "Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessBuilder$Redirect$Type, PIPE)},
+		{"INHERIT", "Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessBuilder$Redirect$Type, INHERIT)},
+		{"READ", "Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessBuilder$Redirect$Type, READ)},
+		{"WRITE", "Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessBuilder$Redirect$Type, WRITE)},
+		{"APPEND", "Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ProcessBuilder$Redirect$Type, APPEND)},
+		{"$VALUES", "[Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ProcessBuilder$Redirect$Type, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessBuilder$Redirect$Type, $values, $ProcessBuilder$Redirect$TypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ProcessBuilder$Redirect$Type, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect$Type, valueOf, ProcessBuilder$Redirect$Type*, $String*)},
+		{"values", "()[Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect$Type, values, $ProcessBuilder$Redirect$TypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessBuilder$Redirect", "java.lang.ProcessBuilder", "Redirect", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.lang.ProcessBuilder$Redirect$Type", "java.lang.ProcessBuilder$Redirect", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.ProcessBuilder$Redirect$Type",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/ProcessBuilder$Redirect$Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessBuilder"
+	};
+	$loadClass(ProcessBuilder$Redirect$Type, name, initialize, &classInfo$$, ProcessBuilder$Redirect$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProcessBuilder$Redirect$Type));
+	});
 	return class$;
 }
 

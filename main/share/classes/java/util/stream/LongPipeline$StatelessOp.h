@@ -36,6 +36,7 @@ class LongPipeline$StatelessOp : public ::java::util::stream::LongPipeline {
 	$class(LongPipeline$StatelessOp, 0, ::java::util::stream::LongPipeline)
 public:
 	LongPipeline$StatelessOp();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::stream::AbstractPipeline* upstream, ::java::util::stream::StreamShape* inputShape, int32_t opFlags);
 	virtual ::java::util::Iterator* iterator() override;
 	virtual ::java::util::Spliterator* lazySpliterator(::java::util::function::Supplier* supplier) override;

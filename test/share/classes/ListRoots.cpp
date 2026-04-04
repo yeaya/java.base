@@ -1,46 +1,25 @@
 #include <ListRoots.h>
-
 #include <java/io/File.h>
 #include <jcpp.h>
 
 using $FileArray = $Array<::java::io::File>;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _ListRoots_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ListRoots, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ListRoots, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ListRoots_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ListRoots",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ListRoots_MethodInfo_
-};
-
-$Object* allocate$ListRoots($Class* clazz) {
-	return $of($alloc(ListRoots));
-}
 
 void ListRoots::init$() {
 }
 
 void ListRoots::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileArray, rs, $File::listRoots());
 	for (int32_t i = 0; i < $nc(rs)->length; ++i) {
 		$nc($System::out)->println($$str({$$str(i), ": "_s, rs->get(i)}));
 	}
 	$var($File, f, $new($File, $($System::getProperty("test.src"_s, "."_s)), "ListRoots.java"_s));
 	$var($String, cp, f->getCanonicalPath());
-	for (int32_t i = 0; i < $nc(rs)->length; ++i) {
+	for (int32_t i = 0; i < rs->length; ++i) {
 		if ($nc(cp)->startsWith($($nc(rs->get(i))->getPath()))) {
 			break;
 		}
@@ -54,7 +33,22 @@ ListRoots::ListRoots() {
 }
 
 $Class* ListRoots::load$($String* name, bool initialize) {
-	$loadClass(ListRoots, name, initialize, &_ListRoots_ClassInfo_, allocate$ListRoots);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ListRoots, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ListRoots, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ListRoots",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ListRoots, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ListRoots);
+	});
 	return class$;
 }
 

@@ -51,6 +51,7 @@ public:
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, ::java::time::temporal::TemporalUnit* baseUnit, ::java::time::temporal::TemporalUnit* rangeUnit, int64_t offset);
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal, int64_t newValue) override;
 	virtual ::java::time::temporal::TemporalUnit* getBaseUnit() override;

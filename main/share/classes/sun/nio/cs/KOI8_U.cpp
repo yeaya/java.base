@@ -1,5 +1,4 @@
 #include <sun/nio/cs/KOI8_U.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -25,44 +24,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _KOI8_U_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KOI8_U, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(KOI8_U, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KOI8_U, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(KOI8_U, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(KOI8_U, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _KOI8_U_InnerClassesInfo_[] = {
-	{"sun.nio.cs.KOI8_U$Holder", "sun.nio.cs.KOI8_U", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _KOI8_U_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.KOI8_U",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_KOI8_U_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KOI8_U_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.KOI8_U$Holder"
-};
-
-$Object* allocate$KOI8_U($Class* clazz) {
-	return $of($alloc(KOI8_U));
-}
 
 int32_t KOI8_U::hashCode() {
 	 return this->$Charset::hashCode();
@@ -93,7 +54,7 @@ $String* KOI8_U::historicalName() {
 }
 
 bool KOI8_U::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(KOI8_U, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(KOI8_U, cs)));
 }
 
 $CharsetDecoder* KOI8_U::newDecoder() {
@@ -110,7 +71,40 @@ KOI8_U::KOI8_U() {
 }
 
 $Class* KOI8_U::load$($String* name, bool initialize) {
-	$loadClass(KOI8_U, name, initialize, &_KOI8_U_ClassInfo_, allocate$KOI8_U);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KOI8_U, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(KOI8_U, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KOI8_U, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(KOI8_U, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(KOI8_U, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.KOI8_U$Holder", "sun.nio.cs.KOI8_U", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.KOI8_U",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.KOI8_U$Holder"
+	};
+	$loadClass(KOI8_U, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KOI8_U));
+	});
 	return class$;
 }
 

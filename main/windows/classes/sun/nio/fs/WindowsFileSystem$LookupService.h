@@ -23,6 +23,7 @@ class WindowsFileSystem$LookupService : public ::java::lang::Object {
 	$class(WindowsFileSystem$LookupService, 0, ::java::lang::Object)
 public:
 	WindowsFileSystem$LookupService();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::file::attribute::UserPrincipalLookupService* instance;
 };

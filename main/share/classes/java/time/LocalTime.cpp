@@ -1,5 +1,4 @@
 #include <java/time/LocalTime.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
@@ -111,7 +110,6 @@ using $TemporalQuery = ::java::time::temporal::TemporalQuery;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $UnsupportedTemporalTypeException = ::java::time::temporal::UnsupportedTemporalTypeException;
 using $ValueRange = ::java::time::temporal::ValueRange;
-using $ZoneRules = ::java::time::zone::ZoneRules;
 using $Objects = ::java::util::Objects;
 
 namespace java {
@@ -125,155 +123,27 @@ public:
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
 		 return $of(LocalTime::from(temporal));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LocalTime$$Lambda$from>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LocalTime$$Lambda$from::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocalTime$$Lambda$from, init$, void)},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocalTime$$Lambda$from, queryFrom, $Object*, $TemporalAccessor*)},
-	{}
-};
-$ClassInfo LocalTime$$Lambda$from::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.LocalTime$$Lambda$from",
-	"java.lang.Object",
-	"java.time.temporal.TemporalQuery",
-	nullptr,
-	methodInfos
 };
 $Class* LocalTime$$Lambda$from::load$($String* name, bool initialize) {
-	$loadClass(LocalTime$$Lambda$from, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocalTime$$Lambda$from, init$, void)},
+		{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocalTime$$Lambda$from, queryFrom, $Object*, $TemporalAccessor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.LocalTime$$Lambda$from",
+		"java.lang.Object",
+		"java.time.temporal.TemporalQuery",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocalTime$$Lambda$from, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalTime$$Lambda$from);
+	});
 	return class$;
 }
 $Class* LocalTime$$Lambda$from::class$ = nullptr;
-
-$CompoundAttribute _LocalTime_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _LocalTime_FieldInfo_[] = {
-	{"MIN", "Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalTime, MIN)},
-	{"MAX", "Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalTime, MAX)},
-	{"MIDNIGHT", "Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalTime, MIDNIGHT)},
-	{"NOON", "Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalTime, NOON)},
-	{"HOURS", "[Ljava/time/LocalTime;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LocalTime, HOURS)},
-	{"HOURS_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, HOURS_PER_DAY)},
-	{"MINUTES_PER_HOUR", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, MINUTES_PER_HOUR)},
-	{"MINUTES_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, MINUTES_PER_DAY)},
-	{"SECONDS_PER_MINUTE", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, SECONDS_PER_MINUTE)},
-	{"SECONDS_PER_HOUR", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, SECONDS_PER_HOUR)},
-	{"SECONDS_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, SECONDS_PER_DAY)},
-	{"MILLIS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, MILLIS_PER_DAY)},
-	{"MICROS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, MICROS_PER_DAY)},
-	{"NANOS_PER_MILLI", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, NANOS_PER_MILLI)},
-	{"NANOS_PER_SECOND", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, NANOS_PER_SECOND)},
-	{"NANOS_PER_MINUTE", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, NANOS_PER_MINUTE)},
-	{"NANOS_PER_HOUR", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, NANOS_PER_HOUR)},
-	{"NANOS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, NANOS_PER_DAY)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LocalTime, serialVersionUID)},
-	{"hour", "B", nullptr, $PRIVATE | $FINAL, $field(LocalTime, hour)},
-	{"minute", "B", nullptr, $PRIVATE | $FINAL, $field(LocalTime, minute)},
-	{"second", "B", nullptr, $PRIVATE | $FINAL, $field(LocalTime, second)},
-	{"nano", "I", nullptr, $PRIVATE | $FINAL, $field(LocalTime, nano)},
-	{}
-};
-
-$MethodInfo _LocalTime_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(IIII)V", nullptr, $PRIVATE, $method(LocalTime, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(LocalTime, adjustInto, $Temporal*, $Temporal*)},
-	{"atDate", "(Ljava/time/LocalDate;)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(LocalTime, atDate, $LocalDateTime*, $LocalDate*)},
-	{"atOffset", "(Ljava/time/ZoneOffset;)Ljava/time/OffsetTime;", nullptr, $PUBLIC, $method(LocalTime, atOffset, $OffsetTime*, $ZoneOffset*)},
-	{"compareTo", "(Ljava/time/LocalTime;)I", nullptr, $PUBLIC, $method(LocalTime, compareTo, int32_t, LocalTime*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LocalTime, compareTo, int32_t, Object$*)},
-	{"create", "(IIII)Ljava/time/LocalTime;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocalTime, create, LocalTime*, int32_t, int32_t, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LocalTime, equals, bool, Object$*)},
-	{"format", "(Ljava/time/format/DateTimeFormatter;)Ljava/lang/String;", nullptr, $PUBLIC, $method(LocalTime, format, $String*, $DateTimeFormatter*)},
-	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, from, LocalTime*, $TemporalAccessor*)},
-	{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(LocalTime, get, int32_t, $TemporalField*)},
-	{"get0", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PRIVATE, $method(LocalTime, get0, int32_t, $TemporalField*)},
-	{"getHour", "()I", nullptr, $PUBLIC, $method(LocalTime, getHour, int32_t)},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(LocalTime, getLong, int64_t, $TemporalField*)},
-	{"getMinute", "()I", nullptr, $PUBLIC, $method(LocalTime, getMinute, int32_t)},
-	{"getNano", "()I", nullptr, $PUBLIC, $method(LocalTime, getNano, int32_t)},
-	{"getSecond", "()I", nullptr, $PUBLIC, $method(LocalTime, getSecond, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LocalTime, hashCode, int32_t)},
-	{"isAfter", "(Ljava/time/LocalTime;)Z", nullptr, $PUBLIC, $method(LocalTime, isAfter, bool, LocalTime*)},
-	{"isBefore", "(Ljava/time/LocalTime;)Z", nullptr, $PUBLIC, $method(LocalTime, isBefore, bool, LocalTime*)},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(LocalTime, isSupported, bool, $TemporalField*)},
-	{"isSupported", "(Ljava/time/temporal/TemporalUnit;)Z", nullptr, $PUBLIC, $virtualMethod(LocalTime, isSupported, bool, $TemporalUnit*)},
-	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, minus, LocalTime*, $TemporalAmount*)},
-	{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, minus, LocalTime*, int64_t, $TemporalUnit*)},
-	{"minusHours", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, minusHours, LocalTime*, int64_t)},
-	{"minusMinutes", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, minusMinutes, LocalTime*, int64_t)},
-	{"minusNanos", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, minusNanos, LocalTime*, int64_t)},
-	{"minusSeconds", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, minusSeconds, LocalTime*, int64_t)},
-	{"now", "()Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, now, LocalTime*)},
-	{"now", "(Ljava/time/ZoneId;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, now, LocalTime*, $ZoneId*)},
-	{"now", "(Ljava/time/Clock;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, now, LocalTime*, $Clock*)},
-	{"of", "(II)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, of, LocalTime*, int32_t, int32_t)},
-	{"of", "(III)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, of, LocalTime*, int32_t, int32_t, int32_t)},
-	{"of", "(IIII)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, of, LocalTime*, int32_t, int32_t, int32_t, int32_t)},
-	{"ofInstant", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, ofInstant, LocalTime*, $Instant*, $ZoneId*)},
-	{"ofNanoOfDay", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, ofNanoOfDay, LocalTime*, int64_t)},
-	{"ofSecondOfDay", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, ofSecondOfDay, LocalTime*, int64_t)},
-	{"parse", "(Ljava/lang/CharSequence;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, parse, LocalTime*, $CharSequence*)},
-	{"parse", "(Ljava/lang/CharSequence;Ljava/time/format/DateTimeFormatter;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, parse, LocalTime*, $CharSequence*, $DateTimeFormatter*)},
-	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, plus, LocalTime*, $TemporalAmount*)},
-	{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, plus, LocalTime*, int64_t, $TemporalUnit*)},
-	{"plusHours", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, plusHours, LocalTime*, int64_t)},
-	{"plusMinutes", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, plusMinutes, LocalTime*, int64_t)},
-	{"plusNanos", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, plusNanos, LocalTime*, int64_t)},
-	{"plusSeconds", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, plusSeconds, LocalTime*, int64_t)},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(LocalTime, query, $Object*, $TemporalQuery*)},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(LocalTime, range, $ValueRange*, $TemporalField*)},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/LocalTime;", nullptr, $STATIC, $staticMethod(LocalTime, readExternal, LocalTime*, $DataInput*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LocalTime, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"toEpochSecond", "(Ljava/time/LocalDate;Ljava/time/ZoneOffset;)J", nullptr, $PUBLIC, $method(LocalTime, toEpochSecond, int64_t, $LocalDate*, $ZoneOffset*)},
-	{"toNanoOfDay", "()J", nullptr, $PUBLIC, $method(LocalTime, toNanoOfDay, int64_t)},
-	{"toSecondOfDay", "()I", nullptr, $PUBLIC, $method(LocalTime, toSecondOfDay, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalTime, toString, $String*)},
-	{"truncatedTo", "(Ljava/time/temporal/TemporalUnit;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, truncatedTo, LocalTime*, $TemporalUnit*)},
-	{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(LocalTime, until, int64_t, $Temporal*, $TemporalUnit*)},
-	{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, with, LocalTime*, $TemporalAdjuster*)},
-	{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, with, LocalTime*, $TemporalField*, int64_t)},
-	{"withHour", "(I)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, withHour, LocalTime*, int32_t)},
-	{"withMinute", "(I)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, withMinute, LocalTime*, int32_t)},
-	{"withNano", "(I)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, withNano, LocalTime*, int32_t)},
-	{"withSecond", "(I)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, withSecond, LocalTime*, int32_t)},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(LocalTime, writeExternal, void, $DataOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LocalTime, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _LocalTime_InnerClassesInfo_[] = {
-	{"java.time.LocalTime$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _LocalTime_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.LocalTime",
-	"java.lang.Object",
-	"java.time.temporal.Temporal,java.time.temporal.TemporalAdjuster,java.lang.Comparable,java.io.Serializable",
-	_LocalTime_FieldInfo_,
-	_LocalTime_MethodInfo_,
-	"Ljava/lang/Object;Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalAdjuster;Ljava/lang/Comparable<Ljava/time/LocalTime;>;Ljava/io/Serializable;",
-	nullptr,
-	_LocalTime_InnerClassesInfo_,
-	_LocalTime_Annotations_,
-	nullptr,
-	"java.time.LocalTime$1"
-};
-
-$Object* allocate$LocalTime($Class* clazz) {
-	return $of($alloc(LocalTime));
-}
 
 $Object* LocalTime::clone() {
 	 return this->$Temporal::clone();
@@ -301,8 +171,8 @@ LocalTime* LocalTime::now($ZoneId* zone) {
 
 LocalTime* LocalTime::now($Clock* clock) {
 	$init(LocalTime);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(clock), "clock"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(clock, "clock"_s);
 	$var($Instant, now, $nc(clock)->instant());
 	return ofInstant(now, $(clock->getZone()));
 }
@@ -312,7 +182,7 @@ LocalTime* LocalTime::of(int32_t hour, int32_t minute) {
 	$init($ChronoField);
 	$ChronoField::HOUR_OF_DAY->checkValidValue(hour);
 	if (minute == 0) {
-		return $nc(LocalTime::HOURS)->get(hour);
+		return LocalTime::HOURS->get(hour);
 	}
 	$ChronoField::MINUTE_OF_HOUR->checkValidValue(minute);
 	return $new(LocalTime, hour, minute, 0, 0);
@@ -323,7 +193,7 @@ LocalTime* LocalTime::of(int32_t hour, int32_t minute, int32_t second) {
 	$init($ChronoField);
 	$ChronoField::HOUR_OF_DAY->checkValidValue(hour);
 	if ((minute | second) == 0) {
-		return $nc(LocalTime::HOURS)->get(hour);
+		return LocalTime::HOURS->get(hour);
 	}
 	$ChronoField::MINUTE_OF_HOUR->checkValidValue(minute);
 	$ChronoField::SECOND_OF_MINUTE->checkValidValue(second);
@@ -342,10 +212,10 @@ LocalTime* LocalTime::of(int32_t hour, int32_t minute, int32_t second, int32_t n
 
 LocalTime* LocalTime::ofInstant($Instant* instant, $ZoneId* zone) {
 	$init(LocalTime);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(instant), "instant"_s);
-	$Objects::requireNonNull($of(zone), "zone"_s);
-	$var($ZoneOffset, offset, $nc($($nc(zone)->getRules()))->getOffset(instant));
+	$useLocalObjectStack();
+	$Objects::requireNonNull(instant, "instant"_s);
+	$Objects::requireNonNull(zone, "zone"_s);
+	$var($ZoneOffset, offset, $$nc($nc(zone)->getRules())->getOffset(instant));
 	int64_t var$0 = $nc(instant)->getEpochSecond();
 	int64_t localSecond = var$0 + $nc(offset)->getTotalSeconds();
 	int32_t secsOfDay = $Math::floorMod(localSecond, LocalTime::SECONDS_PER_DAY);
@@ -378,12 +248,16 @@ LocalTime* LocalTime::ofNanoOfDay(int64_t nanoOfDay) {
 
 LocalTime* LocalTime::from($TemporalAccessor* temporal) {
 	$init(LocalTime);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(temporal), "temporal"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(temporal, "temporal"_s);
 	$var(LocalTime, time, $cast(LocalTime, $nc(temporal)->query($($TemporalQueries::localTime()))));
 	if (time == nullptr) {
-		$var($String, var$0, $$str({"Unable to obtain LocalTime from TemporalAccessor: "_s, temporal, " of type "_s}));
-		$throwNew($DateTimeException, $$concat(var$0, $($of(temporal)->getClass()->getName())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unable to obtain LocalTime from TemporalAccessor: "_s);
+		var$0->append(temporal);
+		var$0->append(" of type "_s);
+		var$0->append($($of(temporal)->getClass()->getName()));
+		$throwNew($DateTimeException, $$str(var$0));
 	}
 	return time;
 }
@@ -396,14 +270,14 @@ LocalTime* LocalTime::parse($CharSequence* text) {
 
 LocalTime* LocalTime::parse($CharSequence* text, $DateTimeFormatter* formatter) {
 	$init(LocalTime);
-	$Objects::requireNonNull($of(formatter), "formatter"_s);
-	return $cast(LocalTime, $nc(formatter)->parse(text, static_cast<$TemporalQuery*>($$new(LocalTime$$Lambda$from))));
+	$Objects::requireNonNull(formatter, "formatter"_s);
+	return $cast(LocalTime, $nc(formatter)->parse(text, $$new(LocalTime$$Lambda$from)));
 }
 
 LocalTime* LocalTime::create(int32_t hour, int32_t minute, int32_t second, int32_t nanoOfSecond) {
 	$init(LocalTime);
 	if (((minute | second) | nanoOfSecond) == 0) {
-		return $nc(LocalTime::HOURS)->get(hour);
+		return LocalTime::HOURS->get(hour);
 	}
 	return $new(LocalTime, hour, minute, second, nanoOfSecond);
 }
@@ -417,14 +291,14 @@ void LocalTime::init$(int32_t hour, int32_t minute, int32_t second, int32_t nano
 
 bool LocalTime::isSupported($TemporalField* field) {
 	if ($instanceOf($ChronoField, field)) {
-		return $nc(field)->isTimeBased();
+		return field->isTimeBased();
 	}
 	return field != nullptr && field->isSupportedBy(this);
 }
 
 bool LocalTime::isSupported($TemporalUnit* unit) {
 	if ($instanceOf($ChronoUnit, unit)) {
-		return $nc(unit)->isTimeBased();
+		return unit->isTimeBased();
 	}
 	return unit != nullptr && unit->isSupportedBy(this);
 }
@@ -455,71 +329,41 @@ int64_t LocalTime::getLong($TemporalField* field) {
 }
 
 int32_t LocalTime::get0($TemporalField* field) {
-	$init($LocalTime$1);
 	{
+		$init($LocalTime$1);
 		int32_t ham = 0;
-		switch ($nc($LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc(($cast($ChronoField, field)))->ordinal())) {
+		switch ($nc($LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc($cast($ChronoField, field))->ordinal())) {
 		case 1:
-			{
-				return this->nano;
-			}
+			return this->nano;
 		case 2:
-			{
-				$throwNew($UnsupportedTemporalTypeException, "Invalid field \'NanoOfDay\' for get() method, use getLong() instead"_s);
-			}
+			$throwNew($UnsupportedTemporalTypeException, "Invalid field \'NanoOfDay\' for get() method, use getLong() instead"_s);
 		case 3:
-			{
-				return this->nano / 1000;
-			}
+			return this->nano / 1000;
 		case 4:
-			{
-				$throwNew($UnsupportedTemporalTypeException, "Invalid field \'MicroOfDay\' for get() method, use getLong() instead"_s);
-			}
+			$throwNew($UnsupportedTemporalTypeException, "Invalid field \'MicroOfDay\' for get() method, use getLong() instead"_s);
 		case 5:
-			{
-				return this->nano / 0x000F4240;
-			}
+			return this->nano / 1000000;
 		case 6:
-			{
-				return (int32_t)(toNanoOfDay() / 0x000F4240);
-			}
+			return (int32_t)(toNanoOfDay() / 1000000);
 		case 7:
-			{
-				return this->second;
-			}
+			return this->second;
 		case 8:
-			{
-				return toSecondOfDay();
-			}
+			return toSecondOfDay();
 		case 9:
-			{
-				return this->minute;
-			}
+			return this->minute;
 		case 10:
-			{
-				return this->hour * 60 + this->minute;
-			}
+			return this->hour * 60 + this->minute;
 		case 11:
-			{
-				return this->hour % 12;
-			}
+			return this->hour % 12;
 		case 12:
-			{
-				ham = this->hour % 12;
-				return (ham % 12 == 0 ? 12 : ham);
-			}
+			ham = this->hour % 12;
+			return (ham % 12 == 0 ? 12 : ham);
 		case 13:
-			{
-				return this->hour;
-			}
+			return this->hour;
 		case 14:
-			{
-				return (this->hour == 0 ? (int8_t)24 : this->hour);
-			}
+			return (this->hour == 0 ? 24 : this->hour);
 		case 15:
-			{
-				return this->hour / 12;
-			}
+			return this->hour / 12;
 		}
 	}
 	$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported field: "_s, field}));
@@ -561,65 +405,35 @@ LocalTime* LocalTime::with($TemporalField* field, int64_t newValue) {
 			$init($LocalTime$1);
 			switch ($nc($LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->get((chronoField)->ordinal())) {
 			case 1:
-				{
-					return withNano((int32_t)newValue);
-				}
+				return withNano((int32_t)newValue);
 			case 2:
-				{
-					return LocalTime::ofNanoOfDay(newValue);
-				}
+				return LocalTime::ofNanoOfDay(newValue);
 			case 3:
-				{
-					return withNano((int32_t)newValue * 1000);
-				}
+				return withNano((int32_t)newValue * 1000);
 			case 4:
-				{
-					return LocalTime::ofNanoOfDay(newValue * 1000);
-				}
+				return LocalTime::ofNanoOfDay(newValue * 1000);
 			case 5:
-				{
-					return withNano((int32_t)newValue * 0x000F4240);
-				}
+				return withNano((int32_t)newValue * 1000000);
 			case 6:
-				{
-					return LocalTime::ofNanoOfDay(newValue * 0x000F4240);
-				}
+				return LocalTime::ofNanoOfDay(newValue * 1000000);
 			case 7:
-				{
-					return withSecond((int32_t)newValue);
-				}
+				return withSecond((int32_t)newValue);
 			case 8:
-				{
-					return plusSeconds(newValue - toSecondOfDay());
-				}
+				return plusSeconds(newValue - toSecondOfDay());
 			case 9:
-				{
-					return withMinute((int32_t)newValue);
-				}
+				return withMinute((int32_t)newValue);
 			case 10:
-				{
-					return plusMinutes(newValue - (this->hour * 60 + this->minute));
-				}
+				return plusMinutes(newValue - (this->hour * 60 + this->minute));
 			case 11:
-				{
-					return plusHours(newValue - (this->hour % 12));
-				}
+				return plusHours(newValue - (this->hour % 12));
 			case 12:
-				{
-					return plusHours((newValue == 12 ? (int64_t)0 : newValue) - (this->hour % 12));
-				}
+				return plusHours((newValue == 12 ? 0 : newValue) - (this->hour % 12));
 			case 13:
-				{
-					return withHour((int32_t)newValue);
-				}
+				return withHour((int32_t)newValue);
 			case 14:
-				{
-					return withHour((int32_t)(newValue == 24 ? (int64_t)0 : newValue));
-				}
+				return withHour((int32_t)(newValue == 24 ? 0 : newValue));
 			case 15:
-				{
-					return plusHours((newValue - (this->hour / 12)) * 12);
-				}
+				return plusHours((newValue - (this->hour / 12)) * 12);
 			}
 			$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported field: "_s, field}));
 		}
@@ -672,7 +486,7 @@ LocalTime* LocalTime::truncatedTo($TemporalUnit* unit) {
 	if ($nc(unitDur)->getSeconds() > LocalTime::SECONDS_PER_DAY) {
 		$throwNew($UnsupportedTemporalTypeException, "Unit is too large to be used for truncation"_s);
 	}
-	int64_t dur = $nc(unitDur)->toNanos();
+	int64_t dur = unitDur->toNanos();
 	if (($mod(LocalTime::NANOS_PER_DAY, dur)) != 0) {
 		$throwNew($UnsupportedTemporalTypeException, "Unit must divide into a standard day without remainder"_s);
 	}
@@ -696,33 +510,19 @@ LocalTime* LocalTime::plus(int64_t amountToAdd, $TemporalUnit* unit) {
 			$init($LocalTime$1);
 			switch ($nc($LocalTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc((chronoUnit))->ordinal())) {
 			case 1:
-				{
-					return plusNanos(amountToAdd);
-				}
+				return plusNanos(amountToAdd);
 			case 2:
-				{
-					return plusNanos(($mod(amountToAdd, LocalTime::MICROS_PER_DAY)) * 1000);
-				}
+				return plusNanos(($mod(amountToAdd, LocalTime::MICROS_PER_DAY)) * 1000);
 			case 3:
-				{
-					return plusNanos(($mod(amountToAdd, LocalTime::MILLIS_PER_DAY)) * 0x000F4240);
-				}
+				return plusNanos(($mod(amountToAdd, LocalTime::MILLIS_PER_DAY)) * 1000000);
 			case 4:
-				{
-					return plusSeconds(amountToAdd);
-				}
+				return plusSeconds(amountToAdd);
 			case 5:
-				{
-					return plusMinutes(amountToAdd);
-				}
+				return plusMinutes(amountToAdd);
 			case 6:
-				{
-					return plusHours(amountToAdd);
-				}
+				return plusHours(amountToAdd);
 			case 7:
-				{
-					return plusHours((amountToAdd % 2) * 12);
-				}
+				return plusHours((amountToAdd % 2) * 12);
 			}
 			$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
 		}
@@ -788,7 +588,7 @@ LocalTime* LocalTime::minus($TemporalAmount* amountToSubtract) {
 }
 
 LocalTime* LocalTime::minus(int64_t amountToSubtract, $TemporalUnit* unit) {
-	return (amountToSubtract == $Long::MIN_VALUE ? $nc($(plus($Long::MAX_VALUE, unit)))->plus(1, unit) : plus(-amountToSubtract, unit));
+	return (amountToSubtract == $Long::MIN_VALUE ? $$nc(plus($Long::MAX_VALUE, unit))->plus(1, unit) : plus(-amountToSubtract, unit));
 }
 
 LocalTime* LocalTime::minusHours(int64_t hoursToSubtract) {
@@ -812,16 +612,16 @@ $Object* LocalTime::query($TemporalQuery* query) {
 	bool var$1 = var$2 || query == $TemporalQueries::zoneId();
 	bool var$0 = var$1 || query == $TemporalQueries::zone();
 	if (var$0 || query == $TemporalQueries::offset()) {
-		return $of(nullptr);
+		return nullptr;
 	} else if (query == $TemporalQueries::localTime()) {
-		return $of($of(this));
+		return $of(this);
 	} else if (query == $TemporalQueries::localDate()) {
-		return $of(nullptr);
+		return nullptr;
 	} else if (query == $TemporalQueries::precision()) {
 		$init($ChronoUnit);
-		return $of($of($ChronoUnit::NANOS));
+		return $of($ChronoUnit::NANOS);
 	}
-	return $of($nc(query)->queryFrom(this));
+	return $nc(query)->queryFrom(this);
 }
 
 $Temporal* LocalTime::adjustInto($Temporal* temporal) {
@@ -830,7 +630,7 @@ $Temporal* LocalTime::adjustInto($Temporal* temporal) {
 }
 
 int64_t LocalTime::until($Temporal* endExclusive, $TemporalUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LocalTime, end, LocalTime::from(endExclusive));
 	{
 		$ChronoUnit* chronoUnit = nullptr;
@@ -845,33 +645,19 @@ int64_t LocalTime::until($Temporal* endExclusive, $TemporalUnit* unit) {
 			$init($LocalTime$1);
 			switch ($nc($LocalTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc((chronoUnit))->ordinal())) {
 			case 1:
-				{
-					return nanosUntil;
-				}
+				return nanosUntil;
 			case 2:
-				{
-					return nanosUntil / 1000;
-				}
+				return nanosUntil / 1000;
 			case 3:
-				{
-					return nanosUntil / 0x000F4240;
-				}
+				return nanosUntil / 1000000;
 			case 4:
-				{
-					return $div(nanosUntil, LocalTime::NANOS_PER_SECOND);
-				}
+				return $div(nanosUntil, LocalTime::NANOS_PER_SECOND);
 			case 5:
-				{
-					return $div(nanosUntil, LocalTime::NANOS_PER_MINUTE);
-				}
+				return $div(nanosUntil, LocalTime::NANOS_PER_MINUTE);
 			case 6:
-				{
-					return $div(nanosUntil, LocalTime::NANOS_PER_HOUR);
-				}
+				return $div(nanosUntil, LocalTime::NANOS_PER_HOUR);
 			case 7:
-				{
-					return $div(nanosUntil, (12 * LocalTime::NANOS_PER_HOUR));
-				}
+				return $div(nanosUntil, (12 * LocalTime::NANOS_PER_HOUR));
 			}
 			$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
 		}
@@ -880,7 +666,7 @@ int64_t LocalTime::until($Temporal* endExclusive, $TemporalUnit* unit) {
 }
 
 $String* LocalTime::format($DateTimeFormatter* formatter) {
-	$Objects::requireNonNull($of(formatter), "formatter"_s);
+	$Objects::requireNonNull(formatter, "formatter"_s);
 	return $nc(formatter)->format(this);
 }
 
@@ -908,8 +694,8 @@ int64_t LocalTime::toNanoOfDay() {
 }
 
 int64_t LocalTime::toEpochSecond($LocalDate* date, $ZoneOffset* offset) {
-	$Objects::requireNonNull($of(date), "date"_s);
-	$Objects::requireNonNull($of(offset), "offset"_s);
+	$Objects::requireNonNull(date, "date"_s);
+	$Objects::requireNonNull(offset, "offset"_s);
 	int64_t epochDay = $nc(date)->toEpochDay();
 	int64_t secs = epochDay * 0x00015180 + toSecondOfDay();
 	secs -= $nc(offset)->getTotalSeconds();
@@ -919,11 +705,11 @@ int64_t LocalTime::toEpochSecond($LocalDate* date, $ZoneOffset* offset) {
 int32_t LocalTime::compareTo(LocalTime* other) {
 	int32_t cmp = $Integer::compare(this->hour, $nc(other)->hour);
 	if (cmp == 0) {
-		cmp = $Integer::compare(this->minute, $nc(other)->minute);
+		cmp = $Integer::compare(this->minute, other->minute);
 		if (cmp == 0) {
-			cmp = $Integer::compare(this->second, $nc(other)->second);
+			cmp = $Integer::compare(this->second, other->second);
 			if (cmp == 0) {
-				cmp = $Integer::compare(this->nano, $nc(other)->nano);
+				cmp = $Integer::compare(this->nano, other->nano);
 			}
 		}
 	}
@@ -948,7 +734,7 @@ bool LocalTime::equals(Object$* obj) {
 		$assign(other, $cast(LocalTime, obj));
 		var$4 = true;
 	}
-	bool var$3 = (var$4);
+	bool var$3 = var$4;
 	bool var$2 = var$3 && this->hour == $nc(other)->hour;
 	bool var$1 = var$2 && this->minute == other->minute;
 	bool var$0 = var$1 && this->second == other->second;
@@ -961,7 +747,7 @@ int32_t LocalTime::hashCode() {
 }
 
 $String* LocalTime::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder, 18));
 	int32_t hourValue = this->hour;
 	int32_t minuteValue = this->minute;
@@ -972,12 +758,12 @@ $String* LocalTime::toString() {
 		buf->append(secondValue < 10 ? ":0"_s : ":"_s)->append(secondValue);
 		if (nanoValue > 0) {
 			buf->append(u'.');
-			if (nanoValue % 0x000F4240 == 0) {
-				buf->append($($nc($($Integer::toString((nanoValue / 0x000F4240) + 1000)))->substring(1)));
+			if (nanoValue % 1000000 == 0) {
+				buf->append($($($Integer::toString((nanoValue / 1000000) + 1000))->substring(1)));
 			} else if (nanoValue % 1000 == 0) {
-				buf->append($($nc($($Integer::toString((nanoValue / 1000) + 0x000F4240)))->substring(1)));
+				buf->append($($($Integer::toString((nanoValue / 1000) + 1000000))->substring(1)));
 			} else {
-				buf->append($($nc($($Integer::toString((nanoValue) + 0x3B9ACA00)))->substring(1)));
+				buf->append($($($Integer::toString((nanoValue) + 1000000000))->substring(1)));
 			}
 		}
 	}
@@ -985,7 +771,7 @@ $String* LocalTime::toString() {
 }
 
 $Object* LocalTime::writeReplace() {
-	return $of($new($Ser, $Ser::LOCAL_TIME_TYPE, this));
+	return $new($Ser, $Ser::LOCAL_TIME_TYPE, this);
 }
 
 void LocalTime::readObject($ObjectInputStream* s) {
@@ -1042,17 +828,17 @@ int32_t LocalTime::compareTo(Object$* other) {
 	return this->compareTo($cast(LocalTime, other));
 }
 
-void clinit$LocalTime($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LocalTime::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(LocalTime::HOURS, $new($LocalTimeArray, 24));
 	{
-		for (int32_t i = 0; i < $nc(LocalTime::HOURS)->length; ++i) {
-			$nc(LocalTime::HOURS)->set(i, $$new(LocalTime, i, 0, 0, 0));
+		for (int32_t i = 0; i < LocalTime::HOURS->length; ++i) {
+			LocalTime::HOURS->set(i, $$new(LocalTime, i, 0, 0, 0));
 		}
-		$assignStatic(LocalTime::MIDNIGHT, $nc(LocalTime::HOURS)->get(0));
-		$assignStatic(LocalTime::NOON, $nc(LocalTime::HOURS)->get(12));
-		$assignStatic(LocalTime::MIN, $nc(LocalTime::HOURS)->get(0));
-		$assignStatic(LocalTime::MAX, $new(LocalTime, 23, 59, 59, 0x3B9AC9FF));
+		$assignStatic(LocalTime::MIDNIGHT, LocalTime::HOURS->get(0));
+		$assignStatic(LocalTime::NOON, LocalTime::HOURS->get(12));
+		$assignStatic(LocalTime::MIN, LocalTime::HOURS->get(0));
+		$assignStatic(LocalTime::MAX, $new(LocalTime, 23, 59, 59, 999999999));
 	}
 }
 
@@ -1061,11 +847,129 @@ LocalTime::LocalTime() {
 
 $Class* LocalTime::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LocalTime$$Lambda$from::classInfo$.name)) {
+		if (name->equals("java.time.LocalTime$$Lambda$from")) {
 			return LocalTime$$Lambda$from::load$(name, initialize);
 		}
 	}
-	$loadClass(LocalTime, name, initialize, &_LocalTime_ClassInfo_, clinit$LocalTime, allocate$LocalTime);
+	$FieldInfo fieldInfos$$[] = {
+		{"MIN", "Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalTime, MIN)},
+		{"MAX", "Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalTime, MAX)},
+		{"MIDNIGHT", "Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalTime, MIDNIGHT)},
+		{"NOON", "Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalTime, NOON)},
+		{"HOURS", "[Ljava/time/LocalTime;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LocalTime, HOURS)},
+		{"HOURS_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, HOURS_PER_DAY)},
+		{"MINUTES_PER_HOUR", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, MINUTES_PER_HOUR)},
+		{"MINUTES_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, MINUTES_PER_DAY)},
+		{"SECONDS_PER_MINUTE", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, SECONDS_PER_MINUTE)},
+		{"SECONDS_PER_HOUR", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, SECONDS_PER_HOUR)},
+		{"SECONDS_PER_DAY", "I", nullptr, $STATIC | $FINAL, $constField(LocalTime, SECONDS_PER_DAY)},
+		{"MILLIS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, MILLIS_PER_DAY)},
+		{"MICROS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, MICROS_PER_DAY)},
+		{"NANOS_PER_MILLI", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, NANOS_PER_MILLI)},
+		{"NANOS_PER_SECOND", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, NANOS_PER_SECOND)},
+		{"NANOS_PER_MINUTE", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, NANOS_PER_MINUTE)},
+		{"NANOS_PER_HOUR", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, NANOS_PER_HOUR)},
+		{"NANOS_PER_DAY", "J", nullptr, $STATIC | $FINAL, $constField(LocalTime, NANOS_PER_DAY)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LocalTime, serialVersionUID)},
+		{"hour", "B", nullptr, $PRIVATE | $FINAL, $field(LocalTime, hour)},
+		{"minute", "B", nullptr, $PRIVATE | $FINAL, $field(LocalTime, minute)},
+		{"second", "B", nullptr, $PRIVATE | $FINAL, $field(LocalTime, second)},
+		{"nano", "I", nullptr, $PRIVATE | $FINAL, $field(LocalTime, nano)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(IIII)V", nullptr, $PRIVATE, $method(LocalTime, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(LocalTime, adjustInto, $Temporal*, $Temporal*)},
+		{"atDate", "(Ljava/time/LocalDate;)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(LocalTime, atDate, $LocalDateTime*, $LocalDate*)},
+		{"atOffset", "(Ljava/time/ZoneOffset;)Ljava/time/OffsetTime;", nullptr, $PUBLIC, $method(LocalTime, atOffset, $OffsetTime*, $ZoneOffset*)},
+		{"compareTo", "(Ljava/time/LocalTime;)I", nullptr, $PUBLIC, $method(LocalTime, compareTo, int32_t, LocalTime*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LocalTime, compareTo, int32_t, Object$*)},
+		{"create", "(IIII)Ljava/time/LocalTime;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocalTime, create, LocalTime*, int32_t, int32_t, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LocalTime, equals, bool, Object$*)},
+		{"format", "(Ljava/time/format/DateTimeFormatter;)Ljava/lang/String;", nullptr, $PUBLIC, $method(LocalTime, format, $String*, $DateTimeFormatter*)},
+		{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, from, LocalTime*, $TemporalAccessor*)},
+		{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(LocalTime, get, int32_t, $TemporalField*)},
+		{"get0", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PRIVATE, $method(LocalTime, get0, int32_t, $TemporalField*)},
+		{"getHour", "()I", nullptr, $PUBLIC, $method(LocalTime, getHour, int32_t)},
+		{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(LocalTime, getLong, int64_t, $TemporalField*)},
+		{"getMinute", "()I", nullptr, $PUBLIC, $method(LocalTime, getMinute, int32_t)},
+		{"getNano", "()I", nullptr, $PUBLIC, $method(LocalTime, getNano, int32_t)},
+		{"getSecond", "()I", nullptr, $PUBLIC, $method(LocalTime, getSecond, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LocalTime, hashCode, int32_t)},
+		{"isAfter", "(Ljava/time/LocalTime;)Z", nullptr, $PUBLIC, $method(LocalTime, isAfter, bool, LocalTime*)},
+		{"isBefore", "(Ljava/time/LocalTime;)Z", nullptr, $PUBLIC, $method(LocalTime, isBefore, bool, LocalTime*)},
+		{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(LocalTime, isSupported, bool, $TemporalField*)},
+		{"isSupported", "(Ljava/time/temporal/TemporalUnit;)Z", nullptr, $PUBLIC, $virtualMethod(LocalTime, isSupported, bool, $TemporalUnit*)},
+		{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, minus, LocalTime*, $TemporalAmount*)},
+		{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, minus, LocalTime*, int64_t, $TemporalUnit*)},
+		{"minusHours", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, minusHours, LocalTime*, int64_t)},
+		{"minusMinutes", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, minusMinutes, LocalTime*, int64_t)},
+		{"minusNanos", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, minusNanos, LocalTime*, int64_t)},
+		{"minusSeconds", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, minusSeconds, LocalTime*, int64_t)},
+		{"now", "()Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, now, LocalTime*)},
+		{"now", "(Ljava/time/ZoneId;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, now, LocalTime*, $ZoneId*)},
+		{"now", "(Ljava/time/Clock;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, now, LocalTime*, $Clock*)},
+		{"of", "(II)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, of, LocalTime*, int32_t, int32_t)},
+		{"of", "(III)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, of, LocalTime*, int32_t, int32_t, int32_t)},
+		{"of", "(IIII)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, of, LocalTime*, int32_t, int32_t, int32_t, int32_t)},
+		{"ofInstant", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, ofInstant, LocalTime*, $Instant*, $ZoneId*)},
+		{"ofNanoOfDay", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, ofNanoOfDay, LocalTime*, int64_t)},
+		{"ofSecondOfDay", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, ofSecondOfDay, LocalTime*, int64_t)},
+		{"parse", "(Ljava/lang/CharSequence;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, parse, LocalTime*, $CharSequence*)},
+		{"parse", "(Ljava/lang/CharSequence;Ljava/time/format/DateTimeFormatter;)Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalTime, parse, LocalTime*, $CharSequence*, $DateTimeFormatter*)},
+		{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, plus, LocalTime*, $TemporalAmount*)},
+		{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, plus, LocalTime*, int64_t, $TemporalUnit*)},
+		{"plusHours", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, plusHours, LocalTime*, int64_t)},
+		{"plusMinutes", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, plusMinutes, LocalTime*, int64_t)},
+		{"plusNanos", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, plusNanos, LocalTime*, int64_t)},
+		{"plusSeconds", "(J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, plusSeconds, LocalTime*, int64_t)},
+		{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(LocalTime, query, $Object*, $TemporalQuery*)},
+		{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(LocalTime, range, $ValueRange*, $TemporalField*)},
+		{"readExternal", "(Ljava/io/DataInput;)Ljava/time/LocalTime;", nullptr, $STATIC, $staticMethod(LocalTime, readExternal, LocalTime*, $DataInput*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LocalTime, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"toEpochSecond", "(Ljava/time/LocalDate;Ljava/time/ZoneOffset;)J", nullptr, $PUBLIC, $method(LocalTime, toEpochSecond, int64_t, $LocalDate*, $ZoneOffset*)},
+		{"toNanoOfDay", "()J", nullptr, $PUBLIC, $method(LocalTime, toNanoOfDay, int64_t)},
+		{"toSecondOfDay", "()I", nullptr, $PUBLIC, $method(LocalTime, toSecondOfDay, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalTime, toString, $String*)},
+		{"truncatedTo", "(Ljava/time/temporal/TemporalUnit;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, truncatedTo, LocalTime*, $TemporalUnit*)},
+		{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(LocalTime, until, int64_t, $Temporal*, $TemporalUnit*)},
+		{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, with, LocalTime*, $TemporalAdjuster*)},
+		{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/LocalTime;", nullptr, $PUBLIC, $virtualMethod(LocalTime, with, LocalTime*, $TemporalField*, int64_t)},
+		{"withHour", "(I)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, withHour, LocalTime*, int32_t)},
+		{"withMinute", "(I)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, withMinute, LocalTime*, int32_t)},
+		{"withNano", "(I)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, withNano, LocalTime*, int32_t)},
+		{"withSecond", "(I)Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(LocalTime, withSecond, LocalTime*, int32_t)},
+		{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(LocalTime, writeExternal, void, $DataOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LocalTime, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.LocalTime$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.LocalTime",
+		"java.lang.Object",
+		"java.time.temporal.Temporal,java.time.temporal.TemporalAdjuster,java.lang.Comparable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalAdjuster;Ljava/lang/Comparable<Ljava/time/LocalTime;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.time.LocalTime$1"
+	};
+	$loadClass(LocalTime, name, initialize, &classInfo$$, LocalTime::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LocalTime));
+	});
 	return class$;
 }
 

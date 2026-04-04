@@ -1,56 +1,15 @@
 #include <Lock$IOHandler.h>
-
 #include <Lock.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Runnable.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-
-$FieldInfo _Lock$IOHandler_FieldInfo_[] = {
-	{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(Lock$IOHandler, in)},
-	{}
-};
-
-$MethodInfo _Lock$IOHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(Lock$IOHandler, init$, void, $InputStream*)},
-	{"handle", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(Lock$IOHandler, handle, void, $InputStream*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Lock$IOHandler, run, void)},
-	{}
-};
-
-$InnerClassInfo _Lock$IOHandler_InnerClassesInfo_[] = {
-	{"Lock$IOHandler", "Lock", "IOHandler", $STATIC},
-	{}
-};
-
-$ClassInfo _Lock$IOHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"Lock$IOHandler",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Lock$IOHandler_FieldInfo_,
-	_Lock$IOHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Lock$IOHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Lock"
-};
-
-$Object* allocate$Lock$IOHandler($Class* clazz) {
-	return $of($alloc(Lock$IOHandler));
-}
 
 void Lock$IOHandler::init$($InputStream* in) {
 	$set(this, in, in);
@@ -58,9 +17,9 @@ void Lock$IOHandler::init$($InputStream* in) {
 
 void Lock$IOHandler::handle($InputStream* in) {
 	$init(Lock$IOHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Lock$IOHandler, handler, $new(Lock$IOHandler, in));
-	$var($Thread, thr, $new($Thread, static_cast<$Runnable*>(handler)));
+	$var($Thread, thr, $new($Thread, handler));
 	thr->setDaemon(true);
 	thr->start();
 }
@@ -85,7 +44,38 @@ Lock$IOHandler::Lock$IOHandler() {
 }
 
 $Class* Lock$IOHandler::load$($String* name, bool initialize) {
-	$loadClass(Lock$IOHandler, name, initialize, &_Lock$IOHandler_ClassInfo_, allocate$Lock$IOHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(Lock$IOHandler, in)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(Lock$IOHandler, init$, void, $InputStream*)},
+		{"handle", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(Lock$IOHandler, handle, void, $InputStream*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Lock$IOHandler, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Lock$IOHandler", "Lock", "IOHandler", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Lock$IOHandler",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Lock"
+	};
+	$loadClass(Lock$IOHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Lock$IOHandler);
+	});
 	return class$;
 }
 

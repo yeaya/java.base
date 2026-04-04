@@ -1,5 +1,4 @@
 #include <sun/nio/ch/WindowsSelectorImpl$SubSelector.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/Math.h>
 #include <java/nio/channels/SelectableChannel.h>
@@ -27,67 +26,16 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $Consumer = ::java::util::function::Consumer;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Net = ::sun::nio::ch::Net;
 using $PollArrayWrapper = ::sun::nio::ch::PollArrayWrapper;
 using $SelectionKeyImpl = ::sun::nio::ch::SelectionKeyImpl;
 using $SocketChannelImpl = ::sun::nio::ch::SocketChannelImpl;
 using $WindowsSelectorImpl = ::sun::nio::ch::WindowsSelectorImpl;
-using $WindowsSelectorImpl$FdMap = ::sun::nio::ch::WindowsSelectorImpl$FdMap;
 using $WindowsSelectorImpl$MapEntry = ::sun::nio::ch::WindowsSelectorImpl$MapEntry;
 
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _WindowsSelectorImpl$SubSelector_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/ch/WindowsSelectorImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsSelectorImpl$SubSelector, this$0)},
-	{"pollArrayIndex", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SubSelector, pollArrayIndex)},
-	{"readFds", "[I", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SubSelector, readFds)},
-	{"writeFds", "[I", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SubSelector, writeFds)},
-	{"exceptFds", "[I", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SubSelector, exceptFds)},
-	{"fdsBuffer", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SubSelector, fdsBuffer)},
-	{}
-};
-
-$MethodInfo _WindowsSelectorImpl$SubSelector_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;)V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, init$, void, $WindowsSelectorImpl*)},
-	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;I)V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, init$, void, $WindowsSelectorImpl*, int32_t)},
-	{"freeFDSetBuffer", "()V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, freeFDSetBuffer, void)},
-	{"poll", "()I", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, poll, int32_t), "java.io.IOException"},
-	{"poll", "(I)I", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, poll, int32_t, int32_t), "java.io.IOException"},
-	{"poll0", "(JI[I[I[IJJ)I", nullptr, $PRIVATE | $NATIVE, $method(WindowsSelectorImpl$SubSelector, poll0, int32_t, int64_t, int32_t, $ints*, $ints*, $ints*, int64_t, int64_t)},
-	{"processFDSet", "(JLjava/util/function/Consumer;[IIZ)I", "(JLjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;[IIZ)I", $PRIVATE, $method(WindowsSelectorImpl$SubSelector, processFDSet, int32_t, int64_t, $Consumer*, $ints*, int32_t, bool), "java.io.IOException"},
-	{"processSelectedKeys", "(JLjava/util/function/Consumer;)I", "(JLjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(WindowsSelectorImpl$SubSelector, processSelectedKeys, int32_t, int64_t, $Consumer*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_poll0 5
-
-$InnerClassInfo _WindowsSelectorImpl$SubSelector_InnerClassesInfo_[] = {
-	{"sun.nio.ch.WindowsSelectorImpl$SubSelector", "sun.nio.ch.WindowsSelectorImpl", "SubSelector", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _WindowsSelectorImpl$SubSelector_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.nio.ch.WindowsSelectorImpl$SubSelector",
-	"java.lang.Object",
-	nullptr,
-	_WindowsSelectorImpl$SubSelector_FieldInfo_,
-	_WindowsSelectorImpl$SubSelector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsSelectorImpl$SubSelector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.WindowsSelectorImpl"
-};
-
-$Object* allocate$WindowsSelectorImpl$SubSelector($Class* clazz) {
-	return $of($alloc(WindowsSelectorImpl$SubSelector));
-}
 
 void WindowsSelectorImpl$SubSelector::init$($WindowsSelectorImpl* this$0) {
 	$set(this, this$0, this$0);
@@ -119,9 +67,8 @@ int32_t WindowsSelectorImpl$SubSelector::poll(int32_t index) {
 }
 
 int32_t WindowsSelectorImpl$SubSelector::poll0(int64_t pollAddress, int32_t numfds, $ints* readFds, $ints* writeFds, $ints* exceptFds, int64_t timeout, int64_t fdsBuffer) {
-	int32_t $ret = 0;
-	$prepareNative(WindowsSelectorImpl$SubSelector, poll0, int32_t, int64_t pollAddress, int32_t numfds, $ints* readFds, $ints* writeFds, $ints* exceptFds, int64_t timeout, int64_t fdsBuffer);
-	$ret = $invokeNative(pollAddress, numfds, readFds, writeFds, exceptFds, timeout, fdsBuffer);
+	$prepareNative(poll0, int32_t, int64_t pollAddress, int32_t numfds, $ints* readFds, $ints* writeFds, $ints* exceptFds, int64_t timeout, int64_t fdsBuffer);
+	int32_t $ret = $invokeNative(pollAddress, numfds, readFds, writeFds, exceptFds, timeout, fdsBuffer);
 	$finishNative();
 	return $ret;
 }
@@ -136,7 +83,7 @@ int32_t WindowsSelectorImpl$SubSelector::processSelectedKeys(int64_t updateCount
 }
 
 int32_t WindowsSelectorImpl$SubSelector::processFDSet(int64_t updateCount, $Consumer* action, $ints* fds, int32_t rOps, bool isExceptFds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numKeysUpdated = 0;
 	for (int32_t i = 1; i <= $nc(fds)->get(0); ++i) {
 		int32_t desc = fds->get(i);
@@ -152,7 +99,7 @@ int32_t WindowsSelectorImpl$SubSelector::processFDSet(int64_t updateCount, $Cons
 		}
 		$var($SelectionKeyImpl, ski, $nc(me)->ski);
 		$var($SelectableChannel, sc, $nc(ski)->channel());
-		bool var$0 = isExceptFds && ($instanceOf($SocketChannelImpl, sc)) && $nc(($cast($SocketChannelImpl, sc)))->isNetSocket();
+		bool var$0 = isExceptFds && ($instanceOf($SocketChannelImpl, sc)) && $cast($SocketChannelImpl, sc)->isNetSocket();
 		if (var$0 && $Net::discardOOB($(ski->getFD()))) {
 			continue;
 		}
@@ -174,7 +121,48 @@ WindowsSelectorImpl$SubSelector::WindowsSelectorImpl$SubSelector() {
 }
 
 $Class* WindowsSelectorImpl$SubSelector::load$($String* name, bool initialize) {
-	$loadClass(WindowsSelectorImpl$SubSelector, name, initialize, &_WindowsSelectorImpl$SubSelector_ClassInfo_, allocate$WindowsSelectorImpl$SubSelector);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/ch/WindowsSelectorImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsSelectorImpl$SubSelector, this$0)},
+		{"pollArrayIndex", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SubSelector, pollArrayIndex)},
+		{"readFds", "[I", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SubSelector, readFds)},
+		{"writeFds", "[I", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SubSelector, writeFds)},
+		{"exceptFds", "[I", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SubSelector, exceptFds)},
+		{"fdsBuffer", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SubSelector, fdsBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;)V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, init$, void, $WindowsSelectorImpl*)},
+		{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;I)V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, init$, void, $WindowsSelectorImpl*, int32_t)},
+		{"freeFDSetBuffer", "()V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, freeFDSetBuffer, void)},
+		{"poll", "()I", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, poll, int32_t), "java.io.IOException"},
+		{"poll", "(I)I", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, poll, int32_t, int32_t), "java.io.IOException"},
+		{"poll0", "(JI[I[I[IJJ)I", nullptr, $PRIVATE | $NATIVE, $method(WindowsSelectorImpl$SubSelector, poll0, int32_t, int64_t, int32_t, $ints*, $ints*, $ints*, int64_t, int64_t)},
+		{"processFDSet", "(JLjava/util/function/Consumer;[IIZ)I", "(JLjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;[IIZ)I", $PRIVATE, $method(WindowsSelectorImpl$SubSelector, processFDSet, int32_t, int64_t, $Consumer*, $ints*, int32_t, bool), "java.io.IOException"},
+		{"processSelectedKeys", "(JLjava/util/function/Consumer;)I", "(JLjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(WindowsSelectorImpl$SubSelector, processSelectedKeys, int32_t, int64_t, $Consumer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.WindowsSelectorImpl$SubSelector", "sun.nio.ch.WindowsSelectorImpl", "SubSelector", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.nio.ch.WindowsSelectorImpl$SubSelector",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.WindowsSelectorImpl"
+	};
+	$loadClass(WindowsSelectorImpl$SubSelector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsSelectorImpl$SubSelector);
+	});
 	return class$;
 }
 

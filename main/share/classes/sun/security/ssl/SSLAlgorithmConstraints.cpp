@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLAlgorithmConstraints.h>
-
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/Key.h>
@@ -14,7 +13,6 @@
 #include <sun/security/ssl/SSLEngineImpl.h>
 #include <sun/security/ssl/SSLSocketImpl.h>
 #include <sun/security/ssl/TransportContext.h>
-#include <sun/security/util/AlgorithmDecomposer.h>
 #include <sun/security/util/DisabledAlgorithmConstraints.h>
 #include <jcpp.h>
 
@@ -30,68 +28,17 @@ using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $Key = ::java::security::Key;
 using $Set = ::java::util::Set;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
-using $SSLParameters = ::javax::net::ssl::SSLParameters;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints = ::sun::security::ssl::SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints;
 using $SSLAlgorithmDecomposer = ::sun::security::ssl::SSLAlgorithmDecomposer;
 using $SSLEngineImpl = ::sun::security::ssl::SSLEngineImpl;
 using $SSLSocketImpl = ::sun::security::ssl::SSLSocketImpl;
-using $AlgorithmDecomposer = ::sun::security::util::AlgorithmDecomposer;
 using $DisabledAlgorithmConstraints = ::sun::security::util::DisabledAlgorithmConstraints;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLAlgorithmConstraints_FieldInfo_[] = {
-	{"tlsDisabledAlgConstraints", "Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLAlgorithmConstraints, tlsDisabledAlgConstraints)},
-	{"x509DisabledAlgConstraints", "Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLAlgorithmConstraints, x509DisabledAlgConstraints)},
-	{"userSpecifiedConstraints", "Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $FINAL, $field(SSLAlgorithmConstraints, userSpecifiedConstraints)},
-	{"peerSpecifiedConstraints", "Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $FINAL, $field(SSLAlgorithmConstraints, peerSpecifiedConstraints)},
-	{"enabledX509DisabledAlgConstraints", "Z", nullptr, $PRIVATE | $FINAL, $field(SSLAlgorithmConstraints, enabledX509DisabledAlgConstraints)},
-	{"DEFAULT", "Ljava/security/AlgorithmConstraints;", nullptr, $STATIC | $FINAL, $staticField(SSLAlgorithmConstraints, DEFAULT)},
-	{"DEFAULT_SSL_ONLY", "Ljava/security/AlgorithmConstraints;", nullptr, $STATIC | $FINAL, $staticField(SSLAlgorithmConstraints, DEFAULT_SSL_ONLY)},
-	{}
-};
-
-$MethodInfo _SSLAlgorithmConstraints_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/AlgorithmConstraints;)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $AlgorithmConstraints*)},
-	{"<init>", "(Ljavax/net/ssl/SSLSocket;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLSocket*, bool)},
-	{"<init>", "(Ljavax/net/ssl/SSLEngine;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLEngine*, bool)},
-	{"<init>", "(Ljavax/net/ssl/SSLSocket;[Ljava/lang/String;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLSocket*, $StringArray*, bool)},
-	{"<init>", "(Ljavax/net/ssl/SSLEngine;[Ljava/lang/String;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLEngine*, $StringArray*, bool)},
-	{"getUserSpecifiedConstraints", "(Ljavax/net/ssl/SSLEngine;)Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLAlgorithmConstraints, getUserSpecifiedConstraints, $AlgorithmConstraints*, $SSLEngine*)},
-	{"getUserSpecifiedConstraints", "(Ljavax/net/ssl/SSLSocket;)Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLAlgorithmConstraints, getUserSpecifiedConstraints, $AlgorithmConstraints*, $SSLSocket*)},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints, permits, bool, $Set*, $String*, $AlgorithmParameters*)},
-	{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints, permits, bool, $Set*, $Key*)},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints, permits, bool, $Set*, $String*, $Key*, $AlgorithmParameters*)},
-	{}
-};
-
-$InnerClassInfo _SSLAlgorithmConstraints_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints", "sun.security.ssl.SSLAlgorithmConstraints", "SupportedSignatureAlgorithmConstraints", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLAlgorithmConstraints_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLAlgorithmConstraints",
-	"java.lang.Object",
-	"java.security.AlgorithmConstraints",
-	_SSLAlgorithmConstraints_FieldInfo_,
-	_SSLAlgorithmConstraints_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLAlgorithmConstraints_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints"
-};
-
-$Object* allocate$SSLAlgorithmConstraints($Class* clazz) {
-	return $of($alloc(SSLAlgorithmConstraints));
-}
 
 $AlgorithmConstraints* SSLAlgorithmConstraints::tlsDisabledAlgConstraints = nullptr;
 $AlgorithmConstraints* SSLAlgorithmConstraints::x509DisabledAlgConstraints = nullptr;
@@ -130,30 +77,30 @@ void SSLAlgorithmConstraints::init$($SSLEngine* engine, $StringArray* supportedA
 
 $AlgorithmConstraints* SSLAlgorithmConstraints::getUserSpecifiedConstraints($SSLEngine* engine) {
 	$init(SSLAlgorithmConstraints);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (engine != nullptr) {
 		if ($instanceOf($SSLEngineImpl, engine)) {
-			$var($HandshakeContext, hc, $nc($nc(($cast($SSLEngineImpl, engine)))->conContext)->handshakeContext);
+			$var($HandshakeContext, hc, $nc($cast($SSLEngineImpl, engine)->conContext)->handshakeContext);
 			if (hc != nullptr) {
 				return $nc(hc->sslConfig)->userSpecifiedAlgorithmConstraints;
 			}
 		}
-		return $nc($(engine->getSSLParameters()))->getAlgorithmConstraints();
+		return $$nc(engine->getSSLParameters())->getAlgorithmConstraints();
 	}
 	return nullptr;
 }
 
 $AlgorithmConstraints* SSLAlgorithmConstraints::getUserSpecifiedConstraints($SSLSocket* socket) {
 	$init(SSLAlgorithmConstraints);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (socket != nullptr) {
 		if ($instanceOf($SSLSocketImpl, socket)) {
-			$var($HandshakeContext, hc, $nc($nc(($cast($SSLSocketImpl, socket)))->conContext)->handshakeContext);
+			$var($HandshakeContext, hc, $nc($cast($SSLSocketImpl, socket)->conContext)->handshakeContext);
 			if (hc != nullptr) {
 				return $nc(hc->sslConfig)->userSpecifiedAlgorithmConstraints;
 			}
 		}
-		return $nc($(socket->getSSLParameters()))->getAlgorithmConstraints();
+		return $$nc(socket->getSSLParameters())->getAlgorithmConstraints();
 	}
 	return nullptr;
 }
@@ -161,16 +108,16 @@ $AlgorithmConstraints* SSLAlgorithmConstraints::getUserSpecifiedConstraints($SSL
 bool SSLAlgorithmConstraints::permits($Set* primitives, $String* algorithm, $AlgorithmParameters* parameters) {
 	bool permitted = true;
 	if (this->peerSpecifiedConstraints != nullptr) {
-		permitted = $nc(this->peerSpecifiedConstraints)->permits(primitives, algorithm, parameters);
+		permitted = this->peerSpecifiedConstraints->permits(primitives, algorithm, parameters);
 	}
 	if (permitted && this->userSpecifiedConstraints != nullptr) {
-		permitted = $nc(this->userSpecifiedConstraints)->permits(primitives, algorithm, parameters);
+		permitted = this->userSpecifiedConstraints->permits(primitives, algorithm, parameters);
 	}
 	if (permitted) {
-		permitted = $nc(SSLAlgorithmConstraints::tlsDisabledAlgConstraints)->permits(primitives, algorithm, parameters);
+		permitted = SSLAlgorithmConstraints::tlsDisabledAlgConstraints->permits(primitives, algorithm, parameters);
 	}
 	if (permitted && this->enabledX509DisabledAlgConstraints) {
-		permitted = $nc(SSLAlgorithmConstraints::x509DisabledAlgConstraints)->permits(primitives, algorithm, parameters);
+		permitted = SSLAlgorithmConstraints::x509DisabledAlgConstraints->permits(primitives, algorithm, parameters);
 	}
 	return permitted;
 }
@@ -178,16 +125,16 @@ bool SSLAlgorithmConstraints::permits($Set* primitives, $String* algorithm, $Alg
 bool SSLAlgorithmConstraints::permits($Set* primitives, $Key* key) {
 	bool permitted = true;
 	if (this->peerSpecifiedConstraints != nullptr) {
-		permitted = $nc(this->peerSpecifiedConstraints)->permits(primitives, key);
+		permitted = this->peerSpecifiedConstraints->permits(primitives, key);
 	}
 	if (permitted && this->userSpecifiedConstraints != nullptr) {
-		permitted = $nc(this->userSpecifiedConstraints)->permits(primitives, key);
+		permitted = this->userSpecifiedConstraints->permits(primitives, key);
 	}
 	if (permitted) {
-		permitted = $nc(SSLAlgorithmConstraints::tlsDisabledAlgConstraints)->permits(primitives, key);
+		permitted = SSLAlgorithmConstraints::tlsDisabledAlgConstraints->permits(primitives, key);
 	}
 	if (permitted && this->enabledX509DisabledAlgConstraints) {
-		permitted = $nc(SSLAlgorithmConstraints::x509DisabledAlgConstraints)->permits(primitives, key);
+		permitted = SSLAlgorithmConstraints::x509DisabledAlgConstraints->permits(primitives, key);
 	}
 	return permitted;
 }
@@ -195,22 +142,22 @@ bool SSLAlgorithmConstraints::permits($Set* primitives, $Key* key) {
 bool SSLAlgorithmConstraints::permits($Set* primitives, $String* algorithm, $Key* key, $AlgorithmParameters* parameters) {
 	bool permitted = true;
 	if (this->peerSpecifiedConstraints != nullptr) {
-		permitted = $nc(this->peerSpecifiedConstraints)->permits(primitives, algorithm, key, parameters);
+		permitted = this->peerSpecifiedConstraints->permits(primitives, algorithm, key, parameters);
 	}
 	if (permitted && this->userSpecifiedConstraints != nullptr) {
-		permitted = $nc(this->userSpecifiedConstraints)->permits(primitives, algorithm, key, parameters);
+		permitted = this->userSpecifiedConstraints->permits(primitives, algorithm, key, parameters);
 	}
 	if (permitted) {
-		permitted = $nc(SSLAlgorithmConstraints::tlsDisabledAlgConstraints)->permits(primitives, algorithm, key, parameters);
+		permitted = SSLAlgorithmConstraints::tlsDisabledAlgConstraints->permits(primitives, algorithm, key, parameters);
 	}
 	if (permitted && this->enabledX509DisabledAlgConstraints) {
-		permitted = $nc(SSLAlgorithmConstraints::x509DisabledAlgConstraints)->permits(primitives, algorithm, key, parameters);
+		permitted = SSLAlgorithmConstraints::x509DisabledAlgConstraints->permits(primitives, algorithm, key, parameters);
 	}
 	return permitted;
 }
 
-void clinit$SSLAlgorithmConstraints($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SSLAlgorithmConstraints::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(SSLAlgorithmConstraints::tlsDisabledAlgConstraints, $new($DisabledAlgorithmConstraints, "jdk.tls.disabledAlgorithms"_s, $$new($SSLAlgorithmDecomposer)));
 	$assignStatic(SSLAlgorithmConstraints::x509DisabledAlgConstraints, $new($DisabledAlgorithmConstraints, "jdk.certpath.disabledAlgorithms"_s, $$new($SSLAlgorithmDecomposer, true)));
 	$assignStatic(SSLAlgorithmConstraints::DEFAULT, $new(SSLAlgorithmConstraints, nullptr));
@@ -221,7 +168,50 @@ SSLAlgorithmConstraints::SSLAlgorithmConstraints() {
 }
 
 $Class* SSLAlgorithmConstraints::load$($String* name, bool initialize) {
-	$loadClass(SSLAlgorithmConstraints, name, initialize, &_SSLAlgorithmConstraints_ClassInfo_, clinit$SSLAlgorithmConstraints, allocate$SSLAlgorithmConstraints);
+	$FieldInfo fieldInfos$$[] = {
+		{"tlsDisabledAlgConstraints", "Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLAlgorithmConstraints, tlsDisabledAlgConstraints)},
+		{"x509DisabledAlgConstraints", "Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLAlgorithmConstraints, x509DisabledAlgConstraints)},
+		{"userSpecifiedConstraints", "Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $FINAL, $field(SSLAlgorithmConstraints, userSpecifiedConstraints)},
+		{"peerSpecifiedConstraints", "Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $FINAL, $field(SSLAlgorithmConstraints, peerSpecifiedConstraints)},
+		{"enabledX509DisabledAlgConstraints", "Z", nullptr, $PRIVATE | $FINAL, $field(SSLAlgorithmConstraints, enabledX509DisabledAlgConstraints)},
+		{"DEFAULT", "Ljava/security/AlgorithmConstraints;", nullptr, $STATIC | $FINAL, $staticField(SSLAlgorithmConstraints, DEFAULT)},
+		{"DEFAULT_SSL_ONLY", "Ljava/security/AlgorithmConstraints;", nullptr, $STATIC | $FINAL, $staticField(SSLAlgorithmConstraints, DEFAULT_SSL_ONLY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/AlgorithmConstraints;)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $AlgorithmConstraints*)},
+		{"<init>", "(Ljavax/net/ssl/SSLSocket;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLSocket*, bool)},
+		{"<init>", "(Ljavax/net/ssl/SSLEngine;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLEngine*, bool)},
+		{"<init>", "(Ljavax/net/ssl/SSLSocket;[Ljava/lang/String;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLSocket*, $StringArray*, bool)},
+		{"<init>", "(Ljavax/net/ssl/SSLEngine;[Ljava/lang/String;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLEngine*, $StringArray*, bool)},
+		{"getUserSpecifiedConstraints", "(Ljavax/net/ssl/SSLEngine;)Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLAlgorithmConstraints, getUserSpecifiedConstraints, $AlgorithmConstraints*, $SSLEngine*)},
+		{"getUserSpecifiedConstraints", "(Ljavax/net/ssl/SSLSocket;)Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLAlgorithmConstraints, getUserSpecifiedConstraints, $AlgorithmConstraints*, $SSLSocket*)},
+		{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints, permits, bool, $Set*, $String*, $AlgorithmParameters*)},
+		{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints, permits, bool, $Set*, $Key*)},
+		{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints, permits, bool, $Set*, $String*, $Key*, $AlgorithmParameters*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints", "sun.security.ssl.SSLAlgorithmConstraints", "SupportedSignatureAlgorithmConstraints", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLAlgorithmConstraints",
+		"java.lang.Object",
+		"java.security.AlgorithmConstraints",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints"
+	};
+	$loadClass(SSLAlgorithmConstraints, name, initialize, &classInfo$$, SSLAlgorithmConstraints::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLAlgorithmConstraints);
+	});
 	return class$;
 }
 

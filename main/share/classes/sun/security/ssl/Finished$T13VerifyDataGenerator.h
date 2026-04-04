@@ -22,6 +22,7 @@ class Finished$T13VerifyDataGenerator : public ::sun::security::ssl::Finished$Ve
 	$class(Finished$T13VerifyDataGenerator, 0, ::sun::security::ssl::Finished$VerifyDataGenerator)
 public:
 	Finished$T13VerifyDataGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $bytes* createVerifyData(::sun::security::ssl::HandshakeContext* context, bool isValidation) override;
 	static $bytes* hkdfLabel;

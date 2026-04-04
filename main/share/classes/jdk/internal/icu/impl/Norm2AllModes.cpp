@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/Norm2AllModes.h>
-
 #include <jdk/internal/icu/impl/Norm2AllModes$ComposeNormalizer2.h>
 #include <jdk/internal/icu/impl/Norm2AllModes$DecomposeNormalizer2.h>
 #include <jdk/internal/icu/impl/Norm2AllModes$NFCSingleton.h>
@@ -29,52 +28,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$FieldInfo _Norm2AllModes_FieldInfo_[] = {
-	{"impl", "Ljdk/internal/icu/impl/NormalizerImpl;", nullptr, $PUBLIC | $FINAL, $field(Norm2AllModes, impl)},
-	{"comp", "Ljdk/internal/icu/impl/Norm2AllModes$ComposeNormalizer2;", nullptr, $PUBLIC | $FINAL, $field(Norm2AllModes, comp)},
-	{"decomp", "Ljdk/internal/icu/impl/Norm2AllModes$DecomposeNormalizer2;", nullptr, $PUBLIC | $FINAL, $field(Norm2AllModes, decomp)},
-	{"NOOP_NORMALIZER2", "Ljdk/internal/icu/impl/Norm2AllModes$NoopNormalizer2;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Norm2AllModes, NOOP_NORMALIZER2)},
-	{}
-};
-
-$MethodInfo _Norm2AllModes_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/NormalizerImpl;)V", nullptr, $PRIVATE, $method(Norm2AllModes, init$, void, $NormalizerImpl*)},
-	{"getInstanceFromSingleton", "(Ljdk/internal/icu/impl/Norm2AllModes$Norm2AllModesSingleton;)Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PRIVATE | $STATIC, $staticMethod(Norm2AllModes, getInstanceFromSingleton, Norm2AllModes*, $Norm2AllModes$Norm2AllModesSingleton*)},
-	{"getNFCInstance", "()Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PUBLIC | $STATIC, $staticMethod(Norm2AllModes, getNFCInstance, Norm2AllModes*)},
-	{"getNFKCInstance", "()Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PUBLIC | $STATIC, $staticMethod(Norm2AllModes, getNFKCInstance, Norm2AllModes*)},
-	{}
-};
-
-$InnerClassInfo _Norm2AllModes_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.Norm2AllModes$NFKCSingleton", "jdk.internal.icu.impl.Norm2AllModes", "NFKCSingleton", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.Norm2AllModes$NFCSingleton", "jdk.internal.icu.impl.Norm2AllModes", "NFCSingleton", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.Norm2AllModes$Norm2AllModesSingleton", "jdk.internal.icu.impl.Norm2AllModes", "Norm2AllModesSingleton", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.Norm2AllModes$ComposeNormalizer2", "jdk.internal.icu.impl.Norm2AllModes", "ComposeNormalizer2", $PUBLIC | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.Norm2AllModes$DecomposeNormalizer2", "jdk.internal.icu.impl.Norm2AllModes", "DecomposeNormalizer2", $PUBLIC | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.Norm2AllModes$Normalizer2WithImpl", "jdk.internal.icu.impl.Norm2AllModes", "Normalizer2WithImpl", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.icu.impl.Norm2AllModes$NoopNormalizer2", "jdk.internal.icu.impl.Norm2AllModes", "NoopNormalizer2", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Norm2AllModes_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.Norm2AllModes",
-	"java.lang.Object",
-	nullptr,
-	_Norm2AllModes_FieldInfo_,
-	_Norm2AllModes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Norm2AllModes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.Norm2AllModes$NFKCSingleton,jdk.internal.icu.impl.Norm2AllModes$NFCSingleton,jdk.internal.icu.impl.Norm2AllModes$Norm2AllModesSingleton,jdk.internal.icu.impl.Norm2AllModes$ComposeNormalizer2,jdk.internal.icu.impl.Norm2AllModes$DecomposeNormalizer2,jdk.internal.icu.impl.Norm2AllModes$Normalizer2WithImpl,jdk.internal.icu.impl.Norm2AllModes$NoopNormalizer2"
-};
-
-$Object* allocate$Norm2AllModes($Class* clazz) {
-	return $of($alloc(Norm2AllModes));
-}
-
 $Norm2AllModes$NoopNormalizer2* Norm2AllModes::NOOP_NORMALIZER2 = nullptr;
 
 void Norm2AllModes::init$($NormalizerImpl* ni) {
@@ -88,7 +41,7 @@ Norm2AllModes* Norm2AllModes::getInstanceFromSingleton($Norm2AllModes$Norm2AllMo
 	if ($nc(singleton)->exception != nullptr) {
 		$throw(singleton->exception);
 	}
-	return $nc(singleton)->allModes;
+	return singleton->allModes;
 }
 
 Norm2AllModes* Norm2AllModes::getNFCInstance() {
@@ -103,7 +56,7 @@ Norm2AllModes* Norm2AllModes::getNFKCInstance() {
 	return getInstanceFromSingleton($Norm2AllModes$NFKCSingleton::INSTANCE);
 }
 
-void clinit$Norm2AllModes($Class* class$) {
+void Norm2AllModes::clinit$($Class* clazz) {
 	$assignStatic(Norm2AllModes::NOOP_NORMALIZER2, $new($Norm2AllModes$NoopNormalizer2));
 }
 
@@ -111,7 +64,47 @@ Norm2AllModes::Norm2AllModes() {
 }
 
 $Class* Norm2AllModes::load$($String* name, bool initialize) {
-	$loadClass(Norm2AllModes, name, initialize, &_Norm2AllModes_ClassInfo_, clinit$Norm2AllModes, allocate$Norm2AllModes);
+	$FieldInfo fieldInfos$$[] = {
+		{"impl", "Ljdk/internal/icu/impl/NormalizerImpl;", nullptr, $PUBLIC | $FINAL, $field(Norm2AllModes, impl)},
+		{"comp", "Ljdk/internal/icu/impl/Norm2AllModes$ComposeNormalizer2;", nullptr, $PUBLIC | $FINAL, $field(Norm2AllModes, comp)},
+		{"decomp", "Ljdk/internal/icu/impl/Norm2AllModes$DecomposeNormalizer2;", nullptr, $PUBLIC | $FINAL, $field(Norm2AllModes, decomp)},
+		{"NOOP_NORMALIZER2", "Ljdk/internal/icu/impl/Norm2AllModes$NoopNormalizer2;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Norm2AllModes, NOOP_NORMALIZER2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/icu/impl/NormalizerImpl;)V", nullptr, $PRIVATE, $method(Norm2AllModes, init$, void, $NormalizerImpl*)},
+		{"getInstanceFromSingleton", "(Ljdk/internal/icu/impl/Norm2AllModes$Norm2AllModesSingleton;)Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PRIVATE | $STATIC, $staticMethod(Norm2AllModes, getInstanceFromSingleton, Norm2AllModes*, $Norm2AllModes$Norm2AllModesSingleton*)},
+		{"getNFCInstance", "()Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PUBLIC | $STATIC, $staticMethod(Norm2AllModes, getNFCInstance, Norm2AllModes*)},
+		{"getNFKCInstance", "()Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PUBLIC | $STATIC, $staticMethod(Norm2AllModes, getNFKCInstance, Norm2AllModes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.Norm2AllModes$NFKCSingleton", "jdk.internal.icu.impl.Norm2AllModes", "NFKCSingleton", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.Norm2AllModes$NFCSingleton", "jdk.internal.icu.impl.Norm2AllModes", "NFCSingleton", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.Norm2AllModes$Norm2AllModesSingleton", "jdk.internal.icu.impl.Norm2AllModes", "Norm2AllModesSingleton", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.Norm2AllModes$ComposeNormalizer2", "jdk.internal.icu.impl.Norm2AllModes", "ComposeNormalizer2", $PUBLIC | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.Norm2AllModes$DecomposeNormalizer2", "jdk.internal.icu.impl.Norm2AllModes", "DecomposeNormalizer2", $PUBLIC | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.Norm2AllModes$Normalizer2WithImpl", "jdk.internal.icu.impl.Norm2AllModes", "Normalizer2WithImpl", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.icu.impl.Norm2AllModes$NoopNormalizer2", "jdk.internal.icu.impl.Norm2AllModes", "NoopNormalizer2", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.Norm2AllModes",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.Norm2AllModes$NFKCSingleton,jdk.internal.icu.impl.Norm2AllModes$NFCSingleton,jdk.internal.icu.impl.Norm2AllModes$Norm2AllModesSingleton,jdk.internal.icu.impl.Norm2AllModes$ComposeNormalizer2,jdk.internal.icu.impl.Norm2AllModes$DecomposeNormalizer2,jdk.internal.icu.impl.Norm2AllModes$Normalizer2WithImpl,jdk.internal.icu.impl.Norm2AllModes$NoopNormalizer2"
+	};
+	$loadClass(Norm2AllModes, name, initialize, &classInfo$$, Norm2AllModes::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Norm2AllModes);
+	});
 	return class$;
 }
 

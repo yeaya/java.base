@@ -14,10 +14,13 @@ public:
 	ConnectException();
 	void init$($String* msg);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x352BE1E2A8F72FBF;
+	static const int64_t serialVersionUID = (int64_t)0x352be1e2a8f72fbf;
 	ConnectException(const ConnectException& e);
 	virtual void throw$() override;
-	inline ConnectException* operator ->() {
+	inline ConnectException* operator ->() const {
+		return (ConnectException*)throwing$;
+	}
+	inline operator ConnectException*() const {
 		return (ConnectException*)throwing$;
 	}
 };

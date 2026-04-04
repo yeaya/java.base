@@ -23,6 +23,7 @@ namespace jdk {
 class $export CgroupSubsystemController : public ::java::lang::Object {
 	$interface(CgroupSubsystemController, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static int64_t convertStringToLong($String* strval, int64_t overflowRetval, int64_t defaultRetval);
 	static double getDoubleValue(::jdk::internal::platform::CgroupSubsystemController* controller, $String* param, double defaultRetval);
 	static int64_t getLongEntry(::jdk::internal::platform::CgroupSubsystemController* controller, $String* param, $String* entryname, int64_t defaultRetval);

@@ -25,6 +25,7 @@ class ObjectStreamClass$FieldReflector : public ::java::lang::Object {
 	$class(ObjectStreamClass$FieldReflector, 0, ::java::lang::Object)
 public:
 	ObjectStreamClass$FieldReflector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::java::io::ObjectStreamField>* fields);
 	virtual void checkObjectFieldValueTypes(Object$* obj, $ObjectArray* vals);
 	virtual $Array<::java::io::ObjectStreamField>* getFields();

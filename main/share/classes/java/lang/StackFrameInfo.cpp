@@ -1,5 +1,4 @@
 #include <java/lang/StackFrameInfo.h>
-
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/StackWalker.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -23,54 +22,6 @@ using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _StackFrameInfo_FieldInfo_[] = {
-	{"JLIA", "Ljdk/internal/access/JavaLangInvokeAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackFrameInfo, JLIA)},
-	{"retainClassRef", "Z", nullptr, $PRIVATE | $FINAL, $field(StackFrameInfo, retainClassRef)},
-	{"memberName", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(StackFrameInfo, memberName)},
-	{"bci", "I", nullptr, $PRIVATE, $field(StackFrameInfo, bci)},
-	{"ste", "Ljava/lang/StackTraceElement;", nullptr, $PRIVATE | $VOLATILE, $field(StackFrameInfo, ste)},
-	{}
-};
-
-$MethodInfo _StackFrameInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StackWalker;)V", nullptr, 0, $method(StackFrameInfo, init$, void, $StackWalker*)},
-	{"declaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(StackFrameInfo, declaringClass, $Class*)},
-	{"ensureRetainClassRefEnabled", "()V", nullptr, $PRIVATE, $method(StackFrameInfo, ensureRetainClassRefEnabled, void)},
-	{"getByteCodeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getByteCodeIndex, int32_t)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getClassName, $String*)},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(StackFrameInfo, getDeclaringClass, $Class*)},
-	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getDescriptor, $String*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getFileName, $String*)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getLineNumber, int32_t)},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getMethodName, $String*)},
-	{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getMethodType, $MethodType*)},
-	{"isNativeMethod", "()Z", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, isNativeMethod, bool)},
-	{"toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, toStackTraceElement, $StackTraceElement*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _StackFrameInfo_InnerClassesInfo_[] = {
-	{"java.lang.StackWalker$StackFrame", "java.lang.StackWalker", "StackFrame", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StackFrameInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.StackFrameInfo",
-	"java.lang.Object",
-	"java.lang.StackWalker$StackFrame",
-	_StackFrameInfo_FieldInfo_,
-	_StackFrameInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StackFrameInfo_InnerClassesInfo_
-};
-
-$Object* allocate$StackFrameInfo($Class* clazz) {
-	return $of($alloc(StackFrameInfo));
-}
 
 $JavaLangInvokeAccess* StackFrameInfo::JLIA = nullptr;
 
@@ -113,14 +64,14 @@ int32_t StackFrameInfo::getByteCodeIndex() {
 }
 
 $String* StackFrameInfo::getFileName() {
-	return $nc($(toStackTraceElement()))->getFileName();
+	return $$nc(toStackTraceElement())->getFileName();
 }
 
 int32_t StackFrameInfo::getLineNumber() {
 	if (isNativeMethod()) {
 		return -2;
 	}
-	return $nc($(toStackTraceElement()))->getLineNumber();
+	return $$nc(toStackTraceElement())->getLineNumber();
 }
 
 bool StackFrameInfo::isNativeMethod() {
@@ -128,7 +79,7 @@ bool StackFrameInfo::isNativeMethod() {
 }
 
 $String* StackFrameInfo::toString() {
-	return $nc($(toStackTraceElement()))->toString();
+	return $$nc(toStackTraceElement())->toString();
 }
 
 $StackTraceElement* StackFrameInfo::toStackTraceElement() {
@@ -137,7 +88,7 @@ $StackTraceElement* StackFrameInfo::toStackTraceElement() {
 		$synchronized(this) {
 			$assign(s, this->ste);
 			if (s == nullptr) {
-				$set(this, ste, ($assign(s, $StackTraceElement::of(this))));
+				$set(this, ste, $assign(s, $StackTraceElement::of(this)));
 			}
 		}
 	}
@@ -150,7 +101,7 @@ void StackFrameInfo::ensureRetainClassRefEnabled() {
 	}
 }
 
-void clinit$StackFrameInfo($Class* class$) {
+void StackFrameInfo::clinit$($Class* clazz) {
 	$assignStatic(StackFrameInfo::JLIA, $SharedSecrets::getJavaLangInvokeAccess());
 }
 
@@ -158,7 +109,49 @@ StackFrameInfo::StackFrameInfo() {
 }
 
 $Class* StackFrameInfo::load$($String* name, bool initialize) {
-	$loadClass(StackFrameInfo, name, initialize, &_StackFrameInfo_ClassInfo_, clinit$StackFrameInfo, allocate$StackFrameInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"JLIA", "Ljdk/internal/access/JavaLangInvokeAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackFrameInfo, JLIA)},
+		{"retainClassRef", "Z", nullptr, $PRIVATE | $FINAL, $field(StackFrameInfo, retainClassRef)},
+		{"memberName", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(StackFrameInfo, memberName)},
+		{"bci", "I", nullptr, $PRIVATE, $field(StackFrameInfo, bci)},
+		{"ste", "Ljava/lang/StackTraceElement;", nullptr, $PRIVATE | $VOLATILE, $field(StackFrameInfo, ste)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StackWalker;)V", nullptr, 0, $method(StackFrameInfo, init$, void, $StackWalker*)},
+		{"declaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(StackFrameInfo, declaringClass, $Class*)},
+		{"ensureRetainClassRefEnabled", "()V", nullptr, $PRIVATE, $method(StackFrameInfo, ensureRetainClassRefEnabled, void)},
+		{"getByteCodeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getByteCodeIndex, int32_t)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getClassName, $String*)},
+		{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(StackFrameInfo, getDeclaringClass, $Class*)},
+		{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getDescriptor, $String*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getFileName, $String*)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getLineNumber, int32_t)},
+		{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getMethodName, $String*)},
+		{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getMethodType, $MethodType*)},
+		{"isNativeMethod", "()Z", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, isNativeMethod, bool)},
+		{"toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, toStackTraceElement, $StackTraceElement*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StackWalker$StackFrame", "java.lang.StackWalker", "StackFrame", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.StackFrameInfo",
+		"java.lang.Object",
+		"java.lang.StackWalker$StackFrame",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(StackFrameInfo, name, initialize, &classInfo$$, StackFrameInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StackFrameInfo);
+	});
 	return class$;
 }
 

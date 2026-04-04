@@ -1,5 +1,4 @@
 #include <ReadByte.h>
-
 #include <ReadByte$1.h>
 #include <java/io/InputStream.h>
 #include <java/nio/channels/Channels.h>
@@ -15,41 +14,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Channels = ::java::nio::channels::Channels;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 
-$MethodInfo _ReadByte_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadByte, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadByte, main, void, $StringArray*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ReadByte_InnerClassesInfo_[] = {
-	{"ReadByte$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ReadByte_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ReadByte",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ReadByte_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReadByte_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ReadByte$1"
-};
-
-$Object* allocate$ReadByte($Class* clazz) {
-	return $of($alloc(ReadByte));
-}
-
 void ReadByte::init$() {
 }
 
 void ReadByte::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReadableByteChannel, channel, $new($ReadByte$1));
 	$var($InputStream, in, $Channels::newInputStream(channel));
 	int32_t data = $nc(in)->read();
@@ -62,7 +31,32 @@ ReadByte::ReadByte() {
 }
 
 $Class* ReadByte::load$($String* name, bool initialize) {
-	$loadClass(ReadByte, name, initialize, &_ReadByte_ClassInfo_, allocate$ReadByte);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReadByte, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadByte, main, void, $StringArray*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ReadByte$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ReadByte",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ReadByte$1"
+	};
+	$loadClass(ReadByte, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReadByte);
+	});
 	return class$;
 }
 

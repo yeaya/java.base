@@ -1,5 +1,4 @@
 #include <sun/security/ssl/RandomCookie.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/SecureRandom.h>
 #include <java/util/Arrays.h>
@@ -16,48 +15,11 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SecureRandom = ::java::security::SecureRandom;
 using $Arrays = ::java::util::Arrays;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $Utilities = ::sun::security::ssl::Utilities;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _RandomCookie_FieldInfo_[] = {
-	{"randomBytes", "[B", nullptr, $FINAL, $field(RandomCookie, randomBytes)},
-	{"hrrRandomBytes", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RandomCookie, hrrRandomBytes)},
-	{"t12Protection", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RandomCookie, t12Protection)},
-	{"t11Protection", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RandomCookie, t11Protection)},
-	{"hrrRandom", "Lsun/security/ssl/RandomCookie;", nullptr, $STATIC | $FINAL, $staticField(RandomCookie, hrrRandom)},
-	{}
-};
-
-$MethodInfo _RandomCookie_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(RandomCookie, init$, void, $SecureRandom*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(RandomCookie, init$, void, $HandshakeContext*)},
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(RandomCookie, init$, void, $ByteBuffer*), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(RandomCookie, init$, void, $bytes*)},
-	{"isHelloRetryRequest", "()Z", nullptr, 0, $method(RandomCookie, isHelloRetryRequest, bool)},
-	{"isT11Downgrade", "()Z", nullptr, $PRIVATE, $method(RandomCookie, isT11Downgrade, bool)},
-	{"isT12Downgrade", "()Z", nullptr, $PRIVATE, $method(RandomCookie, isT12Downgrade, bool)},
-	{"isVersionDowngrade", "(Lsun/security/ssl/HandshakeContext;)Z", nullptr, 0, $method(RandomCookie, isVersionDowngrade, bool, $HandshakeContext*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RandomCookie, toString, $String*)},
-	{}
-};
-
-$ClassInfo _RandomCookie_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.RandomCookie",
-	"java.lang.Object",
-	nullptr,
-	_RandomCookie_FieldInfo_,
-	_RandomCookie_MethodInfo_
-};
-
-$Object* allocate$RandomCookie($Class* clazz) {
-	return $of($alloc(RandomCookie));
-}
 
 $bytes* RandomCookie::hrrRandomBytes = nullptr;
 $bytes* RandomCookie::t12Protection = nullptr;
@@ -70,14 +32,14 @@ void RandomCookie::init$($SecureRandom* generator) {
 }
 
 void RandomCookie::init$($HandshakeContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, randomBytes, $new($bytes, 32));
 	$var($SecureRandom, generator, $nc($nc(context)->sslContext)->getSecureRandom());
 	$nc(generator)->nextBytes(this->randomBytes);
 	$var($bytes, protection, nullptr);
 	if (context->maximumActiveProtocol->useTLS13PlusSpec()) {
 		if (!$nc(context->negotiatedProtocol)->useTLS13PlusSpec()) {
-			if ($nc(context->negotiatedProtocol)->useTLS12PlusSpec()) {
+			if (context->negotiatedProtocol->useTLS12PlusSpec()) {
 				$assign(protection, RandomCookie::t12Protection);
 			} else {
 				$assign(protection, RandomCookie::t11Protection);
@@ -89,7 +51,7 @@ void RandomCookie::init$($HandshakeContext* context) {
 		}
 	}
 	if (protection != nullptr) {
-		$System::arraycopy(protection, 0, this->randomBytes, $nc(this->randomBytes)->length - protection->length, protection->length);
+		$System::arraycopy(protection, 0, this->randomBytes, this->randomBytes->length - protection->length, protection->length);
 	}
 }
 
@@ -133,7 +95,7 @@ bool RandomCookie::isT11Downgrade() {
 	return $Arrays::equals(this->randomBytes, 24, 32, RandomCookie::t11Protection, 0, 8);
 }
 
-void clinit$RandomCookie($Class* class$) {
+void RandomCookie::clinit$($Class* clazz) {
 	$assignStatic(RandomCookie::hrrRandomBytes, $new($bytes, {
 		(int8_t)207,
 		(int8_t)33,
@@ -195,7 +157,37 @@ RandomCookie::RandomCookie() {
 }
 
 $Class* RandomCookie::load$($String* name, bool initialize) {
-	$loadClass(RandomCookie, name, initialize, &_RandomCookie_ClassInfo_, clinit$RandomCookie, allocate$RandomCookie);
+	$FieldInfo fieldInfos$$[] = {
+		{"randomBytes", "[B", nullptr, $FINAL, $field(RandomCookie, randomBytes)},
+		{"hrrRandomBytes", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RandomCookie, hrrRandomBytes)},
+		{"t12Protection", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RandomCookie, t12Protection)},
+		{"t11Protection", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RandomCookie, t11Protection)},
+		{"hrrRandom", "Lsun/security/ssl/RandomCookie;", nullptr, $STATIC | $FINAL, $staticField(RandomCookie, hrrRandom)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(RandomCookie, init$, void, $SecureRandom*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(RandomCookie, init$, void, $HandshakeContext*)},
+		{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(RandomCookie, init$, void, $ByteBuffer*), "java.io.IOException"},
+		{"<init>", "([B)V", nullptr, $PRIVATE, $method(RandomCookie, init$, void, $bytes*)},
+		{"isHelloRetryRequest", "()Z", nullptr, 0, $method(RandomCookie, isHelloRetryRequest, bool)},
+		{"isT11Downgrade", "()Z", nullptr, $PRIVATE, $method(RandomCookie, isT11Downgrade, bool)},
+		{"isT12Downgrade", "()Z", nullptr, $PRIVATE, $method(RandomCookie, isT12Downgrade, bool)},
+		{"isVersionDowngrade", "(Lsun/security/ssl/HandshakeContext;)Z", nullptr, 0, $method(RandomCookie, isVersionDowngrade, bool, $HandshakeContext*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RandomCookie, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.RandomCookie",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RandomCookie, name, initialize, &classInfo$$, RandomCookie::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomCookie);
+	});
 	return class$;
 }
 

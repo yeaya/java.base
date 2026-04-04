@@ -1,5 +1,4 @@
 #include <Bug6251817.h>
-
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Date.h>
 #include <java/util/Locale.h>
@@ -16,30 +15,11 @@ using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
 using $TimeZone = ::java::util::TimeZone;
 
-$MethodInfo _Bug6251817_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6251817, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6251817, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _Bug6251817_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug6251817",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Bug6251817_MethodInfo_
-};
-
-$Object* allocate$Bug6251817($Class* clazz) {
-	return $of($alloc(Bug6251817));
-}
-
 void Bug6251817::init$() {
 }
 
 void Bug6251817::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, "zzzz"_s, $Locale::US));
 	sdf->setTimeZone($($TimeZone::getTimeZone("Australia/Lord_Howe"_s)));
@@ -54,7 +34,22 @@ Bug6251817::Bug6251817() {
 }
 
 $Class* Bug6251817::load$($String* name, bool initialize) {
-	$loadClass(Bug6251817, name, initialize, &_Bug6251817_ClassInfo_, allocate$Bug6251817);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6251817, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6251817, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug6251817",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug6251817, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug6251817);
+	});
 	return class$;
 }
 

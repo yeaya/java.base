@@ -51,6 +51,7 @@ public:
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t skipCerts);
 	void init$(::java::lang::Boolean* critical, Object$* value);
 	virtual void delete$($String* name) override;

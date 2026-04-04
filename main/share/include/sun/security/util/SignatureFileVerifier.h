@@ -65,6 +65,7 @@ class $import SignatureFileVerifier : public ::java::lang::Object {
 	$class(SignatureFileVerifier, 0, ::java::lang::Object)
 public:
 	SignatureFileVerifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::ArrayList* signerCache, ::sun::security::util::ManifestDigester* md, $String* name, $bytes* rawBytes);
 	static bool contains($Array<::java::security::CodeSigner>* set, ::java::security::CodeSigner* signer);
 	static $String* getBlockExtension(::java::security::PrivateKey* key);

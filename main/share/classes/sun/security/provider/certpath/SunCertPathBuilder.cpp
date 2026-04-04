@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/SunCertPathBuilder.h>
-
 #include <java/io/IOException.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/PublicKey.h>
@@ -24,8 +23,6 @@
 #include <java/security/cert/TrustAnchor.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -41,12 +38,10 @@
 #include <sun/security/provider/certpath/ForwardBuilder.h>
 #include <sun/security/provider/certpath/ForwardState.h>
 #include <sun/security/provider/certpath/PKIX$BuilderParams.h>
-#include <sun/security/provider/certpath/PKIX$ValidatorParams.h>
 #include <sun/security/provider/certpath/PKIX.h>
 #include <sun/security/provider/certpath/PolicyChecker.h>
 #include <sun/security/provider/certpath/PolicyNodeImpl.h>
 #include <sun/security/provider/certpath/RevocationChecker.h>
-#include <sun/security/provider/certpath/State.h>
 #include <sun/security/provider/certpath/SunCertPathBuilderException.h>
 #include <sun/security/provider/certpath/SunCertPathBuilderResult.h>
 #include <sun/security/provider/certpath/UntrustedChecker.h>
@@ -62,7 +57,6 @@
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
@@ -75,7 +69,6 @@ using $CertPathChecker = ::java::security::cert::CertPathChecker;
 using $CertPathParameters = ::java::security::cert::CertPathParameters;
 using $CertPathValidatorException = ::java::security::cert::CertPathValidatorException;
 using $CertPathValidatorException$BasicReason = ::java::security::cert::CertPathValidatorException$BasicReason;
-using $CertPathValidatorException$Reason = ::java::security::cert::CertPathValidatorException$Reason;
 using $CertSelector = ::java::security::cert::CertSelector;
 using $Certificate = ::java::security::cert::Certificate;
 using $CertificateException = ::java::security::cert::CertificateException;
@@ -88,8 +81,6 @@ using $PolicyNode = ::java::security::cert::PolicyNode;
 using $TrustAnchor = ::java::security::cert::TrustAnchor;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
@@ -105,61 +96,20 @@ using $BasicChecker = ::sun::security::provider::certpath::BasicChecker;
 using $ForwardBuilder = ::sun::security::provider::certpath::ForwardBuilder;
 using $ForwardState = ::sun::security::provider::certpath::ForwardState;
 using $PKIX = ::sun::security::provider::certpath::PKIX;
-using $PKIX$BuilderParams = ::sun::security::provider::certpath::PKIX$BuilderParams;
-using $PKIX$ValidatorParams = ::sun::security::provider::certpath::PKIX$ValidatorParams;
 using $PolicyChecker = ::sun::security::provider::certpath::PolicyChecker;
 using $PolicyNodeImpl = ::sun::security::provider::certpath::PolicyNodeImpl;
 using $RevocationChecker = ::sun::security::provider::certpath::RevocationChecker;
-using $State = ::sun::security::provider::certpath::State;
 using $SunCertPathBuilderException = ::sun::security::provider::certpath::SunCertPathBuilderException;
 using $SunCertPathBuilderResult = ::sun::security::provider::certpath::SunCertPathBuilderResult;
 using $UntrustedChecker = ::sun::security::provider::certpath::UntrustedChecker;
 using $Vertex = ::sun::security::provider::certpath::Vertex;
 using $Debug = ::sun::security::util::Debug;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 
 namespace sun {
 	namespace security {
 		namespace provider {
 			namespace certpath {
-
-$FieldInfo _SunCertPathBuilder_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunCertPathBuilder, debug)},
-	{"buildParams", "Lsun/security/provider/certpath/PKIX$BuilderParams;", nullptr, $PRIVATE, $field(SunCertPathBuilder, buildParams)},
-	{"cf", "Ljava/security/cert/CertificateFactory;", nullptr, $PRIVATE, $field(SunCertPathBuilder, cf)},
-	{"pathCompleted", "Z", nullptr, $PRIVATE, $field(SunCertPathBuilder, pathCompleted)},
-	{"policyTreeResult", "Ljava/security/cert/PolicyNode;", nullptr, $PRIVATE, $field(SunCertPathBuilder, policyTreeResult)},
-	{"trustAnchor", "Ljava/security/cert/TrustAnchor;", nullptr, $PRIVATE, $field(SunCertPathBuilder, trustAnchor)},
-	{"finalPublicKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE, $field(SunCertPathBuilder, finalPublicKey)},
-	{}
-};
-
-$MethodInfo _SunCertPathBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SunCertPathBuilder, init$, void), "java.security.cert.CertPathBuilderException"},
-	{"addVertices", "(Ljava/util/Collection;Ljava/util/List;)Ljava/util/List;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;)Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;", $PRIVATE | $STATIC, $staticMethod(SunCertPathBuilder, addVertices, $List*, $Collection*, $List*)},
-	{"anchorIsTarget", "(Ljava/security/cert/TrustAnchor;Ljava/security/cert/CertSelector;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SunCertPathBuilder, anchorIsTarget, bool, $TrustAnchor*, $CertSelector*)},
-	{"build", "()Ljava/security/cert/PKIXCertPathBuilderResult;", nullptr, $PRIVATE, $method(SunCertPathBuilder, build, $PKIXCertPathBuilderResult*), "java.security.cert.CertPathBuilderException"},
-	{"buildCertPath", "(ZLjava/util/List;)Ljava/security/cert/PKIXCertPathBuilderResult;", "(ZLjava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;)Ljava/security/cert/PKIXCertPathBuilderResult;", $PRIVATE, $method(SunCertPathBuilder, buildCertPath, $PKIXCertPathBuilderResult*, bool, $List*), "java.security.cert.CertPathBuilderException"},
-	{"buildForward", "(Ljava/util/List;Ljava/util/LinkedList;Z)V", "(Ljava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;Ljava/util/LinkedList<Ljava/security/cert/X509Certificate;>;Z)V", $PRIVATE, $method(SunCertPathBuilder, buildForward, void, $List*, $LinkedList*, bool), "java.security.GeneralSecurityException,java.io.IOException"},
-	{"depthFirstSearchForward", "(Ljavax/security/auth/x500/X500Principal;Lsun/security/provider/certpath/ForwardState;Lsun/security/provider/certpath/ForwardBuilder;Ljava/util/List;Ljava/util/LinkedList;)V", "(Ljavax/security/auth/x500/X500Principal;Lsun/security/provider/certpath/ForwardState;Lsun/security/provider/certpath/ForwardBuilder;Ljava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;Ljava/util/LinkedList<Ljava/security/cert/X509Certificate;>;)V", $PRIVATE, $method(SunCertPathBuilder, depthFirstSearchForward, void, $X500Principal*, $ForwardState*, $ForwardBuilder*, $List*, $LinkedList*), "java.security.GeneralSecurityException,java.io.IOException"},
-	{"engineBuild", "(Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathBuilderResult;", nullptr, $PUBLIC, $virtualMethod(SunCertPathBuilder, engineBuild, $CertPathBuilderResult*, $CertPathParameters*), "java.security.cert.CertPathBuilderException,java.security.InvalidAlgorithmParameterException"},
-	{"engineGetRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC, $virtualMethod(SunCertPathBuilder, engineGetRevocationChecker, $CertPathChecker*)},
-	{}
-};
-
-$ClassInfo _SunCertPathBuilder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.certpath.SunCertPathBuilder",
-	"java.security.cert.CertPathBuilderSpi",
-	nullptr,
-	_SunCertPathBuilder_FieldInfo_,
-	_SunCertPathBuilder_MethodInfo_
-};
-
-$Object* allocate$SunCertPathBuilder($Class* clazz) {
-	return $of($alloc(SunCertPathBuilder));
-}
 
 $Debug* SunCertPathBuilder::debug = nullptr;
 
@@ -169,7 +119,7 @@ void SunCertPathBuilder::init$() {
 	try {
 		$set(this, cf, $CertificateFactory::getInstance("X.509"_s));
 	} catch ($CertificateException& e) {
-		$throwNew($CertPathBuilderException, static_cast<$Throwable*>(e));
+		$throwNew($CertPathBuilderException, e);
 	}
 }
 
@@ -179,19 +129,19 @@ $CertPathChecker* SunCertPathBuilder::engineGetRevocationChecker() {
 
 $CertPathBuilderResult* SunCertPathBuilder::engineBuild($CertPathParameters* params) {
 	if (SunCertPathBuilder::debug != nullptr) {
-		$nc(SunCertPathBuilder::debug)->println($$str({"SunCertPathBuilder.engineBuild("_s, params, ")"_s}));
+		SunCertPathBuilder::debug->println($$str({"SunCertPathBuilder.engineBuild("_s, params, ")"_s}));
 	}
 	$set(this, buildParams, $PKIX::checkBuilderParams(params));
 	return build();
 }
 
 $PKIXCertPathBuilderResult* SunCertPathBuilder::build() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, adjList, $new($ArrayList));
 	$var($PKIXCertPathBuilderResult, result, buildCertPath(false, adjList));
 	if (result == nullptr) {
 		if (SunCertPathBuilder::debug != nullptr) {
-			$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.engineBuild: 2nd pass; try building again searching all certstores"_s);
+			SunCertPathBuilder::debug->println("SunCertPathBuilder.engineBuild: 2nd pass; try building again searching all certstores"_s);
 		}
 		adjList->clear();
 		$assign(result, buildCertPath(true, adjList));
@@ -203,7 +153,7 @@ $PKIXCertPathBuilderResult* SunCertPathBuilder::build() {
 }
 
 $PKIXCertPathBuilderResult* SunCertPathBuilder::buildCertPath(bool searchAllCertStores, $List* adjList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->pathCompleted = false;
 	$set(this, trustAnchor, nullptr);
 	$set(this, finalPublicKey, nullptr);
@@ -213,13 +163,13 @@ $PKIXCertPathBuilderResult* SunCertPathBuilder::buildCertPath(bool searchAllCert
 		buildForward(adjList, certPathList, searchAllCertStores);
 	} catch ($GeneralSecurityException& e) {
 		if (SunCertPathBuilder::debug != nullptr) {
-			$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.engineBuild() exception in build"_s);
+			SunCertPathBuilder::debug->println("SunCertPathBuilder.engineBuild() exception in build"_s);
 			e->printStackTrace();
 		}
 		$throwNew($SunCertPathBuilderException, "unable to find valid certification path to requested target"_s, e, $$new($AdjacencyList, adjList));
 	} catch ($IOException& e) {
 		if (SunCertPathBuilder::debug != nullptr) {
-			$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.engineBuild() exception in build"_s);
+			SunCertPathBuilder::debug->println("SunCertPathBuilder.engineBuild() exception in build"_s);
 			e->printStackTrace();
 		}
 		$throwNew($SunCertPathBuilderException, "unable to find valid certification path to requested target"_s, e, $$new($AdjacencyList, adjList));
@@ -227,10 +177,10 @@ $PKIXCertPathBuilderResult* SunCertPathBuilder::buildCertPath(bool searchAllCert
 	try {
 		if (this->pathCompleted) {
 			if (SunCertPathBuilder::debug != nullptr) {
-				$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.engineBuild() pathCompleted"_s);
+				SunCertPathBuilder::debug->println("SunCertPathBuilder.engineBuild() pathCompleted"_s);
 			}
 			$Collections::reverse(certPathList);
-			$var($CertPath, var$0, $nc(this->cf)->generateCertPath(static_cast<$List*>(certPathList)));
+			$var($CertPath, var$0, $nc(this->cf)->generateCertPath(certPathList));
 			$var($TrustAnchor, var$1, this->trustAnchor);
 			$var($PolicyNode, var$2, this->policyTreeResult);
 			$var($PublicKey, var$3, this->finalPublicKey);
@@ -238,7 +188,7 @@ $PKIXCertPathBuilderResult* SunCertPathBuilder::buildCertPath(bool searchAllCert
 		}
 	} catch ($CertificateException& e) {
 		if (SunCertPathBuilder::debug != nullptr) {
-			$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.engineBuild() exception in wrap-up"_s);
+			SunCertPathBuilder::debug->println("SunCertPathBuilder.engineBuild() exception in wrap-up"_s);
 			e->printStackTrace();
 		}
 		$throwNew($SunCertPathBuilderException, "unable to find valid certification path to requested target"_s, e, $$new($AdjacencyList, adjList));
@@ -247,225 +197,219 @@ $PKIXCertPathBuilderResult* SunCertPathBuilder::buildCertPath(bool searchAllCert
 }
 
 void SunCertPathBuilder::buildForward($List* adjacencyList, $LinkedList* certPathList, bool searchAllCertStores) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (SunCertPathBuilder::debug != nullptr) {
-		$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.buildForward()..."_s);
+		SunCertPathBuilder::debug->println("SunCertPathBuilder.buildForward()..."_s);
 	}
 	$var($ForwardState, currentState, $new($ForwardState));
 	currentState->initState($($nc(this->buildParams)->certPathCheckers()));
 	$nc(adjacencyList)->clear();
 	adjacencyList->add($$new($LinkedList));
 	$set(currentState, untrustedChecker, $new($UntrustedChecker));
-	$var($X500Principal, var$0, $nc(this->buildParams)->targetSubject());
-	$var($ForwardState, var$1, currentState);
-	depthFirstSearchForward(var$0, var$1, $$new($ForwardBuilder, this->buildParams, searchAllCertStores), adjacencyList, certPathList);
+	$var($X500Principal, var$0, this->buildParams->targetSubject());
+	depthFirstSearchForward(var$0, currentState, $$new($ForwardBuilder, this->buildParams, searchAllCertStores), adjacencyList, certPathList);
 }
 
 void SunCertPathBuilder::depthFirstSearchForward($X500Principal* dN, $ForwardState* currentState, $ForwardBuilder* builder, $List* adjList, $LinkedList* cpList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (SunCertPathBuilder::debug != nullptr) {
-		$var($String, var$1, $$str({"SunCertPathBuilder.depthFirstSearchForward("_s, dN, ", "_s}));
-		$var($String, var$0, $$concat(var$1, $($nc(currentState)->toString())));
-		$nc(SunCertPathBuilder::debug)->println($$concat(var$0, ")"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("SunCertPathBuilder.depthFirstSearchForward("_s);
+		var$0->append(dN);
+		var$0->append(", "_s);
+		var$0->append($($nc(currentState)->toString()));
+		var$0->append(")"_s);
+		SunCertPathBuilder::debug->println($$str(var$0));
 	}
 	$var($Collection, certs, $nc(builder)->getMatchingCerts(currentState, $($nc(this->buildParams)->certStores())));
 	$var($List, vertices, addVertices(certs, adjList));
 	if (SunCertPathBuilder::debug != nullptr) {
-		$nc(SunCertPathBuilder::debug)->println($$str({"SunCertPathBuilder.depthFirstSearchForward(): certs.size="_s, $$str($nc(vertices)->size())}));
+		SunCertPathBuilder::debug->println($$str({"SunCertPathBuilder.depthFirstSearchForward(): certs.size="_s, $$str($nc(vertices)->size())}));
 	}
 	bool vertices$continue = false;
-	{
-		$var($Iterator, i$, $nc(vertices)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Vertex, vertex, $cast($Vertex, i$->next()));
-			{
-				$var($ForwardState, nextState, $cast($ForwardState, $nc(currentState)->clone()));
-				$var($X509Certificate, cert, $nc(vertex)->getCertificate());
-				try {
-					builder->verifyCert(cert, nextState, cpList);
-				} catch ($GeneralSecurityException& gse) {
-					if (SunCertPathBuilder::debug != nullptr) {
-						$nc(SunCertPathBuilder::debug)->println($$str({"SunCertPathBuilder.depthFirstSearchForward(): validation failed: "_s, gse}));
-						gse->printStackTrace();
+	$var($Iterator, i$, $nc(vertices)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Vertex, vertex, $cast($Vertex, i$->next()));
+		{
+			$var($ForwardState, nextState, $cast($ForwardState, $nc(currentState)->clone()));
+			$var($X509Certificate, cert, $nc(vertex)->getCertificate());
+			try {
+				builder->verifyCert(cert, nextState, cpList);
+			} catch ($GeneralSecurityException& gse) {
+				if (SunCertPathBuilder::debug != nullptr) {
+					SunCertPathBuilder::debug->println($$str({"SunCertPathBuilder.depthFirstSearchForward(): validation failed: "_s, gse}));
+					gse->printStackTrace();
+				}
+				vertex->setThrowable(gse);
+				continue;
+			}
+			if (builder->isPathCompleted(cert)) {
+				if (SunCertPathBuilder::debug != nullptr) {
+					SunCertPathBuilder::debug->println("SunCertPathBuilder.depthFirstSearchForward(): commencing final verification"_s);
+				}
+				$var($List, appendedCerts, $new($ArrayList, $cast($AbstractCollection, cpList)));
+				if ($nc(builder->trustAnchor)->getTrustedCert() == nullptr) {
+					appendedCerts->add(0, cert);
+				}
+				$init($PolicyChecker);
+				$var($Set, initExpPolSet, $Collections::singleton($PolicyChecker::ANY_POLICY));
+				$var($PolicyNodeImpl, rootNode, $new($PolicyNodeImpl, nullptr, $PolicyChecker::ANY_POLICY, nullptr, false, initExpPolSet, false));
+				$var($List, checkers, $new($ArrayList));
+				$var($Set, var$1, this->buildParams->initialPolicies());
+				int32_t var$2 = appendedCerts->size();
+				bool var$3 = this->buildParams->explicitPolicyRequired();
+				bool var$4 = this->buildParams->policyMappingInhibited();
+				bool var$5 = this->buildParams->anyPolicyInhibited();
+				$var($PolicyChecker, policyChecker, $new($PolicyChecker, var$1, var$2, var$3, var$4, var$5, this->buildParams->policyQualifiersRejected(), rootNode));
+				checkers->add(policyChecker);
+				$var($TrustAnchor, var$6, builder->trustAnchor);
+				$var($Date, var$7, this->buildParams->date());
+				checkers->add($$new($AlgorithmChecker, var$6, var$7, $(this->buildParams->variant())));
+				$var($BasicChecker, basicChecker, nullptr);
+				if ($nc(nextState)->keyParamsNeeded()) {
+					$var($PublicKey, rootKey, $nc(cert)->getPublicKey());
+					if (builder->trustAnchor->getTrustedCert() == nullptr) {
+						$assign(rootKey, builder->trustAnchor->getCAPublicKey());
+						if (SunCertPathBuilder::debug != nullptr) {
+							SunCertPathBuilder::debug->println($$str({"SunCertPathBuilder.depthFirstSearchForward using buildParams public key: "_s, $($nc(rootKey)->toString())}));
+						}
 					}
-					vertex->setThrowable(gse);
+					$var($TrustAnchor, anchor, $new($TrustAnchor, $(cert->getSubjectX500Principal()), rootKey, nullptr));
+					$var($Date, var$8, this->buildParams->date());
+					$assign(basicChecker, $new($BasicChecker, anchor, var$8, $(this->buildParams->sigProvider()), true));
+					checkers->add(basicChecker);
+				}
+				this->buildParams->setCertPath($($nc(this->cf)->generateCertPath(appendedCerts)));
+				bool revCheckerAdded = false;
+				$var($List, ckrs, this->buildParams->certPathCheckers());
+				{
+					$var($Iterator, i$, $nc(ckrs)->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($PKIXCertPathChecker, ckr, $cast($PKIXCertPathChecker, i$->next()));
+						if ($instanceOf($PKIXRevocationChecker, ckr)) {
+							if (revCheckerAdded) {
+								$throwNew($CertPathValidatorException, "Only one PKIXRevocationChecker can be specified"_s);
+							}
+							revCheckerAdded = true;
+							if ($instanceOf($RevocationChecker, ckr)) {
+								$cast($RevocationChecker, ckr)->init(builder->trustAnchor, this->buildParams);
+							}
+						}
+					}
+				}
+				if (this->buildParams->revocationEnabled() && !revCheckerAdded) {
+					checkers->add($$new($RevocationChecker, builder->trustAnchor, this->buildParams));
+				}
+				checkers->addAll(ckrs);
+				for (int32_t i = 0; i < appendedCerts->size(); ++i) {
+					$var($X509Certificate, currCert, $cast($X509Certificate, appendedCerts->get(i)));
+					if (SunCertPathBuilder::debug != nullptr) {
+						SunCertPathBuilder::debug->println($$str({"current subject = "_s, $($nc(currCert)->getSubjectX500Principal())}));
+					}
+					$var($Set, unresCritExts, $nc(currCert)->getCriticalExtensionOIDs());
+					if (unresCritExts == nullptr) {
+						$assign(unresCritExts, $Collections::emptySet());
+					}
+					{
+						$var($Iterator, i$, checkers->iterator());
+						for (; $nc(i$)->hasNext();) {
+							$var($PKIXCertPathChecker, currChecker, $cast($PKIXCertPathChecker, i$->next()));
+							if (!$nc(currChecker)->isForwardCheckingSupported()) {
+								if (i == 0) {
+									currChecker->init(false);
+									if ($instanceOf($AlgorithmChecker, currChecker)) {
+										$cast($AlgorithmChecker, currChecker)->trySetTrustAnchor(builder->trustAnchor);
+									}
+								}
+								try {
+									currChecker->check(currCert, unresCritExts);
+								} catch ($CertPathValidatorException& cpve) {
+									if (SunCertPathBuilder::debug != nullptr) {
+										SunCertPathBuilder::debug->println($$str({"SunCertPathBuilder.depthFirstSearchForward(): final verification failed: "_s, cpve}));
+									}
+									bool var$9 = $$nc(this->buildParams->targetCertConstraints())->match(currCert);
+									$init($CertPathValidatorException$BasicReason);
+									if (var$9 && $equals(cpve->getReason(), $CertPathValidatorException$BasicReason::REVOKED)) {
+										$throw(cpve);
+									}
+									vertex->setThrowable(cpve);
+									vertices$continue = true;
+									break;
+								}
+							}
+						}
+						if (vertices$continue) {
+							break;
+						}
+					}
+					{
+						$var($Iterator, i$, $$nc(this->buildParams->certPathCheckers())->iterator());
+						for (; $nc(i$)->hasNext();) {
+							$var($PKIXCertPathChecker, checker, $cast($PKIXCertPathChecker, i$->next()));
+							if ($nc(checker)->isForwardCheckingSupported()) {
+								$var($Set, suppExts, checker->getSupportedExtensions());
+								if (suppExts != nullptr) {
+									$nc(unresCritExts)->removeAll(suppExts);
+								}
+							}
+						}
+					}
+					if (!$nc(unresCritExts)->isEmpty()) {
+						$init($PKIXExtensions);
+						unresCritExts->remove($($nc($PKIXExtensions::BasicConstraints_Id)->toString()));
+						unresCritExts->remove($($nc($PKIXExtensions::NameConstraints_Id)->toString()));
+						unresCritExts->remove($($nc($PKIXExtensions::CertificatePolicies_Id)->toString()));
+						unresCritExts->remove($($nc($PKIXExtensions::PolicyMappings_Id)->toString()));
+						unresCritExts->remove($($nc($PKIXExtensions::PolicyConstraints_Id)->toString()));
+						unresCritExts->remove($($nc($PKIXExtensions::InhibitAnyPolicy_Id)->toString()));
+						unresCritExts->remove($($nc($PKIXExtensions::SubjectAlternativeName_Id)->toString()));
+						unresCritExts->remove($($nc($PKIXExtensions::KeyUsage_Id)->toString()));
+						unresCritExts->remove($($nc($PKIXExtensions::ExtendedKeyUsage_Id)->toString()));
+						if (!unresCritExts->isEmpty()) {
+							$init($PKIXReason);
+							$throwNew($CertPathValidatorException, "unrecognized critical extension(s)"_s, nullptr, nullptr, -1, $PKIXReason::UNRECOGNIZED_CRIT_EXT);
+						}
+					}
+				}
+				if (vertices$continue) {
+					vertices$continue = false;
 					continue;
 				}
-				if (builder->isPathCompleted(cert)) {
-					if (SunCertPathBuilder::debug != nullptr) {
-						$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.depthFirstSearchForward(): commencing final verification"_s);
-					}
-					$var($List, appendedCerts, $new($ArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>(cpList))))));
-					if ($nc(builder->trustAnchor)->getTrustedCert() == nullptr) {
-						appendedCerts->add(0, cert);
-					}
-					$init($PolicyChecker);
-					$var($Set, initExpPolSet, $Collections::singleton($PolicyChecker::ANY_POLICY));
-					$var($PolicyNodeImpl, rootNode, $new($PolicyNodeImpl, nullptr, $PolicyChecker::ANY_POLICY, nullptr, false, initExpPolSet, false));
-					$var($List, checkers, $new($ArrayList));
-					$var($Set, var$2, $nc(this->buildParams)->initialPolicies());
-					int32_t var$3 = appendedCerts->size();
-					bool var$4 = $nc(this->buildParams)->explicitPolicyRequired();
-					bool var$5 = $nc(this->buildParams)->policyMappingInhibited();
-					bool var$6 = $nc(this->buildParams)->anyPolicyInhibited();
-					$var($PolicyChecker, policyChecker, $new($PolicyChecker, var$2, var$3, var$4, var$5, var$6, $nc(this->buildParams)->policyQualifiersRejected(), rootNode));
-					checkers->add(policyChecker);
-					$var($TrustAnchor, var$7, builder->trustAnchor);
-					$var($Date, var$8, $nc(this->buildParams)->date());
-					checkers->add($$new($AlgorithmChecker, var$7, var$8, $($nc(this->buildParams)->variant())));
-					$var($BasicChecker, basicChecker, nullptr);
-					if ($nc(nextState)->keyParamsNeeded()) {
-						$var($PublicKey, rootKey, $nc(cert)->getPublicKey());
-						if ($nc(builder->trustAnchor)->getTrustedCert() == nullptr) {
-							$assign(rootKey, $nc(builder->trustAnchor)->getCAPublicKey());
-							if (SunCertPathBuilder::debug != nullptr) {
-								$nc(SunCertPathBuilder::debug)->println($$str({"SunCertPathBuilder.depthFirstSearchForward using buildParams public key: "_s, $($nc($of(rootKey))->toString())}));
-							}
-						}
-						$var($TrustAnchor, anchor, $new($TrustAnchor, $(cert->getSubjectX500Principal()), rootKey, ($bytes*)nullptr));
-						$var($TrustAnchor, var$9, anchor);
-						$var($Date, var$10, $nc(this->buildParams)->date());
-						$assign(basicChecker, $new($BasicChecker, var$9, var$10, $($nc(this->buildParams)->sigProvider()), true));
-						checkers->add(basicChecker);
-					}
-					$nc(this->buildParams)->setCertPath($($nc(this->cf)->generateCertPath(appendedCerts)));
-					bool revCheckerAdded = false;
-					$var($List, ckrs, $nc(this->buildParams)->certPathCheckers());
-					{
-						$var($Iterator, i$, $nc(ckrs)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($PKIXCertPathChecker, ckr, $cast($PKIXCertPathChecker, i$->next()));
-							{
-								if ($instanceOf($PKIXRevocationChecker, ckr)) {
-									if (revCheckerAdded) {
-										$throwNew($CertPathValidatorException, "Only one PKIXRevocationChecker can be specified"_s);
-									}
-									revCheckerAdded = true;
-									if ($instanceOf($RevocationChecker, ckr)) {
-										$nc(($cast($RevocationChecker, ckr)))->init(builder->trustAnchor, this->buildParams);
-									}
-								}
-							}
-						}
-					}
-					if ($nc(this->buildParams)->revocationEnabled() && !revCheckerAdded) {
-						checkers->add($$new($RevocationChecker, builder->trustAnchor, this->buildParams));
-					}
-					checkers->addAll(ckrs);
-					for (int32_t i = 0; i < appendedCerts->size(); ++i) {
-						$var($X509Certificate, currCert, $cast($X509Certificate, appendedCerts->get(i)));
-						if (SunCertPathBuilder::debug != nullptr) {
-							$nc(SunCertPathBuilder::debug)->println($$str({"current subject = "_s, $($nc(currCert)->getSubjectX500Principal())}));
-						}
-						$var($Set, unresCritExts, $nc(currCert)->getCriticalExtensionOIDs());
-						if (unresCritExts == nullptr) {
-							$assign(unresCritExts, $Collections::emptySet());
-						}
-						{
-							$var($Iterator, i$, checkers->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($PKIXCertPathChecker, currChecker, $cast($PKIXCertPathChecker, i$->next()));
-								{
-									if (!$nc(currChecker)->isForwardCheckingSupported()) {
-										if (i == 0) {
-											currChecker->init(false);
-											if ($instanceOf($AlgorithmChecker, currChecker)) {
-												$nc(($cast($AlgorithmChecker, currChecker)))->trySetTrustAnchor(builder->trustAnchor);
-											}
-										}
-										try {
-											currChecker->check(currCert, unresCritExts);
-										} catch ($CertPathValidatorException& cpve) {
-											if (SunCertPathBuilder::debug != nullptr) {
-												$nc(SunCertPathBuilder::debug)->println($$str({"SunCertPathBuilder.depthFirstSearchForward(): final verification failed: "_s, cpve}));
-											}
-											bool var$11 = $nc($($nc(this->buildParams)->targetCertConstraints()))->match(currCert);
-											$init($CertPathValidatorException$BasicReason);
-											if (var$11 && $equals(cpve->getReason(), $CertPathValidatorException$BasicReason::REVOKED)) {
-												$throw(cpve);
-											}
-											vertex->setThrowable(cpve);
-											vertices$continue = true;
-											break;
-										}
-									}
-								}
-							}
-							if (vertices$continue) {
-								break;
-							}
-						}
-						{
-							$var($Iterator, i$, $nc($($nc(this->buildParams)->certPathCheckers()))->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($PKIXCertPathChecker, checker, $cast($PKIXCertPathChecker, i$->next()));
-								{
-									if ($nc(checker)->isForwardCheckingSupported()) {
-										$var($Set, suppExts, checker->getSupportedExtensions());
-										if (suppExts != nullptr) {
-											$nc(unresCritExts)->removeAll(suppExts);
-										}
-									}
-								}
-							}
-						}
-						if (!$nc(unresCritExts)->isEmpty()) {
-							$init($PKIXExtensions);
-							unresCritExts->remove($($nc($PKIXExtensions::BasicConstraints_Id)->toString()));
-							unresCritExts->remove($($nc($PKIXExtensions::NameConstraints_Id)->toString()));
-							unresCritExts->remove($($nc($PKIXExtensions::CertificatePolicies_Id)->toString()));
-							unresCritExts->remove($($nc($PKIXExtensions::PolicyMappings_Id)->toString()));
-							unresCritExts->remove($($nc($PKIXExtensions::PolicyConstraints_Id)->toString()));
-							unresCritExts->remove($($nc($PKIXExtensions::InhibitAnyPolicy_Id)->toString()));
-							unresCritExts->remove($($nc($PKIXExtensions::SubjectAlternativeName_Id)->toString()));
-							unresCritExts->remove($($nc($PKIXExtensions::KeyUsage_Id)->toString()));
-							unresCritExts->remove($($nc($PKIXExtensions::ExtendedKeyUsage_Id)->toString()));
-							if (!unresCritExts->isEmpty()) {
-								$init($PKIXReason);
-								$throwNew($CertPathValidatorException, "unrecognized critical extension(s)"_s, nullptr, nullptr, -1, $PKIXReason::UNRECOGNIZED_CRIT_EXT);
-							}
-						}
-					}
-					if (vertices$continue) {
-						vertices$continue = false;
-						continue;
-					}
-					if (SunCertPathBuilder::debug != nullptr) {
-						$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.depthFirstSearchForward(): final verification succeeded - path completed!"_s);
-					}
-					this->pathCompleted = true;
-					if ($nc(builder->trustAnchor)->getTrustedCert() == nullptr) {
-						builder->addCertToPath(cert, cpList);
-					}
-					$set(this, trustAnchor, builder->trustAnchor);
-					if (basicChecker != nullptr) {
-						$set(this, finalPublicKey, basicChecker->getPublicKey());
-					} else {
-						$var($Certificate, finalCert, nullptr);
-						if ($nc(cpList)->isEmpty()) {
-							$assign(finalCert, $nc(builder->trustAnchor)->getTrustedCert());
-						} else {
-							$assign(finalCert, $cast($Certificate, cpList->getLast()));
-						}
-						$set(this, finalPublicKey, $nc(finalCert)->getPublicKey());
-					}
-					$set(this, policyTreeResult, policyChecker->getPolicyTree());
-					return;
-				} else {
+				if (SunCertPathBuilder::debug != nullptr) {
+					SunCertPathBuilder::debug->println("SunCertPathBuilder.depthFirstSearchForward(): final verification succeeded - path completed!"_s);
+				}
+				this->pathCompleted = true;
+				if (builder->trustAnchor->getTrustedCert() == nullptr) {
 					builder->addCertToPath(cert, cpList);
 				}
-				$nc(nextState)->updateState(cert);
-				$nc(adjList)->add($$new($LinkedList));
-				vertex->setIndex(adjList->size() - 1);
-				depthFirstSearchForward($($nc(cert)->getIssuerX500Principal()), nextState, builder, adjList, cpList);
-				if (this->pathCompleted) {
-					return;
+				$set(this, trustAnchor, builder->trustAnchor);
+				if (basicChecker != nullptr) {
+					$set(this, finalPublicKey, basicChecker->getPublicKey());
 				} else {
-					if (SunCertPathBuilder::debug != nullptr) {
-						$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.depthFirstSearchForward(): backtracking"_s);
+					$var($Certificate, finalCert, nullptr);
+					if ($nc(cpList)->isEmpty()) {
+						$assign(finalCert, builder->trustAnchor->getTrustedCert());
+					} else {
+						$assign(finalCert, $cast($Certificate, cpList->getLast()));
 					}
-					builder->removeFinalCertFromPath(cpList);
+					$set(this, finalPublicKey, $nc(finalCert)->getPublicKey());
 				}
+				$set(this, policyTreeResult, policyChecker->getPolicyTree());
+				return;
+			} else {
+				builder->addCertToPath(cert, cpList);
+			}
+			$nc(nextState)->updateState(cert);
+			$nc(adjList)->add($$new($LinkedList));
+			vertex->setIndex(adjList->size() - 1);
+			depthFirstSearchForward($($nc(cert)->getIssuerX500Principal()), nextState, builder, adjList, cpList);
+			if (this->pathCompleted) {
+				return;
+			} else {
+				if (SunCertPathBuilder::debug != nullptr) {
+					SunCertPathBuilder::debug->println("SunCertPathBuilder.depthFirstSearchForward(): backtracking"_s);
+				}
+				builder->removeFinalCertFromPath(cpList);
 			}
 		}
 	}
@@ -473,8 +417,8 @@ void SunCertPathBuilder::depthFirstSearchForward($X500Principal* dN, $ForwardSta
 
 $List* SunCertPathBuilder::addVertices($Collection* certs, $List* adjList) {
 	$init(SunCertPathBuilder);
-	$useLocalCurrentObjectStackCache();
-	$var($List, l, $cast($List, $nc(adjList)->get(adjList->size() - 1)));
+	$useLocalObjectStack();
+	$var($List, l, $cast($List, $nc(adjList)->get($nc(adjList)->size() - 1)));
 	{
 		$var($Iterator, i$, $nc(certs)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -497,7 +441,7 @@ bool SunCertPathBuilder::anchorIsTarget($TrustAnchor* anchor, $CertSelector* sel
 	return false;
 }
 
-void clinit$SunCertPathBuilder($Class* class$) {
+void SunCertPathBuilder::clinit$($Class* clazz) {
 	$assignStatic(SunCertPathBuilder::debug, $Debug::getInstance("certpath"_s));
 }
 
@@ -505,7 +449,39 @@ SunCertPathBuilder::SunCertPathBuilder() {
 }
 
 $Class* SunCertPathBuilder::load$($String* name, bool initialize) {
-	$loadClass(SunCertPathBuilder, name, initialize, &_SunCertPathBuilder_ClassInfo_, clinit$SunCertPathBuilder, allocate$SunCertPathBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunCertPathBuilder, debug)},
+		{"buildParams", "Lsun/security/provider/certpath/PKIX$BuilderParams;", nullptr, $PRIVATE, $field(SunCertPathBuilder, buildParams)},
+		{"cf", "Ljava/security/cert/CertificateFactory;", nullptr, $PRIVATE, $field(SunCertPathBuilder, cf)},
+		{"pathCompleted", "Z", nullptr, $PRIVATE, $field(SunCertPathBuilder, pathCompleted)},
+		{"policyTreeResult", "Ljava/security/cert/PolicyNode;", nullptr, $PRIVATE, $field(SunCertPathBuilder, policyTreeResult)},
+		{"trustAnchor", "Ljava/security/cert/TrustAnchor;", nullptr, $PRIVATE, $field(SunCertPathBuilder, trustAnchor)},
+		{"finalPublicKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE, $field(SunCertPathBuilder, finalPublicKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SunCertPathBuilder, init$, void), "java.security.cert.CertPathBuilderException"},
+		{"addVertices", "(Ljava/util/Collection;Ljava/util/List;)Ljava/util/List;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;)Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;", $PRIVATE | $STATIC, $staticMethod(SunCertPathBuilder, addVertices, $List*, $Collection*, $List*)},
+		{"anchorIsTarget", "(Ljava/security/cert/TrustAnchor;Ljava/security/cert/CertSelector;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SunCertPathBuilder, anchorIsTarget, bool, $TrustAnchor*, $CertSelector*)},
+		{"build", "()Ljava/security/cert/PKIXCertPathBuilderResult;", nullptr, $PRIVATE, $method(SunCertPathBuilder, build, $PKIXCertPathBuilderResult*), "java.security.cert.CertPathBuilderException"},
+		{"buildCertPath", "(ZLjava/util/List;)Ljava/security/cert/PKIXCertPathBuilderResult;", "(ZLjava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;)Ljava/security/cert/PKIXCertPathBuilderResult;", $PRIVATE, $method(SunCertPathBuilder, buildCertPath, $PKIXCertPathBuilderResult*, bool, $List*), "java.security.cert.CertPathBuilderException"},
+		{"buildForward", "(Ljava/util/List;Ljava/util/LinkedList;Z)V", "(Ljava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;Ljava/util/LinkedList<Ljava/security/cert/X509Certificate;>;Z)V", $PRIVATE, $method(SunCertPathBuilder, buildForward, void, $List*, $LinkedList*, bool), "java.security.GeneralSecurityException,java.io.IOException"},
+		{"depthFirstSearchForward", "(Ljavax/security/auth/x500/X500Principal;Lsun/security/provider/certpath/ForwardState;Lsun/security/provider/certpath/ForwardBuilder;Ljava/util/List;Ljava/util/LinkedList;)V", "(Ljavax/security/auth/x500/X500Principal;Lsun/security/provider/certpath/ForwardState;Lsun/security/provider/certpath/ForwardBuilder;Ljava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;Ljava/util/LinkedList<Ljava/security/cert/X509Certificate;>;)V", $PRIVATE, $method(SunCertPathBuilder, depthFirstSearchForward, void, $X500Principal*, $ForwardState*, $ForwardBuilder*, $List*, $LinkedList*), "java.security.GeneralSecurityException,java.io.IOException"},
+		{"engineBuild", "(Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathBuilderResult;", nullptr, $PUBLIC, $virtualMethod(SunCertPathBuilder, engineBuild, $CertPathBuilderResult*, $CertPathParameters*), "java.security.cert.CertPathBuilderException,java.security.InvalidAlgorithmParameterException"},
+		{"engineGetRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC, $virtualMethod(SunCertPathBuilder, engineGetRevocationChecker, $CertPathChecker*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.certpath.SunCertPathBuilder",
+		"java.security.cert.CertPathBuilderSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SunCertPathBuilder, name, initialize, &classInfo$$, SunCertPathBuilder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SunCertPathBuilder);
+	});
 	return class$;
 }
 

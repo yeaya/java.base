@@ -1,5 +1,4 @@
 #include <ImplicitStringConcatAssignLHS.h>
-
 #include <ImplicitStringConcatAssignLHS$MyClass.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/IllegalStateException.h>
@@ -15,55 +14,13 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _ImplicitStringConcatAssignLHS_FieldInfo_[] = {
-	{"ARR_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatAssignLHS, ARR_SIZE)},
-	{"x", "I", nullptr, $STATIC, $staticField(ImplicitStringConcatAssignLHS, x)},
-	{}
-};
-
-$MethodInfo _ImplicitStringConcatAssignLHS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatAssignLHS, init$, void)},
-	{"check", "(ILjava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, check, void, int32_t, $String*)},
-	{"getCharSequenceArray", "()[Ljava/lang/CharSequence;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getCharSequenceArray, $CharSequenceArray*)},
-	{"getIndex", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getIndex, int32_t)},
-	{"getMyClass", "()LImplicitStringConcatAssignLHS$MyClass;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getMyClass, $ImplicitStringConcatAssignLHS$MyClass*)},
-	{"getObjArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getObjArray, $ObjectArray*)},
-	{"getStringArray", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getStringArray, $StringArray*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ImplicitStringConcatAssignLHS_InnerClassesInfo_[] = {
-	{"ImplicitStringConcatAssignLHS$MyClass", "ImplicitStringConcatAssignLHS", "MyClass", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ImplicitStringConcatAssignLHS_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ImplicitStringConcatAssignLHS",
-	"java.lang.Object",
-	nullptr,
-	_ImplicitStringConcatAssignLHS_FieldInfo_,
-	_ImplicitStringConcatAssignLHS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImplicitStringConcatAssignLHS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ImplicitStringConcatAssignLHS$MyClass"
-};
-
-$Object* allocate$ImplicitStringConcatAssignLHS($Class* clazz) {
-	return $of($alloc(ImplicitStringConcatAssignLHS));
-}
-
 int32_t ImplicitStringConcatAssignLHS::x = 0;
 
 void ImplicitStringConcatAssignLHS::init$() {
 }
 
 void ImplicitStringConcatAssignLHS::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
@@ -72,75 +29,63 @@ void ImplicitStringConcatAssignLHS::main($StringArray* args) {
 		check(1, "plain-plain Object[]"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$nc(getObjArray())->plusAssign(ImplicitStringConcatAssignLHS::x++, "foo"_s);
 		check(2, "method-plain Object[]"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$nc(getObjArray())->plusAssign(getIndex(), "foo"_s);
 		check(2, "method-method Object[]"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$var($StringArray, arr, $new($StringArray, ImplicitStringConcatAssignLHS::ARR_SIZE));
 		$nc(arr)->plusAssign(ImplicitStringConcatAssignLHS::x++, "foo"_s);
 		check(1, "plain-plain String[]"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$nc(getStringArray())->plusAssign(ImplicitStringConcatAssignLHS::x++, "foo"_s);
 		check(2, "method-plain String[]"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$nc(getStringArray())->plusAssign(getIndex(), "foo"_s);
 		check(2, "method-method String[]"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$var($CharSequenceArray, arr, $new($CharSequenceArray, ImplicitStringConcatAssignLHS::ARR_SIZE));
 		$nc(arr)->plusAssign(ImplicitStringConcatAssignLHS::x++, "foo"_s);
 		check(1, "plain-plain CharSequence[]"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$nc(getCharSequenceArray())->plusAssign(ImplicitStringConcatAssignLHS::x++, "foo"_s);
 		check(2, "method-plain CharSequence[]"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$nc(getCharSequenceArray())->plusAssign(getIndex(), "foo"_s);
 		check(2, "method-method CharSequence[]"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$plusAssignField($$new($ImplicitStringConcatAssignLHS$MyClass), s, "foo"_s);
 		check(1, "MyClass::new (String)"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$plusAssignField($(getMyClass()), s, "foo"_s);
 		check(1, "method MyClass::new (String)"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$plusAssignField($$new($ImplicitStringConcatAssignLHS$MyClass), o, "foo"_s);
 		check(1, "MyClass::new (object)"_s);
 	}
 	{
-		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
 		$plusAssignField($(getMyClass()), o, "foo"_s);
 		check(1, "method MyClass::new (object)"_s);
@@ -148,7 +93,7 @@ void ImplicitStringConcatAssignLHS::main($StringArray* args) {
 }
 
 void ImplicitStringConcatAssignLHS::check(int32_t expected, $String* label) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(ImplicitStringConcatAssignLHS);
 	if (ImplicitStringConcatAssignLHS::x != expected) {
 		$var($StringBuilder, sb, $new($StringBuilder));
@@ -186,14 +131,50 @@ $StringArray* ImplicitStringConcatAssignLHS::getStringArray() {
 $CharSequenceArray* ImplicitStringConcatAssignLHS::getCharSequenceArray() {
 	$init(ImplicitStringConcatAssignLHS);
 	++ImplicitStringConcatAssignLHS::x;
-	return $fcast($CharSequenceArray, $new($StringArray, ImplicitStringConcatAssignLHS::ARR_SIZE));
+	return $cast($CharSequenceArray, $new($StringArray, ImplicitStringConcatAssignLHS::ARR_SIZE));
 }
 
 ImplicitStringConcatAssignLHS::ImplicitStringConcatAssignLHS() {
 }
 
 $Class* ImplicitStringConcatAssignLHS::load$($String* name, bool initialize) {
-	$loadClass(ImplicitStringConcatAssignLHS, name, initialize, &_ImplicitStringConcatAssignLHS_ClassInfo_, allocate$ImplicitStringConcatAssignLHS);
+	$FieldInfo fieldInfos$$[] = {
+		{"ARR_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatAssignLHS, ARR_SIZE)},
+		{"x", "I", nullptr, $STATIC, $staticField(ImplicitStringConcatAssignLHS, x)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatAssignLHS, init$, void)},
+		{"check", "(ILjava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, check, void, int32_t, $String*)},
+		{"getCharSequenceArray", "()[Ljava/lang/CharSequence;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getCharSequenceArray, $CharSequenceArray*)},
+		{"getIndex", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getIndex, int32_t)},
+		{"getMyClass", "()LImplicitStringConcatAssignLHS$MyClass;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getMyClass, $ImplicitStringConcatAssignLHS$MyClass*)},
+		{"getObjArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getObjArray, $ObjectArray*)},
+		{"getStringArray", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getStringArray, $StringArray*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ImplicitStringConcatAssignLHS$MyClass", "ImplicitStringConcatAssignLHS", "MyClass", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ImplicitStringConcatAssignLHS",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ImplicitStringConcatAssignLHS$MyClass"
+	};
+	$loadClass(ImplicitStringConcatAssignLHS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImplicitStringConcatAssignLHS);
+	});
 	return class$;
 }
 

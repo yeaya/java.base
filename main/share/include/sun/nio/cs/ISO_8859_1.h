@@ -31,6 +31,7 @@ public:
 	virtual bool equals(Object$* ob) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool contains(::java::nio::charset::Charset* cs) override;
 	virtual $String* historicalName() override;

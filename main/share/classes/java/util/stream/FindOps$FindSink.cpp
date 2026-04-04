@@ -1,5 +1,4 @@
 #include <java/util/stream/FindOps$FindSink.h>
-
 #include <java/util/stream/FindOps.h>
 #include <jcpp.h>
 
@@ -11,48 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _FindOps$FindSink_FieldInfo_[] = {
-	{"hasValue", "Z", nullptr, 0, $field(FindOps$FindSink, hasValue)},
-	{"value", "Ljava/lang/Object;", "TT;", 0, $field(FindOps$FindSink, value)},
-	{}
-};
-
-$MethodInfo _FindOps$FindSink_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FindOps$FindSink, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(FindOps$FindSink, accept, void, Object$*)},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink, cancellationRequested, bool)},
-	{}
-};
-
-$InnerClassInfo _FindOps$FindSink_InnerClassesInfo_[] = {
-	{"java.util.stream.FindOps$FindSink", "java.util.stream.FindOps", "FindSink", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.FindOps$FindSink$OfDouble", "java.util.stream.FindOps$FindSink", "OfDouble", $STATIC | $FINAL},
-	{"java.util.stream.FindOps$FindSink$OfLong", "java.util.stream.FindOps$FindSink", "OfLong", $STATIC | $FINAL},
-	{"java.util.stream.FindOps$FindSink$OfInt", "java.util.stream.FindOps$FindSink", "OfInt", $STATIC | $FINAL},
-	{"java.util.stream.FindOps$FindSink$OfRef", "java.util.stream.FindOps$FindSink", "OfRef", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _FindOps$FindSink_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.FindOps$FindSink",
-	"java.lang.Object",
-	"java.util.stream.TerminalSink",
-	_FindOps$FindSink_FieldInfo_,
-	_FindOps$FindSink_MethodInfo_,
-	"<T:Ljava/lang/Object;O:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/TerminalSink<TT;TO;>;",
-	nullptr,
-	_FindOps$FindSink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.FindOps"
-};
-
-$Object* allocate$FindOps$FindSink($Class* clazz) {
-	return $of($alloc(FindOps$FindSink));
-}
 
 void FindOps$FindSink::init$() {
 }
@@ -72,7 +29,43 @@ FindOps$FindSink::FindOps$FindSink() {
 }
 
 $Class* FindOps$FindSink::load$($String* name, bool initialize) {
-	$loadClass(FindOps$FindSink, name, initialize, &_FindOps$FindSink_ClassInfo_, allocate$FindOps$FindSink);
+	$FieldInfo fieldInfos$$[] = {
+		{"hasValue", "Z", nullptr, 0, $field(FindOps$FindSink, hasValue)},
+		{"value", "Ljava/lang/Object;", "TT;", 0, $field(FindOps$FindSink, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FindOps$FindSink, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(FindOps$FindSink, accept, void, Object$*)},
+		{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink, cancellationRequested, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.FindOps$FindSink", "java.util.stream.FindOps", "FindSink", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.FindOps$FindSink$OfDouble", "java.util.stream.FindOps$FindSink", "OfDouble", $STATIC | $FINAL},
+		{"java.util.stream.FindOps$FindSink$OfLong", "java.util.stream.FindOps$FindSink", "OfLong", $STATIC | $FINAL},
+		{"java.util.stream.FindOps$FindSink$OfInt", "java.util.stream.FindOps$FindSink", "OfInt", $STATIC | $FINAL},
+		{"java.util.stream.FindOps$FindSink$OfRef", "java.util.stream.FindOps$FindSink", "OfRef", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.FindOps$FindSink",
+		"java.lang.Object",
+		"java.util.stream.TerminalSink",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;O:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/TerminalSink<TT;TO;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.FindOps"
+	};
+	$loadClass(FindOps$FindSink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FindOps$FindSink));
+	});
 	return class$;
 }
 

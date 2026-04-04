@@ -1,5 +1,4 @@
 #include <java/net/FactoryURLClassLoader.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityManager.h>
 #include <java/net/URL.h>
@@ -18,26 +17,6 @@ using $AccessControlContext = ::java::security::AccessControlContext;
 namespace java {
 	namespace net {
 
-$MethodInfo _FactoryURLClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(FactoryURLClassLoader, init$, void, $String*, $URLArray*, $ClassLoader*, $AccessControlContext*)},
-	{"<init>", "([Ljava/net/URL;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(FactoryURLClassLoader, init$, void, $URLArray*, $AccessControlContext*)},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(FactoryURLClassLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
-	{}
-};
-
-$ClassInfo _FactoryURLClassLoader_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.net.FactoryURLClassLoader",
-	"java.net.URLClassLoader",
-	nullptr,
-	nullptr,
-	_FactoryURLClassLoader_MethodInfo_
-};
-
-$Object* allocate$FactoryURLClassLoader($Class* clazz) {
-	return $of($alloc(FactoryURLClassLoader));
-}
-
 void FactoryURLClassLoader::init$($String* name, $URLArray* urls, $ClassLoader* parent, $AccessControlContext* acc) {
 	$URLClassLoader::init$(name, urls, parent, acc);
 }
@@ -47,10 +26,10 @@ void FactoryURLClassLoader::init$($URLArray* urls, $AccessControlContext* acc) {
 }
 
 $Class* FactoryURLClassLoader::loadClass($String* name, bool resolve) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
-		int32_t i = $nc(name)->lastIndexOf((int32_t)u'.');
+		int32_t i = $nc(name)->lastIndexOf(u'.');
 		if (i != -1) {
 			sm->checkPackageAccess($(name->substring(0, i)));
 		}
@@ -58,7 +37,7 @@ $Class* FactoryURLClassLoader::loadClass($String* name, bool resolve) {
 	return $URLClassLoader::loadClass(name, resolve);
 }
 
-void clinit$FactoryURLClassLoader($Class* class$) {
+void FactoryURLClassLoader::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		$ClassLoader::registerAsParallelCapable();
@@ -69,7 +48,23 @@ FactoryURLClassLoader::FactoryURLClassLoader() {
 }
 
 $Class* FactoryURLClassLoader::load$($String* name, bool initialize) {
-	$loadClass(FactoryURLClassLoader, name, initialize, &_FactoryURLClassLoader_ClassInfo_, clinit$FactoryURLClassLoader, allocate$FactoryURLClassLoader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(FactoryURLClassLoader, init$, void, $String*, $URLArray*, $ClassLoader*, $AccessControlContext*)},
+		{"<init>", "([Ljava/net/URL;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(FactoryURLClassLoader, init$, void, $URLArray*, $AccessControlContext*)},
+		{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(FactoryURLClassLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.net.FactoryURLClassLoader",
+		"java.net.URLClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FactoryURLClassLoader, name, initialize, &classInfo$$, FactoryURLClassLoader::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FactoryURLClassLoader));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/crypto/spec/DHParameterSpec.h>
-
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -11,35 +10,6 @@ using $BigInteger = ::java::math::BigInteger;
 namespace javax {
 	namespace crypto {
 		namespace spec {
-
-$FieldInfo _DHParameterSpec_FieldInfo_[] = {
-	{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHParameterSpec, p)},
-	{"g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHParameterSpec, g)},
-	{"l", "I", nullptr, $PRIVATE, $field(DHParameterSpec, l)},
-	{}
-};
-
-$MethodInfo _DHParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DHParameterSpec, init$, void, $BigInteger*, $BigInteger*)},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;I)V", nullptr, $PUBLIC, $method(DHParameterSpec, init$, void, $BigInteger*, $BigInteger*, int32_t)},
-	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHParameterSpec, getG, $BigInteger*)},
-	{"getL", "()I", nullptr, $PUBLIC, $virtualMethod(DHParameterSpec, getL, int32_t)},
-	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHParameterSpec, getP, $BigInteger*)},
-	{}
-};
-
-$ClassInfo _DHParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.spec.DHParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec",
-	_DHParameterSpec_FieldInfo_,
-	_DHParameterSpec_MethodInfo_
-};
-
-$Object* allocate$DHParameterSpec($Class* clazz) {
-	return $of($alloc(DHParameterSpec));
-}
 
 void DHParameterSpec::init$($BigInteger* p, $BigInteger* g) {
 	$set(this, p, p);
@@ -69,7 +39,31 @@ DHParameterSpec::DHParameterSpec() {
 }
 
 $Class* DHParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(DHParameterSpec, name, initialize, &_DHParameterSpec_ClassInfo_, allocate$DHParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHParameterSpec, p)},
+		{"g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHParameterSpec, g)},
+		{"l", "I", nullptr, $PRIVATE, $field(DHParameterSpec, l)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DHParameterSpec, init$, void, $BigInteger*, $BigInteger*)},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;I)V", nullptr, $PUBLIC, $method(DHParameterSpec, init$, void, $BigInteger*, $BigInteger*, int32_t)},
+		{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHParameterSpec, getG, $BigInteger*)},
+		{"getL", "()I", nullptr, $PUBLIC, $virtualMethod(DHParameterSpec, getL, int32_t)},
+		{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHParameterSpec, getP, $BigInteger*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.spec.DHParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DHParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHParameterSpec);
+	});
 	return class$;
 }
 

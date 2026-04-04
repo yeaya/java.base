@@ -14,10 +14,13 @@ public:
 	ClassCastException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x800005CECE67E55C;
+	static const int64_t serialVersionUID = (int64_t)0x800005cece67e55c;
 	ClassCastException(const ClassCastException& e);
 	virtual void throw$() override;
-	inline ClassCastException* operator ->() {
+	inline ClassCastException* operator ->() const {
+		return (ClassCastException*)throwing$;
+	}
+	inline operator ClassCastException*() const {
 		return (ClassCastException*)throwing$;
 	}
 };

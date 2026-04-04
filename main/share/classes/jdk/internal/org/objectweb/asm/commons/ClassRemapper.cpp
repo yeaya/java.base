@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/ClassRemapper.h>
-
 #include <java/util/List.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
@@ -50,54 +49,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$CompoundAttribute _ClassRemapper_MethodAnnotations_visitPermittedSubclassExperimental17[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ClassRemapper_FieldInfo_[] = {
-	{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PROTECTED | $FINAL, $field(ClassRemapper, remapper)},
-	{"className", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ClassRemapper, className)},
-	{}
-};
-
-$MethodInfo _ClassRemapper_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(ClassRemapper, init$, void, $ClassVisitor*, $Remapper*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(ClassRemapper, init$, void, int32_t, $ClassVisitor*, $Remapper*)},
-	{"createAnnotationRemapper", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PROTECTED, $virtualMethod(ClassRemapper, createAnnotationRemapper, $AnnotationVisitor*, $AnnotationVisitor*)},
-	{"createFieldRemapper", "(Ljdk/internal/org/objectweb/asm/FieldVisitor;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PROTECTED, $virtualMethod(ClassRemapper, createFieldRemapper, $FieldVisitor*, $FieldVisitor*)},
-	{"createMethodRemapper", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PROTECTED, $virtualMethod(ClassRemapper, createMethodRemapper, $MethodVisitor*, $MethodVisitor*)},
-	{"createModuleRemapper", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PROTECTED, $virtualMethod(ClassRemapper, createModuleRemapper, $ModuleVisitor*, $ModuleVisitor*)},
-	{"createRecordComponentRemapper", "(Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;)Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PROTECTED, $virtualMethod(ClassRemapper, createRecordComponentRemapper, $RecordComponentVisitor*, $RecordComponentVisitor*)},
-	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitAttribute, void, $Attribute*)},
-	{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitField, $FieldVisitor*, int32_t, $String*, $String*, $String*, Object$*)},
-	{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
-	{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitMethod, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
-	{"visitNestHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitNestHost, void, $String*)},
-	{"visitNestMember", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitNestMember, void, $String*)},
-	{"visitOuterClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitOuterClass, void, $String*, $String*, $String*)},
-	{"visitPermittedSubclassExperimental", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ClassRemapper, visitPermittedSubclassExperimental, void, $String*), nullptr, nullptr, _ClassRemapper_MethodAnnotations_visitPermittedSubclassExperimental17},
-	{"visitRecordComponent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitRecordComponent, $RecordComponentVisitor*, $String*, $String*, $String*)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{}
-};
-
-$ClassInfo _ClassRemapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.ClassRemapper",
-	"jdk.internal.org.objectweb.asm.ClassVisitor",
-	nullptr,
-	_ClassRemapper_FieldInfo_,
-	_ClassRemapper_MethodInfo_
-};
-
-$Object* allocate$ClassRemapper($Class* clazz) {
-	return $of($alloc(ClassRemapper));
-}
-
 void ClassRemapper::init$($ClassVisitor* classVisitor, $Remapper* remapper) {
 	ClassRemapper::init$($Opcodes::ASM8, classVisitor, remapper);
 }
@@ -108,87 +59,82 @@ void ClassRemapper::init$(int32_t api, $ClassVisitor* classVisitor, $Remapper* r
 }
 
 void ClassRemapper::visit(int32_t version, int32_t access, $String* name, $String* signature, $String* superName, $StringArray* interfaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, className, name);
-	int32_t var$0 = version;
-	int32_t var$1 = access;
-	$var($String, var$2, $nc(this->remapper)->mapType(name));
-	$var($String, var$3, $nc(this->remapper)->mapSignature(signature, false));
-	$var($String, var$4, $nc(this->remapper)->mapType(superName));
-	$ClassVisitor::visit(var$0, var$1, var$2, var$3, var$4, interfaces == nullptr ? ($StringArray*)nullptr : $($nc(this->remapper)->mapTypes(interfaces)));
+	$var($String, var$0, $nc(this->remapper)->mapType(name));
+	$var($String, var$1, this->remapper->mapSignature(signature, false));
+	$var($String, var$2, this->remapper->mapType(superName));
+	$ClassVisitor::visit(version, access, var$0, var$1, var$2, interfaces == nullptr ? ($StringArray*)nullptr : $(this->remapper->mapTypes(interfaces)));
 }
 
 $ModuleVisitor* ClassRemapper::visitModule($String* name, int32_t flags, $String* version) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModuleVisitor, moduleVisitor, $ClassVisitor::visitModule($($nc(this->remapper)->mapModuleName(name)), flags, version));
 	return moduleVisitor == nullptr ? ($ModuleVisitor*)nullptr : createModuleRemapper(moduleVisitor);
 }
 
 $AnnotationVisitor* ClassRemapper::visitAnnotation($String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $ClassVisitor::visitAnnotation($($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : createAnnotationRemapper(annotationVisitor);
 }
 
 $AnnotationVisitor* ClassRemapper::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $ClassVisitor::visitTypeAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : createAnnotationRemapper(annotationVisitor);
 }
 
 void ClassRemapper::visitAttribute($Attribute* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ModuleHashesAttribute, attribute)) {
 		$var($ModuleHashesAttribute, moduleHashesAttribute, $cast($ModuleHashesAttribute, attribute));
-		$var($List, modules, $nc(moduleHashesAttribute)->modules);
+		$var($List, modules, moduleHashesAttribute->modules);
 		for (int32_t i = 0; i < $nc(modules)->size(); ++i) {
-			modules->set(i, $($nc(this->remapper)->mapModuleName($cast($String, $(modules->get(i))))));
+			modules->set(i, $($nc(this->remapper)->mapModuleName($$cast($String, modules->get(i)))));
 		}
 	}
 	$ClassVisitor::visitAttribute(attribute);
 }
 
 $RecordComponentVisitor* ClassRemapper::visitRecordComponent($String* name, $String* descriptor, $String* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(this->remapper)->mapRecordComponentName(this->className, name, descriptor));
-	$var($String, var$1, $nc(this->remapper)->mapDesc(descriptor));
-	$var($RecordComponentVisitor, recordComponentVisitor, $ClassVisitor::visitRecordComponent(var$0, var$1, $($nc(this->remapper)->mapSignature(signature, true))));
+	$var($String, var$1, this->remapper->mapDesc(descriptor));
+	$var($RecordComponentVisitor, recordComponentVisitor, $ClassVisitor::visitRecordComponent(var$0, var$1, $(this->remapper->mapSignature(signature, true))));
 	return recordComponentVisitor == nullptr ? ($RecordComponentVisitor*)nullptr : createRecordComponentRemapper(recordComponentVisitor);
 }
 
 $FieldVisitor* ClassRemapper::visitField(int32_t access, $String* name, $String* descriptor, $String* signature, Object$* value) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = access;
-	$var($String, var$1, $nc(this->remapper)->mapFieldName(this->className, name, descriptor));
-	$var($String, var$2, $nc(this->remapper)->mapDesc(descriptor));
-	$var($String, var$3, $nc(this->remapper)->mapSignature(signature, true));
-	$var($FieldVisitor, fieldVisitor, $ClassVisitor::visitField(var$0, var$1, var$2, var$3, (value == nullptr) ? ($Object*)nullptr : $($nc(this->remapper)->mapValue(value))));
+	$useLocalObjectStack();
+	$var($String, var$0, $nc(this->remapper)->mapFieldName(this->className, name, descriptor));
+	$var($String, var$1, this->remapper->mapDesc(descriptor));
+	$var($String, var$2, this->remapper->mapSignature(signature, true));
+	$var($FieldVisitor, fieldVisitor, $ClassVisitor::visitField(access, var$0, var$1, var$2, (value == nullptr) ? ($Object*)nullptr : $(this->remapper->mapValue(value))));
 	return fieldVisitor == nullptr ? ($FieldVisitor*)nullptr : createFieldRemapper(fieldVisitor);
 }
 
 $MethodVisitor* ClassRemapper::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, remappedDescriptor, $nc(this->remapper)->mapMethodDesc(descriptor));
-	int32_t var$0 = access;
-	$var($String, var$1, $nc(this->remapper)->mapMethodName(this->className, name, descriptor));
-	$var($String, var$2, remappedDescriptor);
-	$var($String, var$3, $nc(this->remapper)->mapSignature(signature, false));
-	$var($MethodVisitor, methodVisitor, $ClassVisitor::visitMethod(var$0, var$1, var$2, var$3, exceptions == nullptr ? ($StringArray*)nullptr : $($nc(this->remapper)->mapTypes(exceptions))));
+	$var($String, var$0, this->remapper->mapMethodName(this->className, name, descriptor));
+	$var($String, var$1, this->remapper->mapSignature(signature, false));
+	$var($MethodVisitor, methodVisitor, $ClassVisitor::visitMethod(access, var$0, remappedDescriptor, var$1, exceptions == nullptr ? ($StringArray*)nullptr : $(this->remapper->mapTypes(exceptions))));
 	return methodVisitor == nullptr ? ($MethodVisitor*)nullptr : createMethodRemapper(methodVisitor);
 }
 
 void ClassRemapper::visitInnerClass($String* name, $String* outerName, $String* innerName, int32_t access) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(this->remapper)->mapType(name));
-	$var($String, var$1, outerName == nullptr ? ($String*)nullptr : $nc(this->remapper)->mapType(outerName));
-	$ClassVisitor::visitInnerClass(var$0, var$1, innerName == nullptr ? ($String*)nullptr : $($nc(this->remapper)->mapInnerClassName(name, outerName, innerName)), access);
+	$var($String, var$1, outerName == nullptr ? ($String*)nullptr : this->remapper->mapType(outerName));
+	$ClassVisitor::visitInnerClass(var$0, var$1, innerName == nullptr ? ($String*)nullptr : $(this->remapper->mapInnerClassName(name, outerName, innerName)), access);
 }
 
 void ClassRemapper::visitOuterClass($String* owner, $String* name, $String* descriptor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(this->remapper)->mapType(owner));
-	$var($String, var$1, name == nullptr ? ($String*)nullptr : $nc(this->remapper)->mapMethodName(owner, name, descriptor));
-	$ClassVisitor::visitOuterClass(var$0, var$1, descriptor == nullptr ? ($String*)nullptr : $($nc(this->remapper)->mapMethodDesc(descriptor)));
+	$var($String, var$1, name == nullptr ? ($String*)nullptr : this->remapper->mapMethodName(owner, name, descriptor));
+	$ClassVisitor::visitOuterClass(var$0, var$1, descriptor == nullptr ? ($String*)nullptr : $(this->remapper->mapMethodDesc(descriptor)));
 }
 
 void ClassRemapper::visitNestHost($String* nestHost) {
@@ -227,7 +173,49 @@ ClassRemapper::ClassRemapper() {
 }
 
 $Class* ClassRemapper::load$($String* name, bool initialize) {
-	$loadClass(ClassRemapper, name, initialize, &_ClassRemapper_ClassInfo_, allocate$ClassRemapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PROTECTED | $FINAL, $field(ClassRemapper, remapper)},
+		{"className", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ClassRemapper, className)},
+		{}
+	};
+	$CompoundAttribute visitPermittedSubclassExperimentalmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(ClassRemapper, init$, void, $ClassVisitor*, $Remapper*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(ClassRemapper, init$, void, int32_t, $ClassVisitor*, $Remapper*)},
+		{"createAnnotationRemapper", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PROTECTED, $virtualMethod(ClassRemapper, createAnnotationRemapper, $AnnotationVisitor*, $AnnotationVisitor*)},
+		{"createFieldRemapper", "(Ljdk/internal/org/objectweb/asm/FieldVisitor;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PROTECTED, $virtualMethod(ClassRemapper, createFieldRemapper, $FieldVisitor*, $FieldVisitor*)},
+		{"createMethodRemapper", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PROTECTED, $virtualMethod(ClassRemapper, createMethodRemapper, $MethodVisitor*, $MethodVisitor*)},
+		{"createModuleRemapper", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PROTECTED, $virtualMethod(ClassRemapper, createModuleRemapper, $ModuleVisitor*, $ModuleVisitor*)},
+		{"createRecordComponentRemapper", "(Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;)Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PROTECTED, $virtualMethod(ClassRemapper, createRecordComponentRemapper, $RecordComponentVisitor*, $RecordComponentVisitor*)},
+		{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitAttribute, void, $Attribute*)},
+		{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitField, $FieldVisitor*, int32_t, $String*, $String*, $String*, Object$*)},
+		{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
+		{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitMethod, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
+		{"visitNestHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitNestHost, void, $String*)},
+		{"visitNestMember", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitNestMember, void, $String*)},
+		{"visitOuterClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitOuterClass, void, $String*, $String*, $String*)},
+		{"visitPermittedSubclassExperimental", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ClassRemapper, visitPermittedSubclassExperimental, void, $String*), nullptr, nullptr, visitPermittedSubclassExperimentalmethodAnnotations$$},
+		{"visitRecordComponent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitRecordComponent, $RecordComponentVisitor*, $String*, $String*, $String*)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(ClassRemapper, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.ClassRemapper",
+		"jdk.internal.org.objectweb.asm.ClassVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassRemapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassRemapper);
+	});
 	return class$;
 }
 

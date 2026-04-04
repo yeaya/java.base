@@ -1,5 +1,4 @@
 #include <sun/nio/ch/DefaultAsynchronousChannelProvider.h>
-
 #include <java/nio/channels/spi/AsynchronousChannelProvider.h>
 #include <sun/nio/ch/WindowsAsynchronousChannelProvider.h>
 #include <jcpp.h>
@@ -13,25 +12,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$MethodInfo _DefaultAsynchronousChannelProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultAsynchronousChannelProvider, init$, void)},
-	{"create", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultAsynchronousChannelProvider, create, $AsynchronousChannelProvider*)},
-	{}
-};
-
-$ClassInfo _DefaultAsynchronousChannelProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.DefaultAsynchronousChannelProvider",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DefaultAsynchronousChannelProvider_MethodInfo_
-};
-
-$Object* allocate$DefaultAsynchronousChannelProvider($Class* clazz) {
-	return $of($alloc(DefaultAsynchronousChannelProvider));
-}
-
 void DefaultAsynchronousChannelProvider::init$() {
 }
 
@@ -43,7 +23,22 @@ DefaultAsynchronousChannelProvider::DefaultAsynchronousChannelProvider() {
 }
 
 $Class* DefaultAsynchronousChannelProvider::load$($String* name, bool initialize) {
-	$loadClass(DefaultAsynchronousChannelProvider, name, initialize, &_DefaultAsynchronousChannelProvider_ClassInfo_, allocate$DefaultAsynchronousChannelProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultAsynchronousChannelProvider, init$, void)},
+		{"create", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultAsynchronousChannelProvider, create, $AsynchronousChannelProvider*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.DefaultAsynchronousChannelProvider",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultAsynchronousChannelProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultAsynchronousChannelProvider);
+	});
 	return class$;
 }
 

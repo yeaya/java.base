@@ -1,5 +1,4 @@
 #include <jdk/internal/math/FloatConsts.h>
-
 #include <jcpp.h>
 
 #undef EXP_BIAS
@@ -17,39 +16,12 @@ namespace jdk {
 	namespace internal {
 		namespace math {
 
-$FieldInfo _FloatConsts_FieldInfo_[] = {
-	{"SIGNIFICAND_WIDTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, SIGNIFICAND_WIDTH)},
-	{"MIN_SUB_EXPONENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, MIN_SUB_EXPONENT)},
-	{"EXP_BIAS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, EXP_BIAS)},
-	{"SIGN_BIT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, SIGN_BIT_MASK)},
-	{"EXP_BIT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, EXP_BIT_MASK)},
-	{"SIGNIF_BIT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, SIGNIF_BIT_MASK)},
-	{}
-};
-
-$MethodInfo _FloatConsts_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FloatConsts, init$, void)},
-	{}
-};
-
-$ClassInfo _FloatConsts_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.math.FloatConsts",
-	"java.lang.Object",
-	nullptr,
-	_FloatConsts_FieldInfo_,
-	_FloatConsts_MethodInfo_
-};
-
-$Object* allocate$FloatConsts($Class* clazz) {
-	return $of($alloc(FloatConsts));
-}
-
 void FloatConsts::init$() {
 }
 
-void clinit$FloatConsts($Class* class$) {
+void FloatConsts::clinit$($Class* clazz) {
 	{
+		;
 	}
 }
 
@@ -57,7 +29,30 @@ FloatConsts::FloatConsts() {
 }
 
 $Class* FloatConsts::load$($String* name, bool initialize) {
-	$loadClass(FloatConsts, name, initialize, &_FloatConsts_ClassInfo_, clinit$FloatConsts, allocate$FloatConsts);
+	$FieldInfo fieldInfos$$[] = {
+		{"SIGNIFICAND_WIDTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, SIGNIFICAND_WIDTH)},
+		{"MIN_SUB_EXPONENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, MIN_SUB_EXPONENT)},
+		{"EXP_BIAS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, EXP_BIAS)},
+		{"SIGN_BIT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, SIGN_BIT_MASK)},
+		{"EXP_BIT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, EXP_BIT_MASK)},
+		{"SIGNIF_BIT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FloatConsts, SIGNIF_BIT_MASK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FloatConsts, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.math.FloatConsts",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FloatConsts, name, initialize, &classInfo$$, FloatConsts::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FloatConsts);
+	});
 	return class$;
 }
 

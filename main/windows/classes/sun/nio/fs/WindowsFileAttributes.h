@@ -93,6 +93,7 @@ class WindowsFileAttributes : public ::java::nio::file::attribute::DosFileAttrib
 	$class(WindowsFileAttributes, 0, ::java::nio::file::attribute::DosFileAttributes)
 public:
 	WindowsFileAttributes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t fileAttrs, int64_t creationTime, int64_t lastAccessTime, int64_t lastWriteTime, int64_t size, int32_t reparseTag, int32_t volSerialNumber, int32_t fileIndexHigh, int32_t fileIndexLow);
 	virtual int32_t attributes();
 	virtual ::java::nio::file::attribute::FileTime* creationTime() override;
@@ -150,8 +151,8 @@ public:
 	static const int16_t OFFSETOF_FIND_DATA_SIZEHIGH = 28;
 	static const int16_t OFFSETOF_FIND_DATA_SIZELOW = 32;
 	static const int16_t OFFSETOF_FIND_DATA_RESERVED0 = 36;
-	static const int64_t WINDOWS_EPOCH_IN_MICROS = (int64_t)0xFFD6A169B779C000;
-	static const int64_t WINDOWS_EPOCH_IN_100NS = (int64_t)0xFE624E212AC18000;
+	static const int64_t WINDOWS_EPOCH_IN_MICROS = (int64_t)0xffd6a169b779c000;
+	static const int64_t WINDOWS_EPOCH_IN_100NS = (int64_t)0xfe624e212ac18000;
 	static bool ensureAccurateMetadata;
 	int32_t fileAttrs = 0;
 	int64_t creationTime$ = 0;

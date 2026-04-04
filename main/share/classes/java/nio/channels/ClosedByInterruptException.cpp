@@ -1,5 +1,4 @@
 #include <java/nio/channels/ClosedByInterruptException.h>
-
 #include <java/nio/channels/AsynchronousCloseException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $AsynchronousCloseException = ::java::nio::channels::AsynchronousCloseExce
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _ClosedByInterruptException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClosedByInterruptException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ClosedByInterruptException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedByInterruptException, init$, void)},
-	{}
-};
-
-$ClassInfo _ClosedByInterruptException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.ClosedByInterruptException",
-	"java.nio.channels.AsynchronousCloseException",
-	nullptr,
-	_ClosedByInterruptException_FieldInfo_,
-	_ClosedByInterruptException_MethodInfo_
-};
-
-$Object* allocate$ClosedByInterruptException($Class* clazz) {
-	return $of($alloc(ClosedByInterruptException));
-}
 
 void ClosedByInterruptException::init$() {
 	$AsynchronousCloseException::init$();
@@ -50,7 +26,25 @@ void ClosedByInterruptException::throw$() {
 }
 
 $Class* ClosedByInterruptException::load$($String* name, bool initialize) {
-	$loadClass(ClosedByInterruptException, name, initialize, &_ClosedByInterruptException_ClassInfo_, allocate$ClosedByInterruptException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClosedByInterruptException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedByInterruptException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.ClosedByInterruptException",
+		"java.nio.channels.AsynchronousCloseException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClosedByInterruptException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClosedByInterruptException);
+	});
 	return class$;
 }
 

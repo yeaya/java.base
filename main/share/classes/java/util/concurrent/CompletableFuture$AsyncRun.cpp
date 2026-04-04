@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$AsyncRun.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/CompletableFuture.h>
 #include <java/util/concurrent/ForkJoinTask.h>
@@ -17,53 +16,6 @@ using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _CompletableFuture$AsyncRun_FieldInfo_[] = {
-	{"dep", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", 0, $field(CompletableFuture$AsyncRun, dep)},
-	{"fn", "Ljava/lang/Runnable;", nullptr, 0, $field(CompletableFuture$AsyncRun, fn)},
-	{}
-};
-
-$MethodInfo _CompletableFuture$AsyncRun_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Runnable;)V", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/lang/Runnable;)V", 0, $method(CompletableFuture$AsyncRun, init$, void, $CompletableFuture*, $Runnable*)},
-	{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompletableFuture$AsyncRun, exec, bool)},
-	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompletableFuture$AsyncRun, getRawResult, $Object*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$AsyncRun, run, void)},
-	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(CompletableFuture$AsyncRun, setRawResult, void, $Void*)},
-	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CompletableFuture$AsyncRun, setRawResult, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$AsyncRun_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$AsyncRun", "java.util.concurrent.CompletableFuture", "AsyncRun", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$AsynchronousCompletionTask", "java.util.concurrent.CompletableFuture", "AsynchronousCompletionTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CompletableFuture$AsyncRun_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$AsyncRun",
-	"java.util.concurrent.ForkJoinTask",
-	"java.lang.Runnable,java.util.concurrent.CompletableFuture$AsynchronousCompletionTask",
-	_CompletableFuture$AsyncRun_FieldInfo_,
-	_CompletableFuture$AsyncRun_MethodInfo_,
-	"Ljava/util/concurrent/ForkJoinTask<Ljava/lang/Void;>;Ljava/lang/Runnable;Ljava/util/concurrent/CompletableFuture$AsynchronousCompletionTask;",
-	nullptr,
-	_CompletableFuture$AsyncRun_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$AsyncRun($Class* clazz) {
-	return $of($alloc(CompletableFuture$AsyncRun));
-}
 
 int32_t CompletableFuture$AsyncRun::hashCode() {
 	 return this->$ForkJoinTask::hashCode();
@@ -92,7 +44,7 @@ void CompletableFuture$AsyncRun::init$($CompletableFuture* dep, $Runnable* fn) {
 }
 
 $Object* CompletableFuture$AsyncRun::getRawResult() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 void CompletableFuture$AsyncRun::setRawResult($Void* v) {
@@ -104,7 +56,7 @@ bool CompletableFuture$AsyncRun::exec() {
 }
 
 void CompletableFuture$AsyncRun::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture, d, nullptr);
 	$var($Runnable, f, nullptr);
 	if (($assign(d, this->dep)) != nullptr && ($assign(f, this->fn)) != nullptr) {
@@ -118,7 +70,7 @@ void CompletableFuture$AsyncRun::run() {
 				d->completeThrowable(ex);
 			}
 		}
-		$nc(d)->postComplete();
+		d->postComplete();
 	}
 }
 
@@ -130,7 +82,48 @@ CompletableFuture$AsyncRun::CompletableFuture$AsyncRun() {
 }
 
 $Class* CompletableFuture$AsyncRun::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$AsyncRun, name, initialize, &_CompletableFuture$AsyncRun_ClassInfo_, allocate$CompletableFuture$AsyncRun);
+	$FieldInfo fieldInfos$$[] = {
+		{"dep", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", 0, $field(CompletableFuture$AsyncRun, dep)},
+		{"fn", "Ljava/lang/Runnable;", nullptr, 0, $field(CompletableFuture$AsyncRun, fn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Runnable;)V", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/lang/Runnable;)V", 0, $method(CompletableFuture$AsyncRun, init$, void, $CompletableFuture*, $Runnable*)},
+		{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompletableFuture$AsyncRun, exec, bool)},
+		{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompletableFuture$AsyncRun, getRawResult, $Object*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$AsyncRun, run, void)},
+		{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(CompletableFuture$AsyncRun, setRawResult, void, $Void*)},
+		{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CompletableFuture$AsyncRun, setRawResult, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$AsyncRun", "java.util.concurrent.CompletableFuture", "AsyncRun", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$AsynchronousCompletionTask", "java.util.concurrent.CompletableFuture", "AsynchronousCompletionTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$AsyncRun",
+		"java.util.concurrent.ForkJoinTask",
+		"java.lang.Runnable,java.util.concurrent.CompletableFuture$AsynchronousCompletionTask",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/concurrent/ForkJoinTask<Ljava/lang/Void;>;Ljava/lang/Runnable;Ljava/util/concurrent/CompletableFuture$AsynchronousCompletionTask;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$AsyncRun, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompletableFuture$AsyncRun));
+	});
 	return class$;
 }
 

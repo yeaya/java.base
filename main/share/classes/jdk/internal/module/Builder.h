@@ -42,6 +42,7 @@ class Builder : public ::java::lang::Object {
 	$class(Builder, 0, ::java::lang::Object)
 public:
 	Builder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	::java::lang::module::ModuleDescriptor* build(int32_t hashCode);
 	::jdk::internal::module::Builder* exports($Array<::java::lang::module::ModuleDescriptor$Exports>* exports);

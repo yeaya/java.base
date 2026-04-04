@@ -31,6 +31,7 @@ class RandomCookie : public ::java::lang::Object {
 	$class(RandomCookie, 0, ::java::lang::Object)
 public:
 	RandomCookie();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::SecureRandom* generator);
 	void init$(::sun::security::ssl::HandshakeContext* context);
 	void init$(::java::nio::ByteBuffer* m);

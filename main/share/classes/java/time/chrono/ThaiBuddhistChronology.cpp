@@ -1,5 +1,4 @@
 #include <java/time/chrono/ThaiBuddhistChronology.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/ClassCastException.h>
@@ -68,74 +67,6 @@ using $Map = ::java::util::Map;
 namespace java {
 	namespace time {
 		namespace chrono {
-
-$FieldInfo _ThaiBuddhistChronology_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/time/chrono/ThaiBuddhistChronology;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, INSTANCE)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ThaiBuddhistChronology, serialVersionUID)},
-	{"YEARS_DIFFERENCE", "I", nullptr, $STATIC | $FINAL, $constField(ThaiBuddhistChronology, YEARS_DIFFERENCE)},
-	{"ERA_NARROW_NAMES", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, ERA_NARROW_NAMES)},
-	{"ERA_SHORT_NAMES", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, ERA_SHORT_NAMES)},
-	{"ERA_FULL_NAMES", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, ERA_FULL_NAMES)},
-	{"FALLBACK_LANGUAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, FALLBACK_LANGUAGE)},
-	{"TARGET_LANGUAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, TARGET_LANGUAGE)},
-	{}
-};
-
-$MethodInfo _ThaiBuddhistChronology_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ThaiBuddhistChronology, init$, void)},
-	{"date", "(Ljava/time/chrono/Era;III)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, date, $ChronoLocalDate*, $Era*, int32_t, int32_t, int32_t)},
-	{"date", "(III)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, date, $ChronoLocalDate*, int32_t, int32_t, int32_t)},
-	{"date", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, date, $ChronoLocalDate*, $TemporalAccessor*)},
-	{"dateEpochDay", "(J)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateEpochDay, $ChronoLocalDate*, int64_t)},
-	{"dateNow", "()Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateNow, $ChronoLocalDate*)},
-	{"dateNow", "(Ljava/time/ZoneId;)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateNow, $ChronoLocalDate*, $ZoneId*)},
-	{"dateNow", "(Ljava/time/Clock;)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateNow, $ChronoLocalDate*, $Clock*)},
-	{"dateYearDay", "(Ljava/time/chrono/Era;II)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateYearDay, $ChronoLocalDate*, $Era*, int32_t, int32_t)},
-	{"dateYearDay", "(II)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateYearDay, $ChronoLocalDate*, int32_t, int32_t)},
-	{"eraOf", "(I)Ljava/time/chrono/ThaiBuddhistEra;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, eraOf, $Era*, int32_t)},
-	{"eras", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/chrono/Era;>;", $PUBLIC, $virtualMethod(ThaiBuddhistChronology, eras, $List*)},
-	{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, getCalendarType, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, getId, $String*)},
-	{"isLeapYear", "(J)Z", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, isLeapYear, bool, int64_t)},
-	{"localDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime<Ljava/time/chrono/ThaiBuddhistDate;>;", $PUBLIC, $virtualMethod(ThaiBuddhistChronology, localDateTime, $ChronoLocalDateTime*, $TemporalAccessor*)},
-	{"prolepticYear", "(Ljava/time/chrono/Era;I)I", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, prolepticYear, int32_t, $Era*, int32_t)},
-	{"range", "(Ljava/time/temporal/ChronoField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, range, $ValueRange*, $ChronoField*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ThaiBuddhistChronology, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ThaiBuddhistDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ThaiBuddhistDate;", $PUBLIC, $virtualMethod(ThaiBuddhistChronology, resolveDate, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ThaiBuddhistChronology, writeReplace, $Object*)},
-	{"zonedDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/ThaiBuddhistDate;>;", $PUBLIC, $virtualMethod(ThaiBuddhistChronology, zonedDateTime, $ChronoZonedDateTime*, $TemporalAccessor*)},
-	{"zonedDateTime", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/ThaiBuddhistDate;>;", $PUBLIC, $virtualMethod(ThaiBuddhistChronology, zonedDateTime, $ChronoZonedDateTime*, $Instant*, $ZoneId*)},
-	{}
-};
-
-$InnerClassInfo _ThaiBuddhistChronology_InnerClassesInfo_[] = {
-	{"java.time.chrono.ThaiBuddhistChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ThaiBuddhistChronology_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.chrono.ThaiBuddhistChronology",
-	"java.time.chrono.AbstractChronology",
-	"java.io.Serializable",
-	_ThaiBuddhistChronology_FieldInfo_,
-	_ThaiBuddhistChronology_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ThaiBuddhistChronology_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.time.chrono.ThaiBuddhistChronology$1"
-};
-
-$Object* allocate$ThaiBuddhistChronology($Class* clazz) {
-	return $of($alloc(ThaiBuddhistChronology));
-}
 
 bool ThaiBuddhistChronology::equals(Object$* obj) {
 	 return this->$AbstractChronology::equals(obj);
@@ -249,35 +180,26 @@ $List* ThaiBuddhistChronology::eras() {
 }
 
 $ValueRange* ThaiBuddhistChronology::range($ChronoField* field) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ThaiBuddhistChronology$1);
 	switch ($nc($ThaiBuddhistChronology$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc((field))->ordinal())) {
 	case 1:
 		{
-			{
-				$init($ChronoField);
-				$var($ValueRange, range, $ChronoField::PROLEPTIC_MONTH->range());
-				int64_t var$0 = $nc(range)->getMinimum() + ThaiBuddhistChronology::YEARS_DIFFERENCE * (int64_t)12;
-				return $ValueRange::of(var$0, range->getMaximum() + ThaiBuddhistChronology::YEARS_DIFFERENCE * (int64_t)12);
-			}
+			$var($ValueRange, range, $ChronoField::PROLEPTIC_MONTH->range());
+			int64_t var$0 = $nc(range)->getMinimum() + ThaiBuddhistChronology::YEARS_DIFFERENCE * (int64_t)12;
+			return $ValueRange::of(var$0, range->getMaximum() + ThaiBuddhistChronology::YEARS_DIFFERENCE * (int64_t)12);
 		}
 	case 2:
 		{
-			{
-				$init($ChronoField);
-				$var($ValueRange, range, $ChronoField::YEAR->range());
-				int64_t var$1 = -($nc(range)->getMinimum() + ThaiBuddhistChronology::YEARS_DIFFERENCE) + 1;
-				return $ValueRange::of(1, var$1, range->getMaximum() + ThaiBuddhistChronology::YEARS_DIFFERENCE);
-			}
+			$var($ValueRange, range, $ChronoField::YEAR->range());
+			int64_t var$1 = -($nc(range)->getMinimum() + ThaiBuddhistChronology::YEARS_DIFFERENCE) + 1;
+			return $ValueRange::of(1, var$1, range->getMaximum() + ThaiBuddhistChronology::YEARS_DIFFERENCE);
 		}
 	case 3:
 		{
-			{
-				$init($ChronoField);
-				$var($ValueRange, range, $ChronoField::YEAR->range());
-				int64_t var$2 = $nc(range)->getMinimum() + ThaiBuddhistChronology::YEARS_DIFFERENCE;
-				return $ValueRange::of(var$2, range->getMaximum() + ThaiBuddhistChronology::YEARS_DIFFERENCE);
-			}
+			$var($ValueRange, range, $ChronoField::YEAR->range());
+			int64_t var$2 = $nc(range)->getMinimum() + ThaiBuddhistChronology::YEARS_DIFFERENCE;
+			return $ValueRange::of(var$2, range->getMaximum() + ThaiBuddhistChronology::YEARS_DIFFERENCE);
 		}
 	}
 	return field->range();
@@ -288,15 +210,15 @@ $ChronoLocalDate* ThaiBuddhistChronology::resolveDate($Map* fieldValues, $Resolv
 }
 
 $Object* ThaiBuddhistChronology::writeReplace() {
-	return $of($AbstractChronology::writeReplace());
+	return $AbstractChronology::writeReplace();
 }
 
 void ThaiBuddhistChronology::readObject($ObjectInputStream* s) {
 	$throwNew($InvalidObjectException, "Deserialization via serialization delegate"_s);
 }
 
-void clinit$ThaiBuddhistChronology($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ThaiBuddhistChronology::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ThaiBuddhistChronology::FALLBACK_LANGUAGE, "en"_s);
 	$assignStatic(ThaiBuddhistChronology::TARGET_LANGUAGE, "th"_s);
 	$assignStatic(ThaiBuddhistChronology::INSTANCE, $new(ThaiBuddhistChronology));
@@ -304,27 +226,27 @@ void clinit$ThaiBuddhistChronology($Class* class$) {
 	$assignStatic(ThaiBuddhistChronology::ERA_SHORT_NAMES, $new($HashMap));
 	$assignStatic(ThaiBuddhistChronology::ERA_FULL_NAMES, $new($HashMap));
 	{
-		$nc(ThaiBuddhistChronology::ERA_NARROW_NAMES)->put(ThaiBuddhistChronology::FALLBACK_LANGUAGE, $$new($StringArray, {
+		ThaiBuddhistChronology::ERA_NARROW_NAMES->put(ThaiBuddhistChronology::FALLBACK_LANGUAGE, $$new($StringArray, {
 			"BB"_s,
 			"BE"_s
 		}));
-		$nc(ThaiBuddhistChronology::ERA_NARROW_NAMES)->put(ThaiBuddhistChronology::TARGET_LANGUAGE, $$new($StringArray, {
+		ThaiBuddhistChronology::ERA_NARROW_NAMES->put(ThaiBuddhistChronology::TARGET_LANGUAGE, $$new($StringArray, {
 			"BB"_s,
 			"BE"_s
 		}));
-		$nc(ThaiBuddhistChronology::ERA_SHORT_NAMES)->put(ThaiBuddhistChronology::FALLBACK_LANGUAGE, $$new($StringArray, {
+		ThaiBuddhistChronology::ERA_SHORT_NAMES->put(ThaiBuddhistChronology::FALLBACK_LANGUAGE, $$new($StringArray, {
 			"B.B."_s,
 			"B.E."_s
 		}));
-		$nc(ThaiBuddhistChronology::ERA_SHORT_NAMES)->put(ThaiBuddhistChronology::TARGET_LANGUAGE, $$new($StringArray, {
+		ThaiBuddhistChronology::ERA_SHORT_NAMES->put(ThaiBuddhistChronology::TARGET_LANGUAGE, $$new($StringArray, {
 			u"พ.ศ."_s,
 			u"ปีก่อนคริสต์กาลที่"_s
 		}));
-		$nc(ThaiBuddhistChronology::ERA_FULL_NAMES)->put(ThaiBuddhistChronology::FALLBACK_LANGUAGE, $$new($StringArray, {
+		ThaiBuddhistChronology::ERA_FULL_NAMES->put(ThaiBuddhistChronology::FALLBACK_LANGUAGE, $$new($StringArray, {
 			"Before Buddhist"_s,
 			"Budhhist Era"_s
 		}));
-		$nc(ThaiBuddhistChronology::ERA_FULL_NAMES)->put(ThaiBuddhistChronology::TARGET_LANGUAGE, $$new($StringArray, {
+		ThaiBuddhistChronology::ERA_FULL_NAMES->put(ThaiBuddhistChronology::TARGET_LANGUAGE, $$new($StringArray, {
 			u"พุทธศักราช"_s,
 			u"ปีก่อนคริสต์กาลที่"_s
 		}));
@@ -335,7 +257,69 @@ ThaiBuddhistChronology::ThaiBuddhistChronology() {
 }
 
 $Class* ThaiBuddhistChronology::load$($String* name, bool initialize) {
-	$loadClass(ThaiBuddhistChronology, name, initialize, &_ThaiBuddhistChronology_ClassInfo_, clinit$ThaiBuddhistChronology, allocate$ThaiBuddhistChronology);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/time/chrono/ThaiBuddhistChronology;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, INSTANCE)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ThaiBuddhistChronology, serialVersionUID)},
+		{"YEARS_DIFFERENCE", "I", nullptr, $STATIC | $FINAL, $constField(ThaiBuddhistChronology, YEARS_DIFFERENCE)},
+		{"ERA_NARROW_NAMES", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, ERA_NARROW_NAMES)},
+		{"ERA_SHORT_NAMES", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, ERA_SHORT_NAMES)},
+		{"ERA_FULL_NAMES", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, ERA_FULL_NAMES)},
+		{"FALLBACK_LANGUAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, FALLBACK_LANGUAGE)},
+		{"TARGET_LANGUAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ThaiBuddhistChronology, TARGET_LANGUAGE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ThaiBuddhistChronology, init$, void)},
+		{"date", "(Ljava/time/chrono/Era;III)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, date, $ChronoLocalDate*, $Era*, int32_t, int32_t, int32_t)},
+		{"date", "(III)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, date, $ChronoLocalDate*, int32_t, int32_t, int32_t)},
+		{"date", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, date, $ChronoLocalDate*, $TemporalAccessor*)},
+		{"dateEpochDay", "(J)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateEpochDay, $ChronoLocalDate*, int64_t)},
+		{"dateNow", "()Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateNow, $ChronoLocalDate*)},
+		{"dateNow", "(Ljava/time/ZoneId;)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateNow, $ChronoLocalDate*, $ZoneId*)},
+		{"dateNow", "(Ljava/time/Clock;)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateNow, $ChronoLocalDate*, $Clock*)},
+		{"dateYearDay", "(Ljava/time/chrono/Era;II)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateYearDay, $ChronoLocalDate*, $Era*, int32_t, int32_t)},
+		{"dateYearDay", "(II)Ljava/time/chrono/ThaiBuddhistDate;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, dateYearDay, $ChronoLocalDate*, int32_t, int32_t)},
+		{"eraOf", "(I)Ljava/time/chrono/ThaiBuddhistEra;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, eraOf, $Era*, int32_t)},
+		{"eras", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/chrono/Era;>;", $PUBLIC, $virtualMethod(ThaiBuddhistChronology, eras, $List*)},
+		{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, getCalendarType, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, getId, $String*)},
+		{"isLeapYear", "(J)Z", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, isLeapYear, bool, int64_t)},
+		{"localDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime<Ljava/time/chrono/ThaiBuddhistDate;>;", $PUBLIC, $virtualMethod(ThaiBuddhistChronology, localDateTime, $ChronoLocalDateTime*, $TemporalAccessor*)},
+		{"prolepticYear", "(Ljava/time/chrono/Era;I)I", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, prolepticYear, int32_t, $Era*, int32_t)},
+		{"range", "(Ljava/time/temporal/ChronoField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistChronology, range, $ValueRange*, $ChronoField*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ThaiBuddhistChronology, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ThaiBuddhistDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ThaiBuddhistDate;", $PUBLIC, $virtualMethod(ThaiBuddhistChronology, resolveDate, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ThaiBuddhistChronology, writeReplace, $Object*)},
+		{"zonedDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/ThaiBuddhistDate;>;", $PUBLIC, $virtualMethod(ThaiBuddhistChronology, zonedDateTime, $ChronoZonedDateTime*, $TemporalAccessor*)},
+		{"zonedDateTime", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/ThaiBuddhistDate;>;", $PUBLIC, $virtualMethod(ThaiBuddhistChronology, zonedDateTime, $ChronoZonedDateTime*, $Instant*, $ZoneId*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.chrono.ThaiBuddhistChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.chrono.ThaiBuddhistChronology",
+		"java.time.chrono.AbstractChronology",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.time.chrono.ThaiBuddhistChronology$1"
+	};
+	$loadClass(ThaiBuddhistChronology, name, initialize, &classInfo$$, ThaiBuddhistChronology::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ThaiBuddhistChronology));
+	});
 	return class$;
 }
 

@@ -21,6 +21,7 @@ class $import Authenticator : public ::java::lang::Object {
 	$class(Authenticator, 0, ::java::lang::Object)
 public:
 	Authenticator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::net::Authenticator* getDefault();
 	static $String* getKey(::java::net::Authenticator* a);

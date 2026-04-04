@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLSessionImpl.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/SecurityManager.h>
@@ -14,7 +13,6 @@
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -91,13 +89,11 @@ using $BigInteger = ::java::math::BigInteger;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Permission = ::java::security::Permission;
 using $Principal = ::java::security::Principal;
 using $PrivateKey = ::java::security::PrivateKey;
 using $SecureRandom = ::java::security::SecureRandom;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -105,8 +101,6 @@ using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Queue = ::java::util::Queue;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentLinkedQueue = ::java::util::concurrent::ConcurrentLinkedQueue;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
@@ -118,7 +112,6 @@ using $SNIServerName = ::javax::net::ssl::SNIServerName;
 using $SSLException = ::javax::net::ssl::SSLException;
 using $SSLPeerUnverifiedException = ::javax::net::ssl::SSLPeerUnverifiedException;
 using $SSLPermission = ::javax::net::ssl::SSLPermission;
-using $SSLSession = ::javax::net::ssl::SSLSession;
 using $SSLSessionBindingEvent = ::javax::net::ssl::SSLSessionBindingEvent;
 using $SSLSessionBindingListener = ::javax::net::ssl::SSLSessionBindingListener;
 using $SSLSessionContext = ::javax::net::ssl::SSLSessionContext;
@@ -129,12 +122,10 @@ using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $OutputRecord = ::sun::security::ssl::OutputRecord;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $Record = ::sun::security::ssl::Record;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLRecord = ::sun::security::ssl::SSLRecord;
 using $SSLSessionContextImpl = ::sun::security::ssl::SSLSessionContextImpl;
-using $SSLTransport = ::sun::security::ssl::SSLTransport;
 using $SecureKey = ::sun::security::ssl::SecureKey;
 using $SessionId = ::sun::security::ssl::SessionId;
 using $SignatureScheme = ::sun::security::ssl::SignatureScheme;
@@ -144,141 +135,6 @@ using $X509CertImpl = ::sun::security::x509::X509CertImpl;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLSessionImpl_FieldInfo_[] = {
-	{"protocolVersion", "Lsun/security/ssl/ProtocolVersion;", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, protocolVersion)},
-	{"sessionId", "Lsun/security/ssl/SessionId;", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, sessionId)},
-	{"peerCerts", "[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(SSLSessionImpl, peerCerts)},
-	{"cipherSuite", "Lsun/security/ssl/CipherSuite;", nullptr, $PRIVATE, $field(SSLSessionImpl, cipherSuite)},
-	{"masterSecret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $field(SSLSessionImpl, masterSecret)},
-	{"useExtendedMasterSecret", "Z", nullptr, $FINAL, $field(SSLSessionImpl, useExtendedMasterSecret)},
-	{"creationTime", "J", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, creationTime)},
-	{"lastUsedTime", "J", nullptr, $PRIVATE, $field(SSLSessionImpl, lastUsedTime)},
-	{"host", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, host)},
-	{"port", "I", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, port)},
-	{"context", "Lsun/security/ssl/SSLSessionContextImpl;", nullptr, $PRIVATE, $field(SSLSessionImpl, context)},
-	{"invalidated", "Z", nullptr, $PRIVATE, $field(SSLSessionImpl, invalidated)},
-	{"localCerts", "[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(SSLSessionImpl, localCerts)},
-	{"localPrivateKey", "Ljava/security/PrivateKey;", nullptr, $PRIVATE, $field(SSLSessionImpl, localPrivateKey)},
-	{"localSupportedSignAlgs", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE | $FINAL, $field(SSLSessionImpl, localSupportedSignAlgs)},
-	{"peerSupportedSignAlgs", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE, $field(SSLSessionImpl, peerSupportedSignAlgs)},
-	{"useDefaultPeerSignAlgs", "Z", nullptr, $PRIVATE, $field(SSLSessionImpl, useDefaultPeerSignAlgs)},
-	{"statusResponses", "Ljava/util/List;", "Ljava/util/List<[B>;", $PRIVATE, $field(SSLSessionImpl, statusResponses)},
-	{"resumptionMasterSecret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $field(SSLSessionImpl, resumptionMasterSecret)},
-	{"preSharedKey", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $field(SSLSessionImpl, preSharedKey)},
-	{"pskIdentity", "[B", nullptr, $PRIVATE, $field(SSLSessionImpl, pskIdentity)},
-	{"ticketCreationTime", "J", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, ticketCreationTime)},
-	{"ticketAgeAdd", "I", nullptr, $PRIVATE, $field(SSLSessionImpl, ticketAgeAdd)},
-	{"negotiatedMaxFragLen", "I", nullptr, $PRIVATE, $field(SSLSessionImpl, negotiatedMaxFragLen)},
-	{"maximumPacketSize", "I", nullptr, $PRIVATE, $field(SSLSessionImpl, maximumPacketSize)},
-	{"childSessions", "Ljava/util/Queue;", "Ljava/util/Queue<Lsun/security/ssl/SSLSessionImpl;>;", $PRIVATE | $FINAL, $field(SSLSessionImpl, childSessions)},
-	{"isSessionResumption", "Z", nullptr, $PRIVATE, $field(SSLSessionImpl, isSessionResumption$)},
-	{"defaultRejoinable", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLSessionImpl, defaultRejoinable)},
-	{"serverNameIndication", "Ljavax/net/ssl/SNIServerName;", nullptr, $FINAL, $field(SSLSessionImpl, serverNameIndication)},
-	{"requestedServerNames", "Ljava/util/List;", "Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $PRIVATE | $FINAL, $field(SSLSessionImpl, requestedServerNames)},
-	{"ticketNonceCounter", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(SSLSessionImpl, ticketNonceCounter)},
-	{"identificationProtocol", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, identificationProtocol)},
-	{"sessionLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, sessionLock)},
-	{"defaultPeerSupportedSignAlgs", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLSessionImpl, defaultPeerSupportedSignAlgs)},
-	{"boundValues", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Lsun/security/ssl/SecureKey;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(SSLSessionImpl, boundValues)},
-	{"updateNST", "Z", nullptr, 0, $field(SSLSessionImpl, updateNST)},
-	{"acceptLargeFragments", "Z", nullptr, $PRIVATE, $field(SSLSessionImpl, acceptLargeFragments)},
-	{}
-};
-
-$MethodInfo _SSLSessionImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SSLSessionImpl, init$, void)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(SSLSessionImpl, init$, void, $HandshakeContext*, $CipherSuite*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/CipherSuite;Lsun/security/ssl/SessionId;)V", nullptr, 0, $method(SSLSessionImpl, init$, void, $HandshakeContext*, $CipherSuite*, $SessionId*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/CipherSuite;Lsun/security/ssl/SessionId;J)V", nullptr, 0, $method(SSLSessionImpl, init$, void, $HandshakeContext*, $CipherSuite*, $SessionId*, int64_t)},
-	{"<init>", "(Lsun/security/ssl/SSLSessionImpl;Lsun/security/ssl/SessionId;)V", nullptr, 0, $method(SSLSessionImpl, init$, void, SSLSessionImpl*, $SessionId*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(SSLSessionImpl, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"addChild", "(Lsun/security/ssl/SSLSessionImpl;)V", nullptr, 0, $method(SSLSessionImpl, addChild, void, SSLSessionImpl*)},
-	{"consumePreSharedKey", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(SSLSessionImpl, consumePreSharedKey, $SecretKey*)},
-	{"consumePskIdentity", "()[B", nullptr, 0, $method(SSLSessionImpl, consumePskIdentity, $bytes*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, equals, bool, Object$*)},
-	{"expandBufferSizes", "()V", nullptr, $PROTECTED, $method(SSLSessionImpl, expandBufferSizes, void)},
-	{"finish", "()Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(SSLSessionImpl, finish, SSLSessionImpl*)},
-	{"getApplicationBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getApplicationBufferSize, int32_t)},
-	{"getCertificateChain", "()[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(SSLSessionImpl, getCertificateChain, $X509CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getCipherSuite, $String*)},
-	{"getCreationTime", "()J", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getCreationTime, int64_t)},
-	{"getId", "()[B", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getId, $bytes*)},
-	{"getIdentificationProtocol", "()Ljava/lang/String;", nullptr, 0, $method(SSLSessionImpl, getIdentificationProtocol, $String*)},
-	{"getLastAccessedTime", "()J", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getLastAccessedTime, int64_t)},
-	{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getLocalCertificates, $CertificateArray*)},
-	{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getLocalPrincipal, $Principal*)},
-	{"getLocalSupportedSignatureAlgorithms", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getLocalSupportedSignatureAlgorithms, $StringArray*)},
-	{"getLocalSupportedSignatureSchemes", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/security/ssl/SignatureScheme;>;", $PUBLIC, $method(SSLSessionImpl, getLocalSupportedSignatureSchemes, $Collection*)},
-	{"getMasterSecret", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(SSLSessionImpl, getMasterSecret, $SecretKey*)},
-	{"getMaximumPacketSize", "()I", nullptr, 0, $method(SSLSessionImpl, getMaximumPacketSize, int32_t)},
-	{"getNegotiatedMaxFragSize", "()I", nullptr, 0, $method(SSLSessionImpl, getNegotiatedMaxFragSize, int32_t)},
-	{"getPacketBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPacketBufferSize, int32_t)},
-	{"getPeerAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $method(SSLSessionImpl, getPeerAddress, $InetAddress*)},
-	{"getPeerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPeerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getPeerHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPeerHost, $String*)},
-	{"getPeerPort", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPeerPort, int32_t)},
-	{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getPeerSupportedSignatureAlgorithms", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPeerSupportedSignatureAlgorithms, $StringArray*)},
-	{"getPreSharedKey", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(SSLSessionImpl, getPreSharedKey, $SecretKey*)},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getProtocol, $String*)},
-	{"getProtocolVersion", "()Lsun/security/ssl/ProtocolVersion;", nullptr, 0, $method(SSLSessionImpl, getProtocolVersion, $ProtocolVersion*)},
-	{"getPskIdentity", "()[B", nullptr, 0, $method(SSLSessionImpl, getPskIdentity, $bytes*)},
-	{"getRequestedServerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $PUBLIC, $virtualMethod(SSLSessionImpl, getRequestedServerNames, $List*)},
-	{"getResumptionMasterSecret", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(SSLSessionImpl, getResumptionMasterSecret, $SecretKey*)},
-	{"getSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getSessionContext, $SSLSessionContext*)},
-	{"getSessionId", "()Lsun/security/ssl/SessionId;", nullptr, 0, $method(SSLSessionImpl, getSessionId, $SessionId*)},
-	{"getStatusResponses", "()Ljava/util/List;", "()Ljava/util/List<[B>;", $PUBLIC, $virtualMethod(SSLSessionImpl, getStatusResponses, $List*)},
-	{"getSuite", "()Lsun/security/ssl/CipherSuite;", nullptr, 0, $method(SSLSessionImpl, getSuite, $CipherSuite*)},
-	{"getTicketAgeAdd", "()I", nullptr, 0, $method(SSLSessionImpl, getTicketAgeAdd, int32_t)},
-	{"getTicketCreationTime", "()J", nullptr, $PUBLIC, $method(SSLSessionImpl, getTicketCreationTime, int64_t)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getValue, $Object*, $String*)},
-	{"getValueNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getValueNames, $StringArray*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, hashCode, int32_t)},
-	{"incrTicketNonceCounter", "()Ljava/math/BigInteger;", nullptr, 0, $method(SSLSessionImpl, incrTicketNonceCounter, $BigInteger*)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, invalidate, void)},
-	{"isLocalAuthenticationValid", "()Z", nullptr, $PRIVATE, $method(SSLSessionImpl, isLocalAuthenticationValid, bool)},
-	{"isPSKable", "()Z", nullptr, 0, $method(SSLSessionImpl, isPSKable, bool)},
-	{"isRejoinable", "()Z", nullptr, 0, $method(SSLSessionImpl, isRejoinable, bool)},
-	{"isSessionResumption", "()Z", nullptr, 0, $method(SSLSessionImpl, isSessionResumption, bool)},
-	{"isStatelessable", "()Z", nullptr, 0, $method(SSLSessionImpl, isStatelessable, bool)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, isValid, bool)},
-	{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, putValue, void, $String*, Object$*)},
-	{"removeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, removeValue, void, $String*)},
-	{"setAsSessionResumption", "(Z)V", nullptr, 0, $method(SSLSessionImpl, setAsSessionResumption, void, bool)},
-	{"setContext", "(Lsun/security/ssl/SSLSessionContextImpl;)V", nullptr, 0, $method(SSLSessionImpl, setContext, void, $SSLSessionContextImpl*)},
-	{"setLastAccessedTime", "(J)V", nullptr, 0, $method(SSLSessionImpl, setLastAccessedTime, void, int64_t)},
-	{"setLocalCertificates", "([Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(SSLSessionImpl, setLocalCertificates, void, $X509CertificateArray*)},
-	{"setLocalPrivateKey", "(Ljava/security/PrivateKey;)V", nullptr, 0, $method(SSLSessionImpl, setLocalPrivateKey, void, $PrivateKey*)},
-	{"setMasterSecret", "(Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLSessionImpl, setMasterSecret, void, $SecretKey*)},
-	{"setMaximumPacketSize", "(I)V", nullptr, 0, $method(SSLSessionImpl, setMaximumPacketSize, void, int32_t)},
-	{"setNegotiatedMaxFragSize", "(I)V", nullptr, 0, $method(SSLSessionImpl, setNegotiatedMaxFragSize, void, int32_t)},
-	{"setPeerCertificates", "([Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(SSLSessionImpl, setPeerCertificates, void, $X509CertificateArray*)},
-	{"setPeerSupportedSignatureAlgorithms", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Lsun/security/ssl/SignatureScheme;>;)V", 0, $method(SSLSessionImpl, setPeerSupportedSignatureAlgorithms, void, $Collection*)},
-	{"setPreSharedKey", "(Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLSessionImpl, setPreSharedKey, void, $SecretKey*)},
-	{"setPskIdentity", "([B)V", nullptr, 0, $method(SSLSessionImpl, setPskIdentity, void, $bytes*)},
-	{"setResumptionMasterSecret", "(Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLSessionImpl, setResumptionMasterSecret, void, $SecretKey*)},
-	{"setStatusResponses", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", 0, $method(SSLSessionImpl, setStatusResponses, void, $List*)},
-	{"setSuite", "(Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(SSLSessionImpl, setSuite, void, $CipherSuite*)},
-	{"setTicketAgeAdd", "(I)V", nullptr, 0, $method(SSLSessionImpl, setTicketAgeAdd, void, int32_t)},
-	{"setUseDefaultPeerSignAlgs", "()V", nullptr, 0, $method(SSLSessionImpl, setUseDefaultPeerSignAlgs, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, toString, $String*)},
-	{"write", "()[B", nullptr, 0, $method(SSLSessionImpl, write, $bytes*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _SSLSessionImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLSessionImpl",
-	"javax.net.ssl.ExtendedSSLSession",
-	nullptr,
-	_SSLSessionImpl_FieldInfo_,
-	_SSLSessionImpl_MethodInfo_
-};
-
-$Object* allocate$SSLSessionImpl($Class* clazz) {
-	return $of($alloc(SSLSessionImpl));
-}
 
 $ArrayList* SSLSessionImpl::defaultPeerSupportedSignAlgs = nullptr;
 
@@ -311,7 +167,7 @@ void SSLSessionImpl::init$() {
 }
 
 void SSLSessionImpl::init$($HandshakeContext* hc, $CipherSuite* cipherSuite) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	SSLSessionImpl::init$(hc, cipherSuite, $$new($SessionId, SSLSessionImpl::defaultRejoinable, $($nc($nc(hc)->sslContext)->getSecureRandom())));
 }
 
@@ -320,7 +176,7 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $CipherSuite* cipherSuite, $Se
 }
 
 void SSLSessionImpl::init$($HandshakeContext* hc, $CipherSuite* cipherSuite, $SessionId* id, int64_t creationTime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ExtendedSSLSession::init$();
 	this->lastUsedTime = 0;
 	this->useDefaultPeerSignAlgs = false;
@@ -336,21 +192,21 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $CipherSuite* cipherSuite, $Se
 	$set(this, cipherSuite, cipherSuite);
 	$set(this, sessionId, id);
 	$set(this, host, $nc($nc(hc->conContext)->transport)->getPeerHost());
-	this->port = $nc($nc(hc->conContext)->transport)->getPeerPort();
-	$set(this, localSupportedSignAlgs, hc->localSupportedSignAlgs == nullptr ? static_cast<$Collection*>($Collections::emptySet()) : $Collections::unmodifiableCollection(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($$new($ArrayList, static_cast<$Collection*>(hc->localSupportedSignAlgs)))))));
+	this->port = hc->conContext->transport->getPeerPort();
+	$set(this, localSupportedSignAlgs, hc->localSupportedSignAlgs == nullptr ? $cast($Collection, $Collections::emptySet()) : $Collections::unmodifiableCollection($$cast($AbstractCollection, $new($ArrayList, hc->localSupportedSignAlgs))));
 	$set(this, serverNameIndication, hc->negotiatedServerName);
 	$set(this, requestedServerNames, $List::copyOf($(hc->getRequestedServerNames())));
 	if ($nc(hc->sslConfig)->isClientMode) {
 		$init($SSLExtension);
-		bool var$0 = ($nc(hc->handshakeExtensions)->get($SSLExtension::CH_EXTENDED_MASTER_SECRET) != nullptr);
-		this->useExtendedMasterSecret = var$0 && ($nc(hc->handshakeExtensions)->get($SSLExtension::SH_EXTENDED_MASTER_SECRET) != nullptr);
+		bool var$0 = $nc(hc->handshakeExtensions)->get($SSLExtension::CH_EXTENDED_MASTER_SECRET) != nullptr;
+		this->useExtendedMasterSecret = var$0 && (hc->handshakeExtensions->get($SSLExtension::SH_EXTENDED_MASTER_SECRET) != nullptr);
 	} else {
 		$init($SSLExtension);
-		bool var$1 = ($nc(hc->handshakeExtensions)->get($SSLExtension::CH_EXTENDED_MASTER_SECRET) != nullptr);
+		bool var$1 = $nc(hc->handshakeExtensions)->get($SSLExtension::CH_EXTENDED_MASTER_SECRET) != nullptr;
 		this->useExtendedMasterSecret = var$1 && (!$nc(hc->negotiatedProtocol)->useTLS13PlusSpec());
 	}
 	this->creationTime = creationTime;
-	$set(this, identificationProtocol, $nc(hc->sslConfig)->identificationProtocol);
+	$set(this, identificationProtocol, hc->sslConfig->identificationProtocol);
 	$set(this, boundValues, $new($ConcurrentHashMap));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("session"_s)) {
@@ -359,7 +215,7 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $CipherSuite* cipherSuite, $Se
 }
 
 void SSLSessionImpl::init$(SSLSessionImpl* baseSession, $SessionId* newId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ExtendedSSLSession::init$();
 	this->lastUsedTime = 0;
 	this->useDefaultPeerSignAlgs = false;
@@ -376,8 +232,8 @@ void SSLSessionImpl::init$(SSLSessionImpl* baseSession, $SessionId* newId) {
 	$set(this, sessionId, newId);
 	$set(this, host, baseSession->getPeerHost());
 	this->port = baseSession->getPeerPort();
-	$set(this, localSupportedSignAlgs, baseSession->localSupportedSignAlgs == nullptr ? static_cast<$Collection*>($Collections::emptySet()) : baseSession->localSupportedSignAlgs);
-	$set(this, peerSupportedSignAlgs, baseSession->peerSupportedSignAlgs == nullptr ? static_cast<$Collection*>($Collections::emptySet()) : baseSession->peerSupportedSignAlgs);
+	$set(this, localSupportedSignAlgs, baseSession->localSupportedSignAlgs == nullptr ? $cast($Collection, $Collections::emptySet()) : baseSession->localSupportedSignAlgs);
+	$set(this, peerSupportedSignAlgs, baseSession->peerSupportedSignAlgs == nullptr ? $cast($Collection, $Collections::emptySet()) : baseSession->peerSupportedSignAlgs);
 	$set(this, serverNameIndication, baseSession->serverNameIndication);
 	$set(this, requestedServerNames, baseSession->getRequestedServerNames());
 	$set(this, masterSecret, baseSession->getMasterSecret());
@@ -400,7 +256,7 @@ void SSLSessionImpl::init$(SSLSessionImpl* baseSession, $SessionId* newId) {
 }
 
 void SSLSessionImpl::init$($HandshakeContext* hc, $ByteBuffer* buf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ExtendedSSLSession::init$();
 	this->lastUsedTime = 0;
 	this->useDefaultPeerSignAlgs = false;
@@ -415,24 +271,24 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $ByteBuffer* buf) {
 	$set(this, boundValues, $new($ConcurrentHashMap));
 	$set(this, protocolVersion, $ProtocolVersion::valueOf($Short::toUnsignedInt($nc(buf)->getShort())));
 	$set(this, sessionId, $new($SessionId, true, $($nc($nc(hc)->sslContext)->getSecureRandom())));
-	$set(this, cipherSuite, $CipherSuite::valueOf($Short::toUnsignedInt($nc(buf)->getShort())));
+	$set(this, cipherSuite, $CipherSuite::valueOf($Short::toUnsignedInt(buf->getShort())));
 	$var($ArrayList, list, $new($ArrayList));
-	int32_t i = $Byte::toUnsignedInt($nc(buf)->get());
+	int32_t i = $Byte::toUnsignedInt(buf->get());
 	while (i-- > 0) {
-		list->add($($SignatureScheme::valueOf($Short::toUnsignedInt($nc(buf)->getShort()))));
+		list->add($($SignatureScheme::valueOf($Short::toUnsignedInt(buf->getShort()))));
 	}
-	$set(this, localSupportedSignAlgs, $Collections::unmodifiableCollection(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(list)))));
-	i = $Byte::toUnsignedInt($nc(buf)->get());
+	$set(this, localSupportedSignAlgs, $Collections::unmodifiableCollection($cast($AbstractCollection, list)));
+	i = $Byte::toUnsignedInt(buf->get());
 	list->clear();
 	while (i-- > 0) {
-		list->add($($SignatureScheme::valueOf($Short::toUnsignedInt($nc(buf)->getShort()))));
+		list->add($($SignatureScheme::valueOf($Short::toUnsignedInt(buf->getShort()))));
 	}
-	$set(this, peerSupportedSignAlgs, $Collections::unmodifiableCollection(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(list)))));
+	$set(this, peerSupportedSignAlgs, $Collections::unmodifiableCollection($cast($AbstractCollection, list)));
 	$var($bytes, b, nullptr);
-	i = $Short::toUnsignedInt($nc(buf)->getShort());
+	i = $Short::toUnsignedInt(buf->getShort());
 	if (i > 0) {
 		$assign(b, $new($bytes, i));
-		$nc(buf)->get(b, 0, i);
+		buf->get(b, 0, i);
 		i = $Short::toUnsignedInt(buf->getShort());
 		$assign(b, $new($bytes, i));
 		buf->get(b);
@@ -440,7 +296,7 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $ByteBuffer* buf) {
 	} else {
 		$set(this, preSharedKey, nullptr);
 	}
-	i = $nc(buf)->get();
+	i = buf->get();
 	if (i > 0) {
 		$assign(b, $new($bytes, i));
 		buf->get(b);
@@ -485,7 +341,7 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $ByteBuffer* buf) {
 			int32_t l = buf->get();
 			$assign(b, $new($bytes, l));
 			buf->get(b, 0, l);
-			$nc(this->requestedServerNames)->add($$new($SNIHostName, $$new($String, b)));
+			this->requestedServerNames->add($$new($SNIHostName, $$new($String, b)));
 			--len;
 		}
 	}
@@ -524,70 +380,62 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $ByteBuffer* buf) {
 			try {
 				$nc(this->peerCerts)->set(j, $$new($X509CertImpl, b));
 			} catch ($Exception& e) {
-				$throwNew($IOException, static_cast<$Throwable*>(e));
+				$throwNew($IOException, e);
 			}
 			++j;
 		}
 	}
 	{
-		$var($String, alg, nullptr)
+		$var($String, alg, nullptr);
 		switch (buf->get()) {
 		case 0:
-			{
-				break;
-			}
+			break;
 		case 1:
-			{
-				len = buf->get();
-				$set(this, localCerts, $new($X509CertificateArray, len));
-				i = 0;
-				while (len > i) {
-					$assign(b, $new($bytes, buf->getInt()));
-					buf->get(b);
-					try {
-						$nc(this->localCerts)->set(i, $$new($X509CertImpl, b));
-					} catch ($Exception& e) {
-						$throwNew($IOException, static_cast<$Throwable*>(e));
-					}
-					++i;
-				}
-				break;
-			}
-		case 2:
-			{
-				i = buf->get();
-				$assign(b, $new($bytes, i));
-				buf->get(b, 0, i);
-				$assign(alg, $new($String, b));
-				i = $Short::toUnsignedInt(buf->getShort());
-				$assign(b, $new($bytes, i));
+			len = buf->get();
+			$set(this, localCerts, $new($X509CertificateArray, len));
+			i = 0;
+			while (len > i) {
+				$assign(b, $new($bytes, buf->getInt()));
 				buf->get(b);
-				$set(this, preSharedKey, $new($SecretKeySpec, b, alg));
-				$set(this, pskIdentity, $new($bytes, buf->get()));
-				buf->get(this->pskIdentity);
-				break;
+				try {
+					$nc(this->localCerts)->set(i, $$new($X509CertImpl, b));
+				} catch ($Exception& e) {
+					$throwNew($IOException, e);
+				}
+				++i;
 			}
+			break;
+		case 2:
+			i = buf->get();
+			$assign(b, $new($bytes, i));
+			buf->get(b, 0, i);
+			$assign(alg, $new($String, b));
+			i = $Short::toUnsignedInt(buf->getShort());
+			$assign(b, $new($bytes, i));
+			buf->get(b);
+			$set(this, preSharedKey, $new($SecretKeySpec, b, alg));
+			$set(this, pskIdentity, $new($bytes, buf->get()));
+			buf->get(this->pskIdentity);
+			break;
 		default:
-			{
-				$throwNew($SSLException, "Failed local certs of session."_s);
-			}
+			$throwNew($SSLException, "Failed local certs of session."_s);
 		}
 	}
-	$set(this, context, $cast($SSLSessionContextImpl, $nc($nc(hc)->sslContext)->engineGetServerSessionContext()));
+	$set(this, context, $cast($SSLSessionContextImpl, hc->sslContext->engineGetServerSessionContext()));
 	this->lastUsedTime = $System::currentTimeMillis();
 }
 
 bool SSLSessionImpl::isStatelessable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !this->protocolVersion->useTLS13PlusSpec();
-	if (var$0 && $nc($(getMasterSecret()))->getEncoded() == nullptr) {
+	if (var$0 && $$nc(getMasterSecret())->getEncoded() == nullptr) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::finest("No MasterSecret, cannot make stateless ticket"_s, $$new($ObjectArray, 0));
 		}
 		return false;
 	}
-	if (this->boundValues != nullptr && $nc(this->boundValues)->size() > 0) {
+	if (this->boundValues != nullptr && this->boundValues->size() > 0) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::finest("There are boundValues, cannot make stateless ticket"_s, $$new($ObjectArray, 0));
@@ -598,14 +446,14 @@ bool SSLSessionImpl::isStatelessable() {
 }
 
 $bytes* SSLSessionImpl::write() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, b, nullptr);
 	$var($HandshakeOutStream, hos, $new($HandshakeOutStream, nullptr));
 	hos->putInt16(this->protocolVersion->id);
 	hos->putInt16($nc(this->cipherSuite)->id);
 	hos->putInt8($nc(this->localSupportedSignAlgs)->size());
 	{
-		$var($Iterator, i$, $nc(this->localSupportedSignAlgs)->iterator());
+		$var($Iterator, i$, this->localSupportedSignAlgs->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$SignatureScheme* s = $cast($SignatureScheme, i$->next());
 			{
@@ -615,7 +463,7 @@ $bytes* SSLSessionImpl::write() {
 	}
 	hos->putInt8($nc(this->peerSupportedSignAlgs)->size());
 	{
-		$var($Iterator, i$, $nc(this->peerSupportedSignAlgs)->iterator());
+		$var($Iterator, i$, this->peerSupportedSignAlgs->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$SignatureScheme* s = $cast($SignatureScheme, i$->next());
 			{
@@ -623,68 +471,66 @@ $bytes* SSLSessionImpl::write() {
 			}
 		}
 	}
-	if (this->preSharedKey == nullptr || $nc(this->preSharedKey)->getAlgorithm() == nullptr) {
+	if (this->preSharedKey == nullptr || this->preSharedKey->getAlgorithm() == nullptr) {
 		hos->putInt16(0);
 	} else {
-		hos->putInt16($nc($($nc(this->preSharedKey)->getAlgorithm()))->length());
-		if ($nc($($nc(this->preSharedKey)->getAlgorithm()))->length() != 0) {
-			hos->write($($nc($($nc(this->preSharedKey)->getAlgorithm()))->getBytes()));
+		hos->putInt16($$nc(this->preSharedKey->getAlgorithm())->length());
+		if ($$nc(this->preSharedKey->getAlgorithm())->length() != 0) {
+			hos->write($($$nc(this->preSharedKey->getAlgorithm())->getBytes()));
 		}
-		$assign(b, $nc(this->preSharedKey)->getEncoded());
+		$assign(b, this->preSharedKey->getEncoded());
 		hos->putInt16($nc(b)->length);
-		hos->write(b, 0, $nc(b)->length);
+		hos->write(b, 0, b->length);
 	}
 	if (this->pskIdentity == nullptr) {
 		hos->putInt8(0);
 	} else {
-		hos->putInt8($nc(this->pskIdentity)->length);
-		hos->write(this->pskIdentity, 0, $nc(this->pskIdentity)->length);
+		hos->putInt8(this->pskIdentity->length);
+		hos->write(this->pskIdentity, 0, this->pskIdentity->length);
 	}
 	bool var$0 = getMasterSecret() == nullptr;
-	if (var$0 || $nc($(getMasterSecret()))->getAlgorithm() == nullptr) {
+	if (var$0 || $$nc(getMasterSecret())->getAlgorithm() == nullptr) {
 		hos->putInt8(0);
 	} else {
-		hos->putInt8($nc($($nc($(getMasterSecret()))->getAlgorithm()))->length());
-		if ($nc($($nc($(getMasterSecret()))->getAlgorithm()))->length() != 0) {
-			hos->write($($nc($($nc($(getMasterSecret()))->getAlgorithm()))->getBytes()));
+		hos->putInt8($$nc($$nc(getMasterSecret())->getAlgorithm())->length());
+		if ($$nc($$nc(getMasterSecret())->getAlgorithm())->length() != 0) {
+			hos->write($($$nc($$nc(getMasterSecret())->getAlgorithm())->getBytes()));
 		}
-		$assign(b, $nc($(getMasterSecret()))->getEncoded());
+		$assign(b, $$nc(getMasterSecret())->getEncoded());
 		hos->putInt16($nc(b)->length);
-		hos->write(b, 0, $nc(b)->length);
+		hos->write(b, 0, b->length);
 	}
 	hos->putInt8(this->useExtendedMasterSecret ? 1 : 0);
 	if (this->identificationProtocol == nullptr) {
 		hos->putInt8(0);
 	} else {
-		hos->putInt8($nc(this->identificationProtocol)->length());
-		$var($bytes, var$1, $nc(this->identificationProtocol)->getBytes());
-		hos->write(var$1, 0, $nc(this->identificationProtocol)->length());
+		hos->putInt8(this->identificationProtocol->length());
+		$var($bytes, var$1, this->identificationProtocol->getBytes());
+		hos->write(var$1, 0, this->identificationProtocol->length());
 	}
 	if (this->serverNameIndication == nullptr) {
 		hos->putInt8(0);
 	} else {
-		$assign(b, $nc(this->serverNameIndication)->getEncoded());
+		$assign(b, this->serverNameIndication->getEncoded());
 		hos->putInt8($nc(b)->length);
-		hos->write(b, 0, $nc(b)->length);
+		hos->write(b, 0, b->length);
 	}
 	hos->putInt16($nc(this->requestedServerNames)->size());
-	if ($nc(this->requestedServerNames)->size() > 0) {
-		{
-			$var($Iterator, i$, $nc(this->requestedServerNames)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($SNIServerName, sn, $cast($SNIServerName, i$->next()));
-				{
-					$assign(b, $nc(sn)->getEncoded());
-					hos->putInt8($nc(b)->length);
-					hos->write(b, 0, $nc(b)->length);
-				}
+	if (this->requestedServerNames->size() > 0) {
+		$var($Iterator, i$, this->requestedServerNames->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($SNIServerName, sn, $cast($SNIServerName, i$->next()));
+			{
+				$assign(b, $nc(sn)->getEncoded());
+				hos->putInt8($nc(b)->length);
+				hos->write(b, 0, b->length);
 			}
 		}
 	}
 	hos->putInt32(this->maximumPacketSize);
 	hos->putInt32(this->negotiatedMaxFragLen);
 	$var($ByteBuffer, buffer, $ByteBuffer::allocate($Long::BYTES));
-	hos->writeBytes($($cast($bytes, $nc($($nc(buffer)->putLong(this->creationTime)))->array())));
+	hos->writeBytes($$cast($bytes, $$nc($nc(buffer)->putLong(this->creationTime))->array()));
 	$var($List, list, getStatusResponses());
 	int32_t l = $nc(list)->size();
 	hos->putInt16(l);
@@ -698,22 +544,20 @@ $bytes* SSLSessionImpl::write() {
 			}
 		}
 	}
-	if (this->host == nullptr || $nc(this->host)->length() == 0) {
+	if (this->host == nullptr || this->host->length() == 0) {
 		hos->putInt8(0);
 	} else {
-		hos->putInt8($nc(this->host)->length());
-		hos->writeBytes($($nc(this->host)->getBytes()));
+		hos->putInt8(this->host->length());
+		hos->writeBytes($(this->host->getBytes()));
 	}
 	hos->putInt16(this->port);
-	if (this->peerCerts == nullptr || $nc(this->peerCerts)->length == 0) {
+	if (this->peerCerts == nullptr || this->peerCerts->length == 0) {
 		hos->putInt8(0);
 	} else {
-		hos->putInt8($nc(this->peerCerts)->length);
+		hos->putInt8(this->peerCerts->length);
 		{
 			$var($X509CertificateArray, arr$, this->peerCerts);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($X509Certificate, c, arr$->get(i$));
 				{
 					$assign(b, $nc(c)->getEncoded());
@@ -723,14 +567,12 @@ $bytes* SSLSessionImpl::write() {
 			}
 		}
 	}
-	if (this->localCerts != nullptr && $nc(this->localCerts)->length > 0) {
+	if (this->localCerts != nullptr && this->localCerts->length > 0) {
 		hos->putInt8(1);
-		hos->putInt8($nc(this->localCerts)->length);
+		hos->putInt8(this->localCerts->length);
 		{
 			$var($X509CertificateArray, arr$, this->localCerts);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($X509Certificate, c, arr$->get(i$));
 				{
 					$assign(b, $nc(c)->getEncoded());
@@ -741,9 +583,9 @@ $bytes* SSLSessionImpl::write() {
 		}
 	} else if (this->preSharedKey != nullptr) {
 		hos->putInt8(2);
-		hos->putInt8($nc($($nc(this->preSharedKey)->getAlgorithm()))->length());
-		hos->write($($nc($($nc(this->preSharedKey)->getAlgorithm()))->getBytes()));
-		$assign(b, $nc(this->preSharedKey)->getEncoded());
+		hos->putInt8($$nc(this->preSharedKey->getAlgorithm())->length());
+		hos->write($($$nc(this->preSharedKey->getAlgorithm())->getBytes()));
+		$assign(b, this->preSharedKey->getEncoded());
 		hos->putInt32($nc(b)->length);
 		hos->writeBytes(b);
 		hos->putInt32($nc(this->pskIdentity)->length);
@@ -799,54 +641,50 @@ $SecretKey* SSLSessionImpl::getResumptionMasterSecret() {
 }
 
 $SecretKey* SSLSessionImpl::getPreSharedKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($SecretKey, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, this->preSharedKey);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->sessionLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($SecretKey, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, this->preSharedKey);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $SecretKey* SSLSessionImpl::consumePreSharedKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($SecretKey, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, this->preSharedKey);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$set(this, preSharedKey, nullptr);
-			$nc(this->sessionLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($SecretKey, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, this->preSharedKey);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$set(this, preSharedKey, nullptr);
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -860,28 +698,26 @@ $String* SSLSessionImpl::getIdentificationProtocol() {
 }
 
 $bytes* SSLSessionImpl::consumePskIdentity() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, this->pskIdentity);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$set(this, pskIdentity, nullptr);
-			$nc(this->sessionLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, this->pskIdentity);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$set(this, pskIdentity, nullptr);
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -910,7 +746,7 @@ void SSLSessionImpl::setPeerSupportedSignatureAlgorithms($Collection* signatureS
 
 void SSLSessionImpl::setUseDefaultPeerSignAlgs() {
 	this->useDefaultPeerSignAlgs = true;
-	$set(this, peerSupportedSignAlgs, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(SSLSessionImpl::defaultPeerSupportedSignAlgs))));
+	$set(this, peerSupportedSignAlgs, $cast($AbstractCollection, SSLSessionImpl::defaultPeerSupportedSignAlgs));
 }
 
 SSLSessionImpl* SSLSessionImpl::finish() {
@@ -932,31 +768,29 @@ bool SSLSessionImpl::isRejoinable() {
 	if (this->protocolVersion->useTLS13PlusSpec()) {
 		return (!this->invalidated && isLocalAuthenticationValid());
 	}
-	bool var$0 = this->sessionId != nullptr && $nc(this->sessionId)->length() != 0 && !this->invalidated;
+	bool var$0 = this->sessionId != nullptr && this->sessionId->length() != 0 && !this->invalidated;
 	return var$0 && isLocalAuthenticationValid();
 }
 
 bool SSLSessionImpl::isValid() {
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = isRejoinable();
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->sessionLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = isRejoinable();
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -964,7 +798,7 @@ bool SSLSessionImpl::isValid() {
 bool SSLSessionImpl::isLocalAuthenticationValid() {
 	if (this->localPrivateKey != nullptr) {
 		try {
-			$nc(this->localPrivateKey)->getAlgorithm();
+			this->localPrivateKey->getAlgorithm();
 		} catch ($Exception& e) {
 			invalidate();
 			return false;
@@ -978,7 +812,7 @@ $bytes* SSLSessionImpl::getId() {
 }
 
 $SSLSessionContext* SSLSessionImpl::getSessionContext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, nullptr);
 	if (($assign(sm, $System::getSecurityManager())) != nullptr) {
 		$nc(sm)->checkPermission($$new($SSLPermission, "getSSLSessionContext"_s));
@@ -995,7 +829,7 @@ $CipherSuite* SSLSessionImpl::getSuite() {
 }
 
 void SSLSessionImpl::setSuite($CipherSuite* suite) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, cipherSuite, suite);
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("session"_s)) {
@@ -1028,13 +862,13 @@ int32_t SSLSessionImpl::hashCode() {
 }
 
 bool SSLSessionImpl::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
 	if ($instanceOf(SSLSessionImpl, obj)) {
 		$var(SSLSessionImpl, sess, $cast(SSLSessionImpl, obj));
-		return (this->sessionId != nullptr) && ($nc(this->sessionId)->equals($($nc(sess)->getSessionId())));
+		return (this->sessionId != nullptr) && (this->sessionId->equals($(sess->getSessionId())));
 	}
 	return false;
 }
@@ -1047,29 +881,29 @@ $CertificateArray* SSLSessionImpl::getPeerCertificates() {
 }
 
 $CertificateArray* SSLSessionImpl::getLocalCertificates() {
-	return (this->localCerts == nullptr ? ($CertificateArray*)nullptr : $cast($CertificateArray, $nc(this->localCerts)->clone()));
+	return (this->localCerts == nullptr ? ($CertificateArray*)nullptr : $cast($CertificateArray, this->localCerts->clone()));
 }
 
 $X509CertificateArray* SSLSessionImpl::getCertificateChain() {
 	if (this->peerCerts != nullptr) {
-		return $cast($X509CertificateArray, $nc(this->peerCerts)->clone());
+		return $cast($X509CertificateArray, this->peerCerts->clone());
 	} else {
 		$throwNew($SSLPeerUnverifiedException, "peer not authenticated"_s);
 	}
 }
 
 $List* SSLSessionImpl::getStatusResponses() {
-	$useLocalCurrentObjectStackCache();
-	if (this->statusResponses == nullptr || $nc(this->statusResponses)->isEmpty()) {
+	$useLocalObjectStack();
+	if (this->statusResponses == nullptr || this->statusResponses->isEmpty()) {
 		return $Collections::emptyList();
 	} else {
-		$var($List, responses, $new($ArrayList, $nc(this->statusResponses)->size()));
+		$var($List, responses, $new($ArrayList, this->statusResponses->size()));
 		{
-			$var($Iterator, i$, $nc(this->statusResponses)->iterator());
+			$var($Iterator, i$, this->statusResponses->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($bytes, respBytes, $cast($bytes, i$->next()));
 				{
-					responses->add($cast($bytes, $($nc(respBytes)->clone())));
+					responses->add($$cast($bytes, $nc(respBytes)->clone()));
 				}
 			}
 		}
@@ -1085,7 +919,7 @@ $Principal* SSLSessionImpl::getPeerPrincipal() {
 }
 
 $Principal* SSLSessionImpl::getLocalPrincipal() {
-	return ((this->localCerts == nullptr || $nc(this->localCerts)->length == 0) ? ($Principal*)nullptr : static_cast<$Principal*>($nc($nc(this->localCerts)->get(0))->getSubjectX500Principal()));
+	return ((this->localCerts == nullptr || this->localCerts->length == 0) ? ($Principal*)nullptr : $cast($Principal, $nc(this->localCerts->get(0))->getSubjectX500Principal()));
 }
 
 int64_t SSLSessionImpl::getTicketCreationTime() {
@@ -1128,50 +962,48 @@ void SSLSessionImpl::setContext($SSLSessionContextImpl* ctx) {
 }
 
 void SSLSessionImpl::invalidate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			if (this->context != nullptr) {
-				$nc(this->context)->remove(this->sessionId);
-				$set(this, context, nullptr);
-			}
-			if (this->invalidated) {
-				return$1 = true;
-				goto $finally;
-			}
-			this->invalidated = true;
-			$init($SSLLogger);
-			if ($SSLLogger::isOn$ && $SSLLogger::isOn("session"_s)) {
-				$SSLLogger::finest($$str({"Invalidated session:  "_s, this}), $$new($ObjectArray, 0));
-			}
-			{
-				$var($Iterator, i$, $nc(this->childSessions)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var(SSLSessionImpl, child, $cast(SSLSessionImpl, i$->next()));
-					{
-						$nc(child)->invalidate();
-					}
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		if (this->context != nullptr) {
+			this->context->remove(this->sessionId);
+			$set(this, context, nullptr);
+		}
+		if (this->invalidated) {
+			return$1 = true;
+			goto $finally;
+		}
+		this->invalidated = true;
+		$init($SSLLogger);
+		if ($SSLLogger::isOn$ && $SSLLogger::isOn("session"_s)) {
+			$SSLLogger::finest($$str({"Invalidated session:  "_s, this}), $$new($ObjectArray, 0));
+		}
+		{
+			$var($Iterator, i$, $nc(this->childSessions)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var(SSLSessionImpl, child, $cast(SSLSessionImpl, i$->next()));
+				{
+					$nc(child)->invalidate();
 				}
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$nc(this->sessionLock)->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void SSLSessionImpl::putValue($String* key, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((key == nullptr) || (value == nullptr)) {
 		$throwNew($IllegalArgumentException, "arguments can not be null"_s);
 	}
@@ -1180,12 +1012,12 @@ void SSLSessionImpl::putValue($String* key, Object$* value) {
 	if ($instanceOf($SSLSessionBindingListener, oldValue)) {
 		$var($SSLSessionBindingEvent, e, nullptr);
 		$assign(e, $new($SSLSessionBindingEvent, this, key));
-		$nc(($cast($SSLSessionBindingListener, oldValue)))->valueUnbound(e);
+		$cast($SSLSessionBindingListener, oldValue)->valueUnbound(e);
 	}
 	if ($instanceOf($SSLSessionBindingListener, value)) {
 		$var($SSLSessionBindingEvent, e, nullptr);
 		$assign(e, $new($SSLSessionBindingEvent, this, key));
-		$nc(($cast($SSLSessionBindingListener, value)))->valueBound(e);
+		$cast($SSLSessionBindingListener, value)->valueBound(e);
 	}
 	if (this->protocolVersion->useTLS13PlusSpec()) {
 		this->updateNST = true;
@@ -1197,11 +1029,11 @@ $Object* SSLSessionImpl::getValue($String* key) {
 		$throwNew($IllegalArgumentException, "argument can not be null"_s);
 	}
 	$var($SecureKey, secureKey, $new($SecureKey, key));
-	return $of($nc(this->boundValues)->get(secureKey));
+	return $nc(this->boundValues)->get(secureKey);
 }
 
 void SSLSessionImpl::removeValue($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr) {
 		$throwNew($IllegalArgumentException, "argument can not be null"_s);
 	}
@@ -1210,7 +1042,7 @@ void SSLSessionImpl::removeValue($String* key) {
 	if ($instanceOf($SSLSessionBindingListener, value)) {
 		$var($SSLSessionBindingEvent, e, nullptr);
 		$assign(e, $new($SSLSessionBindingEvent, this, key));
-		$nc(($cast($SSLSessionBindingListener, value)))->valueUnbound(e);
+		$cast($SSLSessionBindingListener, value)->valueUnbound(e);
 	}
 	if (this->protocolVersion->useTLS13PlusSpec()) {
 		this->updateNST = true;
@@ -1218,209 +1050,195 @@ void SSLSessionImpl::removeValue($String* key) {
 }
 
 $StringArray* SSLSessionImpl::getValueNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, v, $new($ArrayList));
 	$var($Object, securityCtx, $SecureKey::getCurrentSecurityContext());
 	{
 		$var($Enumeration, e, $nc(this->boundValues)->keys());
 		for (; $nc(e)->hasMoreElements();) {
 			$var($SecureKey, key, $cast($SecureKey, e->nextElement()));
-			if ($nc($of(securityCtx))->equals($($nc(key)->getSecurityContext()))) {
-				v->add($($nc(key)->getAppKey()));
+			if ($nc(securityCtx)->equals($($nc(key)->getSecurityContext()))) {
+				v->add($(key->getAppKey()));
 			}
 		}
 	}
-	return $fcast($StringArray, v->toArray($$new($StringArray, 0)));
+	return $cast($StringArray, v->toArray($$new($StringArray, 0)));
 }
 
 void SSLSessionImpl::expandBufferSizes() {
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->acceptLargeFragments = true;
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->sessionLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->acceptLargeFragments = true;
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 int32_t SSLSessionImpl::getPacketBufferSize() {
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int32_t packetSize = 0;
-			if (this->negotiatedMaxFragLen > 0) {
-				packetSize = $nc(this->cipherSuite)->calculatePacketSize(this->negotiatedMaxFragLen, this->protocolVersion, this->protocolVersion->isDTLS);
-			}
-			if (this->maximumPacketSize > 0) {
-				var$2 = (this->maximumPacketSize > packetSize) ? this->maximumPacketSize : packetSize;
-				return$1 = true;
-				goto $finally;
-			}
-			if (packetSize != 0) {
-				var$2 = packetSize;
-				return$1 = true;
-				goto $finally;
-			}
-			if (this->protocolVersion->isDTLS) {
-				var$2 = $DTLSRecord::maxRecordSize;
-				return$1 = true;
-				goto $finally;
-			} else {
-				var$2 = this->acceptLargeFragments ? $SSLRecord::maxLargeRecordSize : $SSLRecord::maxRecordSize;
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->sessionLock)->unlock();
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int32_t packetSize = 0;
+		if (this->negotiatedMaxFragLen > 0) {
+			packetSize = $nc(this->cipherSuite)->calculatePacketSize(this->negotiatedMaxFragLen, this->protocolVersion, this->protocolVersion->isDTLS);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (this->maximumPacketSize > 0) {
+			var$2 = (this->maximumPacketSize > packetSize) ? this->maximumPacketSize : packetSize;
+			return$1 = true;
+			goto $finally;
 		}
-		if (return$1) {
-			return var$2;
+		if (packetSize != 0) {
+			var$2 = packetSize;
+			return$1 = true;
+			goto $finally;
 		}
+		if (this->protocolVersion->isDTLS) {
+			var$2 = $DTLSRecord::maxRecordSize;
+			return$1 = true;
+			goto $finally;
+		} else {
+			var$2 = this->acceptLargeFragments ? $SSLRecord::maxLargeRecordSize : $SSLRecord::maxRecordSize;
+			return$1 = true;
+			goto $finally;
+		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t SSLSessionImpl::getApplicationBufferSize() {
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int32_t fragmentSize = 0;
-			if (this->maximumPacketSize > 0) {
-				fragmentSize = $nc(this->cipherSuite)->calculateFragSize(this->maximumPacketSize, this->protocolVersion, this->protocolVersion->isDTLS);
-			}
-			if (this->negotiatedMaxFragLen > 0) {
-				var$2 = (this->negotiatedMaxFragLen > fragmentSize) ? this->negotiatedMaxFragLen : fragmentSize;
-				return$1 = true;
-				goto $finally;
-			}
-			if (fragmentSize != 0) {
-				var$2 = fragmentSize;
-				return$1 = true;
-				goto $finally;
-			}
-			if (this->protocolVersion->isDTLS) {
-				var$2 = $Record::maxDataSize;
-				return$1 = true;
-				goto $finally;
-			} else {
-				int32_t maxPacketSize = this->acceptLargeFragments ? $SSLRecord::maxLargeRecordSize : $SSLRecord::maxRecordSize;
-				var$2 = (maxPacketSize - $SSLRecord::headerSize);
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->sessionLock)->unlock();
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int32_t fragmentSize = 0;
+		if (this->maximumPacketSize > 0) {
+			fragmentSize = $nc(this->cipherSuite)->calculateFragSize(this->maximumPacketSize, this->protocolVersion, this->protocolVersion->isDTLS);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (this->negotiatedMaxFragLen > 0) {
+			var$2 = (this->negotiatedMaxFragLen > fragmentSize) ? this->negotiatedMaxFragLen : fragmentSize;
+			return$1 = true;
+			goto $finally;
 		}
-		if (return$1) {
-			return var$2;
+		if (fragmentSize != 0) {
+			var$2 = fragmentSize;
+			return$1 = true;
+			goto $finally;
 		}
+		if (this->protocolVersion->isDTLS) {
+			var$2 = $Record::maxDataSize;
+			return$1 = true;
+			goto $finally;
+		} else {
+			int32_t maxPacketSize = this->acceptLargeFragments ? $SSLRecord::maxLargeRecordSize : $SSLRecord::maxRecordSize;
+			var$2 = (maxPacketSize - $SSLRecord::headerSize);
+			return$1 = true;
+			goto $finally;
+		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void SSLSessionImpl::setNegotiatedMaxFragSize(int32_t negotiatedMaxFragLen) {
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->negotiatedMaxFragLen = negotiatedMaxFragLen;
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->sessionLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->negotiatedMaxFragLen = negotiatedMaxFragLen;
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 int32_t SSLSessionImpl::getNegotiatedMaxFragSize() {
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			var$2 = this->negotiatedMaxFragLen;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->sessionLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		var$2 = this->negotiatedMaxFragLen;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void SSLSessionImpl::setMaximumPacketSize(int32_t maximumPacketSize) {
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->maximumPacketSize = maximumPacketSize;
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->sessionLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->maximumPacketSize = maximumPacketSize;
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 int32_t SSLSessionImpl::getMaximumPacketSize() {
 	$nc(this->sessionLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			var$2 = this->maximumPacketSize;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->sessionLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		var$2 = this->maximumPacketSize;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->sessionLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -1442,25 +1260,155 @@ $List* SSLSessionImpl::getRequestedServerNames() {
 }
 
 $String* SSLSessionImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Session("_s, $$str(this->creationTime), "|"_s, $(getCipherSuite()), ")"_s});
 }
 
-void clinit$SSLSessionImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SSLSessionImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($SignatureScheme);
-	$assignStatic(SSLSessionImpl::defaultPeerSupportedSignAlgs, $new($ArrayList, $(static_cast<$Collection*>($Arrays::asList($$new($SignatureSchemeArray, {
+	$assignStatic(SSLSessionImpl::defaultPeerSupportedSignAlgs, $new($ArrayList, $($Arrays::asList($$new($SignatureSchemeArray, {
 		$SignatureScheme::RSA_PKCS1_SHA1,
 		$SignatureScheme::DSA_SHA1,
 		$SignatureScheme::ECDSA_SHA1
-	}))))));
+	})))));
 }
 
 SSLSessionImpl::SSLSessionImpl() {
 }
 
 $Class* SSLSessionImpl::load$($String* name, bool initialize) {
-	$loadClass(SSLSessionImpl, name, initialize, &_SSLSessionImpl_ClassInfo_, clinit$SSLSessionImpl, allocate$SSLSessionImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"protocolVersion", "Lsun/security/ssl/ProtocolVersion;", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, protocolVersion)},
+		{"sessionId", "Lsun/security/ssl/SessionId;", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, sessionId)},
+		{"peerCerts", "[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(SSLSessionImpl, peerCerts)},
+		{"cipherSuite", "Lsun/security/ssl/CipherSuite;", nullptr, $PRIVATE, $field(SSLSessionImpl, cipherSuite)},
+		{"masterSecret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $field(SSLSessionImpl, masterSecret)},
+		{"useExtendedMasterSecret", "Z", nullptr, $FINAL, $field(SSLSessionImpl, useExtendedMasterSecret)},
+		{"creationTime", "J", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, creationTime)},
+		{"lastUsedTime", "J", nullptr, $PRIVATE, $field(SSLSessionImpl, lastUsedTime)},
+		{"host", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, host)},
+		{"port", "I", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, port)},
+		{"context", "Lsun/security/ssl/SSLSessionContextImpl;", nullptr, $PRIVATE, $field(SSLSessionImpl, context)},
+		{"invalidated", "Z", nullptr, $PRIVATE, $field(SSLSessionImpl, invalidated)},
+		{"localCerts", "[Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(SSLSessionImpl, localCerts)},
+		{"localPrivateKey", "Ljava/security/PrivateKey;", nullptr, $PRIVATE, $field(SSLSessionImpl, localPrivateKey)},
+		{"localSupportedSignAlgs", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE | $FINAL, $field(SSLSessionImpl, localSupportedSignAlgs)},
+		{"peerSupportedSignAlgs", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE, $field(SSLSessionImpl, peerSupportedSignAlgs)},
+		{"useDefaultPeerSignAlgs", "Z", nullptr, $PRIVATE, $field(SSLSessionImpl, useDefaultPeerSignAlgs)},
+		{"statusResponses", "Ljava/util/List;", "Ljava/util/List<[B>;", $PRIVATE, $field(SSLSessionImpl, statusResponses)},
+		{"resumptionMasterSecret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $field(SSLSessionImpl, resumptionMasterSecret)},
+		{"preSharedKey", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $field(SSLSessionImpl, preSharedKey)},
+		{"pskIdentity", "[B", nullptr, $PRIVATE, $field(SSLSessionImpl, pskIdentity)},
+		{"ticketCreationTime", "J", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, ticketCreationTime)},
+		{"ticketAgeAdd", "I", nullptr, $PRIVATE, $field(SSLSessionImpl, ticketAgeAdd)},
+		{"negotiatedMaxFragLen", "I", nullptr, $PRIVATE, $field(SSLSessionImpl, negotiatedMaxFragLen)},
+		{"maximumPacketSize", "I", nullptr, $PRIVATE, $field(SSLSessionImpl, maximumPacketSize)},
+		{"childSessions", "Ljava/util/Queue;", "Ljava/util/Queue<Lsun/security/ssl/SSLSessionImpl;>;", $PRIVATE | $FINAL, $field(SSLSessionImpl, childSessions)},
+		{"isSessionResumption", "Z", nullptr, $PRIVATE, $field(SSLSessionImpl, isSessionResumption$)},
+		{"defaultRejoinable", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLSessionImpl, defaultRejoinable)},
+		{"serverNameIndication", "Ljavax/net/ssl/SNIServerName;", nullptr, $FINAL, $field(SSLSessionImpl, serverNameIndication)},
+		{"requestedServerNames", "Ljava/util/List;", "Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $PRIVATE | $FINAL, $field(SSLSessionImpl, requestedServerNames)},
+		{"ticketNonceCounter", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(SSLSessionImpl, ticketNonceCounter)},
+		{"identificationProtocol", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, identificationProtocol)},
+		{"sessionLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(SSLSessionImpl, sessionLock)},
+		{"defaultPeerSupportedSignAlgs", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLSessionImpl, defaultPeerSupportedSignAlgs)},
+		{"boundValues", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Lsun/security/ssl/SecureKey;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(SSLSessionImpl, boundValues)},
+		{"updateNST", "Z", nullptr, 0, $field(SSLSessionImpl, updateNST)},
+		{"acceptLargeFragments", "Z", nullptr, $PRIVATE, $field(SSLSessionImpl, acceptLargeFragments)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SSLSessionImpl, init$, void)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(SSLSessionImpl, init$, void, $HandshakeContext*, $CipherSuite*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/CipherSuite;Lsun/security/ssl/SessionId;)V", nullptr, 0, $method(SSLSessionImpl, init$, void, $HandshakeContext*, $CipherSuite*, $SessionId*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/CipherSuite;Lsun/security/ssl/SessionId;J)V", nullptr, 0, $method(SSLSessionImpl, init$, void, $HandshakeContext*, $CipherSuite*, $SessionId*, int64_t)},
+		{"<init>", "(Lsun/security/ssl/SSLSessionImpl;Lsun/security/ssl/SessionId;)V", nullptr, 0, $method(SSLSessionImpl, init$, void, SSLSessionImpl*, $SessionId*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(SSLSessionImpl, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"addChild", "(Lsun/security/ssl/SSLSessionImpl;)V", nullptr, 0, $method(SSLSessionImpl, addChild, void, SSLSessionImpl*)},
+		{"consumePreSharedKey", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(SSLSessionImpl, consumePreSharedKey, $SecretKey*)},
+		{"consumePskIdentity", "()[B", nullptr, 0, $method(SSLSessionImpl, consumePskIdentity, $bytes*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, equals, bool, Object$*)},
+		{"expandBufferSizes", "()V", nullptr, $PROTECTED, $method(SSLSessionImpl, expandBufferSizes, void)},
+		{"finish", "()Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(SSLSessionImpl, finish, SSLSessionImpl*)},
+		{"getApplicationBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getApplicationBufferSize, int32_t)},
+		{"getCertificateChain", "()[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(SSLSessionImpl, getCertificateChain, $X509CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getCipherSuite, $String*)},
+		{"getCreationTime", "()J", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getCreationTime, int64_t)},
+		{"getId", "()[B", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getId, $bytes*)},
+		{"getIdentificationProtocol", "()Ljava/lang/String;", nullptr, 0, $method(SSLSessionImpl, getIdentificationProtocol, $String*)},
+		{"getLastAccessedTime", "()J", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getLastAccessedTime, int64_t)},
+		{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getLocalCertificates, $CertificateArray*)},
+		{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getLocalPrincipal, $Principal*)},
+		{"getLocalSupportedSignatureAlgorithms", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getLocalSupportedSignatureAlgorithms, $StringArray*)},
+		{"getLocalSupportedSignatureSchemes", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/security/ssl/SignatureScheme;>;", $PUBLIC, $method(SSLSessionImpl, getLocalSupportedSignatureSchemes, $Collection*)},
+		{"getMasterSecret", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(SSLSessionImpl, getMasterSecret, $SecretKey*)},
+		{"getMaximumPacketSize", "()I", nullptr, 0, $method(SSLSessionImpl, getMaximumPacketSize, int32_t)},
+		{"getNegotiatedMaxFragSize", "()I", nullptr, 0, $method(SSLSessionImpl, getNegotiatedMaxFragSize, int32_t)},
+		{"getPacketBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPacketBufferSize, int32_t)},
+		{"getPeerAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $method(SSLSessionImpl, getPeerAddress, $InetAddress*)},
+		{"getPeerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPeerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"getPeerHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPeerHost, $String*)},
+		{"getPeerPort", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPeerPort, int32_t)},
+		{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"getPeerSupportedSignatureAlgorithms", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getPeerSupportedSignatureAlgorithms, $StringArray*)},
+		{"getPreSharedKey", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(SSLSessionImpl, getPreSharedKey, $SecretKey*)},
+		{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getProtocol, $String*)},
+		{"getProtocolVersion", "()Lsun/security/ssl/ProtocolVersion;", nullptr, 0, $method(SSLSessionImpl, getProtocolVersion, $ProtocolVersion*)},
+		{"getPskIdentity", "()[B", nullptr, 0, $method(SSLSessionImpl, getPskIdentity, $bytes*)},
+		{"getRequestedServerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $PUBLIC, $virtualMethod(SSLSessionImpl, getRequestedServerNames, $List*)},
+		{"getResumptionMasterSecret", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(SSLSessionImpl, getResumptionMasterSecret, $SecretKey*)},
+		{"getSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getSessionContext, $SSLSessionContext*)},
+		{"getSessionId", "()Lsun/security/ssl/SessionId;", nullptr, 0, $method(SSLSessionImpl, getSessionId, $SessionId*)},
+		{"getStatusResponses", "()Ljava/util/List;", "()Ljava/util/List<[B>;", $PUBLIC, $virtualMethod(SSLSessionImpl, getStatusResponses, $List*)},
+		{"getSuite", "()Lsun/security/ssl/CipherSuite;", nullptr, 0, $method(SSLSessionImpl, getSuite, $CipherSuite*)},
+		{"getTicketAgeAdd", "()I", nullptr, 0, $method(SSLSessionImpl, getTicketAgeAdd, int32_t)},
+		{"getTicketCreationTime", "()J", nullptr, $PUBLIC, $method(SSLSessionImpl, getTicketCreationTime, int64_t)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getValue, $Object*, $String*)},
+		{"getValueNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, getValueNames, $StringArray*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, hashCode, int32_t)},
+		{"incrTicketNonceCounter", "()Ljava/math/BigInteger;", nullptr, 0, $method(SSLSessionImpl, incrTicketNonceCounter, $BigInteger*)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, invalidate, void)},
+		{"isLocalAuthenticationValid", "()Z", nullptr, $PRIVATE, $method(SSLSessionImpl, isLocalAuthenticationValid, bool)},
+		{"isPSKable", "()Z", nullptr, 0, $method(SSLSessionImpl, isPSKable, bool)},
+		{"isRejoinable", "()Z", nullptr, 0, $method(SSLSessionImpl, isRejoinable, bool)},
+		{"isSessionResumption", "()Z", nullptr, 0, $method(SSLSessionImpl, isSessionResumption, bool)},
+		{"isStatelessable", "()Z", nullptr, 0, $method(SSLSessionImpl, isStatelessable, bool)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, isValid, bool)},
+		{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, putValue, void, $String*, Object$*)},
+		{"removeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, removeValue, void, $String*)},
+		{"setAsSessionResumption", "(Z)V", nullptr, 0, $method(SSLSessionImpl, setAsSessionResumption, void, bool)},
+		{"setContext", "(Lsun/security/ssl/SSLSessionContextImpl;)V", nullptr, 0, $method(SSLSessionImpl, setContext, void, $SSLSessionContextImpl*)},
+		{"setLastAccessedTime", "(J)V", nullptr, 0, $method(SSLSessionImpl, setLastAccessedTime, void, int64_t)},
+		{"setLocalCertificates", "([Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(SSLSessionImpl, setLocalCertificates, void, $X509CertificateArray*)},
+		{"setLocalPrivateKey", "(Ljava/security/PrivateKey;)V", nullptr, 0, $method(SSLSessionImpl, setLocalPrivateKey, void, $PrivateKey*)},
+		{"setMasterSecret", "(Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLSessionImpl, setMasterSecret, void, $SecretKey*)},
+		{"setMaximumPacketSize", "(I)V", nullptr, 0, $method(SSLSessionImpl, setMaximumPacketSize, void, int32_t)},
+		{"setNegotiatedMaxFragSize", "(I)V", nullptr, 0, $method(SSLSessionImpl, setNegotiatedMaxFragSize, void, int32_t)},
+		{"setPeerCertificates", "([Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(SSLSessionImpl, setPeerCertificates, void, $X509CertificateArray*)},
+		{"setPeerSupportedSignatureAlgorithms", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Lsun/security/ssl/SignatureScheme;>;)V", 0, $method(SSLSessionImpl, setPeerSupportedSignatureAlgorithms, void, $Collection*)},
+		{"setPreSharedKey", "(Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLSessionImpl, setPreSharedKey, void, $SecretKey*)},
+		{"setPskIdentity", "([B)V", nullptr, 0, $method(SSLSessionImpl, setPskIdentity, void, $bytes*)},
+		{"setResumptionMasterSecret", "(Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLSessionImpl, setResumptionMasterSecret, void, $SecretKey*)},
+		{"setStatusResponses", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", 0, $method(SSLSessionImpl, setStatusResponses, void, $List*)},
+		{"setSuite", "(Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(SSLSessionImpl, setSuite, void, $CipherSuite*)},
+		{"setTicketAgeAdd", "(I)V", nullptr, 0, $method(SSLSessionImpl, setTicketAgeAdd, void, int32_t)},
+		{"setUseDefaultPeerSignAlgs", "()V", nullptr, 0, $method(SSLSessionImpl, setUseDefaultPeerSignAlgs, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionImpl, toString, $String*)},
+		{"write", "()[B", nullptr, 0, $method(SSLSessionImpl, write, $bytes*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLSessionImpl",
+		"javax.net.ssl.ExtendedSSLSession",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLSessionImpl, name, initialize, &classInfo$$, SSLSessionImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLSessionImpl);
+	});
 	return class$;
 }
 

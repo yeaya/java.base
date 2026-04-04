@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/URLClassPath$1.h>
-
 #include <java/net/URL.h>
 #include <java/util/NoSuchElementException.h>
 #include <jdk/internal/loader/URLClassPath$Loader.h>
@@ -19,54 +18,6 @@ using $URLClassPath$Loader = ::jdk::internal::loader::URLClassPath$Loader;
 namespace jdk {
 	namespace internal {
 		namespace loader {
-
-$FieldInfo _URLClassPath$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/loader/URLClassPath;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$1, this$0)},
-	{"val$check", "Z", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$1, val$check)},
-	{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$1, val$name)},
-	{"index", "I", nullptr, $PRIVATE, $field(URLClassPath$1, index)},
-	{"url", "Ljava/net/URL;", nullptr, $PRIVATE, $field(URLClassPath$1, url)},
-	{}
-};
-
-$MethodInfo _URLClassPath$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/URLClassPath;Ljava/lang/String;Z)V", nullptr, 0, $method(URLClassPath$1, init$, void, $URLClassPath*, $String*, bool)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(URLClassPath$1, hasMoreElements, bool)},
-	{"next", "()Z", nullptr, $PRIVATE, $method(URLClassPath$1, next, bool)},
-	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$1, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _URLClassPath$1_EnclosingMethodInfo_ = {
-	"jdk.internal.loader.URLClassPath",
-	"findResources",
-	"(Ljava/lang/String;Z)Ljava/util/Enumeration;"
-};
-
-$InnerClassInfo _URLClassPath$1_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.URLClassPath$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URLClassPath$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.URLClassPath$1",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_URLClassPath$1_FieldInfo_,
-	_URLClassPath$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/net/URL;>;",
-	&_URLClassPath$1_EnclosingMethodInfo_,
-	_URLClassPath$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.URLClassPath"
-};
-
-$Object* allocate$URLClassPath$1($Class* clazz) {
-	return $of($alloc(URLClassPath$1));
-}
 
 void URLClassPath$1::init$($URLClassPath* this$0, $String* val$name, bool val$check) {
 	$set(this, this$0, this$0);
@@ -101,14 +52,55 @@ $Object* URLClassPath$1::nextElement() {
 	}
 	$var($URL, u, this->url);
 	$set(this, url, nullptr);
-	return $of(u);
+	return u;
 }
 
 URLClassPath$1::URLClassPath$1() {
 }
 
 $Class* URLClassPath$1::load$($String* name, bool initialize) {
-	$loadClass(URLClassPath$1, name, initialize, &_URLClassPath$1_ClassInfo_, allocate$URLClassPath$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/loader/URLClassPath;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$1, this$0)},
+		{"val$check", "Z", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$1, val$check)},
+		{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(URLClassPath$1, val$name)},
+		{"index", "I", nullptr, $PRIVATE, $field(URLClassPath$1, index)},
+		{"url", "Ljava/net/URL;", nullptr, $PRIVATE, $field(URLClassPath$1, url)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/loader/URLClassPath;Ljava/lang/String;Z)V", nullptr, 0, $method(URLClassPath$1, init$, void, $URLClassPath*, $String*, bool)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(URLClassPath$1, hasMoreElements, bool)},
+		{"next", "()Z", nullptr, $PRIVATE, $method(URLClassPath$1, next, bool)},
+		{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$1, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.loader.URLClassPath",
+		"findResources",
+		"(Ljava/lang/String;Z)Ljava/util/Enumeration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.URLClassPath$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.URLClassPath$1",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/net/URL;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.URLClassPath"
+	};
+	$loadClass(URLClassPath$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLClassPath$1);
+	});
 	return class$;
 }
 

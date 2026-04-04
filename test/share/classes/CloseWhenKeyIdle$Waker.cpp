@@ -1,5 +1,4 @@
 #include <CloseWhenKeyIdle$Waker.h>
-
 #include <CloseWhenKeyIdle.h>
 #include <java/nio/channels/Selector.h>
 #include <jcpp.h>
@@ -11,43 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Selector = ::java::nio::channels::Selector;
-
-$FieldInfo _CloseWhenKeyIdle$Waker_FieldInfo_[] = {
-	{"sel", "Ljava/nio/channels/Selector;", nullptr, $PRIVATE, $field(CloseWhenKeyIdle$Waker, sel)},
-	{"delay", "J", nullptr, $PRIVATE, $field(CloseWhenKeyIdle$Waker, delay)},
-	{}
-};
-
-$MethodInfo _CloseWhenKeyIdle$Waker_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Selector;J)V", nullptr, 0, $method(CloseWhenKeyIdle$Waker, init$, void, $Selector*, int64_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseWhenKeyIdle$Waker, run, void)},
-	{}
-};
-
-$InnerClassInfo _CloseWhenKeyIdle$Waker_InnerClassesInfo_[] = {
-	{"CloseWhenKeyIdle$Waker", "CloseWhenKeyIdle", "Waker", $STATIC},
-	{}
-};
-
-$ClassInfo _CloseWhenKeyIdle$Waker_ClassInfo_ = {
-	$ACC_SUPER,
-	"CloseWhenKeyIdle$Waker",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_CloseWhenKeyIdle$Waker_FieldInfo_,
-	_CloseWhenKeyIdle$Waker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CloseWhenKeyIdle$Waker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"CloseWhenKeyIdle"
-};
-
-$Object* allocate$CloseWhenKeyIdle$Waker($Class* clazz) {
-	return $of($alloc(CloseWhenKeyIdle$Waker));
-}
 
 void CloseWhenKeyIdle$Waker::init$($Selector* sel, int64_t delay) {
 	$set(this, sel, sel);
@@ -69,7 +31,38 @@ CloseWhenKeyIdle$Waker::CloseWhenKeyIdle$Waker() {
 }
 
 $Class* CloseWhenKeyIdle$Waker::load$($String* name, bool initialize) {
-	$loadClass(CloseWhenKeyIdle$Waker, name, initialize, &_CloseWhenKeyIdle$Waker_ClassInfo_, allocate$CloseWhenKeyIdle$Waker);
+	$FieldInfo fieldInfos$$[] = {
+		{"sel", "Ljava/nio/channels/Selector;", nullptr, $PRIVATE, $field(CloseWhenKeyIdle$Waker, sel)},
+		{"delay", "J", nullptr, $PRIVATE, $field(CloseWhenKeyIdle$Waker, delay)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/Selector;J)V", nullptr, 0, $method(CloseWhenKeyIdle$Waker, init$, void, $Selector*, int64_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseWhenKeyIdle$Waker, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CloseWhenKeyIdle$Waker", "CloseWhenKeyIdle", "Waker", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"CloseWhenKeyIdle$Waker",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"CloseWhenKeyIdle"
+	};
+	$loadClass(CloseWhenKeyIdle$Waker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CloseWhenKeyIdle$Waker);
+	});
 	return class$;
 }
 

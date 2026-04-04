@@ -44,6 +44,7 @@ class X509KeyManagerImpl$CheckType : public ::java::lang::Enum {
 public:
 	X509KeyManagerImpl$CheckType();
 	static $Array<::sun::security::ssl::X509KeyManagerImpl$CheckType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::java::util::Set* validEku);
 	virtual ::sun::security::ssl::X509KeyManagerImpl$CheckResult* check(::java::security::cert::X509Certificate* cert, ::java::util::Date* date, ::java::util::List* serverNames, $String* idAlgorithm);
 	static bool getBit($booleans* keyUsage, int32_t bit);

@@ -1,11 +1,9 @@
 #include <sun/security/ssl/MaxFragExtension$CHMaxFragmentLengthConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Map.h>
 #include <javax/net/ssl/SSLException.h>
 #include <sun/security/ssl/Alert.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/MaxFragExtension$MaxFragLenEnum.h>
 #include <sun/security/ssl/MaxFragExtension$MaxFragLenSpec.h>
 #include <sun/security/ssl/MaxFragExtension.h>
@@ -24,60 +22,24 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $MaxFragExtension$MaxFragLenEnum = ::sun::security::ssl::MaxFragExtension$MaxFragLenEnum;
 using $MaxFragExtension$MaxFragLenSpec = ::sun::security::ssl::MaxFragExtension$MaxFragLenSpec;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _MaxFragExtension$CHMaxFragmentLengthConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MaxFragExtension$CHMaxFragmentLengthConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(MaxFragExtension$CHMaxFragmentLengthConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _MaxFragExtension$CHMaxFragmentLengthConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.MaxFragExtension$CHMaxFragmentLengthConsumer", "sun.security.ssl.MaxFragExtension", "CHMaxFragmentLengthConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MaxFragExtension$CHMaxFragmentLengthConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.MaxFragExtension$CHMaxFragmentLengthConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLExtension$ExtensionConsumer",
-	nullptr,
-	_MaxFragExtension$CHMaxFragmentLengthConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaxFragExtension$CHMaxFragmentLengthConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.MaxFragExtension"
-};
-
-$Object* allocate$MaxFragExtension$CHMaxFragmentLengthConsumer($Class* clazz) {
-	return $of($alloc(MaxFragExtension$CHMaxFragmentLengthConsumer));
-}
-
 void MaxFragExtension$CHMaxFragmentLengthConsumer::init$() {
 }
 
 void MaxFragExtension$CHMaxFragmentLengthConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::CH_MAX_FRAGMENT_LENGTH)) {
@@ -91,9 +53,9 @@ void MaxFragExtension$CHMaxFragmentLengthConsumer::consume($ConnectionContext* c
 	$MaxFragExtension$MaxFragLenEnum* mfle = $MaxFragExtension$MaxFragLenEnum::valueOf(spec->id);
 	if (mfle == nullptr) {
 		$init($Alert);
-		$throw($($nc($nc(shc)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "the requested maximum fragment length is other than the allowed values"_s)));
+		$throw($($nc(shc->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "the requested maximum fragment length is other than the allowed values"_s)));
 	}
-	$nc(shc)->maxFragmentLength = $nc(mfle)->fragmentSize;
+	shc->maxFragmentLength = mfle->fragmentSize;
 	$nc(shc->handshakeExtensions)->put($SSLExtension::CH_MAX_FRAGMENT_LENGTH, spec);
 }
 
@@ -101,7 +63,34 @@ MaxFragExtension$CHMaxFragmentLengthConsumer::MaxFragExtension$CHMaxFragmentLeng
 }
 
 $Class* MaxFragExtension$CHMaxFragmentLengthConsumer::load$($String* name, bool initialize) {
-	$loadClass(MaxFragExtension$CHMaxFragmentLengthConsumer, name, initialize, &_MaxFragExtension$CHMaxFragmentLengthConsumer_ClassInfo_, allocate$MaxFragExtension$CHMaxFragmentLengthConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MaxFragExtension$CHMaxFragmentLengthConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(MaxFragExtension$CHMaxFragmentLengthConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.MaxFragExtension$CHMaxFragmentLengthConsumer", "sun.security.ssl.MaxFragExtension", "CHMaxFragmentLengthConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.MaxFragExtension$CHMaxFragmentLengthConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLExtension$ExtensionConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.MaxFragExtension"
+	};
+	$loadClass(MaxFragExtension$CHMaxFragmentLengthConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaxFragExtension$CHMaxFragmentLengthConsumer);
+	});
 	return class$;
 }
 

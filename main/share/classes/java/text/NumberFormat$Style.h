@@ -19,6 +19,7 @@ class $export NumberFormat$Style : public ::java::lang::Enum {
 public:
 	NumberFormat$Style();
 	static $Array<::java::text::NumberFormat$Style>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::text::NumberFormat$Style* valueOf($String* name);
 	static $Array<::java::text::NumberFormat$Style>* values();

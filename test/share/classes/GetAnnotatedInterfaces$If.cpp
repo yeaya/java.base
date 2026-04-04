@@ -1,38 +1,33 @@
 #include <GetAnnotatedInterfaces$If.h>
-
 #include <GetAnnotatedInterfaces.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 
-$InnerClassInfo _GetAnnotatedInterfaces$If_InnerClassesInfo_[] = {
-	{"GetAnnotatedInterfaces$If", "GetAnnotatedInterfaces", "If", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GetAnnotatedInterfaces$If_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"GetAnnotatedInterfaces$If",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_GetAnnotatedInterfaces$If_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetAnnotatedInterfaces"
-};
-
-$Object* allocate$GetAnnotatedInterfaces$If($Class* clazz) {
-	return $of($alloc(GetAnnotatedInterfaces$If));
-}
-
 $Class* GetAnnotatedInterfaces$If::load$($String* name, bool initialize) {
-	$loadClass(GetAnnotatedInterfaces$If, name, initialize, &_GetAnnotatedInterfaces$If_ClassInfo_, allocate$GetAnnotatedInterfaces$If);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetAnnotatedInterfaces$If", "GetAnnotatedInterfaces", "If", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"GetAnnotatedInterfaces$If",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetAnnotatedInterfaces"
+	};
+	$loadClass(GetAnnotatedInterfaces$If, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetAnnotatedInterfaces$If);
+	});
 	return class$;
 }
 

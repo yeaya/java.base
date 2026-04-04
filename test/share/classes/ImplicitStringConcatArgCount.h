@@ -9,6 +9,7 @@ class $export ImplicitStringConcatArgCount : public ::java::lang::Object {
 	$class(ImplicitStringConcatArgCount, 0, ::java::lang::Object)
 public:
 	ImplicitStringConcatArgCount();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test($String* expected, $String* actual);

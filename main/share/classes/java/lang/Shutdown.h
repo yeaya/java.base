@@ -21,6 +21,7 @@ class Shutdown : public ::java::lang::Object {
 	$class(Shutdown, 0, ::java::lang::Object)
 public:
 	Shutdown();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void add(int32_t slot, bool registerShutdownInProgress, ::java::lang::Runnable* hook);
 	static void beforeHalt();

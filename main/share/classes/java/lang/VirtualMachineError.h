@@ -22,10 +22,13 @@ public:
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x39C25654802F0E1E;
+	static const int64_t serialVersionUID = (int64_t)0x39c25654802f0e1e;
 	VirtualMachineError(const VirtualMachineError& e);
 	virtual void throw$() override;
-	inline VirtualMachineError* operator ->() {
+	inline VirtualMachineError* operator ->() const {
+		return (VirtualMachineError*)throwing$;
+	}
+	inline operator VirtualMachineError*() const {
 		return (VirtualMachineError*)throwing$;
 	}
 };

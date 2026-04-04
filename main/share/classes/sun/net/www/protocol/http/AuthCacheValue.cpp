@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/AuthCacheValue.h>
-
 #include <java/net/PasswordAuthentication.h>
 #include <sun/net/www/protocol/http/AuthCache.h>
 #include <sun/net/www/protocol/http/AuthCacheImpl.h>
@@ -23,50 +22,6 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$FieldInfo _AuthCacheValue_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AuthCacheValue, serialVersionUID)},
-	{"cache", "Lsun/net/www/protocol/http/AuthCache;", nullptr, $PROTECTED | $STATIC, $staticField(AuthCacheValue, cache)},
-	{}
-};
-
-$MethodInfo _AuthCacheValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AuthCacheValue, init$, void)},
-	{"credentials", "()Ljava/net/PasswordAuthentication;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, credentials, $PasswordAuthentication*)},
-	{"getAuthScheme", "()Lsun/net/www/protocol/http/AuthScheme;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getAuthScheme, $AuthScheme*)},
-	{"getAuthType", "()Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getAuthType, $AuthCacheValue$Type*)},
-	{"getHost", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getHost, $String*)},
-	{"getPath", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getPath, $String*)},
-	{"getPort", "()I", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getPort, int32_t)},
-	{"getProtocolScheme", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getProtocolScheme, $String*)},
-	{"getRealm", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getRealm, $String*)},
-	{"setAuthCache", "(Lsun/net/www/protocol/http/AuthCache;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthCacheValue, setAuthCache, void, $AuthCache*)},
-	{}
-};
-
-$InnerClassInfo _AuthCacheValue_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.AuthCacheValue$Type", "sun.net.www.protocol.http.AuthCacheValue", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _AuthCacheValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.net.www.protocol.http.AuthCacheValue",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_AuthCacheValue_FieldInfo_,
-	_AuthCacheValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AuthCacheValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.AuthCacheValue$Type"
-};
-
-$Object* allocate$AuthCacheValue($Class* clazz) {
-	return $of($alloc(AuthCacheValue));
-}
-
 $AuthCache* AuthCacheValue::cache = nullptr;
 
 void AuthCacheValue::setAuthCache($AuthCache* map) {
@@ -77,7 +32,7 @@ void AuthCacheValue::setAuthCache($AuthCache* map) {
 void AuthCacheValue::init$() {
 }
 
-void clinit$AuthCacheValue($Class* class$) {
+void AuthCacheValue::clinit$($Class* clazz) {
 	$assignStatic(AuthCacheValue::cache, $new($AuthCacheImpl));
 }
 
@@ -85,7 +40,45 @@ AuthCacheValue::AuthCacheValue() {
 }
 
 $Class* AuthCacheValue::load$($String* name, bool initialize) {
-	$loadClass(AuthCacheValue, name, initialize, &_AuthCacheValue_ClassInfo_, clinit$AuthCacheValue, allocate$AuthCacheValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AuthCacheValue, serialVersionUID)},
+		{"cache", "Lsun/net/www/protocol/http/AuthCache;", nullptr, $PROTECTED | $STATIC, $staticField(AuthCacheValue, cache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AuthCacheValue, init$, void)},
+		{"credentials", "()Ljava/net/PasswordAuthentication;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, credentials, $PasswordAuthentication*)},
+		{"getAuthScheme", "()Lsun/net/www/protocol/http/AuthScheme;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getAuthScheme, $AuthScheme*)},
+		{"getAuthType", "()Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getAuthType, $AuthCacheValue$Type*)},
+		{"getHost", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getHost, $String*)},
+		{"getPath", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getPath, $String*)},
+		{"getPort", "()I", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getPort, int32_t)},
+		{"getProtocolScheme", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getProtocolScheme, $String*)},
+		{"getRealm", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getRealm, $String*)},
+		{"setAuthCache", "(Lsun/net/www/protocol/http/AuthCache;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthCacheValue, setAuthCache, void, $AuthCache*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.AuthCacheValue$Type", "sun.net.www.protocol.http.AuthCacheValue", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.net.www.protocol.http.AuthCacheValue",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.AuthCacheValue$Type"
+	};
+	$loadClass(AuthCacheValue, name, initialize, &classInfo$$, AuthCacheValue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthCacheValue);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/SerializationConstructorAccessorImpl.h>
-
 #include <jdk/internal/reflect/ConstructorAccessorImpl.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace jdk {
 	namespace internal {
 		namespace reflect {
 
-$MethodInfo _SerializationConstructorAccessorImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SerializationConstructorAccessorImpl, init$, void)},
-	{}
-};
-
-$ClassInfo _SerializationConstructorAccessorImpl_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"jdk.internal.reflect.SerializationConstructorAccessorImpl",
-	"jdk.internal.reflect.ConstructorAccessorImpl",
-	nullptr,
-	nullptr,
-	_SerializationConstructorAccessorImpl_MethodInfo_
-};
-
-$Object* allocate$SerializationConstructorAccessorImpl($Class* clazz) {
-	return $of($alloc(SerializationConstructorAccessorImpl));
-}
-
 void SerializationConstructorAccessorImpl::init$() {
 	$ConstructorAccessorImpl::init$();
 }
@@ -37,7 +18,21 @@ SerializationConstructorAccessorImpl::SerializationConstructorAccessorImpl() {
 }
 
 $Class* SerializationConstructorAccessorImpl::load$($String* name, bool initialize) {
-	$loadClass(SerializationConstructorAccessorImpl, name, initialize, &_SerializationConstructorAccessorImpl_ClassInfo_, allocate$SerializationConstructorAccessorImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SerializationConstructorAccessorImpl, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"jdk.internal.reflect.SerializationConstructorAccessorImpl",
+		"jdk.internal.reflect.ConstructorAccessorImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SerializationConstructorAccessorImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SerializationConstructorAccessorImpl));
+	});
 	return class$;
 }
 

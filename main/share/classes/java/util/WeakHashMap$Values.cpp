@@ -1,5 +1,4 @@
 #include <java/util/WeakHashMap$Values.h>
-
 #include <java/util/AbstractCollection.h>
 #include <java/util/Iterator.h>
 #include <java/util/Spliterator.h>
@@ -21,46 +20,6 @@ using $WeakHashMap$ValueSpliterator = ::java::util::WeakHashMap$ValueSpliterator
 
 namespace java {
 	namespace util {
-
-$FieldInfo _WeakHashMap$Values_FieldInfo_[] = {
-	{"this$0", "Ljava/util/WeakHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(WeakHashMap$Values, this$0)},
-	{}
-};
-
-$MethodInfo _WeakHashMap$Values_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, $PRIVATE, $method(WeakHashMap$Values, init$, void, $WeakHashMap*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Values, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Values, contains, bool, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(WeakHashMap$Values, iterator, $Iterator*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Values, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC, $virtualMethod(WeakHashMap$Values, spliterator, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _WeakHashMap$Values_InnerClassesInfo_[] = {
-	{"java.util.WeakHashMap$Values", "java.util.WeakHashMap", "Values", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WeakHashMap$Values_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.WeakHashMap$Values",
-	"java.util.AbstractCollection",
-	nullptr,
-	_WeakHashMap$Values_FieldInfo_,
-	_WeakHashMap$Values_MethodInfo_,
-	"Ljava/util/AbstractCollection<TV;>;",
-	nullptr,
-	_WeakHashMap$Values_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.WeakHashMap"
-};
-
-$Object* allocate$WeakHashMap$Values($Class* clazz) {
-	return $of($alloc(WeakHashMap$Values));
-}
 
 void WeakHashMap$Values::init$($WeakHashMap* this$0) {
 	$set(this, this$0, this$0);
@@ -91,7 +50,41 @@ WeakHashMap$Values::WeakHashMap$Values() {
 }
 
 $Class* WeakHashMap$Values::load$($String* name, bool initialize) {
-	$loadClass(WeakHashMap$Values, name, initialize, &_WeakHashMap$Values_ClassInfo_, allocate$WeakHashMap$Values);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/WeakHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(WeakHashMap$Values, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, $PRIVATE, $method(WeakHashMap$Values, init$, void, $WeakHashMap*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Values, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Values, contains, bool, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(WeakHashMap$Values, iterator, $Iterator*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Values, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC, $virtualMethod(WeakHashMap$Values, spliterator, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.WeakHashMap$Values", "java.util.WeakHashMap", "Values", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.WeakHashMap$Values",
+		"java.util.AbstractCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractCollection<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.WeakHashMap"
+	};
+	$loadClass(WeakHashMap$Values, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WeakHashMap$Values);
+	});
 	return class$;
 }
 

@@ -24,6 +24,7 @@ class DisabledAlgorithmConstraints$JarHolder : public ::java::lang::Object {
 	$class(DisabledAlgorithmConstraints$JarHolder, 0, ::java::lang::Object)
 public:
 	DisabledAlgorithmConstraints$JarHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::util::DisabledAlgorithmConstraints* CONSTRAINTS;
 };

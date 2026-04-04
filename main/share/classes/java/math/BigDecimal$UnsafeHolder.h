@@ -26,6 +26,7 @@ class BigDecimal$UnsafeHolder : public ::java::lang::Object {
 	$class(BigDecimal$UnsafeHolder, 0, ::java::lang::Object)
 public:
 	BigDecimal$UnsafeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void setIntCompact(::java::math::BigDecimal* bd, int64_t val);
 	static void setIntValVolatile(::java::math::BigDecimal* bd, ::java::math::BigInteger* val);

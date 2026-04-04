@@ -1,5 +1,4 @@
 #include <java/util/Currency$1.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/File.h>
@@ -30,7 +29,6 @@ using $File = ::java::io::File;
 using $FileReader = ::java::io::FileReader;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -57,123 +55,81 @@ public:
 	virtual void accept(Object$* prop) override {
 		$Currency::replaceCurrencyData($cast($Currency$CurrencyProperty, prop));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Currency$1$$Lambda$replaceCurrencyData>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Currency$1$$Lambda$replaceCurrencyData::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$1$$Lambda$replaceCurrencyData, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Currency$1$$Lambda$replaceCurrencyData, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Currency$1$$Lambda$replaceCurrencyData::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Currency$1$$Lambda$replaceCurrencyData",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* Currency$1$$Lambda$replaceCurrencyData::load$($String* name, bool initialize) {
-	$loadClass(Currency$1$$Lambda$replaceCurrencyData, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$1$$Lambda$replaceCurrencyData, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Currency$1$$Lambda$replaceCurrencyData, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Currency$1$$Lambda$replaceCurrencyData",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Currency$1$$Lambda$replaceCurrencyData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency$1$$Lambda$replaceCurrencyData);
+	});
 	return class$;
 }
 $Class* Currency$1$$Lambda$replaceCurrencyData::class$ = nullptr;
-
-$MethodInfo _Currency$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Currency$1, init$, void)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Currency$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Currency$1_EnclosingMethodInfo_ = {
-	"java.util.Currency",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Currency$1_InnerClassesInfo_[] = {
-	{"java.util.Currency$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Currency$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Currency$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_Currency$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_Currency$1_EnclosingMethodInfo_,
-	_Currency$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Currency"
-};
-
-$Object* allocate$Currency$1($Class* clazz) {
-	return $of($alloc(Currency$1));
-}
 
 void Currency$1::init$() {
 }
 
 $Object* Currency$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		{
 			$var($InputStream, in, $of(this)->getClass()->getResourceAsStream("/java/util/currency.data"_s));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						if (in == nullptr) {
-							$throwNew($InternalError, "Currency data not found"_s);
-						}
-						$var($DataInputStream, dis, $new($DataInputStream, $$new($BufferedInputStream, in)));
-						if (dis->readInt() != 0x43757244) {
-							$throwNew($InternalError, "Currency data is possibly corrupted"_s);
-						}
-						$init($Currency);
-						$Currency::formatVersion = dis->readInt();
-						if ($Currency::formatVersion != 3) {
-							$throwNew($InternalError, "Currency data format is incorrect"_s);
-						}
-						$Currency::dataVersion = dis->readInt();
-						$assignStatic($Currency::mainTable, $Currency::readIntArray(dis, 26 * 26));
-						int32_t scCount = dis->readInt();
-						$assignStatic($Currency::specialCasesList, $Currency::readSpecialCases(dis, scCount));
-						int32_t ocCount = dis->readInt();
-						$assignStatic($Currency::otherCurrenciesList, $Currency::readOtherCurrencies(dis, ocCount));
-					} catch ($Throwable& t$) {
-						if (in != nullptr) {
-							try {
-								in->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
+					if (in == nullptr) {
+						$throwNew($InternalError, "Currency data not found"_s);
 					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
+					$var($DataInputStream, dis, $new($DataInputStream, $$new($BufferedInputStream, in)));
+					if (dis->readInt() != 0x43757244) {
+						$throwNew($InternalError, "Currency data is possibly corrupted"_s);
+					}
+					$init($Currency);
+					$Currency::formatVersion = dis->readInt();
+					if ($Currency::formatVersion != 3) {
+						$throwNew($InternalError, "Currency data format is incorrect"_s);
+					}
+					$Currency::dataVersion = dis->readInt();
+					$assignStatic($Currency::mainTable, $Currency::readIntArray(dis, 26 * 26));
+					int32_t scCount = dis->readInt();
+					$assignStatic($Currency::specialCasesList, $Currency::readSpecialCases(dis, scCount));
+					int32_t ocCount = dis->readInt();
+					$assignStatic($Currency::otherCurrenciesList, $Currency::readOtherCurrencies(dis, ocCount));
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
-						in->close();
+						try {
+							in->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (in != nullptr) {
+					in->close();
 				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	} catch ($IOException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$var($String, propsFile, $System::getProperty("java.util.currency.data"_s));
 	if (propsFile == nullptr) {
@@ -186,37 +142,35 @@ $Object* Currency$1::run() {
 			$var($Properties, props, $new($Properties));
 			{
 				$var($FileReader, fr, $new($FileReader, propFile));
-				{
-					$var($Throwable, var$2, nullptr);
+				$var($Throwable, var$2, nullptr);
+				try {
 					try {
+						props->load(fr);
+					} catch ($Throwable& t$) {
 						try {
-							props->load(static_cast<$Reader*>(fr));
-						} catch ($Throwable& t$) {
-							try {
-								fr->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-							$throw(t$);
+							fr->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
 						}
-					} catch ($Throwable& var$3) {
-						$assign(var$2, var$3);
-					} /*finally*/ {
-						fr->close();
+						$throw(t$);
 					}
-					if (var$2 != nullptr) {
-						$throw(var$2);
-					}
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
+				} /*finally*/ {
+					fr->close();
+				}
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			}
 			$var($Pattern, propertiesPattern, $Pattern::compile("([A-Z]{3})\\s*,\\s*(\\d{3})\\s*,\\s*(\\d+)\\s*,?\\s*(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2})?"_s));
 			$var($List, currencyEntries, $Currency::getValidCurrencyData(props, propertiesPattern));
-			$nc(currencyEntries)->forEach(static_cast<$Consumer*>($$new(Currency$1$$Lambda$replaceCurrencyData)));
+			$nc(currencyEntries)->forEach($$new(Currency$1$$Lambda$replaceCurrencyData));
 		}
 	} catch ($IOException& e) {
 		$Currency$CurrencyProperty::info("currency.properties is ignored because of an IOException"_s, e);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 Currency$1::Currency$1() {
@@ -224,11 +178,42 @@ Currency$1::Currency$1() {
 
 $Class* Currency$1::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Currency$1$$Lambda$replaceCurrencyData::classInfo$.name)) {
+		if (name->equals("java.util.Currency$1$$Lambda$replaceCurrencyData")) {
 			return Currency$1$$Lambda$replaceCurrencyData::load$(name, initialize);
 		}
 	}
-	$loadClass(Currency$1, name, initialize, &_Currency$1_ClassInfo_, allocate$Currency$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Currency$1, init$, void)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Currency$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.Currency",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Currency$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Currency$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Currency"
+	};
+	$loadClass(Currency$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency$1);
+	});
 	return class$;
 }
 

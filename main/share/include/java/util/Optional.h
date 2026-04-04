@@ -38,6 +38,7 @@ class $import Optional : public ::java::lang::Object {
 	$class(Optional, $PRELOAD, ::java::lang::Object)
 public:
 	Optional();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* value);
 	static ::java::util::Optional* empty();
 	virtual bool equals(Object$* obj) override;

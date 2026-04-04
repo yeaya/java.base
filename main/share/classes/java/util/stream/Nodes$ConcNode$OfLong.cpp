@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$ConcNode$OfLong.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/function/IntFunction.h>
@@ -9,7 +8,6 @@
 #include <java/util/stream/Nodes$ConcNode$OfPrimitive.h>
 #include <java/util/stream/Nodes$ConcNode.h>
 #include <java/util/stream/Nodes$InternalNodeSpliterator$OfLong.h>
-#include <java/util/stream/Nodes$InternalNodeSpliterator$OfPrimitive.h>
 #include <java/util/stream/Nodes$InternalNodeSpliterator.h>
 #include <java/util/stream/StreamShape.h>
 #include <jcpp.h>
@@ -23,69 +21,14 @@ using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
 using $Node = ::java::util::stream::Node;
 using $Node$OfLong = ::java::util::stream::Node$OfLong;
-using $Node$OfPrimitive = ::java::util::stream::Node$OfPrimitive;
 using $Nodes$ConcNode$OfPrimitive = ::java::util::stream::Nodes$ConcNode$OfPrimitive;
 using $Nodes$InternalNodeSpliterator = ::java::util::stream::Nodes$InternalNodeSpliterator;
 using $Nodes$InternalNodeSpliterator$OfLong = ::java::util::stream::Nodes$InternalNodeSpliterator$OfLong;
-using $Nodes$InternalNodeSpliterator$OfPrimitive = ::java::util::stream::Nodes$InternalNodeSpliterator$OfPrimitive;
 using $StreamShape = ::java::util::stream::StreamShape;
 
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _Nodes$ConcNode$OfLong_MethodInfo_[] = {
-	{"*asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*asPrimitiveArray", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC},
-	{"*copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*copyInto", "([Ljava/lang/Long;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*count", "()J", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getChild", "(I)Ljava/util/stream/Node;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getChildCount", "()I", nullptr, $PUBLIC},
-	{"*getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/Node$OfLong;Ljava/util/stream/Node$OfLong;)V", nullptr, 0, $method(Nodes$ConcNode$OfLong, init$, void, $Node$OfLong*, $Node$OfLong*)},
-	{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"spliterator", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(Nodes$ConcNode$OfLong, spliterator, $Spliterator*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$InnerClassInfo _Nodes$ConcNode$OfLong_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$ConcNode", "java.util.stream.Nodes", "ConcNode", $STATIC | $FINAL},
-	{"java.util.stream.Nodes$ConcNode$OfLong", "java.util.stream.Nodes$ConcNode", "OfLong", $STATIC | $FINAL},
-	{"java.util.stream.Nodes$ConcNode$OfPrimitive", "java.util.stream.Nodes$ConcNode", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Node$OfLong", "java.util.stream.Node", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$ConcNode$OfLong_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Nodes$ConcNode$OfLong",
-	"java.util.stream.Nodes$ConcNode$OfPrimitive",
-	"java.util.stream.Node$OfLong",
-	nullptr,
-	_Nodes$ConcNode$OfLong_MethodInfo_,
-	"Ljava/util/stream/Nodes$ConcNode$OfPrimitive<Ljava/lang/Long;Ljava/util/function/LongConsumer;[JLjava/util/Spliterator$OfLong;Ljava/util/stream/Node$OfLong;>;Ljava/util/stream/Node$OfLong;",
-	nullptr,
-	_Nodes$ConcNode$OfLong_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$ConcNode$OfLong($Class* clazz) {
-	return $of($alloc(Nodes$ConcNode$OfLong));
-}
 
 void Nodes$ConcNode$OfLong::forEach(Object$* consumer) {
 	this->$Nodes$ConcNode$OfPrimitive::forEach(consumer);
@@ -244,14 +187,62 @@ void Nodes$ConcNode$OfLong::init$($Node$OfLong* left, $Node$OfLong* right) {
 }
 
 $Spliterator* Nodes$ConcNode$OfLong::spliterator() {
-	return static_cast<$Spliterator*>(static_cast<$Nodes$InternalNodeSpliterator*>(static_cast<$Nodes$InternalNodeSpliterator$OfPrimitive*>($new($Nodes$InternalNodeSpliterator$OfLong, $as($Node$OfLong, this)))));
+	return $cast($Nodes$InternalNodeSpliterator, $new($Nodes$InternalNodeSpliterator$OfLong, $as($Node$OfLong, this)));
 }
 
 Nodes$ConcNode$OfLong::Nodes$ConcNode$OfLong() {
 }
 
 $Class* Nodes$ConcNode$OfLong::load$($String* name, bool initialize) {
-	$loadClass(Nodes$ConcNode$OfLong, name, initialize, &_Nodes$ConcNode$OfLong_ClassInfo_, allocate$Nodes$ConcNode$OfLong);
+	$MethodInfo methodInfos$$[] = {
+		{"*asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*asPrimitiveArray", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC},
+		{"*copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*copyInto", "([Ljava/lang/Long;I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*count", "()J", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getChild", "(I)Ljava/util/stream/Node;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getChildCount", "()I", nullptr, $PUBLIC},
+		{"*getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/stream/Node$OfLong;Ljava/util/stream/Node$OfLong;)V", nullptr, 0, $method(Nodes$ConcNode$OfLong, init$, void, $Node$OfLong*, $Node$OfLong*)},
+		{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"spliterator", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(Nodes$ConcNode$OfLong, spliterator, $Spliterator*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$ConcNode", "java.util.stream.Nodes", "ConcNode", $STATIC | $FINAL},
+		{"java.util.stream.Nodes$ConcNode$OfLong", "java.util.stream.Nodes$ConcNode", "OfLong", $STATIC | $FINAL},
+		{"java.util.stream.Nodes$ConcNode$OfPrimitive", "java.util.stream.Nodes$ConcNode", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Node$OfLong", "java.util.stream.Node", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Nodes$ConcNode$OfLong",
+		"java.util.stream.Nodes$ConcNode$OfPrimitive",
+		"java.util.stream.Node$OfLong",
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/stream/Nodes$ConcNode$OfPrimitive<Ljava/lang/Long;Ljava/util/function/LongConsumer;[JLjava/util/Spliterator$OfLong;Ljava/util/stream/Node$OfLong;>;Ljava/util/stream/Node$OfLong;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$ConcNode$OfLong, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$ConcNode$OfLong));
+	});
 	return class$;
 }
 

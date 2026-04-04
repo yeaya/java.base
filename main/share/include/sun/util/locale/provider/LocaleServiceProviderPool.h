@@ -46,6 +46,7 @@ class $import LocaleServiceProviderPool : public ::java::lang::Object {
 	$class(LocaleServiceProviderPool, 0, ::java::lang::Object)
 public:
 	LocaleServiceProviderPool();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* c);
 	::java::util::List* findProviders(::java::util::Locale* locale, bool isObjectProvider);
 	static $Array<::java::util::Locale>* getAllAvailableLocales();

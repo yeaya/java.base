@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/ClassFileAssembler.h>
-
 #include <jdk/internal/reflect/ByteVector.h>
 #include <jdk/internal/reflect/ByteVectorFactory.h>
 #include <jdk/internal/reflect/ClassFileConstants.h>
@@ -21,131 +20,12 @@ namespace jdk {
 	namespace internal {
 		namespace reflect {
 
-$FieldInfo _ClassFileAssembler_FieldInfo_[] = {
-	{"vec", "Ljdk/internal/reflect/ByteVector;", nullptr, $PRIVATE, $field(ClassFileAssembler, vec)},
-	{"cpIdx", "S", nullptr, $PRIVATE, $field(ClassFileAssembler, cpIdx)},
-	{"stack", "I", nullptr, $PRIVATE, $field(ClassFileAssembler, stack)},
-	{"maxStack", "I", nullptr, $PRIVATE, $field(ClassFileAssembler, maxStack)},
-	{"maxLocals", "I", nullptr, $PRIVATE, $field(ClassFileAssembler, maxLocals)},
-	{}
-};
-
-$MethodInfo _ClassFileAssembler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassFileAssembler, init$, void)},
-	{"<init>", "(Ljdk/internal/reflect/ByteVector;)V", nullptr, $PUBLIC, $method(ClassFileAssembler, init$, void, $ByteVector*)},
-	{"append", "(Ljdk/internal/reflect/ClassFileAssembler;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, append, void, ClassFileAssembler*)},
-	{"append", "(Ljdk/internal/reflect/ByteVector;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, append, void, $ByteVector*)},
-	{"cpi", "()S", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, cpi, int16_t)},
-	{"decStack", "()V", nullptr, $PRIVATE, $method(ClassFileAssembler, decStack, void)},
-	{"emitByte", "(B)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitByte, void, int8_t)},
-	{"emitConstantPoolClass", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolClass, void, int16_t)},
-	{"emitConstantPoolFieldref", "(SS)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolFieldref, void, int16_t, int16_t)},
-	{"emitConstantPoolInterfaceMethodref", "(SS)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolInterfaceMethodref, void, int16_t, int16_t)},
-	{"emitConstantPoolMethodref", "(SS)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolMethodref, void, int16_t, int16_t)},
-	{"emitConstantPoolNameAndType", "(SS)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolNameAndType, void, int16_t, int16_t)},
-	{"emitConstantPoolString", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolString, void, int16_t)},
-	{"emitConstantPoolUTF8", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolUTF8, void, $String*)},
-	{"emitInt", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitInt, void, int32_t)},
-	{"emitMagicAndVersion", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitMagicAndVersion, void)},
-	{"emitShort", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitShort, void, int16_t)},
-	{"emitShort", "(SS)V", nullptr, 0, $virtualMethod(ClassFileAssembler, emitShort, void, int16_t, int16_t)},
-	{"getData", "()Ljdk/internal/reflect/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, getData, $ByteVector*)},
-	{"getLength", "()S", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, getLength, int16_t)},
-	{"getMaxLocals", "()S", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, getMaxLocals, int16_t)},
-	{"getMaxStack", "()S", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, getMaxStack, int16_t)},
-	{"getStack", "()I", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, getStack, int32_t)},
-	{"incStack", "()V", nullptr, $PRIVATE, $method(ClassFileAssembler, incStack, void)},
-	{"opc_aaload", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aaload, void)},
-	{"opc_aconst_null", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aconst_null, void)},
-	{"opc_aload_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aload_0, void)},
-	{"opc_aload_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aload_1, void)},
-	{"opc_aload_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aload_2, void)},
-	{"opc_aload_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aload_3, void)},
-	{"opc_areturn", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_areturn, void)},
-	{"opc_arraylength", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_arraylength, void)},
-	{"opc_astore_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_astore_0, void)},
-	{"opc_astore_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_astore_1, void)},
-	{"opc_astore_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_astore_2, void)},
-	{"opc_astore_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_astore_3, void)},
-	{"opc_athrow", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_athrow, void)},
-	{"opc_checkcast", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_checkcast, void, int16_t)},
-	{"opc_dload_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dload_0, void)},
-	{"opc_dload_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dload_1, void)},
-	{"opc_dload_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dload_2, void)},
-	{"opc_dload_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dload_3, void)},
-	{"opc_dreturn", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dreturn, void)},
-	{"opc_dup", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dup, void)},
-	{"opc_dup_x1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dup_x1, void)},
-	{"opc_f2d", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_f2d, void)},
-	{"opc_fload_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_fload_0, void)},
-	{"opc_fload_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_fload_1, void)},
-	{"opc_fload_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_fload_2, void)},
-	{"opc_fload_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_fload_3, void)},
-	{"opc_freturn", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_freturn, void)},
-	{"opc_getfield", "(SI)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_getfield, void, int16_t, int32_t)},
-	{"opc_getstatic", "(SI)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_getstatic, void, int16_t, int32_t)},
-	{"opc_goto", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_goto, void, int16_t)},
-	{"opc_goto", "(Ljdk/internal/reflect/Label;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_goto, void, $Label*)},
-	{"opc_i2d", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_i2d, void)},
-	{"opc_i2f", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_i2f, void)},
-	{"opc_i2l", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_i2l, void)},
-	{"opc_if_icmpeq", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_if_icmpeq, void, int16_t)},
-	{"opc_if_icmpeq", "(Ljdk/internal/reflect/Label;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_if_icmpeq, void, $Label*)},
-	{"opc_ifeq", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifeq, void, int16_t)},
-	{"opc_ifeq", "(Ljdk/internal/reflect/Label;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifeq, void, $Label*)},
-	{"opc_ifnonnull", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifnonnull, void, int16_t)},
-	{"opc_ifnonnull", "(Ljdk/internal/reflect/Label;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifnonnull, void, $Label*)},
-	{"opc_ifnull", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifnull, void, int16_t)},
-	{"opc_ifnull", "(Ljdk/internal/reflect/Label;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifnull, void, $Label*)},
-	{"opc_iload_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_iload_0, void)},
-	{"opc_iload_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_iload_1, void)},
-	{"opc_iload_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_iload_2, void)},
-	{"opc_iload_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_iload_3, void)},
-	{"opc_instanceof", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_instanceof, void, int16_t)},
-	{"opc_invokeinterface", "(SIBI)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_invokeinterface, void, int16_t, int32_t, int8_t, int32_t)},
-	{"opc_invokespecial", "(SII)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_invokespecial, void, int16_t, int32_t, int32_t)},
-	{"opc_invokestatic", "(SII)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_invokestatic, void, int16_t, int32_t, int32_t)},
-	{"opc_invokevirtual", "(SII)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_invokevirtual, void, int16_t, int32_t, int32_t)},
-	{"opc_ireturn", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ireturn, void)},
-	{"opc_l2d", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_l2d, void)},
-	{"opc_l2f", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_l2f, void)},
-	{"opc_ldc", "(B)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ldc, void, int8_t)},
-	{"opc_lload_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_lload_0, void)},
-	{"opc_lload_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_lload_1, void)},
-	{"opc_lload_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_lload_2, void)},
-	{"opc_lload_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_lload_3, void)},
-	{"opc_lreturn", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_lreturn, void)},
-	{"opc_new", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_new, void, int16_t)},
-	{"opc_pop", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_pop, void)},
-	{"opc_putfield", "(SI)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_putfield, void, int16_t, int32_t)},
-	{"opc_putstatic", "(SI)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_putstatic, void, int16_t, int32_t)},
-	{"opc_return", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_return, void)},
-	{"opc_sipush", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_sipush, void, int16_t)},
-	{"opc_swap", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_swap, void)},
-	{"setMaxLocals", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, setMaxLocals, void, int32_t)},
-	{"setStack", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, setStack, void, int32_t)},
-	{}
-};
-
-$ClassInfo _ClassFileAssembler_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.reflect.ClassFileAssembler",
-	"java.lang.Object",
-	"jdk.internal.reflect.ClassFileConstants",
-	_ClassFileAssembler_FieldInfo_,
-	_ClassFileAssembler_MethodInfo_
-};
-
-$Object* allocate$ClassFileAssembler($Class* clazz) {
-	return $of($alloc(ClassFileAssembler));
-}
-
 void ClassFileAssembler::init$() {
 	ClassFileAssembler::init$($($ByteVectorFactory::create()));
 }
 
 void ClassFileAssembler::init$($ByteVector* vec) {
-	this->cpIdx = (int16_t)0;
+	this->cpIdx = 0;
 	this->stack = 0;
 	this->maxStack = 0;
 	this->maxLocals = 0;
@@ -161,26 +41,26 @@ int16_t ClassFileAssembler::getLength() {
 }
 
 void ClassFileAssembler::emitMagicAndVersion() {
-	emitInt((int32_t)0xCAFEBABE);
+	emitInt((int32_t)0xcafebabe);
 	emitShort((int16_t)0);
 	emitShort((int16_t)49);
 }
 
 void ClassFileAssembler::emitInt(int32_t val) {
 	emitByte((int8_t)(val >> 24));
-	emitByte((int8_t)((int32_t)((val >> 16) & (uint32_t)255)));
-	emitByte((int8_t)((int32_t)((val >> 8) & (uint32_t)255)));
-	emitByte((int8_t)((int32_t)(val & (uint32_t)255)));
+	emitByte((int8_t)((val >> 16) & 0xff));
+	emitByte((int8_t)((val >> 8) & 0xff));
+	emitByte((int8_t)(val & 0xff));
 }
 
 void ClassFileAssembler::emitShort(int16_t val) {
-	emitByte((int8_t)((int32_t)((val >> 8) & (uint32_t)255)));
-	emitByte((int8_t)((int32_t)(val & (uint32_t)255)));
+	emitByte((int8_t)((val >> 8) & 0xff));
+	emitByte((int8_t)(val & 0xff));
 }
 
 void ClassFileAssembler::emitShort(int16_t bci, int16_t val) {
-	$nc(this->vec)->put(bci, (int8_t)((int32_t)((val >> 8) & (uint32_t)255)));
-	$nc(this->vec)->put(bci + 1, (int8_t)((int32_t)(val & (uint32_t)255)));
+	$nc(this->vec)->put(bci, (int8_t)((val >> 8) & 0xff));
+	this->vec->put(bci + 1, (int8_t)(val & 0xff));
 }
 
 void ClassFileAssembler::emitByte(int8_t val) {
@@ -208,7 +88,7 @@ void ClassFileAssembler::emitConstantPoolUTF8($String* str) {
 	$var($bytes, bytes, $UTF8::encode(str));
 	emitByte($ClassFileConstants::CONSTANT_Utf8);
 	emitShort((int16_t)$nc(bytes)->length);
-	for (int32_t i = 0; i < $nc(bytes)->length; ++i) {
+	for (int32_t i = 0; i < bytes->length; ++i) {
 		emitByte(bytes->get(i));
 	}
 	++this->cpIdx;
@@ -559,9 +439,8 @@ void ClassFileAssembler::opc_ifeq(int16_t bciOffset) {
 void ClassFileAssembler::opc_ifeq($Label* l) {
 	int16_t instrBCI = getLength();
 	emitByte($ClassFileConstants::opc_ifeq);
-	int16_t var$0 = instrBCI;
-	int16_t var$1 = getLength();
-	$nc(l)->add(this, var$0, var$1, getStack() - 1);
+	int16_t var$0 = getLength();
+	$nc(l)->add(this, instrBCI, var$0, getStack() - 1);
 	emitShort((int16_t)-1);
 }
 
@@ -574,9 +453,8 @@ void ClassFileAssembler::opc_if_icmpeq(int16_t bciOffset) {
 void ClassFileAssembler::opc_if_icmpeq($Label* l) {
 	int16_t instrBCI = getLength();
 	emitByte($ClassFileConstants::opc_if_icmpeq);
-	int16_t var$0 = instrBCI;
-	int16_t var$1 = getLength();
-	$nc(l)->add(this, var$0, var$1, getStack() - 2);
+	int16_t var$0 = getLength();
+	$nc(l)->add(this, instrBCI, var$0, getStack() - 2);
 	emitShort((int16_t)-1);
 }
 
@@ -588,9 +466,8 @@ void ClassFileAssembler::opc_goto(int16_t bciOffset) {
 void ClassFileAssembler::opc_goto($Label* l) {
 	int16_t instrBCI = getLength();
 	emitByte($ClassFileConstants::opc_goto);
-	int16_t var$0 = instrBCI;
-	int16_t var$1 = getLength();
-	$nc(l)->add(this, var$0, var$1, getStack());
+	int16_t var$0 = getLength();
+	$nc(l)->add(this, instrBCI, var$0, getStack());
 	emitShort((int16_t)-1);
 }
 
@@ -603,9 +480,8 @@ void ClassFileAssembler::opc_ifnull(int16_t bciOffset) {
 void ClassFileAssembler::opc_ifnull($Label* l) {
 	int16_t instrBCI = getLength();
 	emitByte($ClassFileConstants::opc_ifnull);
-	int16_t var$0 = instrBCI;
-	int16_t var$1 = getLength();
-	$nc(l)->add(this, var$0, var$1, getStack() - 1);
+	int16_t var$0 = getLength();
+	$nc(l)->add(this, instrBCI, var$0, getStack() - 1);
 	emitShort((int16_t)-1);
 	decStack();
 }
@@ -619,9 +495,8 @@ void ClassFileAssembler::opc_ifnonnull(int16_t bciOffset) {
 void ClassFileAssembler::opc_ifnonnull($Label* l) {
 	int16_t instrBCI = getLength();
 	emitByte($ClassFileConstants::opc_ifnonnull);
-	int16_t var$0 = instrBCI;
-	int16_t var$1 = getLength();
-	$nc(l)->add(this, var$0, var$1, getStack() - 1);
+	int16_t var$0 = getLength();
+	$nc(l)->add(this, instrBCI, var$0, getStack() - 1);
 	emitShort((int16_t)-1);
 	decStack();
 }
@@ -735,7 +610,121 @@ ClassFileAssembler::ClassFileAssembler() {
 }
 
 $Class* ClassFileAssembler::load$($String* name, bool initialize) {
-	$loadClass(ClassFileAssembler, name, initialize, &_ClassFileAssembler_ClassInfo_, allocate$ClassFileAssembler);
+	$FieldInfo fieldInfos$$[] = {
+		{"vec", "Ljdk/internal/reflect/ByteVector;", nullptr, $PRIVATE, $field(ClassFileAssembler, vec)},
+		{"cpIdx", "S", nullptr, $PRIVATE, $field(ClassFileAssembler, cpIdx)},
+		{"stack", "I", nullptr, $PRIVATE, $field(ClassFileAssembler, stack)},
+		{"maxStack", "I", nullptr, $PRIVATE, $field(ClassFileAssembler, maxStack)},
+		{"maxLocals", "I", nullptr, $PRIVATE, $field(ClassFileAssembler, maxLocals)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClassFileAssembler, init$, void)},
+		{"<init>", "(Ljdk/internal/reflect/ByteVector;)V", nullptr, $PUBLIC, $method(ClassFileAssembler, init$, void, $ByteVector*)},
+		{"append", "(Ljdk/internal/reflect/ClassFileAssembler;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, append, void, ClassFileAssembler*)},
+		{"append", "(Ljdk/internal/reflect/ByteVector;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, append, void, $ByteVector*)},
+		{"cpi", "()S", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, cpi, int16_t)},
+		{"decStack", "()V", nullptr, $PRIVATE, $method(ClassFileAssembler, decStack, void)},
+		{"emitByte", "(B)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitByte, void, int8_t)},
+		{"emitConstantPoolClass", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolClass, void, int16_t)},
+		{"emitConstantPoolFieldref", "(SS)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolFieldref, void, int16_t, int16_t)},
+		{"emitConstantPoolInterfaceMethodref", "(SS)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolInterfaceMethodref, void, int16_t, int16_t)},
+		{"emitConstantPoolMethodref", "(SS)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolMethodref, void, int16_t, int16_t)},
+		{"emitConstantPoolNameAndType", "(SS)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolNameAndType, void, int16_t, int16_t)},
+		{"emitConstantPoolString", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolString, void, int16_t)},
+		{"emitConstantPoolUTF8", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitConstantPoolUTF8, void, $String*)},
+		{"emitInt", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitInt, void, int32_t)},
+		{"emitMagicAndVersion", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitMagicAndVersion, void)},
+		{"emitShort", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, emitShort, void, int16_t)},
+		{"emitShort", "(SS)V", nullptr, 0, $virtualMethod(ClassFileAssembler, emitShort, void, int16_t, int16_t)},
+		{"getData", "()Ljdk/internal/reflect/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, getData, $ByteVector*)},
+		{"getLength", "()S", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, getLength, int16_t)},
+		{"getMaxLocals", "()S", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, getMaxLocals, int16_t)},
+		{"getMaxStack", "()S", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, getMaxStack, int16_t)},
+		{"getStack", "()I", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, getStack, int32_t)},
+		{"incStack", "()V", nullptr, $PRIVATE, $method(ClassFileAssembler, incStack, void)},
+		{"opc_aaload", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aaload, void)},
+		{"opc_aconst_null", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aconst_null, void)},
+		{"opc_aload_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aload_0, void)},
+		{"opc_aload_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aload_1, void)},
+		{"opc_aload_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aload_2, void)},
+		{"opc_aload_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_aload_3, void)},
+		{"opc_areturn", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_areturn, void)},
+		{"opc_arraylength", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_arraylength, void)},
+		{"opc_astore_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_astore_0, void)},
+		{"opc_astore_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_astore_1, void)},
+		{"opc_astore_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_astore_2, void)},
+		{"opc_astore_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_astore_3, void)},
+		{"opc_athrow", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_athrow, void)},
+		{"opc_checkcast", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_checkcast, void, int16_t)},
+		{"opc_dload_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dload_0, void)},
+		{"opc_dload_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dload_1, void)},
+		{"opc_dload_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dload_2, void)},
+		{"opc_dload_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dload_3, void)},
+		{"opc_dreturn", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dreturn, void)},
+		{"opc_dup", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dup, void)},
+		{"opc_dup_x1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_dup_x1, void)},
+		{"opc_f2d", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_f2d, void)},
+		{"opc_fload_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_fload_0, void)},
+		{"opc_fload_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_fload_1, void)},
+		{"opc_fload_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_fload_2, void)},
+		{"opc_fload_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_fload_3, void)},
+		{"opc_freturn", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_freturn, void)},
+		{"opc_getfield", "(SI)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_getfield, void, int16_t, int32_t)},
+		{"opc_getstatic", "(SI)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_getstatic, void, int16_t, int32_t)},
+		{"opc_goto", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_goto, void, int16_t)},
+		{"opc_goto", "(Ljdk/internal/reflect/Label;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_goto, void, $Label*)},
+		{"opc_i2d", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_i2d, void)},
+		{"opc_i2f", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_i2f, void)},
+		{"opc_i2l", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_i2l, void)},
+		{"opc_if_icmpeq", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_if_icmpeq, void, int16_t)},
+		{"opc_if_icmpeq", "(Ljdk/internal/reflect/Label;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_if_icmpeq, void, $Label*)},
+		{"opc_ifeq", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifeq, void, int16_t)},
+		{"opc_ifeq", "(Ljdk/internal/reflect/Label;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifeq, void, $Label*)},
+		{"opc_ifnonnull", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifnonnull, void, int16_t)},
+		{"opc_ifnonnull", "(Ljdk/internal/reflect/Label;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifnonnull, void, $Label*)},
+		{"opc_ifnull", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifnull, void, int16_t)},
+		{"opc_ifnull", "(Ljdk/internal/reflect/Label;)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ifnull, void, $Label*)},
+		{"opc_iload_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_iload_0, void)},
+		{"opc_iload_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_iload_1, void)},
+		{"opc_iload_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_iload_2, void)},
+		{"opc_iload_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_iload_3, void)},
+		{"opc_instanceof", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_instanceof, void, int16_t)},
+		{"opc_invokeinterface", "(SIBI)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_invokeinterface, void, int16_t, int32_t, int8_t, int32_t)},
+		{"opc_invokespecial", "(SII)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_invokespecial, void, int16_t, int32_t, int32_t)},
+		{"opc_invokestatic", "(SII)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_invokestatic, void, int16_t, int32_t, int32_t)},
+		{"opc_invokevirtual", "(SII)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_invokevirtual, void, int16_t, int32_t, int32_t)},
+		{"opc_ireturn", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ireturn, void)},
+		{"opc_l2d", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_l2d, void)},
+		{"opc_l2f", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_l2f, void)},
+		{"opc_ldc", "(B)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_ldc, void, int8_t)},
+		{"opc_lload_0", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_lload_0, void)},
+		{"opc_lload_1", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_lload_1, void)},
+		{"opc_lload_2", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_lload_2, void)},
+		{"opc_lload_3", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_lload_3, void)},
+		{"opc_lreturn", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_lreturn, void)},
+		{"opc_new", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_new, void, int16_t)},
+		{"opc_pop", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_pop, void)},
+		{"opc_putfield", "(SI)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_putfield, void, int16_t, int32_t)},
+		{"opc_putstatic", "(SI)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_putstatic, void, int16_t, int32_t)},
+		{"opc_return", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_return, void)},
+		{"opc_sipush", "(S)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_sipush, void, int16_t)},
+		{"opc_swap", "()V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, opc_swap, void)},
+		{"setMaxLocals", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, setMaxLocals, void, int32_t)},
+		{"setStack", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassFileAssembler, setStack, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.reflect.ClassFileAssembler",
+		"java.lang.Object",
+		"jdk.internal.reflect.ClassFileConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassFileAssembler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassFileAssembler);
+	});
 	return class$;
 }
 

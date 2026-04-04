@@ -1,5 +1,4 @@
 #include <AppendStringBuffer.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
@@ -11,32 +10,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Random = ::java::util::Random;
 
-$FieldInfo _AppendStringBuffer_FieldInfo_[] = {
-	{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(AppendStringBuffer, generator)},
-	{}
-};
-
-$MethodInfo _AppendStringBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AppendStringBuffer, init$, void)},
-	{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendStringBuffer, generateTestBuffer, $StringBuffer*, int32_t, int32_t)},
-	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendStringBuffer, getRandomIndex, int32_t, int32_t, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AppendStringBuffer, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _AppendStringBuffer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"AppendStringBuffer",
-	"java.lang.Object",
-	nullptr,
-	_AppendStringBuffer_FieldInfo_,
-	_AppendStringBuffer_MethodInfo_
-};
-
-$Object* allocate$AppendStringBuffer($Class* clazz) {
-	return $of($alloc(AppendStringBuffer));
-}
-
 $Random* AppendStringBuffer::generator = nullptr;
 
 void AppendStringBuffer::init$() {
@@ -44,7 +17,7 @@ void AppendStringBuffer::init$() {
 
 void AppendStringBuffer::main($StringArray* args) {
 	$init(AppendStringBuffer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < 1000; ++i) {
 		$var($StringBuffer, sb1, generateTestBuffer(10, 100));
 		$var($StringBuffer, sb2, generateTestBuffer(10, 100));
@@ -57,7 +30,7 @@ void AppendStringBuffer::main($StringArray* args) {
 		test->append(sb1);
 		test->append(sb2);
 		test->append(sb3);
-		if (!$nc($(test->toString()))->equals(concatResult)) {
+		if (!$(test->toString())->equals(concatResult)) {
 			$throwNew($RuntimeException, "StringBuffer.append failure"_s);
 		}
 	}
@@ -82,7 +55,7 @@ $StringBuffer* AppendStringBuffer::generateTestBuffer(int32_t min, int32_t max) 
 	return aNewStringBuffer;
 }
 
-void clinit$AppendStringBuffer($Class* class$) {
+void AppendStringBuffer::clinit$($Class* clazz) {
 	$assignStatic(AppendStringBuffer::generator, $new($Random));
 }
 
@@ -90,7 +63,28 @@ AppendStringBuffer::AppendStringBuffer() {
 }
 
 $Class* AppendStringBuffer::load$($String* name, bool initialize) {
-	$loadClass(AppendStringBuffer, name, initialize, &_AppendStringBuffer_ClassInfo_, clinit$AppendStringBuffer, allocate$AppendStringBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(AppendStringBuffer, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AppendStringBuffer, init$, void)},
+		{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendStringBuffer, generateTestBuffer, $StringBuffer*, int32_t, int32_t)},
+		{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendStringBuffer, getRandomIndex, int32_t, int32_t, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AppendStringBuffer, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"AppendStringBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AppendStringBuffer, name, initialize, &classInfo$$, AppendStringBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AppendStringBuffer);
+	});
 	return class$;
 }
 

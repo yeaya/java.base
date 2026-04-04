@@ -1,5 +1,4 @@
 #include <java/security/PKCS12Attribute.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/CharSequence.h>
 #include <java/math/BigInteger.h>
@@ -27,8 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $BigInteger = ::java::math::BigInteger;
 using $Arrays = ::java::util::Arrays;
-using $Date = ::java::util::Date;
-using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $Debug = ::sun::security::util::Debug;
 using $DerInputStream = ::sun::security::util::DerInputStream;
@@ -39,55 +36,10 @@ using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 namespace java {
 	namespace security {
 
-$FieldInfo _PKCS12Attribute_FieldInfo_[] = {
-	{"COLON_SEPARATED_HEX_PAIRS", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PKCS12Attribute, COLON_SEPARATED_HEX_PAIRS)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PKCS12Attribute, name)},
-	{"value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PKCS12Attribute, value)},
-	{"encoded", "[B", nullptr, $PRIVATE | $FINAL, $field(PKCS12Attribute, encoded)},
-	{"hashValue", "I", nullptr, $PRIVATE, $field(PKCS12Attribute, hashValue)},
-	{}
-};
-
-$MethodInfo _PKCS12Attribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PKCS12Attribute, init$, void, $String*, $String*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(PKCS12Attribute, init$, void, $bytes*)},
-	{"encode", "(Lsun/security/util/ObjectIdentifier;[Ljava/lang/String;)[B", nullptr, $PRIVATE, $method(PKCS12Attribute, encode, $bytes*, $ObjectIdentifier*, $StringArray*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, equals, bool, Object$*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $method(PKCS12Attribute, getEncoded, $bytes*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, getName, $String*)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, getValue, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, hashCode, int32_t)},
-	{"parse", "([B)V", nullptr, $PRIVATE, $method(PKCS12Attribute, parse, void, $bytes*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _PKCS12Attribute_InnerClassesInfo_[] = {
-	{"java.security.KeyStore$Entry", "java.security.KeyStore", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.security.KeyStore$Entry$Attribute", "java.security.KeyStore$Entry", "Attribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PKCS12Attribute_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.security.PKCS12Attribute",
-	"java.lang.Object",
-	"java.security.KeyStore$Entry$Attribute",
-	_PKCS12Attribute_FieldInfo_,
-	_PKCS12Attribute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PKCS12Attribute_InnerClassesInfo_
-};
-
-$Object* allocate$PKCS12Attribute($Class* clazz) {
-	return $of($alloc(PKCS12Attribute));
-}
-
 $Pattern* PKCS12Attribute::COLON_SEPARATED_HEX_PAIRS = nullptr;
 
 void PKCS12Attribute::init$($String* name, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->hashValue = -1;
 	if (name == nullptr || value == nullptr) {
 		$throwNew($NullPointerException);
@@ -147,7 +99,7 @@ bool PKCS12Attribute::equals(Object$* obj) {
 	if (!($instanceOf(PKCS12Attribute, obj))) {
 		return false;
 	}
-	return $Arrays::equals(this->encoded, $nc(($cast(PKCS12Attribute, obj)))->encoded);
+	return $Arrays::equals(this->encoded, $nc($cast(PKCS12Attribute, obj))->encoded);
 }
 
 int32_t PKCS12Attribute::hashCode() {
@@ -163,26 +115,22 @@ $String* PKCS12Attribute::toString() {
 }
 
 $bytes* PKCS12Attribute::encode($ObjectIdentifier* type, $StringArray* values) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, attribute, $new($DerOutputStream));
 	attribute->putOID(type);
 	$var($DerOutputStream, attrContent, $new($DerOutputStream));
 	{
 		$var($StringArray, arr$, values);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, value, arr$->get(i$));
-			{
-				if ($nc($($nc(PKCS12Attribute::COLON_SEPARATED_HEX_PAIRS)->matcher(value)))->matches()) {
-					$var($bytes, bytes, $$new($BigInteger, $($nc(value)->replace(static_cast<$CharSequence*>(":"_s), static_cast<$CharSequence*>(""_s))), 16)->toByteArray());
-					if ($nc(bytes)->get(0) == 0) {
-						$assign(bytes, $Arrays::copyOfRange(bytes, 1, bytes->length));
-					}
-					attrContent->putOctetString(bytes);
-				} else {
-					attrContent->putUTF8String(value);
+			if ($$nc($nc(PKCS12Attribute::COLON_SEPARATED_HEX_PAIRS)->matcher(value))->matches()) {
+				$var($bytes, bytes, $$new($BigInteger, $($nc(value)->replace(":"_s, ""_s)), 16)->toByteArray());
+				if (bytes->get(0) == 0) {
+					$assign(bytes, $Arrays::copyOfRange(bytes, 1, bytes->length));
 				}
+				attrContent->putOctetString(bytes);
+			} else {
+				attrContent->putUTF8String(value);
 			}
 		}
 	}
@@ -193,13 +141,13 @@ $bytes* PKCS12Attribute::encode($ObjectIdentifier* type, $StringArray* values) {
 }
 
 void PKCS12Attribute::parse($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerInputStream, attributeValue, $new($DerInputStream, encoded));
 	$var($DerValueArray, attrSeq, attributeValue->getSequence(2));
 	if ($nc(attrSeq)->length != 2) {
 		$throwNew($IOException, "Invalid length for PKCS12Attribute"_s);
 	}
-	$var($ObjectIdentifier, type, $nc($nc(attrSeq)->get(0))->getOID());
+	$var($ObjectIdentifier, type, $nc(attrSeq->get(0))->getOID());
 	$var($DerInputStream, attrContent, $new($DerInputStream, $($nc(attrSeq->get(1))->toByteArray())));
 	$var($DerValueArray, attrValueSet, attrContent->getSet(1));
 	$var($StringArray, values, $new($StringArray, $nc(attrValueSet)->length));
@@ -210,13 +158,13 @@ void PKCS12Attribute::parse($bytes* encoded) {
 		} else if (($assign(printableString, $nc(attrValueSet->get(i))->getAsString())) != nullptr) {
 			values->set(i, printableString);
 		} else if ($nc(attrValueSet->get(i))->tag == $DerValue::tag_ObjectId) {
-			values->set(i, $($nc($($nc(attrValueSet->get(i))->getOID()))->toString()));
+			values->set(i, $($$nc($nc(attrValueSet->get(i))->getOID())->toString()));
 		} else if ($nc(attrValueSet->get(i))->tag == $DerValue::tag_GeneralizedTime) {
-			values->set(i, $($nc($($nc(attrValueSet->get(i))->getGeneralizedTime()))->toString()));
+			values->set(i, $($$nc($nc(attrValueSet->get(i))->getGeneralizedTime())->toString()));
 		} else if ($nc(attrValueSet->get(i))->tag == $DerValue::tag_UtcTime) {
-			values->set(i, $($nc($($nc(attrValueSet->get(i))->getUTCTime()))->toString()));
+			values->set(i, $($$nc($nc(attrValueSet->get(i))->getUTCTime())->toString()));
 		} else if ($nc(attrValueSet->get(i))->tag == $DerValue::tag_Integer) {
-			values->set(i, $($nc($($nc(attrValueSet->get(i))->getBigInteger()))->toString()));
+			values->set(i, $($$nc($nc(attrValueSet->get(i))->getBigInteger())->toString()));
 		} else if ($nc(attrValueSet->get(i))->tag == $DerValue::tag_Boolean) {
 			values->set(i, $($String::valueOf($nc(attrValueSet->get(i))->getBoolean())));
 		} else {
@@ -227,7 +175,7 @@ void PKCS12Attribute::parse($bytes* encoded) {
 	$set(this, value, values->length == 1 ? values->get(0) : $Arrays::toString(values));
 }
 
-void clinit$PKCS12Attribute($Class* class$) {
+void PKCS12Attribute::clinit$($Class* clazz) {
 	$assignStatic(PKCS12Attribute::COLON_SEPARATED_HEX_PAIRS, $Pattern::compile("^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2})+$"_s));
 }
 
@@ -235,7 +183,46 @@ PKCS12Attribute::PKCS12Attribute() {
 }
 
 $Class* PKCS12Attribute::load$($String* name, bool initialize) {
-	$loadClass(PKCS12Attribute, name, initialize, &_PKCS12Attribute_ClassInfo_, clinit$PKCS12Attribute, allocate$PKCS12Attribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"COLON_SEPARATED_HEX_PAIRS", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PKCS12Attribute, COLON_SEPARATED_HEX_PAIRS)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PKCS12Attribute, name)},
+		{"value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PKCS12Attribute, value)},
+		{"encoded", "[B", nullptr, $PRIVATE | $FINAL, $field(PKCS12Attribute, encoded)},
+		{"hashValue", "I", nullptr, $PRIVATE, $field(PKCS12Attribute, hashValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PKCS12Attribute, init$, void, $String*, $String*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(PKCS12Attribute, init$, void, $bytes*)},
+		{"encode", "(Lsun/security/util/ObjectIdentifier;[Ljava/lang/String;)[B", nullptr, $PRIVATE, $method(PKCS12Attribute, encode, $bytes*, $ObjectIdentifier*, $StringArray*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, equals, bool, Object$*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $method(PKCS12Attribute, getEncoded, $bytes*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, getName, $String*)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, getValue, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, hashCode, int32_t)},
+		{"parse", "([B)V", nullptr, $PRIVATE, $method(PKCS12Attribute, parse, void, $bytes*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyStore$Entry", "java.security.KeyStore", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.security.KeyStore$Entry$Attribute", "java.security.KeyStore$Entry", "Attribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.security.PKCS12Attribute",
+		"java.lang.Object",
+		"java.security.KeyStore$Entry$Attribute",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(PKCS12Attribute, name, initialize, &classInfo$$, PKCS12Attribute::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PKCS12Attribute);
+	});
 	return class$;
 }
 

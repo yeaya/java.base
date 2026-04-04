@@ -1,12 +1,10 @@
 #include <sun/security/provider/X509Factory.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/PushbackInputStream.h>
 #include <java/math/BigInteger.h>
-#include <java/security/Key.h>
 #include <java/security/Principal.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CRL.h>
@@ -18,7 +16,6 @@
 #include <java/security/cert/X509CRL.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Base64$Decoder.h>
@@ -56,9 +53,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
-using $Key = ::java::security::Key;
-using $Principal = ::java::security::Principal;
 using $PublicKey = ::java::security::PublicKey;
 using $CRL = ::java::security::cert::CRL;
 using $CRLException = ::java::security::cert::CRLException;
@@ -69,13 +63,10 @@ using $CertificateFactorySpi = ::java::security::cert::CertificateFactorySpi;
 using $X509CRL = ::java::security::cert::X509CRL;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Base64 = ::java::util::Base64;
-using $Base64$Decoder = ::java::util::Base64$Decoder;
 using $Collection = ::java::util::Collection;
-using $Date = ::java::util::Date;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $EventHelper = ::jdk::internal::event::EventHelper;
@@ -95,52 +86,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _X509Factory_FieldInfo_[] = {
-	{"BEGIN_CERT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509Factory, BEGIN_CERT)},
-	{"END_CERT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509Factory, END_CERT)},
-	{"ENC_MAX_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509Factory, ENC_MAX_LENGTH)},
-	{"certCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Ljava/lang/Object;Lsun/security/x509/X509CertImpl;>;", $PRIVATE | $STATIC | $FINAL, $staticField(X509Factory, certCache)},
-	{"crlCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Ljava/lang/Object;Lsun/security/x509/X509CRLImpl;>;", $PRIVATE | $STATIC | $FINAL, $staticField(X509Factory, crlCache)},
-	{}
-};
-
-$MethodInfo _X509Factory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X509Factory, init$, void)},
-	{"addToCache", "(Lsun/security/util/Cache;[BLjava/lang/Object;)V", "<V:Ljava/lang/Object;>(Lsun/security/util/Cache<Ljava/lang/Object;TV;>;[BTV;)V", $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(X509Factory, addToCache, void, $Cache*, $bytes*, Object$*)},
-	{"checkHeaderFooter", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(X509Factory, checkHeaderFooter, void, $String*, $String*), "java.io.IOException"},
-	{"commitEvent", "(Lsun/security/x509/X509CertImpl;)V", nullptr, $PRIVATE, $method(X509Factory, commitEvent, void, $X509CertImpl*)},
-	{"engineGenerateCRL", "(Ljava/io/InputStream;)Ljava/security/cert/CRL;", nullptr, $PUBLIC, $virtualMethod(X509Factory, engineGenerateCRL, $CRL*, $InputStream*), "java.security.cert.CRLException"},
-	{"engineGenerateCRLs", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PUBLIC, $virtualMethod(X509Factory, engineGenerateCRLs, $Collection*, $InputStream*), "java.security.cert.CRLException"},
-	{"engineGenerateCertPath", "(Ljava/io/InputStream;)Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $virtualMethod(X509Factory, engineGenerateCertPath, $CertPath*, $InputStream*), "java.security.cert.CertificateException"},
-	{"engineGenerateCertPath", "(Ljava/io/InputStream;Ljava/lang/String;)Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $virtualMethod(X509Factory, engineGenerateCertPath, $CertPath*, $InputStream*, $String*), "java.security.cert.CertificateException"},
-	{"engineGenerateCertPath", "(Ljava/util/List;)Ljava/security/cert/CertPath;", "(Ljava/util/List<+Ljava/security/cert/Certificate;>;)Ljava/security/cert/CertPath;", $PUBLIC, $virtualMethod(X509Factory, engineGenerateCertPath, $CertPath*, $List*), "java.security.cert.CertificateException"},
-	{"engineGenerateCertificate", "(Ljava/io/InputStream;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(X509Factory, engineGenerateCertificate, $Certificate*, $InputStream*), "java.security.cert.CertificateException"},
-	{"engineGenerateCertificates", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC, $virtualMethod(X509Factory, engineGenerateCertificates, $Collection*, $InputStream*), "java.security.cert.CertificateException"},
-	{"engineGetCertPathEncodings", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509Factory, engineGetCertPathEncodings, $Iterator*)},
-	{"getFromCache", "(Lsun/security/util/Cache;[B)Ljava/lang/Object;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Lsun/security/util/Cache<TK;TV;>;[B)TV;", $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(X509Factory, getFromCache, $Object*, $Cache*, $bytes*)},
-	{"intern", "(Ljava/security/cert/X509Certificate;)Lsun/security/x509/X509CertImpl;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(X509Factory, intern, $X509CertImpl*, $X509Certificate*), "java.security.cert.CertificateException"},
-	{"intern", "(Ljava/security/cert/X509CRL;)Lsun/security/x509/X509CRLImpl;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(X509Factory, intern, $X509CRLImpl*, $X509CRL*), "java.security.cert.CRLException"},
-	{"parseX509orPKCS7CRL", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PRIVATE, $method(X509Factory, parseX509orPKCS7CRL, $Collection*, $InputStream*), "java.security.cert.CRLException,java.io.IOException"},
-	{"parseX509orPKCS7Cert", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PRIVATE, $method(X509Factory, parseX509orPKCS7Cert, $Collection*, $InputStream*), "java.security.cert.CertificateException,java.io.IOException"},
-	{"readBERInternal", "(Ljava/io/InputStream;Ljava/io/ByteArrayOutputStream;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(X509Factory, readBERInternal, int32_t, $InputStream*, $ByteArrayOutputStream*, int32_t), "java.io.IOException"},
-	{"readFully", "(Ljava/io/InputStream;Ljava/io/ByteArrayOutputStream;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(X509Factory, readFully, int32_t, $InputStream*, $ByteArrayOutputStream*, int32_t), "java.io.IOException"},
-	{"readOneBlock", "(Ljava/io/InputStream;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(X509Factory, readOneBlock, $bytes*, $InputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _X509Factory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.X509Factory",
-	"java.security.cert.CertificateFactorySpi",
-	nullptr,
-	_X509Factory_FieldInfo_,
-	_X509Factory_MethodInfo_
-};
-
-$Object* allocate$X509Factory($Class* clazz) {
-	return $of($alloc(X509Factory));
-}
-
 $String* X509Factory::BEGIN_CERT = nullptr;
 $String* X509Factory::END_CERT = nullptr;
 $Cache* X509Factory::certCache = nullptr;
@@ -151,7 +96,7 @@ void X509Factory::init$() {
 }
 
 $Certificate* X509Factory::engineGenerateCertificate($InputStream* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (is == nullptr) {
 		$nc(X509Factory::certCache)->clear();
 		$X509CertificatePair::clearCache();
@@ -194,17 +139,16 @@ int32_t X509Factory::readFully($InputStream* in, $ByteArrayOutputStream* bout, i
 }
 
 $X509CertImpl* X509Factory::intern($X509Certificate* c) {
-	$load(X509Factory);
+	$init(X509Factory);
 	$synchronized(class$) {
-		$init(X509Factory);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (c == nullptr) {
 			return nullptr;
 		}
 		bool isImpl = $instanceOf($X509CertImpl, c);
 		$var($bytes, encoding, nullptr);
 		if (isImpl) {
-			$assign(encoding, $nc(($cast($X509CertImpl, c)))->getEncodedInternal());
+			$assign(encoding, $nc($cast($X509CertImpl, c))->getEncodedInternal());
 		} else {
 			$assign(encoding, $nc(c)->getEncoded());
 		}
@@ -224,17 +168,16 @@ $X509CertImpl* X509Factory::intern($X509Certificate* c) {
 }
 
 $X509CRLImpl* X509Factory::intern($X509CRL* c) {
-	$load(X509Factory);
+	$init(X509Factory);
 	$synchronized(class$) {
-		$init(X509Factory);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (c == nullptr) {
 			return nullptr;
 		}
 		bool isImpl = $instanceOf($X509CRLImpl, c);
 		$var($bytes, encoding, nullptr);
 		if (isImpl) {
-			$assign(encoding, $nc(($cast($X509CRLImpl, c)))->getEncodedInternal());
+			$assign(encoding, $nc($cast($X509CRLImpl, c))->getEncodedInternal());
 		} else {
 			$assign(encoding, $nc(c)->getEncoded());
 		}
@@ -254,18 +197,16 @@ $X509CRLImpl* X509Factory::intern($X509CRL* c) {
 }
 
 $Object* X509Factory::getFromCache($Cache* cache, $bytes* encoding) {
-	$load(X509Factory);
+	$init(X509Factory);
 	$synchronized(class$) {
-		$init(X509Factory);
 		$var($Object, key, $new($Cache$EqualByteArray, encoding));
-		return $of($nc(cache)->get(key));
+		return $nc(cache)->get(key);
 	}
 }
 
 void X509Factory::addToCache($Cache* cache, $bytes* encoding, Object$* value) {
-	$load(X509Factory);
+	$init(X509Factory);
 	$synchronized(class$) {
-		$init(X509Factory);
 		if ($nc(encoding)->length > X509Factory::ENC_MAX_LENGTH) {
 			return;
 		}
@@ -275,14 +216,14 @@ void X509Factory::addToCache($Cache* cache, $bytes* encoding, Object$* value) {
 }
 
 $CertPath* X509Factory::engineGenerateCertPath($InputStream* inStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inStream == nullptr) {
 		$throwNew($CertificateException, "Missing input stream"_s);
 	}
 	try {
 		$var($bytes, encoding, readOneBlock(inStream));
 		if (encoding != nullptr) {
-			return $new($X509CertPath, static_cast<$InputStream*>($$new($ByteArrayInputStream, encoding)));
+			return $new($X509CertPath, $$new($ByteArrayInputStream, encoding));
 		} else {
 			$throwNew($IOException, "Empty input"_s);
 		}
@@ -293,7 +234,7 @@ $CertPath* X509Factory::engineGenerateCertPath($InputStream* inStream) {
 }
 
 $CertPath* X509Factory::engineGenerateCertPath($InputStream* inStream, $String* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inStream == nullptr) {
 		$throwNew($CertificateException, "Missing input stream"_s);
 	}
@@ -325,13 +266,13 @@ $Collection* X509Factory::engineGenerateCertificates($InputStream* is) {
 	try {
 		return parseX509orPKCS7Cert(is);
 	} catch ($IOException& ioe) {
-		$throwNew($CertificateException, static_cast<$Throwable*>(ioe));
+		$throwNew($CertificateException, ioe);
 	}
 	$shouldNotReachHere();
 }
 
 $CRL* X509Factory::engineGenerateCRL($InputStream* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (is == nullptr) {
 		$nc(X509Factory::crlCache)->clear();
 		$throwNew($CRLException, "Missing input stream"_s);
@@ -368,14 +309,14 @@ $Collection* X509Factory::engineGenerateCRLs($InputStream* is) {
 }
 
 $Collection* X509Factory::parseX509orPKCS7Cert($InputStream* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t peekByte = 0;
 	$var($bytes, data, nullptr);
 	$var($PushbackInputStream, pbis, $new($PushbackInputStream, is));
-	$var($Collection, coll, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList)))));
+	$var($Collection, coll, $cast($AbstractCollection, $new($ArrayList)));
 	peekByte = pbis->read();
 	if (peekByte == -1) {
-		return static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList, 0))));
+		return $cast($AbstractCollection, $new($ArrayList, 0));
 	} else {
 		pbis->unread(peekByte);
 		$assign(data, readOneBlock(pbis));
@@ -389,7 +330,7 @@ $Collection* X509Factory::parseX509orPKCS7Cert($InputStream* is) {
 		if (certs != nullptr) {
 			return $Arrays::asList(certs);
 		} else {
-			return static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList, 0))));
+			return $cast($AbstractCollection, $new($ArrayList, 0));
 		}
 	} catch ($ParsingException& e) {
 		while (data != nullptr) {
@@ -401,14 +342,14 @@ $Collection* X509Factory::parseX509orPKCS7Cert($InputStream* is) {
 }
 
 $Collection* X509Factory::parseX509orPKCS7CRL($InputStream* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t peekByte = 0;
 	$var($bytes, data, nullptr);
 	$var($PushbackInputStream, pbis, $new($PushbackInputStream, is));
-	$var($Collection, coll, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList)))));
+	$var($Collection, coll, $cast($AbstractCollection, $new($ArrayList)));
 	peekByte = pbis->read();
 	if (peekByte == -1) {
-		return static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList, 0))));
+		return $cast($AbstractCollection, $new($ArrayList, 0));
 	} else {
 		pbis->unread(peekByte);
 		$assign(data, readOneBlock(pbis));
@@ -422,7 +363,7 @@ $Collection* X509Factory::parseX509orPKCS7CRL($InputStream* is) {
 		if (crls != nullptr) {
 			return $Arrays::asList(crls);
 		} else {
-			return static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList, 0))));
+			return $cast($AbstractCollection, $new($ArrayList, 0));
 		}
 	} catch ($ParsingException& e) {
 		while (data != nullptr) {
@@ -435,7 +376,7 @@ $Collection* X509Factory::parseX509orPKCS7CRL($InputStream* is) {
 
 $bytes* X509Factory::readOneBlock($InputStream* is) {
 	$init(X509Factory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t c = $nc(is)->read();
 	if (c == -1) {
 		return nullptr;
@@ -515,12 +456,12 @@ $bytes* X509Factory::readOneBlock($InputStream* is) {
 				footer->append((char16_t)next);
 			}
 		}
-		$var($String, var$0, $nc($(header->toString()))->stripTrailing());
-		checkHeaderFooter(var$0, $($nc($(footer->toString()))->stripTrailing()));
+		$var($String, var$0, $(header->toString())->stripTrailing());
+		checkHeaderFooter(var$0, $($(footer->toString())->stripTrailing()));
 		try {
-			return $nc($($Base64::getDecoder()))->decode($(data->toByteArray()));
+			return $$nc($Base64::getDecoder())->decode($(data->toByteArray()));
 		} catch ($IllegalArgumentException& e) {
-			$throwNew($IOException, static_cast<$Throwable*>(e));
+			$throwNew($IOException, e);
 		}
 	}
 	$shouldNotReachHere();
@@ -528,19 +469,19 @@ $bytes* X509Factory::readOneBlock($InputStream* is) {
 
 void X509Factory::checkHeaderFooter($String* header, $String* footer) {
 	$init(X509Factory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = $nc(header)->length() < 16;
-	bool var$0 = var$1 || !$nc(header)->startsWith("-----BEGIN "_s);
-	if (var$0 || !$nc(header)->endsWith("-----"_s)) {
+	bool var$0 = var$1 || !header->startsWith("-----BEGIN "_s);
+	if (var$0 || !header->endsWith("-----"_s)) {
 		$throwNew($IOException, $$str({"Illegal header: "_s, header}));
 	}
 	bool var$3 = $nc(footer)->length() < 14;
-	bool var$2 = var$3 || !$nc(footer)->startsWith("-----END "_s);
-	if (var$2 || !$nc(footer)->endsWith("-----"_s)) {
+	bool var$2 = var$3 || !footer->startsWith("-----END "_s);
+	if (var$2 || !footer->endsWith("-----"_s)) {
 		$throwNew($IOException, $$str({"Illegal footer: "_s, footer}));
 	}
-	$var($String, headerType, $nc(header)->substring(11, header->length() - 5));
-	$var($String, footerType, $nc(footer)->substring(9, footer->length() - 5));
+	$var($String, headerType, header->substring(11, header->length() - 5));
+	$var($String, footerType, footer->substring(9, footer->length() - 5));
 	if (!headerType->equals(footerType)) {
 		$throwNew($IOException, $$str({"Header and footer do not match: "_s, header, " "_s, footer}));
 	}
@@ -553,7 +494,7 @@ int32_t X509Factory::readBERInternal($InputStream* is, $ByteArrayOutputStream* b
 		if (tag == -1) {
 			$throwNew($IOException, "BER/DER tag info absent"_s);
 		}
-		if (((int32_t)(tag & (uint32_t)31)) == 31) {
+		if ((tag & 0x1f) == 0x1f) {
 			$throwNew($IOException, "Multi octets tag not supported"_s);
 		}
 		$nc(bout)->write(tag);
@@ -565,7 +506,7 @@ int32_t X509Factory::readBERInternal($InputStream* is, $ByteArrayOutputStream* b
 	$nc(bout)->write(n);
 	int32_t length = 0;
 	if (n == 128) {
-		if (((int32_t)(tag & (uint32_t)32)) != 32) {
+		if ((tag & 0x20) != 0x20) {
 			$throwNew($IOException, "Non constructed encoding must have definite length"_s);
 		}
 		while (true) {
@@ -630,20 +571,20 @@ int32_t X509Factory::readBERInternal($InputStream* is, $ByteArrayOutputStream* b
 }
 
 void X509Factory::commitEvent($X509CertImpl* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X509CertificateEvent, xce, $new($X509CertificateEvent));
 	bool var$0 = xce->shouldCommit();
 	if (var$0 || $EventHelper::isLoggingSecurity()) {
 		$var($PublicKey, pKey, $nc(info)->getPublicKey());
 		$var($String, algId, info->getSigAlgName());
-		$var($String, serNum, $nc($(info->getSerialNumber()))->toString(16));
-		$var($String, subject, $nc($(info->getSubjectDN()))->getName());
-		$var($String, issuer, $nc($(info->getIssuerDN()))->getName());
+		$var($String, serNum, $$nc(info->getSerialNumber())->toString(16));
+		$var($String, subject, $$nc(info->getSubjectDN())->getName());
+		$var($String, issuer, $$nc(info->getIssuerDN())->getName());
 		$var($String, keyType, $nc(pKey)->getAlgorithm());
-		int32_t length = $KeyUtil::getKeySize(static_cast<$Key*>(pKey));
+		int32_t length = $KeyUtil::getKeySize(pKey);
 		int32_t hashCode = info->hashCode();
-		int64_t beginDate = $nc($(info->getNotBefore()))->getTime();
-		int64_t endDate = $nc($(info->getNotAfter()))->getTime();
+		int64_t beginDate = $$nc(info->getNotBefore())->getTime();
+		int64_t endDate = $$nc(info->getNotAfter())->getTime();
 		if (xce->shouldCommit()) {
 			$set(xce, algorithm, algId);
 			$set(xce, serialNumber, serNum);
@@ -662,7 +603,7 @@ void X509Factory::commitEvent($X509CertImpl* info) {
 	}
 }
 
-void clinit$X509Factory($Class* class$) {
+void X509Factory::clinit$($Class* clazz) {
 	$assignStatic(X509Factory::BEGIN_CERT, "-----BEGIN CERTIFICATE-----"_s);
 	$assignStatic(X509Factory::END_CERT, "-----END CERTIFICATE-----"_s);
 	$assignStatic(X509Factory::certCache, $Cache::newSoftMemoryCache(750));
@@ -673,7 +614,48 @@ X509Factory::X509Factory() {
 }
 
 $Class* X509Factory::load$($String* name, bool initialize) {
-	$loadClass(X509Factory, name, initialize, &_X509Factory_ClassInfo_, clinit$X509Factory, allocate$X509Factory);
+	$FieldInfo fieldInfos$$[] = {
+		{"BEGIN_CERT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509Factory, BEGIN_CERT)},
+		{"END_CERT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X509Factory, END_CERT)},
+		{"ENC_MAX_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509Factory, ENC_MAX_LENGTH)},
+		{"certCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Ljava/lang/Object;Lsun/security/x509/X509CertImpl;>;", $PRIVATE | $STATIC | $FINAL, $staticField(X509Factory, certCache)},
+		{"crlCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Ljava/lang/Object;Lsun/security/x509/X509CRLImpl;>;", $PRIVATE | $STATIC | $FINAL, $staticField(X509Factory, crlCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X509Factory, init$, void)},
+		{"addToCache", "(Lsun/security/util/Cache;[BLjava/lang/Object;)V", "<V:Ljava/lang/Object;>(Lsun/security/util/Cache<Ljava/lang/Object;TV;>;[BTV;)V", $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(X509Factory, addToCache, void, $Cache*, $bytes*, Object$*)},
+		{"checkHeaderFooter", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(X509Factory, checkHeaderFooter, void, $String*, $String*), "java.io.IOException"},
+		{"commitEvent", "(Lsun/security/x509/X509CertImpl;)V", nullptr, $PRIVATE, $method(X509Factory, commitEvent, void, $X509CertImpl*)},
+		{"engineGenerateCRL", "(Ljava/io/InputStream;)Ljava/security/cert/CRL;", nullptr, $PUBLIC, $virtualMethod(X509Factory, engineGenerateCRL, $CRL*, $InputStream*), "java.security.cert.CRLException"},
+		{"engineGenerateCRLs", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PUBLIC, $virtualMethod(X509Factory, engineGenerateCRLs, $Collection*, $InputStream*), "java.security.cert.CRLException"},
+		{"engineGenerateCertPath", "(Ljava/io/InputStream;)Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $virtualMethod(X509Factory, engineGenerateCertPath, $CertPath*, $InputStream*), "java.security.cert.CertificateException"},
+		{"engineGenerateCertPath", "(Ljava/io/InputStream;Ljava/lang/String;)Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $virtualMethod(X509Factory, engineGenerateCertPath, $CertPath*, $InputStream*, $String*), "java.security.cert.CertificateException"},
+		{"engineGenerateCertPath", "(Ljava/util/List;)Ljava/security/cert/CertPath;", "(Ljava/util/List<+Ljava/security/cert/Certificate;>;)Ljava/security/cert/CertPath;", $PUBLIC, $virtualMethod(X509Factory, engineGenerateCertPath, $CertPath*, $List*), "java.security.cert.CertificateException"},
+		{"engineGenerateCertificate", "(Ljava/io/InputStream;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(X509Factory, engineGenerateCertificate, $Certificate*, $InputStream*), "java.security.cert.CertificateException"},
+		{"engineGenerateCertificates", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC, $virtualMethod(X509Factory, engineGenerateCertificates, $Collection*, $InputStream*), "java.security.cert.CertificateException"},
+		{"engineGetCertPathEncodings", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509Factory, engineGetCertPathEncodings, $Iterator*)},
+		{"getFromCache", "(Lsun/security/util/Cache;[B)Ljava/lang/Object;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Lsun/security/util/Cache<TK;TV;>;[B)TV;", $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(X509Factory, getFromCache, $Object*, $Cache*, $bytes*)},
+		{"intern", "(Ljava/security/cert/X509Certificate;)Lsun/security/x509/X509CertImpl;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(X509Factory, intern, $X509CertImpl*, $X509Certificate*), "java.security.cert.CertificateException"},
+		{"intern", "(Ljava/security/cert/X509CRL;)Lsun/security/x509/X509CRLImpl;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(X509Factory, intern, $X509CRLImpl*, $X509CRL*), "java.security.cert.CRLException"},
+		{"parseX509orPKCS7CRL", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PRIVATE, $method(X509Factory, parseX509orPKCS7CRL, $Collection*, $InputStream*), "java.security.cert.CRLException,java.io.IOException"},
+		{"parseX509orPKCS7Cert", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PRIVATE, $method(X509Factory, parseX509orPKCS7Cert, $Collection*, $InputStream*), "java.security.cert.CertificateException,java.io.IOException"},
+		{"readBERInternal", "(Ljava/io/InputStream;Ljava/io/ByteArrayOutputStream;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(X509Factory, readBERInternal, int32_t, $InputStream*, $ByteArrayOutputStream*, int32_t), "java.io.IOException"},
+		{"readFully", "(Ljava/io/InputStream;Ljava/io/ByteArrayOutputStream;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(X509Factory, readFully, int32_t, $InputStream*, $ByteArrayOutputStream*, int32_t), "java.io.IOException"},
+		{"readOneBlock", "(Ljava/io/InputStream;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(X509Factory, readOneBlock, $bytes*, $InputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.X509Factory",
+		"java.security.cert.CertificateFactorySpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X509Factory, name, initialize, &classInfo$$, X509Factory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(X509Factory);
+	});
 	return class$;
 }
 

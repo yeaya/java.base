@@ -51,6 +51,7 @@ class $export ModulePatcher$PatchedModuleReader : public ::java::lang::module::M
 	$class(ModulePatcher$PatchedModuleReader, 0, ::java::lang::module::ModuleReader)
 public:
 	ModulePatcher$PatchedModuleReader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::List* patches, ::java::lang::module::ModuleReference* mref);
 	virtual void close() override;
 	static void closeAll(::java::util::List* finders);

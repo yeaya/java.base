@@ -19,6 +19,7 @@ class $export GenerifyStackTraces : public ::java::lang::Object {
 	$class(GenerifyStackTraces, 0, ::java::lang::Object)
 public:
 	GenerifyStackTraces();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkStack($Thread* t, $Array<::java::lang::StackTraceElement>* stack, int32_t depth);
 	static void dumpStacks(int32_t depth);

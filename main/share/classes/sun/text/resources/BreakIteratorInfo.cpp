@@ -1,5 +1,4 @@
 #include <sun/text/resources/BreakIteratorInfo.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -12,56 +11,37 @@ namespace sun {
 	namespace text {
 		namespace resources {
 
-$MethodInfo _BreakIteratorInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BreakIteratorInfo, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(BreakIteratorInfo, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _BreakIteratorInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.BreakIteratorInfo",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_BreakIteratorInfo_MethodInfo_
-};
-
-$Object* allocate$BreakIteratorInfo($Class* clazz) {
-	return $of($alloc(BreakIteratorInfo));
-}
-
 void BreakIteratorInfo::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* BreakIteratorInfo::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("BreakIteratorClasses"_s),
-			$of($$new($StringArray, {
+			"BreakIteratorClasses"_s,
+			$$new($StringArray, {
 				"RuleBasedBreakIterator"_s,
 				"RuleBasedBreakIterator"_s,
 				"RuleBasedBreakIterator"_s,
 				"RuleBasedBreakIterator"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("CharacterData"_s),
-			$of("CharacterBreakIteratorData"_s)
+			"CharacterData"_s,
+			"CharacterBreakIteratorData"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WordData"_s),
-			$of("WordBreakIteratorData"_s)
+			"WordData"_s,
+			"WordBreakIteratorData"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LineData"_s),
-			$of("LineBreakIteratorData"_s)
+			"LineData"_s,
+			"LineBreakIteratorData"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SentenceData"_s),
-			$of("SentenceBreakIteratorData"_s)
+			"SentenceData"_s,
+			"SentenceBreakIteratorData"_s
 		})
 	});
 }
@@ -70,7 +50,22 @@ BreakIteratorInfo::BreakIteratorInfo() {
 }
 
 $Class* BreakIteratorInfo::load$($String* name, bool initialize) {
-	$loadClass(BreakIteratorInfo, name, initialize, &_BreakIteratorInfo_ClassInfo_, allocate$BreakIteratorInfo);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BreakIteratorInfo, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(BreakIteratorInfo, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.BreakIteratorInfo",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BreakIteratorInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BreakIteratorInfo);
+	});
 	return class$;
 }
 

@@ -25,6 +25,7 @@ class Striped64$Cell : public ::java::lang::Object {
 	$class(Striped64$Cell, 0, ::java::lang::Object)
 public:
 	Striped64$Cell();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t x);
 	bool cas(int64_t cmp, int64_t val);
 	int64_t getAndSet(int64_t val);

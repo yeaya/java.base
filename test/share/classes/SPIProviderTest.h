@@ -20,6 +20,7 @@ class $export SPIProviderTest : public ::java::lang::Object {
 	$class(SPIProviderTest, 0, ::java::lang::Object)
 public:
 	SPIProviderTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	virtual $Array<::java::lang::Object, 2>* testData();

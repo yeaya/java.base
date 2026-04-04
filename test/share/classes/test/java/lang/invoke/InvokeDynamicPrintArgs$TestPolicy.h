@@ -26,6 +26,7 @@ class $export InvokeDynamicPrintArgs$TestPolicy : public ::java::security::Polic
 	$class(InvokeDynamicPrintArgs$TestPolicy, 0, ::java::security::Policy)
 public:
 	InvokeDynamicPrintArgs$TestPolicy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::security::PermissionCollection* getPermissions(::java::security::ProtectionDomain* domain) override;
 	virtual ::java::security::PermissionCollection* getPermissions(::java::security::CodeSource* codesource) override;

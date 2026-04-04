@@ -1,5 +1,4 @@
 #include <Enum.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -10,34 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _Enum_FieldInfo_[] = {
-	{"ONE", "LEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Enum, ONE)},
-	{"$VALUES", "[LEnum;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Enum, $VALUES)},
-	{}
-};
-
-$MethodInfo _Enum_MethodInfo_[] = {
-	{"$values", "()[LEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Enum, $values, $EnumArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Enum, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(Enum, valueOf, Enum*, $String*)},
-	{"values", "()[LEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(Enum, values, $EnumArray*)},
-	{}
-};
-
-$ClassInfo _Enum_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"Enum",
-	"java.lang.Enum",
-	nullptr,
-	_Enum_FieldInfo_,
-	_Enum_MethodInfo_,
-	"Ljava/lang/Enum<LEnum;>;"
-};
-
-$Object* allocate$Enum($Class* clazz) {
-	return $of($alloc(Enum));
-}
 
 Enum* Enum::ONE = nullptr;
 $EnumArray* Enum::$VALUES = nullptr;
@@ -61,7 +32,7 @@ void Enum::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Enum($Class* class$) {
+void Enum::clinit$($Class* clazz) {
 	$assignStatic(Enum::ONE, $new(Enum, "ONE"_s, 0));
 	$assignStatic(Enum::$VALUES, Enum::$values());
 }
@@ -70,7 +41,30 @@ Enum::Enum() {
 }
 
 $Class* Enum::load$($String* name, bool initialize) {
-	$loadClass(Enum, name, initialize, &_Enum_ClassInfo_, clinit$Enum, allocate$Enum);
+	$FieldInfo fieldInfos$$[] = {
+		{"ONE", "LEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Enum, ONE)},
+		{"$VALUES", "[LEnum;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Enum, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Enum, $values, $EnumArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Enum, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(Enum, valueOf, Enum*, $String*)},
+		{"values", "()[LEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(Enum, values, $EnumArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"Enum",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LEnum;>;"
+	};
+	$loadClass(Enum, name, initialize, &classInfo$$, Enum::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Enum));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/RC2Crypt.h>
-
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/security/InvalidKeyException.h>
 #include <jcpp.h>
@@ -16,38 +15,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _RC2Crypt_FieldInfo_[] = {
-	{"PI_TABLE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RC2Crypt, PI_TABLE)},
-	{"expandedKey", "[I", nullptr, $PRIVATE | $FINAL, $field(RC2Crypt, expandedKey)},
-	{"effectiveKeyBits", "I", nullptr, $PRIVATE, $field(RC2Crypt, effectiveKeyBits)},
-	{}
-};
-
-$MethodInfo _RC2Crypt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RC2Crypt, init$, void)},
-	{"checkKey", "(Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(RC2Crypt, checkKey, void, $String*, int32_t), "java.security.InvalidKeyException"},
-	{"decryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(RC2Crypt, decryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
-	{"encryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(RC2Crypt, encryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
-	{"getBlockSize", "()I", nullptr, 0, $virtualMethod(RC2Crypt, getBlockSize, int32_t)},
-	{"getEffectiveKeyBits", "()I", nullptr, 0, $method(RC2Crypt, getEffectiveKeyBits, int32_t)},
-	{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, $virtualMethod(RC2Crypt, init, void, bool, $String*, $bytes*), "java.security.InvalidKeyException"},
-	{"initEffectiveKeyBits", "(I)V", nullptr, 0, $method(RC2Crypt, initEffectiveKeyBits, void, int32_t)},
-	{}
-};
-
-$ClassInfo _RC2Crypt_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.RC2Crypt",
-	"com.sun.crypto.provider.SymmetricCipher",
-	nullptr,
-	_RC2Crypt_FieldInfo_,
-	_RC2Crypt_MethodInfo_
-};
-
-$Object* allocate$RC2Crypt($Class* clazz) {
-	return $of($alloc(RC2Crypt));
-}
 
 $ints* RC2Crypt::PI_TABLE = nullptr;
 
@@ -88,68 +55,64 @@ void RC2Crypt::init(bool decrypting, $String* algorithm, $bytes* key) {
 	$System::arraycopy(key, 0, expandedKeyBytes, 0, keyLength);
 	int32_t t = expandedKeyBytes->get(keyLength - 1);
 	for (int32_t i = keyLength; i < 128; ++i) {
-		t = $nc(RC2Crypt::PI_TABLE)->get((int32_t)((t + expandedKeyBytes->get(i - keyLength)) & (uint32_t)255));
+		t = RC2Crypt::PI_TABLE->get((t + expandedKeyBytes->get(i - keyLength)) & 0xff);
 		expandedKeyBytes->set(i, (int8_t)t);
 	}
 	int32_t t8 = (this->effectiveKeyBits + 7) >> 3;
-	int32_t tm = $sr(255, (int32_t)(-this->effectiveKeyBits & (uint32_t)7));
-	t = $nc(RC2Crypt::PI_TABLE)->get((int32_t)(expandedKeyBytes->get(128 - t8) & (uint32_t)tm));
+	int32_t tm = $sr(255, -this->effectiveKeyBits & 7);
+	t = RC2Crypt::PI_TABLE->get(expandedKeyBytes->get(128 - t8) & tm);
 	expandedKeyBytes->set(128 - t8, (int8_t)t);
 	for (int32_t i = 127 - t8; i >= 0; --i) {
-		t = $nc(RC2Crypt::PI_TABLE)->get(t ^ ((int32_t)(expandedKeyBytes->get(i + t8) & (uint32_t)255)));
+		t = RC2Crypt::PI_TABLE->get(t ^ (expandedKeyBytes->get(i + t8) & 0xff));
 		expandedKeyBytes->set(i, (int8_t)t);
 	}
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < 64; ++i, j += 2) {
-			t = ((int32_t)(expandedKeyBytes->get(j) & (uint32_t)255)) + (((int32_t)(expandedKeyBytes->get(j + 1) & (uint32_t)255)) << 8);
-			$nc(this->expandedKey)->set(i, t);
-		}
+	for (int32_t i = 0, j = 0; i < 64; ++i, j += 2) {
+		t = (expandedKeyBytes->get(j) & 0xff) + ((expandedKeyBytes->get(j + 1) & 0xff) << 8);
+		this->expandedKey->set(i, t);
 	}
 }
 
 void RC2Crypt::encryptBlock($bytes* in, int32_t inOfs, $bytes* out, int32_t outOfs) {
-	int32_t R0 = ((int32_t)($nc(in)->get(inOfs) & (uint32_t)255)) + (((int32_t)(in->get(inOfs + 1) & (uint32_t)255)) << 8);
-	int32_t R1 = ((int32_t)(in->get(inOfs + 2) & (uint32_t)255)) + (((int32_t)(in->get(inOfs + 3) & (uint32_t)255)) << 8);
-	int32_t R2 = ((int32_t)(in->get(inOfs + 4) & (uint32_t)255)) + (((int32_t)(in->get(inOfs + 5) & (uint32_t)255)) << 8);
-	int32_t R3 = ((int32_t)(in->get(inOfs + 6) & (uint32_t)255)) + (((int32_t)(in->get(inOfs + 7) & (uint32_t)255)) << 8);
+	int32_t R0 = ($nc(in)->get(inOfs) & 0xff) + (($nc(in)->get(inOfs + 1) & 0xff) << 8);
+	int32_t R1 = (in->get(inOfs + 2) & 0xff) + ((in->get(inOfs + 3) & 0xff) << 8);
+	int32_t R2 = (in->get(inOfs + 4) & 0xff) + ((in->get(inOfs + 5) & 0xff) << 8);
+	int32_t R3 = (in->get(inOfs + 6) & 0xff) + ((in->get(inOfs + 7) & 0xff) << 8);
 	for (int32_t i = 0; i < 20; i += 4) {
-		R0 = (int32_t)((R0 + $nc(this->expandedKey)->get(i) + ((int32_t)(R3 & (uint32_t)R2)) + ((int32_t)(~R3 & (uint32_t)R1))) & (uint32_t)0x0000FFFF);
+		R0 = (R0 + this->expandedKey->get(i) + (R3 & R2) + (~R3 & R1)) & 0xffff;
 		R0 = (R0 << 1) | ((int32_t)((uint32_t)R0 >> 15));
-		R1 = (int32_t)((R1 + $nc(this->expandedKey)->get(i + 1) + ((int32_t)(R0 & (uint32_t)R3)) + ((int32_t)(~R0 & (uint32_t)R2))) & (uint32_t)0x0000FFFF);
+		R1 = (R1 + this->expandedKey->get(i + 1) + (R0 & R3) + (~R0 & R2)) & 0xffff;
 		R1 = (R1 << 2) | ((int32_t)((uint32_t)R1 >> 14));
-		R2 = (int32_t)((R2 + $nc(this->expandedKey)->get(i + 2) + ((int32_t)(R1 & (uint32_t)R0)) + ((int32_t)(~R1 & (uint32_t)R3))) & (uint32_t)0x0000FFFF);
+		R2 = (R2 + this->expandedKey->get(i + 2) + (R1 & R0) + (~R1 & R3)) & 0xffff;
 		R2 = (R2 << 3) | ((int32_t)((uint32_t)R2 >> 13));
-		R3 = (int32_t)((R3 + $nc(this->expandedKey)->get(i + 3) + ((int32_t)(R2 & (uint32_t)R1)) + ((int32_t)(~R2 & (uint32_t)R0))) & (uint32_t)0x0000FFFF);
+		R3 = (R3 + this->expandedKey->get(i + 3) + (R2 & R1) + (~R2 & R0)) & 0xffff;
 		R3 = (R3 << 5) | ((int32_t)((uint32_t)R3 >> 11));
 	}
-	R0 += $nc(this->expandedKey)->get((int32_t)(R3 & (uint32_t)63));
-	R1 += $nc(this->expandedKey)->get((int32_t)(R0 & (uint32_t)63));
-	R2 += $nc(this->expandedKey)->get((int32_t)(R1 & (uint32_t)63));
-	R3 += $nc(this->expandedKey)->get((int32_t)(R2 & (uint32_t)63));
+	R0 += this->expandedKey->get(R3 & 0x3f);
+	R1 += this->expandedKey->get(R0 & 0x3f);
+	R2 += this->expandedKey->get(R1 & 0x3f);
+	R3 += this->expandedKey->get(R2 & 0x3f);
 	for (int32_t i = 20; i < 44; i += 4) {
-		R0 = (int32_t)((R0 + $nc(this->expandedKey)->get(i) + ((int32_t)(R3 & (uint32_t)R2)) + ((int32_t)(~R3 & (uint32_t)R1))) & (uint32_t)0x0000FFFF);
+		R0 = (R0 + this->expandedKey->get(i) + (R3 & R2) + (~R3 & R1)) & 0xffff;
 		R0 = (R0 << 1) | ((int32_t)((uint32_t)R0 >> 15));
-		R1 = (int32_t)((R1 + $nc(this->expandedKey)->get(i + 1) + ((int32_t)(R0 & (uint32_t)R3)) + ((int32_t)(~R0 & (uint32_t)R2))) & (uint32_t)0x0000FFFF);
+		R1 = (R1 + this->expandedKey->get(i + 1) + (R0 & R3) + (~R0 & R2)) & 0xffff;
 		R1 = (R1 << 2) | ((int32_t)((uint32_t)R1 >> 14));
-		R2 = (int32_t)((R2 + $nc(this->expandedKey)->get(i + 2) + ((int32_t)(R1 & (uint32_t)R0)) + ((int32_t)(~R1 & (uint32_t)R3))) & (uint32_t)0x0000FFFF);
+		R2 = (R2 + this->expandedKey->get(i + 2) + (R1 & R0) + (~R1 & R3)) & 0xffff;
 		R2 = (R2 << 3) | ((int32_t)((uint32_t)R2 >> 13));
-		R3 = (int32_t)((R3 + $nc(this->expandedKey)->get(i + 3) + ((int32_t)(R2 & (uint32_t)R1)) + ((int32_t)(~R2 & (uint32_t)R0))) & (uint32_t)0x0000FFFF);
+		R3 = (R3 + this->expandedKey->get(i + 3) + (R2 & R1) + (~R2 & R0)) & 0xffff;
 		R3 = (R3 << 5) | ((int32_t)((uint32_t)R3 >> 11));
 	}
-	R0 += $nc(this->expandedKey)->get((int32_t)(R3 & (uint32_t)63));
-	R1 += $nc(this->expandedKey)->get((int32_t)(R0 & (uint32_t)63));
-	R2 += $nc(this->expandedKey)->get((int32_t)(R1 & (uint32_t)63));
-	R3 += $nc(this->expandedKey)->get((int32_t)(R2 & (uint32_t)63));
+	R0 += this->expandedKey->get(R3 & 0x3f);
+	R1 += this->expandedKey->get(R0 & 0x3f);
+	R2 += this->expandedKey->get(R1 & 0x3f);
+	R3 += this->expandedKey->get(R2 & 0x3f);
 	for (int32_t i = 44; i < 64; i += 4) {
-		R0 = (int32_t)((R0 + $nc(this->expandedKey)->get(i) + ((int32_t)(R3 & (uint32_t)R2)) + ((int32_t)(~R3 & (uint32_t)R1))) & (uint32_t)0x0000FFFF);
+		R0 = (R0 + this->expandedKey->get(i) + (R3 & R2) + (~R3 & R1)) & 0xffff;
 		R0 = (R0 << 1) | ((int32_t)((uint32_t)R0 >> 15));
-		R1 = (int32_t)((R1 + $nc(this->expandedKey)->get(i + 1) + ((int32_t)(R0 & (uint32_t)R3)) + ((int32_t)(~R0 & (uint32_t)R2))) & (uint32_t)0x0000FFFF);
+		R1 = (R1 + this->expandedKey->get(i + 1) + (R0 & R3) + (~R0 & R2)) & 0xffff;
 		R1 = (R1 << 2) | ((int32_t)((uint32_t)R1 >> 14));
-		R2 = (int32_t)((R2 + $nc(this->expandedKey)->get(i + 2) + ((int32_t)(R1 & (uint32_t)R0)) + ((int32_t)(~R1 & (uint32_t)R3))) & (uint32_t)0x0000FFFF);
+		R2 = (R2 + this->expandedKey->get(i + 2) + (R1 & R0) + (~R1 & R3)) & 0xffff;
 		R2 = (R2 << 3) | ((int32_t)((uint32_t)R2 >> 13));
-		R3 = (int32_t)((R3 + $nc(this->expandedKey)->get(i + 3) + ((int32_t)(R2 & (uint32_t)R1)) + ((int32_t)(~R2 & (uint32_t)R0))) & (uint32_t)0x0000FFFF);
+		R3 = (R3 + this->expandedKey->get(i + 3) + (R2 & R1) + (~R2 & R0)) & 0xffff;
 		R3 = (R3 << 5) | ((int32_t)((uint32_t)R3 >> 11));
 	}
 	$nc(out)->set(outOfs, (int8_t)R0);
@@ -163,47 +126,47 @@ void RC2Crypt::encryptBlock($bytes* in, int32_t inOfs, $bytes* out, int32_t outO
 }
 
 void RC2Crypt::decryptBlock($bytes* in, int32_t inOfs, $bytes* out, int32_t outOfs) {
-	int32_t R0 = ((int32_t)($nc(in)->get(inOfs) & (uint32_t)255)) + (((int32_t)(in->get(inOfs + 1) & (uint32_t)255)) << 8);
-	int32_t R1 = ((int32_t)(in->get(inOfs + 2) & (uint32_t)255)) + (((int32_t)(in->get(inOfs + 3) & (uint32_t)255)) << 8);
-	int32_t R2 = ((int32_t)(in->get(inOfs + 4) & (uint32_t)255)) + (((int32_t)(in->get(inOfs + 5) & (uint32_t)255)) << 8);
-	int32_t R3 = ((int32_t)(in->get(inOfs + 6) & (uint32_t)255)) + (((int32_t)(in->get(inOfs + 7) & (uint32_t)255)) << 8);
+	int32_t R0 = ($nc(in)->get(inOfs) & 0xff) + (($nc(in)->get(inOfs + 1) & 0xff) << 8);
+	int32_t R1 = (in->get(inOfs + 2) & 0xff) + ((in->get(inOfs + 3) & 0xff) << 8);
+	int32_t R2 = (in->get(inOfs + 4) & 0xff) + ((in->get(inOfs + 5) & 0xff) << 8);
+	int32_t R3 = (in->get(inOfs + 6) & 0xff) + ((in->get(inOfs + 7) & 0xff) << 8);
 	for (int32_t i = 64; i > 44; i -= 4) {
-		R3 = (int32_t)(((R3 << 11) | ((int32_t)((uint32_t)R3 >> 5))) & (uint32_t)0x0000FFFF);
-		R3 = (int32_t)((R3 - $nc(this->expandedKey)->get(i - 1) - ((int32_t)(R2 & (uint32_t)R1)) - ((int32_t)(~R2 & (uint32_t)R0))) & (uint32_t)0x0000FFFF);
-		R2 = (int32_t)(((R2 << 13) | ((int32_t)((uint32_t)R2 >> 3))) & (uint32_t)0x0000FFFF);
-		R2 = (int32_t)((R2 - $nc(this->expandedKey)->get(i - 2) - ((int32_t)(R1 & (uint32_t)R0)) - ((int32_t)(~R1 & (uint32_t)R3))) & (uint32_t)0x0000FFFF);
-		R1 = (int32_t)(((R1 << 14) | ((int32_t)((uint32_t)R1 >> 2))) & (uint32_t)0x0000FFFF);
-		R1 = (int32_t)((R1 - $nc(this->expandedKey)->get(i - 3) - ((int32_t)(R0 & (uint32_t)R3)) - ((int32_t)(~R0 & (uint32_t)R2))) & (uint32_t)0x0000FFFF);
-		R0 = (int32_t)(((R0 << 15) | ((int32_t)((uint32_t)R0 >> 1))) & (uint32_t)0x0000FFFF);
-		R0 = (int32_t)((R0 - $nc(this->expandedKey)->get(i - 4) - ((int32_t)(R3 & (uint32_t)R2)) - ((int32_t)(~R3 & (uint32_t)R1))) & (uint32_t)0x0000FFFF);
+		R3 = ((R3 << 11) | ((int32_t)((uint32_t)R3 >> 5))) & 0xffff;
+		R3 = (R3 - this->expandedKey->get(i - 1) - (R2 & R1) - (~R2 & R0)) & 0xffff;
+		R2 = ((R2 << 13) | ((int32_t)((uint32_t)R2 >> 3))) & 0xffff;
+		R2 = (R2 - this->expandedKey->get(i - 2) - (R1 & R0) - (~R1 & R3)) & 0xffff;
+		R1 = ((R1 << 14) | ((int32_t)((uint32_t)R1 >> 2))) & 0xffff;
+		R1 = (R1 - this->expandedKey->get(i - 3) - (R0 & R3) - (~R0 & R2)) & 0xffff;
+		R0 = ((R0 << 15) | ((int32_t)((uint32_t)R0 >> 1))) & 0xffff;
+		R0 = (R0 - this->expandedKey->get(i - 4) - (R3 & R2) - (~R3 & R1)) & 0xffff;
 	}
-	R3 = (int32_t)((R3 - $nc(this->expandedKey)->get((int32_t)(R2 & (uint32_t)63))) & (uint32_t)0x0000FFFF);
-	R2 = (int32_t)((R2 - $nc(this->expandedKey)->get((int32_t)(R1 & (uint32_t)63))) & (uint32_t)0x0000FFFF);
-	R1 = (int32_t)((R1 - $nc(this->expandedKey)->get((int32_t)(R0 & (uint32_t)63))) & (uint32_t)0x0000FFFF);
-	R0 = (int32_t)((R0 - $nc(this->expandedKey)->get((int32_t)(R3 & (uint32_t)63))) & (uint32_t)0x0000FFFF);
+	R3 = (R3 - this->expandedKey->get(R2 & 0x3f)) & 0xffff;
+	R2 = (R2 - this->expandedKey->get(R1 & 0x3f)) & 0xffff;
+	R1 = (R1 - this->expandedKey->get(R0 & 0x3f)) & 0xffff;
+	R0 = (R0 - this->expandedKey->get(R3 & 0x3f)) & 0xffff;
 	for (int32_t i = 44; i > 20; i -= 4) {
-		R3 = (int32_t)(((R3 << 11) | ((int32_t)((uint32_t)R3 >> 5))) & (uint32_t)0x0000FFFF);
-		R3 = (int32_t)((R3 - $nc(this->expandedKey)->get(i - 1) - ((int32_t)(R2 & (uint32_t)R1)) - ((int32_t)(~R2 & (uint32_t)R0))) & (uint32_t)0x0000FFFF);
-		R2 = (int32_t)(((R2 << 13) | ((int32_t)((uint32_t)R2 >> 3))) & (uint32_t)0x0000FFFF);
-		R2 = (int32_t)((R2 - $nc(this->expandedKey)->get(i - 2) - ((int32_t)(R1 & (uint32_t)R0)) - ((int32_t)(~R1 & (uint32_t)R3))) & (uint32_t)0x0000FFFF);
-		R1 = (int32_t)(((R1 << 14) | ((int32_t)((uint32_t)R1 >> 2))) & (uint32_t)0x0000FFFF);
-		R1 = (int32_t)((R1 - $nc(this->expandedKey)->get(i - 3) - ((int32_t)(R0 & (uint32_t)R3)) - ((int32_t)(~R0 & (uint32_t)R2))) & (uint32_t)0x0000FFFF);
-		R0 = (int32_t)(((R0 << 15) | ((int32_t)((uint32_t)R0 >> 1))) & (uint32_t)0x0000FFFF);
-		R0 = (int32_t)((R0 - $nc(this->expandedKey)->get(i - 4) - ((int32_t)(R3 & (uint32_t)R2)) - ((int32_t)(~R3 & (uint32_t)R1))) & (uint32_t)0x0000FFFF);
+		R3 = ((R3 << 11) | ((int32_t)((uint32_t)R3 >> 5))) & 0xffff;
+		R3 = (R3 - this->expandedKey->get(i - 1) - (R2 & R1) - (~R2 & R0)) & 0xffff;
+		R2 = ((R2 << 13) | ((int32_t)((uint32_t)R2 >> 3))) & 0xffff;
+		R2 = (R2 - this->expandedKey->get(i - 2) - (R1 & R0) - (~R1 & R3)) & 0xffff;
+		R1 = ((R1 << 14) | ((int32_t)((uint32_t)R1 >> 2))) & 0xffff;
+		R1 = (R1 - this->expandedKey->get(i - 3) - (R0 & R3) - (~R0 & R2)) & 0xffff;
+		R0 = ((R0 << 15) | ((int32_t)((uint32_t)R0 >> 1))) & 0xffff;
+		R0 = (R0 - this->expandedKey->get(i - 4) - (R3 & R2) - (~R3 & R1)) & 0xffff;
 	}
-	R3 = (int32_t)((R3 - $nc(this->expandedKey)->get((int32_t)(R2 & (uint32_t)63))) & (uint32_t)0x0000FFFF);
-	R2 = (int32_t)((R2 - $nc(this->expandedKey)->get((int32_t)(R1 & (uint32_t)63))) & (uint32_t)0x0000FFFF);
-	R1 = (int32_t)((R1 - $nc(this->expandedKey)->get((int32_t)(R0 & (uint32_t)63))) & (uint32_t)0x0000FFFF);
-	R0 = (int32_t)((R0 - $nc(this->expandedKey)->get((int32_t)(R3 & (uint32_t)63))) & (uint32_t)0x0000FFFF);
+	R3 = (R3 - this->expandedKey->get(R2 & 0x3f)) & 0xffff;
+	R2 = (R2 - this->expandedKey->get(R1 & 0x3f)) & 0xffff;
+	R1 = (R1 - this->expandedKey->get(R0 & 0x3f)) & 0xffff;
+	R0 = (R0 - this->expandedKey->get(R3 & 0x3f)) & 0xffff;
 	for (int32_t i = 20; i > 0; i -= 4) {
-		R3 = (int32_t)(((R3 << 11) | ((int32_t)((uint32_t)R3 >> 5))) & (uint32_t)0x0000FFFF);
-		R3 = (int32_t)((R3 - $nc(this->expandedKey)->get(i - 1) - ((int32_t)(R2 & (uint32_t)R1)) - ((int32_t)(~R2 & (uint32_t)R0))) & (uint32_t)0x0000FFFF);
-		R2 = (int32_t)(((R2 << 13) | ((int32_t)((uint32_t)R2 >> 3))) & (uint32_t)0x0000FFFF);
-		R2 = (int32_t)((R2 - $nc(this->expandedKey)->get(i - 2) - ((int32_t)(R1 & (uint32_t)R0)) - ((int32_t)(~R1 & (uint32_t)R3))) & (uint32_t)0x0000FFFF);
-		R1 = (int32_t)(((R1 << 14) | ((int32_t)((uint32_t)R1 >> 2))) & (uint32_t)0x0000FFFF);
-		R1 = (int32_t)((R1 - $nc(this->expandedKey)->get(i - 3) - ((int32_t)(R0 & (uint32_t)R3)) - ((int32_t)(~R0 & (uint32_t)R2))) & (uint32_t)0x0000FFFF);
-		R0 = (int32_t)(((R0 << 15) | ((int32_t)((uint32_t)R0 >> 1))) & (uint32_t)0x0000FFFF);
-		R0 = (int32_t)((R0 - $nc(this->expandedKey)->get(i - 4) - ((int32_t)(R3 & (uint32_t)R2)) - ((int32_t)(~R3 & (uint32_t)R1))) & (uint32_t)0x0000FFFF);
+		R3 = ((R3 << 11) | ((int32_t)((uint32_t)R3 >> 5))) & 0xffff;
+		R3 = (R3 - this->expandedKey->get(i - 1) - (R2 & R1) - (~R2 & R0)) & 0xffff;
+		R2 = ((R2 << 13) | ((int32_t)((uint32_t)R2 >> 3))) & 0xffff;
+		R2 = (R2 - this->expandedKey->get(i - 2) - (R1 & R0) - (~R1 & R3)) & 0xffff;
+		R1 = ((R1 << 14) | ((int32_t)((uint32_t)R1 >> 2))) & 0xffff;
+		R1 = (R1 - this->expandedKey->get(i - 3) - (R0 & R3) - (~R0 & R2)) & 0xffff;
+		R0 = ((R0 << 15) | ((int32_t)((uint32_t)R0 >> 1))) & 0xffff;
+		R0 = (R0 - this->expandedKey->get(i - 4) - (R3 & R2) - (~R3 & R1)) & 0xffff;
 	}
 	$nc(out)->set(outOfs, (int8_t)R0);
 	out->set(outOfs + 1, (int8_t)(R0 >> 8));
@@ -215,7 +178,7 @@ void RC2Crypt::decryptBlock($bytes* in, int32_t inOfs, $bytes* out, int32_t outO
 	out->set(outOfs + 7, (int8_t)(R3 >> 8));
 }
 
-void clinit$RC2Crypt($Class* class$) {
+void RC2Crypt::clinit$($Class* clazz) {
 	$assignStatic(RC2Crypt::PI_TABLE, $new($ints, {
 		217,
 		120,
@@ -480,7 +443,34 @@ RC2Crypt::RC2Crypt() {
 }
 
 $Class* RC2Crypt::load$($String* name, bool initialize) {
-	$loadClass(RC2Crypt, name, initialize, &_RC2Crypt_ClassInfo_, clinit$RC2Crypt, allocate$RC2Crypt);
+	$FieldInfo fieldInfos$$[] = {
+		{"PI_TABLE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RC2Crypt, PI_TABLE)},
+		{"expandedKey", "[I", nullptr, $PRIVATE | $FINAL, $field(RC2Crypt, expandedKey)},
+		{"effectiveKeyBits", "I", nullptr, $PRIVATE, $field(RC2Crypt, effectiveKeyBits)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RC2Crypt, init$, void)},
+		{"checkKey", "(Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(RC2Crypt, checkKey, void, $String*, int32_t), "java.security.InvalidKeyException"},
+		{"decryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(RC2Crypt, decryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+		{"encryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(RC2Crypt, encryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+		{"getBlockSize", "()I", nullptr, 0, $virtualMethod(RC2Crypt, getBlockSize, int32_t)},
+		{"getEffectiveKeyBits", "()I", nullptr, 0, $method(RC2Crypt, getEffectiveKeyBits, int32_t)},
+		{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, $virtualMethod(RC2Crypt, init, void, bool, $String*, $bytes*), "java.security.InvalidKeyException"},
+		{"initEffectiveKeyBits", "(I)V", nullptr, 0, $method(RC2Crypt, initEffectiveKeyBits, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.RC2Crypt",
+		"com.sun.crypto.provider.SymmetricCipher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RC2Crypt, name, initialize, &classInfo$$, RC2Crypt::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RC2Crypt);
+	});
 	return class$;
 }
 

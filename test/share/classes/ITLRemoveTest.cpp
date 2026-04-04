@@ -1,5 +1,4 @@
 #include <ITLRemoveTest.h>
-
 #include <ITLRemoveTest$1.h>
 #include <ITLRemoveTest$MyThread.h>
 #include <java/lang/InheritableThreadLocal.h>
@@ -17,49 +16,6 @@ using $InheritableThreadLocal = ::java::lang::InheritableThreadLocal;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _ITLRemoveTest_FieldInfo_[] = {
-	{"INITIAL_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ITLRemoveTest, INITIAL_VALUE)},
-	{"REMOVE_SET_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ITLRemoveTest, REMOVE_SET_VALUE)},
-	{"n", "Ljava/lang/InheritableThreadLocal;", "Ljava/lang/InheritableThreadLocal<Ljava/lang/Integer;>;", $STATIC, $staticField(ITLRemoveTest, n)},
-	{"threadCount", "I", nullptr, $STATIC, $staticField(ITLRemoveTest, threadCount)},
-	{"x", "[I", nullptr, $STATIC, $staticField(ITLRemoveTest, x)},
-	{"exceptions", "[Ljava/lang/Throwable;", nullptr, $STATIC, $staticField(ITLRemoveTest, exceptions)},
-	{"removeNode", "[I", nullptr, $STATIC | $FINAL, $staticField(ITLRemoveTest, removeNode)},
-	{"removeAndSet", "[I", nullptr, $STATIC | $FINAL, $staticField(ITLRemoveTest, removeAndSet)},
-	{}
-};
-
-$MethodInfo _ITLRemoveTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ITLRemoveTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ITLRemoveTest, main, void, $StringArray*), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _ITLRemoveTest_InnerClassesInfo_[] = {
-	{"ITLRemoveTest$MyThread", "ITLRemoveTest", "MyThread", $PRIVATE | $STATIC},
-	{"ITLRemoveTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ITLRemoveTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ITLRemoveTest",
-	"java.lang.Object",
-	nullptr,
-	_ITLRemoveTest_FieldInfo_,
-	_ITLRemoveTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ITLRemoveTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ITLRemoveTest$MyThread,ITLRemoveTest$1"
-};
-
-$Object* allocate$ITLRemoveTest($Class* clazz) {
-	return $of($alloc(ITLRemoveTest));
-}
-
 $InheritableThreadLocal* ITLRemoveTest::n = nullptr;
 int32_t ITLRemoveTest::threadCount = 0;
 $ints* ITLRemoveTest::x = nullptr;
@@ -72,7 +28,7 @@ void ITLRemoveTest::init$() {
 
 void ITLRemoveTest::main($StringArray* args) {
 	$init(ITLRemoveTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(ITLRemoveTest::x, $new($ints, ITLRemoveTest::threadCount));
 	$assignStatic(ITLRemoveTest::exceptions, $new($ThrowableArray, ITLRemoveTest::threadCount));
 	$var($Thread, progenitor, $new($ITLRemoveTest$MyThread));
@@ -82,9 +38,7 @@ void ITLRemoveTest::main($StringArray* args) {
 		int32_t checkValue = i + ITLRemoveTest::INITIAL_VALUE;
 		{
 			$var($ints, arr$, ITLRemoveTest::removeNode);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				int32_t removeId = arr$->get(i$);
 				if (removeId == i) {
 					checkValue = ITLRemoveTest::INITIAL_VALUE;
@@ -94,9 +48,7 @@ void ITLRemoveTest::main($StringArray* args) {
 		}
 		{
 			$var($ints, arr$, ITLRemoveTest::removeAndSet);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				int32_t removeId = arr$->get(i$);
 				if (removeId == i) {
 					checkValue = ITLRemoveTest::REMOVE_SET_VALUE;
@@ -104,16 +56,16 @@ void ITLRemoveTest::main($StringArray* args) {
 				}
 			}
 		}
-		if ($nc(ITLRemoveTest::exceptions)->get(i) != nullptr) {
-			$throw($nc(ITLRemoveTest::exceptions)->get(i));
+		if (ITLRemoveTest::exceptions->get(i) != nullptr) {
+			$throw(ITLRemoveTest::exceptions->get(i));
 		}
-		if ($nc(ITLRemoveTest::x)->get(i) != checkValue) {
-			$throw($$new($Throwable, $$str({"x["_s, $$str(i), "] ="_s, $$str($nc(ITLRemoveTest::x)->get(i))})));
+		if (ITLRemoveTest::x->get(i) != checkValue) {
+			$throw($$new($Throwable, $$str({"x["_s, $$str(i), "] ="_s, $$str(ITLRemoveTest::x->get(i))})));
 		}
 	}
 }
 
-void clinit$ITLRemoveTest($Class* class$) {
+void ITLRemoveTest::clinit$($Class* clazz) {
 	$assignStatic(ITLRemoveTest::n, $new($ITLRemoveTest$1));
 	ITLRemoveTest::threadCount = 100;
 	$assignStatic(ITLRemoveTest::removeNode, $new($ints, {
@@ -134,7 +86,44 @@ ITLRemoveTest::ITLRemoveTest() {
 }
 
 $Class* ITLRemoveTest::load$($String* name, bool initialize) {
-	$loadClass(ITLRemoveTest, name, initialize, &_ITLRemoveTest_ClassInfo_, clinit$ITLRemoveTest, allocate$ITLRemoveTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"INITIAL_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ITLRemoveTest, INITIAL_VALUE)},
+		{"REMOVE_SET_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ITLRemoveTest, REMOVE_SET_VALUE)},
+		{"n", "Ljava/lang/InheritableThreadLocal;", "Ljava/lang/InheritableThreadLocal<Ljava/lang/Integer;>;", $STATIC, $staticField(ITLRemoveTest, n)},
+		{"threadCount", "I", nullptr, $STATIC, $staticField(ITLRemoveTest, threadCount)},
+		{"x", "[I", nullptr, $STATIC, $staticField(ITLRemoveTest, x)},
+		{"exceptions", "[Ljava/lang/Throwable;", nullptr, $STATIC, $staticField(ITLRemoveTest, exceptions)},
+		{"removeNode", "[I", nullptr, $STATIC | $FINAL, $staticField(ITLRemoveTest, removeNode)},
+		{"removeAndSet", "[I", nullptr, $STATIC | $FINAL, $staticField(ITLRemoveTest, removeAndSet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ITLRemoveTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ITLRemoveTest, main, void, $StringArray*), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ITLRemoveTest$MyThread", "ITLRemoveTest", "MyThread", $PRIVATE | $STATIC},
+		{"ITLRemoveTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ITLRemoveTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ITLRemoveTest$MyThread,ITLRemoveTest$1"
+	};
+	$loadClass(ITLRemoveTest, name, initialize, &classInfo$$, ITLRemoveTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ITLRemoveTest);
+	});
 	return class$;
 }
 

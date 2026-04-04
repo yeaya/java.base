@@ -1,5 +1,4 @@
 #include <java/util/stream/Streams$ConcatSpliterator$OfDouble.h>
-
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator$OfDouble.h>
 #include <java/util/Spliterator$OfPrimitive.h>
@@ -16,7 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfDouble = ::java::util::Spliterator$OfDouble;
-using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $Consumer = ::java::util::function::Consumer;
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 using $Streams$ConcatSpliterator$OfPrimitive = ::java::util::stream::Streams$ConcatSpliterator$OfPrimitive;
@@ -24,56 +22,6 @@ using $Streams$ConcatSpliterator$OfPrimitive = ::java::util::stream::Streams$Con
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _Streams$ConcatSpliterator$OfDouble_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
-	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator$OfDouble;Ljava/util/Spliterator$OfDouble;)V", nullptr, 0, $method(Streams$ConcatSpliterator$OfDouble, init$, void, $Spliterator$OfDouble*, $Spliterator$OfDouble*)},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$ConcatSpliterator$OfDouble, forEachRemaining, void, $DoubleConsumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$ConcatSpliterator$OfDouble, tryAdvance, bool, $DoubleConsumer*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$ConcatSpliterator$OfDouble, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Streams$ConcatSpliterator$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.stream.Streams$ConcatSpliterator", "java.util.stream.Streams", "ConcatSpliterator", $STATIC | $ABSTRACT},
-	{"java.util.stream.Streams$ConcatSpliterator$OfDouble", "java.util.stream.Streams$ConcatSpliterator", "OfDouble", $STATIC},
-	{"java.util.stream.Streams$ConcatSpliterator$OfPrimitive", "java.util.stream.Streams$ConcatSpliterator", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Streams$ConcatSpliterator$OfDouble_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.Streams$ConcatSpliterator$OfDouble",
-	"java.util.stream.Streams$ConcatSpliterator$OfPrimitive",
-	"java.util.Spliterator$OfDouble",
-	nullptr,
-	_Streams$ConcatSpliterator$OfDouble_MethodInfo_,
-	"Ljava/util/stream/Streams$ConcatSpliterator$OfPrimitive<Ljava/lang/Double;Ljava/util/function/DoubleConsumer;Ljava/util/Spliterator$OfDouble;>;Ljava/util/Spliterator$OfDouble;",
-	nullptr,
-	_Streams$ConcatSpliterator$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Streams"
-};
-
-$Object* allocate$Streams$ConcatSpliterator$OfDouble($Class* clazz) {
-	return $of($alloc(Streams$ConcatSpliterator$OfDouble));
-}
 
 bool Streams$ConcatSpliterator$OfDouble::tryAdvance(Object$* action) {
 	 return this->$Streams$ConcatSpliterator$OfPrimitive::tryAdvance(action);
@@ -208,11 +156,11 @@ void Streams$ConcatSpliterator$OfDouble::init$($Spliterator$OfDouble* aSpliterat
 }
 
 void Streams$ConcatSpliterator$OfDouble::forEachRemaining($DoubleConsumer* action) {
-	$Streams$ConcatSpliterator$OfPrimitive::forEachRemaining($of(action));
+	$Streams$ConcatSpliterator$OfPrimitive::forEachRemaining(action);
 }
 
 bool Streams$ConcatSpliterator$OfDouble::tryAdvance($DoubleConsumer* action) {
-	return $Streams$ConcatSpliterator$OfPrimitive::tryAdvance($of(action));
+	return $Streams$ConcatSpliterator$OfPrimitive::tryAdvance(action);
 }
 
 $Spliterator* Streams$ConcatSpliterator$OfDouble::trySplit() {
@@ -223,7 +171,52 @@ Streams$ConcatSpliterator$OfDouble::Streams$ConcatSpliterator$OfDouble() {
 }
 
 $Class* Streams$ConcatSpliterator$OfDouble::load$($String* name, bool initialize) {
-	$loadClass(Streams$ConcatSpliterator$OfDouble, name, initialize, &_Streams$ConcatSpliterator$OfDouble_ClassInfo_, allocate$Streams$ConcatSpliterator$OfDouble);
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
+		{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/Spliterator$OfDouble;Ljava/util/Spliterator$OfDouble;)V", nullptr, 0, $method(Streams$ConcatSpliterator$OfDouble, init$, void, $Spliterator$OfDouble*, $Spliterator$OfDouble*)},
+		{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$ConcatSpliterator$OfDouble, forEachRemaining, void, $DoubleConsumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$ConcatSpliterator$OfDouble, tryAdvance, bool, $DoubleConsumer*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$ConcatSpliterator$OfDouble, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Streams$ConcatSpliterator", "java.util.stream.Streams", "ConcatSpliterator", $STATIC | $ABSTRACT},
+		{"java.util.stream.Streams$ConcatSpliterator$OfDouble", "java.util.stream.Streams$ConcatSpliterator", "OfDouble", $STATIC},
+		{"java.util.stream.Streams$ConcatSpliterator$OfPrimitive", "java.util.stream.Streams$ConcatSpliterator", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.Streams$ConcatSpliterator$OfDouble",
+		"java.util.stream.Streams$ConcatSpliterator$OfPrimitive",
+		"java.util.Spliterator$OfDouble",
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/stream/Streams$ConcatSpliterator$OfPrimitive<Ljava/lang/Double;Ljava/util/function/DoubleConsumer;Ljava/util/Spliterator$OfDouble;>;Ljava/util/Spliterator$OfDouble;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Streams"
+	};
+	$loadClass(Streams$ConcatSpliterator$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Streams$ConcatSpliterator$OfDouble));
+	});
 	return class$;
 }
 

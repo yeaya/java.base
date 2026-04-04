@@ -17,6 +17,7 @@ class $export StampedLock$ReaderNode : public ::java::util::concurrent::locks::S
 	$class(StampedLock$ReaderNode, 0, ::java::util::concurrent::locks::StampedLock$Node)
 public:
 	StampedLock$ReaderNode();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool casCowaiters(::java::util::concurrent::locks::StampedLock$ReaderNode* c, ::java::util::concurrent::locks::StampedLock$ReaderNode* v);
 	void setCowaitersRelaxed(::java::util::concurrent::locks::StampedLock$ReaderNode* p);

@@ -33,6 +33,7 @@ public:
 	using ::java::lang::invoke::VarHandleReferences$FieldInstanceReadOnly::getAndSet;
 	using ::java::lang::invoke::VarHandleReferences$FieldInstanceReadOnly::getAndSetAcquire;
 	using ::java::lang::invoke::VarHandleReferences$FieldInstanceReadOnly::getAndSetRelease;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* receiverType, int64_t fieldOffset, $Class* fieldType);
 	void init$($Class* receiverType, int64_t fieldOffset, $Class* fieldType, bool exact);
 	static $Object* compareAndExchange(::java::lang::invoke::VarHandle* ob, Object$* holder, Object$* expected, Object$* value);

@@ -24,6 +24,7 @@ class NullCache : public ::sun::security::util::Cache {
 	$class(NullCache, 0, ::sun::security::util::Cache)
 public:
 	NullCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void accept(::sun::security::util::Cache$CacheVisitor* visitor) override;
 	virtual void clear() override;

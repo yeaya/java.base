@@ -22,6 +22,7 @@ class FileTreeWalker$EventType : public ::java::lang::Enum {
 public:
 	FileTreeWalker$EventType();
 	static $Array<::java::nio::file::FileTreeWalker$EventType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::nio::file::FileTreeWalker$EventType* valueOf($String* name);
 	static $Array<::java::nio::file::FileTreeWalker$EventType>* values();

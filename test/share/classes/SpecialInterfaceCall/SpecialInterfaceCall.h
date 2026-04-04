@@ -25,6 +25,7 @@ class $export SpecialInterfaceCall : public ::java::lang::Object {
 	$class(SpecialInterfaceCall, 0, ::java::lang::Object)
 public:
 	SpecialInterfaceCall();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$runNegativeTests$11();
 	static void lambda$runNegativeTests$12();

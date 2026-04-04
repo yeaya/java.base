@@ -12,6 +12,7 @@ class $export ClassForNameTest : public ::java::lang::Object {
 	$class(ClassForNameTest, 0, ::java::lang::Object)
 public:
 	ClassForNameTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* NAME;

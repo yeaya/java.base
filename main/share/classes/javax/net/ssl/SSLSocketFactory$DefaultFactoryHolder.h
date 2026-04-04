@@ -21,6 +21,7 @@ class SSLSocketFactory$DefaultFactoryHolder : public ::java::lang::Object {
 	$class(SSLSocketFactory$DefaultFactoryHolder, 0, ::java::lang::Object)
 public:
 	SSLSocketFactory$DefaultFactoryHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void log($String* msg);
 	static ::javax::net::ssl::SSLSocketFactory* defaultFactory;

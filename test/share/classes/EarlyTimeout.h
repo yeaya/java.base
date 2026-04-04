@@ -32,6 +32,7 @@ class $export EarlyTimeout : public ::java::lang::Thread {
 	$class(EarlyTimeout, 0, ::java::lang::Thread)
 public:
 	EarlyTimeout();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	virtual void run() override;

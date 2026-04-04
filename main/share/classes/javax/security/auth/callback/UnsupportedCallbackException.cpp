@@ -1,5 +1,4 @@
 #include <javax/security/auth/callback/UnsupportedCallbackException.h>
-
 #include <javax/security/auth/callback/Callback.h>
 #include <jcpp.h>
 
@@ -13,32 +12,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace callback {
-
-$FieldInfo _UnsupportedCallbackException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsupportedCallbackException, serialVersionUID)},
-	{"callback", "Ljavax/security/auth/callback/Callback;", nullptr, $PRIVATE, $field(UnsupportedCallbackException, callback)},
-	{}
-};
-
-$MethodInfo _UnsupportedCallbackException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $method(UnsupportedCallbackException, init$, void, $Callback*)},
-	{"<init>", "(Ljavax/security/auth/callback/Callback;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsupportedCallbackException, init$, void, $Callback*, $String*)},
-	{"getCallback", "()Ljavax/security/auth/callback/Callback;", nullptr, $PUBLIC, $virtualMethod(UnsupportedCallbackException, getCallback, $Callback*)},
-	{}
-};
-
-$ClassInfo _UnsupportedCallbackException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.callback.UnsupportedCallbackException",
-	"java.lang.Exception",
-	nullptr,
-	_UnsupportedCallbackException_FieldInfo_,
-	_UnsupportedCallbackException_MethodInfo_
-};
-
-$Object* allocate$UnsupportedCallbackException($Class* clazz) {
-	return $of($alloc(UnsupportedCallbackException));
-}
 
 void UnsupportedCallbackException::init$($Callback* callback) {
 	$Exception::init$();
@@ -65,7 +38,28 @@ void UnsupportedCallbackException::throw$() {
 }
 
 $Class* UnsupportedCallbackException::load$($String* name, bool initialize) {
-	$loadClass(UnsupportedCallbackException, name, initialize, &_UnsupportedCallbackException_ClassInfo_, allocate$UnsupportedCallbackException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsupportedCallbackException, serialVersionUID)},
+		{"callback", "Ljavax/security/auth/callback/Callback;", nullptr, $PRIVATE, $field(UnsupportedCallbackException, callback)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $method(UnsupportedCallbackException, init$, void, $Callback*)},
+		{"<init>", "(Ljavax/security/auth/callback/Callback;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsupportedCallbackException, init$, void, $Callback*, $String*)},
+		{"getCallback", "()Ljavax/security/auth/callback/Callback;", nullptr, $PUBLIC, $virtualMethod(UnsupportedCallbackException, getCallback, $Callback*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.callback.UnsupportedCallbackException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnsupportedCallbackException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnsupportedCallbackException);
+	});
 	return class$;
 }
 

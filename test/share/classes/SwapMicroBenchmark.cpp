@@ -1,5 +1,4 @@
 #include <SwapMicroBenchmark.h>
-
 #include <SwapMicroBenchmark$1.h>
 #include <SwapMicroBenchmark$2.h>
 #include <SwapMicroBenchmark$3.h>
@@ -10,7 +9,6 @@
 #include <SwapMicroBenchmark$8.h>
 #include <SwapMicroBenchmark$9.h>
 #include <SwapMicroBenchmark$Job.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/Error.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
@@ -32,8 +30,6 @@ using $SwapMicroBenchmark$8 = ::SwapMicroBenchmark$8;
 using $SwapMicroBenchmark$9 = ::SwapMicroBenchmark$9;
 using $SwapMicroBenchmark$Job = ::SwapMicroBenchmark$Job;
 using $SwapMicroBenchmark$JobArray = $Array<SwapMicroBenchmark$Job>;
-using $PrintStream = ::java::io::PrintStream;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $Error = ::java::lang::Error;
@@ -46,55 +42,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Random = ::java::util::Random;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
-
-$MethodInfo _SwapMicroBenchmark_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SwapMicroBenchmark, init$, void)},
-	{"collectAllGarbage", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, collectAllGarbage, void)},
-	{"deoptimize", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, deoptimize, void, int32_t)},
-	{"filter", "(Ljava/util/regex/Pattern;[LSwapMicroBenchmark$Job;)[LSwapMicroBenchmark$Job;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, filter, $SwapMicroBenchmark$JobArray*, $Pattern*, $SwapMicroBenchmark$JobArray*)},
-	{"intArg", "([Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, intArg, int32_t, $StringArray*, $String*, int32_t)},
-	{"keywordValue", "([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, keywordValue, $String*, $StringArray*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwapMicroBenchmark, main, void, $StringArray*), "java.lang.Throwable"},
-	{"patternArg", "([Ljava/lang/String;Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, patternArg, $Pattern*, $StringArray*, $String*)},
-	{"time", "([LSwapMicroBenchmark$Job;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SwapMicroBenchmark, time, void, $SwapMicroBenchmark$JobArray*), "java.lang.Throwable"},
-	{"time0", "([LSwapMicroBenchmark$Job;)[J", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SwapMicroBenchmark, time0, $longs*, $SwapMicroBenchmark$JobArray*), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _SwapMicroBenchmark_InnerClassesInfo_[] = {
-	{"SwapMicroBenchmark$Job", "SwapMicroBenchmark", "Job", $STATIC | $ABSTRACT},
-	{"SwapMicroBenchmark$9", nullptr, nullptr, 0},
-	{"SwapMicroBenchmark$8", nullptr, nullptr, 0},
-	{"SwapMicroBenchmark$7", nullptr, nullptr, 0},
-	{"SwapMicroBenchmark$6", nullptr, nullptr, 0},
-	{"SwapMicroBenchmark$5", nullptr, nullptr, 0},
-	{"SwapMicroBenchmark$4", nullptr, nullptr, 0},
-	{"SwapMicroBenchmark$3", nullptr, nullptr, 0},
-	{"SwapMicroBenchmark$2", nullptr, nullptr, 0},
-	{"SwapMicroBenchmark$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SwapMicroBenchmark_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SwapMicroBenchmark",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SwapMicroBenchmark_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SwapMicroBenchmark_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"SwapMicroBenchmark$Job,SwapMicroBenchmark$9,SwapMicroBenchmark$8,SwapMicroBenchmark$7,SwapMicroBenchmark$6,SwapMicroBenchmark$5,SwapMicroBenchmark$4,SwapMicroBenchmark$3,SwapMicroBenchmark$2,SwapMicroBenchmark$1"
-};
-
-$Object* allocate$SwapMicroBenchmark($Class* clazz) {
-	return $of($alloc(SwapMicroBenchmark));
-}
 
 void SwapMicroBenchmark::init$() {
 }
@@ -108,7 +56,7 @@ void SwapMicroBenchmark::collectAllGarbage() {
 		drained->await();
 		$System::gc();
 	} catch ($InterruptedException& e) {
-		$throwNew($Error, static_cast<$Throwable*>(e));
+		$throwNew($Error, e);
 	}
 }
 
@@ -130,7 +78,7 @@ $longs* SwapMicroBenchmark::time0($SwapMicroBenchmark$JobArray* jobs) {
 }
 
 void SwapMicroBenchmark::time($SwapMicroBenchmark$JobArray* jobs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, warmup, time0(jobs));
 	$var($longs, nanoss, time0(jobs));
 	$var($longs, milliss, $new($longs, $nc(jobs)->length));
@@ -142,47 +90,43 @@ void SwapMicroBenchmark::time($SwapMicroBenchmark$JobArray* jobs) {
 	int32_t millisWidth = millisHeader->length();
 	int32_t ratioWidth = ratioHeader->length();
 	for (int32_t i = 0; i < jobs->length; ++i) {
-		nameWidth = $Math::max(nameWidth, $nc($($nc(jobs->get(i))->name()))->length());
+		nameWidth = $Math::max(nameWidth, $$nc($nc(jobs->get(i))->name())->length());
 		milliss->set(i, $div($nc(nanoss)->get(i), ((int64_t)1000 * (int64_t)1000)));
-		millisWidth = $Math::max(millisWidth, $nc($($String::format("%d"_s, $$new($ObjectArray, {$($of($Long::valueOf(milliss->get(i))))}))))->length());
+		millisWidth = $Math::max(millisWidth, $$nc($String::format("%d"_s, $$new($ObjectArray, {$($Long::valueOf(milliss->get(i)))})))->length());
 		ratios->set(i, (double)nanoss->get(i) / (double)nanoss->get(0));
-		ratioWidth = $Math::max(ratioWidth, $nc($($String::format("%.3f"_s, $$new($ObjectArray, {$($of($Double::valueOf(ratios->get(i))))}))))->length());
+		ratioWidth = $Math::max(ratioWidth, $$nc($String::format("%.3f"_s, $$new($ObjectArray, {$($Double::valueOf(ratios->get(i)))})))->length());
 	}
 	$var($String, format, $String::format("%%-%ds %%%dd %%%d.3f%%n"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(nameWidth))),
-		$($of($Integer::valueOf(millisWidth))),
-		$($of($Integer::valueOf(ratioWidth)))
+		$($Integer::valueOf(nameWidth)),
+		$($Integer::valueOf(millisWidth)),
+		$($Integer::valueOf(ratioWidth))
 	})));
 	$var($String, headerFormat, $String::format("%%-%ds %%%ds %%%ds%%n"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(nameWidth))),
-		$($of($Integer::valueOf(millisWidth))),
-		$($of($Integer::valueOf(ratioWidth)))
+		$($Integer::valueOf(nameWidth)),
+		$($Integer::valueOf(millisWidth)),
+		$($Integer::valueOf(ratioWidth))
 	})));
 	$nc($System::out)->printf(headerFormat, $$new($ObjectArray, {
-		$of("Method"_s),
-		$of("Millis"_s),
-		$of("Ratio"_s)
+		"Method"_s,
+		"Millis"_s,
+		"Ratio"_s
 	}));
 	for (int32_t i = 0; i < jobs->length; ++i) {
-		$nc($System::out)->printf(format, $$new($ObjectArray, {
-			$($of($nc(jobs->get(i))->name())),
-			$($of($Long::valueOf(milliss->get(i)))),
-			$($of($Double::valueOf(ratios->get(i))))
+		$System::out->printf(format, $$new($ObjectArray, {
+			$($nc(jobs->get(i))->name()),
+			$($Long::valueOf(milliss->get(i))),
+			$($Double::valueOf(ratios->get(i)))
 		}));
 	}
 }
 
 $String* SwapMicroBenchmark::keywordValue($StringArray* args, $String* keyword) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($StringArray, arr$, args);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($String, arg, arr$->get(i$));
-			if ($nc(arg)->startsWith(keyword)) {
-				return arg->substring($nc(keyword)->length() + 1);
-			}
+	$useLocalObjectStack();
+	$var($StringArray, arr$, args);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($String, arg, arr$->get(i$));
+		if ($nc(arg)->startsWith(keyword)) {
+			return arg->substring($nc(keyword)->length() + 1);
 		}
 	}
 	return nullptr;
@@ -199,7 +143,7 @@ $Pattern* SwapMicroBenchmark::patternArg($StringArray* args, $String* keyword) {
 }
 
 $SwapMicroBenchmark$JobArray* SwapMicroBenchmark::filter($Pattern* filter, $SwapMicroBenchmark$JobArray* jobs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (filter == nullptr) {
 		return jobs;
 	}
@@ -207,11 +151,9 @@ $SwapMicroBenchmark$JobArray* SwapMicroBenchmark::filter($Pattern* filter, $Swap
 	int32_t n = 0;
 	{
 		$var($SwapMicroBenchmark$JobArray, arr$, jobs);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($SwapMicroBenchmark$Job, job, arr$->get(i$));
-			if ($nc($($nc(filter)->matcher($($nc(job)->name()))))->find()) {
+			if ($$nc($nc(filter)->matcher($($nc(job)->name())))->find()) {
 				newJobs->set(n++, job);
 			}
 		}
@@ -228,7 +170,7 @@ void SwapMicroBenchmark::deoptimize(int32_t sum) {
 }
 
 void SwapMicroBenchmark::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t iterations = intArg(args, "iterations"_s, 2);
 	int32_t size = intArg(args, "size"_s, 512);
 	$var($Pattern, filter, patternArg(args, "filter"_s));
@@ -238,14 +180,14 @@ void SwapMicroBenchmark::main($StringArray* args) {
 		b->put(i, (int8_t)rnd->nextInt());
 	}
 	$var($SwapMicroBenchmark$JobArray, jobs, $new($SwapMicroBenchmark$JobArray, {
-		static_cast<$SwapMicroBenchmark$Job*>($$new($SwapMicroBenchmark$2, "swap char BIG_ENDIAN"_s, b, iterations)),
-		static_cast<$SwapMicroBenchmark$Job*>($$new($SwapMicroBenchmark$3, "swap char LITTLE_ENDIAN"_s, b, iterations)),
-		static_cast<$SwapMicroBenchmark$Job*>($$new($SwapMicroBenchmark$4, "swap short BIG_ENDIAN"_s, b, iterations)),
-		static_cast<$SwapMicroBenchmark$Job*>($$new($SwapMicroBenchmark$5, "swap short LITTLE_ENDIAN"_s, b, iterations)),
-		static_cast<$SwapMicroBenchmark$Job*>($$new($SwapMicroBenchmark$6, "swap int BIG_ENDIAN"_s, b, iterations)),
-		static_cast<$SwapMicroBenchmark$Job*>($$new($SwapMicroBenchmark$7, "swap int LITTLE_ENDIAN"_s, b, iterations)),
-		static_cast<$SwapMicroBenchmark$Job*>($$new($SwapMicroBenchmark$8, "swap long BIG_ENDIAN"_s, b, iterations)),
-		static_cast<$SwapMicroBenchmark$Job*>($$new($SwapMicroBenchmark$9, "swap long LITTLE_ENDIAN"_s, b, iterations))
+		$$new($SwapMicroBenchmark$2, "swap char BIG_ENDIAN"_s, b, iterations),
+		$$new($SwapMicroBenchmark$3, "swap char LITTLE_ENDIAN"_s, b, iterations),
+		$$new($SwapMicroBenchmark$4, "swap short BIG_ENDIAN"_s, b, iterations),
+		$$new($SwapMicroBenchmark$5, "swap short LITTLE_ENDIAN"_s, b, iterations),
+		$$new($SwapMicroBenchmark$6, "swap int BIG_ENDIAN"_s, b, iterations),
+		$$new($SwapMicroBenchmark$7, "swap int LITTLE_ENDIAN"_s, b, iterations),
+		$$new($SwapMicroBenchmark$8, "swap long BIG_ENDIAN"_s, b, iterations),
+		$$new($SwapMicroBenchmark$9, "swap long LITTLE_ENDIAN"_s, b, iterations)
 	}));
 	time($(SwapMicroBenchmark::filter(filter, jobs)));
 }
@@ -254,7 +196,49 @@ SwapMicroBenchmark::SwapMicroBenchmark() {
 }
 
 $Class* SwapMicroBenchmark::load$($String* name, bool initialize) {
-	$loadClass(SwapMicroBenchmark, name, initialize, &_SwapMicroBenchmark_ClassInfo_, allocate$SwapMicroBenchmark);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SwapMicroBenchmark, init$, void)},
+		{"collectAllGarbage", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, collectAllGarbage, void)},
+		{"deoptimize", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, deoptimize, void, int32_t)},
+		{"filter", "(Ljava/util/regex/Pattern;[LSwapMicroBenchmark$Job;)[LSwapMicroBenchmark$Job;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, filter, $SwapMicroBenchmark$JobArray*, $Pattern*, $SwapMicroBenchmark$JobArray*)},
+		{"intArg", "([Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, intArg, int32_t, $StringArray*, $String*, int32_t)},
+		{"keywordValue", "([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, keywordValue, $String*, $StringArray*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwapMicroBenchmark, main, void, $StringArray*), "java.lang.Throwable"},
+		{"patternArg", "([Ljava/lang/String;Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, patternArg, $Pattern*, $StringArray*, $String*)},
+		{"time", "([LSwapMicroBenchmark$Job;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SwapMicroBenchmark, time, void, $SwapMicroBenchmark$JobArray*), "java.lang.Throwable"},
+		{"time0", "([LSwapMicroBenchmark$Job;)[J", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SwapMicroBenchmark, time0, $longs*, $SwapMicroBenchmark$JobArray*), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SwapMicroBenchmark$Job", "SwapMicroBenchmark", "Job", $STATIC | $ABSTRACT},
+		{"SwapMicroBenchmark$9", nullptr, nullptr, 0},
+		{"SwapMicroBenchmark$8", nullptr, nullptr, 0},
+		{"SwapMicroBenchmark$7", nullptr, nullptr, 0},
+		{"SwapMicroBenchmark$6", nullptr, nullptr, 0},
+		{"SwapMicroBenchmark$5", nullptr, nullptr, 0},
+		{"SwapMicroBenchmark$4", nullptr, nullptr, 0},
+		{"SwapMicroBenchmark$3", nullptr, nullptr, 0},
+		{"SwapMicroBenchmark$2", nullptr, nullptr, 0},
+		{"SwapMicroBenchmark$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SwapMicroBenchmark",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"SwapMicroBenchmark$Job,SwapMicroBenchmark$9,SwapMicroBenchmark$8,SwapMicroBenchmark$7,SwapMicroBenchmark$6,SwapMicroBenchmark$5,SwapMicroBenchmark$4,SwapMicroBenchmark$3,SwapMicroBenchmark$2,SwapMicroBenchmark$1"
+	};
+	$loadClass(SwapMicroBenchmark, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwapMicroBenchmark);
+	});
 	return class$;
 }
 

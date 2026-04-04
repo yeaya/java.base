@@ -29,6 +29,7 @@ class $import NativeEntryPoint : public ::java::lang::Object {
 	$class(NativeEntryPoint, 0, ::java::lang::Object)
 public:
 	NativeEntryPoint();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t shadowSpace, $longs* argMoves, $longs* returnMoves, bool needTransition, ::java::lang::invoke::MethodType* methodType, $String* name);
 	static $longs* encodeVMStorages($Array<::jdk::internal::invoke::VMStorageProxy>* moves);
 	static ::jdk::internal::invoke::NativeEntryPoint* make($String* name, ::jdk::internal::invoke::ABIDescriptorProxy* abi, $Array<::jdk::internal::invoke::VMStorageProxy>* argMoves, $Array<::jdk::internal::invoke::VMStorageProxy>* returnMoves, bool needTransition, ::java::lang::invoke::MethodType* methodType);

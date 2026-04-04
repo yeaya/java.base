@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/SunCertPathBuilderResult.h>
-
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertPath.h>
 #include <java/security/cert/PKIXCertPathBuilderResult.h>
@@ -25,31 +24,6 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _SunCertPathBuilderResult_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunCertPathBuilderResult, debug)},
-	{"adjList", "Lsun/security/provider/certpath/AdjacencyList;", nullptr, $PRIVATE, $field(SunCertPathBuilderResult, adjList)},
-	{}
-};
-
-$MethodInfo _SunCertPathBuilderResult_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertPath;Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;Lsun/security/provider/certpath/AdjacencyList;)V", nullptr, 0, $method(SunCertPathBuilderResult, init$, void, $CertPath*, $TrustAnchor*, $PolicyNode*, $PublicKey*, $AdjacencyList*)},
-	{"getAdjacencyList", "()Lsun/security/provider/certpath/AdjacencyList;", nullptr, $PUBLIC, $virtualMethod(SunCertPathBuilderResult, getAdjacencyList, $AdjacencyList*)},
-	{}
-};
-
-$ClassInfo _SunCertPathBuilderResult_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.certpath.SunCertPathBuilderResult",
-	"java.security.cert.PKIXCertPathBuilderResult",
-	nullptr,
-	_SunCertPathBuilderResult_FieldInfo_,
-	_SunCertPathBuilderResult_MethodInfo_
-};
-
-$Object* allocate$SunCertPathBuilderResult($Class* clazz) {
-	return $of($alloc(SunCertPathBuilderResult));
-}
-
 $Debug* SunCertPathBuilderResult::debug = nullptr;
 
 void SunCertPathBuilderResult::init$($CertPath* certPath, $TrustAnchor* trustAnchor, $PolicyNode* policyTree, $PublicKey* subjectPublicKey, $AdjacencyList* adjList) {
@@ -61,7 +35,7 @@ $AdjacencyList* SunCertPathBuilderResult::getAdjacencyList() {
 	return this->adjList;
 }
 
-void clinit$SunCertPathBuilderResult($Class* class$) {
+void SunCertPathBuilderResult::clinit$($Class* clazz) {
 	$assignStatic(SunCertPathBuilderResult::debug, $Debug::getInstance("certpath"_s));
 }
 
@@ -69,7 +43,27 @@ SunCertPathBuilderResult::SunCertPathBuilderResult() {
 }
 
 $Class* SunCertPathBuilderResult::load$($String* name, bool initialize) {
-	$loadClass(SunCertPathBuilderResult, name, initialize, &_SunCertPathBuilderResult_ClassInfo_, clinit$SunCertPathBuilderResult, allocate$SunCertPathBuilderResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunCertPathBuilderResult, debug)},
+		{"adjList", "Lsun/security/provider/certpath/AdjacencyList;", nullptr, $PRIVATE, $field(SunCertPathBuilderResult, adjList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/cert/CertPath;Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;Lsun/security/provider/certpath/AdjacencyList;)V", nullptr, 0, $method(SunCertPathBuilderResult, init$, void, $CertPath*, $TrustAnchor*, $PolicyNode*, $PublicKey*, $AdjacencyList*)},
+		{"getAdjacencyList", "()Lsun/security/provider/certpath/AdjacencyList;", nullptr, $PUBLIC, $virtualMethod(SunCertPathBuilderResult, getAdjacencyList, $AdjacencyList*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.certpath.SunCertPathBuilderResult",
+		"java.security.cert.PKIXCertPathBuilderResult",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SunCertPathBuilderResult, name, initialize, &classInfo$$, SunCertPathBuilderResult::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SunCertPathBuilderResult));
+	});
 	return class$;
 }
 

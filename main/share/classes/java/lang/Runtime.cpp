@@ -1,5 +1,4 @@
 #include <java/lang/Runtime.h>
-
 #include <java/io/File.h>
 #include <java/lang/ApplicationShutdownHooks.h>
 #include <java/lang/ClassLoader.h>
@@ -40,90 +39,14 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Shutdown = ::java::lang::Shutdown;
 using $UnsatisfiedLinkError = ::java::lang::UnsatisfiedLinkError;
 using $VersionProps = ::java::lang::VersionProps;
-using $Permission = ::java::security::Permission;
 using $List = ::java::util::List;
 using $Optional = ::java::util::Optional;
 using $StringTokenizer = ::java::util::StringTokenizer;
-using $JavaLangRefAccess = ::jdk::internal::access::JavaLangRefAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $Reflection = ::jdk::internal::reflect::Reflection;
 
 namespace java {
 	namespace lang {
-
-$CompoundAttribute _Runtime_MethodAnnotations_load14[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Runtime_MethodAnnotations_loadLibrary16[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$FieldInfo _Runtime_FieldInfo_[] = {
-	{"currentRuntime", "Ljava/lang/Runtime;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime, currentRuntime)},
-	{"version", "Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $STATIC, $staticField(Runtime, version$)},
-	{}
-};
-
-$MethodInfo _Runtime_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Runtime, init$, void)},
-	{"addShutdownHook", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $virtualMethod(Runtime, addShutdownHook, void, $Thread*)},
-	{"availableProcessors", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Runtime, availableProcessors, int32_t)},
-	{"exec", "(Ljava/lang/String;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $String*), "java.io.IOException"},
-	{"exec", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $String*, $StringArray*), "java.io.IOException"},
-	{"exec", "(Ljava/lang/String;[Ljava/lang/String;Ljava/io/File;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $String*, $StringArray*, $File*), "java.io.IOException"},
-	{"exec", "([Ljava/lang/String;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $StringArray*), "java.io.IOException"},
-	{"exec", "([Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $StringArray*, $StringArray*), "java.io.IOException"},
-	{"exec", "([Ljava/lang/String;[Ljava/lang/String;Ljava/io/File;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $StringArray*, $StringArray*, $File*), "java.io.IOException"},
-	{"exit", "(I)V", nullptr, $PUBLIC, $virtualMethod(Runtime, exit, void, int32_t)},
-	{"freeMemory", "()J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Runtime, freeMemory, int64_t)},
-	{"gc", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Runtime, gc, void)},
-	{"getRuntime", "()Ljava/lang/Runtime;", nullptr, $PUBLIC | $STATIC, $staticMethod(Runtime, getRuntime, Runtime*)},
-	{"halt", "(I)V", nullptr, $PUBLIC, $virtualMethod(Runtime, halt, void, int32_t)},
-	{"load", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Runtime, load, void, $String*), nullptr, nullptr, _Runtime_MethodAnnotations_load14},
-	{"load0", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", 0, $virtualMethod(Runtime, load0, void, $Class*, $String*)},
-	{"loadLibrary", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Runtime, loadLibrary, void, $String*), nullptr, nullptr, _Runtime_MethodAnnotations_loadLibrary16},
-	{"loadLibrary0", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", 0, $virtualMethod(Runtime, loadLibrary0, void, $Class*, $String*)},
-	{"maxMemory", "()J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Runtime, maxMemory, int64_t)},
-	{"removeShutdownHook", "(Ljava/lang/Thread;)Z", nullptr, $PUBLIC, $virtualMethod(Runtime, removeShutdownHook, bool, $Thread*)},
-	{"runFinalization", "()V", nullptr, $PUBLIC, $virtualMethod(Runtime, runFinalization, void)},
-	{"totalMemory", "()J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Runtime, totalMemory, int64_t)},
-	{"version", "()Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(Runtime, version, $Runtime$Version*)},
-	{}
-};
-
-#define _METHOD_INDEX_availableProcessors 2
-#define _METHOD_INDEX_freeMemory 10
-#define _METHOD_INDEX_gc 11
-#define _METHOD_INDEX_maxMemory 18
-#define _METHOD_INDEX_totalMemory 21
-
-$InnerClassInfo _Runtime_InnerClassesInfo_[] = {
-	{"java.lang.Runtime$VersionPattern", "java.lang.Runtime", "VersionPattern", $PRIVATE | $STATIC},
-	{"java.lang.Runtime$Version", "java.lang.Runtime", "Version", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Runtime_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.Runtime",
-	"java.lang.Object",
-	nullptr,
-	_Runtime_FieldInfo_,
-	_Runtime_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Runtime_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.Runtime$VersionPattern,java.lang.Runtime$Version"
-};
-
-$Object* allocate$Runtime($Class* clazz) {
-	return $of($alloc(Runtime));
-}
 
 Runtime* Runtime::currentRuntime = nullptr;
 $Runtime$Version* Runtime::version$ = nullptr;
@@ -145,7 +68,7 @@ void Runtime::exit(int32_t status) {
 }
 
 void Runtime::addShutdownHook($Thread* hook) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "shutdownHooks"_s));
@@ -154,7 +77,7 @@ void Runtime::addShutdownHook($Thread* hook) {
 }
 
 bool Runtime::removeShutdownHook($Thread* hook) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "shutdownHooks"_s));
@@ -172,15 +95,15 @@ void Runtime::halt(int32_t status) {
 }
 
 $Process* Runtime::exec($String* command) {
-	return exec(command, ($StringArray*)nullptr, ($File*)nullptr);
+	return exec(command, nullptr, nullptr);
 }
 
 $Process* Runtime::exec($String* command, $StringArray* envp) {
-	return exec(command, envp, ($File*)nullptr);
+	return exec(command, envp, nullptr);
 }
 
 $Process* Runtime::exec($String* command, $StringArray* envp, $File* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(command)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "Empty command"_s);
 	}
@@ -193,16 +116,16 @@ $Process* Runtime::exec($String* command, $StringArray* envp, $File* dir) {
 }
 
 $Process* Runtime::exec($StringArray* cmdarray) {
-	return exec(cmdarray, ($StringArray*)nullptr, ($File*)nullptr);
+	return exec(cmdarray, nullptr, nullptr);
 }
 
 $Process* Runtime::exec($StringArray* cmdarray, $StringArray* envp) {
-	return exec(cmdarray, envp, ($File*)nullptr);
+	return exec(cmdarray, envp, nullptr);
 }
 
 $Process* Runtime::exec($StringArray* cmdarray, $StringArray* envp, $File* dir) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($$new($ProcessBuilder, cmdarray)->environment(envp)))->directory(dir)))->start();
+	$useLocalObjectStack();
+	return $$nc($$nc($$new($ProcessBuilder, cmdarray)->environment(envp))->directory(dir))->start();
 }
 
 int32_t Runtime::availableProcessors() {
@@ -226,7 +149,7 @@ void Runtime::gc() {
 }
 
 void Runtime::runFinalization() {
-	$nc($($SharedSecrets::getJavaLangRefAccess()))->runFinalization();
+	$$nc($SharedSecrets::getJavaLangRefAccess())->runFinalization();
 }
 
 void Runtime::load($String* filename) {
@@ -234,7 +157,7 @@ void Runtime::load($String* filename) {
 }
 
 void Runtime::load0($Class* fromClass, $String* filename) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkLink(filename);
@@ -251,7 +174,7 @@ void Runtime::loadLibrary($String* libname) {
 }
 
 void Runtime::loadLibrary0($Class* fromClass, $String* libname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkLink(libname);
@@ -265,7 +188,7 @@ void Runtime::loadLibrary0($Class* fromClass, $String* libname) {
 
 $Runtime$Version* Runtime::version() {
 	$init(Runtime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Runtime$Version, v, Runtime::version$);
 	if (v == nullptr) {
 		$var($List, var$0, $VersionProps::versionNumbers());
@@ -277,7 +200,7 @@ $Runtime$Version* Runtime::version() {
 	return v;
 }
 
-void clinit$Runtime($Class* class$) {
+void Runtime::clinit$($Class* clazz) {
 	$assignStatic(Runtime::currentRuntime, $new(Runtime));
 }
 
@@ -285,7 +208,67 @@ Runtime::Runtime() {
 }
 
 $Class* Runtime::load$($String* name, bool initialize) {
-	$loadClass(Runtime, name, initialize, &_Runtime_ClassInfo_, clinit$Runtime, allocate$Runtime);
+	$FieldInfo fieldInfos$$[] = {
+		{"currentRuntime", "Ljava/lang/Runtime;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Runtime, currentRuntime)},
+		{"version", "Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $STATIC, $staticField(Runtime, version$)},
+		{}
+	};
+	$CompoundAttribute loadmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute loadLibrarymethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Runtime, init$, void)},
+		{"addShutdownHook", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $virtualMethod(Runtime, addShutdownHook, void, $Thread*)},
+		{"availableProcessors", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Runtime, availableProcessors, int32_t)},
+		{"exec", "(Ljava/lang/String;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $String*), "java.io.IOException"},
+		{"exec", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $String*, $StringArray*), "java.io.IOException"},
+		{"exec", "(Ljava/lang/String;[Ljava/lang/String;Ljava/io/File;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $String*, $StringArray*, $File*), "java.io.IOException"},
+		{"exec", "([Ljava/lang/String;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $StringArray*), "java.io.IOException"},
+		{"exec", "([Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $StringArray*, $StringArray*), "java.io.IOException"},
+		{"exec", "([Ljava/lang/String;[Ljava/lang/String;Ljava/io/File;)Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Runtime, exec, $Process*, $StringArray*, $StringArray*, $File*), "java.io.IOException"},
+		{"exit", "(I)V", nullptr, $PUBLIC, $virtualMethod(Runtime, exit, void, int32_t)},
+		{"freeMemory", "()J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Runtime, freeMemory, int64_t)},
+		{"gc", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Runtime, gc, void)},
+		{"getRuntime", "()Ljava/lang/Runtime;", nullptr, $PUBLIC | $STATIC, $staticMethod(Runtime, getRuntime, Runtime*)},
+		{"halt", "(I)V", nullptr, $PUBLIC, $virtualMethod(Runtime, halt, void, int32_t)},
+		{"load", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Runtime, load, void, $String*), nullptr, nullptr, loadmethodAnnotations$$},
+		{"load0", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", 0, $virtualMethod(Runtime, load0, void, $Class*, $String*)},
+		{"loadLibrary", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Runtime, loadLibrary, void, $String*), nullptr, nullptr, loadLibrarymethodAnnotations$$},
+		{"loadLibrary0", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", 0, $virtualMethod(Runtime, loadLibrary0, void, $Class*, $String*)},
+		{"maxMemory", "()J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Runtime, maxMemory, int64_t)},
+		{"removeShutdownHook", "(Ljava/lang/Thread;)Z", nullptr, $PUBLIC, $virtualMethod(Runtime, removeShutdownHook, bool, $Thread*)},
+		{"runFinalization", "()V", nullptr, $PUBLIC, $virtualMethod(Runtime, runFinalization, void)},
+		{"totalMemory", "()J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Runtime, totalMemory, int64_t)},
+		{"version", "()Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(Runtime, version, $Runtime$Version*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Runtime$VersionPattern", "java.lang.Runtime", "VersionPattern", $PRIVATE | $STATIC},
+		{"java.lang.Runtime$Version", "java.lang.Runtime", "Version", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.Runtime",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.Runtime$VersionPattern,java.lang.Runtime$Version"
+	};
+	$loadClass(Runtime, name, initialize, &classInfo$$, Runtime::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Runtime);
+	});
 	return class$;
 }
 

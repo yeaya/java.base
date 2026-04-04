@@ -1,5 +1,4 @@
 #include <java/lang/NoSuchMethodError.h>
-
 #include <java/lang/IncompatibleClassChangeError.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _NoSuchMethodError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchMethodError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoSuchMethodError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchMethodError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchMethodError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NoSuchMethodError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.NoSuchMethodError",
-	"java.lang.IncompatibleClassChangeError",
-	nullptr,
-	_NoSuchMethodError_FieldInfo_,
-	_NoSuchMethodError_MethodInfo_
-};
-
-$Object* allocate$NoSuchMethodError($Class* clazz) {
-	return $of($alloc(NoSuchMethodError));
-}
 
 void NoSuchMethodError::init$() {
 	$IncompatibleClassChangeError::init$();
@@ -54,7 +29,26 @@ void NoSuchMethodError::throw$() {
 }
 
 $Class* NoSuchMethodError::load$($String* name, bool initialize) {
-	$loadClass(NoSuchMethodError, name, initialize, &_NoSuchMethodError_ClassInfo_, allocate$NoSuchMethodError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchMethodError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchMethodError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchMethodError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.NoSuchMethodError",
+		"java.lang.IncompatibleClassChangeError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoSuchMethodError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoSuchMethodError);
+	});
 	return class$;
 }
 

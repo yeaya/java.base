@@ -32,6 +32,7 @@ public:
 	const char* modules = nullptr;
 
 	bool isEnd();
+	static OpensDirective* cloneArray(OpensDirective* array);
 };
 
 	} // lang

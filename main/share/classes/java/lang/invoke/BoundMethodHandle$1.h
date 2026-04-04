@@ -13,6 +13,7 @@ class BoundMethodHandle$1 : public ::java::lang::Object {
 	$class(BoundMethodHandle$1, 0, ::java::lang::Object)
 public:
 	BoundMethodHandle$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$lang$invoke$LambdaForm$BasicType;
 };
 

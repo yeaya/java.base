@@ -1,5 +1,4 @@
 #include <java/security/cert/X509CRLEntry.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/cert/CRLException.h>
 #include <java/security/cert/CRLReason.h>
@@ -23,33 +22,6 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$MethodInfo _X509CRLEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X509CRLEntry, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, equals, bool, Object$*)},
-	{"getCertificateIssuer", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, getCertificateIssuer, $X500Principal*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, getEncoded, $bytes*), "java.security.cert.CRLException"},
-	{"getRevocationDate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, getRevocationDate, $Date*)},
-	{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, getRevocationReason, $CRLReason*)},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, getSerialNumber, $BigInteger*)},
-	{"hasExtensions", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, hasExtensions, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _X509CRLEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.cert.X509CRLEntry",
-	"java.lang.Object",
-	"java.security.cert.X509Extension",
-	nullptr,
-	_X509CRLEntry_MethodInfo_
-};
-
-$Object* allocate$X509CRLEntry($Class* clazz) {
-	return $of($alloc(X509CRLEntry));
-}
-
 $String* X509CRLEntry::toString() {
 	 return this->$X509Extension::toString();
 }
@@ -58,7 +30,7 @@ void X509CRLEntry::init$() {
 }
 
 bool X509CRLEntry::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -67,12 +39,12 @@ bool X509CRLEntry::equals(Object$* other) {
 	}
 	try {
 		$var($bytes, thisCRLEntry, this->getEncoded());
-		$var($bytes, otherCRLEntry, $nc(($cast(X509CRLEntry, other)))->getEncoded());
+		$var($bytes, otherCRLEntry, $nc($cast(X509CRLEntry, other))->getEncoded());
 		if ($nc(thisCRLEntry)->length != $nc(otherCRLEntry)->length) {
 			return false;
 		}
-		for (int32_t i = 0; i < $nc(thisCRLEntry)->length; ++i) {
-			if (thisCRLEntry->get(i) != $nc(otherCRLEntry)->get(i)) {
+		for (int32_t i = 0; i < thisCRLEntry->length; ++i) {
+			if (thisCRLEntry->get(i) != otherCRLEntry->get(i)) {
 				return false;
 			}
 		}
@@ -110,7 +82,30 @@ X509CRLEntry::X509CRLEntry() {
 }
 
 $Class* X509CRLEntry::load$($String* name, bool initialize) {
-	$loadClass(X509CRLEntry, name, initialize, &_X509CRLEntry_ClassInfo_, allocate$X509CRLEntry);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X509CRLEntry, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, equals, bool, Object$*)},
+		{"getCertificateIssuer", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, getCertificateIssuer, $X500Principal*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, getEncoded, $bytes*), "java.security.cert.CRLException"},
+		{"getRevocationDate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, getRevocationDate, $Date*)},
+		{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, getRevocationReason, $CRLReason*)},
+		{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, getSerialNumber, $BigInteger*)},
+		{"hasExtensions", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, hasExtensions, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.cert.X509CRLEntry",
+		"java.lang.Object",
+		"java.security.cert.X509Extension",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(X509CRLEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X509CRLEntry);
+	});
 	return class$;
 }
 

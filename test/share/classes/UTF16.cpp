@@ -1,5 +1,4 @@
 #include <UTF16.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
@@ -16,31 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _UTF16_FieldInfo_[] = {
-	{"array", "[B", nullptr, $PRIVATE | $STATIC, $staticField(UTF16, array)},
-	{}
-};
-
-$MethodInfo _UTF16_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UTF16, init$, void)},
-	{"go", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF16, go, void, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _UTF16_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"UTF16",
-	"java.lang.Object",
-	nullptr,
-	_UTF16_FieldInfo_,
-	_UTF16_MethodInfo_
-};
-
-$Object* allocate$UTF16($Class* clazz) {
-	return $of($alloc(UTF16));
-}
-
 $bytes* UTF16::array = nullptr;
 
 void UTF16::init$() {
@@ -48,7 +22,7 @@ void UTF16::init$() {
 
 void UTF16::go($String* cs) {
 	$init(UTF16);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, is, $new($ByteArrayInputStream, UTF16::array));
 	$var($Reader, r, $new($InputStreamReader, is, "UTF-16LE"_s));
 	r->read();
@@ -61,7 +35,7 @@ void UTF16::main($StringArray* args) {
 	go("UTF-16BE"_s);
 }
 
-void clinit$UTF16($Class* class$) {
+void UTF16::clinit$($Class* clazz) {
 	$assignStatic(UTF16::array, $new($bytes, 20000));
 }
 
@@ -69,7 +43,27 @@ UTF16::UTF16() {
 }
 
 $Class* UTF16::load$($String* name, bool initialize) {
-	$loadClass(UTF16, name, initialize, &_UTF16_ClassInfo_, clinit$UTF16, allocate$UTF16);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[B", nullptr, $PRIVATE | $STATIC, $staticField(UTF16, array)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UTF16, init$, void)},
+		{"go", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF16, go, void, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"UTF16",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UTF16, name, initialize, &classInfo$$, UTF16::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UTF16);
+	});
 	return class$;
 }
 

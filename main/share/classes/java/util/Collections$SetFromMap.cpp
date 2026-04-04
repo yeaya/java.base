@@ -1,5 +1,4 @@
 #include <java/util/Collections$SetFromMap.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
@@ -26,7 +25,6 @@ using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $Predicate = ::java::util::function::Predicate;
@@ -34,66 +32,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$SetFromMap_FieldInfo_[] = {
-	{"m", "Ljava/util/Map;", "Ljava/util/Map<TE;Ljava/lang/Boolean;>;", $PRIVATE | $FINAL, $field(Collections$SetFromMap, m)},
-	{"s", "Ljava/util/Set;", "Ljava/util/Set<TE;>;", $PRIVATE | $TRANSIENT, $field(Collections$SetFromMap, s)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SetFromMap, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Collections$SetFromMap_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<TE;Ljava/lang/Boolean;>;)V", 0, $method(Collections$SetFromMap, init$, void, $Map*)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(Collections$SetFromMap, add, bool, Object$*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, contains, bool, Object$*)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SetFromMap, containsAll, bool, $Collection*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, equals, bool, Object$*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$SetFromMap, forEach, void, $Consumer*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SetFromMap, iterator, $Iterator*)},
-	{"parallelStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$SetFromMap, parallelStream, $Stream*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Collections$SetFromMap, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SetFromMap, removeAll, bool, $Collection*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(Collections$SetFromMap, removeIf, bool, $Predicate*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SetFromMap, retainAll, bool, $Collection*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SetFromMap, spliterator, $Spliterator*)},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$SetFromMap, stream, $Stream*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$SetFromMap, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Collections$SetFromMap_InnerClassesInfo_[] = {
-	{"java.util.Collections$SetFromMap", "java.util.Collections", "SetFromMap", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$SetFromMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$SetFromMap",
-	"java.util.AbstractSet",
-	"java.io.Serializable",
-	_Collections$SetFromMap_FieldInfo_,
-	_Collections$SetFromMap_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractSet<TE;>;Ljava/util/Set<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$SetFromMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$SetFromMap($Class* clazz) {
-	return $of($alloc(Collections$SetFromMap));
-}
 
 $Object* Collections$SetFromMap::clone() {
 	 return this->$AbstractSet::clone();
@@ -109,32 +47,31 @@ void Collections$SetFromMap::init$($Map* map) {
 		$throwNew($IllegalArgumentException, "Map is non-empty"_s);
 	}
 	$set(this, m, map);
-	$set(this, s, $nc(map)->keySet());
+	$set(this, s, map->keySet());
 }
 
 void Collections$SetFromMap::clear() {
-	$nc(this->m)->clear();
+	this->m->clear();
 }
 
 int32_t Collections$SetFromMap::size() {
-	return $nc(this->m)->size();
+	return this->m->size();
 }
 
 bool Collections$SetFromMap::isEmpty() {
-	return $nc(this->m)->isEmpty();
+	return this->m->isEmpty();
 }
 
 bool Collections$SetFromMap::contains(Object$* o) {
-	return $nc(this->m)->containsKey(o);
+	return this->m->containsKey(o);
 }
 
 bool Collections$SetFromMap::remove(Object$* o) {
-	return $nc(this->m)->remove(o) != nullptr;
+	return this->m->remove(o) != nullptr;
 }
 
 bool Collections$SetFromMap::add(Object$* e) {
-	$init($Boolean);
-	return $nc(this->m)->put(e, $Boolean::TRUE) == nullptr;
+	return this->m->put(e, $Boolean::TRUE) == nullptr;
 }
 
 $Iterator* Collections$SetFromMap::iterator() {
@@ -150,7 +87,7 @@ $ObjectArray* Collections$SetFromMap::toArray($ObjectArray* a) {
 }
 
 $String* Collections$SetFromMap::toString() {
-	return $nc($of(this->s))->toString();
+	return $nc(this->s)->toString();
 }
 
 int32_t Collections$SetFromMap::hashCode() {
@@ -195,14 +132,68 @@ $Stream* Collections$SetFromMap::parallelStream() {
 
 void Collections$SetFromMap::readObject($ObjectInputStream* stream) {
 	$nc(stream)->defaultReadObject();
-	$set(this, s, $nc(this->m)->keySet());
+	$set(this, s, this->m->keySet());
 }
 
 Collections$SetFromMap::Collections$SetFromMap() {
 }
 
 $Class* Collections$SetFromMap::load$($String* name, bool initialize) {
-	$loadClass(Collections$SetFromMap, name, initialize, &_Collections$SetFromMap_ClassInfo_, allocate$Collections$SetFromMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"m", "Ljava/util/Map;", "Ljava/util/Map<TE;Ljava/lang/Boolean;>;", $PRIVATE | $FINAL, $field(Collections$SetFromMap, m)},
+		{"s", "Ljava/util/Set;", "Ljava/util/Set<TE;>;", $PRIVATE | $TRANSIENT, $field(Collections$SetFromMap, s)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SetFromMap, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<TE;Ljava/lang/Boolean;>;)V", 0, $method(Collections$SetFromMap, init$, void, $Map*)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(Collections$SetFromMap, add, bool, Object$*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, contains, bool, Object$*)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SetFromMap, containsAll, bool, $Collection*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, equals, bool, Object$*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$SetFromMap, forEach, void, $Consumer*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SetFromMap, iterator, $Iterator*)},
+		{"parallelStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$SetFromMap, parallelStream, $Stream*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Collections$SetFromMap, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SetFromMap, removeAll, bool, $Collection*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(Collections$SetFromMap, removeIf, bool, $Predicate*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SetFromMap, retainAll, bool, $Collection*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SetFromMap, spliterator, $Spliterator*)},
+		{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$SetFromMap, stream, $Stream*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$SetFromMap, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Collections$SetFromMap, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$SetFromMap", "java.util.Collections", "SetFromMap", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$SetFromMap",
+		"java.util.AbstractSet",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractSet<TE;>;Ljava/util/Set<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$SetFromMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$SetFromMap));
+	});
 	return class$;
 }
 

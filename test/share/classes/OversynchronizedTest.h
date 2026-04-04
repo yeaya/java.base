@@ -17,6 +17,7 @@ class $export OversynchronizedTest : public ::java::lang::Thread {
 	$class(OversynchronizedTest, 0, ::java::lang::Thread)
 public:
 	OversynchronizedTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	virtual void run() override;

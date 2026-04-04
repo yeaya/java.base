@@ -1,5 +1,4 @@
 #include <java/util/ImmutableCollections$AbstractImmutableCollection.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/Collection.h>
@@ -18,48 +17,6 @@ using $Predicate = ::java::util::function::Predicate;
 
 namespace java {
 	namespace util {
-
-$CompoundAttribute _ImmutableCollections$AbstractImmutableCollection_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$MethodInfo _ImmutableCollections$AbstractImmutableCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$AbstractImmutableCollection, init$, void)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, add, bool, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, addAll, bool, $Collection*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, clear, void)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, removeAll, bool, $Collection*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, removeIf, bool, $Predicate*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, retainAll, bool, $Collection*)},
-	{}
-};
-
-$InnerClassInfo _ImmutableCollections$AbstractImmutableCollection_InnerClassesInfo_[] = {
-	{"java.util.ImmutableCollections$AbstractImmutableCollection", "java.util.ImmutableCollections", "AbstractImmutableCollection", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImmutableCollections$AbstractImmutableCollection_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.ImmutableCollections$AbstractImmutableCollection",
-	"java.util.AbstractCollection",
-	nullptr,
-	nullptr,
-	_ImmutableCollections$AbstractImmutableCollection_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractCollection<TE;>;",
-	nullptr,
-	_ImmutableCollections$AbstractImmutableCollection_InnerClassesInfo_,
-	_ImmutableCollections$AbstractImmutableCollection_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.ImmutableCollections"
-};
-
-$Object* allocate$ImmutableCollections$AbstractImmutableCollection($Class* clazz) {
-	return $of($alloc(ImmutableCollections$AbstractImmutableCollection));
-}
 
 void ImmutableCollections$AbstractImmutableCollection::init$() {
 	$AbstractCollection::init$();
@@ -103,7 +60,43 @@ ImmutableCollections$AbstractImmutableCollection::ImmutableCollections$AbstractI
 }
 
 $Class* ImmutableCollections$AbstractImmutableCollection::load$($String* name, bool initialize) {
-	$loadClass(ImmutableCollections$AbstractImmutableCollection, name, initialize, &_ImmutableCollections$AbstractImmutableCollection_ClassInfo_, allocate$ImmutableCollections$AbstractImmutableCollection);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$AbstractImmutableCollection, init$, void)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, add, bool, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, addAll, bool, $Collection*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, clear, void)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, removeAll, bool, $Collection*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, removeIf, bool, $Predicate*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, retainAll, bool, $Collection*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ImmutableCollections$AbstractImmutableCollection", "java.util.ImmutableCollections", "AbstractImmutableCollection", $STATIC | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.ImmutableCollections$AbstractImmutableCollection",
+		"java.util.AbstractCollection",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractCollection<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.ImmutableCollections"
+	};
+	$loadClass(ImmutableCollections$AbstractImmutableCollection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImmutableCollections$AbstractImmutableCollection);
+	});
 	return class$;
 }
 

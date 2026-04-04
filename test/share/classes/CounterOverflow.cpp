@@ -1,5 +1,4 @@
 #include <CounterOverflow.h>
-
 #include <java/io/DataOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
@@ -12,25 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _CounterOverflow_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(CounterOverflow, init$, void, $OutputStream*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CounterOverflow, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _CounterOverflow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CounterOverflow",
-	"java.io.DataOutputStream",
-	nullptr,
-	nullptr,
-	_CounterOverflow_MethodInfo_
-};
-
-$Object* allocate$CounterOverflow($Class* clazz) {
-	return $of($alloc(CounterOverflow));
-}
 
 void CounterOverflow::init$($OutputStream* out) {
 	$DataOutputStream::init$(out);
@@ -50,7 +30,22 @@ CounterOverflow::CounterOverflow() {
 }
 
 $Class* CounterOverflow::load$($String* name, bool initialize) {
-	$loadClass(CounterOverflow, name, initialize, &_CounterOverflow_ClassInfo_, allocate$CounterOverflow);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(CounterOverflow, init$, void, $OutputStream*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CounterOverflow, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CounterOverflow",
+		"java.io.DataOutputStream",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CounterOverflow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CounterOverflow));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <indify/Indify$Constant.h>
-
 #include <indify/Indify.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/DataOutputStream.h>
@@ -28,57 +27,6 @@ using $Short = ::java::lang::Short;
 using $Arrays = ::java::util::Arrays;
 
 namespace indify {
-
-$FieldInfo _Indify$Constant_FieldInfo_[] = {
-	{"tag", "B", nullptr, $PUBLIC | $FINAL, $field(Indify$Constant, tag)},
-	{"item", "Ljava/lang/Object;", "TT;", $PUBLIC | $FINAL, $field(Indify$Constant, item)},
-	{"index", "I", nullptr, $PUBLIC | $FINAL, $field(Indify$Constant, index)},
-	{"TAG_NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Indify$Constant, TAG_NAMES)},
-	{}
-};
-
-$MethodInfo _Indify$Constant_MethodInfo_[] = {
-	{"<init>", "(IBLjava/lang/Object;)V", "(IBTT;)V", $PUBLIC, $method(Indify$Constant, init$, void, int32_t, int8_t, Object$*)},
-	{"checkTag", "(B)Lindify/Indify$Constant;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, checkTag, Indify$Constant*, int8_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, equals, bool, Object$*)},
-	{"equals", "(Lindify/Indify$Constant;)Z", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, equals, bool, Indify$Constant*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, hashCode, int32_t)},
-	{"itemAsComparable", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemAsComparable, $Object*)},
-	{"itemIndex", "()Ljava/lang/Short;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemIndex, $Short*)},
-	{"itemIndexes", "()[Ljava/lang/Short;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemIndexes, $ShortArray*)},
-	{"itemString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemString, $String*)},
-	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, readFrom, void, $DataInputStream*), "java.io.IOException"},
-	{"tagName", "(B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Indify$Constant, tagName, $String*, int8_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, toString, $String*)},
-	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, writeTo, void, $DataOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Indify$Constant_InnerClassesInfo_[] = {
-	{"indify.Indify$Constant", "indify.Indify", "Constant", $PUBLIC | $STATIC},
-	{"indify.Indify$Chunk", "indify.Indify", "Chunk", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Indify$Constant_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"indify.Indify$Constant",
-	"java.lang.Object",
-	"indify.Indify$Chunk",
-	_Indify$Constant_FieldInfo_,
-	_Indify$Constant_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Lindify/Indify$Chunk;",
-	nullptr,
-	_Indify$Constant_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"indify.Indify"
-};
-
-$Object* allocate$Indify$Constant($Class* clazz) {
-	return $of($alloc(Indify$Constant));
-}
 
 $StringArray* Indify$Constant::TAG_NAMES = nullptr;
 
@@ -112,9 +60,9 @@ void Indify$Constant::readFrom($DataInputStream* in) {
 }
 
 void Indify$Constant::writeTo($DataOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Indify::writeOutputs(out, $$new($ObjectArray, {
-		$($of($Byte::valueOf(this->tag))),
+		$($Byte::valueOf(this->tag)),
 		this->item
 	}));
 }
@@ -124,34 +72,34 @@ bool Indify$Constant::equals(Object$* x) {
 }
 
 bool Indify$Constant::equals(Indify$Constant* that) {
-	$useLocalCurrentObjectStackCache();
-	return (this->tag == $nc(that)->tag && $nc($of($(this->itemAsComparable())))->equals($(that->itemAsComparable())));
+	$useLocalObjectStack();
+	return (this->tag == $nc(that)->tag && $$nc(this->itemAsComparable())->equals($(that->itemAsComparable())));
 }
 
 int32_t Indify$Constant::hashCode() {
-	return (this->tag * 31) + $nc($of($(this->itemAsComparable())))->hashCode();
+	return (this->tag * 31) + $$nc(this->itemAsComparable())->hashCode();
 }
 
 $Object* Indify$Constant::itemAsComparable() {
 	switch (this->tag) {
 	case 6:
-		{
-			return $of($Double::valueOf($Double::longBitsToDouble($nc(($cast($Long, this->item)))->longValue())));
-		}
+		return $of($Double::valueOf($Double::longBitsToDouble($nc($cast($Long, this->item))->longValue())));
 	case 4:
-		{
-			return $of($Float::valueOf($Float::intBitsToFloat($nc(($cast($Integer, this->item)))->intValue())));
-		}
+		return $of($Float::valueOf($Float::intBitsToFloat($nc($cast($Integer, this->item))->intValue())));
 	}
-	return $of(($instanceOf($ObjectArray, this->item) ? $of($Arrays::asList($cast($ObjectArray, this->item))) : this->item));
+	return ($instanceOf($ObjectArray, this->item) ? $of($Arrays::asList($cast($ObjectArray, this->item))) : this->item);
 }
 
 $String* Indify$Constant::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, itstr, $String::valueOf($(itemAsComparable())));
-	$var($String, var$1, $$str({$$str(this->index), ":"_s, $(tagName(this->tag))}));
-	$var($String, var$0, $$concat(var$1, (itstr->startsWith("["_s) ? ""_s : "="_s)));
-	return ($concat(var$0, itstr));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(this->index);
+	var$0->append(":"_s);
+	var$0->append($(tagName(this->tag)));
+	var$0->append(itstr->startsWith("["_s) ? ""_s : "="_s);
+	var$0->append(itstr);
+	return ($str(var$0));
 }
 
 $String* Indify$Constant::tagName(int8_t tag) {
@@ -159,17 +107,62 @@ $String* Indify$Constant::tagName(int8_t tag) {
 	if (Indify$Constant::TAG_NAMES == nullptr) {
 		$assignStatic(Indify$Constant::TAG_NAMES, ("None Utf8 Unicode Integer Float Long Double Class String Fieldref Methodref InterfaceMethodref NameAndType #13 #14 MethodHandle MethodType InvokeDynamic#17 InvokeDynamic"_s)->split(" "_s));
 	}
-	if (((int32_t)(tag & (uint32_t)255)) >= $nc(Indify$Constant::TAG_NAMES)->length) {
-		return $str({"#"_s, $$str(((int32_t)(tag & (uint32_t)255)))});
+	if ((tag & 0xff) >= $nc(Indify$Constant::TAG_NAMES)->length) {
+		return $str({"#"_s, $$str((tag & 0xff))});
 	}
-	return $nc(Indify$Constant::TAG_NAMES)->get((int32_t)(tag & (uint32_t)255));
+	return Indify$Constant::TAG_NAMES->get(tag & 0xff);
 }
 
 Indify$Constant::Indify$Constant() {
 }
 
 $Class* Indify$Constant::load$($String* name, bool initialize) {
-	$loadClass(Indify$Constant, name, initialize, &_Indify$Constant_ClassInfo_, allocate$Indify$Constant);
+	$FieldInfo fieldInfos$$[] = {
+		{"tag", "B", nullptr, $PUBLIC | $FINAL, $field(Indify$Constant, tag)},
+		{"item", "Ljava/lang/Object;", "TT;", $PUBLIC | $FINAL, $field(Indify$Constant, item)},
+		{"index", "I", nullptr, $PUBLIC | $FINAL, $field(Indify$Constant, index)},
+		{"TAG_NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Indify$Constant, TAG_NAMES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IBLjava/lang/Object;)V", "(IBTT;)V", $PUBLIC, $method(Indify$Constant, init$, void, int32_t, int8_t, Object$*)},
+		{"checkTag", "(B)Lindify/Indify$Constant;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, checkTag, Indify$Constant*, int8_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, equals, bool, Object$*)},
+		{"equals", "(Lindify/Indify$Constant;)Z", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, equals, bool, Indify$Constant*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, hashCode, int32_t)},
+		{"itemAsComparable", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemAsComparable, $Object*)},
+		{"itemIndex", "()Ljava/lang/Short;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemIndex, $Short*)},
+		{"itemIndexes", "()[Ljava/lang/Short;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemIndexes, $ShortArray*)},
+		{"itemString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemString, $String*)},
+		{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, readFrom, void, $DataInputStream*), "java.io.IOException"},
+		{"tagName", "(B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Indify$Constant, tagName, $String*, int8_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, toString, $String*)},
+		{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, writeTo, void, $DataOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"indify.Indify$Constant", "indify.Indify", "Constant", $PUBLIC | $STATIC},
+		{"indify.Indify$Chunk", "indify.Indify", "Chunk", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"indify.Indify$Constant",
+		"java.lang.Object",
+		"indify.Indify$Chunk",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Lindify/Indify$Chunk;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"indify.Indify"
+	};
+	$loadClass(Indify$Constant, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Indify$Constant);
+	});
 	return class$;
 }
 

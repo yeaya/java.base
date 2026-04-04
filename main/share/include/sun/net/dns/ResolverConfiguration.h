@@ -26,6 +26,7 @@ class $import ResolverConfiguration : public ::java::lang::Object {
 	$class(ResolverConfiguration, 0, ::java::lang::Object)
 public:
 	ResolverConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::List* nameservers() {return nullptr;}
 	static ::sun::net::dns::ResolverConfiguration* open();

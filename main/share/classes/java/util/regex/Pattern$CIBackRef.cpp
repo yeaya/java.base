@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$CIBackRef.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/ASCII.h>
 #include <java/util/regex/Matcher.h>
@@ -23,45 +22,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$CIBackRef_FieldInfo_[] = {
-	{"groupIndex", "I", nullptr, 0, $field(Pattern$CIBackRef, groupIndex)},
-	{"doUnicodeCase", "Z", nullptr, 0, $field(Pattern$CIBackRef, doUnicodeCase)},
-	{}
-};
-
-$MethodInfo _Pattern$CIBackRef_MethodInfo_[] = {
-	{"<init>", "(IZ)V", nullptr, 0, $method(Pattern$CIBackRef, init$, void, int32_t, bool)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$CIBackRef, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$CIBackRef, study, bool, $Pattern$TreeInfo*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$CIBackRef_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$CIBackRef", "java.util.regex.Pattern", "CIBackRef", $STATIC},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$CIBackRef_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Pattern$CIBackRef",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$CIBackRef_FieldInfo_,
-	_Pattern$CIBackRef_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$CIBackRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$CIBackRef($Class* clazz) {
-	return $of($alloc(Pattern$CIBackRef));
-}
-
 void Pattern$CIBackRef::init$(int32_t groupCount, bool doUnicodeCase) {
 	$Pattern$Node::init$();
 	this->groupIndex = groupCount + groupCount;
@@ -70,7 +30,7 @@ void Pattern$CIBackRef::init$(int32_t groupCount, bool doUnicodeCase) {
 
 bool Pattern$CIBackRef::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 	int32_t j = $nc($nc(matcher)->groups)->get(this->groupIndex);
-	int32_t k = $nc(matcher->groups)->get(this->groupIndex + 1);
+	int32_t k = matcher->groups->get(this->groupIndex + 1);
 	int32_t groupSize = k - j;
 	if (j < 0) {
 		return false;
@@ -96,8 +56,8 @@ bool Pattern$CIBackRef::match($Matcher* matcher, int32_t i, $CharSequence* seq) 
 					return false;
 				}
 			} else {
-				int32_t var$3 = $ASCII::toLower(c1);
-				if (var$3 != $ASCII::toLower(c2)) {
+				int32_t var$2 = $ASCII::toLower(c1);
+				if (var$2 != $ASCII::toLower(c2)) {
 					return false;
 				}
 			}
@@ -117,7 +77,40 @@ Pattern$CIBackRef::Pattern$CIBackRef() {
 }
 
 $Class* Pattern$CIBackRef::load$($String* name, bool initialize) {
-	$loadClass(Pattern$CIBackRef, name, initialize, &_Pattern$CIBackRef_ClassInfo_, allocate$Pattern$CIBackRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"groupIndex", "I", nullptr, 0, $field(Pattern$CIBackRef, groupIndex)},
+		{"doUnicodeCase", "Z", nullptr, 0, $field(Pattern$CIBackRef, doUnicodeCase)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IZ)V", nullptr, 0, $method(Pattern$CIBackRef, init$, void, int32_t, bool)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$CIBackRef, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$CIBackRef, study, bool, $Pattern$TreeInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$CIBackRef", "java.util.regex.Pattern", "CIBackRef", $STATIC},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Pattern$CIBackRef",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$CIBackRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$CIBackRef);
+	});
 	return class$;
 }
 

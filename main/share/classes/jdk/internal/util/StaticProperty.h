@@ -40,6 +40,7 @@ class $export StaticProperty : public ::java::lang::Object {
 	$class(StaticProperty, $PRELOAD, ::java::lang::Object)
 public:
 	StaticProperty();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getProperty(::java::util::Properties* props, $String* key);
 	static $String* getProperty(::java::util::Properties* props, $String* key, $String* defaultVal);

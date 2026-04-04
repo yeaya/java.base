@@ -1,10 +1,8 @@
 #include <sun/security/ssl/ClientHello$ClientHelloKickstartProducer.h>
-
 #include <java/security/SecureRandom.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashMap.h>
@@ -18,7 +16,6 @@
 #include <sun/security/ssl/ClientHello$ClientHelloMessage.h>
 #include <sun/security/ssl/ClientHello.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeOutStream.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/RandomCookie.h>
@@ -52,10 +49,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
-using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
@@ -64,60 +58,24 @@ using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLSessionContextImpl = ::sun::security::ssl::SSLSessionContextImpl;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
-using $SSLTransport = ::sun::security::ssl::SSLTransport;
 using $SessionId = ::sun::security::ssl::SessionId;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ClientHello$ClientHelloKickstartProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ClientHello$ClientHelloKickstartProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloKickstartProducer, produce, $bytes*, $ConnectionContext*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ClientHello$ClientHelloKickstartProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ClientHello$ClientHelloKickstartProducer", "sun.security.ssl.ClientHello", "ClientHelloKickstartProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ClientHello$ClientHelloKickstartProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ClientHello$ClientHelloKickstartProducer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLProducer",
-	nullptr,
-	_ClientHello$ClientHelloKickstartProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientHello$ClientHelloKickstartProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ClientHello"
-};
-
-$Object* allocate$ClientHello$ClientHelloKickstartProducer($Class* clazz) {
-	return $of($alloc(ClientHello$ClientHelloKickstartProducer));
-}
-
 void ClientHello$ClientHelloKickstartProducer::init$() {
 }
 
 $bytes* ClientHello$ClientHelloKickstartProducer::produce($ConnectionContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(chc)->handshakeProducers)->remove($($Byte::valueOf($SSLHandshake::CLIENT_HELLO->id)));
@@ -126,12 +84,11 @@ $bytes* ClientHello$ClientHelloKickstartProducer::produce($ConnectionContext* co
 	$var($List, cipherSuites, chc->activeCipherSuites);
 	$var($SSLSessionContextImpl, ssci, $cast($SSLSessionContextImpl, $nc(chc->sslContext)->engineGetClientSessionContext()));
 	$var($String, var$0, $nc($nc(chc->conContext)->transport)->getPeerHost());
-	$var($SSLSessionImpl, session, $nc(ssci)->get(var$0, $nc($nc(chc->conContext)->transport)->getPeerPort()));
+	$var($SSLSessionImpl, session, $nc(ssci)->get(var$0, chc->conContext->transport->getPeerPort()));
 	if (session != nullptr) {
-		$init($ClientHandshakeContext);
 		if (!$ClientHandshakeContext::allowUnsafeServerCertChange && session->isSessionResumption()) {
 			try {
-				$set(chc, reservedServerCerts, $fcast($X509CertificateArray, session->getPeerCertificates()));
+				$set(chc, reservedServerCerts, $cast($X509CertificateArray, session->getPeerCertificates()));
 			} catch ($SSLPeerUnverifiedException& puve) {
 			}
 		}
@@ -172,10 +129,9 @@ $bytes* ClientHello$ClientHelloKickstartProducer::produce($ConnectionContext* co
 		if (isEmsAvailable && !session->useExtendedMasterSecret && !$SSLConfiguration::allowLegacyResumption) {
 			$assign(session, nullptr);
 		}
-		$init($ClientHandshakeContext);
 		if ((session != nullptr) && !$ClientHandshakeContext::allowUnsafeServerCertChange) {
-			$var($String, identityAlg, $nc(chc->sslConfig)->identificationProtocol);
-			if (identityAlg == nullptr || $nc(identityAlg)->isEmpty()) {
+			$var($String, identityAlg, chc->sslConfig->identificationProtocol);
+			if (identityAlg == nullptr || identityAlg->isEmpty()) {
 				if (isEmsAvailable) {
 					if (!session->useExtendedMasterSecret) {
 						$assign(session, nullptr);
@@ -200,17 +156,17 @@ $bytes* ClientHello$ClientHelloKickstartProducer::produce($ConnectionContext* co
 	if (session != nullptr) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
-			$SSLLogger::finest("Try resuming session"_s, $$new($ObjectArray, {$of(session)}));
+			$SSLLogger::finest("Try resuming session"_s, $$new($ObjectArray, {session}));
 		}
-		if (!$nc($(session->getProtocolVersion()))->useTLS13PlusSpec()) {
+		if (!$$nc(session->getProtocolVersion())->useTLS13PlusSpec()) {
 			$assign(sessionId, session->getSessionId());
 		}
 		if (!$nc(maxProtocolVersion)->equals(sessionVersion)) {
 			maxProtocolVersion = sessionVersion;
 			chc->setVersion(sessionVersion);
 		}
-		if (!$nc(chc->sslConfig)->enableSessionCreation) {
-			bool var$1 = !$nc(chc->conContext)->isNegotiated && !$nc(sessionVersion)->useTLS13PlusSpec();
+		if (!chc->sslConfig->enableSessionCreation) {
+			bool var$1 = !chc->conContext->isNegotiated && !$nc(sessionVersion)->useTLS13PlusSpec();
 			$init($CipherSuite);
 			if (var$1 && $nc(cipherSuites)->contains($CipherSuite::TLS_EMPTY_RENEGOTIATION_INFO_SCSV)) {
 				$assign(cipherSuites, $Arrays::asList($$new($CipherSuiteArray, {
@@ -218,40 +174,39 @@ $bytes* ClientHello$ClientHelloKickstartProducer::produce($ConnectionContext* co
 					$CipherSuite::TLS_EMPTY_RENEGOTIATION_INFO_SCSV
 				})));
 			} else {
-				$assign(cipherSuites, $List::of($of(sessionSuite)));
+				$assign(cipherSuites, $List::of(sessionSuite));
 			}
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
-				$SSLLogger::finest("No new session is allowed, so try to resume the session cipher suite only"_s, $$new($ObjectArray, {$of(sessionSuite)}));
+				$SSLLogger::finest("No new session is allowed, so try to resume the session cipher suite only"_s, $$new($ObjectArray, {sessionSuite}));
 			}
 		}
 		chc->isResumption = true;
 		$set(chc, resumingSession, session);
 	}
 	if (session == nullptr) {
-		if (!$nc(chc->sslConfig)->enableSessionCreation) {
+		if (!chc->sslConfig->enableSessionCreation) {
 			$throwNew($SSLHandshakeException, "No new session is allowed and no existing session can be resumed"_s);
 		}
 		if ($nc(maxProtocolVersion)->useTLS13PlusSpec() && $SSLConfiguration::useCompatibilityMode) {
-			$assign(sessionId, $new($SessionId, true, $($nc(chc->sslContext)->getSecureRandom())));
+			$assign(sessionId, $new($SessionId, true, $(chc->sslContext->getSecureRandom())));
 		}
 	}
+	$init($ProtocolVersion);
 	$ProtocolVersion* minimumVersion = $ProtocolVersion::NONE;
 	{
 		$var($Iterator, i$, $nc(chc->activeProtocols)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$ProtocolVersion* pv = $cast($ProtocolVersion, i$->next());
-			{
-				if (minimumVersion == $ProtocolVersion::NONE || $nc(pv)->compare(minimumVersion) < 0) {
-					minimumVersion = pv;
-				}
+			if (minimumVersion == $ProtocolVersion::NONE || $nc(pv)->compare(minimumVersion) < 0) {
+				minimumVersion = pv;
 			}
 		}
 	}
 	if (!$nc(minimumVersion)->useTLS13PlusSpec()) {
 		$init($CipherSuite);
-		if ($nc(chc->conContext)->secureRenegotiation && $nc(cipherSuites)->contains($CipherSuite::TLS_EMPTY_RENEGOTIATION_INFO_SCSV)) {
+		if (chc->conContext->secureRenegotiation && $nc(cipherSuites)->contains($CipherSuite::TLS_EMPTY_RENEGOTIATION_INFO_SCSV)) {
 			$assign(cipherSuites, $new($LinkedList, cipherSuites));
-			cipherSuites->remove($of($CipherSuite::TLS_EMPTY_RENEGOTIATION_INFO_SCSV));
+			cipherSuites->remove($CipherSuite::TLS_EMPTY_RENEGOTIATION_INFO_SCSV);
 		}
 	}
 	bool negotiable = false;
@@ -259,11 +214,9 @@ $bytes* ClientHello$ClientHelloKickstartProducer::produce($ConnectionContext* co
 		$var($Iterator, i$, $nc(cipherSuites)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$CipherSuite* suite = $cast($CipherSuite, i$->next());
-			{
-				if (chc->isNegotiable(suite)) {
-					negotiable = true;
-					break;
-				}
+			if (chc->isNegotiable(suite)) {
+				negotiable = true;
+				break;
 			}
 		}
 	}
@@ -278,22 +231,22 @@ $bytes* ClientHello$ClientHelloKickstartProducer::produce($ConnectionContext* co
 			clientHelloVersion = $ProtocolVersion::TLS12;
 		}
 	}
-	$var($ClientHello$ClientHelloMessage, chm, $new($ClientHello$ClientHelloMessage, chc, $nc(clientHelloVersion)->id, sessionId, cipherSuites, $($nc(chc->sslContext)->getSecureRandom())));
+	$var($ClientHello$ClientHelloMessage, chm, $new($ClientHello$ClientHelloMessage, chc, $nc(clientHelloVersion)->id, sessionId, cipherSuites, $(chc->sslContext->getSecureRandom())));
 	$set(chc, clientHelloRandom, chm->clientRandom);
-	chc->clientHelloVersion = $nc(clientHelloVersion)->id;
-	$var($SSLExtensionArray, extTypes, $nc(chc->sslConfig)->getEnabledExtensions($SSLHandshake::CLIENT_HELLO, chc->activeProtocols));
+	chc->clientHelloVersion = clientHelloVersion->id;
+	$var($SSLExtensionArray, extTypes, chc->sslConfig->getEnabledExtensions($SSLHandshake::CLIENT_HELLO, chc->activeProtocols));
 	$nc(chm->extensions)->produce(chc, extTypes);
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Produced ClientHello handshake message"_s, $$new($ObjectArray, {$of(chm)}));
+		$SSLLogger::fine("Produced ClientHello handshake message"_s, $$new($ObjectArray, {chm}));
 	}
 	chm->write(chc->handshakeOutput);
 	$nc(chc->handshakeOutput)->flush();
 	$set(chc, initialClientHelloMsg, chm);
 	$nc(chc->handshakeConsumers)->put($($Byte::valueOf($SSLHandshake::SERVER_HELLO->id)), $SSLHandshake::SERVER_HELLO);
-	bool var$2 = $nc(chc->sslContext)->isDTLS();
-	if (var$2 && !$nc(minimumVersion)->useTLS13PlusSpec()) {
-		$nc(chc->handshakeConsumers)->put($($Byte::valueOf($SSLHandshake::HELLO_VERIFY_REQUEST->id)), $SSLHandshake::HELLO_VERIFY_REQUEST);
+	bool var$2 = chc->sslContext->isDTLS();
+	if (var$2 && !minimumVersion->useTLS13PlusSpec()) {
+		chc->handshakeConsumers->put($($Byte::valueOf($SSLHandshake::HELLO_VERIFY_REQUEST->id)), $SSLHandshake::HELLO_VERIFY_REQUEST);
 	}
 	return nullptr;
 }
@@ -302,7 +255,33 @@ ClientHello$ClientHelloKickstartProducer::ClientHello$ClientHelloKickstartProduc
 }
 
 $Class* ClientHello$ClientHelloKickstartProducer::load$($String* name, bool initialize) {
-	$loadClass(ClientHello$ClientHelloKickstartProducer, name, initialize, &_ClientHello$ClientHelloKickstartProducer_ClassInfo_, allocate$ClientHello$ClientHelloKickstartProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ClientHello$ClientHelloKickstartProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloKickstartProducer, produce, $bytes*, $ConnectionContext*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ClientHello$ClientHelloKickstartProducer", "sun.security.ssl.ClientHello", "ClientHelloKickstartProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ClientHello$ClientHelloKickstartProducer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ClientHello"
+	};
+	$loadClass(ClientHello$ClientHelloKickstartProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientHello$ClientHelloKickstartProducer);
+	});
 	return class$;
 }
 

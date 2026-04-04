@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CookieExtension$CHCookieUpdate.h>
-
 #include <java/util/Map.h>
 #include <javax/net/ssl/SSLException.h>
 #include <sun/security/ssl/Alert.h>
@@ -22,58 +21,24 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $CookieExtension$CookieSpec = ::sun::security::ssl::CookieExtension$CookieSpec;
 using $HelloCookieManager = ::sun::security::ssl::HelloCookieManager;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CookieExtension$CHCookieUpdate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CookieExtension$CHCookieUpdate, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(CookieExtension$CHCookieUpdate, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CookieExtension$CHCookieUpdate_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CookieExtension$CHCookieUpdate", "sun.security.ssl.CookieExtension", "CHCookieUpdate", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CookieExtension$CHCookieUpdate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CookieExtension$CHCookieUpdate",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeConsumer",
-	nullptr,
-	_CookieExtension$CHCookieUpdate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CookieExtension$CHCookieUpdate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CookieExtension"
-};
-
-$Object* allocate$CookieExtension$CHCookieUpdate($Class* clazz) {
-	return $of($alloc(CookieExtension$CHCookieUpdate));
-}
-
 void CookieExtension$CHCookieUpdate::init$() {
 }
 
 void CookieExtension$CHCookieUpdate::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	$init($SSLExtension);
@@ -92,7 +57,33 @@ CookieExtension$CHCookieUpdate::CookieExtension$CHCookieUpdate() {
 }
 
 $Class* CookieExtension$CHCookieUpdate::load$($String* name, bool initialize) {
-	$loadClass(CookieExtension$CHCookieUpdate, name, initialize, &_CookieExtension$CHCookieUpdate_ClassInfo_, allocate$CookieExtension$CHCookieUpdate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CookieExtension$CHCookieUpdate, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(CookieExtension$CHCookieUpdate, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CookieExtension$CHCookieUpdate", "sun.security.ssl.CookieExtension", "CHCookieUpdate", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CookieExtension$CHCookieUpdate",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CookieExtension"
+	};
+	$loadClass(CookieExtension$CHCookieUpdate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CookieExtension$CHCookieUpdate);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/PKIX$CertStoreComparator.h>
-
 #include <java/security/cert/CertStore.h>
 #include <java/security/cert/CertStoreParameters.h>
 #include <java/security/cert/CollectionCertStoreParameters.h>
@@ -17,45 +16,13 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$MethodInfo _PKIX$CertStoreComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PKIX$CertStoreComparator, init$, void)},
-	{"compare", "(Ljava/security/cert/CertStore;Ljava/security/cert/CertStore;)I", nullptr, $PUBLIC, $virtualMethod(PKIX$CertStoreComparator, compare, int32_t, $CertStore*, $CertStore*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PKIX$CertStoreComparator, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _PKIX$CertStoreComparator_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.PKIX$CertStoreComparator", "sun.security.provider.certpath.PKIX", "CertStoreComparator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PKIX$CertStoreComparator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.PKIX$CertStoreComparator",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	_PKIX$CertStoreComparator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/security/cert/CertStore;>;",
-	nullptr,
-	_PKIX$CertStoreComparator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.PKIX"
-};
-
-$Object* allocate$PKIX$CertStoreComparator($Class* clazz) {
-	return $of($alloc(PKIX$CertStoreComparator));
-}
-
 void PKIX$CertStoreComparator::init$() {
 }
 
 int32_t PKIX$CertStoreComparator::compare($CertStore* store1, $CertStore* store2) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = $nc($($nc(store1)->getType()))->equals("Collection"_s);
-	if (var$0 || $instanceOf($CollectionCertStoreParameters, $($nc(store1)->getCertStoreParameters()))) {
+	$useLocalObjectStack();
+	bool var$0 = $$nc($nc(store1)->getType())->equals("Collection"_s);
+	if (var$0 || $instanceOf($CollectionCertStoreParameters, $(store1->getCertStoreParameters()))) {
 		return -1;
 	} else {
 		return 1;
@@ -70,7 +37,34 @@ PKIX$CertStoreComparator::PKIX$CertStoreComparator() {
 }
 
 $Class* PKIX$CertStoreComparator::load$($String* name, bool initialize) {
-	$loadClass(PKIX$CertStoreComparator, name, initialize, &_PKIX$CertStoreComparator_ClassInfo_, allocate$PKIX$CertStoreComparator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PKIX$CertStoreComparator, init$, void)},
+		{"compare", "(Ljava/security/cert/CertStore;Ljava/security/cert/CertStore;)I", nullptr, $PUBLIC, $virtualMethod(PKIX$CertStoreComparator, compare, int32_t, $CertStore*, $CertStore*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PKIX$CertStoreComparator, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.PKIX$CertStoreComparator", "sun.security.provider.certpath.PKIX", "CertStoreComparator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.PKIX$CertStoreComparator",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/security/cert/CertStore;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.PKIX"
+	};
+	$loadClass(PKIX$CertStoreComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PKIX$CertStoreComparator);
+	});
 	return class$;
 }
 

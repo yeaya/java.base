@@ -1,5 +1,4 @@
 #include <java/time/chrono/ThaiBuddhistChronology$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/chrono/ThaiBuddhistChronology.h>
 #include <java/time/temporal/ChronoField.h>
@@ -20,57 +19,21 @@ namespace java {
 	namespace time {
 		namespace chrono {
 
-$FieldInfo _ThaiBuddhistChronology$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ThaiBuddhistChronology$1, $SwitchMap$java$time$temporal$ChronoField)},
-	{}
-};
-
-$EnclosingMethodInfo _ThaiBuddhistChronology$1_EnclosingMethodInfo_ = {
-	"java.time.chrono.ThaiBuddhistChronology",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ThaiBuddhistChronology$1_InnerClassesInfo_[] = {
-	{"java.time.chrono.ThaiBuddhistChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ThaiBuddhistChronology$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.chrono.ThaiBuddhistChronology$1",
-	"java.lang.Object",
-	nullptr,
-	_ThaiBuddhistChronology$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ThaiBuddhistChronology$1_EnclosingMethodInfo_,
-	_ThaiBuddhistChronology$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.chrono.ThaiBuddhistChronology"
-};
-
-$Object* allocate$ThaiBuddhistChronology$1($Class* clazz) {
-	return $of($alloc(ThaiBuddhistChronology$1));
-}
-
 $ints* ThaiBuddhistChronology$1::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
-void clinit$ThaiBuddhistChronology$1($Class* class$) {
+void ThaiBuddhistChronology$1::clinit$($Class* clazz) {
 	$assignStatic(ThaiBuddhistChronology$1::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
-			$nc(ThaiBuddhistChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::PROLEPTIC_MONTH->ordinal(), 1);
+			ThaiBuddhistChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::PROLEPTIC_MONTH->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ThaiBuddhistChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR_OF_ERA->ordinal(), 2);
+			ThaiBuddhistChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR_OF_ERA->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ThaiBuddhistChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR->ordinal(), 3);
+			ThaiBuddhistChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -80,7 +43,37 @@ ThaiBuddhistChronology$1::ThaiBuddhistChronology$1() {
 }
 
 $Class* ThaiBuddhistChronology$1::load$($String* name, bool initialize) {
-	$loadClass(ThaiBuddhistChronology$1, name, initialize, &_ThaiBuddhistChronology$1_ClassInfo_, clinit$ThaiBuddhistChronology$1, allocate$ThaiBuddhistChronology$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ThaiBuddhistChronology$1, $SwitchMap$java$time$temporal$ChronoField)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.chrono.ThaiBuddhistChronology",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.chrono.ThaiBuddhistChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.chrono.ThaiBuddhistChronology$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.chrono.ThaiBuddhistChronology"
+	};
+	$loadClass(ThaiBuddhistChronology$1, name, initialize, &classInfo$$, ThaiBuddhistChronology$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ThaiBuddhistChronology$1);
+	});
 	return class$;
 }
 

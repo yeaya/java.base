@@ -20,12 +20,13 @@ class $export ReadUTF : public ::java::lang::Object {
 	$class(ReadUTF, 0, ::java::lang::Object)
 public:
 	ReadUTF();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void writeAndReadAString();
 	static ::java::util::Random* generator;
 	static const int32_t TEST_ITERATIONS = 1000;
-	static const int32_t A_NUMBER_NEAR_65535 = 0x0000EA60;
+	static const int32_t A_NUMBER_NEAR_65535 = 0x0000ea60;
 	static const int32_t MAX_CORRUPTIONS_PER_CYCLE = 3;
 };
 

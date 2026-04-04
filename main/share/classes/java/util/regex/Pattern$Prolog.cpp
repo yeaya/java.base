@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$Prolog.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$Loop.h>
@@ -22,44 +21,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$Prolog_FieldInfo_[] = {
-	{"loop", "Ljava/util/regex/Pattern$Loop;", nullptr, 0, $field(Pattern$Prolog, loop)},
-	{}
-};
-
-$MethodInfo _Pattern$Prolog_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Loop;)V", nullptr, 0, $method(Pattern$Prolog, init$, void, $Pattern$Loop*)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Prolog, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Prolog, study, bool, $Pattern$TreeInfo*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$Prolog_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$Prolog", "java.util.regex.Pattern", "Prolog", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$Prolog_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$Prolog",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$Prolog_FieldInfo_,
-	_Pattern$Prolog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$Prolog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$Prolog($Class* clazz) {
-	return $of($alloc(Pattern$Prolog));
-}
-
 void Pattern$Prolog::init$($Pattern$Loop* loop) {
 	$Pattern$Node::init$();
 	$set(this, loop, loop);
@@ -77,7 +38,39 @@ Pattern$Prolog::Pattern$Prolog() {
 }
 
 $Class* Pattern$Prolog::load$($String* name, bool initialize) {
-	$loadClass(Pattern$Prolog, name, initialize, &_Pattern$Prolog_ClassInfo_, allocate$Pattern$Prolog);
+	$FieldInfo fieldInfos$$[] = {
+		{"loop", "Ljava/util/regex/Pattern$Loop;", nullptr, 0, $field(Pattern$Prolog, loop)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$Loop;)V", nullptr, 0, $method(Pattern$Prolog, init$, void, $Pattern$Loop*)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Prolog, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Prolog, study, bool, $Pattern$TreeInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$Prolog", "java.util.regex.Pattern", "Prolog", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$Prolog",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$Prolog, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$Prolog);
+	});
 	return class$;
 }
 

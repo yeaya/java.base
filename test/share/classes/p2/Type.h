@@ -11,6 +11,7 @@ class Type : public ::java::lang::Object {
 	$class(Type, 0, ::java::lang::Object)
 public:
 	Type();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* obj;
 };

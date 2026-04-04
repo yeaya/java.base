@@ -50,6 +50,7 @@ class WEPoll : public ::java::lang::Object {
 	$class(WEPoll, 0, ::java::lang::Object)
 public:
 	WEPoll();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t allocatePollArray(int32_t count);
 	static void close(int64_t h);

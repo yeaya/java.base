@@ -1,5 +1,4 @@
 #include <java/util/function/DoubleConsumer.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -31,71 +30,38 @@ public:
 	virtual void accept(double t) override {
 		$nc(inst$)->lambda$andThen$0(after, t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DoubleConsumer$$Lambda$lambda$andThen$0>());
-	}
 	DoubleConsumer* inst$ = nullptr;
 	DoubleConsumer* after = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DoubleConsumer$$Lambda$lambda$andThen$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DoubleConsumer$$Lambda$lambda$andThen$0, inst$)},
-	{"after", "Ljava/util/function/DoubleConsumer;", nullptr, $PUBLIC, $field(DoubleConsumer$$Lambda$lambda$andThen$0, after)},
-	{}
-};
-$MethodInfo DoubleConsumer$$Lambda$lambda$andThen$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $method(DoubleConsumer$$Lambda$lambda$andThen$0, init$, void, DoubleConsumer*, DoubleConsumer*)},
-	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleConsumer$$Lambda$lambda$andThen$0, accept, void, double)},
-	{}
-};
-$ClassInfo DoubleConsumer$$Lambda$lambda$andThen$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.function.DoubleConsumer$$Lambda$lambda$andThen$0",
-	"java.lang.Object",
-	"java.util.function.DoubleConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* DoubleConsumer$$Lambda$lambda$andThen$0::load$($String* name, bool initialize) {
-	$loadClass(DoubleConsumer$$Lambda$lambda$andThen$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DoubleConsumer$$Lambda$lambda$andThen$0, inst$)},
+		{"after", "Ljava/util/function/DoubleConsumer;", nullptr, $PUBLIC, $field(DoubleConsumer$$Lambda$lambda$andThen$0, after)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $method(DoubleConsumer$$Lambda$lambda$andThen$0, init$, void, DoubleConsumer*, DoubleConsumer*)},
+		{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleConsumer$$Lambda$lambda$andThen$0, accept, void, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.function.DoubleConsumer$$Lambda$lambda$andThen$0",
+		"java.lang.Object",
+		"java.util.function.DoubleConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DoubleConsumer$$Lambda$lambda$andThen$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleConsumer$$Lambda$lambda$andThen$0);
+	});
 	return class$;
 }
 $Class* DoubleConsumer$$Lambda$lambda$andThen$0::class$ = nullptr;
 
-$CompoundAttribute _DoubleConsumer_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _DoubleConsumer_MethodInfo_[] = {
-	{"accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoubleConsumer, accept, void, double)},
-	{"andThen", "(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;", nullptr, $PUBLIC, $virtualMethod(DoubleConsumer, andThen, DoubleConsumer*, DoubleConsumer*)},
-	{"lambda$andThen$0", "(Ljava/util/function/DoubleConsumer;D)V", nullptr, $PRIVATE | $SYNTHETIC, $method(DoubleConsumer, lambda$andThen$0, void, DoubleConsumer*, double)},
-	{}
-};
-
-$ClassInfo _DoubleConsumer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.DoubleConsumer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DoubleConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_DoubleConsumer_Annotations_
-};
-
-$Object* allocate$DoubleConsumer($Class* clazz) {
-	return $of($alloc(DoubleConsumer));
-}
-
 DoubleConsumer* DoubleConsumer::andThen(DoubleConsumer* after) {
 	$Objects::requireNonNull(after);
-	return static_cast<DoubleConsumer*>($new(DoubleConsumer$$Lambda$lambda$andThen$0, this, after));
+	return $new(DoubleConsumer$$Lambda$lambda$andThen$0, this, after);
 }
 
 void DoubleConsumer::lambda$andThen$0(DoubleConsumer* after, double t) {
@@ -105,11 +71,35 @@ void DoubleConsumer::lambda$andThen$0(DoubleConsumer* after, double t) {
 
 $Class* DoubleConsumer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DoubleConsumer$$Lambda$lambda$andThen$0::classInfo$.name)) {
+		if (name->equals("java.util.function.DoubleConsumer$$Lambda$lambda$andThen$0")) {
 			return DoubleConsumer$$Lambda$lambda$andThen$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DoubleConsumer, name, initialize, &_DoubleConsumer_ClassInfo_, allocate$DoubleConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoubleConsumer, accept, void, double)},
+		{"andThen", "(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;", nullptr, $PUBLIC, $virtualMethod(DoubleConsumer, andThen, DoubleConsumer*, DoubleConsumer*)},
+		{"lambda$andThen$0", "(Ljava/util/function/DoubleConsumer;D)V", nullptr, $PRIVATE | $SYNTHETIC, $method(DoubleConsumer, lambda$andThen$0, void, DoubleConsumer*, double)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.DoubleConsumer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(DoubleConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleConsumer);
+	});
 	return class$;
 }
 

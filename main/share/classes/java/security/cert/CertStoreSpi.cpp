@@ -1,5 +1,4 @@
 #include <java/security/cert/CertStoreSpi.h>
-
 #include <java/security/cert/CRLSelector.h>
 #include <java/security/cert/CertSelector.h>
 #include <java/security/cert/CertStoreParameters.h>
@@ -17,26 +16,6 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$MethodInfo _CertStoreSpi_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(CertStoreSpi, init$, void, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertStoreSpi, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
-	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertStoreSpi, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
-	{}
-};
-
-$ClassInfo _CertStoreSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.cert.CertStoreSpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CertStoreSpi_MethodInfo_
-};
-
-$Object* allocate$CertStoreSpi($Class* clazz) {
-	return $of($alloc(CertStoreSpi));
-}
-
 void CertStoreSpi::init$($CertStoreParameters* params) {
 }
 
@@ -44,7 +23,23 @@ CertStoreSpi::CertStoreSpi() {
 }
 
 $Class* CertStoreSpi::load$($String* name, bool initialize) {
-	$loadClass(CertStoreSpi, name, initialize, &_CertStoreSpi_ClassInfo_, allocate$CertStoreSpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(CertStoreSpi, init$, void, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertStoreSpi, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
+		{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertStoreSpi, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.cert.CertStoreSpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CertStoreSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertStoreSpi);
+	});
 	return class$;
 }
 

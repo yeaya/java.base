@@ -17,6 +17,7 @@ class $export Correctness : public ::java::lang::Object {
 	$class(Correctness, 0, ::java::lang::Object)
 public:
 	Correctness();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check($String* s1, $String* s2, bool expected);
 	static void check($String* s1, $String* s2);

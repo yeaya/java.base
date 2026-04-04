@@ -1,5 +1,4 @@
 #include <java/lang/ref/Finalizer.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Runnable.h>
@@ -10,7 +9,6 @@
 #include <java/lang/ref/Finalizer$FinalizerThread.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <jdk/internal/access/JavaLangAccess.h>
 #include <jdk/internal/misc/VM.h>
 #include <jcpp.h>
@@ -31,59 +29,12 @@ using $Finalizer$2 = ::java::lang::ref::Finalizer$2;
 using $Finalizer$FinalizerThread = ::java::lang::ref::Finalizer$FinalizerThread;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $VM = ::jdk::internal::misc::VM;
 
 namespace java {
 	namespace lang {
 		namespace ref {
-
-$FieldInfo _Finalizer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Finalizer, $assertionsDisabled)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(Finalizer, queue)},
-	{"unfinalized", "Ljava/lang/ref/Finalizer;", nullptr, $PRIVATE | $STATIC, $staticField(Finalizer, unfinalized)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Finalizer, lock)},
-	{"next", "Ljava/lang/ref/Finalizer;", nullptr, $PRIVATE, $field(Finalizer, next)},
-	{"prev", "Ljava/lang/ref/Finalizer;", nullptr, $PRIVATE, $field(Finalizer, prev)},
-	{}
-};
-
-$MethodInfo _Finalizer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Finalizer, init$, void, Object$*)},
-	{"forkSecondaryFinalizer", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Finalizer, forkSecondaryFinalizer, void, $Runnable*)},
-	{"getQueue", "()Ljava/lang/ref/ReferenceQueue;", "()Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $STATIC, $staticMethod(Finalizer, getQueue, $ReferenceQueue*)},
-	{"register", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(Finalizer, register$, void, Object$*)},
-	{"runFinalization", "()V", nullptr, $STATIC, $staticMethod(Finalizer, runFinalization, void)},
-	{"runFinalizer", "(Ljdk/internal/access/JavaLangAccess;)V", nullptr, $PRIVATE, $method(Finalizer, runFinalizer, void, $JavaLangAccess*)},
-	{}
-};
-
-$InnerClassInfo _Finalizer_InnerClassesInfo_[] = {
-	{"java.lang.ref.Finalizer$FinalizerThread", "java.lang.ref.Finalizer", "FinalizerThread", $PRIVATE | $STATIC},
-	{"java.lang.ref.Finalizer$2", nullptr, nullptr, 0},
-	{"java.lang.ref.Finalizer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Finalizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.ref.Finalizer",
-	"java.lang.ref.FinalReference",
-	nullptr,
-	_Finalizer_FieldInfo_,
-	_Finalizer_MethodInfo_,
-	"Ljava/lang/ref/FinalReference<Ljava/lang/Object;>;",
-	nullptr,
-	_Finalizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.ref.Finalizer$FinalizerThread,java.lang.ref.Finalizer$2,java.lang.ref.Finalizer$1"
-};
-
-$Object* allocate$Finalizer($Class* clazz) {
-	return $of($alloc(Finalizer));
-}
 
 bool Finalizer::$assertionsDisabled = false;
 $ReferenceQueue* Finalizer::queue = nullptr;
@@ -95,7 +46,7 @@ void Finalizer::init$(Object$* finalizee) {
 	$synchronized(Finalizer::lock) {
 		if (Finalizer::unfinalized != nullptr) {
 			$set(this, next, Finalizer::unfinalized);
-			$set($nc(Finalizer::unfinalized), prev, this);
+			$set(Finalizer::unfinalized, prev, this);
 		}
 		$assignStatic(Finalizer::unfinalized, this);
 	}
@@ -122,7 +73,7 @@ void Finalizer::runFinalizer($JavaLangAccess* jla) {
 			$set($nc(this->prev), next, this->next);
 		}
 		if (this->next != nullptr) {
-			$set($nc(this->next), prev, this->prev);
+			$set(this->next, prev, this->prev);
 		}
 		$set(this, prev, nullptr);
 		$set(this, next, this);
@@ -144,7 +95,7 @@ void Finalizer::runFinalizer($JavaLangAccess* jla) {
 void Finalizer::forkSecondaryFinalizer($Runnable* proc) {
 	$init(Finalizer);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Finalizer$1, proc)));
+	$AccessController::doPrivileged($$new($Finalizer$1, proc));
 }
 
 void Finalizer::runFinalization() {
@@ -155,8 +106,8 @@ void Finalizer::runFinalization() {
 	forkSecondaryFinalizer($$new($Finalizer$2));
 }
 
-void clinit$Finalizer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Finalizer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	Finalizer::$assertionsDisabled = !Finalizer::class$->desiredAssertionStatus();
 	$assignStatic(Finalizer::queue, $new($ReferenceQueue));
 	$assignStatic(Finalizer::unfinalized, nullptr);
@@ -165,7 +116,8 @@ void clinit$Finalizer($Class* class$) {
 		$var($ThreadGroup, tg, $($Thread::currentThread())->getThreadGroup());
 		{
 			$var($ThreadGroup, tgn, tg);
-			for (; tgn != nullptr; $assign(tg, tgn), $assign(tgn, $nc(tg)->getParent())) {
+			for (; tgn != nullptr; $assign(tg, tgn), $assign(tgn, tg->getParent())) {
+				;
 			}
 		}
 		$var($Thread, finalizer, $new($Finalizer$FinalizerThread, tg));
@@ -179,7 +131,47 @@ Finalizer::Finalizer() {
 }
 
 $Class* Finalizer::load$($String* name, bool initialize) {
-	$loadClass(Finalizer, name, initialize, &_Finalizer_ClassInfo_, clinit$Finalizer, allocate$Finalizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Finalizer, $assertionsDisabled)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(Finalizer, queue)},
+		{"unfinalized", "Ljava/lang/ref/Finalizer;", nullptr, $PRIVATE | $STATIC, $staticField(Finalizer, unfinalized)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Finalizer, lock)},
+		{"next", "Ljava/lang/ref/Finalizer;", nullptr, $PRIVATE, $field(Finalizer, next)},
+		{"prev", "Ljava/lang/ref/Finalizer;", nullptr, $PRIVATE, $field(Finalizer, prev)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Finalizer, init$, void, Object$*)},
+		{"forkSecondaryFinalizer", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Finalizer, forkSecondaryFinalizer, void, $Runnable*)},
+		{"getQueue", "()Ljava/lang/ref/ReferenceQueue;", "()Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $STATIC, $staticMethod(Finalizer, getQueue, $ReferenceQueue*)},
+		{"register", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(Finalizer, register$, void, Object$*)},
+		{"runFinalization", "()V", nullptr, $STATIC, $staticMethod(Finalizer, runFinalization, void)},
+		{"runFinalizer", "(Ljdk/internal/access/JavaLangAccess;)V", nullptr, $PRIVATE, $method(Finalizer, runFinalizer, void, $JavaLangAccess*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ref.Finalizer$FinalizerThread", "java.lang.ref.Finalizer", "FinalizerThread", $PRIVATE | $STATIC},
+		{"java.lang.ref.Finalizer$2", nullptr, nullptr, 0},
+		{"java.lang.ref.Finalizer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.ref.Finalizer",
+		"java.lang.ref.FinalReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/FinalReference<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.ref.Finalizer$FinalizerThread,java.lang.ref.Finalizer$2,java.lang.ref.Finalizer$1"
+	};
+	$loadClass(Finalizer, name, initialize, &classInfo$$, Finalizer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Finalizer);
+	});
 	return class$;
 }
 

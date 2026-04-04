@@ -1,5 +1,4 @@
 #include <java/nio/channels/spi/AbstractSelectionKey.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
@@ -34,33 +33,6 @@ namespace java {
 		namespace channels {
 			namespace spi {
 
-$FieldInfo _AbstractSelectionKey_FieldInfo_[] = {
-	{"INVALID", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSelectionKey, INVALID)},
-	{"invalid", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractSelectionKey, invalid)},
-	{}
-};
-
-$MethodInfo _AbstractSelectionKey_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSelectionKey, init$, void)},
-	{"cancel", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectionKey, cancel, void)},
-	{"invalidate", "()V", nullptr, 0, $virtualMethod(AbstractSelectionKey, invalidate, void)},
-	{"isValid", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectionKey, isValid, bool)},
-	{}
-};
-
-$ClassInfo _AbstractSelectionKey_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.nio.channels.spi.AbstractSelectionKey",
-	"java.nio.channels.SelectionKey",
-	nullptr,
-	_AbstractSelectionKey_FieldInfo_,
-	_AbstractSelectionKey_MethodInfo_
-};
-
-$Object* allocate$AbstractSelectionKey($Class* clazz) {
-	return $of($alloc(AbstractSelectionKey));
-}
-
 $VarHandle* AbstractSelectionKey::INVALID = nullptr;
 
 void AbstractSelectionKey::init$() {
@@ -76,27 +48,26 @@ void AbstractSelectionKey::invalidate() {
 }
 
 void AbstractSelectionKey::cancel() {
-	$useLocalCurrentObjectStackCache();
-	bool changed = $nc(AbstractSelectionKey::INVALID)->compareAndSet($$new($ObjectArray, {$of(this), $$of(false), $$of(true)}));
+	$useLocalObjectStack();
+	bool changed = $nc(AbstractSelectionKey::INVALID)->compareAndSet($$new($ObjectArray, {this, $$of(false), $$of(true)}));
 	if (changed) {
 		$var($Selector, sel, selector());
 		if ($instanceOf($SelectorImpl, sel)) {
-			$nc(($cast($SelectorImpl, sel)))->cancel($cast($SelectionKeyImpl, this));
+			$cast($SelectorImpl, sel)->cancel($cast($SelectionKeyImpl, this));
 		} else {
-			$nc(($cast($AbstractSelector, sel)))->cancel(this);
+			$nc($cast($AbstractSelector, sel))->cancel(this);
 		}
 	}
 }
 
-void clinit$AbstractSelectionKey($Class* class$) {
+void AbstractSelectionKey::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
-			$init($Boolean);
 			$assignStatic(AbstractSelectionKey::INVALID, $nc(l)->findVarHandle(AbstractSelectionKey::class$, "invalid"_s, $Boolean::TYPE));
 		} catch ($Exception& e) {
-			$throwNew($InternalError, static_cast<$Throwable*>(e));
+			$throwNew($InternalError, e);
 		}
 	}
 }
@@ -105,7 +76,29 @@ AbstractSelectionKey::AbstractSelectionKey() {
 }
 
 $Class* AbstractSelectionKey::load$($String* name, bool initialize) {
-	$loadClass(AbstractSelectionKey, name, initialize, &_AbstractSelectionKey_ClassInfo_, clinit$AbstractSelectionKey, allocate$AbstractSelectionKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"INVALID", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSelectionKey, INVALID)},
+		{"invalid", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractSelectionKey, invalid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSelectionKey, init$, void)},
+		{"cancel", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectionKey, cancel, void)},
+		{"invalidate", "()V", nullptr, 0, $virtualMethod(AbstractSelectionKey, invalidate, void)},
+		{"isValid", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectionKey, isValid, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.nio.channels.spi.AbstractSelectionKey",
+		"java.nio.channels.SelectionKey",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractSelectionKey, name, initialize, &classInfo$$, AbstractSelectionKey::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractSelectionKey);
+	});
 	return class$;
 }
 

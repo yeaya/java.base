@@ -1,5 +1,4 @@
 #include <java/util/Date.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
@@ -46,202 +45,12 @@ using $Locale = ::java::util::Locale;
 using $TimeZone = ::java::util::TimeZone;
 using $BaseCalendar = ::sun::util::calendar::BaseCalendar;
 using $BaseCalendar$Date = ::sun::util::calendar::BaseCalendar$Date;
-using $CalendarDate = ::sun::util::calendar::CalendarDate;
 using $CalendarSystem = ::sun::util::calendar::CalendarSystem;
 using $CalendarUtils = ::sun::util::calendar::CalendarUtils;
 using $ZoneInfo = ::sun::util::calendar::ZoneInfo;
 
 namespace java {
 	namespace util {
-
-$CompoundAttribute _Date_MethodAnnotations_init$2[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_init$3[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_init$4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_init$5[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_UTC6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_getDate19[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_getDay20[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_getHours21[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_getMinutes24[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_getMonth25[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_getSeconds26[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_getTimezoneOffset29[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_getYear30[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_parse34[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_setDate36[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_setHours37[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_setMinutes38[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_setMonth39[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_setSeconds40[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_setYear42[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_toGMTString43[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_toLocaleString45[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Date_FieldInfo_[] = {
-	{"gcal", "Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Date, gcal)},
-	{"jcal", "Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC, $staticField(Date, jcal)},
-	{"fastTime", "J", nullptr, $PRIVATE | $TRANSIENT, $field(Date, fastTime)},
-	{"cdate", "Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PRIVATE | $TRANSIENT, $field(Date, cdate)},
-	{"defaultCenturyStart", "I", nullptr, $PRIVATE | $STATIC, $staticField(Date, defaultCenturyStart)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Date, serialVersionUID)},
-	{"wtb", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Date, wtb)},
-	{"ttb", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Date, ttb)},
-	{}
-};
-
-$MethodInfo _Date_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Date, init$, void)},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(Date, init$, void, int64_t)},
-	{"<init>", "(III)V", nullptr, $PUBLIC | $DEPRECATED, $method(Date, init$, void, int32_t, int32_t, int32_t), nullptr, nullptr, _Date_MethodAnnotations_init$2},
-	{"<init>", "(IIIII)V", nullptr, $PUBLIC | $DEPRECATED, $method(Date, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, _Date_MethodAnnotations_init$3},
-	{"<init>", "(IIIIII)V", nullptr, $PUBLIC | $DEPRECATED, $method(Date, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, _Date_MethodAnnotations_init$4},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Date, init$, void, $String*), nullptr, nullptr, _Date_MethodAnnotations_init$5},
-	{"UTC", "(IIIIII)J", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Date, UTC, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, _Date_MethodAnnotations_UTC6},
-	{"after", "(Ljava/util/Date;)Z", nullptr, $PUBLIC, $virtualMethod(Date, after, bool, Date*)},
-	{"before", "(Ljava/util/Date;)Z", nullptr, $PUBLIC, $virtualMethod(Date, before, bool, Date*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Date, clone, $Object*)},
-	{"compareTo", "(Ljava/util/Date;)I", nullptr, $PUBLIC, $virtualMethod(Date, compareTo, int32_t, Date*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Date, compareTo, int32_t, Object$*)},
-	{"convertToAbbr", "(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Date, convertToAbbr, $StringBuilder*, $StringBuilder*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Date, equals, bool, Object$*)},
-	{"from", "(Ljava/time/Instant;)Ljava/util/Date;", nullptr, $PUBLIC | $STATIC, $staticMethod(Date, from, Date*, $Instant*)},
-	{"getCalendarDate", "()Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PRIVATE | $FINAL, $method(Date, getCalendarDate, $BaseCalendar$Date*)},
-	{"getCalendarSystem", "(I)Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Date, getCalendarSystem, $BaseCalendar*, int32_t)},
-	{"getCalendarSystem", "(J)Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Date, getCalendarSystem, $BaseCalendar*, int64_t)},
-	{"getCalendarSystem", "(Lsun/util/calendar/BaseCalendar$Date;)Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Date, getCalendarSystem, $BaseCalendar*, $BaseCalendar$Date*)},
-	{"getDate", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getDate, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getDate19},
-	{"getDay", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getDay, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getDay20},
-	{"getHours", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getHours, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getHours21},
-	{"getJulianCalendar", "()Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNCHRONIZED, $staticMethod(Date, getJulianCalendar, $BaseCalendar*)},
-	{"getMillisOf", "(Ljava/util/Date;)J", nullptr, $STATIC | $FINAL, $staticMethod(Date, getMillisOf, int64_t, Date*)},
-	{"getMinutes", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getMinutes, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getMinutes24},
-	{"getMonth", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getMonth, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getMonth25},
-	{"getSeconds", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getSeconds, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getSeconds26},
-	{"getTime", "()J", nullptr, $PUBLIC, $virtualMethod(Date, getTime, int64_t)},
-	{"getTimeImpl", "()J", nullptr, $PRIVATE | $FINAL, $method(Date, getTimeImpl, int64_t)},
-	{"getTimezoneOffset", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getTimezoneOffset, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getTimezoneOffset29},
-	{"getYear", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getYear, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getYear30},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Date, hashCode, int32_t)},
-	{"normalize", "()Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PRIVATE | $FINAL, $method(Date, normalize, $BaseCalendar$Date*)},
-	{"normalize", "(Lsun/util/calendar/BaseCalendar$Date;)Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PRIVATE | $FINAL, $method(Date, normalize, $BaseCalendar$Date*, $BaseCalendar$Date*)},
-	{"parse", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Date, parse, int64_t, $String*), nullptr, nullptr, _Date_MethodAnnotations_parse34},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Date, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setDate", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setDate, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setDate36},
-	{"setHours", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setHours, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setHours37},
-	{"setMinutes", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setMinutes, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setMinutes38},
-	{"setMonth", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setMonth, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setMonth39},
-	{"setSeconds", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setSeconds, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setSeconds40},
-	{"setTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(Date, setTime, void, int64_t)},
-	{"setYear", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setYear, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setYear42},
-	{"toGMTString", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, toGMTString, $String*), nullptr, nullptr, _Date_MethodAnnotations_toGMTString43},
-	{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Date, toInstant, $Instant*)},
-	{"toLocaleString", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, toLocaleString, $String*), nullptr, nullptr, _Date_MethodAnnotations_toLocaleString45},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Date, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Date, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Date_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.Date",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable,java.lang.Comparable",
-	_Date_FieldInfo_,
-	_Date_MethodInfo_,
-	"Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Cloneable;Ljava/lang/Comparable<Ljava/util/Date;>;"
-};
-
-$Object* allocate$Date($Class* clazz) {
-	return $of($alloc(Date));
-}
 
 void Date::finalize() {
 	this->$Serializable::finalize();
@@ -270,7 +79,7 @@ void Date::init$(int32_t year, int32_t month, int32_t date, int32_t hrs, int32_t
 }
 
 void Date::init$(int32_t year, int32_t month, int32_t date, int32_t hrs, int32_t min, int32_t sec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t y = year + 1900;
 	if (month >= 12) {
 		y += month / 12;
@@ -281,7 +90,7 @@ void Date::init$(int32_t year, int32_t month, int32_t date, int32_t hrs, int32_t
 	}
 	$var($BaseCalendar, cal, getCalendarSystem(y));
 	$set(this, cdate, $cast($BaseCalendar$Date, $nc(cal)->newCalendarDate($($TimeZone::getDefaultRef()))));
-	$nc($($nc(this->cdate)->setNormalizedDate(y, month + 1, date)))->setTimeOfDay(hrs, min, sec, 0);
+	$$nc($nc(this->cdate)->setNormalizedDate(y, month + 1, date))->setTimeOfDay(hrs, min, sec, 0);
 	getTimeImpl();
 	$set(this, cdate, nullptr);
 }
@@ -295,7 +104,7 @@ $Object* Date::clone() {
 	try {
 		$assign(d, $cast(Date, $Serializable::clone()));
 		if (this->cdate != nullptr) {
-			$set($nc(d), cdate, $cast($BaseCalendar$Date, $nc(this->cdate)->clone()));
+			$set($nc(d), cdate, $cast($BaseCalendar$Date, this->cdate->clone()));
 		}
 	} catch ($CloneNotSupportedException& e) {
 	}
@@ -304,7 +113,7 @@ $Object* Date::clone() {
 
 int64_t Date::UTC(int32_t year, int32_t month, int32_t date, int32_t hrs, int32_t min, int32_t sec) {
 	$init(Date);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t y = year + 1900;
 	if (month >= 12) {
 		y += month / 12;
@@ -316,7 +125,7 @@ int64_t Date::UTC(int32_t year, int32_t month, int32_t date, int32_t hrs, int32_
 	int32_t m = month + 1;
 	$var($BaseCalendar, cal, getCalendarSystem(y));
 	$var($BaseCalendar$Date, udate, $cast($BaseCalendar$Date, $nc(cal)->newCalendarDate(nullptr)));
-	$nc($($nc(udate)->setNormalizedDate(y, m, date)))->setTimeOfDay(hrs, min, sec, 0);
+	$$nc($nc(udate)->setNormalizedDate(y, m, date))->setTimeOfDay(hrs, min, sec, 0);
 	$var(Date, d, $new(Date, (int64_t)0));
 	d->normalize(udate);
 	return d->fastTime;
@@ -324,7 +133,7 @@ int64_t Date::UTC(int32_t year, int32_t month, int32_t date, int32_t hrs, int32_
 
 int64_t Date::parse($String* s) {
 	$init(Date);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t year = $Integer::MIN_VALUE;
 	int32_t mon = -1;
 	int32_t mday = -1;
@@ -447,9 +256,9 @@ int64_t Date::parse($String* s) {
 						break;
 					}
 					int32_t k = 0;
-					for (k = $nc(Date::wtb)->length; --k >= 0;) {
-						if ($nc($nc(Date::wtb)->get(k))->regionMatches(true, 0, s, st, i - st)) {
-							int32_t action = $nc(Date::ttb)->get(k);
+					for (k = Date::wtb->length; --k >= 0;) {
+						if ($nc(Date::wtb->get(k))->regionMatches(true, 0, s, st, i - st)) {
+							int32_t action = Date::ttb->get(k);
 							if (action != 0) {
 								if (action == 1) {
 									if (hour > 12 || hour < 1) {
@@ -499,7 +308,7 @@ int64_t Date::parse($String* s) {
 			if (year < 100) {
 				$synchronized(Date::class$) {
 					if (Date::defaultCenturyStart == 0) {
-						Date::defaultCenturyStart = $nc($($nc(Date::gcal)->getCalendarDate()))->getYear() - 80;
+						Date::defaultCenturyStart = $$nc($nc(Date::gcal)->getCalendarDate())->getYear() - 80;
 					}
 				}
 				year += (Date::defaultCenturyStart / 100) * 100;
@@ -534,15 +343,15 @@ int64_t Date::parse($String* s) {
 }
 
 int32_t Date::getYear() {
-	return $nc($(normalize()))->getYear() - 1900;
+	return $$nc(normalize())->getYear() - 1900;
 }
 
 void Date::setYear(int32_t year) {
-	$nc($(getCalendarDate()))->setNormalizedYear(year + 1900);
+	$$nc(getCalendarDate())->setNormalizedYear(year + 1900);
 }
 
 int32_t Date::getMonth() {
-	return $nc($(normalize()))->getMonth() - 1;
+	return $$nc(normalize())->getMonth() - 1;
 }
 
 void Date::setMonth(int32_t month) {
@@ -556,45 +365,45 @@ void Date::setMonth(int32_t month) {
 	}
 	$var($BaseCalendar$Date, d, getCalendarDate());
 	if (y != 0) {
-		$nc(d)->setNormalizedYear(d->getNormalizedYear() + y);
+		$nc(d)->setNormalizedYear($nc(d)->getNormalizedYear() + y);
 	}
 	$nc(d)->setMonth(month + 1);
 }
 
 int32_t Date::getDate() {
-	return $nc($(normalize()))->getDayOfMonth();
+	return $$nc(normalize())->getDayOfMonth();
 }
 
 void Date::setDate(int32_t date) {
-	$nc($(getCalendarDate()))->setDayOfMonth(date);
+	$$nc(getCalendarDate())->setDayOfMonth(date);
 }
 
 int32_t Date::getDay() {
-	return $nc($(normalize()))->getDayOfWeek() - $BaseCalendar::SUNDAY;
+	return $$nc(normalize())->getDayOfWeek() - $BaseCalendar::SUNDAY;
 }
 
 int32_t Date::getHours() {
-	return $nc($(normalize()))->getHours();
+	return $$nc(normalize())->getHours();
 }
 
 void Date::setHours(int32_t hours) {
-	$nc($(getCalendarDate()))->setHours(hours);
+	$$nc(getCalendarDate())->setHours(hours);
 }
 
 int32_t Date::getMinutes() {
-	return $nc($(normalize()))->getMinutes();
+	return $$nc(normalize())->getMinutes();
 }
 
 void Date::setMinutes(int32_t minutes) {
-	$nc($(getCalendarDate()))->setMinutes(minutes);
+	$$nc(getCalendarDate())->setMinutes(minutes);
 }
 
 int32_t Date::getSeconds() {
-	return $nc($(normalize()))->getSeconds();
+	return $$nc(normalize())->getSeconds();
 }
 
 void Date::setSeconds(int32_t seconds) {
-	$nc($(getCalendarDate()))->setSeconds(seconds);
+	$$nc(getCalendarDate())->setSeconds(seconds);
 }
 
 int64_t Date::getTime() {
@@ -602,7 +411,7 @@ int64_t Date::getTime() {
 }
 
 int64_t Date::getTimeImpl() {
-	if (this->cdate != nullptr && !$nc(this->cdate)->isNormalized()) {
+	if (this->cdate != nullptr && !this->cdate->isNormalized()) {
 		normalize();
 	}
 	return this->fastTime;
@@ -627,7 +436,7 @@ bool Date::equals(Object$* obj) {
 	bool var$0 = $instanceOf(Date, obj);
 	if (var$0) {
 		int64_t var$1 = getTime();
-		var$0 = var$1 == $nc(($cast(Date, obj)))->getTime();
+		var$0 = var$1 == $cast(Date, obj)->getTime();
 	}
 	return var$0;
 }
@@ -637,10 +446,10 @@ int64_t Date::getMillisOf(Date* date) {
 	if ($nc($of(date))->getClass() != Date::class$) {
 		return date->getTime();
 	}
-	if ($nc(date)->cdate == nullptr || $nc($nc(date)->cdate)->isNormalized()) {
+	if (date->cdate == nullptr || date->cdate->isNormalized()) {
 		return date->fastTime;
 	}
-	$var($BaseCalendar$Date, d, $cast($BaseCalendar$Date, $nc($nc(date)->cdate)->clone()));
+	$var($BaseCalendar$Date, d, $cast($BaseCalendar$Date, $nc(date->cdate)->clone()));
 	return $nc(Date::gcal)->getTime(d);
 }
 
@@ -656,19 +465,19 @@ int32_t Date::hashCode() {
 }
 
 $String* Date::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BaseCalendar$Date, date, normalize());
 	$var($StringBuilder, sb, $new($StringBuilder, 28));
 	int32_t index = $nc(date)->getDayOfWeek();
 	if (index == $BaseCalendar::SUNDAY) {
 		index = 8;
 	}
-	$nc($(convertToAbbr(sb, $nc(Date::wtb)->get(index))))->append(u' ');
-	$nc($(convertToAbbr(sb, $nc(Date::wtb)->get(date->getMonth() - 1 + 2 + 7))))->append(u' ');
-	$nc($($CalendarUtils::sprintf0d(sb, date->getDayOfMonth(), 2)))->append(u' ');
-	$nc($($CalendarUtils::sprintf0d(sb, date->getHours(), 2)))->append(u':');
-	$nc($($CalendarUtils::sprintf0d(sb, date->getMinutes(), 2)))->append(u':');
-	$nc($($CalendarUtils::sprintf0d(sb, date->getSeconds(), 2)))->append(u' ');
+	$$nc(convertToAbbr(sb, Date::wtb->get(index)))->append(u' ');
+	$$nc(convertToAbbr(sb, Date::wtb->get(date->getMonth() - 1 + 2 + 7)))->append(u' ');
+	$$nc($CalendarUtils::sprintf0d(sb, date->getDayOfMonth(), 2))->append(u' ');
+	$$nc($CalendarUtils::sprintf0d(sb, date->getHours(), 2))->append(u':');
+	$$nc($CalendarUtils::sprintf0d(sb, date->getMinutes(), 2))->append(u':');
+	$$nc($CalendarUtils::sprintf0d(sb, date->getSeconds(), 2))->append(u' ');
 	$var($TimeZone, zi, date->getZone());
 	if (zi != nullptr) {
 		$init($Locale);
@@ -683,7 +492,7 @@ $String* Date::toString() {
 $StringBuilder* Date::convertToAbbr($StringBuilder* sb, $String* name) {
 	$init(Date);
 	$nc(sb)->append($Character::toUpperCase($nc(name)->charAt(0)));
-	sb->append($nc(name)->charAt(1))->append($nc(name)->charAt(2));
+	sb->append(name->charAt(1))->append(name->charAt(2));
 	return sb;
 }
 
@@ -693,17 +502,17 @@ $String* Date::toLocaleString() {
 }
 
 $String* Date::toGMTString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t t = getTime();
 	$var($BaseCalendar, cal, getCalendarSystem(t));
 	$var($BaseCalendar$Date, date, $cast($BaseCalendar$Date, $nc(cal)->getCalendarDate(getTime(), ($TimeZone*)nullptr)));
 	$var($StringBuilder, sb, $new($StringBuilder, 32));
-	$nc($($CalendarUtils::sprintf0d(sb, $nc(date)->getDayOfMonth(), 1)))->append(u' ');
-	$nc($(convertToAbbr(sb, $nc(Date::wtb)->get($nc(date)->getMonth() - 1 + 2 + 7))))->append(u' ');
-	sb->append($nc(date)->getYear())->append(u' ');
-	$nc($($CalendarUtils::sprintf0d(sb, $nc(date)->getHours(), 2)))->append(u':');
-	$nc($($CalendarUtils::sprintf0d(sb, $nc(date)->getMinutes(), 2)))->append(u':');
-	$CalendarUtils::sprintf0d(sb, $nc(date)->getSeconds(), 2);
+	$$nc($CalendarUtils::sprintf0d(sb, $nc(date)->getDayOfMonth(), 1))->append(u' ');
+	$$nc(convertToAbbr(sb, Date::wtb->get(date->getMonth() - 1 + 2 + 7)))->append(u' ');
+	sb->append(date->getYear())->append(u' ');
+	$$nc($CalendarUtils::sprintf0d(sb, date->getHours(), 2))->append(u':');
+	$$nc($CalendarUtils::sprintf0d(sb, date->getMinutes(), 2))->append(u':');
+	$CalendarUtils::sprintf0d(sb, date->getSeconds(), 2);
 	sb->append(" GMT"_s);
 	return sb->toString();
 }
@@ -713,19 +522,19 @@ int32_t Date::getTimezoneOffset() {
 	if (this->cdate == nullptr) {
 		$var($TimeZone, tz, $TimeZone::getDefaultRef());
 		if ($instanceOf($ZoneInfo, tz)) {
-			zoneOffset = $nc(($cast($ZoneInfo, tz)))->getOffsets(this->fastTime, nullptr);
+			zoneOffset = $cast($ZoneInfo, tz)->getOffsets(this->fastTime, nullptr);
 		} else {
 			zoneOffset = $nc(tz)->getOffset(this->fastTime);
 		}
 	} else {
 		normalize();
-		zoneOffset = $nc(this->cdate)->getZoneOffset();
+		zoneOffset = this->cdate->getZoneOffset();
 	}
-	return -zoneOffset / 0x0000EA60;
+	return -zoneOffset / 60000;
 }
 
 $BaseCalendar$Date* Date::getCalendarDate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cdate == nullptr) {
 		$var($BaseCalendar, cal, getCalendarSystem(this->fastTime));
 		$set(this, cdate, $cast($BaseCalendar$Date, $nc(cal)->getCalendarDate(this->fastTime, $($TimeZone::getDefaultRef()))));
@@ -734,7 +543,7 @@ $BaseCalendar$Date* Date::getCalendarDate() {
 }
 
 $BaseCalendar$Date* Date::normalize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cdate == nullptr) {
 		$var($BaseCalendar, cal, getCalendarSystem(this->fastTime));
 		$set(this, cdate, $cast($BaseCalendar$Date, $nc(cal)->getCalendarDate(this->fastTime, $($TimeZone::getDefaultRef()))));
@@ -745,15 +554,15 @@ $BaseCalendar$Date* Date::normalize() {
 	}
 	$var($TimeZone, tz, $TimeZone::getDefaultRef());
 	if (tz != $nc(this->cdate)->getZone()) {
-		$nc(this->cdate)->setZone(tz);
+		this->cdate->setZone(tz);
 		$var($CalendarSystem, cal, getCalendarSystem(this->cdate));
-		$nc(cal)->getCalendarDate(this->fastTime, static_cast<$CalendarDate*>(this->cdate));
+		$nc(cal)->getCalendarDate(this->fastTime, this->cdate);
 	}
 	return this->cdate;
 }
 
 $BaseCalendar$Date* Date::normalize($BaseCalendar$Date* date$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BaseCalendar$Date, date, date$renamed);
 	int32_t y = $nc(date)->getNormalizedYear();
 	int32_t m = date->getMonth();
@@ -763,7 +572,7 @@ $BaseCalendar$Date* Date::normalize($BaseCalendar$Date* date$renamed) {
 	int32_t ss = date->getSeconds();
 	int32_t ms = date->getMillis();
 	$var($TimeZone, tz, date->getZone());
-	if (y == 1582 || y > 0x10B07600 || y < (int32_t)0xEF4F8A00) {
+	if (y == 1582 || y > 280000000 || y < -280000000) {
 		if (tz == nullptr) {
 			$assign(tz, $TimeZone::getTimeZone("GMT"_s));
 		}
@@ -779,13 +588,13 @@ $BaseCalendar$Date* Date::normalize($BaseCalendar$Date* date$renamed) {
 	$var($BaseCalendar, cal, getCalendarSystem(y));
 	if (cal != getCalendarSystem(date)) {
 		$assign(date, $cast($BaseCalendar$Date, $nc(cal)->newCalendarDate(tz)));
-		$nc($($nc(date)->setNormalizedDate(y, m, d)))->setTimeOfDay(hh, mm, ss, ms);
+		$$nc($nc(date)->setNormalizedDate(y, m, d))->setTimeOfDay(hh, mm, ss, ms);
 	}
 	this->fastTime = $nc(cal)->getTime(date);
 	$var($BaseCalendar, ncal, getCalendarSystem(this->fastTime));
 	if (ncal != cal) {
 		$assign(date, $cast($BaseCalendar$Date, $nc(ncal)->newCalendarDate(tz)));
-		$nc($($nc(date)->setNormalizedDate(y, m, d)))->setTimeOfDay(hh, mm, ss, ms);
+		$$nc($nc(date)->setNormalizedDate(y, m, d))->setTimeOfDay(hh, mm, ss, ms);
 		this->fastTime = ncal->getTime(date);
 	}
 	return date;
@@ -801,7 +610,7 @@ $BaseCalendar* Date::getCalendarSystem(int32_t year) {
 
 $BaseCalendar* Date::getCalendarSystem(int64_t utc) {
 	$init(Date);
-	if (utc >= 0 || utc >= $GregorianCalendar::DEFAULT_GREGORIAN_CUTOVER - $nc($($TimeZone::getDefaultRef()))->getOffset(utc)) {
+	if (utc >= 0 || utc >= $GregorianCalendar::DEFAULT_GREGORIAN_CUTOVER - $$nc($TimeZone::getDefaultRef())->getOffset(utc)) {
 		return Date::gcal;
 	}
 	return getJulianCalendar();
@@ -819,9 +628,8 @@ $BaseCalendar* Date::getCalendarSystem($BaseCalendar$Date* cdate) {
 }
 
 $BaseCalendar* Date::getJulianCalendar() {
-	$load(Date);
+	$init(Date);
 	$synchronized(class$) {
-		$init(Date);
 		if (Date::jcal == nullptr) {
 			$assignStatic(Date::jcal, $cast($BaseCalendar, $CalendarSystem::forName("julian"_s)));
 		}
@@ -844,7 +652,7 @@ Date* Date::from($Instant* instant) {
 	try {
 		return $new(Date, $nc(instant)->toEpochMilli());
 	} catch ($ArithmeticException& ex) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(ex));
+		$throwNew($IllegalArgumentException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -857,7 +665,7 @@ int32_t Date::compareTo(Object$* anotherDate) {
 	return this->compareTo($cast(Date, anotherDate));
 }
 
-void clinit$Date($Class* class$) {
+void Date::clinit$($Class* clazz) {
 	$assignStatic(Date::gcal, $CalendarSystem::getGregorianCalendar());
 	$assignStatic(Date::wtb, $new($StringArray, {
 		"am"_s,
@@ -933,7 +741,169 @@ Date::Date() {
 }
 
 $Class* Date::load$($String* name, bool initialize) {
-	$loadClass(Date, name, initialize, &_Date_ClassInfo_, clinit$Date, allocate$Date);
+	$FieldInfo fieldInfos$$[] = {
+		{"gcal", "Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Date, gcal)},
+		{"jcal", "Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC, $staticField(Date, jcal)},
+		{"fastTime", "J", nullptr, $PRIVATE | $TRANSIENT, $field(Date, fastTime)},
+		{"cdate", "Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PRIVATE | $TRANSIENT, $field(Date, cdate)},
+		{"defaultCenturyStart", "I", nullptr, $PRIVATE | $STATIC, $staticField(Date, defaultCenturyStart)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Date, serialVersionUID)},
+		{"wtb", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Date, wtb)},
+		{"ttb", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Date, ttb)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$2[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$3[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$4[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$5[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute UTCmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDatemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDaymethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getHoursmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getMinutesmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getMonthmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getSecondsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getTimezoneOffsetmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getYearmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute parsemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setDatemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setHoursmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setMinutesmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setMonthmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setSecondsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setYearmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute toGMTStringmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute toLocaleStringmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Date, init$, void)},
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(Date, init$, void, int64_t)},
+		{"<init>", "(III)V", nullptr, $PUBLIC | $DEPRECATED, $method(Date, init$, void, int32_t, int32_t, int32_t), nullptr, nullptr, init$methodAnnotations$$$2},
+		{"<init>", "(IIIII)V", nullptr, $PUBLIC | $DEPRECATED, $method(Date, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, init$methodAnnotations$$$3},
+		{"<init>", "(IIIIII)V", nullptr, $PUBLIC | $DEPRECATED, $method(Date, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, init$methodAnnotations$$$4},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Date, init$, void, $String*), nullptr, nullptr, init$methodAnnotations$$$5},
+		{"UTC", "(IIIIII)J", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Date, UTC, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, UTCmethodAnnotations$$},
+		{"after", "(Ljava/util/Date;)Z", nullptr, $PUBLIC, $virtualMethod(Date, after, bool, Date*)},
+		{"before", "(Ljava/util/Date;)Z", nullptr, $PUBLIC, $virtualMethod(Date, before, bool, Date*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Date, clone, $Object*)},
+		{"compareTo", "(Ljava/util/Date;)I", nullptr, $PUBLIC, $virtualMethod(Date, compareTo, int32_t, Date*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Date, compareTo, int32_t, Object$*)},
+		{"convertToAbbr", "(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Date, convertToAbbr, $StringBuilder*, $StringBuilder*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Date, equals, bool, Object$*)},
+		{"from", "(Ljava/time/Instant;)Ljava/util/Date;", nullptr, $PUBLIC | $STATIC, $staticMethod(Date, from, Date*, $Instant*)},
+		{"getCalendarDate", "()Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PRIVATE | $FINAL, $method(Date, getCalendarDate, $BaseCalendar$Date*)},
+		{"getCalendarSystem", "(I)Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Date, getCalendarSystem, $BaseCalendar*, int32_t)},
+		{"getCalendarSystem", "(J)Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Date, getCalendarSystem, $BaseCalendar*, int64_t)},
+		{"getCalendarSystem", "(Lsun/util/calendar/BaseCalendar$Date;)Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Date, getCalendarSystem, $BaseCalendar*, $BaseCalendar$Date*)},
+		{"getDate", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getDate, int32_t), nullptr, nullptr, getDatemethodAnnotations$$},
+		{"getDay", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getDay, int32_t), nullptr, nullptr, getDaymethodAnnotations$$},
+		{"getHours", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getHours, int32_t), nullptr, nullptr, getHoursmethodAnnotations$$},
+		{"getJulianCalendar", "()Lsun/util/calendar/BaseCalendar;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNCHRONIZED, $staticMethod(Date, getJulianCalendar, $BaseCalendar*)},
+		{"getMillisOf", "(Ljava/util/Date;)J", nullptr, $STATIC | $FINAL, $staticMethod(Date, getMillisOf, int64_t, Date*)},
+		{"getMinutes", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getMinutes, int32_t), nullptr, nullptr, getMinutesmethodAnnotations$$},
+		{"getMonth", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getMonth, int32_t), nullptr, nullptr, getMonthmethodAnnotations$$},
+		{"getSeconds", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getSeconds, int32_t), nullptr, nullptr, getSecondsmethodAnnotations$$},
+		{"getTime", "()J", nullptr, $PUBLIC, $virtualMethod(Date, getTime, int64_t)},
+		{"getTimeImpl", "()J", nullptr, $PRIVATE | $FINAL, $method(Date, getTimeImpl, int64_t)},
+		{"getTimezoneOffset", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getTimezoneOffset, int32_t), nullptr, nullptr, getTimezoneOffsetmethodAnnotations$$},
+		{"getYear", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getYear, int32_t), nullptr, nullptr, getYearmethodAnnotations$$},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Date, hashCode, int32_t)},
+		{"normalize", "()Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PRIVATE | $FINAL, $method(Date, normalize, $BaseCalendar$Date*)},
+		{"normalize", "(Lsun/util/calendar/BaseCalendar$Date;)Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PRIVATE | $FINAL, $method(Date, normalize, $BaseCalendar$Date*, $BaseCalendar$Date*)},
+		{"parse", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Date, parse, int64_t, $String*), nullptr, nullptr, parsemethodAnnotations$$},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Date, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setDate", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setDate, void, int32_t), nullptr, nullptr, setDatemethodAnnotations$$},
+		{"setHours", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setHours, void, int32_t), nullptr, nullptr, setHoursmethodAnnotations$$},
+		{"setMinutes", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setMinutes, void, int32_t), nullptr, nullptr, setMinutesmethodAnnotations$$},
+		{"setMonth", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setMonth, void, int32_t), nullptr, nullptr, setMonthmethodAnnotations$$},
+		{"setSeconds", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setSeconds, void, int32_t), nullptr, nullptr, setSecondsmethodAnnotations$$},
+		{"setTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(Date, setTime, void, int64_t)},
+		{"setYear", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setYear, void, int32_t), nullptr, nullptr, setYearmethodAnnotations$$},
+		{"toGMTString", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, toGMTString, $String*), nullptr, nullptr, toGMTStringmethodAnnotations$$},
+		{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Date, toInstant, $Instant*)},
+		{"toLocaleString", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, toLocaleString, $String*), nullptr, nullptr, toLocaleStringmethodAnnotations$$},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Date, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Date, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.Date",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable,java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Cloneable;Ljava/lang/Comparable<Ljava/util/Date;>;"
+	};
+	$loadClass(Date, name, initialize, &classInfo$$, Date::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Date));
+	});
 	return class$;
 }
 

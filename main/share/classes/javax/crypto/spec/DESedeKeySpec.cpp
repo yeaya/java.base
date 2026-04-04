@@ -1,5 +1,4 @@
 #include <javax/crypto/spec/DESedeKeySpec.h>
-
 #include <java/security/InvalidKeyException.h>
 #include <javax/crypto/spec/DESKeySpec.h>
 #include <jcpp.h>
@@ -15,33 +14,6 @@ using $DESKeySpec = ::javax::crypto::spec::DESKeySpec;
 namespace javax {
 	namespace crypto {
 		namespace spec {
-
-$FieldInfo _DESedeKeySpec_FieldInfo_[] = {
-	{"DES_EDE_KEY_LEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DESedeKeySpec, DES_EDE_KEY_LEN)},
-	{"key", "[B", nullptr, $PRIVATE, $field(DESedeKeySpec, key)},
-	{}
-};
-
-$MethodInfo _DESedeKeySpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(DESedeKeySpec, init$, void, $bytes*), "java.security.InvalidKeyException"},
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(DESedeKeySpec, init$, void, $bytes*, int32_t), "java.security.InvalidKeyException"},
-	{"getKey", "()[B", nullptr, $PUBLIC, $virtualMethod(DESedeKeySpec, getKey, $bytes*)},
-	{"isParityAdjusted", "([BI)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DESedeKeySpec, isParityAdjusted, bool, $bytes*, int32_t), "java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _DESedeKeySpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.spec.DESedeKeySpec",
-	"java.lang.Object",
-	"java.security.spec.KeySpec",
-	_DESedeKeySpec_FieldInfo_,
-	_DESedeKeySpec_MethodInfo_
-};
-
-$Object* allocate$DESedeKeySpec($Class* clazz) {
-	return $of($alloc(DESedeKeySpec));
-}
 
 void DESedeKeySpec::init$($bytes* key) {
 	DESedeKeySpec::init$(key, 0);
@@ -76,7 +48,29 @@ DESedeKeySpec::DESedeKeySpec() {
 }
 
 $Class* DESedeKeySpec::load$($String* name, bool initialize) {
-	$loadClass(DESedeKeySpec, name, initialize, &_DESedeKeySpec_ClassInfo_, allocate$DESedeKeySpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"DES_EDE_KEY_LEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DESedeKeySpec, DES_EDE_KEY_LEN)},
+		{"key", "[B", nullptr, $PRIVATE, $field(DESedeKeySpec, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(DESedeKeySpec, init$, void, $bytes*), "java.security.InvalidKeyException"},
+		{"<init>", "([BI)V", nullptr, $PUBLIC, $method(DESedeKeySpec, init$, void, $bytes*, int32_t), "java.security.InvalidKeyException"},
+		{"getKey", "()[B", nullptr, $PUBLIC, $virtualMethod(DESedeKeySpec, getKey, $bytes*)},
+		{"isParityAdjusted", "([BI)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DESedeKeySpec, isParityAdjusted, bool, $bytes*, int32_t), "java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.spec.DESedeKeySpec",
+		"java.lang.Object",
+		"java.security.spec.KeySpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DESedeKeySpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DESedeKeySpec);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Transfers.h>
-
 #include <Transfers$Failure.h>
 #include <Transfers$FileSource.h>
 #include <Transfers$FileTarget.h>
@@ -44,64 +43,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $Random = ::java::util::Random;
 
-$FieldInfo _Transfers_FieldInfo_[] = {
-	{"out", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(Transfers, out)},
-	{"sourceFile", "Ljava/io/File;", nullptr, $STATIC, $staticField(Transfers, sourceFile)},
-	{"targetFile", "Ljava/io/File;", nullptr, $STATIC, $staticField(Transfers, targetFile)},
-	{"MAX_XFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Transfers, MAX_XFER_SIZE)},
-	{"MAX_FILE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Transfers, MAX_FILE_SIZE)},
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Transfers, debug)},
-	{"verbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Transfers, verbose)},
-	{}
-};
-
-$MethodInfo _Transfers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Transfers, init$, void)},
-	{"checkBytes", "(Ljava/nio/channels/FileChannel;II[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, checkBytes, void, $FileChannel*, int32_t, int32_t, $bytes*), "java.io.IOException"},
-	{"checkRandomBytes", "(Ljava/nio/channels/FileChannel;IIJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, checkRandomBytes, void, $FileChannel*, int32_t, int32_t, int64_t), "java.io.IOException"},
-	{"checkZeroBytes", "(Ljava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, checkZeroBytes, void, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
-	{"dump", "(Ljava/nio/channels/FileChannel;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, dump, void, $FileChannel*), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Transfers, main, void, $StringArray*), "java.lang.Exception"},
-	{"show", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $STATIC, $staticMethod(Transfers, show, void, $String*, $String*, int32_t, int32_t)},
-	{"testFrom", "(JLTransfers$Source;Ljava/nio/channels/FileChannel;II)V", nullptr, $STATIC, $staticMethod(Transfers, testFrom, void, int64_t, $Transfers$Source*, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
-	{"testTo", "(JLjava/nio/channels/FileChannel;IILTransfers$Target;)V", nullptr, $STATIC, $staticMethod(Transfers, testTo, void, int64_t, $FileChannel*, int32_t, int32_t, $Transfers$Target*), "java.io.IOException"},
-	{"writeBytes", "([BLjava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, writeBytes, void, $bytes*, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
-	{"writeRandomBytes", "(JLjava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, writeRandomBytes, void, int64_t, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
-	{"writeZeroBytes", "(Ljava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, writeZeroBytes, void, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Transfers_InnerClassesInfo_[] = {
-	{"Transfers$IntGenerator", "Transfers", "IntGenerator", $STATIC},
-	{"Transfers$UserTarget", "Transfers", "UserTarget", $STATIC},
-	{"Transfers$FileTarget", "Transfers", "FileTarget", $STATIC},
-	{"Transfers$Target", "Transfers", "Target", $STATIC | $ABSTRACT},
-	{"Transfers$UserSource", "Transfers", "UserSource", $STATIC},
-	{"Transfers$FileSource", "Transfers", "FileSource", $STATIC},
-	{"Transfers$Source", "Transfers", "Source", $STATIC | $ABSTRACT},
-	{"Transfers$Failure", "Transfers", "Failure", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Transfers_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Transfers",
-	"java.lang.Object",
-	nullptr,
-	_Transfers_FieldInfo_,
-	_Transfers_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Transfers_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Transfers$IntGenerator,Transfers$UserTarget,Transfers$UserTarget$1,Transfers$FileTarget,Transfers$Target,Transfers$UserSource,Transfers$UserSource$1,Transfers$FileSource,Transfers$Source,Transfers$Failure"
-};
-
-$Object* allocate$Transfers($Class* clazz) {
-	return $of($alloc(Transfers));
-}
-
 $PrintStream* Transfers::out = nullptr;
 $File* Transfers::sourceFile = nullptr;
 $File* Transfers::targetFile = nullptr;
@@ -122,7 +63,7 @@ void Transfers::writeBytes($bytes* ba, $FileChannel* fc, int32_t off, int32_t le
 
 void Transfers::writeRandomBytes(int64_t seed, $FileChannel* fc, int32_t off, int32_t len) {
 	$init(Transfers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Random, r, $new($Random, seed));
 	$var($bytes, ba, $new($bytes, len));
 	r->nextBytes(ba);
@@ -137,7 +78,7 @@ void Transfers::writeZeroBytes($FileChannel* fc, int32_t off, int32_t len) {
 
 void Transfers::checkBytes($FileChannel* fc, int32_t off, int32_t len, $bytes* bytes) {
 	$init(Transfers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(len));
 	$nc(fc)->position(off);
 	if (fc->read(bb) != len) {
@@ -152,7 +93,7 @@ void Transfers::checkBytes($FileChannel* fc, int32_t off, int32_t len, $bytes* b
 
 void Transfers::checkRandomBytes($FileChannel* fc, int32_t off, int32_t len, int64_t seed) {
 	$init(Transfers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ba, $new($bytes, len));
 	$var($Random, r, $new($Random, seed));
 	r->nextBytes(ba);
@@ -167,7 +108,7 @@ void Transfers::checkZeroBytes($FileChannel* fc, int32_t off, int32_t len) {
 
 void Transfers::dump($FileChannel* fc) {
 	$init(Transfers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t sz = (int32_t)$nc(fc)->size();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(sz));
 	fc->position(0);
@@ -175,7 +116,7 @@ void Transfers::dump($FileChannel* fc) {
 		$throwNew($IOException, "Incomplete read"_s);
 	}
 	$nc(bb)->flip();
-	int8_t prev = (int8_t)-1;
+	int8_t prev = -1;
 	int32_t r = 0;
 	int32_t n = 0;
 	while (bb->hasRemaining() && (n < 32)) {
@@ -185,15 +126,15 @@ void Transfers::dump($FileChannel* fc) {
 			continue;
 		}
 		if (r > 0) {
-			int32_t c = (int32_t)(prev & (uint32_t)255);
+			int32_t c = prev & 0xff;
 			if (c < 16) {
 				$nc(Transfers::out)->print(u'0');
 			}
 			$nc(Transfers::out)->print($($Integer::toHexString(c)));
 			if (r > 1) {
-				$nc(Transfers::out)->print("["_s);
-				$nc(Transfers::out)->print(r);
-				$nc(Transfers::out)->print("]"_s);
+				Transfers::out->print("["_s);
+				Transfers::out->print(r);
+				Transfers::out->print("]"_s);
 			}
 			++n;
 		}
@@ -201,15 +142,15 @@ void Transfers::dump($FileChannel* fc) {
 		r = 1;
 	}
 	if (r > 0) {
-		int32_t c = (int32_t)(prev & (uint32_t)255);
+		int32_t c = prev & 0xff;
 		if (c < 16) {
 			$nc(Transfers::out)->print(u'0');
 		}
 		$nc(Transfers::out)->print($($Integer::toHexString(c)));
 		if (r > 1) {
-			$nc(Transfers::out)->print("["_s);
-			$nc(Transfers::out)->print(r);
-			$nc(Transfers::out)->print("]"_s);
+			Transfers::out->print("["_s);
+			Transfers::out->print(r);
+			Transfers::out->print("]"_s);
 		}
 		++n;
 	}
@@ -221,7 +162,7 @@ void Transfers::dump($FileChannel* fc) {
 
 void Transfers::show($String* dir, $String* channelName, int32_t off, int32_t len) {
 	$init(Transfers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Transfers::verbose) {
 		return;
 	}
@@ -230,13 +171,13 @@ void Transfers::show($String* dir, $String* channelName, int32_t off, int32_t le
 
 void Transfers::testTo(int64_t seed, $FileChannel* fc, int32_t off, int32_t len, $Transfers$Target* tgt) {
 	$init(Transfers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	show("To"_s, $($nc(tgt)->name()), off, len);
 	writeZeroBytes(fc, 0, Transfers::MAX_FILE_SIZE);
 	writeRandomBytes(seed, fc, off, len);
-	int32_t pos = (int32_t)((int32_t)seed & (uint32_t)4095);
+	int32_t pos = (int32_t)seed & 0x0fff;
 	$nc(fc)->position(pos);
-	int32_t n = (int32_t)fc->transferTo(off, len, $($nc(tgt)->channel()));
+	int32_t n = (int32_t)fc->transferTo(off, len, $(tgt->channel()));
 	if (n != len) {
 		$throwNew($Transfers$Failure, $$str({"Incorrect transfer length: "_s, $$str(n), " (expected "_s, $$str(len), ")"_s}));
 	}
@@ -249,21 +190,21 @@ void Transfers::testTo(int64_t seed, $FileChannel* fc, int32_t off, int32_t len,
 	checkRandomBytes(fc, off, len, seed);
 	writeZeroBytes(fc, off, len);
 	checkZeroBytes(fc, 0, Transfers::MAX_FILE_SIZE);
-	$nc(tgt)->verify();
+	tgt->verify();
 }
 
 void Transfers::testFrom(int64_t seed, $Transfers$Source* src, $FileChannel* fc, int32_t off, int32_t len) {
 	$init(Transfers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	show("From"_s, $($nc(src)->name()), off, len);
 	writeZeroBytes(fc, 0, Transfers::MAX_FILE_SIZE);
-	int32_t pos = (int32_t)((int32_t)seed & (uint32_t)4095);
+	int32_t pos = (int32_t)seed & 0x0fff;
 	$nc(fc)->position(pos);
-	int32_t n = (int32_t)fc->transferFrom($($nc(src)->channel()), off, len);
+	int32_t n = (int32_t)fc->transferFrom($(src->channel()), off, len);
 	if (n != len) {
 		$throwNew($Transfers$Failure, $$str({"Incorrect transfer length: "_s, $$str(n), " (expected "_s, $$str(len), ")"_s}));
 	}
-	$nc(src)->verify();
+	src->verify();
 	if (fc->position() != pos) {
 		$throwNew($Transfers$Failure, "Position changed"_s);
 	}
@@ -277,12 +218,12 @@ void Transfers::testFrom(int64_t seed, $Transfers$Source* src, $FileChannel* fc,
 
 void Transfers::main($StringArray* args) {
 	$init(Transfers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(args)->length > 0) {
-		if ($nc(args->get(0))->indexOf((int32_t)u'v') >= 0) {
+		if ($nc(args->get(0))->indexOf(u'v') >= 0) {
 			Transfers::verbose = true;
 		}
-		if ($nc(args->get(0))->indexOf((int32_t)u'd') >= 0) {
+		if ($nc(args->get(0))->indexOf(u'd') >= 0) {
 			Transfers::debug = (Transfers::verbose = true);
 		}
 	}
@@ -297,85 +238,83 @@ void Transfers::main($StringArray* args) {
 	int32_t failures = 0;
 	{
 		$var($FileChannel, fc, $$new($RandomAccessFile, fn, "rw"_s)->getChannel());
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					for (bool to = false;; to = true) {
-						for (bool user = false;; user = true) {
+				for (bool to = false;; to = true) {
+					for (bool user = false;; user = true) {
+						if (!Transfers::verbose) {
+							$nc(Transfers::out)->print($$str({(to ? "To "_s : "From "_s), (user ? "user channel"_s : "file channel"_s), ":"_s}));
+						}
+						$var($Transfers$IntGenerator, offGen, $new($Transfers$IntGenerator, Transfers::MAX_XFER_SIZE + 2));
+						while (offGen->hasNext()) {
+							int32_t off = offGen->next();
 							if (!Transfers::verbose) {
-								$nc(Transfers::out)->print($$str({(to ? "To "_s : "From "_s), (user ? "user channel"_s : "file channel"_s), ":"_s}));
+								$nc(Transfers::out)->print($$str({" "_s, $$str(off)}));
 							}
-							$var($Transfers$IntGenerator, offGen, $new($Transfers$IntGenerator, Transfers::MAX_XFER_SIZE + 2));
-							while (offGen->hasNext()) {
-								int32_t off = offGen->next();
-								if (!Transfers::verbose) {
-									$nc(Transfers::out)->print($$str({" "_s, $$str(off)}));
-								}
-								$var($Transfers$IntGenerator, lenGen, $new($Transfers$IntGenerator, Transfers::MAX_XFER_SIZE + 2));
-								while (lenGen->hasNext()) {
-									int32_t len = lenGen->next();
-									int64_t s = rnd->nextLong();
-									$var($String, chName, nullptr);
-									try {
-										if (to) {
-											$var($Transfers$Target, tgt, nullptr);
-											if (user) {
-												$assign(tgt, $new($Transfers$UserTarget, len, s));
-											} else {
-												$assign(tgt, $new($Transfers$FileTarget, len, s));
-											}
-											$assign(chName, $nc(tgt)->name());
-											testTo(s, fc, off, len, tgt);
+							$var($Transfers$IntGenerator, lenGen, $new($Transfers$IntGenerator, Transfers::MAX_XFER_SIZE + 2));
+							while (lenGen->hasNext()) {
+								int32_t len = lenGen->next();
+								int64_t s = rnd->nextLong();
+								$var($String, chName, nullptr);
+								try {
+									if (to) {
+										$var($Transfers$Target, tgt, nullptr);
+										if (user) {
+											$assign(tgt, $new($Transfers$UserTarget, len, s));
 										} else {
-											$var($Transfers$Source, src, nullptr);
-											if (user) {
-												$assign(src, $new($Transfers$UserSource, len, s));
-											} else {
-												$assign(src, $new($Transfers$FileSource, len, s));
-											}
-											$assign(chName, $nc(src)->name());
-											testFrom(s, src, fc, off, len);
+											$assign(tgt, $new($Transfers$FileTarget, len, s));
 										}
-									} catch ($Transfers$Failure& x) {
-										$nc(Transfers::out)->println();
-										$nc(Transfers::out)->println($$str({"FAILURE: "_s, chName, ", offset "_s, $$str(off), ", length "_s, $$str(len)}));
-										x->printStackTrace(Transfers::out);
-										++failures;
+										$assign(chName, $nc(tgt)->name());
+										testTo(s, fc, off, len, tgt);
+									} else {
+										$var($Transfers$Source, src, nullptr);
+										if (user) {
+											$assign(src, $new($Transfers$UserSource, len, s));
+										} else {
+											$assign(src, $new($Transfers$FileSource, len, s));
+										}
+										$assign(chName, $nc(src)->name());
+										testFrom(s, src, fc, off, len);
 									}
+								} catch ($Transfers$Failure& x) {
+									$nc(Transfers::out)->println();
+									Transfers::out->println($$str({"FAILURE: "_s, chName, ", offset "_s, $$str(off), ", length "_s, $$str(len)}));
+									x->printStackTrace(Transfers::out);
+									++failures;
 								}
-							}
-							if (!Transfers::verbose) {
-								$nc(Transfers::out)->println();
-							}
-							if (user) {
-								break;
 							}
 						}
-						if (to) {
+						if (!Transfers::verbose) {
+							$nc(Transfers::out)->println();
+						}
+						if (user) {
 							break;
 						}
 					}
-				} catch ($Throwable& t$) {
-					if (fc != nullptr) {
-						try {
-							fc->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
+					if (to) {
+						break;
 					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+			} catch ($Throwable& t$) {
 				if (fc != nullptr) {
-					fc->close();
+					try {
+						fc->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (fc != nullptr) {
+				fc->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$nc(Transfers::sourceFile)->delete$();
@@ -388,7 +327,7 @@ void Transfers::main($StringArray* args) {
 	$nc(Transfers::out)->println("Test succeeded."_s);
 }
 
-void clinit$Transfers($Class* class$) {
+void Transfers::clinit$($Class* clazz) {
 	$assignStatic(Transfers::out, $System::out);
 	Transfers::debug = false;
 	Transfers::verbose = false;
@@ -398,7 +337,59 @@ Transfers::Transfers() {
 }
 
 $Class* Transfers::load$($String* name, bool initialize) {
-	$loadClass(Transfers, name, initialize, &_Transfers_ClassInfo_, clinit$Transfers, allocate$Transfers);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(Transfers, out)},
+		{"sourceFile", "Ljava/io/File;", nullptr, $STATIC, $staticField(Transfers, sourceFile)},
+		{"targetFile", "Ljava/io/File;", nullptr, $STATIC, $staticField(Transfers, targetFile)},
+		{"MAX_XFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Transfers, MAX_XFER_SIZE)},
+		{"MAX_FILE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Transfers, MAX_FILE_SIZE)},
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Transfers, debug)},
+		{"verbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Transfers, verbose)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Transfers, init$, void)},
+		{"checkBytes", "(Ljava/nio/channels/FileChannel;II[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, checkBytes, void, $FileChannel*, int32_t, int32_t, $bytes*), "java.io.IOException"},
+		{"checkRandomBytes", "(Ljava/nio/channels/FileChannel;IIJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, checkRandomBytes, void, $FileChannel*, int32_t, int32_t, int64_t), "java.io.IOException"},
+		{"checkZeroBytes", "(Ljava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, checkZeroBytes, void, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
+		{"dump", "(Ljava/nio/channels/FileChannel;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, dump, void, $FileChannel*), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Transfers, main, void, $StringArray*), "java.lang.Exception"},
+		{"show", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $STATIC, $staticMethod(Transfers, show, void, $String*, $String*, int32_t, int32_t)},
+		{"testFrom", "(JLTransfers$Source;Ljava/nio/channels/FileChannel;II)V", nullptr, $STATIC, $staticMethod(Transfers, testFrom, void, int64_t, $Transfers$Source*, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
+		{"testTo", "(JLjava/nio/channels/FileChannel;IILTransfers$Target;)V", nullptr, $STATIC, $staticMethod(Transfers, testTo, void, int64_t, $FileChannel*, int32_t, int32_t, $Transfers$Target*), "java.io.IOException"},
+		{"writeBytes", "([BLjava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, writeBytes, void, $bytes*, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
+		{"writeRandomBytes", "(JLjava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, writeRandomBytes, void, int64_t, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
+		{"writeZeroBytes", "(Ljava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, writeZeroBytes, void, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Transfers$IntGenerator", "Transfers", "IntGenerator", $STATIC},
+		{"Transfers$UserTarget", "Transfers", "UserTarget", $STATIC},
+		{"Transfers$FileTarget", "Transfers", "FileTarget", $STATIC},
+		{"Transfers$Target", "Transfers", "Target", $STATIC | $ABSTRACT},
+		{"Transfers$UserSource", "Transfers", "UserSource", $STATIC},
+		{"Transfers$FileSource", "Transfers", "FileSource", $STATIC},
+		{"Transfers$Source", "Transfers", "Source", $STATIC | $ABSTRACT},
+		{"Transfers$Failure", "Transfers", "Failure", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Transfers",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Transfers$IntGenerator,Transfers$UserTarget,Transfers$UserTarget$1,Transfers$FileTarget,Transfers$Target,Transfers$UserSource,Transfers$UserSource$1,Transfers$FileSource,Transfers$Source,Transfers$Failure"
+	};
+	$loadClass(Transfers, name, initialize, &classInfo$$, Transfers::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Transfers);
+	});
 	return class$;
 }
 

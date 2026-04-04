@@ -34,6 +34,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* host, $Array<::java::net::InetAddress>* inetAddresses, int64_t expiryTime);
 	int32_t compareTo(::java::net::InetAddress$CachedAddresses* other);
 	virtual int32_t compareTo(Object$* other) override;

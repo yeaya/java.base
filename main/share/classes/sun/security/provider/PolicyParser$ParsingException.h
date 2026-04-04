@@ -27,13 +27,16 @@ public:
 	void init$(int32_t line, $String* msg);
 	void init$(int32_t line, $String* expect, $String* actual);
 	virtual $String* getNonlocalizedMessage();
-	static const int64_t serialVersionUID = (int64_t)0xC3E649F1A4029708;
+	static const int64_t serialVersionUID = (int64_t)0xc3e649f1a4029708;
 	$String* i18nMessage = nullptr;
 	::sun::security::util::LocalizedMessage* localizedMsg = nullptr;
 	$ObjectArray* source = nullptr;
 	PolicyParser$ParsingException(const PolicyParser$ParsingException& e);
 	virtual void throw$() override;
-	inline PolicyParser$ParsingException* operator ->() {
+	inline PolicyParser$ParsingException* operator ->() const {
+		return (PolicyParser$ParsingException*)throwing$;
+	}
+	inline operator PolicyParser$ParsingException*() const {
 		return (PolicyParser$ParsingException*)throwing$;
 	}
 };

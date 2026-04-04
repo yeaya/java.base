@@ -1,5 +1,4 @@
 #include <sun/security/ssl/AlpnExtension.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -57,82 +56,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(AlpnExtension::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AlpnExtension$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AlpnExtension$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AlpnExtension$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo AlpnExtension$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.ssl.AlpnExtension$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* AlpnExtension$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(AlpnExtension$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AlpnExtension$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.ssl.AlpnExtension$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AlpnExtension$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlpnExtension$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* AlpnExtension$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _AlpnExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, chOnLoadConsumer)},
-	{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, chOnLoadAbsence)},
-	{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, shNetworkProducer)},
-	{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, shOnLoadConsumer)},
-	{"shOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, shOnLoadAbsence)},
-	{"eeNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, eeNetworkProducer)},
-	{"eeOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, eeOnLoadConsumer)},
-	{"eeOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, eeOnLoadAbsence)},
-	{"alpnStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, alpnStringizer)},
-	{"alpnCharset", "Ljava/nio/charset/Charset;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, alpnCharset)},
-	{}
-};
-
-$MethodInfo _AlpnExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AlpnExtension, init$, void)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AlpnExtension, lambda$static$0, $String*)},
-	{}
-};
-
-$InnerClassInfo _AlpnExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.AlpnExtension$SHAlpnAbsence", "sun.security.ssl.AlpnExtension", "SHAlpnAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.AlpnExtension$SHAlpnConsumer", "sun.security.ssl.AlpnExtension", "SHAlpnConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.AlpnExtension$SHAlpnProducer", "sun.security.ssl.AlpnExtension", "SHAlpnProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.AlpnExtension$CHAlpnAbsence", "sun.security.ssl.AlpnExtension", "CHAlpnAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.AlpnExtension$CHAlpnConsumer", "sun.security.ssl.AlpnExtension", "CHAlpnConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.AlpnExtension$CHAlpnProducer", "sun.security.ssl.AlpnExtension", "CHAlpnProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.AlpnExtension$AlpnStringizer", "sun.security.ssl.AlpnExtension", "AlpnStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.AlpnExtension$AlpnSpec", "sun.security.ssl.AlpnExtension", "AlpnSpec", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AlpnExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.AlpnExtension",
-	"java.lang.Object",
-	nullptr,
-	_AlpnExtension_FieldInfo_,
-	_AlpnExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AlpnExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.AlpnExtension$SHAlpnAbsence,sun.security.ssl.AlpnExtension$SHAlpnConsumer,sun.security.ssl.AlpnExtension$SHAlpnProducer,sun.security.ssl.AlpnExtension$CHAlpnAbsence,sun.security.ssl.AlpnExtension$CHAlpnConsumer,sun.security.ssl.AlpnExtension$CHAlpnProducer,sun.security.ssl.AlpnExtension$AlpnStringizer,sun.security.ssl.AlpnExtension$AlpnSpec"
-};
-
-$Object* allocate$AlpnExtension($Class* clazz) {
-	return $of($alloc(AlpnExtension));
-}
 
 $HandshakeProducer* AlpnExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* AlpnExtension::chOnLoadConsumer = nullptr;
@@ -154,8 +98,8 @@ $String* AlpnExtension::lambda$static$0() {
 	return $Security::getProperty("jdk.tls.alpnCharset"_s);
 }
 
-void clinit$AlpnExtension($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AlpnExtension::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(AlpnExtension::chNetworkProducer, $new($AlpnExtension$CHAlpnProducer));
 	$assignStatic(AlpnExtension::chOnLoadConsumer, $new($AlpnExtension$CHAlpnConsumer));
@@ -168,8 +112,8 @@ void clinit$AlpnExtension($Class* class$) {
 	$assignStatic(AlpnExtension::eeOnLoadAbsence, $new($AlpnExtension$SHAlpnAbsence));
 	$assignStatic(AlpnExtension::alpnStringizer, $new($AlpnExtension$AlpnStringizer));
 	{
-		$var($String, alpnCharsetString, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(AlpnExtension$$Lambda$lambda$static$0)))));
-		if ((alpnCharsetString == nullptr) || ($nc(alpnCharsetString)->length() == 0)) {
+		$var($String, alpnCharsetString, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(AlpnExtension$$Lambda$lambda$static$0)))));
+		if ((alpnCharsetString == nullptr) || (alpnCharsetString->length() == 0)) {
 			$assign(alpnCharsetString, "ISO_8859_1"_s);
 		}
 		$assignStatic(AlpnExtension::alpnCharset, $Charset::forName(alpnCharsetString));
@@ -181,11 +125,57 @@ AlpnExtension::AlpnExtension() {
 
 $Class* AlpnExtension::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AlpnExtension$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.security.ssl.AlpnExtension$$Lambda$lambda$static$0")) {
 			return AlpnExtension$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(AlpnExtension, name, initialize, &_AlpnExtension_ClassInfo_, clinit$AlpnExtension, allocate$AlpnExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, chOnLoadConsumer)},
+		{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, chOnLoadAbsence)},
+		{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, shNetworkProducer)},
+		{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, shOnLoadConsumer)},
+		{"shOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, shOnLoadAbsence)},
+		{"eeNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, eeNetworkProducer)},
+		{"eeOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, eeOnLoadConsumer)},
+		{"eeOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, eeOnLoadAbsence)},
+		{"alpnStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, alpnStringizer)},
+		{"alpnCharset", "Ljava/nio/charset/Charset;", nullptr, $STATIC | $FINAL, $staticField(AlpnExtension, alpnCharset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AlpnExtension, init$, void)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AlpnExtension, lambda$static$0, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.AlpnExtension$SHAlpnAbsence", "sun.security.ssl.AlpnExtension", "SHAlpnAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.AlpnExtension$SHAlpnConsumer", "sun.security.ssl.AlpnExtension", "SHAlpnConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.AlpnExtension$SHAlpnProducer", "sun.security.ssl.AlpnExtension", "SHAlpnProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.AlpnExtension$CHAlpnAbsence", "sun.security.ssl.AlpnExtension", "CHAlpnAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.AlpnExtension$CHAlpnConsumer", "sun.security.ssl.AlpnExtension", "CHAlpnConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.AlpnExtension$CHAlpnProducer", "sun.security.ssl.AlpnExtension", "CHAlpnProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.AlpnExtension$AlpnStringizer", "sun.security.ssl.AlpnExtension", "AlpnStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.AlpnExtension$AlpnSpec", "sun.security.ssl.AlpnExtension", "AlpnSpec", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.AlpnExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.AlpnExtension$SHAlpnAbsence,sun.security.ssl.AlpnExtension$SHAlpnConsumer,sun.security.ssl.AlpnExtension$SHAlpnProducer,sun.security.ssl.AlpnExtension$CHAlpnAbsence,sun.security.ssl.AlpnExtension$CHAlpnConsumer,sun.security.ssl.AlpnExtension$CHAlpnProducer,sun.security.ssl.AlpnExtension$AlpnStringizer,sun.security.ssl.AlpnExtension$AlpnSpec"
+	};
+	$loadClass(AlpnExtension, name, initialize, &classInfo$$, AlpnExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AlpnExtension);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <FinalizeOverride$PrivateFinalize.h>
-
 #include <FinalizeOverride$Base.h>
 #include <FinalizeOverride.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
@@ -7,43 +6,9 @@
 
 using $FinalizeOverride = ::FinalizeOverride;
 using $FinalizeOverride$Base = ::FinalizeOverride$Base;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-
-$MethodInfo _FinalizeOverride$PrivateFinalize_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(FinalizeOverride$PrivateFinalize, init$, void, int32_t)},
-	{"f_nal_ze", "()V", nullptr, $PRIVATE, $method(FinalizeOverride$PrivateFinalize, f_nal_ze, void)},
-	{}
-};
-
-$InnerClassInfo _FinalizeOverride$PrivateFinalize_InnerClassesInfo_[] = {
-	{"FinalizeOverride$PrivateFinalize", "FinalizeOverride", "PrivateFinalize", $STATIC},
-	{"FinalizeOverride$Base", "FinalizeOverride", "Base", $STATIC},
-	{}
-};
-
-$ClassInfo _FinalizeOverride$PrivateFinalize_ClassInfo_ = {
-	$ACC_SUPER,
-	"FinalizeOverride$PrivateFinalize",
-	"FinalizeOverride$Base",
-	nullptr,
-	nullptr,
-	_FinalizeOverride$PrivateFinalize_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FinalizeOverride$PrivateFinalize_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FinalizeOverride"
-};
-
-$Object* allocate$FinalizeOverride$PrivateFinalize($Class* clazz) {
-	return $of($alloc(FinalizeOverride$PrivateFinalize));
-}
 
 void FinalizeOverride$PrivateFinalize::init$(int32_t v) {
 	$FinalizeOverride$Base::init$(v);
@@ -60,7 +25,34 @@ FinalizeOverride$PrivateFinalize::FinalizeOverride$PrivateFinalize() {
 }
 
 $Class* FinalizeOverride$PrivateFinalize::load$($String* name, bool initialize) {
-	$loadClass(FinalizeOverride$PrivateFinalize, name, initialize, &_FinalizeOverride$PrivateFinalize_ClassInfo_, allocate$FinalizeOverride$PrivateFinalize);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(FinalizeOverride$PrivateFinalize, init$, void, int32_t)},
+		{"f_nal_ze", "()V", nullptr, $PRIVATE, $method(FinalizeOverride$PrivateFinalize, f_nal_ze, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FinalizeOverride$PrivateFinalize", "FinalizeOverride", "PrivateFinalize", $STATIC},
+		{"FinalizeOverride$Base", "FinalizeOverride", "Base", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FinalizeOverride$PrivateFinalize",
+		"FinalizeOverride$Base",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FinalizeOverride"
+	};
+	$loadClass(FinalizeOverride$PrivateFinalize, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FinalizeOverride$PrivateFinalize);
+	});
 	return class$;
 }
 

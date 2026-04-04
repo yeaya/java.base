@@ -22,10 +22,13 @@ public:
 	void init$($String* msg);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x98B1C93339B055BE;
+	static const int64_t serialVersionUID = (int64_t)0x98b1c93339b055be;
 	NoSuchAlgorithmException(const NoSuchAlgorithmException& e);
 	virtual void throw$() override;
-	inline NoSuchAlgorithmException* operator ->() {
+	inline NoSuchAlgorithmException* operator ->() const {
+		return (NoSuchAlgorithmException*)throwing$;
+	}
+	inline operator NoSuchAlgorithmException*() const {
 		return (NoSuchAlgorithmException*)throwing$;
 	}
 };

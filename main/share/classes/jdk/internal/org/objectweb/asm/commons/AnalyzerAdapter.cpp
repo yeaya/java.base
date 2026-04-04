@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/AnalyzerAdapter.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
@@ -216,7 +215,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $ConstantDynamic = ::jdk::internal::org::objectweb::asm$::ConstantDynamic;
 using $Handle = ::jdk::internal::org::objectweb::asm$::Handle;
 using $Label = ::jdk::internal::org::objectweb::asm$::Label;
@@ -231,62 +229,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$FieldInfo _AnalyzerAdapter_FieldInfo_[] = {
-	{"locals", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $field(AnalyzerAdapter, locals)},
-	{"stack", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $field(AnalyzerAdapter, stack)},
-	{"labels", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/Label;>;", $PRIVATE, $field(AnalyzerAdapter, labels)},
-	{"uninitializedTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PUBLIC, $field(AnalyzerAdapter, uninitializedTypes)},
-	{"maxStack", "I", nullptr, $PRIVATE, $field(AnalyzerAdapter, maxStack)},
-	{"maxLocals", "I", nullptr, $PRIVATE, $field(AnalyzerAdapter, maxLocals)},
-	{"owner", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AnalyzerAdapter, owner)},
-	{}
-};
-
-$MethodInfo _AnalyzerAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(AnalyzerAdapter, init$, void, $String*, int32_t, $String*, $String*, $MethodVisitor*)},
-	{"<init>", "(ILjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PROTECTED, $method(AnalyzerAdapter, init$, void, int32_t, $String*, int32_t, $String*, $String*, $MethodVisitor*)},
-	{"execute", "(IILjava/lang/String;)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, execute, void, int32_t, int32_t, $String*)},
-	{"get", "(I)Ljava/lang/Object;", nullptr, $PRIVATE, $method(AnalyzerAdapter, get, $Object*, int32_t)},
-	{"pop", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(AnalyzerAdapter, pop, $Object*)},
-	{"pop", "(I)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, pop, void, int32_t)},
-	{"pop", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, pop, void, $String*)},
-	{"push", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, push, void, Object$*)},
-	{"pushDescriptor", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, pushDescriptor, void, $String*)},
-	{"set", "(ILjava/lang/Object;)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, set, void, int32_t, Object$*)},
-	{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
-	{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
-	{"visitFrameTypes", "(I[Ljava/lang/Object;Ljava/util/List;)V", "(I[Ljava/lang/Object;Ljava/util/List<Ljava/lang/Object;>;)V", $PRIVATE | $STATIC, $staticMethod(AnalyzerAdapter, visitFrameTypes, void, int32_t, $ObjectArray*, $List*)},
-	{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitIincInsn, void, int32_t, int32_t)},
-	{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitInsn, void, int32_t)},
-	{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitIntInsn, void, int32_t, int32_t)},
-	{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(AnalyzerAdapter, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitJumpInsn, void, int32_t, $Label*)},
-	{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitLabel, void, $Label*)},
-	{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitLdcInsn, void, Object$*)},
-	{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
-	{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
-	{"visitMaxs", "(II)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitMaxs, void, int32_t, int32_t)},
-	{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
-	{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitMultiANewArrayInsn, void, $String*, int32_t)},
-	{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(AnalyzerAdapter, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
-	{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitTypeInsn, void, int32_t, $String*)},
-	{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitVarInsn, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _AnalyzerAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.AnalyzerAdapter",
-	"jdk.internal.org.objectweb.asm.MethodVisitor",
-	nullptr,
-	_AnalyzerAdapter_FieldInfo_,
-	_AnalyzerAdapter_MethodInfo_
-};
-
-$Object* allocate$AnalyzerAdapter($Class* clazz) {
-	return $of($alloc(AnalyzerAdapter));
-}
-
 void AnalyzerAdapter::init$($String* owner, int32_t access, $String* name, $String* descriptor, $MethodVisitor* methodVisitor) {
 	AnalyzerAdapter::init$($Opcodes::ASM8, owner, access, name, descriptor, methodVisitor);
 	if ($of(this)->getClass() != AnalyzerAdapter::class$) {
@@ -295,83 +237,61 @@ void AnalyzerAdapter::init$($String* owner, int32_t access, $String* name, $Stri
 }
 
 void AnalyzerAdapter::init$(int32_t api, $String* owner, int32_t access, $String* name, $String* descriptor, $MethodVisitor* methodVisitor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MethodVisitor::init$(api, methodVisitor);
 	$set(this, owner, owner);
 	$set(this, locals, $new($ArrayList));
 	$set(this, stack, $new($ArrayList));
 	$set(this, uninitializedTypes, $new($HashMap));
-	if (((int32_t)(access & (uint32_t)$Opcodes::ACC_STATIC)) == 0) {
+	if ((access & $Opcodes::ACC_STATIC) == 0) {
 		if ("<init>"_s->equals(name)) {
 			$init($Opcodes);
-			$nc(this->locals)->add($Opcodes::UNINITIALIZED_THIS);
+			this->locals->add($Opcodes::UNINITIALIZED_THIS);
 		} else {
-			$nc(this->locals)->add(owner);
+			this->locals->add(owner);
 		}
 	}
 	{
 		$var($TypeArray, arr$, $Type::getArgumentTypes(descriptor));
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Type, argumentType, arr$->get(i$));
 			{
 				switch ($nc(argumentType)->getSort()) {
 				case $Type::BOOLEAN:
-					{}
 				case $Type::CHAR:
-					{}
 				case $Type::BYTE:
-					{}
 				case $Type::SHORT:
-					{}
 				case $Type::INT:
-					{
-						$init($Opcodes);
-						$nc(this->locals)->add($Opcodes::INTEGER);
-						break;
-					}
+					$init($Opcodes);
+					this->locals->add($Opcodes::INTEGER);
+					break;
 				case $Type::FLOAT:
-					{
-						$init($Opcodes);
-						$nc(this->locals)->add($Opcodes::FLOAT);
-						break;
-					}
+					$init($Opcodes);
+					this->locals->add($Opcodes::FLOAT);
+					break;
 				case $Type::LONG:
-					{
-						$init($Opcodes);
-						$nc(this->locals)->add($Opcodes::LONG);
-						$init($Opcodes);
-						$nc(this->locals)->add($Opcodes::TOP);
-						break;
-					}
+					$init($Opcodes);
+					this->locals->add($Opcodes::LONG);
+					this->locals->add($Opcodes::TOP);
+					break;
 				case $Type::DOUBLE:
-					{
-						$init($Opcodes);
-						$nc(this->locals)->add($Opcodes::DOUBLE);
-						$init($Opcodes);
-						$nc(this->locals)->add($Opcodes::TOP);
-						break;
-					}
+					$init($Opcodes);
+					this->locals->add($Opcodes::DOUBLE);
+					this->locals->add($Opcodes::TOP);
+					break;
 				case $Type::ARRAY:
-					{
-						$nc(this->locals)->add($(argumentType->getDescriptor()));
-						break;
-					}
+					this->locals->add($(argumentType->getDescriptor()));
+					break;
 				case $Type::OBJECT:
-					{
-						$nc(this->locals)->add($(argumentType->getInternalName()));
-						break;
-					}
+					this->locals->add($(argumentType->getInternalName()));
+					break;
 				default:
-					{
-						$throwNew($AssertionError);
-					}
+					$throwNew($AssertionError);
 				}
 			}
 		}
 	}
-	this->maxLocals = $nc(this->locals)->size();
+	this->maxLocals = this->locals->size();
 }
 
 void AnalyzerAdapter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* local, int32_t numStack, $ObjectArray* stack) {
@@ -380,7 +300,7 @@ void AnalyzerAdapter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* l
 	}
 	$MethodVisitor::visitFrame(type, numLocal, local, numStack, stack);
 	if (this->locals != nullptr) {
-		$nc(this->locals)->clear();
+		this->locals->clear();
 		$nc(this->stack)->clear();
 	} else {
 		$set(this, locals, $new($ArrayList));
@@ -394,7 +314,7 @@ void AnalyzerAdapter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* l
 
 void AnalyzerAdapter::visitFrameTypes(int32_t numTypes, $ObjectArray* frameTypes, $List* result) {
 	$init(AnalyzerAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < numTypes; ++i) {
 		$var($Object0, frameType, $nc(frameTypes)->get(i));
 		$nc(result)->add(frameType);
@@ -427,14 +347,14 @@ void AnalyzerAdapter::visitVarInsn(int32_t opcode, int32_t var) {
 }
 
 void AnalyzerAdapter::visitTypeInsn(int32_t opcode, $String* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (opcode == $Opcodes::NEW) {
 		if (this->labels == nullptr) {
 			$var($Label, label, $new($Label));
 			$set(this, labels, $new($ArrayList, 3));
-			$nc(this->labels)->add(label);
+			this->labels->add(label);
 			if (this->mv != nullptr) {
-				$nc(this->mv)->visitLabel(label);
+				this->mv->visitLabel(label);
 			}
 		}
 		{
@@ -457,13 +377,13 @@ void AnalyzerAdapter::visitFieldInsn(int32_t opcode, $String* owner, $String* na
 }
 
 void AnalyzerAdapter::visitMethodInsn(int32_t opcodeAndSource, $String* owner, $String* name, $String* descriptor, bool isInterface) {
-	$useLocalCurrentObjectStackCache();
-	if (this->api < $Opcodes::ASM5 && ((int32_t)(opcodeAndSource & (uint32_t)$Opcodes::SOURCE_DEPRECATED)) == 0) {
+	$useLocalObjectStack();
+	if (this->api < $Opcodes::ASM5 && (opcodeAndSource & $Opcodes::SOURCE_DEPRECATED) == 0) {
 		$MethodVisitor::visitMethodInsn(opcodeAndSource, owner, name, descriptor, isInterface);
 		return;
 	}
 	$MethodVisitor::visitMethodInsn(opcodeAndSource, owner, name, descriptor, isInterface);
-	int32_t opcode = (int32_t)(opcodeAndSource & (uint32_t)~$Opcodes::SOURCE_MASK);
+	int32_t opcode = opcodeAndSource & ~$Opcodes::SOURCE_MASK;
 	if (this->locals == nullptr) {
 		$set(this, labels, nullptr);
 		return;
@@ -480,13 +400,13 @@ void AnalyzerAdapter::visitMethodInsn(int32_t opcodeAndSource, $String* owner, $
 				$assign(initializedValue, $nc(this->uninitializedTypes)->get(value));
 			}
 			for (int32_t i = 0; i < $nc(this->locals)->size(); ++i) {
-				if ($equals($nc(this->locals)->get(i), value)) {
-					$nc(this->locals)->set(i, initializedValue);
+				if ($equals(this->locals->get(i), value)) {
+					this->locals->set(i, initializedValue);
 				}
 			}
 			for (int32_t i = 0; i < $nc(this->stack)->size(); ++i) {
-				if ($equals($nc(this->stack)->get(i), value)) {
-					$nc(this->stack)->set(i, initializedValue);
+				if ($equals(this->stack->get(i), value)) {
+					this->stack->set(i, initializedValue);
 				}
 			}
 		}
@@ -546,7 +466,7 @@ void AnalyzerAdapter::visitLdcInsn(Object$* value) {
 	} else if ($instanceOf($String, value)) {
 		push("java/lang/String"_s);
 	} else if ($instanceOf($Type, value)) {
-		int32_t sort = $nc(($cast($Type, value)))->getSort();
+		int32_t sort = $cast($Type, value)->getSort();
 		if (sort == $Type::OBJECT || sort == $Type::ARRAY) {
 			push("java/lang/Class"_s);
 		} else if (sort == $Type::METHOD) {
@@ -557,7 +477,7 @@ void AnalyzerAdapter::visitLdcInsn(Object$* value) {
 	} else if ($instanceOf($Handle, value)) {
 		push("java/lang/invoke/MethodHandle"_s);
 	} else if ($instanceOf($ConstantDynamic, value)) {
-		pushDescriptor($($nc(($cast($ConstantDynamic, value)))->getDescriptor()));
+		pushDescriptor($($cast($ConstantDynamic, value)->getDescriptor()));
 	} else {
 		$throwNew($IllegalArgumentException);
 	}
@@ -599,114 +519,90 @@ void AnalyzerAdapter::visitMaxs(int32_t maxStack, int32_t maxLocals) {
 	if (this->mv != nullptr) {
 		this->maxStack = $Math::max(this->maxStack, maxStack);
 		this->maxLocals = $Math::max(this->maxLocals, maxLocals);
-		$nc(this->mv)->visitMaxs(this->maxStack, this->maxLocals);
+		this->mv->visitMaxs(this->maxStack, this->maxLocals);
 	}
 }
 
 $Object* AnalyzerAdapter::get(int32_t local) {
 	this->maxLocals = $Math::max(this->maxLocals, local + 1);
 	$init($Opcodes);
-	return $of(local < $nc(this->locals)->size() ? $nc(this->locals)->get(local) : $of($Opcodes::TOP));
+	return local < $nc(this->locals)->size() ? this->locals->get(local) : $of($Opcodes::TOP);
 }
 
 void AnalyzerAdapter::set(int32_t local, Object$* type) {
 	this->maxLocals = $Math::max(this->maxLocals, local + 1);
 	while (local >= $nc(this->locals)->size()) {
 		$init($Opcodes);
-		$nc(this->locals)->add($Opcodes::TOP);
+		this->locals->add($Opcodes::TOP);
 	}
-	$nc(this->locals)->set(local, type);
+	this->locals->set(local, type);
 }
 
 void AnalyzerAdapter::push(Object$* type) {
 	$nc(this->stack)->add(type);
-	this->maxStack = $Math::max(this->maxStack, $nc(this->stack)->size());
+	this->maxStack = $Math::max(this->maxStack, this->stack->size());
 }
 
 void AnalyzerAdapter::pushDescriptor($String* fieldOrMethodDescriptor) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, descriptor, $nc(fieldOrMethodDescriptor)->charAt(0) == u'(' ? $nc($($Type::getReturnType(fieldOrMethodDescriptor)))->getDescriptor() : fieldOrMethodDescriptor);
+	$useLocalObjectStack();
+	$var($String, descriptor, $nc(fieldOrMethodDescriptor)->charAt(0) == u'(' ? $$nc($Type::getReturnType(fieldOrMethodDescriptor))->getDescriptor() : fieldOrMethodDescriptor);
 	switch ($nc(descriptor)->charAt(0)) {
 	case u'V':
-		{
-			return;
-		}
+		return;
 	case u'Z':
-		{}
 	case u'C':
-		{}
 	case u'B':
-		{}
 	case u'S':
-		{}
 	case u'I':
-		{
-			$init($Opcodes);
-			push($Opcodes::INTEGER);
-			return;
-		}
+		$init($Opcodes);
+		push($Opcodes::INTEGER);
+		return;
 	case u'F':
-		{
-			$init($Opcodes);
-			push($Opcodes::FLOAT);
-			return;
-		}
+		$init($Opcodes);
+		push($Opcodes::FLOAT);
+		return;
 	case u'J':
-		{
-			$init($Opcodes);
-			push($Opcodes::LONG);
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			return;
-		}
+		$init($Opcodes);
+		push($Opcodes::LONG);
+		push($Opcodes::TOP);
+		return;
 	case u'D':
-		{
-			$init($Opcodes);
-			push($Opcodes::DOUBLE);
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			return;
-		}
+		$init($Opcodes);
+		push($Opcodes::DOUBLE);
+		push($Opcodes::TOP);
+		return;
 	case u'[':
-		{
-			push(descriptor);
-			break;
-		}
+		push(descriptor);
+		break;
 	case u'L':
-		{
-			push($(descriptor->substring(1, descriptor->length() - 1)));
-			break;
-		}
+		push($(descriptor->substring(1, descriptor->length() - 1)));
+		break;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
 $Object* AnalyzerAdapter::pop() {
-	return $of($nc(this->stack)->remove($nc(this->stack)->size() - 1));
+	return $nc(this->stack)->remove($nc(this->stack)->size() - 1);
 }
 
 void AnalyzerAdapter::pop(int32_t numSlots) {
 	int32_t size = $nc(this->stack)->size();
 	int32_t end = size - numSlots;
 	for (int32_t i = size - 1; i >= end; --i) {
-		$nc(this->stack)->remove(i);
+		this->stack->remove(i);
 	}
 }
 
 void AnalyzerAdapter::pop($String* descriptor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	char16_t firstDescriptorChar = $nc(descriptor)->charAt(0);
 	if (firstDescriptorChar == u'(') {
 		int32_t numSlots = 0;
 		$var($TypeArray, types, $Type::getArgumentTypes(descriptor));
 		{
 			$var($TypeArray, arr$, types);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Type, type, arr$->get(i$));
 				{
 					numSlots += $nc(type)->getSize();
@@ -722,7 +618,7 @@ void AnalyzerAdapter::pop($String* descriptor) {
 }
 
 void AnalyzerAdapter::execute(int32_t opcode, int32_t intArg, $String* stringArg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (opcode == $Opcodes::JSR || opcode == $Opcodes::RET) {
 		$throwNew($IllegalArgumentException, "JSR/RET are not supported"_s);
 	}
@@ -736,605 +632,382 @@ void AnalyzerAdapter::execute(int32_t opcode, int32_t intArg, $String* stringArg
 	$var($Object, t4, nullptr);
 	switch (opcode) {
 	case $Opcodes::NOP:
-		{}
 	case $Opcodes::INEG:
-		{}
 	case $Opcodes::LNEG:
-		{}
 	case $Opcodes::FNEG:
-		{}
 	case $Opcodes::DNEG:
-		{}
 	case $Opcodes::I2B:
-		{}
 	case $Opcodes::I2C:
-		{}
 	case $Opcodes::I2S:
-		{}
 	case $Opcodes::GOTO:
-		{}
 	case $Opcodes::RETURN:
-		{
-			break;
-		}
+		break;
 	case $Opcodes::ACONST_NULL:
-		{
-			$init($Opcodes);
-			push($Opcodes::NULL);
-			break;
-		}
+		$init($Opcodes);
+		push($Opcodes::NULL);
+		break;
 	case $Opcodes::ICONST_M1:
-		{}
 	case $Opcodes::ICONST_0:
-		{}
 	case $Opcodes::ICONST_1:
-		{}
 	case $Opcodes::ICONST_2:
-		{}
 	case $Opcodes::ICONST_3:
-		{}
 	case $Opcodes::ICONST_4:
-		{}
 	case $Opcodes::ICONST_5:
-		{}
 	case $Opcodes::BIPUSH:
-		{}
 	case $Opcodes::SIPUSH:
-		{
-			$init($Opcodes);
-			push($Opcodes::INTEGER);
-			break;
-		}
+		$init($Opcodes);
+		push($Opcodes::INTEGER);
+		break;
 	case $Opcodes::LCONST_0:
-		{}
 	case $Opcodes::LCONST_1:
-		{
-			$init($Opcodes);
-			push($Opcodes::LONG);
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			break;
-		}
+		$init($Opcodes);
+		push($Opcodes::LONG);
+		push($Opcodes::TOP);
+		break;
 	case $Opcodes::FCONST_0:
-		{}
 	case $Opcodes::FCONST_1:
-		{}
 	case $Opcodes::FCONST_2:
-		{
-			$init($Opcodes);
-			push($Opcodes::FLOAT);
-			break;
-		}
+		$init($Opcodes);
+		push($Opcodes::FLOAT);
+		break;
 	case $Opcodes::DCONST_0:
-		{}
 	case $Opcodes::DCONST_1:
-		{
-			$init($Opcodes);
-			push($Opcodes::DOUBLE);
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			break;
-		}
+		$init($Opcodes);
+		push($Opcodes::DOUBLE);
+		push($Opcodes::TOP);
+		break;
 	case $Opcodes::ILOAD:
-		{}
 	case $Opcodes::FLOAD:
-		{}
 	case $Opcodes::ALOAD:
-		{
-			push($(get(intArg)));
-			break;
-		}
+		push($(get(intArg)));
+		break;
 	case $Opcodes::LLOAD:
-		{}
 	case $Opcodes::DLOAD:
-		{
-			push($(get(intArg)));
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			break;
-		}
+		push($(get(intArg)));
+		$init($Opcodes);
+		push($Opcodes::TOP);
+		break;
 	case $Opcodes::LALOAD:
-		{}
 	case $Opcodes::D2L:
-		{
-			pop(2);
-			$init($Opcodes);
-			push($Opcodes::LONG);
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			break;
-		}
+		pop(2);
+		$init($Opcodes);
+		push($Opcodes::LONG);
+		push($Opcodes::TOP);
+		break;
 	case $Opcodes::DALOAD:
-		{}
 	case $Opcodes::L2D:
-		{
-			pop(2);
-			$init($Opcodes);
-			push($Opcodes::DOUBLE);
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			break;
-		}
+		pop(2);
+		$init($Opcodes);
+		push($Opcodes::DOUBLE);
+		push($Opcodes::TOP);
+		break;
 	case $Opcodes::AALOAD:
-		{
-			pop(1);
-			$assign(value1, pop());
-			if ($instanceOf($String, value1)) {
-				pushDescriptor($($nc(($cast($String, value1)))->substring(1)));
+		pop(1);
+		$assign(value1, pop());
+		if ($instanceOf($String, value1)) {
+			pushDescriptor($($cast($String, value1)->substring(1)));
+		} else {
+			$init($Opcodes);
+			if ($equals(value1, $Opcodes::NULL)) {
+				push(value1);
 			} else {
-				$init($Opcodes);
-				if ($equals(value1, $Opcodes::NULL)) {
-					push(value1);
-				} else {
-					push("java/lang/Object"_s);
-				}
+				push("java/lang/Object"_s);
 			}
-			break;
 		}
+		break;
 	case $Opcodes::ISTORE:
-		{}
 	case $Opcodes::FSTORE:
-		{}
 	case $Opcodes::ASTORE:
-		{
-			$assign(value1, pop());
-			set(intArg, value1);
-			if (intArg > 0) {
-				$assign(value2, get(intArg - 1));
-				$init($Opcodes);
-				if ($equals(value2, $Opcodes::LONG) || $equals(value2, $Opcodes::DOUBLE)) {
-					set(intArg - 1, $Opcodes::TOP);
-				}
+		$assign(value1, pop());
+		set(intArg, value1);
+		if (intArg > 0) {
+			$assign(value2, get(intArg - 1));
+			$init($Opcodes);
+			if ($equals(value2, $Opcodes::LONG) || $equals(value2, $Opcodes::DOUBLE)) {
+				set(intArg - 1, $Opcodes::TOP);
 			}
-			break;
 		}
+		break;
 	case $Opcodes::LSTORE:
-		{}
 	case $Opcodes::DSTORE:
-		{
-			pop(1);
-			$assign(value1, pop());
-			set(intArg, value1);
-			$init($Opcodes);
-			set(intArg + 1, $Opcodes::TOP);
-			if (intArg > 0) {
-				$assign(value2, get(intArg - 1));
-				$init($Opcodes);
-				if ($equals(value2, $Opcodes::LONG) || $equals(value2, $Opcodes::DOUBLE)) {
-					set(intArg - 1, $Opcodes::TOP);
-				}
+		pop(1);
+		$assign(value1, pop());
+		set(intArg, value1);
+		$init($Opcodes);
+		set(intArg + 1, $Opcodes::TOP);
+		if (intArg > 0) {
+			$assign(value2, get(intArg - 1));
+			if ($equals(value2, $Opcodes::LONG) || $equals(value2, $Opcodes::DOUBLE)) {
+				set(intArg - 1, $Opcodes::TOP);
 			}
-			break;
 		}
+		break;
 	case $Opcodes::IASTORE:
-		{}
 	case $Opcodes::BASTORE:
-		{}
 	case $Opcodes::CASTORE:
-		{}
 	case $Opcodes::SASTORE:
-		{}
 	case $Opcodes::FASTORE:
-		{}
 	case $Opcodes::AASTORE:
-		{
-			pop(3);
-			break;
-		}
+		pop(3);
+		break;
 	case $Opcodes::LASTORE:
-		{}
 	case $Opcodes::DASTORE:
-		{
-			pop(4);
-			break;
-		}
+		pop(4);
+		break;
 	case $Opcodes::POP:
-		{}
 	case $Opcodes::IFEQ:
-		{}
 	case $Opcodes::IFNE:
-		{}
 	case $Opcodes::IFLT:
-		{}
 	case $Opcodes::IFGE:
-		{}
 	case $Opcodes::IFGT:
-		{}
 	case $Opcodes::IFLE:
-		{}
 	case $Opcodes::IRETURN:
-		{}
 	case $Opcodes::FRETURN:
-		{}
 	case $Opcodes::ARETURN:
-		{}
 	case $Opcodes::TABLESWITCH:
-		{}
 	case $Opcodes::LOOKUPSWITCH:
-		{}
 	case $Opcodes::ATHROW:
-		{}
 	case $Opcodes::MONITORENTER:
-		{}
 	case $Opcodes::MONITOREXIT:
-		{}
 	case $Opcodes::IFNULL:
-		{}
 	case $Opcodes::IFNONNULL:
-		{
-			pop(1);
-			break;
-		}
+		pop(1);
+		break;
 	case $Opcodes::POP2:
-		{}
 	case $Opcodes::IF_ICMPEQ:
-		{}
 	case $Opcodes::IF_ICMPNE:
-		{}
 	case $Opcodes::IF_ICMPLT:
-		{}
 	case $Opcodes::IF_ICMPGE:
-		{}
 	case $Opcodes::IF_ICMPGT:
-		{}
 	case $Opcodes::IF_ICMPLE:
-		{}
 	case $Opcodes::IF_ACMPEQ:
-		{}
 	case $Opcodes::IF_ACMPNE:
-		{}
 	case $Opcodes::LRETURN:
-		{}
 	case $Opcodes::DRETURN:
-		{
-			pop(2);
-			break;
-		}
+		pop(2);
+		break;
 	case $Opcodes::DUP:
-		{
-			$assign(value1, pop());
-			push(value1);
-			push(value1);
-			break;
-		}
+		$assign(value1, pop());
+		push(value1);
+		push(value1);
+		break;
 	case $Opcodes::DUP_X1:
-		{
-			$assign(value1, pop());
-			$assign(value2, pop());
-			push(value1);
-			push(value2);
-			push(value1);
-			break;
-		}
+		$assign(value1, pop());
+		$assign(value2, pop());
+		push(value1);
+		push(value2);
+		push(value1);
+		break;
 	case $Opcodes::DUP_X2:
-		{
-			$assign(value1, pop());
-			$assign(value2, pop());
-			$assign(value3, pop());
-			push(value1);
-			push(value3);
-			push(value2);
-			push(value1);
-			break;
-		}
+		$assign(value1, pop());
+		$assign(value2, pop());
+		$assign(value3, pop());
+		push(value1);
+		push(value3);
+		push(value2);
+		push(value1);
+		break;
 	case $Opcodes::DUP2:
-		{
-			$assign(value1, pop());
-			$assign(value2, pop());
-			push(value2);
-			push(value1);
-			push(value2);
-			push(value1);
-			break;
-		}
+		$assign(value1, pop());
+		$assign(value2, pop());
+		push(value2);
+		push(value1);
+		push(value2);
+		push(value1);
+		break;
 	case $Opcodes::DUP2_X1:
-		{
-			$assign(value1, pop());
-			$assign(value2, pop());
-			$assign(value3, pop());
-			push(value2);
-			push(value1);
-			push(value3);
-			push(value2);
-			push(value1);
-			break;
-		}
+		$assign(value1, pop());
+		$assign(value2, pop());
+		$assign(value3, pop());
+		push(value2);
+		push(value1);
+		push(value3);
+		push(value2);
+		push(value1);
+		break;
 	case $Opcodes::DUP2_X2:
-		{
-			$assign(value1, pop());
-			$assign(value2, pop());
-			$assign(value3, pop());
-			$assign(t4, pop());
-			push(value2);
-			push(value1);
-			push(t4);
-			push(value3);
-			push(value2);
-			push(value1);
-			break;
-		}
+		$assign(value1, pop());
+		$assign(value2, pop());
+		$assign(value3, pop());
+		$assign(t4, pop());
+		push(value2);
+		push(value1);
+		push(t4);
+		push(value3);
+		push(value2);
+		push(value1);
+		break;
 	case $Opcodes::SWAP:
-		{
-			$assign(value1, pop());
-			$assign(value2, pop());
-			push(value1);
-			push(value2);
-			break;
-		}
+		$assign(value1, pop());
+		$assign(value2, pop());
+		push(value1);
+		push(value2);
+		break;
 	case $Opcodes::IALOAD:
-		{}
 	case $Opcodes::BALOAD:
-		{}
 	case $Opcodes::CALOAD:
-		{}
 	case $Opcodes::SALOAD:
-		{}
 	case $Opcodes::IADD:
-		{}
 	case $Opcodes::ISUB:
-		{}
 	case $Opcodes::IMUL:
-		{}
 	case $Opcodes::IDIV:
-		{}
 	case $Opcodes::IREM:
-		{}
 	case $Opcodes::IAND:
-		{}
 	case $Opcodes::IOR:
-		{}
 	case $Opcodes::IXOR:
-		{}
 	case $Opcodes::ISHL:
-		{}
 	case $Opcodes::ISHR:
-		{}
 	case $Opcodes::IUSHR:
-		{}
 	case $Opcodes::L2I:
-		{}
 	case $Opcodes::D2I:
-		{}
 	case $Opcodes::FCMPL:
-		{}
 	case $Opcodes::FCMPG:
-		{
-			pop(2);
-			$init($Opcodes);
-			push($Opcodes::INTEGER);
-			break;
-		}
+		pop(2);
+		$init($Opcodes);
+		push($Opcodes::INTEGER);
+		break;
 	case $Opcodes::LADD:
-		{}
 	case $Opcodes::LSUB:
-		{}
 	case $Opcodes::LMUL:
-		{}
 	case $Opcodes::LDIV:
-		{}
 	case $Opcodes::LREM:
-		{}
 	case $Opcodes::LAND:
-		{}
 	case $Opcodes::LOR:
-		{}
 	case $Opcodes::LXOR:
-		{
-			pop(4);
-			$init($Opcodes);
-			push($Opcodes::LONG);
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			break;
-		}
+		pop(4);
+		$init($Opcodes);
+		push($Opcodes::LONG);
+		push($Opcodes::TOP);
+		break;
 	case $Opcodes::FALOAD:
-		{}
 	case $Opcodes::FADD:
-		{}
 	case $Opcodes::FSUB:
-		{}
 	case $Opcodes::FMUL:
-		{}
 	case $Opcodes::FDIV:
-		{}
 	case $Opcodes::FREM:
-		{}
 	case $Opcodes::L2F:
-		{}
 	case $Opcodes::D2F:
-		{
-			pop(2);
-			$init($Opcodes);
-			push($Opcodes::FLOAT);
-			break;
-		}
+		pop(2);
+		$init($Opcodes);
+		push($Opcodes::FLOAT);
+		break;
 	case $Opcodes::DADD:
-		{}
 	case $Opcodes::DSUB:
-		{}
 	case $Opcodes::DMUL:
-		{}
 	case $Opcodes::DDIV:
-		{}
 	case $Opcodes::DREM:
-		{
-			pop(4);
-			$init($Opcodes);
-			push($Opcodes::DOUBLE);
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			break;
-		}
+		pop(4);
+		$init($Opcodes);
+		push($Opcodes::DOUBLE);
+		push($Opcodes::TOP);
+		break;
 	case $Opcodes::LSHL:
-		{}
 	case $Opcodes::LSHR:
-		{}
 	case $Opcodes::LUSHR:
-		{
-			pop(3);
-			$init($Opcodes);
-			push($Opcodes::LONG);
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			break;
-		}
+		pop(3);
+		$init($Opcodes);
+		push($Opcodes::LONG);
+		push($Opcodes::TOP);
+		break;
 	case $Opcodes::IINC:
-		{
-			$init($Opcodes);
-			set(intArg, $Opcodes::INTEGER);
-			break;
-		}
+		$init($Opcodes);
+		set(intArg, $Opcodes::INTEGER);
+		break;
 	case $Opcodes::I2L:
-		{}
 	case $Opcodes::F2L:
-		{
-			pop(1);
-			$init($Opcodes);
-			push($Opcodes::LONG);
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			break;
-		}
+		pop(1);
+		$init($Opcodes);
+		push($Opcodes::LONG);
+		push($Opcodes::TOP);
+		break;
 	case $Opcodes::I2F:
-		{
-			pop(1);
-			$init($Opcodes);
-			push($Opcodes::FLOAT);
-			break;
-		}
+		pop(1);
+		$init($Opcodes);
+		push($Opcodes::FLOAT);
+		break;
 	case $Opcodes::I2D:
-		{}
 	case $Opcodes::F2D:
-		{
-			pop(1);
-			$init($Opcodes);
-			push($Opcodes::DOUBLE);
-			$init($Opcodes);
-			push($Opcodes::TOP);
-			break;
-		}
+		pop(1);
+		$init($Opcodes);
+		push($Opcodes::DOUBLE);
+		push($Opcodes::TOP);
+		break;
 	case $Opcodes::F2I:
-		{}
 	case $Opcodes::ARRAYLENGTH:
-		{}
 	case $Opcodes::INSTANCEOF:
-		{
-			pop(1);
-			$init($Opcodes);
-			push($Opcodes::INTEGER);
-			break;
-		}
+		pop(1);
+		$init($Opcodes);
+		push($Opcodes::INTEGER);
+		break;
 	case $Opcodes::LCMP:
-		{}
 	case $Opcodes::DCMPL:
-		{}
 	case $Opcodes::DCMPG:
-		{
-			pop(4);
-			$init($Opcodes);
-			push($Opcodes::INTEGER);
-			break;
-		}
+		pop(4);
+		$init($Opcodes);
+		push($Opcodes::INTEGER);
+		break;
 	case $Opcodes::GETSTATIC:
-		{
-			pushDescriptor(stringArg);
-			break;
-		}
+		pushDescriptor(stringArg);
+		break;
 	case $Opcodes::PUTSTATIC:
-		{
-			pop(stringArg);
-			break;
-		}
+		pop(stringArg);
+		break;
 	case $Opcodes::GETFIELD:
-		{
-			pop(1);
-			pushDescriptor(stringArg);
-			break;
-		}
+		pop(1);
+		pushDescriptor(stringArg);
+		break;
 	case $Opcodes::PUTFIELD:
-		{
-			pop(stringArg);
-			pop();
-			break;
-		}
+		pop(stringArg);
+		pop();
+		break;
 	case $Opcodes::NEW:
-		{
-			push($($nc(this->labels)->get(0)));
-			break;
-		}
+		push($($nc(this->labels)->get(0)));
+		break;
 	case $Opcodes::NEWARRAY:
-		{
-			pop();
-			switch (intArg) {
-			case $Opcodes::T_BOOLEAN:
-				{
-					pushDescriptor("[Z"_s);
-					break;
-				}
-			case $Opcodes::T_CHAR:
-				{
-					pushDescriptor("[C"_s);
-					break;
-				}
-			case $Opcodes::T_BYTE:
-				{
-					pushDescriptor("[B"_s);
-					break;
-				}
-			case $Opcodes::T_SHORT:
-				{
-					pushDescriptor("[S"_s);
-					break;
-				}
-			case $Opcodes::T_INT:
-				{
-					pushDescriptor("[I"_s);
-					break;
-				}
-			case $Opcodes::T_FLOAT:
-				{
-					pushDescriptor("[F"_s);
-					break;
-				}
-			case $Opcodes::T_DOUBLE:
-				{
-					pushDescriptor("[D"_s);
-					break;
-				}
-			case $Opcodes::T_LONG:
-				{
-					pushDescriptor("[J"_s);
-					break;
-				}
-			default:
-				{
-					$throwNew($IllegalArgumentException, $$str({"Invalid array type "_s, $$str(intArg)}));
-				}
-			}
+		pop();
+		switch (intArg) {
+		case $Opcodes::T_BOOLEAN:
+			pushDescriptor("[Z"_s);
 			break;
+		case $Opcodes::T_CHAR:
+			pushDescriptor("[C"_s);
+			break;
+		case $Opcodes::T_BYTE:
+			pushDescriptor("[B"_s);
+			break;
+		case $Opcodes::T_SHORT:
+			pushDescriptor("[S"_s);
+			break;
+		case $Opcodes::T_INT:
+			pushDescriptor("[I"_s);
+			break;
+		case $Opcodes::T_FLOAT:
+			pushDescriptor("[F"_s);
+			break;
+		case $Opcodes::T_DOUBLE:
+			pushDescriptor("[D"_s);
+			break;
+		case $Opcodes::T_LONG:
+			pushDescriptor("[J"_s);
+			break;
+		default:
+			$throwNew($IllegalArgumentException, $$str({"Invalid array type "_s, $$str(intArg)}));
 		}
+		break;
 	case $Opcodes::ANEWARRAY:
-		{
-			pop();
-			pushDescriptor($$str({"["_s, $($Type::getObjectType(stringArg))}));
-			break;
-		}
+		pop();
+		pushDescriptor($$str({"["_s, $($Type::getObjectType(stringArg))}));
+		break;
 	case $Opcodes::CHECKCAST:
-		{
-			pop();
-			pushDescriptor($($nc($($Type::getObjectType(stringArg)))->getDescriptor()));
-			break;
-		}
+		pop();
+		pushDescriptor($($$nc($Type::getObjectType(stringArg))->getDescriptor()));
+		break;
 	case $Opcodes::MULTIANEWARRAY:
-		{
-			pop(intArg);
-			pushDescriptor(stringArg);
-			break;
-		}
+		pop(intArg);
+		pushDescriptor(stringArg);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid opcode "_s, $$str(opcode)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid opcode "_s, $$str(opcode)}));
 	}
 	$set(this, labels, nullptr);
 }
@@ -1343,7 +1016,58 @@ AnalyzerAdapter::AnalyzerAdapter() {
 }
 
 $Class* AnalyzerAdapter::load$($String* name, bool initialize) {
-	$loadClass(AnalyzerAdapter, name, initialize, &_AnalyzerAdapter_ClassInfo_, allocate$AnalyzerAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"locals", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $field(AnalyzerAdapter, locals)},
+		{"stack", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $field(AnalyzerAdapter, stack)},
+		{"labels", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/Label;>;", $PRIVATE, $field(AnalyzerAdapter, labels)},
+		{"uninitializedTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PUBLIC, $field(AnalyzerAdapter, uninitializedTypes)},
+		{"maxStack", "I", nullptr, $PRIVATE, $field(AnalyzerAdapter, maxStack)},
+		{"maxLocals", "I", nullptr, $PRIVATE, $field(AnalyzerAdapter, maxLocals)},
+		{"owner", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AnalyzerAdapter, owner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(AnalyzerAdapter, init$, void, $String*, int32_t, $String*, $String*, $MethodVisitor*)},
+		{"<init>", "(ILjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PROTECTED, $method(AnalyzerAdapter, init$, void, int32_t, $String*, int32_t, $String*, $String*, $MethodVisitor*)},
+		{"execute", "(IILjava/lang/String;)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, execute, void, int32_t, int32_t, $String*)},
+		{"get", "(I)Ljava/lang/Object;", nullptr, $PRIVATE, $method(AnalyzerAdapter, get, $Object*, int32_t)},
+		{"pop", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(AnalyzerAdapter, pop, $Object*)},
+		{"pop", "(I)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, pop, void, int32_t)},
+		{"pop", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, pop, void, $String*)},
+		{"push", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, push, void, Object$*)},
+		{"pushDescriptor", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, pushDescriptor, void, $String*)},
+		{"set", "(ILjava/lang/Object;)V", nullptr, $PRIVATE, $method(AnalyzerAdapter, set, void, int32_t, Object$*)},
+		{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
+		{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
+		{"visitFrameTypes", "(I[Ljava/lang/Object;Ljava/util/List;)V", "(I[Ljava/lang/Object;Ljava/util/List<Ljava/lang/Object;>;)V", $PRIVATE | $STATIC, $staticMethod(AnalyzerAdapter, visitFrameTypes, void, int32_t, $ObjectArray*, $List*)},
+		{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitIincInsn, void, int32_t, int32_t)},
+		{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitInsn, void, int32_t)},
+		{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitIntInsn, void, int32_t, int32_t)},
+		{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(AnalyzerAdapter, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitJumpInsn, void, int32_t, $Label*)},
+		{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitLabel, void, $Label*)},
+		{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitLdcInsn, void, Object$*)},
+		{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
+		{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
+		{"visitMaxs", "(II)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitMaxs, void, int32_t, int32_t)},
+		{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
+		{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitMultiANewArrayInsn, void, $String*, int32_t)},
+		{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(AnalyzerAdapter, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
+		{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitTypeInsn, void, int32_t, $String*)},
+		{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(AnalyzerAdapter, visitVarInsn, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.AnalyzerAdapter",
+		"jdk.internal.org.objectweb.asm.MethodVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AnalyzerAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnalyzerAdapter);
+	});
 	return class$;
 }
 

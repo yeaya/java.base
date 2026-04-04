@@ -1,5 +1,4 @@
 #include <java/security/CryptoPrimitive.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -22,43 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _CryptoPrimitive_FieldInfo_[] = {
-	{"MESSAGE_DIGEST", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, MESSAGE_DIGEST)},
-	{"SECURE_RANDOM", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, SECURE_RANDOM)},
-	{"BLOCK_CIPHER", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, BLOCK_CIPHER)},
-	{"STREAM_CIPHER", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, STREAM_CIPHER)},
-	{"MAC", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, MAC)},
-	{"KEY_WRAP", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, KEY_WRAP)},
-	{"PUBLIC_KEY_ENCRYPTION", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, PUBLIC_KEY_ENCRYPTION)},
-	{"SIGNATURE", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, SIGNATURE)},
-	{"KEY_ENCAPSULATION", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, KEY_ENCAPSULATION)},
-	{"KEY_AGREEMENT", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, KEY_AGREEMENT)},
-	{"$VALUES", "[Ljava/security/CryptoPrimitive;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CryptoPrimitive, $VALUES)},
-	{}
-};
-
-$MethodInfo _CryptoPrimitive_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/CryptoPrimitive;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CryptoPrimitive, $values, $CryptoPrimitiveArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CryptoPrimitive, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC, $staticMethod(CryptoPrimitive, valueOf, CryptoPrimitive*, $String*)},
-	{"values", "()[Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC, $staticMethod(CryptoPrimitive, values, $CryptoPrimitiveArray*)},
-	{}
-};
-
-$ClassInfo _CryptoPrimitive_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.security.CryptoPrimitive",
-	"java.lang.Enum",
-	nullptr,
-	_CryptoPrimitive_FieldInfo_,
-	_CryptoPrimitive_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/security/CryptoPrimitive;>;"
-};
-
-$Object* allocate$CryptoPrimitive($Class* clazz) {
-	return $of($alloc(CryptoPrimitive));
-}
 
 CryptoPrimitive* CryptoPrimitive::MESSAGE_DIGEST = nullptr;
 CryptoPrimitive* CryptoPrimitive::SECURE_RANDOM = nullptr;
@@ -102,7 +64,7 @@ void CryptoPrimitive::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CryptoPrimitive($Class* class$) {
+void CryptoPrimitive::clinit$($Class* clazz) {
 	$assignStatic(CryptoPrimitive::MESSAGE_DIGEST, $new(CryptoPrimitive, "MESSAGE_DIGEST"_s, 0));
 	$assignStatic(CryptoPrimitive::SECURE_RANDOM, $new(CryptoPrimitive, "SECURE_RANDOM"_s, 1));
 	$assignStatic(CryptoPrimitive::BLOCK_CIPHER, $new(CryptoPrimitive, "BLOCK_CIPHER"_s, 2));
@@ -120,7 +82,39 @@ CryptoPrimitive::CryptoPrimitive() {
 }
 
 $Class* CryptoPrimitive::load$($String* name, bool initialize) {
-	$loadClass(CryptoPrimitive, name, initialize, &_CryptoPrimitive_ClassInfo_, clinit$CryptoPrimitive, allocate$CryptoPrimitive);
+	$FieldInfo fieldInfos$$[] = {
+		{"MESSAGE_DIGEST", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, MESSAGE_DIGEST)},
+		{"SECURE_RANDOM", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, SECURE_RANDOM)},
+		{"BLOCK_CIPHER", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, BLOCK_CIPHER)},
+		{"STREAM_CIPHER", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, STREAM_CIPHER)},
+		{"MAC", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, MAC)},
+		{"KEY_WRAP", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, KEY_WRAP)},
+		{"PUBLIC_KEY_ENCRYPTION", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, PUBLIC_KEY_ENCRYPTION)},
+		{"SIGNATURE", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, SIGNATURE)},
+		{"KEY_ENCAPSULATION", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, KEY_ENCAPSULATION)},
+		{"KEY_AGREEMENT", "Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CryptoPrimitive, KEY_AGREEMENT)},
+		{"$VALUES", "[Ljava/security/CryptoPrimitive;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CryptoPrimitive, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/security/CryptoPrimitive;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CryptoPrimitive, $values, $CryptoPrimitiveArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CryptoPrimitive, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC, $staticMethod(CryptoPrimitive, valueOf, CryptoPrimitive*, $String*)},
+		{"values", "()[Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC, $staticMethod(CryptoPrimitive, values, $CryptoPrimitiveArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.security.CryptoPrimitive",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/security/CryptoPrimitive;>;"
+	};
+	$loadClass(CryptoPrimitive, name, initialize, &classInfo$$, CryptoPrimitive::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CryptoPrimitive));
+	});
 	return class$;
 }
 

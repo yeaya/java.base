@@ -1,9 +1,7 @@
 #include <Bug6481179.h>
-
 #include <java/text/MessageFormat.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -11,35 +9,16 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MessageFormat = ::java::text::MessageFormat;
 
-$MethodInfo _Bug6481179_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6481179, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6481179, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _Bug6481179_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug6481179",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Bug6481179_MethodInfo_
-};
-
-$Object* allocate$Bug6481179($Class* clazz) {
-	return $of($alloc(Bug6481179));
-}
-
 void Bug6481179::init$() {
 }
 
 void Bug6481179::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool err = false;
 	try {
 		$MessageFormat::format("Testdata {1,invalid_format_type}"_s, $$new($ObjectArray, {
-			$of("val0"_s),
-			$of("val1"_s)
+			"val0"_s,
+			"val1"_s
 		}));
 		$nc($System::err)->println("Error: IllegalArgumentException should be thrown."_s);
 		err = true;
@@ -63,7 +42,22 @@ Bug6481179::Bug6481179() {
 }
 
 $Class* Bug6481179::load$($String* name, bool initialize) {
-	$loadClass(Bug6481179, name, initialize, &_Bug6481179_ClassInfo_, allocate$Bug6481179);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6481179, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6481179, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug6481179",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug6481179, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug6481179);
+	});
 	return class$;
 }
 

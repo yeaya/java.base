@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer.h>
-
 #include <java/util/Map.h>
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/ExtendedMasterSecretExtension$ExtendedMasterSecretSpec.h>
@@ -16,7 +15,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $ExtendedMasterSecretExtension$ExtendedMasterSecretSpec = ::sun::security::ssl::ExtendedMasterSecretExtension$ExtendedMasterSecretSpec;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
@@ -27,42 +25,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer", "sun.security.ssl.ExtendedMasterSecretExtension", "SHExtendedMasterSecretProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ExtendedMasterSecretExtension"
-};
-
-$Object* allocate$ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer($Class* clazz) {
-	return $of($alloc(ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer));
-}
-
 void ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer::init$() {
 }
 
 $bytes* ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if ($nc($nc(shc)->handshakeSession)->useExtendedMasterSecret) {
 		$var($bytes, extData, $new($bytes, 0));
@@ -78,7 +45,33 @@ ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer::ExtendedMasterSecr
 }
 
 $Class* ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer::load$($String* name, bool initialize) {
-	$loadClass(ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer, name, initialize, &_ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer_ClassInfo_, allocate$ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer", "sun.security.ssl.ExtendedMasterSecretExtension", "SHExtendedMasterSecretProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ExtendedMasterSecretExtension"
+	};
+	$loadClass(ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer);
+	});
 	return class$;
 }
 

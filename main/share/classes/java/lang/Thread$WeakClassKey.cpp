@@ -1,5 +1,4 @@
 #include <java/lang/Thread$WeakClassKey.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/WeakReference.h>
@@ -14,43 +13,6 @@ using $WeakReference = ::java::lang::ref::WeakReference;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _Thread$WeakClassKey_FieldInfo_[] = {
-	{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(Thread$WeakClassKey, hash)},
-	{}
-};
-
-$MethodInfo _Thread$WeakClassKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(Thread$WeakClassKey, init$, void, $Class*, $ReferenceQueue*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Thread$WeakClassKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Thread$WeakClassKey, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Thread$WeakClassKey_InnerClassesInfo_[] = {
-	{"java.lang.Thread$WeakClassKey", "java.lang.Thread", "WeakClassKey", $STATIC},
-	{}
-};
-
-$ClassInfo _Thread$WeakClassKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Thread$WeakClassKey",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	_Thread$WeakClassKey_FieldInfo_,
-	_Thread$WeakClassKey_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;",
-	nullptr,
-	_Thread$WeakClassKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Thread"
-};
-
-$Object* allocate$Thread$WeakClassKey($Class* clazz) {
-	return $of($alloc(Thread$WeakClassKey));
-}
 
 void Thread$WeakClassKey::init$($Class* cl, $ReferenceQueue* refQueue) {
 	$WeakReference::init$(cl, refQueue);
@@ -67,7 +29,7 @@ bool Thread$WeakClassKey::equals(Object$* obj) {
 	}
 	if ($instanceOf(Thread$WeakClassKey, obj)) {
 		$Class* referent = $cast($Class, get());
-		return (referent != nullptr) && ($nc(($cast(Thread$WeakClassKey, obj)))->refersTo(referent));
+		return (referent != nullptr) && ($cast(Thread$WeakClassKey, obj)->refersTo(referent));
 	} else {
 		return false;
 	}
@@ -77,7 +39,38 @@ Thread$WeakClassKey::Thread$WeakClassKey() {
 }
 
 $Class* Thread$WeakClassKey::load$($String* name, bool initialize) {
-	$loadClass(Thread$WeakClassKey, name, initialize, &_Thread$WeakClassKey_ClassInfo_, allocate$Thread$WeakClassKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(Thread$WeakClassKey, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(Thread$WeakClassKey, init$, void, $Class*, $ReferenceQueue*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Thread$WeakClassKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Thread$WeakClassKey, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Thread$WeakClassKey", "java.lang.Thread", "WeakClassKey", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Thread$WeakClassKey",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Thread"
+	};
+	$loadClass(Thread$WeakClassKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Thread$WeakClassKey);
+	});
 	return class$;
 }
 

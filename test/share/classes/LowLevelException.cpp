@@ -1,28 +1,9 @@
 #include <LowLevelException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _LowLevelException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LowLevelException, init$, void)},
-	{}
-};
-
-$ClassInfo _LowLevelException_ClassInfo_ = {
-	$ACC_SUPER,
-	"LowLevelException",
-	"java.lang.Exception",
-	nullptr,
-	nullptr,
-	_LowLevelException_MethodInfo_
-};
-
-$Object* allocate$LowLevelException($Class* clazz) {
-	return $of($alloc(LowLevelException));
-}
 
 void LowLevelException::init$() {
 	$Exception::init$();
@@ -39,7 +20,21 @@ void LowLevelException::throw$() {
 }
 
 $Class* LowLevelException::load$($String* name, bool initialize) {
-	$loadClass(LowLevelException, name, initialize, &_LowLevelException_ClassInfo_, allocate$LowLevelException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LowLevelException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LowLevelException",
+		"java.lang.Exception",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LowLevelException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LowLevelException);
+	});
 	return class$;
 }
 

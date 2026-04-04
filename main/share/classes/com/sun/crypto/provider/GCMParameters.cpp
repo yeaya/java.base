@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/GCMParameters.h>
-
 #include <java/io/IOException.h>
 #include <java/security/AlgorithmParametersSpi.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -21,7 +20,6 @@ using $AlgorithmParametersSpi = ::java::security::AlgorithmParametersSpi;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $InvalidParameterSpecException = ::java::security::spec::InvalidParameterSpecException;
 using $GCMParameterSpec = ::javax::crypto::spec::GCMParameterSpec;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
@@ -30,37 +28,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _GCMParameters_FieldInfo_[] = {
-	{"iv", "[B", nullptr, $PRIVATE, $field(GCMParameters, iv)},
-	{"tLen", "I", nullptr, $PRIVATE, $field(GCMParameters, tLen)},
-	{}
-};
-
-$MethodInfo _GCMParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GCMParameters, init$, void)},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineGetEncoded, $bytes*), "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(GCMParameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineInit, void, $bytes*), "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineToString, $String*)},
-	{}
-};
-
-$ClassInfo _GCMParameters_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.GCMParameters",
-	"java.security.AlgorithmParametersSpi",
-	nullptr,
-	_GCMParameters_FieldInfo_,
-	_GCMParameters_MethodInfo_
-};
-
-$Object* allocate$GCMParameters($Class* clazz) {
-	return $of($alloc(GCMParameters));
-}
 
 void GCMParameters::init$() {
 	$AlgorithmParametersSpi::init$();
@@ -76,17 +43,17 @@ void GCMParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void GCMParameters::engineInit($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, val, $new($DerValue, encoded));
 	if (val->tag == $DerValue::tag_Sequence) {
 		$var($bytes, iv, $nc(val->data$)->getOctetString());
 		int32_t tLen = 0;
-		if ($nc(val->data$)->available() != 0) {
-			tLen = $nc(val->data$)->getInteger();
+		if (val->data$->available() != 0) {
+			tLen = val->data$->getInteger();
 			if (tLen < 12 || tLen > 16) {
 				$throwNew($IOException, $$str({"GCM parameter parsing error: unsupported tag len: "_s, $$str(tLen)}));
 			}
-			if ($nc(val->data$)->available() != 0) {
+			if (val->data$->available() != 0) {
 				$throwNew($IOException, "GCM parameter parsing error: extra data"_s);
 			}
 		} else {
@@ -113,7 +80,7 @@ $AlgorithmParameterSpec* GCMParameters::engineGetParameterSpec($Class* paramSpec
 }
 
 $bytes* GCMParameters::engineGetEncoded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	bytes->putOctetString(this->iv);
@@ -127,7 +94,7 @@ $bytes* GCMParameters::engineGetEncoded($String* encodingMethod) {
 }
 
 $String* GCMParameters::engineToString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, LINE_SEP, $System::lineSeparator());
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
 	$var($StringBuilder, sb, $new($StringBuilder, $$str({LINE_SEP, "    iv:"_s, LINE_SEP, "["_s, $(encoder->encodeBuffer(this->iv)), "]"_s})));
@@ -139,7 +106,33 @@ GCMParameters::GCMParameters() {
 }
 
 $Class* GCMParameters::load$($String* name, bool initialize) {
-	$loadClass(GCMParameters, name, initialize, &_GCMParameters_ClassInfo_, allocate$GCMParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"iv", "[B", nullptr, $PRIVATE, $field(GCMParameters, iv)},
+		{"tLen", "I", nullptr, $PRIVATE, $field(GCMParameters, tLen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GCMParameters, init$, void)},
+		{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+		{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+		{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(GCMParameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineInit, void, $bytes*), "java.io.IOException"},
+		{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+		{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineToString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.GCMParameters",
+		"java.security.AlgorithmParametersSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GCMParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GCMParameters);
+	});
 	return class$;
 }
 

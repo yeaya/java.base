@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/CurrencyNameProviderImpl.h>
-
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
 #include <java/util/spi/CurrencyNameProvider.h>
@@ -20,46 +19,11 @@ using $Set = ::java::util::Set;
 using $CurrencyNameProvider = ::java::util::spi::CurrencyNameProvider;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
-using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 
 namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$FieldInfo _CurrencyNameProviderImpl_FieldInfo_[] = {
-	{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(CurrencyNameProviderImpl, type)},
-	{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(CurrencyNameProviderImpl, langtags)},
-	{}
-};
-
-$MethodInfo _CurrencyNameProviderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CurrencyNameProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CurrencyNameProviderImpl, getAvailableLanguageTags, $Set*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CurrencyNameProviderImpl, getAvailableLocales, $LocaleArray*)},
-	{"getDisplayName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CurrencyNameProviderImpl, getDisplayName, $String*, $String*, $Locale*)},
-	{"getString", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CurrencyNameProviderImpl, getString, $String*, $String*, $Locale*)},
-	{"getSymbol", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CurrencyNameProviderImpl, getSymbol, $String*, $String*, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CurrencyNameProviderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.CurrencyNameProviderImpl",
-	"java.util.spi.CurrencyNameProvider",
-	"sun.util.locale.provider.AvailableLanguageTags",
-	_CurrencyNameProviderImpl_FieldInfo_,
-	_CurrencyNameProviderImpl_MethodInfo_
-};
-
-$Object* allocate$CurrencyNameProviderImpl($Class* clazz) {
-	return $of($alloc(CurrencyNameProviderImpl));
-}
 
 int32_t CurrencyNameProviderImpl::hashCode() {
 	 return this->$CurrencyNameProvider::hashCode();
@@ -106,18 +70,47 @@ $String* CurrencyNameProviderImpl::getDisplayName($String* currencyCode, $Locale
 }
 
 $String* CurrencyNameProviderImpl::getString($String* key, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	return $nc($($nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(locale)))->getCurrencyName(key);
+	return $$nc($$nc($LocaleProviderAdapter::forType(this->type))->getLocaleResources(locale))->getCurrencyName(key);
 }
 
 CurrencyNameProviderImpl::CurrencyNameProviderImpl() {
 }
 
 $Class* CurrencyNameProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNameProviderImpl, name, initialize, &_CurrencyNameProviderImpl_ClassInfo_, allocate$CurrencyNameProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(CurrencyNameProviderImpl, type)},
+		{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(CurrencyNameProviderImpl, langtags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CurrencyNameProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+		{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CurrencyNameProviderImpl, getAvailableLanguageTags, $Set*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CurrencyNameProviderImpl, getAvailableLocales, $LocaleArray*)},
+		{"getDisplayName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CurrencyNameProviderImpl, getDisplayName, $String*, $String*, $Locale*)},
+		{"getString", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CurrencyNameProviderImpl, getString, $String*, $String*, $Locale*)},
+		{"getSymbol", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CurrencyNameProviderImpl, getSymbol, $String*, $String*, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.CurrencyNameProviderImpl",
+		"java.util.spi.CurrencyNameProvider",
+		"sun.util.locale.provider.AvailableLanguageTags",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNameProviderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CurrencyNameProviderImpl));
+	});
 	return class$;
 }
 

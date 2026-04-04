@@ -1,5 +1,4 @@
 #include <java/lang/Record.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -7,27 +6,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$MethodInfo _Record_MethodInfo_[] = {
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Record, init$, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Record_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.lang.Record",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Record_MethodInfo_
-};
-
-$Object* allocate$Record($Class* clazz) {
-	return $of($alloc(Record));
-}
 
 bool Record::equals(Object$* obj) {
 	 return this->$Object::equals(obj);
@@ -48,7 +26,24 @@ Record::Record() {
 }
 
 $Class* Record::load$($String* name, bool initialize) {
-	$loadClass(Record, name, initialize, &_Record_ClassInfo_, allocate$Record);
+	$MethodInfo methodInfos$$[] = {
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Record, init$, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.lang.Record",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Record, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Record);
+	});
 	return class$;
 }
 

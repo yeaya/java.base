@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/RevocationChecker$2.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/security/cert/PKIXRevocationChecker$Option.h>
 #include <java/security/cert/PKIXRevocationChecker.h>
@@ -28,83 +27,46 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _RevocationChecker$2_FieldInfo_[] = {
-	{"$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RevocationChecker$2, $SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode)},
-	{"$SwitchMap$java$security$cert$PKIXRevocationChecker$Option", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RevocationChecker$2, $SwitchMap$java$security$cert$PKIXRevocationChecker$Option)},
-	{}
-};
-
-$EnclosingMethodInfo _RevocationChecker$2_EnclosingMethodInfo_ = {
-	"sun.security.provider.certpath.RevocationChecker",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _RevocationChecker$2_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.RevocationChecker$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _RevocationChecker$2_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"sun.security.provider.certpath.RevocationChecker$2",
-	"java.lang.Object",
-	nullptr,
-	_RevocationChecker$2_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_RevocationChecker$2_EnclosingMethodInfo_,
-	_RevocationChecker$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.RevocationChecker"
-};
-
-$Object* allocate$RevocationChecker$2($Class* clazz) {
-	return $of($alloc(RevocationChecker$2));
-}
-
 $ints* RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode = nullptr;
 $ints* RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option = nullptr;
 
-void clinit$RevocationChecker$2($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RevocationChecker$2::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode, $new($ints, $($RevocationChecker$Mode::values())->length));
 	{
 		try {
-			$nc(RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode)->set($RevocationChecker$Mode::PREFER_OCSP->ordinal(), 1);
+			RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode->set($RevocationChecker$Mode::PREFER_OCSP->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode)->set($RevocationChecker$Mode::ONLY_OCSP->ordinal(), 2);
+			RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode->set($RevocationChecker$Mode::ONLY_OCSP->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode)->set($RevocationChecker$Mode::PREFER_CRLS->ordinal(), 3);
+			RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode->set($RevocationChecker$Mode::PREFER_CRLS->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode)->set($RevocationChecker$Mode::ONLY_CRLS->ordinal(), 4);
+			RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode->set($RevocationChecker$Mode::ONLY_CRLS->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option, $new($ints, $($PKIXRevocationChecker$Option::values())->length));
 	{
 		try {
-			$nc(RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option)->set($PKIXRevocationChecker$Option::ONLY_END_ENTITY->ordinal(), 1);
+			RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option->set($PKIXRevocationChecker$Option::ONLY_END_ENTITY->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option)->set($PKIXRevocationChecker$Option::PREFER_CRLS->ordinal(), 2);
+			RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option->set($PKIXRevocationChecker$Option::PREFER_CRLS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option)->set($PKIXRevocationChecker$Option::SOFT_FAIL->ordinal(), 3);
+			RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option->set($PKIXRevocationChecker$Option::SOFT_FAIL->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option)->set($PKIXRevocationChecker$Option::NO_FALLBACK->ordinal(), 4);
+			RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option->set($PKIXRevocationChecker$Option::NO_FALLBACK->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -114,7 +76,38 @@ RevocationChecker$2::RevocationChecker$2() {
 }
 
 $Class* RevocationChecker$2::load$($String* name, bool initialize) {
-	$loadClass(RevocationChecker$2, name, initialize, &_RevocationChecker$2_ClassInfo_, clinit$RevocationChecker$2, allocate$RevocationChecker$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RevocationChecker$2, $SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode)},
+		{"$SwitchMap$java$security$cert$PKIXRevocationChecker$Option", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RevocationChecker$2, $SwitchMap$java$security$cert$PKIXRevocationChecker$Option)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.provider.certpath.RevocationChecker",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.RevocationChecker$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"sun.security.provider.certpath.RevocationChecker$2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.RevocationChecker"
+	};
+	$loadClass(RevocationChecker$2, name, initialize, &classInfo$$, RevocationChecker$2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RevocationChecker$2);
+	});
 	return class$;
 }
 

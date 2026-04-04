@@ -57,6 +57,7 @@ class DateTimeTextProvider : public ::java::lang::Object {
 	$class(DateTimeTextProvider, 0, ::java::lang::Object)
 public:
 	DateTimeTextProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Map$Entry* createEntry(Object$* text, Object$* field);
 	$Object* createStore(::java::time::temporal::TemporalField* field, ::java::util::Locale* locale);

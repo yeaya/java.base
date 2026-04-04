@@ -1,39 +1,18 @@
 #include <ToPlainStringTests.h>
-
 #include <java/math/BigDecimal.h>
 #include <jcpp.h>
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 
-$MethodInfo _ToPlainStringTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ToPlainStringTests, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ToPlainStringTests, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _ToPlainStringTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ToPlainStringTests",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ToPlainStringTests_MethodInfo_
-};
-
-$Object* allocate$ToPlainStringTests($Class* clazz) {
-	return $of($alloc(ToPlainStringTests));
-}
-
 void ToPlainStringTests::init$() {
 }
 
 void ToPlainStringTests::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray2, testCases, $new($StringArray2, {
 		$$new($StringArray, {
 			"0"_s,
@@ -159,20 +138,18 @@ void ToPlainStringTests::main($StringArray* argv) {
 	int32_t errors = 0;
 	{
 		$var($StringArray2, arr$, testCases);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($StringArray, testCase, arr$->get(i$));
 			{
 				$var($BigDecimal, bd, $new($BigDecimal, $nc(testCase)->get(0)));
 				$var($String, s, nullptr);
-				if (!$nc(($assign(s, bd->toPlainString())))->equals($nc(testCase)->get(1))) {
+				if (!$nc(($assign(s, bd->toPlainString())))->equals(testCase->get(1))) {
 					++errors;
 					$nc($System::err)->println($$str({"Unexpected plain result ``"_s, s, "\'\' from BigDecimal "_s, bd}));
 				}
-				$assign(bd, $new($BigDecimal, $$str({"-"_s, $nc(testCase)->get(0)})));
+				$assign(bd, $new($BigDecimal, $$str({"-"_s, testCase->get(0)})));
 				bool var$0 = bd->signum() != 0;
-				if (var$0 && !$nc(($assign(s, bd->toPlainString())))->equals($$str({"-"_s, $nc(testCase)->get(1)}))) {
+				if (var$0 && !$nc(($assign(s, bd->toPlainString())))->equals($$str({"-"_s, testCase->get(1)}))) {
 					++errors;
 					$nc($System::err)->println($$str({"Unexpected plain result ``"_s, s, "\'\' from BigDecimal "_s, bd}));
 				}
@@ -188,7 +165,22 @@ ToPlainStringTests::ToPlainStringTests() {
 }
 
 $Class* ToPlainStringTests::load$($String* name, bool initialize) {
-	$loadClass(ToPlainStringTests, name, initialize, &_ToPlainStringTests_ClassInfo_, allocate$ToPlainStringTests);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ToPlainStringTests, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ToPlainStringTests, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ToPlainStringTests",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ToPlainStringTests, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToPlainStringTests);
+	});
 	return class$;
 }
 

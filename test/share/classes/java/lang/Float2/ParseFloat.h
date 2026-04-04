@@ -22,6 +22,7 @@ class $export ParseFloat : public ::java::lang::Object {
 	$class(ParseFloat, 0, ::java::lang::Object)
 public:
 	ParseFloat();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check($String* val);
 	static void check($String* val, float expected);

@@ -1,5 +1,4 @@
 #include <java/text/RBTableBuilder.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/text/Collator.h>
 #include <java/text/EntryPair.h>
@@ -53,62 +52,6 @@ using $UCompactIntArray = ::sun::text::UCompactIntArray;
 namespace java {
 	namespace text {
 
-$FieldInfo _RBTableBuilder_FieldInfo_[] = {
-	{"CHARINDEX", "I", nullptr, $STATIC | $FINAL, $constField(RBTableBuilder, CHARINDEX)},
-	{"IGNORABLEMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, IGNORABLEMASK)},
-	{"PRIMARYORDERINCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, PRIMARYORDERINCREMENT)},
-	{"SECONDARYORDERINCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, SECONDARYORDERINCREMENT)},
-	{"TERTIARYORDERINCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, TERTIARYORDERINCREMENT)},
-	{"INITIALTABLESIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, INITIALTABLESIZE)},
-	{"MAXKEYSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, MAXKEYSIZE)},
-	{"tables", "Ljava/text/RBCollationTables$BuildAPI;", nullptr, $PRIVATE, $field(RBTableBuilder, tables)},
-	{"mPattern", "Ljava/text/MergeCollation;", nullptr, $PRIVATE, $field(RBTableBuilder, mPattern)},
-	{"isOverIgnore", "Z", nullptr, $PRIVATE, $field(RBTableBuilder, isOverIgnore)},
-	{"keyBuf", "[C", nullptr, $PRIVATE, $field(RBTableBuilder, keyBuf)},
-	{"contractFlags", "Lsun/text/IntHashtable;", nullptr, $PRIVATE, $field(RBTableBuilder, contractFlags)},
-	{"frenchSec", "Z", nullptr, $PRIVATE, $field(RBTableBuilder, frenchSec)},
-	{"seAsianSwapping", "Z", nullptr, $PRIVATE, $field(RBTableBuilder, seAsianSwapping)},
-	{"mapping", "Lsun/text/UCompactIntArray;", nullptr, $PRIVATE, $field(RBTableBuilder, mapping)},
-	{"contractTable", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/util/Vector<Ljava/text/EntryPair;>;>;", $PRIVATE, $field(RBTableBuilder, contractTable)},
-	{"expandTable", "Ljava/util/Vector;", "Ljava/util/Vector<[I>;", $PRIVATE, $field(RBTableBuilder, expandTable)},
-	{"maxSecOrder", "S", nullptr, $PRIVATE, $field(RBTableBuilder, maxSecOrder)},
-	{"maxTerOrder", "S", nullptr, $PRIVATE, $field(RBTableBuilder, maxTerOrder)},
-	{}
-};
-
-$MethodInfo _RBTableBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/RBCollationTables$BuildAPI;)V", nullptr, $PUBLIC, $method(RBTableBuilder, init$, void, $RBCollationTables$BuildAPI*)},
-	{"addComposedChars", "()V", nullptr, $PRIVATE, $method(RBTableBuilder, addComposedChars, void), "java.text.ParseException"},
-	{"addContractFlags", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(RBTableBuilder, addContractFlags, void, $String*)},
-	{"addContractOrder", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addContractOrder, void, $String*, int32_t)},
-	{"addContractOrder", "(Ljava/lang/String;IZ)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addContractOrder, void, $String*, int32_t, bool)},
-	{"addExpandOrder", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addExpandOrder, void, $String*, $String*, int32_t), "java.text.ParseException"},
-	{"addExpandOrder", "(ILjava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addExpandOrder, void, int32_t, $String*, int32_t), "java.text.ParseException"},
-	{"addExpansion", "(ILjava/lang/String;)I", nullptr, $PRIVATE, $method(RBTableBuilder, addExpansion, int32_t, int32_t, $String*)},
-	{"addOrder", "(II)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addOrder, void, int32_t, int32_t)},
-	{"build", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(RBTableBuilder, build, void, $String*, int32_t), "java.text.ParseException"},
-	{"commit", "()V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, commit, void)},
-	{"getCharOrder", "(I)I", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, getCharOrder, int32_t, int32_t)},
-	{"getContractOrder", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(RBTableBuilder, getContractOrder, int32_t, $String*)},
-	{"getContractValues", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", $PRIVATE, $method(RBTableBuilder, getContractValues, $Vector*, int32_t)},
-	{"getContractValuesImpl", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", $PRIVATE, $method(RBTableBuilder, getContractValuesImpl, $Vector*, int32_t)},
-	{"increment", "(II)I", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, increment, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _RBTableBuilder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.text.RBTableBuilder",
-	"java.lang.Object",
-	nullptr,
-	_RBTableBuilder_FieldInfo_,
-	_RBTableBuilder_MethodInfo_
-};
-
-$Object* allocate$RBTableBuilder($Class* clazz) {
-	return $of($alloc(RBTableBuilder));
-}
-
 void RBTableBuilder::init$($RBCollationTables$BuildAPI* tables) {
 	$set(this, tables, nullptr);
 	$set(this, mPattern, nullptr);
@@ -120,13 +63,13 @@ void RBTableBuilder::init$($RBCollationTables$BuildAPI* tables) {
 	$set(this, mapping, nullptr);
 	$set(this, contractTable, nullptr);
 	$set(this, expandTable, nullptr);
-	this->maxSecOrder = (int16_t)0;
-	this->maxTerOrder = (int16_t)0;
+	this->maxSecOrder = 0;
+	this->maxTerOrder = 0;
 	$set(this, tables, tables);
 }
 
 void RBTableBuilder::build($String* pattern$renamed, int32_t decmp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, pattern, pattern$renamed);
 	$var($String, expChars, nullptr);
 	$var($String, groupChars, nullptr);
@@ -137,31 +80,27 @@ void RBTableBuilder::build($String* pattern$renamed, int32_t decmp) {
 	$assign(pattern, $NormalizerImpl::canonicalDecomposeWithSingleQuotation(pattern));
 	$set(this, mPattern, $new($MergeCollation, pattern));
 	int32_t order = 0;
-	for (int32_t i = 0; i < $nc(this->mPattern)->getCount(); ++i) {
-		$var($PatternEntry, entry, $nc(this->mPattern)->getItemAt(i));
+	for (int32_t i = 0; i < this->mPattern->getCount(); ++i) {
+		$var($PatternEntry, entry, this->mPattern->getItemAt(i));
 		if (entry != nullptr) {
 			$assign(groupChars, entry->getChars());
 			if ($nc(groupChars)->length() > 1) {
 				switch (groupChars->charAt(groupChars->length() - 1)) {
 				case u'@':
-					{
-						this->frenchSec = true;
-						$assign(groupChars, groupChars->substring(0, groupChars->length() - 1));
-						break;
-					}
+					this->frenchSec = true;
+					$assign(groupChars, groupChars->substring(0, groupChars->length() - 1));
+					break;
 				case u'!':
-					{
-						this->seAsianSwapping = true;
-						$assign(groupChars, groupChars->substring(0, groupChars->length() - 1));
-						break;
-					}
+					this->seAsianSwapping = true;
+					$assign(groupChars, groupChars->substring(0, groupChars->length() - 1));
+					break;
 				}
 			}
 			order = increment(entry->getStrength(), order);
 			$assign(expChars, entry->getExtension());
 			if (!$nc(expChars)->isEmpty()) {
 				addExpandOrder(groupChars, expChars, order);
-			} else if ($nc(groupChars)->length() > 1) {
+			} else if (groupChars->length() > 1) {
 				char16_t ch = groupChars->charAt(0);
 				bool var$0 = $Character::isHighSurrogate(ch);
 				if (var$0 && groupChars->length() == 2) {
@@ -177,12 +116,12 @@ void RBTableBuilder::build($String* pattern$renamed, int32_t decmp) {
 	}
 	addComposedChars();
 	commit();
-	$nc(this->mapping)->compact();
+	this->mapping->compact();
 	$nc(this->tables)->fillInTables(this->frenchSec, this->seAsianSwapping, this->mapping, this->contractTable, this->expandTable, this->contractFlags, this->maxSecOrder, this->maxTerOrder);
 }
 
 void RBTableBuilder::addComposedChars() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComposedCharIter, iter, $new($ComposedCharIter));
 	int32_t c = 0;
 	while ((c = iter->next()) != $ComposedCharIter::DONE) {
@@ -209,7 +148,7 @@ void RBTableBuilder::addComposedChars() {
 				addOrder(c, contractOrder);
 			} else {
 				bool allThere = true;
-				for (int32_t i = 0; i < $nc(s)->length(); ++i) {
+				for (int32_t i = 0; i < s->length(); ++i) {
 					if (getCharOrder(s->charAt(i)) == $RBCollationTables::UNMAPPED) {
 						allThere = false;
 						break;
@@ -224,17 +163,17 @@ void RBTableBuilder::addComposedChars() {
 }
 
 void RBTableBuilder::commit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->expandTable != nullptr) {
-		for (int32_t i = 0; i < $nc(this->expandTable)->size(); ++i) {
-			$var($ints, valueList, $cast($ints, $nc(this->expandTable)->elementAt(i)));
+		for (int32_t i = 0; i < this->expandTable->size(); ++i) {
+			$var($ints, valueList, $cast($ints, this->expandTable->elementAt(i)));
 			for (int32_t j = 0; j < $nc(valueList)->length; ++j) {
 				int32_t order = valueList->get(j);
 				if (order < $RBCollationTables::EXPANDCHARINDEX && order > RBTableBuilder::CHARINDEX) {
 					int32_t ch = order - RBTableBuilder::CHARINDEX;
 					int32_t realValue = getCharOrder(ch);
 					if (realValue == $RBCollationTables::UNMAPPED) {
-						valueList->set(j, (int32_t)(RBTableBuilder::IGNORABLEMASK & (uint32_t)ch));
+						valueList->set(j, RBTableBuilder::IGNORABLEMASK & ch);
 					} else {
 						valueList->set(j, realValue);
 					}
@@ -247,29 +186,23 @@ void RBTableBuilder::commit() {
 int32_t RBTableBuilder::increment(int32_t aStrength, int32_t lastValue) {
 	switch (aStrength) {
 	case $Collator::PRIMARY:
-		{
-			lastValue += RBTableBuilder::PRIMARYORDERINCREMENT;
-			lastValue &= (uint32_t)$RBCollationTables::PRIMARYORDERMASK;
-			this->isOverIgnore = true;
-			break;
-		}
+		lastValue += RBTableBuilder::PRIMARYORDERINCREMENT;
+		lastValue &= (uint32_t)$RBCollationTables::PRIMARYORDERMASK;
+		this->isOverIgnore = true;
+		break;
 	case $Collator::SECONDARY:
-		{
-			lastValue += RBTableBuilder::SECONDARYORDERINCREMENT;
-			lastValue &= (uint32_t)$RBCollationTables::SECONDARYDIFFERENCEONLY;
-			if (!this->isOverIgnore) {
-				++this->maxSecOrder;
-			}
-			break;
+		lastValue += RBTableBuilder::SECONDARYORDERINCREMENT;
+		lastValue &= (uint32_t)$RBCollationTables::SECONDARYDIFFERENCEONLY;
+		if (!this->isOverIgnore) {
+			++this->maxSecOrder;
 		}
+		break;
 	case $Collator::TERTIARY:
-		{
-			lastValue += RBTableBuilder::TERTIARYORDERINCREMENT;
-			if (!this->isOverIgnore) {
-				++this->maxTerOrder;
-			}
-			break;
+		lastValue += RBTableBuilder::TERTIARYORDERINCREMENT;
+		if (!this->isOverIgnore) {
+			++this->maxTerOrder;
 		}
+		break;
 	}
 	return lastValue;
 }
@@ -285,7 +218,7 @@ void RBTableBuilder::addOrder(int32_t ch, int32_t anOrder) {
 		}
 		addContractOrder($$new($String, this->keyBuf, 0, length), anOrder);
 	} else {
-		$nc(this->mapping)->setElementAt(ch, anOrder);
+		this->mapping->setElementAt(ch, anOrder);
 	}
 }
 
@@ -294,7 +227,7 @@ void RBTableBuilder::addContractOrder($String* groupChars, int32_t anOrder) {
 }
 
 void RBTableBuilder::addContractOrder($String* groupChars, int32_t anOrder, bool fwd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->contractTable == nullptr) {
 		$set(this, contractTable, $new($Vector, RBTableBuilder::INITIALTABLESIZE));
 	}
@@ -304,9 +237,9 @@ void RBTableBuilder::addContractOrder($String* groupChars, int32_t anOrder, bool
 	if (entryTable == nullptr) {
 		int32_t tableIndex = $RBCollationTables::CONTRACTCHARINDEX + $nc(this->contractTable)->size();
 		$assign(entryTable, $new($Vector, RBTableBuilder::INITIALTABLESIZE));
-		$nc(this->contractTable)->addElement(entryTable);
+		this->contractTable->addElement(entryTable);
 		entryTable->addElement($$new($EntryPair, $(groupChars->substring(0, $Character::charCount(ch))), entry));
-		$nc(this->mapping)->setElementAt(ch, tableIndex);
+		this->mapping->setElementAt(ch, tableIndex);
 	}
 	int32_t index = $RBCollationTables::getEntry(entryTable, groupChars, fwd);
 	if (index != $RBCollationTables::UNMAPPED) {
@@ -318,18 +251,18 @@ void RBTableBuilder::addContractOrder($String* groupChars, int32_t anOrder, bool
 		if (var$0 > $nc($nc(pair)->entryName)->length()) {
 			entryTable->addElement($$new($EntryPair, groupChars, anOrder, fwd));
 		} else {
-			$var($Object, var$1, $of($new($EntryPair, groupChars, anOrder, fwd)));
+			$var($Object, var$1, $new($EntryPair, groupChars, anOrder, fwd));
 			entryTable->insertElementAt(var$1, entryTable->size() - 1);
 		}
 	}
 	if (fwd && groupChars->length() > 1) {
 		addContractFlags(groupChars);
-		addContractOrder($($nc($($$new($StringBuffer, groupChars)->reverse()))->toString()), anOrder, false);
+		addContractOrder($($$nc($$new($StringBuffer, groupChars)->reverse())->toString()), anOrder, false);
 	}
 }
 
 int32_t RBTableBuilder::getContractOrder($String* groupChars) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = $RBCollationTables::UNMAPPED;
 	if (this->contractTable != nullptr) {
 		int32_t ch = $nc(groupChars)->codePointAt(0);
@@ -346,7 +279,7 @@ int32_t RBTableBuilder::getContractOrder($String* groupChars) {
 }
 
 int32_t RBTableBuilder::getCharOrder(int32_t ch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t order = $nc(this->mapping)->elementAt(ch);
 	if (order >= $RBCollationTables::CONTRACTCHARINDEX) {
 		$var($Vector, groupList, getContractValuesImpl(order - $RBCollationTables::CONTRACTCHARINDEX));
@@ -393,7 +326,7 @@ void RBTableBuilder::addExpandOrder(int32_t ch, $String* expandChars, int32_t an
 }
 
 int32_t RBTableBuilder::addExpansion(int32_t anOrder, $String* expandChars) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->expandTable == nullptr) {
 		$set(this, expandTable, $new($Vector, RBTableBuilder::INITIALTABLESIZE));
 	}
@@ -431,7 +364,7 @@ int32_t RBTableBuilder::addExpansion(int32_t anOrder, $String* expandChars) {
 		$assign(valueList, tmpBuf);
 	}
 	int32_t tableIndex = $RBCollationTables::EXPANDCHARINDEX + $nc(this->expandTable)->size();
-	$nc(this->expandTable)->addElement(valueList);
+	this->expandTable->addElement(valueList);
 	return tableIndex;
 }
 
@@ -441,7 +374,7 @@ void RBTableBuilder::addContractFlags($String* chars) {
 	int32_t len = $nc(chars)->length();
 	for (int32_t i = 0; i < len; ++i) {
 		c0 = chars->charAt(i);
-		c = $Character::isHighSurrogate(c0) ? $Character::toCodePoint(c0, chars->charAt(++i)) : (int32_t)c0;
+		c = $Character::isHighSurrogate(c0) ? $Character::toCodePoint(c0, chars->charAt(++i)) : c0;
 		$nc(this->contractFlags)->put(c, 1);
 	}
 }
@@ -450,7 +383,58 @@ RBTableBuilder::RBTableBuilder() {
 }
 
 $Class* RBTableBuilder::load$($String* name, bool initialize) {
-	$loadClass(RBTableBuilder, name, initialize, &_RBTableBuilder_ClassInfo_, allocate$RBTableBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHARINDEX", "I", nullptr, $STATIC | $FINAL, $constField(RBTableBuilder, CHARINDEX)},
+		{"IGNORABLEMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, IGNORABLEMASK)},
+		{"PRIMARYORDERINCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, PRIMARYORDERINCREMENT)},
+		{"SECONDARYORDERINCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, SECONDARYORDERINCREMENT)},
+		{"TERTIARYORDERINCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, TERTIARYORDERINCREMENT)},
+		{"INITIALTABLESIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, INITIALTABLESIZE)},
+		{"MAXKEYSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RBTableBuilder, MAXKEYSIZE)},
+		{"tables", "Ljava/text/RBCollationTables$BuildAPI;", nullptr, $PRIVATE, $field(RBTableBuilder, tables)},
+		{"mPattern", "Ljava/text/MergeCollation;", nullptr, $PRIVATE, $field(RBTableBuilder, mPattern)},
+		{"isOverIgnore", "Z", nullptr, $PRIVATE, $field(RBTableBuilder, isOverIgnore)},
+		{"keyBuf", "[C", nullptr, $PRIVATE, $field(RBTableBuilder, keyBuf)},
+		{"contractFlags", "Lsun/text/IntHashtable;", nullptr, $PRIVATE, $field(RBTableBuilder, contractFlags)},
+		{"frenchSec", "Z", nullptr, $PRIVATE, $field(RBTableBuilder, frenchSec)},
+		{"seAsianSwapping", "Z", nullptr, $PRIVATE, $field(RBTableBuilder, seAsianSwapping)},
+		{"mapping", "Lsun/text/UCompactIntArray;", nullptr, $PRIVATE, $field(RBTableBuilder, mapping)},
+		{"contractTable", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/util/Vector<Ljava/text/EntryPair;>;>;", $PRIVATE, $field(RBTableBuilder, contractTable)},
+		{"expandTable", "Ljava/util/Vector;", "Ljava/util/Vector<[I>;", $PRIVATE, $field(RBTableBuilder, expandTable)},
+		{"maxSecOrder", "S", nullptr, $PRIVATE, $field(RBTableBuilder, maxSecOrder)},
+		{"maxTerOrder", "S", nullptr, $PRIVATE, $field(RBTableBuilder, maxTerOrder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/text/RBCollationTables$BuildAPI;)V", nullptr, $PUBLIC, $method(RBTableBuilder, init$, void, $RBCollationTables$BuildAPI*)},
+		{"addComposedChars", "()V", nullptr, $PRIVATE, $method(RBTableBuilder, addComposedChars, void), "java.text.ParseException"},
+		{"addContractFlags", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(RBTableBuilder, addContractFlags, void, $String*)},
+		{"addContractOrder", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addContractOrder, void, $String*, int32_t)},
+		{"addContractOrder", "(Ljava/lang/String;IZ)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addContractOrder, void, $String*, int32_t, bool)},
+		{"addExpandOrder", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addExpandOrder, void, $String*, $String*, int32_t), "java.text.ParseException"},
+		{"addExpandOrder", "(ILjava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addExpandOrder, void, int32_t, $String*, int32_t), "java.text.ParseException"},
+		{"addExpansion", "(ILjava/lang/String;)I", nullptr, $PRIVATE, $method(RBTableBuilder, addExpansion, int32_t, int32_t, $String*)},
+		{"addOrder", "(II)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addOrder, void, int32_t, int32_t)},
+		{"build", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(RBTableBuilder, build, void, $String*, int32_t), "java.text.ParseException"},
+		{"commit", "()V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, commit, void)},
+		{"getCharOrder", "(I)I", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, getCharOrder, int32_t, int32_t)},
+		{"getContractOrder", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(RBTableBuilder, getContractOrder, int32_t, $String*)},
+		{"getContractValues", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", $PRIVATE, $method(RBTableBuilder, getContractValues, $Vector*, int32_t)},
+		{"getContractValuesImpl", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", $PRIVATE, $method(RBTableBuilder, getContractValuesImpl, $Vector*, int32_t)},
+		{"increment", "(II)I", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, increment, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.text.RBTableBuilder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RBTableBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RBTableBuilder);
+	});
 	return class$;
 }
 

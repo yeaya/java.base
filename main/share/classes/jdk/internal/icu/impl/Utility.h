@@ -25,6 +25,7 @@ class Utility : public ::java::lang::Object {
 	$class(Utility, 0, ::java::lang::Object)
 public:
 	Utility();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* escape($String* s);
 	static bool escapeUnprintable(::java::lang::Appendable* result, int32_t c);

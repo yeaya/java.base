@@ -39,6 +39,7 @@ class $export InetSocketAddress : public ::java::net::SocketAddress {
 	$class(InetSocketAddress, 0, ::java::net::SocketAddress)
 public:
 	InetSocketAddress();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t port);
 	void init$(::java::net::InetAddress* addr, int32_t port);
 	void init$($String* hostname, int32_t port);
@@ -58,7 +59,7 @@ public:
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
 	::java::net::InetSocketAddress$InetSocketAddressHolder* holder = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x467194616FF9AA45;
+	static const int64_t serialVersionUID = (int64_t)0x467194616ff9aa45;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	static ::jdk::internal::misc::Unsafe* UNSAFE;
 	static int64_t FIELDS_OFFSET;

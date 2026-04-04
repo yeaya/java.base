@@ -46,6 +46,7 @@ class $import HttpsURLConnection : public ::java::net::HttpURLConnection {
 public:
 	HttpsURLConnection();
 	using ::java::net::HttpURLConnection::getHeaderField;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URL* url);
 	virtual $String* getCipherSuite() {return nullptr;}
 	static ::javax::net::ssl::HostnameVerifier* getDefaultHostnameVerifier();

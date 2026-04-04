@@ -1,5 +1,4 @@
 #include <sun/security/ssl/RenegoInfoExtension$SHRenegotiationInfoAbsence.h>
-
 #include <java/util/List.h>
 #include <java/util/Map.h>
 #include <javax/net/ssl/SSLException.h>
@@ -24,8 +23,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
@@ -35,48 +32,16 @@ using $RenegoInfoExtension$RenegotiationInfoSpec = ::sun::security::ssl::RenegoI
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _RenegoInfoExtension$SHRenegotiationInfoAbsence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(RenegoInfoExtension$SHRenegotiationInfoAbsence, init$, void)},
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(RenegoInfoExtension$SHRenegotiationInfoAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RenegoInfoExtension$SHRenegotiationInfoAbsence_InnerClassesInfo_[] = {
-	{"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoAbsence", "sun.security.ssl.RenegoInfoExtension", "SHRenegotiationInfoAbsence", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RenegoInfoExtension$SHRenegotiationInfoAbsence_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoAbsence",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeAbsence",
-	nullptr,
-	_RenegoInfoExtension$SHRenegotiationInfoAbsence_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RenegoInfoExtension$SHRenegotiationInfoAbsence_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.RenegoInfoExtension"
-};
-
-$Object* allocate$RenegoInfoExtension$SHRenegotiationInfoAbsence($Class* clazz) {
-	return $of($alloc(RenegoInfoExtension$SHRenegotiationInfoAbsence));
-}
-
 void RenegoInfoExtension$SHRenegotiationInfoAbsence::init$() {
 }
 
 void RenegoInfoExtension$SHRenegotiationInfoAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	$var($RenegoInfoExtension$RenegotiationInfoSpec, requestedSpec, $cast($RenegoInfoExtension$RenegotiationInfoSpec, $nc($nc(chc)->handshakeExtensions)->get($SSLExtension::CH_RENEGOTIATION_INFO)));
@@ -89,16 +54,16 @@ void RenegoInfoExtension$SHRenegotiationInfoAbsence::absent($ConnectionContext* 
 		$init($HandshakeContext);
 		if (!$HandshakeContext::allowLegacyHelloMessages) {
 			$init($Alert);
-			$throw($($nc(chc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Failed to negotiate the use of secure renegotiation"_s)));
+			$throw($(chc->conContext->fatal($Alert::HANDSHAKE_FAILURE, "Failed to negotiate the use of secure renegotiation"_s)));
 		}
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::warning("Warning: No renegotiation indication in ServerHello, allow legacy ServerHello"_s, $$new($ObjectArray, 0));
 		}
-		$nc(chc->conContext)->secureRenegotiation = false;
-	} else if ($nc(chc->conContext)->secureRenegotiation) {
+		chc->conContext->secureRenegotiation = false;
+	} else if (chc->conContext->secureRenegotiation) {
 		$init($Alert);
-		$throw($($nc(chc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Inconsistent secure renegotiation indication"_s)));
+		$throw($(chc->conContext->fatal($Alert::HANDSHAKE_FAILURE, "Inconsistent secure renegotiation indication"_s)));
 	} else {
 		$init($HandshakeContext);
 		if ($HandshakeContext::allowUnsafeRenegotiation) {
@@ -112,7 +77,7 @@ void RenegoInfoExtension$SHRenegotiationInfoAbsence::absent($ConnectionContext* 
 				$SSLLogger::fine("Terminate insecure renegotiation"_s, $$new($ObjectArray, 0));
 			}
 			$init($Alert);
-			$throw($($nc(chc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Unsafe renegotiation is not allowed"_s)));
+			$throw($(chc->conContext->fatal($Alert::HANDSHAKE_FAILURE, "Unsafe renegotiation is not allowed"_s)));
 		}
 	}
 }
@@ -121,7 +86,33 @@ RenegoInfoExtension$SHRenegotiationInfoAbsence::RenegoInfoExtension$SHRenegotiat
 }
 
 $Class* RenegoInfoExtension$SHRenegotiationInfoAbsence::load$($String* name, bool initialize) {
-	$loadClass(RenegoInfoExtension$SHRenegotiationInfoAbsence, name, initialize, &_RenegoInfoExtension$SHRenegotiationInfoAbsence_ClassInfo_, allocate$RenegoInfoExtension$SHRenegotiationInfoAbsence);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(RenegoInfoExtension$SHRenegotiationInfoAbsence, init$, void)},
+		{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(RenegoInfoExtension$SHRenegotiationInfoAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoAbsence", "sun.security.ssl.RenegoInfoExtension", "SHRenegotiationInfoAbsence", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoAbsence",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeAbsence",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.RenegoInfoExtension"
+	};
+	$loadClass(RenegoInfoExtension$SHRenegotiationInfoAbsence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RenegoInfoExtension$SHRenegotiationInfoAbsence);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/ch/WindowsAsynchronousFileChannelImpl$DefaultIocpHolder.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/InternalError.h>
 #include <java/nio/channels/spi/AsynchronousChannelProvider.h>
@@ -22,42 +21,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _WindowsAsynchronousFileChannelImpl$DefaultIocpHolder_FieldInfo_[] = {
-	{"defaultIocp", "Lsun/nio/ch/Iocp;", nullptr, $STATIC | $FINAL, $staticField(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, defaultIocp$)},
-	{}
-};
-
-$MethodInfo _WindowsAsynchronousFileChannelImpl$DefaultIocpHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, init$, void)},
-	{"defaultIocp", "()Lsun/nio/ch/Iocp;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, defaultIocp, $Iocp*)},
-	{}
-};
-
-$InnerClassInfo _WindowsAsynchronousFileChannelImpl$DefaultIocpHolder_InnerClassesInfo_[] = {
-	{"sun.nio.ch.WindowsAsynchronousFileChannelImpl$DefaultIocpHolder", "sun.nio.ch.WindowsAsynchronousFileChannelImpl", "DefaultIocpHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsAsynchronousFileChannelImpl$DefaultIocpHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.WindowsAsynchronousFileChannelImpl$DefaultIocpHolder",
-	"java.lang.Object",
-	nullptr,
-	_WindowsAsynchronousFileChannelImpl$DefaultIocpHolder_FieldInfo_,
-	_WindowsAsynchronousFileChannelImpl$DefaultIocpHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsAsynchronousFileChannelImpl$DefaultIocpHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.WindowsAsynchronousFileChannelImpl"
-};
-
-$Object* allocate$WindowsAsynchronousFileChannelImpl$DefaultIocpHolder($Class* clazz) {
-	return $of($alloc(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder));
-}
-
 $Iocp* WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::defaultIocp$ = nullptr;
 
 void WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::init$() {
@@ -65,16 +28,16 @@ void WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::init$() {
 
 $Iocp* WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::defaultIocp() {
 	$init(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $$new($Iocp, nullptr, $($ThreadPool::createDefault()))->start();
 	} catch ($IOException& ioe) {
-		$throwNew($InternalError, static_cast<$Throwable*>(ioe));
+		$throwNew($InternalError, ioe);
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$WindowsAsynchronousFileChannelImpl$DefaultIocpHolder($Class* class$) {
+void WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::clinit$($Class* clazz) {
 	$assignStatic(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::defaultIocp$, WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::defaultIocp());
 }
 
@@ -82,7 +45,37 @@ WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::WindowsAsynchronousFileCha
 }
 
 $Class* WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::load$($String* name, bool initialize) {
-	$loadClass(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, name, initialize, &_WindowsAsynchronousFileChannelImpl$DefaultIocpHolder_ClassInfo_, clinit$WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, allocate$WindowsAsynchronousFileChannelImpl$DefaultIocpHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultIocp", "Lsun/nio/ch/Iocp;", nullptr, $STATIC | $FINAL, $staticField(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, defaultIocp$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, init$, void)},
+		{"defaultIocp", "()Lsun/nio/ch/Iocp;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, defaultIocp, $Iocp*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.WindowsAsynchronousFileChannelImpl$DefaultIocpHolder", "sun.nio.ch.WindowsAsynchronousFileChannelImpl", "DefaultIocpHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.WindowsAsynchronousFileChannelImpl$DefaultIocpHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.WindowsAsynchronousFileChannelImpl"
+	};
+	$loadClass(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, name, initialize, &classInfo$$, WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder);
+	});
 	return class$;
 }
 

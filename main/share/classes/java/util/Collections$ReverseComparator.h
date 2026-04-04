@@ -27,13 +27,14 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t compare(::java::lang::Comparable* c1, ::java::lang::Comparable* c2);
 	virtual int32_t compare(Object$* c1, Object$* c2) override;
 	$Object* readResolve();
 	virtual ::java::util::Comparator* reversed() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x64048AF0534E4AD0;
+	static const int64_t serialVersionUID = (int64_t)0x64048af0534e4ad0;
 	static ::java::util::Collections$ReverseComparator* REVERSE_ORDER;
 };
 

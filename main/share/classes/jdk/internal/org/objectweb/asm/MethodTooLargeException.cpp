@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/MethodTooLargeException.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <jcpp.h>
 
@@ -13,37 +12,6 @@ namespace jdk {
 		namespace org {
 			namespace objectweb {
 				namespace asm$ {
-
-$FieldInfo _MethodTooLargeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodTooLargeException, serialVersionUID)},
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MethodTooLargeException, className)},
-	{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MethodTooLargeException, methodName)},
-	{"descriptor", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MethodTooLargeException, descriptor)},
-	{"codeSize", "I", nullptr, $PRIVATE | $FINAL, $field(MethodTooLargeException, codeSize)},
-	{}
-};
-
-$MethodInfo _MethodTooLargeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(MethodTooLargeException, init$, void, $String*, $String*, $String*, int32_t)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MethodTooLargeException, getClassName, $String*)},
-	{"getCodeSize", "()I", nullptr, $PUBLIC, $method(MethodTooLargeException, getCodeSize, int32_t)},
-	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MethodTooLargeException, getDescriptor, $String*)},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MethodTooLargeException, getMethodName, $String*)},
-	{}
-};
-
-$ClassInfo _MethodTooLargeException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.MethodTooLargeException",
-	"java.lang.IndexOutOfBoundsException",
-	nullptr,
-	_MethodTooLargeException_FieldInfo_,
-	_MethodTooLargeException_MethodInfo_
-};
-
-$Object* allocate$MethodTooLargeException($Class* clazz) {
-	return $of($alloc(MethodTooLargeException));
-}
 
 void MethodTooLargeException::init$($String* className, $String* methodName, $String* descriptor, int32_t codeSize) {
 	$IndexOutOfBoundsException::init$($$str({"Method too large: "_s, className, "."_s, methodName, " "_s, descriptor}));
@@ -80,7 +48,33 @@ void MethodTooLargeException::throw$() {
 }
 
 $Class* MethodTooLargeException::load$($String* name, bool initialize) {
-	$loadClass(MethodTooLargeException, name, initialize, &_MethodTooLargeException_ClassInfo_, allocate$MethodTooLargeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodTooLargeException, serialVersionUID)},
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MethodTooLargeException, className)},
+		{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MethodTooLargeException, methodName)},
+		{"descriptor", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MethodTooLargeException, descriptor)},
+		{"codeSize", "I", nullptr, $PRIVATE | $FINAL, $field(MethodTooLargeException, codeSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(MethodTooLargeException, init$, void, $String*, $String*, $String*, int32_t)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MethodTooLargeException, getClassName, $String*)},
+		{"getCodeSize", "()I", nullptr, $PUBLIC, $method(MethodTooLargeException, getCodeSize, int32_t)},
+		{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MethodTooLargeException, getDescriptor, $String*)},
+		{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MethodTooLargeException, getMethodName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.MethodTooLargeException",
+		"java.lang.IndexOutOfBoundsException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MethodTooLargeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodTooLargeException);
+	});
 	return class$;
 }
 

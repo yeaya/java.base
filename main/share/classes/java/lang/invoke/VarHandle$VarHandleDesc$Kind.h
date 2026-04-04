@@ -32,6 +32,7 @@ class VarHandle$VarHandleDesc$Kind : public ::java::lang::Enum {
 public:
 	VarHandle$VarHandleDesc$Kind();
 	static $Array<::java::lang::invoke::VarHandle$VarHandleDesc$Kind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::java::lang::constant::DirectMethodHandleDesc* bootstrapMethod);
 	virtual $Array<::java::lang::constant::ConstantDesc>* toBSMArgs(::java::lang::constant::ClassDesc* declaringClass, ::java::lang::constant::ClassDesc* varType);
 	static ::java::lang::invoke::VarHandle$VarHandleDesc$Kind* valueOf($String* name);

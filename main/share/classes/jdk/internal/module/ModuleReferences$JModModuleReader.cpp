@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleReferences$JModModuleReader.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
@@ -61,27 +60,24 @@ public:
 	virtual bool test(Object$* e) override {
 		 return ModuleReferences$JModModuleReader::lambda$implList$0($cast($JmodFile$Entry, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0::load$($String* name, bool initialize) {
-	$loadClass(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0);
+	});
 	return class$;
 }
 $Class* ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0::class$ = nullptr;
@@ -94,74 +90,27 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($JmodFile$Entry, inst$)->name());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModuleReferences$JModModuleReader$$Lambda$name$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModuleReferences$JModModuleReader$$Lambda$name$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleReferences$JModModuleReader$$Lambda$name$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$JModModuleReader$$Lambda$name$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModuleReferences$JModModuleReader$$Lambda$name$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModuleReferences$JModModuleReader$$Lambda$name$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ModuleReferences$JModModuleReader$$Lambda$name$1::load$($String* name, bool initialize) {
-	$loadClass(ModuleReferences$JModModuleReader$$Lambda$name$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleReferences$JModModuleReader$$Lambda$name$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$JModModuleReader$$Lambda$name$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModuleReferences$JModModuleReader$$Lambda$name$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModuleReferences$JModModuleReader$$Lambda$name$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleReferences$JModModuleReader$$Lambda$name$1);
+	});
 	return class$;
 }
 $Class* ModuleReferences$JModModuleReader$$Lambda$name$1::class$ = nullptr;
-
-$FieldInfo _ModuleReferences$JModModuleReader_FieldInfo_[] = {
-	{"jf", "Ljdk/internal/jmod/JmodFile;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferences$JModModuleReader, jf)},
-	{"uri", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferences$JModModuleReader, uri)},
-	{}
-};
-
-$MethodInfo _ModuleReferences$JModModuleReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/net/URI;)V", nullptr, 0, $method(ModuleReferences$JModModuleReader, init$, void, $Path*, $URI*)},
-	{"getEntry", "(Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Entry;", nullptr, $PRIVATE, $method(ModuleReferences$JModModuleReader, getEntry, $JmodFile$Entry*, $String*)},
-	{"implClose", "()V", nullptr, 0, $virtualMethod(ModuleReferences$JModModuleReader, implClose, void), "java.io.IOException"},
-	{"implFind", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", 0, $virtualMethod(ModuleReferences$JModModuleReader, implFind, $Optional*, $String*)},
-	{"implList", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", 0, $virtualMethod(ModuleReferences$JModModuleReader, implList, $Stream*), "java.io.IOException"},
-	{"implOpen", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", 0, $virtualMethod(ModuleReferences$JModModuleReader, implOpen, $Optional*, $String*), "java.io.IOException"},
-	{"lambda$implList$0", "(Ljdk/internal/jmod/JmodFile$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleReferences$JModModuleReader, lambda$implList$0, bool, $JmodFile$Entry*)},
-	{"newJmodFile", "(Ljava/nio/file/Path;)Ljdk/internal/jmod/JmodFile;", nullptr, $STATIC, $staticMethod(ModuleReferences$JModModuleReader, newJmodFile, $JmodFile*, $Path*)},
-	{}
-};
-
-$InnerClassInfo _ModuleReferences$JModModuleReader_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModuleReferences$JModModuleReader", "jdk.internal.module.ModuleReferences", "JModModuleReader", $STATIC},
-	{"jdk.internal.module.ModuleReferences$SafeCloseModuleReader", "jdk.internal.module.ModuleReferences", "SafeCloseModuleReader", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ModuleReferences$JModModuleReader_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.ModuleReferences$JModModuleReader",
-	"jdk.internal.module.ModuleReferences$SafeCloseModuleReader",
-	nullptr,
-	_ModuleReferences$JModModuleReader_FieldInfo_,
-	_ModuleReferences$JModModuleReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleReferences$JModModuleReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModuleReferences"
-};
-
-$Object* allocate$ModuleReferences$JModModuleReader($Class* clazz) {
-	return $of($alloc(ModuleReferences$JModModuleReader));
-}
 
 $JmodFile* ModuleReferences$JModModuleReader::newJmodFile($Path* path) {
 	$init(ModuleReferences$JModModuleReader);
@@ -186,7 +135,7 @@ $JmodFile$Entry* ModuleReferences$JModModuleReader::getEntry($String* name) {
 }
 
 $Optional* ModuleReferences$JModModuleReader::implFind($String* name$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$var($JmodFile$Entry, je, getEntry(name));
 	if (je != nullptr) {
@@ -203,7 +152,7 @@ $Optional* ModuleReferences$JModModuleReader::implFind($String* name$renamed) {
 }
 
 $Optional* ModuleReferences$JModModuleReader::implOpen($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JmodFile$Entry, je, getEntry(name));
 	if (je != nullptr) {
 		return $Optional::of($($nc(this->jf)->getInputStream(je)));
@@ -213,8 +162,8 @@ $Optional* ModuleReferences$JModModuleReader::implOpen($String* name) {
 }
 
 $Stream* ModuleReferences$JModModuleReader::implList() {
-	$useLocalCurrentObjectStackCache();
-	$var($List, names, $nc($($nc($($nc($($nc(this->jf)->stream()))->filter(static_cast<$Predicate*>($$new(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0)))))->map(static_cast<$Function*>($$new(ModuleReferences$JModModuleReader$$Lambda$name$1)))))->toList());
+	$useLocalObjectStack();
+	$var($List, names, $$nc($$nc($$nc($nc(this->jf)->stream())->filter($$new(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0)))->map($$new(ModuleReferences$JModModuleReader$$Lambda$name$1)))->toList());
 	return $nc(names)->stream();
 }
 
@@ -233,14 +182,52 @@ ModuleReferences$JModModuleReader::ModuleReferences$JModModuleReader() {
 
 $Class* ModuleReferences$JModModuleReader::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0")) {
 			return ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0::load$(name, initialize);
 		}
-		if (name->equals(ModuleReferences$JModModuleReader$$Lambda$name$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModuleReferences$JModModuleReader$$Lambda$name$1")) {
 			return ModuleReferences$JModModuleReader$$Lambda$name$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ModuleReferences$JModModuleReader, name, initialize, &_ModuleReferences$JModModuleReader_ClassInfo_, allocate$ModuleReferences$JModModuleReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"jf", "Ljdk/internal/jmod/JmodFile;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferences$JModModuleReader, jf)},
+		{"uri", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferences$JModModuleReader, uri)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;Ljava/net/URI;)V", nullptr, 0, $method(ModuleReferences$JModModuleReader, init$, void, $Path*, $URI*)},
+		{"getEntry", "(Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Entry;", nullptr, $PRIVATE, $method(ModuleReferences$JModModuleReader, getEntry, $JmodFile$Entry*, $String*)},
+		{"implClose", "()V", nullptr, 0, $virtualMethod(ModuleReferences$JModModuleReader, implClose, void), "java.io.IOException"},
+		{"implFind", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", 0, $virtualMethod(ModuleReferences$JModModuleReader, implFind, $Optional*, $String*)},
+		{"implList", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", 0, $virtualMethod(ModuleReferences$JModModuleReader, implList, $Stream*), "java.io.IOException"},
+		{"implOpen", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", 0, $virtualMethod(ModuleReferences$JModModuleReader, implOpen, $Optional*, $String*), "java.io.IOException"},
+		{"lambda$implList$0", "(Ljdk/internal/jmod/JmodFile$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleReferences$JModModuleReader, lambda$implList$0, bool, $JmodFile$Entry*)},
+		{"newJmodFile", "(Ljava/nio/file/Path;)Ljdk/internal/jmod/JmodFile;", nullptr, $STATIC, $staticMethod(ModuleReferences$JModModuleReader, newJmodFile, $JmodFile*, $Path*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModuleReferences$JModModuleReader", "jdk.internal.module.ModuleReferences", "JModModuleReader", $STATIC},
+		{"jdk.internal.module.ModuleReferences$SafeCloseModuleReader", "jdk.internal.module.ModuleReferences", "SafeCloseModuleReader", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.ModuleReferences$JModModuleReader",
+		"jdk.internal.module.ModuleReferences$SafeCloseModuleReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModuleReferences"
+	};
+	$loadClass(ModuleReferences$JModModuleReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleReferences$JModModuleReader);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/fs/NativeBuffers.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ThreadLocal.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -25,49 +24,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _NativeBuffers_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeBuffers, $assertionsDisabled)},
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeBuffers, unsafe)},
-	{"TEMP_BUF_POOL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeBuffers, TEMP_BUF_POOL_SIZE)},
-	{"threadLocal", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<[Lsun/nio/fs/NativeBuffer;>;", $PRIVATE | $STATIC, $staticField(NativeBuffers, threadLocal)},
-	{}
-};
-
-$MethodInfo _NativeBuffers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(NativeBuffers, init$, void)},
-	{"allocNativeBuffer", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, allocNativeBuffer, $NativeBuffer*, int32_t)},
-	{"asNativeBuffer", "([B)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, asNativeBuffer, $NativeBuffer*, $bytes*)},
-	{"copyCStringToNativeBuffer", "([BLsun/nio/fs/NativeBuffer;)V", nullptr, $STATIC, $staticMethod(NativeBuffers, copyCStringToNativeBuffer, void, $bytes*, $NativeBuffer*)},
-	{"getNativeBuffer", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, getNativeBuffer, $NativeBuffer*, int32_t)},
-	{"getNativeBufferFromCache", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, getNativeBufferFromCache, $NativeBuffer*, int32_t)},
-	{"releaseNativeBuffer", "(Lsun/nio/fs/NativeBuffer;)V", nullptr, $STATIC, $staticMethod(NativeBuffers, releaseNativeBuffer, void, $NativeBuffer*)},
-	{}
-};
-
-$InnerClassInfo _NativeBuffers_InnerClassesInfo_[] = {
-	{"sun.nio.fs.NativeBuffers$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NativeBuffers_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.NativeBuffers",
-	"java.lang.Object",
-	nullptr,
-	_NativeBuffers_FieldInfo_,
-	_NativeBuffers_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativeBuffers_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.NativeBuffers$1"
-};
-
-$Object* allocate$NativeBuffers($Class* clazz) {
-	return $of($alloc(NativeBuffers));
-}
-
 bool NativeBuffers::$assertionsDisabled = false;
 $Unsafe* NativeBuffers::unsafe = nullptr;
 $ThreadLocal* NativeBuffers::threadLocal = nullptr;
@@ -85,7 +41,7 @@ $NativeBuffer* NativeBuffers::allocNativeBuffer(int32_t size) {
 
 $NativeBuffer* NativeBuffers::getNativeBufferFromCache(int32_t size) {
 	$init(NativeBuffers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NativeBufferArray, buffers, $cast($NativeBufferArray, $nc(NativeBuffers::threadLocal)->get()));
 	if (buffers != nullptr) {
 		for (int32_t i = 0; i < NativeBuffers::TEMP_BUF_POOL_SIZE; ++i) {
@@ -112,12 +68,12 @@ $NativeBuffer* NativeBuffers::getNativeBuffer(int32_t size) {
 
 void NativeBuffers::releaseNativeBuffer($NativeBuffer* buffer) {
 	$init(NativeBuffers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NativeBufferArray, buffers, $cast($NativeBufferArray, $nc(NativeBuffers::threadLocal)->get()));
 	if (buffers == nullptr) {
 		$assign(buffers, $new($NativeBufferArray, NativeBuffers::TEMP_BUF_POOL_SIZE));
 		buffers->set(0, buffer);
-		$nc(NativeBuffers::threadLocal)->set(buffers);
+		NativeBuffers::threadLocal->set(buffers);
 		return;
 	}
 	for (int32_t i = 0; i < NativeBuffers::TEMP_BUF_POOL_SIZE; ++i) {
@@ -147,7 +103,7 @@ void NativeBuffers::copyCStringToNativeBuffer($bytes* cstr, $NativeBuffer* buffe
 		$throwNew($AssertionError);
 	}
 	$nc(NativeBuffers::unsafe)->copyMemory(cstr, offset, nullptr, $nc(buffer)->address(), len);
-	$nc(NativeBuffers::unsafe)->putByte($nc(buffer)->address() + len, (int8_t)0);
+	NativeBuffers::unsafe->putByte(buffer->address() + len, (int8_t)0);
 }
 
 $NativeBuffer* NativeBuffers::asNativeBuffer($bytes* cstr) {
@@ -157,7 +113,7 @@ $NativeBuffer* NativeBuffers::asNativeBuffer($bytes* cstr) {
 	return buffer;
 }
 
-void clinit$NativeBuffers($Class* class$) {
+void NativeBuffers::clinit$($Class* clazz) {
 	NativeBuffers::$assertionsDisabled = !NativeBuffers::class$->desiredAssertionStatus();
 	$assignStatic(NativeBuffers::unsafe, $Unsafe::getUnsafe());
 	$assignStatic(NativeBuffers::threadLocal, $new($NativeBuffers$1));
@@ -167,7 +123,44 @@ NativeBuffers::NativeBuffers() {
 }
 
 $Class* NativeBuffers::load$($String* name, bool initialize) {
-	$loadClass(NativeBuffers, name, initialize, &_NativeBuffers_ClassInfo_, clinit$NativeBuffers, allocate$NativeBuffers);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeBuffers, $assertionsDisabled)},
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeBuffers, unsafe)},
+		{"TEMP_BUF_POOL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeBuffers, TEMP_BUF_POOL_SIZE)},
+		{"threadLocal", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<[Lsun/nio/fs/NativeBuffer;>;", $PRIVATE | $STATIC, $staticField(NativeBuffers, threadLocal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(NativeBuffers, init$, void)},
+		{"allocNativeBuffer", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, allocNativeBuffer, $NativeBuffer*, int32_t)},
+		{"asNativeBuffer", "([B)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, asNativeBuffer, $NativeBuffer*, $bytes*)},
+		{"copyCStringToNativeBuffer", "([BLsun/nio/fs/NativeBuffer;)V", nullptr, $STATIC, $staticMethod(NativeBuffers, copyCStringToNativeBuffer, void, $bytes*, $NativeBuffer*)},
+		{"getNativeBuffer", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, getNativeBuffer, $NativeBuffer*, int32_t)},
+		{"getNativeBufferFromCache", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, getNativeBufferFromCache, $NativeBuffer*, int32_t)},
+		{"releaseNativeBuffer", "(Lsun/nio/fs/NativeBuffer;)V", nullptr, $STATIC, $staticMethod(NativeBuffers, releaseNativeBuffer, void, $NativeBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.NativeBuffers$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.NativeBuffers",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.NativeBuffers$1"
+	};
+	$loadClass(NativeBuffers, name, initialize, &classInfo$$, NativeBuffers::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeBuffers);
+	});
 	return class$;
 }
 

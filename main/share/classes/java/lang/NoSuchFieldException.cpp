@@ -1,5 +1,4 @@
 #include <java/lang/NoSuchFieldException.h>
-
 #include <java/lang/ReflectiveOperationException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _NoSuchFieldException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchFieldException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoSuchFieldException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchFieldException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchFieldException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NoSuchFieldException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.NoSuchFieldException",
-	"java.lang.ReflectiveOperationException",
-	nullptr,
-	_NoSuchFieldException_FieldInfo_,
-	_NoSuchFieldException_MethodInfo_
-};
-
-$Object* allocate$NoSuchFieldException($Class* clazz) {
-	return $of($alloc(NoSuchFieldException));
-}
 
 void NoSuchFieldException::init$() {
 	$ReflectiveOperationException::init$();
@@ -54,7 +29,26 @@ void NoSuchFieldException::throw$() {
 }
 
 $Class* NoSuchFieldException::load$($String* name, bool initialize) {
-	$loadClass(NoSuchFieldException, name, initialize, &_NoSuchFieldException_ClassInfo_, allocate$NoSuchFieldException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchFieldException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchFieldException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchFieldException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.NoSuchFieldException",
+		"java.lang.ReflectiveOperationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoSuchFieldException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoSuchFieldException);
+	});
 	return class$;
 }
 

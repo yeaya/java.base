@@ -22,6 +22,7 @@ class $export Checks : public ::java::lang::Object {
 	$class(Checks, $PRELOAD, ::java::lang::Object)
 public:
 	Checks();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isClassName($String* name);
 	static bool isJavaIdentifier($String* str);

@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandle$AccessType.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Enum.h>
 #include <java/lang/InternalError.h>
@@ -33,56 +32,6 @@ using $VarHandle$2 = ::java::lang::invoke::VarHandle$2;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _VarHandle$AccessType_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(VarHandle$AccessType, $assertionsDisabled)},
-	{"GET", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessType, GET)},
-	{"SET", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessType, SET)},
-	{"COMPARE_AND_SET", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessType, COMPARE_AND_SET)},
-	{"COMPARE_AND_EXCHANGE", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessType, COMPARE_AND_EXCHANGE)},
-	{"GET_AND_UPDATE", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessType, GET_AND_UPDATE)},
-	{"$VALUES", "[Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(VarHandle$AccessType, $VALUES)},
-	{"COUNT", "I", nullptr, $STATIC | $FINAL, $staticField(VarHandle$AccessType, COUNT)},
-	{"returnType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(VarHandle$AccessType, returnType)},
-	{"isMonomorphicInReturnType", "Z", nullptr, $FINAL, $field(VarHandle$AccessType, isMonomorphicInReturnType)},
-	{}
-};
-
-$MethodInfo _VarHandle$AccessType_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandle$AccessType, $values, $VarHandle$AccessTypeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(VarHandle$AccessType, init$, void, $String*, int32_t, $Class*)},
-	{"accessModeType", "(Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $TRANSIENT, $method(VarHandle$AccessType, accessModeType, $MethodType*, $Class*, $Class*, $ClassArray*)},
-	{"allocateParameters", "(ILjava/lang/Class;[Ljava/lang/Class;)[Ljava/lang/Class;", "(ILjava/lang/Class<*>;[Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(VarHandle$AccessType, allocateParameters, $ClassArray*, int32_t, $Class*, $ClassArray*)},
-	{"fillParameters", "([Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)I", "([Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(VarHandle$AccessType, fillParameters, int32_t, $ClassArray*, $Class*, $ClassArray*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessType, valueOf, VarHandle$AccessType*, $String*)},
-	{"values", "()[Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessType, values, $VarHandle$AccessTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _VarHandle$AccessType_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandle$AccessType", "java.lang.invoke.VarHandle", "AccessType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _VarHandle$AccessType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.invoke.VarHandle$AccessType",
-	"java.lang.Enum",
-	nullptr,
-	_VarHandle$AccessType_FieldInfo_,
-	_VarHandle$AccessType_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/invoke/VarHandle$AccessType;>;",
-	nullptr,
-	_VarHandle$AccessType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandle"
-};
-
-$Object* allocate$VarHandle$AccessType($Class* clazz) {
-	return $of($alloc(VarHandle$AccessType));
-}
 
 bool VarHandle$AccessType::$assertionsDisabled = false;
 VarHandle$AccessType* VarHandle$AccessType::GET = nullptr;
@@ -126,47 +75,33 @@ $MethodType* VarHandle$AccessType::accessModeType($Class* receiver, $Class* valu
 	$init($VarHandle$2);
 	switch ($nc($VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$AccessType)->get((this)->ordinal())) {
 	case 1:
-		{
-			$assign(ps, allocateParameters(0, receiver, intermediate));
-			fillParameters(ps, receiver, intermediate);
-			return $MethodType::methodType(value, ps);
-		}
+		$assign(ps, allocateParameters(0, receiver, intermediate));
+		fillParameters(ps, receiver, intermediate);
+		return $MethodType::methodType(value, ps);
 	case 2:
-		{
-			$assign(ps, allocateParameters(1, receiver, intermediate));
-			i = fillParameters(ps, receiver, intermediate);
-			$nc(ps)->set(i, value);
-			$init($Void);
-			return $MethodType::methodType($Void::TYPE, ps);
-		}
+		$assign(ps, allocateParameters(1, receiver, intermediate));
+		i = fillParameters(ps, receiver, intermediate);
+		$nc(ps)->set(i, value);
+		return $MethodType::methodType($Void::TYPE, ps);
 	case 3:
-		{
-			$assign(ps, allocateParameters(2, receiver, intermediate));
-			i = fillParameters(ps, receiver, intermediate);
-			$nc(ps)->set(i++, value);
-			$nc(ps)->set(i, value);
-			$init($Boolean);
-			return $MethodType::methodType($Boolean::TYPE, ps);
-		}
+		$assign(ps, allocateParameters(2, receiver, intermediate));
+		i = fillParameters(ps, receiver, intermediate);
+		$nc(ps)->set(i++, value);
+		ps->set(i, value);
+		return $MethodType::methodType($Boolean::TYPE, ps);
 	case 4:
-		{
-			$assign(ps, allocateParameters(2, receiver, intermediate));
-			i = fillParameters(ps, receiver, intermediate);
-			$nc(ps)->set(i++, value);
-			$nc(ps)->set(i, value);
-			return $MethodType::methodType(value, ps);
-		}
+		$assign(ps, allocateParameters(2, receiver, intermediate));
+		i = fillParameters(ps, receiver, intermediate);
+		$nc(ps)->set(i++, value);
+		ps->set(i, value);
+		return $MethodType::methodType(value, ps);
 	case 5:
-		{
-			$assign(ps, allocateParameters(1, receiver, intermediate));
-			i = fillParameters(ps, receiver, intermediate);
-			$nc(ps)->set(i, value);
-			return $MethodType::methodType(value, ps);
-		}
+		$assign(ps, allocateParameters(1, receiver, intermediate));
+		i = fillParameters(ps, receiver, intermediate);
+		$nc(ps)->set(i, value);
+		return $MethodType::methodType(value, ps);
 	default:
-		{
-			$throwNew($InternalError, "Unknown AccessType"_s);
-		}
+		$throwNew($InternalError, "Unknown AccessType"_s);
 	}
 }
 
@@ -188,13 +123,11 @@ int32_t VarHandle$AccessType::fillParameters($ClassArray* ps, $Class* receiver, 
 	return i;
 }
 
-void clinit$VarHandle$AccessType($Class* class$) {
+void VarHandle$AccessType::clinit$($Class* clazz) {
 	$load($VarHandle);
 	VarHandle$AccessType::$assertionsDisabled = !$VarHandle::class$->desiredAssertionStatus();
 	$assignStatic(VarHandle$AccessType::GET, $new(VarHandle$AccessType, "GET"_s, 0, $Object::class$));
-	$init($Void);
 	$assignStatic(VarHandle$AccessType::SET, $new(VarHandle$AccessType, "SET"_s, 1, $Void::TYPE));
-	$init($Boolean);
 	$assignStatic(VarHandle$AccessType::COMPARE_AND_SET, $new(VarHandle$AccessType, "COMPARE_AND_SET"_s, 2, $Boolean::TYPE));
 	$assignStatic(VarHandle$AccessType::COMPARE_AND_EXCHANGE, $new(VarHandle$AccessType, "COMPARE_AND_EXCHANGE"_s, 3, $Object::class$));
 	$assignStatic(VarHandle$AccessType::GET_AND_UPDATE, $new(VarHandle$AccessType, "GET_AND_UPDATE"_s, 4, $Object::class$));
@@ -211,7 +144,51 @@ VarHandle$AccessType::VarHandle$AccessType() {
 }
 
 $Class* VarHandle$AccessType::load$($String* name, bool initialize) {
-	$loadClass(VarHandle$AccessType, name, initialize, &_VarHandle$AccessType_ClassInfo_, clinit$VarHandle$AccessType, allocate$VarHandle$AccessType);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(VarHandle$AccessType, $assertionsDisabled)},
+		{"GET", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessType, GET)},
+		{"SET", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessType, SET)},
+		{"COMPARE_AND_SET", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessType, COMPARE_AND_SET)},
+		{"COMPARE_AND_EXCHANGE", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessType, COMPARE_AND_EXCHANGE)},
+		{"GET_AND_UPDATE", "Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(VarHandle$AccessType, GET_AND_UPDATE)},
+		{"$VALUES", "[Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(VarHandle$AccessType, $VALUES)},
+		{"COUNT", "I", nullptr, $STATIC | $FINAL, $staticField(VarHandle$AccessType, COUNT)},
+		{"returnType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(VarHandle$AccessType, returnType)},
+		{"isMonomorphicInReturnType", "Z", nullptr, $FINAL, $field(VarHandle$AccessType, isMonomorphicInReturnType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandle$AccessType, $values, $VarHandle$AccessTypeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(VarHandle$AccessType, init$, void, $String*, int32_t, $Class*)},
+		{"accessModeType", "(Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $TRANSIENT, $method(VarHandle$AccessType, accessModeType, $MethodType*, $Class*, $Class*, $ClassArray*)},
+		{"allocateParameters", "(ILjava/lang/Class;[Ljava/lang/Class;)[Ljava/lang/Class;", "(ILjava/lang/Class<*>;[Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(VarHandle$AccessType, allocateParameters, $ClassArray*, int32_t, $Class*, $ClassArray*)},
+		{"fillParameters", "([Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)I", "([Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(VarHandle$AccessType, fillParameters, int32_t, $ClassArray*, $Class*, $ClassArray*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessType, valueOf, VarHandle$AccessType*, $String*)},
+		{"values", "()[Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessType, values, $VarHandle$AccessTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandle$AccessType", "java.lang.invoke.VarHandle", "AccessType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.invoke.VarHandle$AccessType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/invoke/VarHandle$AccessType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandle"
+	};
+	$loadClass(VarHandle$AccessType, name, initialize, &classInfo$$, VarHandle$AccessType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(VarHandle$AccessType));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <SiblingIOEHandle$ProcessC.h>
-
 #include <SiblingIOEHandle$APP.h>
 #include <SiblingIOEHandle.h>
 #include <java/io/IOException.h>
@@ -17,54 +16,15 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Process = ::java::lang::Process;
 using $ProcessBuilder = ::java::lang::ProcessBuilder;
 using $CyclicBarrier = ::java::util::concurrent::CyclicBarrier;
-
-$FieldInfo _SiblingIOEHandle$ProcessC_FieldInfo_[] = {
-	{"barrier", "Ljava/util/concurrent/CyclicBarrier;", nullptr, $PRIVATE, $field(SiblingIOEHandle$ProcessC, barrier)},
-	{"processC", "Ljava/lang/Process;", nullptr, $PRIVATE, $field(SiblingIOEHandle$ProcessC, processC)},
-	{}
-};
-
-$MethodInfo _SiblingIOEHandle$ProcessC_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CyclicBarrier;)V", nullptr, $PUBLIC, $method(SiblingIOEHandle$ProcessC, init$, void, $CyclicBarrier*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SiblingIOEHandle$ProcessC, run, void)},
-	{"waitFor", "()V", nullptr, $PUBLIC, $virtualMethod(SiblingIOEHandle$ProcessC, waitFor, void), "java.lang.InterruptedException"},
-	{}
-};
-
-$InnerClassInfo _SiblingIOEHandle$ProcessC_InnerClassesInfo_[] = {
-	{"SiblingIOEHandle$ProcessC", "SiblingIOEHandle", "ProcessC", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SiblingIOEHandle$ProcessC_ClassInfo_ = {
-	$ACC_SUPER,
-	"SiblingIOEHandle$ProcessC",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_SiblingIOEHandle$ProcessC_FieldInfo_,
-	_SiblingIOEHandle$ProcessC_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SiblingIOEHandle$ProcessC_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SiblingIOEHandle"
-};
-
-$Object* allocate$SiblingIOEHandle$ProcessC($Class* clazz) {
-	return $of($alloc(SiblingIOEHandle$ProcessC));
-}
 
 void SiblingIOEHandle$ProcessC::init$($CyclicBarrier* barrier) {
 	$set(this, barrier, barrier);
 }
 
 void SiblingIOEHandle$ProcessC::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($SiblingIOEHandle::waitBarrier(this->barrier)) {
 			$SiblingIOEHandle::waitAbit();
@@ -86,7 +46,39 @@ SiblingIOEHandle$ProcessC::SiblingIOEHandle$ProcessC() {
 }
 
 $Class* SiblingIOEHandle$ProcessC::load$($String* name, bool initialize) {
-	$loadClass(SiblingIOEHandle$ProcessC, name, initialize, &_SiblingIOEHandle$ProcessC_ClassInfo_, allocate$SiblingIOEHandle$ProcessC);
+	$FieldInfo fieldInfos$$[] = {
+		{"barrier", "Ljava/util/concurrent/CyclicBarrier;", nullptr, $PRIVATE, $field(SiblingIOEHandle$ProcessC, barrier)},
+		{"processC", "Ljava/lang/Process;", nullptr, $PRIVATE, $field(SiblingIOEHandle$ProcessC, processC)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CyclicBarrier;)V", nullptr, $PUBLIC, $method(SiblingIOEHandle$ProcessC, init$, void, $CyclicBarrier*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SiblingIOEHandle$ProcessC, run, void)},
+		{"waitFor", "()V", nullptr, $PUBLIC, $virtualMethod(SiblingIOEHandle$ProcessC, waitFor, void), "java.lang.InterruptedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SiblingIOEHandle$ProcessC", "SiblingIOEHandle", "ProcessC", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SiblingIOEHandle$ProcessC",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SiblingIOEHandle"
+	};
+	$loadClass(SiblingIOEHandle$ProcessC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SiblingIOEHandle$ProcessC);
+	});
 	return class$;
 }
 

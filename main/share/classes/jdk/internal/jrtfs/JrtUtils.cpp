@@ -1,5 +1,4 @@
 #include <jdk/internal/jrtfs/JrtUtils.h>
-
 #include <java/util/regex/PatternSyntaxException.h>
 #include <jcpp.h>
 
@@ -14,35 +13,6 @@ namespace jdk {
 	namespace internal {
 		namespace jrtfs {
 
-$FieldInfo _JrtUtils_FieldInfo_[] = {
-	{"regexMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtUtils, regexMetaChars)},
-	{"globMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtUtils, globMetaChars)},
-	{"EOL", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JrtUtils, EOL)},
-	{}
-};
-
-$MethodInfo _JrtUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JrtUtils, init$, void)},
-	{"isGlobMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtUtils, isGlobMeta, bool, char16_t)},
-	{"isRegexMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtUtils, isRegexMeta, bool, char16_t)},
-	{"next", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtUtils, next, char16_t, $String*, int32_t)},
-	{"toRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JrtUtils, toRegexPattern, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _JrtUtils_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.jrtfs.JrtUtils",
-	"java.lang.Object",
-	nullptr,
-	_JrtUtils_FieldInfo_,
-	_JrtUtils_MethodInfo_
-};
-
-$Object* allocate$JrtUtils($Class* clazz) {
-	return $of($alloc(JrtUtils));
-}
-
 $String* JrtUtils::regexMetaChars = nullptr;
 $String* JrtUtils::globMetaChars = nullptr;
 
@@ -51,12 +21,12 @@ void JrtUtils::init$() {
 
 bool JrtUtils::isRegexMeta(char16_t c) {
 	$init(JrtUtils);
-	return $nc(JrtUtils::regexMetaChars)->indexOf((int32_t)c) != -1;
+	return JrtUtils::regexMetaChars->indexOf(c) != -1;
 }
 
 bool JrtUtils::isGlobMeta(char16_t c) {
 	$init(JrtUtils);
-	return $nc(JrtUtils::globMetaChars)->indexOf((int32_t)c) != -1;
+	return JrtUtils::globMetaChars->indexOf(c) != -1;
 }
 
 char16_t JrtUtils::next($String* glob, int32_t i) {
@@ -93,113 +63,97 @@ $String* JrtUtils::toRegexPattern($String* globPattern) {
 					break;
 				}
 			case u'/':
-				{
-					regex->append(c);
-					break;
-				}
+				regex->append(c);
+				break;
 			case u'[':
-				{
-					regex->append("[[^/]&&["_s);
-					if (JrtUtils::next(globPattern, i) == u'^') {
-						regex->append("\\^"_s);
+				regex->append("[[^/]&&["_s);
+				if (JrtUtils::next(globPattern, i) == u'^') {
+					regex->append("\\^"_s);
+					++i;
+				} else {
+					if (JrtUtils::next(globPattern, i) == u'!') {
+						regex->append(u'^');
 						++i;
-					} else {
-						if (JrtUtils::next(globPattern, i) == u'!') {
-							regex->append(u'^');
-							++i;
-						}
-						if (JrtUtils::next(globPattern, i) == u'-') {
-							regex->append(u'-');
-							++i;
-						}
 					}
-					hasRangeStart = false;
-					last = (char16_t)0;
-					while (i < globPattern->length()) {
-						c = globPattern->charAt(i++);
-						if (c == u']') {
-							break;
-						}
-						if (c == u'/') {
-							$throwNew($PatternSyntaxException, "Explicit \'name separator\' in class"_s, globPattern, i - 1);
-						}
-						if (c == u'\\' || c == u'[' || c == u'&' && JrtUtils::next(globPattern, i) == u'&') {
-							regex->append(u'\\');
-						}
-						regex->append(c);
-						if (c == u'-') {
-							if (!hasRangeStart) {
-								$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 1);
-							}
-							if ((c = JrtUtils::next(globPattern, i++)) == JrtUtils::EOL || c == u']') {
-								break;
-							}
-							if (c < last) {
-								$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 3);
-							}
-							regex->append(c);
-							hasRangeStart = false;
-						} else {
-							hasRangeStart = true;
-							last = c;
-						}
-					}
-					if (c != u']') {
-						$throwNew($PatternSyntaxException, "Missing \']"_s, globPattern, i - 1);
-					}
-					regex->append("]]"_s);
-					break;
-				}
-			case u'{':
-				{
-					if (inGroup) {
-						$throwNew($PatternSyntaxException, "Cannot nest groups"_s, globPattern, i - 1);
-					}
-					regex->append("(?:(?:"_s);
-					inGroup = true;
-					break;
-				}
-			case u'}':
-				{
-					if (inGroup) {
-						regex->append("))"_s);
-						inGroup = false;
-					} else {
-						regex->append(u'}');
-					}
-					break;
-				}
-			case u',':
-				{
-					if (inGroup) {
-						regex->append(")|(?:"_s);
-					} else {
-						regex->append(u',');
-					}
-					break;
-				}
-			case u'*':
-				{
-					if (JrtUtils::next(globPattern, i) == u'*') {
-						regex->append(".*"_s);
+					if (JrtUtils::next(globPattern, i) == u'-') {
+						regex->append(u'-');
 						++i;
-					} else {
-						regex->append("[^/]*"_s);
 					}
-					break;
 				}
-			case u'?':
-				{
-					regex->append("[^/]"_s);
-					break;
-				}
-			default:
-				{
-					if (isRegexMeta(c)) {
+				hasRangeStart = false;
+				last = 0;
+				while (i < globPattern->length()) {
+					c = globPattern->charAt(i++);
+					if (c == u']') {
+						break;
+					}
+					if (c == u'/') {
+						$throwNew($PatternSyntaxException, "Explicit \'name separator\' in class"_s, globPattern, i - 1);
+					}
+					if (c == u'\\' || c == u'[' || c == u'&' && JrtUtils::next(globPattern, i) == u'&') {
 						regex->append(u'\\');
 					}
 					regex->append(c);
+					if (c == u'-') {
+						if (!hasRangeStart) {
+							$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 1);
+						}
+						if ((c = JrtUtils::next(globPattern, i++)) == JrtUtils::EOL || c == u']') {
+							break;
+						}
+						if (c < last) {
+							$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 3);
+						}
+						regex->append(c);
+						hasRangeStart = false;
+					} else {
+						hasRangeStart = true;
+						last = c;
+					}
 				}
+				if (c != u']') {
+					$throwNew($PatternSyntaxException, "Missing \']"_s, globPattern, i - 1);
+				}
+				regex->append("]]"_s);
+				break;
+			case u'{':
+				if (inGroup) {
+					$throwNew($PatternSyntaxException, "Cannot nest groups"_s, globPattern, i - 1);
+				}
+				regex->append("(?:(?:"_s);
+				inGroup = true;
+				break;
+			case u'}':
+				if (inGroup) {
+					regex->append("))"_s);
+					inGroup = false;
+				} else {
+					regex->append(u'}');
+				}
+				break;
+			case u',':
+				if (inGroup) {
+					regex->append(")|(?:"_s);
+				} else {
+					regex->append(u',');
+				}
+				break;
+			case u'*':
+				if (JrtUtils::next(globPattern, i) == u'*') {
+					regex->append(".*"_s);
+					++i;
+				} else {
+					regex->append("[^/]*"_s);
+				}
+				break;
+			case u'?':
+				regex->append("[^/]"_s);
+				break;
+			default:
+				if (isRegexMeta(c)) {
+					regex->append(u'\\');
+				}
+				regex->append(c);
 			}
 		}
 	}
@@ -212,13 +166,37 @@ $String* JrtUtils::toRegexPattern($String* globPattern) {
 JrtUtils::JrtUtils() {
 }
 
-void clinit$JrtUtils($Class* class$) {
+void JrtUtils::clinit$($Class* clazz) {
 	$assignStatic(JrtUtils::regexMetaChars, ".^$+{[]|()"_s);
 	$assignStatic(JrtUtils::globMetaChars, "\\*?[{"_s);
 }
 
 $Class* JrtUtils::load$($String* name, bool initialize) {
-	$loadClass(JrtUtils, name, initialize, &_JrtUtils_ClassInfo_, clinit$JrtUtils, allocate$JrtUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"regexMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtUtils, regexMetaChars)},
+		{"globMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtUtils, globMetaChars)},
+		{"EOL", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JrtUtils, EOL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JrtUtils, init$, void)},
+		{"isGlobMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtUtils, isGlobMeta, bool, char16_t)},
+		{"isRegexMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtUtils, isRegexMeta, bool, char16_t)},
+		{"next", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtUtils, next, char16_t, $String*, int32_t)},
+		{"toRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JrtUtils, toRegexPattern, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.jrtfs.JrtUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JrtUtils, name, initialize, &classInfo$$, JrtUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JrtUtils);
+	});
 	return class$;
 }
 

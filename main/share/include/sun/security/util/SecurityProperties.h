@@ -16,6 +16,7 @@ class $import SecurityProperties : public ::java::lang::Object {
 	$class(SecurityProperties, 0, ::java::lang::Object)
 public:
 	SecurityProperties();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getOverridableProperty($String* propName);
 	static bool includedInExceptions($String* refName);

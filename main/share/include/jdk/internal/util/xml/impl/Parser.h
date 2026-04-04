@@ -104,6 +104,7 @@ class $import Parser : public ::java::lang::Object {
 	$class(Parser, 0, ::java::lang::Object)
 public:
 	Parser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void attr(::jdk::internal::util::xml::impl::Pair* att);
 	$String* atype(::jdk::internal::util::xml::impl::Pair* att);
@@ -167,7 +168,7 @@ public:
 	static $String* FAULT;
 	static const int32_t BUFFSIZE_READER = 512;
 	static const int32_t BUFFSIZE_PARSER = 128;
-	static const char16_t EOS = 0x0000FFFF;
+	static const char16_t EOS = 0x0000ffff;
 	::jdk::internal::util::xml::impl::Pair* mNoNS = nullptr;
 	::jdk::internal::util::xml::impl::Pair* mXml = nullptr;
 	::java::util::Map* mEnt = nullptr;

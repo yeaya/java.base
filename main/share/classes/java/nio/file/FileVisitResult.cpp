@@ -1,5 +1,4 @@
 #include <java/nio/file/FileVisitResult.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -17,37 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _FileVisitResult_FieldInfo_[] = {
-	{"CONTINUE", "Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileVisitResult, CONTINUE)},
-	{"TERMINATE", "Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileVisitResult, TERMINATE)},
-	{"SKIP_SUBTREE", "Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileVisitResult, SKIP_SUBTREE)},
-	{"SKIP_SIBLINGS", "Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileVisitResult, SKIP_SIBLINGS)},
-	{"$VALUES", "[Ljava/nio/file/FileVisitResult;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FileVisitResult, $VALUES)},
-	{}
-};
-
-$MethodInfo _FileVisitResult_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/FileVisitResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileVisitResult, $values, $FileVisitResultArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FileVisitResult, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileVisitResult, valueOf, FileVisitResult*, $String*)},
-	{"values", "()[Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileVisitResult, values, $FileVisitResultArray*)},
-	{}
-};
-
-$ClassInfo _FileVisitResult_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.nio.file.FileVisitResult",
-	"java.lang.Enum",
-	nullptr,
-	_FileVisitResult_FieldInfo_,
-	_FileVisitResult_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/nio/file/FileVisitResult;>;"
-};
-
-$Object* allocate$FileVisitResult($Class* clazz) {
-	return $of($alloc(FileVisitResult));
-}
 
 FileVisitResult* FileVisitResult::CONTINUE = nullptr;
 FileVisitResult* FileVisitResult::TERMINATE = nullptr;
@@ -79,7 +47,7 @@ void FileVisitResult::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$FileVisitResult($Class* class$) {
+void FileVisitResult::clinit$($Class* clazz) {
 	$assignStatic(FileVisitResult::CONTINUE, $new(FileVisitResult, "CONTINUE"_s, 0));
 	$assignStatic(FileVisitResult::TERMINATE, $new(FileVisitResult, "TERMINATE"_s, 1));
 	$assignStatic(FileVisitResult::SKIP_SUBTREE, $new(FileVisitResult, "SKIP_SUBTREE"_s, 2));
@@ -91,7 +59,33 @@ FileVisitResult::FileVisitResult() {
 }
 
 $Class* FileVisitResult::load$($String* name, bool initialize) {
-	$loadClass(FileVisitResult, name, initialize, &_FileVisitResult_ClassInfo_, clinit$FileVisitResult, allocate$FileVisitResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONTINUE", "Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileVisitResult, CONTINUE)},
+		{"TERMINATE", "Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileVisitResult, TERMINATE)},
+		{"SKIP_SUBTREE", "Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileVisitResult, SKIP_SUBTREE)},
+		{"SKIP_SIBLINGS", "Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileVisitResult, SKIP_SIBLINGS)},
+		{"$VALUES", "[Ljava/nio/file/FileVisitResult;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FileVisitResult, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/nio/file/FileVisitResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileVisitResult, $values, $FileVisitResultArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FileVisitResult, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileVisitResult, valueOf, FileVisitResult*, $String*)},
+		{"values", "()[Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileVisitResult, values, $FileVisitResultArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.nio.file.FileVisitResult",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/nio/file/FileVisitResult;>;"
+	};
+	$loadClass(FileVisitResult, name, initialize, &classInfo$$, FileVisitResult::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileVisitResult));
+	});
 	return class$;
 }
 

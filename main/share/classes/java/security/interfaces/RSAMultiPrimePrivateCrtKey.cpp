@@ -1,5 +1,4 @@
 #include <java/security/interfaces/RSAMultiPrimePrivateCrtKey.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/spec/RSAOtherPrimeInfo.h>
 #include <jcpp.h>
@@ -15,42 +14,36 @@ namespace java {
 	namespace security {
 		namespace interfaces {
 
-$CompoundAttribute _RSAMultiPrimePrivateCrtKey_FieldAnnotations_serialVersionUID[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _RSAMultiPrimePrivateCrtKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(RSAMultiPrimePrivateCrtKey, serialVersionUID), _RSAMultiPrimePrivateCrtKey_FieldAnnotations_serialVersionUID},
-	{}
-};
-
-$MethodInfo _RSAMultiPrimePrivateCrtKey_MethodInfo_[] = {
-	{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getCrtCoefficient, $BigInteger*)},
-	{"getOtherPrimeInfo", "()[Ljava/security/spec/RSAOtherPrimeInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getOtherPrimeInfo, $RSAOtherPrimeInfoArray*)},
-	{"getPrimeExponentP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeExponentP, $BigInteger*)},
-	{"getPrimeExponentQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeExponentQ, $BigInteger*)},
-	{"getPrimeP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeP, $BigInteger*)},
-	{"getPrimeQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeQ, $BigInteger*)},
-	{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPublicExponent, $BigInteger*)},
-	{}
-};
-
-$ClassInfo _RSAMultiPrimePrivateCrtKey_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.interfaces.RSAMultiPrimePrivateCrtKey",
-	nullptr,
-	"java.security.interfaces.RSAPrivateKey",
-	_RSAMultiPrimePrivateCrtKey_FieldInfo_,
-	_RSAMultiPrimePrivateCrtKey_MethodInfo_
-};
-
-$Object* allocate$RSAMultiPrimePrivateCrtKey($Class* clazz) {
-	return $of($alloc(RSAMultiPrimePrivateCrtKey));
-}
-
 $Class* RSAMultiPrimePrivateCrtKey::load$($String* name, bool initialize) {
-	$loadClass(RSAMultiPrimePrivateCrtKey, name, initialize, &_RSAMultiPrimePrivateCrtKey_ClassInfo_, allocate$RSAMultiPrimePrivateCrtKey);
+	$CompoundAttribute serialVersionUIDfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(RSAMultiPrimePrivateCrtKey, serialVersionUID), serialVersionUIDfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getCrtCoefficient, $BigInteger*)},
+		{"getOtherPrimeInfo", "()[Ljava/security/spec/RSAOtherPrimeInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getOtherPrimeInfo, $RSAOtherPrimeInfoArray*)},
+		{"getPrimeExponentP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeExponentP, $BigInteger*)},
+		{"getPrimeExponentQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeExponentQ, $BigInteger*)},
+		{"getPrimeP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeP, $BigInteger*)},
+		{"getPrimeQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeQ, $BigInteger*)},
+		{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPublicExponent, $BigInteger*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.interfaces.RSAMultiPrimePrivateCrtKey",
+		nullptr,
+		"java.security.interfaces.RSAPrivateKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RSAMultiPrimePrivateCrtKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RSAMultiPrimePrivateCrtKey));
+	});
 	return class$;
 }
 

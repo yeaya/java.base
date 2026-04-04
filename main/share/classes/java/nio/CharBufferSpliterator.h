@@ -26,6 +26,7 @@ class CharBufferSpliterator : public ::java::util::Spliterator$OfInt {
 public:
 	CharBufferSpliterator();
 	using ::java::util::Spliterator$OfInt::forEachRemaining;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::CharBuffer* buffer);
 	void init$(::java::nio::CharBuffer* buffer, int32_t origin, int32_t limit);
 	virtual int32_t characteristics() override;

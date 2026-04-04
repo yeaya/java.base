@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodHandleStatics.h>
-
 #include <java/lang/Error.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -29,7 +28,6 @@
 #undef VAR_HANDLE_GUARDS
 #undef VAR_HANDLE_IDENTITY_ADAPT
 
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
@@ -53,59 +51,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _MethodHandleStatics_FieldInfo_[] = {
-	{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, UNSAFE)},
-	{"DEBUG_METHOD_HANDLE_NAMES", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, DEBUG_METHOD_HANDLE_NAMES)},
-	{"DUMP_CLASS_FILES", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, DUMP_CLASS_FILES)},
-	{"TRACE_INTERPRETER", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, TRACE_INTERPRETER)},
-	{"TRACE_METHOD_LINKAGE", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, TRACE_METHOD_LINKAGE)},
-	{"TRACE_RESOLVE", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, TRACE_RESOLVE)},
-	{"COMPILE_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, COMPILE_THRESHOLD)},
-	{"LOG_LF_COMPILATION_FAILURE", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, LOG_LF_COMPILATION_FAILURE)},
-	{"DONT_INLINE_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, DONT_INLINE_THRESHOLD)},
-	{"PROFILE_LEVEL", "I", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, PROFILE_LEVEL)},
-	{"PROFILE_GWT", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, PROFILE_GWT)},
-	{"CUSTOMIZE_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, CUSTOMIZE_THRESHOLD)},
-	{"VAR_HANDLE_GUARDS", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, VAR_HANDLE_GUARDS)},
-	{"MAX_ARITY", "I", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, MAX_ARITY)},
-	{"VAR_HANDLE_IDENTITY_ADAPT", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, VAR_HANDLE_IDENTITY_ADAPT)},
-	{}
-};
-
-$MethodInfo _MethodHandleStatics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MethodHandleStatics, init$, void)},
-	{"debugEnabled", "()Z", nullptr, $STATIC, $staticMethod(MethodHandleStatics, debugEnabled, bool)},
-	{"message", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleStatics, message, $String*, $String*, Object$*)},
-	{"message", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleStatics, message, $String*, $String*, Object$*, Object$*)},
-	{"newIllegalArgumentException", "(Ljava/lang/String;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newIllegalArgumentException, $RuntimeException*, $String*)},
-	{"newIllegalArgumentException", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newIllegalArgumentException, $RuntimeException*, $String*, Object$*)},
-	{"newIllegalArgumentException", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newIllegalArgumentException, $RuntimeException*, $String*, Object$*, Object$*)},
-	{"newIllegalStateException", "(Ljava/lang/String;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newIllegalStateException, $RuntimeException*, $String*)},
-	{"newIllegalStateException", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newIllegalStateException, $RuntimeException*, $String*, Object$*)},
-	{"newInternalError", "(Ljava/lang/String;)Ljava/lang/InternalError;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newInternalError, $InternalError*, $String*)},
-	{"newInternalError", "(Ljava/lang/String;Ljava/lang/Exception;)Ljava/lang/InternalError;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newInternalError, $InternalError*, $String*, $Exception*)},
-	{"newInternalError", "(Ljava/lang/Exception;)Ljava/lang/InternalError;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newInternalError, $InternalError*, $Exception*)},
-	{"rangeCheck1", "(II)I", nullptr, $STATIC, $staticMethod(MethodHandleStatics, rangeCheck1, int32_t, int32_t, int32_t)},
-	{"rangeCheck2", "(III)V", nullptr, $STATIC, $staticMethod(MethodHandleStatics, rangeCheck2, void, int32_t, int32_t, int32_t)},
-	{"traceLambdaForm", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;Ljava/lang/invoke/MemberName;)V", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)V", $STATIC, $staticMethod(MethodHandleStatics, traceLambdaForm, void, $String*, $MethodType*, $Class*, $MemberName*)},
-	{"traceSpeciesType", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(MethodHandleStatics, traceSpeciesType, void, $String*, $Class*)},
-	{"uncaughtException", "(Ljava/lang/Throwable;)Ljava/lang/Error;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, uncaughtException, $Error*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _MethodHandleStatics_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.MethodHandleStatics",
-	"java.lang.Object",
-	nullptr,
-	_MethodHandleStatics_FieldInfo_,
-	_MethodHandleStatics_MethodInfo_
-};
-
-$Object* allocate$MethodHandleStatics($Class* clazz) {
-	return $of($alloc(MethodHandleStatics));
-}
 
 $Unsafe* MethodHandleStatics::UNSAFE = nullptr;
 bool MethodHandleStatics::DEBUG_METHOD_HANDLE_NAMES = false;
@@ -133,17 +78,22 @@ bool MethodHandleStatics::debugEnabled() {
 
 void MethodHandleStatics::traceLambdaForm($String* name, $MethodType* type, $Class* holder, $MemberName* resolvedMember) {
 	$init(MethodHandleStatics);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (MethodHandleStatics::TRACE_RESOLVE) {
-		$var($String, var$1, $$str({"[LF_RESOLVE] "_s, $($nc(holder)->getName()), " "_s, name, " "_s}));
-		$var($String, var$0, $$concat(var$1, $($LambdaForm::shortenSignature($($LambdaForm::basicTypeSignature(type))))));
-		$nc($System::out)->println($$concat(var$0, (resolvedMember != nullptr ? " (success)"_s : " (fail)"_s)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("[LF_RESOLVE] "_s);
+		var$0->append($($nc(holder)->getName()));
+		var$0->append(" "_s);
+		var$0->append(name);
+		var$0->append(" "_s);
+		var$0->append($($LambdaForm::shortenSignature($($LambdaForm::basicTypeSignature(type)))));
+		var$0->append(resolvedMember != nullptr ? " (success)"_s : " (fail)"_s);
+		$nc($System::out)->println($$str(var$0));
 	}
 	if ($CDS::isDumpingClassList()) {
-		$var($String, var$2, "[LF_RESOLVE]"_s);
-		$var($String, var$3, $nc(holder)->getName());
-		$var($String, var$4, name);
-		$CDS::traceLambdaFormInvoker(var$2, var$3, var$4, $($LambdaForm::shortenSignature($($LambdaForm::basicTypeSignature(type)))));
+		$var($String, var$1, "[LF_RESOLVE]"_s);
+		$var($String, var$2, $nc(holder)->getName());
+		$CDS::traceLambdaFormInvoker(var$1, var$2, name, $($LambdaForm::shortenSignature($($LambdaForm::basicTypeSignature(type)))));
 	}
 }
 
@@ -169,7 +119,7 @@ $InternalError* MethodHandleStatics::newInternalError($String* message, $Excepti
 
 $InternalError* MethodHandleStatics::newInternalError($Exception* cause) {
 	$init(MethodHandleStatics);
-	return $new($InternalError, static_cast<$Throwable*>(cause));
+	return $new($InternalError, cause);
 }
 
 $RuntimeException* MethodHandleStatics::newIllegalStateException($String* message) {
@@ -229,7 +179,7 @@ $String* MethodHandleStatics::message($String* message$renamed, Object$* obj, Ob
 
 void MethodHandleStatics::rangeCheck2(int32_t start, int32_t end, int32_t size) {
 	$init(MethodHandleStatics);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (0 > start || start > end || end > size) {
 		$throwNew($IndexOutOfBoundsException, $$str({$$str(start), ".."_s, $$str(end)}));
 	}
@@ -243,25 +193,25 @@ int32_t MethodHandleStatics::rangeCheck1(int32_t index, int32_t size) {
 	return index;
 }
 
-void clinit$MethodHandleStatics($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MethodHandleStatics::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(MethodHandleStatics::UNSAFE, $Unsafe::getUnsafe());
 	{
 		$var($Properties, props, $GetPropertyAction::privilegedGetProperties());
 		MethodHandleStatics::DEBUG_METHOD_HANDLE_NAMES = $Boolean::parseBoolean($($nc(props)->getProperty("java.lang.invoke.MethodHandle.DEBUG_NAMES"_s)));
-		MethodHandleStatics::DUMP_CLASS_FILES = $Boolean::parseBoolean($($nc(props)->getProperty("java.lang.invoke.MethodHandle.DUMP_CLASS_FILES"_s)));
-		MethodHandleStatics::TRACE_INTERPRETER = $Boolean::parseBoolean($($nc(props)->getProperty("java.lang.invoke.MethodHandle.TRACE_INTERPRETER"_s)));
-		MethodHandleStatics::TRACE_METHOD_LINKAGE = $Boolean::parseBoolean($($nc(props)->getProperty("java.lang.invoke.MethodHandle.TRACE_METHOD_LINKAGE"_s)));
-		MethodHandleStatics::TRACE_RESOLVE = $Boolean::parseBoolean($($nc(props)->getProperty("java.lang.invoke.MethodHandle.TRACE_RESOLVE"_s)));
-		MethodHandleStatics::COMPILE_THRESHOLD = $Integer::parseInt($($nc(props)->getProperty("java.lang.invoke.MethodHandle.COMPILE_THRESHOLD"_s, "0"_s)));
-		MethodHandleStatics::LOG_LF_COMPILATION_FAILURE = $Boolean::parseBoolean($($nc(props)->getProperty("java.lang.invoke.MethodHandle.LOG_LF_COMPILATION_FAILURE"_s, "false"_s)));
-		MethodHandleStatics::DONT_INLINE_THRESHOLD = $Integer::parseInt($($nc(props)->getProperty("java.lang.invoke.MethodHandle.DONT_INLINE_THRESHOLD"_s, "30"_s)));
-		MethodHandleStatics::PROFILE_LEVEL = $Integer::parseInt($($nc(props)->getProperty("java.lang.invoke.MethodHandle.PROFILE_LEVEL"_s, "0"_s)));
-		MethodHandleStatics::PROFILE_GWT = $Boolean::parseBoolean($($nc(props)->getProperty("java.lang.invoke.MethodHandle.PROFILE_GWT"_s, "true"_s)));
-		MethodHandleStatics::CUSTOMIZE_THRESHOLD = $Integer::parseInt($($nc(props)->getProperty("java.lang.invoke.MethodHandle.CUSTOMIZE_THRESHOLD"_s, "127"_s)));
-		MethodHandleStatics::VAR_HANDLE_GUARDS = $Boolean::parseBoolean($($nc(props)->getProperty("java.lang.invoke.VarHandle.VAR_HANDLE_GUARDS"_s, "true"_s)));
-		MethodHandleStatics::VAR_HANDLE_IDENTITY_ADAPT = $Boolean::parseBoolean($($nc(props)->getProperty("java.lang.invoke.VarHandle.VAR_HANDLE_IDENTITY_ADAPT"_s, "false"_s)));
-		MethodHandleStatics::MAX_ARITY = $Integer::parseInt($($nc(props)->getProperty("java.lang.invoke.MethodHandleImpl.MAX_ARITY"_s, "255"_s)));
+		MethodHandleStatics::DUMP_CLASS_FILES = $Boolean::parseBoolean($(props->getProperty("java.lang.invoke.MethodHandle.DUMP_CLASS_FILES"_s)));
+		MethodHandleStatics::TRACE_INTERPRETER = $Boolean::parseBoolean($(props->getProperty("java.lang.invoke.MethodHandle.TRACE_INTERPRETER"_s)));
+		MethodHandleStatics::TRACE_METHOD_LINKAGE = $Boolean::parseBoolean($(props->getProperty("java.lang.invoke.MethodHandle.TRACE_METHOD_LINKAGE"_s)));
+		MethodHandleStatics::TRACE_RESOLVE = $Boolean::parseBoolean($(props->getProperty("java.lang.invoke.MethodHandle.TRACE_RESOLVE"_s)));
+		MethodHandleStatics::COMPILE_THRESHOLD = $Integer::parseInt($(props->getProperty("java.lang.invoke.MethodHandle.COMPILE_THRESHOLD"_s, "0"_s)));
+		MethodHandleStatics::LOG_LF_COMPILATION_FAILURE = $Boolean::parseBoolean($(props->getProperty("java.lang.invoke.MethodHandle.LOG_LF_COMPILATION_FAILURE"_s, "false"_s)));
+		MethodHandleStatics::DONT_INLINE_THRESHOLD = $Integer::parseInt($(props->getProperty("java.lang.invoke.MethodHandle.DONT_INLINE_THRESHOLD"_s, "30"_s)));
+		MethodHandleStatics::PROFILE_LEVEL = $Integer::parseInt($(props->getProperty("java.lang.invoke.MethodHandle.PROFILE_LEVEL"_s, "0"_s)));
+		MethodHandleStatics::PROFILE_GWT = $Boolean::parseBoolean($(props->getProperty("java.lang.invoke.MethodHandle.PROFILE_GWT"_s, "true"_s)));
+		MethodHandleStatics::CUSTOMIZE_THRESHOLD = $Integer::parseInt($(props->getProperty("java.lang.invoke.MethodHandle.CUSTOMIZE_THRESHOLD"_s, "127"_s)));
+		MethodHandleStatics::VAR_HANDLE_GUARDS = $Boolean::parseBoolean($(props->getProperty("java.lang.invoke.VarHandle.VAR_HANDLE_GUARDS"_s, "true"_s)));
+		MethodHandleStatics::VAR_HANDLE_IDENTITY_ADAPT = $Boolean::parseBoolean($(props->getProperty("java.lang.invoke.VarHandle.VAR_HANDLE_IDENTITY_ADAPT"_s, "false"_s)));
+		MethodHandleStatics::MAX_ARITY = $Integer::parseInt($(props->getProperty("java.lang.invoke.MethodHandleImpl.MAX_ARITY"_s, "255"_s)));
 		if (MethodHandleStatics::CUSTOMIZE_THRESHOLD < -1 || MethodHandleStatics::CUSTOMIZE_THRESHOLD > 127) {
 			$throw($(MethodHandleStatics::newInternalError("CUSTOMIZE_THRESHOLD should be in [-1...127] range"_s)));
 		}
@@ -272,7 +222,55 @@ MethodHandleStatics::MethodHandleStatics() {
 }
 
 $Class* MethodHandleStatics::load$($String* name, bool initialize) {
-	$loadClass(MethodHandleStatics, name, initialize, &_MethodHandleStatics_ClassInfo_, clinit$MethodHandleStatics, allocate$MethodHandleStatics);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, UNSAFE)},
+		{"DEBUG_METHOD_HANDLE_NAMES", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, DEBUG_METHOD_HANDLE_NAMES)},
+		{"DUMP_CLASS_FILES", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, DUMP_CLASS_FILES)},
+		{"TRACE_INTERPRETER", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, TRACE_INTERPRETER)},
+		{"TRACE_METHOD_LINKAGE", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, TRACE_METHOD_LINKAGE)},
+		{"TRACE_RESOLVE", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, TRACE_RESOLVE)},
+		{"COMPILE_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, COMPILE_THRESHOLD)},
+		{"LOG_LF_COMPILATION_FAILURE", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, LOG_LF_COMPILATION_FAILURE)},
+		{"DONT_INLINE_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, DONT_INLINE_THRESHOLD)},
+		{"PROFILE_LEVEL", "I", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, PROFILE_LEVEL)},
+		{"PROFILE_GWT", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, PROFILE_GWT)},
+		{"CUSTOMIZE_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, CUSTOMIZE_THRESHOLD)},
+		{"VAR_HANDLE_GUARDS", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, VAR_HANDLE_GUARDS)},
+		{"MAX_ARITY", "I", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, MAX_ARITY)},
+		{"VAR_HANDLE_IDENTITY_ADAPT", "Z", nullptr, $STATIC | $FINAL, $staticField(MethodHandleStatics, VAR_HANDLE_IDENTITY_ADAPT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MethodHandleStatics, init$, void)},
+		{"debugEnabled", "()Z", nullptr, $STATIC, $staticMethod(MethodHandleStatics, debugEnabled, bool)},
+		{"message", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleStatics, message, $String*, $String*, Object$*)},
+		{"message", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleStatics, message, $String*, $String*, Object$*, Object$*)},
+		{"newIllegalArgumentException", "(Ljava/lang/String;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newIllegalArgumentException, $RuntimeException*, $String*)},
+		{"newIllegalArgumentException", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newIllegalArgumentException, $RuntimeException*, $String*, Object$*)},
+		{"newIllegalArgumentException", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newIllegalArgumentException, $RuntimeException*, $String*, Object$*, Object$*)},
+		{"newIllegalStateException", "(Ljava/lang/String;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newIllegalStateException, $RuntimeException*, $String*)},
+		{"newIllegalStateException", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newIllegalStateException, $RuntimeException*, $String*, Object$*)},
+		{"newInternalError", "(Ljava/lang/String;)Ljava/lang/InternalError;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newInternalError, $InternalError*, $String*)},
+		{"newInternalError", "(Ljava/lang/String;Ljava/lang/Exception;)Ljava/lang/InternalError;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newInternalError, $InternalError*, $String*, $Exception*)},
+		{"newInternalError", "(Ljava/lang/Exception;)Ljava/lang/InternalError;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, newInternalError, $InternalError*, $Exception*)},
+		{"rangeCheck1", "(II)I", nullptr, $STATIC, $staticMethod(MethodHandleStatics, rangeCheck1, int32_t, int32_t, int32_t)},
+		{"rangeCheck2", "(III)V", nullptr, $STATIC, $staticMethod(MethodHandleStatics, rangeCheck2, void, int32_t, int32_t, int32_t)},
+		{"traceLambdaForm", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;Ljava/lang/invoke/MemberName;)V", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)V", $STATIC, $staticMethod(MethodHandleStatics, traceLambdaForm, void, $String*, $MethodType*, $Class*, $MemberName*)},
+		{"traceSpeciesType", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(MethodHandleStatics, traceSpeciesType, void, $String*, $Class*)},
+		{"uncaughtException", "(Ljava/lang/Throwable;)Ljava/lang/Error;", nullptr, $STATIC, $staticMethod(MethodHandleStatics, uncaughtException, $Error*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.MethodHandleStatics",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MethodHandleStatics, name, initialize, &classInfo$$, MethodHandleStatics::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodHandleStatics);
+	});
 	return class$;
 }
 

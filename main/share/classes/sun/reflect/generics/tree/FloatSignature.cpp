@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/FloatSignature.h>
-
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace tree {
-
-$FieldInfo _FloatSignature_FieldInfo_[] = {
-	{"singleton", "Lsun/reflect/generics/tree/FloatSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatSignature, singleton)},
-	{}
-};
-
-$MethodInfo _FloatSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FloatSignature, init$, void)},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(FloatSignature, accept, void, $TypeTreeVisitor*)},
-	{"make", "()Lsun/reflect/generics/tree/FloatSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatSignature, make, FloatSignature*)},
-	{}
-};
-
-$ClassInfo _FloatSignature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.tree.FloatSignature",
-	"java.lang.Object",
-	"sun.reflect.generics.tree.BaseType",
-	_FloatSignature_FieldInfo_,
-	_FloatSignature_MethodInfo_
-};
-
-$Object* allocate$FloatSignature($Class* clazz) {
-	return $of($alloc(FloatSignature));
-}
 
 FloatSignature* FloatSignature::singleton = nullptr;
 
@@ -52,7 +26,7 @@ void FloatSignature::accept($TypeTreeVisitor* v) {
 	$nc(v)->visitFloatSignature(this);
 }
 
-void clinit$FloatSignature($Class* class$) {
+void FloatSignature::clinit$($Class* clazz) {
 	$assignStatic(FloatSignature::singleton, $new(FloatSignature));
 }
 
@@ -60,7 +34,27 @@ FloatSignature::FloatSignature() {
 }
 
 $Class* FloatSignature::load$($String* name, bool initialize) {
-	$loadClass(FloatSignature, name, initialize, &_FloatSignature_ClassInfo_, clinit$FloatSignature, allocate$FloatSignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"singleton", "Lsun/reflect/generics/tree/FloatSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatSignature, singleton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FloatSignature, init$, void)},
+		{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(FloatSignature, accept, void, $TypeTreeVisitor*)},
+		{"make", "()Lsun/reflect/generics/tree/FloatSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatSignature, make, FloatSignature*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.tree.FloatSignature",
+		"java.lang.Object",
+		"sun.reflect.generics.tree.BaseType",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FloatSignature, name, initialize, &classInfo$$, FloatSignature::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FloatSignature);
+	});
 	return class$;
 }
 

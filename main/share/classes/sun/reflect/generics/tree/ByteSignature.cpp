@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/ByteSignature.h>
-
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace tree {
-
-$FieldInfo _ByteSignature_FieldInfo_[] = {
-	{"singleton", "Lsun/reflect/generics/tree/ByteSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ByteSignature, singleton)},
-	{}
-};
-
-$MethodInfo _ByteSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ByteSignature, init$, void)},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(ByteSignature, accept, void, $TypeTreeVisitor*)},
-	{"make", "()Lsun/reflect/generics/tree/ByteSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(ByteSignature, make, ByteSignature*)},
-	{}
-};
-
-$ClassInfo _ByteSignature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.tree.ByteSignature",
-	"java.lang.Object",
-	"sun.reflect.generics.tree.BaseType",
-	_ByteSignature_FieldInfo_,
-	_ByteSignature_MethodInfo_
-};
-
-$Object* allocate$ByteSignature($Class* clazz) {
-	return $of($alloc(ByteSignature));
-}
 
 ByteSignature* ByteSignature::singleton = nullptr;
 
@@ -52,7 +26,7 @@ void ByteSignature::accept($TypeTreeVisitor* v) {
 	$nc(v)->visitByteSignature(this);
 }
 
-void clinit$ByteSignature($Class* class$) {
+void ByteSignature::clinit$($Class* clazz) {
 	$assignStatic(ByteSignature::singleton, $new(ByteSignature));
 }
 
@@ -60,7 +34,27 @@ ByteSignature::ByteSignature() {
 }
 
 $Class* ByteSignature::load$($String* name, bool initialize) {
-	$loadClass(ByteSignature, name, initialize, &_ByteSignature_ClassInfo_, clinit$ByteSignature, allocate$ByteSignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"singleton", "Lsun/reflect/generics/tree/ByteSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ByteSignature, singleton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ByteSignature, init$, void)},
+		{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(ByteSignature, accept, void, $TypeTreeVisitor*)},
+		{"make", "()Lsun/reflect/generics/tree/ByteSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(ByteSignature, make, ByteSignature*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.tree.ByteSignature",
+		"java.lang.Object",
+		"sun.reflect.generics.tree.BaseType",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteSignature, name, initialize, &classInfo$$, ByteSignature::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ByteSignature);
+	});
 	return class$;
 }
 

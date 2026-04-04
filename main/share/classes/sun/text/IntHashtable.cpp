@@ -1,5 +1,4 @@
 #include <sun/text/IntHashtable.h>
-
 #include <jcpp.h>
 
 #undef DELETED
@@ -9,7 +8,6 @@
 #undef MAX_UNUSED
 #undef PRIMES
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -18,57 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace text {
-
-$FieldInfo _IntHashtable_FieldInfo_[] = {
-	{"defaultValue", "I", nullptr, $PRIVATE, $field(IntHashtable, defaultValue)},
-	{"primeIndex", "I", nullptr, $PRIVATE, $field(IntHashtable, primeIndex)},
-	{"HIGH_WATER_FACTOR", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntHashtable, HIGH_WATER_FACTOR)},
-	{"highWaterMark", "I", nullptr, $PRIVATE, $field(IntHashtable, highWaterMark)},
-	{"LOW_WATER_FACTOR", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntHashtable, LOW_WATER_FACTOR)},
-	{"lowWaterMark", "I", nullptr, $PRIVATE, $field(IntHashtable, lowWaterMark)},
-	{"count", "I", nullptr, $PRIVATE, $field(IntHashtable, count)},
-	{"values", "[I", nullptr, $PRIVATE, $field(IntHashtable, values)},
-	{"keyList", "[I", nullptr, $PRIVATE, $field(IntHashtable, keyList)},
-	{"EMPTY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntHashtable, EMPTY)},
-	{"DELETED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntHashtable, DELETED)},
-	{"MAX_UNUSED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntHashtable, MAX_UNUSED)},
-	{"PRIMES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntHashtable, PRIMES)},
-	{}
-};
-
-$MethodInfo _IntHashtable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntHashtable, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntHashtable, init$, void, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntHashtable, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IntHashtable, equals, bool, Object$*)},
-	{"find", "(I)I", nullptr, $PRIVATE, $method(IntHashtable, find, int32_t, int32_t)},
-	{"get", "(I)I", nullptr, $PUBLIC, $method(IntHashtable, get, int32_t, int32_t)},
-	{"getDefaultValue", "()I", nullptr, $PUBLIC, $method(IntHashtable, getDefaultValue, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(IntHashtable, hashCode, int32_t)},
-	{"initialize", "(I)V", nullptr, $PRIVATE, $method(IntHashtable, initialize, void, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(IntHashtable, isEmpty, bool)},
-	{"leastGreaterPrimeIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IntHashtable, leastGreaterPrimeIndex, int32_t, int32_t)},
-	{"put", "(II)V", nullptr, $PUBLIC, $method(IntHashtable, put, void, int32_t, int32_t)},
-	{"putInternal", "(II)V", nullptr, $PUBLIC, $method(IntHashtable, putInternal, void, int32_t, int32_t)},
-	{"rehash", "()V", nullptr, $PRIVATE, $method(IntHashtable, rehash, void)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $method(IntHashtable, remove, void, int32_t)},
-	{"setDefaultValue", "(I)V", nullptr, $PUBLIC, $method(IntHashtable, setDefaultValue, void, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC, $method(IntHashtable, size, int32_t)},
-	{}
-};
-
-$ClassInfo _IntHashtable_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.text.IntHashtable",
-	"java.lang.Object",
-	nullptr,
-	_IntHashtable_FieldInfo_,
-	_IntHashtable_MethodInfo_
-};
-
-$Object* allocate$IntHashtable($Class* clazz) {
-	return $of($alloc(IntHashtable));
-}
 
 float IntHashtable::HIGH_WATER_FACTOR = 0.0;
 float IntHashtable::LOW_WATER_FACTOR = 0.0;
@@ -98,7 +45,7 @@ void IntHashtable::put(int32_t key, int32_t value) {
 	}
 	int32_t index = find(key);
 	if ($nc(this->keyList)->get(index) <= IntHashtable::MAX_UNUSED) {
-		$nc(this->keyList)->set(index, key);
+		this->keyList->set(index, key);
 		++this->count;
 	}
 	$nc(this->values)->set(index, value);
@@ -111,7 +58,7 @@ int32_t IntHashtable::get(int32_t key) {
 void IntHashtable::remove(int32_t key) {
 	int32_t index = find(key);
 	if ($nc(this->keyList)->get(index) > IntHashtable::MAX_UNUSED) {
-		$nc(this->keyList)->set(index, IntHashtable::DELETED);
+		this->keyList->set(index, IntHashtable::DELETED);
 		$nc(this->values)->set(index, this->defaultValue);
 		--this->count;
 		if (this->count < this->lowWaterMark) {
@@ -130,16 +77,16 @@ void IntHashtable::setDefaultValue(int32_t newValue) {
 }
 
 bool IntHashtable::equals(Object$* that) {
-	if ($nc($of(that))->getClass() != $of(this)->getClass()) {
+	if ($nc($of(that))->getClass() != this->getClass()) {
 		return false;
 	}
 	$var(IntHashtable, other, $cast(IntHashtable, that));
-	if ($nc(other)->size() != this->count || $nc(other)->defaultValue != this->defaultValue) {
+	if (other->size() != this->count || other->defaultValue != this->defaultValue) {
 		return false;
 	}
 	for (int32_t i = 0; i < $nc(this->keyList)->length; ++i) {
-		int32_t key = $nc(this->keyList)->get(i);
-		if (key > IntHashtable::MAX_UNUSED && $nc(other)->get(key) != $nc(this->values)->get(i)) {
+		int32_t key = this->keyList->get(i);
+		if (key > IntHashtable::MAX_UNUSED && other->get(key) != $nc(this->values)->get(i)) {
 			return false;
 		}
 	}
@@ -148,14 +95,14 @@ bool IntHashtable::equals(Object$* that) {
 
 int32_t IntHashtable::hashCode() {
 	int32_t result = 465;
-	int32_t scrambler = 0x513AA115;
+	int32_t scrambler = 0x513aa115;
 	for (int32_t i = 0; i < $nc(this->keyList)->length; ++i) {
 		result = result * scrambler + 1;
-		result += $nc(this->keyList)->get(i);
+		result += this->keyList->get(i);
 	}
 	for (int32_t i = 0; i < $nc(this->values)->length; ++i) {
 		result = result * scrambler + 1;
-		result += $nc(this->values)->get(i);
+		result += this->values->get(i);
 	}
 	return result;
 }
@@ -164,23 +111,23 @@ $Object* IntHashtable::clone() {
 	$var(IntHashtable, result, $cast(IntHashtable, $Object::clone()));
 	$set(this, values, $cast($ints, $nc(this->values)->clone()));
 	$set(this, keyList, $cast($ints, $nc(this->keyList)->clone()));
-	return $of(result);
+	return result;
 }
 
 void IntHashtable::initialize(int32_t primeIndex) {
 	if (primeIndex < 0) {
 		primeIndex = 0;
-	} else if (primeIndex >= $nc(IntHashtable::PRIMES)->length) {
+	} else if (primeIndex >= IntHashtable::PRIMES->length) {
 		$nc($System::out)->println("TOO BIG"_s);
-		primeIndex = $nc(IntHashtable::PRIMES)->length - 1;
+		primeIndex = IntHashtable::PRIMES->length - 1;
 	}
 	this->primeIndex = primeIndex;
-	int32_t initialSize = $nc(IntHashtable::PRIMES)->get(primeIndex);
+	int32_t initialSize = IntHashtable::PRIMES->get(primeIndex);
 	$set(this, values, $new($ints, initialSize));
 	$set(this, keyList, $new($ints, initialSize));
 	for (int32_t i = 0; i < initialSize; ++i) {
-		$nc(this->keyList)->set(i, IntHashtable::EMPTY);
-		$nc(this->values)->set(i, this->defaultValue);
+		this->keyList->set(i, IntHashtable::EMPTY);
+		this->values->set(i, this->defaultValue);
 	}
 	this->count = 0;
 	this->lowWaterMark = $cast(int32_t, (initialSize * IntHashtable::LOW_WATER_FACTOR));
@@ -188,7 +135,7 @@ void IntHashtable::initialize(int32_t primeIndex) {
 }
 
 void IntHashtable::rehash() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, oldValues, this->values);
 	$var($ints, oldkeyList, this->keyList);
 	int32_t newPrimeIndex = this->primeIndex;
@@ -209,7 +156,7 @@ void IntHashtable::rehash() {
 void IntHashtable::putInternal(int32_t key, int32_t value) {
 	int32_t index = find(key);
 	if ($nc(this->keyList)->get(index) < IntHashtable::MAX_UNUSED) {
-		$nc(this->keyList)->set(index, key);
+		this->keyList->set(index, key);
 		++this->count;
 	}
 	$nc(this->values)->set(index, value);
@@ -226,7 +173,7 @@ int32_t IntHashtable::find(int32_t key) {
 	}
 	int32_t jump = 0;
 	while (true) {
-		int32_t tableHash = $nc(this->keyList)->get(index);
+		int32_t tableHash = this->keyList->get(index);
 		if (tableHash == key) {
 			return index;
 		} else if (tableHash > IntHashtable::MAX_UNUSED) {
@@ -239,13 +186,13 @@ int32_t IntHashtable::find(int32_t key) {
 			firstDeleted = index;
 		}
 		if (jump == 0) {
-			jump = ($mod(key, ($nc(this->keyList)->length - 1)));
+			jump = ($mod(key, (this->keyList->length - 1)));
 			if (jump < 0) {
 				jump = -jump;
 			}
 			++jump;
 		}
-		index = $mod((index + jump), $nc(this->keyList)->length);
+		index = $mod((index + jump), this->keyList->length);
 		if (index == firstDeleted) {
 			return index;
 		}
@@ -255,46 +202,46 @@ int32_t IntHashtable::find(int32_t key) {
 int32_t IntHashtable::leastGreaterPrimeIndex(int32_t source) {
 	$init(IntHashtable);
 	int32_t i = 0;
-	for (i = 0; i < $nc(IntHashtable::PRIMES)->length; ++i) {
-		if (source < $nc(IntHashtable::PRIMES)->get(i)) {
+	for (i = 0; i < IntHashtable::PRIMES->length; ++i) {
+		if (source < IntHashtable::PRIMES->get(i)) {
 			break;
 		}
 	}
 	return (i == 0) ? 0 : (i - 1);
 }
 
-void clinit$IntHashtable($Class* class$) {
+void IntHashtable::clinit$($Class* clazz) {
 	IntHashtable::HIGH_WATER_FACTOR = 0.4f;
 	IntHashtable::LOW_WATER_FACTOR = 0.0f;
 	$assignStatic(IntHashtable::PRIMES, $new($ints, {
-		17,
-		37,
-		67,
-		131,
-		257,
-		521,
-		1031,
-		2053,
-		4099,
-		8209,
-		16411,
+		0x00000011,
+		0x00000025,
+		0x00000043,
+		0x00000083,
+		0x00000101,
+		0x00000209,
+		0x00000407,
+		0x00000805,
+		0x00001003,
+		0x00002011,
+		0x0000401b,
 		0x00008003,
 		0x00010001,
-		0x0002001D,
+		0x0002001d,
 		0x00040003,
 		0x00080015,
 		0x00100007,
 		0x00200011,
-		0x0040000F,
+		0x0040000f,
 		0x00800009,
-		0x0100002B,
+		0x0100002b,
 		0x02000023,
-		0x0400000F,
-		0x0800001D,
+		0x0400000f,
+		0x0800001d,
 		0x10000003,
-		0x2000000B,
+		0x2000000b,
 		0x40000003,
-		0x7FFFFFFF
+		0x7fffffff
 	}));
 }
 
@@ -302,7 +249,53 @@ IntHashtable::IntHashtable() {
 }
 
 $Class* IntHashtable::load$($String* name, bool initialize) {
-	$loadClass(IntHashtable, name, initialize, &_IntHashtable_ClassInfo_, clinit$IntHashtable, allocate$IntHashtable);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultValue", "I", nullptr, $PRIVATE, $field(IntHashtable, defaultValue)},
+		{"primeIndex", "I", nullptr, $PRIVATE, $field(IntHashtable, primeIndex)},
+		{"HIGH_WATER_FACTOR", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntHashtable, HIGH_WATER_FACTOR)},
+		{"highWaterMark", "I", nullptr, $PRIVATE, $field(IntHashtable, highWaterMark)},
+		{"LOW_WATER_FACTOR", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntHashtable, LOW_WATER_FACTOR)},
+		{"lowWaterMark", "I", nullptr, $PRIVATE, $field(IntHashtable, lowWaterMark)},
+		{"count", "I", nullptr, $PRIVATE, $field(IntHashtable, count)},
+		{"values", "[I", nullptr, $PRIVATE, $field(IntHashtable, values)},
+		{"keyList", "[I", nullptr, $PRIVATE, $field(IntHashtable, keyList)},
+		{"EMPTY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntHashtable, EMPTY)},
+		{"DELETED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntHashtable, DELETED)},
+		{"MAX_UNUSED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntHashtable, MAX_UNUSED)},
+		{"PRIMES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntHashtable, PRIMES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntHashtable, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntHashtable, init$, void, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntHashtable, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IntHashtable, equals, bool, Object$*)},
+		{"find", "(I)I", nullptr, $PRIVATE, $method(IntHashtable, find, int32_t, int32_t)},
+		{"get", "(I)I", nullptr, $PUBLIC, $method(IntHashtable, get, int32_t, int32_t)},
+		{"getDefaultValue", "()I", nullptr, $PUBLIC, $method(IntHashtable, getDefaultValue, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(IntHashtable, hashCode, int32_t)},
+		{"initialize", "(I)V", nullptr, $PRIVATE, $method(IntHashtable, initialize, void, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $method(IntHashtable, isEmpty, bool)},
+		{"leastGreaterPrimeIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IntHashtable, leastGreaterPrimeIndex, int32_t, int32_t)},
+		{"put", "(II)V", nullptr, $PUBLIC, $method(IntHashtable, put, void, int32_t, int32_t)},
+		{"putInternal", "(II)V", nullptr, $PUBLIC, $method(IntHashtable, putInternal, void, int32_t, int32_t)},
+		{"rehash", "()V", nullptr, $PRIVATE, $method(IntHashtable, rehash, void)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $method(IntHashtable, remove, void, int32_t)},
+		{"setDefaultValue", "(I)V", nullptr, $PUBLIC, $method(IntHashtable, setDefaultValue, void, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC, $method(IntHashtable, size, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.text.IntHashtable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntHashtable, name, initialize, &classInfo$$, IntHashtable::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IntHashtable);
+	});
 	return class$;
 }
 

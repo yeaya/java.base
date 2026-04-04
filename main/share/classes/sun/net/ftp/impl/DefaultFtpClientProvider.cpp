@@ -1,5 +1,4 @@
 #include <sun/net/ftp/impl/DefaultFtpClientProvider.h>
-
 #include <sun/net/ftp/FtpClient.h>
 #include <sun/net/ftp/FtpClientProvider.h>
 #include <sun/net/ftp/impl/FtpClient.h>
@@ -16,25 +15,6 @@ namespace sun {
 		namespace ftp {
 			namespace impl {
 
-$MethodInfo _DefaultFtpClientProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultFtpClientProvider, init$, void)},
-	{"createFtpClient", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(DefaultFtpClientProvider, createFtpClient, $FtpClient*)},
-	{}
-};
-
-$ClassInfo _DefaultFtpClientProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.ftp.impl.DefaultFtpClientProvider",
-	"sun.net.ftp.FtpClientProvider",
-	nullptr,
-	nullptr,
-	_DefaultFtpClientProvider_MethodInfo_
-};
-
-$Object* allocate$DefaultFtpClientProvider($Class* clazz) {
-	return $of($alloc(DefaultFtpClientProvider));
-}
-
 void DefaultFtpClientProvider::init$() {
 	$FtpClientProvider::init$();
 }
@@ -47,7 +27,22 @@ DefaultFtpClientProvider::DefaultFtpClientProvider() {
 }
 
 $Class* DefaultFtpClientProvider::load$($String* name, bool initialize) {
-	$loadClass(DefaultFtpClientProvider, name, initialize, &_DefaultFtpClientProvider_ClassInfo_, allocate$DefaultFtpClientProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultFtpClientProvider, init$, void)},
+		{"createFtpClient", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(DefaultFtpClientProvider, createFtpClient, $FtpClient*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.ftp.impl.DefaultFtpClientProvider",
+		"sun.net.ftp.FtpClientProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultFtpClientProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultFtpClientProvider);
+	});
 	return class$;
 }
 

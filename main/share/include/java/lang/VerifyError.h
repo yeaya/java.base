@@ -14,10 +14,13 @@ public:
 	VerifyError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x612BF7B3861810E1;
+	static const int64_t serialVersionUID = (int64_t)0x612bf7b3861810e1;
 	VerifyError(const VerifyError& e);
 	virtual void throw$() override;
-	inline VerifyError* operator ->() {
+	inline VerifyError* operator ->() const {
+		return (VerifyError*)throwing$;
+	}
+	inline operator VerifyError*() const {
 		return (VerifyError*)throwing$;
 	}
 };

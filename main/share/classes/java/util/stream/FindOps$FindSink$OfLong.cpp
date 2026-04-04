@@ -1,5 +1,4 @@
 #include <java/util/stream/FindOps$FindSink$OfLong.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -49,27 +48,24 @@ public:
 	virtual bool test(Object$* inst$) override {
 		 return $sure($OptionalLong, inst$)->isPresent();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FindOps$FindSink$OfLong$$Lambda$isPresent>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo FindOps$FindSink$OfLong$$Lambda$isPresent::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfLong$$Lambda$isPresent, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong$$Lambda$isPresent, test, bool, Object$*)},
-	{}
-};
-$ClassInfo FindOps$FindSink$OfLong$$Lambda$isPresent::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.FindOps$FindSink$OfLong$$Lambda$isPresent",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* FindOps$FindSink$OfLong$$Lambda$isPresent::load$($String* name, bool initialize) {
-	$loadClass(FindOps$FindSink$OfLong$$Lambda$isPresent, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfLong$$Lambda$isPresent, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong$$Lambda$isPresent, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.FindOps$FindSink$OfLong$$Lambda$isPresent",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FindOps$FindSink$OfLong$$Lambda$isPresent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FindOps$FindSink$OfLong$$Lambda$isPresent);
+	});
 	return class$;
 }
 $Class* FindOps$FindSink$OfLong$$Lambda$isPresent::class$ = nullptr;
@@ -82,83 +78,27 @@ public:
 	virtual $Object* get() override {
 		 return $of($new(FindOps$FindSink$OfLong));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FindOps$FindSink$OfLong$$Lambda$OfLong$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo FindOps$FindSink$OfLong$$Lambda$OfLong$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfLong$$Lambda$OfLong$1, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong$$Lambda$OfLong$1, get, $Object*)},
-	{}
-};
-$ClassInfo FindOps$FindSink$OfLong$$Lambda$OfLong$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.FindOps$FindSink$OfLong$$Lambda$OfLong$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* FindOps$FindSink$OfLong$$Lambda$OfLong$1::load$($String* name, bool initialize) {
-	$loadClass(FindOps$FindSink$OfLong$$Lambda$OfLong$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfLong$$Lambda$OfLong$1, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong$$Lambda$OfLong$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.FindOps$FindSink$OfLong$$Lambda$OfLong$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FindOps$FindSink$OfLong$$Lambda$OfLong$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FindOps$FindSink$OfLong$$Lambda$OfLong$1);
+	});
 	return class$;
 }
 $Class* FindOps$FindSink$OfLong$$Lambda$OfLong$1::class$ = nullptr;
-
-$FieldInfo _FindOps$FindSink$OfLong_FieldInfo_[] = {
-	{"OP_FIND_FIRST", "Ljava/util/stream/TerminalOp;", "Ljava/util/stream/TerminalOp<Ljava/lang/Long;Ljava/util/OptionalLong;>;", $STATIC | $FINAL, $staticField(FindOps$FindSink$OfLong, OP_FIND_FIRST)},
-	{"OP_FIND_ANY", "Ljava/util/stream/TerminalOp;", "Ljava/util/stream/TerminalOp<Ljava/lang/Long;Ljava/util/OptionalLong;>;", $STATIC | $FINAL, $staticField(FindOps$FindSink$OfLong, OP_FIND_ANY)},
-	{}
-};
-
-$MethodInfo _FindOps$FindSink$OfLong_MethodInfo_[] = {
-	{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*cancellationRequested", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(FindOps$FindSink$OfLong, init$, void)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong, accept, void, int64_t)},
-	{"accept", "(Ljava/lang/Long;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FindOps$FindSink$OfLong, accept, void, $Long*)},
-	{"get", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong, get, $Object*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _FindOps$FindSink$OfLong_InnerClassesInfo_[] = {
-	{"java.util.stream.FindOps$FindSink", "java.util.stream.FindOps", "FindSink", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.FindOps$FindSink$OfLong", "java.util.stream.FindOps$FindSink", "OfLong", $STATIC | $FINAL},
-	{"java.util.stream.Sink$OfLong", "java.util.stream.Sink", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FindOps$FindSink$OfLong_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.FindOps$FindSink$OfLong",
-	"java.util.stream.FindOps$FindSink",
-	"java.util.stream.Sink$OfLong",
-	_FindOps$FindSink$OfLong_FieldInfo_,
-	_FindOps$FindSink$OfLong_MethodInfo_,
-	"Ljava/util/stream/FindOps$FindSink<Ljava/lang/Long;Ljava/util/OptionalLong;>;Ljava/util/stream/Sink$OfLong;",
-	nullptr,
-	_FindOps$FindSink$OfLong_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.FindOps"
-};
-
-$Object* allocate$FindOps$FindSink$OfLong($Class* clazz) {
-	return $of($alloc(FindOps$FindSink$OfLong));
-}
 
 void FindOps$FindSink$OfLong::accept(Object$* value) {
 	this->$FindOps$FindSink::accept(value);
@@ -220,24 +160,24 @@ void FindOps$FindSink$OfLong::accept(int64_t value) {
 }
 
 $Object* FindOps$FindSink$OfLong::get() {
-	return $of(this->hasValue ? $OptionalLong::of($nc(($cast($Long, this->value)))->longValue()) : ($OptionalLong*)nullptr);
+	return this->hasValue ? $OptionalLong::of($nc($cast($Long, this->value))->longValue()) : ($OptionalLong*)nullptr;
 }
 
 void FindOps$FindSink$OfLong::accept($Long* value) {
-	$FindOps$FindSink::accept($of(value));
+	$FindOps$FindSink::accept(value);
 }
 
-void clinit$FindOps$FindSink$OfLong($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void FindOps$FindSink$OfLong::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($StreamShape);
 	$var($StreamShape, var$0, $StreamShape::LONG_VALUE);
-	$var($Object, var$1, $of($OptionalLong::empty()));
-	$var($Predicate, var$2, static_cast<$Predicate*>($new(FindOps$FindSink$OfLong$$Lambda$isPresent)));
-	$assignStatic(FindOps$FindSink$OfLong::OP_FIND_FIRST, $new($FindOps$FindOp, true, var$0, var$1, var$2, static_cast<$Supplier*>($$new(FindOps$FindSink$OfLong$$Lambda$OfLong$1))));
+	$var($Object, var$1, $OptionalLong::empty());
+	$var($Predicate, var$2, $new(FindOps$FindSink$OfLong$$Lambda$isPresent));
+	$assignStatic(FindOps$FindSink$OfLong::OP_FIND_FIRST, $new($FindOps$FindOp, true, var$0, var$1, var$2, $$new(FindOps$FindSink$OfLong$$Lambda$OfLong$1)));
 	$var($StreamShape, var$3, $StreamShape::LONG_VALUE);
-	$var($Object, var$4, $of($OptionalLong::empty()));
-	$var($Predicate, var$5, static_cast<$Predicate*>($new(FindOps$FindSink$OfLong$$Lambda$isPresent)));
-	$assignStatic(FindOps$FindSink$OfLong::OP_FIND_ANY, $new($FindOps$FindOp, false, var$3, var$4, var$5, static_cast<$Supplier*>($$new(FindOps$FindSink$OfLong$$Lambda$OfLong$1))));
+	$var($Object, var$4, $OptionalLong::empty());
+	$var($Predicate, var$5, $new(FindOps$FindSink$OfLong$$Lambda$isPresent));
+	$assignStatic(FindOps$FindSink$OfLong::OP_FIND_ANY, $new($FindOps$FindOp, false, var$3, var$4, var$5, $$new(FindOps$FindSink$OfLong$$Lambda$OfLong$1)));
 }
 
 FindOps$FindSink$OfLong::FindOps$FindSink$OfLong() {
@@ -245,14 +185,61 @@ FindOps$FindSink$OfLong::FindOps$FindSink$OfLong() {
 
 $Class* FindOps$FindSink$OfLong::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(FindOps$FindSink$OfLong$$Lambda$isPresent::classInfo$.name)) {
+		if (name->equals("java.util.stream.FindOps$FindSink$OfLong$$Lambda$isPresent")) {
 			return FindOps$FindSink$OfLong$$Lambda$isPresent::load$(name, initialize);
 		}
-		if (name->equals(FindOps$FindSink$OfLong$$Lambda$OfLong$1::classInfo$.name)) {
+		if (name->equals("java.util.stream.FindOps$FindSink$OfLong$$Lambda$OfLong$1")) {
 			return FindOps$FindSink$OfLong$$Lambda$OfLong$1::load$(name, initialize);
 		}
 	}
-	$loadClass(FindOps$FindSink$OfLong, name, initialize, &_FindOps$FindSink$OfLong_ClassInfo_, clinit$FindOps$FindSink$OfLong, allocate$FindOps$FindSink$OfLong);
+	$FieldInfo fieldInfos$$[] = {
+		{"OP_FIND_FIRST", "Ljava/util/stream/TerminalOp;", "Ljava/util/stream/TerminalOp<Ljava/lang/Long;Ljava/util/OptionalLong;>;", $STATIC | $FINAL, $staticField(FindOps$FindSink$OfLong, OP_FIND_FIRST)},
+		{"OP_FIND_ANY", "Ljava/util/stream/TerminalOp;", "Ljava/util/stream/TerminalOp<Ljava/lang/Long;Ljava/util/OptionalLong;>;", $STATIC | $FINAL, $staticField(FindOps$FindSink$OfLong, OP_FIND_ANY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*cancellationRequested", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(FindOps$FindSink$OfLong, init$, void)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong, accept, void, int64_t)},
+		{"accept", "(Ljava/lang/Long;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FindOps$FindSink$OfLong, accept, void, $Long*)},
+		{"get", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong, get, $Object*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.FindOps$FindSink", "java.util.stream.FindOps", "FindSink", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.FindOps$FindSink$OfLong", "java.util.stream.FindOps$FindSink", "OfLong", $STATIC | $FINAL},
+		{"java.util.stream.Sink$OfLong", "java.util.stream.Sink", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.FindOps$FindSink$OfLong",
+		"java.util.stream.FindOps$FindSink",
+		"java.util.stream.Sink$OfLong",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/FindOps$FindSink<Ljava/lang/Long;Ljava/util/OptionalLong;>;Ljava/util/stream/Sink$OfLong;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.FindOps"
+	};
+	$loadClass(FindOps$FindSink$OfLong, name, initialize, &classInfo$$, FindOps$FindSink$OfLong::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FindOps$FindSink$OfLong));
+	});
 	return class$;
 }
 

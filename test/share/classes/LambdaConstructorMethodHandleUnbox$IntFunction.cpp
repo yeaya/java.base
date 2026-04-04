@@ -1,5 +1,4 @@
 #include <LambdaConstructorMethodHandleUnbox$IntFunction.h>
-
 #include <LambdaConstructorMethodHandleUnbox.h>
 #include <jcpp.h>
 
@@ -7,38 +6,33 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _LambdaConstructorMethodHandleUnbox$IntFunction_MethodInfo_[] = {
-	{"m", "(Ljava/lang/Object;)I", "(TX;)I", $PUBLIC | $ABSTRACT, $virtualMethod(LambdaConstructorMethodHandleUnbox$IntFunction, m, int32_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _LambdaConstructorMethodHandleUnbox$IntFunction_InnerClassesInfo_[] = {
-	{"LambdaConstructorMethodHandleUnbox$IntFunction", "LambdaConstructorMethodHandleUnbox", "IntFunction", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LambdaConstructorMethodHandleUnbox$IntFunction_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"LambdaConstructorMethodHandleUnbox$IntFunction",
-	nullptr,
-	nullptr,
-	nullptr,
-	_LambdaConstructorMethodHandleUnbox$IntFunction_MethodInfo_,
-	"<X:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_LambdaConstructorMethodHandleUnbox$IntFunction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LambdaConstructorMethodHandleUnbox"
-};
-
-$Object* allocate$LambdaConstructorMethodHandleUnbox$IntFunction($Class* clazz) {
-	return $of($alloc(LambdaConstructorMethodHandleUnbox$IntFunction));
-}
-
 $Class* LambdaConstructorMethodHandleUnbox$IntFunction::load$($String* name, bool initialize) {
-	$loadClass(LambdaConstructorMethodHandleUnbox$IntFunction, name, initialize, &_LambdaConstructorMethodHandleUnbox$IntFunction_ClassInfo_, allocate$LambdaConstructorMethodHandleUnbox$IntFunction);
+	$MethodInfo methodInfos$$[] = {
+		{"m", "(Ljava/lang/Object;)I", "(TX;)I", $PUBLIC | $ABSTRACT, $virtualMethod(LambdaConstructorMethodHandleUnbox$IntFunction, m, int32_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LambdaConstructorMethodHandleUnbox$IntFunction", "LambdaConstructorMethodHandleUnbox", "IntFunction", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"LambdaConstructorMethodHandleUnbox$IntFunction",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<X:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LambdaConstructorMethodHandleUnbox"
+	};
+	$loadClass(LambdaConstructorMethodHandleUnbox$IntFunction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaConstructorMethodHandleUnbox$IntFunction);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/net/Authenticator$RequestorType.h>
-
 #include <java/lang/Enum.h>
 #include <java/net/Authenticator.h>
 #include <jcpp.h>
@@ -16,46 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _Authenticator$RequestorType_FieldInfo_[] = {
-	{"PROXY", "Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Authenticator$RequestorType, PROXY)},
-	{"SERVER", "Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Authenticator$RequestorType, SERVER)},
-	{"$VALUES", "[Ljava/net/Authenticator$RequestorType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Authenticator$RequestorType, $VALUES)},
-	{}
-};
-
-$MethodInfo _Authenticator$RequestorType_MethodInfo_[] = {
-	{"$values", "()[Ljava/net/Authenticator$RequestorType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Authenticator$RequestorType, $values, $Authenticator$RequestorTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Authenticator$RequestorType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Authenticator$RequestorType, valueOf, Authenticator$RequestorType*, $String*)},
-	{"values", "()[Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Authenticator$RequestorType, values, $Authenticator$RequestorTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _Authenticator$RequestorType_InnerClassesInfo_[] = {
-	{"java.net.Authenticator$RequestorType", "java.net.Authenticator", "RequestorType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Authenticator$RequestorType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.net.Authenticator$RequestorType",
-	"java.lang.Enum",
-	nullptr,
-	_Authenticator$RequestorType_FieldInfo_,
-	_Authenticator$RequestorType_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/net/Authenticator$RequestorType;>;",
-	nullptr,
-	_Authenticator$RequestorType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.Authenticator"
-};
-
-$Object* allocate$Authenticator$RequestorType($Class* clazz) {
-	return $of($alloc(Authenticator$RequestorType));
-}
 
 Authenticator$RequestorType* Authenticator$RequestorType::PROXY = nullptr;
 Authenticator$RequestorType* Authenticator$RequestorType::SERVER = nullptr;
@@ -83,7 +42,7 @@ void Authenticator$RequestorType::init$($String* $enum$name, int32_t $enum$ordin
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Authenticator$RequestorType($Class* class$) {
+void Authenticator$RequestorType::clinit$($Class* clazz) {
 	$assignStatic(Authenticator$RequestorType::PROXY, $new(Authenticator$RequestorType, "PROXY"_s, 0));
 	$assignStatic(Authenticator$RequestorType::SERVER, $new(Authenticator$RequestorType, "SERVER"_s, 1));
 	$assignStatic(Authenticator$RequestorType::$VALUES, Authenticator$RequestorType::$values());
@@ -93,7 +52,41 @@ Authenticator$RequestorType::Authenticator$RequestorType() {
 }
 
 $Class* Authenticator$RequestorType::load$($String* name, bool initialize) {
-	$loadClass(Authenticator$RequestorType, name, initialize, &_Authenticator$RequestorType_ClassInfo_, clinit$Authenticator$RequestorType, allocate$Authenticator$RequestorType);
+	$FieldInfo fieldInfos$$[] = {
+		{"PROXY", "Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Authenticator$RequestorType, PROXY)},
+		{"SERVER", "Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Authenticator$RequestorType, SERVER)},
+		{"$VALUES", "[Ljava/net/Authenticator$RequestorType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Authenticator$RequestorType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/net/Authenticator$RequestorType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Authenticator$RequestorType, $values, $Authenticator$RequestorTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Authenticator$RequestorType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Authenticator$RequestorType, valueOf, Authenticator$RequestorType*, $String*)},
+		{"values", "()[Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Authenticator$RequestorType, values, $Authenticator$RequestorTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.Authenticator$RequestorType", "java.net.Authenticator", "RequestorType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.net.Authenticator$RequestorType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/net/Authenticator$RequestorType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.Authenticator"
+	};
+	$loadClass(Authenticator$RequestorType, name, initialize, &classInfo$$, Authenticator$RequestorType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Authenticator$RequestorType));
+	});
 	return class$;
 }
 

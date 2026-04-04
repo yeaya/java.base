@@ -22,6 +22,7 @@ class $export FindSpecial : public ::java::lang::Object {
 	$class(FindSpecial, 0, ::java::lang::Object)
 public:
 	FindSpecial();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void findSpecialTest();
 	static void main($StringArray* args);

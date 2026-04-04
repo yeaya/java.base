@@ -1,5 +1,4 @@
 #include <sun/nio/ch/MembershipRegistry.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/invoke/CallSite.h>
@@ -30,12 +29,10 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $InetAddress = ::java::net::InetAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
 using $MembershipKey = ::java::nio::channels::MembershipKey;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $MembershipKeyImpl = ::sun::nio::ch::MembershipKeyImpl;
 using $MembershipRegistry$ThrowingConsumer = ::sun::nio::ch::MembershipRegistry$ThrowingConsumer;
 
@@ -51,97 +48,51 @@ public:
 	virtual void accept(Object$* inst$) override {
 		$sure($MembershipKeyImpl, inst$)->invalidate();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MembershipRegistry$$Lambda$invalidate>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MembershipRegistry$$Lambda$invalidate::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MembershipRegistry$$Lambda$invalidate, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MembershipRegistry$$Lambda$invalidate, accept, void, Object$*)},
-	{}
-};
-$ClassInfo MembershipRegistry$$Lambda$invalidate::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.ch.MembershipRegistry$$Lambda$invalidate",
-	"java.lang.Object",
-	"sun.nio.ch.MembershipRegistry$ThrowingConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* MembershipRegistry$$Lambda$invalidate::load$($String* name, bool initialize) {
-	$loadClass(MembershipRegistry$$Lambda$invalidate, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MembershipRegistry$$Lambda$invalidate, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MembershipRegistry$$Lambda$invalidate, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.ch.MembershipRegistry$$Lambda$invalidate",
+		"java.lang.Object",
+		"sun.nio.ch.MembershipRegistry$ThrowingConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MembershipRegistry$$Lambda$invalidate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MembershipRegistry$$Lambda$invalidate);
+	});
 	return class$;
 }
 $Class* MembershipRegistry$$Lambda$invalidate::class$ = nullptr;
-
-$FieldInfo _MembershipRegistry_FieldInfo_[] = {
-	{"groups", "Ljava/util/Map;", "Ljava/util/Map<Ljava/net/InetAddress;Ljava/util/List<Lsun/nio/ch/MembershipKeyImpl;>;>;", $PRIVATE, $field(MembershipRegistry, groups)},
-	{}
-};
-
-$MethodInfo _MembershipRegistry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MembershipRegistry, init$, void)},
-	{"add", "(Lsun/nio/ch/MembershipKeyImpl;)V", nullptr, 0, $virtualMethod(MembershipRegistry, add, void, $MembershipKeyImpl*)},
-	{"checkMembership", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, 0, $virtualMethod(MembershipRegistry, checkMembership, $MembershipKey*, $InetAddress*, $NetworkInterface*, $InetAddress*)},
-	{"forEach", "(Lsun/nio/ch/MembershipRegistry$ThrowingConsumer;)V", "<X:Ljava/lang/Throwable;>(Lsun/nio/ch/MembershipRegistry$ThrowingConsumer<Lsun/nio/ch/MembershipKeyImpl;TX;>;)V^TX;", 0, $virtualMethod(MembershipRegistry, forEach, void, $MembershipRegistry$ThrowingConsumer*), "java.lang.Throwable"},
-	{"invalidateAll", "()V", nullptr, 0, $virtualMethod(MembershipRegistry, invalidateAll, void)},
-	{"remove", "(Lsun/nio/ch/MembershipKeyImpl;)V", nullptr, 0, $virtualMethod(MembershipRegistry, remove, void, $MembershipKeyImpl*)},
-	{}
-};
-
-$InnerClassInfo _MembershipRegistry_InnerClassesInfo_[] = {
-	{"sun.nio.ch.MembershipRegistry$ThrowingConsumer", "sun.nio.ch.MembershipRegistry", "ThrowingConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MembershipRegistry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.MembershipRegistry",
-	"java.lang.Object",
-	nullptr,
-	_MembershipRegistry_FieldInfo_,
-	_MembershipRegistry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MembershipRegistry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.MembershipRegistry$ThrowingConsumer"
-};
-
-$Object* allocate$MembershipRegistry($Class* clazz) {
-	return $of($alloc(MembershipRegistry));
-}
 
 void MembershipRegistry::init$() {
 }
 
 $MembershipKey* MembershipRegistry::checkMembership($InetAddress* group, $NetworkInterface* interf, $InetAddress* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->groups != nullptr) {
-		$var($List, keys, $cast($List, $nc(this->groups)->get(group)));
+		$var($List, keys, $cast($List, this->groups->get(group)));
 		if (keys != nullptr) {
-			{
-				$var($Iterator, i$, keys->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($MembershipKeyImpl, key, $cast($MembershipKeyImpl, i$->next()));
-					{
-						if ($nc($($nc(key)->networkInterface()))->equals(interf)) {
-							if (source == nullptr) {
-								if (key->sourceAddress() == nullptr) {
-									return key;
-								}
-								$throwNew($IllegalStateException, "Already a member to receive all packets"_s);
-							}
-							if (key->sourceAddress() == nullptr) {
-								$throwNew($IllegalStateException, "Already have source-specific membership"_s);
-							}
-							if ($nc(source)->equals($(key->sourceAddress()))) {
-								return key;
-							}
+			$var($Iterator, i$, keys->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($MembershipKeyImpl, key, $cast($MembershipKeyImpl, i$->next()));
+				if ($$nc($nc(key)->networkInterface())->equals(interf)) {
+					if (source == nullptr) {
+						if (key->sourceAddress() == nullptr) {
+							return key;
 						}
+						$throwNew($IllegalStateException, "Already a member to receive all packets"_s);
+					}
+					if (key->sourceAddress() == nullptr) {
+						$throwNew($IllegalStateException, "Already have source-specific membership"_s);
+					}
+					if ($nc(source)->equals($(key->sourceAddress()))) {
+						return key;
 					}
 				}
 			}
@@ -151,14 +102,14 @@ $MembershipKey* MembershipRegistry::checkMembership($InetAddress* group, $Networ
 }
 
 void MembershipRegistry::add($MembershipKeyImpl* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, group, $nc(key)->group());
 	$var($List, keys, nullptr);
 	if (this->groups == nullptr) {
 		$set(this, groups, $new($HashMap));
 		$assign(keys, nullptr);
 	} else {
-		$assign(keys, $cast($List, $nc(this->groups)->get(group)));
+		$assign(keys, $cast($List, this->groups->get(group)));
 	}
 	if (keys == nullptr) {
 		$assign(keys, $new($LinkedList));
@@ -168,7 +119,7 @@ void MembershipRegistry::add($MembershipKeyImpl* key) {
 }
 
 void MembershipRegistry::remove($MembershipKeyImpl* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, group, $nc(key)->group());
 	$var($List, keys, $cast($List, $nc(this->groups)->get(group)));
 	if (keys != nullptr) {
@@ -180,27 +131,23 @@ void MembershipRegistry::remove($MembershipKeyImpl* key) {
 			}
 		}
 		if (keys->isEmpty()) {
-			$nc(this->groups)->remove(group);
+			this->groups->remove(group);
 		}
 	}
 }
 
 void MembershipRegistry::forEach($MembershipRegistry$ThrowingConsumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->groups != nullptr) {
-		{
-			$var($Iterator, i$, $nc($($nc(this->groups)->values()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($List, keys, $cast($List, i$->next()));
-				{
+		$var($Iterator, i$, $$nc(this->groups->values())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($List, keys, $cast($List, i$->next()));
+			{
+				$var($Iterator, i$, $nc(keys)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($MembershipKeyImpl, key, $cast($MembershipKeyImpl, i$->next()));
 					{
-						$var($Iterator, i$, $nc(keys)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($MembershipKeyImpl, key, $cast($MembershipKeyImpl, i$->next()));
-							{
-								$nc(action)->accept(key);
-							}
-						}
+						$nc(action)->accept(key);
 					}
 				}
 			}
@@ -209,7 +156,7 @@ void MembershipRegistry::forEach($MembershipRegistry$ThrowingConsumer* action) {
 }
 
 void MembershipRegistry::invalidateAll() {
-	forEach(static_cast<$MembershipRegistry$ThrowingConsumer*>($$new(MembershipRegistry$$Lambda$invalidate)));
+	forEach($$new(MembershipRegistry$$Lambda$invalidate));
 }
 
 MembershipRegistry::MembershipRegistry() {
@@ -217,11 +164,44 @@ MembershipRegistry::MembershipRegistry() {
 
 $Class* MembershipRegistry::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MembershipRegistry$$Lambda$invalidate::classInfo$.name)) {
+		if (name->equals("sun.nio.ch.MembershipRegistry$$Lambda$invalidate")) {
 			return MembershipRegistry$$Lambda$invalidate::load$(name, initialize);
 		}
 	}
-	$loadClass(MembershipRegistry, name, initialize, &_MembershipRegistry_ClassInfo_, allocate$MembershipRegistry);
+	$FieldInfo fieldInfos$$[] = {
+		{"groups", "Ljava/util/Map;", "Ljava/util/Map<Ljava/net/InetAddress;Ljava/util/List<Lsun/nio/ch/MembershipKeyImpl;>;>;", $PRIVATE, $field(MembershipRegistry, groups)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MembershipRegistry, init$, void)},
+		{"add", "(Lsun/nio/ch/MembershipKeyImpl;)V", nullptr, 0, $virtualMethod(MembershipRegistry, add, void, $MembershipKeyImpl*)},
+		{"checkMembership", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, 0, $virtualMethod(MembershipRegistry, checkMembership, $MembershipKey*, $InetAddress*, $NetworkInterface*, $InetAddress*)},
+		{"forEach", "(Lsun/nio/ch/MembershipRegistry$ThrowingConsumer;)V", "<X:Ljava/lang/Throwable;>(Lsun/nio/ch/MembershipRegistry$ThrowingConsumer<Lsun/nio/ch/MembershipKeyImpl;TX;>;)V^TX;", 0, $virtualMethod(MembershipRegistry, forEach, void, $MembershipRegistry$ThrowingConsumer*), "java.lang.Throwable"},
+		{"invalidateAll", "()V", nullptr, 0, $virtualMethod(MembershipRegistry, invalidateAll, void)},
+		{"remove", "(Lsun/nio/ch/MembershipKeyImpl;)V", nullptr, 0, $virtualMethod(MembershipRegistry, remove, void, $MembershipKeyImpl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.MembershipRegistry$ThrowingConsumer", "sun.nio.ch.MembershipRegistry", "ThrowingConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.MembershipRegistry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.MembershipRegistry$ThrowingConsumer"
+	};
+	$loadClass(MembershipRegistry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MembershipRegistry);
+	});
 	return class$;
 }
 

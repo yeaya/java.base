@@ -18,6 +18,7 @@ class $import FileVisitOption : public ::java::lang::Enum {
 public:
 	FileVisitOption();
 	static $Array<::java::nio::file::FileVisitOption>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::nio::file::FileVisitOption* valueOf($String* name);
 	static $Array<::java::nio::file::FileVisitOption>* values();

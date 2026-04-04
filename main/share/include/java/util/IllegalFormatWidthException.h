@@ -19,7 +19,10 @@ public:
 	int32_t w = 0;
 	IllegalFormatWidthException(const IllegalFormatWidthException& e);
 	virtual void throw$() override;
-	inline IllegalFormatWidthException* operator ->() {
+	inline IllegalFormatWidthException* operator ->() const {
+		return (IllegalFormatWidthException*)throwing$;
+	}
+	inline operator IllegalFormatWidthException*() const {
 		return (IllegalFormatWidthException*)throwing$;
 	}
 };

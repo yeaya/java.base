@@ -1,6 +1,4 @@
 #include <sun/util/locale/LanguageTag.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
@@ -24,7 +22,6 @@
 #undef UNDETERMINED
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -48,78 +45,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 
-$FieldInfo _LanguageTag_FieldInfo_[] = {
-	{"SEP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LanguageTag, SEP)},
-	{"PRIVATEUSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LanguageTag, PRIVATEUSE)},
-	{"UNDETERMINED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LanguageTag, UNDETERMINED)},
-	{"PRIVUSE_VARIANT_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LanguageTag, PRIVUSE_VARIANT_PREFIX)},
-	{"language", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LanguageTag, language)},
-	{"script", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LanguageTag, script)},
-	{"region", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LanguageTag, region)},
-	{"privateuse", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LanguageTag, privateuse)},
-	{"extlangs", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(LanguageTag, extlangs)},
-	{"variants", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(LanguageTag, variants)},
-	{"extensions", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(LanguageTag, extensions)},
-	{"LEGACY", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LanguageTag, LEGACY)},
-	{}
-};
-
-$MethodInfo _LanguageTag_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LanguageTag, init$, void)},
-	{"canonicalizeExtension", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeExtension, $String*, $String*)},
-	{"canonicalizeExtensionSingleton", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeExtensionSingleton, $String*, $String*)},
-	{"canonicalizeExtensionSubtag", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeExtensionSubtag, $String*, $String*)},
-	{"canonicalizeExtlang", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeExtlang, $String*, $String*)},
-	{"canonicalizeLanguage", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeLanguage, $String*, $String*)},
-	{"canonicalizePrivateuse", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizePrivateuse, $String*, $String*)},
-	{"canonicalizePrivateuseSubtag", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizePrivateuseSubtag, $String*, $String*)},
-	{"canonicalizeRegion", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeRegion, $String*, $String*)},
-	{"canonicalizeScript", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeScript, $String*, $String*)},
-	{"canonicalizeVariant", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeVariant, $String*, $String*)},
-	{"getExtensions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LanguageTag, getExtensions, $List*)},
-	{"getExtlangs", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LanguageTag, getExtlangs, $List*)},
-	{"getLanguage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LanguageTag, getLanguage, $String*)},
-	{"getPrivateuse", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LanguageTag, getPrivateuse, $String*)},
-	{"getRegion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LanguageTag, getRegion, $String*)},
-	{"getScript", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LanguageTag, getScript, $String*)},
-	{"getVariants", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LanguageTag, getVariants, $List*)},
-	{"isExtensionSingleton", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isExtensionSingleton, bool, $String*)},
-	{"isExtensionSingletonChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isExtensionSingletonChar, bool, char16_t)},
-	{"isExtensionSubtag", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isExtensionSubtag, bool, $String*)},
-	{"isExtlang", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isExtlang, bool, $String*)},
-	{"isLanguage", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isLanguage, bool, $String*)},
-	{"isPrivateusePrefix", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isPrivateusePrefix, bool, $String*)},
-	{"isPrivateusePrefixChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isPrivateusePrefixChar, bool, char16_t)},
-	{"isPrivateuseSubtag", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isPrivateuseSubtag, bool, $String*)},
-	{"isRegion", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isRegion, bool, $String*)},
-	{"isScript", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isScript, bool, $String*)},
-	{"isVariant", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isVariant, bool, $String*)},
-	{"parse", "(Ljava/lang/String;Lsun/util/locale/ParseStatus;)Lsun/util/locale/LanguageTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, parse, LanguageTag*, $String*, $ParseStatus*)},
-	{"parseExtensions", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseExtensions, bool, $StringTokenIterator*, $ParseStatus*)},
-	{"parseExtlangs", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseExtlangs, bool, $StringTokenIterator*, $ParseStatus*)},
-	{"parseLanguage", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseLanguage, bool, $StringTokenIterator*, $ParseStatus*)},
-	{"parseLocale", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)Lsun/util/locale/LanguageTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, parseLocale, LanguageTag*, $BaseLocale*, $LocaleExtensions*)},
-	{"parsePrivateuse", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parsePrivateuse, bool, $StringTokenIterator*, $ParseStatus*)},
-	{"parseRegion", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseRegion, bool, $StringTokenIterator*, $ParseStatus*)},
-	{"parseScript", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseScript, bool, $StringTokenIterator*, $ParseStatus*)},
-	{"parseVariants", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseVariants, bool, $StringTokenIterator*, $ParseStatus*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LanguageTag, toString, $String*)},
-	{}
-};
-
-$ClassInfo _LanguageTag_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.LanguageTag",
-	"java.lang.Object",
-	nullptr,
-	_LanguageTag_FieldInfo_,
-	_LanguageTag_MethodInfo_
-};
-
-$Object* allocate$LanguageTag($Class* clazz) {
-	return $of($alloc(LanguageTag));
-}
-
 $String* LanguageTag::SEP = nullptr;
 $String* LanguageTag::PRIVATEUSE = nullptr;
 $String* LanguageTag::UNDETERMINED = nullptr;
@@ -138,15 +63,15 @@ void LanguageTag::init$() {
 
 LanguageTag* LanguageTag::parse($String* languageTag, $ParseStatus* sts$renamed) {
 	$init(LanguageTag);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ParseStatus, sts, sts$renamed);
 	if (sts == nullptr) {
 		$assign(sts, $new($ParseStatus));
 	} else {
-		$nc(sts)->reset();
+		sts->reset();
 	}
 	$var($StringTokenIterator, itr, nullptr);
-	$var($StringArray, gfmap, $cast($StringArray, $nc(LanguageTag::LEGACY)->get($($LocaleUtils::toLowerString(languageTag)))));
+	$var($StringArray, gfmap, $cast($StringArray, LanguageTag::LEGACY->get($($LocaleUtils::toLowerString(languageTag)))));
 	if (gfmap != nullptr) {
 		$assign(itr, $new($StringTokenIterator, gfmap->get(1), LanguageTag::SEP));
 	} else {
@@ -180,7 +105,7 @@ bool LanguageTag::parseLanguage($StringTokenIterator* itr, $ParseStatus* sts) {
 		return false;
 	}
 	bool found = false;
-	$var($String, s, $nc(itr)->current());
+	$var($String, s, itr->current());
 	if (isLanguage(s)) {
 		found = true;
 		$set(this, language, s);
@@ -191,13 +116,13 @@ bool LanguageTag::parseLanguage($StringTokenIterator* itr, $ParseStatus* sts) {
 }
 
 bool LanguageTag::parseExtlangs($StringTokenIterator* itr, $ParseStatus* sts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(itr)->isDone();
 	if (var$0 || $nc(sts)->isError()) {
 		return false;
 	}
 	bool found = false;
-	while (!$nc(itr)->isDone()) {
+	while (!itr->isDone()) {
 		$var($String, s, itr->current());
 		if (!isExtlang(s)) {
 			break;
@@ -206,7 +131,7 @@ bool LanguageTag::parseExtlangs($StringTokenIterator* itr, $ParseStatus* sts) {
 		if ($nc(this->extlangs)->isEmpty()) {
 			$set(this, extlangs, $new($ArrayList, 3));
 		}
-		$nc(this->extlangs)->add(s);
+		this->extlangs->add(s);
 		$nc(sts)->parseLength = itr->currentEnd();
 		itr->next();
 		if ($nc(this->extlangs)->size() == 3) {
@@ -222,7 +147,7 @@ bool LanguageTag::parseScript($StringTokenIterator* itr, $ParseStatus* sts) {
 		return false;
 	}
 	bool found = false;
-	$var($String, s, $nc(itr)->current());
+	$var($String, s, itr->current());
 	if (isScript(s)) {
 		found = true;
 		$set(this, script, s);
@@ -238,7 +163,7 @@ bool LanguageTag::parseRegion($StringTokenIterator* itr, $ParseStatus* sts) {
 		return false;
 	}
 	bool found = false;
-	$var($String, s, $nc(itr)->current());
+	$var($String, s, itr->current());
 	if (isRegion(s)) {
 		found = true;
 		$set(this, region, s);
@@ -249,13 +174,13 @@ bool LanguageTag::parseRegion($StringTokenIterator* itr, $ParseStatus* sts) {
 }
 
 bool LanguageTag::parseVariants($StringTokenIterator* itr, $ParseStatus* sts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(itr)->isDone();
 	if (var$0 || $nc(sts)->isError()) {
 		return false;
 	}
 	bool found = false;
-	while (!$nc(itr)->isDone()) {
+	while (!itr->isDone()) {
 		$var($String, s, itr->current());
 		if (!isVariant(s)) {
 			break;
@@ -264,7 +189,7 @@ bool LanguageTag::parseVariants($StringTokenIterator* itr, $ParseStatus* sts) {
 		if ($nc(this->variants)->isEmpty()) {
 			$set(this, variants, $new($ArrayList, 3));
 		}
-		$nc(this->variants)->add(s);
+		this->variants->add(s);
 		$nc(sts)->parseLength = itr->currentEnd();
 		itr->next();
 	}
@@ -272,13 +197,13 @@ bool LanguageTag::parseVariants($StringTokenIterator* itr, $ParseStatus* sts) {
 }
 
 bool LanguageTag::parseExtensions($StringTokenIterator* itr, $ParseStatus* sts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(itr)->isDone();
 	if (var$0 || $nc(sts)->isError()) {
 		return false;
 	}
 	bool found = false;
-	while (!$nc(itr)->isDone()) {
+	while (!itr->isDone()) {
 		$var($String, s, itr->current());
 		if (isExtensionSingleton(s)) {
 			int32_t start = itr->currentStart();
@@ -303,7 +228,7 @@ bool LanguageTag::parseExtensions($StringTokenIterator* itr, $ParseStatus* sts) 
 			if ($nc(this->extensions)->isEmpty()) {
 				$set(this, extensions, $new($ArrayList, 4));
 			}
-			$nc(this->extensions)->add($(sb->toString()));
+			this->extensions->add($(sb->toString()));
 			found = true;
 		} else {
 			break;
@@ -313,13 +238,13 @@ bool LanguageTag::parseExtensions($StringTokenIterator* itr, $ParseStatus* sts) 
 }
 
 bool LanguageTag::parsePrivateuse($StringTokenIterator* itr, $ParseStatus* sts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(itr)->isDone();
 	if (var$0 || $nc(sts)->isError()) {
 		return false;
 	}
 	bool found = false;
-	$var($String, s, $nc(itr)->current());
+	$var($String, s, itr->current());
 	if (isPrivateusePrefix(s)) {
 		int32_t start = itr->currentStart();
 		$var($StringBuilder, sb, $new($StringBuilder, s));
@@ -346,7 +271,7 @@ bool LanguageTag::parsePrivateuse($StringTokenIterator* itr, $ParseStatus* sts) 
 
 LanguageTag* LanguageTag::parseLocale($BaseLocale* baseLocale, $LocaleExtensions* localeExtensions) {
 	$init(LanguageTag);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LanguageTag, tag, $new(LanguageTag));
 	$var($String, language, $nc(baseLocale)->getLanguage());
 	$var($String, script, baseLocale->getScript());
@@ -427,8 +352,11 @@ LanguageTag* LanguageTag::parseLocale($BaseLocale* baseLocale, $LocaleExtensions
 						if (extensions == nullptr) {
 							$assign(extensions, $new($ArrayList));
 						}
-						$var($String, var$2, $$str({$($nc(locextKey)->toString()), LanguageTag::SEP}));
-						$nc(extensions)->add($$concat(var$2, $($nc(ext)->getValue())));
+						$var($StringBuilder, var$2, $new($StringBuilder));
+						var$2->append($(locextKey->toString()));
+						var$2->append(LanguageTag::SEP);
+						var$2->append($($nc(ext)->getValue()));
+						$nc(extensions)->add($$str(var$2));
 					}
 				}
 			}
@@ -442,7 +370,7 @@ LanguageTag* LanguageTag::parseLocale($BaseLocale* baseLocale, $LocaleExtensions
 		if (privateuse == nullptr) {
 			$assign(privateuse, $str({LanguageTag::PRIVUSE_VARIANT_PREFIX, LanguageTag::SEP, privuseVar}));
 		} else {
-			$assign(privateuse, $str({privateuse, LanguageTag::SEP, LanguageTag::PRIVUSE_VARIANT_PREFIX, LanguageTag::SEP, $(privuseVar->replace(static_cast<$CharSequence*>($BaseLocale::SEP), static_cast<$CharSequence*>(LanguageTag::SEP)))}));
+			$assign(privateuse, $str({privateuse, LanguageTag::SEP, LanguageTag::PRIVUSE_VARIANT_PREFIX, LanguageTag::SEP, $(privuseVar->replace($BaseLocale::SEP, LanguageTag::SEP))}));
 		}
 	}
 	if (privateuse != nullptr) {
@@ -499,23 +427,23 @@ bool LanguageTag::isLanguage($String* s) {
 
 bool LanguageTag::isExtlang($String* s) {
 	$init(LanguageTag);
-	bool var$0 = ($nc(s)->length() == 3);
+	bool var$0 = $nc(s)->length() == 3;
 	return var$0 && $LocaleUtils::isAlphaString(s);
 }
 
 bool LanguageTag::isScript($String* s) {
 	$init(LanguageTag);
-	bool var$0 = ($nc(s)->length() == 4);
+	bool var$0 = $nc(s)->length() == 4;
 	return var$0 && $LocaleUtils::isAlphaString(s);
 }
 
 bool LanguageTag::isRegion($String* s) {
 	$init(LanguageTag);
-	bool var$1 = ($nc(s)->length() == 2);
-	bool var$0 = (var$1 && $LocaleUtils::isAlphaString(s));
+	bool var$1 = $nc(s)->length() == 2;
+	bool var$0 = var$1 && $LocaleUtils::isAlphaString(s);
 	if (!var$0) {
-		bool var$2 = ($nc(s)->length() == 3);
-		var$0 = (var$2 && $LocaleUtils::isNumericString(s));
+		bool var$2 = s->length() == 3;
+		var$0 = var$2 && $LocaleUtils::isNumericString(s);
 	}
 	return var$0;
 }
@@ -537,7 +465,7 @@ bool LanguageTag::isVariant($String* s) {
 
 bool LanguageTag::isExtensionSingleton($String* s) {
 	$init(LanguageTag);
-	bool var$1 = ($nc(s)->length() == 1);
+	bool var$1 = $nc(s)->length() == 1;
 	bool var$0 = var$1 && $LocaleUtils::isAlphaString(s);
 	return var$0 && !$LocaleUtils::caseIgnoreMatch(LanguageTag::PRIVATEUSE, s);
 }
@@ -555,7 +483,7 @@ bool LanguageTag::isExtensionSubtag($String* s) {
 
 bool LanguageTag::isPrivateusePrefix($String* s) {
 	$init(LanguageTag);
-	bool var$0 = ($nc(s)->length() == 1);
+	bool var$0 = $nc(s)->length() == 1;
 	return var$0 && $LocaleUtils::caseIgnoreMatch(LanguageTag::PRIVATEUSE, s);
 }
 
@@ -621,7 +549,7 @@ $String* LanguageTag::canonicalizePrivateuseSubtag($String* s) {
 }
 
 $String* LanguageTag::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if (!$nc(this->language)->isEmpty()) {
 		sb->append(this->language);
@@ -668,8 +596,8 @@ $String* LanguageTag::toString() {
 	return sb->toString();
 }
 
-void clinit$LanguageTag($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LanguageTag::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(LanguageTag::SEP, "-"_s);
 	$assignStatic(LanguageTag::PRIVATEUSE, "x"_s);
 	$assignStatic(LanguageTag::UNDETERMINED, "und"_s);
@@ -784,12 +712,10 @@ void clinit$LanguageTag($Class* class$) {
 		}));
 		{
 			$var($StringArray2, arr$, entries);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($StringArray, e, arr$->get(i$));
 				{
-					$nc(LanguageTag::LEGACY)->put($($LocaleUtils::toLowerString($nc(e)->get(0))), e);
+					LanguageTag::LEGACY->put($($LocaleUtils::toLowerString($nc(e)->get(0))), e);
 				}
 			}
 		}
@@ -800,7 +726,74 @@ LanguageTag::LanguageTag() {
 }
 
 $Class* LanguageTag::load$($String* name, bool initialize) {
-	$loadClass(LanguageTag, name, initialize, &_LanguageTag_ClassInfo_, clinit$LanguageTag, allocate$LanguageTag);
+	$FieldInfo fieldInfos$$[] = {
+		{"SEP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LanguageTag, SEP)},
+		{"PRIVATEUSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LanguageTag, PRIVATEUSE)},
+		{"UNDETERMINED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LanguageTag, UNDETERMINED)},
+		{"PRIVUSE_VARIANT_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LanguageTag, PRIVUSE_VARIANT_PREFIX)},
+		{"language", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LanguageTag, language)},
+		{"script", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LanguageTag, script)},
+		{"region", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LanguageTag, region)},
+		{"privateuse", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LanguageTag, privateuse)},
+		{"extlangs", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(LanguageTag, extlangs)},
+		{"variants", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(LanguageTag, variants)},
+		{"extensions", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(LanguageTag, extensions)},
+		{"LEGACY", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LanguageTag, LEGACY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LanguageTag, init$, void)},
+		{"canonicalizeExtension", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeExtension, $String*, $String*)},
+		{"canonicalizeExtensionSingleton", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeExtensionSingleton, $String*, $String*)},
+		{"canonicalizeExtensionSubtag", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeExtensionSubtag, $String*, $String*)},
+		{"canonicalizeExtlang", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeExtlang, $String*, $String*)},
+		{"canonicalizeLanguage", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeLanguage, $String*, $String*)},
+		{"canonicalizePrivateuse", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizePrivateuse, $String*, $String*)},
+		{"canonicalizePrivateuseSubtag", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizePrivateuseSubtag, $String*, $String*)},
+		{"canonicalizeRegion", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeRegion, $String*, $String*)},
+		{"canonicalizeScript", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeScript, $String*, $String*)},
+		{"canonicalizeVariant", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, canonicalizeVariant, $String*, $String*)},
+		{"getExtensions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LanguageTag, getExtensions, $List*)},
+		{"getExtlangs", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LanguageTag, getExtlangs, $List*)},
+		{"getLanguage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LanguageTag, getLanguage, $String*)},
+		{"getPrivateuse", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LanguageTag, getPrivateuse, $String*)},
+		{"getRegion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LanguageTag, getRegion, $String*)},
+		{"getScript", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LanguageTag, getScript, $String*)},
+		{"getVariants", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LanguageTag, getVariants, $List*)},
+		{"isExtensionSingleton", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isExtensionSingleton, bool, $String*)},
+		{"isExtensionSingletonChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isExtensionSingletonChar, bool, char16_t)},
+		{"isExtensionSubtag", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isExtensionSubtag, bool, $String*)},
+		{"isExtlang", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isExtlang, bool, $String*)},
+		{"isLanguage", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isLanguage, bool, $String*)},
+		{"isPrivateusePrefix", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isPrivateusePrefix, bool, $String*)},
+		{"isPrivateusePrefixChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isPrivateusePrefixChar, bool, char16_t)},
+		{"isPrivateuseSubtag", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isPrivateuseSubtag, bool, $String*)},
+		{"isRegion", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isRegion, bool, $String*)},
+		{"isScript", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isScript, bool, $String*)},
+		{"isVariant", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, isVariant, bool, $String*)},
+		{"parse", "(Ljava/lang/String;Lsun/util/locale/ParseStatus;)Lsun/util/locale/LanguageTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, parse, LanguageTag*, $String*, $ParseStatus*)},
+		{"parseExtensions", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseExtensions, bool, $StringTokenIterator*, $ParseStatus*)},
+		{"parseExtlangs", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseExtlangs, bool, $StringTokenIterator*, $ParseStatus*)},
+		{"parseLanguage", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseLanguage, bool, $StringTokenIterator*, $ParseStatus*)},
+		{"parseLocale", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)Lsun/util/locale/LanguageTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(LanguageTag, parseLocale, LanguageTag*, $BaseLocale*, $LocaleExtensions*)},
+		{"parsePrivateuse", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parsePrivateuse, bool, $StringTokenIterator*, $ParseStatus*)},
+		{"parseRegion", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseRegion, bool, $StringTokenIterator*, $ParseStatus*)},
+		{"parseScript", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseScript, bool, $StringTokenIterator*, $ParseStatus*)},
+		{"parseVariants", "(Lsun/util/locale/StringTokenIterator;Lsun/util/locale/ParseStatus;)Z", nullptr, $PRIVATE, $method(LanguageTag, parseVariants, bool, $StringTokenIterator*, $ParseStatus*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LanguageTag, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.LanguageTag",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LanguageTag, name, initialize, &classInfo$$, LanguageTag::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LanguageTag);
+	});
 	return class$;
 }
 

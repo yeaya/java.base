@@ -24,6 +24,7 @@ class $import HttpURLConnection$TunnelState : public ::java::lang::Enum {
 public:
 	HttpURLConnection$TunnelState();
 	static $Array<::sun::net::www::protocol::http::HttpURLConnection$TunnelState>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::net::www::protocol::http::HttpURLConnection$TunnelState* valueOf($String* name);
 	static $Array<::sun::net::www::protocol::http::HttpURLConnection$TunnelState>* values();

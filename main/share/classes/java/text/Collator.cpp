@@ -1,5 +1,4 @@
 #include <java/text/Collator.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/ref/SoftReference.h>
@@ -44,58 +43,6 @@ using $LocaleServiceProviderPool = ::sun::util::locale::provider::LocaleServiceP
 namespace java {
 	namespace text {
 
-$FieldInfo _Collator_FieldInfo_[] = {
-	{"PRIMARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, PRIMARY)},
-	{"SECONDARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, SECONDARY)},
-	{"TERTIARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, TERTIARY)},
-	{"IDENTICAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, IDENTICAL)},
-	{"NO_DECOMPOSITION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, NO_DECOMPOSITION)},
-	{"CANONICAL_DECOMPOSITION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, CANONICAL_DECOMPOSITION)},
-	{"FULL_DECOMPOSITION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, FULL_DECOMPOSITION)},
-	{"strength", "I", nullptr, $PRIVATE, $field(Collator, strength)},
-	{"decmp", "I", nullptr, $PRIVATE, $field(Collator, decmp)},
-	{"cache", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/util/Locale;Ljava/lang/ref/SoftReference<Ljava/text/Collator;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Collator, cache)},
-	{"LESS", "I", nullptr, $STATIC | $FINAL, $constField(Collator, LESS)},
-	{"EQUAL", "I", nullptr, $STATIC | $FINAL, $constField(Collator, EQUAL)},
-	{"GREATER", "I", nullptr, $STATIC | $FINAL, $constField(Collator, GREATER)},
-	{}
-};
-
-$MethodInfo _Collator_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Collator, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collator, clone, $Object*)},
-	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Collator, compare, int32_t, $String*, $String*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Collator, compare, int32_t, Object$*, Object$*)},
-	{"equals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Collator, equals, bool, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collator, equals, bool, Object$*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Collator, getAvailableLocales, $LocaleArray*)},
-	{"getCollationKey", "(Ljava/lang/String;)Ljava/text/CollationKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Collator, getCollationKey, $CollationKey*, $String*)},
-	{"getDecomposition", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, getDecomposition, int32_t)},
-	{"getInstance", "()Ljava/text/Collator;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Collator, getInstance, Collator*)},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Collator, getInstance, Collator*, $Locale*)},
-	{"getStrength", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, getStrength, int32_t)},
-	{"setDecomposition", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, setDecomposition, void, int32_t)},
-	{"setStrength", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, setStrength, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Collator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.text.Collator",
-	"java.lang.Object",
-	"java.util.Comparator,java.lang.Cloneable",
-	_Collator_FieldInfo_,
-	_Collator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/Object;>;Ljava/lang/Cloneable;"
-};
-
-$Object* allocate$Collator($Class* clazz) {
-	return $of($alloc(Collator));
-}
-
 int32_t Collator::hashCode() {
 	 return this->$Comparator::hashCode();
 }
@@ -111,18 +58,17 @@ void Collator::finalize() {
 $ConcurrentMap* Collator::cache = nullptr;
 
 Collator* Collator::getInstance() {
-	$load(Collator);
+	$init(Collator);
 	$synchronized(class$) {
-		$init(Collator);
 		return getInstance($($Locale::getDefault()));
 	}
 }
 
 Collator* Collator::getInstance($Locale* desiredLocale) {
 	$init(Collator);
-	$useLocalCurrentObjectStackCache();
-	$var($SoftReference, ref, $cast($SoftReference, $nc(Collator::cache)->get(desiredLocale)));
-	$var(Collator, result, (ref != nullptr) ? $cast(Collator, $nc(ref)->get()) : (Collator*)nullptr);
+	$useLocalObjectStack();
+	$var($SoftReference, ref, $cast($SoftReference, Collator::cache->get(desiredLocale)));
+	$var(Collator, result, (ref != nullptr) ? $cast(Collator, ref->get()) : (Collator*)nullptr);
 	if (result == nullptr) {
 		$var($LocaleProviderAdapter, adapter, nullptr);
 		$load($CollatorProvider);
@@ -130,13 +76,13 @@ Collator* Collator::getInstance($Locale* desiredLocale) {
 		$var($CollatorProvider, provider, $nc(adapter)->getCollatorProvider());
 		$assign(result, $nc(provider)->getInstance(desiredLocale));
 		if (result == nullptr) {
-			$assign(result, $nc($($nc($($LocaleProviderAdapter::forJRE()))->getCollatorProvider()))->getInstance(desiredLocale));
+			$assign(result, $$nc($$nc($LocaleProviderAdapter::forJRE())->getCollatorProvider())->getInstance(desiredLocale));
 		}
 		while (true) {
 			if (ref != nullptr) {
-				$nc(Collator::cache)->remove(desiredLocale, ref);
+				Collator::cache->remove(desiredLocale, ref);
 			}
-			$assign(ref, $cast($SoftReference, $nc(Collator::cache)->putIfAbsent(desiredLocale, $$new($SoftReference, result))));
+			$assign(ref, $cast($SoftReference, Collator::cache->putIfAbsent(desiredLocale, $$new($SoftReference, result))));
 			if (ref == nullptr) {
 				break;
 			}
@@ -189,9 +135,8 @@ void Collator::setDecomposition(int32_t decompositionMode) {
 }
 
 $LocaleArray* Collator::getAvailableLocales() {
-	$load(Collator);
+	$init(Collator);
 	$synchronized(class$) {
-		$init(Collator);
 		$load($CollatorProvider);
 		$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($CollatorProvider::class$));
 		return $nc(pool)->getAvailableLocales();
@@ -202,7 +147,7 @@ $Object* Collator::clone() {
 	try {
 		return $of($cast(Collator, $Comparator::clone()));
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -218,7 +163,7 @@ bool Collator::equals(Object$* that) {
 		return false;
 	}
 	$var(Collator, other, $cast(Collator, that));
-	return ((this->strength == $nc(other)->strength) && (this->decmp == other->decmp));
+	return ((this->strength == other->strength) && (this->decmp == other->decmp));
 }
 
 void Collator::init$() {
@@ -228,7 +173,7 @@ void Collator::init$() {
 	this->decmp = Collator::CANONICAL_DECOMPOSITION;
 }
 
-void clinit$Collator($Class* class$) {
+void Collator::clinit$($Class* clazz) {
 	$assignStatic(Collator::cache, $new($ConcurrentHashMap));
 }
 
@@ -236,7 +181,54 @@ Collator::Collator() {
 }
 
 $Class* Collator::load$($String* name, bool initialize) {
-	$loadClass(Collator, name, initialize, &_Collator_ClassInfo_, clinit$Collator, allocate$Collator);
+	$FieldInfo fieldInfos$$[] = {
+		{"PRIMARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, PRIMARY)},
+		{"SECONDARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, SECONDARY)},
+		{"TERTIARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, TERTIARY)},
+		{"IDENTICAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, IDENTICAL)},
+		{"NO_DECOMPOSITION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, NO_DECOMPOSITION)},
+		{"CANONICAL_DECOMPOSITION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, CANONICAL_DECOMPOSITION)},
+		{"FULL_DECOMPOSITION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Collator, FULL_DECOMPOSITION)},
+		{"strength", "I", nullptr, $PRIVATE, $field(Collator, strength)},
+		{"decmp", "I", nullptr, $PRIVATE, $field(Collator, decmp)},
+		{"cache", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/util/Locale;Ljava/lang/ref/SoftReference<Ljava/text/Collator;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Collator, cache)},
+		{"LESS", "I", nullptr, $STATIC | $FINAL, $constField(Collator, LESS)},
+		{"EQUAL", "I", nullptr, $STATIC | $FINAL, $constField(Collator, EQUAL)},
+		{"GREATER", "I", nullptr, $STATIC | $FINAL, $constField(Collator, GREATER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Collator, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collator, clone, $Object*)},
+		{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Collator, compare, int32_t, $String*, $String*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Collator, compare, int32_t, Object$*, Object$*)},
+		{"equals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Collator, equals, bool, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collator, equals, bool, Object$*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Collator, getAvailableLocales, $LocaleArray*)},
+		{"getCollationKey", "(Ljava/lang/String;)Ljava/text/CollationKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Collator, getCollationKey, $CollationKey*, $String*)},
+		{"getDecomposition", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, getDecomposition, int32_t)},
+		{"getInstance", "()Ljava/text/Collator;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Collator, getInstance, Collator*)},
+		{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Collator, getInstance, Collator*, $Locale*)},
+		{"getStrength", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, getStrength, int32_t)},
+		{"setDecomposition", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, setDecomposition, void, int32_t)},
+		{"setStrength", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, setStrength, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.text.Collator",
+		"java.lang.Object",
+		"java.util.Comparator,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/Object;>;Ljava/lang/Cloneable;"
+	};
+	$loadClass(Collator, name, initialize, &classInfo$$, Collator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collator));
+	});
 	return class$;
 }
 

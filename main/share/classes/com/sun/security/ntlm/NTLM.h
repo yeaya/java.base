@@ -41,6 +41,7 @@ class $export NTLM : public ::java::lang::Object {
 	$class(NTLM, 0, ::java::lang::Object)
 public:
 	NTLM();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* version);
 	virtual $bytes* calcLMHash($bytes* pwb);
 	virtual $bytes* calcNTHash($bytes* pw);

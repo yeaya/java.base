@@ -32,6 +32,7 @@ class DelegatingSocketImpl : public ::java::net::SocketImpl {
 	$class(DelegatingSocketImpl, 0, ::java::net::SocketImpl)
 public:
 	DelegatingSocketImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::SocketImpl* delegate);
 	virtual void accept(::java::net::SocketImpl* s) override;
 	virtual int32_t available() override;

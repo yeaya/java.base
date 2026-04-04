@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/SPILocaleProviderAdapter$DateFormatProviderDelegate.h>
-
 #include <java/text/DateFormat.h>
 #include <java/text/spi/DateFormatProvider.h>
 #include <java/util/AbstractMap.h>
@@ -29,53 +28,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _SPILocaleProviderAdapter$DateFormatProviderDelegate_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DateFormatProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$DateFormatProviderDelegate, map)},
-	{}
-};
-
-$MethodInfo _SPILocaleProviderAdapter$DateFormatProviderDelegate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$DateFormatProviderDelegate, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, getAvailableLocales, $LocaleArray*)},
-	{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, getDateInstance, $DateFormat*, int32_t, $Locale*)},
-	{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, getDateTimeInstance, $DateFormat*, int32_t, int32_t, $Locale*)},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DateFormatProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, getDelegateMap, $Map*)},
-	{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, getTimeInstance, $DateFormat*, int32_t, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SPILocaleProviderAdapter$DateFormatProviderDelegate_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$DateFormatProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "DateFormatProviderDelegate", $STATIC},
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SPILocaleProviderAdapter$DateFormatProviderDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.SPILocaleProviderAdapter$DateFormatProviderDelegate",
-	"java.text.spi.DateFormatProvider",
-	"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
-	_SPILocaleProviderAdapter$DateFormatProviderDelegate_FieldInfo_,
-	_SPILocaleProviderAdapter$DateFormatProviderDelegate_MethodInfo_,
-	"Ljava/text/spi/DateFormatProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/text/spi/DateFormatProvider;>;",
-	nullptr,
-	_SPILocaleProviderAdapter$DateFormatProviderDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.SPILocaleProviderAdapter"
-};
-
-$Object* allocate$SPILocaleProviderAdapter$DateFormatProviderDelegate($Class* clazz) {
-	return $of($alloc(SPILocaleProviderAdapter$DateFormatProviderDelegate));
-}
-
 int32_t SPILocaleProviderAdapter$DateFormatProviderDelegate::hashCode() {
 	 return this->$DateFormatProvider::hashCode();
 }
@@ -98,7 +50,7 @@ void SPILocaleProviderAdapter$DateFormatProviderDelegate::finalize() {
 
 void SPILocaleProviderAdapter$DateFormatProviderDelegate::init$() {
 	$DateFormatProvider::init$();
-	$set(this, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, map, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 $Map* SPILocaleProviderAdapter$DateFormatProviderDelegate::getDelegateMap() {
@@ -114,7 +66,7 @@ bool SPILocaleProviderAdapter$DateFormatProviderDelegate::isSupportedLocale($Loc
 }
 
 $DateFormat* SPILocaleProviderAdapter$DateFormatProviderDelegate::getTimeInstance(int32_t style, $Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($DateFormatProvider, dfp, $cast($DateFormatProvider, getImpl(locale)));
@@ -122,7 +74,7 @@ $DateFormat* SPILocaleProviderAdapter$DateFormatProviderDelegate::getTimeInstanc
 }
 
 $DateFormat* SPILocaleProviderAdapter$DateFormatProviderDelegate::getDateInstance(int32_t style, $Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($DateFormatProvider, dfp, $cast($DateFormatProvider, getImpl(locale)));
@@ -130,7 +82,7 @@ $DateFormat* SPILocaleProviderAdapter$DateFormatProviderDelegate::getDateInstanc
 }
 
 $DateFormat* SPILocaleProviderAdapter$DateFormatProviderDelegate::getDateTimeInstance(int32_t dateStyle, int32_t timeStyle, $Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($DateFormatProvider, dfp, $cast($DateFormatProvider, getImpl(locale)));
@@ -141,7 +93,48 @@ SPILocaleProviderAdapter$DateFormatProviderDelegate::SPILocaleProviderAdapter$Da
 }
 
 $Class* SPILocaleProviderAdapter$DateFormatProviderDelegate::load$($String* name, bool initialize) {
-	$loadClass(SPILocaleProviderAdapter$DateFormatProviderDelegate, name, initialize, &_SPILocaleProviderAdapter$DateFormatProviderDelegate_ClassInfo_, allocate$SPILocaleProviderAdapter$DateFormatProviderDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DateFormatProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$DateFormatProviderDelegate, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$DateFormatProviderDelegate, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, getAvailableLocales, $LocaleArray*)},
+		{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, getDateInstance, $DateFormat*, int32_t, $Locale*)},
+		{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, getDateTimeInstance, $DateFormat*, int32_t, int32_t, $Locale*)},
+		{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DateFormatProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, getDelegateMap, $Map*)},
+		{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, getTimeInstance, $DateFormat*, int32_t, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatProviderDelegate, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$DateFormatProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "DateFormatProviderDelegate", $STATIC},
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.SPILocaleProviderAdapter$DateFormatProviderDelegate",
+		"java.text.spi.DateFormatProvider",
+		"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/text/spi/DateFormatProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/text/spi/DateFormatProvider;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.SPILocaleProviderAdapter"
+	};
+	$loadClass(SPILocaleProviderAdapter$DateFormatProviderDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SPILocaleProviderAdapter$DateFormatProviderDelegate));
+	});
 	return class$;
 }
 

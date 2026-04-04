@@ -1,5 +1,4 @@
 #include <java/net/HttpURLConnection.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/IllegalStateException.h>
@@ -80,103 +79,11 @@ using $Date = ::java::util::Date;
 namespace java {
 	namespace net {
 
-$CompoundAttribute _HttpURLConnection_FieldAnnotations_HTTP_SERVER_ERROR[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _HttpURLConnection_FieldInfo_[] = {
-	{"method", "Ljava/lang/String;", nullptr, $PROTECTED, $field(HttpURLConnection, method)},
-	{"chunkLength", "I", nullptr, $PROTECTED, $field(HttpURLConnection, chunkLength)},
-	{"fixedContentLength", "I", nullptr, $PROTECTED, $field(HttpURLConnection, fixedContentLength)},
-	{"fixedContentLengthLong", "J", nullptr, $PROTECTED, $field(HttpURLConnection, fixedContentLengthLong)},
-	{"DEFAULT_CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpURLConnection, DEFAULT_CHUNK_SIZE)},
-	{"responseCode", "I", nullptr, $PROTECTED, $field(HttpURLConnection, responseCode)},
-	{"responseMessage", "Ljava/lang/String;", nullptr, $PROTECTED, $field(HttpURLConnection, responseMessage)},
-	{"followRedirects", "Z", nullptr, $PRIVATE | $STATIC, $staticField(HttpURLConnection, followRedirects)},
-	{"instanceFollowRedirects", "Z", nullptr, $PROTECTED, $field(HttpURLConnection, instanceFollowRedirects)},
-	{"methods", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpURLConnection, methods)},
-	{"HTTP_OK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_OK)},
-	{"HTTP_CREATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_CREATED)},
-	{"HTTP_ACCEPTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_ACCEPTED)},
-	{"HTTP_NOT_AUTHORITATIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NOT_AUTHORITATIVE)},
-	{"HTTP_NO_CONTENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NO_CONTENT)},
-	{"HTTP_RESET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_RESET)},
-	{"HTTP_PARTIAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_PARTIAL)},
-	{"HTTP_MULT_CHOICE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_MULT_CHOICE)},
-	{"HTTP_MOVED_PERM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_MOVED_PERM)},
-	{"HTTP_MOVED_TEMP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_MOVED_TEMP)},
-	{"HTTP_SEE_OTHER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_SEE_OTHER)},
-	{"HTTP_NOT_MODIFIED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NOT_MODIFIED)},
-	{"HTTP_USE_PROXY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_USE_PROXY)},
-	{"HTTP_BAD_REQUEST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_BAD_REQUEST)},
-	{"HTTP_UNAUTHORIZED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_UNAUTHORIZED)},
-	{"HTTP_PAYMENT_REQUIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_PAYMENT_REQUIRED)},
-	{"HTTP_FORBIDDEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_FORBIDDEN)},
-	{"HTTP_NOT_FOUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NOT_FOUND)},
-	{"HTTP_BAD_METHOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_BAD_METHOD)},
-	{"HTTP_NOT_ACCEPTABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NOT_ACCEPTABLE)},
-	{"HTTP_PROXY_AUTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_PROXY_AUTH)},
-	{"HTTP_CLIENT_TIMEOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_CLIENT_TIMEOUT)},
-	{"HTTP_CONFLICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_CONFLICT)},
-	{"HTTP_GONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_GONE)},
-	{"HTTP_LENGTH_REQUIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_LENGTH_REQUIRED)},
-	{"HTTP_PRECON_FAILED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_PRECON_FAILED)},
-	{"HTTP_ENTITY_TOO_LARGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_ENTITY_TOO_LARGE)},
-	{"HTTP_REQ_TOO_LONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_REQ_TOO_LONG)},
-	{"HTTP_UNSUPPORTED_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_UNSUPPORTED_TYPE)},
-	{"HTTP_SERVER_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(HttpURLConnection, HTTP_SERVER_ERROR), _HttpURLConnection_FieldAnnotations_HTTP_SERVER_ERROR},
-	{"HTTP_INTERNAL_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_INTERNAL_ERROR)},
-	{"HTTP_NOT_IMPLEMENTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NOT_IMPLEMENTED)},
-	{"HTTP_BAD_GATEWAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_BAD_GATEWAY)},
-	{"HTTP_UNAVAILABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_UNAVAILABLE)},
-	{"HTTP_GATEWAY_TIMEOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_GATEWAY_TIMEOUT)},
-	{"HTTP_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_VERSION)},
-	{}
-};
-
-$MethodInfo _HttpURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $method(HttpURLConnection, init$, void, $URL*)},
-	{"disconnect", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpURLConnection, disconnect, void)},
-	{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getErrorStream, $InputStream*)},
-	{"getFollowRedirects", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpURLConnection, getFollowRedirects, bool)},
-	{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getHeaderField, $String*, int32_t)},
-	{"getHeaderFieldDate", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getHeaderFieldDate, int64_t, $String*, int64_t)},
-	{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getHeaderFieldKey, $String*, int32_t)},
-	{"getInstanceFollowRedirects", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getInstanceFollowRedirects, bool)},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getPermission, $Permission*), "java.io.IOException"},
-	{"getRequestMethod", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getRequestMethod, $String*)},
-	{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getResponseCode, int32_t), "java.io.IOException"},
-	{"getResponseMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getResponseMessage, $String*), "java.io.IOException"},
-	{"setAuthenticator", "(Ljava/net/Authenticator;)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setAuthenticator, void, $Authenticator*)},
-	{"setChunkedStreamingMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setChunkedStreamingMode, void, int32_t)},
-	{"setFixedLengthStreamingMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setFixedLengthStreamingMode, void, int32_t)},
-	{"setFixedLengthStreamingMode", "(J)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setFixedLengthStreamingMode, void, int64_t)},
-	{"setFollowRedirects", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpURLConnection, setFollowRedirects, void, bool)},
-	{"setInstanceFollowRedirects", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setInstanceFollowRedirects, void, bool)},
-	{"setRequestMethod", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setRequestMethod, void, $String*), "java.net.ProtocolException"},
-	{"usingProxy", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpURLConnection, usingProxy, bool)},
-	{}
-};
-
-$ClassInfo _HttpURLConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.net.HttpURLConnection",
-	"java.net.URLConnection",
-	nullptr,
-	_HttpURLConnection_FieldInfo_,
-	_HttpURLConnection_MethodInfo_
-};
-
-$Object* allocate$HttpURLConnection($Class* clazz) {
-	return $of($alloc(HttpURLConnection));
-}
-
 bool HttpURLConnection::followRedirects = false;
 $StringArray* HttpURLConnection::methods = nullptr;
 
 void HttpURLConnection::setAuthenticator($Authenticator* auth) {
-	$throwNew($UnsupportedOperationException, $$str({"Supplying an authenticator is not supported by "_s, $of(this)->getClass()}));
+	$throwNew($UnsupportedOperationException, $$str({"Supplying an authenticator is not supported by "_s, this->getClass()}));
 }
 
 $String* HttpURLConnection::getHeaderFieldKey(int32_t n) {
@@ -257,12 +164,12 @@ bool HttpURLConnection::getInstanceFollowRedirects() {
 }
 
 void HttpURLConnection::setRequestMethod($String* method) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->connected) {
 		$throwNew($ProtocolException, "Can\'t reset method: already connected"_s);
 	}
-	for (int32_t i = 0; i < $nc(HttpURLConnection::methods)->length; ++i) {
-		if ($nc($nc(HttpURLConnection::methods)->get(i))->equals(method)) {
+	for (int32_t i = 0; i < HttpURLConnection::methods->length; ++i) {
+		if ($nc(HttpURLConnection::methods->get(i))->equals(method)) {
 			if ($nc(method)->equals("TRACE"_s)) {
 				$var($SecurityManager, s, $System::getSecurityManager());
 				if (s != nullptr) {
@@ -281,7 +188,7 @@ $String* HttpURLConnection::getRequestMethod() {
 }
 
 int32_t HttpURLConnection::getResponseCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->responseCode != -1) {
 		return this->responseCode;
 	}
@@ -303,9 +210,9 @@ int32_t HttpURLConnection::getResponseCode() {
 		return -1;
 	}
 	if ($nc(statusLine)->startsWith("HTTP/1."_s)) {
-		int32_t codePos = statusLine->indexOf((int32_t)u' ');
+		int32_t codePos = statusLine->indexOf(u' ');
 		if (codePos > 0) {
-			int32_t phrasePos = statusLine->indexOf((int32_t)u' ', codePos + 1);
+			int32_t phrasePos = statusLine->indexOf(u' ', codePos + 1);
 			if (phrasePos > 0 && phrasePos < statusLine->length()) {
 				$set(this, responseMessage, statusLine->substring(phrasePos + 1));
 			}
@@ -340,10 +247,10 @@ int64_t HttpURLConnection::getHeaderFieldDate($String* name, int64_t Default) {
 }
 
 $Permission* HttpURLConnection::getPermission() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t port = $nc(this->url)->getPort();
 	port = port < 0 ? 80 : port;
-	$var($String, host, $str({$($nc(this->url)->getHost()), ":"_s, $$str(port)}));
+	$var($String, host, $str({$(this->url->getHost()), ":"_s, $$str(port)}));
 	$var($Permission, permission, $new($SocketPermission, host, "connect"_s));
 	return permission;
 }
@@ -352,7 +259,7 @@ $InputStream* HttpURLConnection::getErrorStream() {
 	return nullptr;
 }
 
-void clinit$HttpURLConnection($Class* class$) {
+void HttpURLConnection::clinit$($Class* clazz) {
 	HttpURLConnection::followRedirects = true;
 	$assignStatic(HttpURLConnection::methods, $new($StringArray, {
 		"GET"_s,
@@ -369,7 +276,93 @@ HttpURLConnection::HttpURLConnection() {
 }
 
 $Class* HttpURLConnection::load$($String* name, bool initialize) {
-	$loadClass(HttpURLConnection, name, initialize, &_HttpURLConnection_ClassInfo_, clinit$HttpURLConnection, allocate$HttpURLConnection);
+	$CompoundAttribute HTTP_SERVER_ERRORfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"method", "Ljava/lang/String;", nullptr, $PROTECTED, $field(HttpURLConnection, method)},
+		{"chunkLength", "I", nullptr, $PROTECTED, $field(HttpURLConnection, chunkLength)},
+		{"fixedContentLength", "I", nullptr, $PROTECTED, $field(HttpURLConnection, fixedContentLength)},
+		{"fixedContentLengthLong", "J", nullptr, $PROTECTED, $field(HttpURLConnection, fixedContentLengthLong)},
+		{"DEFAULT_CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpURLConnection, DEFAULT_CHUNK_SIZE)},
+		{"responseCode", "I", nullptr, $PROTECTED, $field(HttpURLConnection, responseCode)},
+		{"responseMessage", "Ljava/lang/String;", nullptr, $PROTECTED, $field(HttpURLConnection, responseMessage)},
+		{"followRedirects", "Z", nullptr, $PRIVATE | $STATIC, $staticField(HttpURLConnection, followRedirects)},
+		{"instanceFollowRedirects", "Z", nullptr, $PROTECTED, $field(HttpURLConnection, instanceFollowRedirects)},
+		{"methods", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpURLConnection, methods)},
+		{"HTTP_OK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_OK)},
+		{"HTTP_CREATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_CREATED)},
+		{"HTTP_ACCEPTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_ACCEPTED)},
+		{"HTTP_NOT_AUTHORITATIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NOT_AUTHORITATIVE)},
+		{"HTTP_NO_CONTENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NO_CONTENT)},
+		{"HTTP_RESET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_RESET)},
+		{"HTTP_PARTIAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_PARTIAL)},
+		{"HTTP_MULT_CHOICE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_MULT_CHOICE)},
+		{"HTTP_MOVED_PERM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_MOVED_PERM)},
+		{"HTTP_MOVED_TEMP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_MOVED_TEMP)},
+		{"HTTP_SEE_OTHER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_SEE_OTHER)},
+		{"HTTP_NOT_MODIFIED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NOT_MODIFIED)},
+		{"HTTP_USE_PROXY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_USE_PROXY)},
+		{"HTTP_BAD_REQUEST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_BAD_REQUEST)},
+		{"HTTP_UNAUTHORIZED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_UNAUTHORIZED)},
+		{"HTTP_PAYMENT_REQUIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_PAYMENT_REQUIRED)},
+		{"HTTP_FORBIDDEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_FORBIDDEN)},
+		{"HTTP_NOT_FOUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NOT_FOUND)},
+		{"HTTP_BAD_METHOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_BAD_METHOD)},
+		{"HTTP_NOT_ACCEPTABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NOT_ACCEPTABLE)},
+		{"HTTP_PROXY_AUTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_PROXY_AUTH)},
+		{"HTTP_CLIENT_TIMEOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_CLIENT_TIMEOUT)},
+		{"HTTP_CONFLICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_CONFLICT)},
+		{"HTTP_GONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_GONE)},
+		{"HTTP_LENGTH_REQUIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_LENGTH_REQUIRED)},
+		{"HTTP_PRECON_FAILED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_PRECON_FAILED)},
+		{"HTTP_ENTITY_TOO_LARGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_ENTITY_TOO_LARGE)},
+		{"HTTP_REQ_TOO_LONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_REQ_TOO_LONG)},
+		{"HTTP_UNSUPPORTED_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_UNSUPPORTED_TYPE)},
+		{"HTTP_SERVER_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(HttpURLConnection, HTTP_SERVER_ERROR), HTTP_SERVER_ERRORfieldAnnotations$$},
+		{"HTTP_INTERNAL_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_INTERNAL_ERROR)},
+		{"HTTP_NOT_IMPLEMENTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_NOT_IMPLEMENTED)},
+		{"HTTP_BAD_GATEWAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_BAD_GATEWAY)},
+		{"HTTP_UNAVAILABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_UNAVAILABLE)},
+		{"HTTP_GATEWAY_TIMEOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_GATEWAY_TIMEOUT)},
+		{"HTTP_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HttpURLConnection, HTTP_VERSION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $method(HttpURLConnection, init$, void, $URL*)},
+		{"disconnect", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpURLConnection, disconnect, void)},
+		{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getErrorStream, $InputStream*)},
+		{"getFollowRedirects", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpURLConnection, getFollowRedirects, bool)},
+		{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getHeaderField, $String*, int32_t)},
+		{"getHeaderFieldDate", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getHeaderFieldDate, int64_t, $String*, int64_t)},
+		{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getHeaderFieldKey, $String*, int32_t)},
+		{"getInstanceFollowRedirects", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getInstanceFollowRedirects, bool)},
+		{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getPermission, $Permission*), "java.io.IOException"},
+		{"getRequestMethod", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getRequestMethod, $String*)},
+		{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getResponseCode, int32_t), "java.io.IOException"},
+		{"getResponseMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, getResponseMessage, $String*), "java.io.IOException"},
+		{"setAuthenticator", "(Ljava/net/Authenticator;)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setAuthenticator, void, $Authenticator*)},
+		{"setChunkedStreamingMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setChunkedStreamingMode, void, int32_t)},
+		{"setFixedLengthStreamingMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setFixedLengthStreamingMode, void, int32_t)},
+		{"setFixedLengthStreamingMode", "(J)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setFixedLengthStreamingMode, void, int64_t)},
+		{"setFollowRedirects", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpURLConnection, setFollowRedirects, void, bool)},
+		{"setInstanceFollowRedirects", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setInstanceFollowRedirects, void, bool)},
+		{"setRequestMethod", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection, setRequestMethod, void, $String*), "java.net.ProtocolException"},
+		{"usingProxy", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpURLConnection, usingProxy, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.net.HttpURLConnection",
+		"java.net.URLConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpURLConnection, name, initialize, &classInfo$$, HttpURLConnection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpURLConnection);
+	});
 	return class$;
 }
 

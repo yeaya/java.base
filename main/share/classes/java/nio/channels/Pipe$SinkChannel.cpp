@@ -1,5 +1,4 @@
 #include <java/nio/channels/Pipe$SinkChannel.h>
-
 #include <java/nio/channels/Pipe.h>
 #include <java/nio/channels/SelectionKey.h>
 #include <java/nio/channels/spi/AbstractSelectableChannel.h>
@@ -18,44 +17,6 @@ using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$MethodInfo _Pipe$SinkChannel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(Pipe$SinkChannel, init$, void, $SelectorProvider*)},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validOps", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Pipe$SinkChannel, validOps, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Pipe$SinkChannel_InnerClassesInfo_[] = {
-	{"java.nio.channels.Pipe$SinkChannel", "java.nio.channels.Pipe", "SinkChannel", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Pipe$SinkChannel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.nio.channels.Pipe$SinkChannel",
-	"java.nio.channels.spi.AbstractSelectableChannel",
-	"java.nio.channels.GatheringByteChannel",
-	nullptr,
-	_Pipe$SinkChannel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pipe$SinkChannel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.channels.Pipe"
-};
-
-$Object* allocate$Pipe$SinkChannel($Class* clazz) {
-	return $of($alloc(Pipe$SinkChannel));
-}
 
 void Pipe$SinkChannel::close() {
 	this->$AbstractSelectableChannel::close();
@@ -97,7 +58,40 @@ Pipe$SinkChannel::Pipe$SinkChannel() {
 }
 
 $Class* Pipe$SinkChannel::load$($String* name, bool initialize) {
-	$loadClass(Pipe$SinkChannel, name, initialize, &_Pipe$SinkChannel_ClassInfo_, allocate$Pipe$SinkChannel);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(Pipe$SinkChannel, init$, void, $SelectorProvider*)},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validOps", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Pipe$SinkChannel, validOps, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.channels.Pipe$SinkChannel", "java.nio.channels.Pipe", "SinkChannel", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.nio.channels.Pipe$SinkChannel",
+		"java.nio.channels.spi.AbstractSelectableChannel",
+		"java.nio.channels.GatheringByteChannel",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.channels.Pipe"
+	};
+	$loadClass(Pipe$SinkChannel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Pipe$SinkChannel));
+	});
 	return class$;
 }
 

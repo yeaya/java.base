@@ -19,6 +19,7 @@ class CgroupV1SubsystemController : public ::jdk::internal::platform::CgroupSubs
 	$class(CgroupV1SubsystemController, 0, ::jdk::internal::platform::CgroupSubsystemController)
 public:
 	CgroupV1SubsystemController();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* root, $String* mountPoint);
 	static int64_t convertHierachicalLimitLine($String* line);
 	static int64_t convertStringToLong($String* strval);

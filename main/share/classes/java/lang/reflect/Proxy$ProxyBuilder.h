@@ -63,6 +63,7 @@ class Proxy$ProxyBuilder : public ::java::lang::Object {
 	$class(Proxy$ProxyBuilder, 0, ::java::lang::Object)
 public:
 	Proxy$ProxyBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ClassLoader* loader, ::java::util::List* interfaces);
 	void init$(::java::lang::ClassLoader* loader, $Class* intf);
 	static void addElementType(::java::util::HashSet* types, $Class* cls);

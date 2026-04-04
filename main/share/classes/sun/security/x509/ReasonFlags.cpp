@@ -1,5 +1,4 @@
 #include <sun/security/x509/ReasonFlags.h>
-
 #include <java/io/IOException.h>
 #include <java/util/Enumeration.h>
 #include <sun/security/util/BitArray.h>
@@ -37,53 +36,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _ReasonFlags_FieldInfo_[] = {
-	{"UNUSED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, UNUSED)},
-	{"KEY_COMPROMISE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, KEY_COMPROMISE)},
-	{"CA_COMPROMISE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, CA_COMPROMISE)},
-	{"AFFILIATION_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, AFFILIATION_CHANGED)},
-	{"SUPERSEDED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, SUPERSEDED)},
-	{"CESSATION_OF_OPERATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, CESSATION_OF_OPERATION)},
-	{"CERTIFICATE_HOLD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, CERTIFICATE_HOLD)},
-	{"PRIVILEGE_WITHDRAWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, PRIVILEGE_WITHDRAWN)},
-	{"AA_COMPROMISE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, AA_COMPROMISE)},
-	{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReasonFlags, NAMES)},
-	{"bitString", "[Z", nullptr, $PRIVATE, $field(ReasonFlags, bitString)},
-	{}
-};
-
-$MethodInfo _ReasonFlags_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $bytes*)},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $booleans*)},
-	{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $BitArray*)},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $DerValue*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ReasonFlags, getElements, $Enumeration*)},
-	{"getFlags", "()[Z", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, getFlags, $booleans*)},
-	{"isSet", "(I)Z", nullptr, $PRIVATE, $method(ReasonFlags, isSet, bool, int32_t)},
-	{"name2Index", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ReasonFlags, name2Index, int32_t, $String*), "java.io.IOException"},
-	{"set", "(IZ)V", nullptr, $PRIVATE, $method(ReasonFlags, set, void, int32_t, bool)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ReasonFlags_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.ReasonFlags",
-	"java.lang.Object",
-	nullptr,
-	_ReasonFlags_FieldInfo_,
-	_ReasonFlags_MethodInfo_
-};
-
-$Object* allocate$ReasonFlags($Class* clazz) {
-	return $of($alloc(ReasonFlags));
-}
-
 $String* ReasonFlags::UNUSED = nullptr;
 $String* ReasonFlags::KEY_COMPROMISE = nullptr;
 $String* ReasonFlags::CA_COMPROMISE = nullptr;
@@ -97,8 +49,8 @@ $StringArray* ReasonFlags::NAMES = nullptr;
 
 int32_t ReasonFlags::name2Index($String* name) {
 	$init(ReasonFlags);
-	for (int32_t i = 0; i < $nc(ReasonFlags::NAMES)->length; ++i) {
-		if ($nc($nc(ReasonFlags::NAMES)->get(i))->equalsIgnoreCase(name)) {
+	for (int32_t i = 0; i < ReasonFlags::NAMES->length; ++i) {
+		if ($nc(ReasonFlags::NAMES->get(i))->equalsIgnoreCase(name)) {
 			return i;
 		}
 	}
@@ -106,16 +58,16 @@ int32_t ReasonFlags::name2Index($String* name) {
 }
 
 bool ReasonFlags::isSet(int32_t position) {
-	return (position < $nc(this->bitString)->length) && $nc(this->bitString)->get(position);
+	return (position < $nc(this->bitString)->length) && this->bitString->get(position);
 }
 
 void ReasonFlags::set(int32_t position, bool val) {
 	if (position >= $nc(this->bitString)->length) {
 		$var($booleans, tmp, $new($booleans, position + 1));
-		$System::arraycopy(this->bitString, 0, tmp, 0, $nc(this->bitString)->length);
+		$System::arraycopy(this->bitString, 0, tmp, 0, this->bitString->length);
 		$set(this, bitString, tmp);
 	}
-	$nc(this->bitString)->set(position, val);
+	this->bitString->set(position, val);
 }
 
 void ReasonFlags::init$($bytes* reasons) {
@@ -131,13 +83,13 @@ void ReasonFlags::init$($BitArray* reasons) {
 }
 
 void ReasonFlags::init$($DerInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, derVal, $nc(in)->getDerValue());
-	$set(this, bitString, $nc($($nc(derVal)->getUnalignedBitString(true)))->toBooleanArray());
+	$set(this, bitString, $$nc($nc(derVal)->getUnalignedBitString(true))->toBooleanArray());
 }
 
 void ReasonFlags::init$($DerValue* derVal) {
-	$set(this, bitString, $nc($($nc(derVal)->getUnalignedBitString(true)))->toBooleanArray());
+	$set(this, bitString, $$nc($nc(derVal)->getUnalignedBitString(true))->toBooleanArray());
 }
 
 $booleans* ReasonFlags::getFlags() {
@@ -148,7 +100,7 @@ void ReasonFlags::set($String* name, Object$* obj) {
 	if (!($instanceOf($Boolean, obj))) {
 		$throwNew($IOException, "Attribute must be of type Boolean."_s);
 	}
-	bool val = $nc(($cast($Boolean, obj)))->booleanValue();
+	bool val = $nc($cast($Boolean, obj))->booleanValue();
 	set(name2Index(name), val);
 }
 
@@ -157,8 +109,7 @@ $Object* ReasonFlags::get($String* name) {
 }
 
 void ReasonFlags::delete$($String* name) {
-	$init($Boolean);
-	set(name, $of($Boolean::FALSE));
+	set(name, $Boolean::FALSE);
 }
 
 $String* ReasonFlags::toString() {
@@ -200,13 +151,13 @@ void ReasonFlags::encode($DerOutputStream* out) {
 
 $Enumeration* ReasonFlags::getElements() {
 	$var($AttributeNameEnumeration, elements, $new($AttributeNameEnumeration));
-	for (int32_t i = 0; i < $nc(ReasonFlags::NAMES)->length; ++i) {
-		elements->addElement($nc(ReasonFlags::NAMES)->get(i));
+	for (int32_t i = 0; i < ReasonFlags::NAMES->length; ++i) {
+		elements->addElement(ReasonFlags::NAMES->get(i));
 	}
 	return (elements->elements());
 }
 
-void clinit$ReasonFlags($Class* class$) {
+void ReasonFlags::clinit$($Class* clazz) {
 	$assignStatic(ReasonFlags::UNUSED, "unused"_s);
 	$assignStatic(ReasonFlags::KEY_COMPROMISE, "key_compromise"_s);
 	$assignStatic(ReasonFlags::CA_COMPROMISE, "ca_compromise"_s);
@@ -233,7 +184,49 @@ ReasonFlags::ReasonFlags() {
 }
 
 $Class* ReasonFlags::load$($String* name, bool initialize) {
-	$loadClass(ReasonFlags, name, initialize, &_ReasonFlags_ClassInfo_, clinit$ReasonFlags, allocate$ReasonFlags);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNUSED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, UNUSED)},
+		{"KEY_COMPROMISE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, KEY_COMPROMISE)},
+		{"CA_COMPROMISE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, CA_COMPROMISE)},
+		{"AFFILIATION_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, AFFILIATION_CHANGED)},
+		{"SUPERSEDED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, SUPERSEDED)},
+		{"CESSATION_OF_OPERATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, CESSATION_OF_OPERATION)},
+		{"CERTIFICATE_HOLD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, CERTIFICATE_HOLD)},
+		{"PRIVILEGE_WITHDRAWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, PRIVILEGE_WITHDRAWN)},
+		{"AA_COMPROMISE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReasonFlags, AA_COMPROMISE)},
+		{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReasonFlags, NAMES)},
+		{"bitString", "[Z", nullptr, $PRIVATE, $field(ReasonFlags, bitString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $bytes*)},
+		{"<init>", "([Z)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $booleans*)},
+		{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $BitArray*)},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $DerValue*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ReasonFlags, getElements, $Enumeration*)},
+		{"getFlags", "()[Z", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, getFlags, $booleans*)},
+		{"isSet", "(I)Z", nullptr, $PRIVATE, $method(ReasonFlags, isSet, bool, int32_t)},
+		{"name2Index", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ReasonFlags, name2Index, int32_t, $String*), "java.io.IOException"},
+		{"set", "(IZ)V", nullptr, $PRIVATE, $method(ReasonFlags, set, void, int32_t, bool)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.ReasonFlags",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReasonFlags, name, initialize, &classInfo$$, ReasonFlags::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ReasonFlags);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <test/java/lang/invoke/LoopCombinatorLongSignatureTest.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles.h>
@@ -16,7 +15,6 @@
 
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $MethodHandleArray2 = $Array<::java::lang::invoke::MethodHandle, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -32,36 +30,6 @@ namespace test {
 	namespace java {
 		namespace lang {
 			namespace invoke {
-
-$FieldInfo _LoopCombinatorLongSignatureTest_FieldInfo_[] = {
-	{"INIT", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(LoopCombinatorLongSignatureTest, INIT)},
-	{"STEP", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(LoopCombinatorLongSignatureTest, STEP)},
-	{"PRED_F", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(LoopCombinatorLongSignatureTest, PRED_F)},
-	{"PRED_T", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(LoopCombinatorLongSignatureTest, PRED_T)},
-	{"FINI", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(LoopCombinatorLongSignatureTest, FINI)},
-	{"ARG_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(LoopCombinatorLongSignatureTest, ARG_LIMIT)},
-	{}
-};
-
-$MethodInfo _LoopCombinatorLongSignatureTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LoopCombinatorLongSignatureTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LoopCombinatorLongSignatureTest, main, void, $StringArray*)},
-	{"testLongSignature", "(IZZ)V", nullptr, $STATIC, $staticMethod(LoopCombinatorLongSignatureTest, testLongSignature, void, int32_t, bool, bool)},
-	{}
-};
-
-$ClassInfo _LoopCombinatorLongSignatureTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"test.java.lang.invoke.LoopCombinatorLongSignatureTest",
-	"java.lang.Object",
-	nullptr,
-	_LoopCombinatorLongSignatureTest_FieldInfo_,
-	_LoopCombinatorLongSignatureTest_MethodInfo_
-};
-
-$Object* allocate$LoopCombinatorLongSignatureTest($Class* clazz) {
-	return $of($alloc(LoopCombinatorLongSignatureTest));
-}
 
 $MethodHandle* LoopCombinatorLongSignatureTest::INIT = nullptr;
 $MethodHandle* LoopCombinatorLongSignatureTest::STEP = nullptr;
@@ -83,12 +51,11 @@ void LoopCombinatorLongSignatureTest::main($StringArray* args) {
 
 void LoopCombinatorLongSignatureTest::testLongSignature(int32_t loopArgs, bool excessive, bool run) {
 	$init(LoopCombinatorLongSignatureTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nClauses = LoopCombinatorLongSignatureTest::ARG_LIMIT - loopArgs + (excessive ? 1 : 0);
 	$nc($System::out)->print($$str({(excessive ? "(EXCESSIVE)"_s : "(LONG     )"_s), " arguments: "_s, $$str(loopArgs), ", clauses: "_s, $$str(nClauses), " -> "_s}));
 	$var($ClassArray, argTypes, $new($ClassArray, loopArgs));
-	$init($Integer);
-	$Arrays::fill(argTypes, $of($Integer::TYPE));
+	$Arrays::fill(argTypes, $Integer::TYPE);
 	$var($MethodHandle, init, $MethodHandles::dropArguments(LoopCombinatorLongSignatureTest::INIT, 0, argTypes));
 	$var($MethodHandleArray2, clauses, $new($MethodHandleArray2, nClauses));
 	$var($MethodHandleArray, clause, $new($MethodHandleArray, {
@@ -103,7 +70,7 @@ void LoopCombinatorLongSignatureTest::testLongSignature(int32_t loopArgs, bool e
 		LoopCombinatorLongSignatureTest::PRED_F,
 		LoopCombinatorLongSignatureTest::FINI
 	}));
-	$Arrays::fill(clauses, $of(clause));
+	$Arrays::fill(clauses, clause);
 	clauses->set(nClauses - 1, fclause);
 	try {
 		$var($MethodHandle, loop, $MethodHandles::loop(clauses));
@@ -115,16 +82,16 @@ void LoopCombinatorLongSignatureTest::testLongSignature(int32_t loopArgs, bool e
 				r = $intValue($nc(loop)->invoke($$new($ObjectArray, 0)));
 			} else {
 				$var($ObjectArray, args, $new($ObjectArray, loopArgs));
-				$Arrays::fill(args, $($of($Integer::valueOf(0))));
-				r = $nc(($cast($Integer, $($nc(loop)->invokeWithArguments(args)))))->intValue();
+				$Arrays::fill(args, $($Integer::valueOf(0)));
+				r = $$sure($Integer, $nc(loop)->invokeWithArguments(args))->intValue();
 			}
-			$nc($System::out)->println($$str({"SUCCEEDED (OK) -> "_s, $$str(r)}));
+			$System::out->println($$str({"SUCCEEDED (OK) -> "_s, $$str(r)}));
 		} else {
-			$nc($System::out)->println("SUCCEEDED (OK)"_s);
+			$System::out->println("SUCCEEDED (OK)"_s);
 		}
 	} catch ($IllegalArgumentException& iae) {
 		if (excessive) {
-			$nc($System::out)->println("FAILED    (OK)"_s);
+			$System::out->println("FAILED    (OK)"_s);
 		} else {
 			iae->printStackTrace($System::out);
 			$throwNew($AssertionError, $of("loop construction should not have failed (see above)"_s));
@@ -135,12 +102,10 @@ void LoopCombinatorLongSignatureTest::testLongSignature(int32_t loopArgs, bool e
 	}
 }
 
-void clinit$LoopCombinatorLongSignatureTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$init($Integer);
+void LoopCombinatorLongSignatureTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(LoopCombinatorLongSignatureTest::INIT, $MethodHandles::constant($Integer::TYPE, $($Integer::valueOf(0))));
 	$assignStatic(LoopCombinatorLongSignatureTest::STEP, $MethodHandles::identity($Integer::TYPE));
-	$init($Boolean);
 	$assignStatic(LoopCombinatorLongSignatureTest::PRED_F, $MethodHandles::constant($Boolean::TYPE, $($Boolean::valueOf(false))));
 	$assignStatic(LoopCombinatorLongSignatureTest::PRED_T, $MethodHandles::constant($Boolean::TYPE, $($Boolean::valueOf(true))));
 	$assignStatic(LoopCombinatorLongSignatureTest::FINI, $MethodHandles::identity($Integer::TYPE));
@@ -150,7 +115,32 @@ LoopCombinatorLongSignatureTest::LoopCombinatorLongSignatureTest() {
 }
 
 $Class* LoopCombinatorLongSignatureTest::load$($String* name, bool initialize) {
-	$loadClass(LoopCombinatorLongSignatureTest, name, initialize, &_LoopCombinatorLongSignatureTest_ClassInfo_, clinit$LoopCombinatorLongSignatureTest, allocate$LoopCombinatorLongSignatureTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"INIT", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(LoopCombinatorLongSignatureTest, INIT)},
+		{"STEP", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(LoopCombinatorLongSignatureTest, STEP)},
+		{"PRED_F", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(LoopCombinatorLongSignatureTest, PRED_F)},
+		{"PRED_T", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(LoopCombinatorLongSignatureTest, PRED_T)},
+		{"FINI", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(LoopCombinatorLongSignatureTest, FINI)},
+		{"ARG_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(LoopCombinatorLongSignatureTest, ARG_LIMIT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LoopCombinatorLongSignatureTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LoopCombinatorLongSignatureTest, main, void, $StringArray*)},
+		{"testLongSignature", "(IZZ)V", nullptr, $STATIC, $staticMethod(LoopCombinatorLongSignatureTest, testLongSignature, void, int32_t, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"test.java.lang.invoke.LoopCombinatorLongSignatureTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LoopCombinatorLongSignatureTest, name, initialize, &classInfo$$, LoopCombinatorLongSignatureTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LoopCombinatorLongSignatureTest);
+	});
 	return class$;
 }
 

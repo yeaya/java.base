@@ -23,6 +23,7 @@ class LauncherHelper$SizePrefix : public ::java::lang::Enum {
 public:
 	LauncherHelper$SizePrefix();
 	static $Array<::sun::launcher::LauncherHelper$SizePrefix>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int64_t size, $String* abbrev);
 	static $String* scale(int64_t v, ::sun::launcher::LauncherHelper$SizePrefix* prefix);
 	static $String* scaleValue(int64_t v);

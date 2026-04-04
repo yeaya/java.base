@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ExplodedSystemModules.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/util/Map.h>
@@ -20,31 +19,6 @@ using $Map = ::java::util::Map;
 namespace jdk {
 	namespace internal {
 		namespace module {
-
-$MethodInfo _ExplodedSystemModules_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ExplodedSystemModules, init$, void)},
-	{"hasIncubatorModules", "()Z", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, hasIncubatorModules, bool)},
-	{"hasSplitPackages", "()Z", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, hasSplitPackages, bool)},
-	{"moduleDescriptors", "()[Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleDescriptors, $ModuleDescriptorArray*)},
-	{"moduleHashes", "()[Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleHashes, $ModuleHashesArray*)},
-	{"moduleReads", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleReads, $Map*)},
-	{"moduleResolutions", "()[Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleResolutions, $ModuleResolutionArray*)},
-	{"moduleTargets", "()[Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleTargets, $ModuleTargetArray*)},
-	{}
-};
-
-$ClassInfo _ExplodedSystemModules_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.ExplodedSystemModules",
-	"java.lang.Object",
-	"jdk.internal.module.SystemModules",
-	nullptr,
-	_ExplodedSystemModules_MethodInfo_
-};
-
-$Object* allocate$ExplodedSystemModules($Class* clazz) {
-	return $of($alloc(ExplodedSystemModules));
-}
 
 void ExplodedSystemModules::init$() {
 }
@@ -86,7 +60,28 @@ ExplodedSystemModules::ExplodedSystemModules() {
 }
 
 $Class* ExplodedSystemModules::load$($String* name, bool initialize) {
-	$loadClass(ExplodedSystemModules, name, initialize, &_ExplodedSystemModules_ClassInfo_, allocate$ExplodedSystemModules);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ExplodedSystemModules, init$, void)},
+		{"hasIncubatorModules", "()Z", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, hasIncubatorModules, bool)},
+		{"hasSplitPackages", "()Z", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, hasSplitPackages, bool)},
+		{"moduleDescriptors", "()[Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleDescriptors, $ModuleDescriptorArray*)},
+		{"moduleHashes", "()[Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleHashes, $ModuleHashesArray*)},
+		{"moduleReads", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleReads, $Map*)},
+		{"moduleResolutions", "()[Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleResolutions, $ModuleResolutionArray*)},
+		{"moduleTargets", "()[Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleTargets, $ModuleTargetArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.ExplodedSystemModules",
+		"java.lang.Object",
+		"jdk.internal.module.SystemModules",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExplodedSystemModules, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExplodedSystemModules);
+	});
 	return class$;
 }
 

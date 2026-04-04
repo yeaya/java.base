@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/FailedLoginException.h>
-
 #include <javax/security/auth/login/LoginException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace login {
-
-$FieldInfo _FailedLoginException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FailedLoginException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FailedLoginException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FailedLoginException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FailedLoginException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _FailedLoginException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.login.FailedLoginException",
-	"javax.security.auth.login.LoginException",
-	nullptr,
-	_FailedLoginException_FieldInfo_,
-	_FailedLoginException_MethodInfo_
-};
-
-$Object* allocate$FailedLoginException($Class* clazz) {
-	return $of($alloc(FailedLoginException));
-}
 
 void FailedLoginException::init$() {
 	$LoginException::init$();
@@ -56,7 +31,26 @@ void FailedLoginException::throw$() {
 }
 
 $Class* FailedLoginException::load$($String* name, bool initialize) {
-	$loadClass(FailedLoginException, name, initialize, &_FailedLoginException_ClassInfo_, allocate$FailedLoginException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FailedLoginException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FailedLoginException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FailedLoginException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.login.FailedLoginException",
+		"javax.security.auth.login.LoginException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FailedLoginException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FailedLoginException);
+	});
 	return class$;
 }
 

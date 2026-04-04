@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/NormalizerBase$ModeImpl.h>
-
 #include <jdk/internal/icu/text/Normalizer2.h>
 #include <jdk/internal/icu/text/NormalizerBase.h>
 #include <jcpp.h>
@@ -15,41 +14,6 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$FieldInfo _NormalizerBase$ModeImpl_FieldInfo_[] = {
-	{"normalizer2", "Ljdk/internal/icu/text/Normalizer2;", nullptr, $PRIVATE | $FINAL, $field(NormalizerBase$ModeImpl, normalizer2)},
-	{}
-};
-
-$MethodInfo _NormalizerBase$ModeImpl_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/text/Normalizer2;)V", nullptr, $PRIVATE, $method(NormalizerBase$ModeImpl, init$, void, $Normalizer2*)},
-	{}
-};
-
-$InnerClassInfo _NormalizerBase$ModeImpl_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.NormalizerBase$ModeImpl", "jdk.internal.icu.text.NormalizerBase", "ModeImpl", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NormalizerBase$ModeImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.text.NormalizerBase$ModeImpl",
-	"java.lang.Object",
-	nullptr,
-	_NormalizerBase$ModeImpl_FieldInfo_,
-	_NormalizerBase$ModeImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NormalizerBase$ModeImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.NormalizerBase"
-};
-
-$Object* allocate$NormalizerBase$ModeImpl($Class* clazz) {
-	return $of($alloc(NormalizerBase$ModeImpl));
-}
-
 void NormalizerBase$ModeImpl::init$($Normalizer2* n2) {
 	$set(this, normalizer2, n2);
 }
@@ -58,7 +22,36 @@ NormalizerBase$ModeImpl::NormalizerBase$ModeImpl() {
 }
 
 $Class* NormalizerBase$ModeImpl::load$($String* name, bool initialize) {
-	$loadClass(NormalizerBase$ModeImpl, name, initialize, &_NormalizerBase$ModeImpl_ClassInfo_, allocate$NormalizerBase$ModeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"normalizer2", "Ljdk/internal/icu/text/Normalizer2;", nullptr, $PRIVATE | $FINAL, $field(NormalizerBase$ModeImpl, normalizer2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/icu/text/Normalizer2;)V", nullptr, $PRIVATE, $method(NormalizerBase$ModeImpl, init$, void, $Normalizer2*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.NormalizerBase$ModeImpl", "jdk.internal.icu.text.NormalizerBase", "ModeImpl", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.text.NormalizerBase$ModeImpl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.NormalizerBase"
+	};
+	$loadClass(NormalizerBase$ModeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalizerBase$ModeImpl);
+	});
 	return class$;
 }
 

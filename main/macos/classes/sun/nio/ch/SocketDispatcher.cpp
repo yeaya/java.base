@@ -1,5 +1,4 @@
 #include <sun/nio/ch/SocketDispatcher.h>
-
 #include <java/io/FileDescriptor.h>
 #include <sun/nio/ch/FileDispatcherImpl.h>
 #include <sun/nio/ch/IOUtil.h>
@@ -16,35 +15,6 @@ using $NativeDispatcher = ::sun::nio::ch::NativeDispatcher;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$MethodInfo _SocketDispatcher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SocketDispatcher, init$, void)},
-	{"close", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(SocketDispatcher, close, void, $FileDescriptor*), "java.io.IOException"},
-	{"preClose", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(SocketDispatcher, preClose, void, $FileDescriptor*), "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, $virtualMethod(SocketDispatcher, read, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
-	{"read0", "(Ljava/io/FileDescriptor;JI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketDispatcher, read0, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
-	{"readv", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, $virtualMethod(SocketDispatcher, readv, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
-	{"readv0", "(Ljava/io/FileDescriptor;JI)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketDispatcher, readv0, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, $virtualMethod(SocketDispatcher, write, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
-	{"writev", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, $virtualMethod(SocketDispatcher, writev, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_read0 4
-#define _METHOD_INDEX_readv0 6
-
-$ClassInfo _SocketDispatcher_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.SocketDispatcher",
-	"sun.nio.ch.NativeDispatcher",
-	nullptr,
-	nullptr,
-	_SocketDispatcher_MethodInfo_
-};
-
-$Object* allocate$SocketDispatcher($Class* clazz) {
-	return $of($alloc(SocketDispatcher));
-}
 
 void SocketDispatcher::init$() {
 	$NativeDispatcher::init$();
@@ -76,23 +46,21 @@ void SocketDispatcher::preClose($FileDescriptor* fd) {
 
 int32_t SocketDispatcher::read0($FileDescriptor* fd, int64_t address, int32_t len) {
 	$init(SocketDispatcher);
-	int32_t $ret = 0;
-	$prepareNativeStatic(SocketDispatcher, read0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(fd, address, len);
+	$prepareNativeStatic(read0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len);
+	int32_t $ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t SocketDispatcher::readv0($FileDescriptor* fd, int64_t address, int32_t len) {
 	$init(SocketDispatcher);
-	int64_t $ret = 0;
-	$prepareNativeStatic(SocketDispatcher, readv0, int64_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(fd, address, len);
+	$prepareNativeStatic(readv0, int64_t, $FileDescriptor* fd, int64_t address, int32_t len);
+	int64_t $ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$SocketDispatcher($Class* class$) {
+void SocketDispatcher::clinit$($Class* clazz) {
 	{
 		$IOUtil::load();
 	}
@@ -102,7 +70,29 @@ SocketDispatcher::SocketDispatcher() {
 }
 
 $Class* SocketDispatcher::load$($String* name, bool initialize) {
-	$loadClass(SocketDispatcher, name, initialize, &_SocketDispatcher_ClassInfo_, clinit$SocketDispatcher, allocate$SocketDispatcher);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SocketDispatcher, init$, void)},
+		{"close", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(SocketDispatcher, close, void, $FileDescriptor*), "java.io.IOException"},
+		{"preClose", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(SocketDispatcher, preClose, void, $FileDescriptor*), "java.io.IOException"},
+		{"read", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, $virtualMethod(SocketDispatcher, read, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+		{"read0", "(Ljava/io/FileDescriptor;JI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketDispatcher, read0, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+		{"readv", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, $virtualMethod(SocketDispatcher, readv, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+		{"readv0", "(Ljava/io/FileDescriptor;JI)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketDispatcher, readv0, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, $virtualMethod(SocketDispatcher, write, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+		{"writev", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, $virtualMethod(SocketDispatcher, writev, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.SocketDispatcher",
+		"sun.nio.ch.NativeDispatcher",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SocketDispatcher, name, initialize, &classInfo$$, SocketDispatcher::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketDispatcher);
+	});
 	return class$;
 }
 

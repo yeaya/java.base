@@ -1,5 +1,4 @@
 #include <CheckPermission$Checks.h>
-
 #include <CheckPermission$FileOperation.h>
 #include <CheckPermission.h>
 #include <java/util/ArrayList.h>
@@ -19,49 +18,7 @@ using $ArrayList = ::java::util::ArrayList;
 using $EnumMap = ::java::util::EnumMap;
 using $HashSet = ::java::util::HashSet;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
-
-$FieldInfo _CheckPermission$Checks_FieldInfo_[] = {
-	{"permissionsChecked", "Ljava/util/List;", "Ljava/util/List<Ljava/security/Permission;>;", $PRIVATE, $field(CheckPermission$Checks, permissionsChecked$)},
-	{"propertiesChecked", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(CheckPermission$Checks, propertiesChecked$)},
-	{"fileOperationChecked", "Ljava/util/Map;", "Ljava/util/Map<LCheckPermission$FileOperation;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE, $field(CheckPermission$Checks, fileOperationChecked$)},
-	{}
-};
-
-$MethodInfo _CheckPermission$Checks_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CheckPermission$Checks, init$, void)},
-	{"addFileOperation", "(LCheckPermission$FileOperation;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CheckPermission$Checks, addFileOperation, void, $CheckPermission$FileOperation*, $String*)},
-	{"fileOperationChecked", "(LCheckPermission$FileOperation;)Ljava/util/List;", "(LCheckPermission$FileOperation;)Ljava/util/List<Ljava/lang/String;>;", 0, $virtualMethod(CheckPermission$Checks, fileOperationChecked, $List*, $CheckPermission$FileOperation*)},
-	{"permissionsChecked", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/Permission;>;", 0, $virtualMethod(CheckPermission$Checks, permissionsChecked, $List*)},
-	{"propertiesChecked", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $virtualMethod(CheckPermission$Checks, propertiesChecked, $Set*)},
-	{}
-};
-
-$InnerClassInfo _CheckPermission$Checks_InnerClassesInfo_[] = {
-	{"CheckPermission$Checks", "CheckPermission", "Checks", $STATIC},
-	{}
-};
-
-$ClassInfo _CheckPermission$Checks_ClassInfo_ = {
-	$ACC_SUPER,
-	"CheckPermission$Checks",
-	"java.lang.Object",
-	nullptr,
-	_CheckPermission$Checks_FieldInfo_,
-	_CheckPermission$Checks_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CheckPermission$Checks_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"CheckPermission"
-};
-
-$Object* allocate$CheckPermission$Checks($Class* clazz) {
-	return $of($alloc(CheckPermission$Checks));
-}
 
 void CheckPermission$Checks::init$() {
 	$set(this, permissionsChecked$, $new($ArrayList));
@@ -86,7 +43,7 @@ void CheckPermission$Checks::addFileOperation($CheckPermission$FileOperation* op
 	$var($List, opList, $cast($List, $nc(this->fileOperationChecked$)->get(op)));
 	if (opList == nullptr) {
 		$assign(opList, $new($ArrayList));
-		$nc(this->fileOperationChecked$)->put(op, opList);
+		this->fileOperationChecked$->put(op, opList);
 	}
 	$nc(opList)->add(file);
 }
@@ -95,7 +52,42 @@ CheckPermission$Checks::CheckPermission$Checks() {
 }
 
 $Class* CheckPermission$Checks::load$($String* name, bool initialize) {
-	$loadClass(CheckPermission$Checks, name, initialize, &_CheckPermission$Checks_ClassInfo_, allocate$CheckPermission$Checks);
+	$FieldInfo fieldInfos$$[] = {
+		{"permissionsChecked", "Ljava/util/List;", "Ljava/util/List<Ljava/security/Permission;>;", $PRIVATE, $field(CheckPermission$Checks, permissionsChecked$)},
+		{"propertiesChecked", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(CheckPermission$Checks, propertiesChecked$)},
+		{"fileOperationChecked", "Ljava/util/Map;", "Ljava/util/Map<LCheckPermission$FileOperation;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE, $field(CheckPermission$Checks, fileOperationChecked$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CheckPermission$Checks, init$, void)},
+		{"addFileOperation", "(LCheckPermission$FileOperation;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CheckPermission$Checks, addFileOperation, void, $CheckPermission$FileOperation*, $String*)},
+		{"fileOperationChecked", "(LCheckPermission$FileOperation;)Ljava/util/List;", "(LCheckPermission$FileOperation;)Ljava/util/List<Ljava/lang/String;>;", 0, $virtualMethod(CheckPermission$Checks, fileOperationChecked, $List*, $CheckPermission$FileOperation*)},
+		{"permissionsChecked", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/Permission;>;", 0, $virtualMethod(CheckPermission$Checks, permissionsChecked, $List*)},
+		{"propertiesChecked", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $virtualMethod(CheckPermission$Checks, propertiesChecked, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CheckPermission$Checks", "CheckPermission", "Checks", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"CheckPermission$Checks",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"CheckPermission"
+	};
+	$loadClass(CheckPermission$Checks, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckPermission$Checks);
+	});
 	return class$;
 }
 

@@ -15,7 +15,7 @@ public:
 	SSLPermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0xD006A18FACF914D9;
+	static const int64_t serialVersionUID = (int64_t)0xd006a18facf914d9;
 };
 
 		} // ssl

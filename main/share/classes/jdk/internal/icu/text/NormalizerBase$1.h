@@ -14,6 +14,7 @@ class $export NormalizerBase$1 : public ::java::lang::Object {
 	$class(NormalizerBase$1, 0, ::java::lang::Object)
 public:
 	NormalizerBase$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$text$Normalizer$Form;
 };
 

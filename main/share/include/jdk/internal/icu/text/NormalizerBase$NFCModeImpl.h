@@ -27,6 +27,7 @@ class $import NormalizerBase$NFCModeImpl : public ::java::lang::Object {
 	$class(NormalizerBase$NFCModeImpl, 0, ::java::lang::Object)
 public:
 	NormalizerBase$NFCModeImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::icu::text::NormalizerBase$ModeImpl* INSTANCE;
 };

@@ -88,6 +88,7 @@ class $export BootLoader : public ::java::lang::Object {
 	$class(BootLoader, 0, ::java::lang::Object)
 public:
 	BootLoader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::Package* definePackage($Class* c);
 	static ::java::net::URL* findResource($String* mn, $String* name);

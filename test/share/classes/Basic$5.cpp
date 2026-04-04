@@ -1,5 +1,4 @@
 #include <Basic$5.h>
-
 #include <Basic.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
@@ -12,51 +11,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-
-$FieldInfo _Basic$5_FieldInfo_[] = {
-	{"val$latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $FINAL | $SYNTHETIC, $field(Basic$5, val$latch)},
-	{}
-};
-
-$MethodInfo _Basic$5_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(Basic$5, init$, void, $CountDownLatch*)},
-	{"completed", "(Ljava/lang/Integer;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Basic$5, completed, void, $Integer*, $Void*)},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Basic$5, completed, void, Object$*, Object$*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Basic$5, failed, void, $Throwable*, $Void*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Basic$5, failed, void, $Throwable*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Basic$5_EnclosingMethodInfo_ = {
-	"Basic",
-	"testCustomThreadPool",
-	"(Ljava/nio/file/Path;)V"
-};
-
-$InnerClassInfo _Basic$5_InnerClassesInfo_[] = {
-	{"Basic$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Basic$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"Basic$5",
-	"java.lang.Object",
-	"java.nio.channels.CompletionHandler",
-	_Basic$5_FieldInfo_,
-	_Basic$5_MethodInfo_,
-	"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;Ljava/lang/Void;>;",
-	&_Basic$5_EnclosingMethodInfo_,
-	_Basic$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Basic"
-};
-
-$Object* allocate$Basic$5($Class* clazz) {
-	return $of($alloc(Basic$5));
-}
 
 void Basic$5::init$($CountDownLatch* val$latch) {
 	$set(this, val$latch, val$latch);
@@ -81,7 +35,45 @@ Basic$5::Basic$5() {
 }
 
 $Class* Basic$5::load$($String* name, bool initialize) {
-	$loadClass(Basic$5, name, initialize, &_Basic$5_ClassInfo_, allocate$Basic$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $FINAL | $SYNTHETIC, $field(Basic$5, val$latch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(Basic$5, init$, void, $CountDownLatch*)},
+		{"completed", "(Ljava/lang/Integer;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Basic$5, completed, void, $Integer*, $Void*)},
+		{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Basic$5, completed, void, Object$*, Object$*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Basic$5, failed, void, $Throwable*, $Void*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Basic$5, failed, void, $Throwable*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Basic",
+		"testCustomThreadPool",
+		"(Ljava/nio/file/Path;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Basic$5",
+		"java.lang.Object",
+		"java.nio.channels.CompletionHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Basic"
+	};
+	$loadClass(Basic$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic$5);
+	});
 	return class$;
 }
 

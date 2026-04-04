@@ -1,5 +1,4 @@
 #include <jdk/internal/ref/CleanerImpl$PhantomCleanableRef.h>
-
 #include <java/lang/Runnable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/ref/Cleaner.h>
@@ -19,45 +18,6 @@ using $PhantomCleanable = ::jdk::internal::ref::PhantomCleanable;
 namespace jdk {
 	namespace internal {
 		namespace ref {
-
-$FieldInfo _CleanerImpl$PhantomCleanableRef_FieldInfo_[] = {
-	{"action", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(CleanerImpl$PhantomCleanableRef, action)},
-	{}
-};
-
-$MethodInfo _CleanerImpl$PhantomCleanableRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/Cleaner;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(CleanerImpl$PhantomCleanableRef, init$, void, Object$*, $Cleaner*, $Runnable*)},
-	{"<init>", "()V", nullptr, 0, $method(CleanerImpl$PhantomCleanableRef, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(CleanerImpl$PhantomCleanableRef, clear, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CleanerImpl$PhantomCleanableRef, get, $Object*)},
-	{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(CleanerImpl$PhantomCleanableRef, performCleanup, void)},
-	{}
-};
-
-$InnerClassInfo _CleanerImpl$PhantomCleanableRef_InnerClassesInfo_[] = {
-	{"jdk.internal.ref.CleanerImpl$PhantomCleanableRef", "jdk.internal.ref.CleanerImpl", "PhantomCleanableRef", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CleanerImpl$PhantomCleanableRef_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.ref.CleanerImpl$PhantomCleanableRef",
-	"jdk.internal.ref.PhantomCleanable",
-	nullptr,
-	_CleanerImpl$PhantomCleanableRef_FieldInfo_,
-	_CleanerImpl$PhantomCleanableRef_MethodInfo_,
-	"Ljdk/internal/ref/PhantomCleanable<Ljava/lang/Object;>;",
-	nullptr,
-	_CleanerImpl$PhantomCleanableRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.ref.CleanerImpl"
-};
-
-$Object* allocate$CleanerImpl$PhantomCleanableRef($Class* clazz) {
-	return $of($alloc(CleanerImpl$PhantomCleanableRef));
-}
 
 void CleanerImpl$PhantomCleanableRef::init$(Object$* obj, $Cleaner* cleaner, $Runnable* action) {
 	$PhantomCleanable::init$(obj, cleaner);
@@ -86,7 +46,40 @@ CleanerImpl$PhantomCleanableRef::CleanerImpl$PhantomCleanableRef() {
 }
 
 $Class* CleanerImpl$PhantomCleanableRef::load$($String* name, bool initialize) {
-	$loadClass(CleanerImpl$PhantomCleanableRef, name, initialize, &_CleanerImpl$PhantomCleanableRef_ClassInfo_, allocate$CleanerImpl$PhantomCleanableRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"action", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(CleanerImpl$PhantomCleanableRef, action)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/Cleaner;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(CleanerImpl$PhantomCleanableRef, init$, void, Object$*, $Cleaner*, $Runnable*)},
+		{"<init>", "()V", nullptr, 0, $method(CleanerImpl$PhantomCleanableRef, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(CleanerImpl$PhantomCleanableRef, clear, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CleanerImpl$PhantomCleanableRef, get, $Object*)},
+		{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(CleanerImpl$PhantomCleanableRef, performCleanup, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.ref.CleanerImpl$PhantomCleanableRef", "jdk.internal.ref.CleanerImpl", "PhantomCleanableRef", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.ref.CleanerImpl$PhantomCleanableRef",
+		"jdk.internal.ref.PhantomCleanable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljdk/internal/ref/PhantomCleanable<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.ref.CleanerImpl"
+	};
+	$loadClass(CleanerImpl$PhantomCleanableRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CleanerImpl$PhantomCleanableRef));
+	});
 	return class$;
 }
 

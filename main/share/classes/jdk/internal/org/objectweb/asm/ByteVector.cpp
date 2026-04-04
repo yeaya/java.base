@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/ByteVector.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,44 +11,6 @@ namespace jdk {
 		namespace org {
 			namespace objectweb {
 				namespace asm$ {
-
-$FieldInfo _ByteVector_FieldInfo_[] = {
-	{"data", "[B", nullptr, 0, $field(ByteVector, data)},
-	{"length", "I", nullptr, 0, $field(ByteVector, length)},
-	{}
-};
-
-$MethodInfo _ByteVector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ByteVector, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ByteVector, init$, void, int32_t)},
-	{"<init>", "([B)V", nullptr, 0, $method(ByteVector, init$, void, $bytes*)},
-	{"encodeUtf8", "(Ljava/lang/String;II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, encodeUtf8, ByteVector*, $String*, int32_t, int32_t)},
-	{"enlarge", "(I)V", nullptr, $PRIVATE, $method(ByteVector, enlarge, void, int32_t)},
-	{"put11", "(II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put11, ByteVector*, int32_t, int32_t)},
-	{"put112", "(III)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put112, ByteVector*, int32_t, int32_t, int32_t)},
-	{"put12", "(II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put12, ByteVector*, int32_t, int32_t)},
-	{"put122", "(III)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put122, ByteVector*, int32_t, int32_t, int32_t)},
-	{"putByte", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putByte, ByteVector*, int32_t)},
-	{"putByteArray", "([BII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putByteArray, ByteVector*, $bytes*, int32_t, int32_t)},
-	{"putInt", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putInt, ByteVector*, int32_t)},
-	{"putLong", "(J)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putLong, ByteVector*, int64_t)},
-	{"putShort", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putShort, ByteVector*, int32_t)},
-	{"putUTF8", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putUTF8, ByteVector*, $String*)},
-	{}
-};
-
-$ClassInfo _ByteVector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.ByteVector",
-	"java.lang.Object",
-	nullptr,
-	_ByteVector_FieldInfo_,
-	_ByteVector_MethodInfo_
-};
-
-$Object* allocate$ByteVector($Class* clazz) {
-	return $of($alloc(ByteVector));
-}
 
 void ByteVector::init$() {
 	$set(this, data, $new($bytes, 64));
@@ -69,7 +30,7 @@ ByteVector* ByteVector::putByte(int32_t byteValue) {
 	if (currentLength + 1 > $nc(this->data)->length) {
 		enlarge(1);
 	}
-	$nc(this->data)->set(currentLength++, (int8_t)byteValue);
+	this->data->set(currentLength++, (int8_t)byteValue);
 	this->length = currentLength;
 	return this;
 }
@@ -176,7 +137,7 @@ ByteVector* ByteVector::putLong(int64_t longValue) {
 
 ByteVector* ByteVector::putUTF8($String* stringValue) {
 	int32_t charLength = $nc(stringValue)->length();
-	if (charLength > 0x0000FFFF) {
+	if (charLength > 0x0000ffff) {
 		$throwNew($IllegalArgumentException, "UTF8 string too large"_s);
 	}
 	int32_t currentLength = this->length;
@@ -188,11 +149,11 @@ ByteVector* ByteVector::putUTF8($String* stringValue) {
 	currentData->set(currentLength++, (int8_t)charLength);
 	for (int32_t i = 0; i < charLength; ++i) {
 		char16_t charValue = stringValue->charAt(i);
-		if (charValue >= (char16_t)0x1 && charValue <= (char16_t)0x7F) {
+		if (charValue >= (char16_t)0x01 && charValue <= (char16_t)0x7f) {
 			currentData->set(currentLength++, (int8_t)charValue);
 		} else {
 			this->length = currentLength;
-			return encodeUtf8(stringValue, i, 0x0000FFFF);
+			return encodeUtf8(stringValue, i, 0x0000ffff);
 		}
 	}
 	this->length = currentLength;
@@ -218,7 +179,7 @@ ByteVector* ByteVector::encodeUtf8($String* stringValue, int32_t offset, int32_t
 	int32_t byteLengthOffset = this->length - offset - 2;
 	if (byteLengthOffset >= 0) {
 		$nc(this->data)->set(byteLengthOffset, (int8_t)((int32_t)((uint32_t)byteLength >> 8)));
-		$nc(this->data)->set(byteLengthOffset + 1, (int8_t)byteLength);
+		this->data->set(byteLengthOffset + 1, (int8_t)byteLength);
 	}
 	if (this->length + byteLength - offset > $nc(this->data)->length) {
 		enlarge(byteLength - offset);
@@ -227,14 +188,14 @@ ByteVector* ByteVector::encodeUtf8($String* stringValue, int32_t offset, int32_t
 	for (int32_t i = offset; i < charLength; ++i) {
 		char16_t charValue = stringValue->charAt(i);
 		if (charValue >= 1 && charValue <= 127) {
-			$nc(this->data)->set(currentLength++, (int8_t)charValue);
+			this->data->set(currentLength++, (int8_t)charValue);
 		} else if (charValue <= 2047) {
-			$nc(this->data)->set(currentLength++, (int8_t)(192 | ((int32_t)((charValue >> 6) & (uint32_t)31))));
-			$nc(this->data)->set(currentLength++, (int8_t)(128 | ((int32_t)(charValue & (uint32_t)63))));
+			this->data->set(currentLength++, (int8_t)(0xc0 | ((charValue >> 6) & 0x1f)));
+			this->data->set(currentLength++, (int8_t)(0x80 | (charValue & 0x3f)));
 		} else {
-			$nc(this->data)->set(currentLength++, (int8_t)(224 | ((int32_t)((charValue >> 12) & (uint32_t)15))));
-			$nc(this->data)->set(currentLength++, (int8_t)(128 | ((int32_t)((charValue >> 6) & (uint32_t)63))));
-			$nc(this->data)->set(currentLength++, (int8_t)(128 | ((int32_t)(charValue & (uint32_t)63))));
+			this->data->set(currentLength++, (int8_t)(0xe0 | ((charValue >> 12) & 0x0f)));
+			this->data->set(currentLength++, (int8_t)(0x80 | ((charValue >> 6) & 0x3f)));
+			this->data->set(currentLength++, (int8_t)(0x80 | (charValue & 0x3f)));
 		}
 	}
 	this->length = currentLength;
@@ -264,7 +225,40 @@ ByteVector::ByteVector() {
 }
 
 $Class* ByteVector::load$($String* name, bool initialize) {
-	$loadClass(ByteVector, name, initialize, &_ByteVector_ClassInfo_, allocate$ByteVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "[B", nullptr, 0, $field(ByteVector, data)},
+		{"length", "I", nullptr, 0, $field(ByteVector, length)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ByteVector, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ByteVector, init$, void, int32_t)},
+		{"<init>", "([B)V", nullptr, 0, $method(ByteVector, init$, void, $bytes*)},
+		{"encodeUtf8", "(Ljava/lang/String;II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, encodeUtf8, ByteVector*, $String*, int32_t, int32_t)},
+		{"enlarge", "(I)V", nullptr, $PRIVATE, $method(ByteVector, enlarge, void, int32_t)},
+		{"put11", "(II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put11, ByteVector*, int32_t, int32_t)},
+		{"put112", "(III)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put112, ByteVector*, int32_t, int32_t, int32_t)},
+		{"put12", "(II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put12, ByteVector*, int32_t, int32_t)},
+		{"put122", "(III)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put122, ByteVector*, int32_t, int32_t, int32_t)},
+		{"putByte", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putByte, ByteVector*, int32_t)},
+		{"putByteArray", "([BII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putByteArray, ByteVector*, $bytes*, int32_t, int32_t)},
+		{"putInt", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putInt, ByteVector*, int32_t)},
+		{"putLong", "(J)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putLong, ByteVector*, int64_t)},
+		{"putShort", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putShort, ByteVector*, int32_t)},
+		{"putUTF8", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putUTF8, ByteVector*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.ByteVector",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ByteVector);
+	});
 	return class$;
 }
 

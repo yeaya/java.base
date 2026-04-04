@@ -15,10 +15,13 @@ class $export NotImplementedException : public ::java::lang::RuntimeException {
 public:
 	NotImplementedException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x80A1B30A44591BEA;
+	static const int64_t serialVersionUID = (int64_t)0x80a1b30a44591bea;
 	NotImplementedException(const NotImplementedException& e);
 	virtual void throw$() override;
-	inline NotImplementedException* operator ->() {
+	inline NotImplementedException* operator ->() const {
+		return (NotImplementedException*)throwing$;
+	}
+	inline operator NotImplementedException*() const {
 		return (NotImplementedException*)throwing$;
 	}
 };

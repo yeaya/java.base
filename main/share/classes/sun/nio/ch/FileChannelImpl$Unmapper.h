@@ -32,6 +32,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t address, int64_t size, int64_t cap, ::java::io::FileDescriptor* fd, int32_t pagePosition);
 	virtual int64_t address() override;
 	virtual void decrementStats() {}

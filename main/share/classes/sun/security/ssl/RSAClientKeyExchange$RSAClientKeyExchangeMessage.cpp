@@ -1,5 +1,4 @@
 #include <sun/security/ssl/RSAClientKeyExchange$RSAClientKeyExchangeMessage.h>
-
 #include <java/io/OutputStream.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/PublicKey.h>
@@ -40,10 +39,8 @@ using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $RSAKeyExchange$RSAPremasterSecret = ::sun::security::ssl::RSAKeyExchange$RSAPremasterSecret;
 using $Record = ::sun::security::ssl::Record;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
 
@@ -51,54 +48,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _RSAClientKeyExchange$RSAClientKeyExchangeMessage_FieldInfo_[] = {
-	{"protocolVersion", "I", nullptr, $FINAL, $field(RSAClientKeyExchange$RSAClientKeyExchangeMessage, protocolVersion)},
-	{"useTLS10PlusSpec", "Z", nullptr, $FINAL, $field(RSAClientKeyExchange$RSAClientKeyExchangeMessage, useTLS10PlusSpec)},
-	{"encrypted", "[B", nullptr, $FINAL, $field(RSAClientKeyExchange$RSAClientKeyExchangeMessage, encrypted)},
-	{}
-};
-
-$MethodInfo _RSAClientKeyExchange$RSAClientKeyExchangeMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;Ljava/security/PublicKey;)V", nullptr, 0, $method(RSAClientKeyExchange$RSAClientKeyExchangeMessage, init$, void, $HandshakeContext*, $RSAKeyExchange$RSAPremasterSecret*, $PublicKey*), "java.security.GeneralSecurityException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(RSAClientKeyExchange$RSAClientKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _RSAClientKeyExchange$RSAClientKeyExchangeMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeMessage", "sun.security.ssl.RSAClientKeyExchange", "RSAClientKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RSAClientKeyExchange$RSAClientKeyExchangeMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_RSAClientKeyExchange$RSAClientKeyExchangeMessage_FieldInfo_,
-	_RSAClientKeyExchange$RSAClientKeyExchangeMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RSAClientKeyExchange$RSAClientKeyExchangeMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.RSAClientKeyExchange"
-};
-
-$Object* allocate$RSAClientKeyExchange$RSAClientKeyExchangeMessage($Class* clazz) {
-	return $of($alloc(RSAClientKeyExchange$RSAClientKeyExchangeMessage));
-}
-
 void RSAClientKeyExchange$RSAClientKeyExchangeMessage::init$($HandshakeContext* context, $RSAKeyExchange$RSAPremasterSecret* premaster, $PublicKey* publicKey) {
 	$SSLHandshake$HandshakeMessage::init$(context);
 	this->protocolVersion = $nc(context)->clientHelloVersion;
 	$set(this, encrypted, $nc(premaster)->getEncoded(publicKey, $($nc(context->sslContext)->getSecureRandom())));
-	this->useTLS10PlusSpec = $ProtocolVersion::useTLS10PlusSpec(this->protocolVersion, $nc(context->sslContext)->isDTLS());
+	this->useTLS10PlusSpec = $ProtocolVersion::useTLS10PlusSpec(this->protocolVersion, context->sslContext->isDTLS());
 }
 
 void RSAClientKeyExchange$RSAClientKeyExchangeMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
@@ -112,7 +66,7 @@ void RSAClientKeyExchange$RSAClientKeyExchangeMessage::init$($HandshakeContext* 
 	if (this->useTLS10PlusSpec) {
 		$set(this, encrypted, $Record::getBytes16(m));
 	} else {
-		$set(this, encrypted, $new($bytes, $nc(m)->remaining()));
+		$set(this, encrypted, $new($bytes, m->remaining()));
 		m->get(this->encrypted);
 	}
 }
@@ -139,13 +93,13 @@ void RSAClientKeyExchange$RSAClientKeyExchangeMessage::send($HandshakeOutStream*
 }
 
 $String* RSAClientKeyExchange$RSAClientKeyExchangeMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"RSA ClientKeyExchange\": \'{\'\n  \"client_version\":  {0}\n  \"encncrypted\": \'{\'\n{1}\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$($of($ProtocolVersion::nameOf(this->protocolVersion))),
-		$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->encrypted)), "    "_s)))
+		$($ProtocolVersion::nameOf(this->protocolVersion)),
+		$($Utilities::indent($(hexEncoder->encodeBuffer(this->encrypted)), "    "_s))
 	}));
 	return messageFormat->format(messageFields);
 }
@@ -154,7 +108,44 @@ RSAClientKeyExchange$RSAClientKeyExchangeMessage::RSAClientKeyExchange$RSAClient
 }
 
 $Class* RSAClientKeyExchange$RSAClientKeyExchangeMessage::load$($String* name, bool initialize) {
-	$loadClass(RSAClientKeyExchange$RSAClientKeyExchangeMessage, name, initialize, &_RSAClientKeyExchange$RSAClientKeyExchangeMessage_ClassInfo_, allocate$RSAClientKeyExchange$RSAClientKeyExchangeMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"protocolVersion", "I", nullptr, $FINAL, $field(RSAClientKeyExchange$RSAClientKeyExchangeMessage, protocolVersion)},
+		{"useTLS10PlusSpec", "Z", nullptr, $FINAL, $field(RSAClientKeyExchange$RSAClientKeyExchangeMessage, useTLS10PlusSpec)},
+		{"encrypted", "[B", nullptr, $FINAL, $field(RSAClientKeyExchange$RSAClientKeyExchangeMessage, encrypted)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;Ljava/security/PublicKey;)V", nullptr, 0, $method(RSAClientKeyExchange$RSAClientKeyExchangeMessage, init$, void, $HandshakeContext*, $RSAKeyExchange$RSAPremasterSecret*, $PublicKey*), "java.security.GeneralSecurityException"},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(RSAClientKeyExchange$RSAClientKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeMessage", "sun.security.ssl.RSAClientKeyExchange", "RSAClientKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.RSAClientKeyExchange"
+	};
+	$loadClass(RSAClientKeyExchange$RSAClientKeyExchangeMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAClientKeyExchange$RSAClientKeyExchangeMessage);
+	});
 	return class$;
 }
 

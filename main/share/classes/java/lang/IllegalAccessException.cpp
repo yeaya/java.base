@@ -1,5 +1,4 @@
 #include <java/lang/IllegalAccessException.h>
-
 #include <java/lang/ReflectiveOperationException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _IllegalAccessException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalAccessException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IllegalAccessException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalAccessException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalAccessException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _IllegalAccessException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.IllegalAccessException",
-	"java.lang.ReflectiveOperationException",
-	nullptr,
-	_IllegalAccessException_FieldInfo_,
-	_IllegalAccessException_MethodInfo_
-};
-
-$Object* allocate$IllegalAccessException($Class* clazz) {
-	return $of($alloc(IllegalAccessException));
-}
 
 void IllegalAccessException::init$() {
 	$ReflectiveOperationException::init$();
@@ -54,7 +29,26 @@ void IllegalAccessException::throw$() {
 }
 
 $Class* IllegalAccessException::load$($String* name, bool initialize) {
-	$loadClass(IllegalAccessException, name, initialize, &_IllegalAccessException_ClassInfo_, allocate$IllegalAccessException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalAccessException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalAccessException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalAccessException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.IllegalAccessException",
+		"java.lang.ReflectiveOperationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalAccessException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalAccessException);
+	});
 	return class$;
 }
 

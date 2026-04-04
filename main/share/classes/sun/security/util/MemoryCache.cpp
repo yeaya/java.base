@@ -1,5 +1,4 @@
 #include <sun/security/util/MemoryCache.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/util/Collection.h>
@@ -25,7 +24,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
@@ -39,62 +37,6 @@ using $MemoryCache$SoftCacheEntry = ::sun::security::util::MemoryCache$SoftCache
 namespace sun {
 	namespace security {
 		namespace util {
-
-$FieldInfo _MemoryCache_FieldInfo_[] = {
-	{"LOAD_FACTOR", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryCache, LOAD_FACTOR)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MemoryCache, DEBUG)},
-	{"cacheMap", "Ljava/util/Map;", "Ljava/util/Map<TK;Lsun/security/util/MemoryCache$CacheEntry<TK;TV;>;>;", $PRIVATE | $FINAL, $field(MemoryCache, cacheMap)},
-	{"maxSize", "I", nullptr, $PRIVATE, $field(MemoryCache, maxSize)},
-	{"lifetime", "J", nullptr, $PRIVATE, $field(MemoryCache, lifetime)},
-	{"nextExpirationTime", "J", nullptr, $PRIVATE, $field(MemoryCache, nextExpirationTime)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<TV;>;", $PRIVATE | $FINAL, $field(MemoryCache, queue)},
-	{}
-};
-
-$MethodInfo _MemoryCache_MethodInfo_[] = {
-	{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(MemoryCache, init$, void, bool, int32_t)},
-	{"<init>", "(ZII)V", nullptr, $PUBLIC, $method(MemoryCache, init$, void, bool, int32_t, int32_t)},
-	{"accept", "(Lsun/security/util/Cache$CacheVisitor;)V", "(Lsun/security/util/Cache$CacheVisitor<TK;TV;>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, accept, void, $Cache$CacheVisitor*)},
-	{"clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, clear, void)},
-	{"emptyQueue", "()V", nullptr, $PRIVATE, $method(MemoryCache, emptyQueue, void)},
-	{"expungeExpiredEntries", "()V", nullptr, $PRIVATE, $method(MemoryCache, expungeExpiredEntries, void)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, get, $Object*, Object$*)},
-	{"getCachedEntries", "()Ljava/util/Map;", "()Ljava/util/Map<TK;TV;>;", $PRIVATE, $method(MemoryCache, getCachedEntries, $Map*)},
-	{"newEntry", "(Ljava/lang/Object;Ljava/lang/Object;JLjava/lang/ref/ReferenceQueue;)Lsun/security/util/MemoryCache$CacheEntry;", "(TK;TV;JLjava/lang/ref/ReferenceQueue<TV;>;)Lsun/security/util/MemoryCache$CacheEntry<TK;TV;>;", $PROTECTED, $virtualMethod(MemoryCache, newEntry, $MemoryCache$CacheEntry*, Object$*, Object$*, int64_t, $ReferenceQueue*)},
-	{"pull", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, pull, $Object*, Object$*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, put, void, Object$*, Object$*)},
-	{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, remove, void, Object$*)},
-	{"setCapacity", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, setCapacity, void, int32_t)},
-	{"setTimeout", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, setTimeout, void, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MemoryCache_InnerClassesInfo_[] = {
-	{"sun.security.util.MemoryCache$SoftCacheEntry", "sun.security.util.MemoryCache", "SoftCacheEntry", $PRIVATE | $STATIC},
-	{"sun.security.util.MemoryCache$HardCacheEntry", "sun.security.util.MemoryCache", "HardCacheEntry", $PRIVATE | $STATIC},
-	{"sun.security.util.MemoryCache$CacheEntry", "sun.security.util.MemoryCache", "CacheEntry", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MemoryCache_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.MemoryCache",
-	"sun.security.util.Cache",
-	nullptr,
-	_MemoryCache_FieldInfo_,
-	_MemoryCache_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Lsun/security/util/Cache<TK;TV;>;",
-	nullptr,
-	_MemoryCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.MemoryCache$SoftCacheEntry,sun.security.util.MemoryCache$HardCacheEntry,sun.security.util.MemoryCache$CacheEntry"
-};
-
-$Object* allocate$MemoryCache($Class* clazz) {
-	return $of($alloc(MemoryCache));
-}
 
 float MemoryCache::LOAD_FACTOR = 0.0;
 
@@ -116,7 +58,7 @@ void MemoryCache::init$(bool soft, int32_t maxSize, int32_t lifetime) {
 }
 
 void MemoryCache::emptyQueue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->queue == nullptr) {
 		return;
 	}
@@ -130,15 +72,16 @@ void MemoryCache::emptyQueue() {
 		if (key == nullptr) {
 			continue;
 		}
-		$var($MemoryCache$CacheEntry, currentEntry, $cast($MemoryCache$CacheEntry, $nc(this->cacheMap)->remove(key)));
+		$var($MemoryCache$CacheEntry, currentEntry, $cast($MemoryCache$CacheEntry, this->cacheMap->remove(key)));
 		if ((currentEntry != nullptr) && (entry != currentEntry)) {
-			$nc(this->cacheMap)->put(key, currentEntry);
+			this->cacheMap->put(key, currentEntry);
 		}
 	}
+	;
 }
 
 void MemoryCache::expungeExpiredEntries() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	emptyQueue();
 	if (this->lifetime == 0) {
 		return;
@@ -150,7 +93,7 @@ void MemoryCache::expungeExpiredEntries() {
 	}
 	this->nextExpirationTime = $Long::MAX_VALUE;
 	{
-		$var($Iterator, t, $nc($($nc(this->cacheMap)->values()))->iterator());
+		$var($Iterator, t, $$nc($nc(this->cacheMap)->values())->iterator());
 		for (; $nc(t)->hasNext();) {
 			$var($MemoryCache$CacheEntry, entry, $cast($MemoryCache$CacheEntry, t->next()));
 			if ($nc(entry)->isValid(time) == false) {
@@ -161,6 +104,7 @@ void MemoryCache::expungeExpiredEntries() {
 			}
 		}
 	}
+	;
 }
 
 int32_t MemoryCache::size() {
@@ -172,10 +116,10 @@ int32_t MemoryCache::size() {
 
 void MemoryCache::clear() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->queue != nullptr) {
 			{
-				$var($Iterator, i$, $nc($($nc(this->cacheMap)->values()))->iterator());
+				$var($Iterator, i$, $$nc($nc(this->cacheMap)->values())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($MemoryCache$CacheEntry, entry, $cast($MemoryCache$CacheEntry, i$->next()));
 					{
@@ -183,7 +127,7 @@ void MemoryCache::clear() {
 					}
 				}
 			}
-			while ($nc(this->queue)->poll() != nullptr) {
+			while (this->queue->poll() != nullptr) {
 			}
 		}
 		$nc(this->cacheMap)->clear();
@@ -192,9 +136,9 @@ void MemoryCache::clear() {
 
 void MemoryCache::put(Object$* key, Object$* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		emptyQueue();
-		int64_t expirationTime = (this->lifetime == 0) ? (int64_t)0 : $System::currentTimeMillis() + this->lifetime;
+		int64_t expirationTime = (this->lifetime == 0) ? 0 : $System::currentTimeMillis() + this->lifetime;
 		if (expirationTime < this->nextExpirationTime) {
 			this->nextExpirationTime = expirationTime;
 		}
@@ -204,11 +148,12 @@ void MemoryCache::put(Object$* key, Object$* value) {
 			oldEntry->invalidate();
 			return;
 		}
-		if (this->maxSize > 0 && $nc(this->cacheMap)->size() > this->maxSize) {
+		if (this->maxSize > 0 && this->cacheMap->size() > this->maxSize) {
 			expungeExpiredEntries();
-			if ($nc(this->cacheMap)->size() > this->maxSize) {
-				$var($Iterator, t, $nc($($nc(this->cacheMap)->values()))->iterator());
+			if (this->cacheMap->size() > this->maxSize) {
+				$var($Iterator, t, $$nc(this->cacheMap->values())->iterator());
 				$var($MemoryCache$CacheEntry, lruEntry, $cast($MemoryCache$CacheEntry, $nc(t)->next()));
+				;
 				t->remove();
 				$nc(lruEntry)->invalidate();
 			}
@@ -221,14 +166,15 @@ $Object* MemoryCache::get(Object$* key) {
 		emptyQueue();
 		$var($MemoryCache$CacheEntry, entry, $cast($MemoryCache$CacheEntry, $nc(this->cacheMap)->get(key)));
 		if (entry == nullptr) {
-			return $of(nullptr);
+			return nullptr;
 		}
-		int64_t time = (this->lifetime == 0) ? (int64_t)0 : $System::currentTimeMillis();
+		int64_t time = (this->lifetime == 0) ? 0 : $System::currentTimeMillis();
 		if ($nc(entry)->isValid(time) == false) {
-			$nc(this->cacheMap)->remove(key);
-			return $of(nullptr);
+			;
+			this->cacheMap->remove(key);
+			return nullptr;
 		}
-		return $of($nc(entry)->getValue());
+		return entry->getValue();
 	}
 }
 
@@ -244,43 +190,47 @@ void MemoryCache::remove(Object$* key) {
 
 $Object* MemoryCache::pull(Object$* key) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		emptyQueue();
 		$var($MemoryCache$CacheEntry, entry, $cast($MemoryCache$CacheEntry, $nc(this->cacheMap)->remove(key)));
 		if (entry == nullptr) {
-			return $of(nullptr);
+			return nullptr;
 		}
-		int64_t time = (this->lifetime == 0) ? (int64_t)0 : $System::currentTimeMillis();
+		int64_t time = (this->lifetime == 0) ? 0 : $System::currentTimeMillis();
 		if ($nc(entry)->isValid(time)) {
 			$var($Object, value, entry->getValue());
 			entry->invalidate();
-			return $of(value);
+			return value;
 		} else {
-			return $of(nullptr);
+			;
+			return nullptr;
 		}
 	}
 }
 
 void MemoryCache::setCapacity(int32_t size) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		expungeExpiredEntries();
 		if (size > 0 && $nc(this->cacheMap)->size() > size) {
-			$var($Iterator, t, $nc($($nc(this->cacheMap)->values()))->iterator());
-			for (int32_t i = $nc(this->cacheMap)->size() - size; i > 0; --i) {
+			$var($Iterator, t, $$nc(this->cacheMap->values())->iterator());
+			for (int32_t i = this->cacheMap->size() - size; i > 0; --i) {
 				$var($MemoryCache$CacheEntry, lruEntry, $cast($MemoryCache$CacheEntry, $nc(t)->next()));
+				;
 				t->remove();
 				$nc(lruEntry)->invalidate();
 			}
 		}
 		this->maxSize = size > 0 ? size : 0;
+		;
 	}
 }
 
 void MemoryCache::setTimeout(int32_t timeout) {
 	$synchronized(this) {
 		emptyQueue();
-		this->lifetime = timeout > 0 ? timeout * (int64_t)1000 : (int64_t)0;
+		this->lifetime = timeout > 0 ? timeout * (int64_t)1000 : 0;
+		;
 	}
 }
 
@@ -293,10 +243,10 @@ void MemoryCache::accept($Cache$CacheVisitor* visitor) {
 }
 
 $Map* MemoryCache::getCachedEntries() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, kvmap, $new($HashMap, $nc(this->cacheMap)->size()));
 	{
-		$var($Iterator, i$, $nc($($nc(this->cacheMap)->values()))->iterator());
+		$var($Iterator, i$, $$nc(this->cacheMap->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MemoryCache$CacheEntry, entry, $cast($MemoryCache$CacheEntry, i$->next()));
 			{
@@ -319,12 +269,62 @@ $MemoryCache$CacheEntry* MemoryCache::newEntry(Object$* key, Object$* value, int
 MemoryCache::MemoryCache() {
 }
 
-void clinit$MemoryCache($Class* class$) {
+void MemoryCache::clinit$($Class* clazz) {
 	MemoryCache::LOAD_FACTOR = 0.75f;
 }
 
 $Class* MemoryCache::load$($String* name, bool initialize) {
-	$loadClass(MemoryCache, name, initialize, &_MemoryCache_ClassInfo_, clinit$MemoryCache, allocate$MemoryCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOAD_FACTOR", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryCache, LOAD_FACTOR)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MemoryCache, DEBUG)},
+		{"cacheMap", "Ljava/util/Map;", "Ljava/util/Map<TK;Lsun/security/util/MemoryCache$CacheEntry<TK;TV;>;>;", $PRIVATE | $FINAL, $field(MemoryCache, cacheMap)},
+		{"maxSize", "I", nullptr, $PRIVATE, $field(MemoryCache, maxSize)},
+		{"lifetime", "J", nullptr, $PRIVATE, $field(MemoryCache, lifetime)},
+		{"nextExpirationTime", "J", nullptr, $PRIVATE, $field(MemoryCache, nextExpirationTime)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<TV;>;", $PRIVATE | $FINAL, $field(MemoryCache, queue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(MemoryCache, init$, void, bool, int32_t)},
+		{"<init>", "(ZII)V", nullptr, $PUBLIC, $method(MemoryCache, init$, void, bool, int32_t, int32_t)},
+		{"accept", "(Lsun/security/util/Cache$CacheVisitor;)V", "(Lsun/security/util/Cache$CacheVisitor<TK;TV;>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, accept, void, $Cache$CacheVisitor*)},
+		{"clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, clear, void)},
+		{"emptyQueue", "()V", nullptr, $PRIVATE, $method(MemoryCache, emptyQueue, void)},
+		{"expungeExpiredEntries", "()V", nullptr, $PRIVATE, $method(MemoryCache, expungeExpiredEntries, void)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, get, $Object*, Object$*)},
+		{"getCachedEntries", "()Ljava/util/Map;", "()Ljava/util/Map<TK;TV;>;", $PRIVATE, $method(MemoryCache, getCachedEntries, $Map*)},
+		{"newEntry", "(Ljava/lang/Object;Ljava/lang/Object;JLjava/lang/ref/ReferenceQueue;)Lsun/security/util/MemoryCache$CacheEntry;", "(TK;TV;JLjava/lang/ref/ReferenceQueue<TV;>;)Lsun/security/util/MemoryCache$CacheEntry<TK;TV;>;", $PROTECTED, $virtualMethod(MemoryCache, newEntry, $MemoryCache$CacheEntry*, Object$*, Object$*, int64_t, $ReferenceQueue*)},
+		{"pull", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, pull, $Object*, Object$*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, put, void, Object$*, Object$*)},
+		{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, remove, void, Object$*)},
+		{"setCapacity", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, setCapacity, void, int32_t)},
+		{"setTimeout", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, setTimeout, void, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.MemoryCache$SoftCacheEntry", "sun.security.util.MemoryCache", "SoftCacheEntry", $PRIVATE | $STATIC},
+		{"sun.security.util.MemoryCache$HardCacheEntry", "sun.security.util.MemoryCache", "HardCacheEntry", $PRIVATE | $STATIC},
+		{"sun.security.util.MemoryCache$CacheEntry", "sun.security.util.MemoryCache", "CacheEntry", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.MemoryCache",
+		"sun.security.util.Cache",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Lsun/security/util/Cache<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.MemoryCache$SoftCacheEntry,sun.security.util.MemoryCache$HardCacheEntry,sun.security.util.MemoryCache$CacheEntry"
+	};
+	$loadClass(MemoryCache, name, initialize, &classInfo$$, MemoryCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryCache);
+	});
 	return class$;
 }
 

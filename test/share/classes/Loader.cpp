@@ -1,10 +1,8 @@
 #include <Loader.h>
-
 #include <java/io/DataInputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
@@ -19,8 +17,6 @@ using $DataInputStream = ::java::io::DataInputStream;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -30,41 +26,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 
-$FieldInfo _Loader_FieldInfo_[] = {
-	{"FIND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Loader, FIND)},
-	{"RESOURCE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Loader, RESOURCE)},
-	{"RESOURCES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Loader, RESOURCES)},
-	{}
-};
-
-$MethodInfo _Loader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Loader, init$, void)},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(Loader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
-	{"locateBytes", "()[B", nullptr, $PRIVATE, $method(Loader, locateBytes, $bytes*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Loader, main, void, $StringArray*), "java.lang.Exception"},
-	{"report", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Loader, report, void, $String*)},
-	{}
-};
-
-$ClassInfo _Loader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Loader",
-	"java.lang.ClassLoader",
-	nullptr,
-	_Loader_FieldInfo_,
-	_Loader_MethodInfo_
-};
-
-$Object* allocate$Loader($Class* clazz) {
-	return $of($alloc(Loader));
-}
-
 void Loader::init$() {
 	$ClassLoader::init$();
 }
 
 $Class* Loader::loadClass($String* name, bool resolve) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* c = nullptr;
 	try {
 		c = findSystemClass(name);
@@ -84,7 +51,7 @@ $Class* Loader::loadClass($String* name, bool resolve) {
 }
 
 $bytes* Loader::locateBytes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($File, f, $new($File, $($System::getProperty("test.src"_s, "."_s)), "Loadee.classfile"_s));
 		int64_t l = f->length();
@@ -101,19 +68,19 @@ $bytes* Loader::locateBytes() {
 
 void Loader::main($StringArray* args) {
 	$init(Loader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	int32_t tests = (Loader::FIND | Loader::RESOURCE) | Loader::RESOURCES;
 	if ($nc(args)->length == 1 && $nc(args->get(0))->equals("-1.1"_s)) {
 		tests &= (uint32_t)~Loader::RESOURCES;
 	}
-	if (((int32_t)(tests & (uint32_t)Loader::FIND)) == Loader::FIND) {
+	if ((tests & Loader::FIND) == Loader::FIND) {
 		report("findSystemClass()"_s);
 		$var($ClassLoader, l, $new(Loader));
 		$Class* c = l->loadClass("Loadee"_s);
 		$var($Object, o, $nc(c)->newInstance());
 	}
-	if (((int32_t)(tests & (uint32_t)Loader::RESOURCE)) == Loader::RESOURCE) {
+	if ((tests & Loader::RESOURCE) == Loader::RESOURCE) {
 		report("getSystemResource()"_s);
 		$var($URL, u, getSystemResource("Loadee.resource"_s));
 		if (u == nullptr) {
@@ -131,7 +98,31 @@ Loader::Loader() {
 }
 
 $Class* Loader::load$($String* name, bool initialize) {
-	$loadClass(Loader, name, initialize, &_Loader_ClassInfo_, allocate$Loader);
+	$FieldInfo fieldInfos$$[] = {
+		{"FIND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Loader, FIND)},
+		{"RESOURCE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Loader, RESOURCE)},
+		{"RESOURCES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Loader, RESOURCES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Loader, init$, void)},
+		{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(Loader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+		{"locateBytes", "()[B", nullptr, $PRIVATE, $method(Loader, locateBytes, $bytes*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Loader, main, void, $StringArray*), "java.lang.Exception"},
+		{"report", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Loader, report, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Loader",
+		"java.lang.ClassLoader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Loader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Loader);
+	});
 	return class$;
 }
 

@@ -21,10 +21,13 @@ public:
 	UnsupportedTemporalTypeException();
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xAA8732805248134A;
+	static const int64_t serialVersionUID = (int64_t)0xaa8732805248134a;
 	UnsupportedTemporalTypeException(const UnsupportedTemporalTypeException& e);
 	virtual void throw$() override;
-	inline UnsupportedTemporalTypeException* operator ->() {
+	inline UnsupportedTemporalTypeException* operator ->() const {
+		return (UnsupportedTemporalTypeException*)throwing$;
+	}
+	inline operator UnsupportedTemporalTypeException*() const {
 		return (UnsupportedTemporalTypeException*)throwing$;
 	}
 };

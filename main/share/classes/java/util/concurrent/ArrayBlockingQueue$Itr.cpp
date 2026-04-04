@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ArrayBlockingQueue$Itr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Objects.h>
@@ -29,99 +28,38 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _ArrayBlockingQueue$Itr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/ArrayBlockingQueue;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayBlockingQueue$Itr, this$0)},
-	{"cursor", "I", nullptr, $PRIVATE, $field(ArrayBlockingQueue$Itr, cursor)},
-	{"nextItem", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(ArrayBlockingQueue$Itr, nextItem)},
-	{"nextIndex", "I", nullptr, $PRIVATE, $field(ArrayBlockingQueue$Itr, nextIndex)},
-	{"lastItem", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(ArrayBlockingQueue$Itr, lastItem)},
-	{"lastRet", "I", nullptr, $PRIVATE, $field(ArrayBlockingQueue$Itr, lastRet)},
-	{"prevTakeIndex", "I", nullptr, $PRIVATE, $field(ArrayBlockingQueue$Itr, prevTakeIndex)},
-	{"prevCycles", "I", nullptr, $PRIVATE, $field(ArrayBlockingQueue$Itr, prevCycles)},
-	{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayBlockingQueue$Itr, NONE)},
-	{"REMOVED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayBlockingQueue$Itr, REMOVED)},
-	{"DETACHED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayBlockingQueue$Itr, DETACHED)},
-	{}
-};
-
-$MethodInfo _ArrayBlockingQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ArrayBlockingQueue;)V", nullptr, 0, $method(ArrayBlockingQueue$Itr, init$, void, $ArrayBlockingQueue*)},
-	{"detach", "()V", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, detach, void)},
-	{"distance", "(III)I", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, distance, int32_t, int32_t, int32_t, int32_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, hasNext, bool)},
-	{"incCursor", "(I)I", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, incCursor, int32_t, int32_t)},
-	{"incorporateDequeues", "()V", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, incorporateDequeues, void)},
-	{"invalidated", "(IIJI)Z", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, invalidated, bool, int32_t, int32_t, int64_t, int32_t)},
-	{"isDetached", "()Z", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, isDetached, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, next, $Object*)},
-	{"noNext", "()V", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, noNext, void)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, remove, void)},
-	{"removedAt", "(I)Z", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, removedAt, bool, int32_t)},
-	{"shutdown", "()V", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, shutdown, void)},
-	{"takeIndexWrapped", "()Z", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, takeIndexWrapped, bool)},
-	{}
-};
-
-$InnerClassInfo _ArrayBlockingQueue$Itr_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ArrayBlockingQueue$Itr", "java.util.concurrent.ArrayBlockingQueue", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ArrayBlockingQueue$Itr_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.ArrayBlockingQueue$Itr",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ArrayBlockingQueue$Itr_FieldInfo_,
-	_ArrayBlockingQueue$Itr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_ArrayBlockingQueue$Itr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ArrayBlockingQueue"
-};
-
-$Object* allocate$ArrayBlockingQueue$Itr($Class* clazz) {
-	return $of($alloc(ArrayBlockingQueue$Itr));
-}
-
 void ArrayBlockingQueue$Itr::init$($ArrayBlockingQueue* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	this->lastRet = ArrayBlockingQueue$Itr::NONE;
 	$var($ReentrantLock, lock, this$0->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (this$0->count == 0) {
-				this->cursor = ArrayBlockingQueue$Itr::NONE;
-				this->nextIndex = ArrayBlockingQueue$Itr::NONE;
-				this->prevTakeIndex = ArrayBlockingQueue$Itr::DETACHED;
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (this$0->count == 0) {
+			this->cursor = ArrayBlockingQueue$Itr::NONE;
+			this->nextIndex = ArrayBlockingQueue$Itr::NONE;
+			this->prevTakeIndex = ArrayBlockingQueue$Itr::DETACHED;
+		} else {
+			int32_t takeIndex = this$0->takeIndex;
+			this->prevTakeIndex = takeIndex;
+			$set(this, nextItem, this$0->itemAt(this->nextIndex = takeIndex));
+			this->cursor = incCursor(takeIndex);
+			if (this$0->itrs == nullptr) {
+				$set(this$0, itrs, $new($ArrayBlockingQueue$Itrs, this$0, this));
 			} else {
-				int32_t takeIndex = this$0->takeIndex;
-				this->prevTakeIndex = takeIndex;
-				$set(this, nextItem, this$0->itemAt(this->nextIndex = takeIndex));
-				this->cursor = incCursor(takeIndex);
-				if (this$0->itrs == nullptr) {
-					$set(this$0, itrs, $new($ArrayBlockingQueue$Itrs, this$0, this));
-				} else {
-					$nc(this$0->itrs)->register$(this);
-					$nc(this$0->itrs)->doSomeSweeping(false);
-				}
-				this->prevCycles = $nc(this$0->itrs)->cycles;
+				this$0->itrs->register$(this);
+				$nc(this$0->itrs)->doSomeSweeping(false);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
+			this->prevCycles = $nc(this$0->itrs)->cycles;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -192,157 +130,144 @@ bool ArrayBlockingQueue$Itr::hasNext() {
 }
 
 void ArrayBlockingQueue$Itr::noNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->this$0->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (!isDetached()) {
-				incorporateDequeues();
-				if (this->lastRet >= 0) {
-					$set(this, lastItem, this->this$0->itemAt(this->lastRet));
-					detach();
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!isDetached()) {
+			incorporateDequeues();
+			if (this->lastRet >= 0) {
+				$set(this, lastItem, this->this$0->itemAt(this->lastRet));
+				detach();
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $Object* ArrayBlockingQueue$Itr::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, e, this->nextItem);
 	if (e == nullptr) {
 		$throwNew($NoSuchElementException);
 	}
 	$var($ReentrantLock, lock, this->this$0->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (!isDetached()) {
-				incorporateDequeues();
-			}
-			this->lastRet = this->nextIndex;
-			int32_t cursor = this->cursor;
-			if (cursor >= 0) {
-				$set(this, nextItem, this->this$0->itemAt(this->nextIndex = cursor));
-				this->cursor = incCursor(cursor);
-			} else {
-				this->nextIndex = ArrayBlockingQueue$Itr::NONE;
-				$set(this, nextItem, nullptr);
-				if (this->lastRet == ArrayBlockingQueue$Itr::REMOVED) {
-					detach();
-				}
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!isDetached()) {
+			incorporateDequeues();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		this->lastRet = this->nextIndex;
+		int32_t cursor = this->cursor;
+		if (cursor >= 0) {
+			$set(this, nextItem, this->this$0->itemAt(this->nextIndex = cursor));
+			this->cursor = incCursor(cursor);
+		} else {
+			this->nextIndex = ArrayBlockingQueue$Itr::NONE;
+			$set(this, nextItem, nullptr);
+			if (this->lastRet == ArrayBlockingQueue$Itr::REMOVED) {
+				detach();
+			}
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
 	}
-	return $of(e);
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	return e;
 }
 
 void ArrayBlockingQueue$Itr::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	$var($ReentrantLock, lock, this->this$0->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			$var($Object, e, this->nextItem);
-			if (e == nullptr) {
-				return$1 = true;
-				goto $finally;
-			}
-			if (!isDetached()) {
-				incorporateDequeues();
-			}
-			action->accept(e);
-			if (isDetached() || this->cursor < 0) {
-				return$1 = true;
-				goto $finally;
-			}
-			$var($ObjectArray, items, this->this$0->items);
-			{
-				int32_t i = this->cursor;
-				int32_t end = this->this$0->putIndex;
-				int32_t to = (i < end) ? end : $nc(items)->length;
-				for (;; i = 0, to = end) {
-					for (; i < to; ++i) {
-						action->accept($($ArrayBlockingQueue::itemAt(items, i)));
-					}
-					if (to == end) {
-						break;
-					}
-				}
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			this->cursor = (this->nextIndex = (this->lastRet = ArrayBlockingQueue$Itr::NONE));
-			$set(this, nextItem, ($set(this, lastItem, nullptr)));
-			detach();
-			lock->unlock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		$var($Object, e, this->nextItem);
+		if (e == nullptr) {
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (!isDetached()) {
+			incorporateDequeues();
 		}
-		if (return$1) {
-			return;
+		action->accept(e);
+		if (isDetached() || this->cursor < 0) {
+			return$1 = true;
+			goto $finally;
 		}
+		$var($ObjectArray, items, this->this$0->items);
+		for (int32_t i = this->cursor, end = this->this$0->putIndex, to = (i < end) ? end : $nc(items)->length;; i = 0, to = end) {
+			for (; i < to; ++i) {
+				action->accept($($ArrayBlockingQueue::itemAt(items, i)));
+			}
+			if (to == end) {
+				break;
+			}
+		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		this->cursor = (this->nextIndex = (this->lastRet = ArrayBlockingQueue$Itr::NONE));
+		$set(this, nextItem, $set(this, lastItem, nullptr));
+		detach();
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void ArrayBlockingQueue$Itr::remove() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->this$0->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!isDetached()) {
+			incorporateDequeues();
+		}
+		int32_t lastRet = this->lastRet;
+		this->lastRet = ArrayBlockingQueue$Itr::NONE;
+		if (lastRet >= 0) {
 			if (!isDetached()) {
-				incorporateDequeues();
-			}
-			int32_t lastRet = this->lastRet;
-			this->lastRet = ArrayBlockingQueue$Itr::NONE;
-			if (lastRet >= 0) {
-				if (!isDetached()) {
+				this->this$0->removeAt(lastRet);
+			} else {
+				$var($Object, lastItem, this->lastItem);
+				$set(this, lastItem, nullptr);
+				if ($equals(this->this$0->itemAt(lastRet), lastItem)) {
 					this->this$0->removeAt(lastRet);
-				} else {
-					$var($Object, lastItem, this->lastItem);
-					$set(this, lastItem, nullptr);
-					if ($equals(this->this$0->itemAt(lastRet), lastItem)) {
-						this->this$0->removeAt(lastRet);
-					}
 				}
-			} else if (lastRet == ArrayBlockingQueue$Itr::NONE) {
-				$throwNew($IllegalStateException);
 			}
-			if (this->cursor < 0 && this->nextIndex < 0) {
-				detach();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
+		} else if (lastRet == ArrayBlockingQueue$Itr::NONE) {
+			$throwNew($IllegalStateException);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (this->cursor < 0 && this->nextIndex < 0) {
+			detach();
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -425,7 +350,60 @@ ArrayBlockingQueue$Itr::ArrayBlockingQueue$Itr() {
 }
 
 $Class* ArrayBlockingQueue$Itr::load$($String* name, bool initialize) {
-	$loadClass(ArrayBlockingQueue$Itr, name, initialize, &_ArrayBlockingQueue$Itr_ClassInfo_, allocate$ArrayBlockingQueue$Itr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/ArrayBlockingQueue;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayBlockingQueue$Itr, this$0)},
+		{"cursor", "I", nullptr, $PRIVATE, $field(ArrayBlockingQueue$Itr, cursor)},
+		{"nextItem", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(ArrayBlockingQueue$Itr, nextItem)},
+		{"nextIndex", "I", nullptr, $PRIVATE, $field(ArrayBlockingQueue$Itr, nextIndex)},
+		{"lastItem", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(ArrayBlockingQueue$Itr, lastItem)},
+		{"lastRet", "I", nullptr, $PRIVATE, $field(ArrayBlockingQueue$Itr, lastRet)},
+		{"prevTakeIndex", "I", nullptr, $PRIVATE, $field(ArrayBlockingQueue$Itr, prevTakeIndex)},
+		{"prevCycles", "I", nullptr, $PRIVATE, $field(ArrayBlockingQueue$Itr, prevCycles)},
+		{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayBlockingQueue$Itr, NONE)},
+		{"REMOVED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayBlockingQueue$Itr, REMOVED)},
+		{"DETACHED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayBlockingQueue$Itr, DETACHED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ArrayBlockingQueue;)V", nullptr, 0, $method(ArrayBlockingQueue$Itr, init$, void, $ArrayBlockingQueue*)},
+		{"detach", "()V", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, detach, void)},
+		{"distance", "(III)I", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, distance, int32_t, int32_t, int32_t, int32_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, hasNext, bool)},
+		{"incCursor", "(I)I", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, incCursor, int32_t, int32_t)},
+		{"incorporateDequeues", "()V", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, incorporateDequeues, void)},
+		{"invalidated", "(IIJI)Z", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, invalidated, bool, int32_t, int32_t, int64_t, int32_t)},
+		{"isDetached", "()Z", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, isDetached, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, next, $Object*)},
+		{"noNext", "()V", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, noNext, void)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, remove, void)},
+		{"removedAt", "(I)Z", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, removedAt, bool, int32_t)},
+		{"shutdown", "()V", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, shutdown, void)},
+		{"takeIndexWrapped", "()Z", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, takeIndexWrapped, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ArrayBlockingQueue$Itr", "java.util.concurrent.ArrayBlockingQueue", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.ArrayBlockingQueue$Itr",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ArrayBlockingQueue"
+	};
+	$loadClass(ArrayBlockingQueue$Itr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayBlockingQueue$Itr);
+	});
 	return class$;
 }
 

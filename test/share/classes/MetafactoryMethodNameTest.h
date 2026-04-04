@@ -20,6 +20,7 @@ class $export MetafactoryMethodNameTest : public ::java::lang::Object {
 	$class(MetafactoryMethodNameTest, 0, ::java::lang::Object)
 public:
 	MetafactoryMethodNameTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $ObjectArray* arr($ObjectArray* args);
 	static void badName($String* name);

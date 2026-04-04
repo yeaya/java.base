@@ -30,6 +30,7 @@ class $import BootstrapLogger$RedirectedLoggers : public ::java::util::function:
 	$class(BootstrapLogger$RedirectedLoggers, 0, ::java::util::function::Function)
 public:
 	BootstrapLogger$RedirectedLoggers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::jdk::internal::logger::SurrogateLogger* apply(::jdk::internal::logger::LazyLoggers$LazyLoggerAccessor* t);
 	virtual $Object* apply(Object$* t) override;

@@ -19,6 +19,7 @@ class FdLibm : public ::java::lang::Object {
 	$class(FdLibm, 0, ::java::lang::Object)
 public:
 	FdLibm();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t __HI(double x);
 	static double __HI(double x, int32_t high);

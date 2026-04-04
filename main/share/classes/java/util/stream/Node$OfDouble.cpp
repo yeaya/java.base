@@ -1,5 +1,4 @@
 #include <java/util/stream/Node$OfDouble.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -52,68 +51,27 @@ public:
 	virtual void accept(double e) override {
 		Node$OfDouble::lambda$truncate$0(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Node$OfDouble$$Lambda$lambda$truncate$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Node$OfDouble$$Lambda$lambda$truncate$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Node$OfDouble$$Lambda$lambda$truncate$0, init$, void)},
-	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble$$Lambda$lambda$truncate$0, accept, void, double)},
-	{}
-};
-$ClassInfo Node$OfDouble$$Lambda$lambda$truncate$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Node$OfDouble$$Lambda$lambda$truncate$0",
-	"java.lang.Object",
-	"java.util.function.DoubleConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* Node$OfDouble$$Lambda$lambda$truncate$0::load$($String* name, bool initialize) {
-	$loadClass(Node$OfDouble$$Lambda$lambda$truncate$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Node$OfDouble$$Lambda$lambda$truncate$0, init$, void)},
+		{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble$$Lambda$lambda$truncate$0, accept, void, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Node$OfDouble$$Lambda$lambda$truncate$0",
+		"java.lang.Object",
+		"java.util.function.DoubleConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Node$OfDouble$$Lambda$lambda$truncate$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Node$OfDouble$$Lambda$lambda$truncate$0);
+	});
 	return class$;
 }
 $Class* Node$OfDouble$$Lambda$lambda$truncate$0::class$ = nullptr;
-
-$MethodInfo _Node$OfDouble_MethodInfo_[] = {
-	{"copyInto", "([Ljava/lang/Double;I)V", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble, copyInto, void, $DoubleArray*, int32_t)},
-	{"copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Node$OfDouble, copyInto, void, $ObjectArray*, int32_t)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Double;>;)V", $PUBLIC, $virtualMethod(Node$OfDouble, forEach, void, $Consumer*)},
-	{"getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble, getShape, $StreamShape*)},
-	{"lambda$truncate$0", "(D)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Node$OfDouble, lambda$truncate$0, void, double)},
-	{"newArray", "(I)[D", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble, newArray, $Object*, int32_t)},
-	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfDouble;", "(JJLjava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node$OfDouble;", $PUBLIC, $virtualMethod(Node$OfDouble, truncate, Node$OfDouble*, int64_t, int64_t, $IntFunction*)},
-	{}
-};
-
-$InnerClassInfo _Node$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.stream.Node$OfDouble", "java.util.stream.Node", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Node$OfPrimitive", "java.util.stream.Node", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Node$OfDouble_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.stream.Node$OfDouble",
-	nullptr,
-	"java.util.stream.Node$OfPrimitive",
-	nullptr,
-	_Node$OfDouble_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/stream/Node$OfPrimitive<Ljava/lang/Double;Ljava/util/function/DoubleConsumer;[DLjava/util/Spliterator$OfDouble;Ljava/util/stream/Node$OfDouble;>;",
-	nullptr,
-	_Node$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Node"
-};
-
-$Object* allocate$Node$OfDouble($Class* clazz) {
-	return $of($alloc(Node$OfDouble));
-}
 
 void Node$OfDouble::forEach($Consumer* consumer) {
 	if ($instanceOf($DoubleConsumer, consumer)) {
@@ -123,12 +81,12 @@ void Node$OfDouble::forEach($Consumer* consumer) {
 		if ($Tripwire::ENABLED) {
 			$Tripwire::trip($of(this)->getClass(), "{0} calling Node.OfLong.forEachRemaining(Consumer)"_s);
 		}
-		$nc(($cast($Spliterator$OfDouble, $($cast($Spliterator$OfPrimitive, spliterator())))))->forEachRemaining(consumer);
+		$$sure($Spliterator$OfDouble, $cast($Spliterator$OfPrimitive, spliterator()))->forEachRemaining(consumer);
 	}
 }
 
 void Node$OfDouble::copyInto($DoubleArray* boxed, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tripwire);
 	if ($Tripwire::ENABLED) {
 		$Tripwire::trip($of(this)->getClass(), "{0} calling Node.OfDouble.copyInto(Double[], int)"_s);
@@ -140,7 +98,7 @@ void Node$OfDouble::copyInto($DoubleArray* boxed, int32_t offset) {
 }
 
 Node$OfDouble* Node$OfDouble::truncate(int64_t from, int64_t to, $IntFunction* generator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (from == 0 && to == count()) {
 		return this;
 	}
@@ -148,12 +106,12 @@ Node$OfDouble* Node$OfDouble::truncate(int64_t from, int64_t to, $IntFunction* g
 	$var($Spliterator$OfDouble, spliterator, $cast($Spliterator$OfDouble, $cast($Spliterator$OfPrimitive, this->spliterator())));
 	$var($Node$Builder$OfDouble, nodeBuilder, $Nodes::doubleBuilder(size));
 	$nc(nodeBuilder)->begin(size);
-	for (int32_t i = 0; i < from && $nc(spliterator)->tryAdvance(static_cast<$DoubleConsumer*>($$new(Node$OfDouble$$Lambda$lambda$truncate$0))); ++i) {
+	for (int32_t i = 0; i < from && $nc(spliterator)->tryAdvance($cast($DoubleConsumer, $$new(Node$OfDouble$$Lambda$lambda$truncate$0))); ++i) {
 	}
 	if (to == count()) {
-		$nc(spliterator)->forEachRemaining(static_cast<$DoubleConsumer*>(nodeBuilder));
+		$nc(spliterator)->forEachRemaining($cast($DoubleConsumer, nodeBuilder));
 	} else {
-		for (int32_t i = 0; i < size && $nc(spliterator)->tryAdvance(static_cast<$DoubleConsumer*>(nodeBuilder)); ++i) {
+		for (int32_t i = 0; i < size && $nc(spliterator)->tryAdvance($cast($DoubleConsumer, nodeBuilder)); ++i) {
 		}
 	}
 	nodeBuilder->end();
@@ -161,7 +119,7 @@ Node$OfDouble* Node$OfDouble::truncate(int64_t from, int64_t to, $IntFunction* g
 }
 
 $Object* Node$OfDouble::newArray(int32_t count) {
-	return $of($new($doubles, count));
+	return $new($doubles, count);
 }
 
 $StreamShape* Node$OfDouble::getShape() {
@@ -170,7 +128,7 @@ $StreamShape* Node$OfDouble::getShape() {
 }
 
 void Node$OfDouble::copyInto($ObjectArray* boxed, int32_t offset) {
-	this->copyInto($fcast($DoubleArray, boxed), offset);
+	this->copyInto($cast($DoubleArray, boxed), offset);
 }
 
 void Node$OfDouble::lambda$truncate$0(double e) {
@@ -179,11 +137,44 @@ void Node$OfDouble::lambda$truncate$0(double e) {
 
 $Class* Node$OfDouble::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Node$OfDouble$$Lambda$lambda$truncate$0::classInfo$.name)) {
+		if (name->equals("java.util.stream.Node$OfDouble$$Lambda$lambda$truncate$0")) {
 			return Node$OfDouble$$Lambda$lambda$truncate$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Node$OfDouble, name, initialize, &_Node$OfDouble_ClassInfo_, allocate$Node$OfDouble);
+	$MethodInfo methodInfos$$[] = {
+		{"copyInto", "([Ljava/lang/Double;I)V", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble, copyInto, void, $DoubleArray*, int32_t)},
+		{"copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Node$OfDouble, copyInto, void, $ObjectArray*, int32_t)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Double;>;)V", $PUBLIC, $virtualMethod(Node$OfDouble, forEach, void, $Consumer*)},
+		{"getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble, getShape, $StreamShape*)},
+		{"lambda$truncate$0", "(D)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Node$OfDouble, lambda$truncate$0, void, double)},
+		{"newArray", "(I)[D", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble, newArray, $Object*, int32_t)},
+		{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfDouble;", "(JJLjava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node$OfDouble;", $PUBLIC, $virtualMethod(Node$OfDouble, truncate, Node$OfDouble*, int64_t, int64_t, $IntFunction*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Node$OfDouble", "java.util.stream.Node", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Node$OfPrimitive", "java.util.stream.Node", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.stream.Node$OfDouble",
+		nullptr,
+		"java.util.stream.Node$OfPrimitive",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/stream/Node$OfPrimitive<Ljava/lang/Double;Ljava/util/function/DoubleConsumer;[DLjava/util/Spliterator$OfDouble;Ljava/util/stream/Node$OfDouble;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Node"
+	};
+	$loadClass(Node$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Node$OfDouble);
+	});
 	return class$;
 }
 

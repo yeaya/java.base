@@ -15,6 +15,7 @@ class $export ShortWrite4Channels : public ::java::lang::Object {
 	$class(ShortWrite4Channels, 0, ::java::lang::Object)
 public:
 	ShortWrite4Channels();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::Random* rand;

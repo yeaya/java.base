@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/mailto/Handler.h>
-
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <java/net/URLStreamHandler.h>
@@ -21,27 +20,6 @@ namespace sun {
 			namespace protocol {
 				namespace mailto {
 
-$MethodInfo _Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Handler, init$, void)},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*)},
-	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(Handler, parseURL, void, $URL*, $String*, int32_t, int32_t)},
-	{"setURLHandler", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Handler, setURLHandler, void, $URL*, $String*, $String*, int32_t, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _Handler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.mailto.Handler",
-	"java.net.URLStreamHandler",
-	nullptr,
-	nullptr,
-	_Handler_MethodInfo_
-};
-
-$Object* allocate$Handler($Class* clazz) {
-	return $of($alloc(Handler));
-}
-
 void Handler::init$() {
 	$URLStreamHandler::init$();
 }
@@ -53,7 +31,7 @@ $URLConnection* Handler::openConnection($URL* u) {
 }
 
 void Handler::parseURL($URL* u, $String* spec, int32_t start, int32_t limit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, protocol, $nc(u)->getProtocol());
 	$var($String, host, ""_s);
 	int32_t port = u->getPort();
@@ -89,7 +67,24 @@ Handler::Handler() {
 }
 
 $Class* Handler::load$($String* name, bool initialize) {
-	$loadClass(Handler, name, initialize, &_Handler_ClassInfo_, allocate$Handler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Handler, init$, void)},
+		{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*)},
+		{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(Handler, parseURL, void, $URL*, $String*, int32_t, int32_t)},
+		{"setURLHandler", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Handler, setURLHandler, void, $URL*, $String*, $String*, int32_t, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.mailto.Handler",
+		"java.net.URLStreamHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Handler);
+	});
 	return class$;
 }
 

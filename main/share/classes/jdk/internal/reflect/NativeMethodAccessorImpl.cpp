@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/NativeMethodAccessorImpl.h>
-
 #include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jdk/internal/reflect/DelegatingMethodAccessorImpl.h>
@@ -32,41 +31,6 @@ namespace jdk {
 	namespace internal {
 		namespace reflect {
 
-$FieldInfo _NativeMethodAccessorImpl_FieldInfo_[] = {
-	{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeMethodAccessorImpl, U)},
-	{"GENERATED_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeMethodAccessorImpl, GENERATED_OFFSET)},
-	{"method", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $FINAL, $field(NativeMethodAccessorImpl, method)},
-	{"parent", "Ljdk/internal/reflect/DelegatingMethodAccessorImpl;", nullptr, $PRIVATE, $field(NativeMethodAccessorImpl, parent)},
-	{"numInvocations", "I", nullptr, $PRIVATE, $field(NativeMethodAccessorImpl, numInvocations)},
-	{"generated", "I", nullptr, $PRIVATE | $VOLATILE, $field(NativeMethodAccessorImpl, generated)},
-	{}
-};
-
-$MethodInfo _NativeMethodAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(NativeMethodAccessorImpl, init$, void, $Method*)},
-	{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeMethodAccessorImpl, invoke, $Object*, Object$*, $ObjectArray*), "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
-	{"invoke0", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeMethodAccessorImpl, invoke0, $Object*, $Method*, Object$*, $ObjectArray*)},
-	{"setParent", "(Ljdk/internal/reflect/DelegatingMethodAccessorImpl;)V", nullptr, 0, $virtualMethod(NativeMethodAccessorImpl, setParent, void, $DelegatingMethodAccessorImpl*)},
-	{"*invokeSpecial", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
-	{"*invokev", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
-	{}
-};
-
-#define _METHOD_INDEX_invoke0 2
-
-$ClassInfo _NativeMethodAccessorImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.reflect.NativeMethodAccessorImpl",
-	"jdk.internal.reflect.MethodAccessorImpl",
-	nullptr,
-	_NativeMethodAccessorImpl_FieldInfo_,
-	_NativeMethodAccessorImpl_MethodInfo_
-};
-
-$Object* allocate$NativeMethodAccessorImpl($Class* clazz) {
-	return $of($alloc(NativeMethodAccessorImpl));
-}
-
 $Unsafe* NativeMethodAccessorImpl::U = nullptr;
 int64_t NativeMethodAccessorImpl::GENERATED_OFFSET = 0;
 
@@ -95,13 +59,48 @@ $Object* NativeMethodAccessorImpl::invoke0($Method* method, Object$* obj, $Objec
 	return nullptr;
 }
 
-void clinit$NativeMethodAccessorImpl($Class* class$) {
+void NativeMethodAccessorImpl::clinit$($Class* clazz) {
 	$assignStatic(NativeMethodAccessorImpl::U, $Unsafe::getUnsafe());
 	NativeMethodAccessorImpl::GENERATED_OFFSET = $nc(NativeMethodAccessorImpl::U)->objectFieldOffset(NativeMethodAccessorImpl::class$, "generated"_s);
 }
 
 NativeMethodAccessorImpl::NativeMethodAccessorImpl() {
 }
+
+$Class* NativeMethodAccessorImpl::load$($String* name, bool initialize) {
+	$FieldInfo fieldInfos$$[] = {
+		{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeMethodAccessorImpl, U)},
+		{"GENERATED_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeMethodAccessorImpl, GENERATED_OFFSET)},
+		{"method", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $FINAL, $field(NativeMethodAccessorImpl, method)},
+		{"parent", "Ljdk/internal/reflect/DelegatingMethodAccessorImpl;", nullptr, $PRIVATE, $field(NativeMethodAccessorImpl, parent)},
+		{"numInvocations", "I", nullptr, $PRIVATE, $field(NativeMethodAccessorImpl, numInvocations)},
+		{"generated", "I", nullptr, $PRIVATE | $VOLATILE, $field(NativeMethodAccessorImpl, generated)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(NativeMethodAccessorImpl, init$, void, $Method*)},
+		{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeMethodAccessorImpl, invoke, $Object*, Object$*, $ObjectArray*), "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
+		{"invoke0", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeMethodAccessorImpl, invoke0, $Object*, $Method*, Object$*, $ObjectArray*)},
+		{"setParent", "(Ljdk/internal/reflect/DelegatingMethodAccessorImpl;)V", nullptr, 0, $virtualMethod(NativeMethodAccessorImpl, setParent, void, $DelegatingMethodAccessorImpl*)},
+		{"*invokeSpecial", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
+		{"*invokev", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.reflect.NativeMethodAccessorImpl",
+		"jdk.internal.reflect.MethodAccessorImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NativeMethodAccessorImpl, name, initialize, &classInfo$$, NativeMethodAccessorImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NativeMethodAccessorImpl));
+	});
+	return class$;
+}
+
+$Class* NativeMethodAccessorImpl::class$ = nullptr;
 
 $Object* NativeMethodAccessorImpl::invokeSpecial(Object$* obj, $ObjectArray* args) {
 	try {
@@ -118,13 +117,6 @@ $Object* NativeMethodAccessorImpl::invokeSpecial(Object$* obj, $ObjectArray* arg
 $Value NativeMethodAccessorImpl::invokev(Object$* obj, $Value* argv) {
 	return method->clazz->invokev(method, obj, argv);
 }
-
-$Class* NativeMethodAccessorImpl::load$($String* name, bool initialize) {
-	$loadClass(NativeMethodAccessorImpl, name, initialize, &_NativeMethodAccessorImpl_ClassInfo_, clinit$NativeMethodAccessorImpl, allocate$NativeMethodAccessorImpl);
-	return class$;
-}
-
-$Class* NativeMethodAccessorImpl::class$ = nullptr;
 
 		} // reflect
 	} // internal

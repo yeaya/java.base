@@ -1,5 +1,4 @@
 #include <WaitTooLong.h>
-
 #include <java/lang/IllegalMonitorStateException.h>
 #include <java/lang/InterruptedException.h>
 #include <jcpp.h>
@@ -14,34 +13,14 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _WaitTooLong_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WaitTooLong, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WaitTooLong, main, void, $StringArray*)},
-	{"test", "(I)V", nullptr, $STATIC, $staticMethod(WaitTooLong, test, void, int32_t)},
-	{}
-};
-
-$ClassInfo _WaitTooLong_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WaitTooLong",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WaitTooLong_MethodInfo_
-};
-
-$Object* allocate$WaitTooLong($Class* clazz) {
-	return $of($alloc(WaitTooLong));
-}
-
 void WaitTooLong::init$() {
 }
 
 void WaitTooLong::main($StringArray* args) {
 	test(0);
 	test(1);
-	test(0x0007A120);
-	test(0x000F423F);
+	test(500000);
+	test(999999);
 }
 
 void WaitTooLong::test(int32_t nanos) {
@@ -60,7 +39,23 @@ WaitTooLong::WaitTooLong() {
 }
 
 $Class* WaitTooLong::load$($String* name, bool initialize) {
-	$loadClass(WaitTooLong, name, initialize, &_WaitTooLong_ClassInfo_, allocate$WaitTooLong);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WaitTooLong, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WaitTooLong, main, void, $StringArray*)},
+		{"test", "(I)V", nullptr, $STATIC, $staticMethod(WaitTooLong, test, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WaitTooLong",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WaitTooLong, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WaitTooLong);
+	});
 	return class$;
 }
 

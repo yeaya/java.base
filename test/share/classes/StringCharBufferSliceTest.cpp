@@ -1,5 +1,4 @@
 #include <StringCharBufferSliceTest.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/invoke/CallSite.h>
@@ -13,7 +12,6 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -33,27 +31,24 @@ public:
 	virtual void accept(Object$* b, Object$* s) override {
 		StringCharBufferSliceTest::lambda$main$0($cast($CharBuffer, b), $cast($CharBuffer, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StringCharBufferSliceTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$0, init$, void)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$0, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StringCharBufferSliceTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$0, init$, void)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$0, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StringCharBufferSliceTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringCharBufferSliceTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -66,27 +61,24 @@ public:
 	virtual void accept(Object$* b, Object$* s) override {
 		StringCharBufferSliceTest::lambda$main$1($cast($CharBuffer, b), $cast($CharBuffer, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StringCharBufferSliceTest$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$1$1, init$, void)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$1$1, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StringCharBufferSliceTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$1$1, init$, void)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$1$1, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StringCharBufferSliceTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringCharBufferSliceTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -99,27 +91,24 @@ public:
 	virtual void accept(Object$* s) override {
 		StringCharBufferSliceTest::lambda$main$2($cast($CharBuffer, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StringCharBufferSliceTest$$Lambda$lambda$main$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$2$2, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$2$2, accept, void, Object$*)},
-	{}
-};
-$ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StringCharBufferSliceTest$$Lambda$lambda$main$2$2",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$2$2::load$($String* name, bool initialize) {
-	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$2$2, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$2$2, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StringCharBufferSliceTest$$Lambda$lambda$main$2$2",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringCharBufferSliceTest$$Lambda$lambda$main$2$2);
+	});
 	return class$;
 }
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$2$2::class$ = nullptr;
@@ -132,27 +121,24 @@ public:
 	virtual void accept(Object$* s) override {
 		StringCharBufferSliceTest::lambda$main$3($cast($CharBuffer, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StringCharBufferSliceTest$$Lambda$lambda$main$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$3$3, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$3$3, accept, void, Object$*)},
-	{}
-};
-$ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StringCharBufferSliceTest$$Lambda$lambda$main$3$3",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$3$3::load$($String* name, bool initialize) {
-	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$3$3, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$3$3, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StringCharBufferSliceTest$$Lambda$lambda$main$3$3",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringCharBufferSliceTest$$Lambda$lambda$main$3$3);
+	});
 	return class$;
 }
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$3$3::class$ = nullptr;
@@ -165,27 +151,24 @@ public:
 	virtual void accept(Object$* s) override {
 		StringCharBufferSliceTest::lambda$main$4($cast($CharBuffer, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StringCharBufferSliceTest$$Lambda$lambda$main$4$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$4$4, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$4$4, accept, void, Object$*)},
-	{}
-};
-$ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StringCharBufferSliceTest$$Lambda$lambda$main$4$4",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$4$4::load$($String* name, bool initialize) {
-	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$4$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$4$4, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$4$4, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StringCharBufferSliceTest$$Lambda$lambda$main$4$4",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringCharBufferSliceTest$$Lambda$lambda$main$4$4);
+	});
 	return class$;
 }
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$4$4::class$ = nullptr;
@@ -198,115 +181,86 @@ public:
 	virtual void accept(Object$* s) override {
 		StringCharBufferSliceTest::lambda$main$5($cast($CharBuffer, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StringCharBufferSliceTest$$Lambda$lambda$main$5$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$5$5, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$5$5, accept, void, Object$*)},
-	{}
-};
-$ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StringCharBufferSliceTest$$Lambda$lambda$main$5$5",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$5$5::load$($String* name, bool initialize) {
-	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$5$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$5$5, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$5$5, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StringCharBufferSliceTest$$Lambda$lambda$main$5$5",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringCharBufferSliceTest$$Lambda$lambda$main$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringCharBufferSliceTest$$Lambda$lambda$main$5$5);
+	});
 	return class$;
 }
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$5$5::class$ = nullptr;
-
-$MethodInfo _StringCharBufferSliceTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest, init$, void)},
-	{"lambda$main$0", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$0, void, $CharBuffer*, $CharBuffer*)},
-	{"lambda$main$1", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$1, void, $CharBuffer*, $CharBuffer*)},
-	{"lambda$main$2", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$2, void, $CharBuffer*)},
-	{"lambda$main$3", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$3, void, $CharBuffer*)},
-	{"lambda$main$4", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$4, void, $CharBuffer*)},
-	{"lambda$main$5", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$5, void, $CharBuffer*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCharBufferSliceTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCharBufferSliceTest, test, void, $CharBuffer*, $CharBuffer*), "java.lang.RuntimeException"},
-	{}
-};
-
-$ClassInfo _StringCharBufferSliceTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StringCharBufferSliceTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_StringCharBufferSliceTest_MethodInfo_
-};
-
-$Object* allocate$StringCharBufferSliceTest($Class* clazz) {
-	return $of($alloc(StringCharBufferSliceTest));
-}
 
 void StringCharBufferSliceTest::init$() {
 }
 
 void StringCharBufferSliceTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing the slice method..."_s);
 	$var($String, in, "for testing"_s);
-	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing with the position 0."_s);
-	$var($CharBuffer, buff, $CharBuffer::wrap(static_cast<$CharSequence*>(in)));
+	$System::out->println(">>> StringCharBufferSliceTest-main: testing with the position 0."_s);
+	$var($CharBuffer, buff, $CharBuffer::wrap(in));
 	StringCharBufferSliceTest::test(buff, $($nc(buff)->slice()));
-	StringCharBufferSliceTest::test(buff, $($nc(buff)->slice(0, buff->remaining())));
-	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing with new position."_s);
-	$nc(buff)->position(2);
+	StringCharBufferSliceTest::test(buff, $(buff->slice(0, buff->remaining())));
+	$System::out->println(">>> StringCharBufferSliceTest-main: testing with new position."_s);
+	buff->position(2);
 	StringCharBufferSliceTest::test(buff, $(buff->slice()));
 	StringCharBufferSliceTest::test(buff, $(buff->slice(2, buff->remaining())));
-	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing with non zero initial position."_s);
-	$assign(buff, $CharBuffer::wrap(static_cast<$CharSequence*>(in), 3, in->length()));
-	StringCharBufferSliceTest::test(buff, $(buff->slice()));
+	$System::out->println(">>> StringCharBufferSliceTest-main: testing with non zero initial position."_s);
+	$assign(buff, $CharBuffer::wrap(in, 3, in->length()));
+	StringCharBufferSliceTest::test(buff, $($nc(buff)->slice()));
 	StringCharBufferSliceTest::test(buff, $(buff->slice(0, buff->remaining())));
-	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing slice result with get()"_s);
+	$System::out->println(">>> StringCharBufferSliceTest-main: testing slice result with get()"_s);
 	buff->position(4);
 	buff->limit(7);
-	$var($BiConsumer, bitest, static_cast<$BiConsumer*>($new(StringCharBufferSliceTest$$Lambda$lambda$main$0)));
+	$var($BiConsumer, bitest, $new(StringCharBufferSliceTest$$Lambda$lambda$main$0));
 	$nc(bitest)->accept(buff, $(buff->slice()));
 	buff->position(4);
 	bitest->accept(buff, $(buff->slice(4, 3)));
-	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing slice result with get(int)"_s);
+	$System::out->println(">>> StringCharBufferSliceTest-main: testing slice result with get(int)"_s);
 	buff->position(4);
 	buff->limit(7);
-	$assign(bitest, static_cast<$BiConsumer*>($new(StringCharBufferSliceTest$$Lambda$lambda$main$1$1)));
-	bitest->accept(buff, $(buff->slice()));
+	$assign(bitest, $new(StringCharBufferSliceTest$$Lambda$lambda$main$1$1));
+	$nc(bitest)->accept(buff, $(buff->slice()));
 	buff->position(4);
 	bitest->accept(buff, $(buff->slice(4, 3)));
-	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing slice with result of slice"_s);
+	$System::out->println(">>> StringCharBufferSliceTest-main: testing slice with result of slice"_s);
 	buff->position(0);
 	buff->limit(buff->capacity());
-	$var($Consumer, test, static_cast<$Consumer*>($new(StringCharBufferSliceTest$$Lambda$lambda$main$2$2)));
+	$var($Consumer, test, $new(StringCharBufferSliceTest$$Lambda$lambda$main$2$2));
 	$nc(test)->accept($(buff->slice()));
 	test->accept($(buff->slice(0, buff->capacity())));
-	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing toString."_s);
+	$System::out->println(">>> StringCharBufferSliceTest-main: testing toString."_s);
 	buff->position(4);
 	buff->limit(7);
-	$assign(test, static_cast<$Consumer*>($new(StringCharBufferSliceTest$$Lambda$lambda$main$3$3)));
-	test->accept($(buff->slice()));
+	$assign(test, $new(StringCharBufferSliceTest$$Lambda$lambda$main$3$3));
+	$nc(test)->accept($(buff->slice()));
 	test->accept($(buff->slice(4, 3)));
-	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing subSequence."_s);
+	$System::out->println(">>> StringCharBufferSliceTest-main: testing subSequence."_s);
 	buff->position(4);
 	buff->limit(8);
-	$assign(test, static_cast<$Consumer*>($new(StringCharBufferSliceTest$$Lambda$lambda$main$4$4)));
-	test->accept($(buff->slice()));
+	$assign(test, $new(StringCharBufferSliceTest$$Lambda$lambda$main$4$4));
+	$nc(test)->accept($(buff->slice()));
 	test->accept($(buff->slice(4, 4)));
-	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing duplicate."_s);
+	$System::out->println(">>> StringCharBufferSliceTest-main: testing duplicate."_s);
 	buff->position(4);
 	buff->limit(8);
-	$assign(test, static_cast<$Consumer*>($new(StringCharBufferSliceTest$$Lambda$lambda$main$5$5)));
-	test->accept($(buff->slice()));
+	$assign(test, $new(StringCharBufferSliceTest$$Lambda$lambda$main$5$5));
+	$nc(test)->accept($(buff->slice()));
 	test->accept($(buff->slice(4, 4)));
-	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: done!"_s);
+	$System::out->println(">>> StringCharBufferSliceTest-main: done!"_s);
 }
 
 void StringCharBufferSliceTest::test($CharBuffer* buff, $CharBuffer* slice) {
@@ -332,34 +286,34 @@ void StringCharBufferSliceTest::test($CharBuffer* buff, $CharBuffer* slice) {
 }
 
 void StringCharBufferSliceTest::lambda$main$5($CharBuffer* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CharBuffer, dupe, $nc(s)->duplicate());
 	bool var$2 = $nc(dupe)->charAt(0) != u't';
-	bool var$1 = var$2 || $nc(dupe)->charAt(1) != u'e';
-	bool var$0 = var$1 || $nc(dupe)->charAt(2) != u's';
-	if (var$0 || $nc(dupe)->charAt(3) != u't') {
+	bool var$1 = var$2 || dupe->charAt(1) != u'e';
+	bool var$0 = var$1 || dupe->charAt(2) != u's';
+	if (var$0 || dupe->charAt(3) != u't') {
 		$throwNew($RuntimeException, $$str({"bad duplicate() after slice(): \'"_s, dupe, "\'"_s}));
 	}
 }
 
 void StringCharBufferSliceTest::lambda$main$4($CharBuffer* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CharSequence, subSeq, $nc(s)->subSequence(1, 3));
 	bool var$0 = $nc(subSeq)->charAt(0) != u'e';
-	if (var$0 || $nc(subSeq)->charAt(1) != u's') {
+	if (var$0 || subSeq->charAt(1) != u's') {
 		$throwNew($RuntimeException, $$str({"bad subSequence() after slice(): \'"_s, subSeq, "\'"_s}));
 	}
 }
 
 void StringCharBufferSliceTest::lambda$main$3($CharBuffer* s) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($nc(s)->toString()))->equals("tes"_s)) {
+	$useLocalObjectStack();
+	if (!$$nc($nc(s)->toString())->equals("tes"_s)) {
 		$throwNew($RuntimeException, $$str({"bad toString() after slice(): "_s, $(s->toString())}));
 	}
 }
 
 void StringCharBufferSliceTest::lambda$main$2($CharBuffer* s$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CharBuffer, s, s$renamed);
 	for (int32_t i = 0; i < 4; ++i) {
 		$nc(s)->position(i);
@@ -367,7 +321,7 @@ void StringCharBufferSliceTest::lambda$main$2($CharBuffer* s$renamed) {
 		if ($nc(nextSlice)->position() != 0) {
 			$throwNew($RuntimeException, "New buffer\'s position should be zero"_s);
 		}
-		if (!$nc(nextSlice)->equals(s)) {
+		if (!nextSlice->equals(s)) {
 			$throwNew($RuntimeException, "New buffer should be equal"_s);
 		}
 		$assign(s, nextSlice);
@@ -397,26 +351,48 @@ StringCharBufferSliceTest::StringCharBufferSliceTest() {
 
 $Class* StringCharBufferSliceTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(StringCharBufferSliceTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("StringCharBufferSliceTest$$Lambda$lambda$main$0")) {
 			return StringCharBufferSliceTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(StringCharBufferSliceTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("StringCharBufferSliceTest$$Lambda$lambda$main$1$1")) {
 			return StringCharBufferSliceTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(StringCharBufferSliceTest$$Lambda$lambda$main$2$2::classInfo$.name)) {
+		if (name->equals("StringCharBufferSliceTest$$Lambda$lambda$main$2$2")) {
 			return StringCharBufferSliceTest$$Lambda$lambda$main$2$2::load$(name, initialize);
 		}
-		if (name->equals(StringCharBufferSliceTest$$Lambda$lambda$main$3$3::classInfo$.name)) {
+		if (name->equals("StringCharBufferSliceTest$$Lambda$lambda$main$3$3")) {
 			return StringCharBufferSliceTest$$Lambda$lambda$main$3$3::load$(name, initialize);
 		}
-		if (name->equals(StringCharBufferSliceTest$$Lambda$lambda$main$4$4::classInfo$.name)) {
+		if (name->equals("StringCharBufferSliceTest$$Lambda$lambda$main$4$4")) {
 			return StringCharBufferSliceTest$$Lambda$lambda$main$4$4::load$(name, initialize);
 		}
-		if (name->equals(StringCharBufferSliceTest$$Lambda$lambda$main$5$5::classInfo$.name)) {
+		if (name->equals("StringCharBufferSliceTest$$Lambda$lambda$main$5$5")) {
 			return StringCharBufferSliceTest$$Lambda$lambda$main$5$5::load$(name, initialize);
 		}
 	}
-	$loadClass(StringCharBufferSliceTest, name, initialize, &_StringCharBufferSliceTest_ClassInfo_, allocate$StringCharBufferSliceTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest, init$, void)},
+		{"lambda$main$0", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$0, void, $CharBuffer*, $CharBuffer*)},
+		{"lambda$main$1", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$1, void, $CharBuffer*, $CharBuffer*)},
+		{"lambda$main$2", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$2, void, $CharBuffer*)},
+		{"lambda$main$3", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$3, void, $CharBuffer*)},
+		{"lambda$main$4", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$4, void, $CharBuffer*)},
+		{"lambda$main$5", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$5, void, $CharBuffer*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCharBufferSliceTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCharBufferSliceTest, test, void, $CharBuffer*, $CharBuffer*), "java.lang.RuntimeException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StringCharBufferSliceTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringCharBufferSliceTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringCharBufferSliceTest);
+	});
 	return class$;
 }
 

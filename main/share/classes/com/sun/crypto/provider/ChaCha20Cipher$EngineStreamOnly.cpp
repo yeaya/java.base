@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/ChaCha20Cipher$EngineStreamOnly.h>
-
 #include <com/sun/crypto/provider/ChaCha20Cipher.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -21,45 +20,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _ChaCha20Cipher$EngineStreamOnly_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/crypto/provider/ChaCha20Cipher;", nullptr, $FINAL | $SYNTHETIC, $field(ChaCha20Cipher$EngineStreamOnly, this$0)},
-	{}
-};
-
-$MethodInfo _ChaCha20Cipher$EngineStreamOnly_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/ChaCha20Cipher;)V", nullptr, $PRIVATE, $method(ChaCha20Cipher$EngineStreamOnly, init$, void, $ChaCha20Cipher*)},
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineStreamOnly, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,java.security.KeyException"},
-	{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineStreamOnly, doUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,java.security.KeyException"},
-	{"getOutputSize", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineStreamOnly, getOutputSize, int32_t, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _ChaCha20Cipher$EngineStreamOnly_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.ChaCha20Cipher$EngineStreamOnly", "com.sun.crypto.provider.ChaCha20Cipher", "EngineStreamOnly", $PRIVATE | $FINAL},
-	{"com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine", "com.sun.crypto.provider.ChaCha20Cipher", "ChaChaEngine", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ChaCha20Cipher$EngineStreamOnly_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.ChaCha20Cipher$EngineStreamOnly",
-	"java.lang.Object",
-	"com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine",
-	_ChaCha20Cipher$EngineStreamOnly_FieldInfo_,
-	_ChaCha20Cipher$EngineStreamOnly_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ChaCha20Cipher$EngineStreamOnly_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.ChaCha20Cipher"
-};
-
-$Object* allocate$ChaCha20Cipher$EngineStreamOnly($Class* clazz) {
-	return $of($alloc(ChaCha20Cipher$EngineStreamOnly));
-}
 
 void ChaCha20Cipher$EngineStreamOnly::init$($ChaCha20Cipher* this$0) {
 	$set(this, this$0, this$0);
@@ -98,7 +58,40 @@ ChaCha20Cipher$EngineStreamOnly::ChaCha20Cipher$EngineStreamOnly() {
 }
 
 $Class* ChaCha20Cipher$EngineStreamOnly::load$($String* name, bool initialize) {
-	$loadClass(ChaCha20Cipher$EngineStreamOnly, name, initialize, &_ChaCha20Cipher$EngineStreamOnly_ClassInfo_, allocate$ChaCha20Cipher$EngineStreamOnly);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/crypto/provider/ChaCha20Cipher;", nullptr, $FINAL | $SYNTHETIC, $field(ChaCha20Cipher$EngineStreamOnly, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/crypto/provider/ChaCha20Cipher;)V", nullptr, $PRIVATE, $method(ChaCha20Cipher$EngineStreamOnly, init$, void, $ChaCha20Cipher*)},
+		{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineStreamOnly, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,java.security.KeyException"},
+		{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineStreamOnly, doUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,java.security.KeyException"},
+		{"getOutputSize", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineStreamOnly, getOutputSize, int32_t, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.ChaCha20Cipher$EngineStreamOnly", "com.sun.crypto.provider.ChaCha20Cipher", "EngineStreamOnly", $PRIVATE | $FINAL},
+		{"com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine", "com.sun.crypto.provider.ChaCha20Cipher", "ChaChaEngine", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.ChaCha20Cipher$EngineStreamOnly",
+		"java.lang.Object",
+		"com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.ChaCha20Cipher"
+	};
+	$loadClass(ChaCha20Cipher$EngineStreamOnly, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ChaCha20Cipher$EngineStreamOnly);
+	});
 	return class$;
 }
 

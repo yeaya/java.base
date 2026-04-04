@@ -1,5 +1,4 @@
 #include <java/lang/ProcessBuilder$RedirectPipeImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/ProcessBuilder$Redirect$Type.h>
 #include <java/lang/ProcessBuilder$Redirect.h>
@@ -19,45 +18,6 @@ using $ProcessBuilder$Redirect$Type = ::java::lang::ProcessBuilder$Redirect$Type
 namespace java {
 	namespace lang {
 
-$FieldInfo _ProcessBuilder$RedirectPipeImpl_FieldInfo_[] = {
-	{"fd", "Ljava/io/FileDescriptor;", nullptr, $FINAL, $field(ProcessBuilder$RedirectPipeImpl, fd)},
-	{}
-};
-
-$MethodInfo _ProcessBuilder$RedirectPipeImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ProcessBuilder$RedirectPipeImpl, init$, void)},
-	{"getFd", "()Ljava/io/FileDescriptor;", nullptr, 0, $virtualMethod(ProcessBuilder$RedirectPipeImpl, getFd, $FileDescriptor*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$RedirectPipeImpl, toString, $String*)},
-	{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$RedirectPipeImpl, type, $ProcessBuilder$Redirect$Type*)},
-	{}
-};
-
-$InnerClassInfo _ProcessBuilder$RedirectPipeImpl_InnerClassesInfo_[] = {
-	{"java.lang.ProcessBuilder$RedirectPipeImpl", "java.lang.ProcessBuilder", "RedirectPipeImpl", $STATIC},
-	{"java.lang.ProcessBuilder$Redirect", "java.lang.ProcessBuilder", "Redirect", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ProcessBuilder$RedirectPipeImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ProcessBuilder$RedirectPipeImpl",
-	"java.lang.ProcessBuilder$Redirect",
-	nullptr,
-	_ProcessBuilder$RedirectPipeImpl_FieldInfo_,
-	_ProcessBuilder$RedirectPipeImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessBuilder$RedirectPipeImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessBuilder"
-};
-
-$Object* allocate$ProcessBuilder$RedirectPipeImpl($Class* clazz) {
-	return $of($alloc(ProcessBuilder$RedirectPipeImpl));
-}
-
 void ProcessBuilder$RedirectPipeImpl::init$() {
 	$ProcessBuilder$Redirect::init$();
 	$set(this, fd, $new($FileDescriptor));
@@ -69,7 +29,7 @@ $ProcessBuilder$Redirect$Type* ProcessBuilder$RedirectPipeImpl::type() {
 }
 
 $String* ProcessBuilder$RedirectPipeImpl::toString() {
-	return $nc($(type()))->toString();
+	return $$nc(type())->toString();
 }
 
 $FileDescriptor* ProcessBuilder$RedirectPipeImpl::getFd() {
@@ -80,7 +40,40 @@ ProcessBuilder$RedirectPipeImpl::ProcessBuilder$RedirectPipeImpl() {
 }
 
 $Class* ProcessBuilder$RedirectPipeImpl::load$($String* name, bool initialize) {
-	$loadClass(ProcessBuilder$RedirectPipeImpl, name, initialize, &_ProcessBuilder$RedirectPipeImpl_ClassInfo_, allocate$ProcessBuilder$RedirectPipeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fd", "Ljava/io/FileDescriptor;", nullptr, $FINAL, $field(ProcessBuilder$RedirectPipeImpl, fd)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ProcessBuilder$RedirectPipeImpl, init$, void)},
+		{"getFd", "()Ljava/io/FileDescriptor;", nullptr, 0, $virtualMethod(ProcessBuilder$RedirectPipeImpl, getFd, $FileDescriptor*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$RedirectPipeImpl, toString, $String*)},
+		{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$RedirectPipeImpl, type, $ProcessBuilder$Redirect$Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessBuilder$RedirectPipeImpl", "java.lang.ProcessBuilder", "RedirectPipeImpl", $STATIC},
+		{"java.lang.ProcessBuilder$Redirect", "java.lang.ProcessBuilder", "Redirect", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ProcessBuilder$RedirectPipeImpl",
+		"java.lang.ProcessBuilder$Redirect",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessBuilder"
+	};
+	$loadClass(ProcessBuilder$RedirectPipeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessBuilder$RedirectPipeImpl);
+	});
 	return class$;
 }
 

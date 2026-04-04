@@ -1,5 +1,4 @@
 #include <java/time/DateTimeException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace time {
-
-$FieldInfo _DateTimeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateTimeException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DateTimeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DateTimeException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DateTimeException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _DateTimeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.time.DateTimeException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_DateTimeException_FieldInfo_,
-	_DateTimeException_MethodInfo_
-};
-
-$Object* allocate$DateTimeException($Class* clazz) {
-	return $of($alloc(DateTimeException));
-}
 
 void DateTimeException::init$($String* message) {
 	$RuntimeException::init$(message);
@@ -53,7 +28,26 @@ void DateTimeException::throw$() {
 }
 
 $Class* DateTimeException::load$($String* name, bool initialize) {
-	$loadClass(DateTimeException, name, initialize, &_DateTimeException_ClassInfo_, allocate$DateTimeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateTimeException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DateTimeException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DateTimeException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.time.DateTimeException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DateTimeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeException);
+	});
 	return class$;
 }
 

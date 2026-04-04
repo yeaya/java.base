@@ -53,6 +53,7 @@ class $import KeyGenerator : public ::java::lang::Object {
 	$class(KeyGenerator, 0, ::java::lang::Object)
 public:
 	KeyGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::crypto::KeyGeneratorSpi* keyGenSpi, ::java::security::Provider* provider, $String* algorithm);
 	void init$($String* algorithm);
 	virtual void disableFailover();

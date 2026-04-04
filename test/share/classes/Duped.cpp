@@ -1,11 +1,9 @@
 #include <Duped.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
-#include <java/io/Reader.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
 #include <jcpp.h>
@@ -14,10 +12,8 @@
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -26,41 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Process = ::java::lang::Process;
 using $Runtime = ::java::lang::Runtime;
 
-$FieldInfo _Duped_FieldInfo_[] = {
-	{"HELLO", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Duped, HELLO)},
-	{}
-};
-
-$MethodInfo _Duped_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Duped, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Duped, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _Duped_InnerClassesInfo_[] = {
-	{"Duped$Echo", "Duped", "Echo", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Duped_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Duped",
-	"java.lang.Object",
-	nullptr,
-	_Duped_FieldInfo_,
-	_Duped_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Duped_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Duped$Echo"
-};
-
-$Object* allocate$Duped($Class* clazz) {
-	return $of($alloc(Duped));
-}
-
 $String* Duped::HELLO = nullptr;
 
 void Duped::init$() {
@@ -68,22 +29,28 @@ void Duped::init$() {
 
 void Duped::main($StringArray* args) {
 	$init(Duped);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($System::getProperty("java.home"_s)));
 	$init($File);
-	$var($String, var$1, $$str({$($System::getProperty("java.home"_s)), $File::separator, "bin"_s, $File::separator, "java -classpath "_s}));
-	$var($String, var$0, $$concat(var$1, $($System::getProperty("java.class.path"_s))));
-	$var($String, command, $concat(var$0, " Duped$Echo"_s));
+	var$0->append($File::separator);
+	var$0->append("bin"_s);
+	var$0->append($File::separator);
+	var$0->append("java -classpath "_s);
+	var$0->append($($System::getProperty("java.class.path"_s)));
+	var$0->append(" Duped$Echo"_s);
+	$var($String, command, $str(var$0));
 	if ($nc(args)->length == 1 && $nc(args->get(0))->equals("-dont"_s)) {
 	} else {
 		$nc($System::in)->close();
 	}
-	$var($Process, p, $nc($($Runtime::getRuntime()))->exec(command));
+	$var($Process, p, $$nc($Runtime::getRuntime())->exec(command));
 	$var($PrintStream, out, $new($PrintStream, $($nc(p)->getOutputStream())));
 	out->println(Duped::HELLO);
 	out->close();
-	$var($BufferedReader, in, $new($BufferedReader, $$new($InputStreamReader, $($nc(p)->getInputStream()))));
+	$var($BufferedReader, in, $new($BufferedReader, $$new($InputStreamReader, $(p->getInputStream()))));
 	$var($String, read, in->readLine());
-	if (!$nc(Duped::HELLO)->equals(read)) {
+	if (!Duped::HELLO->equals(read)) {
 		$throwNew($Exception, $$str({"Failed, read ``"_s, read, "\'\'"_s}));
 	}
 }
@@ -91,12 +58,41 @@ void Duped::main($StringArray* args) {
 Duped::Duped() {
 }
 
-void clinit$Duped($Class* class$) {
+void Duped::clinit$($Class* clazz) {
 	$assignStatic(Duped::HELLO, "Hello, world!"_s);
 }
 
 $Class* Duped::load$($String* name, bool initialize) {
-	$loadClass(Duped, name, initialize, &_Duped_ClassInfo_, clinit$Duped, allocate$Duped);
+	$FieldInfo fieldInfos$$[] = {
+		{"HELLO", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Duped, HELLO)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Duped, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Duped, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Duped$Echo", "Duped", "Echo", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Duped",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Duped$Echo"
+	};
+	$loadClass(Duped, name, initialize, &classInfo$$, Duped::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Duped);
+	});
 	return class$;
 }
 

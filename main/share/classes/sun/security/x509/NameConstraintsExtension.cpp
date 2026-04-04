@@ -1,5 +1,4 @@
 #include <sun/security/x509/NameConstraintsExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/CloneNotSupportedException.h>
@@ -61,11 +60,9 @@ using $CertificateException = ::java::security::cert::CertificateException;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $IPAddressUtil = ::sun::net::util::IPAddressUtil;
 using $PKCS9Attribute = ::sun::security::pkcs::PKCS9Attribute;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
@@ -89,58 +86,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _NameConstraintsExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NameConstraintsExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NameConstraintsExtension, NAME)},
-	{"PERMITTED_SUBTREES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NameConstraintsExtension, PERMITTED_SUBTREES)},
-	{"EXCLUDED_SUBTREES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NameConstraintsExtension, EXCLUDED_SUBTREES)},
-	{"TAG_PERMITTED", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameConstraintsExtension, TAG_PERMITTED)},
-	{"TAG_EXCLUDED", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameConstraintsExtension, TAG_EXCLUDED)},
-	{"permitted", "Lsun/security/x509/GeneralSubtrees;", nullptr, $PRIVATE, $field(NameConstraintsExtension, permitted)},
-	{"excluded", "Lsun/security/x509/GeneralSubtrees;", nullptr, $PRIVATE, $field(NameConstraintsExtension, excluded)},
-	{"hasMin", "Z", nullptr, $PRIVATE, $field(NameConstraintsExtension, hasMin)},
-	{"hasMax", "Z", nullptr, $PRIVATE, $field(NameConstraintsExtension, hasMax)},
-	{"minMaxValid", "Z", nullptr, $PRIVATE, $field(NameConstraintsExtension, minMaxValid)},
-	{}
-};
-
-$MethodInfo _NameConstraintsExtension_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/security/x509/GeneralSubtrees;Lsun/security/x509/GeneralSubtrees;)V", nullptr, $PUBLIC, $method(NameConstraintsExtension, init$, void, $GeneralSubtrees*, $GeneralSubtrees*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(NameConstraintsExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"calcMinMax", "()V", nullptr, $PRIVATE, $method(NameConstraintsExtension, calcMinMax, void), "java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, clone, $Object*)},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(NameConstraintsExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Lsun/security/x509/GeneralSubtrees;", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NameConstraintsExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, getName, $String*)},
-	{"hasNameType", "(Lsun/security/x509/GeneralNames;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NameConstraintsExtension, hasNameType, bool, $GeneralNames*, int32_t)},
-	{"merge", "(Lsun/security/x509/NameConstraintsExtension;)V", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, merge, void, NameConstraintsExtension*), "java.io.IOException"},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, toString, $String*)},
-	{"verify", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, verify, bool, $X509Certificate*), "java.io.IOException"},
-	{"verify", "(Lsun/security/x509/GeneralNameInterface;)Z", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, verify, bool, $GeneralNameInterface*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _NameConstraintsExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.NameConstraintsExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet,java.lang.Cloneable",
-	_NameConstraintsExtension_FieldInfo_,
-	_NameConstraintsExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;Ljava/lang/Cloneable;"
-};
-
-$Object* allocate$NameConstraintsExtension($Class* clazz) {
-	return $of($alloc(NameConstraintsExtension));
-}
-
 int32_t NameConstraintsExtension::hashCode() {
 	 return this->$Extension::hashCode();
 }
@@ -159,27 +104,27 @@ $String* NameConstraintsExtension::PERMITTED_SUBTREES = nullptr;
 $String* NameConstraintsExtension::EXCLUDED_SUBTREES = nullptr;
 
 void NameConstraintsExtension::calcMinMax() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->hasMin = false;
 	this->hasMax = false;
 	if (this->excluded != nullptr) {
-		for (int32_t i = 0; i < $nc(this->excluded)->size(); ++i) {
-			$var($GeneralSubtree, subtree, $nc(this->excluded)->get(i));
+		for (int32_t i = 0; i < this->excluded->size(); ++i) {
+			$var($GeneralSubtree, subtree, this->excluded->get(i));
 			if ($nc(subtree)->getMinimum() != 0) {
 				this->hasMin = true;
 			}
-			if ($nc(subtree)->getMaximum() != -1) {
+			if (subtree->getMaximum() != -1) {
 				this->hasMax = true;
 			}
 		}
 	}
 	if (this->permitted != nullptr) {
-		for (int32_t i = 0; i < $nc(this->permitted)->size(); ++i) {
-			$var($GeneralSubtree, subtree, $nc(this->permitted)->get(i));
+		for (int32_t i = 0; i < this->permitted->size(); ++i) {
+			$var($GeneralSubtree, subtree, this->permitted->get(i));
 			if ($nc(subtree)->getMinimum() != 0) {
 				this->hasMin = true;
 			}
-			if ($nc(subtree)->getMaximum() != -1) {
+			if (subtree->getMaximum() != -1) {
 				this->hasMax = true;
 			}
 		}
@@ -188,7 +133,7 @@ void NameConstraintsExtension::calcMinMax() {
 }
 
 void NameConstraintsExtension::encodeThis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->minMaxValid = false;
 	if (this->permitted == nullptr && this->excluded == nullptr) {
 		$set(this, extensionValue, nullptr);
@@ -198,12 +143,12 @@ void NameConstraintsExtension::encodeThis() {
 	$var($DerOutputStream, tagged, $new($DerOutputStream));
 	if (this->permitted != nullptr) {
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
-		$nc(this->permitted)->encode(tmp);
+		this->permitted->encode(tmp);
 		tagged->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, NameConstraintsExtension::TAG_PERMITTED), tmp);
 	}
 	if (this->excluded != nullptr) {
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
-		$nc(this->excluded)->encode(tmp);
+		this->excluded->encode(tmp);
 		tagged->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, NameConstraintsExtension::TAG_EXCLUDED), tmp);
 	}
 	seq->write($DerValue::tag_Sequence, tagged);
@@ -224,7 +169,7 @@ void NameConstraintsExtension::init$($GeneralSubtrees* permitted, $GeneralSubtre
 }
 
 void NameConstraintsExtension::init$($Boolean* critical, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$();
 	$set(this, permitted, nullptr);
 	$set(this, excluded, nullptr);
@@ -241,7 +186,7 @@ void NameConstraintsExtension::init$($Boolean* critical, Object$* value) {
 		return;
 	}
 	while ($nc(val->data$)->available() != 0) {
-		$var($DerValue, opt, $nc(val->data$)->getDerValue());
+		$var($DerValue, opt, val->data$->getDerValue());
 		bool var$0 = $nc(opt)->isContextSpecific(NameConstraintsExtension::TAG_PERMITTED);
 		if (var$0 && opt->isConstructed()) {
 			if (this->permitted != nullptr) {
@@ -250,8 +195,8 @@ void NameConstraintsExtension::init$($Boolean* critical, Object$* value) {
 			opt->resetTag($DerValue::tag_Sequence);
 			$set(this, permitted, $new($GeneralSubtrees, opt));
 		} else {
-			bool var$2 = opt->isContextSpecific(NameConstraintsExtension::TAG_EXCLUDED);
-			if (var$2 && opt->isConstructed()) {
+			bool var$1 = opt->isContextSpecific(NameConstraintsExtension::TAG_EXCLUDED);
+			if (var$1 && opt->isConstructed()) {
 				if (this->excluded != nullptr) {
 					$throwNew($IOException, "Duplicate excluded GeneralSubtrees in NameConstraintsExtension."_s);
 				}
@@ -266,21 +211,21 @@ void NameConstraintsExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* NameConstraintsExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("NameConstraints: ["_s);
 	if (this->permitted != nullptr) {
-		sb->append("\n    Permitted:"_s)->append($of(this->permitted));
+		sb->append("\n    Permitted:"_s)->append(this->permitted);
 	}
 	if (this->excluded != nullptr) {
-		sb->append("\n    Excluded:"_s)->append($of(this->excluded));
+		sb->append("\n    Excluded:"_s)->append(this->excluded);
 	}
 	sb->append("   ]\n"_s);
 	return sb->toString();
 }
 
 void NameConstraintsExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -311,9 +256,9 @@ void NameConstraintsExtension::set($String* name, Object$* obj) {
 
 $Object* NameConstraintsExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(NameConstraintsExtension::PERMITTED_SUBTREES)) {
-		return $of((this->permitted));
+		return (this->permitted);
 	} else if (name->equalsIgnoreCase(NameConstraintsExtension::EXCLUDED_SUBTREES)) {
-		return $of((this->excluded));
+		return (this->excluded);
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:NameConstraintsExtension."_s);
 	}
@@ -342,37 +287,37 @@ $String* NameConstraintsExtension::getName() {
 }
 
 void NameConstraintsExtension::merge(NameConstraintsExtension* newConstraints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (newConstraints == nullptr) {
 		return;
 	}
 	$var($GeneralSubtrees, newExcluded, $cast($GeneralSubtrees, $nc(newConstraints)->get(NameConstraintsExtension::EXCLUDED_SUBTREES)));
 	if (this->excluded == nullptr) {
-		$set(this, excluded, (newExcluded != nullptr) ? $cast($GeneralSubtrees, $nc(newExcluded)->clone()) : ($GeneralSubtrees*)nullptr);
+		$set(this, excluded, (newExcluded != nullptr) ? $cast($GeneralSubtrees, newExcluded->clone()) : ($GeneralSubtrees*)nullptr);
 	} else if (newExcluded != nullptr) {
-		$nc(this->excluded)->union$(newExcluded);
+		this->excluded->union$(newExcluded);
 	}
 	$var($GeneralSubtrees, newPermitted, $cast($GeneralSubtrees, newConstraints->get(NameConstraintsExtension::PERMITTED_SUBTREES)));
 	if (this->permitted == nullptr) {
-		$set(this, permitted, (newPermitted != nullptr) ? $cast($GeneralSubtrees, $nc(newPermitted)->clone()) : ($GeneralSubtrees*)nullptr);
+		$set(this, permitted, (newPermitted != nullptr) ? $cast($GeneralSubtrees, newPermitted->clone()) : ($GeneralSubtrees*)nullptr);
 	} else if (newPermitted != nullptr) {
-		$assign(newExcluded, $nc(this->permitted)->intersect(newPermitted));
+		$assign(newExcluded, this->permitted->intersect(newPermitted));
 		if (newExcluded != nullptr) {
 			if (this->excluded != nullptr) {
-				$nc(this->excluded)->union$(newExcluded);
+				this->excluded->union$(newExcluded);
 			} else {
 				$set(this, excluded, $cast($GeneralSubtrees, newExcluded->clone()));
 			}
 		}
 	}
 	if (this->permitted != nullptr) {
-		$nc(this->permitted)->reduce(this->excluded);
+		this->permitted->reduce(this->excluded);
 	}
 	encodeThis();
 }
 
 bool NameConstraintsExtension::verify($X509Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cert == nullptr) {
 		$throwNew($IOException, "Certificate is null"_s);
 	}
@@ -388,7 +333,7 @@ bool NameConstraintsExtension::verify($X509Certificate* cert) {
 	$var($X500Principal, subjectPrincipal, $nc(cert)->getSubjectX500Principal());
 	$var($X500Name, subject, $X500Name::asX500Name(subjectPrincipal));
 	if ($nc(subject)->isEmpty() == false) {
-		if (verify(static_cast<$GeneralNameInterface*>(subject)) == false) {
+		if (verify(subject) == false) {
 			return false;
 		}
 	}
@@ -406,7 +351,7 @@ bool NameConstraintsExtension::verify($X509Certificate* cert) {
 	if (altNames == nullptr) {
 		$assign(altNames, $new($GeneralNames));
 		{
-			$var($Iterator, i$, $nc($($nc(subject)->allAvas()))->iterator());
+			$var($Iterator, i$, $$nc(subject->allAvas())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($AVA, ava, $cast($AVA, i$->next()));
 				{
@@ -416,7 +361,7 @@ bool NameConstraintsExtension::verify($X509Certificate* cert) {
 						$var($String, attrValue, ava->getValueString());
 						if (attrValue != nullptr) {
 							try {
-								altNames->add($$new($GeneralName, static_cast<$GeneralNameInterface*>($$new($RFC822Name, attrValue))));
+								altNames->add($$new($GeneralName, $$new($RFC822Name, attrValue)));
 							} catch ($IOException& ioe) {
 								continue;
 							}
@@ -426,23 +371,23 @@ bool NameConstraintsExtension::verify($X509Certificate* cert) {
 			}
 		}
 	}
-	$var($DerValue, derValue, $nc(subject)->findMostSpecificAttribute($X500Name::commonName_oid));
-	$var($String, cn, derValue == nullptr ? ($String*)nullptr : $nc(derValue)->getAsString());
+	$var($DerValue, derValue, subject->findMostSpecificAttribute($X500Name::commonName_oid));
+	$var($String, cn, derValue == nullptr ? ($String*)nullptr : derValue->getAsString());
 	if (cn != nullptr) {
 		try {
 			bool var$0 = $IPAddressUtil::isIPv4LiteralAddress(cn);
 			if (var$0 || $IPAddressUtil::isIPv6LiteralAddress(cn)) {
 				if (!hasNameType(altNames, $GeneralNameInterface::NAME_IP)) {
-					$nc(altNames)->add($$new($GeneralName, static_cast<$GeneralNameInterface*>($$new($IPAddressName, cn))));
+					$nc(altNames)->add($$new($GeneralName, $$new($IPAddressName, cn)));
 				}
 			} else if (!hasNameType(altNames, $GeneralNameInterface::NAME_DNS)) {
-				$nc(altNames)->add($$new($GeneralName, static_cast<$GeneralNameInterface*>($$new($DNSName, cn))));
+				$nc(altNames)->add($$new($GeneralName, $$new($DNSName, cn)));
 			}
 		} catch ($IOException& ioe) {
 		}
 	}
 	for (int32_t i = 0; i < $nc(altNames)->size(); ++i) {
-		$var($GeneralNameInterface, altGNI, $nc($(altNames->get(i)))->getName());
+		$var($GeneralNameInterface, altGNI, $$nc(altNames->get(i))->getName());
 		if (!verify(altGNI)) {
 			return false;
 		}
@@ -452,29 +397,25 @@ bool NameConstraintsExtension::verify($X509Certificate* cert) {
 
 bool NameConstraintsExtension::hasNameType($GeneralNames* names, int32_t type) {
 	$init(NameConstraintsExtension);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(names)->names()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($GeneralName, name, $cast($GeneralName, i$->next()));
-			{
-				if ($nc(name)->getType() == type) {
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(names)->names())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($GeneralName, name, $cast($GeneralName, i$->next()));
+		if ($nc(name)->getType() == type) {
+			return true;
 		}
 	}
 	return false;
 }
 
 bool NameConstraintsExtension::verify($GeneralNameInterface* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($IOException, "name is null"_s);
 	}
-	if (this->excluded != nullptr && $nc(this->excluded)->size() > 0) {
-		for (int32_t i = 0; i < $nc(this->excluded)->size(); ++i) {
-			$var($GeneralSubtree, gs, $nc(this->excluded)->get(i));
+	if (this->excluded != nullptr && this->excluded->size() > 0) {
+		for (int32_t i = 0; i < this->excluded->size(); ++i) {
+			$var($GeneralSubtree, gs, this->excluded->get(i));
 			if (gs == nullptr) {
 				continue;
 			}
@@ -488,26 +429,19 @@ bool NameConstraintsExtension::verify($GeneralNameInterface* name) {
 			}
 			switch ($nc(exName)->constrains(name)) {
 			case $GeneralNameInterface::NAME_DIFF_TYPE:
-				{}
 			case $GeneralNameInterface::NAME_WIDENS:
-				{}
 			case $GeneralNameInterface::NAME_SAME_TYPE:
-				{
-					break;
-				}
+				break;
 			case $GeneralNameInterface::NAME_MATCH:
-				{}
 			case $GeneralNameInterface::NAME_NARROWS:
-				{
-					return false;
-				}
+				return false;
 			}
 		}
 	}
-	if (this->permitted != nullptr && $nc(this->permitted)->size() > 0) {
+	if (this->permitted != nullptr && this->permitted->size() > 0) {
 		bool sameType = false;
-		for (int32_t i = 0; i < $nc(this->permitted)->size(); ++i) {
-			$var($GeneralSubtree, gs, $nc(this->permitted)->get(i));
+		for (int32_t i = 0; i < this->permitted->size(); ++i) {
+			$var($GeneralSubtree, gs, this->permitted->get(i));
 			if (gs == nullptr) {
 				continue;
 			}
@@ -521,22 +455,14 @@ bool NameConstraintsExtension::verify($GeneralNameInterface* name) {
 			}
 			switch ($nc(perName)->constrains(name)) {
 			case $GeneralNameInterface::NAME_DIFF_TYPE:
-				{
-					continue;
-				}
+				continue;
 			case $GeneralNameInterface::NAME_WIDENS:
-				{}
 			case $GeneralNameInterface::NAME_SAME_TYPE:
-				{
-					sameType = true;
-					continue;
-				}
+				sameType = true;
+				continue;
 			case $GeneralNameInterface::NAME_MATCH:
-				{}
 			case $GeneralNameInterface::NAME_NARROWS:
-				{
-					return true;
-				}
+				return true;
 			}
 		}
 		if (sameType) {
@@ -550,10 +476,10 @@ $Object* NameConstraintsExtension::clone() {
 	try {
 		$var(NameConstraintsExtension, newNCE, $cast(NameConstraintsExtension, $Extension::clone()));
 		if (this->permitted != nullptr) {
-			$set($nc(newNCE), permitted, $cast($GeneralSubtrees, $nc(this->permitted)->clone()));
+			$set($nc(newNCE), permitted, $cast($GeneralSubtrees, this->permitted->clone()));
 		}
 		if (this->excluded != nullptr) {
-			$set($nc(newNCE), excluded, $cast($GeneralSubtrees, $nc(this->excluded)->clone()));
+			$set($nc(newNCE), excluded, $cast($GeneralSubtrees, this->excluded->clone()));
 		}
 		return $of(newNCE);
 	} catch ($CloneNotSupportedException& cnsee) {
@@ -565,7 +491,7 @@ $Object* NameConstraintsExtension::clone() {
 NameConstraintsExtension::NameConstraintsExtension() {
 }
 
-void clinit$NameConstraintsExtension($Class* class$) {
+void NameConstraintsExtension::clinit$($Class* clazz) {
 	$assignStatic(NameConstraintsExtension::IDENT, "x509.info.extensions.NameConstraints"_s);
 	$assignStatic(NameConstraintsExtension::NAME, "NameConstraints"_s);
 	$assignStatic(NameConstraintsExtension::PERMITTED_SUBTREES, "permitted_subtrees"_s);
@@ -573,7 +499,54 @@ void clinit$NameConstraintsExtension($Class* class$) {
 }
 
 $Class* NameConstraintsExtension::load$($String* name, bool initialize) {
-	$loadClass(NameConstraintsExtension, name, initialize, &_NameConstraintsExtension_ClassInfo_, clinit$NameConstraintsExtension, allocate$NameConstraintsExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NameConstraintsExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NameConstraintsExtension, NAME)},
+		{"PERMITTED_SUBTREES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NameConstraintsExtension, PERMITTED_SUBTREES)},
+		{"EXCLUDED_SUBTREES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NameConstraintsExtension, EXCLUDED_SUBTREES)},
+		{"TAG_PERMITTED", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameConstraintsExtension, TAG_PERMITTED)},
+		{"TAG_EXCLUDED", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameConstraintsExtension, TAG_EXCLUDED)},
+		{"permitted", "Lsun/security/x509/GeneralSubtrees;", nullptr, $PRIVATE, $field(NameConstraintsExtension, permitted)},
+		{"excluded", "Lsun/security/x509/GeneralSubtrees;", nullptr, $PRIVATE, $field(NameConstraintsExtension, excluded)},
+		{"hasMin", "Z", nullptr, $PRIVATE, $field(NameConstraintsExtension, hasMin)},
+		{"hasMax", "Z", nullptr, $PRIVATE, $field(NameConstraintsExtension, hasMax)},
+		{"minMaxValid", "Z", nullptr, $PRIVATE, $field(NameConstraintsExtension, minMaxValid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lsun/security/x509/GeneralSubtrees;Lsun/security/x509/GeneralSubtrees;)V", nullptr, $PUBLIC, $method(NameConstraintsExtension, init$, void, $GeneralSubtrees*, $GeneralSubtrees*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(NameConstraintsExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"calcMinMax", "()V", nullptr, $PRIVATE, $method(NameConstraintsExtension, calcMinMax, void), "java.io.IOException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, clone, $Object*)},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(NameConstraintsExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Lsun/security/x509/GeneralSubtrees;", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NameConstraintsExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, getName, $String*)},
+		{"hasNameType", "(Lsun/security/x509/GeneralNames;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NameConstraintsExtension, hasNameType, bool, $GeneralNames*, int32_t)},
+		{"merge", "(Lsun/security/x509/NameConstraintsExtension;)V", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, merge, void, NameConstraintsExtension*), "java.io.IOException"},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, toString, $String*)},
+		{"verify", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, verify, bool, $X509Certificate*), "java.io.IOException"},
+		{"verify", "(Lsun/security/x509/GeneralNameInterface;)Z", nullptr, $PUBLIC, $virtualMethod(NameConstraintsExtension, verify, bool, $GeneralNameInterface*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.NameConstraintsExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;Ljava/lang/Cloneable;"
+	};
+	$loadClass(NameConstraintsExtension, name, initialize, &classInfo$$, NameConstraintsExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NameConstraintsExtension));
+	});
 	return class$;
 }
 

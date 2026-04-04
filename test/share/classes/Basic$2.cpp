@@ -1,5 +1,4 @@
 #include <Basic$2.h>
-
 #include <Basic.h>
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
@@ -9,45 +8,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-
-$MethodInfo _Basic$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Basic$2, init$, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Basic$2, close, void)},
-	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(Basic$2, isOpen, bool)},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Basic$2, read, int32_t, $ByteBuffer*)},
-	{}
-};
-
-$EnclosingMethodInfo _Basic$2_EnclosingMethodInfo_ = {
-	"Basic",
-	"test",
-	"()V"
-};
-
-$InnerClassInfo _Basic$2_InnerClassesInfo_[] = {
-	{"Basic$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Basic$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"Basic$2",
-	"java.lang.Object",
-	"java.nio.channels.ReadableByteChannel",
-	nullptr,
-	_Basic$2_MethodInfo_,
-	nullptr,
-	&_Basic$2_EnclosingMethodInfo_,
-	_Basic$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Basic"
-};
-
-$Object* allocate$Basic$2($Class* clazz) {
-	return $of($alloc(Basic$2));
-}
 
 void Basic$2::init$() {
 }
@@ -67,7 +27,40 @@ Basic$2::Basic$2() {
 }
 
 $Class* Basic$2::load$($String* name, bool initialize) {
-	$loadClass(Basic$2, name, initialize, &_Basic$2_ClassInfo_, allocate$Basic$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Basic$2, init$, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Basic$2, close, void)},
+		{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(Basic$2, isOpen, bool)},
+		{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Basic$2, read, int32_t, $ByteBuffer*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Basic",
+		"test",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Basic$2",
+		"java.lang.Object",
+		"java.nio.channels.ReadableByteChannel",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Basic"
+	};
+	$loadClass(Basic$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic$2);
+	});
 	return class$;
 }
 

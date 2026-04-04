@@ -1,5 +1,4 @@
 #include <sun/net/www/MimeEntry.h>
-
 #include <java/io/File.h>
 #include <java/lang/CharSequence.h>
 #include <java/util/StringJoiner.h>
@@ -22,64 +21,6 @@ using $StringTokenizer = ::java::util::StringTokenizer;
 namespace sun {
 	namespace net {
 		namespace www {
-
-$FieldInfo _MimeEntry_FieldInfo_[] = {
-	{"typeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, typeName)},
-	{"tempFileNameTemplate", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, tempFileNameTemplate)},
-	{"action", "I", nullptr, $PRIVATE, $field(MimeEntry, action)},
-	{"command", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, command)},
-	{"description", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, description)},
-	{"imageFileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, imageFileName)},
-	{"fileExtensions", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, fileExtensions)},
-	{"starred", "Z", nullptr, 0, $field(MimeEntry, starred)},
-	{"UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MimeEntry, UNKNOWN)},
-	{"LOAD_INTO_BROWSER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MimeEntry, LOAD_INTO_BROWSER)},
-	{"SAVE_TO_FILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MimeEntry, SAVE_TO_FILE)},
-	{"LAUNCH_APPLICATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MimeEntry, LAUNCH_APPLICATION)},
-	{"actionKeywords", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MimeEntry, actionKeywords)},
-	{}
-};
-
-$MethodInfo _MimeEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MimeEntry, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(MimeEntry, init$, void, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(MimeEntry, init$, void, $String*, int32_t, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $method(MimeEntry, init$, void, $String*, int32_t, $String*, $String*, $StringArray*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MimeEntry, clone, $Object*)},
-	{"getAction", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getAction, int32_t)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getDescription, $String*)},
-	{"getExtensions", "()[Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getExtensions, $StringArray*)},
-	{"getExtensionsAsList", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getExtensionsAsList, $String*)},
-	{"getImageFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeEntry, getImageFileName, $String*)},
-	{"getLaunchString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getLaunchString, $String*)},
-	{"getTempFileTemplate", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeEntry, getTempFileTemplate, $String*)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getType, $String*)},
-	{"isStarred", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(MimeEntry, isStarred, bool, $String*)},
-	{"matches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(MimeEntry, matches, bool, $String*)},
-	{"setAction", "(ILjava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setAction, void, int32_t, $String*)},
-	{"setAction", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setAction, void, int32_t)},
-	{"setCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setCommand, void, $String*)},
-	{"setDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setDescription, void, $String*)},
-	{"setExtensions", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setExtensions, void, $String*)},
-	{"setImageFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setImageFileName, void, $String*)},
-	{"setType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setType, void, $String*)},
-	{"toProperty", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, toProperty, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeEntry, toString, $String*)},
-	{}
-};
-
-$ClassInfo _MimeEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.MimeEntry",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_MimeEntry_FieldInfo_,
-	_MimeEntry_MethodInfo_
-};
-
-$Object* allocate$MimeEntry($Class* clazz) {
-	return $of($alloc(MimeEntry));
-}
 
 $StringArray* MimeEntry::actionKeywords = nullptr;
 
@@ -175,14 +116,14 @@ $String* MimeEntry::getImageFileName() {
 
 void MimeEntry::setImageFileName($String* filename) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($File, file, $new($File, filename));
 		if (file->getParent() == nullptr) {
 			$set(this, imageFileName, $System::getProperty($$str({"java.net.ftp.imagepath."_s, filename})));
 		} else {
 			$set(this, imageFileName, filename);
 		}
-		if ($nc(filename)->lastIndexOf((int32_t)u'.') < 0) {
+		if ($nc(filename)->lastIndexOf(u'.') < 0) {
 			$set(this, imageFileName, $str({this->imageFileName, ".gif"_s}));
 		}
 	}
@@ -202,9 +143,9 @@ $String* MimeEntry::getExtensionsAsList() {
 	$synchronized(this) {
 		$var($String, extensionsAsString, ""_s);
 		if (this->fileExtensions != nullptr) {
-			for (int32_t i = 0; i < $nc(this->fileExtensions)->length; ++i) {
-				$plusAssign(extensionsAsString, $nc(this->fileExtensions)->get(i));
-				if (i < ($nc(this->fileExtensions)->length - 1)) {
+			for (int32_t i = 0; i < this->fileExtensions->length; ++i) {
+				$plusAssign(extensionsAsString, this->fileExtensions->get(i));
+				if (i < (this->fileExtensions->length - 1)) {
 					$plusAssign(extensionsAsString, ","_s);
 				}
 			}
@@ -215,7 +156,7 @@ $String* MimeEntry::getExtensionsAsList() {
 
 void MimeEntry::setExtensions($String* extensionString) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($StringTokenizer, extTokens, $new($StringTokenizer, extensionString, ","_s));
 		int32_t numExts = extTokens->countTokens();
 		$var($StringArray, extensionStrings, $new($StringArray, numExts));
@@ -247,16 +188,16 @@ $Object* MimeEntry::clone() {
 	$set(theClone, imageFileName, this->imageFileName);
 	$set(theClone, tempFileNameTemplate, this->tempFileNameTemplate);
 	$set(theClone, fileExtensions, this->fileExtensions);
-	return $of(theClone);
+	return theClone;
 }
 
 $String* MimeEntry::toProperty() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($StringJoiner, sj, $new($StringJoiner, "; "_s));
 		int32_t action = getAction();
 		if (action != MimeEntry::UNKNOWN) {
-			sj->add($$str({"action="_s, $nc(MimeEntry::actionKeywords)->get(action)}));
+			sj->add($$str({"action="_s, MimeEntry::actionKeywords->get(action)}));
 		}
 		$var($String, command, getLaunchString());
 		if (command != nullptr && command->length() > 0) {
@@ -279,11 +220,11 @@ $String* MimeEntry::toProperty() {
 }
 
 $String* MimeEntry::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"MimeEntry[contentType="_s, this->typeName, ", image="_s, this->imageFileName, ", action="_s, $$str(this->action), ", command="_s, this->command, ", extensions="_s, $(getExtensionsAsList()), "]"_s});
 }
 
-void clinit$MimeEntry($Class* class$) {
+void MimeEntry::clinit$($Class* clazz) {
 	$assignStatic(MimeEntry::actionKeywords, $new($StringArray, {
 		"unknown"_s,
 		"browser"_s,
@@ -296,7 +237,60 @@ MimeEntry::MimeEntry() {
 }
 
 $Class* MimeEntry::load$($String* name, bool initialize) {
-	$loadClass(MimeEntry, name, initialize, &_MimeEntry_ClassInfo_, clinit$MimeEntry, allocate$MimeEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, typeName)},
+		{"tempFileNameTemplate", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, tempFileNameTemplate)},
+		{"action", "I", nullptr, $PRIVATE, $field(MimeEntry, action)},
+		{"command", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, command)},
+		{"description", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, description)},
+		{"imageFileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, imageFileName)},
+		{"fileExtensions", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeEntry, fileExtensions)},
+		{"starred", "Z", nullptr, 0, $field(MimeEntry, starred)},
+		{"UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MimeEntry, UNKNOWN)},
+		{"LOAD_INTO_BROWSER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MimeEntry, LOAD_INTO_BROWSER)},
+		{"SAVE_TO_FILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MimeEntry, SAVE_TO_FILE)},
+		{"LAUNCH_APPLICATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MimeEntry, LAUNCH_APPLICATION)},
+		{"actionKeywords", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MimeEntry, actionKeywords)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MimeEntry, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(MimeEntry, init$, void, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(MimeEntry, init$, void, $String*, int32_t, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $method(MimeEntry, init$, void, $String*, int32_t, $String*, $String*, $StringArray*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MimeEntry, clone, $Object*)},
+		{"getAction", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getAction, int32_t)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getDescription, $String*)},
+		{"getExtensions", "()[Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getExtensions, $StringArray*)},
+		{"getExtensionsAsList", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getExtensionsAsList, $String*)},
+		{"getImageFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeEntry, getImageFileName, $String*)},
+		{"getLaunchString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getLaunchString, $String*)},
+		{"getTempFileTemplate", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeEntry, getTempFileTemplate, $String*)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, getType, $String*)},
+		{"isStarred", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(MimeEntry, isStarred, bool, $String*)},
+		{"matches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(MimeEntry, matches, bool, $String*)},
+		{"setAction", "(ILjava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setAction, void, int32_t, $String*)},
+		{"setAction", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setAction, void, int32_t)},
+		{"setCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setCommand, void, $String*)},
+		{"setDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setDescription, void, $String*)},
+		{"setExtensions", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setExtensions, void, $String*)},
+		{"setImageFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setImageFileName, void, $String*)},
+		{"setType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, setType, void, $String*)},
+		{"toProperty", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MimeEntry, toProperty, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeEntry, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.MimeEntry",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MimeEntry, name, initialize, &classInfo$$, MimeEntry::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MimeEntry);
+	});
 	return class$;
 }
 

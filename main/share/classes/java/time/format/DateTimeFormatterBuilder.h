@@ -62,6 +62,7 @@ class $export DateTimeFormatterBuilder : public ::java::lang::Object {
 	$class(DateTimeFormatterBuilder, 0, ::java::lang::Object)
 public:
 	DateTimeFormatterBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::time::format::DateTimeFormatterBuilder* parent, bool optional);
 	::java::time::format::DateTimeFormatterBuilder* append(::java::time::format::DateTimeFormatter* formatter);

@@ -37,6 +37,7 @@ public:
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Collection* c);
 	void init$(int32_t initialCapacity, float loadFactor);
@@ -57,7 +58,7 @@ public:
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xBA44859596B8B734;
+	static const int64_t serialVersionUID = (int64_t)0xba44859596b8b734;
 	::java::util::HashMap* map = nullptr;
 	static $Object* PRESENT;
 };

@@ -44,6 +44,7 @@ class ClassRepository : public ::sun::reflect::generics::repository::GenericDecl
 	$class(ClassRepository, 0, ::sun::reflect::generics::repository::GenericDeclRepository)
 public:
 	ClassRepository();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* rawSig, ::sun::reflect::generics::factory::GenericsFactory* f);
 	$Array<::java::lang::reflect::Type>* computeSuperInterfaces();
 	::java::lang::reflect::Type* computeSuperclass();

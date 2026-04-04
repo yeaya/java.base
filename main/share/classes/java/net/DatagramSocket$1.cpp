@@ -1,5 +1,4 @@
 #include <java/net/DatagramSocket$1.h>
-
 #include <java/net/SocketAddress.h>
 #include <jcpp.h>
 
@@ -12,42 +11,6 @@ using $SocketAddress = ::java::net::SocketAddress;
 namespace java {
 	namespace net {
 
-$MethodInfo _DatagramSocket$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DatagramSocket$1, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _DatagramSocket$1_EnclosingMethodInfo_ = {
-	"java.net.DatagramSocket",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DatagramSocket$1_InnerClassesInfo_[] = {
-	{"java.net.DatagramSocket$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DatagramSocket$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.DatagramSocket$1",
-	"java.net.SocketAddress",
-	nullptr,
-	nullptr,
-	_DatagramSocket$1_MethodInfo_,
-	nullptr,
-	&_DatagramSocket$1_EnclosingMethodInfo_,
-	_DatagramSocket$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.DatagramSocket"
-};
-
-$Object* allocate$DatagramSocket$1($Class* clazz) {
-	return $of($alloc(DatagramSocket$1));
-}
-
 void DatagramSocket$1::init$() {
 	$SocketAddress::init$();
 }
@@ -56,7 +19,37 @@ DatagramSocket$1::DatagramSocket$1() {
 }
 
 $Class* DatagramSocket$1::load$($String* name, bool initialize) {
-	$loadClass(DatagramSocket$1, name, initialize, &_DatagramSocket$1_ClassInfo_, allocate$DatagramSocket$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DatagramSocket$1, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.DatagramSocket",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.DatagramSocket$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.DatagramSocket$1",
+		"java.net.SocketAddress",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.DatagramSocket"
+	};
+	$loadClass(DatagramSocket$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DatagramSocket$1);
+	});
 	return class$;
 }
 

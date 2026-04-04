@@ -1,12 +1,9 @@
 #include <sun/net/dns/ResolverConfigurationImpl.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/FileReader.h>
 #include <java/io/IOException.h>
-#include <java/io/Reader.h>
 #include <java/lang/AssertionError.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/LinkedList.h>
 #include <java/util/List.h>
 #include <java/util/StringTokenizer.h>
@@ -24,14 +21,12 @@
 using $BufferedReader = ::java::io::BufferedReader;
 using $FileReader = ::java::io::FileReader;
 using $IOException = ::java::io::IOException;
-using $Reader = ::java::io::Reader;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $StringTokenizer = ::java::util::StringTokenizer;
@@ -47,63 +42,12 @@ namespace sun {
 	namespace net {
 		namespace dns {
 
-$FieldInfo _ResolverConfigurationImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResolverConfigurationImpl, $assertionsDisabled)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(ResolverConfigurationImpl, lock)},
-	{"lastRefresh", "J", nullptr, $PRIVATE | $STATIC, $staticField(ResolverConfigurationImpl, lastRefresh)},
-	{"TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverConfigurationImpl, TIMEOUT)},
-	{"opts", "Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PRIVATE | $FINAL, $field(ResolverConfigurationImpl, opts)},
-	{"searchlist", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $field(ResolverConfigurationImpl, searchlist$)},
-	{"nameservers", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $field(ResolverConfigurationImpl, nameservers$)},
-	{}
-};
-
-$MethodInfo _ResolverConfigurationImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ResolverConfigurationImpl, init$, void)},
-	{"fallbackDomain0", "()Ljava/lang/String;", nullptr, $STATIC | $NATIVE, $staticMethod(ResolverConfigurationImpl, fallbackDomain0, $String*)},
-	{"getSearchList", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $method(ResolverConfigurationImpl, getSearchList, $LinkedList*)},
-	{"loadConfig", "()V", nullptr, $PRIVATE, $method(ResolverConfigurationImpl, loadConfig, void)},
-	{"nameservers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResolverConfigurationImpl, nameservers, $List*)},
-	{"options", "()Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PUBLIC, $virtualMethod(ResolverConfigurationImpl, options, $ResolverConfiguration$Options*)},
-	{"resolvconf", "(Ljava/lang/String;II)Ljava/util/LinkedList;", "(Ljava/lang/String;II)Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $method(ResolverConfigurationImpl, resolvconf, $LinkedList*, $String*, int32_t, int32_t)},
-	{"searchlist", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResolverConfigurationImpl, searchlist, $List*)},
-	{}
-};
-
-#define _METHOD_INDEX_fallbackDomain0 1
-
-$InnerClassInfo _ResolverConfigurationImpl_InnerClassesInfo_[] = {
-	{"sun.net.dns.ResolverConfigurationImpl$3", nullptr, nullptr, 0},
-	{"sun.net.dns.ResolverConfigurationImpl$2", nullptr, nullptr, 0},
-	{"sun.net.dns.ResolverConfigurationImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ResolverConfigurationImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.dns.ResolverConfigurationImpl",
-	"sun.net.dns.ResolverConfiguration",
-	nullptr,
-	_ResolverConfigurationImpl_FieldInfo_,
-	_ResolverConfigurationImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResolverConfigurationImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.dns.ResolverConfigurationImpl$3,sun.net.dns.ResolverConfigurationImpl$2,sun.net.dns.ResolverConfigurationImpl$1"
-};
-
-$Object* allocate$ResolverConfigurationImpl($Class* clazz) {
-	return $of($alloc(ResolverConfigurationImpl));
-}
-
 bool ResolverConfigurationImpl::$assertionsDisabled = false;
 $Object* ResolverConfigurationImpl::lock = nullptr;
 int64_t ResolverConfigurationImpl::lastRefresh = 0;
 
 $LinkedList* ResolverConfigurationImpl::resolvconf($String* keyword, int32_t maxperkeyword, int32_t maxkeywords) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedList, ll, $new($LinkedList));
 	try {
 		$var($BufferedReader, in, $new($BufferedReader, $$new($FileReader, "/etc/resolv.conf"_s)));
@@ -113,14 +57,14 @@ $LinkedList* ResolverConfigurationImpl::resolvconf($String* keyword, int32_t max
 			if ($nc(line)->isEmpty()) {
 				continue;
 			}
-			bool var$0 = $nc(line)->charAt(0) == u'#';
-			if (var$0 || $nc(line)->charAt(0) == u';') {
+			bool var$0 = line->charAt(0) == u'#';
+			if (var$0 || line->charAt(0) == u';') {
 				continue;
 			}
-			if (!$nc(line)->startsWith(keyword)) {
+			if (!line->startsWith(keyword)) {
 				continue;
 			}
-			$var($String, value, $nc(line)->substring($nc(keyword)->length()));
+			$var($String, value, line->substring($nc(keyword)->length()));
 			if (value->isEmpty()) {
 				continue;
 			}
@@ -132,14 +76,14 @@ $LinkedList* ResolverConfigurationImpl::resolvconf($String* keyword, int32_t max
 			while (st->hasMoreTokens()) {
 				$var($String, val, st->nextToken());
 				bool var$2 = $nc(val)->charAt(0) == u'#';
-				if (var$2 || $nc(val)->charAt(0) == u';') {
+				if (var$2 || val->charAt(0) == u';') {
 					break;
 				}
 				if ("nameserver"_s->equals(keyword)) {
-					bool var$5 = $nc(val)->indexOf((int32_t)u':') >= 0;
-					bool var$4 = var$5 && val->indexOf((int32_t)u'.') < 0;
-					bool var$3 = var$4 && val->indexOf((int32_t)u'[') < 0;
-					if (var$3 && val->indexOf((int32_t)u']') < 0) {
+					bool var$5 = val->indexOf(u':') >= 0;
+					bool var$4 = var$5 && val->indexOf(u'.') < 0;
+					bool var$3 = var$4 && val->indexOf(u'[') < 0;
+					if (var$3 && val->indexOf(u']') < 0) {
 						$assign(val, $str({"["_s, val, "]"_s}));
 					}
 				}
@@ -169,20 +113,20 @@ void ResolverConfigurationImpl::loadConfig() {
 			return;
 		}
 	}
-	$set(this, nameservers$, $cast($LinkedList, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ResolverConfigurationImpl$1, this)))));
+	$set(this, nameservers$, $cast($LinkedList, $AccessController::doPrivileged($$new($ResolverConfigurationImpl$1, this))));
 	$set(this, searchlist$, getSearchList());
 	ResolverConfigurationImpl::lastRefresh = $System::currentTimeMillis();
 }
 
 $LinkedList* ResolverConfigurationImpl::getSearchList() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($LinkedList, sl, nullptr);
-	$assign(sl, $cast($LinkedList, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ResolverConfigurationImpl$2, this)))));
+	$assign(sl, $cast($LinkedList, $AccessController::doPrivileged($$new($ResolverConfigurationImpl$2, this))));
 	if (sl != nullptr) {
 		return sl;
 	}
-	$assign(sl, $cast($LinkedList, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ResolverConfigurationImpl$3, this)))));
+	$assign(sl, $cast($LinkedList, $AccessController::doPrivileged($$new($ResolverConfigurationImpl$3, this))));
 	if (sl != nullptr) {
 		return sl;
 	}
@@ -219,14 +163,13 @@ $ResolverConfiguration$Options* ResolverConfigurationImpl::options() {
 
 $String* ResolverConfigurationImpl::fallbackDomain0() {
 	$init(ResolverConfigurationImpl);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(ResolverConfigurationImpl, fallbackDomain0, $String*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(fallbackDomain0, $String*);
+	$var($String, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$ResolverConfigurationImpl($Class* class$) {
+void ResolverConfigurationImpl::clinit$($Class* clazz) {
 	ResolverConfigurationImpl::$assertionsDisabled = !ResolverConfigurationImpl::class$->desiredAssertionStatus();
 	$assignStatic(ResolverConfigurationImpl::lock, $new($Object));
 	ResolverConfigurationImpl::lastRefresh = -1;
@@ -239,7 +182,50 @@ ResolverConfigurationImpl::ResolverConfigurationImpl() {
 }
 
 $Class* ResolverConfigurationImpl::load$($String* name, bool initialize) {
-	$loadClass(ResolverConfigurationImpl, name, initialize, &_ResolverConfigurationImpl_ClassInfo_, clinit$ResolverConfigurationImpl, allocate$ResolverConfigurationImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResolverConfigurationImpl, $assertionsDisabled)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(ResolverConfigurationImpl, lock)},
+		{"lastRefresh", "J", nullptr, $PRIVATE | $STATIC, $staticField(ResolverConfigurationImpl, lastRefresh)},
+		{"TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverConfigurationImpl, TIMEOUT)},
+		{"opts", "Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PRIVATE | $FINAL, $field(ResolverConfigurationImpl, opts)},
+		{"searchlist", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $field(ResolverConfigurationImpl, searchlist$)},
+		{"nameservers", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $field(ResolverConfigurationImpl, nameservers$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ResolverConfigurationImpl, init$, void)},
+		{"fallbackDomain0", "()Ljava/lang/String;", nullptr, $STATIC | $NATIVE, $staticMethod(ResolverConfigurationImpl, fallbackDomain0, $String*)},
+		{"getSearchList", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $method(ResolverConfigurationImpl, getSearchList, $LinkedList*)},
+		{"loadConfig", "()V", nullptr, $PRIVATE, $method(ResolverConfigurationImpl, loadConfig, void)},
+		{"nameservers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResolverConfigurationImpl, nameservers, $List*)},
+		{"options", "()Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PUBLIC, $virtualMethod(ResolverConfigurationImpl, options, $ResolverConfiguration$Options*)},
+		{"resolvconf", "(Ljava/lang/String;II)Ljava/util/LinkedList;", "(Ljava/lang/String;II)Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $method(ResolverConfigurationImpl, resolvconf, $LinkedList*, $String*, int32_t, int32_t)},
+		{"searchlist", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResolverConfigurationImpl, searchlist, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.dns.ResolverConfigurationImpl$3", nullptr, nullptr, 0},
+		{"sun.net.dns.ResolverConfigurationImpl$2", nullptr, nullptr, 0},
+		{"sun.net.dns.ResolverConfigurationImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.dns.ResolverConfigurationImpl",
+		"sun.net.dns.ResolverConfiguration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.dns.ResolverConfigurationImpl$3,sun.net.dns.ResolverConfigurationImpl$2,sun.net.dns.ResolverConfigurationImpl$1"
+	};
+	$loadClass(ResolverConfigurationImpl, name, initialize, &classInfo$$, ResolverConfigurationImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResolverConfigurationImpl);
+	});
 	return class$;
 }
 

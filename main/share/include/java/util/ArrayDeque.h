@@ -116,8 +116,8 @@ public:
 	$ObjectArray* elements = nullptr;
 	int32_t head = 0;
 	int32_t tail = 0;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
-	static const int64_t serialVersionUID = (int64_t)0x207CDA2E240DA08B;
+	static const int32_t MAX_ARRAY_SIZE = 0x7ffffff7; // Integer.MAX_VALUE - 8
+	static const int64_t serialVersionUID = (int64_t)0x207cda2e240da08b;
 };
 
 	} // util

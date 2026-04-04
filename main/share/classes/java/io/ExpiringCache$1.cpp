@@ -1,5 +1,4 @@
 #include <java/io/ExpiringCache$1.h>
-
 #include <java/io/ExpiringCache.h>
 #include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap.h>
@@ -20,49 +19,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 namespace java {
 	namespace io {
 
-$FieldInfo _ExpiringCache$1_FieldInfo_[] = {
-	{"this$0", "Ljava/io/ExpiringCache;", nullptr, $FINAL | $SYNTHETIC, $field(ExpiringCache$1, this$0)},
-	{}
-};
-
-$MethodInfo _ExpiringCache$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ExpiringCache;)V", nullptr, 0, $method(ExpiringCache$1, init$, void, $ExpiringCache*)},
-	{"removeEldestEntry", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<Ljava/lang/String;Ljava/io/ExpiringCache$Entry;>;)Z", $PROTECTED, $virtualMethod(ExpiringCache$1, removeEldestEntry, bool, $Map$Entry*)},
-	{}
-};
-
-$EnclosingMethodInfo _ExpiringCache$1_EnclosingMethodInfo_ = {
-	"java.io.ExpiringCache",
-	"<init>",
-	"(J)V"
-};
-
-$InnerClassInfo _ExpiringCache$1_InnerClassesInfo_[] = {
-	{"java.io.ExpiringCache$1", nullptr, nullptr, 0},
-	{"java.io.ExpiringCache$Entry", "java.io.ExpiringCache", "Entry", $STATIC},
-	{}
-};
-
-$ClassInfo _ExpiringCache$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ExpiringCache$1",
-	"java.util.LinkedHashMap",
-	nullptr,
-	_ExpiringCache$1_FieldInfo_,
-	_ExpiringCache$1_MethodInfo_,
-	"Ljava/util/LinkedHashMap<Ljava/lang/String;Ljava/io/ExpiringCache$Entry;>;",
-	&_ExpiringCache$1_EnclosingMethodInfo_,
-	_ExpiringCache$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ExpiringCache"
-};
-
-$Object* allocate$ExpiringCache$1($Class* clazz) {
-	return $of($alloc(ExpiringCache$1));
-}
-
 void ExpiringCache$1::init$($ExpiringCache* this$0) {
 	$set(this, this$0, this$0);
 	$LinkedHashMap::init$();
@@ -76,7 +32,43 @@ ExpiringCache$1::ExpiringCache$1() {
 }
 
 $Class* ExpiringCache$1::load$($String* name, bool initialize) {
-	$loadClass(ExpiringCache$1, name, initialize, &_ExpiringCache$1_ClassInfo_, allocate$ExpiringCache$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/io/ExpiringCache;", nullptr, $FINAL | $SYNTHETIC, $field(ExpiringCache$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/ExpiringCache;)V", nullptr, 0, $method(ExpiringCache$1, init$, void, $ExpiringCache*)},
+		{"removeEldestEntry", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<Ljava/lang/String;Ljava/io/ExpiringCache$Entry;>;)Z", $PROTECTED, $virtualMethod(ExpiringCache$1, removeEldestEntry, bool, $Map$Entry*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.io.ExpiringCache",
+		"<init>",
+		"(J)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ExpiringCache$1", nullptr, nullptr, 0},
+		{"java.io.ExpiringCache$Entry", "java.io.ExpiringCache", "Entry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ExpiringCache$1",
+		"java.util.LinkedHashMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/LinkedHashMap<Ljava/lang/String;Ljava/io/ExpiringCache$Entry;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ExpiringCache"
+	};
+	$loadClass(ExpiringCache$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ExpiringCache$1));
+	});
 	return class$;
 }
 

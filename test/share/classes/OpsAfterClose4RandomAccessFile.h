@@ -42,6 +42,7 @@ class $export OpsAfterClose4RandomAccessFile : public ::java::lang::Enum {
 public:
 	OpsAfterClose4RandomAccessFile();
 	static $Array<OpsAfterClose4RandomAccessFile>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool check(::java::io::RandomAccessFile* r) {return false;}
 	static void main($StringArray* args);

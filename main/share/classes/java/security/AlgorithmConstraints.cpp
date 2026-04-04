@@ -1,5 +1,4 @@
 #include <java/security/AlgorithmConstraints.h>
-
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/Key.h>
 #include <java/util/Set.h>
@@ -14,28 +13,24 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace security {
 
-$MethodInfo _AlgorithmConstraints_MethodInfo_[] = {
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmConstraints, permits, bool, $Set*, $String*, $AlgorithmParameters*)},
-	{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmConstraints, permits, bool, $Set*, $Key*)},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmConstraints, permits, bool, $Set*, $String*, $Key*, $AlgorithmParameters*)},
-	{}
-};
-
-$ClassInfo _AlgorithmConstraints_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.AlgorithmConstraints",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AlgorithmConstraints_MethodInfo_
-};
-
-$Object* allocate$AlgorithmConstraints($Class* clazz) {
-	return $of($alloc(AlgorithmConstraints));
-}
-
 $Class* AlgorithmConstraints::load$($String* name, bool initialize) {
-	$loadClass(AlgorithmConstraints, name, initialize, &_AlgorithmConstraints_ClassInfo_, allocate$AlgorithmConstraints);
+	$MethodInfo methodInfos$$[] = {
+		{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmConstraints, permits, bool, $Set*, $String*, $AlgorithmParameters*)},
+		{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmConstraints, permits, bool, $Set*, $Key*)},
+		{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmConstraints, permits, bool, $Set*, $String*, $Key*, $AlgorithmParameters*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.AlgorithmConstraints",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AlgorithmConstraints, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlgorithmConstraints);
+	});
 	return class$;
 }
 

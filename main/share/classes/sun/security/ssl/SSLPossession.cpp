@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLPossession.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,26 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLPossession_MethodInfo_[] = {
-	{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(SSLPossession, encode, $bytes*)},
-	{}
-};
-
-$ClassInfo _SSLPossession_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.security.ssl.SSLPossession",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SSLPossession_MethodInfo_
-};
-
-$Object* allocate$SSLPossession($Class* clazz) {
-	return $of($alloc(SSLPossession));
-}
-
 $bytes* SSLPossession::encode() {
 	return $new($bytes, 0);
 }
 
 $Class* SSLPossession::load$($String* name, bool initialize) {
-	$loadClass(SSLPossession, name, initialize, &_SSLPossession_ClassInfo_, allocate$SSLPossession);
+	$MethodInfo methodInfos$$[] = {
+		{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(SSLPossession, encode, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.security.ssl.SSLPossession",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLPossession, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLPossession);
+	});
 	return class$;
 }
 

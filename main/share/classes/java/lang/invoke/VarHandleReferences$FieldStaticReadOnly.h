@@ -36,6 +36,7 @@ public:
 	using ::java::lang::invoke::VarHandle::getOpaque;
 	using ::java::lang::invoke::VarHandle::getAcquire;
 	using ::java::lang::invoke::VarHandle::accessModeTypeUncached;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* base, int64_t fieldOffset, $Class* fieldType);
 	void init$(Object$* base, int64_t fieldOffset, $Class* fieldType, ::java::lang::invoke::VarForm* form, bool exact);
 	virtual ::java::lang::invoke::MethodType* accessModeTypeUncached(::java::lang::invoke::VarHandle$AccessType* at) override;

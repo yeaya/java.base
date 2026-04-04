@@ -14,7 +14,7 @@ public:
 	ArraysParallelSortHelpers$EmptyCompleter();
 	void init$(::java::util::concurrent::CountedCompleter* p);
 	virtual void compute() override;
-	static const int64_t serialVersionUID = (int64_t)0x21F3DDCE4497AB4C;
+	static const int64_t serialVersionUID = (int64_t)0x21f3ddce4497ab4c;
 };
 
 	} // util

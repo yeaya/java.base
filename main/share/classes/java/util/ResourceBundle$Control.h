@@ -49,6 +49,7 @@ class $export ResourceBundle$Control : public ::java::lang::Object {
 	$class(ResourceBundle$Control, 0, ::java::lang::Object)
 public:
 	ResourceBundle$Control();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::List* getCandidateLocales($String* baseName, ::java::util::Locale* locale);
 	static ::java::util::ResourceBundle$Control* getControl(::java::util::List* formats);

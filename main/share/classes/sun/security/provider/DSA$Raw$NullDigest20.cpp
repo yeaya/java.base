@@ -1,5 +1,4 @@
 #include <sun/security/provider/DSA$Raw$NullDigest20.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/DigestException.h>
 #include <java/security/MessageDigest.h>
@@ -22,50 +21,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _DSA$Raw$NullDigest20_FieldInfo_[] = {
-	{"digestBuffer", "[B", nullptr, $PRIVATE | $FINAL, $field(DSA$Raw$NullDigest20, digestBuffer)},
-	{"ofs", "I", nullptr, $PRIVATE, $field(DSA$Raw$NullDigest20, ofs)},
-	{}
-};
-
-$MethodInfo _DSA$Raw$NullDigest20_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(DSA$Raw$NullDigest20, init$, void)},
-	{"engineDigest", "()[B", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineDigest, $bytes*), "java.lang.RuntimeException"},
-	{"engineDigest", "([BII)I", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineDigest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
-	{"engineGetDigestLength", "()I", nullptr, $PROTECTED | $FINAL, $virtualMethod(DSA$Raw$NullDigest20, engineGetDigestLength, int32_t)},
-	{"engineReset", "()V", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineReset, void)},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineUpdate, void, int8_t)},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineUpdate, void, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(DSA$Raw$NullDigest20, engineUpdate, void, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _DSA$Raw$NullDigest20_InnerClassesInfo_[] = {
-	{"sun.security.provider.DSA$Raw", "sun.security.provider.DSA", "Raw", $STATIC},
-	{"sun.security.provider.DSA$Raw$NullDigest20", "sun.security.provider.DSA$Raw", "NullDigest20", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DSA$Raw$NullDigest20_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.DSA$Raw$NullDigest20",
-	"java.security.MessageDigest",
-	nullptr,
-	_DSA$Raw$NullDigest20_FieldInfo_,
-	_DSA$Raw$NullDigest20_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DSA$Raw$NullDigest20_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.DSA"
-};
-
-$Object* allocate$DSA$Raw$NullDigest20($Class* clazz) {
-	return $of($alloc(DSA$Raw$NullDigest20));
-}
-
 void DSA$Raw$NullDigest20::init$() {
 	$MessageDigest::init$("NullDigest20"_s);
 	$set(this, digestBuffer, $new($bytes, 20));
@@ -73,15 +28,15 @@ void DSA$Raw$NullDigest20::init$() {
 }
 
 void DSA$Raw$NullDigest20::engineUpdate(int8_t input) {
-	if (this->ofs == $nc(this->digestBuffer)->length) {
+	if (this->ofs == this->digestBuffer->length) {
 		this->ofs = $Integer::MAX_VALUE;
 	} else {
-		$nc(this->digestBuffer)->set(this->ofs++, input);
+		this->digestBuffer->set(this->ofs++, input);
 	}
 }
 
 void DSA$Raw$NullDigest20::engineUpdate($bytes* input, int32_t offset, int32_t len) {
-	if (len > ($nc(this->digestBuffer)->length - this->ofs)) {
+	if (len > (this->digestBuffer->length - this->ofs)) {
 		this->ofs = $Integer::MAX_VALUE;
 	} else {
 		$System::arraycopy(input, offset, this->digestBuffer, this->ofs, len);
@@ -91,7 +46,7 @@ void DSA$Raw$NullDigest20::engineUpdate($bytes* input, int32_t offset, int32_t l
 
 void DSA$Raw$NullDigest20::engineUpdate($ByteBuffer* input) {
 	int32_t inputLen = $nc(input)->remaining();
-	if (inputLen > ($nc(this->digestBuffer)->length - this->ofs)) {
+	if (inputLen > (this->digestBuffer->length - this->ofs)) {
 		this->ofs = $Integer::MAX_VALUE;
 	} else {
 		input->get(this->digestBuffer, this->ofs, inputLen);
@@ -100,7 +55,7 @@ void DSA$Raw$NullDigest20::engineUpdate($ByteBuffer* input) {
 }
 
 $bytes* DSA$Raw$NullDigest20::engineDigest() {
-	if (this->ofs != $nc(this->digestBuffer)->length) {
+	if (this->ofs != this->digestBuffer->length) {
 		$throwNew($RuntimeException, "Data for RawDSA must be exactly 20 bytes long"_s);
 	}
 	reset();
@@ -108,15 +63,15 @@ $bytes* DSA$Raw$NullDigest20::engineDigest() {
 }
 
 int32_t DSA$Raw$NullDigest20::engineDigest($bytes* buf, int32_t offset, int32_t len) {
-	if (this->ofs != $nc(this->digestBuffer)->length) {
+	if (this->ofs != this->digestBuffer->length) {
 		$throwNew($DigestException, "Data for RawDSA must be exactly 20 bytes long"_s);
 	}
-	if (len < $nc(this->digestBuffer)->length) {
+	if (len < this->digestBuffer->length) {
 		$throwNew($DigestException, "Output buffer too small; must be at least 20 bytes"_s);
 	}
-	$System::arraycopy(this->digestBuffer, 0, buf, offset, $nc(this->digestBuffer)->length);
+	$System::arraycopy(this->digestBuffer, 0, buf, offset, this->digestBuffer->length);
 	reset();
-	return $nc(this->digestBuffer)->length;
+	return this->digestBuffer->length;
 }
 
 void DSA$Raw$NullDigest20::engineReset() {
@@ -124,14 +79,52 @@ void DSA$Raw$NullDigest20::engineReset() {
 }
 
 int32_t DSA$Raw$NullDigest20::engineGetDigestLength() {
-	return $nc(this->digestBuffer)->length;
+	return this->digestBuffer->length;
 }
 
 DSA$Raw$NullDigest20::DSA$Raw$NullDigest20() {
 }
 
 $Class* DSA$Raw$NullDigest20::load$($String* name, bool initialize) {
-	$loadClass(DSA$Raw$NullDigest20, name, initialize, &_DSA$Raw$NullDigest20_ClassInfo_, allocate$DSA$Raw$NullDigest20);
+	$FieldInfo fieldInfos$$[] = {
+		{"digestBuffer", "[B", nullptr, $PRIVATE | $FINAL, $field(DSA$Raw$NullDigest20, digestBuffer)},
+		{"ofs", "I", nullptr, $PRIVATE, $field(DSA$Raw$NullDigest20, ofs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(DSA$Raw$NullDigest20, init$, void)},
+		{"engineDigest", "()[B", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineDigest, $bytes*), "java.lang.RuntimeException"},
+		{"engineDigest", "([BII)I", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineDigest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
+		{"engineGetDigestLength", "()I", nullptr, $PROTECTED | $FINAL, $virtualMethod(DSA$Raw$NullDigest20, engineGetDigestLength, int32_t)},
+		{"engineReset", "()V", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineReset, void)},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineUpdate, void, int8_t)},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineUpdate, void, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(DSA$Raw$NullDigest20, engineUpdate, void, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.DSA$Raw", "sun.security.provider.DSA", "Raw", $STATIC},
+		{"sun.security.provider.DSA$Raw$NullDigest20", "sun.security.provider.DSA$Raw", "NullDigest20", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.DSA$Raw$NullDigest20",
+		"java.security.MessageDigest",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.DSA"
+	};
+	$loadClass(DSA$Raw$NullDigest20, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DSA$Raw$NullDigest20);
+	});
 	return class$;
 }
 

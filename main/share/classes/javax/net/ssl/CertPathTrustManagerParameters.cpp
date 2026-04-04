@@ -1,5 +1,4 @@
 #include <javax/net/ssl/CertPathTrustManagerParameters.h>
-
 #include <java/security/cert/CertPathParameters.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $CertPathParameters = ::java::security::cert::CertPathParameters;
 namespace javax {
 	namespace net {
 		namespace ssl {
-
-$FieldInfo _CertPathTrustManagerParameters_FieldInfo_[] = {
-	{"parameters", "Ljava/security/cert/CertPathParameters;", nullptr, $PRIVATE | $FINAL, $field(CertPathTrustManagerParameters, parameters)},
-	{}
-};
-
-$MethodInfo _CertPathTrustManagerParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertPathParameters;)V", nullptr, $PUBLIC, $method(CertPathTrustManagerParameters, init$, void, $CertPathParameters*)},
-	{"getParameters", "()Ljava/security/cert/CertPathParameters;", nullptr, $PUBLIC, $virtualMethod(CertPathTrustManagerParameters, getParameters, $CertPathParameters*)},
-	{}
-};
-
-$ClassInfo _CertPathTrustManagerParameters_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.net.ssl.CertPathTrustManagerParameters",
-	"java.lang.Object",
-	"javax.net.ssl.ManagerFactoryParameters",
-	_CertPathTrustManagerParameters_FieldInfo_,
-	_CertPathTrustManagerParameters_MethodInfo_
-};
-
-$Object* allocate$CertPathTrustManagerParameters($Class* clazz) {
-	return $of($alloc(CertPathTrustManagerParameters));
-}
 
 void CertPathTrustManagerParameters::init$($CertPathParameters* parameters) {
 	$set(this, parameters, $cast($CertPathParameters, $nc(parameters)->clone()));
@@ -48,7 +23,26 @@ CertPathTrustManagerParameters::CertPathTrustManagerParameters() {
 }
 
 $Class* CertPathTrustManagerParameters::load$($String* name, bool initialize) {
-	$loadClass(CertPathTrustManagerParameters, name, initialize, &_CertPathTrustManagerParameters_ClassInfo_, allocate$CertPathTrustManagerParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"parameters", "Ljava/security/cert/CertPathParameters;", nullptr, $PRIVATE | $FINAL, $field(CertPathTrustManagerParameters, parameters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/cert/CertPathParameters;)V", nullptr, $PUBLIC, $method(CertPathTrustManagerParameters, init$, void, $CertPathParameters*)},
+		{"getParameters", "()Ljava/security/cert/CertPathParameters;", nullptr, $PUBLIC, $virtualMethod(CertPathTrustManagerParameters, getParameters, $CertPathParameters*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.net.ssl.CertPathTrustManagerParameters",
+		"java.lang.Object",
+		"javax.net.ssl.ManagerFactoryParameters",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertPathTrustManagerParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertPathTrustManagerParameters);
+	});
 	return class$;
 }
 

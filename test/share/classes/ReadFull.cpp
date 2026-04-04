@@ -1,5 +1,4 @@
 #include <ReadFull.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/nio/ByteBuffer.h>
@@ -15,30 +14,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
-$MethodInfo _ReadFull_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadFull, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadFull, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ReadFull_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ReadFull",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ReadFull_MethodInfo_
-};
-
-$Object* allocate$ReadFull($Class* clazz) {
-	return $of($alloc(ReadFull));
-}
-
 void ReadFull::init$() {
 }
 
 void ReadFull::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($ByteBufferArray, dstBuffers, $new($ByteBufferArray, 10));
@@ -61,7 +41,22 @@ ReadFull::ReadFull() {
 }
 
 $Class* ReadFull::load$($String* name, bool initialize) {
-	$loadClass(ReadFull, name, initialize, &_ReadFull_ClassInfo_, allocate$ReadFull);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReadFull, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadFull, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ReadFull",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReadFull, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReadFull);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/Streams$StreamBuilderImpl.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
@@ -18,7 +17,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
-using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $SpinedBuffer = ::java::util::stream::SpinedBuffer;
 using $Stream = ::java::util::stream::Stream;
@@ -29,55 +27,6 @@ using $Streams$AbstractStreamBuilderImpl = ::java::util::stream::Streams$Abstrac
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Streams$StreamBuilderImpl_FieldInfo_[] = {
-	{"first", "Ljava/lang/Object;", "TT;", 0, $field(Streams$StreamBuilderImpl, first)},
-	{"buffer", "Ljava/util/stream/SpinedBuffer;", "Ljava/util/stream/SpinedBuffer<TT;>;", 0, $field(Streams$StreamBuilderImpl, buffer)},
-	{}
-};
-
-$MethodInfo _Streams$StreamBuilderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(Streams$StreamBuilderImpl, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(Streams$StreamBuilderImpl, init$, void, Object$*)},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, accept, void, Object$*)},
-	{"add", "(Ljava/lang/Object;)Ljava/util/stream/Stream$Builder;", "(TT;)Ljava/util/stream/Stream$Builder<TT;>;", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, add, $Stream$Builder*, Object$*)},
-	{"build", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, build, $Stream*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, forEachRemaining, void, $Consumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, tryAdvance, bool, $Consumer*)},
-	{}
-};
-
-$InnerClassInfo _Streams$StreamBuilderImpl_InnerClassesInfo_[] = {
-	{"java.util.stream.Streams$StreamBuilderImpl", "java.util.stream.Streams", "StreamBuilderImpl", $STATIC | $FINAL},
-	{"java.util.stream.Streams$AbstractStreamBuilderImpl", "java.util.stream.Streams", "AbstractStreamBuilderImpl", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Stream$Builder", "java.util.stream.Stream", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Streams$StreamBuilderImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Streams$StreamBuilderImpl",
-	"java.util.stream.Streams$AbstractStreamBuilderImpl",
-	"java.util.stream.Stream$Builder",
-	_Streams$StreamBuilderImpl_FieldInfo_,
-	_Streams$StreamBuilderImpl_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/stream/Streams$AbstractStreamBuilderImpl<TT;Ljava/util/Spliterator<TT;>;>;Ljava/util/stream/Stream$Builder<TT;>;",
-	nullptr,
-	_Streams$StreamBuilderImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Streams"
-};
-
-$Object* allocate$Streams$StreamBuilderImpl($Class* clazz) {
-	return $of($alloc(Streams$StreamBuilderImpl));
-}
 
 int32_t Streams$StreamBuilderImpl::hashCode() {
 	 return this->$Streams$AbstractStreamBuilderImpl::hashCode();
@@ -116,7 +65,7 @@ void Streams$StreamBuilderImpl::accept(Object$* t) {
 	} else if (this->count > 0) {
 		if (this->buffer == nullptr) {
 			$set(this, buffer, $new($SpinedBuffer));
-			$nc(this->buffer)->accept(this->first);
+			this->buffer->accept(this->first);
 			++this->count;
 		}
 		$nc(this->buffer)->accept(t);
@@ -162,7 +111,50 @@ Streams$StreamBuilderImpl::Streams$StreamBuilderImpl() {
 }
 
 $Class* Streams$StreamBuilderImpl::load$($String* name, bool initialize) {
-	$loadClass(Streams$StreamBuilderImpl, name, initialize, &_Streams$StreamBuilderImpl_ClassInfo_, allocate$Streams$StreamBuilderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"first", "Ljava/lang/Object;", "TT;", 0, $field(Streams$StreamBuilderImpl, first)},
+		{"buffer", "Ljava/util/stream/SpinedBuffer;", "Ljava/util/stream/SpinedBuffer<TT;>;", 0, $field(Streams$StreamBuilderImpl, buffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(Streams$StreamBuilderImpl, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(Streams$StreamBuilderImpl, init$, void, Object$*)},
+		{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, accept, void, Object$*)},
+		{"add", "(Ljava/lang/Object;)Ljava/util/stream/Stream$Builder;", "(TT;)Ljava/util/stream/Stream$Builder<TT;>;", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, add, $Stream$Builder*, Object$*)},
+		{"build", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, build, $Stream*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, forEachRemaining, void, $Consumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, tryAdvance, bool, $Consumer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Streams$StreamBuilderImpl", "java.util.stream.Streams", "StreamBuilderImpl", $STATIC | $FINAL},
+		{"java.util.stream.Streams$AbstractStreamBuilderImpl", "java.util.stream.Streams", "AbstractStreamBuilderImpl", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Stream$Builder", "java.util.stream.Stream", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Streams$StreamBuilderImpl",
+		"java.util.stream.Streams$AbstractStreamBuilderImpl",
+		"java.util.stream.Stream$Builder",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/stream/Streams$AbstractStreamBuilderImpl<TT;Ljava/util/Spliterator<TT;>;>;Ljava/util/stream/Stream$Builder<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Streams"
+	};
+	$loadClass(Streams$StreamBuilderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Streams$StreamBuilderImpl));
+	});
 	return class$;
 }
 

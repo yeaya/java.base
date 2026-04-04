@@ -13,6 +13,7 @@ class $import HKSCSMapping : public ::java::lang::Object {
 	$class(HKSCSMapping, 0, ::java::lang::Object)
 public:
 	HKSCSMapping();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* b2cBmpStr;
 	static $StringArray* b2cSuppStr;

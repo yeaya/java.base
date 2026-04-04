@@ -1,9 +1,7 @@
 #include <java/time/ZoneId.h>
-
 #include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/Instant.h>
@@ -20,7 +18,6 @@
 #include <java/time/zone/ZoneRules.h>
 #include <java/time/zone/ZoneRulesException.h>
 #include <java/time/zone/ZoneRulesProvider.h>
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/Locale.h>
 #include <java/util/Map$Entry.h>
@@ -39,7 +36,6 @@ using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -53,7 +49,6 @@ using $Ser = ::java::time::Ser;
 using $ZoneId$1 = ::java::time::ZoneId$1;
 using $ZoneOffset = ::java::time::ZoneOffset;
 using $ZoneRegion = ::java::time::ZoneRegion;
-using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $TextStyle = ::java::time::format::TextStyle;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
@@ -61,7 +56,6 @@ using $TemporalQueries = ::java::time::temporal::TemporalQueries;
 using $ZoneRules = ::java::time::zone::ZoneRules;
 using $ZoneRulesException = ::java::time::zone::ZoneRulesException;
 using $ZoneRulesProvider = ::java::time::zone::ZoneRulesProvider;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
@@ -72,83 +66,24 @@ using $TimeZone = ::java::util::TimeZone;
 namespace java {
 	namespace time {
 
-$CompoundAttribute _ZoneId_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _ZoneId_FieldInfo_[] = {
-	{"SHORT_IDS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ZoneId, SHORT_IDS)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneId, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ZoneId_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ZoneId, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneId, equals, bool, Object$*)},
-	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, from, ZoneId*, $TemporalAccessor*)},
-	{"getAvailableZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ZoneId, getAvailableZoneIds, $Set*)},
-	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneId, getDisplayName, $String*, $TextStyle*, $Locale*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ZoneId, getId, $String*)},
-	{"getRules", "()Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ZoneId, getRules, $ZoneRules*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneId, hashCode, int32_t)},
-	{"normalized", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(ZoneId, normalized, ZoneId*)},
-	{"of", "(Ljava/lang/String;Ljava/util/Map;)Ljava/time/ZoneId;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/time/ZoneId;", $PUBLIC | $STATIC, $staticMethod(ZoneId, of, ZoneId*, $String*, $Map*)},
-	{"of", "(Ljava/lang/String;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, of, ZoneId*, $String*)},
-	{"of", "(Ljava/lang/String;Z)Ljava/time/ZoneId;", nullptr, $STATIC, $staticMethod(ZoneId, of, ZoneId*, $String*, bool)},
-	{"ofOffset", "(Ljava/lang/String;Ljava/time/ZoneOffset;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, ofOffset, ZoneId*, $String*, $ZoneOffset*)},
-	{"ofWithPrefix", "(Ljava/lang/String;IZ)Ljava/time/ZoneId;", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneId, ofWithPrefix, ZoneId*, $String*, int32_t, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneId, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"systemDefault", "()Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, systemDefault, ZoneId*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneId, toString, $String*)},
-	{"toTemporal", "()Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE, $method(ZoneId, toTemporal, $TemporalAccessor*)},
-	{"write", "(Ljava/io/DataOutput;)V", nullptr, $ABSTRACT, $virtualMethod(ZoneId, write, void, $DataOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ZoneId, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _ZoneId_InnerClassesInfo_[] = {
-	{"java.time.ZoneId$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ZoneId_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.time.ZoneId",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_ZoneId_FieldInfo_,
-	_ZoneId_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZoneId_InnerClassesInfo_,
-	_ZoneId_Annotations_,
-	nullptr,
-	"java.time.ZoneId$1"
-};
-
-$Object* allocate$ZoneId($Class* clazz) {
-	return $of($alloc(ZoneId));
-}
-
 $Map* ZoneId::SHORT_IDS = nullptr;
 
 ZoneId* ZoneId::systemDefault() {
 	$init(ZoneId);
-	return $nc($($TimeZone::getDefault()))->toZoneId();
+	return $$nc($TimeZone::getDefault())->toZoneId();
 }
 
 $Set* ZoneId::getAvailableZoneIds() {
 	$init(ZoneId);
-	return $new($HashSet, $(static_cast<$Collection*>($ZoneRulesProvider::getAvailableZoneIds())));
+	return $new($HashSet, $($ZoneRulesProvider::getAvailableZoneIds()));
 }
 
 ZoneId* ZoneId::of($String* zoneId, $Map* aliasMap) {
 	$init(ZoneId);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(zoneId), "zoneId"_s);
-	$Objects::requireNonNull($of(aliasMap), "aliasMap"_s);
-	$var($String, id, $cast($String, $Objects::requireNonNullElse($cast($String, $($nc(aliasMap)->get(zoneId))), zoneId)));
+	$useLocalObjectStack();
+	$Objects::requireNonNull(zoneId, "zoneId"_s);
+	$Objects::requireNonNull(aliasMap, "aliasMap"_s);
+	$var($String, id, $cast($String, $Objects::requireNonNullElse($$cast($String, $nc(aliasMap)->get(zoneId)), zoneId)));
 	return of(id);
 }
 
@@ -159,34 +94,34 @@ ZoneId* ZoneId::of($String* zoneId) {
 
 ZoneId* ZoneId::ofOffset($String* prefix$renamed, $ZoneOffset* offset) {
 	$init(ZoneId);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
-	$Objects::requireNonNull($of(prefix), "prefix"_s);
-	$Objects::requireNonNull($of(offset), "offset"_s);
+	$Objects::requireNonNull(prefix, "prefix"_s);
+	$Objects::requireNonNull(offset, "offset"_s);
 	if ($nc(prefix)->isEmpty()) {
 		return offset;
 	}
-	bool var$1 = !$nc(prefix)->equals("GMT"_s);
+	bool var$1 = !prefix->equals("GMT"_s);
 	bool var$0 = var$1 && !prefix->equals("UTC"_s);
 	if (var$0 && !prefix->equals("UT"_s)) {
 		$throwNew($IllegalArgumentException, $$str({"prefix should be GMT, UTC or UT, is: "_s, prefix}));
 	}
 	if ($nc(offset)->getTotalSeconds() != 0) {
-		$assign(prefix, $nc(prefix)->concat($(offset->getId())));
+		$assign(prefix, prefix->concat($(offset->getId())));
 	}
-	return $new($ZoneRegion, prefix, $($nc(offset)->getRules()));
+	return $new($ZoneRegion, prefix, $(offset->getRules()));
 }
 
 ZoneId* ZoneId::of($String* zoneId, bool checkAvailable) {
 	$init(ZoneId);
-	$Objects::requireNonNull($of(zoneId), "zoneId"_s);
+	$Objects::requireNonNull(zoneId, "zoneId"_s);
 	bool var$1 = $nc(zoneId)->length() <= 1;
-	bool var$0 = var$1 || $nc(zoneId)->startsWith("+"_s);
-	if (var$0 || $nc(zoneId)->startsWith("-"_s)) {
+	bool var$0 = var$1 || zoneId->startsWith("+"_s);
+	if (var$0 || zoneId->startsWith("-"_s)) {
 		return $ZoneOffset::of(zoneId);
 	} else {
-		bool var$3 = zoneId->startsWith("UTC"_s);
-		if (var$3 || zoneId->startsWith("GMT"_s)) {
+		bool var$2 = zoneId->startsWith("UTC"_s);
+		if (var$2 || zoneId->startsWith("GMT"_s)) {
 			return ofWithPrefix(zoneId, 3, checkAvailable);
 		} else if (zoneId->startsWith("UT"_s)) {
 			return ofWithPrefix(zoneId, 2, checkAvailable);
@@ -197,7 +132,7 @@ ZoneId* ZoneId::of($String* zoneId, bool checkAvailable) {
 
 ZoneId* ZoneId::ofWithPrefix($String* zoneId, int32_t prefixLength, bool checkAvailable) {
 	$init(ZoneId);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, $nc(zoneId)->substring(0, prefixLength));
 	if (zoneId->length() == prefixLength) {
 		$init($ZoneOffset);
@@ -221,11 +156,15 @@ ZoneId* ZoneId::ofWithPrefix($String* zoneId, int32_t prefixLength, bool checkAv
 
 ZoneId* ZoneId::from($TemporalAccessor* temporal) {
 	$init(ZoneId);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(ZoneId, obj, $cast(ZoneId, $nc(temporal)->query($($TemporalQueries::zone()))));
 	if (obj == nullptr) {
-		$var($String, var$0, $$str({"Unable to obtain ZoneId from TemporalAccessor: "_s, temporal, " of type "_s}));
-		$throwNew($DateTimeException, $$concat(var$0, $($of(temporal)->getClass()->getName())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unable to obtain ZoneId from TemporalAccessor: "_s);
+		var$0->append(temporal);
+		var$0->append(" of type "_s);
+		var$0->append($($of(temporal)->getClass()->getName()));
+		$throwNew($DateTimeException, $$str(var$0));
 	}
 	return obj;
 }
@@ -240,8 +179,8 @@ void ZoneId::init$() {
 }
 
 $String* ZoneId::getDisplayName($TextStyle* style, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($$new($DateTimeFormatterBuilder)->appendZoneText(style)))->toFormatter(locale)))->format($(toTemporal()));
+	$useLocalObjectStack();
+	return $$nc($$nc($$new($DateTimeFormatterBuilder)->appendZoneText(style))->toFormatter(locale))->format($(toTemporal()));
 }
 
 $TemporalAccessor* ZoneId::toTemporal() {
@@ -261,7 +200,7 @@ ZoneId* ZoneId::normalized() {
 }
 
 bool ZoneId::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -271,12 +210,12 @@ bool ZoneId::equals(Object$* obj) {
 		$assign(other, $cast(ZoneId, obj));
 		var$1 = true;
 	}
-	bool var$0 = (var$1);
-	return var$0 && $nc($(getId()))->equals($($nc(other)->getId()));
+	bool var$0 = var$1;
+	return var$0 && $$nc(getId())->equals($($nc(other)->getId()));
 }
 
 int32_t ZoneId::hashCode() {
-	return $nc($(getId()))->hashCode();
+	return $$nc(getId())->hashCode();
 }
 
 void ZoneId::readObject($ObjectInputStream* s) {
@@ -288,11 +227,11 @@ $String* ZoneId::toString() {
 }
 
 $Object* ZoneId::writeReplace() {
-	return $of($new($Ser, $Ser::ZONE_REGION_TYPE, this));
+	return $new($Ser, $Ser::ZONE_REGION_TYPE, this);
 }
 
-void clinit$ZoneId($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ZoneId::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ZoneId::SHORT_IDS, $Map::ofEntries($$new($Map$EntryArray, {
 		$($Map::entry("ACT"_s, "Australia/Darwin"_s)),
 		$($Map::entry("AET"_s, "Australia/Sydney"_s)),
@@ -329,7 +268,59 @@ ZoneId::ZoneId() {
 }
 
 $Class* ZoneId::load$($String* name, bool initialize) {
-	$loadClass(ZoneId, name, initialize, &_ZoneId_ClassInfo_, clinit$ZoneId, allocate$ZoneId);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHORT_IDS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ZoneId, SHORT_IDS)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneId, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ZoneId, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneId, equals, bool, Object$*)},
+		{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, from, ZoneId*, $TemporalAccessor*)},
+		{"getAvailableZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ZoneId, getAvailableZoneIds, $Set*)},
+		{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneId, getDisplayName, $String*, $TextStyle*, $Locale*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ZoneId, getId, $String*)},
+		{"getRules", "()Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ZoneId, getRules, $ZoneRules*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneId, hashCode, int32_t)},
+		{"normalized", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(ZoneId, normalized, ZoneId*)},
+		{"of", "(Ljava/lang/String;Ljava/util/Map;)Ljava/time/ZoneId;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/time/ZoneId;", $PUBLIC | $STATIC, $staticMethod(ZoneId, of, ZoneId*, $String*, $Map*)},
+		{"of", "(Ljava/lang/String;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, of, ZoneId*, $String*)},
+		{"of", "(Ljava/lang/String;Z)Ljava/time/ZoneId;", nullptr, $STATIC, $staticMethod(ZoneId, of, ZoneId*, $String*, bool)},
+		{"ofOffset", "(Ljava/lang/String;Ljava/time/ZoneOffset;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, ofOffset, ZoneId*, $String*, $ZoneOffset*)},
+		{"ofWithPrefix", "(Ljava/lang/String;IZ)Ljava/time/ZoneId;", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneId, ofWithPrefix, ZoneId*, $String*, int32_t, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneId, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"systemDefault", "()Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, systemDefault, ZoneId*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneId, toString, $String*)},
+		{"toTemporal", "()Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE, $method(ZoneId, toTemporal, $TemporalAccessor*)},
+		{"write", "(Ljava/io/DataOutput;)V", nullptr, $ABSTRACT, $virtualMethod(ZoneId, write, void, $DataOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ZoneId, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.ZoneId$1", nullptr, nullptr, 0},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.time.ZoneId",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.time.ZoneId$1"
+	};
+	$loadClass(ZoneId, name, initialize, &classInfo$$, ZoneId::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ZoneId);
+	});
 	return class$;
 }
 

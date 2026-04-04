@@ -1,5 +1,4 @@
 #include <sun/security/util/DisabledAlgorithmConstraints$Constraint.h>
-
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/Key.h>
 #include <sun/security/util/ConstraintsParameters.h>
@@ -18,48 +17,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _DisabledAlgorithmConstraints$Constraint_FieldInfo_[] = {
-	{"algorithm", "Ljava/lang/String;", nullptr, 0, $field(DisabledAlgorithmConstraints$Constraint, algorithm)},
-	{"nextConstraint", "Lsun/security/util/DisabledAlgorithmConstraints$Constraint;", nullptr, 0, $field(DisabledAlgorithmConstraints$Constraint, nextConstraint)},
-	{}
-};
-
-$MethodInfo _DisabledAlgorithmConstraints$Constraint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DisabledAlgorithmConstraints$Constraint, init$, void)},
-	{"next", "(Lsun/security/util/ConstraintsParameters;)Z", nullptr, 0, $virtualMethod(DisabledAlgorithmConstraints$Constraint, next, bool, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
-	{"next", "(Ljava/security/Key;)Z", nullptr, 0, $virtualMethod(DisabledAlgorithmConstraints$Constraint, next, bool, $Key*)},
-	{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$Constraint, permits, bool, $Key*)},
-	{"permits", "(Ljava/security/AlgorithmParameters;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$Constraint, permits, bool, $AlgorithmParameters*)},
-	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DisabledAlgorithmConstraints$Constraint, permits, void, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
-	{}
-};
-
-$InnerClassInfo _DisabledAlgorithmConstraints$Constraint_InnerClassesInfo_[] = {
-	{"sun.security.util.DisabledAlgorithmConstraints$Constraint", "sun.security.util.DisabledAlgorithmConstraints", "Constraint", $PRIVATE | $STATIC | $ABSTRACT},
-	{"sun.security.util.DisabledAlgorithmConstraints$Constraint$Operator", "sun.security.util.DisabledAlgorithmConstraints$Constraint", "Operator", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DisabledAlgorithmConstraints$Constraint_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.util.DisabledAlgorithmConstraints$Constraint",
-	"java.lang.Object",
-	nullptr,
-	_DisabledAlgorithmConstraints$Constraint_FieldInfo_,
-	_DisabledAlgorithmConstraints$Constraint_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DisabledAlgorithmConstraints$Constraint_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.DisabledAlgorithmConstraints"
-};
-
-$Object* allocate$DisabledAlgorithmConstraints$Constraint($Class* clazz) {
-	return $of($alloc(DisabledAlgorithmConstraints$Constraint));
-}
-
 void DisabledAlgorithmConstraints$Constraint::init$() {
 	$set(this, nextConstraint, nullptr);
 }
@@ -74,21 +31,57 @@ bool DisabledAlgorithmConstraints$Constraint::permits($AlgorithmParameters* para
 
 bool DisabledAlgorithmConstraints$Constraint::next($ConstraintsParameters* cp) {
 	if (this->nextConstraint != nullptr) {
-		$nc(this->nextConstraint)->permits(cp);
+		this->nextConstraint->permits(cp);
 		return true;
 	}
 	return false;
 }
 
 bool DisabledAlgorithmConstraints$Constraint::next($Key* key) {
-	return this->nextConstraint != nullptr && $nc(this->nextConstraint)->permits(key);
+	return this->nextConstraint != nullptr && this->nextConstraint->permits(key);
 }
 
 DisabledAlgorithmConstraints$Constraint::DisabledAlgorithmConstraints$Constraint() {
 }
 
 $Class* DisabledAlgorithmConstraints$Constraint::load$($String* name, bool initialize) {
-	$loadClass(DisabledAlgorithmConstraints$Constraint, name, initialize, &_DisabledAlgorithmConstraints$Constraint_ClassInfo_, allocate$DisabledAlgorithmConstraints$Constraint);
+	$FieldInfo fieldInfos$$[] = {
+		{"algorithm", "Ljava/lang/String;", nullptr, 0, $field(DisabledAlgorithmConstraints$Constraint, algorithm)},
+		{"nextConstraint", "Lsun/security/util/DisabledAlgorithmConstraints$Constraint;", nullptr, 0, $field(DisabledAlgorithmConstraints$Constraint, nextConstraint)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DisabledAlgorithmConstraints$Constraint, init$, void)},
+		{"next", "(Lsun/security/util/ConstraintsParameters;)Z", nullptr, 0, $virtualMethod(DisabledAlgorithmConstraints$Constraint, next, bool, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
+		{"next", "(Ljava/security/Key;)Z", nullptr, 0, $virtualMethod(DisabledAlgorithmConstraints$Constraint, next, bool, $Key*)},
+		{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$Constraint, permits, bool, $Key*)},
+		{"permits", "(Ljava/security/AlgorithmParameters;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$Constraint, permits, bool, $AlgorithmParameters*)},
+		{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DisabledAlgorithmConstraints$Constraint, permits, void, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.DisabledAlgorithmConstraints$Constraint", "sun.security.util.DisabledAlgorithmConstraints", "Constraint", $PRIVATE | $STATIC | $ABSTRACT},
+		{"sun.security.util.DisabledAlgorithmConstraints$Constraint$Operator", "sun.security.util.DisabledAlgorithmConstraints$Constraint", "Operator", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.util.DisabledAlgorithmConstraints$Constraint",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.DisabledAlgorithmConstraints"
+	};
+	$loadClass(DisabledAlgorithmConstraints$Constraint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DisabledAlgorithmConstraints$Constraint);
+	});
 	return class$;
 }
 

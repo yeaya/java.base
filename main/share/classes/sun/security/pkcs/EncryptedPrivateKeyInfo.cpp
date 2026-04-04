@@ -1,5 +1,4 @@
 #include <sun/security/pkcs/EncryptedPrivateKeyInfo.h>
-
 #include <java/io/IOException.h>
 #include <sun/security/util/DerInputStream.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -13,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AlgorithmId = ::sun::security::x509::AlgorithmId;
@@ -22,55 +20,24 @@ namespace sun {
 	namespace security {
 		namespace pkcs {
 
-$FieldInfo _EncryptedPrivateKeyInfo_FieldInfo_[] = {
-	{"algid", "Lsun/security/x509/AlgorithmId;", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, algid)},
-	{"encryptedData", "[B", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, encryptedData)},
-	{"encoded", "[B", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, encoded)},
-	{}
-};
-
-$MethodInfo _EncryptedPrivateKeyInfo_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $bytes*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/x509/AlgorithmId;[B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $AlgorithmId*, $bytes*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, equals, bool, Object$*)},
-	{"getAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getAlgorithm, $AlgorithmId*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncoded, $bytes*), "java.io.IOException"},
-	{"getEncryptedData", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncryptedData, $bytes*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _EncryptedPrivateKeyInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.pkcs.EncryptedPrivateKeyInfo",
-	"java.lang.Object",
-	nullptr,
-	_EncryptedPrivateKeyInfo_FieldInfo_,
-	_EncryptedPrivateKeyInfo_MethodInfo_
-};
-
-$Object* allocate$EncryptedPrivateKeyInfo($Class* clazz) {
-	return $of($alloc(EncryptedPrivateKeyInfo));
-}
-
 void EncryptedPrivateKeyInfo::init$($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (encoded == nullptr) {
 		$throwNew($IllegalArgumentException, "encoding must not be null"_s);
 	}
 	$var($DerValue, val, $new($DerValue, encoded));
 	$var($DerValueArray, seq, $new($DerValueArray, 2));
 	seq->set(0, $($nc(val->data$)->getDerValue()));
-	seq->set(1, $($nc(val->data$)->getDerValue()));
-	if ($nc(val->data$)->available() != 0) {
-		$throwNew($IOException, $$str({"overrun, bytes = "_s, $$str($nc(val->data$)->available())}));
+	seq->set(1, $(val->data$->getDerValue()));
+	if (val->data$->available() != 0) {
+		$throwNew($IOException, $$str({"overrun, bytes = "_s, $$str(val->data$->available())}));
 	}
 	$set(this, algid, $AlgorithmId::parse(seq->get(0)));
 	if ($nc($nc(seq->get(0))->data$)->available() != 0) {
 		$throwNew($IOException, "encryptionAlgorithm field overrun"_s);
 	}
 	$set(this, encryptedData, $nc(seq->get(1))->getOctetString());
-	if ($nc($nc(seq->get(1))->data$)->available() != 0) {
+	if ($nc(seq->get(1))->data$->available() != 0) {
 		$throwNew($IOException, "encryptedData field overrun"_s);
 	}
 	$set(this, encoded, $cast($bytes, $nc(encoded)->clone()));
@@ -90,9 +57,9 @@ $bytes* EncryptedPrivateKeyInfo::getEncryptedData() {
 }
 
 $bytes* EncryptedPrivateKeyInfo::getEncoded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->encoded != nullptr) {
-		return $cast($bytes, $nc(this->encoded)->clone());
+		return $cast($bytes, this->encoded->clone());
 	}
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -104,7 +71,7 @@ $bytes* EncryptedPrivateKeyInfo::getEncoded() {
 }
 
 bool EncryptedPrivateKeyInfo::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -113,12 +80,12 @@ bool EncryptedPrivateKeyInfo::equals(Object$* other) {
 	}
 	try {
 		$var($bytes, thisEncrInfo, this->getEncoded());
-		$var($bytes, otherEncrInfo, $nc(($cast(EncryptedPrivateKeyInfo, other)))->getEncoded());
+		$var($bytes, otherEncrInfo, $nc($cast(EncryptedPrivateKeyInfo, other))->getEncoded());
 		if ($nc(thisEncrInfo)->length != $nc(otherEncrInfo)->length) {
 			return false;
 		}
-		for (int32_t i = 0; i < $nc(thisEncrInfo)->length; ++i) {
-			if (thisEncrInfo->get(i) != $nc(otherEncrInfo)->get(i)) {
+		for (int32_t i = 0; i < thisEncrInfo->length; ++i) {
+			if (thisEncrInfo->get(i) != otherEncrInfo->get(i)) {
 				return false;
 			}
 		}
@@ -132,7 +99,7 @@ bool EncryptedPrivateKeyInfo::equals(Object$* other) {
 int32_t EncryptedPrivateKeyInfo::hashCode() {
 	int32_t retval = 0;
 	for (int32_t i = 0; i < $nc(this->encryptedData)->length; ++i) {
-		retval += $nc(this->encryptedData)->get(i) * i;
+		retval += this->encryptedData->get(i) * i;
 	}
 	return retval;
 }
@@ -141,7 +108,33 @@ EncryptedPrivateKeyInfo::EncryptedPrivateKeyInfo() {
 }
 
 $Class* EncryptedPrivateKeyInfo::load$($String* name, bool initialize) {
-	$loadClass(EncryptedPrivateKeyInfo, name, initialize, &_EncryptedPrivateKeyInfo_ClassInfo_, allocate$EncryptedPrivateKeyInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"algid", "Lsun/security/x509/AlgorithmId;", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, algid)},
+		{"encryptedData", "[B", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, encryptedData)},
+		{"encoded", "[B", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, encoded)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $bytes*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/x509/AlgorithmId;[B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $AlgorithmId*, $bytes*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, equals, bool, Object$*)},
+		{"getAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getAlgorithm, $AlgorithmId*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncoded, $bytes*), "java.io.IOException"},
+		{"getEncryptedData", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncryptedData, $bytes*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.pkcs.EncryptedPrivateKeyInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EncryptedPrivateKeyInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EncryptedPrivateKeyInfo);
+	});
 	return class$;
 }
 

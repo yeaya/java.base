@@ -1,5 +1,4 @@
 #include <sun/nio/ch/IOStatus.h>
-
 #include <jcpp.h>
 
 #undef EOF
@@ -16,40 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _IOStatus_FieldInfo_[] = {
-	{"EOF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, EOF)},
-	{"UNAVAILABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, UNAVAILABLE)},
-	{"INTERRUPTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, INTERRUPTED)},
-	{"UNSUPPORTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, UNSUPPORTED)},
-	{"THROWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, THROWN)},
-	{"UNSUPPORTED_CASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, UNSUPPORTED_CASE)},
-	{}
-};
-
-$MethodInfo _IOStatus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(IOStatus, init$, void)},
-	{"check", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, check, bool, int32_t)},
-	{"check", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, check, bool, int64_t)},
-	{"checkAll", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, checkAll, bool, int64_t)},
-	{"normalize", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, normalize, int32_t, int32_t)},
-	{"normalize", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, normalize, int64_t, int64_t)},
-	{"okayToRetry", "(J)Z", nullptr, $STATIC, $staticMethod(IOStatus, okayToRetry, bool, int64_t)},
-	{}
-};
-
-$ClassInfo _IOStatus_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.nio.ch.IOStatus",
-	"java.lang.Object",
-	nullptr,
-	_IOStatus_FieldInfo_,
-	_IOStatus_MethodInfo_
-};
-
-$Object* allocate$IOStatus($Class* clazz) {
-	return $of($alloc(IOStatus));
-}
 
 void IOStatus::init$() {
 }
@@ -88,7 +53,36 @@ IOStatus::IOStatus() {
 }
 
 $Class* IOStatus::load$($String* name, bool initialize) {
-	$loadClass(IOStatus, name, initialize, &_IOStatus_ClassInfo_, allocate$IOStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"EOF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, EOF)},
+		{"UNAVAILABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, UNAVAILABLE)},
+		{"INTERRUPTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, INTERRUPTED)},
+		{"UNSUPPORTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, UNSUPPORTED)},
+		{"THROWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, THROWN)},
+		{"UNSUPPORTED_CASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IOStatus, UNSUPPORTED_CASE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(IOStatus, init$, void)},
+		{"check", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, check, bool, int32_t)},
+		{"check", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, check, bool, int64_t)},
+		{"checkAll", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, checkAll, bool, int64_t)},
+		{"normalize", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, normalize, int32_t, int32_t)},
+		{"normalize", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, normalize, int64_t, int64_t)},
+		{"okayToRetry", "(J)Z", nullptr, $STATIC, $staticMethod(IOStatus, okayToRetry, bool, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.nio.ch.IOStatus",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IOStatus, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IOStatus);
+	});
 	return class$;
 }
 

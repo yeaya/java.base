@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/CharSignature.h>
-
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace tree {
-
-$FieldInfo _CharSignature_FieldInfo_[] = {
-	{"singleton", "Lsun/reflect/generics/tree/CharSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CharSignature, singleton)},
-	{}
-};
-
-$MethodInfo _CharSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CharSignature, init$, void)},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(CharSignature, accept, void, $TypeTreeVisitor*)},
-	{"make", "()Lsun/reflect/generics/tree/CharSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(CharSignature, make, CharSignature*)},
-	{}
-};
-
-$ClassInfo _CharSignature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.tree.CharSignature",
-	"java.lang.Object",
-	"sun.reflect.generics.tree.BaseType",
-	_CharSignature_FieldInfo_,
-	_CharSignature_MethodInfo_
-};
-
-$Object* allocate$CharSignature($Class* clazz) {
-	return $of($alloc(CharSignature));
-}
 
 CharSignature* CharSignature::singleton = nullptr;
 
@@ -52,7 +26,7 @@ void CharSignature::accept($TypeTreeVisitor* v) {
 	$nc(v)->visitCharSignature(this);
 }
 
-void clinit$CharSignature($Class* class$) {
+void CharSignature::clinit$($Class* clazz) {
 	$assignStatic(CharSignature::singleton, $new(CharSignature));
 }
 
@@ -60,7 +34,27 @@ CharSignature::CharSignature() {
 }
 
 $Class* CharSignature::load$($String* name, bool initialize) {
-	$loadClass(CharSignature, name, initialize, &_CharSignature_ClassInfo_, clinit$CharSignature, allocate$CharSignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"singleton", "Lsun/reflect/generics/tree/CharSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CharSignature, singleton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CharSignature, init$, void)},
+		{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(CharSignature, accept, void, $TypeTreeVisitor*)},
+		{"make", "()Lsun/reflect/generics/tree/CharSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(CharSignature, make, CharSignature*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.tree.CharSignature",
+		"java.lang.Object",
+		"sun.reflect.generics.tree.BaseType",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharSignature, name, initialize, &classInfo$$, CharSignature::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CharSignature);
+	});
 	return class$;
 }
 

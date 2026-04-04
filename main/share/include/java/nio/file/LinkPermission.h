@@ -16,7 +16,7 @@ public:
 	void init$($String* name);
 	void init$($String* name, $String* actions);
 	void checkName($String* name);
-	static const int64_t serialVersionUID = (int64_t)0xEBFECA402A80441C;
+	static const int64_t serialVersionUID = (int64_t)0xebfeca402a80441c;
 };
 
 		} // file

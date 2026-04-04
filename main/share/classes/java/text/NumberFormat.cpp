@@ -1,5 +1,4 @@
 #include <java/text/NumberFormat.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -77,115 +76,13 @@ using $LocaleServiceProviderPool = ::sun::util::locale::provider::LocaleServiceP
 namespace java {
 	namespace text {
 
-$FieldInfo _NumberFormat_FieldInfo_[] = {
-	{"INTEGER_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumberFormat, INTEGER_FIELD)},
-	{"FRACTION_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumberFormat, FRACTION_FIELD)},
-	{"NUMBERSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, NUMBERSTYLE)},
-	{"CURRENCYSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, CURRENCYSTYLE)},
-	{"PERCENTSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, PERCENTSTYLE)},
-	{"SCIENTIFICSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, SCIENTIFICSTYLE)},
-	{"INTEGERSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, INTEGERSTYLE)},
-	{"COMPACTSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, COMPACTSTYLE)},
-	{"groupingUsed", "Z", nullptr, $PRIVATE, $field(NumberFormat, groupingUsed)},
-	{"maxIntegerDigits", "B", nullptr, $PRIVATE, $field(NumberFormat, maxIntegerDigits)},
-	{"minIntegerDigits", "B", nullptr, $PRIVATE, $field(NumberFormat, minIntegerDigits)},
-	{"maxFractionDigits", "B", nullptr, $PRIVATE, $field(NumberFormat, maxFractionDigits)},
-	{"minFractionDigits", "B", nullptr, $PRIVATE, $field(NumberFormat, minFractionDigits)},
-	{"parseIntegerOnly", "Z", nullptr, $PRIVATE, $field(NumberFormat, parseIntegerOnly)},
-	{"maximumIntegerDigits", "I", nullptr, $PRIVATE, $field(NumberFormat, maximumIntegerDigits)},
-	{"minimumIntegerDigits", "I", nullptr, $PRIVATE, $field(NumberFormat, minimumIntegerDigits)},
-	{"maximumFractionDigits", "I", nullptr, $PRIVATE, $field(NumberFormat, maximumFractionDigits)},
-	{"minimumFractionDigits", "I", nullptr, $PRIVATE, $field(NumberFormat, minimumFractionDigits)},
-	{"currentSerialVersion", "I", nullptr, $STATIC | $FINAL, $constField(NumberFormat, currentSerialVersion)},
-	{"serialVersionOnStream", "I", nullptr, $PRIVATE, $field(NumberFormat, serialVersionOnStream)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NumberFormat, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NumberFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(NumberFormat, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NumberFormat, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NumberFormat, equals, bool, Object$*)},
-	{"fastFormat", "(D)Ljava/lang/String;", nullptr, 0, $virtualMethod(NumberFormat, fastFormat, $String*, double)},
-	{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(NumberFormat, format, $StringBuffer*, Object$*, $StringBuffer*, $FieldPosition*)},
-	{"format", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(NumberFormat, format, $String*, double)},
-	{"format", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(NumberFormat, format, $String*, int64_t)},
-	{"format", "(DLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormat, format, $StringBuffer*, double, $StringBuffer*, $FieldPosition*)},
-	{"format", "(JLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormat, format, $StringBuffer*, int64_t, $StringBuffer*, $FieldPosition*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getAvailableLocales, $LocaleArray*)},
-	{"getCompactNumberInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getCompactNumberInstance, NumberFormat*)},
-	{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getCompactNumberInstance, NumberFormat*, $Locale*, $NumberFormat$Style*)},
-	{"getCurrency", "()Ljava/util/Currency;", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getCurrency, $Currency*)},
-	{"getCurrencyInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(NumberFormat, getCurrencyInstance, NumberFormat*)},
-	{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getCurrencyInstance, NumberFormat*, $Locale*)},
-	{"getInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(NumberFormat, getInstance, NumberFormat*)},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getInstance, NumberFormat*, $Locale*)},
-	{"getInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;I)Ljava/text/NumberFormat;", nullptr, $PRIVATE | $STATIC, $staticMethod(NumberFormat, getInstance, NumberFormat*, $Locale*, $NumberFormat$Style*, int32_t)},
-	{"getInstance", "(Lsun/util/locale/provider/LocaleProviderAdapter;Ljava/util/Locale;Ljava/text/NumberFormat$Style;I)Ljava/text/NumberFormat;", nullptr, $PRIVATE | $STATIC, $staticMethod(NumberFormat, getInstance, NumberFormat*, $LocaleProviderAdapter*, $Locale*, $NumberFormat$Style*, int32_t)},
-	{"getIntegerInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(NumberFormat, getIntegerInstance, NumberFormat*)},
-	{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getIntegerInstance, NumberFormat*, $Locale*)},
-	{"getMaximumFractionDigits", "()I", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getMaximumFractionDigits, int32_t)},
-	{"getMaximumIntegerDigits", "()I", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getMaximumIntegerDigits, int32_t)},
-	{"getMinimumFractionDigits", "()I", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getMinimumFractionDigits, int32_t)},
-	{"getMinimumIntegerDigits", "()I", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getMinimumIntegerDigits, int32_t)},
-	{"getNumberInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(NumberFormat, getNumberInstance, NumberFormat*)},
-	{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getNumberInstance, NumberFormat*, $Locale*)},
-	{"getPercentInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(NumberFormat, getPercentInstance, NumberFormat*)},
-	{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getPercentInstance, NumberFormat*, $Locale*)},
-	{"getRoundingMode", "()Ljava/math/RoundingMode;", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getRoundingMode, $RoundingMode*)},
-	{"getScientificInstance", "()Ljava/text/NumberFormat;", nullptr, $STATIC | $FINAL, $staticMethod(NumberFormat, getScientificInstance, NumberFormat*)},
-	{"getScientificInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $STATIC, $staticMethod(NumberFormat, getScientificInstance, NumberFormat*, $Locale*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NumberFormat, hashCode, int32_t)},
-	{"isGroupingUsed", "()Z", nullptr, $PUBLIC, $virtualMethod(NumberFormat, isGroupingUsed, bool)},
-	{"isParseIntegerOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(NumberFormat, isParseIntegerOnly, bool)},
-	{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormat, parse, $Number*, $String*, $ParsePosition*)},
-	{"parse", "(Ljava/lang/String;)Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(NumberFormat, parse, $Number*, $String*), "java.text.ParseException"},
-	{"parseObject", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(NumberFormat, parseObject, $Object*, $String*, $ParsePosition*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(NumberFormat, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setCurrency", "(Ljava/util/Currency;)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setCurrency, void, $Currency*)},
-	{"setGroupingUsed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setGroupingUsed, void, bool)},
-	{"setMaximumFractionDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setMaximumFractionDigits, void, int32_t)},
-	{"setMaximumIntegerDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setMaximumIntegerDigits, void, int32_t)},
-	{"setMinimumFractionDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setMinimumFractionDigits, void, int32_t)},
-	{"setMinimumIntegerDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setMinimumIntegerDigits, void, int32_t)},
-	{"setParseIntegerOnly", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setParseIntegerOnly, void, bool)},
-	{"setRoundingMode", "(Ljava/math/RoundingMode;)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setRoundingMode, void, $RoundingMode*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(NumberFormat, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _NumberFormat_InnerClassesInfo_[] = {
-	{"java.text.NumberFormat$Style", "java.text.NumberFormat", "Style", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.text.NumberFormat$Field", "java.text.NumberFormat", "Field", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _NumberFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.text.NumberFormat",
-	"java.text.Format",
-	nullptr,
-	_NumberFormat_FieldInfo_,
-	_NumberFormat_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NumberFormat_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.text.NumberFormat$Style,java.text.NumberFormat$Field"
-};
-
-$Object* allocate$NumberFormat($Class* clazz) {
-	return $of($alloc(NumberFormat));
-}
-
 void NumberFormat::init$() {
 	$Format::init$();
 	this->groupingUsed = true;
-	this->maxIntegerDigits = (int8_t)40;
-	this->minIntegerDigits = (int8_t)1;
-	this->maxFractionDigits = (int8_t)3;
-	this->minFractionDigits = (int8_t)0;
+	this->maxIntegerDigits = 40;
+	this->minIntegerDigits = 1;
+	this->maxFractionDigits = 3;
+	this->minFractionDigits = 0;
 	this->parseIntegerOnly = false;
 	this->maximumIntegerDigits = 40;
 	this->minimumIntegerDigits = 1;
@@ -195,27 +92,27 @@ void NumberFormat::init$() {
 }
 
 $StringBuffer* NumberFormat::format(Object$* number, $StringBuffer* toAppendTo, $FieldPosition* pos) {
-	if ($instanceOf($Long, number) || $instanceOf($Integer, number) || $instanceOf($Short, number) || $instanceOf($Byte, number) || $instanceOf($AtomicInteger, number) || $instanceOf($AtomicLong, number) || ($instanceOf($BigInteger, number) && $nc(($cast($BigInteger, number)))->bitLength() < 64)) {
-		return format($nc(($cast($Number, number)))->longValue(), toAppendTo, pos);
+	if ($instanceOf($Long, number) || $instanceOf($Integer, number) || $instanceOf($Short, number) || $instanceOf($Byte, number) || $instanceOf($AtomicInteger, number) || $instanceOf($AtomicLong, number) || ($instanceOf($BigInteger, number) && $cast($BigInteger, number)->bitLength() < 64)) {
+		return format($nc($cast($Number, number))->longValue(), toAppendTo, pos);
 	} else if ($instanceOf($Number, number)) {
-		return format($nc(($cast($Number, number)))->doubleValue(), toAppendTo, pos);
+		return format($cast($Number, number)->doubleValue(), toAppendTo, pos);
 	} else {
 		$throwNew($IllegalArgumentException, "Cannot format given Object as a Number"_s);
 	}
 }
 
 $Object* NumberFormat::parseObject($String* source, $ParsePosition* pos) {
-	return $of(parse(source, pos));
+	return parse(source, pos);
 }
 
 $String* NumberFormat::format(double number) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, fastFormat(number));
 	if (result != nullptr) {
 		return result;
 	}
 	$init($DontCareFieldPosition);
-	return $nc($(format(number, $$new($StringBuffer), $DontCareFieldPosition::INSTANCE)))->toString();
+	return $$nc(format(number, $$new($StringBuffer), $DontCareFieldPosition::INSTANCE))->toString();
 }
 
 $String* NumberFormat::fastFormat(double number) {
@@ -223,13 +120,13 @@ $String* NumberFormat::fastFormat(double number) {
 }
 
 $String* NumberFormat::format(int64_t number) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DontCareFieldPosition);
-	return $nc($(format(number, $$new($StringBuffer), $DontCareFieldPosition::INSTANCE)))->toString();
+	return $$nc(format(number, $$new($StringBuffer), $DontCareFieldPosition::INSTANCE))->toString();
 }
 
 $Number* NumberFormat::parse($String* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ParsePosition, parsePosition, $new($ParsePosition, 0));
 	$var($Number, result, parse(source, parsePosition));
 	if (parsePosition->index == 0) {
@@ -348,7 +245,7 @@ bool NumberFormat::equals(Object$* obj) {
 		return false;
 	}
 	$var(NumberFormat, other, $cast(NumberFormat, obj));
-	return (this->maximumIntegerDigits == $nc(other)->maximumIntegerDigits && this->minimumIntegerDigits == other->minimumIntegerDigits && this->maximumFractionDigits == other->maximumFractionDigits && this->minimumFractionDigits == other->minimumFractionDigits && this->groupingUsed == other->groupingUsed && this->parseIntegerOnly == other->parseIntegerOnly);
+	return (this->maximumIntegerDigits == other->maximumIntegerDigits && this->minimumIntegerDigits == other->minimumIntegerDigits && this->maximumFractionDigits == other->maximumFractionDigits && this->minimumFractionDigits == other->minimumFractionDigits && this->groupingUsed == other->groupingUsed && this->parseIntegerOnly == other->parseIntegerOnly);
 }
 
 $Object* NumberFormat::clone() {
@@ -428,7 +325,7 @@ void NumberFormat::setRoundingMode($RoundingMode* roundingMode) {
 
 NumberFormat* NumberFormat::getInstance($Locale* desiredLocale, $NumberFormat$Style* formatStyle, int32_t choice) {
 	$init(NumberFormat);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocaleProviderAdapter, adapter, nullptr);
 	$load($NumberFormatProvider);
 	$assign(adapter, $LocaleProviderAdapter::getAdapter($NumberFormatProvider::class$, desiredLocale));
@@ -441,41 +338,28 @@ NumberFormat* NumberFormat::getInstance($Locale* desiredLocale, $NumberFormat$St
 
 NumberFormat* NumberFormat::getInstance($LocaleProviderAdapter* adapter, $Locale* locale, $NumberFormat$Style* formatStyle, int32_t choice) {
 	$init(NumberFormat);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NumberFormatProvider, provider, $nc(adapter)->getNumberFormatProvider());
-
-	$var(NumberFormat, var$0, nullptr)
+	$var(NumberFormat, var$0, nullptr);
 	switch (choice) {
 	case NumberFormat::NUMBERSTYLE:
-		{
-			$assign(var$0, $nc(provider)->getNumberInstance(locale));
-			break;
-		}
+		$assign(var$0, $nc(provider)->getNumberInstance(locale));
+		break;
 	case NumberFormat::PERCENTSTYLE:
-		{
-			$assign(var$0, $nc(provider)->getPercentInstance(locale));
-			break;
-		}
+		$assign(var$0, $nc(provider)->getPercentInstance(locale));
+		break;
 	case NumberFormat::CURRENCYSTYLE:
-		{
-			$assign(var$0, $nc(provider)->getCurrencyInstance(locale));
-			break;
-		}
+		$assign(var$0, $nc(provider)->getCurrencyInstance(locale));
+		break;
 	case NumberFormat::INTEGERSTYLE:
-		{
-			$assign(var$0, $nc(provider)->getIntegerInstance(locale));
-			break;
-		}
+		$assign(var$0, $nc(provider)->getIntegerInstance(locale));
+		break;
 	case NumberFormat::COMPACTSTYLE:
-		{
-			$assign(var$0, $nc(provider)->getCompactNumberInstance(locale, formatStyle));
-			break;
-		}
+		$assign(var$0, $nc(provider)->getCompactNumberInstance(locale, formatStyle));
+		break;
 	default:
-		{
-			$assign(var$0, nullptr);
-			break;
-		}
+		$assign(var$0, nullptr);
+		break;
 	}
 	return var$0;
 }
@@ -506,7 +390,103 @@ NumberFormat::NumberFormat() {
 }
 
 $Class* NumberFormat::load$($String* name, bool initialize) {
-	$loadClass(NumberFormat, name, initialize, &_NumberFormat_ClassInfo_, allocate$NumberFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"INTEGER_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumberFormat, INTEGER_FIELD)},
+		{"FRACTION_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NumberFormat, FRACTION_FIELD)},
+		{"NUMBERSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, NUMBERSTYLE)},
+		{"CURRENCYSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, CURRENCYSTYLE)},
+		{"PERCENTSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, PERCENTSTYLE)},
+		{"SCIENTIFICSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, SCIENTIFICSTYLE)},
+		{"INTEGERSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, INTEGERSTYLE)},
+		{"COMPACTSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormat, COMPACTSTYLE)},
+		{"groupingUsed", "Z", nullptr, $PRIVATE, $field(NumberFormat, groupingUsed)},
+		{"maxIntegerDigits", "B", nullptr, $PRIVATE, $field(NumberFormat, maxIntegerDigits)},
+		{"minIntegerDigits", "B", nullptr, $PRIVATE, $field(NumberFormat, minIntegerDigits)},
+		{"maxFractionDigits", "B", nullptr, $PRIVATE, $field(NumberFormat, maxFractionDigits)},
+		{"minFractionDigits", "B", nullptr, $PRIVATE, $field(NumberFormat, minFractionDigits)},
+		{"parseIntegerOnly", "Z", nullptr, $PRIVATE, $field(NumberFormat, parseIntegerOnly)},
+		{"maximumIntegerDigits", "I", nullptr, $PRIVATE, $field(NumberFormat, maximumIntegerDigits)},
+		{"minimumIntegerDigits", "I", nullptr, $PRIVATE, $field(NumberFormat, minimumIntegerDigits)},
+		{"maximumFractionDigits", "I", nullptr, $PRIVATE, $field(NumberFormat, maximumFractionDigits)},
+		{"minimumFractionDigits", "I", nullptr, $PRIVATE, $field(NumberFormat, minimumFractionDigits)},
+		{"currentSerialVersion", "I", nullptr, $STATIC | $FINAL, $constField(NumberFormat, currentSerialVersion)},
+		{"serialVersionOnStream", "I", nullptr, $PRIVATE, $field(NumberFormat, serialVersionOnStream)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NumberFormat, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(NumberFormat, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NumberFormat, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NumberFormat, equals, bool, Object$*)},
+		{"fastFormat", "(D)Ljava/lang/String;", nullptr, 0, $virtualMethod(NumberFormat, fastFormat, $String*, double)},
+		{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(NumberFormat, format, $StringBuffer*, Object$*, $StringBuffer*, $FieldPosition*)},
+		{"format", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(NumberFormat, format, $String*, double)},
+		{"format", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(NumberFormat, format, $String*, int64_t)},
+		{"format", "(DLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormat, format, $StringBuffer*, double, $StringBuffer*, $FieldPosition*)},
+		{"format", "(JLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormat, format, $StringBuffer*, int64_t, $StringBuffer*, $FieldPosition*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getAvailableLocales, $LocaleArray*)},
+		{"getCompactNumberInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getCompactNumberInstance, NumberFormat*)},
+		{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getCompactNumberInstance, NumberFormat*, $Locale*, $NumberFormat$Style*)},
+		{"getCurrency", "()Ljava/util/Currency;", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getCurrency, $Currency*)},
+		{"getCurrencyInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(NumberFormat, getCurrencyInstance, NumberFormat*)},
+		{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getCurrencyInstance, NumberFormat*, $Locale*)},
+		{"getInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(NumberFormat, getInstance, NumberFormat*)},
+		{"getInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getInstance, NumberFormat*, $Locale*)},
+		{"getInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;I)Ljava/text/NumberFormat;", nullptr, $PRIVATE | $STATIC, $staticMethod(NumberFormat, getInstance, NumberFormat*, $Locale*, $NumberFormat$Style*, int32_t)},
+		{"getInstance", "(Lsun/util/locale/provider/LocaleProviderAdapter;Ljava/util/Locale;Ljava/text/NumberFormat$Style;I)Ljava/text/NumberFormat;", nullptr, $PRIVATE | $STATIC, $staticMethod(NumberFormat, getInstance, NumberFormat*, $LocaleProviderAdapter*, $Locale*, $NumberFormat$Style*, int32_t)},
+		{"getIntegerInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(NumberFormat, getIntegerInstance, NumberFormat*)},
+		{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getIntegerInstance, NumberFormat*, $Locale*)},
+		{"getMaximumFractionDigits", "()I", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getMaximumFractionDigits, int32_t)},
+		{"getMaximumIntegerDigits", "()I", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getMaximumIntegerDigits, int32_t)},
+		{"getMinimumFractionDigits", "()I", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getMinimumFractionDigits, int32_t)},
+		{"getMinimumIntegerDigits", "()I", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getMinimumIntegerDigits, int32_t)},
+		{"getNumberInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(NumberFormat, getNumberInstance, NumberFormat*)},
+		{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getNumberInstance, NumberFormat*, $Locale*)},
+		{"getPercentInstance", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(NumberFormat, getPercentInstance, NumberFormat*)},
+		{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat, getPercentInstance, NumberFormat*, $Locale*)},
+		{"getRoundingMode", "()Ljava/math/RoundingMode;", nullptr, $PUBLIC, $virtualMethod(NumberFormat, getRoundingMode, $RoundingMode*)},
+		{"getScientificInstance", "()Ljava/text/NumberFormat;", nullptr, $STATIC | $FINAL, $staticMethod(NumberFormat, getScientificInstance, NumberFormat*)},
+		{"getScientificInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $STATIC, $staticMethod(NumberFormat, getScientificInstance, NumberFormat*, $Locale*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NumberFormat, hashCode, int32_t)},
+		{"isGroupingUsed", "()Z", nullptr, $PUBLIC, $virtualMethod(NumberFormat, isGroupingUsed, bool)},
+		{"isParseIntegerOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(NumberFormat, isParseIntegerOnly, bool)},
+		{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormat, parse, $Number*, $String*, $ParsePosition*)},
+		{"parse", "(Ljava/lang/String;)Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(NumberFormat, parse, $Number*, $String*), "java.text.ParseException"},
+		{"parseObject", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(NumberFormat, parseObject, $Object*, $String*, $ParsePosition*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(NumberFormat, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setCurrency", "(Ljava/util/Currency;)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setCurrency, void, $Currency*)},
+		{"setGroupingUsed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setGroupingUsed, void, bool)},
+		{"setMaximumFractionDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setMaximumFractionDigits, void, int32_t)},
+		{"setMaximumIntegerDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setMaximumIntegerDigits, void, int32_t)},
+		{"setMinimumFractionDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setMinimumFractionDigits, void, int32_t)},
+		{"setMinimumIntegerDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setMinimumIntegerDigits, void, int32_t)},
+		{"setParseIntegerOnly", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setParseIntegerOnly, void, bool)},
+		{"setRoundingMode", "(Ljava/math/RoundingMode;)V", nullptr, $PUBLIC, $virtualMethod(NumberFormat, setRoundingMode, void, $RoundingMode*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(NumberFormat, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.NumberFormat$Style", "java.text.NumberFormat", "Style", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.text.NumberFormat$Field", "java.text.NumberFormat", "Field", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.text.NumberFormat",
+		"java.text.Format",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.text.NumberFormat$Style,java.text.NumberFormat$Field"
+	};
+	$loadClass(NumberFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NumberFormat));
+	});
 	return class$;
 }
 

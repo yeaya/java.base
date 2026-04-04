@@ -99,6 +99,7 @@ public:
 	LocalTime();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t hour, int32_t minute, int32_t second, int32_t nanoOfSecond);
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal) override;
 	::java::time::LocalDateTime* atDate(::java::time::LocalDate* date);
@@ -180,7 +181,7 @@ public:
 	static const int64_t NANOS_PER_MINUTE = 60000000000; // NANOS_PER_SECOND * SECONDS_PER_MINUTE
 	static const int64_t NANOS_PER_HOUR = 3600000000000; // NANOS_PER_MINUTE * MINUTES_PER_HOUR
 	static const int64_t NANOS_PER_DAY = 86400000000000; // NANOS_PER_HOUR * HOURS_PER_DAY
-	static const int64_t serialVersionUID = (int64_t)0x5904A8B626E1A4F1;
+	static const int64_t serialVersionUID = (int64_t)0x5904a8b626e1a4f1;
 	int8_t hour = 0;
 	int8_t minute = 0;
 	int8_t second = 0;

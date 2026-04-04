@@ -40,6 +40,7 @@ public:
 	MethodUtil();
 	using ::java::security::SecureClassLoader::defineClass;
 	using ::java::security::SecureClassLoader::findClass;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addMethod(::java::util::Map* sigs, ::java::lang::reflect::Method* method);
 	$Class* defineClass($String* name, $bytes* b);

@@ -1,5 +1,4 @@
 #include <sun/util/calendar/JulianCalendar.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/TimeZone.h>
 #include <sun/util/calendar/AbstractCalendar.h>
@@ -37,56 +36,6 @@ using $JulianCalendar$Date = ::sun::util::calendar::JulianCalendar$Date;
 namespace sun {
 	namespace util {
 		namespace calendar {
-
-$FieldInfo _JulianCalendar_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JulianCalendar, $assertionsDisabled)},
-	{"BCE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JulianCalendar, BCE)},
-	{"CE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JulianCalendar, CE)},
-	{"eras", "[Lsun/util/calendar/Era;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JulianCalendar, eras)},
-	{"JULIAN_EPOCH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JulianCalendar, JULIAN_EPOCH)},
-	{}
-};
-
-$MethodInfo _JulianCalendar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JulianCalendar, init$, void)},
-	{"getCalendarDate", "()Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*)},
-	{"getCalendarDate", "(J)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*, int64_t)},
-	{"getCalendarDate", "(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*, int64_t, $CalendarDate*)},
-	{"getCalendarDate", "(JLjava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*, int64_t, $TimeZone*)},
-	{"getCalendarDateFromFixedDate", "(Lsun/util/calendar/CalendarDate;J)V", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDateFromFixedDate, void, $CalendarDate*, int64_t)},
-	{"getDayOfWeek", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getDayOfWeek, int32_t, $CalendarDate*)},
-	{"getFixedDate", "(IIILsun/util/calendar/BaseCalendar$Date;)J", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getFixedDate, int64_t, int32_t, int32_t, int32_t, $BaseCalendar$Date*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getName, $String*)},
-	{"getYearFromFixedDate", "(J)I", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getYearFromFixedDate, int32_t, int64_t)},
-	{"isLeapYear", "(I)Z", nullptr, 0, $virtualMethod(JulianCalendar, isLeapYear, bool, int32_t)},
-	{"newCalendarDate", "()Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, newCalendarDate, $CalendarDate*)},
-	{"newCalendarDate", "(Ljava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, newCalendarDate, $CalendarDate*, $TimeZone*)},
-	{}
-};
-
-$InnerClassInfo _JulianCalendar_InnerClassesInfo_[] = {
-	{"sun.util.calendar.JulianCalendar$Date", "sun.util.calendar.JulianCalendar", "Date", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JulianCalendar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.calendar.JulianCalendar",
-	"sun.util.calendar.BaseCalendar",
-	nullptr,
-	_JulianCalendar_FieldInfo_,
-	_JulianCalendar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JulianCalendar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.calendar.JulianCalendar$Date"
-};
-
-$Object* allocate$JulianCalendar($Class* clazz) {
-	return $of($alloc(JulianCalendar));
-}
 
 bool JulianCalendar::$assertionsDisabled = false;
 $EraArray* JulianCalendar::eras = nullptr;
@@ -156,7 +105,7 @@ int64_t JulianCalendar::getFixedDate(int32_t jyear, int32_t month, int32_t dayOf
 }
 
 void JulianCalendar::getCalendarDateFromFixedDate($CalendarDate* date, int64_t fixedDate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JulianCalendar$Date, jdate, $cast($JulianCalendar$Date, date));
 	int64_t fd = 4 * (fixedDate - JulianCalendar::JULIAN_EPOCH) + 1464;
 	int32_t year = 0;
@@ -179,7 +128,7 @@ void JulianCalendar::getCalendarDateFromFixedDate($CalendarDate* date, int64_t f
 	int32_t dayOfMonth = (int32_t)(fixedDate - getFixedDate(year, month, 1, jdate)) + 1;
 	int32_t dayOfWeek = getDayOfWeekFromFixedDate(fixedDate);
 	if (!JulianCalendar::$assertionsDisabled && !(dayOfWeek > 0)) {
-		$throwNew($AssertionError, $of($$str({"negative day of week "_s, $$str(dayOfWeek)})));
+		$throwNew($AssertionError, $$of($str({"negative day of week "_s, $$str(dayOfWeek)})));
 	}
 	$nc(jdate)->setNormalizedYear(year);
 	jdate->setMonth(month);
@@ -203,12 +152,12 @@ bool JulianCalendar::isLeapYear(int32_t jyear) {
 	return $CalendarUtils::isJulianLeapYear(jyear);
 }
 
-void clinit$JulianCalendar($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JulianCalendar::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	JulianCalendar::$assertionsDisabled = !JulianCalendar::class$->desiredAssertionStatus();
 	$assignStatic(JulianCalendar::eras, $new($EraArray, {
 		$$new($Era, "BeforeCommonEra"_s, "B.C.E."_s, $Long::MIN_VALUE, false),
-		$$new($Era, "CommonEra"_s, "C.E."_s, 0xFFFFC77CE7207000, true)
+		$$new($Era, "CommonEra"_s, "C.E."_s, (int64_t)0xffffc77ce7207000, true)
 	}));
 }
 
@@ -216,7 +165,51 @@ JulianCalendar::JulianCalendar() {
 }
 
 $Class* JulianCalendar::load$($String* name, bool initialize) {
-	$loadClass(JulianCalendar, name, initialize, &_JulianCalendar_ClassInfo_, clinit$JulianCalendar, allocate$JulianCalendar);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JulianCalendar, $assertionsDisabled)},
+		{"BCE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JulianCalendar, BCE)},
+		{"CE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JulianCalendar, CE)},
+		{"eras", "[Lsun/util/calendar/Era;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JulianCalendar, eras)},
+		{"JULIAN_EPOCH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JulianCalendar, JULIAN_EPOCH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JulianCalendar, init$, void)},
+		{"getCalendarDate", "()Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*)},
+		{"getCalendarDate", "(J)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*, int64_t)},
+		{"getCalendarDate", "(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*, int64_t, $CalendarDate*)},
+		{"getCalendarDate", "(JLjava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*, int64_t, $TimeZone*)},
+		{"getCalendarDateFromFixedDate", "(Lsun/util/calendar/CalendarDate;J)V", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDateFromFixedDate, void, $CalendarDate*, int64_t)},
+		{"getDayOfWeek", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getDayOfWeek, int32_t, $CalendarDate*)},
+		{"getFixedDate", "(IIILsun/util/calendar/BaseCalendar$Date;)J", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getFixedDate, int64_t, int32_t, int32_t, int32_t, $BaseCalendar$Date*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getName, $String*)},
+		{"getYearFromFixedDate", "(J)I", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getYearFromFixedDate, int32_t, int64_t)},
+		{"isLeapYear", "(I)Z", nullptr, 0, $virtualMethod(JulianCalendar, isLeapYear, bool, int32_t)},
+		{"newCalendarDate", "()Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, newCalendarDate, $CalendarDate*)},
+		{"newCalendarDate", "(Ljava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, newCalendarDate, $CalendarDate*, $TimeZone*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.calendar.JulianCalendar$Date", "sun.util.calendar.JulianCalendar", "Date", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.calendar.JulianCalendar",
+		"sun.util.calendar.BaseCalendar",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.calendar.JulianCalendar$Date"
+	};
+	$loadClass(JulianCalendar, name, initialize, &classInfo$$, JulianCalendar::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JulianCalendar);
+	});
 	return class$;
 }
 

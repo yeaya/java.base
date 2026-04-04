@@ -1,5 +1,4 @@
 #include <LotsOfCloses.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
@@ -42,7 +41,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ClosedWatchServiceException = ::java::nio::file::ClosedWatchServiceException;
-using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
@@ -61,35 +59,31 @@ public:
 		$set(this, watcher, watcher);
 	}
 	virtual $Object* call() override {
-		 return $of(LotsOfCloses::lambda$newCloserTask$0(watcher));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LotsOfCloses$$Lambda$lambda$newCloserTask$0>());
+		 return LotsOfCloses::lambda$newCloserTask$0(watcher);
 	}
 	$WatchService* watcher = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LotsOfCloses$$Lambda$lambda$newCloserTask$0::fieldInfos[2] = {
-	{"watcher", "Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $field(LotsOfCloses$$Lambda$lambda$newCloserTask$0, watcher)},
-	{}
-};
-$MethodInfo LotsOfCloses$$Lambda$lambda$newCloserTask$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(LotsOfCloses$$Lambda$lambda$newCloserTask$0, init$, void, $WatchService*)},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LotsOfCloses$$Lambda$lambda$newCloserTask$0, call, $Object*)},
-	{}
-};
-$ClassInfo LotsOfCloses$$Lambda$lambda$newCloserTask$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"LotsOfCloses$$Lambda$lambda$newCloserTask$0",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	fieldInfos,
-	methodInfos
 };
 $Class* LotsOfCloses$$Lambda$lambda$newCloserTask$0::load$($String* name, bool initialize) {
-	$loadClass(LotsOfCloses$$Lambda$lambda$newCloserTask$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"watcher", "Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $field(LotsOfCloses$$Lambda$lambda$newCloserTask$0, watcher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(LotsOfCloses$$Lambda$lambda$newCloserTask$0, init$, void, $WatchService*)},
+		{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LotsOfCloses$$Lambda$lambda$newCloserTask$0, call, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"LotsOfCloses$$Lambda$lambda$newCloserTask$0",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LotsOfCloses$$Lambda$lambda$newCloserTask$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LotsOfCloses$$Lambda$lambda$newCloserTask$0);
+	});
 	return class$;
 }
 $Class* LotsOfCloses$$Lambda$lambda$newCloserTask$0::class$ = nullptr;
@@ -104,67 +98,34 @@ public:
 	virtual $Object* call() override {
 		 return $of(LotsOfCloses::lambda$newRegisterTask$1(dir, watcher));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1>());
-	}
 	$Path* dir = nullptr;
 	$WatchService* watcher = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::fieldInfos[3] = {
-	{"dir", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, dir)},
-	{"watcher", "Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $field(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, watcher)},
-	{}
-};
-$MethodInfo LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, init$, void, $Path*, $WatchService*)},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, call, $Object*)},
-	{}
-};
-$ClassInfo LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	fieldInfos,
-	methodInfos
 };
 $Class* LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::load$($String* name, bool initialize) {
-	$loadClass(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"dir", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, dir)},
+		{"watcher", "Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $field(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, watcher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, init$, void, $Path*, $WatchService*)},
+		{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, call, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1);
+	});
 	return class$;
 }
 $Class* LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::class$ = nullptr;
-
-$FieldInfo _LotsOfCloses_FieldInfo_[] = {
-	{"RAND", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LotsOfCloses, RAND)},
-	{}
-};
-
-$MethodInfo _LotsOfCloses_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LotsOfCloses, init$, void)},
-	{"lambda$newCloserTask$0", "(Ljava/nio/file/WatchService;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LotsOfCloses, lambda$newCloserTask$0, $Void*, $WatchService*), "java.lang.Exception"},
-	{"lambda$newRegisterTask$1", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LotsOfCloses, lambda$newRegisterTask$1, $Boolean*, $Path*, $WatchService*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LotsOfCloses, main, void, $StringArray*), "java.lang.Exception"},
-	{"newCloserTask", "(Ljava/nio/file/WatchService;)Ljava/util/concurrent/Callable;", "(Ljava/nio/file/WatchService;)Ljava/util/concurrent/Callable<Ljava/lang/Void;>;", $STATIC, $staticMethod(LotsOfCloses, newCloserTask, $Callable*, $WatchService*)},
-	{"newRegisterTask", "(Ljava/nio/file/WatchService;Ljava/nio/file/Path;)Ljava/util/concurrent/Callable;", "(Ljava/nio/file/WatchService;Ljava/nio/file/Path;)Ljava/util/concurrent/Callable<Ljava/lang/Boolean;>;", $STATIC, $staticMethod(LotsOfCloses, newRegisterTask, $Callable*, $WatchService*, $Path*)},
-	{"test", "(Ljava/nio/file/Path;Ljava/util/concurrent/ExecutorService;)V", nullptr, $STATIC, $staticMethod(LotsOfCloses, test, void, $Path*, $ExecutorService*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _LotsOfCloses_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"LotsOfCloses",
-	"java.lang.Object",
-	nullptr,
-	_LotsOfCloses_FieldInfo_,
-	_LotsOfCloses_MethodInfo_
-};
-
-$Object* allocate$LotsOfCloses($Class* clazz) {
-	return $of($alloc(LotsOfCloses));
-}
 
 $Random* LotsOfCloses::RAND = nullptr;
 
@@ -173,36 +134,34 @@ void LotsOfCloses::init$() {
 
 void LotsOfCloses::main($StringArray* args) {
 	$init(LotsOfCloses);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, dir, $Files::createTempDirectory("tmp"_s, $$new($FileAttributeArray, 0)));
 	$var($ExecutorService, pool, $Executors::newCachedThreadPool());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			int64_t start = $System::currentTimeMillis();
-			while (($System::currentTimeMillis() - start) < 5000) {
-				test(dir, pool);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(pool)->shutdown();
+	$var($Throwable, var$0, nullptr);
+	try {
+		int64_t start = $System::currentTimeMillis();
+		while (($System::currentTimeMillis() - start) < 5000) {
+			test(dir, pool);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(pool)->shutdown();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void LotsOfCloses::test($Path* dir, $ExecutorService* pool) {
 	$init(LotsOfCloses);
-	$useLocalCurrentObjectStackCache();
-	$var($WatchService, watcher, $nc($($FileSystems::getDefault()))->newWatchService());
+	$useLocalObjectStack();
+	$var($WatchService, watcher, $$nc($FileSystems::getDefault())->newWatchService());
 	$init($StandardWatchEventKinds);
 	$nc(dir)->register$(watcher, $$new($WatchEvent$KindArray, {$StandardWatchEventKinds::ENTRY_CREATE}));
 	$var($Future, closeResult, nullptr);
 	$var($Future, registerResult, nullptr);
-	if ($nc(LotsOfCloses::RAND)->nextBoolean()) {
+	if (LotsOfCloses::RAND->nextBoolean()) {
 		$assign(closeResult, $nc(pool)->submit($(newCloserTask(watcher))));
 		$assign(registerResult, pool->submit($(newRegisterTask(watcher, dir))));
 	} else {
@@ -215,12 +174,12 @@ void LotsOfCloses::test($Path* dir, $ExecutorService* pool) {
 
 $Callable* LotsOfCloses::newCloserTask($WatchService* watcher) {
 	$init(LotsOfCloses);
-	return static_cast<$Callable*>($new(LotsOfCloses$$Lambda$lambda$newCloserTask$0, watcher));
+	return $new(LotsOfCloses$$Lambda$lambda$newCloserTask$0, watcher);
 }
 
 $Callable* LotsOfCloses::newRegisterTask($WatchService* watcher, $Path* dir) {
 	$init(LotsOfCloses);
-	return static_cast<$Callable*>($new(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, dir, watcher));
+	return $new(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, dir, watcher);
 }
 
 $Boolean* LotsOfCloses::lambda$newRegisterTask$1($Path* dir, $WatchService* watcher) {
@@ -248,7 +207,7 @@ $Void* LotsOfCloses::lambda$newCloserTask$0($WatchService* watcher) {
 	$shouldNotReachHere();
 }
 
-void clinit$LotsOfCloses($Class* class$) {
+void LotsOfCloses::clinit$($Class* clazz) {
 	$assignStatic(LotsOfCloses::RAND, $new($Random));
 }
 
@@ -257,14 +216,38 @@ LotsOfCloses::LotsOfCloses() {
 
 $Class* LotsOfCloses::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LotsOfCloses$$Lambda$lambda$newCloserTask$0::classInfo$.name)) {
+		if (name->equals("LotsOfCloses$$Lambda$lambda$newCloserTask$0")) {
 			return LotsOfCloses$$Lambda$lambda$newCloserTask$0::load$(name, initialize);
 		}
-		if (name->equals(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::classInfo$.name)) {
+		if (name->equals("LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1")) {
 			return LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(LotsOfCloses, name, initialize, &_LotsOfCloses_ClassInfo_, clinit$LotsOfCloses, allocate$LotsOfCloses);
+	$FieldInfo fieldInfos$$[] = {
+		{"RAND", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LotsOfCloses, RAND)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LotsOfCloses, init$, void)},
+		{"lambda$newCloserTask$0", "(Ljava/nio/file/WatchService;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LotsOfCloses, lambda$newCloserTask$0, $Void*, $WatchService*), "java.lang.Exception"},
+		{"lambda$newRegisterTask$1", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LotsOfCloses, lambda$newRegisterTask$1, $Boolean*, $Path*, $WatchService*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LotsOfCloses, main, void, $StringArray*), "java.lang.Exception"},
+		{"newCloserTask", "(Ljava/nio/file/WatchService;)Ljava/util/concurrent/Callable;", "(Ljava/nio/file/WatchService;)Ljava/util/concurrent/Callable<Ljava/lang/Void;>;", $STATIC, $staticMethod(LotsOfCloses, newCloserTask, $Callable*, $WatchService*)},
+		{"newRegisterTask", "(Ljava/nio/file/WatchService;Ljava/nio/file/Path;)Ljava/util/concurrent/Callable;", "(Ljava/nio/file/WatchService;Ljava/nio/file/Path;)Ljava/util/concurrent/Callable<Ljava/lang/Boolean;>;", $STATIC, $staticMethod(LotsOfCloses, newRegisterTask, $Callable*, $WatchService*, $Path*)},
+		{"test", "(Ljava/nio/file/Path;Ljava/util/concurrent/ExecutorService;)V", nullptr, $STATIC, $staticMethod(LotsOfCloses, test, void, $Path*, $ExecutorService*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"LotsOfCloses",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LotsOfCloses, name, initialize, &classInfo$$, LotsOfCloses::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LotsOfCloses);
+	});
 	return class$;
 }
 

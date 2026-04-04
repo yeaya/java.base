@@ -1,5 +1,4 @@
 #include <java/lang/ProcessEnvironment$CheckedEntrySet.h>
-
 #include <java/lang/ProcessEnvironment$CheckedEntrySet$1.h>
 #include <java/lang/ProcessEnvironment.h>
 #include <java/util/AbstractSet.h>
@@ -21,50 +20,6 @@ using $Set = ::java::util::Set;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ProcessEnvironment$CheckedEntrySet_FieldInfo_[] = {
-	{"s", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;", $PRIVATE | $FINAL, $field(ProcessEnvironment$CheckedEntrySet, s)},
-	{}
-};
-
-$MethodInfo _ProcessEnvironment$CheckedEntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;)V", $PUBLIC, $method(ProcessEnvironment$CheckedEntrySet, init$, void, $Set*)},
-	{"checkedEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(Ljava/lang/Object;)Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(ProcessEnvironment$CheckedEntrySet, checkedEntry, $Map$Entry*, Object$*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, contains, bool, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ProcessEnvironment$CheckedEntrySet_InnerClassesInfo_[] = {
-	{"java.lang.ProcessEnvironment$CheckedEntrySet", "java.lang.ProcessEnvironment", "CheckedEntrySet", $PRIVATE | $STATIC},
-	{"java.lang.ProcessEnvironment$CheckedEntrySet$1", nullptr, nullptr, 0},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ProcessEnvironment$CheckedEntrySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ProcessEnvironment$CheckedEntrySet",
-	"java.util.AbstractSet",
-	nullptr,
-	_ProcessEnvironment$CheckedEntrySet_FieldInfo_,
-	_ProcessEnvironment$CheckedEntrySet_MethodInfo_,
-	"Ljava/util/AbstractSet<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;",
-	nullptr,
-	_ProcessEnvironment$CheckedEntrySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessEnvironment"
-};
-
-$Object* allocate$ProcessEnvironment$CheckedEntrySet($Class* clazz) {
-	return $of($alloc(ProcessEnvironment$CheckedEntrySet));
-}
 
 void ProcessEnvironment$CheckedEntrySet::init$($Set* s) {
 	$AbstractSet::init$();
@@ -89,10 +44,10 @@ $Iterator* ProcessEnvironment$CheckedEntrySet::iterator() {
 
 $Map$Entry* ProcessEnvironment$CheckedEntrySet::checkedEntry(Object$* o) {
 	$init(ProcessEnvironment$CheckedEntrySet);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, e, $cast($Map$Entry, o));
 	$ProcessEnvironment::nonNullString($($nc(e)->getKey()));
-	$ProcessEnvironment::nonNullString($($nc(e)->getValue()));
+	$ProcessEnvironment::nonNullString($(e->getValue()));
 	return e;
 }
 
@@ -108,7 +63,45 @@ ProcessEnvironment$CheckedEntrySet::ProcessEnvironment$CheckedEntrySet() {
 }
 
 $Class* ProcessEnvironment$CheckedEntrySet::load$($String* name, bool initialize) {
-	$loadClass(ProcessEnvironment$CheckedEntrySet, name, initialize, &_ProcessEnvironment$CheckedEntrySet_ClassInfo_, allocate$ProcessEnvironment$CheckedEntrySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;", $PRIVATE | $FINAL, $field(ProcessEnvironment$CheckedEntrySet, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;)V", $PUBLIC, $method(ProcessEnvironment$CheckedEntrySet, init$, void, $Set*)},
+		{"checkedEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(Ljava/lang/Object;)Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(ProcessEnvironment$CheckedEntrySet, checkedEntry, $Map$Entry*, Object$*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, contains, bool, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessEnvironment$CheckedEntrySet", "java.lang.ProcessEnvironment", "CheckedEntrySet", $PRIVATE | $STATIC},
+		{"java.lang.ProcessEnvironment$CheckedEntrySet$1", nullptr, nullptr, 0},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ProcessEnvironment$CheckedEntrySet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessEnvironment"
+	};
+	$loadClass(ProcessEnvironment$CheckedEntrySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProcessEnvironment$CheckedEntrySet));
+	});
 	return class$;
 }
 

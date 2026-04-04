@@ -1,5 +1,4 @@
 #include <DirectlyAndIndirectlyPresentContainer.h>
-
 #include <DirectlyAndIndirectlyPresent.h>
 #include <jcpp.h>
 
@@ -9,40 +8,34 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute DirectlyAndIndirectlyPresentContainer_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _DirectlyAndIndirectlyPresentContainer_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", DirectlyAndIndirectlyPresentContainer_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _DirectlyAndIndirectlyPresentContainer_MethodInfo_[] = {
-	{"value", "()[LDirectlyAndIndirectlyPresent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectlyAndIndirectlyPresentContainer, value, $DirectlyAndIndirectlyPresentArray*)},
-	{}
-};
-
-$ClassInfo _DirectlyAndIndirectlyPresentContainer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"DirectlyAndIndirectlyPresentContainer",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_DirectlyAndIndirectlyPresentContainer_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_DirectlyAndIndirectlyPresentContainer_Annotations_
-};
-
-$Object* allocate$DirectlyAndIndirectlyPresentContainer($Class* clazz) {
-	return $of($alloc(DirectlyAndIndirectlyPresentContainer));
-}
-
 $Class* DirectlyAndIndirectlyPresentContainer::load$($String* name, bool initialize) {
-	$loadClass(DirectlyAndIndirectlyPresentContainer, name, initialize, &_DirectlyAndIndirectlyPresentContainer_ClassInfo_, allocate$DirectlyAndIndirectlyPresentContainer);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[LDirectlyAndIndirectlyPresent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectlyAndIndirectlyPresentContainer, value, $DirectlyAndIndirectlyPresentArray*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"DirectlyAndIndirectlyPresentContainer",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(DirectlyAndIndirectlyPresentContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectlyAndIndirectlyPresentContainer);
+	});
 	return class$;
 }
 

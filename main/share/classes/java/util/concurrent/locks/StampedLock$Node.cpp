@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/StampedLock$Node.h>
-
 #include <java/util/concurrent/locks/StampedLock.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
@@ -14,59 +13,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StampedLock = ::java::util::concurrent::locks::StampedLock;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace util {
 		namespace concurrent {
 			namespace locks {
-
-$FieldInfo _StampedLock$Node_FieldInfo_[] = {
-	{"prev", "Ljava/util/concurrent/locks/StampedLock$Node;", nullptr, $VOLATILE, $field(StampedLock$Node, prev)},
-	{"next", "Ljava/util/concurrent/locks/StampedLock$Node;", nullptr, $VOLATILE, $field(StampedLock$Node, next)},
-	{"waiter", "Ljava/lang/Thread;", nullptr, 0, $field(StampedLock$Node, waiter)},
-	{"status", "I", nullptr, $VOLATILE, $field(StampedLock$Node, status)},
-	{"STATUS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock$Node, STATUS)},
-	{"NEXT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock$Node, NEXT)},
-	{"PREV", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock$Node, PREV)},
-	{}
-};
-
-$MethodInfo _StampedLock$Node_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StampedLock$Node, init$, void)},
-	{"casNext", "(Ljava/util/concurrent/locks/StampedLock$Node;Ljava/util/concurrent/locks/StampedLock$Node;)Z", nullptr, $FINAL, $method(StampedLock$Node, casNext, bool, StampedLock$Node*, StampedLock$Node*)},
-	{"casPrev", "(Ljava/util/concurrent/locks/StampedLock$Node;Ljava/util/concurrent/locks/StampedLock$Node;)Z", nullptr, $FINAL, $method(StampedLock$Node, casPrev, bool, StampedLock$Node*, StampedLock$Node*)},
-	{"clearStatus", "()V", nullptr, $FINAL, $method(StampedLock$Node, clearStatus, void)},
-	{"getAndUnsetStatus", "(I)I", nullptr, $FINAL, $method(StampedLock$Node, getAndUnsetStatus, int32_t, int32_t)},
-	{"setPrevRelaxed", "(Ljava/util/concurrent/locks/StampedLock$Node;)V", nullptr, $FINAL, $method(StampedLock$Node, setPrevRelaxed, void, StampedLock$Node*)},
-	{"setStatusRelaxed", "(I)V", nullptr, $FINAL, $method(StampedLock$Node, setStatusRelaxed, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _StampedLock$Node_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.StampedLock$Node", "java.util.concurrent.locks.StampedLock", "Node", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StampedLock$Node_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.concurrent.locks.StampedLock$Node",
-	"java.lang.Object",
-	nullptr,
-	_StampedLock$Node_FieldInfo_,
-	_StampedLock$Node_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StampedLock$Node_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.StampedLock"
-};
-
-$Object* allocate$StampedLock$Node($Class* clazz) {
-	return $of($alloc(StampedLock$Node));
-}
 
 int64_t StampedLock$Node::STATUS = 0;
 int64_t StampedLock$Node::NEXT = 0;
@@ -105,18 +56,59 @@ void StampedLock$Node::clearStatus() {
 	$nc($StampedLock::U)->putIntOpaque(this, StampedLock$Node::STATUS, 0);
 }
 
-void clinit$StampedLock$Node($Class* class$) {
+void StampedLock$Node::clinit$($Class* clazz) {
 	$init($StampedLock);
 	StampedLock$Node::STATUS = $nc($StampedLock::U)->objectFieldOffset(StampedLock$Node::class$, "status"_s);
-	StampedLock$Node::NEXT = $nc($StampedLock::U)->objectFieldOffset(StampedLock$Node::class$, "next"_s);
-	StampedLock$Node::PREV = $nc($StampedLock::U)->objectFieldOffset(StampedLock$Node::class$, "prev"_s);
+	StampedLock$Node::NEXT = $StampedLock::U->objectFieldOffset(StampedLock$Node::class$, "next"_s);
+	StampedLock$Node::PREV = $StampedLock::U->objectFieldOffset(StampedLock$Node::class$, "prev"_s);
 }
 
 StampedLock$Node::StampedLock$Node() {
 }
 
 $Class* StampedLock$Node::load$($String* name, bool initialize) {
-	$loadClass(StampedLock$Node, name, initialize, &_StampedLock$Node_ClassInfo_, clinit$StampedLock$Node, allocate$StampedLock$Node);
+	$FieldInfo fieldInfos$$[] = {
+		{"prev", "Ljava/util/concurrent/locks/StampedLock$Node;", nullptr, $VOLATILE, $field(StampedLock$Node, prev)},
+		{"next", "Ljava/util/concurrent/locks/StampedLock$Node;", nullptr, $VOLATILE, $field(StampedLock$Node, next)},
+		{"waiter", "Ljava/lang/Thread;", nullptr, 0, $field(StampedLock$Node, waiter)},
+		{"status", "I", nullptr, $VOLATILE, $field(StampedLock$Node, status)},
+		{"STATUS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock$Node, STATUS)},
+		{"NEXT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock$Node, NEXT)},
+		{"PREV", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StampedLock$Node, PREV)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StampedLock$Node, init$, void)},
+		{"casNext", "(Ljava/util/concurrent/locks/StampedLock$Node;Ljava/util/concurrent/locks/StampedLock$Node;)Z", nullptr, $FINAL, $method(StampedLock$Node, casNext, bool, StampedLock$Node*, StampedLock$Node*)},
+		{"casPrev", "(Ljava/util/concurrent/locks/StampedLock$Node;Ljava/util/concurrent/locks/StampedLock$Node;)Z", nullptr, $FINAL, $method(StampedLock$Node, casPrev, bool, StampedLock$Node*, StampedLock$Node*)},
+		{"clearStatus", "()V", nullptr, $FINAL, $method(StampedLock$Node, clearStatus, void)},
+		{"getAndUnsetStatus", "(I)I", nullptr, $FINAL, $method(StampedLock$Node, getAndUnsetStatus, int32_t, int32_t)},
+		{"setPrevRelaxed", "(Ljava/util/concurrent/locks/StampedLock$Node;)V", nullptr, $FINAL, $method(StampedLock$Node, setPrevRelaxed, void, StampedLock$Node*)},
+		{"setStatusRelaxed", "(I)V", nullptr, $FINAL, $method(StampedLock$Node, setStatusRelaxed, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.StampedLock$Node", "java.util.concurrent.locks.StampedLock", "Node", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.concurrent.locks.StampedLock$Node",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.StampedLock"
+	};
+	$loadClass(StampedLock$Node, name, initialize, &classInfo$$, StampedLock$Node::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StampedLock$Node);
+	});
 	return class$;
 }
 

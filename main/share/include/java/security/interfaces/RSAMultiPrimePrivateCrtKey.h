@@ -33,7 +33,7 @@ public:
 	virtual ::java::math::BigInteger* getPrimeP() {return nullptr;}
 	virtual ::java::math::BigInteger* getPrimeQ() {return nullptr;}
 	virtual ::java::math::BigInteger* getPublicExponent() {return nullptr;}
-	static const int64_t serialVersionUID = (int64_t)0x0893C8F62DBAF8A8;
+	static const int64_t serialVersionUID = (int64_t)0x0893c8f62dbaf8a8;
 };
 
 		} // interfaces

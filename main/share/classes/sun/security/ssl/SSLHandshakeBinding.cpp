@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLHandshakeBinding.h>
-
 #include <java/util/Map$Entry.h>
 #include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/SSLHandshake.h>
@@ -15,26 +14,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLHandshakeBinding_MethodInfo_[] = {
-	{"getHandshakeConsumers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/SSLConsumer;>;", $PUBLIC, $virtualMethod(SSLHandshakeBinding, getHandshakeConsumers, $Map$EntryArray*, $HandshakeContext*)},
-	{"getHandshakeProducers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/HandshakeProducer;>;", $PUBLIC, $virtualMethod(SSLHandshakeBinding, getHandshakeProducers, $Map$EntryArray*, $HandshakeContext*)},
-	{"getRelatedHandshakers", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(SSLHandshakeBinding, getRelatedHandshakers, $SSLHandshakeArray*, $HandshakeContext*)},
-	{}
-};
-
-$ClassInfo _SSLHandshakeBinding_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.security.ssl.SSLHandshakeBinding",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SSLHandshakeBinding_MethodInfo_
-};
-
-$Object* allocate$SSLHandshakeBinding($Class* clazz) {
-	return $of($alloc(SSLHandshakeBinding));
-}
-
 $SSLHandshakeArray* SSLHandshakeBinding::getRelatedHandshakers($HandshakeContext* handshakeContext) {
 	return $new($SSLHandshakeArray, 0);
 }
@@ -48,7 +27,23 @@ $Map$EntryArray* SSLHandshakeBinding::getHandshakeConsumers($HandshakeContext* h
 }
 
 $Class* SSLHandshakeBinding::load$($String* name, bool initialize) {
-	$loadClass(SSLHandshakeBinding, name, initialize, &_SSLHandshakeBinding_ClassInfo_, allocate$SSLHandshakeBinding);
+	$MethodInfo methodInfos$$[] = {
+		{"getHandshakeConsumers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/SSLConsumer;>;", $PUBLIC, $virtualMethod(SSLHandshakeBinding, getHandshakeConsumers, $Map$EntryArray*, $HandshakeContext*)},
+		{"getHandshakeProducers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/HandshakeProducer;>;", $PUBLIC, $virtualMethod(SSLHandshakeBinding, getHandshakeProducers, $Map$EntryArray*, $HandshakeContext*)},
+		{"getRelatedHandshakers", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(SSLHandshakeBinding, getRelatedHandshakers, $SSLHandshakeArray*, $HandshakeContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.security.ssl.SSLHandshakeBinding",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLHandshakeBinding, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLHandshakeBinding);
+	});
 	return class$;
 }
 

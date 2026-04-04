@@ -19,6 +19,7 @@ class Util$BufferCache : public ::java::lang::Object {
 	$class(Util$BufferCache, 0, ::java::lang::Object)
 public:
 	Util$BufferCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::nio::ByteBuffer* get(int32_t size);
 	virtual bool isEmpty();

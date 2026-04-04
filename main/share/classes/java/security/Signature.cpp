@@ -1,5 +1,4 @@
 #include <java/security/Signature.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
 #include <java/nio/ByteBuffer.h>
@@ -30,7 +29,6 @@
 #include <java/util/Set.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <javax/crypto/Cipher.h>
-#include <jdk/internal/access/JavaSecuritySignatureAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <sun/security/jca/GetInstance$Instance.h>
 #include <sun/security/jca/GetInstance.h>
@@ -85,7 +83,6 @@ using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $Cipher = ::javax::crypto::Cipher;
-using $JavaSecuritySignatureAccess = ::jdk::internal::access::JavaSecuritySignatureAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $GetInstance = ::sun::security::jca::GetInstance;
 using $GetInstance$Instance = ::sun::security::jca::GetInstance$Instance;
@@ -95,96 +92,6 @@ using $KnownOIDs = ::sun::security::util::KnownOIDs;
 
 namespace java {
 	namespace security {
-
-$CompoundAttribute _Signature_MethodAnnotations_getParameter9[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Signature_MethodAnnotations_setParameter22[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Signature_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Signature, debug)},
-	{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Signature, pdebug)},
-	{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Signature, skipDebug)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Signature, algorithm)},
-	{"provider", "Ljava/security/Provider;", nullptr, 0, $field(Signature, provider)},
-	{"UNINITIALIZED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Signature, UNINITIALIZED)},
-	{"SIGN", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Signature, SIGN)},
-	{"VERIFY", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Signature, VERIFY)},
-	{"state", "I", nullptr, $PROTECTED, $field(Signature, state)},
-	{"RSA_SIGNATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Signature, RSA_SIGNATURE)},
-	{"RSA_CIPHER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Signature, RSA_CIPHER)},
-	{"rsaIds", "Ljava/util/List;", "Ljava/util/List<Lsun/security/jca/ServiceId;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Signature, rsaIds)},
-	{"signatureInfo", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Signature, signatureInfo)},
-	{}
-};
-
-$MethodInfo _Signature_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Signature, init$, void, $String*)},
-	{"chooseFirstProvider", "()V", nullptr, 0, $virtualMethod(Signature, chooseFirstProvider, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Signature, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Signature, getAlgorithm, $String*)},
-	{"getInstance", "(Ljava/lang/String;)Ljava/security/Signature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Signature, getInstance, Signature*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Lsun/security/jca/GetInstance$Instance;Ljava/lang/String;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(Signature, getInstance, Signature*, $GetInstance$Instance*, $String*)},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/Signature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Signature, getInstance, Signature*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/Signature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Signature, getInstance, Signature*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getInstanceRSA", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(Signature, getInstanceRSA, Signature*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Signature, getParameter, $Object*, $String*), "java.security.InvalidParameterException", nullptr, _Signature_MethodAnnotations_getParameter9},
-	{"getParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $FINAL, $method(Signature, getParameters, $AlgorithmParameters*)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(Signature, getProvider, $Provider*)},
-	{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Signature, getProviderName, $String*)},
-	{"getPublicKeyFromCert", "(Ljava/security/cert/Certificate;)Ljava/security/PublicKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(Signature, getPublicKeyFromCert, $PublicKey*, $Certificate*), "java.security.InvalidKeyException"},
-	{"initSign", "(Ljava/security/PrivateKey;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, initSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
-	{"initSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, initSign, void, $PrivateKey*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"initSign", "(Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $FINAL, $method(Signature, initSign, void, $PrivateKey*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"initVerify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, initVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
-	{"initVerify", "(Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $FINAL, $method(Signature, initVerify, void, $PublicKey*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"initVerify", "(Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, initVerify, void, $Certificate*), "java.security.InvalidKeyException"},
-	{"initVerify", "(Ljava/security/cert/Certificate;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $FINAL, $method(Signature, initVerify, void, $Certificate*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"isSpi", "(Ljava/security/Provider$Service;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Signature, isSpi, bool, $Provider$Service*)},
-	{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Signature, setParameter, void, $String*, Object$*), "java.security.InvalidParameterException", nullptr, _Signature_MethodAnnotations_setParameter22},
-	{"setParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, setParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"sign", "()[B", nullptr, $PUBLIC | $FINAL, $method(Signature, sign, $bytes*), "java.security.SignatureException"},
-	{"sign", "([BII)I", nullptr, $PUBLIC | $FINAL, $method(Signature, sign, int32_t, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Signature, toString, $String*)},
-	{"update", "(B)V", nullptr, $PUBLIC | $FINAL, $method(Signature, update, void, int8_t), "java.security.SignatureException"},
-	{"update", "([B)V", nullptr, $PUBLIC | $FINAL, $method(Signature, update, void, $bytes*), "java.security.SignatureException"},
-	{"update", "([BII)V", nullptr, $PUBLIC | $FINAL, $method(Signature, update, void, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
-	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, update, void, $ByteBuffer*), "java.security.SignatureException"},
-	{"verify", "([B)Z", nullptr, $PUBLIC | $FINAL, $method(Signature, verify, bool, $bytes*), "java.security.SignatureException"},
-	{"verify", "([BII)Z", nullptr, $PUBLIC | $FINAL, $method(Signature, verify, bool, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
-	{}
-};
-
-$InnerClassInfo _Signature_InnerClassesInfo_[] = {
-	{"java.security.Signature$CipherAdapter", "java.security.Signature", "CipherAdapter", $PRIVATE | $STATIC},
-	{"java.security.Signature$Delegate", "java.security.Signature", "Delegate", $PRIVATE | $STATIC},
-	{"java.security.Signature$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Signature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.Signature",
-	"java.security.SignatureSpi",
-	nullptr,
-	_Signature_FieldInfo_,
-	_Signature_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Signature_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.security.Signature$CipherAdapter,java.security.Signature$Delegate,java.security.Signature$Delegate$CloneableDelegate,java.security.Signature$1"
-};
-
-$Object* allocate$Signature($Class* clazz) {
-	return $of($alloc(Signature));
-}
 
 $Debug* Signature::debug = nullptr;
 $Debug* Signature::pdebug = nullptr;
@@ -202,8 +109,8 @@ void Signature::init$($String* algorithm) {
 
 Signature* Signature::getInstance($String* algorithm) {
 	$init(Signature);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$var($List, list, nullptr);
 	if ($nc(algorithm)->equalsIgnoreCase(Signature::RSA_SIGNATURE)) {
 		$assign(list, $GetInstance::getServices(Signature::rsaIds));
@@ -216,7 +123,7 @@ Signature* Signature::getInstance($String* algorithm) {
 	}
 	$var($NoSuchAlgorithmException, failure, nullptr);
 	do {
-		$var($Provider$Service, s, $cast($Provider$Service, $nc(t)->next()));
+		$var($Provider$Service, s, $cast($Provider$Service, t->next()));
 		if (isSpi(s)) {
 			return $new($Signature$Delegate, s, t, algorithm);
 		} else {
@@ -228,14 +135,14 @@ Signature* Signature::getInstance($String* algorithm) {
 				$assign(failure, e);
 			}
 		}
-	} while ($nc(t)->hasNext());
+	} while (t->hasNext());
 	$throw(failure);
 	$shouldNotReachHere();
 }
 
 Signature* Signature::getInstance($GetInstance$Instance* instance, $String* algorithm) {
 	$init(Signature);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Signature, sig, nullptr);
 	if ($instanceOf(Signature, $nc(instance)->impl)) {
 		$assign(sig, $cast(Signature, instance->impl));
@@ -244,28 +151,28 @@ Signature* Signature::getInstance($GetInstance$Instance* instance, $String* algo
 		$var($SignatureSpi, spi, $cast($SignatureSpi, instance->impl));
 		$assign(sig, $Signature$Delegate::of(spi, algorithm));
 	}
-	$set($nc(sig), provider, $nc(instance)->provider);
+	$set($nc(sig), provider, instance->provider);
 	return sig;
 }
 
 bool Signature::isSpi($Provider$Service* s) {
 	$init(Signature);
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(s)->getType()))->equals("Cipher"_s)) {
+	$useLocalObjectStack();
+	if ($$nc($nc(s)->getType())->equals("Cipher"_s)) {
 		return true;
 	}
-	$var($String, className, $nc(s)->getClassName());
+	$var($String, className, s->getClassName());
 	$var($Boolean, result, $cast($Boolean, $nc(Signature::signatureInfo)->get(className)));
 	if (result == nullptr) {
 		try {
 			$var($Object, instance, s->newInstance(nullptr));
 			bool r = ($instanceOf($SignatureSpi, instance)) && (!($instanceOf(Signature, instance)));
 			if ((Signature::debug != nullptr) && (r == false)) {
-				$nc(Signature::debug)->println($$str({"Not a SignatureSpi "_s, className}));
-				$nc(Signature::debug)->println($$str({"Delayed provider selection may not be available for algorithm "_s, $(s->getAlgorithm())}));
+				Signature::debug->println($$str({"Not a SignatureSpi "_s, className}));
+				Signature::debug->println($$str({"Delayed provider selection may not be available for algorithm "_s, $(s->getAlgorithm())}));
 			}
 			$assign(result, $Boolean::valueOf(r));
-			$nc(Signature::signatureInfo)->put(className, result);
+			Signature::signatureInfo->put(className, result);
 		} catch ($Exception& e) {
 			return false;
 		}
@@ -275,10 +182,10 @@ bool Signature::isSpi($Provider$Service* s) {
 
 Signature* Signature::getInstance($String* algorithm, $String* provider) {
 	$init(Signature);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	if ($nc(algorithm)->equalsIgnoreCase(Signature::RSA_SIGNATURE)) {
-		if (provider == nullptr || $nc(provider)->isEmpty()) {
+		if (provider == nullptr || provider->isEmpty()) {
 			$throwNew($IllegalArgumentException, "missing provider"_s);
 		}
 		$var($Provider, p, $Security::getProvider(provider));
@@ -294,7 +201,7 @@ Signature* Signature::getInstance($String* algorithm, $String* provider) {
 
 Signature* Signature::getInstance($String* algorithm, $Provider* provider) {
 	$init(Signature);
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	if ($nc(algorithm)->equalsIgnoreCase(Signature::RSA_SIGNATURE)) {
 		if (provider == nullptr) {
 			$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -308,7 +215,7 @@ Signature* Signature::getInstance($String* algorithm, $Provider* provider) {
 
 Signature* Signature::getInstanceRSA($Provider* p) {
 	$init(Signature);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Provider$Service, s, $nc(p)->getService("Signature"_s, Signature::RSA_SIGNATURE));
 	if (s != nullptr) {
 		$load($SignatureSpi);
@@ -330,33 +237,33 @@ $Provider* Signature::getProvider() {
 }
 
 $String* Signature::getProviderName() {
-	return (this->provider == nullptr) ? "(no provider)"_s : $nc(this->provider)->getName();
+	return (this->provider == nullptr) ? "(no provider)"_s : this->provider->getName();
 }
 
 void Signature::chooseFirstProvider() {
 }
 
 void Signature::initVerify($PublicKey* publicKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	engineInitVerify(publicKey);
 	this->state = Signature::VERIFY;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
-		$nc(Signature::pdebug)->println($$str({"Signature."_s, this->algorithm, " verification algorithm from: "_s, $(getProviderName())}));
+		Signature::pdebug->println($$str({"Signature."_s, this->algorithm, " verification algorithm from: "_s, $(getProviderName())}));
 	}
 }
 
 void Signature::initVerify($PublicKey* publicKey, $AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	engineInitVerify(publicKey, params);
 	this->state = Signature::VERIFY;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
-		$nc(Signature::pdebug)->println($$str({"Signature."_s, this->algorithm, " verification algorithm from: "_s, $(getProviderName())}));
+		Signature::pdebug->println($$str({"Signature."_s, this->algorithm, " verification algorithm from: "_s, $(getProviderName())}));
 	}
 }
 
 $PublicKey* Signature::getPublicKeyFromCert($Certificate* cert) {
 	$init(Signature);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($X509Certificate, xcert, nullptr);
 		bool var$0 = $instanceOf($X509Certificate, cert);
@@ -380,47 +287,47 @@ $PublicKey* Signature::getPublicKeyFromCert($Certificate* cert) {
 }
 
 void Signature::initVerify($Certificate* certificate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	engineInitVerify($(getPublicKeyFromCert(certificate)));
 	this->state = Signature::VERIFY;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
-		$nc(Signature::pdebug)->println($$str({"Signature."_s, this->algorithm, " verification algorithm from: "_s, $(getProviderName())}));
+		Signature::pdebug->println($$str({"Signature."_s, this->algorithm, " verification algorithm from: "_s, $(getProviderName())}));
 	}
 }
 
 void Signature::initVerify($Certificate* certificate, $AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	engineInitVerify($(getPublicKeyFromCert(certificate)), params);
 	this->state = Signature::VERIFY;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
-		$nc(Signature::pdebug)->println($$str({"Signature."_s, this->algorithm, " verification algorithm from: "_s, $(getProviderName())}));
+		Signature::pdebug->println($$str({"Signature."_s, this->algorithm, " verification algorithm from: "_s, $(getProviderName())}));
 	}
 }
 
 void Signature::initSign($PrivateKey* privateKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	engineInitSign(privateKey);
 	this->state = Signature::SIGN;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
-		$nc(Signature::pdebug)->println($$str({"Signature."_s, this->algorithm, " signing algorithm from: "_s, $(getProviderName())}));
+		Signature::pdebug->println($$str({"Signature."_s, this->algorithm, " signing algorithm from: "_s, $(getProviderName())}));
 	}
 }
 
 void Signature::initSign($PrivateKey* privateKey, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	engineInitSign(privateKey, random);
 	this->state = Signature::SIGN;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
-		$nc(Signature::pdebug)->println($$str({"Signature."_s, this->algorithm, " signing algorithm from: "_s, $(getProviderName())}));
+		Signature::pdebug->println($$str({"Signature."_s, this->algorithm, " signing algorithm from: "_s, $(getProviderName())}));
 	}
 }
 
 void Signature::initSign($PrivateKey* privateKey, $AlgorithmParameterSpec* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	engineInitSign(privateKey, params, random);
 	this->state = Signature::SIGN;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
-		$nc(Signature::pdebug)->println($$str({"Signature."_s, this->algorithm, " signing algorithm from: "_s, $(getProviderName())}));
+		Signature::pdebug->println($$str({"Signature."_s, this->algorithm, " signing algorithm from: "_s, $(getProviderName())}));
 	}
 }
 
@@ -514,24 +421,18 @@ $String* Signature::getAlgorithm() {
 }
 
 $String* Signature::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, initState, ""_s);
 	switch (this->state) {
 	case Signature::UNINITIALIZED:
-		{
-			$assign(initState, "<not initialized>"_s);
-			break;
-		}
+		$assign(initState, "<not initialized>"_s);
+		break;
 	case Signature::VERIFY:
-		{
-			$assign(initState, "<initialized for verifying>"_s);
-			break;
-		}
+		$assign(initState, "<initialized for verifying>"_s);
+		break;
 	case Signature::SIGN:
-		{
-			$assign(initState, "<initialized for signing>"_s);
-			break;
-		}
+		$assign(initState, "<initialized for signing>"_s);
+		break;
 	}
 	return $str({"Signature object: "_s, $(getAlgorithm()), initState});
 }
@@ -549,19 +450,19 @@ $AlgorithmParameters* Signature::getParameters() {
 }
 
 $Object* Signature::getParameter($String* param) {
-	return $of(engineGetParameter(param));
+	return engineGetParameter(param);
 }
 
 $Object* Signature::clone() {
 	if ($instanceOf($Cloneable, this)) {
-		return $of($SignatureSpi::clone());
+		return $SignatureSpi::clone();
 	} else {
 		$throwNew($CloneNotSupportedException);
 	}
 }
 
-void clinit$Signature($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Signature::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Signature::RSA_SIGNATURE, "NONEwithRSA"_s);
 	$assignStatic(Signature::RSA_CIPHER, "RSA/ECB/PKCS1Padding"_s);
 	{
@@ -571,25 +472,24 @@ void clinit$Signature($Class* class$) {
 	$assignStatic(Signature::pdebug, $Debug::getInstance("provider"_s, "Provider"_s));
 	bool var$0 = $Debug::isOn("engine="_s);
 	Signature::skipDebug = var$0 && !$Debug::isOn("signature"_s);
-	$var($Object, var$1, $of($new($ServiceId, "Signature"_s, "NONEwithRSA"_s)));
-	$var($Object, var$2, $of($new($ServiceId, "Cipher"_s, "RSA/ECB/PKCS1Padding"_s)));
-	$var($Object, var$3, $of($new($ServiceId, "Cipher"_s, "RSA/ECB"_s)));
-	$var($Object, var$4, $of($new($ServiceId, "Cipher"_s, "RSA//PKCS1Padding"_s)));
+	$var($Object, var$1, $new($ServiceId, "Signature"_s, "NONEwithRSA"_s));
+	$var($Object, var$2, $new($ServiceId, "Cipher"_s, "RSA/ECB/PKCS1Padding"_s));
+	$var($Object, var$3, $new($ServiceId, "Cipher"_s, "RSA/ECB"_s));
+	$var($Object, var$4, $new($ServiceId, "Cipher"_s, "RSA//PKCS1Padding"_s));
 	$assignStatic(Signature::rsaIds, $List::of(var$1, var$2, var$3, var$4, $$new($ServiceId, "Cipher"_s, "RSA"_s)));
 	{
-		$assignStatic(Signature::signatureInfo, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
-		$init($Boolean);
+		$assignStatic(Signature::signatureInfo, $cast($AbstractMap, $new($ConcurrentHashMap)));
 		$var($Boolean, TRUE, $Boolean::TRUE);
-		$nc(Signature::signatureInfo)->put("sun.security.provider.DSA$RawDSA"_s, TRUE);
-		$nc(Signature::signatureInfo)->put("sun.security.provider.DSA$SHA1withDSA"_s, TRUE);
-		$nc(Signature::signatureInfo)->put("sun.security.rsa.RSASignature$MD2withRSA"_s, TRUE);
-		$nc(Signature::signatureInfo)->put("sun.security.rsa.RSASignature$MD5withRSA"_s, TRUE);
-		$nc(Signature::signatureInfo)->put("sun.security.rsa.RSASignature$SHA1withRSA"_s, TRUE);
-		$nc(Signature::signatureInfo)->put("sun.security.rsa.RSASignature$SHA256withRSA"_s, TRUE);
-		$nc(Signature::signatureInfo)->put("sun.security.rsa.RSASignature$SHA384withRSA"_s, TRUE);
-		$nc(Signature::signatureInfo)->put("sun.security.rsa.RSASignature$SHA512withRSA"_s, TRUE);
-		$nc(Signature::signatureInfo)->put("sun.security.rsa.RSAPSSSignature"_s, TRUE);
-		$nc(Signature::signatureInfo)->put("sun.security.pkcs11.P11Signature"_s, TRUE);
+		Signature::signatureInfo->put("sun.security.provider.DSA$RawDSA"_s, TRUE);
+		Signature::signatureInfo->put("sun.security.provider.DSA$SHA1withDSA"_s, TRUE);
+		Signature::signatureInfo->put("sun.security.rsa.RSASignature$MD2withRSA"_s, TRUE);
+		Signature::signatureInfo->put("sun.security.rsa.RSASignature$MD5withRSA"_s, TRUE);
+		Signature::signatureInfo->put("sun.security.rsa.RSASignature$SHA1withRSA"_s, TRUE);
+		Signature::signatureInfo->put("sun.security.rsa.RSASignature$SHA256withRSA"_s, TRUE);
+		Signature::signatureInfo->put("sun.security.rsa.RSASignature$SHA384withRSA"_s, TRUE);
+		Signature::signatureInfo->put("sun.security.rsa.RSASignature$SHA512withRSA"_s, TRUE);
+		Signature::signatureInfo->put("sun.security.rsa.RSAPSSSignature"_s, TRUE);
+		Signature::signatureInfo->put("sun.security.pkcs11.P11Signature"_s, TRUE);
 	}
 }
 
@@ -597,7 +497,89 @@ Signature::Signature() {
 }
 
 $Class* Signature::load$($String* name, bool initialize) {
-	$loadClass(Signature, name, initialize, &_Signature_ClassInfo_, clinit$Signature, allocate$Signature);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Signature, debug)},
+		{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Signature, pdebug)},
+		{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Signature, skipDebug)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Signature, algorithm)},
+		{"provider", "Ljava/security/Provider;", nullptr, 0, $field(Signature, provider)},
+		{"UNINITIALIZED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Signature, UNINITIALIZED)},
+		{"SIGN", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Signature, SIGN)},
+		{"VERIFY", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(Signature, VERIFY)},
+		{"state", "I", nullptr, $PROTECTED, $field(Signature, state)},
+		{"RSA_SIGNATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Signature, RSA_SIGNATURE)},
+		{"RSA_CIPHER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Signature, RSA_CIPHER)},
+		{"rsaIds", "Ljava/util/List;", "Ljava/util/List<Lsun/security/jca/ServiceId;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Signature, rsaIds)},
+		{"signatureInfo", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Signature, signatureInfo)},
+		{}
+	};
+	$CompoundAttribute getParametermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setParametermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Signature, init$, void, $String*)},
+		{"chooseFirstProvider", "()V", nullptr, 0, $virtualMethod(Signature, chooseFirstProvider, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Signature, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Signature, getAlgorithm, $String*)},
+		{"getInstance", "(Ljava/lang/String;)Ljava/security/Signature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Signature, getInstance, Signature*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Lsun/security/jca/GetInstance$Instance;Ljava/lang/String;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(Signature, getInstance, Signature*, $GetInstance$Instance*, $String*)},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/Signature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Signature, getInstance, Signature*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/Signature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Signature, getInstance, Signature*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getInstanceRSA", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(Signature, getInstanceRSA, Signature*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Signature, getParameter, $Object*, $String*), "java.security.InvalidParameterException", nullptr, getParametermethodAnnotations$$},
+		{"getParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $FINAL, $method(Signature, getParameters, $AlgorithmParameters*)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(Signature, getProvider, $Provider*)},
+		{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Signature, getProviderName, $String*)},
+		{"getPublicKeyFromCert", "(Ljava/security/cert/Certificate;)Ljava/security/PublicKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(Signature, getPublicKeyFromCert, $PublicKey*, $Certificate*), "java.security.InvalidKeyException"},
+		{"initSign", "(Ljava/security/PrivateKey;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, initSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
+		{"initSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, initSign, void, $PrivateKey*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"initSign", "(Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $FINAL, $method(Signature, initSign, void, $PrivateKey*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"initVerify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, initVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
+		{"initVerify", "(Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $FINAL, $method(Signature, initVerify, void, $PublicKey*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"initVerify", "(Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, initVerify, void, $Certificate*), "java.security.InvalidKeyException"},
+		{"initVerify", "(Ljava/security/cert/Certificate;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $FINAL, $method(Signature, initVerify, void, $Certificate*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"isSpi", "(Ljava/security/Provider$Service;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Signature, isSpi, bool, $Provider$Service*)},
+		{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(Signature, setParameter, void, $String*, Object$*), "java.security.InvalidParameterException", nullptr, setParametermethodAnnotations$$},
+		{"setParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, setParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"sign", "()[B", nullptr, $PUBLIC | $FINAL, $method(Signature, sign, $bytes*), "java.security.SignatureException"},
+		{"sign", "([BII)I", nullptr, $PUBLIC | $FINAL, $method(Signature, sign, int32_t, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Signature, toString, $String*)},
+		{"update", "(B)V", nullptr, $PUBLIC | $FINAL, $method(Signature, update, void, int8_t), "java.security.SignatureException"},
+		{"update", "([B)V", nullptr, $PUBLIC | $FINAL, $method(Signature, update, void, $bytes*), "java.security.SignatureException"},
+		{"update", "([BII)V", nullptr, $PUBLIC | $FINAL, $method(Signature, update, void, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
+		{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(Signature, update, void, $ByteBuffer*), "java.security.SignatureException"},
+		{"verify", "([B)Z", nullptr, $PUBLIC | $FINAL, $method(Signature, verify, bool, $bytes*), "java.security.SignatureException"},
+		{"verify", "([BII)Z", nullptr, $PUBLIC | $FINAL, $method(Signature, verify, bool, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.Signature$CipherAdapter", "java.security.Signature", "CipherAdapter", $PRIVATE | $STATIC},
+		{"java.security.Signature$Delegate", "java.security.Signature", "Delegate", $PRIVATE | $STATIC},
+		{"java.security.Signature$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.Signature",
+		"java.security.SignatureSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.security.Signature$CipherAdapter,java.security.Signature$Delegate,java.security.Signature$Delegate$CloneableDelegate,java.security.Signature$1"
+	};
+	$loadClass(Signature, name, initialize, &classInfo$$, Signature::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Signature);
+	});
 	return class$;
 }
 

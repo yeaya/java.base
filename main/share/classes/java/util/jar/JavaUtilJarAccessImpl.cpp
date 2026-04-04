@@ -1,5 +1,4 @@
 #include <java/util/jar/JavaUtilJarAccessImpl.h>
-
 #include <java/net/URL.h>
 #include <java/security/CodeSource.h>
 #include <java/util/Enumeration.h>
@@ -25,35 +24,6 @@ using $Manifest = ::java::util::jar::Manifest;
 namespace java {
 	namespace util {
 		namespace jar {
-
-$MethodInfo _JavaUtilJarAccessImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JavaUtilJarAccessImpl, init$, void)},
-	{"ensureInitialization", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, ensureInitialization, void, $JarFile*)},
-	{"entries2", "(Ljava/util/jar/JarFile;)Ljava/util/Enumeration;", "(Ljava/util/jar/JarFile;)Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, entries2, $Enumeration*, $JarFile*)},
-	{"entryFor", "(Ljava/util/jar/JarFile;Ljava/lang/String;)Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, entryFor, $JarEntry*, $JarFile*, $String*)},
-	{"entryNames", "(Ljava/util/jar/JarFile;[Ljava/security/CodeSource;)Ljava/util/Enumeration;", "(Ljava/util/jar/JarFile;[Ljava/security/CodeSource;)Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, entryNames, $Enumeration*, $JarFile*, $CodeSourceArray*)},
-	{"getCodeSource", "(Ljava/util/jar/JarFile;Ljava/net/URL;Ljava/lang/String;)Ljava/security/CodeSource;", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, getCodeSource, $CodeSource*, $JarFile*, $URL*, $String*)},
-	{"getCodeSources", "(Ljava/util/jar/JarFile;Ljava/net/URL;)[Ljava/security/CodeSource;", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, getCodeSources, $CodeSourceArray*, $JarFile*, $URL*)},
-	{"getManifestDigests", "(Ljava/util/jar/JarFile;)Ljava/util/List;", "(Ljava/util/jar/JarFile;)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, getManifestDigests, $List*, $JarFile*)},
-	{"getTrustedAttributes", "(Ljava/util/jar/Manifest;Ljava/lang/String;)Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, getTrustedAttributes, $Attributes*, $Manifest*, $String*)},
-	{"isInitializing", "()Z", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, isInitializing, bool)},
-	{"jarFileHasClassPathAttribute", "(Ljava/util/jar/JarFile;)Z", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, jarFileHasClassPathAttribute, bool, $JarFile*), "java.io.IOException"},
-	{"setEagerValidation", "(Ljava/util/jar/JarFile;Z)V", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, setEagerValidation, void, $JarFile*, bool)},
-	{}
-};
-
-$ClassInfo _JavaUtilJarAccessImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.jar.JavaUtilJarAccessImpl",
-	"java.lang.Object",
-	"jdk.internal.access.JavaUtilJarAccess",
-	nullptr,
-	_JavaUtilJarAccessImpl_MethodInfo_
-};
-
-$Object* allocate$JavaUtilJarAccessImpl($Class* clazz) {
-	return $of($alloc(JavaUtilJarAccessImpl));
-}
 
 void JavaUtilJarAccessImpl::init$() {
 }
@@ -106,7 +76,32 @@ JavaUtilJarAccessImpl::JavaUtilJarAccessImpl() {
 }
 
 $Class* JavaUtilJarAccessImpl::load$($String* name, bool initialize) {
-	$loadClass(JavaUtilJarAccessImpl, name, initialize, &_JavaUtilJarAccessImpl_ClassInfo_, allocate$JavaUtilJarAccessImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JavaUtilJarAccessImpl, init$, void)},
+		{"ensureInitialization", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, ensureInitialization, void, $JarFile*)},
+		{"entries2", "(Ljava/util/jar/JarFile;)Ljava/util/Enumeration;", "(Ljava/util/jar/JarFile;)Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, entries2, $Enumeration*, $JarFile*)},
+		{"entryFor", "(Ljava/util/jar/JarFile;Ljava/lang/String;)Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, entryFor, $JarEntry*, $JarFile*, $String*)},
+		{"entryNames", "(Ljava/util/jar/JarFile;[Ljava/security/CodeSource;)Ljava/util/Enumeration;", "(Ljava/util/jar/JarFile;[Ljava/security/CodeSource;)Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, entryNames, $Enumeration*, $JarFile*, $CodeSourceArray*)},
+		{"getCodeSource", "(Ljava/util/jar/JarFile;Ljava/net/URL;Ljava/lang/String;)Ljava/security/CodeSource;", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, getCodeSource, $CodeSource*, $JarFile*, $URL*, $String*)},
+		{"getCodeSources", "(Ljava/util/jar/JarFile;Ljava/net/URL;)[Ljava/security/CodeSource;", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, getCodeSources, $CodeSourceArray*, $JarFile*, $URL*)},
+		{"getManifestDigests", "(Ljava/util/jar/JarFile;)Ljava/util/List;", "(Ljava/util/jar/JarFile;)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, getManifestDigests, $List*, $JarFile*)},
+		{"getTrustedAttributes", "(Ljava/util/jar/Manifest;Ljava/lang/String;)Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, getTrustedAttributes, $Attributes*, $Manifest*, $String*)},
+		{"isInitializing", "()Z", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, isInitializing, bool)},
+		{"jarFileHasClassPathAttribute", "(Ljava/util/jar/JarFile;)Z", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, jarFileHasClassPathAttribute, bool, $JarFile*), "java.io.IOException"},
+		{"setEagerValidation", "(Ljava/util/jar/JarFile;Z)V", nullptr, $PUBLIC, $virtualMethod(JavaUtilJarAccessImpl, setEagerValidation, void, $JarFile*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.jar.JavaUtilJarAccessImpl",
+		"java.lang.Object",
+		"jdk.internal.access.JavaUtilJarAccess",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavaUtilJarAccessImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaUtilJarAccessImpl);
+	});
 	return class$;
 }
 

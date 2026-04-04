@@ -1,5 +1,4 @@
 #include <p/Duplicate.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -9,47 +8,40 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace p {
 
-$NamedAttribute Duplicate_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute Duplicate_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; PACKAGE"},
-	{'-'}
-};
-
-$NamedAttribute Duplicate_Attribute_var$1[] = {
-	{"value", '[', Duplicate_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _Duplicate_Annotations_[] = {
-	{"Ljava/lang/annotation/Documented;", nullptr},
-	{"Ljava/lang/annotation/Retention;", Duplicate_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", Duplicate_Attribute_var$1},
-	{}
-};
-
-$ClassInfo _Duplicate_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"p.Duplicate",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Duplicate_Annotations_
-};
-
-$Object* allocate$Duplicate($Class* clazz) {
-	return $of($alloc(Duplicate));
-}
-
 $Class* Duplicate::load$($String* name, bool initialize) {
-	$loadClass(Duplicate, name, initialize, &_Duplicate_ClassInfo_, allocate$Duplicate);
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; PACKAGE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Documented;", nullptr},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"p.Duplicate",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Duplicate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Duplicate);
+	});
 	return class$;
 }
 

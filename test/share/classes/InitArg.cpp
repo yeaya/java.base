@@ -1,5 +1,4 @@
 #include <InitArg.h>
-
 #include <java/lang/ClassLoader.h>
 #include <jcpp.h>
 
@@ -8,30 +7,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _InitArg_FieldInfo_[] = {
-	{"x123Initialized", "Z", nullptr, $PUBLIC | $STATIC, $staticField(InitArg, x123Initialized)},
-	{}
-};
-
-$MethodInfo _InitArg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InitArg, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InitArg, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _InitArg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"InitArg",
-	"java.lang.Object",
-	nullptr,
-	_InitArg_FieldInfo_,
-	_InitArg_MethodInfo_
-};
-
-$Object* allocate$InitArg($Class* clazz) {
-	return $of($alloc(InitArg));
-}
-
 bool InitArg::x123Initialized = false;
 
 void InitArg::init$() {
@@ -39,7 +14,7 @@ void InitArg::init$() {
 
 void InitArg::main($StringArray* args) {
 	$init(InitArg);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName("x123"_s, false, $(InitArg::class$->getClassLoader()));
 	if (InitArg::x123Initialized) {
@@ -51,7 +26,7 @@ void InitArg::main($StringArray* args) {
 	}
 }
 
-void clinit$InitArg($Class* class$) {
+void InitArg::clinit$($Class* clazz) {
 	InitArg::x123Initialized = false;
 }
 
@@ -59,7 +34,26 @@ InitArg::InitArg() {
 }
 
 $Class* InitArg::load$($String* name, bool initialize) {
-	$loadClass(InitArg, name, initialize, &_InitArg_ClassInfo_, clinit$InitArg, allocate$InitArg);
+	$FieldInfo fieldInfos$$[] = {
+		{"x123Initialized", "Z", nullptr, $PUBLIC | $STATIC, $staticField(InitArg, x123Initialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InitArg, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InitArg, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"InitArg",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InitArg, name, initialize, &classInfo$$, InitArg::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InitArg);
+	});
 	return class$;
 }
 

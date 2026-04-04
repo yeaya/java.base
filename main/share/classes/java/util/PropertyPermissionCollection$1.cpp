@@ -1,5 +1,4 @@
 #include <java/util/PropertyPermissionCollection$1.h>
-
 #include <java/util/PropertyPermission.h>
 #include <java/util/PropertyPermissionCollection.h>
 #include <jcpp.h>
@@ -14,50 +13,6 @@ using $PropertyPermissionCollection = ::java::util::PropertyPermissionCollection
 
 namespace java {
 	namespace util {
-
-$FieldInfo _PropertyPermissionCollection$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/PropertyPermissionCollection;", nullptr, $FINAL | $SYNTHETIC, $field(PropertyPermissionCollection$1, this$0)},
-	{"val$propName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(PropertyPermissionCollection$1, val$propName)},
-	{}
-};
-
-$MethodInfo _PropertyPermissionCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/PropertyPermissionCollection;Ljava/lang/String;)V", nullptr, 0, $method(PropertyPermissionCollection$1, init$, void, $PropertyPermissionCollection*, $String*)},
-	{"apply", "(Ljava/util/PropertyPermission;Ljava/util/PropertyPermission;)Ljava/util/PropertyPermission;", nullptr, $PUBLIC, $virtualMethod(PropertyPermissionCollection$1, apply, $PropertyPermission*, $PropertyPermission*, $PropertyPermission*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropertyPermissionCollection$1, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _PropertyPermissionCollection$1_EnclosingMethodInfo_ = {
-	"java.util.PropertyPermissionCollection",
-	"add",
-	"(Ljava/security/Permission;)V"
-};
-
-$InnerClassInfo _PropertyPermissionCollection$1_InnerClassesInfo_[] = {
-	{"java.util.PropertyPermissionCollection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PropertyPermissionCollection$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.PropertyPermissionCollection$1",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	_PropertyPermissionCollection$1_FieldInfo_,
-	_PropertyPermissionCollection$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/BiFunction<Ljava/util/PropertyPermission;Ljava/util/PropertyPermission;Ljava/util/PropertyPermission;>;",
-	&_PropertyPermissionCollection$1_EnclosingMethodInfo_,
-	_PropertyPermissionCollection$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.PropertyPermissionCollection"
-};
-
-$Object* allocate$PropertyPermissionCollection$1($Class* clazz) {
-	return $of($alloc(PropertyPermissionCollection$1));
-}
 
 void PropertyPermissionCollection$1::init$($PropertyPermissionCollection* this$0, $String* val$propName) {
 	$set(this, this$0, this$0);
@@ -87,7 +42,44 @@ PropertyPermissionCollection$1::PropertyPermissionCollection$1() {
 }
 
 $Class* PropertyPermissionCollection$1::load$($String* name, bool initialize) {
-	$loadClass(PropertyPermissionCollection$1, name, initialize, &_PropertyPermissionCollection$1_ClassInfo_, allocate$PropertyPermissionCollection$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/PropertyPermissionCollection;", nullptr, $FINAL | $SYNTHETIC, $field(PropertyPermissionCollection$1, this$0)},
+		{"val$propName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(PropertyPermissionCollection$1, val$propName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/PropertyPermissionCollection;Ljava/lang/String;)V", nullptr, 0, $method(PropertyPermissionCollection$1, init$, void, $PropertyPermissionCollection*, $String*)},
+		{"apply", "(Ljava/util/PropertyPermission;Ljava/util/PropertyPermission;)Ljava/util/PropertyPermission;", nullptr, $PUBLIC, $virtualMethod(PropertyPermissionCollection$1, apply, $PropertyPermission*, $PropertyPermission*, $PropertyPermission*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropertyPermissionCollection$1, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.PropertyPermissionCollection",
+		"add",
+		"(Ljava/security/Permission;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.PropertyPermissionCollection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.PropertyPermissionCollection$1",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/BiFunction<Ljava/util/PropertyPermission;Ljava/util/PropertyPermission;Ljava/util/PropertyPermission;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.PropertyPermissionCollection"
+	};
+	$loadClass(PropertyPermissionCollection$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyPermissionCollection$1);
+	});
 	return class$;
 }
 

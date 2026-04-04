@@ -1,5 +1,4 @@
 #include <java/security/cert/CertPathParameters.h>
-
 #include <java/lang/Cloneable.h>
 #include <jcpp.h>
 
@@ -11,30 +10,26 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$MethodInfo _CertPathParameters_MethodInfo_[] = {
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CertPathParameters_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.cert.CertPathParameters",
-	nullptr,
-	"java.lang.Cloneable",
-	nullptr,
-	_CertPathParameters_MethodInfo_
-};
-
-$Object* allocate$CertPathParameters($Class* clazz) {
-	return $of($alloc(CertPathParameters));
-}
-
 $Object* CertPathParameters::clone() {
 	 return this->$Cloneable::clone();
 }
 
 $Class* CertPathParameters::load$($String* name, bool initialize) {
-	$loadClass(CertPathParameters, name, initialize, &_CertPathParameters_ClassInfo_, allocate$CertPathParameters);
+	$MethodInfo methodInfos$$[] = {
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.cert.CertPathParameters",
+		nullptr,
+		"java.lang.Cloneable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CertPathParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertPathParameters);
+	});
 	return class$;
 }
 

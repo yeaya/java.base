@@ -24,6 +24,7 @@ class $import ModuleDescriptor$Requires$Modifier : public ::java::lang::Enum {
 public:
 	ModuleDescriptor$Requires$Modifier();
 	static $Array<::java::lang::module::ModuleDescriptor$Requires$Modifier>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::lang::module::ModuleDescriptor$Requires$Modifier* valueOf($String* name);
 	static $Array<::java::lang::module::ModuleDescriptor$Requires$Modifier>* values();

@@ -1,12 +1,10 @@
 #include <SendSize$ClientThread.h>
-
 #include <SendSize.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -17,44 +15,6 @@ using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 
-$FieldInfo _SendSize$ClientThread_FieldInfo_[] = {
-	{"serverPort", "I", nullptr, 0, $field(SendSize$ClientThread, serverPort)},
-	{"client", "Ljava/net/DatagramSocket;", nullptr, 0, $field(SendSize$ClientThread, client)},
-	{"host", "Ljava/net/InetAddress;", nullptr, 0, $field(SendSize$ClientThread, host)},
-	{}
-};
-
-$MethodInfo _SendSize$ClientThread_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(SendSize$ClientThread, init$, void, int32_t), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SendSize$ClientThread, run, void)},
-	{}
-};
-
-$InnerClassInfo _SendSize$ClientThread_InnerClassesInfo_[] = {
-	{"SendSize$ClientThread", "SendSize", "ClientThread", $STATIC},
-	{}
-};
-
-$ClassInfo _SendSize$ClientThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"SendSize$ClientThread",
-	"java.lang.Thread",
-	nullptr,
-	_SendSize$ClientThread_FieldInfo_,
-	_SendSize$ClientThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SendSize$ClientThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SendSize"
-};
-
-$Object* allocate$SendSize$ClientThread($Class* clazz) {
-	return $of($alloc(SendSize$ClientThread));
-}
-
 void SendSize$ClientThread::init$(int32_t serverPort) {
 	$Thread::init$();
 	this->serverPort = serverPort;
@@ -63,38 +23,36 @@ void SendSize$ClientThread::init$(int32_t serverPort) {
 }
 
 void SendSize$ClientThread::run() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$nc($System::err)->println($$str({"started client thread: "_s, this->client}));
-				$var($bytes, buf, $new($bytes, 512));
-				$var($DatagramPacket, sendPacket, $new($DatagramPacket, buf, 256, this->host, this->serverPort));
-				for (int32_t i = 0; i < 10; ++i) {
-					$nc(this->client)->send(sendPacket);
-				}
-				$nc($System::err)->println("sent 10 packets"_s);
-				return$1 = true;
-				goto $finally;
-			} catch ($Exception& e) {
-				e->printStackTrace();
-				$throwNew($RuntimeException, $$str({"caught: "_s, e}));
+			$nc($System::err)->println($$str({"started client thread: "_s, this->client}));
+			$var($bytes, buf, $new($bytes, 512));
+			$var($DatagramPacket, sendPacket, $new($DatagramPacket, buf, 256, this->host, this->serverPort));
+			for (int32_t i = 0; i < 10; ++i) {
+				$nc(this->client)->send(sendPacket);
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			if (this->client != nullptr) {
-				$nc(this->client)->close();
-			}
+			$System::err->println("sent 10 packets"_s);
+			return$1 = true;
+			goto $finally;
+		} catch ($Exception& e) {
+			e->printStackTrace();
+			$throwNew($RuntimeException, $$str({"caught: "_s, e}));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		if (this->client != nullptr) {
+			this->client->close();
 		}
-		if (return$1) {
-			return;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -102,7 +60,39 @@ SendSize$ClientThread::SendSize$ClientThread() {
 }
 
 $Class* SendSize$ClientThread::load$($String* name, bool initialize) {
-	$loadClass(SendSize$ClientThread, name, initialize, &_SendSize$ClientThread_ClassInfo_, allocate$SendSize$ClientThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"serverPort", "I", nullptr, 0, $field(SendSize$ClientThread, serverPort)},
+		{"client", "Ljava/net/DatagramSocket;", nullptr, 0, $field(SendSize$ClientThread, client)},
+		{"host", "Ljava/net/InetAddress;", nullptr, 0, $field(SendSize$ClientThread, host)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(SendSize$ClientThread, init$, void, int32_t), "java.io.IOException"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SendSize$ClientThread, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SendSize$ClientThread", "SendSize", "ClientThread", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SendSize$ClientThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SendSize"
+	};
+	$loadClass(SendSize$ClientThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SendSize$ClientThread);
+	});
 	return class$;
 }
 

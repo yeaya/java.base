@@ -14,10 +14,13 @@ class $import DirectoryNotEmptyException : public ::java::nio::file::FileSystemE
 public:
 	DirectoryNotEmptyException();
 	void init$($String* dir);
-	static const int64_t serialVersionUID = (int64_t)0x2A6B773C0727657B;
+	static const int64_t serialVersionUID = (int64_t)0x2a6b773c0727657b;
 	DirectoryNotEmptyException(const DirectoryNotEmptyException& e);
 	virtual void throw$() override;
-	inline DirectoryNotEmptyException* operator ->() {
+	inline DirectoryNotEmptyException* operator ->() const {
+		return (DirectoryNotEmptyException*)throwing$;
+	}
+	inline operator DirectoryNotEmptyException*() const {
 		return (DirectoryNotEmptyException*)throwing$;
 	}
 };

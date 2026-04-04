@@ -22,6 +22,7 @@ class $export Handler : public ::java::net::URLStreamHandler {
 	$class(Handler, 0, ::java::net::URLStreamHandler)
 public:
 	Handler();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::java::net::URLStreamHandler::equals;
 	using ::java::net::URLStreamHandler::hashCode;
 	void init$();

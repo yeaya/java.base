@@ -1,5 +1,4 @@
 #include <CurrencyCollate.h>
-
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -7,37 +6,12 @@
 #undef DATA
 #undef US
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Collator = ::java::text::Collator;
 using $Locale = ::java::util::Locale;
-
-$FieldInfo _CurrencyCollate_FieldInfo_[] = {
-	{"myCollation", "Ljava/text/Collator;", nullptr, $STATIC, $staticField(CurrencyCollate, myCollation)},
-	{}
-};
-
-$MethodInfo _CurrencyCollate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyCollate, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CurrencyCollate, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _CurrencyCollate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CurrencyCollate",
-	"java.lang.Object",
-	nullptr,
-	_CurrencyCollate_FieldInfo_,
-	_CurrencyCollate_MethodInfo_
-};
-
-$Object* allocate$CurrencyCollate($Class* clazz) {
-	return $of($alloc(CurrencyCollate));
-}
 
 $Collator* CurrencyCollate::myCollation = nullptr;
 
@@ -46,7 +20,7 @@ void CurrencyCollate::init$() {
 
 void CurrencyCollate::main($StringArray* args) {
 	$init(CurrencyCollate);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, DATA, $new($StringArray, {
 		u"€"_s,
 		">"_s,
@@ -113,7 +87,7 @@ void CurrencyCollate::main($StringArray* args) {
 	$nc($System::out)->println("Ok"_s);
 }
 
-void clinit$CurrencyCollate($Class* class$) {
+void CurrencyCollate::clinit$($Class* clazz) {
 	$init($Locale);
 	$assignStatic(CurrencyCollate::myCollation, $Collator::getInstance($Locale::US));
 }
@@ -122,7 +96,26 @@ CurrencyCollate::CurrencyCollate() {
 }
 
 $Class* CurrencyCollate::load$($String* name, bool initialize) {
-	$loadClass(CurrencyCollate, name, initialize, &_CurrencyCollate_ClassInfo_, clinit$CurrencyCollate, allocate$CurrencyCollate);
+	$FieldInfo fieldInfos$$[] = {
+		{"myCollation", "Ljava/text/Collator;", nullptr, $STATIC, $staticField(CurrencyCollate, myCollation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyCollate, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CurrencyCollate, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CurrencyCollate",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CurrencyCollate, name, initialize, &classInfo$$, CurrencyCollate::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyCollate);
+	});
 	return class$;
 }
 

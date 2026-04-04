@@ -14,6 +14,7 @@ class $export GetContentType : public ::java::lang::Object {
 	$class(GetContentType, 0, ::java::lang::Object)
 public:
 	GetContentType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getSpec();
 	static void main($StringArray* args);

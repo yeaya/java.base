@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/CertId.h>
-
 #include <java/io/IOException.h>
 #include <java/math/BigInteger.h>
 #include <java/security/MessageDigest.h>
@@ -43,55 +42,16 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _CertId_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertId, debug)},
-	{"SHA1_ALGID", "Lsun/security/x509/AlgorithmId;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CertId, SHA1_ALGID)},
-	{"hashAlgId", "Lsun/security/x509/AlgorithmId;", nullptr, $PRIVATE | $FINAL, $field(CertId, hashAlgId)},
-	{"issuerNameHash", "[B", nullptr, $PRIVATE | $FINAL, $field(CertId, issuerNameHash)},
-	{"issuerKeyHash", "[B", nullptr, $PRIVATE | $FINAL, $field(CertId, issuerKeyHash)},
-	{"certSerialNumber", "Lsun/security/x509/SerialNumber;", nullptr, $PRIVATE | $FINAL, $field(CertId, certSerialNumber)},
-	{"myhash", "I", nullptr, $PRIVATE, $field(CertId, myhash)},
-	{}
-};
-
-$MethodInfo _CertId_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;Lsun/security/x509/SerialNumber;)V", nullptr, $PUBLIC, $method(CertId, init$, void, $X509Certificate*, $SerialNumber*), "java.io.IOException"},
-	{"<init>", "(Ljavax/security/auth/x500/X500Principal;Ljava/security/PublicKey;Lsun/security/x509/SerialNumber;)V", nullptr, $PUBLIC, $method(CertId, init$, void, $X500Principal*, $PublicKey*, $SerialNumber*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertId, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertId, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CertId, equals, bool, Object$*)},
-	{"getHashAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(CertId, getHashAlgorithm, $AlgorithmId*)},
-	{"getIssuerKeyHash", "()[B", nullptr, $PUBLIC, $virtualMethod(CertId, getIssuerKeyHash, $bytes*)},
-	{"getIssuerNameHash", "()[B", nullptr, $PUBLIC, $virtualMethod(CertId, getIssuerNameHash, $bytes*)},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(CertId, getSerialNumber, $BigInteger*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CertId, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertId, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CertId_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.certpath.CertId",
-	"java.lang.Object",
-	nullptr,
-	_CertId_FieldInfo_,
-	_CertId_MethodInfo_
-};
-
-$Object* allocate$CertId($Class* clazz) {
-	return $of($alloc(CertId));
-}
-
 $AlgorithmId* CertId::SHA1_ALGID = nullptr;
 
 void CertId::init$($X509Certificate* issuerCert, $SerialNumber* serialNumber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X500Principal, var$0, $nc(issuerCert)->getSubjectX500Principal());
 	CertId::init$(var$0, $(issuerCert->getPublicKey()), serialNumber);
 }
 
 void CertId::init$($X500Principal* issuerName, $PublicKey* issuerKey, $SerialNumber* serialNumber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->myhash = -1;
 	$var($MessageDigest, md, nullptr);
 	try {
@@ -106,17 +66,18 @@ void CertId::init$($X500Principal* issuerName, $PublicKey* issuerKey, $SerialNum
 	$var($DerValue, val, $new($DerValue, pubKey));
 	$var($DerValueArray, seq, $new($DerValueArray, 2));
 	seq->set(0, $($nc(val->data$)->getDerValue()));
-	seq->set(1, $($nc(val->data$)->getDerValue()));
+	seq->set(1, $(val->data$->getDerValue()));
 	$var($bytes, keyBytes, $nc(seq->get(1))->getBitString());
 	md->update(keyBytes);
 	$set(this, issuerKeyHash, md->digest());
 	$set(this, certSerialNumber, serialNumber);
+	;
 }
 
 void CertId::init$($DerInputStream* derIn) {
 	this->myhash = -1;
 	$set(this, hashAlgId, $AlgorithmId::parse($($nc(derIn)->getDerValue())));
-	$set(this, issuerNameHash, $nc(derIn)->getOctetString());
+	$set(this, issuerNameHash, derIn->getOctetString());
 	$set(this, issuerKeyHash, derIn->getOctetString());
 	$set(this, certSerialNumber, $new($SerialNumber, derIn));
 }
@@ -144,24 +105,25 @@ void CertId::encode($DerOutputStream* out) {
 	tmp->putOctetString(this->issuerKeyHash);
 	$nc(this->certSerialNumber)->encode(tmp);
 	$nc(out)->write($DerValue::tag_Sequence, tmp);
+	;
 }
 
 int32_t CertId::hashCode() {
 	if (this->myhash == -1) {
 		this->myhash = $nc(this->hashAlgId)->hashCode();
 		for (int32_t i = 0; i < $nc(this->issuerNameHash)->length; ++i) {
-			this->myhash += $nc(this->issuerNameHash)->get(i) * i;
+			this->myhash += this->issuerNameHash->get(i) * i;
 		}
 		for (int32_t i = 0; i < $nc(this->issuerKeyHash)->length; ++i) {
-			this->myhash += $nc(this->issuerKeyHash)->get(i) * i;
+			this->myhash += this->issuerKeyHash->get(i) * i;
 		}
-		this->myhash += $nc($($nc(this->certSerialNumber)->getNumber()))->hashCode();
+		this->myhash += $$nc($nc(this->certSerialNumber)->getNumber())->hashCode();
 	}
 	return this->myhash;
 }
 
 bool CertId::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -170,9 +132,9 @@ bool CertId::equals(Object$* other) {
 	}
 	$var(CertId, that, $cast(CertId, other));
 	bool var$2 = $nc(this->hashAlgId)->equals($($nc(that)->getHashAlgorithm()));
-	bool var$1 = var$2 && $Arrays::equals(this->issuerNameHash, $($nc(that)->getIssuerNameHash()));
-	bool var$0 = var$1 && $Arrays::equals(this->issuerKeyHash, $($nc(that)->getIssuerKeyHash()));
-	if (var$0 && $nc($($nc(this->certSerialNumber)->getNumber()))->equals($($nc(that)->getSerialNumber()))) {
+	bool var$1 = var$2 && $Arrays::equals(this->issuerNameHash, $(that->getIssuerNameHash()));
+	bool var$0 = var$1 && $Arrays::equals(this->issuerKeyHash, $(that->getIssuerKeyHash()));
+	if (var$0 && $$nc($nc(this->certSerialNumber)->getNumber())->equals($(that->getSerialNumber()))) {
 		return true;
 	} else {
 		return false;
@@ -180,7 +142,7 @@ bool CertId::equals(Object$* other) {
 }
 
 $String* CertId::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("CertId \n"_s);
 	sb->append($$str({"Algorithm: "_s, $($nc(this->hashAlgId)->toString()), "\n"_s}));
@@ -193,7 +155,7 @@ $String* CertId::toString() {
 	return sb->toString();
 }
 
-void clinit$CertId($Class* class$) {
+void CertId::clinit$($Class* clazz) {
 	$init($AlgorithmId);
 	$assignStatic(CertId::SHA1_ALGID, $new($AlgorithmId, $AlgorithmId::SHA_oid));
 }
@@ -202,7 +164,41 @@ CertId::CertId() {
 }
 
 $Class* CertId::load$($String* name, bool initialize) {
-	$loadClass(CertId, name, initialize, &_CertId_ClassInfo_, clinit$CertId, allocate$CertId);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertId, debug)},
+		{"SHA1_ALGID", "Lsun/security/x509/AlgorithmId;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CertId, SHA1_ALGID)},
+		{"hashAlgId", "Lsun/security/x509/AlgorithmId;", nullptr, $PRIVATE | $FINAL, $field(CertId, hashAlgId)},
+		{"issuerNameHash", "[B", nullptr, $PRIVATE | $FINAL, $field(CertId, issuerNameHash)},
+		{"issuerKeyHash", "[B", nullptr, $PRIVATE | $FINAL, $field(CertId, issuerKeyHash)},
+		{"certSerialNumber", "Lsun/security/x509/SerialNumber;", nullptr, $PRIVATE | $FINAL, $field(CertId, certSerialNumber)},
+		{"myhash", "I", nullptr, $PRIVATE, $field(CertId, myhash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/cert/X509Certificate;Lsun/security/x509/SerialNumber;)V", nullptr, $PUBLIC, $method(CertId, init$, void, $X509Certificate*, $SerialNumber*), "java.io.IOException"},
+		{"<init>", "(Ljavax/security/auth/x500/X500Principal;Ljava/security/PublicKey;Lsun/security/x509/SerialNumber;)V", nullptr, $PUBLIC, $method(CertId, init$, void, $X500Principal*, $PublicKey*, $SerialNumber*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertId, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertId, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CertId, equals, bool, Object$*)},
+		{"getHashAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(CertId, getHashAlgorithm, $AlgorithmId*)},
+		{"getIssuerKeyHash", "()[B", nullptr, $PUBLIC, $virtualMethod(CertId, getIssuerKeyHash, $bytes*)},
+		{"getIssuerNameHash", "()[B", nullptr, $PUBLIC, $virtualMethod(CertId, getIssuerNameHash, $bytes*)},
+		{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(CertId, getSerialNumber, $BigInteger*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CertId, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertId, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.certpath.CertId",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertId, name, initialize, &classInfo$$, CertId::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertId);
+	});
 	return class$;
 }
 

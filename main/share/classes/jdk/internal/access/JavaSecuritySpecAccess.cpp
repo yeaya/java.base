@@ -1,5 +1,4 @@
 #include <jdk/internal/access/JavaSecuritySpecAccess.h>
-
 #include <java/security/spec/EncodedKeySpec.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace jdk {
 	namespace internal {
 		namespace access {
 
-$MethodInfo _JavaSecuritySpecAccess_MethodInfo_[] = {
-	{"clearEncodedKeySpec", "(Ljava/security/spec/EncodedKeySpec;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaSecuritySpecAccess, clearEncodedKeySpec, void, $EncodedKeySpec*)},
-	{}
-};
-
-$ClassInfo _JavaSecuritySpecAccess_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.access.JavaSecuritySpecAccess",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavaSecuritySpecAccess_MethodInfo_
-};
-
-$Object* allocate$JavaSecuritySpecAccess($Class* clazz) {
-	return $of($alloc(JavaSecuritySpecAccess));
-}
-
 $Class* JavaSecuritySpecAccess::load$($String* name, bool initialize) {
-	$loadClass(JavaSecuritySpecAccess, name, initialize, &_JavaSecuritySpecAccess_ClassInfo_, allocate$JavaSecuritySpecAccess);
+	$MethodInfo methodInfos$$[] = {
+		{"clearEncodedKeySpec", "(Ljava/security/spec/EncodedKeySpec;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaSecuritySpecAccess, clearEncodedKeySpec, void, $EncodedKeySpec*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.access.JavaSecuritySpecAccess",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavaSecuritySpecAccess, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaSecuritySpecAccess);
+	});
 	return class$;
 }
 

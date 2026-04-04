@@ -63,6 +63,7 @@ class JarVerifier : public ::java::lang::Object {
 	$class(JarVerifier, 0, ::java::lang::Object)
 public:
 	JarVerifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $bytes* rawBytes);
 	virtual void beginEntry(::java::util::jar::JarEntry* je, ::sun::security::util::ManifestEntryVerifier* mev);
 	virtual void doneWithMeta();

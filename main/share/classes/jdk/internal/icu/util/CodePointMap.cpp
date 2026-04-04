@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/util/CodePointMap.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/util/Iterator.h>
@@ -31,49 +30,6 @@ namespace jdk {
 		namespace icu {
 			namespace util {
 
-$FieldInfo _CodePointMap_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CodePointMap, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _CodePointMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(CodePointMap, init$, void)},
-	{"get", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointMap, get, int32_t, int32_t)},
-	{"getRange", "(ILjdk/internal/icu/util/CodePointMap$ValueFilter;Ljdk/internal/icu/util/CodePointMap$Range;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointMap, getRange, bool, int32_t, $CodePointMap$ValueFilter*, $CodePointMap$Range*)},
-	{"getRange", "(ILjdk/internal/icu/util/CodePointMap$RangeOption;ILjdk/internal/icu/util/CodePointMap$ValueFilter;Ljdk/internal/icu/util/CodePointMap$Range;)Z", nullptr, $PUBLIC, $virtualMethod(CodePointMap, getRange, bool, int32_t, $CodePointMap$RangeOption*, int32_t, $CodePointMap$ValueFilter*, $CodePointMap$Range*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljdk/internal/icu/util/CodePointMap$Range;>;", $PUBLIC, $virtualMethod(CodePointMap, iterator, $Iterator*)},
-	{"stringIterator", "(Ljava/lang/CharSequence;I)Ljdk/internal/icu/util/CodePointMap$StringIterator;", nullptr, $PUBLIC, $virtualMethod(CodePointMap, stringIterator, $CodePointMap$StringIterator*, $CharSequence*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CodePointMap_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.util.CodePointMap$StringIterator", "jdk.internal.icu.util.CodePointMap", "StringIterator", $PUBLIC},
-	{"jdk.internal.icu.util.CodePointMap$RangeIterator", "jdk.internal.icu.util.CodePointMap", "RangeIterator", $PRIVATE | $FINAL},
-	{"jdk.internal.icu.util.CodePointMap$Range", "jdk.internal.icu.util.CodePointMap", "Range", $PUBLIC | $STATIC | $FINAL},
-	{"jdk.internal.icu.util.CodePointMap$ValueFilter", "jdk.internal.icu.util.CodePointMap", "ValueFilter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.icu.util.CodePointMap$RangeOption", "jdk.internal.icu.util.CodePointMap", "RangeOption", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CodePointMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.icu.util.CodePointMap",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	_CodePointMap_FieldInfo_,
-	_CodePointMap_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Iterable<Ljdk/internal/icu/util/CodePointMap$Range;>;",
-	nullptr,
-	_CodePointMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.util.CodePointMap$StringIterator,jdk.internal.icu.util.CodePointMap$RangeIterator,jdk.internal.icu.util.CodePointMap$Range,jdk.internal.icu.util.CodePointMap$ValueFilter,jdk.internal.icu.util.CodePointMap$RangeOption"
-};
-
-$Object* allocate$CodePointMap($Class* clazz) {
-	return $of($alloc(CodePointMap));
-}
-
 bool CodePointMap::$assertionsDisabled = false;
 
 void CodePointMap::init$() {
@@ -90,9 +46,9 @@ bool CodePointMap::getRange(int32_t start, $CodePointMap$RangeOption* option, in
 	if (option == $CodePointMap$RangeOption::NORMAL) {
 		return true;
 	}
-	int32_t surrEnd = option == $CodePointMap$RangeOption::FIXED_ALL_SURROGATES ? 0x0000DFFF : 0x0000DBFF;
+	int32_t surrEnd = option == $CodePointMap$RangeOption::FIXED_ALL_SURROGATES ? 0x0000dfff : 0x0000dbff;
 	int32_t end = $nc(range)->end;
-	if (end < 0x0000D7FF || start > surrEnd) {
+	if (end < 0x0000d7ff || start > surrEnd) {
 		return true;
 	}
 	if (range->value == surrogateValue) {
@@ -100,8 +56,8 @@ bool CodePointMap::getRange(int32_t start, $CodePointMap$RangeOption* option, in
 			return true;
 		}
 	} else {
-		if (start <= 0x0000D7FF) {
-			range->end = 0x0000D7FF;
+		if (start <= 0x0000d7ff) {
+			range->end = 0x0000d7ff;
 			return true;
 		}
 		range->value = surrogateValue;
@@ -128,7 +84,7 @@ $CodePointMap$StringIterator* CodePointMap::stringIterator($CharSequence* s, int
 	return $new($CodePointMap$StringIterator, this, s, sIndex);
 }
 
-void clinit$CodePointMap($Class* class$) {
+void CodePointMap::clinit$($Class* clazz) {
 	CodePointMap::$assertionsDisabled = !CodePointMap::class$->desiredAssertionStatus();
 }
 
@@ -136,7 +92,44 @@ CodePointMap::CodePointMap() {
 }
 
 $Class* CodePointMap::load$($String* name, bool initialize) {
-	$loadClass(CodePointMap, name, initialize, &_CodePointMap_ClassInfo_, clinit$CodePointMap, allocate$CodePointMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CodePointMap, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(CodePointMap, init$, void)},
+		{"get", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointMap, get, int32_t, int32_t)},
+		{"getRange", "(ILjdk/internal/icu/util/CodePointMap$ValueFilter;Ljdk/internal/icu/util/CodePointMap$Range;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointMap, getRange, bool, int32_t, $CodePointMap$ValueFilter*, $CodePointMap$Range*)},
+		{"getRange", "(ILjdk/internal/icu/util/CodePointMap$RangeOption;ILjdk/internal/icu/util/CodePointMap$ValueFilter;Ljdk/internal/icu/util/CodePointMap$Range;)Z", nullptr, $PUBLIC, $virtualMethod(CodePointMap, getRange, bool, int32_t, $CodePointMap$RangeOption*, int32_t, $CodePointMap$ValueFilter*, $CodePointMap$Range*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljdk/internal/icu/util/CodePointMap$Range;>;", $PUBLIC, $virtualMethod(CodePointMap, iterator, $Iterator*)},
+		{"stringIterator", "(Ljava/lang/CharSequence;I)Ljdk/internal/icu/util/CodePointMap$StringIterator;", nullptr, $PUBLIC, $virtualMethod(CodePointMap, stringIterator, $CodePointMap$StringIterator*, $CharSequence*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.util.CodePointMap$StringIterator", "jdk.internal.icu.util.CodePointMap", "StringIterator", $PUBLIC},
+		{"jdk.internal.icu.util.CodePointMap$RangeIterator", "jdk.internal.icu.util.CodePointMap", "RangeIterator", $PRIVATE | $FINAL},
+		{"jdk.internal.icu.util.CodePointMap$Range", "jdk.internal.icu.util.CodePointMap", "Range", $PUBLIC | $STATIC | $FINAL},
+		{"jdk.internal.icu.util.CodePointMap$ValueFilter", "jdk.internal.icu.util.CodePointMap", "ValueFilter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.icu.util.CodePointMap$RangeOption", "jdk.internal.icu.util.CodePointMap", "RangeOption", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.icu.util.CodePointMap",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Iterable<Ljdk/internal/icu/util/CodePointMap$Range;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.util.CodePointMap$StringIterator,jdk.internal.icu.util.CodePointMap$RangeIterator,jdk.internal.icu.util.CodePointMap$Range,jdk.internal.icu.util.CodePointMap$ValueFilter,jdk.internal.icu.util.CodePointMap$RangeOption"
+	};
+	$loadClass(CodePointMap, name, initialize, &classInfo$$, CodePointMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CodePointMap);
+	});
 	return class$;
 }
 

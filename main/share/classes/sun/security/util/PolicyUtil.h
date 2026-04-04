@@ -41,6 +41,7 @@ class $export PolicyUtil : public ::java::lang::Object {
 	$class(PolicyUtil, 0, ::java::lang::Object)
 public:
 	PolicyUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::io::InputStream* getInputStream(::java::net::URL* url);
 	static ::java::security::KeyStore* getKeyStore(::java::net::URL* policyUrl, $String* keyStoreName, $String* keyStoreType, $String* keyStoreProvider, $String* storePassURL, ::sun::security::util::Debug* debug);

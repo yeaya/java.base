@@ -1,5 +1,4 @@
 #include <java/io/FilePermission.h>
-
 #include <java/io/File.h>
 #include <java/io/FilePermission$1.h>
 #include <java/io/FilePermission$2.h>
@@ -14,10 +13,8 @@
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Objects.h>
 #include <java/util/StringJoiner.h>
-#include <jdk/internal/access/JavaIOFilePermissionAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <sun/nio/fs/DefaultFileSystemProvider.h>
 #include <sun/security/action/GetPropertyAction.h>
@@ -65,10 +62,8 @@ using $Path = ::java::nio::file::Path;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Objects = ::java::util::Objects;
 using $StringJoiner = ::java::util::StringJoiner;
-using $JavaIOFilePermissionAccess = ::jdk::internal::access::JavaIOFilePermissionAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $DefaultFileSystemProvider = ::sun::nio::fs::DefaultFileSystemProvider;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
@@ -77,81 +72,6 @@ using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _FilePermission_FieldInfo_[] = {
-	{"EXECUTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, EXECUTE)},
-	{"WRITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, WRITE)},
-	{"READ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, READ)},
-	{"DELETE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, DELETE)},
-	{"READLINK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, READLINK)},
-	{"ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, ALL)},
-	{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, NONE)},
-	{"mask", "I", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, mask)},
-	{"directory", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, directory)},
-	{"recursive", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, recursive)},
-	{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePermission, actions)},
-	{"cpath", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, cpath)},
-	{"npath", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, npath)},
-	{"npath2", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, npath2)},
-	{"allFiles", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, allFiles)},
-	{"invalid", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, invalid)},
-	{"RECURSIVE_CHAR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, RECURSIVE_CHAR)},
-	{"WILD_CHAR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, WILD_CHAR)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, serialVersionUID)},
-	{"builtInFS", "Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermission, builtInFS)},
-	{"here", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermission, here)},
-	{"EMPTY_PATH", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermission, EMPTY_PATH)},
-	{"DASH_PATH", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermission, DASH_PATH)},
-	{"DOTDOT_PATH", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermission, DOTDOT_PATH)},
-	{}
-};
-
-$MethodInfo _FilePermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/io/FilePermission;Ljava/nio/file/Path;Ljava/nio/file/Path;ILjava/lang/String;)V", nullptr, $PRIVATE, $method(FilePermission, init$, void, $String*, FilePermission*, $Path*, $Path*, int32_t, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FilePermission, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(FilePermission, init$, void, $String*, int32_t)},
-	{"altPath", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $staticMethod(FilePermission, altPath, $Path*, $Path*)},
-	{"containsPath", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FilePermission, containsPath, int32_t, $Path*, $Path*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FilePermission, equals, bool, Object$*)},
-	{"getActions", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FilePermission, getActions, $String*, int32_t)},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FilePermission, getActions, $String*)},
-	{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FilePermission, getMask, int32_t, $String*)},
-	{"getMask", "()I", nullptr, 0, $method(FilePermission, getMask, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FilePermission, hashCode, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(FilePermission, implies, bool, $Permission*)},
-	{"impliesIgnoreMask", "(Ljava/io/FilePermission;)Z", nullptr, 0, $method(FilePermission, impliesIgnoreMask, bool, FilePermission*)},
-	{"init", "(I)V", nullptr, $PRIVATE, $method(FilePermission, init, void, int32_t)},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(FilePermission, newPermissionCollection, $PermissionCollection*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FilePermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"withNewActions", "(I)Ljava/io/FilePermission;", nullptr, 0, $method(FilePermission, withNewActions, FilePermission*, int32_t)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(FilePermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FilePermission_InnerClassesInfo_[] = {
-	{"java.io.FilePermission$2", nullptr, nullptr, 0},
-	{"java.io.FilePermission$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FilePermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.io.FilePermission",
-	"java.security.Permission",
-	nullptr,
-	_FilePermission_FieldInfo_,
-	_FilePermission_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilePermission_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.io.FilePermission$2,java.io.FilePermission$1"
-};
-
-$Object* allocate$FilePermission($Class* clazz) {
-	return $of($alloc(FilePermission));
-}
 
 $FileSystem* FilePermission::builtInFS = nullptr;
 $Path* FilePermission::here = nullptr;
@@ -174,12 +94,12 @@ void FilePermission::init$($String* name, FilePermission* input, $Path* npath, $
 
 $Path* FilePermission::altPath($Path* in) {
 	$init(FilePermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (!$nc(in)->isAbsolute()) {
-			return $nc($($nc(FilePermission::here)->resolve(in)))->normalize();
+			return $$nc($nc(FilePermission::here)->resolve(in))->normalize();
 		} else {
-			return $nc($($nc(FilePermission::here)->relativize(in)))->normalize();
+			return $$nc($nc(FilePermission::here)->relativize(in))->normalize();
 		}
 	} catch ($IllegalArgumentException& e) {
 		return nullptr;
@@ -188,9 +108,9 @@ $Path* FilePermission::altPath($Path* in) {
 }
 
 void FilePermission::init(int32_t mask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	if (((int32_t)(mask & (uint32_t)FilePermission::ALL)) != mask) {
+	if ((mask & FilePermission::ALL) != mask) {
 		$throwNew($IllegalArgumentException, "invalid actions mask"_s);
 	}
 	if (mask == FilePermission::NONE) {
@@ -209,18 +129,18 @@ void FilePermission::init(int32_t mask) {
 			return;
 		}
 		bool rememberStar = false;
-		if ($nc(name)->endsWith("*"_s)) {
+		if (name->endsWith("*"_s)) {
 			rememberStar = true;
 			this->recursive = false;
 			$assign(name, $str({$(name->substring(0, name->length() - 1)), "-"_s}));
 		}
 		try {
-			$set(this, npath, $nc($($nc(FilePermission::builtInFS)->getPath($($$new($File, name)->getPath()), $$new($StringArray, 0))))->normalize());
+			$set(this, npath, $$nc($nc(FilePermission::builtInFS)->getPath($($$new($File, name)->getPath()), $$new($StringArray, 0)))->normalize());
 			$var($Path, lastName, $nc(this->npath)->getFileName());
 			if (lastName != nullptr && lastName->equals(FilePermission::DASH_PATH)) {
 				this->directory = true;
 				this->recursive = !rememberStar;
-				$set(this, npath, $nc(this->npath)->getParent());
+				$set(this, npath, this->npath->getParent());
 			}
 			if (this->npath == nullptr) {
 				$set(this, npath, FilePermission::EMPTY_PATH);
@@ -243,26 +163,24 @@ void FilePermission::init(int32_t mask) {
 			return;
 		}
 		try {
-			$var($String, name, $nc(this->cpath)->endsWith("*"_s) ? $str({$($nc(this->cpath)->substring(0, $nc(this->cpath)->length() - 1)), "-"_s}) : this->cpath);
+			$var($String, name, this->cpath->endsWith("*"_s) ? $str({$(this->cpath->substring(0, this->cpath->length() - 1)), "-"_s}) : this->cpath);
 			$nc(FilePermission::builtInFS)->getPath($($$new($File, name)->getPath()), $$new($StringArray, 0));
 		} catch ($InvalidPathException& ipe) {
 			this->invalid = true;
 			return;
 		}
-		$set(this, cpath, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FilePermission$2, this)))));
+		$set(this, cpath, $cast($String, $AccessController::doPrivileged($$new($FilePermission$2, this))));
 		int32_t len = $nc(this->cpath)->length();
-		char16_t last = ((len > 0) ? $nc(this->cpath)->charAt(len - 1) : (char16_t)0);
+		char16_t last = ((len > 0) ? this->cpath->charAt(len - 1) : 0);
 		$init($File);
-		if (last == FilePermission::RECURSIVE_CHAR && $nc(this->cpath)->charAt(len - 2) == $File::separatorChar) {
+		if (last == FilePermission::RECURSIVE_CHAR && this->cpath->charAt(len - 2) == $File::separatorChar) {
 			this->directory = true;
 			this->recursive = true;
-			$set(this, cpath, $nc(this->cpath)->substring(0, --len));
+			$set(this, cpath, this->cpath->substring(0, --len));
+		} else if (last == FilePermission::WILD_CHAR && this->cpath->charAt(len - 2) == $File::separatorChar) {
+			this->directory = true;
+			$set(this, cpath, this->cpath->substring(0, --len));
 		} else {
-			if (last == FilePermission::WILD_CHAR && $nc(this->cpath)->charAt(len - 2) == $File::separatorChar) {
-				this->directory = true;
-				$set(this, cpath, $nc(this->cpath)->substring(0, --len));
-			} else {
-			}
 		}
 	}
 }
@@ -287,7 +205,7 @@ bool FilePermission::implies($Permission* p) {
 	if (!(var$0)) {
 		return false;
 	}
-	return (((int32_t)(this->mask & (uint32_t)$nc(that)->mask)) == that->mask) && impliesIgnoreMask(that);
+	return ((this->mask & $nc(that)->mask) == $nc(that)->mask) && impliesIgnoreMask(that);
 }
 
 bool FilePermission::impliesIgnoreMask(FilePermission* that) {
@@ -305,44 +223,44 @@ bool FilePermission::impliesIgnoreMask(FilePermission* that) {
 	}
 	$init($FilePermCompat);
 	if ($FilePermCompat::nb) {
-		if ((this->recursive && $nc(that)->recursive) != that->recursive || (this->directory && $nc(that)->directory) != that->directory) {
+		if ((this->recursive && that->recursive) != that->recursive || (this->directory && that->directory) != that->directory) {
 			return false;
 		}
-		if ($nc(this->npath)->equals($nc(that)->npath) && this->directory == $nc(that)->directory) {
+		if ($nc(this->npath)->equals(that->npath) && this->directory == that->directory) {
 			return true;
 		}
-		int32_t diff = containsPath(this->npath, $nc(that)->npath);
+		int32_t diff = containsPath(this->npath, that->npath);
 		if (diff >= 1 && this->recursive) {
 			return true;
 		}
-		if (diff == 1 && this->directory && !$nc(that)->directory) {
+		if (diff == 1 && this->directory && !that->directory) {
 			return true;
 		}
 		if (this->npath2 != nullptr) {
-			if ($nc(this->npath2)->equals($nc(that)->npath) && this->directory == $nc(that)->directory) {
+			if (this->npath2->equals(that->npath) && this->directory == that->directory) {
 				return true;
 			}
-			diff = containsPath(this->npath2, $nc(that)->npath);
+			diff = containsPath(this->npath2, that->npath);
 			if (diff >= 1 && this->recursive) {
 				return true;
 			}
-			if (diff == 1 && this->directory && !$nc(that)->directory) {
+			if (diff == 1 && this->directory && !that->directory) {
 				return true;
 			}
 		}
 		return false;
 	} else if (this->directory) {
 		if (this->recursive) {
-			if ($nc(that)->directory) {
+			if (that->directory) {
 				int32_t var$1 = $nc(that->cpath)->length();
-				bool var$0 = (var$1 >= $nc(this->cpath)->length());
-				return var$0 && $nc(that->cpath)->startsWith(this->cpath);
+				bool var$0 = var$1 >= $nc(this->cpath)->length();
+				return var$0 && that->cpath->startsWith(this->cpath);
 			} else {
 				int32_t var$3 = $nc(that->cpath)->length();
-				bool var$2 = (var$3 > $nc(this->cpath)->length());
-				return (var$2 && $nc(that->cpath)->startsWith(this->cpath));
+				bool var$2 = var$3 > $nc(this->cpath)->length();
+				return (var$2 && that->cpath->startsWith(this->cpath));
 			}
-		} else if ($nc(that)->directory) {
+		} else if (that->directory) {
 			if (that->recursive) {
 				return false;
 			} else {
@@ -350,15 +268,15 @@ bool FilePermission::impliesIgnoreMask(FilePermission* that) {
 			}
 		} else {
 			$init($File);
-			int32_t last = $nc(that->cpath)->lastIndexOf((int32_t)$File::separatorChar);
+			int32_t last = $nc(that->cpath)->lastIndexOf($File::separatorChar);
 			if (last == -1) {
 				return false;
 			} else {
-				bool var$4 = ($nc(this->cpath)->length() == (last + 1));
-				return var$4 && $nc(this->cpath)->regionMatches(0, that->cpath, 0, last + 1);
+				bool var$4 = $nc(this->cpath)->length() == (last + 1);
+				return var$4 && this->cpath->regionMatches(0, that->cpath, 0, last + 1);
 			}
 		}
-	} else if ($nc(that)->directory) {
+	} else if (that->directory) {
 		return false;
 	} else {
 		return ($nc(this->cpath)->equals(that->cpath));
@@ -367,44 +285,40 @@ bool FilePermission::impliesIgnoreMask(FilePermission* that) {
 
 int32_t FilePermission::containsPath($Path* p1, $Path* p2) {
 	$init(FilePermission);
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, $of($nc(p1)->getRoot()));
+	$useLocalObjectStack();
+	$var($Object, var$0, $nc(p1)->getRoot());
 	if (!$Objects::equals(var$0, $($nc(p2)->getRoot()))) {
 		return -1;
 	}
-	if ($nc(p1)->equals(FilePermission::EMPTY_PATH)) {
-		if ($nc(p2)->equals(FilePermission::EMPTY_PATH)) {
+	if (p1->equals(FilePermission::EMPTY_PATH)) {
+		if (p2->equals(FilePermission::EMPTY_PATH)) {
 			return 0;
+		} else if ($$nc(p2->getName(0))->equals(FilePermission::DOTDOT_PATH)) {
+			return -1;
 		} else {
-			if ($nc($(p2->getName(0)))->equals(FilePermission::DOTDOT_PATH)) {
-				return -1;
-			} else {
-				return p2->getNameCount();
-			}
+			return p2->getNameCount();
 		}
-	} else {
-		if ($nc(p2)->equals(FilePermission::EMPTY_PATH)) {
-			int32_t c1 = p1->getNameCount();
-			if (!$nc($(p1->getName(c1 - 1)))->equals(FilePermission::DOTDOT_PATH)) {
-				return -1;
-			}
-			return c1;
+	} else if (p2->equals(FilePermission::EMPTY_PATH)) {
+		int32_t c1 = p1->getNameCount();
+		if (!$$nc(p1->getName(c1 - 1))->equals(FilePermission::DOTDOT_PATH)) {
+			return -1;
 		}
+		return c1;
 	}
-	int32_t c1 = $nc(p1)->getNameCount();
-	int32_t c2 = $nc(p2)->getNameCount();
+	int32_t c1 = p1->getNameCount();
+	int32_t c2 = p2->getNameCount();
 	int32_t n = $Math::min(c1, c2);
 	int32_t i = 0;
 	while (i < n) {
-		if (!$nc($(p1->getName(i)))->equals($(p2->getName(i)))) {
+		if (!$$nc(p1->getName(i))->equals($(p2->getName(i)))) {
 			break;
 		}
 		++i;
 	}
-	if (i < c1 && !$nc($(p1->getName(c1 - 1)))->equals(FilePermission::DOTDOT_PATH)) {
+	if (i < c1 && !$$nc(p1->getName(c1 - 1))->equals(FilePermission::DOTDOT_PATH)) {
 		return -1;
 	}
-	if (i < c2 && $nc($(p2->getName(i)))->equals(FilePermission::DOTDOT_PATH)) {
+	if (i < c2 && $$nc(p2->getName(i))->equals(FilePermission::DOTDOT_PATH)) {
 		return -1;
 	}
 	return c1 - i + c2 - i;
@@ -436,17 +350,17 @@ bool FilePermission::equals(Object$* obj) {
 }
 
 int32_t FilePermission::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($FilePermCompat);
 	if ($FilePermCompat::nb) {
 		return $Objects::hash($$new($ObjectArray, {
-			$($of($Integer::valueOf(this->mask))),
-			$($of($Boolean::valueOf(this->allFiles))),
-			$($of($Boolean::valueOf(this->directory))),
-			$($of($Boolean::valueOf(this->recursive))),
-			$of(this->npath),
-			$of(this->npath2),
-			$($of($Boolean::valueOf(this->invalid)))
+			$($Integer::valueOf(this->mask)),
+			$($Boolean::valueOf(this->allFiles)),
+			$($Boolean::valueOf(this->directory)),
+			$($Boolean::valueOf(this->recursive)),
+			this->npath,
+			this->npath2,
+			$($Boolean::valueOf(this->invalid))
 		}));
 	} else {
 		return 0;
@@ -455,7 +369,7 @@ int32_t FilePermission::hashCode() {
 
 int32_t FilePermission::getMask($String* actions) {
 	$init(FilePermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mask = FilePermission::NONE;
 	if (actions == nullptr) {
 		return mask;
@@ -463,22 +377,14 @@ int32_t FilePermission::getMask($String* actions) {
 	$init($SecurityConstants);
 	if (actions == $SecurityConstants::FILE_READ_ACTION) {
 		return FilePermission::READ;
-	} else {
-		if (actions == $SecurityConstants::FILE_WRITE_ACTION) {
-			return FilePermission::WRITE;
-		} else {
-			if (actions == $SecurityConstants::FILE_EXECUTE_ACTION) {
-				return FilePermission::EXECUTE;
-			} else {
-				if (actions == $SecurityConstants::FILE_DELETE_ACTION) {
-					return FilePermission::DELETE;
-				} else {
-					if (actions == $SecurityConstants::FILE_READLINK_ACTION) {
-						return FilePermission::READLINK;
-					}
-				}
-			}
-		}
+	} else if (actions == $SecurityConstants::FILE_WRITE_ACTION) {
+		return FilePermission::WRITE;
+	} else if (actions == $SecurityConstants::FILE_EXECUTE_ACTION) {
+		return FilePermission::EXECUTE;
+	} else if (actions == $SecurityConstants::FILE_DELETE_ACTION) {
+		return FilePermission::DELETE;
+	} else if (actions == $SecurityConstants::FILE_READLINK_ACTION) {
+		return FilePermission::READLINK;
 	}
 	$var($chars, a, $nc(actions)->toCharArray());
 	int32_t i = a->length - 1;
@@ -488,13 +394,13 @@ int32_t FilePermission::getMask($String* actions) {
 	while (i != -1) {
 		char16_t c = 0;
 		while (true) {
-			bool var$0 = (i != -1);
+			bool var$0 = i != -1;
 			if (var$0) {
 				bool var$4 = (c = a->get(i)) == u' ';
 				bool var$3 = var$4 || c == u'\r';
 				bool var$2 = var$3 || c == u'\n';
 				bool var$1 = var$2 || c == u'\f';
-				var$0 = (var$1 || c == u'\t');
+				var$0 = var$1 || c == u'\t';
 			}
 			if (!(var$0)) {
 				break;
@@ -526,25 +432,17 @@ int32_t FilePermission::getMask($String* actions) {
 		while (i >= matchlen && !seencomma) {
 			switch (c = a->get(i - matchlen)) {
 			case u' ':
-				{}
 			case u'\r':
-				{}
 			case u'\n':
-				{}
 			case u'\f':
-				{}
 			case u'\t':
-				{
+				break;
+			default:
+				if (c == u',' && i > matchlen) {
+					seencomma = true;
 					break;
 				}
-			default:
-				{
-					if (c == u',' && i > matchlen) {
-						seencomma = true;
-						break;
-					}
-					$throwNew($IllegalArgumentException, $$str({"invalid permission: "_s, actions}));
-				}
+				$throwNew($IllegalArgumentException, $$str({"invalid permission: "_s, actions}));
 			}
 			--i;
 		}
@@ -560,19 +458,19 @@ int32_t FilePermission::getMask() {
 $String* FilePermission::getActions(int32_t mask) {
 	$init(FilePermission);
 	$var($StringJoiner, sj, $new($StringJoiner, ","_s));
-	if (((int32_t)(mask & (uint32_t)FilePermission::READ)) == FilePermission::READ) {
+	if ((mask & FilePermission::READ) == FilePermission::READ) {
 		sj->add("read"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)FilePermission::WRITE)) == FilePermission::WRITE) {
+	if ((mask & FilePermission::WRITE) == FilePermission::WRITE) {
 		sj->add("write"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)FilePermission::EXECUTE)) == FilePermission::EXECUTE) {
+	if ((mask & FilePermission::EXECUTE) == FilePermission::EXECUTE) {
 		sj->add("execute"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)FilePermission::DELETE)) == FilePermission::DELETE) {
+	if ((mask & FilePermission::DELETE) == FilePermission::DELETE) {
 		sj->add("delete"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)FilePermission::READLINK)) == FilePermission::READLINK) {
+	if ((mask & FilePermission::READLINK) == FilePermission::READLINK) {
 		sj->add("readlink"_s);
 	}
 	return sj->toString();
@@ -605,13 +503,13 @@ FilePermission* FilePermission::withNewActions(int32_t effective) {
 	return $new(FilePermission, $(this->getName()), this, this->npath, this->npath2, effective, nullptr);
 }
 
-void clinit$FilePermission($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void FilePermission::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(FilePermission::builtInFS, $DefaultFileSystemProvider::theFileSystem());
 	$assignStatic(FilePermission::here, $nc(FilePermission::builtInFS)->getPath($($GetPropertyAction::privilegedGetProperty("user.dir"_s)), $$new($StringArray, 0)));
-	$assignStatic(FilePermission::EMPTY_PATH, $nc(FilePermission::builtInFS)->getPath(""_s, $$new($StringArray, 0)));
-	$assignStatic(FilePermission::DASH_PATH, $nc(FilePermission::builtInFS)->getPath("-"_s, $$new($StringArray, 0)));
-	$assignStatic(FilePermission::DOTDOT_PATH, $nc(FilePermission::builtInFS)->getPath(".."_s, $$new($StringArray, 0)));
+	$assignStatic(FilePermission::EMPTY_PATH, FilePermission::builtInFS->getPath(""_s, $$new($StringArray, 0)));
+	$assignStatic(FilePermission::DASH_PATH, FilePermission::builtInFS->getPath("-"_s, $$new($StringArray, 0)));
+	$assignStatic(FilePermission::DOTDOT_PATH, FilePermission::builtInFS->getPath(".."_s, $$new($StringArray, 0)));
 	{
 		$SharedSecrets::setJavaIOFilePermissionAccess($$new($FilePermission$1));
 	}
@@ -621,7 +519,76 @@ FilePermission::FilePermission() {
 }
 
 $Class* FilePermission::load$($String* name, bool initialize) {
-	$loadClass(FilePermission, name, initialize, &_FilePermission_ClassInfo_, clinit$FilePermission, allocate$FilePermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXECUTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, EXECUTE)},
+		{"WRITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, WRITE)},
+		{"READ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, READ)},
+		{"DELETE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, DELETE)},
+		{"READLINK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, READLINK)},
+		{"ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, ALL)},
+		{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, NONE)},
+		{"mask", "I", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, mask)},
+		{"directory", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, directory)},
+		{"recursive", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, recursive)},
+		{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePermission, actions)},
+		{"cpath", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, cpath)},
+		{"npath", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, npath)},
+		{"npath2", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, npath2)},
+		{"allFiles", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, allFiles)},
+		{"invalid", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(FilePermission, invalid)},
+		{"RECURSIVE_CHAR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, RECURSIVE_CHAR)},
+		{"WILD_CHAR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, WILD_CHAR)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermission, serialVersionUID)},
+		{"builtInFS", "Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermission, builtInFS)},
+		{"here", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermission, here)},
+		{"EMPTY_PATH", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermission, EMPTY_PATH)},
+		{"DASH_PATH", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermission, DASH_PATH)},
+		{"DOTDOT_PATH", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermission, DOTDOT_PATH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/io/FilePermission;Ljava/nio/file/Path;Ljava/nio/file/Path;ILjava/lang/String;)V", nullptr, $PRIVATE, $method(FilePermission, init$, void, $String*, FilePermission*, $Path*, $Path*, int32_t, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FilePermission, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(FilePermission, init$, void, $String*, int32_t)},
+		{"altPath", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $staticMethod(FilePermission, altPath, $Path*, $Path*)},
+		{"containsPath", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FilePermission, containsPath, int32_t, $Path*, $Path*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FilePermission, equals, bool, Object$*)},
+		{"getActions", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FilePermission, getActions, $String*, int32_t)},
+		{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FilePermission, getActions, $String*)},
+		{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FilePermission, getMask, int32_t, $String*)},
+		{"getMask", "()I", nullptr, 0, $method(FilePermission, getMask, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FilePermission, hashCode, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(FilePermission, implies, bool, $Permission*)},
+		{"impliesIgnoreMask", "(Ljava/io/FilePermission;)Z", nullptr, 0, $method(FilePermission, impliesIgnoreMask, bool, FilePermission*)},
+		{"init", "(I)V", nullptr, $PRIVATE, $method(FilePermission, init, void, int32_t)},
+		{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(FilePermission, newPermissionCollection, $PermissionCollection*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FilePermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"withNewActions", "(I)Ljava/io/FilePermission;", nullptr, 0, $method(FilePermission, withNewActions, FilePermission*, int32_t)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(FilePermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.FilePermission$2", nullptr, nullptr, 0},
+		{"java.io.FilePermission$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.io.FilePermission",
+		"java.security.Permission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.io.FilePermission$2,java.io.FilePermission$1"
+	};
+	$loadClass(FilePermission, name, initialize, &classInfo$$, FilePermission::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilePermission));
+	});
 	return class$;
 }
 

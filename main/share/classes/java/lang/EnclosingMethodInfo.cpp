@@ -23,6 +23,7 @@
 #include <java/io/DataOutputStream.h>
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
+#include <string.h>
 
 using ::java::io::DataOutputStream;
 
@@ -47,6 +48,12 @@ void EnclosingMethodInfo::visit(::jdk::internal::reflect::ConstantPool* cp) {
 	//for (; field != nullptr; field++) {
 
 	//}
+}
+
+EnclosingMethodInfo* EnclosingMethodInfo::clone() {
+	EnclosingMethodInfo* newInfo = $allocRawStatic(EnclosingMethodInfo);
+	memcpy(newInfo, this, sizeof(EnclosingMethodInfo));
+	return newInfo;
 }
 
 	} // lang

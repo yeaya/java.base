@@ -106,6 +106,7 @@ class $export HttpURLConnection : public ::java::net::URLConnection {
 public:
 	HttpURLConnection();
 	using ::java::net::URLConnection::getHeaderField;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URL* u);
 	virtual void disconnect() {}
 	virtual ::java::io::InputStream* getErrorStream();

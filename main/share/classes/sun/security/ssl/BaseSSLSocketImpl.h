@@ -44,6 +44,7 @@ class BaseSSLSocketImpl : public ::javax::net::ssl::SSLSocket {
 public:
 	BaseSSLSocketImpl();
 	using ::javax::net::ssl::SSLSocket::connect;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::net::Socket* socket);
 	void init$(::java::net::Socket* socket, ::java::io::InputStream* consumed);

@@ -50,6 +50,7 @@ class $export CRLNumberExtension : public ::sun::security::x509::Extension, publ
 	$class(CRLNumberExtension, 0, ::sun::security::x509::Extension, ::sun::security::x509::CertAttrSet)
 public:
 	CRLNumberExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::security::x509::Extension::encode;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

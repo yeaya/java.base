@@ -41,6 +41,7 @@ class $import Provider$Service : public ::java::lang::Object {
 	$class(Provider$Service, 0, ::java::lang::Object)
 public:
 	Provider$Service();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::Provider* provider, $String* type, $String* algorithm);
 	void init$(::java::security::Provider* provider, $String* type, $String* algorithm, $String* className, ::java::util::List* aliases, ::java::util::Map* attributes);
 	void addAlias($String* alias);

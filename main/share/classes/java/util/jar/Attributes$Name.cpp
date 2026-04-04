@@ -1,5 +1,4 @@
 #include <java/util/jar/Attributes$Name.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <java/util/Objects.h>
@@ -42,87 +41,6 @@ namespace java {
 	namespace util {
 		namespace jar {
 
-$CompoundAttribute _Attributes$Name_FieldAnnotations_KNOWN_NAMES[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Attributes$Name_FieldAnnotations_EXTENSION_INSTALLATION[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Attributes$Name_FieldAnnotations_IMPLEMENTATION_VENDOR_ID[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Attributes$Name_FieldAnnotations_IMPLEMENTATION_URL[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Attributes$Name_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Attributes$Name, name)},
-	{"hashCode", "I", nullptr, $PRIVATE | $FINAL, $field(Attributes$Name, hashCode$)},
-	{"KNOWN_NAMES", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes$Name;>;", $PRIVATE | $STATIC, $staticField(Attributes$Name, KNOWN_NAMES), _Attributes$Name_FieldAnnotations_KNOWN_NAMES},
-	{"MANIFEST_VERSION", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, MANIFEST_VERSION)},
-	{"SIGNATURE_VERSION", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, SIGNATURE_VERSION)},
-	{"CONTENT_TYPE", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, CONTENT_TYPE)},
-	{"CLASS_PATH", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, CLASS_PATH)},
-	{"MAIN_CLASS", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, MAIN_CLASS)},
-	{"SEALED", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, SEALED)},
-	{"EXTENSION_LIST", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, EXTENSION_LIST)},
-	{"EXTENSION_NAME", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, EXTENSION_NAME)},
-	{"EXTENSION_INSTALLATION", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(Attributes$Name, EXTENSION_INSTALLATION), _Attributes$Name_FieldAnnotations_EXTENSION_INSTALLATION},
-	{"IMPLEMENTATION_TITLE", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, IMPLEMENTATION_TITLE)},
-	{"IMPLEMENTATION_VERSION", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, IMPLEMENTATION_VERSION)},
-	{"IMPLEMENTATION_VENDOR", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, IMPLEMENTATION_VENDOR)},
-	{"IMPLEMENTATION_VENDOR_ID", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(Attributes$Name, IMPLEMENTATION_VENDOR_ID), _Attributes$Name_FieldAnnotations_IMPLEMENTATION_VENDOR_ID},
-	{"IMPLEMENTATION_URL", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(Attributes$Name, IMPLEMENTATION_URL), _Attributes$Name_FieldAnnotations_IMPLEMENTATION_URL},
-	{"SPECIFICATION_TITLE", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, SPECIFICATION_TITLE)},
-	{"SPECIFICATION_VERSION", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, SPECIFICATION_VERSION)},
-	{"SPECIFICATION_VENDOR", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, SPECIFICATION_VENDOR)},
-	{"MULTI_RELEASE", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, MULTI_RELEASE)},
-	{}
-};
-
-$MethodInfo _Attributes$Name_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Attributes$Name, init$, void, $String*)},
-	{"addName", "(Ljava/util/Map;Ljava/util/jar/Attributes$Name;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes$Name;>;Ljava/util/jar/Attributes$Name;)V", $PRIVATE | $STATIC, $staticMethod(Attributes$Name, addName, void, $Map*, Attributes$Name*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Attributes$Name, equals, bool, Object$*)},
-	{"hash", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $FINAL, $method(Attributes$Name, hash, int32_t, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Attributes$Name, hashCode, int32_t)},
-	{"of", "(Ljava/lang/String;)Ljava/util/jar/Attributes$Name;", nullptr, $STATIC | $FINAL, $staticMethod(Attributes$Name, of, Attributes$Name*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes$Name, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Attributes$Name_InnerClassesInfo_[] = {
-	{"java.util.jar.Attributes$Name", "java.util.jar.Attributes", "Name", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attributes$Name_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.jar.Attributes$Name",
-	"java.lang.Object",
-	nullptr,
-	_Attributes$Name_FieldInfo_,
-	_Attributes$Name_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attributes$Name_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.jar.Attributes"
-};
-
-$Object* allocate$Attributes$Name($Class* clazz) {
-	return $of($alloc(Attributes$Name));
-}
-
 $Map* Attributes$Name::KNOWN_NAMES = nullptr;
 Attributes$Name* Attributes$Name::MANIFEST_VERSION = nullptr;
 Attributes$Name* Attributes$Name::SIGNATURE_VERSION = nullptr;
@@ -158,7 +76,7 @@ void Attributes$Name::init$($String* name) {
 }
 
 int32_t Attributes$Name::hash($String* name) {
-	$Objects::requireNonNull($of(name), "name"_s);
+	$Objects::requireNonNull(name, "name"_s);
 	int32_t len = $nc(name)->length();
 	if (len > 70 || len == 0) {
 		$throwNew($IllegalArgumentException, name);
@@ -204,8 +122,8 @@ void Attributes$Name::addName($Map* names, Attributes$Name* name) {
 	$nc(names)->put($nc(name)->name, name);
 }
 
-void clinit$Attributes$Name($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Attributes$Name::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$CDS::initializeFromArchive(Attributes$Name::class$);
 		if (Attributes$Name::KNOWN_NAMES == nullptr) {
@@ -256,24 +174,24 @@ void clinit$Attributes$Name($Class* class$) {
 			Attributes$Name::addName(names, $$new(Attributes$Name, "SHA-256-Digest"_s));
 			$assignStatic(Attributes$Name::KNOWN_NAMES, $Map::copyOf(names));
 		} else {
-			$assignStatic(Attributes$Name::MANIFEST_VERSION, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Manifest-Version"_s)));
-			$assignStatic(Attributes$Name::SIGNATURE_VERSION, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Signature-Version"_s)));
-			$assignStatic(Attributes$Name::CONTENT_TYPE, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Content-Type"_s)));
-			$assignStatic(Attributes$Name::CLASS_PATH, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Class-Path"_s)));
-			$assignStatic(Attributes$Name::MAIN_CLASS, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Main-Class"_s)));
-			$assignStatic(Attributes$Name::SEALED, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Sealed"_s)));
-			$assignStatic(Attributes$Name::EXTENSION_LIST, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Extension-List"_s)));
-			$assignStatic(Attributes$Name::EXTENSION_NAME, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Extension-Name"_s)));
-			$assignStatic(Attributes$Name::EXTENSION_INSTALLATION, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Extension-Installation"_s)));
-			$assignStatic(Attributes$Name::IMPLEMENTATION_TITLE, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Implementation-Title"_s)));
-			$assignStatic(Attributes$Name::IMPLEMENTATION_VERSION, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Implementation-Version"_s)));
-			$assignStatic(Attributes$Name::IMPLEMENTATION_VENDOR, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Implementation-Vendor"_s)));
-			$assignStatic(Attributes$Name::IMPLEMENTATION_VENDOR_ID, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Implementation-Vendor-Id"_s)));
-			$assignStatic(Attributes$Name::IMPLEMENTATION_URL, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Implementation-URL"_s)));
-			$assignStatic(Attributes$Name::SPECIFICATION_TITLE, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Specification-Title"_s)));
-			$assignStatic(Attributes$Name::SPECIFICATION_VERSION, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Specification-Version"_s)));
-			$assignStatic(Attributes$Name::SPECIFICATION_VENDOR, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Specification-Vendor"_s)));
-			$assignStatic(Attributes$Name::MULTI_RELEASE, $cast(Attributes$Name, $nc(Attributes$Name::KNOWN_NAMES)->get("Multi-Release"_s)));
+			$assignStatic(Attributes$Name::MANIFEST_VERSION, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Manifest-Version"_s)));
+			$assignStatic(Attributes$Name::SIGNATURE_VERSION, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Signature-Version"_s)));
+			$assignStatic(Attributes$Name::CONTENT_TYPE, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Content-Type"_s)));
+			$assignStatic(Attributes$Name::CLASS_PATH, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Class-Path"_s)));
+			$assignStatic(Attributes$Name::MAIN_CLASS, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Main-Class"_s)));
+			$assignStatic(Attributes$Name::SEALED, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Sealed"_s)));
+			$assignStatic(Attributes$Name::EXTENSION_LIST, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Extension-List"_s)));
+			$assignStatic(Attributes$Name::EXTENSION_NAME, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Extension-Name"_s)));
+			$assignStatic(Attributes$Name::EXTENSION_INSTALLATION, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Extension-Installation"_s)));
+			$assignStatic(Attributes$Name::IMPLEMENTATION_TITLE, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Implementation-Title"_s)));
+			$assignStatic(Attributes$Name::IMPLEMENTATION_VERSION, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Implementation-Version"_s)));
+			$assignStatic(Attributes$Name::IMPLEMENTATION_VENDOR, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Implementation-Vendor"_s)));
+			$assignStatic(Attributes$Name::IMPLEMENTATION_VENDOR_ID, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Implementation-Vendor-Id"_s)));
+			$assignStatic(Attributes$Name::IMPLEMENTATION_URL, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Implementation-URL"_s)));
+			$assignStatic(Attributes$Name::SPECIFICATION_TITLE, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Specification-Title"_s)));
+			$assignStatic(Attributes$Name::SPECIFICATION_VERSION, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Specification-Version"_s)));
+			$assignStatic(Attributes$Name::SPECIFICATION_VENDOR, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Specification-Vendor"_s)));
+			$assignStatic(Attributes$Name::MULTI_RELEASE, $cast(Attributes$Name, Attributes$Name::KNOWN_NAMES->get("Multi-Release"_s)));
 		}
 	}
 }
@@ -282,7 +200,78 @@ Attributes$Name::Attributes$Name() {
 }
 
 $Class* Attributes$Name::load$($String* name, bool initialize) {
-	$loadClass(Attributes$Name, name, initialize, &_Attributes$Name_ClassInfo_, clinit$Attributes$Name, allocate$Attributes$Name);
+	$CompoundAttribute KNOWN_NAMESfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute EXTENSION_INSTALLATIONfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute IMPLEMENTATION_VENDOR_IDfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute IMPLEMENTATION_URLfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Attributes$Name, name)},
+		{"hashCode", "I", nullptr, $PRIVATE | $FINAL, $field(Attributes$Name, hashCode$)},
+		{"KNOWN_NAMES", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes$Name;>;", $PRIVATE | $STATIC, $staticField(Attributes$Name, KNOWN_NAMES), KNOWN_NAMESfieldAnnotations$$},
+		{"MANIFEST_VERSION", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, MANIFEST_VERSION)},
+		{"SIGNATURE_VERSION", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, SIGNATURE_VERSION)},
+		{"CONTENT_TYPE", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, CONTENT_TYPE)},
+		{"CLASS_PATH", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, CLASS_PATH)},
+		{"MAIN_CLASS", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, MAIN_CLASS)},
+		{"SEALED", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, SEALED)},
+		{"EXTENSION_LIST", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, EXTENSION_LIST)},
+		{"EXTENSION_NAME", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, EXTENSION_NAME)},
+		{"EXTENSION_INSTALLATION", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(Attributes$Name, EXTENSION_INSTALLATION), EXTENSION_INSTALLATIONfieldAnnotations$$},
+		{"IMPLEMENTATION_TITLE", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, IMPLEMENTATION_TITLE)},
+		{"IMPLEMENTATION_VERSION", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, IMPLEMENTATION_VERSION)},
+		{"IMPLEMENTATION_VENDOR", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, IMPLEMENTATION_VENDOR)},
+		{"IMPLEMENTATION_VENDOR_ID", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(Attributes$Name, IMPLEMENTATION_VENDOR_ID), IMPLEMENTATION_VENDOR_IDfieldAnnotations$$},
+		{"IMPLEMENTATION_URL", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(Attributes$Name, IMPLEMENTATION_URL), IMPLEMENTATION_URLfieldAnnotations$$},
+		{"SPECIFICATION_TITLE", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, SPECIFICATION_TITLE)},
+		{"SPECIFICATION_VERSION", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, SPECIFICATION_VERSION)},
+		{"SPECIFICATION_VENDOR", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, SPECIFICATION_VENDOR)},
+		{"MULTI_RELEASE", "Ljava/util/jar/Attributes$Name;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Attributes$Name, MULTI_RELEASE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Attributes$Name, init$, void, $String*)},
+		{"addName", "(Ljava/util/Map;Ljava/util/jar/Attributes$Name;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes$Name;>;Ljava/util/jar/Attributes$Name;)V", $PRIVATE | $STATIC, $staticMethod(Attributes$Name, addName, void, $Map*, Attributes$Name*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Attributes$Name, equals, bool, Object$*)},
+		{"hash", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $FINAL, $method(Attributes$Name, hash, int32_t, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Attributes$Name, hashCode, int32_t)},
+		{"of", "(Ljava/lang/String;)Ljava/util/jar/Attributes$Name;", nullptr, $STATIC | $FINAL, $staticMethod(Attributes$Name, of, Attributes$Name*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes$Name, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.jar.Attributes$Name", "java.util.jar.Attributes", "Name", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.jar.Attributes$Name",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.jar.Attributes"
+	};
+	$loadClass(Attributes$Name, name, initialize, &classInfo$$, Attributes$Name::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Attributes$Name);
+	});
 	return class$;
 }
 

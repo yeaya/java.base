@@ -15,6 +15,7 @@ class $export DeleteOnExit : public ::java::lang::Object {
 	$class(DeleteOnExit, 0, ::java::lang::Object)
 public:
 	DeleteOnExit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* tmpdir;

@@ -1,5 +1,4 @@
 #include <java/util/Hashtable$KeySet.h>
-
 #include <java/util/AbstractSet.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Iterator.h>
@@ -15,46 +14,6 @@ using $Iterator = ::java::util::Iterator;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Hashtable$KeySet_FieldInfo_[] = {
-	{"this$0", "Ljava/util/Hashtable;", nullptr, $FINAL | $SYNTHETIC, $field(Hashtable$KeySet, this$0)},
-	{}
-};
-
-$MethodInfo _Hashtable$KeySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PRIVATE, $method(Hashtable$KeySet, init$, void, $Hashtable*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, contains, bool, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(Hashtable$KeySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Hashtable$KeySet_InnerClassesInfo_[] = {
-	{"java.util.Hashtable$KeySet", "java.util.Hashtable", "KeySet", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Hashtable$KeySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Hashtable$KeySet",
-	"java.util.AbstractSet",
-	nullptr,
-	_Hashtable$KeySet_FieldInfo_,
-	_Hashtable$KeySet_MethodInfo_,
-	"Ljava/util/AbstractSet<TK;>;",
-	nullptr,
-	_Hashtable$KeySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Hashtable"
-};
-
-$Object* allocate$Hashtable$KeySet($Class* clazz) {
-	return $of($alloc(Hashtable$KeySet));
-}
 
 void Hashtable$KeySet::init$($Hashtable* this$0) {
 	$set(this, this$0, this$0);
@@ -85,7 +44,41 @@ Hashtable$KeySet::Hashtable$KeySet() {
 }
 
 $Class* Hashtable$KeySet::load$($String* name, bool initialize) {
-	$loadClass(Hashtable$KeySet, name, initialize, &_Hashtable$KeySet_ClassInfo_, allocate$Hashtable$KeySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/Hashtable;", nullptr, $FINAL | $SYNTHETIC, $field(Hashtable$KeySet, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PRIVATE, $method(Hashtable$KeySet, init$, void, $Hashtable*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, contains, bool, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(Hashtable$KeySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Hashtable$KeySet", "java.util.Hashtable", "KeySet", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Hashtable$KeySet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<TK;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Hashtable"
+	};
+	$loadClass(Hashtable$KeySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Hashtable$KeySet));
+	});
 	return class$;
 }
 

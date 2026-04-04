@@ -42,6 +42,7 @@ class $export Identity : public ::java::lang::Object {
 	$class(Identity, 0, ::java::lang::Object)
 public:
 	Identity();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::concurrent::ThreadFactory* createThreadFactory(int32_t groupId);
 	static void fail($String* msg);

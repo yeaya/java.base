@@ -25,7 +25,7 @@ public:
 	virtual $Object* getRawResult() override;
 	void setRawResult(::java::lang::Void* mustBeNull);
 	virtual void setRawResult(Object$* mustBeNull) override;
-	static const int64_t serialVersionUID = (int64_t)0x489D6925990753CE;
+	static const int64_t serialVersionUID = (int64_t)0x489d6925990753ce;
 };
 
 		} // concurrent

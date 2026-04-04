@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/JumpInsnNode.h>
-
 #include <java/util/Map.h>
 #include <jdk/internal/org/objectweb/asm/Label.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
@@ -24,33 +23,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 
-$FieldInfo _JumpInsnNode_FieldInfo_[] = {
-	{"label", "Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, $PUBLIC, $field(JumpInsnNode, label)},
-	{}
-};
-
-$MethodInfo _JumpInsnNode_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/tree/LabelNode;)V", nullptr, $PUBLIC, $method(JumpInsnNode, init$, void, int32_t, $LabelNode*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(JumpInsnNode, accept, void, $MethodVisitor*)},
-	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(JumpInsnNode, clone, $AbstractInsnNode*, $Map*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(JumpInsnNode, getType, int32_t)},
-	{"setOpcode", "(I)V", nullptr, $PUBLIC, $virtualMethod(JumpInsnNode, setOpcode, void, int32_t)},
-	{}
-};
-
-$ClassInfo _JumpInsnNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.JumpInsnNode",
-	"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
-	nullptr,
-	_JumpInsnNode_FieldInfo_,
-	_JumpInsnNode_MethodInfo_
-};
-
-$Object* allocate$JumpInsnNode($Class* clazz) {
-	return $of($alloc(JumpInsnNode));
-}
-
 void JumpInsnNode::init$(int32_t opcode, $LabelNode* label) {
 	$AbstractInsnNode::init$(opcode);
 	$set(this, label, label);
@@ -70,7 +42,7 @@ void JumpInsnNode::accept($MethodVisitor* methodVisitor) {
 }
 
 $AbstractInsnNode* JumpInsnNode::clone($Map* clonedLabels) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $$new(JumpInsnNode, this->opcode, $($AbstractInsnNode::clone(this->label, clonedLabels)))->cloneAnnotations(this);
 }
 
@@ -78,7 +50,29 @@ JumpInsnNode::JumpInsnNode() {
 }
 
 $Class* JumpInsnNode::load$($String* name, bool initialize) {
-	$loadClass(JumpInsnNode, name, initialize, &_JumpInsnNode_ClassInfo_, allocate$JumpInsnNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"label", "Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, $PUBLIC, $field(JumpInsnNode, label)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/tree/LabelNode;)V", nullptr, $PUBLIC, $method(JumpInsnNode, init$, void, int32_t, $LabelNode*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(JumpInsnNode, accept, void, $MethodVisitor*)},
+		{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(JumpInsnNode, clone, $AbstractInsnNode*, $Map*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(JumpInsnNode, getType, int32_t)},
+		{"setOpcode", "(I)V", nullptr, $PUBLIC, $virtualMethod(JumpInsnNode, setOpcode, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.JumpInsnNode",
+		"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JumpInsnNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JumpInsnNode);
+	});
 	return class$;
 }
 

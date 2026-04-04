@@ -61,6 +61,7 @@ class ForwardState : public ::sun::security::provider::certpath::State {
 	$class(ForwardState, 0, ::sun::security::provider::certpath::State)
 public:
 	ForwardState();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	virtual void initState(::java::util::List* certPathCheckers);

@@ -1,5 +1,4 @@
 #include <java/nio/file/SimpleFileVisitor.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/file/FileVisitResult.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
@@ -18,29 +17,6 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$MethodInfo _SimpleFileVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(SimpleFileVisitor, init$, void)},
-	{"postVisitDirectory", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", $PUBLIC, $virtualMethod(SimpleFileVisitor, postVisitDirectory, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
-	{"preVisitDirectory", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", $PUBLIC, $virtualMethod(SimpleFileVisitor, preVisitDirectory, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
-	{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", $PUBLIC, $virtualMethod(SimpleFileVisitor, visitFile, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
-	{"visitFileFailed", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", $PUBLIC, $virtualMethod(SimpleFileVisitor, visitFileFailed, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SimpleFileVisitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.SimpleFileVisitor",
-	"java.lang.Object",
-	"java.nio.file.FileVisitor",
-	nullptr,
-	_SimpleFileVisitor_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/nio/file/FileVisitor<TT;>;"
-};
-
-$Object* allocate$SimpleFileVisitor($Class* clazz) {
-	return $of($alloc(SimpleFileVisitor));
-}
 
 void SimpleFileVisitor::init$() {
 }
@@ -78,7 +54,26 @@ SimpleFileVisitor::SimpleFileVisitor() {
 }
 
 $Class* SimpleFileVisitor::load$($String* name, bool initialize) {
-	$loadClass(SimpleFileVisitor, name, initialize, &_SimpleFileVisitor_ClassInfo_, allocate$SimpleFileVisitor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(SimpleFileVisitor, init$, void)},
+		{"postVisitDirectory", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", $PUBLIC, $virtualMethod(SimpleFileVisitor, postVisitDirectory, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
+		{"preVisitDirectory", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", $PUBLIC, $virtualMethod(SimpleFileVisitor, preVisitDirectory, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
+		{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", $PUBLIC, $virtualMethod(SimpleFileVisitor, visitFile, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
+		{"visitFileFailed", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", $PUBLIC, $virtualMethod(SimpleFileVisitor, visitFileFailed, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.SimpleFileVisitor",
+		"java.lang.Object",
+		"java.nio.file.FileVisitor",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/nio/file/FileVisitor<TT;>;"
+	};
+	$loadClass(SimpleFileVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleFileVisitor);
+	});
 	return class$;
 }
 

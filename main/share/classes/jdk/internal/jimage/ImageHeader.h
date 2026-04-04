@@ -57,7 +57,7 @@ public:
 	static ::jdk::internal::jimage::ImageHeader* readFrom(::java::nio::IntBuffer* buffer);
 	void writeTo(::jdk::internal::jimage::ImageStream* stream);
 	void writeTo(::java::nio::ByteBuffer* buffer);
-	static const int32_t MAGIC = 0xCAFEDADA;
+	static const int32_t MAGIC = 0xcafedada;
 	static const int32_t MAJOR_VERSION = 1;
 	static const int32_t MINOR_VERSION = 0;
 	static const int32_t HEADER_SLOTS = 7;

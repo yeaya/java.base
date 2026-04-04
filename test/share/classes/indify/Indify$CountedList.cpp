@@ -1,5 +1,4 @@
 #include <indify/Indify$CountedList.h>
-
 #include <indify/Indify.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/DataOutputStream.h>
@@ -20,51 +19,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 
 namespace indify {
-
-$FieldInfo _Indify$CountedList_FieldInfo_[] = {
-	{"itemClass", "Ljava/lang/Class;", "Ljava/lang/Class<+TT;>;", $FINAL, $field(Indify$CountedList, itemClass)},
-	{"rowlen", "I", nullptr, $FINAL, $field(Indify$CountedList, rowlen)},
-	{}
-};
-
-$MethodInfo _Indify$CountedList_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/Class;I)V", "(Ljava/lang/Class<+TT;>;I)V", 0, $method(Indify$CountedList, init$, void, $Class*, int32_t)},
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+TT;>;)V", 0, $method(Indify$CountedList, init$, void, $Class*)},
-	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$CountedList, readFrom, void, $DataInputStream*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$CountedList, writeTo, void, $DataOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Indify$CountedList_InnerClassesInfo_[] = {
-	{"indify.Indify$CountedList", "indify.Indify", "CountedList", $PRIVATE | $STATIC},
-	{"indify.Indify$Chunk", "indify.Indify", "Chunk", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Indify$CountedList_ClassInfo_ = {
-	$ACC_SUPER,
-	"indify.Indify$CountedList",
-	"java.util.ArrayList",
-	"indify.Indify$Chunk",
-	_Indify$CountedList_FieldInfo_,
-	_Indify$CountedList_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/ArrayList<TT;>;Lindify/Indify$Chunk;",
-	nullptr,
-	_Indify$CountedList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"indify.Indify"
-};
-
-$Object* allocate$Indify$CountedList($Class* clazz) {
-	return $of($alloc(Indify$CountedList));
-}
 
 $Object* Indify$CountedList::clone() {
 	 return this->$ArrayList::clone();
@@ -97,7 +51,7 @@ void Indify$CountedList::init$($Class* itemClass) {
 }
 
 void Indify$CountedList::readFrom($DataInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(in)->readUnsignedShort();
 	while (size() < count) {
 		if (this->rowlen < 0) {
@@ -108,13 +62,13 @@ void Indify$CountedList::readFrom($DataInputStream* in) {
 			for (int32_t i = 0; i < this->rowlen; ++i) {
 				row->set(i, $($Indify::readInput(in, elemClass)));
 			}
-			add($($nc(this->itemClass)->cast(row)));
+			add($(this->itemClass->cast(row)));
 		}
 	}
 }
 
 void Indify$CountedList::writeTo($DataOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->writeShort((int16_t)size());
 	{
 		$var($Iterator, i$, this->iterator());
@@ -131,7 +85,46 @@ Indify$CountedList::Indify$CountedList() {
 }
 
 $Class* Indify$CountedList::load$($String* name, bool initialize) {
-	$loadClass(Indify$CountedList, name, initialize, &_Indify$CountedList_ClassInfo_, allocate$Indify$CountedList);
+	$FieldInfo fieldInfos$$[] = {
+		{"itemClass", "Ljava/lang/Class;", "Ljava/lang/Class<+TT;>;", $FINAL, $field(Indify$CountedList, itemClass)},
+		{"rowlen", "I", nullptr, $FINAL, $field(Indify$CountedList, rowlen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/Class;I)V", "(Ljava/lang/Class<+TT;>;I)V", 0, $method(Indify$CountedList, init$, void, $Class*, int32_t)},
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+TT;>;)V", 0, $method(Indify$CountedList, init$, void, $Class*)},
+		{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$CountedList, readFrom, void, $DataInputStream*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$CountedList, writeTo, void, $DataOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"indify.Indify$CountedList", "indify.Indify", "CountedList", $PRIVATE | $STATIC},
+		{"indify.Indify$Chunk", "indify.Indify", "Chunk", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"indify.Indify$CountedList",
+		"java.util.ArrayList",
+		"indify.Indify$Chunk",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/ArrayList<TT;>;Lindify/Indify$Chunk;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"indify.Indify"
+	};
+	$loadClass(Indify$CountedList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Indify$CountedList));
+	});
 	return class$;
 }
 

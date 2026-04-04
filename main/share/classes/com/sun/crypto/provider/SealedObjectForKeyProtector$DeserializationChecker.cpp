@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/SealedObjectForKeyProtector$DeserializationChecker.h>
-
 #include <com/sun/crypto/provider/SealedObjectForKeyProtector.h>
 #include <java/io/ObjectInputFilter$Config.h>
 #include <java/io/ObjectInputFilter$FilterInfo.h>
@@ -47,68 +46,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(SealedObjectForKeyProtector$DeserializationChecker::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.crypto.provider.SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.crypto.provider.SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _SealedObjectForKeyProtector$DeserializationChecker_FieldInfo_[] = {
-	{"OWN_FILTER", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SealedObjectForKeyProtector$DeserializationChecker, OWN_FILTER)},
-	{"maxLength", "I", nullptr, $PRIVATE | $FINAL, $field(SealedObjectForKeyProtector$DeserializationChecker, maxLength)},
-	{}
-};
-
-$MethodInfo _SealedObjectForKeyProtector$DeserializationChecker_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(SealedObjectForKeyProtector$DeserializationChecker, init$, void, int32_t)},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(SealedObjectForKeyProtector$DeserializationChecker, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SealedObjectForKeyProtector$DeserializationChecker, lambda$static$0, $String*)},
-	{}
-};
-
-$InnerClassInfo _SealedObjectForKeyProtector$DeserializationChecker_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.SealedObjectForKeyProtector$DeserializationChecker", "com.sun.crypto.provider.SealedObjectForKeyProtector", "DeserializationChecker", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SealedObjectForKeyProtector$DeserializationChecker_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.crypto.provider.SealedObjectForKeyProtector$DeserializationChecker",
-	"java.lang.Object",
-	"java.io.ObjectInputFilter",
-	_SealedObjectForKeyProtector$DeserializationChecker_FieldInfo_,
-	_SealedObjectForKeyProtector$DeserializationChecker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SealedObjectForKeyProtector$DeserializationChecker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.SealedObjectForKeyProtector"
-};
-
-$Object* allocate$SealedObjectForKeyProtector$DeserializationChecker($Class* clazz) {
-	return $of($alloc(SealedObjectForKeyProtector$DeserializationChecker));
-}
 
 $ObjectInputFilter* SealedObjectForKeyProtector$DeserializationChecker::OWN_FILTER = nullptr;
 
@@ -121,12 +79,12 @@ $ObjectInputFilter$Status* SealedObjectForKeyProtector$DeserializationChecker::c
 		$init($ObjectInputFilter$Status);
 		return $ObjectInputFilter$Status::REJECTED;
 	}
-	if ($nc(info)->serialClass() == $Object::class$) {
+	if (info->serialClass() == $Object::class$) {
 		$init($ObjectInputFilter$Status);
 		return $ObjectInputFilter$Status::UNDECIDED;
 	}
 	if (SealedObjectForKeyProtector$DeserializationChecker::OWN_FILTER != nullptr) {
-		$ObjectInputFilter$Status* result = $nc(SealedObjectForKeyProtector$DeserializationChecker::OWN_FILTER)->checkInput(info);
+		$ObjectInputFilter$Status* result = SealedObjectForKeyProtector$DeserializationChecker::OWN_FILTER->checkInput(info);
 		$init($ObjectInputFilter$Status);
 		if (result != $ObjectInputFilter$Status::UNDECIDED) {
 			return result;
@@ -150,11 +108,11 @@ $String* SealedObjectForKeyProtector$DeserializationChecker::lambda$static$0() {
 	}
 }
 
-void clinit$SealedObjectForKeyProtector$DeserializationChecker($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SealedObjectForKeyProtector$DeserializationChecker::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
-		$var($String, prop, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0)))));
+		$var($String, prop, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0)))));
 		$assignStatic(SealedObjectForKeyProtector$DeserializationChecker::OWN_FILTER, prop == nullptr ? ($ObjectInputFilter*)nullptr : $ObjectInputFilter$Config::createFilter(prop));
 	}
 }
@@ -164,11 +122,43 @@ SealedObjectForKeyProtector$DeserializationChecker::SealedObjectForKeyProtector$
 
 $Class* SealedObjectForKeyProtector$DeserializationChecker::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("com.sun.crypto.provider.SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0")) {
 			return SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SealedObjectForKeyProtector$DeserializationChecker, name, initialize, &_SealedObjectForKeyProtector$DeserializationChecker_ClassInfo_, clinit$SealedObjectForKeyProtector$DeserializationChecker, allocate$SealedObjectForKeyProtector$DeserializationChecker);
+	$FieldInfo fieldInfos$$[] = {
+		{"OWN_FILTER", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SealedObjectForKeyProtector$DeserializationChecker, OWN_FILTER)},
+		{"maxLength", "I", nullptr, $PRIVATE | $FINAL, $field(SealedObjectForKeyProtector$DeserializationChecker, maxLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(SealedObjectForKeyProtector$DeserializationChecker, init$, void, int32_t)},
+		{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(SealedObjectForKeyProtector$DeserializationChecker, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SealedObjectForKeyProtector$DeserializationChecker, lambda$static$0, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.SealedObjectForKeyProtector$DeserializationChecker", "com.sun.crypto.provider.SealedObjectForKeyProtector", "DeserializationChecker", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.crypto.provider.SealedObjectForKeyProtector$DeserializationChecker",
+		"java.lang.Object",
+		"java.io.ObjectInputFilter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.SealedObjectForKeyProtector"
+	};
+	$loadClass(SealedObjectForKeyProtector$DeserializationChecker, name, initialize, &classInfo$$, SealedObjectForKeyProtector$DeserializationChecker::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SealedObjectForKeyProtector$DeserializationChecker);
+	});
 	return class$;
 }
 

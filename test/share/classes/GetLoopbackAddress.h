@@ -15,6 +15,7 @@ class $export GetLoopbackAddress : public ::java::lang::Object {
 	$class(GetLoopbackAddress, 0, ::java::lang::Object)
 public:
 	GetLoopbackAddress();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::net::InetAddress* IPv4Loopback;

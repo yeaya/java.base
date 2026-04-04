@@ -20,6 +20,7 @@ class $export ResourcesMgr : public ::java::lang::Object {
 	$class(ResourcesMgr, 0, ::java::lang::Object)
 public:
 	ResourcesMgr();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getAuthResourceString($String* s);
 	static ::java::util::ResourceBundle* getBundle($String* bundleName);

@@ -1,5 +1,4 @@
 #include <sun/security/provider/DSAPublicKey.h>
-
 #include <java/io/IOException.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParameters.h>
@@ -32,49 +31,11 @@ using $Debug = ::sun::security::util::Debug;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AlgIdDSA = ::sun::security::x509::AlgIdDSA;
-using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 using $X509Key = ::sun::security::x509::X509Key;
 
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _DSAPublicKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DSAPublicKey, serialVersionUID)},
-	{"y", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSAPublicKey, y)},
-	{}
-};
-
-$MethodInfo _DSAPublicKey_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getEncoded", "()[B", nullptr, $PUBLIC},
-	{"*getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DSAPublicKey, init$, void)},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAPublicKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(DSAPublicKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
-	{"getParams", "()Ljava/security/interfaces/DSAParams;", nullptr, $PUBLIC, $virtualMethod(DSAPublicKey, getParams, $DSAParams*)},
-	{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAPublicKey, getY, $BigInteger*)},
-	{"parseKeyBits", "()V", nullptr, $PROTECTED, $virtualMethod(DSAPublicKey, parseKeyBits, void), "java.security.InvalidKeyException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DSAPublicKey, toString, $String*)},
-	{}
-};
-
-$ClassInfo _DSAPublicKey_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.DSAPublicKey",
-	"sun.security.x509.X509Key",
-	"java.security.interfaces.DSAPublicKey",
-	_DSAPublicKey_FieldInfo_,
-	_DSAPublicKey_MethodInfo_
-};
-
-$Object* allocate$DSAPublicKey($Class* clazz) {
-	return $of($alloc(DSAPublicKey));
-}
 
 $String* DSAPublicKey::getAlgorithm() {
 	 return this->$X509Key::getAlgorithm();
@@ -109,7 +70,7 @@ void DSAPublicKey::init$() {
 }
 
 void DSAPublicKey::init$($BigInteger* y, $BigInteger* p, $BigInteger* q, $BigInteger* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$X509Key::init$();
 	$set(this, y, y);
 	$set(this, algid, $new($AlgIdDSA, p, q, g));
@@ -128,7 +89,7 @@ void DSAPublicKey::init$($bytes* encoded) {
 }
 
 $DSAParams* DSAPublicKey::getParams() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($instanceOf($DSAParams, this->algid)) {
 			return $cast($DSAParams, this->algid);
@@ -140,7 +101,7 @@ $DSAParams* DSAPublicKey::getParams() {
 			}
 			$load($DSAParameterSpec);
 			$assign(paramSpec, $cast($DSAParameterSpec, $nc(algParams)->getParameterSpec($DSAParameterSpec::class$)));
-			return static_cast<$DSAParams*>(paramSpec);
+			return $cast($DSAParams, paramSpec);
 		}
 	} catch ($InvalidParameterSpecException& e) {
 		return nullptr;
@@ -153,16 +114,20 @@ $BigInteger* DSAPublicKey::getY() {
 }
 
 $String* DSAPublicKey::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"Sun DSA Public Key\n    Parameters:"_s, this->algid, "\n  y:\n"_s}));
-	$var($String, var$0, $$concat(var$1, $($Debug::toHexString(this->y))));
-	return $concat(var$0, "\n"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Sun DSA Public Key\n    Parameters:"_s);
+	var$0->append(this->algid);
+	var$0->append("\n  y:\n"_s);
+	var$0->append($($Debug::toHexString(this->y)));
+	var$0->append("\n"_s);
+	return $str(var$0);
 }
 
 void DSAPublicKey::parseKeyBits() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($DerInputStream, in, $new($DerInputStream, $($nc($(getKey()))->toByteArray())));
+		$var($DerInputStream, in, $new($DerInputStream, $($$nc(getKey())->toByteArray())));
 		$set(this, y, in->getBigInteger());
 	} catch ($IOException& e) {
 		$throwNew($InvalidKeyException, $$str({"Invalid key: y value\n"_s, $(e->getMessage())}));
@@ -173,7 +138,39 @@ DSAPublicKey::DSAPublicKey() {
 }
 
 $Class* DSAPublicKey::load$($String* name, bool initialize) {
-	$loadClass(DSAPublicKey, name, initialize, &_DSAPublicKey_ClassInfo_, allocate$DSAPublicKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DSAPublicKey, serialVersionUID)},
+		{"y", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSAPublicKey, y)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getEncoded", "()[B", nullptr, $PUBLIC},
+		{"*getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DSAPublicKey, init$, void)},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAPublicKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(DSAPublicKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
+		{"getParams", "()Ljava/security/interfaces/DSAParams;", nullptr, $PUBLIC, $virtualMethod(DSAPublicKey, getParams, $DSAParams*)},
+		{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAPublicKey, getY, $BigInteger*)},
+		{"parseKeyBits", "()V", nullptr, $PROTECTED, $virtualMethod(DSAPublicKey, parseKeyBits, void), "java.security.InvalidKeyException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DSAPublicKey, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.DSAPublicKey",
+		"sun.security.x509.X509Key",
+		"java.security.interfaces.DSAPublicKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DSAPublicKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DSAPublicKey));
+	});
 	return class$;
 }
 

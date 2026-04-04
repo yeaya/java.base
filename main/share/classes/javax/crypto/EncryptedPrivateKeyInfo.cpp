@@ -1,5 +1,4 @@
 #include <javax/crypto/EncryptedPrivateKeyInfo.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/security/AlgorithmParameters.h>
@@ -49,47 +48,8 @@ using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 namespace javax {
 	namespace crypto {
 
-$FieldInfo _EncryptedPrivateKeyInfo_FieldInfo_[] = {
-	{"algid", "Lsun/security/x509/AlgorithmId;", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, algid)},
-	{"keyAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, keyAlg)},
-	{"encryptedData", "[B", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, encryptedData)},
-	{"encoded", "[B", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, encoded)},
-	{}
-};
-
-$MethodInfo _EncryptedPrivateKeyInfo_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $bytes*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $String*, $bytes*), "java.security.NoSuchAlgorithmException"},
-	{"<init>", "(Ljava/security/AlgorithmParameters;[B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $AlgorithmParameters*, $bytes*), "java.security.NoSuchAlgorithmException"},
-	{"checkPKCS8Encoding", "([B)V", nullptr, $PRIVATE, $method(EncryptedPrivateKeyInfo, checkPKCS8Encoding, void, $bytes*), "java.io.IOException"},
-	{"checkTag", "(Lsun/security/util/DerValue;BLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EncryptedPrivateKeyInfo, checkTag, void, $DerValue*, int8_t, $String*), "java.io.IOException"},
-	{"getAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getAlgName, $String*)},
-	{"getAlgParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getAlgParameters, $AlgorithmParameters*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncoded, $bytes*), "java.io.IOException"},
-	{"getEncryptedData", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncryptedData, $bytes*)},
-	{"getKeySpec", "(Ljavax/crypto/Cipher;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Cipher*), "java.security.spec.InvalidKeySpecException"},
-	{"getKeySpec", "(Ljava/security/Key;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Key*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"getKeySpec", "(Ljava/security/Key;Ljava/lang/String;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Key*, $String*), "java.security.NoSuchProviderException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"getKeySpec", "(Ljava/security/Key;Ljava/security/Provider;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Key*, $Provider*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"getKeySpecImpl", "(Ljava/security/Key;Ljava/security/Provider;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PRIVATE, $method(EncryptedPrivateKeyInfo, getKeySpecImpl, $PKCS8EncodedKeySpec*, $Key*, $Provider*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _EncryptedPrivateKeyInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.EncryptedPrivateKeyInfo",
-	"java.lang.Object",
-	nullptr,
-	_EncryptedPrivateKeyInfo_FieldInfo_,
-	_EncryptedPrivateKeyInfo_MethodInfo_
-};
-
-$Object* allocate$EncryptedPrivateKeyInfo($Class* clazz) {
-	return $of($alloc(EncryptedPrivateKeyInfo));
-}
-
 void EncryptedPrivateKeyInfo::init$($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, encoded, nullptr);
 	if (encoded == nullptr) {
 		$throwNew($NullPointerException, "the encoded parameter must be non-null"_s);
@@ -98,16 +58,16 @@ void EncryptedPrivateKeyInfo::init$($bytes* encoded) {
 	$var($DerValue, val, $new($DerValue, this->encoded));
 	$var($DerValueArray, seq, $new($DerValueArray, 2));
 	seq->set(0, $($nc(val->data$)->getDerValue()));
-	seq->set(1, $($nc(val->data$)->getDerValue()));
-	if ($nc(val->data$)->available() != 0) {
-		$throwNew($IOException, $$str({"overrun, bytes = "_s, $$str($nc(val->data$)->available())}));
+	seq->set(1, $(val->data$->getDerValue()));
+	if (val->data$->available() != 0) {
+		$throwNew($IOException, $$str({"overrun, bytes = "_s, $$str(val->data$->available())}));
 	}
 	$set(this, algid, $AlgorithmId::parse(seq->get(0)));
 	if ($nc($nc(seq->get(0))->data$)->available() != 0) {
 		$throwNew($IOException, "encryptionAlgorithm field overrun"_s);
 	}
 	$set(this, encryptedData, $nc(seq->get(1))->getOctetString());
-	if ($nc($nc(seq->get(1))->data$)->available() != 0) {
+	if ($nc(seq->get(1))->data$->available() != 0) {
 		$throwNew($IOException, "encryptedData field overrun"_s);
 	}
 }
@@ -120,7 +80,7 @@ void EncryptedPrivateKeyInfo::init$($String* algName, $bytes* encryptedData) {
 	$set(this, algid, $AlgorithmId::get(algName));
 	if (encryptedData == nullptr) {
 		$throwNew($NullPointerException, "the encryptedData parameter must be non-null"_s);
-	} else if ($nc(encryptedData)->length == 0) {
+	} else if (encryptedData->length == 0) {
 		$throwNew($IllegalArgumentException, "the encryptedData parameter must not be empty"_s);
 	} else {
 		$set(this, encryptedData, $cast($bytes, encryptedData->clone()));
@@ -136,7 +96,7 @@ void EncryptedPrivateKeyInfo::init$($AlgorithmParameters* algParams, $bytes* enc
 	$set(this, algid, $AlgorithmId::get(algParams));
 	if (encryptedData == nullptr) {
 		$throwNew($NullPointerException, "encryptedData must be non-null"_s);
-	} else if ($nc(encryptedData)->length == 0) {
+	} else if (encryptedData->length == 0) {
 		$throwNew($IllegalArgumentException, "the encryptedData parameter must not be empty"_s);
 	} else {
 		$set(this, encryptedData, $cast($bytes, encryptedData->clone()));
@@ -172,7 +132,7 @@ $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpec($Cipher* cipher) {
 }
 
 $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpecImpl($Key* decryptKey, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, nullptr);
 	$var($Cipher, c, nullptr);
 	try {
@@ -202,7 +162,7 @@ $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpec($Key* decryptKey) {
 }
 
 $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpec($Key* decryptKey, $String* providerName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (decryptKey == nullptr) {
 		$throwNew($NullPointerException, "decryptKey is null"_s);
 	}
@@ -227,7 +187,7 @@ $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpec($Key* decryptKey, $Pro
 }
 
 $bytes* EncryptedPrivateKeyInfo::getEncoded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->encoded == nullptr) {
 		$var($DerOutputStream, out, $new($DerOutputStream));
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -246,25 +206,19 @@ void EncryptedPrivateKeyInfo::checkTag($DerValue* val, int8_t tag, $String* valN
 }
 
 void EncryptedPrivateKeyInfo::checkPKCS8Encoding($bytes* encodedKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerInputStream, in, $new($DerInputStream, encodedKey));
 	$var($DerValueArray, values, in->getSequence(3));
 	switch ($nc(values)->length) {
 	case 4:
-		{
-			checkTag(values->get(3), $DerValue::TAG_CONTEXT, "attributes"_s);
-		}
+		checkTag(values->get(3), $DerValue::TAG_CONTEXT, "attributes"_s);
 	case 3:
-		{
-			checkTag(values->get(0), $DerValue::tag_Integer, "version"_s);
-			$set(this, keyAlg, $nc($($AlgorithmId::parse(values->get(1))))->getName());
-			checkTag(values->get(2), $DerValue::tag_OctetString, "privateKey"_s);
-			break;
-		}
+		checkTag(values->get(0), $DerValue::tag_Integer, "version"_s);
+		$set(this, keyAlg, $$nc($AlgorithmId::parse(values->get(1)))->getName());
+		checkTag(values->get(2), $DerValue::tag_OctetString, "privateKey"_s);
+		break;
 	default:
-		{
-			$throwNew($IOException, "invalid key encoding"_s);
-		}
+		$throwNew($IOException, "invalid key encoding"_s);
 	}
 }
 
@@ -272,7 +226,41 @@ EncryptedPrivateKeyInfo::EncryptedPrivateKeyInfo() {
 }
 
 $Class* EncryptedPrivateKeyInfo::load$($String* name, bool initialize) {
-	$loadClass(EncryptedPrivateKeyInfo, name, initialize, &_EncryptedPrivateKeyInfo_ClassInfo_, allocate$EncryptedPrivateKeyInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"algid", "Lsun/security/x509/AlgorithmId;", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, algid)},
+		{"keyAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, keyAlg)},
+		{"encryptedData", "[B", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, encryptedData)},
+		{"encoded", "[B", nullptr, $PRIVATE, $field(EncryptedPrivateKeyInfo, encoded)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $bytes*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $String*, $bytes*), "java.security.NoSuchAlgorithmException"},
+		{"<init>", "(Ljava/security/AlgorithmParameters;[B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $AlgorithmParameters*, $bytes*), "java.security.NoSuchAlgorithmException"},
+		{"checkPKCS8Encoding", "([B)V", nullptr, $PRIVATE, $method(EncryptedPrivateKeyInfo, checkPKCS8Encoding, void, $bytes*), "java.io.IOException"},
+		{"checkTag", "(Lsun/security/util/DerValue;BLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EncryptedPrivateKeyInfo, checkTag, void, $DerValue*, int8_t, $String*), "java.io.IOException"},
+		{"getAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getAlgName, $String*)},
+		{"getAlgParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getAlgParameters, $AlgorithmParameters*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncoded, $bytes*), "java.io.IOException"},
+		{"getEncryptedData", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncryptedData, $bytes*)},
+		{"getKeySpec", "(Ljavax/crypto/Cipher;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Cipher*), "java.security.spec.InvalidKeySpecException"},
+		{"getKeySpec", "(Ljava/security/Key;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Key*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{"getKeySpec", "(Ljava/security/Key;Ljava/lang/String;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Key*, $String*), "java.security.NoSuchProviderException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{"getKeySpec", "(Ljava/security/Key;Ljava/security/Provider;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Key*, $Provider*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{"getKeySpecImpl", "(Ljava/security/Key;Ljava/security/Provider;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PRIVATE, $method(EncryptedPrivateKeyInfo, getKeySpecImpl, $PKCS8EncodedKeySpec*, $Key*, $Provider*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.EncryptedPrivateKeyInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EncryptedPrivateKeyInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EncryptedPrivateKeyInfo);
+	});
 	return class$;
 }
 

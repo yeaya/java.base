@@ -1,5 +1,4 @@
 #include <java/util/stream/Sink$OfInt.h>
-
 #include <java/util/stream/Sink.h>
 #include <java/util/stream/Tripwire.h>
 #include <jcpp.h>
@@ -16,43 +15,6 @@ using $Tripwire = ::java::util::stream::Tripwire;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _Sink$OfInt_MethodInfo_[] = {
-	{"accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Sink$OfInt, accept, void, int32_t)},
-	{"accept", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(Sink$OfInt, accept, void, $Integer*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Sink$OfInt, accept, void, Object$*)},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$InnerClassInfo _Sink$OfInt_InnerClassesInfo_[] = {
-	{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Sink$OfInt_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.stream.Sink$OfInt",
-	nullptr,
-	"java.util.stream.Sink,java.util.function.IntConsumer",
-	nullptr,
-	_Sink$OfInt_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/stream/Sink<Ljava/lang/Integer;>;Ljava/util/function/IntConsumer;",
-	nullptr,
-	_Sink$OfInt_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Sink"
-};
-
-$Object* allocate$Sink$OfInt($Class* clazz) {
-	return $of($alloc(Sink$OfInt));
-}
 
 int32_t Sink$OfInt::hashCode() {
 	 return this->$Sink::hashCode();
@@ -87,7 +49,39 @@ void Sink$OfInt::accept(Object$* i) {
 }
 
 $Class* Sink$OfInt::load$($String* name, bool initialize) {
-	$loadClass(Sink$OfInt, name, initialize, &_Sink$OfInt_ClassInfo_, allocate$Sink$OfInt);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Sink$OfInt, accept, void, int32_t)},
+		{"accept", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(Sink$OfInt, accept, void, $Integer*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Sink$OfInt, accept, void, Object$*)},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.stream.Sink$OfInt",
+		nullptr,
+		"java.util.stream.Sink,java.util.function.IntConsumer",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/stream/Sink<Ljava/lang/Integer;>;Ljava/util/function/IntConsumer;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Sink"
+	};
+	$loadClass(Sink$OfInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Sink$OfInt));
+	});
 	return class$;
 }
 

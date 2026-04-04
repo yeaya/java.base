@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/concurrent/RunnableScheduledFuture.h>
@@ -19,48 +18,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/ScheduledThreadPoolExecutor$DelayedWorkQueue;", nullptr, $FINAL | $SYNTHETIC, $field(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, this$0)},
-	{"array", "[Ljava/util/concurrent/RunnableScheduledFuture;", "[Ljava/util/concurrent/RunnableScheduledFuture<*>;", $FINAL, $field(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, array)},
-	{"cursor", "I", nullptr, 0, $field(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, cursor)},
-	{"lastRet", "I", nullptr, 0, $field(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, lastRet)},
-	{}
-};
-
-$MethodInfo _ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ScheduledThreadPoolExecutor$DelayedWorkQueue;[Ljava/util/concurrent/RunnableScheduledFuture;)V", "([Ljava/util/concurrent/RunnableScheduledFuture<*>;)V", 0, $method(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, init$, void, $ScheduledThreadPoolExecutor$DelayedWorkQueue*, $RunnableScheduledFutureArray*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, hasNext, bool)},
-	{"next", "()Ljava/lang/Runnable;", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, remove, void)},
-	{}
-};
-
-$InnerClassInfo _ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue", "java.util.concurrent.ScheduledThreadPoolExecutor", "DelayedWorkQueue", $STATIC},
-	{"java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr", "java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr_FieldInfo_,
-	_ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/Runnable;>;",
-	nullptr,
-	_ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ScheduledThreadPoolExecutor"
-};
-
-$Object* allocate$ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr($Class* clazz) {
-	return $of($alloc(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr));
-}
-
 void ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr::init$($ScheduledThreadPoolExecutor$DelayedWorkQueue* this$0, $RunnableScheduledFutureArray* array) {
 	$set(this, this$0, this$0);
 	this->lastRet = -1;
@@ -75,7 +32,7 @@ $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr::next() {
 	if (this->cursor >= $nc(this->array)->length) {
 		$throwNew($NoSuchElementException);
 	}
-	return $of($nc(this->array)->get(this->lastRet = this->cursor++));
+	return $of(this->array->get(this->lastRet = this->cursor++));
 }
 
 void ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr::remove() {
@@ -90,7 +47,43 @@ ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr::ScheduledThreadPoolExecutor$De
 }
 
 $Class* ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr::load$($String* name, bool initialize) {
-	$loadClass(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, name, initialize, &_ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr_ClassInfo_, allocate$ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/ScheduledThreadPoolExecutor$DelayedWorkQueue;", nullptr, $FINAL | $SYNTHETIC, $field(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, this$0)},
+		{"array", "[Ljava/util/concurrent/RunnableScheduledFuture;", "[Ljava/util/concurrent/RunnableScheduledFuture<*>;", $FINAL, $field(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, array)},
+		{"cursor", "I", nullptr, 0, $field(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, cursor)},
+		{"lastRet", "I", nullptr, 0, $field(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, lastRet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ScheduledThreadPoolExecutor$DelayedWorkQueue;[Ljava/util/concurrent/RunnableScheduledFuture;)V", "([Ljava/util/concurrent/RunnableScheduledFuture<*>;)V", 0, $method(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, init$, void, $ScheduledThreadPoolExecutor$DelayedWorkQueue*, $RunnableScheduledFutureArray*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, hasNext, bool)},
+		{"next", "()Ljava/lang/Runnable;", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue", "java.util.concurrent.ScheduledThreadPoolExecutor", "DelayedWorkQueue", $STATIC},
+		{"java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr", "java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/Runnable;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ScheduledThreadPoolExecutor"
+	};
+	$loadClass(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr);
+	});
 	return class$;
 }
 

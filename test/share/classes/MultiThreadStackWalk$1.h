@@ -9,6 +9,7 @@ class MultiThreadStackWalk$1 : public ::java::lang::Object {
 	$class(MultiThreadStackWalk$1, 0, ::java::lang::Object)
 public:
 	MultiThreadStackWalk$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$MultiThreadStackWalk$Call$WalkType;
 };
 

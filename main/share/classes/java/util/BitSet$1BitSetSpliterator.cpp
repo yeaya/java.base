@@ -1,5 +1,4 @@
 #include <java/util/BitSet$1BitSetSpliterator.h>
-
 #include <java/util/BitSet.h>
 #include <java/util/Comparator.h>
 #include <java/util/Objects.h>
@@ -30,61 +29,6 @@ using $IntConsumer = ::java::util::function::IntConsumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _BitSet$1BitSetSpliterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/BitSet;", nullptr, $FINAL | $SYNTHETIC, $field(BitSet$1BitSetSpliterator, this$0)},
-	{"index", "I", nullptr, $PRIVATE, $field(BitSet$1BitSetSpliterator, index)},
-	{"fence", "I", nullptr, $PRIVATE, $field(BitSet$1BitSetSpliterator, fence)},
-	{"est", "I", nullptr, $PRIVATE, $field(BitSet$1BitSetSpliterator, est)},
-	{"root", "Z", nullptr, $PRIVATE, $field(BitSet$1BitSetSpliterator, root)},
-	{}
-};
-
-$MethodInfo _BitSet$1BitSetSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/BitSet;IIIZ)V", nullptr, 0, $method(BitSet$1BitSetSpliterator, init$, void, $BitSet*, int32_t, int32_t, int32_t, bool)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, forEachRemaining, void, $IntConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BitSet$1BitSetSpliterator, forEachRemaining, void, Object$*)},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, getComparator, $Comparator*)},
-	{"getFence", "()I", nullptr, $PRIVATE, $method(BitSet$1BitSetSpliterator, getFence, int32_t)},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, tryAdvance, bool, $IntConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BitSet$1BitSetSpliterator, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, trySplit, $Spliterator$OfInt*)},
-	{}
-};
-
-$EnclosingMethodInfo _BitSet$1BitSetSpliterator_EnclosingMethodInfo_ = {
-	"java.util.BitSet",
-	"stream",
-	"()Ljava/util/stream/IntStream;"
-};
-
-$InnerClassInfo _BitSet$1BitSetSpliterator_InnerClassesInfo_[] = {
-	{"java.util.BitSet$1BitSetSpliterator", nullptr, "BitSetSpliterator", 0},
-	{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _BitSet$1BitSetSpliterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.BitSet$1BitSetSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator$OfInt",
-	_BitSet$1BitSetSpliterator_FieldInfo_,
-	_BitSet$1BitSetSpliterator_MethodInfo_,
-	nullptr,
-	&_BitSet$1BitSetSpliterator_EnclosingMethodInfo_,
-	_BitSet$1BitSetSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.BitSet"
-};
-
-$Object* allocate$BitSet$1BitSetSpliterator($Class* clazz) {
-	return $of($alloc(BitSet$1BitSetSpliterator));
-}
 
 void BitSet$1BitSetSpliterator::init$($BitSet* this$0, int32_t origin, int32_t fence, int32_t est, bool root) {
 	$set(this, this$0, this$0);
@@ -132,7 +76,7 @@ void BitSet$1BitSetSpliterator::forEachRemaining($IntConsumer* action) {
 		int32_t v = $BitSet::wordIndex(hi - 1);
 		bool words_loop$break = false;
 		for (; u <= v && i <= hi; ++u, i = u << 6) {
-			int64_t word = (int64_t)($nc(this->this$0->words)->get(u) & (uint64_t)($sl((int64_t)-1, i)));
+			int64_t word = $nc(this->this$0->words)->get(u) & ($sl((int64_t)-1, i));
 			while (word != 0) {
 				i = (u << 6) + $Long::numberOfTrailingZeros(word);
 				if (i >= hi) {
@@ -193,7 +137,55 @@ BitSet$1BitSetSpliterator::BitSet$1BitSetSpliterator() {
 }
 
 $Class* BitSet$1BitSetSpliterator::load$($String* name, bool initialize) {
-	$loadClass(BitSet$1BitSetSpliterator, name, initialize, &_BitSet$1BitSetSpliterator_ClassInfo_, allocate$BitSet$1BitSetSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/BitSet;", nullptr, $FINAL | $SYNTHETIC, $field(BitSet$1BitSetSpliterator, this$0)},
+		{"index", "I", nullptr, $PRIVATE, $field(BitSet$1BitSetSpliterator, index)},
+		{"fence", "I", nullptr, $PRIVATE, $field(BitSet$1BitSetSpliterator, fence)},
+		{"est", "I", nullptr, $PRIVATE, $field(BitSet$1BitSetSpliterator, est)},
+		{"root", "Z", nullptr, $PRIVATE, $field(BitSet$1BitSetSpliterator, root)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/BitSet;IIIZ)V", nullptr, 0, $method(BitSet$1BitSetSpliterator, init$, void, $BitSet*, int32_t, int32_t, int32_t, bool)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, forEachRemaining, void, $IntConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BitSet$1BitSetSpliterator, forEachRemaining, void, Object$*)},
+		{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, getComparator, $Comparator*)},
+		{"getFence", "()I", nullptr, $PRIVATE, $method(BitSet$1BitSetSpliterator, getFence, int32_t)},
+		{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, tryAdvance, bool, $IntConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BitSet$1BitSetSpliterator, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, trySplit, $Spliterator$OfInt*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.BitSet",
+		"stream",
+		"()Ljava/util/stream/IntStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.BitSet$1BitSetSpliterator", nullptr, "BitSetSpliterator", 0},
+		{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.BitSet$1BitSetSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.BitSet"
+	};
+	$loadClass(BitSet$1BitSetSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BitSet$1BitSetSpliterator);
+	});
 	return class$;
 }
 

@@ -42,6 +42,7 @@ class $import PKIXValidator : public ::sun::security::validator::Validator {
 	$class(PKIXValidator, 0, ::sun::security::validator::Validator)
 public:
 	PKIXValidator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* variant, ::java::util::Collection* trustedCerts);
 	void init$($String* variant, ::java::security::cert::PKIXBuilderParameters* params);
 	static void addResponses(::java::security::cert::PKIXBuilderParameters* pkixParams, $Array<::java::security::cert::X509Certificate>* chain, ::java::util::List* responseList);

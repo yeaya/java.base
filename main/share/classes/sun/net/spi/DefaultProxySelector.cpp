@@ -1,5 +1,4 @@
 #include <sun/net/spi/DefaultProxySelector.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
@@ -13,7 +12,6 @@
 #include <java/net/SocketAddress.h>
 #include <java/net/URI.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <java/util/StringJoiner.h>
@@ -52,12 +50,10 @@ using $ProxySelector = ::java::net::ProxySelector;
 using $SocketAddress = ::java::net::SocketAddress;
 using $URI = ::java::net::URI;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $StringJoiner = ::java::util::StringJoiner;
 using $Function = ::java::util::function::Function;
-using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
@@ -78,84 +74,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* list) override {
-		 return $of($Collections::unmodifiableList($cast($List, list)));
+		 return $Collections::unmodifiableList($cast($List, list));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DefaultProxySelector$$Lambda$unmodifiableList>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DefaultProxySelector$$Lambda$unmodifiableList::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultProxySelector$$Lambda$unmodifiableList, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultProxySelector$$Lambda$unmodifiableList, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo DefaultProxySelector$$Lambda$unmodifiableList::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.net.spi.DefaultProxySelector$$Lambda$unmodifiableList",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* DefaultProxySelector$$Lambda$unmodifiableList::load$($String* name, bool initialize) {
-	$loadClass(DefaultProxySelector$$Lambda$unmodifiableList, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultProxySelector$$Lambda$unmodifiableList, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultProxySelector$$Lambda$unmodifiableList, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.net.spi.DefaultProxySelector$$Lambda$unmodifiableList",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultProxySelector$$Lambda$unmodifiableList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultProxySelector$$Lambda$unmodifiableList);
+	});
 	return class$;
 }
 $Class* DefaultProxySelector$$Lambda$unmodifiableList::class$ = nullptr;
-
-$FieldInfo _DefaultProxySelector_FieldInfo_[] = {
-	{"props", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultProxySelector, props)},
-	{"SOCKS_PROXY_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultProxySelector, SOCKS_PROXY_VERSION)},
-	{"hasSystemProxies", "Z", nullptr, $PRIVATE | $STATIC, $staticField(DefaultProxySelector, hasSystemProxies)},
-	{"NO_PROXY_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/net/Proxy;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultProxySelector, NO_PROXY_LIST)},
-	{}
-};
-
-$MethodInfo _DefaultProxySelector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultProxySelector, init$, void)},
-	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(DefaultProxySelector, connectFailed, void, $URI*, $SocketAddress*, $IOException*)},
-	{"defaultPort", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(DefaultProxySelector, defaultPort, int32_t, $String*)},
-	{"disjunctToRegex", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(DefaultProxySelector, disjunctToRegex, $String*, $String*)},
-	{"getSystemProxies", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/net/Proxy;", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(DefaultProxySelector, getSystemProxies, $ProxyArray*, $String*, $String*)},
-	{"init", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(DefaultProxySelector, init, bool)},
-	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC, $virtualMethod(DefaultProxySelector, select, $List*, $URI*)},
-	{"shouldNotUseProxyFor", "(Ljava/util/regex/Pattern;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(DefaultProxySelector, shouldNotUseProxyFor, bool, $Pattern*, $String*)},
-	{"socksProxyVersion", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultProxySelector, socksProxyVersion, int32_t)},
-	{"toPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $STATIC, $staticMethod(DefaultProxySelector, toPattern, $Pattern*, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_getSystemProxies 4
-#define _METHOD_INDEX_init 5
-
-$InnerClassInfo _DefaultProxySelector_InnerClassesInfo_[] = {
-	{"sun.net.spi.DefaultProxySelector$NonProxyInfo", "sun.net.spi.DefaultProxySelector", "NonProxyInfo", $STATIC},
-	{"sun.net.spi.DefaultProxySelector$3", nullptr, nullptr, 0},
-	{"sun.net.spi.DefaultProxySelector$2", nullptr, nullptr, 0},
-	{"sun.net.spi.DefaultProxySelector$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DefaultProxySelector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.spi.DefaultProxySelector",
-	"java.net.ProxySelector",
-	nullptr,
-	_DefaultProxySelector_FieldInfo_,
-	_DefaultProxySelector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultProxySelector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.spi.DefaultProxySelector$NonProxyInfo,sun.net.spi.DefaultProxySelector$3,sun.net.spi.DefaultProxySelector$2,sun.net.spi.DefaultProxySelector$1"
-};
-
-$Object* allocate$DefaultProxySelector($Class* clazz) {
-	return $of($alloc(DefaultProxySelector));
-}
 
 $StringArray2* DefaultProxySelector::props = nullptr;
 $String* DefaultProxySelector::SOCKS_PROXY_VERSION = nullptr;
@@ -168,13 +109,13 @@ void DefaultProxySelector::init$() {
 
 int32_t DefaultProxySelector::socksProxyVersion() {
 	$init(DefaultProxySelector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DefaultProxySelector$2)))))))->intValue();
+	return $$sure($Integer, $AccessController::doPrivileged($$new($DefaultProxySelector$2)))->intValue();
 }
 
 $List* DefaultProxySelector::select($URI* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (uri == nullptr) {
 		$throwNew($IllegalArgumentException, "URI can\'t be null."_s);
@@ -185,11 +126,11 @@ $List* DefaultProxySelector::select($URI* uri) {
 		$var($String, auth, uri->getAuthority());
 		if (auth != nullptr) {
 			int32_t i = 0;
-			i = auth->indexOf((int32_t)u'@');
+			i = auth->indexOf(u'@');
 			if (i >= 0) {
 				$assign(auth, auth->substring(i + 1));
 			}
-			i = auth->lastIndexOf((int32_t)u':');
+			i = auth->lastIndexOf(u':');
 			if (i >= 0) {
 				$assign(auth, auth->substring(0, i));
 			}
@@ -216,10 +157,10 @@ $List* DefaultProxySelector::select($URI* uri) {
 	$var($String, proto, protocol);
 	$var($DefaultProxySelector$NonProxyInfo, nprop, pinfo);
 	$var($String, urlhost, $nc(host)->toLowerCase());
-	$var($ProxyArray, proxyArray, $cast($ProxyArray, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DefaultProxySelector$3, this, proto, urlhost, nprop)))));
+	$var($ProxyArray, proxyArray, $cast($ProxyArray, $AccessController::doPrivileged($$new($DefaultProxySelector$3, this, proto, urlhost, nprop))));
 	if (proxyArray != nullptr) {
 		$var($Collector, var$0, $Collectors::toList());
-		return $cast($List, $nc($($nc($($Stream::of(proxyArray)))->distinct()))->collect($($Collectors::collectingAndThen(var$0, static_cast<$Function*>($$new(DefaultProxySelector$$Lambda$unmodifiableList))))));
+		return $cast($List, $$nc($$nc($Stream::of(proxyArray))->distinct())->collect($($Collectors::collectingAndThen(var$0, $$new(DefaultProxySelector$$Lambda$unmodifiableList)))));
 	}
 	return DefaultProxySelector::NO_PROXY_LIST;
 }
@@ -246,17 +187,15 @@ int32_t DefaultProxySelector::defaultPort($String* protocol) {
 
 bool DefaultProxySelector::init() {
 	$init(DefaultProxySelector);
-	bool $ret = false;
-	$prepareNativeStatic(DefaultProxySelector, init, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(init, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 $ProxyArray* DefaultProxySelector::getSystemProxies($String* protocol, $String* host) {
-	$var($ProxyArray, $ret, nullptr);
-	$prepareNative(DefaultProxySelector, getSystemProxies, $ProxyArray*, $String* protocol, $String* host);
-	$assign($ret, $invokeNativeObject(protocol, host));
+	$prepareNative(getSystemProxies, $ProxyArray*, $String* protocol, $String* host);
+	$var($ProxyArray, $ret, $invokeNativeObject(protocol, host));
 	$finishNative();
 	return $ret;
 }
@@ -266,27 +205,25 @@ bool DefaultProxySelector::shouldNotUseProxyFor($Pattern* pattern, $String* urlh
 	if (pattern == nullptr || $nc(urlhost)->isEmpty()) {
 		return false;
 	}
-	bool matches = $nc($($nc(pattern)->matcher(urlhost)))->matches();
+	bool matches = $$nc($nc(pattern)->matcher(urlhost))->matches();
 	return matches;
 }
 
 $Pattern* DefaultProxySelector::toPattern($String* mask) {
 	$init(DefaultProxySelector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool disjunctionEmpty = true;
 	$var($StringJoiner, joiner, $new($StringJoiner, "|"_s));
 	{
 		$var($StringArray, arr$, $nc(mask)->split("\\|"_s));
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, disjunct, arr$->get(i$));
 			{
 				if ($nc(disjunct)->isEmpty()) {
 					continue;
 				}
 				disjunctionEmpty = false;
-				$var($String, regex, disjunctToRegex($($nc(disjunct)->toLowerCase())));
+				$var($String, regex, disjunctToRegex($(disjunct->toLowerCase())));
 				joiner->add(regex);
 			}
 		}
@@ -296,13 +233,13 @@ $Pattern* DefaultProxySelector::toPattern($String* mask) {
 
 $String* DefaultProxySelector::disjunctToRegex($String* disjunct) {
 	$init(DefaultProxySelector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, regex, nullptr);
 	if ($nc(disjunct)->equals("*"_s)) {
 		$assign(regex, ".*"_s);
 	} else {
-		bool var$1 = disjunct->startsWith("*"_s);
-		if (var$1 && disjunct->endsWith("*"_s)) {
+		bool var$0 = disjunct->startsWith("*"_s);
+		if (var$0 && disjunct->endsWith("*"_s)) {
 			$assign(regex, $str({".*"_s, $($Pattern::quote($(disjunct->substring(1, disjunct->length() - 1)))), ".*"_s}));
 		} else if (disjunct->startsWith("*"_s)) {
 			$assign(regex, $str({".*"_s, $($Pattern::quote($(disjunct->substring(1))))}));
@@ -315,8 +252,8 @@ $String* DefaultProxySelector::disjunctToRegex($String* disjunct) {
 	return regex;
 }
 
-void clinit$DefaultProxySelector($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DefaultProxySelector::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DefaultProxySelector::SOCKS_PROXY_VERSION, "socksProxyVersion"_s);
 	$beforeCallerSensitive();
 	$assignStatic(DefaultProxySelector::props, $new($StringArray2, {
@@ -346,10 +283,10 @@ void clinit$DefaultProxySelector($Class* class$) {
 	}));
 	DefaultProxySelector::hasSystemProxies = false;
 	$init($Proxy);
-	$assignStatic(DefaultProxySelector::NO_PROXY_LIST, $List::of($of($Proxy::NO_PROXY)));
+	$assignStatic(DefaultProxySelector::NO_PROXY_LIST, $List::of($Proxy::NO_PROXY));
 	{
 		$var($String, key, "java.net.useSystemProxies"_s);
-		$var($Boolean, b, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DefaultProxySelector$1)))));
+		$var($Boolean, b, $cast($Boolean, $AccessController::doPrivileged($$new($DefaultProxySelector$1))));
 		if (b != nullptr && b->booleanValue()) {
 			$BootLoader::loadLibrary("net"_s);
 			DefaultProxySelector::hasSystemProxies = DefaultProxySelector::init();
@@ -362,11 +299,54 @@ DefaultProxySelector::DefaultProxySelector() {
 
 $Class* DefaultProxySelector::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DefaultProxySelector$$Lambda$unmodifiableList::classInfo$.name)) {
+		if (name->equals("sun.net.spi.DefaultProxySelector$$Lambda$unmodifiableList")) {
 			return DefaultProxySelector$$Lambda$unmodifiableList::load$(name, initialize);
 		}
 	}
-	$loadClass(DefaultProxySelector, name, initialize, &_DefaultProxySelector_ClassInfo_, clinit$DefaultProxySelector, allocate$DefaultProxySelector);
+	$FieldInfo fieldInfos$$[] = {
+		{"props", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultProxySelector, props)},
+		{"SOCKS_PROXY_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultProxySelector, SOCKS_PROXY_VERSION)},
+		{"hasSystemProxies", "Z", nullptr, $PRIVATE | $STATIC, $staticField(DefaultProxySelector, hasSystemProxies)},
+		{"NO_PROXY_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/net/Proxy;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultProxySelector, NO_PROXY_LIST)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultProxySelector, init$, void)},
+		{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(DefaultProxySelector, connectFailed, void, $URI*, $SocketAddress*, $IOException*)},
+		{"defaultPort", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(DefaultProxySelector, defaultPort, int32_t, $String*)},
+		{"disjunctToRegex", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(DefaultProxySelector, disjunctToRegex, $String*, $String*)},
+		{"getSystemProxies", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/net/Proxy;", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(DefaultProxySelector, getSystemProxies, $ProxyArray*, $String*, $String*)},
+		{"init", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(DefaultProxySelector, init, bool)},
+		{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC, $virtualMethod(DefaultProxySelector, select, $List*, $URI*)},
+		{"shouldNotUseProxyFor", "(Ljava/util/regex/Pattern;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(DefaultProxySelector, shouldNotUseProxyFor, bool, $Pattern*, $String*)},
+		{"socksProxyVersion", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultProxySelector, socksProxyVersion, int32_t)},
+		{"toPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $STATIC, $staticMethod(DefaultProxySelector, toPattern, $Pattern*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.spi.DefaultProxySelector$NonProxyInfo", "sun.net.spi.DefaultProxySelector", "NonProxyInfo", $STATIC},
+		{"sun.net.spi.DefaultProxySelector$3", nullptr, nullptr, 0},
+		{"sun.net.spi.DefaultProxySelector$2", nullptr, nullptr, 0},
+		{"sun.net.spi.DefaultProxySelector$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.spi.DefaultProxySelector",
+		"java.net.ProxySelector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.spi.DefaultProxySelector$NonProxyInfo,sun.net.spi.DefaultProxySelector$3,sun.net.spi.DefaultProxySelector$2,sun.net.spi.DefaultProxySelector$1"
+	};
+	$loadClass(DefaultProxySelector, name, initialize, &classInfo$$, DefaultProxySelector::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultProxySelector);
+	});
 	return class$;
 }
 

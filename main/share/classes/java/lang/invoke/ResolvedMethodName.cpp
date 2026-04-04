@@ -1,5 +1,4 @@
 #include <java/lang/invoke/ResolvedMethodName.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _ResolvedMethodName_FieldInfo_[] = {
-	{"vmtarget", "Ljava/lang/reflect/Executable;", nullptr, 2, $field(ResolvedMethodName, vmtarget)},
-	{"vmholder", "Ljava/lang/Class;", nullptr, 2, $field(ResolvedMethodName, vmholder)},
-	{}
-};
-
-$MethodInfo _ResolvedMethodName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ResolvedMethodName, init$, void)},
-	{}
-};
-
-$ClassInfo _ResolvedMethodName_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.ResolvedMethodName",
-	"java.lang.Object",
-	nullptr,
-	_ResolvedMethodName_FieldInfo_,
-	_ResolvedMethodName_MethodInfo_
-};
-
-$Object* allocate$ResolvedMethodName($Class* clazz) {
-	return $of($alloc(ResolvedMethodName));
-}
-
 void ResolvedMethodName::init$() {
 }
 
@@ -41,7 +16,26 @@ ResolvedMethodName::ResolvedMethodName() {
 }
 
 $Class* ResolvedMethodName::load$($String* name, bool initialize) {
-	$loadClass(ResolvedMethodName, name, initialize, &_ResolvedMethodName_ClassInfo_, allocate$ResolvedMethodName);
+	$FieldInfo fieldInfos$$[] = {
+		{"vmtarget", "Ljava/lang/reflect/Executable;", nullptr, 2, $field(ResolvedMethodName, vmtarget)},
+		{"vmholder", "Ljava/lang/Class;", nullptr, 2, $field(ResolvedMethodName, vmholder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ResolvedMethodName, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.ResolvedMethodName",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResolvedMethodName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResolvedMethodName);
+	});
 	return class$;
 }
 

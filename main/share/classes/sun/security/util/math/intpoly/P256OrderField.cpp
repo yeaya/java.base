@@ -1,5 +1,4 @@
 #include <sun/security/util/math/intpoly/P256OrderField.h>
-
 #include <java/math/BigInteger.h>
 #include <sun/security/util/math/intpoly/IntegerPolynomial.h>
 #include <jcpp.h>
@@ -23,46 +22,6 @@ namespace sun {
 			namespace math {
 				namespace intpoly {
 
-$FieldInfo _P256OrderField_FieldInfo_[] = {
-	{"BITS_PER_LIMB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P256OrderField, BITS_PER_LIMB)},
-	{"NUM_LIMBS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P256OrderField, NUM_LIMBS)},
-	{"MAX_ADDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P256OrderField, MAX_ADDS)},
-	{"MODULUS", "Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(P256OrderField, MODULUS)},
-	{"CARRY_ADD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P256OrderField, CARRY_ADD)},
-	{"LIMB_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P256OrderField, LIMB_MASK)},
-	{}
-};
-
-$MethodInfo _P256OrderField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(P256OrderField, init$, void)},
-	{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(P256OrderField, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce", "([JJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(P256OrderField, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce0", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P256OrderField, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce0", "([JJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P256OrderField, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce1", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P256OrderField, carryReduce1, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce2", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P256OrderField, carryReduce2, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(P256OrderField, evaluateModulus, $BigInteger*)},
-	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(P256OrderField, finalCarryReduceLast, void, $longs*)},
-	{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(P256OrderField, mult, void, $longs*, $longs*, $longs*)},
-	{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(P256OrderField, reduce, void, $longs*)},
-	{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(P256OrderField, reduceIn, void, $longs*, int64_t, int32_t)},
-	{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(P256OrderField, square, void, $longs*, $longs*)},
-	{}
-};
-
-$ClassInfo _P256OrderField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.math.intpoly.P256OrderField",
-	"sun.security.util.math.intpoly.IntegerPolynomial",
-	nullptr,
-	_P256OrderField_FieldInfo_,
-	_P256OrderField_MethodInfo_
-};
-
-$Object* allocate$P256OrderField($Class* clazz) {
-	return $of($alloc(P256OrderField));
-}
-
 $BigInteger* P256OrderField::MODULUS = nullptr;
 
 void P256OrderField::init$() {
@@ -71,52 +30,52 @@ void P256OrderField::init$() {
 
 $BigInteger* P256OrderField::evaluateModulus() {
 	$init(P256OrderField);
-	$useLocalCurrentObjectStackCache();
-	$var($BigInteger, result, $nc($($BigInteger::valueOf((int64_t)2)))->pow(256));
-	$assign(result, $nc(result)->add($($BigInteger::valueOf((int64_t)0x00632551))));
-	$assign(result, result->subtract($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(26)))->multiply($($BigInteger::valueOf((int64_t)0x018D4F41))))));
-	$assign(result, result->add($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(52)))->multiply($($BigInteger::valueOf((int64_t)0x01E84F3C))))));
-	$assign(result, result->subtract($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(78)))->multiply($($BigInteger::valueOf((int64_t)0x014963A2))))));
-	$assign(result, result->subtract($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(104)))->multiply($($BigInteger::valueOf((int64_t)0x00431905))))));
-	$assign(result, result->add($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(182)))->multiply($($BigInteger::valueOf((int64_t)1024))))));
-	$assign(result, result->subtract($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(208)))->multiply($($BigInteger::valueOf((int64_t)0x00010000))))));
+	$useLocalObjectStack();
+	$var($BigInteger, result, $($BigInteger::valueOf(2))->pow(256));
+	$assign(result, result->add($($BigInteger::valueOf(0x00632551))));
+	$assign(result, result->subtract($($($($BigInteger::valueOf(2))->pow(26))->multiply($($BigInteger::valueOf(0x018d4f41))))));
+	$assign(result, result->add($($($($BigInteger::valueOf(2))->pow(52))->multiply($($BigInteger::valueOf(0x01e84f3c))))));
+	$assign(result, result->subtract($($($($BigInteger::valueOf(2))->pow(78))->multiply($($BigInteger::valueOf(0x014963a2))))));
+	$assign(result, result->subtract($($($($BigInteger::valueOf(2))->pow(104))->multiply($($BigInteger::valueOf(0x00431905))))));
+	$assign(result, result->add($($($($BigInteger::valueOf(2))->pow(182))->multiply($($BigInteger::valueOf(1024))))));
+	$assign(result, result->subtract($($($($BigInteger::valueOf(2))->pow(208))->multiply($($BigInteger::valueOf(0x00010000))))));
 	return result;
 }
 
 void P256OrderField::reduceIn($longs* limbs, int64_t v, int32_t i) {
-	int64_t t0 = (int32_t)0xFF9CDAAF * v;
-	(*$nc(limbs))[i - 10] += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	int64_t t0 = (int32_t)0xff9cdaaf * v;
+	(*$nc(limbs))[i - 10] += (t0 << 4) & P256OrderField::LIMB_MASK;
 	(*limbs)[i - 9] += t0 >> 22;
-	int64_t t1 = 0x018D4F41 * v;
-	(*limbs)[i - 9] += (int64_t)((t1 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	int64_t t1 = 0x018d4f41 * v;
+	(*limbs)[i - 9] += (t1 << 4) & P256OrderField::LIMB_MASK;
 	(*limbs)[i - 8] += t1 >> 22;
-	int64_t t2 = (int32_t)0xFE17B0C4 * v;
-	(*limbs)[i - 8] += (int64_t)((t2 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	int64_t t2 = (int32_t)0xfe17b0c4 * v;
+	(*limbs)[i - 8] += (t2 << 4) & P256OrderField::LIMB_MASK;
 	(*limbs)[i - 7] += t2 >> 22;
-	int64_t t3 = 0x014963A2 * v;
-	(*limbs)[i - 7] += (int64_t)((t3 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	int64_t t3 = 0x014963a2 * v;
+	(*limbs)[i - 7] += (t3 << 4) & P256OrderField::LIMB_MASK;
 	(*limbs)[i - 6] += t3 >> 22;
 	int64_t t4 = 0x00431905 * v;
-	(*limbs)[i - 6] += (int64_t)((t4 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	(*limbs)[i - 6] += (t4 << 4) & P256OrderField::LIMB_MASK;
 	(*limbs)[i - 5] += t4 >> 22;
 	int64_t t5 = -1024 * v;
-	(*limbs)[i - 3] += (int64_t)((t5 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	(*limbs)[i - 3] += (t5 << 4) & P256OrderField::LIMB_MASK;
 	(*limbs)[i - 2] += t5 >> 22;
 	int64_t t6 = 0x00010000 * v;
-	(*limbs)[i - 2] += (int64_t)((t6 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	(*limbs)[i - 2] += (t6 << 4) & P256OrderField::LIMB_MASK;
 	(*limbs)[i - 1] += t6 >> 22;
 }
 
 void P256OrderField::finalCarryReduceLast($longs* limbs) {
 	int64_t c = $nc(limbs)->get(9) >> 22;
 	(*limbs)[9] -= c << 22;
-	int64_t t7 = (int32_t)0xFF9CDAAF * c;
+	int64_t t7 = (int32_t)0xff9cdaaf * c;
 	(*limbs)[0] += t7;
-	t7 = 0x018D4F41 * c;
+	t7 = 0x018d4f41 * c;
 	(*limbs)[1] += t7;
-	t7 = (int32_t)0xFE17B0C4 * c;
+	t7 = (int32_t)0xfe17b0c4 * c;
 	(*limbs)[2] += t7;
-	t7 = 0x014963A2 * c;
+	t7 = 0x014963a2 * c;
 	(*limbs)[3] += t7;
 	t7 = 0x00431905 * c;
 	(*limbs)[4] += t7;
@@ -190,215 +149,215 @@ void P256OrderField::carryReduce($longs* r, int64_t c0, int64_t c1, int64_t c2, 
 
 void P256OrderField::carryReduce0($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13, int64_t c14, int64_t c15, int64_t c16, int64_t c17, int64_t c18, int64_t c19) {
 	int64_t t0 = 0;
-	t0 = (int32_t)0xFF9CDAAF * c19;
-	c9 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c19;
+	c9 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c10 += t0 >> 22;
-	t0 = 0x018D4F41 * c19;
-	c10 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c19;
+	c10 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c11 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c19;
-	c11 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c19;
+	c11 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c12 += t0 >> 22;
-	t0 = 0x014963A2 * c19;
-	c12 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c19;
+	c12 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c13 += t0 >> 22;
 	t0 = 0x00431905 * c19;
-	c13 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c13 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c14 += t0 >> 22;
 	t0 = -1024 * c19;
-	c16 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c16 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c17 += t0 >> 22;
 	t0 = 0x00010000 * c19;
-	c17 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c17 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c18 += t0 >> 22;
-	t0 = (int32_t)0xFF9CDAAF * c18;
-	c8 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c18;
+	c8 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c9 += t0 >> 22;
-	t0 = 0x018D4F41 * c18;
-	c9 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c18;
+	c9 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c10 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c18;
-	c10 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c18;
+	c10 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c11 += t0 >> 22;
-	t0 = 0x014963A2 * c18;
-	c11 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c18;
+	c11 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c12 += t0 >> 22;
 	t0 = 0x00431905 * c18;
-	c12 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c12 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c13 += t0 >> 22;
 	t0 = -1024 * c18;
-	c15 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c15 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c16 += t0 >> 22;
 	t0 = 0x00010000 * c18;
-	c16 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c16 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c17 += t0 >> 22;
-	t0 = (int32_t)0xFF9CDAAF * c17;
-	c7 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c17;
+	c7 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c8 += t0 >> 22;
-	t0 = 0x018D4F41 * c17;
-	c8 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c17;
+	c8 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c9 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c17;
-	c9 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c17;
+	c9 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c10 += t0 >> 22;
-	t0 = 0x014963A2 * c17;
-	c10 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c17;
+	c10 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c11 += t0 >> 22;
 	t0 = 0x00431905 * c17;
-	c11 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c11 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c12 += t0 >> 22;
 	t0 = -1024 * c17;
-	c14 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c14 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c15 += t0 >> 22;
 	t0 = 0x00010000 * c17;
-	c15 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c15 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c16 += t0 >> 22;
-	t0 = (int32_t)0xFF9CDAAF * c16;
-	c6 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c16;
+	c6 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c7 += t0 >> 22;
-	t0 = 0x018D4F41 * c16;
-	c7 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c16;
+	c7 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c8 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c16;
-	c8 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c16;
+	c8 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c9 += t0 >> 22;
-	t0 = 0x014963A2 * c16;
-	c9 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c16;
+	c9 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c10 += t0 >> 22;
 	t0 = 0x00431905 * c16;
-	c10 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c10 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c11 += t0 >> 22;
 	t0 = -1024 * c16;
-	c13 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c13 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c14 += t0 >> 22;
 	t0 = 0x00010000 * c16;
-	c14 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c14 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c15 += t0 >> 22;
-	t0 = (int32_t)0xFF9CDAAF * c15;
-	c5 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c15;
+	c5 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c6 += t0 >> 22;
-	t0 = 0x018D4F41 * c15;
-	c6 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c15;
+	c6 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c7 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c15;
-	c7 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c15;
+	c7 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c8 += t0 >> 22;
-	t0 = 0x014963A2 * c15;
-	c8 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c15;
+	c8 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c9 += t0 >> 22;
 	t0 = 0x00431905 * c15;
-	c9 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c9 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c10 += t0 >> 22;
 	t0 = -1024 * c15;
-	c12 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c12 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c13 += t0 >> 22;
 	t0 = 0x00010000 * c15;
-	c13 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c13 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c14 += t0 >> 22;
-	t0 = (int32_t)0xFF9CDAAF * c14;
-	c4 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c14;
+	c4 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c5 += t0 >> 22;
-	t0 = 0x018D4F41 * c14;
-	c5 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c14;
+	c5 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c6 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c14;
-	c6 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c14;
+	c6 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c7 += t0 >> 22;
-	t0 = 0x014963A2 * c14;
-	c7 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c14;
+	c7 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c8 += t0 >> 22;
 	t0 = 0x00431905 * c14;
-	c8 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c8 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c9 += t0 >> 22;
 	t0 = -1024 * c14;
-	c11 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c11 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c12 += t0 >> 22;
 	t0 = 0x00010000 * c14;
-	c12 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c12 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c13 += t0 >> 22;
-	t0 = (int32_t)0xFF9CDAAF * c13;
-	c3 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c13;
+	c3 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c4 += t0 >> 22;
-	t0 = 0x018D4F41 * c13;
-	c4 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c13;
+	c4 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c5 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c13;
-	c5 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c13;
+	c5 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c6 += t0 >> 22;
-	t0 = 0x014963A2 * c13;
-	c6 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c13;
+	c6 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c7 += t0 >> 22;
 	t0 = 0x00431905 * c13;
-	c7 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c7 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c8 += t0 >> 22;
 	t0 = -1024 * c13;
-	c10 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c10 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c11 += t0 >> 22;
 	t0 = 0x00010000 * c13;
-	c11 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c11 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c12 += t0 >> 22;
-	t0 = (int32_t)0xFF9CDAAF * c12;
-	c2 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c12;
+	c2 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c3 += t0 >> 22;
-	t0 = 0x018D4F41 * c12;
-	c3 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c12;
+	c3 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c4 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c12;
-	c4 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c12;
+	c4 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c5 += t0 >> 22;
-	t0 = 0x014963A2 * c12;
-	c5 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c12;
+	c5 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c6 += t0 >> 22;
 	t0 = 0x00431905 * c12;
-	c6 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c6 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c7 += t0 >> 22;
 	t0 = -1024 * c12;
-	c9 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c9 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c10 += t0 >> 22;
 	t0 = 0x00010000 * c12;
-	c10 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c10 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c11 += t0 >> 22;
-	t0 = (int32_t)0xFF9CDAAF * c11;
-	c1 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c11;
+	c1 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c2 += t0 >> 22;
-	t0 = 0x018D4F41 * c11;
-	c2 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c11;
+	c2 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c3 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c11;
-	c3 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c11;
+	c3 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c4 += t0 >> 22;
-	t0 = 0x014963A2 * c11;
-	c4 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c11;
+	c4 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c5 += t0 >> 22;
 	t0 = 0x00431905 * c11;
-	c5 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c5 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c6 += t0 >> 22;
 	t0 = -1024 * c11;
-	c8 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c8 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c9 += t0 >> 22;
 	t0 = 0x00010000 * c11;
-	c9 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c9 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c10 += t0 >> 22;
-	t0 = (int32_t)0xFF9CDAAF * c10;
-	c0 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c10;
+	c0 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c1 += t0 >> 22;
-	t0 = 0x018D4F41 * c10;
-	c1 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c10;
+	c1 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c2 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c10;
-	c2 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c10;
+	c2 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c3 += t0 >> 22;
-	t0 = 0x014963A2 * c10;
-	c3 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c10;
+	c3 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c4 += t0 >> 22;
 	t0 = 0x00431905 * c10;
-	c4 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c4 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c5 += t0 >> 22;
 	t0 = -1024 * c10;
-	c7 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c7 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c8 += t0 >> 22;
 	t0 = 0x00010000 * c10;
-	c8 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c8 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c9 += t0 >> 22;
 	c10 = 0;
 	carryReduce1(r, c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19);
@@ -441,26 +400,26 @@ void P256OrderField::carryReduce1($longs* r, int64_t c0, int64_t c1, int64_t c2,
 
 void P256OrderField::carryReduce2($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13, int64_t c14, int64_t c15, int64_t c16, int64_t c17, int64_t c18, int64_t c19) {
 	int64_t t0 = 0;
-	t0 = (int32_t)0xFF9CDAAF * c10;
-	c0 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c10;
+	c0 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c1 += t0 >> 22;
-	t0 = 0x018D4F41 * c10;
-	c1 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c10;
+	c1 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c2 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c10;
-	c2 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c10;
+	c2 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c3 += t0 >> 22;
-	t0 = 0x014963A2 * c10;
-	c3 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c10;
+	c3 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c4 += t0 >> 22;
 	t0 = 0x00431905 * c10;
-	c4 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c4 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c5 += t0 >> 22;
 	t0 = -1024 * c10;
-	c7 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c7 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c8 += t0 >> 22;
 	t0 = 0x00010000 * c10;
-	c8 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c8 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c9 += t0 >> 22;
 	t0 = (c0 + P256OrderField::CARRY_ADD) >> 26;
 	c0 -= (t0 << 26);
@@ -538,26 +497,26 @@ void P256OrderField::carryReduce($longs* r, int64_t c0, int64_t c1, int64_t c2, 
 
 void P256OrderField::carryReduce0($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10) {
 	int64_t t0 = 0;
-	t0 = (int32_t)0xFF9CDAAF * c10;
-	c0 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff9cdaaf * c10;
+	c0 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c1 += t0 >> 22;
-	t0 = 0x018D4F41 * c10;
-	c1 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x018d4f41 * c10;
+	c1 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c2 += t0 >> 22;
-	t0 = (int32_t)0xFE17B0C4 * c10;
-	c2 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = (int32_t)0xfe17b0c4 * c10;
+	c2 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c3 += t0 >> 22;
-	t0 = 0x014963A2 * c10;
-	c3 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	t0 = 0x014963a2 * c10;
+	c3 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c4 += t0 >> 22;
 	t0 = 0x00431905 * c10;
-	c4 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c4 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c5 += t0 >> 22;
 	t0 = -1024 * c10;
-	c7 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c7 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c8 += t0 >> 22;
 	t0 = 0x00010000 * c10;
-	c8 += (int64_t)((t0 << 4) & (uint64_t)(int64_t)P256OrderField::LIMB_MASK);
+	c8 += (t0 << 4) & P256OrderField::LIMB_MASK;
 	c9 += t0 >> 22;
 	t0 = (c0 + P256OrderField::CARRY_ADD) >> 26;
 	c0 -= (t0 << 26);
@@ -622,11 +581,11 @@ void P256OrderField::mult($longs* a, $longs* b, $longs* r) {
 }
 
 void P256OrderField::reduce($longs* a) {
-	carryReduce(a, $nc(a)->get(0), a->get(1), a->get(2), a->get(3), a->get(4), a->get(5), a->get(6), a->get(7), a->get(8), a->get(9));
+	carryReduce(a, $nc(a)->get(0), $nc(a)->get(1), $nc(a)->get(2), $nc(a)->get(3), $nc(a)->get(4), $nc(a)->get(5), $nc(a)->get(6), $nc(a)->get(7), $nc(a)->get(8), $nc(a)->get(9));
 }
 
 void P256OrderField::square($longs* a, $longs* r) {
-	int64_t c0 = ($nc(a)->get(0) * a->get(0));
+	int64_t c0 = ($nc(a)->get(0) * $nc(a)->get(0));
 	int64_t c1 = 2 * (a->get(0) * a->get(1));
 	int64_t c2 = 2 * (a->get(0) * a->get(2)) + (a->get(1) * a->get(1));
 	int64_t c3 = 2 * ((a->get(0) * a->get(3)) + (a->get(1) * a->get(2)));
@@ -648,7 +607,7 @@ void P256OrderField::square($longs* a, $longs* r) {
 	carryReduce(r, c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18);
 }
 
-void clinit$P256OrderField($Class* class$) {
+void P256OrderField::clinit$($Class* clazz) {
 	$assignStatic(P256OrderField::MODULUS, P256OrderField::evaluateModulus());
 }
 
@@ -656,7 +615,42 @@ P256OrderField::P256OrderField() {
 }
 
 $Class* P256OrderField::load$($String* name, bool initialize) {
-	$loadClass(P256OrderField, name, initialize, &_P256OrderField_ClassInfo_, clinit$P256OrderField, allocate$P256OrderField);
+	$FieldInfo fieldInfos$$[] = {
+		{"BITS_PER_LIMB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P256OrderField, BITS_PER_LIMB)},
+		{"NUM_LIMBS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P256OrderField, NUM_LIMBS)},
+		{"MAX_ADDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P256OrderField, MAX_ADDS)},
+		{"MODULUS", "Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(P256OrderField, MODULUS)},
+		{"CARRY_ADD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P256OrderField, CARRY_ADD)},
+		{"LIMB_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P256OrderField, LIMB_MASK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(P256OrderField, init$, void)},
+		{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(P256OrderField, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce", "([JJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(P256OrderField, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce0", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P256OrderField, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce0", "([JJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P256OrderField, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce1", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P256OrderField, carryReduce1, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce2", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P256OrderField, carryReduce2, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(P256OrderField, evaluateModulus, $BigInteger*)},
+		{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(P256OrderField, finalCarryReduceLast, void, $longs*)},
+		{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(P256OrderField, mult, void, $longs*, $longs*, $longs*)},
+		{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(P256OrderField, reduce, void, $longs*)},
+		{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(P256OrderField, reduceIn, void, $longs*, int64_t, int32_t)},
+		{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(P256OrderField, square, void, $longs*, $longs*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.math.intpoly.P256OrderField",
+		"sun.security.util.math.intpoly.IntegerPolynomial",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(P256OrderField, name, initialize, &classInfo$$, P256OrderField::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(P256OrderField);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CancellationException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _CancellationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CancellationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CancellationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CancellationException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CancellationException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _CancellationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.CancellationException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_CancellationException_FieldInfo_,
-	_CancellationException_MethodInfo_
-};
-
-$Object* allocate$CancellationException($Class* clazz) {
-	return $of($alloc(CancellationException));
-}
 
 void CancellationException::init$() {
 	$IllegalStateException::init$();
@@ -55,7 +30,26 @@ void CancellationException::throw$() {
 }
 
 $Class* CancellationException::load$($String* name, bool initialize) {
-	$loadClass(CancellationException, name, initialize, &_CancellationException_ClassInfo_, allocate$CancellationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CancellationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CancellationException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CancellationException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.CancellationException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CancellationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CancellationException);
+	});
 	return class$;
 }
 

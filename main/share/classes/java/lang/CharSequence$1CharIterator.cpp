@@ -1,5 +1,4 @@
 #include <java/lang/CharSequence$1CharIterator.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/function/IntConsumer.h>
@@ -16,53 +15,6 @@ using $IntConsumer = ::java::util::function::IntConsumer;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _CharSequence$1CharIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/lang/CharSequence;", nullptr, $FINAL | $SYNTHETIC, $field(CharSequence$1CharIterator, this$0)},
-	{"cur", "I", nullptr, 0, $field(CharSequence$1CharIterator, cur)},
-	{}
-};
-
-$MethodInfo _CharSequence$1CharIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, 0, $method(CharSequence$1CharIterator, init$, void, $CharSequence*)},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(CharSequence$1CharIterator, forEachRemaining, void, $IntConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharSequence$1CharIterator, forEachRemaining, void, Object$*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(CharSequence$1CharIterator, hasNext, bool)},
-	{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(CharSequence$1CharIterator, nextInt, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _CharSequence$1CharIterator_EnclosingMethodInfo_ = {
-	"java.lang.CharSequence",
-	"chars",
-	"()Ljava/util/stream/IntStream;"
-};
-
-$InnerClassInfo _CharSequence$1CharIterator_InnerClassesInfo_[] = {
-	{"java.lang.CharSequence$1CharIterator", nullptr, "CharIterator", 0},
-	{"java.util.PrimitiveIterator$OfInt", "java.util.PrimitiveIterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CharSequence$1CharIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.CharSequence$1CharIterator",
-	"java.lang.Object",
-	"java.util.PrimitiveIterator$OfInt",
-	_CharSequence$1CharIterator_FieldInfo_,
-	_CharSequence$1CharIterator_MethodInfo_,
-	nullptr,
-	&_CharSequence$1CharIterator_EnclosingMethodInfo_,
-	_CharSequence$1CharIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.CharSequence"
-};
-
-$Object* allocate$CharSequence$1CharIterator($Class* clazz) {
-	return $of($alloc(CharSequence$1CharIterator));
-}
 
 void CharSequence$1CharIterator::init$($CharSequence* this$0) {
 	$set(this, this$0, this$0);
@@ -95,7 +47,47 @@ CharSequence$1CharIterator::CharSequence$1CharIterator() {
 }
 
 $Class* CharSequence$1CharIterator::load$($String* name, bool initialize) {
-	$loadClass(CharSequence$1CharIterator, name, initialize, &_CharSequence$1CharIterator_ClassInfo_, allocate$CharSequence$1CharIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/lang/CharSequence;", nullptr, $FINAL | $SYNTHETIC, $field(CharSequence$1CharIterator, this$0)},
+		{"cur", "I", nullptr, 0, $field(CharSequence$1CharIterator, cur)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, 0, $method(CharSequence$1CharIterator, init$, void, $CharSequence*)},
+		{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(CharSequence$1CharIterator, forEachRemaining, void, $IntConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharSequence$1CharIterator, forEachRemaining, void, Object$*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(CharSequence$1CharIterator, hasNext, bool)},
+		{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(CharSequence$1CharIterator, nextInt, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.CharSequence",
+		"chars",
+		"()Ljava/util/stream/IntStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.CharSequence$1CharIterator", nullptr, "CharIterator", 0},
+		{"java.util.PrimitiveIterator$OfInt", "java.util.PrimitiveIterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.CharSequence$1CharIterator",
+		"java.lang.Object",
+		"java.util.PrimitiveIterator$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.CharSequence"
+	};
+	$loadClass(CharSequence$1CharIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharSequence$1CharIterator);
+	});
 	return class$;
 }
 

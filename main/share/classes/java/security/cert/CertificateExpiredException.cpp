@@ -1,5 +1,4 @@
 #include <java/security/cert/CertificateExpiredException.h>
-
 #include <java/security/cert/CertificateException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $CertificateException = ::java::security::cert::CertificateException;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _CertificateExpiredException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateExpiredException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CertificateExpiredException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateExpiredException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateExpiredException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _CertificateExpiredException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.cert.CertificateExpiredException",
-	"java.security.cert.CertificateException",
-	nullptr,
-	_CertificateExpiredException_FieldInfo_,
-	_CertificateExpiredException_MethodInfo_
-};
-
-$Object* allocate$CertificateExpiredException($Class* clazz) {
-	return $of($alloc(CertificateExpiredException));
-}
 
 void CertificateExpiredException::init$() {
 	$CertificateException::init$();
@@ -55,7 +30,26 @@ void CertificateExpiredException::throw$() {
 }
 
 $Class* CertificateExpiredException::load$($String* name, bool initialize) {
-	$loadClass(CertificateExpiredException, name, initialize, &_CertificateExpiredException_ClassInfo_, allocate$CertificateExpiredException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateExpiredException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateExpiredException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateExpiredException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.cert.CertificateExpiredException",
+		"java.security.cert.CertificateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertificateExpiredException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateExpiredException);
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ class $import SSLPeerUnverifiedException : public ::javax::net::ssl::SSLExceptio
 public:
 	SSLPeerUnverifiedException();
 	void init$($String* reason);
-	static const int64_t serialVersionUID = (int64_t)0x8437867ACCFEB81D;
+	static const int64_t serialVersionUID = (int64_t)0x8437867accfeb81d;
 	SSLPeerUnverifiedException(const SSLPeerUnverifiedException& e);
 	virtual void throw$() override;
-	inline SSLPeerUnverifiedException* operator ->() {
+	inline SSLPeerUnverifiedException* operator ->() const {
+		return (SSLPeerUnverifiedException*)throwing$;
+	}
+	inline operator SSLPeerUnverifiedException*() const {
 		return (SSLPeerUnverifiedException*)throwing$;
 	}
 };

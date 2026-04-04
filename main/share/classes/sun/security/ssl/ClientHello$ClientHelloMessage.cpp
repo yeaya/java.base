@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ClientHello$ClientHelloMessage.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/SecureRandom.h>
@@ -59,7 +58,6 @@ using $OutputRecord = ::sun::security::ssl::OutputRecord;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $RandomCookie = ::sun::security::ssl::RandomCookie;
 using $Record = ::sun::security::ssl::Record;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
@@ -71,65 +69,6 @@ using $Utilities = ::sun::security::ssl::Utilities;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _ClientHello$ClientHelloMessage_FieldInfo_[] = {
-	{"isDTLS", "Z", nullptr, $PRIVATE | $FINAL, $field(ClientHello$ClientHelloMessage, isDTLS)},
-	{"clientVersion", "I", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, clientVersion)},
-	{"clientRandom", "Lsun/security/ssl/RandomCookie;", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, clientRandom)},
-	{"sessionId", "Lsun/security/ssl/SessionId;", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, sessionId)},
-	{"cookie", "[B", nullptr, $PRIVATE, $field(ClientHello$ClientHelloMessage, cookie)},
-	{"cipherSuiteIds", "[I", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, cipherSuiteIds)},
-	{"cipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $FINAL, $field(ClientHello$ClientHelloMessage, cipherSuites)},
-	{"compressionMethod", "[B", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, compressionMethod)},
-	{"extensions", "Lsun/security/ssl/SSLExtensions;", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, extensions)},
-	{"NULL_COMPRESSION", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientHello$ClientHelloMessage, NULL_COMPRESSION)},
-	{}
-};
-
-$MethodInfo _ClientHello$ClientHelloMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;ILsun/security/ssl/SessionId;Ljava/util/List;Ljava/security/SecureRandom;)V", "(Lsun/security/ssl/HandshakeContext;ILsun/security/ssl/SessionId;Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Ljava/security/SecureRandom;)V", 0, $method(ClientHello$ClientHelloMessage, init$, void, $HandshakeContext*, int32_t, $SessionId*, $List*, $SecureRandom*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(ClientHello$ClientHelloMessage, init$, void, $HandshakeContext*, $ByteBuffer*, $SSLExtensionArray*), "java.io.IOException"},
-	{"getCipherSuiteIds", "(Ljava/util/List;)[I", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;)[I", $PRIVATE | $STATIC, $staticMethod(ClientHello$ClientHelloMessage, getCipherSuiteIds, $ints*, $List*)},
-	{"getCipherSuiteNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(ClientHello$ClientHelloMessage, getCipherSuiteNames, $List*)},
-	{"getCipherSuites", "([I)Ljava/util/List;", "([I)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(ClientHello$ClientHelloMessage, getCipherSuites, $List*, $ints*)},
-	{"getEncodedCipherSuites", "()[B", nullptr, $PRIVATE, $method(ClientHello$ClientHelloMessage, getEncodedCipherSuites, $bytes*)},
-	{"getHeaderBytes", "()[B", nullptr, 0, $method(ClientHello$ClientHelloMessage, getHeaderBytes, $bytes*)},
-	{"getHelloCookieBytes", "()[B", nullptr, 0, $method(ClientHello$ClientHelloMessage, getHelloCookieBytes, $bytes*)},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, messageLength, int32_t)},
-	{"readPartial", "(Lsun/security/ssl/TransportContext;Ljava/nio/ByteBuffer;)V", nullptr, $STATIC, $staticMethod(ClientHello$ClientHelloMessage, readPartial, void, $TransportContext*, $ByteBuffer*), "java.io.IOException"},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"sendCore", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $method(ClientHello$ClientHelloMessage, sendCore, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"setHelloCookie", "([B)V", nullptr, 0, $method(ClientHello$ClientHelloMessage, setHelloCookie, void, $bytes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ClientHello$ClientHelloMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ClientHello$ClientHelloMessage", "sun.security.ssl.ClientHello", "ClientHelloMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ClientHello$ClientHelloMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ClientHello$ClientHelloMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_ClientHello$ClientHelloMessage_FieldInfo_,
-	_ClientHello$ClientHelloMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientHello$ClientHelloMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ClientHello"
-};
-
-$Object* allocate$ClientHello$ClientHelloMessage($Class* clazz) {
-	return $of($alloc(ClientHello$ClientHelloMessage));
-}
 
 $bytes* ClientHello$ClientHelloMessage::NULL_COMPRESSION = nullptr;
 
@@ -152,7 +91,7 @@ void ClientHello$ClientHelloMessage::init$($HandshakeContext* handshakeContext, 
 
 void ClientHello$ClientHelloMessage::readPartial($TransportContext* tc, $ByteBuffer* m) {
 	$init(ClientHello$ClientHelloMessage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isDTLS = $nc($nc(tc)->sslContext)->isDTLS();
 	$Record::getInt16(m);
 	$new($RandomCookie, m);
@@ -184,18 +123,18 @@ void ClientHello$ClientHelloMessage::readPartial($TransportContext* tc, $ByteBuf
 }
 
 void ClientHello$ClientHelloMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m, $SSLExtensionArray* supportedExtensions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	this->isDTLS = $nc($nc(handshakeContext)->sslContext)->isDTLS();
-	int32_t var$0 = (((int32_t)($nc(m)->get() & (uint32_t)255)) << 8);
-	this->clientVersion = var$0 | ((int32_t)(m->get() & (uint32_t)255));
+	int32_t var$0 = ($nc(m)->get() & 0xff) << 8;
+	this->clientVersion = var$0 | (m->get() & 0xff);
 	$set(this, clientRandom, $new($RandomCookie, m));
 	$set(this, sessionId, $new($SessionId, $($Record::getBytes8(m))));
 	try {
 		$nc(this->sessionId)->checkLength(this->clientVersion);
 	} catch ($SSLProtocolException& ex) {
 		$init($Alert);
-		$throw($($nc(handshakeContext->conContext)->fatal($Alert::ILLEGAL_PARAMETER, static_cast<$Throwable*>(ex))));
+		$throw($($nc(handshakeContext->conContext)->fatal($Alert::ILLEGAL_PARAMETER, ex)));
 	}
 	if (this->isDTLS) {
 		$set(this, cookie, $Record::getBytes8(m));
@@ -203,18 +142,14 @@ void ClientHello$ClientHelloMessage::init$($HandshakeContext* handshakeContext, 
 		$set(this, cookie, nullptr);
 	}
 	$var($bytes, encodedIds, $Record::getBytes16(m));
-	if ($nc(encodedIds)->length == 0 || ((int32_t)($nc(encodedIds)->length & (uint32_t)1)) != 0) {
+	if ($nc(encodedIds)->length == 0 || (encodedIds->length & 1) != 0) {
 		$init($Alert);
 		$throw($($nc(handshakeContext->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Invalid ClientHello message"_s)));
 	}
-	$set(this, cipherSuiteIds, $new($ints, $nc(encodedIds)->length >> 1));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < encodedIds->length; ++i, ++j) {
-			int32_t var$1 = (((int32_t)(encodedIds->get(i++) & (uint32_t)255)) << 8);
-			$nc(this->cipherSuiteIds)->set(j, var$1 | ((int32_t)(encodedIds->get(i) & (uint32_t)255)));
-		}
+	$set(this, cipherSuiteIds, $new($ints, encodedIds->length >> 1));
+	for (int32_t i = 0, j = 0; i < encodedIds->length; ++i, ++j) {
+		int32_t var$1 = (encodedIds->get(i++) & 0xff) << 8;
+		$nc(this->cipherSuiteIds)->set(j, var$1 | (encodedIds->get(i) & 0xff));
 	}
 	$set(this, cipherSuites, getCipherSuites(this->cipherSuiteIds));
 	$set(this, compressionMethod, $Record::getBytes8(m));
@@ -230,11 +165,11 @@ void ClientHello$ClientHelloMessage::setHelloCookie($bytes* cookie) {
 }
 
 $bytes* ClientHello$ClientHelloMessage::getHelloCookieBytes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HandshakeOutStream, hos, $new($HandshakeOutStream, nullptr));
 	try {
-		hos->putInt8((int8_t)((int32_t)(((int32_t)((uint32_t)this->clientVersion >> 8)) & (uint32_t)255)));
-		hos->putInt8((int8_t)((int32_t)(this->clientVersion & (uint32_t)255)));
+		hos->putInt8((int8_t)(((int32_t)((uint32_t)this->clientVersion >> 8)) & 0xff));
+		hos->putInt8((int8_t)(this->clientVersion & 0xff));
 		hos->write($nc(this->clientRandom)->randomBytes, 0, 32);
 		hos->putBytes8($($nc(this->sessionId)->getId()));
 		hos->putBytes16($(getEncodedCipherSuites()));
@@ -246,11 +181,11 @@ $bytes* ClientHello$ClientHelloMessage::getHelloCookieBytes() {
 }
 
 $bytes* ClientHello$ClientHelloMessage::getHeaderBytes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HandshakeOutStream, hos, $new($HandshakeOutStream, nullptr));
 	try {
-		hos->putInt8((int8_t)((int32_t)(((int32_t)((uint32_t)this->clientVersion >> 8)) & (uint32_t)255)));
-		hos->putInt8((int8_t)((int32_t)(this->clientVersion & (uint32_t)255)));
+		hos->putInt8((int8_t)(((int32_t)((uint32_t)this->clientVersion >> 8)) & 0xff));
+		hos->putInt8((int8_t)(this->clientVersion & 0xff));
 		hos->write($nc(this->clientRandom)->randomBytes, 0, 32);
 		hos->putBytes8($($nc(this->sessionId)->getId()));
 		hos->putBytes16($(getEncodedCipherSuites()));
@@ -262,7 +197,7 @@ $bytes* ClientHello$ClientHelloMessage::getHeaderBytes() {
 
 $ints* ClientHello$ClientHelloMessage::getCipherSuiteIds($List* cipherSuites) {
 	$init(ClientHello$ClientHelloMessage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cipherSuites != nullptr) {
 		$var($ints, ids, $new($ints, cipherSuites->size()));
 		int32_t i = 0;
@@ -282,13 +217,11 @@ $ints* ClientHello$ClientHelloMessage::getCipherSuiteIds($List* cipherSuites) {
 
 $List* ClientHello$ClientHelloMessage::getCipherSuites($ints* ids) {
 	$init(ClientHello$ClientHelloMessage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, cipherSuites, $new($LinkedList));
 	{
 		$var($ints, arr$, ids);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t id = arr$->get(i$);
 			{
 				$CipherSuite* cipherSuite = $CipherSuite::valueOf(id);
@@ -302,18 +235,19 @@ $List* ClientHello$ClientHelloMessage::getCipherSuites($ints* ids) {
 }
 
 $List* ClientHello$ClientHelloMessage::getCipherSuiteNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, names, $new($LinkedList));
 	{
 		$var($ints, arr$, this->cipherSuiteIds);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t id = arr$->get(i$);
 			{
-				$var($String, var$1, $$str({$($CipherSuite::nameOf(id)), "("_s}));
-				$var($String, var$0, $$concat(var$1, $($Utilities::byte16HexString(id))));
-				names->add($$concat(var$0, ")"_s));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($($CipherSuite::nameOf(id)));
+				var$0->append("("_s);
+				var$0->append($($Utilities::byte16HexString(id)));
+				var$0->append(")"_s);
+				names->add($$str(var$0));
 			}
 		}
 	}
@@ -321,14 +255,12 @@ $List* ClientHello$ClientHelloMessage::getCipherSuiteNames() {
 }
 
 $bytes* ClientHello$ClientHelloMessage::getEncodedCipherSuites() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, $new($bytes, $nc(this->cipherSuiteIds)->length << 1));
 	int32_t i = 0;
 	{
 		$var($ints, arr$, this->cipherSuiteIds);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t id = arr$->get(i$);
 			{
 				encoded->set(i++, (int8_t)(id >> 8));
@@ -345,7 +277,7 @@ $SSLHandshake* ClientHello$ClientHelloMessage::handshakeType() {
 }
 
 int32_t ClientHello$ClientHelloMessage::messageLength() {
-	int32_t var$0 = (2 + 32 + 1 + 2 + 1 + $nc(this->sessionId)->length() + (this->isDTLS ? (1 + $nc(this->cookie)->length) : 0) + ($nc(this->cipherSuiteIds)->length * 2) + $nc(this->compressionMethod)->length);
+	int32_t var$0 = 2 + 32 + 1 + 2 + 1 + $nc(this->sessionId)->length() + (this->isDTLS ? (1 + $nc(this->cookie)->length) : 0) + ($nc(this->cipherSuiteIds)->length * 2) + $nc(this->compressionMethod)->length;
 	return var$0 + $nc(this->extensions)->length();
 }
 
@@ -355,7 +287,7 @@ void ClientHello$ClientHelloMessage::send($HandshakeOutStream* hos) {
 }
 
 void ClientHello$ClientHelloMessage::sendCore($HandshakeOutStream* hos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(hos)->putInt8((int8_t)((int32_t)((uint32_t)this->clientVersion >> 8)));
 	hos->putInt8((int8_t)this->clientVersion);
 	hos->write($nc(this->clientRandom)->randomBytes, 0, 32);
@@ -368,44 +300,97 @@ void ClientHello$ClientHelloMessage::sendCore($HandshakeOutStream* hos) {
 }
 
 $String* ClientHello$ClientHelloMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isDTLS) {
 		$init($Locale);
 		$var($MessageFormat, messageFormat, $new($MessageFormat, "\"ClientHello\": \'{\'\n  \"client version\"      : \"{0}\",\n  \"random\"              : \"{1}\",\n  \"session id\"          : \"{2}\",\n  \"cookie\"              : \"{3}\",\n  \"cipher suites\"       : \"{4}\",\n  \"compression methods\" : \"{5}\",\n  \"extensions\"          : [\n{6}\n  ]\n\'}\'"_s, $Locale::ENGLISH));
 		$var($ObjectArray, messageFields, $new($ObjectArray, {
-			$($of($ProtocolVersion::nameOf(this->clientVersion))),
-			$($of($Utilities::toHexString($nc(this->clientRandom)->randomBytes))),
-			$($of($nc(this->sessionId)->toString())),
-			$($of($Utilities::toHexString(this->cookie))),
-			$($of($nc($of($(getCipherSuiteNames())))->toString())),
-			$($of($Utilities::toHexString(this->compressionMethod))),
-			$($of($Utilities::indent($($Utilities::indent($($nc(this->extensions)->toString()))))))
+			$($ProtocolVersion::nameOf(this->clientVersion)),
+			$($Utilities::toHexString($nc(this->clientRandom)->randomBytes)),
+			$($nc(this->sessionId)->toString()),
+			$($Utilities::toHexString(this->cookie)),
+			$($$nc(getCipherSuiteNames())->toString()),
+			$($Utilities::toHexString(this->compressionMethod)),
+			$($Utilities::indent($($Utilities::indent($($nc(this->extensions)->toString())))))
 		}));
 		return messageFormat->format(messageFields);
 	} else {
 		$init($Locale);
 		$var($MessageFormat, messageFormat, $new($MessageFormat, "\"ClientHello\": \'{\'\n  \"client version\"      : \"{0}\",\n  \"random\"              : \"{1}\",\n  \"session id\"          : \"{2}\",\n  \"cipher suites\"       : \"{3}\",\n  \"compression methods\" : \"{4}\",\n  \"extensions\"          : [\n{5}\n  ]\n\'}\'"_s, $Locale::ENGLISH));
 		$var($ObjectArray, messageFields, $new($ObjectArray, {
-			$($of($ProtocolVersion::nameOf(this->clientVersion))),
-			$($of($Utilities::toHexString($nc(this->clientRandom)->randomBytes))),
-			$($of($nc(this->sessionId)->toString())),
-			$($of($nc($of($(getCipherSuiteNames())))->toString())),
-			$($of($Utilities::toHexString(this->compressionMethod))),
-			$($of($Utilities::indent($($Utilities::indent($($nc(this->extensions)->toString()))))))
+			$($ProtocolVersion::nameOf(this->clientVersion)),
+			$($Utilities::toHexString($nc(this->clientRandom)->randomBytes)),
+			$($nc(this->sessionId)->toString()),
+			$($$nc(getCipherSuiteNames())->toString()),
+			$($Utilities::toHexString(this->compressionMethod)),
+			$($Utilities::indent($($Utilities::indent($($nc(this->extensions)->toString())))))
 		}));
 		return messageFormat->format(messageFields);
 	}
 }
 
-void clinit$ClientHello$ClientHelloMessage($Class* class$) {
-	$assignStatic(ClientHello$ClientHelloMessage::NULL_COMPRESSION, $new($bytes, {(int8_t)0}));
+void ClientHello$ClientHelloMessage::clinit$($Class* clazz) {
+	$assignStatic(ClientHello$ClientHelloMessage::NULL_COMPRESSION, $new($bytes, {0}));
 }
 
 ClientHello$ClientHelloMessage::ClientHello$ClientHelloMessage() {
 }
 
 $Class* ClientHello$ClientHelloMessage::load$($String* name, bool initialize) {
-	$loadClass(ClientHello$ClientHelloMessage, name, initialize, &_ClientHello$ClientHelloMessage_ClassInfo_, clinit$ClientHello$ClientHelloMessage, allocate$ClientHello$ClientHelloMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"isDTLS", "Z", nullptr, $PRIVATE | $FINAL, $field(ClientHello$ClientHelloMessage, isDTLS)},
+		{"clientVersion", "I", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, clientVersion)},
+		{"clientRandom", "Lsun/security/ssl/RandomCookie;", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, clientRandom)},
+		{"sessionId", "Lsun/security/ssl/SessionId;", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, sessionId)},
+		{"cookie", "[B", nullptr, $PRIVATE, $field(ClientHello$ClientHelloMessage, cookie)},
+		{"cipherSuiteIds", "[I", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, cipherSuiteIds)},
+		{"cipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $FINAL, $field(ClientHello$ClientHelloMessage, cipherSuites)},
+		{"compressionMethod", "[B", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, compressionMethod)},
+		{"extensions", "Lsun/security/ssl/SSLExtensions;", nullptr, $FINAL, $field(ClientHello$ClientHelloMessage, extensions)},
+		{"NULL_COMPRESSION", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientHello$ClientHelloMessage, NULL_COMPRESSION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;ILsun/security/ssl/SessionId;Ljava/util/List;Ljava/security/SecureRandom;)V", "(Lsun/security/ssl/HandshakeContext;ILsun/security/ssl/SessionId;Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Ljava/security/SecureRandom;)V", 0, $method(ClientHello$ClientHelloMessage, init$, void, $HandshakeContext*, int32_t, $SessionId*, $List*, $SecureRandom*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(ClientHello$ClientHelloMessage, init$, void, $HandshakeContext*, $ByteBuffer*, $SSLExtensionArray*), "java.io.IOException"},
+		{"getCipherSuiteIds", "(Ljava/util/List;)[I", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;)[I", $PRIVATE | $STATIC, $staticMethod(ClientHello$ClientHelloMessage, getCipherSuiteIds, $ints*, $List*)},
+		{"getCipherSuiteNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(ClientHello$ClientHelloMessage, getCipherSuiteNames, $List*)},
+		{"getCipherSuites", "([I)Ljava/util/List;", "([I)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(ClientHello$ClientHelloMessage, getCipherSuites, $List*, $ints*)},
+		{"getEncodedCipherSuites", "()[B", nullptr, $PRIVATE, $method(ClientHello$ClientHelloMessage, getEncodedCipherSuites, $bytes*)},
+		{"getHeaderBytes", "()[B", nullptr, 0, $method(ClientHello$ClientHelloMessage, getHeaderBytes, $bytes*)},
+		{"getHelloCookieBytes", "()[B", nullptr, 0, $method(ClientHello$ClientHelloMessage, getHelloCookieBytes, $bytes*)},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, messageLength, int32_t)},
+		{"readPartial", "(Lsun/security/ssl/TransportContext;Ljava/nio/ByteBuffer;)V", nullptr, $STATIC, $staticMethod(ClientHello$ClientHelloMessage, readPartial, void, $TransportContext*, $ByteBuffer*), "java.io.IOException"},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"sendCore", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $method(ClientHello$ClientHelloMessage, sendCore, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"setHelloCookie", "([B)V", nullptr, 0, $method(ClientHello$ClientHelloMessage, setHelloCookie, void, $bytes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ClientHello$ClientHelloMessage", "sun.security.ssl.ClientHello", "ClientHelloMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ClientHello$ClientHelloMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ClientHello"
+	};
+	$loadClass(ClientHello$ClientHelloMessage, name, initialize, &classInfo$$, ClientHello$ClientHelloMessage::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientHello$ClientHelloMessage);
+	});
 	return class$;
 }
 

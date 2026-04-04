@@ -9,6 +9,7 @@ class $export URLEncodeDecode : public ::java::lang::Object {
 	$class(URLEncodeDecode, 0, ::java::lang::Object)
 public:
 	URLEncodeDecode();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getHexBytes($String* s);
 	static void main($StringArray* args);

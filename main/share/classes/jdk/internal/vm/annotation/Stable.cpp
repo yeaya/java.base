@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/annotation/Stable.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -12,46 +11,39 @@ namespace jdk {
 		namespace vm {
 			namespace annotation {
 
-$Attribute Stable_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; FIELD"},
-	{'-'}
-};
-
-$NamedAttribute Stable_Attribute_var$0[] = {
-	{"value", '[', Stable_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute Stable_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _Stable_Annotations_[] = {
-	{"Ljava/lang/annotation/Target;", Stable_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", Stable_Attribute_var$2},
-	{}
-};
-
-$ClassInfo _Stable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"jdk.internal.vm.annotation.Stable",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Stable_Annotations_
-};
-
-$Object* allocate$Stable($Class* clazz) {
-	return $of($alloc(Stable));
-}
-
 $Class* Stable::load$($String* name, bool initialize) {
-	$loadClass(Stable, name, initialize, &_Stable_ClassInfo_, allocate$Stable);
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; FIELD"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"jdk.internal.vm.annotation.Stable",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Stable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stable);
+	});
 	return class$;
 }
 

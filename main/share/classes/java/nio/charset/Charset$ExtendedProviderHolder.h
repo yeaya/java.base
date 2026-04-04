@@ -23,6 +23,7 @@ class Charset$ExtendedProviderHolder : public ::java::lang::Object {
 	$class(Charset$ExtendedProviderHolder, 0, ::java::lang::Object)
 public:
 	Charset$ExtendedProviderHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::java::nio::charset::spi::CharsetProvider>* extendedProviders();
 	static $Array<::java::nio::charset::spi::CharsetProvider>* extendedProviders$;

@@ -1,5 +1,4 @@
 #include <RecursiveAnnotation.h>
-
 #include <Rat.h>
 #include <jcpp.h>
 
@@ -8,34 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$CompoundAttribute _RecursiveAnnotation_Annotations_[] = {
-	{"LRat;", nullptr},
-	{}
-};
-
-$MethodInfo _RecursiveAnnotation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RecursiveAnnotation, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RecursiveAnnotation, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _RecursiveAnnotation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RecursiveAnnotation",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_RecursiveAnnotation_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_RecursiveAnnotation_Annotations_
-};
-
-$Object* allocate$RecursiveAnnotation($Class* clazz) {
-	return $of($alloc(RecursiveAnnotation));
-}
 
 void RecursiveAnnotation::init$() {
 }
@@ -55,7 +26,30 @@ RecursiveAnnotation::RecursiveAnnotation() {
 }
 
 $Class* RecursiveAnnotation::load$($String* name, bool initialize) {
-	$loadClass(RecursiveAnnotation, name, initialize, &_RecursiveAnnotation_ClassInfo_, allocate$RecursiveAnnotation);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RecursiveAnnotation, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RecursiveAnnotation, main, void, $StringArray*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LRat;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RecursiveAnnotation",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(RecursiveAnnotation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RecursiveAnnotation);
+	});
 	return class$;
 }
 

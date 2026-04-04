@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/TypeTree.h>
-
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace sun {
 		namespace generics {
 			namespace tree {
 
-$MethodInfo _TypeTree_MethodInfo_[] = {
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(TypeTree, accept, void, $TypeTreeVisitor*)},
-	{}
-};
-
-$ClassInfo _TypeTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.reflect.generics.tree.TypeTree",
-	nullptr,
-	"sun.reflect.generics.tree.Tree",
-	nullptr,
-	_TypeTree_MethodInfo_
-};
-
-$Object* allocate$TypeTree($Class* clazz) {
-	return $of($alloc(TypeTree));
-}
-
 $Class* TypeTree::load$($String* name, bool initialize) {
-	$loadClass(TypeTree, name, initialize, &_TypeTree_ClassInfo_, allocate$TypeTree);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(TypeTree, accept, void, $TypeTreeVisitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.reflect.generics.tree.TypeTree",
+		nullptr,
+		"sun.reflect.generics.tree.Tree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TypeTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeTree);
+	});
 	return class$;
 }
 

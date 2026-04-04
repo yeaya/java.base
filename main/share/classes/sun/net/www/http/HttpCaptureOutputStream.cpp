@@ -1,5 +1,4 @@
 #include <sun/net/www/http/HttpCaptureOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -19,33 +18,6 @@ namespace sun {
 		namespace www {
 			namespace http {
 
-$FieldInfo _HttpCaptureOutputStream_FieldInfo_[] = {
-	{"capture", "Lsun/net/www/http/HttpCapture;", nullptr, $PRIVATE, $field(HttpCaptureOutputStream, capture)},
-	{}
-};
-
-$MethodInfo _HttpCaptureOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Lsun/net/www/http/HttpCapture;)V", nullptr, $PUBLIC, $method(HttpCaptureOutputStream, init$, void, $OutputStream*, $HttpCapture*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, flush, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, write, void, $bytes*), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _HttpCaptureOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.http.HttpCaptureOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_HttpCaptureOutputStream_FieldInfo_,
-	_HttpCaptureOutputStream_MethodInfo_
-};
-
-$Object* allocate$HttpCaptureOutputStream($Class* clazz) {
-	return $of($alloc(HttpCaptureOutputStream));
-}
-
 void HttpCaptureOutputStream::init$($OutputStream* out, $HttpCapture* cap) {
 	$FilterOutputStream::init$(out);
 	$set(this, capture, nullptr);
@@ -60,9 +32,7 @@ void HttpCaptureOutputStream::write(int32_t b) {
 void HttpCaptureOutputStream::write($bytes* ba) {
 	{
 		$var($bytes, arr$, ba);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int8_t b = arr$->get(i$);
 			{
 				$nc(this->capture)->sent(b);
@@ -91,7 +61,29 @@ HttpCaptureOutputStream::HttpCaptureOutputStream() {
 }
 
 $Class* HttpCaptureOutputStream::load$($String* name, bool initialize) {
-	$loadClass(HttpCaptureOutputStream, name, initialize, &_HttpCaptureOutputStream_ClassInfo_, allocate$HttpCaptureOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"capture", "Lsun/net/www/http/HttpCapture;", nullptr, $PRIVATE, $field(HttpCaptureOutputStream, capture)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;Lsun/net/www/http/HttpCapture;)V", nullptr, $PUBLIC, $method(HttpCaptureOutputStream, init$, void, $OutputStream*, $HttpCapture*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, flush, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, write, void, $bytes*), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.http.HttpCaptureOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpCaptureOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HttpCaptureOutputStream));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLMasterKeyDerivation$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/SSLMasterKeyDerivation.h>
@@ -23,69 +22,33 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLMasterKeyDerivation$1_FieldInfo_[] = {
-	{"$SwitchMap$sun$security$ssl$ProtocolVersion", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLMasterKeyDerivation$1, $SwitchMap$sun$security$ssl$ProtocolVersion)},
-	{}
-};
-
-$EnclosingMethodInfo _SSLMasterKeyDerivation$1_EnclosingMethodInfo_ = {
-	"sun.security.ssl.SSLMasterKeyDerivation",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SSLMasterKeyDerivation$1_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLMasterKeyDerivation$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _SSLMasterKeyDerivation$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"sun.security.ssl.SSLMasterKeyDerivation$1",
-	"java.lang.Object",
-	nullptr,
-	_SSLMasterKeyDerivation$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_SSLMasterKeyDerivation$1_EnclosingMethodInfo_,
-	_SSLMasterKeyDerivation$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLMasterKeyDerivation"
-};
-
-$Object* allocate$SSLMasterKeyDerivation$1($Class* clazz) {
-	return $of($alloc(SSLMasterKeyDerivation$1));
-}
-
 $ints* SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion = nullptr;
 
-void clinit$SSLMasterKeyDerivation$1($Class* class$) {
+void SSLMasterKeyDerivation$1::clinit$($Class* clazz) {
 	$assignStatic(SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion, $new($ints, $($ProtocolVersion::values())->length));
 	{
 		try {
-			$nc(SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::SSL30->ordinal(), 1);
+			SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion->set($ProtocolVersion::SSL30->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::TLS10->ordinal(), 2);
+			SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion->set($ProtocolVersion::TLS10->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::TLS11->ordinal(), 3);
+			SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion->set($ProtocolVersion::TLS11->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::DTLS10->ordinal(), 4);
+			SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion->set($ProtocolVersion::DTLS10->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::TLS12->ordinal(), 5);
+			SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion->set($ProtocolVersion::TLS12->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::DTLS12->ordinal(), 6);
+			SSLMasterKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion->set($ProtocolVersion::DTLS12->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -95,7 +58,37 @@ SSLMasterKeyDerivation$1::SSLMasterKeyDerivation$1() {
 }
 
 $Class* SSLMasterKeyDerivation$1::load$($String* name, bool initialize) {
-	$loadClass(SSLMasterKeyDerivation$1, name, initialize, &_SSLMasterKeyDerivation$1_ClassInfo_, clinit$SSLMasterKeyDerivation$1, allocate$SSLMasterKeyDerivation$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$security$ssl$ProtocolVersion", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLMasterKeyDerivation$1, $SwitchMap$sun$security$ssl$ProtocolVersion)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.ssl.SSLMasterKeyDerivation",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLMasterKeyDerivation$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"sun.security.ssl.SSLMasterKeyDerivation$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLMasterKeyDerivation"
+	};
+	$loadClass(SSLMasterKeyDerivation$1, name, initialize, &classInfo$$, SSLMasterKeyDerivation$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLMasterKeyDerivation$1);
+	});
 	return class$;
 }
 

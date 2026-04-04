@@ -1,38 +1,17 @@
 #include <IPv6AddressTypes.h>
-
 #include <java/net/InetAddress.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InetAddress = ::java::net::InetAddress;
 
-$MethodInfo _IPv6AddressTypes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IPv6AddressTypes, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IPv6AddressTypes, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _IPv6AddressTypes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IPv6AddressTypes",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IPv6AddressTypes_MethodInfo_
-};
-
-$Object* allocate$IPv6AddressTypes($Class* clazz) {
-	return $of($alloc(IPv6AddressTypes));
-}
-
 void IPv6AddressTypes::init$() {
 }
 
 void IPv6AddressTypes::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, goodlinklocal, $new($StringArray, {
 		"fe80::a00:20ff:feae:45c9"_s,
 		"fe80::"_s,
@@ -85,7 +64,22 @@ IPv6AddressTypes::IPv6AddressTypes() {
 }
 
 $Class* IPv6AddressTypes::load$($String* name, bool initialize) {
-	$loadClass(IPv6AddressTypes, name, initialize, &_IPv6AddressTypes_ClassInfo_, allocate$IPv6AddressTypes);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IPv6AddressTypes, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IPv6AddressTypes, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IPv6AddressTypes",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IPv6AddressTypes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IPv6AddressTypes);
+	});
 	return class$;
 }
 

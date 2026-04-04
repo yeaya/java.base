@@ -1,5 +1,4 @@
 #include <java/lang/StackStreamFactory.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/StackStreamFactory$AbstractStackWalker.h>
 #include <java/lang/StackStreamFactory$CallerClassFinder.h>
@@ -48,65 +47,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace java {
 	namespace lang {
 
-$FieldInfo _StackStreamFactory_FieldInfo_[] = {
-	{"stackWalkImplClasses", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(StackStreamFactory, stackWalkImplClasses)},
-	{"SMALL_BATCH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, SMALL_BATCH)},
-	{"BATCH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, BATCH_SIZE)},
-	{"LARGE_BATCH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, LARGE_BATCH_SIZE)},
-	{"MIN_BATCH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, MIN_BATCH_SIZE)},
-	{"DEFAULT_MODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, DEFAULT_MODE)},
-	{"FILL_CLASS_REFS_ONLY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, FILL_CLASS_REFS_ONLY)},
-	{"GET_CALLER_CLASS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, GET_CALLER_CLASS)},
-	{"SHOW_HIDDEN_FRAMES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, SHOW_HIDDEN_FRAMES)},
-	{"FILL_LIVE_STACK_FRAMES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, FILL_LIVE_STACK_FRAMES)},
-	{"isDebug", "Z", nullptr, $STATIC | $FINAL, $staticField(StackStreamFactory, isDebug)},
-	{}
-};
-
-$MethodInfo _StackStreamFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StackStreamFactory, init$, void)},
-	{"checkStackWalkModes", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StackStreamFactory, checkStackWalkModes, bool)},
-	{"filterStackWalkImpl", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, filterStackWalkImpl, bool, $Class*)},
-	{"init", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, init, $Set*)},
-	{"isMethodHandleFrame", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, isMethodHandleFrame, bool, $Class*)},
-	{"isReflectionFrame", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, isReflectionFrame, bool, $Class*)},
-	{"makeCallerFinder", "(Ljava/lang/StackWalker;)Ljava/lang/StackStreamFactory$CallerClassFinder;", nullptr, $STATIC, $staticMethod(StackStreamFactory, makeCallerFinder, $StackStreamFactory$CallerClassFinder*, $StackWalker*)},
-	{"makeStackTraverser", "(Ljava/lang/StackWalker;Ljava/util/function/Function;)Ljava/lang/StackStreamFactory$StackFrameTraverser;", "<T:Ljava/lang/Object;>(Ljava/lang/StackWalker;Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)Ljava/lang/StackStreamFactory$StackFrameTraverser<TT;>;", $STATIC, $staticMethod(StackStreamFactory, makeStackTraverser, $StackStreamFactory$StackFrameTraverser*, $StackWalker*, $Function*)},
-	{}
-};
-
-#define _METHOD_INDEX_checkStackWalkModes 1
-
-$InnerClassInfo _StackStreamFactory_InnerClassesInfo_[] = {
-	{"java.lang.StackStreamFactory$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.lang.StackStreamFactory$FrameBuffer", "java.lang.StackStreamFactory", "FrameBuffer", $STATIC | $ABSTRACT},
-	{"java.lang.StackStreamFactory$LiveStackInfoTraverser", "java.lang.StackStreamFactory", "LiveStackInfoTraverser", $STATIC | $FINAL},
-	{"java.lang.StackStreamFactory$CallerClassFinder", "java.lang.StackStreamFactory", "CallerClassFinder", $STATIC | $FINAL},
-	{"java.lang.StackStreamFactory$StackFrameTraverser", "java.lang.StackStreamFactory", "StackFrameTraverser", $STATIC},
-	{"java.lang.StackStreamFactory$AbstractStackWalker", "java.lang.StackStreamFactory", "AbstractStackWalker", $STATIC | $ABSTRACT},
-	{"java.lang.StackStreamFactory$WalkerState", "java.lang.StackStreamFactory", "WalkerState", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _StackStreamFactory_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.StackStreamFactory",
-	"java.lang.Object",
-	nullptr,
-	_StackStreamFactory_FieldInfo_,
-	_StackStreamFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StackStreamFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.StackStreamFactory$1,java.lang.StackStreamFactory$FrameBuffer,java.lang.StackStreamFactory$LiveStackInfoTraverser,java.lang.StackStreamFactory$LiveStackInfoTraverser$LiveStackFrameBuffer,java.lang.StackStreamFactory$CallerClassFinder,java.lang.StackStreamFactory$CallerClassFinder$ClassBuffer,java.lang.StackStreamFactory$StackFrameTraverser,java.lang.StackStreamFactory$StackFrameTraverser$StackFrameBuffer,java.lang.StackStreamFactory$AbstractStackWalker,java.lang.StackStreamFactory$WalkerState"
-};
-
-$Object* allocate$StackStreamFactory($Class* clazz) {
-	return $of($alloc(StackStreamFactory));
-}
-
 $Set* StackStreamFactory::stackWalkImplClasses = nullptr;
 bool StackStreamFactory::isDebug = false;
 
@@ -148,12 +88,12 @@ $Set* StackStreamFactory::init() {
 bool StackStreamFactory::filterStackWalkImpl($Class* c) {
 	$init(StackStreamFactory);
 	bool var$0 = $nc(StackStreamFactory::stackWalkImplClasses)->contains(c);
-	return var$0 || $nc($($nc(c)->getName()))->startsWith("java.util.stream."_s);
+	return var$0 || $$nc($nc(c)->getName())->startsWith("java.util.stream."_s);
 }
 
 bool StackStreamFactory::isMethodHandleFrame($Class* c) {
 	$init(StackStreamFactory);
-	return $nc($($nc(c)->getName()))->startsWith("java.lang.invoke."_s);
+	return $$nc($nc(c)->getName())->startsWith("java.lang.invoke."_s);
 }
 
 bool StackStreamFactory::isReflectionFrame($Class* c) {
@@ -164,10 +104,10 @@ bool StackStreamFactory::isReflectionFrame($Class* c) {
 	bool var$1 = c == $Method::class$ || c == $Constructor::class$ || $MethodAccessor::class$->isAssignableFrom(c);
 	$load($ConstructorAccessor);
 	bool var$0 = var$1 || $ConstructorAccessor::class$->isAssignableFrom(c);
-	return var$0 || $nc($($nc(c)->getName()))->startsWith("java.lang.invoke.LambdaForm"_s);
+	return var$0 || $$nc($nc(c)->getName())->startsWith("java.lang.invoke.LambdaForm"_s);
 }
 
-void clinit$StackStreamFactory($Class* class$) {
+void StackStreamFactory::clinit$($Class* clazz) {
 	$assignStatic(StackStreamFactory::stackWalkImplClasses, StackStreamFactory::init());
 	StackStreamFactory::isDebug = "true"_s->equals($($GetPropertyAction::privilegedGetProperty("stackwalk.debug"_s)));
 }
@@ -176,7 +116,58 @@ StackStreamFactory::StackStreamFactory() {
 }
 
 $Class* StackStreamFactory::load$($String* name, bool initialize) {
-	$loadClass(StackStreamFactory, name, initialize, &_StackStreamFactory_ClassInfo_, clinit$StackStreamFactory, allocate$StackStreamFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"stackWalkImplClasses", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(StackStreamFactory, stackWalkImplClasses)},
+		{"SMALL_BATCH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, SMALL_BATCH)},
+		{"BATCH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, BATCH_SIZE)},
+		{"LARGE_BATCH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, LARGE_BATCH_SIZE)},
+		{"MIN_BATCH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, MIN_BATCH_SIZE)},
+		{"DEFAULT_MODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, DEFAULT_MODE)},
+		{"FILL_CLASS_REFS_ONLY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, FILL_CLASS_REFS_ONLY)},
+		{"GET_CALLER_CLASS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, GET_CALLER_CLASS)},
+		{"SHOW_HIDDEN_FRAMES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, SHOW_HIDDEN_FRAMES)},
+		{"FILL_LIVE_STACK_FRAMES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackStreamFactory, FILL_LIVE_STACK_FRAMES)},
+		{"isDebug", "Z", nullptr, $STATIC | $FINAL, $staticField(StackStreamFactory, isDebug)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StackStreamFactory, init$, void)},
+		{"checkStackWalkModes", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StackStreamFactory, checkStackWalkModes, bool)},
+		{"filterStackWalkImpl", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, filterStackWalkImpl, bool, $Class*)},
+		{"init", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, init, $Set*)},
+		{"isMethodHandleFrame", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, isMethodHandleFrame, bool, $Class*)},
+		{"isReflectionFrame", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, isReflectionFrame, bool, $Class*)},
+		{"makeCallerFinder", "(Ljava/lang/StackWalker;)Ljava/lang/StackStreamFactory$CallerClassFinder;", nullptr, $STATIC, $staticMethod(StackStreamFactory, makeCallerFinder, $StackStreamFactory$CallerClassFinder*, $StackWalker*)},
+		{"makeStackTraverser", "(Ljava/lang/StackWalker;Ljava/util/function/Function;)Ljava/lang/StackStreamFactory$StackFrameTraverser;", "<T:Ljava/lang/Object;>(Ljava/lang/StackWalker;Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)Ljava/lang/StackStreamFactory$StackFrameTraverser<TT;>;", $STATIC, $staticMethod(StackStreamFactory, makeStackTraverser, $StackStreamFactory$StackFrameTraverser*, $StackWalker*, $Function*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StackStreamFactory$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.lang.StackStreamFactory$FrameBuffer", "java.lang.StackStreamFactory", "FrameBuffer", $STATIC | $ABSTRACT},
+		{"java.lang.StackStreamFactory$LiveStackInfoTraverser", "java.lang.StackStreamFactory", "LiveStackInfoTraverser", $STATIC | $FINAL},
+		{"java.lang.StackStreamFactory$CallerClassFinder", "java.lang.StackStreamFactory", "CallerClassFinder", $STATIC | $FINAL},
+		{"java.lang.StackStreamFactory$StackFrameTraverser", "java.lang.StackStreamFactory", "StackFrameTraverser", $STATIC},
+		{"java.lang.StackStreamFactory$AbstractStackWalker", "java.lang.StackStreamFactory", "AbstractStackWalker", $STATIC | $ABSTRACT},
+		{"java.lang.StackStreamFactory$WalkerState", "java.lang.StackStreamFactory", "WalkerState", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.StackStreamFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.StackStreamFactory$1,java.lang.StackStreamFactory$FrameBuffer,java.lang.StackStreamFactory$LiveStackInfoTraverser,java.lang.StackStreamFactory$LiveStackInfoTraverser$LiveStackFrameBuffer,java.lang.StackStreamFactory$CallerClassFinder,java.lang.StackStreamFactory$CallerClassFinder$ClassBuffer,java.lang.StackStreamFactory$StackFrameTraverser,java.lang.StackStreamFactory$StackFrameTraverser$StackFrameBuffer,java.lang.StackStreamFactory$AbstractStackWalker,java.lang.StackStreamFactory$WalkerState"
+	};
+	$loadClass(StackStreamFactory, name, initialize, &classInfo$$, StackStreamFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamFactory);
+	});
 	return class$;
 }
 

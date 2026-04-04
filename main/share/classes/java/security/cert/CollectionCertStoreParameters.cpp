@@ -1,5 +1,4 @@
 #include <java/security/cert/CollectionCertStoreParameters.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/InternalError.h>
 #include <java/security/cert/CertStoreParameters.h>
@@ -24,33 +23,6 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$FieldInfo _CollectionCertStoreParameters_FieldInfo_[] = {
-	{"coll", "Ljava/util/Collection;", "Ljava/util/Collection<*>;", $PRIVATE, $field(CollectionCertStoreParameters, coll)},
-	{}
-};
-
-$MethodInfo _CollectionCertStoreParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PUBLIC, $method(CollectionCertStoreParameters, init$, void, $Collection*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CollectionCertStoreParameters, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CollectionCertStoreParameters, clone, $Object*)},
-	{"getCollection", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(CollectionCertStoreParameters, getCollection, $Collection*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CollectionCertStoreParameters, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CollectionCertStoreParameters_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.cert.CollectionCertStoreParameters",
-	"java.lang.Object",
-	"java.security.cert.CertStoreParameters",
-	_CollectionCertStoreParameters_FieldInfo_,
-	_CollectionCertStoreParameters_MethodInfo_
-};
-
-$Object* allocate$CollectionCertStoreParameters($Class* clazz) {
-	return $of($alloc(CollectionCertStoreParameters));
-}
-
 void CollectionCertStoreParameters::init$($Collection* collection) {
 	if (collection == nullptr) {
 		$throwNew($NullPointerException);
@@ -69,7 +41,7 @@ $Collection* CollectionCertStoreParameters::getCollection() {
 
 $Object* CollectionCertStoreParameters::clone() {
 	try {
-		return $of($CertStoreParameters::clone());
+		return $CertStoreParameters::clone();
 	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
@@ -77,7 +49,7 @@ $Object* CollectionCertStoreParameters::clone() {
 }
 
 $String* CollectionCertStoreParameters::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("CollectionCertStoreParameters: [\n"_s);
 	sb->append($$str({"  collection: "_s, this->coll, "\n"_s}));
@@ -89,7 +61,29 @@ CollectionCertStoreParameters::CollectionCertStoreParameters() {
 }
 
 $Class* CollectionCertStoreParameters::load$($String* name, bool initialize) {
-	$loadClass(CollectionCertStoreParameters, name, initialize, &_CollectionCertStoreParameters_ClassInfo_, allocate$CollectionCertStoreParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"coll", "Ljava/util/Collection;", "Ljava/util/Collection<*>;", $PRIVATE, $field(CollectionCertStoreParameters, coll)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PUBLIC, $method(CollectionCertStoreParameters, init$, void, $Collection*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CollectionCertStoreParameters, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CollectionCertStoreParameters, clone, $Object*)},
+		{"getCollection", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(CollectionCertStoreParameters, getCollection, $Collection*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CollectionCertStoreParameters, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.cert.CollectionCertStoreParameters",
+		"java.lang.Object",
+		"java.security.cert.CertStoreParameters",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CollectionCertStoreParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CollectionCertStoreParameters);
+	});
 	return class$;
 }
 

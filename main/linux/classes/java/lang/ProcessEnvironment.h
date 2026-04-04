@@ -22,6 +22,7 @@ class ProcessEnvironment : public ::java::lang::Object {
 	$class(ProcessEnvironment, 0, ::java::lang::Object)
 public:
 	ProcessEnvironment();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t arrayCompare($bytes* x, $bytes* y);
 	static bool arrayEquals($bytes* x, $bytes* y);

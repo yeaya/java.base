@@ -19,6 +19,7 @@ class $export Authenticator$RequestorType : public ::java::lang::Enum {
 public:
 	Authenticator$RequestorType();
 	static $Array<::java::net::Authenticator$RequestorType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::net::Authenticator$RequestorType* valueOf($String* name);
 	static $Array<::java::net::Authenticator$RequestorType>* values();

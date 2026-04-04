@@ -1,5 +1,4 @@
 #include <jdk/internal/jmod/JmodFile$Entry.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -31,7 +30,6 @@ using $Arrays = ::java::util::Arrays;
 using $Map = ::java::util::Map;
 using $Function = ::java::util::function::Function;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 using $ZipEntry = ::java::util::zip::ZipEntry;
 using $JmodFile$Section = ::jdk::internal::jmod::JmodFile$Section;
 
@@ -47,82 +45,34 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($JmodFile$Section, inst$)->jmodDir());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JmodFile$Entry$$Lambda$jmodDir>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JmodFile$Entry$$Lambda$jmodDir::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JmodFile$Entry$$Lambda$jmodDir, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry$$Lambda$jmodDir, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JmodFile$Entry$$Lambda$jmodDir::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.jmod.JmodFile$Entry$$Lambda$jmodDir",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JmodFile$Entry$$Lambda$jmodDir::load$($String* name, bool initialize) {
-	$loadClass(JmodFile$Entry$$Lambda$jmodDir, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JmodFile$Entry$$Lambda$jmodDir, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry$$Lambda$jmodDir, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.jmod.JmodFile$Entry$$Lambda$jmodDir",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JmodFile$Entry$$Lambda$jmodDir, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JmodFile$Entry$$Lambda$jmodDir);
+	});
 	return class$;
 }
 $Class* JmodFile$Entry$$Lambda$jmodDir::class$ = nullptr;
 
-$FieldInfo _JmodFile$Entry_FieldInfo_[] = {
-	{"zipEntry", "Ljava/util/zip/ZipEntry;", nullptr, $PRIVATE | $FINAL, $field(JmodFile$Entry, zipEntry$)},
-	{"section", "Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PRIVATE | $FINAL, $field(JmodFile$Entry, section$)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JmodFile$Entry, name$)},
-	{"NAME_TO_SECTION", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/jmod/JmodFile$Section;>;", $STATIC | $FINAL, $staticField(JmodFile$Entry, NAME_TO_SECTION)},
-	{}
-};
-
-$MethodInfo _JmodFile$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PRIVATE, $method(JmodFile$Entry, init$, void, $ZipEntry*)},
-	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, isDirectory, bool)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, name, $String*)},
-	{"section", "()Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, section, $JmodFile$Section*)},
-	{"section", "(Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Section;", nullptr, $STATIC, $staticMethod(JmodFile$Entry, section, $JmodFile$Section*, $String*)},
-	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, size, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, toString, $String*)},
-	{"zipEntry", "()Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, zipEntry, $ZipEntry*)},
-	{}
-};
-
-$InnerClassInfo _JmodFile$Entry_InnerClassesInfo_[] = {
-	{"jdk.internal.jmod.JmodFile$Entry", "jdk.internal.jmod.JmodFile", "Entry", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JmodFile$Entry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.jmod.JmodFile$Entry",
-	"java.lang.Object",
-	nullptr,
-	_JmodFile$Entry_FieldInfo_,
-	_JmodFile$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JmodFile$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.jmod.JmodFile"
-};
-
-$Object* allocate$JmodFile$Entry($Class* clazz) {
-	return $of($alloc(JmodFile$Entry));
-}
-
 $Map* JmodFile$Entry::NAME_TO_SECTION = nullptr;
 
 void JmodFile$Entry::init$($ZipEntry* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(e)->getName());
-	int32_t i = $nc(name)->indexOf((int32_t)u'/');
+	int32_t i = $nc(name)->indexOf(u'/');
 	if (i <= 1) {
 		$throwNew($RuntimeException, $$str({"invalid jmod entry: "_s, name}));
 	}
@@ -160,13 +110,13 @@ $JmodFile$Section* JmodFile$Entry::section($String* name) {
 	if (!$nc(JmodFile$Entry::NAME_TO_SECTION)->containsKey(name)) {
 		$throwNew($IllegalArgumentException, $$str({"invalid section: "_s, name}));
 	}
-	return $cast($JmodFile$Section, $nc(JmodFile$Entry::NAME_TO_SECTION)->get(name));
+	return $cast($JmodFile$Section, JmodFile$Entry::NAME_TO_SECTION->get(name));
 }
 
-void clinit$JmodFile$Entry($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$var($Function, var$0, static_cast<$Function*>($new(JmodFile$Entry$$Lambda$jmodDir)));
-	$assignStatic(JmodFile$Entry::NAME_TO_SECTION, $cast($Map, $nc($($Arrays::stream($($JmodFile$Section::values()))))->collect($($Collectors::toMap(var$0, $($Function::identity()))))));
+void JmodFile$Entry::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$var($Function, var$0, $new(JmodFile$Entry$$Lambda$jmodDir));
+	$assignStatic(JmodFile$Entry::NAME_TO_SECTION, $cast($Map, $$nc($Arrays::stream($($JmodFile$Section::values())))->collect($($Collectors::toMap(var$0, $($Function::identity()))))));
 }
 
 JmodFile$Entry::JmodFile$Entry() {
@@ -174,11 +124,50 @@ JmodFile$Entry::JmodFile$Entry() {
 
 $Class* JmodFile$Entry::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JmodFile$Entry$$Lambda$jmodDir::classInfo$.name)) {
+		if (name->equals("jdk.internal.jmod.JmodFile$Entry$$Lambda$jmodDir")) {
 			return JmodFile$Entry$$Lambda$jmodDir::load$(name, initialize);
 		}
 	}
-	$loadClass(JmodFile$Entry, name, initialize, &_JmodFile$Entry_ClassInfo_, clinit$JmodFile$Entry, allocate$JmodFile$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"zipEntry", "Ljava/util/zip/ZipEntry;", nullptr, $PRIVATE | $FINAL, $field(JmodFile$Entry, zipEntry$)},
+		{"section", "Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PRIVATE | $FINAL, $field(JmodFile$Entry, section$)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JmodFile$Entry, name$)},
+		{"NAME_TO_SECTION", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/jmod/JmodFile$Section;>;", $STATIC | $FINAL, $staticField(JmodFile$Entry, NAME_TO_SECTION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PRIVATE, $method(JmodFile$Entry, init$, void, $ZipEntry*)},
+		{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, isDirectory, bool)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, name, $String*)},
+		{"section", "()Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, section, $JmodFile$Section*)},
+		{"section", "(Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Section;", nullptr, $STATIC, $staticMethod(JmodFile$Entry, section, $JmodFile$Section*, $String*)},
+		{"size", "()J", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, size, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, toString, $String*)},
+		{"zipEntry", "()Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, zipEntry, $ZipEntry*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jmod.JmodFile$Entry", "jdk.internal.jmod.JmodFile", "Entry", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.jmod.JmodFile$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.jmod.JmodFile"
+	};
+	$loadClass(JmodFile$Entry, name, initialize, &classInfo$$, JmodFile$Entry::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JmodFile$Entry);
+	});
 	return class$;
 }
 

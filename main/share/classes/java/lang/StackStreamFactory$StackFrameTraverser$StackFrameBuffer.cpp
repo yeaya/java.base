@@ -1,5 +1,4 @@
 #include <java/lang/StackStreamFactory$StackFrameTraverser$StackFrameBuffer.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/StackFrameInfo.h>
@@ -28,53 +27,10 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace lang {
 
-$FieldInfo _StackStreamFactory$StackFrameTraverser$StackFrameBuffer_FieldInfo_[] = {
-	{"this$0", "Ljava/lang/StackStreamFactory$StackFrameTraverser;", nullptr, $FINAL | $SYNTHETIC, $field(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, $assertionsDisabled)},
-	{"stackFrames", "[Ljava/lang/StackFrameInfo;", nullptr, $PRIVATE, $field(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, stackFrames)},
-	{}
-};
-
-$MethodInfo _StackStreamFactory$StackFrameTraverser$StackFrameBuffer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StackStreamFactory$StackFrameTraverser;I)V", nullptr, 0, $method(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, init$, void, $StackStreamFactory$StackFrameTraverser*, int32_t)},
-	{"at", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $FINAL, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, at, $Class*, int32_t)},
-	{"frames", "()[Ljava/lang/StackFrameInfo;", nullptr, 0, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, frames, $ObjectArray*)},
-	{"nextStackFrame", "()Ljava/lang/StackFrameInfo;", nullptr, 0, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, nextStackFrame, $Object*)},
-	{"resize", "(II)V", nullptr, 0, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, resize, void, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _StackStreamFactory$StackFrameTraverser$StackFrameBuffer_InnerClassesInfo_[] = {
-	{"java.lang.StackStreamFactory$StackFrameTraverser", "java.lang.StackStreamFactory", "StackFrameTraverser", $STATIC},
-	{"java.lang.StackStreamFactory$StackFrameTraverser$StackFrameBuffer", "java.lang.StackStreamFactory$StackFrameTraverser", "StackFrameBuffer", $FINAL},
-	{"java.lang.StackStreamFactory$FrameBuffer", "java.lang.StackStreamFactory", "FrameBuffer", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StackStreamFactory$StackFrameTraverser$StackFrameBuffer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.StackStreamFactory$StackFrameTraverser$StackFrameBuffer",
-	"java.lang.StackStreamFactory$FrameBuffer",
-	nullptr,
-	_StackStreamFactory$StackFrameTraverser$StackFrameBuffer_FieldInfo_,
-	_StackStreamFactory$StackFrameTraverser$StackFrameBuffer_MethodInfo_,
-	"Ljava/lang/StackStreamFactory$FrameBuffer<Ljava/lang/StackFrameInfo;>;",
-	nullptr,
-	_StackStreamFactory$StackFrameTraverser$StackFrameBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.StackStreamFactory"
-};
-
-$Object* allocate$StackStreamFactory$StackFrameTraverser$StackFrameBuffer($Class* clazz) {
-	return $of($alloc(StackStreamFactory$StackFrameTraverser$StackFrameBuffer));
-}
-
 bool StackStreamFactory$StackFrameTraverser$StackFrameBuffer::$assertionsDisabled = false;
 
 void StackStreamFactory$StackFrameTraverser$StackFrameBuffer::init$($StackStreamFactory$StackFrameTraverser* this$0, int32_t initialBatchSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$StackStreamFactory$FrameBuffer::init$(initialBatchSize);
 	$set(this, stackFrames, $new($StackFrameInfoArray, initialBatchSize));
@@ -88,12 +44,12 @@ $ObjectArray* StackStreamFactory$StackFrameTraverser$StackFrameBuffer::frames() 
 }
 
 void StackStreamFactory$StackFrameTraverser$StackFrameBuffer::resize(int32_t startIndex, int32_t elements) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isActive()) {
 		$throwNew($IllegalStateException, "inactive frame buffer can\'t be resized"_s);
 	}
 	if (!StackStreamFactory$StackFrameTraverser$StackFrameBuffer::$assertionsDisabled && !(startIndex == $StackStreamFactory$FrameBuffer::START_POS)) {
-		$throwNew($AssertionError, $of($$str({"bad start index "_s, $$str(startIndex), " expected "_s, $$str($StackStreamFactory$FrameBuffer::START_POS)})));
+		$throwNew($AssertionError, $$of($str({"bad start index "_s, $$str(startIndex), " expected "_s, $$str($StackStreamFactory$FrameBuffer::START_POS)})));
 	}
 	int32_t size = startIndex + elements;
 	if ($nc(this->stackFrames)->length < size) {
@@ -102,26 +58,26 @@ void StackStreamFactory$StackFrameTraverser$StackFrameBuffer::resize(int32_t sta
 		$set(this, stackFrames, newFrames);
 	}
 	for (int32_t i = startIndex; i < size; ++i) {
-		$nc(this->stackFrames)->set(i, $$new($StackFrameInfo, this->this$0->walker));
+		this->stackFrames->set(i, $$new($StackFrameInfo, this->this$0->walker));
 	}
 	this->currentBatchSize = size;
 }
 
 $Object* StackStreamFactory$StackFrameTraverser$StackFrameBuffer::nextStackFrame() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isEmpty()) {
 		$throwNew($NoSuchElementException, $$str({"origin="_s, $$str(this->origin), " fence="_s, $$str(this->fence)}));
 	}
 	$var($StackFrameInfo, frame, $nc(this->stackFrames)->get(this->origin));
 	++this->origin;
-	return $of(frame);
+	return frame;
 }
 
 $Class* StackStreamFactory$StackFrameTraverser$StackFrameBuffer::at(int32_t index) {
 	return $nc($nc(this->stackFrames)->get(index))->declaringClass();
 }
 
-void clinit$StackStreamFactory$StackFrameTraverser$StackFrameBuffer($Class* class$) {
+void StackStreamFactory$StackFrameTraverser$StackFrameBuffer::clinit$($Class* clazz) {
 	$load($StackStreamFactory);
 	StackStreamFactory$StackFrameTraverser$StackFrameBuffer::$assertionsDisabled = !$StackStreamFactory::class$->desiredAssertionStatus();
 }
@@ -130,7 +86,44 @@ StackStreamFactory$StackFrameTraverser$StackFrameBuffer::StackStreamFactory$Stac
 }
 
 $Class* StackStreamFactory$StackFrameTraverser$StackFrameBuffer::load$($String* name, bool initialize) {
-	$loadClass(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, name, initialize, &_StackStreamFactory$StackFrameTraverser$StackFrameBuffer_ClassInfo_, clinit$StackStreamFactory$StackFrameTraverser$StackFrameBuffer, allocate$StackStreamFactory$StackFrameTraverser$StackFrameBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/lang/StackStreamFactory$StackFrameTraverser;", nullptr, $FINAL | $SYNTHETIC, $field(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, $assertionsDisabled)},
+		{"stackFrames", "[Ljava/lang/StackFrameInfo;", nullptr, $PRIVATE, $field(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, stackFrames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StackStreamFactory$StackFrameTraverser;I)V", nullptr, 0, $method(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, init$, void, $StackStreamFactory$StackFrameTraverser*, int32_t)},
+		{"at", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $FINAL, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, at, $Class*, int32_t)},
+		{"frames", "()[Ljava/lang/StackFrameInfo;", nullptr, 0, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, frames, $ObjectArray*)},
+		{"nextStackFrame", "()Ljava/lang/StackFrameInfo;", nullptr, 0, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, nextStackFrame, $Object*)},
+		{"resize", "(II)V", nullptr, 0, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, resize, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StackStreamFactory$StackFrameTraverser", "java.lang.StackStreamFactory", "StackFrameTraverser", $STATIC},
+		{"java.lang.StackStreamFactory$StackFrameTraverser$StackFrameBuffer", "java.lang.StackStreamFactory$StackFrameTraverser", "StackFrameBuffer", $FINAL},
+		{"java.lang.StackStreamFactory$FrameBuffer", "java.lang.StackStreamFactory", "FrameBuffer", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.StackStreamFactory$StackFrameTraverser$StackFrameBuffer",
+		"java.lang.StackStreamFactory$FrameBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/StackStreamFactory$FrameBuffer<Ljava/lang/StackFrameInfo;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.StackStreamFactory"
+	};
+	$loadClass(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, name, initialize, &classInfo$$, StackStreamFactory$StackFrameTraverser$StackFrameBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamFactory$StackFrameTraverser$StackFrameBuffer);
+	});
 	return class$;
 }
 

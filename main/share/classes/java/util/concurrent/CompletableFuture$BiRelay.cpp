@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$BiRelay.h>
-
 #include <java/util/concurrent/CompletableFuture$AltResult.h>
 #include <java/util/concurrent/CompletableFuture$BiCompletion.h>
 #include <java/util/concurrent/CompletableFuture$UniCompletion.h>
@@ -19,44 +18,12 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$MethodInfo _CompletableFuture$BiRelay_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;)V", 0, $method(CompletableFuture$BiRelay, init$, void, $CompletableFuture*, $CompletableFuture*, $CompletableFuture*)},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $virtualMethod(CompletableFuture$BiRelay, tryFire, $CompletableFuture*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$BiRelay_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$BiRelay", "java.util.concurrent.CompletableFuture", "BiRelay", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$BiCompletion", "java.util.concurrent.CompletableFuture", "BiCompletion", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CompletableFuture$BiRelay_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$BiRelay",
-	"java.util.concurrent.CompletableFuture$BiCompletion",
-	nullptr,
-	nullptr,
-	_CompletableFuture$BiRelay_MethodInfo_,
-	"<T:Ljava/lang/Object;U:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture$BiCompletion<TT;TU;Ljava/lang/Void;>;",
-	nullptr,
-	_CompletableFuture$BiRelay_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$BiRelay($Class* clazz) {
-	return $of($alloc(CompletableFuture$BiRelay));
-}
-
 void CompletableFuture$BiRelay::init$($CompletableFuture* dep, $CompletableFuture* src, $CompletableFuture* snd) {
 	$CompletableFuture$BiCompletion::init$(nullptr, dep, src, snd);
 }
 
 $CompletableFuture* CompletableFuture$BiRelay::tryFire(int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($CompletableFuture, b, nullptr);
@@ -70,8 +37,8 @@ $CompletableFuture* CompletableFuture$BiRelay::tryFire(int32_t mode) {
 		return nullptr;
 	}
 	if ($nc(d)->result == nullptr) {
-		bool var$2 = ($instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc((($cast($CompletableFuture$AltResult, ($assign(z, r))))))->ex)) != nullptr);
-		if (var$2 || ($instanceOf($CompletableFuture$AltResult, s) && ($assign(x, $nc((($cast($CompletableFuture$AltResult, ($assign(z, s))))))->ex)) != nullptr)) {
+		bool var$2 = $instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc($$cast($CompletableFuture$AltResult, ($assign(z, r))))->ex)) != nullptr;
+		if (var$2 || ($instanceOf($CompletableFuture$AltResult, s) && ($assign(x, $nc($$cast($CompletableFuture$AltResult, ($assign(z, s))))->ex)) != nullptr)) {
 			d->completeThrowable(x, z);
 		} else {
 			d->completeNull();
@@ -80,14 +47,41 @@ $CompletableFuture* CompletableFuture$BiRelay::tryFire(int32_t mode) {
 	$set(this, src, nullptr);
 	$set(this, snd, nullptr);
 	$set(this, dep, nullptr);
-	return $nc(d)->postFire(a, b, mode);
+	return d->postFire(a, b, mode);
 }
 
 CompletableFuture$BiRelay::CompletableFuture$BiRelay() {
 }
 
 $Class* CompletableFuture$BiRelay::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$BiRelay, name, initialize, &_CompletableFuture$BiRelay_ClassInfo_, allocate$CompletableFuture$BiRelay);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;)V", 0, $method(CompletableFuture$BiRelay, init$, void, $CompletableFuture*, $CompletableFuture*, $CompletableFuture*)},
+		{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $virtualMethod(CompletableFuture$BiRelay, tryFire, $CompletableFuture*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$BiRelay", "java.util.concurrent.CompletableFuture", "BiRelay", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$BiCompletion", "java.util.concurrent.CompletableFuture", "BiCompletion", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$BiRelay",
+		"java.util.concurrent.CompletableFuture$BiCompletion",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;U:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture$BiCompletion<TT;TU;Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$BiRelay, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompletableFuture$BiRelay));
+	});
 	return class$;
 }
 

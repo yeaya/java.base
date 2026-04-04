@@ -1,5 +1,4 @@
 #include <java/lang/EnumConstantNotPresentException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,35 +9,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace lang {
 
-$FieldInfo _EnumConstantNotPresentException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EnumConstantNotPresentException, serialVersionUID)},
-	{"enumType", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/Enum;>;", $PRIVATE, $field(EnumConstantNotPresentException, enumType$)},
-	{"constantName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EnumConstantNotPresentException, constantName$)},
-	{}
-};
-
-$MethodInfo _EnumConstantNotPresentException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/Enum;>;Ljava/lang/String;)V", $PUBLIC, $method(EnumConstantNotPresentException, init$, void, $Class*, $String*)},
-	{"constantName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumConstantNotPresentException, constantName, $String*)},
-	{"enumType", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/Enum;>;", $PUBLIC, $virtualMethod(EnumConstantNotPresentException, enumType, $Class*)},
-	{}
-};
-
-$ClassInfo _EnumConstantNotPresentException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.EnumConstantNotPresentException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_EnumConstantNotPresentException_FieldInfo_,
-	_EnumConstantNotPresentException_MethodInfo_
-};
-
-$Object* allocate$EnumConstantNotPresentException($Class* clazz) {
-	return $of($alloc(EnumConstantNotPresentException));
-}
-
 void EnumConstantNotPresentException::init$($Class* enumType, $String* constantName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RuntimeException::init$($$str({$($nc(enumType)->getName()), "."_s, constantName}));
 	$set(this, enumType$, enumType);
 	$set(this, constantName$, constantName);
@@ -63,7 +35,29 @@ void EnumConstantNotPresentException::throw$() {
 }
 
 $Class* EnumConstantNotPresentException::load$($String* name, bool initialize) {
-	$loadClass(EnumConstantNotPresentException, name, initialize, &_EnumConstantNotPresentException_ClassInfo_, allocate$EnumConstantNotPresentException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EnumConstantNotPresentException, serialVersionUID)},
+		{"enumType", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/Enum;>;", $PRIVATE, $field(EnumConstantNotPresentException, enumType$)},
+		{"constantName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EnumConstantNotPresentException, constantName$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/Enum;>;Ljava/lang/String;)V", $PUBLIC, $method(EnumConstantNotPresentException, init$, void, $Class*, $String*)},
+		{"constantName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumConstantNotPresentException, constantName, $String*)},
+		{"enumType", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/Enum;>;", $PUBLIC, $virtualMethod(EnumConstantNotPresentException, enumType, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.EnumConstantNotPresentException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EnumConstantNotPresentException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnumConstantNotPresentException);
+	});
 	return class$;
 }
 

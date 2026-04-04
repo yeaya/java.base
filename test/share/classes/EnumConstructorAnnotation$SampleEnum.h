@@ -14,6 +14,7 @@ class $export EnumConstructorAnnotation$SampleEnum : public ::java::lang::Enum {
 public:
 	EnumConstructorAnnotation$SampleEnum();
 	static $Array<EnumConstructorAnnotation$SampleEnum>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* value);
 	static ::EnumConstructorAnnotation$SampleEnum* valueOf($String* name);
 	static $Array<EnumConstructorAnnotation$SampleEnum>* values();

@@ -34,6 +34,7 @@ class FileInputStreamPool : public ::java::lang::Object {
 	$class(FileInputStreamPool, 0, ::java::lang::Object)
 public:
 	FileInputStreamPool();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::io::InputStream* getInputStream(::java::io::File* file);
 	static ::java::util::concurrent::ConcurrentMap* pool;

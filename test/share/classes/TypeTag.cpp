@@ -1,74 +1,41 @@
 #include <TypeTag.h>
-
 #include <jcpp.h>
 
 #undef TYPE
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _TypeTag_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeTag, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TypeTag_InnerClassesInfo_[] = {
-	{"TypeTag$Inner", "TypeTag", "Inner", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TypeTag_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TypeTag",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TypeTag_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeTag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TypeTag$Inner"
-};
-
-$Object* allocate$TypeTag($Class* clazz) {
-	return $of($alloc(TypeTag));
-}
-
 void TypeTag::init$() {
 }
 
 void TypeTag::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(TypeTag);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassArray, v, nullptr);
-	$init($Integer);
 	$assign(v, $nc($Integer::TYPE)->getDeclaredClasses());
 	if (v == nullptr || v->length != 0) {
 		$throwNew($Exception, "Integer.TYPE.getDeclaredClasses is not working"_s);
 	}
-	$nc($System::out)->println($$str({"Integer.TYPE: "_s, $($of(v)->toString())}));
+	$nc($System::out)->println($$str({"Integer.TYPE: "_s, $(v->toString())}));
 	$assign(v, TypeTag::class$->getDeclaredClasses());
 	if (v == nullptr) {
 		$throwNew($Exception, "TypeTag.class.getDeclaredClasses returned null"_s);
 	}
-	$nc($System::out)->println($$str({"TypeTag.class: "_s, $($of(v)->toString())}));
+	$System::out->println($$str({"TypeTag.class: "_s, $(v->toString())}));
 	int32_t n = 0;
 	for (int32_t i = 0; i < v->length; ++i) {
 		$var($String, name, $nc(v->get(i))->getName());
-		$nc($System::out)->print(name);
+		$System::out->print(name);
 		if (!$nc(name)->matches("\\D\\w*\\$\\d*"_s)) {
 			++n;
-			$nc($System::out)->println(" -- user class"_s);
+			$System::out->println(" -- user class"_s);
 		} else {
-			$nc($System::out)->println();
+			$System::out->println();
 		}
 	}
 	if (n != 1) {
@@ -80,7 +47,32 @@ TypeTag::TypeTag() {
 }
 
 $Class* TypeTag::load$($String* name, bool initialize) {
-	$loadClass(TypeTag, name, initialize, &_TypeTag_ClassInfo_, allocate$TypeTag);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TypeTag, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TypeTag$Inner", "TypeTag", "Inner", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TypeTag",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TypeTag$Inner"
+	};
+	$loadClass(TypeTag, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeTag);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SignatureScheme.h>
-
 #include <java/lang/Enum.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/AlgorithmParameters.h>
@@ -7,7 +6,6 @@
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
-#include <java/security/Key.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/PrivateKey.h>
 #include <java/security/Provider.h>
@@ -77,10 +75,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AlgorithmConstraints = ::java::security::AlgorithmConstraints;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $CryptoPrimitive = ::java::security::CryptoPrimitive;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
@@ -115,94 +111,6 @@ using $SignatureUtil = ::sun::security::util::SignatureUtil;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SignatureScheme_FieldInfo_[] = {
-	{"ECDSA_SECP256R1_SHA256", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ECDSA_SECP256R1_SHA256)},
-	{"ECDSA_SECP384R1_SHA384", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ECDSA_SECP384R1_SHA384)},
-	{"ECDSA_SECP521R1_SHA512", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ECDSA_SECP521R1_SHA512)},
-	{"ED25519", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ED25519)},
-	{"ED448", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ED448)},
-	{"RSA_PSS_RSAE_SHA256", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_RSAE_SHA256)},
-	{"RSA_PSS_RSAE_SHA384", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_RSAE_SHA384)},
-	{"RSA_PSS_RSAE_SHA512", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_RSAE_SHA512)},
-	{"RSA_PSS_PSS_SHA256", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_PSS_SHA256)},
-	{"RSA_PSS_PSS_SHA384", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_PSS_SHA384)},
-	{"RSA_PSS_PSS_SHA512", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_PSS_SHA512)},
-	{"RSA_PKCS1_SHA256", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PKCS1_SHA256)},
-	{"RSA_PKCS1_SHA384", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PKCS1_SHA384)},
-	{"RSA_PKCS1_SHA512", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PKCS1_SHA512)},
-	{"DSA_SHA256", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, DSA_SHA256)},
-	{"ECDSA_SHA224", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ECDSA_SHA224)},
-	{"RSA_SHA224", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_SHA224)},
-	{"DSA_SHA224", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, DSA_SHA224)},
-	{"ECDSA_SHA1", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ECDSA_SHA1)},
-	{"RSA_PKCS1_SHA1", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PKCS1_SHA1)},
-	{"DSA_SHA1", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, DSA_SHA1)},
-	{"RSA_MD5", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_MD5)},
-	{"$VALUES", "[Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SignatureScheme, $VALUES)},
-	{"id", "I", nullptr, $FINAL, $field(SignatureScheme, id)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SignatureScheme, name$)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme, algorithm)},
-	{"keyAlgorithm", "Ljava/lang/String;", nullptr, $FINAL, $field(SignatureScheme, keyAlgorithm)},
-	{"signAlgParams", "Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme, signAlgParams)},
-	{"namedGroup", "Lsun/security/ssl/NamedGroup;", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme, namedGroup)},
-	{"minimalKeySize", "I", nullptr, $FINAL, $field(SignatureScheme, minimalKeySize)},
-	{"supportedProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $FINAL, $field(SignatureScheme, supportedProtocols)},
-	{"handshakeSupportedProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $FINAL, $field(SignatureScheme, handshakeSupportedProtocols)},
-	{"isAvailable", "Z", nullptr, $FINAL, $field(SignatureScheme, isAvailable)},
-	{"hashAlgorithms", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureScheme, hashAlgorithms)},
-	{"signatureAlgorithms", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureScheme, signatureAlgorithms)},
-	{"SIGNATURE_PRIMITIVE_SET", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/CryptoPrimitive;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SignatureScheme, SIGNATURE_PRIMITIVE_SET)},
-	{}
-};
-
-$MethodInfo _SignatureScheme_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SignatureScheme, $values, $SignatureSchemeArray*)},
-	{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Lsun/security/ssl/ProtocolVersion;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(SignatureScheme, init$, void, $String*, int32_t, int32_t, $String*, $String*, $String*, $ProtocolVersionArray*)},
-	{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Lsun/security/ssl/ProtocolVersion;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(SignatureScheme, init$, void, $String*, int32_t, int32_t, $String*, $String*, $String*, int32_t, $ProtocolVersionArray*)},
-	{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;I[Lsun/security/ssl/ProtocolVersion;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;I[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(SignatureScheme, init$, void, $String*, int32_t, int32_t, $String*, $String*, $String*, $SignatureScheme$SigAlgParamSpec*, int32_t, $ProtocolVersionArray*)},
-	{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/NamedGroup;[Lsun/security/ssl/ProtocolVersion;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/NamedGroup;[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(SignatureScheme, init$, void, $String*, int32_t, int32_t, $String*, $String*, $String*, $NamedGroup*, $ProtocolVersionArray*)},
-	{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;Lsun/security/ssl/NamedGroup;I[Lsun/security/ssl/ProtocolVersion;[Lsun/security/ssl/ProtocolVersion;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;Lsun/security/ssl/NamedGroup;I[Lsun/security/ssl/ProtocolVersion;[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(SignatureScheme, init$, void, $String*, int32_t, int32_t, $String*, $String*, $String*, $SignatureScheme$SigAlgParamSpec*, $NamedGroup*, int32_t, $ProtocolVersionArray*, $ProtocolVersionArray*)},
-	{"getAlgorithmNames", "(Ljava/util/Collection;)[Ljava/lang/String;", "(Ljava/util/Collection<Lsun/security/ssl/SignatureScheme;>;)[Ljava/lang/String;", $STATIC, $staticMethod(SignatureScheme, getAlgorithmNames, $StringArray*, $Collection*)},
-	{"getPreferableAlgorithm", "(Ljava/security/AlgorithmConstraints;Ljava/util/List;Lsun/security/ssl/SignatureScheme;Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SignatureScheme;", "(Ljava/security/AlgorithmConstraints;Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;Lsun/security/ssl/SignatureScheme;Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SignatureScheme;", $STATIC, $staticMethod(SignatureScheme, getPreferableAlgorithm, SignatureScheme*, $AlgorithmConstraints*, $List*, SignatureScheme*, $ProtocolVersion*)},
-	{"getSigner", "(Ljava/security/PrivateKey;)Ljava/security/Signature;", nullptr, $PRIVATE, $method(SignatureScheme, getSigner, $Signature*, $PrivateKey*)},
-	{"getSignerOfPreferableAlgorithm", "(Ljava/security/AlgorithmConstraints;Ljava/util/List;Lsun/security/ssl/X509Authentication$X509Possession;Lsun/security/ssl/ProtocolVersion;)Ljava/util/Map$Entry;", "(Ljava/security/AlgorithmConstraints;Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;Lsun/security/ssl/X509Authentication$X509Possession;Lsun/security/ssl/ProtocolVersion;)Ljava/util/Map$Entry<Lsun/security/ssl/SignatureScheme;Ljava/security/Signature;>;", $STATIC, $staticMethod(SignatureScheme, getSignerOfPreferableAlgorithm, $Map$Entry*, $AlgorithmConstraints*, $List*, $X509Authentication$X509Possession*, $ProtocolVersion*)},
-	{"getSupportedAlgorithms", "(Lsun/security/ssl/SSLConfiguration;Ljava/security/AlgorithmConstraints;Ljava/util/List;)Ljava/util/List;", "(Lsun/security/ssl/SSLConfiguration;Ljava/security/AlgorithmConstraints;Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", $STATIC, $staticMethod(SignatureScheme, getSupportedAlgorithms, $List*, $SSLConfiguration*, $AlgorithmConstraints*, $List*)},
-	{"getSupportedAlgorithms", "(Lsun/security/ssl/SSLConfiguration;Ljava/security/AlgorithmConstraints;Lsun/security/ssl/ProtocolVersion;[I)Ljava/util/List;", "(Lsun/security/ssl/SSLConfiguration;Ljava/security/AlgorithmConstraints;Lsun/security/ssl/ProtocolVersion;[I)Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", $STATIC, $staticMethod(SignatureScheme, getSupportedAlgorithms, $List*, $SSLConfiguration*, $AlgorithmConstraints*, $ProtocolVersion*, $ints*)},
-	{"getVerifier", "(Ljava/security/PublicKey;)Ljava/security/Signature;", nullptr, 0, $method(SignatureScheme, getVerifier, $Signature*, $PublicKey*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException,java.security.InvalidKeyException"},
-	{"isPermitted", "(Ljava/security/AlgorithmConstraints;)Z", nullptr, $PRIVATE, $method(SignatureScheme, isPermitted, bool, $AlgorithmConstraints*)},
-	{"nameOf", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SignatureScheme, nameOf, $String*, int32_t)},
-	{"nameOf", "(Ljava/lang/String;)Lsun/security/ssl/SignatureScheme;", nullptr, $STATIC, $staticMethod(SignatureScheme, nameOf, SignatureScheme*, $String*)},
-	{"sizeInRecord", "()I", nullptr, $STATIC, $staticMethod(SignatureScheme, sizeInRecord, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureScheme, valueOf, SignatureScheme*, $String*)},
-	{"valueOf", "(I)Lsun/security/ssl/SignatureScheme;", nullptr, $STATIC, $staticMethod(SignatureScheme, valueOf, SignatureScheme*, int32_t)},
-	{"values", "()[Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureScheme, values, $SignatureSchemeArray*)},
-	{}
-};
-
-$InnerClassInfo _SignatureScheme_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SignatureScheme$SigAlgParamSpec", "sun.security.ssl.SignatureScheme", "SigAlgParamSpec", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SignatureScheme_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.SignatureScheme",
-	"java.lang.Enum",
-	nullptr,
-	_SignatureScheme_FieldInfo_,
-	_SignatureScheme_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/SignatureScheme;>;",
-	nullptr,
-	_SignatureScheme_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SignatureScheme$SigAlgParamSpec"
-};
-
-$Object* allocate$SignatureScheme($Class* clazz) {
-	return $of($alloc(SignatureScheme));
-}
 
 SignatureScheme* SignatureScheme::ECDSA_SECP256R1_SHA256 = nullptr;
 SignatureScheme* SignatureScheme::ECDSA_SECP384R1_SHA384 = nullptr;
@@ -286,7 +194,7 @@ void SignatureScheme::init$($String* $enum$name, int32_t $enum$ordinal, int32_t 
 }
 
 void SignatureScheme::init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $String* name, $String* algorithm, $String* keyAlgorithm, $SignatureScheme$SigAlgParamSpec* signAlgParams, $NamedGroup* namedGroup, int32_t minimalKeySize, $ProtocolVersionArray* supportedProtocols, $ProtocolVersionArray* handshakeSupportedProtocols) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Enum::init$($enum$name, $enum$ordinal);
 	this->id = id;
 	$set(this, name$, name);
@@ -316,7 +224,7 @@ void SignatureScheme::init$($String* $enum$name, int32_t $enum$ordinal, int32_t 
 			}
 		}
 	}
-	if (mediator && ((int32_t)((id >> 8) & (uint32_t)255)) == 3) {
+	if (mediator && ((id >> 8) & 0xff) == 3) {
 		if ($Security::getProvider("SunMSCAPI"_s) != nullptr) {
 			mediator = false;
 		}
@@ -326,17 +234,11 @@ void SignatureScheme::init$($String* $enum$name, int32_t $enum$ordinal, int32_t 
 
 SignatureScheme* SignatureScheme::valueOf(int32_t id) {
 	$init(SignatureScheme);
-	{
-		$var($SignatureSchemeArray, arr$, SignatureScheme::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			SignatureScheme* ss = arr$->get(i$);
-			{
-				if ($nc(ss)->id == id) {
-					return ss;
-				}
-			}
+	$var($SignatureSchemeArray, arr$, SignatureScheme::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		SignatureScheme* ss = arr$->get(i$);
+		if ($nc(ss)->id == id) {
+			return ss;
 		}
 	}
 	return nullptr;
@@ -344,40 +246,30 @@ SignatureScheme* SignatureScheme::valueOf(int32_t id) {
 
 $String* SignatureScheme::nameOf(int32_t id) {
 	$init(SignatureScheme);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($SignatureSchemeArray, arr$, SignatureScheme::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			SignatureScheme* ss = arr$->get(i$);
-			{
-				if ($nc(ss)->id == id) {
-					return ss->name$;
-				}
+			if ($nc(ss)->id == id) {
+				return ss->name$;
 			}
 		}
 	}
-	int32_t hashId = ((int32_t)((id >> 8) & (uint32_t)255));
-	int32_t signId = ((int32_t)(id & (uint32_t)255));
-	$var($String, hashName, (hashId >= $nc(SignatureScheme::hashAlgorithms)->length) ? $str({"UNDEFINED-HASH("_s, $$str(hashId), ")"_s}) : $nc(SignatureScheme::hashAlgorithms)->get(hashId));
-	$var($String, signName, (signId >= $nc(SignatureScheme::signatureAlgorithms)->length) ? $str({"UNDEFINED-SIGNATURE("_s, $$str(signId), ")"_s}) : $nc(SignatureScheme::signatureAlgorithms)->get(signId));
+	int32_t hashId = ((id >> 8) & 0xff);
+	int32_t signId = (id & 0xff);
+	$var($String, hashName, (hashId >= SignatureScheme::hashAlgorithms->length) ? $str({"UNDEFINED-HASH("_s, $$str(hashId), ")"_s}) : SignatureScheme::hashAlgorithms->get(hashId));
+	$var($String, signName, (signId >= SignatureScheme::signatureAlgorithms->length) ? $str({"UNDEFINED-SIGNATURE("_s, $$str(signId), ")"_s}) : SignatureScheme::signatureAlgorithms->get(signId));
 	return $str({signName, "_"_s, hashName});
 }
 
 SignatureScheme* SignatureScheme::nameOf($String* signatureSchemeName) {
 	$init(SignatureScheme);
-	{
-		$var($SignatureSchemeArray, arr$, SignatureScheme::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			SignatureScheme* ss = arr$->get(i$);
-			{
-				if ($nc($nc(ss)->name$)->equalsIgnoreCase(signatureSchemeName)) {
-					return ss;
-				}
-			}
+	$var($SignatureSchemeArray, arr$, SignatureScheme::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		SignatureScheme* ss = arr$->get(i$);
+		if ($nc($nc(ss)->name$)->equalsIgnoreCase(signatureSchemeName)) {
+			return ss;
 		}
 	}
 	return nullptr;
@@ -397,9 +289,9 @@ bool SignatureScheme::isPermitted($AlgorithmConstraints* constraints) {
 
 $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $AlgorithmConstraints* constraints, $List* activeProtocols) {
 	$init(SignatureScheme);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, supported, $new($LinkedList));
-	$var($List, schemesToCheck, $nc($nc(config)->signatureSchemes)->isEmpty() ? $Arrays::asList($(SignatureScheme::values())) : $nc(config)->signatureSchemes);
+	$var($List, schemesToCheck, $nc($nc(config)->signatureSchemes)->isEmpty() ? $Arrays::asList($(SignatureScheme::values())) : config->signatureSchemes);
 	{
 		$var($Iterator, i$, $nc(schemesToCheck)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -417,16 +309,14 @@ $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $Algor
 					$var($Iterator, i$, $nc(activeProtocols)->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$ProtocolVersion* pv = $cast($ProtocolVersion, i$->next());
-						{
-							if ($nc($nc(ss)->supportedProtocols)->contains(pv)) {
-								isMatch = true;
-								break;
-							}
+						if ($nc(ss->supportedProtocols)->contains(pv)) {
+							isMatch = true;
+							break;
 						}
 					}
 				}
 				if (isMatch) {
-					if ($nc(ss)->isPermitted(constraints)) {
+					if (ss->isPermitted(constraints)) {
 						supported->add(ss);
 					} else {
 						$init($SSLLogger);
@@ -437,7 +327,7 @@ $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $Algor
 				} else {
 					$init($SSLLogger);
 					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
-						$SSLLogger::finest($$str({"Ignore inactive signature scheme: "_s, $nc(ss)->name$}), $$new($ObjectArray, 0));
+						$SSLLogger::finest($$str({"Ignore inactive signature scheme: "_s, ss->name$}), $$new($ObjectArray, 0));
 					}
 				}
 			}
@@ -448,13 +338,11 @@ $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $Algor
 
 $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $AlgorithmConstraints* constraints, $ProtocolVersion* protocolVersion, $ints* algorithmIds) {
 	$init(SignatureScheme);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, supported, $new($LinkedList));
 	{
 		$var($ints, arr$, algorithmIds);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t ssid = arr$->get(i$);
 			{
 				SignatureScheme* ss = SignatureScheme::valueOf(ssid);
@@ -464,13 +352,13 @@ $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $Algor
 						$SSLLogger::warning($$str({"Unsupported signature scheme: "_s, $(SignatureScheme::nameOf(ssid))}), $$new($ObjectArray, 0));
 					}
 				} else {
-					bool var$4 = $nc(ss)->isAvailable && $nc(ss->supportedProtocols)->contains(protocolVersion);
-					if (var$4) {
-						bool var$5 = $nc($nc(config)->signatureSchemes)->isEmpty();
-						var$4 = (var$5 || $nc($nc(config)->signatureSchemes)->contains(ss));
+					bool var$1 = ss->isAvailable && $nc(ss->supportedProtocols)->contains(protocolVersion);
+					if (var$1) {
+						bool var$2 = $nc($nc(config)->signatureSchemes)->isEmpty();
+						var$1 = var$2 || config->signatureSchemes->contains(ss);
 					}
-					bool var$3 = var$4;
-					if (var$3 && $nc(ss)->isPermitted(constraints)) {
+					bool var$0 = var$1;
+					if (var$0 && ss->isPermitted(constraints)) {
 						supported->add(ss);
 					} else {
 						$init($SSLLogger);
@@ -487,16 +375,14 @@ $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $Algor
 
 SignatureScheme* SignatureScheme::getPreferableAlgorithm($AlgorithmConstraints* constraints, $List* schemes, SignatureScheme* certScheme, $ProtocolVersion* version) {
 	$init(SignatureScheme);
-	{
-		$var($Iterator, i$, $nc(schemes)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			SignatureScheme* ss = $cast(SignatureScheme, i$->next());
-			{
-				bool var$1 = $nc(ss)->isAvailable && $nc(ss->handshakeSupportedProtocols)->contains(version);
-				bool var$0 = var$1 && $nc($nc(certScheme)->keyAlgorithm)->equalsIgnoreCase(ss->keyAlgorithm);
-				if (var$0 && ss->isPermitted(constraints)) {
-					return ss;
-				}
+	$var($Iterator, i$, $nc(schemes)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		SignatureScheme* ss = $cast(SignatureScheme, i$->next());
+		{
+			bool var$1 = $nc(ss)->isAvailable && $nc(ss->handshakeSupportedProtocols)->contains(version);
+			bool var$0 = var$1 && $nc($nc(certScheme)->keyAlgorithm)->equalsIgnoreCase(ss->keyAlgorithm);
+			if (var$0 && ss->isPermitted(constraints)) {
+				return ss;
 			}
 		}
 	}
@@ -505,13 +391,13 @@ SignatureScheme* SignatureScheme::getPreferableAlgorithm($AlgorithmConstraints* 
 
 $Map$Entry* SignatureScheme::getSignerOfPreferableAlgorithm($AlgorithmConstraints* constraints, $List* schemes, $X509Authentication$X509Possession* x509Possession, $ProtocolVersion* version) {
 	$init(SignatureScheme);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrivateKey, signingKey, $nc(x509Possession)->popPrivateKey);
 	$var($String, keyAlgorithm, $nc(signingKey)->getAlgorithm());
 	int32_t keySize = 0;
 	bool var$0 = $nc(keyAlgorithm)->equalsIgnoreCase("RSA"_s);
-	if (var$0 || $nc(keyAlgorithm)->equalsIgnoreCase("RSASSA-PSS"_s)) {
-		keySize = $KeyUtil::getKeySize(static_cast<$Key*>(signingKey));
+	if (var$0 || keyAlgorithm->equalsIgnoreCase("RSASSA-PSS"_s)) {
+		keySize = $KeyUtil::getKeySize(signingKey);
 	} else {
 		keySize = $Integer::MAX_VALUE;
 	}
@@ -521,7 +407,7 @@ $Map$Entry* SignatureScheme::getSignerOfPreferableAlgorithm($AlgorithmConstraint
 			SignatureScheme* ss = $cast(SignatureScheme, i$->next());
 			{
 				bool var$2 = $nc(ss)->isAvailable && (keySize >= ss->minimalKeySize) && $nc(ss->handshakeSupportedProtocols)->contains(version);
-				bool var$1 = var$2 && $nc(keyAlgorithm)->equalsIgnoreCase(ss->keyAlgorithm);
+				bool var$1 = var$2 && keyAlgorithm->equalsIgnoreCase(ss->keyAlgorithm);
 				if (var$1 && ss->isPermitted(constraints)) {
 					$init($NamedGroup$NamedGroupSpec);
 					if ((ss->namedGroup != nullptr) && (ss->namedGroup->spec == $NamedGroup$NamedGroupSpec::NAMED_GROUP_ECDHE)) {
@@ -566,7 +452,7 @@ $Map$Entry* SignatureScheme::getSignerOfPreferableAlgorithm($AlgorithmConstraint
 
 $StringArray* SignatureScheme::getAlgorithmNames($Collection* schemes) {
 	$init(SignatureScheme);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (schemes != nullptr) {
 		$var($ArrayList, names, $new($ArrayList, schemes->size()));
 		{
@@ -578,7 +464,7 @@ $StringArray* SignatureScheme::getAlgorithmNames($Collection* schemes) {
 				}
 			}
 		}
-		return $fcast($StringArray, names->toArray($$new($StringArray, 0)));
+		return $cast($StringArray, names->toArray($$new($StringArray, 0)));
 	}
 	return $new($StringArray, 0);
 }
@@ -593,7 +479,7 @@ $Signature* SignatureScheme::getVerifier($PublicKey* publicKey) {
 }
 
 $Signature* SignatureScheme::getSigner($PrivateKey* privateKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isAvailable) {
 		return nullptr;
 	}
@@ -604,23 +490,23 @@ $Signature* SignatureScheme::getSigner($PrivateKey* privateKey) {
 	} catch ($NoSuchAlgorithmException& nsae) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
-			$SSLLogger::finest($$str({"Ignore unsupported signature algorithm ("_s, this->name$, ")"_s}), $$new($ObjectArray, {$of(nsae)}));
+			$SSLLogger::finest($$str({"Ignore unsupported signature algorithm ("_s, this->name$, ")"_s}), $$new($ObjectArray, {nsae}));
 		}
 	} catch ($InvalidKeyException& nsae) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
-			$SSLLogger::finest($$str({"Ignore unsupported signature algorithm ("_s, this->name$, ")"_s}), $$new($ObjectArray, {$of(nsae)}));
+			$SSLLogger::finest($$str({"Ignore unsupported signature algorithm ("_s, this->name$, ")"_s}), $$new($ObjectArray, {nsae}));
 		}
 	} catch ($InvalidAlgorithmParameterException& nsae) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
-			$SSLLogger::finest($$str({"Ignore unsupported signature algorithm ("_s, this->name$, ")"_s}), $$new($ObjectArray, {$of(nsae)}));
+			$SSLLogger::finest($$str({"Ignore unsupported signature algorithm ("_s, this->name$, ")"_s}), $$new($ObjectArray, {nsae}));
 		}
 	}
 	return nullptr;
 }
 
-void clinit$SignatureScheme($Class* class$) {
+void SignatureScheme::clinit$($Class* clazz) {
 	$init($NamedGroup);
 	$init($ProtocolVersion);
 	$assignStatic(SignatureScheme::ECDSA_SECP256R1_SHA256, $new(SignatureScheme, "ECDSA_SECP256R1_SHA256"_s, 0, 1027, "ecdsa_secp256r1_sha256"_s, "SHA256withECDSA"_s, "EC"_s, $NamedGroup::SECP256_R1, $ProtocolVersion::PROTOCOLS_TO_13));
@@ -670,7 +556,89 @@ SignatureScheme::SignatureScheme() {
 }
 
 $Class* SignatureScheme::load$($String* name, bool initialize) {
-	$loadClass(SignatureScheme, name, initialize, &_SignatureScheme_ClassInfo_, clinit$SignatureScheme, allocate$SignatureScheme);
+	$FieldInfo fieldInfos$$[] = {
+		{"ECDSA_SECP256R1_SHA256", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ECDSA_SECP256R1_SHA256)},
+		{"ECDSA_SECP384R1_SHA384", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ECDSA_SECP384R1_SHA384)},
+		{"ECDSA_SECP521R1_SHA512", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ECDSA_SECP521R1_SHA512)},
+		{"ED25519", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ED25519)},
+		{"ED448", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ED448)},
+		{"RSA_PSS_RSAE_SHA256", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_RSAE_SHA256)},
+		{"RSA_PSS_RSAE_SHA384", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_RSAE_SHA384)},
+		{"RSA_PSS_RSAE_SHA512", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_RSAE_SHA512)},
+		{"RSA_PSS_PSS_SHA256", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_PSS_SHA256)},
+		{"RSA_PSS_PSS_SHA384", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_PSS_SHA384)},
+		{"RSA_PSS_PSS_SHA512", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PSS_PSS_SHA512)},
+		{"RSA_PKCS1_SHA256", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PKCS1_SHA256)},
+		{"RSA_PKCS1_SHA384", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PKCS1_SHA384)},
+		{"RSA_PKCS1_SHA512", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PKCS1_SHA512)},
+		{"DSA_SHA256", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, DSA_SHA256)},
+		{"ECDSA_SHA224", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ECDSA_SHA224)},
+		{"RSA_SHA224", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_SHA224)},
+		{"DSA_SHA224", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, DSA_SHA224)},
+		{"ECDSA_SHA1", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, ECDSA_SHA1)},
+		{"RSA_PKCS1_SHA1", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_PKCS1_SHA1)},
+		{"DSA_SHA1", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, DSA_SHA1)},
+		{"RSA_MD5", "Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme, RSA_MD5)},
+		{"$VALUES", "[Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SignatureScheme, $VALUES)},
+		{"id", "I", nullptr, $FINAL, $field(SignatureScheme, id)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SignatureScheme, name$)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme, algorithm)},
+		{"keyAlgorithm", "Ljava/lang/String;", nullptr, $FINAL, $field(SignatureScheme, keyAlgorithm)},
+		{"signAlgParams", "Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme, signAlgParams)},
+		{"namedGroup", "Lsun/security/ssl/NamedGroup;", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme, namedGroup)},
+		{"minimalKeySize", "I", nullptr, $FINAL, $field(SignatureScheme, minimalKeySize)},
+		{"supportedProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $FINAL, $field(SignatureScheme, supportedProtocols)},
+		{"handshakeSupportedProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $FINAL, $field(SignatureScheme, handshakeSupportedProtocols)},
+		{"isAvailable", "Z", nullptr, $FINAL, $field(SignatureScheme, isAvailable)},
+		{"hashAlgorithms", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureScheme, hashAlgorithms)},
+		{"signatureAlgorithms", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureScheme, signatureAlgorithms)},
+		{"SIGNATURE_PRIMITIVE_SET", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/CryptoPrimitive;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SignatureScheme, SIGNATURE_PRIMITIVE_SET)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SignatureScheme, $values, $SignatureSchemeArray*)},
+		{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Lsun/security/ssl/ProtocolVersion;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(SignatureScheme, init$, void, $String*, int32_t, int32_t, $String*, $String*, $String*, $ProtocolVersionArray*)},
+		{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Lsun/security/ssl/ProtocolVersion;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(SignatureScheme, init$, void, $String*, int32_t, int32_t, $String*, $String*, $String*, int32_t, $ProtocolVersionArray*)},
+		{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;I[Lsun/security/ssl/ProtocolVersion;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;I[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(SignatureScheme, init$, void, $String*, int32_t, int32_t, $String*, $String*, $String*, $SignatureScheme$SigAlgParamSpec*, int32_t, $ProtocolVersionArray*)},
+		{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/NamedGroup;[Lsun/security/ssl/ProtocolVersion;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/NamedGroup;[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(SignatureScheme, init$, void, $String*, int32_t, int32_t, $String*, $String*, $String*, $NamedGroup*, $ProtocolVersionArray*)},
+		{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;Lsun/security/ssl/NamedGroup;I[Lsun/security/ssl/ProtocolVersion;[Lsun/security/ssl/ProtocolVersion;)V", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;Lsun/security/ssl/NamedGroup;I[Lsun/security/ssl/ProtocolVersion;[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(SignatureScheme, init$, void, $String*, int32_t, int32_t, $String*, $String*, $String*, $SignatureScheme$SigAlgParamSpec*, $NamedGroup*, int32_t, $ProtocolVersionArray*, $ProtocolVersionArray*)},
+		{"getAlgorithmNames", "(Ljava/util/Collection;)[Ljava/lang/String;", "(Ljava/util/Collection<Lsun/security/ssl/SignatureScheme;>;)[Ljava/lang/String;", $STATIC, $staticMethod(SignatureScheme, getAlgorithmNames, $StringArray*, $Collection*)},
+		{"getPreferableAlgorithm", "(Ljava/security/AlgorithmConstraints;Ljava/util/List;Lsun/security/ssl/SignatureScheme;Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SignatureScheme;", "(Ljava/security/AlgorithmConstraints;Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;Lsun/security/ssl/SignatureScheme;Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SignatureScheme;", $STATIC, $staticMethod(SignatureScheme, getPreferableAlgorithm, SignatureScheme*, $AlgorithmConstraints*, $List*, SignatureScheme*, $ProtocolVersion*)},
+		{"getSigner", "(Ljava/security/PrivateKey;)Ljava/security/Signature;", nullptr, $PRIVATE, $method(SignatureScheme, getSigner, $Signature*, $PrivateKey*)},
+		{"getSignerOfPreferableAlgorithm", "(Ljava/security/AlgorithmConstraints;Ljava/util/List;Lsun/security/ssl/X509Authentication$X509Possession;Lsun/security/ssl/ProtocolVersion;)Ljava/util/Map$Entry;", "(Ljava/security/AlgorithmConstraints;Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;Lsun/security/ssl/X509Authentication$X509Possession;Lsun/security/ssl/ProtocolVersion;)Ljava/util/Map$Entry<Lsun/security/ssl/SignatureScheme;Ljava/security/Signature;>;", $STATIC, $staticMethod(SignatureScheme, getSignerOfPreferableAlgorithm, $Map$Entry*, $AlgorithmConstraints*, $List*, $X509Authentication$X509Possession*, $ProtocolVersion*)},
+		{"getSupportedAlgorithms", "(Lsun/security/ssl/SSLConfiguration;Ljava/security/AlgorithmConstraints;Ljava/util/List;)Ljava/util/List;", "(Lsun/security/ssl/SSLConfiguration;Ljava/security/AlgorithmConstraints;Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", $STATIC, $staticMethod(SignatureScheme, getSupportedAlgorithms, $List*, $SSLConfiguration*, $AlgorithmConstraints*, $List*)},
+		{"getSupportedAlgorithms", "(Lsun/security/ssl/SSLConfiguration;Ljava/security/AlgorithmConstraints;Lsun/security/ssl/ProtocolVersion;[I)Ljava/util/List;", "(Lsun/security/ssl/SSLConfiguration;Ljava/security/AlgorithmConstraints;Lsun/security/ssl/ProtocolVersion;[I)Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", $STATIC, $staticMethod(SignatureScheme, getSupportedAlgorithms, $List*, $SSLConfiguration*, $AlgorithmConstraints*, $ProtocolVersion*, $ints*)},
+		{"getVerifier", "(Ljava/security/PublicKey;)Ljava/security/Signature;", nullptr, 0, $method(SignatureScheme, getVerifier, $Signature*, $PublicKey*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException,java.security.InvalidKeyException"},
+		{"isPermitted", "(Ljava/security/AlgorithmConstraints;)Z", nullptr, $PRIVATE, $method(SignatureScheme, isPermitted, bool, $AlgorithmConstraints*)},
+		{"nameOf", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SignatureScheme, nameOf, $String*, int32_t)},
+		{"nameOf", "(Ljava/lang/String;)Lsun/security/ssl/SignatureScheme;", nullptr, $STATIC, $staticMethod(SignatureScheme, nameOf, SignatureScheme*, $String*)},
+		{"sizeInRecord", "()I", nullptr, $STATIC, $staticMethod(SignatureScheme, sizeInRecord, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureScheme, valueOf, SignatureScheme*, $String*)},
+		{"valueOf", "(I)Lsun/security/ssl/SignatureScheme;", nullptr, $STATIC, $staticMethod(SignatureScheme, valueOf, SignatureScheme*, int32_t)},
+		{"values", "()[Lsun/security/ssl/SignatureScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureScheme, values, $SignatureSchemeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SignatureScheme$SigAlgParamSpec", "sun.security.ssl.SignatureScheme", "SigAlgParamSpec", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.SignatureScheme",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/SignatureScheme;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SignatureScheme$SigAlgParamSpec"
+	};
+	$loadClass(SignatureScheme, name, initialize, &classInfo$$, SignatureScheme::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SignatureScheme));
+	});
 	return class$;
 }
 

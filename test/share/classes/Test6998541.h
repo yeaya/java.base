@@ -34,6 +34,7 @@ class $export Test6998541 : public ::java::lang::Object {
 	$class(Test6998541, 0, ::java::lang::Object)
 public:
 	Test6998541();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void assertEquals(Object$* o, Object$* o2);
 	static void boolean2prim(bool x);

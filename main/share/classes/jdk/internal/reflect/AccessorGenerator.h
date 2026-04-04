@@ -34,6 +34,7 @@ class AccessorGenerator : public ::jdk::internal::reflect::ClassFileConstants {
 	$class(AccessorGenerator, 0, ::jdk::internal::reflect::ClassFileConstants)
 public:
 	AccessorGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int16_t add(int16_t s1, int16_t s2);
 	virtual int16_t boxingMethodForPrimitiveType($Class* type);

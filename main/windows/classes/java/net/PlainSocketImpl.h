@@ -32,6 +32,7 @@ class PlainSocketImpl : public ::java::net::AbstractPlainSocketImpl {
 	$class(PlainSocketImpl, 0, ::java::net::AbstractPlainSocketImpl)
 public:
 	PlainSocketImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool isServer);
 	static int32_t accept0(int32_t fd, $Array<::java::net::InetSocketAddress>* isaa);
 	static int32_t available0(int32_t fd);

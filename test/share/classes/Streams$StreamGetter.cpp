@@ -1,5 +1,4 @@
 #include <Streams$StreamGetter.h>
-
 #include <Streams.h>
 #include <java/io/IOException.h>
 #include <java/net/Socket.h>
@@ -14,44 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Socket = ::java::net::Socket;
-using $Phaser = ::java::util::concurrent::Phaser;
-
-$FieldInfo _Streams$StreamGetter_FieldInfo_[] = {
-	{"socket", "Ljava/net/Socket;", nullptr, $FINAL, $field(Streams$StreamGetter, socket)},
-	{}
-};
-
-$MethodInfo _Streams$StreamGetter_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/Socket;)V", nullptr, 0, $method(Streams$StreamGetter, init$, void, $Socket*)},
-	{"getStream", "()V", nullptr, $ABSTRACT, $virtualMethod(Streams$StreamGetter, getStream, void), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Streams$StreamGetter, run, void)},
-	{}
-};
-
-$InnerClassInfo _Streams$StreamGetter_InnerClassesInfo_[] = {
-	{"Streams$StreamGetter", "Streams", "StreamGetter", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Streams$StreamGetter_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"Streams$StreamGetter",
-	"java.lang.Thread",
-	nullptr,
-	_Streams$StreamGetter_FieldInfo_,
-	_Streams$StreamGetter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Streams$StreamGetter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Streams"
-};
-
-$Object* allocate$Streams$StreamGetter($Class* clazz) {
-	return $of($alloc(Streams$StreamGetter));
-}
 
 void Streams$StreamGetter::init$($Socket* s) {
 	$Thread::init$();
@@ -75,7 +36,38 @@ Streams$StreamGetter::Streams$StreamGetter() {
 }
 
 $Class* Streams$StreamGetter::load$($String* name, bool initialize) {
-	$loadClass(Streams$StreamGetter, name, initialize, &_Streams$StreamGetter_ClassInfo_, allocate$Streams$StreamGetter);
+	$FieldInfo fieldInfos$$[] = {
+		{"socket", "Ljava/net/Socket;", nullptr, $FINAL, $field(Streams$StreamGetter, socket)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/Socket;)V", nullptr, 0, $method(Streams$StreamGetter, init$, void, $Socket*)},
+		{"getStream", "()V", nullptr, $ABSTRACT, $virtualMethod(Streams$StreamGetter, getStream, void), "java.io.IOException"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Streams$StreamGetter, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Streams$StreamGetter", "Streams", "StreamGetter", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"Streams$StreamGetter",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Streams"
+	};
+	$loadClass(Streams$StreamGetter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Streams$StreamGetter);
+	});
 	return class$;
 }
 

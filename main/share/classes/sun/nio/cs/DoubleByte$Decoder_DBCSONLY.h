@@ -24,6 +24,7 @@ class $export DoubleByte$Decoder_DBCSONLY : public ::sun::nio::cs::DoubleByte$De
 public:
 	DoubleByte$Decoder_DBCSONLY();
 	using ::sun::nio::cs::DoubleByte$Decoder::decode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs, $Array<char16_t, 2>* b2c, $chars* b2cSB, int32_t b2Min, int32_t b2Max, bool isASCIICompatible);
 	void init$(::java::nio::charset::Charset* cs, $Array<char16_t, 2>* b2c, $chars* b2cSB, int32_t b2Min, int32_t b2Max);
 	virtual ::java::nio::charset::CoderResult* crMalformedOrUnmappable(int32_t b1, int32_t b2) override;

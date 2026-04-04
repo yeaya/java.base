@@ -1,5 +1,4 @@
 #include <p2/internal/X.h>
-
 #include <jcpp.h>
 
 #undef X
@@ -10,24 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace p2 {
 	namespace internal {
 
-$MethodInfo _X_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X, init$, void)},
-	{}
-};
-
-$ClassInfo _X_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"p2.internal.X",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_X_MethodInfo_
-};
-
-$Object* allocate$X($Class* clazz) {
-	return $of($alloc(X));
-}
-
 void X::init$() {
 }
 
@@ -35,7 +16,21 @@ X::X() {
 }
 
 $Class* X::load$($String* name, bool initialize) {
-	$loadClass(X, name, initialize, &_X_ClassInfo_, allocate$X);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"p2.internal.X",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(X, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X);
+	});
 	return class$;
 }
 

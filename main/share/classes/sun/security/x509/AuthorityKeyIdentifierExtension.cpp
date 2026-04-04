@@ -1,5 +1,4 @@
 #include <sun/security/x509/AuthorityKeyIdentifierExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -33,7 +32,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
@@ -46,54 +44,6 @@ using $SerialNumber = ::sun::security::x509::SerialNumber;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _AuthorityKeyIdentifierExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityKeyIdentifierExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityKeyIdentifierExtension, NAME)},
-	{"KEY_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityKeyIdentifierExtension, KEY_ID)},
-	{"AUTH_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityKeyIdentifierExtension, AUTH_NAME)},
-	{"SERIAL_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityKeyIdentifierExtension, SERIAL_NUMBER)},
-	{"TAG_ID", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthorityKeyIdentifierExtension, TAG_ID)},
-	{"TAG_NAMES", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthorityKeyIdentifierExtension, TAG_NAMES)},
-	{"TAG_SERIAL_NUM", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthorityKeyIdentifierExtension, TAG_SERIAL_NUM)},
-	{"id", "Lsun/security/x509/KeyIdentifier;", nullptr, $PRIVATE, $field(AuthorityKeyIdentifierExtension, id)},
-	{"names", "Lsun/security/x509/GeneralNames;", nullptr, $PRIVATE, $field(AuthorityKeyIdentifierExtension, names)},
-	{"serialNum", "Lsun/security/x509/SerialNumber;", nullptr, $PRIVATE, $field(AuthorityKeyIdentifierExtension, serialNum)},
-	{}
-};
-
-$MethodInfo _AuthorityKeyIdentifierExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/security/x509/KeyIdentifier;Lsun/security/x509/GeneralNames;Lsun/security/x509/SerialNumber;)V", nullptr, $PUBLIC, $method(AuthorityKeyIdentifierExtension, init$, void, $KeyIdentifier*, $GeneralNames*, $SerialNumber*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AuthorityKeyIdentifierExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(AuthorityKeyIdentifierExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, getElements, $Enumeration*)},
-	{"getEncodedKeyIdentifier", "()[B", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, getEncodedKeyIdentifier, $bytes*), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AuthorityKeyIdentifierExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.AuthorityKeyIdentifierExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_AuthorityKeyIdentifierExtension_FieldInfo_,
-	_AuthorityKeyIdentifierExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$AuthorityKeyIdentifierExtension($Class* clazz) {
-	return $of($alloc(AuthorityKeyIdentifierExtension));
-}
 
 int32_t AuthorityKeyIdentifierExtension::hashCode() {
 	 return this->$Extension::hashCode();
@@ -118,7 +68,7 @@ $String* AuthorityKeyIdentifierExtension::AUTH_NAME = nullptr;
 $String* AuthorityKeyIdentifierExtension::SERIAL_NUMBER = nullptr;
 
 void AuthorityKeyIdentifierExtension::encodeThis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->id == nullptr && this->names == nullptr && this->serialNum == nullptr) {
 		$set(this, extensionValue, nullptr);
 		return;
@@ -127,13 +77,13 @@ void AuthorityKeyIdentifierExtension::encodeThis() {
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->id != nullptr) {
 		$var($DerOutputStream, tmp1, $new($DerOutputStream));
-		$nc(this->id)->encode(tmp1);
+		this->id->encode(tmp1);
 		tmp->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, false, AuthorityKeyIdentifierExtension::TAG_ID), tmp1);
 	}
 	try {
 		if (this->names != nullptr) {
 			$var($DerOutputStream, tmp1, $new($DerOutputStream));
-			$nc(this->names)->encode(tmp1);
+			this->names->encode(tmp1);
 			tmp->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, AuthorityKeyIdentifierExtension::TAG_NAMES), tmp1);
 		}
 	} catch ($Exception& e) {
@@ -141,7 +91,7 @@ void AuthorityKeyIdentifierExtension::encodeThis() {
 	}
 	if (this->serialNum != nullptr) {
 		$var($DerOutputStream, tmp1, $new($DerOutputStream));
-		$nc(this->serialNum)->encode(tmp1);
+		this->serialNum->encode(tmp1);
 		tmp->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, false, AuthorityKeyIdentifierExtension::TAG_SERIAL_NUM), tmp1);
 	}
 	seq->write($DerValue::tag_Sequence, tmp);
@@ -163,7 +113,7 @@ void AuthorityKeyIdentifierExtension::init$($KeyIdentifier* kid, $GeneralNames* 
 }
 
 void AuthorityKeyIdentifierExtension::init$($Boolean* critical, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$();
 	$set(this, id, nullptr);
 	$set(this, names, nullptr);
@@ -176,8 +126,8 @@ void AuthorityKeyIdentifierExtension::init$($Boolean* critical, Object$* value) 
 	if (val->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding for AuthorityKeyIdentifierExtension."_s);
 	}
-	while ((val->data$ != nullptr) && ($nc(val->data$)->available() != 0)) {
-		$var($DerValue, opt, $nc(val->data$)->getDerValue());
+	while ((val->data$ != nullptr) && (val->data$->available() != 0)) {
+		$var($DerValue, opt, val->data$->getDerValue());
 		bool var$0 = $nc(opt)->isContextSpecific(AuthorityKeyIdentifierExtension::TAG_ID);
 		if (var$0 && !opt->isConstructed()) {
 			if (this->id != nullptr) {
@@ -186,16 +136,16 @@ void AuthorityKeyIdentifierExtension::init$($Boolean* critical, Object$* value) 
 			opt->resetTag($DerValue::tag_OctetString);
 			$set(this, id, $new($KeyIdentifier, opt));
 		} else {
-			bool var$2 = opt->isContextSpecific(AuthorityKeyIdentifierExtension::TAG_NAMES);
-			if (var$2 && opt->isConstructed()) {
+			bool var$1 = opt->isContextSpecific(AuthorityKeyIdentifierExtension::TAG_NAMES);
+			if (var$1 && opt->isConstructed()) {
 				if (this->names != nullptr) {
 					$throwNew($IOException, "Duplicate GeneralNames in AuthorityKeyIdentifier."_s);
 				}
 				opt->resetTag($DerValue::tag_Sequence);
 				$set(this, names, $new($GeneralNames, opt));
 			} else {
-				bool var$4 = opt->isContextSpecific(AuthorityKeyIdentifierExtension::TAG_SERIAL_NUM);
-				if (var$4 && !opt->isConstructed()) {
+				bool var$2 = opt->isContextSpecific(AuthorityKeyIdentifierExtension::TAG_SERIAL_NUM);
+				if (var$2 && !opt->isConstructed()) {
 					if (this->serialNum != nullptr) {
 						$throwNew($IOException, "Duplicate SerialNumber in AuthorityKeyIdentifier."_s);
 					}
@@ -210,24 +160,24 @@ void AuthorityKeyIdentifierExtension::init$($Boolean* critical, Object$* value) 
 }
 
 $String* AuthorityKeyIdentifierExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("AuthorityKeyIdentifier [\n"_s);
 	if (this->id != nullptr) {
-		sb->append($of(this->id));
+		sb->append(this->id);
 	}
 	if (this->names != nullptr) {
-		sb->append($of(this->names))->append(u'\n');
+		sb->append(this->names)->append(u'\n');
 	}
 	if (this->serialNum != nullptr) {
-		sb->append($of(this->serialNum))->append(u'\n');
+		sb->append(this->serialNum)->append(u'\n');
 	}
 	sb->append("]\n"_s);
 	return sb->toString();
 }
 
 void AuthorityKeyIdentifierExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -263,11 +213,11 @@ void AuthorityKeyIdentifierExtension::set($String* name, Object$* obj) {
 
 $Object* AuthorityKeyIdentifierExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(AuthorityKeyIdentifierExtension::KEY_ID)) {
-		return $of((this->id));
+		return (this->id);
 	} else if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::AUTH_NAME)) {
-		return $of((this->names));
+		return (this->names);
 	} else if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::SERIAL_NUMBER)) {
-		return $of((this->serialNum));
+		return (this->serialNum);
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:AuthorityKeyIdentifier."_s);
 	}
@@ -301,7 +251,7 @@ $String* AuthorityKeyIdentifierExtension::getName() {
 $bytes* AuthorityKeyIdentifierExtension::getEncodedKeyIdentifier() {
 	if (this->id != nullptr) {
 		$var($DerOutputStream, derOut, $new($DerOutputStream));
-		$nc(this->id)->encode(derOut);
+		this->id->encode(derOut);
 		return derOut->toByteArray();
 	}
 	return nullptr;
@@ -310,7 +260,7 @@ $bytes* AuthorityKeyIdentifierExtension::getEncodedKeyIdentifier() {
 AuthorityKeyIdentifierExtension::AuthorityKeyIdentifierExtension() {
 }
 
-void clinit$AuthorityKeyIdentifierExtension($Class* class$) {
+void AuthorityKeyIdentifierExtension::clinit$($Class* clazz) {
 	$assignStatic(AuthorityKeyIdentifierExtension::IDENT, "x509.info.extensions.AuthorityKeyIdentifier"_s);
 	$assignStatic(AuthorityKeyIdentifierExtension::NAME, "AuthorityKeyIdentifier"_s);
 	$assignStatic(AuthorityKeyIdentifierExtension::KEY_ID, "key_id"_s);
@@ -319,7 +269,50 @@ void clinit$AuthorityKeyIdentifierExtension($Class* class$) {
 }
 
 $Class* AuthorityKeyIdentifierExtension::load$($String* name, bool initialize) {
-	$loadClass(AuthorityKeyIdentifierExtension, name, initialize, &_AuthorityKeyIdentifierExtension_ClassInfo_, clinit$AuthorityKeyIdentifierExtension, allocate$AuthorityKeyIdentifierExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityKeyIdentifierExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityKeyIdentifierExtension, NAME)},
+		{"KEY_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityKeyIdentifierExtension, KEY_ID)},
+		{"AUTH_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityKeyIdentifierExtension, AUTH_NAME)},
+		{"SERIAL_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityKeyIdentifierExtension, SERIAL_NUMBER)},
+		{"TAG_ID", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthorityKeyIdentifierExtension, TAG_ID)},
+		{"TAG_NAMES", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthorityKeyIdentifierExtension, TAG_NAMES)},
+		{"TAG_SERIAL_NUM", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthorityKeyIdentifierExtension, TAG_SERIAL_NUM)},
+		{"id", "Lsun/security/x509/KeyIdentifier;", nullptr, $PRIVATE, $field(AuthorityKeyIdentifierExtension, id)},
+		{"names", "Lsun/security/x509/GeneralNames;", nullptr, $PRIVATE, $field(AuthorityKeyIdentifierExtension, names)},
+		{"serialNum", "Lsun/security/x509/SerialNumber;", nullptr, $PRIVATE, $field(AuthorityKeyIdentifierExtension, serialNum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lsun/security/x509/KeyIdentifier;Lsun/security/x509/GeneralNames;Lsun/security/x509/SerialNumber;)V", nullptr, $PUBLIC, $method(AuthorityKeyIdentifierExtension, init$, void, $KeyIdentifier*, $GeneralNames*, $SerialNumber*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AuthorityKeyIdentifierExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(AuthorityKeyIdentifierExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, getElements, $Enumeration*)},
+		{"getEncodedKeyIdentifier", "()[B", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, getEncodedKeyIdentifier, $bytes*), "java.io.IOException"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorityKeyIdentifierExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.AuthorityKeyIdentifierExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(AuthorityKeyIdentifierExtension, name, initialize, &classInfo$$, AuthorityKeyIdentifierExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AuthorityKeyIdentifierExtension));
+	});
 	return class$;
 }
 

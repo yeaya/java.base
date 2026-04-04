@@ -9,6 +9,7 @@ class x123 : public ::java::lang::Object {
 	$class(x123, 0, ::java::lang::Object)
 public:
 	x123();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 };
 

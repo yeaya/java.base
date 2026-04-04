@@ -32,6 +32,7 @@ class MemberName$Factory : public ::java::lang::Object {
 	$class(MemberName$Factory, $PRELOAD, ::java::lang::Object)
 public:
 	MemberName$Factory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::List* getConstructors($Class* defc, $Class* lookupClass);
 	virtual ::java::util::List* getFields($Class* defc, bool searchSupers, $Class* lookupClass);

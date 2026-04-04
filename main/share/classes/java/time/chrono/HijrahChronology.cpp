@@ -1,5 +1,4 @@
 #include <java/time/chrono/HijrahChronology.h>
-
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -7,7 +6,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
@@ -44,7 +42,6 @@
 #include <java/time/format/ResolverStyle.h>
 #include <java/time/temporal/ChronoField.h>
 #include <java/time/temporal/TemporalAccessor.h>
-#include <java/time/temporal/TemporalField.h>
 #include <java/time/temporal/ValueRange.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
@@ -85,7 +82,6 @@ using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $Serializable = ::java::io::Serializable;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -102,12 +98,10 @@ using $RuntimePermission = ::java::lang::RuntimePermission;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Files = ::java::nio::file::Files;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Clock = ::java::time::Clock;
 using $DateTimeException = ::java::time::DateTimeException;
@@ -118,7 +112,6 @@ using $AbstractChronology = ::java::time::chrono::AbstractChronology;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
 using $ChronoZonedDateTime = ::java::time::chrono::ChronoZonedDateTime;
-using $Chronology = ::java::time::chrono::Chronology;
 using $Era = ::java::time::chrono::Era;
 using $HijrahChronology$1 = ::java::time::chrono::HijrahChronology$1;
 using $HijrahDate = ::java::time::chrono::HijrahDate;
@@ -126,7 +119,6 @@ using $HijrahEra = ::java::time::chrono::HijrahEra;
 using $ResolverStyle = ::java::time::format::ResolverStyle;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
-using $TemporalField = ::java::time::temporal::TemporalField;
 using $ValueRange = ::java::time::temporal::ValueRange;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
@@ -135,11 +127,9 @@ using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Properties = ::java::util::Properties;
-using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace java {
@@ -153,35 +143,31 @@ public:
 		$set(this, resourceName, resourceName);
 	}
 	virtual $Object* run() override {
-		 return $of(HijrahChronology::lambda$readConfigProperties$1(resourceName));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HijrahChronology$$Lambda$lambda$readConfigProperties$1>());
+		 return HijrahChronology::lambda$readConfigProperties$1(resourceName);
 	}
 	$String* resourceName = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HijrahChronology$$Lambda$lambda$readConfigProperties$1::fieldInfos[2] = {
-	{"resourceName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HijrahChronology$$Lambda$lambda$readConfigProperties$1, resourceName)},
-	{}
-};
-$MethodInfo HijrahChronology$$Lambda$lambda$readConfigProperties$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$readConfigProperties$1, init$, void, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$readConfigProperties$1, run, $Object*)},
-	{}
-};
-$ClassInfo HijrahChronology$$Lambda$lambda$readConfigProperties$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.chrono.HijrahChronology$$Lambda$lambda$readConfigProperties$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* HijrahChronology$$Lambda$lambda$readConfigProperties$1::load$($String* name, bool initialize) {
-	$loadClass(HijrahChronology$$Lambda$lambda$readConfigProperties$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"resourceName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HijrahChronology$$Lambda$lambda$readConfigProperties$1, resourceName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$readConfigProperties$1, init$, void, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$readConfigProperties$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.chrono.HijrahChronology$$Lambda$lambda$readConfigProperties$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HijrahChronology$$Lambda$lambda$readConfigProperties$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HijrahChronology$$Lambda$lambda$readConfigProperties$1);
+	});
 	return class$;
 }
 $Class* HijrahChronology$$Lambda$lambda$readConfigProperties$1::class$ = nullptr;
@@ -193,35 +179,31 @@ public:
 		$set(this, resourceName, resourceName);
 	}
 	virtual $Object* run() override {
-		 return $of(HijrahChronology::lambda$readConfigProperties$2(resourceName));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HijrahChronology$$Lambda$lambda$readConfigProperties$2$1>());
+		 return HijrahChronology::lambda$readConfigProperties$2(resourceName);
 	}
 	$String* resourceName = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HijrahChronology$$Lambda$lambda$readConfigProperties$2$1::fieldInfos[2] = {
-	{"resourceName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1, resourceName)},
-	{}
-};
-$MethodInfo HijrahChronology$$Lambda$lambda$readConfigProperties$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1, init$, void, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1, run, $Object*)},
-	{}
-};
-$ClassInfo HijrahChronology$$Lambda$lambda$readConfigProperties$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.chrono.HijrahChronology$$Lambda$lambda$readConfigProperties$2$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* HijrahChronology$$Lambda$lambda$readConfigProperties$2$1::load$($String* name, bool initialize) {
-	$loadClass(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"resourceName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1, resourceName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1, init$, void, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.chrono.HijrahChronology$$Lambda$lambda$readConfigProperties$2$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1);
+	});
 	return class$;
 }
 $Class* HijrahChronology$$Lambda$lambda$readConfigProperties$2$1::class$ = nullptr;
@@ -232,29 +214,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(HijrahChronology::lambda$registerCustomChrono$7());
+		 return HijrahChronology::lambda$registerCustomChrono$7();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2, run, $Object*)},
-	{}
-};
-$ClassInfo HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2::load$($String* name, bool initialize) {
-	$loadClass(HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2);
+	});
 	return class$;
 }
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2::class$ = nullptr;
@@ -267,27 +246,24 @@ public:
 	virtual $Object* apply(Object$* p) override {
 		 return $of(HijrahChronology::lambda$registerCustomChrono$3($cast($Path, p)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3::load$($String* name, bool initialize) {
-	$loadClass(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3);
+	});
 	return class$;
 }
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3::class$ = nullptr;
@@ -300,27 +276,24 @@ public:
 	virtual bool test(Object$* fn) override {
 		 return HijrahChronology::lambda$registerCustomChrono$4($cast($String, fn));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4, test, bool, Object$*)},
-	{}
-};
-$ClassInfo HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4::load$($String* name, bool initialize) {
-	$loadClass(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4);
+	});
 	return class$;
 }
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4::class$ = nullptr;
@@ -333,27 +306,24 @@ public:
 	virtual $Object* apply(Object$* fn) override {
 		 return $of(HijrahChronology::lambda$registerCustomChrono$5($cast($String, fn)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5::load$($String* name, bool initialize) {
-	$loadClass(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5);
+	});
 	return class$;
 }
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5::class$ = nullptr;
@@ -366,27 +336,24 @@ public:
 	virtual void accept(Object$* idtype) override {
 		HijrahChronology::lambda$registerCustomChrono$6($cast($String, idtype));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6, accept, void, Object$*)},
-	{}
-};
-$ClassInfo HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6::load$($String* name, bool initialize) {
-	$loadClass(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6);
+	});
 	return class$;
 }
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6::class$ = nullptr;
@@ -399,146 +366,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(HijrahChronology::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HijrahChronology$$Lambda$lambda$static$0$7>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HijrahChronology$$Lambda$lambda$static$0$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$static$0$7, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$static$0$7, run, $Object*)},
-	{}
-};
-$ClassInfo HijrahChronology$$Lambda$lambda$static$0$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.chrono.HijrahChronology$$Lambda$lambda$static$0$7",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* HijrahChronology$$Lambda$lambda$static$0$7::load$($String* name, bool initialize) {
-	$loadClass(HijrahChronology$$Lambda$lambda$static$0$7, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HijrahChronology$$Lambda$lambda$static$0$7, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology$$Lambda$lambda$static$0$7, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.chrono.HijrahChronology$$Lambda$lambda$static$0$7",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HijrahChronology$$Lambda$lambda$static$0$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HijrahChronology$$Lambda$lambda$static$0$7);
+	});
 	return class$;
 }
 $Class* HijrahChronology$$Lambda$lambda$static$0$7::class$ = nullptr;
-
-$FieldInfo _HijrahChronology_FieldInfo_[] = {
-	{"typeId", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(HijrahChronology, typeId)},
-	{"calendarType", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(HijrahChronology, calendarType)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HijrahChronology, serialVersionUID)},
-	{"INSTANCE", "Ljava/time/chrono/HijrahChronology;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HijrahChronology, INSTANCE)},
-	{"initComplete", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(HijrahChronology, initComplete)},
-	{"hijrahEpochMonthStartDays", "[I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, hijrahEpochMonthStartDays)},
-	{"minEpochDay", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, minEpochDay)},
-	{"maxEpochDay", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, maxEpochDay)},
-	{"hijrahStartEpochMonth", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, hijrahStartEpochMonth)},
-	{"minMonthLength", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, minMonthLength)},
-	{"maxMonthLength", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, maxMonthLength)},
-	{"minYearLength", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, minYearLength)},
-	{"maxYearLength", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, maxYearLength)},
-	{"RESOURCE_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, RESOURCE_PREFIX)},
-	{"RESOURCE_SUFFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, RESOURCE_SUFFIX)},
-	{"KEY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, KEY_ID)},
-	{"KEY_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, KEY_TYPE)},
-	{"KEY_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, KEY_VERSION)},
-	{"KEY_ISO_START", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, KEY_ISO_START)},
-	{"CONF_PATH", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, CONF_PATH)},
-	{}
-};
-
-$MethodInfo _HijrahChronology_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HijrahChronology, init$, void, $String*, $String*)},
-	{"checkCalendarInit", "()V", nullptr, $PRIVATE, $method(HijrahChronology, checkCalendarInit, void)},
-	{"checkValidDayOfYear", "(I)V", nullptr, 0, $method(HijrahChronology, checkValidDayOfYear, void, int32_t)},
-	{"checkValidMonth", "(I)V", nullptr, 0, $method(HijrahChronology, checkValidMonth, void, int32_t)},
-	{"checkValidYear", "(J)I", nullptr, 0, $method(HijrahChronology, checkValidYear, int32_t, int64_t)},
-	{"createEpochMonths", "(IIILjava/util/Map;)[I", "(IIILjava/util/Map<Ljava/lang/Integer;[I>;)[I", $PRIVATE, $method(HijrahChronology, createEpochMonths, $ints*, int32_t, int32_t, int32_t, $Map*)},
-	{"date", "(Ljava/time/chrono/Era;III)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, date, $ChronoLocalDate*, $Era*, int32_t, int32_t, int32_t)},
-	{"date", "(III)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, date, $ChronoLocalDate*, int32_t, int32_t, int32_t)},
-	{"date", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, date, $ChronoLocalDate*, $TemporalAccessor*)},
-	{"dateEpochDay", "(J)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateEpochDay, $ChronoLocalDate*, int64_t)},
-	{"dateNow", "()Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateNow, $ChronoLocalDate*)},
-	{"dateNow", "(Ljava/time/ZoneId;)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateNow, $ChronoLocalDate*, $ZoneId*)},
-	{"dateNow", "(Ljava/time/Clock;)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateNow, $ChronoLocalDate*, $Clock*)},
-	{"dateYearDay", "(Ljava/time/chrono/Era;II)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateYearDay, $ChronoLocalDate*, $Era*, int32_t, int32_t)},
-	{"dateYearDay", "(II)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateYearDay, $ChronoLocalDate*, int32_t, int32_t)},
-	{"epochDayToEpochMonth", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, epochDayToEpochMonth, int32_t, int32_t)},
-	{"epochMonthLength", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, epochMonthLength, int32_t, int32_t)},
-	{"epochMonthToEpochDay", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, epochMonthToEpochDay, int32_t, int32_t)},
-	{"epochMonthToMonth", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, epochMonthToMonth, int32_t, int32_t)},
-	{"epochMonthToYear", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, epochMonthToYear, int32_t, int32_t)},
-	{"eraOf", "(I)Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, eraOf, $Era*, int32_t)},
-	{"eras", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/chrono/Era;>;", $PUBLIC, $virtualMethod(HijrahChronology, eras, $List*)},
-	{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, getCalendarType, $String*)},
-	{"getDayOfYear", "(II)I", nullptr, 0, $method(HijrahChronology, getDayOfYear, int32_t, int32_t, int32_t)},
-	{"getEpochDay", "(III)J", nullptr, 0, $method(HijrahChronology, getEpochDay, int64_t, int32_t, int32_t, int32_t)},
-	{"getHijrahDateInfo", "(I)[I", nullptr, 0, $method(HijrahChronology, getHijrahDateInfo, $ints*, int32_t)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, getId, $String*)},
-	{"getMaximumDayOfYear", "()I", nullptr, 0, $method(HijrahChronology, getMaximumDayOfYear, int32_t)},
-	{"getMaximumMonthLength", "()I", nullptr, 0, $method(HijrahChronology, getMaximumMonthLength, int32_t)},
-	{"getMaximumYear", "()I", nullptr, 0, $method(HijrahChronology, getMaximumYear, int32_t)},
-	{"getMinimumMonthLength", "()I", nullptr, 0, $method(HijrahChronology, getMinimumMonthLength, int32_t)},
-	{"getMinimumYear", "()I", nullptr, 0, $method(HijrahChronology, getMinimumYear, int32_t)},
-	{"getMonthLength", "(II)I", nullptr, 0, $method(HijrahChronology, getMonthLength, int32_t, int32_t, int32_t)},
-	{"getSmallestMaximumDayOfYear", "()I", nullptr, 0, $method(HijrahChronology, getSmallestMaximumDayOfYear, int32_t)},
-	{"getYearLength", "(I)I", nullptr, 0, $method(HijrahChronology, getYearLength, int32_t, int32_t)},
-	{"isLeapYear", "(J)Z", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, isLeapYear, bool, int64_t)},
-	{"lambda$readConfigProperties$1", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$readConfigProperties$1, $InputStream*, $String*)},
-	{"lambda$readConfigProperties$2", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$readConfigProperties$2, $InputStream*, $String*)},
-	{"lambda$registerCustomChrono$3", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$registerCustomChrono$3, $String*, $Path*)},
-	{"lambda$registerCustomChrono$4", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$registerCustomChrono$4, bool, $String*)},
-	{"lambda$registerCustomChrono$5", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$registerCustomChrono$5, $String*, $String*)},
-	{"lambda$registerCustomChrono$6", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$registerCustomChrono$6, void, $String*)},
-	{"lambda$registerCustomChrono$7", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$registerCustomChrono$7, $Void*)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$static$0, $String*)},
-	{"loadCalendarData", "()V", nullptr, $PRIVATE, $method(HijrahChronology, loadCalendarData, void)},
-	{"localDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime<Ljava/time/chrono/HijrahDate;>;", $PUBLIC, $virtualMethod(HijrahChronology, localDateTime, $ChronoLocalDateTime*, $TemporalAccessor*)},
-	{"parseMonths", "(Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(HijrahChronology, parseMonths, $ints*, $String*)},
-	{"parseYMD", "(Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(HijrahChronology, parseYMD, $ints*, $String*)},
-	{"prolepticYear", "(Ljava/time/chrono/Era;I)I", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, prolepticYear, int32_t, $Era*, int32_t)},
-	{"range", "(Ljava/time/temporal/ChronoField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, range, $ValueRange*, $ChronoField*)},
-	{"readConfigProperties", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticMethod(HijrahChronology, readConfigProperties, $Properties*, $String*, $String*), "java.lang.Exception"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(HijrahChronology, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"registerCustomChrono", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HijrahChronology, registerCustomChrono, void)},
-	{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/HijrahDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/HijrahDate;", $PUBLIC, $virtualMethod(HijrahChronology, resolveDate, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(HijrahChronology, writeReplace, $Object*)},
-	{"yearMonthToDayOfYear", "(II)I", nullptr, $PRIVATE, $method(HijrahChronology, yearMonthToDayOfYear, int32_t, int32_t, int32_t)},
-	{"yearToEpochMonth", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, yearToEpochMonth, int32_t, int32_t)},
-	{"zonedDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/HijrahDate;>;", $PUBLIC, $virtualMethod(HijrahChronology, zonedDateTime, $ChronoZonedDateTime*, $TemporalAccessor*)},
-	{"zonedDateTime", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/HijrahDate;>;", $PUBLIC, $virtualMethod(HijrahChronology, zonedDateTime, $ChronoZonedDateTime*, $Instant*, $ZoneId*)},
-	{}
-};
-
-$InnerClassInfo _HijrahChronology_InnerClassesInfo_[] = {
-	{"java.time.chrono.HijrahChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _HijrahChronology_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.chrono.HijrahChronology",
-	"java.time.chrono.AbstractChronology",
-	"java.io.Serializable",
-	_HijrahChronology_FieldInfo_,
-	_HijrahChronology_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HijrahChronology_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.time.chrono.HijrahChronology$1"
-};
-
-$Object* allocate$HijrahChronology($Class* clazz) {
-	return $of($alloc(HijrahChronology));
-}
 
 bool HijrahChronology::equals(Object$* obj) {
 	 return this->$AbstractChronology::equals(obj);
@@ -609,12 +457,12 @@ $ChronoLocalDate* HijrahChronology::dateYearDay($Era* era, int32_t yearOfEra, in
 }
 
 $ChronoLocalDate* HijrahChronology::dateYearDay(int32_t prolepticYear, int32_t dayOfYear) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HijrahDate, date, $HijrahDate::of(this, prolepticYear, 1, 1));
 	if (dayOfYear > $nc(date)->lengthOfYear()) {
 		$throwNew($DateTimeException, $$str({"Invalid dayOfYear: "_s, $$str(dayOfYear)}));
 	}
-	return $nc(date)->plusDays(dayOfYear - 1);
+	return date->plusDays(dayOfYear - 1);
 }
 
 $ChronoLocalDate* HijrahChronology::dateEpochDay(int64_t epochDay) {
@@ -673,14 +521,10 @@ int32_t HijrahChronology::prolepticYear($Era* era, int32_t yearOfEra) {
 $Era* HijrahChronology::eraOf(int32_t eraValue) {
 	switch (eraValue) {
 	case 1:
-		{
-			$init($HijrahEra);
-			return $HijrahEra::AH;
-		}
+		$init($HijrahEra);
+		return $HijrahEra::AH;
 	default:
-		{
-			$throwNew($DateTimeException, "invalid Hijrah era"_s);
-		}
+		$throwNew($DateTimeException, "invalid Hijrah era"_s);
 	}
 }
 
@@ -693,35 +537,26 @@ $ValueRange* HijrahChronology::range($ChronoField* field) {
 	if ($instanceOf($ChronoField, field)) {
 		$ChronoField* f = field;
 		$init($HijrahChronology$1);
-		switch ($nc($HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc((f))->ordinal())) {
+		switch ($nc($HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField)->get((f)->ordinal())) {
 		case 1:
 			{
-				int64_t var$0 = (int64_t)getMinimumMonthLength();
+				int64_t var$0 = getMinimumMonthLength();
 				return $ValueRange::of(1, 1, var$0, getMaximumMonthLength());
 			}
 		case 2:
-			{
-				return $ValueRange::of(1, getMaximumDayOfYear());
-			}
+			return $ValueRange::of(1, getMaximumDayOfYear());
 		case 3:
-			{
-				return $ValueRange::of(1, 5);
-			}
+			return $ValueRange::of(1, 5);
 		case 4:
-			{}
 		case 5:
 			{
-				int64_t var$1 = (int64_t)getMinimumYear();
+				int64_t var$1 = getMinimumYear();
 				return $ValueRange::of(var$1, getMaximumYear());
 			}
 		case 6:
-			{
-				return $ValueRange::of(1, 1);
-			}
+			return $ValueRange::of(1, 1);
 		default:
-			{
-				return $nc(field)->range();
-			}
+			return field->range();
 		}
 	}
 	return $nc(field)->range();
@@ -732,7 +567,7 @@ $ChronoLocalDate* HijrahChronology::resolveDate($Map* fieldValues, $ResolverStyl
 }
 
 int32_t HijrahChronology::checkValidYear(int64_t prolepticYear) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = prolepticYear < getMinimumYear();
 	if (var$0 || prolepticYear > getMaximumYear()) {
 		$throwNew($DateTimeException, $$str({"Invalid Hijrah year: "_s, $$str(prolepticYear)}));
@@ -741,14 +576,14 @@ int32_t HijrahChronology::checkValidYear(int64_t prolepticYear) {
 }
 
 void HijrahChronology::checkValidDayOfYear(int32_t dayOfYear) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dayOfYear < 1 || dayOfYear > getMaximumDayOfYear()) {
 		$throwNew($DateTimeException, $$str({"Invalid Hijrah day of year: "_s, $$str(dayOfYear)}));
 	}
 }
 
 void HijrahChronology::checkValidMonth(int32_t month) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (month < 1 || month > 12) {
 		$throwNew($DateTimeException, $$str({"Invalid Hijrah month: "_s, $$str(month)}));
 	}
@@ -772,7 +607,7 @@ $ints* HijrahChronology::getHijrahDateInfo(int32_t epochDay) {
 }
 
 int64_t HijrahChronology::getEpochDay(int32_t prolepticYear, int32_t monthOfYear, int32_t dayOfMonth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkCalendarInit();
 	checkValidMonth(monthOfYear);
 	int32_t epochMonth = yearToEpochMonth(prolepticYear) + (monthOfYear - 1);
@@ -790,7 +625,7 @@ int32_t HijrahChronology::getDayOfYear(int32_t prolepticYear, int32_t month) {
 }
 
 int32_t HijrahChronology::getMonthLength(int32_t prolepticYear, int32_t monthOfYear) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t epochMonth = yearToEpochMonth(prolepticYear) + (monthOfYear - 1);
 	if (epochMonth < 0 || epochMonth >= $nc(this->hijrahEpochMonthStartDays)->length) {
 		$throwNew($DateTimeException, $$str({"Invalid Hijrah date, year: "_s, $$str(prolepticYear), ", month: "_s, $$str(monthOfYear)}));
@@ -862,61 +697,59 @@ int32_t HijrahChronology::epochMonthLength(int32_t epochMonth) {
 
 $Properties* HijrahChronology::readConfigProperties($String* chronologyId, $String* calendarType) {
 	$init(HijrahChronology);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, resourceName, $str({HijrahChronology::RESOURCE_PREFIX, chronologyId, "_"_s, calendarType, HijrahChronology::RESOURCE_SUFFIX}));
-	$var($PrivilegedAction, getResourceAction, $nc(calendarType)->equals("islamic-umalqura"_s) ? static_cast<$PrivilegedAction*>($new(HijrahChronology$$Lambda$lambda$readConfigProperties$1, resourceName)) : static_cast<$PrivilegedAction*>($new(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1, resourceName)));
+	$var($PrivilegedAction, getResourceAction, $nc(calendarType)->equals("islamic-umalqura"_s) ? $cast($PrivilegedAction, $new(HijrahChronology$$Lambda$lambda$readConfigProperties$1, resourceName)) : $cast($PrivilegedAction, $new(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1, resourceName)));
 	$var($FilePermission, perm1, $new($FilePermission, "<<ALL FILES>>"_s, "read"_s));
 	$var($RuntimePermission, perm2, $new($RuntimePermission, "accessSystemModules"_s));
 	{
-		$var($InputStream, is, $cast($InputStream, $AccessController::doPrivileged(getResourceAction, ($AccessControlContext*)nullptr, $$new($PermissionArray, {
-			static_cast<$Permission*>(perm1),
-			static_cast<$Permission*>(perm2)
+		$var($InputStream, is, $cast($InputStream, $AccessController::doPrivileged(getResourceAction, nullptr, $$new($PermissionArray, {
+			perm1,
+			perm2
 		}))));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($Properties, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($Properties, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					if (is == nullptr) {
-						$throwNew($RuntimeException, $$str({"Hijrah calendar resource not found: "_s, resourceName}));
-					}
-					$var($Properties, props, $new($Properties));
-					props->load(is);
-					$assign(var$2, props);
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (is != nullptr) {
-						try {
-							is->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
+				if (is == nullptr) {
+					$throwNew($RuntimeException, $$str({"Hijrah calendar resource not found: "_s, resourceName}));
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
+				$var($Properties, props, $new($Properties));
+				props->load(is);
+				$assign(var$2, props);
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				if (is != nullptr) {
-					is->close();
+					try {
+						is->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (is != nullptr) {
+				is->close();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
 }
 
 void HijrahChronology::loadCalendarData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Properties, props, readConfigProperties(this->typeId, this->calendarType));
 		$var($Map, years, $new($HashMap));
@@ -927,7 +760,7 @@ void HijrahChronology::loadCalendarData() {
 		$var($String, version, nullptr);
 		int32_t isoStart = 0;
 		{
-			$var($Iterator, i$, $nc($($nc(props)->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc($nc(props)->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 				{
@@ -937,82 +770,64 @@ void HijrahChronology::loadCalendarData() {
 						int32_t tmp31619$ = -1;
 						switch ($nc(s31619$)->hashCode()) {
 						case 3355:
-							{
-								if (s31619$->equals("id"_s)) {
-									tmp31619$ = 0;
-								}
-								break;
+							if (s31619$->equals("id"_s)) {
+								tmp31619$ = 0;
 							}
-						case 0x00368F3A:
-							{
-								if (s31619$->equals("type"_s)) {
-									tmp31619$ = 1;
-								}
-								break;
+							break;
+						case 0x00368f3a:
+							if (s31619$->equals("type"_s)) {
+								tmp31619$ = 1;
 							}
-						case 0x14F51CD8:
-							{
-								if (s31619$->equals("version"_s)) {
-									tmp31619$ = 2;
-								}
-								break;
+							break;
+						case 0x14f51cd8:
+							if (s31619$->equals("version"_s)) {
+								tmp31619$ = 2;
 							}
-						case (int32_t)0xBD61391A:
-							{
-								if (s31619$->equals("iso-start"_s)) {
-									tmp31619$ = 3;
-								}
-								break;
+							break;
+						case (int32_t)0xbd61391a:
+							if (s31619$->equals("iso-start"_s)) {
+								tmp31619$ = 3;
 							}
+							break;
 						}
 						switch (tmp31619$) {
 						case 0:
-							{
-								$assign(id, $cast($String, entry->getValue()));
-								break;
-							}
+							$assign(id, $cast($String, entry->getValue()));
+							break;
 						case 1:
-							{
-								$assign(type, $cast($String, entry->getValue()));
-								break;
-							}
+							$assign(type, $cast($String, entry->getValue()));
+							break;
 						case 2:
-							{
-								$assign(version, $cast($String, entry->getValue()));
-								break;
-							}
+							$assign(version, $cast($String, entry->getValue()));
+							break;
 						case 3:
 							{
-								{
-									$var($ints, ymd, parseYMD($cast($String, $(entry->getValue()))));
-									isoStart = (int32_t)$nc($($LocalDate::of($nc(ymd)->get(0), ymd->get(1), ymd->get(2))))->toEpochDay();
-									break;
-								}
+								$var($ints, ymd, parseYMD($$cast($String, entry->getValue())));
+								isoStart = (int32_t)$$nc($LocalDate::of($nc(ymd)->get(0), $nc(ymd)->get(1), $nc(ymd)->get(2)))->toEpochDay();
+								break;
 							}
 						default:
-							{
-								try {
-									int32_t year = $Integer::parseInt(key);
-									$var($ints, months, parseMonths($cast($String, $(entry->getValue()))));
-									years->put($($Integer::valueOf(year)), months);
-									maxYear = $Math::max(maxYear, year);
-									minYear = $Math::min(minYear, year);
-								} catch ($NumberFormatException& nfe) {
-									$throwNew($IllegalArgumentException, $$str({"bad key: "_s, key}));
-								}
+							try {
+								int32_t year = $Integer::parseInt(key);
+								$var($ints, months, parseMonths($$cast($String, entry->getValue())));
+								years->put($($Integer::valueOf(year)), months);
+								maxYear = $Math::max(maxYear, year);
+								minYear = $Math::min(minYear, year);
+							} catch ($NumberFormatException& nfe) {
+								$throwNew($IllegalArgumentException, $$str({"bad key: "_s, key}));
 							}
 						}
 					}
 				}
 			}
 		}
-		if (!$nc($(getId()))->equals(id)) {
+		if (!$$nc(getId())->equals(id)) {
 			$throwNew($IllegalArgumentException, $$str({"Configuration is for a different calendar: "_s, id}));
 		}
-		if (!$nc($(getCalendarType()))->equals(type)) {
+		if (!$$nc(getCalendarType())->equals(type)) {
 			$throwNew($IllegalArgumentException, $$str({"Configuration is for a different calendar type: "_s, type}));
 		}
-		if (version == nullptr || $nc(version)->isEmpty()) {
+		if (version == nullptr || version->isEmpty()) {
 			$throwNew($IllegalArgumentException, "Configuration does not contain a version"_s);
 		}
 		if (isoStart == 0) {
@@ -1029,13 +844,13 @@ void HijrahChronology::loadCalendarData() {
 		}
 	} catch ($Exception& ex) {
 		$var($PlatformLogger, logger, $PlatformLogger::getLogger("java.time.chrono"_s));
-		$nc(logger)->severe($$str({"Unable to initialize Hijrah calendar proxy: "_s, this->typeId}), static_cast<$Throwable*>(ex));
+		$nc(logger)->severe($$str({"Unable to initialize Hijrah calendar proxy: "_s, this->typeId}), ex);
 		$throwNew($DateTimeException, $$str({"Unable to initialize HijrahCalendar: "_s, this->typeId}), ex);
 	}
 }
 
 $ints* HijrahChronology::createEpochMonths(int32_t epochDay, int32_t minYear, int32_t maxYear, $Map* years) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numMonths = (maxYear - minYear + 1) * 12 + 1;
 	int32_t epochMonth = 0;
 	$var($ints, epochMonths, $new($ints, numMonths));
@@ -1062,7 +877,7 @@ $ints* HijrahChronology::createEpochMonths(int32_t epochDay, int32_t minYear, in
 }
 
 $ints* HijrahChronology::parseMonths($String* line) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, months, $new($ints, 12));
 	$var($StringArray, numbers, $nc(line)->split("\\s"_s));
 	if (numbers->length != 12) {
@@ -1079,7 +894,7 @@ $ints* HijrahChronology::parseMonths($String* line) {
 }
 
 $ints* HijrahChronology::parseYMD($String* string$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, string, string$renamed);
 	$assign(string, $nc(string)->trim());
 	try {
@@ -1100,14 +915,14 @@ $ints* HijrahChronology::parseYMD($String* string$renamed) {
 
 void HijrahChronology::registerCustomChrono() {
 	$init(HijrahChronology);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, var$0, static_cast<$PrivilegedAction*>($new(HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2)));
-	$AccessController::doPrivileged(var$0, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($FilePermission, "<<ALL FILES>>"_s, "read"_s))}));
+	$var($PrivilegedAction, var$0, $cast($PrivilegedAction, $new(HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2)));
+	$AccessController::doPrivileged(var$0, nullptr, $$new($PermissionArray, {$$new($FilePermission, "<<ALL FILES>>"_s, "read"_s)}));
 }
 
 $Object* HijrahChronology::writeReplace() {
-	return $of($AbstractChronology::writeReplace());
+	return $AbstractChronology::writeReplace();
 }
 
 void HijrahChronology::readObject($ObjectInputStream* s) {
@@ -1116,12 +931,12 @@ void HijrahChronology::readObject($ObjectInputStream* s) {
 
 $Void* HijrahChronology::lambda$registerCustomChrono$7() {
 	$init(HijrahChronology);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($Files::isDirectory(HijrahChronology::CONF_PATH, $$new($LinkOptionArray, 0))) {
 		try {
-			$nc($($nc($($nc($($nc($($Files::list(HijrahChronology::CONF_PATH)))->map(static_cast<$Function*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3)))))->filter(static_cast<$Predicate*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4)))))->map(static_cast<$Function*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5)))))->forEach(static_cast<$Consumer*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6)));
+			$$nc($$nc($$nc($$nc($Files::list(HijrahChronology::CONF_PATH))->map($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3)))->filter($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4)))->map($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5)))->forEach($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6));
 		} catch ($IOException& e) {
-			$nc($($PlatformLogger::getLogger("java.time.chrono"_s)))->warning("Hijrah custom config init failed."_s, static_cast<$Throwable*>(e));
+			$$nc($PlatformLogger::getLogger("java.time.chrono"_s))->warning("Hijrah custom config init failed."_s, e);
 		}
 	}
 	return nullptr;
@@ -1129,13 +944,13 @@ $Void* HijrahChronology::lambda$registerCustomChrono$7() {
 
 void HijrahChronology::lambda$registerCustomChrono$6($String* idtype) {
 	$init(HijrahChronology);
-	$useLocalCurrentObjectStackCache();
-	int32_t delimiterPos = $nc(idtype)->indexOf((int32_t)u'_');
+	$useLocalObjectStack();
+	int32_t delimiterPos = $nc(idtype)->indexOf(u'_');
 	if (delimiterPos > 1 && delimiterPos < idtype->length() - 1) {
 		$var($String, var$0, idtype->substring(0, delimiterPos));
 		$AbstractChronology::registerChrono($$new(HijrahChronology, var$0, $(idtype->substring(delimiterPos + 1))));
 	} else {
-		$nc($($PlatformLogger::getLogger("java.time.chrono"_s)))->warning($$str({"Hijrah custom config init failed.\'<id>_<type>\' name convention not followed: "_s, idtype}));
+		$$nc($PlatformLogger::getLogger("java.time.chrono"_s))->warning($$str({"Hijrah custom config init failed.\'<id>_<type>\' name convention not followed: "_s, idtype}));
 	}
 }
 
@@ -1151,15 +966,15 @@ bool HijrahChronology::lambda$registerCustomChrono$4($String* fn) {
 
 $String* HijrahChronology::lambda$registerCustomChrono$3($Path* p) {
 	$init(HijrahChronology);
-	return $nc($($nc(p)->getFileName()))->toString();
+	return $$nc($nc(p)->getFileName())->toString();
 }
 
 $InputStream* HijrahChronology::lambda$readConfigProperties$2($String* resourceName) {
 	$init(HijrahChronology);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($StandardOpenOption);
-		return $Files::newInputStream($($nc(HijrahChronology::CONF_PATH)->resolve(resourceName)), $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::READ)}));
+		return $Files::newInputStream($($nc(HijrahChronology::CONF_PATH)->resolve(resourceName)), $$new($OpenOptionArray, {$StandardOpenOption::READ}));
 	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
@@ -1177,8 +992,8 @@ $String* HijrahChronology::lambda$static$0() {
 	return $System::getProperty("java.home"_s);
 }
 
-void clinit$HijrahChronology($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void HijrahChronology::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(HijrahChronology::RESOURCE_PREFIX, "hijrah-config-"_s);
 	$assignStatic(HijrahChronology::RESOURCE_SUFFIX, ".properties"_s);
 	$assignStatic(HijrahChronology::KEY_ID, "id"_s);
@@ -1190,7 +1005,7 @@ void clinit$HijrahChronology($Class* class$) {
 		$assignStatic(HijrahChronology::INSTANCE, $new(HijrahChronology, "Hijrah-umalqura"_s, "islamic-umalqura"_s));
 		$AbstractChronology::registerChrono(HijrahChronology::INSTANCE, "Hijrah"_s);
 		$AbstractChronology::registerChrono(HijrahChronology::INSTANCE, "islamic"_s);
-		$assignStatic(HijrahChronology::CONF_PATH, $Path::of($cast($String, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(HijrahChronology$$Lambda$lambda$static$0$7))))), $$new($StringArray, {
+		$assignStatic(HijrahChronology::CONF_PATH, $Path::of($$cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(HijrahChronology$$Lambda$lambda$static$0$7)))), $$new($StringArray, {
 			"conf"_s,
 			"chronology"_s
 		})));
@@ -1203,32 +1018,142 @@ HijrahChronology::HijrahChronology() {
 
 $Class* HijrahChronology::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HijrahChronology$$Lambda$lambda$readConfigProperties$1::classInfo$.name)) {
+		if (name->equals("java.time.chrono.HijrahChronology$$Lambda$lambda$readConfigProperties$1")) {
 			return HijrahChronology$$Lambda$lambda$readConfigProperties$1::load$(name, initialize);
 		}
-		if (name->equals(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1::classInfo$.name)) {
+		if (name->equals("java.time.chrono.HijrahChronology$$Lambda$lambda$readConfigProperties$2$1")) {
 			return HijrahChronology$$Lambda$lambda$readConfigProperties$2$1::load$(name, initialize);
 		}
-		if (name->equals(HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2::classInfo$.name)) {
+		if (name->equals("java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2")) {
 			return HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2::load$(name, initialize);
 		}
-		if (name->equals(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3::classInfo$.name)) {
+		if (name->equals("java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3")) {
 			return HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3::load$(name, initialize);
 		}
-		if (name->equals(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4::classInfo$.name)) {
+		if (name->equals("java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4")) {
 			return HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4::load$(name, initialize);
 		}
-		if (name->equals(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5::classInfo$.name)) {
+		if (name->equals("java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5")) {
 			return HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5::load$(name, initialize);
 		}
-		if (name->equals(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6::classInfo$.name)) {
+		if (name->equals("java.time.chrono.HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6")) {
 			return HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6::load$(name, initialize);
 		}
-		if (name->equals(HijrahChronology$$Lambda$lambda$static$0$7::classInfo$.name)) {
+		if (name->equals("java.time.chrono.HijrahChronology$$Lambda$lambda$static$0$7")) {
 			return HijrahChronology$$Lambda$lambda$static$0$7::load$(name, initialize);
 		}
 	}
-	$loadClass(HijrahChronology, name, initialize, &_HijrahChronology_ClassInfo_, clinit$HijrahChronology, allocate$HijrahChronology);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeId", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(HijrahChronology, typeId)},
+		{"calendarType", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(HijrahChronology, calendarType)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HijrahChronology, serialVersionUID)},
+		{"INSTANCE", "Ljava/time/chrono/HijrahChronology;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HijrahChronology, INSTANCE)},
+		{"initComplete", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(HijrahChronology, initComplete)},
+		{"hijrahEpochMonthStartDays", "[I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, hijrahEpochMonthStartDays)},
+		{"minEpochDay", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, minEpochDay)},
+		{"maxEpochDay", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, maxEpochDay)},
+		{"hijrahStartEpochMonth", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, hijrahStartEpochMonth)},
+		{"minMonthLength", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, minMonthLength)},
+		{"maxMonthLength", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, maxMonthLength)},
+		{"minYearLength", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, minYearLength)},
+		{"maxYearLength", "I", nullptr, $PRIVATE | $TRANSIENT, $field(HijrahChronology, maxYearLength)},
+		{"RESOURCE_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, RESOURCE_PREFIX)},
+		{"RESOURCE_SUFFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, RESOURCE_SUFFIX)},
+		{"KEY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, KEY_ID)},
+		{"KEY_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, KEY_TYPE)},
+		{"KEY_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, KEY_VERSION)},
+		{"KEY_ISO_START", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, KEY_ISO_START)},
+		{"CONF_PATH", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HijrahChronology, CONF_PATH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HijrahChronology, init$, void, $String*, $String*)},
+		{"checkCalendarInit", "()V", nullptr, $PRIVATE, $method(HijrahChronology, checkCalendarInit, void)},
+		{"checkValidDayOfYear", "(I)V", nullptr, 0, $method(HijrahChronology, checkValidDayOfYear, void, int32_t)},
+		{"checkValidMonth", "(I)V", nullptr, 0, $method(HijrahChronology, checkValidMonth, void, int32_t)},
+		{"checkValidYear", "(J)I", nullptr, 0, $method(HijrahChronology, checkValidYear, int32_t, int64_t)},
+		{"createEpochMonths", "(IIILjava/util/Map;)[I", "(IIILjava/util/Map<Ljava/lang/Integer;[I>;)[I", $PRIVATE, $method(HijrahChronology, createEpochMonths, $ints*, int32_t, int32_t, int32_t, $Map*)},
+		{"date", "(Ljava/time/chrono/Era;III)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, date, $ChronoLocalDate*, $Era*, int32_t, int32_t, int32_t)},
+		{"date", "(III)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, date, $ChronoLocalDate*, int32_t, int32_t, int32_t)},
+		{"date", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, date, $ChronoLocalDate*, $TemporalAccessor*)},
+		{"dateEpochDay", "(J)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateEpochDay, $ChronoLocalDate*, int64_t)},
+		{"dateNow", "()Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateNow, $ChronoLocalDate*)},
+		{"dateNow", "(Ljava/time/ZoneId;)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateNow, $ChronoLocalDate*, $ZoneId*)},
+		{"dateNow", "(Ljava/time/Clock;)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateNow, $ChronoLocalDate*, $Clock*)},
+		{"dateYearDay", "(Ljava/time/chrono/Era;II)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateYearDay, $ChronoLocalDate*, $Era*, int32_t, int32_t)},
+		{"dateYearDay", "(II)Ljava/time/chrono/HijrahDate;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, dateYearDay, $ChronoLocalDate*, int32_t, int32_t)},
+		{"epochDayToEpochMonth", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, epochDayToEpochMonth, int32_t, int32_t)},
+		{"epochMonthLength", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, epochMonthLength, int32_t, int32_t)},
+		{"epochMonthToEpochDay", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, epochMonthToEpochDay, int32_t, int32_t)},
+		{"epochMonthToMonth", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, epochMonthToMonth, int32_t, int32_t)},
+		{"epochMonthToYear", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, epochMonthToYear, int32_t, int32_t)},
+		{"eraOf", "(I)Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, eraOf, $Era*, int32_t)},
+		{"eras", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/chrono/Era;>;", $PUBLIC, $virtualMethod(HijrahChronology, eras, $List*)},
+		{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, getCalendarType, $String*)},
+		{"getDayOfYear", "(II)I", nullptr, 0, $method(HijrahChronology, getDayOfYear, int32_t, int32_t, int32_t)},
+		{"getEpochDay", "(III)J", nullptr, 0, $method(HijrahChronology, getEpochDay, int64_t, int32_t, int32_t, int32_t)},
+		{"getHijrahDateInfo", "(I)[I", nullptr, 0, $method(HijrahChronology, getHijrahDateInfo, $ints*, int32_t)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, getId, $String*)},
+		{"getMaximumDayOfYear", "()I", nullptr, 0, $method(HijrahChronology, getMaximumDayOfYear, int32_t)},
+		{"getMaximumMonthLength", "()I", nullptr, 0, $method(HijrahChronology, getMaximumMonthLength, int32_t)},
+		{"getMaximumYear", "()I", nullptr, 0, $method(HijrahChronology, getMaximumYear, int32_t)},
+		{"getMinimumMonthLength", "()I", nullptr, 0, $method(HijrahChronology, getMinimumMonthLength, int32_t)},
+		{"getMinimumYear", "()I", nullptr, 0, $method(HijrahChronology, getMinimumYear, int32_t)},
+		{"getMonthLength", "(II)I", nullptr, 0, $method(HijrahChronology, getMonthLength, int32_t, int32_t, int32_t)},
+		{"getSmallestMaximumDayOfYear", "()I", nullptr, 0, $method(HijrahChronology, getSmallestMaximumDayOfYear, int32_t)},
+		{"getYearLength", "(I)I", nullptr, 0, $method(HijrahChronology, getYearLength, int32_t, int32_t)},
+		{"isLeapYear", "(J)Z", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, isLeapYear, bool, int64_t)},
+		{"lambda$readConfigProperties$1", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$readConfigProperties$1, $InputStream*, $String*)},
+		{"lambda$readConfigProperties$2", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$readConfigProperties$2, $InputStream*, $String*)},
+		{"lambda$registerCustomChrono$3", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$registerCustomChrono$3, $String*, $Path*)},
+		{"lambda$registerCustomChrono$4", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$registerCustomChrono$4, bool, $String*)},
+		{"lambda$registerCustomChrono$5", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$registerCustomChrono$5, $String*, $String*)},
+		{"lambda$registerCustomChrono$6", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$registerCustomChrono$6, void, $String*)},
+		{"lambda$registerCustomChrono$7", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$registerCustomChrono$7, $Void*)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahChronology, lambda$static$0, $String*)},
+		{"loadCalendarData", "()V", nullptr, $PRIVATE, $method(HijrahChronology, loadCalendarData, void)},
+		{"localDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime<Ljava/time/chrono/HijrahDate;>;", $PUBLIC, $virtualMethod(HijrahChronology, localDateTime, $ChronoLocalDateTime*, $TemporalAccessor*)},
+		{"parseMonths", "(Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(HijrahChronology, parseMonths, $ints*, $String*)},
+		{"parseYMD", "(Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(HijrahChronology, parseYMD, $ints*, $String*)},
+		{"prolepticYear", "(Ljava/time/chrono/Era;I)I", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, prolepticYear, int32_t, $Era*, int32_t)},
+		{"range", "(Ljava/time/temporal/ChronoField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(HijrahChronology, range, $ValueRange*, $ChronoField*)},
+		{"readConfigProperties", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticMethod(HijrahChronology, readConfigProperties, $Properties*, $String*, $String*), "java.lang.Exception"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(HijrahChronology, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"registerCustomChrono", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HijrahChronology, registerCustomChrono, void)},
+		{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/HijrahDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/HijrahDate;", $PUBLIC, $virtualMethod(HijrahChronology, resolveDate, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(HijrahChronology, writeReplace, $Object*)},
+		{"yearMonthToDayOfYear", "(II)I", nullptr, $PRIVATE, $method(HijrahChronology, yearMonthToDayOfYear, int32_t, int32_t, int32_t)},
+		{"yearToEpochMonth", "(I)I", nullptr, $PRIVATE, $method(HijrahChronology, yearToEpochMonth, int32_t, int32_t)},
+		{"zonedDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/HijrahDate;>;", $PUBLIC, $virtualMethod(HijrahChronology, zonedDateTime, $ChronoZonedDateTime*, $TemporalAccessor*)},
+		{"zonedDateTime", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/HijrahDate;>;", $PUBLIC, $virtualMethod(HijrahChronology, zonedDateTime, $ChronoZonedDateTime*, $Instant*, $ZoneId*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.chrono.HijrahChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.chrono.HijrahChronology",
+		"java.time.chrono.AbstractChronology",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.time.chrono.HijrahChronology$1"
+	};
+	$loadClass(HijrahChronology, name, initialize, &classInfo$$, HijrahChronology::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HijrahChronology));
+	});
 	return class$;
 }
 

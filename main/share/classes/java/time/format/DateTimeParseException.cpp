@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeParseException.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/time/DateTimeException.h>
 #include <jcpp.h>
@@ -13,34 +12,6 @@ using $DateTimeException = ::java::time::DateTimeException;
 namespace java {
 	namespace time {
 		namespace format {
-
-$FieldInfo _DateTimeParseException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateTimeParseException, serialVersionUID)},
-	{"parsedString", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DateTimeParseException, parsedString)},
-	{"errorIndex", "I", nullptr, $PRIVATE | $FINAL, $field(DateTimeParseException, errorIndex)},
-	{}
-};
-
-$MethodInfo _DateTimeParseException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/CharSequence;I)V", nullptr, $PUBLIC, $method(DateTimeParseException, init$, void, $String*, $CharSequence*, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/CharSequence;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DateTimeParseException, init$, void, $String*, $CharSequence*, int32_t, $Throwable*)},
-	{"getErrorIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DateTimeParseException, getErrorIndex, int32_t)},
-	{"getParsedString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeParseException, getParsedString, $String*)},
-	{}
-};
-
-$ClassInfo _DateTimeParseException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.time.format.DateTimeParseException",
-	"java.time.DateTimeException",
-	nullptr,
-	_DateTimeParseException_FieldInfo_,
-	_DateTimeParseException_MethodInfo_
-};
-
-$Object* allocate$DateTimeParseException($Class* clazz) {
-	return $of($alloc(DateTimeParseException));
-}
 
 void DateTimeParseException::init$($String* message, $CharSequence* parsedData, int32_t errorIndex) {
 	$DateTimeException::init$(message);
@@ -73,7 +44,30 @@ void DateTimeParseException::throw$() {
 }
 
 $Class* DateTimeParseException::load$($String* name, bool initialize) {
-	$loadClass(DateTimeParseException, name, initialize, &_DateTimeParseException_ClassInfo_, allocate$DateTimeParseException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateTimeParseException, serialVersionUID)},
+		{"parsedString", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DateTimeParseException, parsedString)},
+		{"errorIndex", "I", nullptr, $PRIVATE | $FINAL, $field(DateTimeParseException, errorIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/CharSequence;I)V", nullptr, $PUBLIC, $method(DateTimeParseException, init$, void, $String*, $CharSequence*, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/CharSequence;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DateTimeParseException, init$, void, $String*, $CharSequence*, int32_t, $Throwable*)},
+		{"getErrorIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DateTimeParseException, getErrorIndex, int32_t)},
+		{"getParsedString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeParseException, getParsedString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.time.format.DateTimeParseException",
+		"java.time.DateTimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DateTimeParseException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeParseException);
+	});
 	return class$;
 }
 

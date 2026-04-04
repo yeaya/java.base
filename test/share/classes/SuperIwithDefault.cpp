@@ -1,5 +1,4 @@
 #include <SuperIwithDefault.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -7,52 +6,45 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute SuperIwithDefault_Attribute_var$0[] = {
-	{"isDefault", 'Z', "true"},
-	{"declaringClass", 'c', "LSuperIwithDefault;"},
-	{}
-};
-
-$CompoundAttribute _SuperIwithDefault_MethodAnnotations_bar0[] = {
-	{"LExpectedModel;", SuperIwithDefault_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute SuperIwithDefault_Attribute_var$1[] = {
-	{"modifiers", 'I', "1025"},
-	{"declaringClass", 'c', "LSuperIwithDefault;"},
-	{}
-};
-
-$CompoundAttribute _SuperIwithDefault_MethodAnnotations_foo1[] = {
-	{"LExpectedModel;", SuperIwithDefault_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _SuperIwithDefault_MethodInfo_[] = {
-	{"bar", "()V", nullptr, $PUBLIC, $virtualMethod(SuperIwithDefault, bar, void), nullptr, nullptr, _SuperIwithDefault_MethodAnnotations_bar0},
-	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SuperIwithDefault, foo, void), nullptr, nullptr, _SuperIwithDefault_MethodAnnotations_foo1},
-	{}
-};
-
-$ClassInfo _SuperIwithDefault_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"SuperIwithDefault",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SuperIwithDefault_MethodInfo_
-};
-
-$Object* allocate$SuperIwithDefault($Class* clazz) {
-	return $of($alloc(SuperIwithDefault));
-}
-
 void SuperIwithDefault::bar() {
+	;
 }
 
 $Class* SuperIwithDefault::load$($String* name, bool initialize) {
-	$loadClass(SuperIwithDefault, name, initialize, &_SuperIwithDefault_ClassInfo_, allocate$SuperIwithDefault);
+	$NamedAttribute barmethodAnnotations$$$namedAttribute[] = {
+		{"isDefault", 'Z', "true"},
+		{"declaringClass", 'c', "LSuperIwithDefault;"},
+		{}
+	};
+	$CompoundAttribute barmethodAnnotations$$[] = {
+		{"LExpectedModel;", barmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute foomethodAnnotations$$$namedAttribute[] = {
+		{"modifiers", 'I', "1025"},
+		{"declaringClass", 'c', "LSuperIwithDefault;"},
+		{}
+	};
+	$CompoundAttribute foomethodAnnotations$$[] = {
+		{"LExpectedModel;", foomethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"bar", "()V", nullptr, $PUBLIC, $virtualMethod(SuperIwithDefault, bar, void), nullptr, nullptr, barmethodAnnotations$$},
+		{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SuperIwithDefault, foo, void), nullptr, nullptr, foomethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"SuperIwithDefault",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SuperIwithDefault, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SuperIwithDefault);
+	});
 	return class$;
 }
 

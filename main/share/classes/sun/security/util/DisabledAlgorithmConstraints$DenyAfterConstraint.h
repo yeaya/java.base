@@ -36,6 +36,7 @@ class DisabledAlgorithmConstraints$DenyAfterConstraint : public ::sun::security:
 	$class(DisabledAlgorithmConstraints$DenyAfterConstraint, 0, ::sun::security::util::DisabledAlgorithmConstraints$Constraint)
 public:
 	DisabledAlgorithmConstraints$DenyAfterConstraint();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* algo, int32_t year, int32_t month, int32_t day);
 	using ::sun::security::util::DisabledAlgorithmConstraints$Constraint::permits;
 	virtual void permits(::sun::security::util::ConstraintsParameters* cp) override;

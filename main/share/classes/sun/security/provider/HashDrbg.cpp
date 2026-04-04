@@ -1,5 +1,4 @@
 #include <sun/security/provider/HashDrbg.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
 #include <java/math/BigInteger.h>
@@ -40,46 +39,10 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $AbstractDrbg = ::sun::security::provider::AbstractDrbg;
 using $AbstractHashDrbg = ::sun::security::provider::AbstractHashDrbg;
-using $Debug = ::sun::security::util::Debug;
 
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _HashDrbg_FieldInfo_[] = {
-	{"ZERO", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HashDrbg, ZERO)},
-	{"ONE", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HashDrbg, ONE)},
-	{"digest", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(HashDrbg, digest)},
-	{"v", "[B", nullptr, $PRIVATE, $field(HashDrbg, v)},
-	{"c", "[B", nullptr, $PRIVATE, $field(HashDrbg, c)},
-	{}
-};
-
-$MethodInfo _HashDrbg_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(HashDrbg, init$, void, $SecureRandomParameters*)},
-	{"addBytes", "([BI[[B)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(HashDrbg, addBytes, void, $bytes*, int32_t, $byteArray2*)},
-	{"generateAlgorithm", "([B[B)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(HashDrbg, generateAlgorithm, void, $bytes*, $bytes*)},
-	{"hashDf", "(ILjava/util/List;)[B", "(ILjava/util/List<[B>;)[B", $PRIVATE, $method(HashDrbg, hashDf, $bytes*, int32_t, $List*)},
-	{"hashDf", "(Ljava/security/MessageDigest;IILjava/util/List;)[B", "(Ljava/security/MessageDigest;IILjava/util/List<[B>;)[B", $PUBLIC | $STATIC, $staticMethod(HashDrbg, hashDf, $bytes*, $MessageDigest*, int32_t, int32_t, $List*)},
-	{"hashGen", "([B[B)V", nullptr, $PRIVATE, $method(HashDrbg, hashGen, void, $bytes*, $bytes*)},
-	{"hashReseedInternal", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PROTECTED | $FINAL | $SYNCHRONIZED, $virtualMethod(HashDrbg, hashReseedInternal, void, $List*)},
-	{"initEngine", "()V", nullptr, $PROTECTED, $virtualMethod(HashDrbg, initEngine, void)},
-	{"status", "()V", nullptr, $PRIVATE, $method(HashDrbg, status, void)},
-	{}
-};
-
-$ClassInfo _HashDrbg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.HashDrbg",
-	"sun.security.provider.AbstractHashDrbg",
-	nullptr,
-	_HashDrbg_FieldInfo_,
-	_HashDrbg_MethodInfo_
-};
-
-$Object* allocate$HashDrbg($Class* clazz) {
-	return $of($alloc(HashDrbg));
-}
 
 $bytes* HashDrbg::ZERO = nullptr;
 $bytes* HashDrbg::ONE = nullptr;
@@ -91,7 +54,7 @@ void HashDrbg::init$($SecureRandomParameters* params) {
 }
 
 void HashDrbg::initEngine() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$set(this, digest, $MessageDigest::getInstance(this->algorithm, "SUN"_s));
 	} catch ($NoSuchProviderException& e) {
@@ -115,7 +78,7 @@ $bytes* HashDrbg::hashDf(int32_t requested, $List* inputs) {
 
 $bytes* HashDrbg::hashDf($MessageDigest* digest, int32_t outLen, int32_t requested, $List* inputs) {
 	$init(HashDrbg);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $div((requested + outLen - 1), outLen);
 	$var($bytes, temp, $new($bytes, len * outLen));
 	int32_t counter = 1;
@@ -146,7 +109,7 @@ $bytes* HashDrbg::hashDf($MessageDigest* digest, int32_t outLen, int32_t request
 
 void HashDrbg::hashReseedInternal($List* inputs$renamed) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($List, inputs, inputs$renamed);
 		$var($bytes, seed, nullptr);
 		if (this->v != nullptr) {
@@ -166,37 +129,33 @@ void HashDrbg::hashReseedInternal($List* inputs$renamed) {
 }
 
 void HashDrbg::status() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AbstractDrbg);
 	if ($AbstractDrbg::debug != nullptr) {
-		$nc($AbstractDrbg::debug)->println($of(this), $$str({"V = "_s, $($nc($($HexFormat::of()))->formatHex(this->v))}));
-		$nc($AbstractDrbg::debug)->println($of(this), $$str({"C = "_s, $($nc($($HexFormat::of()))->formatHex(this->c))}));
-		$nc($AbstractDrbg::debug)->println($of(this), $$str({"reseed counter = "_s, $$str(this->reseedCounter)}));
+		$AbstractDrbg::debug->println(this, $$str({"V = "_s, $($$nc($HexFormat::of())->formatHex(this->v))}));
+		$AbstractDrbg::debug->println(this, $$str({"C = "_s, $($$nc($HexFormat::of())->formatHex(this->c))}));
+		$AbstractDrbg::debug->println(this, $$str({"reseed counter = "_s, $$str(this->reseedCounter)}));
 	}
 }
 
 void HashDrbg::addBytes($bytes* out, int32_t len, $byteArray2* data) {
 	$init(HashDrbg);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($byteArray2, arr$, data);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($bytes, d, arr$->get(i$));
-			{
-				int32_t dlen = $nc(d)->length;
-				int32_t carry = 0;
-				for (int32_t i = 0; i < len; ++i) {
-					int32_t sum = ((int32_t)($nc(out)->get(len - i - 1) & (uint32_t)255)) + carry;
-					if (i < dlen) {
-						sum += ((int32_t)(d->get(dlen - i - 1) & (uint32_t)255));
-					}
-					out->set(len - i - 1, (int8_t)sum);
-					carry = sum >> 8;
-					if (i >= dlen - 1 && carry == 0) {
-						break;
-					}
+	$useLocalObjectStack();
+	$var($byteArray2, arr$, data);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($bytes, d, arr$->get(i$));
+		{
+			int32_t dlen = $nc(d)->length;
+			int32_t carry = 0;
+			for (int32_t i = 0; i < len; ++i) {
+				int32_t sum = ($nc(out)->get(len - i - 1) & 0xff) + carry;
+				if (i < dlen) {
+					sum += (d->get(dlen - i - 1) & 0xff);
+				}
+				out->set(len - i - 1, (int8_t)sum);
+				carry = sum >> 8;
+				if (i >= dlen - 1 && carry == 0) {
+					break;
 				}
 			}
 		}
@@ -205,26 +164,26 @@ void HashDrbg::addBytes($bytes* out, int32_t len, $byteArray2* data) {
 
 void HashDrbg::generateAlgorithm($bytes* result, $bytes* additionalInput) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$init($AbstractDrbg);
 		if ($AbstractDrbg::debug != nullptr) {
-			$nc($AbstractDrbg::debug)->println($of(this), "generateAlgorithm"_s);
+			$AbstractDrbg::debug->println(this, "generateAlgorithm"_s);
 		}
 		if (additionalInput != nullptr) {
 			$nc(this->digest)->update((int8_t)2);
-			$nc(this->digest)->update(this->v);
-			$nc(this->digest)->update(additionalInput);
-			addBytes(this->v, this->seedLen, $$new($byteArray2, {$($nc(this->digest)->digest())}));
+			this->digest->update(this->v);
+			this->digest->update(additionalInput);
+			addBytes(this->v, this->seedLen, $$new($byteArray2, {$(this->digest->digest())}));
 		}
 		hashGen(result, this->v);
 		$nc(this->digest)->update((int8_t)3);
-		$nc(this->digest)->update(this->v);
-		$var($bytes, h, $nc(this->digest)->digest());
+		this->digest->update(this->v);
+		$var($bytes, h, this->digest->digest());
 		$var($bytes, rcBytes, nullptr);
 		if (this->reseedCounter < 256) {
 			$assign(rcBytes, $new($bytes, {(int8_t)this->reseedCounter}));
 		} else {
-			$assign(rcBytes, $nc($($BigInteger::valueOf((int64_t)this->reseedCounter)))->toByteArray());
+			$assign(rcBytes, $($BigInteger::valueOf(this->reseedCounter))->toByteArray());
 		}
 		addBytes(this->v, this->seedLen, $$new($byteArray2, {
 			h,
@@ -236,19 +195,19 @@ void HashDrbg::generateAlgorithm($bytes* result, $bytes* additionalInput) {
 }
 
 void HashDrbg::hashGen($bytes* output, $bytes* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, data, v);
 	int32_t pos = 0;
 	int32_t len = $nc(output)->length;
 	while (len > 0) {
 		$nc(this->digest)->update(data);
 		if (len < this->outLen) {
-			$var($bytes, out, $nc(this->digest)->digest());
+			$var($bytes, out, this->digest->digest());
 			$System::arraycopy(out, 0, output, pos, len);
 			$Arrays::fill(out, (int8_t)0);
 		} else {
 			try {
-				$nc(this->digest)->digest(output, pos, this->outLen);
+				this->digest->digest(output, pos, this->outLen);
 			} catch ($DigestException& e) {
 				$throwNew($AssertionError, "will not happen"_s, e);
 			}
@@ -265,16 +224,46 @@ void HashDrbg::hashGen($bytes* output, $bytes* v) {
 	}
 }
 
-void clinit$HashDrbg($Class* class$) {
+void HashDrbg::clinit$($Class* clazz) {
 	$assignStatic(HashDrbg::ZERO, $new($bytes, 1));
-	$assignStatic(HashDrbg::ONE, $new($bytes, {(int8_t)1}));
+	$assignStatic(HashDrbg::ONE, $new($bytes, {1}));
 }
 
 HashDrbg::HashDrbg() {
 }
 
 $Class* HashDrbg::load$($String* name, bool initialize) {
-	$loadClass(HashDrbg, name, initialize, &_HashDrbg_ClassInfo_, clinit$HashDrbg, allocate$HashDrbg);
+	$FieldInfo fieldInfos$$[] = {
+		{"ZERO", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HashDrbg, ZERO)},
+		{"ONE", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HashDrbg, ONE)},
+		{"digest", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(HashDrbg, digest)},
+		{"v", "[B", nullptr, $PRIVATE, $field(HashDrbg, v)},
+		{"c", "[B", nullptr, $PRIVATE, $field(HashDrbg, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(HashDrbg, init$, void, $SecureRandomParameters*)},
+		{"addBytes", "([BI[[B)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(HashDrbg, addBytes, void, $bytes*, int32_t, $byteArray2*)},
+		{"generateAlgorithm", "([B[B)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(HashDrbg, generateAlgorithm, void, $bytes*, $bytes*)},
+		{"hashDf", "(ILjava/util/List;)[B", "(ILjava/util/List<[B>;)[B", $PRIVATE, $method(HashDrbg, hashDf, $bytes*, int32_t, $List*)},
+		{"hashDf", "(Ljava/security/MessageDigest;IILjava/util/List;)[B", "(Ljava/security/MessageDigest;IILjava/util/List<[B>;)[B", $PUBLIC | $STATIC, $staticMethod(HashDrbg, hashDf, $bytes*, $MessageDigest*, int32_t, int32_t, $List*)},
+		{"hashGen", "([B[B)V", nullptr, $PRIVATE, $method(HashDrbg, hashGen, void, $bytes*, $bytes*)},
+		{"hashReseedInternal", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PROTECTED | $FINAL | $SYNCHRONIZED, $virtualMethod(HashDrbg, hashReseedInternal, void, $List*)},
+		{"initEngine", "()V", nullptr, $PROTECTED, $virtualMethod(HashDrbg, initEngine, void)},
+		{"status", "()V", nullptr, $PRIVATE, $method(HashDrbg, status, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.HashDrbg",
+		"sun.security.provider.AbstractHashDrbg",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HashDrbg, name, initialize, &classInfo$$, HashDrbg::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HashDrbg);
+	});
 	return class$;
 }
 

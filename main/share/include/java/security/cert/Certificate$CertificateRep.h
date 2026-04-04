@@ -16,7 +16,7 @@ public:
 	Certificate$CertificateRep();
 	void init$($String* type, $bytes* data);
 	virtual $Object* readResolve();
-	static const int64_t serialVersionUID = (int64_t)0x89276A9DC9AE3C0C;
+	static const int64_t serialVersionUID = (int64_t)0x89276a9dc9ae3c0c;
 	$String* type = nullptr;
 	$bytes* data = nullptr;
 };

@@ -54,6 +54,7 @@ class FileURLConnection : public ::sun::net::www::URLConnection {
 	$class(FileURLConnection, 0, ::sun::net::www::URLConnection)
 public:
 	FileURLConnection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URL* u, ::java::io::File* file);
 	virtual void connect() override;
 	virtual int32_t getContentLength() override;

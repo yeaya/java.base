@@ -1,5 +1,4 @@
 #include <java/security/Certificate.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/security/Principal.h>
@@ -18,47 +17,41 @@ using $PublicKey = ::java::security::PublicKey;
 namespace java {
 	namespace security {
 
-$NamedAttribute Certificate_Attribute_var$0[] = {
-	{"since", 's', "1.2"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Certificate_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", Certificate_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _Certificate_MethodInfo_[] = {
-	{"decode", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, decode, void, $InputStream*), "java.security.KeyException,java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, encode, void, $OutputStream*), "java.security.KeyException,java.io.IOException"},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getFormat, $String*)},
-	{"getGuarantor", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getGuarantor, $Principal*)},
-	{"getPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getPrincipal, $Principal*)},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getPublicKey, $PublicKey*)},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, toString, $String*, bool)},
-	{}
-};
-
-$ClassInfo _Certificate_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.Certificate",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Certificate_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Certificate_Annotations_
-};
-
-$Object* allocate$Certificate($Class* clazz) {
-	return $of($alloc(Certificate));
-}
-
 $Class* Certificate::load$($String* name, bool initialize) {
-	$loadClass(Certificate, name, initialize, &_Certificate_ClassInfo_, allocate$Certificate);
+	$MethodInfo methodInfos$$[] = {
+		{"decode", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, decode, void, $InputStream*), "java.security.KeyException,java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, encode, void, $OutputStream*), "java.security.KeyException,java.io.IOException"},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getFormat, $String*)},
+		{"getGuarantor", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getGuarantor, $Principal*)},
+		{"getPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getPrincipal, $Principal*)},
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getPublicKey, $PublicKey*)},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, toString, $String*, bool)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.Certificate",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Certificate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Certificate);
+	});
 	return class$;
 }
 

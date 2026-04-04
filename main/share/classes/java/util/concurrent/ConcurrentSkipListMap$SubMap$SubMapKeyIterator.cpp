@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentSkipListMap$SubMap$SubMapKeyIterator.h>
-
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/ConcurrentSkipListMap$Node.h>
@@ -25,46 +24,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _ConcurrentSkipListMap$SubMap$SubMapKeyIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/ConcurrentSkipListMap$SubMap;", nullptr, $FINAL | $SYNTHETIC, $field(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, this$0)},
-	{}
-};
-
-$MethodInfo _ConcurrentSkipListMap$SubMap$SubMapKeyIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap$SubMap;)V", nullptr, 0, $method(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, init$, void, $ConcurrentSkipListMap$SubMap*)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, characteristics, int32_t)},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, getComparator, $Comparator*)},
-	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, next, $Object*)},
-	{}
-};
-
-$InnerClassInfo _ConcurrentSkipListMap$SubMap$SubMapKeyIterator_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentSkipListMap$SubMap", "java.util.concurrent.ConcurrentSkipListMap", "SubMap", $STATIC | $FINAL},
-	{"java.util.concurrent.ConcurrentSkipListMap$SubMap$SubMapKeyIterator", "java.util.concurrent.ConcurrentSkipListMap$SubMap", "SubMapKeyIterator", $FINAL},
-	{"java.util.concurrent.ConcurrentSkipListMap$SubMap$SubMapIter", "java.util.concurrent.ConcurrentSkipListMap$SubMap", "SubMapIter", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ConcurrentSkipListMap$SubMap$SubMapKeyIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ConcurrentSkipListMap$SubMap$SubMapKeyIterator",
-	"java.util.concurrent.ConcurrentSkipListMap$SubMap$SubMapIter",
-	nullptr,
-	_ConcurrentSkipListMap$SubMap$SubMapKeyIterator_FieldInfo_,
-	_ConcurrentSkipListMap$SubMap$SubMapKeyIterator_MethodInfo_,
-	"Ljava/util/concurrent/ConcurrentSkipListMap$SubMap<TK;TV;>.SubMapIter<TK;>;",
-	nullptr,
-	_ConcurrentSkipListMap$SubMap$SubMapKeyIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentSkipListMap"
-};
-
-$Object* allocate$ConcurrentSkipListMap$SubMap$SubMapKeyIterator($Class* clazz) {
-	return $of($alloc(ConcurrentSkipListMap$SubMap$SubMapKeyIterator));
-}
-
 void ConcurrentSkipListMap$SubMap$SubMapKeyIterator::init$($ConcurrentSkipListMap$SubMap* this$0) {
 	$set(this, this$0, this$0);
 	$ConcurrentSkipListMap$SubMap$SubMapIter::init$(this$0);
@@ -73,7 +32,7 @@ void ConcurrentSkipListMap$SubMap$SubMapKeyIterator::init$($ConcurrentSkipListMa
 $Object* ConcurrentSkipListMap$SubMap$SubMapKeyIterator::next() {
 	$var($ConcurrentSkipListMap$Node, n, this->$ConcurrentSkipListMap$SubMap$SubMapIter::next$);
 	advance();
-	return $of($nc(n)->key);
+	return $nc(n)->key;
 }
 
 int32_t ConcurrentSkipListMap$SubMap$SubMapKeyIterator::characteristics() {
@@ -88,7 +47,41 @@ ConcurrentSkipListMap$SubMap$SubMapKeyIterator::ConcurrentSkipListMap$SubMap$Sub
 }
 
 $Class* ConcurrentSkipListMap$SubMap$SubMapKeyIterator::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, name, initialize, &_ConcurrentSkipListMap$SubMap$SubMapKeyIterator_ClassInfo_, allocate$ConcurrentSkipListMap$SubMap$SubMapKeyIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/ConcurrentSkipListMap$SubMap;", nullptr, $FINAL | $SYNTHETIC, $field(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap$SubMap;)V", nullptr, 0, $method(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, init$, void, $ConcurrentSkipListMap$SubMap*)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, characteristics, int32_t)},
+		{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, getComparator, $Comparator*)},
+		{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, next, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentSkipListMap$SubMap", "java.util.concurrent.ConcurrentSkipListMap", "SubMap", $STATIC | $FINAL},
+		{"java.util.concurrent.ConcurrentSkipListMap$SubMap$SubMapKeyIterator", "java.util.concurrent.ConcurrentSkipListMap$SubMap", "SubMapKeyIterator", $FINAL},
+		{"java.util.concurrent.ConcurrentSkipListMap$SubMap$SubMapIter", "java.util.concurrent.ConcurrentSkipListMap$SubMap", "SubMapIter", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ConcurrentSkipListMap$SubMap$SubMapKeyIterator",
+		"java.util.concurrent.ConcurrentSkipListMap$SubMap$SubMapIter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/concurrent/ConcurrentSkipListMap$SubMap<TK;TV;>.SubMapIter<TK;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentSkipListMap"
+	};
+	$loadClass(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConcurrentSkipListMap$SubMap$SubMapKeyIterator));
+	});
 	return class$;
 }
 

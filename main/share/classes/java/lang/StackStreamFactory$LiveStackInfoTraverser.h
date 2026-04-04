@@ -25,6 +25,7 @@ class StackStreamFactory$LiveStackInfoTraverser : public ::java::lang::StackStre
 	$class(StackStreamFactory$LiveStackInfoTraverser, 0, ::java::lang::StackStreamFactory$StackFrameTraverser)
 public:
 	StackStreamFactory$LiveStackInfoTraverser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::StackWalker* walker, ::java::util::function::Function* function);
 	virtual void initFrameBuffer() override;
 };

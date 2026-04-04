@@ -1,5 +1,4 @@
 #include <javax/crypto/JceSecurity$IdentityWrapper.h>
-
 #include <java/security/Provider.h>
 #include <javax/crypto/JceSecurity.h>
 #include <jcpp.h>
@@ -13,43 +12,6 @@ using $Provider = ::java::security::Provider;
 namespace javax {
 	namespace crypto {
 
-$FieldInfo _JceSecurity$IdentityWrapper_FieldInfo_[] = {
-	{"obj", "Ljava/security/Provider;", nullptr, $FINAL, $field(JceSecurity$IdentityWrapper, obj)},
-	{}
-};
-
-$MethodInfo _JceSecurity$IdentityWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, 0, $method(JceSecurity$IdentityWrapper, init$, void, $Provider*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JceSecurity$IdentityWrapper, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JceSecurity$IdentityWrapper, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JceSecurity$IdentityWrapper_InnerClassesInfo_[] = {
-	{"javax.crypto.JceSecurity$IdentityWrapper", "javax.crypto.JceSecurity", "IdentityWrapper", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JceSecurity$IdentityWrapper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.crypto.JceSecurity$IdentityWrapper",
-	"java.lang.Object",
-	nullptr,
-	_JceSecurity$IdentityWrapper_FieldInfo_,
-	_JceSecurity$IdentityWrapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JceSecurity$IdentityWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.crypto.JceSecurity"
-};
-
-$Object* allocate$JceSecurity$IdentityWrapper($Class* clazz) {
-	return $of($alloc(JceSecurity$IdentityWrapper));
-}
-
 void JceSecurity$IdentityWrapper::init$($Provider* obj) {
 	$set(this, obj, obj);
 }
@@ -61,7 +23,7 @@ bool JceSecurity$IdentityWrapper::equals(Object$* o) {
 	if (!($instanceOf(JceSecurity$IdentityWrapper, o))) {
 		return false;
 	}
-	return this->obj == $nc(($cast(JceSecurity$IdentityWrapper, o)))->obj;
+	return this->obj == $nc($cast(JceSecurity$IdentityWrapper, o))->obj;
 }
 
 int32_t JceSecurity$IdentityWrapper::hashCode() {
@@ -72,7 +34,38 @@ JceSecurity$IdentityWrapper::JceSecurity$IdentityWrapper() {
 }
 
 $Class* JceSecurity$IdentityWrapper::load$($String* name, bool initialize) {
-	$loadClass(JceSecurity$IdentityWrapper, name, initialize, &_JceSecurity$IdentityWrapper_ClassInfo_, allocate$JceSecurity$IdentityWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"obj", "Ljava/security/Provider;", nullptr, $FINAL, $field(JceSecurity$IdentityWrapper, obj)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, 0, $method(JceSecurity$IdentityWrapper, init$, void, $Provider*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JceSecurity$IdentityWrapper, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JceSecurity$IdentityWrapper, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.crypto.JceSecurity$IdentityWrapper", "javax.crypto.JceSecurity", "IdentityWrapper", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.crypto.JceSecurity$IdentityWrapper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.crypto.JceSecurity"
+	};
+	$loadClass(JceSecurity$IdentityWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JceSecurity$IdentityWrapper);
+	});
 	return class$;
 }
 

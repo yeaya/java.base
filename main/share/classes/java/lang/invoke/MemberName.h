@@ -82,6 +82,7 @@ class MemberName : public ::java::lang::reflect::Member, public ::java::lang::Cl
 public:
 	MemberName();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::Method* m);
 	void init$(::java::lang::reflect::Method* m, bool wantSpecial);
 	void init$(::java::lang::reflect::Constructor* ctor);
@@ -184,7 +185,7 @@ public:
 	static const int32_t ANNOTATION = 8192;
 	static const int32_t ENUM = 16384;
 	static $String* CONSTRUCTOR_NAME;
-	static const int32_t RECOGNIZED_MODIFIERS = 0x0000FFFF;
+	static const int32_t RECOGNIZED_MODIFIERS = 0x0000ffff;
 	static const int32_t IS_METHOD = 0x00010000;
 	static const int32_t IS_CONSTRUCTOR = 0x00020000;
 	static const int32_t IS_FIELD = 0x00040000;

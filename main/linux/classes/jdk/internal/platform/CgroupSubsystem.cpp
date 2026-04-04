@@ -1,5 +1,4 @@
 #include <jdk/internal/platform/CgroupSubsystem.h>
-
 #include <jcpp.h>
 
 #undef LONG_RETVAL_UNLIMITED
@@ -11,25 +10,21 @@ namespace jdk {
 	namespace internal {
 		namespace platform {
 
-$FieldInfo _CgroupSubsystem_FieldInfo_[] = {
-	{"LONG_RETVAL_UNLIMITED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CgroupSubsystem, LONG_RETVAL_UNLIMITED)},
-	{}
-};
-
-$ClassInfo _CgroupSubsystem_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.platform.CgroupSubsystem",
-	nullptr,
-	"jdk.internal.platform.Metrics",
-	_CgroupSubsystem_FieldInfo_
-};
-
-$Object* allocate$CgroupSubsystem($Class* clazz) {
-	return $of($alloc(CgroupSubsystem));
-}
-
 $Class* CgroupSubsystem::load$($String* name, bool initialize) {
-	$loadClass(CgroupSubsystem, name, initialize, &_CgroupSubsystem_ClassInfo_, allocate$CgroupSubsystem);
+	$FieldInfo fieldInfos$$[] = {
+		{"LONG_RETVAL_UNLIMITED", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CgroupSubsystem, LONG_RETVAL_UNLIMITED)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.platform.CgroupSubsystem",
+		nullptr,
+		"jdk.internal.platform.Metrics",
+		fieldInfos$$
+	};
+	$loadClass(CgroupSubsystem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupSubsystem);
+	});
 	return class$;
 }
 

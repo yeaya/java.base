@@ -70,6 +70,7 @@ class $export DistributionPointFetcher : public ::java::lang::Object {
 	$class(DistributionPointFetcher, 0, ::java::lang::Object)
 public:
 	DistributionPointFetcher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::cert::X509CRL* getCRL(::sun::security::x509::URIName* name);
 	static ::java::util::Collection* getCRLs(::java::security::cert::X509CRLSelector* selector, bool signFlag, ::java::security::PublicKey* prevKey, $String* provider, ::java::util::List* certStores, $booleans* reasonsMask, ::java::util::Set* trustAnchors, ::java::util::Date* validity, $String* variant);

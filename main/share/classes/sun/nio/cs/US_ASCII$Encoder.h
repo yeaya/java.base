@@ -37,6 +37,7 @@ class US_ASCII$Encoder : public ::java::nio::charset::CharsetEncoder {
 public:
 	US_ASCII$Encoder();
 	using ::java::nio::charset::CharsetEncoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual bool canEncode(char16_t c) override;
 	::java::nio::charset::CoderResult* encodeArrayLoop(::java::nio::CharBuffer* src, ::java::nio::ByteBuffer* dst);

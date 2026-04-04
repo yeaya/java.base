@@ -113,6 +113,7 @@ class $import JarFile : public ::java::util::zip::ZipFile {
 	$class(JarFile, 0, ::java::util::zip::ZipFile)
 public:
 	JarFile();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	void init$($String* name, bool verify);
 	void init$(::java::io::File* file);
@@ -160,7 +161,7 @@ public:
 	static bool MULTI_RELEASE_ENABLED;
 	static bool MULTI_RELEASE_FORCED;
 	static ::java::lang::ThreadLocal* isInitializing$;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
+	static const int32_t MAX_ARRAY_SIZE = 0x7ffffff7; // Integer.MAX_VALUE - 8
 	::java::lang::ref::SoftReference* manRef = nullptr;
 	::java::util::jar::JarEntry* manEntry = nullptr;
 	::java::util::jar::JarVerifier* jv = nullptr;

@@ -13,6 +13,7 @@ class $export Johab$DecodeHolder : public ::java::lang::Object {
 	$class(Johab$DecodeHolder, 0, ::java::lang::Object)
 public:
 	Johab$DecodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cSBStr;
 	static $StringArray* b2cStr;

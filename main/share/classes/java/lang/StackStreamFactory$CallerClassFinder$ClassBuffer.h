@@ -13,6 +13,7 @@ class StackStreamFactory$CallerClassFinder$ClassBuffer : public ::java::lang::St
 	$class(StackStreamFactory$CallerClassFinder$ClassBuffer, 0, ::java::lang::StackStreamFactory$FrameBuffer)
 public:
 	StackStreamFactory$CallerClassFinder$ClassBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t batchSize);
 	virtual $Class* at(int32_t index) override;
 	virtual $ObjectArray* frames() override;

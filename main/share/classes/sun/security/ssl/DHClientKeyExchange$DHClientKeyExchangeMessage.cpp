@@ -1,5 +1,4 @@
 #include <sun/security/ssl/DHClientKeyExchange$DHClientKeyExchangeMessage.h>
-
 #include <java/math/BigInteger.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/text/MessageFormat.h>
@@ -36,7 +35,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $DHPublicKey = ::javax::crypto::interfaces::DHPublicKey;
 using $DHParameterSpec = ::javax::crypto::spec::DHParameterSpec;
@@ -50,7 +48,6 @@ using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
 
@@ -58,49 +55,8 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _DHClientKeyExchange$DHClientKeyExchangeMessage_FieldInfo_[] = {
-	{"y", "[B", nullptr, $PRIVATE | $FINAL, $field(DHClientKeyExchange$DHClientKeyExchangeMessage, y)},
-	{}
-};
-
-$MethodInfo _DHClientKeyExchange$DHClientKeyExchangeMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(DHClientKeyExchange$DHClientKeyExchangeMessage, init$, void, $HandshakeContext*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(DHClientKeyExchange$DHClientKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(DHClientKeyExchange$DHClientKeyExchangeMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(DHClientKeyExchange$DHClientKeyExchangeMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(DHClientKeyExchange$DHClientKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHClientKeyExchange$DHClientKeyExchangeMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DHClientKeyExchange$DHClientKeyExchangeMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.DHClientKeyExchange$DHClientKeyExchangeMessage", "sun.security.ssl.DHClientKeyExchange", "DHClientKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DHClientKeyExchange$DHClientKeyExchangeMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.DHClientKeyExchange$DHClientKeyExchangeMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_DHClientKeyExchange$DHClientKeyExchangeMessage_FieldInfo_,
-	_DHClientKeyExchange$DHClientKeyExchangeMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DHClientKeyExchange$DHClientKeyExchangeMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.DHClientKeyExchange"
-};
-
-$Object* allocate$DHClientKeyExchange$DHClientKeyExchangeMessage($Class* clazz) {
-	return $of($alloc(DHClientKeyExchange$DHClientKeyExchangeMessage));
-}
-
 void DHClientKeyExchange$DHClientKeyExchangeMessage::init$($HandshakeContext* handshakeContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, handshakeContext));
 	$var($DHKeyExchange$DHEPossession, dhePossession, nullptr);
@@ -108,11 +64,9 @@ void DHClientKeyExchange$DHClientKeyExchangeMessage::init$($HandshakeContext* ha
 		$var($Iterator, i$, $nc($nc(chc)->handshakePossessions)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SSLPossession, possession, $cast($SSLPossession, i$->next()));
-			{
-				if ($instanceOf($DHKeyExchange$DHEPossession, possession)) {
-					$assign(dhePossession, $cast($DHKeyExchange$DHEPossession, possession));
-					break;
-				}
+			if ($instanceOf($DHKeyExchange$DHEPossession, possession)) {
+				$assign(dhePossession, $cast($DHKeyExchange$DHEPossession, possession));
+				break;
 			}
 		}
 	}
@@ -126,7 +80,7 @@ void DHClientKeyExchange$DHClientKeyExchangeMessage::init$($HandshakeContext* ha
 }
 
 void DHClientKeyExchange$DHClientKeyExchangeMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, handshakeContext));
 	if ($nc(m)->remaining() < 3) {
@@ -134,7 +88,7 @@ void DHClientKeyExchange$DHClientKeyExchangeMessage::init$($HandshakeContext* ha
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Invalid DH ClientKeyExchange message: insufficient data"_s)));
 	}
 	$set(this, y, $Record::getBytes16(m));
-	if ($nc(m)->hasRemaining()) {
+	if (m->hasRemaining()) {
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Invalid DH ClientKeyExchange message: unknown extra data"_s)));
 	}
@@ -154,11 +108,11 @@ void DHClientKeyExchange$DHClientKeyExchangeMessage::send($HandshakeOutStream* h
 }
 
 $String* DHClientKeyExchange$DHClientKeyExchangeMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"DH ClientKeyExchange\": \'{\'\n  \"parameters\": \'{\'\n    \"dh_Yc\": \'{\'\n{0}\n    \'}\',\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
-	$var($ObjectArray, messageFields, $new($ObjectArray, {$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->y)), "      "_s)))}));
+	$var($ObjectArray, messageFields, $new($ObjectArray, {$($Utilities::indent($(hexEncoder->encodeBuffer(this->y)), "      "_s))}));
 	return messageFormat->format(messageFields);
 }
 
@@ -166,7 +120,42 @@ DHClientKeyExchange$DHClientKeyExchangeMessage::DHClientKeyExchange$DHClientKeyE
 }
 
 $Class* DHClientKeyExchange$DHClientKeyExchangeMessage::load$($String* name, bool initialize) {
-	$loadClass(DHClientKeyExchange$DHClientKeyExchangeMessage, name, initialize, &_DHClientKeyExchange$DHClientKeyExchangeMessage_ClassInfo_, allocate$DHClientKeyExchange$DHClientKeyExchangeMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"y", "[B", nullptr, $PRIVATE | $FINAL, $field(DHClientKeyExchange$DHClientKeyExchangeMessage, y)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(DHClientKeyExchange$DHClientKeyExchangeMessage, init$, void, $HandshakeContext*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(DHClientKeyExchange$DHClientKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(DHClientKeyExchange$DHClientKeyExchangeMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(DHClientKeyExchange$DHClientKeyExchangeMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(DHClientKeyExchange$DHClientKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHClientKeyExchange$DHClientKeyExchangeMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.DHClientKeyExchange$DHClientKeyExchangeMessage", "sun.security.ssl.DHClientKeyExchange", "DHClientKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.DHClientKeyExchange$DHClientKeyExchangeMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.DHClientKeyExchange"
+	};
+	$loadClass(DHClientKeyExchange$DHClientKeyExchangeMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHClientKeyExchange$DHClientKeyExchangeMessage);
+	});
 	return class$;
 }
 

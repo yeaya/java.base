@@ -33,6 +33,7 @@ class $export ObjectStreamClass$RecordSupport : public ::java::lang::Object {
 	$class(ObjectStreamClass$RecordSupport, 0, ::java::lang::Object)
 public:
 	ObjectStreamClass$RecordSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandle* deserializationCtr(::java::io::ObjectStreamClass* desc);
 	static int32_t numberPrimValues(::java::io::ObjectStreamClass* desc);

@@ -40,6 +40,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* subkeyH);
 	void init$(::com::sun::crypto::provider::GHASH* g);
 	static void blockMult($longs* st, $longs* subH);

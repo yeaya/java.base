@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ISO_8859_13$Holder.h>
-
 #include <sun/nio/cs/ISO_8859_13.h>
 #include <sun/nio/cs/SingleByte.h>
 #include <jcpp.h>
@@ -14,44 +13,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _ISO_8859_13$Holder_FieldInfo_[] = {
-	{"b2cTable", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO_8859_13$Holder, b2cTable)},
-	{"b2c", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO_8859_13$Holder, b2c)},
-	{"c2b", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO_8859_13$Holder, c2b)},
-	{"c2bIndex", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO_8859_13$Holder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _ISO_8859_13$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ISO_8859_13$Holder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ISO_8859_13$Holder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ISO_8859_13$Holder", "sun.nio.cs.ISO_8859_13", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO_8859_13$Holder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ISO_8859_13$Holder",
-	"java.lang.Object",
-	nullptr,
-	_ISO_8859_13$Holder_FieldInfo_,
-	_ISO_8859_13$Holder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO_8859_13$Holder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ISO_8859_13"
-};
-
-$Object* allocate$ISO_8859_13$Holder($Class* clazz) {
-	return $of($alloc(ISO_8859_13$Holder));
-}
-
 $String* ISO_8859_13$Holder::b2cTable = nullptr;
 $chars* ISO_8859_13$Holder::b2c = nullptr;
 $chars* ISO_8859_13$Holder::c2b = nullptr;
@@ -60,10 +21,10 @@ $chars* ISO_8859_13$Holder::c2bIndex = nullptr;
 void ISO_8859_13$Holder::init$() {
 }
 
-void clinit$ISO_8859_13$Holder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(ISO_8859_13$Holder::b2cTable, $cstr({0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8A, 0x8B, 0x8C, 0x8D, 0x8E, 0x8F, 0x90, 0x91, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9A, 0x9B, 0x9C, 0x9D, 0x9E, 0x9F, 0xA0, 0x201D, 0xA2, 0xA3, 0xA4, 0x201E, 0xA6, 0xA7, 0xD8, 0xA9, 0x156, 0xAB, 0xAC, 0xAD, 0xAE, 0xC6, 0xB0, 0xB1, 0xB2, 0xB3, 0x201C, 0xB5, 0xB6, 0xB7, 0xF8, 0xB9, 0x157, 0xBB, 0xBC, 0xBD, 0xBE, 0xE6, 0x104, 0x12E, 0x100, 0x106, 0xC4, 0xC5, 0x118, 0x112, 0x10C, 0xC9, 0x179, 0x116, 0x122, 0x136, 0x12A, 0x13B, 0x160, 0x143, 0x145, 0xD3, 0x14C, 0xD5, 0xD6, 0xD7, 0x172, 0x141, 0x15A, 0x16A, 0xDC, 0x17B, 0x17D, 0xDF, 0x105, 0x12F, 0x101, 0x107, 0xE4, 0xE5, 0x119, 0x113, 0x10D, 0xE9, 0x17A, 0x117, 0x123, 0x137, 0x12B, 0x13C, 0x161, 0x144, 0x146, 0xF3, 0x14D, 0xF5, 0xF6, 0xF7, 0x173, 0x142, 0x15B, 0x16B, 0xFC, 0x17C, 0x17E, 0x2019, '\0', 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, '\b', '\t', '\n', 0xB, '\f', '\r', 0xE, 0xF, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7F}));
-	$assignStatic(ISO_8859_13$Holder::b2c, $nc(ISO_8859_13$Holder::b2cTable)->toCharArray());
+void ISO_8859_13$Holder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(ISO_8859_13$Holder::b2cTable, $cstr({0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90, 0x91, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9a, 0x9b, 0x9c, 0x9d, 0x9e, 0x9f, 0xa0, 0x201d, 0xa2, 0xa3, 0xa4, 0x201e, 0xa6, 0xa7, 0xd8, 0xa9, 0x0156, 0xab, 0xac, 0xad, 0xae, 0xc6, 0xb0, 0xb1, 0xb2, 0xb3, 0x201c, 0xb5, 0xb6, 0xb7, 0xf8, 0xb9, 0x0157, 0xbb, 0xbc, 0xbd, 0xbe, 0xe6, 0x0104, 0x012e, 0x0100, 0x0106, 0xc4, 0xc5, 0x0118, 0x0112, 0x010c, 0xc9, 0x0179, 0x0116, 0x0122, 0x0136, 0x012a, 0x013b, 0x0160, 0x0143, 0x0145, 0xd3, 0x014c, 0xd5, 0xd6, 0xd7, 0x0172, 0x0141, 0x015a, 0x016a, 0xdc, 0x017b, 0x017d, 0xdf, 0x0105, 0x012f, 0x0101, 0x0107, 0xe4, 0xe5, 0x0119, 0x0113, 0x010d, 0xe9, 0x017a, 0x0117, 0x0123, 0x0137, 0x012b, 0x013c, 0x0161, 0x0144, 0x0146, 0xf3, 0x014d, 0xf5, 0xf6, 0xf7, 0x0173, 0x0142, 0x015b, 0x016b, 0xfc, 0x017c, 0x017e, 0x2019, '\0', 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, '\b', '\t', '\n', 0x0b, '\f', '\r', 0x0e, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e, 0x1f, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7f}));
+	$assignStatic(ISO_8859_13$Holder::b2c, ISO_8859_13$Holder::b2cTable->toCharArray());
 	$assignStatic(ISO_8859_13$Holder::c2b, $new($chars, 768));
 	$assignStatic(ISO_8859_13$Holder::c2bIndex, $new($chars, 256));
 	{
@@ -77,7 +38,39 @@ ISO_8859_13$Holder::ISO_8859_13$Holder() {
 }
 
 $Class* ISO_8859_13$Holder::load$($String* name, bool initialize) {
-	$loadClass(ISO_8859_13$Holder, name, initialize, &_ISO_8859_13$Holder_ClassInfo_, clinit$ISO_8859_13$Holder, allocate$ISO_8859_13$Holder);
+	$FieldInfo fieldInfos$$[] = {
+		{"b2cTable", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO_8859_13$Holder, b2cTable)},
+		{"b2c", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO_8859_13$Holder, b2c)},
+		{"c2b", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO_8859_13$Holder, c2b)},
+		{"c2bIndex", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO_8859_13$Holder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ISO_8859_13$Holder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ISO_8859_13$Holder", "sun.nio.cs.ISO_8859_13", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ISO_8859_13$Holder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ISO_8859_13"
+	};
+	$loadClass(ISO_8859_13$Holder, name, initialize, &classInfo$$, ISO_8859_13$Holder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO_8859_13$Holder);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <FileExtensionAndMap.h>
-
 #include <java/io/File.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/io/Serializable.h>
@@ -47,7 +46,6 @@ using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
@@ -62,9 +60,7 @@ using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
-using $CopyOption = ::java::nio::file::CopyOption;
 using $Files = ::java::nio::file::Files;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
@@ -86,33 +82,29 @@ public:
 	virtual void run() override {
 		FileExtensionAndMap::lambda$main$1(targetFolder);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FileExtensionAndMap$$Lambda$lambda$main$1>());
-	}
 	$String* targetFolder = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo FileExtensionAndMap$$Lambda$lambda$main$1::fieldInfos[2] = {
-	{"targetFolder", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$main$1, targetFolder)},
-	{}
-};
-$MethodInfo FileExtensionAndMap$$Lambda$lambda$main$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$main$1, init$, void, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$main$1, run, void)},
-	{}
-};
-$ClassInfo FileExtensionAndMap$$Lambda$lambda$main$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"FileExtensionAndMap$$Lambda$lambda$main$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* FileExtensionAndMap$$Lambda$lambda$main$1::load$($String* name, bool initialize) {
-	$loadClass(FileExtensionAndMap$$Lambda$lambda$main$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"targetFolder", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$main$1, targetFolder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$main$1, init$, void, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$main$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"FileExtensionAndMap$$Lambda$lambda$main$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileExtensionAndMap$$Lambda$lambda$main$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileExtensionAndMap$$Lambda$lambda$main$1);
+	});
 	return class$;
 }
 $Class* FileExtensionAndMap$$Lambda$lambda$main$1::class$ = nullptr;
@@ -130,41 +122,37 @@ public:
 	virtual void run() override {
 		FileExtensionAndMap::lambda$testCreateBigFile$2(fileName, fc, startPosition, blockSize, concurrencySemaphore);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1>());
-	}
 	$String* fileName = nullptr;
 	$FileChannel* fc = nullptr;
 	int64_t startPosition = 0;
 	int32_t blockSize = 0;
 	$Semaphore* concurrencySemaphore = nullptr;
-	static $FieldInfo fieldInfos[6];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::fieldInfos[6] = {
-	{"fileName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, fileName)},
-	{"fc", "Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, fc)},
-	{"startPosition", "J", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, startPosition)},
-	{"blockSize", "I", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, blockSize)},
-	{"concurrencySemaphore", "Ljava/util/concurrent/Semaphore;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, concurrencySemaphore)},
-	{}
-};
-$MethodInfo FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, init$, void, $String*, $FileChannel*, int64_t, int32_t, $Semaphore*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, run, void)},
-	{}
-};
-$ClassInfo FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::load$($String* name, bool initialize) {
-	$loadClass(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"fileName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, fileName)},
+		{"fc", "Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, fc)},
+		{"startPosition", "J", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, startPosition)},
+		{"blockSize", "I", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, blockSize)},
+		{"concurrencySemaphore", "Ljava/util/concurrent/Semaphore;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, concurrencySemaphore)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, init$, void, $String*, $FileChannel*, int64_t, int32_t, $Semaphore*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1);
+	});
 	return class$;
 }
 $Class* FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::class$ = nullptr;
@@ -181,39 +169,35 @@ public:
 	virtual void accept(int32_t recordIndex) override {
 		FileExtensionAndMap::lambda$writeTemplateData$4(mappedByteBuffer, EMPTY_RECORD, fileName, startPosition, recordIndex);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2>());
-	}
 	$MappedByteBuffer* mappedByteBuffer = nullptr;
 	$bytes* EMPTY_RECORD = nullptr;
 	$String* fileName = nullptr;
 	int64_t startPosition = 0;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::fieldInfos[5] = {
-	{"mappedByteBuffer", "Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, mappedByteBuffer)},
-	{"EMPTY_RECORD", "[B", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, EMPTY_RECORD)},
-	{"fileName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, fileName)},
-	{"startPosition", "J", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, startPosition)},
-	{}
-};
-$MethodInfo FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/MappedByteBuffer;[BLjava/lang/String;J)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, init$, void, $MappedByteBuffer*, $bytes*, $String*, int64_t)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, accept, void, int32_t)},
-	{}
-};
-$ClassInfo FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::load$($String* name, bool initialize) {
-	$loadClass(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mappedByteBuffer", "Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, mappedByteBuffer)},
+		{"EMPTY_RECORD", "[B", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, EMPTY_RECORD)},
+		{"fileName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, fileName)},
+		{"startPosition", "J", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, startPosition)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/MappedByteBuffer;[BLjava/lang/String;J)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, init$, void, $MappedByteBuffer*, $bytes*, $String*, int64_t)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, accept, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2);
+	});
 	return class$;
 }
 $Class* FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::class$ = nullptr;
@@ -227,69 +211,32 @@ public:
 	virtual void accept(int32_t index) override {
 		FileExtensionAndMap::lambda$main$0(targetFolder, index);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FileExtensionAndMap$$Lambda$lambda$main$0$3>());
-	}
 	$String* targetFolder = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo FileExtensionAndMap$$Lambda$lambda$main$0$3::fieldInfos[2] = {
-	{"targetFolder", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$main$0$3, targetFolder)},
-	{}
-};
-$MethodInfo FileExtensionAndMap$$Lambda$lambda$main$0$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$main$0$3, init$, void, $String*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$main$0$3, accept, void, int32_t)},
-	{}
-};
-$ClassInfo FileExtensionAndMap$$Lambda$lambda$main$0$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"FileExtensionAndMap$$Lambda$lambda$main$0$3",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* FileExtensionAndMap$$Lambda$lambda$main$0$3::load$($String* name, bool initialize) {
-	$loadClass(FileExtensionAndMap$$Lambda$lambda$main$0$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"targetFolder", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FileExtensionAndMap$$Lambda$lambda$main$0$3, targetFolder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$main$0$3, init$, void, $String*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$main$0$3, accept, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"FileExtensionAndMap$$Lambda$lambda$main$0$3",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileExtensionAndMap$$Lambda$lambda$main$0$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileExtensionAndMap$$Lambda$lambda$main$0$3);
+	});
 	return class$;
 }
 $Class* FileExtensionAndMap$$Lambda$lambda$main$0$3::class$ = nullptr;
-
-$FieldInfo _FileExtensionAndMap_FieldInfo_[] = {
-	{"CACHED_EXECUTORSERVICE", "Ljava/util/concurrent/ExecutorService;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileExtensionAndMap, CACHED_EXECUTORSERVICE)},
-	{"TMPDIR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileExtensionAndMap, TMPDIR)},
-	{"useRaf", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileExtensionAndMap, useRaf)},
-	{}
-};
-
-$MethodInfo _FileExtensionAndMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FileExtensionAndMap, init$, void)},
-	{"lambda$main$0", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$main$0, void, $String*, int32_t)},
-	{"lambda$main$1", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$main$1, void, $String*)},
-	{"lambda$testCreateBigFile$2", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$testCreateBigFile$2, void, $String*, $FileChannel*, int64_t, int32_t, $Semaphore*)},
-	{"lambda$writeTemplateData$4", "(Ljava/nio/MappedByteBuffer;[BLjava/lang/String;JI)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$writeTemplateData$4, void, $MappedByteBuffer*, $bytes*, $String*, int64_t, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileExtensionAndMap, main, void, $StringArray*), "java.lang.Exception"},
-	{"testCreateBigFile", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileExtensionAndMap, testCreateBigFile, void, $Path*), "java.io.IOException"},
-	{"testFileCopy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileExtensionAndMap, testFileCopy, void, $Path*, $Path*), "java.io.IOException"},
-	{"writeTemplateData", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileExtensionAndMap, writeTemplateData, void, $String*, $FileChannel*, int64_t, int32_t, $Semaphore*)},
-	{}
-};
-
-$ClassInfo _FileExtensionAndMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FileExtensionAndMap",
-	"java.lang.Object",
-	nullptr,
-	_FileExtensionAndMap_FieldInfo_,
-	_FileExtensionAndMap_MethodInfo_
-};
-
-$Object* allocate$FileExtensionAndMap($Class* clazz) {
-	return $of($alloc(FileExtensionAndMap));
-}
 
 $ExecutorService* FileExtensionAndMap::CACHED_EXECUTORSERVICE = nullptr;
 $String* FileExtensionAndMap::TMPDIR = nullptr;
@@ -300,14 +247,14 @@ void FileExtensionAndMap::init$() {
 
 void FileExtensionAndMap::main($StringArray* args) {
 	$init(FileExtensionAndMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(args)->length > 2) {
 		$throwNew($IllegalArgumentException, "Arguments: [true|false [targetFolder]]"_s);
 	}
 	$init($File);
 	$var($String, defaultFolder, $str({FileExtensionAndMap::TMPDIR, $File::separator, "target"_s}));
-	if ($nc(args)->length > 0) {
-		FileExtensionAndMap::useRaf = $nc($($Boolean::valueOf(args->get(0))))->booleanValue();
+	if (args->length > 0) {
+		FileExtensionAndMap::useRaf = $($Boolean::valueOf(args->get(0)))->booleanValue();
 		if (args->length > 1) {
 			$assign(defaultFolder, args->get(1));
 		}
@@ -319,11 +266,11 @@ void FileExtensionAndMap::main($StringArray* args) {
 		$Files::createDirectory(p, $$new($FileAttributeArray, 0));
 	}
 	$nc($System::out)->printf("Using RandomAccessFile: %s; target folder: %s%n"_s, $$new($ObjectArray, {
-		$($of($Boolean::valueOf(FileExtensionAndMap::useRaf))),
-		$of(targetFolder)
+		$($Boolean::valueOf(FileExtensionAndMap::useRaf)),
+		targetFolder
 	}));
 	$var($ForkJoinPool, fjPool, $new($ForkJoinPool, 3));
-	$nc($($cast($ForkJoinTask, fjPool->submit(static_cast<$Runnable*>($$new(FileExtensionAndMap$$Lambda$lambda$main$1, targetFolder))))))->join();
+	$$sure($ForkJoinTask, fjPool->submit($$new(FileExtensionAndMap$$Lambda$lambda$main$1, targetFolder)))->join();
 	if (!targetExists) {
 		$Files::delete$(p);
 	}
@@ -331,126 +278,116 @@ void FileExtensionAndMap::main($StringArray* args) {
 
 void FileExtensionAndMap::testFileCopy($Path* source, $Path* target) {
 	$init(FileExtensionAndMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StandardCopyOption);
-	$Files::copy(source, target, $$new($CopyOptionArray, {static_cast<$CopyOption*>($StandardCopyOption::REPLACE_EXISTING)}));
+	$Files::copy(source, target, $$new($CopyOptionArray, {$StandardCopyOption::REPLACE_EXISTING}));
 	$nc($System::out)->println($$str({"Finished copying file with fileName: "_s, $($nc(source)->getFileName())}));
 }
 
 void FileExtensionAndMap::testCreateBigFile($Path* segmentFile) {
 	$init(FileExtensionAndMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Semaphore, concurrencySemaphore, $new($Semaphore, 5));
 	int64_t fileSize = (int64_t)3 * (int64_t)1024 * (int64_t)1024 * (int64_t)1024;
 	int32_t blockSize = 10 * 1024 * 1024;
 	int32_t loopCount = (int32_t)$Math::floorDiv(fileSize, blockSize);
-	$var($String, fileName, $nc($($nc(segmentFile)->getFileName()))->toString());
+	$var($String, fileName, $$nc($nc(segmentFile)->getFileName())->toString());
 	if (FileExtensionAndMap::useRaf) {
-		{
-			$var($RandomAccessFile, raf, $new($RandomAccessFile, $(segmentFile->toFile()), "rw"_s));
-			{
-				$var($Throwable, var$0, nullptr);
+		$var($RandomAccessFile, raf, $new($RandomAccessFile, $(segmentFile->toFile()), "rw"_s));
+		$var($Throwable, var$0, nullptr);
+		try {
+			try {
+				raf->setLength(fileSize);
+				$var($Throwable, var$1, nullptr);
 				try {
+					$var($FileChannel, fc, raf->getChannel());
+					$var($Throwable, var$2, nullptr);
 					try {
-						raf->setLength(fileSize);
-						{
-							$var($Throwable, var$1, nullptr);
-							try {
-								$var($FileChannel, fc, raf->getChannel());
-								{
-									$var($Throwable, var$2, nullptr);
-									try {
-										try {
-											for (int32_t i = 0; i < loopCount; ++i) {
-												int64_t startPosition = (int64_t)1 * blockSize * i;
-												concurrencySemaphore->acquireUninterruptibly();
-												$nc(FileExtensionAndMap::CACHED_EXECUTORSERVICE)->submit(static_cast<$Runnable*>($$new(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, fileName, fc, startPosition, blockSize, concurrencySemaphore)));
-											}
-										} catch ($Throwable& t$) {
-											if (fc != nullptr) {
-												try {
-													fc->close();
-												} catch ($Throwable& x2) {
-													t$->addSuppressed(x2);
-												}
-											}
-											$throw(t$);
-										}
-									} catch ($Throwable& var$3) {
-										$assign(var$2, var$3);
-									} /*finally*/ {
-										if (fc != nullptr) {
-											fc->close();
-										}
-									}
-									if (var$2 != nullptr) {
-										$throw(var$2);
-									}
-								}
-							} catch ($Throwable& var$4) {
-								$assign(var$1, var$4);
-							} /*finally*/ {
-								concurrencySemaphore->acquireUninterruptibly(5);
-							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
-							}
-						}
-					} catch ($Throwable& t$) {
 						try {
-							raf->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
+							for (int32_t i = 0; i < loopCount; ++i) {
+								int64_t startPosition = (int64_t)1 * blockSize * i;
+								concurrencySemaphore->acquireUninterruptibly();
+								$nc(FileExtensionAndMap::CACHED_EXECUTORSERVICE)->submit($$new(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, fileName, fc, startPosition, blockSize, concurrencySemaphore));
+							}
+						} catch ($Throwable& t$) {
+							if (fc != nullptr) {
+								try {
+									fc->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
+							}
+							$throw(t$);
 						}
-						$throw(t$);
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
+					} /*finally*/ {
+						if (fc != nullptr) {
+							fc->close();
+						}
 					}
-				} catch ($Throwable& var$5) {
-					$assign(var$0, var$5);
+					if (var$2 != nullptr) {
+						$throw(var$2);
+					}
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} /*finally*/ {
+					concurrencySemaphore->acquireUninterruptibly(5);
+				}
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
 					raf->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+				$throw(t$);
 			}
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
+		} /*finally*/ {
+			raf->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		$var($Path, file, $Files::createFile(segmentFile, $$new($FileAttributeArray, 0)));
 		{
 			$init($StandardOpenOption);
 			$var($FileChannel, fc, $FileChannel::open(file, $$new($OpenOptionArray, {
-				static_cast<$OpenOption*>($StandardOpenOption::READ),
-				static_cast<$OpenOption*>($StandardOpenOption::WRITE)
+				$StandardOpenOption::READ,
+				$StandardOpenOption::WRITE
 			})));
-			{
-				$var($Throwable, var$6, nullptr);
+			$var($Throwable, var$6, nullptr);
+			try {
 				try {
-					try {
-						for (int32_t i = 0; i < loopCount; ++i) {
-							int64_t startPosition = (int64_t)1 * blockSize * i;
-							concurrencySemaphore->acquireUninterruptibly();
-							$nc(FileExtensionAndMap::CACHED_EXECUTORSERVICE)->submit(static_cast<$Runnable*>($$new(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, fileName, fc, startPosition, blockSize, concurrencySemaphore)));
-						}
-					} catch ($Throwable& t$) {
-						if (fc != nullptr) {
-							try {
-								fc->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
+					for (int32_t i = 0; i < loopCount; ++i) {
+						int64_t startPosition = (int64_t)1 * blockSize * i;
+						concurrencySemaphore->acquireUninterruptibly();
+						$nc(FileExtensionAndMap::CACHED_EXECUTORSERVICE)->submit($$new(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, fileName, fc, startPosition, blockSize, concurrencySemaphore));
 					}
-				} catch ($Throwable& var$7) {
-					$assign(var$6, var$7);
-				} /*finally*/ {
+				} catch ($Throwable& t$) {
 					if (fc != nullptr) {
-						fc->close();
+						try {
+							fc->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$6 != nullptr) {
-					$throw(var$6);
+			} catch ($Throwable& var$7) {
+				$assign(var$6, var$7);
+			} /*finally*/ {
+				if (fc != nullptr) {
+					fc->close();
 				}
+			}
+			if (var$6 != nullptr) {
+				$throw(var$6);
 			}
 		}
 	}
@@ -458,39 +395,37 @@ void FileExtensionAndMap::testCreateBigFile($Path* segmentFile) {
 
 void FileExtensionAndMap::writeTemplateData($String* fileName, $FileChannel* fc, int64_t startPosition, int32_t blockSize, $Semaphore* concurrencySemaphore) {
 	$init(FileExtensionAndMap);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$var($bytes, EMPTY_RECORD, $new($bytes, blockSize / 256));
-				$init($FileChannel$MapMode);
-				$var($MappedByteBuffer, mappedByteBuffer, $nc(fc)->map($FileChannel$MapMode::READ_WRITE, startPosition, blockSize));
-				$nc($($IntStream::range(0, 256)))->forEach(static_cast<$IntConsumer*>($$new(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, mappedByteBuffer, EMPTY_RECORD, fileName, startPosition)));
-				$nc(mappedByteBuffer)->force();
-			} catch ($Throwable& th) {
-				if (!($instanceOf($ClosedChannelException, th))) {
-					$nc($System::err)->println($$str({"Error in FileExtensionAndMap.writeTemplateData empty record for fileName: "_s, fileName, ", startPosition: "_s, $$str(startPosition), " : "_s, $(th->getMessage())}));
-					th->printStackTrace($System::err);
-				}
+			$var($bytes, EMPTY_RECORD, $new($bytes, blockSize / 256));
+			$init($FileChannel$MapMode);
+			$var($MappedByteBuffer, mappedByteBuffer, $nc(fc)->map($FileChannel$MapMode::READ_WRITE, startPosition, blockSize));
+			$$nc($IntStream::range(0, 256))->forEach($$new(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, mappedByteBuffer, EMPTY_RECORD, fileName, startPosition));
+			$nc(mappedByteBuffer)->force();
+		} catch ($Throwable& th) {
+			if (!($instanceOf($ClosedChannelException, th))) {
+				$nc($System::err)->println($$str({"Error in FileExtensionAndMap.writeTemplateData empty record for fileName: "_s, fileName, ", startPosition: "_s, $$str(startPosition), " : "_s, $(th->getMessage())}));
+				th->printStackTrace($System::err);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(concurrencySemaphore)->release();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(concurrencySemaphore)->release();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void FileExtensionAndMap::lambda$writeTemplateData$4($MappedByteBuffer* mappedByteBuffer, $bytes* EMPTY_RECORD, $String* fileName, int64_t startPosition, int32_t recordIndex) {
 	$init(FileExtensionAndMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(mappedByteBuffer)->position((recordIndex * $nc(EMPTY_RECORD)->length));
-		mappedByteBuffer->put(EMPTY_RECORD, 0, $nc(EMPTY_RECORD)->length);
+		mappedByteBuffer->put(EMPTY_RECORD, 0, EMPTY_RECORD->length);
 	} catch ($Throwable& th) {
 		$nc($System::err)->println($$str({"Error in FileExtensionAndMap.writeTemplateData empty record for fileName: "_s, fileName, ", startPosition: "_s, $$str(startPosition), ", recordIndex: "_s, $$str(recordIndex), " : "_s, $(th->getMessage())}));
 		th->printStackTrace($System::err);
@@ -504,51 +439,49 @@ void FileExtensionAndMap::lambda$testCreateBigFile$2($String* fileName, $FileCha
 
 void FileExtensionAndMap::lambda$main$1($String* targetFolder) {
 	$init(FileExtensionAndMap);
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc($($IntStream::range(0, 20)))->parallel()))->forEach(static_cast<$IntConsumer*>($$new(FileExtensionAndMap$$Lambda$lambda$main$0$3, targetFolder)));
+	$useLocalObjectStack();
+	$$nc($$nc($IntStream::range(0, 20))->parallel())->forEach($$new(FileExtensionAndMap$$Lambda$lambda$main$0$3, targetFolder));
 }
 
 void FileExtensionAndMap::lambda$main$0($String* targetFolder, int32_t index) {
 	$init(FileExtensionAndMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fileName, $str({"testBigFile_"_s, $$str(index), ".dat"_s}));
 	$var($Path, source, nullptr);
 	$var($Path, target, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$assign(source, $Paths::get(FileExtensionAndMap::TMPDIR, $$new($StringArray, {fileName})));
-				testCreateBigFile(source);
-				$assign(target, $Paths::get(targetFolder, $$new($StringArray, {fileName})));
-				testFileCopy(source, target);
-			} catch ($Throwable& th) {
-				$nc($System::err)->println($$str({"Error copying file with fileName: "_s, fileName, " : "_s, $(th->getMessage())}));
-				th->printStackTrace($System::err);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			try {
-				if (source != nullptr) {
-					$Files::deleteIfExists(source);
-				}
-			} catch ($Throwable& ignored) {
-			}
-			try {
-				if (target != nullptr) {
-					$Files::deleteIfExists(target);
-				}
-			} catch ($Throwable& ignored) {
-			}
+			$assign(source, $Paths::get(FileExtensionAndMap::TMPDIR, $$new($StringArray, {fileName})));
+			testCreateBigFile(source);
+			$assign(target, $Paths::get(targetFolder, $$new($StringArray, {fileName})));
+			testFileCopy(source, target);
+		} catch ($Throwable& th) {
+			$nc($System::err)->println($$str({"Error copying file with fileName: "_s, fileName, " : "_s, $(th->getMessage())}));
+			th->printStackTrace($System::err);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		try {
+			if (source != nullptr) {
+				$Files::deleteIfExists(source);
+			}
+		} catch ($Throwable& ignored) {
 		}
+		try {
+			if (target != nullptr) {
+				$Files::deleteIfExists(target);
+			}
+		} catch ($Throwable& ignored) {
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$FileExtensionAndMap($Class* class$) {
+void FileExtensionAndMap::clinit$($Class* clazz) {
 	$assignStatic(FileExtensionAndMap::CACHED_EXECUTORSERVICE, $Executors::newCachedThreadPool());
 	$assignStatic(FileExtensionAndMap::TMPDIR, $System::getProperty("test.dir"_s, "."_s));
 	FileExtensionAndMap::useRaf = false;
@@ -559,20 +492,48 @@ FileExtensionAndMap::FileExtensionAndMap() {
 
 $Class* FileExtensionAndMap::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(FileExtensionAndMap$$Lambda$lambda$main$1::classInfo$.name)) {
+		if (name->equals("FileExtensionAndMap$$Lambda$lambda$main$1")) {
 			return FileExtensionAndMap$$Lambda$lambda$main$1::load$(name, initialize);
 		}
-		if (name->equals(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::classInfo$.name)) {
+		if (name->equals("FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1")) {
 			return FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::load$(name, initialize);
 		}
-		if (name->equals(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::classInfo$.name)) {
+		if (name->equals("FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2")) {
 			return FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::load$(name, initialize);
 		}
-		if (name->equals(FileExtensionAndMap$$Lambda$lambda$main$0$3::classInfo$.name)) {
+		if (name->equals("FileExtensionAndMap$$Lambda$lambda$main$0$3")) {
 			return FileExtensionAndMap$$Lambda$lambda$main$0$3::load$(name, initialize);
 		}
 	}
-	$loadClass(FileExtensionAndMap, name, initialize, &_FileExtensionAndMap_ClassInfo_, clinit$FileExtensionAndMap, allocate$FileExtensionAndMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"CACHED_EXECUTORSERVICE", "Ljava/util/concurrent/ExecutorService;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileExtensionAndMap, CACHED_EXECUTORSERVICE)},
+		{"TMPDIR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileExtensionAndMap, TMPDIR)},
+		{"useRaf", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileExtensionAndMap, useRaf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FileExtensionAndMap, init$, void)},
+		{"lambda$main$0", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$main$0, void, $String*, int32_t)},
+		{"lambda$main$1", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$main$1, void, $String*)},
+		{"lambda$testCreateBigFile$2", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$testCreateBigFile$2, void, $String*, $FileChannel*, int64_t, int32_t, $Semaphore*)},
+		{"lambda$writeTemplateData$4", "(Ljava/nio/MappedByteBuffer;[BLjava/lang/String;JI)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$writeTemplateData$4, void, $MappedByteBuffer*, $bytes*, $String*, int64_t, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileExtensionAndMap, main, void, $StringArray*), "java.lang.Exception"},
+		{"testCreateBigFile", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileExtensionAndMap, testCreateBigFile, void, $Path*), "java.io.IOException"},
+		{"testFileCopy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileExtensionAndMap, testFileCopy, void, $Path*, $Path*), "java.io.IOException"},
+		{"writeTemplateData", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileExtensionAndMap, writeTemplateData, void, $String*, $FileChannel*, int64_t, int32_t, $Semaphore*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FileExtensionAndMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileExtensionAndMap, name, initialize, &classInfo$$, FileExtensionAndMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileExtensionAndMap);
+	});
 	return class$;
 }
 

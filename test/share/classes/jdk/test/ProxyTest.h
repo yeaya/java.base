@@ -32,6 +32,7 @@ class $export ProxyTest : public ::java::lang::Object {
 	$class(ProxyTest, 0, ::java::lang::Object)
 public:
 	ProxyTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void assertDynamicModule(::java::lang::Module* m, ::java::lang::ClassLoader* ld, $Class* proxyClass);
 	static void assertEquals(Object$* o1, Object$* o2);

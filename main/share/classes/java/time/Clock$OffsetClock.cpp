@@ -1,11 +1,9 @@
 #include <java/time/Clock$OffsetClock.h>
-
 #include <java/lang/Math.h>
 #include <java/time/Clock.h>
 #include <java/time/Duration.h>
 #include <java/time/Instant.h>
 #include <java/time/ZoneId.h>
-#include <java/time/temporal/TemporalAmount.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -17,56 +15,9 @@ using $Clock = ::java::time::Clock;
 using $Duration = ::java::time::Duration;
 using $Instant = ::java::time::Instant;
 using $ZoneId = ::java::time::ZoneId;
-using $TemporalAmount = ::java::time::temporal::TemporalAmount;
 
 namespace java {
 	namespace time {
-
-$FieldInfo _Clock$OffsetClock_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Clock$OffsetClock, serialVersionUID)},
-	{"baseClock", "Ljava/time/Clock;", nullptr, $PRIVATE | $FINAL, $field(Clock$OffsetClock, baseClock)},
-	{"offset", "Ljava/time/Duration;", nullptr, $PRIVATE | $FINAL, $field(Clock$OffsetClock, offset)},
-	{}
-};
-
-$MethodInfo _Clock$OffsetClock_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/time/Clock;Ljava/time/Duration;)V", nullptr, 0, $method(Clock$OffsetClock, init$, void, $Clock*, $Duration*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, equals, bool, Object$*)},
-	{"getZone", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, getZone, $ZoneId*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, hashCode, int32_t)},
-	{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, instant, $Instant*)},
-	{"millis", "()J", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, millis, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, toString, $String*)},
-	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, withZone, $Clock*, $ZoneId*)},
-	{}
-};
-
-$InnerClassInfo _Clock$OffsetClock_InnerClassesInfo_[] = {
-	{"java.time.Clock$OffsetClock", "java.time.Clock", "OffsetClock", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Clock$OffsetClock_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.Clock$OffsetClock",
-	"java.time.Clock",
-	"java.io.Serializable",
-	_Clock$OffsetClock_FieldInfo_,
-	_Clock$OffsetClock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Clock$OffsetClock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.Clock"
-};
-
-$Object* allocate$Clock$OffsetClock($Class* clazz) {
-	return $of($alloc(Clock$OffsetClock));
-}
 
 $Object* Clock$OffsetClock::clone() {
 	 return this->$Clock::clone();
@@ -87,11 +38,11 @@ $ZoneId* Clock$OffsetClock::getZone() {
 }
 
 $Clock* Clock$OffsetClock::withZone($ZoneId* zone) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(zone)->equals($($nc(this->baseClock)->getZone()))) {
 		return this;
 	}
-	return $new(Clock$OffsetClock, $($nc(this->baseClock)->withZone(zone)), this->offset);
+	return $new(Clock$OffsetClock, $(this->baseClock->withZone(zone)), this->offset);
 }
 
 int64_t Clock$OffsetClock::millis() {
@@ -100,7 +51,7 @@ int64_t Clock$OffsetClock::millis() {
 }
 
 $Instant* Clock$OffsetClock::instant() {
-	return $nc($($nc(this->baseClock)->instant()))->plus(this->offset);
+	return $$nc($nc(this->baseClock)->instant())->plus(this->offset);
 }
 
 bool Clock$OffsetClock::equals(Object$* obj) {
@@ -112,7 +63,7 @@ bool Clock$OffsetClock::equals(Object$* obj) {
 	}
 	bool var$1 = var$2;
 	bool var$0 = var$1 && $nc(this->baseClock)->equals($nc(other)->baseClock);
-	return var$0 && $nc(this->offset)->equals($nc(other)->offset);
+	return var$0 && $nc(this->offset)->equals(other->offset);
 }
 
 int32_t Clock$OffsetClock::hashCode() {
@@ -128,7 +79,47 @@ Clock$OffsetClock::Clock$OffsetClock() {
 }
 
 $Class* Clock$OffsetClock::load$($String* name, bool initialize) {
-	$loadClass(Clock$OffsetClock, name, initialize, &_Clock$OffsetClock_ClassInfo_, allocate$Clock$OffsetClock);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Clock$OffsetClock, serialVersionUID)},
+		{"baseClock", "Ljava/time/Clock;", nullptr, $PRIVATE | $FINAL, $field(Clock$OffsetClock, baseClock)},
+		{"offset", "Ljava/time/Duration;", nullptr, $PRIVATE | $FINAL, $field(Clock$OffsetClock, offset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/time/Clock;Ljava/time/Duration;)V", nullptr, 0, $method(Clock$OffsetClock, init$, void, $Clock*, $Duration*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, equals, bool, Object$*)},
+		{"getZone", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, getZone, $ZoneId*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, hashCode, int32_t)},
+		{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, instant, $Instant*)},
+		{"millis", "()J", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, millis, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, toString, $String*)},
+		{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, withZone, $Clock*, $ZoneId*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.Clock$OffsetClock", "java.time.Clock", "OffsetClock", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.Clock$OffsetClock",
+		"java.time.Clock",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.Clock"
+	};
+	$loadClass(Clock$OffsetClock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Clock$OffsetClock));
+	});
 	return class$;
 }
 

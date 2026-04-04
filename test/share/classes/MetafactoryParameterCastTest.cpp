@@ -1,5 +1,4 @@
 #include <MetafactoryParameterCastTest.h>
-
 #include <MetafactoryParameterCastTest$A.h>
 #include <MetafactoryParameterCastTest$ASink.h>
 #include <MetafactoryParameterCastTest$B.h>
@@ -47,61 +46,6 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Arrays = ::java::util::Arrays;
 
-$FieldInfo _MetafactoryParameterCastTest_FieldInfo_[] = {
-	{"lookup", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC | $FINAL, $staticField(MetafactoryParameterCastTest, lookup)},
-	{"lastMH", "Ljava/lang/invoke/MethodHandle;", nullptr, 0, $field(MetafactoryParameterCastTest, lastMH)},
-	{"lastCaptured", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", 0, $field(MetafactoryParameterCastTest, lastCaptured)},
-	{"lastInstMT", "Ljava/lang/invoke/MethodType;", nullptr, 0, $field(MetafactoryParameterCastTest, lastInstMT)},
-	{"lastSamMT", "Ljava/lang/invoke/MethodType;", nullptr, 0, $field(MetafactoryParameterCastTest, lastSamMT)},
-	{"lastBridgeMTs", "[Ljava/lang/invoke/MethodType;", nullptr, 0, $field(MetafactoryParameterCastTest, lastBridgeMTs)},
-	{}
-};
-
-$MethodInfo _MetafactoryParameterCastTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryParameterCastTest, init$, void)},
-	{"invokeAltMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", $TRANSIENT, $virtualMethod(MetafactoryParameterCastTest, invokeAltMetafactory, $CallSite*, $MethodHandle*, $Class*, $String*, $ClassArray*, $MethodType*, $MethodType*, $MethodTypeArray*)},
-	{"invokeMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", 0, $virtualMethod(MetafactoryParameterCastTest, invokeMetafactory, $CallSite*, $MethodHandle*, $Class*, $String*, $ClassArray*, $MethodType*, $MethodType*)},
-	{"lastMFParams", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, lastMFParams, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MetafactoryParameterCastTest, main, void, $StringArray*), "java.lang.Throwable"},
-	{"test", "()V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, test, void), "java.lang.Throwable"},
-	{"tryASink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryASink, void, $CallSite*), "java.lang.Throwable"},
-	{"tryASink", "(LMetafactoryParameterCastTest$ASink;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryASink, void, $MetafactoryParameterCastTest$ASink*)},
-	{"tryBSink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryBSink, void, $CallSite*), "java.lang.Throwable"},
-	{"tryBSink", "(LMetafactoryParameterCastTest$BSink;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryBSink, void, $MetafactoryParameterCastTest$BSink*)},
-	{"tryCapASink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryCapASink, void, $CallSite*), "java.lang.Throwable"},
-	{"tryCapBSink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryCapBSink, void, $CallSite*), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _MetafactoryParameterCastTest_InnerClassesInfo_[] = {
-	{"MetafactoryParameterCastTest$BSink", "MetafactoryParameterCastTest", "BSink", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"MetafactoryParameterCastTest$ASink", "MetafactoryParameterCastTest", "ASink", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"MetafactoryParameterCastTest$NotC", "MetafactoryParameterCastTest", "NotC", $PUBLIC | $STATIC},
-	{"MetafactoryParameterCastTest$C", "MetafactoryParameterCastTest", "C", $PUBLIC | $STATIC},
-	{"MetafactoryParameterCastTest$B", "MetafactoryParameterCastTest", "B", $PUBLIC | $STATIC},
-	{"MetafactoryParameterCastTest$A", "MetafactoryParameterCastTest", "A", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetafactoryParameterCastTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MetafactoryParameterCastTest",
-	"java.lang.Object",
-	nullptr,
-	_MetafactoryParameterCastTest_FieldInfo_,
-	_MetafactoryParameterCastTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetafactoryParameterCastTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"MetafactoryParameterCastTest$BSink,MetafactoryParameterCastTest$ASink,MetafactoryParameterCastTest$NotC,MetafactoryParameterCastTest$C,MetafactoryParameterCastTest$B,MetafactoryParameterCastTest$A"
-};
-
-$Object* allocate$MetafactoryParameterCastTest($Class* clazz) {
-	return $of($alloc(MetafactoryParameterCastTest));
-}
-
 $MethodHandles$Lookup* MetafactoryParameterCastTest::lookup = nullptr;
 
 void MetafactoryParameterCastTest::init$() {
@@ -113,8 +57,7 @@ void MetafactoryParameterCastTest::main($StringArray* args) {
 }
 
 void MetafactoryParameterCastTest::test() {
-	$useLocalCurrentObjectStackCache();
-	$init($Void);
+	$useLocalObjectStack();
 	$load($MetafactoryParameterCastTest$A);
 	$var($MethodType, takeA, $MethodType::methodType($Void::TYPE, $MetafactoryParameterCastTest$A::class$));
 	$load($MetafactoryParameterCastTest$B);
@@ -128,14 +71,12 @@ void MetafactoryParameterCastTest::test() {
 		$($nc(MetafactoryParameterCastTest::lookup)->findStatic($MetafactoryParameterCastTest$B::class$, "static1"_s, $($MethodType::methodType($Void::TYPE, $MetafactoryParameterCastTest$B::class$))))
 	}));
 	$var($MethodHandleArray, twoBParams, $new($MethodHandleArray, {
-		$($nc(MetafactoryParameterCastTest::lookup)->findVirtual($MetafactoryParameterCastTest$B::class$, "instance1"_s, $($MethodType::methodType($Void::TYPE, $MetafactoryParameterCastTest$B::class$)))),
-		$($nc(MetafactoryParameterCastTest::lookup)->findStatic($MetafactoryParameterCastTest$B::class$, "static2"_s, $($MethodType::methodType($Void::TYPE, $MetafactoryParameterCastTest$B::class$, $$new($ClassArray, {$MetafactoryParameterCastTest$B::class$})))))
+		$(MetafactoryParameterCastTest::lookup->findVirtual($MetafactoryParameterCastTest$B::class$, "instance1"_s, $($MethodType::methodType($Void::TYPE, $MetafactoryParameterCastTest$B::class$)))),
+		$(MetafactoryParameterCastTest::lookup->findStatic($MetafactoryParameterCastTest$B::class$, "static2"_s, $($MethodType::methodType($Void::TYPE, $MetafactoryParameterCastTest$B::class$, $$new($ClassArray, {$MetafactoryParameterCastTest$B::class$})))))
 	}));
 	{
 		$var($MethodHandleArray, arr$, oneBParam);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($MethodHandle, mh, arr$->get(i$));
 			{
 				$load($MetafactoryParameterCastTest$ASink);
@@ -151,9 +92,7 @@ void MetafactoryParameterCastTest::test() {
 	}
 	{
 		$var($MethodHandleArray, arr$, twoBParams);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($MethodHandle, mh, arr$->get(i$));
 			{
 				$load($MetafactoryParameterCastTest$ASink);
@@ -170,79 +109,91 @@ void MetafactoryParameterCastTest::test() {
 }
 
 void MetafactoryParameterCastTest::tryASink($CallSite* cs) {
-	$useLocalCurrentObjectStackCache();
-	$var($MetafactoryParameterCastTest$ASink, sink, $cast($MetafactoryParameterCastTest$ASink, $nc($($nc(cs)->dynamicInvoker()))->invoke($$new($ObjectArray, 0))));
+	$useLocalObjectStack();
+	$var($MetafactoryParameterCastTest$ASink, sink, $cast($MetafactoryParameterCastTest$ASink, $$nc($nc(cs)->dynamicInvoker())->invoke($$new($ObjectArray, 0))));
 	tryASink(sink);
 }
 
 void MetafactoryParameterCastTest::tryCapASink($CallSite* cs) {
-	$useLocalCurrentObjectStackCache();
-	$var($MetafactoryParameterCastTest$ASink, sink, $cast($MetafactoryParameterCastTest$ASink, $nc($($nc(cs)->dynamicInvoker()))->invoke($$new($ObjectArray, {$of($$new($MetafactoryParameterCastTest$B))}))));
+	$useLocalObjectStack();
+	$var($MetafactoryParameterCastTest$ASink, sink, $cast($MetafactoryParameterCastTest$ASink, $$nc($nc(cs)->dynamicInvoker())->invoke($$new($ObjectArray, {$$new($MetafactoryParameterCastTest$B)}))));
 	tryASink(sink);
 }
 
 void MetafactoryParameterCastTest::tryBSink($CallSite* cs) {
-	$useLocalCurrentObjectStackCache();
-	$var($MetafactoryParameterCastTest$BSink, sink, $cast($MetafactoryParameterCastTest$BSink, $nc($($nc(cs)->dynamicInvoker()))->invoke($$new($ObjectArray, 0))));
+	$useLocalObjectStack();
+	$var($MetafactoryParameterCastTest$BSink, sink, $cast($MetafactoryParameterCastTest$BSink, $$nc($nc(cs)->dynamicInvoker())->invoke($$new($ObjectArray, 0))));
 	tryBSink(sink);
 }
 
 void MetafactoryParameterCastTest::tryCapBSink($CallSite* cs) {
-	$useLocalCurrentObjectStackCache();
-	$var($MetafactoryParameterCastTest$BSink, sink, $cast($MetafactoryParameterCastTest$BSink, $nc($($nc(cs)->dynamicInvoker()))->invoke($$new($ObjectArray, {$of($$new($MetafactoryParameterCastTest$B))}))));
+	$useLocalObjectStack();
+	$var($MetafactoryParameterCastTest$BSink, sink, $cast($MetafactoryParameterCastTest$BSink, $$nc($nc(cs)->dynamicInvoker())->invoke($$new($ObjectArray, {$$new($MetafactoryParameterCastTest$B)}))));
 	tryBSink(sink);
 }
 
 void MetafactoryParameterCastTest::tryASink($MetafactoryParameterCastTest$ASink* sink) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$C));
 	} catch ($ClassCastException& e) {
-		$var($String, var$0, $$str({"Unexpected cast failure: "_s, e, " "_s}));
-		$throwNew($AssertionError, $of(($$concat(var$0, $(lastMFParams())))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unexpected cast failure: "_s);
+		var$0->append($of(e));
+		var$0->append(" "_s);
+		var$0->append($(lastMFParams()));
+		$throwNew($AssertionError, $$of($str(var$0)));
 	}
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$B));
-		$throwNew($AssertionError, $of($$str({"Missing cast from A to C: "_s, $(lastMFParams())})));
+		$throwNew($AssertionError, $$of($str({"Missing cast from A to C: "_s, $(lastMFParams())})));
 	} catch ($ClassCastException& e) {
 	}
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$NotC));
-		$throwNew($AssertionError, $of($$str({"Missing cast from A to C: "_s, $(lastMFParams())})));
+		$throwNew($AssertionError, $$of($str({"Missing cast from A to C: "_s, $(lastMFParams())})));
 	} catch ($ClassCastException& e) {
 	}
 }
 
 void MetafactoryParameterCastTest::tryBSink($MetafactoryParameterCastTest$BSink* sink) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$C));
 	} catch ($ClassCastException& e) {
-		$var($String, var$0, $$str({"Unexpected cast failure: "_s, e, " "_s}));
-		$throwNew($AssertionError, $of(($$concat(var$0, $(lastMFParams())))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unexpected cast failure: "_s);
+		var$0->append($of(e));
+		var$0->append(" "_s);
+		var$0->append($(lastMFParams()));
+		$throwNew($AssertionError, $$of($str(var$0)));
 	}
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$B));
-		$throwNew($AssertionError, $of($$str({"Missing cast from B to C: "_s, $(lastMFParams())})));
+		$throwNew($AssertionError, $$of($str({"Missing cast from B to C: "_s, $(lastMFParams())})));
 	} catch ($ClassCastException& e) {
 	}
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$NotC));
-		$throwNew($AssertionError, $of($$str({"Missing cast from B to C: "_s, $(lastMFParams())})));
+		$throwNew($AssertionError, $$of($str({"Missing cast from B to C: "_s, $(lastMFParams())})));
 	} catch ($ClassCastException& e) {
 	}
 }
 
 $String* MetafactoryParameterCastTest::lastMFParams() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$6, $$str({"mh="_s, this->lastMH, ", captured="_s}));
-	$var($String, var$5, $$concat(var$6, $($Arrays::toString(this->lastCaptured))));
-	$var($String, var$4, $$concat(var$5, ", instMT="_s));
-	$var($String, var$3, $$concat(var$4, this->lastInstMT));
-	$var($String, var$2, $$concat(var$3, ", samMT="_s));
-	$var($String, var$1, $$concat(var$2, this->lastSamMT));
-	$var($String, var$0, $$concat(var$1, ", bridgeMTs="_s));
-	return $concat(var$0, $($Arrays::toString(this->lastBridgeMTs)));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("mh="_s);
+	var$0->append(this->lastMH);
+	var$0->append(", captured="_s);
+	var$0->append($($Arrays::toString(this->lastCaptured)));
+	var$0->append(", instMT="_s);
+	var$0->append(this->lastInstMT);
+	var$0->append(", samMT="_s);
+	var$0->append(this->lastSamMT);
+	var$0->append(", bridgeMTs="_s);
+	var$0->append($($Arrays::toString(this->lastBridgeMTs)));
+	return $str(var$0);
 }
 
 $CallSite* MetafactoryParameterCastTest::invokeMetafactory($MethodHandle* mh, $Class* sam, $String* methodName, $ClassArray* captured, $MethodType* instMT, $MethodType* samMT) {
@@ -254,13 +205,13 @@ $CallSite* MetafactoryParameterCastTest::invokeMetafactory($MethodHandle* mh, $C
 	try {
 		return $LambdaMetafactory::metafactory(MetafactoryParameterCastTest::lookup, methodName, $($MethodType::methodType(sam, captured)), samMT, mh, instMT);
 	} catch ($LambdaConversionException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$shouldNotReachHere();
 }
 
 $CallSite* MetafactoryParameterCastTest::invokeAltMetafactory($MethodHandle* mh, $Class* sam, $String* methodName, $ClassArray* captured, $MethodType* instMT, $MethodType* samMT, $MethodTypeArray* bridgeMTs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, lastMH, mh);
 	$set(this, lastCaptured, captured);
 	$set(this, lastInstMT, instMT);
@@ -281,12 +232,12 @@ $CallSite* MetafactoryParameterCastTest::invokeAltMetafactory($MethodHandle* mh,
 		}
 		return $LambdaMetafactory::altMetafactory(MetafactoryParameterCastTest::lookup, methodName, $($MethodType::methodType(sam, captured)), args);
 	} catch ($LambdaConversionException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$MetafactoryParameterCastTest($Class* class$) {
+void MetafactoryParameterCastTest::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(MetafactoryParameterCastTest::lookup, $MethodHandles::lookup());
 }
@@ -295,7 +246,56 @@ MetafactoryParameterCastTest::MetafactoryParameterCastTest() {
 }
 
 $Class* MetafactoryParameterCastTest::load$($String* name, bool initialize) {
-	$loadClass(MetafactoryParameterCastTest, name, initialize, &_MetafactoryParameterCastTest_ClassInfo_, clinit$MetafactoryParameterCastTest, allocate$MetafactoryParameterCastTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"lookup", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC | $FINAL, $staticField(MetafactoryParameterCastTest, lookup)},
+		{"lastMH", "Ljava/lang/invoke/MethodHandle;", nullptr, 0, $field(MetafactoryParameterCastTest, lastMH)},
+		{"lastCaptured", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", 0, $field(MetafactoryParameterCastTest, lastCaptured)},
+		{"lastInstMT", "Ljava/lang/invoke/MethodType;", nullptr, 0, $field(MetafactoryParameterCastTest, lastInstMT)},
+		{"lastSamMT", "Ljava/lang/invoke/MethodType;", nullptr, 0, $field(MetafactoryParameterCastTest, lastSamMT)},
+		{"lastBridgeMTs", "[Ljava/lang/invoke/MethodType;", nullptr, 0, $field(MetafactoryParameterCastTest, lastBridgeMTs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryParameterCastTest, init$, void)},
+		{"invokeAltMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", $TRANSIENT, $virtualMethod(MetafactoryParameterCastTest, invokeAltMetafactory, $CallSite*, $MethodHandle*, $Class*, $String*, $ClassArray*, $MethodType*, $MethodType*, $MethodTypeArray*)},
+		{"invokeMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", 0, $virtualMethod(MetafactoryParameterCastTest, invokeMetafactory, $CallSite*, $MethodHandle*, $Class*, $String*, $ClassArray*, $MethodType*, $MethodType*)},
+		{"lastMFParams", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, lastMFParams, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MetafactoryParameterCastTest, main, void, $StringArray*), "java.lang.Throwable"},
+		{"test", "()V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, test, void), "java.lang.Throwable"},
+		{"tryASink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryASink, void, $CallSite*), "java.lang.Throwable"},
+		{"tryASink", "(LMetafactoryParameterCastTest$ASink;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryASink, void, $MetafactoryParameterCastTest$ASink*)},
+		{"tryBSink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryBSink, void, $CallSite*), "java.lang.Throwable"},
+		{"tryBSink", "(LMetafactoryParameterCastTest$BSink;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryBSink, void, $MetafactoryParameterCastTest$BSink*)},
+		{"tryCapASink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryCapASink, void, $CallSite*), "java.lang.Throwable"},
+		{"tryCapBSink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryCapBSink, void, $CallSite*), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MetafactoryParameterCastTest$BSink", "MetafactoryParameterCastTest", "BSink", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"MetafactoryParameterCastTest$ASink", "MetafactoryParameterCastTest", "ASink", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"MetafactoryParameterCastTest$NotC", "MetafactoryParameterCastTest", "NotC", $PUBLIC | $STATIC},
+		{"MetafactoryParameterCastTest$C", "MetafactoryParameterCastTest", "C", $PUBLIC | $STATIC},
+		{"MetafactoryParameterCastTest$B", "MetafactoryParameterCastTest", "B", $PUBLIC | $STATIC},
+		{"MetafactoryParameterCastTest$A", "MetafactoryParameterCastTest", "A", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MetafactoryParameterCastTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"MetafactoryParameterCastTest$BSink,MetafactoryParameterCastTest$ASink,MetafactoryParameterCastTest$NotC,MetafactoryParameterCastTest$C,MetafactoryParameterCastTest$B,MetafactoryParameterCastTest$A"
+	};
+	$loadClass(MetafactoryParameterCastTest, name, initialize, &classInfo$$, MetafactoryParameterCastTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetafactoryParameterCastTest);
+	});
 	return class$;
 }
 

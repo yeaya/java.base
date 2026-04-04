@@ -33,6 +33,7 @@ class $export ModuleDescriptor$Builder : public ::java::lang::Object {
 	$class(ModuleDescriptor$Builder, $PRELOAD, ::java::lang::Object)
 public:
 	ModuleDescriptor$Builder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, bool strict, ::java::util::Set* modifiers);
 	::java::lang::module::ModuleDescriptor* build();
 	::java::lang::module::ModuleDescriptor$Builder* exports(::java::lang::module::ModuleDescriptor$Exports* e);

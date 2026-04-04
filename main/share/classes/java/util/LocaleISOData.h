@@ -18,6 +18,7 @@ class LocaleISOData : public ::java::lang::Object {
 	$class(LocaleISOData, 0, ::java::lang::Object)
 public:
 	LocaleISOData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* computeISO3166_1Alpha3Countries();
 	static $String* isoLanguageTable;

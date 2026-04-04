@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SignatureScheme$SigAlgParamSpec.h>
-
 #include <java/lang/Enum.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -19,7 +18,6 @@
 using $SignatureScheme$SigAlgParamSpecArray = $Array<::sun::security::ssl::SignatureScheme$SigAlgParamSpec>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -36,50 +34,6 @@ using $SSLLogger = ::sun::security::ssl::SSLLogger;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SignatureScheme$SigAlgParamSpec_FieldInfo_[] = {
-	{"RSA_PSS_SHA256", "Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme$SigAlgParamSpec, RSA_PSS_SHA256)},
-	{"RSA_PSS_SHA384", "Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme$SigAlgParamSpec, RSA_PSS_SHA384)},
-	{"RSA_PSS_SHA512", "Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme$SigAlgParamSpec, RSA_PSS_SHA512)},
-	{"$VALUES", "[Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SignatureScheme$SigAlgParamSpec, $VALUES)},
-	{"parameterSpec", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme$SigAlgParamSpec, parameterSpec)},
-	{"parameters", "Ljava/security/AlgorithmParameters;", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme$SigAlgParamSpec, parameters)},
-	{"isAvailable", "Z", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme$SigAlgParamSpec, isAvailable)},
-	{}
-};
-
-$MethodInfo _SignatureScheme$SigAlgParamSpec_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SignatureScheme$SigAlgParamSpec, $values, $SignatureScheme$SigAlgParamSpecArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;I)V", "(Ljava/lang/String;I)V", $PRIVATE, $method(SignatureScheme$SigAlgParamSpec, init$, void, $String*, int32_t, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureScheme$SigAlgParamSpec, valueOf, SignatureScheme$SigAlgParamSpec*, $String*)},
-	{"values", "()[Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureScheme$SigAlgParamSpec, values, $SignatureScheme$SigAlgParamSpecArray*)},
-	{}
-};
-
-$InnerClassInfo _SignatureScheme$SigAlgParamSpec_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SignatureScheme$SigAlgParamSpec", "sun.security.ssl.SignatureScheme", "SigAlgParamSpec", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SignatureScheme$SigAlgParamSpec_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.SignatureScheme$SigAlgParamSpec",
-	"java.lang.Enum",
-	nullptr,
-	_SignatureScheme$SigAlgParamSpec_FieldInfo_,
-	_SignatureScheme$SigAlgParamSpec_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;>;",
-	nullptr,
-	_SignatureScheme$SigAlgParamSpec_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SignatureScheme"
-};
-
-$Object* allocate$SignatureScheme$SigAlgParamSpec($Class* clazz) {
-	return $of($alloc(SignatureScheme$SigAlgParamSpec));
-}
 
 SignatureScheme$SigAlgParamSpec* SignatureScheme$SigAlgParamSpec::RSA_PSS_SHA256 = nullptr;
 SignatureScheme$SigAlgParamSpec* SignatureScheme$SigAlgParamSpec::RSA_PSS_SHA384 = nullptr;
@@ -106,7 +60,7 @@ SignatureScheme$SigAlgParamSpec* SignatureScheme$SigAlgParamSpec::valueOf($Strin
 }
 
 void SignatureScheme$SigAlgParamSpec::init$($String* $enum$name, int32_t $enum$ordinal, $String* hash, int32_t saltLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Enum::init$($enum$name, $enum$ordinal);
 	$var($PSSParameterSpec, pssParamSpec, $new($PSSParameterSpec, hash, "MGF1"_s, $$new($MGF1ParameterSpec, hash), saltLength, 1));
 	$var($AlgorithmParameters, pssParams, nullptr);
@@ -119,27 +73,27 @@ void SignatureScheme$SigAlgParamSpec::init$($String* $enum$name, int32_t $enum$o
 		mediator = false;
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-			$SSLLogger::warning($$str({"RSASSA-PSS signature with "_s, hash, " is not supported by the underlying providers"_s}), $$new($ObjectArray, {$of(exp)}));
+			$SSLLogger::warning($$str({"RSASSA-PSS signature with "_s, hash, " is not supported by the underlying providers"_s}), $$new($ObjectArray, {exp}));
 		}
 	} catch ($NoSuchAlgorithmException& exp) {
 		mediator = false;
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-			$SSLLogger::warning($$str({"RSASSA-PSS signature with "_s, hash, " is not supported by the underlying providers"_s}), $$new($ObjectArray, {$of(exp)}));
+			$SSLLogger::warning($$str({"RSASSA-PSS signature with "_s, hash, " is not supported by the underlying providers"_s}), $$new($ObjectArray, {exp}));
 		}
 	} catch ($RuntimeException& exp) {
 		mediator = false;
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-			$SSLLogger::warning($$str({"RSASSA-PSS signature with "_s, hash, " is not supported by the underlying providers"_s}), $$new($ObjectArray, {$of(exp)}));
+			$SSLLogger::warning($$str({"RSASSA-PSS signature with "_s, hash, " is not supported by the underlying providers"_s}), $$new($ObjectArray, {exp}));
 		}
 	}
 	this->isAvailable = mediator;
-	$set(this, parameterSpec, mediator ? static_cast<$AlgorithmParameterSpec*>(pssParamSpec) : ($AlgorithmParameterSpec*)nullptr);
+	$set(this, parameterSpec, mediator ? $cast($AlgorithmParameterSpec, pssParamSpec) : ($AlgorithmParameterSpec*)nullptr);
 	$set(this, parameters, mediator ? pssParams : ($AlgorithmParameters*)nullptr);
 }
 
-void clinit$SignatureScheme$SigAlgParamSpec($Class* class$) {
+void SignatureScheme$SigAlgParamSpec::clinit$($Class* clazz) {
 	$assignStatic(SignatureScheme$SigAlgParamSpec::RSA_PSS_SHA256, $new(SignatureScheme$SigAlgParamSpec, "RSA_PSS_SHA256"_s, 0, "SHA-256"_s, 32));
 	$assignStatic(SignatureScheme$SigAlgParamSpec::RSA_PSS_SHA384, $new(SignatureScheme$SigAlgParamSpec, "RSA_PSS_SHA384"_s, 1, "SHA-384"_s, 48));
 	$assignStatic(SignatureScheme$SigAlgParamSpec::RSA_PSS_SHA512, $new(SignatureScheme$SigAlgParamSpec, "RSA_PSS_SHA512"_s, 2, "SHA-512"_s, 64));
@@ -150,7 +104,45 @@ SignatureScheme$SigAlgParamSpec::SignatureScheme$SigAlgParamSpec() {
 }
 
 $Class* SignatureScheme$SigAlgParamSpec::load$($String* name, bool initialize) {
-	$loadClass(SignatureScheme$SigAlgParamSpec, name, initialize, &_SignatureScheme$SigAlgParamSpec_ClassInfo_, clinit$SignatureScheme$SigAlgParamSpec, allocate$SignatureScheme$SigAlgParamSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"RSA_PSS_SHA256", "Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme$SigAlgParamSpec, RSA_PSS_SHA256)},
+		{"RSA_PSS_SHA384", "Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme$SigAlgParamSpec, RSA_PSS_SHA384)},
+		{"RSA_PSS_SHA512", "Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureScheme$SigAlgParamSpec, RSA_PSS_SHA512)},
+		{"$VALUES", "[Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SignatureScheme$SigAlgParamSpec, $VALUES)},
+		{"parameterSpec", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme$SigAlgParamSpec, parameterSpec)},
+		{"parameters", "Ljava/security/AlgorithmParameters;", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme$SigAlgParamSpec, parameters)},
+		{"isAvailable", "Z", nullptr, $PRIVATE | $FINAL, $field(SignatureScheme$SigAlgParamSpec, isAvailable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SignatureScheme$SigAlgParamSpec, $values, $SignatureScheme$SigAlgParamSpecArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;I)V", "(Ljava/lang/String;I)V", $PRIVATE, $method(SignatureScheme$SigAlgParamSpec, init$, void, $String*, int32_t, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureScheme$SigAlgParamSpec, valueOf, SignatureScheme$SigAlgParamSpec*, $String*)},
+		{"values", "()[Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureScheme$SigAlgParamSpec, values, $SignatureScheme$SigAlgParamSpecArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SignatureScheme$SigAlgParamSpec", "sun.security.ssl.SignatureScheme", "SigAlgParamSpec", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.SignatureScheme$SigAlgParamSpec",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SignatureScheme"
+	};
+	$loadClass(SignatureScheme$SigAlgParamSpec, name, initialize, &classInfo$$, SignatureScheme$SigAlgParamSpec::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SignatureScheme$SigAlgParamSpec));
+	});
 	return class$;
 }
 

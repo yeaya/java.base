@@ -30,7 +30,7 @@ public:
 	virtual ::java::util::Locale* getLocale();
 	virtual void setLocale(::java::util::Locale* locale);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x1C051BABFF1BC5AD;
+	static const int64_t serialVersionUID = (int64_t)0x1c051babff1bc5ad;
 	::java::util::Locale* locale = nullptr;
 };
 

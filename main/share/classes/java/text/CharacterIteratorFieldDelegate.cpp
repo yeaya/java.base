@@ -1,8 +1,6 @@
 #include <java/text/CharacterIteratorFieldDelegate.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/StringBuffer.h>
-#include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/AttributedString.h>
 #include <java/text/Format$Field.h>
@@ -17,7 +15,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $AttributedString = ::java::text::AttributedString;
 using $Format$Field = ::java::text::Format$Field;
 using $ArrayList = ::java::util::ArrayList;
@@ -25,53 +22,18 @@ using $ArrayList = ::java::util::ArrayList;
 namespace java {
 	namespace text {
 
-$FieldInfo _CharacterIteratorFieldDelegate_FieldInfo_[] = {
-	{"attributedStrings", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/text/AttributedString;>;", $PRIVATE, $field(CharacterIteratorFieldDelegate, attributedStrings)},
-	{"size", "I", nullptr, $PRIVATE, $field(CharacterIteratorFieldDelegate, size)},
-	{}
-};
-
-$MethodInfo _CharacterIteratorFieldDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CharacterIteratorFieldDelegate, init$, void)},
-	{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorFieldDelegate, formatted, void, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
-	{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorFieldDelegate, formatted, void, int32_t, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
-	{"getIterator", "(Ljava/lang/String;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorFieldDelegate, getIterator, $AttributedCharacterIterator*, $String*)},
-	{}
-};
-
-$InnerClassInfo _CharacterIteratorFieldDelegate_InnerClassesInfo_[] = {
-	{"java.text.Format$FieldDelegate", "java.text.Format", "FieldDelegate", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CharacterIteratorFieldDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.text.CharacterIteratorFieldDelegate",
-	"java.lang.Object",
-	"java.text.Format$FieldDelegate",
-	_CharacterIteratorFieldDelegate_FieldInfo_,
-	_CharacterIteratorFieldDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CharacterIteratorFieldDelegate_InnerClassesInfo_
-};
-
-$Object* allocate$CharacterIteratorFieldDelegate($Class* clazz) {
-	return $of($alloc(CharacterIteratorFieldDelegate));
-}
-
 void CharacterIteratorFieldDelegate::init$() {
 	$set(this, attributedStrings, $new($ArrayList));
 }
 
 void CharacterIteratorFieldDelegate::formatted($Format$Field* attr, Object$* value, int32_t start, int32_t end, $StringBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start != end) {
 		if (start < this->size) {
 			int32_t index = this->size;
 			int32_t asIndex = $nc(this->attributedStrings)->size() - 1;
 			while (start < index) {
-				$var($AttributedString, as, $cast($AttributedString, $nc(this->attributedStrings)->get(asIndex--)));
+				$var($AttributedString, as, $cast($AttributedString, this->attributedStrings->get(asIndex--)));
 				int32_t newIndex = index - $nc(as)->length();
 				int32_t aStart = $Math::max(0, start - newIndex);
 				as->addAttribute(attr, value, aStart, $Math::min(end - start, as->length() - aStart) + aStart);
@@ -97,7 +59,7 @@ void CharacterIteratorFieldDelegate::formatted(int32_t fieldID, $Format$Field* a
 }
 
 $AttributedCharacterIterator* CharacterIteratorFieldDelegate::getIterator($String* string) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(string)->length() > this->size) {
 		$nc(this->attributedStrings)->add($$new($AttributedString, $(string->substring(this->size))));
 		this->size = string->length();
@@ -105,7 +67,7 @@ $AttributedCharacterIterator* CharacterIteratorFieldDelegate::getIterator($Strin
 	int32_t iCount = $nc(this->attributedStrings)->size();
 	$var($AttributedCharacterIteratorArray, iterators, $new($AttributedCharacterIteratorArray, iCount));
 	for (int32_t counter = 0; counter < iCount; ++counter) {
-		iterators->set(counter, $($nc(($cast($AttributedString, $($nc(this->attributedStrings)->get(counter)))))->getIterator()));
+		iterators->set(counter, $($$sure($AttributedString, this->attributedStrings->get(counter))->getIterator()));
 	}
 	return $$new($AttributedString, iterators)->getIterator();
 }
@@ -114,7 +76,36 @@ CharacterIteratorFieldDelegate::CharacterIteratorFieldDelegate() {
 }
 
 $Class* CharacterIteratorFieldDelegate::load$($String* name, bool initialize) {
-	$loadClass(CharacterIteratorFieldDelegate, name, initialize, &_CharacterIteratorFieldDelegate_ClassInfo_, allocate$CharacterIteratorFieldDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"attributedStrings", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/text/AttributedString;>;", $PRIVATE, $field(CharacterIteratorFieldDelegate, attributedStrings)},
+		{"size", "I", nullptr, $PRIVATE, $field(CharacterIteratorFieldDelegate, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CharacterIteratorFieldDelegate, init$, void)},
+		{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorFieldDelegate, formatted, void, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
+		{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorFieldDelegate, formatted, void, int32_t, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
+		{"getIterator", "(Ljava/lang/String;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorFieldDelegate, getIterator, $AttributedCharacterIterator*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.Format$FieldDelegate", "java.text.Format", "FieldDelegate", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.text.CharacterIteratorFieldDelegate",
+		"java.lang.Object",
+		"java.text.Format$FieldDelegate",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(CharacterIteratorFieldDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharacterIteratorFieldDelegate);
+	});
 	return class$;
 }
 

@@ -14,6 +14,7 @@ class $export A : public ::java::lang::Object {
 	$class(A, 0, ::java::lang::Object)
 public:
 	A();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* lock;
 };

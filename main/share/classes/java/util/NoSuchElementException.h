@@ -22,10 +22,13 @@ public:
 	void init$($String* s, $Throwable* cause);
 	void init$($Throwable* cause);
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x5DF343D5DA693AA8;
+	static const int64_t serialVersionUID = (int64_t)0x5df343d5da693aa8;
 	NoSuchElementException(const NoSuchElementException& e);
 	virtual void throw$() override;
-	inline NoSuchElementException* operator ->() {
+	inline NoSuchElementException* operator ->() const {
+		return (NoSuchElementException*)throwing$;
+	}
+	inline operator NoSuchElementException*() const {
 		return (NoSuchElementException*)throwing$;
 	}
 };

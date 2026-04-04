@@ -52,6 +52,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool isServer);
 	virtual void accept(::java::net::SocketImpl* si) override;
 	virtual ::java::io::FileDescriptor* acquireFD();

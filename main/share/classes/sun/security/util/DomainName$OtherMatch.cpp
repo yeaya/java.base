@@ -1,5 +1,4 @@
 #include <sun/security/util/DomainName$OtherMatch.h>
-
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
 #include <sun/security/util/DomainName$RegisteredDomainImpl.h>
@@ -26,47 +25,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _DomainName$OtherMatch_FieldInfo_[] = {
-	{"rule", "Lsun/security/util/DomainName$Rule;", nullptr, $PRIVATE | $FINAL, $field(DomainName$OtherMatch, rule)},
-	{"numLabels", "I", nullptr, $PRIVATE | $FINAL, $field(DomainName$OtherMatch, numLabels)},
-	{"target", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DomainName$OtherMatch, target)},
-	{}
-};
-
-$MethodInfo _DomainName$OtherMatch_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DomainName$Rule;ILjava/util/LinkedList;)V", "(Lsun/security/util/DomainName$Rule;ILjava/util/LinkedList<Ljava/lang/String;>;)V", 0, $method(DomainName$OtherMatch, init$, void, $DomainName$Rule*, int32_t, $LinkedList*)},
-	{"getSuffixes", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(DomainName$OtherMatch, getSuffixes, $String*, int32_t)},
-	{"registeredDomain", "()Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC, $virtualMethod(DomainName$OtherMatch, registeredDomain, $RegisteredDomain*)},
-	{"type", "()Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC, $virtualMethod(DomainName$OtherMatch, type, $DomainName$Rule$Type*)},
-	{}
-};
-
-$InnerClassInfo _DomainName$OtherMatch_InnerClassesInfo_[] = {
-	{"sun.security.util.DomainName$OtherMatch", "sun.security.util.DomainName", "OtherMatch", $PRIVATE | $STATIC},
-	{"sun.security.util.DomainName$Match", "sun.security.util.DomainName", "Match", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DomainName$OtherMatch_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.DomainName$OtherMatch",
-	"java.lang.Object",
-	"sun.security.util.DomainName$Match",
-	_DomainName$OtherMatch_FieldInfo_,
-	_DomainName$OtherMatch_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DomainName$OtherMatch_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.DomainName"
-};
-
-$Object* allocate$DomainName$OtherMatch($Class* clazz) {
-	return $of($alloc(DomainName$OtherMatch));
-}
-
 void DomainName$OtherMatch::init$($DomainName$Rule* rule, int32_t numLabels, $LinkedList* target) {
 	$set(this, rule, rule);
 	this->numLabels = numLabels;
@@ -74,7 +32,7 @@ void DomainName$OtherMatch::init$($DomainName$Rule* rule, int32_t numLabels, $Li
 }
 
 $RegisteredDomain* DomainName$OtherMatch::registeredDomain() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nlabels = this->numLabels + 1;
 	if (nlabels > $nc(this->target)->size()) {
 		return nullptr;
@@ -89,7 +47,7 @@ $DomainName$Rule$Type* DomainName$OtherMatch::type() {
 }
 
 $String* DomainName$OtherMatch::getSuffixes(int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, targetIter, $nc(this->target)->descendingIterator());
 	$var($StringBuilder, sb, $new($StringBuilder));
 	while (n > 0 && $nc(targetIter)->hasNext()) {
@@ -107,7 +65,42 @@ DomainName$OtherMatch::DomainName$OtherMatch() {
 }
 
 $Class* DomainName$OtherMatch::load$($String* name, bool initialize) {
-	$loadClass(DomainName$OtherMatch, name, initialize, &_DomainName$OtherMatch_ClassInfo_, allocate$DomainName$OtherMatch);
+	$FieldInfo fieldInfos$$[] = {
+		{"rule", "Lsun/security/util/DomainName$Rule;", nullptr, $PRIVATE | $FINAL, $field(DomainName$OtherMatch, rule)},
+		{"numLabels", "I", nullptr, $PRIVATE | $FINAL, $field(DomainName$OtherMatch, numLabels)},
+		{"target", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DomainName$OtherMatch, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/DomainName$Rule;ILjava/util/LinkedList;)V", "(Lsun/security/util/DomainName$Rule;ILjava/util/LinkedList<Ljava/lang/String;>;)V", 0, $method(DomainName$OtherMatch, init$, void, $DomainName$Rule*, int32_t, $LinkedList*)},
+		{"getSuffixes", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(DomainName$OtherMatch, getSuffixes, $String*, int32_t)},
+		{"registeredDomain", "()Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC, $virtualMethod(DomainName$OtherMatch, registeredDomain, $RegisteredDomain*)},
+		{"type", "()Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC, $virtualMethod(DomainName$OtherMatch, type, $DomainName$Rule$Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.DomainName$OtherMatch", "sun.security.util.DomainName", "OtherMatch", $PRIVATE | $STATIC},
+		{"sun.security.util.DomainName$Match", "sun.security.util.DomainName", "Match", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.DomainName$OtherMatch",
+		"java.lang.Object",
+		"sun.security.util.DomainName$Match",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.DomainName"
+	};
+	$loadClass(DomainName$OtherMatch, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DomainName$OtherMatch);
+	});
 	return class$;
 }
 

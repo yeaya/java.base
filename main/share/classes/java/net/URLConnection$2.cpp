@@ -1,5 +1,4 @@
 #include <java/net/URLConnection$2.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityException.h>
 #include <java/net/ContentHandler.h>
@@ -27,56 +26,13 @@ using $ServiceLoader = ::java::util::ServiceLoader;
 namespace java {
 	namespace net {
 
-$FieldInfo _URLConnection$2_FieldInfo_[] = {
-	{"this$0", "Ljava/net/URLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(URLConnection$2, this$0)},
-	{"val$contentType", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(URLConnection$2, val$contentType)},
-	{}
-};
-
-$MethodInfo _URLConnection$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URLConnection;Ljava/lang/String;)V", nullptr, 0, $method(URLConnection$2, init$, void, $URLConnection*, $String*)},
-	{"run", "()Ljava/net/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(URLConnection$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _URLConnection$2_EnclosingMethodInfo_ = {
-	"java.net.URLConnection",
-	"lookupContentHandlerViaProvider",
-	"(Ljava/lang/String;)Ljava/net/ContentHandler;"
-};
-
-$InnerClassInfo _URLConnection$2_InnerClassesInfo_[] = {
-	{"java.net.URLConnection$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URLConnection$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.URLConnection$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_URLConnection$2_FieldInfo_,
-	_URLConnection$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/ContentHandler;>;",
-	&_URLConnection$2_EnclosingMethodInfo_,
-	_URLConnection$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.URLConnection"
-};
-
-$Object* allocate$URLConnection$2($Class* clazz) {
-	return $of($alloc(URLConnection$2));
-}
-
 void URLConnection$2::init$($URLConnection* this$0, $String* val$contentType) {
 	$set(this, this$0, this$0);
 	$set(this, val$contentType, val$contentType);
 }
 
 $Object* URLConnection$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, cl, $ClassLoader::getSystemClassLoader());
 	$load($ContentHandlerFactory);
@@ -98,14 +54,50 @@ $Object* URLConnection$2::run() {
 			break;
 		}
 	}
-	return $of(handler);
+	return handler;
 }
 
 URLConnection$2::URLConnection$2() {
 }
 
 $Class* URLConnection$2::load$($String* name, bool initialize) {
-	$loadClass(URLConnection$2, name, initialize, &_URLConnection$2_ClassInfo_, allocate$URLConnection$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/net/URLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(URLConnection$2, this$0)},
+		{"val$contentType", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(URLConnection$2, val$contentType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URLConnection;Ljava/lang/String;)V", nullptr, 0, $method(URLConnection$2, init$, void, $URLConnection*, $String*)},
+		{"run", "()Ljava/net/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(URLConnection$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.URLConnection",
+		"lookupContentHandlerViaProvider",
+		"(Ljava/lang/String;)Ljava/net/ContentHandler;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.URLConnection$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.URLConnection$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/ContentHandler;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.URLConnection"
+	};
+	$loadClass(URLConnection$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLConnection$2);
+	});
 	return class$;
 }
 

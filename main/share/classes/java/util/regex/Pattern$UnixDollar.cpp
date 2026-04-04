@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$UnixDollar.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$Node.h>
@@ -20,51 +19,13 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$UnixDollar_FieldInfo_[] = {
-	{"multiline", "Z", nullptr, 0, $field(Pattern$UnixDollar, multiline)},
-	{}
-};
-
-$MethodInfo _Pattern$UnixDollar_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(Pattern$UnixDollar, init$, void, bool)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$UnixDollar, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$UnixDollar, study, bool, $Pattern$TreeInfo*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$UnixDollar_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$UnixDollar", "java.util.regex.Pattern", "UnixDollar", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$UnixDollar_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$UnixDollar",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$UnixDollar_FieldInfo_,
-	_Pattern$UnixDollar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$UnixDollar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$UnixDollar($Class* clazz) {
-	return $of($alloc(Pattern$UnixDollar));
-}
-
 void Pattern$UnixDollar::init$(bool mul) {
 	$Pattern$Node::init$();
 	this->multiline = mul;
 }
 
 bool Pattern$UnixDollar::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
-	int32_t endIndex = ($nc(matcher)->anchoringBounds) ? $nc(matcher)->to : matcher->getTextLength();
+	int32_t endIndex = ($nc(matcher)->anchoringBounds) ? matcher->to : matcher->getTextLength();
 	if (i < endIndex) {
 		char16_t ch = $nc(seq)->charAt(i);
 		if (ch == u'\n') {
@@ -92,7 +53,39 @@ Pattern$UnixDollar::Pattern$UnixDollar() {
 }
 
 $Class* Pattern$UnixDollar::load$($String* name, bool initialize) {
-	$loadClass(Pattern$UnixDollar, name, initialize, &_Pattern$UnixDollar_ClassInfo_, allocate$Pattern$UnixDollar);
+	$FieldInfo fieldInfos$$[] = {
+		{"multiline", "Z", nullptr, 0, $field(Pattern$UnixDollar, multiline)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, 0, $method(Pattern$UnixDollar, init$, void, bool)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$UnixDollar, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$UnixDollar, study, bool, $Pattern$TreeInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$UnixDollar", "java.util.regex.Pattern", "UnixDollar", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$UnixDollar",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$UnixDollar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$UnixDollar);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsNativeDispatcher$AclInformation.h>
-
 #include <sun/nio/fs/WindowsNativeDispatcher.h>
 #include <jcpp.h>
 
@@ -12,42 +11,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsNativeDispatcher$AclInformation_FieldInfo_[] = {
-	{"aceCount", "I", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$AclInformation, aceCount$)},
-	{}
-};
-
-$MethodInfo _WindowsNativeDispatcher$AclInformation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$AclInformation, init$, void)},
-	{"aceCount", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$AclInformation, aceCount, int32_t)},
-	{}
-};
-
-$InnerClassInfo _WindowsNativeDispatcher$AclInformation_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsNativeDispatcher$AclInformation", "sun.nio.fs.WindowsNativeDispatcher", "AclInformation", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsNativeDispatcher$AclInformation_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsNativeDispatcher$AclInformation",
-	"java.lang.Object",
-	nullptr,
-	_WindowsNativeDispatcher$AclInformation_FieldInfo_,
-	_WindowsNativeDispatcher$AclInformation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsNativeDispatcher$AclInformation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsNativeDispatcher"
-};
-
-$Object* allocate$WindowsNativeDispatcher$AclInformation($Class* clazz) {
-	return $of($alloc(WindowsNativeDispatcher$AclInformation));
-}
-
 void WindowsNativeDispatcher$AclInformation::init$() {
 }
 
@@ -59,7 +22,37 @@ WindowsNativeDispatcher$AclInformation::WindowsNativeDispatcher$AclInformation()
 }
 
 $Class* WindowsNativeDispatcher$AclInformation::load$($String* name, bool initialize) {
-	$loadClass(WindowsNativeDispatcher$AclInformation, name, initialize, &_WindowsNativeDispatcher$AclInformation_ClassInfo_, allocate$WindowsNativeDispatcher$AclInformation);
+	$FieldInfo fieldInfos$$[] = {
+		{"aceCount", "I", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$AclInformation, aceCount$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$AclInformation, init$, void)},
+		{"aceCount", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$AclInformation, aceCount, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsNativeDispatcher$AclInformation", "sun.nio.fs.WindowsNativeDispatcher", "AclInformation", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsNativeDispatcher$AclInformation",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsNativeDispatcher"
+	};
+	$loadClass(WindowsNativeDispatcher$AclInformation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsNativeDispatcher$AclInformation);
+	});
 	return class$;
 }
 

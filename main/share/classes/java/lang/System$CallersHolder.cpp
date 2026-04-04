@@ -1,5 +1,4 @@
 #include <java/lang/System$CallersHolder.h>
-
 #include <java/util/Collections.h>
 #include <java/util/Map.h>
 #include <java/util/WeakHashMap.h>
@@ -16,47 +15,12 @@ using $WeakHashMap = ::java::util::WeakHashMap;
 namespace java {
 	namespace lang {
 
-$FieldInfo _System$CallersHolder_FieldInfo_[] = {
-	{"callers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Boolean;>;", $STATIC | $FINAL, $staticField(System$CallersHolder, callers)},
-	{}
-};
-
-$MethodInfo _System$CallersHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(System$CallersHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _System$CallersHolder_InnerClassesInfo_[] = {
-	{"java.lang.System$CallersHolder", "java.lang.System", "CallersHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _System$CallersHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.System$CallersHolder",
-	"java.lang.Object",
-	nullptr,
-	_System$CallersHolder_FieldInfo_,
-	_System$CallersHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_System$CallersHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.System"
-};
-
-$Object* allocate$System$CallersHolder($Class* clazz) {
-	return $of($alloc(System$CallersHolder));
-}
-
 $Map* System$CallersHolder::callers = nullptr;
 
 void System$CallersHolder::init$() {
 }
 
-void clinit$System$CallersHolder($Class* class$) {
+void System$CallersHolder::clinit$($Class* clazz) {
 	$assignStatic(System$CallersHolder::callers, $Collections::synchronizedMap($$new($WeakHashMap)));
 }
 
@@ -64,7 +28,36 @@ System$CallersHolder::System$CallersHolder() {
 }
 
 $Class* System$CallersHolder::load$($String* name, bool initialize) {
-	$loadClass(System$CallersHolder, name, initialize, &_System$CallersHolder_ClassInfo_, clinit$System$CallersHolder, allocate$System$CallersHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"callers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Boolean;>;", $STATIC | $FINAL, $staticField(System$CallersHolder, callers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(System$CallersHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.System$CallersHolder", "java.lang.System", "CallersHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.System$CallersHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.System"
+	};
+	$loadClass(System$CallersHolder, name, initialize, &classInfo$$, System$CallersHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(System$CallersHolder);
+	});
 	return class$;
 }
 

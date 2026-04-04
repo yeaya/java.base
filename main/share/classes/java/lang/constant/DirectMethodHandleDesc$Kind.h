@@ -40,6 +40,7 @@ class $export DirectMethodHandleDesc$Kind : public ::java::lang::Enum {
 public:
 	DirectMethodHandleDesc$Kind();
 	static $Array<::java::lang::constant::DirectMethodHandleDesc$Kind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t refKind);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t refKind, bool isInterface);
 	virtual bool isVirtualMethod();

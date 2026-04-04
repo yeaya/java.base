@@ -22,6 +22,7 @@ class StreamSpliterators$UnorderedSliceSpliterator$PermitStatus : public ::java:
 public:
 	StreamSpliterators$UnorderedSliceSpliterator$PermitStatus();
 	static $Array<::java::util::stream::StreamSpliterators$UnorderedSliceSpliterator$PermitStatus>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::util::stream::StreamSpliterators$UnorderedSliceSpliterator$PermitStatus* valueOf($String* name);
 	static $Array<::java::util::stream::StreamSpliterators$UnorderedSliceSpliterator$PermitStatus>* values();

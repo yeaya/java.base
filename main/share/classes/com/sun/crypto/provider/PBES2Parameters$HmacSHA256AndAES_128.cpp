@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PBES2Parameters$HmacSHA256AndAES_128.h>
-
 #include <com/sun/crypto/provider/PBES2Parameters.h>
 #include <jcpp.h>
 
@@ -13,36 +12,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _PBES2Parameters$HmacSHA256AndAES_128_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PBES2Parameters$HmacSHA256AndAES_128, init$, void), "java.security.NoSuchAlgorithmException"},
-	{}
-};
-
-$InnerClassInfo _PBES2Parameters$HmacSHA256AndAES_128_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA256AndAES_128", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PBES2Parameters$HmacSHA256AndAES_128_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_128",
-	"com.sun.crypto.provider.PBES2Parameters",
-	nullptr,
-	nullptr,
-	_PBES2Parameters$HmacSHA256AndAES_128_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PBES2Parameters$HmacSHA256AndAES_128_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.PBES2Parameters"
-};
-
-$Object* allocate$PBES2Parameters$HmacSHA256AndAES_128($Class* clazz) {
-	return $of($alloc(PBES2Parameters$HmacSHA256AndAES_128));
-}
-
 void PBES2Parameters$HmacSHA256AndAES_128::init$() {
 	$PBES2Parameters::init$("PBEWithHmacSHA256AndAES_128"_s);
 }
@@ -51,7 +20,32 @@ PBES2Parameters$HmacSHA256AndAES_128::PBES2Parameters$HmacSHA256AndAES_128() {
 }
 
 $Class* PBES2Parameters$HmacSHA256AndAES_128::load$($String* name, bool initialize) {
-	$loadClass(PBES2Parameters$HmacSHA256AndAES_128, name, initialize, &_PBES2Parameters$HmacSHA256AndAES_128_ClassInfo_, allocate$PBES2Parameters$HmacSHA256AndAES_128);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PBES2Parameters$HmacSHA256AndAES_128, init$, void), "java.security.NoSuchAlgorithmException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA256AndAES_128", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_128",
+		"com.sun.crypto.provider.PBES2Parameters",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.PBES2Parameters"
+	};
+	$loadClass(PBES2Parameters$HmacSHA256AndAES_128, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PBES2Parameters$HmacSHA256AndAES_128);
+	});
 	return class$;
 }
 

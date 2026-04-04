@@ -41,6 +41,7 @@ class NativeMethodAccessorImpl : public ::jdk::internal::reflect::MethodAccessor
 	$class(NativeMethodAccessorImpl, $PRELOAD, ::jdk::internal::reflect::MethodAccessorImpl)
 public:
 	NativeMethodAccessorImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::Method* method);
 	virtual $Object* invoke(Object$* obj, $ObjectArray* args) override;
 	static $Object* invoke0(::java::lang::reflect::Method* m, Object$* obj, $ObjectArray* args);

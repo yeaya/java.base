@@ -1,5 +1,4 @@
 #include <java/lang/BootstrapMethodError.h>
-
 #include <java/lang/LinkageError.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _BootstrapMethodError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BootstrapMethodError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _BootstrapMethodError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _BootstrapMethodError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.BootstrapMethodError",
-	"java.lang.LinkageError",
-	nullptr,
-	_BootstrapMethodError_FieldInfo_,
-	_BootstrapMethodError_MethodInfo_
-};
-
-$Object* allocate$BootstrapMethodError($Class* clazz) {
-	return $of($alloc(BootstrapMethodError));
-}
 
 void BootstrapMethodError::init$() {
 	$LinkageError::init$();
@@ -50,7 +23,7 @@ void BootstrapMethodError::init$($String* s, $Throwable* cause) {
 }
 
 void BootstrapMethodError::init$($Throwable* cause) {
-	$LinkageError::init$(cause == nullptr ? ($String*)nullptr : $($nc(cause)->toString()));
+	$LinkageError::init$(cause == nullptr ? ($String*)nullptr : $(cause->toString()));
 	initCause(cause);
 }
 
@@ -65,7 +38,28 @@ void BootstrapMethodError::throw$() {
 }
 
 $Class* BootstrapMethodError::load$($String* name, bool initialize) {
-	$loadClass(BootstrapMethodError, name, initialize, &_BootstrapMethodError_ClassInfo_, allocate$BootstrapMethodError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BootstrapMethodError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.BootstrapMethodError",
+		"java.lang.LinkageError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BootstrapMethodError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BootstrapMethodError);
+	});
 	return class$;
 }
 

@@ -43,6 +43,7 @@ class $export StandardSocketOptions : public ::java::lang::Object {
 	$class(StandardSocketOptions, 0, ::java::lang::Object)
 public:
 	StandardSocketOptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::net::SocketOption* SO_BROADCAST;
 	static ::java::net::SocketOption* SO_KEEPALIVE;

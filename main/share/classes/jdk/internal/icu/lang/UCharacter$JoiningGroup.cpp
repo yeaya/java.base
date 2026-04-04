@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/lang/UCharacter$JoiningGroup.h>
-
 #include <jdk/internal/icu/lang/UCharacter.h>
 #include <jcpp.h>
 
@@ -14,38 +13,33 @@ namespace jdk {
 		namespace icu {
 			namespace lang {
 
-$FieldInfo _UCharacter$JoiningGroup_FieldInfo_[] = {
-	{"NO_JOINING_GROUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$JoiningGroup, NO_JOINING_GROUP)},
-	{}
-};
-
-$InnerClassInfo _UCharacter$JoiningGroup_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.lang.UCharacter$JoiningGroup", "jdk.internal.icu.lang.UCharacter", "JoiningGroup", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _UCharacter$JoiningGroup_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.icu.lang.UCharacter$JoiningGroup",
-	nullptr,
-	nullptr,
-	_UCharacter$JoiningGroup_FieldInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_UCharacter$JoiningGroup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.lang.UCharacter"
-};
-
-$Object* allocate$UCharacter$JoiningGroup($Class* clazz) {
-	return $of($alloc(UCharacter$JoiningGroup));
-}
-
 $Class* UCharacter$JoiningGroup::load$($String* name, bool initialize) {
-	$loadClass(UCharacter$JoiningGroup, name, initialize, &_UCharacter$JoiningGroup_ClassInfo_, allocate$UCharacter$JoiningGroup);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_JOINING_GROUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$JoiningGroup, NO_JOINING_GROUP)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.lang.UCharacter$JoiningGroup", "jdk.internal.icu.lang.UCharacter", "JoiningGroup", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.icu.lang.UCharacter$JoiningGroup",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.lang.UCharacter"
+	};
+	$loadClass(UCharacter$JoiningGroup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UCharacter$JoiningGroup);
+	});
 	return class$;
 }
 

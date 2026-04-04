@@ -40,6 +40,7 @@ class $import DateTimeFormatterBuilder$NumberPrinterParser : public ::java::time
 	$class(DateTimeFormatterBuilder$NumberPrinterParser, 0, ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser)
 public:
 	DateTimeFormatterBuilder$NumberPrinterParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::temporal::TemporalField* field, int32_t minWidth, int32_t maxWidth, ::java::time::format::SignStyle* signStyle);
 	void init$(::java::time::temporal::TemporalField* field, int32_t minWidth, int32_t maxWidth, ::java::time::format::SignStyle* signStyle, int32_t subsequentWidth);
 	virtual bool format(::java::time::format::DateTimePrintContext* context, ::java::lang::StringBuilder* buf) override;

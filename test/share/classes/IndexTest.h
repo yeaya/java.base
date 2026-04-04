@@ -15,6 +15,7 @@ class $export IndexTest : public ::java::lang::Object {
 	$class(IndexTest, 0, ::java::lang::Object)
 public:
 	IndexTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void displayInterfaceInformation(::java::net::NetworkInterface* netint);
 	static void main($StringArray* args);

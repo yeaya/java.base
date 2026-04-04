@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$PrefixTree.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/text/ParsePosition.h>
 #include <java/time/format/DateTimeFormatterBuilder$PrefixTree$CI.h>
@@ -24,65 +23,12 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$FieldInfo _DateTimeFormatterBuilder$PrefixTree_FieldInfo_[] = {
-	{"key", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DateTimeFormatterBuilder$PrefixTree, key)},
-	{"value", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DateTimeFormatterBuilder$PrefixTree, value)},
-	{"c0", "C", nullptr, $PROTECTED, $field(DateTimeFormatterBuilder$PrefixTree, c0)},
-	{"child", "Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PROTECTED, $field(DateTimeFormatterBuilder$PrefixTree, child)},
-	{"sibling", "Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PROTECTED, $field(DateTimeFormatterBuilder$PrefixTree, sibling)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$PrefixTree_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree, init$, void, $String*, $String*, DateTimeFormatterBuilder$PrefixTree*)},
-	{"add", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, add, bool, $String*, $String*)},
-	{"add0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree, add0, bool, $String*, $String*)},
-	{"copyTree", "()Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, copyTree, DateTimeFormatterBuilder$PrefixTree*)},
-	{"isEqual", "(CC)Z", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, isEqual, bool, char16_t, char16_t)},
-	{"match", "(Ljava/lang/CharSequence;II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, match, $String*, $CharSequence*, int32_t, int32_t)},
-	{"match", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, match, $String*, $CharSequence*, $ParsePosition*)},
-	{"newNode", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, newNode, DateTimeFormatterBuilder$PrefixTree*, $String*, $String*, DateTimeFormatterBuilder$PrefixTree*)},
-	{"newTree", "(Ljava/time/format/DateTimeParseContext;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatterBuilder$PrefixTree, newTree, DateTimeFormatterBuilder$PrefixTree*, $DateTimeParseContext*)},
-	{"newTree", "(Ljava/util/Set;Ljava/time/format/DateTimeParseContext;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/time/format/DateTimeParseContext;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", $PUBLIC | $STATIC, $staticMethod(DateTimeFormatterBuilder$PrefixTree, newTree, DateTimeFormatterBuilder$PrefixTree*, $Set*, $DateTimeParseContext*)},
-	{"prefixLength", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree, prefixLength, int32_t, $String*)},
-	{"prefixOf", "(Ljava/lang/CharSequence;II)Z", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, prefixOf, bool, $CharSequence*, int32_t, int32_t)},
-	{"toKey", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, toKey, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$PrefixTree_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$PrefixTree", "java.time.format.DateTimeFormatterBuilder", "PrefixTree", $STATIC},
-	{"java.time.format.DateTimeFormatterBuilder$PrefixTree$LENIENT", "java.time.format.DateTimeFormatterBuilder$PrefixTree", "LENIENT", $PRIVATE | $STATIC},
-	{"java.time.format.DateTimeFormatterBuilder$PrefixTree$CI", "java.time.format.DateTimeFormatterBuilder$PrefixTree", "CI", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$PrefixTree_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$PrefixTree",
-	"java.lang.Object",
-	nullptr,
-	_DateTimeFormatterBuilder$PrefixTree_FieldInfo_,
-	_DateTimeFormatterBuilder$PrefixTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$PrefixTree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$PrefixTree($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$PrefixTree));
-}
-
 void DateTimeFormatterBuilder$PrefixTree::init$($String* k, $String* v, DateTimeFormatterBuilder$PrefixTree* child) {
 	$set(this, key, k);
 	$set(this, value, v);
 	$set(this, child, child);
 	if ($nc(k)->isEmpty()) {
-		this->c0 = (char16_t)0x0000FFFF;
+		this->c0 = 0x0000ffff;
 	} else {
 		this->c0 = $nc(this->key)->charAt(0);
 	}
@@ -96,7 +42,7 @@ DateTimeFormatterBuilder$PrefixTree* DateTimeFormatterBuilder$PrefixTree::newTre
 }
 
 DateTimeFormatterBuilder$PrefixTree* DateTimeFormatterBuilder$PrefixTree::newTree($Set* keys, $DateTimeParseContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(DateTimeFormatterBuilder$PrefixTree, tree, newTree(context));
 	{
 		$var($Iterator, i$, $nc(keys)->iterator());
@@ -113,10 +59,10 @@ DateTimeFormatterBuilder$PrefixTree* DateTimeFormatterBuilder$PrefixTree::newTre
 DateTimeFormatterBuilder$PrefixTree* DateTimeFormatterBuilder$PrefixTree::copyTree() {
 	$var(DateTimeFormatterBuilder$PrefixTree, copy, $new(DateTimeFormatterBuilder$PrefixTree, this->key, this->value, nullptr));
 	if (this->child != nullptr) {
-		$set(copy, child, $nc(this->child)->copyTree());
+		$set(copy, child, this->child->copyTree());
 	}
 	if (this->sibling != nullptr) {
-		$set(copy, sibling, $nc(this->sibling)->copyTree());
+		$set(copy, sibling, this->sibling->copyTree());
 	}
 	return copy;
 }
@@ -126,7 +72,7 @@ bool DateTimeFormatterBuilder$PrefixTree::add($String* k, $String* v) {
 }
 
 bool DateTimeFormatterBuilder$PrefixTree::add0($String* k$renamed, $String* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, k, k$renamed);
 	$assign(k, toKey(k));
 	int32_t prefixLen = prefixLength(k);
@@ -148,7 +94,7 @@ bool DateTimeFormatterBuilder$PrefixTree::add0($String* k$renamed, $String* v) {
 		$set(this, value, v);
 		return true;
 	}
-	$var(DateTimeFormatterBuilder$PrefixTree, n1, newNode($($nc(this->key)->substring(prefixLen)), this->value, this->child));
+	$var(DateTimeFormatterBuilder$PrefixTree, n1, newNode($(this->key->substring(prefixLen)), this->value, this->child));
 	$set(this, key, $nc(k)->substring(0, prefixLen));
 	$set(this, child, n1);
 	if (prefixLen < k->length()) {
@@ -162,7 +108,7 @@ bool DateTimeFormatterBuilder$PrefixTree::add0($String* k$renamed, $String* v) {
 }
 
 $String* DateTimeFormatterBuilder$PrefixTree::match($CharSequence* text, int32_t off, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!prefixOf(text, off, end)) {
 		return nullptr;
 	}
@@ -170,20 +116,20 @@ $String* DateTimeFormatterBuilder$PrefixTree::match($CharSequence* text, int32_t
 		$var(DateTimeFormatterBuilder$PrefixTree, c, this->child);
 		do {
 			if (isEqual($nc(c)->c0, $nc(text)->charAt(off))) {
-				$var($String, found, $nc(c)->match(text, off, end));
+				$var($String, found, c->match(text, off, end));
 				if (found != nullptr) {
 					return found;
 				}
 				return this->value;
 			}
-			$assign(c, $nc(c)->sibling);
+			$assign(c, c->sibling);
 		} while (c != nullptr);
 	}
 	return this->value;
 }
 
 $String* DateTimeFormatterBuilder$PrefixTree::match($CharSequence* text, $ParsePosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t off = $nc(pos)->getIndex();
 	int32_t end = $nc(text)->length();
 	if (!prefixOf(text, off, end)) {
@@ -195,13 +141,13 @@ $String* DateTimeFormatterBuilder$PrefixTree::match($CharSequence* text, $ParseP
 		do {
 			if (isEqual($nc(c)->c0, text->charAt(off))) {
 				pos->setIndex(off);
-				$var($String, found, $nc(c)->match(text, pos));
+				$var($String, found, c->match(text, pos));
 				if (found != nullptr) {
 					return found;
 				}
 				break;
 			}
-			$assign(c, $nc(c)->sibling);
+			$assign(c, c->sibling);
 		} while (c != nullptr);
 	}
 	pos->setIndex(off);
@@ -222,7 +168,7 @@ bool DateTimeFormatterBuilder$PrefixTree::isEqual(char16_t c1, char16_t c2) {
 
 bool DateTimeFormatterBuilder$PrefixTree::prefixOf($CharSequence* text, int32_t off, int32_t end) {
 	if ($instanceOf($String, text)) {
-		return $nc(($cast($String, text)))->startsWith(this->key, off);
+		return $cast($String, text)->startsWith(this->key, off);
 	}
 	int32_t len = $nc(this->key)->length();
 	if (len > end - off) {
@@ -230,7 +176,7 @@ bool DateTimeFormatterBuilder$PrefixTree::prefixOf($CharSequence* text, int32_t 
 	}
 	int32_t off0 = 0;
 	while (len-- > 0) {
-		char16_t var$0 = $nc(this->key)->charAt(off0++);
+		char16_t var$0 = this->key->charAt(off0++);
 		if (!isEqual(var$0, $nc(text)->charAt(off++))) {
 			return false;
 		}
@@ -260,7 +206,54 @@ DateTimeFormatterBuilder$PrefixTree::DateTimeFormatterBuilder$PrefixTree() {
 }
 
 $Class* DateTimeFormatterBuilder$PrefixTree::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$PrefixTree, name, initialize, &_DateTimeFormatterBuilder$PrefixTree_ClassInfo_, allocate$DateTimeFormatterBuilder$PrefixTree);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DateTimeFormatterBuilder$PrefixTree, key)},
+		{"value", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DateTimeFormatterBuilder$PrefixTree, value)},
+		{"c0", "C", nullptr, $PROTECTED, $field(DateTimeFormatterBuilder$PrefixTree, c0)},
+		{"child", "Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PROTECTED, $field(DateTimeFormatterBuilder$PrefixTree, child)},
+		{"sibling", "Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PROTECTED, $field(DateTimeFormatterBuilder$PrefixTree, sibling)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree, init$, void, $String*, $String*, DateTimeFormatterBuilder$PrefixTree*)},
+		{"add", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, add, bool, $String*, $String*)},
+		{"add0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree, add0, bool, $String*, $String*)},
+		{"copyTree", "()Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, copyTree, DateTimeFormatterBuilder$PrefixTree*)},
+		{"isEqual", "(CC)Z", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, isEqual, bool, char16_t, char16_t)},
+		{"match", "(Ljava/lang/CharSequence;II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, match, $String*, $CharSequence*, int32_t, int32_t)},
+		{"match", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, match, $String*, $CharSequence*, $ParsePosition*)},
+		{"newNode", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, newNode, DateTimeFormatterBuilder$PrefixTree*, $String*, $String*, DateTimeFormatterBuilder$PrefixTree*)},
+		{"newTree", "(Ljava/time/format/DateTimeParseContext;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatterBuilder$PrefixTree, newTree, DateTimeFormatterBuilder$PrefixTree*, $DateTimeParseContext*)},
+		{"newTree", "(Ljava/util/Set;Ljava/time/format/DateTimeParseContext;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/time/format/DateTimeParseContext;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", $PUBLIC | $STATIC, $staticMethod(DateTimeFormatterBuilder$PrefixTree, newTree, DateTimeFormatterBuilder$PrefixTree*, $Set*, $DateTimeParseContext*)},
+		{"prefixLength", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree, prefixLength, int32_t, $String*)},
+		{"prefixOf", "(Ljava/lang/CharSequence;II)Z", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, prefixOf, bool, $CharSequence*, int32_t, int32_t)},
+		{"toKey", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree, toKey, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$PrefixTree", "java.time.format.DateTimeFormatterBuilder", "PrefixTree", $STATIC},
+		{"java.time.format.DateTimeFormatterBuilder$PrefixTree$LENIENT", "java.time.format.DateTimeFormatterBuilder$PrefixTree", "LENIENT", $PRIVATE | $STATIC},
+		{"java.time.format.DateTimeFormatterBuilder$PrefixTree$CI", "java.time.format.DateTimeFormatterBuilder$PrefixTree", "CI", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$PrefixTree",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$PrefixTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$PrefixTree);
+	});
 	return class$;
 }
 

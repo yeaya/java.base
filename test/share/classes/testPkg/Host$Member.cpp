@@ -1,5 +1,4 @@
 #include <testPkg/Host$Member.h>
-
 #include <testPkg/Host.h>
 #include <jcpp.h>
 
@@ -9,36 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace testPkg {
 
-$MethodInfo _Host$Member_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Host$Member, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Host$Member_InnerClassesInfo_[] = {
-	{"testPkg.Host$Member", "testPkg.Host", "Member", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Host$Member_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"testPkg.Host$Member",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Host$Member_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Host$Member_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"testPkg.Host"
-};
-
-$Object* allocate$Host$Member($Class* clazz) {
-	return $of($alloc(Host$Member));
-}
-
 void Host$Member::init$() {
 }
 
@@ -46,7 +15,32 @@ Host$Member::Host$Member() {
 }
 
 $Class* Host$Member::load$($String* name, bool initialize) {
-	$loadClass(Host$Member, name, initialize, &_Host$Member_ClassInfo_, allocate$Host$Member);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Host$Member, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"testPkg.Host$Member", "testPkg.Host", "Member", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"testPkg.Host$Member",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"testPkg.Host"
+	};
+	$loadClass(Host$Member, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Host$Member);
+	});
 	return class$;
 }
 

@@ -74,6 +74,7 @@ class NativeSocketAddress : public ::java::lang::Object {
 	$class(NativeSocketAddress, 0, ::java::lang::Object)
 public:
 	NativeSocketAddress();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t AFINET();
 	static int32_t AFINET6();

@@ -1,5 +1,4 @@
 #include <java/lang/CharSequence.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence$1CharIterator.h>
 #include <java/lang/CharSequence$1CodePointIterator.h>
@@ -53,35 +52,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$chars$0());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CharSequence$$Lambda$lambda$chars$0>());
+		 return $nc(inst$)->lambda$chars$0();
 	}
 	CharSequence* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CharSequence$$Lambda$lambda$chars$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CharSequence$$Lambda$lambda$chars$0, inst$)},
-	{}
-};
-$MethodInfo CharSequence$$Lambda$lambda$chars$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(CharSequence$$Lambda$lambda$chars$0, init$, void, CharSequence*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CharSequence$$Lambda$lambda$chars$0, get, $Object*)},
-	{}
-};
-$ClassInfo CharSequence$$Lambda$lambda$chars$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.CharSequence$$Lambda$lambda$chars$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* CharSequence$$Lambda$lambda$chars$0::load$($String* name, bool initialize) {
-	$loadClass(CharSequence$$Lambda$lambda$chars$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CharSequence$$Lambda$lambda$chars$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(CharSequence$$Lambda$lambda$chars$0, init$, void, CharSequence*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CharSequence$$Lambda$lambda$chars$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.CharSequence$$Lambda$lambda$chars$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharSequence$$Lambda$lambda$chars$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharSequence$$Lambda$lambda$chars$0);
+	});
 	return class$;
 }
 $Class* CharSequence$$Lambda$lambda$chars$0::class$ = nullptr;
@@ -93,77 +88,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$codePoints$1());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CharSequence$$Lambda$lambda$codePoints$1$1>());
+		 return $nc(inst$)->lambda$codePoints$1();
 	}
 	CharSequence* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CharSequence$$Lambda$lambda$codePoints$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CharSequence$$Lambda$lambda$codePoints$1$1, inst$)},
-	{}
-};
-$MethodInfo CharSequence$$Lambda$lambda$codePoints$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(CharSequence$$Lambda$lambda$codePoints$1$1, init$, void, CharSequence*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CharSequence$$Lambda$lambda$codePoints$1$1, get, $Object*)},
-	{}
-};
-$ClassInfo CharSequence$$Lambda$lambda$codePoints$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.CharSequence$$Lambda$lambda$codePoints$1$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* CharSequence$$Lambda$lambda$codePoints$1$1::load$($String* name, bool initialize) {
-	$loadClass(CharSequence$$Lambda$lambda$codePoints$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CharSequence$$Lambda$lambda$codePoints$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(CharSequence$$Lambda$lambda$codePoints$1$1, init$, void, CharSequence*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CharSequence$$Lambda$lambda$codePoints$1$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.CharSequence$$Lambda$lambda$codePoints$1$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharSequence$$Lambda$lambda$codePoints$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharSequence$$Lambda$lambda$codePoints$1$1);
+	});
 	return class$;
 }
 $Class* CharSequence$$Lambda$lambda$codePoints$1$1::class$ = nullptr;
-
-$MethodInfo _CharSequence_MethodInfo_[] = {
-	{"charAt", "(I)C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharSequence, charAt, char16_t, int32_t)},
-	{"chars", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(CharSequence, chars, $IntStream*)},
-	{"codePoints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(CharSequence, codePoints, $IntStream*)},
-	{"compare", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CharSequence, compare, int32_t, CharSequence*, CharSequence*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(CharSequence, isEmpty, bool)},
-	{"lambda$chars$0", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(CharSequence, lambda$chars$0, $Spliterator$OfInt*)},
-	{"lambda$codePoints$1", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(CharSequence, lambda$codePoints$1, $Spliterator$OfInt*)},
-	{"length", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharSequence, length, int32_t)},
-	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharSequence, subSequence, CharSequence*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$InnerClassInfo _CharSequence_InnerClassesInfo_[] = {
-	{"java.lang.CharSequence$1CodePointIterator", nullptr, "CodePointIterator", 0},
-	{"java.lang.CharSequence$1CharIterator", nullptr, "CharIterator", 0},
-	{}
-};
-
-$ClassInfo _CharSequence_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.CharSequence",
-	nullptr,
-	nullptr,
-	nullptr,
-	_CharSequence_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CharSequence_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.CharSequence$1CodePointIterator,java.lang.CharSequence$1CharIterator"
-};
-
-$Object* allocate$CharSequence($Class* clazz) {
-	return $of($alloc(CharSequence));
-}
 
 $String* CharSequence::toString() {
 	 return this->$Object::toString();
@@ -176,57 +128,91 @@ bool CharSequence::isEmpty() {
 $IntStream* CharSequence::chars() {
 	{
 	}
-	return $StreamSupport::intStream(static_cast<$Supplier*>($$new(CharSequence$$Lambda$lambda$chars$0, this)), ($Spliterator::SUBSIZED | $Spliterator::SIZED) | $Spliterator::ORDERED, false);
+	return $StreamSupport::intStream($$new(CharSequence$$Lambda$lambda$chars$0, this), ($Spliterator::SUBSIZED | $Spliterator::SIZED) | $Spliterator::ORDERED, false);
 }
 
 $IntStream* CharSequence::codePoints() {
 	{
 	}
-	return $StreamSupport::intStream(static_cast<$Supplier*>($$new(CharSequence$$Lambda$lambda$codePoints$1$1, this)), $Spliterator::ORDERED, false);
+	return $StreamSupport::intStream($$new(CharSequence$$Lambda$lambda$codePoints$1$1, this), $Spliterator::ORDERED, false);
 }
 
 int32_t CharSequence::compare(CharSequence* cs1, CharSequence* cs2) {
 	if ($equals($Objects::requireNonNull(cs1), $Objects::requireNonNull(cs2))) {
 		return 0;
 	}
-	if ($nc($of(cs1))->getClass() == $nc($of(cs2))->getClass() && $instanceOf($Comparable, cs1)) {
-		return $nc(($cast($Comparable, cs1)))->compareTo(cs2);
+	if ($of(cs1)->getClass() == $of(cs2)->getClass() && $instanceOf($Comparable, cs1)) {
+		return $cast($Comparable, cs1)->compareTo(cs2);
 	}
 	{
 		int32_t i = 0;
-		int32_t var$0 = $nc(cs1)->length();
-		int32_t len = $Math::min(var$0, $nc(cs2)->length());
+		int32_t var$0 = cs1->length();
+		int32_t len = $Math::min(var$0, cs2->length());
 		for (; i < len; ++i) {
-			char16_t a = $nc(cs1)->charAt(i);
-			char16_t b = $nc(cs2)->charAt(i);
+			char16_t a = cs1->charAt(i);
+			char16_t b = cs2->charAt(i);
 			if (a != b) {
 				return a - b;
 			}
 		}
 	}
-	int32_t var$1 = $nc(cs1)->length();
-	return var$1 - $nc(cs2)->length();
+	int32_t var$1 = cs1->length();
+	return var$1 - cs2->length();
 }
 
 $Spliterator$OfInt* CharSequence::lambda$codePoints$1() {
-	return $Spliterators::spliteratorUnknownSize(static_cast<$PrimitiveIterator$OfInt*>($$new($CharSequence$1CodePointIterator, this)), $Spliterator::ORDERED);
+	return $Spliterators::spliteratorUnknownSize($$new($CharSequence$1CodePointIterator, this), $Spliterator::ORDERED);
 }
 
 $Spliterator$OfInt* CharSequence::lambda$chars$0() {
-	$var($PrimitiveIterator$OfInt, var$0, static_cast<$PrimitiveIterator$OfInt*>($new($CharSequence$1CharIterator, this)));
-	return $Spliterators::spliterator(var$0, (int64_t)length(), $Spliterator::ORDERED);
+	$var($PrimitiveIterator$OfInt, var$0, $new($CharSequence$1CharIterator, this));
+	return $Spliterators::spliterator(var$0, length(), $Spliterator::ORDERED);
 }
 
 $Class* CharSequence::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CharSequence$$Lambda$lambda$chars$0::classInfo$.name)) {
+		if (name->equals("java.lang.CharSequence$$Lambda$lambda$chars$0")) {
 			return CharSequence$$Lambda$lambda$chars$0::load$(name, initialize);
 		}
-		if (name->equals(CharSequence$$Lambda$lambda$codePoints$1$1::classInfo$.name)) {
+		if (name->equals("java.lang.CharSequence$$Lambda$lambda$codePoints$1$1")) {
 			return CharSequence$$Lambda$lambda$codePoints$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(CharSequence, name, initialize, &_CharSequence_ClassInfo_, allocate$CharSequence);
+	$MethodInfo methodInfos$$[] = {
+		{"charAt", "(I)C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharSequence, charAt, char16_t, int32_t)},
+		{"chars", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(CharSequence, chars, $IntStream*)},
+		{"codePoints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(CharSequence, codePoints, $IntStream*)},
+		{"compare", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CharSequence, compare, int32_t, CharSequence*, CharSequence*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(CharSequence, isEmpty, bool)},
+		{"lambda$chars$0", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(CharSequence, lambda$chars$0, $Spliterator$OfInt*)},
+		{"lambda$codePoints$1", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(CharSequence, lambda$codePoints$1, $Spliterator$OfInt*)},
+		{"length", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharSequence, length, int32_t)},
+		{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharSequence, subSequence, CharSequence*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.CharSequence$1CodePointIterator", nullptr, "CodePointIterator", 0},
+		{"java.lang.CharSequence$1CharIterator", nullptr, "CharIterator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.CharSequence",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.CharSequence$1CodePointIterator,java.lang.CharSequence$1CharIterator"
+	};
+	$loadClass(CharSequence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharSequence);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/security/URIParameter.h>
-
 #include <java/net/URI.h>
 #include <java/security/Policy$Parameters.h>
 #include <jcpp.h>
@@ -14,44 +13,6 @@ using $Policy$Parameters = ::java::security::Policy$Parameters;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _URIParameter_FieldInfo_[] = {
-	{"uri", "Ljava/net/URI;", nullptr, $PRIVATE, $field(URIParameter, uri)},
-	{}
-};
-
-$MethodInfo _URIParameter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(URIParameter, init$, void, $URI*)},
-	{"getURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(URIParameter, getURI, $URI*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _URIParameter_InnerClassesInfo_[] = {
-	{"java.security.Policy$Parameters", "java.security.Policy", "Parameters", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.security.auth.login.Configuration$Parameters", "javax.security.auth.login.Configuration", "Parameters", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _URIParameter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.URIParameter",
-	"java.lang.Object",
-	"java.security.Policy$Parameters,javax.security.auth.login.Configuration$Parameters",
-	_URIParameter_FieldInfo_,
-	_URIParameter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URIParameter_InnerClassesInfo_
-};
-
-$Object* allocate$URIParameter($Class* clazz) {
-	return $of($alloc(URIParameter));
-}
 
 int32_t URIParameter::hashCode() {
 	 return this->$Policy$Parameters::hashCode();
@@ -88,7 +49,39 @@ URIParameter::URIParameter() {
 }
 
 $Class* URIParameter::load$($String* name, bool initialize) {
-	$loadClass(URIParameter, name, initialize, &_URIParameter_ClassInfo_, allocate$URIParameter);
+	$FieldInfo fieldInfos$$[] = {
+		{"uri", "Ljava/net/URI;", nullptr, $PRIVATE, $field(URIParameter, uri)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(URIParameter, init$, void, $URI*)},
+		{"getURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(URIParameter, getURI, $URI*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.Policy$Parameters", "java.security.Policy", "Parameters", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.security.auth.login.Configuration$Parameters", "javax.security.auth.login.Configuration", "Parameters", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.URIParameter",
+		"java.lang.Object",
+		"java.security.Policy$Parameters,javax.security.auth.login.Configuration$Parameters",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(URIParameter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(URIParameter));
+	});
 	return class$;
 }
 

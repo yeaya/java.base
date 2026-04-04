@@ -1,5 +1,4 @@
 #include <OpsAfterClose.h>
-
 #include <OpsAfterClose$1.h>
 #include <OpsAfterClose$2.h>
 #include <OpsAfterClose$3.h>
@@ -13,7 +12,6 @@
 #include <java/io/File.h>
 #include <java/io/FileReader.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/LineNumberReader.h>
 #include <java/io/PipedReader.h>
@@ -46,12 +44,10 @@ using $CharArrayReader = ::java::io::CharArrayReader;
 using $File = ::java::io::File;
 using $FileReader = ::java::io::FileReader;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $LineNumberReader = ::java::io::LineNumberReader;
 using $PipedReader = ::java::io::PipedReader;
 using $PipedWriter = ::java::io::PipedWriter;
-using $PrintStream = ::java::io::PrintStream;
 using $PushbackReader = ::java::io::PushbackReader;
 using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
@@ -61,60 +57,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _OpsAfterClose_FieldInfo_[] = {
-	{"READ", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, READ)},
-	{"READ_BUF", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, READ_BUF)},
-	{"READY", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, READY)},
-	{"MARK", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, MARK)},
-	{"SKIP", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, SKIP)},
-	{"RESET", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, RESET)},
-	{"CLOSE", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, CLOSE)},
-	{"$VALUES", "[LOpsAfterClose;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(OpsAfterClose, $VALUES)},
-	{}
-};
-
-$MethodInfo _OpsAfterClose_MethodInfo_[] = {
-	{"$values", "()[LOpsAfterClose;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpsAfterClose, $values, $OpsAfterCloseArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OpsAfterClose, init$, void, $String*, int32_t)},
-	{"check", "(Ljava/io/Reader;)Z", nullptr, $ABSTRACT, $virtualMethod(OpsAfterClose, check, bool, $Reader*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose, main, void, $StringArray*), "java.lang.Exception"},
-	{"testPushbackReader", "(Ljava/io/PushbackReader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose, testPushbackReader, bool, $PushbackReader*), "java.lang.Exception"},
-	{"testReader", "(Ljava/io/Reader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose, testReader, bool, $Reader*), "java.lang.Exception"},
-	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose, valueOf, OpsAfterClose*, $String*)},
-	{"values", "()[LOpsAfterClose;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose, values, $OpsAfterCloseArray*)},
-	{}
-};
-
-$InnerClassInfo _OpsAfterClose_InnerClassesInfo_[] = {
-	{"OpsAfterClose$7", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose$6", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose$5", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose$4", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose$3", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _OpsAfterClose_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
-	"OpsAfterClose",
-	"java.lang.Enum",
-	nullptr,
-	_OpsAfterClose_FieldInfo_,
-	_OpsAfterClose_MethodInfo_,
-	"Ljava/lang/Enum<LOpsAfterClose;>;",
-	nullptr,
-	_OpsAfterClose_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"OpsAfterClose$7,OpsAfterClose$6,OpsAfterClose$5,OpsAfterClose$4,OpsAfterClose$3,OpsAfterClose$2,OpsAfterClose$1"
-};
-
-$Object* allocate$OpsAfterClose($Class* clazz) {
-	return $of($alloc(OpsAfterClose));
-}
 
 OpsAfterClose* OpsAfterClose::READ = nullptr;
 OpsAfterClose* OpsAfterClose::READ_BUF = nullptr;
@@ -154,7 +96,7 @@ void OpsAfterClose::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 void OpsAfterClose::main($StringArray* args) {
 	$init(OpsAfterClose);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool failed = false;
 	$var($BufferedReader, br, $new($BufferedReader, $$new($StringReader, "abc def ghi"_s)));
 	if (testReader(br)) {
@@ -202,35 +144,33 @@ void OpsAfterClose::main($StringArray* args) {
 
 bool OpsAfterClose::testReader($Reader* r) {
 	$init(OpsAfterClose);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(r)->close();
 	bool failed = false;
 	bool result = false;
 	$nc($System::out)->println($$str({"Testing reader:"_s, r}));
 	{
 		$var($OpsAfterCloseArray, arr$, OpsAfterClose::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			OpsAfterClose* op = arr$->get(i$);
 			{
 				result = $nc(op)->check(r);
 				if (!result) {
 					failed = true;
 				}
-				$nc($System::out)->println($$str({op, ":"_s, $$str(result)}));
+				$System::out->println($$str({op, ":"_s, $$str(result)}));
 			}
 		}
 	}
 	if (failed) {
-		$nc($System::out)->println($$str({"Test failed for the failed operation{s} above for the Reader:"_s, r}));
+		$System::out->println($$str({"Test failed for the failed operation{s} above for the Reader:"_s, r}));
 	}
 	return failed;
 }
 
 bool OpsAfterClose::testPushbackReader($PushbackReader* pr) {
 	$init(OpsAfterClose);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool failed = false;
 	try {
 		$nc(pr)->unread(1);
@@ -257,7 +197,7 @@ bool OpsAfterClose::testPushbackReader($PushbackReader* pr) {
 	return failed;
 }
 
-void clinit$OpsAfterClose($Class* class$) {
+void OpsAfterClose::clinit$($Class* clazz) {
 	$assignStatic(OpsAfterClose::READ, $new($OpsAfterClose$1, "READ"_s, 0));
 	$assignStatic(OpsAfterClose::READ_BUF, $new($OpsAfterClose$2, "READ_BUF"_s, 1));
 	$assignStatic(OpsAfterClose::READY, $new($OpsAfterClose$3, "READY"_s, 2));
@@ -272,7 +212,55 @@ OpsAfterClose::OpsAfterClose() {
 }
 
 $Class* OpsAfterClose::load$($String* name, bool initialize) {
-	$loadClass(OpsAfterClose, name, initialize, &_OpsAfterClose_ClassInfo_, clinit$OpsAfterClose, allocate$OpsAfterClose);
+	$FieldInfo fieldInfos$$[] = {
+		{"READ", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, READ)},
+		{"READ_BUF", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, READ_BUF)},
+		{"READY", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, READY)},
+		{"MARK", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, MARK)},
+		{"SKIP", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, SKIP)},
+		{"RESET", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, RESET)},
+		{"CLOSE", "LOpsAfterClose;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose, CLOSE)},
+		{"$VALUES", "[LOpsAfterClose;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(OpsAfterClose, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LOpsAfterClose;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpsAfterClose, $values, $OpsAfterCloseArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OpsAfterClose, init$, void, $String*, int32_t)},
+		{"check", "(Ljava/io/Reader;)Z", nullptr, $ABSTRACT, $virtualMethod(OpsAfterClose, check, bool, $Reader*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose, main, void, $StringArray*), "java.lang.Exception"},
+		{"testPushbackReader", "(Ljava/io/PushbackReader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose, testPushbackReader, bool, $PushbackReader*), "java.lang.Exception"},
+		{"testReader", "(Ljava/io/Reader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose, testReader, bool, $Reader*), "java.lang.Exception"},
+		{"valueOf", "(Ljava/lang/String;)LOpsAfterClose;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose, valueOf, OpsAfterClose*, $String*)},
+		{"values", "()[LOpsAfterClose;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose, values, $OpsAfterCloseArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"OpsAfterClose$7", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose$6", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose$5", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose$4", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose$3", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
+		"OpsAfterClose",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LOpsAfterClose;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"OpsAfterClose$7,OpsAfterClose$6,OpsAfterClose$5,OpsAfterClose$4,OpsAfterClose$3,OpsAfterClose$2,OpsAfterClose$1"
+	};
+	$loadClass(OpsAfterClose, name, initialize, &classInfo$$, OpsAfterClose::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OpsAfterClose));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/nio/channels/CompletionHandler.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,28 +8,24 @@ namespace java {
 	namespace nio {
 		namespace channels {
 
-$MethodInfo _CompletionHandler_MethodInfo_[] = {
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TV;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionHandler, completed, void, Object$*, Object$*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", "(Ljava/lang/Throwable;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionHandler, failed, void, $Throwable*, Object$*)},
-	{}
-};
-
-$ClassInfo _CompletionHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.channels.CompletionHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_CompletionHandler_MethodInfo_,
-	"<V:Ljava/lang/Object;A:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$CompletionHandler($Class* clazz) {
-	return $of($alloc(CompletionHandler));
-}
-
 $Class* CompletionHandler::load$($String* name, bool initialize) {
-	$loadClass(CompletionHandler, name, initialize, &_CompletionHandler_ClassInfo_, allocate$CompletionHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TV;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionHandler, completed, void, Object$*, Object$*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", "(Ljava/lang/Throwable;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionHandler, failed, void, $Throwable*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.channels.CompletionHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;A:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(CompletionHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompletionHandler);
+	});
 	return class$;
 }
 

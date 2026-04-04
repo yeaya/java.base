@@ -1,5 +1,4 @@
 #include <sun/nio/cs/UTF_32.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -29,28 +28,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$MethodInfo _UTF_32_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UTF_32, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UTF_32, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UTF_32, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(UTF_32, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(UTF_32, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$ClassInfo _UTF_32_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.UTF_32",
-	"sun.nio.cs.Unicode",
-	nullptr,
-	nullptr,
-	_UTF_32_MethodInfo_
-};
-
-$Object* allocate$UTF_32($Class* clazz) {
-	return $of($alloc(UTF_32));
-}
-
 void UTF_32::init$() {
 	$Unicode::init$("UTF-32"_s, $($StandardCharsets::aliases_UTF_32()));
 }
@@ -75,7 +52,25 @@ UTF_32::UTF_32() {
 }
 
 $Class* UTF_32::load$($String* name, bool initialize) {
-	$loadClass(UTF_32, name, initialize, &_UTF_32_ClassInfo_, allocate$UTF_32);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UTF_32, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UTF_32, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UTF_32, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(UTF_32, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(UTF_32, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.UTF_32",
+		"sun.nio.cs.Unicode",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UTF_32, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UTF_32));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/security/auth/callback/TextOutputCallback.h>
-
 #include <javax/security/auth/callback/Callback.h>
 #include <jcpp.h>
 
@@ -17,41 +16,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace callback {
-
-$FieldInfo _TextOutputCallback_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextOutputCallback, serialVersionUID)},
-	{"INFORMATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextOutputCallback, INFORMATION)},
-	{"WARNING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextOutputCallback, WARNING)},
-	{"ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextOutputCallback, ERROR)},
-	{"messageType", "I", nullptr, $PRIVATE, $field(TextOutputCallback, messageType)},
-	{"message", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TextOutputCallback, message)},
-	{}
-};
-
-$MethodInfo _TextOutputCallback_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(TextOutputCallback, init$, void, int32_t, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextOutputCallback, getMessage, $String*)},
-	{"getMessageType", "()I", nullptr, $PUBLIC, $virtualMethod(TextOutputCallback, getMessageType, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _TextOutputCallback_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.callback.TextOutputCallback",
-	"java.lang.Object",
-	"javax.security.auth.callback.Callback,java.io.Serializable",
-	_TextOutputCallback_FieldInfo_,
-	_TextOutputCallback_MethodInfo_
-};
-
-$Object* allocate$TextOutputCallback($Class* clazz) {
-	return $of($alloc(TextOutputCallback));
-}
 
 int32_t TextOutputCallback::hashCode() {
 	 return this->$Callback::hashCode();
@@ -74,7 +38,7 @@ void TextOutputCallback::finalize() {
 }
 
 void TextOutputCallback::init$(int32_t messageType, $String* message) {
-	if ((messageType != TextOutputCallback::INFORMATION && messageType != TextOutputCallback::WARNING && messageType != TextOutputCallback::ERROR) || message == nullptr || $nc(message)->isEmpty()) {
+	if ((messageType != TextOutputCallback::INFORMATION && messageType != TextOutputCallback::WARNING && messageType != TextOutputCallback::ERROR) || message == nullptr || message->isEmpty()) {
 		$throwNew($IllegalArgumentException);
 	}
 	this->messageType = messageType;
@@ -93,7 +57,37 @@ TextOutputCallback::TextOutputCallback() {
 }
 
 $Class* TextOutputCallback::load$($String* name, bool initialize) {
-	$loadClass(TextOutputCallback, name, initialize, &_TextOutputCallback_ClassInfo_, allocate$TextOutputCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextOutputCallback, serialVersionUID)},
+		{"INFORMATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextOutputCallback, INFORMATION)},
+		{"WARNING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextOutputCallback, WARNING)},
+		{"ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextOutputCallback, ERROR)},
+		{"messageType", "I", nullptr, $PRIVATE, $field(TextOutputCallback, messageType)},
+		{"message", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TextOutputCallback, message)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(TextOutputCallback, init$, void, int32_t, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextOutputCallback, getMessage, $String*)},
+		{"getMessageType", "()I", nullptr, $PUBLIC, $virtualMethod(TextOutputCallback, getMessageType, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.callback.TextOutputCallback",
+		"java.lang.Object",
+		"javax.security.auth.callback.Callback,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextOutputCallback, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextOutputCallback));
+	});
 	return class$;
 }
 

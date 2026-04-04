@@ -62,6 +62,13 @@ namespace java {
 		class HashMap;
 	}
 }
+namespace java {
+	namespace lang {
+		namespace invoke {
+			class MethodHandle;
+		}
+	}
+}
 
 namespace java {
 	namespace lang {
@@ -166,6 +173,7 @@ class BootstrapMethod : public $Object {
 public:
 	$Object* methodHandle = nullptr;
 	$ObjectArray* bootstrapArguments = nullptr;
+	::java::lang::invoke::MethodHandle* resolvedMH = nullptr;
 };
 
 class ByteCodeClassData : public $Object {

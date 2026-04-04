@@ -24,6 +24,7 @@ class $export FormatStyle : public ::java::lang::Enum {
 public:
 	FormatStyle();
 	static $Array<::java::time::format::FormatStyle>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::time::format::FormatStyle* valueOf($String* name);
 	static $Array<::java::time::format::FormatStyle>* values();

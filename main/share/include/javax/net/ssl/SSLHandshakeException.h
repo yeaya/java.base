@@ -14,10 +14,13 @@ class $import SSLHandshakeException : public ::javax::net::ssl::SSLException {
 public:
 	SSLHandshakeException();
 	void init$($String* reason);
-	static const int64_t serialVersionUID = (int64_t)0xB9F96DAD9F8D3C96;
+	static const int64_t serialVersionUID = (int64_t)0xb9f96dad9f8d3c96;
 	SSLHandshakeException(const SSLHandshakeException& e);
 	virtual void throw$() override;
-	inline SSLHandshakeException* operator ->() {
+	inline SSLHandshakeException* operator ->() const {
+		return (SSLHandshakeException*)throwing$;
+	}
+	inline operator SSLHandshakeException*() const {
 		return (SSLHandshakeException*)throwing$;
 	}
 };

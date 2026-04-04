@@ -284,7 +284,7 @@ public:
 	static const int32_t FILE_FLAG_OPEN_REPARSE_POINT = 0x00200000;
 	static const int32_t BACKUP_ALTERNATE_DATA = 4;
 	static const int32_t BACKUP_SPARSE_BLOCK = 9;
-	static const int32_t IO_REPARSE_TAG_SYMLINK = 0xA000000C;
+	static const int32_t IO_REPARSE_TAG_SYMLINK = 0xa000000c;
 	static const int32_t IO_REPARSE_TAG_AF_UNIX = 0x80000023;
 	static const int32_t MAXIMUM_REPARSE_DATA_BUFFER_SIZE = 16384; // 16 * 1024
 	static const int32_t SYMBOLIC_LINK_FLAG_DIRECTORY = 1;
@@ -379,8 +379,8 @@ public:
 	static const int32_t FILE_WRITE_ATTRIBUTES = 256;
 	static const int32_t FILE_GENERIC_READ = 0x00120089;
 	static const int32_t FILE_GENERIC_WRITE = 0x00120116;
-	static const int32_t FILE_GENERIC_EXECUTE = 0x001200A0;
-	static const int32_t FILE_ALL_ACCESS = 0x001F01FF;
+	static const int32_t FILE_GENERIC_EXECUTE = 0x001200a0;
+	static const int32_t FILE_ALL_ACCESS = 0x001f01ff;
 	static const int32_t TOKEN_DUPLICATE = 2;
 	static const int32_t TOKEN_IMPERSONATE = 4;
 	static const int32_t TOKEN_QUERY = 8;

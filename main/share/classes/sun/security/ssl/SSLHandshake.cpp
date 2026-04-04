@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLHandshake.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/ByteBuffer.h>
@@ -92,7 +91,6 @@ using $NewSessionTicket = ::sun::security::ssl::NewSessionTicket;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
-using $SSLProducer = ::sun::security::ssl::SSLProducer;
 using $ServerHello = ::sun::security::ssl::ServerHello;
 using $ServerHelloDone = ::sun::security::ssl::ServerHelloDone;
 using $ServerKeyExchange = ::sun::security::ssl::ServerKeyExchange;
@@ -100,83 +98,6 @@ using $ServerKeyExchange = ::sun::security::ssl::ServerKeyExchange;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLHandshake_FieldInfo_[] = {
-	{"HELLO_REQUEST", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, HELLO_REQUEST)},
-	{"CLIENT_HELLO", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CLIENT_HELLO)},
-	{"SERVER_HELLO", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, SERVER_HELLO)},
-	{"HELLO_RETRY_REQUEST", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, HELLO_RETRY_REQUEST)},
-	{"HELLO_VERIFY_REQUEST", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, HELLO_VERIFY_REQUEST)},
-	{"NEW_SESSION_TICKET", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, NEW_SESSION_TICKET)},
-	{"END_OF_EARLY_DATA", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, END_OF_EARLY_DATA)},
-	{"ENCRYPTED_EXTENSIONS", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, ENCRYPTED_EXTENSIONS)},
-	{"CERTIFICATE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CERTIFICATE)},
-	{"SERVER_KEY_EXCHANGE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, SERVER_KEY_EXCHANGE)},
-	{"CERTIFICATE_REQUEST", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CERTIFICATE_REQUEST)},
-	{"SERVER_HELLO_DONE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, SERVER_HELLO_DONE)},
-	{"CERTIFICATE_VERIFY", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CERTIFICATE_VERIFY)},
-	{"CLIENT_KEY_EXCHANGE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CLIENT_KEY_EXCHANGE)},
-	{"FINISHED", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, FINISHED)},
-	{"CERTIFICATE_URL", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CERTIFICATE_URL)},
-	{"CERTIFICATE_STATUS", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CERTIFICATE_STATUS)},
-	{"SUPPLEMENTAL_DATA", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, SUPPLEMENTAL_DATA)},
-	{"KEY_UPDATE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, KEY_UPDATE)},
-	{"MESSAGE_HASH", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, MESSAGE_HASH)},
-	{"NOT_APPLICABLE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, NOT_APPLICABLE)},
-	{"$VALUES", "[Lsun/security/ssl/SSLHandshake;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLHandshake, $VALUES)},
-	{"id", "B", nullptr, $FINAL, $field(SSLHandshake, id)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLHandshake, name$)},
-	{"handshakeConsumers", "[Ljava/util/Map$Entry;", "[Ljava/util/Map$Entry<Lsun/security/ssl/SSLConsumer;[Lsun/security/ssl/ProtocolVersion;>;", $FINAL, $field(SSLHandshake, handshakeConsumers)},
-	{"handshakeProducers", "[Ljava/util/Map$Entry;", "[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeProducer;[Lsun/security/ssl/ProtocolVersion;>;", $FINAL, $field(SSLHandshake, handshakeProducers)},
-	{"handshakeAbsences", "[Ljava/util/Map$Entry;", "[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeAbsence;[Lsun/security/ssl/ProtocolVersion;>;", $FINAL, $field(SSLHandshake, handshakeAbsences)},
-	{}
-};
-
-$MethodInfo _SSLHandshake_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLHandshake;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLHandshake, $values, $SSLHandshakeArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(SSLHandshake, init$, void, $String*, int32_t, int8_t, $String*)},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;)V", "(BLjava/lang/String;[Ljava/util/Map$Entry<Lsun/security/ssl/SSLConsumer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeProducer;[Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE, $method(SSLHandshake, init$, void, $String*, int32_t, int8_t, $String*, $Map$EntryArray*, $Map$EntryArray*)},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;)V", "(BLjava/lang/String;[Ljava/util/Map$Entry<Lsun/security/ssl/SSLConsumer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeProducer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeAbsence;[Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE, $method(SSLHandshake, init$, void, $String*, int32_t, int8_t, $String*, $Map$EntryArray*, $Map$EntryArray*, $Map$EntryArray*)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SSLHandshake, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
-	{"getHandshakeConsumer", "(Lsun/security/ssl/ConnectionContext;)Lsun/security/ssl/SSLConsumer;", nullptr, $PRIVATE, $method(SSLHandshake, getHandshakeConsumer, $SSLConsumer*, $ConnectionContext*)},
-	{"getHandshakeProducer", "(Lsun/security/ssl/ConnectionContext;)Lsun/security/ssl/HandshakeProducer;", nullptr, $PRIVATE, $method(SSLHandshake, getHandshakeProducer, $HandshakeProducer*, $ConnectionContext*)},
-	{"isKnown", "(B)Z", nullptr, $STATIC, $staticMethod(SSLHandshake, isKnown, bool, int8_t)},
-	{"kickstart", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, $STATIC | $FINAL, $staticMethod(SSLHandshake, kickstart, void, $HandshakeContext*), "java.io.IOException"},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SSLHandshake, nameOf, $String*, int8_t)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(SSLHandshake, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLHandshake, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLHandshake, valueOf, SSLHandshake*, $String*)},
-	{"values", "()[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLHandshake, values, $SSLHandshakeArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLHandshake_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLHandshake_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.SSLHandshake",
-	"java.lang.Enum",
-	"sun.security.ssl.SSLConsumer,sun.security.ssl.HandshakeProducer",
-	_SSLHandshake_FieldInfo_,
-	_SSLHandshake_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/SSLHandshake;>;Lsun/security/ssl/SSLConsumer;Lsun/security/ssl/HandshakeProducer;",
-	nullptr,
-	_SSLHandshake_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLHandshake$HandshakeMessage"
-};
-
-$Object* allocate$SSLHandshake($Class* clazz) {
-	return $of($alloc(SSLHandshake));
-}
 
 bool SSLHandshake::equals(Object$* other) {
 	 return this->$Enum::equals(other);
@@ -255,7 +176,7 @@ SSLHandshake* SSLHandshake::valueOf($String* name) {
 }
 
 void SSLHandshake::init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	SSLHandshake::init$($enum$name, $enum$ordinal, id, name, ($$new($Map$EntryArray, 0)), ($$new($Map$EntryArray, 0)), ($$new($Map$EntryArray, 0)));
 }
 
@@ -273,7 +194,7 @@ void SSLHandshake::init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, 
 }
 
 void SSLHandshake::consume($ConnectionContext* context, $ByteBuffer* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLConsumer, hc, getHandshakeConsumer(context));
 	if (hc != nullptr) {
 		hc->consume(context, message);
@@ -283,16 +204,16 @@ void SSLHandshake::consume($ConnectionContext* context, $ByteBuffer* message) {
 }
 
 $SSLConsumer* SSLHandshake::getHandshakeConsumer($ConnectionContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->handshakeConsumers)->length == 0) {
 		return nullptr;
 	}
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$ProtocolVersion* protocolVersion = nullptr;
 	$init($ProtocolVersion);
-	if (($nc(hc)->negotiatedProtocol == nullptr) || ($nc(hc)->negotiatedProtocol == $ProtocolVersion::NONE)) {
-		if ($nc(hc->conContext)->isNegotiated && $nc(hc->conContext)->protocolVersion != $ProtocolVersion::NONE) {
-			protocolVersion = $nc(hc->conContext)->protocolVersion;
+	if (($nc(hc)->negotiatedProtocol == nullptr) || (hc->negotiatedProtocol == $ProtocolVersion::NONE)) {
+		if ($nc(hc->conContext)->isNegotiated && hc->conContext->protocolVersion != $ProtocolVersion::NONE) {
+			protocolVersion = hc->conContext->protocolVersion;
 		} else {
 			protocolVersion = hc->maximumActiveProtocol;
 		}
@@ -306,17 +227,11 @@ $SSLConsumer* SSLHandshake::getHandshakeConsumer($ConnectionContext* context) {
 		for (; i$ < len$; ++i$) {
 			$var($Map$Entry, phe, arr$->get(i$));
 			{
-				{
-					$var($ProtocolVersionArray, arr$, $cast($ProtocolVersionArray, $nc(phe)->getValue()));
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$ProtocolVersion* pv = arr$->get(i$);
-						{
-							if (protocolVersion == pv) {
-								return $cast($SSLConsumer, phe->getKey());
-							}
-						}
+				$var($ProtocolVersionArray, arr$, $cast($ProtocolVersionArray, $nc(phe)->getValue()));
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					$ProtocolVersion* pv = arr$->get(i$);
+					if (protocolVersion == pv) {
+						return $cast($SSLConsumer, phe->getKey());
 					}
 				}
 			}
@@ -326,7 +241,7 @@ $SSLConsumer* SSLHandshake::getHandshakeConsumer($ConnectionContext* context) {
 }
 
 $bytes* SSLHandshake::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HandshakeProducer, hp, getHandshakeProducer(context));
 	if (hp != nullptr) {
 		return hp->produce(context, message);
@@ -336,16 +251,16 @@ $bytes* SSLHandshake::produce($ConnectionContext* context, $SSLHandshake$Handsha
 }
 
 $HandshakeProducer* SSLHandshake::getHandshakeProducer($ConnectionContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->handshakeConsumers)->length == 0) {
 		return nullptr;
 	}
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$ProtocolVersion* protocolVersion = nullptr;
 	$init($ProtocolVersion);
-	if (($nc(hc)->negotiatedProtocol == nullptr) || ($nc(hc)->negotiatedProtocol == $ProtocolVersion::NONE)) {
-		if ($nc(hc->conContext)->isNegotiated && $nc(hc->conContext)->protocolVersion != $ProtocolVersion::NONE) {
-			protocolVersion = $nc(hc->conContext)->protocolVersion;
+	if (($nc(hc)->negotiatedProtocol == nullptr) || (hc->negotiatedProtocol == $ProtocolVersion::NONE)) {
+		if ($nc(hc->conContext)->isNegotiated && hc->conContext->protocolVersion != $ProtocolVersion::NONE) {
+			protocolVersion = hc->conContext->protocolVersion;
 		} else {
 			protocolVersion = hc->maximumActiveProtocol;
 		}
@@ -359,17 +274,11 @@ $HandshakeProducer* SSLHandshake::getHandshakeProducer($ConnectionContext* conte
 		for (; i$ < len$; ++i$) {
 			$var($Map$Entry, phe, arr$->get(i$));
 			{
-				{
-					$var($ProtocolVersionArray, arr$, $cast($ProtocolVersionArray, $nc(phe)->getValue()));
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$ProtocolVersion* pv = arr$->get(i$);
-						{
-							if (protocolVersion == pv) {
-								return $cast($HandshakeProducer, phe->getKey());
-							}
-						}
+				$var($ProtocolVersionArray, arr$, $cast($ProtocolVersionArray, $nc(phe)->getValue()));
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					$ProtocolVersion* pv = arr$->get(i$);
+					if (protocolVersion == pv) {
+						return $cast($HandshakeProducer, phe->getKey());
 					}
 				}
 			}
@@ -384,17 +293,13 @@ $String* SSLHandshake::toString() {
 
 $String* SSLHandshake::nameOf(int8_t id) {
 	$init(SSLHandshake);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($SSLHandshakeArray, arr$, SSLHandshake::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			SSLHandshake* hs = arr$->get(i$);
-			{
-				if ($nc(hs)->id == id) {
-					return hs->name$;
-				}
+			if ($nc(hs)->id == id) {
+				return hs->name$;
 			}
 		}
 	}
@@ -403,17 +308,11 @@ $String* SSLHandshake::nameOf(int8_t id) {
 
 bool SSLHandshake::isKnown(int8_t id) {
 	$init(SSLHandshake);
-	{
-		$var($SSLHandshakeArray, arr$, SSLHandshake::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			SSLHandshake* hs = arr$->get(i$);
-			{
-				if ($nc(hs)->id == id && id != SSLHandshake::NOT_APPLICABLE->id) {
-					return true;
-				}
-			}
+	$var($SSLHandshakeArray, arr$, SSLHandshake::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		SSLHandshake* hs = arr$->get(i$);
+		if ($nc(hs)->id == id && id != SSLHandshake::NOT_APPLICABLE->id) {
+			return true;
 		}
 	}
 	return false;
@@ -422,7 +321,7 @@ bool SSLHandshake::isKnown(int8_t id) {
 void SSLHandshake::kickstart($HandshakeContext* context) {
 	$init(SSLHandshake);
 	if ($instanceOf($ClientHandshakeContext, context)) {
-		if ($nc($nc(context)->conContext)->isNegotiated && $nc($nc(context->conContext)->protocolVersion)->useTLS13PlusSpec()) {
+		if ($nc(context->conContext)->isNegotiated && $nc(context->conContext->protocolVersion)->useTLS13PlusSpec()) {
 			$init($KeyUpdate);
 			$nc($KeyUpdate::kickstartProducer)->produce(context);
 		} else {
@@ -438,144 +337,128 @@ void SSLHandshake::kickstart($HandshakeContext* context) {
 	}
 }
 
-void clinit$SSLHandshake($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SSLHandshake::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$var($String, var$0, "HELLO_REQUEST"_s);
-	int8_t var$1 = (int8_t)0;
-	$var($String, var$2, "hello_request"_s);
+	$var($String, var$1, "hello_request"_s);
 	$init($HelloRequest);
 	$init($ProtocolVersion);
-	$var($Map$EntryArray, var$3, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $HelloRequest::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12))})));
-	$assignStatic(SSLHandshake::HELLO_REQUEST, $new(SSLHandshake, var$0, 0, var$1, var$2, var$3, ($$new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $HelloRequest::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12))}))));
-	$var($String, var$4, "CLIENT_HELLO"_s);
-	int8_t var$5 = (int8_t)1;
-	$var($String, var$6, "client_hello"_s);
+	$var($Map$EntryArray, var$2, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $HelloRequest::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12)})));
+	$assignStatic(SSLHandshake::HELLO_REQUEST, $new(SSLHandshake, var$0, 0, (int8_t)0, var$1, var$2, ($$new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $HelloRequest::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12)}))));
+	$var($String, var$3, "CLIENT_HELLO"_s);
+	$var($String, var$4, "client_hello"_s);
 	$init($ClientHello);
-	$var($Map$EntryArray, var$7, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ClientHello::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_13))})));
-	$assignStatic(SSLHandshake::CLIENT_HELLO, $new(SSLHandshake, var$4, 1, var$5, var$6, var$7, ($$new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ClientHello::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_13))}))));
-	$var($String, var$8, "SERVER_HELLO"_s);
-	int8_t var$9 = (int8_t)2;
-	$var($String, var$10, "server_hello"_s);
+	$var($Map$EntryArray, var$5, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $ClientHello::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_13)})));
+	$assignStatic(SSLHandshake::CLIENT_HELLO, $new(SSLHandshake, var$3, 1, (int8_t)1, var$4, var$5, ($$new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $ClientHello::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_13)}))));
+	$var($String, var$6, "SERVER_HELLO"_s);
+	$var($String, var$7, "server_hello"_s);
 	$init($ServerHello);
-	$var($Map$EntryArray, var$11, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ServerHello::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_13))})));
-	$assignStatic(SSLHandshake::SERVER_HELLO, $new(SSLHandshake, var$8, 2, var$9, var$10, var$11, ($$new($Map$EntryArray, {
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ServerHello::t12HandshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ServerHello::t13HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13))
+	$var($Map$EntryArray, var$8, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $ServerHello::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_13)})));
+	$assignStatic(SSLHandshake::SERVER_HELLO, $new(SSLHandshake, var$6, 2, (int8_t)2, var$7, var$8, ($$new($Map$EntryArray, {
+		$$new($AbstractMap$SimpleImmutableEntry, $ServerHello::t12HandshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12),
+		$$new($AbstractMap$SimpleImmutableEntry, $ServerHello::t13HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13)
 	}))));
-	$var($String, var$12, "HELLO_RETRY_REQUEST"_s);
-	int8_t var$13 = (int8_t)2;
-	$var($String, var$14, "hello_retry_request"_s);
-	$var($Map$EntryArray, var$15, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ServerHello::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_13))})));
-	$assignStatic(SSLHandshake::HELLO_RETRY_REQUEST, $new(SSLHandshake, var$12, 3, var$13, var$14, var$15, ($$new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ServerHello::hrrHandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13))}))));
-	$var($String, var$16, "HELLO_VERIFY_REQUEST"_s);
-	int8_t var$17 = (int8_t)3;
-	$var($String, var$18, "hello_verify_request"_s);
+	$var($String, var$9, "HELLO_RETRY_REQUEST"_s);
+	$var($String, var$10, "hello_retry_request"_s);
+	$var($Map$EntryArray, var$11, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $ServerHello::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_13)})));
+	$assignStatic(SSLHandshake::HELLO_RETRY_REQUEST, $new(SSLHandshake, var$9, 3, (int8_t)2, var$10, var$11, ($$new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $ServerHello::hrrHandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13)}))));
+	$var($String, var$12, "HELLO_VERIFY_REQUEST"_s);
+	$var($String, var$13, "hello_verify_request"_s);
 	$init($HelloVerifyRequest);
-	$var($Map$EntryArray, var$19, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $HelloVerifyRequest::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12))})));
-	$assignStatic(SSLHandshake::HELLO_VERIFY_REQUEST, $new(SSLHandshake, var$16, 4, var$17, var$18, var$19, ($$new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $HelloVerifyRequest::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12))}))));
-	$var($String, var$20, "NEW_SESSION_TICKET"_s);
-	int8_t var$21 = (int8_t)4;
-	$var($String, var$22, "new_session_ticket"_s);
+	$var($Map$EntryArray, var$14, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $HelloVerifyRequest::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12)})));
+	$assignStatic(SSLHandshake::HELLO_VERIFY_REQUEST, $new(SSLHandshake, var$12, 4, (int8_t)3, var$13, var$14, ($$new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $HelloVerifyRequest::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12)}))));
+	$var($String, var$15, "NEW_SESSION_TICKET"_s);
+	$var($String, var$16, "new_session_ticket"_s);
 	$init($NewSessionTicket);
-	$var($Map$EntryArray, var$23, ($new($Map$EntryArray, {
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $NewSessionTicket::handshake12Consumer, $ProtocolVersion::PROTOCOLS_TO_12)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $NewSessionTicket::handshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13))
+	$var($Map$EntryArray, var$17, ($new($Map$EntryArray, {
+		$$new($AbstractMap$SimpleImmutableEntry, $NewSessionTicket::handshake12Consumer, $ProtocolVersion::PROTOCOLS_TO_12),
+		$$new($AbstractMap$SimpleImmutableEntry, $NewSessionTicket::handshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13)
 	})));
-	$assignStatic(SSLHandshake::NEW_SESSION_TICKET, $new(SSLHandshake, var$20, 5, var$21, var$22, var$23, ($$new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $NewSessionTicket::handshake12Producer, $ProtocolVersion::PROTOCOLS_TO_12))}))));
+	$assignStatic(SSLHandshake::NEW_SESSION_TICKET, $new(SSLHandshake, var$15, 5, (int8_t)4, var$16, var$17, ($$new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $NewSessionTicket::handshake12Producer, $ProtocolVersion::PROTOCOLS_TO_12)}))));
 	$assignStatic(SSLHandshake::END_OF_EARLY_DATA, $new(SSLHandshake, "END_OF_EARLY_DATA"_s, 6, (int8_t)5, "end_of_early_data"_s));
-	$var($String, var$24, "ENCRYPTED_EXTENSIONS"_s);
-	int8_t var$25 = (int8_t)8;
-	$var($String, var$26, "encrypted_extensions"_s);
+	$var($String, var$18, "ENCRYPTED_EXTENSIONS"_s);
+	$var($String, var$19, "encrypted_extensions"_s);
 	$init($EncryptedExtensions);
-	$var($Map$EntryArray, var$27, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $EncryptedExtensions::handshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13))})));
-	$assignStatic(SSLHandshake::ENCRYPTED_EXTENSIONS, $new(SSLHandshake, var$24, 7, var$25, var$26, var$27, ($$new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $EncryptedExtensions::handshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13))}))));
-	$var($String, var$28, "CERTIFICATE"_s);
-	int8_t var$29 = (int8_t)11;
-	$var($String, var$30, "certificate"_s);
+	$var($Map$EntryArray, var$20, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $EncryptedExtensions::handshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13)})));
+	$assignStatic(SSLHandshake::ENCRYPTED_EXTENSIONS, $new(SSLHandshake, var$18, 7, (int8_t)8, var$19, var$20, ($$new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $EncryptedExtensions::handshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13)}))));
+	$var($String, var$21, "CERTIFICATE"_s);
+	$var($String, var$22, "certificate"_s);
 	$init($CertificateMessage);
-	$var($Map$EntryArray, var$31, ($new($Map$EntryArray, {
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateMessage::t12HandshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateMessage::t13HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13))
+	$var($Map$EntryArray, var$23, ($new($Map$EntryArray, {
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateMessage::t12HandshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateMessage::t13HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13)
 	})));
-	$assignStatic(SSLHandshake::CERTIFICATE, $new(SSLHandshake, var$28, 8, var$29, var$30, var$31, ($$new($Map$EntryArray, {
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateMessage::t12HandshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateMessage::t13HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13))
+	$assignStatic(SSLHandshake::CERTIFICATE, $new(SSLHandshake, var$21, 8, (int8_t)11, var$22, var$23, ($$new($Map$EntryArray, {
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateMessage::t12HandshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateMessage::t13HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13)
 	}))));
-	$var($String, var$32, "SERVER_KEY_EXCHANGE"_s);
-	int8_t var$33 = (int8_t)12;
-	$var($String, var$34, "server_key_exchange"_s);
+	$var($String, var$24, "SERVER_KEY_EXCHANGE"_s);
+	$var($String, var$25, "server_key_exchange"_s);
 	$init($ServerKeyExchange);
-	$var($Map$EntryArray, var$35, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ServerKeyExchange::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12))})));
-	$assignStatic(SSLHandshake::SERVER_KEY_EXCHANGE, $new(SSLHandshake, var$32, 9, var$33, var$34, var$35, ($$new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ServerKeyExchange::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12))}))));
-	$var($String, var$36, "CERTIFICATE_REQUEST"_s);
-	int8_t var$37 = (int8_t)13;
-	$var($String, var$38, "certificate_request"_s);
+	$var($Map$EntryArray, var$26, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $ServerKeyExchange::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12)})));
+	$assignStatic(SSLHandshake::SERVER_KEY_EXCHANGE, $new(SSLHandshake, var$24, 9, (int8_t)12, var$25, var$26, ($$new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $ServerKeyExchange::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12)}))));
+	$var($String, var$27, "CERTIFICATE_REQUEST"_s);
+	$var($String, var$28, "certificate_request"_s);
 	$init($CertificateRequest);
-	$var($Map$EntryArray, var$39, ($new($Map$EntryArray, {
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t10HandshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_11)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t12HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_12)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t13HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13))
+	$var($Map$EntryArray, var$29, ($new($Map$EntryArray, {
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t10HandshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_11),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t12HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_12),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t13HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13)
 	})));
-	$assignStatic(SSLHandshake::CERTIFICATE_REQUEST, $new(SSLHandshake, var$36, 10, var$37, var$38, var$39, ($$new($Map$EntryArray, {
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t10HandshakeProducer, $ProtocolVersion::PROTOCOLS_TO_11)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t12HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_12)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t13HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13))
+	$assignStatic(SSLHandshake::CERTIFICATE_REQUEST, $new(SSLHandshake, var$27, 10, (int8_t)13, var$28, var$29, ($$new($Map$EntryArray, {
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t10HandshakeProducer, $ProtocolVersion::PROTOCOLS_TO_11),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t12HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_12),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t13HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13)
 	}))));
-	$var($String, var$40, "SERVER_HELLO_DONE"_s);
-	int8_t var$41 = (int8_t)14;
-	$var($String, var$42, "server_hello_done"_s);
+	$var($String, var$30, "SERVER_HELLO_DONE"_s);
+	$var($String, var$31, "server_hello_done"_s);
 	$init($ServerHelloDone);
-	$var($Map$EntryArray, var$43, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ServerHelloDone::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12))})));
-	$assignStatic(SSLHandshake::SERVER_HELLO_DONE, $new(SSLHandshake, var$40, 11, var$41, var$42, var$43, ($$new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ServerHelloDone::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12))}))));
-	$var($String, var$44, "CERTIFICATE_VERIFY"_s);
-	int8_t var$45 = (int8_t)15;
-	$var($String, var$46, "certificate_verify"_s);
+	$var($Map$EntryArray, var$32, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $ServerHelloDone::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12)})));
+	$assignStatic(SSLHandshake::SERVER_HELLO_DONE, $new(SSLHandshake, var$30, 11, (int8_t)14, var$31, var$32, ($$new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $ServerHelloDone::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12)}))));
+	$var($String, var$33, "CERTIFICATE_VERIFY"_s);
+	$var($String, var$34, "certificate_verify"_s);
 	$init($CertificateVerify);
-	$var($Map$EntryArray, var$47, ($new($Map$EntryArray, {
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::s30HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_30)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t10HandshakeConsumer, $ProtocolVersion::PROTOCOLS_10_11)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t12HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_12)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t13HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13))
+	$var($Map$EntryArray, var$35, ($new($Map$EntryArray, {
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::s30HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_30),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t10HandshakeConsumer, $ProtocolVersion::PROTOCOLS_10_11),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t12HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_12),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t13HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13)
 	})));
-	$assignStatic(SSLHandshake::CERTIFICATE_VERIFY, $new(SSLHandshake, var$44, 12, var$45, var$46, var$47, ($$new($Map$EntryArray, {
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::s30HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_30)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t10HandshakeProducer, $ProtocolVersion::PROTOCOLS_10_11)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t12HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_12)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t13HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13))
+	$assignStatic(SSLHandshake::CERTIFICATE_VERIFY, $new(SSLHandshake, var$33, 12, (int8_t)15, var$34, var$35, ($$new($Map$EntryArray, {
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::s30HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_30),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t10HandshakeProducer, $ProtocolVersion::PROTOCOLS_10_11),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t12HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_12),
+		$$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t13HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13)
 	}))));
-	$var($String, var$48, "CLIENT_KEY_EXCHANGE"_s);
-	int8_t var$49 = (int8_t)16;
-	$var($String, var$50, "client_key_exchange"_s);
+	$var($String, var$36, "CLIENT_KEY_EXCHANGE"_s);
+	$var($String, var$37, "client_key_exchange"_s);
 	$init($ClientKeyExchange);
-	$var($Map$EntryArray, var$51, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ClientKeyExchange::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12))})));
-	$assignStatic(SSLHandshake::CLIENT_KEY_EXCHANGE, $new(SSLHandshake, var$48, 13, var$49, var$50, var$51, ($$new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $ClientKeyExchange::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12))}))));
-	$var($String, var$52, "FINISHED"_s);
-	int8_t var$53 = (int8_t)20;
-	$var($String, var$54, "finished"_s);
+	$var($Map$EntryArray, var$38, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $ClientKeyExchange::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12)})));
+	$assignStatic(SSLHandshake::CLIENT_KEY_EXCHANGE, $new(SSLHandshake, var$36, 13, (int8_t)16, var$37, var$38, ($$new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $ClientKeyExchange::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12)}))));
+	$var($String, var$39, "FINISHED"_s);
+	$var($String, var$40, "finished"_s);
 	$init($Finished);
-	$var($Map$EntryArray, var$55, ($new($Map$EntryArray, {
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $Finished::t12HandshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $Finished::t13HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13))
+	$var($Map$EntryArray, var$41, ($new($Map$EntryArray, {
+		$$new($AbstractMap$SimpleImmutableEntry, $Finished::t12HandshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12),
+		$$new($AbstractMap$SimpleImmutableEntry, $Finished::t13HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13)
 	})));
-	$assignStatic(SSLHandshake::FINISHED, $new(SSLHandshake, var$52, 14, var$53, var$54, var$55, ($$new($Map$EntryArray, {
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $Finished::t12HandshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12)),
-		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $Finished::t13HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13))
+	$assignStatic(SSLHandshake::FINISHED, $new(SSLHandshake, var$39, 14, (int8_t)20, var$40, var$41, ($$new($Map$EntryArray, {
+		$$new($AbstractMap$SimpleImmutableEntry, $Finished::t12HandshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12),
+		$$new($AbstractMap$SimpleImmutableEntry, $Finished::t13HandshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13)
 	}))));
 	$assignStatic(SSLHandshake::CERTIFICATE_URL, $new(SSLHandshake, "CERTIFICATE_URL"_s, 15, (int8_t)21, "certificate_url"_s));
-	$var($String, var$56, "CERTIFICATE_STATUS"_s);
-	int8_t var$57 = (int8_t)22;
-	$var($String, var$58, "certificate_status"_s);
+	$var($String, var$42, "CERTIFICATE_STATUS"_s);
+	$var($String, var$43, "certificate_status"_s);
 	$init($CertificateStatus);
-	$var($Map$EntryArray, var$59, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateStatus::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12))})));
-	$var($Map$EntryArray, var$60, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateStatus::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12))})));
-	$assignStatic(SSLHandshake::CERTIFICATE_STATUS, $new(SSLHandshake, var$56, 16, var$57, var$58, var$59, var$60, ($$new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateStatus::handshakeAbsence, $ProtocolVersion::PROTOCOLS_TO_12))}))));
+	$var($Map$EntryArray, var$44, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $CertificateStatus::handshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12)})));
+	$var($Map$EntryArray, var$45, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $CertificateStatus::handshakeProducer, $ProtocolVersion::PROTOCOLS_TO_12)})));
+	$assignStatic(SSLHandshake::CERTIFICATE_STATUS, $new(SSLHandshake, var$42, 16, (int8_t)22, var$43, var$44, var$45, ($$new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $CertificateStatus::handshakeAbsence, $ProtocolVersion::PROTOCOLS_TO_12)}))));
 	$assignStatic(SSLHandshake::SUPPLEMENTAL_DATA, $new(SSLHandshake, "SUPPLEMENTAL_DATA"_s, 17, (int8_t)23, "supplemental_data"_s));
-	$var($String, var$61, "KEY_UPDATE"_s);
-	int8_t var$62 = (int8_t)24;
-	$var($String, var$63, "key_update"_s);
+	$var($String, var$46, "KEY_UPDATE"_s);
+	$var($String, var$47, "key_update"_s);
 	$init($KeyUpdate);
-	$var($Map$EntryArray, var$64, ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $KeyUpdate::handshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13))})));
-	$assignStatic(SSLHandshake::KEY_UPDATE, $new(SSLHandshake, var$61, 18, var$62, var$63, var$64, ($$new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $KeyUpdate::handshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13))}))));
+	$var($Map$EntryArray, var$48, ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $KeyUpdate::handshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13)})));
+	$assignStatic(SSLHandshake::KEY_UPDATE, $new(SSLHandshake, var$46, 18, (int8_t)24, var$47, var$48, ($$new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $KeyUpdate::handshakeProducer, $ProtocolVersion::PROTOCOLS_OF_13)}))));
 	$assignStatic(SSLHandshake::MESSAGE_HASH, $new(SSLHandshake, "MESSAGE_HASH"_s, 19, (int8_t)254, "message_hash"_s));
 	$assignStatic(SSLHandshake::NOT_APPLICABLE, $new(SSLHandshake, "NOT_APPLICABLE"_s, 20, (int8_t)255, "not_applicable"_s));
 	$assignStatic(SSLHandshake::$VALUES, SSLHandshake::$values());
@@ -585,7 +468,78 @@ SSLHandshake::SSLHandshake() {
 }
 
 $Class* SSLHandshake::load$($String* name, bool initialize) {
-	$loadClass(SSLHandshake, name, initialize, &_SSLHandshake_ClassInfo_, clinit$SSLHandshake, allocate$SSLHandshake);
+	$FieldInfo fieldInfos$$[] = {
+		{"HELLO_REQUEST", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, HELLO_REQUEST)},
+		{"CLIENT_HELLO", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CLIENT_HELLO)},
+		{"SERVER_HELLO", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, SERVER_HELLO)},
+		{"HELLO_RETRY_REQUEST", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, HELLO_RETRY_REQUEST)},
+		{"HELLO_VERIFY_REQUEST", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, HELLO_VERIFY_REQUEST)},
+		{"NEW_SESSION_TICKET", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, NEW_SESSION_TICKET)},
+		{"END_OF_EARLY_DATA", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, END_OF_EARLY_DATA)},
+		{"ENCRYPTED_EXTENSIONS", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, ENCRYPTED_EXTENSIONS)},
+		{"CERTIFICATE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CERTIFICATE)},
+		{"SERVER_KEY_EXCHANGE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, SERVER_KEY_EXCHANGE)},
+		{"CERTIFICATE_REQUEST", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CERTIFICATE_REQUEST)},
+		{"SERVER_HELLO_DONE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, SERVER_HELLO_DONE)},
+		{"CERTIFICATE_VERIFY", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CERTIFICATE_VERIFY)},
+		{"CLIENT_KEY_EXCHANGE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CLIENT_KEY_EXCHANGE)},
+		{"FINISHED", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, FINISHED)},
+		{"CERTIFICATE_URL", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CERTIFICATE_URL)},
+		{"CERTIFICATE_STATUS", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, CERTIFICATE_STATUS)},
+		{"SUPPLEMENTAL_DATA", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, SUPPLEMENTAL_DATA)},
+		{"KEY_UPDATE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, KEY_UPDATE)},
+		{"MESSAGE_HASH", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, MESSAGE_HASH)},
+		{"NOT_APPLICABLE", "Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLHandshake, NOT_APPLICABLE)},
+		{"$VALUES", "[Lsun/security/ssl/SSLHandshake;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLHandshake, $VALUES)},
+		{"id", "B", nullptr, $FINAL, $field(SSLHandshake, id)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLHandshake, name$)},
+		{"handshakeConsumers", "[Ljava/util/Map$Entry;", "[Ljava/util/Map$Entry<Lsun/security/ssl/SSLConsumer;[Lsun/security/ssl/ProtocolVersion;>;", $FINAL, $field(SSLHandshake, handshakeConsumers)},
+		{"handshakeProducers", "[Ljava/util/Map$Entry;", "[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeProducer;[Lsun/security/ssl/ProtocolVersion;>;", $FINAL, $field(SSLHandshake, handshakeProducers)},
+		{"handshakeAbsences", "[Ljava/util/Map$Entry;", "[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeAbsence;[Lsun/security/ssl/ProtocolVersion;>;", $FINAL, $field(SSLHandshake, handshakeAbsences)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/SSLHandshake;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLHandshake, $values, $SSLHandshakeArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(SSLHandshake, init$, void, $String*, int32_t, int8_t, $String*)},
+		{"<init>", "(Ljava/lang/String;IBLjava/lang/String;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;)V", "(BLjava/lang/String;[Ljava/util/Map$Entry<Lsun/security/ssl/SSLConsumer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeProducer;[Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE, $method(SSLHandshake, init$, void, $String*, int32_t, int8_t, $String*, $Map$EntryArray*, $Map$EntryArray*)},
+		{"<init>", "(Ljava/lang/String;IBLjava/lang/String;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;)V", "(BLjava/lang/String;[Ljava/util/Map$Entry<Lsun/security/ssl/SSLConsumer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeProducer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeAbsence;[Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE, $method(SSLHandshake, init$, void, $String*, int32_t, int8_t, $String*, $Map$EntryArray*, $Map$EntryArray*, $Map$EntryArray*)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SSLHandshake, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+		{"getHandshakeConsumer", "(Lsun/security/ssl/ConnectionContext;)Lsun/security/ssl/SSLConsumer;", nullptr, $PRIVATE, $method(SSLHandshake, getHandshakeConsumer, $SSLConsumer*, $ConnectionContext*)},
+		{"getHandshakeProducer", "(Lsun/security/ssl/ConnectionContext;)Lsun/security/ssl/HandshakeProducer;", nullptr, $PRIVATE, $method(SSLHandshake, getHandshakeProducer, $HandshakeProducer*, $ConnectionContext*)},
+		{"isKnown", "(B)Z", nullptr, $STATIC, $staticMethod(SSLHandshake, isKnown, bool, int8_t)},
+		{"kickstart", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, $STATIC | $FINAL, $staticMethod(SSLHandshake, kickstart, void, $HandshakeContext*), "java.io.IOException"},
+		{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SSLHandshake, nameOf, $String*, int8_t)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(SSLHandshake, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLHandshake, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLHandshake, valueOf, SSLHandshake*, $String*)},
+		{"values", "()[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLHandshake, values, $SSLHandshakeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.SSLHandshake",
+		"java.lang.Enum",
+		"sun.security.ssl.SSLConsumer,sun.security.ssl.HandshakeProducer",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/SSLHandshake;>;Lsun/security/ssl/SSLConsumer;Lsun/security/ssl/HandshakeProducer;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLHandshake$HandshakeMessage"
+	};
+	$loadClass(SSLHandshake, name, initialize, &classInfo$$, SSLHandshake::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLHandshake));
+	});
 	return class$;
 }
 

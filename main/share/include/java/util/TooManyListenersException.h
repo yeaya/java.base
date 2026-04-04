@@ -14,10 +14,13 @@ public:
 	TooManyListenersException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x466CBEB059DA0357;
+	static const int64_t serialVersionUID = (int64_t)0x466cbeb059da0357;
 	TooManyListenersException(const TooManyListenersException& e);
 	virtual void throw$() override;
-	inline TooManyListenersException* operator ->() {
+	inline TooManyListenersException* operator ->() const {
+		return (TooManyListenersException*)throwing$;
+	}
+	inline operator TooManyListenersException*() const {
 		return (TooManyListenersException*)throwing$;
 	}
 };

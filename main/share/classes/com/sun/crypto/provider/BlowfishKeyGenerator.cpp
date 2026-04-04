@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/BlowfishKeyGenerator.h>
-
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidParameterException.h>
@@ -29,34 +28,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _BlowfishKeyGenerator_FieldInfo_[] = {
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(BlowfishKeyGenerator, random)},
-	{"keysize", "I", nullptr, $PRIVATE, $field(BlowfishKeyGenerator, keysize)},
-	{}
-};
-
-$MethodInfo _BlowfishKeyGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BlowfishKeyGenerator, init$, void)},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(BlowfishKeyGenerator, engineGenerateKey, $SecretKey*)},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishKeyGenerator, engineInit, void, $SecureRandom*)},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishKeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishKeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
-	{}
-};
-
-$ClassInfo _BlowfishKeyGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.BlowfishKeyGenerator",
-	"javax.crypto.KeyGeneratorSpi",
-	nullptr,
-	_BlowfishKeyGenerator_FieldInfo_,
-	_BlowfishKeyGenerator_MethodInfo_
-};
-
-$Object* allocate$BlowfishKeyGenerator($Class* clazz) {
-	return $of($alloc(BlowfishKeyGenerator));
-}
-
 void BlowfishKeyGenerator::init$() {
 	$KeyGeneratorSpi::init$();
 	$set(this, random, nullptr);
@@ -80,31 +51,29 @@ void BlowfishKeyGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* BlowfishKeyGenerator::engineGenerateKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
 	}
 	$var($bytes, keyBytes, $new($bytes, this->keysize));
 	$nc(this->random)->nextBytes(keyBytes);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($SecretKey, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $new($SecretKeySpec, keyBytes, "Blowfish"_s));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(keyBytes, (int8_t)0);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($SecretKey, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $new($SecretKeySpec, keyBytes, "Blowfish"_s));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(keyBytes, (int8_t)0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -113,7 +82,30 @@ BlowfishKeyGenerator::BlowfishKeyGenerator() {
 }
 
 $Class* BlowfishKeyGenerator::load$($String* name, bool initialize) {
-	$loadClass(BlowfishKeyGenerator, name, initialize, &_BlowfishKeyGenerator_ClassInfo_, allocate$BlowfishKeyGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(BlowfishKeyGenerator, random)},
+		{"keysize", "I", nullptr, $PRIVATE, $field(BlowfishKeyGenerator, keysize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BlowfishKeyGenerator, init$, void)},
+		{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(BlowfishKeyGenerator, engineGenerateKey, $SecretKey*)},
+		{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishKeyGenerator, engineInit, void, $SecureRandom*)},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishKeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishKeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.BlowfishKeyGenerator",
+		"javax.crypto.KeyGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BlowfishKeyGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BlowfishKeyGenerator);
+	});
 	return class$;
 }
 

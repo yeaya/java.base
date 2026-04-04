@@ -1,5 +1,4 @@
 #include <java/util/IllegalFormatCodePointException.h>
-
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -12,32 +11,6 @@ using $IllegalFormatException = ::java::util::IllegalFormatException;
 namespace java {
 	namespace util {
 
-$FieldInfo _IllegalFormatCodePointException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalFormatCodePointException, serialVersionUID)},
-	{"c", "I", nullptr, $PRIVATE, $field(IllegalFormatCodePointException, c)},
-	{}
-};
-
-$MethodInfo _IllegalFormatCodePointException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IllegalFormatCodePointException, init$, void, int32_t)},
-	{"getCodePoint", "()I", nullptr, $PUBLIC, $virtualMethod(IllegalFormatCodePointException, getCodePoint, int32_t)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatCodePointException, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _IllegalFormatCodePointException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.IllegalFormatCodePointException",
-	"java.util.IllegalFormatException",
-	nullptr,
-	_IllegalFormatCodePointException_FieldInfo_,
-	_IllegalFormatCodePointException_MethodInfo_
-};
-
-$Object* allocate$IllegalFormatCodePointException($Class* clazz) {
-	return $of($alloc(IllegalFormatCodePointException));
-}
-
 void IllegalFormatCodePointException::init$(int32_t c) {
 	$IllegalFormatException::init$();
 	this->c = c;
@@ -48,8 +21,8 @@ int32_t IllegalFormatCodePointException::getCodePoint() {
 }
 
 $String* IllegalFormatCodePointException::getMessage() {
-	$useLocalCurrentObjectStackCache();
-	return $String::format("Code point = %#x"_s, $$new($ObjectArray, {$($of($Integer::valueOf(this->c)))}));
+	$useLocalObjectStack();
+	return $String::format("Code point = %#x"_s, $$new($ObjectArray, {$($Integer::valueOf(this->c))}));
 }
 
 IllegalFormatCodePointException::IllegalFormatCodePointException() {
@@ -63,7 +36,28 @@ void IllegalFormatCodePointException::throw$() {
 }
 
 $Class* IllegalFormatCodePointException::load$($String* name, bool initialize) {
-	$loadClass(IllegalFormatCodePointException, name, initialize, &_IllegalFormatCodePointException_ClassInfo_, allocate$IllegalFormatCodePointException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalFormatCodePointException, serialVersionUID)},
+		{"c", "I", nullptr, $PRIVATE, $field(IllegalFormatCodePointException, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(IllegalFormatCodePointException, init$, void, int32_t)},
+		{"getCodePoint", "()I", nullptr, $PUBLIC, $virtualMethod(IllegalFormatCodePointException, getCodePoint, int32_t)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatCodePointException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.IllegalFormatCodePointException",
+		"java.util.IllegalFormatException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalFormatCodePointException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalFormatCodePointException);
+	});
 	return class$;
 }
 

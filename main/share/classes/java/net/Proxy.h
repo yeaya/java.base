@@ -22,6 +22,7 @@ class $export Proxy : public ::java::lang::Object {
 	$class(Proxy, 0, ::java::lang::Object)
 public:
 	Proxy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::net::Proxy$Type* type, ::java::net::SocketAddress* sa);
 	virtual ::java::net::SocketAddress* address();

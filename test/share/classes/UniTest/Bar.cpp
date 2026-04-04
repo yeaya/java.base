@@ -1,5 +1,4 @@
 #include <UniTest/Bar.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,35 +7,30 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute Bar_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _Bar_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", Bar_Attribute_var$0},
-	{}
-};
-
-$ClassInfo _Bar_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.Bar",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Bar_Annotations_
-};
-
-$Object* allocate$Bar($Class* clazz) {
-	return $of($alloc(Bar));
-}
-
 $Class* Bar::load$($String* name, bool initialize) {
-	$loadClass(Bar, name, initialize, &_Bar_ClassInfo_, allocate$Bar);
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.Bar",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Bar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bar);
+	});
 	return class$;
 }
 

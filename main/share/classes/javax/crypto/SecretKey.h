@@ -17,7 +17,7 @@ public:
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xBD719DB928B8F538;
+	static const int64_t serialVersionUID = (int64_t)0xbd719db928b8f538;
 };
 
 	} // crypto

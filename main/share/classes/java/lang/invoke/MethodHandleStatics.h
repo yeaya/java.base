@@ -69,6 +69,7 @@ class MethodHandleStatics : public ::java::lang::Object {
 	$class(MethodHandleStatics, 0, ::java::lang::Object)
 public:
 	MethodHandleStatics();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool debugEnabled();
 	static $String* message($String* message, Object$* obj);

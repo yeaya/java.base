@@ -1,5 +1,4 @@
 #include <java/nio/charset/CharsetDecoder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -23,7 +22,6 @@
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -41,65 +39,6 @@ using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
 namespace java {
 	namespace nio {
 		namespace charset {
-
-$FieldInfo _CharsetDecoder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CharsetDecoder, $assertionsDisabled)},
-	{"charset", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $FINAL, $field(CharsetDecoder, charset$)},
-	{"averageCharsPerByte", "F", nullptr, $PRIVATE | $FINAL, $field(CharsetDecoder, averageCharsPerByte$)},
-	{"maxCharsPerByte", "F", nullptr, $PRIVATE | $FINAL, $field(CharsetDecoder, maxCharsPerByte$)},
-	{"replacement", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CharsetDecoder, replacement$)},
-	{"malformedInputAction", "Ljava/nio/charset/CodingErrorAction;", nullptr, $PRIVATE, $field(CharsetDecoder, malformedInputAction$)},
-	{"unmappableCharacterAction", "Ljava/nio/charset/CodingErrorAction;", nullptr, $PRIVATE, $field(CharsetDecoder, unmappableCharacterAction$)},
-	{"ST_RESET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetDecoder, ST_RESET)},
-	{"ST_CODING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetDecoder, ST_CODING)},
-	{"ST_END", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetDecoder, ST_END)},
-	{"ST_FLUSHED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetDecoder, ST_FLUSHED)},
-	{"state", "I", nullptr, $PRIVATE, $field(CharsetDecoder, state)},
-	{"stateNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(CharsetDecoder, stateNames)},
-	{}
-};
-
-$MethodInfo _CharsetDecoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;FFLjava/lang/String;)V", nullptr, $PRIVATE, $method(CharsetDecoder, init$, void, $Charset*, float, float, $String*)},
-	{"<init>", "(Ljava/nio/charset/Charset;FF)V", nullptr, $PROTECTED, $method(CharsetDecoder, init$, void, $Charset*, float, float)},
-	{"averageCharsPerByte", "()F", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, averageCharsPerByte, float)},
-	{"charset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, charset, $Charset*)},
-	{"decode", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, decode, $CoderResult*, $ByteBuffer*, $CharBuffer*, bool)},
-	{"decode", "(Ljava/nio/ByteBuffer;)Ljava/nio/CharBuffer;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, decode, $CharBuffer*, $ByteBuffer*), "java.nio.charset.CharacterCodingException"},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CharsetDecoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"detectedCharset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(CharsetDecoder, detectedCharset, $Charset*)},
-	{"flush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, flush, $CoderResult*, $CharBuffer*)},
-	{"implFlush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(CharsetDecoder, implFlush, $CoderResult*, $CharBuffer*)},
-	{"implOnMalformedInput", "(Ljava/nio/charset/CodingErrorAction;)V", nullptr, $PROTECTED, $virtualMethod(CharsetDecoder, implOnMalformedInput, void, $CodingErrorAction*)},
-	{"implOnUnmappableCharacter", "(Ljava/nio/charset/CodingErrorAction;)V", nullptr, $PROTECTED, $virtualMethod(CharsetDecoder, implOnUnmappableCharacter, void, $CodingErrorAction*)},
-	{"implReplaceWith", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(CharsetDecoder, implReplaceWith, void, $String*)},
-	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(CharsetDecoder, implReset, void)},
-	{"isAutoDetecting", "()Z", nullptr, $PUBLIC, $virtualMethod(CharsetDecoder, isAutoDetecting, bool)},
-	{"isCharsetDetected", "()Z", nullptr, $PUBLIC, $virtualMethod(CharsetDecoder, isCharsetDetected, bool)},
-	{"malformedInputAction", "()Ljava/nio/charset/CodingErrorAction;", nullptr, $PUBLIC, $virtualMethod(CharsetDecoder, malformedInputAction, $CodingErrorAction*)},
-	{"maxCharsPerByte", "()F", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, maxCharsPerByte, float)},
-	{"onMalformedInput", "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, onMalformedInput, CharsetDecoder*, $CodingErrorAction*)},
-	{"onUnmappableCharacter", "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, onUnmappableCharacter, CharsetDecoder*, $CodingErrorAction*)},
-	{"replaceWith", "(Ljava/lang/String;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, replaceWith, CharsetDecoder*, $String*)},
-	{"replacement", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, replacement, $String*)},
-	{"reset", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, reset, CharsetDecoder*)},
-	{"throwIllegalStateException", "(II)V", nullptr, $PRIVATE, $method(CharsetDecoder, throwIllegalStateException, void, int32_t, int32_t)},
-	{"unmappableCharacterAction", "()Ljava/nio/charset/CodingErrorAction;", nullptr, $PUBLIC, $virtualMethod(CharsetDecoder, unmappableCharacterAction, $CodingErrorAction*)},
-	{}
-};
-
-$ClassInfo _CharsetDecoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.nio.charset.CharsetDecoder",
-	"java.lang.Object",
-	nullptr,
-	_CharsetDecoder_FieldInfo_,
-	_CharsetDecoder_MethodInfo_
-};
-
-$Object* allocate$CharsetDecoder($Class* clazz) {
-	return $of($alloc(CharsetDecoder));
-}
 
 bool CharsetDecoder::$assertionsDisabled = false;
 $StringArray* CharsetDecoder::stateNames = nullptr;
@@ -197,7 +136,7 @@ float CharsetDecoder::maxCharsPerByte() {
 }
 
 $CoderResult* CharsetDecoder::decode($ByteBuffer* in, $CharBuffer* out, bool endOfInput) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newState = endOfInput ? CharsetDecoder::ST_END : CharsetDecoder::ST_CODING;
 	if ((this->state != CharsetDecoder::ST_RESET) && (this->state != CharsetDecoder::ST_CODING) && !(endOfInput && (this->state == CharsetDecoder::ST_END))) {
 		throwIllegalStateException(this->state, newState);
@@ -213,7 +152,7 @@ $CoderResult* CharsetDecoder::decode($ByteBuffer* in, $CharBuffer* out, bool end
 		if ($nc(cr)->isOverflow()) {
 			return cr;
 		}
-		if ($nc(cr)->isUnderflow()) {
+		if (cr->isUnderflow()) {
 			if (endOfInput && $nc(in)->hasRemaining()) {
 				$assign(cr, $CoderResult::malformedForLength(in->remaining()));
 			} else {
@@ -226,7 +165,7 @@ $CoderResult* CharsetDecoder::decode($ByteBuffer* in, $CharBuffer* out, bool end
 		} else if (cr->isUnmappable()) {
 			$assign(action, this->unmappableCharacterAction$);
 		} else if (!CharsetDecoder::$assertionsDisabled) {
-			$throwNew($AssertionError, $($of(cr->toString())));
+			$throwNew($AssertionError, $$of(cr->toString()));
 		}
 		$init($CodingErrorAction);
 		if (action == $CodingErrorAction::REPORT) {
@@ -237,11 +176,11 @@ $CoderResult* CharsetDecoder::decode($ByteBuffer* in, $CharBuffer* out, bool end
 			if (var$0 < $nc(this->replacement$)->length()) {
 				return $CoderResult::OVERFLOW;
 			}
-			$nc(out)->put(this->replacement$);
+			out->put(this->replacement$);
 		}
 		if ((action == $CodingErrorAction::IGNORE) || (action == $CodingErrorAction::REPLACE)) {
-			int32_t var$1 = in->position();
-			$nc(in)->position(var$1 + $nc(cr)->length());
+			int32_t var$1 = $nc(in)->position();
+			$nc(in)->position(var$1 + cr->length());
 			continue;
 		}
 		if (!CharsetDecoder::$assertionsDisabled) {
@@ -280,7 +219,7 @@ void CharsetDecoder::implReset() {
 }
 
 $CharBuffer* CharsetDecoder::decode($ByteBuffer* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(in)->remaining();
 	int32_t n = $cast(int32_t, (var$0 * averageCharsPerByte()));
 	$var($CharBuffer, out, $CharBuffer::allocate(n));
@@ -297,7 +236,7 @@ $CharBuffer* CharsetDecoder::decode($ByteBuffer* in) {
 		if ($nc(cr)->isUnderflow()) {
 			break;
 		}
-		if ($nc(cr)->isOverflow()) {
+		if (cr->isOverflow()) {
 			n = 2 * n + 1;
 			$var($CharBuffer, o, $CharBuffer::allocate(n));
 			$nc(out)->flip();
@@ -305,7 +244,7 @@ $CharBuffer* CharsetDecoder::decode($ByteBuffer* in) {
 			$assign(out, o);
 			continue;
 		}
-		$nc(cr)->throwException();
+		cr->throwException();
 	}
 	$nc(out)->flip();
 	return out;
@@ -329,7 +268,7 @@ void CharsetDecoder::throwIllegalStateException(int32_t from, int32_t to) {
 	$throwNew($IllegalStateException, $$str({"Current state = "_s, $nc(CharsetDecoder::stateNames)->get(from), ", new state = "_s, $nc(CharsetDecoder::stateNames)->get(to)}));
 }
 
-void clinit$CharsetDecoder($Class* class$) {
+void CharsetDecoder::clinit$($Class* clazz) {
 	CharsetDecoder::$assertionsDisabled = !CharsetDecoder::class$->desiredAssertionStatus();
 	$assignStatic(CharsetDecoder::stateNames, $new($StringArray, {
 		"RESET"_s,
@@ -343,7 +282,61 @@ CharsetDecoder::CharsetDecoder() {
 }
 
 $Class* CharsetDecoder::load$($String* name, bool initialize) {
-	$loadClass(CharsetDecoder, name, initialize, &_CharsetDecoder_ClassInfo_, clinit$CharsetDecoder, allocate$CharsetDecoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CharsetDecoder, $assertionsDisabled)},
+		{"charset", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $FINAL, $field(CharsetDecoder, charset$)},
+		{"averageCharsPerByte", "F", nullptr, $PRIVATE | $FINAL, $field(CharsetDecoder, averageCharsPerByte$)},
+		{"maxCharsPerByte", "F", nullptr, $PRIVATE | $FINAL, $field(CharsetDecoder, maxCharsPerByte$)},
+		{"replacement", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CharsetDecoder, replacement$)},
+		{"malformedInputAction", "Ljava/nio/charset/CodingErrorAction;", nullptr, $PRIVATE, $field(CharsetDecoder, malformedInputAction$)},
+		{"unmappableCharacterAction", "Ljava/nio/charset/CodingErrorAction;", nullptr, $PRIVATE, $field(CharsetDecoder, unmappableCharacterAction$)},
+		{"ST_RESET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetDecoder, ST_RESET)},
+		{"ST_CODING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetDecoder, ST_CODING)},
+		{"ST_END", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetDecoder, ST_END)},
+		{"ST_FLUSHED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetDecoder, ST_FLUSHED)},
+		{"state", "I", nullptr, $PRIVATE, $field(CharsetDecoder, state)},
+		{"stateNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(CharsetDecoder, stateNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;FFLjava/lang/String;)V", nullptr, $PRIVATE, $method(CharsetDecoder, init$, void, $Charset*, float, float, $String*)},
+		{"<init>", "(Ljava/nio/charset/Charset;FF)V", nullptr, $PROTECTED, $method(CharsetDecoder, init$, void, $Charset*, float, float)},
+		{"averageCharsPerByte", "()F", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, averageCharsPerByte, float)},
+		{"charset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, charset, $Charset*)},
+		{"decode", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, decode, $CoderResult*, $ByteBuffer*, $CharBuffer*, bool)},
+		{"decode", "(Ljava/nio/ByteBuffer;)Ljava/nio/CharBuffer;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, decode, $CharBuffer*, $ByteBuffer*), "java.nio.charset.CharacterCodingException"},
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CharsetDecoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"detectedCharset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(CharsetDecoder, detectedCharset, $Charset*)},
+		{"flush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, flush, $CoderResult*, $CharBuffer*)},
+		{"implFlush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(CharsetDecoder, implFlush, $CoderResult*, $CharBuffer*)},
+		{"implOnMalformedInput", "(Ljava/nio/charset/CodingErrorAction;)V", nullptr, $PROTECTED, $virtualMethod(CharsetDecoder, implOnMalformedInput, void, $CodingErrorAction*)},
+		{"implOnUnmappableCharacter", "(Ljava/nio/charset/CodingErrorAction;)V", nullptr, $PROTECTED, $virtualMethod(CharsetDecoder, implOnUnmappableCharacter, void, $CodingErrorAction*)},
+		{"implReplaceWith", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(CharsetDecoder, implReplaceWith, void, $String*)},
+		{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(CharsetDecoder, implReset, void)},
+		{"isAutoDetecting", "()Z", nullptr, $PUBLIC, $virtualMethod(CharsetDecoder, isAutoDetecting, bool)},
+		{"isCharsetDetected", "()Z", nullptr, $PUBLIC, $virtualMethod(CharsetDecoder, isCharsetDetected, bool)},
+		{"malformedInputAction", "()Ljava/nio/charset/CodingErrorAction;", nullptr, $PUBLIC, $virtualMethod(CharsetDecoder, malformedInputAction, $CodingErrorAction*)},
+		{"maxCharsPerByte", "()F", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, maxCharsPerByte, float)},
+		{"onMalformedInput", "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, onMalformedInput, CharsetDecoder*, $CodingErrorAction*)},
+		{"onUnmappableCharacter", "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, onUnmappableCharacter, CharsetDecoder*, $CodingErrorAction*)},
+		{"replaceWith", "(Ljava/lang/String;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, replaceWith, CharsetDecoder*, $String*)},
+		{"replacement", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, replacement, $String*)},
+		{"reset", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $FINAL, $method(CharsetDecoder, reset, CharsetDecoder*)},
+		{"throwIllegalStateException", "(II)V", nullptr, $PRIVATE, $method(CharsetDecoder, throwIllegalStateException, void, int32_t, int32_t)},
+		{"unmappableCharacterAction", "()Ljava/nio/charset/CodingErrorAction;", nullptr, $PUBLIC, $virtualMethod(CharsetDecoder, unmappableCharacterAction, $CodingErrorAction*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.nio.charset.CharsetDecoder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharsetDecoder, name, initialize, &classInfo$$, CharsetDecoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CharsetDecoder);
+	});
 	return class$;
 }
 

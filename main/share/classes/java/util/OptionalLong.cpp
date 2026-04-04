@@ -1,5 +1,4 @@
 #include <java/util/OptionalLong.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/function/LongConsumer.h>
@@ -24,56 +23,6 @@ using $LongStream = ::java::util::stream::LongStream;
 
 namespace java {
 	namespace util {
-
-$CompoundAttribute _OptionalLong_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _OptionalLong_FieldInfo_[] = {
-	{"EMPTY", "Ljava/util/OptionalLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OptionalLong, EMPTY)},
-	{"isPresent", "Z", nullptr, $PRIVATE | $FINAL, $field(OptionalLong, isPresent$)},
-	{"value", "J", nullptr, $PRIVATE | $FINAL, $field(OptionalLong, value)},
-	{}
-};
-
-$MethodInfo _OptionalLong_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(OptionalLong, init$, void)},
-	{"<init>", "(J)V", nullptr, $PRIVATE, $method(OptionalLong, init$, void, int64_t)},
-	{"empty", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalLong, empty, OptionalLong*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OptionalLong, equals, bool, Object$*)},
-	{"getAsLong", "()J", nullptr, $PUBLIC, $method(OptionalLong, getAsLong, int64_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OptionalLong, hashCode, int32_t)},
-	{"ifPresent", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $method(OptionalLong, ifPresent, void, $LongConsumer*)},
-	{"ifPresentOrElse", "(Ljava/util/function/LongConsumer;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(OptionalLong, ifPresentOrElse, void, $LongConsumer*, $Runnable*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(OptionalLong, isEmpty, bool)},
-	{"isPresent", "()Z", nullptr, $PUBLIC, $method(OptionalLong, isPresent, bool)},
-	{"of", "(J)Ljava/util/OptionalLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalLong, of, OptionalLong*, int64_t)},
-	{"orElse", "(J)J", nullptr, $PUBLIC, $method(OptionalLong, orElse, int64_t, int64_t)},
-	{"orElseGet", "(Ljava/util/function/LongSupplier;)J", nullptr, $PUBLIC, $method(OptionalLong, orElseGet, int64_t, $LongSupplier*)},
-	{"orElseThrow", "()J", nullptr, $PUBLIC, $method(OptionalLong, orElseThrow, int64_t)},
-	{"orElseThrow", "(Ljava/util/function/Supplier;)J", "<X:Ljava/lang/Throwable;>(Ljava/util/function/Supplier<+TX;>;)J^TX;", $PUBLIC, $method(OptionalLong, orElseThrow, int64_t, $Supplier*), "java.lang.Throwable"},
-	{"stream", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $method(OptionalLong, stream, $LongStream*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionalLong, toString, $String*)},
-	{}
-};
-
-$ClassInfo _OptionalLong_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.OptionalLong",
-	"java.lang.Object",
-	nullptr,
-	_OptionalLong_FieldInfo_,
-	_OptionalLong_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_OptionalLong_Annotations_
-};
-
-$Object* allocate$OptionalLong($Class* clazz) {
-	return $of($alloc(OptionalLong));
-}
 
 OptionalLong* OptionalLong::EMPTY = nullptr;
 
@@ -153,7 +102,7 @@ int64_t OptionalLong::orElseThrow($Supplier* exceptionSupplier) {
 	if (this->isPresent$) {
 		return this->value;
 	} else {
-		$throw($cast($Throwable, $($nc(exceptionSupplier)->get())));
+		$throw($$cast($Throwable, $nc(exceptionSupplier)->get()));
 	}
 }
 
@@ -168,7 +117,7 @@ bool OptionalLong::equals(Object$* obj) {
 		var$1 = true;
 	}
 	bool var$0 = var$1;
-	return var$0 && (this->isPresent$ && $nc(other)->isPresent$ ? this->value == $nc(other)->value : this->isPresent$ == other->isPresent$);
+	return var$0 && (this->isPresent$ && $nc(other)->isPresent$ ? this->value == other->value : this->isPresent$ == $nc(other)->isPresent$);
 }
 
 int32_t OptionalLong::hashCode() {
@@ -176,11 +125,11 @@ int32_t OptionalLong::hashCode() {
 }
 
 $String* OptionalLong::toString() {
-	$useLocalCurrentObjectStackCache();
-	return this->isPresent$ ? $String::format("OptionalLong[%s]"_s, $$new($ObjectArray, {$($of($Long::valueOf(this->value)))})) : "OptionalLong.empty"_s;
+	$useLocalObjectStack();
+	return this->isPresent$ ? $String::format("OptionalLong[%s]"_s, $$new($ObjectArray, {$($Long::valueOf(this->value))})) : "OptionalLong.empty"_s;
 }
 
-void clinit$OptionalLong($Class* class$) {
+void OptionalLong::clinit$($Class* clazz) {
 	$assignStatic(OptionalLong::EMPTY, $new(OptionalLong));
 }
 
@@ -188,7 +137,51 @@ OptionalLong::OptionalLong() {
 }
 
 $Class* OptionalLong::load$($String* name, bool initialize) {
-	$loadClass(OptionalLong, name, initialize, &_OptionalLong_ClassInfo_, clinit$OptionalLong, allocate$OptionalLong);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY", "Ljava/util/OptionalLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OptionalLong, EMPTY)},
+		{"isPresent", "Z", nullptr, $PRIVATE | $FINAL, $field(OptionalLong, isPresent$)},
+		{"value", "J", nullptr, $PRIVATE | $FINAL, $field(OptionalLong, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(OptionalLong, init$, void)},
+		{"<init>", "(J)V", nullptr, $PRIVATE, $method(OptionalLong, init$, void, int64_t)},
+		{"empty", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalLong, empty, OptionalLong*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OptionalLong, equals, bool, Object$*)},
+		{"getAsLong", "()J", nullptr, $PUBLIC, $method(OptionalLong, getAsLong, int64_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OptionalLong, hashCode, int32_t)},
+		{"ifPresent", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $method(OptionalLong, ifPresent, void, $LongConsumer*)},
+		{"ifPresentOrElse", "(Ljava/util/function/LongConsumer;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(OptionalLong, ifPresentOrElse, void, $LongConsumer*, $Runnable*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $method(OptionalLong, isEmpty, bool)},
+		{"isPresent", "()Z", nullptr, $PUBLIC, $method(OptionalLong, isPresent, bool)},
+		{"of", "(J)Ljava/util/OptionalLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalLong, of, OptionalLong*, int64_t)},
+		{"orElse", "(J)J", nullptr, $PUBLIC, $method(OptionalLong, orElse, int64_t, int64_t)},
+		{"orElseGet", "(Ljava/util/function/LongSupplier;)J", nullptr, $PUBLIC, $method(OptionalLong, orElseGet, int64_t, $LongSupplier*)},
+		{"orElseThrow", "()J", nullptr, $PUBLIC, $method(OptionalLong, orElseThrow, int64_t)},
+		{"orElseThrow", "(Ljava/util/function/Supplier;)J", "<X:Ljava/lang/Throwable;>(Ljava/util/function/Supplier<+TX;>;)J^TX;", $PUBLIC, $method(OptionalLong, orElseThrow, int64_t, $Supplier*), "java.lang.Throwable"},
+		{"stream", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $method(OptionalLong, stream, $LongStream*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionalLong, toString, $String*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.OptionalLong",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(OptionalLong, name, initialize, &classInfo$$, OptionalLong::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OptionalLong);
+	});
 	return class$;
 }
 

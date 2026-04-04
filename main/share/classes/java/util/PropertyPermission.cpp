@@ -1,5 +1,4 @@
 #include <java/util/PropertyPermission.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/security/BasicPermission.h>
@@ -33,49 +32,8 @@ using $SecurityConstants = ::sun::security::util::SecurityConstants;
 namespace java {
 	namespace util {
 
-$FieldInfo _PropertyPermission_FieldInfo_[] = {
-	{"READ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyPermission, READ)},
-	{"WRITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyPermission, WRITE)},
-	{"ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyPermission, ALL)},
-	{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyPermission, NONE)},
-	{"mask", "I", nullptr, $PRIVATE | $TRANSIENT, $field(PropertyPermission, mask)},
-	{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PropertyPermission, actions)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyPermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PropertyPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PropertyPermission, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(PropertyPermission, init$, void, $String*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, equals, bool, Object$*)},
-	{"getActions", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PropertyPermission, getActions, $String*, int32_t)},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, getActions, $String*)},
-	{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PropertyPermission, getMask, int32_t, $String*)},
-	{"getMask", "()I", nullptr, 0, $method(PropertyPermission, getMask, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, hashCode, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, implies, bool, $Permission*)},
-	{"init", "(I)V", nullptr, $PRIVATE, $method(PropertyPermission, init, void, int32_t)},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, newPermissionCollection, $PermissionCollection*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(PropertyPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(PropertyPermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _PropertyPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.PropertyPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_PropertyPermission_FieldInfo_,
-	_PropertyPermission_MethodInfo_
-};
-
-$Object* allocate$PropertyPermission($Class* clazz) {
-	return $of($alloc(PropertyPermission));
-}
-
 void PropertyPermission::init(int32_t mask) {
-	if (((int32_t)(mask & (uint32_t)PropertyPermission::ALL)) != mask) {
+	if ((mask & PropertyPermission::ALL) != mask) {
 		$throwNew($IllegalArgumentException, "invalid actions mask"_s);
 	}
 	if (mask == PropertyPermission::NONE) {
@@ -105,12 +63,12 @@ bool PropertyPermission::implies($Permission* p) {
 		var$2 = true;
 	}
 	bool var$1 = var$2;
-	bool var$0 = var$1 && (((int32_t)(this->mask & (uint32_t)$nc(that)->mask)) == that->mask);
+	bool var$0 = var$1 && ((this->mask & $nc(that)->mask) == $nc(that)->mask);
 	return var$0 && $BasicPermission::implies(that);
 }
 
 bool PropertyPermission::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -122,16 +80,16 @@ bool PropertyPermission::equals(Object$* obj) {
 	}
 	bool var$1 = var$2;
 	bool var$0 = var$1 && this->mask == $nc(that)->mask;
-	return var$0 && $nc($(this->getName()))->equals($(that->getName()));
+	return var$0 && $$nc(this->getName())->equals($(that->getName()));
 }
 
 int32_t PropertyPermission::hashCode() {
-	return $nc($(this->getName()))->hashCode();
+	return $$nc(this->getName())->hashCode();
 }
 
 int32_t PropertyPermission::getMask($String* actions) {
 	$init(PropertyPermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mask = PropertyPermission::NONE;
 	if (actions == nullptr) {
 		return mask;
@@ -142,10 +100,8 @@ int32_t PropertyPermission::getMask($String* actions) {
 	}
 	if (actions == $SecurityConstants::PROPERTY_WRITE_ACTION) {
 		return PropertyPermission::WRITE;
-	} else {
-		if (actions == $SecurityConstants::PROPERTY_RW_ACTION) {
-			return PropertyPermission::READ | PropertyPermission::WRITE;
-		}
+	} else if (actions == $SecurityConstants::PROPERTY_RW_ACTION) {
+		return PropertyPermission::READ | PropertyPermission::WRITE;
 	}
 	$var($chars, a, $nc(actions)->toCharArray());
 	int32_t i = a->length - 1;
@@ -155,13 +111,13 @@ int32_t PropertyPermission::getMask($String* actions) {
 	while (i != -1) {
 		char16_t c = 0;
 		while (true) {
-			bool var$0 = (i != -1);
+			bool var$0 = i != -1;
 			if (var$0) {
 				bool var$4 = (c = a->get(i)) == u' ';
 				bool var$3 = var$4 || c == u'\r';
 				bool var$2 = var$3 || c == u'\n';
 				bool var$1 = var$2 || c == u'\f';
-				var$0 = (var$1 || c == u'\t');
+				var$0 = var$1 || c == u'\t';
 			}
 			if (!(var$0)) {
 				break;
@@ -184,26 +140,16 @@ int32_t PropertyPermission::getMask($String* actions) {
 		while (i >= matchlen && !seencomma) {
 			switch (a->get(i - matchlen)) {
 			case u',':
-				{
-					seencomma = true;
-					break;
-				}
+				seencomma = true;
+				break;
 			case u' ':
-				{}
 			case u'\r':
-				{}
 			case u'\n':
-				{}
 			case u'\f':
-				{}
 			case u'\t':
-				{
-					break;
-				}
+				break;
 			default:
-				{
-					$throwNew($IllegalArgumentException, $$str({"invalid permission: "_s, actions}));
-				}
+				$throwNew($IllegalArgumentException, $$str({"invalid permission: "_s, actions}));
 			}
 			--i;
 		}
@@ -214,32 +160,23 @@ int32_t PropertyPermission::getMask($String* actions) {
 
 $String* PropertyPermission::getActions(int32_t mask) {
 	$init(PropertyPermission);
-
-	$var($String, var$0, nullptr)
-	switch ((int32_t)(mask & (uint32_t)(PropertyPermission::READ | PropertyPermission::WRITE))) {
+	$var($String, var$0, nullptr);
+	switch (mask & (PropertyPermission::READ | PropertyPermission::WRITE)) {
 	case PropertyPermission::READ:
-		{
-			$init($SecurityConstants);
-			$assign(var$0, $SecurityConstants::PROPERTY_READ_ACTION);
-			break;
-		}
+		$init($SecurityConstants);
+		$assign(var$0, $SecurityConstants::PROPERTY_READ_ACTION);
+		break;
 	case PropertyPermission::WRITE:
-		{
-			$init($SecurityConstants);
-			$assign(var$0, $SecurityConstants::PROPERTY_WRITE_ACTION);
-			break;
-		}
+		$init($SecurityConstants);
+		$assign(var$0, $SecurityConstants::PROPERTY_WRITE_ACTION);
+		break;
 	case PropertyPermission::READ | PropertyPermission::WRITE:
-		{
-			$init($SecurityConstants);
-			$assign(var$0, $SecurityConstants::PROPERTY_RW_ACTION);
-			break;
-		}
+		$init($SecurityConstants);
+		$assign(var$0, $SecurityConstants::PROPERTY_RW_ACTION);
+		break;
 	default:
-		{
-			$assign(var$0, ""_s);
-			break;
-		}
+		$assign(var$0, ""_s);
+		break;
 	}
 	return var$0;
 }
@@ -279,7 +216,43 @@ PropertyPermission::PropertyPermission() {
 }
 
 $Class* PropertyPermission::load$($String* name, bool initialize) {
-	$loadClass(PropertyPermission, name, initialize, &_PropertyPermission_ClassInfo_, allocate$PropertyPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"READ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyPermission, READ)},
+		{"WRITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyPermission, WRITE)},
+		{"ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyPermission, ALL)},
+		{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyPermission, NONE)},
+		{"mask", "I", nullptr, $PRIVATE | $TRANSIENT, $field(PropertyPermission, mask)},
+		{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PropertyPermission, actions)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyPermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PropertyPermission, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(PropertyPermission, init$, void, $String*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, equals, bool, Object$*)},
+		{"getActions", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PropertyPermission, getActions, $String*, int32_t)},
+		{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, getActions, $String*)},
+		{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PropertyPermission, getMask, int32_t, $String*)},
+		{"getMask", "()I", nullptr, 0, $method(PropertyPermission, getMask, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, hashCode, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, implies, bool, $Permission*)},
+		{"init", "(I)V", nullptr, $PRIVATE, $method(PropertyPermission, init, void, int32_t)},
+		{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, newPermissionCollection, $PermissionCollection*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(PropertyPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(PropertyPermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.PropertyPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PropertyPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PropertyPermission));
+	});
 	return class$;
 }
 

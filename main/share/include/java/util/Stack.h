@@ -19,7 +19,7 @@ public:
 	virtual $Object* push(Object$* item);
 	virtual int32_t search(Object$* o);
 	using ::java::util::Vector::toArray;
-	static const int64_t serialVersionUID = (int64_t)0x10FE2AC2BB09861D;
+	static const int64_t serialVersionUID = (int64_t)0x10fe2ac2bb09861d;
 };
 
 	} // util

@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/AESKeyWrapPadded.h>
-
 #include <com/sun/crypto/provider/AESCrypt.h>
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/KWUtil.h>
@@ -17,7 +16,6 @@
 using $AESCrypt = ::com::sun::crypto::provider::AESCrypt;
 using $FeedbackCipher = ::com::sun::crypto::provider::FeedbackCipher;
 using $KWUtil = ::com::sun::crypto::provider::KWUtil;
-using $SymmetricCipher = ::com::sun::crypto::provider::SymmetricCipher;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -32,42 +30,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _AESKeyWrapPadded_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AESKeyWrapPadded, $assertionsDisabled)},
-	{"ICV2", "[B", nullptr, $STATIC | $FINAL, $staticField(AESKeyWrapPadded, ICV2)},
-	{"PAD_BLK", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESKeyWrapPadded, PAD_BLK)},
-	{}
-};
-
-$MethodInfo _AESKeyWrapPadded_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AESKeyWrapPadded, init$, void)},
-	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
-	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AESKeyWrapPadded, getFeedback, $String*)},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"reset", "()V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, reset, void)},
-	{"restore", "()V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, restore, void)},
-	{"save", "()V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, save, void)},
-	{"setIvAndLen", "([B[BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AESKeyWrapPadded, setIvAndLen, void, $bytes*, $bytes*, int32_t)},
-	{"validateIV", "([B[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AESKeyWrapPadded, validateIV, int32_t, $bytes*, $bytes*), "javax.crypto.IllegalBlockSizeException"},
-	{}
-};
-
-$ClassInfo _AESKeyWrapPadded_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.crypto.provider.AESKeyWrapPadded",
-	"com.sun.crypto.provider.FeedbackCipher",
-	nullptr,
-	_AESKeyWrapPadded_FieldInfo_,
-	_AESKeyWrapPadded_MethodInfo_
-};
-
-$Object* allocate$AESKeyWrapPadded($Class* clazz) {
-	return $of($alloc(AESKeyWrapPadded));
-}
-
 bool AESKeyWrapPadded::$assertionsDisabled = false;
 $bytes* AESKeyWrapPadded::ICV2 = nullptr;
 $bytes* AESKeyWrapPadded::PAD_BLK = nullptr;
@@ -78,16 +40,16 @@ void AESKeyWrapPadded::setIvAndLen($bytes* dest, $bytes* iv, int32_t inLen) {
 		$throwNew($AssertionError, $of("buffer needs at least 8 bytes"_s));
 	}
 	$System::arraycopy(iv, 0, dest, 0, $nc(iv)->length);
-	$nc(dest)->set(4, (int8_t)((int32_t)(((int32_t)((uint32_t)inLen >> 24)) & (uint32_t)255)));
-	dest->set(5, (int8_t)((int32_t)(((int32_t)((uint32_t)inLen >> 16)) & (uint32_t)255)));
-	dest->set(6, (int8_t)((int32_t)(((int32_t)((uint32_t)inLen >> 8)) & (uint32_t)255)));
-	dest->set(7, (int8_t)((int32_t)(inLen & (uint32_t)255)));
+	$nc(dest)->set(4, (int8_t)(((int32_t)((uint32_t)inLen >> 24)) & 0xff));
+	dest->set(5, (int8_t)(((int32_t)((uint32_t)inLen >> 16)) & 0xff));
+	dest->set(6, (int8_t)(((int32_t)((uint32_t)inLen >> 8)) & 0xff));
+	dest->set(7, (int8_t)(inLen & 0xff));
 }
 
 int32_t AESKeyWrapPadded::validateIV($bytes* ivAndLen, $bytes* iv) {
 	$init(AESKeyWrapPadded);
 	int32_t match = 0;
-	for (int32_t i = 0; i < $nc(AESKeyWrapPadded::ICV2)->length; ++i) {
+	for (int32_t i = 0; i < AESKeyWrapPadded::ICV2->length; ++i) {
 		match |= ($nc(ivAndLen)->get(i) ^ $nc(iv)->get(i));
 	}
 	if (match != 0) {
@@ -98,7 +60,7 @@ int32_t AESKeyWrapPadded::validateIV($bytes* ivAndLen, $bytes* iv) {
 		if (outLen != 0) {
 			outLen <<= 8;
 		}
-		outLen |= (int32_t)(ivAndLen->get(k) & (uint32_t)255);
+		outLen |= ivAndLen->get(k) & 0xff;
 	}
 	return outLen;
 }
@@ -123,7 +85,7 @@ void AESKeyWrapPadded::init(bool decrypting, $String* algorithm, $bytes* key, $b
 	if (key == nullptr) {
 		$throwNew($InvalidKeyException, "Invalid null key"_s);
 	}
-	if (iv != nullptr && iv->length != $nc(AESKeyWrapPadded::ICV2)->length) {
+	if (iv != nullptr && iv->length != AESKeyWrapPadded::ICV2->length) {
 		$throwNew($InvalidAlgorithmParameterException, "Invalid IV length"_s);
 	}
 	$nc(this->embeddedCipher)->init(decrypting, algorithm, key);
@@ -166,7 +128,7 @@ int32_t AESKeyWrapPadded::encryptFinal($bytes* pt, int32_t dummy1, int32_t ptLen
 }
 
 int32_t AESKeyWrapPadded::decryptFinal($bytes* ct, int32_t dummy1, int32_t ctLen, $bytes* dummy2, int32_t dummy3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ctLen < 16 || ctLen % 8 != 0) {
 		$throwNew($IllegalBlockSizeException, "data should be at least 16 bytes and multiples of 8"_s);
 	}
@@ -192,7 +154,7 @@ int32_t AESKeyWrapPadded::decryptFinal($bytes* ct, int32_t dummy1, int32_t ctLen
 	return outLen;
 }
 
-void clinit$AESKeyWrapPadded($Class* class$) {
+void AESKeyWrapPadded::clinit$($Class* clazz) {
 	AESKeyWrapPadded::$assertionsDisabled = !AESKeyWrapPadded::class$->desiredAssertionStatus();
 	$assignStatic(AESKeyWrapPadded::ICV2, $new($bytes, {
 		(int8_t)166,
@@ -207,7 +169,38 @@ AESKeyWrapPadded::AESKeyWrapPadded() {
 }
 
 $Class* AESKeyWrapPadded::load$($String* name, bool initialize) {
-	$loadClass(AESKeyWrapPadded, name, initialize, &_AESKeyWrapPadded_ClassInfo_, clinit$AESKeyWrapPadded, allocate$AESKeyWrapPadded);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AESKeyWrapPadded, $assertionsDisabled)},
+		{"ICV2", "[B", nullptr, $STATIC | $FINAL, $staticField(AESKeyWrapPadded, ICV2)},
+		{"PAD_BLK", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESKeyWrapPadded, PAD_BLK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AESKeyWrapPadded, init$, void)},
+		{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
+		{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
+		{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AESKeyWrapPadded, getFeedback, $String*)},
+		{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"reset", "()V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, reset, void)},
+		{"restore", "()V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, restore, void)},
+		{"save", "()V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, save, void)},
+		{"setIvAndLen", "([B[BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AESKeyWrapPadded, setIvAndLen, void, $bytes*, $bytes*, int32_t)},
+		{"validateIV", "([B[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AESKeyWrapPadded, validateIV, int32_t, $bytes*, $bytes*), "javax.crypto.IllegalBlockSizeException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.crypto.provider.AESKeyWrapPadded",
+		"com.sun.crypto.provider.FeedbackCipher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AESKeyWrapPadded, name, initialize, &classInfo$$, AESKeyWrapPadded::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AESKeyWrapPadded);
+	});
 	return class$;
 }
 

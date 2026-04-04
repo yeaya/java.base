@@ -15,10 +15,13 @@ public:
 	CertificateExpiredException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x7DE2ABA8816805CB;
+	static const int64_t serialVersionUID = (int64_t)0x7de2aba8816805cb;
 	CertificateExpiredException(const CertificateExpiredException& e);
 	virtual void throw$() override;
-	inline CertificateExpiredException* operator ->() {
+	inline CertificateExpiredException* operator ->() const {
+		return (CertificateExpiredException*)throwing$;
+	}
+	inline operator CertificateExpiredException*() const {
 		return (CertificateExpiredException*)throwing$;
 	}
 };

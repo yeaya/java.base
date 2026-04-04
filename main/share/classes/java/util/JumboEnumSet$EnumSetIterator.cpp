@@ -1,5 +1,4 @@
 #include <java/util/JumboEnumSet$EnumSetIterator.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/JumboEnumSet.h>
@@ -18,48 +17,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace util {
 
-$FieldInfo _JumboEnumSet$EnumSetIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/JumboEnumSet;", nullptr, $FINAL | $SYNTHETIC, $field(JumboEnumSet$EnumSetIterator, this$0)},
-	{"unseen", "J", nullptr, 0, $field(JumboEnumSet$EnumSetIterator, unseen)},
-	{"unseenIndex", "I", nullptr, 0, $field(JumboEnumSet$EnumSetIterator, unseenIndex)},
-	{"lastReturned", "J", nullptr, 0, $field(JumboEnumSet$EnumSetIterator, lastReturned)},
-	{"lastReturnedIndex", "I", nullptr, 0, $field(JumboEnumSet$EnumSetIterator, lastReturnedIndex)},
-	{}
-};
-
-$MethodInfo _JumboEnumSet$EnumSetIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/JumboEnumSet;)V", nullptr, 0, $method(JumboEnumSet$EnumSetIterator, init$, void, $JumboEnumSet*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet$EnumSetIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/Enum;", "()TE;", $PUBLIC, $virtualMethod(JumboEnumSet$EnumSetIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet$EnumSetIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _JumboEnumSet$EnumSetIterator_InnerClassesInfo_[] = {
-	{"java.util.JumboEnumSet$EnumSetIterator", "java.util.JumboEnumSet", "EnumSetIterator", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JumboEnumSet$EnumSetIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.JumboEnumSet$EnumSetIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_JumboEnumSet$EnumSetIterator_FieldInfo_,
-	_JumboEnumSet$EnumSetIterator_MethodInfo_,
-	"<E:Ljava/lang/Enum<TE;>;>Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_JumboEnumSet$EnumSetIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.JumboEnumSet"
-};
-
-$Object* allocate$JumboEnumSet$EnumSetIterator($Class* clazz) {
-	return $of($alloc(JumboEnumSet$EnumSetIterator));
-}
-
 void JumboEnumSet$EnumSetIterator::init$($JumboEnumSet* this$0) {
 	$set(this, this$0, this$0);
 	this->unseenIndex = 0;
@@ -70,7 +27,7 @@ void JumboEnumSet$EnumSetIterator::init$($JumboEnumSet* this$0) {
 
 bool JumboEnumSet$EnumSetIterator::hasNext() {
 	while (this->unseen == 0 && this->unseenIndex < $nc(this->this$0->elements)->length - 1) {
-		this->unseen = $nc(this->this$0->elements)->get(++this->unseenIndex);
+		this->unseen = this->this$0->elements->get(++this->unseenIndex);
 	}
 	return this->unseen != 0;
 }
@@ -79,7 +36,7 @@ $Object* JumboEnumSet$EnumSetIterator::next() {
 	if (!hasNext()) {
 		$throwNew($NoSuchElementException);
 	}
-	this->lastReturned = (int64_t)(this->unseen & (uint64_t)-this->unseen);
+	this->lastReturned = this->unseen & -this->unseen;
 	this->lastReturnedIndex = this->unseenIndex;
 	this->unseen -= this->lastReturned;
 	return $of($nc(this->this$0->universe)->get((this->lastReturnedIndex << 6) + $Long::numberOfTrailingZeros(this->lastReturned)));
@@ -90,8 +47,8 @@ void JumboEnumSet$EnumSetIterator::remove() {
 		$throwNew($IllegalStateException);
 	}
 	int64_t oldElements = $nc(this->this$0->elements)->get(this->lastReturnedIndex);
-	(*$nc(this->this$0->elements))[this->lastReturnedIndex] &= (uint64_t)~this->lastReturned;
-	if (oldElements != $nc(this->this$0->elements)->get(this->lastReturnedIndex)) {
+	(*this->this$0->elements)[this->lastReturnedIndex] &= (uint64_t)~this->lastReturned;
+	if (oldElements != this->this$0->elements->get(this->lastReturnedIndex)) {
 		--this->this$0->size$;
 	}
 	this->lastReturned = 0;
@@ -101,7 +58,43 @@ JumboEnumSet$EnumSetIterator::JumboEnumSet$EnumSetIterator() {
 }
 
 $Class* JumboEnumSet$EnumSetIterator::load$($String* name, bool initialize) {
-	$loadClass(JumboEnumSet$EnumSetIterator, name, initialize, &_JumboEnumSet$EnumSetIterator_ClassInfo_, allocate$JumboEnumSet$EnumSetIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/JumboEnumSet;", nullptr, $FINAL | $SYNTHETIC, $field(JumboEnumSet$EnumSetIterator, this$0)},
+		{"unseen", "J", nullptr, 0, $field(JumboEnumSet$EnumSetIterator, unseen)},
+		{"unseenIndex", "I", nullptr, 0, $field(JumboEnumSet$EnumSetIterator, unseenIndex)},
+		{"lastReturned", "J", nullptr, 0, $field(JumboEnumSet$EnumSetIterator, lastReturned)},
+		{"lastReturnedIndex", "I", nullptr, 0, $field(JumboEnumSet$EnumSetIterator, lastReturnedIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/JumboEnumSet;)V", nullptr, 0, $method(JumboEnumSet$EnumSetIterator, init$, void, $JumboEnumSet*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet$EnumSetIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/Enum;", "()TE;", $PUBLIC, $virtualMethod(JumboEnumSet$EnumSetIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet$EnumSetIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.JumboEnumSet$EnumSetIterator", "java.util.JumboEnumSet", "EnumSetIterator", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.JumboEnumSet$EnumSetIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Enum<TE;>;>Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.JumboEnumSet"
+	};
+	$loadClass(JumboEnumSet$EnumSetIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JumboEnumSet$EnumSetIterator);
+	});
 	return class$;
 }
 

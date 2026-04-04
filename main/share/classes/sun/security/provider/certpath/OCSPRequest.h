@@ -36,6 +36,7 @@ class OCSPRequest : public ::java::lang::Object {
 	$class(OCSPRequest, 0, ::java::lang::Object)
 public:
 	OCSPRequest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::provider::certpath::CertId* certId);
 	void init$(::java::util::List* certIds);
 	void init$(::java::util::List* certIds, ::java::util::List* extensions);

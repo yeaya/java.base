@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsChannelFactory.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/SecurityManager.h>
@@ -50,46 +49,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsChannelFactory_FieldInfo_[] = {
-	{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsChannelFactory, fdAccess)},
-	{"OPEN_REPARSE_POINT", "Ljava/nio/file/OpenOption;", nullptr, $STATIC | $FINAL, $staticField(WindowsChannelFactory, OPEN_REPARSE_POINT)},
-	{}
-};
-
-$MethodInfo _WindowsChannelFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsChannelFactory, init$, void)},
-	{"newAsynchronousFileChannel", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;JLsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;JLsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", $STATIC, $staticMethod(WindowsChannelFactory, newAsynchronousFileChannel, $AsynchronousFileChannel*, $String*, $String*, $Set*, int64_t, $ThreadPool*), "java.io.IOException"},
-	{"newFileChannel", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;J)Ljava/nio/channels/FileChannel;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;J)Ljava/nio/channels/FileChannel;", $STATIC, $staticMethod(WindowsChannelFactory, newFileChannel, $FileChannel*, $String*, $String*, $Set*, int64_t), "sun.nio.fs.WindowsException"},
-	{"open", "(Ljava/lang/String;Ljava/lang/String;Lsun/nio/fs/WindowsChannelFactory$Flags;J)Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsChannelFactory, open, $FileDescriptor*, $String*, $String*, $WindowsChannelFactory$Flags*, int64_t), "sun.nio.fs.WindowsException"},
-	{}
-};
-
-$InnerClassInfo _WindowsChannelFactory_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsChannelFactory$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.nio.fs.WindowsChannelFactory$Flags", "sun.nio.fs.WindowsChannelFactory", "Flags", $PRIVATE | $STATIC},
-	{"sun.nio.fs.WindowsChannelFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsChannelFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsChannelFactory",
-	"java.lang.Object",
-	nullptr,
-	_WindowsChannelFactory_FieldInfo_,
-	_WindowsChannelFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsChannelFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsChannelFactory$2,sun.nio.fs.WindowsChannelFactory$Flags,sun.nio.fs.WindowsChannelFactory$1"
-};
-
-$Object* allocate$WindowsChannelFactory($Class* clazz) {
-	return $of($alloc(WindowsChannelFactory));
-}
-
 $JavaIOFileDescriptorAccess* WindowsChannelFactory::fdAccess = nullptr;
 $OpenOption* WindowsChannelFactory::OPEN_REPARSE_POINT = nullptr;
 
@@ -98,7 +57,7 @@ void WindowsChannelFactory::init$() {
 
 $FileChannel* WindowsChannelFactory::newFileChannel($String* pathForWindows, $String* pathToCheck, $Set* options, int64_t pSecurityDescriptor) {
 	$init(WindowsChannelFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsChannelFactory$Flags, flags, $WindowsChannelFactory$Flags::toFlags(options));
 	if (!$nc(flags)->read && !flags->write) {
 		if (flags->append) {
@@ -107,19 +66,19 @@ $FileChannel* WindowsChannelFactory::newFileChannel($String* pathForWindows, $St
 			flags->read = true;
 		}
 	}
-	if ($nc(flags)->read && flags->append) {
+	if (flags->read && flags->append) {
 		$throwNew($IllegalArgumentException, "READ + APPEND not allowed"_s);
 	}
-	if ($nc(flags)->append && flags->truncateExisting) {
+	if (flags->append && flags->truncateExisting) {
 		$throwNew($IllegalArgumentException, "APPEND + TRUNCATE_EXISTING not allowed"_s);
 	}
 	$var($FileDescriptor, fdObj, open(pathForWindows, pathToCheck, flags, pSecurityDescriptor));
-	return $FileChannelImpl::open(fdObj, pathForWindows, $nc(flags)->read, flags->write, flags->direct, nullptr);
+	return $FileChannelImpl::open(fdObj, pathForWindows, flags->read, flags->write, flags->direct, nullptr);
 }
 
 $AsynchronousFileChannel* WindowsChannelFactory::newAsynchronousFileChannel($String* pathForWindows, $String* pathToCheck, $Set* options, int64_t pSecurityDescriptor, $ThreadPool* pool) {
 	$init(WindowsChannelFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsChannelFactory$Flags, flags, $WindowsChannelFactory$Flags::toFlags(options));
 	$nc(flags)->overlapped = true;
 	if (!flags->read && !flags->write) {
@@ -146,28 +105,28 @@ $AsynchronousFileChannel* WindowsChannelFactory::newAsynchronousFileChannel($Str
 
 $FileDescriptor* WindowsChannelFactory::open($String* pathForWindows, $String* pathToCheck, $WindowsChannelFactory$Flags* flags, int64_t pSecurityDescriptor) {
 	$init(WindowsChannelFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool truncateAfterOpen = false;
 	int32_t dwDesiredAccess = 0;
 	if ($nc(flags)->read) {
 		dwDesiredAccess |= (int32_t)0x80000000;
 	}
-	if ($nc(flags)->write) {
+	if (flags->write) {
 		dwDesiredAccess |= 0x40000000;
 	}
 	int32_t dwShareMode = 0;
-	if ($nc(flags)->shareRead) {
+	if (flags->shareRead) {
 		dwShareMode |= 1;
 	}
-	if ($nc(flags)->shareWrite) {
+	if (flags->shareWrite) {
 		dwShareMode |= 2;
 	}
-	if ($nc(flags)->shareDelete) {
+	if (flags->shareDelete) {
 		dwShareMode |= 4;
 	}
 	int32_t dwFlagsAndAttributes = 128;
 	int32_t dwCreationDisposition = 3;
-	if ($nc(flags)->write) {
+	if (flags->write) {
 		if (flags->createNew) {
 			dwCreationDisposition = 1;
 			dwFlagsAndAttributes |= 0x00200000;
@@ -184,17 +143,17 @@ $FileDescriptor* WindowsChannelFactory::open($String* pathForWindows, $String* p
 			}
 		}
 	}
-	if ($nc(flags)->dsync || $nc(flags)->sync) {
+	if (flags->dsync || flags->sync) {
 		dwFlagsAndAttributes |= (int32_t)0x80000000;
 	}
-	if ($nc(flags)->overlapped) {
+	if (flags->overlapped) {
 		dwFlagsAndAttributes |= 0x40000000;
 	}
-	if ($nc(flags)->deleteOnClose) {
+	if (flags->deleteOnClose) {
 		dwFlagsAndAttributes |= 0x04000000;
 	}
 	bool okayToFollowLinks = true;
-	if (dwCreationDisposition != 1 && ($nc(flags)->noFollowLinks || $nc(flags)->openReparsePoint || $nc(flags)->deleteOnClose)) {
+	if (dwCreationDisposition != 1 && (flags->noFollowLinks || flags->openReparsePoint || flags->deleteOnClose)) {
 		if (flags->noFollowLinks || flags->deleteOnClose) {
 			okayToFollowLinks = false;
 		}
@@ -203,13 +162,13 @@ $FileDescriptor* WindowsChannelFactory::open($String* pathForWindows, $String* p
 	if (pathToCheck != nullptr) {
 		$var($SecurityManager, sm, $System::getSecurityManager());
 		if (sm != nullptr) {
-			if ($nc(flags)->read) {
+			if (flags->read) {
 				sm->checkRead(pathToCheck);
 			}
-			if ($nc(flags)->write) {
+			if (flags->write) {
 				sm->checkWrite(pathToCheck);
 			}
-			if ($nc(flags)->deleteOnClose) {
+			if (flags->deleteOnClose) {
 				sm->checkDelete(pathToCheck);
 			}
 		}
@@ -217,7 +176,7 @@ $FileDescriptor* WindowsChannelFactory::open($String* pathForWindows, $String* p
 	int64_t handle = $WindowsNativeDispatcher::CreateFile(pathForWindows, dwDesiredAccess, dwShareMode, pSecurityDescriptor, dwCreationDisposition, dwFlagsAndAttributes);
 	if (!okayToFollowLinks) {
 		try {
-			if ($nc($($WindowsFileAttributes::readAttributes(handle)))->isSymbolicLink()) {
+			if ($$nc($WindowsFileAttributes::readAttributes(handle))->isSymbolicLink()) {
 				$throwNew($WindowsException, "File is symbolic link"_s);
 			}
 		} catch ($WindowsException& x) {
@@ -235,7 +194,7 @@ $FileDescriptor* WindowsChannelFactory::open($String* pathForWindows, $String* p
 			}
 		}
 	}
-	if (dwCreationDisposition == 1 && $nc(flags)->sparse) {
+	if (dwCreationDisposition == 1 && flags->sparse) {
 		try {
 			$WindowsNativeDispatcher::DeviceIoControlSetSparse(handle);
 		} catch ($WindowsException& x) {
@@ -243,12 +202,12 @@ $FileDescriptor* WindowsChannelFactory::open($String* pathForWindows, $String* p
 	}
 	$var($FileDescriptor, fdObj, $new($FileDescriptor));
 	$nc(WindowsChannelFactory::fdAccess)->setHandle(fdObj, handle);
-	$nc(WindowsChannelFactory::fdAccess)->setAppend(fdObj, $nc(flags)->append);
-	$nc(WindowsChannelFactory::fdAccess)->registerCleanup(fdObj);
+	WindowsChannelFactory::fdAccess->setAppend(fdObj, flags->append);
+	WindowsChannelFactory::fdAccess->registerCleanup(fdObj);
 	return fdObj;
 }
 
-void clinit$WindowsChannelFactory($Class* class$) {
+void WindowsChannelFactory::clinit$($Class* clazz) {
 	$assignStatic(WindowsChannelFactory::fdAccess, $SharedSecrets::getJavaIOFileDescriptorAccess());
 	$assignStatic(WindowsChannelFactory::OPEN_REPARSE_POINT, $new($WindowsChannelFactory$1));
 }
@@ -257,7 +216,41 @@ WindowsChannelFactory::WindowsChannelFactory() {
 }
 
 $Class* WindowsChannelFactory::load$($String* name, bool initialize) {
-	$loadClass(WindowsChannelFactory, name, initialize, &_WindowsChannelFactory_ClassInfo_, clinit$WindowsChannelFactory, allocate$WindowsChannelFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsChannelFactory, fdAccess)},
+		{"OPEN_REPARSE_POINT", "Ljava/nio/file/OpenOption;", nullptr, $STATIC | $FINAL, $staticField(WindowsChannelFactory, OPEN_REPARSE_POINT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsChannelFactory, init$, void)},
+		{"newAsynchronousFileChannel", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;JLsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;JLsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", $STATIC, $staticMethod(WindowsChannelFactory, newAsynchronousFileChannel, $AsynchronousFileChannel*, $String*, $String*, $Set*, int64_t, $ThreadPool*), "java.io.IOException"},
+		{"newFileChannel", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;J)Ljava/nio/channels/FileChannel;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;J)Ljava/nio/channels/FileChannel;", $STATIC, $staticMethod(WindowsChannelFactory, newFileChannel, $FileChannel*, $String*, $String*, $Set*, int64_t), "sun.nio.fs.WindowsException"},
+		{"open", "(Ljava/lang/String;Ljava/lang/String;Lsun/nio/fs/WindowsChannelFactory$Flags;J)Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsChannelFactory, open, $FileDescriptor*, $String*, $String*, $WindowsChannelFactory$Flags*, int64_t), "sun.nio.fs.WindowsException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsChannelFactory$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.nio.fs.WindowsChannelFactory$Flags", "sun.nio.fs.WindowsChannelFactory", "Flags", $PRIVATE | $STATIC},
+		{"sun.nio.fs.WindowsChannelFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsChannelFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsChannelFactory$2,sun.nio.fs.WindowsChannelFactory$Flags,sun.nio.fs.WindowsChannelFactory$1"
+	};
+	$loadClass(WindowsChannelFactory, name, initialize, &classInfo$$, WindowsChannelFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsChannelFactory);
+	});
 	return class$;
 }
 

@@ -74,6 +74,7 @@ public:
 	X500Name();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* dname);
 	void init$($String* dname, ::java::util::Map* keywordMap);
 	void init$($String* dname, $String* format);

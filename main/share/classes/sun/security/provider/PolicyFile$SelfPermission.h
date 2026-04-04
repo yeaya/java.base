@@ -32,7 +32,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual bool implies(::java::security::Permission* p) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x8C992FE429857E2A;
+	static const int64_t serialVersionUID = (int64_t)0x8c992fe429857e2a;
 	$String* type = nullptr;
 	$String* name = nullptr;
 	$String* actions = nullptr;

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/PreSharedKeyExtension$PskIdentity.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/PreSharedKeyExtension.h>
 #include <sun/security/ssl/Record.h>
@@ -18,45 +17,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _PreSharedKeyExtension$PskIdentity_FieldInfo_[] = {
-	{"identity", "[B", nullptr, $FINAL, $field(PreSharedKeyExtension$PskIdentity, identity)},
-	{"obfuscatedAge", "I", nullptr, $FINAL, $field(PreSharedKeyExtension$PskIdentity, obfuscatedAge)},
-	{}
-};
-
-$MethodInfo _PreSharedKeyExtension$PskIdentity_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, 0, $method(PreSharedKeyExtension$PskIdentity, init$, void, $bytes*, int32_t)},
-	{"getEncodedLength", "()I", nullptr, 0, $method(PreSharedKeyExtension$PskIdentity, getEncodedLength, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$PskIdentity, toString, $String*)},
-	{"writeEncoded", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(PreSharedKeyExtension$PskIdentity, writeEncoded, void, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _PreSharedKeyExtension$PskIdentity_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PreSharedKeyExtension$PskIdentity", "sun.security.ssl.PreSharedKeyExtension", "PskIdentity", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PreSharedKeyExtension$PskIdentity_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PreSharedKeyExtension$PskIdentity",
-	"java.lang.Object",
-	nullptr,
-	_PreSharedKeyExtension$PskIdentity_FieldInfo_,
-	_PreSharedKeyExtension$PskIdentity_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PreSharedKeyExtension$PskIdentity_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PreSharedKeyExtension"
-};
-
-$Object* allocate$PreSharedKeyExtension$PskIdentity($Class* clazz) {
-	return $of($alloc(PreSharedKeyExtension$PskIdentity));
-}
-
 void PreSharedKeyExtension$PskIdentity::init$($bytes* identity, int32_t obfuscatedAge) {
 	$set(this, identity, identity);
 	this->obfuscatedAge = obfuscatedAge;
@@ -72,7 +32,7 @@ void PreSharedKeyExtension$PskIdentity::writeEncoded($ByteBuffer* m) {
 }
 
 $String* PreSharedKeyExtension$PskIdentity::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"{"_s, $($Utilities::toHexString(this->identity)), ", "_s, $$str(this->obfuscatedAge), "}"_s});
 }
 
@@ -80,7 +40,40 @@ PreSharedKeyExtension$PskIdentity::PreSharedKeyExtension$PskIdentity() {
 }
 
 $Class* PreSharedKeyExtension$PskIdentity::load$($String* name, bool initialize) {
-	$loadClass(PreSharedKeyExtension$PskIdentity, name, initialize, &_PreSharedKeyExtension$PskIdentity_ClassInfo_, allocate$PreSharedKeyExtension$PskIdentity);
+	$FieldInfo fieldInfos$$[] = {
+		{"identity", "[B", nullptr, $FINAL, $field(PreSharedKeyExtension$PskIdentity, identity)},
+		{"obfuscatedAge", "I", nullptr, $FINAL, $field(PreSharedKeyExtension$PskIdentity, obfuscatedAge)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BI)V", nullptr, 0, $method(PreSharedKeyExtension$PskIdentity, init$, void, $bytes*, int32_t)},
+		{"getEncodedLength", "()I", nullptr, 0, $method(PreSharedKeyExtension$PskIdentity, getEncodedLength, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$PskIdentity, toString, $String*)},
+		{"writeEncoded", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(PreSharedKeyExtension$PskIdentity, writeEncoded, void, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PreSharedKeyExtension$PskIdentity", "sun.security.ssl.PreSharedKeyExtension", "PskIdentity", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PreSharedKeyExtension$PskIdentity",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PreSharedKeyExtension"
+	};
+	$loadClass(PreSharedKeyExtension$PskIdentity, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PreSharedKeyExtension$PskIdentity);
+	});
 	return class$;
 }
 

@@ -32,6 +32,7 @@ class $export StringSharingDecompressorFactory : public ::jdk::internal::jimage:
 	$class(StringSharingDecompressorFactory, 0, ::jdk::internal::jimage::decompressor::ResourceDecompressorFactory)
 public:
 	StringSharingDecompressorFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::jdk::internal::jimage::decompressor::ResourceDecompressor* newDecompressor(::java::util::Properties* properties) override;
 	static $String* NAME;

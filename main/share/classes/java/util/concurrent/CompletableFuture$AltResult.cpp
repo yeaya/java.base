@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$AltResult.h>
-
 #include <java/util/concurrent/CompletableFuture.h>
 #include <jcpp.h>
 
@@ -12,41 +11,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _CompletableFuture$AltResult_FieldInfo_[] = {
-	{"ex", "Ljava/lang/Throwable;", nullptr, $FINAL, $field(CompletableFuture$AltResult, ex)},
-	{}
-};
-
-$MethodInfo _CompletableFuture$AltResult_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(CompletableFuture$AltResult, init$, void, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$AltResult_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$AltResult", "java.util.concurrent.CompletableFuture", "AltResult", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CompletableFuture$AltResult_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$AltResult",
-	"java.lang.Object",
-	nullptr,
-	_CompletableFuture$AltResult_FieldInfo_,
-	_CompletableFuture$AltResult_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CompletableFuture$AltResult_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$AltResult($Class* clazz) {
-	return $of($alloc(CompletableFuture$AltResult));
-}
-
 void CompletableFuture$AltResult::init$($Throwable* x) {
 	$set(this, ex, x);
 }
@@ -55,7 +19,36 @@ CompletableFuture$AltResult::CompletableFuture$AltResult() {
 }
 
 $Class* CompletableFuture$AltResult::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$AltResult, name, initialize, &_CompletableFuture$AltResult_ClassInfo_, allocate$CompletableFuture$AltResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"ex", "Ljava/lang/Throwable;", nullptr, $FINAL, $field(CompletableFuture$AltResult, ex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(CompletableFuture$AltResult, init$, void, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$AltResult", "java.util.concurrent.CompletableFuture", "AltResult", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$AltResult",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$AltResult, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompletableFuture$AltResult);
+	});
 	return class$;
 }
 

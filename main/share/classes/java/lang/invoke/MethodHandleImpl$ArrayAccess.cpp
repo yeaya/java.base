@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodHandleImpl$ArrayAccess.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -38,51 +37,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _MethodHandleImpl$ArrayAccess_FieldInfo_[] = {
-	{"GET", "Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MethodHandleImpl$ArrayAccess, GET)},
-	{"SET", "Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MethodHandleImpl$ArrayAccess, SET)},
-	{"LENGTH", "Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MethodHandleImpl$ArrayAccess, LENGTH)},
-	{"$VALUES", "[Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandleImpl$ArrayAccess, $VALUES)},
-	{}
-};
-
-$MethodInfo _MethodHandleImpl$ArrayAccess_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandleImpl$ArrayAccess, $values, $MethodHandleImpl$ArrayAccessArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MethodHandleImpl$ArrayAccess, init$, void, $String*, int32_t)},
-	{"cacheIndex", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, cacheIndex, int32_t, MethodHandleImpl$ArrayAccess*)},
-	{"intrinsic", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, intrinsic, $MethodHandleImpl$Intrinsic*, MethodHandleImpl$ArrayAccess*)},
-	{"objectAccessor", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, objectAccessor, $MethodHandle*, MethodHandleImpl$ArrayAccess*)},
-	{"opName", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, opName, $String*, MethodHandleImpl$ArrayAccess*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, valueOf, MethodHandleImpl$ArrayAccess*, $String*)},
-	{"values", "()[Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, values, $MethodHandleImpl$ArrayAccessArray*)},
-	{}
-};
-
-$InnerClassInfo _MethodHandleImpl$ArrayAccess_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodHandleImpl$ArrayAccess", "java.lang.invoke.MethodHandleImpl", "ArrayAccess", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MethodHandleImpl$ArrayAccess_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.invoke.MethodHandleImpl$ArrayAccess",
-	"java.lang.Enum",
-	nullptr,
-	_MethodHandleImpl$ArrayAccess_FieldInfo_,
-	_MethodHandleImpl$ArrayAccess_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;>;",
-	nullptr,
-	_MethodHandleImpl$ArrayAccess_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodHandleImpl"
-};
-
-$Object* allocate$MethodHandleImpl$ArrayAccess($Class* clazz) {
-	return $of($alloc(MethodHandleImpl$ArrayAccess));
-}
-
 MethodHandleImpl$ArrayAccess* MethodHandleImpl$ArrayAccess::GET = nullptr;
 MethodHandleImpl$ArrayAccess* MethodHandleImpl$ArrayAccess::SET = nullptr;
 MethodHandleImpl$ArrayAccess* MethodHandleImpl$ArrayAccess::LENGTH = nullptr;
@@ -113,63 +67,45 @@ void MethodHandleImpl$ArrayAccess::init$($String* $enum$name, int32_t $enum$ordi
 
 $String* MethodHandleImpl$ArrayAccess::opName(MethodHandleImpl$ArrayAccess* a) {
 	$init(MethodHandleImpl$ArrayAccess);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MethodHandleImpl$2);
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch ($nc($MethodHandleImpl$2::$SwitchMap$java$lang$invoke$MethodHandleImpl$ArrayAccess)->get($nc((a))->ordinal())) {
 	case 1:
-		{
-			$assign(var$0, "getElement"_s);
-			break;
-		}
+		$assign(var$0, "getElement"_s);
+		break;
 	case 2:
-		{
-			$assign(var$0, "setElement"_s);
-			break;
-		}
+		$assign(var$0, "setElement"_s);
+		break;
 	case 3:
-		{
-			$assign(var$0, "length"_s);
-			break;
-		}
+		$assign(var$0, "length"_s);
+		break;
 	default:
-		{
-			$throw($($MethodHandleImpl::unmatchedArrayAccess(a)));
-		}
+		$throw($($MethodHandleImpl::unmatchedArrayAccess(a)));
 	}
 	return var$0;
 }
 
 $MethodHandle* MethodHandleImpl$ArrayAccess::objectAccessor(MethodHandleImpl$ArrayAccess* a) {
 	$init(MethodHandleImpl$ArrayAccess);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MethodHandleImpl$2);
-
-	$var($MethodHandle, var$0, nullptr)
+	$var($MethodHandle, var$0, nullptr);
 	switch ($nc($MethodHandleImpl$2::$SwitchMap$java$lang$invoke$MethodHandleImpl$ArrayAccess)->get($nc((a))->ordinal())) {
 	case 1:
-		{
-			$init($MethodHandleImpl$ArrayAccessor);
-			$assign(var$0, $MethodHandleImpl$ArrayAccessor::OBJECT_ARRAY_GETTER);
-			break;
-		}
+		$init($MethodHandleImpl$ArrayAccessor);
+		$assign(var$0, $MethodHandleImpl$ArrayAccessor::OBJECT_ARRAY_GETTER);
+		break;
 	case 2:
-		{
-			$init($MethodHandleImpl$ArrayAccessor);
-			$assign(var$0, $MethodHandleImpl$ArrayAccessor::OBJECT_ARRAY_SETTER);
-			break;
-		}
+		$init($MethodHandleImpl$ArrayAccessor);
+		$assign(var$0, $MethodHandleImpl$ArrayAccessor::OBJECT_ARRAY_SETTER);
+		break;
 	case 3:
-		{
-			$init($MethodHandleImpl$ArrayAccessor);
-			$assign(var$0, $MethodHandleImpl$ArrayAccessor::OBJECT_ARRAY_LENGTH);
-			break;
-		}
+		$init($MethodHandleImpl$ArrayAccessor);
+		$assign(var$0, $MethodHandleImpl$ArrayAccessor::OBJECT_ARRAY_LENGTH);
+		break;
 	default:
-		{
-			$throw($($MethodHandleImpl::unmatchedArrayAccess(a)));
-		}
+		$throw($($MethodHandleImpl::unmatchedArrayAccess(a)));
 	}
 	return var$0;
 }
@@ -177,66 +113,48 @@ $MethodHandle* MethodHandleImpl$ArrayAccess::objectAccessor(MethodHandleImpl$Arr
 int32_t MethodHandleImpl$ArrayAccess::cacheIndex(MethodHandleImpl$ArrayAccess* a) {
 	$init(MethodHandleImpl$ArrayAccess);
 	$init($MethodHandleImpl$2);
-
 	int32_t var$0 = 0;
 	switch ($nc($MethodHandleImpl$2::$SwitchMap$java$lang$invoke$MethodHandleImpl$ArrayAccess)->get($nc((a))->ordinal())) {
 	case 1:
-		{
-			var$0 = $MethodHandleImpl$ArrayAccessor::GETTER_INDEX;
-			break;
-		}
+		var$0 = $MethodHandleImpl$ArrayAccessor::GETTER_INDEX;
+		break;
 	case 2:
-		{
-			var$0 = $MethodHandleImpl$ArrayAccessor::SETTER_INDEX;
-			break;
-		}
+		var$0 = $MethodHandleImpl$ArrayAccessor::SETTER_INDEX;
+		break;
 	case 3:
-		{
-			var$0 = $MethodHandleImpl$ArrayAccessor::LENGTH_INDEX;
-			break;
-		}
+		var$0 = $MethodHandleImpl$ArrayAccessor::LENGTH_INDEX;
+		break;
 	default:
-		{
-			$throw($($MethodHandleImpl::unmatchedArrayAccess(a)));
-		}
+		$throw($($MethodHandleImpl::unmatchedArrayAccess(a)));
 	}
 	return var$0;
 }
 
 $MethodHandleImpl$Intrinsic* MethodHandleImpl$ArrayAccess::intrinsic(MethodHandleImpl$ArrayAccess* a) {
 	$init(MethodHandleImpl$ArrayAccess);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MethodHandleImpl$2);
-
-	$var($MethodHandleImpl$Intrinsic, var$0, nullptr)
+	$var($MethodHandleImpl$Intrinsic, var$0, nullptr);
 	switch ($nc($MethodHandleImpl$2::$SwitchMap$java$lang$invoke$MethodHandleImpl$ArrayAccess)->get($nc((a))->ordinal())) {
 	case 1:
-		{
-			$init($MethodHandleImpl$Intrinsic);
-			$assign(var$0, $MethodHandleImpl$Intrinsic::ARRAY_LOAD);
-			break;
-		}
+		$init($MethodHandleImpl$Intrinsic);
+		$assign(var$0, $MethodHandleImpl$Intrinsic::ARRAY_LOAD);
+		break;
 	case 2:
-		{
-			$init($MethodHandleImpl$Intrinsic);
-			$assign(var$0, $MethodHandleImpl$Intrinsic::ARRAY_STORE);
-			break;
-		}
+		$init($MethodHandleImpl$Intrinsic);
+		$assign(var$0, $MethodHandleImpl$Intrinsic::ARRAY_STORE);
+		break;
 	case 3:
-		{
-			$init($MethodHandleImpl$Intrinsic);
-			$assign(var$0, $MethodHandleImpl$Intrinsic::ARRAY_LENGTH);
-			break;
-		}
+		$init($MethodHandleImpl$Intrinsic);
+		$assign(var$0, $MethodHandleImpl$Intrinsic::ARRAY_LENGTH);
+		break;
 	default:
-		{
-			$throw($($MethodHandleImpl::unmatchedArrayAccess(a)));
-		}
+		$throw($($MethodHandleImpl::unmatchedArrayAccess(a)));
 	}
 	return var$0;
 }
 
-void clinit$MethodHandleImpl$ArrayAccess($Class* class$) {
+void MethodHandleImpl$ArrayAccess::clinit$($Class* clazz) {
 	$assignStatic(MethodHandleImpl$ArrayAccess::GET, $new(MethodHandleImpl$ArrayAccess, "GET"_s, 0));
 	$assignStatic(MethodHandleImpl$ArrayAccess::SET, $new(MethodHandleImpl$ArrayAccess, "SET"_s, 1));
 	$assignStatic(MethodHandleImpl$ArrayAccess::LENGTH, $new(MethodHandleImpl$ArrayAccess, "LENGTH"_s, 2));
@@ -247,7 +165,46 @@ MethodHandleImpl$ArrayAccess::MethodHandleImpl$ArrayAccess() {
 }
 
 $Class* MethodHandleImpl$ArrayAccess::load$($String* name, bool initialize) {
-	$loadClass(MethodHandleImpl$ArrayAccess, name, initialize, &_MethodHandleImpl$ArrayAccess_ClassInfo_, clinit$MethodHandleImpl$ArrayAccess, allocate$MethodHandleImpl$ArrayAccess);
+	$FieldInfo fieldInfos$$[] = {
+		{"GET", "Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MethodHandleImpl$ArrayAccess, GET)},
+		{"SET", "Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MethodHandleImpl$ArrayAccess, SET)},
+		{"LENGTH", "Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MethodHandleImpl$ArrayAccess, LENGTH)},
+		{"$VALUES", "[Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandleImpl$ArrayAccess, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandleImpl$ArrayAccess, $values, $MethodHandleImpl$ArrayAccessArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MethodHandleImpl$ArrayAccess, init$, void, $String*, int32_t)},
+		{"cacheIndex", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, cacheIndex, int32_t, MethodHandleImpl$ArrayAccess*)},
+		{"intrinsic", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, intrinsic, $MethodHandleImpl$Intrinsic*, MethodHandleImpl$ArrayAccess*)},
+		{"objectAccessor", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, objectAccessor, $MethodHandle*, MethodHandleImpl$ArrayAccess*)},
+		{"opName", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, opName, $String*, MethodHandleImpl$ArrayAccess*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, valueOf, MethodHandleImpl$ArrayAccess*, $String*)},
+		{"values", "()[Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, values, $MethodHandleImpl$ArrayAccessArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodHandleImpl$ArrayAccess", "java.lang.invoke.MethodHandleImpl", "ArrayAccess", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.invoke.MethodHandleImpl$ArrayAccess",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodHandleImpl"
+	};
+	$loadClass(MethodHandleImpl$ArrayAccess, name, initialize, &classInfo$$, MethodHandleImpl$ArrayAccess::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MethodHandleImpl$ArrayAccess));
+	});
 	return class$;
 }
 

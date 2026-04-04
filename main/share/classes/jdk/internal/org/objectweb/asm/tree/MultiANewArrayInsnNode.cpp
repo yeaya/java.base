@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/MultiANewArrayInsnNode.h>
-
 #include <java/util/Map.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
@@ -24,33 +23,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 
-$FieldInfo _MultiANewArrayInsnNode_FieldInfo_[] = {
-	{"desc", "Ljava/lang/String;", nullptr, $PUBLIC, $field(MultiANewArrayInsnNode, desc)},
-	{"dims", "I", nullptr, $PUBLIC, $field(MultiANewArrayInsnNode, dims)},
-	{}
-};
-
-$MethodInfo _MultiANewArrayInsnNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(MultiANewArrayInsnNode, init$, void, $String*, int32_t)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(MultiANewArrayInsnNode, accept, void, $MethodVisitor*)},
-	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(MultiANewArrayInsnNode, clone, $AbstractInsnNode*, $Map*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(MultiANewArrayInsnNode, getType, int32_t)},
-	{}
-};
-
-$ClassInfo _MultiANewArrayInsnNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.MultiANewArrayInsnNode",
-	"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
-	nullptr,
-	_MultiANewArrayInsnNode_FieldInfo_,
-	_MultiANewArrayInsnNode_MethodInfo_
-};
-
-$Object* allocate$MultiANewArrayInsnNode($Class* clazz) {
-	return $of($alloc(MultiANewArrayInsnNode));
-}
-
 void MultiANewArrayInsnNode::init$($String* descriptor, int32_t numDimensions) {
 	$AbstractInsnNode::init$($Opcodes::MULTIANEWARRAY);
 	$set(this, desc, descriptor);
@@ -74,7 +46,29 @@ MultiANewArrayInsnNode::MultiANewArrayInsnNode() {
 }
 
 $Class* MultiANewArrayInsnNode::load$($String* name, bool initialize) {
-	$loadClass(MultiANewArrayInsnNode, name, initialize, &_MultiANewArrayInsnNode_ClassInfo_, allocate$MultiANewArrayInsnNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"desc", "Ljava/lang/String;", nullptr, $PUBLIC, $field(MultiANewArrayInsnNode, desc)},
+		{"dims", "I", nullptr, $PUBLIC, $field(MultiANewArrayInsnNode, dims)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(MultiANewArrayInsnNode, init$, void, $String*, int32_t)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(MultiANewArrayInsnNode, accept, void, $MethodVisitor*)},
+		{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(MultiANewArrayInsnNode, clone, $AbstractInsnNode*, $Map*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(MultiANewArrayInsnNode, getType, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.MultiANewArrayInsnNode",
+		"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiANewArrayInsnNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiANewArrayInsnNode);
+	});
 	return class$;
 }
 

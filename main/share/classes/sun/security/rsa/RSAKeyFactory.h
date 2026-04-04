@@ -66,6 +66,7 @@ class $export RSAKeyFactory : public ::java::security::KeyFactorySpi {
 	$class(RSAKeyFactory, 0, ::java::security::KeyFactorySpi)
 public:
 	RSAKeyFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::security::rsa::RSAUtil$KeyType* type);
 	static void checkKeyAlgo(::java::security::Key* key, $String* expectedAlg);

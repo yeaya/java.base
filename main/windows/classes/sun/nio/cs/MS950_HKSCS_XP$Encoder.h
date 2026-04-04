@@ -31,6 +31,7 @@ public:
 	MS950_HKSCS_XP$Encoder();
 	using ::sun::nio::cs::HKSCS$Encoder::canEncode;
 	using ::sun::nio::cs::HKSCS$Encoder::encode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual int32_t encodeSupp(int32_t cp) override;
 	static ::sun::nio::cs::DoubleByte$Encoder* ms950;

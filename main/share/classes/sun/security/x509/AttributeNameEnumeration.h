@@ -15,7 +15,7 @@ public:
 	AttributeNameEnumeration();
 	void init$();
 	using ::java::util::Vector::toArray;
-	static const int64_t serialVersionUID = (int64_t)0xABCC1F3F69C33582;
+	static const int64_t serialVersionUID = (int64_t)0xabcc1f3f69c33582;
 };
 
 		} // x509

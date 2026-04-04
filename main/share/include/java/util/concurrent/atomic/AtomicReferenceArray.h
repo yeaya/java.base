@@ -46,6 +46,7 @@ class $import AtomicReferenceArray : public ::java::io::Serializable {
 	$class(AtomicReferenceArray, 0, ::java::io::Serializable)
 public:
 	AtomicReferenceArray();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t length);
 	void init$($ObjectArray* array);
 	$Object* accumulateAndGet(int32_t i, Object$* x, ::java::util::function::BinaryOperator* accumulatorFunction);
@@ -75,7 +76,7 @@ public:
 	bool weakCompareAndSetPlain(int32_t i, Object$* expectedValue, Object$* newValue);
 	bool weakCompareAndSetRelease(int32_t i, Object$* expectedValue, Object$* newValue);
 	bool weakCompareAndSetVolatile(int32_t i, Object$* expectedValue, Object$* newValue);
-	static const int64_t serialVersionUID = (int64_t)0xA9D2DEA1BE65600C;
+	static const int64_t serialVersionUID = (int64_t)0xa9d2dea1be65600c;
 	static ::java::lang::invoke::VarHandle* AA;
 	$ObjectArray* array = nullptr;
 };

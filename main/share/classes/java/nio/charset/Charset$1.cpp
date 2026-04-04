@@ -1,5 +1,4 @@
 #include <java/nio/charset/Charset$1.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -20,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $CharsetProvider = ::java::nio::charset::spi::CharsetProvider;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $ServiceLoader = ::java::util::ServiceLoader;
@@ -28,54 +26,6 @@ using $ServiceLoader = ::java::util::ServiceLoader;
 namespace java {
 	namespace nio {
 		namespace charset {
-
-$FieldInfo _Charset$1_FieldInfo_[] = {
-	{"cl", "Ljava/lang/ClassLoader;", nullptr, 0, $field(Charset$1, cl)},
-	{"sl", "Ljava/util/ServiceLoader;", "Ljava/util/ServiceLoader<Ljava/nio/charset/spi/CharsetProvider;>;", 0, $field(Charset$1, sl)},
-	{"i", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/charset/spi/CharsetProvider;>;", 0, $field(Charset$1, i)},
-	{"next", "Ljava/nio/charset/spi/CharsetProvider;", nullptr, 0, $field(Charset$1, next$)},
-	{}
-};
-
-$MethodInfo _Charset$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Charset$1, init$, void)},
-	{"getNext", "()Z", nullptr, $PRIVATE, $method(Charset$1, getNext, bool)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Charset$1, hasNext, bool)},
-	{"next", "()Ljava/nio/charset/spi/CharsetProvider;", nullptr, $PUBLIC, $virtualMethod(Charset$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Charset$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Charset$1_EnclosingMethodInfo_ = {
-	"java.nio.charset.Charset",
-	"providers",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _Charset$1_InnerClassesInfo_[] = {
-	{"java.nio.charset.Charset$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Charset$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.charset.Charset$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Charset$1_FieldInfo_,
-	_Charset$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/charset/spi/CharsetProvider;>;",
-	&_Charset$1_EnclosingMethodInfo_,
-	_Charset$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.charset.Charset"
-};
-
-$Object* allocate$Charset$1($Class* clazz) {
-	return $of($alloc(Charset$1));
-}
 
 void Charset$1::init$() {
 	$beforeCallerSensitive();
@@ -87,13 +37,13 @@ void Charset$1::init$() {
 }
 
 bool Charset$1::getNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (this->next$ == nullptr) {
 		try {
 			if (!$nc(this->i)->hasNext()) {
 				return false;
 			}
-			$set(this, next$, $cast($CharsetProvider, $nc(this->i)->next()));
+			$set(this, next$, $cast($CharsetProvider, this->i->next()));
 		} catch ($ServiceConfigurationError& sce) {
 			if ($instanceOf($SecurityException, $(sce->getCause()))) {
 				continue;
@@ -114,7 +64,7 @@ $Object* Charset$1::next() {
 	}
 	$var($CharsetProvider, n, this->next$);
 	$set(this, next$, nullptr);
-	return $of(n);
+	return n;
 }
 
 void Charset$1::remove() {
@@ -125,7 +75,48 @@ Charset$1::Charset$1() {
 }
 
 $Class* Charset$1::load$($String* name, bool initialize) {
-	$loadClass(Charset$1, name, initialize, &_Charset$1_ClassInfo_, allocate$Charset$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"cl", "Ljava/lang/ClassLoader;", nullptr, 0, $field(Charset$1, cl)},
+		{"sl", "Ljava/util/ServiceLoader;", "Ljava/util/ServiceLoader<Ljava/nio/charset/spi/CharsetProvider;>;", 0, $field(Charset$1, sl)},
+		{"i", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/charset/spi/CharsetProvider;>;", 0, $field(Charset$1, i)},
+		{"next", "Ljava/nio/charset/spi/CharsetProvider;", nullptr, 0, $field(Charset$1, next$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Charset$1, init$, void)},
+		{"getNext", "()Z", nullptr, $PRIVATE, $method(Charset$1, getNext, bool)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Charset$1, hasNext, bool)},
+		{"next", "()Ljava/nio/charset/spi/CharsetProvider;", nullptr, $PUBLIC, $virtualMethod(Charset$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Charset$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.charset.Charset",
+		"providers",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.charset.Charset$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.charset.Charset$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/charset/spi/CharsetProvider;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.charset.Charset"
+	};
+	$loadClass(Charset$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Charset$1);
+	});
 	return class$;
 }
 

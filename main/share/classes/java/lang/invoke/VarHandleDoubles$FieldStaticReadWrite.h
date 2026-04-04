@@ -36,6 +36,7 @@ public:
 	using ::java::lang::invoke::VarHandleDoubles$FieldStaticReadOnly::getAndAdd;
 	using ::java::lang::invoke::VarHandleDoubles$FieldStaticReadOnly::getAndAddAcquire;
 	using ::java::lang::invoke::VarHandleDoubles$FieldStaticReadOnly::getAndAddRelease;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* base, int64_t fieldOffset);
 	void init$(Object$* base, int64_t fieldOffset, bool exact);
 	static double compareAndExchange(::java::lang::invoke::VarHandle* ob, double expected, double value);

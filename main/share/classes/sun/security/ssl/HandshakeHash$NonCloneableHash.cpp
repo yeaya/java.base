@@ -1,5 +1,4 @@
 #include <sun/security/ssl/HandshakeHash$NonCloneableHash.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/security/MessageDigest.h>
 #include <sun/security/ssl/HandshakeHash.h>
@@ -16,70 +15,64 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _HandshakeHash$NonCloneableHash_FieldInfo_[] = {
-	{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(HandshakeHash$NonCloneableHash, md)},
-	{"baos", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE | $FINAL, $field(HandshakeHash$NonCloneableHash, baos)},
-	{}
-};
-
-$MethodInfo _HandshakeHash$NonCloneableHash_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/MessageDigest;)V", nullptr, 0, $method(HandshakeHash$NonCloneableHash, init$, void, $MessageDigest*)},
-	{"archived", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$NonCloneableHash, archived, $bytes*)},
-	{"digest", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$NonCloneableHash, digest, $bytes*)},
-	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$NonCloneableHash, update, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _HandshakeHash$NonCloneableHash_InnerClassesInfo_[] = {
-	{"sun.security.ssl.HandshakeHash$NonCloneableHash", "sun.security.ssl.HandshakeHash", "NonCloneableHash", $STATIC | $FINAL},
-	{"sun.security.ssl.HandshakeHash$TranscriptHash", "sun.security.ssl.HandshakeHash", "TranscriptHash", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HandshakeHash$NonCloneableHash_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.HandshakeHash$NonCloneableHash",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeHash$TranscriptHash",
-	_HandshakeHash$NonCloneableHash_FieldInfo_,
-	_HandshakeHash$NonCloneableHash_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HandshakeHash$NonCloneableHash_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.HandshakeHash"
-};
-
-$Object* allocate$HandshakeHash$NonCloneableHash($Class* clazz) {
-	return $of($alloc(HandshakeHash$NonCloneableHash));
-}
-
 void HandshakeHash$NonCloneableHash::init$($MessageDigest* md) {
 	$set(this, baos, $new($ByteArrayOutputStream));
 	$set(this, md, md);
 }
 
 void HandshakeHash$NonCloneableHash::update($bytes* input, int32_t offset, int32_t length) {
-	$nc(this->baos)->write(input, offset, length);
+	this->baos->write(input, offset, length);
 }
 
 $bytes* HandshakeHash$NonCloneableHash::digest() {
-	$var($bytes, bytes, $nc(this->baos)->toByteArray());
+	$var($bytes, bytes, this->baos->toByteArray());
 	$nc(this->md)->reset();
-	return $nc(this->md)->digest(bytes);
+	return this->md->digest(bytes);
 }
 
 $bytes* HandshakeHash$NonCloneableHash::archived() {
-	return $nc(this->baos)->toByteArray();
+	return this->baos->toByteArray();
 }
 
 HandshakeHash$NonCloneableHash::HandshakeHash$NonCloneableHash() {
 }
 
 $Class* HandshakeHash$NonCloneableHash::load$($String* name, bool initialize) {
-	$loadClass(HandshakeHash$NonCloneableHash, name, initialize, &_HandshakeHash$NonCloneableHash_ClassInfo_, allocate$HandshakeHash$NonCloneableHash);
+	$FieldInfo fieldInfos$$[] = {
+		{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(HandshakeHash$NonCloneableHash, md)},
+		{"baos", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE | $FINAL, $field(HandshakeHash$NonCloneableHash, baos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/MessageDigest;)V", nullptr, 0, $method(HandshakeHash$NonCloneableHash, init$, void, $MessageDigest*)},
+		{"archived", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$NonCloneableHash, archived, $bytes*)},
+		{"digest", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$NonCloneableHash, digest, $bytes*)},
+		{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$NonCloneableHash, update, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.HandshakeHash$NonCloneableHash", "sun.security.ssl.HandshakeHash", "NonCloneableHash", $STATIC | $FINAL},
+		{"sun.security.ssl.HandshakeHash$TranscriptHash", "sun.security.ssl.HandshakeHash", "TranscriptHash", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.HandshakeHash$NonCloneableHash",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeHash$TranscriptHash",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.HandshakeHash"
+	};
+	$loadClass(HandshakeHash$NonCloneableHash, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HandshakeHash$NonCloneableHash);
+	});
 	return class$;
 }
 

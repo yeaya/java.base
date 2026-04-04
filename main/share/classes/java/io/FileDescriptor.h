@@ -30,6 +30,7 @@ class $export FileDescriptor : public ::java::lang::Object {
 	$class(FileDescriptor, $PRELOAD, ::java::lang::Object)
 public:
 	FileDescriptor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t fd);
 	void attach(::java::io::Closeable* c);

@@ -31,6 +31,7 @@ class $import CallSite : public ::java::lang::Object {
 	$class(CallSite, 0, ::java::lang::Object)
 public:
 	CallSite();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodType* type);
 	void init$(::java::lang::invoke::MethodHandle* target);
 	void init$(::java::lang::invoke::MethodType* targetType, ::java::lang::invoke::MethodHandle* createTargetHook);

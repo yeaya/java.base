@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/ClassLoaderHelper.h>
-
 #include <java/io/File.h>
 #include <jcpp.h>
 
@@ -11,26 +10,6 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$MethodInfo _ClassLoaderHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ClassLoaderHelper, init$, void)},
-	{"mapAlternativeName", "(Ljava/io/File;)Ljava/io/File;", nullptr, $STATIC, $staticMethod(ClassLoaderHelper, mapAlternativeName, $File*, $File*)},
-	{"parsePath", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ClassLoaderHelper, parsePath, $StringArray*, $String*)},
-	{}
-};
-
-$ClassInfo _ClassLoaderHelper_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.ClassLoaderHelper",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ClassLoaderHelper_MethodInfo_
-};
-
-$Object* allocate$ClassLoaderHelper($Class* clazz) {
-	return $of($alloc(ClassLoaderHelper));
-}
-
 void ClassLoaderHelper::init$() {
 }
 
@@ -39,13 +18,13 @@ $File* ClassLoaderHelper::mapAlternativeName($File* lib) {
 }
 
 $StringArray* ClassLoaderHelper::parsePath($String* ldPath$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ldPath, ldPath$renamed);
 	int32_t ldLen = $nc(ldPath)->length();
 	$init($File);
 	char16_t ps = $File::pathSeparatorChar;
 	int32_t psCount = 0;
-	if (ldPath->indexOf((int32_t)u'\"') >= 0) {
+	if (ldPath->indexOf(u'\"') >= 0) {
 		$var($chars, buf, $new($chars, ldLen));
 		int32_t bufLen = 0;
 		for (int32_t i = 0; i < ldLen; ++i) {
@@ -72,14 +51,14 @@ $StringArray* ClassLoaderHelper::parsePath($String* ldPath$renamed) {
 		ldLen = bufLen;
 		ps = u'\"';
 	} else {
-		for (int32_t i = ldPath->indexOf((int32_t)ps); i >= 0; i = ldPath->indexOf((int32_t)ps, i + 1)) {
+		for (int32_t i = ldPath->indexOf(ps); i >= 0; i = ldPath->indexOf(ps, i + 1)) {
 			++psCount;
 		}
 	}
 	$var($StringArray, paths, $new($StringArray, psCount + 1));
 	int32_t pathStart = 0;
 	for (int32_t j = 0; j < psCount; ++j) {
-		int32_t pathEnd = ldPath->indexOf((int32_t)ps, pathStart);
+		int32_t pathEnd = ldPath->indexOf(ps, pathStart);
 		paths->set(j, (pathStart < pathEnd) ? $(ldPath->substring(pathStart, pathEnd)) : "."_s);
 		pathStart = pathEnd + 1;
 	}
@@ -91,7 +70,23 @@ ClassLoaderHelper::ClassLoaderHelper() {
 }
 
 $Class* ClassLoaderHelper::load$($String* name, bool initialize) {
-	$loadClass(ClassLoaderHelper, name, initialize, &_ClassLoaderHelper_ClassInfo_, allocate$ClassLoaderHelper);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ClassLoaderHelper, init$, void)},
+		{"mapAlternativeName", "(Ljava/io/File;)Ljava/io/File;", nullptr, $STATIC, $staticMethod(ClassLoaderHelper, mapAlternativeName, $File*, $File*)},
+		{"parsePath", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ClassLoaderHelper, parsePath, $StringArray*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.ClassLoaderHelper",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ClassLoaderHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassLoaderHelper);
+	});
 	return class$;
 }
 

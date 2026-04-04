@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/jrt/JavaRuntimeURLConnection$1.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/net/URL.h>
@@ -26,56 +25,6 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace jrt {
-
-$FieldInfo _JavaRuntimeURLConnection$1_FieldInfo_[] = {
-	{"val$location", "Ljdk/internal/jimage/ImageLocation;", nullptr, $FINAL | $SYNTHETIC, $field(JavaRuntimeURLConnection$1, val$location)},
-	{"val$module", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(JavaRuntimeURLConnection$1, val$module)},
-	{"val$url", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(JavaRuntimeURLConnection$1, val$url)},
-	{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(JavaRuntimeURLConnection$1, val$name)},
-	{"resource", "[B", nullptr, 2, $field(JavaRuntimeURLConnection$1, resource)},
-	{}
-};
-
-$MethodInfo _JavaRuntimeURLConnection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/lang/String;Ljdk/internal/jimage/ImageLocation;)V", nullptr, 0, $method(JavaRuntimeURLConnection$1, init$, void, $String*, $URL*, $String*, $ImageLocation*)},
-	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getCodeSourceURL, $URL*)},
-	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getContentLength, int32_t)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getName, $String*)},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getURL, $URL*)},
-	{}
-};
-
-$EnclosingMethodInfo _JavaRuntimeURLConnection$1_EnclosingMethodInfo_ = {
-	"sun.net.www.protocol.jrt.JavaRuntimeURLConnection",
-	"findResource",
-	"(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/loader/Resource;"
-};
-
-$InnerClassInfo _JavaRuntimeURLConnection$1_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.jrt.JavaRuntimeURLConnection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavaRuntimeURLConnection$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.jrt.JavaRuntimeURLConnection$1",
-	"jdk.internal.loader.Resource",
-	nullptr,
-	_JavaRuntimeURLConnection$1_FieldInfo_,
-	_JavaRuntimeURLConnection$1_MethodInfo_,
-	nullptr,
-	&_JavaRuntimeURLConnection$1_EnclosingMethodInfo_,
-	_JavaRuntimeURLConnection$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.jrt.JavaRuntimeURLConnection"
-};
-
-$Object* allocate$JavaRuntimeURLConnection$1($Class* clazz) {
-	return $of($alloc(JavaRuntimeURLConnection$1));
-}
 
 void JavaRuntimeURLConnection$1::init$($String* val$name, $URL* val$url, $String* val$module, $ImageLocation* val$location) {
 	$set(this, val$name, val$name);
@@ -110,7 +59,50 @@ JavaRuntimeURLConnection$1::JavaRuntimeURLConnection$1() {
 }
 
 $Class* JavaRuntimeURLConnection$1::load$($String* name, bool initialize) {
-	$loadClass(JavaRuntimeURLConnection$1, name, initialize, &_JavaRuntimeURLConnection$1_ClassInfo_, allocate$JavaRuntimeURLConnection$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$location", "Ljdk/internal/jimage/ImageLocation;", nullptr, $FINAL | $SYNTHETIC, $field(JavaRuntimeURLConnection$1, val$location)},
+		{"val$module", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(JavaRuntimeURLConnection$1, val$module)},
+		{"val$url", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(JavaRuntimeURLConnection$1, val$url)},
+		{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(JavaRuntimeURLConnection$1, val$name)},
+		{"resource", "[B", nullptr, 2, $field(JavaRuntimeURLConnection$1, resource)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/lang/String;Ljdk/internal/jimage/ImageLocation;)V", nullptr, 0, $method(JavaRuntimeURLConnection$1, init$, void, $String*, $URL*, $String*, $ImageLocation*)},
+		{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getCodeSourceURL, $URL*)},
+		{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getContentLength, int32_t)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getName, $String*)},
+		{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getURL, $URL*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.www.protocol.jrt.JavaRuntimeURLConnection",
+		"findResource",
+		"(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/loader/Resource;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.jrt.JavaRuntimeURLConnection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.jrt.JavaRuntimeURLConnection$1",
+		"jdk.internal.loader.Resource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.jrt.JavaRuntimeURLConnection"
+	};
+	$loadClass(JavaRuntimeURLConnection$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaRuntimeURLConnection$1);
+	});
 	return class$;
 }
 

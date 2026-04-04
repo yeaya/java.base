@@ -18,6 +18,7 @@ class DefaultInterface : public ::java::lang::Object {
 	$class(DefaultInterface, 0, ::java::lang::Object)
 public:
 	DefaultInterface();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::net::NetworkInterface* chooseDefaultInterface();
 	static ::java::net::NetworkInterface* getDefault();

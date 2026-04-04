@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/GaloisCounterMode$GCMEngine.h>
-
 #include <com/sun/crypto/provider/GCM.h>
 #include <com/sun/crypto/provider/GCTR.h>
 #include <com/sun/crypto/provider/GHASH.h>
@@ -33,74 +32,8 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _GaloisCounterMode$GCMEngine_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/crypto/provider/GaloisCounterMode;", nullptr, $FINAL | $SYNTHETIC, $field(GaloisCounterMode$GCMEngine, this$0)},
-	{"preCounterBlock", "[B", nullptr, 0, $field(GaloisCounterMode$GCMEngine, preCounterBlock)},
-	{"gctrPAndC", "Lcom/sun/crypto/provider/GCTR;", nullptr, 0, $field(GaloisCounterMode$GCMEngine, gctrPAndC)},
-	{"ghashAllToS", "Lcom/sun/crypto/provider/GHASH;", nullptr, 0, $field(GaloisCounterMode$GCMEngine, ghashAllToS)},
-	{"blockSize", "I", nullptr, $FINAL, $field(GaloisCounterMode$GCMEngine, blockSize)},
-	{"processed", "I", nullptr, 0, $field(GaloisCounterMode$GCMEngine, processed)},
-	{"aadBuffer", "Ljava/io/ByteArrayOutputStream;", nullptr, 0, $field(GaloisCounterMode$GCMEngine, aadBuffer)},
-	{"sizeOfAAD", "I", nullptr, 0, $field(GaloisCounterMode$GCMEngine, sizeOfAAD)},
-	{"aadProcessed", "Z", nullptr, 0, $field(GaloisCounterMode$GCMEngine, aadProcessed)},
-	{"ibuffer", "Ljava/io/ByteArrayOutputStream;", nullptr, 0, $field(GaloisCounterMode$GCMEngine, ibuffer)},
-	{"originalDst", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(GaloisCounterMode$GCMEngine, originalDst)},
-	{"originalOut", "[B", nullptr, 0, $field(GaloisCounterMode$GCMEngine, originalOut)},
-	{"originalOutOfs", "I", nullptr, 0, $field(GaloisCounterMode$GCMEngine, originalOutOfs)},
-	{}
-};
-
-$MethodInfo _GaloisCounterMode$GCMEngine_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/GaloisCounterMode;Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(GaloisCounterMode$GCMEngine, init$, void, $GaloisCounterMode*, $SymmetricCipher*)},
-	{"doFinal", "([BII[BI)I", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.AEADBadTagException,javax.crypto.ShortBufferException"},
-	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.IllegalBlockSizeException,javax.crypto.AEADBadTagException,javax.crypto.ShortBufferException"},
-	{"doLastBlock", "(Lcom/sun/crypto/provider/GCM;Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, doLastBlock, int32_t, $GCM*, $ByteBuffer*, $ByteBuffer*, $ByteBuffer*)},
-	{"doUpdate", "([BII)[B", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, doUpdate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"doUpdate", "([BII[BI)I", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, doUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"doUpdate", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, doUpdate, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException"},
-	{"getBufferedLength", "()I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, getBufferedLength, int32_t)},
-	{"getOutputSize", "(IZ)I", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, getOutputSize, int32_t, int32_t, bool)},
-	{"initBuffer", "(I)V", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, initBuffer, void, int32_t)},
-	{"mergeBlock", "([BI[BII[B)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, mergeBlock, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
-	{"mergeBlock", "([BII[BII[B)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, mergeBlock, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
-	{"overlapDetection", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, overlapDetection, $ByteBuffer*, $ByteBuffer*, $ByteBuffer*)},
-	{"overlapDetection", "([BI[BI)[B", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, overlapDetection, $bytes*, $bytes*, int32_t, $bytes*, int32_t)},
-	{"processAAD", "()V", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, processAAD, void)},
-	{"restoreDst", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, restoreDst, void, $ByteBuffer*)},
-	{"restoreOut", "([BI)V", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, restoreOut, void, $bytes*, int32_t)},
-	{"throttleData", "(Lcom/sun/crypto/provider/GCM;[BII[BI)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, throttleData, int32_t, $GCM*, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"throttleData", "(Lcom/sun/crypto/provider/GCM;Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, throttleData, int32_t, $GCM*, $ByteBuffer*, $ByteBuffer*)},
-	{"updateAAD", "([BII)V", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, updateAAD, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _GaloisCounterMode$GCMEngine_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.GaloisCounterMode$GCMEngine", "com.sun.crypto.provider.GaloisCounterMode", "GCMEngine", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GaloisCounterMode$GCMEngine_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.crypto.provider.GaloisCounterMode$GCMEngine",
-	"java.lang.Object",
-	nullptr,
-	_GaloisCounterMode$GCMEngine_FieldInfo_,
-	_GaloisCounterMode$GCMEngine_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GaloisCounterMode$GCMEngine_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.GaloisCounterMode"
-};
-
-$Object* allocate$GaloisCounterMode$GCMEngine($Class* clazz) {
-	return $of($alloc(GaloisCounterMode$GCMEngine));
-}
-
 void GaloisCounterMode$GCMEngine::init$($GaloisCounterMode* this$0, $SymmetricCipher* blockCipher) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	this->processed = 0;
 	$set(this, aadBuffer, nullptr);
@@ -127,7 +60,7 @@ void GaloisCounterMode$GCMEngine::initBuffer(int32_t len) {
 }
 
 int32_t GaloisCounterMode$GCMEngine::getBufferedLength() {
-	return (this->ibuffer == nullptr ? 0 : $nc(this->ibuffer)->size());
+	return (this->ibuffer == nullptr ? 0 : this->ibuffer->size());
 }
 
 int32_t GaloisCounterMode$GCMEngine::mergeBlock($bytes* buffer, int32_t bufOfs, $bytes* in, int32_t inOfs, int32_t inLen, $bytes* block) {
@@ -135,7 +68,7 @@ int32_t GaloisCounterMode$GCMEngine::mergeBlock($bytes* buffer, int32_t bufOfs, 
 }
 
 int32_t GaloisCounterMode$GCMEngine::mergeBlock($bytes* buffer, int32_t bufOfs, int32_t bufLen, $bytes* in, int32_t inOfs, int32_t inLen, $bytes* block) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (bufLen > this->blockSize) {
 		$throwNew($RuntimeException, $$str({"mergeBlock called on an ibuffer too big:  "_s, $$str(bufLen), " bytes"_s}));
 	}
@@ -160,16 +93,16 @@ void GaloisCounterMode$GCMEngine::updateAAD($bytes* src, int32_t offset, int32_t
 }
 
 void GaloisCounterMode$GCMEngine::processAAD() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->aadBuffer != nullptr) {
-		if ($nc(this->aadBuffer)->size() > 0) {
-			$var($bytes, aad, $nc(this->aadBuffer)->toByteArray());
+		if (this->aadBuffer->size() > 0) {
+			$var($bytes, aad, this->aadBuffer->toByteArray());
 			this->sizeOfAAD = $nc(aad)->length;
 			int32_t lastLen = $mod(aad->length, this->blockSize);
 			if (lastLen != 0) {
 				$nc(this->ghashAllToS)->update(aad, 0, aad->length - lastLen);
 				$var($bytes, padded, $GaloisCounterMode::expandToOneBlock(aad, aad->length - lastLen, lastLen, this->blockSize));
-				$nc(this->ghashAllToS)->update(padded);
+				this->ghashAllToS->update(padded);
 			} else {
 				$nc(this->ghashAllToS)->update(aad);
 			}
@@ -181,18 +114,18 @@ void GaloisCounterMode$GCMEngine::processAAD() {
 
 int32_t GaloisCounterMode$GCMEngine::doLastBlock($GCM* op, $ByteBuffer* buffer, $ByteBuffer* src, $ByteBuffer* dst) {
 	int32_t resultLen = 0;
-	int32_t bLen = (buffer != nullptr ? $nc(buffer)->remaining() : 0);
+	int32_t bLen = (buffer != nullptr ? buffer->remaining() : 0);
 	if (bLen > 0) {
 		if (bLen >= this->blockSize) {
 			resultLen += $nc(op)->update(buffer, dst);
 		}
 		if (bLen - resultLen > 0) {
 			$var($bytes, block, $new($bytes, this->blockSize));
-			int32_t over = buffer->remaining();
+			int32_t over = $nc(buffer)->remaining();
 			buffer->get(block, 0, over);
 			int32_t slen = $Math::min($nc(src)->remaining(), this->blockSize - over);
 			if (slen > 0) {
-				$nc(src)->get(block, over, slen);
+				src->get(block, over, slen);
 			}
 			int32_t len = slen + over;
 			if (len == this->blockSize) {
@@ -245,7 +178,7 @@ int32_t GaloisCounterMode$GCMEngine::throttleData($GCM* op, $ByteBuffer* src, $B
 }
 
 $ByteBuffer* GaloisCounterMode$GCMEngine::overlapDetection($ByteBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(src)->isDirect();
 	if (var$0 && $nc(dst)->isDirect()) {
 		$var($DirectBuffer, dsrc, $cast($DirectBuffer, src));
@@ -253,35 +186,35 @@ $ByteBuffer* GaloisCounterMode$GCMEngine::overlapDetection($ByteBuffer* src, $By
 		int64_t srcaddr = dsrc->address();
 		int64_t dstaddr = ddst->address();
 		while ($nc(dsrc)->attachment() != nullptr) {
-			srcaddr = $nc(($cast($DirectBuffer, $(dsrc->attachment()))))->address();
+			srcaddr = $$sure($DirectBuffer, dsrc->attachment())->address();
 			$assign(dsrc, $cast($DirectBuffer, dsrc->attachment()));
 		}
 		while ($nc(ddst)->attachment() != nullptr) {
-			dstaddr = $nc(($cast($DirectBuffer, $(ddst->attachment()))))->address();
+			dstaddr = $$sure($DirectBuffer, ddst->attachment())->address();
 			$assign(ddst, $cast($DirectBuffer, ddst->attachment()));
 		}
 		if (srcaddr != dstaddr) {
 			return dst;
 		}
-		int64_t var$2 = $nc(($cast($DirectBuffer, src)))->address() - srcaddr;
+		int64_t var$2 = $cast($DirectBuffer, src)->address() - srcaddr;
 		int64_t var$1 = var$2 + src->position();
-		int64_t var$4 = $nc(($cast($DirectBuffer, dst)))->address() - dstaddr;
+		int64_t var$4 = $cast($DirectBuffer, dst)->address() - dstaddr;
 		int64_t var$3 = var$4 + dst->position();
 		if (var$1 >= var$3) {
 			return dst;
 		}
 	} else {
-		bool var$6 = !src->isDirect();
-		if (var$6 && !dst->isDirect()) {
+		bool var$5 = !src->isDirect();
+		if (var$5 && !$nc(dst)->isDirect()) {
 			if (!src->isReadOnly()) {
 				if ($cast($bytes, src->array()) != $cast($bytes, dst->array())) {
 					return dst;
 				}
-				int32_t var$8 = src->position();
-				int32_t var$7 = var$8 + src->arrayOffset();
-				int32_t var$10 = dst->position();
-				int32_t var$9 = var$10 + dst->arrayOffset();
-				if (var$7 >= var$9) {
+				int32_t var$7 = src->position();
+				int32_t var$6 = var$7 + src->arrayOffset();
+				int32_t var$9 = dst->position();
+				int32_t var$8 = var$9 + dst->arrayOffset();
+				if (var$6 >= var$8) {
 					return dst;
 				}
 			}
@@ -329,7 +262,67 @@ GaloisCounterMode$GCMEngine::GaloisCounterMode$GCMEngine() {
 }
 
 $Class* GaloisCounterMode$GCMEngine::load$($String* name, bool initialize) {
-	$loadClass(GaloisCounterMode$GCMEngine, name, initialize, &_GaloisCounterMode$GCMEngine_ClassInfo_, allocate$GaloisCounterMode$GCMEngine);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/crypto/provider/GaloisCounterMode;", nullptr, $FINAL | $SYNTHETIC, $field(GaloisCounterMode$GCMEngine, this$0)},
+		{"preCounterBlock", "[B", nullptr, 0, $field(GaloisCounterMode$GCMEngine, preCounterBlock)},
+		{"gctrPAndC", "Lcom/sun/crypto/provider/GCTR;", nullptr, 0, $field(GaloisCounterMode$GCMEngine, gctrPAndC)},
+		{"ghashAllToS", "Lcom/sun/crypto/provider/GHASH;", nullptr, 0, $field(GaloisCounterMode$GCMEngine, ghashAllToS)},
+		{"blockSize", "I", nullptr, $FINAL, $field(GaloisCounterMode$GCMEngine, blockSize)},
+		{"processed", "I", nullptr, 0, $field(GaloisCounterMode$GCMEngine, processed)},
+		{"aadBuffer", "Ljava/io/ByteArrayOutputStream;", nullptr, 0, $field(GaloisCounterMode$GCMEngine, aadBuffer)},
+		{"sizeOfAAD", "I", nullptr, 0, $field(GaloisCounterMode$GCMEngine, sizeOfAAD)},
+		{"aadProcessed", "Z", nullptr, 0, $field(GaloisCounterMode$GCMEngine, aadProcessed)},
+		{"ibuffer", "Ljava/io/ByteArrayOutputStream;", nullptr, 0, $field(GaloisCounterMode$GCMEngine, ibuffer)},
+		{"originalDst", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(GaloisCounterMode$GCMEngine, originalDst)},
+		{"originalOut", "[B", nullptr, 0, $field(GaloisCounterMode$GCMEngine, originalOut)},
+		{"originalOutOfs", "I", nullptr, 0, $field(GaloisCounterMode$GCMEngine, originalOutOfs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/crypto/provider/GaloisCounterMode;Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(GaloisCounterMode$GCMEngine, init$, void, $GaloisCounterMode*, $SymmetricCipher*)},
+		{"doFinal", "([BII[BI)I", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.AEADBadTagException,javax.crypto.ShortBufferException"},
+		{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.IllegalBlockSizeException,javax.crypto.AEADBadTagException,javax.crypto.ShortBufferException"},
+		{"doLastBlock", "(Lcom/sun/crypto/provider/GCM;Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, doLastBlock, int32_t, $GCM*, $ByteBuffer*, $ByteBuffer*, $ByteBuffer*)},
+		{"doUpdate", "([BII)[B", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, doUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"doUpdate", "([BII[BI)I", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, doUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"doUpdate", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, doUpdate, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException"},
+		{"getBufferedLength", "()I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, getBufferedLength, int32_t)},
+		{"getOutputSize", "(IZ)I", nullptr, $ABSTRACT, $virtualMethod(GaloisCounterMode$GCMEngine, getOutputSize, int32_t, int32_t, bool)},
+		{"initBuffer", "(I)V", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, initBuffer, void, int32_t)},
+		{"mergeBlock", "([BI[BII[B)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, mergeBlock, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+		{"mergeBlock", "([BII[BII[B)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, mergeBlock, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+		{"overlapDetection", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, overlapDetection, $ByteBuffer*, $ByteBuffer*, $ByteBuffer*)},
+		{"overlapDetection", "([BI[BI)[B", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, overlapDetection, $bytes*, $bytes*, int32_t, $bytes*, int32_t)},
+		{"processAAD", "()V", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, processAAD, void)},
+		{"restoreDst", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, restoreDst, void, $ByteBuffer*)},
+		{"restoreOut", "([BI)V", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, restoreOut, void, $bytes*, int32_t)},
+		{"throttleData", "(Lcom/sun/crypto/provider/GCM;[BII[BI)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, throttleData, int32_t, $GCM*, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"throttleData", "(Lcom/sun/crypto/provider/GCM;Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, throttleData, int32_t, $GCM*, $ByteBuffer*, $ByteBuffer*)},
+		{"updateAAD", "([BII)V", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEngine, updateAAD, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.GaloisCounterMode$GCMEngine", "com.sun.crypto.provider.GaloisCounterMode", "GCMEngine", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.crypto.provider.GaloisCounterMode$GCMEngine",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.GaloisCounterMode"
+	};
+	$loadClass(GaloisCounterMode$GCMEngine, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GaloisCounterMode$GCMEngine);
+	});
 	return class$;
 }
 

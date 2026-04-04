@@ -1,5 +1,4 @@
 #include <sun/nio/ch/MembershipKeyImpl$Type6.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/NetworkInterface.h>
 #include <java/nio/channels/MulticastChannel.h>
@@ -18,46 +17,6 @@ using $MembershipKeyImpl = ::sun::nio::ch::MembershipKeyImpl;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _MembershipKeyImpl$Type6_FieldInfo_[] = {
-	{"groupAddress", "[B", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type6, groupAddress$)},
-	{"index", "I", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type6, index$)},
-	{"sourceAddress", "[B", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type6, sourceAddress$)},
-	{}
-};
-
-$MethodInfo _MembershipKeyImpl$Type6_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/MulticastChannel;Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;[BI[B)V", nullptr, 0, $method(MembershipKeyImpl$Type6, init$, void, $MulticastChannel*, $InetAddress*, $NetworkInterface*, $InetAddress*, $bytes*, int32_t, $bytes*)},
-	{"groupAddress", "()[B", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type6, groupAddress, $bytes*)},
-	{"index", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type6, index, int32_t)},
-	{"source", "()[B", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type6, source, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _MembershipKeyImpl$Type6_InnerClassesInfo_[] = {
-	{"sun.nio.ch.MembershipKeyImpl$Type6", "sun.nio.ch.MembershipKeyImpl", "Type6", $STATIC},
-	{}
-};
-
-$ClassInfo _MembershipKeyImpl$Type6_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.MembershipKeyImpl$Type6",
-	"sun.nio.ch.MembershipKeyImpl",
-	nullptr,
-	_MembershipKeyImpl$Type6_FieldInfo_,
-	_MembershipKeyImpl$Type6_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MembershipKeyImpl$Type6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.MembershipKeyImpl"
-};
-
-$Object* allocate$MembershipKeyImpl$Type6($Class* clazz) {
-	return $of($alloc(MembershipKeyImpl$Type6));
-}
 
 void MembershipKeyImpl$Type6::init$($MulticastChannel* ch, $InetAddress* group, $NetworkInterface* interf, $InetAddress* source, $bytes* groupAddress, int32_t index, $bytes* sourceAddress) {
 	$MembershipKeyImpl::init$(ch, group, interf, source);
@@ -82,7 +41,41 @@ MembershipKeyImpl$Type6::MembershipKeyImpl$Type6() {
 }
 
 $Class* MembershipKeyImpl$Type6::load$($String* name, bool initialize) {
-	$loadClass(MembershipKeyImpl$Type6, name, initialize, &_MembershipKeyImpl$Type6_ClassInfo_, allocate$MembershipKeyImpl$Type6);
+	$FieldInfo fieldInfos$$[] = {
+		{"groupAddress", "[B", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type6, groupAddress$)},
+		{"index", "I", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type6, index$)},
+		{"sourceAddress", "[B", nullptr, $PRIVATE | $FINAL, $field(MembershipKeyImpl$Type6, sourceAddress$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/MulticastChannel;Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;[BI[B)V", nullptr, 0, $method(MembershipKeyImpl$Type6, init$, void, $MulticastChannel*, $InetAddress*, $NetworkInterface*, $InetAddress*, $bytes*, int32_t, $bytes*)},
+		{"groupAddress", "()[B", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type6, groupAddress, $bytes*)},
+		{"index", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type6, index, int32_t)},
+		{"source", "()[B", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type6, source, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.MembershipKeyImpl$Type6", "sun.nio.ch.MembershipKeyImpl", "Type6", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.MembershipKeyImpl$Type6",
+		"sun.nio.ch.MembershipKeyImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.MembershipKeyImpl"
+	};
+	$loadClass(MembershipKeyImpl$Type6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MembershipKeyImpl$Type6);
+	});
 	return class$;
 }
 

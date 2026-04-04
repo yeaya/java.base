@@ -1,5 +1,4 @@
 #include <bug6317072.h>
-
 #include <java/text/DateFormat.h>
 #include <java/text/DateFormatSymbols.h>
 #include <java/text/SimpleDateFormat.h>
@@ -17,30 +16,11 @@ using $DateFormatSymbols = ::java::text::DateFormatSymbols;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Locale = ::java::util::Locale;
 
-$MethodInfo _bug6317072_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6317072, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6317072, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _bug6317072_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6317072",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug6317072_MethodInfo_
-};
-
-$Object* allocate$bug6317072($Class* clazz) {
-	return $of($alloc(bug6317072));
-}
-
 void bug6317072::init$() {
 }
 
 void bug6317072::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$new($SimpleDateFormat, "yy"_s, ($Locale*)nullptr);
 		$throwNew($RuntimeException, "should thrown a NullPointerException"_s);
@@ -82,7 +62,22 @@ bug6317072::bug6317072() {
 }
 
 $Class* bug6317072::load$($String* name, bool initialize) {
-	$loadClass(bug6317072, name, initialize, &_bug6317072_ClassInfo_, allocate$bug6317072);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6317072, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6317072, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6317072",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6317072, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6317072);
+	});
 	return class$;
 }
 

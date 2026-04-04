@@ -1,5 +1,4 @@
 #include <java/io/PipedWriter.h>
-
 #include <java/io/IOException.h>
 #include <java/io/PipedReader.h>
 #include <java/io/Writer.h>
@@ -18,36 +17,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 namespace java {
 	namespace io {
 
-$FieldInfo _PipedWriter_FieldInfo_[] = {
-	{"sink", "Ljava/io/PipedReader;", nullptr, $PRIVATE, $field(PipedWriter, sink)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(PipedWriter, closed)},
-	{}
-};
-
-$MethodInfo _PipedWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PipedReader;)V", nullptr, $PUBLIC, $method(PipedWriter, init$, void, $PipedReader*), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PipedWriter, init$, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PipedWriter, close, void), "java.io.IOException"},
-	{"connect", "(Ljava/io/PipedReader;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedWriter, connect, void, $PipedReader*), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedWriter, flush, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(PipedWriter, write, void, int32_t), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(PipedWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _PipedWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.PipedWriter",
-	"java.io.Writer",
-	nullptr,
-	_PipedWriter_FieldInfo_,
-	_PipedWriter_MethodInfo_
-};
-
-$Object* allocate$PipedWriter($Class* clazz) {
-	return $of($alloc(PipedWriter));
-}
-
 void PipedWriter::init$($PipedReader* snk) {
 	$Writer::init$();
 	this->closed = false;
@@ -63,7 +32,7 @@ void PipedWriter::connect($PipedReader* snk) {
 	$synchronized(this) {
 		if (snk == nullptr) {
 			$throwNew($NullPointerException);
-		} else if (this->sink != nullptr || $nc(snk)->connected) {
+		} else if (this->sink != nullptr || snk->connected) {
 			$throwNew($IOException, "Already connected"_s);
 		} else if (snk->closedByReader || this->closed) {
 			$throwNew($IOException, "Pipe closed"_s);
@@ -94,11 +63,11 @@ void PipedWriter::write($chars* cbuf, int32_t off, int32_t len) {
 void PipedWriter::flush() {
 	$synchronized(this) {
 		if (this->sink != nullptr) {
-			if ($nc(this->sink)->closedByReader || this->closed) {
+			if (this->sink->closedByReader || this->closed) {
 				$throwNew($IOException, "Pipe closed"_s);
 			}
 			$synchronized(this->sink) {
-				$nc($of(this->sink))->notifyAll();
+				$of(this->sink)->notifyAll();
 			}
 		}
 	}
@@ -107,7 +76,7 @@ void PipedWriter::flush() {
 void PipedWriter::close() {
 	this->closed = true;
 	if (this->sink != nullptr) {
-		$nc(this->sink)->receivedLast();
+		this->sink->receivedLast();
 	}
 }
 
@@ -115,7 +84,32 @@ PipedWriter::PipedWriter() {
 }
 
 $Class* PipedWriter::load$($String* name, bool initialize) {
-	$loadClass(PipedWriter, name, initialize, &_PipedWriter_ClassInfo_, allocate$PipedWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"sink", "Ljava/io/PipedReader;", nullptr, $PRIVATE, $field(PipedWriter, sink)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(PipedWriter, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/PipedReader;)V", nullptr, $PUBLIC, $method(PipedWriter, init$, void, $PipedReader*), "java.io.IOException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PipedWriter, init$, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PipedWriter, close, void), "java.io.IOException"},
+		{"connect", "(Ljava/io/PipedReader;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedWriter, connect, void, $PipedReader*), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedWriter, flush, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(PipedWriter, write, void, int32_t), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(PipedWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.PipedWriter",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PipedWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PipedWriter));
+	});
 	return class$;
 }
 

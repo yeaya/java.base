@@ -18,6 +18,7 @@ class Long$LongCache : public ::java::lang::Object {
 	$class(Long$LongCache, 0, ::java::lang::Object)
 public:
 	Long$LongCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::java::lang::Long>* cache;
 	static $Array<::java::lang::Long>* archivedCache;

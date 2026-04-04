@@ -1,5 +1,4 @@
 #include <jdk/internal/platform/CgroupUtil.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
@@ -54,35 +53,31 @@ public:
 		$set(this, path, path);
 	}
 	virtual $Object* run() override {
-		 return $of(CgroupUtil::lambda$readFilePrivileged$0(path));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CgroupUtil$$Lambda$lambda$readFilePrivileged$0>());
+		 return CgroupUtil::lambda$readFilePrivileged$0(path);
 	}
 	$Path* path = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CgroupUtil$$Lambda$lambda$readFilePrivileged$0::fieldInfos[2] = {
-	{"path", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, path)},
-	{}
-};
-$MethodInfo CgroupUtil$$Lambda$lambda$readFilePrivileged$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, init$, void, $Path*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, run, $Object*)},
-	{}
-};
-$ClassInfo CgroupUtil$$Lambda$lambda$readFilePrivileged$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.platform.CgroupUtil$$Lambda$lambda$readFilePrivileged$0",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CgroupUtil$$Lambda$lambda$readFilePrivileged$0::load$($String* name, bool initialize) {
-	$loadClass(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"path", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, path)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, init$, void, $Path*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.platform.CgroupUtil$$Lambda$lambda$readFilePrivileged$0",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupUtil$$Lambda$lambda$readFilePrivileged$0);
+	});
 	return class$;
 }
 $Class* CgroupUtil$$Lambda$lambda$readFilePrivileged$0::class$ = nullptr;
@@ -97,35 +92,31 @@ public:
 	virtual $Object* run() override {
 		 return $of(CgroupUtil::lambda$readStringValue$1(controller, param));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CgroupUtil$$Lambda$lambda$readStringValue$1$1>());
-	}
 	$CgroupSubsystemController* controller = nullptr;
 	$String* param = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CgroupUtil$$Lambda$lambda$readStringValue$1$1::fieldInfos[3] = {
-	{"controller", "Ljdk/internal/platform/CgroupSubsystemController;", nullptr, $PUBLIC, $field(CgroupUtil$$Lambda$lambda$readStringValue$1$1, controller)},
-	{"param", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CgroupUtil$$Lambda$lambda$readStringValue$1$1, param)},
-	{}
-};
-$MethodInfo CgroupUtil$$Lambda$lambda$readStringValue$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CgroupUtil$$Lambda$lambda$readStringValue$1$1, init$, void, $CgroupSubsystemController*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupUtil$$Lambda$lambda$readStringValue$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo CgroupUtil$$Lambda$lambda$readStringValue$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.platform.CgroupUtil$$Lambda$lambda$readStringValue$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CgroupUtil$$Lambda$lambda$readStringValue$1$1::load$($String* name, bool initialize) {
-	$loadClass(CgroupUtil$$Lambda$lambda$readStringValue$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"controller", "Ljdk/internal/platform/CgroupSubsystemController;", nullptr, $PUBLIC, $field(CgroupUtil$$Lambda$lambda$readStringValue$1$1, controller)},
+		{"param", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CgroupUtil$$Lambda$lambda$readStringValue$1$1, param)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CgroupUtil$$Lambda$lambda$readStringValue$1$1, init$, void, $CgroupSubsystemController*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupUtil$$Lambda$lambda$readStringValue$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.platform.CgroupUtil$$Lambda$lambda$readStringValue$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CgroupUtil$$Lambda$lambda$readStringValue$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupUtil$$Lambda$lambda$readStringValue$1$1);
+	});
 	return class$;
 }
 $Class* CgroupUtil$$Lambda$lambda$readStringValue$1$1::class$ = nullptr;
@@ -137,79 +128,50 @@ public:
 		$set(this, path, path);
 	}
 	virtual $Object* run() override {
-		 return $of(CgroupUtil::lambda$readAllLinesPrivileged$2(path));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2>());
+		 return CgroupUtil::lambda$readAllLinesPrivileged$2(path);
 	}
 	$Path* path = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2::fieldInfos[2] = {
-	{"path", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, path)},
-	{}
-};
-$MethodInfo CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, init$, void, $Path*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, run, $Object*)},
-	{}
-};
-$ClassInfo CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.platform.CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2::load$($String* name, bool initialize) {
-	$loadClass(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"path", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, path)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, init$, void, $Path*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.platform.CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2);
+	});
 	return class$;
 }
 $Class* CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2::class$ = nullptr;
-
-$MethodInfo _CgroupUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupUtil, init$, void)},
-	{"lambda$readAllLinesPrivileged$2", "(Ljava/nio/file/Path;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupUtil, lambda$readAllLinesPrivileged$2, $List*, $Path*), "java.lang.Exception"},
-	{"lambda$readFilePrivileged$0", "(Ljava/nio/file/Path;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupUtil, lambda$readFilePrivileged$0, $Stream*, $Path*), "java.lang.Exception"},
-	{"lambda$readStringValue$1", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;)Ljava/io/BufferedReader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupUtil, lambda$readStringValue$1, $BufferedReader*, $CgroupSubsystemController*, $String*), "java.lang.Exception"},
-	{"readAllLinesPrivileged", "(Ljava/nio/file/Path;)Ljava/util/List;", "(Ljava/nio/file/Path;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(CgroupUtil, readAllLinesPrivileged, $List*, $Path*), "java.io.IOException"},
-	{"readFilePrivileged", "(Ljava/nio/file/Path;)Ljava/util/stream/Stream;", "(Ljava/nio/file/Path;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(CgroupUtil, readFilePrivileged, $Stream*, $Path*), "java.io.IOException"},
-	{"readStringValue", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CgroupUtil, readStringValue, $String*, $CgroupSubsystemController*, $String*), "java.io.IOException"},
-	{"unwrapIOExceptionAndRethrow", "(Ljava/security/PrivilegedActionException;)V", nullptr, $STATIC, $staticMethod(CgroupUtil, unwrapIOExceptionAndRethrow, void, $PrivilegedActionException*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CgroupUtil_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.platform.CgroupUtil",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CgroupUtil_MethodInfo_
-};
-
-$Object* allocate$CgroupUtil($Class* clazz) {
-	return $of($alloc(CgroupUtil));
-}
 
 void CgroupUtil::init$() {
 }
 
 $Stream* CgroupUtil::readFilePrivileged($Path* path) {
+	$useLocalObjectStack();
 	$load(CgroupUtil);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
-		$var($PrivilegedExceptionAction, pea, static_cast<$PrivilegedExceptionAction*>($new(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, path)));
+		$var($PrivilegedExceptionAction, pea, $new(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, path));
 		return $cast($Stream, $AccessController::doPrivileged(pea));
 	} catch ($PrivilegedActionException& e) {
 		unwrapIOExceptionAndRethrow(e);
 		$throwNew($InternalError, $(e->getCause()));
 	} catch ($UncheckedIOException& e) {
-		$throw($($cast($IOException, e->getCause())));
+		$throw($$cast($IOException, e->getCause()));
 	}
 	$shouldNotReachHere();
 }
@@ -228,67 +190,65 @@ void CgroupUtil::unwrapIOExceptionAndRethrow($PrivilegedActionException* pae) {
 }
 
 $String* CgroupUtil::readStringValue($CgroupSubsystemController* controller, $String* param) {
+	$useLocalObjectStack();
 	$load(CgroupUtil);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$var($PrivilegedExceptionAction, pea, static_cast<$PrivilegedExceptionAction*>($new(CgroupUtil$$Lambda$lambda$readStringValue$1$1, controller, param)));
+	$var($PrivilegedExceptionAction, pea, $new(CgroupUtil$$Lambda$lambda$readStringValue$1$1, controller, param));
 	try {
 		$var($BufferedReader, bufferedReader, $cast($BufferedReader, $AccessController::doPrivileged(pea)));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($String, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($String, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$var($String, line, $nc(bufferedReader)->readLine());
-					$assign(var$2, line);
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (bufferedReader != nullptr) {
-						try {
-							bufferedReader->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
+				$var($String, line, $nc(bufferedReader)->readLine());
+				$assign(var$2, line);
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				if (bufferedReader != nullptr) {
-					bufferedReader->close();
+					try {
+						bufferedReader->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (bufferedReader != nullptr) {
+				bufferedReader->close();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($PrivilegedActionException& e) {
 		unwrapIOExceptionAndRethrow(e);
 		$throwNew($InternalError, $(e->getCause()));
 	} catch ($UncheckedIOException& e) {
-		$throw($($cast($IOException, e->getCause())));
+		$throw($$cast($IOException, e->getCause()));
 	}
 	$shouldNotReachHere();
 }
 
 $List* CgroupUtil::readAllLinesPrivileged($Path* path) {
+	$useLocalObjectStack();
 	$load(CgroupUtil);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
-		$var($PrivilegedExceptionAction, pea, static_cast<$PrivilegedExceptionAction*>($new(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, path)));
+		$var($PrivilegedExceptionAction, pea, $new(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, path));
 		return $cast($List, $AccessController::doPrivileged(pea));
 	} catch ($PrivilegedActionException& e) {
 		unwrapIOExceptionAndRethrow(e);
 		$throwNew($InternalError, $(e->getCause()));
 	} catch ($UncheckedIOException& e) {
-		$throw($($cast($IOException, e->getCause())));
+		$throw($$cast($IOException, e->getCause()));
 	}
 	$shouldNotReachHere();
 }
@@ -298,7 +258,7 @@ $List* CgroupUtil::lambda$readAllLinesPrivileged$2($Path* path) {
 }
 
 $BufferedReader* CgroupUtil::lambda$readStringValue$1($CgroupSubsystemController* controller, $String* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Files::newBufferedReader($($Paths::get($($nc(controller)->path()), $$new($StringArray, {param}))));
 }
 
@@ -311,17 +271,38 @@ CgroupUtil::CgroupUtil() {
 
 $Class* CgroupUtil::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CgroupUtil$$Lambda$lambda$readFilePrivileged$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.platform.CgroupUtil$$Lambda$lambda$readFilePrivileged$0")) {
 			return CgroupUtil$$Lambda$lambda$readFilePrivileged$0::load$(name, initialize);
 		}
-		if (name->equals(CgroupUtil$$Lambda$lambda$readStringValue$1$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.platform.CgroupUtil$$Lambda$lambda$readStringValue$1$1")) {
 			return CgroupUtil$$Lambda$lambda$readStringValue$1$1::load$(name, initialize);
 		}
-		if (name->equals(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.platform.CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2")) {
 			return CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(CgroupUtil, name, initialize, &_CgroupUtil_ClassInfo_, allocate$CgroupUtil);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupUtil, init$, void)},
+		{"lambda$readAllLinesPrivileged$2", "(Ljava/nio/file/Path;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupUtil, lambda$readAllLinesPrivileged$2, $List*, $Path*), "java.lang.Exception"},
+		{"lambda$readFilePrivileged$0", "(Ljava/nio/file/Path;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupUtil, lambda$readFilePrivileged$0, $Stream*, $Path*), "java.lang.Exception"},
+		{"lambda$readStringValue$1", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;)Ljava/io/BufferedReader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupUtil, lambda$readStringValue$1, $BufferedReader*, $CgroupSubsystemController*, $String*), "java.lang.Exception"},
+		{"readAllLinesPrivileged", "(Ljava/nio/file/Path;)Ljava/util/List;", "(Ljava/nio/file/Path;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(CgroupUtil, readAllLinesPrivileged, $List*, $Path*), "java.io.IOException"},
+		{"readFilePrivileged", "(Ljava/nio/file/Path;)Ljava/util/stream/Stream;", "(Ljava/nio/file/Path;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(CgroupUtil, readFilePrivileged, $Stream*, $Path*), "java.io.IOException"},
+		{"readStringValue", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CgroupUtil, readStringValue, $String*, $CgroupSubsystemController*, $String*), "java.io.IOException"},
+		{"unwrapIOExceptionAndRethrow", "(Ljava/security/PrivilegedActionException;)V", nullptr, $STATIC, $staticMethod(CgroupUtil, unwrapIOExceptionAndRethrow, void, $PrivilegedActionException*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.platform.CgroupUtil",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CgroupUtil, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupUtil);
+	});
 	return class$;
 }
 

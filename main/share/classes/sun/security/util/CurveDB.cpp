@@ -1,5 +1,4 @@
 #include <sun/security/util/CurveDB.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/spec/ECField.h>
 #include <java/security/spec/ECFieldF2m.h>
@@ -52,41 +51,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _CurveDB_FieldInfo_[] = {
-	{"P", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CurveDB, P)},
-	{"B", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CurveDB, B)},
-	{"PD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CurveDB, PD)},
-	{"BD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CurveDB, BD)},
-	{"oidMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/util/NamedCurve;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CurveDB, oidMap)},
-	{"nameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/util/NamedCurve;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CurveDB, nameMap)},
-	{"lengthMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/security/util/NamedCurve;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CurveDB, lengthMap)},
-	{"specCollection", "Ljava/util/Collection;", "Ljava/util/Collection<+Lsun/security/util/NamedCurve;>;", $PRIVATE | $STATIC, $staticField(CurveDB, specCollection)},
-	{}
-};
-
-$MethodInfo _CurveDB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurveDB, init$, void)},
-	{"add", "(Lsun/security/util/KnownOIDs;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CurveDB, add, void, $KnownOIDs*, int32_t, $String*, $String*, $String*, $String*, $String*, $String*, int32_t)},
-	{"bi", "(Ljava/lang/String;)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(CurveDB, bi, $BigInteger*, $String*)},
-	{"lookup", "(Ljava/lang/String;)Lsun/security/util/NamedCurve;", nullptr, $PUBLIC | $STATIC, $staticMethod(CurveDB, lookup, $NamedCurve*, $String*)},
-	{"lookup", "(I)Lsun/security/util/NamedCurve;", nullptr, $STATIC, $staticMethod(CurveDB, lookup, $NamedCurve*, int32_t)},
-	{"lookup", "(Ljava/security/spec/ECParameterSpec;)Lsun/security/util/NamedCurve;", nullptr, $PUBLIC | $STATIC, $staticMethod(CurveDB, lookup, $NamedCurve*, $ECParameterSpec*)},
-	{}
-};
-
-$ClassInfo _CurveDB_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.CurveDB",
-	"java.lang.Object",
-	nullptr,
-	_CurveDB_FieldInfo_,
-	_CurveDB_MethodInfo_
-};
-
-$Object* allocate$CurveDB($Class* clazz) {
-	return $of($alloc(CurveDB));
-}
-
 $Map* CurveDB::oidMap = nullptr;
 $Map* CurveDB::nameMap = nullptr;
 $Map* CurveDB::lengthMap = nullptr;
@@ -97,33 +61,33 @@ void CurveDB::init$() {
 
 $NamedCurve* CurveDB::lookup($String* name) {
 	$init(CurveDB);
-	$useLocalCurrentObjectStackCache();
-	$var($NamedCurve, spec, $cast($NamedCurve, $nc(CurveDB::oidMap)->get(name)));
+	$useLocalObjectStack();
+	$var($NamedCurve, spec, $cast($NamedCurve, CurveDB::oidMap->get(name)));
 	if (spec != nullptr) {
 		return spec;
 	}
 	$init($Locale);
-	return $cast($NamedCurve, $nc(CurveDB::nameMap)->get($($nc(name)->toLowerCase($Locale::ENGLISH))));
+	return $cast($NamedCurve, CurveDB::nameMap->get($($nc(name)->toLowerCase($Locale::ENGLISH))));
 }
 
 $NamedCurve* CurveDB::lookup(int32_t length) {
 	$init(CurveDB);
-	return $cast($NamedCurve, $nc(CurveDB::lengthMap)->get($($Integer::valueOf(length))));
+	return $cast($NamedCurve, CurveDB::lengthMap->get($($Integer::valueOf(length))));
 }
 
 $NamedCurve* CurveDB::lookup($ECParameterSpec* params) {
 	$init(CurveDB);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (($instanceOf($NamedCurve, params)) || (params == nullptr)) {
 		return $cast($NamedCurve, params);
 	}
-	int32_t fieldSize = $nc($($nc($($nc(params)->getCurve()))->getField()))->getFieldSize();
+	int32_t fieldSize = $$nc($$nc($nc(params)->getCurve())->getField())->getFieldSize();
 	{
 		$var($Iterator, i$, $nc(CurveDB::specCollection)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($NamedCurve, namedCurve, $cast($NamedCurve, i$->next()));
 			{
-				if ($nc($($nc($($nc(namedCurve)->getCurve()))->getField()))->getFieldSize() != fieldSize) {
+				if ($$nc($$nc($nc(namedCurve)->getCurve())->getField())->getFieldSize() != fieldSize) {
 					continue;
 				}
 				if ($ECUtil::equals(namedCurve, params)) {
@@ -142,7 +106,7 @@ $BigInteger* CurveDB::bi($String* s) {
 
 void CurveDB::add($KnownOIDs* o, int32_t type, $String* sfield, $String* a, $String* b, $String* x, $String* y, $String* n, int32_t h) {
 	$init(CurveDB);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, p, bi(sfield));
 	$var($ECField, field, nullptr);
 	if ((type == CurveDB::P) || (type == CurveDB::PD)) {
@@ -152,37 +116,32 @@ void CurveDB::add($KnownOIDs* o, int32_t type, $String* sfield, $String* a, $Str
 	} else {
 		$throwNew($RuntimeException, $$str({"Invalid type: "_s, $$str(type)}));
 	}
-	$var($ECField, var$0, field);
-	$var($BigInteger, var$1, bi(a));
-	$var($EllipticCurve, curve, $new($EllipticCurve, var$0, var$1, $(bi(b))));
-	$var($BigInteger, var$2, bi(x));
-	$var($ECPoint, g, $new($ECPoint, var$2, $(bi(y))));
+	$var($BigInteger, var$0, bi(a));
+	$var($EllipticCurve, curve, $new($EllipticCurve, field, var$0, $(bi(b))));
+	$var($BigInteger, var$1, bi(x));
+	$var($ECPoint, g, $new($ECPoint, var$1, $(bi(y))));
 	$var($String, oid, $nc(o)->value());
 	$var($NamedCurve, params, $new($NamedCurve, o, curve, g, $(bi(n)), h));
-	if ($nc(CurveDB::oidMap)->put(oid, params) != nullptr) {
+	if (CurveDB::oidMap->put(oid, params) != nullptr) {
 		$throwNew($RuntimeException, $$str({"Duplication oid: "_s, oid}));
 	}
 	{
 		$var($StringArray, arr$, params->getNameAndAliases());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, cn, arr$->get(i$));
-			{
-				$init($Locale);
-				if ($nc(CurveDB::nameMap)->put($($nc(cn)->toLowerCase($Locale::ENGLISH)), params) != nullptr) {
-					$throwNew($RuntimeException, $$str({"Duplication name: "_s, cn}));
-				}
+			$init($Locale);
+			if (CurveDB::nameMap->put($($nc(cn)->toLowerCase($Locale::ENGLISH)), params) != nullptr) {
+				$throwNew($RuntimeException, $$str({"Duplication name: "_s, cn}));
 			}
 		}
 	}
 	int32_t len = $nc(field)->getFieldSize();
-	if ((type == CurveDB::PD) || (type == CurveDB::BD) || ($nc(CurveDB::lengthMap)->get($($Integer::valueOf(len))) == nullptr)) {
-		$nc(CurveDB::lengthMap)->put($($Integer::valueOf(len)), params);
+	if ((type == CurveDB::PD) || (type == CurveDB::BD) || (CurveDB::lengthMap->get($($Integer::valueOf(len))) == nullptr)) {
+		CurveDB::lengthMap->put($($Integer::valueOf(len)), params);
 	}
 }
 
-void clinit$CurveDB($Class* class$) {
+void CurveDB::clinit$($Class* clazz) {
 	$assignStatic(CurveDB::oidMap, $new($LinkedHashMap));
 	$assignStatic(CurveDB::nameMap, $new($HashMap));
 	$assignStatic(CurveDB::lengthMap, $new($HashMap));
@@ -241,7 +200,7 @@ void clinit$CurveDB($Class* class$) {
 		CurveDB::add($KnownOIDs::brainpoolP320r1, CurveDB::P, "D35E472036BC4FB7E13C785ED201E065F98FCFA6F6F40DEF4F92B9EC7893EC28FCD412B1F1B32E27"_s, "3EE30B568FBAB0F883CCEBD46D3F3BB8A2A73513F5EB79DA66190EB085FFA9F492F375A97D860EB4"_s, "520883949DFDBC42D3AD198640688A6FE13F41349554B49ACC31DCCD884539816F5EB4AC8FB1F1A6"_s, "43BD7E9AFB53D8B85289BCC48EE5BFE6F20137D10A087EB6E7871E2A10A599C710AF8D0D39E20611"_s, "14FDD05545EC1CC8AB4093247F77275E0743FFED117182EAA9C77877AAAC6AC7D35245D1692E8EE1"_s, "D35E472036BC4FB7E13C785ED201E065F98FCFA5B68F12A32D482EC7EE8658E98691555B44C59311"_s, 1);
 		CurveDB::add($KnownOIDs::brainpoolP384r1, CurveDB::P, "8CB91E82A3386D280F5D6F7E50E641DF152F7109ED5456B412B1DA197FB71123ACD3A729901D1A71874700133107EC53"_s, "7BC382C63D8C150C3C72080ACE05AFA0C2BEA28E4FB22787139165EFBA91F90F8AA5814A503AD4EB04A8C7DD22CE2826"_s, "04A8C7DD22CE28268B39B55416F0447C2FB77DE107DCD2A62E880EA53EEB62D57CB4390295DBC9943AB78696FA504C11"_s, "1D1C64F068CF45FFA2A63A81B7C13F6B8847A3E77EF14FE3DB7FCAFE0CBD10E8E826E03436D646AAEF87B2E247D4AF1E"_s, "8ABE1D7520F9C2A45CB1EB8E95CFD55262B70B29FEEC5864E19C054FF99129280E4646217791811142820341263C5315"_s, "8CB91E82A3386D280F5D6F7E50E641DF152F7109ED5456B31F166E6CAC0425A7CF3AB6AF6B7FC3103B883202E9046565"_s, 1);
 		CurveDB::add($KnownOIDs::brainpoolP512r1, CurveDB::P, "AADD9DB8DBE9C48B3FD4E6AE33C9FC07CB308DB3B3C9D20ED6639CCA703308717D4D9B009BC66842AECDA12AE6A380E62881FF2F2D82C68528AA6056583A48F3"_s, "7830A3318B603B89E2327145AC234CC594CBDD8D3DF91610A83441CAEA9863BC2DED5D5AA8253AA10A2EF1C98B9AC8B57F1117A72BF2C7B9E7C1AC4D77FC94CA"_s, "3DF91610A83441CAEA9863BC2DED5D5AA8253AA10A2EF1C98B9AC8B57F1117A72BF2C7B9E7C1AC4D77FC94CADC083E67984050B75EBAE5DD2809BD638016F723"_s, "81AEE4BDD82ED9645A21322E9C4C6A9385ED9F70B5D916C1B43B62EEF4D0098EFF3B1F78E2D0D48D50D1687B93B97D5F7C6D5047406A5E688B352209BCB9F822"_s, "7DDE385D566332ECC0EABFA9CF7822FDF209F70024A57B1AA000C55B881F8111B2DCDE494A5F485E5BCA4BD88A2763AED1CA2B2FA8F0540678CD1E0F3AD80892"_s, "AADD9DB8DBE9C48B3FD4E6AE33C9FC07CB308DB3B3C9D20ED6639CCA70330870553E5C414CA92619418661197FAC10471DB1D381085DDADDB58796829CA90069"_s, 1);
-		$assignStatic(CurveDB::specCollection, $Collections::unmodifiableCollection($($nc(CurveDB::oidMap)->values())));
+		$assignStatic(CurveDB::specCollection, $Collections::unmodifiableCollection($(CurveDB::oidMap->values())));
 	}
 }
 
@@ -249,7 +208,37 @@ CurveDB::CurveDB() {
 }
 
 $Class* CurveDB::load$($String* name, bool initialize) {
-	$loadClass(CurveDB, name, initialize, &_CurveDB_ClassInfo_, clinit$CurveDB, allocate$CurveDB);
+	$FieldInfo fieldInfos$$[] = {
+		{"P", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CurveDB, P)},
+		{"B", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CurveDB, B)},
+		{"PD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CurveDB, PD)},
+		{"BD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CurveDB, BD)},
+		{"oidMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/util/NamedCurve;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CurveDB, oidMap)},
+		{"nameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/util/NamedCurve;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CurveDB, nameMap)},
+		{"lengthMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/security/util/NamedCurve;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CurveDB, lengthMap)},
+		{"specCollection", "Ljava/util/Collection;", "Ljava/util/Collection<+Lsun/security/util/NamedCurve;>;", $PRIVATE | $STATIC, $staticField(CurveDB, specCollection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurveDB, init$, void)},
+		{"add", "(Lsun/security/util/KnownOIDs;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CurveDB, add, void, $KnownOIDs*, int32_t, $String*, $String*, $String*, $String*, $String*, $String*, int32_t)},
+		{"bi", "(Ljava/lang/String;)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(CurveDB, bi, $BigInteger*, $String*)},
+		{"lookup", "(Ljava/lang/String;)Lsun/security/util/NamedCurve;", nullptr, $PUBLIC | $STATIC, $staticMethod(CurveDB, lookup, $NamedCurve*, $String*)},
+		{"lookup", "(I)Lsun/security/util/NamedCurve;", nullptr, $STATIC, $staticMethod(CurveDB, lookup, $NamedCurve*, int32_t)},
+		{"lookup", "(Ljava/security/spec/ECParameterSpec;)Lsun/security/util/NamedCurve;", nullptr, $PUBLIC | $STATIC, $staticMethod(CurveDB, lookup, $NamedCurve*, $ECParameterSpec*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.CurveDB",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CurveDB, name, initialize, &classInfo$$, CurveDB::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CurveDB);
+	});
 	return class$;
 }
 

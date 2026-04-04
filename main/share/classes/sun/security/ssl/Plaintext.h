@@ -29,6 +29,7 @@ class Plaintext : public ::java::lang::Object {
 	$class(Plaintext, 0, ::java::lang::Object)
 public:
 	Plaintext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int8_t contentType, int8_t majorVersion, int8_t minorVersion, int32_t recordEpoch, int64_t recordSN, ::java::nio::ByteBuffer* fragment);
 	virtual $String* toString() override;

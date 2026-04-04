@@ -1,5 +1,4 @@
 #include <sun/security/provider/MoreDrbgParameters.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/security/DrbgParameters$Capability.h>
 #include <java/security/DrbgParameters$Instantiation.h>
@@ -19,43 +18,6 @@ using $EntropySource = ::sun::security::provider::EntropySource;
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _MoreDrbgParameters_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MoreDrbgParameters, serialVersionUID)},
-	{"es", "Lsun/security/provider/EntropySource;", nullptr, $FINAL | $TRANSIENT, $field(MoreDrbgParameters, es)},
-	{"mech", "Ljava/lang/String;", nullptr, $FINAL, $field(MoreDrbgParameters, mech)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $FINAL, $field(MoreDrbgParameters, algorithm)},
-	{"usedf", "Z", nullptr, $FINAL, $field(MoreDrbgParameters, usedf)},
-	{"strength", "I", nullptr, $FINAL, $field(MoreDrbgParameters, strength)},
-	{"capability", "Ljava/security/DrbgParameters$Capability;", nullptr, $FINAL, $field(MoreDrbgParameters, capability)},
-	{"nonce", "[B", nullptr, 0, $field(MoreDrbgParameters, nonce)},
-	{"personalizationString", "[B", nullptr, 0, $field(MoreDrbgParameters, personalizationString)},
-	{}
-};
-
-$MethodInfo _MoreDrbgParameters_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/security/provider/EntropySource;Ljava/lang/String;Ljava/lang/String;[BZLjava/security/DrbgParameters$Instantiation;)V", nullptr, $PUBLIC, $method(MoreDrbgParameters, init$, void, $EntropySource*, $String*, $String*, $bytes*, bool, $DrbgParameters$Instantiation*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MoreDrbgParameters, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MoreDrbgParameters, toString, $String*)},
-	{}
-};
-
-$ClassInfo _MoreDrbgParameters_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.MoreDrbgParameters",
-	"java.lang.Object",
-	"java.security.SecureRandomParameters,java.io.Serializable",
-	_MoreDrbgParameters_FieldInfo_,
-	_MoreDrbgParameters_MethodInfo_
-};
-
-$Object* allocate$MoreDrbgParameters($Class* clazz) {
-	return $of($alloc(MoreDrbgParameters));
-}
 
 int32_t MoreDrbgParameters::hashCode() {
 	 return this->$SecureRandomParameters::hashCode();
@@ -77,7 +39,7 @@ void MoreDrbgParameters::init$($EntropySource* es, $String* mech, $String* algor
 	$set(this, mech, mech);
 	$set(this, algorithm, algorithm);
 	$set(this, es, es);
-	$set(this, nonce, (nonce == nullptr) ? ($bytes*)nullptr : $cast($bytes, $nc(nonce)->clone()));
+	$set(this, nonce, (nonce == nullptr) ? ($bytes*)nullptr : $cast($bytes, nonce->clone()));
 	this->usedf = usedf;
 	this->strength = $nc(config)->getStrength();
 	$set(this, capability, config->getCapability());
@@ -85,17 +47,17 @@ void MoreDrbgParameters::init$($EntropySource* es, $String* mech, $String* algor
 }
 
 $String* MoreDrbgParameters::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({this->mech, ","_s, this->algorithm, ","_s, $$str(this->usedf), ","_s, $$str(this->strength), ","_s, this->capability, ","_s, this->personalizationString});
 }
 
 void MoreDrbgParameters::readObject($ObjectInputStream* s) {
 	$nc(s)->defaultReadObject();
 	if (this->nonce != nullptr) {
-		$set(this, nonce, $cast($bytes, $nc(this->nonce)->clone()));
+		$set(this, nonce, $cast($bytes, this->nonce->clone()));
 	}
 	if (this->personalizationString != nullptr) {
-		$set(this, personalizationString, $cast($bytes, $nc(this->personalizationString)->clone()));
+		$set(this, personalizationString, $cast($bytes, this->personalizationString->clone()));
 	}
 	if (this->capability == nullptr) {
 		$throwNew($IllegalArgumentException, "Input data is corrupted"_s);
@@ -106,7 +68,39 @@ MoreDrbgParameters::MoreDrbgParameters() {
 }
 
 $Class* MoreDrbgParameters::load$($String* name, bool initialize) {
-	$loadClass(MoreDrbgParameters, name, initialize, &_MoreDrbgParameters_ClassInfo_, allocate$MoreDrbgParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MoreDrbgParameters, serialVersionUID)},
+		{"es", "Lsun/security/provider/EntropySource;", nullptr, $FINAL | $TRANSIENT, $field(MoreDrbgParameters, es)},
+		{"mech", "Ljava/lang/String;", nullptr, $FINAL, $field(MoreDrbgParameters, mech)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $FINAL, $field(MoreDrbgParameters, algorithm)},
+		{"usedf", "Z", nullptr, $FINAL, $field(MoreDrbgParameters, usedf)},
+		{"strength", "I", nullptr, $FINAL, $field(MoreDrbgParameters, strength)},
+		{"capability", "Ljava/security/DrbgParameters$Capability;", nullptr, $FINAL, $field(MoreDrbgParameters, capability)},
+		{"nonce", "[B", nullptr, 0, $field(MoreDrbgParameters, nonce)},
+		{"personalizationString", "[B", nullptr, 0, $field(MoreDrbgParameters, personalizationString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/security/provider/EntropySource;Ljava/lang/String;Ljava/lang/String;[BZLjava/security/DrbgParameters$Instantiation;)V", nullptr, $PUBLIC, $method(MoreDrbgParameters, init$, void, $EntropySource*, $String*, $String*, $bytes*, bool, $DrbgParameters$Instantiation*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MoreDrbgParameters, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MoreDrbgParameters, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.MoreDrbgParameters",
+		"java.lang.Object",
+		"java.security.SecureRandomParameters,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MoreDrbgParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MoreDrbgParameters));
+	});
 	return class$;
 }
 

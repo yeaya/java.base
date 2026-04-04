@@ -1,30 +1,10 @@
 #include <UppercaseScheme.h>
-
 #include <java/net/URL.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-
-$MethodInfo _UppercaseScheme_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UppercaseScheme, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UppercaseScheme, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _UppercaseScheme_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"UppercaseScheme",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_UppercaseScheme_MethodInfo_
-};
-
-$Object* allocate$UppercaseScheme($Class* clazz) {
-	return $of($alloc(UppercaseScheme));
-}
 
 void UppercaseScheme::init$() {
 }
@@ -37,7 +17,22 @@ UppercaseScheme::UppercaseScheme() {
 }
 
 $Class* UppercaseScheme::load$($String* name, bool initialize) {
-	$loadClass(UppercaseScheme, name, initialize, &_UppercaseScheme_ClassInfo_, allocate$UppercaseScheme);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UppercaseScheme, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UppercaseScheme, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"UppercaseScheme",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UppercaseScheme, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UppercaseScheme);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/reflect/Type.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,26 @@ namespace java {
 	namespace lang {
 		namespace reflect {
 
-$MethodInfo _Type_MethodInfo_[] = {
-	{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type, getTypeName, $String*)},
-	{}
-};
-
-$ClassInfo _Type_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.reflect.Type",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Type_MethodInfo_
-};
-
-$Object* allocate$Type($Class* clazz) {
-	return $of($alloc(Type));
-}
-
 $String* Type::getTypeName() {
 	return toString();
 }
 
 $Class* Type::load$($String* name, bool initialize) {
-	$loadClass(Type, name, initialize, &_Type_ClassInfo_, allocate$Type);
+	$MethodInfo methodInfos$$[] = {
+		{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type, getTypeName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.reflect.Type",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Type, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Type);
+	});
 	return class$;
 }
 

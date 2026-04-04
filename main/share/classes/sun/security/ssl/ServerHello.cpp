@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ServerHello.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <javax/crypto/SecretKey.h>
 #include <javax/net/ssl/SSLHandshakeException.h>
@@ -10,7 +9,6 @@
 #include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeProducer.h>
 #include <sun/security/ssl/SSLConsumer.h>
-#include <sun/security/ssl/SSLKeyDerivation.h>
 #include <sun/security/ssl/SSLLogger.h>
 #include <sun/security/ssl/SSLSecretDerivation.h>
 #include <sun/security/ssl/ServerHello$ServerHelloConsumer.h>
@@ -36,7 +34,6 @@ using $HandshakeConsumer = ::sun::security::ssl::HandshakeConsumer;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
 using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
-using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLSecretDerivation = ::sun::security::ssl::SSLSecretDerivation;
 using $ServerHello$ServerHelloConsumer = ::sun::security::ssl::ServerHello$ServerHelloConsumer;
@@ -51,59 +48,6 @@ using $ServerHello$T13ServerHelloProducer = ::sun::security::ssl::ServerHello$T1
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _ServerHello_FieldInfo_[] = {
-	{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(ServerHello, handshakeConsumer)},
-	{"t12HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerHello, t12HandshakeProducer)},
-	{"t13HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerHello, t13HandshakeProducer)},
-	{"hrrHandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerHello, hrrHandshakeProducer)},
-	{"hrrReproducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerHello, hrrReproducer)},
-	{"t12HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, t12HandshakeConsumer)},
-	{"t13HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, t13HandshakeConsumer)},
-	{"d12HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, d12HandshakeConsumer)},
-	{"d13HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, d13HandshakeConsumer)},
-	{"t13HrrHandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, t13HrrHandshakeConsumer)},
-	{"d13HrrHandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, d13HrrHandshakeConsumer)},
-	{}
-};
-
-$MethodInfo _ServerHello_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ServerHello, init$, void)},
-	{"setUpPskKD", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ServerHello, setUpPskKD, void, $HandshakeContext*, $SecretKey*), "javax.net.ssl.SSLHandshakeException"},
-	{}
-};
-
-$InnerClassInfo _ServerHello_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ServerHello$T13HelloRetryRequestConsumer", "sun.security.ssl.ServerHello", "T13HelloRetryRequestConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerHello$T13ServerHelloConsumer", "sun.security.ssl.ServerHello", "T13ServerHelloConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerHello$T12ServerHelloConsumer", "sun.security.ssl.ServerHello", "T12ServerHelloConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerHello$ServerHelloConsumer", "sun.security.ssl.ServerHello", "ServerHelloConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerHello$T13HelloRetryRequestReproducer", "sun.security.ssl.ServerHello", "T13HelloRetryRequestReproducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerHello$T13HelloRetryRequestProducer", "sun.security.ssl.ServerHello", "T13HelloRetryRequestProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerHello$T13ServerHelloProducer", "sun.security.ssl.ServerHello", "T13ServerHelloProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerHello$T12ServerHelloProducer", "sun.security.ssl.ServerHello", "T12ServerHelloProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ServerHello$ServerHelloMessage", "sun.security.ssl.ServerHello", "ServerHelloMessage", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ServerHello_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ServerHello",
-	"java.lang.Object",
-	nullptr,
-	_ServerHello_FieldInfo_,
-	_ServerHello_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerHello_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ServerHello$T13HelloRetryRequestConsumer,sun.security.ssl.ServerHello$T13ServerHelloConsumer,sun.security.ssl.ServerHello$T12ServerHelloConsumer,sun.security.ssl.ServerHello$ServerHelloConsumer,sun.security.ssl.ServerHello$T13HelloRetryRequestReproducer,sun.security.ssl.ServerHello$T13HelloRetryRequestProducer,sun.security.ssl.ServerHello$T13ServerHelloProducer,sun.security.ssl.ServerHello$T12ServerHelloProducer,sun.security.ssl.ServerHello$T12ServerHelloProducer$KeyExchangeProperties,sun.security.ssl.ServerHello$ServerHelloMessage"
-};
-
-$Object* allocate$ServerHello($Class* clazz) {
-	return $of($alloc(ServerHello));
-}
 
 $SSLConsumer* ServerHello::handshakeConsumer = nullptr;
 $HandshakeProducer* ServerHello::t12HandshakeProducer = nullptr;
@@ -122,7 +66,7 @@ void ServerHello::init$() {
 
 void ServerHello::setUpPskKD($HandshakeContext* hc, $SecretKey* psk) {
 	$init(ServerHello);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 		$SSLLogger::fine("Using PSK to derive early secret"_s, $$new($ObjectArray, 0));
@@ -130,15 +74,15 @@ void ServerHello::setUpPskKD($HandshakeContext* hc, $SecretKey* psk) {
 	try {
 		$CipherSuite$HashAlg* hashAlg = $nc($nc(hc)->negotiatedCipherSuite)->hashAlg;
 		$var($HKDF, hkdf, $new($HKDF, $nc(hashAlg)->name$));
-		$var($bytes, zeros, $new($bytes, $nc(hashAlg)->hashLength));
+		$var($bytes, zeros, $new($bytes, hashAlg->hashLength));
 		$var($SecretKey, earlySecret, hkdf->extract(zeros, psk, "TlsEarlySecret"_s));
 		$set(hc, handshakeKeyDerivation, $new($SSLSecretDerivation, hc, earlySecret));
 	} catch ($GeneralSecurityException& gse) {
-		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(gse))));
+		$throw($$cast($SSLHandshakeException, $$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(gse)));
 	}
 }
 
-void clinit$ServerHello($Class* class$) {
+void ServerHello::clinit$($Class* clazz) {
 	$assignStatic(ServerHello::handshakeConsumer, $new($ServerHello$ServerHelloConsumer));
 	$assignStatic(ServerHello::t12HandshakeProducer, $new($ServerHello$T12ServerHelloProducer));
 	$assignStatic(ServerHello::t13HandshakeProducer, $new($ServerHello$T13ServerHelloProducer));
@@ -156,7 +100,54 @@ ServerHello::ServerHello() {
 }
 
 $Class* ServerHello::load$($String* name, bool initialize) {
-	$loadClass(ServerHello, name, initialize, &_ServerHello_ClassInfo_, clinit$ServerHello, allocate$ServerHello);
+	$FieldInfo fieldInfos$$[] = {
+		{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(ServerHello, handshakeConsumer)},
+		{"t12HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerHello, t12HandshakeProducer)},
+		{"t13HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerHello, t13HandshakeProducer)},
+		{"hrrHandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerHello, hrrHandshakeProducer)},
+		{"hrrReproducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ServerHello, hrrReproducer)},
+		{"t12HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, t12HandshakeConsumer)},
+		{"t13HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, t13HandshakeConsumer)},
+		{"d12HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, d12HandshakeConsumer)},
+		{"d13HandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, d13HandshakeConsumer)},
+		{"t13HrrHandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, t13HrrHandshakeConsumer)},
+		{"d13HrrHandshakeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerHello, d13HrrHandshakeConsumer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ServerHello, init$, void)},
+		{"setUpPskKD", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ServerHello, setUpPskKD, void, $HandshakeContext*, $SecretKey*), "javax.net.ssl.SSLHandshakeException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ServerHello$T13HelloRetryRequestConsumer", "sun.security.ssl.ServerHello", "T13HelloRetryRequestConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerHello$T13ServerHelloConsumer", "sun.security.ssl.ServerHello", "T13ServerHelloConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerHello$T12ServerHelloConsumer", "sun.security.ssl.ServerHello", "T12ServerHelloConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerHello$ServerHelloConsumer", "sun.security.ssl.ServerHello", "ServerHelloConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerHello$T13HelloRetryRequestReproducer", "sun.security.ssl.ServerHello", "T13HelloRetryRequestReproducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerHello$T13HelloRetryRequestProducer", "sun.security.ssl.ServerHello", "T13HelloRetryRequestProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerHello$T13ServerHelloProducer", "sun.security.ssl.ServerHello", "T13ServerHelloProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerHello$T12ServerHelloProducer", "sun.security.ssl.ServerHello", "T12ServerHelloProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ServerHello$ServerHelloMessage", "sun.security.ssl.ServerHello", "ServerHelloMessage", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ServerHello",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ServerHello$T13HelloRetryRequestConsumer,sun.security.ssl.ServerHello$T13ServerHelloConsumer,sun.security.ssl.ServerHello$T12ServerHelloConsumer,sun.security.ssl.ServerHello$ServerHelloConsumer,sun.security.ssl.ServerHello$T13HelloRetryRequestReproducer,sun.security.ssl.ServerHello$T13HelloRetryRequestProducer,sun.security.ssl.ServerHello$T13ServerHelloProducer,sun.security.ssl.ServerHello$T12ServerHelloProducer,sun.security.ssl.ServerHello$T12ServerHelloProducer$KeyExchangeProperties,sun.security.ssl.ServerHello$ServerHelloMessage"
+	};
+	$loadClass(ServerHello, name, initialize, &classInfo$$, ServerHello::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerHello);
+	});
 	return class$;
 }
 

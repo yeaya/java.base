@@ -1,5 +1,4 @@
 #include <java/util/LinkedList$LLSpliterator.h>
-
 #include <java/util/AbstractList.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/LinkedList$Node.h>
@@ -30,53 +29,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 
-$FieldInfo _LinkedList$LLSpliterator_FieldInfo_[] = {
-	{"BATCH_UNIT", "I", nullptr, $STATIC | $FINAL, $constField(LinkedList$LLSpliterator, BATCH_UNIT)},
-	{"MAX_BATCH", "I", nullptr, $STATIC | $FINAL, $constField(LinkedList$LLSpliterator, MAX_BATCH)},
-	{"list", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<TE;>;", $FINAL, $field(LinkedList$LLSpliterator, list)},
-	{"current", "Ljava/util/LinkedList$Node;", "Ljava/util/LinkedList$Node<TE;>;", 0, $field(LinkedList$LLSpliterator, current)},
-	{"est", "I", nullptr, 0, $field(LinkedList$LLSpliterator, est)},
-	{"expectedModCount", "I", nullptr, 0, $field(LinkedList$LLSpliterator, expectedModCount)},
-	{"batch", "I", nullptr, 0, $field(LinkedList$LLSpliterator, batch)},
-	{}
-};
-
-$MethodInfo _LinkedList$LLSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedList;II)V", "(Ljava/util/LinkedList<TE;>;II)V", 0, $method(LinkedList$LLSpliterator, init$, void, $LinkedList*, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, forEachRemaining, void, $Consumer*)},
-	{"getEst", "()I", nullptr, $FINAL, $method(LinkedList$LLSpliterator, getEst, int32_t)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _LinkedList$LLSpliterator_InnerClassesInfo_[] = {
-	{"java.util.LinkedList$LLSpliterator", "java.util.LinkedList", "LLSpliterator", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LinkedList$LLSpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.LinkedList$LLSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_LinkedList$LLSpliterator_FieldInfo_,
-	_LinkedList$LLSpliterator_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
-	nullptr,
-	_LinkedList$LLSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.LinkedList"
-};
-
-$Object* allocate$LinkedList$LLSpliterator($Class* clazz) {
-	return $of($alloc(LinkedList$LLSpliterator));
-}
-
 void LinkedList$LLSpliterator::init$($LinkedList* list, int32_t est, int32_t expectedModCount) {
 	$set(this, list, list);
 	this->est = est;
@@ -103,7 +55,7 @@ int64_t LinkedList$LLSpliterator::estimateSize() {
 }
 
 $Spliterator* LinkedList$LLSpliterator::trySplit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedList$Node, p, nullptr);
 	int32_t s = getEst();
 	if (s > 1 && ($assign(p, this->current)) != nullptr) {
@@ -128,7 +80,7 @@ $Spliterator* LinkedList$LLSpliterator::trySplit() {
 }
 
 void LinkedList$LLSpliterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedList$Node, p, nullptr);
 	int32_t n = 0;
 	if (action == nullptr) {
@@ -149,7 +101,7 @@ void LinkedList$LLSpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool LinkedList$LLSpliterator::tryAdvance($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedList$Node, p, nullptr);
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
@@ -175,7 +127,48 @@ LinkedList$LLSpliterator::LinkedList$LLSpliterator() {
 }
 
 $Class* LinkedList$LLSpliterator::load$($String* name, bool initialize) {
-	$loadClass(LinkedList$LLSpliterator, name, initialize, &_LinkedList$LLSpliterator_ClassInfo_, allocate$LinkedList$LLSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"BATCH_UNIT", "I", nullptr, $STATIC | $FINAL, $constField(LinkedList$LLSpliterator, BATCH_UNIT)},
+		{"MAX_BATCH", "I", nullptr, $STATIC | $FINAL, $constField(LinkedList$LLSpliterator, MAX_BATCH)},
+		{"list", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<TE;>;", $FINAL, $field(LinkedList$LLSpliterator, list)},
+		{"current", "Ljava/util/LinkedList$Node;", "Ljava/util/LinkedList$Node<TE;>;", 0, $field(LinkedList$LLSpliterator, current)},
+		{"est", "I", nullptr, 0, $field(LinkedList$LLSpliterator, est)},
+		{"expectedModCount", "I", nullptr, 0, $field(LinkedList$LLSpliterator, expectedModCount)},
+		{"batch", "I", nullptr, 0, $field(LinkedList$LLSpliterator, batch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/LinkedList;II)V", "(Ljava/util/LinkedList<TE;>;II)V", 0, $method(LinkedList$LLSpliterator, init$, void, $LinkedList*, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, forEachRemaining, void, $Consumer*)},
+		{"getEst", "()I", nullptr, $FINAL, $method(LinkedList$LLSpliterator, getEst, int32_t)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.LinkedList$LLSpliterator", "java.util.LinkedList", "LLSpliterator", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.LinkedList$LLSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.LinkedList"
+	};
+	$loadClass(LinkedList$LLSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedList$LLSpliterator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/ResourceBundle$NoFallbackControl.h>
-
 #include <java/util/List.h>
 #include <java/util/Locale.h>
 #include <java/util/ResourceBundle$Control.h>
@@ -27,45 +26,6 @@ using $ResourceBundle$SingleFormatControl = ::java::util::ResourceBundle$SingleF
 namespace java {
 	namespace util {
 
-$FieldInfo _ResourceBundle$NoFallbackControl_FieldInfo_[] = {
-	{"NO_FALLBACK", "Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle$NoFallbackControl, NO_FALLBACK)},
-	{"PROPERTIES_ONLY_NO_FALLBACK", "Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle$NoFallbackControl, PROPERTIES_ONLY_NO_FALLBACK)},
-	{"CLASS_ONLY_NO_FALLBACK", "Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle$NoFallbackControl, CLASS_ONLY_NO_FALLBACK)},
-	{}
-};
-
-$MethodInfo _ResourceBundle$NoFallbackControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PROTECTED, $method(ResourceBundle$NoFallbackControl, init$, void, $List*)},
-	{"getFallbackLocale", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$NoFallbackControl, getFallbackLocale, $Locale*, $String*, $Locale*)},
-	{}
-};
-
-$InnerClassInfo _ResourceBundle$NoFallbackControl_InnerClassesInfo_[] = {
-	{"java.util.ResourceBundle$NoFallbackControl", "java.util.ResourceBundle", "NoFallbackControl", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.ResourceBundle$SingleFormatControl", "java.util.ResourceBundle", "SingleFormatControl", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ResourceBundle$NoFallbackControl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.ResourceBundle$NoFallbackControl",
-	"java.util.ResourceBundle$SingleFormatControl",
-	nullptr,
-	_ResourceBundle$NoFallbackControl_FieldInfo_,
-	_ResourceBundle$NoFallbackControl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResourceBundle$NoFallbackControl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ResourceBundle"
-};
-
-$Object* allocate$ResourceBundle$NoFallbackControl($Class* clazz) {
-	return $of($alloc(ResourceBundle$NoFallbackControl));
-}
-
 $ResourceBundle$Control* ResourceBundle$NoFallbackControl::NO_FALLBACK = nullptr;
 $ResourceBundle$Control* ResourceBundle$NoFallbackControl::PROPERTIES_ONLY_NO_FALLBACK = nullptr;
 $ResourceBundle$Control* ResourceBundle$NoFallbackControl::CLASS_ONLY_NO_FALLBACK = nullptr;
@@ -81,7 +41,7 @@ $Locale* ResourceBundle$NoFallbackControl::getFallbackLocale($String* baseName, 
 	return nullptr;
 }
 
-void clinit$ResourceBundle$NoFallbackControl($Class* class$) {
+void ResourceBundle$NoFallbackControl::clinit$($Class* clazz) {
 	$init($ResourceBundle$Control);
 	$assignStatic(ResourceBundle$NoFallbackControl::NO_FALLBACK, $new(ResourceBundle$NoFallbackControl, $ResourceBundle$Control::FORMAT_DEFAULT));
 	$assignStatic(ResourceBundle$NoFallbackControl::PROPERTIES_ONLY_NO_FALLBACK, $new(ResourceBundle$NoFallbackControl, $ResourceBundle$Control::FORMAT_PROPERTIES));
@@ -92,7 +52,40 @@ ResourceBundle$NoFallbackControl::ResourceBundle$NoFallbackControl() {
 }
 
 $Class* ResourceBundle$NoFallbackControl::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$NoFallbackControl, name, initialize, &_ResourceBundle$NoFallbackControl_ClassInfo_, clinit$ResourceBundle$NoFallbackControl, allocate$ResourceBundle$NoFallbackControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_FALLBACK", "Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle$NoFallbackControl, NO_FALLBACK)},
+		{"PROPERTIES_ONLY_NO_FALLBACK", "Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle$NoFallbackControl, PROPERTIES_ONLY_NO_FALLBACK)},
+		{"CLASS_ONLY_NO_FALLBACK", "Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle$NoFallbackControl, CLASS_ONLY_NO_FALLBACK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PROTECTED, $method(ResourceBundle$NoFallbackControl, init$, void, $List*)},
+		{"getFallbackLocale", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$NoFallbackControl, getFallbackLocale, $Locale*, $String*, $Locale*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ResourceBundle$NoFallbackControl", "java.util.ResourceBundle", "NoFallbackControl", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.ResourceBundle$SingleFormatControl", "java.util.ResourceBundle", "SingleFormatControl", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.ResourceBundle$NoFallbackControl",
+		"java.util.ResourceBundle$SingleFormatControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ResourceBundle"
+	};
+	$loadClass(ResourceBundle$NoFallbackControl, name, initialize, &classInfo$$, ResourceBundle$NoFallbackControl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$NoFallbackControl);
+	});
 	return class$;
 }
 

@@ -15,11 +15,14 @@ public:
 	IllegalCharsetNameException();
 	void init$($String* charsetName);
 	virtual $String* getCharsetName();
-	static const int64_t serialVersionUID = (int64_t)0x143A2B975ABA792D;
+	static const int64_t serialVersionUID = (int64_t)0x143a2b975aba792d;
 	$String* charsetName = nullptr;
 	IllegalCharsetNameException(const IllegalCharsetNameException& e);
 	virtual void throw$() override;
-	inline IllegalCharsetNameException* operator ->() {
+	inline IllegalCharsetNameException* operator ->() const {
+		return (IllegalCharsetNameException*)throwing$;
+	}
+	inline operator IllegalCharsetNameException*() const {
 		return (IllegalCharsetNameException*)throwing$;
 	}
 };

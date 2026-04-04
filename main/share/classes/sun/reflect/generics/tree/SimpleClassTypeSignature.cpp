@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/SimpleClassTypeSignature.h>
-
 #include <sun/reflect/generics/tree/TypeArgument.h>
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace tree {
-
-$FieldInfo _SimpleClassTypeSignature_FieldInfo_[] = {
-	{"dollar", "Z", nullptr, $PRIVATE | $FINAL, $field(SimpleClassTypeSignature, dollar)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SimpleClassTypeSignature, name)},
-	{"typeArgs", "[Lsun/reflect/generics/tree/TypeArgument;", nullptr, $PRIVATE | $FINAL, $field(SimpleClassTypeSignature, typeArgs)},
-	{}
-};
-
-$MethodInfo _SimpleClassTypeSignature_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z[Lsun/reflect/generics/tree/TypeArgument;)V", nullptr, $PRIVATE, $method(SimpleClassTypeSignature, init$, void, $String*, bool, $TypeArgumentArray*)},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(SimpleClassTypeSignature, accept, void, $TypeTreeVisitor*)},
-	{"getDollar", "()Z", nullptr, $PUBLIC, $virtualMethod(SimpleClassTypeSignature, getDollar, bool)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleClassTypeSignature, getName, $String*)},
-	{"getTypeArguments", "()[Lsun/reflect/generics/tree/TypeArgument;", nullptr, $PUBLIC, $virtualMethod(SimpleClassTypeSignature, getTypeArguments, $TypeArgumentArray*)},
-	{"make", "(Ljava/lang/String;Z[Lsun/reflect/generics/tree/TypeArgument;)Lsun/reflect/generics/tree/SimpleClassTypeSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleClassTypeSignature, make, SimpleClassTypeSignature*, $String*, bool, $TypeArgumentArray*)},
-	{}
-};
-
-$ClassInfo _SimpleClassTypeSignature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.tree.SimpleClassTypeSignature",
-	"java.lang.Object",
-	"sun.reflect.generics.tree.FieldTypeSignature",
-	_SimpleClassTypeSignature_FieldInfo_,
-	_SimpleClassTypeSignature_MethodInfo_
-};
-
-$Object* allocate$SimpleClassTypeSignature($Class* clazz) {
-	return $of($alloc(SimpleClassTypeSignature));
-}
 
 void SimpleClassTypeSignature::init$($String* n, bool dollar, $TypeArgumentArray* tas) {
 	$set(this, name, n);
@@ -76,7 +45,32 @@ SimpleClassTypeSignature::SimpleClassTypeSignature() {
 }
 
 $Class* SimpleClassTypeSignature::load$($String* name, bool initialize) {
-	$loadClass(SimpleClassTypeSignature, name, initialize, &_SimpleClassTypeSignature_ClassInfo_, allocate$SimpleClassTypeSignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"dollar", "Z", nullptr, $PRIVATE | $FINAL, $field(SimpleClassTypeSignature, dollar)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SimpleClassTypeSignature, name)},
+		{"typeArgs", "[Lsun/reflect/generics/tree/TypeArgument;", nullptr, $PRIVATE | $FINAL, $field(SimpleClassTypeSignature, typeArgs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z[Lsun/reflect/generics/tree/TypeArgument;)V", nullptr, $PRIVATE, $method(SimpleClassTypeSignature, init$, void, $String*, bool, $TypeArgumentArray*)},
+		{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(SimpleClassTypeSignature, accept, void, $TypeTreeVisitor*)},
+		{"getDollar", "()Z", nullptr, $PUBLIC, $virtualMethod(SimpleClassTypeSignature, getDollar, bool)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleClassTypeSignature, getName, $String*)},
+		{"getTypeArguments", "()[Lsun/reflect/generics/tree/TypeArgument;", nullptr, $PUBLIC, $virtualMethod(SimpleClassTypeSignature, getTypeArguments, $TypeArgumentArray*)},
+		{"make", "(Ljava/lang/String;Z[Lsun/reflect/generics/tree/TypeArgument;)Lsun/reflect/generics/tree/SimpleClassTypeSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleClassTypeSignature, make, SimpleClassTypeSignature*, $String*, bool, $TypeArgumentArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.tree.SimpleClassTypeSignature",
+		"java.lang.Object",
+		"sun.reflect.generics.tree.FieldTypeSignature",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SimpleClassTypeSignature, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SimpleClassTypeSignature));
+	});
 	return class$;
 }
 

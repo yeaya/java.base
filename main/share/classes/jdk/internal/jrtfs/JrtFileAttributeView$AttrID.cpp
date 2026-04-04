@@ -1,5 +1,4 @@
 #include <jdk/internal/jrtfs/JrtFileAttributeView$AttrID.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/jrtfs/JrtFileAttributeView.h>
 #include <jcpp.h>
@@ -14,55 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jdk {
 	namespace internal {
 		namespace jrtfs {
-
-$FieldInfo _JrtFileAttributeView$AttrID_FieldInfo_[] = {
-	{"size", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, size)},
-	{"creationTime", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, creationTime)},
-	{"lastAccessTime", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, lastAccessTime)},
-	{"lastModifiedTime", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, lastModifiedTime)},
-	{"isDirectory", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, isDirectory)},
-	{"isRegularFile", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, isRegularFile)},
-	{"isSymbolicLink", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, isSymbolicLink)},
-	{"isOther", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, isOther)},
-	{"fileKey", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, fileKey)},
-	{"compressedSize", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, compressedSize)},
-	{"extension", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, extension)},
-	{"$VALUES", "[Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JrtFileAttributeView$AttrID, $VALUES)},
-	{}
-};
-
-$MethodInfo _JrtFileAttributeView$AttrID_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JrtFileAttributeView$AttrID, $values, $JrtFileAttributeView$AttrIDArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JrtFileAttributeView$AttrID, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(JrtFileAttributeView$AttrID, valueOf, JrtFileAttributeView$AttrID*, $String*)},
-	{"values", "()[Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(JrtFileAttributeView$AttrID, values, $JrtFileAttributeView$AttrIDArray*)},
-	{}
-};
-
-$InnerClassInfo _JrtFileAttributeView$AttrID_InnerClassesInfo_[] = {
-	{"jdk.internal.jrtfs.JrtFileAttributeView$AttrID", "jdk.internal.jrtfs.JrtFileAttributeView", "AttrID", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JrtFileAttributeView$AttrID_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.jrtfs.JrtFileAttributeView$AttrID",
-	"java.lang.Enum",
-	nullptr,
-	_JrtFileAttributeView$AttrID_FieldInfo_,
-	_JrtFileAttributeView$AttrID_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;>;",
-	nullptr,
-	_JrtFileAttributeView$AttrID_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.jrtfs.JrtFileAttributeView"
-};
-
-$Object* allocate$JrtFileAttributeView$AttrID($Class* clazz) {
-	return $of($alloc(JrtFileAttributeView$AttrID));
-}
 
 JrtFileAttributeView$AttrID* JrtFileAttributeView$AttrID::size = nullptr;
 JrtFileAttributeView$AttrID* JrtFileAttributeView$AttrID::creationTime = nullptr;
@@ -108,7 +58,7 @@ void JrtFileAttributeView$AttrID::init$($String* $enum$name, int32_t $enum$ordin
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$JrtFileAttributeView$AttrID($Class* class$) {
+void JrtFileAttributeView$AttrID::clinit$($Class* clazz) {
 	$assignStatic(JrtFileAttributeView$AttrID::size, $new(JrtFileAttributeView$AttrID, "size"_s, 0));
 	$assignStatic(JrtFileAttributeView$AttrID::creationTime, $new(JrtFileAttributeView$AttrID, "creationTime"_s, 1));
 	$assignStatic(JrtFileAttributeView$AttrID::lastAccessTime, $new(JrtFileAttributeView$AttrID, "lastAccessTime"_s, 2));
@@ -127,7 +77,50 @@ JrtFileAttributeView$AttrID::JrtFileAttributeView$AttrID() {
 }
 
 $Class* JrtFileAttributeView$AttrID::load$($String* name, bool initialize) {
-	$loadClass(JrtFileAttributeView$AttrID, name, initialize, &_JrtFileAttributeView$AttrID_ClassInfo_, clinit$JrtFileAttributeView$AttrID, allocate$JrtFileAttributeView$AttrID);
+	$FieldInfo fieldInfos$$[] = {
+		{"size", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, size)},
+		{"creationTime", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, creationTime)},
+		{"lastAccessTime", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, lastAccessTime)},
+		{"lastModifiedTime", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, lastModifiedTime)},
+		{"isDirectory", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, isDirectory)},
+		{"isRegularFile", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, isRegularFile)},
+		{"isSymbolicLink", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, isSymbolicLink)},
+		{"isOther", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, isOther)},
+		{"fileKey", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, fileKey)},
+		{"compressedSize", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, compressedSize)},
+		{"extension", "Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JrtFileAttributeView$AttrID, extension)},
+		{"$VALUES", "[Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JrtFileAttributeView$AttrID, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JrtFileAttributeView$AttrID, $values, $JrtFileAttributeView$AttrIDArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JrtFileAttributeView$AttrID, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(JrtFileAttributeView$AttrID, valueOf, JrtFileAttributeView$AttrID*, $String*)},
+		{"values", "()[Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(JrtFileAttributeView$AttrID, values, $JrtFileAttributeView$AttrIDArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jrtfs.JrtFileAttributeView$AttrID", "jdk.internal.jrtfs.JrtFileAttributeView", "AttrID", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.jrtfs.JrtFileAttributeView$AttrID",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.jrtfs.JrtFileAttributeView"
+	};
+	$loadClass(JrtFileAttributeView$AttrID, name, initialize, &classInfo$$, JrtFileAttributeView$AttrID::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JrtFileAttributeView$AttrID));
+	});
 	return class$;
 }
 

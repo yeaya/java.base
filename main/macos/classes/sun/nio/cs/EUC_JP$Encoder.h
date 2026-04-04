@@ -39,6 +39,7 @@ class $export EUC_JP$Encoder : public ::java::nio::charset::CharsetEncoder {
 public:
 	EUC_JP$Encoder();
 	using ::java::nio::charset::CharsetEncoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	void init$(::java::nio::charset::Charset* cs, float avgBpc, float maxBpc, ::sun::nio::cs::SingleByte$Encoder* enc0201, ::sun::nio::cs::DoubleByte$Encoder* enc0208, ::sun::nio::cs::DoubleByte$Encoder* enc0212);
 	virtual bool canEncode(char16_t c) override;

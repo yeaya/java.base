@@ -34,6 +34,7 @@ class $import FileOutputStream : public ::java::io::OutputStream {
 	$class(FileOutputStream, $PRELOAD, ::java::io::OutputStream)
 public:
 	FileOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	void init$($String* name, bool append);
 	void init$(::java::io::File* file);

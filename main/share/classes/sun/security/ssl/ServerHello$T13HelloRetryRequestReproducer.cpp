@@ -1,9 +1,7 @@
 #include <sun/security/ssl/ServerHello$T13HelloRetryRequestReproducer.h>
-
 #include <sun/security/ssl/CipherSuite.h>
 #include <sun/security/ssl/ClientHello$ClientHelloMessage.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeOutStream.h>
 #include <sun/security/ssl/OutputRecord.h>
 #include <sun/security/ssl/ProtocolVersion.h>
@@ -30,13 +28,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $OutputRecord = ::sun::security::ssl::OutputRecord;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $RandomCookie = ::sun::security::ssl::RandomCookie;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
-using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -47,42 +42,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ServerHello$T13HelloRetryRequestReproducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerHello$T13HelloRetryRequestReproducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ServerHello$T13HelloRetryRequestReproducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ServerHello$T13HelloRetryRequestReproducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ServerHello$T13HelloRetryRequestReproducer", "sun.security.ssl.ServerHello", "T13HelloRetryRequestReproducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ServerHello$T13HelloRetryRequestReproducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ServerHello$T13HelloRetryRequestReproducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_ServerHello$T13HelloRetryRequestReproducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerHello$T13HelloRetryRequestReproducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ServerHello"
-};
-
-$Object* allocate$ServerHello$T13HelloRetryRequestReproducer($Class* clazz) {
-	return $of($alloc(ServerHello$T13HelloRetryRequestReproducer));
-}
-
 void ServerHello$T13HelloRetryRequestReproducer::init$() {
 }
 
 $bytes* ServerHello$T13HelloRetryRequestReproducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	$CipherSuite* cipherSuite = $nc(shc)->negotiatedCipherSuite;
@@ -94,7 +58,7 @@ $bytes* ServerHello$T13HelloRetryRequestReproducer::produce($ConnectionContext* 
 	$nc(hhrm->extensions)->produce(shc, serverHelloExtensions);
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Reproduced HelloRetryRequest handshake message"_s, $$new($ObjectArray, {$of(hhrm)}));
+		$SSLLogger::fine("Reproduced HelloRetryRequest handshake message"_s, $$new($ObjectArray, {hhrm}));
 	}
 	$var($HandshakeOutStream, hos, $new($HandshakeOutStream, nullptr));
 	hhrm->write(hos);
@@ -105,7 +69,33 @@ ServerHello$T13HelloRetryRequestReproducer::ServerHello$T13HelloRetryRequestRepr
 }
 
 $Class* ServerHello$T13HelloRetryRequestReproducer::load$($String* name, bool initialize) {
-	$loadClass(ServerHello$T13HelloRetryRequestReproducer, name, initialize, &_ServerHello$T13HelloRetryRequestReproducer_ClassInfo_, allocate$ServerHello$T13HelloRetryRequestReproducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServerHello$T13HelloRetryRequestReproducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ServerHello$T13HelloRetryRequestReproducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ServerHello$T13HelloRetryRequestReproducer", "sun.security.ssl.ServerHello", "T13HelloRetryRequestReproducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ServerHello$T13HelloRetryRequestReproducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ServerHello"
+	};
+	$loadClass(ServerHello$T13HelloRetryRequestReproducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerHello$T13HelloRetryRequestReproducer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/util/math/SmallValue.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,17 +8,14 @@ namespace sun {
 		namespace util {
 			namespace math {
 
-$ClassInfo _SmallValue_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.security.util.math.SmallValue"
-};
-
-$Object* allocate$SmallValue($Class* clazz) {
-	return $of($alloc(SmallValue));
-}
-
 $Class* SmallValue::load$($String* name, bool initialize) {
-	$loadClass(SmallValue, name, initialize, &_SmallValue_ClassInfo_, allocate$SmallValue);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.security.util.math.SmallValue"
+	};
+	$loadClass(SmallValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SmallValue);
+	});
 	return class$;
 }
 

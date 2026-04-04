@@ -1,9 +1,7 @@
 #include <BigMark.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/FileReader.h>
-#include <java/io/Reader.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <jcpp.h>
 
@@ -12,37 +10,16 @@
 using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $FileReader = ::java::io::FileReader;
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 
-$MethodInfo _BigMark_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BigMark, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigMark, main, void, $StringArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _BigMark_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"BigMark",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_BigMark_MethodInfo_
-};
-
-$Object* allocate$BigMark($Class* clazz) {
-	return $of($alloc(BigMark));
-}
-
 void BigMark::init$() {
 }
 
 void BigMark::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, line, nullptr);
 	int32_t i = 0;
 	$var($String, dir, $System::getProperty("test.src"_s, "."_s));
@@ -65,7 +42,22 @@ BigMark::BigMark() {
 }
 
 $Class* BigMark::load$($String* name, bool initialize) {
-	$loadClass(BigMark, name, initialize, &_BigMark_ClassInfo_, allocate$BigMark);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BigMark, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigMark, main, void, $StringArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"BigMark",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BigMark, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BigMark);
+	});
 	return class$;
 }
 

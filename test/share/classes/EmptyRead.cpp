@@ -1,5 +1,4 @@
 #include <EmptyRead.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/Pipe$SinkChannel.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
@@ -19,30 +18,11 @@ using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
 using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 
-$MethodInfo _EmptyRead_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyRead, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmptyRead, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _EmptyRead_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"EmptyRead",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_EmptyRead_MethodInfo_
-};
-
-$Object* allocate$EmptyRead($Class* clazz) {
-	return $of($alloc(EmptyRead));
-}
-
 void EmptyRead::init$() {
 }
 
 void EmptyRead::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SelectorProvider, sp, $SelectorProvider::provider());
 	$var($Pipe, p, $nc(sp)->openPipe());
 	$var($Pipe$SinkChannel, sink, $nc(p)->sink());
@@ -67,7 +47,22 @@ EmptyRead::EmptyRead() {
 }
 
 $Class* EmptyRead::load$($String* name, bool initialize) {
-	$loadClass(EmptyRead, name, initialize, &_EmptyRead_ClassInfo_, allocate$EmptyRead);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyRead, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmptyRead, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"EmptyRead",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EmptyRead, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EmptyRead);
+	});
 	return class$;
 }
 

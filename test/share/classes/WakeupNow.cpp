@@ -1,5 +1,4 @@
 #include <WakeupNow.h>
-
 #include <java/nio/channels/Pipe$SinkChannel.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
 #include <java/nio/channels/Pipe.h>
@@ -14,31 +13,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Pipe = ::java::nio::channels::Pipe;
-using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
-using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
-
-$MethodInfo _WakeupNow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WakeupNow, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WakeupNow, main, void, $StringArray*), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WakeupNow, test1, void), "java.lang.Exception"},
-	{"test2", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WakeupNow, test2, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _WakeupNow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WakeupNow",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WakeupNow_MethodInfo_
-};
-
-$Object* allocate$WakeupNow($Class* clazz) {
-	return $of($alloc(WakeupNow));
-}
 
 void WakeupNow::init$() {
 }
@@ -49,19 +25,19 @@ void WakeupNow::main($StringArray* args) {
 }
 
 void WakeupNow::test1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Selector, sel, $Selector::open());
 	$var($Pipe, p, $Pipe::open());
-	$nc($($nc(p)->source()))->configureBlocking(false);
-	$nc($(p->source()))->register$(sel, $SelectionKey::OP_READ);
+	$$nc($nc(p)->source())->configureBlocking(false);
+	$$nc(p->source())->register$(sel, $SelectionKey::OP_READ);
 	$nc(sel)->wakeup();
 	$Thread::sleep(2000);
 	sel->selectNow();
 	int64_t startTime = $System::currentTimeMillis();
-	int32_t n = sel->select((int64_t)2000);
+	int32_t n = sel->select(2000);
 	int64_t endTime = $System::currentTimeMillis();
-	$nc($(p->source()))->close();
-	$nc($(p->sink()))->close();
+	$$nc(p->source())->close();
+	$$nc(p->sink())->close();
 	sel->close();
 	if (endTime - startTime < 1000) {
 		$throwNew($RuntimeException, "test failed"_s);
@@ -69,15 +45,15 @@ void WakeupNow::test1() {
 }
 
 void WakeupNow::test2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Selector, sel, $Selector::open());
 	$var($Pipe, p, $Pipe::open());
-	$nc($($nc(p)->source()))->configureBlocking(false);
+	$$nc($nc(p)->source())->configureBlocking(false);
 	$nc(sel)->wakeup();
 	$Thread::sleep(2000);
 	sel->selectNow();
 	int64_t startTime = $System::currentTimeMillis();
-	int32_t n = sel->select((int64_t)2000);
+	int32_t n = sel->select(2000);
 	int64_t endTime = $System::currentTimeMillis();
 	sel->close();
 	if (endTime - startTime < 1000) {
@@ -89,7 +65,24 @@ WakeupNow::WakeupNow() {
 }
 
 $Class* WakeupNow::load$($String* name, bool initialize) {
-	$loadClass(WakeupNow, name, initialize, &_WakeupNow_ClassInfo_, allocate$WakeupNow);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WakeupNow, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WakeupNow, main, void, $StringArray*), "java.lang.Exception"},
+		{"test1", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WakeupNow, test1, void), "java.lang.Exception"},
+		{"test2", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WakeupNow, test2, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WakeupNow",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WakeupNow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WakeupNow);
+	});
 	return class$;
 }
 

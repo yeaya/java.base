@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsFileCopy.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -67,12 +66,9 @@ using $LinkOption = ::java::nio::file::LinkOption;
 using $LinkPermission = ::java::nio::file::LinkPermission;
 using $Path = ::java::nio::file::Path;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
-using $Permission = ::java::security::Permission;
-using $Iterator = ::java::util::Iterator;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
 using $Cancellable = ::sun::nio::fs::Cancellable;
 using $ExtendedOptions = ::sun::nio::fs::ExtendedOptions;
-using $ExtendedOptions$InternalOption = ::sun::nio::fs::ExtendedOptions$InternalOption;
 using $NativeBuffer = ::sun::nio::fs::NativeBuffer;
 using $WindowsAclFileAttributeView = ::sun::nio::fs::WindowsAclFileAttributeView;
 using $WindowsDirectoryStream = ::sun::nio::fs::WindowsDirectoryStream;
@@ -99,70 +95,27 @@ public:
 	virtual bool accept(Object$* e) override {
 		 return WindowsFileCopy::lambda$ensureEmptyDir$0($cast($Path, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0, init$, void)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0, accept, bool, Object$*)},
-	{}
-};
-$ClassInfo WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.fs.WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0",
-	"java.lang.Object",
-	"java.nio.file.DirectoryStream$Filter",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0, init$, void)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0, accept, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.fs.WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0",
+		"java.lang.Object",
+		"java.nio.file.DirectoryStream$Filter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0);
+	});
 	return class$;
 }
 $Class* WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0::class$ = nullptr;
-
-$FieldInfo _WindowsFileCopy_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsFileCopy, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _WindowsFileCopy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsFileCopy, init$, void)},
-	{"asWin32Path", "(Lsun/nio/fs/WindowsPath;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileCopy, asWin32Path, $String*, $WindowsPath*), "java.io.IOException"},
-	{"copy", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(WindowsFileCopy, copy, void, $WindowsPath*, $WindowsPath*, $CopyOptionArray*), "java.io.IOException"},
-	{"copySecurityAttributes", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileCopy, copySecurityAttributes, void, $WindowsPath*, $WindowsPath*, bool), "java.io.IOException"},
-	{"ensureEmptyDir", "(Lsun/nio/fs/WindowsPath;)V", nullptr, $STATIC, $staticMethod(WindowsFileCopy, ensureEmptyDir, void, $WindowsPath*), "java.io.IOException"},
-	{"lambda$ensureEmptyDir$0", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsFileCopy, lambda$ensureEmptyDir$0, bool, $Path*), "java.io.IOException"},
-	{"move", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(WindowsFileCopy, move, void, $WindowsPath*, $WindowsPath*, $CopyOptionArray*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _WindowsFileCopy_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsFileCopy$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsFileCopy_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsFileCopy",
-	"java.lang.Object",
-	nullptr,
-	_WindowsFileCopy_FieldInfo_,
-	_WindowsFileCopy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsFileCopy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsFileCopy$1"
-};
-
-$Object* allocate$WindowsFileCopy($Class* clazz) {
-	return $of($alloc(WindowsFileCopy));
-}
 
 bool WindowsFileCopy::$assertionsDisabled = false;
 
@@ -171,16 +124,14 @@ void WindowsFileCopy::init$() {
 
 void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOptionArray* options) {
 	$init(WindowsFileCopy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool replaceExisting = false;
 	bool copyAttributes = false;
 	bool followLinks = true;
 	bool interruptible = false;
 	{
 		$var($CopyOptionArray, arr$, options);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CopyOption, option, arr$->get(i$));
 			{
 				$init($StandardCopyOption);
@@ -222,55 +173,51 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(source);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
+			$assign(sourceAttrs, $WindowsFileAttributes::readAttributes(sourceHandle));
+		} catch ($WindowsException& x) {
+			x->rethrowAsIOException(source);
+		}
+		int64_t targetHandle = 0;
+		try {
+			targetHandle = $nc(target)->openForReadAttributeAccess(false);
+			$var($Throwable, var$2, nullptr);
+			bool return$3 = false;
 			try {
-				$assign(sourceAttrs, $WindowsFileAttributes::readAttributes(sourceHandle));
-			} catch ($WindowsException& x) {
-				x->rethrowAsIOException(source);
-			}
-			int64_t targetHandle = 0;
-			try {
-				targetHandle = $nc(target)->openForReadAttributeAccess(false);
-				{
-					$var($Throwable, var$2, nullptr);
-					bool return$3 = false;
-					try {
-						$assign(targetAttrs, $WindowsFileAttributes::readAttributes(targetHandle));
-						if ($WindowsFileAttributes::isSameFile(sourceAttrs, targetAttrs)) {
-							return$3 = true;
-							goto $finally1;
-						}
-						if (!replaceExisting) {
-							$throwNew($FileAlreadyExistsException, $(target->getPathForExceptionMessage()));
-						}
-					} catch ($Throwable& var$4) {
-						$assign(var$2, var$4);
-					} $finally1: {
-						$WindowsNativeDispatcher::CloseHandle(targetHandle);
-					}
-					if (var$2 != nullptr) {
-						$throw(var$2);
-					}
-					if (return$3) {
-						return;
-					}
+				$assign(targetAttrs, $WindowsFileAttributes::readAttributes(targetHandle));
+				if ($WindowsFileAttributes::isSameFile(sourceAttrs, targetAttrs)) {
+					return$3 = true;
+					goto $finally1;
 				}
-			} catch ($WindowsException& x) {
+				if (!replaceExisting) {
+					$throwNew($FileAlreadyExistsException, $(target->getPathForExceptionMessage()));
+				}
+			} catch ($Throwable& var$4) {
+				$assign(var$2, var$4);
+			} $finally1: {
+				$WindowsNativeDispatcher::CloseHandle(targetHandle);
 			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} /*finally*/ {
-			$WindowsNativeDispatcher::CloseHandle(sourceHandle);
+			if (var$2 != nullptr) {
+				$throw(var$2);
+			}
+			if (return$3) {
+				return;
+			}
+		} catch ($WindowsException& x) {
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} /*finally*/ {
+		$WindowsNativeDispatcher::CloseHandle(sourceHandle);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 	if (sm != nullptr && $nc(sourceAttrs)->isSymbolicLink()) {
 		sm->checkPermission($$new($LinkPermission, "symbolic"_s));
@@ -298,7 +245,7 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 			x->rethrowAsIOException(target);
 		}
 	}
-	bool var$8 = !$nc(sourceAttrs)->isDirectory();
+	bool var$8 = !sourceAttrs->isDirectory();
 	if (var$8 && !sourceAttrs->isDirectoryLink()) {
 		int32_t flags = (!followLinks) ? 2048 : 0;
 		if (interruptible) {
@@ -328,7 +275,7 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 		return;
 	}
 	try {
-		if ($nc(sourceAttrs)->isDirectory()) {
+		if (sourceAttrs->isDirectory()) {
 			$WindowsNativeDispatcher::CreateDirectory(targetPath, 0);
 		} else {
 			$var($String, linkTarget, $WindowsLinkSupport::readLink(source));
@@ -343,7 +290,7 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 		try {
 			$nc(view)->setAttributes(sourceAttrs);
 		} catch ($IOException& x) {
-			if ($nc(sourceAttrs)->isDirectory()) {
+			if (sourceAttrs->isDirectory()) {
 				try {
 					$WindowsNativeDispatcher::RemoveDirectory(targetPath);
 				} catch ($WindowsException& ignore) {
@@ -359,46 +306,42 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 
 void WindowsFileCopy::ensureEmptyDir($WindowsPath* dir) {
 	$init(WindowsFileCopy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($WindowsDirectoryStream, dirStream, $new($WindowsDirectoryStream, dir, static_cast<$DirectoryStream$Filter*>($$new(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0))));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($WindowsDirectoryStream, dirStream, $new($WindowsDirectoryStream, dir, $$new(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0)));
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					if ($nc($(dirStream->iterator()))->hasNext()) {
-						$throwNew($DirectoryNotEmptyException, $($nc(dir)->getPathForExceptionMessage()));
-					}
-				} catch ($Throwable& t$) {
-					try {
-						dirStream->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+				if ($$nc(dirStream->iterator())->hasNext()) {
+					$throwNew($DirectoryNotEmptyException, $($nc(dir)->getPathForExceptionMessage()));
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				dirStream->close();
+			} catch ($Throwable& t$) {
+				try {
+					dirStream->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			dirStream->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOptionArray* options) {
 	$init(WindowsFileCopy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool atomicMove = false;
 	bool replaceExisting = false;
 	{
 		$var($CopyOptionArray, arr$, options);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CopyOption, option, arr$->get(i$));
 			{
 				$init($StandardCopyOption);
@@ -449,55 +392,51 @@ void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOpti
 	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(source);
 	}
-	{
-		$var($Throwable, var$2, nullptr);
-		bool return$3 = false;
+	$var($Throwable, var$2, nullptr);
+	bool return$3 = false;
+	try {
 		try {
+			$assign(sourceAttrs, $WindowsFileAttributes::readAttributes(sourceHandle));
+		} catch ($WindowsException& x) {
+			x->rethrowAsIOException(source);
+		}
+		int64_t targetHandle = 0;
+		try {
+			targetHandle = $nc(target)->openForReadAttributeAccess(false);
+			$var($Throwable, var$4, nullptr);
+			bool return$5 = false;
 			try {
-				$assign(sourceAttrs, $WindowsFileAttributes::readAttributes(sourceHandle));
-			} catch ($WindowsException& x) {
-				x->rethrowAsIOException(source);
-			}
-			int64_t targetHandle = 0;
-			try {
-				targetHandle = $nc(target)->openForReadAttributeAccess(false);
-				{
-					$var($Throwable, var$4, nullptr);
-					bool return$5 = false;
-					try {
-						$assign(targetAttrs, $WindowsFileAttributes::readAttributes(targetHandle));
-						if ($WindowsFileAttributes::isSameFile(sourceAttrs, targetAttrs)) {
-							return$5 = true;
-							goto $finally1;
-						}
-						if (!replaceExisting) {
-							$throwNew($FileAlreadyExistsException, $(target->getPathForExceptionMessage()));
-						}
-					} catch ($Throwable& var$6) {
-						$assign(var$4, var$6);
-					} $finally1: {
-						$WindowsNativeDispatcher::CloseHandle(targetHandle);
-					}
-					if (var$4 != nullptr) {
-						$throw(var$4);
-					}
-					if (return$5) {
-						return;
-					}
+				$assign(targetAttrs, $WindowsFileAttributes::readAttributes(targetHandle));
+				if ($WindowsFileAttributes::isSameFile(sourceAttrs, targetAttrs)) {
+					return$5 = true;
+					goto $finally1;
 				}
-			} catch ($WindowsException& x) {
+				if (!replaceExisting) {
+					$throwNew($FileAlreadyExistsException, $(target->getPathForExceptionMessage()));
+				}
+			} catch ($Throwable& var$6) {
+				$assign(var$4, var$6);
+			} $finally1: {
+				$WindowsNativeDispatcher::CloseHandle(targetHandle);
 			}
-		} catch ($Throwable& var$7) {
-			$assign(var$2, var$7);
-		} /*finally*/ {
-			$WindowsNativeDispatcher::CloseHandle(sourceHandle);
+			if (var$4 != nullptr) {
+				$throw(var$4);
+			}
+			if (return$5) {
+				return;
+			}
+		} catch ($WindowsException& x) {
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
-		}
-		if (return$3) {
-			return;
-		}
+	} catch ($Throwable& var$7) {
+		$assign(var$2, var$7);
+	} /*finally*/ {
+		$WindowsNativeDispatcher::CloseHandle(sourceHandle);
+	}
+	if (var$2 != nullptr) {
+		$throw(var$2);
+	}
+	if (return$3) {
+		return;
 	}
 	if (targetAttrs != nullptr) {
 		try {
@@ -540,14 +479,14 @@ void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOpti
 	}
 	bool var$11 = !WindowsFileCopy::$assertionsDisabled;
 	if (var$11) {
-		bool var$12 = $nc(sourceAttrs)->isDirectory();
-		var$11 = !(var$12 || $nc(sourceAttrs)->isDirectoryLink());
+		bool var$12 = sourceAttrs->isDirectory();
+		var$11 = !(var$12 || sourceAttrs->isDirectoryLink());
 	}
 	if (var$11) {
 		$throwNew($AssertionError);
 	}
 	try {
-		if ($nc(sourceAttrs)->isDirectory()) {
+		if (sourceAttrs->isDirectory()) {
 			ensureEmptyDir(source);
 			$WindowsNativeDispatcher::CreateDirectory(targetPath, 0);
 		} else {
@@ -599,41 +538,36 @@ $String* WindowsFileCopy::asWin32Path($WindowsPath* path) {
 
 void WindowsFileCopy::copySecurityAttributes($WindowsPath* source, $WindowsPath* target, bool followLinks) {
 	$init(WindowsFileCopy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, path, $WindowsLinkSupport::getFinalPath(source, followLinks));
 	$var($WindowsSecurity$Privilege, priv, $WindowsSecurity::enablePrivilege("SeRestorePrivilege"_s));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		int32_t request = ((4 | 1) | 2);
+		$var($NativeBuffer, buffer, $WindowsAclFileAttributeView::getFileSecurity(path, request));
+		$var($Throwable, var$1, nullptr);
 		try {
-			int32_t request = ((4 | 1) | 2);
-			$var($NativeBuffer, buffer, $WindowsAclFileAttributeView::getFileSecurity(path, request));
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					try {
-						$var($String, var$2, $nc(target)->getPathForWin32Calls());
-						int32_t var$3 = request;
-						$WindowsNativeDispatcher::SetFileSecurity(var$2, var$3, $nc(buffer)->address());
-					} catch ($WindowsException& x) {
-						x->rethrowAsIOException(target);
-					}
-				} catch ($Throwable& var$4) {
-					$assign(var$1, var$4);
-				} /*finally*/ {
-					$nc(buffer)->release();
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
+			try {
+				$var($String, var$2, $nc(target)->getPathForWin32Calls());
+				$WindowsNativeDispatcher::SetFileSecurity(var$2, request, $nc(buffer)->address());
+			} catch ($WindowsException& x) {
+				x->rethrowAsIOException(target);
 			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
+		} catch ($Throwable& var$3) {
+			$assign(var$1, var$3);
 		} /*finally*/ {
-			$nc(priv)->drop();
+			$nc(buffer)->release();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		$nc(priv)->drop();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -642,7 +576,7 @@ bool WindowsFileCopy::lambda$ensureEmptyDir$0($Path* e) {
 	return true;
 }
 
-void clinit$WindowsFileCopy($Class* class$) {
+void WindowsFileCopy::clinit$($Class* clazz) {
 	WindowsFileCopy::$assertionsDisabled = !WindowsFileCopy::class$->desiredAssertionStatus();
 }
 
@@ -651,11 +585,45 @@ WindowsFileCopy::WindowsFileCopy() {
 
 $Class* WindowsFileCopy::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0::classInfo$.name)) {
+		if (name->equals("sun.nio.fs.WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0")) {
 			return WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0::load$(name, initialize);
 		}
 	}
-	$loadClass(WindowsFileCopy, name, initialize, &_WindowsFileCopy_ClassInfo_, clinit$WindowsFileCopy, allocate$WindowsFileCopy);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsFileCopy, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsFileCopy, init$, void)},
+		{"asWin32Path", "(Lsun/nio/fs/WindowsPath;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileCopy, asWin32Path, $String*, $WindowsPath*), "java.io.IOException"},
+		{"copy", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(WindowsFileCopy, copy, void, $WindowsPath*, $WindowsPath*, $CopyOptionArray*), "java.io.IOException"},
+		{"copySecurityAttributes", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileCopy, copySecurityAttributes, void, $WindowsPath*, $WindowsPath*, bool), "java.io.IOException"},
+		{"ensureEmptyDir", "(Lsun/nio/fs/WindowsPath;)V", nullptr, $STATIC, $staticMethod(WindowsFileCopy, ensureEmptyDir, void, $WindowsPath*), "java.io.IOException"},
+		{"lambda$ensureEmptyDir$0", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsFileCopy, lambda$ensureEmptyDir$0, bool, $Path*), "java.io.IOException"},
+		{"move", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(WindowsFileCopy, move, void, $WindowsPath*, $WindowsPath*, $CopyOptionArray*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsFileCopy$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsFileCopy",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsFileCopy$1"
+	};
+	$loadClass(WindowsFileCopy, name, initialize, &classInfo$$, WindowsFileCopy::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFileCopy);
+	});
 	return class$;
 }
 

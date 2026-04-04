@@ -18,6 +18,7 @@ class $export ReferenceEnqueuePending : public ::java::lang::Object {
 	$class(ReferenceEnqueuePending, 0, ::java::lang::Object)
 public:
 	ReferenceEnqueuePending();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkResult(::java::lang::ref::ReferenceQueue* queue, int32_t expected);
 	static void forceGc(int64_t millis);

@@ -13,6 +13,7 @@ class ClientHello$1 : public ::java::lang::Object {
 	$class(ClientHello$1, 0, ::java::lang::Object)
 public:
 	ClientHello$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$ssl$SSLHandshake;
 };
 

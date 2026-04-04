@@ -55,6 +55,7 @@ class $import Util : public ::java::lang::Object {
 	$class(Util, 0, ::java::lang::Object)
 public:
 	Util();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int8_t _get(int64_t a);
 	static void _put(int64_t a, int8_t b);

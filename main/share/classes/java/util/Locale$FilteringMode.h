@@ -25,6 +25,7 @@ class $export Locale$FilteringMode : public ::java::lang::Enum {
 public:
 	Locale$FilteringMode();
 	static $Array<::java::util::Locale$FilteringMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::util::Locale$FilteringMode* valueOf($String* name);
 	static $Array<::java::util::Locale$FilteringMode>* values();

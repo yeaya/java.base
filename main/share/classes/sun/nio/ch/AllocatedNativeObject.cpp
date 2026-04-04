@@ -1,36 +1,15 @@
 #include <sun/nio/ch/AllocatedNativeObject.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/nio/ch/NativeObject.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $NativeObject = ::sun::nio::ch::NativeObject;
 
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$MethodInfo _AllocatedNativeObject_MethodInfo_[] = {
-	{"<init>", "(IZ)V", nullptr, 0, $method(AllocatedNativeObject, init$, void, int32_t, bool)},
-	{"free", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(AllocatedNativeObject, free, void)},
-	{}
-};
-
-$ClassInfo _AllocatedNativeObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.AllocatedNativeObject",
-	"sun.nio.ch.NativeObject",
-	nullptr,
-	nullptr,
-	_AllocatedNativeObject_MethodInfo_
-};
-
-$Object* allocate$AllocatedNativeObject($Class* clazz) {
-	return $of($alloc(AllocatedNativeObject));
-}
 
 void AllocatedNativeObject::init$(int32_t size, bool pageAligned) {
 	$NativeObject::init$(size, pageAligned);
@@ -50,7 +29,22 @@ AllocatedNativeObject::AllocatedNativeObject() {
 }
 
 $Class* AllocatedNativeObject::load$($String* name, bool initialize) {
-	$loadClass(AllocatedNativeObject, name, initialize, &_AllocatedNativeObject_ClassInfo_, allocate$AllocatedNativeObject);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IZ)V", nullptr, 0, $method(AllocatedNativeObject, init$, void, int32_t, bool)},
+		{"free", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(AllocatedNativeObject, free, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.AllocatedNativeObject",
+		"sun.nio.ch.NativeObject",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AllocatedNativeObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AllocatedNativeObject);
+	});
 	return class$;
 }
 

@@ -31,6 +31,7 @@ class ObjectStreamClass$DeserializationConstructorsCache : public ::java::util::
 public:
 	ObjectStreamClass$DeserializationConstructorsCache();
 	using ::java::util::concurrent::ConcurrentHashMap::get;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::lang::invoke::MethodHandle* get($Array<::java::io::ObjectStreamField>* fields);
 	::java::lang::invoke::MethodHandle* putIfAbsentAndGet($Array<::java::io::ObjectStreamField>* fields, ::java::lang::invoke::MethodHandle* mh);

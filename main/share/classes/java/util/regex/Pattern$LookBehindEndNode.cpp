@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$LookBehindEndNode.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$Node.h>
@@ -20,43 +19,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$LookBehindEndNode_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/util/regex/Pattern$LookBehindEndNode;", nullptr, $STATIC, $staticField(Pattern$LookBehindEndNode, INSTANCE)},
-	{}
-};
-
-$MethodInfo _Pattern$LookBehindEndNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Pattern$LookBehindEndNode, init$, void)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LookBehindEndNode, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$LookBehindEndNode_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$LookBehindEndNode", "java.util.regex.Pattern", "LookBehindEndNode", $STATIC},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$LookBehindEndNode_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Pattern$LookBehindEndNode",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$LookBehindEndNode_FieldInfo_,
-	_Pattern$LookBehindEndNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$LookBehindEndNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$LookBehindEndNode($Class* clazz) {
-	return $of($alloc(Pattern$LookBehindEndNode));
-}
-
 Pattern$LookBehindEndNode* Pattern$LookBehindEndNode::INSTANCE = nullptr;
 
 void Pattern$LookBehindEndNode::init$() {
@@ -67,7 +29,7 @@ bool Pattern$LookBehindEndNode::match($Matcher* matcher, int32_t i, $CharSequenc
 	return i == $nc(matcher)->lookbehindTo;
 }
 
-void clinit$Pattern$LookBehindEndNode($Class* class$) {
+void Pattern$LookBehindEndNode::clinit$($Class* clazz) {
 	$assignStatic(Pattern$LookBehindEndNode::INSTANCE, $new(Pattern$LookBehindEndNode));
 }
 
@@ -75,7 +37,38 @@ Pattern$LookBehindEndNode::Pattern$LookBehindEndNode() {
 }
 
 $Class* Pattern$LookBehindEndNode::load$($String* name, bool initialize) {
-	$loadClass(Pattern$LookBehindEndNode, name, initialize, &_Pattern$LookBehindEndNode_ClassInfo_, clinit$Pattern$LookBehindEndNode, allocate$Pattern$LookBehindEndNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/util/regex/Pattern$LookBehindEndNode;", nullptr, $STATIC, $staticField(Pattern$LookBehindEndNode, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Pattern$LookBehindEndNode, init$, void)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LookBehindEndNode, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$LookBehindEndNode", "java.util.regex.Pattern", "LookBehindEndNode", $STATIC},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Pattern$LookBehindEndNode",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$LookBehindEndNode, name, initialize, &classInfo$$, Pattern$LookBehindEndNode::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$LookBehindEndNode);
+	});
 	return class$;
 }
 

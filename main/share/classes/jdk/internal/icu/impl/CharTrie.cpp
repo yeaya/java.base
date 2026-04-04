@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/CharTrie.h>
-
 #include <java/io/DataInputStream.h>
 #include <java/io/InputStream.h>
 #include <jdk/internal/icu/impl/Trie$DataManipulate.h>
@@ -29,34 +28,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$FieldInfo _CharTrie_FieldInfo_[] = {
-	{"m_initialValue_", "C", nullptr, $PRIVATE, $field(CharTrie, m_initialValue_)},
-	{"m_data_", "[C", nullptr, $PRIVATE, $field(CharTrie, m_data_)},
-	{}
-};
-
-$MethodInfo _CharTrie_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljdk/internal/icu/impl/Trie$DataManipulate;)V", nullptr, $PUBLIC, $method(CharTrie, init$, void, $InputStream*, $Trie$DataManipulate*), "java.io.IOException"},
-	{"getCodePointValue", "(I)C", nullptr, $PUBLIC | $FINAL, $method(CharTrie, getCodePointValue, char16_t, int32_t)},
-	{"getLeadValue", "(C)C", nullptr, $PUBLIC | $FINAL, $method(CharTrie, getLeadValue, char16_t, char16_t)},
-	{"getSurrogateOffset", "(CC)I", nullptr, $PROTECTED | $FINAL, $virtualMethod(CharTrie, getSurrogateOffset, int32_t, char16_t, char16_t)},
-	{"unserialize", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(CharTrie, unserialize, void, $InputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CharTrie_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.icu.impl.CharTrie",
-	"jdk.internal.icu.impl.Trie",
-	nullptr,
-	_CharTrie_FieldInfo_,
-	_CharTrie_MethodInfo_
-};
-
-$Object* allocate$CharTrie($Class* clazz) {
-	return $of($alloc(CharTrie));
-}
-
 void CharTrie::init$($InputStream* inputStream, $Trie$DataManipulate* dataManipulate) {
 	$Trie::init$(inputStream, dataManipulate);
 	if (!isCharTrie()) {
@@ -67,7 +38,7 @@ void CharTrie::init$($InputStream* inputStream, $Trie$DataManipulate* dataManipu
 char16_t CharTrie::getCodePointValue(int32_t ch) {
 	int32_t offset = 0;
 	if (0 <= ch && ch < $UTF16::LEAD_SURROGATE_MIN_VALUE) {
-		offset = ($sl((int32_t)$nc(this->m_index_)->get($sr(ch, $Trie::INDEX_STAGE_1_SHIFT_)), $Trie::INDEX_STAGE_2_SHIFT_)) + ((int32_t)(ch & (uint32_t)$Trie::INDEX_STAGE_3_MASK_));
+		offset = ($sl($nc(this->m_index_)->get($sr(ch, $Trie::INDEX_STAGE_1_SHIFT_)), $Trie::INDEX_STAGE_2_SHIFT_)) + (ch & $Trie::INDEX_STAGE_3_MASK_);
 		return $nc(this->m_data_)->get(offset);
 	}
 	offset = getCodePointOffset(ch);
@@ -83,7 +54,7 @@ void CharTrie::unserialize($InputStream* inputStream) {
 	int32_t indexDataLength = this->m_dataOffset_ + this->m_dataLength_;
 	$set(this, m_index_, $new($chars, indexDataLength));
 	for (int32_t i = 0; i < indexDataLength; ++i) {
-		$nc(this->m_index_)->set(i, input->readChar());
+		this->m_index_->set(i, input->readChar());
 	}
 	$set(this, m_data_, this->m_index_);
 	this->m_initialValue_ = $nc(this->m_data_)->get(this->m_dataOffset_);
@@ -95,7 +66,7 @@ int32_t CharTrie::getSurrogateOffset(char16_t lead, char16_t trail) {
 	}
 	int32_t offset = $nc(this->m_dataManipulate_)->getFoldingOffset(getLeadValue(lead));
 	if (offset > 0) {
-		return getRawOffset(offset, (char16_t)((int32_t)(trail & (uint32_t)$Trie::SURROGATE_MASK_)));
+		return getRawOffset(offset, (char16_t)(trail & $Trie::SURROGATE_MASK_));
 	}
 	return -1;
 }
@@ -104,7 +75,30 @@ CharTrie::CharTrie() {
 }
 
 $Class* CharTrie::load$($String* name, bool initialize) {
-	$loadClass(CharTrie, name, initialize, &_CharTrie_ClassInfo_, allocate$CharTrie);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_initialValue_", "C", nullptr, $PRIVATE, $field(CharTrie, m_initialValue_)},
+		{"m_data_", "[C", nullptr, $PRIVATE, $field(CharTrie, m_data_)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljdk/internal/icu/impl/Trie$DataManipulate;)V", nullptr, $PUBLIC, $method(CharTrie, init$, void, $InputStream*, $Trie$DataManipulate*), "java.io.IOException"},
+		{"getCodePointValue", "(I)C", nullptr, $PUBLIC | $FINAL, $method(CharTrie, getCodePointValue, char16_t, int32_t)},
+		{"getLeadValue", "(C)C", nullptr, $PUBLIC | $FINAL, $method(CharTrie, getLeadValue, char16_t, char16_t)},
+		{"getSurrogateOffset", "(CC)I", nullptr, $PROTECTED | $FINAL, $virtualMethod(CharTrie, getSurrogateOffset, int32_t, char16_t, char16_t)},
+		{"unserialize", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(CharTrie, unserialize, void, $InputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.icu.impl.CharTrie",
+		"jdk.internal.icu.impl.Trie",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharTrie, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharTrie);
+	});
 	return class$;
 }
 

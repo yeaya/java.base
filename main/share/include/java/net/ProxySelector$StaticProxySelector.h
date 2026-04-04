@@ -33,6 +33,7 @@ class $import ProxySelector$StaticProxySelector : public ::java::net::ProxySelec
 	$class(ProxySelector$StaticProxySelector, 0, ::java::net::ProxySelector)
 public:
 	ProxySelector$StaticProxySelector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::InetSocketAddress* address);
 	virtual void connectFailed(::java::net::URI* uri, ::java::net::SocketAddress* sa, ::java::io::IOException* e) override;
 	virtual ::java::util::List* select(::java::net::URI* uri) override;

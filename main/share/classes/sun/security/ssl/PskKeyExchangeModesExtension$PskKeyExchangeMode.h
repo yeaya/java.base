@@ -20,6 +20,7 @@ class PskKeyExchangeModesExtension$PskKeyExchangeMode : public ::java::lang::Enu
 public:
 	PskKeyExchangeModesExtension$PskKeyExchangeMode();
 	static $Array<::sun::security::ssl::PskKeyExchangeModesExtension$PskKeyExchangeMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name);
 	static $String* nameOf(int8_t id);
 	static ::sun::security::ssl::PskKeyExchangeModesExtension$PskKeyExchangeMode* valueOf($String* name);

@@ -1,5 +1,4 @@
 #include <sun/reflect/misc/MethodUtil.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/ClassLoader.h>
@@ -17,9 +16,7 @@
 #include <java/security/AccessController.h>
 #include <java/security/AllPermission.h>
 #include <java/security/CodeSource.h>
-#include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/SecureClassLoader.h>
 #include <java/security/cert/Certificate.h>
 #include <java/util/Collection.h>
@@ -38,7 +35,6 @@ using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
@@ -47,7 +43,6 @@ using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
@@ -57,11 +52,8 @@ using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
 using $AllPermission = ::java::security::AllPermission;
 using $CodeSource = ::java::security::CodeSource;
-using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $SecureClassLoader = ::java::security::SecureClassLoader;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $MethodUtil$1 = ::sun::reflect::misc::MethodUtil$1;
@@ -71,56 +63,6 @@ using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 namespace sun {
 	namespace reflect {
 		namespace misc {
-
-$FieldInfo _MethodUtil_FieldInfo_[] = {
-	{"MISC_PKG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodUtil, MISC_PKG)},
-	{"TRAMPOLINE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodUtil, TRAMPOLINE)},
-	{"bounce", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodUtil, bounce)},
-	{}
-};
-
-$MethodInfo _MethodUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MethodUtil, init$, void)},
-	{"addMethod", "(Ljava/util/Map;Ljava/lang/reflect/Method;)V", "(Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;Ljava/lang/reflect/Method;)V", $PRIVATE | $STATIC, $staticMethod(MethodUtil, addMethod, void, $Map*, $Method*)},
-	{"defineClass", "(Ljava/lang/String;[B)Ljava/lang/Class;", "(Ljava/lang/String;[B)Ljava/lang/Class<*>;", $PRIVATE, $method(MethodUtil, defineClass, $Class*, $String*, $bytes*), "java.io.IOException"},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(MethodUtil, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"getInterfaceMethods", "(Ljava/lang/Class;Ljava/util/Map;)V", "(Ljava/lang/Class<*>;Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;)V", $PRIVATE | $STATIC, $staticMethod(MethodUtil, getInterfaceMethods, void, $Class*, $Map*)},
-	{"getInternalPublicMethods", "(Ljava/lang/Class;Ljava/util/Map;)Z", "(Ljava/lang/Class<*>;Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodUtil, getInternalPublicMethods, bool, $Class*, $Map*)},
-	{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $staticMethod(MethodUtil, getMethod, $Method*, $Class*, $String*, $ClassArray*), "java.lang.NoSuchMethodException"},
-	{"getMethods", "(Ljava/lang/Class;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $staticMethod(MethodUtil, getMethods, $MethodArray*, $Class*)},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(MethodUtil, getPermissions, $PermissionCollection*, $CodeSource*)},
-	{"getPublicMethods", "(Ljava/lang/Class;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $staticMethod(MethodUtil, getPublicMethods, $MethodArray*, $Class*)},
-	{"getTrampoline", "()Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodUtil, getTrampoline, $Method*)},
-	{"getTrampolineClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(MethodUtil, getTrampolineClass, $Class*)},
-	{"invoke", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodUtil, invoke, $Object*, $Method*, Object$*, $ObjectArray*), "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException"},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED | $SYNCHRONIZED, $virtualMethod(MethodUtil, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _MethodUtil_InnerClassesInfo_[] = {
-	{"sun.reflect.misc.MethodUtil$Signature", "sun.reflect.misc.MethodUtil", "Signature", $PRIVATE | $STATIC},
-	{"sun.reflect.misc.MethodUtil$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodUtil_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.reflect.misc.MethodUtil",
-	"java.security.SecureClassLoader",
-	nullptr,
-	_MethodUtil_FieldInfo_,
-	_MethodUtil_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodUtil_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.reflect.misc.MethodUtil$Signature,sun.reflect.misc.MethodUtil$1"
-};
-
-$Object* allocate$MethodUtil($Class* clazz) {
-	return $of($alloc(MethodUtil));
-}
 
 $String* MethodUtil::MISC_PKG = nullptr;
 $String* MethodUtil::TRAMPOLINE = nullptr;
@@ -146,7 +88,7 @@ $MethodArray* MethodUtil::getMethods($Class* cls) {
 
 $MethodArray* MethodUtil::getPublicMethods($Class* cls) {
 	$init(MethodUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($System::getSecurityManager() == nullptr) {
 		return $nc(cls)->getMethods();
@@ -160,7 +102,7 @@ $MethodArray* MethodUtil::getPublicMethods($Class* cls) {
 		getInterfaceMethods(cls, sigs);
 		cls = cls->getSuperclass();
 	}
-	return $fcast($MethodArray, $nc($(sigs->values()))->toArray($$new($MethodArray, sigs->size())));
+	return $cast($MethodArray, $$nc(sigs->values())->toArray($$new($MethodArray, sigs->size())));
 }
 
 void MethodUtil::getInterfaceMethods($Class* cls, $Map* sigs) {
@@ -186,7 +128,7 @@ bool MethodUtil::getInternalPublicMethods($Class* cls, $Map* sigs) {
 		if (!$ReflectUtil::isPackageAccessible(cls)) {
 			return false;
 		}
-		$assign(methods, $nc(cls)->getMethods());
+		$assign(methods, cls->getMethods());
 	} catch ($SecurityException& se) {
 		return false;
 	}
@@ -199,11 +141,11 @@ bool MethodUtil::getInternalPublicMethods($Class* cls, $Map* sigs) {
 		}
 	}
 	if (done) {
-		for (int32_t i = 0; i < $nc(methods)->length; ++i) {
+		for (int32_t i = 0; i < methods->length; ++i) {
 			addMethod(sigs, methods->get(i));
 		}
 	} else {
-		for (int32_t i = 0; i < $nc(methods)->length; ++i) {
+		for (int32_t i = 0; i < methods->length; ++i) {
 			$Class* dc = $nc(methods->get(i))->getDeclaringClass();
 			if ($nc($of(cls))->equals(dc)) {
 				addMethod(sigs, methods->get(i));
@@ -215,7 +157,7 @@ bool MethodUtil::getInternalPublicMethods($Class* cls, $Map* sigs) {
 
 void MethodUtil::addMethod($Map* sigs, $Method* method) {
 	$init(MethodUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodUtil$Signature, signature, $new($MethodUtil$Signature, method));
 	if (!$nc(sigs)->containsKey(signature)) {
 		sigs->put(signature, method);
@@ -229,14 +171,14 @@ void MethodUtil::addMethod($Map* sigs, $Method* method) {
 
 $Object* MethodUtil::invoke($Method* m, Object$* obj, $ObjectArray* params) {
 	$init(MethodUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		return $of($nc(MethodUtil::bounce)->invoke(nullptr, $$new($ObjectArray, {
-			$of(m),
+		return $nc(MethodUtil::bounce)->invoke(nullptr, $$new($ObjectArray, {
+			m,
 			obj,
-			$of(params)
-		})));
+			params
+		}));
 	} catch ($InvocationTargetException& ie) {
 		$var($Throwable, t, ie->getCause());
 		if ($instanceOf($InvocationTargetException, t)) {
@@ -260,7 +202,7 @@ $Method* MethodUtil::getTrampoline() {
 	$init(MethodUtil);
 	$beforeCallerSensitive();
 	try {
-		return $cast($Method, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($MethodUtil$1))));
+		return $cast($Method, $AccessController::doPrivileged($$new($MethodUtil$1)));
 	} catch ($Exception& e) {
 		$throwNew($InternalError, "bouncer cannot be found"_s, e);
 	}
@@ -278,7 +220,7 @@ $Class* MethodUtil::loadClass($String* name, bool resolve) {
 			} catch ($ClassNotFoundException& e) {
 			}
 			if (c == nullptr) {
-				c = $nc($(getParent()))->loadClass(name);
+				c = $$nc(getParent())->loadClass(name);
 			}
 		}
 		if (resolve) {
@@ -289,51 +231,47 @@ $Class* MethodUtil::loadClass($String* name, bool resolve) {
 }
 
 $Class* MethodUtil::findClass($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (!$nc(name)->startsWith(MethodUtil::MISC_PKG)) {
 		$throwNew($ClassNotFoundException, name);
 	}
-	$var($String, path, $($nc(name)->replace(u'.', u'/'))->concat(".class"_s));
+	$var($String, path, $(name->replace(u'.', u'/'))->concat(".class"_s));
 	try {
-		$var($InputStream, in, $nc($($Object::class$->getModule()))->getResourceAsStream(path));
+		$var($InputStream, in, $$nc($Object::class$->getModule())->getResourceAsStream(path));
 		if (in != nullptr) {
-			{
-				$var($InputStream, twrVar0$, in);
-				{
-					$var($Throwable, var$0, nullptr);
-					$var($Class, var$2, nullptr);
-					bool return$1 = false;
-					try {
+			$var($InputStream, twrVar0$, in);
+			$var($Throwable, var$0, nullptr);
+			$var($Class, var$2, nullptr);
+			bool return$1 = false;
+			try {
+				try {
+					$var($bytes, b, in->readAllBytes());
+					var$2 = defineClass(name, b);
+					return$1 = true;
+					goto $finally;
+				} catch ($Throwable& t$) {
+					if (twrVar0$ != nullptr) {
 						try {
-							$var($bytes, b, in->readAllBytes());
-							var$2 = defineClass(name, b);
-							return$1 = true;
-							goto $finally;
-						} catch ($Throwable& t$) {
-							if (twrVar0$ != nullptr) {
-								try {
-									twrVar0$->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-							}
-							$throw(t$);
-						}
-					} catch ($Throwable& var$3) {
-						$assign(var$0, var$3);
-					} $finally: {
-						if (twrVar0$ != nullptr) {
 							twrVar0$->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
 						}
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
-					if (return$1) {
-						return var$2;
-					}
+					$throw(t$);
 				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} $finally: {
+				if (twrVar0$ != nullptr) {
+					twrVar0$->close();
+				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (return$1) {
+				return var$2;
 			}
 		}
 	} catch ($IOException& e) {
@@ -344,8 +282,8 @@ $Class* MethodUtil::findClass($String* name) {
 }
 
 $Class* MethodUtil::defineClass($String* name, $bytes* b) {
-	$useLocalCurrentObjectStackCache();
-	$var($CodeSource, cs, $new($CodeSource, ($URL*)nullptr, ($CertificateArray*)nullptr));
+	$useLocalObjectStack();
+	$var($CodeSource, cs, $new($CodeSource, nullptr, ($CertificateArray*)nullptr));
 	if (!$nc(name)->equals(MethodUtil::TRAMPOLINE)) {
 		$throwNew($IOException, $$str({"MethodUtil: bad name "_s, name}));
 	}
@@ -353,7 +291,7 @@ $Class* MethodUtil::defineClass($String* name, $bytes* b) {
 }
 
 $PermissionCollection* MethodUtil::getPermissions($CodeSource* codesource) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PermissionCollection, perms, $SecureClassLoader::getPermissions(codesource));
 	$nc(perms)->add($$new($AllPermission));
 	return perms;
@@ -369,7 +307,7 @@ $Class* MethodUtil::getTrampolineClass() {
 	return nullptr;
 }
 
-void clinit$MethodUtil($Class* class$) {
+void MethodUtil::clinit$($Class* clazz) {
 	$assignStatic(MethodUtil::MISC_PKG, "sun.reflect.misc."_s);
 	$assignStatic(MethodUtil::TRAMPOLINE, $str({MethodUtil::MISC_PKG, "Trampoline"_s}));
 	$assignStatic(MethodUtil::bounce, MethodUtil::getTrampoline());
@@ -379,7 +317,51 @@ MethodUtil::MethodUtil() {
 }
 
 $Class* MethodUtil::load$($String* name, bool initialize) {
-	$loadClass(MethodUtil, name, initialize, &_MethodUtil_ClassInfo_, clinit$MethodUtil, allocate$MethodUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"MISC_PKG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodUtil, MISC_PKG)},
+		{"TRAMPOLINE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodUtil, TRAMPOLINE)},
+		{"bounce", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodUtil, bounce)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MethodUtil, init$, void)},
+		{"addMethod", "(Ljava/util/Map;Ljava/lang/reflect/Method;)V", "(Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;Ljava/lang/reflect/Method;)V", $PRIVATE | $STATIC, $staticMethod(MethodUtil, addMethod, void, $Map*, $Method*)},
+		{"defineClass", "(Ljava/lang/String;[B)Ljava/lang/Class;", "(Ljava/lang/String;[B)Ljava/lang/Class<*>;", $PRIVATE, $method(MethodUtil, defineClass, $Class*, $String*, $bytes*), "java.io.IOException"},
+		{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(MethodUtil, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"getInterfaceMethods", "(Ljava/lang/Class;Ljava/util/Map;)V", "(Ljava/lang/Class<*>;Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;)V", $PRIVATE | $STATIC, $staticMethod(MethodUtil, getInterfaceMethods, void, $Class*, $Map*)},
+		{"getInternalPublicMethods", "(Ljava/lang/Class;Ljava/util/Map;)Z", "(Ljava/lang/Class<*>;Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodUtil, getInternalPublicMethods, bool, $Class*, $Map*)},
+		{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $staticMethod(MethodUtil, getMethod, $Method*, $Class*, $String*, $ClassArray*), "java.lang.NoSuchMethodException"},
+		{"getMethods", "(Ljava/lang/Class;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $staticMethod(MethodUtil, getMethods, $MethodArray*, $Class*)},
+		{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(MethodUtil, getPermissions, $PermissionCollection*, $CodeSource*)},
+		{"getPublicMethods", "(Ljava/lang/Class;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $staticMethod(MethodUtil, getPublicMethods, $MethodArray*, $Class*)},
+		{"getTrampoline", "()Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodUtil, getTrampoline, $Method*)},
+		{"getTrampolineClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(MethodUtil, getTrampolineClass, $Class*)},
+		{"invoke", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodUtil, invoke, $Object*, $Method*, Object$*, $ObjectArray*), "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException"},
+		{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED | $SYNCHRONIZED, $virtualMethod(MethodUtil, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.misc.MethodUtil$Signature", "sun.reflect.misc.MethodUtil", "Signature", $PRIVATE | $STATIC},
+		{"sun.reflect.misc.MethodUtil$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.reflect.misc.MethodUtil",
+		"java.security.SecureClassLoader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.reflect.misc.MethodUtil$Signature,sun.reflect.misc.MethodUtil$1"
+	};
+	$loadClass(MethodUtil, name, initialize, &classInfo$$, MethodUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodUtil);
+	});
 	return class$;
 }
 

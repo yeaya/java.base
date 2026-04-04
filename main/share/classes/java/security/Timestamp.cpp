@@ -1,5 +1,4 @@
 #include <java/security/Timestamp.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/security/cert/CertPath.h>
 #include <java/util/Date.h>
@@ -17,38 +16,6 @@ using $List = ::java::util::List;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _Timestamp_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Timestamp, serialVersionUID)},
-	{"timestamp", "Ljava/util/Date;", nullptr, $PRIVATE, $field(Timestamp, timestamp)},
-	{"signerCertPath", "Ljava/security/cert/CertPath;", nullptr, $PRIVATE, $field(Timestamp, signerCertPath)},
-	{"myhash", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Timestamp, myhash)},
-	{}
-};
-
-$MethodInfo _Timestamp_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Date;Ljava/security/cert/CertPath;)V", nullptr, $PUBLIC, $method(Timestamp, init$, void, $Date*, $CertPath*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Timestamp, equals, bool, Object$*)},
-	{"getSignerCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $method(Timestamp, getSignerCertPath, $CertPath*)},
-	{"getTimestamp", "()Ljava/util/Date;", nullptr, $PUBLIC, $method(Timestamp, getTimestamp, $Date*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Timestamp, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Timestamp, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Timestamp, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Timestamp_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.security.Timestamp",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Timestamp_FieldInfo_,
-	_Timestamp_MethodInfo_
-};
-
-$Object* allocate$Timestamp($Class* clazz) {
-	return $of($alloc(Timestamp));
-}
 
 void Timestamp::init$($Date* timestamp, $CertPath* signerCertPath) {
 	this->myhash = -1;
@@ -76,7 +43,7 @@ int32_t Timestamp::hashCode() {
 }
 
 bool Timestamp::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -89,13 +56,13 @@ bool Timestamp::equals(Object$* obj) {
 	bool var$0 = var$1;
 	if (var$0) {
 		bool var$2 = $nc(this->timestamp)->equals($($nc(other)->getTimestamp()));
-		var$0 = (var$2 && $nc(this->signerCertPath)->equals($($nc(other)->getSignerCertPath())));
+		var$0 = var$2 && $nc(this->signerCertPath)->equals($(other->getSignerCertPath()));
 	}
 	return var$0;
 }
 
 $String* Timestamp::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("("_s);
 	sb->append($$str({"timestamp: "_s, this->timestamp}));
@@ -119,7 +86,34 @@ Timestamp::Timestamp() {
 }
 
 $Class* Timestamp::load$($String* name, bool initialize) {
-	$loadClass(Timestamp, name, initialize, &_Timestamp_ClassInfo_, allocate$Timestamp);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Timestamp, serialVersionUID)},
+		{"timestamp", "Ljava/util/Date;", nullptr, $PRIVATE, $field(Timestamp, timestamp)},
+		{"signerCertPath", "Ljava/security/cert/CertPath;", nullptr, $PRIVATE, $field(Timestamp, signerCertPath)},
+		{"myhash", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Timestamp, myhash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Date;Ljava/security/cert/CertPath;)V", nullptr, $PUBLIC, $method(Timestamp, init$, void, $Date*, $CertPath*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Timestamp, equals, bool, Object$*)},
+		{"getSignerCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $method(Timestamp, getSignerCertPath, $CertPath*)},
+		{"getTimestamp", "()Ljava/util/Date;", nullptr, $PUBLIC, $method(Timestamp, getTimestamp, $Date*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Timestamp, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Timestamp, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Timestamp, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.security.Timestamp",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Timestamp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Timestamp);
+	});
 	return class$;
 }
 

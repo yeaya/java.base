@@ -36,6 +36,7 @@ class $export CRC32C : public ::java::util::zip::Checksum {
 	$class(CRC32C, 0, ::java::util::zip::Checksum)
 public:
 	CRC32C();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int64_t getValue() override;
 	virtual void reset() override;
@@ -46,7 +47,7 @@ public:
 	static int32_t updateBytes(int32_t crc, $bytes* b, int32_t off, int32_t end);
 	static int32_t updateDirectByteBuffer(int32_t crc, int64_t address, int32_t off, int32_t end);
 	static bool $assertionsDisabled;
-	static const int32_t CRC32C_POLY = 0x1EDC6F41;
+	static const int32_t CRC32C_POLY = 0x1edc6f41;
 	static int32_t REVERSED_CRC32C_POLY;
 	static ::jdk::internal::misc::Unsafe* UNSAFE;
 	static $ints* byteTable;

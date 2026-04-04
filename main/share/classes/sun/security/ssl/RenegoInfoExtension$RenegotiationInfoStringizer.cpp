@@ -1,5 +1,4 @@
 #include <sun/security/ssl/RenegoInfoExtension$RenegotiationInfoStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _RenegoInfoExtension$RenegotiationInfoStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(RenegoInfoExtension$RenegotiationInfoStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RenegoInfoExtension$RenegotiationInfoStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _RenegoInfoExtension$RenegotiationInfoStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.RenegoInfoExtension$RenegotiationInfoStringizer", "sun.security.ssl.RenegoInfoExtension", "RenegotiationInfoStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RenegoInfoExtension$RenegotiationInfoStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.RenegoInfoExtension$RenegotiationInfoStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_RenegoInfoExtension$RenegotiationInfoStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RenegoInfoExtension$RenegotiationInfoStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.RenegoInfoExtension"
-};
-
-$Object* allocate$RenegoInfoExtension$RenegotiationInfoStringizer($Class* clazz) {
-	return $of($alloc(RenegoInfoExtension$RenegotiationInfoStringizer));
-}
-
 void RenegoInfoExtension$RenegotiationInfoStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ RenegoInfoExtension$RenegotiationInfoStringizer::RenegoInfoExtension$Renegotiati
 }
 
 $Class* RenegoInfoExtension$RenegotiationInfoStringizer::load$($String* name, bool initialize) {
-	$loadClass(RenegoInfoExtension$RenegotiationInfoStringizer, name, initialize, &_RenegoInfoExtension$RenegotiationInfoStringizer_ClassInfo_, allocate$RenegoInfoExtension$RenegotiationInfoStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(RenegoInfoExtension$RenegotiationInfoStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RenegoInfoExtension$RenegotiationInfoStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.RenegoInfoExtension$RenegotiationInfoStringizer", "sun.security.ssl.RenegoInfoExtension", "RenegotiationInfoStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.RenegoInfoExtension$RenegotiationInfoStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.RenegoInfoExtension"
+	};
+	$loadClass(RenegoInfoExtension$RenegotiationInfoStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RenegoInfoExtension$RenegotiationInfoStringizer);
+	});
 	return class$;
 }
 

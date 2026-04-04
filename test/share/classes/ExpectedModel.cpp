@@ -1,5 +1,4 @@
 #include <ExpectedModel.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -8,50 +7,44 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute ExpectedModel_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _ExpectedModel_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", ExpectedModel_Attribute_var$0},
-	{}
-};
-
-$Attribute _ExpectedModel_DefaultValue_isDefault1 = {
-	'Z', "false"
-};
-
-$Attribute _ExpectedModel_DefaultValue_modifiers2 = {
-	'I', "1"
-};
-
-$MethodInfo _ExpectedModel_MethodInfo_[] = {
-	{"declaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedModel, declaringClass, $Class*)},
-	{"isDefault", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedModel, isDefault, bool), nullptr, &_ExpectedModel_DefaultValue_isDefault1},
-	{"modifiers", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedModel, modifiers, int32_t), nullptr, &_ExpectedModel_DefaultValue_modifiers2},
-	{}
-};
-
-$ClassInfo _ExpectedModel_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"ExpectedModel",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_ExpectedModel_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ExpectedModel_Annotations_
-};
-
-$Object* allocate$ExpectedModel($Class* clazz) {
-	return $of($alloc(ExpectedModel));
-}
-
 $Class* ExpectedModel::load$($String* name, bool initialize) {
-	$loadClass(ExpectedModel, name, initialize, &_ExpectedModel_ClassInfo_, allocate$ExpectedModel);
+
+	$Attribute isDefaultdefaultValue$$ = {
+		'Z', "false"
+	};
+
+	$Attribute modifiersdefaultValue$$ = {
+		'I', "1"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"declaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedModel, declaringClass, $Class*)},
+		{"isDefault", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedModel, isDefault, bool), nullptr, &isDefaultdefaultValue$$},
+		{"modifiers", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedModel, modifiers, int32_t), nullptr, &modifiersdefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"ExpectedModel",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ExpectedModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExpectedModel);
+	});
 	return class$;
 }
 

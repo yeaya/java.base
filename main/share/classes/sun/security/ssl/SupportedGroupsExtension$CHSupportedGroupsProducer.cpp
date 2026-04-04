@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SupportedGroupsExtension$CHSupportedGroupsProducer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/util/ArrayList.h>
@@ -32,14 +31,11 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$NamedGroupSpec = ::sun::security::ssl::NamedGroup$NamedGroupSpec;
 using $Record = ::sun::security::ssl::Record;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -49,43 +45,6 @@ using $SupportedGroupsExtension$SupportedGroupsSpec = ::sun::security::ssl::Supp
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$MethodInfo _SupportedGroupsExtension$CHSupportedGroupsProducer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedGroupsExtension$CHSupportedGroupsProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(SupportedGroupsExtension$CHSupportedGroupsProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SupportedGroupsExtension$CHSupportedGroupsProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsProducer", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SupportedGroupsExtension$SupportedGroups", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroups", $STATIC},
-	{}
-};
-
-$ClassInfo _SupportedGroupsExtension$CHSupportedGroupsProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsProducer",
-	"sun.security.ssl.SupportedGroupsExtension$SupportedGroups",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_SupportedGroupsExtension$CHSupportedGroupsProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SupportedGroupsExtension$CHSupportedGroupsProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SupportedGroupsExtension"
-};
-
-$Object* allocate$SupportedGroupsExtension$CHSupportedGroupsProducer($Class* clazz) {
-	return $of($alloc(SupportedGroupsExtension$CHSupportedGroupsProducer));
-}
 
 int32_t SupportedGroupsExtension$CHSupportedGroupsProducer::hashCode() {
 	 return this->$SupportedGroupsExtension$SupportedGroups::hashCode();
@@ -112,7 +71,7 @@ void SupportedGroupsExtension$CHSupportedGroupsProducer::init$() {
 }
 
 $bytes* SupportedGroupsExtension$CHSupportedGroupsProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::CH_SUPPORTED_GROUPS)) {
@@ -126,18 +85,16 @@ $bytes* SupportedGroupsExtension$CHSupportedGroupsProducer::produce($ConnectionC
 	$var($ArrayList, namedGroups, $new($ArrayList, $nc($SupportedGroupsExtension$SupportedGroups::supportedNamedGroups)->length));
 	{
 		$var($NamedGroupArray, arr$, $SupportedGroupsExtension$SupportedGroups::supportedNamedGroups);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$NamedGroup* ng = arr$->get(i$);
 			{
 				$init($NamedGroup$NamedGroupSpec);
 				if ((!$SupportedGroupsExtension$SupportedGroups::enableFFDHE) && ($nc(ng)->spec == $NamedGroup$NamedGroupSpec::NAMED_GROUP_FFDHE)) {
 					continue;
 				}
-				bool var$1 = $nc(ng)->isAvailable($nc(chc)->activeProtocols);
-				bool var$0 = var$1 && ng->isSupported($nc(chc)->activeCipherSuites);
-				if (var$0 && ng->isPermitted($nc(chc)->algorithmConstraints)) {
+				bool var$1 = $nc(ng)->isAvailable(chc->activeProtocols);
+				bool var$0 = var$1 && ng->isSupported(chc->activeCipherSuites);
+				if (var$0 && ng->isPermitted(chc->algorithmConstraints)) {
 					namedGroups->add(ng);
 				} else {
 					$init($SSLLogger);
@@ -168,8 +125,8 @@ $bytes* SupportedGroupsExtension$CHSupportedGroupsProducer::produce($ConnectionC
 			}
 		}
 	}
-	$set($nc(chc), clientRequestedNamedGroups, $Collections::unmodifiableList(namedGroups));
-	$nc(chc->handshakeExtensions)->put($SSLExtension::CH_SUPPORTED_GROUPS, $$new($SupportedGroupsExtension$SupportedGroupsSpec, static_cast<$List*>(namedGroups)));
+	$set(chc, clientRequestedNamedGroups, $Collections::unmodifiableList(namedGroups));
+	$nc(chc->handshakeExtensions)->put($SSLExtension::CH_SUPPORTED_GROUPS, $$new($SupportedGroupsExtension$SupportedGroupsSpec, namedGroups));
 	return extData;
 }
 
@@ -177,7 +134,39 @@ SupportedGroupsExtension$CHSupportedGroupsProducer::SupportedGroupsExtension$CHS
 }
 
 $Class* SupportedGroupsExtension$CHSupportedGroupsProducer::load$($String* name, bool initialize) {
-	$loadClass(SupportedGroupsExtension$CHSupportedGroupsProducer, name, initialize, &_SupportedGroupsExtension$CHSupportedGroupsProducer_ClassInfo_, allocate$SupportedGroupsExtension$CHSupportedGroupsProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedGroupsExtension$CHSupportedGroupsProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(SupportedGroupsExtension$CHSupportedGroupsProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsProducer", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SupportedGroupsExtension$SupportedGroups", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroups", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsProducer",
+		"sun.security.ssl.SupportedGroupsExtension$SupportedGroups",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SupportedGroupsExtension"
+	};
+	$loadClass(SupportedGroupsExtension$CHSupportedGroupsProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SupportedGroupsExtension$CHSupportedGroupsProducer));
+	});
 	return class$;
 }
 

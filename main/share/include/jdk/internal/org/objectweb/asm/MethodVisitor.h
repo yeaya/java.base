@@ -34,6 +34,7 @@ class $import MethodVisitor : public ::java::lang::Object {
 	$class(MethodVisitor, 0, ::java::lang::Object)
 public:
 	MethodVisitor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t api);
 	void init$(int32_t api, ::jdk::internal::org::objectweb::asm$::MethodVisitor* methodVisitor);
 	virtual void visitAnnotableParameterCount(int32_t parameterCount, bool visible);

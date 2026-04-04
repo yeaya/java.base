@@ -1,5 +1,4 @@
 #include <sun/nio/fs/AbstractPoller$RequestType.h>
-
 #include <java/lang/Enum.h>
 #include <sun/nio/fs/AbstractPoller.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _AbstractPoller$RequestType_FieldInfo_[] = {
-	{"REGISTER", "Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractPoller$RequestType, REGISTER)},
-	{"CANCEL", "Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractPoller$RequestType, CANCEL)},
-	{"CLOSE", "Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractPoller$RequestType, CLOSE)},
-	{"$VALUES", "[Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractPoller$RequestType, $VALUES)},
-	{}
-};
-
-$MethodInfo _AbstractPoller$RequestType_MethodInfo_[] = {
-	{"$values", "()[Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractPoller$RequestType, $values, $AbstractPoller$RequestTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AbstractPoller$RequestType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractPoller$RequestType, valueOf, AbstractPoller$RequestType*, $String*)},
-	{"values", "()[Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractPoller$RequestType, values, $AbstractPoller$RequestTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _AbstractPoller$RequestType_InnerClassesInfo_[] = {
-	{"sun.nio.fs.AbstractPoller$RequestType", "sun.nio.fs.AbstractPoller", "RequestType", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _AbstractPoller$RequestType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.nio.fs.AbstractPoller$RequestType",
-	"java.lang.Enum",
-	nullptr,
-	_AbstractPoller$RequestType_FieldInfo_,
-	_AbstractPoller$RequestType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/nio/fs/AbstractPoller$RequestType;>;",
-	nullptr,
-	_AbstractPoller$RequestType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.AbstractPoller"
-};
-
-$Object* allocate$AbstractPoller$RequestType($Class* clazz) {
-	return $of($alloc(AbstractPoller$RequestType));
-}
 
 AbstractPoller$RequestType* AbstractPoller$RequestType::REGISTER = nullptr;
 AbstractPoller$RequestType* AbstractPoller$RequestType::CANCEL = nullptr;
@@ -88,7 +46,7 @@ void AbstractPoller$RequestType::init$($String* $enum$name, int32_t $enum$ordina
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$AbstractPoller$RequestType($Class* class$) {
+void AbstractPoller$RequestType::clinit$($Class* clazz) {
 	$assignStatic(AbstractPoller$RequestType::REGISTER, $new(AbstractPoller$RequestType, "REGISTER"_s, 0));
 	$assignStatic(AbstractPoller$RequestType::CANCEL, $new(AbstractPoller$RequestType, "CANCEL"_s, 1));
 	$assignStatic(AbstractPoller$RequestType::CLOSE, $new(AbstractPoller$RequestType, "CLOSE"_s, 2));
@@ -99,7 +57,42 @@ AbstractPoller$RequestType::AbstractPoller$RequestType() {
 }
 
 $Class* AbstractPoller$RequestType::load$($String* name, bool initialize) {
-	$loadClass(AbstractPoller$RequestType, name, initialize, &_AbstractPoller$RequestType_ClassInfo_, clinit$AbstractPoller$RequestType, allocate$AbstractPoller$RequestType);
+	$FieldInfo fieldInfos$$[] = {
+		{"REGISTER", "Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractPoller$RequestType, REGISTER)},
+		{"CANCEL", "Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractPoller$RequestType, CANCEL)},
+		{"CLOSE", "Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractPoller$RequestType, CLOSE)},
+		{"$VALUES", "[Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractPoller$RequestType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractPoller$RequestType, $values, $AbstractPoller$RequestTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AbstractPoller$RequestType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractPoller$RequestType, valueOf, AbstractPoller$RequestType*, $String*)},
+		{"values", "()[Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractPoller$RequestType, values, $AbstractPoller$RequestTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.AbstractPoller$RequestType", "sun.nio.fs.AbstractPoller", "RequestType", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.nio.fs.AbstractPoller$RequestType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/nio/fs/AbstractPoller$RequestType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.AbstractPoller"
+	};
+	$loadClass(AbstractPoller$RequestType, name, initialize, &classInfo$$, AbstractPoller$RequestType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractPoller$RequestType));
+	});
 	return class$;
 }
 

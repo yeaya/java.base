@@ -58,6 +58,7 @@ class ICUBinary : public ::java::lang::Object {
 	$class(ICUBinary, 0, ::java::lang::Object)
 public:
 	ICUBinary();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* getBytes(::java::nio::ByteBuffer* bytes, int32_t length, int32_t additionalSkipLength);
 	static $chars* getChars(::java::nio::ByteBuffer* bytes, int32_t length, int32_t additionalSkipLength);

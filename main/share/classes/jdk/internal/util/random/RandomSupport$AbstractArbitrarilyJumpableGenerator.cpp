@@ -1,7 +1,5 @@
 #include <jdk/internal/util/random/RandomSupport$AbstractArbitrarilyJumpableGenerator.h>
-
 #include <java/util/Spliterator.h>
-#include <java/util/random/RandomGenerator$ArbitrarilyJumpableGenerator.h>
 #include <java/util/random/RandomGenerator$JumpableGenerator.h>
 #include <java/util/random/RandomGenerator$LeapableGenerator.h>
 #include <java/util/stream/DoubleStream.h>
@@ -23,7 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
-using $RandomGenerator$ArbitrarilyJumpableGenerator = ::java::util::random::RandomGenerator$ArbitrarilyJumpableGenerator;
 using $DoubleStream = ::java::util::stream::DoubleStream;
 using $IntStream = ::java::util::stream::IntStream;
 using $LongStream = ::java::util::stream::LongStream;
@@ -39,91 +36,6 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 			namespace random {
-
-$MethodInfo _RandomSupport$AbstractArbitrarilyJumpableGenerator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"copy", "()Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"*doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"*doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"*doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(RandomSupport$AbstractArbitrarilyJumpableGenerator, init$, void)},
-	{"*ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"*ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"*ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"*ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"*isDeprecated", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"jumps", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, jumps, $Stream*)},
-	{"jumps", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, jumps, $Stream*, int64_t)},
-	{"jumps", "(D)Ljava/util/stream/Stream;", "(D)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, jumps, $Stream*, double)},
-	{"jumps", "(JD)Ljava/util/stream/Stream;", "(JD)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, jumps, $Stream*, int64_t, double)},
-	{"leap", "()V", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, leap, void)},
-	{"leaps", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$JumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, leaps, $Stream*)},
-	{"leaps", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$JumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, leaps, $Stream*, int64_t)},
-	{"*longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"*longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"*longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"*longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"makeArbitraryJumpsSpliterator", "(JJD)Ljava/util/Spliterator;", "(JJD)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;>;", 0, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, makeArbitraryJumpsSpliterator, $Spliterator*, int64_t, int64_t, double)},
-	{"makeJumpsSpliterator", "(JJD)Ljava/util/Spliterator;", "(JJD)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator;>;", 0, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, makeJumpsSpliterator, $Spliterator*, int64_t, int64_t, double)},
-	{"makeLeapsSpliterator", "(JJD)Ljava/util/Spliterator;", "(JJD)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator$JumpableGenerator;>;", 0, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, makeLeapsSpliterator, $Spliterator*, int64_t, int64_t, double)},
-	{"*nextBoolean", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextBytes", "([B)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextDouble", "()D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextDouble", "(D)D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextDouble", "(DD)D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextExponential", "()D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextFloat", "()F", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextFloat", "(F)F", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextFloat", "(FF)F", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextGaussian", "()D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextGaussian", "(DD)D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextInt", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextInt", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextInt", "(II)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextLong", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextLong", "(J)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextLong", "(JJ)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"stream", "(Ljava/util/Spliterator;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/Spliterator<TT;>;)Ljava/util/stream/Stream<TT;>;", $PRIVATE | $STATIC, $staticMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, stream, $Stream*, $Spliterator*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _RandomSupport$AbstractArbitrarilyJumpableGenerator_InnerClassesInfo_[] = {
-	{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractArbitrarilyJumpableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSpliteratorGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.random.RandomGenerator$ArbitrarilyJumpableGenerator", "java.util.random.RandomGenerator", "ArbitrarilyJumpableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomArbitraryJumpsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomArbitraryJumpsSpliterator", $STATIC},
-	{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomLeapsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomLeapsSpliterator", $STATIC},
-	{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomJumpsSpliterator", $STATIC},
-	{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomDoublesSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomDoublesSpliterator", $STATIC},
-	{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomLongsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomLongsSpliterator", $STATIC},
-	{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomIntsSpliterator", $STATIC},
-	{}
-};
-
-$ClassInfo _RandomSupport$AbstractArbitrarilyJumpableGenerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator",
-	"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator",
-	"java.util.random.RandomGenerator$ArbitrarilyJumpableGenerator",
-	nullptr,
-	_RandomSupport$AbstractArbitrarilyJumpableGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RandomSupport$AbstractArbitrarilyJumpableGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.util.random.RandomSupport"
-};
-
-$Object* allocate$RandomSupport$AbstractArbitrarilyJumpableGenerator($Class* clazz) {
-	return $of($alloc(RandomSupport$AbstractArbitrarilyJumpableGenerator));
-}
 
 $IntStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::ints(int64_t streamSize) {
 	 return this->$RandomSupport$AbstractSpliteratorGenerator::ints(streamSize);
@@ -316,7 +228,87 @@ RandomSupport$AbstractArbitrarilyJumpableGenerator::RandomSupport$AbstractArbitr
 }
 
 $Class* RandomSupport$AbstractArbitrarilyJumpableGenerator::load$($String* name, bool initialize) {
-	$loadClass(RandomSupport$AbstractArbitrarilyJumpableGenerator, name, initialize, &_RandomSupport$AbstractArbitrarilyJumpableGenerator_ClassInfo_, allocate$RandomSupport$AbstractArbitrarilyJumpableGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"copy", "()Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
+		{"*doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
+		{"*doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
+		{"*doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(RandomSupport$AbstractArbitrarilyJumpableGenerator, init$, void)},
+		{"*ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
+		{"*ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
+		{"*ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
+		{"*ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
+		{"*isDeprecated", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"jumps", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, jumps, $Stream*)},
+		{"jumps", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, jumps, $Stream*, int64_t)},
+		{"jumps", "(D)Ljava/util/stream/Stream;", "(D)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, jumps, $Stream*, double)},
+		{"jumps", "(JD)Ljava/util/stream/Stream;", "(JD)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, jumps, $Stream*, int64_t, double)},
+		{"leap", "()V", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, leap, void)},
+		{"leaps", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$JumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, leaps, $Stream*)},
+		{"leaps", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$JumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, leaps, $Stream*, int64_t)},
+		{"*longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
+		{"*longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
+		{"*longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
+		{"*longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
+		{"makeArbitraryJumpsSpliterator", "(JJD)Ljava/util/Spliterator;", "(JJD)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;>;", 0, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, makeArbitraryJumpsSpliterator, $Spliterator*, int64_t, int64_t, double)},
+		{"makeJumpsSpliterator", "(JJD)Ljava/util/Spliterator;", "(JJD)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator;>;", 0, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, makeJumpsSpliterator, $Spliterator*, int64_t, int64_t, double)},
+		{"makeLeapsSpliterator", "(JJD)Ljava/util/Spliterator;", "(JJD)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator$JumpableGenerator;>;", 0, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, makeLeapsSpliterator, $Spliterator*, int64_t, int64_t, double)},
+		{"*nextBoolean", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextBytes", "([B)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextDouble", "()D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextDouble", "(D)D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextDouble", "(DD)D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextExponential", "()D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextFloat", "()F", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextFloat", "(F)F", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextFloat", "(FF)F", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextGaussian", "()D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextGaussian", "(DD)D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextInt", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextInt", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextInt", "(II)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextLong", "()J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextLong", "(J)J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextLong", "(JJ)J", nullptr, $PUBLIC | $ABSTRACT},
+		{"stream", "(Ljava/util/Spliterator;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/Spliterator<TT;>;)Ljava/util/stream/Stream<TT;>;", $PRIVATE | $STATIC, $staticMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator, stream, $Stream*, $Spliterator*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractArbitrarilyJumpableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSpliteratorGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.random.RandomGenerator$ArbitrarilyJumpableGenerator", "java.util.random.RandomGenerator", "ArbitrarilyJumpableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomArbitraryJumpsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomArbitraryJumpsSpliterator", $STATIC},
+		{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomLeapsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomLeapsSpliterator", $STATIC},
+		{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomJumpsSpliterator", $STATIC},
+		{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomDoublesSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomDoublesSpliterator", $STATIC},
+		{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomLongsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomLongsSpliterator", $STATIC},
+		{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomIntsSpliterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator",
+		"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator",
+		"java.util.random.RandomGenerator$ArbitrarilyJumpableGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.util.random.RandomSupport"
+	};
+	$loadClass(RandomSupport$AbstractArbitrarilyJumpableGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RandomSupport$AbstractArbitrarilyJumpableGenerator));
+	});
 	return class$;
 }
 

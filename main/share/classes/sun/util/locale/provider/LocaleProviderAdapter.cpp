@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
@@ -65,10 +64,8 @@ using $InstantiationException = ::java::lang::InstantiationException;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $BreakIteratorProvider = ::java::text::spi::BreakIteratorProvider;
 using $CollatorProvider = ::java::text::spi::CollatorProvider;
@@ -107,70 +104,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _LocaleProviderAdapter_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LocaleProviderAdapter, $assertionsDisabled)},
-	{"adapterPreference", "Ljava/util/List;", "Ljava/util/List<Lsun/util/locale/provider/LocaleProviderAdapter$Type;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LocaleProviderAdapter, adapterPreference)},
-	{"adapterInstances", "Ljava/util/Map;", "Ljava/util/Map<Lsun/util/locale/provider/LocaleProviderAdapter$Type;Lsun/util/locale/provider/LocaleProviderAdapter;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LocaleProviderAdapter, adapterInstances)},
-	{"defaultLocaleProviderAdapter", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $STATIC | $VOLATILE, $staticField(LocaleProviderAdapter, defaultLocaleProviderAdapter)},
-	{"adapterCache", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/concurrent/ConcurrentMap<Ljava/util/Locale;Lsun/util/locale/provider/LocaleProviderAdapter;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LocaleProviderAdapter, adapterCache)},
-	{}
-};
-
-$MethodInfo _LocaleProviderAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleProviderAdapter, init$, void)},
-	{"findAdapter", "(Ljava/lang/Class;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", $PRIVATE | $STATIC, $staticMethod(LocaleProviderAdapter, findAdapter, LocaleProviderAdapter*, $Class*, $Locale*)},
-	{"forJRE", "()Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, forJRE, LocaleProviderAdapter*)},
-	{"forType", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;)Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, forType, LocaleProviderAdapter*, $LocaleProviderAdapter$Type*)},
-	{"getAdapter", "(Ljava/lang/Class;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, getAdapter, LocaleProviderAdapter*, $Class*, $Locale*)},
-	{"getAdapterPreference", "()Ljava/util/List;", "()Ljava/util/List<Lsun/util/locale/provider/LocaleProviderAdapter$Type;>;", $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, getAdapterPreference, $List*)},
-	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getAvailableLocales, $LocaleArray*)},
-	{"getBreakIteratorProvider", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getBreakIteratorProvider, $BreakIteratorProvider*)},
-	{"getCalendarDataProvider", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCalendarDataProvider, $CalendarDataProvider*)},
-	{"getCalendarNameProvider", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCalendarNameProvider, $CalendarNameProvider*)},
-	{"getCalendarProvider", "()Lsun/util/spi/CalendarProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCalendarProvider, $CalendarProvider*)},
-	{"getCollatorProvider", "()Ljava/text/spi/CollatorProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCollatorProvider, $CollatorProvider*)},
-	{"getCurrencyNameProvider", "()Ljava/util/spi/CurrencyNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCurrencyNameProvider, $CurrencyNameProvider*)},
-	{"getDateFormatProvider", "()Ljava/text/spi/DateFormatProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getDateFormatProvider, $DateFormatProvider*)},
-	{"getDateFormatSymbolsProvider", "()Ljava/text/spi/DateFormatSymbolsProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getDateFormatSymbolsProvider, $DateFormatSymbolsProvider*)},
-	{"getDecimalFormatSymbolsProvider", "()Ljava/text/spi/DecimalFormatSymbolsProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getDecimalFormatSymbolsProvider, $DecimalFormatSymbolsProvider*)},
-	{"getJavaTimeDateTimePatternProvider", "()Lsun/text/spi/JavaTimeDateTimePatternProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getJavaTimeDateTimePatternProvider, $JavaTimeDateTimePatternProvider*)},
-	{"getLocaleNameProvider", "()Ljava/util/spi/LocaleNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getLocaleNameProvider, $LocaleNameProvider*)},
-	{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getLocaleResources, $LocaleResources*, $Locale*)},
-	{"getLocaleServiceProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getLocaleServiceProvider, $LocaleServiceProvider*, $Class*)},
-	{"getNumberFormatProvider", "()Ljava/text/spi/NumberFormatProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getNumberFormatProvider, $NumberFormatProvider*)},
-	{"getResourceBundleBased", "()Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, getResourceBundleBased, LocaleProviderAdapter*)},
-	{"getTimeZoneNameProvider", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getTimeZoneNameProvider, $TimeZoneNameProvider*)},
-	{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(LocaleProviderAdapter, isSupportedProviderLocale, bool, $Locale*, $Set*)},
-	{"toLocaleArray", "(Ljava/util/Set;)[Ljava/util/Locale;", "(Ljava/util/Set<Ljava/lang/String;>;)[Ljava/util/Locale;", $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, toLocaleArray, $LocaleArray*, $Set*)},
-	{}
-};
-
-$InnerClassInfo _LocaleProviderAdapter_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.LocaleProviderAdapter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.util.locale.provider.LocaleProviderAdapter$Type", "sun.util.locale.provider.LocaleProviderAdapter", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LocaleProviderAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.util.locale.provider.LocaleProviderAdapter",
-	"java.lang.Object",
-	nullptr,
-	_LocaleProviderAdapter_FieldInfo_,
-	_LocaleProviderAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LocaleProviderAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.LocaleProviderAdapter$1,sun.util.locale.provider.LocaleProviderAdapter$Type"
-};
-
-$Object* allocate$LocaleProviderAdapter($Class* clazz) {
-	return $of($alloc(LocaleProviderAdapter));
-}
-
 bool LocaleProviderAdapter::$assertionsDisabled = false;
 $List* LocaleProviderAdapter::adapterPreference = nullptr;
 $Map* LocaleProviderAdapter::adapterInstances = nullptr;
@@ -182,51 +115,41 @@ void LocaleProviderAdapter::init$() {
 
 LocaleProviderAdapter* LocaleProviderAdapter::forType($LocaleProviderAdapter$Type* type) {
 	$init(LocaleProviderAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($LocaleProviderAdapter$1);
-	{
-		$var(LocaleProviderAdapter, adapter, nullptr)
-		switch ($nc($LocaleProviderAdapter$1::$SwitchMap$sun$util$locale$provider$LocaleProviderAdapter$Type)->get($nc((type))->ordinal())) {
-		case 1:
-			{}
-		case 2:
-			{}
-		case 3:
-			{}
-		case 4:
-			{}
-		case 5:
-			{
-				$assign(adapter, $cast(LocaleProviderAdapter, $nc(LocaleProviderAdapter::adapterInstances)->get(type)));
-				if (adapter == nullptr) {
-					try {
-						$assign(adapter, $cast(LocaleProviderAdapter, $nc($($Class::forName($(type->getAdapterClassName()))->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
-						$var(LocaleProviderAdapter, cached, $cast(LocaleProviderAdapter, $nc(LocaleProviderAdapter::adapterInstances)->putIfAbsent(type, adapter)));
-						if (cached != nullptr) {
-							$assign(adapter, cached);
-						}
-					} catch ($NoSuchMethodException& e) {
-						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
-					} catch ($InvocationTargetException& e) {
-						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
-					} catch ($ClassNotFoundException& e) {
-						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
-					} catch ($IllegalAccessException& e) {
-						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
-					} catch ($InstantiationException& e) {
-						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
-					} catch ($UnsupportedOperationException& e) {
-						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
-					}
+	$var(LocaleProviderAdapter, adapter, nullptr);
+	switch ($nc($LocaleProviderAdapter$1::$SwitchMap$sun$util$locale$provider$LocaleProviderAdapter$Type)->get($nc((type))->ordinal())) {
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+		$assign(adapter, $cast(LocaleProviderAdapter, LocaleProviderAdapter::adapterInstances->get(type)));
+		if (adapter == nullptr) {
+			try {
+				$assign(adapter, $cast(LocaleProviderAdapter, $$nc($Class::forName($(type->getAdapterClassName()))->getDeclaredConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0))));
+				$var(LocaleProviderAdapter, cached, $cast(LocaleProviderAdapter, LocaleProviderAdapter::adapterInstances->putIfAbsent(type, adapter)));
+				if (cached != nullptr) {
+					$assign(adapter, cached);
 				}
-				return adapter;
-			}
-		default:
-			{
-				$throwNew($InternalError, "unknown locale data adapter type"_s);
+			} catch ($NoSuchMethodException& e) {
+				$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
+			} catch ($InvocationTargetException& e) {
+				$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
+			} catch ($ClassNotFoundException& e) {
+				$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
+			} catch ($IllegalAccessException& e) {
+				$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
+			} catch ($InstantiationException& e) {
+				$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
+			} catch ($UnsupportedOperationException& e) {
+				$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
 			}
 		}
+		return adapter;
+	default:
+		$throwNew($InternalError, "unknown locale data adapter type"_s);
 	}
 }
 
@@ -238,18 +161,16 @@ LocaleProviderAdapter* LocaleProviderAdapter::forJRE() {
 
 LocaleProviderAdapter* LocaleProviderAdapter::getResourceBundleBased() {
 	$init(LocaleProviderAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($Iterator, i$, $nc($(getAdapterPreference()))->iterator());
+		$var($Iterator, i$, $$nc(getAdapterPreference())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$LocaleProviderAdapter$Type* type = $cast($LocaleProviderAdapter$Type, i$->next());
-			{
-				$init($LocaleProviderAdapter$Type);
-				if (type == $LocaleProviderAdapter$Type::JRE || type == $LocaleProviderAdapter$Type::CLDR || type == $LocaleProviderAdapter$Type::FALLBACK) {
-					$var(LocaleProviderAdapter, adapter, forType(type));
-					if (adapter != nullptr) {
-						return adapter;
-					}
+			$init($LocaleProviderAdapter$Type);
+			if (type == $LocaleProviderAdapter$Type::JRE || type == $LocaleProviderAdapter$Type::CLDR || type == $LocaleProviderAdapter$Type::FALLBACK) {
+				$var(LocaleProviderAdapter, adapter, forType(type));
+				if (adapter != nullptr) {
+					return adapter;
 				}
 			}
 		}
@@ -264,16 +185,16 @@ $List* LocaleProviderAdapter::getAdapterPreference() {
 
 LocaleProviderAdapter* LocaleProviderAdapter::getAdapter($Class* providerClass, $Locale* locale) {
 	$init(LocaleProviderAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LocaleProviderAdapter, adapter, nullptr);
-	$var($ConcurrentMap, adapterMap, $cast($ConcurrentMap, $nc(LocaleProviderAdapter::adapterCache)->get(providerClass)));
+	$var($ConcurrentMap, adapterMap, $cast($ConcurrentMap, LocaleProviderAdapter::adapterCache->get(providerClass)));
 	if (adapterMap != nullptr) {
 		if (($assign(adapter, $cast(LocaleProviderAdapter, adapterMap->get(locale)))) != nullptr) {
 			return adapter;
 		}
 	} else {
 		$assign(adapterMap, $new($ConcurrentHashMap));
-		$nc(LocaleProviderAdapter::adapterCache)->putIfAbsent(providerClass, adapterMap);
+		LocaleProviderAdapter::adapterCache->putIfAbsent(providerClass, adapterMap);
 	}
 	$assign(adapter, findAdapter(providerClass, locale));
 	if (adapter != nullptr) {
@@ -281,7 +202,7 @@ LocaleProviderAdapter* LocaleProviderAdapter::getAdapter($Class* providerClass, 
 		return adapter;
 	}
 	$init($ResourceBundle$Control);
-	$var($List, lookupLocales, $nc($($ResourceBundle$Control::getControl($ResourceBundle$Control::FORMAT_DEFAULT)))->getCandidateLocales(""_s, locale));
+	$var($List, lookupLocales, $$nc($ResourceBundle$Control::getControl($ResourceBundle$Control::FORMAT_DEFAULT))->getCandidateLocales(""_s, locale));
 	{
 		$var($Iterator, i$, $nc(lookupLocales)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -305,19 +226,17 @@ LocaleProviderAdapter* LocaleProviderAdapter::getAdapter($Class* providerClass, 
 
 LocaleProviderAdapter* LocaleProviderAdapter::findAdapter($Class* providerClass, $Locale* locale) {
 	$init(LocaleProviderAdapter);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($(getAdapterPreference()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$LocaleProviderAdapter$Type* type = $cast($LocaleProviderAdapter$Type, i$->next());
-			{
-				$var(LocaleProviderAdapter, adapter, forType(type));
-				if (adapter != nullptr) {
-					$var($LocaleServiceProvider, provider, adapter->getLocaleServiceProvider(providerClass));
-					if (provider != nullptr) {
-						if (provider->isSupportedLocale(locale)) {
-							return adapter;
-						}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc(getAdapterPreference())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$LocaleProviderAdapter$Type* type = $cast($LocaleProviderAdapter$Type, i$->next());
+		{
+			$var(LocaleProviderAdapter, adapter, forType(type));
+			if (adapter != nullptr) {
+				$var($LocaleServiceProvider, provider, adapter->getLocaleServiceProvider(providerClass));
+				if (provider != nullptr) {
+					if (provider->isSupportedLocale(locale)) {
+						return adapter;
 					}
 				}
 			}
@@ -337,54 +256,41 @@ bool LocaleProviderAdapter::isSupportedProviderLocale($Locale* locale, $Set* lan
 
 $LocaleArray* LocaleProviderAdapter::toLocaleArray($Set* tags) {
 	$init(LocaleProviderAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocaleArray, locs, $new($LocaleArray, $nc(tags)->size() + 1));
 	int32_t index = 0;
-	$init($Locale);
 	locs->set(index++, $Locale::ROOT);
 	{
 		$var($Iterator, i$, tags->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, tag, $cast($String, i$->next()));
 			{
-				{
-					$var($String, s12034$, tag);
-					int32_t tmp12034$ = -1;
-					switch ($nc(s12034$)->hashCode()) {
-					case 0x5F7AF717:
-						{
-							if (s12034$->equals("ja-JP-JP"_s)) {
-								tmp12034$ = 0;
-							}
-							break;
-						}
-					case (int32_t)0xE11B9FD4:
-						{
-							if (s12034$->equals("th-TH-TH"_s)) {
-								tmp12034$ = 1;
-							}
-							break;
-						}
+				$var($String, s12034$, tag);
+				int32_t tmp12034$ = -1;
+				switch ($nc(s12034$)->hashCode()) {
+				case 0x5f7af717:
+					if (s12034$->equals("ja-JP-JP"_s)) {
+						tmp12034$ = 0;
 					}
-					switch (tmp12034$) {
-					case 0:
-						{
-							$init($JRELocaleConstants);
-							locs->set(index++, $JRELocaleConstants::JA_JP_JP);
-							break;
-						}
-					case 1:
-						{
-							$init($JRELocaleConstants);
-							locs->set(index++, $JRELocaleConstants::TH_TH_TH);
-							break;
-						}
-					default:
-						{
-							locs->set(index++, $($Locale::forLanguageTag(tag)));
-							break;
-						}
+					break;
+				case (int32_t)0xe11b9fd4:
+					if (s12034$->equals("th-TH-TH"_s)) {
+						tmp12034$ = 1;
 					}
+					break;
+				}
+				switch (tmp12034$) {
+				case 0:
+					$init($JRELocaleConstants);
+					locs->set(index++, $JRELocaleConstants::JA_JP_JP);
+					break;
+				case 1:
+					$init($JRELocaleConstants);
+					locs->set(index++, $JRELocaleConstants::TH_TH_TH);
+					break;
+				default:
+					locs->set(index++, $($Locale::forLanguageTag(tag)));
+					break;
 				}
 			}
 		}
@@ -392,11 +298,11 @@ $LocaleArray* LocaleProviderAdapter::toLocaleArray($Set* tags) {
 	return locs;
 }
 
-void clinit$LocaleProviderAdapter($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LocaleProviderAdapter::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	LocaleProviderAdapter::$assertionsDisabled = !LocaleProviderAdapter::class$->desiredAssertionStatus();
-	$assignStatic(LocaleProviderAdapter::adapterInstances, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$assignStatic(LocaleProviderAdapter::adapterInstances, $cast($AbstractMap, $new($ConcurrentHashMap)));
 	$assignStatic(LocaleProviderAdapter::adapterCache, $new($ConcurrentHashMap));
 	{
 		$var($String, order, $GetPropertyAction::privilegedGetProperty("java.locale.providers"_s));
@@ -406,9 +312,7 @@ void clinit$LocaleProviderAdapter($Class* class$) {
 			$var($StringArray, types, order->split(","_s));
 			{
 				$var($StringArray, arr$, types);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$var($String, type, arr$->get(i$));
 					{
 						$init($Locale);
@@ -443,7 +347,7 @@ void clinit$LocaleProviderAdapter($Class* class$) {
 		$assignStatic(LocaleProviderAdapter::adapterPreference, $Collections::unmodifiableList(typeList));
 		if (invalidTypeMessage != nullptr) {
 			$init($System$Logger$Level);
-			$nc($($System::getLogger($(LocaleProviderAdapter::class$->getCanonicalName()))))->log($System$Logger$Level::INFO, invalidTypeMessage);
+			$$nc($System::getLogger($(LocaleProviderAdapter::class$->getCanonicalName())))->log($System$Logger$Level::INFO, invalidTypeMessage);
 		}
 	}
 }
@@ -452,7 +356,65 @@ LocaleProviderAdapter::LocaleProviderAdapter() {
 }
 
 $Class* LocaleProviderAdapter::load$($String* name, bool initialize) {
-	$loadClass(LocaleProviderAdapter, name, initialize, &_LocaleProviderAdapter_ClassInfo_, clinit$LocaleProviderAdapter, allocate$LocaleProviderAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LocaleProviderAdapter, $assertionsDisabled)},
+		{"adapterPreference", "Ljava/util/List;", "Ljava/util/List<Lsun/util/locale/provider/LocaleProviderAdapter$Type;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LocaleProviderAdapter, adapterPreference)},
+		{"adapterInstances", "Ljava/util/Map;", "Ljava/util/Map<Lsun/util/locale/provider/LocaleProviderAdapter$Type;Lsun/util/locale/provider/LocaleProviderAdapter;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LocaleProviderAdapter, adapterInstances)},
+		{"defaultLocaleProviderAdapter", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $STATIC | $VOLATILE, $staticField(LocaleProviderAdapter, defaultLocaleProviderAdapter)},
+		{"adapterCache", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/concurrent/ConcurrentMap<Ljava/util/Locale;Lsun/util/locale/provider/LocaleProviderAdapter;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LocaleProviderAdapter, adapterCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleProviderAdapter, init$, void)},
+		{"findAdapter", "(Ljava/lang/Class;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", $PRIVATE | $STATIC, $staticMethod(LocaleProviderAdapter, findAdapter, LocaleProviderAdapter*, $Class*, $Locale*)},
+		{"forJRE", "()Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, forJRE, LocaleProviderAdapter*)},
+		{"forType", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;)Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, forType, LocaleProviderAdapter*, $LocaleProviderAdapter$Type*)},
+		{"getAdapter", "(Ljava/lang/Class;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, getAdapter, LocaleProviderAdapter*, $Class*, $Locale*)},
+		{"getAdapterPreference", "()Ljava/util/List;", "()Ljava/util/List<Lsun/util/locale/provider/LocaleProviderAdapter$Type;>;", $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, getAdapterPreference, $List*)},
+		{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getAvailableLocales, $LocaleArray*)},
+		{"getBreakIteratorProvider", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getBreakIteratorProvider, $BreakIteratorProvider*)},
+		{"getCalendarDataProvider", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCalendarDataProvider, $CalendarDataProvider*)},
+		{"getCalendarNameProvider", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCalendarNameProvider, $CalendarNameProvider*)},
+		{"getCalendarProvider", "()Lsun/util/spi/CalendarProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCalendarProvider, $CalendarProvider*)},
+		{"getCollatorProvider", "()Ljava/text/spi/CollatorProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCollatorProvider, $CollatorProvider*)},
+		{"getCurrencyNameProvider", "()Ljava/util/spi/CurrencyNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCurrencyNameProvider, $CurrencyNameProvider*)},
+		{"getDateFormatProvider", "()Ljava/text/spi/DateFormatProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getDateFormatProvider, $DateFormatProvider*)},
+		{"getDateFormatSymbolsProvider", "()Ljava/text/spi/DateFormatSymbolsProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getDateFormatSymbolsProvider, $DateFormatSymbolsProvider*)},
+		{"getDecimalFormatSymbolsProvider", "()Ljava/text/spi/DecimalFormatSymbolsProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getDecimalFormatSymbolsProvider, $DecimalFormatSymbolsProvider*)},
+		{"getJavaTimeDateTimePatternProvider", "()Lsun/text/spi/JavaTimeDateTimePatternProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getJavaTimeDateTimePatternProvider, $JavaTimeDateTimePatternProvider*)},
+		{"getLocaleNameProvider", "()Ljava/util/spi/LocaleNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getLocaleNameProvider, $LocaleNameProvider*)},
+		{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getLocaleResources, $LocaleResources*, $Locale*)},
+		{"getLocaleServiceProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getLocaleServiceProvider, $LocaleServiceProvider*, $Class*)},
+		{"getNumberFormatProvider", "()Ljava/text/spi/NumberFormatProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getNumberFormatProvider, $NumberFormatProvider*)},
+		{"getResourceBundleBased", "()Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, getResourceBundleBased, LocaleProviderAdapter*)},
+		{"getTimeZoneNameProvider", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getTimeZoneNameProvider, $TimeZoneNameProvider*)},
+		{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(LocaleProviderAdapter, isSupportedProviderLocale, bool, $Locale*, $Set*)},
+		{"toLocaleArray", "(Ljava/util/Set;)[Ljava/util/Locale;", "(Ljava/util/Set<Ljava/lang/String;>;)[Ljava/util/Locale;", $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, toLocaleArray, $LocaleArray*, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.LocaleProviderAdapter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.util.locale.provider.LocaleProviderAdapter$Type", "sun.util.locale.provider.LocaleProviderAdapter", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.util.locale.provider.LocaleProviderAdapter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.LocaleProviderAdapter$1,sun.util.locale.provider.LocaleProviderAdapter$Type"
+	};
+	$loadClass(LocaleProviderAdapter, name, initialize, &classInfo$$, LocaleProviderAdapter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleProviderAdapter);
+	});
 	return class$;
 }
 

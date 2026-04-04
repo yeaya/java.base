@@ -66,6 +66,7 @@ class $import OCSP : public ::java::lang::Object {
 	$class(OCSP, 0, ::java::lang::Object)
 public:
 	OCSP();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::provider::certpath::OCSP$RevocationStatus* check(::java::security::cert::X509Certificate* cert, ::java::security::cert::X509Certificate* issuerCert, ::java::net::URI* responderURI, ::java::security::cert::X509Certificate* responderCert, ::java::util::Date* date);
 	static ::sun::security::provider::certpath::OCSP$RevocationStatus* check(::java::security::cert::X509Certificate* cert, ::java::security::cert::X509Certificate* issuerCert, ::java::net::URI* responderURI, ::java::security::cert::X509Certificate* responderCert, ::java::util::Date* date, ::java::util::List* extensions, $String* variant);

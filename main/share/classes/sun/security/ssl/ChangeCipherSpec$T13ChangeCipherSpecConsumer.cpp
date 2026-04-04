@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ChangeCipherSpec$T13ChangeCipherSpecConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Map.h>
 #include <javax/net/ssl/SSLException.h>
@@ -19,7 +18,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $ContentType = ::sun::security::ssl::ContentType;
@@ -30,47 +28,16 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ChangeCipherSpec$T13ChangeCipherSpecConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ChangeCipherSpec$T13ChangeCipherSpecConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ChangeCipherSpec$T13ChangeCipherSpecConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ChangeCipherSpec$T13ChangeCipherSpecConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ChangeCipherSpec$T13ChangeCipherSpecConsumer", "sun.security.ssl.ChangeCipherSpec", "T13ChangeCipherSpecConsumer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ChangeCipherSpec$T13ChangeCipherSpecConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ChangeCipherSpec$T13ChangeCipherSpecConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLConsumer",
-	nullptr,
-	_ChangeCipherSpec$T13ChangeCipherSpecConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ChangeCipherSpec$T13ChangeCipherSpecConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ChangeCipherSpec"
-};
-
-$Object* allocate$ChangeCipherSpec$T13ChangeCipherSpecConsumer($Class* clazz) {
-	return $of($alloc(ChangeCipherSpec$T13ChangeCipherSpecConsumer));
-}
-
 void ChangeCipherSpec$T13ChangeCipherSpecConsumer::init$() {
 }
 
 void ChangeCipherSpec$T13ChangeCipherSpecConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TransportContext, tc, $cast($TransportContext, context));
 	$init($ContentType);
 	$nc($nc(tc)->consumers)->remove($($Byte::valueOf($ContentType::CHANGE_CIPHER_SPEC->id)));
 	bool var$0 = $nc(message)->remaining() != 1;
-	if (var$0 || $nc(message)->get() != 1) {
+	if (var$0 || message->get() != 1) {
 		$init($Alert);
 		$throw($(tc->fatal($Alert::UNEXPECTED_MESSAGE, "Malformed or unexpected ChangeCipherSpec message"_s)));
 	}
@@ -84,7 +51,33 @@ ChangeCipherSpec$T13ChangeCipherSpecConsumer::ChangeCipherSpec$T13ChangeCipherSp
 }
 
 $Class* ChangeCipherSpec$T13ChangeCipherSpecConsumer::load$($String* name, bool initialize) {
-	$loadClass(ChangeCipherSpec$T13ChangeCipherSpecConsumer, name, initialize, &_ChangeCipherSpec$T13ChangeCipherSpecConsumer_ClassInfo_, allocate$ChangeCipherSpec$T13ChangeCipherSpecConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ChangeCipherSpec$T13ChangeCipherSpecConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ChangeCipherSpec$T13ChangeCipherSpecConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ChangeCipherSpec$T13ChangeCipherSpecConsumer", "sun.security.ssl.ChangeCipherSpec", "T13ChangeCipherSpecConsumer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ChangeCipherSpec$T13ChangeCipherSpecConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ChangeCipherSpec"
+	};
+	$loadClass(ChangeCipherSpec$T13ChangeCipherSpecConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ChangeCipherSpec$T13ChangeCipherSpecConsumer);
+	});
 	return class$;
 }
 

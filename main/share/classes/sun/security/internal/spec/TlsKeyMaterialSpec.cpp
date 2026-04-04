@@ -1,5 +1,4 @@
 #include <sun/security/internal/spec/TlsKeyMaterialSpec.h>
-
 #include <java/security/spec/KeySpec.h>
 #include <javax/crypto/SecretKey.h>
 #include <javax/crypto/spec/IvParameterSpec.h>
@@ -17,60 +16,6 @@ namespace sun {
 	namespace security {
 		namespace internal {
 			namespace spec {
-
-$CompoundAttribute _TlsKeyMaterialSpec_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _TlsKeyMaterialSpec_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TlsKeyMaterialSpec, serialVersionUID)},
-	{"clientMacKey", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, clientMacKey)},
-	{"serverMacKey", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, serverMacKey)},
-	{"clientCipherKey", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, clientCipherKey)},
-	{"serverCipherKey", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, serverCipherKey)},
-	{"clientIv", "Ljavax/crypto/spec/IvParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, clientIv)},
-	{"serverIv", "Ljavax/crypto/spec/IvParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, serverIv)},
-	{}
-};
-
-$MethodInfo _TlsKeyMaterialSpec_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $method(TlsKeyMaterialSpec, init$, void, $SecretKey*, $SecretKey*)},
-	{"<init>", "(Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $method(TlsKeyMaterialSpec, init$, void, $SecretKey*, $SecretKey*, $SecretKey*, $SecretKey*)},
-	{"<init>", "(Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;Ljavax/crypto/spec/IvParameterSpec;Ljavax/crypto/SecretKey;Ljavax/crypto/spec/IvParameterSpec;)V", nullptr, $PUBLIC, $method(TlsKeyMaterialSpec, init$, void, $SecretKey*, $SecretKey*, $SecretKey*, $IvParameterSpec*, $SecretKey*, $IvParameterSpec*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getAlgorithm, $String*)},
-	{"getClientCipherKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getClientCipherKey, $SecretKey*)},
-	{"getClientIv", "()Ljavax/crypto/spec/IvParameterSpec;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getClientIv, $IvParameterSpec*)},
-	{"getClientMacKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getClientMacKey, $SecretKey*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getEncoded, $bytes*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getFormat, $String*)},
-	{"getServerCipherKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getServerCipherKey, $SecretKey*)},
-	{"getServerIv", "()Ljavax/crypto/spec/IvParameterSpec;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getServerIv, $IvParameterSpec*)},
-	{"getServerMacKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getServerMacKey, $SecretKey*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _TlsKeyMaterialSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.internal.spec.TlsKeyMaterialSpec",
-	"java.lang.Object",
-	"java.security.spec.KeySpec,javax.crypto.SecretKey",
-	_TlsKeyMaterialSpec_FieldInfo_,
-	_TlsKeyMaterialSpec_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_TlsKeyMaterialSpec_Annotations_
-};
-
-$Object* allocate$TlsKeyMaterialSpec($Class* clazz) {
-	return $of($alloc(TlsKeyMaterialSpec));
-}
 
 int32_t TlsKeyMaterialSpec::hashCode() {
 	 return this->$KeySpec::hashCode();
@@ -149,7 +94,55 @@ TlsKeyMaterialSpec::TlsKeyMaterialSpec() {
 }
 
 $Class* TlsKeyMaterialSpec::load$($String* name, bool initialize) {
-	$loadClass(TlsKeyMaterialSpec, name, initialize, &_TlsKeyMaterialSpec_ClassInfo_, allocate$TlsKeyMaterialSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TlsKeyMaterialSpec, serialVersionUID)},
+		{"clientMacKey", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, clientMacKey)},
+		{"serverMacKey", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, serverMacKey)},
+		{"clientCipherKey", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, clientCipherKey)},
+		{"serverCipherKey", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, serverCipherKey)},
+		{"clientIv", "Ljavax/crypto/spec/IvParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, clientIv)},
+		{"serverIv", "Ljavax/crypto/spec/IvParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialSpec, serverIv)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $method(TlsKeyMaterialSpec, init$, void, $SecretKey*, $SecretKey*)},
+		{"<init>", "(Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $method(TlsKeyMaterialSpec, init$, void, $SecretKey*, $SecretKey*, $SecretKey*, $SecretKey*)},
+		{"<init>", "(Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;Ljavax/crypto/spec/IvParameterSpec;Ljavax/crypto/SecretKey;Ljavax/crypto/spec/IvParameterSpec;)V", nullptr, $PUBLIC, $method(TlsKeyMaterialSpec, init$, void, $SecretKey*, $SecretKey*, $SecretKey*, $IvParameterSpec*, $SecretKey*, $IvParameterSpec*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getAlgorithm, $String*)},
+		{"getClientCipherKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getClientCipherKey, $SecretKey*)},
+		{"getClientIv", "()Ljavax/crypto/spec/IvParameterSpec;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getClientIv, $IvParameterSpec*)},
+		{"getClientMacKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getClientMacKey, $SecretKey*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getEncoded, $bytes*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getFormat, $String*)},
+		{"getServerCipherKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getServerCipherKey, $SecretKey*)},
+		{"getServerIv", "()Ljavax/crypto/spec/IvParameterSpec;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getServerIv, $IvParameterSpec*)},
+		{"getServerMacKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialSpec, getServerMacKey, $SecretKey*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.internal.spec.TlsKeyMaterialSpec",
+		"java.lang.Object",
+		"java.security.spec.KeySpec,javax.crypto.SecretKey",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(TlsKeyMaterialSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TlsKeyMaterialSpec));
+	});
 	return class$;
 }
 

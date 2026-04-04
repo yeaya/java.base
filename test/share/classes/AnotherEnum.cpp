@@ -1,5 +1,4 @@
 #include <AnotherEnum.h>
-
 #include <AnotherEnum$1.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -15,54 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-
-$NamedAttribute AnotherEnum_Attribute_var$0[] = {
-	{"value", 's', "enum AnotherEnum"},
-	{}
-};
-
-$CompoundAttribute _AnotherEnum_Annotations_[] = {
-	{"LExpectedGenericString;", AnotherEnum_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _AnotherEnum_FieldInfo_[] = {
-	{"BAR", "LAnotherEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AnotherEnum, BAR)},
-	{"$VALUES", "[LAnotherEnum;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AnotherEnum, $VALUES)},
-	{}
-};
-
-$MethodInfo _AnotherEnum_MethodInfo_[] = {
-	{"$values", "()[LAnotherEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AnotherEnum, $values, $AnotherEnumArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AnotherEnum, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LAnotherEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnotherEnum, valueOf, AnotherEnum*, $String*)},
-	{"values", "()[LAnotherEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnotherEnum, values, $AnotherEnumArray*)},
-	{}
-};
-
-$InnerClassInfo _AnotherEnum_InnerClassesInfo_[] = {
-	{"AnotherEnum$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _AnotherEnum_ClassInfo_ = {
-	$ACC_SUPER | $ENUM,
-	"AnotherEnum",
-	"java.lang.Enum",
-	nullptr,
-	_AnotherEnum_FieldInfo_,
-	_AnotherEnum_MethodInfo_,
-	"Ljava/lang/Enum<LAnotherEnum;>;",
-	nullptr,
-	_AnotherEnum_InnerClassesInfo_,
-	_AnotherEnum_Annotations_,
-	nullptr,
-	"AnotherEnum$1"
-};
-
-$Object* allocate$AnotherEnum($Class* clazz) {
-	return $of($alloc(AnotherEnum));
-}
 
 AnotherEnum* AnotherEnum::BAR = nullptr;
 $AnotherEnumArray* AnotherEnum::$VALUES = nullptr;
@@ -86,7 +37,7 @@ void AnotherEnum::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$AnotherEnum($Class* class$) {
+void AnotherEnum::clinit$($Class* clazz) {
 	$assignStatic(AnotherEnum::BAR, $new($AnotherEnum$1, "BAR"_s, 0));
 	$assignStatic(AnotherEnum::$VALUES, AnotherEnum::$values());
 }
@@ -95,7 +46,47 @@ AnotherEnum::AnotherEnum() {
 }
 
 $Class* AnotherEnum::load$($String* name, bool initialize) {
-	$loadClass(AnotherEnum, name, initialize, &_AnotherEnum_ClassInfo_, clinit$AnotherEnum, allocate$AnotherEnum);
+	$FieldInfo fieldInfos$$[] = {
+		{"BAR", "LAnotherEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AnotherEnum, BAR)},
+		{"$VALUES", "[LAnotherEnum;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AnotherEnum, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LAnotherEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AnotherEnum, $values, $AnotherEnumArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AnotherEnum, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LAnotherEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnotherEnum, valueOf, AnotherEnum*, $String*)},
+		{"values", "()[LAnotherEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnotherEnum, values, $AnotherEnumArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AnotherEnum$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 's', "enum AnotherEnum"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LExpectedGenericString;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ENUM,
+		"AnotherEnum",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LAnotherEnum;>;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"AnotherEnum$1"
+	};
+	$loadClass(AnotherEnum, name, initialize, &classInfo$$, AnotherEnum::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AnotherEnum));
+	});
 	return class$;
 }
 

@@ -72,6 +72,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t port, bool v4);
 	void init$(int32_t port);
 	void init$(::java::net::InetAddress* addr, int32_t port, bool useV4);

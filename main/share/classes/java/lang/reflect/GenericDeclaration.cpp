@@ -1,5 +1,4 @@
 #include <java/lang/reflect/GenericDeclaration.h>
-
 #include <java/lang/reflect/TypeVariable.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace lang {
 		namespace reflect {
 
-$MethodInfo _GenericDeclaration_MethodInfo_[] = {
-	{"getTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(GenericDeclaration, getTypeParameters, $TypeVariableArray*)},
-	{}
-};
-
-$ClassInfo _GenericDeclaration_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.reflect.GenericDeclaration",
-	nullptr,
-	"java.lang.reflect.AnnotatedElement",
-	nullptr,
-	_GenericDeclaration_MethodInfo_
-};
-
-$Object* allocate$GenericDeclaration($Class* clazz) {
-	return $of($alloc(GenericDeclaration));
-}
-
 $Class* GenericDeclaration::load$($String* name, bool initialize) {
-	$loadClass(GenericDeclaration, name, initialize, &_GenericDeclaration_ClassInfo_, allocate$GenericDeclaration);
+	$MethodInfo methodInfos$$[] = {
+		{"getTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(GenericDeclaration, getTypeParameters, $TypeVariableArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.reflect.GenericDeclaration",
+		nullptr,
+		"java.lang.reflect.AnnotatedElement",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GenericDeclaration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GenericDeclaration);
+	});
 	return class$;
 }
 

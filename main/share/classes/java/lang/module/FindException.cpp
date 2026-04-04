@@ -1,5 +1,4 @@
 #include <java/lang/module/FindException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,32 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace lang {
 		namespace module {
-
-$FieldInfo _FindException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FindException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FindException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FindException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FindException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(FindException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(FindException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _FindException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.module.FindException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_FindException_FieldInfo_,
-	_FindException_MethodInfo_
-};
-
-$Object* allocate$FindException($Class* clazz) {
-	return $of($alloc(FindException));
-}
 
 void FindException::init$() {
 	$RuntimeException::init$();
@@ -64,7 +37,28 @@ void FindException::throw$() {
 }
 
 $Class* FindException::load$($String* name, bool initialize) {
-	$loadClass(FindException, name, initialize, &_FindException_ClassInfo_, allocate$FindException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FindException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FindException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FindException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(FindException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(FindException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.module.FindException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FindException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FindException);
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ public:
 	ProtocolException();
 	void init$($String* message);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xAB5DF48B1D313490;
+	static const int64_t serialVersionUID = (int64_t)0xab5df48b1d313490;
 	ProtocolException(const ProtocolException& e);
 	virtual void throw$() override;
-	inline ProtocolException* operator ->() {
+	inline ProtocolException* operator ->() const {
+		return (ProtocolException*)throwing$;
+	}
+	inline operator ProtocolException*() const {
 		return (ProtocolException*)throwing$;
 	}
 };

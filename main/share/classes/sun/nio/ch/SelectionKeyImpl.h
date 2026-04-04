@@ -46,6 +46,7 @@ class $export SelectionKeyImpl : public ::java::nio::channels::spi::AbstractSele
 	$class(SelectionKeyImpl, 0, ::java::nio::channels::spi::AbstractSelectionKey)
 public:
 	SelectionKeyImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::ch::SelChImpl* ch, ::sun::nio::ch::SelectorImpl* sel);
 	virtual ::java::nio::channels::SelectableChannel* channel() override;
 	void ensureValid();

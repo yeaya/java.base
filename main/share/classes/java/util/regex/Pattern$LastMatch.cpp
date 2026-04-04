@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$LastMatch.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$Node.h>
@@ -17,38 +16,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$MethodInfo _Pattern$LastMatch_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Pattern$LastMatch, init$, void)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LastMatch, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$LastMatch_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$LastMatch", "java.util.regex.Pattern", "LastMatch", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$LastMatch_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$LastMatch",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	nullptr,
-	_Pattern$LastMatch_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$LastMatch_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$LastMatch($Class* clazz) {
-	return $of($alloc(Pattern$LastMatch));
-}
-
 void Pattern$LastMatch::init$() {
 	$Pattern$Node::init$();
 }
@@ -64,7 +31,34 @@ Pattern$LastMatch::Pattern$LastMatch() {
 }
 
 $Class* Pattern$LastMatch::load$($String* name, bool initialize) {
-	$loadClass(Pattern$LastMatch, name, initialize, &_Pattern$LastMatch_ClassInfo_, allocate$Pattern$LastMatch);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Pattern$LastMatch, init$, void)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LastMatch, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$LastMatch", "java.util.regex.Pattern", "LastMatch", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$LastMatch",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$LastMatch, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$LastMatch);
+	});
 	return class$;
 }
 

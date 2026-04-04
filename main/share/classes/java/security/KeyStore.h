@@ -53,6 +53,7 @@ class $export KeyStore : public ::java::lang::Object {
 	$class(KeyStore, 0, ::java::lang::Object)
 public:
 	KeyStore();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::KeyStoreSpi* keyStoreSpi, ::java::security::Provider* provider, $String* type);
 	::java::util::Enumeration* aliases();
 	bool containsAlias($String* alias);

@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleInfoExtender$1$1.h>
-
 #include <java/util/Set.h>
 #include <jdk/internal/module/ModuleInfoExtender$1.h>
 #include <jdk/internal/module/ModuleInfoExtender.h>
@@ -17,50 +16,6 @@ using $ModuleVisitor = ::jdk::internal::org::objectweb::asm$::ModuleVisitor;
 namespace jdk {
 	namespace internal {
 		namespace module {
-
-$FieldInfo _ModuleInfoExtender$1$1_FieldInfo_[] = {
-	{"this$1", "Ljdk/internal/module/ModuleInfoExtender$1;", nullptr, $FINAL | $SYNTHETIC, $field(ModuleInfoExtender$1$1, this$1)},
-	{}
-};
-
-$MethodInfo _ModuleInfoExtender$1$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/module/ModuleInfoExtender$1;ILjdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, 0, $method(ModuleInfoExtender$1$1, init$, void, $ModuleInfoExtender$1*, int32_t, $ModuleVisitor*)},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1$1, visitMainClass, void, $String*)},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1$1, visitPackage, void, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _ModuleInfoExtender$1$1_EnclosingMethodInfo_ = {
-	"jdk.internal.module.ModuleInfoExtender$1",
-	"visitModule",
-	"(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;"
-};
-
-$InnerClassInfo _ModuleInfoExtender$1$1_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModuleInfoExtender$1", nullptr, nullptr, 0},
-	{"jdk.internal.module.ModuleInfoExtender$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ModuleInfoExtender$1$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.ModuleInfoExtender$1$1",
-	"jdk.internal.org.objectweb.asm.ModuleVisitor",
-	nullptr,
-	_ModuleInfoExtender$1$1_FieldInfo_,
-	_ModuleInfoExtender$1$1_MethodInfo_,
-	nullptr,
-	&_ModuleInfoExtender$1$1_EnclosingMethodInfo_,
-	_ModuleInfoExtender$1$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModuleInfoExtender"
-};
-
-$Object* allocate$ModuleInfoExtender$1$1($Class* clazz) {
-	return $of($alloc(ModuleInfoExtender$1$1));
-}
 
 void ModuleInfoExtender$1$1::init$($ModuleInfoExtender$1* this$1, int32_t api, $ModuleVisitor* moduleVisitor) {
 	$set(this, this$1, this$1);
@@ -83,7 +38,44 @@ ModuleInfoExtender$1$1::ModuleInfoExtender$1$1() {
 }
 
 $Class* ModuleInfoExtender$1$1::load$($String* name, bool initialize) {
-	$loadClass(ModuleInfoExtender$1$1, name, initialize, &_ModuleInfoExtender$1$1_ClassInfo_, allocate$ModuleInfoExtender$1$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljdk/internal/module/ModuleInfoExtender$1;", nullptr, $FINAL | $SYNTHETIC, $field(ModuleInfoExtender$1$1, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModuleInfoExtender$1;ILjdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, 0, $method(ModuleInfoExtender$1$1, init$, void, $ModuleInfoExtender$1*, int32_t, $ModuleVisitor*)},
+		{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1$1, visitMainClass, void, $String*)},
+		{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1$1, visitPackage, void, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.module.ModuleInfoExtender$1",
+		"visitModule",
+		"(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModuleInfoExtender$1", nullptr, nullptr, 0},
+		{"jdk.internal.module.ModuleInfoExtender$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.ModuleInfoExtender$1$1",
+		"jdk.internal.org.objectweb.asm.ModuleVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModuleInfoExtender"
+	};
+	$loadClass(ModuleInfoExtender$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleInfoExtender$1$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <NullURLTest.h>
-
 #include <java/io/File.h>
 #include <java/lang/ClassLoader.h>
 #include <java/net/URL.h>
@@ -10,7 +9,6 @@
 
 using $URLArray = $Array<::java::net::URL>;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $Exception = ::java::lang::Exception;
@@ -21,36 +19,12 @@ using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
 using $URLStreamHandlerFactory = ::java::net::URLStreamHandlerFactory;
 
-$FieldInfo _NullURLTest_FieldInfo_[] = {
-	{"jarFile", "Ljava/util/jar/JarFile;", nullptr, 0, $field(NullURLTest, jarFile)},
-	{}
-};
-
-$MethodInfo _NullURLTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NullURLTest, init$, void), "java.lang.Throwable"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullURLTest, main, void, $StringArray*), "java.lang.Throwable"},
-	{}
-};
-
-$ClassInfo _NullURLTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NullURLTest",
-	"java.lang.Object",
-	nullptr,
-	_NullURLTest_FieldInfo_,
-	_NullURLTest_MethodInfo_
-};
-
-$Object* allocate$NullURLTest($Class* clazz) {
-	return $of($alloc(NullURLTest));
-}
-
 void NullURLTest::main($StringArray* args) {
 	$new(NullURLTest);
 }
 
 void NullURLTest::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, local, $new($File, $($System::getProperty("test.src"_s, "."_s)), "jars"_s));
 	$var($String, path, $str({"jar:file:"_s, $(local->getPath()), "/class_path_test.jar!/Foo.class"_s}));
 	$var($URL, validURL, $new($URL, path));
@@ -60,7 +34,7 @@ void NullURLTest::init$() {
 	}));
 	$var($URLArray, invalidURLArray, $new($URLArray, {
 		validURL,
-		($URL*)nullptr
+		nullptr
 	}));
 	int32_t failures = 0;
 	$var($URLClassLoader, loader, nullptr);
@@ -89,7 +63,7 @@ void NullURLTest::init$() {
 		++failures;
 	}
 	try {
-		$assign(loader, $new($URLClassLoader, ($URLArray*)nullptr, ($ClassLoader*)nullptr));
+		$assign(loader, $new($URLClassLoader, nullptr, ($ClassLoader*)nullptr));
 		$nc($System::err)->println("URLClassLoader(null, null) did not throw NPE"_s);
 		++failures;
 	} catch ($NullPointerException& e) {
@@ -101,19 +75,19 @@ void NullURLTest::init$() {
 	} catch ($NullPointerException& e) {
 	}
 	try {
-		$assign(loader, $new($URLClassLoader, validURLArray, ($ClassLoader*)nullptr, ($URLStreamHandlerFactory*)nullptr));
+		$assign(loader, $new($URLClassLoader, validURLArray, nullptr, nullptr));
 	} catch ($Throwable& t) {
 		$nc($System::err)->println($$str({"URLClassLoader(validURLArray, null, null) threw "_s, t}));
 		++failures;
 	}
 	try {
-		$assign(loader, $new($URLClassLoader, ($URLArray*)nullptr, ($ClassLoader*)nullptr, ($URLStreamHandlerFactory*)nullptr));
+		$assign(loader, $new($URLClassLoader, ($URLArray*)nullptr, nullptr, nullptr));
 		$nc($System::err)->println("URLClassLoader(null, null, null) did not throw NPE"_s);
 		++failures;
 	} catch ($NullPointerException& e) {
 	}
 	try {
-		$assign(loader, $new($URLClassLoader, invalidURLArray, ($ClassLoader*)nullptr, ($URLStreamHandlerFactory*)nullptr));
+		$assign(loader, $new($URLClassLoader, invalidURLArray, nullptr, nullptr));
 		$nc($System::err)->println("URLClassLoader(invalidURLArray, null, null) did not throw NPE"_s);
 		++failures;
 	} catch ($NullPointerException& e) {
@@ -163,7 +137,26 @@ NullURLTest::NullURLTest() {
 }
 
 $Class* NullURLTest::load$($String* name, bool initialize) {
-	$loadClass(NullURLTest, name, initialize, &_NullURLTest_ClassInfo_, allocate$NullURLTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"jarFile", "Ljava/util/jar/JarFile;", nullptr, 0, $field(NullURLTest, jarFile)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NullURLTest, init$, void), "java.lang.Throwable"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullURLTest, main, void, $StringArray*), "java.lang.Throwable"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NullURLTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NullURLTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullURLTest);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <B1B.h>
-
 #include <A1B.h>
 #include <jcpp.h>
 
@@ -11,51 +10,12 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute B1B_Attribute_var$0[] = {
-	{"declaringClass", 'c', "LB1B;"},
-	{}
-};
-
-$CompoundAttribute _B1B_MethodAnnotations_baz1[] = {
-	{"LExpectedModel;", B1B_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute B1B_Attribute_var$1[] = {
-	{"declaringClass", 'c', "LB1B;"},
-	{}
-};
-
-$CompoundAttribute _B1B_MethodAnnotations_foo2[] = {
-	{"LExpectedModel;", B1B_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _B1B_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(B1B, init$, void)},
-	{"baz", "()V", nullptr, $PUBLIC, $virtualMethod(B1B, baz, void), nullptr, nullptr, _B1B_MethodAnnotations_baz1},
-	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(B1B, foo, void), nullptr, nullptr, _B1B_MethodAnnotations_foo2},
-	{}
-};
-
-$ClassInfo _B1B_ClassInfo_ = {
-	$ACC_SUPER,
-	"B1B",
-	"A1B",
-	nullptr,
-	nullptr,
-	_B1B_MethodInfo_
-};
-
-$Object* allocate$B1B($Class* clazz) {
-	return $of($alloc(B1B));
-}
-
 void B1B::init$() {
 	$A1B::init$();
 }
 
 void B1B::foo() {
+	;
 }
 
 void B1B::baz() {
@@ -65,7 +25,39 @@ B1B::B1B() {
 }
 
 $Class* B1B::load$($String* name, bool initialize) {
-	$loadClass(B1B, name, initialize, &_B1B_ClassInfo_, allocate$B1B);
+	$NamedAttribute bazmethodAnnotations$$$namedAttribute[] = {
+		{"declaringClass", 'c', "LB1B;"},
+		{}
+	};
+	$CompoundAttribute bazmethodAnnotations$$[] = {
+		{"LExpectedModel;", bazmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute foomethodAnnotations$$$namedAttribute[] = {
+		{"declaringClass", 'c', "LB1B;"},
+		{}
+	};
+	$CompoundAttribute foomethodAnnotations$$[] = {
+		{"LExpectedModel;", foomethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(B1B, init$, void)},
+		{"baz", "()V", nullptr, $PUBLIC, $virtualMethod(B1B, baz, void), nullptr, nullptr, bazmethodAnnotations$$},
+		{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(B1B, foo, void), nullptr, nullptr, foomethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"B1B",
+		"A1B",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(B1B, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(B1B);
+	});
 	return class$;
 }
 

@@ -24,6 +24,7 @@
 #include <java/io/DataOutputStream.h>
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
+#include <string.h>
 
 namespace java {
 	namespace lang {
@@ -58,6 +59,40 @@ void MethodInfo::visit(::jdk::internal::reflect::ConstantPool* cp) {
 	//for (; field != nullptr; field++) {
 
 	//}
+}
+
+void MethodInfo::cloneSelf() {
+	if (defaultValue != nullptr) {
+		defaultValue = defaultValue->clone();
+	}
+	annotations = CompoundAttribute::cloneArray(annotations);
+	typeAnnotations = TypeAnnotation::cloneArray(typeAnnotations);
+	paramAnnotations = ParameterAnnotation::cloneArray(paramAnnotations);
+}
+
+MethodInfo* MethodInfo::cloneArray(MethodInfo* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	MethodInfo* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	MethodInfo* newMethods = $allocRawStatic(MethodInfo, count);
+	memcpy(newMethods, array, sizeof(MethodInfo) * count);
+	it = newMethods;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		it->cloneSelf();
+	}
+	return newMethods;
 }
 
 	} // lang

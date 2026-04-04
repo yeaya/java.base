@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/TableSwitchGenerator.h>
-
 #include <jdk/internal/org/objectweb/asm/Label.h>
 #include <jcpp.h>
 
@@ -14,27 +13,23 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$MethodInfo _TableSwitchGenerator_MethodInfo_[] = {
-	{"generateCase", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableSwitchGenerator, generateCase, void, int32_t, $Label*)},
-	{"generateDefault", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableSwitchGenerator, generateDefault, void)},
-	{}
-};
-
-$ClassInfo _TableSwitchGenerator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.org.objectweb.asm.commons.TableSwitchGenerator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TableSwitchGenerator_MethodInfo_
-};
-
-$Object* allocate$TableSwitchGenerator($Class* clazz) {
-	return $of($alloc(TableSwitchGenerator));
-}
-
 $Class* TableSwitchGenerator::load$($String* name, bool initialize) {
-	$loadClass(TableSwitchGenerator, name, initialize, &_TableSwitchGenerator_ClassInfo_, allocate$TableSwitchGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"generateCase", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableSwitchGenerator, generateCase, void, int32_t, $Label*)},
+		{"generateDefault", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableSwitchGenerator, generateDefault, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.org.objectweb.asm.commons.TableSwitchGenerator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TableSwitchGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableSwitchGenerator);
+	});
 	return class$;
 }
 

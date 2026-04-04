@@ -115,6 +115,7 @@ class JrtPath : public ::java::nio::file::Path {
 	$class(JrtPath, 0, ::java::nio::file::Path)
 public:
 	JrtPath();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::jrtfs::JrtFileSystem* jrtfs, $String* path);
 	void init$(::jdk::internal::jrtfs::JrtFileSystem* jrtfs, $String* path, bool normalized);
 	void checkAccess($Array<::java::nio::file::AccessMode>* modes);

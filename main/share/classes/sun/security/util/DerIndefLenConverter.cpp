@@ -1,5 +1,4 @@
 #include <sun/security/util/DerIndefLenConverter.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/util/ArrayList.h>
@@ -26,63 +25,12 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _DerIndefLenConverter_FieldInfo_[] = {
-	{"TAG_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, TAG_MASK)},
-	{"FORM_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, FORM_MASK)},
-	{"CLASS_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, CLASS_MASK)},
-	{"LEN_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, LEN_LONG)},
-	{"LEN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, LEN_MASK)},
-	{"SKIP_EOC_BYTES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, SKIP_EOC_BYTES)},
-	{"data", "[B", nullptr, $PRIVATE, $field(DerIndefLenConverter, data)},
-	{"newData", "[B", nullptr, $PRIVATE, $field(DerIndefLenConverter, newData)},
-	{"newDataPos", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, newDataPos)},
-	{"dataPos", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, dataPos)},
-	{"dataSize", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, dataSize)},
-	{"index", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, index)},
-	{"unresolved", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, unresolved)},
-	{"ndefsList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Object;>;", $PRIVATE, $field(DerIndefLenConverter, ndefsList)},
-	{"numOfTotalLenBytes", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, numOfTotalLenBytes)},
-	{}
-};
-
-$MethodInfo _DerIndefLenConverter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DerIndefLenConverter, init$, void)},
-	{"convertBytes", "([B)[B", nullptr, 0, $virtualMethod(DerIndefLenConverter, convertBytes, $bytes*, $bytes*), "java.io.IOException"},
-	{"convertStream", "(Ljava/io/InputStream;B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(DerIndefLenConverter, convertStream, $bytes*, $InputStream*, int8_t), "java.io.IOException"},
-	{"getLengthBytes", "(I)[B", nullptr, $PRIVATE, $method(DerIndefLenConverter, getLengthBytes, $bytes*, int32_t)},
-	{"getNumOfLenBytes", "(I)I", nullptr, $PRIVATE, $method(DerIndefLenConverter, getNumOfLenBytes, int32_t, int32_t)},
-	{"isEOC", "(I)Z", nullptr, $PRIVATE, $method(DerIndefLenConverter, isEOC, bool, int32_t)},
-	{"isIndefinite", "(I)Z", nullptr, $STATIC, $staticMethod(DerIndefLenConverter, isIndefinite, bool, int32_t)},
-	{"isLongForm", "(I)Z", nullptr, $STATIC, $staticMethod(DerIndefLenConverter, isLongForm, bool, int32_t)},
-	{"parseLength", "()I", nullptr, $PRIVATE, $method(DerIndefLenConverter, parseLength, int32_t), "java.io.IOException"},
-	{"parseTag", "()V", nullptr, $PRIVATE, $method(DerIndefLenConverter, parseTag, void), "java.io.IOException"},
-	{"parseValue", "(I)V", nullptr, $PRIVATE, $method(DerIndefLenConverter, parseValue, void, int32_t)},
-	{"writeLength", "(I)V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeLength, void, int32_t)},
-	{"writeLengthAndValue", "()V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeLengthAndValue, void), "java.io.IOException"},
-	{"writeTag", "()V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeTag, void)},
-	{"writeValue", "(I)V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeValue, void, int32_t)},
-	{}
-};
-
-$ClassInfo _DerIndefLenConverter_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.DerIndefLenConverter",
-	"java.lang.Object",
-	nullptr,
-	_DerIndefLenConverter_FieldInfo_,
-	_DerIndefLenConverter_MethodInfo_
-};
-
-$Object* allocate$DerIndefLenConverter($Class* clazz) {
-	return $of($alloc(DerIndefLenConverter));
-}
-
 bool DerIndefLenConverter::isEOC(int32_t tag) {
-	return ((((int32_t)(tag & (uint32_t)DerIndefLenConverter::TAG_MASK)) == 0) && (((int32_t)(tag & (uint32_t)DerIndefLenConverter::FORM_MASK)) == 0) && (((int32_t)(tag & (uint32_t)DerIndefLenConverter::CLASS_MASK)) == 0));
+	return (((tag & DerIndefLenConverter::TAG_MASK) == 0) && ((tag & DerIndefLenConverter::FORM_MASK) == 0) && ((tag & DerIndefLenConverter::CLASS_MASK) == 0));
 }
 
 bool DerIndefLenConverter::isLongForm(int32_t lengthByte) {
-	return (((int32_t)(lengthByte & (uint32_t)DerIndefLenConverter::LEN_LONG)) == DerIndefLenConverter::LEN_LONG);
+	return ((lengthByte & DerIndefLenConverter::LEN_LONG) == DerIndefLenConverter::LEN_LONG);
 }
 
 void DerIndefLenConverter::init$() {
@@ -92,29 +40,29 @@ void DerIndefLenConverter::init$() {
 }
 
 bool DerIndefLenConverter::isIndefinite(int32_t lengthByte) {
-	return (isLongForm(lengthByte) && (((int32_t)(lengthByte & (uint32_t)DerIndefLenConverter::LEN_MASK)) == 0));
+	return (isLongForm(lengthByte) && ((lengthByte & DerIndefLenConverter::LEN_MASK) == 0));
 }
 
 void DerIndefLenConverter::parseTag() {
-	$useLocalCurrentObjectStackCache();
-	if (isEOC($nc(this->data)->get(this->dataPos)) && ($nc(this->data)->get(this->dataPos + 1) == 0)) {
+	$useLocalObjectStack();
+	if (isEOC($nc(this->data)->get(this->dataPos)) && (this->data->get(this->dataPos + 1) == 0)) {
 		int32_t numOfEncapsulatedLenBytes = 0;
 		$var($Object, elem, nullptr);
 		int32_t index = 0;
 		for (index = $nc(this->ndefsList)->size() - 1; index >= 0; --index) {
-			$assign(elem, $nc(this->ndefsList)->get(index));
+			$assign(elem, this->ndefsList->get(index));
 			if ($instanceOf($Integer, elem)) {
 				break;
 			} else {
-				numOfEncapsulatedLenBytes += $nc(($cast($bytes, elem)))->length - 3;
+				numOfEncapsulatedLenBytes += $nc($cast($bytes, elem))->length - 3;
 			}
 		}
 		if (index < 0) {
 			$throwNew($IOException, "EOC does not have matching indefinite-length tag"_s);
 		}
-		int32_t sectionLen = this->dataPos - $nc(($cast($Integer, elem)))->intValue() + numOfEncapsulatedLenBytes;
+		int32_t sectionLen = this->dataPos - $nc($cast($Integer, elem))->intValue() + numOfEncapsulatedLenBytes;
 		$var($bytes, sectionLenBytes, getLengthBytes(sectionLen));
-		$nc(this->ndefsList)->set(index, sectionLenBytes);
+		this->ndefsList->set(index, sectionLenBytes);
 		--this->unresolved;
 		this->numOfTotalLenBytes += ($nc(sectionLenBytes)->length - 3);
 	}
@@ -126,7 +74,7 @@ void DerIndefLenConverter::writeTag() {
 		return;
 	}
 	int32_t tag = $nc(this->data)->get(this->dataPos++);
-	if (isEOC(tag) && ($nc(this->data)->get(this->dataPos) == 0)) {
+	if (isEOC(tag) && (this->data->get(this->dataPos) == 0)) {
 		++this->dataPos;
 		writeTag();
 	} else {
@@ -139,7 +87,7 @@ int32_t DerIndefLenConverter::parseLength() {
 	if (this->dataPos == this->dataSize) {
 		return curLen;
 	}
-	int32_t lenByte = (int32_t)($nc(this->data)->get(this->dataPos++) & (uint32_t)255);
+	int32_t lenByte = $nc(this->data)->get(this->dataPos++) & 0xff;
 	if (isIndefinite(lenByte)) {
 		$nc(this->ndefsList)->add($($Integer::valueOf(this->dataPos)));
 		++this->unresolved;
@@ -154,13 +102,13 @@ int32_t DerIndefLenConverter::parseLength() {
 			return -1;
 		}
 		for (int32_t i = 0; i < lenByte; ++i) {
-			curLen = (curLen << 8) + ((int32_t)($nc(this->data)->get(this->dataPos++) & (uint32_t)255));
+			curLen = (curLen << 8) + (this->data->get(this->dataPos++) & 0xff);
 		}
 		if (curLen < 0) {
 			$throwNew($IOException, "Invalid length bytes"_s);
 		}
 	} else {
-		curLen = ((int32_t)(lenByte & (uint32_t)DerIndefLenConverter::LEN_MASK));
+		curLen = (lenByte & DerIndefLenConverter::LEN_MASK);
 	}
 	return curLen;
 }
@@ -170,23 +118,23 @@ void DerIndefLenConverter::writeLengthAndValue() {
 		return;
 	}
 	int32_t curLen = 0;
-	int32_t lenByte = (int32_t)($nc(this->data)->get(this->dataPos++) & (uint32_t)255);
+	int32_t lenByte = $nc(this->data)->get(this->dataPos++) & 0xff;
 	if (isIndefinite(lenByte)) {
 		$var($bytes, lenBytes, $cast($bytes, $nc(this->ndefsList)->get(this->index++)));
 		$System::arraycopy(lenBytes, 0, this->newData, this->newDataPos, $nc(lenBytes)->length);
-		this->newDataPos += $nc(lenBytes)->length;
+		this->newDataPos += lenBytes->length;
 		return;
 	}
 	if (isLongForm(lenByte)) {
 		lenByte &= (uint32_t)DerIndefLenConverter::LEN_MASK;
 		for (int32_t i = 0; i < lenByte; ++i) {
-			curLen = (curLen << 8) + ((int32_t)($nc(this->data)->get(this->dataPos++) & (uint32_t)255));
+			curLen = (curLen << 8) + (this->data->get(this->dataPos++) & 0xff);
 		}
 		if (curLen < 0) {
 			$throwNew($IOException, "Invalid length bytes"_s);
 		}
 	} else {
-		curLen = ((int32_t)(lenByte & (uint32_t)DerIndefLenConverter::LEN_MASK));
+		curLen = (lenByte & DerIndefLenConverter::LEN_MASK);
 	}
 	writeLength(curLen);
 	writeValue(curLen);
@@ -197,22 +145,22 @@ void DerIndefLenConverter::writeLength(int32_t curLen) {
 		$nc(this->newData)->set(this->newDataPos++, (int8_t)curLen);
 	} else if (curLen < (1 << 8)) {
 		$nc(this->newData)->set(this->newDataPos++, (int8_t)129);
-		$nc(this->newData)->set(this->newDataPos++, (int8_t)curLen);
+		this->newData->set(this->newDataPos++, (int8_t)curLen);
 	} else if (curLen < (1 << 16)) {
 		$nc(this->newData)->set(this->newDataPos++, (int8_t)130);
-		$nc(this->newData)->set(this->newDataPos++, (int8_t)(curLen >> 8));
-		$nc(this->newData)->set(this->newDataPos++, (int8_t)curLen);
+		this->newData->set(this->newDataPos++, (int8_t)(curLen >> 8));
+		this->newData->set(this->newDataPos++, (int8_t)curLen);
 	} else if (curLen < (1 << 24)) {
 		$nc(this->newData)->set(this->newDataPos++, (int8_t)131);
-		$nc(this->newData)->set(this->newDataPos++, (int8_t)(curLen >> 16));
-		$nc(this->newData)->set(this->newDataPos++, (int8_t)(curLen >> 8));
-		$nc(this->newData)->set(this->newDataPos++, (int8_t)curLen);
+		this->newData->set(this->newDataPos++, (int8_t)(curLen >> 16));
+		this->newData->set(this->newDataPos++, (int8_t)(curLen >> 8));
+		this->newData->set(this->newDataPos++, (int8_t)curLen);
 	} else {
 		$nc(this->newData)->set(this->newDataPos++, (int8_t)132);
-		$nc(this->newData)->set(this->newDataPos++, (int8_t)(curLen >> 24));
-		$nc(this->newData)->set(this->newDataPos++, (int8_t)(curLen >> 16));
-		$nc(this->newData)->set(this->newDataPos++, (int8_t)(curLen >> 8));
-		$nc(this->newData)->set(this->newDataPos++, (int8_t)curLen);
+		this->newData->set(this->newDataPos++, (int8_t)(curLen >> 24));
+		this->newData->set(this->newDataPos++, (int8_t)(curLen >> 16));
+		this->newData->set(this->newDataPos++, (int8_t)(curLen >> 8));
+		this->newData->set(this->newDataPos++, (int8_t)curLen);
 	}
 }
 
@@ -313,7 +261,7 @@ $bytes* DerIndefLenConverter::convertBytes($bytes* indefData) {
 }
 
 $bytes* DerIndefLenConverter::convertStream($InputStream* in, int8_t tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t offset = 2;
 	int32_t readLen = $nc(in)->available();
 	$var($bytes, indefData, $new($bytes, readLen + offset));
@@ -347,7 +295,53 @@ DerIndefLenConverter::DerIndefLenConverter() {
 }
 
 $Class* DerIndefLenConverter::load$($String* name, bool initialize) {
-	$loadClass(DerIndefLenConverter, name, initialize, &_DerIndefLenConverter_ClassInfo_, allocate$DerIndefLenConverter);
+	$FieldInfo fieldInfos$$[] = {
+		{"TAG_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, TAG_MASK)},
+		{"FORM_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, FORM_MASK)},
+		{"CLASS_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, CLASS_MASK)},
+		{"LEN_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, LEN_LONG)},
+		{"LEN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, LEN_MASK)},
+		{"SKIP_EOC_BYTES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DerIndefLenConverter, SKIP_EOC_BYTES)},
+		{"data", "[B", nullptr, $PRIVATE, $field(DerIndefLenConverter, data)},
+		{"newData", "[B", nullptr, $PRIVATE, $field(DerIndefLenConverter, newData)},
+		{"newDataPos", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, newDataPos)},
+		{"dataPos", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, dataPos)},
+		{"dataSize", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, dataSize)},
+		{"index", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, index)},
+		{"unresolved", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, unresolved)},
+		{"ndefsList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Object;>;", $PRIVATE, $field(DerIndefLenConverter, ndefsList)},
+		{"numOfTotalLenBytes", "I", nullptr, $PRIVATE, $field(DerIndefLenConverter, numOfTotalLenBytes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DerIndefLenConverter, init$, void)},
+		{"convertBytes", "([B)[B", nullptr, 0, $virtualMethod(DerIndefLenConverter, convertBytes, $bytes*, $bytes*), "java.io.IOException"},
+		{"convertStream", "(Ljava/io/InputStream;B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(DerIndefLenConverter, convertStream, $bytes*, $InputStream*, int8_t), "java.io.IOException"},
+		{"getLengthBytes", "(I)[B", nullptr, $PRIVATE, $method(DerIndefLenConverter, getLengthBytes, $bytes*, int32_t)},
+		{"getNumOfLenBytes", "(I)I", nullptr, $PRIVATE, $method(DerIndefLenConverter, getNumOfLenBytes, int32_t, int32_t)},
+		{"isEOC", "(I)Z", nullptr, $PRIVATE, $method(DerIndefLenConverter, isEOC, bool, int32_t)},
+		{"isIndefinite", "(I)Z", nullptr, $STATIC, $staticMethod(DerIndefLenConverter, isIndefinite, bool, int32_t)},
+		{"isLongForm", "(I)Z", nullptr, $STATIC, $staticMethod(DerIndefLenConverter, isLongForm, bool, int32_t)},
+		{"parseLength", "()I", nullptr, $PRIVATE, $method(DerIndefLenConverter, parseLength, int32_t), "java.io.IOException"},
+		{"parseTag", "()V", nullptr, $PRIVATE, $method(DerIndefLenConverter, parseTag, void), "java.io.IOException"},
+		{"parseValue", "(I)V", nullptr, $PRIVATE, $method(DerIndefLenConverter, parseValue, void, int32_t)},
+		{"writeLength", "(I)V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeLength, void, int32_t)},
+		{"writeLengthAndValue", "()V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeLengthAndValue, void), "java.io.IOException"},
+		{"writeTag", "()V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeTag, void)},
+		{"writeValue", "(I)V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeValue, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.DerIndefLenConverter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DerIndefLenConverter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DerIndefLenConverter);
+	});
 	return class$;
 }
 

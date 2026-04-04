@@ -1,5 +1,4 @@
 #include <TestObj.h>
-
 #include <java/io/PrintWriter.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
@@ -11,32 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _TestObj_FieldInfo_[] = {
-	{"mStr", "Ljava/lang/String;", nullptr, 0, $field(TestObj, mStr)},
-	{"writer", "Ljava/io/PrintWriter;", nullptr, $PRIVATE, $field(TestObj, writer)},
-	{}
-};
-
-$MethodInfo _TestObj_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;)V", nullptr, 0, $method(TestObj, init$, void, $String*, $PrintWriter*)},
-	{"test", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(TestObj, test, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TestObj, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TestObj_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestObj",
-	"java.lang.Object",
-	nullptr,
-	_TestObj_FieldInfo_,
-	_TestObj_MethodInfo_
-};
-
-$Object* allocate$TestObj($Class* clazz) {
-	return $of($alloc(TestObj));
-}
 
 void TestObj::init$($String* str, $PrintWriter* writer) {
 	$set(this, mStr, str);
@@ -66,7 +39,28 @@ TestObj::TestObj() {
 }
 
 $Class* TestObj::load$($String* name, bool initialize) {
-	$loadClass(TestObj, name, initialize, &_TestObj_ClassInfo_, allocate$TestObj);
+	$FieldInfo fieldInfos$$[] = {
+		{"mStr", "Ljava/lang/String;", nullptr, 0, $field(TestObj, mStr)},
+		{"writer", "Ljava/io/PrintWriter;", nullptr, $PRIVATE, $field(TestObj, writer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;)V", nullptr, 0, $method(TestObj, init$, void, $String*, $PrintWriter*)},
+		{"test", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(TestObj, test, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TestObj, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestObj",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestObj, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestObj);
+	});
 	return class$;
 }
 

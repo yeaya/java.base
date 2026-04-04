@@ -1,5 +1,4 @@
 #include <EnqueueNullRef.h>
-
 #include <java/lang/ref/PhantomReference.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -16,26 +15,6 @@ using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 
-$MethodInfo _EnqueueNullRef_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EnqueueNullRef, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EnqueueNullRef, main, void, $StringArray*)},
-	{"test", "(Ljava/lang/ref/ReferenceQueue;Ljava/lang/ref/Reference;)V", nullptr, $STATIC, $staticMethod(EnqueueNullRef, test, void, $ReferenceQueue*, $Reference*)},
-	{}
-};
-
-$ClassInfo _EnqueueNullRef_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"EnqueueNullRef",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_EnqueueNullRef_MethodInfo_
-};
-
-$Object* allocate$EnqueueNullRef($Class* clazz) {
-	return $of($alloc(EnqueueNullRef));
-}
-
 void EnqueueNullRef::init$() {
 }
 
@@ -46,7 +25,7 @@ void EnqueueNullRef::test($ReferenceQueue* q, $Reference* r) {
 }
 
 void EnqueueNullRef::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReferenceQueue, q, $new($ReferenceQueue));
 	test(q, $$new($WeakReference, nullptr, q));
 	test(q, $$new($SoftReference, nullptr, q));
@@ -57,7 +36,23 @@ EnqueueNullRef::EnqueueNullRef() {
 }
 
 $Class* EnqueueNullRef::load$($String* name, bool initialize) {
-	$loadClass(EnqueueNullRef, name, initialize, &_EnqueueNullRef_ClassInfo_, allocate$EnqueueNullRef);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EnqueueNullRef, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EnqueueNullRef, main, void, $StringArray*)},
+		{"test", "(Ljava/lang/ref/ReferenceQueue;Ljava/lang/ref/Reference;)V", nullptr, $STATIC, $staticMethod(EnqueueNullRef, test, void, $ReferenceQueue*, $Reference*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"EnqueueNullRef",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EnqueueNullRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnqueueNullRef);
+	});
 	return class$;
 }
 

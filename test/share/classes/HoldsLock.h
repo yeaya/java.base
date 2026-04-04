@@ -9,6 +9,7 @@ class $export HoldsLock : public ::java::lang::Object {
 	$class(HoldsLock, 0, ::java::lang::Object)
 public:
 	HoldsLock();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkLock(bool value);
 	static void main($StringArray* args);

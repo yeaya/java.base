@@ -1,5 +1,4 @@
 #include <NetworkPrefixLength.h>
-
 #include <java/net/Inet4Address.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InterfaceAddress.h>
@@ -9,7 +8,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -20,35 +18,6 @@ using $InterfaceAddress = ::java::net::InterfaceAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-
-$FieldInfo _NetworkPrefixLength_FieldInfo_[] = {
-	{"passed", "Z", nullptr, $STATIC, $staticField(NetworkPrefixLength, passed)},
-	{}
-};
-
-$MethodInfo _NetworkPrefixLength_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NetworkPrefixLength, init$, void)},
-	{"checkIPv4PrefixLength", "(I)Z", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, checkIPv4PrefixLength, bool, int32_t)},
-	{"checkIPv6PrefixLength", "(I)Z", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, checkIPv6PrefixLength, bool, int32_t)},
-	{"checkPrefix", "(Ljava/net/InterfaceAddress;)Z", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, checkPrefix, bool, $InterfaceAddress*)},
-	{"debug", "(Ljava/lang/String;Ljava/net/InterfaceAddress;)V", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, debug, void, $String*, $InterfaceAddress*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NetworkPrefixLength, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _NetworkPrefixLength_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NetworkPrefixLength",
-	"java.lang.Object",
-	nullptr,
-	_NetworkPrefixLength_FieldInfo_,
-	_NetworkPrefixLength_MethodInfo_
-};
-
-$Object* allocate$NetworkPrefixLength($Class* clazz) {
-	return $of($alloc(NetworkPrefixLength));
-}
 
 bool NetworkPrefixLength::passed = false;
 
@@ -57,12 +26,12 @@ void NetworkPrefixLength::init$() {
 
 void NetworkPrefixLength::main($StringArray* args) {
 	$init(NetworkPrefixLength);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, nics, $NetworkInterface::getNetworkInterfaces());
 	while ($nc(nics)->hasMoreElements()) {
 		$var($NetworkInterface, nic, $cast($NetworkInterface, nics->nextElement()));
 		{
-			$var($Iterator, i$, $nc($($nc(nic)->getInterfaceAddresses()))->iterator());
+			$var($Iterator, i$, $$nc($nc(nic)->getInterfaceAddresses())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($InterfaceAddress, iaddr, $cast($InterfaceAddress, i$->next()));
 				{
@@ -118,7 +87,7 @@ void NetworkPrefixLength::debug($String* nicName, $InterfaceAddress* iaddr) {
 	$nc($System::out)->println($$str({"NIC "_s, nicName, " has an address with an invalid prefix length:\n"_s, iaddr}));
 }
 
-void clinit$NetworkPrefixLength($Class* class$) {
+void NetworkPrefixLength::clinit$($Class* clazz) {
 	NetworkPrefixLength::passed = true;
 }
 
@@ -126,7 +95,30 @@ NetworkPrefixLength::NetworkPrefixLength() {
 }
 
 $Class* NetworkPrefixLength::load$($String* name, bool initialize) {
-	$loadClass(NetworkPrefixLength, name, initialize, &_NetworkPrefixLength_ClassInfo_, clinit$NetworkPrefixLength, allocate$NetworkPrefixLength);
+	$FieldInfo fieldInfos$$[] = {
+		{"passed", "Z", nullptr, $STATIC, $staticField(NetworkPrefixLength, passed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NetworkPrefixLength, init$, void)},
+		{"checkIPv4PrefixLength", "(I)Z", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, checkIPv4PrefixLength, bool, int32_t)},
+		{"checkIPv6PrefixLength", "(I)Z", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, checkIPv6PrefixLength, bool, int32_t)},
+		{"checkPrefix", "(Ljava/net/InterfaceAddress;)Z", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, checkPrefix, bool, $InterfaceAddress*)},
+		{"debug", "(Ljava/lang/String;Ljava/net/InterfaceAddress;)V", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, debug, void, $String*, $InterfaceAddress*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NetworkPrefixLength, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NetworkPrefixLength",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NetworkPrefixLength, name, initialize, &classInfo$$, NetworkPrefixLength::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NetworkPrefixLength);
+	});
 	return class$;
 }
 

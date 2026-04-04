@@ -76,6 +76,7 @@ class Iocp : public ::sun::nio::ch::AsynchronousChannelGroupImpl {
 	$class(Iocp, 0, ::sun::nio::ch::AsynchronousChannelGroupImpl)
 public:
 	Iocp();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::AsynchronousChannelProvider* provider, ::sun::nio::ch::ThreadPool* pool);
 	virtual int32_t associate(::sun::nio::ch::Iocp$OverlappedChannel* ch, int64_t handle);
 	virtual $Object* attachForeignChannel(::java::nio::channels::Channel* channel, ::java::io::FileDescriptor* fdObj) override;

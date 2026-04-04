@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/LazyLoggers.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Module.h>
@@ -41,7 +40,6 @@ using $System$LoggerFinder = ::java::lang::System$LoggerFinder;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $BiFunction = ::java::util::function::BiFunction;
 using $BootstrapLogger = ::jdk::internal::logger::BootstrapLogger;
@@ -60,29 +58,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of($System$LoggerFinder::getLoggerFinder());
+		 return $System$LoggerFinder::getLoggerFinder();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LazyLoggers$$Lambda$getLoggerFinder>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LazyLoggers$$Lambda$getLoggerFinder::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LazyLoggers$$Lambda$getLoggerFinder, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LazyLoggers$$Lambda$getLoggerFinder, run, $Object*)},
-	{}
-};
-$ClassInfo LazyLoggers$$Lambda$getLoggerFinder::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.logger.LazyLoggers$$Lambda$getLoggerFinder",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* LazyLoggers$$Lambda$getLoggerFinder::load$($String* name, bool initialize) {
-	$loadClass(LazyLoggers$$Lambda$getLoggerFinder, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LazyLoggers$$Lambda$getLoggerFinder, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LazyLoggers$$Lambda$getLoggerFinder, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.logger.LazyLoggers$$Lambda$getLoggerFinder",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LazyLoggers$$Lambda$getLoggerFinder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LazyLoggers$$Lambda$getLoggerFinder);
+	});
 	return class$;
 }
 $Class* LazyLoggers$$Lambda$getLoggerFinder::class$ = nullptr;
@@ -95,87 +90,36 @@ public:
 		$set(this, module, module);
 	}
 	virtual $Object* run() override {
-		 return $of(LazyLoggers::lambda$getLoggerFromFinder$0(name, module));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1>());
+		 return LazyLoggers::lambda$getLoggerFromFinder$0(name, module);
 	}
 	$String* name = nullptr;
 	$Module* module = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::fieldInfos[3] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, name)},
-	{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, module)},
-	{}
-};
-$MethodInfo LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, init$, void, $String*, $Module*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, run, $Object*)},
-	{}
-};
-$ClassInfo LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.logger.LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::load$($String* name, bool initialize) {
-	$loadClass(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, name)},
+		{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, module)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, init$, void, $String*, $Module*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.logger.LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1);
+	});
 	return class$;
 }
 $Class* LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::class$ = nullptr;
-
-$FieldInfo _LazyLoggers_FieldInfo_[] = {
-	{"LOGGERFINDER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $STATIC | $FINAL, $staticField(LazyLoggers, LOGGERFINDER_PERMISSION)},
-	{"provider", "Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(LazyLoggers, provider)},
-	{"loggerSupplier", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/Module;Ljava/lang/System$Logger;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LazyLoggers, loggerSupplier)},
-	{"factories", "Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories;", "Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories<Ljava/lang/System$Logger;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LazyLoggers, factories)},
-	{}
-};
-
-$MethodInfo _LazyLoggers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LazyLoggers, init$, void)},
-	{"accessLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LazyLoggers, accessLoggerFinder, $System$LoggerFinder*)},
-	{"getLazyLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(LazyLoggers, getLazyLogger, $System$Logger*, $String*, $Module*)},
-	{"getLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(LazyLoggers, getLogger, $System$Logger*, $String*, $Module*)},
-	{"getLoggerFromFinder", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $STATIC, $staticMethod(LazyLoggers, getLoggerFromFinder, $System$Logger*, $String*, $Module*)},
-	{"lambda$getLoggerFromFinder$0", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LazyLoggers, lambda$getLoggerFromFinder$0, $System$Logger*, $String*, $Module*)},
-	{}
-};
-
-$InnerClassInfo _LazyLoggers_InnerClassesInfo_[] = {
-	{"jdk.internal.logger.LazyLoggers$JdkLazyLogger", "jdk.internal.logger.LazyLoggers", "JdkLazyLogger", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.logger.LazyLoggers$LazyLoggerWrapper", "jdk.internal.logger.LazyLoggers", "LazyLoggerWrapper", $PRIVATE | $STATIC},
-	{"jdk.internal.logger.LazyLoggers$LazyLoggerAccessor", "jdk.internal.logger.LazyLoggers", "LazyLoggerAccessor", $STATIC | $FINAL},
-	{"jdk.internal.logger.LazyLoggers$LoggerAccessor", "jdk.internal.logger.LazyLoggers", "LoggerAccessor", $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.logger.LazyLoggers$LazyLoggerFactories", "jdk.internal.logger.LazyLoggers", "LazyLoggerFactories", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.logger.LazyLoggers$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LazyLoggers_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.logger.LazyLoggers",
-	"java.lang.Object",
-	nullptr,
-	_LazyLoggers_FieldInfo_,
-	_LazyLoggers_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LazyLoggers_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.logger.LazyLoggers$JdkLazyLogger,jdk.internal.logger.LazyLoggers$LazyLoggerWrapper,jdk.internal.logger.LazyLoggers$LazyLoggerAccessor,jdk.internal.logger.LazyLoggers$LoggerAccessor,jdk.internal.logger.LazyLoggers$LazyLoggerFactories,jdk.internal.logger.LazyLoggers$1"
-};
-
-$Object* allocate$LazyLoggers($Class* clazz) {
-	return $of($alloc(LazyLoggers));
-}
 
 $RuntimePermission* LazyLoggers::LOGGERFINDER_PERMISSION = nullptr;
 $volatile($System$LoggerFinder*) LazyLoggers::provider = nullptr;
@@ -188,12 +132,12 @@ void LazyLoggers::init$() {
 
 $System$LoggerFinder* LazyLoggers::accessLoggerFinder() {
 	$init(LazyLoggers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($System$LoggerFinder, prov, LazyLoggers::provider);
 	if (prov == nullptr) {
 		$var($SecurityManager, sm, $System::getSecurityManager());
-		$assign(prov, sm == nullptr ? $System$LoggerFinder::getLoggerFinder() : $cast($System$LoggerFinder, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(LazyLoggers$$Lambda$getLoggerFinder)))));
+		$assign(prov, sm == nullptr ? $System$LoggerFinder::getLoggerFinder() : $cast($System$LoggerFinder, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(LazyLoggers$$Lambda$getLoggerFinder)))));
 		$assignStatic(LazyLoggers::provider, prov);
 	}
 	return prov;
@@ -201,13 +145,13 @@ $System$LoggerFinder* LazyLoggers::accessLoggerFinder() {
 
 $System$Logger* LazyLoggers::getLoggerFromFinder($String* name, $Module* module) {
 	$init(LazyLoggers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm == nullptr) {
-		return $nc($(accessLoggerFinder()))->getLogger(name, module);
+		return $$nc(accessLoggerFinder())->getLogger(name, module);
 	} else {
-		return $cast($System$Logger, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, name, module)), ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>(LazyLoggers::LOGGERFINDER_PERMISSION)})));
+		return $cast($System$Logger, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, name, module)), nullptr, $$new($PermissionArray, {LazyLoggers::LOGGERFINDER_PERMISSION})));
 	}
 }
 
@@ -232,10 +176,10 @@ $System$Logger* LazyLoggers::getLazyLogger($String* name, $Module* module) {
 
 $System$Logger* LazyLoggers::lambda$getLoggerFromFinder$0($String* name, $Module* module) {
 	$init(LazyLoggers);
-	return $nc($(accessLoggerFinder()))->getLogger(name, module);
+	return $$nc(accessLoggerFinder())->getLogger(name, module);
 }
 
-void clinit$LazyLoggers($Class* class$) {
+void LazyLoggers::clinit$($Class* clazz) {
 	$assignStatic(LazyLoggers::LOGGERFINDER_PERMISSION, $new($RuntimePermission, "loggerFinder"_s));
 	$assignStatic(LazyLoggers::loggerSupplier, $new($LazyLoggers$1));
 	$assignStatic(LazyLoggers::factories, $new($LazyLoggers$LazyLoggerFactories, LazyLoggers::loggerSupplier));
@@ -246,14 +190,55 @@ LazyLoggers::LazyLoggers() {
 
 $Class* LazyLoggers::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LazyLoggers$$Lambda$getLoggerFinder::classInfo$.name)) {
+		if (name->equals("jdk.internal.logger.LazyLoggers$$Lambda$getLoggerFinder")) {
 			return LazyLoggers$$Lambda$getLoggerFinder::load$(name, initialize);
 		}
-		if (name->equals(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.logger.LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1")) {
 			return LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(LazyLoggers, name, initialize, &_LazyLoggers_ClassInfo_, clinit$LazyLoggers, allocate$LazyLoggers);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOGGERFINDER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $STATIC | $FINAL, $staticField(LazyLoggers, LOGGERFINDER_PERMISSION)},
+		{"provider", "Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(LazyLoggers, provider)},
+		{"loggerSupplier", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/Module;Ljava/lang/System$Logger;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LazyLoggers, loggerSupplier)},
+		{"factories", "Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories;", "Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories<Ljava/lang/System$Logger;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LazyLoggers, factories)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LazyLoggers, init$, void)},
+		{"accessLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LazyLoggers, accessLoggerFinder, $System$LoggerFinder*)},
+		{"getLazyLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(LazyLoggers, getLazyLogger, $System$Logger*, $String*, $Module*)},
+		{"getLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(LazyLoggers, getLogger, $System$Logger*, $String*, $Module*)},
+		{"getLoggerFromFinder", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $STATIC, $staticMethod(LazyLoggers, getLoggerFromFinder, $System$Logger*, $String*, $Module*)},
+		{"lambda$getLoggerFromFinder$0", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LazyLoggers, lambda$getLoggerFromFinder$0, $System$Logger*, $String*, $Module*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.logger.LazyLoggers$JdkLazyLogger", "jdk.internal.logger.LazyLoggers", "JdkLazyLogger", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.logger.LazyLoggers$LazyLoggerWrapper", "jdk.internal.logger.LazyLoggers", "LazyLoggerWrapper", $PRIVATE | $STATIC},
+		{"jdk.internal.logger.LazyLoggers$LazyLoggerAccessor", "jdk.internal.logger.LazyLoggers", "LazyLoggerAccessor", $STATIC | $FINAL},
+		{"jdk.internal.logger.LazyLoggers$LoggerAccessor", "jdk.internal.logger.LazyLoggers", "LoggerAccessor", $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.logger.LazyLoggers$LazyLoggerFactories", "jdk.internal.logger.LazyLoggers", "LazyLoggerFactories", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.logger.LazyLoggers$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.logger.LazyLoggers",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.logger.LazyLoggers$JdkLazyLogger,jdk.internal.logger.LazyLoggers$LazyLoggerWrapper,jdk.internal.logger.LazyLoggers$LazyLoggerAccessor,jdk.internal.logger.LazyLoggers$LoggerAccessor,jdk.internal.logger.LazyLoggers$LazyLoggerFactories,jdk.internal.logger.LazyLoggers$1"
+	};
+	$loadClass(LazyLoggers, name, initialize, &classInfo$$, LazyLoggers::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LazyLoggers);
+	});
 	return class$;
 }
 

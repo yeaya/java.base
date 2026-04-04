@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/jar/URLJarFileCallBack.h>
-
 #include <java/net/URL.h>
 #include <java/util/jar/JarFile.h>
 #include <jcpp.h>
@@ -15,26 +14,22 @@ namespace sun {
 			namespace protocol {
 				namespace jar {
 
-$MethodInfo _URLJarFileCallBack_MethodInfo_[] = {
-	{"retrieve", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URLJarFileCallBack, retrieve, $JarFile*, $URL*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _URLJarFileCallBack_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.net.www.protocol.jar.URLJarFileCallBack",
-	nullptr,
-	nullptr,
-	nullptr,
-	_URLJarFileCallBack_MethodInfo_
-};
-
-$Object* allocate$URLJarFileCallBack($Class* clazz) {
-	return $of($alloc(URLJarFileCallBack));
-}
-
 $Class* URLJarFileCallBack::load$($String* name, bool initialize) {
-	$loadClass(URLJarFileCallBack, name, initialize, &_URLJarFileCallBack_ClassInfo_, allocate$URLJarFileCallBack);
+	$MethodInfo methodInfos$$[] = {
+		{"retrieve", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URLJarFileCallBack, retrieve, $JarFile*, $URL*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.net.www.protocol.jar.URLJarFileCallBack",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(URLJarFileCallBack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLJarFileCallBack);
+	});
 	return class$;
 }
 

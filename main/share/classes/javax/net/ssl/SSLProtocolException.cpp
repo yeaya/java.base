@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLProtocolException.h>
-
 #include <javax/net/ssl/SSLException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $SSLException = ::javax::net::ssl::SSLException;
 namespace javax {
 	namespace net {
 		namespace ssl {
-
-$FieldInfo _SSLProtocolException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLProtocolException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SSLProtocolException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLProtocolException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _SSLProtocolException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.net.ssl.SSLProtocolException",
-	"javax.net.ssl.SSLException",
-	nullptr,
-	_SSLProtocolException_FieldInfo_,
-	_SSLProtocolException_MethodInfo_
-};
-
-$Object* allocate$SSLProtocolException($Class* clazz) {
-	return $of($alloc(SSLProtocolException));
-}
 
 void SSLProtocolException::init$($String* reason) {
 	$SSLException::init$(reason);
@@ -50,7 +26,25 @@ void SSLProtocolException::throw$() {
 }
 
 $Class* SSLProtocolException::load$($String* name, bool initialize) {
-	$loadClass(SSLProtocolException, name, initialize, &_SSLProtocolException_ClassInfo_, allocate$SSLProtocolException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLProtocolException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLProtocolException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.net.ssl.SSLProtocolException",
+		"javax.net.ssl.SSLException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLProtocolException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLProtocolException);
+	});
 	return class$;
 }
 

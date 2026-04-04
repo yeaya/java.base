@@ -44,6 +44,7 @@ class ASCII : public ::java::lang::Object {
 	$class(ASCII, 0, ::java::lang::Object)
 public:
 	ASCII();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getType(int32_t ch);
 	static bool isAlnum(int32_t ch);
@@ -73,7 +74,7 @@ public:
 	static const int32_t BLANK = 16384;
 	static const int32_t HEX = 32768;
 	static const int32_t UNDER = 0x00010000;
-	static const int32_t ASCII$ = 0x0000FF00;
+	static const int32_t ASCII$ = 0x0000ff00;
 	static const int32_t ALPHA = 768; // (UPPER | LOWER)
 	static const int32_t ALNUM = 1792; // (UPPER | LOWER | DIGIT)
 	static const int32_t GRAPH = 5888; // (PUNCT | UPPER | LOWER | DIGIT)

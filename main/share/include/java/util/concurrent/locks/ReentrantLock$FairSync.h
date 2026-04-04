@@ -17,7 +17,7 @@ public:
 	void init$();
 	virtual bool initialTryLock() override;
 	virtual bool tryAcquire(int32_t acquires) override;
-	static const int64_t serialVersionUID = (int64_t)0xD65AAB4314B4BD14;
+	static const int64_t serialVersionUID = (int64_t)0xd65aab4314b4bd14;
 };
 
 			} // locks

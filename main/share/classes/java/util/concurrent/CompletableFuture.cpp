@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture.h>
-
 #include <java/lang/ExceptionInInitializerError.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/ReflectiveOperationException.h>
@@ -43,7 +42,6 @@
 #include <java/util/concurrent/CompletionStage.h>
 #include <java/util/concurrent/ExecutionException.h>
 #include <java/util/concurrent/Executor.h>
-#include <java/util/concurrent/ForkJoinPool$ManagedBlocker.h>
 #include <java/util/concurrent/ForkJoinPool.h>
 #include <java/util/concurrent/ForkJoinWorkerThread.h>
 #include <java/util/concurrent/Future.h>
@@ -118,7 +116,6 @@ using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
 using $Executor = ::java::util::concurrent::Executor;
 using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
-using $ForkJoinPool$ManagedBlocker = ::java::util::concurrent::ForkJoinPool$ManagedBlocker;
 using $ForkJoinWorkerThread = ::java::util::concurrent::ForkJoinWorkerThread;
 using $Future = ::java::util::concurrent::Future;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
@@ -133,218 +130,6 @@ using $Supplier = ::java::util::function::Supplier;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _CompletableFuture_FieldInfo_[] = {
-	{"result", "Ljava/lang/Object;", nullptr, $VOLATILE, $field(CompletableFuture, result)},
-	{"stack", "Ljava/util/concurrent/CompletableFuture$Completion;", nullptr, $VOLATILE, $field(CompletableFuture, stack)},
-	{"NIL", "Ljava/util/concurrent/CompletableFuture$AltResult;", nullptr, $STATIC | $FINAL, $staticField(CompletableFuture, NIL)},
-	{"USE_COMMON_POOL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompletableFuture, USE_COMMON_POOL)},
-	{"ASYNC_POOL", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompletableFuture, ASYNC_POOL)},
-	{"SYNC", "I", nullptr, $STATIC | $FINAL, $constField(CompletableFuture, SYNC)},
-	{"ASYNC", "I", nullptr, $STATIC | $FINAL, $constField(CompletableFuture, ASYNC)},
-	{"NESTED", "I", nullptr, $STATIC | $FINAL, $constField(CompletableFuture, NESTED)},
-	{"RESULT", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompletableFuture, RESULT)},
-	{"STACK", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompletableFuture, STACK)},
-	{"NEXT", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompletableFuture, NEXT)},
-	{}
-};
-
-$MethodInfo _CompletableFuture_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompletableFuture, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(CompletableFuture, init$, void, Object$*)},
-	{"acceptEither", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, acceptEither, $CompletionStage*, $CompletionStage*, $Consumer*)},
-	{"acceptEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, acceptEitherAsync, $CompletionStage*, $CompletionStage*, $Consumer*)},
-	{"acceptEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Consumer<-TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, acceptEitherAsync, $CompletionStage*, $CompletionStage*, $Consumer*, $Executor*)},
-	{"allOf", "([Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "([Ljava/util/concurrent/CompletableFuture<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(CompletableFuture, allOf, CompletableFuture*, $CompletableFutureArray*)},
-	{"andTree", "([Ljava/util/concurrent/CompletableFuture;II)Ljava/util/concurrent/CompletableFuture;", "([Ljava/util/concurrent/CompletableFuture<*>;II)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $STATIC, $staticMethod(CompletableFuture, andTree, CompletableFuture*, $CompletableFutureArray*, int32_t, int32_t)},
-	{"anyOf", "([Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "([Ljava/util/concurrent/CompletableFuture<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Object;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(CompletableFuture, anyOf, CompletableFuture*, $CompletableFutureArray*)},
-	{"applyToEither", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Function<-TT;TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, applyToEither, $CompletionStage*, $CompletionStage*, $Function*)},
-	{"applyToEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Function<-TT;TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, applyToEitherAsync, $CompletionStage*, $CompletionStage*, $Function*)},
-	{"applyToEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Function<-TT;TU;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, applyToEitherAsync, $CompletionStage*, $CompletionStage*, $Function*, $Executor*)},
-	{"asyncRunStage", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $STATIC, $staticMethod(CompletableFuture, asyncRunStage, CompletableFuture*, $Executor*, $Runnable*)},
-	{"asyncSupplyStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Supplier;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/function/Supplier<TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $STATIC, $staticMethod(CompletableFuture, asyncSupplyStage, CompletableFuture*, $Executor*, $Supplier*)},
-	{"biAccept", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture$BiAccept;)Z", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiConsumer<-TR;-TS;>;Ljava/util/concurrent/CompletableFuture$BiAccept<TR;TS;>;)Z", $FINAL, $method(CompletableFuture, biAccept, bool, Object$*, Object$*, $BiConsumer*, $CompletableFuture$BiAccept*)},
-	{"biAcceptStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<TU;>;Ljava/util/function/BiConsumer<-TT;-TU;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, biAcceptStage, CompletableFuture*, $Executor*, $CompletionStage*, $BiConsumer*)},
-	{"biApply", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;Ljava/util/concurrent/CompletableFuture$BiApply;)Z", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction<-TR;-TS;+TT;>;Ljava/util/concurrent/CompletableFuture$BiApply<TR;TS;TT;>;)Z", $FINAL, $method(CompletableFuture, biApply, bool, Object$*, Object$*, $BiFunction*, $CompletableFuture$BiApply*)},
-	{"biApplyStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<TU;>;Ljava/util/function/BiFunction<-TT;-TU;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, biApplyStage, CompletableFuture*, $Executor*, $CompletionStage*, $BiFunction*)},
-	{"biRun", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Runnable;Ljava/util/concurrent/CompletableFuture$BiRun;)Z", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Runnable;Ljava/util/concurrent/CompletableFuture$BiRun<**>;)Z", $FINAL, $method(CompletableFuture, biRun, bool, Object$*, Object$*, $Runnable*, $CompletableFuture$BiRun*)},
-	{"biRunStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, biRunStage, CompletableFuture*, $Executor*, $CompletionStage*, $Runnable*)},
-	{"bipush", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture$BiCompletion;)V", "(Ljava/util/concurrent/CompletableFuture<*>;Ljava/util/concurrent/CompletableFuture$BiCompletion<***>;)V", $FINAL, $method(CompletableFuture, bipush, void, CompletableFuture*, $CompletableFuture$BiCompletion*)},
-	{"cancel", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, cancel, bool, bool)},
-	{"cleanStack", "()V", nullptr, $FINAL, $method(CompletableFuture, cleanStack, void)},
-	{"complete", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC, $virtualMethod(CompletableFuture, complete, bool, Object$*)},
-	{"completeAsync", "(Ljava/util/function/Supplier;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Supplier<+TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, completeAsync, CompletableFuture*, $Supplier*, $Executor*)},
-	{"completeAsync", "(Ljava/util/function/Supplier;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Supplier<+TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, completeAsync, CompletableFuture*, $Supplier*)},
-	{"completeExceptionally", "(Ljava/lang/Throwable;)Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, completeExceptionally, bool, $Throwable*)},
-	{"completeNull", "()Z", nullptr, $FINAL, $method(CompletableFuture, completeNull, bool)},
-	{"completeOnTimeout", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/CompletableFuture;", "(TT;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, completeOnTimeout, CompletableFuture*, Object$*, int64_t, $TimeUnit*)},
-	{"completeRelay", "(Ljava/lang/Object;)Z", nullptr, $FINAL, $method(CompletableFuture, completeRelay, bool, Object$*)},
-	{"completeThrowable", "(Ljava/lang/Throwable;)Z", nullptr, $FINAL, $method(CompletableFuture, completeThrowable, bool, $Throwable*)},
-	{"completeThrowable", "(Ljava/lang/Throwable;Ljava/lang/Object;)Z", nullptr, $FINAL, $method(CompletableFuture, completeThrowable, bool, $Throwable*, Object$*)},
-	{"completeValue", "(Ljava/lang/Object;)Z", "(TT;)Z", $FINAL, $method(CompletableFuture, completeValue, bool, Object$*)},
-	{"completedFuture", "(Ljava/lang/Object;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(TU;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, completedFuture, CompletableFuture*, Object$*)},
-	{"completedStage", "(Ljava/lang/Object;)Ljava/util/concurrent/CompletionStage;", "<U:Ljava/lang/Object;>(TU;)Ljava/util/concurrent/CompletionStage<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, completedStage, $CompletionStage*, Object$*)},
-	{"copy", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, copy, CompletableFuture*)},
-	{"defaultExecutor", "()Ljava/util/concurrent/Executor;", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, defaultExecutor, $Executor*)},
-	{"delayedExecutor", "(JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Executor;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompletableFuture, delayedExecutor, $Executor*, int64_t, $TimeUnit*, $Executor*)},
-	{"delayedExecutor", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Executor;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompletableFuture, delayedExecutor, $Executor*, int64_t, $TimeUnit*)},
-	{"encodeOutcome", "(Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/lang/Object;", "(TT;Ljava/lang/Throwable;)Ljava/lang/Object;", 0, $virtualMethod(CompletableFuture, encodeOutcome, $Object*, Object$*, $Throwable*)},
-	{"encodeRelay", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(CompletableFuture, encodeRelay, $Object*, Object$*)},
-	{"encodeThrowable", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture$AltResult;", nullptr, $STATIC, $staticMethod(CompletableFuture, encodeThrowable, $CompletableFuture$AltResult*, $Throwable*)},
-	{"encodeThrowable", "(Ljava/lang/Throwable;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(CompletableFuture, encodeThrowable, $Object*, $Throwable*, Object$*)},
-	{"encodeValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)Ljava/lang/Object;", $FINAL, $method(CompletableFuture, encodeValue, $Object*, Object$*)},
-	{"exceptionally", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionally, $CompletionStage*, $Function*)},
-	{"exceptionallyAsync", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionallyAsync, $CompletionStage*, $Function*)},
-	{"exceptionallyAsync", "(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionallyAsync, $CompletionStage*, $Function*, $Executor*)},
-	{"exceptionallyCompose", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+Ljava/util/concurrent/CompletionStage<TT;>;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionallyCompose, $CompletionStage*, $Function*)},
-	{"exceptionallyComposeAsync", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+Ljava/util/concurrent/CompletionStage<TT;>;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionallyComposeAsync, $CompletionStage*, $Function*)},
-	{"exceptionallyComposeAsync", "(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+Ljava/util/concurrent/CompletionStage<TT;>;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionallyComposeAsync, $CompletionStage*, $Function*, $Executor*)},
-	{"failedFuture", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, failedFuture, CompletableFuture*, $Throwable*)},
-	{"failedStage", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletionStage;", "<U:Ljava/lang/Object;>(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletionStage<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, failedStage, $CompletionStage*, $Throwable*)},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(CompletableFuture, get, $Object*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException"},
-	{"get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TT;", $PUBLIC, $virtualMethod(CompletableFuture, get, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException"},
-	{"getNow", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PUBLIC, $virtualMethod(CompletableFuture, getNow, $Object*, Object$*)},
-	{"getNumberOfDependents", "()I", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, getNumberOfDependents, int32_t)},
-	{"handle", "(Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, handle, $CompletionStage*, $BiFunction*)},
-	{"handleAsync", "(Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, handleAsync, $CompletionStage*, $BiFunction*)},
-	{"handleAsync", "(Ljava/util/function/BiFunction;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TU;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, handleAsync, $CompletionStage*, $BiFunction*, $Executor*)},
-	{"internalComplete", "(Ljava/lang/Object;)Z", nullptr, $FINAL, $method(CompletableFuture, internalComplete, bool, Object$*)},
-	{"isCancelled", "()Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, isCancelled, bool)},
-	{"isCompletedExceptionally", "()Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, isCompletedExceptionally, bool)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, isDone, bool)},
-	{"join", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(CompletableFuture, join, $Object*)},
-	{"minimalCompletionStage", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, minimalCompletionStage, $CompletionStage*)},
-	{"newIncompleteFuture", "()Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>()Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, newIncompleteFuture, CompletableFuture*)},
-	{"obtrudeException", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, obtrudeException, void, $Throwable*)},
-	{"obtrudeValue", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(CompletableFuture, obtrudeValue, void, Object$*)},
-	{"orAcceptStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "<U:TT;>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<TU;>;Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, orAcceptStage, CompletableFuture*, $Executor*, $CompletionStage*, $Consumer*)},
-	{"orApplyStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:TT;V:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<TU;>;Ljava/util/function/Function<-TT;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, orApplyStage, CompletableFuture*, $Executor*, $CompletionStage*, $Function*)},
-	{"orRunStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, orRunStage, CompletableFuture*, $Executor*, $CompletionStage*, $Runnable*)},
-	{"orTimeout", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/CompletableFuture;", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, orTimeout, CompletableFuture*, int64_t, $TimeUnit*)},
-	{"orpush", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture$BiCompletion;)V", "(Ljava/util/concurrent/CompletableFuture<*>;Ljava/util/concurrent/CompletableFuture$BiCompletion<***>;)V", $FINAL, $method(CompletableFuture, orpush, void, CompletableFuture*, $CompletableFuture$BiCompletion*)},
-	{"postComplete", "()V", nullptr, $FINAL, $method(CompletableFuture, postComplete, void)},
-	{"postFire", "(Ljava/util/concurrent/CompletableFuture;I)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletableFuture<*>;I)Ljava/util/concurrent/CompletableFuture<TT;>;", $FINAL, $method(CompletableFuture, postFire, CompletableFuture*, CompletableFuture*, int32_t)},
-	{"postFire", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;I)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletableFuture<*>;Ljava/util/concurrent/CompletableFuture<*>;I)Ljava/util/concurrent/CompletableFuture<TT;>;", $FINAL, $method(CompletableFuture, postFire, CompletableFuture*, CompletableFuture*, CompletableFuture*, int32_t)},
-	{"pushStack", "(Ljava/util/concurrent/CompletableFuture$Completion;)V", nullptr, $FINAL, $method(CompletableFuture, pushStack, void, $CompletableFuture$Completion*)},
-	{"reportGet", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(CompletableFuture, reportGet, $Object*, Object$*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException"},
-	{"reportJoin", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(CompletableFuture, reportJoin, $Object*, Object$*)},
-	{"runAfterBoth", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterBoth, $CompletionStage*, $CompletionStage*, $Runnable*)},
-	{"runAfterBothAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterBothAsync, $CompletionStage*, $CompletionStage*, $Runnable*)},
-	{"runAfterBothAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterBothAsync, $CompletionStage*, $CompletionStage*, $Runnable*, $Executor*)},
-	{"runAfterEither", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterEither, $CompletionStage*, $CompletionStage*, $Runnable*)},
-	{"runAfterEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterEitherAsync, $CompletionStage*, $CompletionStage*, $Runnable*)},
-	{"runAfterEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterEitherAsync, $CompletionStage*, $CompletionStage*, $Runnable*, $Executor*)},
-	{"runAsync", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, runAsync, CompletableFuture*, $Runnable*)},
-	{"runAsync", "(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, runAsync, CompletableFuture*, $Runnable*, $Executor*)},
-	{"screenExecutor", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Executor;", nullptr, $STATIC, $staticMethod(CompletableFuture, screenExecutor, $Executor*, $Executor*)},
-	{"supplyAsync", "(Ljava/util/function/Supplier;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Supplier<TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, supplyAsync, CompletableFuture*, $Supplier*)},
-	{"supplyAsync", "(Ljava/util/function/Supplier;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Supplier<TU;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, supplyAsync, CompletableFuture*, $Supplier*, $Executor*)},
-	{"thenAccept", "(Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAccept, $CompletionStage*, $Consumer*)},
-	{"thenAcceptAsync", "(Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAcceptAsync, $CompletionStage*, $Consumer*)},
-	{"thenAcceptAsync", "(Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Consumer<-TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAcceptAsync, $CompletionStage*, $Consumer*, $Executor*)},
-	{"thenAcceptBoth", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiConsumer<-TT;-TU;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAcceptBoth, $CompletionStage*, $CompletionStage*, $BiConsumer*)},
-	{"thenAcceptBothAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiConsumer<-TT;-TU;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAcceptBothAsync, $CompletionStage*, $CompletionStage*, $BiConsumer*)},
-	{"thenAcceptBothAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiConsumer<-TT;-TU;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAcceptBothAsync, $CompletionStage*, $CompletionStage*, $BiConsumer*, $Executor*)},
-	{"thenApply", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenApply, $CompletionStage*, $Function*)},
-	{"thenApplyAsync", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenApplyAsync, $CompletionStage*, $Function*)},
-	{"thenApplyAsync", "(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenApplyAsync, $CompletionStage*, $Function*, $Executor*)},
-	{"thenCombine", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiFunction<-TT;-TU;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenCombine, $CompletionStage*, $CompletionStage*, $BiFunction*)},
-	{"thenCombineAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiFunction<-TT;-TU;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenCombineAsync, $CompletionStage*, $CompletionStage*, $BiFunction*)},
-	{"thenCombineAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiFunction;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiFunction<-TT;-TU;+TV;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenCombineAsync, $CompletionStage*, $CompletionStage*, $BiFunction*, $Executor*)},
-	{"thenCompose", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/concurrent/CompletionStage<TU;>;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenCompose, $CompletionStage*, $Function*)},
-	{"thenComposeAsync", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/concurrent/CompletionStage<TU;>;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenComposeAsync, $CompletionStage*, $Function*)},
-	{"thenComposeAsync", "(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/concurrent/CompletionStage<TU;>;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenComposeAsync, $CompletionStage*, $Function*, $Executor*)},
-	{"thenRun", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenRun, $CompletionStage*, $Runnable*)},
-	{"thenRunAsync", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenRunAsync, $CompletionStage*, $Runnable*)},
-	{"thenRunAsync", "(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenRunAsync, $CompletionStage*, $Runnable*, $Executor*)},
-	{"timedGet", "(J)Ljava/lang/Object;", nullptr, $PRIVATE, $method(CompletableFuture, timedGet, $Object*, int64_t), "java.util.concurrent.TimeoutException"},
-	{"toCompletableFuture", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, toCompletableFuture, CompletableFuture*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, toString, $String*)},
-	{"tryPushStack", "(Ljava/util/concurrent/CompletableFuture$Completion;)Z", nullptr, $FINAL, $method(CompletableFuture, tryPushStack, bool, $CompletableFuture$Completion*)},
-	{"uniAcceptNow", "(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, uniAcceptNow, CompletableFuture*, Object$*, $Executor*, $Consumer*)},
-	{"uniAcceptStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, uniAcceptStage, CompletableFuture*, $Executor*, $Consumer*)},
-	{"uniApplyNow", "(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<V:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/util/function/Function<-TT;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, uniApplyNow, CompletableFuture*, Object$*, $Executor*, $Function*)},
-	{"uniApplyStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/function/Function<-TT;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, uniApplyStage, CompletableFuture*, $Executor*, $Function*)},
-	{"uniAsMinimalStage", "()Ljava/util/concurrent/CompletableFuture$MinimalStage;", "()Ljava/util/concurrent/CompletableFuture$MinimalStage<TT;>;", $PRIVATE, $method(CompletableFuture, uniAsMinimalStage, $CompletableFuture$MinimalStage*)},
-	{"uniComposeExceptionallyStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function<Ljava/lang/Throwable;+Ljava/util/concurrent/CompletionStage<TT;>;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PRIVATE, $method(CompletableFuture, uniComposeExceptionallyStage, CompletableFuture*, $Executor*, $Function*)},
-	{"uniComposeStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/function/Function<-TT;+Ljava/util/concurrent/CompletionStage<TV;>;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, uniComposeStage, CompletableFuture*, $Executor*, $Function*)},
-	{"uniCopyStage", "(Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;T:TU;>(Ljava/util/concurrent/CompletableFuture<TT;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PRIVATE | $STATIC, $staticMethod(CompletableFuture, uniCopyStage, CompletableFuture*, CompletableFuture*)},
-	{"uniExceptionally", "(Ljava/lang/Object;Ljava/util/function/Function;Ljava/util/concurrent/CompletableFuture$UniExceptionally;)Z", "(Ljava/lang/Object;Ljava/util/function/Function<-Ljava/lang/Throwable;+TT;>;Ljava/util/concurrent/CompletableFuture$UniExceptionally<TT;>;)Z", $FINAL, $method(CompletableFuture, uniExceptionally, bool, Object$*, $Function*, $CompletableFuture$UniExceptionally*)},
-	{"uniExceptionallyStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function<Ljava/lang/Throwable;+TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PRIVATE, $method(CompletableFuture, uniExceptionallyStage, CompletableFuture*, $Executor*, $Function*)},
-	{"uniHandle", "(Ljava/lang/Object;Ljava/util/function/BiFunction;Ljava/util/concurrent/CompletableFuture$UniHandle;)Z", "<S:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/util/function/BiFunction<-TS;Ljava/lang/Throwable;+TT;>;Ljava/util/concurrent/CompletableFuture$UniHandle<TS;TT;>;)Z", $FINAL, $method(CompletableFuture, uniHandle, bool, Object$*, $BiFunction*, $CompletableFuture$UniHandle*)},
-	{"uniHandleStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, uniHandleStage, CompletableFuture*, $Executor*, $BiFunction*)},
-	{"uniRunNow", "(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, uniRunNow, CompletableFuture*, Object$*, $Executor*, $Runnable*)},
-	{"uniRunStage", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, uniRunStage, CompletableFuture*, $Executor*, $Runnable*)},
-	{"uniWhenComplete", "(Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture$UniWhenComplete;)Z", "(Ljava/lang/Object;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture$UniWhenComplete<TT;>;)Z", $FINAL, $method(CompletableFuture, uniWhenComplete, bool, Object$*, $BiConsumer*, $CompletableFuture$UniWhenComplete*)},
-	{"uniWhenCompleteStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PRIVATE, $method(CompletableFuture, uniWhenCompleteStage, CompletableFuture*, $Executor*, $BiConsumer*)},
-	{"unipush", "(Ljava/util/concurrent/CompletableFuture$Completion;)V", nullptr, $FINAL, $method(CompletableFuture, unipush, void, $CompletableFuture$Completion*)},
-	{"waitingGet", "(Z)Ljava/lang/Object;", nullptr, $PRIVATE, $method(CompletableFuture, waitingGet, $Object*, bool)},
-	{"whenComplete", "(Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, whenComplete, $CompletionStage*, $BiConsumer*)},
-	{"whenCompleteAsync", "(Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, whenCompleteAsync, $CompletionStage*, $BiConsumer*)},
-	{"whenCompleteAsync", "(Ljava/util/function/BiConsumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, whenCompleteAsync, $CompletionStage*, $BiConsumer*, $Executor*)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$MinimalStage", "java.util.concurrent.CompletableFuture", "MinimalStage", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$Canceller", "java.util.concurrent.CompletableFuture", "Canceller", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$DelayedCompleter", "java.util.concurrent.CompletableFuture", "DelayedCompleter", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$Timeout", "java.util.concurrent.CompletableFuture", "Timeout", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$TaskSubmitter", "java.util.concurrent.CompletableFuture", "TaskSubmitter", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$DelayedExecutor", "java.util.concurrent.CompletableFuture", "DelayedExecutor", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$Delayer", "java.util.concurrent.CompletableFuture", "Delayer", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$Signaller", "java.util.concurrent.CompletableFuture", "Signaller", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$AsyncRun", "java.util.concurrent.CompletableFuture", "AsyncRun", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$AsyncSupply", "java.util.concurrent.CompletableFuture", "AsyncSupply", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$AnyOf", "java.util.concurrent.CompletableFuture", "AnyOf", $STATIC},
-	{"java.util.concurrent.CompletableFuture$OrRun", "java.util.concurrent.CompletableFuture", "OrRun", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$OrAccept", "java.util.concurrent.CompletableFuture", "OrAccept", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$OrApply", "java.util.concurrent.CompletableFuture", "OrApply", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$BiRelay", "java.util.concurrent.CompletableFuture", "BiRelay", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$BiRun", "java.util.concurrent.CompletableFuture", "BiRun", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$BiAccept", "java.util.concurrent.CompletableFuture", "BiAccept", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$BiApply", "java.util.concurrent.CompletableFuture", "BiApply", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$CoCompletion", "java.util.concurrent.CompletableFuture", "CoCompletion", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$BiCompletion", "java.util.concurrent.CompletableFuture", "BiCompletion", $STATIC | $ABSTRACT},
-	{"java.util.concurrent.CompletableFuture$UniCompose", "java.util.concurrent.CompletableFuture", "UniCompose", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$UniRelay", "java.util.concurrent.CompletableFuture", "UniRelay", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$UniComposeExceptionally", "java.util.concurrent.CompletableFuture", "UniComposeExceptionally", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$UniExceptionally", "java.util.concurrent.CompletableFuture", "UniExceptionally", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$UniHandle", "java.util.concurrent.CompletableFuture", "UniHandle", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$UniWhenComplete", "java.util.concurrent.CompletableFuture", "UniWhenComplete", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$UniRun", "java.util.concurrent.CompletableFuture", "UniRun", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$UniAccept", "java.util.concurrent.CompletableFuture", "UniAccept", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$UniApply", "java.util.concurrent.CompletableFuture", "UniApply", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$UniCompletion", "java.util.concurrent.CompletableFuture", "UniCompletion", $STATIC | $ABSTRACT},
-	{"java.util.concurrent.CompletableFuture$Completion", "java.util.concurrent.CompletableFuture", "Completion", $STATIC | $ABSTRACT},
-	{"java.util.concurrent.CompletableFuture$ThreadPerTaskExecutor", "java.util.concurrent.CompletableFuture", "ThreadPerTaskExecutor", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$AsynchronousCompletionTask", "java.util.concurrent.CompletableFuture", "AsynchronousCompletionTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.concurrent.CompletableFuture$AltResult", "java.util.concurrent.CompletableFuture", "AltResult", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CompletableFuture_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture",
-	"java.lang.Object",
-	"java.util.concurrent.Future,java.util.concurrent.CompletionStage",
-	_CompletableFuture_FieldInfo_,
-	_CompletableFuture_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/concurrent/Future<TT;>;Ljava/util/concurrent/CompletionStage<TT;>;",
-	nullptr,
-	_CompletableFuture_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture$MinimalStage,java.util.concurrent.CompletableFuture$Canceller,java.util.concurrent.CompletableFuture$DelayedCompleter,java.util.concurrent.CompletableFuture$Timeout,java.util.concurrent.CompletableFuture$TaskSubmitter,java.util.concurrent.CompletableFuture$DelayedExecutor,java.util.concurrent.CompletableFuture$Delayer,java.util.concurrent.CompletableFuture$Delayer$DaemonThreadFactory,java.util.concurrent.CompletableFuture$Signaller,java.util.concurrent.CompletableFuture$AsyncRun,java.util.concurrent.CompletableFuture$AsyncSupply,java.util.concurrent.CompletableFuture$AnyOf,java.util.concurrent.CompletableFuture$OrRun,java.util.concurrent.CompletableFuture$OrAccept,java.util.concurrent.CompletableFuture$OrApply,java.util.concurrent.CompletableFuture$BiRelay,java.util.concurrent.CompletableFuture$BiRun,java.util.concurrent.CompletableFuture$BiAccept,java.util.concurrent.CompletableFuture$BiApply,java.util.concurrent.CompletableFuture$CoCompletion,java.util.concurrent.CompletableFuture$BiCompletion,java.util.concurrent.CompletableFuture$UniCompose,java.util.concurrent.CompletableFuture$UniRelay,java.util.concurrent.CompletableFuture$UniComposeExceptionally,java.util.concurrent.CompletableFuture$UniExceptionally,java.util.concurrent.CompletableFuture$UniHandle,java.util.concurrent.CompletableFuture$UniWhenComplete,java.util.concurrent.CompletableFuture$UniRun,java.util.concurrent.CompletableFuture$UniAccept,java.util.concurrent.CompletableFuture$UniApply,java.util.concurrent.CompletableFuture$UniCompletion,java.util.concurrent.CompletableFuture$Completion,java.util.concurrent.CompletableFuture$ThreadPerTaskExecutor,java.util.concurrent.CompletableFuture$AsynchronousCompletionTask,java.util.concurrent.CompletableFuture$AltResult"
-};
-
-$Object* allocate$CompletableFuture($Class* clazz) {
-	return $of($alloc(CompletableFuture));
-}
 
 int32_t CompletableFuture::hashCode() {
 	 return this->$Future::hashCode();
@@ -370,14 +155,14 @@ $VarHandle* CompletableFuture::STACK = nullptr;
 $VarHandle* CompletableFuture::NEXT = nullptr;
 
 bool CompletableFuture::internalComplete(Object$* r) {
-	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, r}));
+	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {this, nullptr, r}));
 }
 
 bool CompletableFuture::tryPushStack($CompletableFuture$Completion* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture$Completion, h, this->stack);
-	$nc(CompletableFuture::NEXT)->set($$new($ObjectArray, {$of(c), $of(h)}));
-	return $nc(CompletableFuture::STACK)->compareAndSet($$new($ObjectArray, {$of(this), $of(h), $of(c)}));
+	$nc(CompletableFuture::NEXT)->set($$new($ObjectArray, {c, h}));
+	return $nc(CompletableFuture::STACK)->compareAndSet($$new($ObjectArray, {this, h, c}));
 }
 
 void CompletableFuture::pushStack($CompletableFuture$Completion* c) {
@@ -386,25 +171,25 @@ void CompletableFuture::pushStack($CompletableFuture$Completion* c) {
 }
 
 bool CompletableFuture::completeNull() {
-	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, $of(CompletableFuture::NIL)}));
+	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {this, nullptr, CompletableFuture::NIL}));
 }
 
 $Object* CompletableFuture::encodeValue(Object$* t) {
-	return $of((t == nullptr) ? $of(CompletableFuture::NIL) : $of(t));
+	return (t == nullptr) ? $of(CompletableFuture::NIL) : $of(t);
 }
 
 bool CompletableFuture::completeValue(Object$* t) {
-	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, (t == nullptr) ? $of(CompletableFuture::NIL) : $of(t)}));
+	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {this, nullptr, (t == nullptr) ? $of(CompletableFuture::NIL) : $of(t)}));
 }
 
 $CompletableFuture$AltResult* CompletableFuture::encodeThrowable($Throwable* x) {
 	$init(CompletableFuture);
-	return $new($CompletableFuture$AltResult, ($instanceOf($CompletionException, x)) ? x : static_cast<$Throwable*>($$new($CompletionException, x)));
+	return $new($CompletableFuture$AltResult, ($instanceOf($CompletionException, x)) ? x : $$cast($Throwable, $new($CompletionException, x)));
 }
 
 bool CompletableFuture::completeThrowable($Throwable* x) {
-	$useLocalCurrentObjectStackCache();
-	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, $($of(encodeThrowable(x)))}));
+	$useLocalObjectStack();
+	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {this, nullptr, $(encodeThrowable(x))}));
 }
 
 $Object* CompletableFuture::encodeThrowable($Throwable* x$renamed, Object$* r) {
@@ -412,27 +197,27 @@ $Object* CompletableFuture::encodeThrowable($Throwable* x$renamed, Object$* r) {
 	$var($Throwable, x, x$renamed);
 	if (!($instanceOf($CompletionException, x))) {
 		$assign(x, $new($CompletionException, x));
-	} else if ($instanceOf($CompletableFuture$AltResult, r) && x == $nc(($cast($CompletableFuture$AltResult, r)))->ex) {
+	} else if ($instanceOf($CompletableFuture$AltResult, r) && x == $cast($CompletableFuture$AltResult, r)->ex) {
 		return $of(r);
 	}
-	return $of($new($CompletableFuture$AltResult, x));
+	return $new($CompletableFuture$AltResult, x);
 }
 
 bool CompletableFuture::completeThrowable($Throwable* x, Object$* r) {
-	$useLocalCurrentObjectStackCache();
-	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, $(encodeThrowable(x, r))}));
+	$useLocalObjectStack();
+	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {this, nullptr, $(encodeThrowable(x, r))}));
 }
 
 $Object* CompletableFuture::encodeOutcome(Object$* t, $Throwable* x) {
-	return $of((x == nullptr) ? (t == nullptr) ? $of(CompletableFuture::NIL) : $of(t) : $of(encodeThrowable(x)));
+	return (x == nullptr) ? (t == nullptr) ? $of(CompletableFuture::NIL) : $of(t) : $of(encodeThrowable(x));
 }
 
 $Object* CompletableFuture::encodeRelay(Object$* r$renamed) {
 	$init(CompletableFuture);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, r$renamed);
 	$var($Throwable, x, nullptr);
-	bool var$0 = $instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr;
+	bool var$0 = $instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) != nullptr;
 	if (var$0 && !($instanceOf($CompletionException, x))) {
 		$assign(r, $new($CompletableFuture$AltResult, $$new($CompletionException, x)));
 	}
@@ -440,26 +225,26 @@ $Object* CompletableFuture::encodeRelay(Object$* r$renamed) {
 }
 
 bool CompletableFuture::completeRelay(Object$* r) {
-	$useLocalCurrentObjectStackCache();
-	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, $(encodeRelay(r))}));
+	$useLocalObjectStack();
+	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {this, nullptr, $(encodeRelay(r))}));
 }
 
 $Object* CompletableFuture::reportGet(Object$* r) {
 	$init(CompletableFuture);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (r == nullptr) {
 		$throwNew($InterruptedException);
 	}
 	if ($instanceOf($CompletableFuture$AltResult, r)) {
 		$var($Throwable, x, nullptr);
 		$var($Throwable, cause, nullptr);
-		if (($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) == nullptr) {
-			return $of(nullptr);
+		if (($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) == nullptr) {
+			return nullptr;
 		}
 		if ($instanceOf($CancellationException, x)) {
 			$throw($cast($CancellationException, x));
 		}
-		if (($instanceOf($CompletionException, x)) && ($assign(cause, $nc(x)->getCause())) != nullptr) {
+		if (($instanceOf($CompletionException, x)) && ($assign(cause, x->getCause())) != nullptr) {
 			$assign(x, cause);
 		}
 		$throwNew($ExecutionException, x);
@@ -471,8 +256,8 @@ $Object* CompletableFuture::reportJoin(Object$* r) {
 	$init(CompletableFuture);
 	if ($instanceOf($CompletableFuture$AltResult, r)) {
 		$var($Throwable, x, nullptr);
-		if (($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) == nullptr) {
-			return $of(nullptr);
+		if (($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) == nullptr) {
+			return nullptr;
 		}
 		if ($instanceOf($CancellationException, x)) {
 			$throw($cast($CancellationException, x));
@@ -497,14 +282,14 @@ $Executor* CompletableFuture::screenExecutor($Executor* e) {
 }
 
 void CompletableFuture::postComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CompletableFuture, f, this);
 	$var($CompletableFuture$Completion, h, nullptr);
 	while (true) {
 		bool var$0 = ($assign(h, $nc(f)->stack)) != nullptr;
 		if (!var$0) {
 			bool var$1 = f != this;
-			var$0 = (var$1 && ($assign(h, $nc(($assign(f, this)))->stack)) != nullptr);
+			var$0 = var$1 && ($assign(h, $nc(($assign(f, this)))->stack)) != nullptr;
 		}
 		if (!(var$0)) {
 			break;
@@ -512,35 +297,35 @@ void CompletableFuture::postComplete() {
 		{
 			$var(CompletableFuture, d, nullptr);
 			$var($CompletableFuture$Completion, t, nullptr);
-			if ($nc(CompletableFuture::STACK)->compareAndSet($$new($ObjectArray, {$of(f), $of(h), $of(($assign(t, $nc(h)->next)))}))) {
+			if ($nc(CompletableFuture::STACK)->compareAndSet($$new($ObjectArray, {f, h, $assign(t, $nc(h)->next)}))) {
 				if (t != nullptr) {
 					if (f != this) {
 						pushStack(h);
 						continue;
 					}
-					$nc(CompletableFuture::NEXT)->compareAndSet($$new($ObjectArray, {$of(h), $of(t), ($Object*)nullptr}));
+					$nc(CompletableFuture::NEXT)->compareAndSet($$new($ObjectArray, {h, t, nullptr}));
 				}
-				$assign(f, ($assign(d, $nc(h)->tryFire(CompletableFuture::NESTED))) == nullptr ? this : d);
+				$assign(f, ($assign(d, h->tryFire(CompletableFuture::NESTED))) == nullptr ? this : d);
 			}
 		}
 	}
 }
 
 void CompletableFuture::cleanStack() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture$Completion, p, this->stack);
 	for (bool unlinked = false;;) {
 		if (p == nullptr) {
 			return;
-		} else if ($nc(p)->isLive()) {
+		} else if (p->isLive()) {
 			if (unlinked) {
 				return;
 			} else {
 				break;
 			}
 		} else {
-			$var($Object, var$1, $of(p));
-			if ($nc(CompletableFuture::STACK)->weakCompareAndSet($$new($ObjectArray, {$of(this), var$1, ($of(($assign(p, p->next))))}))) {
+			$var($Object, var$0, p);
+			if ($nc(CompletableFuture::STACK)->weakCompareAndSet($$new($ObjectArray, {this, var$0, ($assign(p, p->next))}))) {
 				unlinked = true;
 			} else {
 				$assign(p, this->stack);
@@ -554,21 +339,21 @@ void CompletableFuture::cleanStack() {
 			if (q->isLive()) {
 				$assign(p, q);
 				$assign(q, s);
-			} else if ($nc(CompletableFuture::NEXT)->weakCompareAndSet($$new($ObjectArray, {$of(p), $of(q), $of(s)}))) {
+			} else if ($nc(CompletableFuture::NEXT)->weakCompareAndSet($$new($ObjectArray, {p, q, s}))) {
 				break;
 			} else {
-				$assign(q, p->next);
+				$assign(q, $nc(p)->next);
 			}
 		}
 	}
 }
 
 void CompletableFuture::unipush($CompletableFuture$Completion* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c != nullptr) {
 		while (!tryPushStack(c)) {
 			if (this->result != nullptr) {
-				$nc(CompletableFuture::NEXT)->set($$new($ObjectArray, {$of(c), ($Object*)nullptr}));
+				$nc(CompletableFuture::NEXT)->set($$new($ObjectArray, {c, nullptr}));
 				break;
 			}
 		}
@@ -599,7 +384,7 @@ CompletableFuture* CompletableFuture::postFire(CompletableFuture* a, int32_t mod
 }
 
 CompletableFuture* CompletableFuture::uniApplyStage($Executor* e, $Function* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -613,12 +398,12 @@ CompletableFuture* CompletableFuture::uniApplyStage($Executor* e, $Function* f) 
 }
 
 CompletableFuture* CompletableFuture::uniApplyNow(Object$* r$renamed, $Executor* e, $Function* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, r$renamed);
 	$var($Throwable, x, nullptr);
 	$var(CompletableFuture, d, newIncompleteFuture());
 	if ($instanceOf($CompletableFuture$AltResult, r)) {
-		if (($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr) {
+		if (($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) != nullptr) {
 			$set($nc(d), result, encodeThrowable(x, r));
 			return d;
 		}
@@ -629,7 +414,7 @@ CompletableFuture* CompletableFuture::uniApplyNow(Object$* r$renamed, $Executor*
 			e->execute($$new($CompletableFuture$UniApply, nullptr, d, this, f));
 		} else {
 			$var($Object, t, r);
-			$set($nc(d), result, d->encodeValue($($nc(f)->apply(t))));
+			$set($nc(d), result, $nc(d)->encodeValue($($nc(f)->apply(t))));
 		}
 	} catch ($Throwable& ex) {
 		$set($nc(d), result, encodeThrowable(ex));
@@ -638,7 +423,7 @@ CompletableFuture* CompletableFuture::uniApplyNow(Object$* r$renamed, $Executor*
 }
 
 CompletableFuture* CompletableFuture::uniAcceptStage($Executor* e, $Consumer* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -652,12 +437,12 @@ CompletableFuture* CompletableFuture::uniAcceptStage($Executor* e, $Consumer* f)
 }
 
 CompletableFuture* CompletableFuture::uniAcceptNow(Object$* r$renamed, $Executor* e, $Consumer* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, r$renamed);
 	$var($Throwable, x, nullptr);
 	$var(CompletableFuture, d, newIncompleteFuture());
 	if ($instanceOf($CompletableFuture$AltResult, r)) {
-		if (($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr) {
+		if (($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) != nullptr) {
 			$set($nc(d), result, encodeThrowable(x, r));
 			return d;
 		}
@@ -678,7 +463,7 @@ CompletableFuture* CompletableFuture::uniAcceptNow(Object$* r$renamed, $Executor
 }
 
 CompletableFuture* CompletableFuture::uniRunStage($Executor* e, $Runnable* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -692,10 +477,10 @@ CompletableFuture* CompletableFuture::uniRunStage($Executor* e, $Runnable* f) {
 }
 
 CompletableFuture* CompletableFuture::uniRunNow(Object$* r, $Executor* e, $Runnable* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, x, nullptr);
 	$var(CompletableFuture, d, newIncompleteFuture());
-	if ($instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr) {
+	if ($instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) != nullptr) {
 		$set($nc(d), result, encodeThrowable(x, r));
 	} else {
 		try {
@@ -713,7 +498,7 @@ CompletableFuture* CompletableFuture::uniRunNow(Object$* r, $Executor* e, $Runna
 }
 
 bool CompletableFuture::uniWhenComplete(Object$* r, $BiConsumer* f, $CompletableFuture$UniWhenComplete* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, t, nullptr);
 	$var($Throwable, x, nullptr);
 	if (this->result == nullptr) {
@@ -722,7 +507,7 @@ bool CompletableFuture::uniWhenComplete(Object$* r, $BiConsumer* f, $Completable
 				return false;
 			}
 			if ($instanceOf($CompletableFuture$AltResult, r)) {
-				$assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex);
+				$assign(x, $cast($CompletableFuture$AltResult, r)->ex);
 				$assign(t, nullptr);
 			} else {
 				$var($Object, tr, r);
@@ -737,7 +522,7 @@ bool CompletableFuture::uniWhenComplete(Object$* r, $BiConsumer* f, $Completable
 			if (x == nullptr) {
 				$assign(x, ex);
 			} else if (x != ex) {
-				$nc(x)->addSuppressed(ex);
+				x->addSuppressed(ex);
 			}
 		}
 		completeThrowable(x, r);
@@ -746,7 +531,7 @@ bool CompletableFuture::uniWhenComplete(Object$* r, $BiConsumer* f, $Completable
 }
 
 CompletableFuture* CompletableFuture::uniWhenCompleteStage($Executor* e, $BiConsumer* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -758,7 +543,7 @@ CompletableFuture* CompletableFuture::uniWhenCompleteStage($Executor* e, $BiCons
 		$nc(d)->uniWhenComplete(r, f, nullptr);
 	} else {
 		try {
-			$nc(e)->execute($$new($CompletableFuture$UniWhenComplete, nullptr, d, this, f));
+			e->execute($$new($CompletableFuture$UniWhenComplete, nullptr, d, this, f));
 		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
@@ -767,7 +552,7 @@ CompletableFuture* CompletableFuture::uniWhenCompleteStage($Executor* e, $BiCons
 }
 
 bool CompletableFuture::uniHandle(Object$* r, $BiFunction* f, $CompletableFuture$UniHandle* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, s, nullptr);
 	$var($Throwable, x, nullptr);
 	if (this->result == nullptr) {
@@ -776,7 +561,7 @@ bool CompletableFuture::uniHandle(Object$* r, $BiFunction* f, $CompletableFuture
 				return false;
 			}
 			if ($instanceOf($CompletableFuture$AltResult, r)) {
-				$assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex);
+				$assign(x, $cast($CompletableFuture$AltResult, r)->ex);
 				$assign(s, nullptr);
 			} else {
 				$assign(x, nullptr);
@@ -792,7 +577,7 @@ bool CompletableFuture::uniHandle(Object$* r, $BiFunction* f, $CompletableFuture
 }
 
 CompletableFuture* CompletableFuture::uniHandleStage($Executor* e, $BiFunction* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -804,7 +589,7 @@ CompletableFuture* CompletableFuture::uniHandleStage($Executor* e, $BiFunction* 
 		$nc(d)->uniHandle(r, f, nullptr);
 	} else {
 		try {
-			$nc(e)->execute($$new($CompletableFuture$UniHandle, nullptr, d, this, f));
+			e->execute($$new($CompletableFuture$UniHandle, nullptr, d, this, f));
 		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
@@ -813,14 +598,14 @@ CompletableFuture* CompletableFuture::uniHandleStage($Executor* e, $BiFunction* 
 }
 
 bool CompletableFuture::uniExceptionally(Object$* r, $Function* f, $CompletableFuture$UniExceptionally* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, x, nullptr);
 	if (this->result == nullptr) {
 		try {
 			if (c != nullptr && !c->claim()) {
 				return false;
 			}
-			if ($instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr) {
+			if ($instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) != nullptr) {
 				completeValue($($nc(f)->apply(x)));
 			} else {
 				internalComplete(r);
@@ -833,7 +618,7 @@ bool CompletableFuture::uniExceptionally(Object$* r, $Function* f, $CompletableF
 }
 
 CompletableFuture* CompletableFuture::uniExceptionallyStage($Executor* e, $Function* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -845,7 +630,7 @@ CompletableFuture* CompletableFuture::uniExceptionallyStage($Executor* e, $Funct
 		$nc(d)->uniExceptionally(r, f, nullptr);
 	} else {
 		try {
-			$nc(e)->execute($$new($CompletableFuture$UniExceptionally, nullptr, d, this, f));
+			e->execute($$new($CompletableFuture$UniExceptionally, nullptr, d, this, f));
 		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
@@ -854,7 +639,7 @@ CompletableFuture* CompletableFuture::uniExceptionallyStage($Executor* e, $Funct
 }
 
 CompletableFuture* CompletableFuture::uniComposeExceptionallyStage($Executor* e, $Function* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -864,14 +649,14 @@ CompletableFuture* CompletableFuture::uniComposeExceptionallyStage($Executor* e,
 	$var($Throwable, x, nullptr);
 	if (($assign(r, this->result)) == nullptr) {
 		unipush($$new($CompletableFuture$UniComposeExceptionally, e, d, this, f));
-	} else if (!($instanceOf($CompletableFuture$AltResult, r)) || ($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) == nullptr) {
+	} else if (!($instanceOf($CompletableFuture$AltResult, r)) || ($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) == nullptr) {
 		$nc(d)->internalComplete(r);
 	} else {
 		try {
 			if (e != nullptr) {
 				e->execute($$new($CompletableFuture$UniComposeExceptionally, nullptr, d, this, f));
 			} else {
-				$var(CompletableFuture, g, $nc(($cast($CompletionStage, $($nc(f)->apply(x)))))->toCompletableFuture());
+				$var(CompletableFuture, g, $$sure($CompletionStage, $nc(f)->apply(x))->toCompletableFuture());
 				if (($assign(s, $nc(g)->result)) != nullptr) {
 					$set($nc(d), result, encodeRelay(s));
 				} else {
@@ -887,7 +672,7 @@ CompletableFuture* CompletableFuture::uniComposeExceptionallyStage($Executor* e,
 
 CompletableFuture* CompletableFuture::uniCopyStage(CompletableFuture* src) {
 	$init(CompletableFuture);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, nullptr);
 	$var(CompletableFuture, d, $nc(src)->newIncompleteFuture());
 	if (($assign(r, src->result)) != nullptr) {
@@ -899,7 +684,7 @@ CompletableFuture* CompletableFuture::uniCopyStage(CompletableFuture* src) {
 }
 
 $CompletableFuture$MinimalStage* CompletableFuture::uniAsMinimalStage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, nullptr);
 	if (($assign(r, this->result)) != nullptr) {
 		return $new($CompletableFuture$MinimalStage, $(encodeRelay(r)));
@@ -910,7 +695,7 @@ $CompletableFuture$MinimalStage* CompletableFuture::uniAsMinimalStage() {
 }
 
 CompletableFuture* CompletableFuture::uniComposeStage($Executor* e, $Function* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -922,7 +707,7 @@ CompletableFuture* CompletableFuture::uniComposeStage($Executor* e, $Function* f
 		unipush($$new($CompletableFuture$UniCompose, e, d, this, f));
 	} else {
 		if ($instanceOf($CompletableFuture$AltResult, r)) {
-			if (($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr) {
+			if (($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) != nullptr) {
 				$set($nc(d), result, encodeThrowable(x, r));
 				return d;
 			}
@@ -933,7 +718,7 @@ CompletableFuture* CompletableFuture::uniComposeStage($Executor* e, $Function* f
 				e->execute($$new($CompletableFuture$UniCompose, nullptr, d, this, f));
 			} else {
 				$var($Object, t, r);
-				$var(CompletableFuture, g, $nc(($cast($CompletionStage, $($nc(f)->apply(t)))))->toCompletableFuture());
+				$var(CompletableFuture, g, $$sure($CompletionStage, $nc(f)->apply(t))->toCompletableFuture());
 				if (($assign(s, $nc(g)->result)) != nullptr) {
 					$set($nc(d), result, encodeRelay(s));
 				} else {
@@ -948,7 +733,7 @@ CompletableFuture* CompletableFuture::uniComposeStage($Executor* e, $Function* f
 }
 
 void CompletableFuture::bipush(CompletableFuture* b, $CompletableFuture$BiCompletion* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c != nullptr) {
 		while (this->result == nullptr) {
 			if (tryPushStack(c)) {
@@ -978,7 +763,7 @@ CompletableFuture* CompletableFuture::postFire(CompletableFuture* a, Completable
 }
 
 bool CompletableFuture::biApply(Object$* r$renamed, Object$* s$renamed, $BiFunction* f, $CompletableFuture$BiApply* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, r$renamed);
 	$var($Object, s, s$renamed);
 	$var($Throwable, x, nullptr);
@@ -986,7 +771,7 @@ bool CompletableFuture::biApply(Object$* r$renamed, Object$* s$renamed, $BiFunct
 	for (;;) {
 		if (this->result == nullptr) {
 			if ($instanceOf($CompletableFuture$AltResult, r)) {
-				if (($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr) {
+				if (($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) != nullptr) {
 					completeThrowable(x, r);
 					tryComplete$break = true;
 					break;
@@ -994,7 +779,7 @@ bool CompletableFuture::biApply(Object$* r$renamed, Object$* s$renamed, $BiFunct
 				$assign(r, nullptr);
 			}
 			if ($instanceOf($CompletableFuture$AltResult, s)) {
-				if (($assign(x, $nc(($cast($CompletableFuture$AltResult, s)))->ex)) != nullptr) {
+				if (($assign(x, $cast($CompletableFuture$AltResult, s)->ex)) != nullptr) {
 					completeThrowable(x, s);
 					tryComplete$break = true;
 					break;
@@ -1018,7 +803,7 @@ bool CompletableFuture::biApply(Object$* r$renamed, Object$* s$renamed, $BiFunct
 }
 
 CompletableFuture* CompletableFuture::biApplyStage($Executor* e, $CompletionStage* o, $BiFunction* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CompletableFuture, b, nullptr);
 	$var($Object, r, nullptr);
 	$var($Object, s, nullptr);
@@ -1032,7 +817,7 @@ CompletableFuture* CompletableFuture::biApplyStage($Executor* e, $CompletionStag
 		$nc(d)->biApply(r, s, f, nullptr);
 	} else {
 		try {
-			$nc(e)->execute($$new($CompletableFuture$BiApply, nullptr, d, this, b, f));
+			e->execute($$new($CompletableFuture$BiApply, nullptr, d, this, b, f));
 		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
@@ -1041,7 +826,7 @@ CompletableFuture* CompletableFuture::biApplyStage($Executor* e, $CompletionStag
 }
 
 bool CompletableFuture::biAccept(Object$* r$renamed, Object$* s$renamed, $BiConsumer* f, $CompletableFuture$BiAccept* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, r$renamed);
 	$var($Object, s, s$renamed);
 	$var($Throwable, x, nullptr);
@@ -1049,7 +834,7 @@ bool CompletableFuture::biAccept(Object$* r$renamed, Object$* s$renamed, $BiCons
 	for (;;) {
 		if (this->result == nullptr) {
 			if ($instanceOf($CompletableFuture$AltResult, r)) {
-				if (($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr) {
+				if (($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) != nullptr) {
 					completeThrowable(x, r);
 					tryComplete$break = true;
 					break;
@@ -1057,7 +842,7 @@ bool CompletableFuture::biAccept(Object$* r$renamed, Object$* s$renamed, $BiCons
 				$assign(r, nullptr);
 			}
 			if ($instanceOf($CompletableFuture$AltResult, s)) {
-				if (($assign(x, $nc(($cast($CompletableFuture$AltResult, s)))->ex)) != nullptr) {
+				if (($assign(x, $cast($CompletableFuture$AltResult, s)->ex)) != nullptr) {
 					completeThrowable(x, s);
 					tryComplete$break = true;
 					break;
@@ -1082,7 +867,7 @@ bool CompletableFuture::biAccept(Object$* r$renamed, Object$* s$renamed, $BiCons
 }
 
 CompletableFuture* CompletableFuture::biAcceptStage($Executor* e, $CompletionStage* o, $BiConsumer* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CompletableFuture, b, nullptr);
 	$var($Object, r, nullptr);
 	$var($Object, s, nullptr);
@@ -1096,7 +881,7 @@ CompletableFuture* CompletableFuture::biAcceptStage($Executor* e, $CompletionSta
 		$nc(d)->biAccept(r, s, f, nullptr);
 	} else {
 		try {
-			$nc(e)->execute($$new($CompletableFuture$BiAccept, nullptr, d, this, b, f));
+			e->execute($$new($CompletableFuture$BiAccept, nullptr, d, this, b, f));
 		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
@@ -1105,12 +890,12 @@ CompletableFuture* CompletableFuture::biAcceptStage($Executor* e, $CompletionSta
 }
 
 bool CompletableFuture::biRun(Object$* r, Object$* s, $Runnable* f, $CompletableFuture$BiRun* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, x, nullptr);
 	$var($Object, z, nullptr);
 	if (this->result == nullptr) {
-		bool var$0 = ($instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc((($cast($CompletableFuture$AltResult, ($assign(z, r))))))->ex)) != nullptr);
-		if (var$0 || ($instanceOf($CompletableFuture$AltResult, s) && ($assign(x, $nc((($cast($CompletableFuture$AltResult, ($assign(z, s))))))->ex)) != nullptr)) {
+		bool var$0 = $instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc($$cast($CompletableFuture$AltResult, ($assign(z, r))))->ex)) != nullptr;
+		if (var$0 || ($instanceOf($CompletableFuture$AltResult, s) && ($assign(x, $nc($$cast($CompletableFuture$AltResult, ($assign(z, s))))->ex)) != nullptr)) {
 			completeThrowable(x, z);
 		} else {
 			try {
@@ -1128,7 +913,7 @@ bool CompletableFuture::biRun(Object$* r, Object$* s, $Runnable* f, $Completable
 }
 
 CompletableFuture* CompletableFuture::biRunStage($Executor* e, $CompletionStage* o, $Runnable* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CompletableFuture, b, nullptr);
 	$var($Object, r, nullptr);
 	$var($Object, s, nullptr);
@@ -1142,7 +927,7 @@ CompletableFuture* CompletableFuture::biRunStage($Executor* e, $CompletionStage*
 		$nc(d)->biRun(r, s, f, nullptr);
 	} else {
 		try {
-			$nc(e)->execute($$new($CompletableFuture$BiRun, nullptr, d, this, b, f));
+			e->execute($$new($CompletableFuture$BiRun, nullptr, d, this, b, f));
 		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
@@ -1152,7 +937,7 @@ CompletableFuture* CompletableFuture::biRunStage($Executor* e, $CompletionStage*
 
 CompletableFuture* CompletableFuture::andTree($CompletableFutureArray* cfs, int32_t lo, int32_t hi) {
 	$init(CompletableFuture);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CompletableFuture, d, $new(CompletableFuture));
 	if (lo > hi) {
 		$set(d, result, CompletableFuture::NIL);
@@ -1169,10 +954,10 @@ CompletableFuture* CompletableFuture::andTree($CompletableFutureArray* cfs, int3
 			$throwNew($NullPointerException);
 		}
 		if (($assign(r, $nc(a)->result)) == nullptr || ($assign(s, $nc(b)->result)) == nullptr) {
-			$nc(a)->bipush(b, $$new($CompletableFuture$BiRelay, d, a, b));
+			a->bipush(b, $$new($CompletableFuture$BiRelay, d, a, b));
 		} else {
-			bool var$2 = ($instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc((($cast($CompletableFuture$AltResult, ($assign(z, r))))))->ex)) != nullptr);
-			if (var$2 || ($instanceOf($CompletableFuture$AltResult, s) && ($assign(x, $nc((($cast($CompletableFuture$AltResult, ($assign(z, s))))))->ex)) != nullptr)) {
+			bool var$1 = $instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc($$cast($CompletableFuture$AltResult, ($assign(z, r))))->ex)) != nullptr;
+			if (var$1 || ($instanceOf($CompletableFuture$AltResult, s) && ($assign(x, $nc($$cast($CompletableFuture$AltResult, ($assign(z, s))))->ex)) != nullptr)) {
 				$set(d, result, encodeThrowable(x, z));
 			} else {
 				$set(d, result, CompletableFuture::NIL);
@@ -1183,11 +968,11 @@ CompletableFuture* CompletableFuture::andTree($CompletableFutureArray* cfs, int3
 }
 
 void CompletableFuture::orpush(CompletableFuture* b, $CompletableFuture$BiCompletion* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c != nullptr) {
 		while (!tryPushStack(c)) {
 			if (this->result != nullptr) {
-				$nc(CompletableFuture::NEXT)->set($$new($ObjectArray, {$of(c), ($Object*)nullptr}));
+				$nc(CompletableFuture::NEXT)->set($$new($ObjectArray, {c, nullptr}));
 				break;
 			}
 		}
@@ -1200,7 +985,7 @@ void CompletableFuture::orpush(CompletableFuture* b, $CompletableFuture$BiComple
 }
 
 CompletableFuture* CompletableFuture::orApplyStage($Executor* e, $CompletionStage* o, $Function* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CompletableFuture, b, nullptr);
 	if (f == nullptr || ($assign(b, $nc(o)->toCompletableFuture())) == nullptr) {
 		$throwNew($NullPointerException);
@@ -1209,7 +994,7 @@ CompletableFuture* CompletableFuture::orApplyStage($Executor* e, $CompletionStag
 	$var(CompletableFuture, z, nullptr);
 	bool var$0 = ($assign(r, $nc(($assign(z, this)))->result)) != nullptr;
 	if (var$0 || ($assign(r, $nc(($assign(z, b)))->result)) != nullptr) {
-		return $nc(z)->uniApplyNow(r, e, f);
+		return z->uniApplyNow(r, e, f);
 	}
 	$var(CompletableFuture, d, newIncompleteFuture());
 	orpush(b, $$new($CompletableFuture$OrApply, e, d, this, b, f));
@@ -1217,7 +1002,7 @@ CompletableFuture* CompletableFuture::orApplyStage($Executor* e, $CompletionStag
 }
 
 CompletableFuture* CompletableFuture::orAcceptStage($Executor* e, $CompletionStage* o, $Consumer* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CompletableFuture, b, nullptr);
 	if (f == nullptr || ($assign(b, $nc(o)->toCompletableFuture())) == nullptr) {
 		$throwNew($NullPointerException);
@@ -1226,7 +1011,7 @@ CompletableFuture* CompletableFuture::orAcceptStage($Executor* e, $CompletionSta
 	$var(CompletableFuture, z, nullptr);
 	bool var$0 = ($assign(r, $nc(($assign(z, this)))->result)) != nullptr;
 	if (var$0 || ($assign(r, $nc(($assign(z, b)))->result)) != nullptr) {
-		return $nc(z)->uniAcceptNow(r, e, f);
+		return z->uniAcceptNow(r, e, f);
 	}
 	$var(CompletableFuture, d, newIncompleteFuture());
 	orpush(b, $$new($CompletableFuture$OrAccept, e, d, this, b, f));
@@ -1234,7 +1019,7 @@ CompletableFuture* CompletableFuture::orAcceptStage($Executor* e, $CompletionSta
 }
 
 CompletableFuture* CompletableFuture::orRunStage($Executor* e, $CompletionStage* o, $Runnable* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CompletableFuture, b, nullptr);
 	if (f == nullptr || ($assign(b, $nc(o)->toCompletableFuture())) == nullptr) {
 		$throwNew($NullPointerException);
@@ -1243,7 +1028,7 @@ CompletableFuture* CompletableFuture::orRunStage($Executor* e, $CompletionStage*
 	$var(CompletableFuture, z, nullptr);
 	bool var$0 = ($assign(r, $nc(($assign(z, this)))->result)) != nullptr;
 	if (var$0 || ($assign(r, $nc(($assign(z, b)))->result)) != nullptr) {
-		return $nc(z)->uniRunNow(r, e, f);
+		return z->uniRunNow(r, e, f);
 	}
 	$var(CompletableFuture, d, newIncompleteFuture());
 	orpush(b, $$new($CompletableFuture$OrRun, e, d, this, b, f));
@@ -1252,7 +1037,7 @@ CompletableFuture* CompletableFuture::orRunStage($Executor* e, $CompletionStage*
 
 CompletableFuture* CompletableFuture::asyncSupplyStage($Executor* e, $Supplier* f) {
 	$init(CompletableFuture);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1263,7 +1048,7 @@ CompletableFuture* CompletableFuture::asyncSupplyStage($Executor* e, $Supplier* 
 
 CompletableFuture* CompletableFuture::asyncRunStage($Executor* e, $Runnable* f) {
 	$init(CompletableFuture);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1273,9 +1058,9 @@ CompletableFuture* CompletableFuture::asyncRunStage($Executor* e, $Runnable* f) 
 }
 
 $Object* CompletableFuture::waitingGet(bool interruptible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (interruptible && $Thread::interrupted()) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($CompletableFuture$Signaller, q, nullptr);
 	bool queued = false;
@@ -1288,10 +1073,10 @@ $Object* CompletableFuture::waitingGet(bool interruptible) {
 			}
 		} else if (!queued) {
 			queued = tryPushStack(q);
-		} else if (interruptible && $nc(q)->interrupted) {
+		} else if (interruptible && q->interrupted) {
 			$set(q, thread, nullptr);
 			cleanStack();
-			return $of(nullptr);
+			return nullptr;
 		} else {
 			try {
 				$ForkJoinPool::managedBlock(q);
@@ -1307,13 +1092,13 @@ $Object* CompletableFuture::waitingGet(bool interruptible) {
 		}
 	}
 	postComplete();
-	return $of(r);
+	return r;
 }
 
 $Object* CompletableFuture::timedGet(int64_t nanos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t d = $System::nanoTime() + nanos;
-	int64_t deadline = (d == (int64_t)0) ? (int64_t)1 : d;
+	int64_t deadline = (d == 0) ? 1 : d;
 	bool interrupted = false;
 	bool queued = false;
 	$var($CompletableFuture$Signaller, q, nullptr);
@@ -1323,7 +1108,7 @@ $Object* CompletableFuture::timedGet(int64_t nanos) {
 			break;
 		} else if (($assign(r, this->result)) != nullptr) {
 			break;
-		} else if (nanos <= (int64_t)0) {
+		} else if (nanos <= 0) {
 			break;
 		} else if (q == nullptr) {
 			$assign(q, $new($CompletableFuture$Signaller, true, nanos, deadline));
@@ -1335,7 +1120,7 @@ $Object* CompletableFuture::timedGet(int64_t nanos) {
 		} else {
 			try {
 				$ForkJoinPool::managedBlock(q);
-				interrupted = $nc(q)->interrupted;
+				interrupted = q->interrupted;
 				nanos = q->nanos;
 			} catch ($InterruptedException& ie) {
 				interrupted = true;
@@ -1353,9 +1138,9 @@ $Object* CompletableFuture::timedGet(int64_t nanos) {
 			$($Thread::currentThread())->interrupt();
 		}
 		postComplete();
-		return $of(r);
+		return r;
 	} else if (interrupted) {
-		return $of(nullptr);
+		return nullptr;
 	} else {
 		$throwNew($TimeoutException);
 	}
@@ -1365,7 +1150,7 @@ void CompletableFuture::init$() {
 }
 
 void CompletableFuture::init$(Object$* r) {
-	$nc(CompletableFuture::RESULT)->setRelease($$new($ObjectArray, {$of(this), r}));
+	$nc(CompletableFuture::RESULT)->setRelease($$new($ObjectArray, {this, r}));
 }
 
 CompletableFuture* CompletableFuture::supplyAsync($Supplier* supplier) {
@@ -1402,7 +1187,7 @@ $Object* CompletableFuture::get() {
 	if (($assign(r, this->result)) == nullptr) {
 		$assign(r, waitingGet(true));
 	}
-	return $of(reportGet(r));
+	return reportGet(r);
 }
 
 $Object* CompletableFuture::get(int64_t timeout, $TimeUnit* unit) {
@@ -1411,7 +1196,7 @@ $Object* CompletableFuture::get(int64_t timeout, $TimeUnit* unit) {
 	if (($assign(r, this->result)) == nullptr) {
 		$assign(r, timedGet(nanos));
 	}
-	return $of(reportGet(r));
+	return reportGet(r);
 }
 
 $Object* CompletableFuture::join() {
@@ -1419,12 +1204,12 @@ $Object* CompletableFuture::join() {
 	if (($assign(r, this->result)) == nullptr) {
 		$assign(r, waitingGet(false));
 	}
-	return $of(reportJoin(r));
+	return reportJoin(r);
 }
 
 $Object* CompletableFuture::getNow(Object$* valueIfAbsent) {
 	$var($Object, r, nullptr);
-	return $of((($assign(r, this->result)) == nullptr) ? $of(valueIfAbsent) : reportJoin(r));
+	return (($assign(r, this->result)) == nullptr) ? $of(valueIfAbsent) : reportJoin(r);
 }
 
 bool CompletableFuture::complete(Object$* value) {
@@ -1621,7 +1406,7 @@ CompletableFuture* CompletableFuture::allOf($CompletableFutureArray* cfs) {
 
 CompletableFuture* CompletableFuture::anyOf($CompletableFutureArray* cfs$renamed) {
 	$init(CompletableFuture);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFutureArray, cfs, cfs$renamed);
 	int32_t n = 0;
 	$var($Object, r, nullptr);
@@ -1630,36 +1415,28 @@ CompletableFuture* CompletableFuture::anyOf($CompletableFutureArray* cfs$renamed
 	}
 	{
 		$var($CompletableFutureArray, arr$, cfs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var(CompletableFuture, cf, arr$->get(i$));
 			if (($assign(r, $nc(cf)->result)) != nullptr) {
 				return $new(CompletableFuture, $(encodeRelay(r)));
 			}
 		}
 	}
-	$assign(cfs, $cast($CompletableFutureArray, $nc(cfs)->clone()));
+	$assign(cfs, $cast($CompletableFutureArray, cfs->clone()));
 	$var(CompletableFuture, d, $new(CompletableFuture));
 	{
 		$var($CompletableFutureArray, arr$, cfs);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var(CompletableFuture, cf, arr$->get(i$));
 			$nc(cf)->unipush($$new($CompletableFuture$AnyOf, d, cf, cfs));
 		}
 	}
 	if (d->result != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t len = cfs->length;
-			for (; i < len; ++i) {
-				if ($nc(cfs->get(i))->result != nullptr) {
-					for (++i; i < len; ++i) {
-						if ($nc(cfs->get(i))->result == nullptr) {
-							$nc(cfs->get(i))->cleanStack();
-						}
+		for (int32_t i = 0, len = cfs->length; i < len; ++i) {
+			if ($nc(cfs->get(i))->result != nullptr) {
+				for (++i; i < len; ++i) {
+					if ($nc(cfs->get(i))->result == nullptr) {
+						$nc(cfs->get(i))->cleanStack();
 					}
 				}
 			}
@@ -1669,7 +1446,7 @@ CompletableFuture* CompletableFuture::anyOf($CompletableFutureArray* cfs$renamed
 }
 
 bool CompletableFuture::cancel(bool mayInterruptIfRunning) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool cancelled = (this->result == nullptr) && internalComplete($$new($CompletableFuture$AltResult, $$new($CancellationException)));
 	postComplete();
 	return cancelled || isCancelled();
@@ -1677,13 +1454,13 @@ bool CompletableFuture::cancel(bool mayInterruptIfRunning) {
 
 bool CompletableFuture::isCancelled() {
 	$var($Object, r, nullptr);
-	bool var$0 = ($instanceOf($CompletableFuture$AltResult, $assign(r, this->result)));
-	return var$0 && ($instanceOf($CancellationException, $nc(($cast($CompletableFuture$AltResult, r)))->ex));
+	bool var$0 = $instanceOf($CompletableFuture$AltResult, $assign(r, this->result));
+	return var$0 && ($instanceOf($CancellationException, $nc($cast($CompletableFuture$AltResult, r))->ex));
 }
 
 bool CompletableFuture::isCompletedExceptionally() {
 	$var($Object, r, nullptr);
-	bool var$0 = ($instanceOf($CompletableFuture$AltResult, $assign(r, this->result)));
+	bool var$0 = $instanceOf($CompletableFuture$AltResult, $assign(r, this->result));
 	return var$0 && !$equals(r, CompletableFuture::NIL);
 }
 
@@ -1704,7 +1481,7 @@ int32_t CompletableFuture::getNumberOfDependents() {
 	int32_t count = 0;
 	{
 		$var($CompletableFuture$Completion, p, this->stack);
-		for (; p != nullptr; $assign(p, $nc(p)->next)) {
+		for (; p != nullptr; $assign(p, p->next)) {
 			++count;
 		}
 	}
@@ -1712,17 +1489,19 @@ int32_t CompletableFuture::getNumberOfDependents() {
 }
 
 $String* CompletableFuture::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, this->result);
 	int32_t count = 0;
 	{
 		$var($CompletableFuture$Completion, p, this->stack);
-		for (; p != nullptr; $assign(p, $nc(p)->next)) {
+		for (; p != nullptr; $assign(p, p->next)) {
 			++count;
 		}
 	}
-	$var($String, var$0, $($Future::toString()));
-	return $concat(var$0, ((r == nullptr) ? ((count == 0) ? "[Not completed]"_s : $$str({"[Not completed, "_s, $$str(count), " dependents]"_s})) : ((($instanceOf($CompletableFuture$AltResult, r)) && $nc(($cast($CompletableFuture$AltResult, r)))->ex != nullptr) ? $$str({"[Completed exceptionally: "_s, $nc(($cast($CompletableFuture$AltResult, r)))->ex, "]"_s}) : "[Completed normally]"_s)));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Future::toString()));
+	var$0->append((r == nullptr) ? ((count == 0) ? "[Not completed]"_s : $$str({"[Not completed, "_s, $$str(count), " dependents]"_s})) : ((($instanceOf($CompletableFuture$AltResult, r)) && $cast($CompletableFuture$AltResult, r)->ex != nullptr) ? $$str({"[Completed exceptionally: "_s, $cast($CompletableFuture$AltResult, r)->ex, "]"_s}) : "[Completed normally]"_s));
+	return $str(var$0);
 }
 
 CompletableFuture* CompletableFuture::newIncompleteFuture() {
@@ -1754,7 +1533,7 @@ CompletableFuture* CompletableFuture::completeAsync($Supplier* supplier) {
 }
 
 CompletableFuture* CompletableFuture::orTimeout(int64_t timeout, $TimeUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (unit == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1765,7 +1544,7 @@ CompletableFuture* CompletableFuture::orTimeout(int64_t timeout, $TimeUnit* unit
 }
 
 CompletableFuture* CompletableFuture::completeOnTimeout(Object$* value, int64_t timeout, $TimeUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (unit == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1812,11 +1591,11 @@ $CompletionStage* CompletableFuture::failedStage($Throwable* ex) {
 	return $new($CompletableFuture$MinimalStage, $$new($CompletableFuture$AltResult, ex));
 }
 
-void clinit$CompletableFuture($Class* class$) {
+void CompletableFuture::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(CompletableFuture::NIL, $new($CompletableFuture$AltResult, nullptr));
 	CompletableFuture::USE_COMMON_POOL = ($ForkJoinPool::getCommonPoolParallelism() > 1);
-	$assignStatic(CompletableFuture::ASYNC_POOL, CompletableFuture::USE_COMMON_POOL ? static_cast<$Executor*>($ForkJoinPool::commonPool()) : static_cast<$Executor*>($new($CompletableFuture$ThreadPerTaskExecutor)));
+	$assignStatic(CompletableFuture::ASYNC_POOL, CompletableFuture::USE_COMMON_POOL ? $cast($Executor, $ForkJoinPool::commonPool()) : $cast($Executor, $new($CompletableFuture$ThreadPerTaskExecutor)));
 	{
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
@@ -1825,7 +1604,7 @@ void clinit$CompletableFuture($Class* class$) {
 			$assignStatic(CompletableFuture::STACK, l->findVarHandle(CompletableFuture::class$, "stack"_s, $CompletableFuture$Completion::class$));
 			$assignStatic(CompletableFuture::NEXT, l->findVarHandle($CompletableFuture$Completion::class$, "next"_s, $CompletableFuture$Completion::class$));
 		} catch ($ReflectiveOperationException& e) {
-			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
+			$throwNew($ExceptionInInitializerError, e);
 		}
 		$load($LockSupport);
 		$Class* ensureLoaded = $LockSupport::class$;
@@ -1836,7 +1615,213 @@ CompletableFuture::CompletableFuture() {
 }
 
 $Class* CompletableFuture::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture, name, initialize, &_CompletableFuture_ClassInfo_, clinit$CompletableFuture, allocate$CompletableFuture);
+	$FieldInfo fieldInfos$$[] = {
+		{"result", "Ljava/lang/Object;", nullptr, $VOLATILE, $field(CompletableFuture, result)},
+		{"stack", "Ljava/util/concurrent/CompletableFuture$Completion;", nullptr, $VOLATILE, $field(CompletableFuture, stack)},
+		{"NIL", "Ljava/util/concurrent/CompletableFuture$AltResult;", nullptr, $STATIC | $FINAL, $staticField(CompletableFuture, NIL)},
+		{"USE_COMMON_POOL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompletableFuture, USE_COMMON_POOL)},
+		{"ASYNC_POOL", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompletableFuture, ASYNC_POOL)},
+		{"SYNC", "I", nullptr, $STATIC | $FINAL, $constField(CompletableFuture, SYNC)},
+		{"ASYNC", "I", nullptr, $STATIC | $FINAL, $constField(CompletableFuture, ASYNC)},
+		{"NESTED", "I", nullptr, $STATIC | $FINAL, $constField(CompletableFuture, NESTED)},
+		{"RESULT", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompletableFuture, RESULT)},
+		{"STACK", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompletableFuture, STACK)},
+		{"NEXT", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompletableFuture, NEXT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompletableFuture, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(CompletableFuture, init$, void, Object$*)},
+		{"acceptEither", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, acceptEither, $CompletionStage*, $CompletionStage*, $Consumer*)},
+		{"acceptEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, acceptEitherAsync, $CompletionStage*, $CompletionStage*, $Consumer*)},
+		{"acceptEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Consumer<-TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, acceptEitherAsync, $CompletionStage*, $CompletionStage*, $Consumer*, $Executor*)},
+		{"allOf", "([Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "([Ljava/util/concurrent/CompletableFuture<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(CompletableFuture, allOf, CompletableFuture*, $CompletableFutureArray*)},
+		{"andTree", "([Ljava/util/concurrent/CompletableFuture;II)Ljava/util/concurrent/CompletableFuture;", "([Ljava/util/concurrent/CompletableFuture<*>;II)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $STATIC, $staticMethod(CompletableFuture, andTree, CompletableFuture*, $CompletableFutureArray*, int32_t, int32_t)},
+		{"anyOf", "([Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "([Ljava/util/concurrent/CompletableFuture<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Object;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(CompletableFuture, anyOf, CompletableFuture*, $CompletableFutureArray*)},
+		{"applyToEither", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Function<-TT;TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, applyToEither, $CompletionStage*, $CompletionStage*, $Function*)},
+		{"applyToEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Function<-TT;TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, applyToEitherAsync, $CompletionStage*, $CompletionStage*, $Function*)},
+		{"applyToEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TT;>;Ljava/util/function/Function<-TT;TU;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, applyToEitherAsync, $CompletionStage*, $CompletionStage*, $Function*, $Executor*)},
+		{"asyncRunStage", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $STATIC, $staticMethod(CompletableFuture, asyncRunStage, CompletableFuture*, $Executor*, $Runnable*)},
+		{"asyncSupplyStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Supplier;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/function/Supplier<TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $STATIC, $staticMethod(CompletableFuture, asyncSupplyStage, CompletableFuture*, $Executor*, $Supplier*)},
+		{"biAccept", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture$BiAccept;)Z", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiConsumer<-TR;-TS;>;Ljava/util/concurrent/CompletableFuture$BiAccept<TR;TS;>;)Z", $FINAL, $method(CompletableFuture, biAccept, bool, Object$*, Object$*, $BiConsumer*, $CompletableFuture$BiAccept*)},
+		{"biAcceptStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<TU;>;Ljava/util/function/BiConsumer<-TT;-TU;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, biAcceptStage, CompletableFuture*, $Executor*, $CompletionStage*, $BiConsumer*)},
+		{"biApply", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;Ljava/util/concurrent/CompletableFuture$BiApply;)Z", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction<-TR;-TS;+TT;>;Ljava/util/concurrent/CompletableFuture$BiApply<TR;TS;TT;>;)Z", $FINAL, $method(CompletableFuture, biApply, bool, Object$*, Object$*, $BiFunction*, $CompletableFuture$BiApply*)},
+		{"biApplyStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<TU;>;Ljava/util/function/BiFunction<-TT;-TU;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, biApplyStage, CompletableFuture*, $Executor*, $CompletionStage*, $BiFunction*)},
+		{"biRun", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Runnable;Ljava/util/concurrent/CompletableFuture$BiRun;)Z", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Runnable;Ljava/util/concurrent/CompletableFuture$BiRun<**>;)Z", $FINAL, $method(CompletableFuture, biRun, bool, Object$*, Object$*, $Runnable*, $CompletableFuture$BiRun*)},
+		{"biRunStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, biRunStage, CompletableFuture*, $Executor*, $CompletionStage*, $Runnable*)},
+		{"bipush", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture$BiCompletion;)V", "(Ljava/util/concurrent/CompletableFuture<*>;Ljava/util/concurrent/CompletableFuture$BiCompletion<***>;)V", $FINAL, $method(CompletableFuture, bipush, void, CompletableFuture*, $CompletableFuture$BiCompletion*)},
+		{"cancel", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, cancel, bool, bool)},
+		{"cleanStack", "()V", nullptr, $FINAL, $method(CompletableFuture, cleanStack, void)},
+		{"complete", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC, $virtualMethod(CompletableFuture, complete, bool, Object$*)},
+		{"completeAsync", "(Ljava/util/function/Supplier;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Supplier<+TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, completeAsync, CompletableFuture*, $Supplier*, $Executor*)},
+		{"completeAsync", "(Ljava/util/function/Supplier;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Supplier<+TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, completeAsync, CompletableFuture*, $Supplier*)},
+		{"completeExceptionally", "(Ljava/lang/Throwable;)Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, completeExceptionally, bool, $Throwable*)},
+		{"completeNull", "()Z", nullptr, $FINAL, $method(CompletableFuture, completeNull, bool)},
+		{"completeOnTimeout", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/CompletableFuture;", "(TT;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, completeOnTimeout, CompletableFuture*, Object$*, int64_t, $TimeUnit*)},
+		{"completeRelay", "(Ljava/lang/Object;)Z", nullptr, $FINAL, $method(CompletableFuture, completeRelay, bool, Object$*)},
+		{"completeThrowable", "(Ljava/lang/Throwable;)Z", nullptr, $FINAL, $method(CompletableFuture, completeThrowable, bool, $Throwable*)},
+		{"completeThrowable", "(Ljava/lang/Throwable;Ljava/lang/Object;)Z", nullptr, $FINAL, $method(CompletableFuture, completeThrowable, bool, $Throwable*, Object$*)},
+		{"completeValue", "(Ljava/lang/Object;)Z", "(TT;)Z", $FINAL, $method(CompletableFuture, completeValue, bool, Object$*)},
+		{"completedFuture", "(Ljava/lang/Object;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(TU;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, completedFuture, CompletableFuture*, Object$*)},
+		{"completedStage", "(Ljava/lang/Object;)Ljava/util/concurrent/CompletionStage;", "<U:Ljava/lang/Object;>(TU;)Ljava/util/concurrent/CompletionStage<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, completedStage, $CompletionStage*, Object$*)},
+		{"copy", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, copy, CompletableFuture*)},
+		{"defaultExecutor", "()Ljava/util/concurrent/Executor;", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, defaultExecutor, $Executor*)},
+		{"delayedExecutor", "(JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Executor;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompletableFuture, delayedExecutor, $Executor*, int64_t, $TimeUnit*, $Executor*)},
+		{"delayedExecutor", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Executor;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompletableFuture, delayedExecutor, $Executor*, int64_t, $TimeUnit*)},
+		{"encodeOutcome", "(Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/lang/Object;", "(TT;Ljava/lang/Throwable;)Ljava/lang/Object;", 0, $virtualMethod(CompletableFuture, encodeOutcome, $Object*, Object$*, $Throwable*)},
+		{"encodeRelay", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(CompletableFuture, encodeRelay, $Object*, Object$*)},
+		{"encodeThrowable", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture$AltResult;", nullptr, $STATIC, $staticMethod(CompletableFuture, encodeThrowable, $CompletableFuture$AltResult*, $Throwable*)},
+		{"encodeThrowable", "(Ljava/lang/Throwable;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(CompletableFuture, encodeThrowable, $Object*, $Throwable*, Object$*)},
+		{"encodeValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)Ljava/lang/Object;", $FINAL, $method(CompletableFuture, encodeValue, $Object*, Object$*)},
+		{"exceptionally", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionally, $CompletionStage*, $Function*)},
+		{"exceptionallyAsync", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionallyAsync, $CompletionStage*, $Function*)},
+		{"exceptionallyAsync", "(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionallyAsync, $CompletionStage*, $Function*, $Executor*)},
+		{"exceptionallyCompose", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+Ljava/util/concurrent/CompletionStage<TT;>;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionallyCompose, $CompletionStage*, $Function*)},
+		{"exceptionallyComposeAsync", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+Ljava/util/concurrent/CompletionStage<TT;>;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionallyComposeAsync, $CompletionStage*, $Function*)},
+		{"exceptionallyComposeAsync", "(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Function<Ljava/lang/Throwable;+Ljava/util/concurrent/CompletionStage<TT;>;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, exceptionallyComposeAsync, $CompletionStage*, $Function*, $Executor*)},
+		{"failedFuture", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, failedFuture, CompletableFuture*, $Throwable*)},
+		{"failedStage", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletionStage;", "<U:Ljava/lang/Object;>(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletionStage<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, failedStage, $CompletionStage*, $Throwable*)},
+		{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(CompletableFuture, get, $Object*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException"},
+		{"get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TT;", $PUBLIC, $virtualMethod(CompletableFuture, get, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException"},
+		{"getNow", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PUBLIC, $virtualMethod(CompletableFuture, getNow, $Object*, Object$*)},
+		{"getNumberOfDependents", "()I", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, getNumberOfDependents, int32_t)},
+		{"handle", "(Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, handle, $CompletionStage*, $BiFunction*)},
+		{"handleAsync", "(Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, handleAsync, $CompletionStage*, $BiFunction*)},
+		{"handleAsync", "(Ljava/util/function/BiFunction;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TU;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, handleAsync, $CompletionStage*, $BiFunction*, $Executor*)},
+		{"internalComplete", "(Ljava/lang/Object;)Z", nullptr, $FINAL, $method(CompletableFuture, internalComplete, bool, Object$*)},
+		{"isCancelled", "()Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, isCancelled, bool)},
+		{"isCompletedExceptionally", "()Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, isCompletedExceptionally, bool)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, isDone, bool)},
+		{"join", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(CompletableFuture, join, $Object*)},
+		{"minimalCompletionStage", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, minimalCompletionStage, $CompletionStage*)},
+		{"newIncompleteFuture", "()Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>()Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, newIncompleteFuture, CompletableFuture*)},
+		{"obtrudeException", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, obtrudeException, void, $Throwable*)},
+		{"obtrudeValue", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(CompletableFuture, obtrudeValue, void, Object$*)},
+		{"orAcceptStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "<U:TT;>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<TU;>;Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, orAcceptStage, CompletableFuture*, $Executor*, $CompletionStage*, $Consumer*)},
+		{"orApplyStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:TT;V:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<TU;>;Ljava/util/function/Function<-TT;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, orApplyStage, CompletableFuture*, $Executor*, $CompletionStage*, $Function*)},
+		{"orRunStage", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, orRunStage, CompletableFuture*, $Executor*, $CompletionStage*, $Runnable*)},
+		{"orTimeout", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/CompletableFuture;", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, orTimeout, CompletableFuture*, int64_t, $TimeUnit*)},
+		{"orpush", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture$BiCompletion;)V", "(Ljava/util/concurrent/CompletableFuture<*>;Ljava/util/concurrent/CompletableFuture$BiCompletion<***>;)V", $FINAL, $method(CompletableFuture, orpush, void, CompletableFuture*, $CompletableFuture$BiCompletion*)},
+		{"postComplete", "()V", nullptr, $FINAL, $method(CompletableFuture, postComplete, void)},
+		{"postFire", "(Ljava/util/concurrent/CompletableFuture;I)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletableFuture<*>;I)Ljava/util/concurrent/CompletableFuture<TT;>;", $FINAL, $method(CompletableFuture, postFire, CompletableFuture*, CompletableFuture*, int32_t)},
+		{"postFire", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;I)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletableFuture<*>;Ljava/util/concurrent/CompletableFuture<*>;I)Ljava/util/concurrent/CompletableFuture<TT;>;", $FINAL, $method(CompletableFuture, postFire, CompletableFuture*, CompletableFuture*, CompletableFuture*, int32_t)},
+		{"pushStack", "(Ljava/util/concurrent/CompletableFuture$Completion;)V", nullptr, $FINAL, $method(CompletableFuture, pushStack, void, $CompletableFuture$Completion*)},
+		{"reportGet", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(CompletableFuture, reportGet, $Object*, Object$*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException"},
+		{"reportJoin", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(CompletableFuture, reportJoin, $Object*, Object$*)},
+		{"runAfterBoth", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterBoth, $CompletionStage*, $CompletionStage*, $Runnable*)},
+		{"runAfterBothAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterBothAsync, $CompletionStage*, $CompletionStage*, $Runnable*)},
+		{"runAfterBothAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterBothAsync, $CompletionStage*, $CompletionStage*, $Runnable*, $Executor*)},
+		{"runAfterEither", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterEither, $CompletionStage*, $CompletionStage*, $Runnable*)},
+		{"runAfterEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterEitherAsync, $CompletionStage*, $CompletionStage*, $Runnable*)},
+		{"runAfterEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletionStage<*>;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, runAfterEitherAsync, $CompletionStage*, $CompletionStage*, $Runnable*, $Executor*)},
+		{"runAsync", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, runAsync, CompletableFuture*, $Runnable*)},
+		{"runAsync", "(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, runAsync, CompletableFuture*, $Runnable*, $Executor*)},
+		{"screenExecutor", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Executor;", nullptr, $STATIC, $staticMethod(CompletableFuture, screenExecutor, $Executor*, $Executor*)},
+		{"supplyAsync", "(Ljava/util/function/Supplier;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Supplier<TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, supplyAsync, CompletableFuture*, $Supplier*)},
+		{"supplyAsync", "(Ljava/util/function/Supplier;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Supplier<TU;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(CompletableFuture, supplyAsync, CompletableFuture*, $Supplier*, $Executor*)},
+		{"thenAccept", "(Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAccept, $CompletionStage*, $Consumer*)},
+		{"thenAcceptAsync", "(Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAcceptAsync, $CompletionStage*, $Consumer*)},
+		{"thenAcceptAsync", "(Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/Consumer<-TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAcceptAsync, $CompletionStage*, $Consumer*, $Executor*)},
+		{"thenAcceptBoth", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiConsumer<-TT;-TU;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAcceptBoth, $CompletionStage*, $CompletionStage*, $BiConsumer*)},
+		{"thenAcceptBothAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiConsumer<-TT;-TU;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAcceptBothAsync, $CompletionStage*, $CompletionStage*, $BiConsumer*)},
+		{"thenAcceptBothAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiConsumer<-TT;-TU;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenAcceptBothAsync, $CompletionStage*, $CompletionStage*, $BiConsumer*, $Executor*)},
+		{"thenApply", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenApply, $CompletionStage*, $Function*)},
+		{"thenApplyAsync", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenApplyAsync, $CompletionStage*, $Function*)},
+		{"thenApplyAsync", "(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenApplyAsync, $CompletionStage*, $Function*, $Executor*)},
+		{"thenCombine", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiFunction<-TT;-TU;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenCombine, $CompletionStage*, $CompletionStage*, $BiFunction*)},
+		{"thenCombineAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiFunction<-TT;-TU;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenCombineAsync, $CompletionStage*, $CompletionStage*, $BiFunction*)},
+		{"thenCombineAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiFunction;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<+TU;>;Ljava/util/function/BiFunction<-TT;-TU;+TV;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenCombineAsync, $CompletionStage*, $CompletionStage*, $BiFunction*, $Executor*)},
+		{"thenCompose", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/concurrent/CompletionStage<TU;>;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenCompose, $CompletionStage*, $Function*)},
+		{"thenComposeAsync", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/concurrent/CompletionStage<TU;>;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenComposeAsync, $CompletionStage*, $Function*)},
+		{"thenComposeAsync", "(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/concurrent/CompletionStage<TU;>;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenComposeAsync, $CompletionStage*, $Function*, $Executor*)},
+		{"thenRun", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenRun, $CompletionStage*, $Runnable*)},
+		{"thenRunAsync", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenRunAsync, $CompletionStage*, $Runnable*)},
+		{"thenRunAsync", "(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(CompletableFuture, thenRunAsync, $CompletionStage*, $Runnable*, $Executor*)},
+		{"timedGet", "(J)Ljava/lang/Object;", nullptr, $PRIVATE, $method(CompletableFuture, timedGet, $Object*, int64_t), "java.util.concurrent.TimeoutException"},
+		{"toCompletableFuture", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, toCompletableFuture, CompletableFuture*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompletableFuture, toString, $String*)},
+		{"tryPushStack", "(Ljava/util/concurrent/CompletableFuture$Completion;)Z", nullptr, $FINAL, $method(CompletableFuture, tryPushStack, bool, $CompletableFuture$Completion*)},
+		{"uniAcceptNow", "(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, uniAcceptNow, CompletableFuture*, Object$*, $Executor*, $Consumer*)},
+		{"uniAcceptStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<-TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, uniAcceptStage, CompletableFuture*, $Executor*, $Consumer*)},
+		{"uniApplyNow", "(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<V:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/util/function/Function<-TT;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, uniApplyNow, CompletableFuture*, Object$*, $Executor*, $Function*)},
+		{"uniApplyStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/function/Function<-TT;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, uniApplyStage, CompletableFuture*, $Executor*, $Function*)},
+		{"uniAsMinimalStage", "()Ljava/util/concurrent/CompletableFuture$MinimalStage;", "()Ljava/util/concurrent/CompletableFuture$MinimalStage<TT;>;", $PRIVATE, $method(CompletableFuture, uniAsMinimalStage, $CompletableFuture$MinimalStage*)},
+		{"uniComposeExceptionallyStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function<Ljava/lang/Throwable;+Ljava/util/concurrent/CompletionStage<TT;>;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PRIVATE, $method(CompletableFuture, uniComposeExceptionallyStage, CompletableFuture*, $Executor*, $Function*)},
+		{"uniComposeStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/function/Function<-TT;+Ljava/util/concurrent/CompletionStage<TV;>;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, uniComposeStage, CompletableFuture*, $Executor*, $Function*)},
+		{"uniCopyStage", "(Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;T:TU;>(Ljava/util/concurrent/CompletableFuture<TT;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PRIVATE | $STATIC, $staticMethod(CompletableFuture, uniCopyStage, CompletableFuture*, CompletableFuture*)},
+		{"uniExceptionally", "(Ljava/lang/Object;Ljava/util/function/Function;Ljava/util/concurrent/CompletableFuture$UniExceptionally;)Z", "(Ljava/lang/Object;Ljava/util/function/Function<-Ljava/lang/Throwable;+TT;>;Ljava/util/concurrent/CompletableFuture$UniExceptionally<TT;>;)Z", $FINAL, $method(CompletableFuture, uniExceptionally, bool, Object$*, $Function*, $CompletableFuture$UniExceptionally*)},
+		{"uniExceptionallyStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/function/Function<Ljava/lang/Throwable;+TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PRIVATE, $method(CompletableFuture, uniExceptionallyStage, CompletableFuture*, $Executor*, $Function*)},
+		{"uniHandle", "(Ljava/lang/Object;Ljava/util/function/BiFunction;Ljava/util/concurrent/CompletableFuture$UniHandle;)Z", "<S:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/util/function/BiFunction<-TS;Ljava/lang/Throwable;+TT;>;Ljava/util/concurrent/CompletableFuture$UniHandle<TS;TT;>;)Z", $FINAL, $method(CompletableFuture, uniHandle, bool, Object$*, $BiFunction*, $CompletableFuture$UniHandle*)},
+		{"uniHandleStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TV;>;)Ljava/util/concurrent/CompletableFuture<TV;>;", $PRIVATE, $method(CompletableFuture, uniHandleStage, CompletableFuture*, $Executor*, $BiFunction*)},
+		{"uniRunNow", "(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Object;Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, uniRunNow, CompletableFuture*, Object$*, $Executor*, $Runnable*)},
+		{"uniRunStage", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(CompletableFuture, uniRunStage, CompletableFuture*, $Executor*, $Runnable*)},
+		{"uniWhenComplete", "(Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture$UniWhenComplete;)Z", "(Ljava/lang/Object;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture$UniWhenComplete<TT;>;)Z", $FINAL, $method(CompletableFuture, uniWhenComplete, bool, Object$*, $BiConsumer*, $CompletableFuture$UniWhenComplete*)},
+		{"uniWhenCompleteStage", "(Ljava/util/concurrent/Executor;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PRIVATE, $method(CompletableFuture, uniWhenCompleteStage, CompletableFuture*, $Executor*, $BiConsumer*)},
+		{"unipush", "(Ljava/util/concurrent/CompletableFuture$Completion;)V", nullptr, $FINAL, $method(CompletableFuture, unipush, void, $CompletableFuture$Completion*)},
+		{"waitingGet", "(Z)Ljava/lang/Object;", nullptr, $PRIVATE, $method(CompletableFuture, waitingGet, $Object*, bool)},
+		{"whenComplete", "(Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, whenComplete, $CompletionStage*, $BiConsumer*)},
+		{"whenCompleteAsync", "(Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, whenCompleteAsync, $CompletionStage*, $BiConsumer*)},
+		{"whenCompleteAsync", "(Ljava/util/function/BiConsumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(CompletableFuture, whenCompleteAsync, $CompletionStage*, $BiConsumer*, $Executor*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$MinimalStage", "java.util.concurrent.CompletableFuture", "MinimalStage", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$Canceller", "java.util.concurrent.CompletableFuture", "Canceller", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$DelayedCompleter", "java.util.concurrent.CompletableFuture", "DelayedCompleter", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$Timeout", "java.util.concurrent.CompletableFuture", "Timeout", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$TaskSubmitter", "java.util.concurrent.CompletableFuture", "TaskSubmitter", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$DelayedExecutor", "java.util.concurrent.CompletableFuture", "DelayedExecutor", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$Delayer", "java.util.concurrent.CompletableFuture", "Delayer", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$Signaller", "java.util.concurrent.CompletableFuture", "Signaller", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$AsyncRun", "java.util.concurrent.CompletableFuture", "AsyncRun", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$AsyncSupply", "java.util.concurrent.CompletableFuture", "AsyncSupply", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$AnyOf", "java.util.concurrent.CompletableFuture", "AnyOf", $STATIC},
+		{"java.util.concurrent.CompletableFuture$OrRun", "java.util.concurrent.CompletableFuture", "OrRun", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$OrAccept", "java.util.concurrent.CompletableFuture", "OrAccept", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$OrApply", "java.util.concurrent.CompletableFuture", "OrApply", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$BiRelay", "java.util.concurrent.CompletableFuture", "BiRelay", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$BiRun", "java.util.concurrent.CompletableFuture", "BiRun", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$BiAccept", "java.util.concurrent.CompletableFuture", "BiAccept", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$BiApply", "java.util.concurrent.CompletableFuture", "BiApply", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$CoCompletion", "java.util.concurrent.CompletableFuture", "CoCompletion", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$BiCompletion", "java.util.concurrent.CompletableFuture", "BiCompletion", $STATIC | $ABSTRACT},
+		{"java.util.concurrent.CompletableFuture$UniCompose", "java.util.concurrent.CompletableFuture", "UniCompose", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$UniRelay", "java.util.concurrent.CompletableFuture", "UniRelay", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$UniComposeExceptionally", "java.util.concurrent.CompletableFuture", "UniComposeExceptionally", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$UniExceptionally", "java.util.concurrent.CompletableFuture", "UniExceptionally", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$UniHandle", "java.util.concurrent.CompletableFuture", "UniHandle", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$UniWhenComplete", "java.util.concurrent.CompletableFuture", "UniWhenComplete", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$UniRun", "java.util.concurrent.CompletableFuture", "UniRun", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$UniAccept", "java.util.concurrent.CompletableFuture", "UniAccept", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$UniApply", "java.util.concurrent.CompletableFuture", "UniApply", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$UniCompletion", "java.util.concurrent.CompletableFuture", "UniCompletion", $STATIC | $ABSTRACT},
+		{"java.util.concurrent.CompletableFuture$Completion", "java.util.concurrent.CompletableFuture", "Completion", $STATIC | $ABSTRACT},
+		{"java.util.concurrent.CompletableFuture$ThreadPerTaskExecutor", "java.util.concurrent.CompletableFuture", "ThreadPerTaskExecutor", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$AsynchronousCompletionTask", "java.util.concurrent.CompletableFuture", "AsynchronousCompletionTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.concurrent.CompletableFuture$AltResult", "java.util.concurrent.CompletableFuture", "AltResult", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture",
+		"java.lang.Object",
+		"java.util.concurrent.Future,java.util.concurrent.CompletionStage",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/concurrent/Future<TT;>;Ljava/util/concurrent/CompletionStage<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture$MinimalStage,java.util.concurrent.CompletableFuture$Canceller,java.util.concurrent.CompletableFuture$DelayedCompleter,java.util.concurrent.CompletableFuture$Timeout,java.util.concurrent.CompletableFuture$TaskSubmitter,java.util.concurrent.CompletableFuture$DelayedExecutor,java.util.concurrent.CompletableFuture$Delayer,java.util.concurrent.CompletableFuture$Delayer$DaemonThreadFactory,java.util.concurrent.CompletableFuture$Signaller,java.util.concurrent.CompletableFuture$AsyncRun,java.util.concurrent.CompletableFuture$AsyncSupply,java.util.concurrent.CompletableFuture$AnyOf,java.util.concurrent.CompletableFuture$OrRun,java.util.concurrent.CompletableFuture$OrAccept,java.util.concurrent.CompletableFuture$OrApply,java.util.concurrent.CompletableFuture$BiRelay,java.util.concurrent.CompletableFuture$BiRun,java.util.concurrent.CompletableFuture$BiAccept,java.util.concurrent.CompletableFuture$BiApply,java.util.concurrent.CompletableFuture$CoCompletion,java.util.concurrent.CompletableFuture$BiCompletion,java.util.concurrent.CompletableFuture$UniCompose,java.util.concurrent.CompletableFuture$UniRelay,java.util.concurrent.CompletableFuture$UniComposeExceptionally,java.util.concurrent.CompletableFuture$UniExceptionally,java.util.concurrent.CompletableFuture$UniHandle,java.util.concurrent.CompletableFuture$UniWhenComplete,java.util.concurrent.CompletableFuture$UniRun,java.util.concurrent.CompletableFuture$UniAccept,java.util.concurrent.CompletableFuture$UniApply,java.util.concurrent.CompletableFuture$UniCompletion,java.util.concurrent.CompletableFuture$Completion,java.util.concurrent.CompletableFuture$ThreadPerTaskExecutor,java.util.concurrent.CompletableFuture$AsynchronousCompletionTask,java.util.concurrent.CompletableFuture$AltResult"
+	};
+	$loadClass(CompletableFuture, name, initialize, &classInfo$$, CompletableFuture::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompletableFuture));
+	});
 	return class$;
 }
 

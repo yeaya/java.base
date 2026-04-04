@@ -1,5 +1,4 @@
 #include <jdk/internal/util/random/RandomSupport$AbstractSplittableGenerator.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
 #include <java/util/random/RandomGenerator$SplittableGenerator.h>
@@ -35,83 +34,6 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 			namespace random {
-
-$MethodInfo _RandomSupport$AbstractSplittableGenerator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"*doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"*doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"*doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(RandomSupport$AbstractSplittableGenerator, init$, void)},
-	{"*ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"*ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"*ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"*ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"*isDeprecated", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"*longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"*longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"*longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"makeSplitsSpliterator", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator;", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", 0, $virtualMethod(RandomSupport$AbstractSplittableGenerator, makeSplitsSpliterator, $Spliterator*, int64_t, int64_t, $RandomGenerator$SplittableGenerator*)},
-	{"*nextBoolean", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextBytes", "([B)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextDouble", "()D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextDouble", "(D)D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextDouble", "(DD)D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextExponential", "()D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextFloat", "()F", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextFloat", "(F)F", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextFloat", "(FF)F", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextGaussian", "()D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextGaussian", "(DD)D", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextInt", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextInt", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextInt", "(II)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextLong", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextLong", "(J)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*nextLong", "(JJ)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"split", "()Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator, split, $RandomGenerator$SplittableGenerator*)},
-	{"splits", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator, splits, $Stream*)},
-	{"splits", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator, splits, $Stream*, int64_t)},
-	{"splits", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream;", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator, splits, $Stream*, $RandomGenerator$SplittableGenerator*)},
-	{"splits", "(JLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream;", "(JLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator, splits, $Stream*, int64_t, $RandomGenerator$SplittableGenerator*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _RandomSupport$AbstractSplittableGenerator_InnerClassesInfo_[] = {
-	{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSplittableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSpliteratorGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.random.RandomGenerator$SplittableGenerator", "java.util.random.RandomGenerator", "SplittableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomSplitsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "RandomSplitsSpliterator", $STATIC},
-	{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator", "jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "RandomDoublesSpliterator", $STATIC},
-	{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomLongsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "RandomLongsSpliterator", $STATIC},
-	{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomIntsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "RandomIntsSpliterator", $STATIC},
-	{}
-};
-
-$ClassInfo _RandomSupport$AbstractSplittableGenerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator",
-	"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator",
-	"java.util.random.RandomGenerator$SplittableGenerator",
-	nullptr,
-	_RandomSupport$AbstractSplittableGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RandomSupport$AbstractSplittableGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.util.random.RandomSupport"
-};
-
-$Object* allocate$RandomSupport$AbstractSplittableGenerator($Class* clazz) {
-	return $of($alloc(RandomSupport$AbstractSplittableGenerator));
-}
 
 $IntStream* RandomSupport$AbstractSplittableGenerator::ints(int64_t streamSize) {
 	 return this->$RandomSupport$AbstractSpliteratorGenerator::ints(streamSize);
@@ -275,7 +197,7 @@ $Stream* RandomSupport$AbstractSplittableGenerator::splits($RandomGenerator$Spli
 
 $Stream* RandomSupport$AbstractSplittableGenerator::splits(int64_t streamSize, $RandomGenerator$SplittableGenerator* source) {
 	$RandomSupport::checkStreamSize(streamSize);
-	$Objects::requireNonNull($of(source), "source should be non-null"_s);
+	$Objects::requireNonNull(source, "source should be non-null"_s);
 	return $StreamSupport::stream($(makeSplitsSpliterator(0, streamSize, source)), false);
 }
 
@@ -283,7 +205,79 @@ RandomSupport$AbstractSplittableGenerator::RandomSupport$AbstractSplittableGener
 }
 
 $Class* RandomSupport$AbstractSplittableGenerator::load$($String* name, bool initialize) {
-	$loadClass(RandomSupport$AbstractSplittableGenerator, name, initialize, &_RandomSupport$AbstractSplittableGenerator_ClassInfo_, allocate$RandomSupport$AbstractSplittableGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
+		{"*doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
+		{"*doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
+		{"*doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(RandomSupport$AbstractSplittableGenerator, init$, void)},
+		{"*ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
+		{"*ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
+		{"*ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
+		{"*ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
+		{"*isDeprecated", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
+		{"*longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
+		{"*longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
+		{"*longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
+		{"makeSplitsSpliterator", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator;", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", 0, $virtualMethod(RandomSupport$AbstractSplittableGenerator, makeSplitsSpliterator, $Spliterator*, int64_t, int64_t, $RandomGenerator$SplittableGenerator*)},
+		{"*nextBoolean", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextBytes", "([B)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextDouble", "()D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextDouble", "(D)D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextDouble", "(DD)D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextExponential", "()D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextFloat", "()F", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextFloat", "(F)F", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextFloat", "(FF)F", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextGaussian", "()D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextGaussian", "(DD)D", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextInt", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextInt", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextInt", "(II)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextLong", "()J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextLong", "(J)J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*nextLong", "(JJ)J", nullptr, $PUBLIC | $ABSTRACT},
+		{"split", "()Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator, split, $RandomGenerator$SplittableGenerator*)},
+		{"splits", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator, splits, $Stream*)},
+		{"splits", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator, splits, $Stream*, int64_t)},
+		{"splits", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream;", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator, splits, $Stream*, $RandomGenerator$SplittableGenerator*)},
+		{"splits", "(JLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream;", "(JLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator, splits, $Stream*, int64_t, $RandomGenerator$SplittableGenerator*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSplittableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSpliteratorGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.random.RandomGenerator$SplittableGenerator", "java.util.random.RandomGenerator", "SplittableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomSplitsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "RandomSplitsSpliterator", $STATIC},
+		{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator", "jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "RandomDoublesSpliterator", $STATIC},
+		{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomLongsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "RandomLongsSpliterator", $STATIC},
+		{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomIntsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "RandomIntsSpliterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator",
+		"jdk.internal.util.random.RandomSupport$AbstractSpliteratorGenerator",
+		"java.util.random.RandomGenerator$SplittableGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.util.random.RandomSupport"
+	};
+	$loadClass(RandomSupport$AbstractSplittableGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RandomSupport$AbstractSplittableGenerator));
+	});
 	return class$;
 }
 

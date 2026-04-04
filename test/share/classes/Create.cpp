@@ -1,5 +1,4 @@
 #include <Create.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <jcpp.h>
@@ -11,36 +10,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$FieldInfo _Create_FieldInfo_[] = {
-	{"length", "I", nullptr, $STATIC | $FINAL, $constField(Create, length)},
-	{}
-};
-
-$MethodInfo _Create_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Create, init$, void)},
-	{"createFileName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Create, createFileName, $String*, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Create, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Create_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Create",
-	"java.lang.Object",
-	nullptr,
-	_Create_FieldInfo_,
-	_Create_MethodInfo_
-};
-
-$Object* allocate$Create($Class* clazz) {
-	return $of($alloc(Create));
-}
-
 void Create::init$() {
 }
 
 void Create::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fileName, createFileName(Create::length));
 	$var($File, file, $new($File, fileName));
 	try {
@@ -68,7 +42,27 @@ Create::Create() {
 }
 
 $Class* Create::load$($String* name, bool initialize) {
-	$loadClass(Create, name, initialize, &_Create_ClassInfo_, allocate$Create);
+	$FieldInfo fieldInfos$$[] = {
+		{"length", "I", nullptr, $STATIC | $FINAL, $constField(Create, length)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Create, init$, void)},
+		{"createFileName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Create, createFileName, $String*, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Create, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Create",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Create, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Create);
+	});
 	return class$;
 }
 

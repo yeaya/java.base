@@ -1,5 +1,4 @@
 #include <test/java/lang/invoke/TestCls$PrivateSIC.h>
-
 #include <test/java/lang/invoke/TestCls.h>
 #include <jcpp.h>
 
@@ -12,36 +11,6 @@ namespace test {
 		namespace lang {
 			namespace invoke {
 
-$MethodInfo _TestCls$PrivateSIC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TestCls$PrivateSIC, init$, void)},
-	{}
-};
-
-$InnerClassInfo _TestCls$PrivateSIC_InnerClassesInfo_[] = {
-	{"test.java.lang.invoke.TestCls$PrivateSIC", "test.java.lang.invoke.TestCls", "PrivateSIC", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TestCls$PrivateSIC_ClassInfo_ = {
-	$ACC_SUPER,
-	"test.java.lang.invoke.TestCls$PrivateSIC",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestCls$PrivateSIC_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestCls$PrivateSIC_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"test.java.lang.invoke.TestCls"
-};
-
-$Object* allocate$TestCls$PrivateSIC($Class* clazz) {
-	return $of($alloc(TestCls$PrivateSIC));
-}
-
 void TestCls$PrivateSIC::init$() {
 }
 
@@ -49,7 +18,32 @@ TestCls$PrivateSIC::TestCls$PrivateSIC() {
 }
 
 $Class* TestCls$PrivateSIC::load$($String* name, bool initialize) {
-	$loadClass(TestCls$PrivateSIC, name, initialize, &_TestCls$PrivateSIC_ClassInfo_, allocate$TestCls$PrivateSIC);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TestCls$PrivateSIC, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"test.java.lang.invoke.TestCls$PrivateSIC", "test.java.lang.invoke.TestCls", "PrivateSIC", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"test.java.lang.invoke.TestCls$PrivateSIC",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"test.java.lang.invoke.TestCls"
+	};
+	$loadClass(TestCls$PrivateSIC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestCls$PrivateSIC);
+	});
 	return class$;
 }
 

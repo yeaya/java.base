@@ -74,6 +74,7 @@ class SignatureScheme : public ::java::lang::Enum {
 public:
 	SignatureScheme();
 	static $Array<::sun::security::ssl::SignatureScheme>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $String* name, $String* algorithm, $String* keyAlgorithm, $Array<::sun::security::ssl::ProtocolVersion>* supportedProtocols);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $String* name, $String* algorithm, $String* keyAlgorithm, int32_t minimalKeySize, $Array<::sun::security::ssl::ProtocolVersion>* supportedProtocols);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $String* name, $String* algorithm, $String* keyAlgorithm, ::sun::security::ssl::SignatureScheme$SigAlgParamSpec* signAlgParamSpec, int32_t minimalKeySize, $Array<::sun::security::ssl::ProtocolVersion>* supportedProtocols);

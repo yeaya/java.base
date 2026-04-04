@@ -23,6 +23,7 @@ class $export TestPlainArrayNotGeneric : public ::java::lang::Object {
 	$class(TestPlainArrayNotGeneric, 0, ::java::lang::Object)
 public:
 	TestPlainArrayNotGeneric();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::List* p1);
 	void init$(::java::util::List* p1, $StringArray* p2);
 	static void check($Array<::java::lang::reflect::Type>* types, $String* elementKind, $String* what);

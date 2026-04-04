@@ -1,5 +1,4 @@
 #include <java/util/AbstractMap$2.h>
-
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractMap$2$1.h>
 #include <java/util/AbstractMap.h>
@@ -18,53 +17,6 @@ using $Iterator = ::java::util::Iterator;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _AbstractMap$2_FieldInfo_[] = {
-	{"this$0", "Ljava/util/AbstractMap;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractMap$2, this$0)},
-	{}
-};
-
-$MethodInfo _AbstractMap$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/AbstractMap;)V", nullptr, 0, $method(AbstractMap$2, init$, void, $AbstractMap*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractMap$2, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$2, contains, bool, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$2, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(AbstractMap$2, iterator, $Iterator*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractMap$2, size, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _AbstractMap$2_EnclosingMethodInfo_ = {
-	"java.util.AbstractMap",
-	"values",
-	"()Ljava/util/Collection;"
-};
-
-$InnerClassInfo _AbstractMap$2_InnerClassesInfo_[] = {
-	{"java.util.AbstractMap$2", nullptr, nullptr, 0},
-	{"java.util.AbstractMap$2$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractMap$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.AbstractMap$2",
-	"java.util.AbstractCollection",
-	nullptr,
-	_AbstractMap$2_FieldInfo_,
-	_AbstractMap$2_MethodInfo_,
-	"Ljava/util/AbstractCollection<TV;>;",
-	&_AbstractMap$2_EnclosingMethodInfo_,
-	_AbstractMap$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.AbstractMap"
-};
-
-$Object* allocate$AbstractMap$2($Class* clazz) {
-	return $of($alloc(AbstractMap$2));
-}
 
 void AbstractMap$2::init$($AbstractMap* this$0) {
 	$set(this, this$0, this$0);
@@ -95,7 +47,47 @@ AbstractMap$2::AbstractMap$2() {
 }
 
 $Class* AbstractMap$2::load$($String* name, bool initialize) {
-	$loadClass(AbstractMap$2, name, initialize, &_AbstractMap$2_ClassInfo_, allocate$AbstractMap$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/AbstractMap;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractMap$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/AbstractMap;)V", nullptr, 0, $method(AbstractMap$2, init$, void, $AbstractMap*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractMap$2, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$2, contains, bool, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$2, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(AbstractMap$2, iterator, $Iterator*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractMap$2, size, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.AbstractMap",
+		"values",
+		"()Ljava/util/Collection;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.AbstractMap$2", nullptr, nullptr, 0},
+		{"java.util.AbstractMap$2$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.AbstractMap$2",
+		"java.util.AbstractCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractCollection<TV;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.AbstractMap"
+	};
+	$loadClass(AbstractMap$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractMap$2);
+	});
 	return class$;
 }
 

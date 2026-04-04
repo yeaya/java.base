@@ -76,6 +76,7 @@ class RevocationChecker : public ::java::security::cert::PKIXRevocationChecker {
 public:
 	RevocationChecker();
 	using ::java::security::cert::PKIXRevocationChecker::check;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::security::cert::TrustAnchor* anchor, ::sun::security::provider::certpath::PKIX$ValidatorParams* params);
 	void buildToNewKey(::java::security::cert::X509Certificate* currCert, ::java::security::PublicKey* prevKey, ::java::util::Set* stackedCerts);
@@ -123,7 +124,7 @@ public:
 	::sun::security::provider::certpath::RevocationChecker$Mode* mode = nullptr;
 	::sun::security::provider::certpath::RevocationChecker$RevocationProperties* rp = nullptr;
 	static const int32_t DEFAULT_NONCE_BYTES = 16;
-	static const int64_t MAX_CLOCK_SKEW = 0x000DBBA0;
+	static const int64_t MAX_CLOCK_SKEW = 0x000dbba0;
 	static $booleans* ALL_REASONS;
 	static $booleans* CRL_SIGN_USAGE;
 };

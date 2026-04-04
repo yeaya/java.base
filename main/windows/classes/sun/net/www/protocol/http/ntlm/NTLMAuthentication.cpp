@@ -1,11 +1,9 @@
 #include <sun/net/www/protocol/http/ntlm/NTLMAuthentication.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/net/PasswordAuthentication.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Objects.h>
 #include <java/util/Properties.h>
 #include <sun/net/www/HeaderParser.h>
@@ -39,7 +37,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $PasswordAuthentication = ::java::net::PasswordAuthentication;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Objects = ::java::util::Objects;
 using $Properties = ::java::util::Properties;
 using $HeaderParser = ::sun::net::www::HeaderParser;
@@ -61,69 +58,6 @@ namespace sun {
 				namespace http {
 					namespace ntlm {
 
-$FieldInfo _NTLMAuthentication_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NTLMAuthentication, $assertionsDisabled)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NTLMAuthentication, serialVersionUID)},
-	{"NTLMAuthCallback", "Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthentication, NTLMAuthCallback)},
-	{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NTLMAuthentication, hostname)},
-	{"defaultDomain", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthentication, defaultDomain)},
-	{"ntlmCache", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthentication, ntlmCache)},
-	{"authMode", "Lsun/net/www/protocol/http/ntlm/NTLMAuthentication$TransparentAuth;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthentication, authMode)},
-	{"username", "Ljava/lang/String;", nullptr, 0, $field(NTLMAuthentication, username)},
-	{"ntdomain", "Ljava/lang/String;", nullptr, 0, $field(NTLMAuthentication, ntdomain)},
-	{"password", "Ljava/lang/String;", nullptr, 0, $field(NTLMAuthentication, password)},
-	{"isTrustedSiteAvailable", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthentication, isTrustedSiteAvailable$)},
-	{}
-};
-
-$MethodInfo _NTLMAuthentication_MethodInfo_[] = {
-	{"<init>", "(ZLjava/net/URL;Ljava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NTLMAuthentication, init$, void, bool, $URL*, $PasswordAuthentication*, $String*)},
-	{"<init>", "(ZLjava/lang/String;ILjava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NTLMAuthentication, init$, void, bool, $String*, int32_t, $PasswordAuthentication*, $String*)},
-	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, getHeaderValue, $String*, $URL*, $String*)},
-	{"init", "(Ljava/net/PasswordAuthentication;)V", nullptr, $PRIVATE, $method(NTLMAuthentication, init, void, $PasswordAuthentication*)},
-	{"init0", "()V", nullptr, $PRIVATE, $method(NTLMAuthentication, init0, void)},
-	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, isAuthorizationStale, bool, $String*)},
-	{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthentication, isTrustedSite, bool, $URL*)},
-	{"isTrustedSite", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NTLMAuthentication, isTrustedSite, bool, $String*)},
-	{"isTrustedSite0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NTLMAuthentication, isTrustedSite0, bool, $String*)},
-	{"isTrustedSiteAvailable", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NTLMAuthentication, isTrustedSiteAvailable, bool)},
-	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
-	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, supportsPreemptiveAuthorization, bool)},
-	{"supportsTransparentAuth", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthentication, supportsTransparentAuth, bool)},
-	{"useAuthCache", "()Z", nullptr, $PROTECTED, $virtualMethod(NTLMAuthentication, useAuthCache, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_isTrustedSite0 8
-#define _METHOD_INDEX_isTrustedSiteAvailable 9
-
-$InnerClassInfo _NTLMAuthentication_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.ntlm.NTLMAuthentication$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.net.www.protocol.http.ntlm.NTLMAuthentication$TransparentAuth", "sun.net.www.protocol.http.ntlm.NTLMAuthentication", "TransparentAuth", $STATIC | $FINAL | $ENUM},
-	{"sun.net.www.protocol.http.ntlm.NTLMAuthentication$2", nullptr, nullptr, 0},
-	{"sun.net.www.protocol.http.ntlm.NTLMAuthentication$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NTLMAuthentication_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.http.ntlm.NTLMAuthentication",
-	"sun.net.www.protocol.http.AuthenticationInfo",
-	nullptr,
-	_NTLMAuthentication_FieldInfo_,
-	_NTLMAuthentication_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NTLMAuthentication_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.ntlm.NTLMAuthentication$3,sun.net.www.protocol.http.ntlm.NTLMAuthentication$TransparentAuth,sun.net.www.protocol.http.ntlm.NTLMAuthentication$2,sun.net.www.protocol.http.ntlm.NTLMAuthentication$1"
-};
-
-$Object* allocate$NTLMAuthentication($Class* clazz) {
-	return $of($alloc(NTLMAuthentication));
-}
-
 bool NTLMAuthentication::$assertionsDisabled = false;
 $NTLMAuthenticationCallback* NTLMAuthentication::NTLMAuthCallback = nullptr;
 $String* NTLMAuthentication::defaultDomain = nullptr;
@@ -133,10 +67,10 @@ bool NTLMAuthentication::isTrustedSiteAvailable$ = false;
 
 void NTLMAuthentication::init0() {
 	$beforeCallerSensitive();
-	$set(this, hostname, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($NTLMAuthentication$2, this)))));
-	int32_t x = $nc(this->hostname)->indexOf((int32_t)u'.');
+	$set(this, hostname, $cast($String, $AccessController::doPrivileged($$new($NTLMAuthentication$2, this))));
+	int32_t x = $nc(this->hostname)->indexOf(u'.');
 	if (x != -1) {
-		$set(this, hostname, $nc(this->hostname)->substring(0, x));
+		$set(this, hostname, this->hostname->substring(0, x));
 	}
 }
 
@@ -147,11 +81,11 @@ void NTLMAuthentication::init$(bool isProxy, $URL* url, $PasswordAuthentication*
 }
 
 void NTLMAuthentication::init($PasswordAuthentication* pw) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, pw, pw);
 	if (pw != nullptr) {
 		$var($String, s, pw->getUserName());
-		int32_t i = $nc(s)->indexOf((int32_t)u'\\');
+		int32_t i = $nc(s)->indexOf(u'\\');
 		if (i == -1) {
 			$set(this, username, s);
 			$set(this, ntdomain, NTLMAuthentication::defaultDomain);
@@ -190,30 +124,23 @@ bool NTLMAuthentication::supportsTransparentAuth() {
 bool NTLMAuthentication::isTrustedSite($URL* url) {
 	$init(NTLMAuthentication);
 	if (NTLMAuthentication::NTLMAuthCallback != nullptr) {
-		return $nc(NTLMAuthentication::NTLMAuthCallback)->isTrustedSite(url);
+		return NTLMAuthentication::NTLMAuthCallback->isTrustedSite(url);
 	}
 	$init($NTLMAuthentication$3);
 	switch ($nc($NTLMAuthentication$3::$SwitchMap$sun$net$www$protocol$http$ntlm$NTLMAuthentication$TransparentAuth)->get((NTLMAuthentication::authMode)->ordinal())) {
 	case 1:
-		{
-			return isTrustedSite($($nc(url)->toString()));
-		}
+		return isTrustedSite($($nc(url)->toString()));
 	case 2:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 bool NTLMAuthentication::isTrustedSiteAvailable() {
 	$init(NTLMAuthentication);
-	bool $ret = false;
-	$prepareNativeStatic(NTLMAuthentication, isTrustedSiteAvailable, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(isTrustedSiteAvailable, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -228,9 +155,8 @@ bool NTLMAuthentication::isTrustedSite($String* url) {
 
 bool NTLMAuthentication::isTrustedSite0($String* url) {
 	$init(NTLMAuthentication);
-	bool $ret = false;
-	$prepareNativeStatic(NTLMAuthentication, isTrustedSite0, bool, $String* url);
-	$ret = $invokeNativeStatic(url);
+	$prepareNativeStatic(isTrustedSite0, bool, $String* url);
+	bool $ret = $invokeNativeStatic(url);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -245,7 +171,7 @@ bool NTLMAuthentication::isAuthorizationStale($String* header) {
 }
 
 bool NTLMAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, $String* raw) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!NTLMAuthentication::$assertionsDisabled && !$nc(conn)->isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -255,7 +181,7 @@ bool NTLMAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, 
 			$assign(seq, $new($NTLMAuthSequence, this->username, this->password, this->ntdomain));
 			conn->authObj(seq);
 		}
-		$var($String, response, $str({"NTLM "_s, $($nc(seq)->getAuthHeader($nc(raw)->length() > 6 ? $($nc(raw)->substring(5)) : ($String*)nullptr))}));
+		$var($String, response, $str({"NTLM "_s, $($nc(seq)->getAuthHeader($nc(raw)->length() > 6 ? $(raw->substring(5)) : ($String*)nullptr))}));
 		conn->setAuthenticationProperty($(getHeaderName()), response);
 		if (seq->isComplete()) {
 			conn->authObj(nullptr);
@@ -268,8 +194,8 @@ bool NTLMAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, 
 	$shouldNotReachHere();
 }
 
-void clinit$NTLMAuthentication($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void NTLMAuthentication::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	NTLMAuthentication::$assertionsDisabled = !NTLMAuthentication::class$->desiredAssertionStatus();
 	$assignStatic(NTLMAuthentication::NTLMAuthCallback, $NTLMAuthenticationCallback::getNTLMAuthenticationCallback());
@@ -278,7 +204,7 @@ void clinit$NTLMAuthentication($Class* class$) {
 		$assignStatic(NTLMAuthentication::defaultDomain, $nc(props)->getProperty("http.auth.ntlm.domain"_s, "domain"_s));
 		$var($String, ntlmCacheProp, props->getProperty("jdk.ntlm.cache"_s, "true"_s));
 		NTLMAuthentication::ntlmCache = $Boolean::parseBoolean(ntlmCacheProp);
-		$var($String, modeProp, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($NTLMAuthentication$1)))));
+		$var($String, modeProp, $cast($String, $AccessController::doPrivileged($$new($NTLMAuthentication$1))));
 		if ("trustedHosts"_s->equalsIgnoreCase(modeProp)) {
 			$init($NTLMAuthentication$TransparentAuth);
 			$assignStatic(NTLMAuthentication::authMode, $NTLMAuthentication$TransparentAuth::TRUSTED_HOSTS);
@@ -297,7 +223,61 @@ NTLMAuthentication::NTLMAuthentication() {
 }
 
 $Class* NTLMAuthentication::load$($String* name, bool initialize) {
-	$loadClass(NTLMAuthentication, name, initialize, &_NTLMAuthentication_ClassInfo_, clinit$NTLMAuthentication, allocate$NTLMAuthentication);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NTLMAuthentication, $assertionsDisabled)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NTLMAuthentication, serialVersionUID)},
+		{"NTLMAuthCallback", "Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthentication, NTLMAuthCallback)},
+		{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NTLMAuthentication, hostname)},
+		{"defaultDomain", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthentication, defaultDomain)},
+		{"ntlmCache", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthentication, ntlmCache)},
+		{"authMode", "Lsun/net/www/protocol/http/ntlm/NTLMAuthentication$TransparentAuth;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthentication, authMode)},
+		{"username", "Ljava/lang/String;", nullptr, 0, $field(NTLMAuthentication, username)},
+		{"ntdomain", "Ljava/lang/String;", nullptr, 0, $field(NTLMAuthentication, ntdomain)},
+		{"password", "Ljava/lang/String;", nullptr, 0, $field(NTLMAuthentication, password)},
+		{"isTrustedSiteAvailable", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthentication, isTrustedSiteAvailable$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/net/URL;Ljava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NTLMAuthentication, init$, void, bool, $URL*, $PasswordAuthentication*, $String*)},
+		{"<init>", "(ZLjava/lang/String;ILjava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NTLMAuthentication, init$, void, bool, $String*, int32_t, $PasswordAuthentication*, $String*)},
+		{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, getHeaderValue, $String*, $URL*, $String*)},
+		{"init", "(Ljava/net/PasswordAuthentication;)V", nullptr, $PRIVATE, $method(NTLMAuthentication, init, void, $PasswordAuthentication*)},
+		{"init0", "()V", nullptr, $PRIVATE, $method(NTLMAuthentication, init0, void)},
+		{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, isAuthorizationStale, bool, $String*)},
+		{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthentication, isTrustedSite, bool, $URL*)},
+		{"isTrustedSite", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NTLMAuthentication, isTrustedSite, bool, $String*)},
+		{"isTrustedSite0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NTLMAuthentication, isTrustedSite0, bool, $String*)},
+		{"isTrustedSiteAvailable", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NTLMAuthentication, isTrustedSiteAvailable, bool)},
+		{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
+		{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, supportsPreemptiveAuthorization, bool)},
+		{"supportsTransparentAuth", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthentication, supportsTransparentAuth, bool)},
+		{"useAuthCache", "()Z", nullptr, $PROTECTED, $virtualMethod(NTLMAuthentication, useAuthCache, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.ntlm.NTLMAuthentication$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.net.www.protocol.http.ntlm.NTLMAuthentication$TransparentAuth", "sun.net.www.protocol.http.ntlm.NTLMAuthentication", "TransparentAuth", $STATIC | $FINAL | $ENUM},
+		{"sun.net.www.protocol.http.ntlm.NTLMAuthentication$2", nullptr, nullptr, 0},
+		{"sun.net.www.protocol.http.ntlm.NTLMAuthentication$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.http.ntlm.NTLMAuthentication",
+		"sun.net.www.protocol.http.AuthenticationInfo",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.ntlm.NTLMAuthentication$3,sun.net.www.protocol.http.ntlm.NTLMAuthentication$TransparentAuth,sun.net.www.protocol.http.ntlm.NTLMAuthentication$2,sun.net.www.protocol.http.ntlm.NTLMAuthentication$1"
+	};
+	$loadClass(NTLMAuthentication, name, initialize, &classInfo$$, NTLMAuthentication::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NTLMAuthentication));
+	});
 	return class$;
 }
 

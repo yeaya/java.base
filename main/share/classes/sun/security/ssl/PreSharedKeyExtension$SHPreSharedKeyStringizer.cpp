@@ -1,5 +1,4 @@
 #include <sun/security/ssl/PreSharedKeyExtension$SHPreSharedKeyStringizer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/PreSharedKeyExtension$SHPreSharedKeySpec.h>
@@ -18,37 +17,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _PreSharedKeyExtension$SHPreSharedKeyStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PreSharedKeyExtension$SHPreSharedKeyStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$SHPreSharedKeyStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _PreSharedKeyExtension$SHPreSharedKeyStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyStringizer", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PreSharedKeyExtension$SHPreSharedKeyStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_PreSharedKeyExtension$SHPreSharedKeyStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PreSharedKeyExtension$SHPreSharedKeyStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PreSharedKeyExtension"
-};
-
-$Object* allocate$PreSharedKeyExtension$SHPreSharedKeyStringizer($Class* clazz) {
-	return $of($alloc(PreSharedKeyExtension$SHPreSharedKeyStringizer));
-}
-
 void PreSharedKeyExtension$SHPreSharedKeyStringizer::init$() {
 }
 
@@ -65,7 +33,33 @@ PreSharedKeyExtension$SHPreSharedKeyStringizer::PreSharedKeyExtension$SHPreShare
 }
 
 $Class* PreSharedKeyExtension$SHPreSharedKeyStringizer::load$($String* name, bool initialize) {
-	$loadClass(PreSharedKeyExtension$SHPreSharedKeyStringizer, name, initialize, &_PreSharedKeyExtension$SHPreSharedKeyStringizer_ClassInfo_, allocate$PreSharedKeyExtension$SHPreSharedKeyStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PreSharedKeyExtension$SHPreSharedKeyStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$SHPreSharedKeyStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyStringizer", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PreSharedKeyExtension"
+	};
+	$loadClass(PreSharedKeyExtension$SHPreSharedKeyStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PreSharedKeyExtension$SHPreSharedKeyStringizer);
+	});
 	return class$;
 }
 

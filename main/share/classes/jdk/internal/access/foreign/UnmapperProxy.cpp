@@ -1,5 +1,4 @@
 #include <jdk/internal/access/foreign/UnmapperProxy.h>
-
 #include <java/io/FileDescriptor.h>
 #include <jcpp.h>
 
@@ -12,29 +11,25 @@ namespace jdk {
 		namespace access {
 			namespace foreign {
 
-$MethodInfo _UnmapperProxy_MethodInfo_[] = {
-	{"address", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, address, int64_t)},
-	{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, fileDescriptor, $FileDescriptor*)},
-	{"isSync", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, isSync, bool)},
-	{"unmap", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, unmap, void)},
-	{}
-};
-
-$ClassInfo _UnmapperProxy_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.access.foreign.UnmapperProxy",
-	nullptr,
-	nullptr,
-	nullptr,
-	_UnmapperProxy_MethodInfo_
-};
-
-$Object* allocate$UnmapperProxy($Class* clazz) {
-	return $of($alloc(UnmapperProxy));
-}
-
 $Class* UnmapperProxy::load$($String* name, bool initialize) {
-	$loadClass(UnmapperProxy, name, initialize, &_UnmapperProxy_ClassInfo_, allocate$UnmapperProxy);
+	$MethodInfo methodInfos$$[] = {
+		{"address", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, address, int64_t)},
+		{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, fileDescriptor, $FileDescriptor*)},
+		{"isSync", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, isSync, bool)},
+		{"unmap", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, unmap, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.access.foreign.UnmapperProxy",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnmapperProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnmapperProxy);
+	});
 	return class$;
 }
 

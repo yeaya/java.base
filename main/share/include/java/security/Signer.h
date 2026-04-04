@@ -29,7 +29,7 @@ public:
 	void setKeyPair(::java::security::KeyPair* pair);
 	using ::java::security::Identity::toString;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xE786EABE028EF4B8;
+	static const int64_t serialVersionUID = (int64_t)0xe786eabe028ef4b8;
 	::java::security::PrivateKey* privateKey = nullptr;
 };
 

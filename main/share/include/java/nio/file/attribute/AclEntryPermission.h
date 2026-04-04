@@ -51,6 +51,7 @@ class $import AclEntryPermission : public ::java::lang::Enum {
 public:
 	AclEntryPermission();
 	static $Array<::java::nio::file::attribute::AclEntryPermission>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::nio::file::attribute::AclEntryPermission* valueOf($String* name);
 	static $Array<::java::nio::file::attribute::AclEntryPermission>* values();

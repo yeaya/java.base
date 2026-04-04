@@ -37,6 +37,7 @@ class SymantecTLSPolicy : public ::java::lang::Object {
 	$class(SymantecTLSPolicy, 0, ::java::lang::Object)
 public:
 	SymantecTLSPolicy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkDistrust($Array<::java::security::cert::X509Certificate>* chain);
 	static void checkNotBefore(::java::time::LocalDate* notBeforeDate, ::java::time::LocalDate* distrustDate, ::java::security::cert::X509Certificate* anchor);

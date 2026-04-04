@@ -1,5 +1,4 @@
 #include <ImplicitStringConcatAssignLHS$MyClass.h>
-
 #include <ImplicitStringConcatAssignLHS.h>
 #include <jcpp.h>
 
@@ -8,42 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _ImplicitStringConcatAssignLHS$MyClass_FieldInfo_[] = {
-	{"o", "Ljava/lang/Object;", nullptr, 0, $field(ImplicitStringConcatAssignLHS$MyClass, o)},
-	{"s", "Ljava/lang/String;", nullptr, 0, $field(ImplicitStringConcatAssignLHS$MyClass, s)},
-	{}
-};
-
-$MethodInfo _ImplicitStringConcatAssignLHS$MyClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatAssignLHS$MyClass, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ImplicitStringConcatAssignLHS$MyClass_InnerClassesInfo_[] = {
-	{"ImplicitStringConcatAssignLHS$MyClass", "ImplicitStringConcatAssignLHS", "MyClass", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ImplicitStringConcatAssignLHS$MyClass_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ImplicitStringConcatAssignLHS$MyClass",
-	"java.lang.Object",
-	nullptr,
-	_ImplicitStringConcatAssignLHS$MyClass_FieldInfo_,
-	_ImplicitStringConcatAssignLHS$MyClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImplicitStringConcatAssignLHS$MyClass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ImplicitStringConcatAssignLHS"
-};
-
-$Object* allocate$ImplicitStringConcatAssignLHS$MyClass($Class* clazz) {
-	return $of($alloc(ImplicitStringConcatAssignLHS$MyClass));
-}
 
 void ImplicitStringConcatAssignLHS$MyClass::init$() {
 	$init($ImplicitStringConcatAssignLHS);
@@ -54,7 +17,37 @@ ImplicitStringConcatAssignLHS$MyClass::ImplicitStringConcatAssignLHS$MyClass() {
 }
 
 $Class* ImplicitStringConcatAssignLHS$MyClass::load$($String* name, bool initialize) {
-	$loadClass(ImplicitStringConcatAssignLHS$MyClass, name, initialize, &_ImplicitStringConcatAssignLHS$MyClass_ClassInfo_, allocate$ImplicitStringConcatAssignLHS$MyClass);
+	$FieldInfo fieldInfos$$[] = {
+		{"o", "Ljava/lang/Object;", nullptr, 0, $field(ImplicitStringConcatAssignLHS$MyClass, o)},
+		{"s", "Ljava/lang/String;", nullptr, 0, $field(ImplicitStringConcatAssignLHS$MyClass, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatAssignLHS$MyClass, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ImplicitStringConcatAssignLHS$MyClass", "ImplicitStringConcatAssignLHS", "MyClass", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ImplicitStringConcatAssignLHS$MyClass",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ImplicitStringConcatAssignLHS"
+	};
+	$loadClass(ImplicitStringConcatAssignLHS$MyClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImplicitStringConcatAssignLHS$MyClass);
+	});
 	return class$;
 }
 

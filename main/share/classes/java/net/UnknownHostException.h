@@ -14,10 +14,13 @@ public:
 	UnknownHostException();
 	void init$($String* message);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xBF9E8369B89DD775;
+	static const int64_t serialVersionUID = (int64_t)0xbf9e8369b89dd775;
 	UnknownHostException(const UnknownHostException& e);
 	virtual void throw$() override;
-	inline UnknownHostException* operator ->() {
+	inline UnknownHostException* operator ->() const {
+		return (UnknownHostException*)throwing$;
+	}
+	inline operator UnknownHostException*() const {
 		return (UnknownHostException*)throwing$;
 	}
 };

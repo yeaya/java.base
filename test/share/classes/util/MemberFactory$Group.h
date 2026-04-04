@@ -57,6 +57,7 @@ class $export MemberFactory$Group : public ::java::lang::Enum {
 public:
 	MemberFactory$Group();
 	static $Array<::util::MemberFactory$Group>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $Array<::util::MemberFactory>* members);
 	static ::java::util::EnumSet* asSet($Array<::util::MemberFactory$Group>* groups);
 	static ::util::MemberFactory$Group* valueOf($String* name);

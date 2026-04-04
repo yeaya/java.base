@@ -28,10 +28,13 @@ public:
 	void init$(float detailMessage);
 	void init$(double detailMessage);
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xBA6D2EABFD413DE6;
+	static const int64_t serialVersionUID = (int64_t)0xba6d2eabfd413de6;
 	AssertionError(const AssertionError& e);
 	virtual void throw$() override;
-	inline AssertionError* operator ->() {
+	inline AssertionError* operator ->() const {
+		return (AssertionError*)throwing$;
+	}
+	inline operator AssertionError*() const {
 		return (AssertionError*)throwing$;
 	}
 };

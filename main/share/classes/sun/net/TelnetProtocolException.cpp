@@ -1,5 +1,4 @@
 #include <sun/net/TelnetProtocolException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace net {
-
-$FieldInfo _TelnetProtocolException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TelnetProtocolException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _TelnetProtocolException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TelnetProtocolException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _TelnetProtocolException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.TelnetProtocolException",
-	"java.io.IOException",
-	nullptr,
-	_TelnetProtocolException_FieldInfo_,
-	_TelnetProtocolException_MethodInfo_
-};
-
-$Object* allocate$TelnetProtocolException($Class* clazz) {
-	return $of($alloc(TelnetProtocolException));
-}
 
 void TelnetProtocolException::init$($String* s) {
 	$IOException::init$(s);
@@ -49,7 +25,25 @@ void TelnetProtocolException::throw$() {
 }
 
 $Class* TelnetProtocolException::load$($String* name, bool initialize) {
-	$loadClass(TelnetProtocolException, name, initialize, &_TelnetProtocolException_ClassInfo_, allocate$TelnetProtocolException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TelnetProtocolException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TelnetProtocolException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.TelnetProtocolException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TelnetProtocolException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TelnetProtocolException);
+	});
 	return class$;
 }
 

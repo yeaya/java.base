@@ -1,7 +1,5 @@
 #include <sun/security/ssl/SSLKeyExchange$SSLKeyExDHERSAOrPSS.h>
-
 #include <java/util/List.h>
-#include <sun/security/ssl/SSLKeyAgreement.h>
 #include <sun/security/ssl/SSLKeyExchange$T12KeyAgreement.h>
 #include <sun/security/ssl/SSLKeyExchange.h>
 #include <sun/security/ssl/X509Authentication.h>
@@ -16,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $SSLKeyAgreement = ::sun::security::ssl::SSLKeyAgreement;
 using $SSLKeyExchange = ::sun::security::ssl::SSLKeyExchange;
 using $SSLKeyExchange$T12KeyAgreement = ::sun::security::ssl::SSLKeyExchange$T12KeyAgreement;
 using $X509Authentication = ::sun::security::ssl::X509Authentication;
@@ -25,57 +22,51 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLKeyExchange$SSLKeyExDHERSAOrPSS_FieldInfo_[] = {
-	{"KE", "Lsun/security/ssl/SSLKeyExchange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLKeyExchange$SSLKeyExDHERSAOrPSS, KE)},
-	{}
-};
-
-$MethodInfo _SSLKeyExchange$SSLKeyExDHERSAOrPSS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLKeyExchange$SSLKeyExDHERSAOrPSS, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SSLKeyExchange$SSLKeyExDHERSAOrPSS_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLKeyExchange$SSLKeyExDHERSAOrPSS", "sun.security.ssl.SSLKeyExchange", "SSLKeyExDHERSAOrPSS", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLKeyExchange$SSLKeyExDHERSAOrPSS_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.SSLKeyExchange$SSLKeyExDHERSAOrPSS",
-	"java.lang.Object",
-	nullptr,
-	_SSLKeyExchange$SSLKeyExDHERSAOrPSS_FieldInfo_,
-	_SSLKeyExchange$SSLKeyExDHERSAOrPSS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLKeyExchange$SSLKeyExDHERSAOrPSS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLKeyExchange"
-};
-
-$Object* allocate$SSLKeyExchange$SSLKeyExDHERSAOrPSS($Class* clazz) {
-	return $of($alloc(SSLKeyExchange$SSLKeyExDHERSAOrPSS));
-}
-
 $SSLKeyExchange* SSLKeyExchange$SSLKeyExDHERSAOrPSS::KE = nullptr;
 
 void SSLKeyExchange$SSLKeyExDHERSAOrPSS::init$() {
 }
 
-void clinit$SSLKeyExchange$SSLKeyExDHERSAOrPSS($Class* class$) {
+void SSLKeyExchange$SSLKeyExDHERSAOrPSS::clinit$($Class* clazz) {
 	$init($X509Authentication);
 	$init($SSLKeyExchange$T12KeyAgreement);
-	$assignStatic(SSLKeyExchange$SSLKeyExDHERSAOrPSS::KE, $new($SSLKeyExchange, $($List::of($of($X509Authentication::RSA_OR_PSS))), $SSLKeyExchange$T12KeyAgreement::DHE));
+	$assignStatic(SSLKeyExchange$SSLKeyExDHERSAOrPSS::KE, $new($SSLKeyExchange, $($List::of($X509Authentication::RSA_OR_PSS)), $SSLKeyExchange$T12KeyAgreement::DHE));
 }
 
 SSLKeyExchange$SSLKeyExDHERSAOrPSS::SSLKeyExchange$SSLKeyExDHERSAOrPSS() {
 }
 
 $Class* SSLKeyExchange$SSLKeyExDHERSAOrPSS::load$($String* name, bool initialize) {
-	$loadClass(SSLKeyExchange$SSLKeyExDHERSAOrPSS, name, initialize, &_SSLKeyExchange$SSLKeyExDHERSAOrPSS_ClassInfo_, clinit$SSLKeyExchange$SSLKeyExDHERSAOrPSS, allocate$SSLKeyExchange$SSLKeyExDHERSAOrPSS);
+	$FieldInfo fieldInfos$$[] = {
+		{"KE", "Lsun/security/ssl/SSLKeyExchange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLKeyExchange$SSLKeyExDHERSAOrPSS, KE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLKeyExchange$SSLKeyExDHERSAOrPSS, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLKeyExchange$SSLKeyExDHERSAOrPSS", "sun.security.ssl.SSLKeyExchange", "SSLKeyExDHERSAOrPSS", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.SSLKeyExchange$SSLKeyExDHERSAOrPSS",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLKeyExchange"
+	};
+	$loadClass(SSLKeyExchange$SSLKeyExDHERSAOrPSS, name, initialize, &classInfo$$, SSLKeyExchange$SSLKeyExDHERSAOrPSS::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLKeyExchange$SSLKeyExDHERSAOrPSS);
+	});
 	return class$;
 }
 

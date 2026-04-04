@@ -1,5 +1,4 @@
 #include <sun/security/x509/CertificatePolicyMap.h>
-
 #include <java/io/IOException.h>
 #include <sun/security/util/DerInputStream.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -11,7 +10,6 @@ using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $CertificatePolicyId = ::sun::security::x509::CertificatePolicyId;
@@ -20,47 +18,18 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _CertificatePolicyMap_FieldInfo_[] = {
-	{"issuerDomain", "Lsun/security/x509/CertificatePolicyId;", nullptr, $PRIVATE, $field(CertificatePolicyMap, issuerDomain)},
-	{"subjectDomain", "Lsun/security/x509/CertificatePolicyId;", nullptr, $PRIVATE, $field(CertificatePolicyMap, subjectDomain)},
-	{}
-};
-
-$MethodInfo _CertificatePolicyMap_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/CertificatePolicyId;Lsun/security/x509/CertificatePolicyId;)V", nullptr, $PUBLIC, $method(CertificatePolicyMap, init$, void, $CertificatePolicyId*, $CertificatePolicyId*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(CertificatePolicyMap, init$, void, $DerValue*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"getIssuerIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, getIssuerIdentifier, $CertificatePolicyId*)},
-	{"getSubjectIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, getSubjectIdentifier, $CertificatePolicyId*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CertificatePolicyMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.CertificatePolicyMap",
-	"java.lang.Object",
-	nullptr,
-	_CertificatePolicyMap_FieldInfo_,
-	_CertificatePolicyMap_MethodInfo_
-};
-
-$Object* allocate$CertificatePolicyMap($Class* clazz) {
-	return $of($alloc(CertificatePolicyMap));
-}
-
 void CertificatePolicyMap::init$($CertificatePolicyId* issuer, $CertificatePolicyId* subject) {
 	$set(this, issuerDomain, issuer);
 	$set(this, subjectDomain, subject);
 }
 
 void CertificatePolicyMap::init$($DerValue* val) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(val)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding for CertificatePolicyMap"_s);
 	}
-	$set(this, issuerDomain, $new($CertificatePolicyId, $($nc($nc(val)->data$)->getDerValue())));
-	$set(this, subjectDomain, $new($CertificatePolicyId, $($nc($nc(val)->data$)->getDerValue())));
+	$set(this, issuerDomain, $new($CertificatePolicyId, $($nc(val->data$)->getDerValue())));
+	$set(this, subjectDomain, $new($CertificatePolicyId, $(val->data$->getDerValue())));
 }
 
 $CertificatePolicyId* CertificatePolicyMap::getIssuerIdentifier() {
@@ -72,10 +41,14 @@ $CertificatePolicyId* CertificatePolicyMap::getSubjectIdentifier() {
 }
 
 $String* CertificatePolicyMap::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"CertificatePolicyMap: [\nIssuerDomain:"_s, $($nc(this->issuerDomain)->toString()), "SubjectDomain:"_s}));
-	$var($String, var$0, $$concat(var$1, $($nc(this->subjectDomain)->toString())));
-	$var($String, s, $concat(var$0, "]\n"_s));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("CertificatePolicyMap: [\nIssuerDomain:"_s);
+	var$0->append($($nc(this->issuerDomain)->toString()));
+	var$0->append("SubjectDomain:"_s);
+	var$0->append($($nc(this->subjectDomain)->toString()));
+	var$0->append("]\n"_s);
+	$var($String, s, $str(var$0));
 	return (s);
 }
 
@@ -90,7 +63,31 @@ CertificatePolicyMap::CertificatePolicyMap() {
 }
 
 $Class* CertificatePolicyMap::load$($String* name, bool initialize) {
-	$loadClass(CertificatePolicyMap, name, initialize, &_CertificatePolicyMap_ClassInfo_, allocate$CertificatePolicyMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"issuerDomain", "Lsun/security/x509/CertificatePolicyId;", nullptr, $PRIVATE, $field(CertificatePolicyMap, issuerDomain)},
+		{"subjectDomain", "Lsun/security/x509/CertificatePolicyId;", nullptr, $PRIVATE, $field(CertificatePolicyMap, subjectDomain)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/x509/CertificatePolicyId;Lsun/security/x509/CertificatePolicyId;)V", nullptr, $PUBLIC, $method(CertificatePolicyMap, init$, void, $CertificatePolicyId*, $CertificatePolicyId*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(CertificatePolicyMap, init$, void, $DerValue*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"getIssuerIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, getIssuerIdentifier, $CertificatePolicyId*)},
+		{"getSubjectIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, getSubjectIdentifier, $CertificatePolicyId*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.CertificatePolicyMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertificatePolicyMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificatePolicyMap);
+	});
 	return class$;
 }
 

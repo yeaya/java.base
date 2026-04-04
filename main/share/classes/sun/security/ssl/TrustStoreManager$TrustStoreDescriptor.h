@@ -19,6 +19,7 @@ class TrustStoreManager$TrustStoreDescriptor : public ::java::lang::Object {
 	$class(TrustStoreManager$TrustStoreDescriptor, 0, ::java::lang::Object)
 public:
 	TrustStoreManager$TrustStoreDescriptor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* storeName, $String* storeType, $String* storeProvider, $String* storePassword, ::java::io::File* storeFile, int64_t lastModified);
 	static ::sun::security::ssl::TrustStoreManager$TrustStoreDescriptor* createInstance();
 	virtual bool equals(Object$* obj) override;

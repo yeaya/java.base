@@ -1,5 +1,4 @@
 #include <java/util/stream/TerminalSink.h>
-
 #include <java/util/stream/Sink.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $Sink = ::java::util::stream::Sink;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _TerminalSink_MethodInfo_[] = {
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$ClassInfo _TerminalSink_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.util.stream.TerminalSink",
-	nullptr,
-	"java.util.stream.Sink,java.util.function.Supplier",
-	nullptr,
-	_TerminalSink_MethodInfo_,
-	"<T:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/Sink<TT;>;Ljava/util/function/Supplier<TR;>;"
-};
-
-$Object* allocate$TerminalSink($Class* clazz) {
-	return $of($alloc(TerminalSink));
-}
 
 int32_t TerminalSink::hashCode() {
 	 return this->$Sink::hashCode();
@@ -55,7 +31,26 @@ void TerminalSink::finalize() {
 }
 
 $Class* TerminalSink::load$($String* name, bool initialize) {
-	$loadClass(TerminalSink, name, initialize, &_TerminalSink_ClassInfo_, allocate$TerminalSink);
+	$MethodInfo methodInfos$$[] = {
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.util.stream.TerminalSink",
+		nullptr,
+		"java.util.stream.Sink,java.util.function.Supplier",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/Sink<TT;>;Ljava/util/function/Supplier<TR;>;"
+	};
+	$loadClass(TerminalSink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TerminalSink));
+	});
 	return class$;
 }
 

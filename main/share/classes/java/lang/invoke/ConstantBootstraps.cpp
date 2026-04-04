@@ -1,5 +1,4 @@
 #include <java/lang/invoke/ConstantBootstraps.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/BootstrapMethodError.h>
 #include <java/lang/ClassCastException.h>
@@ -53,70 +52,40 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$MethodInfo _ConstantBootstraps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ConstantBootstraps, init$, void)},
-	{"arrayVarHandle", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<Ljava/lang/invoke/VarHandle;>;Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, arrayVarHandle, $VarHandle*, $MethodHandles$Lookup*, $String*, $Class*, $Class*)},
-	{"enumConstant", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Enum;", "<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<TE;>;)TE;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, enumConstant, $Enum*, $MethodHandles$Lookup*, $String*, $Class*)},
-	{"explicitCast", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, explicitCast, $Object*, $MethodHandles$Lookup*, $String*, $Class*, Object$*), "java.lang.ClassCastException"},
-	{"fieldVarHandle", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<Ljava/lang/invoke/VarHandle;>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, fieldVarHandle, $VarHandle*, $MethodHandles$Lookup*, $String*, $Class*, $Class*, $Class*)},
-	{"getStaticFinal", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, getStaticFinal, $Object*, $MethodHandles$Lookup*, $String*, $Class*, $Class*)},
-	{"getStaticFinal", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, getStaticFinal, $Object*, $MethodHandles$Lookup*, $String*, $Class*)},
-	{"invoke", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ConstantBootstraps, invoke, $Object*, $MethodHandles$Lookup*, $String*, $Class*, $MethodHandle*, $ObjectArray*), "java.lang.Throwable"},
-	{"makeConstant", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Class<*>;)Ljava/lang/Object;", $STATIC, $staticMethod(ConstantBootstraps, makeConstant, $Object*, $MethodHandle*, $String*, $Class*, Object$*, $Class*)},
-	{"nullConstant", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, nullConstant, $Object*, $MethodHandles$Lookup*, $String*, $Class*)},
-	{"primitiveClass", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, primitiveClass, $Class*, $MethodHandles$Lookup*, $String*, $Class*)},
-	{"staticFieldVarHandle", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<Ljava/lang/invoke/VarHandle;>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, staticFieldVarHandle, $VarHandle*, $MethodHandles$Lookup*, $String*, $Class*, $Class*, $Class*)},
-	{"validateClassAccess", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class<TT;>;)Ljava/lang/Class<TT;>;", $PRIVATE | $STATIC, $staticMethod(ConstantBootstraps, validateClassAccess, $Class*, $MethodHandles$Lookup*, $Class*)},
-	{}
-};
-
-$ClassInfo _ConstantBootstraps_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.invoke.ConstantBootstraps",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ConstantBootstraps_MethodInfo_
-};
-
-$Object* allocate$ConstantBootstraps($Class* clazz) {
-	return $of($alloc(ConstantBootstraps));
-}
-
 void ConstantBootstraps::init$() {
 	$throwNew($AssertionError);
 }
 
 $Object* ConstantBootstraps::makeConstant($MethodHandle* bootstrapMethod, $String* name, $Class* type, Object$* info, $Class* callerClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodType, mt, $nc(bootstrapMethod)->type());
 	bool var$0 = $nc(mt)->parameterCount() < 2;
 	$load($MethodHandles$Lookup);
-	if (var$0 || !$MethodHandles$Lookup::class$->isAssignableFrom($($cast($Class, $nc(mt)->parameterType(0))))) {
+	if (var$0 || !$MethodHandles$Lookup::class$->isAssignableFrom($$cast($Class, mt->parameterType(0)))) {
 		$throwNew($BootstrapMethodError, $$str({"Invalid bootstrap method declared for resolving a dynamic constant: "_s, bootstrapMethod}));
 	}
-	return $of($BootstrapMethodInvoker::invoke(type, bootstrapMethod, name, type, info, callerClass));
+	return $BootstrapMethodInvoker::invoke(type, bootstrapMethod, name, type, info, callerClass);
 }
 
 $Object* ConstantBootstraps::nullConstant($MethodHandles$Lookup* lookup, $String* name, $Class* type) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(($cast($Class, $Objects::requireNonNull(type))))->isPrimitive()) {
-		$throwNew($IllegalArgumentException, $($String::format("not reference: %s"_s, $$new($ObjectArray, {$of(type)}))));
+	$useLocalObjectStack();
+	if ($sure($Class, $Objects::requireNonNull(type))->isPrimitive()) {
+		$throwNew($IllegalArgumentException, $($String::format("not reference: %s"_s, $$new($ObjectArray, {type}))));
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Class* ConstantBootstraps::primitiveClass($MethodHandles$Lookup* lookup, $String* name, $Class* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(name);
 	$Objects::requireNonNull(type);
 	if (type != $Class::class$) {
 		$throwNew($IllegalArgumentException);
 	}
 	if (name->length() != 1) {
-		$throwNew($IllegalArgumentException, $($String::format("not primitive: %s"_s, $$new($ObjectArray, {$of(name)}))));
+		$throwNew($IllegalArgumentException, $($String::format("not primitive: %s"_s, $$new($ObjectArray, {name}))));
 	}
-	return $nc($($Wrapper::forPrimitiveType(name->charAt(0))))->primitiveType();
+	return $$nc($Wrapper::forPrimitiveType(name->charAt(0)))->primitiveType();
 }
 
 $Enum* ConstantBootstraps::enumConstant($MethodHandles$Lookup* lookup, $String* name, $Class* type) {
@@ -128,7 +97,7 @@ $Enum* ConstantBootstraps::enumConstant($MethodHandles$Lookup* lookup, $String* 
 }
 
 $Object* ConstantBootstraps::getStaticFinal($MethodHandles$Lookup* lookup, $String* name, $Class* type, $Class* declaringClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(lookup);
 	$Objects::requireNonNull(name);
 	$Objects::requireNonNull(type);
@@ -144,7 +113,7 @@ $Object* ConstantBootstraps::getStaticFinal($MethodHandles$Lookup* lookup, $Stri
 		$throw($($MethodHandleNatives::mapLookupExceptionToError(ex)));
 	}
 	try {
-		return $of($nc(mh)->invoke($$new($ObjectArray, 0)));
+		return $nc(mh)->invoke($$new($ObjectArray, 0));
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($Error& e) {
@@ -157,20 +126,20 @@ $Object* ConstantBootstraps::getStaticFinal($MethodHandles$Lookup* lookup, $Stri
 
 $Object* ConstantBootstraps::getStaticFinal($MethodHandles$Lookup* lookup, $String* name, $Class* type) {
 	$Objects::requireNonNull(type);
-	$Class* declaring = type->isPrimitive() ? $nc($($Wrapper::forPrimitiveType(type)))->wrapperType() : type;
-	return $of(getStaticFinal(lookup, name, type, declaring));
+	$Class* declaring = type->isPrimitive() ? $$nc($Wrapper::forPrimitiveType(type))->wrapperType() : type;
+	return getStaticFinal(lookup, name, type, declaring);
 }
 
 $Object* ConstantBootstraps::invoke($MethodHandles$Lookup* lookup, $String* name, $Class* type, $MethodHandle* handle$renamed, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandle, handle, handle$renamed);
 	$Objects::requireNonNull(type);
 	$Objects::requireNonNull(handle);
 	$Objects::requireNonNull(args);
-	if (type != $cast($Class, $nc($(handle->type()))->returnType())) {
-		$assign(handle, $nc($(handle->asType($($nc($(handle->type()))->changeReturnType(type)))))->withVarargs(handle->isVarargsCollector()));
+	if (type != $cast($Class, $$nc(handle->type())->returnType())) {
+		$assign(handle, $$nc(handle->asType($($$nc(handle->type())->changeReturnType(type))))->withVarargs(handle->isVarargsCollector()));
 	}
-	return $of(handle->invokeWithArguments(args));
+	return $nc(handle)->invokeWithArguments(args);
 }
 
 $VarHandle* ConstantBootstraps::fieldVarHandle($MethodHandles$Lookup* lookup, $String* name, $Class* type, $Class* declaringClass, $Class* fieldType) {
@@ -221,8 +190,7 @@ $VarHandle* ConstantBootstraps::arrayVarHandle($MethodHandles$Lookup* lookup, $S
 }
 
 $Object* ConstantBootstraps::explicitCast($MethodHandles$Lookup* lookup, $String* name, $Class* dstType, Object$* value) {
-	$useLocalCurrentObjectStackCache();
-	$init($Void);
+	$useLocalObjectStack();
 	if (dstType == $Void::TYPE) {
 		$throwNew($ClassCastException, "Can not convert to void"_s);
 	}
@@ -233,13 +201,13 @@ $Object* ConstantBootstraps::explicitCast($MethodHandles$Lookup* lookup, $String
 	$var($MethodType, mt, $MethodType::methodType(dstType, $Object::class$));
 	$var($MethodHandle, conv, $MethodHandles::explicitCastArguments(id, mt));
 	try {
-		return $of($nc(conv)->invoke($$new($ObjectArray, {value})));
+		return $nc(conv)->invoke($$new($ObjectArray, {value}));
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($Error& e) {
 		$throw(e);
 	} catch ($Throwable& throwable) {
-		$throwNew($InternalError, $cast($Throwable, throwable));
+		$throwNew($InternalError, throwable);
 	}
 	$shouldNotReachHere();
 }
@@ -258,7 +226,33 @@ ConstantBootstraps::ConstantBootstraps() {
 }
 
 $Class* ConstantBootstraps::load$($String* name, bool initialize) {
-	$loadClass(ConstantBootstraps, name, initialize, &_ConstantBootstraps_ClassInfo_, allocate$ConstantBootstraps);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ConstantBootstraps, init$, void)},
+		{"arrayVarHandle", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<Ljava/lang/invoke/VarHandle;>;Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, arrayVarHandle, $VarHandle*, $MethodHandles$Lookup*, $String*, $Class*, $Class*)},
+		{"enumConstant", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Enum;", "<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<TE;>;)TE;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, enumConstant, $Enum*, $MethodHandles$Lookup*, $String*, $Class*)},
+		{"explicitCast", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, explicitCast, $Object*, $MethodHandles$Lookup*, $String*, $Class*, Object$*), "java.lang.ClassCastException"},
+		{"fieldVarHandle", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<Ljava/lang/invoke/VarHandle;>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, fieldVarHandle, $VarHandle*, $MethodHandles$Lookup*, $String*, $Class*, $Class*, $Class*)},
+		{"getStaticFinal", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, getStaticFinal, $Object*, $MethodHandles$Lookup*, $String*, $Class*, $Class*)},
+		{"getStaticFinal", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, getStaticFinal, $Object*, $MethodHandles$Lookup*, $String*, $Class*)},
+		{"invoke", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ConstantBootstraps, invoke, $Object*, $MethodHandles$Lookup*, $String*, $Class*, $MethodHandle*, $ObjectArray*), "java.lang.Throwable"},
+		{"makeConstant", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Class<*>;)Ljava/lang/Object;", $STATIC, $staticMethod(ConstantBootstraps, makeConstant, $Object*, $MethodHandle*, $String*, $Class*, Object$*, $Class*)},
+		{"nullConstant", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, nullConstant, $Object*, $MethodHandles$Lookup*, $String*, $Class*)},
+		{"primitiveClass", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, primitiveClass, $Class*, $MethodHandles$Lookup*, $String*, $Class*)},
+		{"staticFieldVarHandle", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<Ljava/lang/invoke/VarHandle;>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $staticMethod(ConstantBootstraps, staticFieldVarHandle, $VarHandle*, $MethodHandles$Lookup*, $String*, $Class*, $Class*, $Class*)},
+		{"validateClassAccess", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class<TT;>;)Ljava/lang/Class<TT;>;", $PRIVATE | $STATIC, $staticMethod(ConstantBootstraps, validateClassAccess, $Class*, $MethodHandles$Lookup*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.invoke.ConstantBootstraps",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ConstantBootstraps, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConstantBootstraps);
+	});
 	return class$;
 }
 

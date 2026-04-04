@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/BidiWriter.h>
-
 #include <java/lang/StringBuffer.h>
 #include <jdk/internal/icu/lang/UCharacter.h>
 #include <jdk/internal/icu/text/BidiBase.h>
@@ -44,97 +43,58 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$FieldInfo _BidiWriter_FieldInfo_[] = {
-	{"LRM_CHAR", "C", nullptr, $STATIC | $FINAL, $constField(BidiWriter, LRM_CHAR)},
-	{"RLM_CHAR", "C", nullptr, $STATIC | $FINAL, $constField(BidiWriter, RLM_CHAR)},
-	{"MASK_R_AL", "I", nullptr, $STATIC | $FINAL, $constField(BidiWriter, MASK_R_AL)},
-	{}
-};
-
-$MethodInfo _BidiWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BidiWriter, init$, void)},
-	{"IsCombining", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiWriter, IsCombining, bool, int32_t)},
-	{"doWriteForward", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiWriter, doWriteForward, $String*, $String*, int32_t)},
-	{"doWriteForward", "([CIII)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiWriter, doWriteForward, $String*, $chars*, int32_t, int32_t, int32_t)},
-	{"doWriteReverse", "([CIII)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BidiWriter, doWriteReverse, $String*, $chars*, int32_t, int32_t, int32_t)},
-	{"writeReordered", "(Ljdk/internal/icu/text/BidiBase;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BidiWriter, writeReordered, $String*, $BidiBase*, int32_t)},
-	{"writeReverse", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BidiWriter, writeReverse, $String*, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _BidiWriter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.text.BidiWriter",
-	"java.lang.Object",
-	nullptr,
-	_BidiWriter_FieldInfo_,
-	_BidiWriter_MethodInfo_
-};
-
-$Object* allocate$BidiWriter($Class* clazz) {
-	return $of($alloc(BidiWriter));
-}
-
 void BidiWriter::init$() {
 }
 
 bool BidiWriter::IsCombining(int32_t type) {
-	return (((int32_t)($sl(1, type) & (uint32_t)(($sl(1, $UCharacter::NON_SPACING_MARK) | $sl(1, $UCharacter::COMBINING_SPACING_MARK)) | $sl(1, $UCharacter::ENCLOSING_MARK)))) != 0);
+	return (($sl(1, type) & (($sl(1, $UCharacter::NON_SPACING_MARK) | $sl(1, $UCharacter::COMBINING_SPACING_MARK)) | $sl(1, $UCharacter::ENCLOSING_MARK))) != 0);
 }
 
 $String* BidiWriter::doWriteForward($String* src, int32_t options) {
-	$useLocalCurrentObjectStackCache();
-	switch ((int32_t)(options & (uint32_t)($BidiBase::REMOVE_BIDI_CONTROLS | $BidiBase::DO_MIRRORING))) {
+	$useLocalObjectStack();
+	switch (options & ($BidiBase::REMOVE_BIDI_CONTROLS | $BidiBase::DO_MIRRORING)) {
 	case 0:
 		{
-			{
-				return src;
-			}
+			return src;
 		}
 	case $BidiBase::DO_MIRRORING:
 		{
-			{
-				$var($StringBuffer, dest, $new($StringBuffer, $nc(src)->length()));
-				int32_t i = 0;
-				int32_t c = 0;
-				do {
-					c = $UTF16::charAt(src, i);
-					i += $UTF16::getCharCount(c);
-					$UTF16::append(dest, $UCharacter::getMirror(c));
-				} while (i < $nc(src)->length());
-				return dest->toString();
-			}
+			$var($StringBuffer, dest, $new($StringBuffer, $nc(src)->length()));
+			int32_t i = 0;
+			int32_t c = 0;
+			do {
+				c = $UTF16::charAt(src, i);
+				i += $UTF16::getCharCount(c);
+				$UTF16::append(dest, $UCharacter::getMirror(c));
+			} while (i < src->length());
+			return dest->toString();
 		}
 	case $BidiBase::REMOVE_BIDI_CONTROLS:
 		{
-			{
-				$var($StringBuilder, dest, $new($StringBuilder, $nc(src)->length()));
-				int32_t i = 0;
-				char16_t c = 0;
-				do {
-					c = $nc(src)->charAt(i++);
-					if (!$BidiBase::IsBidiControlChar(c)) {
-						dest->append(c);
-					}
-				} while (i < $nc(src)->length());
-				return dest->toString();
-			}
+			$var($StringBuilder, dest, $new($StringBuilder, $nc(src)->length()));
+			int32_t i = 0;
+			char16_t c = 0;
+			do {
+				c = src->charAt(i++);
+				if (!$BidiBase::IsBidiControlChar(c)) {
+					dest->append(c);
+				}
+			} while (i < src->length());
+			return dest->toString();
 		}
 	default:
 		{
-			{
-				$var($StringBuffer, dest, $new($StringBuffer, $nc(src)->length()));
-				int32_t i = 0;
-				int32_t c = 0;
-				do {
-					c = $UTF16::charAt(src, i);
-					i += $UTF16::getCharCount(c);
-					if (!$BidiBase::IsBidiControlChar(c)) {
-						$UTF16::append(dest, $UCharacter::getMirror(c));
-					}
-				} while (i < $nc(src)->length());
-				return dest->toString();
-			}
+			$var($StringBuffer, dest, $new($StringBuffer, $nc(src)->length()));
+			int32_t i = 0;
+			int32_t c = 0;
+			do {
+				c = $UTF16::charAt(src, i);
+				i += $UTF16::getCharCount(c);
+				if (!$BidiBase::IsBidiControlChar(c)) {
+					$UTF16::append(dest, $UCharacter::getMirror(c));
+				}
+			} while (i < src->length());
+			return dest->toString();
 		}
 	}
 }
@@ -144,61 +104,55 @@ $String* BidiWriter::doWriteForward($chars* text, int32_t start, int32_t limit, 
 }
 
 $String* BidiWriter::writeReverse($String* src, int32_t options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, dest, $new($StringBuffer, $nc(src)->length()));
 	{
 		int32_t srcLength = 0;
-		switch ((int32_t)(options & (uint32_t)(($BidiBase::REMOVE_BIDI_CONTROLS | $BidiBase::DO_MIRRORING) | $BidiBase::KEEP_BASE_COMBINING))) {
+		switch (options & (($BidiBase::REMOVE_BIDI_CONTROLS | $BidiBase::DO_MIRRORING) | $BidiBase::KEEP_BASE_COMBINING)) {
 		case 0:
-			{
-				srcLength = $nc(src)->length();
-				do {
-					int32_t i = srcLength;
-					srcLength -= $UTF16::getCharCount($UTF16::charAt(src, srcLength - 1));
-					dest->append($(src->substring(srcLength, i)));
-				} while (srcLength > 0);
-				break;
-			}
+			srcLength = src->length();
+			do {
+				int32_t i = srcLength;
+				srcLength -= $UTF16::getCharCount($UTF16::charAt(src, srcLength - 1));
+				dest->append($(src->substring(srcLength, i)));
+			} while (srcLength > 0);
+			break;
 		case $BidiBase::KEEP_BASE_COMBINING:
-			{
-				srcLength = src->length();
+			srcLength = src->length();
+			do {
+				int32_t c = 0;
+				int32_t i = srcLength;
 				do {
-					int32_t c = 0;
-					int32_t i = srcLength;
-					do {
+					c = $UTF16::charAt(src, srcLength - 1);
+					srcLength -= $UTF16::getCharCount(c);
+				} while (srcLength > 0 && IsCombining($UCharacter::getType(c)));
+				dest->append($(src->substring(srcLength, i)));
+			} while (srcLength > 0);
+			break;
+		default:
+			srcLength = src->length();
+			do {
+				int32_t i = srcLength;
+				int32_t c = $UTF16::charAt(src, srcLength - 1);
+				srcLength -= $UTF16::getCharCount(c);
+				if ((options & $BidiBase::KEEP_BASE_COMBINING) != 0) {
+					while (srcLength > 0 && IsCombining($UCharacter::getType(c))) {
 						c = $UTF16::charAt(src, srcLength - 1);
 						srcLength -= $UTF16::getCharCount(c);
-					} while (srcLength > 0 && IsCombining($UCharacter::getType(c)));
-					dest->append($(src->substring(srcLength, i)));
-				} while (srcLength > 0);
-				break;
-			}
-		default:
-			{
-				srcLength = src->length();
-				do {
-					int32_t i = srcLength;
-					int32_t c = $UTF16::charAt(src, srcLength - 1);
-					srcLength -= $UTF16::getCharCount(c);
-					if (((int32_t)(options & (uint32_t)(int32_t)$BidiBase::KEEP_BASE_COMBINING)) != 0) {
-						while (srcLength > 0 && IsCombining($UCharacter::getType(c))) {
-							c = $UTF16::charAt(src, srcLength - 1);
-							srcLength -= $UTF16::getCharCount(c);
-						}
 					}
-					if (((int32_t)(options & (uint32_t)(int32_t)$BidiBase::REMOVE_BIDI_CONTROLS)) != 0 && $BidiBase::IsBidiControlChar(c)) {
-						continue;
-					}
-					int32_t j = srcLength;
-					if (((int32_t)(options & (uint32_t)(int32_t)$BidiBase::DO_MIRRORING)) != 0) {
-						c = $UCharacter::getMirror(c);
-						$UTF16::append(dest, c);
-						j += $UTF16::getCharCount(c);
-					}
-					dest->append($(src->substring(j, i)));
-				} while (srcLength > 0);
-				break;
-			}
+				}
+				if ((options & $BidiBase::REMOVE_BIDI_CONTROLS) != 0 && $BidiBase::IsBidiControlChar(c)) {
+					continue;
+				}
+				int32_t j = srcLength;
+				if ((options & $BidiBase::DO_MIRRORING) != 0) {
+					c = $UCharacter::getMirror(c);
+					$UTF16::append(dest, c);
+					j += $UTF16::getCharCount(c);
+				}
+				dest->append($(src->substring(j, i)));
+			} while (srcLength > 0);
+			break;
 		}
 	}
 	return dest->toString();
@@ -209,30 +163,30 @@ $String* BidiWriter::doWriteReverse($chars* text, int32_t start, int32_t limit, 
 }
 
 $String* BidiWriter::writeReordered($BidiBase* bidi, int32_t options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t run = 0;
 	int32_t runCount = 0;
 	$var($StringBuilder, dest, nullptr);
 	$var($chars, text, $nc(bidi)->text);
 	runCount = bidi->countRuns();
-	if (((int32_t)(bidi->reorderingOptions & (uint32_t)$BidiBase::OPTION_INSERT_MARKS)) != 0) {
+	if ((bidi->reorderingOptions & $BidiBase::OPTION_INSERT_MARKS) != 0) {
 		options |= $BidiBase::INSERT_LRM_FOR_NUMERIC;
 		options &= (uint32_t)~$BidiBase::REMOVE_BIDI_CONTROLS;
 	}
-	if (((int32_t)(bidi->reorderingOptions & (uint32_t)$BidiBase::OPTION_REMOVE_CONTROLS)) != 0) {
+	if ((bidi->reorderingOptions & $BidiBase::OPTION_REMOVE_CONTROLS) != 0) {
 		options |= $BidiBase::REMOVE_BIDI_CONTROLS;
 		options &= (uint32_t)~$BidiBase::INSERT_LRM_FOR_NUMERIC;
 	}
 	if ((bidi->reorderingMode != $BidiBase::REORDER_INVERSE_NUMBERS_AS_L) && (bidi->reorderingMode != $BidiBase::REORDER_INVERSE_LIKE_DIRECT) && (bidi->reorderingMode != $BidiBase::REORDER_INVERSE_FOR_NUMBERS_SPECIAL) && (bidi->reorderingMode != $BidiBase::REORDER_RUNS_ONLY)) {
 		options &= (uint32_t)~$BidiBase::INSERT_LRM_FOR_NUMERIC;
 	}
-	$assign(dest, $new($StringBuilder, ((int32_t)(options & (uint32_t)(int32_t)$BidiBase::INSERT_LRM_FOR_NUMERIC)) != 0 ? bidi->length * 2 : bidi->length));
-	if (((int32_t)(options & (uint32_t)(int32_t)$BidiBase::OUTPUT_REVERSE)) == 0) {
-		if (((int32_t)(options & (uint32_t)(int32_t)$BidiBase::INSERT_LRM_FOR_NUMERIC)) == 0) {
+	$assign(dest, $new($StringBuilder, (options & $BidiBase::INSERT_LRM_FOR_NUMERIC) != 0 ? bidi->length * 2 : bidi->length));
+	if ((options & $BidiBase::OUTPUT_REVERSE) == 0) {
+		if ((options & $BidiBase::INSERT_LRM_FOR_NUMERIC) == 0) {
 			for (run = 0; run < runCount; ++run) {
 				$var($BidiRun, bidiRun, bidi->getVisualRun(run));
 				if ($nc(bidiRun)->isEvenRun()) {
-					dest->append($(doWriteForward(text, bidiRun->start, bidiRun->limit, (int32_t)(options & (uint32_t)~$BidiBase::DO_MIRRORING))));
+					dest->append($(doWriteForward(text, bidiRun->start, bidiRun->limit, options & ~$BidiBase::DO_MIRRORING)));
 				} else {
 					dest->append($(doWriteReverse(text, bidiRun->start, bidiRun->limit, options)));
 				}
@@ -252,26 +206,26 @@ $String* BidiWriter::writeReordered($BidiBase* bidi, int32_t options) {
 					if (bidi->isInverse() && $nc(dirProps)->get(bidiRun->start) != $BidiBase::L) {
 						markFlag |= $BidiBase::LRM_BEFORE;
 					}
-					if (((int32_t)(markFlag & (uint32_t)$BidiBase::LRM_BEFORE)) != 0) {
+					if ((markFlag & $BidiBase::LRM_BEFORE) != 0) {
 						uc = BidiWriter::LRM_CHAR;
-					} else if (((int32_t)(markFlag & (uint32_t)$BidiBase::RLM_BEFORE)) != 0) {
+					} else if ((markFlag & $BidiBase::RLM_BEFORE) != 0) {
 						uc = BidiWriter::RLM_CHAR;
 					} else {
-						uc = (char16_t)0;
+						uc = 0;
 					}
 					if (uc != 0) {
 						dest->append(uc);
 					}
-					dest->append($(doWriteForward(text, bidiRun->start, bidiRun->limit, (int32_t)(options & (uint32_t)~$BidiBase::DO_MIRRORING))));
+					dest->append($(doWriteForward(text, bidiRun->start, bidiRun->limit, options & ~$BidiBase::DO_MIRRORING)));
 					if (bidi->isInverse() && $nc(dirProps)->get(bidiRun->limit - 1) != $BidiBase::L) {
 						markFlag |= $BidiBase::LRM_AFTER;
 					}
-					if (((int32_t)(markFlag & (uint32_t)$BidiBase::LRM_AFTER)) != 0) {
+					if ((markFlag & $BidiBase::LRM_AFTER) != 0) {
 						uc = BidiWriter::LRM_CHAR;
-					} else if (((int32_t)(markFlag & (uint32_t)$BidiBase::RLM_AFTER)) != 0) {
+					} else if ((markFlag & $BidiBase::RLM_AFTER) != 0) {
 						uc = BidiWriter::RLM_CHAR;
 					} else {
-						uc = (char16_t)0;
+						uc = 0;
 					}
 					if (uc != 0) {
 						dest->append(uc);
@@ -281,27 +235,27 @@ $String* BidiWriter::writeReordered($BidiBase* bidi, int32_t options) {
 					if (var$0 && !bidi->testDirPropFlagAt(BidiWriter::MASK_R_AL, bidiRun->limit - 1)) {
 						markFlag |= $BidiBase::RLM_BEFORE;
 					}
-					if (((int32_t)(markFlag & (uint32_t)$BidiBase::LRM_BEFORE)) != 0) {
+					if ((markFlag & $BidiBase::LRM_BEFORE) != 0) {
 						uc = BidiWriter::LRM_CHAR;
-					} else if (((int32_t)(markFlag & (uint32_t)$BidiBase::RLM_BEFORE)) != 0) {
+					} else if ((markFlag & $BidiBase::RLM_BEFORE) != 0) {
 						uc = BidiWriter::RLM_CHAR;
 					} else {
-						uc = (char16_t)0;
+						uc = 0;
 					}
 					if (uc != 0) {
 						dest->append(uc);
 					}
 					dest->append($(doWriteReverse(text, bidiRun->start, bidiRun->limit, options)));
 					bool var$1 = bidi->isInverse();
-					if (var$1 && ((int32_t)(BidiWriter::MASK_R_AL & (uint32_t)$BidiBase::DirPropFlag($nc(dirProps)->get(bidiRun->start)))) == 0) {
+					if (var$1 && (BidiWriter::MASK_R_AL & $BidiBase::DirPropFlag($nc(dirProps)->get(bidiRun->start))) == 0) {
 						markFlag |= $BidiBase::RLM_AFTER;
 					}
-					if (((int32_t)(markFlag & (uint32_t)$BidiBase::LRM_AFTER)) != 0) {
+					if ((markFlag & $BidiBase::LRM_AFTER) != 0) {
 						uc = BidiWriter::LRM_CHAR;
-					} else if (((int32_t)(markFlag & (uint32_t)$BidiBase::RLM_AFTER)) != 0) {
+					} else if ((markFlag & $BidiBase::RLM_AFTER) != 0) {
 						uc = BidiWriter::RLM_CHAR;
 					} else {
-						uc = (char16_t)0;
+						uc = 0;
 					}
 					if (uc != 0) {
 						dest->append(uc);
@@ -309,11 +263,11 @@ $String* BidiWriter::writeReordered($BidiBase* bidi, int32_t options) {
 				}
 			}
 		}
-	} else if (((int32_t)(options & (uint32_t)(int32_t)$BidiBase::INSERT_LRM_FOR_NUMERIC)) == 0) {
+	} else if ((options & $BidiBase::INSERT_LRM_FOR_NUMERIC) == 0) {
 		for (run = runCount; --run >= 0;) {
 			$var($BidiRun, bidiRun, bidi->getVisualRun(run));
 			if ($nc(bidiRun)->isEvenRun()) {
-				dest->append($(doWriteReverse(text, bidiRun->start, bidiRun->limit, (int32_t)(options & (uint32_t)~$BidiBase::DO_MIRRORING))));
+				dest->append($(doWriteReverse(text, bidiRun->start, bidiRun->limit, options & ~$BidiBase::DO_MIRRORING)));
 			} else {
 				dest->append($(doWriteForward(text, bidiRun->start, bidiRun->limit, options)));
 			}
@@ -326,16 +280,16 @@ $String* BidiWriter::writeReordered($BidiBase* bidi, int32_t options) {
 				if ($nc(dirProps)->get(bidiRun->limit - 1) != $BidiBase::L) {
 					dest->append(BidiWriter::LRM_CHAR);
 				}
-				dest->append($(doWriteReverse(text, bidiRun->start, bidiRun->limit, (int32_t)(options & (uint32_t)~$BidiBase::DO_MIRRORING))));
-				if ($nc(dirProps)->get(bidiRun->start) != $BidiBase::L) {
+				dest->append($(doWriteReverse(text, bidiRun->start, bidiRun->limit, options & ~$BidiBase::DO_MIRRORING)));
+				if (dirProps->get(bidiRun->start) != $BidiBase::L) {
 					dest->append(BidiWriter::LRM_CHAR);
 				}
 			} else {
-				if (((int32_t)(BidiWriter::MASK_R_AL & (uint32_t)$BidiBase::DirPropFlag($nc(dirProps)->get(bidiRun->start)))) == 0) {
+				if ((BidiWriter::MASK_R_AL & $BidiBase::DirPropFlag($nc(dirProps)->get(bidiRun->start))) == 0) {
 					dest->append(BidiWriter::RLM_CHAR);
 				}
 				dest->append($(doWriteForward(text, bidiRun->start, bidiRun->limit, options)));
-				if (((int32_t)(BidiWriter::MASK_R_AL & (uint32_t)$BidiBase::DirPropFlag($nc(dirProps)->get(bidiRun->limit - 1)))) == 0) {
+				if ((BidiWriter::MASK_R_AL & $BidiBase::DirPropFlag(dirProps->get(bidiRun->limit - 1))) == 0) {
 					dest->append(BidiWriter::RLM_CHAR);
 				}
 			}
@@ -348,7 +302,33 @@ BidiWriter::BidiWriter() {
 }
 
 $Class* BidiWriter::load$($String* name, bool initialize) {
-	$loadClass(BidiWriter, name, initialize, &_BidiWriter_ClassInfo_, allocate$BidiWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"LRM_CHAR", "C", nullptr, $STATIC | $FINAL, $constField(BidiWriter, LRM_CHAR)},
+		{"RLM_CHAR", "C", nullptr, $STATIC | $FINAL, $constField(BidiWriter, RLM_CHAR)},
+		{"MASK_R_AL", "I", nullptr, $STATIC | $FINAL, $constField(BidiWriter, MASK_R_AL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BidiWriter, init$, void)},
+		{"IsCombining", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiWriter, IsCombining, bool, int32_t)},
+		{"doWriteForward", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiWriter, doWriteForward, $String*, $String*, int32_t)},
+		{"doWriteForward", "([CIII)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiWriter, doWriteForward, $String*, $chars*, int32_t, int32_t, int32_t)},
+		{"doWriteReverse", "([CIII)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BidiWriter, doWriteReverse, $String*, $chars*, int32_t, int32_t, int32_t)},
+		{"writeReordered", "(Ljdk/internal/icu/text/BidiBase;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BidiWriter, writeReordered, $String*, $BidiBase*, int32_t)},
+		{"writeReverse", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BidiWriter, writeReverse, $String*, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.text.BidiWriter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BidiWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BidiWriter);
+	});
 	return class$;
 }
 

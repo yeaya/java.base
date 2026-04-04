@@ -1,5 +1,4 @@
 #include <sun/nio/ch/FileChannelImpl$SyncUnmapper.h>
-
 #include <java/io/FileDescriptor.h>
 #include <sun/nio/ch/FileChannelImpl$Unmapper.h>
 #include <sun/nio/ch/FileChannelImpl.h>
@@ -15,47 +14,6 @@ using $FileChannelImpl$Unmapper = ::sun::nio::ch::FileChannelImpl$Unmapper;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _FileChannelImpl$SyncUnmapper_FieldInfo_[] = {
-	{"count", "I", nullptr, $STATIC | $VOLATILE, $staticField(FileChannelImpl$SyncUnmapper, count)},
-	{"totalSize", "J", nullptr, $STATIC | $VOLATILE, $staticField(FileChannelImpl$SyncUnmapper, totalSize)},
-	{"totalCapacity", "J", nullptr, $STATIC | $VOLATILE, $staticField(FileChannelImpl$SyncUnmapper, totalCapacity)},
-	{}
-};
-
-$MethodInfo _FileChannelImpl$SyncUnmapper_MethodInfo_[] = {
-	{"<init>", "(JJJLjava/io/FileDescriptor;I)V", nullptr, $PUBLIC, $method(FileChannelImpl$SyncUnmapper, init$, void, int64_t, int64_t, int64_t, $FileDescriptor*, int32_t)},
-	{"decrementStats", "()V", nullptr, $PROTECTED, $virtualMethod(FileChannelImpl$SyncUnmapper, decrementStats, void)},
-	{"incrementStats", "()V", nullptr, $PROTECTED, $virtualMethod(FileChannelImpl$SyncUnmapper, incrementStats, void)},
-	{"isSync", "()Z", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$SyncUnmapper, isSync, bool)},
-	{}
-};
-
-$InnerClassInfo _FileChannelImpl$SyncUnmapper_InnerClassesInfo_[] = {
-	{"sun.nio.ch.FileChannelImpl$SyncUnmapper", "sun.nio.ch.FileChannelImpl", "SyncUnmapper", $PRIVATE | $STATIC},
-	{"sun.nio.ch.FileChannelImpl$Unmapper", "sun.nio.ch.FileChannelImpl", "Unmapper", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FileChannelImpl$SyncUnmapper_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.FileChannelImpl$SyncUnmapper",
-	"sun.nio.ch.FileChannelImpl$Unmapper",
-	nullptr,
-	_FileChannelImpl$SyncUnmapper_FieldInfo_,
-	_FileChannelImpl$SyncUnmapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileChannelImpl$SyncUnmapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.FileChannelImpl"
-};
-
-$Object* allocate$FileChannelImpl$SyncUnmapper($Class* clazz) {
-	return $of($alloc(FileChannelImpl$SyncUnmapper));
-}
 
 $volatile(int32_t) FileChannelImpl$SyncUnmapper::count = 0;
 $volatile(int64_t) FileChannelImpl$SyncUnmapper::totalSize = 0;
@@ -90,7 +48,42 @@ FileChannelImpl$SyncUnmapper::FileChannelImpl$SyncUnmapper() {
 }
 
 $Class* FileChannelImpl$SyncUnmapper::load$($String* name, bool initialize) {
-	$loadClass(FileChannelImpl$SyncUnmapper, name, initialize, &_FileChannelImpl$SyncUnmapper_ClassInfo_, allocate$FileChannelImpl$SyncUnmapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"count", "I", nullptr, $STATIC | $VOLATILE, $staticField(FileChannelImpl$SyncUnmapper, count)},
+		{"totalSize", "J", nullptr, $STATIC | $VOLATILE, $staticField(FileChannelImpl$SyncUnmapper, totalSize)},
+		{"totalCapacity", "J", nullptr, $STATIC | $VOLATILE, $staticField(FileChannelImpl$SyncUnmapper, totalCapacity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JJJLjava/io/FileDescriptor;I)V", nullptr, $PUBLIC, $method(FileChannelImpl$SyncUnmapper, init$, void, int64_t, int64_t, int64_t, $FileDescriptor*, int32_t)},
+		{"decrementStats", "()V", nullptr, $PROTECTED, $virtualMethod(FileChannelImpl$SyncUnmapper, decrementStats, void)},
+		{"incrementStats", "()V", nullptr, $PROTECTED, $virtualMethod(FileChannelImpl$SyncUnmapper, incrementStats, void)},
+		{"isSync", "()Z", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$SyncUnmapper, isSync, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.FileChannelImpl$SyncUnmapper", "sun.nio.ch.FileChannelImpl", "SyncUnmapper", $PRIVATE | $STATIC},
+		{"sun.nio.ch.FileChannelImpl$Unmapper", "sun.nio.ch.FileChannelImpl", "Unmapper", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.FileChannelImpl$SyncUnmapper",
+		"sun.nio.ch.FileChannelImpl$Unmapper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.FileChannelImpl"
+	};
+	$loadClass(FileChannelImpl$SyncUnmapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileChannelImpl$SyncUnmapper));
+	});
 	return class$;
 }
 

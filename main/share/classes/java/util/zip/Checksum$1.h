@@ -13,6 +13,7 @@ class Checksum$1 : public ::java::lang::Object {
 	$class(Checksum$1, 0, ::java::lang::Object)
 public:
 	Checksum$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static bool $assertionsDisabled;
 };
 

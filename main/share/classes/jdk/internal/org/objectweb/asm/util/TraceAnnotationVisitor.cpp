@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/TraceAnnotationVisitor.h>
-
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jdk/internal/org/objectweb/asm/util/Printer.h>
@@ -21,35 +20,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$FieldInfo _TraceAnnotationVisitor_FieldInfo_[] = {
-	{"printer", "Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PRIVATE | $FINAL, $field(TraceAnnotationVisitor, printer)},
-	{}
-};
-
-$MethodInfo _TraceAnnotationVisitor_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceAnnotationVisitor, init$, void, $Printer*)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceAnnotationVisitor, init$, void, $AnnotationVisitor*, $Printer*)},
-	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TraceAnnotationVisitor, visit, void, $String*, Object$*)},
-	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceAnnotationVisitor, visitAnnotation, $AnnotationVisitor*, $String*, $String*)},
-	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceAnnotationVisitor, visitArray, $AnnotationVisitor*, $String*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TraceAnnotationVisitor, visitEnd, void)},
-	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceAnnotationVisitor, visitEnum, void, $String*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _TraceAnnotationVisitor_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.TraceAnnotationVisitor",
-	"jdk.internal.org.objectweb.asm.AnnotationVisitor",
-	nullptr,
-	_TraceAnnotationVisitor_FieldInfo_,
-	_TraceAnnotationVisitor_MethodInfo_
-};
-
-$Object* allocate$TraceAnnotationVisitor($Class* clazz) {
-	return $of($alloc(TraceAnnotationVisitor));
-}
-
 void TraceAnnotationVisitor::init$($Printer* printer) {
 	TraceAnnotationVisitor::init$(nullptr, printer);
 }
@@ -70,13 +40,13 @@ void TraceAnnotationVisitor::visitEnum($String* name, $String* descriptor, $Stri
 }
 
 $AnnotationVisitor* TraceAnnotationVisitor::visitAnnotation($String* name, $String* descriptor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->printer)->visitAnnotation(name, descriptor));
 	return $new(TraceAnnotationVisitor, $($AnnotationVisitor::visitAnnotation(name, descriptor)), annotationPrinter);
 }
 
 $AnnotationVisitor* TraceAnnotationVisitor::visitArray($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, arrayPrinter, $nc(this->printer)->visitArray(name));
 	return $new(TraceAnnotationVisitor, $($AnnotationVisitor::visitArray(name)), arrayPrinter);
 }
@@ -90,7 +60,31 @@ TraceAnnotationVisitor::TraceAnnotationVisitor() {
 }
 
 $Class* TraceAnnotationVisitor::load$($String* name, bool initialize) {
-	$loadClass(TraceAnnotationVisitor, name, initialize, &_TraceAnnotationVisitor_ClassInfo_, allocate$TraceAnnotationVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"printer", "Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PRIVATE | $FINAL, $field(TraceAnnotationVisitor, printer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceAnnotationVisitor, init$, void, $Printer*)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceAnnotationVisitor, init$, void, $AnnotationVisitor*, $Printer*)},
+		{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TraceAnnotationVisitor, visit, void, $String*, Object$*)},
+		{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceAnnotationVisitor, visitAnnotation, $AnnotationVisitor*, $String*, $String*)},
+		{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceAnnotationVisitor, visitArray, $AnnotationVisitor*, $String*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TraceAnnotationVisitor, visitEnd, void)},
+		{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceAnnotationVisitor, visitEnum, void, $String*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.TraceAnnotationVisitor",
+		"jdk.internal.org.objectweb.asm.AnnotationVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TraceAnnotationVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TraceAnnotationVisitor);
+	});
 	return class$;
 }
 

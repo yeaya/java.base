@@ -31,6 +31,7 @@ class ArchivedClassLoaders : public ::java::lang::Object {
 	$class(ArchivedClassLoaders, $PRELOAD, ::java::lang::Object)
 public:
 	ArchivedClassLoaders();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::lang::ClassLoader* appLoader();
 	static void archive();

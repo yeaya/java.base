@@ -1,5 +1,4 @@
 #include <ForceLoad.h>
-
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
@@ -10,30 +9,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Files = ::java::nio::file::Files;
 using $Paths = ::java::nio::file::Paths;
 
-$MethodInfo _ForceLoad_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ForceLoad, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ForceLoad, main, void, $StringArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ForceLoad_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ForceLoad",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ForceLoad_MethodInfo_
-};
-
-$Object* allocate$ForceLoad($Class* clazz) {
-	return $of($alloc(ForceLoad));
-}
-
 void ForceLoad::init$() {
 }
 
 void ForceLoad::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Files::probeContentType($($Paths::get("."_s, $$new($StringArray, 0))));
 }
 
@@ -41,7 +21,22 @@ ForceLoad::ForceLoad() {
 }
 
 $Class* ForceLoad::load$($String* name, bool initialize) {
-	$loadClass(ForceLoad, name, initialize, &_ForceLoad_ClassInfo_, allocate$ForceLoad);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ForceLoad, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ForceLoad, main, void, $StringArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ForceLoad",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ForceLoad, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForceLoad);
+	});
 	return class$;
 }
 

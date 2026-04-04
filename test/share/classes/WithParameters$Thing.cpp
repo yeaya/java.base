@@ -1,5 +1,4 @@
 #include <WithParameters$Thing.h>
-
 #include <WithParameters.h>
 #include <jcpp.h>
 
@@ -8,43 +7,37 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute WithParameters$Thing_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _WithParameters$Thing_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", WithParameters$Thing_Attribute_var$0},
-	{}
-};
-
-$InnerClassInfo _WithParameters$Thing_InnerClassesInfo_[] = {
-	{"WithParameters$Thing", "WithParameters", "Thing", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _WithParameters$Thing_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"WithParameters$Thing",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_WithParameters$Thing_InnerClassesInfo_,
-	_WithParameters$Thing_Annotations_,
-	nullptr,
-	nullptr,
-	"WithParameters"
-};
-
-$Object* allocate$WithParameters$Thing($Class* clazz) {
-	return $of($alloc(WithParameters$Thing));
-}
-
 $Class* WithParameters$Thing::load$($String* name, bool initialize) {
-	$loadClass(WithParameters$Thing, name, initialize, &_WithParameters$Thing_ClassInfo_, allocate$WithParameters$Thing);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"WithParameters$Thing", "WithParameters", "Thing", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"WithParameters$Thing",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"WithParameters"
+	};
+	$loadClass(WithParameters$Thing, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WithParameters$Thing);
+	});
 	return class$;
 }
 

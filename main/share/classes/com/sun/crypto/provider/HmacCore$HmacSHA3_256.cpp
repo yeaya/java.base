@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/HmacCore$HmacSHA3_256.h>
-
 #include <com/sun/crypto/provider/HmacCore.h>
 #include <jcpp.h>
 
@@ -13,50 +12,45 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _HmacCore$HmacSHA3_256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HmacCore$HmacSHA3_256, init$, void), "java.security.NoSuchAlgorithmException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(HmacCore$HmacSHA3_256, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{}
-};
-
-$InnerClassInfo _HmacCore$HmacSHA3_256_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.HmacCore$HmacSHA3_256", "com.sun.crypto.provider.HmacCore", "HmacSHA3_256", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HmacCore$HmacSHA3_256_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.HmacCore$HmacSHA3_256",
-	"com.sun.crypto.provider.HmacCore",
-	nullptr,
-	nullptr,
-	_HmacCore$HmacSHA3_256_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HmacCore$HmacSHA3_256_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.HmacCore"
-};
-
-$Object* allocate$HmacCore$HmacSHA3_256($Class* clazz) {
-	return $of($alloc(HmacCore$HmacSHA3_256));
-}
-
 void HmacCore$HmacSHA3_256::init$() {
 	$HmacCore::init$("SHA3-256"_s, 136);
 }
 
 $Object* HmacCore$HmacSHA3_256::clone() {
-	return $of($HmacCore::clone());
+	return $HmacCore::clone();
 }
 
 HmacCore$HmacSHA3_256::HmacCore$HmacSHA3_256() {
 }
 
 $Class* HmacCore$HmacSHA3_256::load$($String* name, bool initialize) {
-	$loadClass(HmacCore$HmacSHA3_256, name, initialize, &_HmacCore$HmacSHA3_256_ClassInfo_, allocate$HmacCore$HmacSHA3_256);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HmacCore$HmacSHA3_256, init$, void), "java.security.NoSuchAlgorithmException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(HmacCore$HmacSHA3_256, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.HmacCore$HmacSHA3_256", "com.sun.crypto.provider.HmacCore", "HmacSHA3_256", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.HmacCore$HmacSHA3_256",
+		"com.sun.crypto.provider.HmacCore",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.HmacCore"
+	};
+	$loadClass(HmacCore$HmacSHA3_256, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HmacCore$HmacSHA3_256));
+	});
 	return class$;
 }
 

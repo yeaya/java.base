@@ -34,7 +34,7 @@ public:
 	virtual int64_t sumThenReset();
 	virtual $String* toString() override;
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x6499DE12A37D0A3D;
+	static const int64_t serialVersionUID = (int64_t)0x6499de12a37d0a3d;
 };
 
 			} // atomic

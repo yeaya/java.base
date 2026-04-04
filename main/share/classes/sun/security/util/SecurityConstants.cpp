@@ -1,5 +1,4 @@
 #include <sun/security/util/SecurityConstants.h>
-
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/reflect/ReflectPermission.h>
 #include <java/net/NetPermission.h>
@@ -63,66 +62,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _SecurityConstants_FieldInfo_[] = {
-	{"FILE_DELETE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, FILE_DELETE_ACTION)},
-	{"FILE_EXECUTE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, FILE_EXECUTE_ACTION)},
-	{"FILE_READ_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, FILE_READ_ACTION)},
-	{"FILE_WRITE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, FILE_WRITE_ACTION)},
-	{"FILE_READLINK_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, FILE_READLINK_ACTION)},
-	{"SOCKET_RESOLVE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SOCKET_RESOLVE_ACTION)},
-	{"SOCKET_CONNECT_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SOCKET_CONNECT_ACTION)},
-	{"SOCKET_LISTEN_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SOCKET_LISTEN_ACTION)},
-	{"SOCKET_ACCEPT_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SOCKET_ACCEPT_ACTION)},
-	{"SOCKET_CONNECT_ACCEPT_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SOCKET_CONNECT_ACCEPT_ACTION)},
-	{"PROPERTY_RW_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, PROPERTY_RW_ACTION)},
-	{"PROPERTY_READ_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, PROPERTY_READ_ACTION)},
-	{"PROPERTY_WRITE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, PROPERTY_WRITE_ACTION)},
-	{"ALL_PERMISSION", "Ljava/security/AllPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, ALL_PERMISSION)},
-	{"SPECIFY_HANDLER_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SPECIFY_HANDLER_PERMISSION)},
-	{"SET_PROXYSELECTOR_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SET_PROXYSELECTOR_PERMISSION)},
-	{"GET_PROXYSELECTOR_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_PROXYSELECTOR_PERMISSION)},
-	{"SET_COOKIEHANDLER_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SET_COOKIEHANDLER_PERMISSION)},
-	{"GET_COOKIEHANDLER_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_COOKIEHANDLER_PERMISSION)},
-	{"SET_RESPONSECACHE_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SET_RESPONSECACHE_PERMISSION)},
-	{"GET_RESPONSECACHE_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_RESPONSECACHE_PERMISSION)},
-	{"SET_SOCKETIMPL_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SET_SOCKETIMPL_PERMISSION)},
-	{"CREATE_CLASSLOADER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, CREATE_CLASSLOADER_PERMISSION)},
-	{"CHECK_MEMBER_ACCESS_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, CHECK_MEMBER_ACCESS_PERMISSION)},
-	{"MODIFY_THREAD_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, MODIFY_THREAD_PERMISSION)},
-	{"MODIFY_THREADGROUP_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, MODIFY_THREADGROUP_PERMISSION)},
-	{"GET_PD_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_PD_PERMISSION)},
-	{"GET_CLASSLOADER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_CLASSLOADER_PERMISSION)},
-	{"STOP_THREAD_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, STOP_THREAD_PERMISSION)},
-	{"GET_STACK_TRACE_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_STACK_TRACE_PERMISSION)},
-	{"SUBCLASS_IMPLEMENTATION_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SUBCLASS_IMPLEMENTATION_PERMISSION)},
-	{"CREATE_ACC_PERMISSION", "Ljava/security/SecurityPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, CREATE_ACC_PERMISSION)},
-	{"GET_COMBINER_PERMISSION", "Ljava/security/SecurityPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_COMBINER_PERMISSION)},
-	{"GET_POLICY_PERMISSION", "Ljava/security/SecurityPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_POLICY_PERMISSION)},
-	{"LOCAL_LISTEN_PERMISSION", "Ljava/net/SocketPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, LOCAL_LISTEN_PERMISSION)},
-	{"PROVIDER_VER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, PROVIDER_VER)},
-	{"ACCESS_PERMISSION", "Ljava/lang/reflect/ReflectPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, ACCESS_PERMISSION)},
-	{"REFLECTION_FACTORY_ACCESS_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, REFLECTION_FACTORY_ACCESS_PERMISSION)},
-	{}
-};
-
-$MethodInfo _SecurityConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SecurityConstants, init$, void)},
-	{}
-};
-
-$ClassInfo _SecurityConstants_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.util.SecurityConstants",
-	"java.lang.Object",
-	nullptr,
-	_SecurityConstants_FieldInfo_,
-	_SecurityConstants_MethodInfo_
-};
-
-$Object* allocate$SecurityConstants($Class* clazz) {
-	return $of($alloc(SecurityConstants));
-}
-
 $String* SecurityConstants::FILE_DELETE_ACTION = nullptr;
 $String* SecurityConstants::FILE_EXECUTE_ACTION = nullptr;
 $String* SecurityConstants::FILE_READ_ACTION = nullptr;
@@ -165,7 +104,7 @@ $RuntimePermission* SecurityConstants::REFLECTION_FACTORY_ACCESS_PERMISSION = nu
 void SecurityConstants::init$() {
 }
 
-void clinit$SecurityConstants($Class* class$) {
+void SecurityConstants::clinit$($Class* clazz) {
 	$assignStatic(SecurityConstants::FILE_DELETE_ACTION, "delete"_s);
 	$assignStatic(SecurityConstants::FILE_EXECUTE_ACTION, "execute"_s);
 	$assignStatic(SecurityConstants::FILE_READ_ACTION, "read"_s);
@@ -210,7 +149,62 @@ SecurityConstants::SecurityConstants() {
 }
 
 $Class* SecurityConstants::load$($String* name, bool initialize) {
-	$loadClass(SecurityConstants, name, initialize, &_SecurityConstants_ClassInfo_, clinit$SecurityConstants, allocate$SecurityConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"FILE_DELETE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, FILE_DELETE_ACTION)},
+		{"FILE_EXECUTE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, FILE_EXECUTE_ACTION)},
+		{"FILE_READ_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, FILE_READ_ACTION)},
+		{"FILE_WRITE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, FILE_WRITE_ACTION)},
+		{"FILE_READLINK_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, FILE_READLINK_ACTION)},
+		{"SOCKET_RESOLVE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SOCKET_RESOLVE_ACTION)},
+		{"SOCKET_CONNECT_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SOCKET_CONNECT_ACTION)},
+		{"SOCKET_LISTEN_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SOCKET_LISTEN_ACTION)},
+		{"SOCKET_ACCEPT_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SOCKET_ACCEPT_ACTION)},
+		{"SOCKET_CONNECT_ACCEPT_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SOCKET_CONNECT_ACCEPT_ACTION)},
+		{"PROPERTY_RW_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, PROPERTY_RW_ACTION)},
+		{"PROPERTY_READ_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, PROPERTY_READ_ACTION)},
+		{"PROPERTY_WRITE_ACTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, PROPERTY_WRITE_ACTION)},
+		{"ALL_PERMISSION", "Ljava/security/AllPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, ALL_PERMISSION)},
+		{"SPECIFY_HANDLER_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SPECIFY_HANDLER_PERMISSION)},
+		{"SET_PROXYSELECTOR_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SET_PROXYSELECTOR_PERMISSION)},
+		{"GET_PROXYSELECTOR_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_PROXYSELECTOR_PERMISSION)},
+		{"SET_COOKIEHANDLER_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SET_COOKIEHANDLER_PERMISSION)},
+		{"GET_COOKIEHANDLER_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_COOKIEHANDLER_PERMISSION)},
+		{"SET_RESPONSECACHE_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SET_RESPONSECACHE_PERMISSION)},
+		{"GET_RESPONSECACHE_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_RESPONSECACHE_PERMISSION)},
+		{"SET_SOCKETIMPL_PERMISSION", "Ljava/net/NetPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SET_SOCKETIMPL_PERMISSION)},
+		{"CREATE_CLASSLOADER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, CREATE_CLASSLOADER_PERMISSION)},
+		{"CHECK_MEMBER_ACCESS_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, CHECK_MEMBER_ACCESS_PERMISSION)},
+		{"MODIFY_THREAD_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, MODIFY_THREAD_PERMISSION)},
+		{"MODIFY_THREADGROUP_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, MODIFY_THREADGROUP_PERMISSION)},
+		{"GET_PD_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_PD_PERMISSION)},
+		{"GET_CLASSLOADER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_CLASSLOADER_PERMISSION)},
+		{"STOP_THREAD_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, STOP_THREAD_PERMISSION)},
+		{"GET_STACK_TRACE_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_STACK_TRACE_PERMISSION)},
+		{"SUBCLASS_IMPLEMENTATION_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, SUBCLASS_IMPLEMENTATION_PERMISSION)},
+		{"CREATE_ACC_PERMISSION", "Ljava/security/SecurityPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, CREATE_ACC_PERMISSION)},
+		{"GET_COMBINER_PERMISSION", "Ljava/security/SecurityPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_COMBINER_PERMISSION)},
+		{"GET_POLICY_PERMISSION", "Ljava/security/SecurityPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, GET_POLICY_PERMISSION)},
+		{"LOCAL_LISTEN_PERMISSION", "Ljava/net/SocketPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, LOCAL_LISTEN_PERMISSION)},
+		{"PROVIDER_VER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, PROVIDER_VER)},
+		{"ACCESS_PERMISSION", "Ljava/lang/reflect/ReflectPermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, ACCESS_PERMISSION)},
+		{"REFLECTION_FACTORY_ACCESS_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityConstants, REFLECTION_FACTORY_ACCESS_PERMISSION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SecurityConstants, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.util.SecurityConstants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SecurityConstants, name, initialize, &classInfo$$, SecurityConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SecurityConstants);
+	});
 	return class$;
 }
 

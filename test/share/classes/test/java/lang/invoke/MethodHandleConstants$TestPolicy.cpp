@@ -1,5 +1,4 @@
 #include <test/java/lang/invoke/MethodHandleConstants$TestPolicy.h>
-
 #include <java/io/FilePermission.h>
 #include <java/security/CodeSource.h>
 #include <java/security/Permission.h>
@@ -29,51 +28,12 @@ namespace test {
 		namespace lang {
 			namespace invoke {
 
-$FieldInfo _MethodHandleConstants$TestPolicy_FieldInfo_[] = {
-	{"DEFAULT_POLICY", "Ljava/security/Policy;", nullptr, $STATIC | $FINAL, $staticField(MethodHandleConstants$TestPolicy, DEFAULT_POLICY)},
-	{"permissions", "Ljava/security/PermissionCollection;", nullptr, $FINAL, $field(MethodHandleConstants$TestPolicy, permissions)},
-	{}
-};
-
-$MethodInfo _MethodHandleConstants$TestPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MethodHandleConstants$TestPolicy, init$, void)},
-	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(MethodHandleConstants$TestPolicy, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(MethodHandleConstants$TestPolicy, getPermissions, $PermissionCollection*, $CodeSource*)},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandleConstants$TestPolicy, implies, bool, $ProtectionDomain*, $Permission*)},
-	{}
-};
-
-$InnerClassInfo _MethodHandleConstants$TestPolicy_InnerClassesInfo_[] = {
-	{"test.java.lang.invoke.MethodHandleConstants$TestPolicy", "test.java.lang.invoke.MethodHandleConstants", "TestPolicy", $STATIC},
-	{}
-};
-
-$ClassInfo _MethodHandleConstants$TestPolicy_ClassInfo_ = {
-	$ACC_SUPER,
-	"test.java.lang.invoke.MethodHandleConstants$TestPolicy",
-	"java.security.Policy",
-	nullptr,
-	_MethodHandleConstants$TestPolicy_FieldInfo_,
-	_MethodHandleConstants$TestPolicy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodHandleConstants$TestPolicy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"test.java.lang.invoke.MethodHandleConstants"
-};
-
-$Object* allocate$MethodHandleConstants$TestPolicy($Class* clazz) {
-	return $of($alloc(MethodHandleConstants$TestPolicy));
-}
-
 $Policy* MethodHandleConstants$TestPolicy::DEFAULT_POLICY = nullptr;
 
 void MethodHandleConstants$TestPolicy::init$() {
 	$Policy::init$();
 	$set(this, permissions, $new($Permissions));
-	$nc(this->permissions)->add($$new($FilePermission, "<<ALL FILES>>"_s, "read"_s));
+	this->permissions->add($$new($FilePermission, "<<ALL FILES>>"_s, "read"_s));
 }
 
 $PermissionCollection* MethodHandleConstants$TestPolicy::getPermissions($ProtectionDomain* domain) {
@@ -85,11 +45,11 @@ $PermissionCollection* MethodHandleConstants$TestPolicy::getPermissions($CodeSou
 }
 
 bool MethodHandleConstants$TestPolicy::implies($ProtectionDomain* domain, $Permission* perm) {
-	bool var$0 = $nc(this->permissions)->implies(perm);
+	bool var$0 = this->permissions->implies(perm);
 	return var$0 || $nc(MethodHandleConstants$TestPolicy::DEFAULT_POLICY)->implies(domain, perm);
 }
 
-void clinit$MethodHandleConstants$TestPolicy($Class* class$) {
+void MethodHandleConstants$TestPolicy::clinit$($Class* clazz) {
 	$assignStatic(MethodHandleConstants$TestPolicy::DEFAULT_POLICY, $Policy::getPolicy());
 }
 
@@ -97,7 +57,40 @@ MethodHandleConstants$TestPolicy::MethodHandleConstants$TestPolicy() {
 }
 
 $Class* MethodHandleConstants$TestPolicy::load$($String* name, bool initialize) {
-	$loadClass(MethodHandleConstants$TestPolicy, name, initialize, &_MethodHandleConstants$TestPolicy_ClassInfo_, clinit$MethodHandleConstants$TestPolicy, allocate$MethodHandleConstants$TestPolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_POLICY", "Ljava/security/Policy;", nullptr, $STATIC | $FINAL, $staticField(MethodHandleConstants$TestPolicy, DEFAULT_POLICY)},
+		{"permissions", "Ljava/security/PermissionCollection;", nullptr, $FINAL, $field(MethodHandleConstants$TestPolicy, permissions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MethodHandleConstants$TestPolicy, init$, void)},
+		{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(MethodHandleConstants$TestPolicy, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
+		{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(MethodHandleConstants$TestPolicy, getPermissions, $PermissionCollection*, $CodeSource*)},
+		{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandleConstants$TestPolicy, implies, bool, $ProtectionDomain*, $Permission*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"test.java.lang.invoke.MethodHandleConstants$TestPolicy", "test.java.lang.invoke.MethodHandleConstants", "TestPolicy", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"test.java.lang.invoke.MethodHandleConstants$TestPolicy",
+		"java.security.Policy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"test.java.lang.invoke.MethodHandleConstants"
+	};
+	$loadClass(MethodHandleConstants$TestPolicy, name, initialize, &classInfo$$, MethodHandleConstants$TestPolicy::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodHandleConstants$TestPolicy);
+	});
 	return class$;
 }
 

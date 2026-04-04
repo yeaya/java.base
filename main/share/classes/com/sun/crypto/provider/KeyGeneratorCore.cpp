@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/KeyGeneratorCore.h>
-
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidParameterException.h>
@@ -28,50 +27,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _KeyGeneratorCore_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyGeneratorCore, name)},
-	{"defaultKeySize", "I", nullptr, $PRIVATE | $FINAL, $field(KeyGeneratorCore, defaultKeySize)},
-	{"keySize", "I", nullptr, $PRIVATE, $field(KeyGeneratorCore, keySize)},
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(KeyGeneratorCore, random)},
-	{}
-};
-
-$MethodInfo _KeyGeneratorCore_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(KeyGeneratorCore, init$, void, $String*, int32_t)},
-	{"implGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(KeyGeneratorCore, implGenerateKey, $SecretKey*)},
-	{"implInit", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(KeyGeneratorCore, implInit, void, $SecureRandom*)},
-	{"implInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(KeyGeneratorCore, implInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"implInit", "(ILjava/security/SecureRandom;)V", nullptr, 0, $method(KeyGeneratorCore, implInit, void, int32_t, $SecureRandom*)},
-	{}
-};
-
-$InnerClassInfo _KeyGeneratorCore_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.KeyGeneratorCore$ChaCha20KeyGenerator", "com.sun.crypto.provider.KeyGeneratorCore", "ChaCha20KeyGenerator", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.KeyGeneratorCore$ARCFOURKeyGenerator", "com.sun.crypto.provider.KeyGeneratorCore", "ARCFOURKeyGenerator", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.KeyGeneratorCore$RC2KeyGenerator", "com.sun.crypto.provider.KeyGeneratorCore", "RC2KeyGenerator", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.KeyGeneratorCore$HmacKG", "com.sun.crypto.provider.KeyGeneratorCore", "HmacKG", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeyGeneratorCore_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.KeyGeneratorCore",
-	"java.lang.Object",
-	nullptr,
-	_KeyGeneratorCore_FieldInfo_,
-	_KeyGeneratorCore_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyGeneratorCore_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.KeyGeneratorCore$ChaCha20KeyGenerator,com.sun.crypto.provider.KeyGeneratorCore$ARCFOURKeyGenerator,com.sun.crypto.provider.KeyGeneratorCore$RC2KeyGenerator,com.sun.crypto.provider.KeyGeneratorCore$HmacKG,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA3_512,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA3_384,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA3_256,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA3_224,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA512_256,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA512_224,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA512,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA384,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA256,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA224"
-};
-
-$Object* allocate$KeyGeneratorCore($Class* clazz) {
-	return $of($alloc(KeyGeneratorCore));
-}
-
 void KeyGeneratorCore::init$($String* name, int32_t defaultKeySize) {
 	$set(this, name, name);
 	this->defaultKeySize = defaultKeySize;
@@ -96,31 +51,29 @@ void KeyGeneratorCore::implInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* KeyGeneratorCore::implGenerateKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
 	}
 	$var($bytes, b, $new($bytes, (this->keySize + 7) >> 3));
 	$nc(this->random)->nextBytes(b);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($SecretKey, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $new($SecretKeySpec, b, this->name));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(b, (int8_t)0);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($SecretKey, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $new($SecretKeySpec, b, this->name));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(b, (int8_t)0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -129,7 +82,45 @@ KeyGeneratorCore::KeyGeneratorCore() {
 }
 
 $Class* KeyGeneratorCore::load$($String* name, bool initialize) {
-	$loadClass(KeyGeneratorCore, name, initialize, &_KeyGeneratorCore_ClassInfo_, allocate$KeyGeneratorCore);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyGeneratorCore, name)},
+		{"defaultKeySize", "I", nullptr, $PRIVATE | $FINAL, $field(KeyGeneratorCore, defaultKeySize)},
+		{"keySize", "I", nullptr, $PRIVATE, $field(KeyGeneratorCore, keySize)},
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(KeyGeneratorCore, random)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(KeyGeneratorCore, init$, void, $String*, int32_t)},
+		{"implGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(KeyGeneratorCore, implGenerateKey, $SecretKey*)},
+		{"implInit", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(KeyGeneratorCore, implInit, void, $SecureRandom*)},
+		{"implInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(KeyGeneratorCore, implInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"implInit", "(ILjava/security/SecureRandom;)V", nullptr, 0, $method(KeyGeneratorCore, implInit, void, int32_t, $SecureRandom*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.KeyGeneratorCore$ChaCha20KeyGenerator", "com.sun.crypto.provider.KeyGeneratorCore", "ChaCha20KeyGenerator", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.KeyGeneratorCore$ARCFOURKeyGenerator", "com.sun.crypto.provider.KeyGeneratorCore", "ARCFOURKeyGenerator", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.KeyGeneratorCore$RC2KeyGenerator", "com.sun.crypto.provider.KeyGeneratorCore", "RC2KeyGenerator", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.KeyGeneratorCore$HmacKG", "com.sun.crypto.provider.KeyGeneratorCore", "HmacKG", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.KeyGeneratorCore",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.KeyGeneratorCore$ChaCha20KeyGenerator,com.sun.crypto.provider.KeyGeneratorCore$ARCFOURKeyGenerator,com.sun.crypto.provider.KeyGeneratorCore$RC2KeyGenerator,com.sun.crypto.provider.KeyGeneratorCore$HmacKG,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA3_512,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA3_384,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA3_256,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA3_224,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA512_256,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA512_224,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA512,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA384,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA256,com.sun.crypto.provider.KeyGeneratorCore$HmacKG$SHA224"
+	};
+	$loadClass(KeyGeneratorCore, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyGeneratorCore);
+	});
 	return class$;
 }
 

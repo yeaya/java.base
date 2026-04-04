@@ -1,5 +1,4 @@
 #include <java/util/jar/Attributes.h>
-
 #include <java/io/DataOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -24,14 +23,12 @@
 
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
@@ -47,66 +44,6 @@ using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 namespace java {
 	namespace util {
 		namespace jar {
-
-$FieldInfo _Attributes_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PROTECTED, $field(Attributes, map)},
-	{}
-};
-
-$MethodInfo _Attributes_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Attributes, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Attributes, init$, void, int32_t)},
-	{"<init>", "(Ljava/util/jar/Attributes;)V", nullptr, $PUBLIC, $method(Attributes, init$, void, Attributes*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Attributes, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attributes, clone, $Object*)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Attributes, containsKey, bool, Object$*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Attributes, containsValue, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(Attributes, entrySet, $Set*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Attributes, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attributes, get, $Object*, Object$*)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getValue, $String*, $String*)},
-	{"getValue", "(Ljava/util/jar/Attributes$Name;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getValue, $String*, $Attributes$Name*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Attributes, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Attributes, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Attributes, keySet, $Set*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attributes, put, $Object*, Object$*, Object$*)},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(Attributes, putAll, void, $Map*)},
-	{"putValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, putValue, $String*, $String*, $String*)},
-	{"read", "(Ljava/util/jar/Manifest$FastInputStream;[B)V", nullptr, 0, $virtualMethod(Attributes, read, void, $Manifest$FastInputStream*, $bytes*), "java.io.IOException"},
-	{"read", "(Ljava/util/jar/Manifest$FastInputStream;[BLjava/lang/String;I)I", nullptr, 0, $virtualMethod(Attributes, read, int32_t, $Manifest$FastInputStream*, $bytes*, $String*, int32_t), "java.io.IOException"},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attributes, remove, $Object*, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Attributes, size, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Attributes, values, $Collection*)},
-	{"write", "(Ljava/io/DataOutputStream;)V", nullptr, 0, $virtualMethod(Attributes, write, void, $DataOutputStream*), "java.io.IOException"},
-	{"writeMain", "(Ljava/io/DataOutputStream;)V", nullptr, 0, $virtualMethod(Attributes, writeMain, void, $DataOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Attributes_InnerClassesInfo_[] = {
-	{"java.util.jar.Attributes$Name", "java.util.jar.Attributes", "Name", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attributes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.jar.Attributes",
-	"java.lang.Object",
-	"java.util.Map,java.lang.Cloneable",
-	_Attributes_FieldInfo_,
-	_Attributes_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;Ljava/lang/Cloneable;",
-	nullptr,
-	_Attributes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.jar.Attributes$Name"
-};
-
-$Object* allocate$Attributes($Class* clazz) {
-	return $of($alloc(Attributes));
-}
 
 $String* Attributes::toString() {
 	 return this->$Map::toString();
@@ -125,11 +62,11 @@ void Attributes::init$(int32_t size) {
 }
 
 void Attributes::init$(Attributes* attr) {
-	$set(this, map, $new($LinkedHashMap, static_cast<$Map*>(attr)));
+	$set(this, map, $new($LinkedHashMap, attr));
 }
 
 $Object* Attributes::get(Object$* name) {
-	return $of($nc(this->map)->get(name));
+	return $nc(this->map)->get(name);
 }
 
 $String* Attributes::getValue($String* name) {
@@ -141,7 +78,7 @@ $String* Attributes::getValue($Attributes$Name* name) {
 }
 
 $Object* Attributes::put(Object$* name, Object$* value) {
-	return $of($nc(this->map)->put($cast($Attributes$Name, name), $cast($String, value)));
+	return $nc(this->map)->put($cast($Attributes$Name, name), $cast($String, value));
 }
 
 $String* Attributes::putValue($String* name, $String* value) {
@@ -149,7 +86,7 @@ $String* Attributes::putValue($String* name, $String* value) {
 }
 
 $Object* Attributes::remove(Object$* name) {
-	return $of($nc(this->map)->remove(name));
+	return $nc(this->map)->remove(name);
 }
 
 bool Attributes::containsValue(Object$* value) {
@@ -161,12 +98,12 @@ bool Attributes::containsKey(Object$* name) {
 }
 
 void Attributes::putAll($Map* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Attributes::class$->isInstance(attr)) {
 		$throwNew($ClassCastException);
 	}
 	{
-		$var($Iterator, i$, $nc($($nc((attr))->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc((attr))->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, me, $cast($Map$Entry, i$->next()));
 			$var($Object, var$0, $nc(me)->getKey());
@@ -212,17 +149,17 @@ $Object* Attributes::clone() {
 }
 
 void Attributes::write($DataOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buffer, $new($StringBuilder, 72));
 	{
-		$var($Iterator, i$, $nc($(entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
 				buffer->setLength(0);
-				buffer->append($($nc($of($($nc(e)->getKey())))->toString()));
+				buffer->append($($$nc($nc(e)->getKey())->toString()));
 				buffer->append(": "_s);
-				buffer->append($($nc(e)->getValue()));
+				buffer->append($(e->getValue()));
 				$Manifest::println72(out, $(buffer->toString()));
 			}
 		}
@@ -231,7 +168,7 @@ void Attributes::write($DataOutputStream* out) {
 }
 
 void Attributes::writeMain($DataOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buffer, $new($StringBuilder, 72));
 	$init($Attributes$Name);
 	$var($String, vername, $nc($Attributes$Name::MANIFEST_VERSION)->toString());
@@ -245,15 +182,15 @@ void Attributes::writeMain($DataOutputStream* out) {
 		buffer->append(": "_s);
 		buffer->append(version);
 		$init($UTF_8);
-		$nc(out)->write($($nc($(buffer->toString()))->getBytes(static_cast<$Charset*>($UTF_8::INSTANCE))));
+		$nc(out)->write($($(buffer->toString())->getBytes($UTF_8::INSTANCE)));
 		$Manifest::println(out);
 	}
 	{
-		$var($Iterator, i$, $nc($(entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
-				$var($String, name, $nc(($cast($Attributes$Name, $($nc(e)->getKey()))))->toString());
+				$var($String, name, $$sure($Attributes$Name, $nc(e)->getKey())->toString());
 				if ((version != nullptr) && !($nc(name)->equalsIgnoreCase(vername))) {
 					buffer->setLength(0);
 					buffer->append(name);
@@ -272,7 +209,7 @@ void Attributes::read($Manifest$FastInputStream* is, $bytes* lbuf) {
 }
 
 int32_t Attributes::read($Manifest$FastInputStream* is, $bytes* lbuf, $String* filename, int32_t lineNumber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, nullptr);
 	$var($String, value, nullptr);
 	$var($bytes, lastline, nullptr);
@@ -304,7 +241,7 @@ int32_t Attributes::read($Manifest$FastInputStream* is, $bytes* lbuf, $String* f
 				continue;
 			}
 			$init($UTF_8);
-			$assign(value, $new($String, buf, 0, buf->length, static_cast<$Charset*>($UTF_8::INSTANCE)));
+			$assign(value, $new($String, buf, 0, buf->length, $UTF_8::INSTANCE));
 			$assign(lastline, nullptr);
 		} else {
 			while (lbuf->get(i++) != u':') {
@@ -316,17 +253,17 @@ int32_t Attributes::read($Manifest$FastInputStream* is, $bytes* lbuf, $String* f
 				$throwNew($IOException, $$str({"invalid header field ("_s, $($Manifest::getErrorPosition(filename, lineNumber)), ")"_s}));
 			}
 			$init($UTF_8);
-			$assign(name, $new($String, lbuf, 0, i - 2, static_cast<$Charset*>($UTF_8::INSTANCE)));
+			$assign(name, $new($String, lbuf, 0, i - 2, $UTF_8::INSTANCE));
 			if (is->peek() == u' ') {
 				$assign(lastline, $new($bytes, len - i));
 				$System::arraycopy(lbuf, i, lastline, 0, len - i);
 				continue;
 			}
-			$assign(value, $new($String, lbuf, i, len - i, static_cast<$Charset*>($UTF_8::INSTANCE)));
+			$assign(value, $new($String, lbuf, i, len - i, $UTF_8::INSTANCE));
 		}
 		try {
 			if ((putValue(name, value) != nullptr) && (!lineContinued)) {
-				$nc($($PlatformLogger::getLogger("java.util.jar"_s)))->warning($$str({"Duplicate name in Manifest: "_s, name, ".\nEnsure that the manifest does not have duplicate entries, and\nthat blank lines separate individual sections in both your\nmanifest and in the META-INF/MANIFEST.MF entry in the jar file."_s}));
+				$$nc($PlatformLogger::getLogger("java.util.jar"_s))->warning($$str({"Duplicate name in Manifest: "_s, name, ".\nEnsure that the manifest does not have duplicate entries, and\nthat blank lines separate individual sections in both your\nmanifest and in the META-INF/MANIFEST.MF entry in the jar file."_s}));
 			}
 		} catch ($IllegalArgumentException& e) {
 			$throwNew($IOException, $$str({"invalid header field name: "_s, name, " ("_s, $($Manifest::getErrorPosition(filename, lineNumber)), ")"_s}));
@@ -339,7 +276,61 @@ Attributes::Attributes() {
 }
 
 $Class* Attributes::load$($String* name, bool initialize) {
-	$loadClass(Attributes, name, initialize, &_Attributes_ClassInfo_, allocate$Attributes);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PROTECTED, $field(Attributes, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Attributes, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Attributes, init$, void, int32_t)},
+		{"<init>", "(Ljava/util/jar/Attributes;)V", nullptr, $PUBLIC, $method(Attributes, init$, void, Attributes*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Attributes, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attributes, clone, $Object*)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Attributes, containsKey, bool, Object$*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Attributes, containsValue, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(Attributes, entrySet, $Set*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Attributes, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attributes, get, $Object*, Object$*)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getValue, $String*, $String*)},
+		{"getValue", "(Ljava/util/jar/Attributes$Name;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, getValue, $String*, $Attributes$Name*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Attributes, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Attributes, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Attributes, keySet, $Set*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attributes, put, $Object*, Object$*, Object$*)},
+		{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(Attributes, putAll, void, $Map*)},
+		{"putValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes, putValue, $String*, $String*, $String*)},
+		{"read", "(Ljava/util/jar/Manifest$FastInputStream;[B)V", nullptr, 0, $virtualMethod(Attributes, read, void, $Manifest$FastInputStream*, $bytes*), "java.io.IOException"},
+		{"read", "(Ljava/util/jar/Manifest$FastInputStream;[BLjava/lang/String;I)I", nullptr, 0, $virtualMethod(Attributes, read, int32_t, $Manifest$FastInputStream*, $bytes*, $String*, int32_t), "java.io.IOException"},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attributes, remove, $Object*, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Attributes, size, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Attributes, values, $Collection*)},
+		{"write", "(Ljava/io/DataOutputStream;)V", nullptr, 0, $virtualMethod(Attributes, write, void, $DataOutputStream*), "java.io.IOException"},
+		{"writeMain", "(Ljava/io/DataOutputStream;)V", nullptr, 0, $virtualMethod(Attributes, writeMain, void, $DataOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.jar.Attributes$Name", "java.util.jar.Attributes", "Name", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.jar.Attributes",
+		"java.lang.Object",
+		"java.util.Map,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;Ljava/lang/Cloneable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.jar.Attributes$Name"
+	};
+	$loadClass(Attributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Attributes));
+	});
 	return class$;
 }
 

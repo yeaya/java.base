@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/LocaleDataMetaInfo.h>
-
 #include <java/util/Map.h>
 #include <sun/util/locale/provider/LocaleProviderAdapter$Type.h>
 #include <jcpp.h>
@@ -14,27 +13,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$MethodInfo _LocaleDataMetaInfo_MethodInfo_[] = {
-	{"availableLanguageTags", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleDataMetaInfo, availableLanguageTags, $String*, $String*)},
-	{"getLanguageAliasMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LocaleDataMetaInfo, getLanguageAliasMap, $Map*)},
-	{"getType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleDataMetaInfo, getType, $LocaleProviderAdapter$Type*)},
-	{"tzCanonicalIDs", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LocaleDataMetaInfo, tzCanonicalIDs, $Map*)},
-	{}
-};
-
-$ClassInfo _LocaleDataMetaInfo_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.util.locale.provider.LocaleDataMetaInfo",
-	nullptr,
-	nullptr,
-	nullptr,
-	_LocaleDataMetaInfo_MethodInfo_
-};
-
-$Object* allocate$LocaleDataMetaInfo($Class* clazz) {
-	return $of($alloc(LocaleDataMetaInfo));
-}
-
 $Map* LocaleDataMetaInfo::tzCanonicalIDs() {
 	return nullptr;
 }
@@ -44,7 +22,24 @@ $Map* LocaleDataMetaInfo::getLanguageAliasMap() {
 }
 
 $Class* LocaleDataMetaInfo::load$($String* name, bool initialize) {
-	$loadClass(LocaleDataMetaInfo, name, initialize, &_LocaleDataMetaInfo_ClassInfo_, allocate$LocaleDataMetaInfo);
+	$MethodInfo methodInfos$$[] = {
+		{"availableLanguageTags", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleDataMetaInfo, availableLanguageTags, $String*, $String*)},
+		{"getLanguageAliasMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LocaleDataMetaInfo, getLanguageAliasMap, $Map*)},
+		{"getType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleDataMetaInfo, getType, $LocaleProviderAdapter$Type*)},
+		{"tzCanonicalIDs", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LocaleDataMetaInfo, tzCanonicalIDs, $Map*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.util.locale.provider.LocaleDataMetaInfo",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleDataMetaInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleDataMetaInfo);
+	});
 	return class$;
 }
 

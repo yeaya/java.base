@@ -1,5 +1,4 @@
 #include <sun/security/x509/AlgorithmId.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
@@ -42,7 +41,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Provider = ::java::security::Provider;
@@ -52,7 +50,6 @@ using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
@@ -63,97 +60,6 @@ using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$CompoundAttribute _AlgorithmId_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _AlgorithmId_MethodAnnotations_getAlgorithmId17[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _AlgorithmId_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlgorithmId, serialVersionUID)},
-	{"algid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(AlgorithmId, algid)},
-	{"algParams", "Ljava/security/AlgorithmParameters;", nullptr, $PRIVATE, $field(AlgorithmId, algParams)},
-	{"encodedParams", "[B", nullptr, $PROTECTED | $TRANSIENT, $field(AlgorithmId, encodedParams)},
-	{"aliasOidsTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(AlgorithmId, aliasOidsTable$)},
-	{"MD2_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, MD2_oid)},
-	{"MD5_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, MD5_oid)},
-	{"SHA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA_oid)},
-	{"SHA224_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA224_oid)},
-	{"SHA256_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA256_oid)},
-	{"SHA384_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA384_oid)},
-	{"SHA512_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA512_oid)},
-	{"SHA512_224_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA512_224_oid)},
-	{"SHA512_256_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA512_256_oid)},
-	{"SHA3_224_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA3_224_oid)},
-	{"SHA3_256_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA3_256_oid)},
-	{"SHA3_384_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA3_384_oid)},
-	{"SHA3_512_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA3_512_oid)},
-	{"DSA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, DSA_oid)},
-	{"EC_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, EC_oid)},
-	{"RSAEncryption_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, RSAEncryption_oid)},
-	{"RSASSA_PSS_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, RSASSA_PSS_oid)},
-	{"MGF1_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, MGF1_oid)},
-	{"ed25519_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, ed25519_oid)},
-	{"ed448_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, ed448_oid)},
-	{"x25519_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, x25519_oid)},
-	{"x448_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, x448_oid)},
-	{"SHA224withECDSA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA224withECDSA_oid)},
-	{"SHA256withECDSA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA256withECDSA_oid)},
-	{"SHA384withECDSA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA384withECDSA_oid)},
-	{"SHA512withECDSA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA512withECDSA_oid)},
-	{}
-};
-
-$MethodInfo _AlgorithmId_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(AlgorithmId, init$, void), nullptr, nullptr, _AlgorithmId_MethodAnnotations_init$0},
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;)V", nullptr, $PUBLIC, $method(AlgorithmId, init$, void, $ObjectIdentifier*)},
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Ljava/security/AlgorithmParameters;)V", nullptr, $PUBLIC, $method(AlgorithmId, init$, void, $ObjectIdentifier*, $AlgorithmParameters*)},
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(AlgorithmId, init$, void, $ObjectIdentifier*, $DerValue*), "java.io.IOException"},
-	{"algOID", "(Ljava/lang/String;)Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticMethod(AlgorithmId, algOID, $ObjectIdentifier*, $String*), "java.io.IOException"},
-	{"aliasOidsTable", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AlgorithmId, aliasOidsTable, $Map*)},
-	{"clearAliasOidsTable", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmId, clearAliasOidsTable, void)},
-	{"collectOIDAliases", "()Ljava/util/concurrent/ConcurrentHashMap;", "()Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AlgorithmId, collectOIDAliases, $ConcurrentHashMap*)},
-	{"decodeParams", "()V", nullptr, $PROTECTED, $virtualMethod(AlgorithmId, decodeParams, void), "java.io.IOException"},
-	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, derEncode, void, $OutputStream*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmId, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"encode", "()[B", nullptr, $PUBLIC | $FINAL, $method(AlgorithmId, encode, $bytes*), "java.io.IOException"},
-	{"equals", "(Lsun/security/x509/AlgorithmId;)Z", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, equals, bool, AlgorithmId*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, equals, bool, Object$*)},
-	{"equals", "(Lsun/security/util/ObjectIdentifier;)Z", nullptr, $PUBLIC | $FINAL, $method(AlgorithmId, equals, bool, $ObjectIdentifier*)},
-	{"get", "(Ljava/lang/String;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmId, get, AlgorithmId*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"get", "(Ljava/security/AlgorithmParameters;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmId, get, AlgorithmId*, $AlgorithmParameters*), "java.security.NoSuchAlgorithmException"},
-	{"getAlgorithmId", "(Ljava/lang/String;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(AlgorithmId, getAlgorithmId, AlgorithmId*, $String*), "java.security.NoSuchAlgorithmException", nullptr, _AlgorithmId_MethodAnnotations_getAlgorithmId17},
-	{"getEncodedParams", "()[B", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, getEncodedParams, $bytes*), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, getName, $String*)},
-	{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $FINAL, $method(AlgorithmId, getOID, $ObjectIdentifier*)},
-	{"getParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, getParameters, $AlgorithmParameters*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, hashCode, int32_t)},
-	{"isKnownProvider", "(Ljava/security/Provider;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AlgorithmId, isKnownProvider, bool, $Provider*)},
-	{"paramsToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AlgorithmId, paramsToString, $String*)},
-	{"parse", "(Lsun/security/util/DerValue;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmId, parse, AlgorithmId*, $DerValue*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AlgorithmId_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.AlgorithmId",
-	"java.lang.Object",
-	"java.io.Serializable,sun.security.util.DerEncoder",
-	_AlgorithmId_FieldInfo_,
-	_AlgorithmId_MethodInfo_
-};
-
-$Object* allocate$AlgorithmId($Class* clazz) {
-	return $of($alloc(AlgorithmId));
-}
 
 $Object* AlgorithmId::clone() {
 	 return this->$Serializable::clone();
@@ -203,7 +109,7 @@ void AlgorithmId::init$($ObjectIdentifier* oid, $AlgorithmParameters* algparams)
 	$set(this, algParams, algparams);
 	if (this->algParams != nullptr) {
 		try {
-			$set(this, encodedParams, $nc(this->algParams)->getEncoded());
+			$set(this, encodedParams, this->algParams->getEncoded());
 		} catch ($IOException& ioe) {
 		}
 	}
@@ -218,7 +124,7 @@ void AlgorithmId::init$($ObjectIdentifier* oid, $DerValue* params) {
 }
 
 void AlgorithmId::decodeParams() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, algidName, getName());
 	try {
 		$set(this, algParams, $AlgorithmParameters::getInstance(algidName));
@@ -226,7 +132,7 @@ void AlgorithmId::decodeParams() {
 		$set(this, algParams, nullptr);
 		return;
 	}
-	$nc(this->algParams)->init($cast($bytes, $($nc(this->encodedParams)->clone())));
+	$nc(this->algParams)->init($$cast($bytes, $nc(this->encodedParams)->clone()));
 }
 
 void AlgorithmId::encode($DerOutputStream* out) {
@@ -234,23 +140,23 @@ void AlgorithmId::encode($DerOutputStream* out) {
 }
 
 void AlgorithmId::derEncode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	bytes->putOID(this->algid);
 	if (this->algParams != nullptr && this->encodedParams == nullptr) {
-		$set(this, encodedParams, $nc(this->algParams)->getEncoded());
+		$set(this, encodedParams, this->algParams->getEncoded());
 	}
 	if (this->encodedParams == nullptr) {
 		bool var$7 = $nc(this->algid)->equals(AlgorithmId::RSASSA_PSS_oid);
-		bool var$6 = var$7 || $nc(this->algid)->equals(AlgorithmId::ed448_oid);
-		bool var$5 = var$6 || $nc(this->algid)->equals(AlgorithmId::ed25519_oid);
-		bool var$4 = var$5 || $nc(this->algid)->equals(AlgorithmId::x448_oid);
-		bool var$3 = var$4 || $nc(this->algid)->equals(AlgorithmId::x25519_oid);
-		bool var$2 = var$3 || $nc(this->algid)->equals(AlgorithmId::SHA224withECDSA_oid);
-		bool var$1 = var$2 || $nc(this->algid)->equals(AlgorithmId::SHA256withECDSA_oid);
-		bool var$0 = var$1 || $nc(this->algid)->equals(AlgorithmId::SHA384withECDSA_oid);
-		if (var$0 || $nc(this->algid)->equals(AlgorithmId::SHA512withECDSA_oid)) {
+		bool var$6 = var$7 || this->algid->equals(AlgorithmId::ed448_oid);
+		bool var$5 = var$6 || this->algid->equals(AlgorithmId::ed25519_oid);
+		bool var$4 = var$5 || this->algid->equals(AlgorithmId::x448_oid);
+		bool var$3 = var$4 || this->algid->equals(AlgorithmId::x25519_oid);
+		bool var$2 = var$3 || this->algid->equals(AlgorithmId::SHA224withECDSA_oid);
+		bool var$1 = var$2 || this->algid->equals(AlgorithmId::SHA256withECDSA_oid);
+		bool var$0 = var$1 || this->algid->equals(AlgorithmId::SHA384withECDSA_oid);
+		if (var$0 || this->algid->equals(AlgorithmId::SHA512withECDSA_oid)) {
 		} else {
 			bytes->putNull();
 		}
@@ -272,7 +178,7 @@ $ObjectIdentifier* AlgorithmId::getOID() {
 }
 
 $String* AlgorithmId::getName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, oidStr, $nc(this->algid)->toString());
 	$KnownOIDs* o = $KnownOIDs::findMatch(oidStr);
 	if (o == $KnownOIDs::SpecifiedSHA2withECDSA) {
@@ -280,7 +186,7 @@ $String* AlgorithmId::getName() {
 			try {
 				$var(AlgorithmId, digestParams, AlgorithmId::parse($$new($DerValue, this->encodedParams)));
 				$var($String, digestAlg, $nc(digestParams)->getName());
-				return $str({$($nc(digestAlg)->replace(static_cast<$CharSequence*>("-"_s), static_cast<$CharSequence*>(""_s))), "withECDSA"_s});
+				return $str({$($nc(digestAlg)->replace("-"_s, ""_s)), "withECDSA"_s});
 			} catch ($IOException& e) {
 			}
 		}
@@ -288,11 +194,11 @@ $String* AlgorithmId::getName() {
 	if (o != nullptr) {
 		return o->stdName();
 	} else {
-		$var($String, n, $cast($String, $nc($(aliasOidsTable()))->get(oidStr)));
+		$var($String, n, $cast($String, $$nc(aliasOidsTable())->get(oidStr)));
 		if (n != nullptr) {
 			return n;
 		} else {
-			return $nc(this->algid)->toString();
+			return this->algid->toString();
 		}
 	}
 }
@@ -302,14 +208,14 @@ $AlgorithmParameters* AlgorithmId::getParameters() {
 }
 
 $bytes* AlgorithmId::getEncodedParams() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($KnownOIDs);
-	return (this->encodedParams == nullptr || $nc($($nc(this->algid)->toString()))->equals($($KnownOIDs::SpecifiedSHA2withECDSA->value()))) ? ($bytes*)nullptr : $cast($bytes, $nc(this->encodedParams)->clone());
+	return (this->encodedParams == nullptr || $$nc($nc(this->algid)->toString())->equals($($KnownOIDs::SpecifiedSHA2withECDSA->value()))) ? ($bytes*)nullptr : $cast($bytes, this->encodedParams->clone());
 }
 
 bool AlgorithmId::equals(AlgorithmId* other) {
 	bool var$0 = $nc(this->algid)->equals($of($nc(other)->algid));
-	return var$0 && $Arrays::equals(this->encodedParams, $nc(other)->encodedParams);
+	return var$0 && $Arrays::equals(this->encodedParams, other->encodedParams);
 }
 
 bool AlgorithmId::equals(Object$* other) {
@@ -339,27 +245,29 @@ $String* AlgorithmId::paramsToString() {
 	if (this->encodedParams == nullptr) {
 		return ""_s;
 	} else if (this->algParams != nullptr) {
-		return $str({", "_s, $($nc(this->algParams)->toString())});
+		return $str({", "_s, $(this->algParams->toString())});
 	} else {
 		return ", params unparsed"_s;
 	}
 }
 
 $String* AlgorithmId::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $(getName()));
-	return $concat(var$0, $(paramsToString()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(getName()));
+	var$0->append($(paramsToString()));
+	return $str(var$0);
 }
 
 AlgorithmId* AlgorithmId::parse($DerValue* val) {
 	$init(AlgorithmId);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(val)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "algid parse error, not a sequence"_s);
 	}
 	$var($ObjectIdentifier, algid, nullptr);
 	$var($DerValue, params, nullptr);
-	$var($DerInputStream, in, $nc(val)->toDerInputStream());
+	$var($DerInputStream, in, val->toDerInputStream());
 	$assign(algid, $nc(in)->getOID());
 	if (in->available() == 0) {
 		$assign(params, nullptr);
@@ -385,7 +293,7 @@ AlgorithmId* AlgorithmId::getAlgorithmId($String* algname) {
 
 AlgorithmId* AlgorithmId::get($String* algname) {
 	$init(AlgorithmId);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectIdentifier, oid, nullptr);
 	try {
 		$assign(oid, algOID(algname));
@@ -400,7 +308,7 @@ AlgorithmId* AlgorithmId::get($String* algname) {
 
 AlgorithmId* AlgorithmId::get($AlgorithmParameters* algparams) {
 	$init(AlgorithmId);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectIdentifier, oid, nullptr);
 	$var($String, algname, $nc(algparams)->getAlgorithm());
 	try {
@@ -416,7 +324,7 @@ AlgorithmId* AlgorithmId::get($AlgorithmParameters* algparams) {
 
 $ObjectIdentifier* AlgorithmId::algOID($String* name$renamed) {
 	$init(AlgorithmId);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	if ($nc(name)->startsWith("OID."_s)) {
 		$assign(name, name->substring("OID."_s->length()));
@@ -425,10 +333,10 @@ $ObjectIdentifier* AlgorithmId::algOID($String* name$renamed) {
 	if (k != nullptr) {
 		return $ObjectIdentifier::of(k);
 	}
-	if ($nc(name)->indexOf("."_s) == -1) {
+	if (name->indexOf("."_s) == -1) {
 		$init($Locale);
 		$assign(name, name->toUpperCase($Locale::ENGLISH));
-		$var($String, oidStr, $cast($String, $nc($(aliasOidsTable()))->get(name)));
+		$var($String, oidStr, $cast($String, $$nc(aliasOidsTable())->get(name)));
 		if (oidStr != nullptr) {
 			return $ObjectIdentifier::of(oidStr);
 		}
@@ -449,7 +357,7 @@ $Map* AlgorithmId::aliasOidsTable() {
 	if (tab == nullptr) {
 		$synchronized(AlgorithmId::class$) {
 			if (($assign(tab, AlgorithmId::aliasOidsTable$)) == nullptr) {
-				$assignStatic(AlgorithmId::aliasOidsTable$, ($assign(tab, static_cast<$Map*>(static_cast<$AbstractMap*>(collectOIDAliases())))));
+				$assignStatic(AlgorithmId::aliasOidsTable$, $assign(tab, $cast($AbstractMap, collectOIDAliases())));
 			}
 		}
 	}
@@ -458,31 +366,31 @@ $Map* AlgorithmId::aliasOidsTable() {
 
 bool AlgorithmId::isKnownProvider($Provider* p) {
 	$init(AlgorithmId);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, pn, $nc(p)->getName());
-	$var($String, mn, $nc($($of(p)->getClass()->getModule()))->getName());
+	$var($String, mn, $$nc($of(p)->getClass()->getModule())->getName());
 	if (pn != nullptr && mn != nullptr) {
 		bool var$3 = mn->equals("java.base"_s);
 		if (var$3) {
 			bool var$6 = pn->equals("SUN"_s);
 			bool var$5 = var$6 || pn->equals("SunRsaSign"_s);
 			bool var$4 = var$5 || pn->equals("SunJCE"_s);
-			var$3 = (var$4 || pn->equals("SunJSSE"_s));
+			var$3 = var$4 || pn->equals("SunJSSE"_s);
 		}
-		bool var$2 = (var$3);
+		bool var$2 = var$3;
 		if (!var$2) {
 			bool var$7 = mn->equals("jdk.crypto.ec"_s);
-			var$2 = (var$7 && pn->equals("SunEC"_s));
+			var$2 = var$7 && pn->equals("SunEC"_s);
 		}
 		bool var$1 = var$2;
 		if (!var$1) {
 			bool var$8 = mn->equals("jdk.crypto.mscapi"_s);
-			var$1 = (var$8 && pn->equals("SunMSCAPI"_s));
+			var$1 = var$8 && pn->equals("SunMSCAPI"_s);
 		}
 		bool var$0 = var$1;
 		if (!var$0) {
 			bool var$9 = mn->equals("jdk.crypto.cryptoki"_s);
-			var$0 = (var$9 && pn->startsWith("SunPKCS11"_s));
+			var$0 = var$9 && pn->startsWith("SunPKCS11"_s);
 		}
 		return (var$0);
 	} else {
@@ -492,7 +400,7 @@ bool AlgorithmId::isKnownProvider($Provider* p) {
 
 $ConcurrentHashMap* AlgorithmId::collectOIDAliases() {
 	$init(AlgorithmId);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap, t, $new($ConcurrentHashMap));
 	{
 		$var($ProviderArray, arr$, $Security::getProviders());
@@ -505,7 +413,7 @@ $ConcurrentHashMap* AlgorithmId::collectOIDAliases() {
 					continue;
 				}
 				{
-					$var($Iterator, i$, $nc($($nc(provider)->keySet()))->iterator());
+					$var($Iterator, i$, $$nc($nc(provider)->keySet())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($Object, key, i$->next());
 						{
@@ -540,7 +448,7 @@ $ConcurrentHashMap* AlgorithmId::collectOIDAliases() {
 	return t;
 }
 
-void clinit$AlgorithmId($Class* class$) {
+void AlgorithmId::clinit$($Class* clazz) {
 	$init($KnownOIDs);
 	$assignStatic(AlgorithmId::MD2_oid, $ObjectIdentifier::of($KnownOIDs::MD2));
 	$assignStatic(AlgorithmId::MD5_oid, $ObjectIdentifier::of($KnownOIDs::MD5));
@@ -574,7 +482,91 @@ AlgorithmId::AlgorithmId() {
 }
 
 $Class* AlgorithmId::load$($String* name, bool initialize) {
-	$loadClass(AlgorithmId, name, initialize, &_AlgorithmId_ClassInfo_, clinit$AlgorithmId, allocate$AlgorithmId);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlgorithmId, serialVersionUID)},
+		{"algid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(AlgorithmId, algid)},
+		{"algParams", "Ljava/security/AlgorithmParameters;", nullptr, $PRIVATE, $field(AlgorithmId, algParams)},
+		{"encodedParams", "[B", nullptr, $PROTECTED | $TRANSIENT, $field(AlgorithmId, encodedParams)},
+		{"aliasOidsTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(AlgorithmId, aliasOidsTable$)},
+		{"MD2_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, MD2_oid)},
+		{"MD5_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, MD5_oid)},
+		{"SHA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA_oid)},
+		{"SHA224_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA224_oid)},
+		{"SHA256_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA256_oid)},
+		{"SHA384_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA384_oid)},
+		{"SHA512_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA512_oid)},
+		{"SHA512_224_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA512_224_oid)},
+		{"SHA512_256_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA512_256_oid)},
+		{"SHA3_224_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA3_224_oid)},
+		{"SHA3_256_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA3_256_oid)},
+		{"SHA3_384_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA3_384_oid)},
+		{"SHA3_512_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA3_512_oid)},
+		{"DSA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, DSA_oid)},
+		{"EC_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, EC_oid)},
+		{"RSAEncryption_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, RSAEncryption_oid)},
+		{"RSASSA_PSS_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, RSASSA_PSS_oid)},
+		{"MGF1_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, MGF1_oid)},
+		{"ed25519_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, ed25519_oid)},
+		{"ed448_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, ed448_oid)},
+		{"x25519_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, x25519_oid)},
+		{"x448_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, x448_oid)},
+		{"SHA224withECDSA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA224withECDSA_oid)},
+		{"SHA256withECDSA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA256withECDSA_oid)},
+		{"SHA384withECDSA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA384withECDSA_oid)},
+		{"SHA512withECDSA_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlgorithmId, SHA512withECDSA_oid)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAlgorithmIdmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(AlgorithmId, init$, void), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;)V", nullptr, $PUBLIC, $method(AlgorithmId, init$, void, $ObjectIdentifier*)},
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;Ljava/security/AlgorithmParameters;)V", nullptr, $PUBLIC, $method(AlgorithmId, init$, void, $ObjectIdentifier*, $AlgorithmParameters*)},
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(AlgorithmId, init$, void, $ObjectIdentifier*, $DerValue*), "java.io.IOException"},
+		{"algOID", "(Ljava/lang/String;)Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticMethod(AlgorithmId, algOID, $ObjectIdentifier*, $String*), "java.io.IOException"},
+		{"aliasOidsTable", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AlgorithmId, aliasOidsTable, $Map*)},
+		{"clearAliasOidsTable", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmId, clearAliasOidsTable, void)},
+		{"collectOIDAliases", "()Ljava/util/concurrent/ConcurrentHashMap;", "()Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AlgorithmId, collectOIDAliases, $ConcurrentHashMap*)},
+		{"decodeParams", "()V", nullptr, $PROTECTED, $virtualMethod(AlgorithmId, decodeParams, void), "java.io.IOException"},
+		{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, derEncode, void, $OutputStream*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmId, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"encode", "()[B", nullptr, $PUBLIC | $FINAL, $method(AlgorithmId, encode, $bytes*), "java.io.IOException"},
+		{"equals", "(Lsun/security/x509/AlgorithmId;)Z", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, equals, bool, AlgorithmId*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, equals, bool, Object$*)},
+		{"equals", "(Lsun/security/util/ObjectIdentifier;)Z", nullptr, $PUBLIC | $FINAL, $method(AlgorithmId, equals, bool, $ObjectIdentifier*)},
+		{"get", "(Ljava/lang/String;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmId, get, AlgorithmId*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"get", "(Ljava/security/AlgorithmParameters;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmId, get, AlgorithmId*, $AlgorithmParameters*), "java.security.NoSuchAlgorithmException"},
+		{"getAlgorithmId", "(Ljava/lang/String;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(AlgorithmId, getAlgorithmId, AlgorithmId*, $String*), "java.security.NoSuchAlgorithmException", nullptr, getAlgorithmIdmethodAnnotations$$},
+		{"getEncodedParams", "()[B", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, getEncodedParams, $bytes*), "java.io.IOException"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, getName, $String*)},
+		{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $FINAL, $method(AlgorithmId, getOID, $ObjectIdentifier*)},
+		{"getParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, getParameters, $AlgorithmParameters*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, hashCode, int32_t)},
+		{"isKnownProvider", "(Ljava/security/Provider;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AlgorithmId, isKnownProvider, bool, $Provider*)},
+		{"paramsToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AlgorithmId, paramsToString, $String*)},
+		{"parse", "(Lsun/security/util/DerValue;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmId, parse, AlgorithmId*, $DerValue*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlgorithmId, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.AlgorithmId",
+		"java.lang.Object",
+		"java.io.Serializable,sun.security.util.DerEncoder",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AlgorithmId, name, initialize, &classInfo$$, AlgorithmId::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AlgorithmId));
+	});
 	return class$;
 }
 

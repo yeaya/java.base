@@ -1,6 +1,4 @@
 #include <AddTests.h>
-
-#include <java/lang/Enum.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/MathContext.h>
@@ -16,10 +14,8 @@
 #undef UNNECESSARY
 
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;
-using $PrintStream = ::java::io::PrintStream;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -32,40 +28,6 @@ using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 
-$FieldInfo _AddTests_FieldInfo_[] = {
-	{"nonExactRoundingModes", "Ljava/util/Set;", "Ljava/util/Set<Ljava/math/RoundingMode;>;", $PRIVATE | $STATIC, $staticField(AddTests, nonExactRoundingModes)},
-	{}
-};
-
-$MethodInfo _AddTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AddTests, init$, void)},
-	{"addWithoutException", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, addWithoutException, int32_t, $BigDecimal*, $BigDecimal*, $MathContext*)},
-	{"arithmeticExceptionTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, arithmeticExceptionTest, int32_t)},
-	{"extremaTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, extremaTests, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AddTests, main, void, $StringArray*)},
-	{"precisionConsistencyTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, precisionConsistencyTest, int32_t)},
-	{"printAddition", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, printAddition, void, $BigDecimal*, $BigDecimal*, $String*)},
-	{"roundAway", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundAway, int32_t, $BigDecimal*, $BigDecimal*)},
-	{"roundAway0", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundAway0, int32_t, $BigDecimal*, $BigDecimal*)},
-	{"roundAway1", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundAway1, int32_t, $BigDecimal*, $BigDecimal*)},
-	{"roundingGradationTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundingGradationTests, int32_t)},
-	{"simpleTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, simpleTests, int32_t)},
-	{}
-};
-
-$ClassInfo _AddTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"AddTests",
-	"java.lang.Object",
-	nullptr,
-	_AddTests_FieldInfo_,
-	_AddTests_MethodInfo_
-};
-
-$Object* allocate$AddTests($Class* clazz) {
-	return $of($alloc(AddTests));
-}
-
 $Set* AddTests::nonExactRoundingModes = nullptr;
 
 void AddTests::init$() {
@@ -73,7 +35,7 @@ void AddTests::init$() {
 
 int32_t AddTests::simpleTests() {
 	$init(AddTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimalArray, bd1, $new($BigDecimalArray, {
 		$$new($BigDecimal, $$new($BigInteger, "7812404666936930160"_s), 11),
@@ -87,7 +49,7 @@ int32_t AddTests::simpleTests() {
 		$$new($BigDecimal, "1060240.4666936930160"_s)
 	}));
 	for (int32_t i = 0; i < bd1->length; ++i) {
-		if (!$nc($($nc(bd1->get(i))->add(bd2)))->equals(expectedResult->get(i))) {
+		if (!$($nc(bd1->get(i))->add(bd2))->equals(expectedResult->get(i))) {
 			++failures;
 		}
 	}
@@ -96,7 +58,7 @@ int32_t AddTests::simpleTests() {
 
 int32_t AddTests::extremaTests() {
 	$init(AddTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, var$0, $BigDecimal::valueOf(1, -$Integer::MAX_VALUE));
 	failures += addWithoutException(var$0, $($BigDecimal::valueOf(2, $Integer::MAX_VALUE)), nullptr);
@@ -107,7 +69,7 @@ int32_t AddTests::extremaTests() {
 
 int32_t AddTests::addWithoutException($BigDecimal* b1, $BigDecimal* b2, $MathContext* mc$renamed) {
 	$init(AddTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MathContext, mc, mc$renamed);
 	if (mc == nullptr) {
 		$init($RoundingMode);
@@ -115,7 +77,7 @@ int32_t AddTests::addWithoutException($BigDecimal* b1, $BigDecimal* b2, $MathCon
 	}
 	try {
 		$var($BigDecimal, sum, $nc(b1)->add(b2, mc));
-		printAddition(b1, b2, $($nc(sum)->toString()));
+		printAddition(b1, b2, $(sum->toString()));
 		return 0;
 	} catch ($ArithmeticException& ae) {
 		printAddition(b1, b2, "Exception!"_s);
@@ -126,7 +88,7 @@ int32_t AddTests::addWithoutException($BigDecimal* b1, $BigDecimal* b2, $MathCon
 
 int32_t AddTests::roundingGradationTests() {
 	$init(AddTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, var$0, $new($BigDecimal, "1234e100"_s));
 	failures += roundAway(var$0, $$new($BigDecimal, "1234e97"_s));
@@ -194,14 +156,14 @@ void AddTests::printAddition($BigDecimal* b1, $BigDecimal* b2, $String* s) {
 
 int32_t AddTests::roundAway($BigDecimal* b1, $BigDecimal* b2) {
 	$init(AddTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$nc(b1)->precision();
 	$nc(b2)->precision();
 	$var($BigDecimal, b1_negate, b1->negate());
 	$var($BigDecimal, b2_negate, b2->negate());
-	$nc(b1_negate)->precision();
-	$nc(b2_negate)->precision();
+	b1_negate->precision();
+	b2_negate->precision();
 	failures += roundAway1(b1, b2);
 	failures += roundAway1(b1, b2_negate);
 	failures += roundAway1(b1_negate, b2);
@@ -219,28 +181,26 @@ int32_t AddTests::roundAway1($BigDecimal* b1, $BigDecimal* b2) {
 
 int32_t AddTests::roundAway0($BigDecimal* b1, $BigDecimal* b2) {
 	$init(AddTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, exactSum, $nc(b1)->add(b2));
-	for (int32_t precision = 1; precision < $nc(exactSum)->precision() + 2; ++precision) {
-		{
-			$var($Iterator, i$, $nc(AddTests::nonExactRoundingModes)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$RoundingMode* rm = $cast($RoundingMode, i$->next());
-				{
-					$var($MathContext, mc, $new($MathContext, precision, rm));
-					$var($BigDecimal, roundedExactSum, exactSum->round(mc));
-					try {
-						$var($BigDecimal, sum, b1->add(b2, mc));
-						if (!$nc(roundedExactSum)->equals(sum)) {
-							++failures;
-							$nc($System::out)->println($$str({"Exact sum "_s, exactSum, "\trounded by "_s, mc, "\texpected: "_s, roundedExactSum, " got: "_s}));
-							printAddition(b1, b2, $($nc(sum)->toString()));
-						}
-					} catch ($ArithmeticException& ae) {
-						printAddition(b1, b2, "Exception!"_s);
+	for (int32_t precision = 1; precision < exactSum->precision() + 2; ++precision) {
+		$var($Iterator, i$, $nc(AddTests::nonExactRoundingModes)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$RoundingMode* rm = $cast($RoundingMode, i$->next());
+			{
+				$var($MathContext, mc, $new($MathContext, precision, rm));
+				$var($BigDecimal, roundedExactSum, exactSum->round(mc));
+				try {
+					$var($BigDecimal, sum, b1->add(b2, mc));
+					if (!roundedExactSum->equals(sum)) {
 						++failures;
+						$nc($System::out)->println($$str({"Exact sum "_s, exactSum, "\trounded by "_s, mc, "\texpected: "_s, roundedExactSum, " got: "_s}));
+						printAddition(b1, b2, $(sum->toString()));
 					}
+				} catch ($ArithmeticException& ae) {
+					printAddition(b1, b2, "Exception!"_s);
+					++failures;
 				}
 			}
 		}
@@ -250,28 +210,28 @@ int32_t AddTests::roundAway0($BigDecimal* b1, $BigDecimal* b2) {
 
 int32_t AddTests::precisionConsistencyTest() {
 	$init(AddTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$init($RoundingMode);
 	$var($MathContext, mc, $new($MathContext, 1, $RoundingMode::DOWN));
 	$var($BigDecimal, a, $BigDecimal::valueOf(1999, -1));
-	$var($BigDecimal, sum1, $nc(a)->add($BigDecimal::ONE, mc));
+	$var($BigDecimal, sum1, a->add($BigDecimal::ONE, mc));
 	a->precision();
 	$var($BigDecimal, sum2, a->add($BigDecimal::ONE, mc));
-	if (!$nc(sum1)->equals(sum2)) {
+	if (!sum1->equals(sum2)) {
 		++failures;
 		$nc($System::out)->println("Unequal sums after calling precision!"_s);
-		$nc($System::out)->print("Before:\t"_s);
+		$System::out->print("Before:\t"_s);
 		printAddition(a, $BigDecimal::ONE, $(sum1->toString()));
-		$nc($System::out)->print("After:\t"_s);
-		printAddition(a, $BigDecimal::ONE, $($nc(sum2)->toString()));
+		$System::out->print("After:\t"_s);
+		printAddition(a, $BigDecimal::ONE, $(sum2->toString()));
 	}
 	return failures;
 }
 
 int32_t AddTests::arithmeticExceptionTest() {
 	$init(AddTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, x, nullptr);
 	try {
@@ -284,7 +244,7 @@ int32_t AddTests::arithmeticExceptionTest() {
 
 void AddTests::main($StringArray* argv) {
 	$init(AddTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	failures += extremaTests();
 	failures += roundingGradationTests();
@@ -295,7 +255,7 @@ void AddTests::main($StringArray* argv) {
 	}
 }
 
-void clinit$AddTests($Class* class$) {
+void AddTests::clinit$($Class* clazz) {
 	$init($RoundingMode);
 	$assignStatic(AddTests::nonExactRoundingModes, $EnumSet::complementOf($($EnumSet::of($RoundingMode::UNNECESSARY))));
 }
@@ -304,7 +264,36 @@ AddTests::AddTests() {
 }
 
 $Class* AddTests::load$($String* name, bool initialize) {
-	$loadClass(AddTests, name, initialize, &_AddTests_ClassInfo_, clinit$AddTests, allocate$AddTests);
+	$FieldInfo fieldInfos$$[] = {
+		{"nonExactRoundingModes", "Ljava/util/Set;", "Ljava/util/Set<Ljava/math/RoundingMode;>;", $PRIVATE | $STATIC, $staticField(AddTests, nonExactRoundingModes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AddTests, init$, void)},
+		{"addWithoutException", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, addWithoutException, int32_t, $BigDecimal*, $BigDecimal*, $MathContext*)},
+		{"arithmeticExceptionTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, arithmeticExceptionTest, int32_t)},
+		{"extremaTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, extremaTests, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AddTests, main, void, $StringArray*)},
+		{"precisionConsistencyTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, precisionConsistencyTest, int32_t)},
+		{"printAddition", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, printAddition, void, $BigDecimal*, $BigDecimal*, $String*)},
+		{"roundAway", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundAway, int32_t, $BigDecimal*, $BigDecimal*)},
+		{"roundAway0", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundAway0, int32_t, $BigDecimal*, $BigDecimal*)},
+		{"roundAway1", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundAway1, int32_t, $BigDecimal*, $BigDecimal*)},
+		{"roundingGradationTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundingGradationTests, int32_t)},
+		{"simpleTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, simpleTests, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"AddTests",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AddTests, name, initialize, &classInfo$$, AddTests::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AddTests);
+	});
 	return class$;
 }
 

@@ -1,6 +1,4 @@
 #include <java/text/RuleBasedCollator.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/lang/StringBuffer.h>
 #include <java/text/CharacterIterator.h>
 #include <java/text/CollationElementIterator.h>
@@ -29,7 +27,6 @@
 #undef TERTIARY
 #undef UNMAPPED
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -46,50 +43,6 @@ using $RuleBasedCollationKey = ::java::text::RuleBasedCollationKey;
 
 namespace java {
 	namespace text {
-
-$FieldInfo _RuleBasedCollator_FieldInfo_[] = {
-	{"CHARINDEX", "I", nullptr, $STATIC | $FINAL, $constField(RuleBasedCollator, CHARINDEX)},
-	{"EXPANDCHARINDEX", "I", nullptr, $STATIC | $FINAL, $constField(RuleBasedCollator, EXPANDCHARINDEX)},
-	{"CONTRACTCHARINDEX", "I", nullptr, $STATIC | $FINAL, $constField(RuleBasedCollator, CONTRACTCHARINDEX)},
-	{"UNMAPPED", "I", nullptr, $STATIC | $FINAL, $constField(RuleBasedCollator, UNMAPPED)},
-	{"COLLATIONKEYOFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuleBasedCollator, COLLATIONKEYOFFSET)},
-	{"tables", "Ljava/text/RBCollationTables;", nullptr, $PRIVATE, $field(RuleBasedCollator, tables)},
-	{"primResult", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(RuleBasedCollator, primResult)},
-	{"secResult", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(RuleBasedCollator, secResult)},
-	{"terResult", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(RuleBasedCollator, terResult)},
-	{"sourceCursor", "Ljava/text/CollationElementIterator;", nullptr, $PRIVATE, $field(RuleBasedCollator, sourceCursor)},
-	{"targetCursor", "Ljava/text/CollationElementIterator;", nullptr, $PRIVATE, $field(RuleBasedCollator, targetCursor)},
-	{}
-};
-
-$MethodInfo _RuleBasedCollator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuleBasedCollator, init$, void, $String*), "java.text.ParseException"},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(RuleBasedCollator, init$, void, $String*, int32_t), "java.text.ParseException"},
-	{"<init>", "(Ljava/text/RuleBasedCollator;)V", nullptr, $PRIVATE, $method(RuleBasedCollator, init$, void, RuleBasedCollator*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, clone, $Object*)},
-	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RuleBasedCollator, compare, int32_t, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, equals, bool, Object$*)},
-	{"getCollationElementIterator", "(Ljava/lang/String;)Ljava/text/CollationElementIterator;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, getCollationElementIterator, $CollationElementIterator*, $String*)},
-	{"getCollationElementIterator", "(Ljava/text/CharacterIterator;)Ljava/text/CollationElementIterator;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, getCollationElementIterator, $CollationElementIterator*, $CharacterIterator*)},
-	{"getCollationKey", "(Ljava/lang/String;)Ljava/text/CollationKey;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RuleBasedCollator, getCollationKey, $CollationKey*, $String*)},
-	{"getRules", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, getRules, $String*)},
-	{"getTables", "()Ljava/text/RBCollationTables;", nullptr, 0, $virtualMethod(RuleBasedCollator, getTables, $RBCollationTables*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _RuleBasedCollator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.text.RuleBasedCollator",
-	"java.text.Collator",
-	nullptr,
-	_RuleBasedCollator_FieldInfo_,
-	_RuleBasedCollator_MethodInfo_
-};
-
-$Object* allocate$RuleBasedCollator($Class* clazz) {
-	return $of($alloc(RuleBasedCollator));
-}
 
 void RuleBasedCollator::init$($String* rules) {
 	RuleBasedCollator::init$(rules, $Collator::CANONICAL_DECOMPOSITION);
@@ -117,8 +70,8 @@ void RuleBasedCollator::init$(RuleBasedCollator* that) {
 	$set(this, sourceCursor, nullptr);
 	$set(this, targetCursor, nullptr);
 	setStrength($nc(that)->getStrength());
-	setDecomposition($nc(that)->getDecomposition());
-	$set(this, tables, $nc(that)->tables);
+	setDecomposition(that->getDecomposition());
+	$set(this, tables, that->tables);
 }
 
 $String* RuleBasedCollator::getRules() {
@@ -135,7 +88,7 @@ $CollationElementIterator* RuleBasedCollator::getCollationElementIterator($Chara
 
 int32_t RuleBasedCollator::compare($String* source, $String* target) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (source == nullptr || target == nullptr) {
 			$throwNew($NullPointerException);
 		}
@@ -143,12 +96,12 @@ int32_t RuleBasedCollator::compare($String* source, $String* target) {
 		if (this->sourceCursor == nullptr) {
 			$set(this, sourceCursor, getCollationElementIterator(source));
 		} else {
-			$nc(this->sourceCursor)->setText(source);
+			this->sourceCursor->setText(source);
 		}
 		if (this->targetCursor == nullptr) {
 			$set(this, targetCursor, getCollationElementIterator(target));
 		} else {
-			$nc(this->targetCursor)->setText(target);
+			this->targetCursor->setText(target);
 		}
 		int32_t sOrder = 0;
 		int32_t tOrder = 0;
@@ -269,7 +222,7 @@ int32_t RuleBasedCollator::compare($String* source, $String* target) {
 
 $CollationKey* RuleBasedCollator::getCollationKey($String* source) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (source == nullptr) {
 			return nullptr;
 		}
@@ -278,7 +231,7 @@ $CollationKey* RuleBasedCollator::getCollationKey($String* source) {
 			$set(this, secResult, $new($StringBuffer));
 			$set(this, terResult, $new($StringBuffer));
 		} else {
-			$nc(this->primResult)->setLength(0);
+			this->primResult->setLength(0);
 			$nc(this->secResult)->setLength(0);
 			$nc(this->terResult)->setLength(0);
 		}
@@ -291,7 +244,7 @@ $CollationKey* RuleBasedCollator::getCollationKey($String* source) {
 		if (this->sourceCursor == nullptr) {
 			$set(this, sourceCursor, getCollationElementIterator(source));
 		} else {
-			$nc(this->sourceCursor)->setText(source);
+			this->sourceCursor->setText(source);
 		}
 		while ((order = $nc(this->sourceCursor)->next()) != $CollationElementIterator::NULLORDER) {
 			secOrder = $CollationElementIterator::secondaryOrder(order);
@@ -301,10 +254,10 @@ $CollationKey* RuleBasedCollator::getCollationKey($String* source) {
 				if (compareSec) {
 					bool var$0 = $nc(this->tables)->isFrenchSec();
 					if (var$0 && preSecIgnore < $nc(this->secResult)->length()) {
-						$RBCollationTables::reverse(this->secResult, preSecIgnore, $nc(this->secResult)->length());
+						$RBCollationTables::reverse(this->secResult, preSecIgnore, this->secResult->length());
 					}
 					$nc(this->secResult)->append((char16_t)(secOrder + RuleBasedCollator::COLLATIONKEYOFFSET));
-					preSecIgnore = $nc(this->secResult)->length();
+					preSecIgnore = this->secResult->length();
 				}
 				if (compareTer) {
 					$nc(this->terResult)->append((char16_t)(terOrder + RuleBasedCollator::COLLATIONKEYOFFSET));
@@ -320,28 +273,28 @@ $CollationKey* RuleBasedCollator::getCollationKey($String* source) {
 		}
 		if ($nc(this->tables)->isFrenchSec()) {
 			if (preSecIgnore < $nc(this->secResult)->length()) {
-				$RBCollationTables::reverse(this->secResult, preSecIgnore, $nc(this->secResult)->length());
+				$RBCollationTables::reverse(this->secResult, preSecIgnore, this->secResult->length());
 			}
-			$RBCollationTables::reverse(this->secResult, 0, $nc(this->secResult)->length());
+			$RBCollationTables::reverse(this->secResult, 0, this->secResult->length());
 		}
 		$nc(this->primResult)->append((char16_t)0);
 		$nc(this->secResult)->append((char16_t)0);
-		$nc(this->secResult)->append($($nc(this->terResult)->toString()));
-		$nc(this->primResult)->append($($nc(this->secResult)->toString()));
+		this->secResult->append($($nc(this->terResult)->toString()));
+		this->primResult->append($(this->secResult->toString()));
 		if (getStrength() == $Collator::IDENTICAL) {
-			$nc(this->primResult)->append((char16_t)0);
+			this->primResult->append((char16_t)0);
 			int32_t mode = getDecomposition();
 			if (mode == $Collator::CANONICAL_DECOMPOSITION) {
 				$init($Normalizer$Form);
-				$nc(this->primResult)->append($($Normalizer::normalize(source, $Normalizer$Form::NFD)));
+				this->primResult->append($($Normalizer::normalize(source, $Normalizer$Form::NFD)));
 			} else if (mode == $Collator::FULL_DECOMPOSITION) {
 				$init($Normalizer$Form);
-				$nc(this->primResult)->append($($Normalizer::normalize(source, $Normalizer$Form::NFKD)));
+				this->primResult->append($($Normalizer::normalize(source, $Normalizer$Form::NFKD)));
 			} else {
-				$nc(this->primResult)->append(source);
+				this->primResult->append(source);
 			}
 		}
-		return $new($RuleBasedCollationKey, source, $($nc(this->primResult)->toString()));
+		return $new($RuleBasedCollationKey, source, $(this->primResult->toString()));
 	}
 }
 
@@ -360,7 +313,7 @@ $Object* RuleBasedCollator::clone() {
 }
 
 bool RuleBasedCollator::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (obj == nullptr) {
 		return false;
 	}
@@ -368,11 +321,11 @@ bool RuleBasedCollator::equals(Object$* obj) {
 		return false;
 	}
 	$var(RuleBasedCollator, other, $cast(RuleBasedCollator, obj));
-	return ($nc($(getRules()))->equals($($nc(other)->getRules())));
+	return ($$nc(getRules())->equals($($nc(other)->getRules())));
 }
 
 int32_t RuleBasedCollator::hashCode() {
-	return $nc($(getRules()))->hashCode();
+	return $$nc(getRules())->hashCode();
 }
 
 $RBCollationTables* RuleBasedCollator::getTables() {
@@ -383,7 +336,46 @@ RuleBasedCollator::RuleBasedCollator() {
 }
 
 $Class* RuleBasedCollator::load$($String* name, bool initialize) {
-	$loadClass(RuleBasedCollator, name, initialize, &_RuleBasedCollator_ClassInfo_, allocate$RuleBasedCollator);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHARINDEX", "I", nullptr, $STATIC | $FINAL, $constField(RuleBasedCollator, CHARINDEX)},
+		{"EXPANDCHARINDEX", "I", nullptr, $STATIC | $FINAL, $constField(RuleBasedCollator, EXPANDCHARINDEX)},
+		{"CONTRACTCHARINDEX", "I", nullptr, $STATIC | $FINAL, $constField(RuleBasedCollator, CONTRACTCHARINDEX)},
+		{"UNMAPPED", "I", nullptr, $STATIC | $FINAL, $constField(RuleBasedCollator, UNMAPPED)},
+		{"COLLATIONKEYOFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuleBasedCollator, COLLATIONKEYOFFSET)},
+		{"tables", "Ljava/text/RBCollationTables;", nullptr, $PRIVATE, $field(RuleBasedCollator, tables)},
+		{"primResult", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(RuleBasedCollator, primResult)},
+		{"secResult", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(RuleBasedCollator, secResult)},
+		{"terResult", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(RuleBasedCollator, terResult)},
+		{"sourceCursor", "Ljava/text/CollationElementIterator;", nullptr, $PRIVATE, $field(RuleBasedCollator, sourceCursor)},
+		{"targetCursor", "Ljava/text/CollationElementIterator;", nullptr, $PRIVATE, $field(RuleBasedCollator, targetCursor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuleBasedCollator, init$, void, $String*), "java.text.ParseException"},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(RuleBasedCollator, init$, void, $String*, int32_t), "java.text.ParseException"},
+		{"<init>", "(Ljava/text/RuleBasedCollator;)V", nullptr, $PRIVATE, $method(RuleBasedCollator, init$, void, RuleBasedCollator*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, clone, $Object*)},
+		{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RuleBasedCollator, compare, int32_t, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, equals, bool, Object$*)},
+		{"getCollationElementIterator", "(Ljava/lang/String;)Ljava/text/CollationElementIterator;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, getCollationElementIterator, $CollationElementIterator*, $String*)},
+		{"getCollationElementIterator", "(Ljava/text/CharacterIterator;)Ljava/text/CollationElementIterator;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, getCollationElementIterator, $CollationElementIterator*, $CharacterIterator*)},
+		{"getCollationKey", "(Ljava/lang/String;)Ljava/text/CollationKey;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RuleBasedCollator, getCollationKey, $CollationKey*, $String*)},
+		{"getRules", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, getRules, $String*)},
+		{"getTables", "()Ljava/text/RBCollationTables;", nullptr, 0, $virtualMethod(RuleBasedCollator, getTables, $RBCollationTables*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.text.RuleBasedCollator",
+		"java.text.Collator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RuleBasedCollator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RuleBasedCollator));
+	});
 	return class$;
 }
 

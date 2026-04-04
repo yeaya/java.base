@@ -56,7 +56,7 @@ public:
 	virtual int32_t size() override;
 	virtual $String* toString() override;
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0x9F230991717F6B91;
+	static const int64_t serialVersionUID = (int64_t)0x9f230991717f6b91;
 	$Object* k = nullptr;
 	$Object* v = nullptr;
 	::java::util::Set* keySet$ = nullptr;

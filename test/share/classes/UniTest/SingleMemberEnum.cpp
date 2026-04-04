@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberEnum.h>
-
 #include <UniTest/Stooge.h>
 #include <jcpp.h>
 
@@ -11,40 +10,34 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberEnum_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberEnum_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberEnum_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberEnum_MethodInfo_[] = {
-	{"value", "()LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberEnum, value, $Stooge*)},
-	{}
-};
-
-$ClassInfo _SingleMemberEnum_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberEnum",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberEnum_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberEnum_Annotations_
-};
-
-$Object* allocate$SingleMemberEnum($Class* clazz) {
-	return $of($alloc(SingleMemberEnum));
-}
-
 $Class* SingleMemberEnum::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberEnum, name, initialize, &_SingleMemberEnum_ClassInfo_, allocate$SingleMemberEnum);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberEnum, value, $Stooge*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberEnum",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberEnum, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberEnum);
+	});
 	return class$;
 }
 

@@ -66,6 +66,7 @@ class UBiDiProps : public ::java::lang::Object {
 	$class(UBiDiProps, 0, ::java::lang::Object)
 public:
 	UBiDiProps();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int32_t getClass(int32_t c);
 	static int32_t getClassFromProps(int32_t props);

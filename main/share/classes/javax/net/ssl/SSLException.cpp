@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$FieldInfo _SSLException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SSLException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SSLException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SSLException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _SSLException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.net.ssl.SSLException",
-	"java.io.IOException",
-	nullptr,
-	_SSLException_FieldInfo_,
-	_SSLException_MethodInfo_
-};
-
-$Object* allocate$SSLException($Class* clazz) {
-	return $of($alloc(SSLException));
-}
-
 void SSLException::init$($String* reason) {
 	$IOException::init$(reason);
 }
@@ -47,7 +21,7 @@ void SSLException::init$($String* message, $Throwable* cause) {
 }
 
 void SSLException::init$($Throwable* cause) {
-	$IOException::init$(cause == nullptr ? ($String*)nullptr : $($nc(cause)->toString()));
+	$IOException::init$(cause == nullptr ? ($String*)nullptr : $(cause->toString()));
 	initCause(cause);
 }
 
@@ -62,7 +36,27 @@ void SSLException::throw$() {
 }
 
 $Class* SSLException::load$($String* name, bool initialize) {
-	$loadClass(SSLException, name, initialize, &_SSLException_ClassInfo_, allocate$SSLException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SSLException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SSLException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.net.ssl.SSLException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLException);
+	});
 	return class$;
 }
 

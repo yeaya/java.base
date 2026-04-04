@@ -22,6 +22,7 @@ class VM$BufferPoolsHolder : public ::java::lang::Object {
 	$class(VM$BufferPoolsHolder, 0, ::java::lang::Object)
 public:
 	VM$BufferPoolsHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* BUFFER_POOLS;
 };

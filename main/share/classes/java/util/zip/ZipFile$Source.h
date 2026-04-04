@@ -52,6 +52,7 @@ class ZipFile$Source : public ::java::lang::Object {
 	$class(ZipFile$Source, 0, ::java::lang::Object)
 public:
 	ZipFile$Source();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::zip::ZipFile$Source$Key* key, bool toDelete, ::java::util::zip::ZipCoder* zc);
 	int32_t checkAndAddEntry(int32_t pos, int32_t index);
 	void close();

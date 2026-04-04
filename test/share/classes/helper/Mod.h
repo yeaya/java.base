@@ -22,6 +22,7 @@ class $export Mod : public ::java::lang::Enum {
 public:
 	Mod();
 	static $Array<::helper::Mod>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::helper::Mod* valueOf($String* name);
 	static $Array<::helper::Mod>* values();

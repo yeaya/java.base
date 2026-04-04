@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsUserPrincipals.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/RuntimePermission.h>
@@ -26,7 +25,6 @@ using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 using $UserPrincipalNotFoundException = ::java::nio::file::attribute::UserPrincipalNotFoundException;
-using $Permission = ::java::security::Permission;
 using $NativeBuffer = ::sun::nio::fs::NativeBuffer;
 using $NativeBuffers = ::sun::nio::fs::NativeBuffers;
 using $WindowsException = ::sun::nio::fs::WindowsException;
@@ -39,43 +37,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsUserPrincipals_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsUserPrincipals, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _WindowsUserPrincipals_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsUserPrincipals, init$, void)},
-	{"fromSid", "(J)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $STATIC, $staticMethod(WindowsUserPrincipals, fromSid, $UserPrincipal*, int64_t), "java.io.IOException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $STATIC, $staticMethod(WindowsUserPrincipals, lookup, $UserPrincipal*, $String*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _WindowsUserPrincipals_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsUserPrincipals$Group", "sun.nio.fs.WindowsUserPrincipals", "Group", $STATIC},
-	{"sun.nio.fs.WindowsUserPrincipals$User", "sun.nio.fs.WindowsUserPrincipals", "User", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsUserPrincipals_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsUserPrincipals",
-	"java.lang.Object",
-	nullptr,
-	_WindowsUserPrincipals_FieldInfo_,
-	_WindowsUserPrincipals_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsUserPrincipals_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsUserPrincipals$Group,sun.nio.fs.WindowsUserPrincipals$User"
-};
-
-$Object* allocate$WindowsUserPrincipals($Class* clazz) {
-	return $of($alloc(WindowsUserPrincipals));
-}
-
 bool WindowsUserPrincipals::$assertionsDisabled = false;
 
 void WindowsUserPrincipals::init$() {
@@ -83,7 +44,7 @@ void WindowsUserPrincipals::init$() {
 
 $UserPrincipal* WindowsUserPrincipals::fromSid(int64_t sidAddress) {
 	$init(WindowsUserPrincipals);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, sidString, nullptr);
 	try {
 		$assign(sidString, $WindowsNativeDispatcher::ConvertSidToStringSid(sidAddress));
@@ -97,14 +58,17 @@ $UserPrincipal* WindowsUserPrincipals::fromSid(int64_t sidAddress) {
 	$var($String, name, nullptr);
 	try {
 		$assign(account, $WindowsNativeDispatcher::LookupAccountSid(sidAddress));
-		$var($String, var$0, $$str({$($nc(account)->domain()), "\\"_s}));
-		$assign(name, $concat(var$0, $(account->name())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($nc(account)->domain()));
+		var$0->append("\\"_s);
+		var$0->append($(account->name()));
+		$assign(name, $str(var$0));
 	} catch ($WindowsException& x) {
 		$assign(name, sidString);
 	}
-	int32_t sidType = (account == nullptr) ? 8 : $nc(account)->use();
+	int32_t sidType = (account == nullptr) ? 8 : account->use();
 	if ((sidType == 2) || (sidType == 5) || (sidType == 4)) {
-		return static_cast<$UserPrincipal*>(static_cast<$WindowsUserPrincipals$User*>($new($WindowsUserPrincipals$Group, sidString, sidType, name)));
+		return $cast($WindowsUserPrincipals$User, $new($WindowsUserPrincipals$Group, sidString, sidType, name));
 	} else {
 		return $new($WindowsUserPrincipals$User, sidString, sidType, name);
 	}
@@ -112,7 +76,7 @@ $UserPrincipal* WindowsUserPrincipals::fromSid(int64_t sidAddress) {
 
 $UserPrincipal* WindowsUserPrincipals::lookup($String* name) {
 	$init(WindowsUserPrincipals);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "lookupUserInformation"_s));
@@ -130,38 +94,36 @@ $UserPrincipal* WindowsUserPrincipals::lookup($String* name) {
 		$throwNew($AssertionError);
 	}
 	$var($NativeBuffer, sidBuffer, $NativeBuffers::getNativeBuffer(size));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($UserPrincipal, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($UserPrincipal, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				int32_t newSize = $WindowsNativeDispatcher::LookupAccountName(name, $nc(sidBuffer)->address(), size);
-				if (newSize != size) {
-					$throwNew($AssertionError, $of("SID change during lookup"_s));
-				}
-				$assign(var$2, fromSid($nc(sidBuffer)->address()));
-				return$1 = true;
-				goto $finally;
-			} catch ($WindowsException& x) {
-				$throwNew($IOException, $$str({name, ": "_s, $(x->errorString())}));
+			int32_t newSize = $WindowsNativeDispatcher::LookupAccountName(name, $nc(sidBuffer)->address(), size);
+			if (newSize != size) {
+				$throwNew($AssertionError, $of("SID change during lookup"_s));
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(sidBuffer)->release();
+			$assign(var$2, fromSid(sidBuffer->address()));
+			return$1 = true;
+			goto $finally;
+		} catch ($WindowsException& x) {
+			$throwNew($IOException, $$str({name, ": "_s, $(x->errorString())}));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(sidBuffer)->release();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$WindowsUserPrincipals($Class* class$) {
+void WindowsUserPrincipals::clinit$($Class* clazz) {
 	WindowsUserPrincipals::$assertionsDisabled = !WindowsUserPrincipals::class$->desiredAssertionStatus();
 }
 
@@ -169,7 +131,38 @@ WindowsUserPrincipals::WindowsUserPrincipals() {
 }
 
 $Class* WindowsUserPrincipals::load$($String* name, bool initialize) {
-	$loadClass(WindowsUserPrincipals, name, initialize, &_WindowsUserPrincipals_ClassInfo_, clinit$WindowsUserPrincipals, allocate$WindowsUserPrincipals);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsUserPrincipals, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsUserPrincipals, init$, void)},
+		{"fromSid", "(J)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $STATIC, $staticMethod(WindowsUserPrincipals, fromSid, $UserPrincipal*, int64_t), "java.io.IOException"},
+		{"lookup", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $STATIC, $staticMethod(WindowsUserPrincipals, lookup, $UserPrincipal*, $String*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsUserPrincipals$Group", "sun.nio.fs.WindowsUserPrincipals", "Group", $STATIC},
+		{"sun.nio.fs.WindowsUserPrincipals$User", "sun.nio.fs.WindowsUserPrincipals", "User", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsUserPrincipals",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsUserPrincipals$Group,sun.nio.fs.WindowsUserPrincipals$User"
+	};
+	$loadClass(WindowsUserPrincipals, name, initialize, &classInfo$$, WindowsUserPrincipals::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsUserPrincipals);
+	});
 	return class$;
 }
 

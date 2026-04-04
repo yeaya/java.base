@@ -93,6 +93,7 @@ class $import PolicyFile : public ::java::security::Policy {
 	$class(PolicyFile, 0, ::java::security::Policy)
 public:
 	PolicyFile();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::net::URL* url);
 	void addGrantEntry(::sun::security::provider::PolicyParser$GrantEntry* ge, ::java::security::KeyStore* keyStore, ::sun::security::provider::PolicyFile$PolicyInfo* newInfo);

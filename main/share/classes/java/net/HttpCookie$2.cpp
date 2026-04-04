@@ -1,5 +1,4 @@
 #include <java/net/HttpCookie$2.h>
-
 #include <java/net/HttpCookie.h>
 #include <jcpp.h>
 
@@ -11,44 +10,6 @@ using $HttpCookie = ::java::net::HttpCookie;
 
 namespace java {
 	namespace net {
-
-$MethodInfo _HttpCookie$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HttpCookie$2, init$, void)},
-	{"assign", "(Ljava/net/HttpCookie;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpCookie$2, assign, void, $HttpCookie*, $String*, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _HttpCookie$2_EnclosingMethodInfo_ = {
-	"java.net.HttpCookie",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _HttpCookie$2_InnerClassesInfo_[] = {
-	{"java.net.HttpCookie$2", nullptr, nullptr, 0},
-	{"java.net.HttpCookie$CookieAttributeAssignor", "java.net.HttpCookie", "CookieAttributeAssignor", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpCookie$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.HttpCookie$2",
-	"java.lang.Object",
-	"java.net.HttpCookie$CookieAttributeAssignor",
-	nullptr,
-	_HttpCookie$2_MethodInfo_,
-	nullptr,
-	&_HttpCookie$2_EnclosingMethodInfo_,
-	_HttpCookie$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.HttpCookie"
-};
-
-$Object* allocate$HttpCookie$2($Class* clazz) {
-	return $of($alloc(HttpCookie$2));
-}
 
 void HttpCookie$2::init$() {
 }
@@ -63,7 +24,39 @@ HttpCookie$2::HttpCookie$2() {
 }
 
 $Class* HttpCookie$2::load$($String* name, bool initialize) {
-	$loadClass(HttpCookie$2, name, initialize, &_HttpCookie$2_ClassInfo_, allocate$HttpCookie$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HttpCookie$2, init$, void)},
+		{"assign", "(Ljava/net/HttpCookie;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpCookie$2, assign, void, $HttpCookie*, $String*, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.HttpCookie",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.HttpCookie$2", nullptr, nullptr, 0},
+		{"java.net.HttpCookie$CookieAttributeAssignor", "java.net.HttpCookie", "CookieAttributeAssignor", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.HttpCookie$2",
+		"java.lang.Object",
+		"java.net.HttpCookie$CookieAttributeAssignor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.HttpCookie"
+	};
+	$loadClass(HttpCookie$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpCookie$2);
+	});
 	return class$;
 }
 

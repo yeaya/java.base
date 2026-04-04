@@ -29,6 +29,7 @@ class AbstractTask : public ::java::util::concurrent::CountedCompleter {
 	$class(AbstractTask, 0, ::java::util::concurrent::CountedCompleter)
 public:
 	AbstractTask();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::stream::PipelineHelper* helper, ::java::util::Spliterator* spliterator);
 	void init$(::java::util::stream::AbstractTask* parent, ::java::util::Spliterator* spliterator);
 	virtual void compute() override;

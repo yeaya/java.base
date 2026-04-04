@@ -1,5 +1,4 @@
 #include <java/lang/reflect/InvocationTargetException.h>
-
 #include <java/lang/ReflectiveOperationException.h>
 #include <jcpp.h>
 
@@ -11,34 +10,6 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 namespace java {
 	namespace lang {
 		namespace reflect {
-
-$FieldInfo _InvocationTargetException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvocationTargetException, serialVersionUID)},
-	{"target", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(InvocationTargetException, target)},
-	{}
-};
-
-$MethodInfo _InvocationTargetException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(InvocationTargetException, init$, void)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvocationTargetException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvocationTargetException, init$, void, $Throwable*, $String*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(InvocationTargetException, getCause, $Throwable*)},
-	{"getTargetException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(InvocationTargetException, getTargetException, $Throwable*)},
-	{}
-};
-
-$ClassInfo _InvocationTargetException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.reflect.InvocationTargetException",
-	"java.lang.ReflectiveOperationException",
-	nullptr,
-	_InvocationTargetException_FieldInfo_,
-	_InvocationTargetException_MethodInfo_
-};
-
-$Object* allocate$InvocationTargetException($Class* clazz) {
-	return $of($alloc(InvocationTargetException));
-}
 
 void InvocationTargetException::init$() {
 	$ReflectiveOperationException::init$(($Throwable*)nullptr);
@@ -73,7 +44,30 @@ void InvocationTargetException::throw$() {
 }
 
 $Class* InvocationTargetException::load$($String* name, bool initialize) {
-	$loadClass(InvocationTargetException, name, initialize, &_InvocationTargetException_ClassInfo_, allocate$InvocationTargetException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvocationTargetException, serialVersionUID)},
+		{"target", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(InvocationTargetException, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(InvocationTargetException, init$, void)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvocationTargetException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvocationTargetException, init$, void, $Throwable*, $String*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(InvocationTargetException, getCause, $Throwable*)},
+		{"getTargetException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(InvocationTargetException, getTargetException, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.reflect.InvocationTargetException",
+		"java.lang.ReflectiveOperationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvocationTargetException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvocationTargetException);
+	});
 	return class$;
 }
 

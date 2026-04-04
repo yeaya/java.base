@@ -1,5 +1,4 @@
 #include <IntegralDivisionTests.h>
-
 #include <java/math/BigDecimal.h>
 #include <java/math/MathContext.h>
 #include <java/math/RoundingMode.h>
@@ -13,7 +12,6 @@
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;
 using $RoundingModeArray = $Array<::java::math::RoundingMode>;
 using $BigDecimalArray2 = $Array<::java::math::BigDecimal, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -23,36 +21,11 @@ using $BigDecimal = ::java::math::BigDecimal;
 using $MathContext = ::java::math::MathContext;
 using $RoundingMode = ::java::math::RoundingMode;
 
-$MethodInfo _IntegralDivisionTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegralDivisionTests, init$, void)},
-	{"divideContextTest", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, divideContextTest, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimal*, $MathContext*)},
-	{"divideContextTestPrecs", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;[Ljava/math/BigDecimal;)I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, divideContextTestPrecs, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimalArray*)},
-	{"divideContextTests", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, divideContextTests, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimal*, $MathContext*)},
-	{"dividetoIntegralValueRoundedTests", "()I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, dividetoIntegralValueRoundedTests, int32_t)},
-	{"dividetoIntegralValueScalingTests", "()I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, dividetoIntegralValueScalingTests, int32_t)},
-	{"dividetoIntegralValueTests", "()I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, dividetoIntegralValueTests, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IntegralDivisionTests, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _IntegralDivisionTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IntegralDivisionTests",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IntegralDivisionTests_MethodInfo_
-};
-
-$Object* allocate$IntegralDivisionTests($Class* clazz) {
-	return $of($alloc(IntegralDivisionTests));
-}
-
 void IntegralDivisionTests::init$() {
 }
 
 int32_t IntegralDivisionTests::dividetoIntegralValueTests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimalArray2, moreTestCases, $new($BigDecimalArray2, {
 		$$new($BigDecimalArray, {
@@ -102,29 +75,43 @@ int32_t IntegralDivisionTests::dividetoIntegralValueTests() {
 		}),
 		$$new($BigDecimalArray, {
 			$($BigDecimal::valueOf(1, $Integer::MIN_VALUE)),
-			$($BigDecimal::valueOf(1, -((int32_t)($Integer::MAX_VALUE & (uint32_t)0x7FFFFF00)))),
+			$($BigDecimal::valueOf(1, -($Integer::MAX_VALUE & 0x7fffff00))),
 			$($BigDecimal::valueOf(1, -256))
 		})
 	}));
 	{
 		$var($BigDecimalArray2, arr$, moreTestCases);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigDecimalArray, testCase, arr$->get(i$));
 			{
 				$var($BigDecimal, quotient, nullptr);
-				if (!$nc(($assign(quotient, $nc($nc(testCase)->get(0))->divideToIntegralValue(testCase->get(1)))))->equals(testCase->get(2))) {
+				if (!$nc(($assign(quotient, $nc($nc(testCase)->get(0))->divideToIntegralValue($nc(testCase)->get(1)))))->equals($nc(testCase)->get(2))) {
 					++failures;
 					$nc($System::err)->println();
-					$var($String, var$0, $$str({"dividend  = "_s, testCase->get(0), " scale = "_s}));
-					$nc($System::err)->println($$concat(var$0, $$str($nc(testCase->get(0))->scale())));
-					$var($String, var$1, $$str({"divisor   = "_s, testCase->get(1), " scale = "_s}));
-					$nc($System::err)->println($$concat(var$1, $$str($nc(testCase->get(1))->scale())));
-					$var($String, var$2, $$str({"quotient  = "_s, quotient, " scale = "_s}));
-					$nc($System::err)->println($$concat(var$2, $$str($nc(quotient)->scale())));
-					$var($String, var$3, $$str({"expected  = "_s, testCase->get(2), " scale = "_s}));
-					$nc($System::err)->println($$concat(var$3, $$str($nc(testCase->get(2))->scale())));
+					$var($StringBuilder, var$0, $new($StringBuilder));
+					var$0->append("dividend  = "_s);
+					var$0->append(testCase->get(0));
+					var$0->append(" scale = "_s);
+					var$0->append($nc(testCase->get(0))->scale());
+					$System::err->println($$str(var$0));
+					$var($StringBuilder, var$1, $new($StringBuilder));
+					var$1->append("divisor   = "_s);
+					var$1->append(testCase->get(1));
+					var$1->append(" scale = "_s);
+					var$1->append($nc(testCase->get(1))->scale());
+					$System::err->println($$str(var$1));
+					$var($StringBuilder, var$2, $new($StringBuilder));
+					var$2->append("quotient  = "_s);
+					var$2->append(quotient);
+					var$2->append(" scale = "_s);
+					var$2->append(quotient->scale());
+					$System::err->println($$str(var$2));
+					$var($StringBuilder, var$3, $new($StringBuilder));
+					var$3->append("expected  = "_s);
+					var$3->append(testCase->get(2));
+					var$3->append(" scale = "_s);
+					var$3->append($nc(testCase->get(2))->scale());
+					$System::err->println($$str(var$3));
 				}
 			}
 		}
@@ -133,13 +120,13 @@ int32_t IntegralDivisionTests::dividetoIntegralValueTests() {
 }
 
 int32_t IntegralDivisionTests::dividetoIntegralValueRoundedTests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, dividend, $new($BigDecimal, "11003"_s));
 	$var($BigDecimal, divisor, $new($BigDecimal, "10"_s));
 	$var($BigDecimalArray, quotients, $new($BigDecimalArray, {
 		$$new($BigDecimal, "1100"_s),
-		($BigDecimal*)nullptr,
+		nullptr,
 		$$new($BigDecimal, "11e2"_s),
 		$$new($BigDecimal, "110e1"_s),
 		$$new($BigDecimal, "1100"_s)
@@ -149,7 +136,7 @@ int32_t IntegralDivisionTests::dividetoIntegralValueRoundedTests() {
 	$assign(divisor, $new($BigDecimal, "1e1"_s));
 	$var($BigDecimalArray, quotients2, $new($BigDecimalArray, {
 		$$new($BigDecimal, "1100.0"_s),
-		($BigDecimal*)nullptr,
+		nullptr,
 		$$new($BigDecimal, "11e2"_s),
 		$$new($BigDecimal, "110e1"_s),
 		$$new($BigDecimal, "1100"_s),
@@ -160,8 +147,8 @@ int32_t IntegralDivisionTests::dividetoIntegralValueRoundedTests() {
 	$assign(divisor, $new($BigDecimal, "100"_s));
 	$var($BigDecimalArray, quotients3, $new($BigDecimalArray, {
 		$$new($BigDecimal, "12300"_s),
-		($BigDecimal*)nullptr,
-		($BigDecimal*)nullptr,
+		nullptr,
+		nullptr,
 		$$new($BigDecimal, "123e2"_s),
 		$$new($BigDecimal, "1230e1"_s),
 		$$new($BigDecimal, "12300"_s)
@@ -171,7 +158,7 @@ int32_t IntegralDivisionTests::dividetoIntegralValueRoundedTests() {
 	$assign(divisor, $new($BigDecimal, "3"_s));
 	$var($BigDecimalArray, quotients4, $new($BigDecimalArray, {
 		$$new($BigDecimal, "11"_s),
-		($BigDecimal*)nullptr,
+		nullptr,
 		$$new($BigDecimal, "11"_s),
 		$$new($BigDecimal, "11"_s)
 	}));
@@ -180,7 +167,7 @@ int32_t IntegralDivisionTests::dividetoIntegralValueRoundedTests() {
 	$assign(divisor, $new($BigDecimal, "3"_s));
 	$var($BigDecimalArray, quotients5, $new($BigDecimalArray, {
 		$$new($BigDecimal, "11"_s),
-		($BigDecimal*)nullptr,
+		nullptr,
 		$$new($BigDecimal, "11"_s),
 		$$new($BigDecimal, "11"_s)
 	}));
@@ -189,7 +176,7 @@ int32_t IntegralDivisionTests::dividetoIntegralValueRoundedTests() {
 }
 
 int32_t IntegralDivisionTests::divideContextTestPrecs($BigDecimal* dividend, $BigDecimal* divisor, $BigDecimalArray* quotients) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	for (int32_t i = 0; i < $nc(quotients)->length; ++i) {
 		$var($BigDecimal, result, nullptr);
@@ -201,65 +188,103 @@ int32_t IntegralDivisionTests::divideContextTestPrecs($BigDecimal* dividend, $Bi
 			if (quotient != nullptr) {
 				++failures;
 				$nc($System::err)->println();
-				$nc($System::err)->println("Unexpected exception:"_s);
-				$var($String, var$0, $$str({"dividend  = "_s, dividend, " scale = "_s}));
-				$nc($System::err)->println($$concat(var$0, $$str($nc(dividend)->scale())));
-				$var($String, var$1, $$str({"divisor   = "_s, divisor, " scale = "_s}));
-				$nc($System::err)->println($$concat(var$1, $$str($nc(divisor)->scale())));
-				$var($String, var$2, $$str({"expected  = "_s, quotient, " scale = "_s}));
-				$nc($System::err)->println($$concat(var$2, $$str(quotient->scale())));
+				$System::err->println("Unexpected exception:"_s);
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("dividend  = "_s);
+				var$0->append(dividend);
+				var$0->append(" scale = "_s);
+				var$0->append($nc(dividend)->scale());
+				$System::err->println($$str(var$0));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append("divisor   = "_s);
+				var$1->append(divisor);
+				var$1->append(" scale = "_s);
+				var$1->append($nc(divisor)->scale());
+				$System::err->println($$str(var$1));
+				$var($StringBuilder, var$2, $new($StringBuilder));
+				var$2->append("expected  = "_s);
+				var$2->append(quotient);
+				var$2->append(" scale = "_s);
+				var$2->append(quotient->scale());
+				$System::err->println($$str(var$2));
 			}
 		}
 		if (quotient != nullptr) {
 			if (!$nc(result)->equals(quotient)) {
 				++failures;
 				$nc($System::err)->println();
-				$nc($System::err)->println("Unexpected result:"_s);
-				$var($String, var$3, $$str({"dividend  = "_s, dividend, " scale = "_s}));
-				$nc($System::err)->println($$concat(var$3, $$str($nc(dividend)->scale())));
-				$var($String, var$4, $$str({"divisor   = "_s, divisor, " scale = "_s}));
-				$nc($System::err)->println($$concat(var$4, $$str($nc(divisor)->scale())));
-				$var($String, var$5, $$str({"quotient  = "_s, result, " scale = "_s}));
-				$nc($System::err)->println($$concat(var$5, $$str(result->scale())));
-				$var($String, var$6, $$str({"expected  = "_s, quotient, " scale = "_s}));
-				$nc($System::err)->println($$concat(var$6, $$str(quotient->scale())));
-				$nc($System::err)->println($$str({"precision = "_s, $$str(i)}));
+				$System::err->println("Unexpected result:"_s);
+				$var($StringBuilder, var$3, $new($StringBuilder));
+				var$3->append("dividend  = "_s);
+				var$3->append(dividend);
+				var$3->append(" scale = "_s);
+				var$3->append($nc(dividend)->scale());
+				$System::err->println($$str(var$3));
+				$var($StringBuilder, var$4, $new($StringBuilder));
+				var$4->append("divisor   = "_s);
+				var$4->append(divisor);
+				var$4->append(" scale = "_s);
+				var$4->append($nc(divisor)->scale());
+				$System::err->println($$str(var$4));
+				$var($StringBuilder, var$5, $new($StringBuilder));
+				var$5->append("quotient  = "_s);
+				var$5->append(result);
+				var$5->append(" scale = "_s);
+				var$5->append(result->scale());
+				$System::err->println($$str(var$5));
+				$var($StringBuilder, var$6, $new($StringBuilder));
+				var$6->append("expected  = "_s);
+				var$6->append(quotient);
+				var$6->append(" scale = "_s);
+				var$6->append(quotient->scale());
+				$System::err->println($$str(var$6));
+				$System::err->println($$str({"precision = "_s, $$str(i)}));
 			}
 		} else if (result != nullptr) {
 			++failures;
 			$nc($System::err)->println();
-			$nc($System::err)->println("Unexpected unexceptional result:"_s);
-			$var($String, var$7, $$str({"dividend  = "_s, dividend, " scale = "_s}));
-			$nc($System::err)->println($$concat(var$7, $$str($nc(dividend)->scale())));
-			$var($String, var$8, $$str({"divisor   = "_s, divisor, " scale = "_s}));
-			$nc($System::err)->println($$concat(var$8, $$str($nc(divisor)->scale())));
-			$var($String, var$9, $$str({"quotient  = "_s, result, " scale = "_s}));
-			$nc($System::err)->println($$concat(var$9, $$str(result->scale())));
-			$nc($System::err)->println($$str({"precision = "_s, $$str(i)}));
+			$System::err->println("Unexpected unexceptional result:"_s);
+			$var($StringBuilder, var$7, $new($StringBuilder));
+			var$7->append("dividend  = "_s);
+			var$7->append(dividend);
+			var$7->append(" scale = "_s);
+			var$7->append($nc(dividend)->scale());
+			$System::err->println($$str(var$7));
+			$var($StringBuilder, var$8, $new($StringBuilder));
+			var$8->append("divisor   = "_s);
+			var$8->append(divisor);
+			var$8->append(" scale = "_s);
+			var$8->append($nc(divisor)->scale());
+			$System::err->println($$str(var$8));
+			$var($StringBuilder, var$9, $new($StringBuilder));
+			var$9->append("quotient  = "_s);
+			var$9->append(result);
+			var$9->append(" scale = "_s);
+			var$9->append(result->scale());
+			$System::err->println($$str(var$9));
+			$System::err->println($$str({"precision = "_s, $$str(i)}));
 		}
 	}
 	return failures;
 }
 
 int32_t IntegralDivisionTests::divideContextTests($BigDecimal* dividend, $BigDecimal* divisor, $BigDecimal* expected, $MathContext* mc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	failures += divideContextTest(dividend, divisor, expected, mc);
 	$var($BigDecimal, var$0, $nc(dividend)->negate());
 	failures += divideContextTest(var$0, $($nc(divisor)->negate()), expected, mc);
 	if (expected != nullptr) {
-		$var($BigDecimal, var$1, $nc(dividend)->negate());
-		$var($BigDecimal, var$2, divisor);
-		failures += divideContextTest(var$1, var$2, $(expected->negate()), mc);
-		$var($BigDecimal, var$3, dividend);
-		$var($BigDecimal, var$4, $nc(divisor)->negate());
-		failures += divideContextTest(var$3, var$4, $(expected->negate()), mc);
+		$var($BigDecimal, var$1, dividend->negate());
+		failures += divideContextTest(var$1, divisor, $(expected->negate()), mc);
+		$var($BigDecimal, var$2, divisor->negate());
+		failures += divideContextTest(dividend, var$2, $(expected->negate()), mc);
 	}
 	return failures;
 }
 
 int32_t IntegralDivisionTests::divideContextTest($BigDecimal* dividend, $BigDecimal* divisor, $BigDecimal* expected, $MathContext* mc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, result, nullptr);
 	try {
@@ -268,51 +293,90 @@ int32_t IntegralDivisionTests::divideContextTest($BigDecimal* dividend, $BigDeci
 		if (expected != nullptr) {
 			++failures;
 			$nc($System::err)->println();
-			$nc($System::err)->println("Unexpected exception:"_s);
-			$var($String, var$0, $$str({"dividend  = "_s, dividend, " scale = "_s}));
-			$nc($System::err)->println($$concat(var$0, $$str($nc(dividend)->scale())));
-			$var($String, var$1, $$str({"divisor   = "_s, divisor, " scale = "_s}));
-			$nc($System::err)->println($$concat(var$1, $$str($nc(divisor)->scale())));
-			$var($String, var$2, $$str({"expected  = "_s, expected, " scale = "_s}));
-			$nc($System::err)->println($$concat(var$2, $$str(expected->scale())));
-			$nc($System::err)->println($$str({"MathContext  = "_s, mc}));
+			$System::err->println("Unexpected exception:"_s);
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("dividend  = "_s);
+			var$0->append(dividend);
+			var$0->append(" scale = "_s);
+			var$0->append($nc(dividend)->scale());
+			$System::err->println($$str(var$0));
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append("divisor   = "_s);
+			var$1->append(divisor);
+			var$1->append(" scale = "_s);
+			var$1->append($nc(divisor)->scale());
+			$System::err->println($$str(var$1));
+			$var($StringBuilder, var$2, $new($StringBuilder));
+			var$2->append("expected  = "_s);
+			var$2->append(expected);
+			var$2->append(" scale = "_s);
+			var$2->append(expected->scale());
+			$System::err->println($$str(var$2));
+			$System::err->println($$str({"MathContext  = "_s, mc}));
 		}
 	}
 	if (expected != nullptr) {
 		if (!$nc(result)->equals(expected)) {
 			++failures;
 			$nc($System::err)->println();
-			$nc($System::err)->println("Unexpected result:"_s);
-			$var($String, var$3, $$str({"dividend  = "_s, dividend, " scale = "_s}));
-			$nc($System::err)->println($$concat(var$3, $$str($nc(dividend)->scale())));
-			$var($String, var$4, $$str({"divisor   = "_s, divisor, " scale = "_s}));
-			$nc($System::err)->println($$concat(var$4, $$str($nc(divisor)->scale())));
-			$var($String, var$5, $$str({"expected  = "_s, expected, " scale = "_s}));
-			$nc($System::err)->println($$concat(var$5, $$str(expected->scale())));
-			$var($String, var$6, $$str({"result    = "_s, result, " scale = "_s}));
-			$nc($System::err)->println($$concat(var$6, $$str(result->scale())));
-			$nc($System::err)->println($$str({"MathContext  = "_s, mc}));
+			$System::err->println("Unexpected result:"_s);
+			$var($StringBuilder, var$3, $new($StringBuilder));
+			var$3->append("dividend  = "_s);
+			var$3->append(dividend);
+			var$3->append(" scale = "_s);
+			var$3->append($nc(dividend)->scale());
+			$System::err->println($$str(var$3));
+			$var($StringBuilder, var$4, $new($StringBuilder));
+			var$4->append("divisor   = "_s);
+			var$4->append(divisor);
+			var$4->append(" scale = "_s);
+			var$4->append($nc(divisor)->scale());
+			$System::err->println($$str(var$4));
+			$var($StringBuilder, var$5, $new($StringBuilder));
+			var$5->append("expected  = "_s);
+			var$5->append(expected);
+			var$5->append(" scale = "_s);
+			var$5->append(expected->scale());
+			$System::err->println($$str(var$5));
+			$var($StringBuilder, var$6, $new($StringBuilder));
+			var$6->append("result    = "_s);
+			var$6->append(result);
+			var$6->append(" scale = "_s);
+			var$6->append(result->scale());
+			$System::err->println($$str(var$6));
+			$System::err->println($$str({"MathContext  = "_s, mc}));
 		}
 	} else if (result != nullptr) {
 		++failures;
 		$nc($System::err)->println();
-		$nc($System::err)->println("Unexpected unexceptional result:"_s);
-		$var($String, var$7, $$str({"dividend  = "_s, dividend, " scale = "_s}));
-		$nc($System::err)->println($$concat(var$7, $$str($nc(dividend)->scale())));
-		$var($String, var$8, $$str({"divisor   = "_s, divisor, " scale = "_s}));
-		$nc($System::err)->println($$concat(var$8, $$str($nc(divisor)->scale())));
-		$var($String, var$9, $$str({"quotient  = "_s, result, " scale = "_s}));
-		$nc($System::err)->println($$concat(var$9, $$str(result->scale())));
-		$nc($System::err)->println($$str({"MathConext = "_s, mc}));
+		$System::err->println("Unexpected unexceptional result:"_s);
+		$var($StringBuilder, var$7, $new($StringBuilder));
+		var$7->append("dividend  = "_s);
+		var$7->append(dividend);
+		var$7->append(" scale = "_s);
+		var$7->append($nc(dividend)->scale());
+		$System::err->println($$str(var$7));
+		$var($StringBuilder, var$8, $new($StringBuilder));
+		var$8->append("divisor   = "_s);
+		var$8->append(divisor);
+		var$8->append(" scale = "_s);
+		var$8->append($nc(divisor)->scale());
+		$System::err->println($$str(var$8));
+		$var($StringBuilder, var$9, $new($StringBuilder));
+		var$9->append("quotient  = "_s);
+		var$9->append(result);
+		var$9->append(" scale = "_s);
+		var$9->append(result->scale());
+		$System::err->println($$str(var$9));
+		$System::err->println($$str({"MathConext = "_s, mc}));
 	}
 	return failures;
 }
 
 int32_t IntegralDivisionTests::dividetoIntegralValueScalingTests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, dividend, $new($BigDecimal, "123456789000"_s));
-	$init($BigDecimal);
 	$var($BigDecimal, divisor, $BigDecimal::ONE);
 	$var($BigDecimal, expected, $new($BigDecimal, "123456789e3"_s));
 	$init($RoundingMode);
@@ -329,15 +393,13 @@ int32_t IntegralDivisionTests::dividetoIntegralValueScalingTests() {
 	$assign(expected, $new($BigDecimal, 33));
 	{
 		$var($RoundingModeArray, arr$, $RoundingMode::values());
-		int32_t len$ = $nc(arr$)->length;
+		int32_t len$ = arr$->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			$RoundingMode* rm = arr$->get(i$);
 			{
 				$var($ints, arr$, precisions);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					int32_t precision = arr$->get(i$);
 					{
 						failures += divideContextTests(dividend, divisor, expected, $$new($MathContext, precision, rm));
@@ -346,7 +408,7 @@ int32_t IntegralDivisionTests::dividetoIntegralValueScalingTests() {
 			}
 		}
 	}
-	$assign(dividend, $new($BigDecimal, 0x0001E078));
+	$assign(dividend, $new($BigDecimal, 123000));
 	$assign(divisor, $new($BigDecimal, 10));
 	$var($ints, precisions1, $new($ints, {
 		0,
@@ -358,17 +420,15 @@ int32_t IntegralDivisionTests::dividetoIntegralValueScalingTests() {
 	}));
 	$var($BigDecimalArray, expected1, $new($BigDecimalArray, {
 		$$new($BigDecimal, "12300"_s),
-		($BigDecimal*)nullptr,
-		($BigDecimal*)nullptr,
+		nullptr,
+		nullptr,
 		$$new($BigDecimal, "123e2"_s),
 		$$new($BigDecimal, "1230e1"_s),
 		$$new($BigDecimal, "12300"_s)
 	}));
 	{
 		$var($RoundingModeArray, arr$, $RoundingMode::values());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$RoundingMode* rm = arr$->get(i$);
 			for (int32_t i = 0; i < precisions1->length; ++i) {
 				failures += divideContextTests(dividend, divisor, expected1->get(i), $$new($MathContext, precisions1->get(i), rm));
@@ -387,17 +447,15 @@ int32_t IntegralDivisionTests::dividetoIntegralValueScalingTests() {
 	}));
 	$var($BigDecimalArray, expected2, $new($BigDecimalArray, {
 		$$new($BigDecimal, "123e2"_s),
-		($BigDecimal*)nullptr,
-		($BigDecimal*)nullptr,
+		nullptr,
+		nullptr,
 		$$new($BigDecimal, "123e2"_s),
 		$$new($BigDecimal, "123e2"_s),
 		$$new($BigDecimal, "123e2"_s)
 	}));
 	{
 		$var($RoundingModeArray, arr$, $RoundingMode::values());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$RoundingMode* rm = arr$->get(i$);
 			for (int32_t i = 0; i < precisions2->length; ++i) {
 				failures += divideContextTests(dividend, divisor, expected2->get(i), $$new($MathContext, precisions2->get(i), rm));
@@ -417,8 +475,8 @@ int32_t IntegralDivisionTests::dividetoIntegralValueScalingTests() {
 	}));
 	$var($BigDecimalArray, expected3, $new($BigDecimalArray, {
 		$$new($BigDecimal, "12300.0"_s),
-		($BigDecimal*)nullptr,
-		($BigDecimal*)nullptr,
+		nullptr,
+		nullptr,
 		$$new($BigDecimal, "123e2"_s),
 		$$new($BigDecimal, "1230e1"_s),
 		$$new($BigDecimal, "12300"_s),
@@ -426,9 +484,7 @@ int32_t IntegralDivisionTests::dividetoIntegralValueScalingTests() {
 	}));
 	{
 		$var($RoundingModeArray, arr$, $RoundingMode::values());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$RoundingMode* rm = arr$->get(i$);
 			for (int32_t i = 0; i < precisions3->length; ++i) {
 				failures += divideContextTests(dividend, divisor, expected3->get(i), $$new($MathContext, precisions3->get(i), rm));
@@ -439,7 +495,7 @@ int32_t IntegralDivisionTests::dividetoIntegralValueScalingTests() {
 }
 
 void IntegralDivisionTests::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	failures += dividetoIntegralValueTests();
 	failures += dividetoIntegralValueRoundedTests();
@@ -454,7 +510,28 @@ IntegralDivisionTests::IntegralDivisionTests() {
 }
 
 $Class* IntegralDivisionTests::load$($String* name, bool initialize) {
-	$loadClass(IntegralDivisionTests, name, initialize, &_IntegralDivisionTests_ClassInfo_, allocate$IntegralDivisionTests);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegralDivisionTests, init$, void)},
+		{"divideContextTest", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, divideContextTest, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimal*, $MathContext*)},
+		{"divideContextTestPrecs", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;[Ljava/math/BigDecimal;)I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, divideContextTestPrecs, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimalArray*)},
+		{"divideContextTests", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, divideContextTests, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimal*, $MathContext*)},
+		{"dividetoIntegralValueRoundedTests", "()I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, dividetoIntegralValueRoundedTests, int32_t)},
+		{"dividetoIntegralValueScalingTests", "()I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, dividetoIntegralValueScalingTests, int32_t)},
+		{"dividetoIntegralValueTests", "()I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, dividetoIntegralValueTests, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IntegralDivisionTests, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IntegralDivisionTests",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IntegralDivisionTests, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegralDivisionTests);
+	});
 	return class$;
 }
 

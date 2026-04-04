@@ -40,6 +40,7 @@ public:
 	Subject$SecureSet();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::security::auth::Subject* subject, int32_t which);
 	void init$(::javax::security::auth::Subject* subject, int32_t which, ::java::util::LinkedList* list);
 	virtual bool add(Object$* o) override;
@@ -61,7 +62,7 @@ public:
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0x6DCC328017557E27;
+	static const int64_t serialVersionUID = (int64_t)0x6dcc328017557e27;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	::javax::security::auth::Subject* subject = nullptr;
 	::java::util::LinkedList* elements = nullptr;

@@ -1,5 +1,4 @@
 #include <sun/security/provider/AbstractDrbg.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
@@ -65,108 +64,27 @@ public:
 	virtual $bytes* getEntropy(int32_t minE, int32_t minLen, int32_t maxLen, bool pr) override {
 		 return AbstractDrbg::lambda$static$0(minE, minLen, maxLen, pr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AbstractDrbg$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AbstractDrbg$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractDrbg$$Lambda$lambda$static$0, init$, void)},
-	{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC, $virtualMethod(AbstractDrbg$$Lambda$lambda$static$0, getEntropy, $bytes*, int32_t, int32_t, int32_t, bool)},
-	{}
-};
-$ClassInfo AbstractDrbg$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.provider.AbstractDrbg$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"sun.security.provider.EntropySource",
-	nullptr,
-	methodInfos
 };
 $Class* AbstractDrbg$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(AbstractDrbg$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractDrbg$$Lambda$lambda$static$0, init$, void)},
+		{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC, $virtualMethod(AbstractDrbg$$Lambda$lambda$static$0, getEntropy, $bytes*, int32_t, int32_t, int32_t, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.provider.AbstractDrbg$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"sun.security.provider.EntropySource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AbstractDrbg$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDrbg$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* AbstractDrbg$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _AbstractDrbg_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDrbg, debug)},
-	{"instantiated", "Z", nullptr, $PRIVATE, $field(AbstractDrbg, instantiated)},
-	{"reseedCounter", "I", nullptr, $PROTECTED | $VOLATILE, $field(AbstractDrbg, reseedCounter)},
-	{"DEFAULT_STRENGTH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractDrbg, DEFAULT_STRENGTH)},
-	{"mechName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractDrbg, mechName)},
-	{"highestSupportedSecurityStrength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, highestSupportedSecurityStrength)},
-	{"supportPredictionResistance", "Z", nullptr, $PROTECTED, $field(AbstractDrbg, supportPredictionResistance)},
-	{"supportReseeding", "Z", nullptr, $PROTECTED, $field(AbstractDrbg, supportReseeding)},
-	{"minLength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, minLength)},
-	{"maxLength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, maxLength)},
-	{"maxPersonalizationStringLength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, maxPersonalizationStringLength)},
-	{"maxAdditionalInputLength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, maxAdditionalInputLength)},
-	{"maxNumberOfBytesPerRequest", "I", nullptr, $PROTECTED, $field(AbstractDrbg, maxNumberOfBytesPerRequest)},
-	{"reseedInterval", "I", nullptr, $PROTECTED, $field(AbstractDrbg, reseedInterval)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractDrbg, algorithm)},
-	{"securityStrength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, securityStrength)},
-	{"requestedInstantiationSecurityStrength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, requestedInstantiationSecurityStrength)},
-	{"personalizationString", "[B", nullptr, $PROTECTED, $field(AbstractDrbg, personalizationString)},
-	{"predictionResistanceFlag", "Z", nullptr, $PRIVATE, $field(AbstractDrbg, predictionResistanceFlag)},
-	{"usedf", "Z", nullptr, $PROTECTED, $field(AbstractDrbg, usedf)},
-	{"nonce", "[B", nullptr, $PROTECTED, $field(AbstractDrbg, nonce)},
-	{"requestedNonce", "[B", nullptr, $PRIVATE, $field(AbstractDrbg, requestedNonce)},
-	{"requestedAlgorithm", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractDrbg, requestedAlgorithm)},
-	{"es", "Lsun/security/provider/EntropySource;", nullptr, $PRIVATE, $field(AbstractDrbg, es)},
-	{"defaultES", "Lsun/security/provider/EntropySource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractDrbg, defaultES)},
-	{}
-};
-
-$MethodInfo _AbstractDrbg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractDrbg, init$, void)},
-	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED, $method(AbstractDrbg, init$, void, $SecureRandomParameters*)},
-	{"chooseAlgorithmAndStrength", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, chooseAlgorithmAndStrength, void)},
-	{"configure", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDrbg, configure, void, $SecureRandomParameters*)},
-	{"engineGenerateSeed", "(I)[B", nullptr, $PUBLIC | $FINAL, $method(AbstractDrbg, engineGenerateSeed, $bytes*, int32_t)},
-	{"engineGetParameters", "()Ljava/security/SecureRandomParameters;", nullptr, $PROTECTED, $virtualMethod(AbstractDrbg, engineGetParameters, $SecureRandomParameters*)},
-	{"engineNextBytes", "([B)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDrbg, engineNextBytes, void, $bytes*)},
-	{"engineNextBytes", "([BLjava/security/SecureRandomParameters;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDrbg, engineNextBytes, void, $bytes*, $SecureRandomParameters*)},
-	{"engineReseed", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractDrbg, engineReseed, void, $SecureRandomParameters*)},
-	{"engineSetSeed", "([B)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(AbstractDrbg, engineSetSeed, void, $bytes*)},
-	{"generateAlgorithm", "([B[B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, generateAlgorithm, void, $bytes*, $bytes*)},
-	{"getEntropyInput", "(Z)[B", nullptr, $PRIVATE, $method(AbstractDrbg, getEntropyInput, $bytes*, bool)},
-	{"getEntropyInput", "(IIIZ)[B", nullptr, $PRIVATE, $method(AbstractDrbg, getEntropyInput, $bytes*, int32_t, int32_t, int32_t, bool)},
-	{"getStandardStrength", "(I)I", nullptr, $PROTECTED | $STATIC, $staticMethod(AbstractDrbg, getStandardStrength, int32_t, int32_t)},
-	{"initEngine", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, initEngine, void)},
-	{"instantiateAlgorithm", "([B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, instantiateAlgorithm, void, $bytes*)},
-	{"instantiateIfNecessary", "([B)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(AbstractDrbg, instantiateIfNecessary, void, $bytes*)},
-	{"lambda$static$0", "(IIIZ)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractDrbg, lambda$static$0, $bytes*, int32_t, int32_t, int32_t, bool)},
-	{"reseedAlgorithm", "([B[B)V", nullptr, $PROTECTED, $virtualMethod(AbstractDrbg, reseedAlgorithm, void, $bytes*, $bytes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDrbg, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AbstractDrbg_InnerClassesInfo_[] = {
-	{"sun.security.provider.AbstractDrbg$NonceProvider", "sun.security.provider.AbstractDrbg", "NonceProvider", $PRIVATE | $STATIC},
-	{"sun.security.provider.AbstractDrbg$SeederHolder", "sun.security.provider.AbstractDrbg", "SeederHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractDrbg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.security.provider.AbstractDrbg",
-	"java.lang.Object",
-	nullptr,
-	_AbstractDrbg_FieldInfo_,
-	_AbstractDrbg_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDrbg_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.AbstractDrbg$NonceProvider,sun.security.provider.AbstractDrbg$SeederHolder"
-};
-
-$Object* allocate$AbstractDrbg($Class* clazz) {
-	return $of($alloc(AbstractDrbg));
-}
 
 $Debug* AbstractDrbg::debug = nullptr;
 $EntropySource* AbstractDrbg::defaultES = nullptr;
@@ -180,19 +98,19 @@ void AbstractDrbg::engineNextBytes($bytes* result) {
 }
 
 void AbstractDrbg::engineNextBytes($bytes* result, $SecureRandomParameters* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(result);
 	if (AbstractDrbg::debug != nullptr) {
-		$nc(AbstractDrbg::debug)->println($of(this), "nextBytes"_s);
+		AbstractDrbg::debug->println(this, "nextBytes"_s);
 	}
 	if ($instanceOf($DrbgParameters$NextBytes, params)) {
 		$var($DrbgParameters$NextBytes, dp, $cast($DrbgParameters$NextBytes, params));
 		if (result->length > this->maxNumberOfBytesPerRequest) {
 		}
-		if ($nc(dp)->getStrength() > this->securityStrength) {
+		if (dp->getStrength() > this->securityStrength) {
 			$throwNew($IllegalArgumentException, $$str({"strength too high: "_s, $$str(dp->getStrength())}));
 		}
-		$var($bytes, ai, $nc(dp)->getAdditionalInput());
+		$var($bytes, ai, dp->getAdditionalInput());
 		if (ai != nullptr && ai->length > this->maxAdditionalInputLength) {
 			$throwNew($IllegalArgumentException, $$str({"ai too long: "_s, $$str(ai->length)}));
 		}
@@ -216,10 +134,10 @@ void AbstractDrbg::engineNextBytes($bytes* result, $SecureRandomParameters* para
 }
 
 void AbstractDrbg::engineReseed($SecureRandomParameters* params$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecureRandomParameters, params, params$renamed);
 	if (AbstractDrbg::debug != nullptr) {
-		$nc(AbstractDrbg::debug)->println($of(this), "reseed with params"_s);
+		AbstractDrbg::debug->println(this, "reseed with params"_s);
 	}
 	if (!this->supportReseeding) {
 		$throwNew($UnsupportedOperationException, "Reseed not supported"_s);
@@ -229,7 +147,7 @@ void AbstractDrbg::engineReseed($SecureRandomParameters* params$renamed) {
 	}
 	if ($instanceOf($DrbgParameters$Reseed, params)) {
 		$var($DrbgParameters$Reseed, dp, $cast($DrbgParameters$Reseed, params));
-		bool pr = $nc(dp)->getPredictionResistance();
+		bool pr = dp->getPredictionResistance();
 		if (!this->predictionResistanceFlag && pr) {
 			$throwNew($IllegalArgumentException, "pr not available"_s);
 		}
@@ -254,7 +172,7 @@ void AbstractDrbg::engineSetSeed($bytes* input$renamed) {
 	$synchronized(this) {
 		$var($bytes, input, input$renamed);
 		if (AbstractDrbg::debug != nullptr) {
-			$nc(AbstractDrbg::debug)->println($of(this), "setSeed"_s);
+			AbstractDrbg::debug->println(this, "setSeed"_s);
 		}
 		if ($nc(input)->length < this->minLength) {
 			$assign(input, $Arrays::copyOf(input, this->minLength));
@@ -274,9 +192,9 @@ $bytes* AbstractDrbg::getEntropyInput(bool isPr) {
 }
 
 $bytes* AbstractDrbg::getEntropyInput(int32_t minEntropy, int32_t minLength, int32_t maxLength, bool pr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (AbstractDrbg::debug != nullptr) {
-		$nc(AbstractDrbg::debug)->println($of(this), $$str({"getEntropy("_s, $$str(minEntropy), ","_s, $$str(minLength), ","_s, $$str(maxLength), ","_s, $$str(pr), ")"_s}));
+		AbstractDrbg::debug->println(this, $$str({"getEntropy("_s, $$str(minEntropy), ","_s, $$str(minLength), ","_s, $$str(maxLength), ","_s, $$str(pr), ")"_s}));
 	}
 	$var($EntropySource, esNow, this->es);
 	if (esNow == nullptr) {
@@ -318,10 +236,10 @@ $SecureRandomParameters* AbstractDrbg::engineGetParameters() {
 }
 
 void AbstractDrbg::configure($SecureRandomParameters* params$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecureRandomParameters, params, params$renamed);
 	if (AbstractDrbg::debug != nullptr) {
-		$nc(AbstractDrbg::debug)->println($of(this), $$str({"configure "_s, this, " with "_s, params}));
+		AbstractDrbg::debug->println(this, $$str({"configure "_s, this, " with "_s, params}));
 	}
 	if (params == nullptr) {
 		$init($DrbgParameters$Capability);
@@ -329,7 +247,7 @@ void AbstractDrbg::configure($SecureRandomParameters* params$renamed) {
 	}
 	if ($instanceOf($MoreDrbgParameters, params)) {
 		$var($MoreDrbgParameters, m, $cast($MoreDrbgParameters, params));
-		$set(this, requestedNonce, $nc(m)->nonce);
+		$set(this, requestedNonce, m->nonce);
 		$set(this, es, m->es);
 		$set(this, requestedAlgorithm, m->algorithm);
 		this->usedf = m->usedf;
@@ -341,18 +259,18 @@ void AbstractDrbg::configure($SecureRandomParameters* params$renamed) {
 			if (inst->getStrength() > this->highestSupportedSecurityStrength) {
 				$throwNew($IllegalArgumentException, $$str({"strength too big: "_s, $$str(inst->getStrength())}));
 			}
-			if ($nc($(inst->getCapability()))->supportsPredictionResistance() && !this->supportPredictionResistance) {
+			if ($$nc(inst->getCapability())->supportsPredictionResistance() && !this->supportPredictionResistance) {
 				$throwNew($IllegalArgumentException, "pr not supported"_s);
 			}
 			$var($bytes, ps, inst->getPersonalizationString());
 			if (ps != nullptr && ps->length > this->maxPersonalizationStringLength) {
 				$throwNew($IllegalArgumentException, $$str({"ps too long: "_s, $$str(ps->length)}));
 			}
-			if ($nc($(inst->getCapability()))->supportsReseeding() && !this->supportReseeding) {
+			if ($$nc(inst->getCapability())->supportsReseeding() && !this->supportReseeding) {
 				$throwNew($IllegalArgumentException, "reseed not supported"_s);
 			}
 			$set(this, personalizationString, ps);
-			this->predictionResistanceFlag = $nc($(inst->getCapability()))->supportsPredictionResistance();
+			this->predictionResistanceFlag = $$nc(inst->getCapability())->supportsPredictionResistance();
 			this->requestedInstantiationSecurityStrength = inst->getStrength();
 		} else {
 			$throwNew($IllegalArgumentException, $$str({"unknown params: "_s, $of(params)->getClass()}));
@@ -361,7 +279,7 @@ void AbstractDrbg::configure($SecureRandomParameters* params$renamed) {
 	chooseAlgorithmAndStrength();
 	this->instantiated = false;
 	if (AbstractDrbg::debug != nullptr) {
-		$nc(AbstractDrbg::debug)->println($of(this), $$str({"configured "_s, this}));
+		AbstractDrbg::debug->println(this, $$str({"configured "_s, this}));
 	}
 }
 
@@ -386,7 +304,7 @@ void AbstractDrbg::instantiateIfNecessary($bytes* entropy$renamed) {
 
 int32_t AbstractDrbg::getStandardStrength(int32_t input) {
 	$init(AbstractDrbg);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (input <= 112) {
 		return 112;
 	}
@@ -413,9 +331,9 @@ $bytes* AbstractDrbg::lambda$static$0(int32_t minE, int32_t minLen, int32_t maxL
 	return result;
 }
 
-void clinit$AbstractDrbg($Class* class$) {
+void AbstractDrbg::clinit$($Class* clazz) {
 	$assignStatic(AbstractDrbg::debug, $Debug::getInstance("securerandom"_s, "drbg"_s));
-	$assignStatic(AbstractDrbg::defaultES, static_cast<$EntropySource*>($new(AbstractDrbg$$Lambda$lambda$static$0)));
+	$assignStatic(AbstractDrbg::defaultES, $new(AbstractDrbg$$Lambda$lambda$static$0));
 }
 
 AbstractDrbg::AbstractDrbg() {
@@ -423,11 +341,83 @@ AbstractDrbg::AbstractDrbg() {
 
 $Class* AbstractDrbg::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AbstractDrbg$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.security.provider.AbstractDrbg$$Lambda$lambda$static$0")) {
 			return AbstractDrbg$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(AbstractDrbg, name, initialize, &_AbstractDrbg_ClassInfo_, clinit$AbstractDrbg, allocate$AbstractDrbg);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDrbg, debug)},
+		{"instantiated", "Z", nullptr, $PRIVATE, $field(AbstractDrbg, instantiated)},
+		{"reseedCounter", "I", nullptr, $PROTECTED | $VOLATILE, $field(AbstractDrbg, reseedCounter)},
+		{"DEFAULT_STRENGTH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractDrbg, DEFAULT_STRENGTH)},
+		{"mechName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractDrbg, mechName)},
+		{"highestSupportedSecurityStrength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, highestSupportedSecurityStrength)},
+		{"supportPredictionResistance", "Z", nullptr, $PROTECTED, $field(AbstractDrbg, supportPredictionResistance)},
+		{"supportReseeding", "Z", nullptr, $PROTECTED, $field(AbstractDrbg, supportReseeding)},
+		{"minLength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, minLength)},
+		{"maxLength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, maxLength)},
+		{"maxPersonalizationStringLength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, maxPersonalizationStringLength)},
+		{"maxAdditionalInputLength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, maxAdditionalInputLength)},
+		{"maxNumberOfBytesPerRequest", "I", nullptr, $PROTECTED, $field(AbstractDrbg, maxNumberOfBytesPerRequest)},
+		{"reseedInterval", "I", nullptr, $PROTECTED, $field(AbstractDrbg, reseedInterval)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractDrbg, algorithm)},
+		{"securityStrength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, securityStrength)},
+		{"requestedInstantiationSecurityStrength", "I", nullptr, $PROTECTED, $field(AbstractDrbg, requestedInstantiationSecurityStrength)},
+		{"personalizationString", "[B", nullptr, $PROTECTED, $field(AbstractDrbg, personalizationString)},
+		{"predictionResistanceFlag", "Z", nullptr, $PRIVATE, $field(AbstractDrbg, predictionResistanceFlag)},
+		{"usedf", "Z", nullptr, $PROTECTED, $field(AbstractDrbg, usedf)},
+		{"nonce", "[B", nullptr, $PROTECTED, $field(AbstractDrbg, nonce)},
+		{"requestedNonce", "[B", nullptr, $PRIVATE, $field(AbstractDrbg, requestedNonce)},
+		{"requestedAlgorithm", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractDrbg, requestedAlgorithm)},
+		{"es", "Lsun/security/provider/EntropySource;", nullptr, $PRIVATE, $field(AbstractDrbg, es)},
+		{"defaultES", "Lsun/security/provider/EntropySource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractDrbg, defaultES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractDrbg, init$, void)},
+		{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED, $method(AbstractDrbg, init$, void, $SecureRandomParameters*)},
+		{"chooseAlgorithmAndStrength", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, chooseAlgorithmAndStrength, void)},
+		{"configure", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDrbg, configure, void, $SecureRandomParameters*)},
+		{"engineGenerateSeed", "(I)[B", nullptr, $PUBLIC | $FINAL, $method(AbstractDrbg, engineGenerateSeed, $bytes*, int32_t)},
+		{"engineGetParameters", "()Ljava/security/SecureRandomParameters;", nullptr, $PROTECTED, $virtualMethod(AbstractDrbg, engineGetParameters, $SecureRandomParameters*)},
+		{"engineNextBytes", "([B)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDrbg, engineNextBytes, void, $bytes*)},
+		{"engineNextBytes", "([BLjava/security/SecureRandomParameters;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDrbg, engineNextBytes, void, $bytes*, $SecureRandomParameters*)},
+		{"engineReseed", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractDrbg, engineReseed, void, $SecureRandomParameters*)},
+		{"engineSetSeed", "([B)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(AbstractDrbg, engineSetSeed, void, $bytes*)},
+		{"generateAlgorithm", "([B[B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, generateAlgorithm, void, $bytes*, $bytes*)},
+		{"getEntropyInput", "(Z)[B", nullptr, $PRIVATE, $method(AbstractDrbg, getEntropyInput, $bytes*, bool)},
+		{"getEntropyInput", "(IIIZ)[B", nullptr, $PRIVATE, $method(AbstractDrbg, getEntropyInput, $bytes*, int32_t, int32_t, int32_t, bool)},
+		{"getStandardStrength", "(I)I", nullptr, $PROTECTED | $STATIC, $staticMethod(AbstractDrbg, getStandardStrength, int32_t, int32_t)},
+		{"initEngine", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, initEngine, void)},
+		{"instantiateAlgorithm", "([B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, instantiateAlgorithm, void, $bytes*)},
+		{"instantiateIfNecessary", "([B)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(AbstractDrbg, instantiateIfNecessary, void, $bytes*)},
+		{"lambda$static$0", "(IIIZ)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractDrbg, lambda$static$0, $bytes*, int32_t, int32_t, int32_t, bool)},
+		{"reseedAlgorithm", "([B[B)V", nullptr, $PROTECTED, $virtualMethod(AbstractDrbg, reseedAlgorithm, void, $bytes*, $bytes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDrbg, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.AbstractDrbg$NonceProvider", "sun.security.provider.AbstractDrbg", "NonceProvider", $PRIVATE | $STATIC},
+		{"sun.security.provider.AbstractDrbg$SeederHolder", "sun.security.provider.AbstractDrbg", "SeederHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.security.provider.AbstractDrbg",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.AbstractDrbg$NonceProvider,sun.security.provider.AbstractDrbg$SeederHolder"
+	};
+	$loadClass(AbstractDrbg, name, initialize, &classInfo$$, AbstractDrbg::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDrbg);
+	});
 	return class$;
 }
 

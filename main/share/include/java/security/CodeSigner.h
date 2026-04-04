@@ -37,7 +37,7 @@ public:
 	virtual int32_t hashCode() override;
 	void readObject(::java::io::ObjectInputStream* ois);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x5EA2FA66CB219AAD;
+	static const int64_t serialVersionUID = (int64_t)0x5ea2fa66cb219aad;
 	::java::security::cert::CertPath* signerCertPath = nullptr;
 	::java::security::Timestamp* timestamp = nullptr;
 	int32_t myhash = 0;

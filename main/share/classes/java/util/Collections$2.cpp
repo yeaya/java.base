@@ -1,5 +1,4 @@
 #include <java/util/Collections$2.h>
-
 #include <java/util/Collections.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
@@ -24,53 +23,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$2_FieldInfo_[] = {
-	{"val$element", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$2, val$element)},
-	{"est", "J", nullptr, 0, $field(Collections$2, est)},
-	{}
-};
-
-$MethodInfo _Collections$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "()V", 0, $method(Collections$2, init$, void, Object$*)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$2, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Collections$2, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Collections$2, forEachRemaining, void, $Consumer*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Collections$2, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Collections$2, trySplit, $Spliterator*)},
-	{}
-};
-
-$EnclosingMethodInfo _Collections$2_EnclosingMethodInfo_ = {
-	"java.util.Collections",
-	"singletonSpliterator",
-	"(Ljava/lang/Object;)Ljava/util/Spliterator;"
-};
-
-$InnerClassInfo _Collections$2_InnerClassesInfo_[] = {
-	{"java.util.Collections$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Collections$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$2",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_Collections$2_FieldInfo_,
-	_Collections$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator<TT;>;",
-	&_Collections$2_EnclosingMethodInfo_,
-	_Collections$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$2($Class* clazz) {
-	return $of($alloc(Collections$2));
-}
 
 void Collections$2::init$(Object$* val$element) {
 	$set(this, val$element, val$element);
@@ -108,7 +60,47 @@ Collections$2::Collections$2() {
 }
 
 $Class* Collections$2::load$($String* name, bool initialize) {
-	$loadClass(Collections$2, name, initialize, &_Collections$2_ClassInfo_, allocate$Collections$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$element", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$2, val$element)},
+		{"est", "J", nullptr, 0, $field(Collections$2, est)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", "()V", 0, $method(Collections$2, init$, void, Object$*)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$2, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Collections$2, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Collections$2, forEachRemaining, void, $Consumer*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Collections$2, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Collections$2, trySplit, $Spliterator*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.Collections",
+		"singletonSpliterator",
+		"(Ljava/lang/Object;)Ljava/util/Spliterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$2",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator<TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$2);
+	});
 	return class$;
 }
 

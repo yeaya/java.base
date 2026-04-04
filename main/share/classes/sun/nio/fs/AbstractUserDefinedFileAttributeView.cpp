@@ -1,5 +1,4 @@
 #include <sun/nio/fs/AbstractUserDefinedFileAttributeView.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
@@ -23,7 +22,6 @@ using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $UserDefinedFileAttributeView = ::java::nio::file::attribute::UserDefinedFileAttributeView;
-using $Permission = ::java::security::Permission;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
@@ -34,38 +32,6 @@ using $Map = ::java::util::Map;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _AbstractUserDefinedFileAttributeView_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractUserDefinedFileAttributeView, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _AbstractUserDefinedFileAttributeView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractUserDefinedFileAttributeView, init$, void)},
-	{"checkAccess", "(Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $virtualMethod(AbstractUserDefinedFileAttributeView, checkAccess, void, $String*, bool, bool)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractUserDefinedFileAttributeView, name, $String*)},
-	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $FINAL, $virtualMethod(AbstractUserDefinedFileAttributeView, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractUserDefinedFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractUserDefinedFileAttributeView_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.nio.fs.AbstractUserDefinedFileAttributeView",
-	"java.lang.Object",
-	"java.nio.file.attribute.UserDefinedFileAttributeView,sun.nio.fs.DynamicFileAttributeView",
-	_AbstractUserDefinedFileAttributeView_FieldInfo_,
-	_AbstractUserDefinedFileAttributeView_MethodInfo_
-};
-
-$Object* allocate$AbstractUserDefinedFileAttributeView($Class* clazz) {
-	return $of($alloc(AbstractUserDefinedFileAttributeView));
-}
 
 int32_t AbstractUserDefinedFileAttributeView::hashCode() {
 	 return this->$UserDefinedFileAttributeView::hashCode();
@@ -93,7 +59,7 @@ void AbstractUserDefinedFileAttributeView::init$() {
 }
 
 void AbstractUserDefinedFileAttributeView::checkAccess($String* file, bool checkRead, bool checkWrite) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!AbstractUserDefinedFileAttributeView::$assertionsDisabled && !(checkRead || checkWrite)) {
 		$throwNew($AssertionError);
 	}
@@ -124,24 +90,20 @@ void AbstractUserDefinedFileAttributeView::setAttribute($String* attribute, Obje
 }
 
 $Map* AbstractUserDefinedFileAttributeView::readAttributes($StringArray* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, names, $new($ArrayList));
 	{
 		$var($StringArray, arr$, attributes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, name, arr$->get(i$));
-			{
-				if ($nc(name)->equals("*"_s)) {
-					$assign(names, list());
-					break;
-				} else {
-					if (name->isEmpty()) {
-						$throwNew($IllegalArgumentException);
-					}
-					$nc(names)->add(name);
+			if ($nc(name)->equals("*"_s)) {
+				$assign(names, list());
+				break;
+			} else {
+				if (name->isEmpty()) {
+					$throwNew($IllegalArgumentException);
 				}
+				$nc(names)->add(name);
 			}
 		}
 	}
@@ -162,7 +124,7 @@ $Map* AbstractUserDefinedFileAttributeView::readAttributes($StringArray* attribu
 	return result;
 }
 
-void clinit$AbstractUserDefinedFileAttributeView($Class* class$) {
+void AbstractUserDefinedFileAttributeView::clinit$($Class* clazz) {
 	AbstractUserDefinedFileAttributeView::$assertionsDisabled = !AbstractUserDefinedFileAttributeView::class$->desiredAssertionStatus();
 }
 
@@ -170,7 +132,34 @@ AbstractUserDefinedFileAttributeView::AbstractUserDefinedFileAttributeView() {
 }
 
 $Class* AbstractUserDefinedFileAttributeView::load$($String* name, bool initialize) {
-	$loadClass(AbstractUserDefinedFileAttributeView, name, initialize, &_AbstractUserDefinedFileAttributeView_ClassInfo_, clinit$AbstractUserDefinedFileAttributeView, allocate$AbstractUserDefinedFileAttributeView);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractUserDefinedFileAttributeView, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractUserDefinedFileAttributeView, init$, void)},
+		{"checkAccess", "(Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $virtualMethod(AbstractUserDefinedFileAttributeView, checkAccess, void, $String*, bool, bool)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractUserDefinedFileAttributeView, name, $String*)},
+		{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $FINAL, $virtualMethod(AbstractUserDefinedFileAttributeView, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractUserDefinedFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.nio.fs.AbstractUserDefinedFileAttributeView",
+		"java.lang.Object",
+		"java.nio.file.attribute.UserDefinedFileAttributeView,sun.nio.fs.DynamicFileAttributeView",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractUserDefinedFileAttributeView, name, initialize, &classInfo$$, AbstractUserDefinedFileAttributeView::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractUserDefinedFileAttributeView));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints.h>
-
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/Key.h>
 #include <java/util/Set.h>
@@ -19,44 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints_FieldInfo_[] = {
-	{"supportedAlgorithms", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, supportedAlgorithms)},
-	{}
-};
-
-$MethodInfo _SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;)V", nullptr, 0, $method(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, init$, void, $StringArray*)},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, permits, bool, $Set*, $String*, $AlgorithmParameters*)},
-	{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC | $FINAL, $virtualMethod(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, permits, bool, $Set*, $Key*)},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL, $virtualMethod(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, permits, bool, $Set*, $String*, $Key*, $AlgorithmParameters*)},
-	{}
-};
-
-$InnerClassInfo _SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints", "sun.security.ssl.SSLAlgorithmConstraints", "SupportedSignatureAlgorithmConstraints", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints",
-	"java.lang.Object",
-	"java.security.AlgorithmConstraints",
-	_SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints_FieldInfo_,
-	_SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLAlgorithmConstraints"
-};
-
-$Object* allocate$SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints($Class* clazz) {
-	return $of($alloc(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints));
-}
-
 void SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::init$($StringArray* supportedAlgorithms) {
 	if (supportedAlgorithms != nullptr) {
 		$set(this, supportedAlgorithms, $cast($StringArray, supportedAlgorithms->clone()));
@@ -66,15 +27,15 @@ void SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::init$($Stri
 }
 
 bool SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::permits($Set* primitives, $String* algorithm$renamed, $AlgorithmParameters* parameters) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, algorithm, algorithm$renamed);
-	if (algorithm == nullptr || $nc(algorithm)->isEmpty()) {
+	if (algorithm == nullptr || algorithm->isEmpty()) {
 		$throwNew($IllegalArgumentException, "No algorithm name specified"_s);
 	}
-	if (primitives == nullptr || $nc(primitives)->isEmpty()) {
+	if (primitives == nullptr || primitives->isEmpty()) {
 		$throwNew($IllegalArgumentException, "No cryptographic primitive specified"_s);
 	}
-	if (this->supportedAlgorithms == nullptr || $nc(this->supportedAlgorithms)->length == 0) {
+	if (this->supportedAlgorithms == nullptr || this->supportedAlgorithms->length == 0) {
 		return false;
 	}
 	int32_t position = $nc(algorithm)->indexOf("and"_s);
@@ -83,14 +44,10 @@ bool SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::permits($Se
 	}
 	{
 		$var($StringArray, arr$, this->supportedAlgorithms);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, supportedAlgorithm, arr$->get(i$));
-			{
-				if (algorithm->equalsIgnoreCase(supportedAlgorithm)) {
-					return true;
-				}
+			if (algorithm->equalsIgnoreCase(supportedAlgorithm)) {
+				return true;
 			}
 		}
 	}
@@ -102,7 +59,7 @@ bool SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::permits($Se
 }
 
 bool SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::permits($Set* primitives, $String* algorithm, $Key* key, $AlgorithmParameters* parameters) {
-	if (algorithm == nullptr || $nc(algorithm)->isEmpty()) {
+	if (algorithm == nullptr || algorithm->isEmpty()) {
 		$throwNew($IllegalArgumentException, "No algorithm name specified"_s);
 	}
 	return permits(primitives, algorithm, parameters);
@@ -112,7 +69,39 @@ SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::SSLAlgorithmCons
 }
 
 $Class* SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::load$($String* name, bool initialize) {
-	$loadClass(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, name, initialize, &_SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints_ClassInfo_, allocate$SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints);
+	$FieldInfo fieldInfos$$[] = {
+		{"supportedAlgorithms", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, supportedAlgorithms)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/String;)V", nullptr, 0, $method(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, init$, void, $StringArray*)},
+		{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, permits, bool, $Set*, $String*, $AlgorithmParameters*)},
+		{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC | $FINAL, $virtualMethod(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, permits, bool, $Set*, $Key*)},
+		{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL, $virtualMethod(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, permits, bool, $Set*, $String*, $Key*, $AlgorithmParameters*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints", "sun.security.ssl.SSLAlgorithmConstraints", "SupportedSignatureAlgorithmConstraints", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints",
+		"java.lang.Object",
+		"java.security.AlgorithmConstraints",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLAlgorithmConstraints"
+	};
+	$loadClass(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints);
+	});
 	return class$;
 }
 

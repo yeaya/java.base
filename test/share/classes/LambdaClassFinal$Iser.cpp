@@ -1,5 +1,4 @@
 #include <LambdaClassFinal$Iser.h>
-
 #include <LambdaClassFinal.h>
 #include <jcpp.h>
 
@@ -7,38 +6,33 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _LambdaClassFinal$Iser_MethodInfo_[] = {
-	{"m", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LambdaClassFinal$Iser, m, void)},
-	{}
-};
-
-$InnerClassInfo _LambdaClassFinal$Iser_InnerClassesInfo_[] = {
-	{"LambdaClassFinal$Iser", "LambdaClassFinal", "Iser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LambdaClassFinal$Iser_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"LambdaClassFinal$Iser",
-	nullptr,
-	"java.io.Serializable",
-	nullptr,
-	_LambdaClassFinal$Iser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LambdaClassFinal$Iser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LambdaClassFinal"
-};
-
-$Object* allocate$LambdaClassFinal$Iser($Class* clazz) {
-	return $of($alloc(LambdaClassFinal$Iser));
-}
-
 $Class* LambdaClassFinal$Iser::load$($String* name, bool initialize) {
-	$loadClass(LambdaClassFinal$Iser, name, initialize, &_LambdaClassFinal$Iser_ClassInfo_, allocate$LambdaClassFinal$Iser);
+	$MethodInfo methodInfos$$[] = {
+		{"m", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LambdaClassFinal$Iser, m, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LambdaClassFinal$Iser", "LambdaClassFinal", "Iser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"LambdaClassFinal$Iser",
+		nullptr,
+		"java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LambdaClassFinal"
+	};
+	$loadClass(LambdaClassFinal$Iser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaClassFinal$Iser);
+	});
 	return class$;
 }
 

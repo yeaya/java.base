@@ -1,5 +1,4 @@
 #include <java/util/random/RandomGenerator.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Deprecated.h>
 #include <java/lang/invoke/CallSite.h>
@@ -54,33 +53,29 @@ public:
 	virtual double getAsDouble() override {
 		 return $nc(inst$)->nextDouble();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RandomGenerator$$Lambda$nextDouble>());
-	}
 	RandomGenerator* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RandomGenerator$$Lambda$nextDouble::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$nextDouble, inst$)},
-	{}
-};
-$MethodInfo RandomGenerator$$Lambda$nextDouble::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$nextDouble, init$, void, RandomGenerator*)},
-	{"getAsDouble", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$nextDouble, getAsDouble, double)},
-	{}
-};
-$ClassInfo RandomGenerator$$Lambda$nextDouble::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.random.RandomGenerator$$Lambda$nextDouble",
-	"java.lang.Object",
-	"java.util.function.DoubleSupplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* RandomGenerator$$Lambda$nextDouble::load$($String* name, bool initialize) {
-	$loadClass(RandomGenerator$$Lambda$nextDouble, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$nextDouble, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$nextDouble, init$, void, RandomGenerator*)},
+		{"getAsDouble", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$nextDouble, getAsDouble, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.random.RandomGenerator$$Lambda$nextDouble",
+		"java.lang.Object",
+		"java.util.function.DoubleSupplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RandomGenerator$$Lambda$nextDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGenerator$$Lambda$nextDouble);
+	});
 	return class$;
 }
 $Class* RandomGenerator$$Lambda$nextDouble::class$ = nullptr;
@@ -96,37 +91,33 @@ public:
 	virtual double getAsDouble() override {
 		 return $nc(inst$)->lambda$doubles$0(randomNumberOrigin, randomNumberBound);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RandomGenerator$$Lambda$lambda$doubles$0$1>());
-	}
 	RandomGenerator* inst$ = nullptr;
 	double randomNumberOrigin = 0.0;
 	double randomNumberBound = 0.0;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RandomGenerator$$Lambda$lambda$doubles$0$1::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$doubles$0$1, inst$)},
-	{"randomNumberOrigin", "D", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$doubles$0$1, randomNumberOrigin)},
-	{"randomNumberBound", "D", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$doubles$0$1, randomNumberBound)},
-	{}
-};
-$MethodInfo RandomGenerator$$Lambda$lambda$doubles$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;DD)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$lambda$doubles$0$1, init$, void, RandomGenerator*, double, double)},
-	{"getAsDouble", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$lambda$doubles$0$1, getAsDouble, double)},
-	{}
-};
-$ClassInfo RandomGenerator$$Lambda$lambda$doubles$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.random.RandomGenerator$$Lambda$lambda$doubles$0$1",
-	"java.lang.Object",
-	"java.util.function.DoubleSupplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* RandomGenerator$$Lambda$lambda$doubles$0$1::load$($String* name, bool initialize) {
-	$loadClass(RandomGenerator$$Lambda$lambda$doubles$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$doubles$0$1, inst$)},
+		{"randomNumberOrigin", "D", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$doubles$0$1, randomNumberOrigin)},
+		{"randomNumberBound", "D", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$doubles$0$1, randomNumberBound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/random/RandomGenerator;DD)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$lambda$doubles$0$1, init$, void, RandomGenerator*, double, double)},
+		{"getAsDouble", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$lambda$doubles$0$1, getAsDouble, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.random.RandomGenerator$$Lambda$lambda$doubles$0$1",
+		"java.lang.Object",
+		"java.util.function.DoubleSupplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RandomGenerator$$Lambda$lambda$doubles$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGenerator$$Lambda$lambda$doubles$0$1);
+	});
 	return class$;
 }
 $Class* RandomGenerator$$Lambda$lambda$doubles$0$1::class$ = nullptr;
@@ -140,33 +131,29 @@ public:
 	virtual int32_t getAsInt() override {
 		 return $nc(inst$)->nextInt();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RandomGenerator$$Lambda$nextInt$2>());
-	}
 	RandomGenerator* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RandomGenerator$$Lambda$nextInt$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$nextInt$2, inst$)},
-	{}
-};
-$MethodInfo RandomGenerator$$Lambda$nextInt$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$nextInt$2, init$, void, RandomGenerator*)},
-	{"getAsInt", "()I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$nextInt$2, getAsInt, int32_t)},
-	{}
-};
-$ClassInfo RandomGenerator$$Lambda$nextInt$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.random.RandomGenerator$$Lambda$nextInt$2",
-	"java.lang.Object",
-	"java.util.function.IntSupplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* RandomGenerator$$Lambda$nextInt$2::load$($String* name, bool initialize) {
-	$loadClass(RandomGenerator$$Lambda$nextInt$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$nextInt$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$nextInt$2, init$, void, RandomGenerator*)},
+		{"getAsInt", "()I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$nextInt$2, getAsInt, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.random.RandomGenerator$$Lambda$nextInt$2",
+		"java.lang.Object",
+		"java.util.function.IntSupplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RandomGenerator$$Lambda$nextInt$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGenerator$$Lambda$nextInt$2);
+	});
 	return class$;
 }
 $Class* RandomGenerator$$Lambda$nextInt$2::class$ = nullptr;
@@ -182,37 +169,33 @@ public:
 	virtual int32_t getAsInt() override {
 		 return $nc(inst$)->lambda$ints$1(randomNumberOrigin, randomNumberBound);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RandomGenerator$$Lambda$lambda$ints$1$3>());
-	}
 	RandomGenerator* inst$ = nullptr;
 	int32_t randomNumberOrigin = 0;
 	int32_t randomNumberBound = 0;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RandomGenerator$$Lambda$lambda$ints$1$3::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$ints$1$3, inst$)},
-	{"randomNumberOrigin", "I", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$ints$1$3, randomNumberOrigin)},
-	{"randomNumberBound", "I", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$ints$1$3, randomNumberBound)},
-	{}
-};
-$MethodInfo RandomGenerator$$Lambda$lambda$ints$1$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;II)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$lambda$ints$1$3, init$, void, RandomGenerator*, int32_t, int32_t)},
-	{"getAsInt", "()I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$lambda$ints$1$3, getAsInt, int32_t)},
-	{}
-};
-$ClassInfo RandomGenerator$$Lambda$lambda$ints$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.random.RandomGenerator$$Lambda$lambda$ints$1$3",
-	"java.lang.Object",
-	"java.util.function.IntSupplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* RandomGenerator$$Lambda$lambda$ints$1$3::load$($String* name, bool initialize) {
-	$loadClass(RandomGenerator$$Lambda$lambda$ints$1$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$ints$1$3, inst$)},
+		{"randomNumberOrigin", "I", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$ints$1$3, randomNumberOrigin)},
+		{"randomNumberBound", "I", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$ints$1$3, randomNumberBound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/random/RandomGenerator;II)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$lambda$ints$1$3, init$, void, RandomGenerator*, int32_t, int32_t)},
+		{"getAsInt", "()I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$lambda$ints$1$3, getAsInt, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.random.RandomGenerator$$Lambda$lambda$ints$1$3",
+		"java.lang.Object",
+		"java.util.function.IntSupplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RandomGenerator$$Lambda$lambda$ints$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGenerator$$Lambda$lambda$ints$1$3);
+	});
 	return class$;
 }
 $Class* RandomGenerator$$Lambda$lambda$ints$1$3::class$ = nullptr;
@@ -226,33 +209,29 @@ public:
 	virtual int64_t getAsLong() override {
 		 return $nc(inst$)->nextLong();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RandomGenerator$$Lambda$nextLong$4>());
-	}
 	RandomGenerator* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RandomGenerator$$Lambda$nextLong$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$nextLong$4, inst$)},
-	{}
-};
-$MethodInfo RandomGenerator$$Lambda$nextLong$4::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$nextLong$4, init$, void, RandomGenerator*)},
-	{"getAsLong", "()J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$nextLong$4, getAsLong, int64_t)},
-	{}
-};
-$ClassInfo RandomGenerator$$Lambda$nextLong$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.random.RandomGenerator$$Lambda$nextLong$4",
-	"java.lang.Object",
-	"java.util.function.LongSupplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* RandomGenerator$$Lambda$nextLong$4::load$($String* name, bool initialize) {
-	$loadClass(RandomGenerator$$Lambda$nextLong$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$nextLong$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$nextLong$4, init$, void, RandomGenerator*)},
+		{"getAsLong", "()J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$nextLong$4, getAsLong, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.random.RandomGenerator$$Lambda$nextLong$4",
+		"java.lang.Object",
+		"java.util.function.LongSupplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RandomGenerator$$Lambda$nextLong$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGenerator$$Lambda$nextLong$4);
+	});
 	return class$;
 }
 $Class* RandomGenerator$$Lambda$nextLong$4::class$ = nullptr;
@@ -268,107 +247,36 @@ public:
 	virtual int64_t getAsLong() override {
 		 return $nc(inst$)->lambda$longs$2(randomNumberOrigin, randomNumberBound);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RandomGenerator$$Lambda$lambda$longs$2$5>());
-	}
 	RandomGenerator* inst$ = nullptr;
 	int64_t randomNumberOrigin = 0;
 	int64_t randomNumberBound = 0;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RandomGenerator$$Lambda$lambda$longs$2$5::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$longs$2$5, inst$)},
-	{"randomNumberOrigin", "J", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$longs$2$5, randomNumberOrigin)},
-	{"randomNumberBound", "J", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$longs$2$5, randomNumberBound)},
-	{}
-};
-$MethodInfo RandomGenerator$$Lambda$lambda$longs$2$5::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;JJ)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$lambda$longs$2$5, init$, void, RandomGenerator*, int64_t, int64_t)},
-	{"getAsLong", "()J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$lambda$longs$2$5, getAsLong, int64_t)},
-	{}
-};
-$ClassInfo RandomGenerator$$Lambda$lambda$longs$2$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.random.RandomGenerator$$Lambda$lambda$longs$2$5",
-	"java.lang.Object",
-	"java.util.function.LongSupplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* RandomGenerator$$Lambda$lambda$longs$2$5::load$($String* name, bool initialize) {
-	$loadClass(RandomGenerator$$Lambda$lambda$longs$2$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$longs$2$5, inst$)},
+		{"randomNumberOrigin", "J", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$longs$2$5, randomNumberOrigin)},
+		{"randomNumberBound", "J", nullptr, $PUBLIC, $field(RandomGenerator$$Lambda$lambda$longs$2$5, randomNumberBound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/random/RandomGenerator;JJ)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$lambda$longs$2$5, init$, void, RandomGenerator*, int64_t, int64_t)},
+		{"getAsLong", "()J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$lambda$longs$2$5, getAsLong, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.random.RandomGenerator$$Lambda$lambda$longs$2$5",
+		"java.lang.Object",
+		"java.util.function.LongSupplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RandomGenerator$$Lambda$lambda$longs$2$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGenerator$$Lambda$lambda$longs$2$5);
+	});
 	return class$;
 }
 $Class* RandomGenerator$$Lambda$lambda$longs$2$5::class$ = nullptr;
-
-$MethodInfo _RandomGenerator_MethodInfo_[] = {
-	{"doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*)},
-	{"doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*, double, double)},
-	{"doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*, int64_t)},
-	{"doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*, int64_t, double, double)},
-	{"getDefault", "()Ljava/util/random/RandomGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator, getDefault, RandomGenerator*)},
-	{"ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*)},
-	{"ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*, int32_t, int32_t)},
-	{"ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*, int64_t)},
-	{"ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*, int64_t, int32_t, int32_t)},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, isDeprecated, bool)},
-	{"lambda$doubles$0", "(DD)D", nullptr, $PRIVATE | $SYNTHETIC, $method(RandomGenerator, lambda$doubles$0, double, double, double)},
-	{"lambda$ints$1", "(II)I", nullptr, $PRIVATE | $SYNTHETIC, $method(RandomGenerator, lambda$ints$1, int32_t, int32_t, int32_t)},
-	{"lambda$longs$2", "(JJ)J", nullptr, $PRIVATE | $SYNTHETIC, $method(RandomGenerator, lambda$longs$2, int64_t, int64_t, int64_t)},
-	{"longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*)},
-	{"longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*, int64_t, int64_t)},
-	{"longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*, int64_t)},
-	{"longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*, int64_t, int64_t, int64_t)},
-	{"nextBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextBoolean, bool)},
-	{"nextBytes", "([B)V", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextBytes, void, $bytes*)},
-	{"nextDouble", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextDouble, double)},
-	{"nextDouble", "(D)D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextDouble, double, double)},
-	{"nextDouble", "(DD)D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextDouble, double, double, double)},
-	{"nextExponential", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextExponential, double)},
-	{"nextFloat", "()F", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextFloat, float)},
-	{"nextFloat", "(F)F", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextFloat, float, float)},
-	{"nextFloat", "(FF)F", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextFloat, float, float, float)},
-	{"nextGaussian", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextGaussian, double)},
-	{"nextGaussian", "(DD)D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextGaussian, double, double, double)},
-	{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextInt, int32_t)},
-	{"nextInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextInt, int32_t, int32_t)},
-	{"nextInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextInt, int32_t, int32_t, int32_t)},
-	{"nextLong", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator, nextLong, int64_t)},
-	{"nextLong", "(J)J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextLong, int64_t, int64_t)},
-	{"nextLong", "(JJ)J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextLong, int64_t, int64_t, int64_t)},
-	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator, of, RandomGenerator*, $String*)},
-	{}
-};
-
-$InnerClassInfo _RandomGenerator_InnerClassesInfo_[] = {
-	{"java.util.random.RandomGenerator$ArbitrarilyJumpableGenerator", "java.util.random.RandomGenerator", "ArbitrarilyJumpableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.random.RandomGenerator$LeapableGenerator", "java.util.random.RandomGenerator", "LeapableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.random.RandomGenerator$JumpableGenerator", "java.util.random.RandomGenerator", "JumpableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.random.RandomGenerator$SplittableGenerator", "java.util.random.RandomGenerator", "SplittableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.random.RandomGenerator$StreamableGenerator", "java.util.random.RandomGenerator", "StreamableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RandomGenerator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.random.RandomGenerator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_RandomGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RandomGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.random.RandomGenerator$ArbitrarilyJumpableGenerator,java.util.random.RandomGenerator$LeapableGenerator,java.util.random.RandomGenerator$JumpableGenerator,java.util.random.RandomGenerator$SplittableGenerator,java.util.random.RandomGenerator$StreamableGenerator"
-};
-
-$Object* allocate$RandomGenerator($Class* clazz) {
-	return $of($alloc(RandomGenerator));
-}
 
 RandomGenerator* RandomGenerator::of($String* name) {
 	$Objects::requireNonNull(name);
@@ -382,73 +290,73 @@ RandomGenerator* RandomGenerator::getDefault() {
 
 bool RandomGenerator::isDeprecated() {
 	$load($Deprecated);
-	return $of(this)->getClass()->isAnnotationPresent($Deprecated::class$);
+	return this->getClass()->isAnnotationPresent($Deprecated::class$);
 }
 
 $DoubleStream* RandomGenerator::doubles() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($DoubleStream::generate(static_cast<$DoubleSupplier*>($$new(RandomGenerator$$Lambda$nextDouble, this)))))->sequential();
+	$useLocalObjectStack();
+	return $$nc($DoubleStream::generate($$new(RandomGenerator$$Lambda$nextDouble, this)))->sequential();
 }
 
 $DoubleStream* RandomGenerator::doubles(double randomNumberOrigin, double randomNumberBound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RandomSupport::checkRange(randomNumberOrigin, randomNumberBound);
-	return $nc($($DoubleStream::generate(static_cast<$DoubleSupplier*>($$new(RandomGenerator$$Lambda$lambda$doubles$0$1, this, randomNumberOrigin, randomNumberBound)))))->sequential();
+	return $$nc($DoubleStream::generate($$new(RandomGenerator$$Lambda$lambda$doubles$0$1, this, randomNumberOrigin, randomNumberBound)))->sequential();
 }
 
 $DoubleStream* RandomGenerator::doubles(int64_t streamSize) {
 	$RandomSupport::checkStreamSize(streamSize);
-	return $nc($(doubles()))->limit(streamSize);
+	return $$nc(doubles())->limit(streamSize);
 }
 
 $DoubleStream* RandomGenerator::doubles(int64_t streamSize, double randomNumberOrigin, double randomNumberBound) {
 	$RandomSupport::checkStreamSize(streamSize);
 	$RandomSupport::checkRange(randomNumberOrigin, randomNumberBound);
-	return $nc($(doubles(randomNumberOrigin, randomNumberBound)))->limit(streamSize);
+	return $$nc(doubles(randomNumberOrigin, randomNumberBound))->limit(streamSize);
 }
 
 $IntStream* RandomGenerator::ints() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($IntStream::generate(static_cast<$IntSupplier*>($$new(RandomGenerator$$Lambda$nextInt$2, this)))))->sequential();
+	$useLocalObjectStack();
+	return $$nc($IntStream::generate($$new(RandomGenerator$$Lambda$nextInt$2, this)))->sequential();
 }
 
 $IntStream* RandomGenerator::ints(int32_t randomNumberOrigin, int32_t randomNumberBound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RandomSupport::checkRange(randomNumberOrigin, randomNumberBound);
-	return $nc($($IntStream::generate(static_cast<$IntSupplier*>($$new(RandomGenerator$$Lambda$lambda$ints$1$3, this, randomNumberOrigin, randomNumberBound)))))->sequential();
+	return $$nc($IntStream::generate($$new(RandomGenerator$$Lambda$lambda$ints$1$3, this, randomNumberOrigin, randomNumberBound)))->sequential();
 }
 
 $IntStream* RandomGenerator::ints(int64_t streamSize) {
 	$RandomSupport::checkStreamSize(streamSize);
-	return $nc($(ints()))->limit(streamSize);
+	return $$nc(ints())->limit(streamSize);
 }
 
 $IntStream* RandomGenerator::ints(int64_t streamSize, int32_t randomNumberOrigin, int32_t randomNumberBound) {
 	$RandomSupport::checkStreamSize(streamSize);
 	$RandomSupport::checkRange(randomNumberOrigin, randomNumberBound);
-	return $nc($(ints(randomNumberOrigin, randomNumberBound)))->limit(streamSize);
+	return $$nc(ints(randomNumberOrigin, randomNumberBound))->limit(streamSize);
 }
 
 $LongStream* RandomGenerator::longs() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($LongStream::generate(static_cast<$LongSupplier*>($$new(RandomGenerator$$Lambda$nextLong$4, this)))))->sequential();
+	$useLocalObjectStack();
+	return $$nc($LongStream::generate($$new(RandomGenerator$$Lambda$nextLong$4, this)))->sequential();
 }
 
 $LongStream* RandomGenerator::longs(int64_t randomNumberOrigin, int64_t randomNumberBound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RandomSupport::checkRange(randomNumberOrigin, randomNumberBound);
-	return $nc($($LongStream::generate(static_cast<$LongSupplier*>($$new(RandomGenerator$$Lambda$lambda$longs$2$5, this, randomNumberOrigin, randomNumberBound)))))->sequential();
+	return $$nc($LongStream::generate($$new(RandomGenerator$$Lambda$lambda$longs$2$5, this, randomNumberOrigin, randomNumberBound)))->sequential();
 }
 
 $LongStream* RandomGenerator::longs(int64_t streamSize) {
 	$RandomSupport::checkStreamSize(streamSize);
-	return $nc($(longs()))->limit(streamSize);
+	return $$nc(longs())->limit(streamSize);
 }
 
 $LongStream* RandomGenerator::longs(int64_t streamSize, int64_t randomNumberOrigin, int64_t randomNumberBound) {
 	$RandomSupport::checkStreamSize(streamSize);
 	$RandomSupport::checkRange(randomNumberOrigin, randomNumberBound);
-	return $nc($(longs(randomNumberOrigin, randomNumberBound)))->limit(streamSize);
+	return $$nc(longs(randomNumberOrigin, randomNumberBound))->limit(streamSize);
 }
 
 bool RandomGenerator::nextBoolean() {
@@ -552,26 +460,88 @@ double RandomGenerator::lambda$doubles$0(double randomNumberOrigin, double rando
 
 $Class* RandomGenerator::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RandomGenerator$$Lambda$nextDouble::classInfo$.name)) {
+		if (name->equals("java.util.random.RandomGenerator$$Lambda$nextDouble")) {
 			return RandomGenerator$$Lambda$nextDouble::load$(name, initialize);
 		}
-		if (name->equals(RandomGenerator$$Lambda$lambda$doubles$0$1::classInfo$.name)) {
+		if (name->equals("java.util.random.RandomGenerator$$Lambda$lambda$doubles$0$1")) {
 			return RandomGenerator$$Lambda$lambda$doubles$0$1::load$(name, initialize);
 		}
-		if (name->equals(RandomGenerator$$Lambda$nextInt$2::classInfo$.name)) {
+		if (name->equals("java.util.random.RandomGenerator$$Lambda$nextInt$2")) {
 			return RandomGenerator$$Lambda$nextInt$2::load$(name, initialize);
 		}
-		if (name->equals(RandomGenerator$$Lambda$lambda$ints$1$3::classInfo$.name)) {
+		if (name->equals("java.util.random.RandomGenerator$$Lambda$lambda$ints$1$3")) {
 			return RandomGenerator$$Lambda$lambda$ints$1$3::load$(name, initialize);
 		}
-		if (name->equals(RandomGenerator$$Lambda$nextLong$4::classInfo$.name)) {
+		if (name->equals("java.util.random.RandomGenerator$$Lambda$nextLong$4")) {
 			return RandomGenerator$$Lambda$nextLong$4::load$(name, initialize);
 		}
-		if (name->equals(RandomGenerator$$Lambda$lambda$longs$2$5::classInfo$.name)) {
+		if (name->equals("java.util.random.RandomGenerator$$Lambda$lambda$longs$2$5")) {
 			return RandomGenerator$$Lambda$lambda$longs$2$5::load$(name, initialize);
 		}
 	}
-	$loadClass(RandomGenerator, name, initialize, &_RandomGenerator_ClassInfo_, allocate$RandomGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*)},
+		{"doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*, double, double)},
+		{"doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*, int64_t)},
+		{"doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*, int64_t, double, double)},
+		{"getDefault", "()Ljava/util/random/RandomGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator, getDefault, RandomGenerator*)},
+		{"ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*)},
+		{"ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*, int32_t, int32_t)},
+		{"ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*, int64_t)},
+		{"ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*, int64_t, int32_t, int32_t)},
+		{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, isDeprecated, bool)},
+		{"lambda$doubles$0", "(DD)D", nullptr, $PRIVATE | $SYNTHETIC, $method(RandomGenerator, lambda$doubles$0, double, double, double)},
+		{"lambda$ints$1", "(II)I", nullptr, $PRIVATE | $SYNTHETIC, $method(RandomGenerator, lambda$ints$1, int32_t, int32_t, int32_t)},
+		{"lambda$longs$2", "(JJ)J", nullptr, $PRIVATE | $SYNTHETIC, $method(RandomGenerator, lambda$longs$2, int64_t, int64_t, int64_t)},
+		{"longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*)},
+		{"longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*, int64_t, int64_t)},
+		{"longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*, int64_t)},
+		{"longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*, int64_t, int64_t, int64_t)},
+		{"nextBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextBoolean, bool)},
+		{"nextBytes", "([B)V", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextBytes, void, $bytes*)},
+		{"nextDouble", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextDouble, double)},
+		{"nextDouble", "(D)D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextDouble, double, double)},
+		{"nextDouble", "(DD)D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextDouble, double, double, double)},
+		{"nextExponential", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextExponential, double)},
+		{"nextFloat", "()F", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextFloat, float)},
+		{"nextFloat", "(F)F", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextFloat, float, float)},
+		{"nextFloat", "(FF)F", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextFloat, float, float, float)},
+		{"nextGaussian", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextGaussian, double)},
+		{"nextGaussian", "(DD)D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextGaussian, double, double, double)},
+		{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextInt, int32_t)},
+		{"nextInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextInt, int32_t, int32_t)},
+		{"nextInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextInt, int32_t, int32_t, int32_t)},
+		{"nextLong", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator, nextLong, int64_t)},
+		{"nextLong", "(J)J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextLong, int64_t, int64_t)},
+		{"nextLong", "(JJ)J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextLong, int64_t, int64_t, int64_t)},
+		{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator, of, RandomGenerator*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.random.RandomGenerator$ArbitrarilyJumpableGenerator", "java.util.random.RandomGenerator", "ArbitrarilyJumpableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.random.RandomGenerator$LeapableGenerator", "java.util.random.RandomGenerator", "LeapableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.random.RandomGenerator$JumpableGenerator", "java.util.random.RandomGenerator", "JumpableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.random.RandomGenerator$SplittableGenerator", "java.util.random.RandomGenerator", "SplittableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.random.RandomGenerator$StreamableGenerator", "java.util.random.RandomGenerator", "StreamableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.random.RandomGenerator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.random.RandomGenerator$ArbitrarilyJumpableGenerator,java.util.random.RandomGenerator$LeapableGenerator,java.util.random.RandomGenerator$JumpableGenerator,java.util.random.RandomGenerator$SplittableGenerator,java.util.random.RandomGenerator$StreamableGenerator"
+	};
+	$loadClass(RandomGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGenerator);
+	});
 	return class$;
 }
 

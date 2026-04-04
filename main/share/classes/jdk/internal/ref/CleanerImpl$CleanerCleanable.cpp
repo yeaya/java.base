@@ -1,5 +1,4 @@
 #include <jdk/internal/ref/CleanerImpl$CleanerCleanable.h>
-
 #include <java/lang/ref/Cleaner.h>
 #include <jdk/internal/ref/CleanerImpl.h>
 #include <jdk/internal/ref/PhantomCleanable.h>
@@ -15,37 +14,6 @@ namespace jdk {
 	namespace internal {
 		namespace ref {
 
-$MethodInfo _CleanerImpl$CleanerCleanable_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ref/Cleaner;)V", nullptr, 0, $method(CleanerImpl$CleanerCleanable, init$, void, $Cleaner*)},
-	{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(CleanerImpl$CleanerCleanable, performCleanup, void)},
-	{}
-};
-
-$InnerClassInfo _CleanerImpl$CleanerCleanable_InnerClassesInfo_[] = {
-	{"jdk.internal.ref.CleanerImpl$CleanerCleanable", "jdk.internal.ref.CleanerImpl", "CleanerCleanable", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CleanerImpl$CleanerCleanable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.ref.CleanerImpl$CleanerCleanable",
-	"jdk.internal.ref.PhantomCleanable",
-	nullptr,
-	nullptr,
-	_CleanerImpl$CleanerCleanable_MethodInfo_,
-	"Ljdk/internal/ref/PhantomCleanable<Ljava/lang/ref/Cleaner;>;",
-	nullptr,
-	_CleanerImpl$CleanerCleanable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.ref.CleanerImpl"
-};
-
-$Object* allocate$CleanerImpl$CleanerCleanable($Class* clazz) {
-	return $of($alloc(CleanerImpl$CleanerCleanable));
-}
-
 void CleanerImpl$CleanerCleanable::init$($Cleaner* cleaner) {
 	$PhantomCleanable::init$(cleaner, cleaner);
 }
@@ -57,7 +25,33 @@ CleanerImpl$CleanerCleanable::CleanerImpl$CleanerCleanable() {
 }
 
 $Class* CleanerImpl$CleanerCleanable::load$($String* name, bool initialize) {
-	$loadClass(CleanerImpl$CleanerCleanable, name, initialize, &_CleanerImpl$CleanerCleanable_ClassInfo_, allocate$CleanerImpl$CleanerCleanable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ref/Cleaner;)V", nullptr, 0, $method(CleanerImpl$CleanerCleanable, init$, void, $Cleaner*)},
+		{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(CleanerImpl$CleanerCleanable, performCleanup, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.ref.CleanerImpl$CleanerCleanable", "jdk.internal.ref.CleanerImpl", "CleanerCleanable", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.ref.CleanerImpl$CleanerCleanable",
+		"jdk.internal.ref.PhantomCleanable",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljdk/internal/ref/PhantomCleanable<Ljava/lang/ref/Cleaner;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.ref.CleanerImpl"
+	};
+	$loadClass(CleanerImpl$CleanerCleanable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CleanerImpl$CleanerCleanable));
+	});
 	return class$;
 }
 

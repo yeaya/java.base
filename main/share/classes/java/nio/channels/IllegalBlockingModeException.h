@@ -14,10 +14,13 @@ class $export IllegalBlockingModeException : public ::java::lang::IllegalStateEx
 public:
 	IllegalBlockingModeException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xD1B4F2588BF48FB6;
+	static const int64_t serialVersionUID = (int64_t)0xd1b4f2588bf48fb6;
 	IllegalBlockingModeException(const IllegalBlockingModeException& e);
 	virtual void throw$() override;
-	inline IllegalBlockingModeException* operator ->() {
+	inline IllegalBlockingModeException* operator ->() const {
+		return (IllegalBlockingModeException*)throwing$;
+	}
+	inline operator IllegalBlockingModeException*() const {
 		return (IllegalBlockingModeException*)throwing$;
 	}
 };

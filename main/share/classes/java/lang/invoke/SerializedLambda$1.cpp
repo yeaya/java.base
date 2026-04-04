@@ -1,5 +1,4 @@
 #include <java/lang/invoke/SerializedLambda$1.h>
-
 #include <java/lang/invoke/SerializedLambda.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
@@ -16,54 +15,12 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _SerializedLambda$1_FieldInfo_[] = {
-	{"this$0", "Ljava/lang/invoke/SerializedLambda;", nullptr, $FINAL | $SYNTHETIC, $field(SerializedLambda$1, this$0)},
-	{}
-};
-
-$MethodInfo _SerializedLambda$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/SerializedLambda;)V", nullptr, 0, $method(SerializedLambda$1, init$, void, $SerializedLambda*)},
-	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(SerializedLambda$1, run, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _SerializedLambda$1_EnclosingMethodInfo_ = {
-	"java.lang.invoke.SerializedLambda",
-	"readResolve",
-	"()Ljava/lang/Object;"
-};
-
-$InnerClassInfo _SerializedLambda$1_InnerClassesInfo_[] = {
-	{"java.lang.invoke.SerializedLambda$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SerializedLambda$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.SerializedLambda$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_SerializedLambda$1_FieldInfo_,
-	_SerializedLambda$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/reflect/Method;>;",
-	&_SerializedLambda$1_EnclosingMethodInfo_,
-	_SerializedLambda$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.SerializedLambda"
-};
-
-$Object* allocate$SerializedLambda$1($Class* clazz) {
-	return $of($alloc(SerializedLambda$1));
-}
-
 void SerializedLambda$1::init$($SerializedLambda* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* SerializedLambda$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($SerializedLambda);
 	$var($Method, m, $nc(this->this$0->capturingClass)->getDeclaredMethod("$deserializeLambda$"_s, $$new($ClassArray, {$SerializedLambda::class$})));
@@ -75,7 +32,42 @@ SerializedLambda$1::SerializedLambda$1() {
 }
 
 $Class* SerializedLambda$1::load$($String* name, bool initialize) {
-	$loadClass(SerializedLambda$1, name, initialize, &_SerializedLambda$1_ClassInfo_, allocate$SerializedLambda$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/lang/invoke/SerializedLambda;", nullptr, $FINAL | $SYNTHETIC, $field(SerializedLambda$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/SerializedLambda;)V", nullptr, 0, $method(SerializedLambda$1, init$, void, $SerializedLambda*)},
+		{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(SerializedLambda$1, run, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.invoke.SerializedLambda",
+		"readResolve",
+		"()Ljava/lang/Object;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.SerializedLambda$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.SerializedLambda$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/reflect/Method;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.SerializedLambda"
+	};
+	$loadClass(SerializedLambda$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SerializedLambda$1);
+	});
 	return class$;
 }
 

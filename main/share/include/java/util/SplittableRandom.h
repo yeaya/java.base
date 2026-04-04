@@ -41,6 +41,7 @@ class $import SplittableRandom : public ::java::util::random::RandomGenerator$Sp
 	$class(SplittableRandom, 0, ::java::util::random::RandomGenerator$SplittableGenerator)
 public:
 	SplittableRandom();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t seed, int64_t gamma);
 	void init$(int64_t seed);
 	void init$();
@@ -71,7 +72,7 @@ public:
 	virtual ::java::util::stream::Stream* splits(int64_t streamSize) override;
 	virtual ::java::util::stream::Stream* splits(::java::util::random::RandomGenerator$SplittableGenerator* source) override;
 	virtual ::java::util::stream::Stream* splits(int64_t streamSize, ::java::util::random::RandomGenerator$SplittableGenerator* source) override;
-	static const int64_t GOLDEN_GAMMA = (int64_t)0x9E3779B97F4A7C15;
+	static const int64_t GOLDEN_GAMMA = (int64_t)0x9e3779b97f4a7c15;
 	int64_t seed = 0;
 	int64_t gamma = 0;
 	::java::util::SplittableRandom$AbstractSplittableGeneratorProxy* proxy = nullptr;

@@ -15,11 +15,14 @@ public:
 	void init$(int32_t index);
 	virtual int32_t getIndex();
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0x3A2C269D8668FF20;
+	static const int64_t serialVersionUID = (int64_t)0x3a2c269d8668ff20;
 	int32_t illegalIndex = 0;
 	IllegalFormatArgumentIndexException(const IllegalFormatArgumentIndexException& e);
 	virtual void throw$() override;
-	inline IllegalFormatArgumentIndexException* operator ->() {
+	inline IllegalFormatArgumentIndexException* operator ->() const {
+		return (IllegalFormatArgumentIndexException*)throwing$;
+	}
+	inline operator IllegalFormatArgumentIndexException*() const {
 		return (IllegalFormatArgumentIndexException*)throwing$;
 	}
 };

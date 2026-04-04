@@ -27,6 +27,7 @@ class $export ProtectionDomain : public ::java::lang::Object {
 	$class(ProtectionDomain, $PRELOAD, ::java::lang::Object)
 public:
 	ProtectionDomain();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::CodeSource* codesource, ::java::security::PermissionCollection* permissions);
 	void init$(::java::security::CodeSource* codesource, ::java::security::PermissionCollection* permissions, ::java::lang::ClassLoader* classloader, $Array<::java::security::Principal>* principals);
 	::java::lang::ClassLoader* getClassLoader();

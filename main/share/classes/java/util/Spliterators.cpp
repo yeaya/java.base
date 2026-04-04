@@ -1,5 +1,4 @@
 #include <java/util/Spliterators.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -68,85 +67,6 @@ using $Spliterators$LongIteratorSpliterator = ::java::util::Spliterators$LongIte
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Spliterators_FieldInfo_[] = {
-	{"EMPTY_SPLITERATOR", "Ljava/util/Spliterator;", "Ljava/util/Spliterator<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Spliterators, EMPTY_SPLITERATOR)},
-	{"EMPTY_INT_SPLITERATOR", "Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Spliterators, EMPTY_INT_SPLITERATOR)},
-	{"EMPTY_LONG_SPLITERATOR", "Ljava/util/Spliterator$OfLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Spliterators, EMPTY_LONG_SPLITERATOR)},
-	{"EMPTY_DOUBLE_SPLITERATOR", "Ljava/util/Spliterator$OfDouble;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Spliterators, EMPTY_DOUBLE_SPLITERATOR)},
-	{}
-};
-
-$MethodInfo _Spliterators_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Spliterators, init$, void)},
-	{"checkFromToBounds", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Spliterators, checkFromToBounds, void, int32_t, int32_t, int32_t)},
-	{"emptyDoubleSpliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, emptyDoubleSpliterator, $Spliterator$OfDouble*)},
-	{"emptyIntSpliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, emptyIntSpliterator, $Spliterator$OfInt*)},
-	{"emptyLongSpliterator", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, emptyLongSpliterator, $Spliterator$OfLong*)},
-	{"emptySpliterator", "()Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>()Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, emptySpliterator, $Spliterator*)},
-	{"iterator", "(Ljava/util/Spliterator;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(Ljava/util/Spliterator<+TT;>;)Ljava/util/Iterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, iterator, $Iterator*, $Spliterator*)},
-	{"iterator", "(Ljava/util/Spliterator$OfInt;)Ljava/util/PrimitiveIterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, iterator, $PrimitiveIterator$OfInt*, $Spliterator$OfInt*)},
-	{"iterator", "(Ljava/util/Spliterator$OfLong;)Ljava/util/PrimitiveIterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, iterator, $PrimitiveIterator$OfLong*, $Spliterator$OfLong*)},
-	{"iterator", "(Ljava/util/Spliterator$OfDouble;)Ljava/util/PrimitiveIterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, iterator, $PrimitiveIterator$OfDouble*, $Spliterator$OfDouble*)},
-	{"spliterator", "([Ljava/lang/Object;I)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;I)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator*, $ObjectArray*, int32_t)},
-	{"spliterator", "([Ljava/lang/Object;III)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;III)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator*, $ObjectArray*, int32_t, int32_t, int32_t)},
-	{"spliterator", "([II)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfInt*, $ints*, int32_t)},
-	{"spliterator", "([IIII)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfInt*, $ints*, int32_t, int32_t, int32_t)},
-	{"spliterator", "([JI)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfLong*, $longs*, int32_t)},
-	{"spliterator", "([JIII)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfLong*, $longs*, int32_t, int32_t, int32_t)},
-	{"spliterator", "([DI)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfDouble*, $doubles*, int32_t)},
-	{"spliterator", "([DIII)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfDouble*, $doubles*, int32_t, int32_t, int32_t)},
-	{"spliterator", "(Ljava/util/Collection;I)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+TT;>;I)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator*, $Collection*, int32_t)},
-	{"spliterator", "(Ljava/util/Iterator;JI)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>(Ljava/util/Iterator<+TT;>;JI)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator*, $Iterator*, int64_t, int32_t)},
-	{"spliterator", "(Ljava/util/PrimitiveIterator$OfInt;JI)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfInt*, $PrimitiveIterator$OfInt*, int64_t, int32_t)},
-	{"spliterator", "(Ljava/util/PrimitiveIterator$OfLong;JI)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfLong*, $PrimitiveIterator$OfLong*, int64_t, int32_t)},
-	{"spliterator", "(Ljava/util/PrimitiveIterator$OfDouble;JI)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfDouble*, $PrimitiveIterator$OfDouble*, int64_t, int32_t)},
-	{"spliteratorUnknownSize", "(Ljava/util/Iterator;I)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>(Ljava/util/Iterator<+TT;>;I)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, spliteratorUnknownSize, $Spliterator*, $Iterator*, int32_t)},
-	{"spliteratorUnknownSize", "(Ljava/util/PrimitiveIterator$OfInt;I)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliteratorUnknownSize, $Spliterator$OfInt*, $PrimitiveIterator$OfInt*, int32_t)},
-	{"spliteratorUnknownSize", "(Ljava/util/PrimitiveIterator$OfLong;I)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliteratorUnknownSize, $Spliterator$OfLong*, $PrimitiveIterator$OfLong*, int32_t)},
-	{"spliteratorUnknownSize", "(Ljava/util/PrimitiveIterator$OfDouble;I)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliteratorUnknownSize, $Spliterator$OfDouble*, $PrimitiveIterator$OfDouble*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Spliterators_InnerClassesInfo_[] = {
-	{"java.util.Spliterators$DoubleIteratorSpliterator", "java.util.Spliterators", "DoubleIteratorSpliterator", $STATIC | $FINAL},
-	{"java.util.Spliterators$LongIteratorSpliterator", "java.util.Spliterators", "LongIteratorSpliterator", $STATIC | $FINAL},
-	{"java.util.Spliterators$IntIteratorSpliterator", "java.util.Spliterators", "IntIteratorSpliterator", $STATIC | $FINAL},
-	{"java.util.Spliterators$IteratorSpliterator", "java.util.Spliterators", "IteratorSpliterator", $STATIC},
-	{"java.util.Spliterators$AbstractDoubleSpliterator", "java.util.Spliterators", "AbstractDoubleSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.Spliterators$AbstractLongSpliterator", "java.util.Spliterators", "AbstractLongSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.Spliterators$AbstractIntSpliterator", "java.util.Spliterators", "AbstractIntSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.Spliterators$DoubleArraySpliterator", "java.util.Spliterators", "DoubleArraySpliterator", $STATIC | $FINAL},
-	{"java.util.Spliterators$LongArraySpliterator", "java.util.Spliterators", "LongArraySpliterator", $STATIC | $FINAL},
-	{"java.util.Spliterators$IntArraySpliterator", "java.util.Spliterators", "IntArraySpliterator", $STATIC | $FINAL},
-	{"java.util.Spliterators$ArraySpliterator", "java.util.Spliterators", "ArraySpliterator", $STATIC | $FINAL},
-	{"java.util.Spliterators$EmptySpliterator", "java.util.Spliterators", "EmptySpliterator", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.Spliterators$4Adapter", nullptr, "Adapter", 0},
-	{"java.util.Spliterators$3Adapter", nullptr, "Adapter", 0},
-	{"java.util.Spliterators$2Adapter", nullptr, "Adapter", 0},
-	{"java.util.Spliterators$1Adapter", nullptr, "Adapter", 0},
-	{}
-};
-
-$ClassInfo _Spliterators_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.Spliterators",
-	"java.lang.Object",
-	nullptr,
-	_Spliterators_FieldInfo_,
-	_Spliterators_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spliterators_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.Spliterators$DoubleIteratorSpliterator,java.util.Spliterators$LongIteratorSpliterator,java.util.Spliterators$IntIteratorSpliterator,java.util.Spliterators$IteratorSpliterator,java.util.Spliterators$AbstractDoubleSpliterator,java.util.Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer,java.util.Spliterators$AbstractLongSpliterator,java.util.Spliterators$AbstractLongSpliterator$HoldingLongConsumer,java.util.Spliterators$AbstractIntSpliterator,java.util.Spliterators$AbstractIntSpliterator$HoldingIntConsumer,java.util.Spliterators$AbstractSpliterator,java.util.Spliterators$AbstractSpliterator$HoldingConsumer,java.util.Spliterators$DoubleArraySpliterator,java.util.Spliterators$LongArraySpliterator,java.util.Spliterators$IntArraySpliterator,java.util.Spliterators$ArraySpliterator,java.util.Spliterators$EmptySpliterator,java.util.Spliterators$EmptySpliterator$OfDouble,java.util.Spliterators$EmptySpliterator$OfLong,java.util.Spliterators$EmptySpliterator$OfInt,java.util.Spliterators$EmptySpliterator$OfRef,java.util.Spliterators$4Adapter,java.util.Spliterators$3Adapter,java.util.Spliterators$2Adapter,java.util.Spliterators$1Adapter"
-};
-
-$Object* allocate$Spliterators($Class* clazz) {
-	return $of($alloc(Spliterators));
-}
 
 $Spliterator* Spliterators::EMPTY_SPLITERATOR = nullptr;
 $Spliterator$OfInt* Spliterators::EMPTY_INT_SPLITERATOR = nullptr;
@@ -222,7 +142,7 @@ $Spliterator$OfDouble* Spliterators::spliterator($doubles* array, int32_t fromIn
 
 void Spliterators::checkFromToBounds(int32_t arrayLength, int32_t origin, int32_t fence) {
 	$init(Spliterators);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (origin > fence) {
 		$throwNew($ArrayIndexOutOfBoundsException, $$str({"origin("_s, $$str(origin), ") > fence("_s, $$str(fence), ")"_s}));
 	}
@@ -311,7 +231,7 @@ $PrimitiveIterator$OfDouble* Spliterators::iterator($Spliterator$OfDouble* split
 	return $new($Spliterators$4Adapter, spliterator);
 }
 
-void clinit$Spliterators($Class* class$) {
+void Spliterators::clinit$($Class* clazz) {
 	$assignStatic(Spliterators::EMPTY_SPLITERATOR, $new($Spliterators$EmptySpliterator$OfRef));
 	$assignStatic(Spliterators::EMPTY_INT_SPLITERATOR, $as($Spliterator$OfInt, $new($Spliterators$EmptySpliterator$OfInt)));
 	$assignStatic(Spliterators::EMPTY_LONG_SPLITERATOR, $as($Spliterator$OfLong, $new($Spliterators$EmptySpliterator$OfLong)));
@@ -322,7 +242,80 @@ Spliterators::Spliterators() {
 }
 
 $Class* Spliterators::load$($String* name, bool initialize) {
-	$loadClass(Spliterators, name, initialize, &_Spliterators_ClassInfo_, clinit$Spliterators, allocate$Spliterators);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_SPLITERATOR", "Ljava/util/Spliterator;", "Ljava/util/Spliterator<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Spliterators, EMPTY_SPLITERATOR)},
+		{"EMPTY_INT_SPLITERATOR", "Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Spliterators, EMPTY_INT_SPLITERATOR)},
+		{"EMPTY_LONG_SPLITERATOR", "Ljava/util/Spliterator$OfLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Spliterators, EMPTY_LONG_SPLITERATOR)},
+		{"EMPTY_DOUBLE_SPLITERATOR", "Ljava/util/Spliterator$OfDouble;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Spliterators, EMPTY_DOUBLE_SPLITERATOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Spliterators, init$, void)},
+		{"checkFromToBounds", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Spliterators, checkFromToBounds, void, int32_t, int32_t, int32_t)},
+		{"emptyDoubleSpliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, emptyDoubleSpliterator, $Spliterator$OfDouble*)},
+		{"emptyIntSpliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, emptyIntSpliterator, $Spliterator$OfInt*)},
+		{"emptyLongSpliterator", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, emptyLongSpliterator, $Spliterator$OfLong*)},
+		{"emptySpliterator", "()Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>()Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, emptySpliterator, $Spliterator*)},
+		{"iterator", "(Ljava/util/Spliterator;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(Ljava/util/Spliterator<+TT;>;)Ljava/util/Iterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, iterator, $Iterator*, $Spliterator*)},
+		{"iterator", "(Ljava/util/Spliterator$OfInt;)Ljava/util/PrimitiveIterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, iterator, $PrimitiveIterator$OfInt*, $Spliterator$OfInt*)},
+		{"iterator", "(Ljava/util/Spliterator$OfLong;)Ljava/util/PrimitiveIterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, iterator, $PrimitiveIterator$OfLong*, $Spliterator$OfLong*)},
+		{"iterator", "(Ljava/util/Spliterator$OfDouble;)Ljava/util/PrimitiveIterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, iterator, $PrimitiveIterator$OfDouble*, $Spliterator$OfDouble*)},
+		{"spliterator", "([Ljava/lang/Object;I)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;I)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator*, $ObjectArray*, int32_t)},
+		{"spliterator", "([Ljava/lang/Object;III)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;III)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator*, $ObjectArray*, int32_t, int32_t, int32_t)},
+		{"spliterator", "([II)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfInt*, $ints*, int32_t)},
+		{"spliterator", "([IIII)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfInt*, $ints*, int32_t, int32_t, int32_t)},
+		{"spliterator", "([JI)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfLong*, $longs*, int32_t)},
+		{"spliterator", "([JIII)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfLong*, $longs*, int32_t, int32_t, int32_t)},
+		{"spliterator", "([DI)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfDouble*, $doubles*, int32_t)},
+		{"spliterator", "([DIII)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfDouble*, $doubles*, int32_t, int32_t, int32_t)},
+		{"spliterator", "(Ljava/util/Collection;I)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+TT;>;I)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator*, $Collection*, int32_t)},
+		{"spliterator", "(Ljava/util/Iterator;JI)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>(Ljava/util/Iterator<+TT;>;JI)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator*, $Iterator*, int64_t, int32_t)},
+		{"spliterator", "(Ljava/util/PrimitiveIterator$OfInt;JI)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfInt*, $PrimitiveIterator$OfInt*, int64_t, int32_t)},
+		{"spliterator", "(Ljava/util/PrimitiveIterator$OfLong;JI)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfLong*, $PrimitiveIterator$OfLong*, int64_t, int32_t)},
+		{"spliterator", "(Ljava/util/PrimitiveIterator$OfDouble;JI)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliterator, $Spliterator$OfDouble*, $PrimitiveIterator$OfDouble*, int64_t, int32_t)},
+		{"spliteratorUnknownSize", "(Ljava/util/Iterator;I)Ljava/util/Spliterator;", "<T:Ljava/lang/Object;>(Ljava/util/Iterator<+TT;>;I)Ljava/util/Spliterator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Spliterators, spliteratorUnknownSize, $Spliterator*, $Iterator*, int32_t)},
+		{"spliteratorUnknownSize", "(Ljava/util/PrimitiveIterator$OfInt;I)Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliteratorUnknownSize, $Spliterator$OfInt*, $PrimitiveIterator$OfInt*, int32_t)},
+		{"spliteratorUnknownSize", "(Ljava/util/PrimitiveIterator$OfLong;I)Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliteratorUnknownSize, $Spliterator$OfLong*, $PrimitiveIterator$OfLong*, int32_t)},
+		{"spliteratorUnknownSize", "(Ljava/util/PrimitiveIterator$OfDouble;I)Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spliterators, spliteratorUnknownSize, $Spliterator$OfDouble*, $PrimitiveIterator$OfDouble*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterators$DoubleIteratorSpliterator", "java.util.Spliterators", "DoubleIteratorSpliterator", $STATIC | $FINAL},
+		{"java.util.Spliterators$LongIteratorSpliterator", "java.util.Spliterators", "LongIteratorSpliterator", $STATIC | $FINAL},
+		{"java.util.Spliterators$IntIteratorSpliterator", "java.util.Spliterators", "IntIteratorSpliterator", $STATIC | $FINAL},
+		{"java.util.Spliterators$IteratorSpliterator", "java.util.Spliterators", "IteratorSpliterator", $STATIC},
+		{"java.util.Spliterators$AbstractDoubleSpliterator", "java.util.Spliterators", "AbstractDoubleSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.Spliterators$AbstractLongSpliterator", "java.util.Spliterators", "AbstractLongSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.Spliterators$AbstractIntSpliterator", "java.util.Spliterators", "AbstractIntSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.Spliterators$DoubleArraySpliterator", "java.util.Spliterators", "DoubleArraySpliterator", $STATIC | $FINAL},
+		{"java.util.Spliterators$LongArraySpliterator", "java.util.Spliterators", "LongArraySpliterator", $STATIC | $FINAL},
+		{"java.util.Spliterators$IntArraySpliterator", "java.util.Spliterators", "IntArraySpliterator", $STATIC | $FINAL},
+		{"java.util.Spliterators$ArraySpliterator", "java.util.Spliterators", "ArraySpliterator", $STATIC | $FINAL},
+		{"java.util.Spliterators$EmptySpliterator", "java.util.Spliterators", "EmptySpliterator", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.Spliterators$4Adapter", nullptr, "Adapter", 0},
+		{"java.util.Spliterators$3Adapter", nullptr, "Adapter", 0},
+		{"java.util.Spliterators$2Adapter", nullptr, "Adapter", 0},
+		{"java.util.Spliterators$1Adapter", nullptr, "Adapter", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.Spliterators",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.Spliterators$DoubleIteratorSpliterator,java.util.Spliterators$LongIteratorSpliterator,java.util.Spliterators$IntIteratorSpliterator,java.util.Spliterators$IteratorSpliterator,java.util.Spliterators$AbstractDoubleSpliterator,java.util.Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer,java.util.Spliterators$AbstractLongSpliterator,java.util.Spliterators$AbstractLongSpliterator$HoldingLongConsumer,java.util.Spliterators$AbstractIntSpliterator,java.util.Spliterators$AbstractIntSpliterator$HoldingIntConsumer,java.util.Spliterators$AbstractSpliterator,java.util.Spliterators$AbstractSpliterator$HoldingConsumer,java.util.Spliterators$DoubleArraySpliterator,java.util.Spliterators$LongArraySpliterator,java.util.Spliterators$IntArraySpliterator,java.util.Spliterators$ArraySpliterator,java.util.Spliterators$EmptySpliterator,java.util.Spliterators$EmptySpliterator$OfDouble,java.util.Spliterators$EmptySpliterator$OfLong,java.util.Spliterators$EmptySpliterator$OfInt,java.util.Spliterators$EmptySpliterator$OfRef,java.util.Spliterators$4Adapter,java.util.Spliterators$3Adapter,java.util.Spliterators$2Adapter,java.util.Spliterators$1Adapter"
+	};
+	$loadClass(Spliterators, name, initialize, &classInfo$$, Spliterators::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Spliterators);
+	});
 	return class$;
 }
 

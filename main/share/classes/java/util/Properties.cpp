@@ -1,5 +1,4 @@
 #include <java/util/Properties.h>
-
 #include <java/io/BufferedWriter.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -97,7 +96,6 @@ using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $BiFunction = ::java::util::function::BiFunction;
 using $Function = ::java::util::function::Function;
-using $JavaObjectInputStreamAccess = ::jdk::internal::access::JavaObjectInputStreamAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $PropertiesDefaultHandler = ::jdk::internal::util::xml::PropertiesDefaultHandler;
@@ -106,108 +104,6 @@ using $UTF_8 = ::sun::nio::cs::UTF_8;
 
 namespace java {
 	namespace util {
-
-$CompoundAttribute _Properties_MethodAnnotations_save45[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Properties_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Properties, serialVersionUID)},
-	{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Properties, UNSAFE)},
-	{"defaults", "Ljava/util/Properties;", nullptr, $PROTECTED | $VOLATILE, $field(Properties, defaults)},
-	{"map", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE | $VOLATILE | $TRANSIENT, $field(Properties, map)},
-	{}
-};
-
-$MethodInfo _Properties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Properties, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Properties, init$, void, int32_t)},
-	{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(Properties, init$, void, Properties*)},
-	{"<init>", "(Ljava/util/Properties;I)V", nullptr, $PRIVATE, $method(Properties, init$, void, Properties*, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, clone, $Object*)},
-	{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/util/function/BiFunction<-Ljava/lang/Object;-Ljava/lang/Object;*>;)Ljava/lang/Object;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, compute, $Object*, Object$*, $BiFunction*)},
-	{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/util/function/Function<-Ljava/lang/Object;*>;)Ljava/lang/Object;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, computeIfAbsent, $Object*, Object$*, $Function*)},
-	{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/util/function/BiFunction<-Ljava/lang/Object;-Ljava/lang/Object;*>;)Ljava/lang/Object;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, computeIfPresent, $Object*, Object$*, $BiFunction*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties, contains, bool, Object$*)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties, containsKey, bool, Object$*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties, containsValue, bool, Object$*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Properties, elements, $Enumeration*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(Properties, entrySet, $Set*)},
-	{"enumerate", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PRIVATE, $method(Properties, enumerate, void, $Map*)},
-	{"enumerateStringProperties", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(Properties, enumerateStringProperties, void, $Map*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, equals, bool, Object$*)},
-	{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-Ljava/lang/Object;-Ljava/lang/Object;>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, forEach, void, $BiConsumer*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Properties, get, $Object*, Object$*)},
-	{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Properties, getOrDefault, $Object*, Object$*, Object$*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Properties, getProperty, $String*, $String*)},
-	{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Properties, getProperty, $String*, $String*, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Properties, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Properties, keySet, $Set*)},
-	{"keys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Properties, keys, $Enumeration*)},
-	{"list", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(Properties, list, void, $PrintStream*)},
-	{"list", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(Properties, list, void, $PrintWriter*)},
-	{"load", "(Ljava/io/Reader;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, load, void, $Reader*), "java.io.IOException"},
-	{"load", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, load, void, $InputStream*), "java.io.IOException"},
-	{"load0", "(Ljava/util/Properties$LineReader;)V", nullptr, $PRIVATE, $method(Properties, load0, void, $Properties$LineReader*), "java.io.IOException"},
-	{"loadConvert", "([CIILjava/lang/StringBuilder;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Properties, loadConvert, $String*, $chars*, int32_t, int32_t, $StringBuilder*)},
-	{"loadFromXML", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, loadFromXML, void, $InputStream*), "java.io.IOException,java.util.InvalidPropertiesFormatException"},
-	{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction<-Ljava/lang/Object;-Ljava/lang/Object;*>;)Ljava/lang/Object;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, merge, $Object*, Object$*, Object$*, $BiFunction*)},
-	{"propertyNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(Properties, propertyNames, $Enumeration*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, put, $Object*, Object$*, Object$*)},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, putAll, void, $Map*)},
-	{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, putIfAbsent, $Object*, Object$*, Object$*)},
-	{"readHashtable", "(Ljava/io/ObjectInputStream;)V", nullptr, 0, $virtualMethod(Properties, readHashtable, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"rehash", "()V", nullptr, $PROTECTED, $virtualMethod(Properties, rehash, void)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, remove, $Object*, Object$*)},
-	{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, remove, bool, Object$*, Object$*)},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, replace, bool, Object$*, Object$*, Object$*)},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, replace, $Object*, Object$*, Object$*)},
-	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-Ljava/lang/Object;-Ljava/lang/Object;*>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, replaceAll, void, $BiFunction*)},
-	{"save", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Properties, save, void, $OutputStream*, $String*), nullptr, nullptr, _Properties_MethodAnnotations_save45},
-	{"saveConvert", "(Ljava/lang/String;ZZ)Ljava/lang/String;", nullptr, $PRIVATE, $method(Properties, saveConvert, $String*, $String*, bool, bool)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, setProperty, $Object*, $String*, $String*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Properties, size, int32_t)},
-	{"store", "(Ljava/io/Writer;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Properties, store, void, $Writer*, $String*), "java.io.IOException"},
-	{"store", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Properties, store, void, $OutputStream*, $String*), "java.io.IOException"},
-	{"store0", "(Ljava/io/BufferedWriter;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(Properties, store0, void, $BufferedWriter*, $String*, bool), "java.io.IOException"},
-	{"storeToXML", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Properties, storeToXML, void, $OutputStream*, $String*), "java.io.IOException"},
-	{"storeToXML", "(Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Properties, storeToXML, void, $OutputStream*, $String*, $String*), "java.io.IOException"},
-	{"storeToXML", "(Ljava/io/OutputStream;Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $virtualMethod(Properties, storeToXML, void, $OutputStream*, $String*, $Charset*), "java.io.IOException"},
-	{"stringPropertyNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Properties, stringPropertyNames, $Set*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, toString, $String*)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Properties, values, $Collection*)},
-	{"writeComments", "(Ljava/io/BufferedWriter;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Properties, writeComments, void, $BufferedWriter*, $String*), "java.io.IOException"},
-	{"writeHashtable", "(Ljava/io/ObjectOutputStream;)V", nullptr, 0, $virtualMethod(Properties, writeHashtable, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Properties_InnerClassesInfo_[] = {
-	{"java.util.Properties$EntrySet", "java.util.Properties", "EntrySet", $PRIVATE | $STATIC},
-	{"java.util.Properties$LineReader", "java.util.Properties", "LineReader", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Properties_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.Properties",
-	"java.util.Hashtable",
-	nullptr,
-	_Properties_FieldInfo_,
-	_Properties_MethodInfo_,
-	"Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;",
-	nullptr,
-	_Properties_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.Properties$EntrySet,java.util.Properties$LineReader"
-};
-
-$Object* allocate$Properties($Class* clazz) {
-	return $of($alloc(Properties));
-}
 
 $Unsafe* Properties::UNSAFE = nullptr;
 
@@ -232,26 +128,26 @@ void Properties::init$(Properties* defaults, int32_t initialCapacity) {
 
 $Object* Properties::setProperty($String* key, $String* value) {
 	$synchronized(this) {
-		return $of(put(key, value));
+		return put(key, value);
 	}
 }
 
 void Properties::load($Reader* reader) {
 	$synchronized(this) {
-		$Objects::requireNonNull($of(reader), "reader parameter is null"_s);
+		$Objects::requireNonNull(reader, "reader parameter is null"_s);
 		load0($$new($Properties$LineReader, reader));
 	}
 }
 
 void Properties::load($InputStream* inStream) {
 	$synchronized(this) {
-		$Objects::requireNonNull($of(inStream), "inStream parameter is null"_s);
+		$Objects::requireNonNull(inStream, "inStream parameter is null"_s);
 		load0($$new($Properties$LineReader, inStream));
 	}
 }
 
 void Properties::load0($Properties$LineReader* lr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, outBuffer, $new($StringBuilder));
 	int32_t limit = 0;
 	int32_t keyLen = 0;
@@ -324,66 +220,38 @@ $String* Properties::loadConvert($chars* in, int32_t off, int32_t len, $StringBu
 				int32_t value = 0;
 				for (int32_t i = 0; i < 4; ++i) {
 					aChar = in->get(off++);
-
 					int32_t var$0 = 0;
 					switch (aChar) {
 					case u'0':
-						{}
 					case u'1':
-						{}
 					case u'2':
-						{}
 					case u'3':
-						{}
 					case u'4':
-						{}
 					case u'5':
-						{}
 					case u'6':
-						{}
 					case u'7':
-						{}
 					case u'8':
-						{}
 					case u'9':
-						{
-							var$0 = (value << 4) + aChar - u'0';
-							break;
-						}
+						var$0 = (value << 4) + aChar - u'0';
+						break;
 					case u'a':
-						{}
 					case u'b':
-						{}
 					case u'c':
-						{}
 					case u'd':
-						{}
 					case u'e':
-						{}
 					case u'f':
-						{
-							var$0 = (value << 4) + 10 + aChar - u'a';
-							break;
-						}
+						var$0 = (value << 4) + 10 + aChar - u'a';
+						break;
 					case u'A':
-						{}
 					case u'B':
-						{}
 					case u'C':
-						{}
 					case u'D':
-						{}
 					case u'E':
-						{}
 					case u'F':
-						{
-							var$0 = (value << 4) + 10 + aChar - u'A';
-							break;
-						}
+						var$0 = (value << 4) + 10 + aChar - u'A';
+						break;
 					default:
-						{
-							$throwNew($IllegalArgumentException, "Malformed \\uxxxx encoding."_s);
-						}
+						$throwNew($IllegalArgumentException, "Malformed \\uxxxx encoding."_s);
 					}
 					value = var$0;
 				}
@@ -408,14 +276,14 @@ $String* Properties::loadConvert($chars* in, int32_t off, int32_t len, $StringBu
 }
 
 $String* Properties::saveConvert($String* theString, bool escapeSpace, bool escapeUnicode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(theString)->length();
 	int32_t bufLen = len * 2;
 	if (bufLen < 0) {
 		bufLen = $Integer::MAX_VALUE;
 	}
 	$var($StringBuilder, outBuffer, $new($StringBuilder, bufLen));
-	$var($HexFormat, hex, $nc($($HexFormat::of()))->withUpperCase());
+	$var($HexFormat, hex, $$nc($HexFormat::of())->withUpperCase());
 	for (int32_t x = 0; x < len; ++x) {
 		char16_t aChar = theString->charAt(x);
 		if ((aChar > 61) && (aChar < 127)) {
@@ -429,57 +297,40 @@ $String* Properties::saveConvert($String* theString, bool escapeSpace, bool esca
 		}
 		switch (aChar) {
 		case u' ':
-			{
-				if (x == 0 || escapeSpace) {
-					outBuffer->append(u'\\');
-				}
-				outBuffer->append(u' ');
-				break;
+			if (x == 0 || escapeSpace) {
+				outBuffer->append(u'\\');
 			}
+			outBuffer->append(u' ');
+			break;
 		case u'\t':
-			{
-				outBuffer->append(u'\\');
-				outBuffer->append(u't');
-				break;
-			}
+			outBuffer->append(u'\\');
+			outBuffer->append(u't');
+			break;
 		case u'\n':
-			{
-				outBuffer->append(u'\\');
-				outBuffer->append(u'n');
-				break;
-			}
+			outBuffer->append(u'\\');
+			outBuffer->append(u'n');
+			break;
 		case u'\r':
-			{
-				outBuffer->append(u'\\');
-				outBuffer->append(u'r');
-				break;
-			}
+			outBuffer->append(u'\\');
+			outBuffer->append(u'r');
+			break;
 		case u'\f':
-			{
-				outBuffer->append(u'\\');
-				outBuffer->append(u'f');
-				break;
-			}
+			outBuffer->append(u'\\');
+			outBuffer->append(u'f');
+			break;
 		case u'=':
-			{}
 		case u':':
-			{}
 		case u'#':
-			{}
 		case u'!':
-			{
-				outBuffer->append(u'\\');
-				outBuffer->append(aChar);
-				break;
-			}
+			outBuffer->append(u'\\');
+			outBuffer->append(aChar);
+			break;
 		default:
-			{
-				if (((aChar < 32) || (aChar > 126)) & escapeUnicode) {
-					outBuffer->append("\\u"_s);
-					outBuffer->append($($nc(hex)->toHexDigits(aChar)));
-				} else {
-					outBuffer->append(aChar);
-				}
+			if (((aChar < 32) || (aChar > 126)) & escapeUnicode) {
+				outBuffer->append("\\u"_s);
+				outBuffer->append($($nc(hex)->toHexDigits(aChar)));
+			} else {
+				outBuffer->append(aChar);
 			}
 		}
 	}
@@ -488,19 +339,19 @@ $String* Properties::saveConvert($String* theString, bool escapeSpace, bool esca
 
 void Properties::writeComments($BufferedWriter* bw, $String* comments) {
 	$init(Properties);
-	$useLocalCurrentObjectStackCache();
-	$var($HexFormat, hex, $nc($($HexFormat::of()))->withUpperCase());
+	$useLocalObjectStack();
+	$var($HexFormat, hex, $$nc($HexFormat::of())->withUpperCase());
 	$nc(bw)->write("#"_s);
 	int32_t len = $nc(comments)->length();
 	int32_t current = 0;
 	int32_t last = 0;
 	while (current < len) {
 		char16_t c = comments->charAt(current);
-		if (c > (char16_t)0xFF || c == u'\n' || c == u'\r') {
+		if (c > (char16_t)0xff || c == u'\n' || c == u'\r') {
 			if (last != current) {
 				bw->write($(comments->substring(last, current)));
 			}
-			if (c > (char16_t)0xFF) {
+			if (c > (char16_t)0xff) {
 				bw->write("\\u"_s);
 				bw->write($($nc(hex)->toHexDigits(c)));
 			} else {
@@ -511,7 +362,7 @@ void Properties::writeComments($BufferedWriter* bw, $String* comments) {
 				bool var$0 = current == len - 1;
 				if (!var$0) {
 					bool var$1 = comments->charAt(current + 1) != u'#';
-					var$0 = (var$1 && comments->charAt(current + 1) != u'!');
+					var$0 = var$1 && comments->charAt(current + 1) != u'!';
 				}
 				if (var$0) {
 					bw->write("#"_s);
@@ -539,31 +390,29 @@ void Properties::store($Writer* writer, $String* comments) {
 }
 
 void Properties::store($OutputStream* out, $String* comments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ISO_8859_1);
-	store0($$new($BufferedWriter, $$new($OutputStreamWriter, out, static_cast<$Charset*>($ISO_8859_1::INSTANCE))), comments, true);
+	store0($$new($BufferedWriter, $$new($OutputStreamWriter, out, $ISO_8859_1::INSTANCE)), comments, true);
 }
 
 void Properties::store0($BufferedWriter* bw, $String* comments, bool escUnicode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (comments != nullptr) {
 		writeComments(bw, comments);
 	}
 	$nc(bw)->write($$str({"#"_s, $($$new($Date)->toString())}));
 	bw->newLine();
 	$synchronized(this) {
-		{
-			$var($Iterator, i$, $nc($(entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
-				{
-					$var($String, key, $cast($String, $nc(e)->getKey()));
-					$var($String, val, $cast($String, e->getValue()));
-					$assign(key, saveConvert(key, true, escUnicode));
-					$assign(val, saveConvert(val, false, escUnicode));
-					bw->write($$str({key, "="_s, val}));
-					bw->newLine();
-				}
+		$var($Iterator, i$, $$nc(entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
+			{
+				$var($String, key, $cast($String, $nc(e)->getKey()));
+				$var($String, val, $cast($String, e->getValue()));
+				$assign(key, saveConvert(key, true, escUnicode));
+				$assign(val, saveConvert(val, false, escUnicode));
+				bw->write($$str({key, "="_s, val}));
+				bw->newLine();
 			}
 		}
 	}
@@ -581,7 +430,7 @@ void Properties::loadFromXML($InputStream* in) {
 
 void Properties::storeToXML($OutputStream* os, $String* comment) {
 	$init($UTF_8);
-	storeToXML(os, comment, static_cast<$Charset*>($UTF_8::INSTANCE));
+	storeToXML(os, comment, $UTF_8::INSTANCE);
 }
 
 void Properties::storeToXML($OutputStream* os, $String* comment, $String* encoding) {
@@ -598,14 +447,14 @@ void Properties::storeToXML($OutputStream* os, $String* comment, $String* encodi
 }
 
 void Properties::storeToXML($OutputStream* os, $String* comment, $Charset* charset) {
-	$Objects::requireNonNull($of(os), "OutputStream"_s);
-	$Objects::requireNonNull($of(charset), "Charset"_s);
+	$Objects::requireNonNull(os, "OutputStream"_s);
+	$Objects::requireNonNull(charset, "Charset"_s);
 	$var($PropertiesDefaultHandler, handler, $new($PropertiesDefaultHandler));
 	handler->store(this, os, comment, charset);
 }
 
 $String* Properties::getProperty($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, oval, $nc(this->map)->get(key));
 	$var($String, sval, ($instanceOf($String, oval)) ? $cast($String, oval) : ($String*)nullptr);
 	$var(Properties, defaults, nullptr);
@@ -624,19 +473,19 @@ $Enumeration* Properties::propertyNames() {
 }
 
 $Set* Properties::stringPropertyNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, h, $new($HashMap));
 	enumerateStringProperties(h);
 	return $Collections::unmodifiableSet($(h->keySet()));
 }
 
 void Properties::list($PrintStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->println("-- listing properties --"_s);
 	$var($Map, h, $new($HashMap));
 	enumerate(h);
 	{
-		$var($Iterator, i$, $nc($(h->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(h->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
@@ -652,12 +501,12 @@ void Properties::list($PrintStream* out) {
 }
 
 void Properties::list($PrintWriter* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->println("-- listing properties --"_s);
 	$var($Map, h, $new($HashMap));
 	enumerate(h);
 	{
-		$var($Iterator, i$, $nc($(h->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(h->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
@@ -673,12 +522,12 @@ void Properties::list($PrintWriter* out) {
 }
 
 void Properties::enumerate($Map* h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->defaults != nullptr) {
 		$nc(this->defaults)->enumerate(h);
 	}
 	{
-		$var($Iterator, i$, $nc($(entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
@@ -690,12 +539,12 @@ void Properties::enumerate($Map* h) {
 }
 
 void Properties::enumerateStringProperties($Map* h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->defaults != nullptr) {
 		$nc(this->defaults)->enumerateStringProperties(h);
 	}
 	{
-		$var($Iterator, i$, $nc($(entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
@@ -738,18 +587,18 @@ bool Properties::containsKey(Object$* key) {
 }
 
 $Object* Properties::get(Object$* key) {
-	return $of($nc(this->map)->get(key));
+	return $nc(this->map)->get(key);
 }
 
 $Object* Properties::put(Object$* key, Object$* value) {
 	$synchronized(this) {
-		return $of($nc(this->map)->put(key, value));
+		return $nc(this->map)->put(key, value);
 	}
 }
 
 $Object* Properties::remove(Object$* key) {
 	$synchronized(this) {
-		return $of($nc(this->map)->remove(key));
+		return $nc(this->map)->remove(key);
 	}
 }
 
@@ -780,7 +629,7 @@ $Collection* Properties::values() {
 }
 
 $Set* Properties::entrySet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Collections::synchronizedSet($$new($Properties$EntrySet, $($nc(this->map)->entrySet())), this);
 }
 
@@ -797,7 +646,7 @@ int32_t Properties::hashCode() {
 }
 
 $Object* Properties::getOrDefault(Object$* key, Object$* defaultValue) {
-	return $of($nc(this->map)->getOrDefault(key, defaultValue));
+	return $nc(this->map)->getOrDefault(key, defaultValue);
 }
 
 void Properties::forEach($BiConsumer* action) {
@@ -814,7 +663,7 @@ void Properties::replaceAll($BiFunction* function) {
 
 $Object* Properties::putIfAbsent(Object$* key, Object$* value) {
 	$synchronized(this) {
-		return $of($nc(this->map)->putIfAbsent(key, value));
+		return $nc(this->map)->putIfAbsent(key, value);
 	}
 }
 
@@ -832,31 +681,31 @@ bool Properties::replace(Object$* key, Object$* oldValue, Object$* newValue) {
 
 $Object* Properties::replace(Object$* key, Object$* value) {
 	$synchronized(this) {
-		return $of($nc(this->map)->replace(key, value));
+		return $nc(this->map)->replace(key, value);
 	}
 }
 
 $Object* Properties::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 	$synchronized(this) {
-		return $of($nc(this->map)->computeIfAbsent(key, mappingFunction));
+		return $nc(this->map)->computeIfAbsent(key, mappingFunction);
 	}
 }
 
 $Object* Properties::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
 	$synchronized(this) {
-		return $of($nc(this->map)->computeIfPresent(key, remappingFunction));
+		return $nc(this->map)->computeIfPresent(key, remappingFunction);
 	}
 }
 
 $Object* Properties::compute(Object$* key, $BiFunction* remappingFunction) {
 	$synchronized(this) {
-		return $of($nc(this->map)->compute(key, remappingFunction));
+		return $nc(this->map)->compute(key, remappingFunction);
 	}
 }
 
 $Object* Properties::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
 	$synchronized(this) {
-		return $of($nc(this->map)->merge(key, value, remappingFunction));
+		return $nc(this->map)->merge(key, value, remappingFunction);
 	}
 }
 
@@ -866,29 +715,29 @@ void Properties::rehash() {
 $Object* Properties::clone() {
 	$synchronized(this) {
 		$var(Properties, clone, $cast(Properties, cloneHashtable()));
-		$set($nc(clone), map, $new($ConcurrentHashMap, static_cast<$Map*>(static_cast<$AbstractMap*>(this->map))));
+		$set($nc(clone), map, $new($ConcurrentHashMap, $cast($AbstractMap, this->map)));
 		return $of(clone);
 	}
 }
 
 void Properties::writeHashtable($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap, map, this->map);
 	$var($List, entryStack, $new($ArrayList, $nc(map)->size() * 2));
 	{
-		$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(map->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				entryStack->add($($nc(entry)->getValue()));
-				entryStack->add($($nc(entry)->getKey()));
+				entryStack->add($(entry->getKey()));
 			}
 		}
 	}
 	float loadFactor = 0.75f;
 	int32_t count = entryStack->size() / 2;
 	int32_t length = $cast(int32_t, (count / loadFactor)) + (count / 20) + 3;
-	if (length > count && ((int32_t)(length & (uint32_t)1)) == 0) {
+	if (length > count && (length & 1) == 0) {
 		--length;
 	}
 	$synchronized(map) {
@@ -902,15 +751,15 @@ void Properties::writeHashtable($ObjectOutputStream* s) {
 }
 
 void Properties::readHashtable($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	int32_t origlength = s->readInt();
 	int32_t elements = s->readInt();
 	if (elements < 0) {
 		$throwNew($StreamCorruptedException, $$str({"Illegal # of Elements: "_s, $$str(elements)}));
 	}
-	$load($Map$EntryArray);
-	$nc($($SharedSecrets::getJavaObjectInputStreamAccess()))->checkArray(s, $getClass($Map$EntryArray), $HashMap::tableSizeFor($cast(int32_t, (elements / 0.75))));
+	$load($Map$Entry);
+	$$nc($SharedSecrets::getJavaObjectInputStreamAccess())->checkArray(s, $getClass($Map$EntryArray), $HashMap::tableSizeFor($cast(int32_t, (elements / 0.75))));
 	$var($ConcurrentHashMap, map, $new($ConcurrentHashMap, elements));
 	for (; elements > 0; --elements) {
 		$var($Object, key, s->readObject());
@@ -920,7 +769,7 @@ void Properties::readHashtable($ObjectInputStream* s) {
 	$set(this, map, map);
 }
 
-void clinit$Properties($Class* class$) {
+void Properties::clinit$($Class* clazz) {
 	$assignStatic(Properties::UNSAFE, $Unsafe::getUnsafe());
 }
 
@@ -928,7 +777,102 @@ Properties::Properties() {
 }
 
 $Class* Properties::load$($String* name, bool initialize) {
-	$loadClass(Properties, name, initialize, &_Properties_ClassInfo_, clinit$Properties, allocate$Properties);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Properties, serialVersionUID)},
+		{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Properties, UNSAFE)},
+		{"defaults", "Ljava/util/Properties;", nullptr, $PROTECTED | $VOLATILE, $field(Properties, defaults)},
+		{"map", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE | $VOLATILE | $TRANSIENT, $field(Properties, map)},
+		{}
+	};
+	$CompoundAttribute savemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Properties, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Properties, init$, void, int32_t)},
+		{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(Properties, init$, void, Properties*)},
+		{"<init>", "(Ljava/util/Properties;I)V", nullptr, $PRIVATE, $method(Properties, init$, void, Properties*, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, clone, $Object*)},
+		{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/util/function/BiFunction<-Ljava/lang/Object;-Ljava/lang/Object;*>;)Ljava/lang/Object;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, compute, $Object*, Object$*, $BiFunction*)},
+		{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/util/function/Function<-Ljava/lang/Object;*>;)Ljava/lang/Object;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, computeIfAbsent, $Object*, Object$*, $Function*)},
+		{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/util/function/BiFunction<-Ljava/lang/Object;-Ljava/lang/Object;*>;)Ljava/lang/Object;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, computeIfPresent, $Object*, Object$*, $BiFunction*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties, contains, bool, Object$*)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties, containsKey, bool, Object$*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties, containsValue, bool, Object$*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Properties, elements, $Enumeration*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(Properties, entrySet, $Set*)},
+		{"enumerate", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PRIVATE, $method(Properties, enumerate, void, $Map*)},
+		{"enumerateStringProperties", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(Properties, enumerateStringProperties, void, $Map*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, equals, bool, Object$*)},
+		{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-Ljava/lang/Object;-Ljava/lang/Object;>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, forEach, void, $BiConsumer*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Properties, get, $Object*, Object$*)},
+		{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Properties, getOrDefault, $Object*, Object$*, Object$*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Properties, getProperty, $String*, $String*)},
+		{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Properties, getProperty, $String*, $String*, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Properties, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Properties, keySet, $Set*)},
+		{"keys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Properties, keys, $Enumeration*)},
+		{"list", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(Properties, list, void, $PrintStream*)},
+		{"list", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(Properties, list, void, $PrintWriter*)},
+		{"load", "(Ljava/io/Reader;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, load, void, $Reader*), "java.io.IOException"},
+		{"load", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, load, void, $InputStream*), "java.io.IOException"},
+		{"load0", "(Ljava/util/Properties$LineReader;)V", nullptr, $PRIVATE, $method(Properties, load0, void, $Properties$LineReader*), "java.io.IOException"},
+		{"loadConvert", "([CIILjava/lang/StringBuilder;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Properties, loadConvert, $String*, $chars*, int32_t, int32_t, $StringBuilder*)},
+		{"loadFromXML", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, loadFromXML, void, $InputStream*), "java.io.IOException,java.util.InvalidPropertiesFormatException"},
+		{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction<-Ljava/lang/Object;-Ljava/lang/Object;*>;)Ljava/lang/Object;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, merge, $Object*, Object$*, Object$*, $BiFunction*)},
+		{"propertyNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(Properties, propertyNames, $Enumeration*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, put, $Object*, Object$*, Object$*)},
+		{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, putAll, void, $Map*)},
+		{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, putIfAbsent, $Object*, Object$*, Object$*)},
+		{"readHashtable", "(Ljava/io/ObjectInputStream;)V", nullptr, 0, $virtualMethod(Properties, readHashtable, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"rehash", "()V", nullptr, $PROTECTED, $virtualMethod(Properties, rehash, void)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, remove, $Object*, Object$*)},
+		{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, remove, bool, Object$*, Object$*)},
+		{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, replace, bool, Object$*, Object$*, Object$*)},
+		{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, replace, $Object*, Object$*, Object$*)},
+		{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-Ljava/lang/Object;-Ljava/lang/Object;*>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, replaceAll, void, $BiFunction*)},
+		{"save", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Properties, save, void, $OutputStream*, $String*), nullptr, nullptr, savemethodAnnotations$$},
+		{"saveConvert", "(Ljava/lang/String;ZZ)Ljava/lang/String;", nullptr, $PRIVATE, $method(Properties, saveConvert, $String*, $String*, bool, bool)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, setProperty, $Object*, $String*, $String*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Properties, size, int32_t)},
+		{"store", "(Ljava/io/Writer;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Properties, store, void, $Writer*, $String*), "java.io.IOException"},
+		{"store", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Properties, store, void, $OutputStream*, $String*), "java.io.IOException"},
+		{"store0", "(Ljava/io/BufferedWriter;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(Properties, store0, void, $BufferedWriter*, $String*, bool), "java.io.IOException"},
+		{"storeToXML", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Properties, storeToXML, void, $OutputStream*, $String*), "java.io.IOException"},
+		{"storeToXML", "(Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Properties, storeToXML, void, $OutputStream*, $String*, $String*), "java.io.IOException"},
+		{"storeToXML", "(Ljava/io/OutputStream;Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $virtualMethod(Properties, storeToXML, void, $OutputStream*, $String*, $Charset*), "java.io.IOException"},
+		{"stringPropertyNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Properties, stringPropertyNames, $Set*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Properties, toString, $String*)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Properties, values, $Collection*)},
+		{"writeComments", "(Ljava/io/BufferedWriter;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Properties, writeComments, void, $BufferedWriter*, $String*), "java.io.IOException"},
+		{"writeHashtable", "(Ljava/io/ObjectOutputStream;)V", nullptr, 0, $virtualMethod(Properties, writeHashtable, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Properties$EntrySet", "java.util.Properties", "EntrySet", $PRIVATE | $STATIC},
+		{"java.util.Properties$LineReader", "java.util.Properties", "LineReader", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.Properties",
+		"java.util.Hashtable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.Properties$EntrySet,java.util.Properties$LineReader"
+	};
+	$loadClass(Properties, name, initialize, &classInfo$$, Properties::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Properties));
+	});
 	return class$;
 }
 

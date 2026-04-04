@@ -22,6 +22,7 @@ class $export AbsTests : public ::java::lang::Object {
 	$class(AbsTests, 0, ::java::lang::Object)
 public:
 	AbsTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static int32_t testInRangeIntAbs();

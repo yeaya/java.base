@@ -1,5 +1,4 @@
 #include <p/internal/NonPublicType.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,35 +8,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace p {
 	namespace internal {
 
-$FieldInfo _NonPublicType_FieldInfo_[] = {
-	{"obj", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NonPublicType, obj)},
-	{}
-};
-
-$MethodInfo _NonPublicType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NonPublicType, init$, void)},
-	{}
-};
-
-$ClassInfo _NonPublicType_ClassInfo_ = {
-	$ACC_SUPER,
-	"p.internal.NonPublicType",
-	"java.lang.Object",
-	nullptr,
-	_NonPublicType_FieldInfo_,
-	_NonPublicType_MethodInfo_
-};
-
-$Object* allocate$NonPublicType($Class* clazz) {
-	return $of($alloc(NonPublicType));
-}
-
 $Object* NonPublicType::obj = nullptr;
 
 void NonPublicType::init$() {
 }
 
-void clinit$NonPublicType($Class* class$) {
+void NonPublicType::clinit$($Class* clazz) {
 	$assignStatic(NonPublicType::obj, $new($Object));
 }
 
@@ -45,7 +21,25 @@ NonPublicType::NonPublicType() {
 }
 
 $Class* NonPublicType::load$($String* name, bool initialize) {
-	$loadClass(NonPublicType, name, initialize, &_NonPublicType_ClassInfo_, clinit$NonPublicType, allocate$NonPublicType);
+	$FieldInfo fieldInfos$$[] = {
+		{"obj", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NonPublicType, obj)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NonPublicType, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"p.internal.NonPublicType",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NonPublicType, name, initialize, &classInfo$$, NonPublicType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NonPublicType);
+	});
 	return class$;
 }
 

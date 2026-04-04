@@ -1,5 +1,4 @@
 #include <java/time/Duration$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/Duration.h>
 #include <java/time/temporal/ChronoUnit.h>
@@ -20,61 +19,25 @@ using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 namespace java {
 	namespace time {
 
-$FieldInfo _Duration$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Duration$1, $SwitchMap$java$time$temporal$ChronoUnit)},
-	{}
-};
-
-$EnclosingMethodInfo _Duration$1_EnclosingMethodInfo_ = {
-	"java.time.Duration",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Duration$1_InnerClassesInfo_[] = {
-	{"java.time.Duration$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Duration$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.Duration$1",
-	"java.lang.Object",
-	nullptr,
-	_Duration$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Duration$1_EnclosingMethodInfo_,
-	_Duration$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.Duration"
-};
-
-$Object* allocate$Duration$1($Class* clazz) {
-	return $of($alloc(Duration$1));
-}
-
 $ints* Duration$1::$SwitchMap$java$time$temporal$ChronoUnit = nullptr;
 
-void clinit$Duration$1($Class* class$) {
+void Duration$1::clinit$($Class* clazz) {
 	$assignStatic(Duration$1::$SwitchMap$java$time$temporal$ChronoUnit, $new($ints, $($ChronoUnit::values())->length));
 	{
 		try {
-			$nc(Duration$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::NANOS->ordinal(), 1);
+			Duration$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::NANOS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Duration$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MICROS->ordinal(), 2);
+			Duration$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MICROS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Duration$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MILLIS->ordinal(), 3);
+			Duration$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MILLIS->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Duration$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::SECONDS->ordinal(), 4);
+			Duration$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::SECONDS->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -84,7 +47,37 @@ Duration$1::Duration$1() {
 }
 
 $Class* Duration$1::load$($String* name, bool initialize) {
-	$loadClass(Duration$1, name, initialize, &_Duration$1_ClassInfo_, clinit$Duration$1, allocate$Duration$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Duration$1, $SwitchMap$java$time$temporal$ChronoUnit)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.Duration",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.Duration$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.Duration$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.Duration"
+	};
+	$loadClass(Duration$1, name, initialize, &classInfo$$, Duration$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Duration$1);
+	});
 	return class$;
 }
 

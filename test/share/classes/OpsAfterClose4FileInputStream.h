@@ -32,6 +32,7 @@ class $export OpsAfterClose4FileInputStream : public ::java::lang::Enum {
 public:
 	OpsAfterClose4FileInputStream();
 	static $Array<OpsAfterClose4FileInputStream>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool check(::java::io::FileInputStream* r) {return false;}
 	static void main($StringArray* args);

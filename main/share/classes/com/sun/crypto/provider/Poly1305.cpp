@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/Poly1305.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/InvalidKeyException.h>
@@ -30,10 +29,7 @@ using $Key = ::java::security::Key;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
-using $ImmutableIntegerModuloP = ::sun::security::util::math::ImmutableIntegerModuloP;
 using $IntegerFieldModuloP = ::sun::security::util::math::IntegerFieldModuloP;
-using $IntegerModuloP = ::sun::security::util::math::IntegerModuloP;
-using $MutableIntegerModuloP = ::sun::security::util::math::MutableIntegerModuloP;
 using $IntegerPolynomial1305 = ::sun::security::util::math::intpoly::IntegerPolynomial1305;
 
 namespace com {
@@ -41,67 +37,22 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _Poly1305_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Poly1305, $assertionsDisabled)},
-	{"KEY_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Poly1305, KEY_LENGTH)},
-	{"RS_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Poly1305, RS_LENGTH)},
-	{"BLOCK_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Poly1305, BLOCK_LENGTH)},
-	{"TAG_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Poly1305, TAG_LENGTH)},
-	{"ipl1305", "Lsun/security/util/math/IntegerFieldModuloP;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Poly1305, ipl1305)},
-	{"keyBytes", "[B", nullptr, $PRIVATE, $field(Poly1305, keyBytes)},
-	{"block", "[B", nullptr, $PRIVATE | $FINAL, $field(Poly1305, block)},
-	{"blockOffset", "I", nullptr, $PRIVATE, $field(Poly1305, blockOffset)},
-	{"r", "Lsun/security/util/math/IntegerModuloP;", nullptr, $PRIVATE, $field(Poly1305, r)},
-	{"s", "Lsun/security/util/math/IntegerModuloP;", nullptr, $PRIVATE, $field(Poly1305, s)},
-	{"a", "Lsun/security/util/math/MutableIntegerModuloP;", nullptr, $PRIVATE, $field(Poly1305, a)},
-	{"n", "Lsun/security/util/math/MutableIntegerModuloP;", nullptr, $PRIVATE | $FINAL, $field(Poly1305, n)},
-	{}
-};
-
-$MethodInfo _Poly1305_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Poly1305, init$, void)},
-	{"engineDoFinal", "()[B", nullptr, 0, $method(Poly1305, engineDoFinal, $bytes*)},
-	{"engineGetMacLength", "()I", nullptr, 0, $method(Poly1305, engineGetMacLength, int32_t)},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(Poly1305, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException"},
-	{"engineReset", "()V", nullptr, 0, $method(Poly1305, engineReset, void)},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Poly1305, engineUpdate, void, $ByteBuffer*)},
-	{"engineUpdate", "([BII)V", nullptr, 0, $method(Poly1305, engineUpdate, void, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "(B)V", nullptr, 0, $method(Poly1305, engineUpdate, void, int8_t)},
-	{"processBlock", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(Poly1305, processBlock, void, $ByteBuffer*, int32_t)},
-	{"processBlock", "([BII)V", nullptr, $PRIVATE, $method(Poly1305, processBlock, void, $bytes*, int32_t, int32_t)},
-	{"setRSVals", "()V", nullptr, $PRIVATE, $method(Poly1305, setRSVals, void)},
-	{}
-};
-
-$ClassInfo _Poly1305_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.Poly1305",
-	"java.lang.Object",
-	nullptr,
-	_Poly1305_FieldInfo_,
-	_Poly1305_MethodInfo_
-};
-
-$Object* allocate$Poly1305($Class* clazz) {
-	return $of($alloc(Poly1305));
-}
-
 bool Poly1305::$assertionsDisabled = false;
 $IntegerFieldModuloP* Poly1305::ipl1305 = nullptr;
 
 void Poly1305::init$() {
 	$set(this, block, $new($bytes, Poly1305::BLOCK_LENGTH));
-	$set(this, n, $nc($($nc(Poly1305::ipl1305)->get1()))->mutable$());
+	$set(this, n, $$nc(Poly1305::ipl1305->get1())->mutable$());
 }
 
 void Poly1305::engineInit($Key* newKey, $AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(newKey), "Null key provided during init"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(newKey, "Null key provided during init"_s);
 	$set(this, keyBytes, $nc(newKey)->getEncoded());
 	if (this->keyBytes == nullptr) {
 		$throwNew($InvalidKeyException, "Key does not support encoding"_s);
-	} else if ($nc(this->keyBytes)->length != Poly1305::KEY_LENGTH) {
-		$throwNew($InvalidKeyException, $$str({"Incorrect length for key: "_s, $$str($nc(this->keyBytes)->length)}));
+	} else if (this->keyBytes->length != Poly1305::KEY_LENGTH) {
+		$throwNew($InvalidKeyException, $$str({"Incorrect length for key: "_s, $$str(this->keyBytes->length)}));
 	}
 	engineReset();
 	setRSVals();
@@ -114,7 +65,7 @@ int32_t Poly1305::engineGetMacLength() {
 void Poly1305::engineReset() {
 	$Arrays::fill(this->block, (int8_t)0);
 	this->blockOffset = 0;
-	$set(this, a, $nc($($nc(Poly1305::ipl1305)->get0()))->mutable$());
+	$set(this, a, $$nc(Poly1305::ipl1305->get0())->mutable$());
 }
 
 void Poly1305::engineUpdate($ByteBuffer* buf) {
@@ -166,7 +117,7 @@ void Poly1305::engineUpdate(int8_t input) {
 	if (!Poly1305::$assertionsDisabled && !(this->blockOffset < Poly1305::BLOCK_LENGTH)) {
 		$throwNew($AssertionError);
 	}
-	$nc(this->block)->set(this->blockOffset++, input);
+	this->block->set(this->blockOffset++, input);
 	if (this->blockOffset == Poly1305::BLOCK_LENGTH) {
 		processBlock(this->block, 0, Poly1305::BLOCK_LENGTH);
 		this->blockOffset = 0;
@@ -199,17 +150,17 @@ void Poly1305::processBlock($bytes* block, int32_t offset, int32_t length) {
 
 void Poly1305::setRSVals() {
 	(*$nc(this->keyBytes))[3] &= (uint8_t)15;
-	(*$nc(this->keyBytes))[7] &= (uint8_t)15;
-	(*$nc(this->keyBytes))[11] &= (uint8_t)15;
-	(*$nc(this->keyBytes))[15] &= (uint8_t)15;
-	(*$nc(this->keyBytes))[4] &= (uint8_t)252;
-	(*$nc(this->keyBytes))[8] &= (uint8_t)252;
-	(*$nc(this->keyBytes))[12] &= (uint8_t)252;
-	$set(this, r, $nc(Poly1305::ipl1305)->getElement(this->keyBytes, 0, Poly1305::RS_LENGTH, (int8_t)0));
-	$set(this, s, $nc(Poly1305::ipl1305)->getElement(this->keyBytes, Poly1305::RS_LENGTH, Poly1305::RS_LENGTH, (int8_t)0));
+	(*this->keyBytes)[7] &= (uint8_t)15;
+	(*this->keyBytes)[11] &= (uint8_t)15;
+	(*this->keyBytes)[15] &= (uint8_t)15;
+	(*this->keyBytes)[4] &= (uint8_t)252;
+	(*this->keyBytes)[8] &= (uint8_t)252;
+	(*this->keyBytes)[12] &= (uint8_t)252;
+	$set(this, r, Poly1305::ipl1305->getElement(this->keyBytes, 0, Poly1305::RS_LENGTH, (int8_t)0));
+	$set(this, s, Poly1305::ipl1305->getElement(this->keyBytes, Poly1305::RS_LENGTH, Poly1305::RS_LENGTH, (int8_t)0));
 }
 
-void clinit$Poly1305($Class* class$) {
+void Poly1305::clinit$($Class* clazz) {
 	Poly1305::$assertionsDisabled = !Poly1305::class$->desiredAssertionStatus();
 	$assignStatic(Poly1305::ipl1305, $new($IntegerPolynomial1305));
 }
@@ -218,7 +169,47 @@ Poly1305::Poly1305() {
 }
 
 $Class* Poly1305::load$($String* name, bool initialize) {
-	$loadClass(Poly1305, name, initialize, &_Poly1305_ClassInfo_, clinit$Poly1305, allocate$Poly1305);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Poly1305, $assertionsDisabled)},
+		{"KEY_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Poly1305, KEY_LENGTH)},
+		{"RS_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Poly1305, RS_LENGTH)},
+		{"BLOCK_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Poly1305, BLOCK_LENGTH)},
+		{"TAG_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Poly1305, TAG_LENGTH)},
+		{"ipl1305", "Lsun/security/util/math/IntegerFieldModuloP;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Poly1305, ipl1305)},
+		{"keyBytes", "[B", nullptr, $PRIVATE, $field(Poly1305, keyBytes)},
+		{"block", "[B", nullptr, $PRIVATE | $FINAL, $field(Poly1305, block)},
+		{"blockOffset", "I", nullptr, $PRIVATE, $field(Poly1305, blockOffset)},
+		{"r", "Lsun/security/util/math/IntegerModuloP;", nullptr, $PRIVATE, $field(Poly1305, r)},
+		{"s", "Lsun/security/util/math/IntegerModuloP;", nullptr, $PRIVATE, $field(Poly1305, s)},
+		{"a", "Lsun/security/util/math/MutableIntegerModuloP;", nullptr, $PRIVATE, $field(Poly1305, a)},
+		{"n", "Lsun/security/util/math/MutableIntegerModuloP;", nullptr, $PRIVATE | $FINAL, $field(Poly1305, n)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Poly1305, init$, void)},
+		{"engineDoFinal", "()[B", nullptr, 0, $method(Poly1305, engineDoFinal, $bytes*)},
+		{"engineGetMacLength", "()I", nullptr, 0, $method(Poly1305, engineGetMacLength, int32_t)},
+		{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(Poly1305, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException"},
+		{"engineReset", "()V", nullptr, 0, $method(Poly1305, engineReset, void)},
+		{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Poly1305, engineUpdate, void, $ByteBuffer*)},
+		{"engineUpdate", "([BII)V", nullptr, 0, $method(Poly1305, engineUpdate, void, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "(B)V", nullptr, 0, $method(Poly1305, engineUpdate, void, int8_t)},
+		{"processBlock", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(Poly1305, processBlock, void, $ByteBuffer*, int32_t)},
+		{"processBlock", "([BII)V", nullptr, $PRIVATE, $method(Poly1305, processBlock, void, $bytes*, int32_t, int32_t)},
+		{"setRSVals", "()V", nullptr, $PRIVATE, $method(Poly1305, setRSVals, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.Poly1305",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Poly1305, name, initialize, &classInfo$$, Poly1305::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Poly1305);
+	});
 	return class$;
 }
 

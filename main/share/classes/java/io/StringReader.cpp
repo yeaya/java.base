@@ -1,5 +1,4 @@
 #include <java/io/StringReader.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
 #include <java/lang/Math.h>
@@ -17,41 +16,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _StringReader_FieldInfo_[] = {
-	{"str", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringReader, str)},
-	{"length", "I", nullptr, $PRIVATE, $field(StringReader, length)},
-	{"next", "I", nullptr, $PRIVATE, $field(StringReader, next)},
-	{"mark", "I", nullptr, $PRIVATE, $field(StringReader, mark$)},
-	{}
-};
-
-$MethodInfo _StringReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringReader, init$, void, $String*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StringReader, close, void)},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(StringReader, ensureOpen, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(StringReader, mark, void, int32_t), "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(StringReader, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(StringReader, read, int32_t), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(StringReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(StringReader, ready, bool), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(StringReader, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(StringReader, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _StringReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.StringReader",
-	"java.io.Reader",
-	nullptr,
-	_StringReader_FieldInfo_,
-	_StringReader_MethodInfo_
-};
-
-$Object* allocate$StringReader($Class* clazz) {
-	return $of($alloc(StringReader));
-}
 
 void StringReader::init$($String* s) {
 	$Reader::init$();
@@ -101,7 +65,7 @@ int64_t StringReader::skip(int64_t n) {
 			return 0;
 		}
 		int64_t r = $Math::min((int64_t)(this->length - this->next), n);
-		r = $Math::max((int64_t)(-this->next), r);
+		r = $Math::max((int64_t)-this->next, r);
 		this->next += r;
 		return r;
 	}
@@ -145,7 +109,37 @@ StringReader::StringReader() {
 }
 
 $Class* StringReader::load$($String* name, bool initialize) {
-	$loadClass(StringReader, name, initialize, &_StringReader_ClassInfo_, allocate$StringReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"str", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringReader, str)},
+		{"length", "I", nullptr, $PRIVATE, $field(StringReader, length)},
+		{"next", "I", nullptr, $PRIVATE, $field(StringReader, next)},
+		{"mark", "I", nullptr, $PRIVATE, $field(StringReader, mark$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringReader, init$, void, $String*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StringReader, close, void)},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(StringReader, ensureOpen, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(StringReader, mark, void, int32_t), "java.io.IOException"},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(StringReader, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(StringReader, read, int32_t), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(StringReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(StringReader, ready, bool), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(StringReader, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(StringReader, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.StringReader",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringReader));
+	});
 	return class$;
 }
 

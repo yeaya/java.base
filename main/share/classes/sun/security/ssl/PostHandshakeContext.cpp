@@ -1,5 +1,4 @@
 #include <sun/security/ssl/PostHandshakeContext.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/BufferOverflowException.h>
 #include <java/nio/BufferUnderflowException.h>
@@ -11,7 +10,6 @@
 #include <java/util/List.h>
 #include <javax/net/ssl/SSLException.h>
 #include <sun/security/ssl/Alert.h>
-#include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/SSLConfiguration.h>
@@ -34,60 +32,34 @@ using $BufferOverflowException = ::java::nio::BufferOverflowException;
 using $BufferUnderflowException = ::java::nio::BufferUnderflowException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ArrayList = ::java::util::ArrayList;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
-using $List = ::java::util::List;
 using $Alert = ::sun::security::ssl::Alert;
-using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _PostHandshakeContext_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/TransportContext;)V", nullptr, 0, $method(PostHandshakeContext, init$, void, $TransportContext*), "java.io.IOException"},
-	{"dispatch", "(BLjava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(PostHandshakeContext, dispatch, void, int8_t, $ByteBuffer*), "java.io.IOException"},
-	{"isConsumable", "(Lsun/security/ssl/TransportContext;B)Z", nullptr, $STATIC, $staticMethod(PostHandshakeContext, isConsumable, bool, $TransportContext*, int8_t)},
-	{"kickstart", "()V", nullptr, 0, $virtualMethod(PostHandshakeContext, kickstart, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _PostHandshakeContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PostHandshakeContext",
-	"sun.security.ssl.HandshakeContext",
-	nullptr,
-	nullptr,
-	_PostHandshakeContext_MethodInfo_
-};
-
-$Object* allocate$PostHandshakeContext($Class* clazz) {
-	return $of($alloc(PostHandshakeContext));
-}
-
 void PostHandshakeContext::init$($TransportContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$HandshakeContext::init$(context);
 	if (!$nc(this->negotiatedProtocol)->useTLS13PlusSpec()) {
 		$init($Alert);
-		$throw($($nc(this->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, $$str({"Post-handshake not supported in "_s, $nc(this->negotiatedProtocol)->name$}))));
+		$throw($($nc(this->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, $$str({"Post-handshake not supported in "_s, this->negotiatedProtocol->name$}))));
 	}
 	$set(this, localSupportedSignAlgs, $new($ArrayList, $($nc($nc(context)->conSession)->getLocalSupportedSignatureSchemes())));
-	if ($nc($nc(context)->sslConfig)->isClientMode) {
+	if ($nc(context->sslConfig)->isClientMode) {
 		$init($SSLHandshake);
 		$nc(this->handshakeConsumers)->putIfAbsent($($Byte::valueOf($SSLHandshake::KEY_UPDATE->id)), $SSLHandshake::KEY_UPDATE);
-		$nc(this->handshakeConsumers)->putIfAbsent($($Byte::valueOf($SSLHandshake::NEW_SESSION_TICKET->id)), $SSLHandshake::NEW_SESSION_TICKET);
+		this->handshakeConsumers->putIfAbsent($($Byte::valueOf($SSLHandshake::NEW_SESSION_TICKET->id)), $SSLHandshake::NEW_SESSION_TICKET);
 	} else {
 		$init($SSLHandshake);
 		$nc(this->handshakeConsumers)->putIfAbsent($($Byte::valueOf($SSLHandshake::KEY_UPDATE->id)), $SSLHandshake::KEY_UPDATE);
 	}
 	this->handshakeFinished = true;
-	$set(this, handshakeSession, $nc(context)->conSession);
+	$set(this, handshakeSession, context->conSession);
 }
 
 void PostHandshakeContext::kickstart() {
@@ -95,7 +67,7 @@ void PostHandshakeContext::kickstart() {
 }
 
 void PostHandshakeContext::dispatch(int8_t handshakeType, $ByteBuffer* fragment) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLConsumer, consumer, $cast($SSLConsumer, $nc(this->handshakeConsumers)->get($($Byte::valueOf(handshakeType)))));
 	if (consumer == nullptr) {
 		$init($Alert);
@@ -131,7 +103,24 @@ PostHandshakeContext::PostHandshakeContext() {
 }
 
 $Class* PostHandshakeContext::load$($String* name, bool initialize) {
-	$loadClass(PostHandshakeContext, name, initialize, &_PostHandshakeContext_ClassInfo_, allocate$PostHandshakeContext);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/TransportContext;)V", nullptr, 0, $method(PostHandshakeContext, init$, void, $TransportContext*), "java.io.IOException"},
+		{"dispatch", "(BLjava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(PostHandshakeContext, dispatch, void, int8_t, $ByteBuffer*), "java.io.IOException"},
+		{"isConsumable", "(Lsun/security/ssl/TransportContext;B)Z", nullptr, $STATIC, $staticMethod(PostHandshakeContext, isConsumable, bool, $TransportContext*, int8_t)},
+		{"kickstart", "()V", nullptr, 0, $virtualMethod(PostHandshakeContext, kickstart, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PostHandshakeContext",
+		"sun.security.ssl.HandshakeContext",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PostHandshakeContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PostHandshakeContext);
+	});
 	return class$;
 }
 

@@ -43,6 +43,7 @@ class $export DateTimeFormatterBuilder$ZoneTextPrinterParser : public ::java::ti
 	$class(DateTimeFormatterBuilder$ZoneTextPrinterParser, 0, ::java::time::format::DateTimeFormatterBuilder$ZoneIdPrinterParser)
 public:
 	DateTimeFormatterBuilder$ZoneTextPrinterParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::format::TextStyle* textStyle, ::java::util::Set* preferredZones, bool isGeneric);
 	virtual bool format(::java::time::format::DateTimePrintContext* context, ::java::lang::StringBuilder* buf) override;
 	$String* getDisplayName($String* id, int32_t type, ::java::util::Locale* locale);

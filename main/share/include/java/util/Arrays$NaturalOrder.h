@@ -15,6 +15,7 @@ class $import Arrays$NaturalOrder : public ::java::util::Comparator {
 	$class(Arrays$NaturalOrder, 0, ::java::util::Comparator)
 public:
 	Arrays$NaturalOrder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t compare(Object$* first, Object$* second) override;
 	static ::java::util::Arrays$NaturalOrder* INSTANCE;

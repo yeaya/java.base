@@ -1,5 +1,4 @@
 #include <java/util/ArrayList$Itr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/ArrayList.h>
@@ -24,49 +23,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 
-$FieldInfo _ArrayList$Itr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/ArrayList;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayList$Itr, this$0)},
-	{"cursor", "I", nullptr, 0, $field(ArrayList$Itr, cursor)},
-	{"lastRet", "I", nullptr, 0, $field(ArrayList$Itr, lastRet)},
-	{"expectedModCount", "I", nullptr, 0, $field(ArrayList$Itr, expectedModCount)},
-	{}
-};
-
-$MethodInfo _ArrayList$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayList;)V", nullptr, 0, $method(ArrayList$Itr, init$, void, $ArrayList*)},
-	{"checkForComodification", "()V", nullptr, $FINAL, $method(ArrayList$Itr, checkForComodification, void)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList$Itr, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$Itr, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayList$Itr, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayList$Itr, remove, void)},
-	{}
-};
-
-$InnerClassInfo _ArrayList$Itr_InnerClassesInfo_[] = {
-	{"java.util.ArrayList$Itr", "java.util.ArrayList", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ArrayList$Itr_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ArrayList$Itr",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ArrayList$Itr_FieldInfo_,
-	_ArrayList$Itr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_ArrayList$Itr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ArrayList"
-};
-
-$Object* allocate$ArrayList$Itr($Class* clazz) {
-	return $of($alloc(ArrayList$Itr));
-}
-
 void ArrayList$Itr::init$($ArrayList* this$0) {
 	$set(this, this$0, this$0);
 	this->lastRet = -1;
@@ -88,7 +44,7 @@ $Object* ArrayList$Itr::next() {
 		$throwNew($ConcurrentModificationException);
 	}
 	this->cursor = i + 1;
-	return $of($nc(elementData)->get(this->lastRet = i));
+	return elementData->get(this->lastRet = i);
 }
 
 void ArrayList$Itr::remove() {
@@ -107,7 +63,7 @@ void ArrayList$Itr::remove() {
 }
 
 void ArrayList$Itr::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	int32_t size = this->this$0->size$;
 	int32_t i = this->cursor;
@@ -135,7 +91,44 @@ ArrayList$Itr::ArrayList$Itr() {
 }
 
 $Class* ArrayList$Itr::load$($String* name, bool initialize) {
-	$loadClass(ArrayList$Itr, name, initialize, &_ArrayList$Itr_ClassInfo_, allocate$ArrayList$Itr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/ArrayList;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayList$Itr, this$0)},
+		{"cursor", "I", nullptr, 0, $field(ArrayList$Itr, cursor)},
+		{"lastRet", "I", nullptr, 0, $field(ArrayList$Itr, lastRet)},
+		{"expectedModCount", "I", nullptr, 0, $field(ArrayList$Itr, expectedModCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ArrayList;)V", nullptr, 0, $method(ArrayList$Itr, init$, void, $ArrayList*)},
+		{"checkForComodification", "()V", nullptr, $FINAL, $method(ArrayList$Itr, checkForComodification, void)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList$Itr, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$Itr, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayList$Itr, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayList$Itr, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ArrayList$Itr", "java.util.ArrayList", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ArrayList$Itr",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ArrayList"
+	};
+	$loadClass(ArrayList$Itr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayList$Itr);
+	});
 	return class$;
 }
 

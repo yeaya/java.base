@@ -16,12 +16,15 @@ public:
 	void init$($Class* annotationType, $String* elementName);
 	virtual $Class* annotationType();
 	virtual $String* elementName();
-	static const int64_t serialVersionUID = (int64_t)0x75330357FFFFEAC8;
+	static const int64_t serialVersionUID = (int64_t)0x75330357ffffeac8;
 	$Class* annotationType$ = nullptr;
 	$String* elementName$ = nullptr;
 	IncompleteAnnotationException(const IncompleteAnnotationException& e);
 	virtual void throw$() override;
-	inline IncompleteAnnotationException* operator ->() {
+	inline IncompleteAnnotationException* operator ->() const {
+		return (IncompleteAnnotationException*)throwing$;
+	}
+	inline operator IncompleteAnnotationException*() const {
 		return (IncompleteAnnotationException*)throwing$;
 	}
 };

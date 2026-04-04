@@ -1,5 +1,4 @@
 #include <java/io/FileDescriptor$1.h>
-
 #include <java/io/FileCleanable.h>
 #include <java/io/FileDescriptor.h>
 #include <jdk/internal/ref/PhantomCleanable.h>
@@ -15,52 +14,6 @@ using $PhantomCleanable = ::jdk::internal::ref::PhantomCleanable;
 
 namespace java {
 	namespace io {
-
-$MethodInfo _FileDescriptor$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FileDescriptor$1, init$, void)},
-	{"close", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, close, void, $FileDescriptor*), "java.io.IOException"},
-	{"get", "(Ljava/io/FileDescriptor;)I", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, get, int32_t, $FileDescriptor*)},
-	{"getAppend", "(Ljava/io/FileDescriptor;)Z", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, getAppend, bool, $FileDescriptor*)},
-	{"getHandle", "(Ljava/io/FileDescriptor;)J", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, getHandle, int64_t, $FileDescriptor*)},
-	{"registerCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, registerCleanup, void, $FileDescriptor*)},
-	{"registerCleanup", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable;)V", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;)V", $PUBLIC, $virtualMethod(FileDescriptor$1, registerCleanup, void, $FileDescriptor*, $PhantomCleanable*)},
-	{"set", "(Ljava/io/FileDescriptor;I)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, set, void, $FileDescriptor*, int32_t)},
-	{"setAppend", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, setAppend, void, $FileDescriptor*, bool)},
-	{"setHandle", "(Ljava/io/FileDescriptor;J)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, setHandle, void, $FileDescriptor*, int64_t)},
-	{"unregisterCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, unregisterCleanup, void, $FileDescriptor*)},
-	{}
-};
-
-$EnclosingMethodInfo _FileDescriptor$1_EnclosingMethodInfo_ = {
-	"java.io.FileDescriptor",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _FileDescriptor$1_InnerClassesInfo_[] = {
-	{"java.io.FileDescriptor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileDescriptor$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.FileDescriptor$1",
-	"java.lang.Object",
-	"jdk.internal.access.JavaIOFileDescriptorAccess",
-	nullptr,
-	_FileDescriptor$1_MethodInfo_,
-	nullptr,
-	&_FileDescriptor$1_EnclosingMethodInfo_,
-	_FileDescriptor$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.FileDescriptor"
-};
-
-$Object* allocate$FileDescriptor$1($Class* clazz) {
-	return $of($alloc(FileDescriptor$1));
-}
 
 void FileDescriptor$1::init$() {
 }
@@ -109,7 +62,47 @@ FileDescriptor$1::FileDescriptor$1() {
 }
 
 $Class* FileDescriptor$1::load$($String* name, bool initialize) {
-	$loadClass(FileDescriptor$1, name, initialize, &_FileDescriptor$1_ClassInfo_, allocate$FileDescriptor$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FileDescriptor$1, init$, void)},
+		{"close", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, close, void, $FileDescriptor*), "java.io.IOException"},
+		{"get", "(Ljava/io/FileDescriptor;)I", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, get, int32_t, $FileDescriptor*)},
+		{"getAppend", "(Ljava/io/FileDescriptor;)Z", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, getAppend, bool, $FileDescriptor*)},
+		{"getHandle", "(Ljava/io/FileDescriptor;)J", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, getHandle, int64_t, $FileDescriptor*)},
+		{"registerCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, registerCleanup, void, $FileDescriptor*)},
+		{"registerCleanup", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable;)V", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;)V", $PUBLIC, $virtualMethod(FileDescriptor$1, registerCleanup, void, $FileDescriptor*, $PhantomCleanable*)},
+		{"set", "(Ljava/io/FileDescriptor;I)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, set, void, $FileDescriptor*, int32_t)},
+		{"setAppend", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, setAppend, void, $FileDescriptor*, bool)},
+		{"setHandle", "(Ljava/io/FileDescriptor;J)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, setHandle, void, $FileDescriptor*, int64_t)},
+		{"unregisterCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, unregisterCleanup, void, $FileDescriptor*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.io.FileDescriptor",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.FileDescriptor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.FileDescriptor$1",
+		"java.lang.Object",
+		"jdk.internal.access.JavaIOFileDescriptorAccess",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.FileDescriptor"
+	};
+	$loadClass(FileDescriptor$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileDescriptor$1);
+	});
 	return class$;
 }
 

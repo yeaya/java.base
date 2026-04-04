@@ -9,6 +9,7 @@ class $export TestUndefinedIgnorable : public ::java::lang::Object {
 	$class(TestUndefinedIgnorable, 0, ::java::lang::Object)
 public:
 	TestUndefinedIgnorable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static int32_t endValue;

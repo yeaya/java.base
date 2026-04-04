@@ -1,5 +1,4 @@
 #include <GetDefinedPackage$TestClassLoader.h>
-
 #include <GetDefinedPackage.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Package.h>
@@ -16,42 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Package = ::java::lang::Package;
 using $URL = ::java::net::URL;
 
-$FieldInfo _GetDefinedPackage$TestClassLoader_FieldInfo_[] = {
-	{"PKG_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GetDefinedPackage$TestClassLoader, PKG_NAME)},
-	{}
-};
-
-$MethodInfo _GetDefinedPackage$TestClassLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetDefinedPackage$TestClassLoader, init$, void)},
-	{"definePackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC, $virtualMethod(GetDefinedPackage$TestClassLoader, definePackage, $Package*, $String*)},
-	{}
-};
-
-$InnerClassInfo _GetDefinedPackage$TestClassLoader_InnerClassesInfo_[] = {
-	{"GetDefinedPackage$TestClassLoader", "GetDefinedPackage", "TestClassLoader", $STATIC},
-	{}
-};
-
-$ClassInfo _GetDefinedPackage$TestClassLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"GetDefinedPackage$TestClassLoader",
-	"java.lang.ClassLoader",
-	nullptr,
-	_GetDefinedPackage$TestClassLoader_FieldInfo_,
-	_GetDefinedPackage$TestClassLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetDefinedPackage$TestClassLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetDefinedPackage"
-};
-
-$Object* allocate$GetDefinedPackage$TestClassLoader($Class* clazz) {
-	return $of($alloc(GetDefinedPackage$TestClassLoader));
-}
-
 $String* GetDefinedPackage$TestClassLoader::PKG_NAME = nullptr;
 
 void GetDefinedPackage$TestClassLoader::init$() {
@@ -66,12 +29,42 @@ $Package* GetDefinedPackage$TestClassLoader::definePackage($String* name) {
 GetDefinedPackage$TestClassLoader::GetDefinedPackage$TestClassLoader() {
 }
 
-void clinit$GetDefinedPackage$TestClassLoader($Class* class$) {
+void GetDefinedPackage$TestClassLoader::clinit$($Class* clazz) {
 	$assignStatic(GetDefinedPackage$TestClassLoader::PKG_NAME, "foo"_s);
 }
 
 $Class* GetDefinedPackage$TestClassLoader::load$($String* name, bool initialize) {
-	$loadClass(GetDefinedPackage$TestClassLoader, name, initialize, &_GetDefinedPackage$TestClassLoader_ClassInfo_, clinit$GetDefinedPackage$TestClassLoader, allocate$GetDefinedPackage$TestClassLoader);
+	$FieldInfo fieldInfos$$[] = {
+		{"PKG_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GetDefinedPackage$TestClassLoader, PKG_NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetDefinedPackage$TestClassLoader, init$, void)},
+		{"definePackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC, $virtualMethod(GetDefinedPackage$TestClassLoader, definePackage, $Package*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetDefinedPackage$TestClassLoader", "GetDefinedPackage", "TestClassLoader", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GetDefinedPackage$TestClassLoader",
+		"java.lang.ClassLoader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetDefinedPackage"
+	};
+	$loadClass(GetDefinedPackage$TestClassLoader, name, initialize, &classInfo$$, GetDefinedPackage$TestClassLoader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GetDefinedPackage$TestClassLoader);
+	});
 	return class$;
 }
 

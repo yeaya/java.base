@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SunX509KeyManagerImpl.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/net/Socket.h>
 #include <java/security/Key.h>
@@ -44,7 +43,6 @@ using $Key = ::java::security::Key;
 using $KeyStore = ::java::security::KeyStore;
 using $Principal = ::java::security::Principal;
 using $PrivateKey = ::java::security::PrivateKey;
-using $PublicKey = ::java::security::PublicKey;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
@@ -53,7 +51,6 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
@@ -66,56 +63,10 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SunX509KeyManagerImpl_FieldInfo_[] = {
-	{"STRING0", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunX509KeyManagerImpl, STRING0)},
-	{"credentialsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/ssl/SunX509KeyManagerImpl$X509Credentials;>;", $PRIVATE | $FINAL, $field(SunX509KeyManagerImpl, credentialsMap)},
-	{"serverAliasCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(SunX509KeyManagerImpl, serverAliasCache)},
-	{}
-};
-
-$MethodInfo _SunX509KeyManagerImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore;[C)V", nullptr, 0, $method(SunX509KeyManagerImpl, init$, void, $KeyStore*, $chars*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"chooseClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseClientAlias, $String*, $StringArray*, $PrincipalArray*, $Socket*)},
-	{"chooseEngineClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljavax/net/ssl/SSLEngine;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseEngineClientAlias, $String*, $StringArray*, $PrincipalArray*, $SSLEngine*)},
-	{"chooseEngineServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljavax/net/ssl/SSLEngine;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseEngineServerAlias, $String*, $String*, $PrincipalArray*, $SSLEngine*)},
-	{"chooseServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseServerAlias, $String*, $String*, $PrincipalArray*, $Socket*)},
-	{"convertPrincipals", "([Ljava/security/Principal;)[Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunX509KeyManagerImpl, convertPrincipals, $X500PrincipalArray*, $PrincipalArray*)},
-	{"getAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(SunX509KeyManagerImpl, getAliases, $StringArray*, $String*, $PrincipalArray*)},
-	{"getCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getCertificateChain, $X509CertificateArray*, $String*)},
-	{"getClientAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getClientAliases, $StringArray*, $String*, $PrincipalArray*)},
-	{"getPrivateKey", "(Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getPrivateKey, $PrivateKey*, $String*)},
-	{"getServerAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getServerAliases, $StringArray*, $String*, $PrincipalArray*)},
-	{}
-};
-
-$InnerClassInfo _SunX509KeyManagerImpl_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SunX509KeyManagerImpl$X509Credentials", "sun.security.ssl.SunX509KeyManagerImpl", "X509Credentials", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SunX509KeyManagerImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SunX509KeyManagerImpl",
-	"javax.net.ssl.X509ExtendedKeyManager",
-	nullptr,
-	_SunX509KeyManagerImpl_FieldInfo_,
-	_SunX509KeyManagerImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunX509KeyManagerImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SunX509KeyManagerImpl$X509Credentials"
-};
-
-$Object* allocate$SunX509KeyManagerImpl($Class* clazz) {
-	return $of($alloc(SunX509KeyManagerImpl));
-}
-
 $StringArray* SunX509KeyManagerImpl::STRING0 = nullptr;
 
 void SunX509KeyManagerImpl::init$($KeyStore* ks, $chars* password) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$X509ExtendedKeyManager::init$();
 	$set(this, credentialsMap, $new($HashMap));
 	$set(this, serverAliasCache, $Collections::synchronizedMap($$new($HashMap)));
@@ -134,19 +85,19 @@ void SunX509KeyManagerImpl::init$($KeyStore* ks, $chars* password) {
 				continue;
 			}
 			$var($CertificateArray, certs, ks->getCertificateChain(alias));
-			if ((certs == nullptr) || ($nc(certs)->length == 0) || !($instanceOf($X509Certificate, $nc(certs)->get(0)))) {
+			if ((certs == nullptr) || (certs->length == 0) || !($instanceOf($X509Certificate, certs->get(0)))) {
 				continue;
 			}
 			if (!($instanceOf($X509CertificateArray, certs))) {
-				$var($CertificateArray, tmp, $fcast($CertificateArray, $new($X509CertificateArray, $nc(certs)->length)));
+				$var($CertificateArray, tmp, $cast($CertificateArray, $new($X509CertificateArray, $nc(certs)->length)));
 				$System::arraycopy(certs, 0, tmp, 0, certs->length);
 				$assign(certs, tmp);
 			}
-			$var($SunX509KeyManagerImpl$X509Credentials, cred, $new($SunX509KeyManagerImpl$X509Credentials, $cast($PrivateKey, key), $fcast($X509CertificateArray, certs)));
-			$nc(this->credentialsMap)->put(alias, cred);
+			$var($SunX509KeyManagerImpl$X509Credentials, cred, $new($SunX509KeyManagerImpl$X509Credentials, $cast($PrivateKey, key), $cast($X509CertificateArray, certs)));
+			this->credentialsMap->put(alias, cred);
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("keymanager"_s)) {
-				$SSLLogger::fine($$str({"found key for : "_s, alias}), certs);
+				$SSLLogger::fine($$str({"found key for : "_s, alias}), $cast($ObjectArray, certs));
 			}
 		}
 	}
@@ -156,11 +107,11 @@ $X509CertificateArray* SunX509KeyManagerImpl::getCertificateChain($String* alias
 	if (alias == nullptr) {
 		return nullptr;
 	}
-	$var($SunX509KeyManagerImpl$X509Credentials, cred, $cast($SunX509KeyManagerImpl$X509Credentials, $nc(this->credentialsMap)->get(alias)));
+	$var($SunX509KeyManagerImpl$X509Credentials, cred, $cast($SunX509KeyManagerImpl$X509Credentials, this->credentialsMap->get(alias)));
 	if (cred == nullptr) {
 		return nullptr;
 	} else {
-		return $cast($X509CertificateArray, $nc($nc(cred)->certificates)->clone());
+		return $cast($X509CertificateArray, $nc(cred->certificates)->clone());
 	}
 }
 
@@ -168,16 +119,16 @@ $PrivateKey* SunX509KeyManagerImpl::getPrivateKey($String* alias) {
 	if (alias == nullptr) {
 		return nullptr;
 	}
-	$var($SunX509KeyManagerImpl$X509Credentials, cred, $cast($SunX509KeyManagerImpl$X509Credentials, $nc(this->credentialsMap)->get(alias)));
+	$var($SunX509KeyManagerImpl$X509Credentials, cred, $cast($SunX509KeyManagerImpl$X509Credentials, this->credentialsMap->get(alias)));
 	if (cred == nullptr) {
 		return nullptr;
 	} else {
-		return $nc(cred)->privateKey;
+		return cred->privateKey;
 	}
 }
 
 $String* SunX509KeyManagerImpl::chooseClientAlias($StringArray* keyTypes, $PrincipalArray* issuers, $Socket* socket) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (keyTypes == nullptr) {
 		return nullptr;
 	}
@@ -199,14 +150,14 @@ $String* SunX509KeyManagerImpl::chooseServerAlias($String* keyType, $PrincipalAr
 		return nullptr;
 	}
 	$var($StringArray, aliases, nullptr);
-	if (issuers == nullptr || $nc(issuers)->length == 0) {
+	if (issuers == nullptr || issuers->length == 0) {
 		$assign(aliases, $cast($StringArray, $nc(this->serverAliasCache)->get(keyType)));
 		if (aliases == nullptr) {
 			$assign(aliases, getServerAliases(keyType, issuers));
 			if (aliases == nullptr) {
 				$assign(aliases, SunX509KeyManagerImpl::STRING0);
 			}
-			$nc(this->serverAliasCache)->put(keyType, aliases);
+			this->serverAliasCache->put(keyType, aliases);
 		}
 	} else {
 		$assign(aliases, getServerAliases(keyType, issuers));
@@ -230,47 +181,47 @@ $StringArray* SunX509KeyManagerImpl::getServerAliases($String* keyType, $Princip
 }
 
 $StringArray* SunX509KeyManagerImpl::getAliases($String* keyType$renamed, $PrincipalArray* issuers$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, keyType, keyType$renamed);
 	$var($PrincipalArray, issuers, issuers$renamed);
 	if (keyType == nullptr) {
 		return nullptr;
 	}
 	if (issuers == nullptr) {
-		$assign(issuers, $fcast($PrincipalArray, $new($X500PrincipalArray, 0)));
+		$assign(issuers, $cast($PrincipalArray, $new($X500PrincipalArray, 0)));
 	}
 	if (!($instanceOf($X500PrincipalArray, issuers))) {
-		$assign(issuers, $fcast($PrincipalArray, convertPrincipals(issuers)));
+		$assign(issuers, $cast($PrincipalArray, convertPrincipals(issuers)));
 	}
 	$var($String, sigType, nullptr);
 	if ($nc(keyType)->contains("_"_s)) {
-		int32_t k = keyType->indexOf((int32_t)u'_');
+		int32_t k = keyType->indexOf(u'_');
 		$assign(sigType, keyType->substring(k + 1));
 		$assign(keyType, keyType->substring(0, k));
 	} else {
 		$assign(sigType, nullptr);
 	}
-	$var($X500PrincipalArray, x500Issuers, $fcast($X500PrincipalArray, issuers));
+	$var($X500PrincipalArray, x500Issuers, $cast($X500PrincipalArray, issuers));
 	$var($List, aliases, $new($ArrayList));
 	{
-		$var($Iterator, i$, $nc($($nc(this->credentialsMap)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(this->credentialsMap->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				$var($String, alias, $cast($String, $nc(entry)->getKey()));
 				$var($SunX509KeyManagerImpl$X509Credentials, credentials, $cast($SunX509KeyManagerImpl$X509Credentials, entry->getValue()));
 				$var($X509CertificateArray, certs, $nc(credentials)->certificates);
-				if (!$nc(keyType)->equals($($nc($($nc($nc(certs)->get(0))->getPublicKey()))->getAlgorithm()))) {
+				if (!keyType->equals($($$nc($nc($nc(certs)->get(0))->getPublicKey())->getAlgorithm()))) {
 					continue;
 				}
 				if (sigType != nullptr) {
-					if ($nc(certs)->length > 1) {
-						if (!sigType->equals($($nc($($nc(certs->get(1))->getPublicKey()))->getAlgorithm()))) {
+					if (certs->length > 1) {
+						if (!sigType->equals($($$nc($nc(certs->get(1))->getPublicKey())->getAlgorithm()))) {
 							continue;
 						}
 					} else {
 						$init($Locale);
-						$var($String, sigAlgName, $nc($($nc(certs->get(0))->getSigAlgName()))->toUpperCase($Locale::ENGLISH));
+						$var($String, sigAlgName, $$nc($nc(certs->get(0))->getSigAlgName())->toUpperCase($Locale::ENGLISH));
 						$var($String, pattern, $str({"WITH"_s, $(sigType->toUpperCase($Locale::ENGLISH))}));
 						if (!sigAlgName->contains(pattern)) {
 							continue;
@@ -299,15 +250,15 @@ $StringArray* SunX509KeyManagerImpl::getAliases($String* keyType$renamed, $Princ
 			}
 		}
 	}
-	$var($StringArray, aliasStrings, $fcast($StringArray, aliases->toArray(SunX509KeyManagerImpl::STRING0)));
+	$var($StringArray, aliasStrings, $cast($StringArray, aliases->toArray(SunX509KeyManagerImpl::STRING0)));
 	return (($nc(aliasStrings)->length == 0) ? ($StringArray*)nullptr : aliasStrings);
 }
 
 $X500PrincipalArray* SunX509KeyManagerImpl::convertPrincipals($PrincipalArray* principals) {
 	$init(SunX509KeyManagerImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $new($ArrayList, $nc(principals)->length));
-	for (int32_t i = 0; i < $nc(principals)->length; ++i) {
+	for (int32_t i = 0; i < principals->length; ++i) {
 		$var($Principal, p, principals->get(i));
 		if ($instanceOf($X500Principal, p)) {
 			list->add($cast($X500Principal, p));
@@ -318,10 +269,10 @@ $X500PrincipalArray* SunX509KeyManagerImpl::convertPrincipals($PrincipalArray* p
 			}
 		}
 	}
-	return $fcast($X500PrincipalArray, list->toArray($$new($X500PrincipalArray, 0)));
+	return $cast($X500PrincipalArray, list->toArray($$new($X500PrincipalArray, 0)));
 }
 
-void clinit$SunX509KeyManagerImpl($Class* class$) {
+void SunX509KeyManagerImpl::clinit$($Class* clazz) {
 	$assignStatic(SunX509KeyManagerImpl::STRING0, $new($StringArray, 0));
 }
 
@@ -329,7 +280,47 @@ SunX509KeyManagerImpl::SunX509KeyManagerImpl() {
 }
 
 $Class* SunX509KeyManagerImpl::load$($String* name, bool initialize) {
-	$loadClass(SunX509KeyManagerImpl, name, initialize, &_SunX509KeyManagerImpl_ClassInfo_, clinit$SunX509KeyManagerImpl, allocate$SunX509KeyManagerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"STRING0", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunX509KeyManagerImpl, STRING0)},
+		{"credentialsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/ssl/SunX509KeyManagerImpl$X509Credentials;>;", $PRIVATE | $FINAL, $field(SunX509KeyManagerImpl, credentialsMap)},
+		{"serverAliasCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(SunX509KeyManagerImpl, serverAliasCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/KeyStore;[C)V", nullptr, 0, $method(SunX509KeyManagerImpl, init$, void, $KeyStore*, $chars*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+		{"chooseClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseClientAlias, $String*, $StringArray*, $PrincipalArray*, $Socket*)},
+		{"chooseEngineClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljavax/net/ssl/SSLEngine;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseEngineClientAlias, $String*, $StringArray*, $PrincipalArray*, $SSLEngine*)},
+		{"chooseEngineServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljavax/net/ssl/SSLEngine;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseEngineServerAlias, $String*, $String*, $PrincipalArray*, $SSLEngine*)},
+		{"chooseServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseServerAlias, $String*, $String*, $PrincipalArray*, $Socket*)},
+		{"convertPrincipals", "([Ljava/security/Principal;)[Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunX509KeyManagerImpl, convertPrincipals, $X500PrincipalArray*, $PrincipalArray*)},
+		{"getAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(SunX509KeyManagerImpl, getAliases, $StringArray*, $String*, $PrincipalArray*)},
+		{"getCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getCertificateChain, $X509CertificateArray*, $String*)},
+		{"getClientAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getClientAliases, $StringArray*, $String*, $PrincipalArray*)},
+		{"getPrivateKey", "(Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getPrivateKey, $PrivateKey*, $String*)},
+		{"getServerAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getServerAliases, $StringArray*, $String*, $PrincipalArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SunX509KeyManagerImpl$X509Credentials", "sun.security.ssl.SunX509KeyManagerImpl", "X509Credentials", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SunX509KeyManagerImpl",
+		"javax.net.ssl.X509ExtendedKeyManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SunX509KeyManagerImpl$X509Credentials"
+	};
+	$loadClass(SunX509KeyManagerImpl, name, initialize, &classInfo$$, SunX509KeyManagerImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SunX509KeyManagerImpl);
+	});
 	return class$;
 }
 

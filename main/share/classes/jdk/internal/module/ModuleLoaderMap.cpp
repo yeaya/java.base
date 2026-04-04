@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleLoaderMap.h>
-
 #include <java/lang/module/Configuration.h>
 #include <java/util/Set.h>
 #include <java/util/function/Function.h>
@@ -19,40 +18,6 @@ using $ModuleLoaderMap$Modules = ::jdk::internal::module::ModuleLoaderMap$Module
 namespace jdk {
 	namespace internal {
 		namespace module {
-
-$MethodInfo _ModuleLoaderMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleLoaderMap, init$, void)},
-	{"bootModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ModuleLoaderMap, bootModules, $Set*)},
-	{"isBuiltinMapper", "(Ljava/util/function/Function;)Z", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)Z", $PUBLIC | $STATIC, $staticMethod(ModuleLoaderMap, isBuiltinMapper, bool, $Function*)},
-	{"mappingFunction", "(Ljava/lang/module/Configuration;)Ljava/util/function/Function;", "(Ljava/lang/module/Configuration;)Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;", $STATIC, $staticMethod(ModuleLoaderMap, mappingFunction, $Function*, $Configuration*)},
-	{"platformModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ModuleLoaderMap, platformModules, $Set*)},
-	{}
-};
-
-$InnerClassInfo _ModuleLoaderMap_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModuleLoaderMap$Modules", "jdk.internal.module.ModuleLoaderMap", "Modules", $PRIVATE | $STATIC},
-	{"jdk.internal.module.ModuleLoaderMap$Mapper", "jdk.internal.module.ModuleLoaderMap", "Mapper", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ModuleLoaderMap_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.module.ModuleLoaderMap",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ModuleLoaderMap_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleLoaderMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModuleLoaderMap$Modules,jdk.internal.module.ModuleLoaderMap$Mapper"
-};
-
-$Object* allocate$ModuleLoaderMap($Class* clazz) {
-	return $of($alloc(ModuleLoaderMap));
-}
 
 void ModuleLoaderMap::init$() {
 }
@@ -79,7 +44,36 @@ ModuleLoaderMap::ModuleLoaderMap() {
 }
 
 $Class* ModuleLoaderMap::load$($String* name, bool initialize) {
-	$loadClass(ModuleLoaderMap, name, initialize, &_ModuleLoaderMap_ClassInfo_, allocate$ModuleLoaderMap);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleLoaderMap, init$, void)},
+		{"bootModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ModuleLoaderMap, bootModules, $Set*)},
+		{"isBuiltinMapper", "(Ljava/util/function/Function;)Z", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)Z", $PUBLIC | $STATIC, $staticMethod(ModuleLoaderMap, isBuiltinMapper, bool, $Function*)},
+		{"mappingFunction", "(Ljava/lang/module/Configuration;)Ljava/util/function/Function;", "(Ljava/lang/module/Configuration;)Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;", $STATIC, $staticMethod(ModuleLoaderMap, mappingFunction, $Function*, $Configuration*)},
+		{"platformModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ModuleLoaderMap, platformModules, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModuleLoaderMap$Modules", "jdk.internal.module.ModuleLoaderMap", "Modules", $PRIVATE | $STATIC},
+		{"jdk.internal.module.ModuleLoaderMap$Mapper", "jdk.internal.module.ModuleLoaderMap", "Mapper", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.module.ModuleLoaderMap",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModuleLoaderMap$Modules,jdk.internal.module.ModuleLoaderMap$Mapper"
+	};
+	$loadClass(ModuleLoaderMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleLoaderMap);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamSpliterators$UnorderedSliceSpliterator.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/util/Spliterator.h>
@@ -33,66 +32,12 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _StreamSpliterators$UnorderedSliceSpliterator_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamSpliterators$UnorderedSliceSpliterator, $assertionsDisabled)},
-	{"CHUNK_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(StreamSpliterators$UnorderedSliceSpliterator, CHUNK_SIZE)},
-	{"s", "Ljava/util/Spliterator;", "TT_SPLITR;", $PROTECTED | $FINAL, $field(StreamSpliterators$UnorderedSliceSpliterator, s)},
-	{"unlimited", "Z", nullptr, $PROTECTED | $FINAL, $field(StreamSpliterators$UnorderedSliceSpliterator, unlimited)},
-	{"chunkSize", "I", nullptr, $PROTECTED | $FINAL, $field(StreamSpliterators$UnorderedSliceSpliterator, chunkSize)},
-	{"skipThreshold", "J", nullptr, $PRIVATE | $FINAL, $field(StreamSpliterators$UnorderedSliceSpliterator, skipThreshold)},
-	{"permits", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(StreamSpliterators$UnorderedSliceSpliterator, permits)},
-	{}
-};
-
-$MethodInfo _StreamSpliterators$UnorderedSliceSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator;JJ)V", "(TT_SPLITR;JJ)V", 0, $method(StreamSpliterators$UnorderedSliceSpliterator, init$, void, $Spliterator*, int64_t, int64_t)},
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;)V", "(TT_SPLITR;Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>;)V", 0, $method(StreamSpliterators$UnorderedSliceSpliterator, init$, void, $Spliterator*, StreamSpliterators$UnorderedSliceSpliterator*)},
-	{"acquirePermits", "(J)J", nullptr, $PROTECTED | $FINAL, $method(StreamSpliterators$UnorderedSliceSpliterator, acquirePermits, int64_t, int64_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC | $FINAL, $method(StreamSpliterators$UnorderedSliceSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(StreamSpliterators$UnorderedSliceSpliterator, estimateSize, int64_t)},
-	{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", "(TT_SPLITR;)TT_SPLITR;", $PROTECTED | $ABSTRACT, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator, makeSpliterator, $Spliterator*, $Spliterator*)},
-	{"permitStatus", "()Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PROTECTED | $FINAL, $method(StreamSpliterators$UnorderedSliceSpliterator, permitStatus, $StreamSpliterators$UnorderedSliceSpliterator$PermitStatus*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC | $FINAL, $method(StreamSpliterators$UnorderedSliceSpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _StreamSpliterators$UnorderedSliceSpliterator_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "java.util.stream.StreamSpliterators", "UnorderedSliceSpliterator", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfDouble", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfDouble", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfLong", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfLong", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfInt", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfInt", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfPrimitive", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfRef", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfRef", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$PermitStatus", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "PermitStatus", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _StreamSpliterators$UnorderedSliceSpliterator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator",
-	"java.lang.Object",
-	nullptr,
-	_StreamSpliterators$UnorderedSliceSpliterator_FieldInfo_,
-	_StreamSpliterators$UnorderedSliceSpliterator_MethodInfo_,
-	"<T:Ljava/lang/Object;T_SPLITR::Ljava/util/Spliterator<TT;>;>Ljava/lang/Object;",
-	nullptr,
-	_StreamSpliterators$UnorderedSliceSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamSpliterators"
-};
-
-$Object* allocate$StreamSpliterators$UnorderedSliceSpliterator($Class* clazz) {
-	return $of($alloc(StreamSpliterators$UnorderedSliceSpliterator));
-}
-
 bool StreamSpliterators$UnorderedSliceSpliterator::$assertionsDisabled = false;
 
 void StreamSpliterators$UnorderedSliceSpliterator::init$($Spliterator* s, int64_t skip, int64_t limit) {
 	$set(this, s, s);
 	this->unlimited = limit < 0;
-	this->skipThreshold = limit >= 0 ? limit : (int64_t)0;
+	this->skipThreshold = limit >= 0 ? limit : 0;
 	this->chunkSize = limit >= 0 ? (int32_t)$Math::min((int64_t)StreamSpliterators$UnorderedSliceSpliterator::CHUNK_SIZE, ($div((skip + limit), $AbstractTask::getLeafTarget())) + 1) : StreamSpliterators$UnorderedSliceSpliterator::CHUNK_SIZE;
 	$set(this, permits, $new($AtomicLong, limit >= 0 ? skip + limit : skip));
 }
@@ -114,7 +59,7 @@ int64_t StreamSpliterators$UnorderedSliceSpliterator::acquirePermits(int64_t num
 	do {
 		remainingPermits = $nc(this->permits)->get();
 		if (remainingPermits == 0) {
-			return this->unlimited ? numElements : (int64_t)0;
+			return this->unlimited ? numElements : 0;
 		}
 		grabbing = $Math::min(remainingPermits, numElements);
 	} while (grabbing > 0 && !$nc(this->permits)->compareAndSet(remainingPermits, remainingPermits - grabbing));
@@ -150,10 +95,10 @@ int64_t StreamSpliterators$UnorderedSliceSpliterator::estimateSize() {
 }
 
 int32_t StreamSpliterators$UnorderedSliceSpliterator::characteristics() {
-	return (int32_t)($nc(this->s)->characteristics() & (uint32_t)~(($Spliterator::SIZED | $Spliterator::SUBSIZED) | $Spliterator::ORDERED));
+	return $nc(this->s)->characteristics() & ~(($Spliterator::SIZED | $Spliterator::SUBSIZED) | $Spliterator::ORDERED);
 }
 
-void clinit$StreamSpliterators$UnorderedSliceSpliterator($Class* class$) {
+void StreamSpliterators$UnorderedSliceSpliterator::clinit$($Class* clazz) {
 	$load($StreamSpliterators);
 	StreamSpliterators$UnorderedSliceSpliterator::$assertionsDisabled = !$StreamSpliterators::class$->desiredAssertionStatus();
 }
@@ -162,7 +107,55 @@ StreamSpliterators$UnorderedSliceSpliterator::StreamSpliterators$UnorderedSliceS
 }
 
 $Class* StreamSpliterators$UnorderedSliceSpliterator::load$($String* name, bool initialize) {
-	$loadClass(StreamSpliterators$UnorderedSliceSpliterator, name, initialize, &_StreamSpliterators$UnorderedSliceSpliterator_ClassInfo_, clinit$StreamSpliterators$UnorderedSliceSpliterator, allocate$StreamSpliterators$UnorderedSliceSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamSpliterators$UnorderedSliceSpliterator, $assertionsDisabled)},
+		{"CHUNK_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(StreamSpliterators$UnorderedSliceSpliterator, CHUNK_SIZE)},
+		{"s", "Ljava/util/Spliterator;", "TT_SPLITR;", $PROTECTED | $FINAL, $field(StreamSpliterators$UnorderedSliceSpliterator, s)},
+		{"unlimited", "Z", nullptr, $PROTECTED | $FINAL, $field(StreamSpliterators$UnorderedSliceSpliterator, unlimited)},
+		{"chunkSize", "I", nullptr, $PROTECTED | $FINAL, $field(StreamSpliterators$UnorderedSliceSpliterator, chunkSize)},
+		{"skipThreshold", "J", nullptr, $PRIVATE | $FINAL, $field(StreamSpliterators$UnorderedSliceSpliterator, skipThreshold)},
+		{"permits", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(StreamSpliterators$UnorderedSliceSpliterator, permits)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Spliterator;JJ)V", "(TT_SPLITR;JJ)V", 0, $method(StreamSpliterators$UnorderedSliceSpliterator, init$, void, $Spliterator*, int64_t, int64_t)},
+		{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;)V", "(TT_SPLITR;Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>;)V", 0, $method(StreamSpliterators$UnorderedSliceSpliterator, init$, void, $Spliterator*, StreamSpliterators$UnorderedSliceSpliterator*)},
+		{"acquirePermits", "(J)J", nullptr, $PROTECTED | $FINAL, $method(StreamSpliterators$UnorderedSliceSpliterator, acquirePermits, int64_t, int64_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC | $FINAL, $method(StreamSpliterators$UnorderedSliceSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(StreamSpliterators$UnorderedSliceSpliterator, estimateSize, int64_t)},
+		{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", "(TT_SPLITR;)TT_SPLITR;", $PROTECTED | $ABSTRACT, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator, makeSpliterator, $Spliterator*, $Spliterator*)},
+		{"permitStatus", "()Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PROTECTED | $FINAL, $method(StreamSpliterators$UnorderedSliceSpliterator, permitStatus, $StreamSpliterators$UnorderedSliceSpliterator$PermitStatus*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC | $FINAL, $method(StreamSpliterators$UnorderedSliceSpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "java.util.stream.StreamSpliterators", "UnorderedSliceSpliterator", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfDouble", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfDouble", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfLong", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfLong", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfInt", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfInt", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfPrimitive", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfRef", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfRef", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$PermitStatus", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "PermitStatus", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;T_SPLITR::Ljava/util/Spliterator<TT;>;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamSpliterators"
+	};
+	$loadClass(StreamSpliterators$UnorderedSliceSpliterator, name, initialize, &classInfo$$, StreamSpliterators$UnorderedSliceSpliterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamSpliterators$UnorderedSliceSpliterator);
+	});
 	return class$;
 }
 

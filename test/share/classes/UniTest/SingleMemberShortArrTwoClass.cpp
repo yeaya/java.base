@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberShortArrTwoClass.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,44 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute SingleMemberShortArrTwoClass_Attribute_var$1[] = {
-	{'S', "2"},
-	{'S', "3"},
-	{'-'}
-};
-
-$NamedAttribute SingleMemberShortArrTwoClass_Attribute_var$0[] = {
-	{"value", '[', SingleMemberShortArrTwoClass_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _SingleMemberShortArrTwoClass_Annotations_[] = {
-	{"LUniTest/SingleMemberShortArray;", SingleMemberShortArrTwoClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberShortArrTwoClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberShortArrTwoClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberShortArrTwoClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberShortArrTwoClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberShortArrTwoClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberShortArrTwoClass_Annotations_
-};
-
-$Object* allocate$SingleMemberShortArrTwoClass($Class* clazz) {
-	return $of($alloc(SingleMemberShortArrTwoClass));
-}
-
 void SingleMemberShortArrTwoClass::init$() {
 }
 
@@ -55,7 +16,38 @@ SingleMemberShortArrTwoClass::SingleMemberShortArrTwoClass() {
 }
 
 $Class* SingleMemberShortArrTwoClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberShortArrTwoClass, name, initialize, &_SingleMemberShortArrTwoClass_ClassInfo_, allocate$SingleMemberShortArrTwoClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberShortArrTwoClass, init$, void)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'S', "2"},
+		{'S', "3"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberShortArray;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberShortArrTwoClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberShortArrTwoClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberShortArrTwoClass);
+	});
 	return class$;
 }
 

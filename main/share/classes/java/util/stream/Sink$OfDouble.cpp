@@ -1,5 +1,4 @@
 #include <java/util/stream/Sink$OfDouble.h>
-
 #include <java/util/stream/Sink.h>
 #include <java/util/stream/Tripwire.h>
 #include <jcpp.h>
@@ -16,43 +15,6 @@ using $Tripwire = ::java::util::stream::Tripwire;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _Sink$OfDouble_MethodInfo_[] = {
-	{"accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Sink$OfDouble, accept, void, double)},
-	{"accept", "(Ljava/lang/Double;)V", nullptr, $PUBLIC, $virtualMethod(Sink$OfDouble, accept, void, $Double*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Sink$OfDouble, accept, void, Object$*)},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$InnerClassInfo _Sink$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.stream.Sink$OfDouble", "java.util.stream.Sink", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Sink$OfDouble_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.stream.Sink$OfDouble",
-	nullptr,
-	"java.util.stream.Sink,java.util.function.DoubleConsumer",
-	nullptr,
-	_Sink$OfDouble_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/stream/Sink<Ljava/lang/Double;>;Ljava/util/function/DoubleConsumer;",
-	nullptr,
-	_Sink$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Sink"
-};
-
-$Object* allocate$Sink$OfDouble($Class* clazz) {
-	return $of($alloc(Sink$OfDouble));
-}
 
 int32_t Sink$OfDouble::hashCode() {
 	 return this->$Sink::hashCode();
@@ -87,7 +49,39 @@ void Sink$OfDouble::accept(Object$* i) {
 }
 
 $Class* Sink$OfDouble::load$($String* name, bool initialize) {
-	$loadClass(Sink$OfDouble, name, initialize, &_Sink$OfDouble_ClassInfo_, allocate$Sink$OfDouble);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Sink$OfDouble, accept, void, double)},
+		{"accept", "(Ljava/lang/Double;)V", nullptr, $PUBLIC, $virtualMethod(Sink$OfDouble, accept, void, $Double*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Sink$OfDouble, accept, void, Object$*)},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Sink$OfDouble", "java.util.stream.Sink", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.stream.Sink$OfDouble",
+		nullptr,
+		"java.util.stream.Sink,java.util.function.DoubleConsumer",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/stream/Sink<Ljava/lang/Double;>;Ljava/util/function/DoubleConsumer;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Sink"
+	};
+	$loadClass(Sink$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Sink$OfDouble));
+	});
 	return class$;
 }
 

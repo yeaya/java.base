@@ -1,5 +1,4 @@
 #include <java/util/PrimitiveIterator$OfInt.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -37,72 +36,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual void accept(int32_t t) override {
-		$nc(inst$)->accept($$of(t));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PrimitiveIterator$OfInt$$Lambda$accept>());
+		$nc(inst$)->accept($of(t));
 	}
 	$Consumer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PrimitiveIterator$OfInt$$Lambda$accept::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PrimitiveIterator$OfInt$$Lambda$accept, inst$)},
-	{}
-};
-$MethodInfo PrimitiveIterator$OfInt$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(PrimitiveIterator$OfInt$$Lambda$accept, init$, void, $Consumer*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt$$Lambda$accept, accept, void, int32_t)},
-	{}
-};
-$ClassInfo PrimitiveIterator$OfInt$$Lambda$accept::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.PrimitiveIterator$OfInt$$Lambda$accept",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* PrimitiveIterator$OfInt$$Lambda$accept::load$($String* name, bool initialize) {
-	$loadClass(PrimitiveIterator$OfInt$$Lambda$accept, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PrimitiveIterator$OfInt$$Lambda$accept, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(PrimitiveIterator$OfInt$$Lambda$accept, init$, void, $Consumer*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt$$Lambda$accept, accept, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.PrimitiveIterator$OfInt$$Lambda$accept",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrimitiveIterator$OfInt$$Lambda$accept, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrimitiveIterator$OfInt$$Lambda$accept);
+	});
 	return class$;
 }
 $Class* PrimitiveIterator$OfInt$$Lambda$accept::class$ = nullptr;
-
-$MethodInfo _PrimitiveIterator$OfInt_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt, forEachRemaining, void, $IntConsumer*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Integer;>;)V", $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt, forEachRemaining, void, $Consumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrimitiveIterator$OfInt, forEachRemaining, void, Object$*)},
-	{"next", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt, next, $Object*)},
-	{"nextInt", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveIterator$OfInt, nextInt, int32_t)},
-	{}
-};
-
-$InnerClassInfo _PrimitiveIterator$OfInt_InnerClassesInfo_[] = {
-	{"java.util.PrimitiveIterator$OfInt", "java.util.PrimitiveIterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PrimitiveIterator$OfInt_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.PrimitiveIterator$OfInt",
-	nullptr,
-	"java.util.PrimitiveIterator",
-	nullptr,
-	_PrimitiveIterator$OfInt_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/PrimitiveIterator<Ljava/lang/Integer;Ljava/util/function/IntConsumer;>;",
-	nullptr,
-	_PrimitiveIterator$OfInt_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.PrimitiveIterator"
-};
-
-$Object* allocate$PrimitiveIterator$OfInt($Class* clazz) {
-	return $of($alloc(PrimitiveIterator$OfInt));
-}
 
 void PrimitiveIterator$OfInt::forEachRemaining($IntConsumer* action) {
 	$Objects::requireNonNull(action);
@@ -128,7 +89,7 @@ void PrimitiveIterator$OfInt::forEachRemaining($Consumer* action) {
 		if ($Tripwire::ENABLED) {
 			$Tripwire::trip($of(this)->getClass(), "{0} calling PrimitiveIterator.OfInt.forEachRemainingInt(action::accept)"_s);
 		}
-		forEachRemaining(static_cast<$IntConsumer*>($$new(PrimitiveIterator$OfInt$$Lambda$accept, static_cast<$Consumer*>(action))));
+		forEachRemaining($cast($IntConsumer, $$new(PrimitiveIterator$OfInt$$Lambda$accept, action)));
 	}
 }
 
@@ -138,11 +99,40 @@ void PrimitiveIterator$OfInt::forEachRemaining(Object$* action) {
 
 $Class* PrimitiveIterator$OfInt::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PrimitiveIterator$OfInt$$Lambda$accept::classInfo$.name)) {
+		if (name->equals("java.util.PrimitiveIterator$OfInt$$Lambda$accept")) {
 			return PrimitiveIterator$OfInt$$Lambda$accept::load$(name, initialize);
 		}
 	}
-	$loadClass(PrimitiveIterator$OfInt, name, initialize, &_PrimitiveIterator$OfInt_ClassInfo_, allocate$PrimitiveIterator$OfInt);
+	$MethodInfo methodInfos$$[] = {
+		{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt, forEachRemaining, void, $IntConsumer*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Integer;>;)V", $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt, forEachRemaining, void, $Consumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrimitiveIterator$OfInt, forEachRemaining, void, Object$*)},
+		{"next", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt, next, $Object*)},
+		{"nextInt", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveIterator$OfInt, nextInt, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.PrimitiveIterator$OfInt", "java.util.PrimitiveIterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.PrimitiveIterator$OfInt",
+		nullptr,
+		"java.util.PrimitiveIterator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/PrimitiveIterator<Ljava/lang/Integer;Ljava/util/function/IntConsumer;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.PrimitiveIterator"
+	};
+	$loadClass(PrimitiveIterator$OfInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrimitiveIterator$OfInt);
+	});
 	return class$;
 }
 

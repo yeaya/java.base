@@ -1,5 +1,4 @@
 #include <sun/security/util/SecurityProperties.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/invoke/CallSite.h>
@@ -36,63 +35,32 @@ public:
 	virtual $Object* run() override {
 		 return $of(SecurityProperties::lambda$privilegedGetOverridable$0(propName));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0>());
-	}
 	$String* propName = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::fieldInfos[2] = {
-	{"propName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, propName)},
-	{}
-};
-$MethodInfo SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, init$, void, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, run, $Object*)},
-	{}
-};
-$ClassInfo SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.util.SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::load$($String* name, bool initialize) {
-	$loadClass(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"propName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, propName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, init$, void, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.util.SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0);
+	});
 	return class$;
 }
 $Class* SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::class$ = nullptr;
-
-$FieldInfo _SecurityProperties_FieldInfo_[] = {
-	{"INCLUDE_JAR_NAME_IN_EXCEPTIONS", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProperties, INCLUDE_JAR_NAME_IN_EXCEPTIONS)},
-	{}
-};
-
-$MethodInfo _SecurityProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityProperties, init$, void)},
-	{"getOverridableProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SecurityProperties, getOverridableProperty, $String*, $String*)},
-	{"includedInExceptions", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SecurityProperties, includedInExceptions, bool, $String*)},
-	{"lambda$privilegedGetOverridable$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SecurityProperties, lambda$privilegedGetOverridable$0, $String*, $String*)},
-	{"privilegedGetOverridable", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SecurityProperties, privilegedGetOverridable, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _SecurityProperties_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.SecurityProperties",
-	"java.lang.Object",
-	nullptr,
-	_SecurityProperties_FieldInfo_,
-	_SecurityProperties_MethodInfo_
-};
-
-$Object* allocate$SecurityProperties($Class* clazz) {
-	return $of($alloc(SecurityProperties));
-}
 
 bool SecurityProperties::INCLUDE_JAR_NAME_IN_EXCEPTIONS = false;
 
@@ -105,7 +73,7 @@ $String* SecurityProperties::privilegedGetOverridable($String* propName) {
 	if ($System::getSecurityManager() == nullptr) {
 		return getOverridableProperty(propName);
 	} else {
-		return $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, propName))));
+		return $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, propName))));
 	}
 }
 
@@ -121,7 +89,7 @@ $String* SecurityProperties::getOverridableProperty($String* propName) {
 
 bool SecurityProperties::includedInExceptions($String* refName) {
 	$init(SecurityProperties);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, val, privilegedGetOverridable("jdk.includeInExceptions"_s));
 	if (val == nullptr) {
 		return false;
@@ -129,9 +97,7 @@ bool SecurityProperties::includedInExceptions($String* refName) {
 	$var($StringArray, tokens, $nc(val)->split(","_s));
 	{
 		$var($StringArray, arr$, tokens);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, token, arr$->get(i$));
 			{
 				$assign(token, $nc(token)->trim());
@@ -149,7 +115,7 @@ $String* SecurityProperties::lambda$privilegedGetOverridable$0($String* propName
 	return getOverridableProperty(propName);
 }
 
-void clinit$SecurityProperties($Class* class$) {
+void SecurityProperties::clinit$($Class* clazz) {
 	SecurityProperties::INCLUDE_JAR_NAME_IN_EXCEPTIONS = SecurityProperties::includedInExceptions("jar"_s);
 }
 
@@ -158,11 +124,33 @@ SecurityProperties::SecurityProperties() {
 
 $Class* SecurityProperties::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::classInfo$.name)) {
+		if (name->equals("sun.security.util.SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0")) {
 			return SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SecurityProperties, name, initialize, &_SecurityProperties_ClassInfo_, clinit$SecurityProperties, allocate$SecurityProperties);
+	$FieldInfo fieldInfos$$[] = {
+		{"INCLUDE_JAR_NAME_IN_EXCEPTIONS", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SecurityProperties, INCLUDE_JAR_NAME_IN_EXCEPTIONS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityProperties, init$, void)},
+		{"getOverridableProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SecurityProperties, getOverridableProperty, $String*, $String*)},
+		{"includedInExceptions", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SecurityProperties, includedInExceptions, bool, $String*)},
+		{"lambda$privilegedGetOverridable$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SecurityProperties, lambda$privilegedGetOverridable$0, $String*, $String*)},
+		{"privilegedGetOverridable", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SecurityProperties, privilegedGetOverridable, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.SecurityProperties",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SecurityProperties, name, initialize, &classInfo$$, SecurityProperties::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SecurityProperties);
+	});
 	return class$;
 }
 

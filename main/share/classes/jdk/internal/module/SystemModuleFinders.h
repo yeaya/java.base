@@ -51,6 +51,7 @@ class $export SystemModuleFinders : public ::java::lang::Object {
 	$class(SystemModuleFinders, $PRELOAD, ::java::lang::Object)
 public:
 	SystemModuleFinders();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::module::SystemModules* allSystemModules();
 	static ::java::util::Map* generateNameToHash($Array<::jdk::internal::module::ModuleHashes>* recordedHashes);

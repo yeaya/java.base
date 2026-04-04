@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/ImageReader$Resource.h>
-
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <jdk/internal/jimage/ImageLocation.h>
 #include <jdk/internal/jimage/ImageReader$Directory.h>
@@ -19,50 +18,6 @@ using $ImageReader$Node = ::jdk::internal::jimage::ImageReader$Node;
 namespace jdk {
 	namespace internal {
 		namespace jimage {
-
-$FieldInfo _ImageReader$Resource_FieldInfo_[] = {
-	{"loc", "Ljdk/internal/jimage/ImageLocation;", nullptr, $PRIVATE | $FINAL, $field(ImageReader$Resource, loc)},
-	{}
-};
-
-$MethodInfo _ImageReader$Resource_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jimage/ImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, $PRIVATE, $method(ImageReader$Resource, init$, void, $ImageLocation*, $BasicFileAttributes*)},
-	{"compressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, compressedSize, int64_t)},
-	{"contentOffset", "()J", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, contentOffset, int64_t)},
-	{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljdk/internal/jimage/ImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)Ljdk/internal/jimage/ImageReader$Resource;", nullptr, $STATIC, $staticMethod(ImageReader$Resource, create, ImageReader$Resource*, $ImageReader$Directory*, $ImageLocation*, $BasicFileAttributes*)},
-	{"extension", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, extension, $String*)},
-	{"getLocation", "()Ljdk/internal/jimage/ImageLocation;", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, getLocation, $ImageLocation*)},
-	{"isCompleted", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, isCompleted, bool)},
-	{"isResource", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, isResource, bool)},
-	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, size, int64_t)},
-	{}
-};
-
-$InnerClassInfo _ImageReader$Resource_InnerClassesInfo_[] = {
-	{"jdk.internal.jimage.ImageReader$Resource", "jdk.internal.jimage.ImageReader", "Resource", $STATIC},
-	{"jdk.internal.jimage.ImageReader$Node", "jdk.internal.jimage.ImageReader", "Node", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImageReader$Resource_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.jimage.ImageReader$Resource",
-	"jdk.internal.jimage.ImageReader$Node",
-	nullptr,
-	_ImageReader$Resource_FieldInfo_,
-	_ImageReader$Resource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageReader$Resource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.jimage.ImageReader"
-};
-
-$Object* allocate$ImageReader$Resource($Class* clazz) {
-	return $of($alloc(ImageReader$Resource));
-}
 
 void ImageReader$Resource::init$($ImageLocation* loc, $BasicFileAttributes* fileAttrs) {
 	$ImageReader$Node::init$($($nc(loc)->getFullName(true)), fileAttrs);
@@ -108,7 +63,45 @@ ImageReader$Resource::ImageReader$Resource() {
 }
 
 $Class* ImageReader$Resource::load$($String* name, bool initialize) {
-	$loadClass(ImageReader$Resource, name, initialize, &_ImageReader$Resource_ClassInfo_, allocate$ImageReader$Resource);
+	$FieldInfo fieldInfos$$[] = {
+		{"loc", "Ljdk/internal/jimage/ImageLocation;", nullptr, $PRIVATE | $FINAL, $field(ImageReader$Resource, loc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/jimage/ImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, $PRIVATE, $method(ImageReader$Resource, init$, void, $ImageLocation*, $BasicFileAttributes*)},
+		{"compressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, compressedSize, int64_t)},
+		{"contentOffset", "()J", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, contentOffset, int64_t)},
+		{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljdk/internal/jimage/ImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)Ljdk/internal/jimage/ImageReader$Resource;", nullptr, $STATIC, $staticMethod(ImageReader$Resource, create, ImageReader$Resource*, $ImageReader$Directory*, $ImageLocation*, $BasicFileAttributes*)},
+		{"extension", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, extension, $String*)},
+		{"getLocation", "()Ljdk/internal/jimage/ImageLocation;", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, getLocation, $ImageLocation*)},
+		{"isCompleted", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, isCompleted, bool)},
+		{"isResource", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, isResource, bool)},
+		{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, size, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jimage.ImageReader$Resource", "jdk.internal.jimage.ImageReader", "Resource", $STATIC},
+		{"jdk.internal.jimage.ImageReader$Node", "jdk.internal.jimage.ImageReader", "Node", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.jimage.ImageReader$Resource",
+		"jdk.internal.jimage.ImageReader$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.jimage.ImageReader"
+	};
+	$loadClass(ImageReader$Resource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageReader$Resource);
+	});
 	return class$;
 }
 

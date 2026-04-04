@@ -1,5 +1,4 @@
 #include <java/lang/invoke/LambdaFormBuffer.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/lang/invoke/LambdaForm$BasicType.h>
@@ -37,67 +36,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _LambdaFormBuffer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaFormBuffer, $assertionsDisabled)},
-	{"arity", "I", nullptr, $PRIVATE, $field(LambdaFormBuffer, arity)},
-	{"length", "I", nullptr, $PRIVATE, $field(LambdaFormBuffer, length)},
-	{"names", "[Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $field(LambdaFormBuffer, names)},
-	{"originalNames", "[Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $field(LambdaFormBuffer, originalNames)},
-	{"flags", "B", nullptr, $PRIVATE, $field(LambdaFormBuffer, flags)},
-	{"firstChange", "I", nullptr, $PRIVATE, $field(LambdaFormBuffer, firstChange)},
-	{"resultName", "Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $field(LambdaFormBuffer, resultName)},
-	{"dups", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/invoke/LambdaForm$Name;>;", $PRIVATE, $field(LambdaFormBuffer, dups)},
-	{"F_TRANS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormBuffer, F_TRANS)},
-	{"F_OWNED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormBuffer, F_OWNED)},
-	{}
-};
-
-$MethodInfo _LambdaFormBuffer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/LambdaForm;)V", nullptr, 0, $method(LambdaFormBuffer, init$, void, $LambdaForm*)},
-	{"changeName", "(ILjava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $method(LambdaFormBuffer, changeName, void, int32_t, $LambdaForm$Name*)},
-	{"clearDuplicatesAndNulls", "()V", nullptr, $PRIVATE, $method(LambdaFormBuffer, clearDuplicatesAndNulls, void)},
-	{"copyNamesInto", "([Ljava/lang/invoke/LambdaForm$Name;)[Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(LambdaFormBuffer, copyNamesInto, $LambdaForm$NameArray*, $LambdaForm$NameArray*)},
-	{"endEdit", "()Ljava/lang/invoke/LambdaForm;", nullptr, 0, $method(LambdaFormBuffer, endEdit, $LambdaForm*)},
-	{"growNames", "(II)V", nullptr, 0, $method(LambdaFormBuffer, growNames, void, int32_t, int32_t)},
-	{"inTrans", "()Z", nullptr, 0, $method(LambdaFormBuffer, inTrans, bool)},
-	{"indexOf", "(Ljava/lang/invoke/LambdaForm$NamedFunction;Ljava/util/List;)I", "(Ljava/lang/invoke/LambdaForm$NamedFunction;Ljava/util/List<Ljava/lang/invoke/LambdaForm$NamedFunction;>;)I", $PRIVATE | $STATIC, $staticMethod(LambdaFormBuffer, indexOf, int32_t, $LambdaForm$NamedFunction*, $List*)},
-	{"indexOf", "(Ljava/lang/invoke/LambdaForm$Name;[Ljava/lang/invoke/LambdaForm$Name;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormBuffer, indexOf, int32_t, $LambdaForm$Name*, $LambdaForm$NameArray*)},
-	{"insertExpression", "(ILjava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaFormBuffer;", nullptr, 0, $method(LambdaFormBuffer, insertExpression, LambdaFormBuffer*, int32_t, $LambdaForm$Name*)},
-	{"insertName", "(ILjava/lang/invoke/LambdaForm$Name;Z)V", nullptr, $PRIVATE, $method(LambdaFormBuffer, insertName, void, int32_t, $LambdaForm$Name*, bool)},
-	{"insertParameter", "(ILjava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaFormBuffer;", nullptr, 0, $method(LambdaFormBuffer, insertParameter, LambdaFormBuffer*, int32_t, $LambdaForm$Name*)},
-	{"lambdaForm", "()Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE, $method(LambdaFormBuffer, lambdaForm, $LambdaForm*)},
-	{"lastIndexOf", "(Ljava/lang/invoke/LambdaForm$Name;)I", nullptr, 0, $method(LambdaFormBuffer, lastIndexOf, int32_t, $LambdaForm$Name*)},
-	{"name", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaFormBuffer, name, $LambdaForm$Name*, int32_t)},
-	{"nameArray", "()[Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaFormBuffer, nameArray, $LambdaForm$NameArray*)},
-	{"noteDuplicate", "(II)V", nullptr, $PRIVATE, $method(LambdaFormBuffer, noteDuplicate, void, int32_t, int32_t)},
-	{"ownedCount", "()I", nullptr, 0, $method(LambdaFormBuffer, ownedCount, int32_t)},
-	{"renameParameter", "(ILjava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaFormBuffer;", nullptr, 0, $method(LambdaFormBuffer, renameParameter, LambdaFormBuffer*, int32_t, $LambdaForm$Name*)},
-	{"replaceFunctions", "(Ljava/util/List;Ljava/util/List;[Ljava/lang/Object;)Ljava/lang/invoke/LambdaFormBuffer;", "(Ljava/util/List<Ljava/lang/invoke/LambdaForm$NamedFunction;>;Ljava/util/List<Ljava/lang/invoke/LambdaForm$NamedFunction;>;[Ljava/lang/Object;)Ljava/lang/invoke/LambdaFormBuffer;", $TRANSIENT, $method(LambdaFormBuffer, replaceFunctions, LambdaFormBuffer*, $List*, $List*, $ObjectArray*)},
-	{"replaceName", "(ILjava/lang/invoke/LambdaForm$Name;)V", nullptr, $PRIVATE, $method(LambdaFormBuffer, replaceName, void, int32_t, $LambdaForm$Name*)},
-	{"replaceParameterByCopy", "(II)Ljava/lang/invoke/LambdaFormBuffer;", nullptr, 0, $method(LambdaFormBuffer, replaceParameterByCopy, LambdaFormBuffer*, int32_t, int32_t)},
-	{"replaceParameterByNewExpression", "(ILjava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaFormBuffer;", nullptr, 0, $method(LambdaFormBuffer, replaceParameterByNewExpression, LambdaFormBuffer*, int32_t, $LambdaForm$Name*)},
-	{"resultIndex", "()I", nullptr, 0, $method(LambdaFormBuffer, resultIndex, int32_t)},
-	{"setNames", "([Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $method(LambdaFormBuffer, setNames, void, $LambdaForm$NameArray*)},
-	{"setResult", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $method(LambdaFormBuffer, setResult, void, $LambdaForm$Name*)},
-	{"startEdit", "()V", nullptr, 0, $method(LambdaFormBuffer, startEdit, void)},
-	{"verifyArity", "()Z", nullptr, $PRIVATE, $method(LambdaFormBuffer, verifyArity, bool)},
-	{"verifyFirstChange", "()Z", nullptr, $PRIVATE, $method(LambdaFormBuffer, verifyFirstChange, bool)},
-	{}
-};
-
-$ClassInfo _LambdaFormBuffer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.LambdaFormBuffer",
-	"java.lang.Object",
-	nullptr,
-	_LambdaFormBuffer_FieldInfo_,
-	_LambdaFormBuffer_MethodInfo_
-};
-
-$Object* allocate$LambdaFormBuffer($Class* clazz) {
-	return $of($alloc(LambdaFormBuffer));
-}
-
 bool LambdaFormBuffer::$assertionsDisabled = false;
 
 void LambdaFormBuffer::init$($LambdaForm* lf) {
@@ -109,7 +47,7 @@ void LambdaFormBuffer::init$($LambdaForm* lf) {
 	}
 	$init($LambdaForm$BasicType);
 	if (result >= 0 && $nc($nc(lf->names)->get(result))->type$ != $LambdaForm$BasicType::V_TYPE) {
-		$set(this, resultName, $nc(lf->names)->get(result));
+		$set(this, resultName, lf->names->get(result));
 	}
 	if (!LambdaFormBuffer::$assertionsDisabled && !(lf->nameRefsAreLegal())) {
 		$throwNew($AssertionError);
@@ -133,7 +71,7 @@ $LambdaForm$Name* LambdaFormBuffer::name(int32_t i) {
 }
 
 $LambdaForm$NameArray* LambdaFormBuffer::nameArray() {
-	return $fcast($LambdaForm$NameArray, $Arrays::copyOf(this->names, this->length));
+	return $cast($LambdaForm$NameArray, $Arrays::copyOf(this->names, this->length));
 }
 
 int32_t LambdaFormBuffer::resultIndex() {
@@ -148,35 +86,38 @@ int32_t LambdaFormBuffer::resultIndex() {
 }
 
 void LambdaFormBuffer::setNames($LambdaForm$NameArray* names2) {
-	$set(this, names, ($set(this, originalNames, names2)));
+	$set(this, names, $set(this, originalNames, names2));
 	this->length = $nc(names2)->length;
-	this->flags = (int8_t)0;
+	this->flags = 0;
 }
 
 bool LambdaFormBuffer::verifyArity() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->arity && i < this->firstChange; ++i) {
 		if (!LambdaFormBuffer::$assertionsDisabled && !($nc($nc(this->names)->get(i))->isParam())) {
-			$throwNew($AssertionError, $of($$str({"#"_s, $$str(i), "="_s, $nc(this->names)->get(i)})));
+			$throwNew($AssertionError, $$of($str({"#"_s, $$str(i), "="_s, this->names->get(i)})));
 		}
 	}
 	for (int32_t i = this->arity; i < this->length; ++i) {
 		if (!LambdaFormBuffer::$assertionsDisabled && !(!$nc($nc(this->names)->get(i))->isParam())) {
-			$throwNew($AssertionError, $of($$str({"#"_s, $$str(i), "="_s, $nc(this->names)->get(i)})));
+			$throwNew($AssertionError, $$of($str({"#"_s, $$str(i), "="_s, this->names->get(i)})));
 		}
 	}
 	for (int32_t i = this->length; i < $nc(this->names)->length; ++i) {
-		if (!LambdaFormBuffer::$assertionsDisabled && !($nc(this->names)->get(i) == nullptr)) {
-			$throwNew($AssertionError, $of($$str({"#"_s, $$str(i), "="_s, $nc(this->names)->get(i)})));
+		if (!LambdaFormBuffer::$assertionsDisabled && !(this->names->get(i) == nullptr)) {
+			$throwNew($AssertionError, $$of($str({"#"_s, $$str(i), "="_s, this->names->get(i)})));
 		}
 	}
 	if (this->resultName != nullptr) {
 		int32_t resultIndex = indexOf(this->resultName, this->names);
 		if (!LambdaFormBuffer::$assertionsDisabled && !(resultIndex >= 0)) {
-			$var($String, var$0, $$str({"not found: "_s, $($nc(this->resultName)->exprString())}));
-			$throwNew($AssertionError, $of(($$concat(var$0, $($Arrays::asList(this->names))))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("not found: "_s);
+			var$0->append($(this->resultName->exprString()));
+			var$0->append($($Arrays::asList(this->names)));
+			$throwNew($AssertionError, $$of($str(var$0)));
 		}
-		if (!LambdaFormBuffer::$assertionsDisabled && !($nc(this->names)->get(resultIndex) == this->resultName)) {
+		if (!LambdaFormBuffer::$assertionsDisabled && !(this->names->get(resultIndex) == this->resultName)) {
 			$throwNew($AssertionError);
 		}
 	}
@@ -184,28 +125,28 @@ bool LambdaFormBuffer::verifyArity() {
 }
 
 bool LambdaFormBuffer::verifyFirstChange() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!LambdaFormBuffer::$assertionsDisabled && !(inTrans())) {
 		$throwNew($AssertionError);
 	}
 	for (int32_t i = 0; i < this->length; ++i) {
 		if ($nc(this->names)->get(i) != $nc(this->originalNames)->get(i)) {
 			if (!LambdaFormBuffer::$assertionsDisabled && !(this->firstChange == i)) {
-				$throwNew($AssertionError, $($of($Arrays::asList($$new($ObjectArray, {
-					$($of($Integer::valueOf(this->firstChange))),
-					$($of($Integer::valueOf(i))),
-					$($of($nc($nc(this->originalNames)->get(i))->exprString())),
-					$($of($Arrays::asList(this->names)))
-				})))));
+				$throwNew($AssertionError, $($Arrays::asList($$new($ObjectArray, {
+					$($Integer::valueOf(this->firstChange)),
+					$($Integer::valueOf(i)),
+					$($nc(this->originalNames->get(i))->exprString()),
+					$($Arrays::asList(this->names))
+				}))));
 			}
 			return true;
 		}
 	}
 	if (!LambdaFormBuffer::$assertionsDisabled && !(this->firstChange == this->length)) {
-		$throwNew($AssertionError, $($of($Arrays::asList($$new($ObjectArray, {
-			$($of($Integer::valueOf(this->firstChange))),
-			$($of($Arrays::asList(this->names)))
-		})))));
+		$throwNew($AssertionError, $($Arrays::asList($$new($ObjectArray, {
+			$($Integer::valueOf(this->firstChange)),
+			$($Arrays::asList(this->names))
+		}))));
 	}
 	return true;
 }
@@ -231,11 +172,11 @@ int32_t LambdaFormBuffer::indexOf($LambdaForm$Name* n, $LambdaForm$NameArray* ns
 }
 
 bool LambdaFormBuffer::inTrans() {
-	return ((int32_t)(this->flags & (uint32_t)LambdaFormBuffer::F_TRANS)) != 0;
+	return (this->flags & LambdaFormBuffer::F_TRANS) != 0;
 }
 
 int32_t LambdaFormBuffer::ownedCount() {
-	return (int32_t)(this->flags & (uint32_t)LambdaFormBuffer::F_OWNED);
+	return this->flags & LambdaFormBuffer::F_OWNED;
 }
 
 void LambdaFormBuffer::growNames(int32_t insertPos, int32_t growLength) {
@@ -243,7 +184,7 @@ void LambdaFormBuffer::growNames(int32_t insertPos, int32_t growLength) {
 	int32_t newLength = oldLength + growLength;
 	int32_t oc = ownedCount();
 	if (oc == 0 || newLength > $nc(this->names)->length) {
-		$set(this, names, $fcast($LambdaForm$NameArray, $Arrays::copyOf(this->names, ($nc(this->names)->length + growLength) * 5 / 4)));
+		$set(this, names, $cast($LambdaForm$NameArray, $Arrays::copyOf(this->names, ($nc(this->names)->length + growLength) * 5 / 4)));
 		if (oc == 0) {
 			++this->flags;
 			++oc;
@@ -252,8 +193,8 @@ void LambdaFormBuffer::growNames(int32_t insertPos, int32_t growLength) {
 			}
 		}
 	}
-	if (this->originalNames != nullptr && $nc(this->originalNames)->length < $nc(this->names)->length) {
-		$set(this, originalNames, $fcast($LambdaForm$NameArray, $Arrays::copyOf(this->originalNames, $nc(this->names)->length)));
+	if (this->originalNames != nullptr && this->originalNames->length < $nc(this->names)->length) {
+		$set(this, originalNames, $cast($LambdaForm$NameArray, $Arrays::copyOf(this->originalNames, this->names->length)));
 		if (oc == 1) {
 			++this->flags;
 			++oc;
@@ -268,10 +209,10 @@ void LambdaFormBuffer::growNames(int32_t insertPos, int32_t growLength) {
 	int32_t insertEnd = insertPos + growLength;
 	int32_t tailLength = oldLength - insertPos;
 	$System::arraycopy(this->names, insertPos, this->names, insertEnd, tailLength);
-	$Arrays::fill(this->names, insertPos, insertEnd, ($Object*)nullptr);
+	$Arrays::fill(this->names, insertPos, insertEnd, nullptr);
 	if (this->originalNames != nullptr) {
 		$System::arraycopy(this->originalNames, insertPos, this->originalNames, insertEnd, tailLength);
-		$Arrays::fill(this->originalNames, insertPos, insertEnd, ($Object*)nullptr);
+		$Arrays::fill(this->originalNames, insertPos, insertEnd, nullptr);
 	}
 	this->length = newLength;
 	if (this->firstChange >= insertPos) {
@@ -291,13 +232,13 @@ int32_t LambdaFormBuffer::lastIndexOf($LambdaForm$Name* n) {
 
 void LambdaFormBuffer::noteDuplicate(int32_t pos1, int32_t pos2) {
 	$var($LambdaForm$Name, n, $nc(this->names)->get(pos1));
-	if (!LambdaFormBuffer::$assertionsDisabled && !(n == $nc(this->names)->get(pos2))) {
+	if (!LambdaFormBuffer::$assertionsDisabled && !(n == this->names->get(pos2))) {
 		$throwNew($AssertionError);
 	}
 	if (!LambdaFormBuffer::$assertionsDisabled && !($nc(this->originalNames)->get(pos1) != nullptr)) {
 		$throwNew($AssertionError);
 	}
-	if (!LambdaFormBuffer::$assertionsDisabled && !($nc(this->originalNames)->get(pos2) == nullptr || $nc(this->originalNames)->get(pos2) == n)) {
+	if (!LambdaFormBuffer::$assertionsDisabled && !($nc(this->originalNames)->get(pos2) == nullptr || this->originalNames->get(pos2) == n)) {
 		$throwNew($AssertionError);
 	}
 	if (this->dups == nullptr) {
@@ -307,29 +248,27 @@ void LambdaFormBuffer::noteDuplicate(int32_t pos1, int32_t pos2) {
 }
 
 void LambdaFormBuffer::clearDuplicatesAndNulls() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->dups != nullptr) {
 		if (!LambdaFormBuffer::$assertionsDisabled && !(ownedCount() >= 1)) {
 			$throwNew($AssertionError);
 		}
 		{
-			$var($Iterator, i$, $nc(this->dups)->iterator());
+			$var($Iterator, i$, this->dups->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($LambdaForm$Name, dup, $cast($LambdaForm$Name, i$->next()));
-				{
-					for (int32_t i = this->firstChange; i < this->length; ++i) {
-						if ($nc(this->names)->get(i) == dup && $nc(this->originalNames)->get(i) != dup) {
-							$nc(this->names)->set(i, nullptr);
-							if (!LambdaFormBuffer::$assertionsDisabled && !($nc($($Arrays::asList(this->names)))->contains(dup))) {
-								$throwNew($AssertionError);
-							}
-							break;
+				for (int32_t i = this->firstChange; i < this->length; ++i) {
+					if ($nc(this->names)->get(i) == dup && $nc(this->originalNames)->get(i) != dup) {
+						this->names->set(i, nullptr);
+						if (!LambdaFormBuffer::$assertionsDisabled && !($$nc($Arrays::asList(this->names))->contains(dup))) {
+							$throwNew($AssertionError);
 						}
+						break;
 					}
 				}
 			}
 		}
-		$nc(this->dups)->clear();
+		this->dups->clear();
 	}
 	int32_t oldLength = this->length;
 	for (int32_t i = this->firstChange; i < this->length; ++i) {
@@ -339,15 +278,15 @@ void LambdaFormBuffer::clearDuplicatesAndNulls() {
 		}
 	}
 	if (this->length < oldLength) {
-		$Arrays::fill(this->names, this->length, oldLength, ($Object*)nullptr);
+		$Arrays::fill(this->names, this->length, oldLength, nullptr);
 	}
-	if (!LambdaFormBuffer::$assertionsDisabled && !(!$nc($($nc($($Arrays::asList(this->names)))->subList(0, this->length)))->contains(nullptr))) {
+	if (!LambdaFormBuffer::$assertionsDisabled && !(!$$nc($$nc($Arrays::asList(this->names))->subList(0, this->length))->contains(nullptr))) {
 		$throwNew($AssertionError);
 	}
 }
 
 void LambdaFormBuffer::startEdit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!LambdaFormBuffer::$assertionsDisabled && !(verifyArity())) {
 		$throwNew($AssertionError);
 	}
@@ -365,7 +304,7 @@ void LambdaFormBuffer::startEdit() {
 		$set(this, names, copyNamesInto(ownBuffer));
 	} else {
 		int32_t SLOP = 2;
-		$set(this, names, $fcast($LambdaForm$NameArray, $Arrays::copyOf(oldNames, $Math::max(this->length + SLOP, $nc(oldNames)->length))));
+		$set(this, names, $cast($LambdaForm$NameArray, $Arrays::copyOf(oldNames, $Math::max(this->length + SLOP, $nc(oldNames)->length))));
 		if (oc < 2) {
 			++this->flags;
 		}
@@ -400,7 +339,7 @@ void LambdaFormBuffer::changeName(int32_t i, $LambdaForm$Name* name) {
 	if (ownedCount() == 0) {
 		growNames(0, 0);
 	}
-	$nc(this->names)->set(i, name);
+	this->names->set(i, name);
 	if (this->firstChange > i) {
 		this->firstChange = i;
 	}
@@ -417,7 +356,7 @@ void LambdaFormBuffer::setResult($LambdaForm$Name* name) {
 }
 
 $LambdaForm* LambdaFormBuffer::endEdit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!LambdaFormBuffer::$assertionsDisabled && !(verifyFirstChange())) {
 		$throwNew($AssertionError);
 	}
@@ -428,7 +367,7 @@ $LambdaForm* LambdaFormBuffer::endEdit() {
 		}
 		$var($LambdaForm$Name, newName, $nc(name)->replaceNames(this->originalNames, this->names, this->firstChange, i));
 		if (newName != name) {
-			$nc(this->names)->set(i, newName);
+			this->names->set(i, newName);
 			if (this->resultName == name) {
 				$set(this, resultName, newName);
 			}
@@ -447,7 +386,7 @@ $LambdaForm* LambdaFormBuffer::endEdit() {
 		for (int32_t i = this->firstChange; i < this->arity; ++i) {
 			$var($LambdaForm$Name, name, $nc(this->names)->get(i));
 			if (name != nullptr && name->isParam()) {
-				$nc(this->names)->set(argp++, name);
+				this->names->set(argp++, name);
 			} else {
 				exprs->set(exprp++, name);
 			}
@@ -466,12 +405,12 @@ $LambdaForm* LambdaFormBuffer::endEdit() {
 
 $LambdaForm$NameArray* LambdaFormBuffer::copyNamesInto($LambdaForm$NameArray* buffer) {
 	$System::arraycopy(this->names, 0, buffer, 0, this->length);
-	$Arrays::fill(buffer, this->length, $nc(buffer)->length, ($Object*)nullptr);
+	$Arrays::fill(buffer, this->length, $nc(buffer)->length, nullptr);
 	return buffer;
 }
 
 LambdaFormBuffer* LambdaFormBuffer::replaceFunctions($List* oldFns, $List* newFns, $ObjectArray* forArguments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!LambdaFormBuffer::$assertionsDisabled && !(inTrans())) {
 		$throwNew($AssertionError);
 	}
@@ -481,8 +420,8 @@ LambdaFormBuffer* LambdaFormBuffer::replaceFunctions($List* oldFns, $List* newFn
 	for (int32_t i = this->arity; i < this->length; ++i) {
 		$var($LambdaForm$Name, n, $nc(this->names)->get(i));
 		int32_t nfi = indexOf($nc(n)->function, oldFns);
-		if (nfi >= 0 && $Arrays::equals($nc(n)->arguments, forArguments)) {
-			changeName(i, $$new($LambdaForm$Name, $cast($LambdaForm$NamedFunction, $($nc(newFns)->get(nfi))), $nc(n)->arguments));
+		if (nfi >= 0 && $Arrays::equals(n->arguments, forArguments)) {
+			changeName(i, $$new($LambdaForm$Name, $$cast($LambdaForm$NamedFunction, $nc(newFns)->get(nfi)), n->arguments));
 		}
 	}
 	return this;
@@ -569,7 +508,7 @@ LambdaFormBuffer* LambdaFormBuffer::insertParameter(int32_t pos, $LambdaForm$Nam
 	return this;
 }
 
-void clinit$LambdaFormBuffer($Class* class$) {
+void LambdaFormBuffer::clinit$($Class* clazz) {
 	LambdaFormBuffer::$assertionsDisabled = !LambdaFormBuffer::class$->desiredAssertionStatus();
 }
 
@@ -577,7 +516,63 @@ LambdaFormBuffer::LambdaFormBuffer() {
 }
 
 $Class* LambdaFormBuffer::load$($String* name, bool initialize) {
-	$loadClass(LambdaFormBuffer, name, initialize, &_LambdaFormBuffer_ClassInfo_, clinit$LambdaFormBuffer, allocate$LambdaFormBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaFormBuffer, $assertionsDisabled)},
+		{"arity", "I", nullptr, $PRIVATE, $field(LambdaFormBuffer, arity)},
+		{"length", "I", nullptr, $PRIVATE, $field(LambdaFormBuffer, length)},
+		{"names", "[Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $field(LambdaFormBuffer, names)},
+		{"originalNames", "[Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $field(LambdaFormBuffer, originalNames)},
+		{"flags", "B", nullptr, $PRIVATE, $field(LambdaFormBuffer, flags)},
+		{"firstChange", "I", nullptr, $PRIVATE, $field(LambdaFormBuffer, firstChange)},
+		{"resultName", "Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $field(LambdaFormBuffer, resultName)},
+		{"dups", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/invoke/LambdaForm$Name;>;", $PRIVATE, $field(LambdaFormBuffer, dups)},
+		{"F_TRANS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormBuffer, F_TRANS)},
+		{"F_OWNED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormBuffer, F_OWNED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/LambdaForm;)V", nullptr, 0, $method(LambdaFormBuffer, init$, void, $LambdaForm*)},
+		{"changeName", "(ILjava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $method(LambdaFormBuffer, changeName, void, int32_t, $LambdaForm$Name*)},
+		{"clearDuplicatesAndNulls", "()V", nullptr, $PRIVATE, $method(LambdaFormBuffer, clearDuplicatesAndNulls, void)},
+		{"copyNamesInto", "([Ljava/lang/invoke/LambdaForm$Name;)[Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(LambdaFormBuffer, copyNamesInto, $LambdaForm$NameArray*, $LambdaForm$NameArray*)},
+		{"endEdit", "()Ljava/lang/invoke/LambdaForm;", nullptr, 0, $method(LambdaFormBuffer, endEdit, $LambdaForm*)},
+		{"growNames", "(II)V", nullptr, 0, $method(LambdaFormBuffer, growNames, void, int32_t, int32_t)},
+		{"inTrans", "()Z", nullptr, 0, $method(LambdaFormBuffer, inTrans, bool)},
+		{"indexOf", "(Ljava/lang/invoke/LambdaForm$NamedFunction;Ljava/util/List;)I", "(Ljava/lang/invoke/LambdaForm$NamedFunction;Ljava/util/List<Ljava/lang/invoke/LambdaForm$NamedFunction;>;)I", $PRIVATE | $STATIC, $staticMethod(LambdaFormBuffer, indexOf, int32_t, $LambdaForm$NamedFunction*, $List*)},
+		{"indexOf", "(Ljava/lang/invoke/LambdaForm$Name;[Ljava/lang/invoke/LambdaForm$Name;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaFormBuffer, indexOf, int32_t, $LambdaForm$Name*, $LambdaForm$NameArray*)},
+		{"insertExpression", "(ILjava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaFormBuffer;", nullptr, 0, $method(LambdaFormBuffer, insertExpression, LambdaFormBuffer*, int32_t, $LambdaForm$Name*)},
+		{"insertName", "(ILjava/lang/invoke/LambdaForm$Name;Z)V", nullptr, $PRIVATE, $method(LambdaFormBuffer, insertName, void, int32_t, $LambdaForm$Name*, bool)},
+		{"insertParameter", "(ILjava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaFormBuffer;", nullptr, 0, $method(LambdaFormBuffer, insertParameter, LambdaFormBuffer*, int32_t, $LambdaForm$Name*)},
+		{"lambdaForm", "()Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE, $method(LambdaFormBuffer, lambdaForm, $LambdaForm*)},
+		{"lastIndexOf", "(Ljava/lang/invoke/LambdaForm$Name;)I", nullptr, 0, $method(LambdaFormBuffer, lastIndexOf, int32_t, $LambdaForm$Name*)},
+		{"name", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaFormBuffer, name, $LambdaForm$Name*, int32_t)},
+		{"nameArray", "()[Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaFormBuffer, nameArray, $LambdaForm$NameArray*)},
+		{"noteDuplicate", "(II)V", nullptr, $PRIVATE, $method(LambdaFormBuffer, noteDuplicate, void, int32_t, int32_t)},
+		{"ownedCount", "()I", nullptr, 0, $method(LambdaFormBuffer, ownedCount, int32_t)},
+		{"renameParameter", "(ILjava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaFormBuffer;", nullptr, 0, $method(LambdaFormBuffer, renameParameter, LambdaFormBuffer*, int32_t, $LambdaForm$Name*)},
+		{"replaceFunctions", "(Ljava/util/List;Ljava/util/List;[Ljava/lang/Object;)Ljava/lang/invoke/LambdaFormBuffer;", "(Ljava/util/List<Ljava/lang/invoke/LambdaForm$NamedFunction;>;Ljava/util/List<Ljava/lang/invoke/LambdaForm$NamedFunction;>;[Ljava/lang/Object;)Ljava/lang/invoke/LambdaFormBuffer;", $TRANSIENT, $method(LambdaFormBuffer, replaceFunctions, LambdaFormBuffer*, $List*, $List*, $ObjectArray*)},
+		{"replaceName", "(ILjava/lang/invoke/LambdaForm$Name;)V", nullptr, $PRIVATE, $method(LambdaFormBuffer, replaceName, void, int32_t, $LambdaForm$Name*)},
+		{"replaceParameterByCopy", "(II)Ljava/lang/invoke/LambdaFormBuffer;", nullptr, 0, $method(LambdaFormBuffer, replaceParameterByCopy, LambdaFormBuffer*, int32_t, int32_t)},
+		{"replaceParameterByNewExpression", "(ILjava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaFormBuffer;", nullptr, 0, $method(LambdaFormBuffer, replaceParameterByNewExpression, LambdaFormBuffer*, int32_t, $LambdaForm$Name*)},
+		{"resultIndex", "()I", nullptr, 0, $method(LambdaFormBuffer, resultIndex, int32_t)},
+		{"setNames", "([Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $method(LambdaFormBuffer, setNames, void, $LambdaForm$NameArray*)},
+		{"setResult", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $method(LambdaFormBuffer, setResult, void, $LambdaForm$Name*)},
+		{"startEdit", "()V", nullptr, 0, $method(LambdaFormBuffer, startEdit, void)},
+		{"verifyArity", "()Z", nullptr, $PRIVATE, $method(LambdaFormBuffer, verifyArity, bool)},
+		{"verifyFirstChange", "()Z", nullptr, $PRIVATE, $method(LambdaFormBuffer, verifyFirstChange, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.LambdaFormBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LambdaFormBuffer, name, initialize, &classInfo$$, LambdaFormBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaFormBuffer);
+	});
 	return class$;
 }
 

@@ -38,6 +38,7 @@ public:
 	ZoneOffsetTransition();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::LocalDateTime* transition, ::java::time::ZoneOffset* offsetBefore, ::java::time::ZoneOffset* offsetAfter);
 	void init$(int64_t epochSecond, ::java::time::ZoneOffset* offsetBefore, ::java::time::ZoneOffset* offsetAfter);
 	int32_t compareTo(::java::time::zone::ZoneOffsetTransition* transition);
@@ -63,7 +64,7 @@ public:
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0x9F9AB17D4C397C9E;
+	static const int64_t serialVersionUID = (int64_t)0x9f9ab17d4c397c9e;
 	int64_t epochSecond = 0;
 	::java::time::LocalDateTime* transition = nullptr;
 	::java::time::ZoneOffset* offsetBefore = nullptr;

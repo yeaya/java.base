@@ -30,6 +30,7 @@ class PrivateKeyInfo : public ::java::lang::Object {
 	$class(PrivateKeyInfo, 0, ::java::lang::Object)
 public:
 	PrivateKeyInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* encoded);
 	void clear();
 	::sun::security::x509::AlgorithmId* getAlgorithm();

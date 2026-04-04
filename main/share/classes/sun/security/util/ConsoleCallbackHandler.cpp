@@ -1,10 +1,8 @@
 #include <sun/security/util/ConsoleCallbackHandler.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/lang/NumberFormatException.h>
 #include <javax/security/auth/callback/Callback.h>
 #include <javax/security/auth/callback/ConfirmationCallback.h>
@@ -33,14 +31,11 @@ using $ConsoleCallbackHandler$1OptionInfoArray = $Array<::sun::security::util::C
 using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $Callback = ::javax::security::auth::callback::Callback;
 using $ConfirmationCallback = ::javax::security::auth::callback::ConfirmationCallback;
 using $NameCallback = ::javax::security::auth::callback::NameCallback;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
@@ -53,43 +48,11 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$MethodInfo _ConsoleCallbackHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ConsoleCallbackHandler, init$, void)},
-	{"doConfirmation", "(Ljavax/security/auth/callback/ConfirmationCallback;)V", nullptr, $PRIVATE, $method(ConsoleCallbackHandler, doConfirmation, void, $ConfirmationCallback*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
-	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(ConsoleCallbackHandler, handle, void, $CallbackArray*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ConsoleCallbackHandler, readLine, $String*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ConsoleCallbackHandler_InnerClassesInfo_[] = {
-	{"sun.security.util.ConsoleCallbackHandler$1OptionInfo", nullptr, "OptionInfo", 0},
-	{}
-};
-
-$ClassInfo _ConsoleCallbackHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.ConsoleCallbackHandler",
-	"java.lang.Object",
-	"javax.security.auth.callback.CallbackHandler",
-	nullptr,
-	_ConsoleCallbackHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConsoleCallbackHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.ConsoleCallbackHandler$1OptionInfo"
-};
-
-$Object* allocate$ConsoleCallbackHandler($Class* clazz) {
-	return $of($alloc(ConsoleCallbackHandler));
-}
-
 void ConsoleCallbackHandler::init$() {
 }
 
 void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConfirmationCallback, confirmation, nullptr);
 	for (int32_t i = 0; i < $nc(callbacks)->length; ++i) {
 		if ($instanceOf($TextOutputCallback, callbacks->get(i))) {
@@ -97,24 +60,16 @@ void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
 			$var($String, text, nullptr);
 			switch ($nc(tc)->getMessageType()) {
 			case $TextOutputCallback::INFORMATION:
-				{
-					$assign(text, ""_s);
-					break;
-				}
+				$assign(text, ""_s);
+				break;
 			case $TextOutputCallback::WARNING:
-				{
-					$assign(text, "Warning: "_s);
-					break;
-				}
+				$assign(text, "Warning: "_s);
+				break;
 			case $TextOutputCallback::ERROR:
-				{
-					$assign(text, "Error: "_s);
-					break;
-				}
+				$assign(text, "Error: "_s);
+				break;
 			default:
-				{
-					$throwNew($UnsupportedCallbackException, callbacks->get(i), "Unrecognized message type"_s);
-				}
+				$throwNew($UnsupportedCallbackException, callbacks->get(i), "Unrecognized message type"_s);
 			}
 			$var($String, message, tc->getMessage());
 			if (message != nullptr) {
@@ -128,21 +83,24 @@ void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
 			if ($nc(nc)->getDefaultName() == nullptr) {
 				$nc($System::err)->print($(nc->getPrompt()));
 			} else {
-				$var($String, var$1, $$str({$(nc->getPrompt()), " ["_s}));
-				$var($String, var$0, $$concat(var$1, $(nc->getDefaultName())));
-				$nc($System::err)->print($$concat(var$0, "] "_s));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($(nc->getPrompt()));
+				var$0->append(" ["_s);
+				var$0->append($(nc->getDefaultName()));
+				var$0->append("] "_s);
+				$nc($System::err)->print($$str(var$0));
 			}
 			$nc($System::err)->flush();
 			$var($String, result, readLine());
 			if ($nc(result)->isEmpty()) {
-				$assign(result, $nc(nc)->getDefaultName());
+				$assign(result, nc->getDefaultName());
 			}
-			$nc(nc)->setName(result);
+			nc->setName(result);
 		} else if ($instanceOf($PasswordCallback, callbacks->get(i))) {
 			$var($PasswordCallback, pc, $cast($PasswordCallback, callbacks->get(i)));
 			$nc($System::err)->print($($nc(pc)->getPrompt()));
-			$nc($System::err)->flush();
-			$nc(pc)->setPassword($($Password::readPassword($System::in, pc->isEchoOn())));
+			$System::err->flush();
+			pc->setPassword($($Password::readPassword($System::in, pc->isEchoOn())));
 		} else if ($instanceOf($ConfirmationCallback, callbacks->get(i))) {
 			$assign(confirmation, $cast($ConfirmationCallback, callbacks->get(i)));
 		} else {
@@ -155,7 +113,7 @@ void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
 }
 
 $String* ConsoleCallbackHandler::readLine() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, $$new($BufferedReader, $$new($InputStreamReader, $System::in))->readLine());
 	if (result == nullptr) {
 		$throwNew($IOException, "Cannot read from System.in"_s);
@@ -164,75 +122,57 @@ $String* ConsoleCallbackHandler::readLine() {
 }
 
 void ConsoleCallbackHandler::doConfirmation($ConfirmationCallback* confirmation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, nullptr);
 	int32_t messageType = $nc(confirmation)->getMessageType();
 	switch (messageType) {
 	case $ConfirmationCallback::WARNING:
-		{
-			$assign(prefix, "Warning: "_s);
-			break;
-		}
+		$assign(prefix, "Warning: "_s);
+		break;
 	case $ConfirmationCallback::ERROR:
-		{
-			$assign(prefix, "Error: "_s);
-			break;
-		}
+		$assign(prefix, "Error: "_s);
+		break;
 	case $ConfirmationCallback::INFORMATION:
-		{
-			$assign(prefix, ""_s);
-			break;
-		}
+		$assign(prefix, ""_s);
+		break;
 	default:
-		{
-			$throwNew($UnsupportedCallbackException, confirmation, $$str({"Unrecognized message type: "_s, $$str(messageType)}));
-		}
+		$throwNew($UnsupportedCallbackException, confirmation, $$str({"Unrecognized message type: "_s, $$str(messageType)}));
 	}
 	{
 	}
 	$var($ConsoleCallbackHandler$1OptionInfoArray, options, nullptr);
 	int32_t optionType = confirmation->getOptionType();
 	{
-		$var($StringArray, optionStrings, nullptr)
+		$var($StringArray, optionStrings, nullptr);
 		switch (optionType) {
 		case $ConfirmationCallback::YES_NO_OPTION:
-			{
-				$assign(options, $new($ConsoleCallbackHandler$1OptionInfoArray, {
-					$$new($ConsoleCallbackHandler$1OptionInfo, this, "Yes"_s, $ConfirmationCallback::YES),
-					$$new($ConsoleCallbackHandler$1OptionInfo, this, "No"_s, $ConfirmationCallback::NO)
-				}));
-				break;
-			}
+			$assign(options, $new($ConsoleCallbackHandler$1OptionInfoArray, {
+				$$new($ConsoleCallbackHandler$1OptionInfo, this, "Yes"_s, $ConfirmationCallback::YES),
+				$$new($ConsoleCallbackHandler$1OptionInfo, this, "No"_s, $ConfirmationCallback::NO)
+			}));
+			break;
 		case $ConfirmationCallback::YES_NO_CANCEL_OPTION:
-			{
-				$assign(options, $new($ConsoleCallbackHandler$1OptionInfoArray, {
-					$$new($ConsoleCallbackHandler$1OptionInfo, this, "Yes"_s, $ConfirmationCallback::YES),
-					$$new($ConsoleCallbackHandler$1OptionInfo, this, "No"_s, $ConfirmationCallback::NO),
-					$$new($ConsoleCallbackHandler$1OptionInfo, this, "Cancel"_s, $ConfirmationCallback::CANCEL)
-				}));
-				break;
-			}
+			$assign(options, $new($ConsoleCallbackHandler$1OptionInfoArray, {
+				$$new($ConsoleCallbackHandler$1OptionInfo, this, "Yes"_s, $ConfirmationCallback::YES),
+				$$new($ConsoleCallbackHandler$1OptionInfo, this, "No"_s, $ConfirmationCallback::NO),
+				$$new($ConsoleCallbackHandler$1OptionInfo, this, "Cancel"_s, $ConfirmationCallback::CANCEL)
+			}));
+			break;
 		case $ConfirmationCallback::OK_CANCEL_OPTION:
-			{
-				$assign(options, $new($ConsoleCallbackHandler$1OptionInfoArray, {
-					$$new($ConsoleCallbackHandler$1OptionInfo, this, "OK"_s, $ConfirmationCallback::OK),
-					$$new($ConsoleCallbackHandler$1OptionInfo, this, "Cancel"_s, $ConfirmationCallback::CANCEL)
-				}));
-				break;
-			}
+			$assign(options, $new($ConsoleCallbackHandler$1OptionInfoArray, {
+				$$new($ConsoleCallbackHandler$1OptionInfo, this, "OK"_s, $ConfirmationCallback::OK),
+				$$new($ConsoleCallbackHandler$1OptionInfo, this, "Cancel"_s, $ConfirmationCallback::CANCEL)
+			}));
+			break;
 		case $ConfirmationCallback::UNSPECIFIED_OPTION:
-			{
-				$assign(optionStrings, confirmation->getOptions());
-				$assign(options, $new($ConsoleCallbackHandler$1OptionInfoArray, $nc(optionStrings)->length));
-				for (int32_t i = 0; i < $nc(options)->length; ++i) {
-					options->set(i, $$new($ConsoleCallbackHandler$1OptionInfo, this, $nc(optionStrings)->get(i), i));
-				}
-				break;
+			$assign(optionStrings, confirmation->getOptions());
+			$assign(options, $new($ConsoleCallbackHandler$1OptionInfoArray, $nc(optionStrings)->length));
+			for (int32_t i = 0; i < options->length; ++i) {
+				options->set(i, $$new($ConsoleCallbackHandler$1OptionInfo, this, optionStrings->get(i), i));
 			}
+			break;
 		default:
-			{
-				$throwNew($UnsupportedCallbackException, confirmation, $$str({"Unrecognized option type: "_s, $$str(optionType)}));
-			}
+			$throwNew($UnsupportedCallbackException, confirmation, $$str({"Unrecognized option type: "_s, $$str(optionType)}));
 		}
 	}
 	int32_t defaultOption = confirmation->getDefaultOption();
@@ -241,7 +181,7 @@ void ConsoleCallbackHandler::doConfirmation($ConfirmationCallback* confirmation)
 		$assign(prompt, ""_s);
 	}
 	$assign(prompt, $str({prefix, prompt}));
-	if (!$nc(prompt)->isEmpty()) {
+	if (!prompt->isEmpty()) {
 		$nc($System::err)->println(prompt);
 	}
 	for (int32_t i = 0; i < $nc(options)->length; ++i) {
@@ -252,11 +192,11 @@ void ConsoleCallbackHandler::doConfirmation($ConfirmationCallback* confirmation)
 		}
 	}
 	$nc($System::err)->print("Enter a number: "_s);
-	$nc($System::err)->flush();
+	$System::err->flush();
 	int32_t result = 0;
 	try {
 		result = $Integer::parseInt($(readLine()));
-		if (result < 0 || result > ($nc(options)->length - 1)) {
+		if (result < 0 || result > (options->length - 1)) {
 			result = defaultOption;
 		} else {
 			result = $nc(options->get(result))->value;
@@ -271,7 +211,34 @@ ConsoleCallbackHandler::ConsoleCallbackHandler() {
 }
 
 $Class* ConsoleCallbackHandler::load$($String* name, bool initialize) {
-	$loadClass(ConsoleCallbackHandler, name, initialize, &_ConsoleCallbackHandler_ClassInfo_, allocate$ConsoleCallbackHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ConsoleCallbackHandler, init$, void)},
+		{"doConfirmation", "(Ljavax/security/auth/callback/ConfirmationCallback;)V", nullptr, $PRIVATE, $method(ConsoleCallbackHandler, doConfirmation, void, $ConfirmationCallback*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
+		{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(ConsoleCallbackHandler, handle, void, $CallbackArray*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
+		{"readLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ConsoleCallbackHandler, readLine, $String*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.ConsoleCallbackHandler$1OptionInfo", nullptr, "OptionInfo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.ConsoleCallbackHandler",
+		"java.lang.Object",
+		"javax.security.auth.callback.CallbackHandler",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.ConsoleCallbackHandler$1OptionInfo"
+	};
+	$loadClass(ConsoleCallbackHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConsoleCallbackHandler);
+	});
 	return class$;
 }
 

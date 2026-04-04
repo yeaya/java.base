@@ -1,5 +1,4 @@
 #include <java/security/AccessControlException.h>
-
 #include <java/lang/SecurityException.h>
 #include <java/security/Permission.h>
 #include <jcpp.h>
@@ -14,47 +13,6 @@ using $Permission = ::java::security::Permission;
 
 namespace java {
 	namespace security {
-
-$NamedAttribute AccessControlException_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _AccessControlException_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", AccessControlException_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _AccessControlException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AccessControlException, serialVersionUID)},
-	{"perm", "Ljava/security/Permission;", nullptr, $PRIVATE, $field(AccessControlException, perm)},
-	{}
-};
-
-$MethodInfo _AccessControlException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccessControlException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/security/Permission;)V", nullptr, $PUBLIC, $method(AccessControlException, init$, void, $String*, $Permission*)},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(AccessControlException, getPermission, $Permission*)},
-	{}
-};
-
-$ClassInfo _AccessControlException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.AccessControlException",
-	"java.lang.SecurityException",
-	nullptr,
-	_AccessControlException_FieldInfo_,
-	_AccessControlException_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_AccessControlException_Annotations_
-};
-
-$Object* allocate$AccessControlException($Class* clazz) {
-	return $of($alloc(AccessControlException));
-}
 
 void AccessControlException::init$($String* s) {
 	$SecurityException::init$(s);
@@ -80,7 +38,41 @@ void AccessControlException::throw$() {
 }
 
 $Class* AccessControlException::load$($String* name, bool initialize) {
-	$loadClass(AccessControlException, name, initialize, &_AccessControlException_ClassInfo_, allocate$AccessControlException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AccessControlException, serialVersionUID)},
+		{"perm", "Ljava/security/Permission;", nullptr, $PRIVATE, $field(AccessControlException, perm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccessControlException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/security/Permission;)V", nullptr, $PUBLIC, $method(AccessControlException, init$, void, $String*, $Permission*)},
+		{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(AccessControlException, getPermission, $Permission*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.AccessControlException",
+		"java.lang.SecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(AccessControlException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessControlException);
+	});
 	return class$;
 }
 

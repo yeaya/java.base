@@ -41,6 +41,7 @@ class UnixDomainSockets : public ::java::lang::Object {
 	$class(UnixDomainSockets, 0, ::java::lang::Object)
 public:
 	UnixDomainSockets();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t accept(::java::io::FileDescriptor* fd, ::java::io::FileDescriptor* newfd, $StringArray* paths);
 	static int32_t accept0(::java::io::FileDescriptor* fd, ::java::io::FileDescriptor* newfd, $ObjectArray* array);

@@ -46,6 +46,7 @@ class $import LoaderPool : public ::java::lang::Object {
 	$class(LoaderPool, 0, ::java::lang::Object)
 public:
 	LoaderPool();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::module::Configuration* cf, ::java::util::List* parentLayers, ::java::lang::ClassLoader* parentLoader);
 	static void lambda$new$0(::java::lang::module::Configuration* cf, ::java::util::List* parentLayers, ::jdk::internal::loader::Loader* l);
 	::jdk::internal::loader::Loader* loaderFor($String* name);

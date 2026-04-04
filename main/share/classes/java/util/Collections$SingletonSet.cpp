@@ -1,5 +1,4 @@
 #include <java/util/Collections$SingletonSet.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
@@ -25,53 +24,6 @@ using $Predicate = ::java::util::function::Predicate;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$SingletonSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SingletonSet, serialVersionUID)},
-	{"element", "Ljava/lang/Object;", "TE;", $PRIVATE | $FINAL, $field(Collections$SingletonSet, element)},
-	{}
-};
-
-$MethodInfo _Collections$SingletonSet_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(Collections$SingletonSet, init$, void, Object$*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonSet, contains, bool, Object$*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$SingletonSet, forEach, void, $Consumer*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonSet, hashCode, int32_t)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SingletonSet, iterator, $Iterator*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(Collections$SingletonSet, removeIf, bool, $Predicate*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonSet, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SingletonSet, spliterator, $Spliterator*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$SingletonSet_InnerClassesInfo_[] = {
-	{"java.util.Collections$SingletonSet", "java.util.Collections", "SingletonSet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$SingletonSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$SingletonSet",
-	"java.util.AbstractSet",
-	"java.io.Serializable",
-	_Collections$SingletonSet_FieldInfo_,
-	_Collections$SingletonSet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractSet<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$SingletonSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$SingletonSet($Class* clazz) {
-	return $of($alloc(Collections$SingletonSet));
-}
 
 bool Collections$SingletonSet::equals(Object$* o) {
 	 return this->$AbstractSet::equals(o);
@@ -127,7 +79,48 @@ Collections$SingletonSet::Collections$SingletonSet() {
 }
 
 $Class* Collections$SingletonSet::load$($String* name, bool initialize) {
-	$loadClass(Collections$SingletonSet, name, initialize, &_Collections$SingletonSet_ClassInfo_, allocate$Collections$SingletonSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SingletonSet, serialVersionUID)},
+		{"element", "Ljava/lang/Object;", "TE;", $PRIVATE | $FINAL, $field(Collections$SingletonSet, element)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(Collections$SingletonSet, init$, void, Object$*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonSet, contains, bool, Object$*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$SingletonSet, forEach, void, $Consumer*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonSet, hashCode, int32_t)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SingletonSet, iterator, $Iterator*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(Collections$SingletonSet, removeIf, bool, $Predicate*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonSet, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SingletonSet, spliterator, $Spliterator*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$SingletonSet", "java.util.Collections", "SingletonSet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$SingletonSet",
+		"java.util.AbstractSet",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractSet<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$SingletonSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$SingletonSet));
+	});
 	return class$;
 }
 

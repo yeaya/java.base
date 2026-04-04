@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ClientKeyExchange.h>
-
 #include <sun/security/ssl/ClientKeyExchange$ClientKeyExchangeConsumer.h>
 #include <sun/security/ssl/ClientKeyExchange$ClientKeyExchangeProducer.h>
 #include <sun/security/ssl/HandshakeProducer.h>
@@ -19,49 +18,13 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _ClientKeyExchange_FieldInfo_[] = {
-	{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(ClientKeyExchange, handshakeConsumer)},
-	{"handshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ClientKeyExchange, handshakeProducer)},
-	{}
-};
-
-$MethodInfo _ClientKeyExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ClientKeyExchange, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ClientKeyExchange_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ClientKeyExchange$ClientKeyExchangeConsumer", "sun.security.ssl.ClientKeyExchange", "ClientKeyExchangeConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ClientKeyExchange$ClientKeyExchangeProducer", "sun.security.ssl.ClientKeyExchange", "ClientKeyExchangeProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ClientKeyExchange_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ClientKeyExchange",
-	"java.lang.Object",
-	nullptr,
-	_ClientKeyExchange_FieldInfo_,
-	_ClientKeyExchange_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientKeyExchange_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ClientKeyExchange$ClientKeyExchangeConsumer,sun.security.ssl.ClientKeyExchange$ClientKeyExchangeProducer"
-};
-
-$Object* allocate$ClientKeyExchange($Class* clazz) {
-	return $of($alloc(ClientKeyExchange));
-}
-
 $SSLConsumer* ClientKeyExchange::handshakeConsumer = nullptr;
 $HandshakeProducer* ClientKeyExchange::handshakeProducer = nullptr;
 
 void ClientKeyExchange::init$() {
 }
 
-void clinit$ClientKeyExchange($Class* class$) {
+void ClientKeyExchange::clinit$($Class* clazz) {
 	$assignStatic(ClientKeyExchange::handshakeConsumer, $new($ClientKeyExchange$ClientKeyExchangeConsumer));
 	$assignStatic(ClientKeyExchange::handshakeProducer, $new($ClientKeyExchange$ClientKeyExchangeProducer));
 }
@@ -70,7 +33,37 @@ ClientKeyExchange::ClientKeyExchange() {
 }
 
 $Class* ClientKeyExchange::load$($String* name, bool initialize) {
-	$loadClass(ClientKeyExchange, name, initialize, &_ClientKeyExchange_ClassInfo_, clinit$ClientKeyExchange, allocate$ClientKeyExchange);
+	$FieldInfo fieldInfos$$[] = {
+		{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(ClientKeyExchange, handshakeConsumer)},
+		{"handshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ClientKeyExchange, handshakeProducer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ClientKeyExchange, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ClientKeyExchange$ClientKeyExchangeConsumer", "sun.security.ssl.ClientKeyExchange", "ClientKeyExchangeConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ClientKeyExchange$ClientKeyExchangeProducer", "sun.security.ssl.ClientKeyExchange", "ClientKeyExchangeProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ClientKeyExchange",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ClientKeyExchange$ClientKeyExchangeConsumer,sun.security.ssl.ClientKeyExchange$ClientKeyExchangeProducer"
+	};
+	$loadClass(ClientKeyExchange, name, initialize, &classInfo$$, ClientKeyExchange::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientKeyExchange);
+	});
 	return class$;
 }
 

@@ -49,6 +49,7 @@ public:
 	virtual ::java::net::SocketAddress* getLocalAddress() override {return nullptr;}
 	virtual int32_t hashCode() override;
 	virtual bool isOpen() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::SelectorProvider* provider);
 	virtual bool connect(::java::net::SocketAddress* remote) {return false;}
 	virtual bool finishConnect() {return false;}

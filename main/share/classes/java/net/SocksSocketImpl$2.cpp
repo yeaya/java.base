@@ -1,5 +1,4 @@
 #include <java/net/SocksSocketImpl$2.h>
-
 #include <java/net/Authenticator.h>
 #include <java/net/InetAddress.h>
 #include <java/net/PasswordAuthentication.h>
@@ -18,63 +17,56 @@ using $SocksSocketImpl = ::java::net::SocksSocketImpl;
 namespace java {
 	namespace net {
 
-$FieldInfo _SocksSocketImpl$2_FieldInfo_[] = {
-	{"this$0", "Ljava/net/SocksSocketImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SocksSocketImpl$2, this$0)},
-	{"val$addr", "Ljava/net/InetAddress;", nullptr, $FINAL | $SYNTHETIC, $field(SocksSocketImpl$2, val$addr)},
-	{}
-};
-
-$MethodInfo _SocksSocketImpl$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocksSocketImpl;Ljava/net/InetAddress;)V", nullptr, 0, $method(SocksSocketImpl$2, init$, void, $SocksSocketImpl*, $InetAddress*)},
-	{"run", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(SocksSocketImpl$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SocksSocketImpl$2_EnclosingMethodInfo_ = {
-	"java.net.SocksSocketImpl",
-	"authenticate",
-	"(BLjava/io/InputStream;Ljava/io/BufferedOutputStream;J)Z"
-};
-
-$InnerClassInfo _SocksSocketImpl$2_InnerClassesInfo_[] = {
-	{"java.net.SocksSocketImpl$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SocksSocketImpl$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.SocksSocketImpl$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_SocksSocketImpl$2_FieldInfo_,
-	_SocksSocketImpl$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/PasswordAuthentication;>;",
-	&_SocksSocketImpl$2_EnclosingMethodInfo_,
-	_SocksSocketImpl$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.SocksSocketImpl"
-};
-
-$Object* allocate$SocksSocketImpl$2($Class* clazz) {
-	return $of($alloc(SocksSocketImpl$2));
-}
-
 void SocksSocketImpl$2::init$($SocksSocketImpl* this$0, $InetAddress* val$addr) {
 	$set(this, this$0, this$0);
 	$set(this, val$addr, val$addr);
 }
 
 $Object* SocksSocketImpl$2::run() {
-	return $of($Authenticator::requestPasswordAuthentication(this->this$0->server, this->val$addr, this->this$0->serverPort, "SOCKS5"_s, "SOCKS authentication"_s, nullptr));
+	return $Authenticator::requestPasswordAuthentication(this->this$0->server, this->val$addr, this->this$0->serverPort, "SOCKS5"_s, "SOCKS authentication"_s, nullptr);
 }
 
 SocksSocketImpl$2::SocksSocketImpl$2() {
 }
 
 $Class* SocksSocketImpl$2::load$($String* name, bool initialize) {
-	$loadClass(SocksSocketImpl$2, name, initialize, &_SocksSocketImpl$2_ClassInfo_, allocate$SocksSocketImpl$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/net/SocksSocketImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SocksSocketImpl$2, this$0)},
+		{"val$addr", "Ljava/net/InetAddress;", nullptr, $FINAL | $SYNTHETIC, $field(SocksSocketImpl$2, val$addr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/SocksSocketImpl;Ljava/net/InetAddress;)V", nullptr, 0, $method(SocksSocketImpl$2, init$, void, $SocksSocketImpl*, $InetAddress*)},
+		{"run", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(SocksSocketImpl$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.SocksSocketImpl",
+		"authenticate",
+		"(BLjava/io/InputStream;Ljava/io/BufferedOutputStream;J)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.SocksSocketImpl$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.SocksSocketImpl$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/PasswordAuthentication;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.SocksSocketImpl"
+	};
+	$loadClass(SocksSocketImpl$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocksSocketImpl$2);
+	});
 	return class$;
 }
 

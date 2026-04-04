@@ -1,5 +1,4 @@
 #include <IsBlank.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -11,7 +10,6 @@
 #include <java/util/stream/IntStream.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $Character = ::java::lang::Character;
@@ -32,27 +30,24 @@ public:
 	virtual bool test(int32_t c) override {
 		 return IsBlank::lambda$testWhitespace$0(c);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<IsBlank$$Lambda$lambda$testWhitespace$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo IsBlank$$Lambda$lambda$testWhitespace$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IsBlank$$Lambda$lambda$testWhitespace$0, init$, void)},
-	{"test", "(I)Z", nullptr, $PUBLIC, $virtualMethod(IsBlank$$Lambda$lambda$testWhitespace$0, test, bool, int32_t)},
-	{}
-};
-$ClassInfo IsBlank$$Lambda$lambda$testWhitespace$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"IsBlank$$Lambda$lambda$testWhitespace$0",
-	"java.lang.Object",
-	"java.util.function.IntPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* IsBlank$$Lambda$lambda$testWhitespace$0::load$($String* name, bool initialize) {
-	$loadClass(IsBlank$$Lambda$lambda$testWhitespace$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IsBlank$$Lambda$lambda$testWhitespace$0, init$, void)},
+		{"test", "(I)Z", nullptr, $PUBLIC, $virtualMethod(IsBlank$$Lambda$lambda$testWhitespace$0, test, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"IsBlank$$Lambda$lambda$testWhitespace$0",
+		"java.lang.Object",
+		"java.util.function.IntPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IsBlank$$Lambda$lambda$testWhitespace$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IsBlank$$Lambda$lambda$testWhitespace$0);
+	});
 	return class$;
 }
 $Class* IsBlank$$Lambda$lambda$testWhitespace$0::class$ = nullptr;
@@ -66,60 +61,32 @@ public:
 	virtual void accept(int32_t c) override {
 		IsBlank::lambda$testWhitespace$1(sb, c);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<IsBlank$$Lambda$lambda$testWhitespace$1$1>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo IsBlank$$Lambda$lambda$testWhitespace$1$1::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(IsBlank$$Lambda$lambda$testWhitespace$1$1, sb)},
-	{}
-};
-$MethodInfo IsBlank$$Lambda$lambda$testWhitespace$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(IsBlank$$Lambda$lambda$testWhitespace$1$1, init$, void, $StringBuilder*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(IsBlank$$Lambda$lambda$testWhitespace$1$1, accept, void, int32_t)},
-	{}
-};
-$ClassInfo IsBlank$$Lambda$lambda$testWhitespace$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"IsBlank$$Lambda$lambda$testWhitespace$1$1",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* IsBlank$$Lambda$lambda$testWhitespace$1$1::load$($String* name, bool initialize) {
-	$loadClass(IsBlank$$Lambda$lambda$testWhitespace$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(IsBlank$$Lambda$lambda$testWhitespace$1$1, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(IsBlank$$Lambda$lambda$testWhitespace$1$1, init$, void, $StringBuilder*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(IsBlank$$Lambda$lambda$testWhitespace$1$1, accept, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"IsBlank$$Lambda$lambda$testWhitespace$1$1",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IsBlank$$Lambda$lambda$testWhitespace$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IsBlank$$Lambda$lambda$testWhitespace$1$1);
+	});
 	return class$;
 }
 $Class* IsBlank$$Lambda$lambda$testWhitespace$1$1::class$ = nullptr;
-
-$MethodInfo _IsBlank_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IsBlank, init$, void)},
-	{"lambda$testWhitespace$0", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsBlank, lambda$testWhitespace$0, bool, int32_t)},
-	{"lambda$testWhitespace$1", "(Ljava/lang/StringBuilder;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsBlank, lambda$testWhitespace$1, void, $StringBuilder*, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(IsBlank, main, void, $StringArray*)},
-	{"test", "(Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(IsBlank, test, void, $String*, bool)},
-	{"testIsBlank", "()V", nullptr, $STATIC, $staticMethod(IsBlank, testIsBlank, void)},
-	{"testWhitespace", "()V", nullptr, $STATIC, $staticMethod(IsBlank, testWhitespace, void)},
-	{}
-};
-
-$ClassInfo _IsBlank_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IsBlank",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IsBlank_MethodInfo_
-};
-
-$Object* allocate$IsBlank($Class* clazz) {
-	return $of($alloc(IsBlank));
-}
 
 void IsBlank::init$() {
 }
@@ -139,20 +106,20 @@ void IsBlank::testIsBlank() {
 }
 
 void IsBlank::testWhitespace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, 64));
-	$nc($($nc($($IntStream::range(1, 0x0000FFFF)))->filter(static_cast<$IntPredicate*>($$new(IsBlank$$Lambda$lambda$testWhitespace$0)))))->forEach(static_cast<$IntConsumer*>($$new(IsBlank$$Lambda$lambda$testWhitespace$1$1, sb)));
+	$$nc($$nc($IntStream::range(1, 0x0000ffff))->filter($$new(IsBlank$$Lambda$lambda$testWhitespace$0)))->forEach($$new(IsBlank$$Lambda$lambda$testWhitespace$1$1, sb));
 	$var($String, whiteSpace, sb->toString());
 	test(whiteSpace, true);
 	test($$str({whiteSpace, "abc"_s, whiteSpace}), false);
 }
 
 void IsBlank::test($String* input, bool expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(input)->isBlank() != expected) {
 		$nc($System::err)->format("Failed test, Input: %s, Expected: %b%n"_s, $$new($ObjectArray, {
-			$of(input),
-			$($of($Boolean::valueOf(expected)))
+			input,
+			$($Boolean::valueOf(expected))
 		}));
 		$throwNew($RuntimeException);
 	}
@@ -171,14 +138,34 @@ IsBlank::IsBlank() {
 
 $Class* IsBlank::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(IsBlank$$Lambda$lambda$testWhitespace$0::classInfo$.name)) {
+		if (name->equals("IsBlank$$Lambda$lambda$testWhitespace$0")) {
 			return IsBlank$$Lambda$lambda$testWhitespace$0::load$(name, initialize);
 		}
-		if (name->equals(IsBlank$$Lambda$lambda$testWhitespace$1$1::classInfo$.name)) {
+		if (name->equals("IsBlank$$Lambda$lambda$testWhitespace$1$1")) {
 			return IsBlank$$Lambda$lambda$testWhitespace$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(IsBlank, name, initialize, &_IsBlank_ClassInfo_, allocate$IsBlank);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IsBlank, init$, void)},
+		{"lambda$testWhitespace$0", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsBlank, lambda$testWhitespace$0, bool, int32_t)},
+		{"lambda$testWhitespace$1", "(Ljava/lang/StringBuilder;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsBlank, lambda$testWhitespace$1, void, $StringBuilder*, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(IsBlank, main, void, $StringArray*)},
+		{"test", "(Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(IsBlank, test, void, $String*, bool)},
+		{"testIsBlank", "()V", nullptr, $STATIC, $staticMethod(IsBlank, testIsBlank, void)},
+		{"testWhitespace", "()V", nullptr, $STATIC, $staticMethod(IsBlank, testWhitespace, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IsBlank",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IsBlank, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IsBlank);
+	});
 	return class$;
 }
 

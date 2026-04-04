@@ -1,5 +1,4 @@
 #include <WakeupEmpty$1.h>
-
 #include <WakeupEmpty.h>
 #include <java/lang/InterruptedException.h>
 #include <java/nio/channels/Selector.h>
@@ -12,48 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Selector = ::java::nio::channels::Selector;
-
-$FieldInfo _WakeupEmpty$1_FieldInfo_[] = {
-	{"val$sel", "Ljava/nio/channels/Selector;", nullptr, $FINAL | $SYNTHETIC, $field(WakeupEmpty$1, val$sel)},
-	{}
-};
-
-$MethodInfo _WakeupEmpty$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Selector;)V", nullptr, 0, $method(WakeupEmpty$1, init$, void, $Selector*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WakeupEmpty$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _WakeupEmpty$1_EnclosingMethodInfo_ = {
-	"WakeupEmpty",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _WakeupEmpty$1_InnerClassesInfo_[] = {
-	{"WakeupEmpty$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WakeupEmpty$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"WakeupEmpty$1",
-	"java.lang.Thread",
-	nullptr,
-	_WakeupEmpty$1_FieldInfo_,
-	_WakeupEmpty$1_MethodInfo_,
-	nullptr,
-	&_WakeupEmpty$1_EnclosingMethodInfo_,
-	_WakeupEmpty$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"WakeupEmpty"
-};
-
-$Object* allocate$WakeupEmpty$1($Class* clazz) {
-	return $of($alloc(WakeupEmpty$1));
-}
 
 void WakeupEmpty$1::init$($Selector* val$sel) {
 	$set(this, val$sel, val$sel);
@@ -72,7 +29,42 @@ WakeupEmpty$1::WakeupEmpty$1() {
 }
 
 $Class* WakeupEmpty$1::load$($String* name, bool initialize) {
-	$loadClass(WakeupEmpty$1, name, initialize, &_WakeupEmpty$1_ClassInfo_, allocate$WakeupEmpty$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$sel", "Ljava/nio/channels/Selector;", nullptr, $FINAL | $SYNTHETIC, $field(WakeupEmpty$1, val$sel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/Selector;)V", nullptr, 0, $method(WakeupEmpty$1, init$, void, $Selector*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WakeupEmpty$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"WakeupEmpty",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"WakeupEmpty$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"WakeupEmpty$1",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"WakeupEmpty"
+	};
+	$loadClass(WakeupEmpty$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WakeupEmpty$1);
+	});
 	return class$;
 }
 

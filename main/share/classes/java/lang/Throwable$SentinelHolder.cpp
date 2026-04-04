@@ -1,5 +1,4 @@
 #include <java/lang/Throwable$SentinelHolder.h>
-
 #include <java/lang/StackTraceElement.h>
 #include <jcpp.h>
 
@@ -18,49 +17,13 @@ using $StackTraceElement = ::java::lang::StackTraceElement;
 namespace java {
 	namespace lang {
 
-$FieldInfo _Throwable$SentinelHolder_FieldInfo_[] = {
-	{"STACK_TRACE_ELEMENT_SENTINEL", "Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Throwable$SentinelHolder, STACK_TRACE_ELEMENT_SENTINEL)},
-	{"STACK_TRACE_SENTINEL", "[Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Throwable$SentinelHolder, STACK_TRACE_SENTINEL)},
-	{}
-};
-
-$MethodInfo _Throwable$SentinelHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Throwable$SentinelHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Throwable$SentinelHolder_InnerClassesInfo_[] = {
-	{"java.lang.Throwable$SentinelHolder", "java.lang.Throwable", "SentinelHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Throwable$SentinelHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Throwable$SentinelHolder",
-	"java.lang.Object",
-	nullptr,
-	_Throwable$SentinelHolder_FieldInfo_,
-	_Throwable$SentinelHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Throwable$SentinelHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Throwable"
-};
-
-$Object* allocate$Throwable$SentinelHolder($Class* clazz) {
-	return $of($alloc(Throwable$SentinelHolder));
-}
-
 $StackTraceElement* Throwable$SentinelHolder::STACK_TRACE_ELEMENT_SENTINEL = nullptr;
 $StackTraceElementArray* Throwable$SentinelHolder::STACK_TRACE_SENTINEL = nullptr;
 
 void Throwable$SentinelHolder::init$() {
 }
 
-void clinit$Throwable$SentinelHolder($Class* class$) {
+void Throwable$SentinelHolder::clinit$($Class* clazz) {
 	$assignStatic(Throwable$SentinelHolder::STACK_TRACE_ELEMENT_SENTINEL, $new($StackTraceElement, ""_s, ""_s, nullptr, $Integer::MIN_VALUE));
 	$assignStatic(Throwable$SentinelHolder::STACK_TRACE_SENTINEL, $new($StackTraceElementArray, {Throwable$SentinelHolder::STACK_TRACE_ELEMENT_SENTINEL}));
 }
@@ -69,7 +32,37 @@ Throwable$SentinelHolder::Throwable$SentinelHolder() {
 }
 
 $Class* Throwable$SentinelHolder::load$($String* name, bool initialize) {
-	$loadClass(Throwable$SentinelHolder, name, initialize, &_Throwable$SentinelHolder_ClassInfo_, clinit$Throwable$SentinelHolder, allocate$Throwable$SentinelHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"STACK_TRACE_ELEMENT_SENTINEL", "Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Throwable$SentinelHolder, STACK_TRACE_ELEMENT_SENTINEL)},
+		{"STACK_TRACE_SENTINEL", "[Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Throwable$SentinelHolder, STACK_TRACE_SENTINEL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Throwable$SentinelHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Throwable$SentinelHolder", "java.lang.Throwable", "SentinelHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Throwable$SentinelHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Throwable"
+	};
+	$loadClass(Throwable$SentinelHolder, name, initialize, &classInfo$$, Throwable$SentinelHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Throwable$SentinelHolder);
+	});
 	return class$;
 }
 

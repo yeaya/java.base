@@ -23,6 +23,7 @@ public:
 	virtual void forEachRemaining(::java::util::function::Consumer* action) override;
 	virtual bool hasNext() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(Object$* e) override;
 	virtual bool hasPrevious() override;

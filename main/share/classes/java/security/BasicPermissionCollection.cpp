@@ -1,5 +1,4 @@
 #include <java/security/BasicPermissionCollection.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
@@ -12,7 +11,6 @@
 #include <java/util/AbstractMap.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Hashtable.h>
-#include <java/util/Map.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <jcpp.h>
 
@@ -36,43 +34,10 @@ using $PermissionCollection = ::java::security::PermissionCollection;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
-using $Map = ::java::util::Map;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _BasicPermissionCollection_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicPermissionCollection, serialVersionUID)},
-	{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/security/Permission;>;", $PRIVATE | $TRANSIENT, $field(BasicPermissionCollection, perms)},
-	{"all_allowed", "Z", nullptr, $PRIVATE, $field(BasicPermissionCollection, all_allowed)},
-	{"permClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(BasicPermissionCollection, permClass)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicPermissionCollection, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _BasicPermissionCollection_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $method(BasicPermissionCollection, init$, void, $Class*)},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(BasicPermissionCollection, add, void, $Permission*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(BasicPermissionCollection, elements, $Enumeration*)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(BasicPermissionCollection, implies, bool, $Permission*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BasicPermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(BasicPermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _BasicPermissionCollection_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.security.BasicPermissionCollection",
-	"java.security.PermissionCollection",
-	nullptr,
-	_BasicPermissionCollection_FieldInfo_,
-	_BasicPermissionCollection_MethodInfo_
-};
-
-$Object* allocate$BasicPermissionCollection($Class* clazz) {
-	return $of($alloc(BasicPermissionCollection));
-}
 
 $ObjectStreamFieldArray* BasicPermissionCollection::serialPersistentFields = nullptr;
 
@@ -84,7 +49,7 @@ void BasicPermissionCollection::init$($Class* clazz) {
 }
 
 void BasicPermissionCollection::add($Permission* permission) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BasicPermission, basicPermission, nullptr);
 	bool var$0 = $instanceOf($BasicPermission, permission);
 	if (var$0) {
@@ -112,7 +77,7 @@ void BasicPermissionCollection::add($Permission* permission) {
 }
 
 bool BasicPermissionCollection::implies($Permission* permission) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BasicPermission, basicPermission, nullptr);
 	bool var$0 = $instanceOf($BasicPermission, permission);
 	if (var$0) {
@@ -128,7 +93,7 @@ bool BasicPermissionCollection::implies($Permission* permission) {
 	if (this->all_allowed) {
 		return true;
 	}
-	$var($String, path, $nc(basicPermission)->getCanonicalName());
+	$var($String, path, basicPermission->getCanonicalName());
 	$var($Permission, x, $cast($Permission, $nc(this->perms)->get(path)));
 	if (x != nullptr) {
 		return x->implies(permission);
@@ -136,7 +101,7 @@ bool BasicPermissionCollection::implies($Permission* permission) {
 	int32_t last = 0;
 	int32_t offset = 0;
 	offset = $nc(path)->length() - 1;
-	while ((last = path->lastIndexOf((int32_t)u'.', offset)) != -1) {
+	while ((last = path->lastIndexOf(u'.', offset)) != -1) {
 		$assign(path, $str({$(path->substring(0, last + 1)), "*"_s}));
 		$assign(x, $cast($Permission, $nc(this->perms)->get(path)));
 		if (x != nullptr) {
@@ -152,26 +117,26 @@ $Enumeration* BasicPermissionCollection::elements() {
 }
 
 void BasicPermissionCollection::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, permissions, $new($Hashtable, $nc(this->perms)->size() * 2));
-	permissions->putAll(static_cast<$Map*>(static_cast<$AbstractMap*>(this->perms)));
+	permissions->putAll($cast($AbstractMap, this->perms));
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
 	$nc(pfields)->put("all_allowed"_s, this->all_allowed);
-	pfields->put("permissions"_s, $of(permissions));
-	pfields->put("permClass"_s, $of(this->permClass));
+	pfields->put("permissions"_s, permissions);
+	pfields->put("permClass"_s, this->permClass);
 	out->writeFields();
 }
 
 void BasicPermissionCollection::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
-	$var($Hashtable, permissions, $cast($Hashtable, $nc(gfields)->get("permissions"_s, ($Object*)nullptr)));
+	$var($Hashtable, permissions, $cast($Hashtable, $nc(gfields)->get("permissions"_s, nullptr)));
 	$set(this, perms, $new($ConcurrentHashMap, $nc(permissions)->size() * 2));
-	$nc(this->perms)->putAll(permissions);
+	this->perms->putAll(permissions);
 	this->all_allowed = gfields->get("all_allowed"_s, false);
-	$set(this, permClass, $cast($Class, gfields->get("permClass"_s, ($Object*)nullptr)));
+	$set(this, permClass, $cast($Class, gfields->get("permClass"_s, nullptr)));
 	if (this->permClass == nullptr) {
-		$var($Enumeration, e, $nc(permissions)->elements());
+		$var($Enumeration, e, permissions->elements());
 		if ($nc(e)->hasMoreElements()) {
 			$var($Permission, p, $cast($Permission, e->nextElement()));
 			$set(this, permClass, $nc($of(p))->getClass());
@@ -179,10 +144,9 @@ void BasicPermissionCollection::readObject($ObjectInputStream* in) {
 	}
 }
 
-void clinit$BasicPermissionCollection($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void BasicPermissionCollection::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$load($Hashtable);
-	$init($Boolean);
 	$assignStatic(BasicPermissionCollection::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "permissions"_s, $Hashtable::class$),
 		$$new($ObjectStreamField, "all_allowed"_s, $Boolean::TYPE),
@@ -194,7 +158,34 @@ BasicPermissionCollection::BasicPermissionCollection() {
 }
 
 $Class* BasicPermissionCollection::load$($String* name, bool initialize) {
-	$loadClass(BasicPermissionCollection, name, initialize, &_BasicPermissionCollection_ClassInfo_, clinit$BasicPermissionCollection, allocate$BasicPermissionCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicPermissionCollection, serialVersionUID)},
+		{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/security/Permission;>;", $PRIVATE | $TRANSIENT, $field(BasicPermissionCollection, perms)},
+		{"all_allowed", "Z", nullptr, $PRIVATE, $field(BasicPermissionCollection, all_allowed)},
+		{"permClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(BasicPermissionCollection, permClass)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicPermissionCollection, serialPersistentFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $method(BasicPermissionCollection, init$, void, $Class*)},
+		{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(BasicPermissionCollection, add, void, $Permission*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(BasicPermissionCollection, elements, $Enumeration*)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(BasicPermissionCollection, implies, bool, $Permission*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BasicPermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(BasicPermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.security.BasicPermissionCollection",
+		"java.security.PermissionCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicPermissionCollection, name, initialize, &classInfo$$, BasicPermissionCollection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicPermissionCollection);
+	});
 	return class$;
 }
 

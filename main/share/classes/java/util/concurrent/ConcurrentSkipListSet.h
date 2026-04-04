@@ -89,7 +89,7 @@ public:
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $ObjectArray* toArray(::java::util::function::IntFunction* generator) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xDD985079BDCFF15B;
+	static const int64_t serialVersionUID = (int64_t)0xdd985079bdcff15b;
 	::java::util::concurrent::ConcurrentNavigableMap* m = nullptr;
 };
 

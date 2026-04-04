@@ -30,6 +30,7 @@ class Currency$CurrencyNameGetter : public ::sun::util::locale::provider::Locale
 	$class(Currency$CurrencyNameGetter, 0, ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter)
 public:
 	Currency$CurrencyNameGetter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* getObject(::java::util::spi::CurrencyNameProvider* currencyNameProvider, ::java::util::Locale* locale, $String* key, $ObjectArray* params);
 	virtual $Object* getObject(::java::util::spi::LocaleServiceProvider* currencyNameProvider, ::java::util::Locale* locale, $String* key, $ObjectArray* params) override;

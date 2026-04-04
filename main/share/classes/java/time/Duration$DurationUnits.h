@@ -21,6 +21,7 @@ class Duration$DurationUnits : public ::java::lang::Object {
 	$class(Duration$DurationUnits, 0, ::java::lang::Object)
 public:
 	Duration$DurationUnits();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* UNITS;
 };

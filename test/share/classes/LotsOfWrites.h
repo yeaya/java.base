@@ -15,6 +15,7 @@ class $export LotsOfWrites : public ::java::lang::Object {
 	$class(LotsOfWrites, 0, ::java::lang::Object)
 public:
 	LotsOfWrites();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::Random* rand;

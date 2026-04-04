@@ -1,5 +1,4 @@
 #include <Sharing$BadFileOutputStream.h>
-
 #include <Sharing.h>
 #include <java/io/FileDescriptor.h>
 #include <java/io/FileOutputStream.h>
@@ -13,37 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _Sharing$BadFileOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $method(Sharing$BadFileOutputStream, init$, void, $FileDescriptor*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Sharing$BadFileOutputStream, close, void), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Sharing$BadFileOutputStream_InnerClassesInfo_[] = {
-	{"Sharing$BadFileOutputStream", "Sharing", "BadFileOutputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Sharing$BadFileOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"Sharing$BadFileOutputStream",
-	"java.io.FileOutputStream",
-	nullptr,
-	nullptr,
-	_Sharing$BadFileOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Sharing$BadFileOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Sharing"
-};
-
-$Object* allocate$Sharing$BadFileOutputStream($Class* clazz) {
-	return $of($alloc(Sharing$BadFileOutputStream));
-}
-
 void Sharing$BadFileOutputStream::init$($FileDescriptor* fd) {
 	$FileOutputStream::init$(fd);
 }
@@ -56,7 +24,33 @@ Sharing$BadFileOutputStream::Sharing$BadFileOutputStream() {
 }
 
 $Class* Sharing$BadFileOutputStream::load$($String* name, bool initialize) {
-	$loadClass(Sharing$BadFileOutputStream, name, initialize, &_Sharing$BadFileOutputStream_ClassInfo_, allocate$Sharing$BadFileOutputStream);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $method(Sharing$BadFileOutputStream, init$, void, $FileDescriptor*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Sharing$BadFileOutputStream, close, void), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Sharing$BadFileOutputStream", "Sharing", "BadFileOutputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Sharing$BadFileOutputStream",
+		"java.io.FileOutputStream",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Sharing"
+	};
+	$loadClass(Sharing$BadFileOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Sharing$BadFileOutputStream));
+	});
 	return class$;
 }
 

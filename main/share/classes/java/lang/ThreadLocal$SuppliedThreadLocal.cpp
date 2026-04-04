@@ -1,5 +1,4 @@
 #include <java/lang/ThreadLocal$SuppliedThreadLocal.h>
-
 #include <java/lang/ThreadLocal.h>
 #include <java/util/Objects.h>
 #include <java/util/function/Supplier.h>
@@ -16,56 +15,50 @@ using $Supplier = ::java::util::function::Supplier;
 namespace java {
 	namespace lang {
 
-$FieldInfo _ThreadLocal$SuppliedThreadLocal_FieldInfo_[] = {
-	{"supplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<+TT;>;", $PRIVATE | $FINAL, $field(ThreadLocal$SuppliedThreadLocal, supplier)},
-	{}
-};
-
-$MethodInfo _ThreadLocal$SuppliedThreadLocal_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<+TT;>;)V", 0, $method(ThreadLocal$SuppliedThreadLocal, init$, void, $Supplier*)},
-	{"initialValue", "()Ljava/lang/Object;", "()TT;", $PROTECTED, $virtualMethod(ThreadLocal$SuppliedThreadLocal, initialValue, $Object*)},
-	{}
-};
-
-$InnerClassInfo _ThreadLocal$SuppliedThreadLocal_InnerClassesInfo_[] = {
-	{"java.lang.ThreadLocal$SuppliedThreadLocal", "java.lang.ThreadLocal", "SuppliedThreadLocal", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ThreadLocal$SuppliedThreadLocal_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.ThreadLocal$SuppliedThreadLocal",
-	"java.lang.ThreadLocal",
-	nullptr,
-	_ThreadLocal$SuppliedThreadLocal_FieldInfo_,
-	_ThreadLocal$SuppliedThreadLocal_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/ThreadLocal<TT;>;",
-	nullptr,
-	_ThreadLocal$SuppliedThreadLocal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ThreadLocal"
-};
-
-$Object* allocate$ThreadLocal$SuppliedThreadLocal($Class* clazz) {
-	return $of($alloc(ThreadLocal$SuppliedThreadLocal));
-}
-
 void ThreadLocal$SuppliedThreadLocal::init$($Supplier* supplier) {
 	$ThreadLocal::init$();
 	$set(this, supplier, $cast($Supplier, $Objects::requireNonNull(supplier)));
 }
 
 $Object* ThreadLocal$SuppliedThreadLocal::initialValue() {
-	return $of($nc(this->supplier)->get());
+	return $nc(this->supplier)->get();
 }
 
 ThreadLocal$SuppliedThreadLocal::ThreadLocal$SuppliedThreadLocal() {
 }
 
 $Class* ThreadLocal$SuppliedThreadLocal::load$($String* name, bool initialize) {
-	$loadClass(ThreadLocal$SuppliedThreadLocal, name, initialize, &_ThreadLocal$SuppliedThreadLocal_ClassInfo_, allocate$ThreadLocal$SuppliedThreadLocal);
+	$FieldInfo fieldInfos$$[] = {
+		{"supplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<+TT;>;", $PRIVATE | $FINAL, $field(ThreadLocal$SuppliedThreadLocal, supplier)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<+TT;>;)V", 0, $method(ThreadLocal$SuppliedThreadLocal, init$, void, $Supplier*)},
+		{"initialValue", "()Ljava/lang/Object;", "()TT;", $PROTECTED, $virtualMethod(ThreadLocal$SuppliedThreadLocal, initialValue, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ThreadLocal$SuppliedThreadLocal", "java.lang.ThreadLocal", "SuppliedThreadLocal", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.ThreadLocal$SuppliedThreadLocal",
+		"java.lang.ThreadLocal",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/ThreadLocal<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ThreadLocal"
+	};
+	$loadClass(ThreadLocal$SuppliedThreadLocal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadLocal$SuppliedThreadLocal);
+	});
 	return class$;
 }
 

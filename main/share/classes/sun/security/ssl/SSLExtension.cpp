@@ -1,11 +1,9 @@
 #include <sun/security/ssl/SSLExtension.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -137,7 +135,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $MessageFormat = ::java::text::MessageFormat;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
@@ -177,140 +174,6 @@ using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLExtension_FieldInfo_[] = {
-	{"CH_SERVER_NAME", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SERVER_NAME)},
-	{"SH_SERVER_NAME", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_SERVER_NAME)},
-	{"EE_SERVER_NAME", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, EE_SERVER_NAME)},
-	{"CH_MAX_FRAGMENT_LENGTH", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_MAX_FRAGMENT_LENGTH)},
-	{"SH_MAX_FRAGMENT_LENGTH", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_MAX_FRAGMENT_LENGTH)},
-	{"EE_MAX_FRAGMENT_LENGTH", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, EE_MAX_FRAGMENT_LENGTH)},
-	{"CLIENT_CERTIFICATE_URL", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CLIENT_CERTIFICATE_URL)},
-	{"TRUSTED_CA_KEYS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, TRUSTED_CA_KEYS)},
-	{"TRUNCATED_HMAC", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, TRUNCATED_HMAC)},
-	{"CH_STATUS_REQUEST", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_STATUS_REQUEST)},
-	{"SH_STATUS_REQUEST", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_STATUS_REQUEST)},
-	{"CR_STATUS_REQUEST", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CR_STATUS_REQUEST)},
-	{"CT_STATUS_REQUEST", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CT_STATUS_REQUEST)},
-	{"USER_MAPPING", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, USER_MAPPING)},
-	{"CLIENT_AUTHZ", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CLIENT_AUTHZ)},
-	{"SERVER_AUTHZ", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SERVER_AUTHZ)},
-	{"CERT_TYPE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CERT_TYPE)},
-	{"CH_SUPPORTED_GROUPS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SUPPORTED_GROUPS)},
-	{"EE_SUPPORTED_GROUPS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, EE_SUPPORTED_GROUPS)},
-	{"CH_EC_POINT_FORMATS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_EC_POINT_FORMATS)},
-	{"SH_EC_POINT_FORMATS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_EC_POINT_FORMATS)},
-	{"SRP", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SRP)},
-	{"USE_SRTP", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, USE_SRTP)},
-	{"HEARTBEAT", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, HEARTBEAT)},
-	{"CH_ALPN", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_ALPN)},
-	{"SH_ALPN", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_ALPN)},
-	{"EE_ALPN", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, EE_ALPN)},
-	{"CH_STATUS_REQUEST_V2", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_STATUS_REQUEST_V2)},
-	{"SH_STATUS_REQUEST_V2", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_STATUS_REQUEST_V2)},
-	{"SIGNED_CERT_TIMESTAMP", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SIGNED_CERT_TIMESTAMP)},
-	{"CLIENT_CERT_TYPE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CLIENT_CERT_TYPE)},
-	{"SERVER_CERT_TYPE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SERVER_CERT_TYPE)},
-	{"PADDING", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, PADDING)},
-	{"ENCRYPT_THEN_MAC", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, ENCRYPT_THEN_MAC)},
-	{"CH_EXTENDED_MASTER_SECRET", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_EXTENDED_MASTER_SECRET)},
-	{"SH_EXTENDED_MASTER_SECRET", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_EXTENDED_MASTER_SECRET)},
-	{"TOKEN_BINDING", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, TOKEN_BINDING)},
-	{"CACHED_INFO", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CACHED_INFO)},
-	{"CH_SESSION_TICKET", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SESSION_TICKET)},
-	{"SH_SESSION_TICKET", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_SESSION_TICKET)},
-	{"CH_SIGNATURE_ALGORITHMS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SIGNATURE_ALGORITHMS)},
-	{"CR_SIGNATURE_ALGORITHMS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CR_SIGNATURE_ALGORITHMS)},
-	{"CH_EARLY_DATA", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_EARLY_DATA)},
-	{"EE_EARLY_DATA", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, EE_EARLY_DATA)},
-	{"NST_EARLY_DATA", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, NST_EARLY_DATA)},
-	{"CH_SUPPORTED_VERSIONS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SUPPORTED_VERSIONS)},
-	{"SH_SUPPORTED_VERSIONS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_SUPPORTED_VERSIONS)},
-	{"HRR_SUPPORTED_VERSIONS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, HRR_SUPPORTED_VERSIONS)},
-	{"MH_SUPPORTED_VERSIONS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, MH_SUPPORTED_VERSIONS)},
-	{"CH_COOKIE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_COOKIE)},
-	{"HRR_COOKIE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, HRR_COOKIE)},
-	{"MH_COOKIE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, MH_COOKIE)},
-	{"PSK_KEY_EXCHANGE_MODES", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, PSK_KEY_EXCHANGE_MODES)},
-	{"CH_CERTIFICATE_AUTHORITIES", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_CERTIFICATE_AUTHORITIES)},
-	{"CR_CERTIFICATE_AUTHORITIES", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CR_CERTIFICATE_AUTHORITIES)},
-	{"OID_FILTERS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, OID_FILTERS)},
-	{"POST_HANDSHAKE_AUTH", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, POST_HANDSHAKE_AUTH)},
-	{"CH_SIGNATURE_ALGORITHMS_CERT", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SIGNATURE_ALGORITHMS_CERT)},
-	{"CR_SIGNATURE_ALGORITHMS_CERT", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CR_SIGNATURE_ALGORITHMS_CERT)},
-	{"CH_KEY_SHARE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_KEY_SHARE)},
-	{"SH_KEY_SHARE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_KEY_SHARE)},
-	{"HRR_KEY_SHARE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, HRR_KEY_SHARE)},
-	{"MH_KEY_SHARE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, MH_KEY_SHARE)},
-	{"CH_RENEGOTIATION_INFO", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_RENEGOTIATION_INFO)},
-	{"SH_RENEGOTIATION_INFO", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_RENEGOTIATION_INFO)},
-	{"CH_PRE_SHARED_KEY", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_PRE_SHARED_KEY)},
-	{"SH_PRE_SHARED_KEY", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_PRE_SHARED_KEY)},
-	{"$VALUES", "[Lsun/security/ssl/SSLExtension;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLExtension, $VALUES)},
-	{"id", "I", nullptr, $FINAL, $field(SSLExtension, id)},
-	{"handshakeType", "Lsun/security/ssl/SSLHandshake;", nullptr, $FINAL, $field(SSLExtension, handshakeType)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLExtension, name$)},
-	{"supportedProtocols", "[Lsun/security/ssl/ProtocolVersion;", nullptr, $FINAL, $field(SSLExtension, supportedProtocols)},
-	{"networkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $FINAL, $field(SSLExtension, networkProducer)},
-	{"onLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $FINAL, $field(SSLExtension, onLoadConsumer)},
-	{"onLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $FINAL, $field(SSLExtension, onLoadAbsence)},
-	{"onTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $FINAL, $field(SSLExtension, onTradeConsumer)},
-	{"onTradeAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $FINAL, $field(SSLExtension, onTradeAbsence)},
-	{"stringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $FINAL, $field(SSLExtension, stringizer)},
-	{}
-};
-
-$MethodInfo _SSLExtension_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLExtension;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLExtension, $values, $SSLExtensionArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;IILjava/lang/String;)V", "(ILjava/lang/String;)V", $PRIVATE, $method(SSLExtension, init$, void, $String*, int32_t, int32_t, $String*)},
-	{"<init>", "(Ljava/lang/String;IILjava/lang/String;Lsun/security/ssl/SSLHandshake;[Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/HandshakeProducer;Lsun/security/ssl/SSLExtension$ExtensionConsumer;Lsun/security/ssl/HandshakeAbsence;Lsun/security/ssl/HandshakeConsumer;Lsun/security/ssl/HandshakeAbsence;Lsun/security/ssl/SSLStringizer;)V", "(ILjava/lang/String;Lsun/security/ssl/SSLHandshake;[Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/HandshakeProducer;Lsun/security/ssl/SSLExtension$ExtensionConsumer;Lsun/security/ssl/HandshakeAbsence;Lsun/security/ssl/HandshakeConsumer;Lsun/security/ssl/HandshakeAbsence;Lsun/security/ssl/SSLStringizer;)V", $PRIVATE, $method(SSLExtension, init$, void, $String*, int32_t, int32_t, $String*, $SSLHandshake*, $ProtocolVersionArray*, $HandshakeProducer*, $SSLExtension$ExtensionConsumer*, $HandshakeAbsence*, $HandshakeConsumer*, $HandshakeAbsence*, $SSLStringizer*)},
-	{"absentOnLoad", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, 0, $method(SSLExtension, absentOnLoad, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{"absentOnTrade", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, 0, $method(SSLExtension, absentOnTrade, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{"consumeOnLoad", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(SSLExtension, consumeOnLoad, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
-	{"consumeOnTrade", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $method(SSLExtension, consumeOnTrade, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{"getDisabledExtensions", "(Ljava/lang/String;)Ljava/util/Collection;", "(Ljava/lang/String;)Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(SSLExtension, getDisabledExtensions, $Collection*, $String*)},
-	{"isAvailable", "(Lsun/security/ssl/ProtocolVersion;)Z", nullptr, $PUBLIC, $method(SSLExtension, isAvailable, bool, $ProtocolVersion*)},
-	{"isConsumable", "(I)Z", nullptr, $STATIC, $staticMethod(SSLExtension, isConsumable, bool, int32_t)},
-	{"nameOf", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SSLExtension, nameOf, $String*, int32_t)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $method(SSLExtension, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLExtension, toString, $String*)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLExtension, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLExtension, valueOf, SSLExtension*, $String*)},
-	{"valueOf", "(Lsun/security/ssl/SSLHandshake;I)Lsun/security/ssl/SSLExtension;", nullptr, $STATIC, $staticMethod(SSLExtension, valueOf, SSLExtension*, $SSLHandshake*, int32_t)},
-	{"values", "()[Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLExtension, values, $SSLExtensionArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLExtension$ServerExtensions", "sun.security.ssl.SSLExtension", "ServerExtensions", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$ClientExtensions", "sun.security.ssl.SSLExtension", "ClientExtensions", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$SSLExtensionSpec", "sun.security.ssl.SSLExtension", "SSLExtensionSpec", $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.SSLExtension",
-	"java.lang.Enum",
-	"sun.security.ssl.SSLStringizer",
-	_SSLExtension_FieldInfo_,
-	_SSLExtension_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/SSLExtension;>;Lsun/security/ssl/SSLStringizer;",
-	nullptr,
-	_SSLExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLExtension$ServerExtensions,sun.security.ssl.SSLExtension$ClientExtensions,sun.security.ssl.SSLExtension$SSLExtensionSpec,sun.security.ssl.SSLExtension$ExtensionConsumer"
-};
-
-$Object* allocate$SSLExtension($Class* clazz) {
-	return $of($alloc(SSLExtension));
-}
 
 bool SSLExtension::equals(Object$* other) {
 	 return this->$Enum::equals(other);
@@ -511,17 +374,11 @@ void SSLExtension::init$($String* $enum$name, int32_t $enum$ordinal, int32_t id,
 
 SSLExtension* SSLExtension::valueOf($SSLHandshake* handshakeType, int32_t extensionType) {
 	$init(SSLExtension);
-	{
-		$var($SSLExtensionArray, arr$, SSLExtension::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			SSLExtension* ext = arr$->get(i$);
-			{
-				if ($nc(ext)->id == extensionType && ext->handshakeType == handshakeType) {
-					return ext;
-				}
-			}
+	$var($SSLExtensionArray, arr$, SSLExtension::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		SSLExtension* ext = arr$->get(i$);
+		if ($nc(ext)->id == extensionType && ext->handshakeType == handshakeType) {
+			return ext;
 		}
 	}
 	return nullptr;
@@ -529,17 +386,11 @@ SSLExtension* SSLExtension::valueOf($SSLHandshake* handshakeType, int32_t extens
 
 $String* SSLExtension::nameOf(int32_t extensionType) {
 	$init(SSLExtension);
-	{
-		$var($SSLExtensionArray, arr$, SSLExtension::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			SSLExtension* ext = arr$->get(i$);
-			{
-				if ($nc(ext)->id == extensionType) {
-					return ext->name$;
-				}
-			}
+	$var($SSLExtensionArray, arr$, SSLExtension::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		SSLExtension* ext = arr$->get(i$);
+		if ($nc(ext)->id == extensionType) {
+			return ext->name$;
 		}
 	}
 	return "unknown extension"_s;
@@ -547,17 +398,11 @@ $String* SSLExtension::nameOf(int32_t extensionType) {
 
 bool SSLExtension::isConsumable(int32_t extensionType) {
 	$init(SSLExtension);
-	{
-		$var($SSLExtensionArray, arr$, SSLExtension::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			SSLExtension* ext = arr$->get(i$);
-			{
-				if ($nc(ext)->id == extensionType && ext->onLoadConsumer != nullptr) {
-					return true;
-				}
-			}
+	$var($SSLExtensionArray, arr$, SSLExtension::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		SSLExtension* ext = arr$->get(i$);
+		if ($nc(ext)->id == extensionType && ext->onLoadConsumer != nullptr) {
+			return true;
 		}
 	}
 	return false;
@@ -565,7 +410,7 @@ bool SSLExtension::isConsumable(int32_t extensionType) {
 
 $bytes* SSLExtension::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
 	if (this->networkProducer != nullptr) {
-		return $nc(this->networkProducer)->produce(context, message);
+		return this->networkProducer->produce(context, message);
 	} else {
 		$throwNew($UnsupportedOperationException, "Not yet supported extension producing."_s);
 	}
@@ -573,7 +418,7 @@ $bytes* SSLExtension::produce($ConnectionContext* context, $SSLHandshake$Handsha
 
 void SSLExtension::consumeOnLoad($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
 	if (this->onLoadConsumer != nullptr) {
-		$nc(this->onLoadConsumer)->consume(context, message, buffer);
+		this->onLoadConsumer->consume(context, message, buffer);
 	} else {
 		$throwNew($UnsupportedOperationException, "Not yet supported extension loading."_s);
 	}
@@ -581,7 +426,7 @@ void SSLExtension::consumeOnLoad($ConnectionContext* context, $SSLHandshake$Hand
 
 void SSLExtension::consumeOnTrade($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
 	if (this->onTradeConsumer != nullptr) {
-		$nc(this->onTradeConsumer)->consume(context, message);
+		this->onTradeConsumer->consume(context, message);
 	} else {
 		$throwNew($UnsupportedOperationException, "Not yet supported extension processing."_s);
 	}
@@ -589,7 +434,7 @@ void SSLExtension::consumeOnTrade($ConnectionContext* context, $SSLHandshake$Han
 
 void SSLExtension::absentOnLoad($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
 	if (this->onLoadAbsence != nullptr) {
-		$nc(this->onLoadAbsence)->absent(context, message);
+		this->onLoadAbsence->absent(context, message);
 	} else {
 		$throwNew($UnsupportedOperationException, "Not yet supported extension absence processing."_s);
 	}
@@ -597,24 +442,18 @@ void SSLExtension::absentOnLoad($ConnectionContext* context, $SSLHandshake$Hands
 
 void SSLExtension::absentOnTrade($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
 	if (this->onTradeAbsence != nullptr) {
-		$nc(this->onTradeAbsence)->absent(context, message);
+		this->onTradeAbsence->absent(context, message);
 	} else {
 		$throwNew($UnsupportedOperationException, "Not yet supported extension absence processing."_s);
 	}
 }
 
 bool SSLExtension::isAvailable($ProtocolVersion* protocolVersion) {
-	{
-		$var($ProtocolVersionArray, arr$, this->supportedProtocols);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$ProtocolVersion* supportedProtocol = arr$->get(i$);
-			{
-				if (supportedProtocol == protocolVersion) {
-					return true;
-				}
-			}
+	$var($ProtocolVersionArray, arr$, this->supportedProtocols);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$ProtocolVersion* supportedProtocol = arr$->get(i$);
+		if (supportedProtocol == protocolVersion) {
+			return true;
 		}
 	}
 	return false;
@@ -625,7 +464,7 @@ $String* SSLExtension::toString() {
 }
 
 $String* SSLExtension::toString($HandshakeContext* handshakeContext, $ByteBuffer* byteBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"{0} ({1})\": \'{\'\n{2}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($String, extData, nullptr);
@@ -633,19 +472,19 @@ $String* SSLExtension::toString($HandshakeContext* handshakeContext, $ByteBuffer
 		$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 		$assign(extData, hexEncoder->encode($($nc(byteBuffer)->duplicate())));
 	} else {
-		$assign(extData, $nc(this->stringizer)->toString(handshakeContext, byteBuffer));
+		$assign(extData, this->stringizer->toString(handshakeContext, byteBuffer));
 	}
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$of(this->name$),
-		$($of($Integer::valueOf(this->id))),
-		$($of($Utilities::indent(extData)))
+		this->name$,
+		$($Integer::valueOf(this->id)),
+		$($Utilities::indent(extData))
 	}));
 	return messageFormat->format(messageFields);
 }
 
 $Collection* SSLExtension::getDisabledExtensions($String* propertyName) {
 	$init(SSLExtension);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, property, $GetPropertyAction::privilegedGetProperty(propertyName));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
@@ -660,12 +499,10 @@ $Collection* SSLExtension::getDisabledExtensions($String* propertyName) {
 	}
 	if (property != nullptr && !property->isEmpty()) {
 		$var($StringArray, extensionNames, property->split(","_s));
-		$var($Collection, extensions, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList, extensionNames->length)))));
+		$var($Collection, extensions, $cast($AbstractCollection, $new($ArrayList, extensionNames->length)));
 		{
 			$var($StringArray, arr$, extensionNames);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, extension, arr$->get(i$));
 				{
 					$assign(extension, $nc(extension)->trim());
@@ -680,7 +517,7 @@ $Collection* SSLExtension::getDisabledExtensions($String* propertyName) {
 	return $Collections::emptyList();
 }
 
-void clinit$SSLExtension($Class* class$) {
+void SSLExtension::clinit$($Class* clazz) {
 	$init($SSLHandshake);
 	$init($ProtocolVersion);
 	$init($ServerNameExtension);
@@ -762,8 +599,8 @@ void clinit$SSLExtension($Class* class$) {
 	$assignStatic(SSLExtension::HRR_KEY_SHARE, $new(SSLExtension, "HRR_KEY_SHARE"_s, 61, 51, "key_share"_s, $SSLHandshake::HELLO_RETRY_REQUEST, $ProtocolVersion::PROTOCOLS_OF_13, $KeyShareExtension::hrrNetworkProducer, $KeyShareExtension::hrrOnLoadConsumer, nullptr, nullptr, nullptr, $KeyShareExtension::hrrStringizer));
 	$assignStatic(SSLExtension::MH_KEY_SHARE, $new(SSLExtension, "MH_KEY_SHARE"_s, 62, 51, "key_share"_s, $SSLHandshake::MESSAGE_HASH, $ProtocolVersion::PROTOCOLS_OF_13, $KeyShareExtension::hrrNetworkReproducer, nullptr, nullptr, nullptr, nullptr, $KeyShareExtension::hrrStringizer));
 	$init($RenegoInfoExtension);
-	$assignStatic(SSLExtension::CH_RENEGOTIATION_INFO, $new(SSLExtension, "CH_RENEGOTIATION_INFO"_s, 63, 0x0000FF01, "renegotiation_info"_s, $SSLHandshake::CLIENT_HELLO, $ProtocolVersion::PROTOCOLS_TO_12, $RenegoInfoExtension::chNetworkProducer, $RenegoInfoExtension::chOnLoadConsumer, $RenegoInfoExtension::chOnLoadAbsence, nullptr, nullptr, $RenegoInfoExtension::rniStringizer));
-	$assignStatic(SSLExtension::SH_RENEGOTIATION_INFO, $new(SSLExtension, "SH_RENEGOTIATION_INFO"_s, 64, 0x0000FF01, "renegotiation_info"_s, $SSLHandshake::SERVER_HELLO, $ProtocolVersion::PROTOCOLS_TO_12, $RenegoInfoExtension::shNetworkProducer, $RenegoInfoExtension::shOnLoadConsumer, $RenegoInfoExtension::shOnLoadAbsence, nullptr, nullptr, $RenegoInfoExtension::rniStringizer));
+	$assignStatic(SSLExtension::CH_RENEGOTIATION_INFO, $new(SSLExtension, "CH_RENEGOTIATION_INFO"_s, 63, 0x0000ff01, "renegotiation_info"_s, $SSLHandshake::CLIENT_HELLO, $ProtocolVersion::PROTOCOLS_TO_12, $RenegoInfoExtension::chNetworkProducer, $RenegoInfoExtension::chOnLoadConsumer, $RenegoInfoExtension::chOnLoadAbsence, nullptr, nullptr, $RenegoInfoExtension::rniStringizer));
+	$assignStatic(SSLExtension::SH_RENEGOTIATION_INFO, $new(SSLExtension, "SH_RENEGOTIATION_INFO"_s, 64, 0x0000ff01, "renegotiation_info"_s, $SSLHandshake::SERVER_HELLO, $ProtocolVersion::PROTOCOLS_TO_12, $RenegoInfoExtension::shNetworkProducer, $RenegoInfoExtension::shOnLoadConsumer, $RenegoInfoExtension::shOnLoadAbsence, nullptr, nullptr, $RenegoInfoExtension::rniStringizer));
 	$init($PreSharedKeyExtension);
 	$assignStatic(SSLExtension::CH_PRE_SHARED_KEY, $new(SSLExtension, "CH_PRE_SHARED_KEY"_s, 65, 41, "pre_shared_key"_s, $SSLHandshake::CLIENT_HELLO, $ProtocolVersion::PROTOCOLS_OF_13, $PreSharedKeyExtension::chNetworkProducer, $PreSharedKeyExtension::chOnLoadConsumer, $PreSharedKeyExtension::chOnLoadAbsence, $PreSharedKeyExtension::chOnTradeConsumer, $PreSharedKeyExtension::chOnTradAbsence, $PreSharedKeyExtension::chStringizer));
 	$assignStatic(SSLExtension::SH_PRE_SHARED_KEY, $new(SSLExtension, "SH_PRE_SHARED_KEY"_s, 66, 41, "pre_shared_key"_s, $SSLHandshake::SERVER_HELLO, $ProtocolVersion::PROTOCOLS_OF_13, $PreSharedKeyExtension::shNetworkProducer, $PreSharedKeyExtension::shOnLoadConsumer, $PreSharedKeyExtension::shOnLoadAbsence, nullptr, nullptr, $PreSharedKeyExtension::shStringizer));
@@ -774,7 +611,135 @@ SSLExtension::SSLExtension() {
 }
 
 $Class* SSLExtension::load$($String* name, bool initialize) {
-	$loadClass(SSLExtension, name, initialize, &_SSLExtension_ClassInfo_, clinit$SSLExtension, allocate$SSLExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"CH_SERVER_NAME", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SERVER_NAME)},
+		{"SH_SERVER_NAME", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_SERVER_NAME)},
+		{"EE_SERVER_NAME", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, EE_SERVER_NAME)},
+		{"CH_MAX_FRAGMENT_LENGTH", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_MAX_FRAGMENT_LENGTH)},
+		{"SH_MAX_FRAGMENT_LENGTH", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_MAX_FRAGMENT_LENGTH)},
+		{"EE_MAX_FRAGMENT_LENGTH", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, EE_MAX_FRAGMENT_LENGTH)},
+		{"CLIENT_CERTIFICATE_URL", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CLIENT_CERTIFICATE_URL)},
+		{"TRUSTED_CA_KEYS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, TRUSTED_CA_KEYS)},
+		{"TRUNCATED_HMAC", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, TRUNCATED_HMAC)},
+		{"CH_STATUS_REQUEST", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_STATUS_REQUEST)},
+		{"SH_STATUS_REQUEST", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_STATUS_REQUEST)},
+		{"CR_STATUS_REQUEST", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CR_STATUS_REQUEST)},
+		{"CT_STATUS_REQUEST", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CT_STATUS_REQUEST)},
+		{"USER_MAPPING", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, USER_MAPPING)},
+		{"CLIENT_AUTHZ", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CLIENT_AUTHZ)},
+		{"SERVER_AUTHZ", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SERVER_AUTHZ)},
+		{"CERT_TYPE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CERT_TYPE)},
+		{"CH_SUPPORTED_GROUPS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SUPPORTED_GROUPS)},
+		{"EE_SUPPORTED_GROUPS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, EE_SUPPORTED_GROUPS)},
+		{"CH_EC_POINT_FORMATS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_EC_POINT_FORMATS)},
+		{"SH_EC_POINT_FORMATS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_EC_POINT_FORMATS)},
+		{"SRP", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SRP)},
+		{"USE_SRTP", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, USE_SRTP)},
+		{"HEARTBEAT", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, HEARTBEAT)},
+		{"CH_ALPN", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_ALPN)},
+		{"SH_ALPN", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_ALPN)},
+		{"EE_ALPN", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, EE_ALPN)},
+		{"CH_STATUS_REQUEST_V2", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_STATUS_REQUEST_V2)},
+		{"SH_STATUS_REQUEST_V2", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_STATUS_REQUEST_V2)},
+		{"SIGNED_CERT_TIMESTAMP", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SIGNED_CERT_TIMESTAMP)},
+		{"CLIENT_CERT_TYPE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CLIENT_CERT_TYPE)},
+		{"SERVER_CERT_TYPE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SERVER_CERT_TYPE)},
+		{"PADDING", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, PADDING)},
+		{"ENCRYPT_THEN_MAC", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, ENCRYPT_THEN_MAC)},
+		{"CH_EXTENDED_MASTER_SECRET", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_EXTENDED_MASTER_SECRET)},
+		{"SH_EXTENDED_MASTER_SECRET", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_EXTENDED_MASTER_SECRET)},
+		{"TOKEN_BINDING", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, TOKEN_BINDING)},
+		{"CACHED_INFO", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CACHED_INFO)},
+		{"CH_SESSION_TICKET", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SESSION_TICKET)},
+		{"SH_SESSION_TICKET", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_SESSION_TICKET)},
+		{"CH_SIGNATURE_ALGORITHMS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SIGNATURE_ALGORITHMS)},
+		{"CR_SIGNATURE_ALGORITHMS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CR_SIGNATURE_ALGORITHMS)},
+		{"CH_EARLY_DATA", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_EARLY_DATA)},
+		{"EE_EARLY_DATA", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, EE_EARLY_DATA)},
+		{"NST_EARLY_DATA", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, NST_EARLY_DATA)},
+		{"CH_SUPPORTED_VERSIONS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SUPPORTED_VERSIONS)},
+		{"SH_SUPPORTED_VERSIONS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_SUPPORTED_VERSIONS)},
+		{"HRR_SUPPORTED_VERSIONS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, HRR_SUPPORTED_VERSIONS)},
+		{"MH_SUPPORTED_VERSIONS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, MH_SUPPORTED_VERSIONS)},
+		{"CH_COOKIE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_COOKIE)},
+		{"HRR_COOKIE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, HRR_COOKIE)},
+		{"MH_COOKIE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, MH_COOKIE)},
+		{"PSK_KEY_EXCHANGE_MODES", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, PSK_KEY_EXCHANGE_MODES)},
+		{"CH_CERTIFICATE_AUTHORITIES", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_CERTIFICATE_AUTHORITIES)},
+		{"CR_CERTIFICATE_AUTHORITIES", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CR_CERTIFICATE_AUTHORITIES)},
+		{"OID_FILTERS", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, OID_FILTERS)},
+		{"POST_HANDSHAKE_AUTH", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, POST_HANDSHAKE_AUTH)},
+		{"CH_SIGNATURE_ALGORITHMS_CERT", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_SIGNATURE_ALGORITHMS_CERT)},
+		{"CR_SIGNATURE_ALGORITHMS_CERT", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CR_SIGNATURE_ALGORITHMS_CERT)},
+		{"CH_KEY_SHARE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_KEY_SHARE)},
+		{"SH_KEY_SHARE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_KEY_SHARE)},
+		{"HRR_KEY_SHARE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, HRR_KEY_SHARE)},
+		{"MH_KEY_SHARE", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, MH_KEY_SHARE)},
+		{"CH_RENEGOTIATION_INFO", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_RENEGOTIATION_INFO)},
+		{"SH_RENEGOTIATION_INFO", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_RENEGOTIATION_INFO)},
+		{"CH_PRE_SHARED_KEY", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, CH_PRE_SHARED_KEY)},
+		{"SH_PRE_SHARED_KEY", "Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLExtension, SH_PRE_SHARED_KEY)},
+		{"$VALUES", "[Lsun/security/ssl/SSLExtension;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLExtension, $VALUES)},
+		{"id", "I", nullptr, $FINAL, $field(SSLExtension, id)},
+		{"handshakeType", "Lsun/security/ssl/SSLHandshake;", nullptr, $FINAL, $field(SSLExtension, handshakeType)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLExtension, name$)},
+		{"supportedProtocols", "[Lsun/security/ssl/ProtocolVersion;", nullptr, $FINAL, $field(SSLExtension, supportedProtocols)},
+		{"networkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $FINAL, $field(SSLExtension, networkProducer)},
+		{"onLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $FINAL, $field(SSLExtension, onLoadConsumer)},
+		{"onLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $FINAL, $field(SSLExtension, onLoadAbsence)},
+		{"onTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $FINAL, $field(SSLExtension, onTradeConsumer)},
+		{"onTradeAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $FINAL, $field(SSLExtension, onTradeAbsence)},
+		{"stringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $FINAL, $field(SSLExtension, stringizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/SSLExtension;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLExtension, $values, $SSLExtensionArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;IILjava/lang/String;)V", "(ILjava/lang/String;)V", $PRIVATE, $method(SSLExtension, init$, void, $String*, int32_t, int32_t, $String*)},
+		{"<init>", "(Ljava/lang/String;IILjava/lang/String;Lsun/security/ssl/SSLHandshake;[Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/HandshakeProducer;Lsun/security/ssl/SSLExtension$ExtensionConsumer;Lsun/security/ssl/HandshakeAbsence;Lsun/security/ssl/HandshakeConsumer;Lsun/security/ssl/HandshakeAbsence;Lsun/security/ssl/SSLStringizer;)V", "(ILjava/lang/String;Lsun/security/ssl/SSLHandshake;[Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/HandshakeProducer;Lsun/security/ssl/SSLExtension$ExtensionConsumer;Lsun/security/ssl/HandshakeAbsence;Lsun/security/ssl/HandshakeConsumer;Lsun/security/ssl/HandshakeAbsence;Lsun/security/ssl/SSLStringizer;)V", $PRIVATE, $method(SSLExtension, init$, void, $String*, int32_t, int32_t, $String*, $SSLHandshake*, $ProtocolVersionArray*, $HandshakeProducer*, $SSLExtension$ExtensionConsumer*, $HandshakeAbsence*, $HandshakeConsumer*, $HandshakeAbsence*, $SSLStringizer*)},
+		{"absentOnLoad", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, 0, $method(SSLExtension, absentOnLoad, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{"absentOnTrade", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, 0, $method(SSLExtension, absentOnTrade, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{"consumeOnLoad", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(SSLExtension, consumeOnLoad, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
+		{"consumeOnTrade", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $method(SSLExtension, consumeOnTrade, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{"getDisabledExtensions", "(Ljava/lang/String;)Ljava/util/Collection;", "(Ljava/lang/String;)Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(SSLExtension, getDisabledExtensions, $Collection*, $String*)},
+		{"isAvailable", "(Lsun/security/ssl/ProtocolVersion;)Z", nullptr, $PUBLIC, $method(SSLExtension, isAvailable, bool, $ProtocolVersion*)},
+		{"isConsumable", "(I)Z", nullptr, $STATIC, $staticMethod(SSLExtension, isConsumable, bool, int32_t)},
+		{"nameOf", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SSLExtension, nameOf, $String*, int32_t)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $method(SSLExtension, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLExtension, toString, $String*)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLExtension, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLExtension, valueOf, SSLExtension*, $String*)},
+		{"valueOf", "(Lsun/security/ssl/SSLHandshake;I)Lsun/security/ssl/SSLExtension;", nullptr, $STATIC, $staticMethod(SSLExtension, valueOf, SSLExtension*, $SSLHandshake*, int32_t)},
+		{"values", "()[Lsun/security/ssl/SSLExtension;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLExtension, values, $SSLExtensionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLExtension$ServerExtensions", "sun.security.ssl.SSLExtension", "ServerExtensions", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$ClientExtensions", "sun.security.ssl.SSLExtension", "ClientExtensions", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$SSLExtensionSpec", "sun.security.ssl.SSLExtension", "SSLExtensionSpec", $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.SSLExtension",
+		"java.lang.Enum",
+		"sun.security.ssl.SSLStringizer",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/SSLExtension;>;Lsun/security/ssl/SSLStringizer;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLExtension$ServerExtensions,sun.security.ssl.SSLExtension$ClientExtensions,sun.security.ssl.SSLExtension$SSLExtensionSpec,sun.security.ssl.SSLExtension$ExtensionConsumer"
+	};
+	$loadClass(SSLExtension, name, initialize, &classInfo$$, SSLExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLExtension));
+	});
 	return class$;
 }
 

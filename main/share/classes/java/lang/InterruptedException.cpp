@@ -1,5 +1,4 @@
 #include <java/lang/InterruptedException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _InterruptedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InterruptedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InterruptedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptedException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InterruptedException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InterruptedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.InterruptedException",
-	"java.lang.Exception",
-	nullptr,
-	_InterruptedException_FieldInfo_,
-	_InterruptedException_MethodInfo_
-};
-
-$Object* allocate$InterruptedException($Class* clazz) {
-	return $of($alloc(InterruptedException));
-}
 
 void InterruptedException::init$() {
 	$Exception::init$();
@@ -53,7 +28,26 @@ void InterruptedException::throw$() {
 }
 
 $Class* InterruptedException::load$($String* name, bool initialize) {
-	$loadClass(InterruptedException, name, initialize, &_InterruptedException_ClassInfo_, allocate$InterruptedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InterruptedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptedException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InterruptedException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.InterruptedException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InterruptedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InterruptedException);
+	});
 	return class$;
 }
 

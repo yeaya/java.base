@@ -29,6 +29,7 @@ class RSACore$BlindingParameters : public ::java::lang::Object {
 	$class(RSACore$BlindingParameters, 0, ::java::lang::Object)
 public:
 	RSACore$BlindingParameters();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::math::BigInteger* e, ::java::math::BigInteger* d, ::java::math::BigInteger* n);
 	::sun::security::rsa::RSACore$BlindingRandomPair* getBlindingRandomPair(::java::math::BigInteger* e, ::java::math::BigInteger* d, ::java::math::BigInteger* n);
 	bool isReusable();

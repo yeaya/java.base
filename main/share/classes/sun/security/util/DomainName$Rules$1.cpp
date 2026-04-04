@@ -1,5 +1,4 @@
 #include <sun/security/util/DomainName$Rules$1.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileNotFoundException.h>
@@ -18,54 +17,16 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$MethodInfo _DomainName$Rules$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DomainName$Rules$1, init$, void)},
-	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(DomainName$Rules$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _DomainName$Rules$1_EnclosingMethodInfo_ = {
-	"sun.security.util.DomainName$Rules",
-	"getPubSuffixStream",
-	"()Ljava/io/InputStream;"
-};
-
-$InnerClassInfo _DomainName$Rules$1_InnerClassesInfo_[] = {
-	{"sun.security.util.DomainName$Rules", "sun.security.util.DomainName", "Rules", $PRIVATE | $STATIC},
-	{"sun.security.util.DomainName$Rules$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DomainName$Rules$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.DomainName$Rules$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_DomainName$Rules$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/io/InputStream;>;",
-	&_DomainName$Rules$1_EnclosingMethodInfo_,
-	_DomainName$Rules$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.DomainName"
-};
-
-$Object* allocate$DomainName$Rules$1($Class* clazz) {
-	return $of($alloc(DomainName$Rules$1));
-}
-
 void DomainName$Rules$1::init$() {
 }
 
 $Object* DomainName$Rules$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $new($File, $($System::getProperty("java.home"_s)), "lib/security/public_suffix_list.dat"_s));
 	try {
-		return $of($new($FileInputStream, f));
+		return $new($FileInputStream, f);
 	} catch ($FileNotFoundException& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
@@ -74,7 +35,39 @@ DomainName$Rules$1::DomainName$Rules$1() {
 }
 
 $Class* DomainName$Rules$1::load$($String* name, bool initialize) {
-	$loadClass(DomainName$Rules$1, name, initialize, &_DomainName$Rules$1_ClassInfo_, allocate$DomainName$Rules$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DomainName$Rules$1, init$, void)},
+		{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(DomainName$Rules$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.util.DomainName$Rules",
+		"getPubSuffixStream",
+		"()Ljava/io/InputStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.DomainName$Rules", "sun.security.util.DomainName", "Rules", $PRIVATE | $STATIC},
+		{"sun.security.util.DomainName$Rules$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.DomainName$Rules$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/io/InputStream;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.DomainName"
+	};
+	$loadClass(DomainName$Rules$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DomainName$Rules$1);
+	});
 	return class$;
 }
 

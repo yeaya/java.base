@@ -35,6 +35,7 @@ class $import EUC_TW$Encoder : public ::java::nio::charset::CharsetEncoder {
 public:
 	EUC_TW$Encoder();
 	using ::java::nio::charset::CharsetEncoder::encode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual bool canEncode(char16_t c) override;
 	virtual bool canEncode(::java::lang::CharSequence* cs) override;

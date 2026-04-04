@@ -1,5 +1,4 @@
 #include <java/util/Set.h>
-
 #include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/ImmutableCollections$AbstractImmutableSet.h>
@@ -28,58 +27,6 @@ using $Spliterators = ::java::util::Spliterators;
 namespace java {
 	namespace util {
 
-$CompoundAttribute _Set_MethodAnnotations_of12[] = {
-	{"Ljava/lang/SafeVarargs;", nullptr},
-	{}
-};
-
-$MethodInfo _Set_MethodInfo_[] = {
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"copyOf", "(Ljava/util/Collection;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<+TE;>;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, copyOf, Set*, $Collection*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"of", "()Ljava/util/Set;", "<E:Ljava/lang/Object;>()Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*)},
-	{"of", "(Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
-	{"of", "([Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>([TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Set, of, Set*, $ObjectArray*), nullptr, nullptr, _Set_MethodAnnotations_of12},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Set, spliterator, $Spliterator*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Set_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.Set",
-	nullptr,
-	"java.util.Collection",
-	nullptr,
-	_Set_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Collection<TE;>;"
-};
-
-$Object* allocate$Set($Class* clazz) {
-	return $of($alloc(Set));
-}
-
 bool Set::equals(Object$* o) {
 	 return this->$Collection::equals(o);
 }
@@ -89,13 +36,13 @@ int32_t Set::hashCode() {
 }
 
 $Spliterator* Set::spliterator() {
-	return $Spliterators::spliterator(static_cast<$Collection*>(this), $Spliterator::DISTINCT);
+	return $Spliterators::spliterator(this, $Spliterator::DISTINCT);
 }
 
 Set* Set::of() {
 	$init(Set);
 	$init($ImmutableCollections);
-	return static_cast<Set*>($ImmutableCollections::EMPTY_SET);
+	return $cast(Set, $ImmutableCollections::EMPTY_SET);
 }
 
 Set* Set::of(Object$* e1) {
@@ -210,34 +157,24 @@ Set* Set::of(Object$* e1, Object$* e2, Object$* e3, Object$* e4, Object$* e5, Ob
 
 Set* Set::of($ObjectArray* elements) {
 	$init(Set);
-	{
-		$var(Set, set, nullptr)
-		switch ($nc(elements)->length) {
-		case 0:
-			{
-				$init($ImmutableCollections);
-				$assign(set, static_cast<Set*>($ImmutableCollections::EMPTY_SET));
-				return set;
-			}
-		case 1:
-			{
-				return $new($ImmutableCollections$Set12, elements->get(0));
-			}
-		case 2:
-			{
-				return $new($ImmutableCollections$Set12, elements->get(0), elements->get(1));
-			}
-		default:
-			{
-				return $new($ImmutableCollections$SetN, elements);
-			}
-		}
+	$var(Set, set, nullptr);
+	switch ($nc(elements)->length) {
+	case 0:
+		$init($ImmutableCollections);
+		$assign(set, $cast(Set, $ImmutableCollections::EMPTY_SET));
+		return set;
+	case 1:
+		return $new($ImmutableCollections$Set12, elements->get(0));
+	case 2:
+		return $new($ImmutableCollections$Set12, elements->get(0), elements->get(1));
+	default:
+		return $new($ImmutableCollections$SetN, elements);
 	}
 }
 
 Set* Set::copyOf($Collection* coll) {
 	$init(Set);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ImmutableCollections$AbstractImmutableSet, coll)) {
 		return $cast(Set, coll);
 	} else {
@@ -246,7 +183,54 @@ Set* Set::copyOf($Collection* coll) {
 }
 
 $Class* Set::load$($String* name, bool initialize) {
-	$loadClass(Set, name, initialize, &_Set_ClassInfo_, allocate$Set);
+	$CompoundAttribute ofmethodAnnotations$$$11[] = {
+		{"Ljava/lang/SafeVarargs;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"copyOf", "(Ljava/util/Collection;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<+TE;>;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, copyOf, Set*, $Collection*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"isEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"of", "()Ljava/util/Set;", "<E:Ljava/lang/Object;>()Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*)},
+		{"of", "(Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(TE;TE;TE;TE;TE;TE;TE;TE;TE;TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Set, of, Set*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+		{"of", "([Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>([TE;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Set, of, Set*, $ObjectArray*), nullptr, nullptr, ofmethodAnnotations$$$11},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"size", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Set, spliterator, $Spliterator*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.Set",
+		nullptr,
+		"java.util.Collection",
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Collection<TE;>;"
+	};
+	$loadClass(Set, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Set);
+	});
 	return class$;
 }
 

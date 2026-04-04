@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/SPILocaleProviderAdapter$CalendarDataProviderDelegate.h>
-
 #include <java/util/AbstractMap.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -27,52 +26,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _SPILocaleProviderAdapter$CalendarDataProviderDelegate_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/CalendarDataProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$CalendarDataProviderDelegate, map)},
-	{}
-};
-
-$MethodInfo _SPILocaleProviderAdapter$CalendarDataProviderDelegate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$CalendarDataProviderDelegate, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarDataProviderDelegate, getAvailableLocales, $LocaleArray*)},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/CalendarDataProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarDataProviderDelegate, getDelegateMap, $Map*)},
-	{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarDataProviderDelegate, getFirstDayOfWeek, int32_t, $Locale*)},
-	{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarDataProviderDelegate, getMinimalDaysInFirstWeek, int32_t, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarDataProviderDelegate, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SPILocaleProviderAdapter$CalendarDataProviderDelegate_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$CalendarDataProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "CalendarDataProviderDelegate", $STATIC},
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SPILocaleProviderAdapter$CalendarDataProviderDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.SPILocaleProviderAdapter$CalendarDataProviderDelegate",
-	"java.util.spi.CalendarDataProvider",
-	"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
-	_SPILocaleProviderAdapter$CalendarDataProviderDelegate_FieldInfo_,
-	_SPILocaleProviderAdapter$CalendarDataProviderDelegate_MethodInfo_,
-	"Ljava/util/spi/CalendarDataProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/util/spi/CalendarDataProvider;>;",
-	nullptr,
-	_SPILocaleProviderAdapter$CalendarDataProviderDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.SPILocaleProviderAdapter"
-};
-
-$Object* allocate$SPILocaleProviderAdapter$CalendarDataProviderDelegate($Class* clazz) {
-	return $of($alloc(SPILocaleProviderAdapter$CalendarDataProviderDelegate));
-}
-
 int32_t SPILocaleProviderAdapter$CalendarDataProviderDelegate::hashCode() {
 	 return this->$CalendarDataProvider::hashCode();
 }
@@ -95,7 +48,7 @@ void SPILocaleProviderAdapter$CalendarDataProviderDelegate::finalize() {
 
 void SPILocaleProviderAdapter$CalendarDataProviderDelegate::init$() {
 	$CalendarDataProvider::init$();
-	$set(this, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, map, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 $Map* SPILocaleProviderAdapter$CalendarDataProviderDelegate::getDelegateMap() {
@@ -111,7 +64,7 @@ bool SPILocaleProviderAdapter$CalendarDataProviderDelegate::isSupportedLocale($L
 }
 
 int32_t SPILocaleProviderAdapter$CalendarDataProviderDelegate::getFirstDayOfWeek($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CalendarDataProvider, cdp, $cast($CalendarDataProvider, getImpl(locale)));
@@ -119,7 +72,7 @@ int32_t SPILocaleProviderAdapter$CalendarDataProviderDelegate::getFirstDayOfWeek
 }
 
 int32_t SPILocaleProviderAdapter$CalendarDataProviderDelegate::getMinimalDaysInFirstWeek($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CalendarDataProvider, cdp, $cast($CalendarDataProvider, getImpl(locale)));
@@ -130,7 +83,47 @@ SPILocaleProviderAdapter$CalendarDataProviderDelegate::SPILocaleProviderAdapter$
 }
 
 $Class* SPILocaleProviderAdapter$CalendarDataProviderDelegate::load$($String* name, bool initialize) {
-	$loadClass(SPILocaleProviderAdapter$CalendarDataProviderDelegate, name, initialize, &_SPILocaleProviderAdapter$CalendarDataProviderDelegate_ClassInfo_, allocate$SPILocaleProviderAdapter$CalendarDataProviderDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/CalendarDataProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$CalendarDataProviderDelegate, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$CalendarDataProviderDelegate, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarDataProviderDelegate, getAvailableLocales, $LocaleArray*)},
+		{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/CalendarDataProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarDataProviderDelegate, getDelegateMap, $Map*)},
+		{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarDataProviderDelegate, getFirstDayOfWeek, int32_t, $Locale*)},
+		{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarDataProviderDelegate, getMinimalDaysInFirstWeek, int32_t, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarDataProviderDelegate, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$CalendarDataProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "CalendarDataProviderDelegate", $STATIC},
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.SPILocaleProviderAdapter$CalendarDataProviderDelegate",
+		"java.util.spi.CalendarDataProvider",
+		"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/spi/CalendarDataProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/util/spi/CalendarDataProvider;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.SPILocaleProviderAdapter"
+	};
+	$loadClass(SPILocaleProviderAdapter$CalendarDataProviderDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SPILocaleProviderAdapter$CalendarDataProviderDelegate));
+	});
 	return class$;
 }
 

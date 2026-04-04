@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/LoggerFinderLoader$ErrorPolicy.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/logger/LoggerFinderLoader.h>
 #include <jcpp.h>
@@ -19,48 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jdk {
 	namespace internal {
 		namespace logger {
-
-$FieldInfo _LoggerFinderLoader$ErrorPolicy_FieldInfo_[] = {
-	{"ERROR", "Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LoggerFinderLoader$ErrorPolicy, ERROR)},
-	{"WARNING", "Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LoggerFinderLoader$ErrorPolicy, WARNING)},
-	{"DEBUG", "Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LoggerFinderLoader$ErrorPolicy, DEBUG)},
-	{"QUIET", "Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LoggerFinderLoader$ErrorPolicy, QUIET)},
-	{"$VALUES", "[Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LoggerFinderLoader$ErrorPolicy, $VALUES)},
-	{}
-};
-
-$MethodInfo _LoggerFinderLoader$ErrorPolicy_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoggerFinderLoader$ErrorPolicy, $values, $LoggerFinderLoader$ErrorPolicyArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LoggerFinderLoader$ErrorPolicy, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoggerFinderLoader$ErrorPolicy, valueOf, LoggerFinderLoader$ErrorPolicy*, $String*)},
-	{"values", "()[Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoggerFinderLoader$ErrorPolicy, values, $LoggerFinderLoader$ErrorPolicyArray*)},
-	{}
-};
-
-$InnerClassInfo _LoggerFinderLoader$ErrorPolicy_InnerClassesInfo_[] = {
-	{"jdk.internal.logger.LoggerFinderLoader$ErrorPolicy", "jdk.internal.logger.LoggerFinderLoader", "ErrorPolicy", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LoggerFinderLoader$ErrorPolicy_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.logger.LoggerFinderLoader$ErrorPolicy",
-	"java.lang.Enum",
-	nullptr,
-	_LoggerFinderLoader$ErrorPolicy_FieldInfo_,
-	_LoggerFinderLoader$ErrorPolicy_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;>;",
-	nullptr,
-	_LoggerFinderLoader$ErrorPolicy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.logger.LoggerFinderLoader"
-};
-
-$Object* allocate$LoggerFinderLoader$ErrorPolicy($Class* clazz) {
-	return $of($alloc(LoggerFinderLoader$ErrorPolicy));
-}
 
 LoggerFinderLoader$ErrorPolicy* LoggerFinderLoader$ErrorPolicy::ERROR = nullptr;
 LoggerFinderLoader$ErrorPolicy* LoggerFinderLoader$ErrorPolicy::WARNING = nullptr;
@@ -92,7 +49,7 @@ void LoggerFinderLoader$ErrorPolicy::init$($String* $enum$name, int32_t $enum$or
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$LoggerFinderLoader$ErrorPolicy($Class* class$) {
+void LoggerFinderLoader$ErrorPolicy::clinit$($Class* clazz) {
 	$assignStatic(LoggerFinderLoader$ErrorPolicy::ERROR, $new(LoggerFinderLoader$ErrorPolicy, "ERROR"_s, 0));
 	$assignStatic(LoggerFinderLoader$ErrorPolicy::WARNING, $new(LoggerFinderLoader$ErrorPolicy, "WARNING"_s, 1));
 	$assignStatic(LoggerFinderLoader$ErrorPolicy::DEBUG, $new(LoggerFinderLoader$ErrorPolicy, "DEBUG"_s, 2));
@@ -104,7 +61,43 @@ LoggerFinderLoader$ErrorPolicy::LoggerFinderLoader$ErrorPolicy() {
 }
 
 $Class* LoggerFinderLoader$ErrorPolicy::load$($String* name, bool initialize) {
-	$loadClass(LoggerFinderLoader$ErrorPolicy, name, initialize, &_LoggerFinderLoader$ErrorPolicy_ClassInfo_, clinit$LoggerFinderLoader$ErrorPolicy, allocate$LoggerFinderLoader$ErrorPolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"ERROR", "Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LoggerFinderLoader$ErrorPolicy, ERROR)},
+		{"WARNING", "Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LoggerFinderLoader$ErrorPolicy, WARNING)},
+		{"DEBUG", "Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LoggerFinderLoader$ErrorPolicy, DEBUG)},
+		{"QUIET", "Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LoggerFinderLoader$ErrorPolicy, QUIET)},
+		{"$VALUES", "[Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LoggerFinderLoader$ErrorPolicy, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoggerFinderLoader$ErrorPolicy, $values, $LoggerFinderLoader$ErrorPolicyArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LoggerFinderLoader$ErrorPolicy, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoggerFinderLoader$ErrorPolicy, valueOf, LoggerFinderLoader$ErrorPolicy*, $String*)},
+		{"values", "()[Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoggerFinderLoader$ErrorPolicy, values, $LoggerFinderLoader$ErrorPolicyArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.logger.LoggerFinderLoader$ErrorPolicy", "jdk.internal.logger.LoggerFinderLoader", "ErrorPolicy", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.logger.LoggerFinderLoader$ErrorPolicy",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.logger.LoggerFinderLoader"
+	};
+	$loadClass(LoggerFinderLoader$ErrorPolicy, name, initialize, &classInfo$$, LoggerFinderLoader$ErrorPolicy::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LoggerFinderLoader$ErrorPolicy));
+	});
 	return class$;
 }
 

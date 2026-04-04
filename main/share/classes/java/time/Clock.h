@@ -24,6 +24,7 @@ class $export Clock : public ::java::time::InstantSource {
 public:
 	Clock();
 	virtual ::java::time::Instant* instant() override {return nullptr;}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::time::Instant* currentInstant();
 	virtual bool equals(Object$* obj) override;

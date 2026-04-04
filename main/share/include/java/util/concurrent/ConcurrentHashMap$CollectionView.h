@@ -27,6 +27,7 @@ class $import ConcurrentHashMap$CollectionView : public ::java::util::Collection
 	$class(ConcurrentHashMap$CollectionView, 0, ::java::util::Collection, ::java::io::Serializable)
 public:
 	ConcurrentHashMap$CollectionView();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool contains(Object$* o) override {return false;}
 	virtual bool equals(Object$* o) override;
@@ -46,7 +47,7 @@ public:
 	virtual $ObjectArray* toArray() override;
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x6499DE129D87293D;
+	static const int64_t serialVersionUID = (int64_t)0x6499de129d87293d;
 	::java::util::concurrent::ConcurrentHashMap* map = nullptr;
 	static $String* OOME_MSG;
 };

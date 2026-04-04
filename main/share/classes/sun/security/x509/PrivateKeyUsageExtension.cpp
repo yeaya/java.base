@@ -1,5 +1,4 @@
 #include <sun/security/x509/PrivateKeyUsageExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/security/cert/CertificateException.h>
@@ -51,52 +50,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _PrivateKeyUsageExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrivateKeyUsageExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrivateKeyUsageExtension, NAME)},
-	{"NOT_BEFORE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrivateKeyUsageExtension, NOT_BEFORE)},
-	{"NOT_AFTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrivateKeyUsageExtension, NOT_AFTER)},
-	{"TAG_BEFORE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrivateKeyUsageExtension, TAG_BEFORE)},
-	{"TAG_AFTER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrivateKeyUsageExtension, TAG_AFTER)},
-	{"notBefore", "Ljava/util/Date;", nullptr, $PRIVATE, $field(PrivateKeyUsageExtension, notBefore)},
-	{"notAfter", "Ljava/util/Date;", nullptr, $PRIVATE, $field(PrivateKeyUsageExtension, notAfter)},
-	{}
-};
-
-$MethodInfo _PrivateKeyUsageExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/Date;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(PrivateKeyUsageExtension, init$, void, $Date*, $Date*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PrivateKeyUsageExtension, init$, void, $Boolean*, Object$*), "java.security.cert.CertificateException,java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, delete$, void, $String*), "java.security.cert.CertificateException,java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(PrivateKeyUsageExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, get, $Object*, $String*), "java.security.cert.CertificateException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, set, void, $String*, Object$*), "java.security.cert.CertificateException,java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, toString, $String*)},
-	{"valid", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, valid, void), "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
-	{"valid", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, valid, void, $Date*), "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
-	{}
-};
-
-$ClassInfo _PrivateKeyUsageExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.PrivateKeyUsageExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_PrivateKeyUsageExtension_FieldInfo_,
-	_PrivateKeyUsageExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$PrivateKeyUsageExtension($Class* clazz) {
-	return $of($alloc(PrivateKeyUsageExtension));
-}
-
 int32_t PrivateKeyUsageExtension::hashCode() {
 	 return this->$Extension::hashCode();
 }
@@ -119,7 +72,7 @@ $String* PrivateKeyUsageExtension::NOT_BEFORE = nullptr;
 $String* PrivateKeyUsageExtension::NOT_AFTER = nullptr;
 
 void PrivateKeyUsageExtension::encodeThis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->notBefore == nullptr && this->notAfter == nullptr) {
 		$set(this, extensionValue, nullptr);
 		return;
@@ -153,7 +106,7 @@ void PrivateKeyUsageExtension::init$($Date* notBefore, $Date* notAfter) {
 }
 
 void PrivateKeyUsageExtension::init$($Boolean* critical, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$();
 	$set(this, notBefore, nullptr);
 	$set(this, notAfter, nullptr);
@@ -174,8 +127,8 @@ void PrivateKeyUsageExtension::init$($Boolean* critical, Object$* value) {
 			$assign(str, $new($DerInputStream, $(opt->toByteArray())));
 			$set(this, notBefore, str->getGeneralizedTime());
 		} else {
-			bool var$2 = opt->isContextSpecific(PrivateKeyUsageExtension::TAG_AFTER);
-			if (var$2 && !opt->isConstructed()) {
+			bool var$1 = opt->isContextSpecific(PrivateKeyUsageExtension::TAG_AFTER);
+			if (var$1 && !opt->isConstructed()) {
 				if (this->notAfter != nullptr) {
 					$throwNew($CertificateParsingException, "Duplicate notAfter in PrivateKeyUsage."_s);
 				}
@@ -190,17 +143,17 @@ void PrivateKeyUsageExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* PrivateKeyUsageExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("PrivateKeyUsage: [\n"_s);
 	if (this->notBefore != nullptr) {
-		sb->append("From: "_s)->append($of(this->notBefore));
+		sb->append("From: "_s)->append(this->notBefore);
 		if (this->notAfter != nullptr) {
 			sb->append(", "_s);
 		}
 	}
 	if (this->notAfter != nullptr) {
-		sb->append("To: "_s)->append($of(this->notAfter));
+		sb->append("To: "_s)->append(this->notAfter);
 	}
 	sb->append("]\n"_s);
 	return sb->toString();
@@ -212,18 +165,18 @@ void PrivateKeyUsageExtension::valid() {
 }
 
 void PrivateKeyUsageExtension::valid($Date* now) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(now);
-	if (this->notBefore != nullptr && $nc(this->notBefore)->after(now)) {
-		$throwNew($CertificateNotYetValidException, $$str({"NotBefore: "_s, $($nc(this->notBefore)->toString())}));
+	if (this->notBefore != nullptr && this->notBefore->after(now)) {
+		$throwNew($CertificateNotYetValidException, $$str({"NotBefore: "_s, $(this->notBefore->toString())}));
 	}
-	if (this->notAfter != nullptr && $nc(this->notAfter)->before(now)) {
-		$throwNew($CertificateExpiredException, $$str({"NotAfter: "_s, $($nc(this->notAfter)->toString())}));
+	if (this->notAfter != nullptr && this->notAfter->before(now)) {
+		$throwNew($CertificateExpiredException, $$str({"NotAfter: "_s, $(this->notAfter->toString())}));
 	}
 }
 
 void PrivateKeyUsageExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -251,9 +204,9 @@ void PrivateKeyUsageExtension::set($String* name, Object$* obj) {
 
 $Object* PrivateKeyUsageExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(PrivateKeyUsageExtension::NOT_BEFORE)) {
-		return $of(($new($Date, $nc(this->notBefore)->getTime())));
+		return ($of($new($Date, $nc(this->notBefore)->getTime())));
 	} else if (name->equalsIgnoreCase(PrivateKeyUsageExtension::NOT_AFTER)) {
-		return $of(($new($Date, $nc(this->notAfter)->getTime())));
+		return ($of($new($Date, $nc(this->notAfter)->getTime())));
 	} else {
 		$throwNew($CertificateException, "Attribute name not recognized by CertAttrSet:PrivateKeyUsage."_s);
 	}
@@ -284,7 +237,7 @@ $String* PrivateKeyUsageExtension::getName() {
 PrivateKeyUsageExtension::PrivateKeyUsageExtension() {
 }
 
-void clinit$PrivateKeyUsageExtension($Class* class$) {
+void PrivateKeyUsageExtension::clinit$($Class* clazz) {
 	$assignStatic(PrivateKeyUsageExtension::IDENT, "x509.info.extensions.PrivateKeyUsage"_s);
 	$assignStatic(PrivateKeyUsageExtension::NAME, "PrivateKeyUsage"_s);
 	$assignStatic(PrivateKeyUsageExtension::NOT_BEFORE, "not_before"_s);
@@ -292,7 +245,48 @@ void clinit$PrivateKeyUsageExtension($Class* class$) {
 }
 
 $Class* PrivateKeyUsageExtension::load$($String* name, bool initialize) {
-	$loadClass(PrivateKeyUsageExtension, name, initialize, &_PrivateKeyUsageExtension_ClassInfo_, clinit$PrivateKeyUsageExtension, allocate$PrivateKeyUsageExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrivateKeyUsageExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrivateKeyUsageExtension, NAME)},
+		{"NOT_BEFORE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrivateKeyUsageExtension, NOT_BEFORE)},
+		{"NOT_AFTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrivateKeyUsageExtension, NOT_AFTER)},
+		{"TAG_BEFORE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrivateKeyUsageExtension, TAG_BEFORE)},
+		{"TAG_AFTER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrivateKeyUsageExtension, TAG_AFTER)},
+		{"notBefore", "Ljava/util/Date;", nullptr, $PRIVATE, $field(PrivateKeyUsageExtension, notBefore)},
+		{"notAfter", "Ljava/util/Date;", nullptr, $PRIVATE, $field(PrivateKeyUsageExtension, notAfter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/Date;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(PrivateKeyUsageExtension, init$, void, $Date*, $Date*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PrivateKeyUsageExtension, init$, void, $Boolean*, Object$*), "java.security.cert.CertificateException,java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, delete$, void, $String*), "java.security.cert.CertificateException,java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(PrivateKeyUsageExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, get, $Object*, $String*), "java.security.cert.CertificateException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, set, void, $String*, Object$*), "java.security.cert.CertificateException,java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, toString, $String*)},
+		{"valid", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, valid, void), "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
+		{"valid", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(PrivateKeyUsageExtension, valid, void, $Date*), "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.PrivateKeyUsageExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(PrivateKeyUsageExtension, name, initialize, &classInfo$$, PrivateKeyUsageExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrivateKeyUsageExtension));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/StringUTF16$CharsSpliterator.h>
-
 #include <java/lang/StringUTF16.h>
 #include <java/util/Spliterator$OfInt.h>
 #include <java/util/Spliterator.h>
@@ -23,53 +22,6 @@ using $IntConsumer = ::java::util::function::IntConsumer;
 namespace java {
 	namespace lang {
 
-$FieldInfo _StringUTF16$CharsSpliterator_FieldInfo_[] = {
-	{"array", "[B", nullptr, $PRIVATE | $FINAL, $field(StringUTF16$CharsSpliterator, array)},
-	{"index", "I", nullptr, $PRIVATE, $field(StringUTF16$CharsSpliterator, index)},
-	{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(StringUTF16$CharsSpliterator, fence)},
-	{"cs", "I", nullptr, $PRIVATE | $FINAL, $field(StringUTF16$CharsSpliterator, cs)},
-	{}
-};
-
-$MethodInfo _StringUTF16$CharsSpliterator_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, 0, $method(StringUTF16$CharsSpliterator, init$, void, $bytes*, int32_t)},
-	{"<init>", "([BIII)V", nullptr, 0, $method(StringUTF16$CharsSpliterator, init$, void, $bytes*, int32_t, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CharsSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CharsSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CharsSpliterator, forEachRemaining, void, $IntConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringUTF16$CharsSpliterator, forEachRemaining, void, Object$*)},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CharsSpliterator, tryAdvance, bool, $IntConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringUTF16$CharsSpliterator, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CharsSpliterator, trySplit, $Spliterator$OfInt*)},
-	{}
-};
-
-$InnerClassInfo _StringUTF16$CharsSpliterator_InnerClassesInfo_[] = {
-	{"java.lang.StringUTF16$CharsSpliterator", "java.lang.StringUTF16", "CharsSpliterator", $STATIC},
-	{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StringUTF16$CharsSpliterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.StringUTF16$CharsSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator$OfInt",
-	_StringUTF16$CharsSpliterator_FieldInfo_,
-	_StringUTF16$CharsSpliterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringUTF16$CharsSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.StringUTF16"
-};
-
-$Object* allocate$StringUTF16$CharsSpliterator($Class* clazz) {
-	return $of($alloc(StringUTF16$CharsSpliterator));
-}
-
 void StringUTF16$CharsSpliterator::init$($bytes* array, int32_t acs) {
 	StringUTF16$CharsSpliterator::init$(array, 0, $nc(array)->length >> 1, acs);
 }
@@ -84,7 +36,7 @@ void StringUTF16$CharsSpliterator::init$($bytes* array, int32_t origin, int32_t 
 $Spliterator$OfInt* StringUTF16$CharsSpliterator::trySplit() {
 	int32_t lo = this->index;
 	int32_t mid = (int32_t)((uint32_t)(lo + this->fence) >> 1);
-	return (lo >= mid) ? ($Spliterator$OfInt*)nullptr : static_cast<$Spliterator$OfInt*>($new(StringUTF16$CharsSpliterator, this->array, lo, this->index = mid, this->cs));
+	return (lo >= mid) ? ($Spliterator$OfInt*)nullptr : $cast($Spliterator$OfInt, $new(StringUTF16$CharsSpliterator, this->array, lo, this->index = mid, this->cs));
 }
 
 void StringUTF16$CharsSpliterator::forEachRemaining($IntConsumer* action) {
@@ -135,7 +87,48 @@ StringUTF16$CharsSpliterator::StringUTF16$CharsSpliterator() {
 }
 
 $Class* StringUTF16$CharsSpliterator::load$($String* name, bool initialize) {
-	$loadClass(StringUTF16$CharsSpliterator, name, initialize, &_StringUTF16$CharsSpliterator_ClassInfo_, allocate$StringUTF16$CharsSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[B", nullptr, $PRIVATE | $FINAL, $field(StringUTF16$CharsSpliterator, array)},
+		{"index", "I", nullptr, $PRIVATE, $field(StringUTF16$CharsSpliterator, index)},
+		{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(StringUTF16$CharsSpliterator, fence)},
+		{"cs", "I", nullptr, $PRIVATE | $FINAL, $field(StringUTF16$CharsSpliterator, cs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BI)V", nullptr, 0, $method(StringUTF16$CharsSpliterator, init$, void, $bytes*, int32_t)},
+		{"<init>", "([BIII)V", nullptr, 0, $method(StringUTF16$CharsSpliterator, init$, void, $bytes*, int32_t, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CharsSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CharsSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CharsSpliterator, forEachRemaining, void, $IntConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringUTF16$CharsSpliterator, forEachRemaining, void, Object$*)},
+		{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CharsSpliterator, tryAdvance, bool, $IntConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringUTF16$CharsSpliterator, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CharsSpliterator, trySplit, $Spliterator$OfInt*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StringUTF16$CharsSpliterator", "java.lang.StringUTF16", "CharsSpliterator", $STATIC},
+		{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.StringUTF16$CharsSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.StringUTF16"
+	};
+	$loadClass(StringUTF16$CharsSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringUTF16$CharsSpliterator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/DoubleStream$DoubleMapMultiConsumer.h>
-
 #include <java/util/function/DoubleConsumer.h>
 #include <java/util/stream/DoubleStream.h>
 #include <jcpp.h>
@@ -14,43 +13,37 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$CompoundAttribute _DoubleStream$DoubleMapMultiConsumer_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _DoubleStream$DoubleMapMultiConsumer_MethodInfo_[] = {
-	{"accept", "(DLjava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoubleStream$DoubleMapMultiConsumer, accept, void, double, $DoubleConsumer*)},
-	{}
-};
-
-$InnerClassInfo _DoubleStream$DoubleMapMultiConsumer_InnerClassesInfo_[] = {
-	{"java.util.stream.DoubleStream$DoubleMapMultiConsumer", "java.util.stream.DoubleStream", "DoubleMapMultiConsumer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DoubleStream$DoubleMapMultiConsumer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.stream.DoubleStream$DoubleMapMultiConsumer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DoubleStream$DoubleMapMultiConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DoubleStream$DoubleMapMultiConsumer_InnerClassesInfo_,
-	_DoubleStream$DoubleMapMultiConsumer_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.stream.DoubleStream"
-};
-
-$Object* allocate$DoubleStream$DoubleMapMultiConsumer($Class* clazz) {
-	return $of($alloc(DoubleStream$DoubleMapMultiConsumer));
-}
-
 $Class* DoubleStream$DoubleMapMultiConsumer::load$($String* name, bool initialize) {
-	$loadClass(DoubleStream$DoubleMapMultiConsumer, name, initialize, &_DoubleStream$DoubleMapMultiConsumer_ClassInfo_, allocate$DoubleStream$DoubleMapMultiConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(DLjava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoubleStream$DoubleMapMultiConsumer, accept, void, double, $DoubleConsumer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.DoubleStream$DoubleMapMultiConsumer", "java.util.stream.DoubleStream", "DoubleMapMultiConsumer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.stream.DoubleStream$DoubleMapMultiConsumer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.stream.DoubleStream"
+	};
+	$loadClass(DoubleStream$DoubleMapMultiConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleStream$DoubleMapMultiConsumer);
+	});
 	return class$;
 }
 

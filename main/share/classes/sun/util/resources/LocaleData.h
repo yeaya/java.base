@@ -45,6 +45,7 @@ class $export LocaleData : public ::java::lang::Object {
 	$class(LocaleData, 0, ::java::lang::Object)
 public:
 	LocaleData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::util::locale::provider::LocaleProviderAdapter$Type* type);
 	virtual ::java::util::ResourceBundle* getBreakIteratorInfo(::java::util::Locale* locale);
 	virtual ::java::util::ResourceBundle* getBreakIteratorResources(::java::util::Locale* locale);

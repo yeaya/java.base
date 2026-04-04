@@ -14,10 +14,13 @@ class $export ClosedDirectoryStreamException : public ::java::lang::IllegalState
 public:
 	ClosedDirectoryStreamException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x3AAE3F418BF396A8;
+	static const int64_t serialVersionUID = (int64_t)0x3aae3f418bf396a8;
 	ClosedDirectoryStreamException(const ClosedDirectoryStreamException& e);
 	virtual void throw$() override;
-	inline ClosedDirectoryStreamException* operator ->() {
+	inline ClosedDirectoryStreamException* operator ->() const {
+		return (ClosedDirectoryStreamException*)throwing$;
+	}
+	inline operator ClosedDirectoryStreamException*() const {
 		return (ClosedDirectoryStreamException*)throwing$;
 	}
 };

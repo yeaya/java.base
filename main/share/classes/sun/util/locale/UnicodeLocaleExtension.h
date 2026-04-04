@@ -29,6 +29,7 @@ class UnicodeLocaleExtension : public ::sun::util::locale::Extension {
 	$class(UnicodeLocaleExtension, 0, ::sun::util::locale::Extension)
 public:
 	UnicodeLocaleExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key, $String* value);
 	void init$(::java::util::SortedSet* attributes, ::java::util::SortedMap* keywords);
 	virtual $String* getID() override;

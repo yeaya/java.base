@@ -27,6 +27,7 @@ class SelectorProvider$Holder : public ::java::lang::Object {
 	$class(SelectorProvider$Holder, 0, ::java::lang::Object)
 public:
 	SelectorProvider$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::channels::spi::SelectorProvider* lambda$provider$0();
 	static ::java::nio::channels::spi::SelectorProvider* loadProviderAsService();

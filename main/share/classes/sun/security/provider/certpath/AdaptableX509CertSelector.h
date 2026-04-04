@@ -48,6 +48,7 @@ class AdaptableX509CertSelector : public ::java::security::cert::X509CertSelecto
 	$class(AdaptableX509CertSelector, 0, ::java::security::cert::X509CertSelector)
 public:
 	AdaptableX509CertSelector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	virtual bool match(::java::security::cert::Certificate* cert) override;

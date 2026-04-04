@@ -25,6 +25,7 @@ class $import Runtime : public ::java::lang::Object {
 	$class(Runtime, $PRELOAD, ::java::lang::Object)
 public:
 	Runtime();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addShutdownHook($Thread* hook);
 	virtual int32_t availableProcessors();

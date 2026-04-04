@@ -17,6 +17,7 @@ class $export TinyBuffers : public ::java::lang::Object {
 	$class(TinyBuffers, 0, ::java::lang::Object)
 public:
 	TinyBuffers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test(int32_t sz);

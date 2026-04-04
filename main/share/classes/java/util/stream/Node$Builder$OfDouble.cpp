@@ -1,5 +1,4 @@
 #include <java/util/stream/Node$Builder$OfDouble.h>
-
 #include <java/util/function/Consumer.h>
 #include <java/util/stream/Node$Builder.h>
 #include <jcpp.h>
@@ -13,51 +12,6 @@ using $Node$Builder = ::java::util::stream::Node$Builder;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _Node$Builder$OfDouble_MethodInfo_[] = {
-	{"build", "()Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*cancellationRequested", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$InnerClassInfo _Node$Builder$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Node$Builder$OfDouble", "java.util.stream.Node$Builder", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Sink$OfDouble", "java.util.stream.Sink", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Node$Builder$OfDouble_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.stream.Node$Builder$OfDouble",
-	nullptr,
-	"java.util.stream.Node$Builder,java.util.stream.Sink$OfDouble",
-	nullptr,
-	_Node$Builder$OfDouble_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/stream/Node$Builder<Ljava/lang/Double;>;Ljava/util/stream/Sink$OfDouble;",
-	nullptr,
-	_Node$Builder$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Node"
-};
-
-$Object* allocate$Node$Builder$OfDouble($Class* clazz) {
-	return $of($alloc(Node$Builder$OfDouble));
-}
 
 void Node$Builder$OfDouble::begin(int64_t size) {
 	this->$Node$Builder::begin(size);
@@ -108,7 +62,47 @@ void Node$Builder$OfDouble::finalize() {
 }
 
 $Class* Node$Builder$OfDouble::load$($String* name, bool initialize) {
-	$loadClass(Node$Builder$OfDouble, name, initialize, &_Node$Builder$OfDouble_ClassInfo_, allocate$Node$Builder$OfDouble);
+	$MethodInfo methodInfos$$[] = {
+		{"build", "()Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*cancellationRequested", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Node$Builder$OfDouble", "java.util.stream.Node$Builder", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Sink$OfDouble", "java.util.stream.Sink", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.stream.Node$Builder$OfDouble",
+		nullptr,
+		"java.util.stream.Node$Builder,java.util.stream.Sink$OfDouble",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/stream/Node$Builder<Ljava/lang/Double;>;Ljava/util/stream/Sink$OfDouble;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Node"
+	};
+	$loadClass(Node$Builder$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Node$Builder$OfDouble));
+	});
 	return class$;
 }
 

@@ -1,29 +1,8 @@
 #include <MyInt.h>
-
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _MyInt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MyInt, init$, void)},
-	{"main", "()V", nullptr, $PUBLIC, $virtualMethod(MyInt, main, void)},
-	{}
-};
-
-$ClassInfo _MyInt_ClassInfo_ = {
-	$ACC_SUPER,
-	"MyInt",
-	"java.lang.Object",
-	"Int",
-	nullptr,
-	_MyInt_MethodInfo_
-};
-
-$Object* allocate$MyInt($Class* clazz) {
-	return $of($alloc(MyInt));
-}
 
 void MyInt::init$() {
 }
@@ -36,7 +15,22 @@ MyInt::MyInt() {
 }
 
 $Class* MyInt::load$($String* name, bool initialize) {
-	$loadClass(MyInt, name, initialize, &_MyInt_ClassInfo_, allocate$MyInt);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MyInt, init$, void)},
+		{"main", "()V", nullptr, $PUBLIC, $virtualMethod(MyInt, main, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MyInt",
+		"java.lang.Object",
+		"Int",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MyInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MyInt);
+	});
 	return class$;
 }
 

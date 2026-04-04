@@ -1,13 +1,10 @@
 #include <java/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionObject.h>
-
 #include <java/lang/IllegalMonitorStateException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Date.h>
-#include <java/util/concurrent/ForkJoinPool$ManagedBlocker.h>
 #include <java/util/concurrent/ForkJoinPool.h>
 #include <java/util/concurrent/RejectedExecutionException.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -28,17 +25,14 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Date = ::java::util::Date;
 using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
-using $ForkJoinPool$ManagedBlocker = ::java::util::concurrent::ForkJoinPool$ManagedBlocker;
 using $RejectedExecutionException = ::java::util::concurrent::RejectedExecutionException;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $AbstractQueuedLongSynchronizer = ::java::util::concurrent::locks::AbstractQueuedLongSynchronizer;
 using $AbstractQueuedLongSynchronizer$ConditionNode = ::java::util::concurrent::locks::AbstractQueuedLongSynchronizer$ConditionNode;
-using $AbstractQueuedLongSynchronizer$Node = ::java::util::concurrent::locks::AbstractQueuedLongSynchronizer$Node;
 using $Condition = ::java::util::concurrent::locks::Condition;
 using $LockSupport = ::java::util::concurrent::locks::LockSupport;
 
@@ -46,64 +40,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 			namespace locks {
-
-$FieldInfo _AbstractQueuedLongSynchronizer$ConditionObject_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractQueuedLongSynchronizer$ConditionObject, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractQueuedLongSynchronizer$ConditionObject, serialVersionUID)},
-	{"firstWaiter", "Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractQueuedLongSynchronizer$ConditionObject, firstWaiter)},
-	{"lastWaiter", "Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractQueuedLongSynchronizer$ConditionObject, lastWaiter)},
-	{}
-};
-
-$MethodInfo _AbstractQueuedLongSynchronizer$ConditionObject_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer;)V", nullptr, $PUBLIC, $method(AbstractQueuedLongSynchronizer$ConditionObject, init$, void, $AbstractQueuedLongSynchronizer*)},
-	{"await", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, await, void), "java.lang.InterruptedException"},
-	{"await", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, await, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"awaitNanos", "(J)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, awaitNanos, int64_t, int64_t), "java.lang.InterruptedException"},
-	{"awaitUninterruptibly", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, awaitUninterruptibly, void)},
-	{"awaitUntil", "(Ljava/util/Date;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, awaitUntil, bool, $Date*), "java.lang.InterruptedException"},
-	{"canReacquire", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;)Z", nullptr, $PRIVATE, $method(AbstractQueuedLongSynchronizer$ConditionObject, canReacquire, bool, $AbstractQueuedLongSynchronizer$ConditionNode*)},
-	{"doSignal", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;Z)V", nullptr, $PRIVATE, $method(AbstractQueuedLongSynchronizer$ConditionObject, doSignal, void, $AbstractQueuedLongSynchronizer$ConditionNode*, bool)},
-	{"enableWait", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;)J", nullptr, $PRIVATE, $method(AbstractQueuedLongSynchronizer$ConditionObject, enableWait, int64_t, $AbstractQueuedLongSynchronizer$ConditionNode*)},
-	{"getWaitQueueLength", "()I", nullptr, $PROTECTED | $FINAL, $method(AbstractQueuedLongSynchronizer$ConditionObject, getWaitQueueLength, int32_t)},
-	{"getWaitingThreads", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Thread;>;", $PROTECTED | $FINAL, $method(AbstractQueuedLongSynchronizer$ConditionObject, getWaitingThreads, $Collection*)},
-	{"hasWaiters", "()Z", nullptr, $PROTECTED | $FINAL, $method(AbstractQueuedLongSynchronizer$ConditionObject, hasWaiters, bool)},
-	{"isOwnedBy", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer;)Z", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$ConditionObject, isOwnedBy, bool, $AbstractQueuedLongSynchronizer*)},
-	{"signal", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, signal, void)},
-	{"signalAll", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, signalAll, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unlinkCancelledWaiters", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;)V", nullptr, $PRIVATE, $method(AbstractQueuedLongSynchronizer$ConditionObject, unlinkCancelledWaiters, void, $AbstractQueuedLongSynchronizer$ConditionNode*)},
-	{}
-};
-
-$InnerClassInfo _AbstractQueuedLongSynchronizer$ConditionObject_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$ConditionObject", "java.util.concurrent.locks.AbstractQueuedLongSynchronizer", "ConditionObject", $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractQueuedLongSynchronizer$ConditionObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$ConditionObject",
-	"java.lang.Object",
-	"java.util.concurrent.locks.Condition,java.io.Serializable",
-	_AbstractQueuedLongSynchronizer$ConditionObject_FieldInfo_,
-	_AbstractQueuedLongSynchronizer$ConditionObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractQueuedLongSynchronizer$ConditionObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.AbstractQueuedLongSynchronizer"
-};
-
-$Object* allocate$AbstractQueuedLongSynchronizer$ConditionObject($Class* clazz) {
-	return $of($alloc(AbstractQueuedLongSynchronizer$ConditionObject));
-}
 
 int32_t AbstractQueuedLongSynchronizer$ConditionObject::hashCode() {
 	 return this->$Condition::hashCode();
@@ -130,14 +66,14 @@ void AbstractQueuedLongSynchronizer$ConditionObject::init$($AbstractQueuedLongSy
 }
 
 void AbstractQueuedLongSynchronizer$ConditionObject::doSignal($AbstractQueuedLongSynchronizer$ConditionNode* first$renamed, bool all) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractQueuedLongSynchronizer$ConditionNode, first, first$renamed);
 	while (first != nullptr) {
 		$var($AbstractQueuedLongSynchronizer$ConditionNode, next, first->nextWaiter);
 		if (($set(this, firstWaiter, next)) == nullptr) {
 			$set(this, lastWaiter, nullptr);
 		}
-		if (((int32_t)(first->getAndUnsetStatus(2) & (uint32_t)2)) != 0) {
+		if ((first->getAndUnsetStatus(2) & 2) != 0) {
 			this->this$0->enqueue(first);
 			if (!all) {
 				break;
@@ -175,7 +111,7 @@ int64_t AbstractQueuedLongSynchronizer$ConditionObject::enableWait($AbstractQueu
 		if (last == nullptr) {
 			$set(this, firstWaiter, node);
 		} else {
-			$set($nc(last), nextWaiter, node);
+			$set(last, nextWaiter, node);
 		}
 		$set(this, lastWaiter, node);
 		int64_t savedState = this->this$0->getState();
@@ -192,18 +128,18 @@ bool AbstractQueuedLongSynchronizer$ConditionObject::canReacquire($AbstractQueue
 }
 
 void AbstractQueuedLongSynchronizer$ConditionObject::unlinkCancelledWaiters($AbstractQueuedLongSynchronizer$ConditionNode* node) {
-	$useLocalCurrentObjectStackCache();
-	if (node == nullptr || $nc(node)->nextWaiter != nullptr || node == this->lastWaiter) {
+	$useLocalObjectStack();
+	if (node == nullptr || node->nextWaiter != nullptr || node == this->lastWaiter) {
 		$var($AbstractQueuedLongSynchronizer$ConditionNode, w, this->firstWaiter);
 		$var($AbstractQueuedLongSynchronizer$ConditionNode, trail, nullptr);
 		while (w != nullptr) {
 			$var($AbstractQueuedLongSynchronizer$ConditionNode, next, w->nextWaiter);
-			if (((int32_t)(w->status & (uint32_t)2)) == 0) {
+			if ((w->status & 2) == 0) {
 				$set(w, nextWaiter, nullptr);
 				if (trail == nullptr) {
 					$set(this, firstWaiter, next);
 				} else {
-					$set($nc(trail), nextWaiter, next);
+					$set(trail, nextWaiter, next);
 				}
 				if (next == nullptr) {
 					$set(this, lastWaiter, trail);
@@ -217,7 +153,7 @@ void AbstractQueuedLongSynchronizer$ConditionObject::unlinkCancelledWaiters($Abs
 }
 
 void AbstractQueuedLongSynchronizer$ConditionObject::awaitUninterruptibly() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractQueuedLongSynchronizer$ConditionNode, node, $new($AbstractQueuedLongSynchronizer$ConditionNode));
 	int64_t savedState = enableWait(node);
 	$LockSupport::setCurrentBlocker(this);
@@ -226,7 +162,7 @@ void AbstractQueuedLongSynchronizer$ConditionObject::awaitUninterruptibly() {
 	while (!canReacquire(node)) {
 		if ($Thread::interrupted()) {
 			interrupted = true;
-		} else if (((int32_t)(node->status & (uint32_t)2)) != 0) {
+		} else if ((node->status & 2) != 0) {
 			try {
 				if (rejected) {
 					node->block();
@@ -251,7 +187,7 @@ void AbstractQueuedLongSynchronizer$ConditionObject::awaitUninterruptibly() {
 }
 
 void AbstractQueuedLongSynchronizer$ConditionObject::await() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($Thread::interrupted()) {
 		$throwNew($InterruptedException);
 	}
@@ -263,10 +199,10 @@ void AbstractQueuedLongSynchronizer$ConditionObject::await() {
 	bool rejected = false;
 	while (!canReacquire(node)) {
 		if (interrupted |= $Thread::interrupted()) {
-			if (cancelled = ((int32_t)(node->getAndUnsetStatus(2) & (uint32_t)2)) != 0) {
+			if (cancelled = (node->getAndUnsetStatus(2) & 2) != 0) {
 				break;
 			}
-		} else if (((int32_t)(node->status & (uint32_t)2)) != 0) {
+		} else if ((node->status & 2) != 0) {
 			try {
 				if (rejected) {
 					node->block();
@@ -295,20 +231,20 @@ void AbstractQueuedLongSynchronizer$ConditionObject::await() {
 }
 
 int64_t AbstractQueuedLongSynchronizer$ConditionObject::awaitNanos(int64_t nanosTimeout) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($Thread::interrupted()) {
 		$throwNew($InterruptedException);
 	}
 	$var($AbstractQueuedLongSynchronizer$ConditionNode, node, $new($AbstractQueuedLongSynchronizer$ConditionNode));
 	int64_t savedState = enableWait(node);
-	int64_t nanos = (nanosTimeout < (int64_t)0) ? (int64_t)0 : nanosTimeout;
+	int64_t nanos = (nanosTimeout < 0) ? 0 : nanosTimeout;
 	int64_t deadline = $System::nanoTime() + nanos;
 	bool cancelled = false;
 	bool interrupted = false;
 	while (!canReacquire(node)) {
-		bool var$0 = (interrupted |= $Thread::interrupted());
-		if (var$0 || (nanos = deadline - $System::nanoTime()) <= (int64_t)0) {
-			if (cancelled = ((int32_t)(node->getAndUnsetStatus(2) & (uint32_t)2)) != 0) {
+		bool var$0 = interrupted |= $Thread::interrupted();
+		if (var$0 || (nanos = deadline - $System::nanoTime()) <= 0) {
+			if (cancelled = (node->getAndUnsetStatus(2) & 2) != 0) {
 				break;
 			}
 		} else {
@@ -330,7 +266,7 @@ int64_t AbstractQueuedLongSynchronizer$ConditionObject::awaitNanos(int64_t nanos
 }
 
 bool AbstractQueuedLongSynchronizer$ConditionObject::awaitUntil($Date* deadline) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t abstime = $nc(deadline)->getTime();
 	if ($Thread::interrupted()) {
 		$throwNew($InterruptedException);
@@ -340,9 +276,9 @@ bool AbstractQueuedLongSynchronizer$ConditionObject::awaitUntil($Date* deadline)
 	bool cancelled = false;
 	bool interrupted = false;
 	while (!canReacquire(node)) {
-		bool var$0 = (interrupted |= $Thread::interrupted());
+		bool var$0 = interrupted |= $Thread::interrupted();
 		if (var$0 || $System::currentTimeMillis() >= abstime) {
-			if (cancelled = ((int32_t)(node->getAndUnsetStatus(2) & (uint32_t)2)) != 0) {
+			if (cancelled = (node->getAndUnsetStatus(2) & 2) != 0) {
 				break;
 			}
 		} else {
@@ -363,21 +299,21 @@ bool AbstractQueuedLongSynchronizer$ConditionObject::awaitUntil($Date* deadline)
 }
 
 bool AbstractQueuedLongSynchronizer$ConditionObject::await(int64_t time, $TimeUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nanosTimeout = $nc(unit)->toNanos(time);
 	if ($Thread::interrupted()) {
 		$throwNew($InterruptedException);
 	}
 	$var($AbstractQueuedLongSynchronizer$ConditionNode, node, $new($AbstractQueuedLongSynchronizer$ConditionNode));
 	int64_t savedState = enableWait(node);
-	int64_t nanos = (nanosTimeout < (int64_t)0) ? (int64_t)0 : nanosTimeout;
+	int64_t nanos = (nanosTimeout < 0) ? 0 : nanosTimeout;
 	int64_t deadline = $System::nanoTime() + nanos;
 	bool cancelled = false;
 	bool interrupted = false;
 	while (!canReacquire(node)) {
-		bool var$0 = (interrupted |= $Thread::interrupted());
-		if (var$0 || (nanos = deadline - $System::nanoTime()) <= (int64_t)0) {
-			if (cancelled = ((int32_t)(node->getAndUnsetStatus(2) & (uint32_t)2)) != 0) {
+		bool var$0 = interrupted |= $Thread::interrupted();
+		if (var$0 || (nanos = deadline - $System::nanoTime()) <= 0) {
+			if (cancelled = (node->getAndUnsetStatus(2) & 2) != 0) {
 				break;
 			}
 		} else {
@@ -407,8 +343,8 @@ bool AbstractQueuedLongSynchronizer$ConditionObject::hasWaiters() {
 	}
 	{
 		$var($AbstractQueuedLongSynchronizer$ConditionNode, w, this->firstWaiter);
-		for (; w != nullptr; $assign(w, $nc(w)->nextWaiter)) {
-			if (((int32_t)(w->status & (uint32_t)2)) != 0) {
+		for (; w != nullptr; $assign(w, w->nextWaiter)) {
+			if ((w->status & 2) != 0) {
 				return true;
 			}
 		}
@@ -423,8 +359,8 @@ int32_t AbstractQueuedLongSynchronizer$ConditionObject::getWaitQueueLength() {
 	int32_t n = 0;
 	{
 		$var($AbstractQueuedLongSynchronizer$ConditionNode, w, this->firstWaiter);
-		for (; w != nullptr; $assign(w, $nc(w)->nextWaiter)) {
-			if (((int32_t)(w->status & (uint32_t)2)) != 0) {
+		for (; w != nullptr; $assign(w, w->nextWaiter)) {
+			if ((w->status & 2) != 0) {
 				++n;
 			}
 		}
@@ -433,15 +369,15 @@ int32_t AbstractQueuedLongSynchronizer$ConditionObject::getWaitQueueLength() {
 }
 
 $Collection* AbstractQueuedLongSynchronizer$ConditionObject::getWaitingThreads() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->this$0->isHeldExclusively()) {
 		$throwNew($IllegalMonitorStateException);
 	}
 	$var($ArrayList, list, $new($ArrayList));
 	{
 		$var($AbstractQueuedLongSynchronizer$ConditionNode, w, this->firstWaiter);
-		for (; w != nullptr; $assign(w, $nc(w)->nextWaiter)) {
-			if (((int32_t)(w->status & (uint32_t)2)) != 0) {
+		for (; w != nullptr; $assign(w, w->nextWaiter)) {
+			if ((w->status & 2) != 0) {
 				$var($Thread, t, w->waiter);
 				if (t != nullptr) {
 					list->add(t);
@@ -449,14 +385,66 @@ $Collection* AbstractQueuedLongSynchronizer$ConditionObject::getWaitingThreads()
 			}
 		}
 	}
-	return static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(list)));
+	return $cast($AbstractCollection, list);
 }
 
 AbstractQueuedLongSynchronizer$ConditionObject::AbstractQueuedLongSynchronizer$ConditionObject() {
 }
 
 $Class* AbstractQueuedLongSynchronizer$ConditionObject::load$($String* name, bool initialize) {
-	$loadClass(AbstractQueuedLongSynchronizer$ConditionObject, name, initialize, &_AbstractQueuedLongSynchronizer$ConditionObject_ClassInfo_, allocate$AbstractQueuedLongSynchronizer$ConditionObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractQueuedLongSynchronizer$ConditionObject, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractQueuedLongSynchronizer$ConditionObject, serialVersionUID)},
+		{"firstWaiter", "Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractQueuedLongSynchronizer$ConditionObject, firstWaiter)},
+		{"lastWaiter", "Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractQueuedLongSynchronizer$ConditionObject, lastWaiter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer;)V", nullptr, $PUBLIC, $method(AbstractQueuedLongSynchronizer$ConditionObject, init$, void, $AbstractQueuedLongSynchronizer*)},
+		{"await", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, await, void), "java.lang.InterruptedException"},
+		{"await", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, await, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"awaitNanos", "(J)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, awaitNanos, int64_t, int64_t), "java.lang.InterruptedException"},
+		{"awaitUninterruptibly", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, awaitUninterruptibly, void)},
+		{"awaitUntil", "(Ljava/util/Date;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, awaitUntil, bool, $Date*), "java.lang.InterruptedException"},
+		{"canReacquire", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;)Z", nullptr, $PRIVATE, $method(AbstractQueuedLongSynchronizer$ConditionObject, canReacquire, bool, $AbstractQueuedLongSynchronizer$ConditionNode*)},
+		{"doSignal", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;Z)V", nullptr, $PRIVATE, $method(AbstractQueuedLongSynchronizer$ConditionObject, doSignal, void, $AbstractQueuedLongSynchronizer$ConditionNode*, bool)},
+		{"enableWait", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;)J", nullptr, $PRIVATE, $method(AbstractQueuedLongSynchronizer$ConditionObject, enableWait, int64_t, $AbstractQueuedLongSynchronizer$ConditionNode*)},
+		{"getWaitQueueLength", "()I", nullptr, $PROTECTED | $FINAL, $method(AbstractQueuedLongSynchronizer$ConditionObject, getWaitQueueLength, int32_t)},
+		{"getWaitingThreads", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Thread;>;", $PROTECTED | $FINAL, $method(AbstractQueuedLongSynchronizer$ConditionObject, getWaitingThreads, $Collection*)},
+		{"hasWaiters", "()Z", nullptr, $PROTECTED | $FINAL, $method(AbstractQueuedLongSynchronizer$ConditionObject, hasWaiters, bool)},
+		{"isOwnedBy", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer;)Z", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$ConditionObject, isOwnedBy, bool, $AbstractQueuedLongSynchronizer*)},
+		{"signal", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, signal, void)},
+		{"signalAll", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedLongSynchronizer$ConditionObject, signalAll, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unlinkCancelledWaiters", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$ConditionNode;)V", nullptr, $PRIVATE, $method(AbstractQueuedLongSynchronizer$ConditionObject, unlinkCancelledWaiters, void, $AbstractQueuedLongSynchronizer$ConditionNode*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$ConditionObject", "java.util.concurrent.locks.AbstractQueuedLongSynchronizer", "ConditionObject", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$ConditionObject",
+		"java.lang.Object",
+		"java.util.concurrent.locks.Condition,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.AbstractQueuedLongSynchronizer"
+	};
+	$loadClass(AbstractQueuedLongSynchronizer$ConditionObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractQueuedLongSynchronizer$ConditionObject));
+	});
 	return class$;
 }
 

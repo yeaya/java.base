@@ -25,6 +25,7 @@ class RevocationChecker$Mode : public ::java::lang::Enum {
 public:
 	RevocationChecker$Mode();
 	static $Array<::sun::security::provider::certpath::RevocationChecker$Mode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::provider::certpath::RevocationChecker$Mode* valueOf($String* name);
 	static $Array<::sun::security::provider::certpath::RevocationChecker$Mode>* values();

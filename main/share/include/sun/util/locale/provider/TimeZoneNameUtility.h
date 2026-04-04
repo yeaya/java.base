@@ -29,6 +29,7 @@ class $import TimeZoneNameUtility : public ::java::lang::Object {
 	$class(TimeZoneNameUtility, 0, ::java::lang::Object)
 public:
 	TimeZoneNameUtility();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Optional* canonicalTZID($String* id);
 	static ::java::util::Optional* convertLDMLShortID($String* shortID);

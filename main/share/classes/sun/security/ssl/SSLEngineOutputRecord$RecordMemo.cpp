@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLEngineOutputRecord$RecordMemo.h>
-
 #include <sun/security/ssl/SSLCipher$SSLWriteCipher.h>
 #include <sun/security/ssl/SSLEngineOutputRecord.h>
 #include <jcpp.h>
@@ -13,45 +12,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLEngineOutputRecord$RecordMemo_FieldInfo_[] = {
-	{"contentType", "B", nullptr, 0, $field(SSLEngineOutputRecord$RecordMemo, contentType)},
-	{"majorVersion", "B", nullptr, 0, $field(SSLEngineOutputRecord$RecordMemo, majorVersion)},
-	{"minorVersion", "B", nullptr, 0, $field(SSLEngineOutputRecord$RecordMemo, minorVersion)},
-	{"encodeCipher", "Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, 0, $field(SSLEngineOutputRecord$RecordMemo, encodeCipher)},
-	{"fragment", "[B", nullptr, 0, $field(SSLEngineOutputRecord$RecordMemo, fragment)},
-	{}
-};
-
-$MethodInfo _SSLEngineOutputRecord$RecordMemo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLEngineOutputRecord$RecordMemo, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SSLEngineOutputRecord$RecordMemo_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLEngineOutputRecord$RecordMemo", "sun.security.ssl.SSLEngineOutputRecord", "RecordMemo", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLEngineOutputRecord$RecordMemo_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.SSLEngineOutputRecord$RecordMemo",
-	"java.lang.Object",
-	nullptr,
-	_SSLEngineOutputRecord$RecordMemo_FieldInfo_,
-	_SSLEngineOutputRecord$RecordMemo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLEngineOutputRecord$RecordMemo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLEngineOutputRecord"
-};
-
-$Object* allocate$SSLEngineOutputRecord$RecordMemo($Class* clazz) {
-	return $of($alloc(SSLEngineOutputRecord$RecordMemo));
-}
-
 void SSLEngineOutputRecord$RecordMemo::init$() {
 }
 
@@ -59,7 +19,40 @@ SSLEngineOutputRecord$RecordMemo::SSLEngineOutputRecord$RecordMemo() {
 }
 
 $Class* SSLEngineOutputRecord$RecordMemo::load$($String* name, bool initialize) {
-	$loadClass(SSLEngineOutputRecord$RecordMemo, name, initialize, &_SSLEngineOutputRecord$RecordMemo_ClassInfo_, allocate$SSLEngineOutputRecord$RecordMemo);
+	$FieldInfo fieldInfos$$[] = {
+		{"contentType", "B", nullptr, 0, $field(SSLEngineOutputRecord$RecordMemo, contentType)},
+		{"majorVersion", "B", nullptr, 0, $field(SSLEngineOutputRecord$RecordMemo, majorVersion)},
+		{"minorVersion", "B", nullptr, 0, $field(SSLEngineOutputRecord$RecordMemo, minorVersion)},
+		{"encodeCipher", "Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, 0, $field(SSLEngineOutputRecord$RecordMemo, encodeCipher)},
+		{"fragment", "[B", nullptr, 0, $field(SSLEngineOutputRecord$RecordMemo, fragment)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLEngineOutputRecord$RecordMemo, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLEngineOutputRecord$RecordMemo", "sun.security.ssl.SSLEngineOutputRecord", "RecordMemo", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.SSLEngineOutputRecord$RecordMemo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLEngineOutputRecord"
+	};
+	$loadClass(SSLEngineOutputRecord$RecordMemo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLEngineOutputRecord$RecordMemo);
+	});
 	return class$;
 }
 

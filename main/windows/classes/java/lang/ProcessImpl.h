@@ -70,6 +70,7 @@ class ProcessImpl : public ::java::lang::Process {
 	$class(ProcessImpl, 0, ::java::lang::Process)
 public:
 	ProcessImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($StringArray* cmd, $String* envblock, $String* path, $longs* stdHandles, bool forceNullOutputStream, bool redirectErrorStream);
 	static bool closeHandle(int64_t handle);
 	static int32_t countLeadingBackslash(int32_t verificationType, ::java::lang::CharSequence* input, int32_t start);

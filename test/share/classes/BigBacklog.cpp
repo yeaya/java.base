@@ -1,5 +1,4 @@
 #include <BigBacklog.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
@@ -7,7 +6,6 @@
 
 #undef MAX_VALUE
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $Integer = ::java::lang::Integer;
@@ -16,30 +14,11 @@ using $InetAddress = ::java::net::InetAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 
-$MethodInfo _BigBacklog_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BigBacklog, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigBacklog, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _BigBacklog_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"BigBacklog",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_BigBacklog_MethodInfo_
-};
-
-$Object* allocate$BigBacklog($Class* clazz) {
-	return $of($alloc(BigBacklog));
-}
-
 void BigBacklog::init$() {
 }
 
 void BigBacklog::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerSocket, soc, nullptr);
 	$var($Socket, csoc, nullptr);
 	int32_t port = 0;
@@ -68,7 +47,22 @@ BigBacklog::BigBacklog() {
 }
 
 $Class* BigBacklog::load$($String* name, bool initialize) {
-	$loadClass(BigBacklog, name, initialize, &_BigBacklog_ClassInfo_, allocate$BigBacklog);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BigBacklog, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigBacklog, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"BigBacklog",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BigBacklog, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BigBacklog);
+	});
 	return class$;
 }
 

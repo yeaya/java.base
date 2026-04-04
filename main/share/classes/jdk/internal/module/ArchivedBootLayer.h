@@ -19,6 +19,7 @@ class ArchivedBootLayer : public ::java::lang::Object {
 	$class(ArchivedBootLayer, $PRELOAD, ::java::lang::Object)
 public:
 	ArchivedBootLayer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ModuleLayer* bootLayer);
 	static void archive(::java::lang::ModuleLayer* layer);
 	virtual ::java::lang::ModuleLayer* bootLayer();

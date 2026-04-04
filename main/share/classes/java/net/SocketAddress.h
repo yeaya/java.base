@@ -13,7 +13,7 @@ class $export SocketAddress : public ::java::io::Serializable {
 public:
 	SocketAddress();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x4861F662F4979D6A;
+	static const int64_t serialVersionUID = (int64_t)0x4861f662f4979d6a;
 };
 
 	} // net

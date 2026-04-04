@@ -1,5 +1,4 @@
 #include <Indent.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
@@ -20,7 +19,6 @@
 #undef ENDS
 #undef MIDDLES
 
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
@@ -46,33 +44,29 @@ public:
 	virtual $Object* apply(Object$* s) override {
 		 return $of(Indent::lambda$test1$0(spaces, $cast($String, s)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Indent$$Lambda$lambda$test1$0>());
-	}
 	$String* spaces = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Indent$$Lambda$lambda$test1$0::fieldInfos[2] = {
-	{"spaces", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Indent$$Lambda$lambda$test1$0, spaces)},
-	{}
-};
-$MethodInfo Indent$$Lambda$lambda$test1$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Indent$$Lambda$lambda$test1$0, init$, void, $String*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Indent$$Lambda$lambda$test1$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Indent$$Lambda$lambda$test1$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Indent$$Lambda$lambda$test1$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Indent$$Lambda$lambda$test1$0::load$($String* name, bool initialize) {
-	$loadClass(Indent$$Lambda$lambda$test1$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"spaces", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Indent$$Lambda$lambda$test1$0, spaces)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Indent$$Lambda$lambda$test1$0, init$, void, $String*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Indent$$Lambda$lambda$test1$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Indent$$Lambda$lambda$test1$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Indent$$Lambda$lambda$test1$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Indent$$Lambda$lambda$test1$0);
+	});
 	return class$;
 }
 $Class* Indent$$Lambda$lambda$test1$0::class$ = nullptr;
@@ -86,67 +80,32 @@ public:
 	virtual $Object* apply(Object$* s) override {
 		 return $of(Indent::lambda$test1$1(adjust, $cast($String, s)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Indent$$Lambda$lambda$test1$1$1>());
-	}
 	int32_t adjust = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Indent$$Lambda$lambda$test1$1$1::fieldInfos[2] = {
-	{"adjust", "I", nullptr, $PUBLIC, $field(Indent$$Lambda$lambda$test1$1$1, adjust)},
-	{}
-};
-$MethodInfo Indent$$Lambda$lambda$test1$1$1::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Indent$$Lambda$lambda$test1$1$1, init$, void, int32_t)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Indent$$Lambda$lambda$test1$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Indent$$Lambda$lambda$test1$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Indent$$Lambda$lambda$test1$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Indent$$Lambda$lambda$test1$1$1::load$($String* name, bool initialize) {
-	$loadClass(Indent$$Lambda$lambda$test1$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"adjust", "I", nullptr, $PUBLIC, $field(Indent$$Lambda$lambda$test1$1$1, adjust)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Indent$$Lambda$lambda$test1$1$1, init$, void, int32_t)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Indent$$Lambda$lambda$test1$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Indent$$Lambda$lambda$test1$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Indent$$Lambda$lambda$test1$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Indent$$Lambda$lambda$test1$1$1);
+	});
 	return class$;
 }
 $Class* Indent$$Lambda$lambda$test1$1$1::class$ = nullptr;
-
-$FieldInfo _Indent_FieldInfo_[] = {
-	{"ENDS", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Indent, ENDS)},
-	{"MIDDLES", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Indent, MIDDLES)},
-	{}
-};
-
-$MethodInfo _Indent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Indent, init$, void)},
-	{"getBody", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Indent, getBody, $StringArray*, $StringArray*)},
-	{"indexOfNonWhitespace", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Indent, indexOfNonWhitespace, int32_t, $String*)},
-	{"lambda$test1$0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Indent, lambda$test1$0, $String*, $String*, $String*)},
-	{"lambda$test1$1", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Indent, lambda$test1$1, $String*, int32_t, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Indent, main, void, $StringArray*)},
-	{"report", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Indent, report, void, $String*, $String*, $String*, $String*)},
-	{"test1", "()V", nullptr, $STATIC, $staticMethod(Indent, test1, void)},
-	{}
-};
-
-$ClassInfo _Indent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Indent",
-	"java.lang.Object",
-	nullptr,
-	_Indent_FieldInfo_,
-	_Indent_MethodInfo_
-};
-
-$Object* allocate$Indent($Class* clazz) {
-	return $of($alloc(Indent));
-}
 
 $List* Indent::ENDS = nullptr;
 $List* Indent::MIDDLES = nullptr;
@@ -161,59 +120,51 @@ void Indent::main($StringArray* args) {
 
 void Indent::test1() {
 	$init(Indent);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ints, arr$, $new($ints, {
-			-8,
-			-7,
-			-4,
-			-3,
-			-2,
-			-1,
-			0,
-			1,
-			2,
-			3,
-			4,
-			7,
-			8
-		}));
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			int32_t adjust = arr$->get(i$);
-			{
+	$useLocalObjectStack();
+	$var($ints, arr$, $new($ints, {
+		-8,
+		-7,
+		-4,
+		-3,
+		-2,
+		-1,
+		0,
+		1,
+		2,
+		3,
+		4,
+		7,
+		8
+	}));
+	int32_t len$ = arr$->length;
+	int32_t i$ = 0;
+	for (; i$ < len$; ++i$) {
+		int32_t adjust = arr$->get(i$);
+		{
+			$var($Iterator, i$, $nc(Indent::ENDS)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($String, prefix, $cast($String, i$->next()));
 				{
-					$var($Iterator, i$, $nc(Indent::ENDS)->iterator());
+					$var($Iterator, i$, Indent::ENDS->iterator());
 					for (; $nc(i$)->hasNext();) {
-						$var($String, prefix, $cast($String, i$->next()));
+						$var($String, suffix, $cast($String, i$->next()));
 						{
-							{
-								$var($Iterator, i$, $nc(Indent::ENDS)->iterator());
-								for (; $nc(i$)->hasNext();) {
-									$var($String, suffix, $cast($String, i$->next()));
-									{
-										{
-											$var($Iterator, i$, $nc(Indent::MIDDLES)->iterator());
-											for (; $nc(i$)->hasNext();) {
-												$var($String, middle, $cast($String, i$->next()));
-												{
-													$var($String, input, $str({prefix, "   abc   \n"_s, middle, "\n   def   \n"_s, suffix}));
-													$var($String, output, $nc(input)->indent(adjust));
-													$var($Stream, stream, input->lines());
-													if (adjust > 0) {
-														$var($String, spaces, " "_s->repeat(adjust));
-														$assign(stream, stream->map(static_cast<$Function*>($$new(Indent$$Lambda$lambda$test1$0, spaces))));
-													} else if (adjust < 0) {
-														$assign(stream, stream->map(static_cast<$Function*>($$new(Indent$$Lambda$lambda$test1$1$1, adjust))));
-													}
-													$var($String, expected, $cast($String, stream->collect($($Collectors::joining("\n"_s, ""_s, "\n"_s)))));
-													if (!$nc(output)->equals(expected)) {
-														report("String::indent(int n)"_s, "Result indentation not as expected"_s, expected, output);
-													}
-												}
-											}
-										}
+							$var($Iterator, i$, $nc(Indent::MIDDLES)->iterator());
+							for (; $nc(i$)->hasNext();) {
+								$var($String, middle, $cast($String, i$->next()));
+								{
+									$var($String, input, $str({prefix, "   abc   \n"_s, middle, "\n   def   \n"_s, suffix}));
+									$var($String, output, input->indent(adjust));
+									$var($Stream, stream, input->lines());
+									if (adjust > 0) {
+										$var($String, spaces, " "_s->repeat(adjust));
+										$assign(stream, stream->map($$new(Indent$$Lambda$lambda$test1$0, spaces)));
+									} else if (adjust < 0) {
+										$assign(stream, stream->map($$new(Indent$$Lambda$lambda$test1$1$1, adjust)));
+									}
+									$var($String, expected, $cast($String, $nc(stream)->collect($($Collectors::joining("\n"_s, ""_s, "\n"_s)))));
+									if (!$nc(output)->equals(expected)) {
+										report("String::indent(int n)"_s, "Result indentation not as expected"_s, expected, output);
 									}
 								}
 							}
@@ -240,7 +191,7 @@ int32_t Indent::indexOfNonWhitespace($String* s) {
 
 $StringArray* Indent::getBody($StringArray* inLines) {
 	$init(Indent);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t from = -1;
 	int32_t to = -1;
 	for (int32_t i = 0; i < $nc(inLines)->length; ++i) {
@@ -252,23 +203,23 @@ $StringArray* Indent::getBody($StringArray* inLines) {
 			to = i + 1;
 		}
 	}
-	return $fcast($StringArray, $Arrays::copyOfRange(inLines, from, to));
+	return $cast($StringArray, $Arrays::copyOfRange(inLines, from, to));
 }
 
 void Indent::report($String* test, $String* message, $String* input, $String* output) {
 	$init(Indent);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->println($$str({"Testing "_s, test, ": "_s, message}));
-	$nc($System::err)->println();
-	$nc($System::err)->println($$str({"Input: length = "_s, $$str($nc(input)->length())}));
-	$nc($System::err)->println($("_"_s->repeat(40)));
-	$nc($System::err)->print($($nc(input)->replaceAll(" "_s, "."_s)));
-	$nc($System::err)->println($("_"_s->repeat(40)));
-	$nc($System::err)->println();
-	$nc($System::err)->println($$str({"Output: length = "_s, $$str($nc(output)->length())}));
-	$nc($System::err)->println($("_"_s->repeat(40)));
-	$nc($System::err)->print($($nc(output)->replaceAll(" "_s, "."_s)));
-	$nc($System::err)->println($("_"_s->repeat(40)));
+	$System::err->println();
+	$System::err->println($$str({"Input: length = "_s, $$str($nc(input)->length())}));
+	$System::err->println($("_"_s->repeat(40)));
+	$System::err->print($(input->replaceAll(" "_s, "."_s)));
+	$System::err->println($("_"_s->repeat(40)));
+	$System::err->println();
+	$System::err->println($$str({"Output: length = "_s, $$str($nc(output)->length())}));
+	$System::err->println($("_"_s->repeat(40)));
+	$System::err->print($(output->replaceAll(" "_s, "."_s)));
+	$System::err->println($("_"_s->repeat(40)));
 	$throwNew($RuntimeException);
 }
 
@@ -282,7 +233,7 @@ $String* Indent::lambda$test1$0($String* spaces, $String* s) {
 	return $str({spaces, s});
 }
 
-void clinit$Indent($Class* class$) {
+void Indent::clinit$($Class* clazz) {
 	$assignStatic(Indent::ENDS, $List::of(""_s, "\n"_s, "   \n"_s, "\n\n"_s, "\n\n\n"_s));
 	$assignStatic(Indent::MIDDLES, $List::of($$new($StringArray, {
 		""_s,
@@ -305,14 +256,40 @@ Indent::Indent() {
 
 $Class* Indent::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Indent$$Lambda$lambda$test1$0::classInfo$.name)) {
+		if (name->equals("Indent$$Lambda$lambda$test1$0")) {
 			return Indent$$Lambda$lambda$test1$0::load$(name, initialize);
 		}
-		if (name->equals(Indent$$Lambda$lambda$test1$1$1::classInfo$.name)) {
+		if (name->equals("Indent$$Lambda$lambda$test1$1$1")) {
 			return Indent$$Lambda$lambda$test1$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Indent, name, initialize, &_Indent_ClassInfo_, clinit$Indent, allocate$Indent);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENDS", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Indent, ENDS)},
+		{"MIDDLES", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Indent, MIDDLES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Indent, init$, void)},
+		{"getBody", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Indent, getBody, $StringArray*, $StringArray*)},
+		{"indexOfNonWhitespace", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Indent, indexOfNonWhitespace, int32_t, $String*)},
+		{"lambda$test1$0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Indent, lambda$test1$0, $String*, $String*, $String*)},
+		{"lambda$test1$1", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Indent, lambda$test1$1, $String*, int32_t, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Indent, main, void, $StringArray*)},
+		{"report", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Indent, report, void, $String*, $String*, $String*, $String*)},
+		{"test1", "()V", nullptr, $STATIC, $staticMethod(Indent, test1, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Indent",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Indent, name, initialize, &classInfo$$, Indent::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Indent);
+	});
 	return class$;
 }
 

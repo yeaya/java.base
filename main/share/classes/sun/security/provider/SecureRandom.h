@@ -37,7 +37,7 @@ public:
 	void init($bytes* seed);
 	void readObject(::java::io::ObjectInputStream* s);
 	static void updateState($bytes* state, $bytes* output);
-	static const int64_t serialVersionUID = (int64_t)0x31B537664CA8C321;
+	static const int64_t serialVersionUID = (int64_t)0x31b537664ca8c321;
 	static const int32_t DIGEST_SIZE = 20;
 	::java::security::MessageDigest* digest = nullptr;
 	$bytes* state = nullptr;

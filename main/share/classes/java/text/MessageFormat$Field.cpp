@@ -1,5 +1,4 @@
 #include <java/text/MessageFormat$Field.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/text/Format$Field.h>
 #include <java/text/MessageFormat.h>
@@ -17,44 +16,6 @@ using $Format$Field = ::java::text::Format$Field;
 namespace java {
 	namespace text {
 
-$FieldInfo _MessageFormat$Field_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat$Field, serialVersionUID)},
-	{"ARGUMENT", "Ljava/text/MessageFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageFormat$Field, ARGUMENT)},
-	{}
-};
-
-$MethodInfo _MessageFormat$Field_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(MessageFormat$Field, init$, void, $String*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MessageFormat$Field, readResolve, $Object*), "java.io.InvalidObjectException"},
-	{}
-};
-
-$InnerClassInfo _MessageFormat$Field_InnerClassesInfo_[] = {
-	{"java.text.MessageFormat$Field", "java.text.MessageFormat", "Field", $PUBLIC | $STATIC},
-	{"java.text.Format$Field", "java.text.Format", "Field", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MessageFormat$Field_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.text.MessageFormat$Field",
-	"java.text.Format$Field",
-	nullptr,
-	_MessageFormat$Field_FieldInfo_,
-	_MessageFormat$Field_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MessageFormat$Field_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.text.MessageFormat"
-};
-
-$Object* allocate$MessageFormat$Field($Class* clazz) {
-	return $of($alloc(MessageFormat$Field));
-}
-
 MessageFormat$Field* MessageFormat$Field::ARGUMENT = nullptr;
 
 void MessageFormat$Field::init$($String* name) {
@@ -62,13 +23,13 @@ void MessageFormat$Field::init$($String* name) {
 }
 
 $Object* MessageFormat$Field::readResolve() {
-	if ($of(this)->getClass() != MessageFormat$Field::class$) {
+	if (this->getClass() != MessageFormat$Field::class$) {
 		$throwNew($InvalidObjectException, "subclass didn\'t correctly implement readResolve"_s);
 	}
-	return $of(MessageFormat$Field::ARGUMENT);
+	return MessageFormat$Field::ARGUMENT;
 }
 
-void clinit$MessageFormat$Field($Class* class$) {
+void MessageFormat$Field::clinit$($Class* clazz) {
 	$assignStatic(MessageFormat$Field::ARGUMENT, $new(MessageFormat$Field, "message argument field"_s));
 }
 
@@ -76,7 +37,39 @@ MessageFormat$Field::MessageFormat$Field() {
 }
 
 $Class* MessageFormat$Field::load$($String* name, bool initialize) {
-	$loadClass(MessageFormat$Field, name, initialize, &_MessageFormat$Field_ClassInfo_, clinit$MessageFormat$Field, allocate$MessageFormat$Field);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat$Field, serialVersionUID)},
+		{"ARGUMENT", "Ljava/text/MessageFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageFormat$Field, ARGUMENT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(MessageFormat$Field, init$, void, $String*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MessageFormat$Field, readResolve, $Object*), "java.io.InvalidObjectException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.MessageFormat$Field", "java.text.MessageFormat", "Field", $PUBLIC | $STATIC},
+		{"java.text.Format$Field", "java.text.Format", "Field", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.text.MessageFormat$Field",
+		"java.text.Format$Field",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.text.MessageFormat"
+	};
+	$loadClass(MessageFormat$Field, name, initialize, &classInfo$$, MessageFormat$Field::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageFormat$Field);
+	});
 	return class$;
 }
 

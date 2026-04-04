@@ -1,5 +1,4 @@
 #include <java/util/stream/IntStream$Builder.h>
-
 #include <java/util/stream/IntStream.h>
 #include <jcpp.h>
 
@@ -12,45 +11,40 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$MethodInfo _IntStream$Builder_MethodInfo_[] = {
-	{"accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"add", "(I)Ljava/util/stream/IntStream$Builder;", nullptr, $PUBLIC, $virtualMethod(IntStream$Builder, add, IntStream$Builder*, int32_t)},
-	{"build", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream$Builder, build, $IntStream*)},
-	{}
-};
-
-$InnerClassInfo _IntStream$Builder_InnerClassesInfo_[] = {
-	{"java.util.stream.IntStream$Builder", "java.util.stream.IntStream", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _IntStream$Builder_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.stream.IntStream$Builder",
-	nullptr,
-	"java.util.function.IntConsumer",
-	nullptr,
-	_IntStream$Builder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntStream$Builder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.IntStream"
-};
-
-$Object* allocate$IntStream$Builder($Class* clazz) {
-	return $of($alloc(IntStream$Builder));
-}
-
 IntStream$Builder* IntStream$Builder::add(int32_t t) {
 	accept(t);
 	return this;
 }
 
 $Class* IntStream$Builder::load$($String* name, bool initialize) {
-	$loadClass(IntStream$Builder, name, initialize, &_IntStream$Builder_ClassInfo_, allocate$IntStream$Builder);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"add", "(I)Ljava/util/stream/IntStream$Builder;", nullptr, $PUBLIC, $virtualMethod(IntStream$Builder, add, IntStream$Builder*, int32_t)},
+		{"build", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream$Builder, build, $IntStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.IntStream$Builder", "java.util.stream.IntStream", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.stream.IntStream$Builder",
+		nullptr,
+		"java.util.function.IntConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.IntStream"
+	};
+	$loadClass(IntStream$Builder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntStream$Builder);
+	});
 	return class$;
 }
 

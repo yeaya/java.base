@@ -14,6 +14,7 @@ class $export AuthResources_sv : public ::java::util::ListResourceBundle {
 	$class(AuthResources_sv, 0, ::java::util::ListResourceBundle)
 public:
 	AuthResources_sv();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $Array<::java::lang::Object, 2>* contents;

@@ -1,5 +1,4 @@
 #include <Basic2$Writer.h>
-
 #include <Basic2.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -13,47 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Random = ::java::util::Random;
-
-$FieldInfo _Basic2$Writer_FieldInfo_[] = {
-	{"out", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(Basic2$Writer, out)},
-	{"total", "I", nullptr, $PRIVATE | $FINAL, $field(Basic2$Writer, total$)},
-	{"hash", "I", nullptr, $PRIVATE | $VOLATILE, $field(Basic2$Writer, hash$)},
-	{}
-};
-
-$MethodInfo _Basic2$Writer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(Basic2$Writer, init$, void, $OutputStream*)},
-	{"hash", "()I", nullptr, 0, $virtualMethod(Basic2$Writer, hash, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic2$Writer, run, void)},
-	{"total", "()I", nullptr, 0, $virtualMethod(Basic2$Writer, total, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Basic2$Writer_InnerClassesInfo_[] = {
-	{"Basic2$Writer", "Basic2", "Writer", $STATIC},
-	{}
-};
-
-$ClassInfo _Basic2$Writer_ClassInfo_ = {
-	$ACC_SUPER,
-	"Basic2$Writer",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Basic2$Writer_FieldInfo_,
-	_Basic2$Writer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Basic2$Writer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Basic2"
-};
-
-$Object* allocate$Basic2$Writer($Class* clazz) {
-	return $of($alloc(Basic2$Writer));
-}
 
 void Basic2$Writer::init$($OutputStream* out) {
 	$set(this, out, out);
@@ -62,7 +20,7 @@ void Basic2$Writer::init$($OutputStream* out) {
 }
 
 void Basic2$Writer::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->hash$ = 0;
 	int32_t rem = this->total$;
 	try {
@@ -71,16 +29,16 @@ void Basic2$Writer::run() {
 			$var($bytes, buf, $new($bytes, 1 + $nc($Basic2::rand)->nextInt(rem)));
 			int32_t off = 0;
 			int32_t len = 0;
-			if ($nc($Basic2::rand)->nextBoolean()) {
+			if ($Basic2::rand->nextBoolean()) {
 				off = 0;
 				len = buf->length;
 			} else {
-				off = $nc($Basic2::rand)->nextInt(buf->length);
+				off = $Basic2::rand->nextInt(buf->length);
 				int32_t r = buf->length - off;
-				len = (r <= 1) ? 1 : (1 + $nc($Basic2::rand)->nextInt(r));
+				len = (r <= 1) ? 1 : (1 + $Basic2::rand->nextInt(r));
 			}
 			for (int32_t i = 0; i < len; ++i) {
-				int8_t value = (int8_t)$nc($Basic2::rand)->nextInt(256);
+				int8_t value = (int8_t)$Basic2::rand->nextInt(256);
 				buf->set(off + i, value);
 				this->hash$ = this->hash$ ^ value;
 			}
@@ -109,7 +67,41 @@ Basic2$Writer::Basic2$Writer() {
 }
 
 $Class* Basic2$Writer::load$($String* name, bool initialize) {
-	$loadClass(Basic2$Writer, name, initialize, &_Basic2$Writer_ClassInfo_, allocate$Basic2$Writer);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(Basic2$Writer, out)},
+		{"total", "I", nullptr, $PRIVATE | $FINAL, $field(Basic2$Writer, total$)},
+		{"hash", "I", nullptr, $PRIVATE | $VOLATILE, $field(Basic2$Writer, hash$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(Basic2$Writer, init$, void, $OutputStream*)},
+		{"hash", "()I", nullptr, 0, $virtualMethod(Basic2$Writer, hash, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic2$Writer, run, void)},
+		{"total", "()I", nullptr, 0, $virtualMethod(Basic2$Writer, total, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic2$Writer", "Basic2", "Writer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Basic2$Writer",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Basic2"
+	};
+	$loadClass(Basic2$Writer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic2$Writer);
+	});
 	return class$;
 }
 

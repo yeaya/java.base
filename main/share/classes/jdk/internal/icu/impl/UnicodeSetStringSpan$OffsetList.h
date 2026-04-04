@@ -24,6 +24,7 @@ class UnicodeSetStringSpan$OffsetList : public ::java::lang::Object {
 	$class(UnicodeSetStringSpan$OffsetList, 0, ::java::lang::Object)
 public:
 	UnicodeSetStringSpan$OffsetList();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addOffset(int32_t offset);
 	void addOffsetAndCount(int32_t offset, int32_t count);

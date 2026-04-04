@@ -1,5 +1,4 @@
 #include <java/util/AbstractMap$SimpleEntry.h>
-
 #include <java/util/AbstractMap.h>
 #include <java/util/Map$Entry.h>
 #include <jcpp.h>
@@ -13,53 +12,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _AbstractMap$SimpleEntry_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractMap$SimpleEntry, serialVersionUID)},
-	{"key", "Ljava/lang/Object;", "TK;", $PRIVATE | $FINAL, $field(AbstractMap$SimpleEntry, key)},
-	{"value", "Ljava/lang/Object;", "TV;", $PRIVATE, $field(AbstractMap$SimpleEntry, value)},
-	{}
-};
-
-$MethodInfo _AbstractMap$SimpleEntry_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC, $method(AbstractMap$SimpleEntry, init$, void, Object$*, Object$*)},
-	{"<init>", "(Ljava/util/Map$Entry;)V", "(Ljava/util/Map$Entry<+TK;+TV;>;)V", $PUBLIC, $method(AbstractMap$SimpleEntry, init$, void, $Map$Entry*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, equals, bool, Object$*)},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, getKey, $Object*)},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, getValue, $Object*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, hashCode, int32_t)},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, setValue, $Object*, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AbstractMap$SimpleEntry_InnerClassesInfo_[] = {
-	{"java.util.AbstractMap$SimpleEntry", "java.util.AbstractMap", "SimpleEntry", $PUBLIC | $STATIC},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractMap$SimpleEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.AbstractMap$SimpleEntry",
-	"java.lang.Object",
-	"java.util.Map$Entry,java.io.Serializable",
-	_AbstractMap$SimpleEntry_FieldInfo_,
-	_AbstractMap$SimpleEntry_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Map$Entry<TK;TV;>;Ljava/io/Serializable;",
-	nullptr,
-	_AbstractMap$SimpleEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.AbstractMap"
-};
-
-$Object* allocate$AbstractMap$SimpleEntry($Class* clazz) {
-	return $of($alloc(AbstractMap$SimpleEntry));
-}
 
 $Object* AbstractMap$SimpleEntry::clone() {
 	 return this->$Map$Entry::clone();
@@ -80,21 +32,21 @@ void AbstractMap$SimpleEntry::init$($Map$Entry* entry) {
 }
 
 $Object* AbstractMap$SimpleEntry::getKey() {
-	return $of(this->key);
+	return this->key;
 }
 
 $Object* AbstractMap$SimpleEntry::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 $Object* AbstractMap$SimpleEntry::setValue(Object$* value) {
 	$var($Object, oldValue, this->value);
 	$set(this, value, value);
-	return $of(oldValue);
+	return oldValue;
 }
 
 bool AbstractMap$SimpleEntry::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, e, nullptr);
 	bool var$2 = $instanceOf($Map$Entry, o);
 	if (var$2) {
@@ -103,12 +55,12 @@ bool AbstractMap$SimpleEntry::equals(Object$* o) {
 	}
 	bool var$1 = var$2;
 	bool var$0 = var$1 && $AbstractMap::eq(this->key, $($nc(e)->getKey()));
-	return var$0 && $AbstractMap::eq(this->value, $($nc(e)->getValue()));
+	return var$0 && $AbstractMap::eq(this->value, $(e->getValue()));
 }
 
 int32_t AbstractMap$SimpleEntry::hashCode() {
-	int32_t var$0 = (this->key == nullptr ? 0 : $nc($of(this->key))->hashCode());
-	return var$0 ^ (this->value == nullptr ? 0 : $nc($of(this->value))->hashCode());
+	int32_t var$0 = this->key == nullptr ? 0 : this->key->hashCode();
+	return var$0 ^ (this->value == nullptr ? 0 : this->value->hashCode());
 }
 
 $String* AbstractMap$SimpleEntry::toString() {
@@ -119,7 +71,48 @@ AbstractMap$SimpleEntry::AbstractMap$SimpleEntry() {
 }
 
 $Class* AbstractMap$SimpleEntry::load$($String* name, bool initialize) {
-	$loadClass(AbstractMap$SimpleEntry, name, initialize, &_AbstractMap$SimpleEntry_ClassInfo_, allocate$AbstractMap$SimpleEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractMap$SimpleEntry, serialVersionUID)},
+		{"key", "Ljava/lang/Object;", "TK;", $PRIVATE | $FINAL, $field(AbstractMap$SimpleEntry, key)},
+		{"value", "Ljava/lang/Object;", "TV;", $PRIVATE, $field(AbstractMap$SimpleEntry, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC, $method(AbstractMap$SimpleEntry, init$, void, Object$*, Object$*)},
+		{"<init>", "(Ljava/util/Map$Entry;)V", "(Ljava/util/Map$Entry<+TK;+TV;>;)V", $PUBLIC, $method(AbstractMap$SimpleEntry, init$, void, $Map$Entry*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, equals, bool, Object$*)},
+		{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, getKey, $Object*)},
+		{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, getValue, $Object*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, hashCode, int32_t)},
+		{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, setValue, $Object*, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractMap$SimpleEntry, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.AbstractMap$SimpleEntry", "java.util.AbstractMap", "SimpleEntry", $PUBLIC | $STATIC},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.AbstractMap$SimpleEntry",
+		"java.lang.Object",
+		"java.util.Map$Entry,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Map$Entry<TK;TV;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.AbstractMap"
+	};
+	$loadClass(AbstractMap$SimpleEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractMap$SimpleEntry));
+	});
 	return class$;
 }
 

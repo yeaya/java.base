@@ -1,5 +1,4 @@
 #include <sun/nio/ch/FileLockTable$FileLockReference.h>
-
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/nio/channels/FileLock.h>
@@ -20,42 +19,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _FileLockTable$FileLockReference_FieldInfo_[] = {
-	{"fileKey", "Lsun/nio/ch/FileKey;", nullptr, $PRIVATE, $field(FileLockTable$FileLockReference, fileKey$)},
-	{}
-};
-
-$MethodInfo _FileLockTable$FileLockReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileLock;Ljava/lang/ref/ReferenceQueue;Lsun/nio/ch/FileKey;)V", "(Ljava/nio/channels/FileLock;Ljava/lang/ref/ReferenceQueue<Ljava/nio/channels/FileLock;>;Lsun/nio/ch/FileKey;)V", 0, $method(FileLockTable$FileLockReference, init$, void, $FileLock*, $ReferenceQueue*, $FileKey*)},
-	{"fileKey", "()Lsun/nio/ch/FileKey;", nullptr, 0, $virtualMethod(FileLockTable$FileLockReference, fileKey, $FileKey*)},
-	{}
-};
-
-$InnerClassInfo _FileLockTable$FileLockReference_InnerClassesInfo_[] = {
-	{"sun.nio.ch.FileLockTable$FileLockReference", "sun.nio.ch.FileLockTable", "FileLockReference", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FileLockTable$FileLockReference_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.FileLockTable$FileLockReference",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	_FileLockTable$FileLockReference_FieldInfo_,
-	_FileLockTable$FileLockReference_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Ljava/nio/channels/FileLock;>;",
-	nullptr,
-	_FileLockTable$FileLockReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.FileLockTable"
-};
-
-$Object* allocate$FileLockTable$FileLockReference($Class* clazz) {
-	return $of($alloc(FileLockTable$FileLockReference));
-}
-
 void FileLockTable$FileLockReference::init$($FileLock* referent, $ReferenceQueue* queue, $FileKey* key) {
 	$WeakReference::init$(referent, queue);
 	$set(this, fileKey$, key);
@@ -69,7 +32,37 @@ FileLockTable$FileLockReference::FileLockTable$FileLockReference() {
 }
 
 $Class* FileLockTable$FileLockReference::load$($String* name, bool initialize) {
-	$loadClass(FileLockTable$FileLockReference, name, initialize, &_FileLockTable$FileLockReference_ClassInfo_, allocate$FileLockTable$FileLockReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"fileKey", "Lsun/nio/ch/FileKey;", nullptr, $PRIVATE, $field(FileLockTable$FileLockReference, fileKey$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/FileLock;Ljava/lang/ref/ReferenceQueue;Lsun/nio/ch/FileKey;)V", "(Ljava/nio/channels/FileLock;Ljava/lang/ref/ReferenceQueue<Ljava/nio/channels/FileLock;>;Lsun/nio/ch/FileKey;)V", 0, $method(FileLockTable$FileLockReference, init$, void, $FileLock*, $ReferenceQueue*, $FileKey*)},
+		{"fileKey", "()Lsun/nio/ch/FileKey;", nullptr, 0, $virtualMethod(FileLockTable$FileLockReference, fileKey, $FileKey*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.FileLockTable$FileLockReference", "sun.nio.ch.FileLockTable", "FileLockReference", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.FileLockTable$FileLockReference",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Ljava/nio/channels/FileLock;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.FileLockTable"
+	};
+	$loadClass(FileLockTable$FileLockReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileLockTable$FileLockReference);
+	});
 	return class$;
 }
 

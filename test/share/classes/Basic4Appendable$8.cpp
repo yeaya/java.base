@@ -1,5 +1,4 @@
 #include <Basic4Appendable$8.h>
-
 #include <Basic4Appendable.h>
 #include <java/lang/Appendable.h>
 #include <java/nio/CharBuffer.h>
@@ -14,52 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CharBuffer = ::java::nio::CharBuffer;
 
-$FieldInfo _Basic4Appendable$8_FieldInfo_[] = {
-	{"csn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Basic4Appendable$8, csn)},
-	{"exp", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Basic4Appendable$8, exp)},
-	{"cb", "Ljava/nio/CharBuffer;", nullptr, $PRIVATE, $field(Basic4Appendable$8, cb)},
-	{}
-};
-
-$MethodInfo _Basic4Appendable$8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Basic4Appendable$8, init$, void)},
-	{"init", "(Ljava/lang/Appendable;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Basic4Appendable$8, init, void, $Appendable*, $String*, $String*)},
-	{"reset", "(Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(Basic4Appendable$8, reset, $Appendable*, $Appendable*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4Appendable$8, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Basic4Appendable$8_EnclosingMethodInfo_ = {
-	"Basic4Appendable",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Basic4Appendable$8_InnerClassesInfo_[] = {
-	{"Basic4Appendable$8", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Basic4Appendable$8_ClassInfo_ = {
-	$ACC_SUPER,
-	"Basic4Appendable$8",
-	"java.lang.Object",
-	"BasicRunnable",
-	_Basic4Appendable$8_FieldInfo_,
-	_Basic4Appendable$8_MethodInfo_,
-	nullptr,
-	&_Basic4Appendable$8_EnclosingMethodInfo_,
-	_Basic4Appendable$8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Basic4Appendable"
-};
-
-$Object* allocate$Basic4Appendable$8($Class* clazz) {
-	return $of($alloc(Basic4Appendable$8));
-}
-
 void Basic4Appendable$8::init$() {
 }
 
@@ -70,13 +23,13 @@ void Basic4Appendable$8::init($Appendable* cb, $String* csn, $String* exp) {
 }
 
 void Basic4Appendable$8::run() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(this->cb)->limit($nc(this->cb)->position())))->rewind();
+	$useLocalObjectStack();
+	$$nc($nc(this->cb)->limit($nc(this->cb)->position()))->rewind();
 	$Basic4Appendable::ck($$str({"CharBuffer.append("_s, this->csn, ")"_s}), this->exp, $($nc(this->cb)->toString()));
 }
 
 $Appendable* Basic4Appendable$8::reset($Appendable* cb) {
-	$nc(($cast($CharBuffer, cb)))->clear();
+	$nc($cast($CharBuffer, cb))->clear();
 	return cb;
 }
 
@@ -84,7 +37,46 @@ Basic4Appendable$8::Basic4Appendable$8() {
 }
 
 $Class* Basic4Appendable$8::load$($String* name, bool initialize) {
-	$loadClass(Basic4Appendable$8, name, initialize, &_Basic4Appendable$8_ClassInfo_, allocate$Basic4Appendable$8);
+	$FieldInfo fieldInfos$$[] = {
+		{"csn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Basic4Appendable$8, csn)},
+		{"exp", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Basic4Appendable$8, exp)},
+		{"cb", "Ljava/nio/CharBuffer;", nullptr, $PRIVATE, $field(Basic4Appendable$8, cb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Basic4Appendable$8, init$, void)},
+		{"init", "(Ljava/lang/Appendable;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Basic4Appendable$8, init, void, $Appendable*, $String*, $String*)},
+		{"reset", "(Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(Basic4Appendable$8, reset, $Appendable*, $Appendable*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4Appendable$8, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Basic4Appendable",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic4Appendable$8", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Basic4Appendable$8",
+		"java.lang.Object",
+		"BasicRunnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Basic4Appendable"
+	};
+	$loadClass(Basic4Appendable$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic4Appendable$8);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/MS949$EncodeHolder.h>
-
 #include <sun/nio/cs/DoubleByte$Encoder.h>
 #include <sun/nio/cs/MS949$DecodeHolder.h>
 #include <sun/nio/cs/MS949.h>
@@ -16,50 +15,14 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _MS949$EncodeHolder_FieldInfo_[] = {
-	{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(MS949$EncodeHolder, c2b)},
-	{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(MS949$EncodeHolder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _MS949$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MS949$EncodeHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _MS949$EncodeHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.MS949$EncodeHolder", "sun.nio.cs.MS949", "EncodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _MS949$EncodeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.MS949$EncodeHolder",
-	"java.lang.Object",
-	nullptr,
-	_MS949$EncodeHolder_FieldInfo_,
-	_MS949$EncodeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MS949$EncodeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.MS949"
-};
-
-$Object* allocate$MS949$EncodeHolder($Class* clazz) {
-	return $of($alloc(MS949$EncodeHolder));
-}
-
 $chars* MS949$EncodeHolder::c2b = nullptr;
 $chars* MS949$EncodeHolder::c2bIndex = nullptr;
 
 void MS949$EncodeHolder::init$() {
 }
 
-void clinit$MS949$EncodeHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MS949$EncodeHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(MS949$EncodeHolder::c2b, $new($chars, 0x00009300));
 	$assignStatic(MS949$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
@@ -74,7 +37,37 @@ MS949$EncodeHolder::MS949$EncodeHolder() {
 }
 
 $Class* MS949$EncodeHolder::load$($String* name, bool initialize) {
-	$loadClass(MS949$EncodeHolder, name, initialize, &_MS949$EncodeHolder_ClassInfo_, clinit$MS949$EncodeHolder, allocate$MS949$EncodeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(MS949$EncodeHolder, c2b)},
+		{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(MS949$EncodeHolder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MS949$EncodeHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.MS949$EncodeHolder", "sun.nio.cs.MS949", "EncodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.MS949$EncodeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.MS949"
+	};
+	$loadClass(MS949$EncodeHolder, name, initialize, &classInfo$$, MS949$EncodeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MS949$EncodeHolder);
+	});
 	return class$;
 }
 

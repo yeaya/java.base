@@ -1,5 +1,4 @@
 #include <sun/invoke/util/VerifyType.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
@@ -24,36 +23,6 @@ using $Wrapper = ::sun::invoke::util::Wrapper;
 namespace sun {
 	namespace invoke {
 		namespace util {
-
-$FieldInfo _VerifyType_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(VerifyType, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _VerifyType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(VerifyType, init$, void)},
-	{"canPassUnchecked", "(Ljava/lang/Class;Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)I", $PUBLIC | $STATIC, $staticMethod(VerifyType, canPassUnchecked, int32_t, $Class*, $Class*)},
-	{"isNullConversion", "(Ljava/lang/Class;Ljava/lang/Class;Z)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullConversion, bool, $Class*, $Class*, bool)},
-	{"isNullConversion", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullConversion, bool, $MethodType*, $MethodType*, bool)},
-	{"isNullReferenceConversion", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullReferenceConversion, bool, $Class*, $Class*)},
-	{"isNullType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullType, bool, $Class*)},
-	{"isSpreadArgType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isSpreadArgType, bool, $Class*)},
-	{"spreadArgElementType", "(Ljava/lang/Class;I)Ljava/lang/Class;", "(Ljava/lang/Class<*>;I)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(VerifyType, spreadArgElementType, $Class*, $Class*, int32_t)},
-	{}
-};
-
-$ClassInfo _VerifyType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.invoke.util.VerifyType",
-	"java.lang.Object",
-	nullptr,
-	_VerifyType_FieldInfo_,
-	_VerifyType_MethodInfo_
-};
-
-$Object* allocate$VerifyType($Class* clazz) {
-	return $of($alloc(VerifyType));
-}
 
 bool VerifyType::$assertionsDisabled = false;
 
@@ -86,7 +55,6 @@ bool VerifyType::isNullConversion($Class* src, $Class* dst, bool keepInterfaces)
 		return false;
 	}
 	$Wrapper* sw = $Wrapper::forPrimitiveType(src);
-	$init($Integer);
 	if (dst == $Integer::TYPE) {
 		return $nc(sw)->isSubwordOrInt();
 	}
@@ -97,12 +65,12 @@ bool VerifyType::isNullConversion($Class* src, $Class* dst, bool keepInterfaces)
 	if (!$nc(dw)->isSubwordOrInt()) {
 		return false;
 	}
-	bool var$0 = !$nc(dw)->isSigned();
-	if (var$0 && $nc(sw)->isSigned()) {
+	bool var$0 = !dw->isSigned();
+	if (var$0 && sw->isSigned()) {
 		return false;
 	}
-	int32_t var$1 = $nc(dw)->bitWidth();
-	return var$1 > $nc(sw)->bitWidth();
+	int32_t var$1 = dw->bitWidth();
+	return var$1 > sw->bitWidth();
 }
 
 bool VerifyType::isNullReferenceConversion($Class* src, $Class* dst) {
@@ -116,12 +84,11 @@ bool VerifyType::isNullReferenceConversion($Class* src, $Class* dst) {
 	if (isNullType(src)) {
 		return true;
 	}
-	return $nc(dst)->isAssignableFrom(src);
+	return dst->isAssignableFrom(src);
 }
 
 bool VerifyType::isNullType($Class* type) {
 	$init(VerifyType);
-	$load($Void);
 	if (type == $Void::class$) {
 		return true;
 	}
@@ -134,7 +101,7 @@ bool VerifyType::isNullType($Class* type) {
 
 bool VerifyType::isNullConversion($MethodType* call, $MethodType* recv, bool keepInterfaces) {
 	$init(VerifyType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (call == recv) {
 		return true;
 	}
@@ -144,12 +111,12 @@ bool VerifyType::isNullConversion($MethodType* call, $MethodType* recv, bool kee
 	}
 	for (int32_t i = 0; i < len; ++i) {
 		$Class* var$0 = $cast($Class, call->parameterType(i));
-		if (!isNullConversion(var$0, $($cast($Class, $nc(recv)->parameterType(i))), keepInterfaces)) {
+		if (!isNullConversion(var$0, $$cast($Class, recv->parameterType(i)), keepInterfaces)) {
 			return false;
 		}
 	}
-	$Class* var$1 = $cast($Class, $nc(recv)->returnType());
-	return isNullConversion(var$1, $($cast($Class, call->returnType())), keepInterfaces);
+	$Class* var$1 = $cast($Class, recv->returnType());
+	return isNullConversion(var$1, $$cast($Class, call->returnType()), keepInterfaces);
 }
 
 int32_t VerifyType::canPassUnchecked($Class* src, $Class* dst) {
@@ -158,7 +125,6 @@ int32_t VerifyType::canPassUnchecked($Class* src, $Class* dst) {
 		return 1;
 	}
 	if ($nc(dst)->isPrimitive()) {
-		$init($Void);
 		if (dst == $Void::TYPE) {
 			return 1;
 		}
@@ -182,9 +148,7 @@ int32_t VerifyType::canPassUnchecked($Class* src, $Class* dst) {
 			}
 			return 1;
 		}
-		$init($Float);
 		if (src == $Float::TYPE || dst == $Float::TYPE) {
-			$init($Double);
 			if (src == $Double::TYPE || dst == $Double::TYPE) {
 				return -1;
 			} else {
@@ -212,7 +176,7 @@ $Class* VerifyType::spreadArgElementType($Class* spreadArg, int32_t i) {
 	return $nc(spreadArg)->getComponentType();
 }
 
-void clinit$VerifyType($Class* class$) {
+void VerifyType::clinit$($Class* clazz) {
 	VerifyType::$assertionsDisabled = !VerifyType::class$->desiredAssertionStatus();
 }
 
@@ -220,7 +184,32 @@ VerifyType::VerifyType() {
 }
 
 $Class* VerifyType::load$($String* name, bool initialize) {
-	$loadClass(VerifyType, name, initialize, &_VerifyType_ClassInfo_, clinit$VerifyType, allocate$VerifyType);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(VerifyType, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(VerifyType, init$, void)},
+		{"canPassUnchecked", "(Ljava/lang/Class;Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)I", $PUBLIC | $STATIC, $staticMethod(VerifyType, canPassUnchecked, int32_t, $Class*, $Class*)},
+		{"isNullConversion", "(Ljava/lang/Class;Ljava/lang/Class;Z)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullConversion, bool, $Class*, $Class*, bool)},
+		{"isNullConversion", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullConversion, bool, $MethodType*, $MethodType*, bool)},
+		{"isNullReferenceConversion", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullReferenceConversion, bool, $Class*, $Class*)},
+		{"isNullType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullType, bool, $Class*)},
+		{"isSpreadArgType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isSpreadArgType, bool, $Class*)},
+		{"spreadArgElementType", "(Ljava/lang/Class;I)Ljava/lang/Class;", "(Ljava/lang/Class<*>;I)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(VerifyType, spreadArgElementType, $Class*, $Class*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.invoke.util.VerifyType",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VerifyType, name, initialize, &classInfo$$, VerifyType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VerifyType);
+	});
 	return class$;
 }
 

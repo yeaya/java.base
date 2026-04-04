@@ -1,5 +1,4 @@
 #include <java/util/LocaleISOData.h>
-
 #include <java/util/Set.h>
 #include <jcpp.h>
 
@@ -11,47 +10,17 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace util {
 
-$FieldInfo _LocaleISOData_FieldInfo_[] = {
-	{"isoLanguageTable", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LocaleISOData, isoLanguageTable)},
-	{"isoCountryTable", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LocaleISOData, isoCountryTable)},
-	{"ISO3166_3", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LocaleISOData, ISO3166_3)},
-	{}
-};
-
-$MethodInfo _LocaleISOData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleISOData, init$, void)},
-	{"computeISO3166_1Alpha3Countries", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $staticMethod(LocaleISOData, computeISO3166_1Alpha3Countries, $Set*)},
-	{}
-};
-
-$ClassInfo _LocaleISOData_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.LocaleISOData",
-	"java.lang.Object",
-	nullptr,
-	_LocaleISOData_FieldInfo_,
-	_LocaleISOData_MethodInfo_
-};
-
-$Object* allocate$LocaleISOData($Class* clazz) {
-	return $of($alloc(LocaleISOData));
-}
-
 $String* LocaleISOData::isoLanguageTable = nullptr;
 $String* LocaleISOData::isoCountryTable = nullptr;
 $StringArray* LocaleISOData::ISO3166_3 = nullptr;
 
 $Set* LocaleISOData::computeISO3166_1Alpha3Countries() {
 	$init(LocaleISOData);
-	$useLocalCurrentObjectStackCache();
-	int32_t tableLength = $nc(LocaleISOData::isoCountryTable)->length();
+	$useLocalObjectStack();
+	int32_t tableLength = LocaleISOData::isoCountryTable->length();
 	$var($StringArray, isoTable, $new($StringArray, tableLength / 5));
-	{
-		int32_t i = 0;
-		int32_t index = 0;
-		for (; index < tableLength; ++i, index += 5) {
-			isoTable->set(i, $($nc(LocaleISOData::isoCountryTable)->substring(index + 2, index + 5)));
-		}
+	for (int32_t i = 0, index = 0; index < tableLength; ++i, index += 5) {
+		isoTable->set(i, $(LocaleISOData::isoCountryTable->substring(index + 2, index + 5)));
 	}
 	return $Set::of(isoTable);
 }
@@ -59,7 +28,7 @@ $Set* LocaleISOData::computeISO3166_1Alpha3Countries() {
 void LocaleISOData::init$() {
 }
 
-void clinit$LocaleISOData($Class* class$) {
+void LocaleISOData::clinit$($Class* clazz) {
 	$assignStatic(LocaleISOData::isoLanguageTable, "aaaarababkaeaveafafrakakaamamhanargararaasasmavavaayaymazazebabakbebelbgbulbhbihbibisbmbambnbenbobodbrbrebsboscacatcechechchacocoscrcrecscescuchucvchvcycymdadandedeudvdivdzdzoeeeweelellenengeoepoesspaetesteueusfafasfffulfifinfjfijfofaofrfrafyfrygaglegdglaglglggngrngugujgvglvhahauhehebhihinhohmohrhrvhthathuhunhyhyehzheriainaidindieileigiboiiiiiikipkinindioidoisislititaiuikuiwhebjajpnjiyidjvjavkakatkgkonkikikkjkuakkkazklkalkmkhmknkankokorkrkaukskaskukurkvkomkwcorkykirlalatlbltzlgluglilimlnlinlolaoltlitlulublvlavmgmlgmhmahmimrimkmkdmlmalmnmonmomolmrmarmsmsamtmltmymyananaunbnobndndenenepngndonlnldnnnnononornrnblnvnavnynyaocociojojiomormororiososspapanpipliplpolpspusptporququermrohrnrunroronrurusrwkinsasanscsrdsdsndsesmesgsagsisinskslkslslvsmsmosnsnasosomsqsqisrsrpsssswstsotsusunsvsweswswatatamteteltgtgkththatitirtktuktltgltntsntotontrturtstsotttattwtwitytahuguigukukrururduzuzbvevenvivievovolwawlnwowolxhxhoyiyidyoyorzazhazhzhozuzul"_s);
 	$assignStatic(LocaleISOData::isoCountryTable, "ADANDAEAREAFAFGAGATGAIAIAALALBAMARMAOAGOAQATAARARGASASMATAUTAUAUSAWABWAXALAAZAZEBABIHBBBRBBDBGDBEBELBFBFABGBGRBHBHRBIBDIBJBENBLBLMBMBMUBNBRNBOBOLBQBESBRBRABSBHSBTBTNBVBVTBWBWABYBLRBZBLZCACANCCCCKCDCODCFCAFCGCOGCHCHECICIVCKCOKCLCHLCMCMRCNCHNCOCOLCRCRICUCUBCVCPVCWCUWCXCXRCYCYPCZCZEDEDEUDJDJIDKDNKDMDMADODOMDZDZAECECUEEESTEGEGYEHESHERERIESESPETETHFIFINFJFJIFKFLKFMFSMFOFROFRFRAGAGABGBGBRGDGRDGEGEOGFGUFGGGGYGHGHAGIGIBGLGRLGMGMBGNGINGPGLPGQGNQGRGRCGSSGSGTGTMGUGUMGWGNBGYGUYHKHKGHMHMDHNHNDHRHRVHTHTIHUHUNIDIDNIEIRLILISRIMIMNININDIOIOTIQIRQIRIRNISISLITITAJEJEYJMJAMJOJORJPJPNKEKENKGKGZKHKHMKIKIRKMCOMKNKNAKPPRKKRKORKWKWTKYCYMKZKAZLALAOLBLBNLCLCALILIELKLKALRLBRLSLSOLTLTULULUXLVLVALYLBYMAMARMCMCOMDMDAMEMNEMFMAFMGMDGMHMHLMKMKDMLMLIMMMMRMNMNGMOMACMPMNPMQMTQMRMRTMSMSRMTMLTMUMUSMVMDVMWMWIMXMEXMYMYSMZMOZNANAMNCNCLNENERNFNFKNGNGANINICNLNLDNONORNPNPLNRNRUNUNIUNZNZLOMOMNPAPANPEPERPFPYFPGPNGPHPHLPKPAKPLPOLPMSPMPNPCNPRPRIPSPSEPTPRTPWPLWPYPRYQAQATREREUROROURSSRBRURUSRWRWASASAUSBSLBSCSYCSDSDNSESWESGSGPSHSHNSISVNSJSJMSKSVKSLSLESMSMRSNSE"
 		"NSOSOMSRSURSSSSDSTSTPSVSLVSXSXMSYSYRSZSWZTCTCATDTCDTFATFTGTGOTHTHATJTJKTKTKLTLTLSTMTKMTNTUNTOTONTRTURTTTTOTVTUVTWTWNTZTZAUAUKRUGUGAUMUMIUSUSAUYURYUZUZBVAVATVCVCTVEVENVGVGBVIVIRVNVNMVUVUTWFWLFWSWSMYEYEMYTMYTZAZAFZMZMBZWZWE"_s);
@@ -102,7 +71,28 @@ LocaleISOData::LocaleISOData() {
 }
 
 $Class* LocaleISOData::load$($String* name, bool initialize) {
-	$loadClass(LocaleISOData, name, initialize, &_LocaleISOData_ClassInfo_, clinit$LocaleISOData, allocate$LocaleISOData);
+	$FieldInfo fieldInfos$$[] = {
+		{"isoLanguageTable", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LocaleISOData, isoLanguageTable)},
+		{"isoCountryTable", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LocaleISOData, isoCountryTable)},
+		{"ISO3166_3", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LocaleISOData, ISO3166_3)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleISOData, init$, void)},
+		{"computeISO3166_1Alpha3Countries", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $staticMethod(LocaleISOData, computeISO3166_1Alpha3Countries, $Set*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.LocaleISOData",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocaleISOData, name, initialize, &classInfo$$, LocaleISOData::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleISOData);
+	});
 	return class$;
 }
 

@@ -39,7 +39,7 @@ public:
 	virtual void reset();
 	virtual $String* toString() override;
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x6499DE12A37D0A3D;
+	static const int64_t serialVersionUID = (int64_t)0x6499de12a37d0a3d;
 	::java::util::function::LongBinaryOperator* function = nullptr;
 	int64_t identity = 0;
 };

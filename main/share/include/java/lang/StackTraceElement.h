@@ -59,7 +59,7 @@ public:
 	int8_t format = 0;
 	static const int8_t BUILTIN_CLASS_LOADER = 1;
 	static const int8_t JDK_NON_UPGRADEABLE_MODULE = 2;
-	static const int64_t serialVersionUID = (int64_t)0x6109C59A2636DD85;
+	static const int64_t serialVersionUID = (int64_t)0x6109c59a2636dd85;
 };
 
 	} // lang

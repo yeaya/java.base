@@ -1,5 +1,4 @@
 #include <java/util/stream/ReduceOps$3.h>
-
 #include <java/util/Set.h>
 #include <java/util/function/BiConsumer.h>
 #include <java/util/function/BinaryOperator.h>
@@ -22,7 +21,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Set = ::java::util::Set;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $BinaryOperator = ::java::util::function::BinaryOperator;
 using $Supplier = ::java::util::function::Supplier;
@@ -37,54 +35,6 @@ using $StreamShape = ::java::util::stream::StreamShape;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _ReduceOps$3_FieldInfo_[] = {
-	{"val$collector", "Ljava/util/stream/Collector;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3, val$collector)},
-	{"val$supplier", "Ljava/util/function/Supplier;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3, val$supplier)},
-	{"val$accumulator", "Ljava/util/function/BiConsumer;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3, val$accumulator)},
-	{"val$combiner", "Ljava/util/function/BinaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3, val$combiner)},
-	{}
-};
-
-$MethodInfo _ReduceOps$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/function/BinaryOperator;Ljava/util/function/BiConsumer;Ljava/util/function/Supplier;Ljava/util/stream/Collector;)V", nullptr, 0, $method(ReduceOps$3, init$, void, $StreamShape*, $BinaryOperator*, $BiConsumer*, $Supplier*, $Collector*)},
-	{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(ReduceOps$3, getOpFlags, int32_t)},
-	{"makeSink", "()Ljava/util/stream/ReduceOps$3ReducingSink;", nullptr, $PUBLIC, $virtualMethod(ReduceOps$3, makeSink, $ReduceOps$AccumulatingSink*)},
-	{}
-};
-
-$EnclosingMethodInfo _ReduceOps$3_EnclosingMethodInfo_ = {
-	"java.util.stream.ReduceOps",
-	"makeRef",
-	"(Ljava/util/stream/Collector;)Ljava/util/stream/TerminalOp;"
-};
-
-$InnerClassInfo _ReduceOps$3_InnerClassesInfo_[] = {
-	{"java.util.stream.ReduceOps$3", nullptr, nullptr, 0},
-	{"java.util.stream.ReduceOps$ReduceOp", "java.util.stream.ReduceOps", "ReduceOp", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.ReduceOps$3ReducingSink", nullptr, "ReducingSink", 0},
-	{}
-};
-
-$ClassInfo _ReduceOps$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.ReduceOps$3",
-	"java.util.stream.ReduceOps$ReduceOp",
-	nullptr,
-	_ReduceOps$3_FieldInfo_,
-	_ReduceOps$3_MethodInfo_,
-	"Ljava/util/stream/ReduceOps$ReduceOp<TT;TI;Ljava/util/stream/ReduceOps$3ReducingSink;>;",
-	&_ReduceOps$3_EnclosingMethodInfo_,
-	_ReduceOps$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ReduceOps"
-};
-
-$Object* allocate$ReduceOps$3($Class* clazz) {
-	return $of($alloc(ReduceOps$3));
-}
 
 void ReduceOps$3::init$($StreamShape* shape, $BinaryOperator* val$combiner, $BiConsumer* val$accumulator, $Supplier* val$supplier, $Collector* val$collector) {
 	$set(this, val$combiner, val$combiner);
@@ -101,14 +51,55 @@ $ReduceOps$AccumulatingSink* ReduceOps$3::makeSink() {
 int32_t ReduceOps$3::getOpFlags() {
 	$init($Collector$Characteristics);
 	$init($StreamOpFlag);
-	return $nc($($nc(this->val$collector)->characteristics()))->contains($Collector$Characteristics::UNORDERED) ? $StreamOpFlag::NOT_ORDERED : 0;
+	return $$nc($nc(this->val$collector)->characteristics())->contains($Collector$Characteristics::UNORDERED) ? $StreamOpFlag::NOT_ORDERED : 0;
 }
 
 ReduceOps$3::ReduceOps$3() {
 }
 
 $Class* ReduceOps$3::load$($String* name, bool initialize) {
-	$loadClass(ReduceOps$3, name, initialize, &_ReduceOps$3_ClassInfo_, allocate$ReduceOps$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$collector", "Ljava/util/stream/Collector;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3, val$collector)},
+		{"val$supplier", "Ljava/util/function/Supplier;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3, val$supplier)},
+		{"val$accumulator", "Ljava/util/function/BiConsumer;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3, val$accumulator)},
+		{"val$combiner", "Ljava/util/function/BinaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3, val$combiner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/function/BinaryOperator;Ljava/util/function/BiConsumer;Ljava/util/function/Supplier;Ljava/util/stream/Collector;)V", nullptr, 0, $method(ReduceOps$3, init$, void, $StreamShape*, $BinaryOperator*, $BiConsumer*, $Supplier*, $Collector*)},
+		{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(ReduceOps$3, getOpFlags, int32_t)},
+		{"makeSink", "()Ljava/util/stream/ReduceOps$3ReducingSink;", nullptr, $PUBLIC, $virtualMethod(ReduceOps$3, makeSink, $ReduceOps$AccumulatingSink*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.ReduceOps",
+		"makeRef",
+		"(Ljava/util/stream/Collector;)Ljava/util/stream/TerminalOp;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ReduceOps$3", nullptr, nullptr, 0},
+		{"java.util.stream.ReduceOps$ReduceOp", "java.util.stream.ReduceOps", "ReduceOp", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.ReduceOps$3ReducingSink", nullptr, "ReducingSink", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.ReduceOps$3",
+		"java.util.stream.ReduceOps$ReduceOp",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/ReduceOps$ReduceOp<TT;TI;Ljava/util/stream/ReduceOps$3ReducingSink;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ReduceOps"
+	};
+	$loadClass(ReduceOps$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReduceOps$3);
+	});
 	return class$;
 }
 

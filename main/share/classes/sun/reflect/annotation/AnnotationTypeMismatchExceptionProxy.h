@@ -30,7 +30,7 @@ public:
 	virtual ::java::lang::RuntimeException* generateException() override;
 	virtual ::sun::reflect::annotation::AnnotationTypeMismatchExceptionProxy* setMember(::java::lang::reflect::Method* member);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x6CDBBBA44B609BBE;
+	static const int64_t serialVersionUID = (int64_t)0x6cdbbba44b609bbe;
 	::java::lang::reflect::Method* member = nullptr;
 	$String* foundType = nullptr;
 };

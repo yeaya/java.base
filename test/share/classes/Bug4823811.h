@@ -42,6 +42,7 @@ class $export Bug4823811 : public ::java::lang::Object {
 	$class(Bug4823811, 0, ::java::lang::Object)
 public:
 	Bug4823811();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void testDateFormat1();

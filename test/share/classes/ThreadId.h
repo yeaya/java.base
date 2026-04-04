@@ -24,6 +24,7 @@ class $export ThreadId : public ::java::lang::Object {
 	$class(ThreadId, 0, ::java::lang::Object)
 public:
 	ThreadId();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t get();
 	static ::java::util::concurrent::atomic::AtomicInteger* nextId;

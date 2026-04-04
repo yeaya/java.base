@@ -24,6 +24,7 @@ class Files$AcceptAllFilter : public ::java::nio::file::DirectoryStream$Filter {
 	$class(Files$AcceptAllFilter, 0, ::java::nio::file::DirectoryStream$Filter)
 public:
 	Files$AcceptAllFilter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool accept(::java::nio::file::Path* entry);
 	virtual bool accept(Object$* entry) override;

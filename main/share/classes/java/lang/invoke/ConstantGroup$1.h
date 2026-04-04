@@ -13,6 +13,7 @@ class ConstantGroup$1 : public ::java::lang::Object {
 	$class(ConstantGroup$1, 0, ::java::lang::Object)
 public:
 	ConstantGroup$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static bool $assertionsDisabled;
 };
 

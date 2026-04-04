@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/TypePath.h>
-
 #include <java/lang/AssertionError.h>
 #include <jdk/internal/org/objectweb/asm/ByteVector.h>
 #include <jcpp.h>
@@ -22,40 +21,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 
-$FieldInfo _TypePath_FieldInfo_[] = {
-	{"ARRAY_ELEMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypePath, ARRAY_ELEMENT)},
-	{"INNER_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypePath, INNER_TYPE)},
-	{"WILDCARD_BOUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypePath, WILDCARD_BOUND)},
-	{"TYPE_ARGUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypePath, TYPE_ARGUMENT)},
-	{"typePathContainer", "[B", nullptr, $PRIVATE | $FINAL, $field(TypePath, typePathContainer)},
-	{"typePathOffset", "I", nullptr, $PRIVATE | $FINAL, $field(TypePath, typePathOffset)},
-	{}
-};
-
-$MethodInfo _TypePath_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, 0, $method(TypePath, init$, void, $bytes*, int32_t)},
-	{"fromString", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/TypePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypePath, fromString, TypePath*, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $method(TypePath, getLength, int32_t)},
-	{"getStep", "(I)I", nullptr, $PUBLIC, $method(TypePath, getStep, int32_t, int32_t)},
-	{"getStepArgument", "(I)I", nullptr, $PUBLIC, $method(TypePath, getStepArgument, int32_t, int32_t)},
-	{"put", "(Ljdk/internal/org/objectweb/asm/TypePath;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(TypePath, put, void, TypePath*, $ByteVector*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypePath, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TypePath_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.TypePath",
-	"java.lang.Object",
-	nullptr,
-	_TypePath_FieldInfo_,
-	_TypePath_MethodInfo_
-};
-
-$Object* allocate$TypePath($Class* clazz) {
-	return $of($alloc(TypePath));
-}
-
 void TypePath::init$($bytes* typePathContainer, int32_t typePathOffset) {
 	$set(this, typePathContainer, typePathContainer);
 	this->typePathOffset = typePathOffset;
@@ -74,7 +39,7 @@ int32_t TypePath::getStepArgument(int32_t index) {
 }
 
 TypePath* TypePath::fromString($String* typePath) {
-	if (typePath == nullptr || $nc(typePath)->length() == 0) {
+	if (typePath == nullptr || typePath->length() == 0) {
 		return nullptr;
 	}
 	int32_t typePathLength = $nc(typePath)->length();
@@ -116,29 +81,19 @@ $String* TypePath::toString() {
 	for (int32_t i = 0; i < length; ++i) {
 		switch (getStep(i)) {
 		case TypePath::ARRAY_ELEMENT:
-			{
-				result->append(u'[');
-				break;
-			}
+			result->append(u'[');
+			break;
 		case TypePath::INNER_TYPE:
-			{
-				result->append(u'.');
-				break;
-			}
+			result->append(u'.');
+			break;
 		case TypePath::WILDCARD_BOUND:
-			{
-				result->append(u'*');
-				break;
-			}
+			result->append(u'*');
+			break;
 		case TypePath::TYPE_ARGUMENT:
-			{
-				result->append(getStepArgument(i))->append(u';');
-				break;
-			}
+			result->append(getStepArgument(i))->append(u';');
+			break;
 		default:
-			{
-				$throwNew($AssertionError);
-			}
+			$throwNew($AssertionError);
 		}
 	}
 	return result->toString();
@@ -148,7 +103,7 @@ void TypePath::put(TypePath* typePath, $ByteVector* output) {
 	if (typePath == nullptr) {
 		$nc(output)->putByte(0);
 	} else {
-		int32_t length = $nc($nc(typePath)->typePathContainer)->get(typePath->typePathOffset) * 2 + 1;
+		int32_t length = $nc(typePath->typePathContainer)->get(typePath->typePathOffset) * 2 + 1;
 		$nc(output)->putByteArray(typePath->typePathContainer, typePath->typePathOffset, length);
 	}
 }
@@ -157,7 +112,36 @@ TypePath::TypePath() {
 }
 
 $Class* TypePath::load$($String* name, bool initialize) {
-	$loadClass(TypePath, name, initialize, &_TypePath_ClassInfo_, allocate$TypePath);
+	$FieldInfo fieldInfos$$[] = {
+		{"ARRAY_ELEMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypePath, ARRAY_ELEMENT)},
+		{"INNER_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypePath, INNER_TYPE)},
+		{"WILDCARD_BOUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypePath, WILDCARD_BOUND)},
+		{"TYPE_ARGUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypePath, TYPE_ARGUMENT)},
+		{"typePathContainer", "[B", nullptr, $PRIVATE | $FINAL, $field(TypePath, typePathContainer)},
+		{"typePathOffset", "I", nullptr, $PRIVATE | $FINAL, $field(TypePath, typePathOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BI)V", nullptr, 0, $method(TypePath, init$, void, $bytes*, int32_t)},
+		{"fromString", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/TypePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypePath, fromString, TypePath*, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $method(TypePath, getLength, int32_t)},
+		{"getStep", "(I)I", nullptr, $PUBLIC, $method(TypePath, getStep, int32_t, int32_t)},
+		{"getStepArgument", "(I)I", nullptr, $PUBLIC, $method(TypePath, getStepArgument, int32_t, int32_t)},
+		{"put", "(Ljdk/internal/org/objectweb/asm/TypePath;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(TypePath, put, void, TypePath*, $ByteVector*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypePath, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.TypePath",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TypePath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypePath);
+	});
 	return class$;
 }
 

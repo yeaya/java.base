@@ -1,5 +1,4 @@
 #include <Refused.h>
-
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -10,48 +9,15 @@
 #include <java/nio/channels/SelectableChannel.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $PortUnreachableException = ::java::net::PortUnreachableException;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-
-$FieldInfo _Refused_FieldInfo_[] = {
-	{"outBuf", "Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticField(Refused, outBuf)},
-	{"inBuf", "Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticField(Refused, inBuf)},
-	{"client", "Ljava/nio/channels/DatagramChannel;", nullptr, $STATIC, $staticField(Refused, client)},
-	{"server", "Ljava/nio/channels/DatagramChannel;", nullptr, $STATIC, $staticField(Refused, server)},
-	{"isa", "Ljava/net/InetSocketAddress;", nullptr, $STATIC, $staticField(Refused, isa)},
-	{}
-};
-
-$MethodInfo _Refused_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Refused, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, main, void, $StringArray*), "java.lang.Exception"},
-	{"setup", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, setup, void), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, test1, void), "java.lang.Exception"},
-	{"test2", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, test2, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Refused_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Refused",
-	"java.lang.Object",
-	nullptr,
-	_Refused_FieldInfo_,
-	_Refused_MethodInfo_
-};
-
-$Object* allocate$Refused($Class* clazz) {
-	return $of($alloc(Refused));
-}
 
 $ByteBuffer* Refused::outBuf = nullptr;
 $ByteBuffer* Refused::inBuf = nullptr;
@@ -75,15 +41,15 @@ void Refused::main($StringArray* args) {
 
 void Refused::setup() {
 	$init(Refused);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(Refused::client, $DatagramChannel::open());
 	$assignStatic(Refused::server, $DatagramChannel::open());
-	$nc($($nc(Refused::client)->socket()))->bind(($SocketAddress*)nullptr);
-	$nc($($nc(Refused::server)->socket()))->bind(($SocketAddress*)nullptr);
-	$nc(Refused::client)->configureBlocking(false);
+	$$nc($nc(Refused::client)->socket())->bind(($SocketAddress*)nullptr);
+	$$nc($nc(Refused::server)->socket())->bind(($SocketAddress*)nullptr);
+	Refused::client->configureBlocking(false);
 	$nc(Refused::server)->configureBlocking(false);
 	$var($InetAddress, address, $InetAddress::getLocalHost());
-	int32_t port = $nc($($nc(Refused::client)->socket()))->getLocalPort();
+	int32_t port = $$nc($nc(Refused::client)->socket())->getLocalPort();
 	$assignStatic(Refused::isa, $new($InetSocketAddress, address, port));
 }
 
@@ -91,12 +57,12 @@ void Refused::test1() {
 	$init(Refused);
 	setup();
 	$nc(Refused::server)->send(Refused::outBuf, Refused::isa);
-	$nc(Refused::server)->receive(Refused::inBuf);
+	Refused::server->receive(Refused::inBuf);
 	$nc(Refused::client)->close();
 	$nc(Refused::outBuf)->rewind();
 	$nc(Refused::server)->send(Refused::outBuf, Refused::isa);
-	$nc(Refused::server)->receive(Refused::inBuf);
-	$nc(Refused::server)->close();
+	Refused::server->receive(Refused::inBuf);
+	Refused::server->close();
 }
 
 void Refused::test2() {
@@ -104,10 +70,10 @@ void Refused::test2() {
 	setup();
 	$nc(Refused::server)->configureBlocking(true);
 	$nc(Refused::server)->connect(Refused::isa);
-	$nc(Refused::server)->configureBlocking(false);
+	Refused::server->configureBlocking(false);
 	$nc(Refused::outBuf)->rewind();
 	$nc(Refused::server)->write(Refused::outBuf);
-	$nc(Refused::server)->receive(Refused::inBuf);
+	Refused::server->receive(Refused::inBuf);
 	$nc(Refused::client)->close();
 	$Thread::sleep(2000);
 	$nc(Refused::outBuf)->rewind();
@@ -122,7 +88,7 @@ void Refused::test2() {
 	$nc(Refused::server)->close();
 }
 
-void clinit$Refused($Class* class$) {
+void Refused::clinit$($Class* clazz) {
 	$assignStatic(Refused::outBuf, $ByteBuffer::allocateDirect(100));
 	$assignStatic(Refused::inBuf, $ByteBuffer::allocateDirect(100));
 }
@@ -131,7 +97,33 @@ Refused::Refused() {
 }
 
 $Class* Refused::load$($String* name, bool initialize) {
-	$loadClass(Refused, name, initialize, &_Refused_ClassInfo_, clinit$Refused, allocate$Refused);
+	$FieldInfo fieldInfos$$[] = {
+		{"outBuf", "Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticField(Refused, outBuf)},
+		{"inBuf", "Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticField(Refused, inBuf)},
+		{"client", "Ljava/nio/channels/DatagramChannel;", nullptr, $STATIC, $staticField(Refused, client)},
+		{"server", "Ljava/nio/channels/DatagramChannel;", nullptr, $STATIC, $staticField(Refused, server)},
+		{"isa", "Ljava/net/InetSocketAddress;", nullptr, $STATIC, $staticField(Refused, isa)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Refused, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, main, void, $StringArray*), "java.lang.Exception"},
+		{"setup", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, setup, void), "java.lang.Exception"},
+		{"test1", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, test1, void), "java.lang.Exception"},
+		{"test2", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, test2, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Refused",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Refused, name, initialize, &classInfo$$, Refused::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Refused);
+	});
 	return class$;
 }
 

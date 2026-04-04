@@ -33,6 +33,7 @@ class ServerHandshakeContext : public ::sun::security::ssl::HandshakeContext {
 	$class(ServerHandshakeContext, 0, ::sun::security::ssl::HandshakeContext)
 public:
 	ServerHandshakeContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::SSLContextImpl* sslContext, ::sun::security::ssl::TransportContext* conContext);
 	virtual void kickstart() override;
 	static bool rejectClientInitiatedRenego;

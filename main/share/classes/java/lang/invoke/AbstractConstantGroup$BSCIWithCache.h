@@ -34,6 +34,7 @@ public:
 	virtual $Object* get(int32_t i, Object$* ifNotAvailable) override;
 	virtual int32_t hashCode() override;
 	virtual bool isPresent(int32_t i) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodHandle* bsm, $String* name, Object$* type, int32_t size);
 	virtual ::java::lang::invoke::MethodHandle* bootstrapMethod() override;
 	virtual $String* invocationName() override;

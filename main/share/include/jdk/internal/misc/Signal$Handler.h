@@ -25,6 +25,7 @@ namespace jdk {
 class $import Signal$Handler : public ::java::lang::Object {
 	$interface(Signal$Handler, $PRELOAD, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void handle(::jdk::internal::misc::Signal* sig) {}
 	static ::jdk::internal::misc::Signal$Handler* SIG_DFL;
 	static ::jdk::internal::misc::Signal$Handler* SIG_IGN;

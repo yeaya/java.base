@@ -72,6 +72,7 @@ class $export ServiceLoader : public ::java::lang::Iterable {
 	$class(ServiceLoader, 0, ::java::lang::Iterable)
 public:
 	ServiceLoader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* caller, ::java::lang::ModuleLayer* layer, $Class* svc);
 	void init$($Class* caller, $Class* svc, ::java::lang::ClassLoader* cl);
 	void init$(::java::lang::Module* callerModule, $Class* svc, ::java::lang::ClassLoader* cl);

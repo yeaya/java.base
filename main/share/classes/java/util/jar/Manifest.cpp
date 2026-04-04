@@ -1,5 +1,4 @@
 #include <java/util/jar/Manifest.h>
-
 #include <java/io/DataOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -36,12 +35,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $SecurityException = ::java::lang::SecurityException;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $Charset = ::java::nio::charset::Charset;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Attributes = ::java::util::jar::Attributes;
 using $JarVerifier = ::java::util::jar::JarVerifier;
 using $Manifest$FastInputStream = ::java::util::jar::Manifest$FastInputStream;
@@ -51,73 +48,6 @@ using $SecurityProperties = ::sun::security::util::SecurityProperties;
 namespace java {
 	namespace util {
 		namespace jar {
-
-$NamedAttribute Manifest_Attribute_var$0[] = {
-	{"since", 's', "13"},
-	{}
-};
-
-$CompoundAttribute _Manifest_MethodAnnotations_make72Safe14[] = {
-	{"Ljava/lang/Deprecated;", Manifest_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _Manifest_FieldInfo_[] = {
-	{"attr", "Ljava/util/jar/Attributes;", nullptr, $PRIVATE | $FINAL, $field(Manifest, attr)},
-	{"entries", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes;>;", $PRIVATE | $FINAL, $field(Manifest, entries)},
-	{"jv", "Ljava/util/jar/JarVerifier;", nullptr, $PRIVATE | $FINAL, $field(Manifest, jv)},
-	{}
-};
-
-$MethodInfo _Manifest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Manifest, init$, void)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(Manifest, init$, void, $InputStream*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, 0, $method(Manifest, init$, void, $InputStream*, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/util/jar/JarVerifier;Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, 0, $method(Manifest, init$, void, $JarVerifier*, $InputStream*, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/util/jar/Manifest;)V", nullptr, $PUBLIC, $method(Manifest, init$, void, Manifest*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Manifest, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Manifest, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Manifest, equals, bool, Object$*)},
-	{"getAttributes", "(Ljava/lang/String;)Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(Manifest, getAttributes, $Attributes*, $String*)},
-	{"getEntries", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes;>;", $PUBLIC, $virtualMethod(Manifest, getEntries, $Map*)},
-	{"getErrorPosition", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Manifest, getErrorPosition, $String*, $String*, int32_t)},
-	{"getMainAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(Manifest, getMainAttributes, $Attributes*)},
-	{"getTrustedAttributes", "(Ljava/lang/String;)Ljava/util/jar/Attributes;", nullptr, 0, $virtualMethod(Manifest, getTrustedAttributes, $Attributes*, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest, hashCode, int32_t)},
-	{"make72Safe", "(Ljava/lang/StringBuffer;)V", nullptr, $STATIC | $DEPRECATED, $staticMethod(Manifest, make72Safe, void, $StringBuffer*), nullptr, nullptr, _Manifest_MethodAnnotations_make72Safe14},
-	{"parseName", "([BI)Ljava/lang/String;", nullptr, $PRIVATE, $method(Manifest, parseName, $String*, $bytes*, int32_t)},
-	{"println", "(Ljava/io/OutputStream;)V", nullptr, $STATIC, $staticMethod(Manifest, println, void, $OutputStream*), "java.io.IOException"},
-	{"println72", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Manifest, println72, void, $OutputStream*, $String*), "java.io.IOException"},
-	{"read", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, read, void, $InputStream*), "java.io.IOException"},
-	{"read", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Manifest, read, void, $InputStream*, $String*), "java.io.IOException"},
-	{"toLower", "(I)I", nullptr, $PRIVATE, $method(Manifest, toLower, int32_t, int32_t)},
-	{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, write, void, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Manifest_InnerClassesInfo_[] = {
-	{"java.util.jar.Manifest$FastInputStream", "java.util.jar.Manifest", "FastInputStream", $STATIC},
-	{}
-};
-
-$ClassInfo _Manifest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.jar.Manifest",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_Manifest_FieldInfo_,
-	_Manifest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Manifest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.jar.Manifest$FastInputStream"
-};
-
-$Object* allocate$Manifest($Class* clazz) {
-	return $of($alloc(Manifest));
-}
 
 void Manifest::init$() {
 	$set(this, attr, $new($Attributes));
@@ -141,12 +71,12 @@ void Manifest::init$($JarVerifier* jv, $InputStream* is, $String* jarFilename) {
 }
 
 void Manifest::init$(Manifest* man) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, attr, $new($Attributes));
 	$set(this, entries, $new($HashMap));
-	$nc(this->attr)->putAll($($nc(man)->getMainAttributes()));
-	$nc(this->entries)->putAll($($nc(man)->getEntries()));
-	$set(this, jv, $nc(man)->jv);
+	this->attr->putAll($($nc(man)->getMainAttributes()));
+	this->entries->putAll($(man->getEntries()));
+	$set(this, jv, man->jv);
 }
 
 $Attributes* Manifest::getMainAttributes() {
@@ -158,13 +88,13 @@ $Map* Manifest::getEntries() {
 }
 
 $Attributes* Manifest::getAttributes($String* name) {
-	return $cast($Attributes, $nc($(getEntries()))->get(name));
+	return $cast($Attributes, $$nc(getEntries())->get(name));
 }
 
 $Attributes* Manifest::getTrustedAttributes($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attributes, result, getAttributes(name));
-	if (result != nullptr && this->jv != nullptr && !$nc(this->jv)->isTrustedManifestEntry(name)) {
+	if (result != nullptr && this->jv != nullptr && !this->jv->isTrustedManifestEntry(name)) {
 		$throwNew($SecurityException, $$str({"Untrusted manifest entry: "_s, name}));
 	}
 	return result;
@@ -176,20 +106,20 @@ void Manifest::clear() {
 }
 
 void Manifest::write($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataOutputStream, dos, $new($DataOutputStream, out));
 	$nc(this->attr)->writeMain(dos);
 	$var($StringBuilder, buffer, $nc(this->entries)->isEmpty() ? ($StringBuilder*)nullptr : $new($StringBuilder, 72));
 	{
-		$var($Iterator, i$, $nc($($nc(this->entries)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(this->entries->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
 				$nc(buffer)->setLength(0);
 				buffer->append("Name: "_s);
-				buffer->append($cast($String, $($nc(e)->getKey())));
+				buffer->append($$cast($String, $nc(e)->getKey()));
 				println72(dos, $(buffer->toString()));
-				$nc(($cast($Attributes, $($nc(e)->getValue()))))->write(dos);
+				$$sure($Attributes, e->getValue())->write(dos);
 			}
 		}
 	}
@@ -211,15 +141,15 @@ void Manifest::println72($OutputStream* out, $String* line) {
 	$init(Manifest);
 	if (!$nc(line)->isEmpty()) {
 		$init($UTF_8);
-		$var($bytes, lineBytes, line->getBytes(static_cast<$Charset*>($UTF_8::INSTANCE)));
+		$var($bytes, lineBytes, line->getBytes($UTF_8::INSTANCE));
 		int32_t length = lineBytes->length;
-		$nc(out)->write((int32_t)lineBytes->get(0));
+		$nc(out)->write(lineBytes->get(0));
 		int32_t pos = 1;
 		while (length - pos > 71) {
 			out->write(lineBytes, pos, 71);
 			pos += 71;
 			println(out);
-			out->write((int32_t)u' ');
+			out->write(u' ');
 		}
 		out->write(lineBytes, pos, length - pos);
 	}
@@ -228,13 +158,13 @@ void Manifest::println72($OutputStream* out, $String* line) {
 
 void Manifest::println($OutputStream* out) {
 	$init(Manifest);
-	$nc(out)->write((int32_t)u'\r');
-	out->write((int32_t)u'\n');
+	$nc(out)->write(u'\r');
+	out->write(u'\n');
 }
 
 $String* Manifest::getErrorPosition($String* filename, int32_t lineNumber) {
 	$init(Manifest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SecurityProperties);
 	if (filename == nullptr || !$SecurityProperties::INCLUDE_JAR_NAME_IN_EXCEPTIONS) {
 		return $str({"line "_s, $$str(lineNumber)});
@@ -247,7 +177,7 @@ void Manifest::read($InputStream* is) {
 }
 
 void Manifest::read($InputStream* is, $String* jarFilename) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Manifest$FastInputStream, fis, $new($Manifest$FastInputStream, is));
 	$var($bytes, lbuf, $new($bytes, 512));
 	int32_t lineNumber = $nc(this->attr)->read(fis, lbuf, jarFilename, 0);
@@ -290,7 +220,7 @@ void Manifest::read($InputStream* is, $String* jarFilename) {
 				continue;
 			}
 			$init($UTF_8);
-			$assign(name, $new($String, buf, 0, buf->length, static_cast<$Charset*>($UTF_8::INSTANCE)));
+			$assign(name, $new($String, buf, 0, buf->length, $UTF_8::INSTANCE));
 			$assign(lastline, nullptr);
 		}
 		$var($Attributes, attr, getAttributes(name));
@@ -309,11 +239,11 @@ void Manifest::read($InputStream* is, $String* jarFilename) {
 
 $String* Manifest::parseName($bytes* lbuf, int32_t len) {
 	bool var$2 = toLower($nc(lbuf)->get(0)) == u'n';
-	bool var$1 = var$2 && toLower($nc(lbuf)->get(1)) == u'a';
-	bool var$0 = var$1 && toLower($nc(lbuf)->get(2)) == u'm';
-	if (var$0 && toLower($nc(lbuf)->get(3)) == u'e' && $nc(lbuf)->get(4) == u':' && lbuf->get(5) == u' ') {
+	bool var$1 = var$2 && toLower(lbuf->get(1)) == u'a';
+	bool var$0 = var$1 && toLower(lbuf->get(2)) == u'm';
+	if (var$0 && toLower(lbuf->get(3)) == u'e' && lbuf->get(4) == u':' && lbuf->get(5) == u' ') {
 		$init($UTF_8);
-		return $new($String, lbuf, 6, len - 6, static_cast<$Charset*>($UTF_8::INSTANCE));
+		return $new($String, lbuf, 6, len - 6, $UTF_8::INSTANCE);
 	}
 	return nullptr;
 }
@@ -323,7 +253,7 @@ int32_t Manifest::toLower(int32_t c) {
 }
 
 bool Manifest::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Manifest, m, nullptr);
 	bool var$2 = $instanceOf(Manifest, o);
 	if (var$2) {
@@ -332,7 +262,7 @@ bool Manifest::equals(Object$* o) {
 	}
 	bool var$1 = var$2;
 	bool var$0 = var$1 && $nc(this->attr)->equals($($nc(m)->getMainAttributes()));
-	return var$0 && $nc(this->entries)->equals($($nc(m)->getEntries()));
+	return var$0 && $nc(this->entries)->equals($(m->getEntries()));
 }
 
 int32_t Manifest::hashCode() {
@@ -341,14 +271,73 @@ int32_t Manifest::hashCode() {
 }
 
 $Object* Manifest::clone() {
-	return $of($new(Manifest, this));
+	return $new(Manifest, this);
 }
 
 Manifest::Manifest() {
 }
 
 $Class* Manifest::load$($String* name, bool initialize) {
-	$loadClass(Manifest, name, initialize, &_Manifest_ClassInfo_, allocate$Manifest);
+	$FieldInfo fieldInfos$$[] = {
+		{"attr", "Ljava/util/jar/Attributes;", nullptr, $PRIVATE | $FINAL, $field(Manifest, attr)},
+		{"entries", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes;>;", $PRIVATE | $FINAL, $field(Manifest, entries)},
+		{"jv", "Ljava/util/jar/JarVerifier;", nullptr, $PRIVATE | $FINAL, $field(Manifest, jv)},
+		{}
+	};
+	$NamedAttribute make72SafemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "13"},
+		{}
+	};
+	$CompoundAttribute make72SafemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", make72SafemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Manifest, init$, void)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(Manifest, init$, void, $InputStream*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, 0, $method(Manifest, init$, void, $InputStream*, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/util/jar/JarVerifier;Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, 0, $method(Manifest, init$, void, $JarVerifier*, $InputStream*, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/util/jar/Manifest;)V", nullptr, $PUBLIC, $method(Manifest, init$, void, Manifest*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Manifest, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Manifest, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Manifest, equals, bool, Object$*)},
+		{"getAttributes", "(Ljava/lang/String;)Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(Manifest, getAttributes, $Attributes*, $String*)},
+		{"getEntries", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes;>;", $PUBLIC, $virtualMethod(Manifest, getEntries, $Map*)},
+		{"getErrorPosition", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Manifest, getErrorPosition, $String*, $String*, int32_t)},
+		{"getMainAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(Manifest, getMainAttributes, $Attributes*)},
+		{"getTrustedAttributes", "(Ljava/lang/String;)Ljava/util/jar/Attributes;", nullptr, 0, $virtualMethod(Manifest, getTrustedAttributes, $Attributes*, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest, hashCode, int32_t)},
+		{"make72Safe", "(Ljava/lang/StringBuffer;)V", nullptr, $STATIC | $DEPRECATED, $staticMethod(Manifest, make72Safe, void, $StringBuffer*), nullptr, nullptr, make72SafemethodAnnotations$$},
+		{"parseName", "([BI)Ljava/lang/String;", nullptr, $PRIVATE, $method(Manifest, parseName, $String*, $bytes*, int32_t)},
+		{"println", "(Ljava/io/OutputStream;)V", nullptr, $STATIC, $staticMethod(Manifest, println, void, $OutputStream*), "java.io.IOException"},
+		{"println72", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Manifest, println72, void, $OutputStream*, $String*), "java.io.IOException"},
+		{"read", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, read, void, $InputStream*), "java.io.IOException"},
+		{"read", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Manifest, read, void, $InputStream*, $String*), "java.io.IOException"},
+		{"toLower", "(I)I", nullptr, $PRIVATE, $method(Manifest, toLower, int32_t, int32_t)},
+		{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, write, void, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.jar.Manifest$FastInputStream", "java.util.jar.Manifest", "FastInputStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.jar.Manifest",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.jar.Manifest$FastInputStream"
+	};
+	$loadClass(Manifest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Manifest);
+	});
 	return class$;
 }
 

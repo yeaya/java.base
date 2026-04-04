@@ -72,6 +72,7 @@ class $export BaseCalendar : public ::sun::util::calendar::AbstractCalendar {
 	$class(BaseCalendar, 0, ::sun::util::calendar::AbstractCalendar)
 public:
 	BaseCalendar();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void getCalendarDateFromFixedDate(::sun::util::calendar::CalendarDate* date, int64_t fixedDate) override;
 	virtual int32_t getDayOfWeek(::sun::util::calendar::CalendarDate* date);

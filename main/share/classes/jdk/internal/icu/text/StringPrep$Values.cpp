@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/StringPrep$Values.h>
-
 #include <jdk/internal/icu/text/StringPrep.h>
 #include <jcpp.h>
 
@@ -12,44 +11,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace text {
-
-$FieldInfo _StringPrep$Values_FieldInfo_[] = {
-	{"isIndex", "Z", nullptr, 0, $field(StringPrep$Values, isIndex)},
-	{"value", "I", nullptr, 0, $field(StringPrep$Values, value)},
-	{"type", "I", nullptr, 0, $field(StringPrep$Values, type)},
-	{}
-};
-
-$MethodInfo _StringPrep$Values_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StringPrep$Values, init$, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $method(StringPrep$Values, reset, void)},
-	{}
-};
-
-$InnerClassInfo _StringPrep$Values_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.StringPrep$Values", "jdk.internal.icu.text.StringPrep", "Values", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StringPrep$Values_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.text.StringPrep$Values",
-	"java.lang.Object",
-	nullptr,
-	_StringPrep$Values_FieldInfo_,
-	_StringPrep$Values_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringPrep$Values_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.StringPrep"
-};
-
-$Object* allocate$StringPrep$Values($Class* clazz) {
-	return $of($alloc(StringPrep$Values));
-}
 
 void StringPrep$Values::init$() {
 }
@@ -64,7 +25,39 @@ StringPrep$Values::StringPrep$Values() {
 }
 
 $Class* StringPrep$Values::load$($String* name, bool initialize) {
-	$loadClass(StringPrep$Values, name, initialize, &_StringPrep$Values_ClassInfo_, allocate$StringPrep$Values);
+	$FieldInfo fieldInfos$$[] = {
+		{"isIndex", "Z", nullptr, 0, $field(StringPrep$Values, isIndex)},
+		{"value", "I", nullptr, 0, $field(StringPrep$Values, value)},
+		{"type", "I", nullptr, 0, $field(StringPrep$Values, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StringPrep$Values, init$, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $method(StringPrep$Values, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.StringPrep$Values", "jdk.internal.icu.text.StringPrep", "Values", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.text.StringPrep$Values",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.StringPrep"
+	};
+	$loadClass(StringPrep$Values, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringPrep$Values);
+	});
 	return class$;
 }
 

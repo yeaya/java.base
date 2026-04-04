@@ -12,6 +12,7 @@ class $import Arrays$LegacyMergeSort : public ::java::lang::Object {
 	$class(Arrays$LegacyMergeSort, 0, ::java::lang::Object)
 public:
 	Arrays$LegacyMergeSort();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool userRequested;
 };

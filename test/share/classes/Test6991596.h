@@ -24,6 +24,7 @@ class $export Test6991596 : public ::java::lang::Object {
 	$class(Test6991596, 0, ::java::lang::Object)
 public:
 	Test6991596();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check(bool x, bool e, bool a);
 	static void check(bool x, int8_t e, int8_t a);

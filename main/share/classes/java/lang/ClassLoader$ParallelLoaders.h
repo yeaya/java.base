@@ -18,6 +18,7 @@ class ClassLoader$ParallelLoaders : public ::java::lang::Object {
 	$class(ClassLoader$ParallelLoaders, $PRELOAD, ::java::lang::Object)
 public:
 	ClassLoader$ParallelLoaders();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isRegistered($Class* c);
 	static bool register$($Class* c);

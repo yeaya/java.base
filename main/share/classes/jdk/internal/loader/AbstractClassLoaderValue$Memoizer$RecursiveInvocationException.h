@@ -17,7 +17,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	AbstractClassLoaderValue$Memoizer$RecursiveInvocationException(const AbstractClassLoaderValue$Memoizer$RecursiveInvocationException& e);
 	virtual void throw$() override;
-	inline AbstractClassLoaderValue$Memoizer$RecursiveInvocationException* operator ->() {
+	inline AbstractClassLoaderValue$Memoizer$RecursiveInvocationException* operator ->() const {
+		return (AbstractClassLoaderValue$Memoizer$RecursiveInvocationException*)throwing$;
+	}
+	inline operator AbstractClassLoaderValue$Memoizer$RecursiveInvocationException*() const {
 		return (AbstractClassLoaderValue$Memoizer$RecursiveInvocationException*)throwing$;
 	}
 };

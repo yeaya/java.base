@@ -43,7 +43,7 @@ public:
 	virtual ::java::math::BigInteger* getY() override;
 	virtual void parseKeyBits() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xD6727D0D0419EB7B;
+	static const int64_t serialVersionUID = (int64_t)0xd6727d0d0419eb7b;
 	::java::math::BigInteger* y = nullptr;
 };
 

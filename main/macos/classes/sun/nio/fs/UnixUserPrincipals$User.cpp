@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixUserPrincipals$User.h>
-
 #include <java/lang/AssertionError.h>
 #include <sun/nio/fs/UnixUserPrincipals.h>
 #include <jcpp.h>
@@ -13,50 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _UnixUserPrincipals$User_FieldInfo_[] = {
-	{"id", "I", nullptr, $PRIVATE | $FINAL, $field(UnixUserPrincipals$User, id)},
-	{"isGroup", "Z", nullptr, $PRIVATE | $FINAL, $field(UnixUserPrincipals$User, isGroup)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UnixUserPrincipals$User, name)},
-	{}
-};
-
-$MethodInfo _UnixUserPrincipals$User_MethodInfo_[] = {
-	{"<init>", "(IZLjava/lang/String;)V", nullptr, $PRIVATE, $method(UnixUserPrincipals$User, init$, void, int32_t, bool, $String*)},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(UnixUserPrincipals$User, init$, void, int32_t, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, equals, bool, Object$*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, getName, $String*)},
-	{"gid", "()I", nullptr, 0, $virtualMethod(UnixUserPrincipals$User, gid, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, toString, $String*)},
-	{"uid", "()I", nullptr, 0, $virtualMethod(UnixUserPrincipals$User, uid, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UnixUserPrincipals$User_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixUserPrincipals$User", "sun.nio.fs.UnixUserPrincipals", "User", $STATIC},
-	{}
-};
-
-$ClassInfo _UnixUserPrincipals$User_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixUserPrincipals$User",
-	"java.lang.Object",
-	"java.nio.file.attribute.UserPrincipal",
-	_UnixUserPrincipals$User_FieldInfo_,
-	_UnixUserPrincipals$User_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnixUserPrincipals$User_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixUserPrincipals"
-};
-
-$Object* allocate$UnixUserPrincipals$User($Class* clazz) {
-	return $of($alloc(UnixUserPrincipals$User));
-}
 
 void UnixUserPrincipals$User::init$(int32_t id, bool isGroup, $String* name) {
 	this->id = id;
@@ -98,10 +53,10 @@ bool UnixUserPrincipals$User::equals(Object$* obj) {
 		return false;
 	}
 	$var(UnixUserPrincipals$User, other, $cast(UnixUserPrincipals$User, obj));
-	if ((this->id != $nc(other)->id) || (this->isGroup != $nc(other)->isGroup)) {
+	if ((this->id != $nc(other)->id) || (this->isGroup != other->isGroup)) {
 		return false;
 	}
-	if (this->id == -1 && $nc(other)->id == -1) {
+	if (this->id == -1 && other->id == -1) {
 		return $nc(this->name)->equals(other->name);
 	}
 	return true;
@@ -115,7 +70,45 @@ UnixUserPrincipals$User::UnixUserPrincipals$User() {
 }
 
 $Class* UnixUserPrincipals$User::load$($String* name, bool initialize) {
-	$loadClass(UnixUserPrincipals$User, name, initialize, &_UnixUserPrincipals$User_ClassInfo_, allocate$UnixUserPrincipals$User);
+	$FieldInfo fieldInfos$$[] = {
+		{"id", "I", nullptr, $PRIVATE | $FINAL, $field(UnixUserPrincipals$User, id)},
+		{"isGroup", "Z", nullptr, $PRIVATE | $FINAL, $field(UnixUserPrincipals$User, isGroup)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UnixUserPrincipals$User, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IZLjava/lang/String;)V", nullptr, $PRIVATE, $method(UnixUserPrincipals$User, init$, void, int32_t, bool, $String*)},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(UnixUserPrincipals$User, init$, void, int32_t, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, equals, bool, Object$*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, getName, $String*)},
+		{"gid", "()I", nullptr, 0, $virtualMethod(UnixUserPrincipals$User, gid, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, toString, $String*)},
+		{"uid", "()I", nullptr, 0, $virtualMethod(UnixUserPrincipals$User, uid, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixUserPrincipals$User", "sun.nio.fs.UnixUserPrincipals", "User", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixUserPrincipals$User",
+		"java.lang.Object",
+		"java.nio.file.attribute.UserPrincipal",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixUserPrincipals"
+	};
+	$loadClass(UnixUserPrincipals$User, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixUserPrincipals$User);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/util/xml/impl/ParserSAX.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -9,7 +8,6 @@
 #include <jdk/internal/org/xml/sax/EntityResolver.h>
 #include <jdk/internal/org/xml/sax/ErrorHandler.h>
 #include <jdk/internal/org/xml/sax/InputSource.h>
-#include <jdk/internal/org/xml/sax/Locator.h>
 #include <jdk/internal/org/xml/sax/SAXException.h>
 #include <jdk/internal/org/xml/sax/SAXParseException.h>
 #include <jdk/internal/org/xml/sax/helpers/DefaultHandler.h>
@@ -52,13 +50,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Attributes = ::jdk::internal::org::xml::sax::Attributes;
 using $ContentHandler = ::jdk::internal::org::xml::sax::ContentHandler;
 using $DTDHandler = ::jdk::internal::org::xml::sax::DTDHandler;
 using $EntityResolver = ::jdk::internal::org::xml::sax::EntityResolver;
 using $ErrorHandler = ::jdk::internal::org::xml::sax::ErrorHandler;
 using $InputSource = ::jdk::internal::org::xml::sax::InputSource;
-using $Locator = ::jdk::internal::org::xml::sax::Locator;
 using $SAXException = ::jdk::internal::org::xml::sax::SAXException;
 using $SAXParseException = ::jdk::internal::org::xml::sax::SAXParseException;
 using $DefaultHandler = ::jdk::internal::org::xml::sax::helpers::DefaultHandler;
@@ -70,75 +66,6 @@ namespace jdk {
 		namespace util {
 			namespace xml {
 				namespace impl {
-
-$FieldInfo _ParserSAX_FieldInfo_[] = {
-	{"FEATURE_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ParserSAX, FEATURE_NS)},
-	{"FEATURE_PREF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ParserSAX, FEATURE_PREF)},
-	{"mFNamespaces", "Z", nullptr, $PRIVATE, $field(ParserSAX, mFNamespaces)},
-	{"mFPrefixes", "Z", nullptr, $PRIVATE, $field(ParserSAX, mFPrefixes)},
-	{"mHand", "Ljdk/internal/org/xml/sax/helpers/DefaultHandler;", nullptr, $PRIVATE, $field(ParserSAX, mHand)},
-	{"mHandCont", "Ljdk/internal/org/xml/sax/ContentHandler;", nullptr, $PRIVATE, $field(ParserSAX, mHandCont)},
-	{"mHandDtd", "Ljdk/internal/org/xml/sax/DTDHandler;", nullptr, $PRIVATE, $field(ParserSAX, mHandDtd)},
-	{"mHandErr", "Ljdk/internal/org/xml/sax/ErrorHandler;", nullptr, $PRIVATE, $field(ParserSAX, mHandErr)},
-	{"mHandEnt", "Ljdk/internal/org/xml/sax/EntityResolver;", nullptr, $PRIVATE, $field(ParserSAX, mHandEnt)},
-	{}
-};
-
-$MethodInfo _ParserSAX_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ParserSAX, init$, void)},
-	{"bflash", "()V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, bflash, void), "jdk.internal.org.xml.sax.SAXException"},
-	{"bflash_ws", "()V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, bflash_ws, void), "jdk.internal.org.xml.sax.SAXException"},
-	{"comm", "([CI)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, comm, void, $chars*, int32_t)},
-	{"docType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, docType, void, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getColumnNumber, int32_t)},
-	{"getContentHandler", "()Ljdk/internal/org/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getContentHandler, $ContentHandler*)},
-	{"getDTDHandler", "()Ljdk/internal/org/xml/sax/DTDHandler;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getDTDHandler, $DTDHandler*)},
-	{"getEntityResolver", "()Ljdk/internal/org/xml/sax/EntityResolver;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getEntityResolver, $EntityResolver*)},
-	{"getErrorHandler", "()Ljdk/internal/org/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getErrorHandler, $ErrorHandler*)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getFeature, bool, $String*)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getLineNumber, int32_t)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getProperty, $Object*, $String*)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getPublicId, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getSystemId, $String*)},
-	{"newPrefix", "()V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, newPrefix, void), "jdk.internal.org.xml.sax.SAXException"},
-	{"notDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, notDecl, void, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
-	{"panic", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, panic, void, $String*), "jdk.internal.org.xml.sax.SAXException"},
-	{"parse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, parse, void, $String*), "java.io.IOException,jdk.internal.org.xml.sax.SAXException"},
-	{"parse", "(Ljdk/internal/org/xml/sax/InputSource;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, parse, void, $InputSource*), "java.io.IOException,jdk.internal.org.xml.sax.SAXException"},
-	{"parse", "(Ljava/io/InputStream;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $method(ParserSAX, parse, void, $InputStream*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
-	{"parse", "(Ljdk/internal/org/xml/sax/InputSource;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $method(ParserSAX, parse, void, $InputSource*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
-	{"parse", "()V", nullptr, $PRIVATE, $method(ParserSAX, parse, void), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
-	{"pi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, pi, void, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
-	{"resolveEnt", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/xml/sax/InputSource;", nullptr, $PROTECTED, $virtualMethod(ParserSAX, resolveEnt, $InputSource*, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
-	{"setContentHandler", "(Ljdk/internal/org/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setContentHandler, void, $ContentHandler*)},
-	{"setDTDHandler", "(Ljdk/internal/org/xml/sax/DTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setDTDHandler, void, $DTDHandler*)},
-	{"setEntityResolver", "(Ljdk/internal/org/xml/sax/EntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setEntityResolver, void, $EntityResolver*)},
-	{"setErrorHandler", "(Ljdk/internal/org/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setErrorHandler, void, $ErrorHandler*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setFeature, void, $String*, bool)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setProperty, void, $String*, Object$*)},
-	{"skippedEnt", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, skippedEnt, void, $String*), "jdk.internal.org.xml.sax.SAXException"},
-	{"startInternalSub", "()V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, startInternalSub, void), "jdk.internal.org.xml.sax.SAXException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unparsedEntDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, unparsedEntDecl, void, $String*, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _ParserSAX_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.util.xml.impl.ParserSAX",
-	"jdk.internal.util.xml.impl.Parser",
-	"jdk.internal.org.xml.sax.XMLReader,jdk.internal.org.xml.sax.Locator",
-	_ParserSAX_FieldInfo_,
-	_ParserSAX_MethodInfo_
-};
-
-$Object* allocate$ParserSAX($Class* clazz) {
-	return $of($alloc(ParserSAX));
-}
 
 int32_t ParserSAX::hashCode() {
 	 return this->$Parser::hashCode();
@@ -219,11 +146,11 @@ void ParserSAX::setEntityResolver($EntityResolver* resolver) {
 }
 
 $String* ParserSAX::getPublicId() {
-	return (this->mInp != nullptr) ? $nc(this->mInp)->pubid : ($String*)nullptr;
+	return (this->mInp != nullptr) ? this->mInp->pubid : ($String*)nullptr;
 }
 
 $String* ParserSAX::getSystemId() {
-	return (this->mInp != nullptr) ? $nc(this->mInp)->sysid : ($String*)nullptr;
+	return (this->mInp != nullptr) ? this->mInp->sysid : ($String*)nullptr;
 }
 
 int32_t ParserSAX::getLineNumber() {
@@ -290,144 +217,113 @@ void ParserSAX::parse($InputSource* is, $DefaultHandler* handler) {
 }
 
 void ParserSAX::parse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	init();
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(this->mHandCont)->setDocumentLocator(this);
-				$nc(this->mHandCont)->startDocument();
-				if (this->mPh != $Parser::PH_MISC_DTD) {
-					this->mPh = $Parser::PH_MISC_DTD;
+			$nc(this->mHandCont)->setDocumentLocator(this);
+			$nc(this->mHandCont)->startDocument();
+			if (this->mPh != $Parser::PH_MISC_DTD) {
+				this->mPh = $Parser::PH_MISC_DTD;
+			}
+			int32_t evt = $Parser::EV_NULL;
+			do {
+				wsskip();
+				switch (evt = step()) {
+				case $Parser::EV_ELM:
+				case $Parser::EV_ELMS:
+					this->mPh = $Parser::PH_DOCELM;
+					break;
+				case $Parser::EV_COMM:
+				case $Parser::EV_PI:
+					break;
+				case $Parser::EV_DTD:
+					if (this->mPh >= $Parser::PH_DTD_MISC) {
+						$init($Parser);
+						panic($Parser::FAULT);
+					}
+					this->mPh = $Parser::PH_DTD_MISC;
+					break;
+				default:
+					$init($Parser);
+					panic($Parser::FAULT);
 				}
-				int32_t evt = $Parser::EV_NULL;
-				do {
-					wsskip();
-					switch (evt = step()) {
-					case $Parser::EV_ELM:
-						{}
-					case $Parser::EV_ELMS:
-						{
-							this->mPh = $Parser::PH_DOCELM;
-							break;
-						}
-					case $Parser::EV_COMM:
-						{}
-					case $Parser::EV_PI:
-						{
-							break;
-						}
-					case $Parser::EV_DTD:
-						{
-							if (this->mPh >= $Parser::PH_DTD_MISC) {
-								$init($Parser);
-								panic($Parser::FAULT);
-							}
-							this->mPh = $Parser::PH_DTD_MISC;
-							break;
-						}
-					default:
-						{
-							$init($Parser);
-							panic($Parser::FAULT);
-						}
+			} while (this->mPh < $Parser::PH_DOCELM);
+			do {
+				switch (evt) {
+				case $Parser::EV_ELM:
+				case $Parser::EV_ELMS:
+					if (this->mIsNSAware == true) {
+						$nc(this->mHandCont)->startElement($nc(this->mElm)->value, $nc(this->mElm)->name, ""_s, this->mAttrs);
+					} else {
+						$nc(this->mHandCont)->startElement(""_s, ""_s, $nc(this->mElm)->name, this->mAttrs);
 					}
-				} while (this->mPh < $Parser::PH_DOCELM);
-				do {
-					switch (evt) {
-					case $Parser::EV_ELM:
-						{}
-					case $Parser::EV_ELMS:
-						{
-							if (this->mIsNSAware == true) {
-								$nc(this->mHandCont)->startElement($nc(this->mElm)->value, $nc(this->mElm)->name, ""_s, this->mAttrs);
-							} else {
-								$nc(this->mHandCont)->startElement(""_s, ""_s, $nc(this->mElm)->name, this->mAttrs);
-							}
-							if (evt == $Parser::EV_ELMS) {
-								evt = step();
-								break;
-							}
-						}
-					case $Parser::EV_ELME:
-						{
-							if (this->mIsNSAware == true) {
-								$nc(this->mHandCont)->endElement($nc(this->mElm)->value, $nc(this->mElm)->name, ""_s);
-							} else {
-								$nc(this->mHandCont)->endElement(""_s, ""_s, $nc(this->mElm)->name);
-							}
-							while ($nc(this->mPref)->list == this->mElm) {
-								$nc(this->mHandCont)->endPrefixMapping($nc(this->mPref)->name);
-								$set(this, mPref, del(this->mPref));
-							}
-							$set(this, mElm, del(this->mElm));
-							if (this->mElm == nullptr) {
-								this->mPh = $Parser::PH_DOCELM_MISC;
-							} else {
-								evt = step();
-							}
-							break;
-						}
-					case $Parser::EV_TEXT:
-						{}
-					case $Parser::EV_WSPC:
-						{}
-					case $Parser::EV_CDAT:
-						{}
-					case $Parser::EV_COMM:
-						{}
-					case $Parser::EV_PI:
-						{}
-					case $Parser::EV_ENT:
-						{
-							evt = step();
-							break;
-						}
-					default:
-						{
-							$init($Parser);
-							panic($Parser::FAULT);
-						}
-					}
-				} while (this->mPh == $Parser::PH_DOCELM);
-				do {
-					if (wsskip() == $Parser::EOS) {
+					if (evt == $Parser::EV_ELMS) {
+						evt = step();
 						break;
 					}
-					switch (step()) {
-					case $Parser::EV_COMM:
-						{}
-					case $Parser::EV_PI:
-						{
-							break;
-						}
-					default:
-						{
-							$init($Parser);
-							panic($Parser::FAULT);
-						}
+				case $Parser::EV_ELME:
+					if (this->mIsNSAware == true) {
+						$nc(this->mHandCont)->endElement($nc(this->mElm)->value, $nc(this->mElm)->name, ""_s);
+					} else {
+						$nc(this->mHandCont)->endElement(""_s, ""_s, $nc(this->mElm)->name);
 					}
-				} while (this->mPh == $Parser::PH_DOCELM_MISC);
-				this->mPh = $Parser::PH_AFTER_DOC;
-			} catch ($SAXException& saxe) {
-				$throw(saxe);
-			} catch ($IOException& ioe) {
-				$throw(ioe);
-			} catch ($RuntimeException& rte) {
-				$throw(rte);
-			} catch ($Exception& e) {
-				panic($(e->toString()));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->mHandCont)->endDocument();
-			cleanup();
+					while ($nc(this->mPref)->list == this->mElm) {
+						$nc(this->mHandCont)->endPrefixMapping(this->mPref->name);
+						$set(this, mPref, del(this->mPref));
+					}
+					$set(this, mElm, del(this->mElm));
+					if (this->mElm == nullptr) {
+						this->mPh = $Parser::PH_DOCELM_MISC;
+					} else {
+						evt = step();
+					}
+					break;
+				case $Parser::EV_TEXT:
+				case $Parser::EV_WSPC:
+				case $Parser::EV_CDAT:
+				case $Parser::EV_COMM:
+				case $Parser::EV_PI:
+				case $Parser::EV_ENT:
+					evt = step();
+					break;
+				default:
+					$init($Parser);
+					panic($Parser::FAULT);
+				}
+			} while (this->mPh == $Parser::PH_DOCELM);
+			do {
+				if (wsskip() == $Parser::EOS) {
+					break;
+				}
+				switch (step()) {
+				case $Parser::EV_COMM:
+				case $Parser::EV_PI:
+					break;
+				default:
+					$init($Parser);
+					panic($Parser::FAULT);
+				}
+			} while (this->mPh == $Parser::PH_DOCELM_MISC);
+			this->mPh = $Parser::PH_AFTER_DOC;
+		} catch ($SAXException& saxe) {
+			$throw(saxe);
+		} catch ($IOException& ioe) {
+			$throw(ioe);
+		} catch ($RuntimeException& rte) {
+			$throw(rte);
+		} catch ($Exception& e) {
+			panic($(e->toString()));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->mHandCont)->endDocument();
+		cleanup();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -507,13 +403,77 @@ void ParserSAX::setProperty($String* name, Object$* value) {
 ParserSAX::ParserSAX() {
 }
 
-void clinit$ParserSAX($Class* class$) {
+void ParserSAX::clinit$($Class* clazz) {
 	$assignStatic(ParserSAX::FEATURE_NS, "http://xml.org/sax/features/namespaces"_s);
 	$assignStatic(ParserSAX::FEATURE_PREF, "http://xml.org/sax/features/namespace-prefixes"_s);
 }
 
 $Class* ParserSAX::load$($String* name, bool initialize) {
-	$loadClass(ParserSAX, name, initialize, &_ParserSAX_ClassInfo_, clinit$ParserSAX, allocate$ParserSAX);
+	$FieldInfo fieldInfos$$[] = {
+		{"FEATURE_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ParserSAX, FEATURE_NS)},
+		{"FEATURE_PREF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ParserSAX, FEATURE_PREF)},
+		{"mFNamespaces", "Z", nullptr, $PRIVATE, $field(ParserSAX, mFNamespaces)},
+		{"mFPrefixes", "Z", nullptr, $PRIVATE, $field(ParserSAX, mFPrefixes)},
+		{"mHand", "Ljdk/internal/org/xml/sax/helpers/DefaultHandler;", nullptr, $PRIVATE, $field(ParserSAX, mHand)},
+		{"mHandCont", "Ljdk/internal/org/xml/sax/ContentHandler;", nullptr, $PRIVATE, $field(ParserSAX, mHandCont)},
+		{"mHandDtd", "Ljdk/internal/org/xml/sax/DTDHandler;", nullptr, $PRIVATE, $field(ParserSAX, mHandDtd)},
+		{"mHandErr", "Ljdk/internal/org/xml/sax/ErrorHandler;", nullptr, $PRIVATE, $field(ParserSAX, mHandErr)},
+		{"mHandEnt", "Ljdk/internal/org/xml/sax/EntityResolver;", nullptr, $PRIVATE, $field(ParserSAX, mHandEnt)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ParserSAX, init$, void)},
+		{"bflash", "()V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, bflash, void), "jdk.internal.org.xml.sax.SAXException"},
+		{"bflash_ws", "()V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, bflash_ws, void), "jdk.internal.org.xml.sax.SAXException"},
+		{"comm", "([CI)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, comm, void, $chars*, int32_t)},
+		{"docType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, docType, void, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getColumnNumber, int32_t)},
+		{"getContentHandler", "()Ljdk/internal/org/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getContentHandler, $ContentHandler*)},
+		{"getDTDHandler", "()Ljdk/internal/org/xml/sax/DTDHandler;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getDTDHandler, $DTDHandler*)},
+		{"getEntityResolver", "()Ljdk/internal/org/xml/sax/EntityResolver;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getEntityResolver, $EntityResolver*)},
+		{"getErrorHandler", "()Ljdk/internal/org/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getErrorHandler, $ErrorHandler*)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getFeature, bool, $String*)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getLineNumber, int32_t)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getProperty, $Object*, $String*)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getPublicId, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParserSAX, getSystemId, $String*)},
+		{"newPrefix", "()V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, newPrefix, void), "jdk.internal.org.xml.sax.SAXException"},
+		{"notDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, notDecl, void, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
+		{"panic", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, panic, void, $String*), "jdk.internal.org.xml.sax.SAXException"},
+		{"parse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, parse, void, $String*), "java.io.IOException,jdk.internal.org.xml.sax.SAXException"},
+		{"parse", "(Ljdk/internal/org/xml/sax/InputSource;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, parse, void, $InputSource*), "java.io.IOException,jdk.internal.org.xml.sax.SAXException"},
+		{"parse", "(Ljava/io/InputStream;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $method(ParserSAX, parse, void, $InputStream*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+		{"parse", "(Ljdk/internal/org/xml/sax/InputSource;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $method(ParserSAX, parse, void, $InputSource*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+		{"parse", "()V", nullptr, $PRIVATE, $method(ParserSAX, parse, void), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+		{"pi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, pi, void, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
+		{"resolveEnt", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/xml/sax/InputSource;", nullptr, $PROTECTED, $virtualMethod(ParserSAX, resolveEnt, $InputSource*, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+		{"setContentHandler", "(Ljdk/internal/org/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setContentHandler, void, $ContentHandler*)},
+		{"setDTDHandler", "(Ljdk/internal/org/xml/sax/DTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setDTDHandler, void, $DTDHandler*)},
+		{"setEntityResolver", "(Ljdk/internal/org/xml/sax/EntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setEntityResolver, void, $EntityResolver*)},
+		{"setErrorHandler", "(Ljdk/internal/org/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setErrorHandler, void, $ErrorHandler*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setFeature, void, $String*, bool)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, setProperty, void, $String*, Object$*)},
+		{"skippedEnt", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, skippedEnt, void, $String*), "jdk.internal.org.xml.sax.SAXException"},
+		{"startInternalSub", "()V", nullptr, $PUBLIC, $virtualMethod(ParserSAX, startInternalSub, void), "jdk.internal.org.xml.sax.SAXException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unparsedEntDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ParserSAX, unparsedEntDecl, void, $String*, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.util.xml.impl.ParserSAX",
+		"jdk.internal.util.xml.impl.Parser",
+		"jdk.internal.org.xml.sax.XMLReader,jdk.internal.org.xml.sax.Locator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ParserSAX, name, initialize, &classInfo$$, ParserSAX::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ParserSAX));
+	});
 	return class$;
 }
 

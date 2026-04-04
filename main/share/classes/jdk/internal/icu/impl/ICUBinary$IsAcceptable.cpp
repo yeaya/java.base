@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/ICUBinary$IsAcceptable.h>
-
 #include <jdk/internal/icu/impl/ICUBinary.h>
 #include <jcpp.h>
 
@@ -12,38 +11,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$MethodInfo _ICUBinary$IsAcceptable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ICUBinary$IsAcceptable, init$, void)},
-	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(ICUBinary$IsAcceptable, isDataVersionAcceptable, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _ICUBinary$IsAcceptable_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.ICUBinary$IsAcceptable", "jdk.internal.icu.impl.ICUBinary", "IsAcceptable", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.ICUBinary$Authenticate", "jdk.internal.icu.impl.ICUBinary", "Authenticate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ICUBinary$IsAcceptable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.ICUBinary$IsAcceptable",
-	"java.lang.Object",
-	"jdk.internal.icu.impl.ICUBinary$Authenticate",
-	nullptr,
-	_ICUBinary$IsAcceptable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ICUBinary$IsAcceptable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.ICUBinary"
-};
-
-$Object* allocate$ICUBinary$IsAcceptable($Class* clazz) {
-	return $of($alloc(ICUBinary$IsAcceptable));
-}
-
 void ICUBinary$IsAcceptable::init$() {
 }
 
@@ -55,7 +22,34 @@ ICUBinary$IsAcceptable::ICUBinary$IsAcceptable() {
 }
 
 $Class* ICUBinary$IsAcceptable::load$($String* name, bool initialize) {
-	$loadClass(ICUBinary$IsAcceptable, name, initialize, &_ICUBinary$IsAcceptable_ClassInfo_, allocate$ICUBinary$IsAcceptable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ICUBinary$IsAcceptable, init$, void)},
+		{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(ICUBinary$IsAcceptable, isDataVersionAcceptable, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.ICUBinary$IsAcceptable", "jdk.internal.icu.impl.ICUBinary", "IsAcceptable", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.ICUBinary$Authenticate", "jdk.internal.icu.impl.ICUBinary", "Authenticate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.ICUBinary$IsAcceptable",
+		"java.lang.Object",
+		"jdk.internal.icu.impl.ICUBinary$Authenticate",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.ICUBinary"
+	};
+	$loadClass(ICUBinary$IsAcceptable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ICUBinary$IsAcceptable);
+	});
 	return class$;
 }
 

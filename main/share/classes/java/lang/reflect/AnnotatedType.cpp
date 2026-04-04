@@ -1,5 +1,4 @@
 #include <java/lang/reflect/AnnotatedType.h>
-
 #include <java/lang/reflect/Type.h>
 #include <jcpp.h>
 
@@ -11,34 +10,30 @@ namespace java {
 	namespace lang {
 		namespace reflect {
 
-$MethodInfo _AnnotatedType_MethodInfo_[] = {
-	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedType, getAnnotatedOwnerType, AnnotatedType*)},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedType, getType, $Type*)},
-	{}
-};
-
-$ClassInfo _AnnotatedType_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.reflect.AnnotatedType",
-	nullptr,
-	"java.lang.reflect.AnnotatedElement",
-	nullptr,
-	_AnnotatedType_MethodInfo_
-};
-
-$Object* allocate$AnnotatedType($Class* clazz) {
-	return $of($alloc(AnnotatedType));
-}
-
 AnnotatedType* AnnotatedType::getAnnotatedOwnerType() {
 	return nullptr;
 }
 
 $Class* AnnotatedType::load$($String* name, bool initialize) {
-	$loadClass(AnnotatedType, name, initialize, &_AnnotatedType_ClassInfo_, allocate$AnnotatedType);
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedType, getAnnotatedOwnerType, AnnotatedType*)},
+		{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedType, getType, $Type*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.reflect.AnnotatedType",
+		nullptr,
+		"java.lang.reflect.AnnotatedElement",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AnnotatedType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotatedType);
+	});
 	return class$;
 }
 

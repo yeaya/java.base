@@ -13,10 +13,13 @@ class $export InvalidMarkException : public ::java::lang::IllegalStateException 
 public:
 	InvalidMarkException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x1791ADDF9E2DF0B6;
+	static const int64_t serialVersionUID = (int64_t)0x1791addf9e2df0b6;
 	InvalidMarkException(const InvalidMarkException& e);
 	virtual void throw$() override;
-	inline InvalidMarkException* operator ->() {
+	inline InvalidMarkException* operator ->() const {
+		return (InvalidMarkException*)throwing$;
+	}
+	inline operator InvalidMarkException*() const {
 		return (InvalidMarkException*)throwing$;
 	}
 };

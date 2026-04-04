@@ -15,6 +15,7 @@ class $export ReadLineSync : public ::java::lang::Object {
 	$class(ReadLineSync, 0, ::java::lang::Object)
 public:
 	ReadLineSync();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createFile(::java::io::File* f);
 	static void main($StringArray* args);

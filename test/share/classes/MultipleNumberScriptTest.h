@@ -15,6 +15,7 @@ class $export MultipleNumberScriptTest : public ::java::lang::Object {
 	$class(MultipleNumberScriptTest, 0, ::java::lang::Object)
 public:
 	MultipleNumberScriptTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool checkResult($String* formatted, $String* numSystem);
 	static void main($StringArray* args);

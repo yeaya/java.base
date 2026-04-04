@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/ClassLoaderValue.h>
-
 #include <java/util/Objects.h>
 #include <jdk/internal/loader/AbstractClassLoaderValue.h>
 #include <jcpp.h>
@@ -12,27 +11,6 @@ using $AbstractClassLoaderValue = ::jdk::internal::loader::AbstractClassLoaderVa
 namespace jdk {
 	namespace internal {
 		namespace loader {
-
-$MethodInfo _ClassLoaderValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassLoaderValue, init$, void)},
-	{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC, $virtualMethod(ClassLoaderValue, isEqualOrDescendantOf, bool, $AbstractClassLoaderValue*)},
-	{"key", "()Ljdk/internal/loader/ClassLoaderValue;", "()Ljdk/internal/loader/ClassLoaderValue<TV;>;", $PUBLIC, $virtualMethod(ClassLoaderValue, key, ClassLoaderValue*)},
-	{}
-};
-
-$ClassInfo _ClassLoaderValue_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.loader.ClassLoaderValue",
-	"jdk.internal.loader.AbstractClassLoaderValue",
-	nullptr,
-	nullptr,
-	_ClassLoaderValue_MethodInfo_,
-	"<V:Ljava/lang/Object;>Ljdk/internal/loader/AbstractClassLoaderValue<Ljdk/internal/loader/ClassLoaderValue<TV;>;TV;>;"
-};
-
-$Object* allocate$ClassLoaderValue($Class* clazz) {
-	return $of($alloc(ClassLoaderValue));
-}
 
 void ClassLoaderValue::init$() {
 	$AbstractClassLoaderValue::init$();
@@ -50,7 +28,24 @@ ClassLoaderValue::ClassLoaderValue() {
 }
 
 $Class* ClassLoaderValue::load$($String* name, bool initialize) {
-	$loadClass(ClassLoaderValue, name, initialize, &_ClassLoaderValue_ClassInfo_, allocate$ClassLoaderValue);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClassLoaderValue, init$, void)},
+		{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC, $virtualMethod(ClassLoaderValue, isEqualOrDescendantOf, bool, $AbstractClassLoaderValue*)},
+		{"key", "()Ljdk/internal/loader/ClassLoaderValue;", "()Ljdk/internal/loader/ClassLoaderValue<TV;>;", $PUBLIC, $virtualMethod(ClassLoaderValue, key, ClassLoaderValue*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.loader.ClassLoaderValue",
+		"jdk.internal.loader.AbstractClassLoaderValue",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;>Ljdk/internal/loader/AbstractClassLoaderValue<Ljdk/internal/loader/ClassLoaderValue<TV;>;TV;>;"
+	};
+	$loadClass(ClassLoaderValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassLoaderValue);
+	});
 	return class$;
 }
 

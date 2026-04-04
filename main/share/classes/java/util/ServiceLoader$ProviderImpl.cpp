@@ -1,5 +1,4 @@
 #include <java/util/ServiceLoader$ProviderImpl.h>
-
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
@@ -32,55 +31,6 @@ using $ServiceLoader$ProviderImpl$2 = ::java::util::ServiceLoader$ProviderImpl$2
 namespace java {
 	namespace util {
 
-$FieldInfo _ServiceLoader$ProviderImpl_FieldInfo_[] = {
-	{"service", "Ljava/lang/Class;", "Ljava/lang/Class<TS;>;", $FINAL, $field(ServiceLoader$ProviderImpl, service)},
-	{"type", "Ljava/lang/Class;", "Ljava/lang/Class<+TS;>;", $FINAL, $field(ServiceLoader$ProviderImpl, type$)},
-	{"factoryMethod", "Ljava/lang/reflect/Method;", nullptr, $FINAL, $field(ServiceLoader$ProviderImpl, factoryMethod)},
-	{"ctor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<+TS;>;", $FINAL, $field(ServiceLoader$ProviderImpl, ctor)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $FINAL, $field(ServiceLoader$ProviderImpl, acc)},
-	{}
-};
-
-$MethodInfo _ServiceLoader$ProviderImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/reflect/Method;Ljava/security/AccessControlContext;)V", "(Ljava/lang/Class<TS;>;Ljava/lang/Class<+TS;>;Ljava/lang/reflect/Method;Ljava/security/AccessControlContext;)V", 0, $method(ServiceLoader$ProviderImpl, init$, void, $Class*, $Class*, $Method*, $AccessControlContext*)},
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/reflect/Constructor;Ljava/security/AccessControlContext;)V", "(Ljava/lang/Class<TS;>;Ljava/lang/Class<+TS;>;Ljava/lang/reflect/Constructor<+TS;>;Ljava/security/AccessControlContext;)V", 0, $method(ServiceLoader$ProviderImpl, init$, void, $Class*, $Class*, $Constructor*, $AccessControlContext*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, equals, bool, Object$*)},
-	{"get", "()Ljava/lang/Object;", "()TS;", $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, get, $Object*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, hashCode, int32_t)},
-	{"invokeFactoryMethod", "()Ljava/lang/Object;", "()TS;", $PRIVATE, $method(ServiceLoader$ProviderImpl, invokeFactoryMethod, $Object*)},
-	{"newInstance", "()Ljava/lang/Object;", "()TS;", $PRIVATE, $method(ServiceLoader$ProviderImpl, newInstance, $Object*)},
-	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<+TS;>;", $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, type, $Class*)},
-	{}
-};
-
-$InnerClassInfo _ServiceLoader$ProviderImpl_InnerClassesInfo_[] = {
-	{"java.util.ServiceLoader$ProviderImpl", "java.util.ServiceLoader", "ProviderImpl", $PRIVATE | $STATIC},
-	{"java.util.ServiceLoader$Provider", "java.util.ServiceLoader", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.ServiceLoader$ProviderImpl$2", nullptr, nullptr, 0},
-	{"java.util.ServiceLoader$ProviderImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ServiceLoader$ProviderImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ServiceLoader$ProviderImpl",
-	"java.lang.Object",
-	"java.util.ServiceLoader$Provider",
-	_ServiceLoader$ProviderImpl_FieldInfo_,
-	_ServiceLoader$ProviderImpl_MethodInfo_,
-	"<S:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/ServiceLoader$Provider<TS;>;",
-	nullptr,
-	_ServiceLoader$ProviderImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ServiceLoader"
-};
-
-$Object* allocate$ServiceLoader$ProviderImpl($Class* clazz) {
-	return $of($alloc(ServiceLoader$ProviderImpl));
-}
-
 void ServiceLoader$ProviderImpl::init$($Class* service, $Class* type, $Method* factoryMethod, $AccessControlContext* acc) {
 	$set(this, service, service);
 	$set(this, type$, type);
@@ -103,14 +53,14 @@ $Class* ServiceLoader$ProviderImpl::type() {
 
 $Object* ServiceLoader$ProviderImpl::get() {
 	if (this->factoryMethod != nullptr) {
-		return $of(invokeFactoryMethod());
+		return invokeFactoryMethod();
 	} else {
-		return $of(newInstance());
+		return newInstance();
 	}
 }
 
 $Object* ServiceLoader$ProviderImpl::invokeFactoryMethod() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Object, result, nullptr);
 	$var($Throwable, exc, nullptr);
@@ -141,11 +91,11 @@ $Object* ServiceLoader$ProviderImpl::invokeFactoryMethod() {
 		$ServiceLoader::fail(this->service, $$str({this->factoryMethod, " returned null"_s}));
 	}
 	$var($Object, p, result);
-	return $of(p);
+	return p;
 }
 
 $Object* ServiceLoader$ProviderImpl::newInstance() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Object, p, nullptr);
 	$var($Throwable, exc, nullptr);
@@ -173,14 +123,14 @@ $Object* ServiceLoader$ProviderImpl::newInstance() {
 		$var($String, cn, $nc($nc(this->ctor)->getDeclaringClass())->getName());
 		$ServiceLoader::fail(this->service, $$str({"Provider "_s, cn, " could not be instantiated"_s}), exc);
 	}
-	return $of(p);
+	return p;
 }
 
 int32_t ServiceLoader$ProviderImpl::hashCode() {
 	return $Objects::hash($$new($ObjectArray, {
-		$of(this->service),
-		$of(this->type$),
-		$of(this->acc)
+		this->service,
+		this->type$,
+		this->acc
 	}));
 }
 
@@ -201,7 +151,50 @@ ServiceLoader$ProviderImpl::ServiceLoader$ProviderImpl() {
 }
 
 $Class* ServiceLoader$ProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(ServiceLoader$ProviderImpl, name, initialize, &_ServiceLoader$ProviderImpl_ClassInfo_, allocate$ServiceLoader$ProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"service", "Ljava/lang/Class;", "Ljava/lang/Class<TS;>;", $FINAL, $field(ServiceLoader$ProviderImpl, service)},
+		{"type", "Ljava/lang/Class;", "Ljava/lang/Class<+TS;>;", $FINAL, $field(ServiceLoader$ProviderImpl, type$)},
+		{"factoryMethod", "Ljava/lang/reflect/Method;", nullptr, $FINAL, $field(ServiceLoader$ProviderImpl, factoryMethod)},
+		{"ctor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<+TS;>;", $FINAL, $field(ServiceLoader$ProviderImpl, ctor)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $FINAL, $field(ServiceLoader$ProviderImpl, acc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/reflect/Method;Ljava/security/AccessControlContext;)V", "(Ljava/lang/Class<TS;>;Ljava/lang/Class<+TS;>;Ljava/lang/reflect/Method;Ljava/security/AccessControlContext;)V", 0, $method(ServiceLoader$ProviderImpl, init$, void, $Class*, $Class*, $Method*, $AccessControlContext*)},
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/reflect/Constructor;Ljava/security/AccessControlContext;)V", "(Ljava/lang/Class<TS;>;Ljava/lang/Class<+TS;>;Ljava/lang/reflect/Constructor<+TS;>;Ljava/security/AccessControlContext;)V", 0, $method(ServiceLoader$ProviderImpl, init$, void, $Class*, $Class*, $Constructor*, $AccessControlContext*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, equals, bool, Object$*)},
+		{"get", "()Ljava/lang/Object;", "()TS;", $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, get, $Object*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, hashCode, int32_t)},
+		{"invokeFactoryMethod", "()Ljava/lang/Object;", "()TS;", $PRIVATE, $method(ServiceLoader$ProviderImpl, invokeFactoryMethod, $Object*)},
+		{"newInstance", "()Ljava/lang/Object;", "()TS;", $PRIVATE, $method(ServiceLoader$ProviderImpl, newInstance, $Object*)},
+		{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<+TS;>;", $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, type, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ServiceLoader$ProviderImpl", "java.util.ServiceLoader", "ProviderImpl", $PRIVATE | $STATIC},
+		{"java.util.ServiceLoader$Provider", "java.util.ServiceLoader", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.ServiceLoader$ProviderImpl$2", nullptr, nullptr, 0},
+		{"java.util.ServiceLoader$ProviderImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ServiceLoader$ProviderImpl",
+		"java.lang.Object",
+		"java.util.ServiceLoader$Provider",
+		fieldInfos$$,
+		methodInfos$$,
+		"<S:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/ServiceLoader$Provider<TS;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ServiceLoader"
+	};
+	$loadClass(ServiceLoader$ProviderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceLoader$ProviderImpl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/provider/KeyProtector.h>
-
 #include <java/io/IOException.h>
 #include <java/security/Key.h>
 #include <java/security/KeyStoreException.h>
@@ -40,35 +39,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _KeyProtector_FieldInfo_[] = {
-	{"SALT_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyProtector, SALT_LEN)},
-	{"DIGEST_ALG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyProtector, DIGEST_ALG)},
-	{"DIGEST_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyProtector, DIGEST_LEN)},
-	{"passwdBytes", "[B", nullptr, $PRIVATE, $field(KeyProtector, passwdBytes)},
-	{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(KeyProtector, md)},
-	{}
-};
-
-$MethodInfo _KeyProtector_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(KeyProtector, init$, void, $bytes*), "java.security.NoSuchAlgorithmException"},
-	{"protect", "(Ljava/security/Key;)[B", nullptr, $PUBLIC, $method(KeyProtector, protect, $bytes*, $Key*), "java.security.KeyStoreException"},
-	{"recover", "(Lsun/security/pkcs/EncryptedPrivateKeyInfo;)Ljava/security/Key;", nullptr, $PUBLIC, $method(KeyProtector, recover, $Key*, $EncryptedPrivateKeyInfo*), "java.security.UnrecoverableKeyException"},
-	{}
-};
-
-$ClassInfo _KeyProtector_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.provider.KeyProtector",
-	"java.lang.Object",
-	nullptr,
-	_KeyProtector_FieldInfo_,
-	_KeyProtector_MethodInfo_
-};
-
-$Object* allocate$KeyProtector($Class* clazz) {
-	return $of($alloc(KeyProtector));
-}
-
 $String* KeyProtector::DIGEST_ALG = nullptr;
 
 void KeyProtector::init$($bytes* passwordBytes) {
@@ -80,7 +50,7 @@ void KeyProtector::init$($bytes* passwordBytes) {
 }
 
 $bytes* KeyProtector::protect($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	int32_t numRounds = 0;
 	$var($bytes, digest, nullptr);
@@ -92,7 +62,7 @@ $bytes* KeyProtector::protect($Key* key) {
 	if (!"PKCS#8"_s->equalsIgnoreCase($($nc(key)->getFormat()))) {
 		$throwNew($KeyStoreException, "Cannot get key bytes, not PKCS#8 encoded"_s);
 	}
-	$var($bytes, plainKey, $nc(key)->getEncoded());
+	$var($bytes, plainKey, key->getEncoded());
 	if (plainKey == nullptr) {
 		$throwNew($KeyStoreException, "Cannot get key bytes, encoding not supported"_s);
 	}
@@ -106,9 +76,9 @@ $bytes* KeyProtector::protect($Key* key) {
 	$var($bytes, xorKey, $new($bytes, plainKey->length));
 	for (i = 0, xorOffset = 0, $assign(digest, salt); i < numRounds; ++i, xorOffset += KeyProtector::DIGEST_LEN) {
 		$nc(this->md)->update(this->passwdBytes);
-		$nc(this->md)->update(digest);
-		$assign(digest, $nc(this->md)->digest());
-		$nc(this->md)->reset();
+		this->md->update(digest);
+		$assign(digest, this->md->digest());
+		this->md->reset();
 		if (i < numRounds - 1) {
 			$System::arraycopy(digest, 0, xorKey, xorOffset, $nc(digest)->length);
 		} else {
@@ -127,9 +97,9 @@ $bytes* KeyProtector::protect($Key* key) {
 	$nc(this->md)->update(this->passwdBytes);
 	$Arrays::fill(this->passwdBytes, (int8_t)0);
 	$set(this, passwdBytes, nullptr);
-	$nc(this->md)->update(plainKey);
-	$assign(digest, $nc(this->md)->digest());
-	$nc(this->md)->reset();
+	this->md->update(plainKey);
+	$assign(digest, this->md->digest());
+	this->md->reset();
 	$System::arraycopy(digest, 0, encrKey, encrKeyOffset, $nc(digest)->length);
 	$Arrays::fill(plainKey, (int8_t)0);
 	$var($AlgorithmId, encrAlg, nullptr);
@@ -144,7 +114,7 @@ $bytes* KeyProtector::protect($Key* key) {
 }
 
 $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	$var($bytes, digest, nullptr);
 	int32_t numRounds = 0;
@@ -152,7 +122,7 @@ $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
 	int32_t encrKeyLen = 0;
 	$var($AlgorithmId, encrAlg, $nc(encrInfo)->getAlgorithm());
 	$init($KnownOIDs);
-	if (!($nc($($nc($($nc(encrAlg)->getOID()))->toString()))->equals($($KnownOIDs::JAVASOFT_JDKKeyProtector->value())))) {
+	if (!($$nc($$nc($nc(encrAlg)->getOID())->toString())->equals($($KnownOIDs::JAVASOFT_JDKKeyProtector->value())))) {
 		$throwNew($UnrecoverableKeyException, "Unsupported key protection algorithm"_s);
 	}
 	$var($bytes, protectedKey, encrInfo->getEncryptedData());
@@ -168,9 +138,9 @@ $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
 	$var($bytes, xorKey, $new($bytes, encrKey->length));
 	for (i = 0, xorOffset = 0, $assign(digest, salt); i < numRounds; ++i, xorOffset += KeyProtector::DIGEST_LEN) {
 		$nc(this->md)->update(this->passwdBytes);
-		$nc(this->md)->update(digest);
-		$assign(digest, $nc(this->md)->digest());
-		$nc(this->md)->reset();
+		this->md->update(digest);
+		$assign(digest, this->md->digest());
+		this->md->reset();
 		if (i < numRounds - 1) {
 			$System::arraycopy(digest, 0, xorKey, xorOffset, $nc(digest)->length);
 		} else {
@@ -184,37 +154,35 @@ $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
 	$nc(this->md)->update(this->passwdBytes);
 	$Arrays::fill(this->passwdBytes, (int8_t)0);
 	$set(this, passwdBytes, nullptr);
-	$nc(this->md)->update(plainKey);
-	$assign(digest, $nc(this->md)->digest());
-	$nc(this->md)->reset();
+	this->md->update(plainKey);
+	$assign(digest, this->md->digest());
+	this->md->reset();
 	for (i = 0; i < $nc(digest)->length; ++i) {
 		if (digest->get(i) != protectedKey->get(KeyProtector::SALT_LEN + encrKeyLen + i)) {
 			$throwNew($UnrecoverableKeyException, "Cannot recover key"_s);
 		}
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Key, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($Key, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$assign(var$2, $PKCS8Key::parseKey(plainKey));
-				return$1 = true;
-				goto $finally;
-			} catch ($IOException& ioe) {
-				$throwNew($UnrecoverableKeyException, $(ioe->getMessage()));
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(plainKey, (int8_t)0);
+			$assign(var$2, $PKCS8Key::parseKey(plainKey));
+			return$1 = true;
+			goto $finally;
+		} catch ($IOException& ioe) {
+			$throwNew($UnrecoverableKeyException, $(ioe->getMessage()));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(plainKey, (int8_t)0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -222,12 +190,36 @@ $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
 KeyProtector::KeyProtector() {
 }
 
-void clinit$KeyProtector($Class* class$) {
+void KeyProtector::clinit$($Class* clazz) {
 	$assignStatic(KeyProtector::DIGEST_ALG, "SHA"_s);
 }
 
 $Class* KeyProtector::load$($String* name, bool initialize) {
-	$loadClass(KeyProtector, name, initialize, &_KeyProtector_ClassInfo_, clinit$KeyProtector, allocate$KeyProtector);
+	$FieldInfo fieldInfos$$[] = {
+		{"SALT_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyProtector, SALT_LEN)},
+		{"DIGEST_ALG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyProtector, DIGEST_ALG)},
+		{"DIGEST_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyProtector, DIGEST_LEN)},
+		{"passwdBytes", "[B", nullptr, $PRIVATE, $field(KeyProtector, passwdBytes)},
+		{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(KeyProtector, md)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(KeyProtector, init$, void, $bytes*), "java.security.NoSuchAlgorithmException"},
+		{"protect", "(Ljava/security/Key;)[B", nullptr, $PUBLIC, $method(KeyProtector, protect, $bytes*, $Key*), "java.security.KeyStoreException"},
+		{"recover", "(Lsun/security/pkcs/EncryptedPrivateKeyInfo;)Ljava/security/Key;", nullptr, $PUBLIC, $method(KeyProtector, recover, $Key*, $EncryptedPrivateKeyInfo*), "java.security.UnrecoverableKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.provider.KeyProtector",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyProtector, name, initialize, &classInfo$$, KeyProtector::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyProtector);
+	});
 	return class$;
 }
 

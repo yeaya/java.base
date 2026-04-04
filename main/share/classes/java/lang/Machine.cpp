@@ -45,6 +45,8 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
+#include <java/lang/StringCoding.h>
+#include <java/lang/StringUTF16.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/SoftReference.h>
@@ -220,11 +222,17 @@ Class* getPendingClass(const char* name) {
 
 class LibItem : public Library {
 public:
-	LibItem(Library* library) {
+	LibItem() {
+
+	}
+	void init(Library* library) {
 		name = library->name;
 		version = library->version;
 		description = library->description;
 		moduleInfo = library->moduleInfo;
+		if (moduleInfo != nullptr) {
+			moduleInfo = moduleInfo->clone();
+		}
 		eventAction = library->eventAction;
 		getPackages = library->getPackages;
 		getClassEntry = library->getClassEntry;
@@ -463,6 +471,26 @@ void* Machine::loadNativeMethod(Class* clazz, MethodInfo* methodInfo) {
 	return entry;
 }
 
+void* Machine::loadNativeMethod(Class* clazz, const char* methodName, const char* descriptor) {
+	$nullcheck(clazz);
+	$nullcheck(methodName);
+	ClassInfo* classInfo = clazz->classInfo;
+	if (classInfo != nullptr && classInfo->methods != nullptr) {
+		MethodInfo* methodInfo = classInfo->methods;
+		for (; true; methodInfo++) {
+			if (methodInfo->name == nullptr) {
+				break;
+			}
+			if (strcmp(methodInfo->name, methodName) == 0) {
+				if (descriptor == nullptr || strcmp(methodInfo->descriptor, descriptor) == 0) {
+					return loadNativeMethod(clazz, methodInfo);
+				}
+			}
+		}
+	}
+	$throwNew(NoSuchMethodError, $$str(methodName));
+}
+
 ClassEntry* Machine::getClassEntry(String* name) {
 	LibItem* lib = rootLibItem;
 	while (lib != nullptr) {
@@ -503,7 +531,8 @@ void preinitLib(LibItem* lib) {
 		lib->preinited = true;
 	}
 }
-
+#undef TRUE
+#undef FALSE
 void Machine::init1() {
 	log_debug("Machine::init1 enter\n");
 	if (launchDoInitFunction != nullptr) {
@@ -528,6 +557,27 @@ void Machine::init1() {
 	Object::load$(nullptr, false);
 	String::load$(nullptr, false);
 	Void::load$(nullptr, false);
+	Boolean::load$(nullptr, false);
+	Byte::load$(nullptr, false);
+	Short::load$(nullptr, false);
+	Integer::load$(nullptr, false);
+	Long::load$(nullptr, false);
+	Float::load$(nullptr, false);
+	Double::load$(nullptr, false);
+	Character::load$(nullptr, false);
+	Enum::load$(nullptr, false);
+
+	Throwable::load$(nullptr, false);
+	Exception::load$(nullptr, false);
+	RuntimeException::load$(nullptr, false);
+	NullPointerException::load$(nullptr, false);
+
+	Number::load$(nullptr, false);
+	StringCoding::load$(nullptr, false);
+	StringUTF16::load$(nullptr, false);
+	AbstractStringBuilder::load$(nullptr, false);
+	StringBuilder::load$(nullptr, false);
+
 	OutOfMemoryError::load$(nullptr, false);
 	InterruptedException::load$(nullptr, false);
 	lockObject = $allocConst<Object0>();
@@ -549,6 +599,7 @@ void Machine::init1() {
 	$assignStatic(floatClass, createPrimitiveClass(("float")));
 	$assignStatic(doubleClass, createPrimitiveClass(("double")));
 
+	$assignStatic(Void::TYPE, voidClass);
 	$assignStatic(Boolean::TYPE, booleanClass);
 	$assignStatic(Byte::TYPE, byteClass);
 	$assignStatic(Short::TYPE, shortClass);
@@ -571,6 +622,7 @@ void Machine::init1() {
 	DoubleArray::load$(nullptr, true);
 	BooleanArray::load$(nullptr, true);
 	CharArray::load$(nullptr, true);
+
 	Reference::load$(nullptr, false);
 	SoftReference::load$(nullptr, false);
 
@@ -580,6 +632,30 @@ void Machine::init1() {
 	mainThreadGroup = $allocStatic<ThreadGroup>();
 	mainThreadGroup->init$();
 	thread->init$(mainThreadGroup);
+
+	Void::load$(nullptr, true);
+	Boolean::load$(nullptr, true);
+	Byte::load$(nullptr, true);
+	Short::load$(nullptr, true);
+	Integer::load$(nullptr, true);
+	Long::load$(nullptr, true);
+	Float::load$(nullptr, true);
+	Double::load$(nullptr, true);
+	Character::load$(nullptr, true);
+
+	Throwable::load$(nullptr, true);
+	Exception::load$(nullptr, true);
+	RuntimeException::load$(nullptr, true);
+	NullPointerException::load$(nullptr, true);
+
+	Enum::load$(nullptr, true);
+	Exception::load$(nullptr, true);
+
+	Number::load$(nullptr, true);
+	StringCoding::load$(nullptr, true);
+	StringUTF16::load$(nullptr, true);
+	AbstractStringBuilder::load$(nullptr, true);
+	StringBuilder::load$(nullptr, true);
 
 	System::load$(nullptr, true);
 	Object::load$(nullptr, true);
@@ -1152,8 +1228,9 @@ void Machine::addLibrary(Library* lib) {
 			// return;
 		// }
 		// void* e = Platform::findLibraryEntry(libHandle, "JNI_OnLoad_awt");
-		void* buff = $allocRawStatic(sizeof(LibItem));
-		LibItem* libItem = new(buff) LibItem(lib);
+		void* buff = $allocRawStatic(int8_t, sizeof(LibItem));
+		LibItem* libItem = new(buff) LibItem();
+		libItem->init(lib);
 		libItem->handle = libHandle;
 		libItem->next = rootLibItem;
 		rootLibItem = libItem;
@@ -1606,7 +1683,7 @@ Class* Machine::loadClass(String* name, bool initialize, Class** pClazz, int64_t
 			if (&Class::class$ == pClazz) {
 				clazz = ObjectManager::allocClassClass();
 			} else {
-				clazz = $allocStatic<Class>();
+				clazz = $allocStatic(Class);
 			}
 			// if (classInfo != nullptr) {
 			// 	if (initialize) {
@@ -1619,7 +1696,9 @@ Class* Machine::loadClass(String* name, bool initialize, Class** pClazz, int64_t
 			// }
 			clazz->size = (int32_t)size;
 			clazz->mark = mark;
-			clazz->classInfo = classInfo;
+			if (classInfo != nullptr) {
+				clazz->classInfo = classInfo->clone();
+			}
 			clazz->initClassFunction = initClassFunction;
 			clazz->allocateInstanceFunction = allocateInstanceFunction;
 			clazz->initInstanceFunction = initInstanceFunction;

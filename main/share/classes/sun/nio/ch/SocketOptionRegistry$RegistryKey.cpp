@@ -1,5 +1,4 @@
 #include <sun/nio/ch/SocketOptionRegistry$RegistryKey.h>
-
 #include <java/net/ProtocolFamily.h>
 #include <java/net/SocketOption.h>
 #include <sun/nio/ch/SocketOptionRegistry.h>
@@ -16,52 +15,14 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _SocketOptionRegistry$RegistryKey_FieldInfo_[] = {
-	{"name", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<*>;", $PRIVATE | $FINAL, $field(SocketOptionRegistry$RegistryKey, name)},
-	{"family", "Ljava/net/ProtocolFamily;", nullptr, $PRIVATE | $FINAL, $field(SocketOptionRegistry$RegistryKey, family)},
-	{}
-};
-
-$MethodInfo _SocketOptionRegistry$RegistryKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocketOption;Ljava/net/ProtocolFamily;)V", "(Ljava/net/SocketOption<*>;Ljava/net/ProtocolFamily;)V", 0, $method(SocketOptionRegistry$RegistryKey, init$, void, $SocketOption*, $ProtocolFamily*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SocketOptionRegistry$RegistryKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SocketOptionRegistry$RegistryKey, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SocketOptionRegistry$RegistryKey_InnerClassesInfo_[] = {
-	{"sun.nio.ch.SocketOptionRegistry$RegistryKey", "sun.nio.ch.SocketOptionRegistry", "RegistryKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SocketOptionRegistry$RegistryKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.SocketOptionRegistry$RegistryKey",
-	"java.lang.Object",
-	nullptr,
-	_SocketOptionRegistry$RegistryKey_FieldInfo_,
-	_SocketOptionRegistry$RegistryKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SocketOptionRegistry$RegistryKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.SocketOptionRegistry"
-};
-
-$Object* allocate$SocketOptionRegistry$RegistryKey($Class* clazz) {
-	return $of($alloc(SocketOptionRegistry$RegistryKey));
-}
-
 void SocketOptionRegistry$RegistryKey::init$($SocketOption* name, $ProtocolFamily* family) {
 	$set(this, name, name);
 	$set(this, family, family);
 }
 
 int32_t SocketOptionRegistry$RegistryKey::hashCode() {
-	int32_t var$0 = $nc($of(this->name))->hashCode();
-	return var$0 + $nc($of(this->family))->hashCode();
+	int32_t var$0 = $nc(this->name)->hashCode();
+	return var$0 + $nc(this->family)->hashCode();
 }
 
 bool SocketOptionRegistry$RegistryKey::equals(Object$* ob) {
@@ -75,7 +36,7 @@ bool SocketOptionRegistry$RegistryKey::equals(Object$* ob) {
 	if (this->name != $nc(other)->name) {
 		return false;
 	}
-	if (this->family != $nc(other)->family) {
+	if (this->family != other->family) {
 		return false;
 	}
 	return true;
@@ -85,7 +46,39 @@ SocketOptionRegistry$RegistryKey::SocketOptionRegistry$RegistryKey() {
 }
 
 $Class* SocketOptionRegistry$RegistryKey::load$($String* name, bool initialize) {
-	$loadClass(SocketOptionRegistry$RegistryKey, name, initialize, &_SocketOptionRegistry$RegistryKey_ClassInfo_, allocate$SocketOptionRegistry$RegistryKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<*>;", $PRIVATE | $FINAL, $field(SocketOptionRegistry$RegistryKey, name)},
+		{"family", "Ljava/net/ProtocolFamily;", nullptr, $PRIVATE | $FINAL, $field(SocketOptionRegistry$RegistryKey, family)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/SocketOption;Ljava/net/ProtocolFamily;)V", "(Ljava/net/SocketOption<*>;Ljava/net/ProtocolFamily;)V", 0, $method(SocketOptionRegistry$RegistryKey, init$, void, $SocketOption*, $ProtocolFamily*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SocketOptionRegistry$RegistryKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SocketOptionRegistry$RegistryKey, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.SocketOptionRegistry$RegistryKey", "sun.nio.ch.SocketOptionRegistry", "RegistryKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.SocketOptionRegistry$RegistryKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.SocketOptionRegistry"
+	};
+	$loadClass(SocketOptionRegistry$RegistryKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketOptionRegistry$RegistryKey);
+	});
 	return class$;
 }
 

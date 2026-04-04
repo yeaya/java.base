@@ -1,5 +1,4 @@
 #include <TestConstructorParameterAnnotations$StaticNestedClass0.h>
-
 #include <TestConstructorParameterAnnotations.h>
 #include <jcpp.h>
 
@@ -10,57 +9,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute TestConstructorParameterAnnotations$StaticNestedClass0_Attribute_var$0[] = {
-	{"value", 's', "[]"},
-	{}
-};
-
-$Attribute TestConstructorParameterAnnotations$StaticNestedClass0_Attribute_var$2[] = {
-	{'s', "null"},
-	{'-'}
-};
-
-$NamedAttribute TestConstructorParameterAnnotations$StaticNestedClass0_Attribute_var$1[] = {
-	{"value", '[', TestConstructorParameterAnnotations$StaticNestedClass0_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _TestConstructorParameterAnnotations$StaticNestedClass0_Annotations_[] = {
-	{"LTestConstructorParameterAnnotations$ExpectedGetParameterAnnotations;", TestConstructorParameterAnnotations$StaticNestedClass0_Attribute_var$0},
-	{"LTestConstructorParameterAnnotations$ExpectedParameterAnnotations;", TestConstructorParameterAnnotations$StaticNestedClass0_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _TestConstructorParameterAnnotations$StaticNestedClass0_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestConstructorParameterAnnotations$StaticNestedClass0, init$, void)},
-	{}
-};
-
-$InnerClassInfo _TestConstructorParameterAnnotations$StaticNestedClass0_InnerClassesInfo_[] = {
-	{"TestConstructorParameterAnnotations$StaticNestedClass0", "TestConstructorParameterAnnotations", "StaticNestedClass0", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TestConstructorParameterAnnotations$StaticNestedClass0_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestConstructorParameterAnnotations$StaticNestedClass0",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestConstructorParameterAnnotations$StaticNestedClass0_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestConstructorParameterAnnotations$StaticNestedClass0_InnerClassesInfo_,
-	_TestConstructorParameterAnnotations$StaticNestedClass0_Annotations_,
-	nullptr,
-	nullptr,
-	"TestConstructorParameterAnnotations"
-};
-
-$Object* allocate$TestConstructorParameterAnnotations$StaticNestedClass0($Class* clazz) {
-	return $of($alloc(TestConstructorParameterAnnotations$StaticNestedClass0));
-}
-
 void TestConstructorParameterAnnotations$StaticNestedClass0::init$() {
 }
 
@@ -68,7 +16,49 @@ TestConstructorParameterAnnotations$StaticNestedClass0::TestConstructorParameter
 }
 
 $Class* TestConstructorParameterAnnotations$StaticNestedClass0::load$($String* name, bool initialize) {
-	$loadClass(TestConstructorParameterAnnotations$StaticNestedClass0, name, initialize, &_TestConstructorParameterAnnotations$StaticNestedClass0_ClassInfo_, allocate$TestConstructorParameterAnnotations$StaticNestedClass0);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestConstructorParameterAnnotations$StaticNestedClass0, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestConstructorParameterAnnotations$StaticNestedClass0", "TestConstructorParameterAnnotations", "StaticNestedClass0", $PUBLIC | $STATIC},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 's', "[]"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "null"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LTestConstructorParameterAnnotations$ExpectedGetParameterAnnotations;", annotations$$$namedAttribute},
+		{"LTestConstructorParameterAnnotations$ExpectedParameterAnnotations;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestConstructorParameterAnnotations$StaticNestedClass0",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"TestConstructorParameterAnnotations"
+	};
+	$loadClass(TestConstructorParameterAnnotations$StaticNestedClass0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestConstructorParameterAnnotations$StaticNestedClass0);
+	});
 	return class$;
 }
 

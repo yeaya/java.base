@@ -1,5 +1,4 @@
 #include <java/lang/IndexOutOfBoundsException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,32 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace lang {
 
-$FieldInfo _IndexOutOfBoundsException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IndexOutOfBoundsException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IndexOutOfBoundsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void, $String*)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void, int32_t)},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void, int64_t)},
-	{}
-};
-
-$ClassInfo _IndexOutOfBoundsException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.IndexOutOfBoundsException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_IndexOutOfBoundsException_FieldInfo_,
-	_IndexOutOfBoundsException_MethodInfo_
-};
-
-$Object* allocate$IndexOutOfBoundsException($Class* clazz) {
-	return $of($alloc(IndexOutOfBoundsException));
-}
-
 void IndexOutOfBoundsException::init$() {
 	$RuntimeException::init$();
 }
@@ -45,12 +18,12 @@ void IndexOutOfBoundsException::init$($String* s) {
 }
 
 void IndexOutOfBoundsException::init$(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RuntimeException::init$($$str({"Index out of range: "_s, $$str(index)}));
 }
 
 void IndexOutOfBoundsException::init$(int64_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RuntimeException::init$($$str({"Index out of range: "_s, $$str(index)}));
 }
 
@@ -65,7 +38,28 @@ void IndexOutOfBoundsException::throw$() {
 }
 
 $Class* IndexOutOfBoundsException::load$($String* name, bool initialize) {
-	$loadClass(IndexOutOfBoundsException, name, initialize, &_IndexOutOfBoundsException_ClassInfo_, allocate$IndexOutOfBoundsException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IndexOutOfBoundsException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void, $String*)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void, int32_t)},
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.IndexOutOfBoundsException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IndexOutOfBoundsException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IndexOutOfBoundsException);
+	});
 	return class$;
 }
 

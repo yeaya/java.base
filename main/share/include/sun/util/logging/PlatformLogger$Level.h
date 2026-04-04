@@ -60,6 +60,7 @@ class $import PlatformLogger$Level : public ::java::lang::Enum {
 public:
 	PlatformLogger$Level();
 	static $Array<::sun::util::logging::PlatformLogger$Level>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::java::lang::System$Logger$Level* systemLevel);
 	virtual int32_t intValue();
 	virtual ::java::lang::System$Logger$Level* systemLevel();
@@ -77,7 +78,7 @@ public:
 	static ::sun::util::logging::PlatformLogger$Level* OFF;
 	static $Array<::sun::util::logging::PlatformLogger$Level>* $VALUES;
 	::java::lang::System$Logger$Level* systemLevel$ = nullptr;
-	static const int32_t SEVERITY_OFF = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t SEVERITY_OFF = 0x7fffffff; // Integer.MAX_VALUE
 	static const int32_t SEVERITY_SEVERE = 1000;
 	static const int32_t SEVERITY_WARNING = 900;
 	static const int32_t SEVERITY_INFO = 800;

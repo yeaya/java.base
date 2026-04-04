@@ -1,5 +1,4 @@
 #include <java/lang/ref/Finalizer$1.h>
-
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
@@ -19,58 +18,17 @@ namespace java {
 	namespace lang {
 		namespace ref {
 
-$FieldInfo _Finalizer$1_FieldInfo_[] = {
-	{"val$proc", "Ljava/lang/Runnable;", nullptr, $FINAL | $SYNTHETIC, $field(Finalizer$1, val$proc)},
-	{}
-};
-
-$MethodInfo _Finalizer$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(Finalizer$1, init$, void, $Runnable*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Finalizer$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Finalizer$1_EnclosingMethodInfo_ = {
-	"java.lang.ref.Finalizer",
-	"forkSecondaryFinalizer",
-	"(Ljava/lang/Runnable;)V"
-};
-
-$InnerClassInfo _Finalizer$1_InnerClassesInfo_[] = {
-	{"java.lang.ref.Finalizer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Finalizer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ref.Finalizer$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_Finalizer$1_FieldInfo_,
-	_Finalizer$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_Finalizer$1_EnclosingMethodInfo_,
-	_Finalizer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ref.Finalizer"
-};
-
-$Object* allocate$Finalizer$1($Class* clazz) {
-	return $of($alloc(Finalizer$1));
-}
-
 void Finalizer$1::init$($Runnable* val$proc) {
 	$set(this, val$proc, val$proc);
 }
 
 $Object* Finalizer$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, tg, $($Thread::currentThread())->getThreadGroup());
 	{
 		$var($ThreadGroup, tgn, tg);
-		for (; tgn != nullptr; $assign(tg, tgn), $assign(tgn, $nc(tg)->getParent())) {
+		for (; tgn != nullptr; $assign(tg, tgn), $assign(tgn, tg->getParent())) {
+			;
 		}
 	}
 	$var($Thread, sft, $new($Thread, tg, this->val$proc, "Secondary finalizer"_s, 0, false));
@@ -80,14 +38,49 @@ $Object* Finalizer$1::run() {
 	} catch ($InterruptedException& x) {
 		$($Thread::currentThread())->interrupt();
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 Finalizer$1::Finalizer$1() {
 }
 
 $Class* Finalizer$1::load$($String* name, bool initialize) {
-	$loadClass(Finalizer$1, name, initialize, &_Finalizer$1_ClassInfo_, allocate$Finalizer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$proc", "Ljava/lang/Runnable;", nullptr, $FINAL | $SYNTHETIC, $field(Finalizer$1, val$proc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(Finalizer$1, init$, void, $Runnable*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Finalizer$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.ref.Finalizer",
+		"forkSecondaryFinalizer",
+		"(Ljava/lang/Runnable;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ref.Finalizer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ref.Finalizer$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ref.Finalizer"
+	};
+	$loadClass(Finalizer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Finalizer$1);
+	});
 	return class$;
 }
 

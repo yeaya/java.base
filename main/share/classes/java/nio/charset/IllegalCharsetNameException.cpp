@@ -1,5 +1,4 @@
 #include <java/nio/charset/IllegalCharsetNameException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,33 +10,8 @@ namespace java {
 	namespace nio {
 		namespace charset {
 
-$FieldInfo _IllegalCharsetNameException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalCharsetNameException, serialVersionUID)},
-	{"charsetName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IllegalCharsetNameException, charsetName)},
-	{}
-};
-
-$MethodInfo _IllegalCharsetNameException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalCharsetNameException, init$, void, $String*)},
-	{"getCharsetName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalCharsetNameException, getCharsetName, $String*)},
-	{}
-};
-
-$ClassInfo _IllegalCharsetNameException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.charset.IllegalCharsetNameException",
-	"java.lang.IllegalArgumentException",
-	nullptr,
-	_IllegalCharsetNameException_FieldInfo_,
-	_IllegalCharsetNameException_MethodInfo_
-};
-
-$Object* allocate$IllegalCharsetNameException($Class* clazz) {
-	return $of($alloc(IllegalCharsetNameException));
-}
-
 void IllegalCharsetNameException::init$($String* charsetName) {
-	$IllegalArgumentException::init$($($String::valueOf($of(charsetName))));
+	$IllegalArgumentException::init$($($String::valueOf(charsetName)));
 	$set(this, charsetName, charsetName);
 }
 
@@ -56,7 +30,27 @@ void IllegalCharsetNameException::throw$() {
 }
 
 $Class* IllegalCharsetNameException::load$($String* name, bool initialize) {
-	$loadClass(IllegalCharsetNameException, name, initialize, &_IllegalCharsetNameException_ClassInfo_, allocate$IllegalCharsetNameException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalCharsetNameException, serialVersionUID)},
+		{"charsetName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IllegalCharsetNameException, charsetName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalCharsetNameException, init$, void, $String*)},
+		{"getCharsetName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalCharsetNameException, getCharsetName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.charset.IllegalCharsetNameException",
+		"java.lang.IllegalArgumentException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalCharsetNameException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalCharsetNameException);
+	});
 	return class$;
 }
 

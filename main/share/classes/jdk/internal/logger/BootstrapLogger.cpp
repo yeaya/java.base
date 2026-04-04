@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/BootstrapLogger.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
@@ -53,94 +52,6 @@ namespace jdk {
 	namespace internal {
 		namespace logger {
 
-$FieldInfo _BootstrapLogger_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BootstrapLogger, $assertionsDisabled)},
-	{"holder", "Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;", nullptr, $FINAL, $field(BootstrapLogger, holder)},
-	{"isBooted", "Ljava/util/function/BooleanSupplier;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(BootstrapLogger, isBooted$)},
-	{"logManagerConfigured", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(BootstrapLogger, logManagerConfigured)},
-	{}
-};
-
-$MethodInfo _BootstrapLogger_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)V", nullptr, 0, $method(BootstrapLogger, init$, void, $LazyLoggers$LazyLoggerAccessor*)},
-	{"awaitPendingTasks", "()V", nullptr, $STATIC, $staticMethod(BootstrapLogger, awaitPendingTasks, void)},
-	{"checkBootstrapping", "()Z", nullptr, 0, $method(BootstrapLogger, checkBootstrapping, bool)},
-	{"createSurrogateLogger", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)Ljava/lang/System$Logger;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(BootstrapLogger, createSurrogateLogger, $System$Logger*, $LazyLoggers$LazyLoggerAccessor*)},
-	{"flush", "(Ljdk/internal/logger/BootstrapLogger$LogEvent;)V", nullptr, 0, $method(BootstrapLogger, flush, void, $BootstrapLogger$LogEvent*)},
-	{"getLogger", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)Ljava/lang/System$Logger;", nullptr, $STATIC, $staticMethod(BootstrapLogger, getLogger, $System$Logger*, $LazyLoggers$LazyLoggerAccessor*)},
-	{"getLoggerConfiguration", "()Lsun/util/logging/PlatformLogger$ConfigurableBridge$LoggerConfiguration;", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, getLoggerConfiguration, $PlatformLogger$ConfigurableBridge$LoggerConfiguration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, getName, $String*)},
-	{"isAlive", "()Z", nullptr, $STATIC, $staticMethod(BootstrapLogger, isAlive, bool)},
-	{"isBooted", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BootstrapLogger, isBooted, bool)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, isEnabled, bool)},
-	{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, isLoggable, bool, $System$Logger$Level*)},
-	{"isLoggable", "(Lsun/util/logging/PlatformLogger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, isLoggable, bool, $PlatformLogger$Level*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $String*, $Throwable*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $String*, $ObjectArray*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;)V", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $Supplier*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, Object$*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $String*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;Ljava/lang/Throwable;)V", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/Throwable;)V", $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $Supplier*, $Throwable*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $PlatformLogger$Level*, $String*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $PlatformLogger$Level*, $String*, $Throwable*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, log, void, $PlatformLogger$Level*, $String*, $ObjectArray*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/function/Supplier;)V", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $PlatformLogger$Level*, $Supplier*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $PlatformLogger$Level*, $Throwable*, $Supplier*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)V", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BootstrapLogger, logp, void, $PlatformLogger$Level*, $String*, $String*, $Supplier*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $ObjectArray*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $Throwable*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BootstrapLogger, logp, void, $PlatformLogger$Level*, $String*, $String*, $Throwable*, $Supplier*)},
-	{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, logrb, void, $PlatformLogger$Level*, $String*, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, logrb, void, $PlatformLogger$Level*, $String*, $String*, $ResourceBundle*, $String*, $Throwable*)},
-	{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, logrb, void, $PlatformLogger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, logrb, void, $PlatformLogger$Level*, $ResourceBundle*, $String*, $Throwable*)},
-	{"push", "(Ljdk/internal/logger/BootstrapLogger$LogEvent;)V", nullptr, 0, $method(BootstrapLogger, push, void, $BootstrapLogger$LogEvent*)},
-	{"redirectTemporaryLoggers", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(BootstrapLogger, redirectTemporaryLoggers, void)},
-	{"releaseSurrogateLoggers", "()Ljava/util/Map;", "()Ljava/util/Map<Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljdk/internal/logger/SurrogateLogger;>;", $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(BootstrapLogger, releaseSurrogateLoggers, $Map*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"useLazyLoggers", "()Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(BootstrapLogger, useLazyLoggers, bool)},
-	{"useSurrogateLoggers", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapLogger, useSurrogateLoggers, bool)},
-	{}
-};
-
-$InnerClassInfo _BootstrapLogger_InnerClassesInfo_[] = {
-	{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.util.logging.PlatformLogger$Bridge", "sun.util.logging.PlatformLogger", "Bridge", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.util.logging.PlatformLogger$ConfigurableBridge", "sun.util.logging.PlatformLogger", "ConfigurableBridge", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.logger.BootstrapLogger$RedirectedLoggers", "jdk.internal.logger.BootstrapLogger", "RedirectedLoggers", $STATIC | $FINAL},
-	{"jdk.internal.logger.BootstrapLogger$DetectBackend", "jdk.internal.logger.BootstrapLogger", "DetectBackend", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.logger.BootstrapLogger$LoggingBackend", "jdk.internal.logger.BootstrapLogger", "LoggingBackend", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"jdk.internal.logger.BootstrapLogger$LogEvent", "jdk.internal.logger.BootstrapLogger", "LogEvent", $STATIC | $FINAL},
-	{"jdk.internal.logger.BootstrapLogger$BootstrapExecutors", "jdk.internal.logger.BootstrapLogger", "BootstrapExecutors", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BootstrapLogger_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.logger.BootstrapLogger",
-	"java.lang.Object",
-	"java.lang.System$Logger,sun.util.logging.PlatformLogger$Bridge,sun.util.logging.PlatformLogger$ConfigurableBridge",
-	_BootstrapLogger_FieldInfo_,
-	_BootstrapLogger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BootstrapLogger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.logger.BootstrapLogger$RedirectedLoggers,jdk.internal.logger.BootstrapLogger$DetectBackend,jdk.internal.logger.BootstrapLogger$DetectBackend$1,jdk.internal.logger.BootstrapLogger$LoggingBackend,jdk.internal.logger.BootstrapLogger$LogEvent,jdk.internal.logger.BootstrapLogger$BootstrapExecutors,jdk.internal.logger.BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask,jdk.internal.logger.BootstrapLogger$BootstrapExecutors$1"
-};
-
-$Object* allocate$BootstrapLogger($Class* clazz) {
-	return $of($alloc(BootstrapLogger));
-}
-
 int32_t BootstrapLogger::hashCode() {
 	 return this->$System$Logger::hashCode();
 }
@@ -175,7 +86,7 @@ void BootstrapLogger::push($BootstrapLogger$LogEvent* log) {
 }
 
 void BootstrapLogger::flush($BootstrapLogger$LogEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!BootstrapLogger::$assertionsDisabled && !($nc(event)->bootstrap == this)) {
 		$throwNew($AssertionError);
 	}
@@ -211,7 +122,7 @@ bool BootstrapLogger::isLoggable($System$Logger$Level* level) {
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $ResourceBundle* bundle, $String* key, $Throwable* thrown) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, bundle, key, thrown)));
 	} else {
@@ -221,7 +132,7 @@ void BootstrapLogger::log($System$Logger$Level* level, $ResourceBundle* bundle, 
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $ResourceBundle* bundle, $String* format, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, bundle, format, params)));
 	} else {
@@ -231,9 +142,9 @@ void BootstrapLogger::log($System$Logger$Level* level, $ResourceBundle* bundle, 
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $String* msg, $Throwable* thrown) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
-		push($($BootstrapLogger$LogEvent::valueOf(this, level, ($ResourceBundle*)nullptr, msg, thrown)));
+		push($($BootstrapLogger$LogEvent::valueOf(this, level, nullptr, msg, thrown)));
 	} else {
 		$var($System$Logger, spi, $nc(this->holder)->wrapped());
 		$nc(spi)->log(level, msg, thrown);
@@ -241,9 +152,9 @@ void BootstrapLogger::log($System$Logger$Level* level, $String* msg, $Throwable*
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $String* format, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
-		push($($BootstrapLogger$LogEvent::valueOf(this, level, ($ResourceBundle*)nullptr, format, params)));
+		push($($BootstrapLogger$LogEvent::valueOf(this, level, nullptr, format, params)));
 	} else {
 		$var($System$Logger, spi, $nc(this->holder)->wrapped());
 		$nc(spi)->log(level, format, params);
@@ -251,7 +162,7 @@ void BootstrapLogger::log($System$Logger$Level* level, $String* format, $ObjectA
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $Supplier* msgSupplier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msgSupplier)));
 	} else {
@@ -270,9 +181,9 @@ void BootstrapLogger::log($System$Logger$Level* level, Object$* obj) {
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $String* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
-		push($($BootstrapLogger$LogEvent::valueOf(this, level, ($ResourceBundle*)nullptr, msg, ($ObjectArray*)nullptr)));
+		push($($BootstrapLogger$LogEvent::valueOf(this, level, nullptr, msg, ($ObjectArray*)nullptr)));
 	} else {
 		$var($System$Logger, spi, $nc(this->holder)->wrapped());
 		$nc(spi)->log(level, msg);
@@ -280,7 +191,7 @@ void BootstrapLogger::log($System$Logger$Level* level, $String* msg) {
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $Supplier* msgSupplier, $Throwable* thrown) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msgSupplier, thrown)));
 	} else {
@@ -309,7 +220,7 @@ bool BootstrapLogger::isEnabled() {
 }
 
 void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msg)));
 	} else {
@@ -319,7 +230,7 @@ void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg) {
 }
 
 void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg, $Throwable* thrown) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msg, thrown)));
 	} else {
@@ -329,7 +240,7 @@ void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg, $Throwable
 }
 
 void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msg, params)));
 	} else {
@@ -339,7 +250,7 @@ void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg, $ObjectArr
 }
 
 void BootstrapLogger::log($PlatformLogger$Level* level, $Supplier* msgSupplier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msgSupplier)));
 	} else {
@@ -349,7 +260,7 @@ void BootstrapLogger::log($PlatformLogger$Level* level, $Supplier* msgSupplier) 
 }
 
 void BootstrapLogger::log($PlatformLogger$Level* level, $Throwable* thrown, $Supplier* msgSupplier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::vaueOf(this, level, msgSupplier, thrown)));
 	} else {
@@ -359,9 +270,9 @@ void BootstrapLogger::log($PlatformLogger$Level* level, $Throwable* thrown, $Sup
 }
 
 void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $String* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
-		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, ($ResourceBundle*)nullptr, msg, ($ObjectArray*)nullptr)));
+		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, nullptr, msg, ($ObjectArray*)nullptr)));
 	} else {
 		$var($PlatformLogger$Bridge, spi, $nc(this->holder)->platform());
 		$nc(spi)->logp(level, sourceClass, sourceMethod, msg);
@@ -369,7 +280,7 @@ void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $
 }
 
 void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $Supplier* msgSupplier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, msgSupplier, nullptr)));
 	} else {
@@ -379,9 +290,9 @@ void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $
 }
 
 void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $String* msg, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
-		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, ($ResourceBundle*)nullptr, msg, params)));
+		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, nullptr, msg, params)));
 	} else {
 		$var($PlatformLogger$Bridge, spi, $nc(this->holder)->platform());
 		$nc(spi)->logp(level, sourceClass, sourceMethod, msg, params);
@@ -389,9 +300,9 @@ void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $
 }
 
 void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $String* msg, $Throwable* thrown) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
-		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, ($ResourceBundle*)nullptr, msg, thrown)));
+		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, nullptr, msg, thrown)));
 	} else {
 		$var($PlatformLogger$Bridge, spi, $nc(this->holder)->platform());
 		$nc(spi)->logp(level, sourceClass, sourceMethod, msg, thrown);
@@ -399,7 +310,7 @@ void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $
 }
 
 void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $Throwable* thrown, $Supplier* msgSupplier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, msgSupplier, thrown)));
 	} else {
@@ -409,7 +320,7 @@ void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $
 }
 
 void BootstrapLogger::logrb($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $ResourceBundle* bundle, $String* msg, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, bundle, msg, params)));
 	} else {
@@ -419,7 +330,7 @@ void BootstrapLogger::logrb($PlatformLogger$Level* level, $String* sourceClass, 
 }
 
 void BootstrapLogger::logrb($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $ResourceBundle* bundle, $String* msg, $Throwable* thrown) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, bundle, msg, thrown)));
 	} else {
@@ -429,9 +340,9 @@ void BootstrapLogger::logrb($PlatformLogger$Level* level, $String* sourceClass, 
 }
 
 void BootstrapLogger::logrb($PlatformLogger$Level* level, $ResourceBundle* bundle, $String* msg, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
-		push($($BootstrapLogger$LogEvent::valueOf(this, level, ($String*)nullptr, ($String*)nullptr, bundle, msg, params)));
+		push($($BootstrapLogger$LogEvent::valueOf(this, level, nullptr, nullptr, bundle, msg, params)));
 	} else {
 		$var($PlatformLogger$Bridge, spi, $nc(this->holder)->platform());
 		$nc(spi)->logrb(level, bundle, msg, params);
@@ -439,9 +350,9 @@ void BootstrapLogger::logrb($PlatformLogger$Level* level, $ResourceBundle* bundl
 }
 
 void BootstrapLogger::logrb($PlatformLogger$Level* level, $ResourceBundle* bundle, $String* msg, $Throwable* thrown) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkBootstrapping()) {
-		push($($BootstrapLogger$LogEvent::valueOf(this, level, ($String*)nullptr, ($String*)nullptr, bundle, msg, thrown)));
+		push($($BootstrapLogger$LogEvent::valueOf(this, level, nullptr, nullptr, bundle, msg, thrown)));
 	} else {
 		$var($PlatformLogger$Bridge, spi, $nc(this->holder)->platform());
 		$nc(spi)->logrb(level, bundle, msg, thrown);
@@ -477,9 +388,8 @@ bool BootstrapLogger::useSurrogateLoggers() {
 }
 
 bool BootstrapLogger::useLazyLoggers() {
-	$load(BootstrapLogger);
+	$init(BootstrapLogger);
 	$synchronized(class$) {
-		$init(BootstrapLogger);
 		$init($BootstrapLogger$DetectBackend);
 		$init($BootstrapLogger$LoggingBackend);
 		bool var$0 = !BootstrapLogger::isBooted() || $BootstrapLogger$DetectBackend::detectedBackend == $BootstrapLogger$LoggingBackend::CUSTOM;
@@ -504,18 +414,16 @@ $System$Logger* BootstrapLogger::getLogger($LazyLoggers$LazyLoggerAccessor* acce
 }
 
 $System$Logger* BootstrapLogger::createSurrogateLogger($LazyLoggers$LazyLoggerAccessor* a) {
-	$load(BootstrapLogger);
+	$init(BootstrapLogger);
 	$synchronized(class$) {
-		$init(BootstrapLogger);
 		$init($BootstrapLogger$RedirectedLoggers);
 		return $nc($BootstrapLogger$RedirectedLoggers::INSTANCE)->get(a);
 	}
 }
 
 $Map* BootstrapLogger::releaseSurrogateLoggers() {
-	$load(BootstrapLogger);
+	$init(BootstrapLogger);
 	$synchronized(class$) {
-		$init(BootstrapLogger);
 		bool releaseSurrogateLoggers = useSurrogateLoggers();
 		BootstrapLogger::logManagerConfigured = true;
 		if (releaseSurrogateLoggers) {
@@ -546,7 +454,7 @@ bool BootstrapLogger::isAlive() {
 	return $BootstrapLogger$BootstrapExecutors::isAlive();
 }
 
-void clinit$BootstrapLogger($Class* class$) {
+void BootstrapLogger::clinit$($Class* clazz) {
 	BootstrapLogger::$assertionsDisabled = !BootstrapLogger::class$->desiredAssertionStatus();
 }
 
@@ -554,7 +462,89 @@ BootstrapLogger::BootstrapLogger() {
 }
 
 $Class* BootstrapLogger::load$($String* name, bool initialize) {
-	$loadClass(BootstrapLogger, name, initialize, &_BootstrapLogger_ClassInfo_, clinit$BootstrapLogger, allocate$BootstrapLogger);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BootstrapLogger, $assertionsDisabled)},
+		{"holder", "Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;", nullptr, $FINAL, $field(BootstrapLogger, holder)},
+		{"isBooted", "Ljava/util/function/BooleanSupplier;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(BootstrapLogger, isBooted$)},
+		{"logManagerConfigured", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(BootstrapLogger, logManagerConfigured)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)V", nullptr, 0, $method(BootstrapLogger, init$, void, $LazyLoggers$LazyLoggerAccessor*)},
+		{"awaitPendingTasks", "()V", nullptr, $STATIC, $staticMethod(BootstrapLogger, awaitPendingTasks, void)},
+		{"checkBootstrapping", "()Z", nullptr, 0, $method(BootstrapLogger, checkBootstrapping, bool)},
+		{"createSurrogateLogger", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)Ljava/lang/System$Logger;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(BootstrapLogger, createSurrogateLogger, $System$Logger*, $LazyLoggers$LazyLoggerAccessor*)},
+		{"flush", "(Ljdk/internal/logger/BootstrapLogger$LogEvent;)V", nullptr, 0, $method(BootstrapLogger, flush, void, $BootstrapLogger$LogEvent*)},
+		{"getLogger", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)Ljava/lang/System$Logger;", nullptr, $STATIC, $staticMethod(BootstrapLogger, getLogger, $System$Logger*, $LazyLoggers$LazyLoggerAccessor*)},
+		{"getLoggerConfiguration", "()Lsun/util/logging/PlatformLogger$ConfigurableBridge$LoggerConfiguration;", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, getLoggerConfiguration, $PlatformLogger$ConfigurableBridge$LoggerConfiguration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, getName, $String*)},
+		{"isAlive", "()Z", nullptr, $STATIC, $staticMethod(BootstrapLogger, isAlive, bool)},
+		{"isBooted", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BootstrapLogger, isBooted, bool)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, isEnabled, bool)},
+		{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, isLoggable, bool, $System$Logger$Level*)},
+		{"isLoggable", "(Lsun/util/logging/PlatformLogger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, isLoggable, bool, $PlatformLogger$Level*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $String*, $Throwable*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $String*, $ObjectArray*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;)V", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $Supplier*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, Object$*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $String*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;Ljava/lang/Throwable;)V", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/Throwable;)V", $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $System$Logger$Level*, $Supplier*, $Throwable*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $PlatformLogger$Level*, $String*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $PlatformLogger$Level*, $String*, $Throwable*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, log, void, $PlatformLogger$Level*, $String*, $ObjectArray*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/function/Supplier;)V", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $PlatformLogger$Level*, $Supplier*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BootstrapLogger, log, void, $PlatformLogger$Level*, $Throwable*, $Supplier*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)V", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BootstrapLogger, logp, void, $PlatformLogger$Level*, $String*, $String*, $Supplier*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $ObjectArray*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $Throwable*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BootstrapLogger, logp, void, $PlatformLogger$Level*, $String*, $String*, $Throwable*, $Supplier*)},
+		{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, logrb, void, $PlatformLogger$Level*, $String*, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, logrb, void, $PlatformLogger$Level*, $String*, $String*, $ResourceBundle*, $String*, $Throwable*)},
+		{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BootstrapLogger, logrb, void, $PlatformLogger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger, logrb, void, $PlatformLogger$Level*, $ResourceBundle*, $String*, $Throwable*)},
+		{"push", "(Ljdk/internal/logger/BootstrapLogger$LogEvent;)V", nullptr, 0, $method(BootstrapLogger, push, void, $BootstrapLogger$LogEvent*)},
+		{"redirectTemporaryLoggers", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(BootstrapLogger, redirectTemporaryLoggers, void)},
+		{"releaseSurrogateLoggers", "()Ljava/util/Map;", "()Ljava/util/Map<Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljdk/internal/logger/SurrogateLogger;>;", $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(BootstrapLogger, releaseSurrogateLoggers, $Map*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"useLazyLoggers", "()Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(BootstrapLogger, useLazyLoggers, bool)},
+		{"useSurrogateLoggers", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapLogger, useSurrogateLoggers, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.util.logging.PlatformLogger$Bridge", "sun.util.logging.PlatformLogger", "Bridge", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.util.logging.PlatformLogger$ConfigurableBridge", "sun.util.logging.PlatformLogger", "ConfigurableBridge", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.logger.BootstrapLogger$RedirectedLoggers", "jdk.internal.logger.BootstrapLogger", "RedirectedLoggers", $STATIC | $FINAL},
+		{"jdk.internal.logger.BootstrapLogger$DetectBackend", "jdk.internal.logger.BootstrapLogger", "DetectBackend", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.logger.BootstrapLogger$LoggingBackend", "jdk.internal.logger.BootstrapLogger", "LoggingBackend", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"jdk.internal.logger.BootstrapLogger$LogEvent", "jdk.internal.logger.BootstrapLogger", "LogEvent", $STATIC | $FINAL},
+		{"jdk.internal.logger.BootstrapLogger$BootstrapExecutors", "jdk.internal.logger.BootstrapLogger", "BootstrapExecutors", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.logger.BootstrapLogger",
+		"java.lang.Object",
+		"java.lang.System$Logger,sun.util.logging.PlatformLogger$Bridge,sun.util.logging.PlatformLogger$ConfigurableBridge",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.logger.BootstrapLogger$RedirectedLoggers,jdk.internal.logger.BootstrapLogger$DetectBackend,jdk.internal.logger.BootstrapLogger$DetectBackend$1,jdk.internal.logger.BootstrapLogger$LoggingBackend,jdk.internal.logger.BootstrapLogger$LogEvent,jdk.internal.logger.BootstrapLogger$BootstrapExecutors,jdk.internal.logger.BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask,jdk.internal.logger.BootstrapLogger$BootstrapExecutors$1"
+	};
+	$loadClass(BootstrapLogger, name, initialize, &classInfo$$, BootstrapLogger::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BootstrapLogger));
+	});
 	return class$;
 }
 

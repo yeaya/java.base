@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECPointFormatsExtension.h>
-
 #include <sun/security/ssl/ECPointFormatsExtension$CHECPointFormatsConsumer.h>
 #include <sun/security/ssl/ECPointFormatsExtension$CHECPointFormatsProducer.h>
 #include <sun/security/ssl/ECPointFormatsExtension$ECPointFormatsStringizer.h>
@@ -25,48 +24,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _ECPointFormatsExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ECPointFormatsExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ECPointFormatsExtension, chOnLoadConsumer)},
-	{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ECPointFormatsExtension, shOnLoadConsumer)},
-	{"epfStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(ECPointFormatsExtension, epfStringizer)},
-	{}
-};
-
-$MethodInfo _ECPointFormatsExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ECPointFormatsExtension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ECPointFormatsExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECPointFormatsExtension$SHECPointFormatsConsumer", "sun.security.ssl.ECPointFormatsExtension", "SHECPointFormatsConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsConsumer", "sun.security.ssl.ECPointFormatsExtension", "CHECPointFormatsConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsProducer", "sun.security.ssl.ECPointFormatsExtension", "CHECPointFormatsProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ECPointFormatsExtension$ECPointFormat", "sun.security.ssl.ECPointFormatsExtension", "ECPointFormat", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"sun.security.ssl.ECPointFormatsExtension$ECPointFormatsStringizer", "sun.security.ssl.ECPointFormatsExtension", "ECPointFormatsStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ECPointFormatsExtension$ECPointFormatsSpec", "sun.security.ssl.ECPointFormatsExtension", "ECPointFormatsSpec", $STATIC},
-	{}
-};
-
-$ClassInfo _ECPointFormatsExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ECPointFormatsExtension",
-	"java.lang.Object",
-	nullptr,
-	_ECPointFormatsExtension_FieldInfo_,
-	_ECPointFormatsExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECPointFormatsExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECPointFormatsExtension$SHECPointFormatsConsumer,sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsConsumer,sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsProducer,sun.security.ssl.ECPointFormatsExtension$ECPointFormat,sun.security.ssl.ECPointFormatsExtension$ECPointFormatsStringizer,sun.security.ssl.ECPointFormatsExtension$ECPointFormatsSpec"
-};
-
-$Object* allocate$ECPointFormatsExtension($Class* clazz) {
-	return $of($alloc(ECPointFormatsExtension));
-}
-
 $HandshakeProducer* ECPointFormatsExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* ECPointFormatsExtension::chOnLoadConsumer = nullptr;
 $SSLExtension$ExtensionConsumer* ECPointFormatsExtension::shOnLoadConsumer = nullptr;
@@ -75,7 +32,7 @@ $SSLStringizer* ECPointFormatsExtension::epfStringizer = nullptr;
 void ECPointFormatsExtension::init$() {
 }
 
-void clinit$ECPointFormatsExtension($Class* class$) {
+void ECPointFormatsExtension::clinit$($Class* clazz) {
 	$assignStatic(ECPointFormatsExtension::chNetworkProducer, $new($ECPointFormatsExtension$CHECPointFormatsProducer));
 	$assignStatic(ECPointFormatsExtension::chOnLoadConsumer, $new($ECPointFormatsExtension$CHECPointFormatsConsumer));
 	$assignStatic(ECPointFormatsExtension::shOnLoadConsumer, $new($ECPointFormatsExtension$SHECPointFormatsConsumer));
@@ -86,7 +43,43 @@ ECPointFormatsExtension::ECPointFormatsExtension() {
 }
 
 $Class* ECPointFormatsExtension::load$($String* name, bool initialize) {
-	$loadClass(ECPointFormatsExtension, name, initialize, &_ECPointFormatsExtension_ClassInfo_, clinit$ECPointFormatsExtension, allocate$ECPointFormatsExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ECPointFormatsExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ECPointFormatsExtension, chOnLoadConsumer)},
+		{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ECPointFormatsExtension, shOnLoadConsumer)},
+		{"epfStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(ECPointFormatsExtension, epfStringizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ECPointFormatsExtension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECPointFormatsExtension$SHECPointFormatsConsumer", "sun.security.ssl.ECPointFormatsExtension", "SHECPointFormatsConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsConsumer", "sun.security.ssl.ECPointFormatsExtension", "CHECPointFormatsConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsProducer", "sun.security.ssl.ECPointFormatsExtension", "CHECPointFormatsProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ECPointFormatsExtension$ECPointFormat", "sun.security.ssl.ECPointFormatsExtension", "ECPointFormat", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"sun.security.ssl.ECPointFormatsExtension$ECPointFormatsStringizer", "sun.security.ssl.ECPointFormatsExtension", "ECPointFormatsStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ECPointFormatsExtension$ECPointFormatsSpec", "sun.security.ssl.ECPointFormatsExtension", "ECPointFormatsSpec", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ECPointFormatsExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECPointFormatsExtension$SHECPointFormatsConsumer,sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsConsumer,sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsProducer,sun.security.ssl.ECPointFormatsExtension$ECPointFormat,sun.security.ssl.ECPointFormatsExtension$ECPointFormatsStringizer,sun.security.ssl.ECPointFormatsExtension$ECPointFormatsSpec"
+	};
+	$loadClass(ECPointFormatsExtension, name, initialize, &classInfo$$, ECPointFormatsExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ECPointFormatsExtension);
+	});
 	return class$;
 }
 

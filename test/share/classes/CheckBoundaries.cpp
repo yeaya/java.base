@@ -1,5 +1,4 @@
 #include <CheckBoundaries.h>
-
 #include <java/net/DatagramPacket.h>
 #include <jcpp.h>
 
@@ -11,25 +10,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DatagramPacket = ::java::net::DatagramPacket;
-
-$MethodInfo _CheckBoundaries_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CheckBoundaries, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckBoundaries, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _CheckBoundaries_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CheckBoundaries",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CheckBoundaries_MethodInfo_
-};
-
-$Object* allocate$CheckBoundaries($Class* clazz) {
-	return $of($alloc(CheckBoundaries));
-}
 
 void CheckBoundaries::init$() {
 }
@@ -52,7 +32,22 @@ CheckBoundaries::CheckBoundaries() {
 }
 
 $Class* CheckBoundaries::load$($String* name, bool initialize) {
-	$loadClass(CheckBoundaries, name, initialize, &_CheckBoundaries_ClassInfo_, allocate$CheckBoundaries);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CheckBoundaries, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckBoundaries, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CheckBoundaries",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CheckBoundaries, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckBoundaries);
+	});
 	return class$;
 }
 

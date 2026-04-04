@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SupportedGroupsExtension$SupportedGroupsStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SupportedGroupsExtension$SupportedGroupsStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedGroupsExtension$SupportedGroupsStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SupportedGroupsExtension$SupportedGroupsStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _SupportedGroupsExtension$SupportedGroupsStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SupportedGroupsExtension$SupportedGroupsStringizer", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroupsStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SupportedGroupsExtension$SupportedGroupsStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SupportedGroupsExtension$SupportedGroupsStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_SupportedGroupsExtension$SupportedGroupsStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SupportedGroupsExtension$SupportedGroupsStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SupportedGroupsExtension"
-};
-
-$Object* allocate$SupportedGroupsExtension$SupportedGroupsStringizer($Class* clazz) {
-	return $of($alloc(SupportedGroupsExtension$SupportedGroupsStringizer));
-}
-
 void SupportedGroupsExtension$SupportedGroupsStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ SupportedGroupsExtension$SupportedGroupsStringizer::SupportedGroupsExtension$Sup
 }
 
 $Class* SupportedGroupsExtension$SupportedGroupsStringizer::load$($String* name, bool initialize) {
-	$loadClass(SupportedGroupsExtension$SupportedGroupsStringizer, name, initialize, &_SupportedGroupsExtension$SupportedGroupsStringizer_ClassInfo_, allocate$SupportedGroupsExtension$SupportedGroupsStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedGroupsExtension$SupportedGroupsStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SupportedGroupsExtension$SupportedGroupsStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SupportedGroupsExtension$SupportedGroupsStringizer", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroupsStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SupportedGroupsExtension$SupportedGroupsStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SupportedGroupsExtension"
+	};
+	$loadClass(SupportedGroupsExtension$SupportedGroupsStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SupportedGroupsExtension$SupportedGroupsStringizer);
+	});
 	return class$;
 }
 

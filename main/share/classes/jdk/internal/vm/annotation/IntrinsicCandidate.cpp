@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/annotation/IntrinsicCandidate.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -12,47 +11,40 @@ namespace jdk {
 		namespace vm {
 			namespace annotation {
 
-$Attribute IntrinsicCandidate_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
-	{'-'}
-};
-
-$NamedAttribute IntrinsicCandidate_Attribute_var$0[] = {
-	{"value", '[', IntrinsicCandidate_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute IntrinsicCandidate_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _IntrinsicCandidate_Annotations_[] = {
-	{"Ljava/lang/annotation/Target;", IntrinsicCandidate_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", IntrinsicCandidate_Attribute_var$2},
-	{}
-};
-
-$ClassInfo _IntrinsicCandidate_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"jdk.internal.vm.annotation.IntrinsicCandidate",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_IntrinsicCandidate_Annotations_
-};
-
-$Object* allocate$IntrinsicCandidate($Class* clazz) {
-	return $of($alloc(IntrinsicCandidate));
-}
-
 $Class* IntrinsicCandidate::load$($String* name, bool initialize) {
-	$loadClass(IntrinsicCandidate, name, initialize, &_IntrinsicCandidate_ClassInfo_, allocate$IntrinsicCandidate);
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"jdk.internal.vm.annotation.IntrinsicCandidate",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(IntrinsicCandidate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntrinsicCandidate);
+	});
 	return class$;
 }
 

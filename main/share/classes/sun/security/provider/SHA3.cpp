@@ -1,5 +1,4 @@
 #include <sun/security/provider/SHA3.h>
-
 #include <java/security/ProviderException.h>
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
@@ -29,68 +28,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$CompoundAttribute _SHA3_MethodAnnotations_implCompress04[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _SHA3_FieldInfo_[] = {
-	{"WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SHA3, WIDTH)},
-	{"DM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SHA3, DM)},
-	{"NR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SHA3, NR)},
-	{"RC_CONSTANTS", "[J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SHA3, RC_CONSTANTS)},
-	{"suffix", "B", nullptr, $PRIVATE | $FINAL, $field(SHA3, suffix)},
-	{"state", "[B", nullptr, $PRIVATE, $field(SHA3, state)},
-	{"lanes", "[J", nullptr, $PRIVATE, $field(SHA3, lanes)},
-	{}
-};
-
-$MethodInfo _SHA3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IBI)V", nullptr, 0, $method(SHA3, init$, void, $String*, int32_t, int8_t, int32_t)},
-	{"bytes2Lanes", "([B[J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, bytes2Lanes, void, $bytes*, $longs*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SHA3, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"implCompress", "([BI)V", nullptr, 0, $virtualMethod(SHA3, implCompress, void, $bytes*, int32_t)},
-	{"implCompress0", "([BI)V", nullptr, $PRIVATE, $method(SHA3, implCompress0, void, $bytes*, int32_t), nullptr, nullptr, _SHA3_MethodAnnotations_implCompress04},
-	{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(SHA3, implCompressCheck, void, $bytes*, int32_t)},
-	{"implDigest", "([BI)V", nullptr, 0, $virtualMethod(SHA3, implDigest, void, $bytes*, int32_t)},
-	{"implReset", "()V", nullptr, 0, $virtualMethod(SHA3, implReset, void)},
-	{"keccak", "()V", nullptr, $PRIVATE, $method(SHA3, keccak, void)},
-	{"lanes2Bytes", "([J[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, lanes2Bytes, void, $longs*, $bytes*)},
-	{"setPaddingBytes", "(B[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, setPaddingBytes, int32_t, int8_t, $bytes*, int32_t)},
-	{"smChi", "([J)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smChi, $longs*, $longs*)},
-	{"smIota", "([JI)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smIota, $longs*, $longs*, int32_t)},
-	{"smPiRho", "([J)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smPiRho, $longs*, $longs*)},
-	{"smTheta", "([J)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smTheta, $longs*, $longs*)},
-	{}
-};
-
-$InnerClassInfo _SHA3_InnerClassesInfo_[] = {
-	{"sun.security.provider.SHA3$SHA512", "sun.security.provider.SHA3", "SHA512", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.SHA3$SHA384", "sun.security.provider.SHA3", "SHA384", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.SHA3$SHA256", "sun.security.provider.SHA3", "SHA256", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.SHA3$SHA224", "sun.security.provider.SHA3", "SHA224", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SHA3_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.provider.SHA3",
-	"sun.security.provider.DigestBase",
-	nullptr,
-	_SHA3_FieldInfo_,
-	_SHA3_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SHA3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.SHA3$SHA512,sun.security.provider.SHA3$SHA384,sun.security.provider.SHA3$SHA256,sun.security.provider.SHA3$SHA224"
-};
-
-$Object* allocate$SHA3($Class* clazz) {
-	return $of($alloc(SHA3));
-}
-
 $longs* SHA3::RC_CONSTANTS = nullptr;
 
 void SHA3::init$($String* name, int32_t digestLength, int8_t suffix, int32_t c) {
@@ -117,7 +54,7 @@ void SHA3::implCompress0($bytes* b, int32_t ofs) {
 }
 
 void SHA3::implDigest($bytes* out, int32_t ofs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numOfPadding = setPaddingBytes(this->suffix, this->buffer, (int32_t)($mod(this->bytesProcessed, $nc(this->buffer)->length)));
 	if (numOfPadding < 1) {
 		$throwNew($ProviderException, $$str({"Incorrect pad size: "_s, $$str(numOfPadding)}));
@@ -128,7 +65,7 @@ void SHA3::implDigest($bytes* out, int32_t ofs) {
 
 void SHA3::implReset() {
 	$Arrays::fill(this->state, (int8_t)0);
-	$Arrays::fill(this->lanes, (int64_t)0);
+	$Arrays::fill(this->lanes, 0);
 }
 
 int32_t SHA3::setPaddingBytes(int8_t suffix, $bytes* in, int32_t len) {
@@ -138,7 +75,7 @@ int32_t SHA3::setPaddingBytes(int8_t suffix, $bytes* in, int32_t len) {
 		(*in)[len] |= suffix;
 		(*in)[in->length - 1] |= (int8_t)128;
 	}
-	return ($nc(in)->length - len);
+	return (in->length - len);
 }
 
 void SHA3::bytes2Lanes($bytes* s, $longs* m) {
@@ -159,7 +96,7 @@ void SHA3::lanes2Bytes($longs* m, $bytes* s) {
 
 $longs* SHA3::smTheta($longs* a) {
 	$init(SHA3);
-	int64_t c0 = ((($nc(a)->get(0) ^ a->get(5)) ^ a->get(10)) ^ a->get(15)) ^ a->get(20);
+	int64_t c0 = ((($nc(a)->get(0) ^ $nc(a)->get(5)) ^ $nc(a)->get(10)) ^ $nc(a)->get(15)) ^ $nc(a)->get(20);
 	int64_t c1 = (((a->get(1) ^ a->get(6)) ^ a->get(11)) ^ a->get(16)) ^ a->get(21);
 	int64_t c2 = (((a->get(2) ^ a->get(7)) ^ a->get(12)) ^ a->get(17)) ^ a->get(22);
 	int64_t c3 = (((a->get(3) ^ a->get(8)) ^ a->get(13)) ^ a->get(18)) ^ a->get(23);
@@ -182,7 +119,7 @@ $longs* SHA3::smTheta($longs* a) {
 $longs* SHA3::smPiRho($longs* a) {
 	$init(SHA3);
 	int64_t tmp = $Long::rotateLeft($nc(a)->get(10), 3);
-	$nc(a)->set(10, $Long::rotateLeft(a->get(1), 1));
+	a->set(10, $Long::rotateLeft(a->get(1), 1));
 	a->set(1, $Long::rotateLeft(a->get(6), 44));
 	a->set(6, $Long::rotateLeft(a->get(9), 20));
 	a->set(9, $Long::rotateLeft(a->get(22), 61));
@@ -217,23 +154,23 @@ $longs* SHA3::smChi($longs* a) {
 		int64_t ay2 = a->get(y + 2);
 		int64_t ay3 = a->get(y + 3);
 		int64_t ay4 = a->get(y + 4);
-		a->set(y, ay0 ^ ((int64_t)((~ay1) & (uint64_t)ay2)));
-		a->set(y + 1, ay1 ^ ((int64_t)((~ay2) & (uint64_t)ay3)));
-		a->set(y + 2, ay2 ^ ((int64_t)((~ay3) & (uint64_t)ay4)));
-		a->set(y + 3, ay3 ^ ((int64_t)((~ay4) & (uint64_t)ay0)));
-		a->set(y + 4, ay4 ^ ((int64_t)((~ay0) & (uint64_t)ay1)));
+		a->set(y, ay0 ^ ((~ay1) & ay2));
+		a->set(y + 1, ay1 ^ ((~ay2) & ay3));
+		a->set(y + 2, ay2 ^ ((~ay3) & ay4));
+		a->set(y + 3, ay3 ^ ((~ay4) & ay0));
+		a->set(y + 4, ay4 ^ ((~ay0) & ay1));
 	}
 	return a;
 }
 
 $longs* SHA3::smIota($longs* a, int32_t rndIndex) {
 	$init(SHA3);
-	(*$nc(a))[0] ^= $nc(SHA3::RC_CONSTANTS)->get(rndIndex);
+	(*$nc(a))[0] ^= SHA3::RC_CONSTANTS->get(rndIndex);
 	return a;
 }
 
 void SHA3::keccak() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bytes2Lanes(this->state, this->lanes);
 	for (int32_t ir = 0; ir < SHA3::NR; ++ir) {
 		smIota($(smChi($(smPiRho($(smTheta(this->lanes)))))), ir);
@@ -243,33 +180,33 @@ void SHA3::keccak() {
 
 $Object* SHA3::clone() {
 	$var(SHA3, copy, $cast(SHA3, $DigestBase::clone()));
-	$set($nc(copy), state, $cast($bytes, $nc(copy->state)->clone()));
+	$set($nc(copy), state, $cast($bytes, $nc($nc(copy)->state)->clone()));
 	$set(copy, lanes, $new($longs, SHA3::DM * SHA3::DM));
 	return $of(copy);
 }
 
-void clinit$SHA3($Class* class$) {
+void SHA3::clinit$($Class* clazz) {
 	$assignStatic(SHA3::RC_CONSTANTS, $new($longs, {
-		(int64_t)1,
-		(int64_t)32898,
-		(int64_t)0x800000000000808A,
+		0x0000000000000001,
+		0x0000000000008082,
+		(int64_t)0x800000000000808a,
 		(int64_t)0x8000000080008000,
-		(int64_t)32907,
+		0x000000000000808b,
 		(int64_t)0x0000000080000001,
 		(int64_t)0x8000000080008081,
 		(int64_t)0x8000000000008009,
-		(int64_t)138,
-		(int64_t)136,
+		0x000000000000008a,
+		0x0000000000000088,
 		(int64_t)0x0000000080008009,
-		(int64_t)0x000000008000000A,
-		(int64_t)0x000000008000808B,
-		(int64_t)0x800000000000008B,
+		(int64_t)0x000000008000000a,
+		(int64_t)0x000000008000808b,
+		(int64_t)0x800000000000008b,
 		(int64_t)0x8000000000008089,
 		(int64_t)0x8000000000008003,
 		(int64_t)0x8000000000008002,
 		(int64_t)0x8000000000000080,
-		(int64_t)32778,
-		(int64_t)0x800000008000000A,
+		0x000000000000800a,
+		(int64_t)0x800000008000000a,
 		(int64_t)0x8000000080008081,
 		(int64_t)0x8000000000008080,
 		(int64_t)0x0000000080000001,
@@ -281,7 +218,62 @@ SHA3::SHA3() {
 }
 
 $Class* SHA3::load$($String* name, bool initialize) {
-	$loadClass(SHA3, name, initialize, &_SHA3_ClassInfo_, clinit$SHA3, allocate$SHA3);
+	$FieldInfo fieldInfos$$[] = {
+		{"WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SHA3, WIDTH)},
+		{"DM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SHA3, DM)},
+		{"NR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SHA3, NR)},
+		{"RC_CONSTANTS", "[J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SHA3, RC_CONSTANTS)},
+		{"suffix", "B", nullptr, $PRIVATE | $FINAL, $field(SHA3, suffix)},
+		{"state", "[B", nullptr, $PRIVATE, $field(SHA3, state)},
+		{"lanes", "[J", nullptr, $PRIVATE, $field(SHA3, lanes)},
+		{}
+	};
+	$CompoundAttribute implCompress0methodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;IBI)V", nullptr, 0, $method(SHA3, init$, void, $String*, int32_t, int8_t, int32_t)},
+		{"bytes2Lanes", "([B[J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, bytes2Lanes, void, $bytes*, $longs*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SHA3, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"implCompress", "([BI)V", nullptr, 0, $virtualMethod(SHA3, implCompress, void, $bytes*, int32_t)},
+		{"implCompress0", "([BI)V", nullptr, $PRIVATE, $method(SHA3, implCompress0, void, $bytes*, int32_t), nullptr, nullptr, implCompress0methodAnnotations$$},
+		{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(SHA3, implCompressCheck, void, $bytes*, int32_t)},
+		{"implDigest", "([BI)V", nullptr, 0, $virtualMethod(SHA3, implDigest, void, $bytes*, int32_t)},
+		{"implReset", "()V", nullptr, 0, $virtualMethod(SHA3, implReset, void)},
+		{"keccak", "()V", nullptr, $PRIVATE, $method(SHA3, keccak, void)},
+		{"lanes2Bytes", "([J[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, lanes2Bytes, void, $longs*, $bytes*)},
+		{"setPaddingBytes", "(B[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, setPaddingBytes, int32_t, int8_t, $bytes*, int32_t)},
+		{"smChi", "([J)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smChi, $longs*, $longs*)},
+		{"smIota", "([JI)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smIota, $longs*, $longs*, int32_t)},
+		{"smPiRho", "([J)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smPiRho, $longs*, $longs*)},
+		{"smTheta", "([J)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smTheta, $longs*, $longs*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.SHA3$SHA512", "sun.security.provider.SHA3", "SHA512", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.SHA3$SHA384", "sun.security.provider.SHA3", "SHA384", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.SHA3$SHA256", "sun.security.provider.SHA3", "SHA256", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.SHA3$SHA224", "sun.security.provider.SHA3", "SHA224", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.provider.SHA3",
+		"sun.security.provider.DigestBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.SHA3$SHA512,sun.security.provider.SHA3$SHA384,sun.security.provider.SHA3$SHA256,sun.security.provider.SHA3$SHA224"
+	};
+	$loadClass(SHA3, name, initialize, &classInfo$$, SHA3::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SHA3));
+	});
 	return class$;
 }
 

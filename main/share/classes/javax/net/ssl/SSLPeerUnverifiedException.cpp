@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLPeerUnverifiedException.h>
-
 #include <javax/net/ssl/SSLException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $SSLException = ::javax::net::ssl::SSLException;
 namespace javax {
 	namespace net {
 		namespace ssl {
-
-$FieldInfo _SSLPeerUnverifiedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLPeerUnverifiedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SSLPeerUnverifiedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLPeerUnverifiedException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _SSLPeerUnverifiedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.net.ssl.SSLPeerUnverifiedException",
-	"javax.net.ssl.SSLException",
-	nullptr,
-	_SSLPeerUnverifiedException_FieldInfo_,
-	_SSLPeerUnverifiedException_MethodInfo_
-};
-
-$Object* allocate$SSLPeerUnverifiedException($Class* clazz) {
-	return $of($alloc(SSLPeerUnverifiedException));
-}
 
 void SSLPeerUnverifiedException::init$($String* reason) {
 	$SSLException::init$(reason);
@@ -50,7 +26,25 @@ void SSLPeerUnverifiedException::throw$() {
 }
 
 $Class* SSLPeerUnverifiedException::load$($String* name, bool initialize) {
-	$loadClass(SSLPeerUnverifiedException, name, initialize, &_SSLPeerUnverifiedException_ClassInfo_, allocate$SSLPeerUnverifiedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLPeerUnverifiedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLPeerUnverifiedException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.net.ssl.SSLPeerUnverifiedException",
+		"javax.net.ssl.SSLException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLPeerUnverifiedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLPeerUnverifiedException);
+	});
 	return class$;
 }
 

@@ -26,6 +26,7 @@ class $import BufferedReader : public ::java::io::Reader {
 	$class(BufferedReader, 0, ::java::io::Reader)
 public:
 	BufferedReader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::Reader* in, int32_t sz);
 	void init$(::java::io::Reader* in);
 	virtual void close() override;

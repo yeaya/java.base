@@ -1,5 +1,4 @@
 #include <jdk/internal/jrtfs/JrtPath.h>
-
 #include <java/io/File.h>
 #include <java/io/IOError.h>
 #include <java/io/IOException.h>
@@ -141,131 +140,6 @@ namespace jdk {
 	namespace internal {
 		namespace jrtfs {
 
-$FieldInfo _JrtPath_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JrtPath, $assertionsDisabled)},
-	{"jrtfs", "Ljdk/internal/jrtfs/JrtFileSystem;", nullptr, $FINAL, $field(JrtPath, jrtfs)},
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JrtPath, path)},
-	{"offsets", "[I", nullptr, $PRIVATE | $VOLATILE, $field(JrtPath, offsets)},
-	{"resolved", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(JrtPath, resolved)},
-	{"L_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_DIGIT)},
-	{"H_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JrtPath, H_DIGIT)},
-	{"L_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JrtPath, L_UPALPHA)},
-	{"H_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_UPALPHA)},
-	{"L_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JrtPath, L_LOWALPHA)},
-	{"H_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_LOWALPHA)},
-	{"L_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JrtPath, L_ALPHA)},
-	{"H_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_ALPHA)},
-	{"L_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_ALPHANUM)},
-	{"H_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_ALPHANUM)},
-	{"L_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_MARK)},
-	{"H_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_MARK)},
-	{"L_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_UNRESERVED)},
-	{"H_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_UNRESERVED)},
-	{"L_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_PCHAR)},
-	{"H_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_PCHAR)},
-	{"L_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_PATH)},
-	{"H_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_PATH)},
-	{"hexDigits", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, hexDigits)},
-	{}
-};
-
-$MethodInfo _JrtPath_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jrtfs/JrtFileSystem;Ljava/lang/String;)V", nullptr, 0, $method(JrtPath, init$, void, $JrtFileSystem*, $String*)},
-	{"<init>", "(Ljdk/internal/jrtfs/JrtFileSystem;Ljava/lang/String;Z)V", nullptr, 0, $method(JrtPath, init$, void, $JrtFileSystem*, $String*, bool)},
-	{"checkAccess", "([Ljava/nio/file/AccessMode;)V", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, checkAccess, void, $AccessModeArray*), "java.io.IOException"},
-	{"checkPath", "(Ljava/nio/file/Path;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PRIVATE, $method(JrtPath, checkPath, JrtPath*, $Path*)},
-	{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, compareTo, int32_t, $Path*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JrtPath, compareTo, int32_t, Object$*)},
-	{"copy", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/CopyOption;)V", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, copy, void, JrtPath*, $CopyOptionArray*), "java.io.IOException"},
-	{"copyToTarget", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/CopyOption;)V", nullptr, $PRIVATE | $TRANSIENT, $method(JrtPath, copyToTarget, void, JrtPath*, $CopyOptionArray*), "java.io.IOException"},
-	{"createDirectory", "([Ljava/nio/file/attribute/FileAttribute;)V", "([Ljava/nio/file/attribute/FileAttribute<*>;)V", $FINAL | $TRANSIENT, $method(JrtPath, createDirectory, void, $FileAttributeArray*), "java.io.IOException"},
-	{"delete", "()V", nullptr, $FINAL, $method(JrtPath, delete$, void), "java.io.IOException"},
-	{"deleteIfExists", "()V", nullptr, $FINAL, $method(JrtPath, deleteIfExists, void), "java.io.IOException"},
-	{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, endsWith, bool, $Path*)},
-	{"endsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, endsWith, bool, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, equals, bool, Object$*)},
-	{"equalsNameAt", "(Ljdk/internal/jrtfs/JrtPath;I)Z", nullptr, $PRIVATE, $method(JrtPath, equalsNameAt, bool, JrtPath*, int32_t)},
-	{"exists", "()Z", nullptr, $FINAL, $method(JrtPath, exists, bool)},
-	{"getAttributes", "([Ljava/nio/file/LinkOption;)Ljdk/internal/jrtfs/JrtFileAttributes;", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, getAttributes, $JrtFileAttributes*, $LinkOptionArray*), "java.io.IOException"},
-	{"getFileName", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, getFileName, JrtPath*)},
-	{"getFileStore", "()Ljava/nio/file/FileStore;", nullptr, $FINAL, $method(JrtPath, getFileStore, $FileStore*), "java.io.IOException"},
-	{"getFileSystem", "()Ljdk/internal/jrtfs/JrtFileSystem;", nullptr, $PUBLIC, $virtualMethod(JrtPath, getFileSystem, $FileSystem*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $FINAL, $method(JrtPath, getName, $String*)},
-	{"getName", "(I)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, getName, JrtPath*, int32_t)},
-	{"getNameCount", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, getNameCount, int32_t)},
-	{"getParent", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, getParent, JrtPath*)},
-	{"getResolved", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(JrtPath, getResolved, $String*)},
-	{"getResolvedPath", "()Ljava/lang/String;", nullptr, $FINAL, $method(JrtPath, getResolvedPath, $String*)},
-	{"getRoot", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, getRoot, JrtPath*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, hashCode, int32_t)},
-	{"highMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, highMask, int64_t, $String*)},
-	{"highMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, highMask, int64_t, char16_t, char16_t)},
-	{"initOffsets", "()V", nullptr, $PRIVATE, $method(JrtPath, initOffsets, void)},
-	{"isAbsolute", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, isAbsolute, bool)},
-	{"isHidden", "()Z", nullptr, $FINAL, $method(JrtPath, isHidden, bool)},
-	{"isSameFile", "(Ljava/nio/file/Path;)Z", nullptr, $FINAL, $method(JrtPath, isSameFile, bool, $Path*), "java.io.IOException"},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC | $FINAL, $virtualMethod(JrtPath, iterator, $Iterator*)},
-	{"lowMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, lowMask, int64_t, $String*)},
-	{"lowMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, lowMask, int64_t, char16_t, char16_t)},
-	{"match", "(CJJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, match, bool, char16_t, int64_t, int64_t)},
-	{"move", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/CopyOption;)V", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, move, void, JrtPath*, $CopyOptionArray*), "java.io.IOException"},
-	{"newByteChannel", "(Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $FINAL | $TRANSIENT, $method(JrtPath, newByteChannel, $SeekableByteChannel*, $Set*, $FileAttributeArray*), "java.io.IOException"},
-	{"newDirectoryStream", "(Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $FINAL, $method(JrtPath, newDirectoryStream, $DirectoryStream*, $DirectoryStream$Filter*), "java.io.IOException"},
-	{"newFileChannel", "(Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $FINAL | $TRANSIENT, $method(JrtPath, newFileChannel, $FileChannel*, $Set*, $FileAttributeArray*), "java.io.IOException"},
-	{"newInputStream", "([Ljava/nio/file/OpenOption;)Ljava/io/InputStream;", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, newInputStream, $InputStream*, $OpenOptionArray*), "java.io.IOException"},
-	{"newOutputStream", "([Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, newOutputStream, $OutputStream*, $OpenOptionArray*), "java.io.IOException"},
-	{"normalize", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, normalize, JrtPath*)},
-	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, normalize, $String*, $String*)},
-	{"normalize", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, normalize, $String*, $String*, int32_t)},
-	{"readAttributes", "(Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $FINAL | $TRANSIENT, $method(JrtPath, readAttributes, $Map*, $String*, $LinkOptionArray*), "java.io.IOException"},
-	{"readSymbolicLink", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $FINAL, $method(JrtPath, readSymbolicLink, JrtPath*), "java.io.IOException"},
-	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(JrtPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*)},
-	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;)Ljava/nio/file/WatchKey;", $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(JrtPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*)},
-	{"relativize", "(Ljava/nio/file/Path;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, relativize, JrtPath*, $Path*)},
-	{"resolve", "(Ljava/nio/file/Path;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, resolve, JrtPath*, $Path*)},
-	{"resolve", "(Ljava/lang/String;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, resolve, JrtPath*, $String*)},
-	{"resolvePath", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(JrtPath, resolvePath, $String*)},
-	{"resolveSibling", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, resolveSibling, $Path*, $Path*)},
-	{"resolveSibling", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, resolveSibling, $Path*, $String*)},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, setAttribute, void, $String*, Object$*, $LinkOptionArray*), "java.io.IOException"},
-	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $FINAL, $method(JrtPath, setTimes, void, $FileTime*, $FileTime*, $FileTime*), "java.io.IOException"},
-	{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, startsWith, bool, $Path*)},
-	{"startsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, startsWith, bool, $String*)},
-	{"subpath", "(II)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, subpath, JrtPath*, int32_t, int32_t)},
-	{"toAbsolutePath", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, toAbsolutePath, JrtPath*)},
-	{"toFile", "()Ljava/io/File;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, toFile, $File*)},
-	{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(JrtPath, toRealPath, JrtPath*, $LinkOptionArray*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, toString, $String*)},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, toUri, $URI*)},
-	{"toUri", "(Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, toUri, $URI*, $String*)},
-	{}
-};
-
-$InnerClassInfo _JrtPath_InnerClassesInfo_[] = {
-	{"jdk.internal.jrtfs.JrtPath$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"jdk.internal.jrtfs.JrtPath$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JrtPath_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.jrtfs.JrtPath",
-	"java.lang.Object",
-	"java.nio.file.Path",
-	_JrtPath_FieldInfo_,
-	_JrtPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JrtPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.jrtfs.JrtPath$2,jdk.internal.jrtfs.JrtPath$1"
-};
-
-$Object* allocate$JrtPath($Class* clazz) {
-	return $of($alloc(JrtPath));
-}
-
 bool JrtPath::$assertionsDisabled = false;
 int64_t JrtPath::L_DIGIT = 0;
 int64_t JrtPath::H_UPALPHA = 0;
@@ -311,15 +185,15 @@ JrtPath* JrtPath::getFileName() {
 	if ($nc(this->path)->isEmpty()) {
 		return this;
 	}
-	bool var$0 = $nc(this->path)->length() == 1;
-	if (var$0 && $nc(this->path)->charAt(0) == u'/') {
+	bool var$0 = this->path->length() == 1;
+	if (var$0 && this->path->charAt(0) == u'/') {
 		return nullptr;
 	}
-	int32_t off = $nc(this->path)->lastIndexOf((int32_t)u'/');
+	int32_t off = this->path->lastIndexOf(u'/');
 	if (off == -1) {
 		return this;
 	}
-	return $new(JrtPath, this->jrtfs, $($nc(this->path)->substring(off + 1)), true);
+	return $new(JrtPath, this->jrtfs, $(this->path->substring(off + 1)), true);
 }
 
 JrtPath* JrtPath::getParent() {
@@ -341,7 +215,7 @@ int32_t JrtPath::getNameCount() {
 }
 
 JrtPath* JrtPath::getName(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initOffsets();
 	if (index < 0 || index >= $nc(this->offsets)->length) {
 		$throwNew($IllegalArgumentException, $$str({"index: "_s, $$str(index), ", offsets length: "_s, $$str($nc(this->offsets)->length)}));
@@ -357,7 +231,7 @@ JrtPath* JrtPath::getName(int32_t index) {
 }
 
 JrtPath* JrtPath::subpath(int32_t beginIndex, int32_t endIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initOffsets();
 	if (beginIndex < 0 || endIndex > $nc(this->offsets)->length || beginIndex >= endIndex) {
 		$throwNew($IllegalArgumentException, $$str({"beginIndex: "_s, $$str(beginIndex), ", endIndex: "_s, $$str(endIndex), ", offsets length: "_s, $$str($nc(this->offsets)->length)}));
@@ -384,13 +258,13 @@ JrtPath* JrtPath::toAbsolutePath() {
 }
 
 $URI* JrtPath::toUri() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, p, $nc($(toAbsolutePath()))->path);
 	bool var$0 = !$nc(p)->startsWith("/modules"_s);
-	if (var$0 || $nc(p)->contains(".."_s)) {
+	if (var$0 || p->contains(".."_s)) {
 		$throwNew($IOError, $$new($RuntimeException, $$str({p, " cannot be represented as URI"_s})));
 	}
-	$assign(p, $nc(p)->substring("/modules"_s->length()));
+	$assign(p, p->substring("/modules"_s->length()));
 	if (p->isEmpty()) {
 		$assign(p, "/"_s);
 	}
@@ -427,7 +301,7 @@ bool JrtPath::equalsNameAt(JrtPath* other, int32_t index) {
 }
 
 JrtPath* JrtPath::relativize($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JrtPath, o, checkPath(other));
 	if ($nc(o)->equals(this)) {
 		return $new(JrtPath, this->jrtfs, ""_s, true);
@@ -435,16 +309,16 @@ JrtPath* JrtPath::relativize($Path* other) {
 	if ($nc(this->path)->isEmpty()) {
 		return o;
 	}
-	bool var$0 = this->jrtfs != $nc(o)->jrtfs;
+	bool var$0 = this->jrtfs != o->jrtfs;
 	if (!var$0) {
 		bool var$1 = isAbsolute();
-		var$0 = var$1 != $nc(o)->isAbsolute();
+		var$0 = var$1 != o->isAbsolute();
 	}
 	if (var$0) {
 		$throwNew($IllegalArgumentException, $$str({"Incorrect filesystem or path: "_s, other}));
 	}
 	$var($String, tp, this->path);
-	$var($String, op, $nc(o)->path);
+	$var($String, op, o->path);
 	if ($nc(op)->startsWith(tp)) {
 		int32_t off = $nc(tp)->length();
 		if (op->charAt(off - 1) == u'/') {
@@ -478,7 +352,7 @@ JrtPath* JrtPath::relativize($Path* other) {
 		--dotdots;
 	}
 	if (i < oc) {
-		sb->append(static_cast<$CharSequence*>(o->path), $nc(o->offsets)->get(i), $nc(o->path)->length());
+		sb->append(o->path, $nc(o->offsets)->get(i), $nc(o->path)->length());
 	}
 	return $new(JrtPath, this->jrtfs, $(sb->toString()), true);
 }
@@ -489,11 +363,11 @@ $FileSystem* JrtPath::getFileSystem() {
 
 bool JrtPath::isAbsolute() {
 	bool var$0 = !$nc(this->path)->isEmpty();
-	return var$0 && $nc(this->path)->charAt(0) == u'/';
+	return var$0 && this->path->charAt(0) == u'/';
 }
 
 JrtPath* JrtPath::resolve($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JrtPath, o, checkPath(other));
 	bool var$0 = $nc(this->path)->isEmpty();
 	if (var$0 || $nc(o)->isAbsolute()) {
@@ -503,29 +377,29 @@ JrtPath* JrtPath::resolve($Path* other) {
 		return this;
 	}
 	int32_t var$1 = $nc(this->path)->length();
-	$var($StringBuilder, sb, $new($StringBuilder, var$1 + $nc($nc(o)->path)->length() + 1));
+	$var($StringBuilder, sb, $new($StringBuilder, var$1 + o->path->length() + 1));
 	sb->append(this->path);
-	if ($nc(this->path)->charAt($nc(this->path)->length() - 1) != u'/') {
+	if (this->path->charAt(this->path->length() - 1) != u'/') {
 		sb->append(u'/');
 	}
-	sb->append($nc(o)->path);
+	sb->append(o->path);
 	return $new(JrtPath, this->jrtfs, $(sb->toString()), true);
 }
 
 $Path* JrtPath::resolveSibling($Path* other) {
-	$Objects::requireNonNull($of(other), "other"_s);
+	$Objects::requireNonNull(other, "other"_s);
 	$var($Path, parent, getParent());
-	return (parent == nullptr) ? other : $nc(parent)->resolve(other);
+	return (parent == nullptr) ? other : parent->resolve(other);
 }
 
 bool JrtPath::startsWith($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(JrtPath, $Objects::requireNonNull(other)))) {
 		return false;
 	}
 	$var(JrtPath, o, $cast(JrtPath, other));
 	$var($String, tp, this->path);
-	$var($String, op, $nc(o)->path);
+	$var($String, op, o->path);
 	bool var$1 = isAbsolute();
 	bool var$0 = var$1 != o->isAbsolute();
 	if (var$0 || !$nc(tp)->startsWith(op)) {
@@ -536,23 +410,23 @@ bool JrtPath::startsWith($Path* other) {
 		return $nc(tp)->isEmpty();
 	}
 	bool var$3 = $nc(tp)->length() == off;
-	bool var$2 = var$3 || $nc(tp)->charAt(off) == u'/' || off == 0;
+	bool var$2 = var$3 || tp->charAt(off) == u'/' || off == 0;
 	return var$2 || op->charAt(off - 1) == u'/';
 }
 
 bool JrtPath::endsWith($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(JrtPath, $Objects::requireNonNull(other)))) {
 		return false;
 	}
 	$var(JrtPath, o, $cast(JrtPath, other));
 	$var(JrtPath, t, this);
-	int32_t olast = $nc($nc(o)->path)->length() - 1;
-	if (olast > 0 && $nc(o->path)->charAt(olast) == u'/') {
+	int32_t olast = $nc(o->path)->length() - 1;
+	if (olast > 0 && o->path->charAt(olast) == u'/') {
 		--olast;
 	}
 	int32_t last = $nc(t->path)->length() - 1;
-	if (last > 0 && $nc(t->path)->charAt(last) == u'/') {
+	if (last > 0 && t->path->charAt(last) == u'/') {
 		--last;
 	}
 	if (olast == -1) {
@@ -563,33 +437,33 @@ bool JrtPath::endsWith($Path* other) {
 		return false;
 	}
 	for (; olast >= 0; --olast, --last) {
-		char16_t var$1 = $nc(o->path)->charAt(olast);
-		if (var$1 != $nc(t->path)->charAt(last)) {
+		char16_t var$1 = o->path->charAt(olast);
+		if (var$1 != t->path->charAt(last)) {
 			return false;
 		}
 	}
-	bool var$2 = $nc(o->path)->charAt(olast + 1) == u'/' || last == -1;
-	return var$2 || $nc(t->path)->charAt(last) == u'/';
+	bool var$2 = o->path->charAt(olast + 1) == u'/' || last == -1;
+	return var$2 || t->path->charAt(last) == u'/';
 }
 
 JrtPath* JrtPath::resolve($String* other) {
-	$useLocalCurrentObjectStackCache();
-	return resolve($($nc($($cast($JrtFileSystem, getFileSystem())))->getPath(other, $$new($StringArray, 0))));
+	$useLocalObjectStack();
+	return resolve($($$sure($JrtFileSystem, getFileSystem())->getPath(other, $$new($StringArray, 0))));
 }
 
 $Path* JrtPath::resolveSibling($String* other) {
-	$useLocalCurrentObjectStackCache();
-	return resolveSibling($($nc($($cast($JrtFileSystem, getFileSystem())))->getPath(other, $$new($StringArray, 0))));
+	$useLocalObjectStack();
+	return resolveSibling($($$sure($JrtFileSystem, getFileSystem())->getPath(other, $$new($StringArray, 0))));
 }
 
 bool JrtPath::startsWith($String* other) {
-	$useLocalCurrentObjectStackCache();
-	return startsWith($($nc($($cast($JrtFileSystem, getFileSystem())))->getPath(other, $$new($StringArray, 0))));
+	$useLocalObjectStack();
+	return startsWith($($$sure($JrtFileSystem, getFileSystem())->getPath(other, $$new($StringArray, 0))));
 }
 
 bool JrtPath::endsWith($String* other) {
-	$useLocalCurrentObjectStackCache();
-	return endsWith($($nc($($cast($JrtFileSystem, getFileSystem())))->getPath(other, $$new($StringArray, 0))));
+	$useLocalObjectStack();
+	return endsWith($($$sure($JrtFileSystem, getFileSystem())->getPath(other, $$new($StringArray, 0))));
 }
 
 JrtPath* JrtPath::normalize() {
@@ -614,10 +488,10 @@ void JrtPath::initOffsets() {
 		int32_t count = 0;
 		int32_t off = 0;
 		while (off < len) {
-			char16_t c = $nc(this->path)->charAt(off++);
+			char16_t c = this->path->charAt(off++);
 			if (c != u'/') {
 				++count;
-				off = $nc(this->path)->indexOf((int32_t)u'/', off);
+				off = this->path->indexOf(u'/', off);
 				if (off == -1) {
 					break;
 				}
@@ -627,12 +501,12 @@ void JrtPath::initOffsets() {
 		count = 0;
 		off = 0;
 		while (off < len) {
-			char16_t c = $nc(this->path)->charAt(off);
+			char16_t c = this->path->charAt(off);
 			if (c == u'/') {
 				++off;
 			} else {
 				offsets->set(count++, off++);
-				off = $nc(this->path)->indexOf((int32_t)u'/', off);
+				off = this->path->indexOf(u'/', off);
 				if (off == -1) {
 					break;
 				}
@@ -643,13 +517,13 @@ void JrtPath::initOffsets() {
 }
 
 $String* JrtPath::getResolvedPath() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, r, this->resolved);
 	if (r == nullptr) {
 		if (isAbsolute()) {
 			$assign(r, getResolved());
 		} else {
-			$assign(r, $nc($(toAbsolutePath()))->getResolvedPath());
+			$assign(r, $$nc(toAbsolutePath())->getResolvedPath());
 		}
 		$set(this, resolved, r);
 	}
@@ -662,7 +536,7 @@ $String* JrtPath::normalize($String* path) {
 	if (len == 0) {
 		return path;
 	}
-	char16_t prevC = (char16_t)0;
+	char16_t prevC = 0;
 	for (int32_t i = 0; i < len; ++i) {
 		char16_t c = path->charAt(i);
 		if (c == u'\\' || c == u'\0') {
@@ -683,8 +557,8 @@ $String* JrtPath::normalize($String* path, int32_t off) {
 	$init(JrtPath);
 	int32_t len = $nc(path)->length();
 	$var($StringBuilder, to, $new($StringBuilder, len));
-	to->append(static_cast<$CharSequence*>(path), 0, off);
-	char16_t prevC = (char16_t)0;
+	to->append(path, 0, off);
+	char16_t prevC = 0;
 	while (off < len) {
 		char16_t c = path->charAt(off++);
 		if (c == u'\\') {
@@ -710,8 +584,8 @@ $String* JrtPath::getResolved() {
 	int32_t length = $nc(this->path)->length();
 	bool var$0 = length == 0;
 	if (!var$0) {
-		bool var$1 = $nc(this->path)->indexOf("./"_s) == -1;
-		var$0 = (var$1 && $nc(this->path)->charAt(length - 1) != u'.');
+		bool var$1 = this->path->indexOf("./"_s) == -1;
+		var$0 = var$1 && this->path->charAt(length - 1) != u'.';
 	}
 	if (var$0) {
 		return this->path;
@@ -721,7 +595,7 @@ $String* JrtPath::getResolved() {
 }
 
 $String* JrtPath::resolvePath() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(this->path)->length();
 	$var($chars, to, $new($chars, length));
 	int32_t nc = getNameCount();
@@ -731,19 +605,19 @@ $String* JrtPath::resolvePath() {
 	for (int32_t i = 0; i < nc; ++i) {
 		int32_t n = $nc(this->offsets)->get(i);
 		int32_t len = (i == $nc(this->offsets)->length - 1) ? length - n : $nc(this->offsets)->get(i + 1) - n - 1;
-		if (len == 1 && $nc(this->path)->charAt(n) == u'.') {
-			if (m == 0 && $nc(this->path)->charAt(0) == u'/') {
+		if (len == 1 && this->path->charAt(n) == u'.') {
+			if (m == 0 && this->path->charAt(0) == u'/') {
 				to->set(m++, u'/');
 			}
 			continue;
 		}
-		bool var$0 = len == 2 && $nc(this->path)->charAt(n) == u'.';
-		if (var$0 && $nc(this->path)->charAt(n + 1) == u'.') {
+		bool var$0 = len == 2 && this->path->charAt(n) == u'.';
+		if (var$0 && this->path->charAt(n + 1) == u'.') {
 			if (lastMOff >= 0) {
 				m = lastM->get(lastMOff--);
 				continue;
 			}
-			if ($nc(this->path)->charAt(0) == u'/') {
+			if (this->path->charAt(0) == u'/') {
 				if (m == 0) {
 					to->set(m++, u'/');
 				}
@@ -752,17 +626,17 @@ $String* JrtPath::resolvePath() {
 					to->set(m++, u'/');
 				}
 				while (len-- > 0) {
-					to->set(m++, $nc(this->path)->charAt(n++));
+					to->set(m++, this->path->charAt(n++));
 				}
 			}
 			continue;
 		}
-		if (m == 0 && $nc(this->path)->charAt(0) == u'/' || m != 0 && to->get(m - 1) != u'/') {
+		if (m == 0 && this->path->charAt(0) == u'/' || m != 0 && to->get(m - 1) != u'/') {
 			to->set(m++, u'/');
 		}
 		lastM->set(++lastMOff, m);
 		while (len-- > 0) {
-			to->set(m++, $nc(this->path)->charAt(n++));
+			to->set(m++, this->path->charAt(n++));
 		}
 	}
 	if (m > 1 && to->get(m - 1) == u'/') {
@@ -780,7 +654,7 @@ int32_t JrtPath::hashCode() {
 }
 
 bool JrtPath::equals(Object$* obj) {
-	return $instanceOf(JrtPath, obj) && $nc(this->path)->equals($nc(($cast(JrtPath, obj)))->path);
+	return $instanceOf(JrtPath, obj) && $nc(this->path)->equals($cast(JrtPath, obj)->path);
 }
 
 int32_t JrtPath::compareTo($Path* other) {
@@ -789,9 +663,9 @@ int32_t JrtPath::compareTo($Path* other) {
 }
 
 $WatchKey* JrtPath::register$($WatchService* watcher, $WatchEvent$KindArray* events, $WatchEvent$ModifierArray* modifiers) {
-	$Objects::requireNonNull($of(watcher), "watcher"_s);
-	$Objects::requireNonNull($of(events), "events"_s);
-	$Objects::requireNonNull($of(modifiers), "modifiers"_s);
+	$Objects::requireNonNull(watcher, "watcher"_s);
+	$Objects::requireNonNull(events, "events"_s);
+	$Objects::requireNonNull(modifiers, "modifiers"_s);
 	$throwNew($UnsupportedOperationException);
 	$shouldNotReachHere();
 }
@@ -813,7 +687,7 @@ JrtPath* JrtPath::readSymbolicLink() {
 	if (!$nc(this->jrtfs)->isLink(this)) {
 		$throwNew($IOException, "not a symbolic link"_s);
 	}
-	return $nc(this->jrtfs)->resolveLink(this);
+	return this->jrtfs->resolveLink(this);
 }
 
 bool JrtPath::isHidden() {
@@ -825,20 +699,14 @@ void JrtPath::createDirectory($FileAttributeArray* attrs) {
 }
 
 $InputStream* JrtPath::newInputStream($OpenOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(options)->length > 0) {
-		{
-			$var($OpenOptionArray, arr$, options);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($OpenOption, opt, arr$->get(i$));
-				{
-					$init($StandardOpenOption);
-					if (!$equals(opt, $StandardOpenOption::READ)) {
-						$throwNew($UnsupportedOperationException, $$str({"\'"_s, opt, "\' not allowed"_s}));
-					}
-				}
+		$var($OpenOptionArray, arr$, options);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($OpenOption, opt, arr$->get(i$));
+			$init($StandardOpenOption);
+			if (!$equals(opt, $StandardOpenOption::READ)) {
+				$throwNew($UnsupportedOperationException, $$str({"\'"_s, opt, "\' not allowed"_s}));
 			}
 		}
 	}
@@ -858,7 +726,7 @@ void JrtPath::deleteIfExists() {
 }
 
 $JrtFileAttributes* JrtPath::getAttributes($LinkOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JrtFileAttributes, zfas, $nc(this->jrtfs)->getFileAttributes(this, options));
 	if (zfas == nullptr) {
 		$throwNew($NoSuchFileException, $(toString()));
@@ -886,13 +754,13 @@ $FileStore* JrtPath::getFileStore() {
 }
 
 bool JrtPath::isSameFile($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, other) || this->equals(other)) {
 		return true;
 	}
 	bool var$0 = other == nullptr;
 	if (!var$0) {
-		var$0 = !$equals($cast($JrtFileSystem, this->getFileSystem()), $nc(other)->getFileSystem());
+		var$0 = !$equals($cast($JrtFileSystem, this->getFileSystem()), other->getFileSystem());
 	}
 	if (var$0) {
 		return false;
@@ -900,7 +768,7 @@ bool JrtPath::isSameFile($Path* other) {
 	this->checkAccess($$new($AccessModeArray, 0));
 	$var(JrtPath, o, $cast(JrtPath, other));
 	$nc(o)->checkAccess($$new($AccessModeArray, 0));
-	bool var$1 = $nc($(this->getResolvedPath()))->equals($(o->getResolvedPath()));
+	bool var$1 = $$nc(this->getResolvedPath())->equals($(o->getResolvedPath()));
 	return var$1 || $nc(this->jrtfs)->isSameFile(this, o);
 }
 
@@ -913,43 +781,33 @@ $FileChannel* JrtPath::newFileChannel($Set* options, $FileAttributeArray* attrs)
 }
 
 void JrtPath::checkAccess($AccessModeArray* modes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(modes)->length == 0) {
 		$nc(this->jrtfs)->checkNode(this);
 	} else {
 		bool w = false;
 		{
 			$var($AccessModeArray, arr$, modes);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$AccessMode* mode = arr$->get(i$);
 				{
 					$init($JrtPath$2);
 					switch ($nc($JrtPath$2::$SwitchMap$java$nio$file$AccessMode)->get($nc((mode))->ordinal())) {
 					case 1:
-						{
-							break;
-						}
+						break;
 					case 2:
-						{
-							w = true;
-							break;
-						}
+						w = true;
+						break;
 					case 3:
-						{
-							$throwNew($AccessDeniedException, $(toString()));
-						}
+						$throwNew($AccessDeniedException, $(toString()));
 					default:
-						{
-							$throwNew($UnsupportedOperationException);
-						}
+						$throwNew($UnsupportedOperationException);
 					}
 				}
 			}
 		}
 		$nc(this->jrtfs)->checkNode(this);
-		if (w && $nc(this->jrtfs)->isReadOnly()) {
+		if (w && this->jrtfs->isReadOnly()) {
 			$throwNew($AccessDeniedException, $(toString()));
 		}
 	}
@@ -967,8 +825,8 @@ $OutputStream* JrtPath::newOutputStream($OpenOptionArray* options) {
 	if ($nc(options)->length == 0) {
 		$init($StandardOpenOption);
 		return $nc(this->jrtfs)->newOutputStream(this, $$new($OpenOptionArray, {
-			static_cast<$OpenOption*>($StandardOpenOption::CREATE_NEW),
-			static_cast<$OpenOption*>($StandardOpenOption::WRITE)
+			$StandardOpenOption::CREATE_NEW,
+			$StandardOpenOption::WRITE
 		}));
 	}
 	return $nc(this->jrtfs)->newOutputStream(this, options);
@@ -992,24 +850,18 @@ void JrtPath::copy(JrtPath* target, $CopyOptionArray* options) {
 }
 
 void JrtPath::copyToTarget(JrtPath* target, $CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool replaceExisting = false;
 	bool copyAttrs = false;
 	{
 		$var($CopyOptionArray, arr$, options);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CopyOption, opt, arr$->get(i$));
-			{
-				$init($StandardCopyOption);
-				if ($equals(opt, $StandardCopyOption::REPLACE_EXISTING)) {
-					replaceExisting = true;
-				} else {
-					if ($equals(opt, $StandardCopyOption::COPY_ATTRIBUTES)) {
-						copyAttrs = true;
-					}
-				}
+			$init($StandardCopyOption);
+			if ($equals(opt, $StandardCopyOption::REPLACE_EXISTING)) {
+				replaceExisting = true;
+			} else if ($equals(opt, $StandardCopyOption::COPY_ATTRIBUTES)) {
+				copyAttrs = true;
 			}
 		}
 	}
@@ -1031,71 +883,65 @@ void JrtPath::copyToTarget(JrtPath* target, $CopyOptionArray* options) {
 	if ($nc(jrtfas)->isDirectory()) {
 		$nc(target)->createDirectory($$new($FileAttributeArray, 0));
 	} else {
-		{
-			$var($InputStream, is, $nc(this->jrtfs)->newInputStream(this));
-			{
-				$var($Throwable, var$0, nullptr);
+		$var($InputStream, is, $nc(this->jrtfs)->newInputStream(this));
+		$var($Throwable, var$0, nullptr);
+		try {
+			try {
+				$var($OutputStream, os, $nc(target)->newOutputStream($$new($OpenOptionArray, 0)));
+				$var($Throwable, var$1, nullptr);
 				try {
 					try {
-						$var($OutputStream, os, $nc(target)->newOutputStream($$new($OpenOptionArray, 0)));
-						{
-							$var($Throwable, var$1, nullptr);
-							try {
-								try {
-									$var($bytes, buf, $new($bytes, 8192));
-									int32_t n = 0;
-									while ((n = $nc(is)->read(buf)) != -1) {
-										$nc(os)->write(buf, 0, n);
-									}
-								} catch ($Throwable& t$) {
-									if (os != nullptr) {
-										try {
-											os->close();
-										} catch ($Throwable& x2) {
-											t$->addSuppressed(x2);
-										}
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$2) {
-								$assign(var$1, var$2);
-							} /*finally*/ {
-								if (os != nullptr) {
-									os->close();
-								}
-							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
-							}
+						$var($bytes, buf, $new($bytes, 8192));
+						int32_t n = 0;
+						while ((n = $nc(is)->read(buf)) != -1) {
+							$nc(os)->write(buf, 0, n);
 						}
 					} catch ($Throwable& t$) {
-						if (is != nullptr) {
+						if (os != nullptr) {
 							try {
-								is->close();
+								os->close();
 							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
-					if (is != nullptr) {
-						is->close();
+					if (os != nullptr) {
+						os->close();
 					}
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+				if (var$1 != nullptr) {
+					$throw(var$1);
 				}
+			} catch ($Throwable& t$) {
+				if (is != nullptr) {
+					try {
+						is->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+				}
+				$throw(t$);
 			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			if (is != nullptr) {
+				is->close();
+			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if (copyAttrs) {
 		$load($BasicFileAttributeView);
 		$var($BasicFileAttributeView, view, $cast($BasicFileAttributeView, $Files::getFileAttributeView(target, $BasicFileAttributeView::class$, $$new($LinkOptionArray, 0))));
 		try {
-			$var($FileTime, var$4, $nc(jrtfas)->lastModifiedTime());
+			$var($FileTime, var$4, jrtfas->lastModifiedTime());
 			$var($FileTime, var$5, jrtfas->lastAccessTime());
 			$nc(view)->setTimes(var$4, var$5, $(jrtfas->creationTime()));
 		} catch ($IOException& x) {
@@ -1110,7 +956,7 @@ void JrtPath::copyToTarget(JrtPath* target, $CopyOptionArray* options) {
 
 $URI* JrtPath::toUri($String* str) {
 	$init(JrtPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, path, $nc(str)->toCharArray());
 	if (!JrtPath::$assertionsDisabled && !(path->get(0) == u'/')) {
 		$throwNew($AssertionError);
@@ -1118,13 +964,13 @@ $URI* JrtPath::toUri($String* str) {
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(path->get(0));
 	for (int32_t i = 1; i < path->length; ++i) {
-		char16_t c = (char16_t)((int32_t)(path->get(i) & (uint32_t)255));
+		char16_t c = (char16_t)(path->get(i) & 0xff);
 		if (match(c, JrtPath::L_PATH, JrtPath::H_PATH)) {
 			sb->append(c);
 		} else {
 			sb->append(u'%');
-			sb->append($nc(JrtPath::hexDigits)->get((int32_t)((c >> 4) & (uint32_t)15)));
-			sb->append($nc(JrtPath::hexDigits)->get((int32_t)((c) & (uint32_t)15)));
+			sb->append(JrtPath::hexDigits->get((c >> 4) & 0x0f));
+			sb->append(JrtPath::hexDigits->get((c) & 0x0f));
 		}
 	}
 	try {
@@ -1164,8 +1010,8 @@ int64_t JrtPath::highMask($String* chars) {
 int64_t JrtPath::lowMask(char16_t first, char16_t last) {
 	$init(JrtPath);
 	int64_t m = 0;
-	int32_t f = $Math::max($Math::min((int32_t)first, 63), 0);
-	int32_t l = $Math::max($Math::min((int32_t)last, 63), 0);
+	int32_t f = $Math::max($Math::min(first, 63), 0);
+	int32_t l = $Math::max($Math::min(last, 63), 0);
 	for (int32_t i = f; i <= l; ++i) {
 		m |= $sl((int64_t)1, i);
 	}
@@ -1175,8 +1021,8 @@ int64_t JrtPath::lowMask(char16_t first, char16_t last) {
 int64_t JrtPath::highMask(char16_t first, char16_t last) {
 	$init(JrtPath);
 	int64_t m = 0;
-	int32_t f = $Math::max($Math::min((int32_t)first, 127), 64) - 64;
-	int32_t l = $Math::max($Math::min((int32_t)last, 127), 64) - 64;
+	int32_t f = $Math::max($Math::min(first, 127), 64) - 64;
+	int32_t l = $Math::max($Math::min(last, 127), 64) - 64;
 	for (int32_t i = f; i <= l; ++i) {
 		m |= $sl((int64_t)1, i);
 	}
@@ -1186,10 +1032,10 @@ int64_t JrtPath::highMask(char16_t first, char16_t last) {
 bool JrtPath::match(char16_t c, int64_t lowMask, int64_t highMask) {
 	$init(JrtPath);
 	if (c < 64) {
-		return ((int64_t)(($sl((int64_t)1, c)) & (uint64_t)lowMask)) != 0;
+		return (($sl((int64_t)1, c)) & lowMask) != 0;
 	}
 	if (c < 128) {
-		return ((int64_t)(($sl((int64_t)1, c - 64)) & (uint64_t)highMask)) != 0;
+		return (($sl((int64_t)1, c - 64)) & highMask) != 0;
 	}
 	return false;
 }
@@ -1198,7 +1044,7 @@ int32_t JrtPath::compareTo(Object$* other) {
 	return this->compareTo($cast($Path, other));
 }
 
-void clinit$JrtPath($Class* class$) {
+void JrtPath::clinit$($Class* clazz) {
 	JrtPath::$assertionsDisabled = !JrtPath::class$->desiredAssertionStatus();
 	JrtPath::L_DIGIT = JrtPath::lowMask(u'0', u'9');
 	JrtPath::H_UPALPHA = JrtPath::highMask(u'A', u'Z');
@@ -1238,7 +1084,126 @@ JrtPath::JrtPath() {
 }
 
 $Class* JrtPath::load$($String* name, bool initialize) {
-	$loadClass(JrtPath, name, initialize, &_JrtPath_ClassInfo_, clinit$JrtPath, allocate$JrtPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JrtPath, $assertionsDisabled)},
+		{"jrtfs", "Ljdk/internal/jrtfs/JrtFileSystem;", nullptr, $FINAL, $field(JrtPath, jrtfs)},
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JrtPath, path)},
+		{"offsets", "[I", nullptr, $PRIVATE | $VOLATILE, $field(JrtPath, offsets)},
+		{"resolved", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(JrtPath, resolved)},
+		{"L_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_DIGIT)},
+		{"H_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JrtPath, H_DIGIT)},
+		{"L_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JrtPath, L_UPALPHA)},
+		{"H_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_UPALPHA)},
+		{"L_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JrtPath, L_LOWALPHA)},
+		{"H_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_LOWALPHA)},
+		{"L_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JrtPath, L_ALPHA)},
+		{"H_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_ALPHA)},
+		{"L_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_ALPHANUM)},
+		{"H_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_ALPHANUM)},
+		{"L_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_MARK)},
+		{"H_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_MARK)},
+		{"L_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_UNRESERVED)},
+		{"H_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_UNRESERVED)},
+		{"L_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_PCHAR)},
+		{"H_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_PCHAR)},
+		{"L_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, L_PATH)},
+		{"H_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, H_PATH)},
+		{"hexDigits", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JrtPath, hexDigits)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/jrtfs/JrtFileSystem;Ljava/lang/String;)V", nullptr, 0, $method(JrtPath, init$, void, $JrtFileSystem*, $String*)},
+		{"<init>", "(Ljdk/internal/jrtfs/JrtFileSystem;Ljava/lang/String;Z)V", nullptr, 0, $method(JrtPath, init$, void, $JrtFileSystem*, $String*, bool)},
+		{"checkAccess", "([Ljava/nio/file/AccessMode;)V", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, checkAccess, void, $AccessModeArray*), "java.io.IOException"},
+		{"checkPath", "(Ljava/nio/file/Path;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PRIVATE, $method(JrtPath, checkPath, JrtPath*, $Path*)},
+		{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, compareTo, int32_t, $Path*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JrtPath, compareTo, int32_t, Object$*)},
+		{"copy", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/CopyOption;)V", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, copy, void, JrtPath*, $CopyOptionArray*), "java.io.IOException"},
+		{"copyToTarget", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/CopyOption;)V", nullptr, $PRIVATE | $TRANSIENT, $method(JrtPath, copyToTarget, void, JrtPath*, $CopyOptionArray*), "java.io.IOException"},
+		{"createDirectory", "([Ljava/nio/file/attribute/FileAttribute;)V", "([Ljava/nio/file/attribute/FileAttribute<*>;)V", $FINAL | $TRANSIENT, $method(JrtPath, createDirectory, void, $FileAttributeArray*), "java.io.IOException"},
+		{"delete", "()V", nullptr, $FINAL, $method(JrtPath, delete$, void), "java.io.IOException"},
+		{"deleteIfExists", "()V", nullptr, $FINAL, $method(JrtPath, deleteIfExists, void), "java.io.IOException"},
+		{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, endsWith, bool, $Path*)},
+		{"endsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, endsWith, bool, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, equals, bool, Object$*)},
+		{"equalsNameAt", "(Ljdk/internal/jrtfs/JrtPath;I)Z", nullptr, $PRIVATE, $method(JrtPath, equalsNameAt, bool, JrtPath*, int32_t)},
+		{"exists", "()Z", nullptr, $FINAL, $method(JrtPath, exists, bool)},
+		{"getAttributes", "([Ljava/nio/file/LinkOption;)Ljdk/internal/jrtfs/JrtFileAttributes;", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, getAttributes, $JrtFileAttributes*, $LinkOptionArray*), "java.io.IOException"},
+		{"getFileName", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, getFileName, JrtPath*)},
+		{"getFileStore", "()Ljava/nio/file/FileStore;", nullptr, $FINAL, $method(JrtPath, getFileStore, $FileStore*), "java.io.IOException"},
+		{"getFileSystem", "()Ljdk/internal/jrtfs/JrtFileSystem;", nullptr, $PUBLIC, $virtualMethod(JrtPath, getFileSystem, $FileSystem*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $FINAL, $method(JrtPath, getName, $String*)},
+		{"getName", "(I)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, getName, JrtPath*, int32_t)},
+		{"getNameCount", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, getNameCount, int32_t)},
+		{"getParent", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, getParent, JrtPath*)},
+		{"getResolved", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(JrtPath, getResolved, $String*)},
+		{"getResolvedPath", "()Ljava/lang/String;", nullptr, $FINAL, $method(JrtPath, getResolvedPath, $String*)},
+		{"getRoot", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, getRoot, JrtPath*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, hashCode, int32_t)},
+		{"highMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, highMask, int64_t, $String*)},
+		{"highMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, highMask, int64_t, char16_t, char16_t)},
+		{"initOffsets", "()V", nullptr, $PRIVATE, $method(JrtPath, initOffsets, void)},
+		{"isAbsolute", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, isAbsolute, bool)},
+		{"isHidden", "()Z", nullptr, $FINAL, $method(JrtPath, isHidden, bool)},
+		{"isSameFile", "(Ljava/nio/file/Path;)Z", nullptr, $FINAL, $method(JrtPath, isSameFile, bool, $Path*), "java.io.IOException"},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC | $FINAL, $virtualMethod(JrtPath, iterator, $Iterator*)},
+		{"lowMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, lowMask, int64_t, $String*)},
+		{"lowMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, lowMask, int64_t, char16_t, char16_t)},
+		{"match", "(CJJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, match, bool, char16_t, int64_t, int64_t)},
+		{"move", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/CopyOption;)V", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, move, void, JrtPath*, $CopyOptionArray*), "java.io.IOException"},
+		{"newByteChannel", "(Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $FINAL | $TRANSIENT, $method(JrtPath, newByteChannel, $SeekableByteChannel*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+		{"newDirectoryStream", "(Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $FINAL, $method(JrtPath, newDirectoryStream, $DirectoryStream*, $DirectoryStream$Filter*), "java.io.IOException"},
+		{"newFileChannel", "(Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $FINAL | $TRANSIENT, $method(JrtPath, newFileChannel, $FileChannel*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+		{"newInputStream", "([Ljava/nio/file/OpenOption;)Ljava/io/InputStream;", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, newInputStream, $InputStream*, $OpenOptionArray*), "java.io.IOException"},
+		{"newOutputStream", "([Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, newOutputStream, $OutputStream*, $OpenOptionArray*), "java.io.IOException"},
+		{"normalize", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, normalize, JrtPath*)},
+		{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, normalize, $String*, $String*)},
+		{"normalize", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, normalize, $String*, $String*, int32_t)},
+		{"readAttributes", "(Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $FINAL | $TRANSIENT, $method(JrtPath, readAttributes, $Map*, $String*, $LinkOptionArray*), "java.io.IOException"},
+		{"readSymbolicLink", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $FINAL, $method(JrtPath, readSymbolicLink, JrtPath*), "java.io.IOException"},
+		{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(JrtPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*)},
+		{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;)Ljava/nio/file/WatchKey;", $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(JrtPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*)},
+		{"relativize", "(Ljava/nio/file/Path;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, relativize, JrtPath*, $Path*)},
+		{"resolve", "(Ljava/nio/file/Path;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, resolve, JrtPath*, $Path*)},
+		{"resolve", "(Ljava/lang/String;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, resolve, JrtPath*, $String*)},
+		{"resolvePath", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(JrtPath, resolvePath, $String*)},
+		{"resolveSibling", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, resolveSibling, $Path*, $Path*)},
+		{"resolveSibling", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, resolveSibling, $Path*, $String*)},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $FINAL | $TRANSIENT, $method(JrtPath, setAttribute, void, $String*, Object$*, $LinkOptionArray*), "java.io.IOException"},
+		{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $FINAL, $method(JrtPath, setTimes, void, $FileTime*, $FileTime*, $FileTime*), "java.io.IOException"},
+		{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, startsWith, bool, $Path*)},
+		{"startsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, startsWith, bool, $String*)},
+		{"subpath", "(II)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, subpath, JrtPath*, int32_t, int32_t)},
+		{"toAbsolutePath", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, toAbsolutePath, JrtPath*)},
+		{"toFile", "()Ljava/io/File;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, toFile, $File*)},
+		{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(JrtPath, toRealPath, JrtPath*, $LinkOptionArray*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, toString, $String*)},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtPath, toUri, $URI*)},
+		{"toUri", "(Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtPath, toUri, $URI*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jrtfs.JrtPath$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"jdk.internal.jrtfs.JrtPath$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.jrtfs.JrtPath",
+		"java.lang.Object",
+		"java.nio.file.Path",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.jrtfs.JrtPath$2,jdk.internal.jrtfs.JrtPath$1"
+	};
+	$loadClass(JrtPath, name, initialize, &classInfo$$, JrtPath::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JrtPath));
+	});
 	return class$;
 }
 

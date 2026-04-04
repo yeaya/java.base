@@ -1,5 +1,4 @@
 #include <java/util/function/LongToIntFunction.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,35 +9,30 @@ namespace java {
 	namespace util {
 		namespace function {
 
-$CompoundAttribute _LongToIntFunction_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _LongToIntFunction_MethodInfo_[] = {
-	{"applyAsInt", "(J)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongToIntFunction, applyAsInt, int32_t, int64_t)},
-	{}
-};
-
-$ClassInfo _LongToIntFunction_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.LongToIntFunction",
-	nullptr,
-	nullptr,
-	nullptr,
-	_LongToIntFunction_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_LongToIntFunction_Annotations_
-};
-
-$Object* allocate$LongToIntFunction($Class* clazz) {
-	return $of($alloc(LongToIntFunction));
-}
-
 $Class* LongToIntFunction::load$($String* name, bool initialize) {
-	$loadClass(LongToIntFunction, name, initialize, &_LongToIntFunction_ClassInfo_, allocate$LongToIntFunction);
+	$MethodInfo methodInfos$$[] = {
+		{"applyAsInt", "(J)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongToIntFunction, applyAsInt, int32_t, int64_t)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.LongToIntFunction",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(LongToIntFunction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LongToIntFunction);
+	});
 	return class$;
 }
 

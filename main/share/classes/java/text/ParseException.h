@@ -14,11 +14,14 @@ public:
 	ParseException();
 	void init$($String* s, int32_t errorOffset);
 	virtual int32_t getErrorOffset();
-	static const int64_t serialVersionUID = (int64_t)0x2583C2DA188A0732;
+	static const int64_t serialVersionUID = (int64_t)0x2583c2da188a0732;
 	int32_t errorOffset = 0;
 	ParseException(const ParseException& e);
 	virtual void throw$() override;
-	inline ParseException* operator ->() {
+	inline ParseException* operator ->() const {
+		return (ParseException*)throwing$;
+	}
+	inline operator ParseException*() const {
 		return (ParseException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <jdk/internal/misc/ScopedMemoryAccess$Scope$ScopedAccessError.h>
-
 #include <java/lang/Error.h>
 #include <jdk/internal/misc/ScopedMemoryAccess$Scope.h>
 #include <jcpp.h>
@@ -16,50 +15,13 @@ namespace jdk {
 	namespace internal {
 		namespace misc {
 
-$FieldInfo _ScopedMemoryAccess$Scope$ScopedAccessError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ScopedMemoryAccess$Scope$ScopedAccessError, serialVersionUID)},
-	{"INSTANCE", "Ljdk/internal/misc/ScopedMemoryAccess$Scope$ScopedAccessError;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ScopedMemoryAccess$Scope$ScopedAccessError, INSTANCE)},
-	{}
-};
-
-$MethodInfo _ScopedMemoryAccess$Scope$ScopedAccessError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ScopedMemoryAccess$Scope$ScopedAccessError, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ScopedMemoryAccess$Scope$ScopedAccessError_InnerClassesInfo_[] = {
-	{"jdk.internal.misc.ScopedMemoryAccess$Scope", "jdk.internal.misc.ScopedMemoryAccess", "Scope", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.misc.ScopedMemoryAccess$Scope$ScopedAccessError", "jdk.internal.misc.ScopedMemoryAccess$Scope", "ScopedAccessError", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ScopedMemoryAccess$Scope$ScopedAccessError_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.misc.ScopedMemoryAccess$Scope$ScopedAccessError",
-	"java.lang.Error",
-	nullptr,
-	_ScopedMemoryAccess$Scope$ScopedAccessError_FieldInfo_,
-	_ScopedMemoryAccess$Scope$ScopedAccessError_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScopedMemoryAccess$Scope$ScopedAccessError_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.misc.ScopedMemoryAccess"
-};
-
-$Object* allocate$ScopedMemoryAccess$Scope$ScopedAccessError($Class* clazz) {
-	return $of($alloc(ScopedMemoryAccess$Scope$ScopedAccessError));
-}
-
 ScopedMemoryAccess$Scope$ScopedAccessError* ScopedMemoryAccess$Scope$ScopedAccessError::INSTANCE = nullptr;
 
 void ScopedMemoryAccess$Scope$ScopedAccessError::init$() {
 	$Error::init$("Attempt to access an already released memory resource"_s, nullptr, false, false);
 }
 
-void clinit$ScopedMemoryAccess$Scope$ScopedAccessError($Class* class$) {
+void ScopedMemoryAccess$Scope$ScopedAccessError::clinit$($Class* clazz) {
 	$assignStatic(ScopedMemoryAccess$Scope$ScopedAccessError::INSTANCE, $new(ScopedMemoryAccess$Scope$ScopedAccessError));
 }
 
@@ -74,7 +36,38 @@ void ScopedMemoryAccess$Scope$ScopedAccessError::throw$() {
 }
 
 $Class* ScopedMemoryAccess$Scope$ScopedAccessError::load$($String* name, bool initialize) {
-	$loadClass(ScopedMemoryAccess$Scope$ScopedAccessError, name, initialize, &_ScopedMemoryAccess$Scope$ScopedAccessError_ClassInfo_, clinit$ScopedMemoryAccess$Scope$ScopedAccessError, allocate$ScopedMemoryAccess$Scope$ScopedAccessError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ScopedMemoryAccess$Scope$ScopedAccessError, serialVersionUID)},
+		{"INSTANCE", "Ljdk/internal/misc/ScopedMemoryAccess$Scope$ScopedAccessError;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ScopedMemoryAccess$Scope$ScopedAccessError, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ScopedMemoryAccess$Scope$ScopedAccessError, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.misc.ScopedMemoryAccess$Scope", "jdk.internal.misc.ScopedMemoryAccess", "Scope", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.misc.ScopedMemoryAccess$Scope$ScopedAccessError", "jdk.internal.misc.ScopedMemoryAccess$Scope", "ScopedAccessError", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.misc.ScopedMemoryAccess$Scope$ScopedAccessError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.misc.ScopedMemoryAccess"
+	};
+	$loadClass(ScopedMemoryAccess$Scope$ScopedAccessError, name, initialize, &classInfo$$, ScopedMemoryAccess$Scope$ScopedAccessError::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ScopedMemoryAccess$Scope$ScopedAccessError);
+	});
 	return class$;
 }
 

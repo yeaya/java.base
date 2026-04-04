@@ -1,5 +1,4 @@
 #include <sun/net/sdp/SdpSupport.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <jdk/internal/access/JavaIOFileDescriptorAccess.h>
@@ -21,38 +20,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace net {
 		namespace sdp {
-
-$FieldInfo _SdpSupport_FieldInfo_[] = {
-	{"os", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SdpSupport, os)},
-	{"isSupported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SdpSupport, isSupported)},
-	{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SdpSupport, fdAccess)},
-	{}
-};
-
-$MethodInfo _SdpSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SdpSupport, init$, void)},
-	{"convert0", "(I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SdpSupport, convert0, void, int32_t), "java.io.IOException"},
-	{"convertSocket", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpSupport, convertSocket, void, $FileDescriptor*), "java.io.IOException"},
-	{"create0", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SdpSupport, create0, int32_t), "java.io.IOException"},
-	{"createSocket", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpSupport, createSocket, $FileDescriptor*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_convert0 1
-#define _METHOD_INDEX_create0 3
-
-$ClassInfo _SdpSupport_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.net.sdp.SdpSupport",
-	"java.lang.Object",
-	nullptr,
-	_SdpSupport_FieldInfo_,
-	_SdpSupport_MethodInfo_
-};
-
-$Object* allocate$SdpSupport($Class* clazz) {
-	return $of($alloc(SdpSupport));
-}
 
 $String* SdpSupport::os = nullptr;
 bool SdpSupport::isSupported = false;
@@ -83,21 +50,20 @@ void SdpSupport::convertSocket($FileDescriptor* fd) {
 
 int32_t SdpSupport::create0() {
 	$init(SdpSupport);
-	int32_t $ret = 0;
-	$prepareNativeStatic(SdpSupport, create0, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(create0, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void SdpSupport::convert0(int32_t fd) {
 	$init(SdpSupport);
-	$prepareNativeStatic(SdpSupport, convert0, void, int32_t fd);
+	$prepareNativeStatic(convert0, void, int32_t fd);
 	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 
-void clinit$SdpSupport($Class* class$) {
+void SdpSupport::clinit$($Class* clazz) {
 	$assignStatic(SdpSupport::os, $GetPropertyAction::privilegedGetProperty("os.name"_s));
 	SdpSupport::isSupported = $nc(SdpSupport::os)->equals("Linux"_s);
 	$assignStatic(SdpSupport::fdAccess, $SharedSecrets::getJavaIOFileDescriptorAccess());
@@ -110,7 +76,31 @@ SdpSupport::SdpSupport() {
 }
 
 $Class* SdpSupport::load$($String* name, bool initialize) {
-	$loadClass(SdpSupport, name, initialize, &_SdpSupport_ClassInfo_, clinit$SdpSupport, allocate$SdpSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"os", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SdpSupport, os)},
+		{"isSupported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SdpSupport, isSupported)},
+		{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SdpSupport, fdAccess)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SdpSupport, init$, void)},
+		{"convert0", "(I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SdpSupport, convert0, void, int32_t), "java.io.IOException"},
+		{"convertSocket", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpSupport, convertSocket, void, $FileDescriptor*), "java.io.IOException"},
+		{"create0", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SdpSupport, create0, int32_t), "java.io.IOException"},
+		{"createSocket", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpSupport, createSocket, $FileDescriptor*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.net.sdp.SdpSupport",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SdpSupport, name, initialize, &classInfo$$, SdpSupport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SdpSupport);
+	});
 	return class$;
 }
 

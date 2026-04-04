@@ -1,5 +1,4 @@
 #include <Bug7177315.h>
-
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Calendar.h>
 #include <java/util/Date.h>
@@ -22,31 +21,6 @@ using $Date = ::java::util::Date;
 using $GregorianCalendar = ::java::util::GregorianCalendar;
 using $Locale = ::java::util::Locale;
 
-$FieldInfo _Bug7177315_FieldInfo_[] = {
-	{"EXPECTED", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7177315, EXPECTED)},
-	{"DATA", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7177315, DATA)},
-	{}
-};
-
-$MethodInfo _Bug7177315_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7177315, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7177315, main, void, $StringArray*), "java.text.ParseException"},
-	{}
-};
-
-$ClassInfo _Bug7177315_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug7177315",
-	"java.lang.Object",
-	nullptr,
-	_Bug7177315_FieldInfo_,
-	_Bug7177315_MethodInfo_
-};
-
-$Object* allocate$Bug7177315($Class* clazz) {
-	return $of($alloc(Bug7177315));
-}
-
 $String* Bug7177315::EXPECTED = nullptr;
 $StringArray* Bug7177315::DATA = nullptr;
 
@@ -55,7 +29,7 @@ void Bug7177315::init$() {
 
 void Bug7177315::main($StringArray* args) {
 	$init(Bug7177315);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($SimpleDateFormat, parseFormat, $new($SimpleDateFormat, "MM/dd/yy"_s, $Locale::US));
 	$var($Calendar, cal, $new($GregorianCalendar, 2012 - 80, $Calendar::JANUARY, 1));
@@ -63,14 +37,12 @@ void Bug7177315::main($StringArray* args) {
 	$var($SimpleDateFormat, fmtFormat, $new($SimpleDateFormat, "MM/dd/yyyy"_s, $Locale::US));
 	{
 		$var($StringArray, arr$, Bug7177315::DATA);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, text, arr$->get(i$));
 			{
 				$var($Date, date, parseFormat->parse(text));
 				$var($String, got, fmtFormat->format(date));
-				if (!$nc(Bug7177315::EXPECTED)->equals(got)) {
+				if (!Bug7177315::EXPECTED->equals(got)) {
 					$throwNew($RuntimeException, $$str({"got: "_s, got, ", expected: "_s, Bug7177315::EXPECTED}));
 				}
 			}
@@ -78,7 +50,7 @@ void Bug7177315::main($StringArray* args) {
 	}
 }
 
-void clinit$Bug7177315($Class* class$) {
+void Bug7177315::clinit$($Class* clazz) {
 	$assignStatic(Bug7177315::EXPECTED, "01/01/2012"_s);
 	$assignStatic(Bug7177315::DATA, $new($StringArray, {
 		"01/01/12"_s,
@@ -93,7 +65,27 @@ Bug7177315::Bug7177315() {
 }
 
 $Class* Bug7177315::load$($String* name, bool initialize) {
-	$loadClass(Bug7177315, name, initialize, &_Bug7177315_ClassInfo_, clinit$Bug7177315, allocate$Bug7177315);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXPECTED", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7177315, EXPECTED)},
+		{"DATA", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7177315, DATA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7177315, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7177315, main, void, $StringArray*), "java.text.ParseException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug7177315",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Bug7177315, name, initialize, &classInfo$$, Bug7177315::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug7177315);
+	});
 	return class$;
 }
 

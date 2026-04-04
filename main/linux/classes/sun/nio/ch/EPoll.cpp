@@ -1,5 +1,4 @@
 #include <sun/nio/ch/EPoll.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/nio/ch/IOUtil.h>
 #include <jcpp.h>
@@ -23,56 +22,6 @@ using $IOUtil = ::sun::nio::ch::IOUtil;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _EPoll_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EPoll, unsafe)},
-	{"SIZEOF_EPOLLEVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EPoll, SIZEOF_EPOLLEVENT)},
-	{"OFFSETOF_EVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EPoll, OFFSETOF_EVENTS)},
-	{"OFFSETOF_FD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EPoll, OFFSETOF_FD)},
-	{"EPOLL_CTL_ADD", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLL_CTL_ADD)},
-	{"EPOLL_CTL_DEL", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLL_CTL_DEL)},
-	{"EPOLL_CTL_MOD", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLL_CTL_MOD)},
-	{"EPOLLIN", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLLIN)},
-	{"EPOLLOUT", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLLOUT)},
-	{"EPOLLONESHOT", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLLONESHOT)},
-	{}
-};
-
-$MethodInfo _EPoll_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(EPoll, init$, void)},
-	{"allocatePollArray", "(I)J", nullptr, $STATIC, $staticMethod(EPoll, allocatePollArray, int64_t, int32_t)},
-	{"create", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(EPoll, create, int32_t), "java.io.IOException"},
-	{"ctl", "(IIII)I", nullptr, $STATIC | $NATIVE, $staticMethod(EPoll, ctl, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"dataOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(EPoll, dataOffset, int32_t)},
-	{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(EPoll, eventSize, int32_t)},
-	{"eventsOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(EPoll, eventsOffset, int32_t)},
-	{"freePollArray", "(J)V", nullptr, $STATIC, $staticMethod(EPoll, freePollArray, void, int64_t)},
-	{"getDescriptor", "(J)I", nullptr, $STATIC, $staticMethod(EPoll, getDescriptor, int32_t, int64_t)},
-	{"getEvent", "(JI)J", nullptr, $STATIC, $staticMethod(EPoll, getEvent, int64_t, int64_t, int32_t)},
-	{"getEvents", "(J)I", nullptr, $STATIC, $staticMethod(EPoll, getEvents, int32_t, int64_t)},
-	{"wait", "(IJII)I", nullptr, $STATIC | $NATIVE, $staticMethod(EPoll, wait, int32_t, int32_t, int64_t, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_create 2
-#define _METHOD_INDEX_ctl 3
-#define _METHOD_INDEX_dataOffset 4
-#define _METHOD_INDEX_eventSize 5
-#define _METHOD_INDEX_eventsOffset 6
-#define _METHOD_INDEX_wait 11
-
-$ClassInfo _EPoll_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.EPoll",
-	"java.lang.Object",
-	nullptr,
-	_EPoll_FieldInfo_,
-	_EPoll_MethodInfo_
-};
-
-$Object* allocate$EPoll($Class* clazz) {
-	return $of($alloc(EPoll));
-}
 
 $Unsafe* EPoll::unsafe = nullptr;
 int32_t EPoll::SIZEOF_EPOLLEVENT = 0;
@@ -109,59 +58,53 @@ int32_t EPoll::getEvents(int64_t eventAddress) {
 
 int32_t EPoll::eventSize() {
 	$init(EPoll);
-	int32_t $ret = 0;
-	$prepareNativeStatic(EPoll, eventSize, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(eventSize, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t EPoll::eventsOffset() {
 	$init(EPoll);
-	int32_t $ret = 0;
-	$prepareNativeStatic(EPoll, eventsOffset, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(eventsOffset, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t EPoll::dataOffset() {
 	$init(EPoll);
-	int32_t $ret = 0;
-	$prepareNativeStatic(EPoll, dataOffset, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(dataOffset, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t EPoll::create() {
 	$init(EPoll);
-	int32_t $ret = 0;
-	$prepareNativeStatic(EPoll, create, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(create, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t EPoll::ctl(int32_t epfd, int32_t opcode, int32_t fd, int32_t events) {
 	$init(EPoll);
-	int32_t $ret = 0;
-	$prepareNativeStatic(EPoll, ctl, int32_t, int32_t epfd, int32_t opcode, int32_t fd, int32_t events);
-	$ret = $invokeNativeStatic(epfd, opcode, fd, events);
+	$prepareNativeStatic(ctl, int32_t, int32_t epfd, int32_t opcode, int32_t fd, int32_t events);
+	int32_t $ret = $invokeNativeStatic(epfd, opcode, fd, events);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t EPoll::wait(int32_t epfd, int64_t pollAddress, int32_t numfds, int32_t timeout) {
 	$init(EPoll);
-	int32_t $ret = 0;
-	$prepareNativeStatic(EPoll, wait, int32_t, int32_t epfd, int64_t pollAddress, int32_t numfds, int32_t timeout);
-	$ret = $invokeNativeStatic(epfd, pollAddress, numfds, timeout);
+	$prepareNativeStatic(wait, int32_t, int32_t epfd, int64_t pollAddress, int32_t numfds, int32_t timeout);
+	int32_t $ret = $invokeNativeStatic(epfd, pollAddress, numfds, timeout);
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$EPoll($Class* class$) {
+void EPoll::clinit$($Class* clazz) {
 	$assignStatic(EPoll::unsafe, $Unsafe::getUnsafe());
 	EPoll::SIZEOF_EPOLLEVENT = EPoll::eventSize();
 	EPoll::OFFSETOF_EVENTS = EPoll::eventsOffset();
@@ -175,7 +118,45 @@ EPoll::EPoll() {
 }
 
 $Class* EPoll::load$($String* name, bool initialize) {
-	$loadClass(EPoll, name, initialize, &_EPoll_ClassInfo_, clinit$EPoll, allocate$EPoll);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EPoll, unsafe)},
+		{"SIZEOF_EPOLLEVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EPoll, SIZEOF_EPOLLEVENT)},
+		{"OFFSETOF_EVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EPoll, OFFSETOF_EVENTS)},
+		{"OFFSETOF_FD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EPoll, OFFSETOF_FD)},
+		{"EPOLL_CTL_ADD", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLL_CTL_ADD)},
+		{"EPOLL_CTL_DEL", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLL_CTL_DEL)},
+		{"EPOLL_CTL_MOD", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLL_CTL_MOD)},
+		{"EPOLLIN", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLLIN)},
+		{"EPOLLOUT", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLLOUT)},
+		{"EPOLLONESHOT", "I", nullptr, $STATIC | $FINAL, $constField(EPoll, EPOLLONESHOT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(EPoll, init$, void)},
+		{"allocatePollArray", "(I)J", nullptr, $STATIC, $staticMethod(EPoll, allocatePollArray, int64_t, int32_t)},
+		{"create", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(EPoll, create, int32_t), "java.io.IOException"},
+		{"ctl", "(IIII)I", nullptr, $STATIC | $NATIVE, $staticMethod(EPoll, ctl, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"dataOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(EPoll, dataOffset, int32_t)},
+		{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(EPoll, eventSize, int32_t)},
+		{"eventsOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(EPoll, eventsOffset, int32_t)},
+		{"freePollArray", "(J)V", nullptr, $STATIC, $staticMethod(EPoll, freePollArray, void, int64_t)},
+		{"getDescriptor", "(J)I", nullptr, $STATIC, $staticMethod(EPoll, getDescriptor, int32_t, int64_t)},
+		{"getEvent", "(JI)J", nullptr, $STATIC, $staticMethod(EPoll, getEvent, int64_t, int64_t, int32_t)},
+		{"getEvents", "(J)I", nullptr, $STATIC, $staticMethod(EPoll, getEvents, int32_t, int64_t)},
+		{"wait", "(IJII)I", nullptr, $STATIC | $NATIVE, $staticMethod(EPoll, wait, int32_t, int32_t, int64_t, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.EPoll",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EPoll, name, initialize, &classInfo$$, EPoll::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EPoll);
+	});
 	return class$;
 }
 

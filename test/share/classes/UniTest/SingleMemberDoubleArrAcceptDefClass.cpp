@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberDoubleArrAcceptDefClass.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,33 +7,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace UniTest {
 
-$CompoundAttribute _SingleMemberDoubleArrAcceptDefClass_Annotations_[] = {
-	{"LUniTest/SingleMemberDoubleArrayDef;", nullptr},
-	{}
-};
-
-$MethodInfo _SingleMemberDoubleArrAcceptDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberDoubleArrAcceptDefClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberDoubleArrAcceptDefClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberDoubleArrAcceptDefClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberDoubleArrAcceptDefClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberDoubleArrAcceptDefClass_Annotations_
-};
-
-$Object* allocate$SingleMemberDoubleArrAcceptDefClass($Class* clazz) {
-	return $of($alloc(SingleMemberDoubleArrAcceptDefClass));
-}
-
 void SingleMemberDoubleArrAcceptDefClass::init$() {
 }
 
@@ -42,7 +14,29 @@ SingleMemberDoubleArrAcceptDefClass::SingleMemberDoubleArrAcceptDefClass() {
 }
 
 $Class* SingleMemberDoubleArrAcceptDefClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberDoubleArrAcceptDefClass, name, initialize, &_SingleMemberDoubleArrAcceptDefClass_ClassInfo_, allocate$SingleMemberDoubleArrAcceptDefClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberDoubleArrAcceptDefClass, init$, void)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberDoubleArrayDef;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberDoubleArrAcceptDefClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberDoubleArrAcceptDefClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberDoubleArrAcceptDefClass);
+	});
 	return class$;
 }
 

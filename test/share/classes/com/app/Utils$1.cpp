@@ -1,5 +1,4 @@
 #include <com/app/Utils$1.h>
-
 #include <com/app/Utils.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Module.h>
@@ -19,64 +18,9 @@ using $Module = ::java::lang::Module;
 using $StackTraceElement = ::java::lang::StackTraceElement;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $ModuleDescriptor$Version = ::java::lang::module::ModuleDescriptor$Version;
-using $Optional = ::java::util::Optional;
 
 namespace com {
 	namespace app {
-
-$FieldInfo _Utils$1_FieldInfo_[] = {
-	{"val$filename", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Utils$1, val$filename)},
-	{"val$methodname", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Utils$1, val$methodname)},
-	{"val$c", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(Utils$1, val$c)},
-	{}
-};
-
-$MethodInfo _Utils$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(Utils$1, init$, void, $Class*, $String*, $String*)},
-	{"getByteCodeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Utils$1, getByteCodeIndex, int32_t)},
-	{"getClassLoaderName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE, $method(Utils$1, getClassLoaderName, $String*, $Class*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, getClassName, $String*)},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Utils$1, getDeclaringClass, $Class*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, getFileName, $String*)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(Utils$1, getLineNumber, int32_t)},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, getMethodName, $String*)},
-	{"isNativeMethod", "()Z", nullptr, $PUBLIC, $virtualMethod(Utils$1, isNativeMethod, bool)},
-	{"toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(Utils$1, toStackTraceElement, $StackTraceElement*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _Utils$1_EnclosingMethodInfo_ = {
-	"com.app.Utils",
-	"makeStackFrame",
-	"(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StackWalker$StackFrame;"
-};
-
-$InnerClassInfo _Utils$1_InnerClassesInfo_[] = {
-	{"com.app.Utils$1", nullptr, nullptr, 0},
-	{"java.lang.StackWalker$StackFrame", "java.lang.StackWalker", "StackFrame", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Utils$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.app.Utils$1",
-	"java.lang.Object",
-	"java.lang.StackWalker$StackFrame",
-	_Utils$1_FieldInfo_,
-	_Utils$1_MethodInfo_,
-	nullptr,
-	&_Utils$1_EnclosingMethodInfo_,
-	_Utils$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.app.Utils"
-};
-
-$Object* allocate$Utils$1($Class* clazz) {
-	return $of($alloc(Utils$1));
-}
 
 void Utils$1::init$($Class* val$c, $String* val$methodname, $String* val$filename) {
 	$set(this, val$c, val$c);
@@ -117,27 +61,27 @@ $StackTraceElement* Utils$1::toStackTraceElement() {
 }
 
 $String* Utils$1::getClassLoaderName($Class* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, loader, $nc(c)->getClassLoader());
 	$var($String, name, ""_s);
 	if (loader == nullptr) {
 		$assign(name, "boot"_s);
-	} else if ($nc(loader)->getName() != nullptr) {
+	} else if (loader->getName() != nullptr) {
 		$assign(name, loader->getName());
 	}
 	return name;
 }
 
 $String* Utils$1::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, mid, getClassLoaderName(this->val$c));
 	$var($Module, module, $nc(this->val$c)->getModule());
 	if ($nc(module)->isNamed()) {
 		$var($ModuleDescriptor, md, module->getDescriptor());
 		$assign(mid, $nc(md)->name());
-		if ($nc($(md->version()))->isPresent()) {
-			$plusAssign(mid, $$str({"@"_s, $($nc(($cast($ModuleDescriptor$Version, $($nc($(md->version()))->get()))))->toString())}));
+		if ($$nc(md->version())->isPresent()) {
+			$plusAssign(mid, $$str({"@"_s, $($$sure($ModuleDescriptor$Version, $$nc(md->version())->get())->toString())}));
 		}
 		$plusAssign(mid, "/"_s);
 	}
@@ -150,10 +94,10 @@ $String* Utils$1::toString() {
 		$assign(sourceinfo, $str({fileName, ":"_s, $$str(lineNumber)}));
 	}
 	return $String::format("%s/%s.%s(%s)"_s, $$new($ObjectArray, {
-		$of(mid),
-		$($of(getClassName())),
-		$($of(getMethodName())),
-		$of(sourceinfo)
+		mid,
+		$(getClassName()),
+		$(getMethodName()),
+		sourceinfo
 	}));
 }
 
@@ -161,7 +105,54 @@ Utils$1::Utils$1() {
 }
 
 $Class* Utils$1::load$($String* name, bool initialize) {
-	$loadClass(Utils$1, name, initialize, &_Utils$1_ClassInfo_, allocate$Utils$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$filename", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Utils$1, val$filename)},
+		{"val$methodname", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Utils$1, val$methodname)},
+		{"val$c", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(Utils$1, val$c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(Utils$1, init$, void, $Class*, $String*, $String*)},
+		{"getByteCodeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Utils$1, getByteCodeIndex, int32_t)},
+		{"getClassLoaderName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE, $method(Utils$1, getClassLoaderName, $String*, $Class*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, getClassName, $String*)},
+		{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Utils$1, getDeclaringClass, $Class*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, getFileName, $String*)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(Utils$1, getLineNumber, int32_t)},
+		{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, getMethodName, $String*)},
+		{"isNativeMethod", "()Z", nullptr, $PUBLIC, $virtualMethod(Utils$1, isNativeMethod, bool)},
+		{"toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(Utils$1, toStackTraceElement, $StackTraceElement*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.app.Utils",
+		"makeStackFrame",
+		"(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StackWalker$StackFrame;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.app.Utils$1", nullptr, nullptr, 0},
+		{"java.lang.StackWalker$StackFrame", "java.lang.StackWalker", "StackFrame", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.app.Utils$1",
+		"java.lang.Object",
+		"java.lang.StackWalker$StackFrame",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.app.Utils"
+	};
+	$loadClass(Utils$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$1);
+	});
 	return class$;
 }
 

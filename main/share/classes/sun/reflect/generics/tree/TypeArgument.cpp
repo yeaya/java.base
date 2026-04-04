@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/TypeArgument.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace sun {
 		namespace generics {
 			namespace tree {
 
-$ClassInfo _TypeArgument_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.reflect.generics.tree.TypeArgument",
-	nullptr,
-	"sun.reflect.generics.tree.TypeTree"
-};
-
-$Object* allocate$TypeArgument($Class* clazz) {
-	return $of($alloc(TypeArgument));
-}
-
 $Class* TypeArgument::load$($String* name, bool initialize) {
-	$loadClass(TypeArgument, name, initialize, &_TypeArgument_ClassInfo_, allocate$TypeArgument);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.reflect.generics.tree.TypeArgument",
+		nullptr,
+		"sun.reflect.generics.tree.TypeTree"
+	};
+	$loadClass(TypeArgument, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeArgument);
+	});
 	return class$;
 }
 

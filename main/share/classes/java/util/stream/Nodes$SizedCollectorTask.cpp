@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$SizedCollectorTask.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Spliterator.h>
@@ -32,61 +31,6 @@ using $Sink = ::java::util::stream::Sink;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Nodes$SizedCollectorTask_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Nodes$SizedCollectorTask, $assertionsDisabled)},
-	{"spliterator", "Ljava/util/Spliterator;", "Ljava/util/Spliterator<TP_IN;>;", $PROTECTED | $FINAL, $field(Nodes$SizedCollectorTask, spliterator)},
-	{"helper", "Ljava/util/stream/PipelineHelper;", "Ljava/util/stream/PipelineHelper<TP_OUT;>;", $PROTECTED | $FINAL, $field(Nodes$SizedCollectorTask, helper)},
-	{"targetSize", "J", nullptr, $PROTECTED | $FINAL, $field(Nodes$SizedCollectorTask, targetSize)},
-	{"offset", "J", nullptr, $PROTECTED, $field(Nodes$SizedCollectorTask, offset)},
-	{"length", "J", nullptr, $PROTECTED, $field(Nodes$SizedCollectorTask, length)},
-	{"index", "I", nullptr, $PROTECTED, $field(Nodes$SizedCollectorTask, index)},
-	{"fence", "I", nullptr, $PROTECTED, $field(Nodes$SizedCollectorTask, fence)},
-	{}
-};
-
-$MethodInfo _Nodes$SizedCollectorTask_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;I)V", "(Ljava/util/Spliterator<TP_IN;>;Ljava/util/stream/PipelineHelper<TP_OUT;>;I)V", 0, $method(Nodes$SizedCollectorTask, init$, void, $Spliterator*, $PipelineHelper*, int32_t)},
-	{"<init>", "(Ljava/util/stream/Nodes$SizedCollectorTask;Ljava/util/Spliterator;JJI)V", "(TK;Ljava/util/Spliterator<TP_IN;>;JJI)V", 0, $method(Nodes$SizedCollectorTask, init$, void, Nodes$SizedCollectorTask*, $Spliterator*, int64_t, int64_t, int32_t)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$SizedCollectorTask, begin, void, int64_t)},
-	{"compute", "()V", nullptr, $PUBLIC, $virtualMethod(Nodes$SizedCollectorTask, compute, void)},
-	{"makeChild", "(Ljava/util/Spliterator;JJ)Ljava/util/stream/Nodes$SizedCollectorTask;", "(Ljava/util/Spliterator<TP_IN;>;JJ)TK;", $ABSTRACT, $virtualMethod(Nodes$SizedCollectorTask, makeChild, Nodes$SizedCollectorTask*, $Spliterator*, int64_t, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Nodes$SizedCollectorTask_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$SizedCollectorTask", "java.util.stream.Nodes", "SizedCollectorTask", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Nodes$SizedCollectorTask$OfDouble", "java.util.stream.Nodes$SizedCollectorTask", "OfDouble", $STATIC | $FINAL},
-	{"java.util.stream.Nodes$SizedCollectorTask$OfLong", "java.util.stream.Nodes$SizedCollectorTask", "OfLong", $STATIC | $FINAL},
-	{"java.util.stream.Nodes$SizedCollectorTask$OfInt", "java.util.stream.Nodes$SizedCollectorTask", "OfInt", $STATIC | $FINAL},
-	{"java.util.stream.Nodes$SizedCollectorTask$OfRef", "java.util.stream.Nodes$SizedCollectorTask", "OfRef", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Nodes$SizedCollectorTask_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.Nodes$SizedCollectorTask",
-	"java.util.concurrent.CountedCompleter",
-	"java.util.stream.Sink",
-	_Nodes$SizedCollectorTask_FieldInfo_,
-	_Nodes$SizedCollectorTask_MethodInfo_,
-	"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;T_SINK::Ljava/util/stream/Sink<TP_OUT;>;K:Ljava/util/stream/Nodes$SizedCollectorTask<TP_IN;TP_OUT;TT_SINK;TK;>;>Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;Ljava/util/stream/Sink<TP_OUT;>;",
-	nullptr,
-	_Nodes$SizedCollectorTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$SizedCollectorTask($Class* clazz) {
-	return $of($alloc(Nodes$SizedCollectorTask));
-}
 
 int32_t Nodes$SizedCollectorTask::hashCode() {
 	 return this->$CountedCompleter::hashCode();
@@ -123,7 +67,7 @@ void Nodes$SizedCollectorTask::init$($Spliterator* spliterator, $PipelineHelper*
 }
 
 void Nodes$SizedCollectorTask::init$(Nodes$SizedCollectorTask* parent, $Spliterator* spliterator, int64_t offset, int64_t length, int32_t arrayLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$CountedCompleter::init$(parent);
 	if (!Nodes$SizedCollectorTask::$assertionsDisabled && !$nc(spliterator)->hasCharacteristics($Spliterator::SUBSIZED)) {
 		$throwNew($AssertionError);
@@ -135,16 +79,16 @@ void Nodes$SizedCollectorTask::init$(Nodes$SizedCollectorTask* parent, $Splitera
 	this->length = length;
 	if (offset < 0 || length < 0 || (offset + length - 1 >= arrayLength)) {
 		$throwNew($IllegalArgumentException, $($String::format("offset and length interval [%d, %d + %d) is not within array size interval [0, %d)"_s, $$new($ObjectArray, {
-			$($of($Long::valueOf(offset))),
-			$($of($Long::valueOf(offset))),
-			$($of($Long::valueOf(length))),
-			$($of($Integer::valueOf(arrayLength)))
+			$($Long::valueOf(offset)),
+			$($Long::valueOf(offset)),
+			$($Long::valueOf(length)),
+			$($Integer::valueOf(arrayLength))
 		}))));
 	}
 }
 
 void Nodes$SizedCollectorTask::compute() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Nodes$SizedCollectorTask, task, this);
 	$var($Spliterator, rightSplit, this->spliterator);
 	$var($Spliterator, leftSplit, nullptr);
@@ -156,14 +100,14 @@ void Nodes$SizedCollectorTask::compute() {
 		{
 			task->setPendingCount(1);
 			int64_t leftSplitSize = $nc(leftSplit)->estimateSize();
-			$nc($(task->makeChild(leftSplit, task->offset, leftSplitSize)))->fork();
+			$$nc(task->makeChild(leftSplit, task->offset, leftSplitSize))->fork();
 			$assign(task, task->makeChild(rightSplit, task->offset + leftSplitSize, task->length - leftSplitSize));
 		}
 	}
-	if (!Nodes$SizedCollectorTask::$assertionsDisabled && !($nc(task)->offset + task->length < (int64_t)2147483639)) {
+	if (!Nodes$SizedCollectorTask::$assertionsDisabled && !($nc(task)->offset + $nc(task)->length < 2147483639)) {
 		$throwNew($AssertionError);
 	}
-	$var($Sink, sink, static_cast<$Sink*>(task));
+	$var($Sink, sink, $cast($Sink, task));
 	$nc($nc(task)->helper)->wrapAndCopyInto(sink, rightSplit);
 	task->propagateCompletion();
 }
@@ -176,7 +120,7 @@ void Nodes$SizedCollectorTask::begin(int64_t size) {
 	this->fence = this->index + (int32_t)this->length;
 }
 
-void clinit$Nodes$SizedCollectorTask($Class* class$) {
+void Nodes$SizedCollectorTask::clinit$($Class* clazz) {
 	$load($Nodes);
 	Nodes$SizedCollectorTask::$assertionsDisabled = !$Nodes::class$->desiredAssertionStatus();
 }
@@ -185,7 +129,56 @@ Nodes$SizedCollectorTask::Nodes$SizedCollectorTask() {
 }
 
 $Class* Nodes$SizedCollectorTask::load$($String* name, bool initialize) {
-	$loadClass(Nodes$SizedCollectorTask, name, initialize, &_Nodes$SizedCollectorTask_ClassInfo_, clinit$Nodes$SizedCollectorTask, allocate$Nodes$SizedCollectorTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Nodes$SizedCollectorTask, $assertionsDisabled)},
+		{"spliterator", "Ljava/util/Spliterator;", "Ljava/util/Spliterator<TP_IN;>;", $PROTECTED | $FINAL, $field(Nodes$SizedCollectorTask, spliterator)},
+		{"helper", "Ljava/util/stream/PipelineHelper;", "Ljava/util/stream/PipelineHelper<TP_OUT;>;", $PROTECTED | $FINAL, $field(Nodes$SizedCollectorTask, helper)},
+		{"targetSize", "J", nullptr, $PROTECTED | $FINAL, $field(Nodes$SizedCollectorTask, targetSize)},
+		{"offset", "J", nullptr, $PROTECTED, $field(Nodes$SizedCollectorTask, offset)},
+		{"length", "J", nullptr, $PROTECTED, $field(Nodes$SizedCollectorTask, length)},
+		{"index", "I", nullptr, $PROTECTED, $field(Nodes$SizedCollectorTask, index)},
+		{"fence", "I", nullptr, $PROTECTED, $field(Nodes$SizedCollectorTask, fence)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;I)V", "(Ljava/util/Spliterator<TP_IN;>;Ljava/util/stream/PipelineHelper<TP_OUT;>;I)V", 0, $method(Nodes$SizedCollectorTask, init$, void, $Spliterator*, $PipelineHelper*, int32_t)},
+		{"<init>", "(Ljava/util/stream/Nodes$SizedCollectorTask;Ljava/util/Spliterator;JJI)V", "(TK;Ljava/util/Spliterator<TP_IN;>;JJI)V", 0, $method(Nodes$SizedCollectorTask, init$, void, Nodes$SizedCollectorTask*, $Spliterator*, int64_t, int64_t, int32_t)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$SizedCollectorTask, begin, void, int64_t)},
+		{"compute", "()V", nullptr, $PUBLIC, $virtualMethod(Nodes$SizedCollectorTask, compute, void)},
+		{"makeChild", "(Ljava/util/Spliterator;JJ)Ljava/util/stream/Nodes$SizedCollectorTask;", "(Ljava/util/Spliterator<TP_IN;>;JJ)TK;", $ABSTRACT, $virtualMethod(Nodes$SizedCollectorTask, makeChild, Nodes$SizedCollectorTask*, $Spliterator*, int64_t, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$SizedCollectorTask", "java.util.stream.Nodes", "SizedCollectorTask", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Nodes$SizedCollectorTask$OfDouble", "java.util.stream.Nodes$SizedCollectorTask", "OfDouble", $STATIC | $FINAL},
+		{"java.util.stream.Nodes$SizedCollectorTask$OfLong", "java.util.stream.Nodes$SizedCollectorTask", "OfLong", $STATIC | $FINAL},
+		{"java.util.stream.Nodes$SizedCollectorTask$OfInt", "java.util.stream.Nodes$SizedCollectorTask", "OfInt", $STATIC | $FINAL},
+		{"java.util.stream.Nodes$SizedCollectorTask$OfRef", "java.util.stream.Nodes$SizedCollectorTask", "OfRef", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.Nodes$SizedCollectorTask",
+		"java.util.concurrent.CountedCompleter",
+		"java.util.stream.Sink",
+		fieldInfos$$,
+		methodInfos$$,
+		"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;T_SINK::Ljava/util/stream/Sink<TP_OUT;>;K:Ljava/util/stream/Nodes$SizedCollectorTask<TP_IN;TP_OUT;TT_SINK;TK;>;>Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;Ljava/util/stream/Sink<TP_OUT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$SizedCollectorTask, name, initialize, &classInfo$$, Nodes$SizedCollectorTask::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$SizedCollectorTask));
+	});
 	return class$;
 }
 

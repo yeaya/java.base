@@ -15,6 +15,7 @@ class $import ProcessBuilder$NullInputStream : public ::java::io::InputStream {
 	$class(ProcessBuilder$NullInputStream, 0, ::java::io::InputStream)
 public:
 	ProcessBuilder$NullInputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t available() override;
 	using ::java::io::InputStream::read;

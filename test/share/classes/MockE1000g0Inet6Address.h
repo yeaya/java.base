@@ -12,6 +12,7 @@ class MockE1000g0Inet6Address : public ::java::lang::Object {
 	$class(MockE1000g0Inet6Address, 0, ::java::lang::Object)
 public:
 	MockE1000g0Inet6Address();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* getAddress();
 	static $String* getBareHostAddress();

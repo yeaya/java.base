@@ -52,8 +52,8 @@ public:
 	virtual ::java::text::RBCollationTables* getTables();
 	virtual int32_t hashCode() override;
 	static const int32_t CHARINDEX = 0x70000000;
-	static const int32_t EXPANDCHARINDEX = 0x7E000000;
-	static const int32_t CONTRACTCHARINDEX = 0x7F000000;
+	static const int32_t EXPANDCHARINDEX = 0x7e000000;
+	static const int32_t CONTRACTCHARINDEX = 0x7f000000;
 	static const int32_t UNMAPPED = (-1);
 	static const int32_t COLLATIONKEYOFFSET = 1;
 	::java::text::RBCollationTables* tables = nullptr;

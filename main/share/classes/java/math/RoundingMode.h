@@ -31,6 +31,7 @@ class $export RoundingMode : public ::java::lang::Enum {
 public:
 	RoundingMode();
 	static $Array<::java::math::RoundingMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t oldMode);
 	static ::java::math::RoundingMode* valueOf($String* name);
 	static ::java::math::RoundingMode* valueOf(int32_t rm);

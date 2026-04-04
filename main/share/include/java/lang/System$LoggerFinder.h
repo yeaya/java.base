@@ -29,6 +29,7 @@ class $import System$LoggerFinder : public ::java::lang::Object {
 	$class(System$LoggerFinder, 0, ::java::lang::Object)
 public:
 	System$LoggerFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::lang::Void* unused);
 	static ::java::lang::System$LoggerFinder* accessProvider();

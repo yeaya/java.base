@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/LocalVariablesSorter.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
@@ -66,46 +65,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$FieldInfo _LocalVariablesSorter_FieldInfo_[] = {
-	{"OBJECT_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LocalVariablesSorter, OBJECT_TYPE)},
-	{"remappedVariableIndices", "[I", nullptr, $PRIVATE, $field(LocalVariablesSorter, remappedVariableIndices)},
-	{"remappedLocalTypes", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(LocalVariablesSorter, remappedLocalTypes)},
-	{"firstLocal", "I", nullptr, $PROTECTED | $FINAL, $field(LocalVariablesSorter, firstLocal)},
-	{"nextLocal", "I", nullptr, $PROTECTED, $field(LocalVariablesSorter, nextLocal)},
-	{}
-};
-
-$MethodInfo _LocalVariablesSorter_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(LocalVariablesSorter, init$, void, int32_t, $String*, $MethodVisitor*)},
-	{"<init>", "(IILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PROTECTED, $method(LocalVariablesSorter, init$, void, int32_t, int32_t, $String*, $MethodVisitor*)},
-	{"newLocal", "(Ljdk/internal/org/objectweb/asm/Type;)I", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, newLocal, int32_t, $Type*)},
-	{"newLocalMapping", "(Ljdk/internal/org/objectweb/asm/Type;)I", nullptr, $PROTECTED, $virtualMethod(LocalVariablesSorter, newLocalMapping, int32_t, $Type*)},
-	{"remap", "(ILjdk/internal/org/objectweb/asm/Type;)I", nullptr, $PRIVATE, $method(LocalVariablesSorter, remap, int32_t, int32_t, $Type*)},
-	{"setFrameLocal", "(ILjava/lang/Object;)V", nullptr, $PRIVATE, $method(LocalVariablesSorter, setFrameLocal, void, int32_t, Object$*)},
-	{"setLocalType", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PROTECTED, $virtualMethod(LocalVariablesSorter, setLocalType, void, int32_t, $Type*)},
-	{"updateNewLocals", "([Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(LocalVariablesSorter, updateNewLocals, void, $ObjectArray*)},
-	{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
-	{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitIincInsn, void, int32_t, int32_t)},
-	{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
-	{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitLocalVariableAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $LabelArray*, $LabelArray*, $ints*, $String*, bool)},
-	{"visitMaxs", "(II)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitMaxs, void, int32_t, int32_t)},
-	{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitVarInsn, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _LocalVariablesSorter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.LocalVariablesSorter",
-	"jdk.internal.org.objectweb.asm.MethodVisitor",
-	nullptr,
-	_LocalVariablesSorter_FieldInfo_,
-	_LocalVariablesSorter_MethodInfo_
-};
-
-$Object* allocate$LocalVariablesSorter($Class* clazz) {
-	return $of($alloc(LocalVariablesSorter));
-}
-
 $Type* LocalVariablesSorter::OBJECT_TYPE = nullptr;
 
 void LocalVariablesSorter::init$(int32_t access, $String* descriptor, $MethodVisitor* methodVisitor) {
@@ -116,16 +75,14 @@ void LocalVariablesSorter::init$(int32_t access, $String* descriptor, $MethodVis
 }
 
 void LocalVariablesSorter::init$(int32_t api, int32_t access, $String* descriptor, $MethodVisitor* methodVisitor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MethodVisitor::init$(api, methodVisitor);
 	$set(this, remappedVariableIndices, $new($ints, 40));
 	$set(this, remappedLocalTypes, $new($ObjectArray, 20));
-	this->nextLocal = ((int32_t)($Opcodes::ACC_STATIC & (uint32_t)access)) == 0 ? 1 : 0;
+	this->nextLocal = ($Opcodes::ACC_STATIC & access) == 0 ? 1 : 0;
 	{
 		$var($TypeArray, arr$, $Type::getArgumentTypes(descriptor));
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Type, argumentType, arr$->get(i$));
 			{
 				this->nextLocal += $nc(argumentType)->getSize();
@@ -136,54 +93,36 @@ void LocalVariablesSorter::init$(int32_t api, int32_t access, $String* descripto
 }
 
 void LocalVariablesSorter::visitVarInsn(int32_t opcode, int32_t var) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, varType, nullptr);
 	switch (opcode) {
 	case $Opcodes::LLOAD:
-		{}
 	case $Opcodes::LSTORE:
-		{
-			$init($Type);
-			$assign(varType, $Type::LONG_TYPE);
-			break;
-		}
+		$init($Type);
+		$assign(varType, $Type::LONG_TYPE);
+		break;
 	case $Opcodes::DLOAD:
-		{}
 	case $Opcodes::DSTORE:
-		{
-			$init($Type);
-			$assign(varType, $Type::DOUBLE_TYPE);
-			break;
-		}
+		$init($Type);
+		$assign(varType, $Type::DOUBLE_TYPE);
+		break;
 	case $Opcodes::FLOAD:
-		{}
 	case $Opcodes::FSTORE:
-		{
-			$init($Type);
-			$assign(varType, $Type::FLOAT_TYPE);
-			break;
-		}
+		$init($Type);
+		$assign(varType, $Type::FLOAT_TYPE);
+		break;
 	case $Opcodes::ILOAD:
-		{}
 	case $Opcodes::ISTORE:
-		{
-			$init($Type);
-			$assign(varType, $Type::INT_TYPE);
-			break;
-		}
+		$init($Type);
+		$assign(varType, $Type::INT_TYPE);
+		break;
 	case $Opcodes::ALOAD:
-		{}
 	case $Opcodes::ASTORE:
-		{}
 	case $Opcodes::RET:
-		{
-			$assign(varType, LocalVariablesSorter::OBJECT_TYPE);
-			break;
-		}
+		$assign(varType, LocalVariablesSorter::OBJECT_TYPE);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid opcode "_s, $$str(opcode)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid opcode "_s, $$str(opcode)}));
 	}
 	$MethodVisitor::visitVarInsn(opcode, remap(var, varType));
 }
@@ -203,7 +142,7 @@ void LocalVariablesSorter::visitLocalVariable($String* name, $String* descriptor
 }
 
 $AnnotationVisitor* LocalVariablesSorter::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, type, $Type::getType(descriptor));
 	$var($ints, remappedIndex, $new($ints, $nc(index)->length));
 	for (int32_t i = 0; i < remappedIndex->length; ++i) {
@@ -213,7 +152,7 @@ $AnnotationVisitor* LocalVariablesSorter::visitLocalVariableAnnotation(int32_t t
 }
 
 void LocalVariablesSorter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* local, int32_t numStack, $ObjectArray* stack) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type != $Opcodes::F_NEW) {
 		$throwNew($IllegalArgumentException, "LocalVariablesSorter only accepts expanded frames (see ClassReader.EXPAND_FRAMES)"_s);
 	}
@@ -229,23 +168,17 @@ void LocalVariablesSorter::visitFrame(int32_t type, int32_t numLocal, $ObjectArr
 			if ($equals(localType, $Opcodes::INTEGER)) {
 				$init($Type);
 				$assign(varType, $Type::INT_TYPE);
-			} else {
-				if ($equals(localType, $Opcodes::FLOAT)) {
-					$init($Type);
-					$assign(varType, $Type::FLOAT_TYPE);
-				} else {
-					if ($equals(localType, $Opcodes::LONG)) {
-						$init($Type);
-						$assign(varType, $Type::LONG_TYPE);
-					} else {
-						if ($equals(localType, $Opcodes::DOUBLE)) {
-							$init($Type);
-							$assign(varType, $Type::DOUBLE_TYPE);
-						} else if ($instanceOf($String, localType)) {
-							$assign(varType, $Type::getObjectType($cast($String, localType)));
-						}
-					}
-				}
+			} else if ($equals(localType, $Opcodes::FLOAT)) {
+				$init($Type);
+				$assign(varType, $Type::FLOAT_TYPE);
+			} else if ($equals(localType, $Opcodes::LONG)) {
+				$init($Type);
+				$assign(varType, $Type::LONG_TYPE);
+			} else if ($equals(localType, $Opcodes::DOUBLE)) {
+				$init($Type);
+				$assign(varType, $Type::DOUBLE_TYPE);
+			} else if ($instanceOf($String, localType)) {
+				$assign(varType, $Type::getObjectType($cast($String, localType)));
 			}
 			setFrameLocal(remap(oldVar, varType), localType);
 		}
@@ -254,15 +187,15 @@ void LocalVariablesSorter::visitFrame(int32_t type, int32_t numLocal, $ObjectArr
 	oldVar = 0;
 	int32_t newVar = 0;
 	int32_t remappedNumLocal = 0;
-	while (oldVar < $nc(this->remappedLocalTypes)->length) {
-		$var($Object0, localType, $nc(this->remappedLocalTypes)->get(oldVar));
+	while (oldVar < this->remappedLocalTypes->length) {
+		$var($Object0, localType, this->remappedLocalTypes->get(oldVar));
 		$init($Opcodes);
 		oldVar += $equals(localType, $Opcodes::LONG) || $equals(localType, $Opcodes::DOUBLE) ? 2 : 1;
 		if (localType != nullptr && !$equals(localType, $Opcodes::TOP)) {
-			$nc(this->remappedLocalTypes)->set(newVar++, localType);
+			this->remappedLocalTypes->set(newVar++, localType);
 			remappedNumLocal = newVar;
 		} else {
-			$nc(this->remappedLocalTypes)->set(newVar++, $Opcodes::TOP);
+			this->remappedLocalTypes->set(newVar++, $Opcodes::TOP);
 		}
 	}
 	$MethodVisitor::visitFrame(type, remappedNumLocal, this->remappedLocalTypes, numStack, stack);
@@ -273,51 +206,33 @@ int32_t LocalVariablesSorter::newLocal($Type* type) {
 	$var($Object, localType, nullptr);
 	switch ($nc(type)->getSort()) {
 	case $Type::BOOLEAN:
-		{}
 	case $Type::CHAR:
-		{}
 	case $Type::BYTE:
-		{}
 	case $Type::SHORT:
-		{}
 	case $Type::INT:
-		{
-			$init($Opcodes);
-			$assign(localType, $Opcodes::INTEGER);
-			break;
-		}
+		$init($Opcodes);
+		$assign(localType, $Opcodes::INTEGER);
+		break;
 	case $Type::FLOAT:
-		{
-			$init($Opcodes);
-			$assign(localType, $Opcodes::FLOAT);
-			break;
-		}
+		$init($Opcodes);
+		$assign(localType, $Opcodes::FLOAT);
+		break;
 	case $Type::LONG:
-		{
-			$init($Opcodes);
-			$assign(localType, $Opcodes::LONG);
-			break;
-		}
+		$init($Opcodes);
+		$assign(localType, $Opcodes::LONG);
+		break;
 	case $Type::DOUBLE:
-		{
-			$init($Opcodes);
-			$assign(localType, $Opcodes::DOUBLE);
-			break;
-		}
+		$init($Opcodes);
+		$assign(localType, $Opcodes::DOUBLE);
+		break;
 	case $Type::ARRAY:
-		{
-			$assign(localType, type->getDescriptor());
-			break;
-		}
+		$assign(localType, type->getDescriptor());
+		break;
 	case $Type::OBJECT:
-		{
-			$assign(localType, type->getInternalName());
-			break;
-		}
+		$assign(localType, type->getInternalName());
+		break;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 	int32_t local = newLocalMapping(type);
 	setLocalType(local, type);
@@ -338,25 +253,25 @@ void LocalVariablesSorter::setFrameLocal(int32_t local, Object$* type) {
 		$System::arraycopy(this->remappedLocalTypes, 0, newRemappedLocalTypes, 0, numLocals);
 		$set(this, remappedLocalTypes, newRemappedLocalTypes);
 	}
-	$nc(this->remappedLocalTypes)->set(local, type);
+	this->remappedLocalTypes->set(local, type);
 }
 
 int32_t LocalVariablesSorter::remap(int32_t var, $Type* type) {
 	if (var + $nc(type)->getSize() <= this->firstLocal) {
 		return var;
 	}
-	int32_t key = 2 * var + $nc(type)->getSize() - 1;
+	int32_t key = 2 * var + type->getSize() - 1;
 	int32_t size = $nc(this->remappedVariableIndices)->length;
 	if (key >= size) {
 		$var($ints, newRemappedVariableIndices, $new($ints, $Math::max(2 * size, key + 1)));
 		$System::arraycopy(this->remappedVariableIndices, 0, newRemappedVariableIndices, 0, size);
 		$set(this, remappedVariableIndices, newRemappedVariableIndices);
 	}
-	int32_t value = $nc(this->remappedVariableIndices)->get(key);
+	int32_t value = this->remappedVariableIndices->get(key);
 	if (value == 0) {
 		value = newLocalMapping(type);
 		setLocalType(value, type);
-		$nc(this->remappedVariableIndices)->set(key, value + 1);
+		this->remappedVariableIndices->set(key, value + 1);
 	} else {
 		--value;
 	}
@@ -369,7 +284,7 @@ int32_t LocalVariablesSorter::newLocalMapping($Type* type) {
 	return local;
 }
 
-void clinit$LocalVariablesSorter($Class* class$) {
+void LocalVariablesSorter::clinit$($Class* clazz) {
 	$assignStatic(LocalVariablesSorter::OBJECT_TYPE, $Type::getObjectType("java/lang/Object"_s));
 }
 
@@ -377,7 +292,42 @@ LocalVariablesSorter::LocalVariablesSorter() {
 }
 
 $Class* LocalVariablesSorter::load$($String* name, bool initialize) {
-	$loadClass(LocalVariablesSorter, name, initialize, &_LocalVariablesSorter_ClassInfo_, clinit$LocalVariablesSorter, allocate$LocalVariablesSorter);
+	$FieldInfo fieldInfos$$[] = {
+		{"OBJECT_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LocalVariablesSorter, OBJECT_TYPE)},
+		{"remappedVariableIndices", "[I", nullptr, $PRIVATE, $field(LocalVariablesSorter, remappedVariableIndices)},
+		{"remappedLocalTypes", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(LocalVariablesSorter, remappedLocalTypes)},
+		{"firstLocal", "I", nullptr, $PROTECTED | $FINAL, $field(LocalVariablesSorter, firstLocal)},
+		{"nextLocal", "I", nullptr, $PROTECTED, $field(LocalVariablesSorter, nextLocal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(LocalVariablesSorter, init$, void, int32_t, $String*, $MethodVisitor*)},
+		{"<init>", "(IILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PROTECTED, $method(LocalVariablesSorter, init$, void, int32_t, int32_t, $String*, $MethodVisitor*)},
+		{"newLocal", "(Ljdk/internal/org/objectweb/asm/Type;)I", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, newLocal, int32_t, $Type*)},
+		{"newLocalMapping", "(Ljdk/internal/org/objectweb/asm/Type;)I", nullptr, $PROTECTED, $virtualMethod(LocalVariablesSorter, newLocalMapping, int32_t, $Type*)},
+		{"remap", "(ILjdk/internal/org/objectweb/asm/Type;)I", nullptr, $PRIVATE, $method(LocalVariablesSorter, remap, int32_t, int32_t, $Type*)},
+		{"setFrameLocal", "(ILjava/lang/Object;)V", nullptr, $PRIVATE, $method(LocalVariablesSorter, setFrameLocal, void, int32_t, Object$*)},
+		{"setLocalType", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PROTECTED, $virtualMethod(LocalVariablesSorter, setLocalType, void, int32_t, $Type*)},
+		{"updateNewLocals", "([Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(LocalVariablesSorter, updateNewLocals, void, $ObjectArray*)},
+		{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
+		{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitIincInsn, void, int32_t, int32_t)},
+		{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
+		{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitLocalVariableAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $LabelArray*, $LabelArray*, $ints*, $String*, bool)},
+		{"visitMaxs", "(II)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitMaxs, void, int32_t, int32_t)},
+		{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitVarInsn, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.LocalVariablesSorter",
+		"jdk.internal.org.objectweb.asm.MethodVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocalVariablesSorter, name, initialize, &classInfo$$, LocalVariablesSorter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalVariablesSorter);
+	});
 	return class$;
 }
 

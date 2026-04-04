@@ -1,5 +1,4 @@
 #include <java/util/random/RandomGenerator$StreamableGenerator.h>
-
 #include <java/util/Objects.h>
 #include <java/util/random/RandomGenerator.h>
 #include <java/util/random/RandomGeneratorFactory.h>
@@ -19,38 +18,6 @@ namespace java {
 	namespace util {
 		namespace random {
 
-$MethodInfo _RandomGenerator$StreamableGenerator_MethodInfo_[] = {
-	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator$StreamableGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator$StreamableGenerator, of, RandomGenerator$StreamableGenerator*, $String*)},
-	{"rngs", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$StreamableGenerator, rngs, $Stream*)},
-	{"rngs", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC, $virtualMethod(RandomGenerator$StreamableGenerator, rngs, $Stream*, int64_t)},
-	{}
-};
-
-$InnerClassInfo _RandomGenerator$StreamableGenerator_InnerClassesInfo_[] = {
-	{"java.util.random.RandomGenerator$StreamableGenerator", "java.util.random.RandomGenerator", "StreamableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RandomGenerator$StreamableGenerator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.random.RandomGenerator$StreamableGenerator",
-	nullptr,
-	"java.util.random.RandomGenerator",
-	nullptr,
-	_RandomGenerator$StreamableGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RandomGenerator$StreamableGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.random.RandomGenerator"
-};
-
-$Object* allocate$RandomGenerator$StreamableGenerator($Class* clazz) {
-	return $of($alloc(RandomGenerator$StreamableGenerator));
-}
-
 RandomGenerator$StreamableGenerator* RandomGenerator$StreamableGenerator::of($String* name) {
 	$init(RandomGenerator$StreamableGenerator);
 	$Objects::requireNonNull(name);
@@ -59,11 +26,38 @@ RandomGenerator$StreamableGenerator* RandomGenerator$StreamableGenerator::of($St
 
 $Stream* RandomGenerator$StreamableGenerator::rngs(int64_t streamSize) {
 	$RandomSupport::checkStreamSize(streamSize);
-	return $nc($(rngs()))->limit(streamSize);
+	return $$nc(rngs())->limit(streamSize);
 }
 
 $Class* RandomGenerator$StreamableGenerator::load$($String* name, bool initialize) {
-	$loadClass(RandomGenerator$StreamableGenerator, name, initialize, &_RandomGenerator$StreamableGenerator_ClassInfo_, allocate$RandomGenerator$StreamableGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator$StreamableGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator$StreamableGenerator, of, RandomGenerator$StreamableGenerator*, $String*)},
+		{"rngs", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$StreamableGenerator, rngs, $Stream*)},
+		{"rngs", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC, $virtualMethod(RandomGenerator$StreamableGenerator, rngs, $Stream*, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.random.RandomGenerator$StreamableGenerator", "java.util.random.RandomGenerator", "StreamableGenerator", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.random.RandomGenerator$StreamableGenerator",
+		nullptr,
+		"java.util.random.RandomGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.random.RandomGenerator"
+	};
+	$loadClass(RandomGenerator$StreamableGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGenerator$StreamableGenerator);
+	});
 	return class$;
 }
 

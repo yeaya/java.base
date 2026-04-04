@@ -45,7 +45,7 @@ public:
 	static const int32_t PLANEMASK = 0x00030000;
 	static const int32_t PLANESHIFT = 16;
 	static const int32_t PLANECOUNT = 16;
-	static const int32_t CODEPOINTMASK = 0x0000FFFF;
+	static const int32_t CODEPOINTMASK = 0x0000ffff;
 	static const int32_t UNICODECOUNT = 0x00010000;
 	static const int32_t BLOCKSHIFT = 7;
 	static const int32_t BLOCKCOUNT = 128; // (1 << BLOCKSHIFT)

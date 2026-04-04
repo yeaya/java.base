@@ -1,5 +1,4 @@
 #include <java/lang/ProcessBuilder$Redirect$6.h>
-
 #include <java/io/File.h>
 #include <java/lang/ProcessBuilder$Redirect$Type.h>
 #include <java/lang/ProcessBuilder$Redirect.h>
@@ -18,52 +17,6 @@ using $ProcessBuilder$Redirect$Type = ::java::lang::ProcessBuilder$Redirect$Type
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ProcessBuilder$Redirect$6_FieldInfo_[] = {
-	{"val$file", "Ljava/io/File;", nullptr, $FINAL | $SYNTHETIC, $field(ProcessBuilder$Redirect$6, val$file)},
-	{}
-};
-
-$MethodInfo _ProcessBuilder$Redirect$6_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(ProcessBuilder$Redirect$6, init$, void, $File*)},
-	{"append", "()Z", nullptr, 0, $virtualMethod(ProcessBuilder$Redirect$6, append, bool)},
-	{"file", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect$6, file, $File*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect$6, toString, $String*)},
-	{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect$6, type, $ProcessBuilder$Redirect$Type*)},
-	{}
-};
-
-$EnclosingMethodInfo _ProcessBuilder$Redirect$6_EnclosingMethodInfo_ = {
-	"java.lang.ProcessBuilder$Redirect",
-	"appendTo",
-	"(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;"
-};
-
-$InnerClassInfo _ProcessBuilder$Redirect$6_InnerClassesInfo_[] = {
-	{"java.lang.ProcessBuilder$Redirect", "java.lang.ProcessBuilder", "Redirect", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.lang.ProcessBuilder$Redirect$6", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProcessBuilder$Redirect$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ProcessBuilder$Redirect$6",
-	"java.lang.ProcessBuilder$Redirect",
-	nullptr,
-	_ProcessBuilder$Redirect$6_FieldInfo_,
-	_ProcessBuilder$Redirect$6_MethodInfo_,
-	nullptr,
-	&_ProcessBuilder$Redirect$6_EnclosingMethodInfo_,
-	_ProcessBuilder$Redirect$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessBuilder"
-};
-
-$Object* allocate$ProcessBuilder$Redirect$6($Class* clazz) {
-	return $of($alloc(ProcessBuilder$Redirect$6));
-}
 
 void ProcessBuilder$Redirect$6::init$($File* val$file) {
 	$set(this, val$file, val$file);
@@ -91,7 +44,46 @@ ProcessBuilder$Redirect$6::ProcessBuilder$Redirect$6() {
 }
 
 $Class* ProcessBuilder$Redirect$6::load$($String* name, bool initialize) {
-	$loadClass(ProcessBuilder$Redirect$6, name, initialize, &_ProcessBuilder$Redirect$6_ClassInfo_, allocate$ProcessBuilder$Redirect$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$file", "Ljava/io/File;", nullptr, $FINAL | $SYNTHETIC, $field(ProcessBuilder$Redirect$6, val$file)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(ProcessBuilder$Redirect$6, init$, void, $File*)},
+		{"append", "()Z", nullptr, 0, $virtualMethod(ProcessBuilder$Redirect$6, append, bool)},
+		{"file", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect$6, file, $File*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect$6, toString, $String*)},
+		{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect$6, type, $ProcessBuilder$Redirect$Type*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.ProcessBuilder$Redirect",
+		"appendTo",
+		"(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessBuilder$Redirect", "java.lang.ProcessBuilder", "Redirect", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.lang.ProcessBuilder$Redirect$6", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ProcessBuilder$Redirect$6",
+		"java.lang.ProcessBuilder$Redirect",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessBuilder"
+	};
+	$loadClass(ProcessBuilder$Redirect$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessBuilder$Redirect$6);
+	});
 	return class$;
 }
 

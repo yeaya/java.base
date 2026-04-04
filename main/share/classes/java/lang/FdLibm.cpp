@@ -1,5 +1,4 @@
 #include <java/lang/FdLibm.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <jcpp.h>
 
@@ -18,47 +17,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 namespace java {
 	namespace lang {
 
-$FieldInfo _FdLibm_FieldInfo_[] = {
-	{"INFINITY", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm, INFINITY)},
-	{}
-};
-
-$MethodInfo _FdLibm_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm, init$, void)},
-	{"__HI", "(D)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __HI, int32_t, double)},
-	{"__HI", "(DI)D", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __HI, double, double, int32_t)},
-	{"__LO", "(D)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __LO, int32_t, double)},
-	{"__LO", "(DI)D", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __LO, double, double, int32_t)},
-	{}
-};
-
-$InnerClassInfo _FdLibm_InnerClassesInfo_[] = {
-	{"java.lang.FdLibm$Exp", "java.lang.FdLibm", "Exp", $STATIC},
-	{"java.lang.FdLibm$Pow", "java.lang.FdLibm", "Pow", $PUBLIC | $STATIC},
-	{"java.lang.FdLibm$Hypot", "java.lang.FdLibm", "Hypot", $PUBLIC | $STATIC},
-	{"java.lang.FdLibm$Cbrt", "java.lang.FdLibm", "Cbrt", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _FdLibm_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.FdLibm",
-	"java.lang.Object",
-	nullptr,
-	_FdLibm_FieldInfo_,
-	_FdLibm_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FdLibm_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.FdLibm$Exp,java.lang.FdLibm$Pow,java.lang.FdLibm$Hypot,java.lang.FdLibm$Cbrt"
-};
-
-$Object* allocate$FdLibm($Class* clazz) {
-	return $of($alloc(FdLibm));
-}
-
 double FdLibm::INFINITY = 0.0;
 
 void FdLibm::init$() {
@@ -74,7 +32,7 @@ int32_t FdLibm::__LO(double x) {
 double FdLibm::__LO(double x, int32_t low) {
 	$init(FdLibm);
 	int64_t transX = $Double::doubleToRawLongBits(x);
-	return $Double::longBitsToDouble(((int64_t)(transX & (uint64_t)(int64_t)0xFFFFFFFF00000000)) | ((int64_t)(low & (uint64_t)(int64_t)0x00000000FFFFFFFF)));
+	return $Double::longBitsToDouble((transX & (int64_t)0xffffffff00000000) | (low & (int64_t)0xffffffff));
 }
 
 int32_t FdLibm::__HI(double x) {
@@ -86,19 +44,53 @@ int32_t FdLibm::__HI(double x) {
 double FdLibm::__HI(double x, int32_t high) {
 	$init(FdLibm);
 	int64_t transX = $Double::doubleToRawLongBits(x);
-	return $Double::longBitsToDouble(((int64_t)(transX & (uint64_t)(int64_t)0x00000000FFFFFFFF)) | (((int64_t)high) << 32));
+	return $Double::longBitsToDouble((transX & (int64_t)0xffffffff) | (((int64_t)high) << 32));
 }
 
 FdLibm::FdLibm() {
 }
 
-void clinit$FdLibm($Class* class$) {
-	$init($Double);
+void FdLibm::clinit$($Class* clazz) {
 	FdLibm::INFINITY = $Double::POSITIVE_INFINITY;
 }
 
 $Class* FdLibm::load$($String* name, bool initialize) {
-	$loadClass(FdLibm, name, initialize, &_FdLibm_ClassInfo_, clinit$FdLibm, allocate$FdLibm);
+	$FieldInfo fieldInfos$$[] = {
+		{"INFINITY", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm, INFINITY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm, init$, void)},
+		{"__HI", "(D)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __HI, int32_t, double)},
+		{"__HI", "(DI)D", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __HI, double, double, int32_t)},
+		{"__LO", "(D)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __LO, int32_t, double)},
+		{"__LO", "(DI)D", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __LO, double, double, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.FdLibm$Exp", "java.lang.FdLibm", "Exp", $STATIC},
+		{"java.lang.FdLibm$Pow", "java.lang.FdLibm", "Pow", $PUBLIC | $STATIC},
+		{"java.lang.FdLibm$Hypot", "java.lang.FdLibm", "Hypot", $PUBLIC | $STATIC},
+		{"java.lang.FdLibm$Cbrt", "java.lang.FdLibm", "Cbrt", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.FdLibm",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.FdLibm$Exp,java.lang.FdLibm$Pow,java.lang.FdLibm$Hypot,java.lang.FdLibm$Cbrt"
+	};
+	$loadClass(FdLibm, name, initialize, &classInfo$$, FdLibm::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FdLibm);
+	});
 	return class$;
 }
 

@@ -24,6 +24,7 @@ class $import Debug : public ::java::lang::Object {
 	$class(Debug, 0, ::java::lang::Object)
 public:
 	Debug();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void Help();
 	static ::sun::security::util::Debug* getInstance($String* option);

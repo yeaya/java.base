@@ -1,5 +1,4 @@
 #include <sun/security/x509/DistributionPointName.h>
-
 #include <java/io/IOException.h>
 #include <java/util/Objects.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -27,41 +26,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _DistributionPointName_FieldInfo_[] = {
-	{"TAG_FULL_NAME", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPointName, TAG_FULL_NAME)},
-	{"TAG_RELATIVE_NAME", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPointName, TAG_RELATIVE_NAME)},
-	{"fullName", "Lsun/security/x509/GeneralNames;", nullptr, $PRIVATE, $field(DistributionPointName, fullName)},
-	{"relativeName", "Lsun/security/x509/RDN;", nullptr, $PRIVATE, $field(DistributionPointName, relativeName)},
-	{"hashCode", "I", nullptr, $PRIVATE | $VOLATILE, $field(DistributionPointName, hashCode$)},
-	{}
-};
-
-$MethodInfo _DistributionPointName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(DistributionPointName, init$, void, $GeneralNames*)},
-	{"<init>", "(Lsun/security/x509/RDN;)V", nullptr, $PUBLIC, $method(DistributionPointName, init$, void, $RDN*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(DistributionPointName, init$, void, $DerValue*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, equals, bool, Object$*)},
-	{"getFullName", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, getFullName, $GeneralNames*)},
-	{"getRelativeName", "()Lsun/security/x509/RDN;", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, getRelativeName, $RDN*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, toString, $String*)},
-	{}
-};
-
-$ClassInfo _DistributionPointName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.DistributionPointName",
-	"java.lang.Object",
-	nullptr,
-	_DistributionPointName_FieldInfo_,
-	_DistributionPointName_MethodInfo_
-};
-
-$Object* allocate$DistributionPointName($Class* clazz) {
-	return $of($alloc(DistributionPointName));
-}
-
 void DistributionPointName::init$($GeneralNames* fullName) {
 	$set(this, fullName, nullptr);
 	$set(this, relativeName, nullptr);
@@ -88,8 +52,8 @@ void DistributionPointName::init$($DerValue* encoding) {
 		encoding->resetTag($DerValue::tag_Sequence);
 		$set(this, fullName, $new($GeneralNames, encoding));
 	} else {
-		bool var$2 = encoding->isContextSpecific(DistributionPointName::TAG_RELATIVE_NAME);
-		if (var$2 && encoding->isConstructed()) {
+		bool var$1 = encoding->isContextSpecific(DistributionPointName::TAG_RELATIVE_NAME);
+		if (var$1 && encoding->isConstructed()) {
 			encoding->resetTag($DerValue::tag_Set);
 			$set(this, relativeName, $new($RDN, encoding));
 		} else {
@@ -109,7 +73,7 @@ $RDN* DistributionPointName::getRelativeName() {
 void DistributionPointName::encode($DerOutputStream* out) {
 	$var($DerOutputStream, theChoice, $new($DerOutputStream));
 	if (this->fullName != nullptr) {
-		$nc(this->fullName)->encode(theChoice);
+		this->fullName->encode(theChoice);
 		$nc(out)->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, DistributionPointName::TAG_FULL_NAME), theChoice);
 	} else {
 		$nc(this->relativeName)->encode(theChoice);
@@ -126,7 +90,7 @@ bool DistributionPointName::equals(Object$* obj) {
 	}
 	$var(DistributionPointName, other, $cast(DistributionPointName, obj));
 	bool var$0 = $Objects::equals(this->fullName, $nc(other)->fullName);
-	return var$0 && $Objects::equals(this->relativeName, $nc(other)->relativeName);
+	return var$0 && $Objects::equals(this->relativeName, other->relativeName);
 }
 
 int32_t DistributionPointName::hashCode() {
@@ -134,7 +98,7 @@ int32_t DistributionPointName::hashCode() {
 	if (hash == 0) {
 		hash = 1;
 		if (this->fullName != nullptr) {
-			hash += $nc(this->fullName)->hashCode();
+			hash += this->fullName->hashCode();
 		} else {
 			hash += $nc(this->relativeName)->hashCode();
 		}
@@ -147,9 +111,9 @@ $String* DistributionPointName::toString() {
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("DistributionPointName:\n     "_s);
 	if (this->fullName != nullptr) {
-		sb->append($of(this->fullName));
+		sb->append(this->fullName);
 	} else {
-		sb->append($of(this->relativeName));
+		sb->append(this->relativeName);
 	}
 	sb->append(u'\n');
 	return sb->toString();
@@ -159,7 +123,37 @@ DistributionPointName::DistributionPointName() {
 }
 
 $Class* DistributionPointName::load$($String* name, bool initialize) {
-	$loadClass(DistributionPointName, name, initialize, &_DistributionPointName_ClassInfo_, allocate$DistributionPointName);
+	$FieldInfo fieldInfos$$[] = {
+		{"TAG_FULL_NAME", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPointName, TAG_FULL_NAME)},
+		{"TAG_RELATIVE_NAME", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPointName, TAG_RELATIVE_NAME)},
+		{"fullName", "Lsun/security/x509/GeneralNames;", nullptr, $PRIVATE, $field(DistributionPointName, fullName)},
+		{"relativeName", "Lsun/security/x509/RDN;", nullptr, $PRIVATE, $field(DistributionPointName, relativeName)},
+		{"hashCode", "I", nullptr, $PRIVATE | $VOLATILE, $field(DistributionPointName, hashCode$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(DistributionPointName, init$, void, $GeneralNames*)},
+		{"<init>", "(Lsun/security/x509/RDN;)V", nullptr, $PUBLIC, $method(DistributionPointName, init$, void, $RDN*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(DistributionPointName, init$, void, $DerValue*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, equals, bool, Object$*)},
+		{"getFullName", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, getFullName, $GeneralNames*)},
+		{"getRelativeName", "()Lsun/security/x509/RDN;", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, getRelativeName, $RDN*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.DistributionPointName",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DistributionPointName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DistributionPointName);
+	});
 	return class$;
 }
 

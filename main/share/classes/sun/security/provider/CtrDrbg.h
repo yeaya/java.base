@@ -28,6 +28,7 @@ class $export CtrDrbg : public ::sun::security::provider::AbstractDrbg {
 	$class(CtrDrbg, 0, ::sun::security::provider::AbstractDrbg)
 public:
 	CtrDrbg();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::SecureRandomParameters* params);
 	static void addOne($bytes* data, int32_t len);
 	static int32_t alg2strength($String* algorithm);

@@ -107,7 +107,7 @@ public:
 	static const int32_t TYPE_LIMIT = 4;
 	static const int32_t NORMALIZATION_ON = 1;
 	static const int32_t CHECK_BIDI_ON = 2;
-	static const int32_t TYPE_THRESHOLD = 0x0000FFF0;
+	static const int32_t TYPE_THRESHOLD = 0x0000fff0;
 	static const int32_t MAX_INDEX_VALUE = 16319;
 	static const int32_t MAX_INDEX_TOP_LENGTH = 3;
 	static const int32_t INDEX_TRIE_SIZE = 0;

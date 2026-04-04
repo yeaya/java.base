@@ -24,6 +24,7 @@
 #include <java/io/DataOutputStream.h>
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
+#include <string.h>
 
 using namespace ::java::io;
 
@@ -52,6 +53,40 @@ void FieldInfo::visit(::jdk::internal::reflect::ConstantPool* cp) {
 	//for (; field != nullptr; field++) {
 
 	//}
+}
+
+void FieldInfo::cloneSelf() {
+	annotations = CompoundAttribute::cloneArray(annotations);
+	typeAnnotations = TypeAnnotation::cloneArray(typeAnnotations);
+}
+
+FieldInfo* FieldInfo::cloneArray(FieldInfo* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	FieldInfo* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	FieldInfo* newArray = $allocRawStatic(FieldInfo, count);
+	memcpy(newArray, array, sizeof(FieldInfo) * count);
+	FieldInfo* newIt = newArray;
+	it = array;
+	for (; true; newIt++, it++) {
+		if (newIt->isEnd()) {
+			break;
+		}
+		newIt->cloneSelf();
+		if (it->hasConstValue()) {
+			newIt->setConstValue(it->constValue);
+		}
+	}
+	return newArray;
 }
 
 	} // lang

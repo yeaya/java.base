@@ -34,6 +34,7 @@ class $export ShortWrite : public ::java::lang::Object {
 	$class(ShortWrite, 0, ::java::lang::Object)
 public:
 	ShortWrite();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t computeChecksum($Array<::java::nio::ByteBuffer>* bufs);
 	static void main($StringArray* args);

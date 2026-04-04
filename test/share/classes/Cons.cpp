@@ -1,5 +1,4 @@
 #include <Cons.h>
-
 #include <Cons$F.h>
 #include <java/io/File.h>
 #include <java/util/ArrayList.h>
@@ -7,67 +6,12 @@
 
 using $Cons$F = ::Cons$F;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-
-$FieldInfo _Cons_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Cons, debug)},
-	{"old", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Cons, old)},
-	{"win32", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Cons, win32)},
-	{}
-};
-
-$MethodInfo _Cons_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Cons, init$, void)},
-	{"ck", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ck, void, $String*, $String*, $String*), "java.lang.Exception"},
-	{"ck1", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ck1, void, $String*, $String*, $String*, $String*), "java.lang.Exception"},
-	{"ck2", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ck2, void, $String*, $String*, $String*, $String*, $String*), "java.lang.Exception"},
-	{"ck2f", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ck2f, void, $String*, $String*, $String*, $String*, $String*), "java.lang.Exception"},
-	{"ckpnp", "(LCons$F;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ckpnp, void, $Cons$F*, $String*, $String*, $String*), "java.lang.Exception"},
-	{"cons", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, cons, $String*, $String*)},
-	{"cons", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, cons, $String*, $String*, $String*)},
-	{"cons", "(LCons$F;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, cons, $String*, $Cons$F*, $String*)},
-	{"cvt", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, cvt, $String*, $String*)},
-	{"err", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, err, void, $String*, $String*, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Cons, main, void, $StringArray*), "java.lang.Exception"},
-	{"nos", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, nos, $String*, $String*)},
-	{"ok", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ok, void, $String*, $String*)},
-	{"op", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, op, $String*, $String*, $String*)},
-	{"slashPerms", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, slashPerms, $StringArray*, $String*)},
-	{"testBoth", "()V", nullptr, $STATIC, $staticMethod(Cons, testBoth, void), "java.lang.Exception"},
-	{"testUnix", "()V", nullptr, $STATIC, $staticMethod(Cons, testUnix, void), "java.lang.Exception"},
-	{"testWin32", "()V", nullptr, $STATIC, $staticMethod(Cons, testWin32, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _Cons_InnerClassesInfo_[] = {
-	{"Cons$F", "Cons", "F", $STATIC},
-	{}
-};
-
-$ClassInfo _Cons_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Cons",
-	"java.lang.Object",
-	nullptr,
-	_Cons_FieldInfo_,
-	_Cons_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Cons_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Cons$F"
-};
-
-$Object* allocate$Cons($Class* clazz) {
-	return $of($alloc(Cons));
-}
 
 bool Cons::debug = false;
 bool Cons::old = false;
@@ -89,14 +33,14 @@ $String* Cons::cvt($String* s) {
 
 $StringArray* Cons::slashPerms($String* s) {
 	$init(Cons);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Cons::win32) {
 		return $new($StringArray, {s});
 	}
 	if (s == nullptr) {
 		return $new($StringArray, {s});
 	}
-	int32_t i = $nc(s)->indexOf((int32_t)u'/');
+	int32_t i = $nc(s)->indexOf(u'/');
 	if (i < 0) {
 		return $new($StringArray, {s});
 	}
@@ -106,10 +50,10 @@ $StringArray* Cons::slashPerms($String* s) {
 	for (int32_t j = 0; j < $nc(p2)->length; ++j) {
 		a->add($$str({p1, $$str(u'/'), p2->get(j)}));
 	}
-	for (int32_t j = 0; j < $nc(p2)->length; ++j) {
+	for (int32_t j = 0; j < p2->length; ++j) {
 		a->add($$str({p1, $$str(u'\\'), p2->get(j)}));
 	}
-	return ($fcast($StringArray, a->toArray($$new($StringArray, a->size()))));
+	return $cast($StringArray, a->toArray($$new($StringArray, a->size())));
 }
 
 $String* Cons::nos($String* s) {
@@ -123,18 +67,29 @@ $String* Cons::nos($String* s) {
 
 void Cons::ok($String* ans, $String* exp) {
 	$init(Cons);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->println($$str({$(nos(ans)), " <== "_s, exp}));
 }
 
 void Cons::err($String* ans, $String* exp, $String* got) {
 	$init(Cons);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$(nos(ans)), " <-- "_s, exp, " ==> "_s}));
-	$nc($System::err)->println($$concat(var$0, $(nos(got))));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(nos(ans)));
+	var$0->append(" <-- "_s);
+	var$0->append(exp);
+	var$0->append(" ==> "_s);
+	var$0->append($(nos(got)));
+	$nc($System::err)->println($$str(var$0));
 	if (!Cons::debug) {
-		$var($String, var$1, $$str({"Mismatch: "_s, exp, " ==> "_s, $(nos(got)), ", should be "_s}));
-		$throwNew($Exception, $$concat(var$1, $(nos(ans))));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("Mismatch: "_s);
+		var$1->append(exp);
+		var$1->append(" ==> "_s);
+		var$1->append($(nos(got)));
+		var$1->append(", should be "_s);
+		var$1->append($(nos(ans)));
+		$throwNew($Exception, $$str(var$1));
 	}
 }
 
@@ -154,10 +109,14 @@ $String* Cons::cons($String* arg) {
 
 $String* Cons::cons($String* arg1, $String* arg2) {
 	$init(Cons);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"new File("_s, $(nos(arg1)), ", "_s}));
-	$var($String, var$0, $$concat(var$1, $(nos(arg2))));
-	return $concat(var$0, ")"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("new File("_s);
+	var$0->append($(nos(arg1)));
+	var$0->append(", "_s);
+	var$0->append($(nos(arg2)));
+	var$0->append(")"_s);
+	return $str(var$0);
 }
 
 $String* Cons::cons($Cons$F* arg1, $String* arg2) {
@@ -172,21 +131,21 @@ $String* Cons::op($String* exp, $String* opname) {
 
 void Cons::ckpnp($Cons$F* f, $String* parent, $String* name, $String* path) {
 	$init(Cons);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, cvt(path));
 	$var($String, var$1, op($nc(f)->exp, "getPath"_s));
-	ck(var$0, var$1, $($nc(f)->getPath()));
+	ck(var$0, var$1, $(f->getPath()));
 	$var($String, var$2, cvt(parent));
-	$var($String, var$3, op($nc(f)->exp, "getParent"_s));
-	ck(var$2, var$3, $($nc(f)->getParent()));
+	$var($String, var$3, op(f->exp, "getParent"_s));
+	ck(var$2, var$3, $(f->getParent()));
 	$var($String, var$4, cvt(name));
-	$var($String, var$5, op($nc(f)->exp, "getName"_s));
-	ck(var$4, var$5, $($nc(f)->getName()));
+	$var($String, var$5, op(f->exp, "getName"_s));
+	ck(var$4, var$5, $(f->getName()));
 }
 
 void Cons::ck1($String* arg, $String* parent, $String* name, $String* path) {
 	$init(Cons);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, parg, slashPerms(arg));
 	for (int32_t i = 0; i < $nc(parg)->length; ++i) {
 		ckpnp($$new($Cons$F, parg->get(i)), parent, name, path);
@@ -195,7 +154,7 @@ void Cons::ck1($String* arg, $String* parent, $String* name, $String* path) {
 
 void Cons::ck2($String* arg1, $String* arg2, $String* parent, $String* name, $String* path) {
 	$init(Cons);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, parg1, slashPerms(arg1));
 	$var($StringArray, parg2, slashPerms(arg2));
 	for (int32_t i = 0; i < $nc(parg1)->length; ++i) {
@@ -207,7 +166,7 @@ void Cons::ck2($String* arg1, $String* arg2, $String* parent, $String* name, $St
 
 void Cons::ck2f($String* arg1, $String* arg2, $String* parent, $String* name, $String* path) {
 	$init(Cons);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, parg1, slashPerms(arg1));
 	$var($StringArray, parg2, slashPerms(arg2));
 	for (int32_t i = 0; i < $nc(parg1)->length; ++i) {
@@ -278,7 +237,7 @@ void Cons::testBoth() {
 
 void Cons::testUnix() {
 	$init(Cons);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Cons::old) {
 		ck1("//"_s, nullptr, ""_s, "/"_s);
 	}
@@ -333,8 +292,8 @@ void Cons::testWin32() {
 
 void Cons::main($StringArray* args) {
 	$init(Cons);
-	$useLocalCurrentObjectStackCache();
-	Cons::old = $nc($($$new($File, "foo/"_s)->getPath()))->equals("foo/"_s);
+	$useLocalObjectStack();
+	Cons::old = $$nc($$new($File, "foo/"_s)->getPath())->equals("foo/"_s);
 	if (Cons::old) {
 		$nc($System::err)->println("** Testing old java.io.File class"_s);
 	}
@@ -346,7 +305,7 @@ void Cons::main($StringArray* args) {
 	}
 }
 
-void clinit$Cons($Class* class$) {
+void Cons::clinit$($Class* clazz) {
 	Cons::debug = false;
 	Cons::old = false;
 	$init($File);
@@ -357,7 +316,55 @@ Cons::Cons() {
 }
 
 $Class* Cons::load$($String* name, bool initialize) {
-	$loadClass(Cons, name, initialize, &_Cons_ClassInfo_, clinit$Cons, allocate$Cons);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Cons, debug)},
+		{"old", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Cons, old)},
+		{"win32", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Cons, win32)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Cons, init$, void)},
+		{"ck", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ck, void, $String*, $String*, $String*), "java.lang.Exception"},
+		{"ck1", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ck1, void, $String*, $String*, $String*, $String*), "java.lang.Exception"},
+		{"ck2", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ck2, void, $String*, $String*, $String*, $String*, $String*), "java.lang.Exception"},
+		{"ck2f", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ck2f, void, $String*, $String*, $String*, $String*, $String*), "java.lang.Exception"},
+		{"ckpnp", "(LCons$F;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ckpnp, void, $Cons$F*, $String*, $String*, $String*), "java.lang.Exception"},
+		{"cons", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, cons, $String*, $String*)},
+		{"cons", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, cons, $String*, $String*, $String*)},
+		{"cons", "(LCons$F;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, cons, $String*, $Cons$F*, $String*)},
+		{"cvt", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, cvt, $String*, $String*)},
+		{"err", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, err, void, $String*, $String*, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Cons, main, void, $StringArray*), "java.lang.Exception"},
+		{"nos", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, nos, $String*, $String*)},
+		{"ok", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, ok, void, $String*, $String*)},
+		{"op", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, op, $String*, $String*, $String*)},
+		{"slashPerms", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cons, slashPerms, $StringArray*, $String*)},
+		{"testBoth", "()V", nullptr, $STATIC, $staticMethod(Cons, testBoth, void), "java.lang.Exception"},
+		{"testUnix", "()V", nullptr, $STATIC, $staticMethod(Cons, testUnix, void), "java.lang.Exception"},
+		{"testWin32", "()V", nullptr, $STATIC, $staticMethod(Cons, testWin32, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Cons$F", "Cons", "F", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Cons",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Cons$F"
+	};
+	$loadClass(Cons, name, initialize, &classInfo$$, Cons::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Cons);
+	});
 	return class$;
 }
 

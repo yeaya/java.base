@@ -1,5 +1,4 @@
 #include <URLPermissionTest$HashCodeTest.h>
-
 #include <URLPermissionTest$Test.h>
 #include <URLPermissionTest.h>
 #include <java/net/URLPermission.h>
@@ -11,45 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URLPermission = ::java::net::URLPermission;
-
-$FieldInfo _URLPermissionTest$HashCodeTest_FieldInfo_[] = {
-	{"arg1", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$HashCodeTest, arg1)},
-	{"arg2", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$HashCodeTest, arg2)},
-	{"hash", "I", nullptr, 0, $field(URLPermissionTest$HashCodeTest, hash)},
-	{}
-};
-
-$MethodInfo _URLPermissionTest$HashCodeTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, 0, $method(URLPermissionTest$HashCodeTest, init$, void, $String*, $String*, int32_t)},
-	{"execute", "()Z", nullptr, 0, $virtualMethod(URLPermissionTest$HashCodeTest, execute, bool)},
-	{}
-};
-
-$InnerClassInfo _URLPermissionTest$HashCodeTest_InnerClassesInfo_[] = {
-	{"URLPermissionTest$HashCodeTest", "URLPermissionTest", "HashCodeTest", $STATIC},
-	{"URLPermissionTest$Test", "URLPermissionTest", "Test", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _URLPermissionTest$HashCodeTest_ClassInfo_ = {
-	$ACC_SUPER,
-	"URLPermissionTest$HashCodeTest",
-	"URLPermissionTest$Test",
-	nullptr,
-	_URLPermissionTest$HashCodeTest_FieldInfo_,
-	_URLPermissionTest$HashCodeTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URLPermissionTest$HashCodeTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"URLPermissionTest"
-};
-
-$Object* allocate$URLPermissionTest$HashCodeTest($Class* clazz) {
-	return $of($alloc(URLPermissionTest$HashCodeTest));
-}
 
 void URLPermissionTest$HashCodeTest::init$($String* arg1, $String* arg2, int32_t hash) {
 	$URLPermissionTest$Test::init$();
@@ -68,7 +28,40 @@ URLPermissionTest$HashCodeTest::URLPermissionTest$HashCodeTest() {
 }
 
 $Class* URLPermissionTest$HashCodeTest::load$($String* name, bool initialize) {
-	$loadClass(URLPermissionTest$HashCodeTest, name, initialize, &_URLPermissionTest$HashCodeTest_ClassInfo_, allocate$URLPermissionTest$HashCodeTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"arg1", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$HashCodeTest, arg1)},
+		{"arg2", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$HashCodeTest, arg2)},
+		{"hash", "I", nullptr, 0, $field(URLPermissionTest$HashCodeTest, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, 0, $method(URLPermissionTest$HashCodeTest, init$, void, $String*, $String*, int32_t)},
+		{"execute", "()Z", nullptr, 0, $virtualMethod(URLPermissionTest$HashCodeTest, execute, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"URLPermissionTest$HashCodeTest", "URLPermissionTest", "HashCodeTest", $STATIC},
+		{"URLPermissionTest$Test", "URLPermissionTest", "Test", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"URLPermissionTest$HashCodeTest",
+		"URLPermissionTest$Test",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"URLPermissionTest"
+	};
+	$loadClass(URLPermissionTest$HashCodeTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLPermissionTest$HashCodeTest);
+	});
 	return class$;
 }
 

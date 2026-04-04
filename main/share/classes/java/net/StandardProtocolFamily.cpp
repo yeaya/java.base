@@ -1,5 +1,4 @@
 #include <java/net/StandardProtocolFamily.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -15,42 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _StandardProtocolFamily_FieldInfo_[] = {
-	{"INET", "Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardProtocolFamily, INET)},
-	{"INET6", "Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardProtocolFamily, INET6)},
-	{"UNIX", "Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardProtocolFamily, UNIX)},
-	{"$VALUES", "[Ljava/net/StandardProtocolFamily;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StandardProtocolFamily, $VALUES)},
-	{}
-};
-
-$MethodInfo _StandardProtocolFamily_MethodInfo_[] = {
-	{"$values", "()[Ljava/net/StandardProtocolFamily;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardProtocolFamily, $values, $StandardProtocolFamilyArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardProtocolFamily, init$, void, $String*, int32_t)},
-	{"*name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardProtocolFamily, valueOf, StandardProtocolFamily*, $String*)},
-	{"values", "()[Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardProtocolFamily, values, $StandardProtocolFamilyArray*)},
-	{}
-};
-
-$ClassInfo _StandardProtocolFamily_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.net.StandardProtocolFamily",
-	"java.lang.Enum",
-	"java.net.ProtocolFamily",
-	_StandardProtocolFamily_FieldInfo_,
-	_StandardProtocolFamily_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/net/StandardProtocolFamily;>;Ljava/net/ProtocolFamily;"
-};
-
-$Object* allocate$StandardProtocolFamily($Class* clazz) {
-	return $of($alloc(StandardProtocolFamily));
-}
 
 $String* StandardProtocolFamily::name() {
 	 return this->$Enum::name();
@@ -104,7 +67,7 @@ void StandardProtocolFamily::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$StandardProtocolFamily($Class* class$) {
+void StandardProtocolFamily::clinit$($Class* clazz) {
 	$assignStatic(StandardProtocolFamily::INET, $new(StandardProtocolFamily, "INET"_s, 0));
 	$assignStatic(StandardProtocolFamily::INET6, $new(StandardProtocolFamily, "INET6"_s, 1));
 	$assignStatic(StandardProtocolFamily::UNIX, $new(StandardProtocolFamily, "UNIX"_s, 2));
@@ -115,7 +78,38 @@ StandardProtocolFamily::StandardProtocolFamily() {
 }
 
 $Class* StandardProtocolFamily::load$($String* name, bool initialize) {
-	$loadClass(StandardProtocolFamily, name, initialize, &_StandardProtocolFamily_ClassInfo_, clinit$StandardProtocolFamily, allocate$StandardProtocolFamily);
+	$FieldInfo fieldInfos$$[] = {
+		{"INET", "Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardProtocolFamily, INET)},
+		{"INET6", "Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardProtocolFamily, INET6)},
+		{"UNIX", "Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardProtocolFamily, UNIX)},
+		{"$VALUES", "[Ljava/net/StandardProtocolFamily;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StandardProtocolFamily, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/net/StandardProtocolFamily;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardProtocolFamily, $values, $StandardProtocolFamilyArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardProtocolFamily, init$, void, $String*, int32_t)},
+		{"*name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardProtocolFamily, valueOf, StandardProtocolFamily*, $String*)},
+		{"values", "()[Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardProtocolFamily, values, $StandardProtocolFamilyArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.net.StandardProtocolFamily",
+		"java.lang.Enum",
+		"java.net.ProtocolFamily",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/net/StandardProtocolFamily;>;Ljava/net/ProtocolFamily;"
+	};
+	$loadClass(StandardProtocolFamily, name, initialize, &classInfo$$, StandardProtocolFamily::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StandardProtocolFamily));
+	});
 	return class$;
 }
 

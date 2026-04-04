@@ -1,5 +1,4 @@
 #include <java/util/zip/ZipCoder$UTF8ZipCoder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/util/zip/ZipCoder.h>
 #include <jdk/internal/access/JavaLangAccess.h>
@@ -12,46 +11,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $ZipCoder = ::java::util::zip::ZipCoder;
-using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 
 namespace java {
 	namespace util {
 		namespace zip {
-
-$MethodInfo _ZipCoder$UTF8ZipCoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ZipCoder$UTF8ZipCoder, init$, void, $Charset*)},
-	{"checkedHash", "([BII)I", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, checkedHash, int32_t, $bytes*, int32_t, int32_t), "java.lang.Exception"},
-	{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, getBytes, $bytes*, $String*)},
-	{"hasTrailingSlash", "([BI)Z", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, hasTrailingSlash, bool, $bytes*, int32_t)},
-	{"isUTF8", "()Z", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, isUTF8, bool)},
-	{"toString", "([BII)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, toString, $String*, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ZipCoder$UTF8ZipCoder_InnerClassesInfo_[] = {
-	{"java.util.zip.ZipCoder$UTF8ZipCoder", "java.util.zip.ZipCoder", "UTF8ZipCoder", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ZipCoder$UTF8ZipCoder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.zip.ZipCoder$UTF8ZipCoder",
-	"java.util.zip.ZipCoder",
-	nullptr,
-	nullptr,
-	_ZipCoder$UTF8ZipCoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipCoder$UTF8ZipCoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.zip.ZipCoder"
-};
-
-$Object* allocate$ZipCoder$UTF8ZipCoder($Class* clazz) {
-	return $of($alloc(ZipCoder$UTF8ZipCoder));
-}
 
 void ZipCoder$UTF8ZipCoder::init$($Charset* utf8) {
 	$ZipCoder::init$(utf8);
@@ -72,7 +35,7 @@ $bytes* ZipCoder$UTF8ZipCoder::getBytes($String* s) {
 }
 
 int32_t ZipCoder$UTF8ZipCoder::checkedHash($bytes* a, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len == 0) {
 		return 0;
 	}
@@ -102,7 +65,37 @@ ZipCoder$UTF8ZipCoder::ZipCoder$UTF8ZipCoder() {
 }
 
 $Class* ZipCoder$UTF8ZipCoder::load$($String* name, bool initialize) {
-	$loadClass(ZipCoder$UTF8ZipCoder, name, initialize, &_ZipCoder$UTF8ZipCoder_ClassInfo_, allocate$ZipCoder$UTF8ZipCoder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ZipCoder$UTF8ZipCoder, init$, void, $Charset*)},
+		{"checkedHash", "([BII)I", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, checkedHash, int32_t, $bytes*, int32_t, int32_t), "java.lang.Exception"},
+		{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, getBytes, $bytes*, $String*)},
+		{"hasTrailingSlash", "([BI)Z", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, hasTrailingSlash, bool, $bytes*, int32_t)},
+		{"isUTF8", "()Z", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, isUTF8, bool)},
+		{"toString", "([BII)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, toString, $String*, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.zip.ZipCoder$UTF8ZipCoder", "java.util.zip.ZipCoder", "UTF8ZipCoder", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.zip.ZipCoder$UTF8ZipCoder",
+		"java.util.zip.ZipCoder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.zip.ZipCoder"
+	};
+	$loadClass(ZipCoder$UTF8ZipCoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipCoder$UTF8ZipCoder);
+	});
 	return class$;
 }
 

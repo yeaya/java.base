@@ -48,7 +48,7 @@ public:
 	virtual void implBeforeTcpConnect(::java::io::FileDescriptor* fdObj, ::java::net::InetAddress* address, int32_t port) override;
 	static ::java::util::List* loadRulesFromFile($String* file);
 	static $ints* parsePortRange($String* s);
-	static const int32_t MAX_PORT = 0x0000FFFF;
+	static const int32_t MAX_PORT = 0x0000ffff;
 	bool enabled = false;
 	::java::util::List* rules = nullptr;
 	::java::io::PrintStream* log = nullptr;

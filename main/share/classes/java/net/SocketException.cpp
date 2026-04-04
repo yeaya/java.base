@@ -1,5 +1,4 @@
 #include <java/net/SocketException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _SocketException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SocketException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SocketException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketException, init$, void)},
-	{}
-};
-
-$ClassInfo _SocketException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.SocketException",
-	"java.io.IOException",
-	nullptr,
-	_SocketException_FieldInfo_,
-	_SocketException_MethodInfo_
-};
-
-$Object* allocate$SocketException($Class* clazz) {
-	return $of($alloc(SocketException));
-}
 
 void SocketException::init$($String* msg) {
 	$IOException::init$(msg);
@@ -54,7 +29,26 @@ void SocketException::throw$() {
 }
 
 $Class* SocketException::load$($String* name, bool initialize) {
-	$loadClass(SocketException, name, initialize, &_SocketException_ClassInfo_, allocate$SocketException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SocketException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SocketException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.SocketException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketException);
+	});
 	return class$;
 }
 

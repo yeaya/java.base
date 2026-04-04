@@ -34,6 +34,7 @@ class NamedGroup$FFDHEScheme : public ::sun::security::ssl::NamedGroup$NamedGrou
 	$class(NamedGroup$FFDHEScheme, 0, ::sun::security::ssl::NamedGroup$NamedGroupScheme)
 public:
 	NamedGroup$FFDHEScheme();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::sun::security::ssl::SSLKeyDerivation* createKeyDerivation(::sun::security::ssl::HandshakeContext* hc) override;
 	virtual ::sun::security::ssl::SSLPossession* createPossession(::sun::security::ssl::NamedGroup* ng, ::java::security::SecureRandom* random) override;

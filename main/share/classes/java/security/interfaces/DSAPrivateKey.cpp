@@ -1,5 +1,4 @@
 #include <java/security/interfaces/DSAPrivateKey.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/interfaces/DSAKey.h>
 #include <jcpp.h>
@@ -14,39 +13,6 @@ using $DSAKey = ::java::security::interfaces::DSAKey;
 namespace java {
 	namespace security {
 		namespace interfaces {
-
-$CompoundAttribute _DSAPrivateKey_FieldAnnotations_serialVersionUID[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _DSAPrivateKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(DSAPrivateKey, serialVersionUID), _DSAPrivateKey_FieldAnnotations_serialVersionUID},
-	{}
-};
-
-$MethodInfo _DSAPrivateKey_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAPrivateKey, getX, $BigInteger*)},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DSAPrivateKey_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.interfaces.DSAPrivateKey",
-	nullptr,
-	"java.security.interfaces.DSAKey,java.security.PrivateKey",
-	_DSAPrivateKey_FieldInfo_,
-	_DSAPrivateKey_MethodInfo_
-};
-
-$Object* allocate$DSAPrivateKey($Class* clazz) {
-	return $of($alloc(DSAPrivateKey));
-}
 
 int32_t DSAPrivateKey::hashCode() {
 	 return this->$DSAKey::hashCode();
@@ -69,7 +35,34 @@ void DSAPrivateKey::finalize() {
 }
 
 $Class* DSAPrivateKey::load$($String* name, bool initialize) {
-	$loadClass(DSAPrivateKey, name, initialize, &_DSAPrivateKey_ClassInfo_, allocate$DSAPrivateKey);
+	$CompoundAttribute serialVersionUIDfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(DSAPrivateKey, serialVersionUID), serialVersionUIDfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAPrivateKey, getX, $BigInteger*)},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.interfaces.DSAPrivateKey",
+		nullptr,
+		"java.security.interfaces.DSAKey,java.security.PrivateKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DSAPrivateKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DSAPrivateKey));
+	});
 	return class$;
 }
 

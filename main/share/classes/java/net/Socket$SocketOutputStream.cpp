@@ -1,5 +1,4 @@
 #include <java/net/Socket$SocketOutputStream.h>
-
 #include <java/io/OutputStream.h>
 #include <java/net/Socket.h>
 #include <jcpp.h>
@@ -13,45 +12,6 @@ using $Socket = ::java::net::Socket;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _Socket$SocketOutputStream_FieldInfo_[] = {
-	{"parent", "Ljava/net/Socket;", nullptr, $PRIVATE | $FINAL, $field(Socket$SocketOutputStream, parent)},
-	{"out", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(Socket$SocketOutputStream, out)},
-	{}
-};
-
-$MethodInfo _Socket$SocketOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/Socket;Ljava/io/OutputStream;)V", nullptr, 0, $method(Socket$SocketOutputStream, init$, void, $Socket*, $OutputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Socket$SocketOutputStream, close, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(Socket$SocketOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Socket$SocketOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Socket$SocketOutputStream_InnerClassesInfo_[] = {
-	{"java.net.Socket$SocketOutputStream", "java.net.Socket", "SocketOutputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Socket$SocketOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.Socket$SocketOutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	_Socket$SocketOutputStream_FieldInfo_,
-	_Socket$SocketOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Socket$SocketOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.Socket"
-};
-
-$Object* allocate$Socket$SocketOutputStream($Class* clazz) {
-	return $of($alloc(Socket$SocketOutputStream));
-}
 
 void Socket$SocketOutputStream::init$($Socket* parent, $OutputStream* out) {
 	$OutputStream::init$();
@@ -76,7 +36,40 @@ Socket$SocketOutputStream::Socket$SocketOutputStream() {
 }
 
 $Class* Socket$SocketOutputStream::load$($String* name, bool initialize) {
-	$loadClass(Socket$SocketOutputStream, name, initialize, &_Socket$SocketOutputStream_ClassInfo_, allocate$Socket$SocketOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"parent", "Ljava/net/Socket;", nullptr, $PRIVATE | $FINAL, $field(Socket$SocketOutputStream, parent)},
+		{"out", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(Socket$SocketOutputStream, out)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/Socket;Ljava/io/OutputStream;)V", nullptr, 0, $method(Socket$SocketOutputStream, init$, void, $Socket*, $OutputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Socket$SocketOutputStream, close, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(Socket$SocketOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Socket$SocketOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.Socket$SocketOutputStream", "java.net.Socket", "SocketOutputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.Socket$SocketOutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.Socket"
+	};
+	$loadClass(Socket$SocketOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Socket$SocketOutputStream));
+	});
 	return class$;
 }
 

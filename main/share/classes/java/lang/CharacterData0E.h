@@ -24,6 +24,7 @@ class CharacterData0E : public ::java::lang::CharacterData {
 	$class(CharacterData0E, 0, ::java::lang::CharacterData)
 public:
 	CharacterData0E();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t digit(int32_t ch, int32_t radix) override;
 	virtual int8_t getDirectionality(int32_t ch) override;

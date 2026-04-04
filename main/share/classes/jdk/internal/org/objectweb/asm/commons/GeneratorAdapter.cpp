@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/GeneratorAdapter.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
@@ -142,7 +141,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 using $ClassVisitor = ::jdk::internal::org::objectweb::asm$::ClassVisitor;
 using $ConstantDynamic = ::jdk::internal::org::objectweb::asm$::ConstantDynamic;
 using $Handle = ::jdk::internal::org::objectweb::asm$::Handle;
@@ -161,156 +159,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace commons {
-
-$FieldInfo _GeneratorAdapter_FieldInfo_[] = {
-	{"CLASS_DESCRIPTOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, CLASS_DESCRIPTOR)},
-	{"BYTE_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, BYTE_TYPE)},
-	{"BOOLEAN_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, BOOLEAN_TYPE)},
-	{"SHORT_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, SHORT_TYPE)},
-	{"CHARACTER_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, CHARACTER_TYPE)},
-	{"INTEGER_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, INTEGER_TYPE)},
-	{"FLOAT_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, FLOAT_TYPE)},
-	{"LONG_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, LONG_TYPE)},
-	{"DOUBLE_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, DOUBLE_TYPE)},
-	{"NUMBER_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, NUMBER_TYPE)},
-	{"OBJECT_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, OBJECT_TYPE)},
-	{"BOOLEAN_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, BOOLEAN_VALUE)},
-	{"CHAR_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, CHAR_VALUE)},
-	{"INT_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, INT_VALUE)},
-	{"FLOAT_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, FLOAT_VALUE)},
-	{"LONG_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, LONG_VALUE)},
-	{"DOUBLE_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, DOUBLE_VALUE)},
-	{"ADD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, ADD)},
-	{"SUB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, SUB)},
-	{"MUL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, MUL)},
-	{"DIV", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, DIV)},
-	{"REM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, REM)},
-	{"NEG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, NEG)},
-	{"SHL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, SHL)},
-	{"SHR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, SHR)},
-	{"USHR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, USHR)},
-	{"AND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, AND)},
-	{"OR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, OR)},
-	{"XOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, XOR)},
-	{"EQ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, EQ)},
-	{"NE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, NE)},
-	{"LT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, LT)},
-	{"GE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, GE)},
-	{"GT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, GT)},
-	{"LE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, LE)},
-	{"access", "I", nullptr, $PRIVATE | $FINAL, $field(GeneratorAdapter, access)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(GeneratorAdapter, name)},
-	{"returnType", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $FINAL, $field(GeneratorAdapter, returnType)},
-	{"argumentTypes", "[Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $FINAL, $field(GeneratorAdapter, argumentTypes)},
-	{"localTypes", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;", $PRIVATE | $FINAL, $field(GeneratorAdapter, localTypes)},
-	{}
-};
-
-$MethodInfo _GeneratorAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GeneratorAdapter, init$, void, $MethodVisitor*, int32_t, $String*, $String*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(GeneratorAdapter, init$, void, int32_t, $MethodVisitor*, int32_t, $String*, $String*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/commons/Method;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(GeneratorAdapter, init$, void, int32_t, $Method*, $MethodVisitor*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/commons/Method;Ljava/lang/String;[Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $method(GeneratorAdapter, init$, void, int32_t, $Method*, $String*, $TypeArray*, $ClassVisitor*)},
-	{"arrayLength", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, arrayLength, void)},
-	{"arrayLoad", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, arrayLoad, void, $Type*)},
-	{"arrayStore", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, arrayStore, void, $Type*)},
-	{"box", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, box, void, $Type*)},
-	{"cast", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, cast, void, $Type*, $Type*)},
-	{"catchException", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, catchException, void, $Label*, $Label*, $Type*)},
-	{"checkCast", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, checkCast, void, $Type*)},
-	{"dup", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dup, void)},
-	{"dup2", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dup2, void)},
-	{"dup2X1", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dup2X1, void)},
-	{"dup2X2", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dup2X2, void)},
-	{"dupX1", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dupX1, void)},
-	{"dupX2", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dupX2, void)},
-	{"endMethod", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, endMethod, void)},
-	{"fieldInsn", "(ILjdk/internal/org/objectweb/asm/Type;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PRIVATE, $method(GeneratorAdapter, fieldInsn, void, int32_t, $Type*, $String*, $Type*)},
-	{"getAccess", "()I", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getAccess, int32_t)},
-	{"getArgIndex", "(I)I", nullptr, $PRIVATE, $method(GeneratorAdapter, getArgIndex, int32_t, int32_t)},
-	{"getArgumentTypes", "()[Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getArgumentTypes, $TypeArray*)},
-	{"getBoxedType", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC, $staticMethod(GeneratorAdapter, getBoxedType, $Type*, $Type*)},
-	{"getField", "(Ljdk/internal/org/objectweb/asm/Type;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getField, void, $Type*, $String*, $Type*)},
-	{"getInternalNames", "([Ljdk/internal/org/objectweb/asm/Type;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(GeneratorAdapter, getInternalNames, $StringArray*, $TypeArray*)},
-	{"getLocalType", "(I)Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getLocalType, $Type*, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getName, $String*)},
-	{"getReturnType", "()Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getReturnType, $Type*)},
-	{"getStatic", "(Ljdk/internal/org/objectweb/asm/Type;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getStatic, void, $Type*, $String*, $Type*)},
-	{"goTo", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, goTo, void, $Label*)},
-	{"ifCmp", "(Ljdk/internal/org/objectweb/asm/Type;ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ifCmp, void, $Type*, int32_t, $Label*)},
-	{"ifICmp", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ifICmp, void, int32_t, $Label*)},
-	{"ifNonNull", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ifNonNull, void, $Label*)},
-	{"ifNull", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ifNull, void, $Label*)},
-	{"ifZCmp", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ifZCmp, void, int32_t, $Label*)},
-	{"iinc", "(II)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, iinc, void, int32_t, int32_t)},
-	{"instanceOf", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, instanceOf, void, $Type*)},
-	{"invokeConstructor", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/commons/Method;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, invokeConstructor, void, $Type*, $Method*)},
-	{"invokeDynamic", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(GeneratorAdapter, invokeDynamic, void, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"invokeInsn", "(ILjdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/commons/Method;Z)V", nullptr, $PRIVATE, $method(GeneratorAdapter, invokeInsn, void, int32_t, $Type*, $Method*, bool)},
-	{"invokeInterface", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/commons/Method;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, invokeInterface, void, $Type*, $Method*)},
-	{"invokeStatic", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/commons/Method;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, invokeStatic, void, $Type*, $Method*)},
-	{"invokeVirtual", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/commons/Method;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, invokeVirtual, void, $Type*, $Method*)},
-	{"loadArg", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadArg, void, int32_t)},
-	{"loadArgArray", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadArgArray, void)},
-	{"loadArgs", "(II)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadArgs, void, int32_t, int32_t)},
-	{"loadArgs", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadArgs, void)},
-	{"loadInsn", "(Ljdk/internal/org/objectweb/asm/Type;I)V", nullptr, $PRIVATE, $method(GeneratorAdapter, loadInsn, void, $Type*, int32_t)},
-	{"loadLocal", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadLocal, void, int32_t)},
-	{"loadLocal", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadLocal, void, int32_t, $Type*)},
-	{"loadThis", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadThis, void)},
-	{"mark", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, mark, void, $Label*)},
-	{"mark", "()Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, mark, $Label*)},
-	{"math", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, math, void, int32_t, $Type*)},
-	{"monitorEnter", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, monitorEnter, void)},
-	{"monitorExit", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, monitorExit, void)},
-	{"newArray", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, newArray, void, $Type*)},
-	{"newInstance", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, newInstance, void, $Type*)},
-	{"newLabel", "()Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, newLabel, $Label*)},
-	{"not", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, not$, void)},
-	{"pop", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, pop, void)},
-	{"pop2", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, pop2, void)},
-	{"push", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, bool)},
-	{"push", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, int32_t)},
-	{"push", "(J)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, int64_t)},
-	{"push", "(F)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, float)},
-	{"push", "(D)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, double)},
-	{"push", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, $String*)},
-	{"push", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, $Type*)},
-	{"push", "(Ljdk/internal/org/objectweb/asm/Handle;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, $Handle*)},
-	{"push", "(Ljdk/internal/org/objectweb/asm/ConstantDynamic;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, $ConstantDynamic*)},
-	{"putField", "(Ljdk/internal/org/objectweb/asm/Type;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, putField, void, $Type*, $String*, $Type*)},
-	{"putStatic", "(Ljdk/internal/org/objectweb/asm/Type;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, putStatic, void, $Type*, $String*, $Type*)},
-	{"ret", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ret, void, int32_t)},
-	{"returnValue", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, returnValue, void)},
-	{"setLocalType", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PROTECTED, $virtualMethod(GeneratorAdapter, setLocalType, void, int32_t, $Type*)},
-	{"storeArg", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, storeArg, void, int32_t)},
-	{"storeInsn", "(Ljdk/internal/org/objectweb/asm/Type;I)V", nullptr, $PRIVATE, $method(GeneratorAdapter, storeInsn, void, $Type*, int32_t)},
-	{"storeLocal", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, storeLocal, void, int32_t)},
-	{"storeLocal", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, storeLocal, void, int32_t, $Type*)},
-	{"swap", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, swap, void)},
-	{"swap", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, swap, void, $Type*, $Type*)},
-	{"tableSwitch", "([ILjdk/internal/org/objectweb/asm/commons/TableSwitchGenerator;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, tableSwitch, void, $ints*, $TableSwitchGenerator*)},
-	{"tableSwitch", "([ILjdk/internal/org/objectweb/asm/commons/TableSwitchGenerator;Z)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, tableSwitch, void, $ints*, $TableSwitchGenerator*, bool)},
-	{"throwException", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, throwException, void)},
-	{"throwException", "(Ljdk/internal/org/objectweb/asm/Type;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, throwException, void, $Type*, $String*)},
-	{"typeInsn", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PRIVATE, $method(GeneratorAdapter, typeInsn, void, int32_t, $Type*)},
-	{"unbox", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, unbox, void, $Type*)},
-	{"valueOf", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, valueOf, void, $Type*)},
-	{}
-};
-
-$ClassInfo _GeneratorAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.GeneratorAdapter",
-	"jdk.internal.org.objectweb.asm.commons.LocalVariablesSorter",
-	nullptr,
-	_GeneratorAdapter_FieldInfo_,
-	_GeneratorAdapter_MethodInfo_
-};
-
-$Object* allocate$GeneratorAdapter($Class* clazz) {
-	return $of($alloc(GeneratorAdapter));
-}
 
 $String* GeneratorAdapter::CLASS_DESCRIPTOR = nullptr;
 $Type* GeneratorAdapter::BYTE_TYPE = nullptr;
@@ -347,25 +195,21 @@ void GeneratorAdapter::init$(int32_t api, $MethodVisitor* methodVisitor, int32_t
 }
 
 void GeneratorAdapter::init$(int32_t access, $Method* method, $MethodVisitor* methodVisitor) {
-	$useLocalCurrentObjectStackCache();
-	$var($MethodVisitor, var$0, methodVisitor);
-	int32_t var$1 = access;
-	$var($String, var$2, $nc(method)->getName());
-	GeneratorAdapter::init$(var$0, var$1, var$2, $(method->getDescriptor()));
+	$useLocalObjectStack();
+	$var($String, var$0, $nc(method)->getName());
+	GeneratorAdapter::init$(methodVisitor, access, var$0, $(method->getDescriptor()));
 }
 
 void GeneratorAdapter::init$(int32_t access, $Method* method, $String* signature, $TypeArray* exceptions, $ClassVisitor* classVisitor) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = access;
-	$var($String, var$1, $nc(method)->getName());
-	$var($String, var$2, method->getDescriptor());
-	$var($String, var$3, signature);
-	GeneratorAdapter::init$(access, method, $($nc(classVisitor)->visitMethod(var$0, var$1, var$2, var$3, exceptions == nullptr ? ($StringArray*)nullptr : $(getInternalNames(exceptions)))));
+	$useLocalObjectStack();
+	$var($String, var$0, $nc(method)->getName());
+	$var($String, var$1, method->getDescriptor());
+	GeneratorAdapter::init$(access, method, $($nc(classVisitor)->visitMethod(access, var$0, var$1, signature, exceptions == nullptr ? ($StringArray*)nullptr : $(getInternalNames(exceptions)))));
 }
 
 $StringArray* GeneratorAdapter::getInternalNames($TypeArray* types) {
 	$init(GeneratorAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, names, $new($StringArray, $nc(types)->length));
 	for (int32_t i = 0; i < names->length; ++i) {
 		names->set(i, $($nc(types->get(i))->getInternalName()));
@@ -406,7 +250,7 @@ void GeneratorAdapter::push(int32_t value) {
 }
 
 void GeneratorAdapter::push(int64_t value) {
-	if (value == (int64_t)0 || value == (int64_t)1) {
+	if (value == 0 || value == 1) {
 		$nc(this->mv)->visitInsn($Opcodes::LCONST_0 + (int32_t)value);
 	} else {
 		$nc(this->mv)->visitLdcInsn($($Long::valueOf(value)));
@@ -415,7 +259,7 @@ void GeneratorAdapter::push(int64_t value) {
 
 void GeneratorAdapter::push(float value) {
 	int32_t bits = $Float::floatToIntBits(value);
-	if (bits == (int64_t)0 || bits == 0x3F800000 || bits == 0x40000000) {
+	if (bits == 0 || bits == 0x3f800000 || bits == 0x40000000) {
 		$nc(this->mv)->visitInsn($Opcodes::FCONST_0 + $cast(int32_t, value));
 	} else {
 		$nc(this->mv)->visitLdcInsn($($Float::valueOf(value)));
@@ -424,7 +268,7 @@ void GeneratorAdapter::push(float value) {
 
 void GeneratorAdapter::push(double value) {
 	int64_t bits = $Double::doubleToLongBits(value);
-	if (bits == (int64_t)0 || bits == (int64_t)0x3FF0000000000000) {
+	if (bits == 0 || bits == (int64_t)0x3ff0000000000000) {
 		$nc(this->mv)->visitInsn($Opcodes::DCONST_0 + $cast(int32_t, value));
 	} else {
 		$nc(this->mv)->visitLdcInsn($($Double::valueOf(value)));
@@ -443,52 +287,34 @@ void GeneratorAdapter::push($Type* value) {
 	if (value == nullptr) {
 		$nc(this->mv)->visitInsn($Opcodes::ACONST_NULL);
 	} else {
-		switch ($nc(value)->getSort()) {
+		switch (value->getSort()) {
 		case $Type::BOOLEAN:
-			{
-				$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Boolean"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
-				break;
-			}
+			$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Boolean"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
+			break;
 		case $Type::CHAR:
-			{
-				$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Character"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
-				break;
-			}
+			$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Character"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
+			break;
 		case $Type::BYTE:
-			{
-				$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Byte"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
-				break;
-			}
+			$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Byte"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
+			break;
 		case $Type::SHORT:
-			{
-				$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Short"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
-				break;
-			}
+			$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Short"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
+			break;
 		case $Type::INT:
-			{
-				$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Integer"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
-				break;
-			}
+			$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Integer"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
+			break;
 		case $Type::FLOAT:
-			{
-				$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Float"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
-				break;
-			}
+			$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Float"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
+			break;
 		case $Type::LONG:
-			{
-				$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Long"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
-				break;
-			}
+			$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Long"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
+			break;
 		case $Type::DOUBLE:
-			{
-				$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Double"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
-				break;
-			}
+			$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, "java/lang/Double"_s, "TYPE"_s, GeneratorAdapter::CLASS_DESCRIPTOR);
+			break;
 		default:
-			{
-				$nc(this->mv)->visitLdcInsn(value);
-				break;
-			}
+			$nc(this->mv)->visitLdcInsn(value);
+			break;
 		}
 	}
 }
@@ -510,7 +336,7 @@ void GeneratorAdapter::push($ConstantDynamic* constantDynamic) {
 }
 
 int32_t GeneratorAdapter::getArgIndex(int32_t arg) {
-	int32_t index = ((int32_t)(this->access & (uint32_t)$Opcodes::ACC_STATIC)) == 0 ? 1 : 0;
+	int32_t index = (this->access & $Opcodes::ACC_STATIC) == 0 ? 1 : 0;
 	for (int32_t i = 0; i < arg; ++i) {
 		index += $nc($nc(this->argumentTypes)->get(i))->getSize();
 	}
@@ -526,7 +352,7 @@ void GeneratorAdapter::storeInsn($Type* type, int32_t index) {
 }
 
 void GeneratorAdapter::loadThis() {
-	if (((int32_t)(this->access & (uint32_t)$Opcodes::ACC_STATIC)) != 0) {
+	if ((this->access & $Opcodes::ACC_STATIC) != 0) {
 		$throwNew($IllegalStateException, "no \'this\' pointer within static method"_s);
 	}
 	$nc(this->mv)->visitVarInsn($Opcodes::ALOAD, 0);
@@ -537,7 +363,7 @@ void GeneratorAdapter::loadArg(int32_t arg) {
 }
 
 void GeneratorAdapter::loadArgs(int32_t arg, int32_t count) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = getArgIndex(arg);
 	for (int32_t i = 0; i < count; ++i) {
 		$var($Type, argumentType, $nc(this->argumentTypes)->get(arg + i));
@@ -553,11 +379,11 @@ void GeneratorAdapter::loadArgs() {
 void GeneratorAdapter::loadArgArray() {
 	push($nc(this->argumentTypes)->length);
 	newArray(GeneratorAdapter::OBJECT_TYPE);
-	for (int32_t i = 0; i < $nc(this->argumentTypes)->length; ++i) {
+	for (int32_t i = 0; i < this->argumentTypes->length; ++i) {
 		dup();
 		push(i);
 		loadArg(i);
-		box($nc(this->argumentTypes)->get(i));
+		box(this->argumentTypes->get(i));
 		arrayStore(GeneratorAdapter::OBJECT_TYPE);
 	}
 }
@@ -573,9 +399,9 @@ $Type* GeneratorAdapter::getLocalType(int32_t local) {
 void GeneratorAdapter::setLocalType(int32_t local, $Type* type) {
 	int32_t index = local - this->firstLocal;
 	while ($nc(this->localTypes)->size() < index + 1) {
-		$nc(this->localTypes)->add(nullptr);
+		this->localTypes->add(nullptr);
 	}
-	$nc(this->localTypes)->set(index, type);
+	this->localTypes->set(index, type);
 }
 
 void GeneratorAdapter::loadLocal(int32_t local) {
@@ -663,7 +489,7 @@ void GeneratorAdapter::math(int32_t op, $Type* type) {
 
 void GeneratorAdapter::not$() {
 	$nc(this->mv)->visitInsn($Opcodes::ICONST_1);
-	$nc(this->mv)->visitInsn($Opcodes::IXOR);
+	this->mv->visitInsn($Opcodes::IXOR);
 }
 
 void GeneratorAdapter::iinc(int32_t local, int32_t amount) {
@@ -673,7 +499,7 @@ void GeneratorAdapter::iinc(int32_t local, int32_t amount) {
 void GeneratorAdapter::cast($Type* from, $Type* to) {
 	if (from != to) {
 		bool var$2 = $nc(from)->getSort() < $Type::BOOLEAN;
-		bool var$1 = var$2 || $nc(from)->getSort() > $Type::DOUBLE;
+		bool var$1 = var$2 || from->getSort() > $Type::DOUBLE;
 		bool var$0 = var$1 || $nc(to)->getSort() < $Type::BOOLEAN;
 		if (var$0 || $nc(to)->getSort() > $Type::DOUBLE) {
 			$throwNew($IllegalArgumentException, $$str({"Cannot cast from "_s, from, " to "_s, to}));
@@ -686,48 +512,30 @@ $Type* GeneratorAdapter::getBoxedType($Type* type) {
 	$init(GeneratorAdapter);
 	switch ($nc(type)->getSort()) {
 	case $Type::BYTE:
-		{
-			return GeneratorAdapter::BYTE_TYPE;
-		}
+		return GeneratorAdapter::BYTE_TYPE;
 	case $Type::BOOLEAN:
-		{
-			return GeneratorAdapter::BOOLEAN_TYPE;
-		}
+		return GeneratorAdapter::BOOLEAN_TYPE;
 	case $Type::SHORT:
-		{
-			return GeneratorAdapter::SHORT_TYPE;
-		}
+		return GeneratorAdapter::SHORT_TYPE;
 	case $Type::CHAR:
-		{
-			return GeneratorAdapter::CHARACTER_TYPE;
-		}
+		return GeneratorAdapter::CHARACTER_TYPE;
 	case $Type::INT:
-		{
-			return GeneratorAdapter::INTEGER_TYPE;
-		}
+		return GeneratorAdapter::INTEGER_TYPE;
 	case $Type::FLOAT:
-		{
-			return GeneratorAdapter::FLOAT_TYPE;
-		}
+		return GeneratorAdapter::FLOAT_TYPE;
 	case $Type::LONG:
-		{
-			return GeneratorAdapter::LONG_TYPE;
-		}
+		return GeneratorAdapter::LONG_TYPE;
 	case $Type::DOUBLE:
-		{
-			return GeneratorAdapter::DOUBLE_TYPE;
-		}
+		return GeneratorAdapter::DOUBLE_TYPE;
 	default:
-		{
-			return type;
-		}
+		return type;
 	}
 }
 
 void GeneratorAdapter::box($Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(type)->getSort() == $Type::OBJECT;
-	if (var$0 || $nc(type)->getSort() == $Type::ARRAY) {
+	if (var$0 || type->getSort() == $Type::ARRAY) {
 		return;
 	}
 	if (type == $Type::VOID_TYPE) {
@@ -735,7 +543,7 @@ void GeneratorAdapter::box($Type* type) {
 	} else {
 		$var($Type, boxedType, getBoxedType(type));
 		newInstance(boxedType);
-		if ($nc(type)->getSize() == 2) {
+		if (type->getSize() == 2) {
 			dupX2();
 			dupX2();
 			pop();
@@ -748,9 +556,9 @@ void GeneratorAdapter::box($Type* type) {
 }
 
 void GeneratorAdapter::valueOf($Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(type)->getSort() == $Type::OBJECT;
-	if (var$0 || $nc(type)->getSort() == $Type::ARRAY) {
+	if (var$0 || type->getSort() == $Type::ARRAY) {
 		return;
 	}
 	if (type == $Type::VOID_TYPE) {
@@ -762,55 +570,37 @@ void GeneratorAdapter::valueOf($Type* type) {
 }
 
 void GeneratorAdapter::unbox($Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, boxedType, GeneratorAdapter::NUMBER_TYPE);
 	$var($Method, unboxMethod, nullptr);
 	switch ($nc(type)->getSort()) {
 	case $Type::VOID:
-		{
-			return;
-		}
+		return;
 	case $Type::CHAR:
-		{
-			$assign(boxedType, GeneratorAdapter::CHARACTER_TYPE);
-			$assign(unboxMethod, GeneratorAdapter::CHAR_VALUE);
-			break;
-		}
+		$assign(boxedType, GeneratorAdapter::CHARACTER_TYPE);
+		$assign(unboxMethod, GeneratorAdapter::CHAR_VALUE);
+		break;
 	case $Type::BOOLEAN:
-		{
-			$assign(boxedType, GeneratorAdapter::BOOLEAN_TYPE);
-			$assign(unboxMethod, GeneratorAdapter::BOOLEAN_VALUE);
-			break;
-		}
+		$assign(boxedType, GeneratorAdapter::BOOLEAN_TYPE);
+		$assign(unboxMethod, GeneratorAdapter::BOOLEAN_VALUE);
+		break;
 	case $Type::DOUBLE:
-		{
-			$assign(unboxMethod, GeneratorAdapter::DOUBLE_VALUE);
-			break;
-		}
+		$assign(unboxMethod, GeneratorAdapter::DOUBLE_VALUE);
+		break;
 	case $Type::FLOAT:
-		{
-			$assign(unboxMethod, GeneratorAdapter::FLOAT_VALUE);
-			break;
-		}
+		$assign(unboxMethod, GeneratorAdapter::FLOAT_VALUE);
+		break;
 	case $Type::LONG:
-		{
-			$assign(unboxMethod, GeneratorAdapter::LONG_VALUE);
-			break;
-		}
+		$assign(unboxMethod, GeneratorAdapter::LONG_VALUE);
+		break;
 	case $Type::INT:
-		{}
 	case $Type::SHORT:
-		{}
 	case $Type::BYTE:
-		{
-			$assign(unboxMethod, GeneratorAdapter::INT_VALUE);
-			break;
-		}
+		$assign(unboxMethod, GeneratorAdapter::INT_VALUE);
+		break;
 	default:
-		{
-			$assign(unboxMethod, nullptr);
-			break;
-		}
+		$assign(unboxMethod, nullptr);
+		break;
 	}
 	if (unboxMethod == nullptr) {
 		checkCast(type);
@@ -835,81 +625,56 @@ $Label* GeneratorAdapter::mark() {
 }
 
 void GeneratorAdapter::ifCmp($Type* type, int32_t mode, $Label* label) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		int32_t intOp = 0;
 		switch ($nc(type)->getSort()) {
 		case $Type::LONG:
-			{
-				$nc(this->mv)->visitInsn($Opcodes::LCMP);
-				break;
-			}
+			$nc(this->mv)->visitInsn($Opcodes::LCMP);
+			break;
 		case $Type::DOUBLE:
-			{
-				$nc(this->mv)->visitInsn(mode == GeneratorAdapter::GE || mode == GeneratorAdapter::GT ? $Opcodes::DCMPL : $Opcodes::DCMPG);
-				break;
-			}
+			$nc(this->mv)->visitInsn(mode == GeneratorAdapter::GE || mode == GeneratorAdapter::GT ? $Opcodes::DCMPL : $Opcodes::DCMPG);
+			break;
 		case $Type::FLOAT:
-			{
-				$nc(this->mv)->visitInsn(mode == GeneratorAdapter::GE || mode == GeneratorAdapter::GT ? $Opcodes::FCMPL : $Opcodes::FCMPG);
-				break;
-			}
+			$nc(this->mv)->visitInsn(mode == GeneratorAdapter::GE || mode == GeneratorAdapter::GT ? $Opcodes::FCMPL : $Opcodes::FCMPG);
+			break;
 		case $Type::ARRAY:
-			{}
 		case $Type::OBJECT:
-			{
-				if (mode == GeneratorAdapter::EQ) {
-					$nc(this->mv)->visitJumpInsn($Opcodes::IF_ACMPEQ, label);
-					return;
-				} else if (mode == GeneratorAdapter::NE) {
-					$nc(this->mv)->visitJumpInsn($Opcodes::IF_ACMPNE, label);
-					return;
-				} else {
-					$throwNew($IllegalArgumentException, $$str({"Bad comparison for type "_s, type}));
-				}
+			if (mode == GeneratorAdapter::EQ) {
+				$nc(this->mv)->visitJumpInsn($Opcodes::IF_ACMPEQ, label);
+				return;
+			} else if (mode == GeneratorAdapter::NE) {
+				$nc(this->mv)->visitJumpInsn($Opcodes::IF_ACMPNE, label);
+				return;
+			} else {
+				$throwNew($IllegalArgumentException, $$str({"Bad comparison for type "_s, type}));
 			}
 		default:
-			{
-				intOp = -1;
-				switch (mode) {
-				case GeneratorAdapter::EQ:
-					{
-						intOp = $Opcodes::IF_ICMPEQ;
-						break;
-					}
-				case GeneratorAdapter::NE:
-					{
-						intOp = $Opcodes::IF_ICMPNE;
-						break;
-					}
-				case GeneratorAdapter::GE:
-					{
-						intOp = $Opcodes::IF_ICMPGE;
-						break;
-					}
-				case GeneratorAdapter::LT:
-					{
-						intOp = $Opcodes::IF_ICMPLT;
-						break;
-					}
-				case GeneratorAdapter::LE:
-					{
-						intOp = $Opcodes::IF_ICMPLE;
-						break;
-					}
-				case GeneratorAdapter::GT:
-					{
-						intOp = $Opcodes::IF_ICMPGT;
-						break;
-					}
-				default:
-					{
-						$throwNew($IllegalArgumentException, $$str({"Bad comparison mode "_s, $$str(mode)}));
-					}
-				}
-				$nc(this->mv)->visitJumpInsn(intOp, label);
-				return;
+			intOp = -1;
+			switch (mode) {
+			case GeneratorAdapter::EQ:
+				intOp = $Opcodes::IF_ICMPEQ;
+				break;
+			case GeneratorAdapter::NE:
+				intOp = $Opcodes::IF_ICMPNE;
+				break;
+			case GeneratorAdapter::GE:
+				intOp = $Opcodes::IF_ICMPGE;
+				break;
+			case GeneratorAdapter::LT:
+				intOp = $Opcodes::IF_ICMPLT;
+				break;
+			case GeneratorAdapter::LE:
+				intOp = $Opcodes::IF_ICMPLE;
+				break;
+			case GeneratorAdapter::GT:
+				intOp = $Opcodes::IF_ICMPGT;
+				break;
+			default:
+				$throwNew($IllegalArgumentException, $$str({"Bad comparison mode "_s, $$str(mode)}));
 			}
+			$nc(this->mv)->visitJumpInsn(intOp, label);
+			return;
 		}
 	}
 	$nc(this->mv)->visitJumpInsn(mode, label);
@@ -943,7 +708,7 @@ void GeneratorAdapter::ret(int32_t local) {
 void GeneratorAdapter::tableSwitch($ints* keys, $TableSwitchGenerator* generator) {
 	float density = 0.0;
 	if ($nc(keys)->length == 0) {
-		density = (float)0;
+		density = 0;
 	} else {
 		density = (float)keys->length / (keys->get(keys->length - 1) - keys->get(0) + 1);
 	}
@@ -951,7 +716,7 @@ void GeneratorAdapter::tableSwitch($ints* keys, $TableSwitchGenerator* generator
 }
 
 void GeneratorAdapter::tableSwitch($ints* keys, $TableSwitchGenerator* generator, bool useTable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 1; i < $nc(keys)->length; ++i) {
 		if (keys->get(i) < keys->get(i - 1)) {
 			$throwNew($IllegalArgumentException, "keys must be sorted in ascending order"_s);
@@ -959,14 +724,14 @@ void GeneratorAdapter::tableSwitch($ints* keys, $TableSwitchGenerator* generator
 	}
 	$var($Label, defaultLabel, newLabel());
 	$var($Label, endLabel, newLabel());
-	if ($nc(keys)->length > 0) {
+	if (keys->length > 0) {
 		int32_t numKeys = keys->length;
 		if (useTable) {
 			int32_t min = keys->get(0);
 			int32_t max = keys->get(numKeys - 1);
 			int32_t range = max - min + 1;
 			$var($LabelArray, labels, $new($LabelArray, range));
-			$Arrays::fill(labels, $of(defaultLabel));
+			$Arrays::fill(labels, defaultLabel);
 			for (int32_t i = 0; i < numKeys; ++i) {
 				labels->set(keys->get(i) - min, $(newLabel()));
 			}
@@ -1000,11 +765,9 @@ void GeneratorAdapter::returnValue() {
 }
 
 void GeneratorAdapter::fieldInsn(int32_t opcode, $Type* ownerType, $String* name, $Type* fieldType) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = opcode;
-	$var($String, var$1, $nc(ownerType)->getInternalName());
-	$var($String, var$2, name);
-	$nc(this->mv)->visitFieldInsn(var$0, var$1, var$2, $($nc(fieldType)->getDescriptor()));
+	$useLocalObjectStack();
+	$var($String, var$0, $nc(ownerType)->getInternalName());
+	$nc(this->mv)->visitFieldInsn(opcode, var$0, name, $($nc(fieldType)->getDescriptor()));
 }
 
 void GeneratorAdapter::getStatic($Type* owner, $String* name, $Type* type) {
@@ -1024,12 +787,10 @@ void GeneratorAdapter::putField($Type* owner, $String* name, $Type* type) {
 }
 
 void GeneratorAdapter::invokeInsn(int32_t opcode, $Type* type, $Method* method, bool isInterface) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, owner, $nc(type)->getSort() == $Type::ARRAY ? $nc(type)->getDescriptor() : type->getInternalName());
-	int32_t var$0 = opcode;
-	$var($String, var$1, owner);
-	$var($String, var$2, $nc(method)->getName());
-	$nc(this->mv)->visitMethodInsn(var$0, var$1, var$2, $(method->getDescriptor()), isInterface);
+	$useLocalObjectStack();
+	$var($String, owner, $nc(type)->getSort() == $Type::ARRAY ? type->getDescriptor() : type->getInternalName());
+	$var($String, var$0, $nc(method)->getName());
+	$nc(this->mv)->visitMethodInsn(opcode, owner, var$0, $(method->getDescriptor()), isInterface);
 }
 
 void GeneratorAdapter::invokeVirtual($Type* owner, $Method* method) {
@@ -1099,24 +860,24 @@ void GeneratorAdapter::monitorExit() {
 }
 
 void GeneratorAdapter::endMethod() {
-	if (((int32_t)(this->access & (uint32_t)$Opcodes::ACC_ABSTRACT)) == 0) {
+	if ((this->access & $Opcodes::ACC_ABSTRACT) == 0) {
 		$nc(this->mv)->visitMaxs(0, 0);
 	}
 	$nc(this->mv)->visitEnd();
 }
 
 void GeneratorAdapter::catchException($Label* start, $Label* end, $Type* exception) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Label, catchLabel, $new($Label));
 	if (exception == nullptr) {
 		$nc(this->mv)->visitTryCatchBlock(start, end, catchLabel, nullptr);
 	} else {
-		$nc(this->mv)->visitTryCatchBlock(start, end, catchLabel, $($nc(exception)->getInternalName()));
+		$nc(this->mv)->visitTryCatchBlock(start, end, catchLabel, $(exception->getInternalName()));
 	}
 	mark(catchLabel);
 }
 
-void clinit$GeneratorAdapter($Class* class$) {
+void GeneratorAdapter::clinit$($Class* clazz) {
 	$assignStatic(GeneratorAdapter::CLASS_DESCRIPTOR, "Ljava/lang/Class;"_s);
 	$assignStatic(GeneratorAdapter::BYTE_TYPE, $Type::getObjectType("java/lang/Byte"_s));
 	$assignStatic(GeneratorAdapter::BOOLEAN_TYPE, $Type::getObjectType("java/lang/Boolean"_s));
@@ -1140,7 +901,152 @@ GeneratorAdapter::GeneratorAdapter() {
 }
 
 $Class* GeneratorAdapter::load$($String* name, bool initialize) {
-	$loadClass(GeneratorAdapter, name, initialize, &_GeneratorAdapter_ClassInfo_, clinit$GeneratorAdapter, allocate$GeneratorAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLASS_DESCRIPTOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, CLASS_DESCRIPTOR)},
+		{"BYTE_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, BYTE_TYPE)},
+		{"BOOLEAN_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, BOOLEAN_TYPE)},
+		{"SHORT_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, SHORT_TYPE)},
+		{"CHARACTER_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, CHARACTER_TYPE)},
+		{"INTEGER_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, INTEGER_TYPE)},
+		{"FLOAT_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, FLOAT_TYPE)},
+		{"LONG_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, LONG_TYPE)},
+		{"DOUBLE_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, DOUBLE_TYPE)},
+		{"NUMBER_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, NUMBER_TYPE)},
+		{"OBJECT_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, OBJECT_TYPE)},
+		{"BOOLEAN_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, BOOLEAN_VALUE)},
+		{"CHAR_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, CHAR_VALUE)},
+		{"INT_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, INT_VALUE)},
+		{"FLOAT_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, FLOAT_VALUE)},
+		{"LONG_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, LONG_VALUE)},
+		{"DOUBLE_VALUE", "Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GeneratorAdapter, DOUBLE_VALUE)},
+		{"ADD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, ADD)},
+		{"SUB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, SUB)},
+		{"MUL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, MUL)},
+		{"DIV", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, DIV)},
+		{"REM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, REM)},
+		{"NEG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, NEG)},
+		{"SHL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, SHL)},
+		{"SHR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, SHR)},
+		{"USHR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, USHR)},
+		{"AND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, AND)},
+		{"OR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, OR)},
+		{"XOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, XOR)},
+		{"EQ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, EQ)},
+		{"NE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, NE)},
+		{"LT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, LT)},
+		{"GE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, GE)},
+		{"GT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, GT)},
+		{"LE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeneratorAdapter, LE)},
+		{"access", "I", nullptr, $PRIVATE | $FINAL, $field(GeneratorAdapter, access)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(GeneratorAdapter, name)},
+		{"returnType", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $FINAL, $field(GeneratorAdapter, returnType)},
+		{"argumentTypes", "[Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $FINAL, $field(GeneratorAdapter, argumentTypes)},
+		{"localTypes", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;", $PRIVATE | $FINAL, $field(GeneratorAdapter, localTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GeneratorAdapter, init$, void, $MethodVisitor*, int32_t, $String*, $String*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(GeneratorAdapter, init$, void, int32_t, $MethodVisitor*, int32_t, $String*, $String*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/commons/Method;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(GeneratorAdapter, init$, void, int32_t, $Method*, $MethodVisitor*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/commons/Method;Ljava/lang/String;[Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $method(GeneratorAdapter, init$, void, int32_t, $Method*, $String*, $TypeArray*, $ClassVisitor*)},
+		{"arrayLength", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, arrayLength, void)},
+		{"arrayLoad", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, arrayLoad, void, $Type*)},
+		{"arrayStore", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, arrayStore, void, $Type*)},
+		{"box", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, box, void, $Type*)},
+		{"cast", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, cast, void, $Type*, $Type*)},
+		{"catchException", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, catchException, void, $Label*, $Label*, $Type*)},
+		{"checkCast", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, checkCast, void, $Type*)},
+		{"dup", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dup, void)},
+		{"dup2", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dup2, void)},
+		{"dup2X1", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dup2X1, void)},
+		{"dup2X2", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dup2X2, void)},
+		{"dupX1", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dupX1, void)},
+		{"dupX2", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, dupX2, void)},
+		{"endMethod", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, endMethod, void)},
+		{"fieldInsn", "(ILjdk/internal/org/objectweb/asm/Type;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PRIVATE, $method(GeneratorAdapter, fieldInsn, void, int32_t, $Type*, $String*, $Type*)},
+		{"getAccess", "()I", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getAccess, int32_t)},
+		{"getArgIndex", "(I)I", nullptr, $PRIVATE, $method(GeneratorAdapter, getArgIndex, int32_t, int32_t)},
+		{"getArgumentTypes", "()[Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getArgumentTypes, $TypeArray*)},
+		{"getBoxedType", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE | $STATIC, $staticMethod(GeneratorAdapter, getBoxedType, $Type*, $Type*)},
+		{"getField", "(Ljdk/internal/org/objectweb/asm/Type;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getField, void, $Type*, $String*, $Type*)},
+		{"getInternalNames", "([Ljdk/internal/org/objectweb/asm/Type;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(GeneratorAdapter, getInternalNames, $StringArray*, $TypeArray*)},
+		{"getLocalType", "(I)Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getLocalType, $Type*, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getName, $String*)},
+		{"getReturnType", "()Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getReturnType, $Type*)},
+		{"getStatic", "(Ljdk/internal/org/objectweb/asm/Type;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, getStatic, void, $Type*, $String*, $Type*)},
+		{"goTo", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, goTo, void, $Label*)},
+		{"ifCmp", "(Ljdk/internal/org/objectweb/asm/Type;ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ifCmp, void, $Type*, int32_t, $Label*)},
+		{"ifICmp", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ifICmp, void, int32_t, $Label*)},
+		{"ifNonNull", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ifNonNull, void, $Label*)},
+		{"ifNull", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ifNull, void, $Label*)},
+		{"ifZCmp", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ifZCmp, void, int32_t, $Label*)},
+		{"iinc", "(II)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, iinc, void, int32_t, int32_t)},
+		{"instanceOf", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, instanceOf, void, $Type*)},
+		{"invokeConstructor", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/commons/Method;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, invokeConstructor, void, $Type*, $Method*)},
+		{"invokeDynamic", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(GeneratorAdapter, invokeDynamic, void, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"invokeInsn", "(ILjdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/commons/Method;Z)V", nullptr, $PRIVATE, $method(GeneratorAdapter, invokeInsn, void, int32_t, $Type*, $Method*, bool)},
+		{"invokeInterface", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/commons/Method;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, invokeInterface, void, $Type*, $Method*)},
+		{"invokeStatic", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/commons/Method;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, invokeStatic, void, $Type*, $Method*)},
+		{"invokeVirtual", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/commons/Method;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, invokeVirtual, void, $Type*, $Method*)},
+		{"loadArg", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadArg, void, int32_t)},
+		{"loadArgArray", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadArgArray, void)},
+		{"loadArgs", "(II)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadArgs, void, int32_t, int32_t)},
+		{"loadArgs", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadArgs, void)},
+		{"loadInsn", "(Ljdk/internal/org/objectweb/asm/Type;I)V", nullptr, $PRIVATE, $method(GeneratorAdapter, loadInsn, void, $Type*, int32_t)},
+		{"loadLocal", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadLocal, void, int32_t)},
+		{"loadLocal", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadLocal, void, int32_t, $Type*)},
+		{"loadThis", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, loadThis, void)},
+		{"mark", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, mark, void, $Label*)},
+		{"mark", "()Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, mark, $Label*)},
+		{"math", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, math, void, int32_t, $Type*)},
+		{"monitorEnter", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, monitorEnter, void)},
+		{"monitorExit", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, monitorExit, void)},
+		{"newArray", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, newArray, void, $Type*)},
+		{"newInstance", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, newInstance, void, $Type*)},
+		{"newLabel", "()Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, newLabel, $Label*)},
+		{"not", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, not$, void)},
+		{"pop", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, pop, void)},
+		{"pop2", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, pop2, void)},
+		{"push", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, bool)},
+		{"push", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, int32_t)},
+		{"push", "(J)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, int64_t)},
+		{"push", "(F)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, float)},
+		{"push", "(D)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, double)},
+		{"push", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, $String*)},
+		{"push", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, $Type*)},
+		{"push", "(Ljdk/internal/org/objectweb/asm/Handle;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, $Handle*)},
+		{"push", "(Ljdk/internal/org/objectweb/asm/ConstantDynamic;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, push, void, $ConstantDynamic*)},
+		{"putField", "(Ljdk/internal/org/objectweb/asm/Type;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, putField, void, $Type*, $String*, $Type*)},
+		{"putStatic", "(Ljdk/internal/org/objectweb/asm/Type;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, putStatic, void, $Type*, $String*, $Type*)},
+		{"ret", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, ret, void, int32_t)},
+		{"returnValue", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, returnValue, void)},
+		{"setLocalType", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PROTECTED, $virtualMethod(GeneratorAdapter, setLocalType, void, int32_t, $Type*)},
+		{"storeArg", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, storeArg, void, int32_t)},
+		{"storeInsn", "(Ljdk/internal/org/objectweb/asm/Type;I)V", nullptr, $PRIVATE, $method(GeneratorAdapter, storeInsn, void, $Type*, int32_t)},
+		{"storeLocal", "(I)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, storeLocal, void, int32_t)},
+		{"storeLocal", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, storeLocal, void, int32_t, $Type*)},
+		{"swap", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, swap, void)},
+		{"swap", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, swap, void, $Type*, $Type*)},
+		{"tableSwitch", "([ILjdk/internal/org/objectweb/asm/commons/TableSwitchGenerator;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, tableSwitch, void, $ints*, $TableSwitchGenerator*)},
+		{"tableSwitch", "([ILjdk/internal/org/objectweb/asm/commons/TableSwitchGenerator;Z)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, tableSwitch, void, $ints*, $TableSwitchGenerator*, bool)},
+		{"throwException", "()V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, throwException, void)},
+		{"throwException", "(Ljdk/internal/org/objectweb/asm/Type;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, throwException, void, $Type*, $String*)},
+		{"typeInsn", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PRIVATE, $method(GeneratorAdapter, typeInsn, void, int32_t, $Type*)},
+		{"unbox", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, unbox, void, $Type*)},
+		{"valueOf", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $virtualMethod(GeneratorAdapter, valueOf, void, $Type*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.GeneratorAdapter",
+		"jdk.internal.org.objectweb.asm.commons.LocalVariablesSorter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GeneratorAdapter, name, initialize, &classInfo$$, GeneratorAdapter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GeneratorAdapter);
+	});
 	return class$;
 }
 

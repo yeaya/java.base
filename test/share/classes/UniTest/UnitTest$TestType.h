@@ -13,6 +13,7 @@ class $export UnitTest$TestType : public ::java::lang::Enum {
 public:
 	UnitTest$TestType();
 	static $Array<::UniTest::UnitTest$TestType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::UniTest::UnitTest$TestType* valueOf($String* name);
 	static $Array<::UniTest::UnitTest$TestType>* values();

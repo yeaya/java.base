@@ -1,5 +1,4 @@
 #include <java/security/spec/ECGenParameterSpec.h>
-
 #include <java/security/spec/NamedParameterSpec.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace java {
 	namespace security {
 		namespace spec {
 
-$MethodInfo _ECGenParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ECGenParameterSpec, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ECGenParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.ECGenParameterSpec",
-	"java.security.spec.NamedParameterSpec",
-	nullptr,
-	nullptr,
-	_ECGenParameterSpec_MethodInfo_
-};
-
-$Object* allocate$ECGenParameterSpec($Class* clazz) {
-	return $of($alloc(ECGenParameterSpec));
-}
-
 void ECGenParameterSpec::init$($String* stdName) {
 	$NamedParameterSpec::init$(stdName);
 }
@@ -37,7 +18,21 @@ ECGenParameterSpec::ECGenParameterSpec() {
 }
 
 $Class* ECGenParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(ECGenParameterSpec, name, initialize, &_ECGenParameterSpec_ClassInfo_, allocate$ECGenParameterSpec);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ECGenParameterSpec, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.ECGenParameterSpec",
+		"java.security.spec.NamedParameterSpec",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ECGenParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECGenParameterSpec);
+	});
 	return class$;
 }
 

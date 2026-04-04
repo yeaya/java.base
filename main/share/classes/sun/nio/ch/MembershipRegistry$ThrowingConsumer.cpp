@@ -1,5 +1,4 @@
 #include <sun/nio/ch/MembershipRegistry$ThrowingConsumer.h>
-
 #include <sun/nio/ch/MembershipRegistry.h>
 #include <jcpp.h>
 
@@ -12,43 +11,37 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$CompoundAttribute _MembershipRegistry$ThrowingConsumer_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _MembershipRegistry$ThrowingConsumer_MethodInfo_[] = {
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V^TX;", $PUBLIC | $ABSTRACT, $virtualMethod(MembershipRegistry$ThrowingConsumer, accept, void, Object$*), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _MembershipRegistry$ThrowingConsumer_InnerClassesInfo_[] = {
-	{"sun.nio.ch.MembershipRegistry$ThrowingConsumer", "sun.nio.ch.MembershipRegistry", "ThrowingConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MembershipRegistry$ThrowingConsumer_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.nio.ch.MembershipRegistry$ThrowingConsumer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_MembershipRegistry$ThrowingConsumer_MethodInfo_,
-	"<T:Ljava/lang/Object;X:Ljava/lang/Throwable;>Ljava/lang/Object;",
-	nullptr,
-	_MembershipRegistry$ThrowingConsumer_InnerClassesInfo_,
-	_MembershipRegistry$ThrowingConsumer_Annotations_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.MembershipRegistry"
-};
-
-$Object* allocate$MembershipRegistry$ThrowingConsumer($Class* clazz) {
-	return $of($alloc(MembershipRegistry$ThrowingConsumer));
-}
-
 $Class* MembershipRegistry$ThrowingConsumer::load$($String* name, bool initialize) {
-	$loadClass(MembershipRegistry$ThrowingConsumer, name, initialize, &_MembershipRegistry$ThrowingConsumer_ClassInfo_, allocate$MembershipRegistry$ThrowingConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Ljava/lang/Object;)V", "(TT;)V^TX;", $PUBLIC | $ABSTRACT, $virtualMethod(MembershipRegistry$ThrowingConsumer, accept, void, Object$*), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.MembershipRegistry$ThrowingConsumer", "sun.nio.ch.MembershipRegistry", "ThrowingConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.nio.ch.MembershipRegistry$ThrowingConsumer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;X:Ljava/lang/Throwable;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.MembershipRegistry"
+	};
+	$loadClass(MembershipRegistry$ThrowingConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MembershipRegistry$ThrowingConsumer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$ThreadPerTaskExecutor.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/Objects.h>
 #include <java/util/concurrent/CompletableFuture.h>
@@ -15,37 +14,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$MethodInfo _CompletableFuture$ThreadPerTaskExecutor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CompletableFuture$ThreadPerTaskExecutor, init$, void)},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$ThreadPerTaskExecutor, execute, void, $Runnable*)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$ThreadPerTaskExecutor_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$ThreadPerTaskExecutor", "java.util.concurrent.CompletableFuture", "ThreadPerTaskExecutor", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CompletableFuture$ThreadPerTaskExecutor_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$ThreadPerTaskExecutor",
-	"java.lang.Object",
-	"java.util.concurrent.Executor",
-	nullptr,
-	_CompletableFuture$ThreadPerTaskExecutor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CompletableFuture$ThreadPerTaskExecutor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$ThreadPerTaskExecutor($Class* clazz) {
-	return $of($alloc(CompletableFuture$ThreadPerTaskExecutor));
-}
-
 void CompletableFuture$ThreadPerTaskExecutor::init$() {
 }
 
@@ -58,7 +26,33 @@ CompletableFuture$ThreadPerTaskExecutor::CompletableFuture$ThreadPerTaskExecutor
 }
 
 $Class* CompletableFuture$ThreadPerTaskExecutor::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$ThreadPerTaskExecutor, name, initialize, &_CompletableFuture$ThreadPerTaskExecutor_ClassInfo_, allocate$CompletableFuture$ThreadPerTaskExecutor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CompletableFuture$ThreadPerTaskExecutor, init$, void)},
+		{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$ThreadPerTaskExecutor, execute, void, $Runnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$ThreadPerTaskExecutor", "java.util.concurrent.CompletableFuture", "ThreadPerTaskExecutor", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$ThreadPerTaskExecutor",
+		"java.lang.Object",
+		"java.util.concurrent.Executor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$ThreadPerTaskExecutor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompletableFuture$ThreadPerTaskExecutor);
+	});
 	return class$;
 }
 

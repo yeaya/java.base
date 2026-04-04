@@ -1,31 +1,10 @@
 #include <FinInterrupt.h>
-
 #include <java/lang/AssertionError.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _FinInterrupt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FinInterrupt, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FinInterrupt, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _FinInterrupt_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FinInterrupt",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_FinInterrupt_MethodInfo_
-};
-
-$Object* allocate$FinInterrupt($Class* clazz) {
-	return $of($alloc(FinInterrupt));
-}
 
 void FinInterrupt::init$() {
 }
@@ -44,7 +23,22 @@ FinInterrupt::FinInterrupt() {
 }
 
 $Class* FinInterrupt::load$($String* name, bool initialize) {
-	$loadClass(FinInterrupt, name, initialize, &_FinInterrupt_ClassInfo_, allocate$FinInterrupt);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FinInterrupt, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FinInterrupt, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FinInterrupt",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FinInterrupt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FinInterrupt);
+	});
 	return class$;
 }
 

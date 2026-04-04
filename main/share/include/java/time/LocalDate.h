@@ -92,6 +92,7 @@ public:
 	LocalDate();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t year, int32_t month, int32_t dayOfMonth);
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal) override;
 	::java::time::LocalDateTime* atStartOfDay();
@@ -178,8 +179,8 @@ public:
 	static ::java::time::LocalDate* MIN;
 	static ::java::time::LocalDate* MAX;
 	static ::java::time::LocalDate* EPOCH;
-	static const int64_t serialVersionUID = (int64_t)0x28D617B1D8F33F1E;
-	static const int32_t DAYS_PER_CYCLE = 0x00023AB1;
+	static const int64_t serialVersionUID = (int64_t)0x28d617b1d8f33f1e;
+	static const int32_t DAYS_PER_CYCLE = 0x00023ab1;
 	static const int64_t DAYS_0000_TO_1970 = 719528; // (DAYS_PER_CYCLE * 5L) - (30L * 365L + 7L)
 	int32_t year = 0;
 	int16_t month = 0;

@@ -1,5 +1,4 @@
 #include <java/lang/constant/DynamicCallSiteDesc.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
@@ -60,85 +59,42 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($of($nc(inst$))->toString());
+		 return $of($ofnc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DynamicCallSiteDesc$$Lambda$toString>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DynamicCallSiteDesc$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DynamicCallSiteDesc$$Lambda$toString, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc$$Lambda$toString, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo DynamicCallSiteDesc$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.constant.DynamicCallSiteDesc$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* DynamicCallSiteDesc$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(DynamicCallSiteDesc$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DynamicCallSiteDesc$$Lambda$toString, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc$$Lambda$toString, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.constant.DynamicCallSiteDesc$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DynamicCallSiteDesc$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DynamicCallSiteDesc$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* DynamicCallSiteDesc$$Lambda$toString::class$ = nullptr;
 
-$FieldInfo _DynamicCallSiteDesc_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DynamicCallSiteDesc, $assertionsDisabled)},
-	{"bootstrapMethod", "Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PRIVATE | $FINAL, $field(DynamicCallSiteDesc, bootstrapMethod$)},
-	{"bootstrapArgs", "[Ljava/lang/constant/ConstantDesc;", nullptr, $PRIVATE | $FINAL, $field(DynamicCallSiteDesc, bootstrapArgs$)},
-	{"invocationName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DynamicCallSiteDesc, invocationName$)},
-	{"invocationType", "Ljava/lang/constant/MethodTypeDesc;", nullptr, $PRIVATE | $FINAL, $field(DynamicCallSiteDesc, invocationType$)},
-	{}
-};
-
-$MethodInfo _DynamicCallSiteDesc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;[Ljava/lang/constant/ConstantDesc;)V", nullptr, $PRIVATE, $method(DynamicCallSiteDesc, init$, void, $DirectMethodHandleDesc*, $String*, $MethodTypeDesc*, $ConstantDescArray*)},
-	{"bootstrapArgs", "()[Ljava/lang/constant/ConstantDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, bootstrapArgs, $ConstantDescArray*)},
-	{"bootstrapMethod", "()Ljava/lang/constant/MethodHandleDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, bootstrapMethod, $MethodHandleDesc*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DynamicCallSiteDesc, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DynamicCallSiteDesc, hashCode, int32_t)},
-	{"invocationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, invocationName, $String*)},
-	{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, invocationType, $MethodTypeDesc*)},
-	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(DynamicCallSiteDesc, of, DynamicCallSiteDesc*, $DirectMethodHandleDesc*, $String*, $MethodTypeDesc*, $ConstantDescArray*)},
-	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(DynamicCallSiteDesc, of, DynamicCallSiteDesc*, $DirectMethodHandleDesc*, $String*, $MethodTypeDesc*)},
-	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(DynamicCallSiteDesc, of, DynamicCallSiteDesc*, $DirectMethodHandleDesc*, $MethodTypeDesc*)},
-	{"resolveCallSiteDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, resolveCallSiteDesc, $CallSite*, $MethodHandles$Lookup*), "java.lang.Throwable"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, toString, $String*)},
-	{"withArgs", "([Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(DynamicCallSiteDesc, withArgs, DynamicCallSiteDesc*, $ConstantDescArray*)},
-	{"withNameAndType", "(Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, withNameAndType, DynamicCallSiteDesc*, $String*, $MethodTypeDesc*)},
-	{}
-};
-
-$ClassInfo _DynamicCallSiteDesc_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.constant.DynamicCallSiteDesc",
-	"java.lang.Object",
-	nullptr,
-	_DynamicCallSiteDesc_FieldInfo_,
-	_DynamicCallSiteDesc_MethodInfo_
-};
-
-$Object* allocate$DynamicCallSiteDesc($Class* clazz) {
-	return $of($alloc(DynamicCallSiteDesc));
-}
-
 bool DynamicCallSiteDesc::$assertionsDisabled = false;
 
 void DynamicCallSiteDesc::init$($DirectMethodHandleDesc* bootstrapMethod, $String* invocationName, $MethodTypeDesc* invocationType, $ConstantDescArray* bootstrapArgs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, invocationName$, $ConstantUtils::validateMemberName($cast($String, $Objects::requireNonNull(invocationName)), true));
 	$set(this, invocationType$, $cast($MethodTypeDesc, $Objects::requireNonNull(invocationType)));
 	$set(this, bootstrapMethod$, $cast($DirectMethodHandleDesc, $Objects::requireNonNull(bootstrapMethod)));
-	$set(this, bootstrapArgs$, $cast($ConstantDescArray, $Objects::requireNonNull($cast($ConstantDescArray, $($nc(bootstrapArgs)->clone())))));
+	$set(this, bootstrapArgs$, $cast($ConstantDescArray, $Objects::requireNonNull($$cast($ConstantDescArray, $nc(bootstrapArgs)->clone()))));
 	for (int32_t i = 0; i < $nc(this->bootstrapArgs$)->length; ++i) {
-		$Objects::requireNonNull($nc(this->bootstrapArgs$)->get(i));
+		$Objects::requireNonNull(this->bootstrapArgs$->get(i));
 	}
-	if ($nc(invocationName)->length() == 0) {
+	if (invocationName->length() == 0) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal invocation name: "_s, invocationName}));
 	}
 }
@@ -185,9 +141,9 @@ $ConstantDescArray* DynamicCallSiteDesc::bootstrapArgs() {
 }
 
 $CallSite* DynamicCallSiteDesc::resolveCallSiteDesc($MethodHandles$Lookup* lookup) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ConstantDescs);
-	if (!DynamicCallSiteDesc::$assertionsDisabled && !$nc($($cast($ClassDesc, $nc($($nc(this->bootstrapMethod$)->invocationType()))->parameterType(1))))->equals($ConstantDescs::CD_String)) {
+	if (!DynamicCallSiteDesc::$assertionsDisabled && !$$sure($ClassDesc, $$nc($nc(this->bootstrapMethod$)->invocationType())->parameterType(1))->equals($ConstantDescs::CD_String)) {
 		$throwNew($AssertionError);
 	}
 	$var($MethodHandle, bsm, $cast($MethodHandle, $nc(this->bootstrapMethod$)->resolveConstantDesc(lookup)));
@@ -195,7 +151,7 @@ $CallSite* DynamicCallSiteDesc::resolveCallSiteDesc($MethodHandles$Lookup* looku
 	args->set(0, lookup);
 	args->set(1, this->invocationName$);
 	args->set(2, $($nc(this->invocationType$)->resolveConstantDesc(lookup)));
-	$System::arraycopy(this->bootstrapArgs$, 0, args, 3, $nc(this->bootstrapArgs$)->length);
+	$System::arraycopy(this->bootstrapArgs$, 0, args, 3, this->bootstrapArgs$->length);
 	return $cast($CallSite, $nc(bsm)->invokeWithArguments(args));
 }
 
@@ -205,41 +161,41 @@ bool DynamicCallSiteDesc::equals(Object$* o) {
 	}
 	bool var$0 = o == nullptr;
 	if (!var$0) {
-		var$0 = $of(this)->getClass() != $nc($of(o))->getClass();
+		var$0 = $of(this)->getClass() != $of(o)->getClass();
 	}
 	if (var$0) {
 		return false;
 	}
 	$var(DynamicCallSiteDesc, specifier, $cast(DynamicCallSiteDesc, o));
 	bool var$3 = $Objects::equals(this->bootstrapMethod$, $nc(specifier)->bootstrapMethod$);
-	bool var$2 = var$3 && $Arrays::equals(this->bootstrapArgs$, $nc(specifier)->bootstrapArgs$);
-	bool var$1 = var$2 && $Objects::equals(this->invocationName$, $nc(specifier)->invocationName$);
-	return var$1 && $Objects::equals(this->invocationType$, $nc(specifier)->invocationType$);
+	bool var$2 = var$3 && $Arrays::equals(this->bootstrapArgs$, specifier->bootstrapArgs$);
+	bool var$1 = var$2 && $Objects::equals(this->invocationName$, specifier->invocationName$);
+	return var$1 && $Objects::equals(this->invocationType$, specifier->invocationType$);
 }
 
 int32_t DynamicCallSiteDesc::hashCode() {
 	int32_t result = $Objects::hash($$new($ObjectArray, {
-		$of(this->bootstrapMethod$),
-		$of(this->invocationName$),
-		$of(this->invocationType$)
+		this->bootstrapMethod$,
+		this->invocationName$,
+		this->invocationType$
 	}));
 	result = 31 * result + $Arrays::hashCode(this->bootstrapArgs$);
 	return result;
 }
 
 $String* DynamicCallSiteDesc::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ConstantDescs);
 	return $String::format("DynamicCallSiteDesc[%s::%s(%s%s):%s]"_s, $$new($ObjectArray, {
-		$($of($nc($($nc(this->bootstrapMethod$)->owner()))->displayName())),
-		$($of($nc(this->bootstrapMethod$)->methodName())),
-		$nc(this->invocationName$)->equals($ConstantDescs::DEFAULT_NAME) ? $of(""_s) : $of($$str({this->invocationName$, "/"_s})),
-		$($nc($($nc($($Stream::of(this->bootstrapArgs$)))->map(static_cast<$Function*>($$new(DynamicCallSiteDesc$$Lambda$toString)))))->collect($($Collectors::joining(","_s)))),
-		$($of($nc(this->invocationType$)->displayDescriptor()))
+		$($$nc($nc(this->bootstrapMethod$)->owner())->displayName()),
+		$($nc(this->bootstrapMethod$)->methodName()),
+		$nc(this->invocationName$)->equals($ConstantDescs::DEFAULT_NAME) ? ""_s : $$str({this->invocationName$, "/"_s}),
+		$($$nc($$nc($Stream::of(this->bootstrapArgs$))->map($$new(DynamicCallSiteDesc$$Lambda$toString)))->collect($($Collectors::joining(","_s)))),
+		$($nc(this->invocationType$)->displayDescriptor())
 	}));
 }
 
-void clinit$DynamicCallSiteDesc($Class* class$) {
+void DynamicCallSiteDesc::clinit$($Class* clazz) {
 	DynamicCallSiteDesc::$assertionsDisabled = !DynamicCallSiteDesc::class$->desiredAssertionStatus();
 }
 
@@ -248,11 +204,46 @@ DynamicCallSiteDesc::DynamicCallSiteDesc() {
 
 $Class* DynamicCallSiteDesc::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DynamicCallSiteDesc$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("java.lang.constant.DynamicCallSiteDesc$$Lambda$toString")) {
 			return DynamicCallSiteDesc$$Lambda$toString::load$(name, initialize);
 		}
 	}
-	$loadClass(DynamicCallSiteDesc, name, initialize, &_DynamicCallSiteDesc_ClassInfo_, clinit$DynamicCallSiteDesc, allocate$DynamicCallSiteDesc);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DynamicCallSiteDesc, $assertionsDisabled)},
+		{"bootstrapMethod", "Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PRIVATE | $FINAL, $field(DynamicCallSiteDesc, bootstrapMethod$)},
+		{"bootstrapArgs", "[Ljava/lang/constant/ConstantDesc;", nullptr, $PRIVATE | $FINAL, $field(DynamicCallSiteDesc, bootstrapArgs$)},
+		{"invocationName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DynamicCallSiteDesc, invocationName$)},
+		{"invocationType", "Ljava/lang/constant/MethodTypeDesc;", nullptr, $PRIVATE | $FINAL, $field(DynamicCallSiteDesc, invocationType$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;[Ljava/lang/constant/ConstantDesc;)V", nullptr, $PRIVATE, $method(DynamicCallSiteDesc, init$, void, $DirectMethodHandleDesc*, $String*, $MethodTypeDesc*, $ConstantDescArray*)},
+		{"bootstrapArgs", "()[Ljava/lang/constant/ConstantDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, bootstrapArgs, $ConstantDescArray*)},
+		{"bootstrapMethod", "()Ljava/lang/constant/MethodHandleDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, bootstrapMethod, $MethodHandleDesc*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DynamicCallSiteDesc, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DynamicCallSiteDesc, hashCode, int32_t)},
+		{"invocationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, invocationName, $String*)},
+		{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, invocationType, $MethodTypeDesc*)},
+		{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(DynamicCallSiteDesc, of, DynamicCallSiteDesc*, $DirectMethodHandleDesc*, $String*, $MethodTypeDesc*, $ConstantDescArray*)},
+		{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(DynamicCallSiteDesc, of, DynamicCallSiteDesc*, $DirectMethodHandleDesc*, $String*, $MethodTypeDesc*)},
+		{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(DynamicCallSiteDesc, of, DynamicCallSiteDesc*, $DirectMethodHandleDesc*, $MethodTypeDesc*)},
+		{"resolveCallSiteDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, resolveCallSiteDesc, $CallSite*, $MethodHandles$Lookup*), "java.lang.Throwable"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, toString, $String*)},
+		{"withArgs", "([Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(DynamicCallSiteDesc, withArgs, DynamicCallSiteDesc*, $ConstantDescArray*)},
+		{"withNameAndType", "(Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, withNameAndType, DynamicCallSiteDesc*, $String*, $MethodTypeDesc*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.constant.DynamicCallSiteDesc",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DynamicCallSiteDesc, name, initialize, &classInfo$$, DynamicCallSiteDesc::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DynamicCallSiteDesc);
+	});
 	return class$;
 }
 

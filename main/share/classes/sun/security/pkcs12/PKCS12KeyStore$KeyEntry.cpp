@@ -1,5 +1,4 @@
 #include <sun/security/pkcs12/PKCS12KeyStore$KeyEntry.h>
-
 #include <sun/security/pkcs12/PKCS12KeyStore$Entry.h>
 #include <sun/security/pkcs12/PKCS12KeyStore.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ namespace sun {
 	namespace security {
 		namespace pkcs12 {
 
-$MethodInfo _PKCS12KeyStore$KeyEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PKCS12KeyStore$KeyEntry, init$, void)},
-	{}
-};
-
-$InnerClassInfo _PKCS12KeyStore$KeyEntry_InnerClassesInfo_[] = {
-	{"sun.security.pkcs12.PKCS12KeyStore$KeyEntry", "sun.security.pkcs12.PKCS12KeyStore", "KeyEntry", $PRIVATE | $STATIC},
-	{"sun.security.pkcs12.PKCS12KeyStore$Entry", "sun.security.pkcs12.PKCS12KeyStore", "Entry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PKCS12KeyStore$KeyEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.pkcs12.PKCS12KeyStore$KeyEntry",
-	"sun.security.pkcs12.PKCS12KeyStore$Entry",
-	nullptr,
-	nullptr,
-	_PKCS12KeyStore$KeyEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PKCS12KeyStore$KeyEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.pkcs12.PKCS12KeyStore"
-};
-
-$Object* allocate$PKCS12KeyStore$KeyEntry($Class* clazz) {
-	return $of($alloc(PKCS12KeyStore$KeyEntry));
-}
-
 void PKCS12KeyStore$KeyEntry::init$() {
 	$PKCS12KeyStore$Entry::init$();
 }
@@ -52,7 +20,33 @@ PKCS12KeyStore$KeyEntry::PKCS12KeyStore$KeyEntry() {
 }
 
 $Class* PKCS12KeyStore$KeyEntry::load$($String* name, bool initialize) {
-	$loadClass(PKCS12KeyStore$KeyEntry, name, initialize, &_PKCS12KeyStore$KeyEntry_ClassInfo_, allocate$PKCS12KeyStore$KeyEntry);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PKCS12KeyStore$KeyEntry, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.pkcs12.PKCS12KeyStore$KeyEntry", "sun.security.pkcs12.PKCS12KeyStore", "KeyEntry", $PRIVATE | $STATIC},
+		{"sun.security.pkcs12.PKCS12KeyStore$Entry", "sun.security.pkcs12.PKCS12KeyStore", "Entry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.pkcs12.PKCS12KeyStore$KeyEntry",
+		"sun.security.pkcs12.PKCS12KeyStore$Entry",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.pkcs12.PKCS12KeyStore"
+	};
+	$loadClass(PKCS12KeyStore$KeyEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PKCS12KeyStore$KeyEntry);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/provider/SecureRandom$SeederHolder.h>
-
 #include <sun/security/provider/SecureRandom.h>
 #include <sun/security/provider/SeedGenerator.h>
 #include <jcpp.h>
@@ -15,53 +14,18 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _SecureRandom$SeederHolder_FieldInfo_[] = {
-	{"seeder", "Lsun/security/provider/SecureRandom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SecureRandom$SeederHolder, seeder)},
-	{}
-};
-
-$MethodInfo _SecureRandom$SeederHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SecureRandom$SeederHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SecureRandom$SeederHolder_InnerClassesInfo_[] = {
-	{"sun.security.provider.SecureRandom$SeederHolder", "sun.security.provider.SecureRandom", "SeederHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SecureRandom$SeederHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.SecureRandom$SeederHolder",
-	"java.lang.Object",
-	nullptr,
-	_SecureRandom$SeederHolder_FieldInfo_,
-	_SecureRandom$SeederHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SecureRandom$SeederHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.SecureRandom"
-};
-
-$Object* allocate$SecureRandom$SeederHolder($Class* clazz) {
-	return $of($alloc(SecureRandom$SeederHolder));
-}
-
 $SecureRandom* SecureRandom$SeederHolder::seeder = nullptr;
 
 void SecureRandom$SeederHolder::init$() {
 }
 
-void clinit$SecureRandom$SeederHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SecureRandom$SeederHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$assignStatic(SecureRandom$SeederHolder::seeder, $new($SecureRandom, $($SeedGenerator::getSystemEntropy())));
 		$var($bytes, b, $new($bytes, 20));
 		$SeedGenerator::generateSeed(b);
-		$nc(SecureRandom$SeederHolder::seeder)->engineSetSeed(b);
+		SecureRandom$SeederHolder::seeder->engineSetSeed(b);
 	}
 }
 
@@ -69,7 +33,36 @@ SecureRandom$SeederHolder::SecureRandom$SeederHolder() {
 }
 
 $Class* SecureRandom$SeederHolder::load$($String* name, bool initialize) {
-	$loadClass(SecureRandom$SeederHolder, name, initialize, &_SecureRandom$SeederHolder_ClassInfo_, clinit$SecureRandom$SeederHolder, allocate$SecureRandom$SeederHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"seeder", "Lsun/security/provider/SecureRandom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SecureRandom$SeederHolder, seeder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SecureRandom$SeederHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.SecureRandom$SeederHolder", "sun.security.provider.SecureRandom", "SeederHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.SecureRandom$SeederHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.SecureRandom"
+	};
+	$loadClass(SecureRandom$SeederHolder, name, initialize, &classInfo$$, SecureRandom$SeederHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SecureRandom$SeederHolder);
+	});
 	return class$;
 }
 

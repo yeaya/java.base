@@ -1,5 +1,4 @@
 #include <sun/net/TelnetInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
 #include <sun/net/TelnetProtocolException.h>
@@ -14,35 +13,6 @@ using $TelnetProtocolException = ::sun::net::TelnetProtocolException;
 
 namespace sun {
 	namespace net {
-
-$FieldInfo _TelnetInputStream_FieldInfo_[] = {
-	{"stickyCRLF", "Z", nullptr, 0, $field(TelnetInputStream, stickyCRLF)},
-	{"seenCR", "Z", nullptr, 0, $field(TelnetInputStream, seenCR)},
-	{"binaryMode", "Z", nullptr, $PUBLIC, $field(TelnetInputStream, binaryMode)},
-	{}
-};
-
-$MethodInfo _TelnetInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Z)V", nullptr, $PUBLIC, $method(TelnetInputStream, init$, void, $InputStream*, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"setStickyCRLF", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, setStickyCRLF, void, bool)},
-	{}
-};
-
-$ClassInfo _TelnetInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.TelnetInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_TelnetInputStream_FieldInfo_,
-	_TelnetInputStream_MethodInfo_
-};
-
-$Object* allocate$TelnetInputStream($Class* clazz) {
-	return $of($alloc(TelnetInputStream));
-}
 
 void TelnetInputStream::init$($InputStream* fd, bool binary) {
 	$FilterInputStream::init$(fd);
@@ -68,23 +38,16 @@ int32_t TelnetInputStream::read() {
 	if ((c = $FilterInputStream::read()) == u'\r') {
 		switch (c = $FilterInputStream::read()) {
 		default:
-			{}
 		case -1:
-			{
-				$throwNew($TelnetProtocolException, "misplaced CR in input"_s);
-			}
+			$throwNew($TelnetProtocolException, "misplaced CR in input"_s);
 		case 0:
-			{
-				return u'\r';
-			}
+			return u'\r';
 		case u'\n':
-			{
-				if (this->stickyCRLF) {
-					this->seenCR = true;
-					return u'\r';
-				} else {
-					return u'\n';
-				}
+			if (this->stickyCRLF) {
+				this->seenCR = true;
+				return u'\r';
+			} else {
+				return u'\n';
 			}
 		}
 	}
@@ -115,7 +78,31 @@ TelnetInputStream::TelnetInputStream() {
 }
 
 $Class* TelnetInputStream::load$($String* name, bool initialize) {
-	$loadClass(TelnetInputStream, name, initialize, &_TelnetInputStream_ClassInfo_, allocate$TelnetInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"stickyCRLF", "Z", nullptr, 0, $field(TelnetInputStream, stickyCRLF)},
+		{"seenCR", "Z", nullptr, 0, $field(TelnetInputStream, seenCR)},
+		{"binaryMode", "Z", nullptr, $PUBLIC, $field(TelnetInputStream, binaryMode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Z)V", nullptr, $PUBLIC, $method(TelnetInputStream, init$, void, $InputStream*, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"setStickyCRLF", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, setStickyCRLF, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.TelnetInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TelnetInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TelnetInputStream);
+	});
 	return class$;
 }
 

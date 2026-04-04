@@ -106,6 +106,7 @@ class $import TypeAnnotationParser : public ::java::lang::Object {
 	$class(TypeAnnotationParser, 0, ::java::lang::Object)
 public:
 	TypeAnnotationParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::java::lang::reflect::AnnotatedType>* buildAnnotatedInterfaces($bytes* rawAnnotations, ::jdk::internal::reflect::ConstantPool* cp, $Class* decl);
 	static ::java::lang::reflect::AnnotatedType* buildAnnotatedSuperclass($bytes* rawAnnotations, ::jdk::internal::reflect::ConstantPool* cp, $Class* decl);

@@ -28,10 +28,13 @@ public:
 	void init$(::java::io::IOException* cause);
 	virtual $Throwable* getCause() override;
 	void readObject(::java::io::ObjectInputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xAC8E994F6CCCB2F6;
+	static const int64_t serialVersionUID = (int64_t)0xac8e994f6cccb2f6;
 	DirectoryIteratorException(const DirectoryIteratorException& e);
 	virtual void throw$() override;
-	inline DirectoryIteratorException* operator ->() {
+	inline DirectoryIteratorException* operator ->() const {
+		return (DirectoryIteratorException*)throwing$;
+	}
+	inline operator DirectoryIteratorException*() const {
 		return (DirectoryIteratorException*)throwing$;
 	}
 };

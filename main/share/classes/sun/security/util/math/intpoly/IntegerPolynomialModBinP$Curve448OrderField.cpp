@@ -1,5 +1,4 @@
 #include <sun/security/util/math/intpoly/IntegerPolynomialModBinP$Curve448OrderField.h>
-
 #include <java/math/BigInteger.h>
 #include <sun/security/util/math/ImmutableIntegerModuloP.h>
 #include <sun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement.h>
@@ -19,37 +18,6 @@ namespace sun {
 			namespace math {
 				namespace intpoly {
 
-$MethodInfo _IntegerPolynomialModBinP$Curve448OrderField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerPolynomialModBinP$Curve448OrderField, init$, void)},
-	{"getElement", "([BIIB)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(IntegerPolynomialModBinP$Curve448OrderField, getElement, $ImmutableIntegerModuloP*, $bytes*, int32_t, int32_t, int8_t)},
-	{}
-};
-
-$InnerClassInfo _IntegerPolynomialModBinP$Curve448OrderField_InnerClassesInfo_[] = {
-	{"sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve448OrderField", "sun.security.util.math.intpoly.IntegerPolynomialModBinP", "Curve448OrderField", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _IntegerPolynomialModBinP$Curve448OrderField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve448OrderField",
-	"sun.security.util.math.intpoly.IntegerPolynomialModBinP",
-	nullptr,
-	nullptr,
-	_IntegerPolynomialModBinP$Curve448OrderField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntegerPolynomialModBinP$Curve448OrderField_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.math.intpoly.IntegerPolynomialModBinP"
-};
-
-$Object* allocate$IntegerPolynomialModBinP$Curve448OrderField($Class* clazz) {
-	return $of($alloc(IntegerPolynomialModBinP$Curve448OrderField));
-}
-
 void IntegerPolynomialModBinP$Curve448OrderField::init$() {
 	$IntegerPolynomialModBinP::init$(28, 16, 446, $$new($BigInteger, "13818066809895115352007386748515426880336692474882178609894547503885"_s));
 }
@@ -62,7 +30,33 @@ IntegerPolynomialModBinP$Curve448OrderField::IntegerPolynomialModBinP$Curve448Or
 }
 
 $Class* IntegerPolynomialModBinP$Curve448OrderField::load$($String* name, bool initialize) {
-	$loadClass(IntegerPolynomialModBinP$Curve448OrderField, name, initialize, &_IntegerPolynomialModBinP$Curve448OrderField_ClassInfo_, allocate$IntegerPolynomialModBinP$Curve448OrderField);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerPolynomialModBinP$Curve448OrderField, init$, void)},
+		{"getElement", "([BIIB)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(IntegerPolynomialModBinP$Curve448OrderField, getElement, $ImmutableIntegerModuloP*, $bytes*, int32_t, int32_t, int8_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve448OrderField", "sun.security.util.math.intpoly.IntegerPolynomialModBinP", "Curve448OrderField", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve448OrderField",
+		"sun.security.util.math.intpoly.IntegerPolynomialModBinP",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.math.intpoly.IntegerPolynomialModBinP"
+	};
+	$loadClass(IntegerPolynomialModBinP$Curve448OrderField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerPolynomialModBinP$Curve448OrderField);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/vector/VectorSupport$VectorCompareOp.h>
-
 #include <jdk/internal/vm/vector/VectorSupport.h>
 #include <jcpp.h>
 
@@ -12,38 +11,33 @@ namespace jdk {
 		namespace vm {
 			namespace vector {
 
-$MethodInfo _VectorSupport$VectorCompareOp_MethodInfo_[] = {
-	{"apply", "(ILjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(ITV;TV;)TM;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorCompareOp, apply, $Object*, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _VectorSupport$VectorCompareOp_InnerClassesInfo_[] = {
-	{"jdk.internal.vm.vector.VectorSupport$VectorCompareOp", "jdk.internal.vm.vector.VectorSupport", "VectorCompareOp", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VectorSupport$VectorCompareOp_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.vm.vector.VectorSupport$VectorCompareOp",
-	nullptr,
-	nullptr,
-	nullptr,
-	_VectorSupport$VectorCompareOp_MethodInfo_,
-	"<V:Ljava/lang/Object;M:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_VectorSupport$VectorCompareOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.vm.vector.VectorSupport"
-};
-
-$Object* allocate$VectorSupport$VectorCompareOp($Class* clazz) {
-	return $of($alloc(VectorSupport$VectorCompareOp));
-}
-
 $Class* VectorSupport$VectorCompareOp::load$($String* name, bool initialize) {
-	$loadClass(VectorSupport$VectorCompareOp, name, initialize, &_VectorSupport$VectorCompareOp_ClassInfo_, allocate$VectorSupport$VectorCompareOp);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(ILjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(ITV;TV;)TM;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorCompareOp, apply, $Object*, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.vm.vector.VectorSupport$VectorCompareOp", "jdk.internal.vm.vector.VectorSupport", "VectorCompareOp", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.vm.vector.VectorSupport$VectorCompareOp",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;M:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.vm.vector.VectorSupport"
+	};
+	$loadClass(VectorSupport$VectorCompareOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VectorSupport$VectorCompareOp);
+	});
 	return class$;
 }
 

@@ -27,6 +27,7 @@ class SpinedBuffer$OfPrimitive$BaseSpliterator : public ::java::util::Spliterato
 public:
 	SpinedBuffer$OfPrimitive$BaseSpliterator();
 	using ::java::util::Spliterator$OfPrimitive::forEachRemaining;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::stream::SpinedBuffer$OfPrimitive* this$0, int32_t firstSpineIndex, int32_t lastSpineIndex, int32_t firstSpineElementIndex, int32_t lastSpineElementFence);
 	virtual void arrayForOne(Object$* array, int32_t index, Object$* consumer) {}
 	virtual ::java::util::Spliterator$OfPrimitive* arraySpliterator(Object$* array, int32_t offset, int32_t len) {return nullptr;}

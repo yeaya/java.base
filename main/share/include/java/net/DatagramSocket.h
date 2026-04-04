@@ -47,6 +47,7 @@ class $import DatagramSocket : public ::java::io::Closeable {
 	$class(DatagramSocket, 0, ::java::io::Closeable)
 public:
 	DatagramSocket();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::DatagramSocket* delegate);
 	void init$();
 	void init$(::java::net::DatagramSocketImpl* impl);

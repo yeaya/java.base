@@ -96,6 +96,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* id, $String* calType);
 	void checkCalendarInit();
 	void checkValidDayOfYear(int32_t dayOfYear);
@@ -158,7 +159,7 @@ public:
 	virtual ::java::time::chrono::ChronoZonedDateTime* zonedDateTime(::java::time::Instant* instant, ::java::time::ZoneId* zone) override;
 	$String* typeId = nullptr;
 	$String* calendarType = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x2B668B59CB61D531;
+	static const int64_t serialVersionUID = (int64_t)0x2b668b59cb61d531;
 	static ::java::time::chrono::HijrahChronology* INSTANCE;
 	$volatile(bool) initComplete = false;
 	$ints* hijrahEpochMonthStartDays = nullptr;

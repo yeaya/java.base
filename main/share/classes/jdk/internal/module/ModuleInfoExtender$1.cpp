@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleInfoExtender$1.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -35,9 +34,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ModuleDescriptor$Version = ::java::lang::module::ModuleDescriptor$Version;
-using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
-using $Stream = ::java::util::stream::Stream;
 using $ClassFileConstants = ::jdk::internal::module::ClassFileConstants;
 using $ModuleInfoExtender = ::jdk::internal::module::ModuleInfoExtender;
 using $ModuleInfoExtender$1$1 = ::jdk::internal::module::ModuleInfoExtender$1$1;
@@ -59,81 +56,32 @@ public:
 	virtual void accept(Object$* pn) override {
 		ModuleInfoExtender$1::lambda$visitModule$0(mv, $cast($String, pn));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModuleInfoExtender$1$$Lambda$lambda$visitModule$0>());
-	}
 	$ModuleVisitor* mv = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::fieldInfos[2] = {
-	{"mv", "Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $field(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, mv)},
-	{}
-};
-$MethodInfo ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, init$, void, $ModuleVisitor*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModuleInfoExtender$1$$Lambda$lambda$visitModule$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::load$($String* name, bool initialize) {
-	$loadClass(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mv", "Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $field(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, mv)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, init$, void, $ModuleVisitor*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModuleInfoExtender$1$$Lambda$lambda$visitModule$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0);
+	});
 	return class$;
 }
 $Class* ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::class$ = nullptr;
-
-$FieldInfo _ModuleInfoExtender$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/module/ModuleInfoExtender;", nullptr, $FINAL | $SYNTHETIC, $field(ModuleInfoExtender$1, this$0)},
-	{}
-};
-
-$MethodInfo _ModuleInfoExtender$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/module/ModuleInfoExtender;ILjdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, 0, $method(ModuleInfoExtender$1, init$, void, $ModuleInfoExtender*, int32_t, $ClassVisitor*)},
-	{"lambda$visitModule$0", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleInfoExtender$1, lambda$visitModule$0, void, $ModuleVisitor*, $String*)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1, visitAttribute, void, $Attribute*)},
-	{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _ModuleInfoExtender$1_EnclosingMethodInfo_ = {
-	"jdk.internal.module.ModuleInfoExtender",
-	"toByteArray",
-	"()[B"
-};
-
-$InnerClassInfo _ModuleInfoExtender$1_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModuleInfoExtender$1", nullptr, nullptr, 0},
-	{"jdk.internal.module.ModuleInfoExtender$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ModuleInfoExtender$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.ModuleInfoExtender$1",
-	"jdk.internal.org.objectweb.asm.ClassVisitor",
-	nullptr,
-	_ModuleInfoExtender$1_FieldInfo_,
-	_ModuleInfoExtender$1_MethodInfo_,
-	nullptr,
-	&_ModuleInfoExtender$1_EnclosingMethodInfo_,
-	_ModuleInfoExtender$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModuleInfoExtender"
-};
-
-$Object* allocate$ModuleInfoExtender$1($Class* clazz) {
-	return $of($alloc(ModuleInfoExtender$1));
-}
 
 void ModuleInfoExtender$1::init$($ModuleInfoExtender* this$0, int32_t api, $ClassVisitor* classVisitor) {
 	$set(this, this$0, this$0);
@@ -141,15 +89,15 @@ void ModuleInfoExtender$1::init$($ModuleInfoExtender* this$0, int32_t api, $Clas
 }
 
 $ModuleVisitor* ModuleInfoExtender$1::visitModule($String* name, int32_t flags, $String* version) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModuleDescriptor$Version, v, this->this$0->version$);
-	$var($String, vs, (v != nullptr) ? $nc(v)->toString() : version);
+	$var($String, vs, (v != nullptr) ? v->toString() : version);
 	$var($ModuleVisitor, mv, $ClassVisitor::visitModule(name, flags, vs));
 	if (this->this$0->mainClass$ != nullptr) {
-		$nc(mv)->visitMainClass($($nc(this->this$0->mainClass$)->replace(u'.', u'/')));
+		$nc(mv)->visitMainClass($(this->this$0->mainClass$->replace(u'.', u'/')));
 	}
 	if (this->this$0->packages$ != nullptr) {
-		$nc($($nc($($nc(this->this$0->packages$)->stream()))->sorted()))->forEach(static_cast<$Consumer*>($$new(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, mv)));
+		$$nc($$nc(this->this$0->packages$->stream())->sorted())->forEach($$new(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, mv));
 	}
 	return $new($ModuleInfoExtender$1$1, this, $Opcodes::ASM7, mv);
 }
@@ -160,10 +108,10 @@ void ModuleInfoExtender$1::visitAttribute($Attribute* attr) {
 	if ($nc(name)->equals($ClassFileConstants::MODULE_TARGET) && this->this$0->targetPlatform$ != nullptr) {
 		return;
 	}
-	if ($nc(name)->equals($ClassFileConstants::MODULE_RESOLUTION) && this->this$0->moduleResolution$ != nullptr) {
+	if (name->equals($ClassFileConstants::MODULE_RESOLUTION) && this->this$0->moduleResolution$ != nullptr) {
 		return;
 	}
-	if ($nc(name)->equals($ClassFileConstants::MODULE_HASHES) && this->this$0->hashes$ != nullptr) {
+	if (name->equals($ClassFileConstants::MODULE_HASHES) && this->this$0->hashes$ != nullptr) {
 		return;
 	}
 	$ClassVisitor::visitAttribute(attr);
@@ -179,11 +127,49 @@ ModuleInfoExtender$1::ModuleInfoExtender$1() {
 
 $Class* ModuleInfoExtender$1::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModuleInfoExtender$1$$Lambda$lambda$visitModule$0")) {
 			return ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ModuleInfoExtender$1, name, initialize, &_ModuleInfoExtender$1_ClassInfo_, allocate$ModuleInfoExtender$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/module/ModuleInfoExtender;", nullptr, $FINAL | $SYNTHETIC, $field(ModuleInfoExtender$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModuleInfoExtender;ILjdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, 0, $method(ModuleInfoExtender$1, init$, void, $ModuleInfoExtender*, int32_t, $ClassVisitor*)},
+		{"lambda$visitModule$0", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleInfoExtender$1, lambda$visitModule$0, void, $ModuleVisitor*, $String*)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1, visitAttribute, void, $Attribute*)},
+		{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.module.ModuleInfoExtender",
+		"toByteArray",
+		"()[B"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModuleInfoExtender$1", nullptr, nullptr, 0},
+		{"jdk.internal.module.ModuleInfoExtender$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.ModuleInfoExtender$1",
+		"jdk.internal.org.objectweb.asm.ClassVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModuleInfoExtender"
+	};
+	$loadClass(ModuleInfoExtender$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleInfoExtender$1);
+	});
 	return class$;
 }
 

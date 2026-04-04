@@ -1,5 +1,4 @@
 #include <java/util/TimerTask.h>
-
 #include <jcpp.h>
 
 #undef CANCELLED
@@ -13,39 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _TimerTask_FieldInfo_[] = {
-	{"lock", "Ljava/lang/Object;", nullptr, $FINAL, $field(TimerTask, lock)},
-	{"state", "I", nullptr, 0, $field(TimerTask, state)},
-	{"VIRGIN", "I", nullptr, $STATIC | $FINAL, $constField(TimerTask, VIRGIN)},
-	{"SCHEDULED", "I", nullptr, $STATIC | $FINAL, $constField(TimerTask, SCHEDULED)},
-	{"EXECUTED", "I", nullptr, $STATIC | $FINAL, $constField(TimerTask, EXECUTED)},
-	{"CANCELLED", "I", nullptr, $STATIC | $FINAL, $constField(TimerTask, CANCELLED)},
-	{"nextExecutionTime", "J", nullptr, 0, $field(TimerTask, nextExecutionTime)},
-	{"period", "J", nullptr, 0, $field(TimerTask, period)},
-	{}
-};
-
-$MethodInfo _TimerTask_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(TimerTask, init$, void)},
-	{"cancel", "()Z", nullptr, $PUBLIC, $virtualMethod(TimerTask, cancel, bool)},
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"scheduledExecutionTime", "()J", nullptr, $PUBLIC, $virtualMethod(TimerTask, scheduledExecutionTime, int64_t)},
-	{}
-};
-
-$ClassInfo _TimerTask_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.TimerTask",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_TimerTask_FieldInfo_,
-	_TimerTask_MethodInfo_
-};
-
-$Object* allocate$TimerTask($Class* clazz) {
-	return $of($alloc(TimerTask));
-}
 
 void TimerTask::init$() {
 	$set(this, lock, $new($Object));
@@ -71,7 +37,35 @@ TimerTask::TimerTask() {
 }
 
 $Class* TimerTask::load$($String* name, bool initialize) {
-	$loadClass(TimerTask, name, initialize, &_TimerTask_ClassInfo_, allocate$TimerTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"lock", "Ljava/lang/Object;", nullptr, $FINAL, $field(TimerTask, lock)},
+		{"state", "I", nullptr, 0, $field(TimerTask, state)},
+		{"VIRGIN", "I", nullptr, $STATIC | $FINAL, $constField(TimerTask, VIRGIN)},
+		{"SCHEDULED", "I", nullptr, $STATIC | $FINAL, $constField(TimerTask, SCHEDULED)},
+		{"EXECUTED", "I", nullptr, $STATIC | $FINAL, $constField(TimerTask, EXECUTED)},
+		{"CANCELLED", "I", nullptr, $STATIC | $FINAL, $constField(TimerTask, CANCELLED)},
+		{"nextExecutionTime", "J", nullptr, 0, $field(TimerTask, nextExecutionTime)},
+		{"period", "J", nullptr, 0, $field(TimerTask, period)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(TimerTask, init$, void)},
+		{"cancel", "()Z", nullptr, $PUBLIC, $virtualMethod(TimerTask, cancel, bool)},
+		{"run", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"scheduledExecutionTime", "()J", nullptr, $PUBLIC, $virtualMethod(TimerTask, scheduledExecutionTime, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.TimerTask",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TimerTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimerTask);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/AbstractList$RandomAccessSubList.h>
-
 #include <java/util/AbstractList$SubList.h>
 #include <java/util/AbstractList.h>
 #include <java/util/List.h>
@@ -14,44 +13,6 @@ using $List = ::java::util::List;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _AbstractList$RandomAccessSubList_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/AbstractList;II)V", "(Ljava/util/AbstractList<TE;>;II)V", 0, $method(AbstractList$RandomAccessSubList, init$, void, $AbstractList*, int32_t, int32_t)},
-	{"<init>", "(Ljava/util/AbstractList$RandomAccessSubList;II)V", "(Ljava/util/AbstractList$RandomAccessSubList<TE;>;II)V", 0, $method(AbstractList$RandomAccessSubList, init$, void, AbstractList$RandomAccessSubList*, int32_t, int32_t)},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(AbstractList$RandomAccessSubList, subList, $List*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AbstractList$RandomAccessSubList_InnerClassesInfo_[] = {
-	{"java.util.AbstractList$RandomAccessSubList", "java.util.AbstractList", "RandomAccessSubList", $PRIVATE | $STATIC},
-	{"java.util.AbstractList$SubList", "java.util.AbstractList", "SubList", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractList$RandomAccessSubList_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.AbstractList$RandomAccessSubList",
-	"java.util.AbstractList$SubList",
-	"java.util.RandomAccess",
-	nullptr,
-	_AbstractList$RandomAccessSubList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractList$SubList<TE;>;Ljava/util/RandomAccess;",
-	nullptr,
-	_AbstractList$RandomAccessSubList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.AbstractList"
-};
-
-$Object* allocate$AbstractList$RandomAccessSubList($Class* clazz) {
-	return $of($alloc(AbstractList$RandomAccessSubList));
-}
 
 bool AbstractList$RandomAccessSubList::equals(Object$* o) {
 	 return this->$AbstractList$SubList::equals(o);
@@ -78,7 +39,7 @@ void AbstractList$RandomAccessSubList::init$($AbstractList* root, int32_t fromIn
 }
 
 void AbstractList$RandomAccessSubList::init$(AbstractList$RandomAccessSubList* parent, int32_t fromIndex, int32_t toIndex) {
-	$AbstractList$SubList::init$(static_cast<$AbstractList$SubList*>(parent), fromIndex, toIndex);
+	$AbstractList$SubList::init$(parent, fromIndex, toIndex);
 }
 
 $List* AbstractList$RandomAccessSubList::subList(int32_t fromIndex, int32_t toIndex) {
@@ -90,7 +51,40 @@ AbstractList$RandomAccessSubList::AbstractList$RandomAccessSubList() {
 }
 
 $Class* AbstractList$RandomAccessSubList::load$($String* name, bool initialize) {
-	$loadClass(AbstractList$RandomAccessSubList, name, initialize, &_AbstractList$RandomAccessSubList_ClassInfo_, allocate$AbstractList$RandomAccessSubList);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/AbstractList;II)V", "(Ljava/util/AbstractList<TE;>;II)V", 0, $method(AbstractList$RandomAccessSubList, init$, void, $AbstractList*, int32_t, int32_t)},
+		{"<init>", "(Ljava/util/AbstractList$RandomAccessSubList;II)V", "(Ljava/util/AbstractList$RandomAccessSubList<TE;>;II)V", 0, $method(AbstractList$RandomAccessSubList, init$, void, AbstractList$RandomAccessSubList*, int32_t, int32_t)},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(AbstractList$RandomAccessSubList, subList, $List*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.AbstractList$RandomAccessSubList", "java.util.AbstractList", "RandomAccessSubList", $PRIVATE | $STATIC},
+		{"java.util.AbstractList$SubList", "java.util.AbstractList", "SubList", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.AbstractList$RandomAccessSubList",
+		"java.util.AbstractList$SubList",
+		"java.util.RandomAccess",
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractList$SubList<TE;>;Ljava/util/RandomAccess;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.AbstractList"
+	};
+	$loadClass(AbstractList$RandomAccessSubList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractList$RandomAccessSubList));
+	});
 	return class$;
 }
 

@@ -27,6 +27,7 @@ class DomainName : public ::java::lang::Object {
 	$class(DomainName, 0, ::java::lang::Object)
 public:
 	DomainName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::util::DomainName$Match* getMatch($String* domain);
 	static ::sun::security::util::RegisteredDomain* registeredDomain($String* domain);

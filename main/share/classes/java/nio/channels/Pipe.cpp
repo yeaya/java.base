@@ -1,5 +1,4 @@
 #include <java/nio/channels/Pipe.h>
-
 #include <java/nio/channels/Pipe$SinkChannel.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
 #include <java/nio/channels/spi/SelectorProvider.h>
@@ -16,51 +15,46 @@ namespace java {
 	namespace nio {
 		namespace channels {
 
-$MethodInfo _Pipe_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Pipe, init$, void)},
-	{"open", "()Ljava/nio/channels/Pipe;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pipe, open, Pipe*), "java.io.IOException"},
-	{"sink", "()Ljava/nio/channels/Pipe$SinkChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Pipe, sink, $Pipe$SinkChannel*)},
-	{"source", "()Ljava/nio/channels/Pipe$SourceChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Pipe, source, $Pipe$SourceChannel*)},
-	{}
-};
-
-$InnerClassInfo _Pipe_InnerClassesInfo_[] = {
-	{"java.nio.channels.Pipe$SinkChannel", "java.nio.channels.Pipe", "SinkChannel", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.nio.channels.Pipe$SourceChannel", "java.nio.channels.Pipe", "SourceChannel", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Pipe_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.nio.channels.Pipe",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Pipe_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pipe_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.nio.channels.Pipe$SinkChannel,java.nio.channels.Pipe$SourceChannel"
-};
-
-$Object* allocate$Pipe($Class* clazz) {
-	return $of($alloc(Pipe));
-}
-
 void Pipe::init$() {
 }
 
 Pipe* Pipe::open() {
-	return $nc($($SelectorProvider::provider()))->openPipe();
+	return $$nc($SelectorProvider::provider())->openPipe();
 }
 
 Pipe::Pipe() {
 }
 
 $Class* Pipe::load$($String* name, bool initialize) {
-	$loadClass(Pipe, name, initialize, &_Pipe_ClassInfo_, allocate$Pipe);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Pipe, init$, void)},
+		{"open", "()Ljava/nio/channels/Pipe;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pipe, open, Pipe*), "java.io.IOException"},
+		{"sink", "()Ljava/nio/channels/Pipe$SinkChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Pipe, sink, $Pipe$SinkChannel*)},
+		{"source", "()Ljava/nio/channels/Pipe$SourceChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Pipe, source, $Pipe$SourceChannel*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.channels.Pipe$SinkChannel", "java.nio.channels.Pipe", "SinkChannel", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.nio.channels.Pipe$SourceChannel", "java.nio.channels.Pipe", "SourceChannel", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.nio.channels.Pipe",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.nio.channels.Pipe$SinkChannel,java.nio.channels.Pipe$SourceChannel"
+	};
+	$loadClass(Pipe, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pipe);
+	});
 	return class$;
 }
 

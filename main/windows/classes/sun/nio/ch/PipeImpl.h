@@ -50,6 +50,7 @@ class PipeImpl : public ::java::nio::channels::Pipe {
 	$class(PipeImpl, 0, ::java::nio::channels::Pipe)
 public:
 	PipeImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::SelectorProvider* sp);
 	void init$(::java::nio::channels::spi::SelectorProvider* sp, bool buffering);
 	static ::java::nio::channels::ServerSocketChannel* createListener();

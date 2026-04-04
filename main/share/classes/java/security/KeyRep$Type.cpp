@@ -1,5 +1,4 @@
 #include <java/security/KeyRep$Type.h>
-
 #include <java/lang/Enum.h>
 #include <java/security/KeyRep.h>
 #include <jcpp.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _KeyRep$Type_FieldInfo_[] = {
-	{"SECRET", "Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KeyRep$Type, SECRET)},
-	{"PUBLIC", "Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KeyRep$Type, PUBLIC)},
-	{"PRIVATE", "Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KeyRep$Type, PRIVATE)},
-	{"$VALUES", "[Ljava/security/KeyRep$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(KeyRep$Type, $VALUES)},
-	{}
-};
-
-$MethodInfo _KeyRep$Type_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/KeyRep$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KeyRep$Type, $values, $KeyRep$TypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(KeyRep$Type, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyRep$Type, valueOf, KeyRep$Type*, $String*)},
-	{"values", "()[Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyRep$Type, values, $KeyRep$TypeArray*)},
-	{}
-};
-
-$InnerClassInfo _KeyRep$Type_InnerClassesInfo_[] = {
-	{"java.security.KeyRep$Type", "java.security.KeyRep", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _KeyRep$Type_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.security.KeyRep$Type",
-	"java.lang.Enum",
-	nullptr,
-	_KeyRep$Type_FieldInfo_,
-	_KeyRep$Type_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/security/KeyRep$Type;>;",
-	nullptr,
-	_KeyRep$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.KeyRep"
-};
-
-$Object* allocate$KeyRep$Type($Class* clazz) {
-	return $of($alloc(KeyRep$Type));
-}
 
 KeyRep$Type* KeyRep$Type::SECRET = nullptr;
 KeyRep$Type* KeyRep$Type::PUBLIC = nullptr;
@@ -87,7 +45,7 @@ void KeyRep$Type::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$KeyRep$Type($Class* class$) {
+void KeyRep$Type::clinit$($Class* clazz) {
 	$assignStatic(KeyRep$Type::SECRET, $new(KeyRep$Type, "SECRET"_s, 0));
 	$assignStatic(KeyRep$Type::PUBLIC, $new(KeyRep$Type, "PUBLIC"_s, 1));
 	$assignStatic(KeyRep$Type::PRIVATE, $new(KeyRep$Type, "PRIVATE"_s, 2));
@@ -98,7 +56,42 @@ KeyRep$Type::KeyRep$Type() {
 }
 
 $Class* KeyRep$Type::load$($String* name, bool initialize) {
-	$loadClass(KeyRep$Type, name, initialize, &_KeyRep$Type_ClassInfo_, clinit$KeyRep$Type, allocate$KeyRep$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"SECRET", "Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KeyRep$Type, SECRET)},
+		{"PUBLIC", "Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KeyRep$Type, PUBLIC)},
+		{"PRIVATE", "Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KeyRep$Type, PRIVATE)},
+		{"$VALUES", "[Ljava/security/KeyRep$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(KeyRep$Type, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/security/KeyRep$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KeyRep$Type, $values, $KeyRep$TypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(KeyRep$Type, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyRep$Type, valueOf, KeyRep$Type*, $String*)},
+		{"values", "()[Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyRep$Type, values, $KeyRep$TypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyRep$Type", "java.security.KeyRep", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.security.KeyRep$Type",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/security/KeyRep$Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.KeyRep"
+	};
+	$loadClass(KeyRep$Type, name, initialize, &classInfo$$, KeyRep$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KeyRep$Type));
+	});
 	return class$;
 }
 

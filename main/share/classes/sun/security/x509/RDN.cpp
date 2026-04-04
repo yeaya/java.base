@@ -1,7 +1,5 @@
 #include <sun/security/x509/RDN.h>
-
 #include <java/io/IOException.h>
-#include <java/io/Reader.h>
 #include <java/io/StringReader.h>
 #include <java/lang/CharSequence.h>
 #include <java/util/ArrayList.h>
@@ -27,7 +25,6 @@ using $DerEncoderArray = $Array<::sun::security::util::DerEncoder>;
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $AVAArray = $Array<::sun::security::x509::AVA>;
 using $IOException = ::java::io::IOException;
-using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -52,62 +49,17 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _RDN_FieldInfo_[] = {
-	{"assertion", "[Lsun/security/x509/AVA;", nullptr, $FINAL, $field(RDN, assertion)},
-	{"avaList", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/AVA;>;", $PRIVATE | $VOLATILE, $field(RDN, avaList)},
-	{"canonicalString", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(RDN, canonicalString)},
-	{}
-};
-
-$MethodInfo _RDN_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RDN, init$, void, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(RDN, init$, void, $String*, $Map*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(RDN, init$, void, $String*, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(RDN, init$, void, $String*, $String*, $Map*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, 0, $method(RDN, init$, void, $DerValue*), "java.io.IOException"},
-	{"<init>", "(I)V", nullptr, 0, $method(RDN, init$, void, int32_t)},
-	{"<init>", "(Lsun/security/x509/AVA;)V", nullptr, $PUBLIC, $method(RDN, init$, void, $AVA*)},
-	{"<init>", "([Lsun/security/x509/AVA;)V", nullptr, $PUBLIC, $method(RDN, init$, void, $AVAArray*)},
-	{"avas", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/AVA;>;", $PUBLIC, $virtualMethod(RDN, avas, $List*)},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, 0, $virtualMethod(RDN, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RDN, equals, bool, Object$*)},
-	{"findAttribute", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/util/DerValue;", nullptr, 0, $virtualMethod(RDN, findAttribute, $DerValue*, $ObjectIdentifier*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RDN, hashCode, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(RDN, size, int32_t)},
-	{"toRFC1779String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RDN, toRFC1779String, $String*)},
-	{"toRFC1779String", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(RDN, toRFC1779String, $String*, $Map*)},
-	{"toRFC2253String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RDN, toRFC2253String, $String*)},
-	{"toRFC2253String", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(RDN, toRFC2253String, $String*, $Map*)},
-	{"toRFC2253String", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RDN, toRFC2253String, $String*, bool)},
-	{"toRFC2253StringInternal", "(ZLjava/util/Map;)Ljava/lang/String;", "(ZLjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE, $method(RDN, toRFC2253StringInternal, $String*, bool, $Map*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RDN, toString, $String*)},
-	{}
-};
-
-$ClassInfo _RDN_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.RDN",
-	"java.lang.Object",
-	nullptr,
-	_RDN_FieldInfo_,
-	_RDN_MethodInfo_
-};
-
-$Object* allocate$RDN($Class* clazz) {
-	return $of($alloc(RDN));
-}
-
 void RDN::init$($String* name) {
 	RDN::init$(name, $($Collections::emptyMap()));
 }
 
 void RDN::init$($String* name, $Map* keywordMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t quoteCount = 0;
 	int32_t searchOffset = 0;
 	int32_t avaOffset = 0;
 	$var($List, avaVec, $new($ArrayList, 3));
-	int32_t nextPlus = $nc(name)->indexOf((int32_t)u'+');
+	int32_t nextPlus = $nc(name)->indexOf(u'+');
 	while (nextPlus >= 0) {
 		quoteCount += $X500Name::countQuotes(name, searchOffset, nextPlus);
 		if (nextPlus > 0 && name->charAt(nextPlus - 1) != u'\\' && quoteCount != 1) {
@@ -115,21 +67,21 @@ void RDN::init$($String* name, $Map* keywordMap) {
 			if (avaString->isEmpty()) {
 				$throwNew($IOException, $$str({"empty AVA in RDN \""_s, name, "\""_s}));
 			}
-			$var($AVA, ava, $new($AVA, static_cast<$Reader*>($$new($StringReader, avaString)), keywordMap));
+			$var($AVA, ava, $new($AVA, $$new($StringReader, avaString), keywordMap));
 			avaVec->add(ava);
 			avaOffset = nextPlus + 1;
 			quoteCount = 0;
 		}
 		searchOffset = nextPlus + 1;
-		nextPlus = name->indexOf((int32_t)u'+', searchOffset);
+		nextPlus = name->indexOf(u'+', searchOffset);
 	}
 	$var($String, avaString, name->substring(avaOffset));
 	if (avaString->isEmpty()) {
 		$throwNew($IOException, $$str({"empty AVA in RDN \""_s, name, "\""_s}));
 	}
-	$var($AVA, ava, $new($AVA, static_cast<$Reader*>($$new($StringReader, avaString)), keywordMap));
+	$var($AVA, ava, $new($AVA, $$new($StringReader, avaString), keywordMap));
 	avaVec->add(ava);
-	$set(this, assertion, $fcast($AVAArray, avaVec->toArray($$new($AVAArray, avaVec->size()))));
+	$set(this, assertion, $cast($AVAArray, avaVec->toArray($$new($AVAArray, avaVec->size()))));
 }
 
 void RDN::init$($String* name, $String* format) {
@@ -137,14 +89,14 @@ void RDN::init$($String* name, $String* format) {
 }
 
 void RDN::init$($String* name, $String* format, $Map* keywordMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(format)->equalsIgnoreCase("RFC2253"_s) == false) {
 		$throwNew($IOException, $$str({"Unsupported format "_s, format}));
 	}
 	int32_t searchOffset = 0;
 	int32_t avaOffset = 0;
 	$var($List, avaVec, $new($ArrayList, 3));
-	int32_t nextPlus = $nc(name)->indexOf((int32_t)u'+');
+	int32_t nextPlus = $nc(name)->indexOf(u'+');
 	while (nextPlus >= 0) {
 		if (nextPlus > 0 && name->charAt(nextPlus - 1) != u'\\') {
 			$var($String, avaString, name->substring(avaOffset, nextPlus));
@@ -156,7 +108,7 @@ void RDN::init$($String* name, $String* format, $Map* keywordMap) {
 			avaOffset = nextPlus + 1;
 		}
 		searchOffset = nextPlus + 1;
-		nextPlus = name->indexOf((int32_t)u'+', searchOffset);
+		nextPlus = name->indexOf(u'+', searchOffset);
 	}
 	$var($String, avaString, name->substring(avaOffset));
 	if (avaString->isEmpty()) {
@@ -164,19 +116,19 @@ void RDN::init$($String* name, $String* format, $Map* keywordMap) {
 	}
 	$var($AVA, ava, $new($AVA, $$new($StringReader, avaString), $AVA::RFC2253, keywordMap));
 	avaVec->add(ava);
-	$set(this, assertion, $fcast($AVAArray, avaVec->toArray($$new($AVAArray, avaVec->size()))));
+	$set(this, assertion, $cast($AVAArray, avaVec->toArray($$new($AVAArray, avaVec->size()))));
 }
 
 void RDN::init$($DerValue* rdn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(rdn)->tag != $DerValue::tag_Set) {
 		$throwNew($IOException, "X500 RDN"_s);
 	}
-	$var($DerInputStream, dis, $new($DerInputStream, $($nc(rdn)->toByteArray())));
+	$var($DerInputStream, dis, $new($DerInputStream, $(rdn->toByteArray())));
 	$var($DerValueArray, avaset, dis->getSet(5));
 	$set(this, assertion, $new($AVAArray, $nc(avaset)->length));
 	for (int32_t i = 0; i < avaset->length; ++i) {
-		$nc(this->assertion)->set(i, $$new($AVA, avaset->get(i)));
+		this->assertion->set(i, $$new($AVA, avaset->get(i)));
 	}
 }
 
@@ -193,15 +145,15 @@ void RDN::init$($AVA* ava) {
 
 void RDN::init$($AVAArray* avas) {
 	$set(this, assertion, $cast($AVAArray, $nc(avas)->clone()));
-	for (int32_t i = 0; i < $nc(this->assertion)->length; ++i) {
-		if ($nc(this->assertion)->get(i) == nullptr) {
+	for (int32_t i = 0; i < this->assertion->length; ++i) {
+		if (this->assertion->get(i) == nullptr) {
 			$throwNew($NullPointerException);
 		}
 	}
 }
 
 $List* RDN::avas() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, this->avaList);
 	if (list == nullptr) {
 		$assign(list, $Collections::unmodifiableList($($Arrays::asList(this->assertion))));
@@ -215,7 +167,7 @@ int32_t RDN::size() {
 }
 
 bool RDN::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -227,35 +179,35 @@ bool RDN::equals(Object$* obj) {
 		return false;
 	}
 	$var($String, thisCanon, this->toRFC2253String(true));
-	$var($String, otherCanon, $nc(other)->toRFC2253String(true));
+	$var($String, otherCanon, other->toRFC2253String(true));
 	return $nc(thisCanon)->equals(otherCanon);
 }
 
 int32_t RDN::hashCode() {
-	return $nc($(toRFC2253String(true)))->hashCode();
+	return $$nc(toRFC2253String(true))->hashCode();
 }
 
 $DerValue* RDN::findAttribute($ObjectIdentifier* oid) {
 	for (int32_t i = 0; i < $nc(this->assertion)->length; ++i) {
-		if ($nc($nc($nc(this->assertion)->get(i))->oid)->equals(oid)) {
-			return $nc($nc(this->assertion)->get(i))->value;
+		if ($nc($nc(this->assertion->get(i))->oid)->equals(oid)) {
+			return $nc(this->assertion->get(i))->value;
 		}
 	}
 	return nullptr;
 }
 
 void RDN::encode($DerOutputStream* out) {
-	$nc(out)->putOrderedSetOf($DerValue::tag_Set, $fcast($DerEncoderArray, this->assertion));
+	$nc(out)->putOrderedSetOf($DerValue::tag_Set, $cast($DerEncoderArray, this->assertion));
 }
 
 $String* RDN::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->assertion)->length == 1) {
-		return $nc($nc(this->assertion)->get(0))->toString();
+		return $nc(this->assertion->get(0))->toString();
 	}
 	$var($StringJoiner, sj, $new($StringJoiner, " + "_s));
-	for (int32_t i = 0; i < $nc(this->assertion)->length; ++i) {
-		sj->add($($nc($nc(this->assertion)->get(i))->toString()));
+	for (int32_t i = 0; i < this->assertion->length; ++i) {
+		sj->add($($nc(this->assertion->get(i))->toString()));
 	}
 	return sj->toString();
 }
@@ -265,13 +217,13 @@ $String* RDN::toRFC1779String() {
 }
 
 $String* RDN::toRFC1779String($Map* oidMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->assertion)->length == 1) {
-		return $nc($nc(this->assertion)->get(0))->toRFC1779String(oidMap);
+		return $nc(this->assertion->get(0))->toRFC1779String(oidMap);
 	}
 	$var($StringJoiner, sj, $new($StringJoiner, " + "_s));
-	for (int32_t i = 0; i < $nc(this->assertion)->length; ++i) {
-		sj->add($($nc($nc(this->assertion)->get(i))->toRFC1779String(oidMap)));
+	for (int32_t i = 0; i < this->assertion->length; ++i) {
+		sj->add($($nc(this->assertion->get(i))->toRFC1779String(oidMap)));
 	}
 	return sj->toString();
 }
@@ -285,7 +237,7 @@ $String* RDN::toRFC2253String($Map* oidMap) {
 }
 
 $String* RDN::toRFC2253String(bool canonical) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (canonical == false) {
 		return toRFC2253StringInternal(false, $($Collections::emptyMap()));
 	}
@@ -298,24 +250,22 @@ $String* RDN::toRFC2253String(bool canonical) {
 }
 
 $String* RDN::toRFC2253StringInternal(bool canonical, $Map* oidMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->assertion)->length == 1) {
-		return canonical ? $nc($nc(this->assertion)->get(0))->toRFC2253CanonicalString() : $nc($nc(this->assertion)->get(0))->toRFC2253String(oidMap);
+		return canonical ? $nc(this->assertion->get(0))->toRFC2253CanonicalString() : $nc(this->assertion->get(0))->toRFC2253String(oidMap);
 	}
 	$var($AVAArray, toOutput, this->assertion);
 	if (canonical) {
-		$assign(toOutput, $cast($AVAArray, $nc(this->assertion)->clone()));
+		$assign(toOutput, $cast($AVAArray, this->assertion->clone()));
 		$Arrays::sort(toOutput, $($AVAComparator::getInstance()));
 	}
 	$var($StringJoiner, sj, $new($StringJoiner, "+"_s));
 	{
 		$var($AVAArray, arr$, toOutput);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($AVA, ava, arr$->get(i$));
 			{
-				sj->add(canonical ? $(static_cast<$CharSequence*>($nc(ava)->toRFC2253CanonicalString())) : $(static_cast<$CharSequence*>(ava->toRFC2253String(oidMap))));
+				sj->add(canonical ? $($nc(ava)->toRFC2253CanonicalString()) : $($nc(ava)->toRFC2253String(oidMap)));
 			}
 		}
 	}
@@ -326,7 +276,47 @@ RDN::RDN() {
 }
 
 $Class* RDN::load$($String* name, bool initialize) {
-	$loadClass(RDN, name, initialize, &_RDN_ClassInfo_, allocate$RDN);
+	$FieldInfo fieldInfos$$[] = {
+		{"assertion", "[Lsun/security/x509/AVA;", nullptr, $FINAL, $field(RDN, assertion)},
+		{"avaList", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/AVA;>;", $PRIVATE | $VOLATILE, $field(RDN, avaList)},
+		{"canonicalString", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(RDN, canonicalString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RDN, init$, void, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(RDN, init$, void, $String*, $Map*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(RDN, init$, void, $String*, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(RDN, init$, void, $String*, $String*, $Map*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, 0, $method(RDN, init$, void, $DerValue*), "java.io.IOException"},
+		{"<init>", "(I)V", nullptr, 0, $method(RDN, init$, void, int32_t)},
+		{"<init>", "(Lsun/security/x509/AVA;)V", nullptr, $PUBLIC, $method(RDN, init$, void, $AVA*)},
+		{"<init>", "([Lsun/security/x509/AVA;)V", nullptr, $PUBLIC, $method(RDN, init$, void, $AVAArray*)},
+		{"avas", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/AVA;>;", $PUBLIC, $virtualMethod(RDN, avas, $List*)},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, 0, $virtualMethod(RDN, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RDN, equals, bool, Object$*)},
+		{"findAttribute", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/util/DerValue;", nullptr, 0, $virtualMethod(RDN, findAttribute, $DerValue*, $ObjectIdentifier*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RDN, hashCode, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(RDN, size, int32_t)},
+		{"toRFC1779String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RDN, toRFC1779String, $String*)},
+		{"toRFC1779String", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(RDN, toRFC1779String, $String*, $Map*)},
+		{"toRFC2253String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RDN, toRFC2253String, $String*)},
+		{"toRFC2253String", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(RDN, toRFC2253String, $String*, $Map*)},
+		{"toRFC2253String", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RDN, toRFC2253String, $String*, bool)},
+		{"toRFC2253StringInternal", "(ZLjava/util/Map;)Ljava/lang/String;", "(ZLjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE, $method(RDN, toRFC2253StringInternal, $String*, bool, $Map*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RDN, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.RDN",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RDN, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RDN);
+	});
 	return class$;
 }
 

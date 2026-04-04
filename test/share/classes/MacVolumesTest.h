@@ -16,6 +16,7 @@ class $export MacVolumesTest : public ::java::lang::Object {
 	$class(MacVolumesTest, 0, ::java::lang::Object)
 public:
 	MacVolumesTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkDataVolume();
 	static void checkFirmlinks();

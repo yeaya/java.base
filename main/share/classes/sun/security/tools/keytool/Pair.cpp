@@ -1,5 +1,4 @@
 #include <sun/security/tools/keytool/Pair.h>
-
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -13,35 +12,6 @@ namespace sun {
 		namespace tools {
 			namespace keytool {
 
-$FieldInfo _Pair_FieldInfo_[] = {
-	{"fst", "Ljava/lang/Object;", "TA;", $PUBLIC | $FINAL, $field(Pair, fst)},
-	{"snd", "Ljava/lang/Object;", "TB;", $PUBLIC | $FINAL, $field(Pair, snd)},
-	{}
-};
-
-$MethodInfo _Pair_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TA;TB;)V", $PUBLIC, $method(Pair, init$, void, Object$*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Pair, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Pair, hashCode, int32_t)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;)Lsun/security/tools/keytool/Pair;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;>(TA;TB;)Lsun/security/tools/keytool/Pair<TA;TB;>;", $PUBLIC | $STATIC, $staticMethod(Pair, of, Pair*, Object$*, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pair, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Pair_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.tools.keytool.Pair",
-	"java.lang.Object",
-	nullptr,
-	_Pair_FieldInfo_,
-	_Pair_MethodInfo_,
-	"<A:Ljava/lang/Object;B:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$Pair($Class* clazz) {
-	return $of($alloc(Pair));
-}
-
 void Pair::init$(Object$* fst, Object$* snd) {
 	$set(this, fst, fst);
 	$set(this, snd, snd);
@@ -52,18 +22,18 @@ $String* Pair::toString() {
 }
 
 bool Pair::equals(Object$* other) {
-	bool var$0 = $instanceOf(Pair, other) && $Objects::equals(this->fst, $nc(($cast(Pair, other)))->fst);
-	return var$0 && $Objects::equals(this->snd, $nc(($cast(Pair, other)))->snd);
+	bool var$0 = $instanceOf(Pair, other) && $Objects::equals(this->fst, $cast(Pair, other)->fst);
+	return var$0 && $Objects::equals(this->snd, $cast(Pair, other)->snd);
 }
 
 int32_t Pair::hashCode() {
 	if (this->fst == nullptr) {
-		return (this->snd == nullptr) ? 0 : $nc($of(this->snd))->hashCode() + 1;
+		return (this->snd == nullptr) ? 0 : this->snd->hashCode() + 1;
 	} else if (this->snd == nullptr) {
-		return $nc($of(this->fst))->hashCode() + 2;
+		return this->fst->hashCode() + 2;
 	} else {
-		int32_t var$0 = $nc($of(this->fst))->hashCode() * 17;
-		return var$0 + $nc($of(this->snd))->hashCode();
+		int32_t var$0 = this->fst->hashCode() * 17;
+		return var$0 + this->snd->hashCode();
 	}
 }
 
@@ -75,7 +45,31 @@ Pair::Pair() {
 }
 
 $Class* Pair::load$($String* name, bool initialize) {
-	$loadClass(Pair, name, initialize, &_Pair_ClassInfo_, allocate$Pair);
+	$FieldInfo fieldInfos$$[] = {
+		{"fst", "Ljava/lang/Object;", "TA;", $PUBLIC | $FINAL, $field(Pair, fst)},
+		{"snd", "Ljava/lang/Object;", "TB;", $PUBLIC | $FINAL, $field(Pair, snd)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TA;TB;)V", $PUBLIC, $method(Pair, init$, void, Object$*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Pair, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Pair, hashCode, int32_t)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;)Lsun/security/tools/keytool/Pair;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;>(TA;TB;)Lsun/security/tools/keytool/Pair<TA;TB;>;", $PUBLIC | $STATIC, $staticMethod(Pair, of, Pair*, Object$*, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pair, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.tools.keytool.Pair",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<A:Ljava/lang/Object;B:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(Pair, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pair);
+	});
 	return class$;
 }
 

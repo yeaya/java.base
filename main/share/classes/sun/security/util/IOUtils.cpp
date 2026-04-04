@@ -1,5 +1,4 @@
 #include <sun/security/util/IOUtils.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -15,30 +14,11 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$MethodInfo _IOUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IOUtils, init$, void)},
-	{"readExactlyNBytes", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IOUtils, readExactlyNBytes, $bytes*, $InputStream*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _IOUtils_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.IOUtils",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IOUtils_MethodInfo_
-};
-
-$Object* allocate$IOUtils($Class* clazz) {
-	return $of($alloc(IOUtils));
-}
-
 void IOUtils::init$() {
 }
 
 $bytes* IOUtils::readExactlyNBytes($InputStream* is, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (length < 0) {
 		$throwNew($IOException, $$str({"length cannot be negative: "_s, $$str(length)}));
 	}
@@ -53,7 +33,22 @@ IOUtils::IOUtils() {
 }
 
 $Class* IOUtils::load$($String* name, bool initialize) {
-	$loadClass(IOUtils, name, initialize, &_IOUtils_ClassInfo_, allocate$IOUtils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IOUtils, init$, void)},
+		{"readExactlyNBytes", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IOUtils, readExactlyNBytes, $bytes*, $InputStream*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.IOUtils",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IOUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IOUtils);
+	});
 	return class$;
 }
 

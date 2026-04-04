@@ -58,6 +58,7 @@ public:
 	using ::java::security::SignatureSpi::engineInitVerify;
 	using ::java::security::SignatureSpi::engineInitSign;
 	using ::java::security::SignatureSpi::engineSign;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::MessageDigest* md);
 	void init$(::java::security::MessageDigest* md, bool p1363Format);
 	static void checkKey(::java::security::interfaces::DSAParams* params, int32_t digestLen, $String* mdAlgo);

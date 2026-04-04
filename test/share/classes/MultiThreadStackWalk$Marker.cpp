@@ -1,5 +1,4 @@
 #include <MultiThreadStackWalk$Marker.h>
-
 #include <MultiThreadStackWalk$Call$WalkType.h>
 #include <MultiThreadStackWalk$Call.h>
 #include <MultiThreadStackWalk$Env.h>
@@ -14,45 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
-
-$FieldInfo _MultiThreadStackWalk$Marker_FieldInfo_[] = {
-	{"walkType", "LMultiThreadStackWalk$Call$WalkType;", nullptr, $FINAL, $field(MultiThreadStackWalk$Marker, walkType)},
-	{}
-};
-
-$MethodInfo _MultiThreadStackWalk$Marker_MethodInfo_[] = {
-	{"<init>", "(LMultiThreadStackWalk$Call$WalkType;)V", nullptr, 0, $method(MultiThreadStackWalk$Marker, init$, void, $MultiThreadStackWalk$Call$WalkType*)},
-	{"call", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Call;III)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Marker, call, void, $MultiThreadStackWalk$Env*, $MultiThreadStackWalk$Call*, int32_t, int32_t, int32_t)},
-	{"getWalkType", "()LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Marker, getWalkType, $MultiThreadStackWalk$Call$WalkType*)},
-	{}
-};
-
-$InnerClassInfo _MultiThreadStackWalk$Marker_InnerClassesInfo_[] = {
-	{"MultiThreadStackWalk$Marker", "MultiThreadStackWalk", "Marker", $PUBLIC | $STATIC},
-	{"MultiThreadStackWalk$Call", "MultiThreadStackWalk", "Call", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MultiThreadStackWalk$Marker_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MultiThreadStackWalk$Marker",
-	"java.lang.Object",
-	"MultiThreadStackWalk$Call",
-	_MultiThreadStackWalk$Marker_FieldInfo_,
-	_MultiThreadStackWalk$Marker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultiThreadStackWalk$Marker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MultiThreadStackWalk"
-};
-
-$Object* allocate$MultiThreadStackWalk$Marker($Class* clazz) {
-	return $of($alloc(MultiThreadStackWalk$Marker));
-}
 
 void MultiThreadStackWalk$Marker::init$($MultiThreadStackWalk$Call$WalkType* walkType) {
 	$set(this, walkType, walkType);
@@ -75,7 +35,39 @@ MultiThreadStackWalk$Marker::MultiThreadStackWalk$Marker() {
 }
 
 $Class* MultiThreadStackWalk$Marker::load$($String* name, bool initialize) {
-	$loadClass(MultiThreadStackWalk$Marker, name, initialize, &_MultiThreadStackWalk$Marker_ClassInfo_, allocate$MultiThreadStackWalk$Marker);
+	$FieldInfo fieldInfos$$[] = {
+		{"walkType", "LMultiThreadStackWalk$Call$WalkType;", nullptr, $FINAL, $field(MultiThreadStackWalk$Marker, walkType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LMultiThreadStackWalk$Call$WalkType;)V", nullptr, 0, $method(MultiThreadStackWalk$Marker, init$, void, $MultiThreadStackWalk$Call$WalkType*)},
+		{"call", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Call;III)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Marker, call, void, $MultiThreadStackWalk$Env*, $MultiThreadStackWalk$Call*, int32_t, int32_t, int32_t)},
+		{"getWalkType", "()LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Marker, getWalkType, $MultiThreadStackWalk$Call$WalkType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MultiThreadStackWalk$Marker", "MultiThreadStackWalk", "Marker", $PUBLIC | $STATIC},
+		{"MultiThreadStackWalk$Call", "MultiThreadStackWalk", "Call", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MultiThreadStackWalk$Marker",
+		"java.lang.Object",
+		"MultiThreadStackWalk$Call",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MultiThreadStackWalk"
+	};
+	$loadClass(MultiThreadStackWalk$Marker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiThreadStackWalk$Marker);
+	});
 	return class$;
 }
 

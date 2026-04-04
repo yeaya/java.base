@@ -15,6 +15,7 @@ class $export SBBasher : public ::java::lang::Object {
 	$class(SBBasher, 0, ::java::lang::Object)
 public:
 	SBBasher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool Test1($String* before);
 	bool Test2($String* before);

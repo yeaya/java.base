@@ -38,6 +38,7 @@ class PropertyPermissionCollection : public ::java::security::PermissionCollecti
 	$class(PropertyPermissionCollection, 0, ::java::security::PermissionCollection)
 public:
 	PropertyPermissionCollection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(::java::security::Permission* permission) override;
 	virtual ::java::util::Enumeration* elements() override;
@@ -46,7 +47,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* out);
 	::java::util::concurrent::ConcurrentHashMap* perms = nullptr;
 	bool all_allowed = false;
-	static const int64_t serialVersionUID = (int64_t)0x615B395A4E354AE7;
+	static const int64_t serialVersionUID = (int64_t)0x615b395a4e354ae7;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 };
 

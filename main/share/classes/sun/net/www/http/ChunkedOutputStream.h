@@ -45,6 +45,7 @@ class ChunkedOutputStream : public ::java::io::OutputStream {
 	$class(ChunkedOutputStream, 0, ::java::io::OutputStream)
 public:
 	ChunkedOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::PrintStream* o);
 	void init$(::java::io::PrintStream* o, int32_t size);
 	virtual bool checkError();

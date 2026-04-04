@@ -1,5 +1,4 @@
 #include <java/io/FilenameFilter.h>
-
 #include <java/io/File.h>
 #include <jcpp.h>
 
@@ -11,35 +10,30 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace io {
 
-$CompoundAttribute _FilenameFilter_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _FilenameFilter_MethodInfo_[] = {
-	{"accept", "(Ljava/io/File;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilenameFilter, accept, bool, $File*, $String*)},
-	{}
-};
-
-$ClassInfo _FilenameFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.io.FilenameFilter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_FilenameFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_FilenameFilter_Annotations_
-};
-
-$Object* allocate$FilenameFilter($Class* clazz) {
-	return $of($alloc(FilenameFilter));
-}
-
 $Class* FilenameFilter::load$($String* name, bool initialize) {
-	$loadClass(FilenameFilter, name, initialize, &_FilenameFilter_ClassInfo_, allocate$FilenameFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Ljava/io/File;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilenameFilter, accept, bool, $File*, $String*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.io.FilenameFilter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(FilenameFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilenameFilter);
+	});
 	return class$;
 }
 

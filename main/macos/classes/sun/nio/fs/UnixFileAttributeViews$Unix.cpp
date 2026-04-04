@@ -1,8 +1,6 @@
 #include <sun/nio/fs/UnixFileAttributeViews$Unix.h>
-
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/FileTime.h>
-#include <java/nio/file/attribute/PosixFileAttributes.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <sun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder.h>
@@ -28,7 +26,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PosixFileAttributes = ::java::nio::file::attribute::PosixFileAttributes;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $AbstractBasicFileAttributeView$AttributesBuilder = ::sun::nio::fs::AbstractBasicFileAttributeView$AttributesBuilder;
@@ -40,53 +37,6 @@ using $Util = ::sun::nio::fs::Util;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _UnixFileAttributeViews$Unix_FieldInfo_[] = {
-	{"MODE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, MODE_NAME)},
-	{"INO_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, INO_NAME)},
-	{"DEV_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, DEV_NAME)},
-	{"RDEV_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, RDEV_NAME)},
-	{"NLINK_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, NLINK_NAME)},
-	{"UID_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, UID_NAME)},
-	{"GID_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, GID_NAME)},
-	{"CTIME_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, CTIME_NAME)},
-	{"unixAttributeNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, unixAttributeNames)},
-	{}
-};
-
-$MethodInfo _UnixFileAttributeViews$Unix_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(UnixFileAttributeViews$Unix, init$, void, $UnixPath*, bool)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributeViews$Unix, name, $String*)},
-	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(UnixFileAttributeViews$Unix, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributeViews$Unix, setAttribute, void, $String*, Object$*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _UnixFileAttributeViews$Unix_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixFileAttributeViews$Unix", "sun.nio.fs.UnixFileAttributeViews", "Unix", $PRIVATE | $STATIC},
-	{"sun.nio.fs.UnixFileAttributeViews$Posix", "sun.nio.fs.UnixFileAttributeViews", "Posix", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _UnixFileAttributeViews$Unix_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixFileAttributeViews$Unix",
-	"sun.nio.fs.UnixFileAttributeViews$Posix",
-	nullptr,
-	_UnixFileAttributeViews$Unix_FieldInfo_,
-	_UnixFileAttributeViews$Unix_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnixFileAttributeViews$Unix_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixFileAttributeViews"
-};
-
-$Object* allocate$UnixFileAttributeViews$Unix($Class* clazz) {
-	return $of($alloc(UnixFileAttributeViews$Unix));
-}
 
 $String* UnixFileAttributeViews$Unix::MODE_NAME = nullptr;
 $String* UnixFileAttributeViews$Unix::INO_NAME = nullptr;
@@ -108,53 +58,53 @@ $String* UnixFileAttributeViews$Unix::name() {
 
 void UnixFileAttributeViews$Unix::setAttribute($String* attribute, Object$* value) {
 	if ($nc(attribute)->equals(UnixFileAttributeViews$Unix::MODE_NAME)) {
-		setMode($nc(($cast($Integer, value)))->intValue());
+		setMode($nc($cast($Integer, value))->intValue());
 		return;
 	}
-	if ($nc(attribute)->equals(UnixFileAttributeViews$Unix::UID_NAME)) {
-		setOwners($nc(($cast($Integer, value)))->intValue(), -1);
+	if (attribute->equals(UnixFileAttributeViews$Unix::UID_NAME)) {
+		setOwners($nc($cast($Integer, value))->intValue(), -1);
 		return;
 	}
-	if ($nc(attribute)->equals(UnixFileAttributeViews$Unix::GID_NAME)) {
-		setOwners(-1, $nc(($cast($Integer, value)))->intValue());
+	if (attribute->equals(UnixFileAttributeViews$Unix::GID_NAME)) {
+		setOwners(-1, $nc($cast($Integer, value))->intValue());
 		return;
 	}
 	$UnixFileAttributeViews$Posix::setAttribute(attribute, value);
 }
 
 $Map* UnixFileAttributeViews$Unix::readAttributes($StringArray* requested) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractBasicFileAttributeView$AttributesBuilder, builder, $AbstractBasicFileAttributeView$AttributesBuilder::create(UnixFileAttributeViews$Unix::unixAttributeNames, requested));
 	$var($UnixFileAttributes, attrs, $cast($UnixFileAttributes, readAttributes()));
 	addRequestedPosixAttributes(attrs, builder);
 	if ($nc(builder)->match(UnixFileAttributeViews$Unix::MODE_NAME)) {
 		builder->add(UnixFileAttributeViews$Unix::MODE_NAME, $($Integer::valueOf($nc(attrs)->mode())));
 	}
-	if ($nc(builder)->match(UnixFileAttributeViews$Unix::INO_NAME)) {
+	if (builder->match(UnixFileAttributeViews$Unix::INO_NAME)) {
 		builder->add(UnixFileAttributeViews$Unix::INO_NAME, $($Long::valueOf($nc(attrs)->ino())));
 	}
-	if ($nc(builder)->match(UnixFileAttributeViews$Unix::DEV_NAME)) {
+	if (builder->match(UnixFileAttributeViews$Unix::DEV_NAME)) {
 		builder->add(UnixFileAttributeViews$Unix::DEV_NAME, $($Long::valueOf($nc(attrs)->dev())));
 	}
-	if ($nc(builder)->match(UnixFileAttributeViews$Unix::RDEV_NAME)) {
+	if (builder->match(UnixFileAttributeViews$Unix::RDEV_NAME)) {
 		builder->add(UnixFileAttributeViews$Unix::RDEV_NAME, $($Long::valueOf($nc(attrs)->rdev())));
 	}
-	if ($nc(builder)->match(UnixFileAttributeViews$Unix::NLINK_NAME)) {
+	if (builder->match(UnixFileAttributeViews$Unix::NLINK_NAME)) {
 		builder->add(UnixFileAttributeViews$Unix::NLINK_NAME, $($Integer::valueOf($nc(attrs)->nlink())));
 	}
-	if ($nc(builder)->match(UnixFileAttributeViews$Unix::UID_NAME)) {
+	if (builder->match(UnixFileAttributeViews$Unix::UID_NAME)) {
 		builder->add(UnixFileAttributeViews$Unix::UID_NAME, $($Integer::valueOf($nc(attrs)->uid())));
 	}
-	if ($nc(builder)->match(UnixFileAttributeViews$Unix::GID_NAME)) {
+	if (builder->match(UnixFileAttributeViews$Unix::GID_NAME)) {
 		builder->add(UnixFileAttributeViews$Unix::GID_NAME, $($Integer::valueOf($nc(attrs)->gid())));
 	}
-	if ($nc(builder)->match(UnixFileAttributeViews$Unix::CTIME_NAME)) {
+	if (builder->match(UnixFileAttributeViews$Unix::CTIME_NAME)) {
 		builder->add(UnixFileAttributeViews$Unix::CTIME_NAME, $($nc(attrs)->ctime()));
 	}
-	return $nc(builder)->unmodifiableMap();
+	return builder->unmodifiableMap();
 }
 
-void clinit$UnixFileAttributeViews$Unix($Class* class$) {
+void UnixFileAttributeViews$Unix::clinit$($Class* clazz) {
 	$assignStatic(UnixFileAttributeViews$Unix::MODE_NAME, "mode"_s);
 	$assignStatic(UnixFileAttributeViews$Unix::INO_NAME, "ino"_s);
 	$assignStatic(UnixFileAttributeViews$Unix::DEV_NAME, "dev"_s);
@@ -180,7 +130,48 @@ UnixFileAttributeViews$Unix::UnixFileAttributeViews$Unix() {
 }
 
 $Class* UnixFileAttributeViews$Unix::load$($String* name, bool initialize) {
-	$loadClass(UnixFileAttributeViews$Unix, name, initialize, &_UnixFileAttributeViews$Unix_ClassInfo_, clinit$UnixFileAttributeViews$Unix, allocate$UnixFileAttributeViews$Unix);
+	$FieldInfo fieldInfos$$[] = {
+		{"MODE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, MODE_NAME)},
+		{"INO_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, INO_NAME)},
+		{"DEV_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, DEV_NAME)},
+		{"RDEV_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, RDEV_NAME)},
+		{"NLINK_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, NLINK_NAME)},
+		{"UID_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, UID_NAME)},
+		{"GID_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, GID_NAME)},
+		{"CTIME_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, CTIME_NAME)},
+		{"unixAttributeNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(UnixFileAttributeViews$Unix, unixAttributeNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(UnixFileAttributeViews$Unix, init$, void, $UnixPath*, bool)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributeViews$Unix, name, $String*)},
+		{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(UnixFileAttributeViews$Unix, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributeViews$Unix, setAttribute, void, $String*, Object$*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixFileAttributeViews$Unix", "sun.nio.fs.UnixFileAttributeViews", "Unix", $PRIVATE | $STATIC},
+		{"sun.nio.fs.UnixFileAttributeViews$Posix", "sun.nio.fs.UnixFileAttributeViews", "Posix", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixFileAttributeViews$Unix",
+		"sun.nio.fs.UnixFileAttributeViews$Posix",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixFileAttributeViews"
+	};
+	$loadClass(UnixFileAttributeViews$Unix, name, initialize, &classInfo$$, UnixFileAttributeViews$Unix::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnixFileAttributeViews$Unix));
+	});
 	return class$;
 }
 

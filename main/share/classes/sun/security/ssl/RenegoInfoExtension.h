@@ -24,6 +24,7 @@ class RenegoInfoExtension : public ::java::lang::Object {
 	$class(RenegoInfoExtension, 0, ::java::lang::Object)
 public:
 	RenegoInfoExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::HandshakeProducer* chNetworkProducer;
 	static ::sun::security::ssl::SSLExtension$ExtensionConsumer* chOnLoadConsumer;

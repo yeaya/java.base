@@ -1,5 +1,4 @@
 #include <sun/nio/cs/US_ASCII$Encoder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -31,47 +30,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _US_ASCII$Encoder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(US_ASCII$Encoder, $assertionsDisabled)},
-	{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE | $FINAL, $field(US_ASCII$Encoder, sgp)},
-	{}
-};
-
-$MethodInfo _US_ASCII$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(US_ASCII$Encoder, init$, void, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(US_ASCII$Encoder, canEncode, bool, char16_t)},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(US_ASCII$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(US_ASCII$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(US_ASCII$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(US_ASCII$Encoder, isLegalReplacement, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _US_ASCII$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.US_ASCII$Encoder", "sun.nio.cs.US_ASCII", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _US_ASCII$Encoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.US_ASCII$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	nullptr,
-	_US_ASCII$Encoder_FieldInfo_,
-	_US_ASCII$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_US_ASCII$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.US_ASCII"
-};
-
-$Object* allocate$US_ASCII$Encoder($Class* clazz) {
-	return $of($alloc(US_ASCII$Encoder));
-}
-
 bool US_ASCII$Encoder::$assertionsDisabled = false;
 
 void US_ASCII$Encoder::init$($Charset* cs) {
@@ -88,7 +46,7 @@ bool US_ASCII$Encoder::isLegalReplacement($bytes* repl) {
 }
 
 $CoderResult* US_ASCII$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -107,99 +65,95 @@ $CoderResult* US_ASCII$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* d
 		$throwNew($AssertionError);
 	}
 	dp = (dp <= dl ? dp : dl);
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				char16_t c = $nc(sa)->get(sp);
-				if (c < 128) {
-					if (dp >= dl) {
-						$init($CoderResult);
-						$assign(var$6, $CoderResult::OVERFLOW);
-						return$5 = true;
-						goto $finally;
-					}
-					$nc(da)->set(dp, (int8_t)c);
-					++sp;
-					++dp;
-					continue;
-				}
-				if ($nc(this->sgp)->parse(c, sa, sp, sl) < 0) {
-					$assign(var$6, $nc(this->sgp)->error());
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			char16_t c = $nc(sa)->get(sp);
+			if (c < 128) {
+				if (dp >= dl) {
+					$init($CoderResult);
+					$assign(var$6, $CoderResult::OVERFLOW);
 					return$5 = true;
 					goto $finally;
 				}
-				$assign(var$6, $nc(this->sgp)->unmappableResult());
+				$nc(da)->set(dp, (int8_t)c);
+				++sp;
+				++dp;
+				continue;
+			}
+			if (this->sgp->parse(c, sa, sp, sl) < 0) {
+				$assign(var$6, this->sgp->error());
 				return$5 = true;
 				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
+			$assign(var$6, this->sgp->unmappableResult());
 			return$5 = true;
 			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
 
 $CoderResult* US_ASCII$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mark = $nc(src)->position();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				char16_t c = src->get();
-				if (c < 128) {
-					if (!$nc(dst)->hasRemaining()) {
-						$init($CoderResult);
-						$assign(var$2, $CoderResult::OVERFLOW);
-						return$1 = true;
-						goto $finally;
-					}
-					$nc(dst)->put((int8_t)c);
-					++mark;
-					continue;
-				}
-				if ($nc(this->sgp)->parse(c, src) < 0) {
-					$assign(var$2, $nc(this->sgp)->error());
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			char16_t c = src->get();
+			if (c < 128) {
+				if (!$nc(dst)->hasRemaining()) {
+					$init($CoderResult);
+					$assign(var$2, $CoderResult::OVERFLOW);
 					return$1 = true;
 					goto $finally;
 				}
-				$assign(var$2, $nc(this->sgp)->unmappableResult());
+				dst->put((int8_t)c);
+				++mark;
+				continue;
+			}
+			if (this->sgp->parse(c, src) < 0) {
+				$assign(var$2, this->sgp->error());
 				return$1 = true;
 				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
+			$assign(var$2, this->sgp->unmappableResult());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -213,7 +167,7 @@ $CoderResult* US_ASCII$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
 	}
 }
 
-void clinit$US_ASCII$Encoder($Class* class$) {
+void US_ASCII$Encoder::clinit$($Class* clazz) {
 	$load($US_ASCII);
 	US_ASCII$Encoder::$assertionsDisabled = !$US_ASCII::class$->desiredAssertionStatus();
 }
@@ -222,7 +176,42 @@ US_ASCII$Encoder::US_ASCII$Encoder() {
 }
 
 $Class* US_ASCII$Encoder::load$($String* name, bool initialize) {
-	$loadClass(US_ASCII$Encoder, name, initialize, &_US_ASCII$Encoder_ClassInfo_, clinit$US_ASCII$Encoder, allocate$US_ASCII$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(US_ASCII$Encoder, $assertionsDisabled)},
+		{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE | $FINAL, $field(US_ASCII$Encoder, sgp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(US_ASCII$Encoder, init$, void, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(US_ASCII$Encoder, canEncode, bool, char16_t)},
+		{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(US_ASCII$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(US_ASCII$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(US_ASCII$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(US_ASCII$Encoder, isLegalReplacement, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.US_ASCII$Encoder", "sun.nio.cs.US_ASCII", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.US_ASCII$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.US_ASCII"
+	};
+	$loadClass(US_ASCII$Encoder, name, initialize, &classInfo$$, US_ASCII$Encoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(US_ASCII$Encoder);
+	});
 	return class$;
 }
 

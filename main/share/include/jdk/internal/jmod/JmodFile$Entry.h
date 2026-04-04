@@ -36,6 +36,7 @@ class $import JmodFile$Entry : public ::java::lang::Object {
 	$class(JmodFile$Entry, 0, ::java::lang::Object)
 public:
 	JmodFile$Entry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::zip::ZipEntry* e);
 	virtual bool isDirectory();
 	virtual $String* name();

@@ -47,7 +47,7 @@ public:
 	virtual bool removeIf(::java::util::function::Predicate* filter) override;
 	virtual ::java::util::Spliterator* spliterator() override;
 	using ::java::util::concurrent::ConcurrentHashMap$CollectionView::toArray;
-	static const int64_t serialVersionUID = (int64_t)0x1F364C905893293D;
+	static const int64_t serialVersionUID = (int64_t)0x1f364c905893293d;
 };
 
 		} // concurrent

@@ -1,5 +1,4 @@
 #include <test/java/lang/invoke/TestCls.h>
-
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <test/java/lang/invoke/TestCls$PrivateSIC.h>
@@ -20,42 +19,6 @@ namespace test {
 		namespace lang {
 			namespace invoke {
 
-$FieldInfo _TestCls_FieldInfo_[] = {
-	{"LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestCls, LOOKUP)},
-	{}
-};
-
-$MethodInfo _TestCls_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestCls, init$, void)},
-	{"getLookupForPrivateSIC", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestCls, getLookupForPrivateSIC, $MethodHandles$Lookup*)},
-	{"getPrivateSIC", "()Ljava/lang/Class;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestCls, getPrivateSIC, $Class*)},
-	{}
-};
-
-$InnerClassInfo _TestCls_InnerClassesInfo_[] = {
-	{"test.java.lang.invoke.TestCls$PrivateSIC", "test.java.lang.invoke.TestCls", "PrivateSIC", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TestCls_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"test.java.lang.invoke.TestCls",
-	"java.lang.Object",
-	nullptr,
-	_TestCls_FieldInfo_,
-	_TestCls_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestCls_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"test.java.lang.invoke.TestCls$PrivateSIC"
-};
-
-$Object* allocate$TestCls($Class* clazz) {
-	return $of($alloc(TestCls));
-}
-
 $MethodHandles$Lookup* TestCls::LOOKUP = nullptr;
 
 void TestCls::init$() {
@@ -73,7 +36,7 @@ $MethodHandles$Lookup* TestCls::getLookupForPrivateSIC() {
 	return $MethodHandles::lookup();
 }
 
-void clinit$TestCls($Class* class$) {
+void TestCls::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(TestCls::LOOKUP, $MethodHandles::lookup());
 }
@@ -82,7 +45,37 @@ TestCls::TestCls() {
 }
 
 $Class* TestCls::load$($String* name, bool initialize) {
-	$loadClass(TestCls, name, initialize, &_TestCls_ClassInfo_, clinit$TestCls, allocate$TestCls);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestCls, LOOKUP)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestCls, init$, void)},
+		{"getLookupForPrivateSIC", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestCls, getLookupForPrivateSIC, $MethodHandles$Lookup*)},
+		{"getPrivateSIC", "()Ljava/lang/Class;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestCls, getPrivateSIC, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"test.java.lang.invoke.TestCls$PrivateSIC", "test.java.lang.invoke.TestCls", "PrivateSIC", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"test.java.lang.invoke.TestCls",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"test.java.lang.invoke.TestCls$PrivateSIC"
+	};
+	$loadClass(TestCls, name, initialize, &classInfo$$, TestCls::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestCls);
+	});
 	return class$;
 }
 

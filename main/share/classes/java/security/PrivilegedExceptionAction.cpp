@@ -1,5 +1,4 @@
 #include <java/security/PrivilegedExceptionAction.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,35 +8,30 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace security {
 
-$CompoundAttribute _PrivilegedExceptionAction_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _PrivilegedExceptionAction_MethodInfo_[] = {
-	{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(PrivilegedExceptionAction, run, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _PrivilegedExceptionAction_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.PrivilegedExceptionAction",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PrivilegedExceptionAction_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	nullptr,
-	_PrivilegedExceptionAction_Annotations_
-};
-
-$Object* allocate$PrivilegedExceptionAction($Class* clazz) {
-	return $of($alloc(PrivilegedExceptionAction));
-}
-
 $Class* PrivilegedExceptionAction::load$($String* name, bool initialize) {
-	$loadClass(PrivilegedExceptionAction, name, initialize, &_PrivilegedExceptionAction_ClassInfo_, allocate$PrivilegedExceptionAction);
+	$MethodInfo methodInfos$$[] = {
+		{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(PrivilegedExceptionAction, run, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.PrivilegedExceptionAction",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(PrivilegedExceptionAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrivilegedExceptionAction);
+	});
 	return class$;
 }
 

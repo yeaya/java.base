@@ -25,7 +25,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)123456789;
 	ReflectiveOperationException(const ReflectiveOperationException& e);
 	virtual void throw$() override;
-	inline ReflectiveOperationException* operator ->() {
+	inline ReflectiveOperationException* operator ->() const {
+		return (ReflectiveOperationException*)throwing$;
+	}
+	inline operator ReflectiveOperationException*() const {
 		return (ReflectiveOperationException*)throwing$;
 	}
 };

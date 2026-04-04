@@ -1,5 +1,4 @@
 #include <java/net/InetAddressImpl.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/NetworkInterface.h>
 #include <jcpp.h>
@@ -13,31 +12,27 @@ using $NetworkInterface = ::java::net::NetworkInterface;
 namespace java {
 	namespace net {
 
-$MethodInfo _InetAddressImpl_MethodInfo_[] = {
-	{"anyLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, anyLocalAddress, $InetAddress*)},
-	{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, getHostByAddr, $String*, $bytes*), "java.net.UnknownHostException"},
-	{"getLocalHostName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, getLocalHostName, $String*), "java.net.UnknownHostException"},
-	{"isReachable", "(Ljava/net/InetAddress;ILjava/net/NetworkInterface;I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, isReachable, bool, $InetAddress*, int32_t, $NetworkInterface*, int32_t), "java.io.IOException"},
-	{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, lookupAllHostAddr, $InetAddressArray*, $String*), "java.net.UnknownHostException"},
-	{"loopbackAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, loopbackAddress, $InetAddress*)},
-	{}
-};
-
-$ClassInfo _InetAddressImpl_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.net.InetAddressImpl",
-	nullptr,
-	nullptr,
-	nullptr,
-	_InetAddressImpl_MethodInfo_
-};
-
-$Object* allocate$InetAddressImpl($Class* clazz) {
-	return $of($alloc(InetAddressImpl));
-}
-
 $Class* InetAddressImpl::load$($String* name, bool initialize) {
-	$loadClass(InetAddressImpl, name, initialize, &_InetAddressImpl_ClassInfo_, allocate$InetAddressImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"anyLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, anyLocalAddress, $InetAddress*)},
+		{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, getHostByAddr, $String*, $bytes*), "java.net.UnknownHostException"},
+		{"getLocalHostName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, getLocalHostName, $String*), "java.net.UnknownHostException"},
+		{"isReachable", "(Ljava/net/InetAddress;ILjava/net/NetworkInterface;I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, isReachable, bool, $InetAddress*, int32_t, $NetworkInterface*, int32_t), "java.io.IOException"},
+		{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, lookupAllHostAddr, $InetAddressArray*, $String*), "java.net.UnknownHostException"},
+		{"loopbackAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, loopbackAddress, $InetAddress*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.net.InetAddressImpl",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InetAddressImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InetAddressImpl);
+	});
 	return class$;
 }
 

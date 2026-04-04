@@ -38,6 +38,7 @@ class $export DefaultLoggerFinder$SharedLoggers : public ::java::lang::Object {
 	$class(DefaultLoggerFinder$SharedLoggers, 0, ::java::lang::Object)
 public:
 	DefaultLoggerFinder$SharedLoggers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::lang::System$Logger* get(::java::util::function::Function* loggerSupplier, $String* name);
 	::java::util::Map* loggers = nullptr;

@@ -30,6 +30,7 @@ class FileSystems$DefaultFileSystemHolder : public ::java::lang::Object {
 	$class(FileSystems$DefaultFileSystemHolder, 0, ::java::lang::Object)
 public:
 	FileSystems$DefaultFileSystemHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::file::FileSystem* defaultFileSystem();
 	static ::java::nio::file::spi::FileSystemProvider* getDefaultProvider();

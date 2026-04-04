@@ -14,6 +14,7 @@ class $export Supplementary4String : public ::java::lang::Object {
 	$class(Supplementary4String, 0, ::java::lang::Object)
 public:
 	Supplementary4String();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check(bool err, $String* msg);
 	static void check(bool err, $String* s, int32_t got, int32_t expected);

@@ -44,6 +44,7 @@ class $export SSLContext : public ::java::lang::Object {
 	$class(SSLContext, 0, ::java::lang::Object)
 public:
 	SSLContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::net::ssl::SSLContextSpi* contextSpi, ::java::security::Provider* provider, $String* protocol);
 	::javax::net::ssl::SSLEngine* createSSLEngine();
 	::javax::net::ssl::SSLEngine* createSSLEngine($String* peerHost, int32_t peerPort);

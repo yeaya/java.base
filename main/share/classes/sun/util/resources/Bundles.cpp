@@ -1,11 +1,9 @@
 #include <sun/util/resources/Bundles.h>
-
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Module.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
 #include <java/util/MissingResourceException.h>
@@ -35,7 +33,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $MissingResourceException = ::java::util::MissingResourceException;
@@ -57,59 +54,6 @@ namespace sun {
 	namespace util {
 		namespace resources {
 
-$FieldInfo _Bundles_FieldInfo_[] = {
-	{"INITIAL_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Bundles, INITIAL_CACHE_SIZE)},
-	{"NONEXISTENT_BUNDLE", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bundles, NONEXISTENT_BUNDLE)},
-	{"bundleAccess", "Ljdk/internal/access/JavaUtilResourceBundleAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bundles, bundleAccess)},
-	{"cacheList", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Lsun/util/resources/Bundles$CacheKey;Lsun/util/resources/Bundles$BundleReference;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Bundles, cacheList)},
-	{"referenceQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Bundles, referenceQueue)},
-	{}
-};
-
-$MethodInfo _Bundles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Bundles, init$, void)},
-	{"cleanupCache", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, cleanupCache, void)},
-	{"findBundleInCache", "(Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, findBundleInCache, $ResourceBundle*, $Bundles$CacheKey*)},
-	{"findBundleOf", "(Lsun/util/resources/Bundles$CacheKey;Lsun/util/resources/Bundles$Strategy;Ljava/lang/String;Ljava/util/List;I)Ljava/util/ResourceBundle;", "(Lsun/util/resources/Bundles$CacheKey;Lsun/util/resources/Bundles$Strategy;Ljava/lang/String;Ljava/util/List<Ljava/util/Locale;>;I)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(Bundles, findBundleOf, $ResourceBundle*, $Bundles$CacheKey*, $Bundles$Strategy*, $String*, $List*, int32_t)},
-	{"isValidBundle", "(Ljava/util/ResourceBundle;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, isValidBundle, bool, $ResourceBundle*)},
-	{"loadBundleFromProviders", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader;Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(Bundles, loadBundleFromProviders, $ResourceBundle*, $String*, $Locale*, $ServiceLoader*, $Bundles$CacheKey*)},
-	{"loadBundleOf", "(Ljava/lang/String;Ljava/util/Locale;Lsun/util/resources/Bundles$Strategy;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, loadBundleOf, $ResourceBundle*, $String*, $Locale*, $Bundles$Strategy*)},
-	{"of", "(Ljava/lang/String;Ljava/util/Locale;Lsun/util/resources/Bundles$Strategy;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(Bundles, of, $ResourceBundle*, $String*, $Locale*, $Bundles$Strategy*)},
-	{"putBundleInCache", "(Lsun/util/resources/Bundles$CacheKey;Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, putBundleInCache, $ResourceBundle*, $Bundles$CacheKey*, $ResourceBundle*)},
-	{"throwMissingResourceException", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, throwMissingResourceException, void, $String*, $Locale*, $Throwable*)},
-	{"toOtherBundleName", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Bundles, toOtherBundleName, $String*, $String*, $String*, $Locale*)},
-	{}
-};
-
-$InnerClassInfo _Bundles_InnerClassesInfo_[] = {
-	{"sun.util.resources.Bundles$CacheKey", "sun.util.resources.Bundles", "CacheKey", $PRIVATE | $STATIC},
-	{"sun.util.resources.Bundles$BundleReference", "sun.util.resources.Bundles", "BundleReference", $PRIVATE | $STATIC},
-	{"sun.util.resources.Bundles$CacheKeyReference", "sun.util.resources.Bundles", "CacheKeyReference", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.util.resources.Bundles$Strategy", "sun.util.resources.Bundles", "Strategy", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.util.resources.Bundles$2", nullptr, nullptr, 0},
-	{"sun.util.resources.Bundles$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Bundles_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.util.resources.Bundles",
-	"java.lang.Object",
-	nullptr,
-	_Bundles_FieldInfo_,
-	_Bundles_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Bundles_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.resources.Bundles$CacheKey,sun.util.resources.Bundles$BundleReference,sun.util.resources.Bundles$CacheKeyReference,sun.util.resources.Bundles$Strategy,sun.util.resources.Bundles$2,sun.util.resources.Bundles$1"
-};
-
-$Object* allocate$Bundles($Class* clazz) {
-	return $of($alloc(Bundles));
-}
-
 $ResourceBundle* Bundles::NONEXISTENT_BUNDLE = nullptr;
 $JavaUtilResourceBundleAccess* Bundles::bundleAccess = nullptr;
 $ConcurrentMap* Bundles::cacheList = nullptr;
@@ -125,14 +69,14 @@ $ResourceBundle* Bundles::of($String* baseName, $Locale* locale, $Bundles$Strate
 
 $ResourceBundle* Bundles::loadBundleOf($String* baseName, $Locale* targetLocale, $Bundles$Strategy* strategy) {
 	$init(Bundles);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull(baseName);
 	$Objects::requireNonNull(targetLocale);
 	$Objects::requireNonNull(strategy);
 	$var($Bundles$CacheKey, cacheKey, $new($Bundles$CacheKey, baseName, targetLocale));
 	$var($ResourceBundle, bundle, nullptr);
-	$var($Bundles$BundleReference, bundleRef, $cast($Bundles$BundleReference, $nc(Bundles::cacheList)->get(cacheKey)));
+	$var($Bundles$BundleReference, bundleRef, $cast($Bundles$BundleReference, Bundles::cacheList->get(cacheKey)));
 	if (bundleRef != nullptr) {
 		$assign(bundle, $cast($ResourceBundle, bundleRef->get()));
 	}
@@ -154,7 +98,7 @@ $ResourceBundle* Bundles::loadBundleOf($String* baseName, $Locale* targetLocale,
 
 $ResourceBundle* Bundles::findBundleOf($Bundles$CacheKey* cacheKey, $Bundles$Strategy* strategy, $String* baseName, $List* candidateLocales, int32_t index) {
 	$init(Bundles);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ResourceBundle, parent, nullptr);
 	$var($Locale, targetLocale, $cast($Locale, $nc(candidateLocales)->get(index)));
@@ -171,9 +115,9 @@ $ResourceBundle* Bundles::findBundleOf($Bundles$CacheKey* cacheKey, $Bundles$Str
 		if ($nc(Bundles::bundleAccess)->getParent(bundle) == parent) {
 			return bundle;
 		}
-		$var($Bundles$BundleReference, bundleRef, $cast($Bundles$BundleReference, $nc(Bundles::cacheList)->get(cacheKey)));
+		$var($Bundles$BundleReference, bundleRef, $cast($Bundles$BundleReference, Bundles::cacheList->get(cacheKey)));
 		if (bundleRef != nullptr && $equals(bundleRef->get(), bundle)) {
-			$nc(Bundles::cacheList)->remove(cacheKey, bundleRef);
+			Bundles::cacheList->remove(cacheKey, bundleRef);
 		}
 	}
 	$var($ServiceLoader, providers, cacheKey->getProviders());
@@ -183,71 +127,69 @@ $ResourceBundle* Bundles::findBundleOf($Bundles$CacheKey* cacheKey, $Bundles$Str
 		}
 	}
 	$var($Bundles$CacheKey, constKey, $cast($Bundles$CacheKey, cacheKey->clone()));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (providers != nullptr) {
-				$assign(bundle, loadBundleFromProviders(baseName, targetLocale, providers, cacheKey));
-			} else {
-				try {
-					$var($String, bundleName, $nc(strategy)->toBundleName(baseName, targetLocale));
-					$Class* c = $Class::forName($(Bundles::class$->getModule()), bundleName);
-					$load($ResourceBundle);
-					if (c != nullptr && $ResourceBundle::class$->isAssignableFrom(c)) {
-						$Class* bundleClass = c;
-						$assign(bundle, $nc(Bundles::bundleAccess)->newResourceBundle(bundleClass));
-					}
-					if (bundle == nullptr) {
-						$var($String, otherBundleName, toOtherBundleName(baseName, bundleName, targetLocale));
-						if (!$nc(bundleName)->equals(otherBundleName)) {
-							c = $Class::forName($(Bundles::class$->getModule()), otherBundleName);
-							if (c != nullptr && $ResourceBundle::class$->isAssignableFrom(c)) {
-								$Class* bundleClass = c;
-								$assign(bundle, $nc(Bundles::bundleAccess)->newResourceBundle(bundleClass));
-							}
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (providers != nullptr) {
+			$assign(bundle, loadBundleFromProviders(baseName, targetLocale, providers, cacheKey));
+		} else {
+			try {
+				$var($String, bundleName, $nc(strategy)->toBundleName(baseName, targetLocale));
+				$Class* c = $Class::forName($(Bundles::class$->getModule()), bundleName);
+				$load($ResourceBundle);
+				if (c != nullptr && $ResourceBundle::class$->isAssignableFrom(c)) {
+					$Class* bundleClass = c;
+					$assign(bundle, $nc(Bundles::bundleAccess)->newResourceBundle(bundleClass));
+				}
+				if (bundle == nullptr) {
+					$var($String, otherBundleName, toOtherBundleName(baseName, bundleName, targetLocale));
+					if (!$nc(bundleName)->equals(otherBundleName)) {
+						c = $Class::forName($(Bundles::class$->getModule()), otherBundleName);
+						if (c != nullptr && $ResourceBundle::class$->isAssignableFrom(c)) {
+							$Class* bundleClass = c;
+							$assign(bundle, $nc(Bundles::bundleAccess)->newResourceBundle(bundleClass));
 						}
 					}
-				} catch ($Exception& e) {
-					cacheKey->setCause(e);
 				}
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if ($instanceOf($InterruptedException, $($nc(constKey)->getCause()))) {
-				$($Thread::currentThread())->interrupt();
+			} catch ($Exception& e) {
+				cacheKey->setCause(e);
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if ($instanceOf($InterruptedException, $($nc(constKey)->getCause()))) {
+			$($Thread::currentThread())->interrupt();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (bundle == nullptr) {
 		putBundleInCache(cacheKey, Bundles::NONEXISTENT_BUNDLE);
 		return parent;
 	}
 	if (parent != nullptr && $nc(Bundles::bundleAccess)->getParent(bundle) == nullptr) {
-		$nc(Bundles::bundleAccess)->setParent(bundle, parent);
+		Bundles::bundleAccess->setParent(bundle, parent);
 	}
 	$nc(Bundles::bundleAccess)->setLocale(bundle, targetLocale);
-	$nc(Bundles::bundleAccess)->setName(bundle, baseName);
+	Bundles::bundleAccess->setName(bundle, baseName);
 	$assign(bundle, putBundleInCache(cacheKey, bundle));
 	return bundle;
 }
 
 void Bundles::cleanupCache() {
 	$init(Bundles);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, ref, nullptr);
-	while (($assign(ref, $nc(Bundles::referenceQueue)->poll())) != nullptr) {
-		$nc(Bundles::cacheList)->remove($($nc(($cast($Bundles$CacheKeyReference, ref)))->getCacheKey()));
+	while (($assign(ref, Bundles::referenceQueue->poll())) != nullptr) {
+		Bundles::cacheList->remove($($nc($cast($Bundles$CacheKeyReference, ref))->getCacheKey()));
 	}
 }
 
 $ResourceBundle* Bundles::loadBundleFromProviders($String* baseName, $Locale* locale, $ServiceLoader* providers, $Bundles$CacheKey* cacheKey) {
 	$init(Bundles);
 	$beforeCallerSensitive();
-	return $cast($ResourceBundle, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Bundles$2, providers, baseName, locale, cacheKey))));
+	return $cast($ResourceBundle, $AccessController::doPrivileged($$new($Bundles$2, providers, baseName, locale, cacheKey)));
 }
 
 bool Bundles::isValidBundle($ResourceBundle* bundle) {
@@ -257,7 +199,7 @@ bool Bundles::isValidBundle($ResourceBundle* bundle) {
 
 void Bundles::throwMissingResourceException($String* baseName, $Locale* locale, $Throwable* cause$renamed) {
 	$init(Bundles);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, cause, cause$renamed);
 	if ($instanceOf($MissingResourceException, cause)) {
 		$assign(cause, nullptr);
@@ -271,7 +213,7 @@ void Bundles::throwMissingResourceException($String* baseName, $Locale* locale, 
 
 $ResourceBundle* Bundles::findBundleInCache($Bundles$CacheKey* cacheKey) {
 	$init(Bundles);
-	$var($Bundles$BundleReference, bundleRef, $cast($Bundles$BundleReference, $nc(Bundles::cacheList)->get(cacheKey)));
+	$var($Bundles$BundleReference, bundleRef, $cast($Bundles$BundleReference, Bundles::cacheList->get(cacheKey)));
 	if (bundleRef == nullptr) {
 		return nullptr;
 	}
@@ -280,18 +222,18 @@ $ResourceBundle* Bundles::findBundleInCache($Bundles$CacheKey* cacheKey) {
 
 $ResourceBundle* Bundles::putBundleInCache($Bundles$CacheKey* cacheKey, $ResourceBundle* bundle$renamed) {
 	$init(Bundles);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResourceBundle, bundle, bundle$renamed);
 	$var($Bundles$CacheKey, key, $cast($Bundles$CacheKey, $nc(cacheKey)->clone()));
 	$var($Bundles$BundleReference, bundleRef, $new($Bundles$BundleReference, bundle, Bundles::referenceQueue, key));
-	$var($Bundles$BundleReference, result, $cast($Bundles$BundleReference, $nc(Bundles::cacheList)->putIfAbsent(key, bundleRef)));
+	$var($Bundles$BundleReference, result, $cast($Bundles$BundleReference, Bundles::cacheList->putIfAbsent(key, bundleRef)));
 	if (result != nullptr) {
 		$var($ResourceBundle, rb, $cast($ResourceBundle, result->get()));
 		if (rb != nullptr) {
 			$assign(bundle, rb);
 			bundleRef->clear();
 		} else {
-			$nc(Bundles::cacheList)->put(key, bundleRef);
+			Bundles::cacheList->put(key, bundleRef);
 		}
 	}
 	return bundle;
@@ -299,94 +241,67 @@ $ResourceBundle* Bundles::putBundleInCache($Bundles$CacheKey* cacheKey, $Resourc
 
 $String* Bundles::toOtherBundleName($String* baseName, $String* bundleName, $Locale* locale) {
 	$init(Bundles);
-	$useLocalCurrentObjectStackCache();
-	$var($String, simpleName, $nc(baseName)->substring(baseName->lastIndexOf((int32_t)u'.') + 1));
-	int32_t var$0 = bundleName->lastIndexOf(simpleName);
+	$useLocalObjectStack();
+	$var($String, simpleName, $nc(baseName)->substring($nc(baseName)->lastIndexOf(u'.') + 1));
+	int32_t var$0 = $nc(bundleName)->lastIndexOf(simpleName);
 	$var($String, suffix, $nc(bundleName)->substring(var$0 + simpleName->length()));
 	$var($String, s15580$, $nc(locale)->getLanguage());
 	int32_t tmp15580$ = -1;
 	switch ($nc(s15580$)->hashCode()) {
 	case 3325:
-		{
-			if (s15580$->equals("he"_s)) {
-				tmp15580$ = 0;
-			}
-			break;
+		if (s15580$->equals("he"_s)) {
+			tmp15580$ = 0;
 		}
+		break;
 	case 3355:
-		{
-			if (s15580$->equals("id"_s)) {
-				tmp15580$ = 1;
-			}
-			break;
+		if (s15580$->equals("id"_s)) {
+			tmp15580$ = 1;
 		}
+		break;
 	case 3856:
-		{
-			if (s15580$->equals("yi"_s)) {
-				tmp15580$ = 2;
-			}
-			break;
+		if (s15580$->equals("yi"_s)) {
+			tmp15580$ = 2;
 		}
+		break;
 	case 3374:
-		{
-			if (s15580$->equals("iw"_s)) {
-				tmp15580$ = 3;
-			}
-			break;
+		if (s15580$->equals("iw"_s)) {
+			tmp15580$ = 3;
 		}
+		break;
 	case 3365:
-		{
-			if (s15580$->equals("in"_s)) {
-				tmp15580$ = 4;
-			}
-			break;
+		if (s15580$->equals("in"_s)) {
+			tmp15580$ = 4;
 		}
+		break;
 	case 3391:
-		{
-			if (s15580$->equals("ji"_s)) {
-				tmp15580$ = 5;
-			}
-			break;
+		if (s15580$->equals("ji"_s)) {
+			tmp15580$ = 5;
 		}
+		break;
 	}
-
-	$var($String, var$1, nullptr)
+	$var($String, var$1, nullptr);
 	switch (tmp15580$) {
 	case 0:
-		{
-			$assign(var$1, suffix->replaceFirst("^_he(_.*)?$"_s, "_iw$1"_s));
-			break;
-		}
+		$assign(var$1, suffix->replaceFirst("^_he(_.*)?$"_s, "_iw$1"_s));
+		break;
 	case 1:
-		{
-			$assign(var$1, suffix->replaceFirst("^_id(_.*)?$"_s, "_in$1"_s));
-			break;
-		}
+		$assign(var$1, suffix->replaceFirst("^_id(_.*)?$"_s, "_in$1"_s));
+		break;
 	case 2:
-		{
-			$assign(var$1, suffix->replaceFirst("^_yi(_.*)?$"_s, "_ji$1"_s));
-			break;
-		}
+		$assign(var$1, suffix->replaceFirst("^_yi(_.*)?$"_s, "_ji$1"_s));
+		break;
 	case 3:
-		{
-			$assign(var$1, suffix->replaceFirst("^_iw(_.*)?$"_s, "_he$1"_s));
-			break;
-		}
+		$assign(var$1, suffix->replaceFirst("^_iw(_.*)?$"_s, "_he$1"_s));
+		break;
 	case 4:
-		{
-			$assign(var$1, suffix->replaceFirst("^_in(_.*)?$"_s, "_id$1"_s));
-			break;
-		}
+		$assign(var$1, suffix->replaceFirst("^_in(_.*)?$"_s, "_id$1"_s));
+		break;
 	case 5:
-		{
-			$assign(var$1, suffix->replaceFirst("^_ji(_.*)?$"_s, "_yi$1"_s));
-			break;
-		}
+		$assign(var$1, suffix->replaceFirst("^_ji(_.*)?$"_s, "_yi$1"_s));
+		break;
 	default:
-		{
-			$assign(var$1, suffix);
-			break;
-		}
+		$assign(var$1, suffix);
+		break;
 	}
 	$var($String, otherSuffix, var$1);
 	if (suffix->equals(otherSuffix)) {
@@ -396,7 +311,7 @@ $String* Bundles::toOtherBundleName($String* baseName, $String* bundleName, $Loc
 	}
 }
 
-void clinit$Bundles($Class* class$) {
+void Bundles::clinit$($Class* clazz) {
 	$assignStatic(Bundles::NONEXISTENT_BUNDLE, $new($Bundles$1));
 	$assignStatic(Bundles::bundleAccess, $SharedSecrets::getJavaUtilResourceBundleAccess());
 	$assignStatic(Bundles::cacheList, $new($ConcurrentHashMap, Bundles::INITIAL_CACHE_SIZE));
@@ -407,7 +322,54 @@ Bundles::Bundles() {
 }
 
 $Class* Bundles::load$($String* name, bool initialize) {
-	$loadClass(Bundles, name, initialize, &_Bundles_ClassInfo_, clinit$Bundles, allocate$Bundles);
+	$FieldInfo fieldInfos$$[] = {
+		{"INITIAL_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Bundles, INITIAL_CACHE_SIZE)},
+		{"NONEXISTENT_BUNDLE", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bundles, NONEXISTENT_BUNDLE)},
+		{"bundleAccess", "Ljdk/internal/access/JavaUtilResourceBundleAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bundles, bundleAccess)},
+		{"cacheList", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Lsun/util/resources/Bundles$CacheKey;Lsun/util/resources/Bundles$BundleReference;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Bundles, cacheList)},
+		{"referenceQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Bundles, referenceQueue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Bundles, init$, void)},
+		{"cleanupCache", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, cleanupCache, void)},
+		{"findBundleInCache", "(Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, findBundleInCache, $ResourceBundle*, $Bundles$CacheKey*)},
+		{"findBundleOf", "(Lsun/util/resources/Bundles$CacheKey;Lsun/util/resources/Bundles$Strategy;Ljava/lang/String;Ljava/util/List;I)Ljava/util/ResourceBundle;", "(Lsun/util/resources/Bundles$CacheKey;Lsun/util/resources/Bundles$Strategy;Ljava/lang/String;Ljava/util/List<Ljava/util/Locale;>;I)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(Bundles, findBundleOf, $ResourceBundle*, $Bundles$CacheKey*, $Bundles$Strategy*, $String*, $List*, int32_t)},
+		{"isValidBundle", "(Ljava/util/ResourceBundle;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, isValidBundle, bool, $ResourceBundle*)},
+		{"loadBundleFromProviders", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader;Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(Bundles, loadBundleFromProviders, $ResourceBundle*, $String*, $Locale*, $ServiceLoader*, $Bundles$CacheKey*)},
+		{"loadBundleOf", "(Ljava/lang/String;Ljava/util/Locale;Lsun/util/resources/Bundles$Strategy;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, loadBundleOf, $ResourceBundle*, $String*, $Locale*, $Bundles$Strategy*)},
+		{"of", "(Ljava/lang/String;Ljava/util/Locale;Lsun/util/resources/Bundles$Strategy;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(Bundles, of, $ResourceBundle*, $String*, $Locale*, $Bundles$Strategy*)},
+		{"putBundleInCache", "(Lsun/util/resources/Bundles$CacheKey;Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, putBundleInCache, $ResourceBundle*, $Bundles$CacheKey*, $ResourceBundle*)},
+		{"throwMissingResourceException", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, throwMissingResourceException, void, $String*, $Locale*, $Throwable*)},
+		{"toOtherBundleName", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Bundles, toOtherBundleName, $String*, $String*, $String*, $Locale*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.resources.Bundles$CacheKey", "sun.util.resources.Bundles", "CacheKey", $PRIVATE | $STATIC},
+		{"sun.util.resources.Bundles$BundleReference", "sun.util.resources.Bundles", "BundleReference", $PRIVATE | $STATIC},
+		{"sun.util.resources.Bundles$CacheKeyReference", "sun.util.resources.Bundles", "CacheKeyReference", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.util.resources.Bundles$Strategy", "sun.util.resources.Bundles", "Strategy", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.util.resources.Bundles$2", nullptr, nullptr, 0},
+		{"sun.util.resources.Bundles$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.util.resources.Bundles",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.resources.Bundles$CacheKey,sun.util.resources.Bundles$BundleReference,sun.util.resources.Bundles$CacheKeyReference,sun.util.resources.Bundles$Strategy,sun.util.resources.Bundles$2,sun.util.resources.Bundles$1"
+	};
+	$loadClass(Bundles, name, initialize, &classInfo$$, Bundles::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bundles);
+	});
 	return class$;
 }
 

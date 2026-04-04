@@ -23,7 +23,7 @@ public:
 	void init$();
 	using ::java::security::Provider::load;
 	void putEntries(::java::util::Iterator* i);
-	static const int64_t serialVersionUID = (int64_t)0x0C04CB0EFA3F06D5;
+	static const int64_t serialVersionUID = (int64_t)0x0c04cb0efa3f06d5;
 };
 
 		} // rsa

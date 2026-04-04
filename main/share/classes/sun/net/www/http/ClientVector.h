@@ -49,7 +49,7 @@ public:
 	using ::java::util::ArrayDeque::toArray;
 	void unlock();
 	void writeObject(::java::io::ObjectOutputStream* stream);
-	static const int64_t serialVersionUID = (int64_t)0x87888E0A02F0A18D;
+	static const int64_t serialVersionUID = (int64_t)0x87888e0a02f0a18d;
 	::java::util::concurrent::locks::ReentrantLock* lock$ = nullptr;
 	int32_t nap = 0;
 };

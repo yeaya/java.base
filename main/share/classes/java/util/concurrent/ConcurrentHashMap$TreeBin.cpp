@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentHashMap$TreeBin.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/concurrent/ConcurrentHashMap$Node.h>
 #include <java/util/concurrent/ConcurrentHashMap$TreeNode.h>
@@ -23,76 +22,19 @@ using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentHashMap$Node = ::java::util::concurrent::ConcurrentHashMap$Node;
 using $ConcurrentHashMap$TreeNode = ::java::util::concurrent::ConcurrentHashMap$TreeNode;
 using $LockSupport = ::java::util::concurrent::locks::LockSupport;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _ConcurrentHashMap$TreeBin_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ConcurrentHashMap$TreeBin, $assertionsDisabled)},
-	{"root", "Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", 0, $field(ConcurrentHashMap$TreeBin, root)},
-	{"first", "Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $VOLATILE, $field(ConcurrentHashMap$TreeBin, first)},
-	{"waiter", "Ljava/lang/Thread;", nullptr, $VOLATILE, $field(ConcurrentHashMap$TreeBin, waiter)},
-	{"lockState", "I", nullptr, $VOLATILE, $field(ConcurrentHashMap$TreeBin, lockState)},
-	{"WRITER", "I", nullptr, $STATIC | $FINAL, $constField(ConcurrentHashMap$TreeBin, WRITER)},
-	{"WAITER", "I", nullptr, $STATIC | $FINAL, $constField(ConcurrentHashMap$TreeBin, WAITER)},
-	{"READER", "I", nullptr, $STATIC | $FINAL, $constField(ConcurrentHashMap$TreeBin, READER)},
-	{"LOCKSTATE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentHashMap$TreeBin, LOCKSTATE)},
-	{}
-};
-
-$MethodInfo _ConcurrentHashMap$TreeBin_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)V", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)V", 0, $method(ConcurrentHashMap$TreeBin, init$, void, $ConcurrentHashMap$TreeNode*)},
-	{"balanceDeletion", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, balanceDeletion, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*)},
-	{"balanceInsertion", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, balanceInsertion, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*)},
-	{"checkInvariants", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Z", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Z", $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, checkInvariants, bool, $ConcurrentHashMap$TreeNode*)},
-	{"contendedLock", "()V", nullptr, $PRIVATE | $FINAL, $method(ConcurrentHashMap$TreeBin, contendedLock, void)},
-	{"find", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node;", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", $FINAL, $virtualMethod(ConcurrentHashMap$TreeBin, find, $ConcurrentHashMap$Node*, int32_t, Object$*)},
-	{"lockRoot", "()V", nullptr, $PRIVATE | $FINAL, $method(ConcurrentHashMap$TreeBin, lockRoot, void)},
-	{"putTreeVal", "(ILjava/lang/Object;Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "(ITK;TV;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $FINAL, $method(ConcurrentHashMap$TreeBin, putTreeVal, $ConcurrentHashMap$TreeNode*, int32_t, Object$*, Object$*)},
-	{"removeTreeNode", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Z", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Z", $FINAL, $method(ConcurrentHashMap$TreeBin, removeTreeNode, bool, $ConcurrentHashMap$TreeNode*)},
-	{"rotateLeft", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, rotateLeft, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*)},
-	{"rotateRight", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, rotateRight, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*)},
-	{"tieBreakOrder", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, tieBreakOrder, int32_t, Object$*, Object$*)},
-	{"unlockRoot", "()V", nullptr, $PRIVATE | $FINAL, $method(ConcurrentHashMap$TreeBin, unlockRoot, void)},
-	{}
-};
-
-$InnerClassInfo _ConcurrentHashMap$TreeBin_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentHashMap$TreeBin", "java.util.concurrent.ConcurrentHashMap", "TreeBin", $STATIC | $FINAL},
-	{"java.util.concurrent.ConcurrentHashMap$Node", "java.util.concurrent.ConcurrentHashMap", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _ConcurrentHashMap$TreeBin_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ConcurrentHashMap$TreeBin",
-	"java.util.concurrent.ConcurrentHashMap$Node",
-	nullptr,
-	_ConcurrentHashMap$TreeBin_FieldInfo_,
-	_ConcurrentHashMap$TreeBin_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;",
-	nullptr,
-	_ConcurrentHashMap$TreeBin_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentHashMap"
-};
-
-$Object* allocate$ConcurrentHashMap$TreeBin($Class* clazz) {
-	return $of($alloc(ConcurrentHashMap$TreeBin));
-}
 
 bool ConcurrentHashMap$TreeBin::$assertionsDisabled = false;
 int64_t ConcurrentHashMap$TreeBin::LOCKSTATE = 0;
 
 int32_t ConcurrentHashMap$TreeBin::tieBreakOrder(Object$* a, Object$* b) {
 	$init(ConcurrentHashMap$TreeBin);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t d = 0;
-	if (a == nullptr || b == nullptr || (d = $nc($($nc($of(a))->getClass()->getName()))->compareTo($($nc($of(b))->getClass()->getName()))) == 0) {
+	if (a == nullptr || b == nullptr || (d = $$nc($of(a)->getClass()->getName())->compareTo($($of(b)->getClass()->getName()))) == 0) {
 		int32_t var$0 = $System::identityHashCode(a);
 		d = (var$0 <= $System::identityHashCode(b) ? -1 : 1);
 	}
@@ -100,7 +42,7 @@ int32_t ConcurrentHashMap$TreeBin::tieBreakOrder(Object$* a, Object$* b) {
 }
 
 void ConcurrentHashMap$TreeBin::init$($ConcurrentHashMap$TreeNode* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ConcurrentHashMap$Node::init$(-2, nullptr, nullptr);
 	$set(this, first, b);
 	$var($ConcurrentHashMap$TreeNode, r, nullptr);
@@ -108,8 +50,8 @@ void ConcurrentHashMap$TreeBin::init$($ConcurrentHashMap$TreeNode* b) {
 		$var($ConcurrentHashMap$TreeNode, x, b);
 		$var($ConcurrentHashMap$TreeNode, next, nullptr);
 		for (; x != nullptr; $assign(x, next)) {
-			$assign(next, $cast($ConcurrentHashMap$TreeNode, $nc(x)->next));
-			$set(x, left, ($set(x, right, nullptr)));
+			$assign(next, $cast($ConcurrentHashMap$TreeNode, x->next));
+			$set(x, left, $set(x, right, nullptr));
 			if (r == nullptr) {
 				$set(x, parent, nullptr);
 				x->red = false;
@@ -129,8 +71,8 @@ void ConcurrentHashMap$TreeBin::init$($ConcurrentHashMap$TreeNode* b) {
 						} else if (ph < h) {
 							dir = 1;
 						} else {
-							bool var$1 = (kc == nullptr && (kc = $ConcurrentHashMap::comparableClassFor(k)) == nullptr);
-							if (var$1 || (dir = $ConcurrentHashMap::compareComparables(kc, k, pk)) == 0) {
+							bool var$0 = kc == nullptr && (kc = $ConcurrentHashMap::comparableClassFor(k)) == nullptr;
+							if (var$0 || (dir = $ConcurrentHashMap::compareComparables(kc, k, pk)) == 0) {
 								dir = tieBreakOrder(k, pk);
 							}
 						}
@@ -170,7 +112,7 @@ void ConcurrentHashMap$TreeBin::unlockRoot() {
 void ConcurrentHashMap$TreeBin::contendedLock() {
 	bool waiting = false;
 	for (int32_t s = 0;;) {
-		if (((int32_t)((s = this->lockState) & (uint32_t)~ConcurrentHashMap$TreeBin::WAITER)) == 0) {
+		if (((s = this->lockState) & ~ConcurrentHashMap$TreeBin::WAITER) == 0) {
 			$init($ConcurrentHashMap);
 			if ($nc($ConcurrentHashMap::U)->compareAndSetInt(this, ConcurrentHashMap$TreeBin::LOCKSTATE, s, ConcurrentHashMap$TreeBin::WRITER)) {
 				if (waiting) {
@@ -178,7 +120,7 @@ void ConcurrentHashMap$TreeBin::contendedLock() {
 				}
 				return;
 			}
-		} else if (((int32_t)(s & (uint32_t)ConcurrentHashMap$TreeBin::WAITER)) == 0) {
+		} else if ((s & ConcurrentHashMap$TreeBin::WAITER) == 0) {
 			$init($ConcurrentHashMap);
 			if ($nc($ConcurrentHashMap::U)->compareAndSetInt(this, ConcurrentHashMap$TreeBin::LOCKSTATE, s, s | ConcurrentHashMap$TreeBin::WAITER)) {
 				waiting = true;
@@ -191,46 +133,42 @@ void ConcurrentHashMap$TreeBin::contendedLock() {
 }
 
 $ConcurrentHashMap$Node* ConcurrentHashMap$TreeBin::find(int32_t h, Object$* k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (k != nullptr) {
-		{
-			$var($ConcurrentHashMap$Node, e, this->first);
-			for (; e != nullptr;) {
-				int32_t s = 0;
-				$var($Object, ek, nullptr);
-				if (((int32_t)((s = this->lockState) & (uint32_t)(ConcurrentHashMap$TreeBin::WAITER | ConcurrentHashMap$TreeBin::WRITER))) != 0) {
-					bool var$0 = e->hash == h;
-					if (var$0) {
-						bool var$1 = $equals($assign(ek, e->key), k);
-						var$0 = (var$1 || (ek != nullptr && $of(k)->equals(ek)));
-					}
-					if (var$0) {
-						return e;
-					}
-					$assign(e, e->next);
-				} else {
-					$init($ConcurrentHashMap);
-					if ($nc($ConcurrentHashMap::U)->compareAndSetInt(this, ConcurrentHashMap$TreeBin::LOCKSTATE, s, s + ConcurrentHashMap$TreeBin::READER)) {
-						$var($ConcurrentHashMap$TreeNode, r, nullptr);
-						$var($ConcurrentHashMap$TreeNode, p, nullptr);
-						{
-							$var($Throwable, var$2, nullptr);
-							try {
-								$assign(p, ($assign(r, this->root)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : $nc(r)->findTreeNode(h, k, nullptr));
-							} catch ($Throwable& var$3) {
-								$assign(var$2, var$3);
-							} /*finally*/ {
-								$var($Thread, w, nullptr);
-								if ($nc($ConcurrentHashMap::U)->getAndAddInt(this, ConcurrentHashMap$TreeBin::LOCKSTATE, -ConcurrentHashMap$TreeBin::READER) == (ConcurrentHashMap$TreeBin::READER | ConcurrentHashMap$TreeBin::WAITER) && ($assign(w, this->waiter)) != nullptr) {
-									$LockSupport::unpark(w);
-								}
-							}
-							if (var$2 != nullptr) {
-								$throw(var$2);
-							}
+		$var($ConcurrentHashMap$Node, e, this->first);
+		for (; e != nullptr;) {
+			int32_t s = 0;
+			$var($Object, ek, nullptr);
+			if (((s = this->lockState) & (ConcurrentHashMap$TreeBin::WAITER | ConcurrentHashMap$TreeBin::WRITER)) != 0) {
+				bool var$0 = e->hash == h;
+				if (var$0) {
+					bool var$1 = $equals($assign(ek, e->key), k);
+					var$0 = var$1 || (ek != nullptr && $of(k)->equals(ek));
+				}
+				if (var$0) {
+					return e;
+				}
+				$assign(e, e->next);
+			} else {
+				$init($ConcurrentHashMap);
+				if ($nc($ConcurrentHashMap::U)->compareAndSetInt(this, ConcurrentHashMap$TreeBin::LOCKSTATE, s, s + ConcurrentHashMap$TreeBin::READER)) {
+					$var($ConcurrentHashMap$TreeNode, r, nullptr);
+					$var($ConcurrentHashMap$TreeNode, p, nullptr);
+					$var($Throwable, var$2, nullptr);
+					try {
+						$assign(p, ($assign(r, this->root)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : $nc(r)->findTreeNode(h, k, nullptr));
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
+					} /*finally*/ {
+						$var($Thread, w, nullptr);
+						if ($ConcurrentHashMap::U->getAndAddInt(this, ConcurrentHashMap$TreeBin::LOCKSTATE, -ConcurrentHashMap$TreeBin::READER) == (ConcurrentHashMap$TreeBin::READER | ConcurrentHashMap$TreeBin::WAITER) && ($assign(w, this->waiter)) != nullptr) {
+							$LockSupport::unpark(w);
 						}
-						return p;
 					}
+					if (var$2 != nullptr) {
+						$throw(var$2);
+					}
+					return p;
 				}
 			}
 		}
@@ -239,7 +177,7 @@ $ConcurrentHashMap$Node* ConcurrentHashMap$TreeBin::find(int32_t h, Object$* k) 
 }
 
 $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Object$* k, Object$* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* kc = nullptr;
 	bool searched = false;
 	{
@@ -249,30 +187,30 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Ob
 			int32_t ph = 0;
 			$var($Object, pk, nullptr);
 			if (p == nullptr) {
-				$set(this, first, ($set(this, root, $new($ConcurrentHashMap$TreeNode, h, k, v, nullptr, nullptr))));
+				$set(this, first, $set(this, root, $new($ConcurrentHashMap$TreeNode, h, k, v, nullptr, nullptr)));
 				break;
-			} else if ((ph = $nc(p)->hash) > h) {
+			} else if ((ph = p->hash) > h) {
 				dir = -1;
 			} else if (ph < h) {
 				dir = 1;
 			} else {
-				bool var$1 = $equals($assign(pk, p->key), k);
-				if (var$1 || (pk != nullptr && $nc($of(k))->equals(pk))) {
+				bool var$0 = $equals($assign(pk, p->key), k);
+				if (var$0 || (pk != nullptr && $nc($of(k))->equals(pk))) {
 					return p;
 				} else {
-					bool var$3 = (kc == nullptr && (kc = $ConcurrentHashMap::comparableClassFor(k)) == nullptr);
-					if (var$3 || (dir = $ConcurrentHashMap::compareComparables(kc, k, pk)) == 0) {
+					bool var$1 = kc == nullptr && (kc = $ConcurrentHashMap::comparableClassFor(k)) == nullptr;
+					if (var$1 || (dir = $ConcurrentHashMap::compareComparables(kc, k, pk)) == 0) {
 						if (!searched) {
 							$var($ConcurrentHashMap$TreeNode, q, nullptr);
 							$var($ConcurrentHashMap$TreeNode, ch, nullptr);
 							searched = true;
-							bool var$5 = ($assign(ch, p->left)) != nullptr;
-							bool var$4 = (var$5 && ($assign(q, $nc(ch)->findTreeNode(h, k, kc))) != nullptr);
-							if (!var$4) {
-								bool var$6 = ($assign(ch, p->right)) != nullptr;
-								var$4 = (var$6 && ($assign(q, $nc(ch)->findTreeNode(h, k, kc))) != nullptr);
+							bool var$3 = ($assign(ch, p->left)) != nullptr;
+							bool var$2 = var$3 && ($assign(q, $nc(ch)->findTreeNode(h, k, kc))) != nullptr;
+							if (!var$2) {
+								bool var$4 = ($assign(ch, p->right)) != nullptr;
+								var$2 = var$4 && ($assign(q, $nc(ch)->findTreeNode(h, k, kc))) != nullptr;
 							}
-							if (var$4) {
+							if (var$2) {
 								return q;
 							}
 						}
@@ -281,10 +219,10 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Ob
 				}
 			}
 			$var($ConcurrentHashMap$TreeNode, xp, p);
-			if (($assign(p, (dir <= 0) ? $nc(p)->left : p->right)) == nullptr) {
+			if (($assign(p, (dir <= 0) ? $nc(p)->left : $nc(p)->right)) == nullptr) {
 				$var($ConcurrentHashMap$TreeNode, x, nullptr);
 				$var($ConcurrentHashMap$TreeNode, f, this->first);
-				$set(this, first, ($assign(x, $new($ConcurrentHashMap$TreeNode, h, k, v, f, xp))));
+				$set(this, first, $assign(x, $new($ConcurrentHashMap$TreeNode, h, k, v, f, xp)));
 				if (f != nullptr) {
 					$set(f, prev, x);
 				}
@@ -297,18 +235,16 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Ob
 					x->red = true;
 				} else {
 					lockRoot();
-					{
-						$var($Throwable, var$7, nullptr);
-						try {
-							$set(this, root, balanceInsertion(this->root, x));
-						} catch ($Throwable& var$8) {
-							$assign(var$7, var$8);
-						} /*finally*/ {
-							unlockRoot();
-						}
-						if (var$7 != nullptr) {
-							$throw(var$7);
-						}
+					$var($Throwable, var$5, nullptr);
+					try {
+						$set(this, root, balanceInsertion(this->root, x));
+					} catch ($Throwable& var$6) {
+						$assign(var$5, var$6);
+					} /*finally*/ {
+						unlockRoot();
+					}
+					if (var$5 != nullptr) {
+						$throw(var$5);
 					}
 				}
 				break;
@@ -322,7 +258,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Ob
 }
 
 bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$TreeNode, next, $cast($ConcurrentHashMap$TreeNode, $nc(p)->next));
 	$var($ConcurrentHashMap$TreeNode, pred, p->prev);
 	$var($ConcurrentHashMap$TreeNode, r, nullptr);
@@ -330,7 +266,7 @@ bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
 	if (pred == nullptr) {
 		$set(this, first, next);
 	} else {
-		$set($nc(pred), next, next);
+		$set(pred, next, next);
 	}
 	if (next != nullptr) {
 		$set(next, prev, pred);
@@ -346,96 +282,94 @@ bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
 		return true;
 	}
 	lockRoot();
-	{
-		$var($Throwable, var$3, nullptr);
-		try {
-			$var($ConcurrentHashMap$TreeNode, replacement, nullptr);
-			$var($ConcurrentHashMap$TreeNode, pl, p->left);
-			$var($ConcurrentHashMap$TreeNode, pr, p->right);
-			if (pl != nullptr && pr != nullptr) {
-				$var($ConcurrentHashMap$TreeNode, s, pr);
-				$var($ConcurrentHashMap$TreeNode, sl, nullptr);
-				while (($assign(sl, $nc(s)->left)) != nullptr) {
-					$assign(s, sl);
-				}
-				bool c = $nc(s)->red;
-				s->red = p->red;
-				p->red = c;
-				$var($ConcurrentHashMap$TreeNode, sr, s->right);
-				$var($ConcurrentHashMap$TreeNode, pp, p->parent);
-				if (s == pr) {
-					$set(p, parent, s);
-					$set(s, right, p);
-				} else {
-					$var($ConcurrentHashMap$TreeNode, sp, s->parent);
-					if (($set(p, parent, sp)) != nullptr) {
-						if (s == $nc(sp)->left) {
-							$set(sp, left, p);
-						} else {
-							$set(sp, right, p);
-						}
-					}
-					if (($set(s, right, pr)) != nullptr) {
-						$set(pr, parent, s);
+	$var($Throwable, var$3, nullptr);
+	try {
+		$var($ConcurrentHashMap$TreeNode, replacement, nullptr);
+		$var($ConcurrentHashMap$TreeNode, pl, p->left);
+		$var($ConcurrentHashMap$TreeNode, pr, p->right);
+		if (pl != nullptr && pr != nullptr) {
+			$var($ConcurrentHashMap$TreeNode, s, pr);
+			$var($ConcurrentHashMap$TreeNode, sl, nullptr);
+			while (($assign(sl, $nc(s)->left)) != nullptr) {
+				$assign(s, sl);
+			}
+			bool c = $nc(s)->red;
+			s->red = p->red;
+			p->red = c;
+			$var($ConcurrentHashMap$TreeNode, sr, s->right);
+			$var($ConcurrentHashMap$TreeNode, pp, p->parent);
+			if (s == pr) {
+				$set(p, parent, s);
+				$set(s, right, p);
+			} else {
+				$var($ConcurrentHashMap$TreeNode, sp, s->parent);
+				if (($set(p, parent, sp)) != nullptr) {
+					if (s == $nc(sp)->left) {
+						$set(sp, left, p);
+					} else {
+						$set(sp, right, p);
 					}
 				}
-				$set(p, left, nullptr);
-				if (($set(p, right, sr)) != nullptr) {
-					$set($nc(sr), parent, p);
+				if (($set(s, right, pr)) != nullptr) {
+					$set(pr, parent, s);
 				}
-				if (($set(s, left, pl)) != nullptr) {
-					$set(pl, parent, s);
-				}
-				if (($set(s, parent, pp)) == nullptr) {
-					$assign(r, s);
-				} else if (p == $nc(pp)->left) {
-					$set(pp, left, s);
-				} else {
-					$set(pp, right, s);
-				}
-				if (sr != nullptr) {
-					$assign(replacement, sr);
-				} else {
-					$assign(replacement, p);
-				}
-			} else if (pl != nullptr) {
-				$assign(replacement, pl);
-			} else if (pr != nullptr) {
-				$assign(replacement, pr);
+			}
+			$set(p, left, nullptr);
+			if (($set(p, right, sr)) != nullptr) {
+				$set($nc(sr), parent, p);
+			}
+			if (($set(s, left, pl)) != nullptr) {
+				$set(pl, parent, s);
+			}
+			if (($set(s, parent, pp)) == nullptr) {
+				$assign(r, s);
+			} else if (p == $nc(pp)->left) {
+				$set(pp, left, s);
+			} else {
+				$set(pp, right, s);
+			}
+			if (sr != nullptr) {
+				$assign(replacement, sr);
 			} else {
 				$assign(replacement, p);
 			}
-			if (replacement != p) {
-				$var($ConcurrentHashMap$TreeNode, pp, $set($nc(replacement), parent, p->parent));
-				if (pp == nullptr) {
-					$assign(r, replacement);
-				} else if (p == $nc(pp)->left) {
-					$set(pp, left, replacement);
-				} else {
-					$set(pp, right, replacement);
-				}
-				$set(p, left, ($set(p, right, ($set(p, parent, nullptr)))));
-			}
-			$set(this, root, (p->red) ? r : balanceDeletion(r, replacement));
-			if (p == replacement) {
-				$var($ConcurrentHashMap$TreeNode, pp, nullptr);
-				if (($assign(pp, p->parent)) != nullptr) {
-					if (p == $nc(pp)->left) {
-						$set(pp, left, nullptr);
-					} else if (p == pp->right) {
-						$set(pp, right, nullptr);
-					}
-					$set(p, parent, nullptr);
-				}
-			}
-		} catch ($Throwable& var$4) {
-			$assign(var$3, var$4);
-		} /*finally*/ {
-			unlockRoot();
+		} else if (pl != nullptr) {
+			$assign(replacement, pl);
+		} else if (pr != nullptr) {
+			$assign(replacement, pr);
+		} else {
+			$assign(replacement, p);
 		}
-		if (var$3 != nullptr) {
-			$throw(var$3);
+		if (replacement != p) {
+			$var($ConcurrentHashMap$TreeNode, pp, $set($nc(replacement), parent, p->parent));
+			if (pp == nullptr) {
+				$assign(r, replacement);
+			} else if (p == pp->left) {
+				$set(pp, left, replacement);
+			} else {
+				$set(pp, right, replacement);
+			}
+			$set(p, left, $set(p, right, $set(p, parent, nullptr)));
 		}
+		$set(this, root, (p->red) ? r : balanceDeletion(r, replacement));
+		if (p == replacement) {
+			$var($ConcurrentHashMap$TreeNode, pp, nullptr);
+			if (($assign(pp, p->parent)) != nullptr) {
+				if (p == $nc(pp)->left) {
+					$set(pp, left, nullptr);
+				} else if (p == pp->right) {
+					$set(pp, right, nullptr);
+				}
+				$set(p, parent, nullptr);
+			}
+		}
+	} catch ($Throwable& var$4) {
+		$assign(var$3, var$4);
+	} /*finally*/ {
+		unlockRoot();
+	}
+	if (var$3 != nullptr) {
+		$throw(var$3);
 	}
 	if (!ConcurrentHashMap$TreeBin::$assertionsDisabled && !checkInvariants(this->root)) {
 		$throwNew($AssertionError);
@@ -445,23 +379,23 @@ bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
 
 $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateLeft($ConcurrentHashMap$TreeNode* root$renamed, $ConcurrentHashMap$TreeNode* p) {
 	$init(ConcurrentHashMap$TreeBin);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$TreeNode, root, root$renamed);
 	$var($ConcurrentHashMap$TreeNode, r, nullptr);
 	$var($ConcurrentHashMap$TreeNode, pp, nullptr);
 	$var($ConcurrentHashMap$TreeNode, rl, nullptr);
 	if (p != nullptr && ($assign(r, p->right)) != nullptr) {
-		if (($assign(rl, ($set(p, right, $nc(r)->left)))) != nullptr) {
+		if (($assign(rl, $set(p, right, $nc(r)->left))) != nullptr) {
 			$set($nc(rl), parent, p);
 		}
-		if (($assign(pp, ($set($nc(r), parent, p->parent)))) == nullptr) {
+		if (($assign(pp, $set(r, parent, p->parent))) == nullptr) {
 			$nc(($assign(root, r)))->red = false;
 		} else if ($nc(pp)->left == p) {
 			$set(pp, left, r);
 		} else {
 			$set(pp, right, r);
 		}
-		$set($nc(r), left, p);
+		$set(r, left, p);
 		$set(p, parent, r);
 	}
 	return root;
@@ -469,23 +403,23 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateLeft($ConcurrentHa
 
 $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateRight($ConcurrentHashMap$TreeNode* root$renamed, $ConcurrentHashMap$TreeNode* p) {
 	$init(ConcurrentHashMap$TreeBin);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$TreeNode, root, root$renamed);
 	$var($ConcurrentHashMap$TreeNode, l, nullptr);
 	$var($ConcurrentHashMap$TreeNode, pp, nullptr);
 	$var($ConcurrentHashMap$TreeNode, lr, nullptr);
 	if (p != nullptr && ($assign(l, p->left)) != nullptr) {
-		if (($assign(lr, ($set(p, left, $nc(l)->right)))) != nullptr) {
+		if (($assign(lr, $set(p, left, $nc(l)->right))) != nullptr) {
 			$set($nc(lr), parent, p);
 		}
-		if (($assign(pp, ($set($nc(l), parent, p->parent)))) == nullptr) {
+		if (($assign(pp, $set(l, parent, p->parent))) == nullptr) {
 			$nc(($assign(root, l)))->red = false;
 		} else if ($nc(pp)->right == p) {
 			$set(pp, right, l);
 		} else {
 			$set(pp, left, l);
 		}
-		$set($nc(l), right, p);
+		$set(l, right, p);
 		$set(p, parent, l);
 	}
 	return root;
@@ -493,7 +427,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateRight($ConcurrentH
 
 $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceInsertion($ConcurrentHashMap$TreeNode* root$renamed, $ConcurrentHashMap$TreeNode* x$renamed) {
 	$init(ConcurrentHashMap$TreeBin);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$TreeNode, root, root$renamed);
 	$var($ConcurrentHashMap$TreeNode, x, x$renamed);
 	$nc(x)->red = true;
@@ -503,10 +437,10 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceInsertion($Concur
 		$var($ConcurrentHashMap$TreeNode, xppl, nullptr);
 		$var($ConcurrentHashMap$TreeNode, xppr, nullptr);
 		for (;;) {
-			if (($assign(xp, x->parent)) == nullptr) {
+			if (($assign(xp, $nc(x)->parent)) == nullptr) {
 				x->red = false;
 				return x;
-			} else if (!$nc(xp)->red || ($assign(xpp, $nc(xp)->parent)) == nullptr) {
+			} else if (!$nc(xp)->red || ($assign(xpp, xp->parent)) == nullptr) {
 				return root;
 			}
 			if (xp == ($assign(xppl, $nc(xpp)->left))) {
@@ -519,7 +453,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceInsertion($Concur
 				} else {
 					if (x == $nc(xp)->right) {
 						$assign(root, rotateLeft(root, $assign(x, xp)));
-						$assign(xpp, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : xp->parent);
+						$assign(xpp, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : $nc(xp)->parent);
 					}
 					if (xp != nullptr) {
 						xp->red = false;
@@ -537,7 +471,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceInsertion($Concur
 			} else {
 				if (x == $nc(xp)->left) {
 					$assign(root, rotateRight(root, $assign(x, xp)));
-					$assign(xpp, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : xp->parent);
+					$assign(xpp, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : $nc(xp)->parent);
 				}
 				if (xp != nullptr) {
 					xp->red = false;
@@ -553,96 +487,94 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceInsertion($Concur
 
 $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceDeletion($ConcurrentHashMap$TreeNode* root$renamed, $ConcurrentHashMap$TreeNode* x$renamed) {
 	$init(ConcurrentHashMap$TreeBin);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$TreeNode, root, root$renamed);
 	$var($ConcurrentHashMap$TreeNode, x, x$renamed);
-	{
-		$var($ConcurrentHashMap$TreeNode, xp, nullptr);
-		$var($ConcurrentHashMap$TreeNode, xpl, nullptr);
-		$var($ConcurrentHashMap$TreeNode, xpr, nullptr);
-		for (;;) {
-			if (x == nullptr || x == root) {
-				return root;
-			} else if (($assign(xp, $nc(x)->parent)) == nullptr) {
-				x->red = false;
-				return x;
-			} else if (x->red) {
-				x->red = false;
-				return root;
-			} else if (($assign(xpl, $nc(xp)->left)) == x) {
-				bool var$0 = ($assign(xpr, xp->right)) != nullptr;
-				if (var$0 && $nc(xpr)->red) {
-					xpr->red = false;
-					xp->red = true;
-					$assign(root, rotateLeft(root, xp));
-					$assign(xpr, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : xp->right);
-				}
-				if (xpr == nullptr) {
-					$assign(x, xp);
-				} else {
-					$var($ConcurrentHashMap$TreeNode, sl, $nc(xpr)->left);
-					$var($ConcurrentHashMap$TreeNode, sr, xpr->right);
-					if ((sr == nullptr || !$nc(sr)->red) && (sl == nullptr || !$nc(sl)->red)) {
-						xpr->red = true;
-						$assign(x, xp);
-					} else {
-						if (sr == nullptr || !$nc(sr)->red) {
-							if (sl != nullptr) {
-								sl->red = false;
-							}
-							xpr->red = true;
-							$assign(root, rotateRight(root, xpr));
-							$assign(xpr, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : xp->right);
-						}
-						if (xpr != nullptr) {
-							xpr->red = (xp == nullptr) ? false : xp->red;
-							if (($assign(sr, xpr->right)) != nullptr) {
-								$nc(sr)->red = false;
-							}
-						}
-						if (xp != nullptr) {
-							xp->red = false;
-							$assign(root, rotateLeft(root, xp));
-						}
-						$assign(x, root);
-					}
-				}
+	$var($ConcurrentHashMap$TreeNode, xp, nullptr);
+	$var($ConcurrentHashMap$TreeNode, xpl, nullptr);
+	$var($ConcurrentHashMap$TreeNode, xpr, nullptr);
+	for (;;) {
+		if (x == nullptr || x == root) {
+			return root;
+		} else if (($assign(xp, x->parent)) == nullptr) {
+			x->red = false;
+			return x;
+		} else if (x->red) {
+			x->red = false;
+			return root;
+		} else if (($assign(xpl, $nc(xp)->left)) == x) {
+			bool var$0 = ($assign(xpr, xp->right)) != nullptr;
+			if (var$0 && $nc(xpr)->red) {
+				xpr->red = false;
+				xp->red = true;
+				$assign(root, rotateLeft(root, xp));
+				$assign(xpr, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : $nc(xp)->right);
+			}
+			if (xpr == nullptr) {
+				$assign(x, xp);
 			} else {
-				if (xpl != nullptr && xpl->red) {
-					xpl->red = false;
-					xp->red = true;
-					$assign(root, rotateRight(root, xp));
-					$assign(xpl, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : xp->left);
-				}
-				if (xpl == nullptr) {
+				$var($ConcurrentHashMap$TreeNode, sl, xpr->left);
+				$var($ConcurrentHashMap$TreeNode, sr, xpr->right);
+				if ((sr == nullptr || !sr->red) && (sl == nullptr || !sl->red)) {
+					xpr->red = true;
 					$assign(x, xp);
 				} else {
-					$var($ConcurrentHashMap$TreeNode, sl, $nc(xpl)->left);
-					$var($ConcurrentHashMap$TreeNode, sr, xpl->right);
-					if ((sl == nullptr || !$nc(sl)->red) && (sr == nullptr || !$nc(sr)->red)) {
-						xpl->red = true;
-						$assign(x, xp);
-					} else {
-						if (sl == nullptr || !$nc(sl)->red) {
-							if (sr != nullptr) {
-								sr->red = false;
-							}
-							xpl->red = true;
-							$assign(root, rotateLeft(root, xpl));
-							$assign(xpl, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : xp->left);
+					if (sr == nullptr || !sr->red) {
+						if (sl != nullptr) {
+							sl->red = false;
 						}
-						if (xpl != nullptr) {
-							xpl->red = (xp == nullptr) ? false : xp->red;
-							if (($assign(sl, xpl->left)) != nullptr) {
-								$nc(sl)->red = false;
-							}
-						}
-						if (xp != nullptr) {
-							xp->red = false;
-							$assign(root, rotateRight(root, xp));
-						}
-						$assign(x, root);
+						xpr->red = true;
+						$assign(root, rotateRight(root, xpr));
+						$assign(xpr, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : $nc(xp)->right);
 					}
+					if (xpr != nullptr) {
+						xpr->red = (xp == nullptr) ? false : xp->red;
+						if (($assign(sr, xpr->right)) != nullptr) {
+							$nc(sr)->red = false;
+						}
+					}
+					if (xp != nullptr) {
+						xp->red = false;
+						$assign(root, rotateLeft(root, xp));
+					}
+					$assign(x, root);
+				}
+			}
+		} else {
+			if (xpl != nullptr && xpl->red) {
+				xpl->red = false;
+				xp->red = true;
+				$assign(root, rotateRight(root, xp));
+				$assign(xpl, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : $nc(xp)->left);
+			}
+			if (xpl == nullptr) {
+				$assign(x, xp);
+			} else {
+				$var($ConcurrentHashMap$TreeNode, sl, xpl->left);
+				$var($ConcurrentHashMap$TreeNode, sr, xpl->right);
+				if ((sl == nullptr || !sl->red) && (sr == nullptr || !sr->red)) {
+					xpl->red = true;
+					$assign(x, xp);
+				} else {
+					if (sl == nullptr || !sl->red) {
+						if (sr != nullptr) {
+							sr->red = false;
+						}
+						xpl->red = true;
+						$assign(root, rotateLeft(root, xpl));
+						$assign(xpl, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : $nc(xp)->left);
+					}
+					if (xpl != nullptr) {
+						xpl->red = (xp == nullptr) ? false : xp->red;
+						if (($assign(sl, xpl->left)) != nullptr) {
+							$nc(sl)->red = false;
+						}
+					}
+					if (xp != nullptr) {
+						xp->red = false;
+						$assign(root, rotateRight(root, xp));
+					}
+					$assign(x, root);
 				}
 			}
 		}
@@ -651,7 +583,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceDeletion($Concurr
 
 bool ConcurrentHashMap$TreeBin::checkInvariants($ConcurrentHashMap$TreeNode* t) {
 	$init(ConcurrentHashMap$TreeBin);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$TreeNode, tp, $nc(t)->parent);
 	$var($ConcurrentHashMap$TreeNode, tl, t->left);
 	$var($ConcurrentHashMap$TreeNode, tr, t->right);
@@ -666,10 +598,10 @@ bool ConcurrentHashMap$TreeBin::checkInvariants($ConcurrentHashMap$TreeNode* t) 
 	if (tp != nullptr && t != tp->left && t != tp->right) {
 		return false;
 	}
-	if (tl != nullptr && (tl->parent != t || $nc(tl)->hash > t->hash)) {
+	if (tl != nullptr && (tl->parent != t || tl->hash > t->hash)) {
 		return false;
 	}
-	if (tr != nullptr && (tr->parent != t || $nc(tr)->hash < t->hash)) {
+	if (tr != nullptr && (tr->parent != t || tr->hash < t->hash)) {
 		return false;
 	}
 	if (t->red && tl != nullptr && tl->red && tr != nullptr && tr->red) {
@@ -684,7 +616,7 @@ bool ConcurrentHashMap$TreeBin::checkInvariants($ConcurrentHashMap$TreeNode* t) 
 	return true;
 }
 
-void clinit$ConcurrentHashMap$TreeBin($Class* class$) {
+void ConcurrentHashMap$TreeBin::clinit$($Class* clazz) {
 	$load($ConcurrentHashMap);
 	ConcurrentHashMap$TreeBin::$assertionsDisabled = !$ConcurrentHashMap::class$->desiredAssertionStatus();
 	$init($ConcurrentHashMap);
@@ -695,7 +627,57 @@ ConcurrentHashMap$TreeBin::ConcurrentHashMap$TreeBin() {
 }
 
 $Class* ConcurrentHashMap$TreeBin::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentHashMap$TreeBin, name, initialize, &_ConcurrentHashMap$TreeBin_ClassInfo_, clinit$ConcurrentHashMap$TreeBin, allocate$ConcurrentHashMap$TreeBin);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ConcurrentHashMap$TreeBin, $assertionsDisabled)},
+		{"root", "Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", 0, $field(ConcurrentHashMap$TreeBin, root)},
+		{"first", "Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $VOLATILE, $field(ConcurrentHashMap$TreeBin, first)},
+		{"waiter", "Ljava/lang/Thread;", nullptr, $VOLATILE, $field(ConcurrentHashMap$TreeBin, waiter)},
+		{"lockState", "I", nullptr, $VOLATILE, $field(ConcurrentHashMap$TreeBin, lockState)},
+		{"WRITER", "I", nullptr, $STATIC | $FINAL, $constField(ConcurrentHashMap$TreeBin, WRITER)},
+		{"WAITER", "I", nullptr, $STATIC | $FINAL, $constField(ConcurrentHashMap$TreeBin, WAITER)},
+		{"READER", "I", nullptr, $STATIC | $FINAL, $constField(ConcurrentHashMap$TreeBin, READER)},
+		{"LOCKSTATE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentHashMap$TreeBin, LOCKSTATE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)V", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)V", 0, $method(ConcurrentHashMap$TreeBin, init$, void, $ConcurrentHashMap$TreeNode*)},
+		{"balanceDeletion", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, balanceDeletion, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*)},
+		{"balanceInsertion", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, balanceInsertion, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*)},
+		{"checkInvariants", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Z", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Z", $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, checkInvariants, bool, $ConcurrentHashMap$TreeNode*)},
+		{"contendedLock", "()V", nullptr, $PRIVATE | $FINAL, $method(ConcurrentHashMap$TreeBin, contendedLock, void)},
+		{"find", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node;", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", $FINAL, $virtualMethod(ConcurrentHashMap$TreeBin, find, $ConcurrentHashMap$Node*, int32_t, Object$*)},
+		{"lockRoot", "()V", nullptr, $PRIVATE | $FINAL, $method(ConcurrentHashMap$TreeBin, lockRoot, void)},
+		{"putTreeVal", "(ILjava/lang/Object;Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "(ITK;TV;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $FINAL, $method(ConcurrentHashMap$TreeBin, putTreeVal, $ConcurrentHashMap$TreeNode*, int32_t, Object$*, Object$*)},
+		{"removeTreeNode", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Z", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Z", $FINAL, $method(ConcurrentHashMap$TreeBin, removeTreeNode, bool, $ConcurrentHashMap$TreeNode*)},
+		{"rotateLeft", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, rotateLeft, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*)},
+		{"rotateRight", "(Ljava/util/concurrent/ConcurrentHashMap$TreeNode;Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, rotateRight, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*, $ConcurrentHashMap$TreeNode*)},
+		{"tieBreakOrder", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $STATIC, $staticMethod(ConcurrentHashMap$TreeBin, tieBreakOrder, int32_t, Object$*, Object$*)},
+		{"unlockRoot", "()V", nullptr, $PRIVATE | $FINAL, $method(ConcurrentHashMap$TreeBin, unlockRoot, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentHashMap$TreeBin", "java.util.concurrent.ConcurrentHashMap", "TreeBin", $STATIC | $FINAL},
+		{"java.util.concurrent.ConcurrentHashMap$Node", "java.util.concurrent.ConcurrentHashMap", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ConcurrentHashMap$TreeBin",
+		"java.util.concurrent.ConcurrentHashMap$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentHashMap"
+	};
+	$loadClass(ConcurrentHashMap$TreeBin, name, initialize, &classInfo$$, ConcurrentHashMap$TreeBin::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ConcurrentHashMap$TreeBin);
+	});
 	return class$;
 }
 

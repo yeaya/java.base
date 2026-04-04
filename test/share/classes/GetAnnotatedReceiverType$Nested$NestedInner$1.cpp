@@ -1,5 +1,4 @@
 #include <GetAnnotatedReceiverType$Nested$NestedInner$1.h>
-
 #include <GetAnnotatedReceiverType$Nested$NestedInner.h>
 #include <jcpp.h>
 
@@ -10,49 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _GetAnnotatedReceiverType$Nested$NestedInner$1_FieldInfo_[] = {
-	{"this$1", "LGetAnnotatedReceiverType$Nested$NestedInner;", nullptr, $FINAL | $SYNTHETIC, $field(GetAnnotatedReceiverType$Nested$NestedInner$1, this$1)},
-	{}
-};
-
-$MethodInfo _GetAnnotatedReceiverType$Nested$NestedInner$1_MethodInfo_[] = {
-	{"<init>", "(LGetAnnotatedReceiverType$Nested$NestedInner;)V", nullptr, 0, $method(GetAnnotatedReceiverType$Nested$NestedInner$1, init$, void, $GetAnnotatedReceiverType$Nested$NestedInner*)},
-	{}
-};
-
-$EnclosingMethodInfo _GetAnnotatedReceiverType$Nested$NestedInner$1_EnclosingMethodInfo_ = {
-	"GetAnnotatedReceiverType$Nested$NestedInner",
-	"getAnonymousClass",
-	"()Ljava/lang/Class;"
-};
-
-$InnerClassInfo _GetAnnotatedReceiverType$Nested$NestedInner$1_InnerClassesInfo_[] = {
-	{"GetAnnotatedReceiverType$Nested", "GetAnnotatedReceiverType", "Nested", $PUBLIC | $STATIC},
-	{"GetAnnotatedReceiverType$Nested$NestedInner", "GetAnnotatedReceiverType$Nested", "NestedInner", $PUBLIC},
-	{"GetAnnotatedReceiverType$Nested$NestedInner$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GetAnnotatedReceiverType$Nested$NestedInner$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"GetAnnotatedReceiverType$Nested$NestedInner$1",
-	"java.lang.Object",
-	nullptr,
-	_GetAnnotatedReceiverType$Nested$NestedInner$1_FieldInfo_,
-	_GetAnnotatedReceiverType$Nested$NestedInner$1_MethodInfo_,
-	nullptr,
-	&_GetAnnotatedReceiverType$Nested$NestedInner$1_EnclosingMethodInfo_,
-	_GetAnnotatedReceiverType$Nested$NestedInner$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetAnnotatedReceiverType"
-};
-
-$Object* allocate$GetAnnotatedReceiverType$Nested$NestedInner$1($Class* clazz) {
-	return $of($alloc(GetAnnotatedReceiverType$Nested$NestedInner$1));
-}
-
 void GetAnnotatedReceiverType$Nested$NestedInner$1::init$($GetAnnotatedReceiverType$Nested$NestedInner* this$1) {
 	$set(this, this$1, this$1);
 }
@@ -61,7 +17,43 @@ GetAnnotatedReceiverType$Nested$NestedInner$1::GetAnnotatedReceiverType$Nested$N
 }
 
 $Class* GetAnnotatedReceiverType$Nested$NestedInner$1::load$($String* name, bool initialize) {
-	$loadClass(GetAnnotatedReceiverType$Nested$NestedInner$1, name, initialize, &_GetAnnotatedReceiverType$Nested$NestedInner$1_ClassInfo_, allocate$GetAnnotatedReceiverType$Nested$NestedInner$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "LGetAnnotatedReceiverType$Nested$NestedInner;", nullptr, $FINAL | $SYNTHETIC, $field(GetAnnotatedReceiverType$Nested$NestedInner$1, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LGetAnnotatedReceiverType$Nested$NestedInner;)V", nullptr, 0, $method(GetAnnotatedReceiverType$Nested$NestedInner$1, init$, void, $GetAnnotatedReceiverType$Nested$NestedInner*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"GetAnnotatedReceiverType$Nested$NestedInner",
+		"getAnonymousClass",
+		"()Ljava/lang/Class;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetAnnotatedReceiverType$Nested", "GetAnnotatedReceiverType", "Nested", $PUBLIC | $STATIC},
+		{"GetAnnotatedReceiverType$Nested$NestedInner", "GetAnnotatedReceiverType$Nested", "NestedInner", $PUBLIC},
+		{"GetAnnotatedReceiverType$Nested$NestedInner$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GetAnnotatedReceiverType$Nested$NestedInner$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetAnnotatedReceiverType"
+	};
+	$loadClass(GetAnnotatedReceiverType$Nested$NestedInner$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetAnnotatedReceiverType$Nested$NestedInner$1);
+	});
 	return class$;
 }
 

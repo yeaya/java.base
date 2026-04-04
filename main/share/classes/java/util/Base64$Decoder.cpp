@@ -1,8 +1,6 @@
 #include <java/util/Base64$Decoder.h>
-
 #include <java/io/InputStream.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/nio/charset/Charset.h>
 #include <java/util/Arrays.h>
 #include <java/util/Base64$DecInputStream.h>
 #include <java/util/Base64$Encoder.h>
@@ -22,7 +20,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Charset = ::java::nio::charset::Charset;
 using $Arrays = ::java::util::Arrays;
 using $Base64$DecInputStream = ::java::util::Base64$DecInputStream;
 using $Base64$Encoder = ::java::util::Base64$Encoder;
@@ -31,60 +28,6 @@ using $ISO_8859_1 = ::sun::nio::cs::ISO_8859_1;
 
 namespace java {
 	namespace util {
-
-$CompoundAttribute _Base64$Decoder_MethodAnnotations_decodeBlock6[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _Base64$Decoder_FieldInfo_[] = {
-	{"isURL", "Z", nullptr, $PRIVATE | $FINAL, $field(Base64$Decoder, isURL)},
-	{"isMIME", "Z", nullptr, $PRIVATE | $FINAL, $field(Base64$Decoder, isMIME)},
-	{"fromBase64", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64$Decoder, fromBase64)},
-	{"fromBase64URL", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64$Decoder, fromBase64URL)},
-	{"RFC4648", "Ljava/util/Base64$Decoder;", nullptr, $STATIC | $FINAL, $staticField(Base64$Decoder, RFC4648)},
-	{"RFC4648_URLSAFE", "Ljava/util/Base64$Decoder;", nullptr, $STATIC | $FINAL, $staticField(Base64$Decoder, RFC4648_URLSAFE)},
-	{"RFC2045", "Ljava/util/Base64$Decoder;", nullptr, $STATIC | $FINAL, $staticField(Base64$Decoder, RFC2045)},
-	{}
-};
-
-$MethodInfo _Base64$Decoder_MethodInfo_[] = {
-	{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(Base64$Decoder, init$, void, bool, bool)},
-	{"decode", "([B)[B", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, $bytes*, $bytes*)},
-	{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, $bytes*, $String*)},
-	{"decode", "([B[B)I", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, int32_t, $bytes*, $bytes*)},
-	{"decode", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, $ByteBuffer*, $ByteBuffer*)},
-	{"decode0", "([BII[B)I", nullptr, $PRIVATE, $method(Base64$Decoder, decode0, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
-	{"decodeBlock", "([BII[BIZ)I", nullptr, $PRIVATE, $method(Base64$Decoder, decodeBlock, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, bool), nullptr, nullptr, _Base64$Decoder_MethodAnnotations_decodeBlock6},
-	{"decodedOutLength", "([BII)I", nullptr, $PRIVATE, $method(Base64$Decoder, decodedOutLength, int32_t, $bytes*, int32_t, int32_t)},
-	{"wrap", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, wrap, $InputStream*, $InputStream*)},
-	{}
-};
-
-$InnerClassInfo _Base64$Decoder_InnerClassesInfo_[] = {
-	{"java.util.Base64$Decoder", "java.util.Base64", "Decoder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Base64$Decoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.Base64$Decoder",
-	"java.lang.Object",
-	nullptr,
-	_Base64$Decoder_FieldInfo_,
-	_Base64$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Base64$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Base64"
-};
-
-$Object* allocate$Base64$Decoder($Class* clazz) {
-	return $of($alloc(Base64$Decoder));
-}
 
 $ints* Base64$Decoder::fromBase64 = nullptr;
 $ints* Base64$Decoder::fromBase64URL = nullptr;
@@ -99,7 +42,7 @@ void Base64$Decoder::init$(bool isURL, bool isMIME) {
 
 $bytes* Base64$Decoder::decode($bytes* src) {
 	$var($bytes, dst, $new($bytes, decodedOutLength(src, 0, $nc(src)->length)));
-	int32_t ret = decode0(src, 0, $nc(src)->length, dst);
+	int32_t ret = decode0(src, 0, src->length, dst);
 	if (ret != dst->length) {
 		$assign(dst, $Arrays::copyOf(dst, ret));
 	}
@@ -108,7 +51,7 @@ $bytes* Base64$Decoder::decode($bytes* src) {
 
 $bytes* Base64$Decoder::decode($String* src) {
 	$init($ISO_8859_1);
-	return decode($($nc(src)->getBytes(static_cast<$Charset*>($ISO_8859_1::INSTANCE))));
+	return decode($($nc(src)->getBytes($ISO_8859_1::INSTANCE)));
 }
 
 int32_t Base64$Decoder::decode($bytes* src, $bytes* dst) {
@@ -116,11 +59,11 @@ int32_t Base64$Decoder::decode($bytes* src, $bytes* dst) {
 	if ($nc(dst)->length < len || len == -1) {
 		$throwNew($IllegalArgumentException, "Output byte array is too small for decoding all input bytes"_s);
 	}
-	return decode0(src, 0, $nc(src)->length, dst);
+	return decode0(src, 0, src->length, dst);
 }
 
 $ByteBuffer* Base64$Decoder::decode($ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos0 = $nc(buffer)->position();
 	try {
 		$var($bytes, src, nullptr);
@@ -169,7 +112,7 @@ int32_t Base64$Decoder::decodedOutLength($bytes* src, int32_t sp, int32_t sl) {
 	if (this->isMIME) {
 		int32_t n = 0;
 		while (sp < sl) {
-			int32_t b = (int32_t)($nc(src)->get(sp++) & (uint32_t)255);
+			int32_t b = $nc(src)->get(sp++) & 0xff;
 			if (b == u'=') {
 				len -= (sl - sp + 1);
 				break;
@@ -185,21 +128,21 @@ int32_t Base64$Decoder::decodedOutLength($bytes* src, int32_t sp, int32_t sl) {
 			++paddings;
 		}
 	}
-	if (paddings == 0 && ((int32_t)(len & (uint32_t)3)) != 0) {
-		paddings = 4 - ((int32_t)(len & (uint32_t)3));
+	if (paddings == 0 && (len & 3) != 0) {
+		paddings = 4 - (len & 3);
 	}
 	return 3 * (int32_t)((len + (int64_t)3) / 4) - paddings;
 }
 
 int32_t Base64$Decoder::decodeBlock($bytes* src, int32_t sp, int32_t sl, $bytes* dst, int32_t dp, bool isURL) {
 	$var($ints, base64, isURL ? Base64$Decoder::fromBase64URL : Base64$Decoder::fromBase64);
-	int32_t sl0 = sp + ((int32_t)((sl - sp) & (uint32_t)~3));
+	int32_t sl0 = sp + ((sl - sp) & ~3);
 	int32_t new_dp = dp;
 	while (sp < sl0) {
-		int32_t b1 = $nc(base64)->get((int32_t)($nc(src)->get(sp++) & (uint32_t)255));
-		int32_t b2 = base64->get((int32_t)(src->get(sp++) & (uint32_t)255));
-		int32_t b3 = base64->get((int32_t)(src->get(sp++) & (uint32_t)255));
-		int32_t b4 = base64->get((int32_t)(src->get(sp++) & (uint32_t)255));
+		int32_t b1 = $nc(base64)->get($nc(src)->get(sp++) & 0xff);
+		int32_t b2 = base64->get(src->get(sp++) & 0xff);
+		int32_t b3 = base64->get(src->get(sp++) & 0xff);
+		int32_t b4 = base64->get(src->get(sp++) & 0xff);
 		if ((((b1 | b2) | b3) | b4) < 0) {
 			return new_dp - dp;
 		}
@@ -212,7 +155,7 @@ int32_t Base64$Decoder::decodeBlock($bytes* src, int32_t sp, int32_t sl, $bytes*
 }
 
 int32_t Base64$Decoder::decode0($bytes* src, int32_t sp, int32_t sl, $bytes* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, base64, this->isURL ? Base64$Decoder::fromBase64URL : Base64$Decoder::fromBase64);
 	int32_t dp = 0;
 	int32_t bits = 0;
@@ -227,13 +170,13 @@ int32_t Base64$Decoder::decode0($bytes* src, int32_t sp, int32_t sl, $bytes* dst
 		if (sp >= sl) {
 			break;
 		}
-		int32_t b = (int32_t)($nc(src)->get(sp++) & (uint32_t)255);
+		int32_t b = $nc(src)->get(sp++) & 0xff;
 		if ((b = $nc(base64)->get(b)) < 0) {
 			if (b == -2) {
 				bool var$0 = shiftto == 6;
 				if (var$0) {
 					bool var$1 = sp == sl;
-					var$0 = (var$1 || src->get(sp++) != u'=');
+					var$0 = var$1 || src->get(sp++) != u'=';
 				}
 				if (var$0 || shiftto == 18) {
 					$throwNew($IllegalArgumentException, "Input byte array has wrong 4-byte ending unit"_s);
@@ -265,7 +208,7 @@ int32_t Base64$Decoder::decode0($bytes* src, int32_t sp, int32_t sl, $bytes* dst
 		$throwNew($IllegalArgumentException, "Last unit does not have enough valid bits"_s);
 	}
 	while (sp < sl) {
-		if (this->isMIME && $nc(base64)->get((int32_t)($nc(src)->get(sp++) & (uint32_t)255)) < 0) {
+		if (this->isMIME && $nc(base64)->get($nc(src)->get(sp++) & 0xff) < 0) {
 			continue;
 		}
 		$throwNew($IllegalArgumentException, $$str({"Input byte array has incorrect ending byte at "_s, $$str(sp)}));
@@ -273,24 +216,23 @@ int32_t Base64$Decoder::decode0($bytes* src, int32_t sp, int32_t sl, $bytes* dst
 	return dp;
 }
 
-void clinit$Base64$Decoder($Class* class$) {
+void Base64$Decoder::clinit$($Class* clazz) {
 	$assignStatic(Base64$Decoder::fromBase64, $new($ints, 256));
 	{
 		$Arrays::fill(Base64$Decoder::fromBase64, -1);
 		$init($Base64$Encoder);
 		for (int32_t i = 0; i < $nc($Base64$Encoder::toBase64)->length; ++i) {
-			$nc(Base64$Decoder::fromBase64)->set($nc($Base64$Encoder::toBase64)->get(i), i);
+			Base64$Decoder::fromBase64->set($Base64$Encoder::toBase64->get(i), i);
 		}
-		$nc(Base64$Decoder::fromBase64)->set(u'=', -2);
+		Base64$Decoder::fromBase64->set(u'=', -2);
 	}
 	$assignStatic(Base64$Decoder::fromBase64URL, $new($ints, 256));
 	{
 		$Arrays::fill(Base64$Decoder::fromBase64URL, -1);
-		$init($Base64$Encoder);
 		for (int32_t i = 0; i < $nc($Base64$Encoder::toBase64URL)->length; ++i) {
-			$nc(Base64$Decoder::fromBase64URL)->set($nc($Base64$Encoder::toBase64URL)->get(i), i);
+			Base64$Decoder::fromBase64URL->set($Base64$Encoder::toBase64URL->get(i), i);
 		}
-		$nc(Base64$Decoder::fromBase64URL)->set(u'=', -2);
+		Base64$Decoder::fromBase64URL->set(u'=', -2);
 	}
 	$assignStatic(Base64$Decoder::RFC4648, $new(Base64$Decoder, false, false));
 	$assignStatic(Base64$Decoder::RFC4648_URLSAFE, $new(Base64$Decoder, true, false));
@@ -301,7 +243,54 @@ Base64$Decoder::Base64$Decoder() {
 }
 
 $Class* Base64$Decoder::load$($String* name, bool initialize) {
-	$loadClass(Base64$Decoder, name, initialize, &_Base64$Decoder_ClassInfo_, clinit$Base64$Decoder, allocate$Base64$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"isURL", "Z", nullptr, $PRIVATE | $FINAL, $field(Base64$Decoder, isURL)},
+		{"isMIME", "Z", nullptr, $PRIVATE | $FINAL, $field(Base64$Decoder, isMIME)},
+		{"fromBase64", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64$Decoder, fromBase64)},
+		{"fromBase64URL", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64$Decoder, fromBase64URL)},
+		{"RFC4648", "Ljava/util/Base64$Decoder;", nullptr, $STATIC | $FINAL, $staticField(Base64$Decoder, RFC4648)},
+		{"RFC4648_URLSAFE", "Ljava/util/Base64$Decoder;", nullptr, $STATIC | $FINAL, $staticField(Base64$Decoder, RFC4648_URLSAFE)},
+		{"RFC2045", "Ljava/util/Base64$Decoder;", nullptr, $STATIC | $FINAL, $staticField(Base64$Decoder, RFC2045)},
+		{}
+	};
+	$CompoundAttribute decodeBlockmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(Base64$Decoder, init$, void, bool, bool)},
+		{"decode", "([B)[B", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, $bytes*, $bytes*)},
+		{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, $bytes*, $String*)},
+		{"decode", "([B[B)I", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, int32_t, $bytes*, $bytes*)},
+		{"decode", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, $ByteBuffer*, $ByteBuffer*)},
+		{"decode0", "([BII[B)I", nullptr, $PRIVATE, $method(Base64$Decoder, decode0, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+		{"decodeBlock", "([BII[BIZ)I", nullptr, $PRIVATE, $method(Base64$Decoder, decodeBlock, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, bool), nullptr, nullptr, decodeBlockmethodAnnotations$$},
+		{"decodedOutLength", "([BII)I", nullptr, $PRIVATE, $method(Base64$Decoder, decodedOutLength, int32_t, $bytes*, int32_t, int32_t)},
+		{"wrap", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, wrap, $InputStream*, $InputStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Base64$Decoder", "java.util.Base64", "Decoder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.Base64$Decoder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Base64"
+	};
+	$loadClass(Base64$Decoder, name, initialize, &classInfo$$, Base64$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Base64$Decoder);
+	});
 	return class$;
 }
 

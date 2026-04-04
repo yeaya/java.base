@@ -29,6 +29,7 @@ class WindowsFileCopy : public ::java::lang::Object {
 	$class(WindowsFileCopy, 0, ::java::lang::Object)
 public:
 	WindowsFileCopy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* asWin32Path(::sun::nio::fs::WindowsPath* path);
 	static void copy(::sun::nio::fs::WindowsPath* source, ::sun::nio::fs::WindowsPath* target, $Array<::java::nio::file::CopyOption>* options);

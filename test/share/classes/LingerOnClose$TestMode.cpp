@@ -1,5 +1,4 @@
 #include <LingerOnClose$TestMode.h>
-
 #include <LingerOnClose.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -14,47 +13,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _LingerOnClose$TestMode_FieldInfo_[] = {
-	{"BLOCKING", "LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LingerOnClose$TestMode, BLOCKING)},
-	{"NON_BLOCKING", "LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LingerOnClose$TestMode, NON_BLOCKING)},
-	{"NON_BLOCKING_AND_REGISTERED", "LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LingerOnClose$TestMode, NON_BLOCKING_AND_REGISTERED)},
-	{"$VALUES", "[LLingerOnClose$TestMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LingerOnClose$TestMode, $VALUES)},
-	{}
-};
-
-$MethodInfo _LingerOnClose$TestMode_MethodInfo_[] = {
-	{"$values", "()[LLingerOnClose$TestMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LingerOnClose$TestMode, $values, $LingerOnClose$TestModeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LingerOnClose$TestMode, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(LingerOnClose$TestMode, valueOf, LingerOnClose$TestMode*, $String*)},
-	{"values", "()[LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(LingerOnClose$TestMode, values, $LingerOnClose$TestModeArray*)},
-	{}
-};
-
-$InnerClassInfo _LingerOnClose$TestMode_InnerClassesInfo_[] = {
-	{"LingerOnClose$TestMode", "LingerOnClose", "TestMode", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LingerOnClose$TestMode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"LingerOnClose$TestMode",
-	"java.lang.Enum",
-	nullptr,
-	_LingerOnClose$TestMode_FieldInfo_,
-	_LingerOnClose$TestMode_MethodInfo_,
-	"Ljava/lang/Enum<LLingerOnClose$TestMode;>;",
-	nullptr,
-	_LingerOnClose$TestMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LingerOnClose"
-};
-
-$Object* allocate$LingerOnClose$TestMode($Class* clazz) {
-	return $of($alloc(LingerOnClose$TestMode));
-}
 
 LingerOnClose$TestMode* LingerOnClose$TestMode::BLOCKING = nullptr;
 LingerOnClose$TestMode* LingerOnClose$TestMode::NON_BLOCKING = nullptr;
@@ -84,7 +42,7 @@ void LingerOnClose$TestMode::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$LingerOnClose$TestMode($Class* class$) {
+void LingerOnClose$TestMode::clinit$($Class* clazz) {
 	$assignStatic(LingerOnClose$TestMode::BLOCKING, $new(LingerOnClose$TestMode, "BLOCKING"_s, 0));
 	$assignStatic(LingerOnClose$TestMode::NON_BLOCKING, $new(LingerOnClose$TestMode, "NON_BLOCKING"_s, 1));
 	$assignStatic(LingerOnClose$TestMode::NON_BLOCKING_AND_REGISTERED, $new(LingerOnClose$TestMode, "NON_BLOCKING_AND_REGISTERED"_s, 2));
@@ -95,7 +53,42 @@ LingerOnClose$TestMode::LingerOnClose$TestMode() {
 }
 
 $Class* LingerOnClose$TestMode::load$($String* name, bool initialize) {
-	$loadClass(LingerOnClose$TestMode, name, initialize, &_LingerOnClose$TestMode_ClassInfo_, clinit$LingerOnClose$TestMode, allocate$LingerOnClose$TestMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"BLOCKING", "LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LingerOnClose$TestMode, BLOCKING)},
+		{"NON_BLOCKING", "LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LingerOnClose$TestMode, NON_BLOCKING)},
+		{"NON_BLOCKING_AND_REGISTERED", "LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LingerOnClose$TestMode, NON_BLOCKING_AND_REGISTERED)},
+		{"$VALUES", "[LLingerOnClose$TestMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LingerOnClose$TestMode, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LLingerOnClose$TestMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LingerOnClose$TestMode, $values, $LingerOnClose$TestModeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LingerOnClose$TestMode, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(LingerOnClose$TestMode, valueOf, LingerOnClose$TestMode*, $String*)},
+		{"values", "()[LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(LingerOnClose$TestMode, values, $LingerOnClose$TestModeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LingerOnClose$TestMode", "LingerOnClose", "TestMode", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"LingerOnClose$TestMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LLingerOnClose$TestMode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LingerOnClose"
+	};
+	$loadClass(LingerOnClose$TestMode, name, initialize, &classInfo$$, LingerOnClose$TestMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LingerOnClose$TestMode));
+	});
 	return class$;
 }
 

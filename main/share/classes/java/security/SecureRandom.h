@@ -29,6 +29,7 @@ class $export SecureRandom : public ::java::util::Random {
 	$class(SecureRandom, 0, ::java::util::Random)
 public:
 	SecureRandom();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($bytes* seed);
 	void init$(::java::security::SecureRandomSpi* secureRandomSpi, ::java::security::Provider* provider);
@@ -69,7 +70,7 @@ public:
 	bool threadSafe = false;
 	$String* algorithm = nullptr;
 	static $volatile(::java::security::SecureRandom*) seedGenerator;
-	static const int64_t serialVersionUID = (int64_t)0x00118D8360A24B4B;
+	static const int64_t serialVersionUID = (int64_t)0x00118d8360a24b4b;
 	$bytes* state = nullptr;
 	::java::security::MessageDigest* digest = nullptr;
 	$bytes* randomBytes = nullptr;

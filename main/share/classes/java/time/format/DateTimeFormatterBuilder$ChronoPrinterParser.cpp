@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$ChronoPrinterParser.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -56,83 +55,39 @@ public:
 	virtual $Object* get() override {
 		 return $of(DateTimeFormatterBuilder$ChronoPrinterParser::lambda$getChronologyName$0(chrono));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0>());
-	}
 	$Chronology* chrono = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0::fieldInfos[2] = {
-	{"chrono", "Ljava/time/chrono/Chronology;", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, chrono)},
-	{}
-};
-$MethodInfo DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0::methodInfos[3] = {
-	{"<init>", "(Ljava/time/chrono/Chronology;)V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, init$, void, $Chronology*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, get, $Object*)},
-	{}
-};
-$ClassInfo DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.format.DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"chrono", "Ljava/time/chrono/Chronology;", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, chrono)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/chrono/Chronology;)V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, init$, void, $Chronology*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.format.DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0);
+	});
 	return class$;
 }
 $Class* DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0::class$ = nullptr;
-
-$FieldInfo _DateTimeFormatterBuilder$ChronoPrinterParser_FieldInfo_[] = {
-	{"textStyle", "Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$ChronoPrinterParser, textStyle)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$ChronoPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/format/TextStyle;)V", nullptr, 0, $method(DateTimeFormatterBuilder$ChronoPrinterParser, init$, void, $TextStyle*)},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ChronoPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
-	{"getChronologyName", "(Ljava/time/chrono/Chronology;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$ChronoPrinterParser, getChronologyName, $String*, $Chronology*, $Locale*)},
-	{"lambda$getChronologyName$0", "(Ljava/time/chrono/Chronology;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$ChronoPrinterParser, lambda$getChronologyName$0, $String*, $Chronology*)},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ChronoPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$ChronoPrinterParser_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$ChronoPrinterParser", "java.time.format.DateTimeFormatterBuilder", "ChronoPrinterParser", $STATIC | $FINAL},
-	{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$ChronoPrinterParser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$ChronoPrinterParser",
-	"java.lang.Object",
-	"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
-	_DateTimeFormatterBuilder$ChronoPrinterParser_FieldInfo_,
-	_DateTimeFormatterBuilder$ChronoPrinterParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$ChronoPrinterParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$ChronoPrinterParser($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$ChronoPrinterParser));
-}
 
 void DateTimeFormatterBuilder$ChronoPrinterParser::init$($TextStyle* textStyle) {
 	$set(this, textStyle, textStyle);
 }
 
 bool DateTimeFormatterBuilder$ChronoPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Chronology, chrono, $cast($Chronology, $nc(context)->getValue($($TemporalQueries::chronology()))));
 	if (chrono == nullptr) {
 		return false;
@@ -146,7 +101,7 @@ bool DateTimeFormatterBuilder$ChronoPrinterParser::format($DateTimePrintContext*
 }
 
 int32_t DateTimeFormatterBuilder$ChronoPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (position < 0 || position > $nc(text)->length()) {
 		$throwNew($IndexOutOfBoundsException);
 	}
@@ -180,10 +135,10 @@ int32_t DateTimeFormatterBuilder$ChronoPrinterParser::parse($DateTimeParseContex
 }
 
 $String* DateTimeFormatterBuilder$ChronoPrinterParser::getChronologyName($Chronology* chrono, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, $str({"calendarname."_s, $($nc(chrono)->getCalendarType())}));
 	$var($String, name, $cast($String, $DateTimeTextProvider::getLocalizedResource(key, locale)));
-	return $cast($String, $Objects::requireNonNullElseGet(name, static_cast<$Supplier*>($$new(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, chrono))));
+	return $cast($String, $Objects::requireNonNullElseGet(name, $$new(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, chrono)));
 }
 
 $String* DateTimeFormatterBuilder$ChronoPrinterParser::lambda$getChronologyName$0($Chronology* chrono) {
@@ -196,11 +151,45 @@ DateTimeFormatterBuilder$ChronoPrinterParser::DateTimeFormatterBuilder$ChronoPri
 
 $Class* DateTimeFormatterBuilder$ChronoPrinterParser::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0::classInfo$.name)) {
+		if (name->equals("java.time.format.DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0")) {
 			return DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DateTimeFormatterBuilder$ChronoPrinterParser, name, initialize, &_DateTimeFormatterBuilder$ChronoPrinterParser_ClassInfo_, allocate$DateTimeFormatterBuilder$ChronoPrinterParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"textStyle", "Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$ChronoPrinterParser, textStyle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/format/TextStyle;)V", nullptr, 0, $method(DateTimeFormatterBuilder$ChronoPrinterParser, init$, void, $TextStyle*)},
+		{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ChronoPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+		{"getChronologyName", "(Ljava/time/chrono/Chronology;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$ChronoPrinterParser, getChronologyName, $String*, $Chronology*, $Locale*)},
+		{"lambda$getChronologyName$0", "(Ljava/time/chrono/Chronology;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$ChronoPrinterParser, lambda$getChronologyName$0, $String*, $Chronology*)},
+		{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ChronoPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$ChronoPrinterParser", "java.time.format.DateTimeFormatterBuilder", "ChronoPrinterParser", $STATIC | $FINAL},
+		{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$ChronoPrinterParser",
+		"java.lang.Object",
+		"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$ChronoPrinterParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$ChronoPrinterParser);
+	});
 	return class$;
 }
 

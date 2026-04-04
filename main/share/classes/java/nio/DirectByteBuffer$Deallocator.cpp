@@ -1,5 +1,4 @@
 #include <java/nio/DirectByteBuffer$Deallocator.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/Bits.h>
 #include <java/nio/Buffer.h>
@@ -17,49 +16,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Bits = ::java::nio::Bits;
 using $Buffer = ::java::nio::Buffer;
 using $DirectByteBuffer = ::java::nio::DirectByteBuffer;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _DirectByteBuffer$Deallocator_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectByteBuffer$Deallocator, $assertionsDisabled)},
-	{"address", "J", nullptr, $PRIVATE, $field(DirectByteBuffer$Deallocator, address)},
-	{"size", "J", nullptr, $PRIVATE, $field(DirectByteBuffer$Deallocator, size)},
-	{"capacity", "I", nullptr, $PRIVATE, $field(DirectByteBuffer$Deallocator, capacity)},
-	{}
-};
-
-$MethodInfo _DirectByteBuffer$Deallocator_MethodInfo_[] = {
-	{"<init>", "(JJI)V", nullptr, $PRIVATE, $method(DirectByteBuffer$Deallocator, init$, void, int64_t, int64_t, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DirectByteBuffer$Deallocator, run, void)},
-	{}
-};
-
-$InnerClassInfo _DirectByteBuffer$Deallocator_InnerClassesInfo_[] = {
-	{"java.nio.DirectByteBuffer$Deallocator", "java.nio.DirectByteBuffer", "Deallocator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DirectByteBuffer$Deallocator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.DirectByteBuffer$Deallocator",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_DirectByteBuffer$Deallocator_FieldInfo_,
-	_DirectByteBuffer$Deallocator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectByteBuffer$Deallocator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.DirectByteBuffer"
-};
-
-$Object* allocate$DirectByteBuffer$Deallocator($Class* clazz) {
-	return $of($alloc(DirectByteBuffer$Deallocator));
-}
 
 bool DirectByteBuffer$Deallocator::$assertionsDisabled = false;
 
@@ -82,7 +41,7 @@ void DirectByteBuffer$Deallocator::run() {
 	$Bits::unreserveMemory(this->size, this->capacity);
 }
 
-void clinit$DirectByteBuffer$Deallocator($Class* class$) {
+void DirectByteBuffer$Deallocator::clinit$($Class* clazz) {
 	$load($DirectByteBuffer);
 	DirectByteBuffer$Deallocator::$assertionsDisabled = !$DirectByteBuffer::class$->desiredAssertionStatus();
 }
@@ -91,7 +50,40 @@ DirectByteBuffer$Deallocator::DirectByteBuffer$Deallocator() {
 }
 
 $Class* DirectByteBuffer$Deallocator::load$($String* name, bool initialize) {
-	$loadClass(DirectByteBuffer$Deallocator, name, initialize, &_DirectByteBuffer$Deallocator_ClassInfo_, clinit$DirectByteBuffer$Deallocator, allocate$DirectByteBuffer$Deallocator);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectByteBuffer$Deallocator, $assertionsDisabled)},
+		{"address", "J", nullptr, $PRIVATE, $field(DirectByteBuffer$Deallocator, address)},
+		{"size", "J", nullptr, $PRIVATE, $field(DirectByteBuffer$Deallocator, size)},
+		{"capacity", "I", nullptr, $PRIVATE, $field(DirectByteBuffer$Deallocator, capacity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JJI)V", nullptr, $PRIVATE, $method(DirectByteBuffer$Deallocator, init$, void, int64_t, int64_t, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DirectByteBuffer$Deallocator, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.DirectByteBuffer$Deallocator", "java.nio.DirectByteBuffer", "Deallocator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.DirectByteBuffer$Deallocator",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.DirectByteBuffer"
+	};
+	$loadClass(DirectByteBuffer$Deallocator, name, initialize, &classInfo$$, DirectByteBuffer$Deallocator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectByteBuffer$Deallocator);
+	});
 	return class$;
 }
 

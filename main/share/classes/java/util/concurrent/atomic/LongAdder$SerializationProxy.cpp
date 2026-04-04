@@ -1,5 +1,4 @@
 #include <java/util/concurrent/atomic/LongAdder$SerializationProxy.h>
-
 #include <java/util/concurrent/atomic/LongAdder.h>
 #include <jcpp.h>
 
@@ -14,43 +13,6 @@ namespace java {
 		namespace concurrent {
 			namespace atomic {
 
-$FieldInfo _LongAdder$SerializationProxy_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LongAdder$SerializationProxy, serialVersionUID)},
-	{"value", "J", nullptr, $PRIVATE | $FINAL, $field(LongAdder$SerializationProxy, value)},
-	{}
-};
-
-$MethodInfo _LongAdder$SerializationProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/LongAdder;)V", nullptr, 0, $method(LongAdder$SerializationProxy, init$, void, $LongAdder*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LongAdder$SerializationProxy, readResolve, $Object*)},
-	{}
-};
-
-$InnerClassInfo _LongAdder$SerializationProxy_InnerClassesInfo_[] = {
-	{"java.util.concurrent.atomic.LongAdder$SerializationProxy", "java.util.concurrent.atomic.LongAdder", "SerializationProxy", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LongAdder$SerializationProxy_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.atomic.LongAdder$SerializationProxy",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_LongAdder$SerializationProxy_FieldInfo_,
-	_LongAdder$SerializationProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LongAdder$SerializationProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.atomic.LongAdder"
-};
-
-$Object* allocate$LongAdder$SerializationProxy($Class* clazz) {
-	return $of($alloc(LongAdder$SerializationProxy));
-}
-
 void LongAdder$SerializationProxy::init$($LongAdder* a) {
 	this->value = $nc(a)->sum();
 }
@@ -58,14 +20,45 @@ void LongAdder$SerializationProxy::init$($LongAdder* a) {
 $Object* LongAdder$SerializationProxy::readResolve() {
 	$var($LongAdder, a, $new($LongAdder));
 	a->base = this->value;
-	return $of(a);
+	return a;
 }
 
 LongAdder$SerializationProxy::LongAdder$SerializationProxy() {
 }
 
 $Class* LongAdder$SerializationProxy::load$($String* name, bool initialize) {
-	$loadClass(LongAdder$SerializationProxy, name, initialize, &_LongAdder$SerializationProxy_ClassInfo_, allocate$LongAdder$SerializationProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LongAdder$SerializationProxy, serialVersionUID)},
+		{"value", "J", nullptr, $PRIVATE | $FINAL, $field(LongAdder$SerializationProxy, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/atomic/LongAdder;)V", nullptr, 0, $method(LongAdder$SerializationProxy, init$, void, $LongAdder*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LongAdder$SerializationProxy, readResolve, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.atomic.LongAdder$SerializationProxy", "java.util.concurrent.atomic.LongAdder", "SerializationProxy", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.atomic.LongAdder$SerializationProxy",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.atomic.LongAdder"
+	};
+	$loadClass(LongAdder$SerializationProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LongAdder$SerializationProxy);
+	});
 	return class$;
 }
 

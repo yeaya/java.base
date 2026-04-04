@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ClientHello$T13ClientHelloConsumer.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -11,7 +10,6 @@
 #include <sun/security/ssl/ClientHello.h>
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/ContentType.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeProducer.h>
 #include <sun/security/ssl/OutputRecord.h>
 #include <sun/security/ssl/ProtocolVersion.h>
@@ -50,95 +48,55 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $ChangeCipherSpec = ::sun::security::ssl::ChangeCipherSpec;
 using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $ContentType = ::sun::security::ssl::ContentType;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
-using $OutputRecord = ::sun::security::ssl::OutputRecord;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ClientHello$T13ClientHelloConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ClientHello$T13ClientHelloConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(ClientHello$T13ClientHelloConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{"goHelloRetryRequest", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, $PRIVATE, $method(ClientHello$T13ClientHelloConsumer, goHelloRetryRequest, void, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
-	{"goServerHello", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, $PRIVATE, $method(ClientHello$T13ClientHelloConsumer, goServerHello, void, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ClientHello$T13ClientHelloConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ClientHello$T13ClientHelloConsumer", "sun.security.ssl.ClientHello", "T13ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ClientHello$T13ClientHelloConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ClientHello$T13ClientHelloConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeConsumer",
-	nullptr,
-	_ClientHello$T13ClientHelloConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientHello$T13ClientHelloConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ClientHello"
-};
-
-$Object* allocate$ClientHello$T13ClientHelloConsumer($Class* clazz) {
-	return $of($alloc(ClientHello$T13ClientHelloConsumer));
-}
-
 void ClientHello$T13ClientHelloConsumer::init$() {
 }
 
 void ClientHello$T13ClientHelloConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	if ($nc($nc(shc)->conContext)->isNegotiated) {
 		$init($Alert);
-		$throw($($nc(shc->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, "Received unexpected renegotiation handshake message"_s)));
+		$throw($(shc->conContext->fatal($Alert::UNEXPECTED_MESSAGE, "Received unexpected renegotiation handshake message"_s)));
 	}
 	$init($ProtocolVersion);
 	if ($nc(clientHello)->clientVersion != $ProtocolVersion::TLS12->id) {
 		$init($Alert);
-		$throw($($nc($nc(shc)->conContext)->fatal($Alert::PROTOCOL_VERSION, "The ClientHello.legacy_version field is not TLS 1.2"_s)));
+		$throw($(shc->conContext->fatal($Alert::PROTOCOL_VERSION, "The ClientHello.legacy_version field is not TLS 1.2"_s)));
 	}
 	$init($ContentType);
 	$init($ChangeCipherSpec);
-	$nc($nc($nc(shc)->conContext)->consumers)->putIfAbsent($($Byte::valueOf($ContentType::CHANGE_CIPHER_SPEC->id)), $ChangeCipherSpec::t13Consumer);
+	$nc(shc->conContext->consumers)->putIfAbsent($($Byte::valueOf($ContentType::CHANGE_CIPHER_SPEC->id)), $ChangeCipherSpec::t13Consumer);
 	shc->isResumption = true;
 	$init($SSLExtension);
 	$var($SSLExtensionArray, extTypes, $new($SSLExtensionArray, {
 		$SSLExtension::PSK_KEY_EXCHANGE_MODES,
 		$SSLExtension::CH_PRE_SHARED_KEY
 	}));
-	$nc($nc(clientHello)->extensions)->consumeOnLoad(shc, extTypes);
+	$nc(clientHello->extensions)->consumeOnLoad(shc, extTypes);
 	$init($SSLHandshake);
 	$assign(extTypes, $nc(shc->sslConfig)->getExclusiveExtensions($SSLHandshake::CLIENT_HELLO, $($Arrays::asList($$new($SSLExtensionArray, {
 		$SSLExtension::PSK_KEY_EXCHANGE_MODES,
 		$SSLExtension::CH_PRE_SHARED_KEY,
 		$SSLExtension::CH_SUPPORTED_VERSIONS
 	})))));
-	$nc(clientHello->extensions)->consumeOnLoad(shc, extTypes);
+	clientHello->extensions->consumeOnLoad(shc, extTypes);
 	if (!$nc(shc->handshakeProducers)->isEmpty()) {
 		goHelloRetryRequest(shc, clientHello);
 	} else {
@@ -147,7 +105,7 @@ void ClientHello$T13ClientHelloConsumer::consume($ConnectionContext* context, $S
 }
 
 void ClientHello$T13ClientHelloConsumer::goHelloRetryRequest($ServerHandshakeContext* shc, $ClientHello$ClientHelloMessage* clientHello) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SSLHandshake);
 	$var($HandshakeProducer, handshakeProducer, $cast($HandshakeProducer, $nc($nc(shc)->handshakeProducers)->remove($($Byte::valueOf($SSLHandshake::HELLO_RETRY_REQUEST->id)))));
 	if (handshakeProducer != nullptr) {
@@ -156,18 +114,18 @@ void ClientHello$T13ClientHelloConsumer::goHelloRetryRequest($ServerHandshakeCon
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, $$str({"No HelloRetryRequest producer: "_s, shc->handshakeProducers}))));
 	}
-	if (!$nc(shc->handshakeProducers)->isEmpty()) {
+	if (!shc->handshakeProducers->isEmpty()) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, $$str({"unknown handshake producers: "_s, shc->handshakeProducers}))));
 	}
 }
 
 void ClientHello$T13ClientHelloConsumer::goServerHello($ServerHandshakeContext* shc, $ClientHello$ClientHelloMessage* clientHello) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set($nc(shc), clientHelloRandom, $nc(clientHello)->clientRandom);
 	if (!$nc(shc->conContext)->isNegotiated) {
-		$set($nc(shc->conContext), protocolVersion, shc->negotiatedProtocol);
-		$nc($nc(shc->conContext)->outputRecord)->setVersion(shc->negotiatedProtocol);
+		$set(shc->conContext, protocolVersion, shc->negotiatedProtocol);
+		$nc(shc->conContext->outputRecord)->setVersion(shc->negotiatedProtocol);
 	}
 	$init($SSLHandshake);
 	$nc(shc->handshakeProducers)->put($($Byte::valueOf($SSLHandshake::SERVER_HELLO->id)), $SSLHandshake::SERVER_HELLO);
@@ -181,12 +139,10 @@ void ClientHello$T13ClientHelloConsumer::goServerHello($ServerHandshakeContext* 
 	}));
 	{
 		$var($SSLHandshakeArray, arr$, probableHandshakeMessages);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$SSLHandshake* hs = arr$->get(i$);
 			{
-				$var($HandshakeProducer, handshakeProducer, $cast($HandshakeProducer, $nc(shc->handshakeProducers)->remove($($Byte::valueOf($nc(hs)->id)))));
+				$var($HandshakeProducer, handshakeProducer, $cast($HandshakeProducer, shc->handshakeProducers->remove($($Byte::valueOf($nc(hs)->id)))));
 				if (handshakeProducer != nullptr) {
 					handshakeProducer->produce(shc, clientHello);
 				}
@@ -199,7 +155,35 @@ ClientHello$T13ClientHelloConsumer::ClientHello$T13ClientHelloConsumer() {
 }
 
 $Class* ClientHello$T13ClientHelloConsumer::load$($String* name, bool initialize) {
-	$loadClass(ClientHello$T13ClientHelloConsumer, name, initialize, &_ClientHello$T13ClientHelloConsumer_ClassInfo_, allocate$ClientHello$T13ClientHelloConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ClientHello$T13ClientHelloConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(ClientHello$T13ClientHelloConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{"goHelloRetryRequest", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, $PRIVATE, $method(ClientHello$T13ClientHelloConsumer, goHelloRetryRequest, void, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
+		{"goServerHello", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, $PRIVATE, $method(ClientHello$T13ClientHelloConsumer, goServerHello, void, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ClientHello$T13ClientHelloConsumer", "sun.security.ssl.ClientHello", "T13ClientHelloConsumer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ClientHello$T13ClientHelloConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ClientHello"
+	};
+	$loadClass(ClientHello$T13ClientHelloConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientHello$T13ClientHelloConsumer);
+	});
 	return class$;
 }
 

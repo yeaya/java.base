@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$UniHandle.h>
-
 #include <java/util/concurrent/CompletableFuture$UniCompletion.h>
 #include <java/util/concurrent/CompletableFuture.h>
 #include <java/util/concurrent/Executor.h>
@@ -19,50 +18,13 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _CompletableFuture$UniHandle_FieldInfo_[] = {
-	{"fn", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TV;>;", 0, $field(CompletableFuture$UniHandle, fn)},
-	{}
-};
-
-$MethodInfo _CompletableFuture$UniHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/BiFunction;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TV;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TV;>;)V", 0, $method(CompletableFuture$UniHandle, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $BiFunction*)},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TV;>;", $FINAL, $virtualMethod(CompletableFuture$UniHandle, tryFire, $CompletableFuture*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$UniHandle_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$UniHandle", "java.util.concurrent.CompletableFuture", "UniHandle", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$UniCompletion", "java.util.concurrent.CompletableFuture", "UniCompletion", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CompletableFuture$UniHandle_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$UniHandle",
-	"java.util.concurrent.CompletableFuture$UniCompletion",
-	nullptr,
-	_CompletableFuture$UniHandle_FieldInfo_,
-	_CompletableFuture$UniHandle_MethodInfo_,
-	"<T:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture$UniCompletion<TT;TV;>;",
-	nullptr,
-	_CompletableFuture$UniHandle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$UniHandle($Class* clazz) {
-	return $of($alloc(CompletableFuture$UniHandle));
-}
-
 void CompletableFuture$UniHandle::init$($Executor* executor, $CompletableFuture* dep, $CompletableFuture* src, $BiFunction* fn) {
 	$CompletableFuture$UniCompletion::init$(executor, dep, src);
 	$set(this, fn, fn);
 }
 
 $CompletableFuture* CompletableFuture$UniHandle::tryFire(int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($Object, r, nullptr);
@@ -82,7 +44,38 @@ CompletableFuture$UniHandle::CompletableFuture$UniHandle() {
 }
 
 $Class* CompletableFuture$UniHandle::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$UniHandle, name, initialize, &_CompletableFuture$UniHandle_ClassInfo_, allocate$CompletableFuture$UniHandle);
+	$FieldInfo fieldInfos$$[] = {
+		{"fn", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TV;>;", 0, $field(CompletableFuture$UniHandle, fn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/BiFunction;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TV;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TV;>;)V", 0, $method(CompletableFuture$UniHandle, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $BiFunction*)},
+		{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TV;>;", $FINAL, $virtualMethod(CompletableFuture$UniHandle, tryFire, $CompletableFuture*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$UniHandle", "java.util.concurrent.CompletableFuture", "UniHandle", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$UniCompletion", "java.util.concurrent.CompletableFuture", "UniCompletion", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$UniHandle",
+		"java.util.concurrent.CompletableFuture$UniCompletion",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture$UniCompletion<TT;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$UniHandle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompletableFuture$UniHandle));
+	});
 	return class$;
 }
 

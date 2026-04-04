@@ -39,6 +39,7 @@ public:
 	OpensDirective* opensDirectives = nullptr;
 	UsesDirective* usesDirectives = nullptr;
 	ProvidesDirective* providesDirectives = nullptr;
+	ModuleInfo* clone();
 };
 
     } // lang

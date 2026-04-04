@@ -1,5 +1,4 @@
 #include <javax/net/ssl/KeyManagerFactorySpi.h>
-
 #include <java/security/KeyStore.h>
 #include <javax/net/ssl/KeyManager.h>
 #include <javax/net/ssl/ManagerFactoryParameters.h>
@@ -15,27 +14,6 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$MethodInfo _KeyManagerFactorySpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyManagerFactorySpi, init$, void)},
-	{"engineGetKeyManagers", "()[Ljavax/net/ssl/KeyManager;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyManagerFactorySpi, engineGetKeyManagers, $KeyManagerArray*)},
-	{"engineInit", "(Ljava/security/KeyStore;[C)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyManagerFactorySpi, engineInit, void, $KeyStore*, $chars*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyManagerFactorySpi, engineInit, void, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$ClassInfo _KeyManagerFactorySpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.net.ssl.KeyManagerFactorySpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_KeyManagerFactorySpi_MethodInfo_
-};
-
-$Object* allocate$KeyManagerFactorySpi($Class* clazz) {
-	return $of($alloc(KeyManagerFactorySpi));
-}
-
 void KeyManagerFactorySpi::init$() {
 }
 
@@ -43,7 +21,24 @@ KeyManagerFactorySpi::KeyManagerFactorySpi() {
 }
 
 $Class* KeyManagerFactorySpi::load$($String* name, bool initialize) {
-	$loadClass(KeyManagerFactorySpi, name, initialize, &_KeyManagerFactorySpi_ClassInfo_, allocate$KeyManagerFactorySpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyManagerFactorySpi, init$, void)},
+		{"engineGetKeyManagers", "()[Ljavax/net/ssl/KeyManager;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyManagerFactorySpi, engineGetKeyManagers, $KeyManagerArray*)},
+		{"engineInit", "(Ljava/security/KeyStore;[C)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyManagerFactorySpi, engineInit, void, $KeyStore*, $chars*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+		{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyManagerFactorySpi, engineInit, void, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.net.ssl.KeyManagerFactorySpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyManagerFactorySpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyManagerFactorySpi);
+	});
 	return class$;
 }
 

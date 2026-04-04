@@ -1,5 +1,4 @@
 #include <java/io/CharArrayReader.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
 #include <java/lang/Math.h>
@@ -19,43 +18,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _CharArrayReader_FieldInfo_[] = {
-	{"buf", "[C", nullptr, $PROTECTED, $field(CharArrayReader, buf)},
-	{"pos", "I", nullptr, $PROTECTED, $field(CharArrayReader, pos)},
-	{"markedPos", "I", nullptr, $PROTECTED, $field(CharArrayReader, markedPos)},
-	{"count", "I", nullptr, $PROTECTED, $field(CharArrayReader, count)},
-	{}
-};
-
-$MethodInfo _CharArrayReader_MethodInfo_[] = {
-	{"<init>", "([C)V", nullptr, $PUBLIC, $method(CharArrayReader, init$, void, $chars*)},
-	{"<init>", "([CII)V", nullptr, $PUBLIC, $method(CharArrayReader, init$, void, $chars*, int32_t, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, close, void)},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(CharArrayReader, ensureOpen, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, mark, void, int32_t), "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, read, int32_t), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, read, int32_t, $CharBuffer*), "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, ready, bool), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CharArrayReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.CharArrayReader",
-	"java.io.Reader",
-	nullptr,
-	_CharArrayReader_FieldInfo_,
-	_CharArrayReader_MethodInfo_
-};
-
-$Object* allocate$CharArrayReader($Class* clazz) {
-	return $of($alloc(CharArrayReader));
-}
 
 void CharArrayReader::init$($chars* buf) {
 	$Reader::init$();
@@ -125,7 +87,7 @@ int32_t CharArrayReader::read($CharBuffer* target) {
 		}
 		int32_t avail = this->count - this->pos;
 		int32_t len = $Math::min(avail, $nc(target)->remaining());
-		$nc(target)->put(this->buf, this->pos, len);
+		target->put(this->buf, this->pos, len);
 		this->pos += len;
 		return len;
 	}
@@ -181,7 +143,39 @@ CharArrayReader::CharArrayReader() {
 }
 
 $Class* CharArrayReader::load$($String* name, bool initialize) {
-	$loadClass(CharArrayReader, name, initialize, &_CharArrayReader_ClassInfo_, allocate$CharArrayReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[C", nullptr, $PROTECTED, $field(CharArrayReader, buf)},
+		{"pos", "I", nullptr, $PROTECTED, $field(CharArrayReader, pos)},
+		{"markedPos", "I", nullptr, $PROTECTED, $field(CharArrayReader, markedPos)},
+		{"count", "I", nullptr, $PROTECTED, $field(CharArrayReader, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([C)V", nullptr, $PUBLIC, $method(CharArrayReader, init$, void, $chars*)},
+		{"<init>", "([CII)V", nullptr, $PUBLIC, $method(CharArrayReader, init$, void, $chars*, int32_t, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, close, void)},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(CharArrayReader, ensureOpen, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, mark, void, int32_t), "java.io.IOException"},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, read, int32_t), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, read, int32_t, $CharBuffer*), "java.io.IOException"},
+		{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, ready, bool), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.CharArrayReader",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharArrayReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CharArrayReader));
+	});
 	return class$;
 }
 

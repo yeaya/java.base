@@ -37,6 +37,7 @@ class CalendarDataUtility$CalendarWeekParameterGetter : public ::sun::util::loca
 	$class(CalendarDataUtility$CalendarWeekParameterGetter, 0, ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter)
 public:
 	CalendarDataUtility$CalendarWeekParameterGetter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::lang::Integer* getObject(::java::util::spi::CalendarDataProvider* calendarDataProvider, ::java::util::Locale* locale, $String* requestID, $ObjectArray* params);
 	virtual $Object* getObject(::java::util::spi::LocaleServiceProvider* calendarDataProvider, ::java::util::Locale* locale, $String* requestID, $ObjectArray* params) override;

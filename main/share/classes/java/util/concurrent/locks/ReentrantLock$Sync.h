@@ -47,7 +47,7 @@ public:
 	bool tryLock();
 	bool tryLockNanos(int64_t nanos);
 	virtual bool tryRelease(int32_t releases) override;
-	static const int64_t serialVersionUID = (int64_t)0xB81EA294AA445A7C;
+	static const int64_t serialVersionUID = (int64_t)0xb81ea294aa445a7c;
 };
 
 			} // locks

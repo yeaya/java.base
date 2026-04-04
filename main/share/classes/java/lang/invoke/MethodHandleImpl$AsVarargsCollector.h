@@ -25,6 +25,7 @@ class MethodHandleImpl$AsVarargsCollector : public ::java::lang::invoke::Delegat
 public:
 	MethodHandleImpl$AsVarargsCollector();
 	using ::java::lang::invoke::DelegatingMethodHandle::invokeWithArguments;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodHandle* target, $Class* arrayType);
 	void init$(::java::lang::invoke::MethodType* type, ::java::lang::invoke::MethodHandle* target, $Class* arrayType);
 	virtual ::java::lang::invoke::MethodHandle* asFixedArity() override;

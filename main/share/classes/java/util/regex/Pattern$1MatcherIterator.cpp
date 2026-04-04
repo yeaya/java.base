@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$1MatcherIterator.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/regex/Matcher.h>
@@ -13,60 +12,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 
 namespace java {
 	namespace util {
 		namespace regex {
-
-$FieldInfo _Pattern$1MatcherIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/regex/Pattern;", nullptr, $FINAL | $SYNTHETIC, $field(Pattern$1MatcherIterator, this$0)},
-	{"val$input", "Ljava/lang/CharSequence;", nullptr, $FINAL | $SYNTHETIC, $field(Pattern$1MatcherIterator, val$input)},
-	{"matcher", "Ljava/util/regex/Matcher;", nullptr, $PRIVATE, $field(Pattern$1MatcherIterator, matcher)},
-	{"current", "I", nullptr, $PRIVATE, $field(Pattern$1MatcherIterator, current)},
-	{"nextElement", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Pattern$1MatcherIterator, nextElement)},
-	{"emptyElementCount", "I", nullptr, $PRIVATE, $field(Pattern$1MatcherIterator, emptyElementCount)},
-	{}
-};
-
-$MethodInfo _Pattern$1MatcherIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern;Ljava/lang/CharSequence;)V", "()V", 0, $method(Pattern$1MatcherIterator, init$, void, $Pattern*, $CharSequence*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Pattern$1MatcherIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pattern$1MatcherIterator, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Pattern$1MatcherIterator_EnclosingMethodInfo_ = {
-	"java.util.regex.Pattern",
-	"splitAsStream",
-	"(Ljava/lang/CharSequence;)Ljava/util/stream/Stream;"
-};
-
-$InnerClassInfo _Pattern$1MatcherIterator_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$1MatcherIterator", nullptr, "MatcherIterator", 0},
-	{}
-};
-
-$ClassInfo _Pattern$1MatcherIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Pattern$1MatcherIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Pattern$1MatcherIterator_FieldInfo_,
-	_Pattern$1MatcherIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;",
-	&_Pattern$1MatcherIterator_EnclosingMethodInfo_,
-	_Pattern$1MatcherIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$1MatcherIterator($Class* clazz) {
-	return $of($alloc(Pattern$1MatcherIterator));
-}
 
 void Pattern$1MatcherIterator::init$($Pattern* this$0, $CharSequence* val$input) {
 	$set(this, this$0, this$0);
@@ -88,7 +38,7 @@ $Object* Pattern$1MatcherIterator::next() {
 }
 
 bool Pattern$1MatcherIterator::hasNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->matcher == nullptr) {
 		$set(this, matcher, this->this$0->matcher(this->val$input));
 		this->emptyElementCount = $nc(this->val$input)->length() == 0 ? 1 : 0;
@@ -100,7 +50,7 @@ bool Pattern$1MatcherIterator::hasNext() {
 		return false;
 	}
 	while ($nc(this->matcher)->find()) {
-		$set(this, nextElement, $nc($($nc(this->val$input)->subSequence(this->current, $nc(this->matcher)->start())))->toString());
+		$set(this, nextElement, $$nc(this->val$input->subSequence(this->current, this->matcher->start()))->toString());
 		this->current = $nc(this->matcher)->end();
 		if (!$nc(this->nextElement)->isEmpty()) {
 			return true;
@@ -108,8 +58,8 @@ bool Pattern$1MatcherIterator::hasNext() {
 			++this->emptyElementCount;
 		}
 	}
-	$set(this, nextElement, $nc($($nc(this->val$input)->subSequence(this->current, $nc(this->val$input)->length())))->toString());
-	this->current = $nc(this->val$input)->length();
+	$set(this, nextElement, $$nc(this->val$input->subSequence(this->current, this->val$input->length()))->toString());
+	this->current = this->val$input->length();
 	if (!$nc(this->nextElement)->isEmpty()) {
 		return true;
 	} else {
@@ -123,7 +73,48 @@ Pattern$1MatcherIterator::Pattern$1MatcherIterator() {
 }
 
 $Class* Pattern$1MatcherIterator::load$($String* name, bool initialize) {
-	$loadClass(Pattern$1MatcherIterator, name, initialize, &_Pattern$1MatcherIterator_ClassInfo_, allocate$Pattern$1MatcherIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/regex/Pattern;", nullptr, $FINAL | $SYNTHETIC, $field(Pattern$1MatcherIterator, this$0)},
+		{"val$input", "Ljava/lang/CharSequence;", nullptr, $FINAL | $SYNTHETIC, $field(Pattern$1MatcherIterator, val$input)},
+		{"matcher", "Ljava/util/regex/Matcher;", nullptr, $PRIVATE, $field(Pattern$1MatcherIterator, matcher)},
+		{"current", "I", nullptr, $PRIVATE, $field(Pattern$1MatcherIterator, current)},
+		{"nextElement", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Pattern$1MatcherIterator, nextElement)},
+		{"emptyElementCount", "I", nullptr, $PRIVATE, $field(Pattern$1MatcherIterator, emptyElementCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern;Ljava/lang/CharSequence;)V", "()V", 0, $method(Pattern$1MatcherIterator, init$, void, $Pattern*, $CharSequence*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Pattern$1MatcherIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pattern$1MatcherIterator, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.regex.Pattern",
+		"splitAsStream",
+		"(Ljava/lang/CharSequence;)Ljava/util/stream/Stream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$1MatcherIterator", nullptr, "MatcherIterator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Pattern$1MatcherIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$1MatcherIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$1MatcherIterator);
+	});
 	return class$;
 }
 

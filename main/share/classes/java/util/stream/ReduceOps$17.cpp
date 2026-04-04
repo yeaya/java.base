@@ -1,5 +1,4 @@
 #include <java/util/stream/ReduceOps$17.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/stream/PipelineHelper.h>
 #include <java/util/stream/ReduceOps$AccumulatingSink.h>
@@ -28,48 +27,6 @@ using $StreamShape = ::java::util::stream::StreamShape;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _ReduceOps$17_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/StreamShape;)V", nullptr, 0, $method(ReduceOps$17, init$, void, $StreamShape*)},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Long;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/lang/Long;", $PUBLIC, $virtualMethod(ReduceOps$17, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Long;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/lang/Long;", $PUBLIC, $virtualMethod(ReduceOps$17, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
-	{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(ReduceOps$17, getOpFlags, int32_t)},
-	{"makeSink", "()Ljava/util/stream/ReduceOps$CountingSink;", "()Ljava/util/stream/ReduceOps$CountingSink<Ljava/lang/Double;>;", $PUBLIC, $virtualMethod(ReduceOps$17, makeSink, $ReduceOps$AccumulatingSink*)},
-	{}
-};
-
-$EnclosingMethodInfo _ReduceOps$17_EnclosingMethodInfo_ = {
-	"java.util.stream.ReduceOps",
-	"makeDoubleCounting",
-	"()Ljava/util/stream/TerminalOp;"
-};
-
-$InnerClassInfo _ReduceOps$17_InnerClassesInfo_[] = {
-	{"java.util.stream.ReduceOps$17", nullptr, nullptr, 0},
-	{"java.util.stream.ReduceOps$ReduceOp", "java.util.stream.ReduceOps", "ReduceOp", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.ReduceOps$CountingSink", "java.util.stream.ReduceOps", "CountingSink", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ReduceOps$17_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.ReduceOps$17",
-	"java.util.stream.ReduceOps$ReduceOp",
-	nullptr,
-	nullptr,
-	_ReduceOps$17_MethodInfo_,
-	"Ljava/util/stream/ReduceOps$ReduceOp<Ljava/lang/Double;Ljava/lang/Long;Ljava/util/stream/ReduceOps$CountingSink<Ljava/lang/Double;>;>;",
-	&_ReduceOps$17_EnclosingMethodInfo_,
-	_ReduceOps$17_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ReduceOps"
-};
-
-$Object* allocate$ReduceOps$17($Class* clazz) {
-	return $of($alloc(ReduceOps$17));
-}
 
 void ReduceOps$17::init$($StreamShape* shape) {
 	$ReduceOps$ReduceOp::init$(shape);
@@ -104,7 +61,43 @@ ReduceOps$17::ReduceOps$17() {
 }
 
 $Class* ReduceOps$17::load$($String* name, bool initialize) {
-	$loadClass(ReduceOps$17, name, initialize, &_ReduceOps$17_ClassInfo_, allocate$ReduceOps$17);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/StreamShape;)V", nullptr, 0, $method(ReduceOps$17, init$, void, $StreamShape*)},
+		{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Long;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/lang/Long;", $PUBLIC, $virtualMethod(ReduceOps$17, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+		{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Long;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/lang/Long;", $PUBLIC, $virtualMethod(ReduceOps$17, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+		{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(ReduceOps$17, getOpFlags, int32_t)},
+		{"makeSink", "()Ljava/util/stream/ReduceOps$CountingSink;", "()Ljava/util/stream/ReduceOps$CountingSink<Ljava/lang/Double;>;", $PUBLIC, $virtualMethod(ReduceOps$17, makeSink, $ReduceOps$AccumulatingSink*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.ReduceOps",
+		"makeDoubleCounting",
+		"()Ljava/util/stream/TerminalOp;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ReduceOps$17", nullptr, nullptr, 0},
+		{"java.util.stream.ReduceOps$ReduceOp", "java.util.stream.ReduceOps", "ReduceOp", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.ReduceOps$CountingSink", "java.util.stream.ReduceOps", "CountingSink", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.ReduceOps$17",
+		"java.util.stream.ReduceOps$ReduceOp",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/stream/ReduceOps$ReduceOp<Ljava/lang/Double;Ljava/lang/Long;Ljava/util/stream/ReduceOps$CountingSink<Ljava/lang/Double;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ReduceOps"
+	};
+	$loadClass(ReduceOps$17, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReduceOps$17);
+	});
 	return class$;
 }
 

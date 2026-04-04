@@ -1,5 +1,4 @@
 #include <java/util/Vector$ListItr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Vector$Itr.h>
@@ -19,57 +18,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Vector$ListItr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/Vector;", nullptr, $FINAL | $SYNTHETIC, $field(Vector$ListItr, this$0)},
-	{}
-};
-
-$MethodInfo _Vector$ListItr_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"*hasNext", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Vector;I)V", nullptr, 0, $method(Vector$ListItr, init$, void, $Vector*, int32_t)},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Vector$ListItr, add, void, Object$*)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(Vector$ListItr, hasPrevious, bool)},
-	{"*next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Vector$ListItr, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Vector$ListItr, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Vector$ListItr, previousIndex, int32_t)},
-	{"*remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Vector$ListItr, set, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Vector$ListItr_InnerClassesInfo_[] = {
-	{"java.util.Vector$ListItr", "java.util.Vector", "ListItr", $FINAL},
-	{"java.util.Vector$Itr", "java.util.Vector", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Vector$ListItr_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.Vector$ListItr",
-	"java.util.Vector$Itr",
-	"java.util.ListIterator",
-	_Vector$ListItr_FieldInfo_,
-	_Vector$ListItr_MethodInfo_,
-	"Ljava/util/Vector<TE;>.Itr;Ljava/util/ListIterator<TE;>;",
-	nullptr,
-	_Vector$ListItr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Vector"
-};
-
-$Object* allocate$Vector$ListItr($Class* clazz) {
-	return $of($alloc(Vector$ListItr));
-}
 
 bool Vector$ListItr::hasNext() {
 	 return this->$Vector$Itr::hasNext();
@@ -133,7 +81,7 @@ $Object* Vector$ListItr::previous() {
 			$throwNew($NoSuchElementException);
 		}
 		this->cursor = i;
-		return $of(this->this$0->elementData(this->lastRet = i));
+		return this->this$0->elementData(this->lastRet = i);
 	}
 }
 
@@ -162,7 +110,52 @@ Vector$ListItr::Vector$ListItr() {
 }
 
 $Class* Vector$ListItr::load$($String* name, bool initialize) {
-	$loadClass(Vector$ListItr, name, initialize, &_Vector$ListItr_ClassInfo_, allocate$Vector$ListItr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/Vector;", nullptr, $FINAL | $SYNTHETIC, $field(Vector$ListItr, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"*hasNext", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/Vector;I)V", nullptr, 0, $method(Vector$ListItr, init$, void, $Vector*, int32_t)},
+		{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Vector$ListItr, add, void, Object$*)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(Vector$ListItr, hasPrevious, bool)},
+		{"*next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Vector$ListItr, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Vector$ListItr, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Vector$ListItr, previousIndex, int32_t)},
+		{"*remove", "()V", nullptr, $PUBLIC},
+		{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Vector$ListItr, set, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Vector$ListItr", "java.util.Vector", "ListItr", $FINAL},
+		{"java.util.Vector$Itr", "java.util.Vector", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.Vector$ListItr",
+		"java.util.Vector$Itr",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/Vector<TE;>.Itr;Ljava/util/ListIterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Vector"
+	};
+	$loadClass(Vector$ListItr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Vector$ListItr));
+	});
 	return class$;
 }
 

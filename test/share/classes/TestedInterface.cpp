@@ -1,43 +1,37 @@
 #include <TestedInterface.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _TestedInterface_FieldInfo_[] = {
-	{"s", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestedInterface, s)},
-	{}
-};
-
-$MethodInfo _TestedInterface_MethodInfo_[] = {
-	{"bar", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestedInterface, bar, void)},
-	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestedInterface, foo, void)},
-	{}
-};
-
-$ClassInfo _TestedInterface_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"TestedInterface",
-	nullptr,
-	nullptr,
-	_TestedInterface_FieldInfo_,
-	_TestedInterface_MethodInfo_
-};
-
-$Object* allocate$TestedInterface($Class* clazz) {
-	return $of($alloc(TestedInterface));
-}
-
 $String* TestedInterface::s = nullptr;
 
-void clinit$TestedInterface($Class* class$) {
+void TestedInterface::clinit$($Class* clazz) {
 	$assignStatic(TestedInterface::s, $System::getProperty("Test"_s));
 }
 
 $Class* TestedInterface::load$($String* name, bool initialize) {
-	$loadClass(TestedInterface, name, initialize, &_TestedInterface_ClassInfo_, clinit$TestedInterface, allocate$TestedInterface);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestedInterface, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"bar", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestedInterface, bar, void)},
+		{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestedInterface, foo, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"TestedInterface",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestedInterface, name, initialize, &classInfo$$, TestedInterface::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestedInterface);
+	});
 	return class$;
 }
 

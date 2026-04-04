@@ -1,12 +1,10 @@
 #include <java/security/cert/PKIXRevocationChecker.h>
-
 #include <java/net/URI.h>
 #include <java/security/cert/Extension.h>
 #include <java/security/cert/PKIXCertPathChecker.h>
 #include <java/security/cert/PKIXRevocationChecker$Option.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -25,7 +23,6 @@ using $URI = ::java::net::URI;
 using $PKIXCertPathChecker = ::java::security::cert::PKIXCertPathChecker;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -38,56 +35,6 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _PKIXRevocationChecker_FieldInfo_[] = {
-	{"ocspResponder", "Ljava/net/URI;", nullptr, $PRIVATE, $field(PKIXRevocationChecker, ocspResponder)},
-	{"ocspResponderCert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(PKIXRevocationChecker, ocspResponderCert)},
-	{"ocspExtensions", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/Extension;>;", $PRIVATE, $field(PKIXRevocationChecker, ocspExtensions)},
-	{"ocspResponses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", $PRIVATE, $field(PKIXRevocationChecker, ocspResponses)},
-	{"options", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/PKIXRevocationChecker$Option;>;", $PRIVATE, $field(PKIXRevocationChecker, options)},
-	{}
-};
-
-$MethodInfo _PKIXRevocationChecker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(PKIXRevocationChecker, init$, void)},
-	{"clone", "()Ljava/security/cert/PKIXRevocationChecker;", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, clone, $Object*)},
-	{"getOcspExtensions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/Extension;>;", $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspExtensions, $List*)},
-	{"getOcspResponder", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspResponder, $URI*)},
-	{"getOcspResponderCert", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspResponderCert, $X509Certificate*)},
-	{"getOcspResponses", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspResponses, $Map*)},
-	{"getOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/PKIXRevocationChecker$Option;>;", $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOptions, $Set*)},
-	{"getSoftFailExceptions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/CertPathValidatorException;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PKIXRevocationChecker, getSoftFailExceptions, $List*)},
-	{"setOcspExtensions", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/Extension;>;)V", $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspExtensions, void, $List*)},
-	{"setOcspResponder", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspResponder, void, $URI*)},
-	{"setOcspResponderCert", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspResponderCert, void, $X509Certificate*)},
-	{"setOcspResponses", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;)V", $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspResponses, void, $Map*)},
-	{"setOptions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/security/cert/PKIXRevocationChecker$Option;>;)V", $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOptions, void, $Set*)},
-	{}
-};
-
-$InnerClassInfo _PKIXRevocationChecker_InnerClassesInfo_[] = {
-	{"java.security.cert.PKIXRevocationChecker$Option", "java.security.cert.PKIXRevocationChecker", "Option", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _PKIXRevocationChecker_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.cert.PKIXRevocationChecker",
-	"java.security.cert.PKIXCertPathChecker",
-	nullptr,
-	_PKIXRevocationChecker_FieldInfo_,
-	_PKIXRevocationChecker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PKIXRevocationChecker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.security.cert.PKIXRevocationChecker$Option"
-};
-
-$Object* allocate$PKIXRevocationChecker($Class* clazz) {
-	return $of($alloc(PKIXRevocationChecker));
-}
 
 void PKIXRevocationChecker::init$() {
 	$PKIXCertPathChecker::init$();
@@ -113,7 +60,7 @@ $X509Certificate* PKIXRevocationChecker::getOcspResponderCert() {
 }
 
 void PKIXRevocationChecker::setOcspExtensions($List* extensions) {
-	$set(this, ocspExtensions, (extensions == nullptr) ? $Collections::emptyList() : static_cast<$List*>($new($ArrayList, static_cast<$Collection*>(extensions))));
+	$set(this, ocspExtensions, (extensions == nullptr) ? $Collections::emptyList() : $cast($List, $new($ArrayList, extensions)));
 }
 
 $List* PKIXRevocationChecker::getOcspExtensions() {
@@ -121,18 +68,18 @@ $List* PKIXRevocationChecker::getOcspExtensions() {
 }
 
 void PKIXRevocationChecker::setOcspResponses($Map* responses) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (responses == nullptr) {
 		$set(this, ocspResponses, $Collections::emptyMap());
 	} else {
-		$var($Map, copy, $new($HashMap, $nc(responses)->size()));
+		$var($Map, copy, $new($HashMap, responses->size()));
 		{
-			$var($Iterator, i$, $nc($($nc(responses)->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc(responses->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 				{
 					$var($Object, var$0, $cast($X509Certificate, $nc(e)->getKey()));
-					copy->put(var$0, $cast($bytes, $($nc(($cast($bytes, $(e->getValue()))))->clone())));
+					copy->put(var$0, $$cast($bytes, $$sure($bytes, e->getValue())->clone()));
 				}
 			}
 		}
@@ -141,15 +88,15 @@ void PKIXRevocationChecker::setOcspResponses($Map* responses) {
 }
 
 $Map* PKIXRevocationChecker::getOcspResponses() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, copy, $new($HashMap, $nc(this->ocspResponses)->size()));
 	{
-		$var($Iterator, i$, $nc($($nc(this->ocspResponses)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(this->ocspResponses->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
 				$var($Object, var$0, $cast($X509Certificate, $nc(e)->getKey()));
-				copy->put(var$0, $cast($bytes, $($nc(($cast($bytes, $(e->getValue()))))->clone())));
+				copy->put(var$0, $$cast($bytes, $$sure($bytes, e->getValue())->clone()));
 			}
 		}
 	}
@@ -157,7 +104,7 @@ $Map* PKIXRevocationChecker::getOcspResponses() {
 }
 
 void PKIXRevocationChecker::setOptions($Set* options) {
-	$set(this, options, (options == nullptr) ? $Collections::emptySet() : static_cast<$Set*>($new($HashSet, static_cast<$Collection*>(options))));
+	$set(this, options, (options == nullptr) ? $Collections::emptySet() : $cast($Set, $new($HashSet, options)));
 }
 
 $Set* PKIXRevocationChecker::getOptions() {
@@ -165,21 +112,21 @@ $Set* PKIXRevocationChecker::getOptions() {
 }
 
 $Object* PKIXRevocationChecker::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PKIXRevocationChecker, copy, $cast(PKIXRevocationChecker, $PKIXCertPathChecker::clone()));
-	$set($nc(copy), ocspExtensions, $new($ArrayList, static_cast<$Collection*>(this->ocspExtensions)));
+	$set($nc(copy), ocspExtensions, $new($ArrayList, this->ocspExtensions));
 	$set(copy, ocspResponses, $new($HashMap, this->ocspResponses));
 	{
-		$var($Iterator, i$, $nc($($nc(copy->ocspResponses)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(copy->ocspResponses->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				$var($bytes, encoded, $cast($bytes, $nc(entry)->getValue()));
-				entry->setValue($cast($bytes, $($nc(encoded)->clone())));
+				entry->setValue($$cast($bytes, $nc(encoded)->clone()));
 			}
 		}
 	}
-	$set(copy, options, $new($HashSet, static_cast<$Collection*>(this->options)));
+	$set(copy, options, $new($HashSet, this->options));
 	return $of(copy);
 }
 
@@ -187,7 +134,51 @@ PKIXRevocationChecker::PKIXRevocationChecker() {
 }
 
 $Class* PKIXRevocationChecker::load$($String* name, bool initialize) {
-	$loadClass(PKIXRevocationChecker, name, initialize, &_PKIXRevocationChecker_ClassInfo_, allocate$PKIXRevocationChecker);
+	$FieldInfo fieldInfos$$[] = {
+		{"ocspResponder", "Ljava/net/URI;", nullptr, $PRIVATE, $field(PKIXRevocationChecker, ocspResponder)},
+		{"ocspResponderCert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(PKIXRevocationChecker, ocspResponderCert)},
+		{"ocspExtensions", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/Extension;>;", $PRIVATE, $field(PKIXRevocationChecker, ocspExtensions)},
+		{"ocspResponses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", $PRIVATE, $field(PKIXRevocationChecker, ocspResponses)},
+		{"options", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/PKIXRevocationChecker$Option;>;", $PRIVATE, $field(PKIXRevocationChecker, options)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(PKIXRevocationChecker, init$, void)},
+		{"clone", "()Ljava/security/cert/PKIXRevocationChecker;", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, clone, $Object*)},
+		{"getOcspExtensions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/Extension;>;", $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspExtensions, $List*)},
+		{"getOcspResponder", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspResponder, $URI*)},
+		{"getOcspResponderCert", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspResponderCert, $X509Certificate*)},
+		{"getOcspResponses", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspResponses, $Map*)},
+		{"getOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/PKIXRevocationChecker$Option;>;", $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOptions, $Set*)},
+		{"getSoftFailExceptions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/CertPathValidatorException;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PKIXRevocationChecker, getSoftFailExceptions, $List*)},
+		{"setOcspExtensions", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/Extension;>;)V", $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspExtensions, void, $List*)},
+		{"setOcspResponder", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspResponder, void, $URI*)},
+		{"setOcspResponderCert", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspResponderCert, void, $X509Certificate*)},
+		{"setOcspResponses", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;)V", $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspResponses, void, $Map*)},
+		{"setOptions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/security/cert/PKIXRevocationChecker$Option;>;)V", $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOptions, void, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.cert.PKIXRevocationChecker$Option", "java.security.cert.PKIXRevocationChecker", "Option", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.cert.PKIXRevocationChecker",
+		"java.security.cert.PKIXCertPathChecker",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.security.cert.PKIXRevocationChecker$Option"
+	};
+	$loadClass(PKIXRevocationChecker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PKIXRevocationChecker));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/X509KeyManagerImpl$SizedMap.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap.h>
 #include <java/util/Map$Entry.h>
@@ -17,42 +16,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _X509KeyManagerImpl$SizedMap_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509KeyManagerImpl$SizedMap, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _X509KeyManagerImpl$SizedMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(X509KeyManagerImpl$SizedMap, init$, void)},
-	{"removeEldestEntry", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PROTECTED, $virtualMethod(X509KeyManagerImpl$SizedMap, removeEldestEntry, bool, $Map$Entry*)},
-	{}
-};
-
-$InnerClassInfo _X509KeyManagerImpl$SizedMap_InnerClassesInfo_[] = {
-	{"sun.security.ssl.X509KeyManagerImpl$SizedMap", "sun.security.ssl.X509KeyManagerImpl", "SizedMap", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _X509KeyManagerImpl$SizedMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.X509KeyManagerImpl$SizedMap",
-	"java.util.LinkedHashMap",
-	nullptr,
-	_X509KeyManagerImpl$SizedMap_FieldInfo_,
-	_X509KeyManagerImpl$SizedMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/LinkedHashMap<TK;TV;>;",
-	nullptr,
-	_X509KeyManagerImpl$SizedMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.X509KeyManagerImpl"
-};
-
-$Object* allocate$X509KeyManagerImpl$SizedMap($Class* clazz) {
-	return $of($alloc(X509KeyManagerImpl$SizedMap));
-}
-
 void X509KeyManagerImpl$SizedMap::init$() {
 	$LinkedHashMap::init$();
 }
@@ -65,7 +28,37 @@ X509KeyManagerImpl$SizedMap::X509KeyManagerImpl$SizedMap() {
 }
 
 $Class* X509KeyManagerImpl$SizedMap::load$($String* name, bool initialize) {
-	$loadClass(X509KeyManagerImpl$SizedMap, name, initialize, &_X509KeyManagerImpl$SizedMap_ClassInfo_, allocate$X509KeyManagerImpl$SizedMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509KeyManagerImpl$SizedMap, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(X509KeyManagerImpl$SizedMap, init$, void)},
+		{"removeEldestEntry", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PROTECTED, $virtualMethod(X509KeyManagerImpl$SizedMap, removeEldestEntry, bool, $Map$Entry*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.X509KeyManagerImpl$SizedMap", "sun.security.ssl.X509KeyManagerImpl", "SizedMap", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.X509KeyManagerImpl$SizedMap",
+		"java.util.LinkedHashMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/LinkedHashMap<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.X509KeyManagerImpl"
+	};
+	$loadClass(X509KeyManagerImpl$SizedMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X509KeyManagerImpl$SizedMap));
+	});
 	return class$;
 }
 

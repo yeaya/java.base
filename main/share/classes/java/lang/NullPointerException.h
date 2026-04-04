@@ -15,7 +15,7 @@ namespace java {
 	namespace lang {
 
 class $export NullPointerException : public ::java::lang::RuntimeException {
-	$class(NullPointerException, $NO_CLASS_INIT, ::java::lang::RuntimeException)
+	$class(NullPointerException, $PREINIT | $NO_CLASS_INIT, ::java::lang::RuntimeException)
 public:
 	NullPointerException();
 	void init$();
@@ -23,12 +23,15 @@ public:
 	virtual $Throwable* fillInStackTrace() override;
 	$String* getExtendedNPEMessage();
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0x47A5A18EFF31E1B8;
+	static const int64_t serialVersionUID = (int64_t)0x47a5a18eff31e1b8;
 	int32_t extendedMessageState = 0;
 	$String* extendedMessage = nullptr;
 	NullPointerException(const NullPointerException& e);
 	virtual void throw$() override;
-	inline NullPointerException* operator ->() {
+	inline NullPointerException* operator ->() const {
+		return (NullPointerException*)throwing$;
+	}
+	inline operator NullPointerException*() const {
 		return (NullPointerException*)throwing$;
 	}
 	static void throwNew$();

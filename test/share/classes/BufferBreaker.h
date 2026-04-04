@@ -10,6 +10,7 @@ class BufferBreaker : public ::java::io::InputStream {
 	$class(BufferBreaker, 0, ::java::io::InputStream)
 public:
 	BufferBreaker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t available() override;
 	virtual int32_t read() override;

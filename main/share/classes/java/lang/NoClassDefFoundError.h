@@ -14,10 +14,13 @@ public:
 	NoClassDefFoundError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x7E3AFC5A8DF49C6A;
+	static const int64_t serialVersionUID = (int64_t)0x7e3afc5a8df49c6a;
 	NoClassDefFoundError(const NoClassDefFoundError& e);
 	virtual void throw$() override;
-	inline NoClassDefFoundError* operator ->() {
+	inline NoClassDefFoundError* operator ->() const {
+		return (NoClassDefFoundError*)throwing$;
+	}
+	inline operator NoClassDefFoundError*() const {
 		return (NoClassDefFoundError*)throwing$;
 	}
 };

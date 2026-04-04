@@ -1,15 +1,12 @@
 #include <sun/security/ssl/HandshakeHash$CacheOnlyHash.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/IllegalStateException.h>
 #include <sun/security/ssl/HandshakeHash.h>
 #include <jcpp.h>
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -20,46 +17,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _HandshakeHash$CacheOnlyHash_FieldInfo_[] = {
-	{"baos", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE | $FINAL, $field(HandshakeHash$CacheOnlyHash, baos)},
-	{}
-};
-
-$MethodInfo _HandshakeHash$CacheOnlyHash_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HandshakeHash$CacheOnlyHash, init$, void)},
-	{"archived", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CacheOnlyHash, archived, $bytes*)},
-	{"copy", "()Lsun/security/ssl/HandshakeHash$CacheOnlyHash;", nullptr, 0, $method(HandshakeHash$CacheOnlyHash, copy, HandshakeHash$CacheOnlyHash*)},
-	{"digest", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CacheOnlyHash, digest, $bytes*)},
-	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CacheOnlyHash, update, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _HandshakeHash$CacheOnlyHash_InnerClassesInfo_[] = {
-	{"sun.security.ssl.HandshakeHash$CacheOnlyHash", "sun.security.ssl.HandshakeHash", "CacheOnlyHash", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.HandshakeHash$TranscriptHash", "sun.security.ssl.HandshakeHash", "TranscriptHash", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HandshakeHash$CacheOnlyHash_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.HandshakeHash$CacheOnlyHash",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeHash$TranscriptHash",
-	_HandshakeHash$CacheOnlyHash_FieldInfo_,
-	_HandshakeHash$CacheOnlyHash_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HandshakeHash$CacheOnlyHash_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.HandshakeHash"
-};
-
-$Object* allocate$HandshakeHash$CacheOnlyHash($Class* clazz) {
-	return $of($alloc(HandshakeHash$CacheOnlyHash));
-}
 
 void HandshakeHash$CacheOnlyHash::init$() {
 	$set(this, baos, $new($ByteArrayOutputStream));
@@ -92,7 +49,41 @@ HandshakeHash$CacheOnlyHash::HandshakeHash$CacheOnlyHash() {
 }
 
 $Class* HandshakeHash$CacheOnlyHash::load$($String* name, bool initialize) {
-	$loadClass(HandshakeHash$CacheOnlyHash, name, initialize, &_HandshakeHash$CacheOnlyHash_ClassInfo_, allocate$HandshakeHash$CacheOnlyHash);
+	$FieldInfo fieldInfos$$[] = {
+		{"baos", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE | $FINAL, $field(HandshakeHash$CacheOnlyHash, baos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HandshakeHash$CacheOnlyHash, init$, void)},
+		{"archived", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CacheOnlyHash, archived, $bytes*)},
+		{"copy", "()Lsun/security/ssl/HandshakeHash$CacheOnlyHash;", nullptr, 0, $method(HandshakeHash$CacheOnlyHash, copy, HandshakeHash$CacheOnlyHash*)},
+		{"digest", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CacheOnlyHash, digest, $bytes*)},
+		{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CacheOnlyHash, update, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.HandshakeHash$CacheOnlyHash", "sun.security.ssl.HandshakeHash", "CacheOnlyHash", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.HandshakeHash$TranscriptHash", "sun.security.ssl.HandshakeHash", "TranscriptHash", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.HandshakeHash$CacheOnlyHash",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeHash$TranscriptHash",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.HandshakeHash"
+	};
+	$loadClass(HandshakeHash$CacheOnlyHash, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HandshakeHash$CacheOnlyHash);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/WhileOps$TakeWhileTask.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/CountedCompleter.h>
 #include <java/util/function/IntFunction.h>
@@ -39,53 +38,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _WhileOps$TakeWhileTask_FieldInfo_[] = {
-	{"op", "Ljava/util/stream/AbstractPipeline;", "Ljava/util/stream/AbstractPipeline<TP_OUT;TP_OUT;*>;", $PRIVATE | $FINAL, $field(WhileOps$TakeWhileTask, op)},
-	{"generator", "Ljava/util/function/IntFunction;", "Ljava/util/function/IntFunction<[TP_OUT;>;", $PRIVATE | $FINAL, $field(WhileOps$TakeWhileTask, generator)},
-	{"isOrdered", "Z", nullptr, $PRIVATE | $FINAL, $field(WhileOps$TakeWhileTask, isOrdered)},
-	{"thisNodeSize", "J", nullptr, $PRIVATE, $field(WhileOps$TakeWhileTask, thisNodeSize)},
-	{"shortCircuited", "Z", nullptr, $PRIVATE, $field(WhileOps$TakeWhileTask, shortCircuited)},
-	{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(WhileOps$TakeWhileTask, completed)},
-	{}
-};
-
-$MethodInfo _WhileOps$TakeWhileTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)V", "(Ljava/util/stream/AbstractPipeline<TP_OUT;TP_OUT;*>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TP_OUT;>;)V", 0, $method(WhileOps$TakeWhileTask, init$, void, $AbstractPipeline*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
-	{"<init>", "(Ljava/util/stream/WhileOps$TakeWhileTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(WhileOps$TakeWhileTask, init$, void, WhileOps$TakeWhileTask*, $Spliterator*)},
-	{"cancel", "()V", nullptr, $PROTECTED, $virtualMethod(WhileOps$TakeWhileTask, cancel, void)},
-	{"doLeaf", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL, $virtualMethod(WhileOps$TakeWhileTask, doLeaf, $Object*)},
-	{"getEmptyResult", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL, $virtualMethod(WhileOps$TakeWhileTask, getEmptyResult, $Object*)},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/WhileOps$TakeWhileTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;", $PROTECTED, $virtualMethod(WhileOps$TakeWhileTask, makeChild, WhileOps$TakeWhileTask*, $Spliterator*)},
-	{"merge", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", 0, $method(WhileOps$TakeWhileTask, merge, $Node*)},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL, $virtualMethod(WhileOps$TakeWhileTask, onCompletion, void, $CountedCompleter*)},
-	{}
-};
-
-$InnerClassInfo _WhileOps$TakeWhileTask_InnerClassesInfo_[] = {
-	{"java.util.stream.WhileOps$TakeWhileTask", "java.util.stream.WhileOps", "TakeWhileTask", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _WhileOps$TakeWhileTask_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.WhileOps$TakeWhileTask",
-	"java.util.stream.AbstractShortCircuitTask",
-	nullptr,
-	_WhileOps$TakeWhileTask_FieldInfo_,
-	_WhileOps$TakeWhileTask_MethodInfo_,
-	"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;>Ljava/util/stream/AbstractShortCircuitTask<TP_IN;TP_OUT;Ljava/util/stream/Node<TP_OUT;>;Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;>;",
-	nullptr,
-	_WhileOps$TakeWhileTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.WhileOps"
-};
-
-$Object* allocate$WhileOps$TakeWhileTask($Class* clazz) {
-	return $of($alloc(WhileOps$TakeWhileTask));
-}
-
 void WhileOps$TakeWhileTask::init$($AbstractPipeline* op, $PipelineHelper* helper, $Spliterator* spliterator, $IntFunction* generator) {
 	$AbstractShortCircuitTask::init$(helper, spliterator);
 	$set(this, op, op);
@@ -95,7 +47,7 @@ void WhileOps$TakeWhileTask::init$($AbstractPipeline* op, $PipelineHelper* helpe
 }
 
 void WhileOps$TakeWhileTask::init$(WhileOps$TakeWhileTask* parent, $Spliterator* spliterator) {
-	$AbstractShortCircuitTask::init$(static_cast<$AbstractShortCircuitTask*>(parent), spliterator);
+	$AbstractShortCircuitTask::init$(parent, spliterator);
 	$set(this, op, $nc(parent)->op);
 	$set(this, generator, parent->generator);
 	this->isOrdered = parent->isOrdered;
@@ -106,19 +58,19 @@ WhileOps$TakeWhileTask* WhileOps$TakeWhileTask::makeChild($Spliterator* splitera
 }
 
 $Object* WhileOps$TakeWhileTask::getEmptyResult() {
-	return $of($Nodes::emptyNode($($nc(this->op)->getOutputShape())));
+	return $Nodes::emptyNode($($nc(this->op)->getOutputShape()));
 }
 
 $Object* WhileOps$TakeWhileTask::doLeaf() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node$Builder, builder, $nc(this->helper)->makeNodeBuilder(-1, this->generator));
-	$var($Sink, s, $nc(this->op)->opWrapSink($nc(this->helper)->getStreamAndOpFlags(), builder));
-	if (this->shortCircuited = $nc(this->helper)->copyIntoWithCancel($($nc(this->helper)->wrapSink(s)), this->spliterator)) {
+	$var($Sink, s, $nc(this->op)->opWrapSink(this->helper->getStreamAndOpFlags(), builder));
+	if (this->shortCircuited = this->helper->copyIntoWithCancel($(this->helper->wrapSink(s)), this->spliterator)) {
 		cancelLaterNodes();
 	}
 	$var($Node, node, $nc(builder)->build());
 	this->thisNodeSize = $nc(node)->count();
-	return $of(node);
+	return node;
 }
 
 void WhileOps$TakeWhileTask::onCompletion($CountedCompleter* caller) {
@@ -129,8 +81,8 @@ void WhileOps$TakeWhileTask::onCompletion($CountedCompleter* caller) {
 			this->thisNodeSize = 0;
 			$assign(result, $cast($Node, getEmptyResult()));
 		} else if (this->isOrdered && $nc(($cast(WhileOps$TakeWhileTask, this->leftChild)))->shortCircuited) {
-			this->thisNodeSize = $nc(($cast(WhileOps$TakeWhileTask, this->leftChild)))->thisNodeSize;
-			$assign(result, $cast($Node, $nc(($cast(WhileOps$TakeWhileTask, this->leftChild)))->getLocalResult()));
+			this->thisNodeSize = ($cast(WhileOps$TakeWhileTask, this->leftChild))->thisNodeSize;
+			$assign(result, $cast($Node, $cast(WhileOps$TakeWhileTask, this->leftChild)->getLocalResult()));
 		} else {
 			this->thisNodeSize = $nc(($cast(WhileOps$TakeWhileTask, this->leftChild)))->thisNodeSize + $nc(($cast(WhileOps$TakeWhileTask, this->rightChild)))->thisNodeSize;
 			$assign(result, merge());
@@ -142,15 +94,15 @@ void WhileOps$TakeWhileTask::onCompletion($CountedCompleter* caller) {
 }
 
 $Node* WhileOps$TakeWhileTask::merge() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(($cast(WhileOps$TakeWhileTask, this->leftChild)))->thisNodeSize == 0) {
-		return $cast($Node, $nc(($cast(WhileOps$TakeWhileTask, this->rightChild)))->getLocalResult());
+		return $cast($Node, $nc($cast(WhileOps$TakeWhileTask, this->rightChild))->getLocalResult());
 	} else if ($nc(($cast(WhileOps$TakeWhileTask, this->rightChild)))->thisNodeSize == 0) {
-		return $cast($Node, $nc(($cast(WhileOps$TakeWhileTask, this->leftChild)))->getLocalResult());
+		return $cast($Node, $cast(WhileOps$TakeWhileTask, this->leftChild)->getLocalResult());
 	} else {
 		$var($StreamShape, var$0, $nc(this->op)->getOutputShape());
-		$var($Node, var$1, $cast($Node, $nc(($cast(WhileOps$TakeWhileTask, this->leftChild)))->getLocalResult()));
-		return $Nodes::conc(var$0, var$1, $cast($Node, $($nc(($cast(WhileOps$TakeWhileTask, this->rightChild)))->getLocalResult())));
+		$var($Node, var$1, $cast($Node, $cast(WhileOps$TakeWhileTask, this->leftChild)->getLocalResult()));
+		return $Nodes::conc(var$0, var$1, $$cast($Node, $cast(WhileOps$TakeWhileTask, this->rightChild)->getLocalResult()));
 	}
 }
 
@@ -165,7 +117,48 @@ WhileOps$TakeWhileTask::WhileOps$TakeWhileTask() {
 }
 
 $Class* WhileOps$TakeWhileTask::load$($String* name, bool initialize) {
-	$loadClass(WhileOps$TakeWhileTask, name, initialize, &_WhileOps$TakeWhileTask_ClassInfo_, allocate$WhileOps$TakeWhileTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"op", "Ljava/util/stream/AbstractPipeline;", "Ljava/util/stream/AbstractPipeline<TP_OUT;TP_OUT;*>;", $PRIVATE | $FINAL, $field(WhileOps$TakeWhileTask, op)},
+		{"generator", "Ljava/util/function/IntFunction;", "Ljava/util/function/IntFunction<[TP_OUT;>;", $PRIVATE | $FINAL, $field(WhileOps$TakeWhileTask, generator)},
+		{"isOrdered", "Z", nullptr, $PRIVATE | $FINAL, $field(WhileOps$TakeWhileTask, isOrdered)},
+		{"thisNodeSize", "J", nullptr, $PRIVATE, $field(WhileOps$TakeWhileTask, thisNodeSize)},
+		{"shortCircuited", "Z", nullptr, $PRIVATE, $field(WhileOps$TakeWhileTask, shortCircuited)},
+		{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(WhileOps$TakeWhileTask, completed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)V", "(Ljava/util/stream/AbstractPipeline<TP_OUT;TP_OUT;*>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TP_OUT;>;)V", 0, $method(WhileOps$TakeWhileTask, init$, void, $AbstractPipeline*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+		{"<init>", "(Ljava/util/stream/WhileOps$TakeWhileTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(WhileOps$TakeWhileTask, init$, void, WhileOps$TakeWhileTask*, $Spliterator*)},
+		{"cancel", "()V", nullptr, $PROTECTED, $virtualMethod(WhileOps$TakeWhileTask, cancel, void)},
+		{"doLeaf", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL, $virtualMethod(WhileOps$TakeWhileTask, doLeaf, $Object*)},
+		{"getEmptyResult", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL, $virtualMethod(WhileOps$TakeWhileTask, getEmptyResult, $Object*)},
+		{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/WhileOps$TakeWhileTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;", $PROTECTED, $virtualMethod(WhileOps$TakeWhileTask, makeChild, WhileOps$TakeWhileTask*, $Spliterator*)},
+		{"merge", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", 0, $method(WhileOps$TakeWhileTask, merge, $Node*)},
+		{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL, $virtualMethod(WhileOps$TakeWhileTask, onCompletion, void, $CountedCompleter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.WhileOps$TakeWhileTask", "java.util.stream.WhileOps", "TakeWhileTask", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.WhileOps$TakeWhileTask",
+		"java.util.stream.AbstractShortCircuitTask",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;>Ljava/util/stream/AbstractShortCircuitTask<TP_IN;TP_OUT;Ljava/util/stream/Node<TP_OUT;>;Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.WhileOps"
+	};
+	$loadClass(WhileOps$TakeWhileTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WhileOps$TakeWhileTask));
+	});
 	return class$;
 }
 

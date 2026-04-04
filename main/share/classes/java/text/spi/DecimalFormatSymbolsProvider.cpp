@@ -1,5 +1,4 @@
 #include <java/text/spi/DecimalFormatSymbolsProvider.h>
-
 #include <java/text/DecimalFormatSymbols.h>
 #include <java/util/Locale.h>
 #include <java/util/spi/LocaleServiceProvider.h>
@@ -15,25 +14,6 @@ namespace java {
 	namespace text {
 		namespace spi {
 
-$MethodInfo _DecimalFormatSymbolsProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(DecimalFormatSymbolsProvider, init$, void)},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DecimalFormatSymbolsProvider, getInstance, $DecimalFormatSymbols*, $Locale*)},
-	{}
-};
-
-$ClassInfo _DecimalFormatSymbolsProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.text.spi.DecimalFormatSymbolsProvider",
-	"java.util.spi.LocaleServiceProvider",
-	nullptr,
-	nullptr,
-	_DecimalFormatSymbolsProvider_MethodInfo_
-};
-
-$Object* allocate$DecimalFormatSymbolsProvider($Class* clazz) {
-	return $of($alloc(DecimalFormatSymbolsProvider));
-}
-
 void DecimalFormatSymbolsProvider::init$() {
 	$LocaleServiceProvider::init$();
 }
@@ -42,7 +22,22 @@ DecimalFormatSymbolsProvider::DecimalFormatSymbolsProvider() {
 }
 
 $Class* DecimalFormatSymbolsProvider::load$($String* name, bool initialize) {
-	$loadClass(DecimalFormatSymbolsProvider, name, initialize, &_DecimalFormatSymbolsProvider_ClassInfo_, allocate$DecimalFormatSymbolsProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(DecimalFormatSymbolsProvider, init$, void)},
+		{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DecimalFormatSymbolsProvider, getInstance, $DecimalFormatSymbols*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.text.spi.DecimalFormatSymbolsProvider",
+		"java.util.spi.LocaleServiceProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DecimalFormatSymbolsProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DecimalFormatSymbolsProvider);
+	});
 	return class$;
 }
 

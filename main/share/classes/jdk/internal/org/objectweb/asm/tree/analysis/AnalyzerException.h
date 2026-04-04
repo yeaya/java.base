@@ -54,11 +54,14 @@ public:
 	void init$(::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode* insn, $String* message);
 	void init$(::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode* insn, $String* message, $Throwable* cause);
 	void init$(::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode* insn, $String* message, Object$* expected, ::jdk::internal::org::objectweb::asm$::tree::analysis::Value* actual);
-	static const int64_t serialVersionUID = (int64_t)0x2BC5EF8038196D65;
+	static const int64_t serialVersionUID = (int64_t)0x2bc5ef8038196d65;
 	::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode* node = nullptr;
 	AnalyzerException(const AnalyzerException& e);
 	virtual void throw$() override;
-	inline AnalyzerException* operator ->() {
+	inline AnalyzerException* operator ->() const {
+		return (AnalyzerException*)throwing$;
+	}
+	inline operator AnalyzerException*() const {
 		return (AnalyzerException*)throwing$;
 	}
 };

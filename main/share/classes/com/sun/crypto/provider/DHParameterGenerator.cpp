@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DHParameterGenerator.h>
-
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParameterGenerator.h>
@@ -7,7 +6,6 @@
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidParameterException.h>
-#include <java/security/Provider.h>
 #include <java/security/ProviderException.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -30,7 +28,6 @@ using $AlgorithmParameterGeneratorSpi = ::java::security::AlgorithmParameterGene
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidParameterException = ::java::security::InvalidParameterException;
-using $Provider = ::java::security::Provider;
 using $ProviderException = ::java::security::ProviderException;
 using $SecureRandom = ::java::security::SecureRandom;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
@@ -44,35 +41,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _DHParameterGenerator_FieldInfo_[] = {
-	{"primeSize", "I", nullptr, $PRIVATE, $field(DHParameterGenerator, primeSize)},
-	{"exponentSize", "I", nullptr, $PRIVATE, $field(DHParameterGenerator, exponentSize)},
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(DHParameterGenerator, random)},
-	{}
-};
-
-$MethodInfo _DHParameterGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DHParameterGenerator, init$, void)},
-	{"checkKeySize", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DHParameterGenerator, checkKeySize, void, int32_t), "java.security.InvalidParameterException"},
-	{"engineGenerateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(DHParameterGenerator, engineGenerateParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHParameterGenerator, engineInit, void, int32_t, $SecureRandom*)},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHParameterGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$ClassInfo _DHParameterGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DHParameterGenerator",
-	"java.security.AlgorithmParameterGeneratorSpi",
-	nullptr,
-	_DHParameterGenerator_FieldInfo_,
-	_DHParameterGenerator_MethodInfo_
-};
-
-$Object* allocate$DHParameterGenerator($Class* clazz) {
-	return $of($alloc(DHParameterGenerator));
-}
-
 void DHParameterGenerator::init$() {
 	$AlgorithmParameterGeneratorSpi::init$();
 	$init($SecurityProviderConstants);
@@ -83,8 +51,8 @@ void DHParameterGenerator::init$() {
 
 void DHParameterGenerator::checkKeySize(int32_t keysize) {
 	$init(DHParameterGenerator);
-	$useLocalCurrentObjectStackCache();
-	bool supported = ((keysize == 2048) || (keysize == 3072) || ((keysize >= 512) && (keysize <= 1024) && (((int32_t)(keysize & (uint32_t)63)) == 0)));
+	$useLocalObjectStack();
+	bool supported = ((keysize == 2048) || (keysize == 3072) || ((keysize >= 512) && (keysize <= 1024) && ((keysize & 0x3f) == 0)));
 	if (!supported) {
 		$throwNew($InvalidParameterException, $$str({"DH key size must be multiple of 64 and range from 512 to 1024 (inclusive), or 2048, 3072. The specific key size "_s, $$str(keysize), " is not supported"_s}));
 	}
@@ -97,7 +65,7 @@ void DHParameterGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 void DHParameterGenerator::engineInit($AlgorithmParameterSpec* genParamSpec, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($DHGenParameterSpec, genParamSpec))) {
 		$throwNew($InvalidAlgorithmParameterException, "Inappropriate parameter type"_s);
 	}
@@ -116,7 +84,7 @@ void DHParameterGenerator::engineInit($AlgorithmParameterSpec* genParamSpec, $Se
 }
 
 $AlgorithmParameters* DHParameterGenerator::engineGenerateParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
 	}
@@ -136,8 +104,8 @@ $AlgorithmParameters* DHParameterGenerator::engineGenerateParameters() {
 			$var($BigInteger, var$1, $nc(dsaParamSpec)->getP());
 			$assign(dhParamSpec, $new($DHParameterSpec, var$1, $(dsaParamSpec->getG())));
 		}
-		$var($AlgorithmParameters, algParams, $AlgorithmParameters::getInstance("DH"_s, $(static_cast<$Provider*>($SunJCE::getInstance()))));
-		$nc(algParams)->init(static_cast<$AlgorithmParameterSpec*>(dhParamSpec));
+		$var($AlgorithmParameters, algParams, $AlgorithmParameters::getInstance("DH"_s, $($SunJCE::getInstance())));
+		$nc(algParams)->init(dhParamSpec);
 		return algParams;
 	} catch ($Exception& ex) {
 		$throwNew($ProviderException, "Unexpected exception"_s, ex);
@@ -149,7 +117,31 @@ DHParameterGenerator::DHParameterGenerator() {
 }
 
 $Class* DHParameterGenerator::load$($String* name, bool initialize) {
-	$loadClass(DHParameterGenerator, name, initialize, &_DHParameterGenerator_ClassInfo_, allocate$DHParameterGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"primeSize", "I", nullptr, $PRIVATE, $field(DHParameterGenerator, primeSize)},
+		{"exponentSize", "I", nullptr, $PRIVATE, $field(DHParameterGenerator, exponentSize)},
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(DHParameterGenerator, random)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DHParameterGenerator, init$, void)},
+		{"checkKeySize", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DHParameterGenerator, checkKeySize, void, int32_t), "java.security.InvalidParameterException"},
+		{"engineGenerateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(DHParameterGenerator, engineGenerateParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHParameterGenerator, engineInit, void, int32_t, $SecureRandom*)},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHParameterGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DHParameterGenerator",
+		"java.security.AlgorithmParameterGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DHParameterGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHParameterGenerator);
+	});
 	return class$;
 }
 

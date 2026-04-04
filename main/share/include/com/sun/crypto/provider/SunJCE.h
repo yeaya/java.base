@@ -26,6 +26,7 @@ class $import SunJCE : public ::java::security::Provider {
 	$class(SunJCE, 0, ::java::security::Provider)
 public:
 	SunJCE();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::java::security::Provider::getProperty;
 	void init$();
 	static ::com::sun::crypto::provider::SunJCE* getInstance();
@@ -35,7 +36,7 @@ public:
 	void ps($String* type, $String* algo, $String* cn, ::java::util::List* als, ::java::util::HashMap* attrs);
 	void psA($String* type, $String* algo, $String* cn, ::java::util::HashMap* attrs);
 	void putEntries();
-	static const int64_t serialVersionUID = (int64_t)0x5E8AE38E90BA8DF1;
+	static const int64_t serialVersionUID = (int64_t)0x5e8ae38e90ba8df1;
 	static $String* info;
 	static const bool debug = false;
 	static $volatile(::com::sun::crypto::provider::SunJCE*) instance;

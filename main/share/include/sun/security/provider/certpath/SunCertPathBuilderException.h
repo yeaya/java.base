@@ -36,11 +36,14 @@ public:
 	void init$($String* msg, ::sun::security::provider::certpath::AdjacencyList* adjList);
 	void init$($String* msg, $Throwable* cause, ::sun::security::provider::certpath::AdjacencyList* adjList);
 	virtual ::sun::security::provider::certpath::AdjacencyList* getAdjacencyList();
-	static const int64_t serialVersionUID = (int64_t)0x938E1216D75FE7BB;
+	static const int64_t serialVersionUID = (int64_t)0x938e1216d75fe7bb;
 	::sun::security::provider::certpath::AdjacencyList* adjList = nullptr;
 	SunCertPathBuilderException(const SunCertPathBuilderException& e);
 	virtual void throw$() override;
-	inline SunCertPathBuilderException* operator ->() {
+	inline SunCertPathBuilderException* operator ->() const {
+		return (SunCertPathBuilderException*)throwing$;
+	}
+	inline operator SunCertPathBuilderException*() const {
 		return (SunCertPathBuilderException*)throwing$;
 	}
 };

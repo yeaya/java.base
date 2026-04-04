@@ -1,5 +1,4 @@
 #include <com/sun/security/ntlm/Server.h>
-
 #include <com/sun/security/ntlm/NTLM$Reader.h>
 #include <com/sun/security/ntlm/NTLM$Writer.h>
 #include <com/sun/security/ntlm/NTLM.h>
@@ -32,35 +31,6 @@ namespace com {
 		namespace security {
 			namespace ntlm {
 
-$FieldInfo _Server_FieldInfo_[] = {
-	{"domain", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Server, domain)},
-	{"allVersion", "Z", nullptr, $PRIVATE | $FINAL, $field(Server, allVersion)},
-	{}
-};
-
-$MethodInfo _Server_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Server, init$, void, $String*, $String*), "com.sun.security.ntlm.NTLMException"},
-	{"debug", "([B)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Server, debug, void, $bytes*)},
-	{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Server, debug, void, $String*, $ObjectArray*)},
-	{"getPassword", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Server, getPassword, $chars*, $String*, $String*)},
-	{"type2", "([B[B)[B", nullptr, $PUBLIC, $virtualMethod(Server, type2, $bytes*, $bytes*, $bytes*), "com.sun.security.ntlm.NTLMException"},
-	{"verify", "([B[B)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Server, verify, $StringArray*, $bytes*, $bytes*), "com.sun.security.ntlm.NTLMException"},
-	{}
-};
-
-$ClassInfo _Server_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.security.ntlm.Server",
-	"com.sun.security.ntlm.NTLM",
-	nullptr,
-	_Server_FieldInfo_,
-	_Server_MethodInfo_
-};
-
-$Object* allocate$Server($Class* clazz) {
-	return $of($alloc(Server));
-}
-
 void Server::init$($String* version, $String* domain) {
 	$NTLM::init$(version);
 	if (domain == nullptr) {
@@ -69,13 +39,13 @@ void Server::init$($String* version, $String* domain) {
 	this->allVersion = (version == nullptr);
 	$set(this, domain, domain);
 	debug("NTLM Server: (t,version) = (%s,%s)\n"_s, $$new($ObjectArray, {
-		$of(domain),
-		$of(version)
+		domain,
+		version
 	}));
 }
 
 $bytes* Server::type2($bytes* type1, $bytes* nonce) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nonce == nullptr) {
 		$throwNew($NTLMException, $NTLMException::PROTOCOL, "nonce cannot be null"_s);
 	}
@@ -94,7 +64,7 @@ $bytes* Server::type2($bytes* type1, $bytes* nonce) {
 }
 
 $StringArray* Server::verify($bytes* type3, $bytes* nonce) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type3 == nullptr || nonce == nullptr) {
 		$throwNew($NTLMException, $NTLMException::PROTOCOL, "type1 or nonce cannot be null"_s);
 	}
@@ -186,7 +156,31 @@ Server::Server() {
 }
 
 $Class* Server::load$($String* name, bool initialize) {
-	$loadClass(Server, name, initialize, &_Server_ClassInfo_, allocate$Server);
+	$FieldInfo fieldInfos$$[] = {
+		{"domain", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Server, domain)},
+		{"allVersion", "Z", nullptr, $PRIVATE | $FINAL, $field(Server, allVersion)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Server, init$, void, $String*, $String*), "com.sun.security.ntlm.NTLMException"},
+		{"debug", "([B)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Server, debug, void, $bytes*)},
+		{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Server, debug, void, $String*, $ObjectArray*)},
+		{"getPassword", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Server, getPassword, $chars*, $String*, $String*)},
+		{"type2", "([B[B)[B", nullptr, $PUBLIC, $virtualMethod(Server, type2, $bytes*, $bytes*, $bytes*), "com.sun.security.ntlm.NTLMException"},
+		{"verify", "([B[B)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Server, verify, $StringArray*, $bytes*, $bytes*), "com.sun.security.ntlm.NTLMException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.security.ntlm.Server",
+		"com.sun.security.ntlm.NTLM",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Server, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Server);
+	});
 	return class$;
 }
 

@@ -53,6 +53,7 @@ class BasicChecker : public ::java::security::cert::PKIXCertPathChecker {
 public:
 	BasicChecker();
 	using ::java::security::cert::PKIXCertPathChecker::check;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::cert::TrustAnchor* anchor, ::java::util::Date* date, $String* sigProvider, bool sigOnly);
 	virtual void check(::java::security::cert::Certificate* cert, ::java::util::Collection* unresolvedCritExts) override;
 	virtual ::java::security::PublicKey* getPublicKey();

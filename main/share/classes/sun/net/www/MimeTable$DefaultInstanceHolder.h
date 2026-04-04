@@ -21,6 +21,7 @@ class MimeTable$DefaultInstanceHolder : public ::java::lang::Object {
 	$class(MimeTable$DefaultInstanceHolder, 0, ::java::lang::Object)
 public:
 	MimeTable$DefaultInstanceHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::net::www::MimeTable* getDefaultInstance();
 	static ::sun::net::www::MimeTable* defaultInstance;

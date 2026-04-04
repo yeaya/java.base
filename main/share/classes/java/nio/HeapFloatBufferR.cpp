@@ -1,5 +1,4 @@
 #include <java/nio/HeapFloatBufferR.h>
-
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/FloatBuffer.h>
@@ -24,49 +23,9 @@ using $HeapFloatBuffer = ::java::nio::HeapFloatBuffer;
 using $ReadOnlyBufferException = ::java::nio::ReadOnlyBufferException;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _HeapFloatBufferR_FieldInfo_[] = {
-	{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapFloatBufferR, ARRAY_BASE_OFFSET)},
-	{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapFloatBufferR, ARRAY_INDEX_SCALE)},
-	{}
-};
-
-$MethodInfo _HeapFloatBufferR_MethodInfo_[] = {
-	{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapFloatBufferR, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([FIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapFloatBufferR, init$, void, $floats*, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([FIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapFloatBufferR, init$, void, $floats*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, asReadOnlyBuffer, $FloatBuffer*)},
-	{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, compact, $FloatBuffer*)},
-	{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, duplicate, $FloatBuffer*)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, order, $ByteOrder*)},
-	{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, float)},
-	{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, int32_t, float)},
-	{"put", "([FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, $floats*, int32_t, int32_t)},
-	{"put", "(Ljava/nio/FloatBuffer;)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, $FloatBuffer*)},
-	{"put", "(ILjava/nio/FloatBuffer;II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, int32_t, $FloatBuffer*, int32_t, int32_t)},
-	{"put", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, int32_t, $floats*, int32_t, int32_t)},
-	{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, slice, $FloatBuffer*)},
-	{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, slice, $FloatBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _HeapFloatBufferR_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.HeapFloatBufferR",
-	"java.nio.HeapFloatBuffer",
-	nullptr,
-	_HeapFloatBufferR_FieldInfo_,
-	_HeapFloatBufferR_MethodInfo_
-};
-
-$Object* allocate$HeapFloatBufferR($Class* clazz) {
-	return $of($alloc(HeapFloatBufferR));
-}
 
 int64_t HeapFloatBufferR::ARRAY_BASE_OFFSET = 0;
 int64_t HeapFloatBufferR::ARRAY_INDEX_SCALE = 0;
@@ -153,18 +112,51 @@ $ByteOrder* HeapFloatBufferR::order() {
 	return $ByteOrder::nativeOrder();
 }
 
-void clinit$HeapFloatBufferR($Class* class$) {
+void HeapFloatBufferR::clinit$($Class* clazz) {
 	$init($Buffer);
-	$load($floats);
 	HeapFloatBufferR::ARRAY_BASE_OFFSET = $nc($Buffer::UNSAFE)->arrayBaseOffset($getClass($floats));
-	HeapFloatBufferR::ARRAY_INDEX_SCALE = $nc($Buffer::UNSAFE)->arrayIndexScale($getClass($floats));
+	HeapFloatBufferR::ARRAY_INDEX_SCALE = $Buffer::UNSAFE->arrayIndexScale($getClass($floats));
 }
 
 HeapFloatBufferR::HeapFloatBufferR() {
 }
 
 $Class* HeapFloatBufferR::load$($String* name, bool initialize) {
-	$loadClass(HeapFloatBufferR, name, initialize, &_HeapFloatBufferR_ClassInfo_, clinit$HeapFloatBufferR, allocate$HeapFloatBufferR);
+	$FieldInfo fieldInfos$$[] = {
+		{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapFloatBufferR, ARRAY_BASE_OFFSET)},
+		{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapFloatBufferR, ARRAY_INDEX_SCALE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapFloatBufferR, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([FIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapFloatBufferR, init$, void, $floats*, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([FIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapFloatBufferR, init$, void, $floats*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, asReadOnlyBuffer, $FloatBuffer*)},
+		{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, compact, $FloatBuffer*)},
+		{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, duplicate, $FloatBuffer*)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, order, $ByteOrder*)},
+		{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, float)},
+		{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, int32_t, float)},
+		{"put", "([FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, $floats*, int32_t, int32_t)},
+		{"put", "(Ljava/nio/FloatBuffer;)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, $FloatBuffer*)},
+		{"put", "(ILjava/nio/FloatBuffer;II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, int32_t, $FloatBuffer*, int32_t, int32_t)},
+		{"put", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, int32_t, $floats*, int32_t, int32_t)},
+		{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, slice, $FloatBuffer*)},
+		{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, slice, $FloatBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.HeapFloatBufferR",
+		"java.nio.HeapFloatBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HeapFloatBufferR, name, initialize, &classInfo$$, HeapFloatBufferR::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeapFloatBufferR));
+	});
 	return class$;
 }
 

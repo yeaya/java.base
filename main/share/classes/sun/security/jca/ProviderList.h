@@ -47,6 +47,7 @@ class $export ProviderList : public ::java::lang::Object {
 	$class(ProviderList, 0, ::java::lang::Object)
 public:
 	ProviderList();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::sun::security::jca::ProviderConfig>* configs, bool allLoaded);
 	void init$();
 	static ::sun::security::jca::ProviderList* add(::sun::security::jca::ProviderList* providerList, ::java::security::Provider* p);

@@ -1,5 +1,4 @@
 #include <sun/nio/fs/AbstractPoller$Request.h>
-
 #include <java/lang/InterruptedException.h>
 #include <sun/nio/fs/AbstractPoller$RequestType.h>
 #include <sun/nio/fs/AbstractPoller.h>
@@ -15,48 +14,6 @@ using $AbstractPoller$RequestType = ::sun::nio::fs::AbstractPoller$RequestType;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _AbstractPoller$Request_FieldInfo_[] = {
-	{"type", "Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PRIVATE | $FINAL, $field(AbstractPoller$Request, type$)},
-	{"params", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AbstractPoller$Request, params)},
-	{"completed", "Z", nullptr, $PRIVATE, $field(AbstractPoller$Request, completed)},
-	{"result", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AbstractPoller$Request, result)},
-	{}
-};
-
-$MethodInfo _AbstractPoller$Request_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/AbstractPoller$RequestType;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(AbstractPoller$Request, init$, void, $AbstractPoller$RequestType*, $ObjectArray*)},
-	{"awaitResult", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(AbstractPoller$Request, awaitResult, $Object*)},
-	{"parameters", "()[Ljava/lang/Object;", nullptr, 0, $virtualMethod(AbstractPoller$Request, parameters, $ObjectArray*)},
-	{"release", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AbstractPoller$Request, release, void, Object$*)},
-	{"type", "()Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, 0, $virtualMethod(AbstractPoller$Request, type, $AbstractPoller$RequestType*)},
-	{}
-};
-
-$InnerClassInfo _AbstractPoller$Request_InnerClassesInfo_[] = {
-	{"sun.nio.fs.AbstractPoller$Request", "sun.nio.fs.AbstractPoller", "Request", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractPoller$Request_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.AbstractPoller$Request",
-	"java.lang.Object",
-	nullptr,
-	_AbstractPoller$Request_FieldInfo_,
-	_AbstractPoller$Request_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractPoller$Request_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.AbstractPoller"
-};
-
-$Object* allocate$AbstractPoller$Request($Class* clazz) {
-	return $of($alloc(AbstractPoller$Request));
-}
 
 void AbstractPoller$Request::init$($AbstractPoller$RequestType* type, $ObjectArray* params) {
 	this->completed = false;
@@ -94,7 +51,7 @@ $Object* AbstractPoller$Request::awaitResult() {
 		if (interrupted) {
 			$($Thread::currentThread())->interrupt();
 		}
-		return $of(this->result);
+		return this->result;
 	}
 }
 
@@ -102,7 +59,43 @@ AbstractPoller$Request::AbstractPoller$Request() {
 }
 
 $Class* AbstractPoller$Request::load$($String* name, bool initialize) {
-	$loadClass(AbstractPoller$Request, name, initialize, &_AbstractPoller$Request_ClassInfo_, allocate$AbstractPoller$Request);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PRIVATE | $FINAL, $field(AbstractPoller$Request, type$)},
+		{"params", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AbstractPoller$Request, params)},
+		{"completed", "Z", nullptr, $PRIVATE, $field(AbstractPoller$Request, completed)},
+		{"result", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AbstractPoller$Request, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/AbstractPoller$RequestType;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(AbstractPoller$Request, init$, void, $AbstractPoller$RequestType*, $ObjectArray*)},
+		{"awaitResult", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(AbstractPoller$Request, awaitResult, $Object*)},
+		{"parameters", "()[Ljava/lang/Object;", nullptr, 0, $virtualMethod(AbstractPoller$Request, parameters, $ObjectArray*)},
+		{"release", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AbstractPoller$Request, release, void, Object$*)},
+		{"type", "()Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, 0, $virtualMethod(AbstractPoller$Request, type, $AbstractPoller$RequestType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.AbstractPoller$Request", "sun.nio.fs.AbstractPoller", "Request", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.AbstractPoller$Request",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.AbstractPoller"
+	};
+	$loadClass(AbstractPoller$Request, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractPoller$Request);
+	});
 	return class$;
 }
 

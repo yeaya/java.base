@@ -27,6 +27,7 @@ class ResourceBundle$NoFallbackControl : public ::java::util::ResourceBundle$Sin
 	$class(ResourceBundle$NoFallbackControl, 0, ::java::util::ResourceBundle$SingleFormatControl)
 public:
 	ResourceBundle$NoFallbackControl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::List* formats);
 	virtual ::java::util::Locale* getFallbackLocale($String* baseName, ::java::util::Locale* locale) override;
 	static ::java::util::ResourceBundle$Control* NO_FALLBACK;

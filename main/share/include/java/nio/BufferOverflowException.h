@@ -13,10 +13,13 @@ class $import BufferOverflowException : public ::java::lang::RuntimeException {
 public:
 	BufferOverflowException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xB3E1BAA96D06E9A9;
+	static const int64_t serialVersionUID = (int64_t)0xb3e1baa96d06e9a9;
 	BufferOverflowException(const BufferOverflowException& e);
 	virtual void throw$() override;
-	inline BufferOverflowException* operator ->() {
+	inline BufferOverflowException* operator ->() const {
+		return (BufferOverflowException*)throwing$;
+	}
+	inline operator BufferOverflowException*() const {
 		return (BufferOverflowException*)throwing$;
 	}
 };

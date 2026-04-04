@@ -15,6 +15,7 @@ class $export OpenSync : public ::java::lang::Object {
 	$class(OpenSync, 0, ::java::lang::Object)
 public:
 	OpenSync();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::io::PrintStream* log;

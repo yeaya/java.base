@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DHKeyAgreement$AllowKDF.h>
-
 #include <com/sun/crypto/provider/DHKeyAgreement.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -36,67 +35,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(DHKeyAgreement$AllowKDF::lambda$getValue$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0, run, $Object*)},
-	{}
-};
-$ClassInfo DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.crypto.provider.DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0::load$($String* name, bool initialize) {
-	$loadClass(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.crypto.provider.DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0);
+	});
 	return class$;
 }
 $Class* DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0::class$ = nullptr;
-
-$FieldInfo _DHKeyAgreement$AllowKDF_FieldInfo_[] = {
-	{"VALUE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DHKeyAgreement$AllowKDF, VALUE)},
-	{}
-};
-
-$MethodInfo _DHKeyAgreement$AllowKDF_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DHKeyAgreement$AllowKDF, init$, void)},
-	{"getValue", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DHKeyAgreement$AllowKDF, getValue, bool)},
-	{"lambda$getValue$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DHKeyAgreement$AllowKDF, lambda$getValue$0, $Boolean*)},
-	{}
-};
-
-$InnerClassInfo _DHKeyAgreement$AllowKDF_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.DHKeyAgreement$AllowKDF", "com.sun.crypto.provider.DHKeyAgreement", "AllowKDF", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DHKeyAgreement$AllowKDF_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.crypto.provider.DHKeyAgreement$AllowKDF",
-	"java.lang.Object",
-	nullptr,
-	_DHKeyAgreement$AllowKDF_FieldInfo_,
-	_DHKeyAgreement$AllowKDF_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DHKeyAgreement$AllowKDF_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.DHKeyAgreement"
-};
-
-$Object* allocate$DHKeyAgreement$AllowKDF($Class* clazz) {
-	return $of($alloc(DHKeyAgreement$AllowKDF));
-}
 
 bool DHKeyAgreement$AllowKDF::VALUE = false;
 
@@ -105,9 +64,9 @@ void DHKeyAgreement$AllowKDF::init$() {
 
 bool DHKeyAgreement$AllowKDF::getValue() {
 	$init(DHKeyAgreement$AllowKDF);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0))))->booleanValue();
 }
 
 $Boolean* DHKeyAgreement$AllowKDF::lambda$getValue$0() {
@@ -115,7 +74,7 @@ $Boolean* DHKeyAgreement$AllowKDF::lambda$getValue$0() {
 	return $Boolean::valueOf($Boolean::getBoolean("jdk.crypto.KeyAgreement.legacyKDF"_s));
 }
 
-void clinit$DHKeyAgreement$AllowKDF($Class* class$) {
+void DHKeyAgreement$AllowKDF::clinit$($Class* clazz) {
 	DHKeyAgreement$AllowKDF::VALUE = DHKeyAgreement$AllowKDF::getValue();
 }
 
@@ -124,11 +83,42 @@ DHKeyAgreement$AllowKDF::DHKeyAgreement$AllowKDF() {
 
 $Class* DHKeyAgreement$AllowKDF::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0::classInfo$.name)) {
+		if (name->equals("com.sun.crypto.provider.DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0")) {
 			return DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DHKeyAgreement$AllowKDF, name, initialize, &_DHKeyAgreement$AllowKDF_ClassInfo_, clinit$DHKeyAgreement$AllowKDF, allocate$DHKeyAgreement$AllowKDF);
+	$FieldInfo fieldInfos$$[] = {
+		{"VALUE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DHKeyAgreement$AllowKDF, VALUE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DHKeyAgreement$AllowKDF, init$, void)},
+		{"getValue", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DHKeyAgreement$AllowKDF, getValue, bool)},
+		{"lambda$getValue$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DHKeyAgreement$AllowKDF, lambda$getValue$0, $Boolean*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.DHKeyAgreement$AllowKDF", "com.sun.crypto.provider.DHKeyAgreement", "AllowKDF", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.crypto.provider.DHKeyAgreement$AllowKDF",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.DHKeyAgreement"
+	};
+	$loadClass(DHKeyAgreement$AllowKDF, name, initialize, &classInfo$$, DHKeyAgreement$AllowKDF::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DHKeyAgreement$AllowKDF);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/BasicAuthentication.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/net/PasswordAuthentication.h>
 #include <java/net/URI.h>
@@ -38,7 +37,6 @@ using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $Arrays = ::java::util::Arrays;
 using $Base64 = ::java::util::Base64;
-using $Base64$Encoder = ::java::util::Base64$Encoder;
 using $Objects = ::java::util::Objects;
 using $HeaderParser = ::sun::net::www::HeaderParser;
 using $AuthScheme = ::sun::net::www::protocol::http::AuthScheme;
@@ -52,40 +50,6 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace http {
-
-$FieldInfo _BasicAuthentication_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicAuthentication, $assertionsDisabled)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicAuthentication, serialVersionUID)},
-	{"auth", "Ljava/lang/String;", nullptr, $FINAL, $field(BasicAuthentication, auth)},
-	{}
-};
-
-$MethodInfo _BasicAuthentication_MethodInfo_[] = {
-	{"<init>", "(ZLjava/lang/String;ILjava/lang/String;Ljava/net/PasswordAuthentication;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $String*, int32_t, $String*, $PasswordAuthentication*, bool, $String*)},
-	{"<init>", "(ZLjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $String*, int32_t, $String*, $String*, $String*)},
-	{"<init>", "(ZLjava/net/URL;Ljava/lang/String;Ljava/net/PasswordAuthentication;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $URL*, $String*, $PasswordAuthentication*, bool, $String*)},
-	{"<init>", "(ZLjava/net/URL;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $URL*, $String*, $String*, $String*)},
-	{"authValueFrom", "(Ljava/net/PasswordAuthentication;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicAuthentication, authValueFrom, $String*, $PasswordAuthentication*, bool)},
-	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, getHeaderValue, $String*, $URL*, $String*)},
-	{"getRootPath", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BasicAuthentication, getRootPath, $String*, $String*, $String*)},
-	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, isAuthorizationStale, bool, $String*)},
-	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
-	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, supportsPreemptiveAuthorization, bool)},
-	{}
-};
-
-$ClassInfo _BasicAuthentication_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.http.BasicAuthentication",
-	"sun.net.www.protocol.http.AuthenticationInfo",
-	nullptr,
-	_BasicAuthentication_FieldInfo_,
-	_BasicAuthentication_MethodInfo_
-};
-
-$Object* allocate$BasicAuthentication($Class* clazz) {
-	return $of($alloc(BasicAuthentication));
-}
 
 bool BasicAuthentication::$assertionsDisabled = false;
 
@@ -111,23 +75,25 @@ void BasicAuthentication::init$(bool isProxy, $URL* url, $String* realm, $Passwo
 
 $String* BasicAuthentication::authValueFrom($PasswordAuthentication* pw, bool isUTF8) {
 	$init(BasicAuthentication);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, plain, $str({$($nc(pw)->getUserName()), ":"_s}));
 	$var($chars, password, pw->getPassword());
-	$var($CharBuffer, cbuf, $CharBuffer::allocate($nc(plain)->length() + $nc(password)->length));
-	$nc($($nc($($nc(cbuf)->put(plain)))->put(password)))->flip();
+	$var($CharBuffer, cbuf, $CharBuffer::allocate(plain->length() + $nc(password)->length));
+	$$nc($$nc($nc(cbuf)->put(plain))->put(password))->flip();
 	$init($UTF_8);
 	$init($ISO_8859_1);
-	$var($Charset, charset, isUTF8 ? static_cast<$Charset*>($UTF_8::INSTANCE) : static_cast<$Charset*>($ISO_8859_1::INSTANCE));
+	$var($Charset, charset, isUTF8 ? $cast($Charset, $UTF_8::INSTANCE) : $cast($Charset, $ISO_8859_1::INSTANCE));
 	$var($ByteBuffer, buf, $nc(charset)->encode(cbuf));
-	$var($ByteBuffer, enc, $nc($($Base64::getEncoder()))->encode(buf));
-	$var($String, var$0, "Basic "_s);
+	$var($ByteBuffer, enc, $$nc($Base64::getEncoder())->encode(buf));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Basic "_s);
 	$var($bytes, var$1, $cast($bytes, $nc(enc)->array()));
 	int32_t var$2 = enc->position();
-	$var($String, ret, $concat(var$0, $$new($String, var$1, var$2, enc->remaining(), static_cast<$Charset*>($ISO_8859_1::INSTANCE))));
-	$Arrays::fill($($cast($bytes, $nc(buf)->array())), (int8_t)0);
-	$Arrays::fill($($cast($bytes, $nc(enc)->array())), (int8_t)0);
-	$Arrays::fill($($cast($chars, cbuf->array())), (char16_t)0);
+	var$0->append($$new($String, var$1, var$2, enc->remaining(), $ISO_8859_1::INSTANCE));
+	$var($String, ret, $str(var$0));
+	$Arrays::fill($$cast($bytes, $nc(buf)->array()), (int8_t)0);
+	$Arrays::fill($$cast($bytes, $nc(enc)->array()), (int8_t)0);
+	$Arrays::fill($$cast($chars, cbuf->array()), (char16_t)0);
 	return ret;
 }
 
@@ -142,7 +108,7 @@ bool BasicAuthentication::supportsPreemptiveAuthorization() {
 }
 
 bool BasicAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, $String* raw) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!BasicAuthentication::$assertionsDisabled && !$nc(conn)->isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -161,18 +127,18 @@ bool BasicAuthentication::isAuthorizationStale($String* header) {
 
 $String* BasicAuthentication::getRootPath($String* npath$renamed, $String* opath$renamed) {
 	$init(BasicAuthentication);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, npath, npath$renamed);
 	$var($String, opath, opath$renamed);
 	int32_t index = 0;
 	int32_t toindex = 0;
 	try {
-		$assign(npath, $nc($($$new($URI, npath)->normalize()))->getPath());
-		$assign(opath, $nc($($$new($URI, opath)->normalize()))->getPath());
+		$assign(npath, $$nc($$new($URI, npath)->normalize())->getPath());
+		$assign(opath, $$nc($$new($URI, opath)->normalize())->getPath());
 	} catch ($URISyntaxException& e) {
 	}
 	while (index < $nc(opath)->length()) {
-		toindex = opath->indexOf((int32_t)u'/', index + 1);
+		toindex = opath->indexOf(u'/', index + 1);
 		if (toindex != -1 && opath->regionMatches(0, npath, 0, toindex + 1)) {
 			index = toindex;
 		} else {
@@ -182,7 +148,7 @@ $String* BasicAuthentication::getRootPath($String* npath$renamed, $String* opath
 	return npath;
 }
 
-void clinit$BasicAuthentication($Class* class$) {
+void BasicAuthentication::clinit$($Class* clazz) {
 	BasicAuthentication::$assertionsDisabled = !BasicAuthentication::class$->desiredAssertionStatus();
 }
 
@@ -190,7 +156,36 @@ BasicAuthentication::BasicAuthentication() {
 }
 
 $Class* BasicAuthentication::load$($String* name, bool initialize) {
-	$loadClass(BasicAuthentication, name, initialize, &_BasicAuthentication_ClassInfo_, clinit$BasicAuthentication, allocate$BasicAuthentication);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicAuthentication, $assertionsDisabled)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicAuthentication, serialVersionUID)},
+		{"auth", "Ljava/lang/String;", nullptr, $FINAL, $field(BasicAuthentication, auth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/lang/String;ILjava/lang/String;Ljava/net/PasswordAuthentication;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $String*, int32_t, $String*, $PasswordAuthentication*, bool, $String*)},
+		{"<init>", "(ZLjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $String*, int32_t, $String*, $String*, $String*)},
+		{"<init>", "(ZLjava/net/URL;Ljava/lang/String;Ljava/net/PasswordAuthentication;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $URL*, $String*, $PasswordAuthentication*, bool, $String*)},
+		{"<init>", "(ZLjava/net/URL;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $URL*, $String*, $String*, $String*)},
+		{"authValueFrom", "(Ljava/net/PasswordAuthentication;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicAuthentication, authValueFrom, $String*, $PasswordAuthentication*, bool)},
+		{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, getHeaderValue, $String*, $URL*, $String*)},
+		{"getRootPath", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BasicAuthentication, getRootPath, $String*, $String*, $String*)},
+		{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, isAuthorizationStale, bool, $String*)},
+		{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
+		{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, supportsPreemptiveAuthorization, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.http.BasicAuthentication",
+		"sun.net.www.protocol.http.AuthenticationInfo",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicAuthentication, name, initialize, &classInfo$$, BasicAuthentication::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicAuthentication));
+	});
 	return class$;
 }
 

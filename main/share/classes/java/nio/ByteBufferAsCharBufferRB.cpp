@@ -1,5 +1,4 @@
 #include <java/nio/ByteBufferAsCharBufferRB.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -33,44 +32,6 @@ using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy
 namespace java {
 	namespace nio {
 
-$FieldInfo _ByteBufferAsCharBufferRB_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ByteBufferAsCharBufferRB, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _ByteBufferAsCharBufferRB_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsCharBufferRB, init$, void, $ByteBuffer*, $MemorySegmentProxy*)},
-	{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsCharBufferRB, init$, void, $ByteBuffer*, int32_t, int32_t, int32_t, int32_t, int64_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, asReadOnlyBuffer, $CharBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ByteBufferAsCharBufferRB, base, $Object*)},
-	{"charRegionOrder", "()Ljava/nio/ByteOrder;", nullptr, 0, $virtualMethod(ByteBufferAsCharBufferRB, charRegionOrder, $ByteOrder*)},
-	{"compact", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, compact, $CharBuffer*)},
-	{"duplicate", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, duplicate, $CharBuffer*)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, order, $ByteOrder*)},
-	{"put", "(C)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, put, $CharBuffer*, char16_t)},
-	{"put", "(IC)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, put, $CharBuffer*, int32_t, char16_t)},
-	{"slice", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, slice, $CharBuffer*)},
-	{"slice", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, slice, $CharBuffer*, int32_t, int32_t)},
-	{"subSequence", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, subSequence, $CharSequence*, int32_t, int32_t)},
-	{"toString", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, toString, $String*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ByteBufferAsCharBufferRB_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.ByteBufferAsCharBufferRB",
-	"java.nio.ByteBufferAsCharBufferB",
-	nullptr,
-	_ByteBufferAsCharBufferRB_FieldInfo_,
-	_ByteBufferAsCharBufferRB_MethodInfo_
-};
-
-$Object* allocate$ByteBufferAsCharBufferRB($Class* clazz) {
-	return $of($alloc(ByteBufferAsCharBufferRB));
-}
-
 bool ByteBufferAsCharBufferRB::$assertionsDisabled = false;
 
 void ByteBufferAsCharBufferRB::init$($ByteBuffer* bb, $MemorySegmentProxy* segment) {
@@ -82,7 +43,7 @@ void ByteBufferAsCharBufferRB::init$($ByteBuffer* bb, int32_t mark, int32_t pos,
 }
 
 $Object* ByteBufferAsCharBufferRB::base() {
-	return $of($nc(this->bb)->hb);
+	return $nc(this->bb)->hb;
 }
 
 $CharBuffer* ByteBufferAsCharBufferRB::slice() {
@@ -134,7 +95,7 @@ bool ByteBufferAsCharBufferRB::isReadOnly() {
 }
 
 $String* ByteBufferAsCharBufferRB::toString(int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::checkFromToIndex(start, end, limit());
 	try {
 		int32_t len = end - start;
@@ -172,7 +133,7 @@ $ByteOrder* ByteBufferAsCharBufferRB::charRegionOrder() {
 	return order();
 }
 
-void clinit$ByteBufferAsCharBufferRB($Class* class$) {
+void ByteBufferAsCharBufferRB::clinit$($Class* clazz) {
 	ByteBufferAsCharBufferRB::$assertionsDisabled = !ByteBufferAsCharBufferRB::class$->desiredAssertionStatus();
 }
 
@@ -180,7 +141,40 @@ ByteBufferAsCharBufferRB::ByteBufferAsCharBufferRB() {
 }
 
 $Class* ByteBufferAsCharBufferRB::load$($String* name, bool initialize) {
-	$loadClass(ByteBufferAsCharBufferRB, name, initialize, &_ByteBufferAsCharBufferRB_ClassInfo_, clinit$ByteBufferAsCharBufferRB, allocate$ByteBufferAsCharBufferRB);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ByteBufferAsCharBufferRB, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsCharBufferRB, init$, void, $ByteBuffer*, $MemorySegmentProxy*)},
+		{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsCharBufferRB, init$, void, $ByteBuffer*, int32_t, int32_t, int32_t, int32_t, int64_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, asReadOnlyBuffer, $CharBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ByteBufferAsCharBufferRB, base, $Object*)},
+		{"charRegionOrder", "()Ljava/nio/ByteOrder;", nullptr, 0, $virtualMethod(ByteBufferAsCharBufferRB, charRegionOrder, $ByteOrder*)},
+		{"compact", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, compact, $CharBuffer*)},
+		{"duplicate", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, duplicate, $CharBuffer*)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, order, $ByteOrder*)},
+		{"put", "(C)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, put, $CharBuffer*, char16_t)},
+		{"put", "(IC)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, put, $CharBuffer*, int32_t, char16_t)},
+		{"slice", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, slice, $CharBuffer*)},
+		{"slice", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, slice, $CharBuffer*, int32_t, int32_t)},
+		{"subSequence", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, subSequence, $CharSequence*, int32_t, int32_t)},
+		{"toString", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsCharBufferRB, toString, $String*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.ByteBufferAsCharBufferRB",
+		"java.nio.ByteBufferAsCharBufferB",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteBufferAsCharBufferRB, name, initialize, &classInfo$$, ByteBufferAsCharBufferRB::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ByteBufferAsCharBufferRB));
+	});
 	return class$;
 }
 

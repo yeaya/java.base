@@ -27,6 +27,7 @@ class $export ModuleDescriptor$Requires : public ::java::lang::Comparable {
 	$class(ModuleDescriptor$Requires, 0, ::java::lang::Comparable)
 public:
 	ModuleDescriptor$Requires();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Set* ms, $String* mn, ::java::lang::module::ModuleDescriptor$Version* v, $String* vs);
 	void init$(::java::util::Set* ms, $String* mn, ::java::lang::module::ModuleDescriptor$Version* v, bool unused);
 	int32_t compareTo(::java::lang::module::ModuleDescriptor$Requires* that);

@@ -1,5 +1,4 @@
 #include <java/net/MalformedURLException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _MalformedURLException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MalformedURLException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MalformedURLException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedURLException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedURLException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _MalformedURLException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.MalformedURLException",
-	"java.io.IOException",
-	nullptr,
-	_MalformedURLException_FieldInfo_,
-	_MalformedURLException_MethodInfo_
-};
-
-$Object* allocate$MalformedURLException($Class* clazz) {
-	return $of($alloc(MalformedURLException));
-}
 
 void MalformedURLException::init$() {
 	$IOException::init$();
@@ -54,7 +29,26 @@ void MalformedURLException::throw$() {
 }
 
 $Class* MalformedURLException::load$($String* name, bool initialize) {
-	$loadClass(MalformedURLException, name, initialize, &_MalformedURLException_ClassInfo_, allocate$MalformedURLException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MalformedURLException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedURLException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedURLException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.MalformedURLException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MalformedURLException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MalformedURLException);
+	});
 	return class$;
 }
 

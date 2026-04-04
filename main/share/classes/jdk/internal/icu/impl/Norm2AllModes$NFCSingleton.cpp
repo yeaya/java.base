@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/Norm2AllModes$NFCSingleton.h>
-
 #include <jdk/internal/icu/impl/Norm2AllModes$Norm2AllModesSingleton.h>
 #include <jdk/internal/icu/impl/Norm2AllModes.h>
 #include <jcpp.h>
@@ -17,47 +16,12 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$FieldInfo _Norm2AllModes$NFCSingleton_FieldInfo_[] = {
-	{"INSTANCE", "Ljdk/internal/icu/impl/Norm2AllModes$Norm2AllModesSingleton;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Norm2AllModes$NFCSingleton, INSTANCE)},
-	{}
-};
-
-$MethodInfo _Norm2AllModes$NFCSingleton_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Norm2AllModes$NFCSingleton, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Norm2AllModes$NFCSingleton_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.Norm2AllModes$NFCSingleton", "jdk.internal.icu.impl.Norm2AllModes", "NFCSingleton", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Norm2AllModes$NFCSingleton_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.Norm2AllModes$NFCSingleton",
-	"java.lang.Object",
-	nullptr,
-	_Norm2AllModes$NFCSingleton_FieldInfo_,
-	_Norm2AllModes$NFCSingleton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Norm2AllModes$NFCSingleton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.Norm2AllModes"
-};
-
-$Object* allocate$Norm2AllModes$NFCSingleton($Class* clazz) {
-	return $of($alloc(Norm2AllModes$NFCSingleton));
-}
-
 $Norm2AllModes$Norm2AllModesSingleton* Norm2AllModes$NFCSingleton::INSTANCE = nullptr;
 
 void Norm2AllModes$NFCSingleton::init$() {
 }
 
-void clinit$Norm2AllModes$NFCSingleton($Class* class$) {
+void Norm2AllModes$NFCSingleton::clinit$($Class* clazz) {
 	$assignStatic(Norm2AllModes$NFCSingleton::INSTANCE, $new($Norm2AllModes$Norm2AllModesSingleton, "nfc"_s));
 }
 
@@ -65,7 +29,36 @@ Norm2AllModes$NFCSingleton::Norm2AllModes$NFCSingleton() {
 }
 
 $Class* Norm2AllModes$NFCSingleton::load$($String* name, bool initialize) {
-	$loadClass(Norm2AllModes$NFCSingleton, name, initialize, &_Norm2AllModes$NFCSingleton_ClassInfo_, clinit$Norm2AllModes$NFCSingleton, allocate$Norm2AllModes$NFCSingleton);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljdk/internal/icu/impl/Norm2AllModes$Norm2AllModesSingleton;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Norm2AllModes$NFCSingleton, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Norm2AllModes$NFCSingleton, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.Norm2AllModes$NFCSingleton", "jdk.internal.icu.impl.Norm2AllModes", "NFCSingleton", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.Norm2AllModes$NFCSingleton",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.Norm2AllModes"
+	};
+	$loadClass(Norm2AllModes$NFCSingleton, name, initialize, &classInfo$$, Norm2AllModes$NFCSingleton::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Norm2AllModes$NFCSingleton);
+	});
 	return class$;
 }
 

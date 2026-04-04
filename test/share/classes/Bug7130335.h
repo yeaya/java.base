@@ -30,6 +30,7 @@ class $export Bug7130335 : public ::java::lang::Object {
 	$class(Bug7130335, 0, ::java::lang::Object)
 public:
 	Bug7130335();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test(::java::text::SimpleDateFormat* sdf, ::java::util::Calendar* cal);

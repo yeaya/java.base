@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/ASMifierSupport.h>
-
 #include <java/util/Map.h>
 #include <jcpp.h>
 
@@ -14,26 +13,22 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$MethodInfo _ASMifierSupport_MethodInfo_[] = {
-	{"asmify", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ASMifierSupport, asmify, void, $StringBuilder*, $String*, $Map*)},
-	{}
-};
-
-$ClassInfo _ASMifierSupport_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.org.objectweb.asm.util.ASMifierSupport",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ASMifierSupport_MethodInfo_
-};
-
-$Object* allocate$ASMifierSupport($Class* clazz) {
-	return $of($alloc(ASMifierSupport));
-}
-
 $Class* ASMifierSupport::load$($String* name, bool initialize) {
-	$loadClass(ASMifierSupport, name, initialize, &_ASMifierSupport_ClassInfo_, allocate$ASMifierSupport);
+	$MethodInfo methodInfos$$[] = {
+		{"asmify", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ASMifierSupport, asmify, void, $StringBuilder*, $String*, $Map*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.org.objectweb.asm.util.ASMifierSupport",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ASMifierSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ASMifierSupport);
+	});
 	return class$;
 }
 

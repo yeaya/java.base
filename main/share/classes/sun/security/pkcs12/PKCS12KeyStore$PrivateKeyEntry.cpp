@@ -1,5 +1,4 @@
 #include <sun/security/pkcs12/PKCS12KeyStore$PrivateKeyEntry.h>
-
 #include <java/security/cert/Certificate.h>
 #include <sun/security/pkcs12/PKCS12KeyStore$KeyEntry.h>
 #include <sun/security/pkcs12/PKCS12KeyStore.h>
@@ -15,43 +14,6 @@ namespace sun {
 	namespace security {
 		namespace pkcs12 {
 
-$FieldInfo _PKCS12KeyStore$PrivateKeyEntry_FieldInfo_[] = {
-	{"protectedPrivKey", "[B", nullptr, 0, $field(PKCS12KeyStore$PrivateKeyEntry, protectedPrivKey)},
-	{"chain", "[Ljava/security/cert/Certificate;", nullptr, 0, $field(PKCS12KeyStore$PrivateKeyEntry, chain)},
-	{}
-};
-
-$MethodInfo _PKCS12KeyStore$PrivateKeyEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PKCS12KeyStore$PrivateKeyEntry, init$, void)},
-	{}
-};
-
-$InnerClassInfo _PKCS12KeyStore$PrivateKeyEntry_InnerClassesInfo_[] = {
-	{"sun.security.pkcs12.PKCS12KeyStore$PrivateKeyEntry", "sun.security.pkcs12.PKCS12KeyStore", "PrivateKeyEntry", $PRIVATE | $STATIC},
-	{"sun.security.pkcs12.PKCS12KeyStore$KeyEntry", "sun.security.pkcs12.PKCS12KeyStore", "KeyEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PKCS12KeyStore$PrivateKeyEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.pkcs12.PKCS12KeyStore$PrivateKeyEntry",
-	"sun.security.pkcs12.PKCS12KeyStore$KeyEntry",
-	nullptr,
-	_PKCS12KeyStore$PrivateKeyEntry_FieldInfo_,
-	_PKCS12KeyStore$PrivateKeyEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PKCS12KeyStore$PrivateKeyEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.pkcs12.PKCS12KeyStore"
-};
-
-$Object* allocate$PKCS12KeyStore$PrivateKeyEntry($Class* clazz) {
-	return $of($alloc(PKCS12KeyStore$PrivateKeyEntry));
-}
-
 void PKCS12KeyStore$PrivateKeyEntry::init$() {
 	$PKCS12KeyStore$KeyEntry::init$();
 }
@@ -60,7 +22,38 @@ PKCS12KeyStore$PrivateKeyEntry::PKCS12KeyStore$PrivateKeyEntry() {
 }
 
 $Class* PKCS12KeyStore$PrivateKeyEntry::load$($String* name, bool initialize) {
-	$loadClass(PKCS12KeyStore$PrivateKeyEntry, name, initialize, &_PKCS12KeyStore$PrivateKeyEntry_ClassInfo_, allocate$PKCS12KeyStore$PrivateKeyEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"protectedPrivKey", "[B", nullptr, 0, $field(PKCS12KeyStore$PrivateKeyEntry, protectedPrivKey)},
+		{"chain", "[Ljava/security/cert/Certificate;", nullptr, 0, $field(PKCS12KeyStore$PrivateKeyEntry, chain)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PKCS12KeyStore$PrivateKeyEntry, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.pkcs12.PKCS12KeyStore$PrivateKeyEntry", "sun.security.pkcs12.PKCS12KeyStore", "PrivateKeyEntry", $PRIVATE | $STATIC},
+		{"sun.security.pkcs12.PKCS12KeyStore$KeyEntry", "sun.security.pkcs12.PKCS12KeyStore", "KeyEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.pkcs12.PKCS12KeyStore$PrivateKeyEntry",
+		"sun.security.pkcs12.PKCS12KeyStore$KeyEntry",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.pkcs12.PKCS12KeyStore"
+	};
+	$loadClass(PKCS12KeyStore$PrivateKeyEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PKCS12KeyStore$PrivateKeyEntry);
+	});
 	return class$;
 }
 

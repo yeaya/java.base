@@ -1,5 +1,4 @@
 #include <FailingFlushAndClose.h>
-
 #include <FailingFlushAndClose$FailingCloseInputStream.h>
 #include <FailingFlushAndClose$FailingCloseOutputStream.h>
 #include <FailingFlushAndClose$FailingCloseReader.h>
@@ -30,7 +29,6 @@ using $BufferedWriter = ::java::io::BufferedWriter;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -38,58 +36,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$FieldInfo _FailingFlushAndClose_FieldInfo_[] = {
-	{"failed", "I", nullptr, $STATIC, $staticField(FailingFlushAndClose, failed)},
-	{}
-};
-
-$MethodInfo _FailingFlushAndClose_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FailingFlushAndClose, init$, void)},
-	{"closeAgain", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, closeAgain, void, $InputStream*), "java.io.IOException"},
-	{"closeAgain", "(Ljava/io/OutputStream;)V", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, closeAgain, void, $OutputStream*), "java.io.IOException"},
-	{"closeAgain", "(Ljava/io/Reader;)Ljava/io/Reader;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, closeAgain, $Reader*, $Reader*), "java.io.IOException"},
-	{"closeAgain", "(Ljava/io/Writer;)Ljava/io/Writer;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, closeAgain, $Writer*, $Writer*), "java.io.IOException"},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, fail, void, $String*)},
-	{"failWithIOE", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, failWithIOE, void, $String*), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FailingFlushAndClose, main, void, $StringArray*), "java.io.IOException"},
-	{"testFailingClose", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingClose, $InputStream*, $InputStream*), "java.io.IOException"},
-	{"testFailingClose", "(Ljava/io/OutputStream;)Ljava/io/OutputStream;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingClose, $OutputStream*, $OutputStream*), "java.io.IOException"},
-	{"testFailingClose", "(Ljava/io/Reader;)Ljava/io/Reader;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingClose, $Reader*, $Reader*), "java.io.IOException"},
-	{"testFailingClose", "(Ljava/io/Writer;)Ljava/io/Writer;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingClose, $Writer*, $Writer*), "java.io.IOException"},
-	{"testFailingFlush", "(Ljava/io/OutputStream;)Ljava/io/OutputStream;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingFlush, $OutputStream*, $OutputStream*), "java.io.IOException"},
-	{"testFailingFlush", "(Ljava/io/Writer;)Ljava/io/Writer;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingFlush, $Writer*, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FailingFlushAndClose_InnerClassesInfo_[] = {
-	{"FailingFlushAndClose$FailingFlushWriter", "FailingFlushAndClose", "FailingFlushWriter", $STATIC},
-	{"FailingFlushAndClose$FailingCloseWriter", "FailingFlushAndClose", "FailingCloseWriter", $STATIC},
-	{"FailingFlushAndClose$FailingCloseReader", "FailingFlushAndClose", "FailingCloseReader", $STATIC},
-	{"FailingFlushAndClose$FailingFlushOutputStream", "FailingFlushAndClose", "FailingFlushOutputStream", $STATIC},
-	{"FailingFlushAndClose$FailingCloseOutputStream", "FailingFlushAndClose", "FailingCloseOutputStream", $STATIC},
-	{"FailingFlushAndClose$FailingCloseInputStream", "FailingFlushAndClose", "FailingCloseInputStream", $STATIC},
-	{}
-};
-
-$ClassInfo _FailingFlushAndClose_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FailingFlushAndClose",
-	"java.lang.Object",
-	nullptr,
-	_FailingFlushAndClose_FieldInfo_,
-	_FailingFlushAndClose_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FailingFlushAndClose_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"FailingFlushAndClose$FailingFlushWriter,FailingFlushAndClose$FailingCloseWriter,FailingFlushAndClose$FailingCloseReader,FailingFlushAndClose$FailingFlushOutputStream,FailingFlushAndClose$FailingCloseOutputStream,FailingFlushAndClose$FailingCloseInputStream"
-};
-
-$Object* allocate$FailingFlushAndClose($Class* clazz) {
-	return $of($alloc(FailingFlushAndClose));
-}
 
 int32_t FailingFlushAndClose::failed = 0;
 
@@ -108,9 +54,9 @@ void FailingFlushAndClose::failWithIOE($String* msg) {
 }
 
 $InputStream* FailingFlushAndClose::testFailingClose($InputStream* in) {
-	$useLocalCurrentObjectStackCache();
-	$nc($System::out)->println($of($nc($of(in))->getClass()));
-	$nc(in)->read($$new($bytes, 100));
+	$useLocalObjectStack();
+	$nc($System::out)->println($nc($of(in))->getClass());
+	in->read($$new($bytes, 100));
 	try {
 		in->close();
 		fail("close did not fail"_s);
@@ -125,8 +71,8 @@ $InputStream* FailingFlushAndClose::testFailingClose($InputStream* in) {
 }
 
 $OutputStream* FailingFlushAndClose::testFailingClose($OutputStream* out) {
-	$nc($System::out)->println($of($nc($of(out))->getClass()));
-	$nc(out)->write(1);
+	$nc($System::out)->println($nc($of(out))->getClass());
+	out->write(1);
 	try {
 		out->close();
 		fail("close did not fail"_s);
@@ -143,8 +89,8 @@ $OutputStream* FailingFlushAndClose::testFailingClose($OutputStream* out) {
 }
 
 $OutputStream* FailingFlushAndClose::testFailingFlush($OutputStream* out) {
-	$nc($System::out)->println($of($nc($of(out))->getClass()));
-	$nc(out)->write(1);
+	$nc($System::out)->println($nc($of(out))->getClass());
+	out->write(1);
 	try {
 		out->flush();
 		fail("flush did not fail"_s);
@@ -178,9 +124,9 @@ void FailingFlushAndClose::closeAgain($OutputStream* out) {
 }
 
 $Reader* FailingFlushAndClose::testFailingClose($Reader* r) {
-	$useLocalCurrentObjectStackCache();
-	$nc($System::out)->println($of($nc($of(r))->getClass()));
-	$nc(r)->read($$new($chars, 100));
+	$useLocalObjectStack();
+	$nc($System::out)->println($nc($of(r))->getClass());
+	r->read($$new($chars, 100));
 	try {
 		r->close();
 		fail("close did not fail"_s);
@@ -195,8 +141,8 @@ $Reader* FailingFlushAndClose::testFailingClose($Reader* r) {
 }
 
 $Writer* FailingFlushAndClose::testFailingClose($Writer* w) {
-	$nc($System::out)->println($of($nc($of(w))->getClass()));
-	$nc(w)->write("message"_s);
+	$nc($System::out)->println($nc($of(w))->getClass());
+	w->write("message"_s);
 	try {
 		w->close();
 		fail("close did not fail"_s);
@@ -211,8 +157,8 @@ $Writer* FailingFlushAndClose::testFailingClose($Writer* w) {
 }
 
 $Writer* FailingFlushAndClose::testFailingFlush($Writer* w) {
-	$nc($System::out)->println($of($nc($of(w))->getClass()));
-	$nc(w)->write("message"_s);
+	$nc($System::out)->println($nc($of(w))->getClass());
+	w->write("message"_s);
 	try {
 		w->flush();
 		fail("flush did not fail"_s);
@@ -248,13 +194,13 @@ $Writer* FailingFlushAndClose::closeAgain($Writer* w) {
 }
 
 void FailingFlushAndClose::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	closeAgain($(testFailingClose(static_cast<$InputStream*>($$new($BufferedInputStream, $$new($FailingFlushAndClose$FailingCloseInputStream))))));
-	closeAgain($(testFailingClose(static_cast<$OutputStream*>($$new($BufferedOutputStream, $$new($FailingFlushAndClose$FailingCloseOutputStream))))));
-	closeAgain($(testFailingClose(static_cast<$Reader*>($$new($BufferedReader, $$new($FailingFlushAndClose$FailingCloseReader))))));
-	closeAgain($(testFailingClose(static_cast<$Writer*>($$new($BufferedWriter, $$new($FailingFlushAndClose$FailingCloseWriter))))));
-	closeAgain($(testFailingFlush(static_cast<$OutputStream*>($$new($BufferedOutputStream, $$new($FailingFlushAndClose$FailingFlushOutputStream))))));
-	closeAgain($(testFailingFlush(static_cast<$Writer*>($$new($BufferedWriter, $$new($FailingFlushAndClose$FailingFlushWriter))))));
+	$useLocalObjectStack();
+	closeAgain($(testFailingClose($$new($BufferedInputStream, $$new($FailingFlushAndClose$FailingCloseInputStream)))));
+	closeAgain($(testFailingClose($$new($BufferedOutputStream, $$new($FailingFlushAndClose$FailingCloseOutputStream)))));
+	closeAgain($(testFailingClose($$new($BufferedReader, $$new($FailingFlushAndClose$FailingCloseReader)))));
+	closeAgain($(testFailingClose($$new($BufferedWriter, $$new($FailingFlushAndClose$FailingCloseWriter)))));
+	closeAgain($(testFailingFlush($$new($BufferedOutputStream, $$new($FailingFlushAndClose$FailingFlushOutputStream)))));
+	closeAgain($(testFailingFlush($$new($BufferedWriter, $$new($FailingFlushAndClose$FailingFlushWriter)))));
 	$init(FailingFlushAndClose);
 	if (FailingFlushAndClose::failed > 0) {
 		$throwNew($RuntimeException, $$str({$$str(FailingFlushAndClose::failed), " test(s) failed - see log for details"_s}));
@@ -265,7 +211,53 @@ FailingFlushAndClose::FailingFlushAndClose() {
 }
 
 $Class* FailingFlushAndClose::load$($String* name, bool initialize) {
-	$loadClass(FailingFlushAndClose, name, initialize, &_FailingFlushAndClose_ClassInfo_, allocate$FailingFlushAndClose);
+	$FieldInfo fieldInfos$$[] = {
+		{"failed", "I", nullptr, $STATIC, $staticField(FailingFlushAndClose, failed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FailingFlushAndClose, init$, void)},
+		{"closeAgain", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, closeAgain, void, $InputStream*), "java.io.IOException"},
+		{"closeAgain", "(Ljava/io/OutputStream;)V", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, closeAgain, void, $OutputStream*), "java.io.IOException"},
+		{"closeAgain", "(Ljava/io/Reader;)Ljava/io/Reader;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, closeAgain, $Reader*, $Reader*), "java.io.IOException"},
+		{"closeAgain", "(Ljava/io/Writer;)Ljava/io/Writer;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, closeAgain, $Writer*, $Writer*), "java.io.IOException"},
+		{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, fail, void, $String*)},
+		{"failWithIOE", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, failWithIOE, void, $String*), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FailingFlushAndClose, main, void, $StringArray*), "java.io.IOException"},
+		{"testFailingClose", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingClose, $InputStream*, $InputStream*), "java.io.IOException"},
+		{"testFailingClose", "(Ljava/io/OutputStream;)Ljava/io/OutputStream;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingClose, $OutputStream*, $OutputStream*), "java.io.IOException"},
+		{"testFailingClose", "(Ljava/io/Reader;)Ljava/io/Reader;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingClose, $Reader*, $Reader*), "java.io.IOException"},
+		{"testFailingClose", "(Ljava/io/Writer;)Ljava/io/Writer;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingClose, $Writer*, $Writer*), "java.io.IOException"},
+		{"testFailingFlush", "(Ljava/io/OutputStream;)Ljava/io/OutputStream;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingFlush, $OutputStream*, $OutputStream*), "java.io.IOException"},
+		{"testFailingFlush", "(Ljava/io/Writer;)Ljava/io/Writer;", nullptr, $STATIC, $staticMethod(FailingFlushAndClose, testFailingFlush, $Writer*, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FailingFlushAndClose$FailingFlushWriter", "FailingFlushAndClose", "FailingFlushWriter", $STATIC},
+		{"FailingFlushAndClose$FailingCloseWriter", "FailingFlushAndClose", "FailingCloseWriter", $STATIC},
+		{"FailingFlushAndClose$FailingCloseReader", "FailingFlushAndClose", "FailingCloseReader", $STATIC},
+		{"FailingFlushAndClose$FailingFlushOutputStream", "FailingFlushAndClose", "FailingFlushOutputStream", $STATIC},
+		{"FailingFlushAndClose$FailingCloseOutputStream", "FailingFlushAndClose", "FailingCloseOutputStream", $STATIC},
+		{"FailingFlushAndClose$FailingCloseInputStream", "FailingFlushAndClose", "FailingCloseInputStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FailingFlushAndClose",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"FailingFlushAndClose$FailingFlushWriter,FailingFlushAndClose$FailingCloseWriter,FailingFlushAndClose$FailingCloseReader,FailingFlushAndClose$FailingFlushOutputStream,FailingFlushAndClose$FailingCloseOutputStream,FailingFlushAndClose$FailingCloseInputStream"
+	};
+	$loadClass(FailingFlushAndClose, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FailingFlushAndClose);
+	});
 	return class$;
 }
 

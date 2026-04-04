@@ -1,5 +1,4 @@
 #include <sun/security/util/DerOutputStream.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/math/BigInteger.h>
@@ -46,79 +45,12 @@ using $TimeZone = ::java::util::TimeZone;
 using $BitArray = ::sun::security::util::BitArray;
 using $ByteArrayLexOrder = ::sun::security::util::ByteArrayLexOrder;
 using $ByteArrayTagOrder = ::sun::security::util::ByteArrayTagOrder;
-using $DerEncoder = ::sun::security::util::DerEncoder;
 using $DerValue = ::sun::security::util::DerValue;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 
 namespace sun {
 	namespace security {
 		namespace util {
-
-$FieldInfo _DerOutputStream_FieldInfo_[] = {
-	{"lexOrder", "Lsun/security/util/ByteArrayLexOrder;", nullptr, $PRIVATE | $STATIC, $staticField(DerOutputStream, lexOrder)},
-	{"tagOrder", "Lsun/security/util/ByteArrayTagOrder;", nullptr, $PRIVATE | $STATIC, $staticField(DerOutputStream, tagOrder)},
-	{}
-};
-
-$MethodInfo _DerOutputStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(DerOutputStream, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DerOutputStream, init$, void)},
-	{"buf", "()[B", nullptr, 0, $virtualMethod(DerOutputStream, buf, $bytes*)},
-	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, derEncode, void, $OutputStream*), "java.io.IOException"},
-	{"putBMPString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putBMPString, void, $String*), "java.io.IOException"},
-	{"putBitString", "([B)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putBitString, void, $bytes*), "java.io.IOException"},
-	{"putBoolean", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putBoolean, void, bool), "java.io.IOException"},
-	{"putDerValue", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putDerValue, void, $DerValue*), "java.io.IOException"},
-	{"putEnumerated", "(I)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putEnumerated, void, int32_t), "java.io.IOException"},
-	{"putGeneralString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putGeneralString, void, $String*), "java.io.IOException"},
-	{"putGeneralizedTime", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putGeneralizedTime, void, $Date*), "java.io.IOException"},
-	{"putIA5String", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putIA5String, void, $String*), "java.io.IOException"},
-	{"putInteger", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putInteger, void, $BigInteger*), "java.io.IOException"},
-	{"putInteger", "([B)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putInteger, void, $bytes*), "java.io.IOException"},
-	{"putInteger", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putInteger, void, $Integer*), "java.io.IOException"},
-	{"putInteger", "(I)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putInteger, void, int32_t), "java.io.IOException"},
-	{"putIntegerContents", "(I)V", nullptr, $PRIVATE, $method(DerOutputStream, putIntegerContents, void, int32_t), "java.io.IOException"},
-	{"putLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putLength, void, int32_t), "java.io.IOException"},
-	{"putNull", "()V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putNull, void), "java.io.IOException"},
-	{"putOID", "(Lsun/security/util/ObjectIdentifier;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putOID, void, $ObjectIdentifier*), "java.io.IOException"},
-	{"putOctetString", "([B)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putOctetString, void, $bytes*), "java.io.IOException"},
-	{"putOrderedSet", "(B[Lsun/security/util/DerEncoder;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putOrderedSet, void, int8_t, $DerEncoderArray*), "java.io.IOException"},
-	{"putOrderedSet", "(B[Lsun/security/util/DerEncoder;Ljava/util/Comparator;)V", "(B[Lsun/security/util/DerEncoder;Ljava/util/Comparator<[B>;)V", $PRIVATE, $method(DerOutputStream, putOrderedSet, void, int8_t, $DerEncoderArray*, $Comparator*), "java.io.IOException"},
-	{"putOrderedSetOf", "(B[Lsun/security/util/DerEncoder;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putOrderedSetOf, void, int8_t, $DerEncoderArray*), "java.io.IOException"},
-	{"putPrintableString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putPrintableString, void, $String*), "java.io.IOException"},
-	{"putSequence", "([Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putSequence, void, $DerValueArray*), "java.io.IOException"},
-	{"putSet", "([Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putSet, void, $DerValueArray*), "java.io.IOException"},
-	{"putT61String", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putT61String, void, $String*), "java.io.IOException"},
-	{"putTag", "(BZB)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putTag, void, int8_t, bool, int8_t)},
-	{"putTime", "(Ljava/util/Date;B)V", nullptr, $PRIVATE, $method(DerOutputStream, putTime, void, $Date*, int8_t), "java.io.IOException"},
-	{"putTruncatedUnalignedBitString", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putTruncatedUnalignedBitString, void, $BitArray*), "java.io.IOException"},
-	{"putUTCTime", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putUTCTime, void, $Date*), "java.io.IOException"},
-	{"putUTF8String", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putUTF8String, void, $String*), "java.io.IOException"},
-	{"putUnalignedBitString", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putUnalignedBitString, void, $BitArray*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"write", "(B[B)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, write, void, int8_t, $bytes*), "java.io.IOException"},
-	{"write", "(BLsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, write, void, int8_t, DerOutputStream*), "java.io.IOException"},
-	{"writeImplicit", "(BLsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, writeImplicit, void, int8_t, DerOutputStream*), "java.io.IOException"},
-	{"writeString", "(Ljava/lang/String;BLjava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(DerOutputStream, writeString, void, $String*, int8_t, $Charset*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DerOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.DerOutputStream",
-	"java.io.ByteArrayOutputStream",
-	"sun.security.util.DerEncoder",
-	_DerOutputStream_FieldInfo_,
-	_DerOutputStream_MethodInfo_
-};
-
-$Object* allocate$DerOutputStream($Class* clazz) {
-	return $of($alloc(DerOutputStream));
-}
 
 $String* DerOutputStream::toString() {
 	 return this->$ByteArrayOutputStream::toString();
@@ -152,20 +84,20 @@ void DerOutputStream::init$() {
 }
 
 void DerOutputStream::write(int8_t tag, $bytes* buf) {
-	write((int32_t)tag);
+	write(tag);
 	putLength($nc(buf)->length);
-	write(buf, 0, $nc(buf)->length);
+	write(buf, 0, buf->length);
 }
 
 void DerOutputStream::write(int8_t tag, DerOutputStream* out) {
-	write((int32_t)tag);
+	write(tag);
 	putLength($nc(out)->count);
-	write($nc(out)->$ByteArrayOutputStream::buf, 0, out->count);
+	write(out->$ByteArrayOutputStream::buf, 0, out->count);
 }
 
 void DerOutputStream::writeImplicit(int8_t tag, DerOutputStream* value) {
-	write((int32_t)tag);
-	write($nc(value)->$ByteArrayOutputStream::buf, 1, value->count - 1);
+	write(tag);
+	write($nc(value)->$ByteArrayOutputStream::buf, 1, $nc(value)->count - 1);
 }
 
 void DerOutputStream::putDerValue($DerValue* val) {
@@ -173,7 +105,7 @@ void DerOutputStream::putDerValue($DerValue* val) {
 }
 
 void DerOutputStream::putBoolean(bool val) {
-	write((int32_t)$DerValue::tag_Boolean);
+	write($DerValue::tag_Boolean);
 	putLength(1);
 	if (val) {
 		write(255);
@@ -183,21 +115,21 @@ void DerOutputStream::putBoolean(bool val) {
 }
 
 void DerOutputStream::putEnumerated(int32_t i) {
-	write((int32_t)$DerValue::tag_Enumerated);
+	write($DerValue::tag_Enumerated);
 	putIntegerContents(i);
 }
 
 void DerOutputStream::putInteger($BigInteger* i) {
-	write((int32_t)$DerValue::tag_Integer);
+	write($DerValue::tag_Integer);
 	$var($bytes, buf, $nc(i)->toByteArray());
-	putLength($nc(buf)->length);
-	write(buf, 0, $nc(buf)->length);
+	putLength(buf->length);
+	write(buf, 0, buf->length);
 }
 
 void DerOutputStream::putInteger($bytes* buf) {
-	write((int32_t)$DerValue::tag_Integer);
+	write($DerValue::tag_Integer);
 	putLength($nc(buf)->length);
-	write(buf, 0, $nc(buf)->length);
+	write(buf, 0, buf->length);
 }
 
 void DerOutputStream::putInteger($Integer* i) {
@@ -205,20 +137,20 @@ void DerOutputStream::putInteger($Integer* i) {
 }
 
 void DerOutputStream::putInteger(int32_t i) {
-	write((int32_t)$DerValue::tag_Integer);
+	write($DerValue::tag_Integer);
 	putIntegerContents(i);
 }
 
 void DerOutputStream::putIntegerContents(int32_t i) {
 	$var($bytes, bytes, $new($bytes, 4));
 	int32_t start = 0;
-	bytes->set(3, (int8_t)((int32_t)(i & (uint32_t)255)));
-	bytes->set(2, (int8_t)((int32_t)((uint32_t)((int32_t)(i & (uint32_t)0x0000FF00)) >> 8)));
-	bytes->set(1, (int8_t)((int32_t)((uint32_t)((int32_t)(i & (uint32_t)0x00FF0000)) >> 16)));
-	bytes->set(0, (int8_t)((int32_t)((uint32_t)((int32_t)(i & (uint32_t)(int32_t)0xFF000000)) >> 24)));
+	bytes->set(3, (int8_t)(i & 0xff));
+	bytes->set(2, (int8_t)((int32_t)((uint32_t)(i & 0xff00) >> 8)));
+	bytes->set(1, (int8_t)((int32_t)((uint32_t)(i & 0x00ff0000) >> 16)));
+	bytes->set(0, (int8_t)((int32_t)((uint32_t)(i & (int32_t)0xff000000) >> 24)));
 	if (bytes->get(0) == (int8_t)255) {
 		for (int32_t j = 0; j < 3; ++j) {
-			if ((bytes->get(j) == (int8_t)255) && (((int32_t)(bytes->get(j + 1) & (uint32_t)128)) == 128)) {
+			if ((bytes->get(j) == (int8_t)255) && ((bytes->get(j + 1) & 0x80) == 0x80)) {
 				++start;
 			} else {
 				break;
@@ -226,7 +158,7 @@ void DerOutputStream::putIntegerContents(int32_t i) {
 		}
 	} else if (bytes->get(0) == 0) {
 		for (int32_t j = 0; j < 3; ++j) {
-			if ((bytes->get(j) == 0) && (((int32_t)(bytes->get(j + 1) & (uint32_t)128)) == 0)) {
+			if ((bytes->get(j) == 0) && ((bytes->get(j + 1) & 0x80) == 0)) {
 				++start;
 			} else {
 				break;
@@ -235,12 +167,12 @@ void DerOutputStream::putIntegerContents(int32_t i) {
 	}
 	putLength(4 - start);
 	for (int32_t k = start; k < 4; ++k) {
-		write((int32_t)bytes->get(k));
+		write(bytes->get(k));
 	}
 }
 
 void DerOutputStream::putBitString($bytes* bits) {
-	write((int32_t)$DerValue::tag_BitString);
+	write($DerValue::tag_BitString);
 	putLength($nc(bits)->length + 1);
 	write(0);
 	write(bits);
@@ -248,9 +180,9 @@ void DerOutputStream::putBitString($bytes* bits) {
 
 void DerOutputStream::putUnalignedBitString($BitArray* ba) {
 	$var($bytes, bits, $nc(ba)->toByteArray());
-	write((int32_t)$DerValue::tag_BitString);
+	write($DerValue::tag_BitString);
 	putLength($nc(bits)->length + 1);
-	write($nc(bits)->length * 8 - ba->length());
+	write(bits->length * 8 - ba->length());
 	write(bits);
 }
 
@@ -263,7 +195,7 @@ void DerOutputStream::putOctetString($bytes* octets) {
 }
 
 void DerOutputStream::putNull() {
-	write((int32_t)$DerValue::tag_Null);
+	write($DerValue::tag_Null);
 	putLength(0);
 }
 
@@ -298,7 +230,7 @@ void DerOutputStream::putOrderedSet(int8_t tag, $DerEncoderArray* set) {
 }
 
 void DerOutputStream::putOrderedSet(int8_t tag, $DerEncoderArray* set, $Comparator* order) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStreamArray, streams, $new($DerOutputStreamArray, $nc(set)->length));
 	for (int32_t i = 0; i < set->length; ++i) {
 		streams->set(i, $$new(DerOutputStream));
@@ -308,7 +240,7 @@ void DerOutputStream::putOrderedSet(int8_t tag, $DerEncoderArray* set, $Comparat
 	for (int32_t i = 0; i < streams->length; ++i) {
 		bufs->set(i, $($nc(streams->get(i))->toByteArray()));
 	}
-	$Arrays::sort(static_cast<$ObjectArray*>(static_cast<$Object*>(static_cast<$byteArray2*>(bufs))), order);
+	$Arrays::sort(bufs, order);
 	$var(DerOutputStream, bytes, $new(DerOutputStream));
 	for (int32_t i = 0; i < streams->length; ++i) {
 		bytes->write(bufs->get(i));
@@ -348,7 +280,7 @@ void DerOutputStream::putGeneralString($String* s) {
 
 void DerOutputStream::writeString($String* s, int8_t stringTag, $Charset* charset) {
 	$var($bytes, data, $nc(s)->getBytes(charset));
-	write((int32_t)stringTag);
+	write(stringTag);
 	putLength(data->length);
 	write(data);
 }
@@ -362,7 +294,7 @@ void DerOutputStream::putGeneralizedTime($Date* d) {
 }
 
 void DerOutputStream::putTime($Date* d, int8_t tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TimeZone, tz, $TimeZone::getTimeZone("GMT"_s));
 	$var($String, pattern, nullptr);
 	if (tag == $DerValue::tag_UtcTime) {
@@ -375,33 +307,33 @@ void DerOutputStream::putTime($Date* d, int8_t tag) {
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, pattern, $Locale::US));
 	sdf->setTimeZone(tz);
 	$init($StandardCharsets);
-	$var($bytes, time, $nc(($(sdf->format(d))))->getBytes($StandardCharsets::ISO_8859_1));
-	write((int32_t)tag);
+	$var($bytes, time, ($$nc(sdf->format(d)))->getBytes($StandardCharsets::ISO_8859_1));
+	write(tag);
 	putLength(time->length);
 	write(time);
 }
 
 void DerOutputStream::putLength(int32_t len) {
 	if (len < 128) {
-		write((int32_t)(int8_t)len);
+		write((int8_t)len);
 	} else if (len < (1 << 8)) {
-		write((int32_t)(int8_t)129);
-		write((int32_t)(int8_t)len);
+		write((int8_t)129);
+		write((int8_t)len);
 	} else if (len < (1 << 16)) {
-		write((int32_t)(int8_t)130);
-		write((int32_t)(int8_t)(len >> 8));
-		write((int32_t)(int8_t)len);
+		write((int8_t)130);
+		write((int8_t)(len >> 8));
+		write((int8_t)len);
 	} else if (len < (1 << 24)) {
-		write((int32_t)(int8_t)131);
-		write((int32_t)(int8_t)(len >> 16));
-		write((int32_t)(int8_t)(len >> 8));
-		write((int32_t)(int8_t)len);
+		write((int8_t)131);
+		write((int8_t)(len >> 16));
+		write((int8_t)(len >> 8));
+		write((int8_t)len);
 	} else {
-		write((int32_t)(int8_t)132);
-		write((int32_t)(int8_t)(len >> 24));
-		write((int32_t)(int8_t)(len >> 16));
-		write((int32_t)(int8_t)(len >> 8));
-		write((int32_t)(int8_t)len);
+		write((int8_t)132);
+		write((int8_t)(len >> 24));
+		write((int8_t)(len >> 16));
+		write((int8_t)(len >> 8));
+		write((int8_t)len);
 	}
 }
 
@@ -410,7 +342,7 @@ void DerOutputStream::putTag(int8_t tagClass, bool form, int8_t val) {
 	if (form) {
 		tag |= (int8_t)32;
 	}
-	write((int32_t)tag);
+	write(tag);
 }
 
 void DerOutputStream::derEncode($OutputStream* out) {
@@ -421,7 +353,7 @@ $bytes* DerOutputStream::buf() {
 	return this->$ByteArrayOutputStream::buf;
 }
 
-void clinit$DerOutputStream($Class* class$) {
+void DerOutputStream::clinit$($Class* clazz) {
 	$assignStatic(DerOutputStream::lexOrder, $new($ByteArrayLexOrder));
 	$assignStatic(DerOutputStream::tagOrder, $new($ByteArrayTagOrder));
 }
@@ -430,7 +362,68 @@ DerOutputStream::DerOutputStream() {
 }
 
 $Class* DerOutputStream::load$($String* name, bool initialize) {
-	$loadClass(DerOutputStream, name, initialize, &_DerOutputStream_ClassInfo_, clinit$DerOutputStream, allocate$DerOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"lexOrder", "Lsun/security/util/ByteArrayLexOrder;", nullptr, $PRIVATE | $STATIC, $staticField(DerOutputStream, lexOrder)},
+		{"tagOrder", "Lsun/security/util/ByteArrayTagOrder;", nullptr, $PRIVATE | $STATIC, $staticField(DerOutputStream, tagOrder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(DerOutputStream, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DerOutputStream, init$, void)},
+		{"buf", "()[B", nullptr, 0, $virtualMethod(DerOutputStream, buf, $bytes*)},
+		{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, derEncode, void, $OutputStream*), "java.io.IOException"},
+		{"putBMPString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putBMPString, void, $String*), "java.io.IOException"},
+		{"putBitString", "([B)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putBitString, void, $bytes*), "java.io.IOException"},
+		{"putBoolean", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putBoolean, void, bool), "java.io.IOException"},
+		{"putDerValue", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putDerValue, void, $DerValue*), "java.io.IOException"},
+		{"putEnumerated", "(I)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putEnumerated, void, int32_t), "java.io.IOException"},
+		{"putGeneralString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putGeneralString, void, $String*), "java.io.IOException"},
+		{"putGeneralizedTime", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putGeneralizedTime, void, $Date*), "java.io.IOException"},
+		{"putIA5String", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putIA5String, void, $String*), "java.io.IOException"},
+		{"putInteger", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putInteger, void, $BigInteger*), "java.io.IOException"},
+		{"putInteger", "([B)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putInteger, void, $bytes*), "java.io.IOException"},
+		{"putInteger", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putInteger, void, $Integer*), "java.io.IOException"},
+		{"putInteger", "(I)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putInteger, void, int32_t), "java.io.IOException"},
+		{"putIntegerContents", "(I)V", nullptr, $PRIVATE, $method(DerOutputStream, putIntegerContents, void, int32_t), "java.io.IOException"},
+		{"putLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putLength, void, int32_t), "java.io.IOException"},
+		{"putNull", "()V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putNull, void), "java.io.IOException"},
+		{"putOID", "(Lsun/security/util/ObjectIdentifier;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putOID, void, $ObjectIdentifier*), "java.io.IOException"},
+		{"putOctetString", "([B)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putOctetString, void, $bytes*), "java.io.IOException"},
+		{"putOrderedSet", "(B[Lsun/security/util/DerEncoder;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putOrderedSet, void, int8_t, $DerEncoderArray*), "java.io.IOException"},
+		{"putOrderedSet", "(B[Lsun/security/util/DerEncoder;Ljava/util/Comparator;)V", "(B[Lsun/security/util/DerEncoder;Ljava/util/Comparator<[B>;)V", $PRIVATE, $method(DerOutputStream, putOrderedSet, void, int8_t, $DerEncoderArray*, $Comparator*), "java.io.IOException"},
+		{"putOrderedSetOf", "(B[Lsun/security/util/DerEncoder;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putOrderedSetOf, void, int8_t, $DerEncoderArray*), "java.io.IOException"},
+		{"putPrintableString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putPrintableString, void, $String*), "java.io.IOException"},
+		{"putSequence", "([Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putSequence, void, $DerValueArray*), "java.io.IOException"},
+		{"putSet", "([Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putSet, void, $DerValueArray*), "java.io.IOException"},
+		{"putT61String", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putT61String, void, $String*), "java.io.IOException"},
+		{"putTag", "(BZB)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putTag, void, int8_t, bool, int8_t)},
+		{"putTime", "(Ljava/util/Date;B)V", nullptr, $PRIVATE, $method(DerOutputStream, putTime, void, $Date*, int8_t), "java.io.IOException"},
+		{"putTruncatedUnalignedBitString", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putTruncatedUnalignedBitString, void, $BitArray*), "java.io.IOException"},
+		{"putUTCTime", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putUTCTime, void, $Date*), "java.io.IOException"},
+		{"putUTF8String", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putUTF8String, void, $String*), "java.io.IOException"},
+		{"putUnalignedBitString", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, putUnalignedBitString, void, $BitArray*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"write", "(B[B)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, write, void, int8_t, $bytes*), "java.io.IOException"},
+		{"write", "(BLsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, write, void, int8_t, DerOutputStream*), "java.io.IOException"},
+		{"writeImplicit", "(BLsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DerOutputStream, writeImplicit, void, int8_t, DerOutputStream*), "java.io.IOException"},
+		{"writeString", "(Ljava/lang/String;BLjava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(DerOutputStream, writeString, void, $String*, int8_t, $Charset*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.DerOutputStream",
+		"java.io.ByteArrayOutputStream",
+		"sun.security.util.DerEncoder",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DerOutputStream, name, initialize, &classInfo$$, DerOutputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DerOutputStream));
+	});
 	return class$;
 }
 

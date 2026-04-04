@@ -20,10 +20,13 @@ class $export CoderMalfunctionError : public ::java::lang::Error {
 public:
 	CoderMalfunctionError();
 	void init$(::java::lang::Exception* cause);
-	static const int64_t serialVersionUID = (int64_t)0xF0055C91E4044903;
+	static const int64_t serialVersionUID = (int64_t)0xf0055c91e4044903;
 	CoderMalfunctionError(const CoderMalfunctionError& e);
 	virtual void throw$() override;
-	inline CoderMalfunctionError* operator ->() {
+	inline CoderMalfunctionError* operator ->() const {
+		return (CoderMalfunctionError*)throwing$;
+	}
+	inline operator CoderMalfunctionError*() const {
 		return (CoderMalfunctionError*)throwing$;
 	}
 };

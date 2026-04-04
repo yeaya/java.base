@@ -15,6 +15,7 @@ class $export TrailingSlash : public ::java::lang::Object {
 	$class(TrailingSlash, 0, ::java::lang::Object)
 public:
 	TrailingSlash();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check($String* what, $String* fns, bool expected, bool threw);
 	static void go($String* fns, bool fis, bool raf, bool fos);

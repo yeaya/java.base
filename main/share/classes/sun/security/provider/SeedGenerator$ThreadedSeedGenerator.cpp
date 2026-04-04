@@ -1,12 +1,9 @@
 #include <sun/security/provider/SeedGenerator$ThreadedSeedGenerator.h>
-
 #include <java/lang/InternalError.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/security/AccessController.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/security/provider/SeedGenerator$ThreadedSeedGenerator$1.h>
 #include <sun/security/provider/SeedGenerator$ThreadedSeedGenerator$BogusThread.h>
 #include <sun/security/provider/SeedGenerator.h>
@@ -19,11 +16,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $SeedGenerator = ::sun::security::provider::SeedGenerator;
 using $SeedGenerator$ThreadedSeedGenerator$1 = ::sun::security::provider::SeedGenerator$ThreadedSeedGenerator$1;
 using $SeedGenerator$ThreadedSeedGenerator$BogusThread = ::sun::security::provider::SeedGenerator$ThreadedSeedGenerator$BogusThread;
@@ -31,56 +26,6 @@ using $SeedGenerator$ThreadedSeedGenerator$BogusThread = ::sun::security::provid
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _SeedGenerator$ThreadedSeedGenerator_FieldInfo_[] = {
-	{"pool", "[B", nullptr, $PRIVATE, $field(SeedGenerator$ThreadedSeedGenerator, pool)},
-	{"start", "I", nullptr, $PRIVATE, $field(SeedGenerator$ThreadedSeedGenerator, start)},
-	{"end", "I", nullptr, $PRIVATE, $field(SeedGenerator$ThreadedSeedGenerator, end)},
-	{"count", "I", nullptr, $PRIVATE, $field(SeedGenerator$ThreadedSeedGenerator, count)},
-	{"seedGroup", "Ljava/lang/ThreadGroup;", nullptr, 0, $field(SeedGenerator$ThreadedSeedGenerator, seedGroup)},
-	{"rndTab", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SeedGenerator$ThreadedSeedGenerator, rndTab)},
-	{}
-};
-
-$MethodInfo _SeedGenerator$ThreadedSeedGenerator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SeedGenerator$ThreadedSeedGenerator, init$, void)},
-	{"getSeedByte", "()B", nullptr, 0, $virtualMethod(SeedGenerator$ThreadedSeedGenerator, getSeedByte, int8_t)},
-	{"getSeedBytes", "([B)V", nullptr, 0, $virtualMethod(SeedGenerator$ThreadedSeedGenerator, getSeedBytes, void, $bytes*)},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SeedGenerator$ThreadedSeedGenerator, run, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SeedGenerator$ThreadedSeedGenerator_InnerClassesInfo_[] = {
-	{"sun.security.provider.SeedGenerator$ThreadedSeedGenerator", "sun.security.provider.SeedGenerator", "ThreadedSeedGenerator", $PRIVATE | $STATIC},
-	{"sun.security.provider.SeedGenerator$ThreadedSeedGenerator$BogusThread", "sun.security.provider.SeedGenerator$ThreadedSeedGenerator", "BogusThread", $PRIVATE | $STATIC},
-	{"sun.security.provider.SeedGenerator$ThreadedSeedGenerator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SeedGenerator$ThreadedSeedGenerator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.SeedGenerator$ThreadedSeedGenerator",
-	"sun.security.provider.SeedGenerator",
-	"java.lang.Runnable",
-	_SeedGenerator$ThreadedSeedGenerator_FieldInfo_,
-	_SeedGenerator$ThreadedSeedGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SeedGenerator$ThreadedSeedGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.SeedGenerator"
-};
-
-$Object* allocate$SeedGenerator$ThreadedSeedGenerator($Class* clazz) {
-	return $of($alloc(SeedGenerator$ThreadedSeedGenerator));
-}
 
 int32_t SeedGenerator$ThreadedSeedGenerator::hashCode() {
 	 return this->$SeedGenerator::hashCode();
@@ -105,7 +50,7 @@ void SeedGenerator$ThreadedSeedGenerator::finalize() {
 $bytes* SeedGenerator$ThreadedSeedGenerator::rndTab = nullptr;
 
 void SeedGenerator$ThreadedSeedGenerator::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$SeedGenerator::init$();
 	$set(this, pool, $new($bytes, 20));
@@ -117,13 +62,13 @@ void SeedGenerator$ThreadedSeedGenerator::init$() {
 		$throwNew($InternalError, "internal error: SHA-1 not available."_s, e);
 	}
 	$var($ThreadGroupArray, finalsg, $new($ThreadGroupArray, 1));
-	$var($Thread, t, $cast($Thread, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SeedGenerator$ThreadedSeedGenerator$1, this, finalsg)))));
+	$var($Thread, t, $cast($Thread, $AccessController::doPrivileged($$new($SeedGenerator$ThreadedSeedGenerator$1, this, finalsg))));
 	$set(this, seedGroup, finalsg->get(0));
 	$nc(t)->start();
 }
 
 void SeedGenerator$ThreadedSeedGenerator::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		while (true) {
 			$synchronized(this) {
@@ -133,8 +78,8 @@ void SeedGenerator$ThreadedSeedGenerator::run() {
 			}
 			int32_t counter = 0;
 			int32_t quanta = 0;
-			int8_t v = (int8_t)0;
-			for (counter = (quanta = 0); (counter < 0x0000FA00) && (quanta < 6); ++quanta) {
+			int8_t v = 0;
+			for (counter = (quanta = 0); (counter < 64000) && (quanta < 6); ++quanta) {
 				try {
 					$var($SeedGenerator$ThreadedSeedGenerator$BogusThread, bt, $new($SeedGenerator$ThreadedSeedGenerator$BogusThread));
 					$var($Thread, t, $new($Thread, this->seedGroup, bt, "SeedGenerator Thread"_s, 0, false));
@@ -144,19 +89,20 @@ void SeedGenerator$ThreadedSeedGenerator::run() {
 				}
 				int32_t latch = 0;
 				int64_t startTime = $System::nanoTime();
-				while ($System::nanoTime() - startTime < 0x0EE6B280) {
+				while ($System::nanoTime() - startTime < 250000000) {
 					$synchronized(this) {
 					}
-					latch = (int32_t)((latch + 1) & (uint32_t)0x1FFFFFFF);
+					;
+					latch = (latch + 1) & 0x1fffffff;
 				}
-				v ^= $nc(SeedGenerator$ThreadedSeedGenerator::rndTab)->get(latch % 255);
+				v ^= SeedGenerator$ThreadedSeedGenerator::rndTab->get(latch % 255);
 				counter += latch;
 			}
 			$synchronized(this) {
 				$nc(this->pool)->set(this->end, v);
 				++this->end;
 				++this->count;
-				if (this->end >= $nc(this->pool)->length) {
+				if (this->end >= this->pool->length) {
 					this->end = 0;
 				}
 				$of(this)->notifyAll();
@@ -188,10 +134,10 @@ int8_t SeedGenerator$ThreadedSeedGenerator::getSeedByte() {
 	}
 	$synchronized(this) {
 		b = $nc(this->pool)->get(this->start);
-		$nc(this->pool)->set(this->start, (int8_t)0);
+		this->pool->set(this->start, 0);
 		++this->start;
 		--this->count;
-		if (this->start == $nc(this->pool)->length) {
+		if (this->start == this->pool->length) {
 			this->start = 0;
 		}
 		$of(this)->notifyAll();
@@ -199,263 +145,263 @@ int8_t SeedGenerator$ThreadedSeedGenerator::getSeedByte() {
 	return b;
 }
 
-void clinit$SeedGenerator$ThreadedSeedGenerator($Class* class$) {
+void SeedGenerator$ThreadedSeedGenerator::clinit$($Class* clazz) {
 	$assignStatic(SeedGenerator$ThreadedSeedGenerator::rndTab, $new($bytes, {
-		(int8_t)56,
-		(int8_t)30,
-		(int8_t)-107,
-		(int8_t)-6,
-		(int8_t)-86,
-		(int8_t)25,
-		(int8_t)-83,
-		(int8_t)75,
-		(int8_t)-12,
-		(int8_t)-64,
-		(int8_t)5,
-		(int8_t)-128,
-		(int8_t)78,
-		(int8_t)21,
-		(int8_t)16,
-		(int8_t)32,
-		(int8_t)70,
-		(int8_t)-81,
-		(int8_t)37,
-		(int8_t)-51,
-		(int8_t)-43,
-		(int8_t)-46,
-		(int8_t)-108,
-		(int8_t)87,
-		(int8_t)29,
-		(int8_t)17,
-		(int8_t)-55,
-		(int8_t)22,
-		(int8_t)-11,
-		(int8_t)-111,
-		(int8_t)-115,
-		(int8_t)84,
-		(int8_t)-100,
-		(int8_t)108,
-		(int8_t)-45,
-		(int8_t)-15,
-		(int8_t)-98,
-		(int8_t)72,
-		(int8_t)-33,
-		(int8_t)-28,
-		(int8_t)31,
-		(int8_t)-52,
-		(int8_t)-37,
-		(int8_t)-117,
-		(int8_t)-97,
-		(int8_t)-27,
-		(int8_t)93,
-		(int8_t)-123,
-		(int8_t)47,
-		(int8_t)126,
-		(int8_t)-80,
-		(int8_t)-62,
-		(int8_t)-93,
-		(int8_t)-79,
-		(int8_t)61,
-		(int8_t)-96,
-		(int8_t)-65,
-		(int8_t)-5,
-		(int8_t)-47,
-		(int8_t)-119,
-		(int8_t)14,
-		(int8_t)89,
-		(int8_t)81,
-		(int8_t)-118,
-		(int8_t)-88,
-		(int8_t)20,
-		(int8_t)67,
-		(int8_t)-126,
-		(int8_t)-113,
-		(int8_t)60,
-		(int8_t)-102,
-		(int8_t)55,
-		(int8_t)110,
-		(int8_t)28,
-		(int8_t)85,
-		(int8_t)121,
-		(int8_t)122,
-		(int8_t)-58,
-		(int8_t)2,
-		(int8_t)45,
-		(int8_t)43,
-		(int8_t)24,
-		(int8_t)-9,
-		(int8_t)103,
-		(int8_t)-13,
-		(int8_t)102,
-		(int8_t)-68,
-		(int8_t)-54,
-		(int8_t)-101,
-		(int8_t)-104,
-		(int8_t)19,
-		(int8_t)13,
-		(int8_t)-39,
-		(int8_t)-26,
-		(int8_t)-103,
-		(int8_t)62,
-		(int8_t)77,
-		(int8_t)51,
-		(int8_t)44,
-		(int8_t)111,
-		(int8_t)73,
-		(int8_t)18,
-		(int8_t)-127,
-		(int8_t)-82,
-		(int8_t)4,
-		(int8_t)-30,
-		(int8_t)11,
-		(int8_t)-99,
-		(int8_t)-74,
-		(int8_t)40,
-		(int8_t)-89,
-		(int8_t)42,
-		(int8_t)-76,
-		(int8_t)-77,
-		(int8_t)-94,
-		(int8_t)-35,
-		(int8_t)-69,
-		(int8_t)35,
-		(int8_t)120,
-		(int8_t)76,
-		(int8_t)33,
-		(int8_t)-73,
-		(int8_t)-7,
-		(int8_t)82,
-		(int8_t)-25,
-		(int8_t)-10,
-		(int8_t)88,
-		(int8_t)125,
-		(int8_t)-112,
-		(int8_t)58,
-		(int8_t)83,
-		(int8_t)95,
-		(int8_t)6,
-		(int8_t)10,
-		(int8_t)98,
-		(int8_t)-34,
-		(int8_t)80,
-		(int8_t)15,
-		(int8_t)-91,
-		(int8_t)86,
-		(int8_t)-19,
-		(int8_t)52,
-		(int8_t)-17,
-		(int8_t)117,
-		(int8_t)49,
-		(int8_t)-63,
-		(int8_t)118,
-		(int8_t)-90,
-		(int8_t)36,
-		(int8_t)-116,
-		(int8_t)-40,
-		(int8_t)-71,
-		(int8_t)97,
-		(int8_t)-53,
-		(int8_t)-109,
-		(int8_t)-85,
-		(int8_t)109,
-		(int8_t)-16,
-		(int8_t)-3,
-		(int8_t)104,
-		(int8_t)-95,
-		(int8_t)68,
-		(int8_t)54,
-		(int8_t)34,
-		(int8_t)26,
-		(int8_t)114,
-		(int8_t)-1,
-		(int8_t)106,
-		(int8_t)-121,
-		(int8_t)3,
-		(int8_t)66,
-		(int8_t)0,
-		(int8_t)100,
-		(int8_t)-84,
-		(int8_t)57,
-		(int8_t)107,
-		(int8_t)119,
-		(int8_t)-42,
-		(int8_t)112,
-		(int8_t)-61,
-		(int8_t)1,
-		(int8_t)48,
-		(int8_t)38,
-		(int8_t)12,
-		(int8_t)-56,
-		(int8_t)-57,
-		(int8_t)39,
-		(int8_t)-106,
-		(int8_t)-72,
-		(int8_t)41,
-		(int8_t)7,
-		(int8_t)71,
-		(int8_t)-29,
-		(int8_t)-59,
-		(int8_t)-8,
-		(int8_t)-38,
-		(int8_t)79,
-		(int8_t)-31,
-		(int8_t)124,
-		(int8_t)-124,
-		(int8_t)8,
-		(int8_t)91,
-		(int8_t)116,
-		(int8_t)99,
-		(int8_t)-4,
-		(int8_t)9,
-		(int8_t)-36,
-		(int8_t)-78,
-		(int8_t)63,
-		(int8_t)-49,
-		(int8_t)-67,
-		(int8_t)-87,
-		(int8_t)59,
-		(int8_t)101,
-		(int8_t)-32,
-		(int8_t)92,
-		(int8_t)94,
-		(int8_t)53,
-		(int8_t)-41,
-		(int8_t)115,
-		(int8_t)-66,
-		(int8_t)-70,
-		(int8_t)-122,
-		(int8_t)50,
-		(int8_t)-50,
-		(int8_t)-22,
-		(int8_t)-20,
-		(int8_t)-18,
-		(int8_t)-21,
-		(int8_t)23,
-		(int8_t)-2,
-		(int8_t)-48,
-		(int8_t)96,
-		(int8_t)65,
-		(int8_t)-105,
-		(int8_t)123,
-		(int8_t)-14,
-		(int8_t)-110,
-		(int8_t)69,
-		(int8_t)-24,
-		(int8_t)-120,
-		(int8_t)-75,
-		(int8_t)74,
-		(int8_t)127,
-		(int8_t)-60,
-		(int8_t)113,
-		(int8_t)90,
-		(int8_t)-114,
-		(int8_t)105,
-		(int8_t)46,
-		(int8_t)27,
-		(int8_t)-125,
-		(int8_t)-23,
-		(int8_t)-44,
-		(int8_t)64
+		56,
+		30,
+		-107,
+		-6,
+		-86,
+		25,
+		-83,
+		75,
+		-12,
+		-64,
+		5,
+		-128,
+		78,
+		21,
+		16,
+		32,
+		70,
+		-81,
+		37,
+		-51,
+		-43,
+		-46,
+		-108,
+		87,
+		29,
+		17,
+		-55,
+		22,
+		-11,
+		-111,
+		-115,
+		84,
+		-100,
+		108,
+		-45,
+		-15,
+		-98,
+		72,
+		-33,
+		-28,
+		31,
+		-52,
+		-37,
+		-117,
+		-97,
+		-27,
+		93,
+		-123,
+		47,
+		126,
+		-80,
+		-62,
+		-93,
+		-79,
+		61,
+		-96,
+		-65,
+		-5,
+		-47,
+		-119,
+		14,
+		89,
+		81,
+		-118,
+		-88,
+		20,
+		67,
+		-126,
+		-113,
+		60,
+		-102,
+		55,
+		110,
+		28,
+		85,
+		121,
+		122,
+		-58,
+		2,
+		45,
+		43,
+		24,
+		-9,
+		103,
+		-13,
+		102,
+		-68,
+		-54,
+		-101,
+		-104,
+		19,
+		13,
+		-39,
+		-26,
+		-103,
+		62,
+		77,
+		51,
+		44,
+		111,
+		73,
+		18,
+		-127,
+		-82,
+		4,
+		-30,
+		11,
+		-99,
+		-74,
+		40,
+		-89,
+		42,
+		-76,
+		-77,
+		-94,
+		-35,
+		-69,
+		35,
+		120,
+		76,
+		33,
+		-73,
+		-7,
+		82,
+		-25,
+		-10,
+		88,
+		125,
+		-112,
+		58,
+		83,
+		95,
+		6,
+		10,
+		98,
+		-34,
+		80,
+		15,
+		-91,
+		86,
+		-19,
+		52,
+		-17,
+		117,
+		49,
+		-63,
+		118,
+		-90,
+		36,
+		-116,
+		-40,
+		-71,
+		97,
+		-53,
+		-109,
+		-85,
+		109,
+		-16,
+		-3,
+		104,
+		-95,
+		68,
+		54,
+		34,
+		26,
+		114,
+		-1,
+		106,
+		-121,
+		3,
+		66,
+		0,
+		100,
+		-84,
+		57,
+		107,
+		119,
+		-42,
+		112,
+		-61,
+		1,
+		48,
+		38,
+		12,
+		-56,
+		-57,
+		39,
+		-106,
+		-72,
+		41,
+		7,
+		71,
+		-29,
+		-59,
+		-8,
+		-38,
+		79,
+		-31,
+		124,
+		-124,
+		8,
+		91,
+		116,
+		99,
+		-4,
+		9,
+		-36,
+		-78,
+		63,
+		-49,
+		-67,
+		-87,
+		59,
+		101,
+		-32,
+		92,
+		94,
+		53,
+		-41,
+		115,
+		-66,
+		-70,
+		-122,
+		50,
+		-50,
+		-22,
+		-20,
+		-18,
+		-21,
+		23,
+		-2,
+		-48,
+		96,
+		65,
+		-105,
+		123,
+		-14,
+		-110,
+		69,
+		-24,
+		-120,
+		-75,
+		74,
+		127,
+		-60,
+		113,
+		90,
+		-114,
+		105,
+		46,
+		27,
+		-125,
+		-23,
+		-44,
+		64
 	}));
 }
 
@@ -463,7 +409,51 @@ SeedGenerator$ThreadedSeedGenerator::SeedGenerator$ThreadedSeedGenerator() {
 }
 
 $Class* SeedGenerator$ThreadedSeedGenerator::load$($String* name, bool initialize) {
-	$loadClass(SeedGenerator$ThreadedSeedGenerator, name, initialize, &_SeedGenerator$ThreadedSeedGenerator_ClassInfo_, clinit$SeedGenerator$ThreadedSeedGenerator, allocate$SeedGenerator$ThreadedSeedGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"pool", "[B", nullptr, $PRIVATE, $field(SeedGenerator$ThreadedSeedGenerator, pool)},
+		{"start", "I", nullptr, $PRIVATE, $field(SeedGenerator$ThreadedSeedGenerator, start)},
+		{"end", "I", nullptr, $PRIVATE, $field(SeedGenerator$ThreadedSeedGenerator, end)},
+		{"count", "I", nullptr, $PRIVATE, $field(SeedGenerator$ThreadedSeedGenerator, count)},
+		{"seedGroup", "Ljava/lang/ThreadGroup;", nullptr, 0, $field(SeedGenerator$ThreadedSeedGenerator, seedGroup)},
+		{"rndTab", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SeedGenerator$ThreadedSeedGenerator, rndTab)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SeedGenerator$ThreadedSeedGenerator, init$, void)},
+		{"getSeedByte", "()B", nullptr, 0, $virtualMethod(SeedGenerator$ThreadedSeedGenerator, getSeedByte, int8_t)},
+		{"getSeedBytes", "([B)V", nullptr, 0, $virtualMethod(SeedGenerator$ThreadedSeedGenerator, getSeedBytes, void, $bytes*)},
+		{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SeedGenerator$ThreadedSeedGenerator, run, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.SeedGenerator$ThreadedSeedGenerator", "sun.security.provider.SeedGenerator", "ThreadedSeedGenerator", $PRIVATE | $STATIC},
+		{"sun.security.provider.SeedGenerator$ThreadedSeedGenerator$BogusThread", "sun.security.provider.SeedGenerator$ThreadedSeedGenerator", "BogusThread", $PRIVATE | $STATIC},
+		{"sun.security.provider.SeedGenerator$ThreadedSeedGenerator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.SeedGenerator$ThreadedSeedGenerator",
+		"sun.security.provider.SeedGenerator",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.SeedGenerator"
+	};
+	$loadClass(SeedGenerator$ThreadedSeedGenerator, name, initialize, &classInfo$$, SeedGenerator$ThreadedSeedGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SeedGenerator$ThreadedSeedGenerator));
+	});
 	return class$;
 }
 

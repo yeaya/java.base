@@ -51,7 +51,7 @@ public:
 	using ::java::util::Collections$UnmodifiableSet::toArray;
 	virtual $ObjectArray* toArray() override;
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
-	static const int64_t serialVersionUID = (int64_t)0x6D0066A59F08EAB5;
+	static const int64_t serialVersionUID = (int64_t)0x6d0066a59f08eab5;
 };
 
 	} // util

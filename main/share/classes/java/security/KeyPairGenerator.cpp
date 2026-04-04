@@ -1,5 +1,4 @@
 #include <java/security/KeyPairGenerator.h>
-
 #include <java/security/KeyPair.h>
 #include <java/security/KeyPairGenerator$Delegate.h>
 #include <java/security/KeyPairGeneratorSpi.h>
@@ -40,56 +39,6 @@ using $Debug = ::sun::security::util::Debug;
 namespace java {
 	namespace security {
 
-$FieldInfo _KeyPairGenerator_FieldInfo_[] = {
-	{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyPairGenerator, pdebug)},
-	{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyPairGenerator, skipDebug)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyPairGenerator, algorithm)},
-	{"provider", "Ljava/security/Provider;", nullptr, 0, $field(KeyPairGenerator, provider)},
-	{}
-};
-
-$MethodInfo _KeyPairGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(KeyPairGenerator, init$, void, $String*)},
-	{"disableFailover", "()V", nullptr, 0, $virtualMethod(KeyPairGenerator, disableFailover, void)},
-	{"genKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $FINAL, $method(KeyPairGenerator, genKeyPair, $KeyPair*)},
-	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, generateKeyPair, $KeyPair*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, getAlgorithm, $String*)},
-	{"getInstance", "(Lsun/security/jca/GetInstance$Instance;Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $GetInstance$Instance*, $String*)},
-	{"getInstance", "(Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyPairGenerator, getProvider, $Provider*)},
-	{"initialize", "(I)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, int32_t)},
-	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, int32_t, $SecureRandom*)},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$InnerClassInfo _KeyPairGenerator_InnerClassesInfo_[] = {
-	{"java.security.KeyPairGenerator$Delegate", "java.security.KeyPairGenerator", "Delegate", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KeyPairGenerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.KeyPairGenerator",
-	"java.security.KeyPairGeneratorSpi",
-	nullptr,
-	_KeyPairGenerator_FieldInfo_,
-	_KeyPairGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyPairGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.security.KeyPairGenerator$Delegate"
-};
-
-$Object* allocate$KeyPairGenerator($Class* clazz) {
-	return $of($alloc(KeyPairGenerator));
-}
-
 $Debug* KeyPairGenerator::pdebug = nullptr;
 bool KeyPairGenerator::skipDebug = false;
 
@@ -104,7 +53,7 @@ $String* KeyPairGenerator::getAlgorithm() {
 
 KeyPairGenerator* KeyPairGenerator::getInstance($GetInstance$Instance* instance, $String* algorithm) {
 	$init(KeyPairGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(KeyPairGenerator, kpg, nullptr);
 	if ($instanceOf(KeyPairGenerator, $nc(instance)->impl)) {
 		$assign(kpg, $cast(KeyPairGenerator, instance->impl));
@@ -112,17 +61,17 @@ KeyPairGenerator* KeyPairGenerator::getInstance($GetInstance$Instance* instance,
 		$var($KeyPairGeneratorSpi, spi, $cast($KeyPairGeneratorSpi, instance->impl));
 		$assign(kpg, $new($KeyPairGenerator$Delegate, spi, algorithm));
 	}
-	$set($nc(kpg), provider, $nc(instance)->provider);
+	$set($nc(kpg), provider, instance->provider);
 	if (!KeyPairGenerator::skipDebug && KeyPairGenerator::pdebug != nullptr) {
-		$nc(KeyPairGenerator::pdebug)->println($$str({"KeyPairGenerator."_s, algorithm, " algorithm from: "_s, $($nc(kpg->provider)->getName())}));
+		KeyPairGenerator::pdebug->println($$str({"KeyPairGenerator."_s, algorithm, " algorithm from: "_s, $($nc(kpg->provider)->getName())}));
 	}
 	return kpg;
 }
 
 KeyPairGenerator* KeyPairGenerator::getInstance($String* algorithm) {
 	$init(KeyPairGenerator);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$var($List, list, $GetInstance::getServices("KeyPairGenerator"_s, algorithm));
 	$var($Iterator, t, $nc(list)->iterator());
 	if ($nc(t)->hasNext() == false) {
@@ -130,7 +79,7 @@ KeyPairGenerator* KeyPairGenerator::getInstance($String* algorithm) {
 	}
 	$var($NoSuchAlgorithmException, failure, nullptr);
 	do {
-		$var($Provider$Service, s, $cast($Provider$Service, $nc(t)->next()));
+		$var($Provider$Service, s, $cast($Provider$Service, t->next()));
 		try {
 			$load($KeyPairGeneratorSpi);
 			$var($GetInstance$Instance, instance, $GetInstance::getInstance(s, $KeyPairGeneratorSpi::class$));
@@ -144,14 +93,14 @@ KeyPairGenerator* KeyPairGenerator::getInstance($String* algorithm) {
 				$assign(failure, e);
 			}
 		}
-	} while ($nc(t)->hasNext());
+	} while (t->hasNext());
 	$throw(failure);
 	$shouldNotReachHere();
 }
 
 KeyPairGenerator* KeyPairGenerator::getInstance($String* algorithm, $String* provider) {
 	$init(KeyPairGenerator);
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($KeyPairGeneratorSpi);
 	$var($GetInstance$Instance, instance, $GetInstance::getInstance("KeyPairGenerator"_s, $KeyPairGeneratorSpi::class$, algorithm, provider));
 	return getInstance(instance, algorithm);
@@ -159,7 +108,7 @@ KeyPairGenerator* KeyPairGenerator::getInstance($String* algorithm, $String* pro
 
 KeyPairGenerator* KeyPairGenerator::getInstance($String* algorithm, $Provider* provider) {
 	$init(KeyPairGenerator);
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($KeyPairGeneratorSpi);
 	$var($GetInstance$Instance, instance, $GetInstance::getInstance("KeyPairGenerator"_s, $KeyPairGeneratorSpi::class$, algorithm, provider));
 	return getInstance(instance, algorithm);
@@ -195,7 +144,7 @@ $KeyPair* KeyPairGenerator::generateKeyPair() {
 	return nullptr;
 }
 
-void clinit$KeyPairGenerator($Class* class$) {
+void KeyPairGenerator::clinit$($Class* clazz) {
 	$assignStatic(KeyPairGenerator::pdebug, $Debug::getInstance("provider"_s, "Provider"_s));
 	bool var$0 = $Debug::isOn("engine="_s);
 	KeyPairGenerator::skipDebug = var$0 && !$Debug::isOn("keypairgenerator"_s);
@@ -205,7 +154,51 @@ KeyPairGenerator::KeyPairGenerator() {
 }
 
 $Class* KeyPairGenerator::load$($String* name, bool initialize) {
-	$loadClass(KeyPairGenerator, name, initialize, &_KeyPairGenerator_ClassInfo_, clinit$KeyPairGenerator, allocate$KeyPairGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyPairGenerator, pdebug)},
+		{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyPairGenerator, skipDebug)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyPairGenerator, algorithm)},
+		{"provider", "Ljava/security/Provider;", nullptr, 0, $field(KeyPairGenerator, provider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(KeyPairGenerator, init$, void, $String*)},
+		{"disableFailover", "()V", nullptr, 0, $virtualMethod(KeyPairGenerator, disableFailover, void)},
+		{"genKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $FINAL, $method(KeyPairGenerator, genKeyPair, $KeyPair*)},
+		{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, generateKeyPair, $KeyPair*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, getAlgorithm, $String*)},
+		{"getInstance", "(Lsun/security/jca/GetInstance$Instance;Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $GetInstance$Instance*, $String*)},
+		{"getInstance", "(Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyPairGenerator, getProvider, $Provider*)},
+		{"initialize", "(I)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, int32_t)},
+		{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, int32_t, $SecureRandom*)},
+		{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyPairGenerator$Delegate", "java.security.KeyPairGenerator", "Delegate", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.KeyPairGenerator",
+		"java.security.KeyPairGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.security.KeyPairGenerator$Delegate"
+	};
+	$loadClass(KeyPairGenerator, name, initialize, &classInfo$$, KeyPairGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyPairGenerator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/ImageReaderFactory.h>
-
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
 #include <java/nio/file/Path.h>
@@ -37,45 +36,6 @@ namespace jdk {
 	namespace internal {
 		namespace jimage {
 
-$FieldInfo _ImageReaderFactory_FieldInfo_[] = {
-	{"JAVA_HOME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageReaderFactory, JAVA_HOME)},
-	{"BOOT_MODULES_JIMAGE", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageReaderFactory, BOOT_MODULES_JIMAGE)},
-	{"readers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/nio/file/Path;Ljdk/internal/jimage/ImageReader;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ImageReaderFactory, readers)},
-	{"OPENER", "Ljava/util/function/Function;", "Ljava/util/function/Function<Ljava/nio/file/Path;Ljdk/internal/jimage/ImageReader;>;", $PRIVATE | $STATIC, $staticField(ImageReaderFactory, OPENER)},
-	{}
-};
-
-$MethodInfo _ImageReaderFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ImageReaderFactory, init$, void)},
-	{"get", "(Ljava/nio/file/Path;)Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReaderFactory, get, $ImageReader*, $Path*), "java.io.IOException"},
-	{"getImageReader", "()Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReaderFactory, getImageReader, $ImageReader*)},
-	{}
-};
-
-$InnerClassInfo _ImageReaderFactory_InnerClassesInfo_[] = {
-	{"jdk.internal.jimage.ImageReaderFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ImageReaderFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.jimage.ImageReaderFactory",
-	"java.lang.Object",
-	nullptr,
-	_ImageReaderFactory_FieldInfo_,
-	_ImageReaderFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageReaderFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.jimage.ImageReaderFactory$1"
-};
-
-$Object* allocate$ImageReaderFactory($Class* clazz) {
-	return $of($alloc(ImageReaderFactory));
-}
-
 $String* ImageReaderFactory::JAVA_HOME = nullptr;
 $Path* ImageReaderFactory::BOOT_MODULES_JIMAGE = nullptr;
 $Map* ImageReaderFactory::readers = nullptr;
@@ -88,9 +48,9 @@ $ImageReader* ImageReaderFactory::get($Path* jimage) {
 	$init(ImageReaderFactory);
 	$Objects::requireNonNull(jimage);
 	try {
-		return $cast($ImageReader, $nc(ImageReaderFactory::readers)->computeIfAbsent(jimage, ImageReaderFactory::OPENER));
+		return $cast($ImageReader, ImageReaderFactory::readers->computeIfAbsent(jimage, ImageReaderFactory::OPENER));
 	} catch ($UncheckedIOException& io) {
-		$throw($($cast($IOException, io->getCause())));
+		$throw($$cast($IOException, io->getCause()));
 	}
 	$shouldNotReachHere();
 }
@@ -105,13 +65,13 @@ $ImageReader* ImageReaderFactory::getImageReader() {
 	$shouldNotReachHere();
 }
 
-void clinit$ImageReaderFactory($Class* class$) {
+void ImageReaderFactory::clinit$($Class* clazz) {
 	$assignStatic(ImageReaderFactory::JAVA_HOME, $System::getProperty("java.home"_s));
 	$assignStatic(ImageReaderFactory::BOOT_MODULES_JIMAGE, $Paths::get(ImageReaderFactory::JAVA_HOME, $$new($StringArray, {
 		"lib"_s,
 		"modules"_s
 	})));
-	$assignStatic(ImageReaderFactory::readers, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$assignStatic(ImageReaderFactory::readers, $cast($AbstractMap, $new($ConcurrentHashMap)));
 	$assignStatic(ImageReaderFactory::OPENER, $new($ImageReaderFactory$1));
 }
 
@@ -119,7 +79,40 @@ ImageReaderFactory::ImageReaderFactory() {
 }
 
 $Class* ImageReaderFactory::load$($String* name, bool initialize) {
-	$loadClass(ImageReaderFactory, name, initialize, &_ImageReaderFactory_ClassInfo_, clinit$ImageReaderFactory, allocate$ImageReaderFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"JAVA_HOME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageReaderFactory, JAVA_HOME)},
+		{"BOOT_MODULES_JIMAGE", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageReaderFactory, BOOT_MODULES_JIMAGE)},
+		{"readers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/nio/file/Path;Ljdk/internal/jimage/ImageReader;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ImageReaderFactory, readers)},
+		{"OPENER", "Ljava/util/function/Function;", "Ljava/util/function/Function<Ljava/nio/file/Path;Ljdk/internal/jimage/ImageReader;>;", $PRIVATE | $STATIC, $staticField(ImageReaderFactory, OPENER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ImageReaderFactory, init$, void)},
+		{"get", "(Ljava/nio/file/Path;)Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReaderFactory, get, $ImageReader*, $Path*), "java.io.IOException"},
+		{"getImageReader", "()Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReaderFactory, getImageReader, $ImageReader*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jimage.ImageReaderFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.jimage.ImageReaderFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.jimage.ImageReaderFactory$1"
+	};
+	$loadClass(ImageReaderFactory, name, initialize, &classInfo$$, ImageReaderFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageReaderFactory);
+	});
 	return class$;
 }
 

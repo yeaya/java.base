@@ -1,5 +1,4 @@
 #include <GetCallerClassTest$Nested.h>
-
 #include <GetCallerClassTest$Nested$NestedClassCaller.h>
 #include <GetCallerClassTest.h>
 #include <jcpp.h>
@@ -10,43 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _GetCallerClassTest$Nested_FieldInfo_[] = {
-	{"this$0", "LGetCallerClassTest;", nullptr, $FINAL | $SYNTHETIC, $field(GetCallerClassTest$Nested, this$0)},
-	{}
-};
-
-$MethodInfo _GetCallerClassTest$Nested_MethodInfo_[] = {
-	{"<init>", "(LGetCallerClassTest;)V", nullptr, 0, $method(GetCallerClassTest$Nested, init$, void, $GetCallerClassTest*)},
-	{"createNestedCaller", "()LGetCallerClassTest$Nested$NestedClassCaller;", nullptr, 0, $virtualMethod(GetCallerClassTest$Nested, createNestedCaller, $GetCallerClassTest$Nested$NestedClassCaller*)},
-	{}
-};
-
-$InnerClassInfo _GetCallerClassTest$Nested_InnerClassesInfo_[] = {
-	{"GetCallerClassTest$Nested", "GetCallerClassTest", "Nested", 0},
-	{"GetCallerClassTest$Nested$NestedClassCaller", "GetCallerClassTest$Nested", "NestedClassCaller", 0},
-	{}
-};
-
-$ClassInfo _GetCallerClassTest$Nested_ClassInfo_ = {
-	$ACC_SUPER,
-	"GetCallerClassTest$Nested",
-	"java.lang.Object",
-	nullptr,
-	_GetCallerClassTest$Nested_FieldInfo_,
-	_GetCallerClassTest$Nested_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetCallerClassTest$Nested_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetCallerClassTest"
-};
-
-$Object* allocate$GetCallerClassTest$Nested($Class* clazz) {
-	return $of($alloc(GetCallerClassTest$Nested));
-}
 
 void GetCallerClassTest$Nested::init$($GetCallerClassTest* this$0) {
 	$set(this, this$0, this$0);
@@ -60,7 +22,38 @@ GetCallerClassTest$Nested::GetCallerClassTest$Nested() {
 }
 
 $Class* GetCallerClassTest$Nested::load$($String* name, bool initialize) {
-	$loadClass(GetCallerClassTest$Nested, name, initialize, &_GetCallerClassTest$Nested_ClassInfo_, allocate$GetCallerClassTest$Nested);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LGetCallerClassTest;", nullptr, $FINAL | $SYNTHETIC, $field(GetCallerClassTest$Nested, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LGetCallerClassTest;)V", nullptr, 0, $method(GetCallerClassTest$Nested, init$, void, $GetCallerClassTest*)},
+		{"createNestedCaller", "()LGetCallerClassTest$Nested$NestedClassCaller;", nullptr, 0, $virtualMethod(GetCallerClassTest$Nested, createNestedCaller, $GetCallerClassTest$Nested$NestedClassCaller*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetCallerClassTest$Nested", "GetCallerClassTest", "Nested", 0},
+		{"GetCallerClassTest$Nested$NestedClassCaller", "GetCallerClassTest$Nested", "NestedClassCaller", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GetCallerClassTest$Nested",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetCallerClassTest"
+	};
+	$loadClass(GetCallerClassTest$Nested, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetCallerClassTest$Nested);
+	});
 	return class$;
 }
 

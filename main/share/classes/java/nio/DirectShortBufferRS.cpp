@@ -1,5 +1,4 @@
 #include <java/nio/DirectShortBufferRS.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/DirectShortBufferS.h>
@@ -28,40 +27,6 @@ using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 namespace java {
 	namespace nio {
 
-$FieldInfo _DirectShortBufferRS_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectShortBufferRS, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _DirectShortBufferRS_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectShortBufferRS, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, asReadOnlyBuffer, $ShortBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectShortBufferRS, base, $Object*)},
-	{"compact", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, compact, $ShortBuffer*)},
-	{"duplicate", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, duplicate, $ShortBuffer*)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, order, $ByteOrder*)},
-	{"put", "(S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, put, $ShortBuffer*, int16_t)},
-	{"put", "(IS)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, put, $ShortBuffer*, int32_t, int16_t)},
-	{"slice", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, slice, $ShortBuffer*)},
-	{"slice", "(II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, slice, $ShortBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DirectShortBufferRS_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.DirectShortBufferRS",
-	"java.nio.DirectShortBufferS",
-	nullptr,
-	_DirectShortBufferRS_FieldInfo_,
-	_DirectShortBufferRS_MethodInfo_
-};
-
-$Object* allocate$DirectShortBufferRS($Class* clazz) {
-	return $of($alloc(DirectShortBufferRS));
-}
-
 bool DirectShortBufferRS::$assertionsDisabled = false;
 
 void DirectShortBufferRS::init$($DirectBuffer* db, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int32_t off, $MemorySegmentProxy* segment) {
@@ -70,7 +35,7 @@ void DirectShortBufferRS::init$($DirectBuffer* db, int32_t mark, int32_t pos, in
 }
 
 $Object* DirectShortBufferRS::base() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $ShortBuffer* DirectShortBufferRS::slice() {
@@ -128,7 +93,7 @@ $ByteOrder* DirectShortBufferRS::order() {
 	return (($ByteOrder::nativeOrder() == $ByteOrder::BIG_ENDIAN) ? $ByteOrder::LITTLE_ENDIAN : $ByteOrder::BIG_ENDIAN);
 }
 
-void clinit$DirectShortBufferRS($Class* class$) {
+void DirectShortBufferRS::clinit$($Class* clazz) {
 	DirectShortBufferRS::$assertionsDisabled = !DirectShortBufferRS::class$->desiredAssertionStatus();
 }
 
@@ -136,7 +101,36 @@ DirectShortBufferRS::DirectShortBufferRS() {
 }
 
 $Class* DirectShortBufferRS::load$($String* name, bool initialize) {
-	$loadClass(DirectShortBufferRS, name, initialize, &_DirectShortBufferRS_ClassInfo_, clinit$DirectShortBufferRS, allocate$DirectShortBufferRS);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectShortBufferRS, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectShortBufferRS, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, asReadOnlyBuffer, $ShortBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectShortBufferRS, base, $Object*)},
+		{"compact", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, compact, $ShortBuffer*)},
+		{"duplicate", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, duplicate, $ShortBuffer*)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, order, $ByteOrder*)},
+		{"put", "(S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, put, $ShortBuffer*, int16_t)},
+		{"put", "(IS)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, put, $ShortBuffer*, int32_t, int16_t)},
+		{"slice", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, slice, $ShortBuffer*)},
+		{"slice", "(II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRS, slice, $ShortBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.DirectShortBufferRS",
+		"java.nio.DirectShortBufferS",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DirectShortBufferRS, name, initialize, &classInfo$$, DirectShortBufferRS::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectShortBufferRS));
+	});
 	return class$;
 }
 

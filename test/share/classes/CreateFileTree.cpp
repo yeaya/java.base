@@ -1,5 +1,4 @@
 #include <CreateFileTree.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Math.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -15,7 +14,6 @@
 
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
@@ -29,32 +27,6 @@ using $List = ::java::util::List;
 using $Queue = ::java::util::Queue;
 using $Random = ::java::util::Random;
 
-$FieldInfo _CreateFileTree_FieldInfo_[] = {
-	{"rand", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CreateFileTree, rand)},
-	{}
-};
-
-$MethodInfo _CreateFileTree_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CreateFileTree, init$, void)},
-	{"create", "()Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(CreateFileTree, create, $Path*), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CreateFileTree, main, void, $StringArray*), "java.io.IOException"},
-	{"supportsLinks", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CreateFileTree, supportsLinks, bool, $Path*)},
-	{}
-};
-
-$ClassInfo _CreateFileTree_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CreateFileTree",
-	"java.lang.Object",
-	nullptr,
-	_CreateFileTree_FieldInfo_,
-	_CreateFileTree_MethodInfo_
-};
-
-$Object* allocate$CreateFileTree($Class* clazz) {
-	return $of($alloc(CreateFileTree));
-}
-
 $Random* CreateFileTree::rand = nullptr;
 
 void CreateFileTree::init$() {
@@ -62,7 +34,7 @@ void CreateFileTree::init$() {
 
 bool CreateFileTree::supportsLinks($Path* dir) {
 	$init(CreateFileTree);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, link, $nc(dir)->resolve("testlink"_s));
 	$var($Path, target, dir->resolve("testtarget"_s));
 	try {
@@ -79,16 +51,16 @@ bool CreateFileTree::supportsLinks($Path* dir) {
 
 $Path* CreateFileTree::create() {
 	$init(CreateFileTree);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, top, $Files::createTempDirectory("tree"_s, $$new($FileAttributeArray, 0)));
 	$var($List, dirs, $new($ArrayList));
 	$var($Queue, queue, $new($ArrayDeque));
 	queue->add(top);
-	int32_t total = 1 + $nc(CreateFileTree::rand)->nextInt(20);
+	int32_t total = 1 + CreateFileTree::rand->nextInt(20);
 	int32_t n = 0;
 	$var($Path, dir, nullptr);
 	while ((($assign(dir, $cast($Path, queue->poll()))) != nullptr) && (n < total)) {
-		int32_t r = $Math::min((total - n), (1 + $nc(CreateFileTree::rand)->nextInt(3)));
+		int32_t r = $Math::min((total - n), (1 + CreateFileTree::rand->nextInt(3)));
 		for (int32_t i = 0; i < r; ++i) {
 			$var($String, name, $str({"dir"_s, $$str((++n))}));
 			$var($Path, subdir, $Files::createDirectory($($nc(dir)->resolve(name)), $$new($FileAttributeArray, 0)));
@@ -99,19 +71,19 @@ $Path* CreateFileTree::create() {
 	int32_t files = dirs->size() * 3;
 	for (int32_t i = 0; i < files; ++i) {
 		$var($String, name, $str({"file"_s, $$str((i + 1))}));
-		int32_t x = $nc(CreateFileTree::rand)->nextInt(dirs->size());
-		$Files::createFile($($nc(($cast($Path, $(dirs->get(x)))))->resolve(name)), $$new($FileAttributeArray, 0));
+		int32_t x = CreateFileTree::rand->nextInt(dirs->size());
+		$Files::createFile($($$sure($Path, dirs->get(x))->resolve(name)), $$new($FileAttributeArray, 0));
 	}
 	if (supportsLinks(top)) {
-		int32_t links = 1 + $nc(CreateFileTree::rand)->nextInt(5);
+		int32_t links = 1 + CreateFileTree::rand->nextInt(5);
 		for (int32_t i = 0; i < links; ++i) {
-			int32_t x = $nc(CreateFileTree::rand)->nextInt(dirs->size());
+			int32_t x = CreateFileTree::rand->nextInt(dirs->size());
 			int32_t y = 0;
 			do {
-				y = $nc(CreateFileTree::rand)->nextInt(dirs->size());
+				y = CreateFileTree::rand->nextInt(dirs->size());
 			} while (y != x);
 			$var($String, name, $str({"link"_s, $$str((i + 1))}));
-			$var($Path, link, $nc(($cast($Path, $(dirs->get(x)))))->resolve(name));
+			$var($Path, link, $$sure($Path, dirs->get(x))->resolve(name));
 			$var($Path, target, $cast($Path, dirs->get(y)));
 			$Files::createSymbolicLink(link, target, $$new($FileAttributeArray, 0));
 		}
@@ -122,10 +94,10 @@ $Path* CreateFileTree::create() {
 void CreateFileTree::main($StringArray* args) {
 	$init(CreateFileTree);
 	$var($Path, top, create());
-	$nc($System::out)->println($of(top));
+	$nc($System::out)->println(top);
 }
 
-void clinit$CreateFileTree($Class* class$) {
+void CreateFileTree::clinit$($Class* clazz) {
 	$assignStatic(CreateFileTree::rand, $new($Random));
 }
 
@@ -133,7 +105,28 @@ CreateFileTree::CreateFileTree() {
 }
 
 $Class* CreateFileTree::load$($String* name, bool initialize) {
-	$loadClass(CreateFileTree, name, initialize, &_CreateFileTree_ClassInfo_, clinit$CreateFileTree, allocate$CreateFileTree);
+	$FieldInfo fieldInfos$$[] = {
+		{"rand", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CreateFileTree, rand)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CreateFileTree, init$, void)},
+		{"create", "()Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(CreateFileTree, create, $Path*), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CreateFileTree, main, void, $StringArray*), "java.io.IOException"},
+		{"supportsLinks", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CreateFileTree, supportsLinks, bool, $Path*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CreateFileTree",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CreateFileTree, name, initialize, &classInfo$$, CreateFileTree::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CreateFileTree);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/misc/ScopedMemoryAccess$BufferAccess.h>
-
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/access/JavaNioAccess.h>
@@ -27,66 +26,10 @@ using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
 using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace jdk {
 	namespace internal {
 		namespace misc {
-
-$CompoundAttribute _ScopedMemoryAccess$BufferAccess_MethodAnnotations_bufferAddress1[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ScopedMemoryAccess$BufferAccess_MethodAnnotations_bufferBase2[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ScopedMemoryAccess$BufferAccess_MethodAnnotations_scope3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _ScopedMemoryAccess$BufferAccess_FieldInfo_[] = {
-	{"BUFFER_ADDRESS", "J", nullptr, $STATIC | $FINAL, $staticField(ScopedMemoryAccess$BufferAccess, BUFFER_ADDRESS)},
-	{"BYTE_BUFFER_HB", "J", nullptr, $STATIC | $FINAL, $staticField(ScopedMemoryAccess$BufferAccess, BYTE_BUFFER_HB)},
-	{"NIO_ACCESS", "Ljdk/internal/access/JavaNioAccess;", nullptr, $STATIC | $FINAL, $staticField(ScopedMemoryAccess$BufferAccess, NIO_ACCESS)},
-	{}
-};
-
-$MethodInfo _ScopedMemoryAccess$BufferAccess_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ScopedMemoryAccess$BufferAccess, init$, void)},
-	{"bufferAddress", "(Ljava/nio/ByteBuffer;J)J", nullptr, $STATIC, $staticMethod(ScopedMemoryAccess$BufferAccess, bufferAddress, int64_t, $ByteBuffer*, int64_t), nullptr, nullptr, _ScopedMemoryAccess$BufferAccess_MethodAnnotations_bufferAddress1},
-	{"bufferBase", "(Ljava/nio/ByteBuffer;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(ScopedMemoryAccess$BufferAccess, bufferBase, $Object*, $ByteBuffer*), nullptr, nullptr, _ScopedMemoryAccess$BufferAccess_MethodAnnotations_bufferBase2},
-	{"scope", "(Ljava/nio/ByteBuffer;)Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $STATIC, $staticMethod(ScopedMemoryAccess$BufferAccess, scope, $ScopedMemoryAccess$Scope*, $ByteBuffer*), nullptr, nullptr, _ScopedMemoryAccess$BufferAccess_MethodAnnotations_scope3},
-	{}
-};
-
-$InnerClassInfo _ScopedMemoryAccess$BufferAccess_InnerClassesInfo_[] = {
-	{"jdk.internal.misc.ScopedMemoryAccess$BufferAccess", "jdk.internal.misc.ScopedMemoryAccess", "BufferAccess", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ScopedMemoryAccess$BufferAccess_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.misc.ScopedMemoryAccess$BufferAccess",
-	"java.lang.Object",
-	nullptr,
-	_ScopedMemoryAccess$BufferAccess_FieldInfo_,
-	_ScopedMemoryAccess$BufferAccess_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScopedMemoryAccess$BufferAccess_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.misc.ScopedMemoryAccess"
-};
-
-$Object* allocate$ScopedMemoryAccess$BufferAccess($Class* clazz) {
-	return $of($alloc(ScopedMemoryAccess$BufferAccess));
-}
 
 int64_t ScopedMemoryAccess$BufferAccess::BUFFER_ADDRESS = 0;
 int64_t ScopedMemoryAccess$BufferAccess::BYTE_BUFFER_HB = 0;
@@ -98,7 +41,7 @@ void ScopedMemoryAccess$BufferAccess::init$() {
 $Object* ScopedMemoryAccess$BufferAccess::bufferBase($ByteBuffer* bb) {
 	$init(ScopedMemoryAccess$BufferAccess);
 	$init($ScopedMemoryAccess);
-	return $of($nc($ScopedMemoryAccess::UNSAFE)->getReference(bb, ScopedMemoryAccess$BufferAccess::BYTE_BUFFER_HB));
+	return $nc($ScopedMemoryAccess::UNSAFE)->getReference(bb, ScopedMemoryAccess$BufferAccess::BYTE_BUFFER_HB);
 }
 
 int64_t ScopedMemoryAccess$BufferAccess::bufferAddress($ByteBuffer* bb, int64_t offset) {
@@ -110,15 +53,15 @@ int64_t ScopedMemoryAccess$BufferAccess::bufferAddress($ByteBuffer* bb, int64_t 
 $ScopedMemoryAccess$Scope* ScopedMemoryAccess$BufferAccess::scope($ByteBuffer* bb) {
 	$init(ScopedMemoryAccess$BufferAccess);
 	$var($MemorySegmentProxy, segmentProxy, $nc(ScopedMemoryAccess$BufferAccess::NIO_ACCESS)->bufferSegment(bb));
-	return segmentProxy != nullptr ? $nc(segmentProxy)->scope() : ($ScopedMemoryAccess$Scope*)nullptr;
+	return segmentProxy != nullptr ? segmentProxy->scope() : ($ScopedMemoryAccess$Scope*)nullptr;
 }
 
-void clinit$ScopedMemoryAccess$BufferAccess($Class* class$) {
+void ScopedMemoryAccess$BufferAccess::clinit$($Class* clazz) {
 	$init($ScopedMemoryAccess);
 	$load($Buffer);
 	ScopedMemoryAccess$BufferAccess::BUFFER_ADDRESS = $nc($ScopedMemoryAccess::UNSAFE)->objectFieldOffset($Buffer::class$, "address"_s);
 	$load($ByteBuffer);
-	ScopedMemoryAccess$BufferAccess::BYTE_BUFFER_HB = $nc($ScopedMemoryAccess::UNSAFE)->objectFieldOffset($ByteBuffer::class$, "hb"_s);
+	ScopedMemoryAccess$BufferAccess::BYTE_BUFFER_HB = $ScopedMemoryAccess::UNSAFE->objectFieldOffset($ByteBuffer::class$, "hb"_s);
 	$assignStatic(ScopedMemoryAccess$BufferAccess::NIO_ACCESS, $SharedSecrets::getJavaNioAccess());
 }
 
@@ -126,7 +69,53 @@ ScopedMemoryAccess$BufferAccess::ScopedMemoryAccess$BufferAccess() {
 }
 
 $Class* ScopedMemoryAccess$BufferAccess::load$($String* name, bool initialize) {
-	$loadClass(ScopedMemoryAccess$BufferAccess, name, initialize, &_ScopedMemoryAccess$BufferAccess_ClassInfo_, clinit$ScopedMemoryAccess$BufferAccess, allocate$ScopedMemoryAccess$BufferAccess);
+	$FieldInfo fieldInfos$$[] = {
+		{"BUFFER_ADDRESS", "J", nullptr, $STATIC | $FINAL, $staticField(ScopedMemoryAccess$BufferAccess, BUFFER_ADDRESS)},
+		{"BYTE_BUFFER_HB", "J", nullptr, $STATIC | $FINAL, $staticField(ScopedMemoryAccess$BufferAccess, BYTE_BUFFER_HB)},
+		{"NIO_ACCESS", "Ljdk/internal/access/JavaNioAccess;", nullptr, $STATIC | $FINAL, $staticField(ScopedMemoryAccess$BufferAccess, NIO_ACCESS)},
+		{}
+	};
+	$CompoundAttribute bufferAddressmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute bufferBasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute scopemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ScopedMemoryAccess$BufferAccess, init$, void)},
+		{"bufferAddress", "(Ljava/nio/ByteBuffer;J)J", nullptr, $STATIC, $staticMethod(ScopedMemoryAccess$BufferAccess, bufferAddress, int64_t, $ByteBuffer*, int64_t), nullptr, nullptr, bufferAddressmethodAnnotations$$},
+		{"bufferBase", "(Ljava/nio/ByteBuffer;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(ScopedMemoryAccess$BufferAccess, bufferBase, $Object*, $ByteBuffer*), nullptr, nullptr, bufferBasemethodAnnotations$$},
+		{"scope", "(Ljava/nio/ByteBuffer;)Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $STATIC, $staticMethod(ScopedMemoryAccess$BufferAccess, scope, $ScopedMemoryAccess$Scope*, $ByteBuffer*), nullptr, nullptr, scopemethodAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.misc.ScopedMemoryAccess$BufferAccess", "jdk.internal.misc.ScopedMemoryAccess", "BufferAccess", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.misc.ScopedMemoryAccess$BufferAccess",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.misc.ScopedMemoryAccess"
+	};
+	$loadClass(ScopedMemoryAccess$BufferAccess, name, initialize, &classInfo$$, ScopedMemoryAccess$BufferAccess::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ScopedMemoryAccess$BufferAccess);
+	});
 	return class$;
 }
 

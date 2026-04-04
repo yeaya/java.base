@@ -64,6 +64,7 @@ class WindowsFileSystem : public ::java::nio::file::FileSystem {
 	$class(WindowsFileSystem, 0, ::java::nio::file::FileSystem)
 public:
 	WindowsFileSystem();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::WindowsFileSystemProvider* provider, $String* dir);
 	virtual void close() override;
 	virtual $String* defaultDirectory();

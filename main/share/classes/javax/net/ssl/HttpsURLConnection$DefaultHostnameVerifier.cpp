@@ -1,5 +1,4 @@
 #include <javax/net/ssl/HttpsURLConnection$DefaultHostnameVerifier.h>
-
 #include <javax/net/ssl/HttpsURLConnection.h>
 #include <javax/net/ssl/SSLSession.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$MethodInfo _HttpsURLConnection$DefaultHostnameVerifier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(HttpsURLConnection$DefaultHostnameVerifier, init$, void)},
-	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnection$DefaultHostnameVerifier, verify, bool, $String*, $SSLSession*)},
-	{}
-};
-
-$InnerClassInfo _HttpsURLConnection$DefaultHostnameVerifier_InnerClassesInfo_[] = {
-	{"javax.net.ssl.HttpsURLConnection$DefaultHostnameVerifier", "javax.net.ssl.HttpsURLConnection", "DefaultHostnameVerifier", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _HttpsURLConnection$DefaultHostnameVerifier_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.net.ssl.HttpsURLConnection$DefaultHostnameVerifier",
-	"java.lang.Object",
-	"javax.net.ssl.HostnameVerifier",
-	nullptr,
-	_HttpsURLConnection$DefaultHostnameVerifier_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpsURLConnection$DefaultHostnameVerifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.net.ssl.HttpsURLConnection"
-};
-
-$Object* allocate$HttpsURLConnection$DefaultHostnameVerifier($Class* clazz) {
-	return $of($alloc(HttpsURLConnection$DefaultHostnameVerifier));
-}
-
 void HttpsURLConnection$DefaultHostnameVerifier::init$() {
 }
 
@@ -55,7 +23,33 @@ HttpsURLConnection$DefaultHostnameVerifier::HttpsURLConnection$DefaultHostnameVe
 }
 
 $Class* HttpsURLConnection$DefaultHostnameVerifier::load$($String* name, bool initialize) {
-	$loadClass(HttpsURLConnection$DefaultHostnameVerifier, name, initialize, &_HttpsURLConnection$DefaultHostnameVerifier_ClassInfo_, allocate$HttpsURLConnection$DefaultHostnameVerifier);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(HttpsURLConnection$DefaultHostnameVerifier, init$, void)},
+		{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnection$DefaultHostnameVerifier, verify, bool, $String*, $SSLSession*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.net.ssl.HttpsURLConnection$DefaultHostnameVerifier", "javax.net.ssl.HttpsURLConnection", "DefaultHostnameVerifier", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.net.ssl.HttpsURLConnection$DefaultHostnameVerifier",
+		"java.lang.Object",
+		"javax.net.ssl.HostnameVerifier",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.net.ssl.HttpsURLConnection"
+	};
+	$loadClass(HttpsURLConnection$DefaultHostnameVerifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpsURLConnection$DefaultHostnameVerifier);
+	});
 	return class$;
 }
 

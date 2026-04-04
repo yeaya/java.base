@@ -1,5 +1,4 @@
 #include <java/lang/Character.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
@@ -109,7 +108,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $ConstantDescs = ::java::lang::constant::ConstantDescs;
 using $DynamicConstantDesc = ::java::lang::constant::DynamicConstantDesc;
 using $Locale = ::java::util::Locale;
@@ -117,276 +115,6 @@ using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {
-
-$CompoundAttribute _Character_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$NamedAttribute Character_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Character_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", Character_Attribute_var$0},
-	{}
-};
-
-$CompoundAttribute _Character_MethodAnnotations_charValue2[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$NamedAttribute Character_Attribute_var$1[] = {
-	{"since", 's', "1.1"},
-	{}
-};
-
-$CompoundAttribute _Character_MethodAnnotations_isJavaLetter49[] = {
-	{"Ljava/lang/Deprecated;", Character_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute Character_Attribute_var$2[] = {
-	{"since", 's', "1.1"},
-	{}
-};
-
-$CompoundAttribute _Character_MethodAnnotations_isJavaLetterOrDigit50[] = {
-	{"Ljava/lang/Deprecated;", Character_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute Character_Attribute_var$3[] = {
-	{"since", 's', "1.1"},
-	{}
-};
-
-$CompoundAttribute _Character_MethodAnnotations_isSpace60[] = {
-	{"Ljava/lang/Deprecated;", Character_Attribute_var$3},
-	{}
-};
-
-$CompoundAttribute _Character_MethodAnnotations_reverseBytes81[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Character_MethodAnnotations_valueOf97[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _Character_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Character, $assertionsDisabled)},
-	{"MIN_RADIX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_RADIX)},
-	{"MAX_RADIX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_RADIX)},
-	{"MIN_VALUE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_VALUE)},
-	{"MAX_VALUE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_VALUE)},
-	{"TYPE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Character;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Character, TYPE)},
-	{"UNASSIGNED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, UNASSIGNED)},
-	{"UPPERCASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, UPPERCASE_LETTER)},
-	{"LOWERCASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, LOWERCASE_LETTER)},
-	{"TITLECASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, TITLECASE_LETTER)},
-	{"MODIFIER_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MODIFIER_LETTER)},
-	{"OTHER_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, OTHER_LETTER)},
-	{"NON_SPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, NON_SPACING_MARK)},
-	{"ENCLOSING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, ENCLOSING_MARK)},
-	{"COMBINING_SPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, COMBINING_SPACING_MARK)},
-	{"DECIMAL_DIGIT_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DECIMAL_DIGIT_NUMBER)},
-	{"LETTER_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, LETTER_NUMBER)},
-	{"OTHER_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, OTHER_NUMBER)},
-	{"SPACE_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, SPACE_SEPARATOR)},
-	{"LINE_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, LINE_SEPARATOR)},
-	{"PARAGRAPH_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, PARAGRAPH_SEPARATOR)},
-	{"CONTROL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, CONTROL)},
-	{"FORMAT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, FORMAT)},
-	{"PRIVATE_USE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, PRIVATE_USE)},
-	{"SURROGATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, SURROGATE)},
-	{"DASH_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DASH_PUNCTUATION)},
-	{"START_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, START_PUNCTUATION)},
-	{"END_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, END_PUNCTUATION)},
-	{"CONNECTOR_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, CONNECTOR_PUNCTUATION)},
-	{"OTHER_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, OTHER_PUNCTUATION)},
-	{"MATH_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MATH_SYMBOL)},
-	{"CURRENCY_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, CURRENCY_SYMBOL)},
-	{"MODIFIER_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MODIFIER_SYMBOL)},
-	{"OTHER_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, OTHER_SYMBOL)},
-	{"INITIAL_QUOTE_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, INITIAL_QUOTE_PUNCTUATION)},
-	{"FINAL_QUOTE_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, FINAL_QUOTE_PUNCTUATION)},
-	{"ERROR", "I", nullptr, $STATIC | $FINAL, $constField(Character, ERROR)},
-	{"DIRECTIONALITY_UNDEFINED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_UNDEFINED)},
-	{"DIRECTIONALITY_LEFT_TO_RIGHT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_LEFT_TO_RIGHT)},
-	{"DIRECTIONALITY_RIGHT_TO_LEFT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_RIGHT_TO_LEFT)},
-	{"DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC)},
-	{"DIRECTIONALITY_EUROPEAN_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_EUROPEAN_NUMBER)},
-	{"DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR)},
-	{"DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR)},
-	{"DIRECTIONALITY_ARABIC_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_ARABIC_NUMBER)},
-	{"DIRECTIONALITY_COMMON_NUMBER_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_COMMON_NUMBER_SEPARATOR)},
-	{"DIRECTIONALITY_NONSPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_NONSPACING_MARK)},
-	{"DIRECTIONALITY_BOUNDARY_NEUTRAL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_BOUNDARY_NEUTRAL)},
-	{"DIRECTIONALITY_PARAGRAPH_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_PARAGRAPH_SEPARATOR)},
-	{"DIRECTIONALITY_SEGMENT_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_SEGMENT_SEPARATOR)},
-	{"DIRECTIONALITY_WHITESPACE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_WHITESPACE)},
-	{"DIRECTIONALITY_OTHER_NEUTRALS", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_OTHER_NEUTRALS)},
-	{"DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING)},
-	{"DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE)},
-	{"DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING)},
-	{"DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE)},
-	{"DIRECTIONALITY_POP_DIRECTIONAL_FORMAT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_POP_DIRECTIONAL_FORMAT)},
-	{"DIRECTIONALITY_LEFT_TO_RIGHT_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_LEFT_TO_RIGHT_ISOLATE)},
-	{"DIRECTIONALITY_RIGHT_TO_LEFT_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_RIGHT_TO_LEFT_ISOLATE)},
-	{"DIRECTIONALITY_FIRST_STRONG_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_FIRST_STRONG_ISOLATE)},
-	{"DIRECTIONALITY_POP_DIRECTIONAL_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_POP_DIRECTIONAL_ISOLATE)},
-	{"MIN_HIGH_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_HIGH_SURROGATE)},
-	{"MAX_HIGH_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_HIGH_SURROGATE)},
-	{"MIN_LOW_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_LOW_SURROGATE)},
-	{"MAX_LOW_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_LOW_SURROGATE)},
-	{"MIN_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_SURROGATE)},
-	{"MAX_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_SURROGATE)},
-	{"MIN_SUPPLEMENTARY_CODE_POINT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_SUPPLEMENTARY_CODE_POINT)},
-	{"MIN_CODE_POINT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_CODE_POINT)},
-	{"MAX_CODE_POINT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_CODE_POINT)},
-	{"value", "C", nullptr, $PRIVATE | $FINAL, $field(Character, value)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Character, serialVersionUID)},
-	{"SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, SIZE)},
-	{"BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, BYTES)},
-	{}
-};
-
-$MethodInfo _Character_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(C)V", nullptr, $PUBLIC | $DEPRECATED, $method(Character, init$, void, char16_t), nullptr, nullptr, _Character_MethodAnnotations_init$0},
-	{"charCount", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, charCount, int32_t, int32_t)},
-	{"charValue", "()C", nullptr, $PUBLIC, $method(Character, charValue, char16_t), nullptr, nullptr, _Character_MethodAnnotations_charValue2},
-	{"codePointAt", "(Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointAt, int32_t, $CharSequence*, int32_t)},
-	{"codePointAt", "([CI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointAt, int32_t, $chars*, int32_t)},
-	{"codePointAt", "([CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointAt, int32_t, $chars*, int32_t, int32_t)},
-	{"codePointAtImpl", "([CII)I", nullptr, $STATIC, $staticMethod(Character, codePointAtImpl, int32_t, $chars*, int32_t, int32_t)},
-	{"codePointBefore", "(Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointBefore, int32_t, $CharSequence*, int32_t)},
-	{"codePointBefore", "([CI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointBefore, int32_t, $chars*, int32_t)},
-	{"codePointBefore", "([CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointBefore, int32_t, $chars*, int32_t, int32_t)},
-	{"codePointBeforeImpl", "([CII)I", nullptr, $STATIC, $staticMethod(Character, codePointBeforeImpl, int32_t, $chars*, int32_t, int32_t)},
-	{"codePointCount", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointCount, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"codePointCount", "([CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointCount, int32_t, $chars*, int32_t, int32_t)},
-	{"codePointCountImpl", "([CII)I", nullptr, $STATIC, $staticMethod(Character, codePointCountImpl, int32_t, $chars*, int32_t, int32_t)},
-	{"codePointOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointOf, int32_t, $String*)},
-	{"compare", "(CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, compare, int32_t, char16_t, char16_t)},
-	{"compareTo", "(Ljava/lang/Character;)I", nullptr, $PUBLIC, $method(Character, compareTo, int32_t, Character*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Character, compareTo, int32_t, Object$*)},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/constant/DynamicConstantDesc<Ljava/lang/Character;>;>;", $PUBLIC, $virtualMethod(Character, describeConstable, $Optional*)},
-	{"digit", "(CI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, digit, int32_t, char16_t, int32_t)},
-	{"digit", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, digit, int32_t, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Character, equals, bool, Object$*)},
-	{"forDigit", "(II)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, forDigit, char16_t, int32_t, int32_t)},
-	{"getDirectionality", "(C)B", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getDirectionality, int8_t, char16_t)},
-	{"getDirectionality", "(I)B", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getDirectionality, int8_t, int32_t)},
-	{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getName, $String*, int32_t)},
-	{"getNumericValue", "(C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getNumericValue, int32_t, char16_t)},
-	{"getNumericValue", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getNumericValue, int32_t, int32_t)},
-	{"getType", "(C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getType, int32_t, char16_t)},
-	{"getType", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getType, int32_t, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Character, hashCode, int32_t)},
-	{"hashCode", "(C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, hashCode, int32_t, char16_t)},
-	{"highSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, highSurrogate, char16_t, int32_t)},
-	{"isAlphabetic", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isAlphabetic, bool, int32_t)},
-	{"isBmpCodePoint", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isBmpCodePoint, bool, int32_t)},
-	{"isDefined", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isDefined, bool, char16_t)},
-	{"isDefined", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isDefined, bool, int32_t)},
-	{"isDigit", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isDigit, bool, char16_t)},
-	{"isDigit", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isDigit, bool, int32_t)},
-	{"isHighSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isHighSurrogate, bool, char16_t)},
-	{"isISOControl", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isISOControl, bool, char16_t)},
-	{"isISOControl", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isISOControl, bool, int32_t)},
-	{"isIdentifierIgnorable", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isIdentifierIgnorable, bool, char16_t)},
-	{"isIdentifierIgnorable", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isIdentifierIgnorable, bool, int32_t)},
-	{"isIdeographic", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isIdeographic, bool, int32_t)},
-	{"isJavaIdentifierPart", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isJavaIdentifierPart, bool, char16_t)},
-	{"isJavaIdentifierPart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isJavaIdentifierPart, bool, int32_t)},
-	{"isJavaIdentifierStart", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isJavaIdentifierStart, bool, char16_t)},
-	{"isJavaIdentifierStart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isJavaIdentifierStart, bool, int32_t)},
-	{"isJavaLetter", "(C)Z", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Character, isJavaLetter, bool, char16_t), nullptr, nullptr, _Character_MethodAnnotations_isJavaLetter49},
-	{"isJavaLetterOrDigit", "(C)Z", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Character, isJavaLetterOrDigit, bool, char16_t), nullptr, nullptr, _Character_MethodAnnotations_isJavaLetterOrDigit50},
-	{"isLetter", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLetter, bool, char16_t)},
-	{"isLetter", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLetter, bool, int32_t)},
-	{"isLetterOrDigit", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLetterOrDigit, bool, char16_t)},
-	{"isLetterOrDigit", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLetterOrDigit, bool, int32_t)},
-	{"isLowSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLowSurrogate, bool, char16_t)},
-	{"isLowerCase", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLowerCase, bool, char16_t)},
-	{"isLowerCase", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLowerCase, bool, int32_t)},
-	{"isMirrored", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isMirrored, bool, char16_t)},
-	{"isMirrored", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isMirrored, bool, int32_t)},
-	{"isSpace", "(C)Z", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Character, isSpace, bool, char16_t), nullptr, nullptr, _Character_MethodAnnotations_isSpace60},
-	{"isSpaceChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isSpaceChar, bool, char16_t)},
-	{"isSpaceChar", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isSpaceChar, bool, int32_t)},
-	{"isSupplementaryCodePoint", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isSupplementaryCodePoint, bool, int32_t)},
-	{"isSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isSurrogate, bool, char16_t)},
-	{"isSurrogatePair", "(CC)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isSurrogatePair, bool, char16_t, char16_t)},
-	{"isTitleCase", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isTitleCase, bool, char16_t)},
-	{"isTitleCase", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isTitleCase, bool, int32_t)},
-	{"isUnicodeIdentifierPart", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUnicodeIdentifierPart, bool, char16_t)},
-	{"isUnicodeIdentifierPart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUnicodeIdentifierPart, bool, int32_t)},
-	{"isUnicodeIdentifierStart", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUnicodeIdentifierStart, bool, char16_t)},
-	{"isUnicodeIdentifierStart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUnicodeIdentifierStart, bool, int32_t)},
-	{"isUpperCase", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUpperCase, bool, char16_t)},
-	{"isUpperCase", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUpperCase, bool, int32_t)},
-	{"isValidCodePoint", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isValidCodePoint, bool, int32_t)},
-	{"isWhitespace", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isWhitespace, bool, char16_t)},
-	{"isWhitespace", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isWhitespace, bool, int32_t)},
-	{"lowSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, lowSurrogate, char16_t, int32_t)},
-	{"offsetByCodePoints", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, offsetByCodePoints, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"offsetByCodePoints", "([CIIII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, offsetByCodePoints, int32_t, $chars*, int32_t, int32_t, int32_t, int32_t)},
-	{"offsetByCodePointsImpl", "([CIIII)I", nullptr, $STATIC, $staticMethod(Character, offsetByCodePointsImpl, int32_t, $chars*, int32_t, int32_t, int32_t, int32_t)},
-	{"reverseBytes", "(C)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, reverseBytes, char16_t, char16_t), nullptr, nullptr, _Character_MethodAnnotations_reverseBytes81},
-	{"toChars", "(I[CI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toChars, int32_t, int32_t, $chars*, int32_t)},
-	{"toChars", "(I)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toChars, $chars*, int32_t)},
-	{"toCodePoint", "(CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toCodePoint, int32_t, char16_t, char16_t)},
-	{"toLowerCase", "(C)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toLowerCase, char16_t, char16_t)},
-	{"toLowerCase", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toLowerCase, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Character, toString, $String*)},
-	{"toString", "(C)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toString, $String*, char16_t)},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toString, $String*, int32_t)},
-	{"toSurrogates", "(I[CI)V", nullptr, $STATIC, $staticMethod(Character, toSurrogates, void, int32_t, $chars*, int32_t)},
-	{"toTitleCase", "(C)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toTitleCase, char16_t, char16_t)},
-	{"toTitleCase", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toTitleCase, int32_t, int32_t)},
-	{"toUpperCase", "(C)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toUpperCase, char16_t, char16_t)},
-	{"toUpperCase", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toUpperCase, int32_t, int32_t)},
-	{"toUpperCaseCharArray", "(I)[C", nullptr, $STATIC, $staticMethod(Character, toUpperCaseCharArray, $chars*, int32_t)},
-	{"toUpperCaseEx", "(I)I", nullptr, $STATIC, $staticMethod(Character, toUpperCaseEx, int32_t, int32_t)},
-	{"valueOf", "(C)Ljava/lang/Character;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, valueOf, Character*, char16_t), nullptr, nullptr, _Character_MethodAnnotations_valueOf97},
-	{}
-};
-
-$InnerClassInfo _Character_InnerClassesInfo_[] = {
-	{"java.lang.Character$CharacterCache", "java.lang.Character", "CharacterCache", $PRIVATE | $STATIC},
-	{"java.lang.Character$UnicodeScript", "java.lang.Character", "UnicodeScript", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.lang.Character$UnicodeBlock", "java.lang.Character", "UnicodeBlock", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.Character$Subset", "java.lang.Character", "Subset", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Character_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.Character",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Comparable,java.lang.constant.Constable",
-	_Character_FieldInfo_,
-	_Character_MethodInfo_,
-	"Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/lang/Character;>;Ljava/lang/constant/Constable;",
-	nullptr,
-	_Character_InnerClassesInfo_,
-	_Character_Annotations_,
-	nullptr,
-	"java.lang.Character$CharacterCache,java.lang.Character$UnicodeScript,java.lang.Character$UnicodeBlock,java.lang.Character$Subset"
-};
-
-$Object* allocate$Character($Class* clazz) {
-	return $of($alloc(Character));
-}
 
 $Object* Character::clone() {
 	 return this->$Serializable::clone();
@@ -400,9 +128,9 @@ bool Character::$assertionsDisabled = false;
 $Class* Character::TYPE = nullptr;
 
 $Optional* Character::describeConstable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ConstantDescs);
-	return $Optional::of($($DynamicConstantDesc::ofNamed($ConstantDescs::BSM_EXPLICIT_CAST, "_"_s, $ConstantDescs::CD_char, $$new($ConstantDescArray, {$(static_cast<$ConstantDesc*>($Integer::valueOf((int32_t)this->value)))}))));
+	return $Optional::of($($DynamicConstantDesc::ofNamed($ConstantDescs::BSM_EXPLICIT_CAST, "_"_s, $ConstantDescs::CD_char, $$new($ConstantDescArray, {$($Integer::valueOf((int32_t)this->value))}))));
 }
 
 void Character::init$(char16_t value) {
@@ -410,7 +138,6 @@ void Character::init$(char16_t value) {
 }
 
 Character* Character::valueOf(char16_t c) {
-	$init(Character);
 	if (c <= 127) {
 		$init($Character$CharacterCache);
 		return $nc($Character$CharacterCache::cache)->get((int32_t)c);
@@ -427,13 +154,12 @@ int32_t Character::hashCode() {
 }
 
 int32_t Character::hashCode(char16_t value) {
-	$init(Character);
 	return (int32_t)value;
 }
 
 bool Character::equals(Object$* obj) {
 	if ($instanceOf(Character, obj)) {
-		return this->value == $nc(($cast(Character, obj)))->charValue();
+		return this->value == $cast(Character, obj)->charValue();
 	}
 	return false;
 }
@@ -443,64 +169,52 @@ $String* Character::toString() {
 }
 
 $String* Character::toString(char16_t c) {
-	$init(Character);
 	return $String::valueOf(c);
 }
 
 $String* Character::toString(int32_t codePoint) {
-	$init(Character);
 	return $String::valueOfCodePoint(codePoint);
 }
 
 bool Character::isValidCodePoint(int32_t codePoint) {
-	$init(Character);
 	int32_t plane = (int32_t)((uint32_t)codePoint >> 16);
 	return plane < ((int32_t)((uint32_t)(Character::MAX_CODE_POINT + 1) >> 16));
 }
 
 bool Character::isBmpCodePoint(int32_t codePoint) {
-	$init(Character);
 	return (int32_t)((uint32_t)codePoint >> 16) == 0;
 }
 
 bool Character::isSupplementaryCodePoint(int32_t codePoint) {
-	$init(Character);
 	return codePoint >= Character::MIN_SUPPLEMENTARY_CODE_POINT && codePoint < Character::MAX_CODE_POINT + 1;
 }
 
 bool Character::isHighSurrogate(char16_t ch) {
-	$init(Character);
 	return ch >= Character::MIN_HIGH_SURROGATE && ch < (Character::MAX_HIGH_SURROGATE + 1);
 }
 
 bool Character::isLowSurrogate(char16_t ch) {
-	$init(Character);
 	return ch >= Character::MIN_LOW_SURROGATE && ch < (Character::MAX_LOW_SURROGATE + 1);
 }
 
 bool Character::isSurrogate(char16_t ch) {
-	$init(Character);
 	return ch >= Character::MIN_SURROGATE && ch < (Character::MAX_SURROGATE + 1);
 }
 
 bool Character::isSurrogatePair(char16_t high, char16_t low) {
-	$init(Character);
 	bool var$0 = isHighSurrogate(high);
 	return var$0 && isLowSurrogate(low);
 }
 
 int32_t Character::charCount(int32_t codePoint) {
-	$init(Character);
 	return codePoint >= Character::MIN_SUPPLEMENTARY_CODE_POINT ? 2 : 1;
 }
 
 int32_t Character::toCodePoint(char16_t high, char16_t low) {
-	$init(Character);
 	return ((high << 10) + low) + (Character::MIN_SUPPLEMENTARY_CODE_POINT - (Character::MIN_HIGH_SURROGATE << 10) - Character::MIN_LOW_SURROGATE);
 }
 
 int32_t Character::codePointAt($CharSequence* seq, int32_t index) {
-	$init(Character);
 	char16_t c1 = $nc(seq)->charAt(index);
 	bool var$0 = isHighSurrogate(c1);
 	if (var$0 && ++index < seq->length()) {
@@ -513,12 +227,10 @@ int32_t Character::codePointAt($CharSequence* seq, int32_t index) {
 }
 
 int32_t Character::codePointAt($chars* a, int32_t index) {
-	$init(Character);
 	return codePointAtImpl(a, index, $nc(a)->length);
 }
 
 int32_t Character::codePointAt($chars* a, int32_t index, int32_t limit) {
-	$init(Character);
 	if (index >= limit || limit < 0 || limit > $nc(a)->length) {
 		$throwNew($IndexOutOfBoundsException);
 	}
@@ -526,7 +238,6 @@ int32_t Character::codePointAt($chars* a, int32_t index, int32_t limit) {
 }
 
 int32_t Character::codePointAtImpl($chars* a, int32_t index, int32_t limit) {
-	$init(Character);
 	char16_t c1 = $nc(a)->get(index);
 	if (isHighSurrogate(c1) && ++index < limit) {
 		char16_t c2 = a->get(index);
@@ -538,7 +249,6 @@ int32_t Character::codePointAtImpl($chars* a, int32_t index, int32_t limit) {
 }
 
 int32_t Character::codePointBefore($CharSequence* seq, int32_t index) {
-	$init(Character);
 	char16_t c2 = $nc(seq)->charAt(--index);
 	if (isLowSurrogate(c2) && index > 0) {
 		char16_t c1 = seq->charAt(--index);
@@ -550,12 +260,10 @@ int32_t Character::codePointBefore($CharSequence* seq, int32_t index) {
 }
 
 int32_t Character::codePointBefore($chars* a, int32_t index) {
-	$init(Character);
 	return codePointBeforeImpl(a, index, 0);
 }
 
 int32_t Character::codePointBefore($chars* a, int32_t index, int32_t start) {
-	$init(Character);
 	if (index <= start || start < 0 || start >= $nc(a)->length) {
 		$throwNew($IndexOutOfBoundsException);
 	}
@@ -563,7 +271,6 @@ int32_t Character::codePointBefore($chars* a, int32_t index, int32_t start) {
 }
 
 int32_t Character::codePointBeforeImpl($chars* a, int32_t index, int32_t start) {
-	$init(Character);
 	char16_t c2 = $nc(a)->get(--index);
 	if (isLowSurrogate(c2) && index > start) {
 		char16_t c1 = a->get(--index);
@@ -575,18 +282,15 @@ int32_t Character::codePointBeforeImpl($chars* a, int32_t index, int32_t start) 
 }
 
 char16_t Character::highSurrogate(int32_t codePoint) {
-	$init(Character);
 	return (char16_t)(((int32_t)((uint32_t)codePoint >> 10)) + (Character::MIN_HIGH_SURROGATE - ((int32_t)((uint32_t)Character::MIN_SUPPLEMENTARY_CODE_POINT >> 10))));
 }
 
 char16_t Character::lowSurrogate(int32_t codePoint) {
-	$init(Character);
-	return (char16_t)(((int32_t)(codePoint & (uint32_t)1023)) + Character::MIN_LOW_SURROGATE);
+	return (char16_t)((codePoint & 0x03ff) + Character::MIN_LOW_SURROGATE);
 }
 
 int32_t Character::toChars(int32_t codePoint, $chars* dst, int32_t dstIndex) {
-	$init(Character);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isBmpCodePoint(codePoint)) {
 		$nc(dst)->set(dstIndex, (char16_t)codePoint);
 		return 1;
@@ -594,13 +298,12 @@ int32_t Character::toChars(int32_t codePoint, $chars* dst, int32_t dstIndex) {
 		toSurrogates(codePoint, dst, dstIndex);
 		return 2;
 	} else {
-		$throwNew($IllegalArgumentException, $($String::format("Not a valid Unicode code point: 0x%X"_s, $$new($ObjectArray, {$($of($Integer::valueOf(codePoint)))}))));
+		$throwNew($IllegalArgumentException, $($String::format("Not a valid Unicode code point: 0x%X"_s, $$new($ObjectArray, {$($Integer::valueOf(codePoint))}))));
 	}
 }
 
 $chars* Character::toChars(int32_t codePoint) {
-	$init(Character);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isBmpCodePoint(codePoint)) {
 		return $new($chars, {(char16_t)codePoint});
 	} else if (isValidCodePoint(codePoint)) {
@@ -608,18 +311,16 @@ $chars* Character::toChars(int32_t codePoint) {
 		toSurrogates(codePoint, result, 0);
 		return result;
 	} else {
-		$throwNew($IllegalArgumentException, $($String::format("Not a valid Unicode code point: 0x%X"_s, $$new($ObjectArray, {$($of($Integer::valueOf(codePoint)))}))));
+		$throwNew($IllegalArgumentException, $($String::format("Not a valid Unicode code point: 0x%X"_s, $$new($ObjectArray, {$($Integer::valueOf(codePoint))}))));
 	}
 }
 
 void Character::toSurrogates(int32_t codePoint, $chars* dst, int32_t index) {
-	$init(Character);
 	$nc(dst)->set(index + 1, lowSurrogate(codePoint));
 	dst->set(index, highSurrogate(codePoint));
 }
 
 int32_t Character::codePointCount($CharSequence* seq, int32_t beginIndex, int32_t endIndex) {
-	$init(Character);
 	int32_t length = $nc(seq)->length();
 	if (beginIndex < 0 || endIndex > length || beginIndex > endIndex) {
 		$throwNew($IndexOutOfBoundsException);
@@ -636,7 +337,6 @@ int32_t Character::codePointCount($CharSequence* seq, int32_t beginIndex, int32_
 }
 
 int32_t Character::codePointCount($chars* a, int32_t offset, int32_t count) {
-	$init(Character);
 	if (count > $nc(a)->length - offset || offset < 0 || count < 0) {
 		$throwNew($IndexOutOfBoundsException);
 	}
@@ -644,12 +344,11 @@ int32_t Character::codePointCount($chars* a, int32_t offset, int32_t count) {
 }
 
 int32_t Character::codePointCountImpl($chars* a, int32_t offset, int32_t count) {
-	$init(Character);
 	int32_t endIndex = offset + count;
 	int32_t n = count;
 	for (int32_t i = offset; i < endIndex;) {
 		bool var$0 = isHighSurrogate($nc(a)->get(i++)) && i < endIndex;
-		if (var$0 && isLowSurrogate($nc(a)->get(i))) {
+		if (var$0 && isLowSurrogate(a->get(i))) {
 			--n;
 			++i;
 		}
@@ -658,7 +357,6 @@ int32_t Character::codePointCountImpl($chars* a, int32_t offset, int32_t count) 
 }
 
 int32_t Character::offsetByCodePoints($CharSequence* seq, int32_t index, int32_t codePointOffset) {
-	$init(Character);
 	int32_t length = $nc(seq)->length();
 	if (index < 0 || index > length) {
 		$throwNew($IndexOutOfBoundsException);
@@ -691,7 +389,6 @@ int32_t Character::offsetByCodePoints($CharSequence* seq, int32_t index, int32_t
 }
 
 int32_t Character::offsetByCodePoints($chars* a, int32_t start, int32_t count, int32_t index, int32_t codePointOffset) {
-	$init(Character);
 	if (count > $nc(a)->length - start || start < 0 || count < 0 || index < start || index > start + count) {
 		$throwNew($IndexOutOfBoundsException);
 	}
@@ -699,14 +396,13 @@ int32_t Character::offsetByCodePoints($chars* a, int32_t start, int32_t count, i
 }
 
 int32_t Character::offsetByCodePointsImpl($chars* a, int32_t start, int32_t count, int32_t index, int32_t codePointOffset) {
-	$init(Character);
 	int32_t x = index;
 	if (codePointOffset >= 0) {
 		int32_t limit = start + count;
 		int32_t i = 0;
 		for (i = 0; x < limit && i < codePointOffset; ++i) {
 			bool var$0 = isHighSurrogate($nc(a)->get(x++)) && x < limit;
-			if (var$0 && isLowSurrogate($nc(a)->get(x))) {
+			if (var$0 && isLowSurrogate(a->get(x))) {
 				++x;
 			}
 		}
@@ -717,7 +413,7 @@ int32_t Character::offsetByCodePointsImpl($chars* a, int32_t start, int32_t coun
 		int32_t i = 0;
 		for (i = codePointOffset; x > start && i < 0; ++i) {
 			bool var$1 = isLowSurrogate($nc(a)->get(--x)) && x > start;
-			if (var$1 && isHighSurrogate($nc(a)->get(x - 1))) {
+			if (var$1 && isHighSurrogate(a->get(x - 1))) {
 				--x;
 			}
 		}
@@ -729,243 +425,195 @@ int32_t Character::offsetByCodePointsImpl($chars* a, int32_t start, int32_t coun
 }
 
 bool Character::isLowerCase(char16_t ch) {
-	$init(Character);
 	return isLowerCase((int32_t)ch);
 }
 
 bool Character::isLowerCase(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->isLowerCase(codePoint);
+	return $$nc($CharacterData::of(codePoint))->isLowerCase(codePoint);
 }
 
 bool Character::isUpperCase(char16_t ch) {
-	$init(Character);
 	return isUpperCase((int32_t)ch);
 }
 
 bool Character::isUpperCase(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->isUpperCase(codePoint);
+	return $$nc($CharacterData::of(codePoint))->isUpperCase(codePoint);
 }
 
 bool Character::isTitleCase(char16_t ch) {
-	$init(Character);
 	return isTitleCase((int32_t)ch);
 }
 
 bool Character::isTitleCase(int32_t codePoint) {
-	$init(Character);
 	return getType(codePoint) == Character::TITLECASE_LETTER;
 }
 
 bool Character::isDigit(char16_t ch) {
-	$init(Character);
 	return isDigit((int32_t)ch);
 }
 
 bool Character::isDigit(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->isDigit(codePoint);
+	return $$nc($CharacterData::of(codePoint))->isDigit(codePoint);
 }
 
 bool Character::isDefined(char16_t ch) {
-	$init(Character);
 	return isDefined((int32_t)ch);
 }
 
 bool Character::isDefined(int32_t codePoint) {
-	$init(Character);
 	return getType(codePoint) != Character::UNASSIGNED;
 }
 
 bool Character::isLetter(char16_t ch) {
-	$init(Character);
 	return isLetter((int32_t)ch);
 }
 
 bool Character::isLetter(int32_t codePoint) {
-	$init(Character);
-	return ((int32_t)(($sr((((($sl(1, Character::UPPERCASE_LETTER)) | ($sl(1, Character::LOWERCASE_LETTER))) | ($sl(1, Character::TITLECASE_LETTER))) | ($sl(1, Character::MODIFIER_LETTER))) | ($sl(1, Character::OTHER_LETTER)), getType(codePoint))) & (uint32_t)1)) != 0;
+	return (($sr((((($sl(1, Character::UPPERCASE_LETTER)) | ($sl(1, Character::LOWERCASE_LETTER))) | ($sl(1, Character::TITLECASE_LETTER))) | ($sl(1, Character::MODIFIER_LETTER))) | ($sl(1, Character::OTHER_LETTER)), getType(codePoint))) & 1) != 0;
 }
 
 bool Character::isLetterOrDigit(char16_t ch) {
-	$init(Character);
 	return isLetterOrDigit((int32_t)ch);
 }
 
 bool Character::isLetterOrDigit(int32_t codePoint) {
-	$init(Character);
-	return ((int32_t)(($sr(((((($sl(1, Character::UPPERCASE_LETTER)) | ($sl(1, Character::LOWERCASE_LETTER))) | ($sl(1, Character::TITLECASE_LETTER))) | ($sl(1, Character::MODIFIER_LETTER))) | ($sl(1, Character::OTHER_LETTER))) | ($sl(1, Character::DECIMAL_DIGIT_NUMBER)), getType(codePoint))) & (uint32_t)1)) != 0;
+	return (($sr(((((($sl(1, Character::UPPERCASE_LETTER)) | ($sl(1, Character::LOWERCASE_LETTER))) | ($sl(1, Character::TITLECASE_LETTER))) | ($sl(1, Character::MODIFIER_LETTER))) | ($sl(1, Character::OTHER_LETTER))) | ($sl(1, Character::DECIMAL_DIGIT_NUMBER)), getType(codePoint))) & 1) != 0;
 }
 
 bool Character::isJavaLetter(char16_t ch) {
-	$init(Character);
 	return isJavaIdentifierStart(ch);
 }
 
 bool Character::isJavaLetterOrDigit(char16_t ch) {
-	$init(Character);
 	return isJavaIdentifierPart(ch);
 }
 
 bool Character::isAlphabetic(int32_t codePoint) {
-	$init(Character);
-	bool var$0 = (((int32_t)(($sr(((((($sl(1, Character::UPPERCASE_LETTER)) | ($sl(1, Character::LOWERCASE_LETTER))) | ($sl(1, Character::TITLECASE_LETTER))) | ($sl(1, Character::MODIFIER_LETTER))) | ($sl(1, Character::OTHER_LETTER))) | ($sl(1, Character::LETTER_NUMBER)), getType(codePoint))) & (uint32_t)1)) != 0);
-	return var$0 || $nc($($CharacterData::of(codePoint)))->isOtherAlphabetic(codePoint);
+	bool var$0 = (($sr(((((($sl(1, Character::UPPERCASE_LETTER)) | ($sl(1, Character::LOWERCASE_LETTER))) | ($sl(1, Character::TITLECASE_LETTER))) | ($sl(1, Character::MODIFIER_LETTER))) | ($sl(1, Character::OTHER_LETTER))) | ($sl(1, Character::LETTER_NUMBER)), getType(codePoint))) & 1) != 0;
+	return var$0 || $$nc($CharacterData::of(codePoint))->isOtherAlphabetic(codePoint);
 }
 
 bool Character::isIdeographic(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->isIdeographic(codePoint);
+	return $$nc($CharacterData::of(codePoint))->isIdeographic(codePoint);
 }
 
 bool Character::isJavaIdentifierStart(char16_t ch) {
-	$init(Character);
 	return isJavaIdentifierStart((int32_t)ch);
 }
 
 bool Character::isJavaIdentifierStart(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->isJavaIdentifierStart(codePoint);
+	return $$nc($CharacterData::of(codePoint))->isJavaIdentifierStart(codePoint);
 }
 
 bool Character::isJavaIdentifierPart(char16_t ch) {
-	$init(Character);
 	return isJavaIdentifierPart((int32_t)ch);
 }
 
 bool Character::isJavaIdentifierPart(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->isJavaIdentifierPart(codePoint);
+	return $$nc($CharacterData::of(codePoint))->isJavaIdentifierPart(codePoint);
 }
 
 bool Character::isUnicodeIdentifierStart(char16_t ch) {
-	$init(Character);
 	return isUnicodeIdentifierStart((int32_t)ch);
 }
 
 bool Character::isUnicodeIdentifierStart(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->isUnicodeIdentifierStart(codePoint);
+	return $$nc($CharacterData::of(codePoint))->isUnicodeIdentifierStart(codePoint);
 }
 
 bool Character::isUnicodeIdentifierPart(char16_t ch) {
-	$init(Character);
 	return isUnicodeIdentifierPart((int32_t)ch);
 }
 
 bool Character::isUnicodeIdentifierPart(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->isUnicodeIdentifierPart(codePoint);
+	return $$nc($CharacterData::of(codePoint))->isUnicodeIdentifierPart(codePoint);
 }
 
 bool Character::isIdentifierIgnorable(char16_t ch) {
-	$init(Character);
 	return isIdentifierIgnorable((int32_t)ch);
 }
 
 bool Character::isIdentifierIgnorable(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->isIdentifierIgnorable(codePoint);
+	return $$nc($CharacterData::of(codePoint))->isIdentifierIgnorable(codePoint);
 }
 
 char16_t Character::toLowerCase(char16_t ch) {
-	$init(Character);
 	return (char16_t)toLowerCase((int32_t)ch);
 }
 
 int32_t Character::toLowerCase(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->toLowerCase(codePoint);
+	return $$nc($CharacterData::of(codePoint))->toLowerCase(codePoint);
 }
 
 char16_t Character::toUpperCase(char16_t ch) {
-	$init(Character);
 	return (char16_t)toUpperCase((int32_t)ch);
 }
 
 int32_t Character::toUpperCase(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->toUpperCase(codePoint);
+	return $$nc($CharacterData::of(codePoint))->toUpperCase(codePoint);
 }
 
 char16_t Character::toTitleCase(char16_t ch) {
-	$init(Character);
 	return (char16_t)toTitleCase((int32_t)ch);
 }
 
 int32_t Character::toTitleCase(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->toTitleCase(codePoint);
+	return $$nc($CharacterData::of(codePoint))->toTitleCase(codePoint);
 }
 
 int32_t Character::digit(char16_t ch, int32_t radix) {
-	$init(Character);
 	return digit((int32_t)ch, radix);
 }
 
 int32_t Character::digit(int32_t codePoint, int32_t radix) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->digit(codePoint, radix);
+	return $$nc($CharacterData::of(codePoint))->digit(codePoint, radix);
 }
 
 int32_t Character::getNumericValue(char16_t ch) {
-	$init(Character);
 	return getNumericValue((int32_t)ch);
 }
 
 int32_t Character::getNumericValue(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->getNumericValue(codePoint);
+	return $$nc($CharacterData::of(codePoint))->getNumericValue(codePoint);
 }
 
 bool Character::isSpace(char16_t ch) {
-	$init(Character);
-	return (ch <= 32) && (((int64_t)(($sr((((((int64_t)1 << 9) | ((int64_t)1 << 10)) | ((int64_t)1 << 12)) | ((int64_t)1 << 13)) | ((int64_t)1 << 32), ch)) & (uint64_t)(int64_t)1)) != 0);
+	return (ch <= 32) && ((($sr((((((int64_t)1 << 9) | ((int64_t)1 << 10)) | ((int64_t)1 << 12)) | ((int64_t)1 << 13)) | ((int64_t)1 << 32), ch)) & (int64_t)1) != 0);
 }
 
 bool Character::isSpaceChar(char16_t ch) {
-	$init(Character);
 	return isSpaceChar((int32_t)ch);
 }
 
 bool Character::isSpaceChar(int32_t codePoint) {
-	$init(Character);
-	return ((int32_t)(($sr((($sl(1, Character::SPACE_SEPARATOR)) | ($sl(1, Character::LINE_SEPARATOR))) | ($sl(1, Character::PARAGRAPH_SEPARATOR)), getType(codePoint))) & (uint32_t)1)) != 0;
+	return (($sr((($sl(1, Character::SPACE_SEPARATOR)) | ($sl(1, Character::LINE_SEPARATOR))) | ($sl(1, Character::PARAGRAPH_SEPARATOR)), getType(codePoint))) & 1) != 0;
 }
 
 bool Character::isWhitespace(char16_t ch) {
-	$init(Character);
 	return isWhitespace((int32_t)ch);
 }
 
 bool Character::isWhitespace(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->isWhitespace(codePoint);
+	return $$nc($CharacterData::of(codePoint))->isWhitespace(codePoint);
 }
 
 bool Character::isISOControl(char16_t ch) {
-	$init(Character);
 	return isISOControl((int32_t)ch);
 }
 
 bool Character::isISOControl(int32_t codePoint) {
-	$init(Character);
 	return codePoint <= 159 && (codePoint >= 127 || ((int32_t)((uint32_t)codePoint >> 5) == 0));
 }
 
 int32_t Character::getType(char16_t ch) {
-	$init(Character);
 	return getType((int32_t)ch);
 }
 
 int32_t Character::getType(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->getType(codePoint);
+	return $$nc($CharacterData::of(codePoint))->getType(codePoint);
 }
 
 char16_t Character::forDigit(int32_t digit, int32_t radix) {
-	$init(Character);
 	if ((digit >= radix) || (digit < 0)) {
 		return u'\0';
 	}
@@ -979,23 +627,19 @@ char16_t Character::forDigit(int32_t digit, int32_t radix) {
 }
 
 int8_t Character::getDirectionality(char16_t ch) {
-	$init(Character);
 	return getDirectionality((int32_t)ch);
 }
 
 int8_t Character::getDirectionality(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->getDirectionality(codePoint);
+	return $$nc($CharacterData::of(codePoint))->getDirectionality(codePoint);
 }
 
 bool Character::isMirrored(char16_t ch) {
-	$init(Character);
 	return isMirrored((int32_t)ch);
 }
 
 bool Character::isMirrored(int32_t codePoint) {
-	$init(Character);
-	return $nc($($CharacterData::of(codePoint)))->isMirrored(codePoint);
+	return $$nc($CharacterData::of(codePoint))->isMirrored(codePoint);
 }
 
 int32_t Character::compareTo(Character* anotherCharacter) {
@@ -1003,38 +647,33 @@ int32_t Character::compareTo(Character* anotherCharacter) {
 }
 
 int32_t Character::compare(char16_t x, char16_t y) {
-	$init(Character);
 	return x - y;
 }
 
 int32_t Character::toUpperCaseEx(int32_t codePoint) {
-	$init(Character);
 	if (!Character::$assertionsDisabled && !isValidCodePoint(codePoint)) {
 		$throwNew($AssertionError);
 	}
-	return $nc($($CharacterData::of(codePoint)))->toUpperCaseEx(codePoint);
+	return $$nc($CharacterData::of(codePoint))->toUpperCaseEx(codePoint);
 }
 
 $chars* Character::toUpperCaseCharArray(int32_t codePoint) {
-	$init(Character);
 	if (!Character::$assertionsDisabled && !isBmpCodePoint(codePoint)) {
 		$throwNew($AssertionError);
 	}
-	return $nc($($CharacterData::of(codePoint)))->toUpperCaseCharArray(codePoint);
+	return $$nc($CharacterData::of(codePoint))->toUpperCaseCharArray(codePoint);
 }
 
 char16_t Character::reverseBytes(char16_t ch) {
-	$init(Character);
-	return (char16_t)((((int32_t)(ch & (uint32_t)0x0000FF00)) >> 8) | (ch << 8));
+	return (char16_t)(((ch & 0xff00) >> 8) | (ch << 8));
 }
 
 $String* Character::getName(int32_t codePoint) {
-	$init(Character);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isValidCodePoint(codePoint)) {
-		$throwNew($IllegalArgumentException, $($String::format("Not a valid Unicode code point: 0x%X"_s, $$new($ObjectArray, {$($of($Integer::valueOf(codePoint)))}))));
+		$throwNew($IllegalArgumentException, $($String::format("Not a valid Unicode code point: 0x%X"_s, $$new($ObjectArray, {$($Integer::valueOf(codePoint))}))));
 	}
-	$var($String, name, $nc($($CharacterName::getInstance()))->getName(codePoint));
+	$var($String, name, $$nc($CharacterName::getInstance())->getName(codePoint));
 	if (name != nullptr) {
 		return name;
 	}
@@ -1043,26 +682,28 @@ $String* Character::getName(int32_t codePoint) {
 	}
 	$var($Character$UnicodeBlock, block, $Character$UnicodeBlock::of(codePoint));
 	if (block != nullptr) {
-		$var($String, var$0, $$str({$($nc($(block->toString()))->replace(u'_', u' ')), " "_s}));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($$nc(block->toString())->replace(u'_', u' ')));
+		var$0->append(" "_s);
 		$init($Locale);
-		return $concat(var$0, $($nc($($Integer::toHexString(codePoint)))->toUpperCase($Locale::ROOT)));
+		var$0->append($($$nc($Integer::toHexString(codePoint))->toUpperCase($Locale::ROOT)));
+		return $str(var$0);
 	}
 	$init($Locale);
-	return $nc($($Integer::toHexString(codePoint)))->toUpperCase($Locale::ROOT);
+	return $$nc($Integer::toHexString(codePoint))->toUpperCase($Locale::ROOT);
 }
 
 int32_t Character::codePointOf($String* name$renamed) {
-	$init(Character);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$init($Locale);
 	$assign(name, $($nc(name)->trim())->toUpperCase($Locale::ROOT));
-	int32_t cp = $nc($($CharacterName::getInstance()))->getCodePoint(name);
+	int32_t cp = $$nc($CharacterName::getInstance())->getCodePoint(name);
 	if (cp != -1) {
 		return cp;
 	}
 	try {
-		int32_t off = name->lastIndexOf((int32_t)u' ');
+		int32_t off = name->lastIndexOf(u' ');
 		if (off != -1) {
 			cp = $Integer::parseInt(name, off + 1, name->length(), 16);
 			bool var$0 = isValidCodePoint(cp);
@@ -1080,7 +721,7 @@ int32_t Character::compareTo(Object$* anotherCharacter) {
 	return this->compareTo($cast(Character, anotherCharacter));
 }
 
-void clinit$Character($Class* class$) {
+void Character::clinit$($Class* clazz) {
 	Character::$assertionsDisabled = !Character::class$->desiredAssertionStatus();
 	$assignStatic(Character::TYPE, $Class::getPrimitiveClass("char"_s));
 }
@@ -1089,7 +730,259 @@ Character::Character() {
 }
 
 $Class* Character::load$($String* name, bool initialize) {
-	$loadClass(Character, name, initialize, &_Character_ClassInfo_, clinit$Character, allocate$Character);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Character, $assertionsDisabled)},
+		{"MIN_RADIX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_RADIX)},
+		{"MAX_RADIX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_RADIX)},
+		{"MIN_VALUE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_VALUE)},
+		{"MAX_VALUE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_VALUE)},
+		{"TYPE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Character;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Character, TYPE)},
+		{"UNASSIGNED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, UNASSIGNED)},
+		{"UPPERCASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, UPPERCASE_LETTER)},
+		{"LOWERCASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, LOWERCASE_LETTER)},
+		{"TITLECASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, TITLECASE_LETTER)},
+		{"MODIFIER_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MODIFIER_LETTER)},
+		{"OTHER_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, OTHER_LETTER)},
+		{"NON_SPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, NON_SPACING_MARK)},
+		{"ENCLOSING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, ENCLOSING_MARK)},
+		{"COMBINING_SPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, COMBINING_SPACING_MARK)},
+		{"DECIMAL_DIGIT_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DECIMAL_DIGIT_NUMBER)},
+		{"LETTER_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, LETTER_NUMBER)},
+		{"OTHER_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, OTHER_NUMBER)},
+		{"SPACE_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, SPACE_SEPARATOR)},
+		{"LINE_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, LINE_SEPARATOR)},
+		{"PARAGRAPH_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, PARAGRAPH_SEPARATOR)},
+		{"CONTROL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, CONTROL)},
+		{"FORMAT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, FORMAT)},
+		{"PRIVATE_USE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, PRIVATE_USE)},
+		{"SURROGATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, SURROGATE)},
+		{"DASH_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DASH_PUNCTUATION)},
+		{"START_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, START_PUNCTUATION)},
+		{"END_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, END_PUNCTUATION)},
+		{"CONNECTOR_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, CONNECTOR_PUNCTUATION)},
+		{"OTHER_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, OTHER_PUNCTUATION)},
+		{"MATH_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MATH_SYMBOL)},
+		{"CURRENCY_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, CURRENCY_SYMBOL)},
+		{"MODIFIER_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MODIFIER_SYMBOL)},
+		{"OTHER_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, OTHER_SYMBOL)},
+		{"INITIAL_QUOTE_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, INITIAL_QUOTE_PUNCTUATION)},
+		{"FINAL_QUOTE_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, FINAL_QUOTE_PUNCTUATION)},
+		{"ERROR", "I", nullptr, $STATIC | $FINAL, $constField(Character, ERROR)},
+		{"DIRECTIONALITY_UNDEFINED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_UNDEFINED)},
+		{"DIRECTIONALITY_LEFT_TO_RIGHT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_LEFT_TO_RIGHT)},
+		{"DIRECTIONALITY_RIGHT_TO_LEFT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_RIGHT_TO_LEFT)},
+		{"DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC)},
+		{"DIRECTIONALITY_EUROPEAN_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_EUROPEAN_NUMBER)},
+		{"DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR)},
+		{"DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR)},
+		{"DIRECTIONALITY_ARABIC_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_ARABIC_NUMBER)},
+		{"DIRECTIONALITY_COMMON_NUMBER_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_COMMON_NUMBER_SEPARATOR)},
+		{"DIRECTIONALITY_NONSPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_NONSPACING_MARK)},
+		{"DIRECTIONALITY_BOUNDARY_NEUTRAL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_BOUNDARY_NEUTRAL)},
+		{"DIRECTIONALITY_PARAGRAPH_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_PARAGRAPH_SEPARATOR)},
+		{"DIRECTIONALITY_SEGMENT_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_SEGMENT_SEPARATOR)},
+		{"DIRECTIONALITY_WHITESPACE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_WHITESPACE)},
+		{"DIRECTIONALITY_OTHER_NEUTRALS", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_OTHER_NEUTRALS)},
+		{"DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING)},
+		{"DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE)},
+		{"DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING)},
+		{"DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE)},
+		{"DIRECTIONALITY_POP_DIRECTIONAL_FORMAT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_POP_DIRECTIONAL_FORMAT)},
+		{"DIRECTIONALITY_LEFT_TO_RIGHT_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_LEFT_TO_RIGHT_ISOLATE)},
+		{"DIRECTIONALITY_RIGHT_TO_LEFT_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_RIGHT_TO_LEFT_ISOLATE)},
+		{"DIRECTIONALITY_FIRST_STRONG_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_FIRST_STRONG_ISOLATE)},
+		{"DIRECTIONALITY_POP_DIRECTIONAL_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, DIRECTIONALITY_POP_DIRECTIONAL_ISOLATE)},
+		{"MIN_HIGH_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_HIGH_SURROGATE)},
+		{"MAX_HIGH_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_HIGH_SURROGATE)},
+		{"MIN_LOW_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_LOW_SURROGATE)},
+		{"MAX_LOW_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_LOW_SURROGATE)},
+		{"MIN_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_SURROGATE)},
+		{"MAX_SURROGATE", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_SURROGATE)},
+		{"MIN_SUPPLEMENTARY_CODE_POINT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_SUPPLEMENTARY_CODE_POINT)},
+		{"MIN_CODE_POINT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MIN_CODE_POINT)},
+		{"MAX_CODE_POINT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, MAX_CODE_POINT)},
+		{"value", "C", nullptr, $PRIVATE | $FINAL, $field(Character, value)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Character, serialVersionUID)},
+		{"SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, SIZE)},
+		{"BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Character, BYTES)},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute charValuemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$NamedAttribute isJavaLettermethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.1"},
+		{}
+	};
+	$CompoundAttribute isJavaLettermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", isJavaLettermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isJavaLetterOrDigitmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.1"},
+		{}
+	};
+	$CompoundAttribute isJavaLetterOrDigitmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", isJavaLetterOrDigitmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isSpacemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.1"},
+		{}
+	};
+	$CompoundAttribute isSpacemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", isSpacemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute reverseBytesmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute valueOfmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(C)V", nullptr, $PUBLIC | $DEPRECATED, $method(Character, init$, void, char16_t), nullptr, nullptr, init$methodAnnotations$$},
+		{"charCount", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, charCount, int32_t, int32_t)},
+		{"charValue", "()C", nullptr, $PUBLIC, $method(Character, charValue, char16_t), nullptr, nullptr, charValuemethodAnnotations$$},
+		{"codePointAt", "(Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointAt, int32_t, $CharSequence*, int32_t)},
+		{"codePointAt", "([CI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointAt, int32_t, $chars*, int32_t)},
+		{"codePointAt", "([CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointAt, int32_t, $chars*, int32_t, int32_t)},
+		{"codePointAtImpl", "([CII)I", nullptr, $STATIC, $staticMethod(Character, codePointAtImpl, int32_t, $chars*, int32_t, int32_t)},
+		{"codePointBefore", "(Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointBefore, int32_t, $CharSequence*, int32_t)},
+		{"codePointBefore", "([CI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointBefore, int32_t, $chars*, int32_t)},
+		{"codePointBefore", "([CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointBefore, int32_t, $chars*, int32_t, int32_t)},
+		{"codePointBeforeImpl", "([CII)I", nullptr, $STATIC, $staticMethod(Character, codePointBeforeImpl, int32_t, $chars*, int32_t, int32_t)},
+		{"codePointCount", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointCount, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"codePointCount", "([CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointCount, int32_t, $chars*, int32_t, int32_t)},
+		{"codePointCountImpl", "([CII)I", nullptr, $STATIC, $staticMethod(Character, codePointCountImpl, int32_t, $chars*, int32_t, int32_t)},
+		{"codePointOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, codePointOf, int32_t, $String*)},
+		{"compare", "(CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, compare, int32_t, char16_t, char16_t)},
+		{"compareTo", "(Ljava/lang/Character;)I", nullptr, $PUBLIC, $method(Character, compareTo, int32_t, Character*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Character, compareTo, int32_t, Object$*)},
+		{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/constant/DynamicConstantDesc<Ljava/lang/Character;>;>;", $PUBLIC, $virtualMethod(Character, describeConstable, $Optional*)},
+		{"digit", "(CI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, digit, int32_t, char16_t, int32_t)},
+		{"digit", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, digit, int32_t, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Character, equals, bool, Object$*)},
+		{"forDigit", "(II)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, forDigit, char16_t, int32_t, int32_t)},
+		{"getDirectionality", "(C)B", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getDirectionality, int8_t, char16_t)},
+		{"getDirectionality", "(I)B", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getDirectionality, int8_t, int32_t)},
+		{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getName, $String*, int32_t)},
+		{"getNumericValue", "(C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getNumericValue, int32_t, char16_t)},
+		{"getNumericValue", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getNumericValue, int32_t, int32_t)},
+		{"getType", "(C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getType, int32_t, char16_t)},
+		{"getType", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, getType, int32_t, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Character, hashCode, int32_t)},
+		{"hashCode", "(C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, hashCode, int32_t, char16_t)},
+		{"highSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, highSurrogate, char16_t, int32_t)},
+		{"isAlphabetic", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isAlphabetic, bool, int32_t)},
+		{"isBmpCodePoint", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isBmpCodePoint, bool, int32_t)},
+		{"isDefined", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isDefined, bool, char16_t)},
+		{"isDefined", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isDefined, bool, int32_t)},
+		{"isDigit", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isDigit, bool, char16_t)},
+		{"isDigit", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isDigit, bool, int32_t)},
+		{"isHighSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isHighSurrogate, bool, char16_t)},
+		{"isISOControl", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isISOControl, bool, char16_t)},
+		{"isISOControl", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isISOControl, bool, int32_t)},
+		{"isIdentifierIgnorable", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isIdentifierIgnorable, bool, char16_t)},
+		{"isIdentifierIgnorable", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isIdentifierIgnorable, bool, int32_t)},
+		{"isIdeographic", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isIdeographic, bool, int32_t)},
+		{"isJavaIdentifierPart", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isJavaIdentifierPart, bool, char16_t)},
+		{"isJavaIdentifierPart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isJavaIdentifierPart, bool, int32_t)},
+		{"isJavaIdentifierStart", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isJavaIdentifierStart, bool, char16_t)},
+		{"isJavaIdentifierStart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isJavaIdentifierStart, bool, int32_t)},
+		{"isJavaLetter", "(C)Z", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Character, isJavaLetter, bool, char16_t), nullptr, nullptr, isJavaLettermethodAnnotations$$},
+		{"isJavaLetterOrDigit", "(C)Z", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Character, isJavaLetterOrDigit, bool, char16_t), nullptr, nullptr, isJavaLetterOrDigitmethodAnnotations$$},
+		{"isLetter", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLetter, bool, char16_t)},
+		{"isLetter", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLetter, bool, int32_t)},
+		{"isLetterOrDigit", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLetterOrDigit, bool, char16_t)},
+		{"isLetterOrDigit", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLetterOrDigit, bool, int32_t)},
+		{"isLowSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLowSurrogate, bool, char16_t)},
+		{"isLowerCase", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLowerCase, bool, char16_t)},
+		{"isLowerCase", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isLowerCase, bool, int32_t)},
+		{"isMirrored", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isMirrored, bool, char16_t)},
+		{"isMirrored", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isMirrored, bool, int32_t)},
+		{"isSpace", "(C)Z", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Character, isSpace, bool, char16_t), nullptr, nullptr, isSpacemethodAnnotations$$},
+		{"isSpaceChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isSpaceChar, bool, char16_t)},
+		{"isSpaceChar", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isSpaceChar, bool, int32_t)},
+		{"isSupplementaryCodePoint", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isSupplementaryCodePoint, bool, int32_t)},
+		{"isSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isSurrogate, bool, char16_t)},
+		{"isSurrogatePair", "(CC)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isSurrogatePair, bool, char16_t, char16_t)},
+		{"isTitleCase", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isTitleCase, bool, char16_t)},
+		{"isTitleCase", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isTitleCase, bool, int32_t)},
+		{"isUnicodeIdentifierPart", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUnicodeIdentifierPart, bool, char16_t)},
+		{"isUnicodeIdentifierPart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUnicodeIdentifierPart, bool, int32_t)},
+		{"isUnicodeIdentifierStart", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUnicodeIdentifierStart, bool, char16_t)},
+		{"isUnicodeIdentifierStart", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUnicodeIdentifierStart, bool, int32_t)},
+		{"isUpperCase", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUpperCase, bool, char16_t)},
+		{"isUpperCase", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isUpperCase, bool, int32_t)},
+		{"isValidCodePoint", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isValidCodePoint, bool, int32_t)},
+		{"isWhitespace", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isWhitespace, bool, char16_t)},
+		{"isWhitespace", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, isWhitespace, bool, int32_t)},
+		{"lowSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, lowSurrogate, char16_t, int32_t)},
+		{"offsetByCodePoints", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, offsetByCodePoints, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"offsetByCodePoints", "([CIIII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, offsetByCodePoints, int32_t, $chars*, int32_t, int32_t, int32_t, int32_t)},
+		{"offsetByCodePointsImpl", "([CIIII)I", nullptr, $STATIC, $staticMethod(Character, offsetByCodePointsImpl, int32_t, $chars*, int32_t, int32_t, int32_t, int32_t)},
+		{"reverseBytes", "(C)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, reverseBytes, char16_t, char16_t), nullptr, nullptr, reverseBytesmethodAnnotations$$},
+		{"toChars", "(I[CI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toChars, int32_t, int32_t, $chars*, int32_t)},
+		{"toChars", "(I)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toChars, $chars*, int32_t)},
+		{"toCodePoint", "(CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toCodePoint, int32_t, char16_t, char16_t)},
+		{"toLowerCase", "(C)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toLowerCase, char16_t, char16_t)},
+		{"toLowerCase", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toLowerCase, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Character, toString, $String*)},
+		{"toString", "(C)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toString, $String*, char16_t)},
+		{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toString, $String*, int32_t)},
+		{"toSurrogates", "(I[CI)V", nullptr, $STATIC, $staticMethod(Character, toSurrogates, void, int32_t, $chars*, int32_t)},
+		{"toTitleCase", "(C)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toTitleCase, char16_t, char16_t)},
+		{"toTitleCase", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toTitleCase, int32_t, int32_t)},
+		{"toUpperCase", "(C)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toUpperCase, char16_t, char16_t)},
+		{"toUpperCase", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, toUpperCase, int32_t, int32_t)},
+		{"toUpperCaseCharArray", "(I)[C", nullptr, $STATIC, $staticMethod(Character, toUpperCaseCharArray, $chars*, int32_t)},
+		{"toUpperCaseEx", "(I)I", nullptr, $STATIC, $staticMethod(Character, toUpperCaseEx, int32_t, int32_t)},
+		{"valueOf", "(C)Ljava/lang/Character;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character, valueOf, Character*, char16_t), nullptr, nullptr, valueOfmethodAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Character$CharacterCache", "java.lang.Character", "CharacterCache", $PRIVATE | $STATIC},
+		{"java.lang.Character$UnicodeScript", "java.lang.Character", "UnicodeScript", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.lang.Character$UnicodeBlock", "java.lang.Character", "UnicodeBlock", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.Character$Subset", "java.lang.Character", "Subset", $PUBLIC | $STATIC},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.Character",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Comparable,java.lang.constant.Constable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/lang/Character;>;Ljava/lang/constant/Constable;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.lang.Character$CharacterCache,java.lang.Character$UnicodeScript,java.lang.Character$UnicodeBlock,java.lang.Character$Subset"
+	};
+	$loadClass(Character, name, initialize, &classInfo$$, Character::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Character));
+	});
 	return class$;
 }
 

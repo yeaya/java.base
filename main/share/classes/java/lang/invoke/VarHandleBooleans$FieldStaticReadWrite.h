@@ -42,6 +42,7 @@ public:
 	using ::java::lang::invoke::VarHandleBooleans$FieldStaticReadOnly::getAndBitwiseXor;
 	using ::java::lang::invoke::VarHandleBooleans$FieldStaticReadOnly::getAndBitwiseXorAcquire;
 	using ::java::lang::invoke::VarHandleBooleans$FieldStaticReadOnly::getAndBitwiseXorRelease;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* base, int64_t fieldOffset);
 	void init$(Object$* base, int64_t fieldOffset, bool exact);
 	static bool compareAndExchange(::java::lang::invoke::VarHandle* ob, bool expected, bool value);

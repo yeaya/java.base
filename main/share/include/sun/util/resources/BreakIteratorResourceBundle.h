@@ -28,6 +28,7 @@ class $import BreakIteratorResourceBundle : public ::java::util::ResourceBundle 
 	$class(BreakIteratorResourceBundle, 0, ::java::util::ResourceBundle)
 public:
 	BreakIteratorResourceBundle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::ResourceBundle* getBreakIteratorInfo() {return nullptr;}
 	virtual ::java::util::Enumeration* getKeys() override;

@@ -1,5 +1,4 @@
 #include <java/lang/LiveStackFrameInfo.h>
-
 #include <java/lang/LiveStackFrame$PrimitiveSlot.h>
 #include <java/lang/LiveStackFrameInfo$PrimitiveSlot32.h>
 #include <java/lang/LiveStackFrameInfo$PrimitiveSlot64.h>
@@ -27,67 +26,6 @@ using $MethodType = ::java::lang::invoke::MethodType;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _LiveStackFrameInfo_FieldInfo_[] = {
-	{"EMPTY_ARRAY", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(LiveStackFrameInfo, EMPTY_ARRAY)},
-	{"MODE_INTERPRETED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LiveStackFrameInfo, MODE_INTERPRETED)},
-	{"MODE_COMPILED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LiveStackFrameInfo, MODE_COMPILED)},
-	{"monitors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(LiveStackFrameInfo, monitors)},
-	{"locals", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(LiveStackFrameInfo, locals)},
-	{"operands", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(LiveStackFrameInfo, operands)},
-	{"mode", "I", nullptr, $PRIVATE, $field(LiveStackFrameInfo, mode)},
-	{}
-};
-
-$MethodInfo _LiveStackFrameInfo_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getByteCodeIndex", "()I", nullptr, $PUBLIC},
-	{"*getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getDeclaringClass", "()Ljava/lang/Class;", nullptr, $PUBLIC},
-	{"*getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getLineNumber", "()I", nullptr, $PUBLIC},
-	{"*getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/StackWalker;)V", nullptr, 0, $method(LiveStackFrameInfo, init$, void, $StackWalker*)},
-	{"asPrimitive", "(I)Ljava/lang/LiveStackFrame$PrimitiveSlot;", nullptr, $STATIC, $staticMethod(LiveStackFrameInfo, asPrimitive, $LiveStackFrame$PrimitiveSlot*, int32_t)},
-	{"asPrimitive", "(J)Ljava/lang/LiveStackFrame$PrimitiveSlot;", nullptr, $STATIC, $staticMethod(LiveStackFrameInfo, asPrimitive, $LiveStackFrame$PrimitiveSlot*, int64_t)},
-	{"getLocals", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, getLocals, $ObjectArray*)},
-	{"getMonitors", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, getMonitors, $ObjectArray*)},
-	{"getStack", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, getStack, $ObjectArray*)},
-	{"*isNativeMethod", "()Z", nullptr, $PUBLIC},
-	{"*toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _LiveStackFrameInfo_InnerClassesInfo_[] = {
-	{"java.lang.LiveStackFrameInfo$PrimitiveSlot64", "java.lang.LiveStackFrameInfo", "PrimitiveSlot64", $PRIVATE | $STATIC},
-	{"java.lang.LiveStackFrameInfo$PrimitiveSlot32", "java.lang.LiveStackFrameInfo", "PrimitiveSlot32", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LiveStackFrameInfo_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.LiveStackFrameInfo",
-	"java.lang.StackFrameInfo",
-	"java.lang.LiveStackFrame",
-	_LiveStackFrameInfo_FieldInfo_,
-	_LiveStackFrameInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LiveStackFrameInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.LiveStackFrameInfo$PrimitiveSlot64,java.lang.LiveStackFrameInfo$PrimitiveSlot32"
-};
-
-$Object* allocate$LiveStackFrameInfo($Class* clazz) {
-	return $of($alloc(LiveStackFrameInfo));
-}
 
 $String* LiveStackFrameInfo::getClassName() {
 	 return this->$StackFrameInfo::getClassName();
@@ -168,14 +106,14 @@ $ObjectArray* LiveStackFrameInfo::getStack() {
 }
 
 $String* LiveStackFrameInfo::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, retVal, $new($StringBuilder, $($StackFrameInfo::toString())));
 	if (this->mode != 0) {
 		retVal->append("("_s);
-		if (((int32_t)(this->mode & (uint32_t)LiveStackFrameInfo::MODE_INTERPRETED)) == LiveStackFrameInfo::MODE_INTERPRETED) {
+		if ((this->mode & LiveStackFrameInfo::MODE_INTERPRETED) == LiveStackFrameInfo::MODE_INTERPRETED) {
 			retVal->append(" interpreted "_s);
 		}
-		if (((int32_t)(this->mode & (uint32_t)LiveStackFrameInfo::MODE_COMPILED)) == LiveStackFrameInfo::MODE_COMPILED) {
+		if ((this->mode & LiveStackFrameInfo::MODE_COMPILED) == LiveStackFrameInfo::MODE_COMPILED) {
 			retVal->append(" compiled "_s);
 		}
 		retVal->append(")"_s);
@@ -193,7 +131,7 @@ $LiveStackFrame$PrimitiveSlot* LiveStackFrameInfo::asPrimitive(int64_t value) {
 	return $new($LiveStackFrameInfo$PrimitiveSlot64, value);
 }
 
-void clinit$LiveStackFrameInfo($Class* class$) {
+void LiveStackFrameInfo::clinit$($Class* clazz) {
 	$assignStatic(LiveStackFrameInfo::EMPTY_ARRAY, $new($ObjectArray, 0));
 }
 
@@ -201,7 +139,62 @@ LiveStackFrameInfo::LiveStackFrameInfo() {
 }
 
 $Class* LiveStackFrameInfo::load$($String* name, bool initialize) {
-	$loadClass(LiveStackFrameInfo, name, initialize, &_LiveStackFrameInfo_ClassInfo_, clinit$LiveStackFrameInfo, allocate$LiveStackFrameInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_ARRAY", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(LiveStackFrameInfo, EMPTY_ARRAY)},
+		{"MODE_INTERPRETED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LiveStackFrameInfo, MODE_INTERPRETED)},
+		{"MODE_COMPILED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LiveStackFrameInfo, MODE_COMPILED)},
+		{"monitors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(LiveStackFrameInfo, monitors)},
+		{"locals", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(LiveStackFrameInfo, locals)},
+		{"operands", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(LiveStackFrameInfo, operands)},
+		{"mode", "I", nullptr, $PRIVATE, $field(LiveStackFrameInfo, mode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getByteCodeIndex", "()I", nullptr, $PUBLIC},
+		{"*getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getDeclaringClass", "()Ljava/lang/Class;", nullptr, $PUBLIC},
+		{"*getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getLineNumber", "()I", nullptr, $PUBLIC},
+		{"*getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/StackWalker;)V", nullptr, 0, $method(LiveStackFrameInfo, init$, void, $StackWalker*)},
+		{"asPrimitive", "(I)Ljava/lang/LiveStackFrame$PrimitiveSlot;", nullptr, $STATIC, $staticMethod(LiveStackFrameInfo, asPrimitive, $LiveStackFrame$PrimitiveSlot*, int32_t)},
+		{"asPrimitive", "(J)Ljava/lang/LiveStackFrame$PrimitiveSlot;", nullptr, $STATIC, $staticMethod(LiveStackFrameInfo, asPrimitive, $LiveStackFrame$PrimitiveSlot*, int64_t)},
+		{"getLocals", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, getLocals, $ObjectArray*)},
+		{"getMonitors", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, getMonitors, $ObjectArray*)},
+		{"getStack", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, getStack, $ObjectArray*)},
+		{"*isNativeMethod", "()Z", nullptr, $PUBLIC},
+		{"*toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.LiveStackFrameInfo$PrimitiveSlot64", "java.lang.LiveStackFrameInfo", "PrimitiveSlot64", $PRIVATE | $STATIC},
+		{"java.lang.LiveStackFrameInfo$PrimitiveSlot32", "java.lang.LiveStackFrameInfo", "PrimitiveSlot32", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.LiveStackFrameInfo",
+		"java.lang.StackFrameInfo",
+		"java.lang.LiveStackFrame",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.LiveStackFrameInfo$PrimitiveSlot64,java.lang.LiveStackFrameInfo$PrimitiveSlot32"
+	};
+	$loadClass(LiveStackFrameInfo, name, initialize, &classInfo$$, LiveStackFrameInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LiveStackFrameInfo));
+	});
 	return class$;
 }
 

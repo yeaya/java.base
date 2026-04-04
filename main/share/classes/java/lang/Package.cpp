@@ -1,5 +1,4 @@
 #include <java/lang/Package.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Math.h>
@@ -56,7 +55,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Objects = ::java::util::Objects;
 using $IntFunction = ::java::util::function::IntFunction;
-using $Stream = ::java::util::stream::Stream;
 using $BootLoader = ::jdk::internal::loader::BootLoader;
 using $Reflection = ::jdk::internal::reflect::Reflection;
 
@@ -69,29 +67,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(Package::lambda$getPackages$0(x$0));
+		 return Package::lambda$getPackages$0(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Package$$Lambda$lambda$getPackages$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Package$$Lambda$lambda$getPackages$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Package$$Lambda$lambda$getPackages$0, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Package$$Lambda$lambda$getPackages$0, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo Package$$Lambda$lambda$getPackages$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.Package$$Lambda$lambda$getPackages$0",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Package$$Lambda$lambda$getPackages$0::load$($String* name, bool initialize) {
-	$loadClass(Package$$Lambda$lambda$getPackages$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Package$$Lambda$lambda$getPackages$0, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Package$$Lambda$lambda$getPackages$0, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.Package$$Lambda$lambda$getPackages$0",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Package$$Lambda$lambda$getPackages$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Package$$Lambda$lambda$getPackages$0);
+	});
 	return class$;
 }
 $Class* Package$$Lambda$lambda$getPackages$0::class$ = nullptr;
@@ -103,117 +98,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->getClassLoader());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Package$$Lambda$getClassLoader$1>());
+		 return $nc(inst$)->getClassLoader();
 	}
 	$Module* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Package$$Lambda$getClassLoader$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Package$$Lambda$getClassLoader$1, inst$)},
-	{}
-};
-$MethodInfo Package$$Lambda$getClassLoader$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Package$$Lambda$getClassLoader$1, init$, void, $Module*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Package$$Lambda$getClassLoader$1, run, $Object*)},
-	{}
-};
-$ClassInfo Package$$Lambda$getClassLoader$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.Package$$Lambda$getClassLoader$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Package$$Lambda$getClassLoader$1::load$($String* name, bool initialize) {
-	$loadClass(Package$$Lambda$getClassLoader$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Package$$Lambda$getClassLoader$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Package$$Lambda$getClassLoader$1, init$, void, $Module*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Package$$Lambda$getClassLoader$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.Package$$Lambda$getClassLoader$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Package$$Lambda$getClassLoader$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Package$$Lambda$getClassLoader$1);
+	});
 	return class$;
 }
 $Class* Package$$Lambda$getClassLoader$1::class$ = nullptr;
-
-$NamedAttribute Package_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _Package_MethodAnnotations_getPackage12[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljava/lang/Deprecated;", Package_Attribute_var$0},
-	{}
-};
-
-$CompoundAttribute _Package_MethodAnnotations_getPackages14[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$FieldInfo _Package_FieldInfo_[] = {
-	{"versionInfo", "Ljava/lang/Package$VersionInfo;", nullptr, $PRIVATE | $FINAL, $field(Package, versionInfo)},
-	{"packageInfo", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Package, packageInfo)},
-	{}
-};
-
-$MethodInfo _Package_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(Package, init$, void, $String*, $String*, $String*, $String*, $String*, $String*, $String*, $URL*, $ClassLoader*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, 0, $method(Package, init$, void, $String*, $Module*)},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(Package, getAnnotation, $Annotation*, $Class*)},
-	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Package, getAnnotations, $AnnotationArray*)},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(Package, getAnnotationsByType, $AnnotationArray*, $Class*)},
-	{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(Package, getDeclaredAnnotation, $Annotation*, $Class*)},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Package, getDeclaredAnnotations, $AnnotationArray*)},
-	{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(Package, getDeclaredAnnotationsByType, $AnnotationArray*, $Class*)},
-	{"getImplementationTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getImplementationTitle, $String*)},
-	{"getImplementationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getImplementationVendor, $String*)},
-	{"getImplementationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getImplementationVersion, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getName, $String*)},
-	{"getPackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Package, getPackage, Package*, $String*), nullptr, nullptr, _Package_MethodAnnotations_getPackage12},
-	{"getPackageInfo", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(Package, getPackageInfo, $Class*)},
-	{"getPackages", "()[Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC, $staticMethod(Package, getPackages, $PackageArray*), nullptr, nullptr, _Package_MethodAnnotations_getPackages14},
-	{"getSpecificationTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getSpecificationTitle, $String*)},
-	{"getSpecificationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getSpecificationVendor, $String*)},
-	{"getSpecificationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getSpecificationVersion, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Package, hashCode, int32_t)},
-	{"isAnnotationPresent", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Z", $PUBLIC, $virtualMethod(Package, isAnnotationPresent, bool, $Class*)},
-	{"isCompatibleWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Package, isCompatibleWith, bool, $String*), "java.lang.NumberFormatException"},
-	{"isSealed", "()Z", nullptr, $PUBLIC, $virtualMethod(Package, isSealed, bool)},
-	{"isSealed", "(Ljava/net/URL;)Z", nullptr, $PUBLIC, $virtualMethod(Package, isSealed, bool, $URL*)},
-	{"lambda$getPackages$0", "(I)[Ljava/lang/Package;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Package, lambda$getPackages$0, $PackageArray*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Package_InnerClassesInfo_[] = {
-	{"java.lang.Package$VersionInfo", "java.lang.Package", "VersionInfo", $STATIC},
-	{"java.lang.Package$1PackageInfoProxy", nullptr, "PackageInfoProxy", 0},
-	{}
-};
-
-$ClassInfo _Package_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.Package",
-	"java.lang.NamedPackage",
-	"java.lang.reflect.AnnotatedElement",
-	_Package_FieldInfo_,
-	_Package_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Package_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.Package$VersionInfo,java.lang.Package$1PackageInfoProxy"
-};
-
-$Object* allocate$Package($Class* clazz) {
-	return $of($alloc(Package));
-}
 
 bool Package::equals(Object$* obj) {
 	 return this->$NamedPackage::equals(obj);
@@ -256,11 +168,11 @@ $String* Package::getImplementationVendor() {
 }
 
 bool Package::isSealed() {
-	return $nc($(module()))->isNamed() || $nc(this->versionInfo)->sealBase != nullptr;
+	return $$nc(module())->isNamed() || $nc(this->versionInfo)->sealBase != nullptr;
 }
 
 bool Package::isSealed($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(url);
 	$var($URL, sealBase, nullptr);
 	$init($Package$VersionInfo);
@@ -269,7 +181,7 @@ bool Package::isSealed($URL* url) {
 	} else {
 		try {
 			$var($URI, uri, location());
-			$assign(sealBase, uri != nullptr ? $nc(uri)->toURL() : ($URL*)nullptr);
+			$assign(sealBase, uri != nullptr ? uri->toURL() : ($URL*)nullptr);
 		} catch ($MalformedURLException& e) {
 		}
 	}
@@ -277,11 +189,11 @@ bool Package::isSealed($URL* url) {
 }
 
 bool Package::isCompatibleWith($String* desired) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(this->versionInfo)->specVersion == nullptr || $nc($nc(this->versionInfo)->specVersion)->length() < 1) {
+	$useLocalObjectStack();
+	if ($nc(this->versionInfo)->specVersion == nullptr || this->versionInfo->specVersion->length() < 1) {
 		$throwNew($NumberFormatException, "Empty version string"_s);
 	}
-	$var($StringArray, sa, $nc($nc(this->versionInfo)->specVersion)->split("\\."_s, -1));
+	$var($StringArray, sa, $nc(this->versionInfo->specVersion)->split("\\."_s, -1));
 	$var($ints, si, $new($ints, sa->length));
 	for (int32_t i = 0; i < sa->length; ++i) {
 		si->set(i, $Integer::parseInt(sa->get(i)));
@@ -314,24 +226,24 @@ bool Package::isCompatibleWith($String* desired) {
 Package* Package::getPackage($String* name) {
 	$init(Package);
 	$var($ClassLoader, l, $ClassLoader::getClassLoader($Reflection::getCallerClass()));
-	return l != nullptr ? $nc(l)->getPackage(name) : $BootLoader::getDefinedPackage(name);
+	return l != nullptr ? l->getPackage(name) : $BootLoader::getDefinedPackage(name);
 }
 
 $PackageArray* Package::getPackages() {
 	$init(Package);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassLoader, cl, $ClassLoader::getClassLoader($Reflection::getCallerClass()));
-	return cl != nullptr ? $nc(cl)->getPackages() : $fcast($PackageArray, $nc($($BootLoader::packages()))->toArray(static_cast<$IntFunction*>($$new(Package$$Lambda$lambda$getPackages$0))));
+	return cl != nullptr ? cl->getPackages() : $cast($PackageArray, $$nc($BootLoader::packages())->toArray($$new(Package$$Lambda$lambda$getPackages$0)));
 }
 
 int32_t Package::hashCode() {
-	return $nc($(packageName()))->hashCode();
+	return $$nc(packageName())->hashCode();
 }
 
 $String* Package::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, spec, $nc(this->versionInfo)->specTitle);
-	$var($String, ver, $nc(this->versionInfo)->specVersion);
+	$var($String, ver, this->versionInfo->specVersion);
 	if (spec != nullptr && !spec->isEmpty()) {
 		$assign(spec, $str({", "_s, spec}));
 	} else {
@@ -346,12 +258,12 @@ $String* Package::toString() {
 }
 
 $Class* Package::getPackageInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->packageInfo == nullptr) {
 		$var($String, cn, $str({$(packageName()), ".package-info"_s}));
 		$var($Module, module, this->module());
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(Package$$Lambda$getClassLoader$1, static_cast<$Module*>($nc(module)))));
+		$var($PrivilegedAction, pa, $new(Package$$Lambda$getClassLoader$1, $nc(module)));
 		$var($ClassLoader, loader, $cast($ClassLoader, $AccessController::doPrivileged(pa)));
 		$Class* c = nullptr;
 		if (loader != nullptr) {
@@ -400,9 +312,9 @@ $AnnotationArray* Package::getDeclaredAnnotations() {
 }
 
 void Package::init$($String* name, $String* spectitle, $String* specversion, $String* specvendor, $String* impltitle, $String* implversion, $String* implvendor, $URL* sealbase, $ClassLoader* loader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $cast($String, $Objects::requireNonNull(name)));
-	$NamedPackage::init$(var$0, loader != nullptr ? $($nc(loader)->getUnnamedModule()) : $($BootLoader::getUnnamedModule()));
+	$NamedPackage::init$(var$0, loader != nullptr ? $(loader->getUnnamedModule()) : $($BootLoader::getUnnamedModule()));
 	$set(this, versionInfo, $Package$VersionInfo::getInstance(spectitle, specversion, specvendor, impltitle, implversion, implvendor, sealbase));
 }
 
@@ -422,14 +334,84 @@ Package::Package() {
 
 $Class* Package::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Package$$Lambda$lambda$getPackages$0::classInfo$.name)) {
+		if (name->equals("java.lang.Package$$Lambda$lambda$getPackages$0")) {
 			return Package$$Lambda$lambda$getPackages$0::load$(name, initialize);
 		}
-		if (name->equals(Package$$Lambda$getClassLoader$1::classInfo$.name)) {
+		if (name->equals("java.lang.Package$$Lambda$getClassLoader$1")) {
 			return Package$$Lambda$getClassLoader$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Package, name, initialize, &_Package_ClassInfo_, allocate$Package);
+	$FieldInfo fieldInfos$$[] = {
+		{"versionInfo", "Ljava/lang/Package$VersionInfo;", nullptr, $PRIVATE | $FINAL, $field(Package, versionInfo)},
+		{"packageInfo", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Package, packageInfo)},
+		{}
+	};
+	$NamedAttribute getPackagemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute getPackagemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljava/lang/Deprecated;", getPackagemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getPackagesmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(Package, init$, void, $String*, $String*, $String*, $String*, $String*, $String*, $String*, $URL*, $ClassLoader*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, 0, $method(Package, init$, void, $String*, $Module*)},
+		{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(Package, getAnnotation, $Annotation*, $Class*)},
+		{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Package, getAnnotations, $AnnotationArray*)},
+		{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(Package, getAnnotationsByType, $AnnotationArray*, $Class*)},
+		{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(Package, getDeclaredAnnotation, $Annotation*, $Class*)},
+		{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Package, getDeclaredAnnotations, $AnnotationArray*)},
+		{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(Package, getDeclaredAnnotationsByType, $AnnotationArray*, $Class*)},
+		{"getImplementationTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getImplementationTitle, $String*)},
+		{"getImplementationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getImplementationVendor, $String*)},
+		{"getImplementationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getImplementationVersion, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getName, $String*)},
+		{"getPackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Package, getPackage, Package*, $String*), nullptr, nullptr, getPackagemethodAnnotations$$},
+		{"getPackageInfo", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(Package, getPackageInfo, $Class*)},
+		{"getPackages", "()[Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC, $staticMethod(Package, getPackages, $PackageArray*), nullptr, nullptr, getPackagesmethodAnnotations$$},
+		{"getSpecificationTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getSpecificationTitle, $String*)},
+		{"getSpecificationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getSpecificationVendor, $String*)},
+		{"getSpecificationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getSpecificationVersion, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Package, hashCode, int32_t)},
+		{"isAnnotationPresent", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Z", $PUBLIC, $virtualMethod(Package, isAnnotationPresent, bool, $Class*)},
+		{"isCompatibleWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Package, isCompatibleWith, bool, $String*), "java.lang.NumberFormatException"},
+		{"isSealed", "()Z", nullptr, $PUBLIC, $virtualMethod(Package, isSealed, bool)},
+		{"isSealed", "(Ljava/net/URL;)Z", nullptr, $PUBLIC, $virtualMethod(Package, isSealed, bool, $URL*)},
+		{"lambda$getPackages$0", "(I)[Ljava/lang/Package;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Package, lambda$getPackages$0, $PackageArray*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Package$VersionInfo", "java.lang.Package", "VersionInfo", $STATIC},
+		{"java.lang.Package$1PackageInfoProxy", nullptr, "PackageInfoProxy", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.Package",
+		"java.lang.NamedPackage",
+		"java.lang.reflect.AnnotatedElement",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.Package$VersionInfo,java.lang.Package$1PackageInfoProxy"
+	};
+	$loadClass(Package, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Package));
+	});
 	return class$;
 }
 

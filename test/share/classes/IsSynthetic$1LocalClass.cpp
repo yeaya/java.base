@@ -1,5 +1,4 @@
 #include <IsSynthetic$1LocalClass.h>
-
 #include <IsSynthetic.h>
 #include <jcpp.h>
 
@@ -8,42 +7,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _IsSynthetic$1LocalClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(IsSynthetic$1LocalClass, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _IsSynthetic$1LocalClass_EnclosingMethodInfo_ = {
-	"IsSynthetic",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _IsSynthetic$1LocalClass_InnerClassesInfo_[] = {
-	{"IsSynthetic$1LocalClass", nullptr, "LocalClass", 0},
-	{}
-};
-
-$ClassInfo _IsSynthetic$1LocalClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"IsSynthetic$1LocalClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IsSynthetic$1LocalClass_MethodInfo_,
-	nullptr,
-	&_IsSynthetic$1LocalClass_EnclosingMethodInfo_,
-	_IsSynthetic$1LocalClass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"IsSynthetic"
-};
-
-$Object* allocate$IsSynthetic$1LocalClass($Class* clazz) {
-	return $of($alloc(IsSynthetic$1LocalClass));
-}
-
 void IsSynthetic$1LocalClass::init$() {
 }
 
@@ -51,7 +14,37 @@ IsSynthetic$1LocalClass::IsSynthetic$1LocalClass() {
 }
 
 $Class* IsSynthetic$1LocalClass::load$($String* name, bool initialize) {
-	$loadClass(IsSynthetic$1LocalClass, name, initialize, &_IsSynthetic$1LocalClass_ClassInfo_, allocate$IsSynthetic$1LocalClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(IsSynthetic$1LocalClass, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"IsSynthetic",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"IsSynthetic$1LocalClass", nullptr, "LocalClass", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"IsSynthetic$1LocalClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"IsSynthetic"
+	};
+	$loadClass(IsSynthetic$1LocalClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IsSynthetic$1LocalClass);
+	});
 	return class$;
 }
 

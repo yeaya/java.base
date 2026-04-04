@@ -1,5 +1,4 @@
 #include <ForStaticInnerClass.h>
-
 #include <ForStaticInnerClass$Static.h>
 #include <java/lang/reflect/Modifier.h>
 #include <jcpp.h>
@@ -10,36 +9,6 @@ using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Modifier = ::java::lang::reflect::Modifier;
-
-$MethodInfo _ForStaticInnerClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ForStaticInnerClass, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ForStaticInnerClass, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ForStaticInnerClass_InnerClassesInfo_[] = {
-	{"ForStaticInnerClass$Static", "ForStaticInnerClass", "Static", $STATIC},
-	{}
-};
-
-$ClassInfo _ForStaticInnerClass_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ForStaticInnerClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ForStaticInnerClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ForStaticInnerClass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ForStaticInnerClass$Static"
-};
-
-$Object* allocate$ForStaticInnerClass($Class* clazz) {
-	return $of($alloc(ForStaticInnerClass));
-}
 
 void ForStaticInnerClass::init$() {
 }
@@ -55,7 +24,32 @@ ForStaticInnerClass::ForStaticInnerClass() {
 }
 
 $Class* ForStaticInnerClass::load$($String* name, bool initialize) {
-	$loadClass(ForStaticInnerClass, name, initialize, &_ForStaticInnerClass_ClassInfo_, allocate$ForStaticInnerClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ForStaticInnerClass, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ForStaticInnerClass, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ForStaticInnerClass$Static", "ForStaticInnerClass", "Static", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ForStaticInnerClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ForStaticInnerClass$Static"
+	};
+	$loadClass(ForStaticInnerClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForStaticInnerClass);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/parser/SignatureParser.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Error.h>
 #include <java/lang/reflect/GenericSignatureFormatError.h>
@@ -76,72 +75,6 @@ namespace sun {
 		namespace generics {
 			namespace parser {
 
-$FieldInfo _SignatureParser_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SignatureParser, $assertionsDisabled)},
-	{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SignatureParser, input)},
-	{"index", "I", nullptr, $PRIVATE, $field(SignatureParser, index)},
-	{"mark", "I", nullptr, $PRIVATE, $field(SignatureParser, mark$)},
-	{"EOI", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SignatureParser, EOI)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SignatureParser, DEBUG)},
-	{}
-};
-
-$MethodInfo _SignatureParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureParser, init$, void)},
-	{"advance", "()V", nullptr, $PRIVATE, $method(SignatureParser, advance, void)},
-	{"current", "()C", nullptr, $PRIVATE, $method(SignatureParser, current, char16_t)},
-	{"error", "(Ljava/lang/String;)Ljava/lang/Error;", nullptr, $PRIVATE, $method(SignatureParser, error, $Error*, $String*)},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SignatureParser, init, void, $String*)},
-	{"make", "()Lsun/reflect/generics/parser/SignatureParser;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureParser, make, SignatureParser*)},
-	{"mark", "()V", nullptr, $PRIVATE, $method(SignatureParser, mark, void)},
-	{"markToCurrent", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SignatureParser, markToCurrent, $String*)},
-	{"parseArrayTypeSignature", "()Lsun/reflect/generics/tree/ArrayTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseArrayTypeSignature, $ArrayTypeSignature*)},
-	{"parseBaseType", "()Lsun/reflect/generics/tree/BaseType;", nullptr, $PRIVATE, $method(SignatureParser, parseBaseType, $BaseType*)},
-	{"parseBounds", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseBounds, $FieldTypeSignatureArray*)},
-	{"parseClassSig", "(Ljava/lang/String;)Lsun/reflect/generics/tree/ClassSignature;", nullptr, $PUBLIC, $virtualMethod(SignatureParser, parseClassSig, $ClassSignature*, $String*)},
-	{"parseClassSignature", "()Lsun/reflect/generics/tree/ClassSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseClassSignature, $ClassSignature*)},
-	{"parseClassTypeSignature", "()Lsun/reflect/generics/tree/ClassTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseClassTypeSignature, $ClassTypeSignature*)},
-	{"parseClassTypeSignatureSuffix", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;)V", $PRIVATE, $method(SignatureParser, parseClassTypeSignatureSuffix, void, $List*)},
-	{"parseFieldTypeSignature", "()Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseFieldTypeSignature, $FieldTypeSignature*)},
-	{"parseFieldTypeSignature", "(Z)Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseFieldTypeSignature, $FieldTypeSignature*, bool)},
-	{"parseFormalParameters", "()[Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseFormalParameters, $TypeSignatureArray*)},
-	{"parseFormalTypeParameter", "()Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PRIVATE, $method(SignatureParser, parseFormalTypeParameter, $FormalTypeParameter*)},
-	{"parseFormalTypeParameters", "()[Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PRIVATE, $method(SignatureParser, parseFormalTypeParameters, $FormalTypeParameterArray*)},
-	{"parseIdentifier", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SignatureParser, parseIdentifier, $String*)},
-	{"parseMethodSig", "(Ljava/lang/String;)Lsun/reflect/generics/tree/MethodTypeSignature;", nullptr, $PUBLIC, $virtualMethod(SignatureParser, parseMethodSig, $MethodTypeSignature*, $String*)},
-	{"parseMethodTypeSignature", "()Lsun/reflect/generics/tree/MethodTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseMethodTypeSignature, $MethodTypeSignature*)},
-	{"parsePackageNameAndSimpleClassTypeSignature", "()Lsun/reflect/generics/tree/SimpleClassTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parsePackageNameAndSimpleClassTypeSignature, $SimpleClassTypeSignature*)},
-	{"parseReturnType", "()Lsun/reflect/generics/tree/ReturnType;", nullptr, $PRIVATE, $method(SignatureParser, parseReturnType, $ReturnType*)},
-	{"parseSimpleClassTypeSignature", "(Z)Lsun/reflect/generics/tree/SimpleClassTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseSimpleClassTypeSignature, $SimpleClassTypeSignature*, bool)},
-	{"parseSuperInterfaces", "()[Lsun/reflect/generics/tree/ClassTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseSuperInterfaces, $ClassTypeSignatureArray*)},
-	{"parseThrowsSignature", "()Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseThrowsSignature, $FieldTypeSignature*)},
-	{"parseTypeArgument", "()Lsun/reflect/generics/tree/TypeArgument;", nullptr, $PRIVATE, $method(SignatureParser, parseTypeArgument, $TypeArgument*)},
-	{"parseTypeArguments", "()[Lsun/reflect/generics/tree/TypeArgument;", nullptr, $PRIVATE, $method(SignatureParser, parseTypeArguments, $TypeArgumentArray*)},
-	{"parseTypeSig", "(Ljava/lang/String;)Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PUBLIC, $virtualMethod(SignatureParser, parseTypeSig, $TypeSignature*, $String*)},
-	{"parseTypeSignature", "()Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseTypeSignature, $TypeSignature*)},
-	{"parseTypeVariableSignature", "()Lsun/reflect/generics/tree/TypeVariableSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseTypeVariableSignature, $TypeVariableSignature*)},
-	{"parseZeroOrMoreFormalTypeParameters", "()[Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PRIVATE, $method(SignatureParser, parseZeroOrMoreFormalTypeParameters, $FormalTypeParameterArray*)},
-	{"parseZeroOrMoreThrowsSignatures", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseZeroOrMoreThrowsSignatures, $FieldTypeSignatureArray*)},
-	{"parseZeroOrMoreTypeSignatures", "()[Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseZeroOrMoreTypeSignatures, $TypeSignatureArray*)},
-	{"progress", "(I)V", nullptr, $PRIVATE, $method(SignatureParser, progress, void, int32_t)},
-	{"remainder", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SignatureParser, remainder, $String*)},
-	{"skipIdentifier", "()V", nullptr, $PRIVATE, $method(SignatureParser, skipIdentifier, void)},
-	{}
-};
-
-$ClassInfo _SignatureParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.parser.SignatureParser",
-	"java.lang.Object",
-	nullptr,
-	_SignatureParser_FieldInfo_,
-	_SignatureParser_MethodInfo_
-};
-
-$Object* allocate$SignatureParser($Class* clazz) {
-	return $of($alloc(SignatureParser));
-}
-
 bool SignatureParser::$assertionsDisabled = false;
 
 void SignatureParser::init$() {
@@ -156,7 +89,7 @@ char16_t SignatureParser::current() {
 	if (!SignatureParser::$assertionsDisabled && !(this->index <= $nc(this->input)->length())) {
 		$throwNew($AssertionError);
 	}
-	return this->index < $nc(this->input)->length() ? $nc(this->input)->charAt(this->index) : SignatureParser::EOI;
+	return this->index < $nc(this->input)->length() ? this->input->charAt(this->index) : SignatureParser::EOI;
 }
 
 void SignatureParser::advance() {
@@ -181,7 +114,7 @@ $String* SignatureParser::markToCurrent() {
 }
 
 $Error* SignatureParser::error($String* errorMsg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($GenericSignatureFormatError, $$str({"Signature Parse error: "_s, errorMsg, "\n\tRemaining input: "_s, $(remainder())}));
 }
 
@@ -197,22 +130,25 @@ SignatureParser* SignatureParser::make() {
 }
 
 $ClassSignature* SignatureParser::parseClassSig($String* s) {
+	;
 	init(s);
 	return parseClassSignature();
 }
 
 $MethodTypeSignature* SignatureParser::parseMethodSig($String* s) {
+	;
 	init(s);
 	return parseMethodTypeSignature();
 }
 
 $TypeSignature* SignatureParser::parseTypeSig($String* s) {
+	;
 	init(s);
 	return parseTypeSignature();
 }
 
 $ClassSignature* SignatureParser::parseClassSignature() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!SignatureParser::$assertionsDisabled && !(this->index == 0)) {
 		$throwNew($AssertionError);
 	}
@@ -230,7 +166,7 @@ $FormalTypeParameterArray* SignatureParser::parseZeroOrMoreFormalTypeParameters(
 }
 
 $FormalTypeParameterArray* SignatureParser::parseFormalTypeParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, ftps, $new($ArrayList, 3));
 	if (!SignatureParser::$assertionsDisabled && !(current() == u'<')) {
 		$throwNew($AssertionError);
@@ -246,11 +182,11 @@ $FormalTypeParameterArray* SignatureParser::parseFormalTypeParameters() {
 		progress(startingPosition);
 	}
 	advance();
-	return $fcast($FormalTypeParameterArray, ftps->toArray($$new($FormalTypeParameterArray, ftps->size())));
+	return $cast($FormalTypeParameterArray, ftps->toArray($$new($FormalTypeParameterArray, ftps->size())));
 }
 
 $FormalTypeParameter* SignatureParser::parseFormalTypeParameter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, id, parseIdentifier());
 	$var($FieldTypeSignatureArray, bs, parseBounds());
 	return $FormalTypeParameter::make(id, bs);
@@ -275,33 +211,25 @@ $FieldTypeSignature* SignatureParser::parseFieldTypeSignature() {
 }
 
 $FieldTypeSignature* SignatureParser::parseFieldTypeSignature(bool allowArrays) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (current()) {
 	case u'L':
-		{
-			return parseClassTypeSignature();
-		}
+		return parseClassTypeSignature();
 	case u'T':
-		{
-			return parseTypeVariableSignature();
-		}
+		return parseTypeVariableSignature();
 	case u'[':
-		{
-			if (allowArrays) {
-				return parseArrayTypeSignature();
-			} else {
-				$throw($(error("Array signature not allowed here."_s)));
-			}
+		if (allowArrays) {
+			return parseArrayTypeSignature();
+		} else {
+			$throw($(error("Array signature not allowed here."_s)));
 		}
 	default:
-		{
-			$throw($(error("Expected Field Type Signature"_s)));
-		}
+		$throw($(error("Expected Field Type Signature"_s)));
 	}
 }
 
 $ClassTypeSignature* SignatureParser::parseClassTypeSignature() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!SignatureParser::$assertionsDisabled && !(current() == u'L')) {
 		$throwNew($AssertionError);
 	}
@@ -320,54 +248,42 @@ $ClassTypeSignature* SignatureParser::parseClassTypeSignature() {
 }
 
 $SimpleClassTypeSignature* SignatureParser::parsePackageNameAndSimpleClassTypeSignature() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	mark();
 	skipIdentifier();
 	while (current() == u'/') {
 		advance();
 		skipIdentifier();
 	}
-	$var($String, id, $nc($(markToCurrent()))->replace(u'/', u'.'));
+	$var($String, id, $$nc(markToCurrent())->replace(u'/', u'.'));
 	switch (current()) {
 	case u';':
-		{
-			return $SimpleClassTypeSignature::make(id, false, $$new($TypeArgumentArray, 0));
-		}
+		return $SimpleClassTypeSignature::make(id, false, $$new($TypeArgumentArray, 0));
 	case u'<':
-		{
-			return $SimpleClassTypeSignature::make(id, false, $(parseTypeArguments()));
-		}
+		;
+		return $SimpleClassTypeSignature::make(id, false, $(parseTypeArguments()));
 	default:
-		{
-			$throw($(error($$str({"expected \'<\' or \';\' but got "_s, $$str(current())}))));
-		}
+		$throw($(error($$str({"expected \'<\' or \';\' but got "_s, $$str(current())}))));
 	}
 }
 
 $SimpleClassTypeSignature* SignatureParser::parseSimpleClassTypeSignature(bool dollar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, id, parseIdentifier());
 	char16_t c = current();
 	switch (c) {
 	case u';':
-		{}
 	case u'.':
-		{
-			return $SimpleClassTypeSignature::make(id, dollar, $$new($TypeArgumentArray, 0));
-		}
+		return $SimpleClassTypeSignature::make(id, dollar, $$new($TypeArgumentArray, 0));
 	case u'<':
-		{
-			return $SimpleClassTypeSignature::make(id, dollar, $(parseTypeArguments()));
-		}
+		return $SimpleClassTypeSignature::make(id, dollar, $(parseTypeArguments()));
 	default:
-		{
-			$throw($(error($$str({"expected \'<\' or \';\' or \'.\', got \'"_s, $$str(c), "\'."_s}))));
-		}
+		$throw($(error($$str({"expected \'<\' or \';\' or \'.\', got \'"_s, $$str(c), "\'."_s}))));
 	}
 }
 
 void SignatureParser::parseClassTypeSignatureSuffix($List* scts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (current() == u'.') {
 		advance();
 		$nc(scts)->add($(parseSimpleClassTypeSignature(true)));
@@ -375,7 +291,7 @@ void SignatureParser::parseClassTypeSignatureSuffix($List* scts) {
 }
 
 $TypeArgumentArray* SignatureParser::parseTypeArguments() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, tas, $new($ArrayList, 3));
 	if (!SignatureParser::$assertionsDisabled && !(current() == u'<')) {
 		$throwNew($AssertionError);
@@ -389,11 +305,11 @@ $TypeArgumentArray* SignatureParser::parseTypeArguments() {
 		tas->add($(parseTypeArgument()));
 	}
 	advance();
-	return $fcast($TypeArgumentArray, tas->toArray($$new($TypeArgumentArray, tas->size())));
+	return $cast($TypeArgumentArray, tas->toArray($$new($TypeArgumentArray, tas->size())));
 }
 
 $TypeArgument* SignatureParser::parseTypeArgument() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FieldTypeSignatureArray, ub, nullptr);
 	$var($FieldTypeSignatureArray, lb, nullptr);
 	$assign(ub, $new($FieldTypeSignatureArray, 1));
@@ -403,40 +319,32 @@ $TypeArgument* SignatureParser::parseTypeArgument() {
 	switch (c) {
 	case u'+':
 		{
-			{
-				advance();
-				ub->set(0, $(parseFieldTypeSignature()));
-				lb->set(0, $($BottomSignature::make()));
-				return $Wildcard::make(ub, lb);
-			}
+			advance();
+			ub->set(0, $(parseFieldTypeSignature()));
+			lb->set(0, $($BottomSignature::make()));
+			return $Wildcard::make(ub, lb);
 		}
 	case u'*':
 		{
-			{
-				advance();
-				ub->set(0, $($SimpleClassTypeSignature::make("java.lang.Object"_s, false, ta)));
-				lb->set(0, $($BottomSignature::make()));
-				return $Wildcard::make(ub, lb);
-			}
+			advance();
+			ub->set(0, $($SimpleClassTypeSignature::make("java.lang.Object"_s, false, ta)));
+			lb->set(0, $($BottomSignature::make()));
+			return $Wildcard::make(ub, lb);
 		}
 	case u'-':
 		{
-			{
-				advance();
-				lb->set(0, $(parseFieldTypeSignature()));
-				ub->set(0, $($SimpleClassTypeSignature::make("java.lang.Object"_s, false, ta)));
-				return $Wildcard::make(ub, lb);
-			}
+			advance();
+			lb->set(0, $(parseFieldTypeSignature()));
+			ub->set(0, $($SimpleClassTypeSignature::make("java.lang.Object"_s, false, ta)));
+			return $Wildcard::make(ub, lb);
 		}
 	default:
-		{
-			return parseFieldTypeSignature();
-		}
+		return parseFieldTypeSignature();
 	}
 }
 
 $TypeVariableSignature* SignatureParser::parseTypeVariableSignature() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!SignatureParser::$assertionsDisabled && !(current() == u'T')) {
 		$throwNew($AssertionError);
 	}
@@ -453,7 +361,7 @@ $TypeVariableSignature* SignatureParser::parseTypeVariableSignature() {
 }
 
 $ArrayTypeSignature* SignatureParser::parseArrayTypeSignature() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (current() != u'[') {
 		$throw($(error("expected array type signature"_s)));
 	}
@@ -464,98 +372,65 @@ $ArrayTypeSignature* SignatureParser::parseArrayTypeSignature() {
 $TypeSignature* SignatureParser::parseTypeSignature() {
 	switch (current()) {
 	case u'B':
-		{}
 	case u'C':
-		{}
 	case u'D':
-		{}
 	case u'F':
-		{}
 	case u'I':
-		{}
 	case u'J':
-		{}
 	case u'S':
-		{}
 	case u'Z':
-		{
-			return parseBaseType();
-		}
+		return parseBaseType();
 	default:
-		{
-			return parseFieldTypeSignature();
-		}
+		return parseFieldTypeSignature();
 	}
 }
 
 $BaseType* SignatureParser::parseBaseType() {
 	switch (current()) {
 	case u'B':
-		{
-			advance();
-			return $ByteSignature::make();
-		}
+		advance();
+		return $ByteSignature::make();
 	case u'C':
-		{
-			advance();
-			return $CharSignature::make();
-		}
+		advance();
+		return $CharSignature::make();
 	case u'D':
-		{
-			advance();
-			return $DoubleSignature::make();
-		}
+		advance();
+		return $DoubleSignature::make();
 	case u'F':
-		{
-			advance();
-			return $FloatSignature::make();
-		}
+		advance();
+		return $FloatSignature::make();
 	case u'I':
-		{
-			advance();
-			return $IntSignature::make();
-		}
+		advance();
+		return $IntSignature::make();
 	case u'J':
-		{
-			advance();
-			return $LongSignature::make();
-		}
+		advance();
+		return $LongSignature::make();
 	case u'S':
-		{
-			advance();
-			return $ShortSignature::make();
-		}
+		advance();
+		return $ShortSignature::make();
 	case u'Z':
-		{
-			advance();
-			return $BooleanSignature::make();
-		}
+		advance();
+		return $BooleanSignature::make();
 	default:
 		{
-			{
-				if (!SignatureParser::$assertionsDisabled) {
-					$throwNew($AssertionError);
-				}
-				$throw($(error("expected primitive type"_s)));
+			if (!SignatureParser::$assertionsDisabled) {
+				$throwNew($AssertionError);
 			}
+			$throw($(error("expected primitive type"_s)));
 		}
 	}
 }
 
 $FieldTypeSignatureArray* SignatureParser::parseBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, fts, $new($ArrayList, 3));
 	if (current() == u':') {
 		advance();
 		switch (current()) {
 		case u':':
-			{
-				break;
-			}
+			break;
 		default:
-			{
-				fts->add($(parseFieldTypeSignature()));
-			}
+			fts->add($(parseFieldTypeSignature()));
 		}
 		while (current() == u':') {
 			advance();
@@ -564,20 +439,20 @@ $FieldTypeSignatureArray* SignatureParser::parseBounds() {
 	} else {
 		error("Bound expected"_s);
 	}
-	return $fcast($FieldTypeSignatureArray, fts->toArray($$new($FieldTypeSignatureArray, fts->size())));
+	return $cast($FieldTypeSignatureArray, fts->toArray($$new($FieldTypeSignatureArray, fts->size())));
 }
 
 $ClassTypeSignatureArray* SignatureParser::parseSuperInterfaces() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, cts, $new($ArrayList, 5));
 	while (current() == u'L') {
 		cts->add($(parseClassTypeSignature()));
 	}
-	return $fcast($ClassTypeSignatureArray, cts->toArray($$new($ClassTypeSignatureArray, cts->size())));
+	return $cast($ClassTypeSignatureArray, cts->toArray($$new($ClassTypeSignatureArray, cts->size())));
 }
 
 $MethodTypeSignature* SignatureParser::parseMethodTypeSignature() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FieldTypeSignatureArray, ets, nullptr);
 	if (!SignatureParser::$assertionsDisabled && !(this->index == 0)) {
 		$throwNew($AssertionError);
@@ -589,7 +464,7 @@ $MethodTypeSignature* SignatureParser::parseMethodTypeSignature() {
 }
 
 $TypeSignatureArray* SignatureParser::parseFormalParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (current() != u'(') {
 		$throw($(error("expected \'(\'"_s)));
 	}
@@ -603,45 +478,31 @@ $TypeSignatureArray* SignatureParser::parseFormalParameters() {
 }
 
 $TypeSignatureArray* SignatureParser::parseZeroOrMoreTypeSignatures() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, ts, $new($ArrayList));
 	bool stop = false;
 	while (!stop) {
 		switch (current()) {
 		case u'B':
-			{}
 		case u'C':
-			{}
 		case u'D':
-			{}
 		case u'F':
-			{}
 		case u'I':
-			{}
 		case u'J':
-			{}
 		case u'S':
-			{}
 		case u'Z':
-			{}
 		case u'L':
-			{}
 		case u'T':
-			{}
 		case u'[':
 			{
-				{
-					ts->add($(parseTypeSignature()));
-					break;
-				}
+				ts->add($(parseTypeSignature()));
+				break;
 			}
 		default:
-			{
-				stop = true;
-			}
+			stop = true;
 		}
 	}
-	return $fcast($TypeSignatureArray, ts->toArray($$new($TypeSignatureArray, ts->size())));
+	return $cast($TypeSignatureArray, ts->toArray($$new($TypeSignatureArray, ts->size())));
 }
 
 $ReturnType* SignatureParser::parseReturnType() {
@@ -654,12 +515,12 @@ $ReturnType* SignatureParser::parseReturnType() {
 }
 
 $FieldTypeSignatureArray* SignatureParser::parseZeroOrMoreThrowsSignatures() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, ets, $new($ArrayList, 3));
 	while (current() == u'^') {
 		ets->add($(parseThrowsSignature()));
 	}
-	return $fcast($FieldTypeSignatureArray, ets->toArray($$new($FieldTypeSignatureArray, ets->size())));
+	return $cast($FieldTypeSignatureArray, ets->toArray($$new($FieldTypeSignatureArray, ets->size())));
 }
 
 $FieldTypeSignature* SignatureParser::parseThrowsSignature() {
@@ -673,7 +534,7 @@ $FieldTypeSignature* SignatureParser::parseThrowsSignature() {
 	return parseFieldTypeSignature(false);
 }
 
-void clinit$SignatureParser($Class* class$) {
+void SignatureParser::clinit$($Class* clazz) {
 	SignatureParser::$assertionsDisabled = !SignatureParser::class$->desiredAssertionStatus();
 }
 
@@ -681,7 +542,68 @@ SignatureParser::SignatureParser() {
 }
 
 $Class* SignatureParser::load$($String* name, bool initialize) {
-	$loadClass(SignatureParser, name, initialize, &_SignatureParser_ClassInfo_, clinit$SignatureParser, allocate$SignatureParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SignatureParser, $assertionsDisabled)},
+		{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SignatureParser, input)},
+		{"index", "I", nullptr, $PRIVATE, $field(SignatureParser, index)},
+		{"mark", "I", nullptr, $PRIVATE, $field(SignatureParser, mark$)},
+		{"EOI", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SignatureParser, EOI)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SignatureParser, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureParser, init$, void)},
+		{"advance", "()V", nullptr, $PRIVATE, $method(SignatureParser, advance, void)},
+		{"current", "()C", nullptr, $PRIVATE, $method(SignatureParser, current, char16_t)},
+		{"error", "(Ljava/lang/String;)Ljava/lang/Error;", nullptr, $PRIVATE, $method(SignatureParser, error, $Error*, $String*)},
+		{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SignatureParser, init, void, $String*)},
+		{"make", "()Lsun/reflect/generics/parser/SignatureParser;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureParser, make, SignatureParser*)},
+		{"mark", "()V", nullptr, $PRIVATE, $method(SignatureParser, mark, void)},
+		{"markToCurrent", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SignatureParser, markToCurrent, $String*)},
+		{"parseArrayTypeSignature", "()Lsun/reflect/generics/tree/ArrayTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseArrayTypeSignature, $ArrayTypeSignature*)},
+		{"parseBaseType", "()Lsun/reflect/generics/tree/BaseType;", nullptr, $PRIVATE, $method(SignatureParser, parseBaseType, $BaseType*)},
+		{"parseBounds", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseBounds, $FieldTypeSignatureArray*)},
+		{"parseClassSig", "(Ljava/lang/String;)Lsun/reflect/generics/tree/ClassSignature;", nullptr, $PUBLIC, $virtualMethod(SignatureParser, parseClassSig, $ClassSignature*, $String*)},
+		{"parseClassSignature", "()Lsun/reflect/generics/tree/ClassSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseClassSignature, $ClassSignature*)},
+		{"parseClassTypeSignature", "()Lsun/reflect/generics/tree/ClassTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseClassTypeSignature, $ClassTypeSignature*)},
+		{"parseClassTypeSignatureSuffix", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;)V", $PRIVATE, $method(SignatureParser, parseClassTypeSignatureSuffix, void, $List*)},
+		{"parseFieldTypeSignature", "()Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseFieldTypeSignature, $FieldTypeSignature*)},
+		{"parseFieldTypeSignature", "(Z)Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseFieldTypeSignature, $FieldTypeSignature*, bool)},
+		{"parseFormalParameters", "()[Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseFormalParameters, $TypeSignatureArray*)},
+		{"parseFormalTypeParameter", "()Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PRIVATE, $method(SignatureParser, parseFormalTypeParameter, $FormalTypeParameter*)},
+		{"parseFormalTypeParameters", "()[Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PRIVATE, $method(SignatureParser, parseFormalTypeParameters, $FormalTypeParameterArray*)},
+		{"parseIdentifier", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SignatureParser, parseIdentifier, $String*)},
+		{"parseMethodSig", "(Ljava/lang/String;)Lsun/reflect/generics/tree/MethodTypeSignature;", nullptr, $PUBLIC, $virtualMethod(SignatureParser, parseMethodSig, $MethodTypeSignature*, $String*)},
+		{"parseMethodTypeSignature", "()Lsun/reflect/generics/tree/MethodTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseMethodTypeSignature, $MethodTypeSignature*)},
+		{"parsePackageNameAndSimpleClassTypeSignature", "()Lsun/reflect/generics/tree/SimpleClassTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parsePackageNameAndSimpleClassTypeSignature, $SimpleClassTypeSignature*)},
+		{"parseReturnType", "()Lsun/reflect/generics/tree/ReturnType;", nullptr, $PRIVATE, $method(SignatureParser, parseReturnType, $ReturnType*)},
+		{"parseSimpleClassTypeSignature", "(Z)Lsun/reflect/generics/tree/SimpleClassTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseSimpleClassTypeSignature, $SimpleClassTypeSignature*, bool)},
+		{"parseSuperInterfaces", "()[Lsun/reflect/generics/tree/ClassTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseSuperInterfaces, $ClassTypeSignatureArray*)},
+		{"parseThrowsSignature", "()Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseThrowsSignature, $FieldTypeSignature*)},
+		{"parseTypeArgument", "()Lsun/reflect/generics/tree/TypeArgument;", nullptr, $PRIVATE, $method(SignatureParser, parseTypeArgument, $TypeArgument*)},
+		{"parseTypeArguments", "()[Lsun/reflect/generics/tree/TypeArgument;", nullptr, $PRIVATE, $method(SignatureParser, parseTypeArguments, $TypeArgumentArray*)},
+		{"parseTypeSig", "(Ljava/lang/String;)Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PUBLIC, $virtualMethod(SignatureParser, parseTypeSig, $TypeSignature*, $String*)},
+		{"parseTypeSignature", "()Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseTypeSignature, $TypeSignature*)},
+		{"parseTypeVariableSignature", "()Lsun/reflect/generics/tree/TypeVariableSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseTypeVariableSignature, $TypeVariableSignature*)},
+		{"parseZeroOrMoreFormalTypeParameters", "()[Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PRIVATE, $method(SignatureParser, parseZeroOrMoreFormalTypeParameters, $FormalTypeParameterArray*)},
+		{"parseZeroOrMoreThrowsSignatures", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseZeroOrMoreThrowsSignatures, $FieldTypeSignatureArray*)},
+		{"parseZeroOrMoreTypeSignatures", "()[Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PRIVATE, $method(SignatureParser, parseZeroOrMoreTypeSignatures, $TypeSignatureArray*)},
+		{"progress", "(I)V", nullptr, $PRIVATE, $method(SignatureParser, progress, void, int32_t)},
+		{"remainder", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SignatureParser, remainder, $String*)},
+		{"skipIdentifier", "()V", nullptr, $PRIVATE, $method(SignatureParser, skipIdentifier, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.parser.SignatureParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignatureParser, name, initialize, &classInfo$$, SignatureParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureParser);
+	});
 	return class$;
 }
 

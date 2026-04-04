@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixFileModeAttribute.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <java/nio/file/attribute/PosixFilePermission.h>
@@ -40,44 +39,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _UnixFileModeAttribute_FieldInfo_[] = {
-	{"ALL_PERMISSIONS", "I", nullptr, $STATIC | $FINAL, $staticField(UnixFileModeAttribute, ALL_PERMISSIONS)},
-	{"ALL_READWRITE", "I", nullptr, $STATIC | $FINAL, $staticField(UnixFileModeAttribute, ALL_READWRITE)},
-	{"TEMPFILE_PERMISSIONS", "I", nullptr, $STATIC | $FINAL, $staticField(UnixFileModeAttribute, TEMPFILE_PERMISSIONS)},
-	{}
-};
-
-$MethodInfo _UnixFileModeAttribute_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixFileModeAttribute, init$, void)},
-	{"toUnixMode", "(Ljava/util/Set;)I", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)I", $STATIC, $staticMethod(UnixFileModeAttribute, toUnixMode, int32_t, $Set*)},
-	{"toUnixMode", "(I[Ljava/nio/file/attribute/FileAttribute;)I", "(I[Ljava/nio/file/attribute/FileAttribute<*>;)I", $STATIC | $TRANSIENT, $staticMethod(UnixFileModeAttribute, toUnixMode, int32_t, int32_t, $FileAttributeArray*)},
-	{}
-};
-
-$InnerClassInfo _UnixFileModeAttribute_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixFileModeAttribute$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _UnixFileModeAttribute_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixFileModeAttribute",
-	"java.lang.Object",
-	nullptr,
-	_UnixFileModeAttribute_FieldInfo_,
-	_UnixFileModeAttribute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnixFileModeAttribute_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixFileModeAttribute$1"
-};
-
-$Object* allocate$UnixFileModeAttribute($Class* clazz) {
-	return $of($alloc(UnixFileModeAttribute));
-}
-
 int32_t UnixFileModeAttribute::ALL_PERMISSIONS = 0;
 int32_t UnixFileModeAttribute::ALL_READWRITE = 0;
 int32_t UnixFileModeAttribute::TEMPFILE_PERMISSIONS = 0;
@@ -99,59 +60,41 @@ int32_t UnixFileModeAttribute::toUnixMode($Set* perms) {
 				$init($UnixFileModeAttribute$1);
 				switch ($nc($UnixFileModeAttribute$1::$SwitchMap$java$nio$file$attribute$PosixFilePermission)->get($nc((perm))->ordinal())) {
 				case 1:
-					{
-						$init($UnixConstants);
-						mode |= $UnixConstants::S_IRUSR;
-						break;
-					}
+					$init($UnixConstants);
+					mode |= $UnixConstants::S_IRUSR;
+					break;
 				case 2:
-					{
-						$init($UnixConstants);
-						mode |= $UnixConstants::S_IWUSR;
-						break;
-					}
+					$init($UnixConstants);
+					mode |= $UnixConstants::S_IWUSR;
+					break;
 				case 3:
-					{
-						$init($UnixConstants);
-						mode |= $UnixConstants::S_IXUSR;
-						break;
-					}
+					$init($UnixConstants);
+					mode |= $UnixConstants::S_IXUSR;
+					break;
 				case 4:
-					{
-						$init($UnixConstants);
-						mode |= $UnixConstants::S_IRGRP;
-						break;
-					}
+					$init($UnixConstants);
+					mode |= $UnixConstants::S_IRGRP;
+					break;
 				case 5:
-					{
-						$init($UnixConstants);
-						mode |= $UnixConstants::S_IWGRP;
-						break;
-					}
+					$init($UnixConstants);
+					mode |= $UnixConstants::S_IWGRP;
+					break;
 				case 6:
-					{
-						$init($UnixConstants);
-						mode |= $UnixConstants::S_IXGRP;
-						break;
-					}
+					$init($UnixConstants);
+					mode |= $UnixConstants::S_IXGRP;
+					break;
 				case 7:
-					{
-						$init($UnixConstants);
-						mode |= $UnixConstants::S_IROTH;
-						break;
-					}
+					$init($UnixConstants);
+					mode |= $UnixConstants::S_IROTH;
+					break;
 				case 8:
-					{
-						$init($UnixConstants);
-						mode |= $UnixConstants::S_IWOTH;
-						break;
-					}
+					$init($UnixConstants);
+					mode |= $UnixConstants::S_IWOTH;
+					break;
 				case 9:
-					{
-						$init($UnixConstants);
-						mode |= $UnixConstants::S_IXOTH;
-						break;
-					}
+					$init($UnixConstants);
+					mode |= $UnixConstants::S_IXOTH;
+					break;
 				}
 			}
 		}
@@ -161,13 +104,11 @@ int32_t UnixFileModeAttribute::toUnixMode($Set* perms) {
 
 int32_t UnixFileModeAttribute::toUnixMode(int32_t defaultMode, $FileAttributeArray* attrs) {
 	$init(UnixFileModeAttribute);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mode = defaultMode;
 	{
 		$var($FileAttributeArray, arr$, attrs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($FileAttribute, attr, arr$->get(i$));
 			{
 				$var($String, name, $nc(attr)->name());
@@ -175,14 +116,14 @@ int32_t UnixFileModeAttribute::toUnixMode(int32_t defaultMode, $FileAttributeArr
 				if (var$0 && !name->equals("unix:permissions"_s)) {
 					$throwNew($UnsupportedOperationException, $$str({"\'"_s, $(attr->name()), "\' not supported as initial attribute"_s}));
 				}
-				mode = toUnixMode($cast($Set, $(attr->value())));
+				mode = toUnixMode($$cast($Set, attr->value()));
 			}
 		}
 	}
 	return mode;
 }
 
-void clinit$UnixFileModeAttribute($Class* class$) {
+void UnixFileModeAttribute::clinit$($Class* clazz) {
 	$init($UnixConstants);
 	UnixFileModeAttribute::ALL_PERMISSIONS = ((((((($UnixConstants::S_IRUSR | $UnixConstants::S_IWUSR) | $UnixConstants::S_IXUSR) | $UnixConstants::S_IRGRP) | $UnixConstants::S_IWGRP) | $UnixConstants::S_IXGRP) | $UnixConstants::S_IROTH) | $UnixConstants::S_IWOTH) | $UnixConstants::S_IXOTH;
 	UnixFileModeAttribute::ALL_READWRITE = (((($UnixConstants::S_IRUSR | $UnixConstants::S_IWUSR) | $UnixConstants::S_IRGRP) | $UnixConstants::S_IWGRP) | $UnixConstants::S_IROTH) | $UnixConstants::S_IWOTH;
@@ -193,7 +134,39 @@ UnixFileModeAttribute::UnixFileModeAttribute() {
 }
 
 $Class* UnixFileModeAttribute::load$($String* name, bool initialize) {
-	$loadClass(UnixFileModeAttribute, name, initialize, &_UnixFileModeAttribute_ClassInfo_, clinit$UnixFileModeAttribute, allocate$UnixFileModeAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALL_PERMISSIONS", "I", nullptr, $STATIC | $FINAL, $staticField(UnixFileModeAttribute, ALL_PERMISSIONS)},
+		{"ALL_READWRITE", "I", nullptr, $STATIC | $FINAL, $staticField(UnixFileModeAttribute, ALL_READWRITE)},
+		{"TEMPFILE_PERMISSIONS", "I", nullptr, $STATIC | $FINAL, $staticField(UnixFileModeAttribute, TEMPFILE_PERMISSIONS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(UnixFileModeAttribute, init$, void)},
+		{"toUnixMode", "(Ljava/util/Set;)I", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)I", $STATIC, $staticMethod(UnixFileModeAttribute, toUnixMode, int32_t, $Set*)},
+		{"toUnixMode", "(I[Ljava/nio/file/attribute/FileAttribute;)I", "(I[Ljava/nio/file/attribute/FileAttribute<*>;)I", $STATIC | $TRANSIENT, $staticMethod(UnixFileModeAttribute, toUnixMode, int32_t, int32_t, $FileAttributeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixFileModeAttribute$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixFileModeAttribute",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixFileModeAttribute$1"
+	};
+	$loadClass(UnixFileModeAttribute, name, initialize, &classInfo$$, UnixFileModeAttribute::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixFileModeAttribute);
+	});
 	return class$;
 }
 

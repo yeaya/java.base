@@ -1,5 +1,4 @@
 #include <sun/nio/ch/ChannelInputStream.h>
-
 #include <java/io/InputStream.h>
 #include <java/lang/Math.h>
 #include <java/nio/ByteBuffer.h>
@@ -30,44 +29,11 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _ChannelInputStream_FieldInfo_[] = {
-	{"ch", "Ljava/nio/channels/ReadableByteChannel;", nullptr, $PROTECTED | $FINAL, $field(ChannelInputStream, ch)},
-	{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(ChannelInputStream, bb)},
-	{"bs", "[B", nullptr, $PRIVATE, $field(ChannelInputStream, bs)},
-	{"b1", "[B", nullptr, $PRIVATE, $field(ChannelInputStream, b1)},
-	{}
-};
-
-$MethodInfo _ChannelInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/ReadableByteChannel;)V", nullptr, $PUBLIC, $method(ChannelInputStream, init$, void, $ReadableByteChannel*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ChannelInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ChannelInputStream, close, void), "java.io.IOException"},
-	{"read", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/ByteBuffer;Z)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ChannelInputStream, read, int32_t, $ReadableByteChannel*, $ByteBuffer*, bool), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ChannelInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ChannelInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, $virtualMethod(ChannelInputStream, read, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ChannelInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ChannelInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.ChannelInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_ChannelInputStream_FieldInfo_,
-	_ChannelInputStream_MethodInfo_
-};
-
-$Object* allocate$ChannelInputStream($Class* clazz) {
-	return $of($alloc(ChannelInputStream));
-}
-
 int32_t ChannelInputStream::read($ReadableByteChannel* ch, $ByteBuffer* bb, bool block) {
 	$init(ChannelInputStream);
 	if ($instanceOf($SelectableChannel, ch)) {
 		$var($SelectableChannel, sc, $cast($SelectableChannel, ch));
-		$synchronized($nc(sc)->blockingLock()) {
+		$synchronized(sc->blockingLock()) {
 			bool bm = sc->isBlocking();
 			if (!bm) {
 				$throwNew($IllegalBlockingModeException);
@@ -75,7 +41,7 @@ int32_t ChannelInputStream::read($ReadableByteChannel* ch, $ByteBuffer* bb, bool
 			if (bm != block) {
 				sc->configureBlocking(block);
 			}
-			int32_t n = $nc(ch)->read(bb);
+			int32_t n = ch->read(bb);
 			if (bm != block) {
 				sc->configureBlocking(bm);
 			}
@@ -101,7 +67,7 @@ int32_t ChannelInputStream::read() {
 		}
 		int32_t n = this->read(this->b1);
 		if (n == 1) {
-			return (int32_t)($nc(this->b1)->get(0) & (uint32_t)255);
+			return $nc(this->b1)->get(0) & 0xff;
 		}
 		return -1;
 	}
@@ -114,7 +80,7 @@ int32_t ChannelInputStream::read($bytes* bs, int32_t off, int32_t len) {
 			return 0;
 		}
 		$var($ByteBuffer, bb, (this->bs == bs) ? this->bb : $ByteBuffer::wrap(bs));
-		$nc(bb)->limit($Math::min(off + len, bb->capacity()));
+		$nc(bb)->limit($Math::min(off + len, $nc(bb)->capacity()));
 		bb->position(off);
 		$set(this, bb, bb);
 		$set(this, bs, bs);
@@ -166,7 +132,35 @@ ChannelInputStream::ChannelInputStream() {
 }
 
 $Class* ChannelInputStream::load$($String* name, bool initialize) {
-	$loadClass(ChannelInputStream, name, initialize, &_ChannelInputStream_ClassInfo_, allocate$ChannelInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"ch", "Ljava/nio/channels/ReadableByteChannel;", nullptr, $PROTECTED | $FINAL, $field(ChannelInputStream, ch)},
+		{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(ChannelInputStream, bb)},
+		{"bs", "[B", nullptr, $PRIVATE, $field(ChannelInputStream, bs)},
+		{"b1", "[B", nullptr, $PRIVATE, $field(ChannelInputStream, b1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/ReadableByteChannel;)V", nullptr, $PUBLIC, $method(ChannelInputStream, init$, void, $ReadableByteChannel*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ChannelInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ChannelInputStream, close, void), "java.io.IOException"},
+		{"read", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/ByteBuffer;Z)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ChannelInputStream, read, int32_t, $ReadableByteChannel*, $ByteBuffer*, bool), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ChannelInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ChannelInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, $virtualMethod(ChannelInputStream, read, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ChannelInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.ChannelInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ChannelInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ChannelInputStream);
+	});
 	return class$;
 }
 

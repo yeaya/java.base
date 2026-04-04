@@ -1,5 +1,4 @@
 #include <sun/invoke/util/Wrapper$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
@@ -26,85 +25,49 @@ namespace sun {
 	namespace invoke {
 		namespace util {
 
-$FieldInfo _Wrapper$1_FieldInfo_[] = {
-	{"$SwitchMap$sun$invoke$util$Wrapper", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Wrapper$1, $SwitchMap$sun$invoke$util$Wrapper)},
-	{}
-};
-
-$EnclosingMethodInfo _Wrapper$1_EnclosingMethodInfo_ = {
-	"sun.invoke.util.Wrapper",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Wrapper$1_InnerClassesInfo_[] = {
-	{"sun.invoke.util.Wrapper$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Wrapper$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"sun.invoke.util.Wrapper$1",
-	"java.lang.Object",
-	nullptr,
-	_Wrapper$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Wrapper$1_EnclosingMethodInfo_,
-	_Wrapper$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.invoke.util.Wrapper"
-};
-
-$Object* allocate$Wrapper$1($Class* clazz) {
-	return $of($alloc(Wrapper$1));
-}
-
 $ints* Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper = nullptr;
 
-void clinit$Wrapper$1($Class* class$) {
+void Wrapper$1::clinit$($Class* clazz) {
 	$assignStatic(Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper, $new($ints, $($Wrapper::values())->length));
 	{
 		try {
-			$nc(Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::BOOLEAN->ordinal(), 1);
+			Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::BOOLEAN->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::INT->ordinal(), 2);
+			Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::INT->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::BYTE->ordinal(), 3);
+			Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::BYTE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::CHAR->ordinal(), 4);
+			Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::CHAR->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::SHORT->ordinal(), 5);
+			Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::SHORT->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::LONG->ordinal(), 6);
+			Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::LONG->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::FLOAT->ordinal(), 7);
+			Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::FLOAT->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::DOUBLE->ordinal(), 8);
+			Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::DOUBLE->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::VOID->ordinal(), 9);
+			Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::VOID->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::OBJECT->ordinal(), 10);
+			Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::OBJECT->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -114,7 +77,37 @@ Wrapper$1::Wrapper$1() {
 }
 
 $Class* Wrapper$1::load$($String* name, bool initialize) {
-	$loadClass(Wrapper$1, name, initialize, &_Wrapper$1_ClassInfo_, clinit$Wrapper$1, allocate$Wrapper$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$invoke$util$Wrapper", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Wrapper$1, $SwitchMap$sun$invoke$util$Wrapper)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.invoke.util.Wrapper",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.invoke.util.Wrapper$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"sun.invoke.util.Wrapper$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.invoke.util.Wrapper"
+	};
+	$loadClass(Wrapper$1, name, initialize, &classInfo$$, Wrapper$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Wrapper$1);
+	});
 	return class$;
 }
 

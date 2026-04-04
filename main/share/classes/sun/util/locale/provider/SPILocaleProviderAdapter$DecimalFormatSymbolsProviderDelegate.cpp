@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate.h>
-
 #include <java/text/DecimalFormatSymbols.h>
 #include <java/text/spi/DecimalFormatSymbolsProvider.h>
 #include <java/util/AbstractMap.h>
@@ -29,51 +28,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DecimalFormatSymbolsProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, map)},
-	{}
-};
-
-$MethodInfo _SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, getAvailableLocales, $LocaleArray*)},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DecimalFormatSymbolsProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, getDelegateMap, $Map*)},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, getInstance, $DecimalFormatSymbols*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "DecimalFormatSymbolsProviderDelegate", $STATIC},
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate",
-	"java.text.spi.DecimalFormatSymbolsProvider",
-	"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
-	_SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate_FieldInfo_,
-	_SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate_MethodInfo_,
-	"Ljava/text/spi/DecimalFormatSymbolsProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/text/spi/DecimalFormatSymbolsProvider;>;",
-	nullptr,
-	_SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.SPILocaleProviderAdapter"
-};
-
-$Object* allocate$SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate($Class* clazz) {
-	return $of($alloc(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate));
-}
-
 int32_t SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::hashCode() {
 	 return this->$DecimalFormatSymbolsProvider::hashCode();
 }
@@ -96,7 +50,7 @@ void SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::finalize() {
 
 void SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::init$() {
 	$DecimalFormatSymbolsProvider::init$();
-	$set(this, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, map, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 $Map* SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::getDelegateMap() {
@@ -112,7 +66,7 @@ bool SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::isSupportedL
 }
 
 $DecimalFormatSymbols* SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::getInstance($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($DecimalFormatSymbolsProvider, dfsp, $cast($DecimalFormatSymbolsProvider, getImpl(locale)));
@@ -123,7 +77,46 @@ SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::SPILocaleProvider
 }
 
 $Class* SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::load$($String* name, bool initialize) {
-	$loadClass(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, name, initialize, &_SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate_ClassInfo_, allocate$SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DecimalFormatSymbolsProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, getAvailableLocales, $LocaleArray*)},
+		{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DecimalFormatSymbolsProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, getDelegateMap, $Map*)},
+		{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, getInstance, $DecimalFormatSymbols*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "DecimalFormatSymbolsProviderDelegate", $STATIC},
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate",
+		"java.text.spi.DecimalFormatSymbolsProvider",
+		"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/text/spi/DecimalFormatSymbolsProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/text/spi/DecimalFormatSymbolsProvider;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.SPILocaleProviderAdapter"
+	};
+	$loadClass(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate));
+	});
 	return class$;
 }
 

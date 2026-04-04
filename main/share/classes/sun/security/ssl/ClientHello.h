@@ -24,6 +24,7 @@ class ClientHello : public ::java::lang::Object {
 	$class(ClientHello, 0, ::java::lang::Object)
 public:
 	ClientHello();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLProducer* kickstartProducer;
 	static ::sun::security::ssl::SSLConsumer* handshakeConsumer;

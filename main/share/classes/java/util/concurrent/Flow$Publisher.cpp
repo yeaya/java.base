@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Flow$Publisher.h>
-
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <java/util/concurrent/Flow.h>
 #include <jcpp.h>
@@ -14,43 +13,37 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$CompoundAttribute _Flow$Publisher_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _Flow$Publisher_MethodInfo_[] = {
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Publisher, subscribe, void, $Flow$Subscriber*)},
-	{}
-};
-
-$InnerClassInfo _Flow$Publisher_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Flow$Publisher_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.concurrent.Flow$Publisher",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Flow$Publisher_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_Flow$Publisher_InnerClassesInfo_,
-	_Flow$Publisher_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.Flow"
-};
-
-$Object* allocate$Flow$Publisher($Class* clazz) {
-	return $of($alloc(Flow$Publisher));
-}
-
 $Class* Flow$Publisher::load$($String* name, bool initialize) {
-	$loadClass(Flow$Publisher, name, initialize, &_Flow$Publisher_ClassInfo_, allocate$Flow$Publisher);
+	$MethodInfo methodInfos$$[] = {
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Publisher, subscribe, void, $Flow$Subscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.concurrent.Flow$Publisher",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.Flow"
+	};
+	$loadClass(Flow$Publisher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$Publisher);
+	});
 	return class$;
 }
 

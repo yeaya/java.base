@@ -18,6 +18,7 @@ class $export RacyDeregister : public ::java::lang::Object {
 	$class(RacyDeregister, 0, ::java::lang::Object)
 public:
 	RacyDeregister();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static const int32_t TIMEOUT_THRESHOLD_MILLIS = 1080000; // 1200 * 900

@@ -14,10 +14,13 @@ class $export AlreadyConnectedException : public ::java::lang::IllegalStateExcep
 public:
 	AlreadyConnectedException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x9A3FE01EE431B9D3;
+	static const int64_t serialVersionUID = (int64_t)0x9a3fe01ee431b9d3;
 	AlreadyConnectedException(const AlreadyConnectedException& e);
 	virtual void throw$() override;
-	inline AlreadyConnectedException* operator ->() {
+	inline AlreadyConnectedException* operator ->() const {
+		return (AlreadyConnectedException*)throwing$;
+	}
+	inline operator AlreadyConnectedException*() const {
 		return (AlreadyConnectedException*)throwing$;
 	}
 };

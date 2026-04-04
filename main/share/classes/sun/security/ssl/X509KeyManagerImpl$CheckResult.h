@@ -24,6 +24,7 @@ class X509KeyManagerImpl$CheckResult : public ::java::lang::Enum {
 public:
 	X509KeyManagerImpl$CheckResult();
 	static $Array<::sun::security::ssl::X509KeyManagerImpl$CheckResult>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::ssl::X509KeyManagerImpl$CheckResult* valueOf($String* name);
 	static $Array<::sun::security::ssl::X509KeyManagerImpl$CheckResult>* values();

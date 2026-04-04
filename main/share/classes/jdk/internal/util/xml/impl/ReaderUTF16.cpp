@@ -1,5 +1,4 @@
 #include <jdk/internal/util/xml/impl/ReaderUTF16.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
 #include <jcpp.h>
@@ -17,48 +16,15 @@ namespace jdk {
 			namespace xml {
 				namespace impl {
 
-$FieldInfo _ReaderUTF16_FieldInfo_[] = {
-	{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(ReaderUTF16, is)},
-	{"bo", "C", nullptr, $PRIVATE, $field(ReaderUTF16, bo)},
-	{}
-};
-
-$MethodInfo _ReaderUTF16_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;C)V", nullptr, $PUBLIC, $method(ReaderUTF16, init$, void, $InputStream*, char16_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ReaderUTF16, close, void), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ReaderUTF16, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReaderUTF16, read, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ReaderUTF16_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.util.xml.impl.ReaderUTF16",
-	"java.io.Reader",
-	nullptr,
-	_ReaderUTF16_FieldInfo_,
-	_ReaderUTF16_MethodInfo_
-};
-
-$Object* allocate$ReaderUTF16($Class* clazz) {
-	return $of($alloc(ReaderUTF16));
-}
-
 void ReaderUTF16::init$($InputStream* is, char16_t bo) {
 	$Reader::init$();
 	switch (bo) {
 	case u'l':
-		{
-			break;
-		}
+		break;
 	case u'b':
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, ""_s);
-		}
+		$throwNew($IllegalArgumentException, ""_s);
 	}
 	this->bo = bo;
 	$set(this, is, is);
@@ -72,7 +38,7 @@ int32_t ReaderUTF16::read($chars* cbuf, int32_t off, int32_t len) {
 			if ((val = $nc(this->is)->read()) < 0) {
 				return (num != 0) ? num : -1;
 			}
-			$nc(cbuf)->set(off++, (char16_t)((val << 8) | ((int32_t)($nc(this->is)->read() & (uint32_t)255))));
+			$nc(cbuf)->set(off++, (char16_t)((val << 8) | (this->is->read() & 0xff)));
 			++num;
 		}
 	} else {
@@ -80,7 +46,7 @@ int32_t ReaderUTF16::read($chars* cbuf, int32_t off, int32_t len) {
 			if ((val = $nc(this->is)->read()) < 0) {
 				return (num != 0) ? num : -1;
 			}
-			$nc(cbuf)->set(off++, (char16_t)(($nc(this->is)->read() << 8) | ((int32_t)(val & (uint32_t)255))));
+			$nc(cbuf)->set(off++, (char16_t)((this->is->read() << 8) | (val & 0xff)));
 			++num;
 		}
 	}
@@ -93,9 +59,9 @@ int32_t ReaderUTF16::read() {
 		return -1;
 	}
 	if (this->bo == u'b') {
-		val = (char16_t)((val << 8) | ((int32_t)($nc(this->is)->read() & (uint32_t)255)));
+		val = (char16_t)((val << 8) | (this->is->read() & 0xff));
 	} else {
-		val = (char16_t)(($nc(this->is)->read() << 8) | ((int32_t)(val & (uint32_t)255)));
+		val = (char16_t)((this->is->read() << 8) | (val & 0xff));
 	}
 	return val;
 }
@@ -108,7 +74,29 @@ ReaderUTF16::ReaderUTF16() {
 }
 
 $Class* ReaderUTF16::load$($String* name, bool initialize) {
-	$loadClass(ReaderUTF16, name, initialize, &_ReaderUTF16_ClassInfo_, allocate$ReaderUTF16);
+	$FieldInfo fieldInfos$$[] = {
+		{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(ReaderUTF16, is)},
+		{"bo", "C", nullptr, $PRIVATE, $field(ReaderUTF16, bo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;C)V", nullptr, $PUBLIC, $method(ReaderUTF16, init$, void, $InputStream*, char16_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ReaderUTF16, close, void), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ReaderUTF16, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReaderUTF16, read, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.util.xml.impl.ReaderUTF16",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReaderUTF16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReaderUTF16));
+	});
 	return class$;
 }
 

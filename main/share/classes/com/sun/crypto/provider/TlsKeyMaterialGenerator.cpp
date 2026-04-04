@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/TlsKeyMaterialGenerator.h>
-
 #include <com/sun/crypto/provider/TlsPrfGenerator.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/security/GeneralSecurityException.h>
@@ -51,36 +50,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _TlsKeyMaterialGenerator_FieldInfo_[] = {
-	{"MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsKeyMaterialGenerator, MSG)},
-	{"spec", "Lsun/security/internal/spec/TlsKeyMaterialParameterSpec;", nullptr, $PRIVATE, $field(TlsKeyMaterialGenerator, spec)},
-	{"protocolVersion", "I", nullptr, $PRIVATE, $field(TlsKeyMaterialGenerator, protocolVersion)},
-	{}
-};
-
-$MethodInfo _TlsKeyMaterialGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TlsKeyMaterialGenerator, init$, void)},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineGenerateKey, $SecretKey*)},
-	{"engineGenerateKey0", "([B)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $method(TlsKeyMaterialGenerator, engineGenerateKey0, $SecretKey*, $bytes*), "java.security.GeneralSecurityException"},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineInit, void, $SecureRandom*)},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineInit, void, int32_t, $SecureRandom*)},
-	{}
-};
-
-$ClassInfo _TlsKeyMaterialGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.TlsKeyMaterialGenerator",
-	"javax.crypto.KeyGeneratorSpi",
-	nullptr,
-	_TlsKeyMaterialGenerator_FieldInfo_,
-	_TlsKeyMaterialGenerator_MethodInfo_
-};
-
-$Object* allocate$TlsKeyMaterialGenerator($Class* clazz) {
-	return $of($alloc(TlsKeyMaterialGenerator));
-}
-
 $String* TlsKeyMaterialGenerator::MSG = nullptr;
 
 void TlsKeyMaterialGenerator::init$() {
@@ -92,16 +61,16 @@ void TlsKeyMaterialGenerator::engineInit($SecureRandom* random) {
 }
 
 void TlsKeyMaterialGenerator::engineInit($AlgorithmParameterSpec* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($TlsKeyMaterialParameterSpec, params) == false) {
 		$throwNew($InvalidAlgorithmParameterException, TlsKeyMaterialGenerator::MSG);
 	}
 	$set(this, spec, $cast($TlsKeyMaterialParameterSpec, params));
-	if ("RAW"_s->equals($($nc($($nc(this->spec)->getMasterSecret()))->getFormat())) == false) {
+	if ("RAW"_s->equals($($$nc($nc(this->spec)->getMasterSecret())->getFormat())) == false) {
 		$throwNew($InvalidAlgorithmParameterException, "Key format must be RAW"_s);
 	}
-	int32_t var$0 = ($nc(this->spec)->getMajorVersion() << 8);
-	this->protocolVersion = var$0 | $nc(this->spec)->getMinorVersion();
+	int32_t var$0 = $nc(this->spec)->getMajorVersion() << 8;
+	this->protocolVersion = var$0 | this->spec->getMinorVersion();
 	if ((this->protocolVersion < 768) || (this->protocolVersion > 771)) {
 		$throwNew($InvalidAlgorithmParameterException, "Only SSL 3.0, TLS 1.0/1.1/1.2 supported"_s);
 	}
@@ -112,40 +81,38 @@ void TlsKeyMaterialGenerator::engineInit(int32_t keysize, $SecureRandom* random)
 }
 
 $SecretKey* TlsKeyMaterialGenerator::engineGenerateKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->spec == nullptr) {
 		$throwNew($IllegalStateException, "TlsKeyMaterialGenerator must be initialized"_s);
 	}
-	$var($bytes, masterSecret, $nc($($nc(this->spec)->getMasterSecret()))->getEncoded());
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($SecretKey, var$2, nullptr);
-		bool return$1 = false;
+	$var($bytes, masterSecret, $$nc($nc(this->spec)->getMasterSecret())->getEncoded());
+	$var($Throwable, var$0, nullptr);
+	$var($SecretKey, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$assign(var$2, engineGenerateKey0(masterSecret));
-				return$1 = true;
-				goto $finally;
-			} catch ($GeneralSecurityException& e) {
-				$throwNew($ProviderException, static_cast<$Throwable*>(e));
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(masterSecret, (int8_t)0);
+			$assign(var$2, engineGenerateKey0(masterSecret));
+			return$1 = true;
+			goto $finally;
+		} catch ($GeneralSecurityException& e) {
+			$throwNew($ProviderException, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(masterSecret, (int8_t)0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $SecretKey* TlsKeyMaterialGenerator::engineGenerateKey0($bytes* masterSecret) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, clientRandom, $nc(this->spec)->getClientRandom());
 	$var($bytes, serverRandom, $nc(this->spec)->getServerRandom());
 	$var($SecretKey, clientMacKey, nullptr);
@@ -166,13 +133,10 @@ $SecretKey* TlsKeyMaterialGenerator::engineGenerateKey0($bytes* masterSecret) {
 	$var($MessageDigest, sha, nullptr);
 	if (this->protocolVersion >= 771) {
 		$var($bytes, seed, $TlsPrfGenerator::concat(serverRandom, clientRandom));
-		$var($bytes, var$0, masterSecret);
-		$var($bytes, var$1, $TlsPrfGenerator::LABEL_KEY_EXPANSION);
-		$var($bytes, var$2, seed);
-		int32_t var$3 = keyBlockLen;
-		$var($String, var$4, $nc(this->spec)->getPRFHashAlg());
-		int32_t var$5 = $nc(this->spec)->getPRFHashLength();
-		$assign(keyBlock, $TlsPrfGenerator::doTLS12PRF(var$0, var$1, var$2, var$3, var$4, var$5, $nc(this->spec)->getPRFBlockSize()));
+		$var($bytes, var$0, $TlsPrfGenerator::LABEL_KEY_EXPANSION);
+		$var($String, var$1, $nc(this->spec)->getPRFHashAlg());
+		int32_t var$2 = this->spec->getPRFHashLength();
+		$assign(keyBlock, $TlsPrfGenerator::doTLS12PRF(masterSecret, var$0, seed, keyBlockLen, var$1, var$2, this->spec->getPRFBlockSize()));
 	} else if (this->protocolVersion >= 769) {
 		$assign(md5, $MessageDigest::getInstance("MD5"_s));
 		$assign(sha, $MessageDigest::getInstance("SHA1"_s));
@@ -183,24 +147,20 @@ $SecretKey* TlsKeyMaterialGenerator::engineGenerateKey0($bytes* masterSecret) {
 		$assign(sha, $MessageDigest::getInstance("SHA1"_s));
 		$assign(keyBlock, $new($bytes, keyBlockLen));
 		$var($bytes, tmp, $new($bytes, 20));
-		{
-			int32_t i = 0;
-			int32_t remaining = keyBlockLen;
-			for (; remaining > 0; ++i, remaining -= 16) {
-				$init($TlsPrfGenerator);
-				$nc(sha)->update($nc($TlsPrfGenerator::SSL3_CONST)->get(i));
-				sha->update(masterSecret);
-				sha->update(serverRandom);
-				sha->update(clientRandom);
-				sha->digest(tmp, 0, 20);
-				$nc(md5)->update(masterSecret);
-				md5->update(tmp);
-				if (remaining >= 16) {
-					md5->digest(keyBlock, i << 4, 16);
-				} else {
-					md5->digest(tmp, 0, 16);
-					$System::arraycopy(tmp, 0, keyBlock, i << 4, remaining);
-				}
+		for (int32_t i = 0, remaining = keyBlockLen; remaining > 0; ++i, remaining -= 16) {
+			$init($TlsPrfGenerator);
+			$nc(sha)->update($nc($TlsPrfGenerator::SSL3_CONST)->get(i));
+			sha->update(masterSecret);
+			sha->update(serverRandom);
+			sha->update(clientRandom);
+			sha->digest(tmp, 0, 20);
+			$nc(md5)->update(masterSecret);
+			md5->update(tmp);
+			if (remaining >= 16) {
+				md5->digest(keyBlock, i << 4, 16);
+			} else {
+				md5->digest(tmp, 0, 16);
+				$System::arraycopy(tmp, 0, keyBlock, i << 4, remaining);
 			}
 		}
 	}
@@ -221,73 +181,71 @@ $SecretKey* TlsKeyMaterialGenerator::engineGenerateKey0($bytes* masterSecret) {
 	$var($bytes, serverKeyBytes, $new($bytes, keyLength));
 	$System::arraycopy(keyBlock, ofs, serverKeyBytes, 0, keyLength);
 	ofs += keyLength;
-	{
-		$var($Throwable, var$6, nullptr);
-		try {
-			if (isExportable == false) {
-				$assign(clientCipherKey, $new($SecretKeySpec, clientKeyBytes, alg));
-				$assign(serverCipherKey, $new($SecretKeySpec, serverKeyBytes, alg));
-				if (ivLength != 0) {
-					$assign(clientIv, $new($IvParameterSpec, keyBlock, ofs, ivLength));
-					ofs += ivLength;
-					$assign(serverIv, $new($IvParameterSpec, keyBlock, ofs, ivLength));
-					ofs += ivLength;
-				}
-			} else if (this->protocolVersion >= 770) {
-				$throwNew($RuntimeException, "Internal Error:  TLS 1.1+ should not be negotiatingexportable ciphersuites"_s);
-			} else if (this->protocolVersion == 769) {
-				$var($bytes, seed, $TlsPrfGenerator::concat(clientRandom, serverRandom));
-				$var($bytes, tmp, $TlsPrfGenerator::doTLS10PRF(clientKeyBytes, $TlsPrfGenerator::LABEL_CLIENT_WRITE_KEY, seed, expandedKeyLength, md5, sha));
-				$assign(clientCipherKey, $new($SecretKeySpec, tmp, alg));
-				$Arrays::fill(tmp, (int8_t)0);
-				$assign(tmp, $TlsPrfGenerator::doTLS10PRF(serverKeyBytes, $TlsPrfGenerator::LABEL_SERVER_WRITE_KEY, seed, expandedKeyLength, md5, sha));
-				$assign(serverCipherKey, $new($SecretKeySpec, tmp, alg));
-				$Arrays::fill(tmp, (int8_t)0);
-				if (ivLength != 0) {
-					$var($bytes, block, $TlsPrfGenerator::doTLS10PRF(nullptr, $TlsPrfGenerator::LABEL_IV_BLOCK, seed, ivLength << 1, md5, sha));
-					$assign(clientIv, $new($IvParameterSpec, block, 0, ivLength));
-					$assign(serverIv, $new($IvParameterSpec, block, ivLength, ivLength));
-				}
-			} else {
-				$var($bytes, tmp, $new($bytes, expandedKeyLength));
-				$var($bytes, digest, nullptr);
-				$nc(md5)->update(clientKeyBytes);
-				md5->update(clientRandom);
-				md5->update(serverRandom);
-				$assign(digest, md5->digest());
-				$System::arraycopy(digest, 0, tmp, 0, expandedKeyLength);
-				$assign(clientCipherKey, $new($SecretKeySpec, tmp, alg));
-				$Arrays::fill(digest, (int8_t)0);
-				md5->update(serverKeyBytes);
-				md5->update(serverRandom);
-				md5->update(clientRandom);
-				$assign(digest, md5->digest());
-				$System::arraycopy(digest, 0, tmp, 0, expandedKeyLength);
-				$assign(serverCipherKey, $new($SecretKeySpec, tmp, alg));
-				$Arrays::fill(digest, (int8_t)0);
-				$Arrays::fill(tmp, (int8_t)0);
-				if (ivLength != 0) {
-					$assign(tmp, $new($bytes, ivLength));
-					md5->update(clientRandom);
-					md5->update(serverRandom);
-					$System::arraycopy($(md5->digest()), 0, tmp, 0, ivLength);
-					$assign(clientIv, $new($IvParameterSpec, tmp));
-					md5->update(serverRandom);
-					md5->update(clientRandom);
-					$System::arraycopy($(md5->digest()), 0, tmp, 0, ivLength);
-					$assign(serverIv, $new($IvParameterSpec, tmp));
-				}
+	$var($Throwable, var$3, nullptr);
+	try {
+		if (isExportable == false) {
+			$assign(clientCipherKey, $new($SecretKeySpec, clientKeyBytes, alg));
+			$assign(serverCipherKey, $new($SecretKeySpec, serverKeyBytes, alg));
+			if (ivLength != 0) {
+				$assign(clientIv, $new($IvParameterSpec, keyBlock, ofs, ivLength));
+				ofs += ivLength;
+				$assign(serverIv, $new($IvParameterSpec, keyBlock, ofs, ivLength));
+				ofs += ivLength;
 			}
-		} catch ($Throwable& var$7) {
-			$assign(var$6, var$7);
-		} /*finally*/ {
-			$Arrays::fill(serverKeyBytes, (int8_t)0);
-			$Arrays::fill(clientKeyBytes, (int8_t)0);
-			$Arrays::fill(keyBlock, (int8_t)0);
+		} else if (this->protocolVersion >= 770) {
+			$throwNew($RuntimeException, "Internal Error:  TLS 1.1+ should not be negotiatingexportable ciphersuites"_s);
+		} else if (this->protocolVersion == 769) {
+			$var($bytes, seed, $TlsPrfGenerator::concat(clientRandom, serverRandom));
+			$var($bytes, tmp, $TlsPrfGenerator::doTLS10PRF(clientKeyBytes, $TlsPrfGenerator::LABEL_CLIENT_WRITE_KEY, seed, expandedKeyLength, md5, sha));
+			$assign(clientCipherKey, $new($SecretKeySpec, tmp, alg));
+			$Arrays::fill(tmp, (int8_t)0);
+			$assign(tmp, $TlsPrfGenerator::doTLS10PRF(serverKeyBytes, $TlsPrfGenerator::LABEL_SERVER_WRITE_KEY, seed, expandedKeyLength, md5, sha));
+			$assign(serverCipherKey, $new($SecretKeySpec, tmp, alg));
+			$Arrays::fill(tmp, (int8_t)0);
+			if (ivLength != 0) {
+				$var($bytes, block, $TlsPrfGenerator::doTLS10PRF(nullptr, $TlsPrfGenerator::LABEL_IV_BLOCK, seed, ivLength << 1, md5, sha));
+				$assign(clientIv, $new($IvParameterSpec, block, 0, ivLength));
+				$assign(serverIv, $new($IvParameterSpec, block, ivLength, ivLength));
+			}
+		} else {
+			$var($bytes, tmp, $new($bytes, expandedKeyLength));
+			$var($bytes, digest, nullptr);
+			$nc(md5)->update(clientKeyBytes);
+			md5->update(clientRandom);
+			md5->update(serverRandom);
+			$assign(digest, md5->digest());
+			$System::arraycopy(digest, 0, tmp, 0, expandedKeyLength);
+			$assign(clientCipherKey, $new($SecretKeySpec, tmp, alg));
+			$Arrays::fill(digest, (int8_t)0);
+			md5->update(serverKeyBytes);
+			md5->update(serverRandom);
+			md5->update(clientRandom);
+			$assign(digest, md5->digest());
+			$System::arraycopy(digest, 0, tmp, 0, expandedKeyLength);
+			$assign(serverCipherKey, $new($SecretKeySpec, tmp, alg));
+			$Arrays::fill(digest, (int8_t)0);
+			$Arrays::fill(tmp, (int8_t)0);
+			if (ivLength != 0) {
+				$assign(tmp, $new($bytes, ivLength));
+				md5->update(clientRandom);
+				md5->update(serverRandom);
+				$System::arraycopy($(md5->digest()), 0, tmp, 0, ivLength);
+				$assign(clientIv, $new($IvParameterSpec, tmp));
+				md5->update(serverRandom);
+				md5->update(clientRandom);
+				$System::arraycopy($(md5->digest()), 0, tmp, 0, ivLength);
+				$assign(serverIv, $new($IvParameterSpec, tmp));
+			}
 		}
-		if (var$6 != nullptr) {
-			$throw(var$6);
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$3, var$4);
+	} /*finally*/ {
+		$Arrays::fill(serverKeyBytes, (int8_t)0);
+		$Arrays::fill(clientKeyBytes, (int8_t)0);
+		$Arrays::fill(keyBlock, (int8_t)0);
+	}
+	if (var$3 != nullptr) {
+		$throw(var$3);
 	}
 	return $new($TlsKeyMaterialSpec, clientMacKey, serverMacKey, clientCipherKey, clientIv, serverCipherKey, serverIv);
 }
@@ -295,12 +253,37 @@ $SecretKey* TlsKeyMaterialGenerator::engineGenerateKey0($bytes* masterSecret) {
 TlsKeyMaterialGenerator::TlsKeyMaterialGenerator() {
 }
 
-void clinit$TlsKeyMaterialGenerator($Class* class$) {
+void TlsKeyMaterialGenerator::clinit$($Class* clazz) {
 	$assignStatic(TlsKeyMaterialGenerator::MSG, "TlsKeyMaterialGenerator must be initialized using a TlsKeyMaterialParameterSpec"_s);
 }
 
 $Class* TlsKeyMaterialGenerator::load$($String* name, bool initialize) {
-	$loadClass(TlsKeyMaterialGenerator, name, initialize, &_TlsKeyMaterialGenerator_ClassInfo_, clinit$TlsKeyMaterialGenerator, allocate$TlsKeyMaterialGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsKeyMaterialGenerator, MSG)},
+		{"spec", "Lsun/security/internal/spec/TlsKeyMaterialParameterSpec;", nullptr, $PRIVATE, $field(TlsKeyMaterialGenerator, spec)},
+		{"protocolVersion", "I", nullptr, $PRIVATE, $field(TlsKeyMaterialGenerator, protocolVersion)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TlsKeyMaterialGenerator, init$, void)},
+		{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineGenerateKey, $SecretKey*)},
+		{"engineGenerateKey0", "([B)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $method(TlsKeyMaterialGenerator, engineGenerateKey0, $SecretKey*, $bytes*), "java.security.GeneralSecurityException"},
+		{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineInit, void, $SecureRandom*)},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineInit, void, int32_t, $SecureRandom*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.TlsKeyMaterialGenerator",
+		"javax.crypto.KeyGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TlsKeyMaterialGenerator, name, initialize, &classInfo$$, TlsKeyMaterialGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TlsKeyMaterialGenerator);
+	});
 	return class$;
 }
 

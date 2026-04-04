@@ -69,6 +69,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::java::net::URL>* urls, ::java::lang::ClassLoader* parent);
 	void init$($String* name, $Array<::java::net::URL>* urls, ::java::lang::ClassLoader* parent, ::java::security::AccessControlContext* acc);
 	void init$($Array<::java::net::URL>* urls);

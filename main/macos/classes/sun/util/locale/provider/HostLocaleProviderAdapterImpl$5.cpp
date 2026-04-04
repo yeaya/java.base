@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl$5.h>
-
 #include <java/lang/ref/SoftReference.h>
 #include <java/text/DecimalFormatSymbols.h>
 #include <java/text/spi/DecimalFormatSymbolsProvider.h>
@@ -19,53 +18,12 @@ using $SoftReference = ::java::lang::ref::SoftReference;
 using $DecimalFormatSymbols = ::java::text::DecimalFormatSymbols;
 using $DecimalFormatSymbolsProvider = ::java::text::spi::DecimalFormatSymbolsProvider;
 using $Locale = ::java::util::Locale;
-using $Set = ::java::util::Set;
-using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $HostLocaleProviderAdapterImpl = ::sun::util::locale::provider::HostLocaleProviderAdapterImpl;
 
 namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$MethodInfo _HostLocaleProviderAdapterImpl$5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$5, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, getAvailableLocales, $LocaleArray*)},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, getInstance, $DecimalFormatSymbols*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, isSupportedLocale, bool, $Locale*)},
-	{}
-};
-
-$EnclosingMethodInfo _HostLocaleProviderAdapterImpl$5_EnclosingMethodInfo_ = {
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
-	"getDecimalFormatSymbolsProvider",
-	"()Ljava/text/spi/DecimalFormatSymbolsProvider;"
-};
-
-$InnerClassInfo _HostLocaleProviderAdapterImpl$5_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HostLocaleProviderAdapterImpl$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl$5",
-	"java.text.spi.DecimalFormatSymbolsProvider",
-	nullptr,
-	nullptr,
-	_HostLocaleProviderAdapterImpl$5_MethodInfo_,
-	nullptr,
-	&_HostLocaleProviderAdapterImpl$5_EnclosingMethodInfo_,
-	_HostLocaleProviderAdapterImpl$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
-};
-
-$Object* allocate$HostLocaleProviderAdapterImpl$5($Class* clazz) {
-	return $of($alloc(HostLocaleProviderAdapterImpl$5));
-}
 
 void HostLocaleProviderAdapterImpl$5::init$() {
 	$DecimalFormatSymbolsProvider::init$();
@@ -82,11 +40,11 @@ bool HostLocaleProviderAdapterImpl$5::isSupportedLocale($Locale* locale) {
 }
 
 $DecimalFormatSymbols* HostLocaleProviderAdapterImpl$5::getInstance($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DecimalFormatSymbols, decimalFormatSymbols, nullptr);
 	$init($HostLocaleProviderAdapterImpl);
 	$var($SoftReference, ref, $cast($SoftReference, $nc($HostLocaleProviderAdapterImpl::decimalFormatSymbolsMap)->get(locale)));
-	if (ref == nullptr || ($assign(decimalFormatSymbols, $cast($DecimalFormatSymbols, $nc(ref)->get()))) == nullptr) {
+	if (ref == nullptr || ($assign(decimalFormatSymbols, $cast($DecimalFormatSymbols, ref->get()))) == nullptr) {
 		$assign(decimalFormatSymbols, $new($DecimalFormatSymbols, locale));
 		$var($String, langTag, $nc(locale)->toLanguageTag());
 		decimalFormatSymbols->setInternationalCurrencySymbol($($HostLocaleProviderAdapterImpl::getInternationalCurrencySymbol(langTag, $(decimalFormatSymbols->getInternationalCurrencySymbol()))));
@@ -102,7 +60,7 @@ $DecimalFormatSymbols* HostLocaleProviderAdapterImpl$5::getInstance($Locale* loc
 		decimalFormatSymbols->setZeroDigit($HostLocaleProviderAdapterImpl::getZeroDigit(langTag, decimalFormatSymbols->getZeroDigit()));
 		decimalFormatSymbols->setExponentSeparator($($HostLocaleProviderAdapterImpl::getExponentSeparator(langTag, $(decimalFormatSymbols->getExponentSeparator()))));
 		$assign(ref, $new($SoftReference, decimalFormatSymbols));
-		$nc($HostLocaleProviderAdapterImpl::decimalFormatSymbolsMap)->put(locale, ref);
+		$HostLocaleProviderAdapterImpl::decimalFormatSymbolsMap->put(locale, ref);
 	}
 	return $cast($DecimalFormatSymbols, $nc(decimalFormatSymbols)->clone());
 }
@@ -111,7 +69,40 @@ HostLocaleProviderAdapterImpl$5::HostLocaleProviderAdapterImpl$5() {
 }
 
 $Class* HostLocaleProviderAdapterImpl$5::load$($String* name, bool initialize) {
-	$loadClass(HostLocaleProviderAdapterImpl$5, name, initialize, &_HostLocaleProviderAdapterImpl$5_ClassInfo_, allocate$HostLocaleProviderAdapterImpl$5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$5, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, getAvailableLocales, $LocaleArray*)},
+		{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, getInstance, $DecimalFormatSymbols*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, isSupportedLocale, bool, $Locale*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
+		"getDecimalFormatSymbolsProvider",
+		"()Ljava/text/spi/DecimalFormatSymbolsProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl$5",
+		"java.text.spi.DecimalFormatSymbolsProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
+	};
+	$loadClass(HostLocaleProviderAdapterImpl$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostLocaleProviderAdapterImpl$5);
+	});
 	return class$;
 }
 

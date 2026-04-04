@@ -1,5 +1,4 @@
 #include <java/nio/Bits.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/OutOfMemoryError.h>
@@ -47,62 +46,6 @@ using $VM$BufferPool = ::jdk::internal::misc::VM$BufferPool;
 namespace java {
 	namespace nio {
 
-$FieldInfo _Bits_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Bits, $assertionsDisabled)},
-	{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bits, UNSAFE)},
-	{"PAGE_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(Bits, PAGE_SIZE)},
-	{"UNALIGNED", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Bits, UNALIGNED)},
-	{"MAX_MEMORY", "J", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Bits, MAX_MEMORY)},
-	{"RESERVED_MEMORY", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bits, RESERVED_MEMORY)},
-	{"TOTAL_CAPACITY", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bits, TOTAL_CAPACITY)},
-	{"COUNT", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bits, COUNT)},
-	{"MEMORY_LIMIT_SET", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Bits, MEMORY_LIMIT_SET)},
-	{"MAX_SLEEPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Bits, MAX_SLEEPS)},
-	{"BUFFER_POOL", "Ljdk/internal/misc/VM$BufferPool;", nullptr, $STATIC | $FINAL, $staticField(Bits, BUFFER_POOL)},
-	{"JNI_COPY_TO_ARRAY_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(Bits, JNI_COPY_TO_ARRAY_THRESHOLD)},
-	{"JNI_COPY_FROM_ARRAY_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(Bits, JNI_COPY_FROM_ARRAY_THRESHOLD)},
-	{}
-};
-
-$MethodInfo _Bits_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Bits, init$, void)},
-	{"pageCount", "(J)J", nullptr, $STATIC, $staticMethod(Bits, pageCount, int64_t, int64_t)},
-	{"pageSize", "()I", nullptr, $STATIC, $staticMethod(Bits, pageSize, int32_t)},
-	{"reserveMemory", "(JJ)V", nullptr, $STATIC, $staticMethod(Bits, reserveMemory, void, int64_t, int64_t)},
-	{"swap", "(S)S", nullptr, $STATIC, $staticMethod(Bits, swap, int16_t, int16_t)},
-	{"swap", "(C)C", nullptr, $STATIC, $staticMethod(Bits, swap, char16_t, char16_t)},
-	{"swap", "(I)I", nullptr, $STATIC, $staticMethod(Bits, swap, int32_t, int32_t)},
-	{"swap", "(J)J", nullptr, $STATIC, $staticMethod(Bits, swap, int64_t, int64_t)},
-	{"tryReserveMemory", "(JJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Bits, tryReserveMemory, bool, int64_t, int64_t)},
-	{"unaligned", "()Z", nullptr, $STATIC, $staticMethod(Bits, unaligned, bool)},
-	{"unreserveMemory", "(JJ)V", nullptr, $STATIC, $staticMethod(Bits, unreserveMemory, void, int64_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _Bits_InnerClassesInfo_[] = {
-	{"java.nio.Bits$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Bits_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.Bits",
-	"java.lang.Object",
-	nullptr,
-	_Bits_FieldInfo_,
-	_Bits_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Bits_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.nio.Bits$1"
-};
-
-$Object* allocate$Bits($Class* clazz) {
-	return $of($alloc(Bits));
-}
-
 bool Bits::$assertionsDisabled = false;
 $Unsafe* Bits::UNSAFE = nullptr;
 int32_t Bits::PAGE_SIZE = 0;
@@ -147,7 +90,7 @@ int32_t Bits::pageSize() {
 
 int64_t Bits::pageCount(int64_t size) {
 	$init(Bits);
-	int64_t var$0 = (size + (int64_t)pageSize() - (int64_t)1);
+	int64_t var$0 = size + (int64_t)pageSize() - (int64_t)1;
 	return $div(var$0, pageSize());
 }
 
@@ -158,7 +101,7 @@ bool Bits::unaligned() {
 
 void Bits::reserveMemory(int64_t size, int64_t cap) {
 	$init(Bits);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Bits::MEMORY_LIMIT_SET && $VM::initLevel() >= 1) {
 		Bits::MAX_MEMORY = $VM::maxDirectMemory();
 		Bits::MEMORY_LIMIT_SET = true;
@@ -168,68 +111,66 @@ void Bits::reserveMemory(int64_t size, int64_t cap) {
 	}
 	$var($JavaLangRefAccess, jlra, $SharedSecrets::getJavaLangRefAccess());
 	bool interrupted = false;
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			bool refprocActive = false;
-			do {
-				try {
-					refprocActive = $nc(jlra)->waitForReferenceProcessing();
-				} catch ($InterruptedException& e) {
-					interrupted = true;
-					refprocActive = true;
-				}
-				if (tryReserveMemory(size, cap)) {
-					return$1 = true;
-					goto $finally;
-				}
-			} while (refprocActive);
-			$System::gc();
-			int64_t sleepTime = 1;
-			int32_t sleeps = 0;
-			while (true) {
-				if (tryReserveMemory(size, cap)) {
-					return$1 = true;
-					goto $finally;
-				}
-				if (sleeps >= Bits::MAX_SLEEPS) {
-					break;
-				}
-				try {
-					if (!$nc(jlra)->waitForReferenceProcessing()) {
-						$Thread::sleep(sleepTime);
-						sleepTime <<= 1;
-						++sleeps;
-					}
-				} catch ($InterruptedException& e) {
-					interrupted = true;
-				}
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		bool refprocActive = false;
+		do {
+			try {
+				refprocActive = $nc(jlra)->waitForReferenceProcessing();
+			} catch ($InterruptedException& e) {
+				interrupted = true;
+				refprocActive = true;
 			}
-			$throwNew($OutOfMemoryError, $$str({"Cannot reserve "_s, $$str(size), " bytes of direct buffer memory (allocated: "_s, $$str($nc(Bits::RESERVED_MEMORY)->get()), ", limit: "_s, $$str(Bits::MAX_MEMORY), ")"_s}));
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			if (interrupted) {
-				$($Thread::currentThread())->interrupt();
+			if (tryReserveMemory(size, cap)) {
+				return$1 = true;
+				goto $finally;
+			}
+		} while (refprocActive);
+		$System::gc();
+		int64_t sleepTime = 1;
+		int32_t sleeps = 0;
+		while (true) {
+			if (tryReserveMemory(size, cap)) {
+				return$1 = true;
+				goto $finally;
+			}
+			if (sleeps >= Bits::MAX_SLEEPS) {
+				break;
+			}
+			try {
+				if (!$nc(jlra)->waitForReferenceProcessing()) {
+					$Thread::sleep(sleepTime);
+					sleepTime <<= 1;
+					++sleeps;
+				}
+			} catch ($InterruptedException& e) {
+				interrupted = true;
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$throwNew($OutOfMemoryError, $$str({"Cannot reserve "_s, $$str(size), " bytes of direct buffer memory (allocated: "_s, $$str(Bits::RESERVED_MEMORY->get()), ", limit: "_s, $$str(Bits::MAX_MEMORY), ")"_s}));
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		if (interrupted) {
+			$($Thread::currentThread())->interrupt();
 		}
-		if (return$1) {
-			return;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 bool Bits::tryReserveMemory(int64_t size, int64_t cap) {
 	$init(Bits);
 	int64_t totalCap = 0;
-	while (cap <= Bits::MAX_MEMORY - (totalCap = $nc(Bits::TOTAL_CAPACITY)->get())) {
-		if ($nc(Bits::TOTAL_CAPACITY)->compareAndSet(totalCap, totalCap + cap)) {
-			$nc(Bits::RESERVED_MEMORY)->addAndGet(size);
-			$nc(Bits::COUNT)->incrementAndGet();
+	while (cap <= Bits::MAX_MEMORY - (totalCap = Bits::TOTAL_CAPACITY->get())) {
+		if (Bits::TOTAL_CAPACITY->compareAndSet(totalCap, totalCap + cap)) {
+			Bits::RESERVED_MEMORY->addAndGet(size);
+			Bits::COUNT->incrementAndGet();
 			return true;
 		}
 	}
@@ -238,15 +179,15 @@ bool Bits::tryReserveMemory(int64_t size, int64_t cap) {
 
 void Bits::unreserveMemory(int64_t size, int64_t cap) {
 	$init(Bits);
-	int64_t cnt = $nc(Bits::COUNT)->decrementAndGet();
-	int64_t reservedMem = $nc(Bits::RESERVED_MEMORY)->addAndGet(-size);
-	int64_t totalCap = $nc(Bits::TOTAL_CAPACITY)->addAndGet(-cap);
+	int64_t cnt = Bits::COUNT->decrementAndGet();
+	int64_t reservedMem = Bits::RESERVED_MEMORY->addAndGet(-size);
+	int64_t totalCap = Bits::TOTAL_CAPACITY->addAndGet(-cap);
 	if (!Bits::$assertionsDisabled && !(cnt >= 0 && reservedMem >= 0 && totalCap >= 0)) {
 		$throwNew($AssertionError);
 	}
 }
 
-void clinit$Bits($Class* class$) {
+void Bits::clinit$($Class* clazz) {
 	Bits::$assertionsDisabled = !Bits::class$->desiredAssertionStatus();
 	$assignStatic(Bits::UNSAFE, $Unsafe::getUnsafe());
 	Bits::PAGE_SIZE = -1;
@@ -262,7 +203,57 @@ Bits::Bits() {
 }
 
 $Class* Bits::load$($String* name, bool initialize) {
-	$loadClass(Bits, name, initialize, &_Bits_ClassInfo_, clinit$Bits, allocate$Bits);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Bits, $assertionsDisabled)},
+		{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bits, UNSAFE)},
+		{"PAGE_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(Bits, PAGE_SIZE)},
+		{"UNALIGNED", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Bits, UNALIGNED)},
+		{"MAX_MEMORY", "J", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Bits, MAX_MEMORY)},
+		{"RESERVED_MEMORY", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bits, RESERVED_MEMORY)},
+		{"TOTAL_CAPACITY", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bits, TOTAL_CAPACITY)},
+		{"COUNT", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bits, COUNT)},
+		{"MEMORY_LIMIT_SET", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Bits, MEMORY_LIMIT_SET)},
+		{"MAX_SLEEPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Bits, MAX_SLEEPS)},
+		{"BUFFER_POOL", "Ljdk/internal/misc/VM$BufferPool;", nullptr, $STATIC | $FINAL, $staticField(Bits, BUFFER_POOL)},
+		{"JNI_COPY_TO_ARRAY_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(Bits, JNI_COPY_TO_ARRAY_THRESHOLD)},
+		{"JNI_COPY_FROM_ARRAY_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(Bits, JNI_COPY_FROM_ARRAY_THRESHOLD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Bits, init$, void)},
+		{"pageCount", "(J)J", nullptr, $STATIC, $staticMethod(Bits, pageCount, int64_t, int64_t)},
+		{"pageSize", "()I", nullptr, $STATIC, $staticMethod(Bits, pageSize, int32_t)},
+		{"reserveMemory", "(JJ)V", nullptr, $STATIC, $staticMethod(Bits, reserveMemory, void, int64_t, int64_t)},
+		{"swap", "(S)S", nullptr, $STATIC, $staticMethod(Bits, swap, int16_t, int16_t)},
+		{"swap", "(C)C", nullptr, $STATIC, $staticMethod(Bits, swap, char16_t, char16_t)},
+		{"swap", "(I)I", nullptr, $STATIC, $staticMethod(Bits, swap, int32_t, int32_t)},
+		{"swap", "(J)J", nullptr, $STATIC, $staticMethod(Bits, swap, int64_t, int64_t)},
+		{"tryReserveMemory", "(JJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Bits, tryReserveMemory, bool, int64_t, int64_t)},
+		{"unaligned", "()Z", nullptr, $STATIC, $staticMethod(Bits, unaligned, bool)},
+		{"unreserveMemory", "(JJ)V", nullptr, $STATIC, $staticMethod(Bits, unreserveMemory, void, int64_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.Bits$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.Bits",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.nio.Bits$1"
+	};
+	$loadClass(Bits, name, initialize, &classInfo$$, Bits::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bits);
+	});
 	return class$;
 }
 

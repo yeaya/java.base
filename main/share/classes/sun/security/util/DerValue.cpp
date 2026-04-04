@@ -1,5 +1,4 @@
 #include <sun/security/util/DerValue.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/EOFException.h>
@@ -68,156 +67,42 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _DerValue_FieldInfo_[] = {
-	{"TAG_UNIVERSAL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, TAG_UNIVERSAL)},
-	{"TAG_APPLICATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, TAG_APPLICATION)},
-	{"TAG_CONTEXT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, TAG_CONTEXT)},
-	{"TAG_PRIVATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, TAG_PRIVATE)},
-	{"tag_Boolean", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Boolean)},
-	{"tag_Integer", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Integer)},
-	{"tag_BitString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_BitString)},
-	{"tag_OctetString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_OctetString)},
-	{"tag_Null", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Null)},
-	{"tag_ObjectId", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_ObjectId)},
-	{"tag_Enumerated", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Enumerated)},
-	{"tag_UTF8String", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_UTF8String)},
-	{"tag_PrintableString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_PrintableString)},
-	{"tag_T61String", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_T61String)},
-	{"tag_IA5String", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_IA5String)},
-	{"tag_UtcTime", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_UtcTime)},
-	{"tag_GeneralizedTime", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_GeneralizedTime)},
-	{"tag_GeneralString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_GeneralString)},
-	{"tag_UniversalString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_UniversalString)},
-	{"tag_BMPString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_BMPString)},
-	{"tag_Sequence", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Sequence)},
-	{"tag_SequenceOf", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_SequenceOf)},
-	{"tag_Set", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Set)},
-	{"tag_SetOf", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_SetOf)},
-	{"tag", "B", nullptr, $PUBLIC, $field(DerValue, tag)},
-	{"buffer", "[B", nullptr, $FINAL, $field(DerValue, buffer)},
-	{"start", "I", nullptr, $PRIVATE | $FINAL, $field(DerValue, start)},
-	{"end", "I", nullptr, $FINAL, $field(DerValue, end)},
-	{"allowBER", "Z", nullptr, $PRIVATE | $FINAL, $field(DerValue, allowBER)},
-	{"data", "Lsun/security/util/DerInputStream;", nullptr, $PUBLIC | $FINAL, $field(DerValue, data$)},
-	{}
-};
-
-$MethodInfo _DerValue_MethodInfo_[] = {
-	{"<init>", "(B[BIIZ)V", nullptr, 0, $method(DerValue, init$, void, int8_t, $bytes*, int32_t, int32_t, bool)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DerValue, init$, void, $String*)},
-	{"<init>", "(BLjava/lang/String;)V", nullptr, $PUBLIC, $method(DerValue, init$, void, int8_t, $String*)},
-	{"<init>", "(B[BZ)V", nullptr, 0, $method(DerValue, init$, void, int8_t, $bytes*, bool)},
-	{"<init>", "(B[B)V", nullptr, $PUBLIC, $method(DerValue, init$, void, int8_t, $bytes*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(DerValue, init$, void, $bytes*), "java.io.IOException"},
-	{"<init>", "([BIIZZ)V", nullptr, 0, $method(DerValue, init$, void, $bytes*, int32_t, int32_t, bool, bool), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;Z)V", nullptr, 0, $method(DerValue, init$, void, $InputStream*, bool), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(DerValue, init$, void, $InputStream*), "java.io.IOException"},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(DerValue, clear, void)},
-	{"createTag", "(BZB)B", nullptr, $PUBLIC | $STATIC, $staticMethod(DerValue, createTag, int8_t, int8_t, bool, int8_t)},
-	{"data", "()Lsun/security/util/DerInputStream;", nullptr, $PUBLIC | $FINAL, $method(DerValue, data, $DerInputStream*)},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DerValue, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DerValue, equals, bool, Object$*)},
-	{"getAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getAsString, $String*), "java.io.IOException"},
-	{"getBMPString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getBMPString, $String*), "java.io.IOException"},
-	{"getBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DerValue, getBigInteger, $BigInteger*), "java.io.IOException"},
-	{"getBigIntegerInternal", "(BZ)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DerValue, getBigIntegerInternal, $BigInteger*, int8_t, bool), "java.io.IOException"},
-	{"getBitString", "()[B", nullptr, $PUBLIC, $virtualMethod(DerValue, getBitString, $bytes*), "java.io.IOException"},
-	{"getBitString", "(Z)[B", nullptr, $PUBLIC, $virtualMethod(DerValue, getBitString, $bytes*, bool), "java.io.IOException"},
-	{"getBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(DerValue, getBoolean, bool), "java.io.IOException"},
-	{"getData", "()Lsun/security/util/DerInputStream;", nullptr, $PUBLIC | $FINAL, $method(DerValue, getData, $DerInputStream*)},
-	{"getDataBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(DerValue, getDataBytes, $bytes*), "java.io.IOException"},
-	{"getEnumerated", "()I", nullptr, $PUBLIC, $virtualMethod(DerValue, getEnumerated, int32_t), "java.io.IOException"},
-	{"getGeneralString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getGeneralString, $String*), "java.io.IOException"},
-	{"getGeneralizedTime", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(DerValue, getGeneralizedTime, $Date*), "java.io.IOException"},
-	{"getIA5String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getIA5String, $String*), "java.io.IOException"},
-	{"getInteger", "()I", nullptr, $PUBLIC, $virtualMethod(DerValue, getInteger, int32_t), "java.io.IOException"},
-	{"getIntegerInternal", "(B)I", nullptr, $PRIVATE, $method(DerValue, getIntegerInternal, int32_t, int8_t), "java.io.IOException"},
-	{"getNull", "()V", nullptr, $PUBLIC, $virtualMethod(DerValue, getNull, void), "java.io.IOException"},
-	{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(DerValue, getOID, $ObjectIdentifier*), "java.io.IOException"},
-	{"getOctetString", "()[B", nullptr, $PUBLIC, $virtualMethod(DerValue, getOctetString, $bytes*), "java.io.IOException"},
-	{"getPositiveBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DerValue, getPositiveBigInteger, $BigInteger*), "java.io.IOException"},
-	{"getPrintableString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getPrintableString, $String*), "java.io.IOException"},
-	{"getT61String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getT61String, $String*), "java.io.IOException"},
-	{"getTag", "()B", nullptr, $PUBLIC | $FINAL, $method(DerValue, getTag, int8_t)},
-	{"getTimeInternal", "(Z)Ljava/util/Date;", nullptr, $PRIVATE, $method(DerValue, getTimeInternal, $Date*, bool), "java.io.IOException"},
-	{"getUTCTime", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(DerValue, getUTCTime, $Date*), "java.io.IOException"},
-	{"getUTF8String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getUTF8String, $String*), "java.io.IOException"},
-	{"getUnalignedBitString", "()Lsun/security/util/BitArray;", nullptr, $PUBLIC, $virtualMethod(DerValue, getUnalignedBitString, $BitArray*), "java.io.IOException"},
-	{"getUnalignedBitString", "(Z)Lsun/security/util/BitArray;", nullptr, $PUBLIC, $virtualMethod(DerValue, getUnalignedBitString, $BitArray*, bool), "java.io.IOException"},
-	{"getUniversalString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getUniversalString, $String*), "java.io.IOException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DerValue, hashCode, int32_t)},
-	{"isApplication", "()Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isApplication, bool)},
-	{"isConstructed", "()Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isConstructed, bool)},
-	{"isConstructed", "(B)Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isConstructed, bool, int8_t)},
-	{"isContextSpecific", "()Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isContextSpecific, bool)},
-	{"isContextSpecific", "(B)Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isContextSpecific, bool, int8_t)},
-	{"isPrintableString", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DerValue, isPrintableString, bool, $String*)},
-	{"isPrintableStringChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DerValue, isPrintableStringChar, bool, char16_t)},
-	{"isPrivate", "()Z", nullptr, 0, $virtualMethod(DerValue, isPrivate, bool)},
-	{"isUniversal", "()Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isUniversal, bool)},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(DerValue, length, int32_t)},
-	{"readStringInternal", "(BLjava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DerValue, readStringInternal, $String*, int8_t, $Charset*), "java.io.IOException"},
-	{"resetTag", "(B)V", nullptr, $PUBLIC, $virtualMethod(DerValue, resetTag, void, int8_t)},
-	{"string2bytes", "(BLjava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(DerValue, string2bytes, $bytes*, int8_t, $String*)},
-	{"subs", "(BI)[Lsun/security/util/DerValue;", nullptr, 0, $virtualMethod(DerValue, subs, $DerValueArray*, int8_t, int32_t), "java.io.IOException"},
-	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(DerValue, toByteArray, $bytes*), "java.io.IOException"},
-	{"toDerInputStream", "()Lsun/security/util/DerInputStream;", nullptr, $PUBLIC, $virtualMethod(DerValue, toDerInputStream, $DerInputStream*), "java.io.IOException"},
-	{"toDigit", "(BLjava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DerValue, toDigit, int32_t, int8_t, $String*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, toString, $String*)},
-	{"withTag", "(B)Lsun/security/util/DerValue;", nullptr, $PUBLIC, $virtualMethod(DerValue, withTag, DerValue*, int8_t)},
-	{"wrap", "(BLsun/security/util/DerOutputStream;)Lsun/security/util/DerValue;", nullptr, $PUBLIC | $STATIC, $staticMethod(DerValue, wrap, DerValue*, int8_t, $DerOutputStream*)},
-	{}
-};
-
-$ClassInfo _DerValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.DerValue",
-	"java.lang.Object",
-	nullptr,
-	_DerValue_FieldInfo_,
-	_DerValue_MethodInfo_
-};
-
-$Object* allocate$DerValue($Class* clazz) {
-	return $of($alloc(DerValue));
-}
-
 bool DerValue::isUniversal() {
-	return (((int32_t)(this->tag & (uint32_t)192)) == 0);
+	return ((this->tag & 0xc0) == 0);
 }
 
 bool DerValue::isApplication() {
-	return (((int32_t)(this->tag & (uint32_t)192)) == 64);
+	return ((this->tag & 0xc0) == 0x40);
 }
 
 bool DerValue::isContextSpecific() {
-	return (((int32_t)(this->tag & (uint32_t)192)) == 128);
+	return ((this->tag & 0xc0) == 0x80);
 }
 
 bool DerValue::isContextSpecific(int8_t cntxtTag) {
 	if (!isContextSpecific()) {
 		return false;
 	}
-	return (((int32_t)(this->tag & (uint32_t)31)) == cntxtTag);
+	return ((this->tag & 0x1f) == cntxtTag);
 }
 
 bool DerValue::isPrivate() {
-	return (((int32_t)(this->tag & (uint32_t)192)) == 192);
+	return ((this->tag & 0xc0) == 0xc0);
 }
 
 bool DerValue::isConstructed() {
-	return (((int32_t)(this->tag & (uint32_t)32)) == 32);
+	return ((this->tag & 0x20) == 0x20);
 }
 
 bool DerValue::isConstructed(int8_t constructedTag) {
 	if (!isConstructed()) {
 		return false;
 	}
-	return (((int32_t)(this->tag & (uint32_t)31)) == constructedTag);
+	return ((this->tag & 0x1f) == constructedTag);
 }
 
 void DerValue::init$(int8_t tag, $bytes* buffer, int32_t start, int32_t end, bool allowBER) {
-	if (((int32_t)(tag & (uint32_t)31)) == 31) {
+	if ((tag & 0x1f) == 0x1f) {
 		$throwNew($IllegalArgumentException, "Tag number over 30 is not supported"_s);
 	}
 	this->tag = tag;
@@ -246,47 +131,32 @@ void DerValue::init$(int8_t stringTag, $String* value) {
 }
 
 $bytes* DerValue::string2bytes(int8_t stringTag, $String* value) {
-	$useLocalCurrentObjectStackCache();
-
-	$var($Charset, var$0, nullptr)
+	$useLocalObjectStack();
+	$var($Charset, var$0, nullptr);
 	switch (stringTag) {
 	case DerValue::tag_PrintableString:
-		{}
 	case DerValue::tag_IA5String:
-		{}
 	case DerValue::tag_GeneralString:
-		{
-			$init($StandardCharsets);
-			$assign(var$0, $StandardCharsets::US_ASCII);
-			break;
-		}
+		$init($StandardCharsets);
+		$assign(var$0, $StandardCharsets::US_ASCII);
+		break;
 	case DerValue::tag_T61String:
-		{
-			$init($StandardCharsets);
-			$assign(var$0, $StandardCharsets::ISO_8859_1);
-			break;
-		}
+		$init($StandardCharsets);
+		$assign(var$0, $StandardCharsets::ISO_8859_1);
+		break;
 	case DerValue::tag_BMPString:
-		{
-			$init($StandardCharsets);
-			$assign(var$0, $StandardCharsets::UTF_16BE);
-			break;
-		}
+		$init($StandardCharsets);
+		$assign(var$0, $StandardCharsets::UTF_16BE);
+		break;
 	case DerValue::tag_UTF8String:
-		{
-			$init($StandardCharsets);
-			$assign(var$0, $StandardCharsets::UTF_8);
-			break;
-		}
+		$init($StandardCharsets);
+		$assign(var$0, $StandardCharsets::UTF_8);
+		break;
 	case DerValue::tag_UniversalString:
-		{
-			$assign(var$0, $Charset::forName("UTF_32BE"_s));
-			break;
-		}
+		$assign(var$0, $Charset::forName("UTF_32BE"_s));
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "Unsupported DER string type"_s);
-		}
+		$throwNew($IllegalArgumentException, "Unsupported DER string type"_s);
 	}
 	$var($Charset, charset, var$0);
 	return $nc(value)->getBytes(charset);
@@ -297,28 +167,27 @@ void DerValue::init$(int8_t tag, $bytes* buffer, bool allowBER) {
 }
 
 void DerValue::init$(int8_t tag, $bytes* buffer) {
-	DerValue::init$(tag, $cast($bytes, $($nc(buffer)->clone())), true);
+	DerValue::init$(tag, $$cast($bytes, $nc(buffer)->clone()), true);
 }
 
 DerValue* DerValue::wrap(int8_t tag, $DerOutputStream* out) {
-	int8_t var$0 = tag;
-	$var($bytes, var$1, $nc(out)->buf());
-	return $new(DerValue, var$0, var$1, 0, out->size(), false);
+	$var($bytes, var$0, $nc(out)->buf());
+	return $new(DerValue, tag, var$0, 0, out->size(), false);
 }
 
 void DerValue::init$($bytes* encoding) {
-	DerValue::init$($cast($bytes, $($nc(encoding)->clone())), 0, encoding->length, true, false);
+	DerValue::init$($$cast($bytes, $nc(encoding)->clone()), 0, $nc(encoding)->length, true, false);
 }
 
 void DerValue::init$($bytes* buf$renamed, int32_t offset, int32_t len, bool allowBER, bool allowMore) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, buf, buf$renamed);
 	if (len < 2) {
 		$throwNew($IOException, "Too short"_s);
 	}
 	int32_t pos = offset;
 	this->tag = $nc(buf)->get(pos++);
-	if (((int32_t)(this->tag & (uint32_t)31)) == 31) {
+	if ((this->tag & 0x1f) == 0x1f) {
 		$throwNew($IOException, $$str({"Tag number over 30 at "_s, $$str(offset), " is not supported"_s}));
 	}
 	int32_t lenByte = buf->get(pos++);
@@ -342,7 +211,7 @@ void DerValue::init$($bytes* buf$renamed, int32_t offset, int32_t len, bool allo
 			$throwNew($IOException, "Indefinite len conversion failed"_s);
 		}
 	}
-	if (((int32_t)(lenByte & (uint32_t)128)) == 0) {
+	if ((lenByte & 0x80) == 0) {
 		length = lenByte;
 	} else {
 		lenByte &= (uint32_t)127;
@@ -352,14 +221,14 @@ void DerValue::init$($bytes* buf$renamed, int32_t offset, int32_t len, bool allo
 		if (len < 2 + lenByte) {
 			$throwNew($IOException, "Not enough length bytes"_s);
 		}
-		length = (int32_t)(255 & (uint32_t)(int32_t)buf->get(pos++));
+		length = 0xff & buf->get(pos++);
 		--lenByte;
 		if (length == 0 && !allowBER) {
 			$throwNew($IOException, "Redundant length bytes found"_s);
 		}
 		while (lenByte-- > 0) {
 			length <<= 8;
-			length += (int32_t)(255 & (uint32_t)(int32_t)buf->get(pos++));
+			length += 0xff & buf->get(pos++);
 		}
 		if (length < 0) {
 			$throwNew($IOException, "Invalid length bytes"_s);
@@ -382,7 +251,7 @@ void DerValue::init$($bytes* buf$renamed, int32_t offset, int32_t len, bool allo
 
 void DerValue::init$($InputStream* in, bool allowBER) {
 	this->tag = (int8_t)$nc(in)->read();
-	if (((int32_t)(this->tag & (uint32_t)31)) == 31) {
+	if ((this->tag & 0x1f) == 0x1f) {
 		$throwNew($IOException, "Tag number over 30 is not supported"_s);
 	}
 	int32_t length = $DerInputStream::getLength(in);
@@ -415,7 +284,7 @@ void DerValue::init$($InputStream* in) {
 }
 
 void DerValue::encode($DerOutputStream* out) {
-	$nc(out)->write((int32_t)this->tag);
+	$nc(out)->write(this->tag);
 	out->putLength(this->end - this->start);
 	out->write(this->buffer, this->start, this->end - this->start);
 	$nc(this->data$)->pos = $nc(this->data$)->end;
@@ -434,7 +303,7 @@ int8_t DerValue::getTag() {
 }
 
 bool DerValue::getBoolean() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tag != DerValue::tag_Boolean) {
 		$throwNew($IOException, $$str({"DerValue.getBoolean, not a BOOLEAN "_s, $$str(this->tag)}));
 	}
@@ -446,7 +315,7 @@ bool DerValue::getBoolean() {
 }
 
 $ObjectIdentifier* DerValue::getOID() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tag != DerValue::tag_ObjectId) {
 		$throwNew($IOException, $$str({"DerValue.getOID, not an OID "_s, $$str(this->tag)}));
 	}
@@ -455,7 +324,7 @@ $ObjectIdentifier* DerValue::getOID() {
 }
 
 $bytes* DerValue::getOctetString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tag != DerValue::tag_OctetString && !isConstructed(DerValue::tag_OctetString)) {
 		$throwNew($IOException, $$str({"DerValue.getOctetString, not an Octet String: "_s, $$str(this->tag)}));
 	}
@@ -469,7 +338,7 @@ $bytes* DerValue::getOctetString() {
 		$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
 		$var($DerInputStream, dis, data());
 		while ($nc(dis)->available() > 0) {
-			bout->write($($nc($(dis->getDerValue()))->getOctetString()));
+			bout->write($($$nc(dis->getDerValue())->getOctetString()));
 		}
 		return bout->toByteArray();
 	}
@@ -480,15 +349,15 @@ int32_t DerValue::getInteger() {
 }
 
 int32_t DerValue::getIntegerInternal(int8_t expectedTag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, result, getBigIntegerInternal(expectedTag, false));
-	if ($nc(result)->compareTo($($BigInteger::valueOf((int64_t)$Integer::MIN_VALUE))) < 0) {
+	if ($nc(result)->compareTo($($BigInteger::valueOf($Integer::MIN_VALUE))) < 0) {
 		$throwNew($IOException, "Integer below minimum valid value"_s);
 	}
-	if ($nc(result)->compareTo($($BigInteger::valueOf((int64_t)$Integer::MAX_VALUE))) > 0) {
+	if (result->compareTo($($BigInteger::valueOf($Integer::MAX_VALUE))) > 0) {
 		$throwNew($IOException, "Integer exceeds maximum valid value"_s);
 	}
-	return $nc(result)->intValue();
+	return result->intValue();
 }
 
 $BigInteger* DerValue::getBigInteger() {
@@ -500,7 +369,7 @@ $BigInteger* DerValue::getPositiveBigInteger() {
 }
 
 $BigInteger* DerValue::getBigIntegerInternal(int8_t expectedTag, bool makePositive) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tag != expectedTag) {
 		$throwNew($IOException, $$str({"DerValue.getBigIntegerInternal, not expected "_s, $$str(this->tag)}));
 	}
@@ -508,7 +377,7 @@ $BigInteger* DerValue::getBigIntegerInternal(int8_t expectedTag, bool makePositi
 		$throwNew($IOException, "Invalid encoding: zero length Int value"_s);
 	}
 	$nc(this->data$)->pos = $nc(this->data$)->end;
-	if (!this->allowBER && (this->end - this->start >= 2 && ($nc(this->buffer)->get(this->start) == 0) && ($nc(this->buffer)->get(this->start + 1) >= 0))) {
+	if (!this->allowBER && (this->end - this->start >= 2 && ($nc(this->buffer)->get(this->start) == 0) && (this->buffer->get(this->start + 1) >= 0))) {
 		$throwNew($IOException, "Invalid encoding: redundant leading 0s"_s);
 	}
 	return makePositive ? $new($BigInteger, 1, this->buffer, this->start, this->end - this->start) : $new($BigInteger, this->buffer, this->start, this->end - this->start);
@@ -527,55 +396,38 @@ $BitArray* DerValue::getUnalignedBitString() {
 }
 
 $String* DerValue::getAsString() {
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch (this->tag) {
 	case DerValue::tag_UTF8String:
-		{
-			$assign(var$0, getUTF8String());
-			break;
-		}
+		$assign(var$0, getUTF8String());
+		break;
 	case DerValue::tag_PrintableString:
-		{
-			$assign(var$0, getPrintableString());
-			break;
-		}
+		$assign(var$0, getPrintableString());
+		break;
 	case DerValue::tag_T61String:
-		{
-			$assign(var$0, getT61String());
-			break;
-		}
+		$assign(var$0, getT61String());
+		break;
 	case DerValue::tag_IA5String:
-		{
-			$assign(var$0, getIA5String());
-			break;
-		}
+		$assign(var$0, getIA5String());
+		break;
 	case DerValue::tag_UniversalString:
-		{
-			$assign(var$0, getUniversalString());
-			break;
-		}
+		$assign(var$0, getUniversalString());
+		break;
 	case DerValue::tag_BMPString:
-		{
-			$assign(var$0, getBMPString());
-			break;
-		}
+		$assign(var$0, getBMPString());
+		break;
 	case DerValue::tag_GeneralString:
-		{
-			$assign(var$0, getGeneralString());
-			break;
-		}
+		$assign(var$0, getGeneralString());
+		break;
 	default:
-		{
-			$assign(var$0, nullptr);
-			break;
-		}
+		$assign(var$0, nullptr);
+		break;
 	}
 	return var$0;
 }
 
 $bytes* DerValue::getBitString(bool tagImplicit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!tagImplicit) {
 		if (this->tag != DerValue::tag_BitString) {
 			$throwNew($IOException, $$str({"DerValue.getBitString, not a bit string "_s, $$str(this->tag)}));
@@ -597,7 +449,7 @@ $bytes* DerValue::getBitString(bool tagImplicit) {
 }
 
 $BitArray* DerValue::getUnalignedBitString(bool tagImplicit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!tagImplicit) {
 		if (this->tag != DerValue::tag_BitString) {
 			$throwNew($IOException, $$str({"DerValue.getBitString, not a bit string "_s, $$str(this->tag)}));
@@ -624,7 +476,7 @@ $bytes* DerValue::getDataBytes() {
 }
 
 $String* DerValue::readStringInternal(int8_t expectedTag, $Charset* cs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tag != expectedTag) {
 		$throwNew($IOException, $$str({"Incorrect string type "_s, $$str(this->tag), " is not "_s, $$str(expectedTag)}));
 	}
@@ -667,7 +519,7 @@ $String* DerValue::getUniversalString() {
 }
 
 void DerValue::getNull() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tag != DerValue::tag_Null) {
 		$throwNew($IOException, $$str({"DerValue.getNull, not NULL: "_s, $$str(this->tag)}));
 	}
@@ -677,7 +529,7 @@ void DerValue::getNull() {
 }
 
 $Date* DerValue::getTimeInternal(bool generalized) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t year = 0;
 	int32_t month = 0;
 	int32_t day = 0;
@@ -691,14 +543,14 @@ $Date* DerValue::getTimeInternal(bool generalized) {
 	if (generalized) {
 		$assign(type, "Generalized"_s);
 		year = 1000 * toDigit($nc(this->buffer)->get(pos++), type);
-		year += 100 * toDigit($nc(this->buffer)->get(pos++), type);
-		year += 10 * toDigit($nc(this->buffer)->get(pos++), type);
-		year += toDigit($nc(this->buffer)->get(pos++), type);
+		year += 100 * toDigit(this->buffer->get(pos++), type);
+		year += 10 * toDigit(this->buffer->get(pos++), type);
+		year += toDigit(this->buffer->get(pos++), type);
 		len -= 2;
 	} else {
 		$assign(type, "UTC"_s);
 		year = 10 * toDigit($nc(this->buffer)->get(pos++), type);
-		year += toDigit($nc(this->buffer)->get(pos++), type);
+		year += toDigit(this->buffer->get(pos++), type);
 		if (year < 50) {
 			year += 2000;
 		} else {
@@ -706,28 +558,28 @@ $Date* DerValue::getTimeInternal(bool generalized) {
 		}
 	}
 	month = 10 * toDigit($nc(this->buffer)->get(pos++), type);
-	month += toDigit($nc(this->buffer)->get(pos++), type);
-	day = 10 * toDigit($nc(this->buffer)->get(pos++), type);
-	day += toDigit($nc(this->buffer)->get(pos++), type);
-	hour = 10 * toDigit($nc(this->buffer)->get(pos++), type);
-	hour += toDigit($nc(this->buffer)->get(pos++), type);
-	minute = 10 * toDigit($nc(this->buffer)->get(pos++), type);
-	minute += toDigit($nc(this->buffer)->get(pos++), type);
+	month += toDigit(this->buffer->get(pos++), type);
+	day = 10 * toDigit(this->buffer->get(pos++), type);
+	day += toDigit(this->buffer->get(pos++), type);
+	hour = 10 * toDigit(this->buffer->get(pos++), type);
+	hour += toDigit(this->buffer->get(pos++), type);
+	minute = 10 * toDigit(this->buffer->get(pos++), type);
+	minute += toDigit(this->buffer->get(pos++), type);
 	len -= 10;
 	millis = 0;
 	if (len > 2) {
-		second = 10 * toDigit($nc(this->buffer)->get(pos++), type);
-		second += toDigit($nc(this->buffer)->get(pos++), type);
+		second = 10 * toDigit(this->buffer->get(pos++), type);
+		second += toDigit(this->buffer->get(pos++), type);
 		len -= 2;
-		if (generalized && ($nc(this->buffer)->get(pos) == u'.' || $nc(this->buffer)->get(pos) == u',')) {
+		if (generalized && (this->buffer->get(pos) == u'.' || this->buffer->get(pos) == u',')) {
 			--len;
 			if (len == 0) {
 				$throwNew($IOException, $$str({"Parse "_s, type, " time, empty fractional part"_s}));
 			}
 			++pos;
 			int32_t precision = 0;
-			while ($nc(this->buffer)->get(pos) != u'Z' && $nc(this->buffer)->get(pos) != u'+' && $nc(this->buffer)->get(pos) != u'-') {
-				int32_t thisDigit = toDigit($nc(this->buffer)->get(pos), type);
+			while (this->buffer->get(pos) != u'Z' && this->buffer->get(pos) != u'+' && this->buffer->get(pos) != u'-') {
+				int32_t thisDigit = toDigit(this->buffer->get(pos), type);
 				++precision;
 				--len;
 				if (len == 0) {
@@ -736,20 +588,14 @@ $Date* DerValue::getTimeInternal(bool generalized) {
 				++pos;
 				switch (precision) {
 				case 1:
-					{
-						millis += 100 * thisDigit;
-						break;
-					}
+					millis += 100 * thisDigit;
+					break;
 				case 2:
-					{
-						millis += 10 * thisDigit;
-						break;
-					}
+					millis += 10 * thisDigit;
+					break;
 				case 3:
-					{
-						millis += thisDigit;
-						break;
-					}
+					millis += thisDigit;
+					break;
 				}
 			}
 			if (precision == 0) {
@@ -772,48 +618,40 @@ $Date* DerValue::getTimeInternal(bool generalized) {
 	}
 	int32_t hr = 0;
 	int32_t min = 0;
-	switch ($nc(this->buffer)->get(pos++)) {
+	switch (this->buffer->get(pos++)) {
 	case u'+':
-		{
-			if (len != 5) {
-				$throwNew($IOException, $$str({"Parse "_s, type, " time, invalid offset"_s}));
-			}
-			hr = 10 * toDigit($nc(this->buffer)->get(pos++), type);
-			hr += toDigit($nc(this->buffer)->get(pos++), type);
-			min = 10 * toDigit($nc(this->buffer)->get(pos++), type);
-			min += toDigit($nc(this->buffer)->get(pos++), type);
-			if (hr >= 24 || min >= 60) {
-				$throwNew($IOException, $$str({"Parse "_s, type, " time, +hhmm"_s}));
-			}
-			time -= ((hr * 60) + min) * 60 * 1000;
-			break;
+		if (len != 5) {
+			$throwNew($IOException, $$str({"Parse "_s, type, " time, invalid offset"_s}));
 		}
+		hr = 10 * toDigit(this->buffer->get(pos++), type);
+		hr += toDigit(this->buffer->get(pos++), type);
+		min = 10 * toDigit(this->buffer->get(pos++), type);
+		min += toDigit(this->buffer->get(pos++), type);
+		if (hr >= 24 || min >= 60) {
+			$throwNew($IOException, $$str({"Parse "_s, type, " time, +hhmm"_s}));
+		}
+		time -= ((hr * 60) + min) * 60 * 1000;
+		break;
 	case u'-':
-		{
-			if (len != 5) {
-				$throwNew($IOException, $$str({"Parse "_s, type, " time, invalid offset"_s}));
-			}
-			hr = 10 * toDigit($nc(this->buffer)->get(pos++), type);
-			hr += toDigit($nc(this->buffer)->get(pos++), type);
-			min = 10 * toDigit($nc(this->buffer)->get(pos++), type);
-			min += toDigit($nc(this->buffer)->get(pos++), type);
-			if (hr >= 24 || min >= 60) {
-				$throwNew($IOException, $$str({"Parse "_s, type, " time, -hhmm"_s}));
-			}
-			time += ((hr * 60) + min) * 60 * 1000;
-			break;
+		if (len != 5) {
+			$throwNew($IOException, $$str({"Parse "_s, type, " time, invalid offset"_s}));
 		}
+		hr = 10 * toDigit(this->buffer->get(pos++), type);
+		hr += toDigit(this->buffer->get(pos++), type);
+		min = 10 * toDigit(this->buffer->get(pos++), type);
+		min += toDigit(this->buffer->get(pos++), type);
+		if (hr >= 24 || min >= 60) {
+			$throwNew($IOException, $$str({"Parse "_s, type, " time, -hhmm"_s}));
+		}
+		time += ((hr * 60) + min) * 60 * 1000;
+		break;
 	case u'Z':
-		{
-			if (len != 1) {
-				$throwNew($IOException, $$str({"Parse "_s, type, " time, invalid format"_s}));
-			}
-			break;
+		if (len != 1) {
+			$throwNew($IOException, $$str({"Parse "_s, type, " time, invalid format"_s}));
 		}
+		break;
 	default:
-		{
-			$throwNew($IOException, $$str({"Parse "_s, type, " time, garbage offset"_s}));
-		}
+		$throwNew($IOException, $$str({"Parse "_s, type, " time, garbage offset"_s}));
 	}
 	return $new($Date, time);
 }
@@ -826,7 +664,7 @@ int32_t DerValue::toDigit(int8_t b, $String* type) {
 }
 
 $Date* DerValue::getUTCTime() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tag != DerValue::tag_UtcTime) {
 		$throwNew($IOException, $$str({"DerValue.getUTCTime, not a UtcTime: "_s, $$str(this->tag)}));
 	}
@@ -838,7 +676,7 @@ $Date* DerValue::getUTCTime() {
 }
 
 $Date* DerValue::getGeneralizedTime() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tag != DerValue::tag_GeneralizedTime) {
 		$throwNew($IOException, $$str({"DerValue.getGeneralizedTime, not a GeneralizedTime: "_s, $$str(this->tag)}));
 	}
@@ -860,27 +698,27 @@ bool DerValue::equals(Object$* o) {
 	if (this->tag != $nc(other)->tag) {
 		return false;
 	}
-	if (this->buffer == $nc(other)->buffer && this->start == other->start && this->end == other->end) {
+	if (this->buffer == other->buffer && this->start == other->start && this->end == other->end) {
 		return true;
 	}
-	return $Arrays::equals(this->buffer, this->start, this->end, $nc(other)->buffer, other->start, other->end);
+	return $Arrays::equals(this->buffer, this->start, this->end, other->buffer, other->start, other->end);
 }
 
 $String* DerValue::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("DerValue(%02x, %s, %d, %d)"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf((int32_t)(255 & (uint32_t)(int32_t)this->tag)))),
-		$of(this->buffer),
-		$($of($Integer::valueOf(this->start))),
-		$($of($Integer::valueOf(this->end)))
+		$($Integer::valueOf(0xff & this->tag)),
+		this->buffer,
+		$($Integer::valueOf(this->start)),
+		$($Integer::valueOf(this->end))
 	}));
 }
 
 $bytes* DerValue::toByteArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->data$)->pos = $nc(this->data$)->start;
 	$var($DerOutputStream, out, $new($DerOutputStream));
-	out->write((int32_t)this->tag);
+	out->write(this->tag);
 	out->putLength(this->end - this->start);
 	int32_t headLen = out->size();
 	$var($bytes, result, $Arrays::copyOf($(out->buf()), this->end - this->start + headLen));
@@ -889,7 +727,7 @@ $bytes* DerValue::toByteArray() {
 }
 
 $DerInputStream* DerValue::toDerInputStream() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tag == DerValue::tag_Sequence || this->tag == DerValue::tag_Set) {
 		return this->data$;
 	}
@@ -906,35 +744,20 @@ bool DerValue::isPrintableStringChar(char16_t ch) {
 	} else {
 		switch (ch) {
 		case u' ':
-			{}
 		case u'\'':
-			{}
 		case u'(':
-			{}
 		case u')':
-			{}
 		case u'+':
-			{}
 		case u',':
-			{}
 		case u'-':
-			{}
 		case u'.':
-			{}
 		case u'/':
-			{}
 		case u':':
-			{}
 		case u'=':
-			{}
 		case u'?':
-			{
-				return true;
-			}
+			return true;
 		default:
-			{
-				return false;
-			}
+			return false;
 		}
 	}
 }
@@ -967,7 +790,7 @@ int32_t DerValue::hashCode() {
 }
 
 $DerValueArray* DerValue::subs(int8_t expectedTag, int32_t startLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (expectedTag != 0 && expectedTag != this->tag) {
 		$throwNew($IOException, "Not the correct tag"_s);
 	}
@@ -976,7 +799,7 @@ $DerValueArray* DerValue::subs(int8_t expectedTag, int32_t startLen) {
 	while ($nc(dis)->available() > 0) {
 		result->add($(dis->getDerValue()));
 	}
-	return $fcast($DerValueArray, result->toArray($$new($DerValueArray, 0)));
+	return $cast($DerValueArray, result->toArray($$new($DerValueArray, 0)));
 }
 
 void DerValue::clear() {
@@ -987,7 +810,116 @@ DerValue::DerValue() {
 }
 
 $Class* DerValue::load$($String* name, bool initialize) {
-	$loadClass(DerValue, name, initialize, &_DerValue_ClassInfo_, allocate$DerValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"TAG_UNIVERSAL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, TAG_UNIVERSAL)},
+		{"TAG_APPLICATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, TAG_APPLICATION)},
+		{"TAG_CONTEXT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, TAG_CONTEXT)},
+		{"TAG_PRIVATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, TAG_PRIVATE)},
+		{"tag_Boolean", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Boolean)},
+		{"tag_Integer", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Integer)},
+		{"tag_BitString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_BitString)},
+		{"tag_OctetString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_OctetString)},
+		{"tag_Null", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Null)},
+		{"tag_ObjectId", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_ObjectId)},
+		{"tag_Enumerated", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Enumerated)},
+		{"tag_UTF8String", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_UTF8String)},
+		{"tag_PrintableString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_PrintableString)},
+		{"tag_T61String", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_T61String)},
+		{"tag_IA5String", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_IA5String)},
+		{"tag_UtcTime", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_UtcTime)},
+		{"tag_GeneralizedTime", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_GeneralizedTime)},
+		{"tag_GeneralString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_GeneralString)},
+		{"tag_UniversalString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_UniversalString)},
+		{"tag_BMPString", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_BMPString)},
+		{"tag_Sequence", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Sequence)},
+		{"tag_SequenceOf", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_SequenceOf)},
+		{"tag_Set", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_Set)},
+		{"tag_SetOf", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DerValue, tag_SetOf)},
+		{"tag", "B", nullptr, $PUBLIC, $field(DerValue, tag)},
+		{"buffer", "[B", nullptr, $FINAL, $field(DerValue, buffer)},
+		{"start", "I", nullptr, $PRIVATE | $FINAL, $field(DerValue, start)},
+		{"end", "I", nullptr, $FINAL, $field(DerValue, end)},
+		{"allowBER", "Z", nullptr, $PRIVATE | $FINAL, $field(DerValue, allowBER)},
+		{"data", "Lsun/security/util/DerInputStream;", nullptr, $PUBLIC | $FINAL, $field(DerValue, data$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(B[BIIZ)V", nullptr, 0, $method(DerValue, init$, void, int8_t, $bytes*, int32_t, int32_t, bool)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DerValue, init$, void, $String*)},
+		{"<init>", "(BLjava/lang/String;)V", nullptr, $PUBLIC, $method(DerValue, init$, void, int8_t, $String*)},
+		{"<init>", "(B[BZ)V", nullptr, 0, $method(DerValue, init$, void, int8_t, $bytes*, bool)},
+		{"<init>", "(B[B)V", nullptr, $PUBLIC, $method(DerValue, init$, void, int8_t, $bytes*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(DerValue, init$, void, $bytes*), "java.io.IOException"},
+		{"<init>", "([BIIZZ)V", nullptr, 0, $method(DerValue, init$, void, $bytes*, int32_t, int32_t, bool, bool), "java.io.IOException"},
+		{"<init>", "(Ljava/io/InputStream;Z)V", nullptr, 0, $method(DerValue, init$, void, $InputStream*, bool), "java.io.IOException"},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(DerValue, init$, void, $InputStream*), "java.io.IOException"},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(DerValue, clear, void)},
+		{"createTag", "(BZB)B", nullptr, $PUBLIC | $STATIC, $staticMethod(DerValue, createTag, int8_t, int8_t, bool, int8_t)},
+		{"data", "()Lsun/security/util/DerInputStream;", nullptr, $PUBLIC | $FINAL, $method(DerValue, data, $DerInputStream*)},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DerValue, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DerValue, equals, bool, Object$*)},
+		{"getAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getAsString, $String*), "java.io.IOException"},
+		{"getBMPString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getBMPString, $String*), "java.io.IOException"},
+		{"getBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DerValue, getBigInteger, $BigInteger*), "java.io.IOException"},
+		{"getBigIntegerInternal", "(BZ)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DerValue, getBigIntegerInternal, $BigInteger*, int8_t, bool), "java.io.IOException"},
+		{"getBitString", "()[B", nullptr, $PUBLIC, $virtualMethod(DerValue, getBitString, $bytes*), "java.io.IOException"},
+		{"getBitString", "(Z)[B", nullptr, $PUBLIC, $virtualMethod(DerValue, getBitString, $bytes*, bool), "java.io.IOException"},
+		{"getBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(DerValue, getBoolean, bool), "java.io.IOException"},
+		{"getData", "()Lsun/security/util/DerInputStream;", nullptr, $PUBLIC | $FINAL, $method(DerValue, getData, $DerInputStream*)},
+		{"getDataBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(DerValue, getDataBytes, $bytes*), "java.io.IOException"},
+		{"getEnumerated", "()I", nullptr, $PUBLIC, $virtualMethod(DerValue, getEnumerated, int32_t), "java.io.IOException"},
+		{"getGeneralString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getGeneralString, $String*), "java.io.IOException"},
+		{"getGeneralizedTime", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(DerValue, getGeneralizedTime, $Date*), "java.io.IOException"},
+		{"getIA5String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getIA5String, $String*), "java.io.IOException"},
+		{"getInteger", "()I", nullptr, $PUBLIC, $virtualMethod(DerValue, getInteger, int32_t), "java.io.IOException"},
+		{"getIntegerInternal", "(B)I", nullptr, $PRIVATE, $method(DerValue, getIntegerInternal, int32_t, int8_t), "java.io.IOException"},
+		{"getNull", "()V", nullptr, $PUBLIC, $virtualMethod(DerValue, getNull, void), "java.io.IOException"},
+		{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(DerValue, getOID, $ObjectIdentifier*), "java.io.IOException"},
+		{"getOctetString", "()[B", nullptr, $PUBLIC, $virtualMethod(DerValue, getOctetString, $bytes*), "java.io.IOException"},
+		{"getPositiveBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DerValue, getPositiveBigInteger, $BigInteger*), "java.io.IOException"},
+		{"getPrintableString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getPrintableString, $String*), "java.io.IOException"},
+		{"getT61String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getT61String, $String*), "java.io.IOException"},
+		{"getTag", "()B", nullptr, $PUBLIC | $FINAL, $method(DerValue, getTag, int8_t)},
+		{"getTimeInternal", "(Z)Ljava/util/Date;", nullptr, $PRIVATE, $method(DerValue, getTimeInternal, $Date*, bool), "java.io.IOException"},
+		{"getUTCTime", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(DerValue, getUTCTime, $Date*), "java.io.IOException"},
+		{"getUTF8String", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getUTF8String, $String*), "java.io.IOException"},
+		{"getUnalignedBitString", "()Lsun/security/util/BitArray;", nullptr, $PUBLIC, $virtualMethod(DerValue, getUnalignedBitString, $BitArray*), "java.io.IOException"},
+		{"getUnalignedBitString", "(Z)Lsun/security/util/BitArray;", nullptr, $PUBLIC, $virtualMethod(DerValue, getUnalignedBitString, $BitArray*, bool), "java.io.IOException"},
+		{"getUniversalString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, getUniversalString, $String*), "java.io.IOException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DerValue, hashCode, int32_t)},
+		{"isApplication", "()Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isApplication, bool)},
+		{"isConstructed", "()Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isConstructed, bool)},
+		{"isConstructed", "(B)Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isConstructed, bool, int8_t)},
+		{"isContextSpecific", "()Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isContextSpecific, bool)},
+		{"isContextSpecific", "(B)Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isContextSpecific, bool, int8_t)},
+		{"isPrintableString", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DerValue, isPrintableString, bool, $String*)},
+		{"isPrintableStringChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DerValue, isPrintableStringChar, bool, char16_t)},
+		{"isPrivate", "()Z", nullptr, 0, $virtualMethod(DerValue, isPrivate, bool)},
+		{"isUniversal", "()Z", nullptr, $PUBLIC, $virtualMethod(DerValue, isUniversal, bool)},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(DerValue, length, int32_t)},
+		{"readStringInternal", "(BLjava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DerValue, readStringInternal, $String*, int8_t, $Charset*), "java.io.IOException"},
+		{"resetTag", "(B)V", nullptr, $PUBLIC, $virtualMethod(DerValue, resetTag, void, int8_t)},
+		{"string2bytes", "(BLjava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(DerValue, string2bytes, $bytes*, int8_t, $String*)},
+		{"subs", "(BI)[Lsun/security/util/DerValue;", nullptr, 0, $virtualMethod(DerValue, subs, $DerValueArray*, int8_t, int32_t), "java.io.IOException"},
+		{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(DerValue, toByteArray, $bytes*), "java.io.IOException"},
+		{"toDerInputStream", "()Lsun/security/util/DerInputStream;", nullptr, $PUBLIC, $virtualMethod(DerValue, toDerInputStream, $DerInputStream*), "java.io.IOException"},
+		{"toDigit", "(BLjava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DerValue, toDigit, int32_t, int8_t, $String*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DerValue, toString, $String*)},
+		{"withTag", "(B)Lsun/security/util/DerValue;", nullptr, $PUBLIC, $virtualMethod(DerValue, withTag, DerValue*, int8_t)},
+		{"wrap", "(BLsun/security/util/DerOutputStream;)Lsun/security/util/DerValue;", nullptr, $PUBLIC | $STATIC, $staticMethod(DerValue, wrap, DerValue*, int8_t, $DerOutputStream*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.DerValue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DerValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DerValue);
+	});
 	return class$;
 }
 

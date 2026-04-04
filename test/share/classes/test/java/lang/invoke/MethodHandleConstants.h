@@ -32,6 +32,7 @@ class $export MethodHandleConstants : public ::java::lang::Object {
 	$class(MethodHandleConstants, 0, ::java::lang::Object)
 public:
 	MethodHandleConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandle* MH_Class_forName_S();
 	static ::java::lang::invoke::MethodHandle* MH_Class_forName_SbCL();

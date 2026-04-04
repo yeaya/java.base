@@ -1,5 +1,4 @@
 #include <LegacyChainedExceptionSerialization$SubClass.h>
-
 #include <LegacyChainedExceptionSerialization.h>
 #include <java/lang/ExceptionInInitializerError.h>
 #include <jcpp.h>
@@ -8,37 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ExceptionInInitializerError = ::java::lang::ExceptionInInitializerError;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _LegacyChainedExceptionSerialization$SubClass_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(LegacyChainedExceptionSerialization$SubClass, init$, void, $Throwable*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(LegacyChainedExceptionSerialization$SubClass, getCause, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _LegacyChainedExceptionSerialization$SubClass_InnerClassesInfo_[] = {
-	{"LegacyChainedExceptionSerialization$SubClass", "LegacyChainedExceptionSerialization", "SubClass", $STATIC},
-	{}
-};
-
-$ClassInfo _LegacyChainedExceptionSerialization$SubClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"LegacyChainedExceptionSerialization$SubClass",
-	"java.lang.ExceptionInInitializerError",
-	nullptr,
-	nullptr,
-	_LegacyChainedExceptionSerialization$SubClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LegacyChainedExceptionSerialization$SubClass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LegacyChainedExceptionSerialization"
-};
-
-$Object* allocate$LegacyChainedExceptionSerialization$SubClass($Class* clazz) {
-	return $of($alloc(LegacyChainedExceptionSerialization$SubClass));
-}
 
 void LegacyChainedExceptionSerialization$SubClass::init$($Throwable* t) {
 	$ExceptionInInitializerError::init$(t);
@@ -59,7 +27,33 @@ void LegacyChainedExceptionSerialization$SubClass::throw$() {
 }
 
 $Class* LegacyChainedExceptionSerialization$SubClass::load$($String* name, bool initialize) {
-	$loadClass(LegacyChainedExceptionSerialization$SubClass, name, initialize, &_LegacyChainedExceptionSerialization$SubClass_ClassInfo_, allocate$LegacyChainedExceptionSerialization$SubClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(LegacyChainedExceptionSerialization$SubClass, init$, void, $Throwable*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(LegacyChainedExceptionSerialization$SubClass, getCause, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LegacyChainedExceptionSerialization$SubClass", "LegacyChainedExceptionSerialization", "SubClass", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LegacyChainedExceptionSerialization$SubClass",
+		"java.lang.ExceptionInInitializerError",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LegacyChainedExceptionSerialization"
+	};
+	$loadClass(LegacyChainedExceptionSerialization$SubClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LegacyChainedExceptionSerialization$SubClass);
+	});
 	return class$;
 }
 

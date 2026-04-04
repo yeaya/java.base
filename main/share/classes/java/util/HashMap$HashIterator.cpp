@@ -1,5 +1,4 @@
 #include <java/util/HashMap$HashIterator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/HashMap$Node.h>
@@ -21,53 +20,11 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace util {
 
-$FieldInfo _HashMap$HashIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/HashMap;", nullptr, $FINAL | $SYNTHETIC, $field(HashMap$HashIterator, this$0)},
-	{"next", "Ljava/util/HashMap$Node;", "Ljava/util/HashMap$Node<TK;TV;>;", 0, $field(HashMap$HashIterator, next)},
-	{"current", "Ljava/util/HashMap$Node;", "Ljava/util/HashMap$Node<TK;TV;>;", 0, $field(HashMap$HashIterator, current)},
-	{"expectedModCount", "I", nullptr, 0, $field(HashMap$HashIterator, expectedModCount)},
-	{"index", "I", nullptr, 0, $field(HashMap$HashIterator, index)},
-	{}
-};
-
-$MethodInfo _HashMap$HashIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(HashMap$HashIterator, init$, void, $HashMap*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $method(HashMap$HashIterator, hasNext, bool)},
-	{"nextNode", "()Ljava/util/HashMap$Node;", "()Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(HashMap$HashIterator, nextNode, $HashMap$Node*)},
-	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $method(HashMap$HashIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _HashMap$HashIterator_InnerClassesInfo_[] = {
-	{"java.util.HashMap$HashIterator", "java.util.HashMap", "HashIterator", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HashMap$HashIterator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.HashMap$HashIterator",
-	"java.lang.Object",
-	nullptr,
-	_HashMap$HashIterator_FieldInfo_,
-	_HashMap$HashIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HashMap$HashIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.HashMap"
-};
-
-$Object* allocate$HashMap$HashIterator($Class* clazz) {
-	return $of($alloc(HashMap$HashIterator));
-}
-
 void HashMap$HashIterator::init$($HashMap* this$0) {
 	$set(this, this$0, this$0);
 	this->expectedModCount = this$0->modCount;
 	$var($HashMap$NodeArray, t, this$0->table);
-	$set(this, current, ($set(this, next, nullptr)));
+	$set(this, current, $set(this, next, nullptr));
 	this->index = 0;
 	if (t != nullptr && this$0->size$ > 0) {
 		bool var$0 = false;
@@ -82,7 +39,7 @@ bool HashMap$HashIterator::hasNext() {
 }
 
 $HashMap$Node* HashMap$HashIterator::nextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$NodeArray, t, nullptr);
 	$var($HashMap$Node, e, this->next);
 	if (this->this$0->modCount != this->expectedModCount) {
@@ -109,7 +66,7 @@ void HashMap$HashIterator::remove() {
 		$throwNew($ConcurrentModificationException);
 	}
 	$set(this, current, nullptr);
-	this->this$0->removeNode($nc(p)->hash, p->key, nullptr, false, false);
+	this->this$0->removeNode($nc(p)->hash, $nc(p)->key, nullptr, false, false);
 	this->expectedModCount = this->this$0->modCount;
 }
 
@@ -117,7 +74,43 @@ HashMap$HashIterator::HashMap$HashIterator() {
 }
 
 $Class* HashMap$HashIterator::load$($String* name, bool initialize) {
-	$loadClass(HashMap$HashIterator, name, initialize, &_HashMap$HashIterator_ClassInfo_, allocate$HashMap$HashIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/HashMap;", nullptr, $FINAL | $SYNTHETIC, $field(HashMap$HashIterator, this$0)},
+		{"next", "Ljava/util/HashMap$Node;", "Ljava/util/HashMap$Node<TK;TV;>;", 0, $field(HashMap$HashIterator, next)},
+		{"current", "Ljava/util/HashMap$Node;", "Ljava/util/HashMap$Node<TK;TV;>;", 0, $field(HashMap$HashIterator, current)},
+		{"expectedModCount", "I", nullptr, 0, $field(HashMap$HashIterator, expectedModCount)},
+		{"index", "I", nullptr, 0, $field(HashMap$HashIterator, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(HashMap$HashIterator, init$, void, $HashMap*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $method(HashMap$HashIterator, hasNext, bool)},
+		{"nextNode", "()Ljava/util/HashMap$Node;", "()Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(HashMap$HashIterator, nextNode, $HashMap$Node*)},
+		{"remove", "()V", nullptr, $PUBLIC | $FINAL, $method(HashMap$HashIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.HashMap$HashIterator", "java.util.HashMap", "HashIterator", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.HashMap$HashIterator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.HashMap"
+	};
+	$loadClass(HashMap$HashIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HashMap$HashIterator);
+	});
 	return class$;
 }
 

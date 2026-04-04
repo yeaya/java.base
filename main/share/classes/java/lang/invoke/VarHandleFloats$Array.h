@@ -46,6 +46,7 @@ public:
 	using ::java::lang::invoke::VarHandle::getAndAddAcquire;
 	using ::java::lang::invoke::VarHandle::getAndAddRelease;
 	using ::java::lang::invoke::VarHandle::accessModeTypeUncached;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t abase, int32_t ashift);
 	void init$(int32_t abase, int32_t ashift, bool exact);
 	virtual ::java::lang::invoke::MethodType* accessModeTypeUncached(::java::lang::invoke::VarHandle$AccessType* at) override;

@@ -1,5 +1,4 @@
 #include <pkg/A4pkg.h>
-
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/util/Set.h>
@@ -13,46 +12,6 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $Set = ::java::util::Set;
 
 namespace pkg {
-
-$FieldInfo _A4pkg_FieldInfo_[] = {
-	{"f_public_static", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticField(A4pkg, f_public_static)},
-	{"f_protected_static", "Ljava/lang/Object;", nullptr, $PROTECTED | $STATIC, $staticField(A4pkg, f_protected_static)},
-	{"f_package_static", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(A4pkg, f_package_static)},
-	{"f_private_static", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(A4pkg, f_private_static)},
-	{"f_public_static_final", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(A4pkg, f_public_static_final)},
-	{"f_protected_static_final", "Ljava/lang/Object;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(A4pkg, f_protected_static_final)},
-	{"f_package_static_final", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(A4pkg, f_package_static_final)},
-	{"f_private_static_final", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(A4pkg, f_private_static_final)},
-	{"f_public", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(A4pkg, f_public)},
-	{"f_protected", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(A4pkg, f_protected)},
-	{"f_package", "Ljava/lang/Object;", nullptr, 0, $field(A4pkg, f_package)},
-	{"f_private", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(A4pkg, f_private)},
-	{"f_public_final", "Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $field(A4pkg, f_public_final)},
-	{"f_protected_final", "Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $field(A4pkg, f_protected_final)},
-	{"f_package_final", "Ljava/lang/Object;", nullptr, $FINAL, $field(A4pkg, f_package_final)},
-	{"f_private_final", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(A4pkg, f_private_final)},
-	{}
-};
-
-$MethodInfo _A4pkg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(A4pkg, init$, void)},
-	{"inaccessibleFields", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(A4pkg, inaccessibleFields, $Set*)},
-	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(A4pkg, lookup, $MethodHandles$Lookup*)},
-	{}
-};
-
-$ClassInfo _A4pkg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"pkg.A4pkg",
-	"java.lang.Object",
-	nullptr,
-	_A4pkg_FieldInfo_,
-	_A4pkg_MethodInfo_
-};
-
-$Object* allocate$A4pkg($Class* clazz) {
-	return $of($alloc(A4pkg));
-}
 
 $Object* A4pkg::f_public_static = nullptr;
 $Object* A4pkg::f_protected_static = nullptr;
@@ -81,7 +40,7 @@ $Set* A4pkg::inaccessibleFields() {
 	return $Set::of();
 }
 
-void clinit$A4pkg($Class* class$) {
+void A4pkg::clinit$($Class* clazz) {
 	$assignStatic(A4pkg::f_public_static_final, nullptr);
 	$assignStatic(A4pkg::f_protected_static_final, nullptr);
 	$assignStatic(A4pkg::f_package_static_final, nullptr);
@@ -92,7 +51,42 @@ A4pkg::A4pkg() {
 }
 
 $Class* A4pkg::load$($String* name, bool initialize) {
-	$loadClass(A4pkg, name, initialize, &_A4pkg_ClassInfo_, clinit$A4pkg, allocate$A4pkg);
+	$FieldInfo fieldInfos$$[] = {
+		{"f_public_static", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticField(A4pkg, f_public_static)},
+		{"f_protected_static", "Ljava/lang/Object;", nullptr, $PROTECTED | $STATIC, $staticField(A4pkg, f_protected_static)},
+		{"f_package_static", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(A4pkg, f_package_static)},
+		{"f_private_static", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(A4pkg, f_private_static)},
+		{"f_public_static_final", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(A4pkg, f_public_static_final)},
+		{"f_protected_static_final", "Ljava/lang/Object;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(A4pkg, f_protected_static_final)},
+		{"f_package_static_final", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(A4pkg, f_package_static_final)},
+		{"f_private_static_final", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(A4pkg, f_private_static_final)},
+		{"f_public", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(A4pkg, f_public)},
+		{"f_protected", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(A4pkg, f_protected)},
+		{"f_package", "Ljava/lang/Object;", nullptr, 0, $field(A4pkg, f_package)},
+		{"f_private", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(A4pkg, f_private)},
+		{"f_public_final", "Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $field(A4pkg, f_public_final)},
+		{"f_protected_final", "Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $field(A4pkg, f_protected_final)},
+		{"f_package_final", "Ljava/lang/Object;", nullptr, $FINAL, $field(A4pkg, f_package_final)},
+		{"f_private_final", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(A4pkg, f_private_final)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(A4pkg, init$, void)},
+		{"inaccessibleFields", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(A4pkg, inaccessibleFields, $Set*)},
+		{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(A4pkg, lookup, $MethodHandles$Lookup*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"pkg.A4pkg",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(A4pkg, name, initialize, &classInfo$$, A4pkg::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(A4pkg);
+	});
 	return class$;
 }
 

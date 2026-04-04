@@ -18,6 +18,7 @@ public:
 	SecretKeySpec();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* key, $String* algorithm);
 	void init$($bytes* key, int32_t offset, int32_t len, $String* algorithm);
 	virtual void clear();
@@ -27,7 +28,7 @@ public:
 	virtual $String* getFormat() override;
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x5B470B66E230614D;
+	static const int64_t serialVersionUID = (int64_t)0x5b470b66e230614d;
 	$bytes* key = nullptr;
 	$String* algorithm = nullptr;
 };

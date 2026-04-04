@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/util/OutputInt.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,29 +10,6 @@ namespace jdk {
 		namespace icu {
 			namespace util {
 
-$FieldInfo _OutputInt_FieldInfo_[] = {
-	{"value", "I", nullptr, $PUBLIC, $field(OutputInt, value)},
-	{}
-};
-
-$MethodInfo _OutputInt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OutputInt, init$, void)},
-	{}
-};
-
-$ClassInfo _OutputInt_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.icu.util.OutputInt",
-	"java.lang.Object",
-	nullptr,
-	_OutputInt_FieldInfo_,
-	_OutputInt_MethodInfo_
-};
-
-$Object* allocate$OutputInt($Class* clazz) {
-	return $of($alloc(OutputInt));
-}
-
 void OutputInt::init$() {
 }
 
@@ -41,7 +17,25 @@ OutputInt::OutputInt() {
 }
 
 $Class* OutputInt::load$($String* name, bool initialize) {
-	$loadClass(OutputInt, name, initialize, &_OutputInt_ClassInfo_, allocate$OutputInt);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "I", nullptr, $PUBLIC, $field(OutputInt, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OutputInt, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.icu.util.OutputInt",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OutputInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OutputInt);
+	});
 	return class$;
 }
 

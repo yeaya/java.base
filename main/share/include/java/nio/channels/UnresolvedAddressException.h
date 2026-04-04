@@ -14,10 +14,13 @@ class $import UnresolvedAddressException : public ::java::lang::IllegalArgumentE
 public:
 	UnresolvedAddressException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x552ADBC7D85EE324;
+	static const int64_t serialVersionUID = (int64_t)0x552adbc7d85ee324;
 	UnresolvedAddressException(const UnresolvedAddressException& e);
 	virtual void throw$() override;
-	inline UnresolvedAddressException* operator ->() {
+	inline UnresolvedAddressException* operator ->() const {
+		return (UnresolvedAddressException*)throwing$;
+	}
+	inline operator UnresolvedAddressException*() const {
 		return (UnresolvedAddressException*)throwing$;
 	}
 };

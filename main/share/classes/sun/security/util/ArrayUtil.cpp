@@ -1,5 +1,4 @@
 #include <sun/security/util/ArrayUtil.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/invoke/CallSite.h>
@@ -36,59 +35,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of($new($ArrayIndexOutOfBoundsException, $cast($String, s)));
+		 return $new($ArrayIndexOutOfBoundsException, $cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.util.ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException::load$($String* name, bool initialize) {
-	$loadClass(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.util.ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException);
+	});
 	return class$;
 }
 $Class* ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException::class$ = nullptr;
-
-$FieldInfo _ArrayUtil_FieldInfo_[] = {
-	{"AIOOBE_SUPPLIER", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;Ljava/lang/ArrayIndexOutOfBoundsException;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ArrayUtil, AIOOBE_SUPPLIER)},
-	{}
-};
-
-$MethodInfo _ArrayUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayUtil, init$, void)},
-	{"blockSizeCheck", "(II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtil, blockSizeCheck, void, int32_t, int32_t)},
-	{"nullAndBoundsCheck", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtil, nullAndBoundsCheck, void, $bytes*, int32_t, int32_t)},
-	{"reverse", "([B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtil, reverse, void, $bytes*)},
-	{"swap", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayUtil, swap, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ArrayUtil_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.util.ArrayUtil",
-	"java.lang.Object",
-	nullptr,
-	_ArrayUtil_FieldInfo_,
-	_ArrayUtil_MethodInfo_
-};
-
-$Object* allocate$ArrayUtil($Class* clazz) {
-	return $of($alloc(ArrayUtil));
-}
 
 $BiFunction* ArrayUtil::AIOOBE_SUPPLIER = nullptr;
 
@@ -125,8 +94,8 @@ void ArrayUtil::reverse($bytes* arr) {
 	}
 }
 
-void clinit$ArrayUtil($Class* class$) {
-	$assignStatic(ArrayUtil::AIOOBE_SUPPLIER, $Preconditions::outOfBoundsExceptionFormatter(static_cast<$Function*>($$new(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException))));
+void ArrayUtil::clinit$($Class* clazz) {
+	$assignStatic(ArrayUtil::AIOOBE_SUPPLIER, $Preconditions::outOfBoundsExceptionFormatter($$new(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException)));
 }
 
 ArrayUtil::ArrayUtil() {
@@ -134,11 +103,33 @@ ArrayUtil::ArrayUtil() {
 
 $Class* ArrayUtil::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException::classInfo$.name)) {
+		if (name->equals("sun.security.util.ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException")) {
 			return ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException::load$(name, initialize);
 		}
 	}
-	$loadClass(ArrayUtil, name, initialize, &_ArrayUtil_ClassInfo_, clinit$ArrayUtil, allocate$ArrayUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"AIOOBE_SUPPLIER", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;Ljava/lang/ArrayIndexOutOfBoundsException;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ArrayUtil, AIOOBE_SUPPLIER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayUtil, init$, void)},
+		{"blockSizeCheck", "(II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtil, blockSizeCheck, void, int32_t, int32_t)},
+		{"nullAndBoundsCheck", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtil, nullAndBoundsCheck, void, $bytes*, int32_t, int32_t)},
+		{"reverse", "([B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtil, reverse, void, $bytes*)},
+		{"swap", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayUtil, swap, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.util.ArrayUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArrayUtil, name, initialize, &classInfo$$, ArrayUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayUtil);
+	});
 	return class$;
 }
 

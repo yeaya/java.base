@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleReferenceImpl.h>
-
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
 #include <java/lang/module/ModuleDescriptor.h>
@@ -36,47 +35,6 @@ namespace jdk {
 	namespace internal {
 		namespace module {
 
-$FieldInfo _ModuleReferenceImpl_FieldInfo_[] = {
-	{"location", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, location$)},
-	{"readerSupplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/lang/module/ModuleReader;>;", $PRIVATE | $FINAL, $field(ModuleReferenceImpl, readerSupplier)},
-	{"patcher", "Ljdk/internal/module/ModulePatcher;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, patcher)},
-	{"target", "Ljdk/internal/module/ModuleTarget;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, target)},
-	{"recordedHashes", "Ljdk/internal/module/ModuleHashes;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, recordedHashes$)},
-	{"hasher", "Ljdk/internal/module/ModuleHashes$HashSupplier;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, hasher$)},
-	{"moduleResolution", "Ljdk/internal/module/ModuleResolution;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, moduleResolution$)},
-	{"cachedHash", "[B", nullptr, $PRIVATE, $field(ModuleReferenceImpl, cachedHash)},
-	{"hash", "I", nullptr, $PRIVATE, $field(ModuleReferenceImpl, hash)},
-	{}
-};
-
-$MethodInfo _ModuleReferenceImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Ljava/util/function/Supplier;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)V", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Ljava/util/function/Supplier<Ljava/lang/module/ModuleReader;>;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)V", $PUBLIC, $method(ModuleReferenceImpl, init$, void, $ModuleDescriptor*, $URI*, $Supplier*, $ModulePatcher*, $ModuleTarget*, $ModuleHashes*, $ModuleHashes$HashSupplier*, $ModuleResolution*)},
-	{"computeHash", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, computeHash, $bytes*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, hashCode, int32_t)},
-	{"hasher", "()Ljdk/internal/module/ModuleHashes$HashSupplier;", nullptr, 0, $virtualMethod(ModuleReferenceImpl, hasher, $ModuleHashes$HashSupplier*)},
-	{"isPatched", "()Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, isPatched, bool)},
-	{"moduleResolution", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, moduleResolution, $ModuleResolution*)},
-	{"moduleTarget", "()Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, moduleTarget, $ModuleTarget*)},
-	{"open", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, open, $ModuleReader*), "java.io.IOException"},
-	{"recordedHashes", "()Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, recordedHashes, $ModuleHashes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ModuleReferenceImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.module.ModuleReferenceImpl",
-	"java.lang.module.ModuleReference",
-	nullptr,
-	_ModuleReferenceImpl_FieldInfo_,
-	_ModuleReferenceImpl_MethodInfo_
-};
-
-$Object* allocate$ModuleReferenceImpl($Class* clazz) {
-	return $of($alloc(ModuleReferenceImpl));
-}
-
 void ModuleReferenceImpl::init$($ModuleDescriptor* descriptor, $URI* location, $Supplier* readerSupplier, $ModulePatcher* patcher, $ModuleTarget* target, $ModuleHashes* recordedHashes, $ModuleHashes$HashSupplier* hasher, $ModuleResolution* moduleResolution) {
 	$ModuleReference::init$(descriptor, $cast($URI, $Objects::requireNonNull(location)));
 	$set(this, location$, location);
@@ -92,7 +50,7 @@ $ModuleReader* ModuleReferenceImpl::open() {
 	try {
 		return $cast($ModuleReader, $nc(this->readerSupplier)->get());
 	} catch ($UncheckedIOException& e) {
-		$throw($($cast($IOException, e->getCause())));
+		$throw($$cast($IOException, e->getCause()));
 	}
 	$shouldNotReachHere();
 }
@@ -125,14 +83,14 @@ $bytes* ModuleReferenceImpl::computeHash($String* algorithm) {
 	if (this->hasher$ == nullptr) {
 		return nullptr;
 	}
-	$set(this, cachedHash, ($assign(result, $nc(this->hasher$)->generate(algorithm))));
+	$set(this, cachedHash, $assign(result, $nc(this->hasher$)->generate(algorithm)));
 	return result;
 }
 
 int32_t ModuleReferenceImpl::hashCode() {
 	int32_t hc = this->hash;
 	if (hc == 0) {
-		hc = $nc($(descriptor()))->hashCode();
+		hc = $$nc(descriptor())->hashCode();
 		hc = 43 * hc + $Objects::hashCode(this->location$);
 		hc = 43 * hc + $Objects::hashCode(this->patcher);
 		if (hc == 0) {
@@ -144,24 +102,24 @@ int32_t ModuleReferenceImpl::hashCode() {
 }
 
 bool ModuleReferenceImpl::equals(Object$* ob) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(ModuleReferenceImpl, ob))) {
 		return false;
 	}
 	$var(ModuleReferenceImpl, that, $cast(ModuleReferenceImpl, ob));
-	$var($Object, var$2, $of(this->descriptor()));
+	$var($Object, var$2, this->descriptor());
 	bool var$1 = $Objects::equals(var$2, $($nc(that)->descriptor()));
-	bool var$0 = var$1 && $Objects::equals(this->location$, $nc(that)->location$);
-	return var$0 && $Objects::equals(this->patcher, $nc(that)->patcher);
+	bool var$0 = var$1 && $Objects::equals(this->location$, that->location$);
+	return var$0 && $Objects::equals(this->patcher, that->patcher);
 }
 
 $String* ModuleReferenceImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("[module "_s);
-	sb->append($($nc($(descriptor()))->name()));
+	sb->append($($$nc(descriptor())->name()));
 	sb->append(", location="_s);
-	sb->append($of(this->location$));
+	sb->append(this->location$);
 	if (isPatched()) {
 		sb->append(" (patched)"_s);
 	}
@@ -173,7 +131,43 @@ ModuleReferenceImpl::ModuleReferenceImpl() {
 }
 
 $Class* ModuleReferenceImpl::load$($String* name, bool initialize) {
-	$loadClass(ModuleReferenceImpl, name, initialize, &_ModuleReferenceImpl_ClassInfo_, allocate$ModuleReferenceImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"location", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, location$)},
+		{"readerSupplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/lang/module/ModuleReader;>;", $PRIVATE | $FINAL, $field(ModuleReferenceImpl, readerSupplier)},
+		{"patcher", "Ljdk/internal/module/ModulePatcher;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, patcher)},
+		{"target", "Ljdk/internal/module/ModuleTarget;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, target)},
+		{"recordedHashes", "Ljdk/internal/module/ModuleHashes;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, recordedHashes$)},
+		{"hasher", "Ljdk/internal/module/ModuleHashes$HashSupplier;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, hasher$)},
+		{"moduleResolution", "Ljdk/internal/module/ModuleResolution;", nullptr, $PRIVATE | $FINAL, $field(ModuleReferenceImpl, moduleResolution$)},
+		{"cachedHash", "[B", nullptr, $PRIVATE, $field(ModuleReferenceImpl, cachedHash)},
+		{"hash", "I", nullptr, $PRIVATE, $field(ModuleReferenceImpl, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Ljava/util/function/Supplier;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)V", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Ljava/util/function/Supplier<Ljava/lang/module/ModuleReader;>;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)V", $PUBLIC, $method(ModuleReferenceImpl, init$, void, $ModuleDescriptor*, $URI*, $Supplier*, $ModulePatcher*, $ModuleTarget*, $ModuleHashes*, $ModuleHashes$HashSupplier*, $ModuleResolution*)},
+		{"computeHash", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, computeHash, $bytes*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, hashCode, int32_t)},
+		{"hasher", "()Ljdk/internal/module/ModuleHashes$HashSupplier;", nullptr, 0, $virtualMethod(ModuleReferenceImpl, hasher, $ModuleHashes$HashSupplier*)},
+		{"isPatched", "()Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, isPatched, bool)},
+		{"moduleResolution", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, moduleResolution, $ModuleResolution*)},
+		{"moduleTarget", "()Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, moduleTarget, $ModuleTarget*)},
+		{"open", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, open, $ModuleReader*), "java.io.IOException"},
+		{"recordedHashes", "()Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, recordedHashes, $ModuleHashes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.module.ModuleReferenceImpl",
+		"java.lang.module.ModuleReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleReferenceImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleReferenceImpl);
+	});
 	return class$;
 }
 

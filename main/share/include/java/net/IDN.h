@@ -40,6 +40,7 @@ class $import IDN : public ::java::lang::Object {
 	$class(IDN, 0, ::java::lang::Object)
 public:
 	IDN();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isAllASCII($String* input);
 	static bool isLabelSeparator(char16_t c);

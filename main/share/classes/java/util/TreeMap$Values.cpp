@@ -1,5 +1,4 @@
 #include <java/util/TreeMap$Values.h>
-
 #include <java/util/AbstractCollection.h>
 #include <java/util/Iterator.h>
 #include <java/util/Spliterator.h>
@@ -24,47 +23,6 @@ using $TreeMap$ValueSpliterator = ::java::util::TreeMap$ValueSpliterator;
 namespace java {
 	namespace util {
 
-$FieldInfo _TreeMap$Values_FieldInfo_[] = {
-	{"this$0", "Ljava/util/TreeMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$Values, this$0)},
-	{}
-};
-
-$MethodInfo _TreeMap$Values_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap;)V", nullptr, 0, $method(TreeMap$Values, init$, void, $TreeMap*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, contains, bool, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(TreeMap$Values, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC, $virtualMethod(TreeMap$Values, spliterator, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _TreeMap$Values_InnerClassesInfo_[] = {
-	{"java.util.TreeMap$Values", "java.util.TreeMap", "Values", 0},
-	{}
-};
-
-$ClassInfo _TreeMap$Values_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.TreeMap$Values",
-	"java.util.AbstractCollection",
-	nullptr,
-	_TreeMap$Values_FieldInfo_,
-	_TreeMap$Values_MethodInfo_,
-	"Ljava/util/AbstractCollection<TV;>;",
-	nullptr,
-	_TreeMap$Values_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.TreeMap"
-};
-
-$Object* allocate$TreeMap$Values($Class* clazz) {
-	return $of($alloc(TreeMap$Values));
-}
-
 void TreeMap$Values::init$($TreeMap* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractCollection::init$();
@@ -83,14 +41,12 @@ bool TreeMap$Values::contains(Object$* o) {
 }
 
 bool TreeMap$Values::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($TreeMap$Entry, e, this->this$0->getFirstEntry());
-		for (; e != nullptr; $assign(e, $TreeMap::successor(e))) {
-			if ($TreeMap::valEquals($($nc(e)->getValue()), o)) {
-				this->this$0->deleteEntry(e);
-				return true;
-			}
+	$useLocalObjectStack();
+	$var($TreeMap$Entry, e, this->this$0->getFirstEntry());
+	for (; e != nullptr; $assign(e, $TreeMap::successor(e))) {
+		if ($TreeMap::valEquals($(e->getValue()), o)) {
+			this->this$0->deleteEntry(e);
+			return true;
 		}
 	}
 	return false;
@@ -108,7 +64,42 @@ TreeMap$Values::TreeMap$Values() {
 }
 
 $Class* TreeMap$Values::load$($String* name, bool initialize) {
-	$loadClass(TreeMap$Values, name, initialize, &_TreeMap$Values_ClassInfo_, allocate$TreeMap$Values);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/TreeMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$Values, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/TreeMap;)V", nullptr, 0, $method(TreeMap$Values, init$, void, $TreeMap*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, contains, bool, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(TreeMap$Values, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC, $virtualMethod(TreeMap$Values, spliterator, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.TreeMap$Values", "java.util.TreeMap", "Values", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.TreeMap$Values",
+		"java.util.AbstractCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractCollection<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.TreeMap"
+	};
+	$loadClass(TreeMap$Values, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeMap$Values);
+	});
 	return class$;
 }
 

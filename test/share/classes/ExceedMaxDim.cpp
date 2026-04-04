@@ -1,5 +1,4 @@
 #include <ExceedMaxDim.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <jcpp.h>
@@ -7,7 +6,6 @@
 #undef IMPLICIT_LOADER
 #undef MAX_VALUE
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -15,41 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
-
-$FieldInfo _ExceedMaxDim_FieldInfo_[] = {
-	{"brackets", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, brackets)},
-	{"name254", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, name254)},
-	{"name255", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, name255)},
-	{"name256", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, name256)},
-	{"name1", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, name1)},
-	{"bigName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, bigName)},
-	{"error", "I", nullptr, $PRIVATE, $field(ExceedMaxDim, error)},
-	{"IMPLICIT_LOADER", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExceedMaxDim, IMPLICIT_LOADER)},
-	{}
-};
-
-$MethodInfo _ExceedMaxDim_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExceedMaxDim, init$, void)},
-	{"assertFailForName", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(ExceedMaxDim, assertFailForName, void, $String*, $ClassLoader*)},
-	{"assertSucceedForName", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(ExceedMaxDim, assertSucceedForName, void, $String*, $ClassLoader*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceedMaxDim, main, void, $StringArray*), "java.lang.Exception"},
-	{"testImplicitLoader", "()V", nullptr, $PRIVATE, $method(ExceedMaxDim, testImplicitLoader, void), "java.lang.Exception"},
-	{"testOtherLoader", "()V", nullptr, $PRIVATE, $method(ExceedMaxDim, testOtherLoader, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ExceedMaxDim_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ExceedMaxDim",
-	"java.lang.Object",
-	nullptr,
-	_ExceedMaxDim_FieldInfo_,
-	_ExceedMaxDim_MethodInfo_
-};
-
-$Object* allocate$ExceedMaxDim($Class* clazz) {
-	return $of($alloc(ExceedMaxDim));
-}
 
 $ClassLoader* ExceedMaxDim::IMPLICIT_LOADER = nullptr;
 
@@ -66,7 +29,7 @@ void ExceedMaxDim::init$() {
 	}
 	sb->append("Ljava.lang.String;"_s);
 	$set(this, bigName, sb->toString());
-	if ($nc(this->name256)->lastIndexOf((int32_t)u'[') != 255) {
+	if (this->name256->lastIndexOf(u'[') != 255) {
 		$throwNew($RuntimeException, "Test broken"_s);
 	}
 }
@@ -82,7 +45,7 @@ void ExceedMaxDim::main($StringArray* args) {
 }
 
 void ExceedMaxDim::testImplicitLoader() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	assertSucceedForName(this->name1, ExceedMaxDim::IMPLICIT_LOADER);
 	assertSucceedForName(this->name254, ExceedMaxDim::IMPLICIT_LOADER);
 	assertSucceedForName(this->name255, ExceedMaxDim::IMPLICIT_LOADER);
@@ -93,7 +56,7 @@ void ExceedMaxDim::testImplicitLoader() {
 }
 
 void ExceedMaxDim::testOtherLoader() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, cl, ExceedMaxDim::class$->getClassLoader());
 	assertSucceedForName(this->name1, cl);
@@ -117,6 +80,7 @@ void ExceedMaxDim::assertFailForName($String* name, $ClassLoader* cl) {
 		++this->error;
 		$nc($System::err)->println($$str({"ERROR: could create "_s, c}));
 	} catch ($ClassNotFoundException& e) {
+		;
 	}
 }
 
@@ -135,7 +99,7 @@ void ExceedMaxDim::assertSucceedForName($String* name, $ClassLoader* cl) {
 	}
 }
 
-void clinit$ExceedMaxDim($Class* class$) {
+void ExceedMaxDim::clinit$($Class* clazz) {
 	$assignStatic(ExceedMaxDim::IMPLICIT_LOADER, nullptr);
 }
 
@@ -143,7 +107,37 @@ ExceedMaxDim::ExceedMaxDim() {
 }
 
 $Class* ExceedMaxDim::load$($String* name, bool initialize) {
-	$loadClass(ExceedMaxDim, name, initialize, &_ExceedMaxDim_ClassInfo_, clinit$ExceedMaxDim, allocate$ExceedMaxDim);
+	$FieldInfo fieldInfos$$[] = {
+		{"brackets", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, brackets)},
+		{"name254", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, name254)},
+		{"name255", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, name255)},
+		{"name256", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, name256)},
+		{"name1", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, name1)},
+		{"bigName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExceedMaxDim, bigName)},
+		{"error", "I", nullptr, $PRIVATE, $field(ExceedMaxDim, error)},
+		{"IMPLICIT_LOADER", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExceedMaxDim, IMPLICIT_LOADER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExceedMaxDim, init$, void)},
+		{"assertFailForName", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(ExceedMaxDim, assertFailForName, void, $String*, $ClassLoader*)},
+		{"assertSucceedForName", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(ExceedMaxDim, assertSucceedForName, void, $String*, $ClassLoader*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceedMaxDim, main, void, $StringArray*), "java.lang.Exception"},
+		{"testImplicitLoader", "()V", nullptr, $PRIVATE, $method(ExceedMaxDim, testImplicitLoader, void), "java.lang.Exception"},
+		{"testOtherLoader", "()V", nullptr, $PRIVATE, $method(ExceedMaxDim, testOtherLoader, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ExceedMaxDim",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExceedMaxDim, name, initialize, &classInfo$$, ExceedMaxDim::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExceedMaxDim);
+	});
 	return class$;
 }
 

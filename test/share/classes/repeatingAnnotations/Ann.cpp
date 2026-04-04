@@ -1,5 +1,4 @@
 #include <repeatingAnnotations/Ann.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,58 +9,49 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace repeatingAnnotations {
 
-$NamedAttribute Ann_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute Ann_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'-'}
-};
-
-$NamedAttribute Ann_Attribute_var$1[] = {
-	{"value", '[', Ann_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute Ann_Attribute_var$3[] = {
-	{"value", 'c', "LrepeatingAnnotations/AnnCont;"},
-	{}
-};
-
-$CompoundAttribute _Ann_Annotations_[] = {
-	{"Ljava/lang/annotation/Inherited;", nullptr},
-	{"Ljava/lang/annotation/Retention;", Ann_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", Ann_Attribute_var$1},
-	{"Ljava/lang/annotation/Repeatable;", Ann_Attribute_var$3},
-	{}
-};
-
-$MethodInfo _Ann_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Ann, value, int32_t)},
-	{}
-};
-
-$ClassInfo _Ann_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"repeatingAnnotations.Ann",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_Ann_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Ann_Annotations_
-};
-
-$Object* allocate$Ann($Class* clazz) {
-	return $of($alloc(Ann));
-}
-
 $Class* Ann::load$($String* name, bool initialize) {
-	$loadClass(Ann, name, initialize, &_Ann_ClassInfo_, allocate$Ann);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Ann, value, int32_t)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$2[] = {
+		{"value", 'c', "LrepeatingAnnotations/AnnCont;"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Inherited;", nullptr},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{"Ljava/lang/annotation/Repeatable;", annotations$$$namedAttribute$2},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"repeatingAnnotations.Ann",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Ann, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Ann);
+	});
 	return class$;
 }
 

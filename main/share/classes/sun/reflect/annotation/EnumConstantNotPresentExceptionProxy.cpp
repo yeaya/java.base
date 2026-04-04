@@ -1,5 +1,4 @@
 #include <sun/reflect/annotation/EnumConstantNotPresentExceptionProxy.h>
-
 #include <java/lang/EnumConstantNotPresentException.h>
 #include <sun/reflect/annotation/ExceptionProxy.h>
 #include <jcpp.h>
@@ -14,33 +13,6 @@ using $ExceptionProxy = ::sun::reflect::annotation::ExceptionProxy;
 namespace sun {
 	namespace reflect {
 		namespace annotation {
-
-$FieldInfo _EnumConstantNotPresentExceptionProxy_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EnumConstantNotPresentExceptionProxy, serialVersionUID)},
-	{"enumType", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/Enum<*>;>;", $FINAL, $field(EnumConstantNotPresentExceptionProxy, enumType)},
-	{"constName", "Ljava/lang/String;", nullptr, $FINAL, $field(EnumConstantNotPresentExceptionProxy, constName)},
-	{}
-};
-
-$MethodInfo _EnumConstantNotPresentExceptionProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/Enum<*>;>;Ljava/lang/String;)V", $PUBLIC, $method(EnumConstantNotPresentExceptionProxy, init$, void, $Class*, $String*)},
-	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED, $virtualMethod(EnumConstantNotPresentExceptionProxy, generateException, $RuntimeException*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumConstantNotPresentExceptionProxy, toString, $String*)},
-	{}
-};
-
-$ClassInfo _EnumConstantNotPresentExceptionProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.annotation.EnumConstantNotPresentExceptionProxy",
-	"sun.reflect.annotation.ExceptionProxy",
-	nullptr,
-	_EnumConstantNotPresentExceptionProxy_FieldInfo_,
-	_EnumConstantNotPresentExceptionProxy_MethodInfo_
-};
-
-$Object* allocate$EnumConstantNotPresentExceptionProxy($Class* clazz) {
-	return $of($alloc(EnumConstantNotPresentExceptionProxy));
-}
 
 void EnumConstantNotPresentExceptionProxy::init$($Class* enumType, $String* constName) {
 	$ExceptionProxy::init$();
@@ -60,7 +32,29 @@ EnumConstantNotPresentExceptionProxy::EnumConstantNotPresentExceptionProxy() {
 }
 
 $Class* EnumConstantNotPresentExceptionProxy::load$($String* name, bool initialize) {
-	$loadClass(EnumConstantNotPresentExceptionProxy, name, initialize, &_EnumConstantNotPresentExceptionProxy_ClassInfo_, allocate$EnumConstantNotPresentExceptionProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EnumConstantNotPresentExceptionProxy, serialVersionUID)},
+		{"enumType", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/Enum<*>;>;", $FINAL, $field(EnumConstantNotPresentExceptionProxy, enumType)},
+		{"constName", "Ljava/lang/String;", nullptr, $FINAL, $field(EnumConstantNotPresentExceptionProxy, constName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/Enum<*>;>;Ljava/lang/String;)V", $PUBLIC, $method(EnumConstantNotPresentExceptionProxy, init$, void, $Class*, $String*)},
+		{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED, $virtualMethod(EnumConstantNotPresentExceptionProxy, generateException, $RuntimeException*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumConstantNotPresentExceptionProxy, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.annotation.EnumConstantNotPresentExceptionProxy",
+		"sun.reflect.annotation.ExceptionProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EnumConstantNotPresentExceptionProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnumConstantNotPresentExceptionProxy);
+	});
 	return class$;
 }
 

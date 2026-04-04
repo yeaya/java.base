@@ -26,6 +26,7 @@ class SSLContextImpl$DefaultSSLContextHolder : public ::java::lang::Object {
 	$class(SSLContextImpl$DefaultSSLContextHolder, 0, ::java::lang::Object)
 public:
 	SSLContextImpl$DefaultSSLContextHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLContextImpl* sslContext;
 	static ::java::lang::Exception* reservedException;

@@ -1,5 +1,4 @@
 #include <java/nio/channels/ClosedSelectorException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _ClosedSelectorException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClosedSelectorException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ClosedSelectorException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedSelectorException, init$, void)},
-	{}
-};
-
-$ClassInfo _ClosedSelectorException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.ClosedSelectorException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_ClosedSelectorException_FieldInfo_,
-	_ClosedSelectorException_MethodInfo_
-};
-
-$Object* allocate$ClosedSelectorException($Class* clazz) {
-	return $of($alloc(ClosedSelectorException));
-}
 
 void ClosedSelectorException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void ClosedSelectorException::throw$() {
 }
 
 $Class* ClosedSelectorException::load$($String* name, bool initialize) {
-	$loadClass(ClosedSelectorException, name, initialize, &_ClosedSelectorException_ClassInfo_, allocate$ClosedSelectorException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClosedSelectorException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedSelectorException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.ClosedSelectorException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClosedSelectorException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClosedSelectorException);
+	});
 	return class$;
 }
 

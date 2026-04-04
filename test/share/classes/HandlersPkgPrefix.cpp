@@ -1,5 +1,4 @@
 #include <HandlersPkgPrefix.h>
-
 #include <HandlersPkgPrefix$Result.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -16,7 +15,6 @@
 #undef UNKNOWN
 
 using $HandlersPkgPrefix$Result = ::HandlersPkgPrefix$Result;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -37,27 +35,24 @@ public:
 	virtual void accept(Object$* r) override {
 		HandlersPkgPrefix::lambda$static$0($cast($HandlersPkgPrefix$Result, r));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HandlersPkgPrefix$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HandlersPkgPrefix$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HandlersPkgPrefix$$Lambda$lambda$static$0, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HandlersPkgPrefix$$Lambda$lambda$static$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo HandlersPkgPrefix$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HandlersPkgPrefix$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* HandlersPkgPrefix$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(HandlersPkgPrefix$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HandlersPkgPrefix$$Lambda$lambda$static$0, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HandlersPkgPrefix$$Lambda$lambda$static$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HandlersPkgPrefix$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HandlersPkgPrefix$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HandlersPkgPrefix$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* HandlersPkgPrefix$$Lambda$lambda$static$0::class$ = nullptr;
@@ -70,69 +65,27 @@ public:
 	virtual void accept(Object$* r) override {
 		HandlersPkgPrefix::lambda$static$1($cast($HandlersPkgPrefix$Result, r));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HandlersPkgPrefix$$Lambda$lambda$static$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HandlersPkgPrefix$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HandlersPkgPrefix$$Lambda$lambda$static$1$1, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HandlersPkgPrefix$$Lambda$lambda$static$1$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo HandlersPkgPrefix$$Lambda$lambda$static$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HandlersPkgPrefix$$Lambda$lambda$static$1$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* HandlersPkgPrefix$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
-	$loadClass(HandlersPkgPrefix$$Lambda$lambda$static$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HandlersPkgPrefix$$Lambda$lambda$static$1$1, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HandlersPkgPrefix$$Lambda$lambda$static$1$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HandlersPkgPrefix$$Lambda$lambda$static$1$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HandlersPkgPrefix$$Lambda$lambda$static$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HandlersPkgPrefix$$Lambda$lambda$static$1$1);
+	});
 	return class$;
 }
 $Class* HandlersPkgPrefix$$Lambda$lambda$static$1$1::class$ = nullptr;
-
-$FieldInfo _HandlersPkgPrefix_FieldInfo_[] = {
-	{"KNOWN", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<LHandlersPkgPrefix$Result;>;", $STATIC | $FINAL, $staticField(HandlersPkgPrefix, KNOWN)},
-	{"UNKNOWN", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<LHandlersPkgPrefix$Result;>;", $STATIC | $FINAL, $staticField(HandlersPkgPrefix, UNKNOWN)},
-	{}
-};
-
-$MethodInfo _HandlersPkgPrefix_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HandlersPkgPrefix, init$, void)},
-	{"lambda$static$0", "(LHandlersPkgPrefix$Result;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HandlersPkgPrefix, lambda$static$0, void, $HandlersPkgPrefix$Result*)},
-	{"lambda$static$1", "(LHandlersPkgPrefix$Result;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HandlersPkgPrefix, lambda$static$1, void, $HandlersPkgPrefix$Result*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HandlersPkgPrefix, main, void, $StringArray*)},
-	{"withPrefix", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Consumer;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Consumer<LHandlersPkgPrefix$Result;>;)V", $STATIC, $staticMethod(HandlersPkgPrefix, withPrefix, void, $String*, $String*, $Consumer*)},
-	{}
-};
-
-$InnerClassInfo _HandlersPkgPrefix_InnerClassesInfo_[] = {
-	{"HandlersPkgPrefix$Result", "HandlersPkgPrefix", "Result", $STATIC},
-	{}
-};
-
-$ClassInfo _HandlersPkgPrefix_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HandlersPkgPrefix",
-	"java.lang.Object",
-	nullptr,
-	_HandlersPkgPrefix_FieldInfo_,
-	_HandlersPkgPrefix_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HandlersPkgPrefix_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HandlersPkgPrefix$Result"
-};
-
-$Object* allocate$HandlersPkgPrefix($Class* clazz) {
-	return $of($alloc(HandlersPkgPrefix));
-}
 
 $Consumer* HandlersPkgPrefix::KNOWN = nullptr;
 $Consumer* HandlersPkgPrefix::UNKNOWN = nullptr;
@@ -156,7 +109,7 @@ void HandlersPkgPrefix::main($StringArray* args) {
 
 void HandlersPkgPrefix::withPrefix($String* protocol, $String* pkgPrefix, $Consumer* resultChecker) {
 	$init(HandlersPkgPrefix);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({"Testing, "_s, protocol, ", "_s, pkgPrefix}));
 	$System::setProperty("java.protocol.handler.pkgs"_s, pkgPrefix);
 	$var($URL, url, nullptr);
@@ -171,30 +124,30 @@ void HandlersPkgPrefix::withPrefix($String* protocol, $String* pkgPrefix, $Consu
 
 void HandlersPkgPrefix::lambda$static$1($HandlersPkgPrefix$Result* r) {
 	$init(HandlersPkgPrefix);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(r)->url != nullptr) {
 		$throwNew($RuntimeException, $$str({"Unexpected url:"_s, r->url}));
 	}
-	if (!($instanceOf($MalformedURLException, $nc(r)->exception))) {
+	if (!($instanceOf($MalformedURLException, r->exception))) {
 		$throwNew($RuntimeException, $$str({"Expected MalformedURLException, got:"_s, r->exception}));
 	}
 }
 
 void HandlersPkgPrefix::lambda$static$0($HandlersPkgPrefix$Result* r) {
 	$init(HandlersPkgPrefix);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(r)->exception != nullptr) {
 		$throwNew($RuntimeException, $$str({"Unexpected exception "_s, r->exception}));
 	}
-	$var($String, p, $nc($nc(r)->url)->getProtocol());
+	$var($String, p, $nc(r->url)->getProtocol());
 	if (!$nc(r->protocol)->equals(p)) {
 		$throwNew($RuntimeException, $$str({"Expected:"_s, r->protocol, ", got:"_s, p}));
 	}
 }
 
-void clinit$HandlersPkgPrefix($Class* class$) {
-	$assignStatic(HandlersPkgPrefix::KNOWN, static_cast<$Consumer*>($new(HandlersPkgPrefix$$Lambda$lambda$static$0)));
-	$assignStatic(HandlersPkgPrefix::UNKNOWN, static_cast<$Consumer*>($new(HandlersPkgPrefix$$Lambda$lambda$static$1$1)));
+void HandlersPkgPrefix::clinit$($Class* clazz) {
+	$assignStatic(HandlersPkgPrefix::KNOWN, $new(HandlersPkgPrefix$$Lambda$lambda$static$0));
+	$assignStatic(HandlersPkgPrefix::UNKNOWN, $new(HandlersPkgPrefix$$Lambda$lambda$static$1$1));
 }
 
 HandlersPkgPrefix::HandlersPkgPrefix() {
@@ -202,14 +155,47 @@ HandlersPkgPrefix::HandlersPkgPrefix() {
 
 $Class* HandlersPkgPrefix::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HandlersPkgPrefix$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("HandlersPkgPrefix$$Lambda$lambda$static$0")) {
 			return HandlersPkgPrefix$$Lambda$lambda$static$0::load$(name, initialize);
 		}
-		if (name->equals(HandlersPkgPrefix$$Lambda$lambda$static$1$1::classInfo$.name)) {
+		if (name->equals("HandlersPkgPrefix$$Lambda$lambda$static$1$1")) {
 			return HandlersPkgPrefix$$Lambda$lambda$static$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(HandlersPkgPrefix, name, initialize, &_HandlersPkgPrefix_ClassInfo_, clinit$HandlersPkgPrefix, allocate$HandlersPkgPrefix);
+	$FieldInfo fieldInfos$$[] = {
+		{"KNOWN", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<LHandlersPkgPrefix$Result;>;", $STATIC | $FINAL, $staticField(HandlersPkgPrefix, KNOWN)},
+		{"UNKNOWN", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<LHandlersPkgPrefix$Result;>;", $STATIC | $FINAL, $staticField(HandlersPkgPrefix, UNKNOWN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HandlersPkgPrefix, init$, void)},
+		{"lambda$static$0", "(LHandlersPkgPrefix$Result;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HandlersPkgPrefix, lambda$static$0, void, $HandlersPkgPrefix$Result*)},
+		{"lambda$static$1", "(LHandlersPkgPrefix$Result;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HandlersPkgPrefix, lambda$static$1, void, $HandlersPkgPrefix$Result*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HandlersPkgPrefix, main, void, $StringArray*)},
+		{"withPrefix", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Consumer;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Consumer<LHandlersPkgPrefix$Result;>;)V", $STATIC, $staticMethod(HandlersPkgPrefix, withPrefix, void, $String*, $String*, $Consumer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HandlersPkgPrefix$Result", "HandlersPkgPrefix", "Result", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HandlersPkgPrefix",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HandlersPkgPrefix$Result"
+	};
+	$loadClass(HandlersPkgPrefix, name, initialize, &classInfo$$, HandlersPkgPrefix::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HandlersPkgPrefix);
+	});
 	return class$;
 }
 

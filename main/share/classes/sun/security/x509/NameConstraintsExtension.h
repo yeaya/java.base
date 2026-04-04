@@ -61,6 +61,7 @@ class $export NameConstraintsExtension : public ::sun::security::x509::Extension
 	$class(NameConstraintsExtension, 0, ::sun::security::x509::Extension, ::sun::security::x509::CertAttrSet, ::java::lang::Cloneable)
 public:
 	NameConstraintsExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::security::x509::Extension::encode;
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;

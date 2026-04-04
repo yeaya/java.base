@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamSpliterators$ArrayBuffer.h>
-
 #include <java/util/stream/StreamSpliterators.h>
 #include <jcpp.h>
 
@@ -12,47 +11,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _StreamSpliterators$ArrayBuffer_FieldInfo_[] = {
-	{"index", "I", nullptr, 0, $field(StreamSpliterators$ArrayBuffer, index)},
-	{}
-};
-
-$MethodInfo _StreamSpliterators$ArrayBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer, init$, void)},
-	{"reset", "()V", nullptr, 0, $virtualMethod(StreamSpliterators$ArrayBuffer, reset, void)},
-	{}
-};
-
-$InnerClassInfo _StreamSpliterators$ArrayBuffer_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamSpliterators$ArrayBuffer", "java.util.stream.StreamSpliterators", "ArrayBuffer", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$ArrayBuffer$OfDouble", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfDouble", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$ArrayBuffer$OfLong", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfLong", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$ArrayBuffer$OfInt", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfInt", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$ArrayBuffer$OfPrimitive", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$ArrayBuffer$OfRef", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfRef", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StreamSpliterators$ArrayBuffer_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.StreamSpliterators$ArrayBuffer",
-	"java.lang.Object",
-	nullptr,
-	_StreamSpliterators$ArrayBuffer_FieldInfo_,
-	_StreamSpliterators$ArrayBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StreamSpliterators$ArrayBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamSpliterators"
-};
-
-$Object* allocate$StreamSpliterators$ArrayBuffer($Class* clazz) {
-	return $of($alloc(StreamSpliterators$ArrayBuffer));
-}
-
 void StreamSpliterators$ArrayBuffer::init$() {
 }
 
@@ -64,7 +22,42 @@ StreamSpliterators$ArrayBuffer::StreamSpliterators$ArrayBuffer() {
 }
 
 $Class* StreamSpliterators$ArrayBuffer::load$($String* name, bool initialize) {
-	$loadClass(StreamSpliterators$ArrayBuffer, name, initialize, &_StreamSpliterators$ArrayBuffer_ClassInfo_, allocate$StreamSpliterators$ArrayBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, 0, $field(StreamSpliterators$ArrayBuffer, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer, init$, void)},
+		{"reset", "()V", nullptr, 0, $virtualMethod(StreamSpliterators$ArrayBuffer, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamSpliterators$ArrayBuffer", "java.util.stream.StreamSpliterators", "ArrayBuffer", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$ArrayBuffer$OfDouble", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfDouble", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$ArrayBuffer$OfLong", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfLong", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$ArrayBuffer$OfInt", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfInt", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$ArrayBuffer$OfPrimitive", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$ArrayBuffer$OfRef", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfRef", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.StreamSpliterators$ArrayBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamSpliterators"
+	};
+	$loadClass(StreamSpliterators$ArrayBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamSpliterators$ArrayBuffer);
+	});
 	return class$;
 }
 

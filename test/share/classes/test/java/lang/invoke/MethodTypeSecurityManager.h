@@ -20,6 +20,7 @@ class $export MethodTypeSecurityManager : public ::java::lang::Object {
 	$class(MethodTypeSecurityManager, 0, ::java::lang::Object)
 public:
 	MethodTypeSecurityManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void throwACC($String* desc, ::java::lang::ClassLoader* loader);

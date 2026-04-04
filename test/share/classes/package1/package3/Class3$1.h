@@ -12,6 +12,7 @@ class Class3$1 : public ::package1::package3::Class3 {
 	$class(Class3$1, 0, ::package1::package3::Class3)
 public:
 	Class3$1();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::package1::package3::Class3* this$0);
 	virtual void testAssert(bool assertsShouldBeOn) override;
 	::package1::package3::Class3* this$0 = nullptr;

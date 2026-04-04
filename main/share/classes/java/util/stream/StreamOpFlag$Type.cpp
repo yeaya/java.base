@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamOpFlag$Type.h>
-
 #include <java/lang/Enum.h>
 #include <java/util/stream/StreamOpFlag.h>
 #include <jcpp.h>
@@ -20,49 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _StreamOpFlag$Type_FieldInfo_[] = {
-	{"SPLITERATOR", "Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamOpFlag$Type, SPLITERATOR)},
-	{"STREAM", "Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamOpFlag$Type, STREAM)},
-	{"OP", "Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamOpFlag$Type, OP)},
-	{"TERMINAL_OP", "Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamOpFlag$Type, TERMINAL_OP)},
-	{"UPSTREAM_TERMINAL_OP", "Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamOpFlag$Type, UPSTREAM_TERMINAL_OP)},
-	{"$VALUES", "[Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamOpFlag$Type, $VALUES)},
-	{}
-};
-
-$MethodInfo _StreamOpFlag$Type_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StreamOpFlag$Type, $values, $StreamOpFlag$TypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StreamOpFlag$Type, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamOpFlag$Type, valueOf, StreamOpFlag$Type*, $String*)},
-	{"values", "()[Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamOpFlag$Type, values, $StreamOpFlag$TypeArray*)},
-	{}
-};
-
-$InnerClassInfo _StreamOpFlag$Type_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamOpFlag$Type", "java.util.stream.StreamOpFlag", "Type", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _StreamOpFlag$Type_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.util.stream.StreamOpFlag$Type",
-	"java.lang.Enum",
-	nullptr,
-	_StreamOpFlag$Type_FieldInfo_,
-	_StreamOpFlag$Type_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/util/stream/StreamOpFlag$Type;>;",
-	nullptr,
-	_StreamOpFlag$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamOpFlag"
-};
-
-$Object* allocate$StreamOpFlag$Type($Class* clazz) {
-	return $of($alloc(StreamOpFlag$Type));
-}
 
 StreamOpFlag$Type* StreamOpFlag$Type::SPLITERATOR = nullptr;
 StreamOpFlag$Type* StreamOpFlag$Type::STREAM = nullptr;
@@ -96,7 +52,7 @@ void StreamOpFlag$Type::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$StreamOpFlag$Type($Class* class$) {
+void StreamOpFlag$Type::clinit$($Class* clazz) {
 	$assignStatic(StreamOpFlag$Type::SPLITERATOR, $new(StreamOpFlag$Type, "SPLITERATOR"_s, 0));
 	$assignStatic(StreamOpFlag$Type::STREAM, $new(StreamOpFlag$Type, "STREAM"_s, 1));
 	$assignStatic(StreamOpFlag$Type::OP, $new(StreamOpFlag$Type, "OP"_s, 2));
@@ -109,7 +65,44 @@ StreamOpFlag$Type::StreamOpFlag$Type() {
 }
 
 $Class* StreamOpFlag$Type::load$($String* name, bool initialize) {
-	$loadClass(StreamOpFlag$Type, name, initialize, &_StreamOpFlag$Type_ClassInfo_, clinit$StreamOpFlag$Type, allocate$StreamOpFlag$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"SPLITERATOR", "Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamOpFlag$Type, SPLITERATOR)},
+		{"STREAM", "Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamOpFlag$Type, STREAM)},
+		{"OP", "Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamOpFlag$Type, OP)},
+		{"TERMINAL_OP", "Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamOpFlag$Type, TERMINAL_OP)},
+		{"UPSTREAM_TERMINAL_OP", "Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamOpFlag$Type, UPSTREAM_TERMINAL_OP)},
+		{"$VALUES", "[Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamOpFlag$Type, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StreamOpFlag$Type, $values, $StreamOpFlag$TypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StreamOpFlag$Type, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamOpFlag$Type, valueOf, StreamOpFlag$Type*, $String*)},
+		{"values", "()[Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamOpFlag$Type, values, $StreamOpFlag$TypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamOpFlag$Type", "java.util.stream.StreamOpFlag", "Type", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.util.stream.StreamOpFlag$Type",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/util/stream/StreamOpFlag$Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamOpFlag"
+	};
+	$loadClass(StreamOpFlag$Type, name, initialize, &classInfo$$, StreamOpFlag$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StreamOpFlag$Type));
+	});
 	return class$;
 }
 

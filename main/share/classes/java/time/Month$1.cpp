@@ -1,5 +1,4 @@
 #include <java/time/Month$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/Month.h>
 #include <jcpp.h>
@@ -27,93 +26,57 @@ using $Month = ::java::time::Month;
 namespace java {
 	namespace time {
 
-$FieldInfo _Month$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$Month", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Month$1, $SwitchMap$java$time$Month)},
-	{}
-};
-
-$EnclosingMethodInfo _Month$1_EnclosingMethodInfo_ = {
-	"java.time.Month",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Month$1_InnerClassesInfo_[] = {
-	{"java.time.Month$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Month$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.Month$1",
-	"java.lang.Object",
-	nullptr,
-	_Month$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Month$1_EnclosingMethodInfo_,
-	_Month$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.Month"
-};
-
-$Object* allocate$Month$1($Class* clazz) {
-	return $of($alloc(Month$1));
-}
-
 $ints* Month$1::$SwitchMap$java$time$Month = nullptr;
 
-void clinit$Month$1($Class* class$) {
+void Month$1::clinit$($Class* clazz) {
 	$assignStatic(Month$1::$SwitchMap$java$time$Month, $new($ints, $($Month::values())->length));
 	{
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::FEBRUARY->ordinal(), 1);
+			Month$1::$SwitchMap$java$time$Month->set($Month::FEBRUARY->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::APRIL->ordinal(), 2);
+			Month$1::$SwitchMap$java$time$Month->set($Month::APRIL->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::JUNE->ordinal(), 3);
+			Month$1::$SwitchMap$java$time$Month->set($Month::JUNE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::SEPTEMBER->ordinal(), 4);
+			Month$1::$SwitchMap$java$time$Month->set($Month::SEPTEMBER->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::NOVEMBER->ordinal(), 5);
+			Month$1::$SwitchMap$java$time$Month->set($Month::NOVEMBER->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::JANUARY->ordinal(), 6);
+			Month$1::$SwitchMap$java$time$Month->set($Month::JANUARY->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::MARCH->ordinal(), 7);
+			Month$1::$SwitchMap$java$time$Month->set($Month::MARCH->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::MAY->ordinal(), 8);
+			Month$1::$SwitchMap$java$time$Month->set($Month::MAY->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::JULY->ordinal(), 9);
+			Month$1::$SwitchMap$java$time$Month->set($Month::JULY->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::AUGUST->ordinal(), 10);
+			Month$1::$SwitchMap$java$time$Month->set($Month::AUGUST->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::OCTOBER->ordinal(), 11);
+			Month$1::$SwitchMap$java$time$Month->set($Month::OCTOBER->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::DECEMBER->ordinal(), 12);
+			Month$1::$SwitchMap$java$time$Month->set($Month::DECEMBER->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -123,7 +86,37 @@ Month$1::Month$1() {
 }
 
 $Class* Month$1::load$($String* name, bool initialize) {
-	$loadClass(Month$1, name, initialize, &_Month$1_ClassInfo_, clinit$Month$1, allocate$Month$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$Month", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Month$1, $SwitchMap$java$time$Month)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.Month",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.Month$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.Month$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.Month"
+	};
+	$loadClass(Month$1, name, initialize, &classInfo$$, Month$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Month$1);
+	});
 	return class$;
 }
 

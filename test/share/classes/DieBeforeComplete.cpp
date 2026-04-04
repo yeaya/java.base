@@ -1,5 +1,4 @@
 #include <DieBeforeComplete.h>
-
 #include <DieBeforeComplete$1.h>
 #include <DieBeforeComplete$2.h>
 #include <DieBeforeComplete$3.h>
@@ -48,49 +47,14 @@ using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $TimeoutException = ::java::util::concurrent::TimeoutException;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 
-$MethodInfo _DieBeforeComplete_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DieBeforeComplete, init$, void)},
-	{"initiateAndDie", "(LDieBeforeComplete$Task;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(LDieBeforeComplete$Task<TT;>;)Ljava/util/concurrent/Future<TT;>;", $STATIC, $staticMethod(DieBeforeComplete, initiateAndDie, $Future*, $DieBeforeComplete$Task*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DieBeforeComplete, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _DieBeforeComplete_InnerClassesInfo_[] = {
-	{"DieBeforeComplete$Task", "DieBeforeComplete", "Task", $STATIC | $INTERFACE | $ABSTRACT},
-	{"DieBeforeComplete$4", nullptr, nullptr, 0},
-	{"DieBeforeComplete$3", nullptr, nullptr, 0},
-	{"DieBeforeComplete$2", nullptr, nullptr, 0},
-	{"DieBeforeComplete$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DieBeforeComplete_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DieBeforeComplete",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DieBeforeComplete_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DieBeforeComplete_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"DieBeforeComplete$Task,DieBeforeComplete$4,DieBeforeComplete$3,DieBeforeComplete$2,DieBeforeComplete$1"
-};
-
-$Object* allocate$DieBeforeComplete($Class* clazz) {
-	return $of($alloc(DieBeforeComplete));
-}
-
 void DieBeforeComplete::init$() {
 }
 
 void DieBeforeComplete::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$var($AsynchronousServerSocketChannel, listener, $cast($AsynchronousServerSocketChannel, $nc($($AsynchronousServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0))));
+	$useLocalObjectStack();
+	$var($AsynchronousServerSocketChannel, listener, $cast($AsynchronousServerSocketChannel, $$nc($AsynchronousServerSocketChannel::open())->bind($$new($InetSocketAddress, 0))));
 	$var($InetAddress, lh, $InetAddress::getLocalHost());
-	int32_t port = $nc((($cast($InetSocketAddress, $($nc(listener)->getLocalAddress())))))->getPort();
+	int32_t port = $$cast($InetSocketAddress, $nc(listener)->getLocalAddress())->getPort();
 	$var($SocketAddress, sa, $new($InetSocketAddress, lh, port));
 	$var($Future, r1, initiateAndDie($$new($DieBeforeComplete$1, listener)));
 	$var($SocketChannel, peer, $SocketChannel::open(sa));
@@ -98,7 +62,7 @@ void DieBeforeComplete::main($StringArray* args) {
 	$var($ByteBuffer, dst, $ByteBuffer::allocate(100));
 	$var($Future, r2, initiateAndDie($$new($DieBeforeComplete$2, channel, dst)));
 	$nc(peer)->write($($ByteBuffer::wrap($("hello"_s->getBytes()))));
-	int32_t nread = $nc(($cast($Integer, $($nc(r2)->get()))))->intValue();
+	int32_t nread = $$sure($Integer, $nc(r2)->get())->intValue();
 	if (nread <= 0) {
 		$throwNew($RuntimeException, "Should have read at least one byte"_s);
 	}
@@ -109,7 +73,7 @@ void DieBeforeComplete::main($StringArray* args) {
 		$assign(r3, initiateAndDie($$new($DieBeforeComplete$3, channel, src)));
 		try {
 			$init($TimeUnit);
-			int32_t nsent = $nc(($cast($Integer, $($nc(r3)->get(5, $TimeUnit::SECONDS)))))->intValue();
+			int32_t nsent = $$sure($Integer, $nc(r3)->get(5, $TimeUnit::SECONDS))->intValue();
 			if (nsent <= 0) {
 				$throwNew($RuntimeException, "Should have wrote at least one byte"_s);
 			}
@@ -128,14 +92,14 @@ void DieBeforeComplete::main($StringArray* args) {
 			nread = peer->read(src);
 		}
 	} while (nread > 0);
-	int32_t nsent = $nc(($cast($Integer, $($nc(r3)->get()))))->intValue();
+	int32_t nsent = $$sure($Integer, $nc(r3)->get())->intValue();
 	if (nsent <= 0) {
 		$throwNew($RuntimeException, "Should have wrote at least one byte"_s);
 	}
 }
 
 $Future* DieBeforeComplete::initiateAndDie($DieBeforeComplete$Task* task) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AtomicReference, result, $new($AtomicReference));
 	$var($Runnable, r, $new($DieBeforeComplete$4, result, task));
 	$var($Thread, t, $new($Thread, r));
@@ -153,7 +117,37 @@ DieBeforeComplete::DieBeforeComplete() {
 }
 
 $Class* DieBeforeComplete::load$($String* name, bool initialize) {
-	$loadClass(DieBeforeComplete, name, initialize, &_DieBeforeComplete_ClassInfo_, allocate$DieBeforeComplete);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DieBeforeComplete, init$, void)},
+		{"initiateAndDie", "(LDieBeforeComplete$Task;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(LDieBeforeComplete$Task<TT;>;)Ljava/util/concurrent/Future<TT;>;", $STATIC, $staticMethod(DieBeforeComplete, initiateAndDie, $Future*, $DieBeforeComplete$Task*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DieBeforeComplete, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DieBeforeComplete$Task", "DieBeforeComplete", "Task", $STATIC | $INTERFACE | $ABSTRACT},
+		{"DieBeforeComplete$4", nullptr, nullptr, 0},
+		{"DieBeforeComplete$3", nullptr, nullptr, 0},
+		{"DieBeforeComplete$2", nullptr, nullptr, 0},
+		{"DieBeforeComplete$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DieBeforeComplete",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"DieBeforeComplete$Task,DieBeforeComplete$4,DieBeforeComplete$3,DieBeforeComplete$2,DieBeforeComplete$1"
+	};
+	$loadClass(DieBeforeComplete, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DieBeforeComplete);
+	});
 	return class$;
 }
 

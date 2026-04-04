@@ -22,10 +22,13 @@ public:
 	void init$($String* msg);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x4F15114BC2A9D3C8;
+	static const int64_t serialVersionUID = (int64_t)0x4f15114bc2a9d3c8;
 	InvalidKeyException(const InvalidKeyException& e);
 	virtual void throw$() override;
-	inline InvalidKeyException* operator ->() {
+	inline InvalidKeyException* operator ->() const {
+		return (InvalidKeyException*)throwing$;
+	}
+	inline operator InvalidKeyException*() const {
 		return (InvalidKeyException*)throwing$;
 	}
 };

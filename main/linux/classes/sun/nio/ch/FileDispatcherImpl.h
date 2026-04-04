@@ -33,6 +33,7 @@ class FileDispatcherImpl : public ::sun::nio::ch::FileDispatcher {
 	$class(FileDispatcherImpl, 0, ::sun::nio::ch::FileDispatcher)
 public:
 	FileDispatcherImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canTransferToDirectly(::java::nio::channels::SelectableChannel* sc) override;
 	virtual void close(::java::io::FileDescriptor* fd) override;

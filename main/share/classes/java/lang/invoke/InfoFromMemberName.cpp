@@ -1,5 +1,4 @@
 #include <java/lang/invoke/InfoFromMemberName.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InternalError.h>
@@ -16,7 +15,6 @@
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <jcpp.h>
 
 using $AssertionError = ::java::lang::AssertionError;
@@ -39,56 +37,10 @@ using $Member = ::java::lang::reflect::Member;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _InfoFromMemberName_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(InfoFromMemberName, $assertionsDisabled)},
-	{"member", "Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $FINAL, $field(InfoFromMemberName, member)},
-	{"referenceKind", "I", nullptr, $PRIVATE | $FINAL, $field(InfoFromMemberName, referenceKind)},
-	{}
-};
-
-$MethodInfo _InfoFromMemberName_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MemberName;B)V", nullptr, 0, $method(InfoFromMemberName, init$, void, $MethodHandles$Lookup*, $MemberName*, int8_t)},
-	{"convertToMemberName", "(BLjava/lang/reflect/Member;)Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $STATIC, $staticMethod(InfoFromMemberName, convertToMemberName, $MemberName*, int8_t, $Member*), "java.lang.IllegalAccessException"},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(InfoFromMemberName, getDeclaringClass, $Class*)},
-	{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getMethodType, $MethodType*)},
-	{"getModifiers", "()I", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getModifiers, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getName, $String*)},
-	{"getReferenceKind", "()I", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getReferenceKind, int32_t)},
-	{"reflectAs", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/reflect/Member;", "<T::Ljava/lang/reflect/Member;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandles$Lookup;)TT;", $PUBLIC, $virtualMethod(InfoFromMemberName, reflectAs, $Member*, $Class*, $MethodHandles$Lookup*)},
-	{"reflectUnchecked", "()Ljava/lang/reflect/Member;", nullptr, $PRIVATE, $method(InfoFromMemberName, reflectUnchecked, $Member*), "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _InfoFromMemberName_InnerClassesInfo_[] = {
-	{"java.lang.invoke.InfoFromMemberName$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InfoFromMemberName_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.InfoFromMemberName",
-	"java.lang.Object",
-	"java.lang.invoke.MethodHandleInfo",
-	_InfoFromMemberName_FieldInfo_,
-	_InfoFromMemberName_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InfoFromMemberName_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.InfoFromMemberName$1"
-};
-
-$Object* allocate$InfoFromMemberName($Class* clazz) {
-	return $of($alloc(InfoFromMemberName));
-}
 
 bool InfoFromMemberName::$assertionsDisabled = false;
 
@@ -96,8 +48,8 @@ void InfoFromMemberName::init$($MethodHandles$Lookup* lookup, $MemberName* membe
 	bool var$0 = !InfoFromMemberName::$assertionsDisabled;
 	if (var$0) {
 		bool var$2 = $nc(member)->isResolved();
-		bool var$1 = var$2 || $nc(member)->isMethodHandleInvoke();
-		var$0 = !(var$1 || $nc(member)->isVarHandleMethodInvoke());
+		bool var$1 = var$2 || member->isMethodHandleInvoke();
+		var$0 = !(var$1 || member->isVarHandleMethodInvoke());
 	}
 	if (var$0) {
 		$throwNew($AssertionError);
@@ -130,7 +82,7 @@ int32_t InfoFromMemberName::getReferenceKind() {
 }
 
 $String* InfoFromMemberName::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = getReferenceKind();
 	$Class* var$1 = getDeclaringClass();
 	$var($String, var$2, getName());
@@ -138,26 +90,26 @@ $String* InfoFromMemberName::toString() {
 }
 
 $Member* InfoFromMemberName::reflectAs($Class* expected, $MethodHandles$Lookup* lookup) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	bool var$1 = $nc(this->member)->isMethodHandleInvoke();
-	bool var$0 = (var$1 || $nc(this->member)->isVarHandleMethodInvoke());
-	if (var$0 && !$nc(this->member)->isVarargs()) {
+	bool var$0 = var$1 || this->member->isVarHandleMethodInvoke();
+	if (var$0 && !this->member->isVarargs()) {
 		$throwNew($IllegalArgumentException, "cannot reflect signature polymorphic method"_s);
 	}
-	$var($Member, mem, $cast($Member, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($InfoFromMemberName$1, this)))));
+	$var($Member, mem, $cast($Member, $AccessController::doPrivileged($$new($InfoFromMemberName$1, this))));
 	try {
 		$Class* defc = getDeclaringClass();
 		int8_t refKind = (int8_t)getReferenceKind();
 		$nc(lookup)->checkAccess(refKind, defc, $(convertToMemberName(refKind, mem)));
 	} catch ($IllegalAccessException& ex) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(ex));
+		$throwNew($IllegalArgumentException, ex);
 	}
 	return $cast($Member, $nc(expected)->cast(mem));
 }
 
 $Member* InfoFromMemberName::reflectUnchecked() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	int8_t refKind = (int8_t)getReferenceKind();
 	$Class* defc = getDeclaringClass();
@@ -165,16 +117,16 @@ $Member* InfoFromMemberName::reflectUnchecked() {
 	if ($MethodHandleNatives::refKindIsMethod(refKind)) {
 		if (isPublic) {
 			$var($String, var$0, getName());
-			return $nc(defc)->getMethod(var$0, $($fcast($ClassArray, $nc($(getMethodType()))->parameterArray())));
+			return $nc(defc)->getMethod(var$0, $$cast($ClassArray, $$nc(getMethodType())->parameterArray()));
 		} else {
 			$var($String, var$1, getName());
-			return $nc(defc)->getDeclaredMethod(var$1, $($fcast($ClassArray, $nc($(getMethodType()))->parameterArray())));
+			return $nc(defc)->getDeclaredMethod(var$1, $$cast($ClassArray, $$nc(getMethodType())->parameterArray()));
 		}
 	} else if ($MethodHandleNatives::refKindIsConstructor(refKind)) {
 		if (isPublic) {
-			return $nc(defc)->getConstructor($($fcast($ClassArray, $nc($(getMethodType()))->parameterArray())));
+			return $nc(defc)->getConstructor($$cast($ClassArray, $$nc(getMethodType())->parameterArray()));
 		} else {
-			return $nc(defc)->getDeclaredConstructor($($fcast($ClassArray, $nc($(getMethodType()))->parameterArray())));
+			return $nc(defc)->getDeclaredConstructor($$cast($ClassArray, $$nc(getMethodType())->parameterArray()));
 		}
 	} else if ($MethodHandleNatives::refKindIsField(refKind)) {
 		if (isPublic) {
@@ -201,7 +153,7 @@ $MemberName* InfoFromMemberName::convertToMemberName(int8_t refKind, $Member* me
 	$throwNew($InternalError, $($nc($of(mem))->getClass()->getName()));
 }
 
-void clinit$InfoFromMemberName($Class* class$) {
+void InfoFromMemberName::clinit$($Class* clazz) {
 	InfoFromMemberName::$assertionsDisabled = !InfoFromMemberName::class$->desiredAssertionStatus();
 }
 
@@ -209,7 +161,46 @@ InfoFromMemberName::InfoFromMemberName() {
 }
 
 $Class* InfoFromMemberName::load$($String* name, bool initialize) {
-	$loadClass(InfoFromMemberName, name, initialize, &_InfoFromMemberName_ClassInfo_, clinit$InfoFromMemberName, allocate$InfoFromMemberName);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(InfoFromMemberName, $assertionsDisabled)},
+		{"member", "Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $FINAL, $field(InfoFromMemberName, member)},
+		{"referenceKind", "I", nullptr, $PRIVATE | $FINAL, $field(InfoFromMemberName, referenceKind)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MemberName;B)V", nullptr, 0, $method(InfoFromMemberName, init$, void, $MethodHandles$Lookup*, $MemberName*, int8_t)},
+		{"convertToMemberName", "(BLjava/lang/reflect/Member;)Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $STATIC, $staticMethod(InfoFromMemberName, convertToMemberName, $MemberName*, int8_t, $Member*), "java.lang.IllegalAccessException"},
+		{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(InfoFromMemberName, getDeclaringClass, $Class*)},
+		{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getMethodType, $MethodType*)},
+		{"getModifiers", "()I", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getModifiers, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getName, $String*)},
+		{"getReferenceKind", "()I", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getReferenceKind, int32_t)},
+		{"reflectAs", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/reflect/Member;", "<T::Ljava/lang/reflect/Member;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandles$Lookup;)TT;", $PUBLIC, $virtualMethod(InfoFromMemberName, reflectAs, $Member*, $Class*, $MethodHandles$Lookup*)},
+		{"reflectUnchecked", "()Ljava/lang/reflect/Member;", nullptr, $PRIVATE, $method(InfoFromMemberName, reflectUnchecked, $Member*), "java.lang.ReflectiveOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.InfoFromMemberName$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.InfoFromMemberName",
+		"java.lang.Object",
+		"java.lang.invoke.MethodHandleInfo",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.InfoFromMemberName$1"
+	};
+	$loadClass(InfoFromMemberName, name, initialize, &classInfo$$, InfoFromMemberName::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InfoFromMemberName);
+	});
 	return class$;
 }
 

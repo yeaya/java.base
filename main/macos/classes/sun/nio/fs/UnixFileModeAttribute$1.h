@@ -13,6 +13,7 @@ class UnixFileModeAttribute$1 : public ::java::lang::Object {
 	$class(UnixFileModeAttribute$1, 0, ::java::lang::Object)
 public:
 	UnixFileModeAttribute$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$nio$file$attribute$PosixFilePermission;
 };
 

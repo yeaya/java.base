@@ -92,6 +92,7 @@ class SSLSessionImpl : public ::javax::net::ssl::ExtendedSSLSession {
 	$class(SSLSessionImpl, 0, ::javax::net::ssl::ExtendedSSLSession)
 public:
 	SSLSessionImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::security::ssl::HandshakeContext* hc, ::sun::security::ssl::CipherSuite* cipherSuite);
 	void init$(::sun::security::ssl::HandshakeContext* hc, ::sun::security::ssl::CipherSuite* cipherSuite, ::sun::security::ssl::SessionId* id);

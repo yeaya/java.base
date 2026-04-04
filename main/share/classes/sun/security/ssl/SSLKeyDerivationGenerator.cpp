@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLKeyDerivationGenerator.h>
-
 #include <javax/crypto/SecretKey.h>
 #include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/SSLKeyDerivation.h>
@@ -15,26 +14,22 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLKeyDerivationGenerator_MethodInfo_[] = {
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLKeyDerivationGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*, $SecretKey*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SSLKeyDerivationGenerator_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.security.ssl.SSLKeyDerivationGenerator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SSLKeyDerivationGenerator_MethodInfo_
-};
-
-$Object* allocate$SSLKeyDerivationGenerator($Class* clazz) {
-	return $of($alloc(SSLKeyDerivationGenerator));
-}
-
 $Class* SSLKeyDerivationGenerator::load$($String* name, bool initialize) {
-	$loadClass(SSLKeyDerivationGenerator, name, initialize, &_SSLKeyDerivationGenerator_ClassInfo_, allocate$SSLKeyDerivationGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLKeyDerivationGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*, $SecretKey*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.security.ssl.SSLKeyDerivationGenerator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLKeyDerivationGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLKeyDerivationGenerator);
+	});
 	return class$;
 }
 

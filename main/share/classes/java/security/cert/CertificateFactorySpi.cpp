@@ -1,5 +1,4 @@
 #include <java/security/cert/CertificateFactorySpi.h>
-
 #include <java/io/InputStream.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/cert/CRL.h>
@@ -24,32 +23,6 @@ using $List = ::java::util::List;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$MethodInfo _CertificateFactorySpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateFactorySpi, init$, void)},
-	{"engineGenerateCRL", "(Ljava/io/InputStream;)Ljava/security/cert/CRL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertificateFactorySpi, engineGenerateCRL, $CRL*, $InputStream*), "java.security.cert.CRLException"},
-	{"engineGenerateCRLs", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertificateFactorySpi, engineGenerateCRLs, $Collection*, $InputStream*), "java.security.cert.CRLException"},
-	{"engineGenerateCertPath", "(Ljava/io/InputStream;)Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $virtualMethod(CertificateFactorySpi, engineGenerateCertPath, $CertPath*, $InputStream*), "java.security.cert.CertificateException"},
-	{"engineGenerateCertPath", "(Ljava/io/InputStream;Ljava/lang/String;)Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $virtualMethod(CertificateFactorySpi, engineGenerateCertPath, $CertPath*, $InputStream*, $String*), "java.security.cert.CertificateException"},
-	{"engineGenerateCertPath", "(Ljava/util/List;)Ljava/security/cert/CertPath;", "(Ljava/util/List<+Ljava/security/cert/Certificate;>;)Ljava/security/cert/CertPath;", $PUBLIC, $virtualMethod(CertificateFactorySpi, engineGenerateCertPath, $CertPath*, $List*), "java.security.cert.CertificateException"},
-	{"engineGenerateCertificate", "(Ljava/io/InputStream;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertificateFactorySpi, engineGenerateCertificate, $Certificate*, $InputStream*), "java.security.cert.CertificateException"},
-	{"engineGenerateCertificates", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertificateFactorySpi, engineGenerateCertificates, $Collection*, $InputStream*), "java.security.cert.CertificateException"},
-	{"engineGetCertPathEncodings", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateFactorySpi, engineGetCertPathEncodings, $Iterator*)},
-	{}
-};
-
-$ClassInfo _CertificateFactorySpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.cert.CertificateFactorySpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CertificateFactorySpi_MethodInfo_
-};
-
-$Object* allocate$CertificateFactorySpi($Class* clazz) {
-	return $of($alloc(CertificateFactorySpi));
-}
 
 void CertificateFactorySpi::init$() {
 }
@@ -78,7 +51,29 @@ CertificateFactorySpi::CertificateFactorySpi() {
 }
 
 $Class* CertificateFactorySpi::load$($String* name, bool initialize) {
-	$loadClass(CertificateFactorySpi, name, initialize, &_CertificateFactorySpi_ClassInfo_, allocate$CertificateFactorySpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateFactorySpi, init$, void)},
+		{"engineGenerateCRL", "(Ljava/io/InputStream;)Ljava/security/cert/CRL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertificateFactorySpi, engineGenerateCRL, $CRL*, $InputStream*), "java.security.cert.CRLException"},
+		{"engineGenerateCRLs", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertificateFactorySpi, engineGenerateCRLs, $Collection*, $InputStream*), "java.security.cert.CRLException"},
+		{"engineGenerateCertPath", "(Ljava/io/InputStream;)Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $virtualMethod(CertificateFactorySpi, engineGenerateCertPath, $CertPath*, $InputStream*), "java.security.cert.CertificateException"},
+		{"engineGenerateCertPath", "(Ljava/io/InputStream;Ljava/lang/String;)Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $virtualMethod(CertificateFactorySpi, engineGenerateCertPath, $CertPath*, $InputStream*, $String*), "java.security.cert.CertificateException"},
+		{"engineGenerateCertPath", "(Ljava/util/List;)Ljava/security/cert/CertPath;", "(Ljava/util/List<+Ljava/security/cert/Certificate;>;)Ljava/security/cert/CertPath;", $PUBLIC, $virtualMethod(CertificateFactorySpi, engineGenerateCertPath, $CertPath*, $List*), "java.security.cert.CertificateException"},
+		{"engineGenerateCertificate", "(Ljava/io/InputStream;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertificateFactorySpi, engineGenerateCertificate, $Certificate*, $InputStream*), "java.security.cert.CertificateException"},
+		{"engineGenerateCertificates", "(Ljava/io/InputStream;)Ljava/util/Collection;", "(Ljava/io/InputStream;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertificateFactorySpi, engineGenerateCertificates, $Collection*, $InputStream*), "java.security.cert.CertificateException"},
+		{"engineGetCertPathEncodings", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateFactorySpi, engineGetCertPathEncodings, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.cert.CertificateFactorySpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CertificateFactorySpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateFactorySpi);
+	});
 	return class$;
 }
 

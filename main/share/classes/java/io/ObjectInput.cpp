@@ -1,5 +1,4 @@
 #include <java/io/ObjectInput.h>
-
 #include <java/io/DataInput.h>
 #include <jcpp.h>
 
@@ -9,35 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$MethodInfo _ObjectInput_MethodInfo_[] = {
-	{"available", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, available, int32_t), "java.io.IOException"},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"read", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readObject", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, readObject, $Object*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, skip, int64_t, int64_t), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ObjectInput_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.io.ObjectInput",
-	nullptr,
-	"java.io.DataInput,java.lang.AutoCloseable",
-	nullptr,
-	_ObjectInput_MethodInfo_
-};
-
-$Object* allocate$ObjectInput($Class* clazz) {
-	return $of($alloc(ObjectInput));
-}
 
 int32_t ObjectInput::hashCode() {
 	 return this->$DataInput::hashCode();
@@ -60,7 +30,32 @@ void ObjectInput::finalize() {
 }
 
 $Class* ObjectInput::load$($String* name, bool initialize) {
-	$loadClass(ObjectInput, name, initialize, &_ObjectInput_ClassInfo_, allocate$ObjectInput);
+	$MethodInfo methodInfos$$[] = {
+		{"available", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, available, int32_t), "java.io.IOException"},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"read", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readObject", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, readObject, $Object*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, skip, int64_t, int64_t), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.io.ObjectInput",
+		nullptr,
+		"java.io.DataInput,java.lang.AutoCloseable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ObjectInput, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ObjectInput));
+	});
 	return class$;
 }
 

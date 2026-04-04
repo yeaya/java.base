@@ -27,6 +27,7 @@ class DelegatingMethodHandle : public ::java::lang::invoke::MethodHandle {
 public:
 	DelegatingMethodHandle();
 	virtual ::java::lang::invoke::MethodHandle* asTypeUncached(::java::lang::invoke::MethodType* newType) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodHandle* target);
 	void init$(::java::lang::invoke::MethodType* type, ::java::lang::invoke::MethodHandle* target);
 	void init$(::java::lang::invoke::MethodType* type, ::java::lang::invoke::LambdaForm* form);

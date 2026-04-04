@@ -13,6 +13,7 @@ class $export NamedParameterSpec : public ::java::security::spec::AlgorithmParam
 	$class(NamedParameterSpec, 0, ::java::security::spec::AlgorithmParameterSpec)
 public:
 	NamedParameterSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* stdName);
 	virtual $String* getName();
 	static ::java::security::spec::NamedParameterSpec* X25519;

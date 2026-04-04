@@ -1,5 +1,4 @@
 #include <java/util/concurrent/SubmissionPublisher$ConsumerTask.h>
-
 #include <java/util/concurrent/ForkJoinTask.h>
 #include <java/util/concurrent/SubmissionPublisher$BufferedSubscription.h>
 #include <java/util/concurrent/SubmissionPublisher.h>
@@ -16,52 +15,6 @@ using $SubmissionPublisher$BufferedSubscription = ::java::util::concurrent::Subm
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _SubmissionPublisher$ConsumerTask_FieldInfo_[] = {
-	{"consumer", "Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription;", "Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription<TT;>;", $FINAL, $field(SubmissionPublisher$ConsumerTask, consumer)},
-	{}
-};
-
-$MethodInfo _SubmissionPublisher$ConsumerTask_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription;)V", "(Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription<TT;>;)V", 0, $method(SubmissionPublisher$ConsumerTask, init$, void, $SubmissionPublisher$BufferedSubscription*)},
-	{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerTask, exec, bool)},
-	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerTask, getRawResult, $Object*)},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerTask, run, void)},
-	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(SubmissionPublisher$ConsumerTask, setRawResult, void, $Void*)},
-	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SubmissionPublisher$ConsumerTask, setRawResult, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SubmissionPublisher$ConsumerTask_InnerClassesInfo_[] = {
-	{"java.util.concurrent.SubmissionPublisher$ConsumerTask", "java.util.concurrent.SubmissionPublisher", "ConsumerTask", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$AsynchronousCompletionTask", "java.util.concurrent.CompletableFuture", "AsynchronousCompletionTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SubmissionPublisher$ConsumerTask_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.SubmissionPublisher$ConsumerTask",
-	"java.util.concurrent.ForkJoinTask",
-	"java.lang.Runnable,java.util.concurrent.CompletableFuture$AsynchronousCompletionTask",
-	_SubmissionPublisher$ConsumerTask_FieldInfo_,
-	_SubmissionPublisher$ConsumerTask_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/concurrent/ForkJoinTask<Ljava/lang/Void;>;Ljava/lang/Runnable;Ljava/util/concurrent/CompletableFuture$AsynchronousCompletionTask;",
-	nullptr,
-	_SubmissionPublisher$ConsumerTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.SubmissionPublisher"
-};
-
-$Object* allocate$SubmissionPublisher$ConsumerTask($Class* clazz) {
-	return $of($alloc(SubmissionPublisher$ConsumerTask));
-}
 
 int32_t SubmissionPublisher$ConsumerTask::hashCode() {
 	 return this->$ForkJoinTask::hashCode();
@@ -89,7 +42,7 @@ void SubmissionPublisher$ConsumerTask::init$($SubmissionPublisher$BufferedSubscr
 }
 
 $Object* SubmissionPublisher$ConsumerTask::getRawResult() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 void SubmissionPublisher$ConsumerTask::setRawResult($Void* v) {
@@ -112,7 +65,47 @@ SubmissionPublisher$ConsumerTask::SubmissionPublisher$ConsumerTask() {
 }
 
 $Class* SubmissionPublisher$ConsumerTask::load$($String* name, bool initialize) {
-	$loadClass(SubmissionPublisher$ConsumerTask, name, initialize, &_SubmissionPublisher$ConsumerTask_ClassInfo_, allocate$SubmissionPublisher$ConsumerTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"consumer", "Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription;", "Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription<TT;>;", $FINAL, $field(SubmissionPublisher$ConsumerTask, consumer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription;)V", "(Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription<TT;>;)V", 0, $method(SubmissionPublisher$ConsumerTask, init$, void, $SubmissionPublisher$BufferedSubscription*)},
+		{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerTask, exec, bool)},
+		{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerTask, getRawResult, $Object*)},
+		{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerTask, run, void)},
+		{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(SubmissionPublisher$ConsumerTask, setRawResult, void, $Void*)},
+		{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SubmissionPublisher$ConsumerTask, setRawResult, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.SubmissionPublisher$ConsumerTask", "java.util.concurrent.SubmissionPublisher", "ConsumerTask", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$AsynchronousCompletionTask", "java.util.concurrent.CompletableFuture", "AsynchronousCompletionTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.SubmissionPublisher$ConsumerTask",
+		"java.util.concurrent.ForkJoinTask",
+		"java.lang.Runnable,java.util.concurrent.CompletableFuture$AsynchronousCompletionTask",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/concurrent/ForkJoinTask<Ljava/lang/Void;>;Ljava/lang/Runnable;Ljava/util/concurrent/CompletableFuture$AsynchronousCompletionTask;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.SubmissionPublisher"
+	};
+	$loadClass(SubmissionPublisher$ConsumerTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SubmissionPublisher$ConsumerTask));
+	});
 	return class$;
 }
 

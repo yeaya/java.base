@@ -1,5 +1,4 @@
 #include <sun/security/validator/CADistrustPolicy$2.h>
-
 #include <java/security/Security.h>
 #include <sun/security/validator/CADistrustPolicy.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ namespace sun {
 	namespace security {
 		namespace validator {
 
-$MethodInfo _CADistrustPolicy$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CADistrustPolicy$2, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CADistrustPolicy$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _CADistrustPolicy$2_EnclosingMethodInfo_ = {
-	"sun.security.validator.CADistrustPolicy",
-	"parseProperty",
-	"()Ljava/util/EnumSet;"
-};
-
-$InnerClassInfo _CADistrustPolicy$2_InnerClassesInfo_[] = {
-	{"sun.security.validator.CADistrustPolicy$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CADistrustPolicy$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.validator.CADistrustPolicy$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_CADistrustPolicy$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_CADistrustPolicy$2_EnclosingMethodInfo_,
-	_CADistrustPolicy$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.validator.CADistrustPolicy"
-};
-
-$Object* allocate$CADistrustPolicy$2($Class* clazz) {
-	return $of($alloc(CADistrustPolicy$2));
-}
-
 void CADistrustPolicy$2::init$() {
 }
 
@@ -62,7 +24,38 @@ CADistrustPolicy$2::CADistrustPolicy$2() {
 }
 
 $Class* CADistrustPolicy$2::load$($String* name, bool initialize) {
-	$loadClass(CADistrustPolicy$2, name, initialize, &_CADistrustPolicy$2_ClassInfo_, allocate$CADistrustPolicy$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CADistrustPolicy$2, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CADistrustPolicy$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.validator.CADistrustPolicy",
+		"parseProperty",
+		"()Ljava/util/EnumSet;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.validator.CADistrustPolicy$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.validator.CADistrustPolicy$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.validator.CADistrustPolicy"
+	};
+	$loadClass(CADistrustPolicy$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CADistrustPolicy$2);
+	});
 	return class$;
 }
 

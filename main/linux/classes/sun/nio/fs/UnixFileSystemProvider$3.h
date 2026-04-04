@@ -13,6 +13,7 @@ class UnixFileSystemProvider$3 : public ::java::lang::Object {
 	$class(UnixFileSystemProvider$3, 0, ::java::lang::Object)
 public:
 	UnixFileSystemProvider$3();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$nio$file$AccessMode;
 };
 

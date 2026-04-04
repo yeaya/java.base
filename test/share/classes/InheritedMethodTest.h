@@ -19,6 +19,7 @@ class $export InheritedMethodTest : public ::java::lang::Object {
 	$class(InheritedMethodTest, 0, ::java::lang::Object)
 public:
 	InheritedMethodTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::lang::invoke::MethodType* mt($Class* ret, $ClassArray* params);

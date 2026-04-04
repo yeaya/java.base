@@ -1,5 +1,4 @@
 #include <sun/security/x509/FreshestCRLExtension.h>
-
 #include <java/io/OutputStream.h>
 #include <java/util/List.h>
 #include <sun/security/util/ObjectIdentifier.h>
@@ -22,31 +21,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _FreshestCRLExtension_FieldInfo_[] = {
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FreshestCRLExtension, NAME)},
-	{}
-};
-
-$MethodInfo _FreshestCRLExtension_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/x509/DistributionPoint;>;)V", $PUBLIC, $method(FreshestCRLExtension, init$, void, $List*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(FreshestCRLExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(FreshestCRLExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _FreshestCRLExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.FreshestCRLExtension",
-	"sun.security.x509.CRLDistributionPointsExtension",
-	nullptr,
-	_FreshestCRLExtension_FieldInfo_,
-	_FreshestCRLExtension_MethodInfo_
-};
-
-$Object* allocate$FreshestCRLExtension($Class* clazz) {
-	return $of($alloc(FreshestCRLExtension));
-}
-
 $String* FreshestCRLExtension::NAME = nullptr;
 
 void FreshestCRLExtension::init$($List* distributionPoints) {
@@ -67,12 +41,32 @@ void FreshestCRLExtension::encode($OutputStream* out) {
 FreshestCRLExtension::FreshestCRLExtension() {
 }
 
-void clinit$FreshestCRLExtension($Class* class$) {
+void FreshestCRLExtension::clinit$($Class* clazz) {
 	$assignStatic(FreshestCRLExtension::NAME, "FreshestCRL"_s);
 }
 
 $Class* FreshestCRLExtension::load$($String* name, bool initialize) {
-	$loadClass(FreshestCRLExtension, name, initialize, &_FreshestCRLExtension_ClassInfo_, clinit$FreshestCRLExtension, allocate$FreshestCRLExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FreshestCRLExtension, NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/x509/DistributionPoint;>;)V", $PUBLIC, $method(FreshestCRLExtension, init$, void, $List*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(FreshestCRLExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(FreshestCRLExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.FreshestCRLExtension",
+		"sun.security.x509.CRLDistributionPointsExtension",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FreshestCRLExtension, name, initialize, &classInfo$$, FreshestCRLExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FreshestCRLExtension));
+	});
 	return class$;
 }
 

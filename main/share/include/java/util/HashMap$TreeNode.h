@@ -20,6 +20,7 @@ class $import HashMap$TreeNode : public ::java::util::LinkedHashMap$Entry {
 	$class(HashMap$TreeNode, 0, ::java::util::LinkedHashMap$Entry)
 public:
 	HashMap$TreeNode();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t hash, Object$* key, Object$* val, ::java::util::HashMap$Node* next);
 	static ::java::util::HashMap$TreeNode* balanceDeletion(::java::util::HashMap$TreeNode* root, ::java::util::HashMap$TreeNode* x);
 	static ::java::util::HashMap$TreeNode* balanceInsertion(::java::util::HashMap$TreeNode* root, ::java::util::HashMap$TreeNode* x);

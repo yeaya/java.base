@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$IntFixedNodeBuilder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Arrays.h>
@@ -25,53 +24,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _Nodes$IntFixedNodeBuilder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Nodes$IntFixedNodeBuilder, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _Nodes$IntFixedNodeBuilder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(J)V", nullptr, 0, $method(Nodes$IntFixedNodeBuilder, init$, void, int64_t)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, accept, void, int32_t)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, begin, void, int64_t)},
-	{"build", "()Ljava/util/stream/Node$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, build, $Node$OfInt*)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, end, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Nodes$IntFixedNodeBuilder_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$IntFixedNodeBuilder", "java.util.stream.Nodes", "IntFixedNodeBuilder", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.Nodes$IntArrayNode", "java.util.stream.Nodes", "IntArrayNode", $PRIVATE | $STATIC},
-	{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Node$Builder$OfInt", "java.util.stream.Node$Builder", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$IntFixedNodeBuilder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Nodes$IntFixedNodeBuilder",
-	"java.util.stream.Nodes$IntArrayNode",
-	"java.util.stream.Node$Builder$OfInt",
-	_Nodes$IntFixedNodeBuilder_FieldInfo_,
-	_Nodes$IntFixedNodeBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Nodes$IntFixedNodeBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$IntFixedNodeBuilder($Class* clazz) {
-	return $of($alloc(Nodes$IntFixedNodeBuilder));
-}
-
 int32_t Nodes$IntFixedNodeBuilder::hashCode() {
 	 return this->$Nodes$IntArrayNode::hashCode();
 }
@@ -92,61 +44,61 @@ bool Nodes$IntFixedNodeBuilder::$assertionsDisabled = false;
 
 void Nodes$IntFixedNodeBuilder::init$(int64_t size) {
 	$Nodes$IntArrayNode::init$(size);
-	if (!Nodes$IntFixedNodeBuilder::$assertionsDisabled && !(size < (int64_t)2147483639)) {
+	if (!Nodes$IntFixedNodeBuilder::$assertionsDisabled && !(size < 2147483639)) {
 		$throwNew($AssertionError);
 	}
 }
 
 $Node$OfInt* Nodes$IntFixedNodeBuilder::build() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->curSize < $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("Current size %d is less than fixed size %d"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(this->curSize))),
-			$($of($Integer::valueOf($nc(this->array)->length)))
+			$($Integer::valueOf(this->curSize)),
+			$($Integer::valueOf(this->array->length))
 		}))));
 	}
 	return this;
 }
 
 void Nodes$IntFixedNodeBuilder::begin(int64_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (size != $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("Begin size %d is not equal to fixed size %d"_s, $$new($ObjectArray, {
-			$($of($Long::valueOf(size))),
-			$($of($Integer::valueOf($nc(this->array)->length)))
+			$($Long::valueOf(size)),
+			$($Integer::valueOf(this->array->length))
 		}))));
 	}
 	this->curSize = 0;
 }
 
 void Nodes$IntFixedNodeBuilder::accept(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->curSize < $nc(this->array)->length) {
-		$nc(this->array)->set(this->curSize++, i);
+		this->array->set(this->curSize++, i);
 	} else {
-		$throwNew($IllegalStateException, $($String::format("Accept exceeded fixed size of %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(this->array)->length)))}))));
+		$throwNew($IllegalStateException, $($String::format("Accept exceeded fixed size of %d"_s, $$new($ObjectArray, {$($Integer::valueOf(this->array->length))}))));
 	}
 }
 
 void Nodes$IntFixedNodeBuilder::end() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->curSize < $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("End size %d is less than fixed size %d"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(this->curSize))),
-			$($of($Integer::valueOf($nc(this->array)->length)))
+			$($Integer::valueOf(this->curSize)),
+			$($Integer::valueOf(this->array->length))
 		}))));
 	}
 }
 
 $String* Nodes$IntFixedNodeBuilder::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("IntFixedNodeBuilder[%d][%s]"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf($nc(this->array)->length - this->curSize))),
-		$($of($Arrays::toString(this->array)))
+		$($Integer::valueOf($nc(this->array)->length - this->curSize)),
+		$($Arrays::toString(this->array))
 	}));
 }
 
-void clinit$Nodes$IntFixedNodeBuilder($Class* class$) {
+void Nodes$IntFixedNodeBuilder::clinit$($Class* clazz) {
 	$load($Nodes);
 	Nodes$IntFixedNodeBuilder::$assertionsDisabled = !$Nodes::class$->desiredAssertionStatus();
 }
@@ -155,7 +107,48 @@ Nodes$IntFixedNodeBuilder::Nodes$IntFixedNodeBuilder() {
 }
 
 $Class* Nodes$IntFixedNodeBuilder::load$($String* name, bool initialize) {
-	$loadClass(Nodes$IntFixedNodeBuilder, name, initialize, &_Nodes$IntFixedNodeBuilder_ClassInfo_, clinit$Nodes$IntFixedNodeBuilder, allocate$Nodes$IntFixedNodeBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Nodes$IntFixedNodeBuilder, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(J)V", nullptr, 0, $method(Nodes$IntFixedNodeBuilder, init$, void, int64_t)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, accept, void, int32_t)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, begin, void, int64_t)},
+		{"build", "()Ljava/util/stream/Node$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, build, $Node$OfInt*)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, end, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$IntFixedNodeBuilder", "java.util.stream.Nodes", "IntFixedNodeBuilder", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.Nodes$IntArrayNode", "java.util.stream.Nodes", "IntArrayNode", $PRIVATE | $STATIC},
+		{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Node$Builder$OfInt", "java.util.stream.Node$Builder", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Nodes$IntFixedNodeBuilder",
+		"java.util.stream.Nodes$IntArrayNode",
+		"java.util.stream.Node$Builder$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$IntFixedNodeBuilder, name, initialize, &classInfo$$, Nodes$IntFixedNodeBuilder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$IntFixedNodeBuilder));
+	});
 	return class$;
 }
 

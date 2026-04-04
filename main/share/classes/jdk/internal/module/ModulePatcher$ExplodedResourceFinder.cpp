@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModulePatcher$ExplodedResourceFinder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -50,33 +49,29 @@ public:
 	virtual $Object* apply(Object$* f) override {
 		 return $of($nc(inst$)->lambda$list$0($cast($Path, f)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0>());
-	}
 	ModulePatcher$ExplodedResourceFinder* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0, inst$)},
-	{}
-};
-$MethodInfo ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePatcher$ExplodedResourceFinder;)V", nullptr, $PUBLIC, $method(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0, init$, void, ModulePatcher$ExplodedResourceFinder*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0::load$($String* name, bool initialize) {
-	$loadClass(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModulePatcher$ExplodedResourceFinder;)V", nullptr, $PUBLIC, $method(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0, init$, void, ModulePatcher$ExplodedResourceFinder*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0);
+	});
 	return class$;
 }
 $Class* ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0::class$ = nullptr;
@@ -89,73 +84,27 @@ public:
 	virtual bool test(Object$* s) override {
 		 return ModulePatcher$ExplodedResourceFinder::lambda$list$1($cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1::load$($String* name, bool initialize) {
-	$loadClass(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1);
+	});
 	return class$;
 }
 $Class* ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1::class$ = nullptr;
-
-$FieldInfo _ModulePatcher$ExplodedResourceFinder_FieldInfo_[] = {
-	{"dir", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(ModulePatcher$ExplodedResourceFinder, dir)},
-	{}
-};
-
-$MethodInfo _ModulePatcher$ExplodedResourceFinder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(ModulePatcher$ExplodedResourceFinder, init$, void, $Path*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder, close, void)},
-	{"find", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder, find, $Resource*, $String*), "java.io.IOException"},
-	{"lambda$list$0", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePatcher$ExplodedResourceFinder, lambda$list$0, $String*, $Path*)},
-	{"lambda$list$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePatcher$ExplodedResourceFinder, lambda$list$1, bool, $String*)},
-	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder, list, $Stream*), "java.io.IOException"},
-	{"newResource", "(Ljava/lang/String;Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljdk/internal/loader/Resource;", nullptr, $PRIVATE, $method(ModulePatcher$ExplodedResourceFinder, newResource, $Resource*, $String*, $Path*, $Path*)},
-	{}
-};
-
-$InnerClassInfo _ModulePatcher$ExplodedResourceFinder_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModulePatcher$ExplodedResourceFinder", "jdk.internal.module.ModulePatcher", "ExplodedResourceFinder", $PRIVATE | $STATIC},
-	{"jdk.internal.module.ModulePatcher$ResourceFinder", "jdk.internal.module.ModulePatcher", "ResourceFinder", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.module.ModulePatcher$ExplodedResourceFinder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ModulePatcher$ExplodedResourceFinder_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.ModulePatcher$ExplodedResourceFinder",
-	"java.lang.Object",
-	"jdk.internal.module.ModulePatcher$ResourceFinder",
-	_ModulePatcher$ExplodedResourceFinder_FieldInfo_,
-	_ModulePatcher$ExplodedResourceFinder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModulePatcher$ExplodedResourceFinder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModulePatcher"
-};
-
-$Object* allocate$ModulePatcher$ExplodedResourceFinder($Class* clazz) {
-	return $of($alloc(ModulePatcher$ExplodedResourceFinder));
-}
 
 void ModulePatcher$ExplodedResourceFinder::init$($Path* dir) {
 	$set(this, dir, dir);
@@ -178,8 +127,8 @@ $Resource* ModulePatcher$ExplodedResourceFinder::newResource($String* name, $Pat
 }
 
 $Stream* ModulePatcher$ExplodedResourceFinder::list() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($Files::walk(this->dir, $Integer::MAX_VALUE, $$new($FileVisitOptionArray, 0))))->map(static_cast<$Function*>($$new(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0, this)))))->filter(static_cast<$Predicate*>($$new(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1)));
+	$useLocalObjectStack();
+	return $$nc($$nc($Files::walk(this->dir, $Integer::MAX_VALUE, $$new($FileVisitOptionArray, 0)))->map($$new(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0, this)))->filter($$new(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1));
 }
 
 bool ModulePatcher$ExplodedResourceFinder::lambda$list$1($String* s) {
@@ -196,14 +145,51 @@ ModulePatcher$ExplodedResourceFinder::ModulePatcher$ExplodedResourceFinder() {
 
 $Class* ModulePatcher$ExplodedResourceFinder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0")) {
 			return ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0::load$(name, initialize);
 		}
-		if (name->equals(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1")) {
 			return ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ModulePatcher$ExplodedResourceFinder, name, initialize, &_ModulePatcher$ExplodedResourceFinder_ClassInfo_, allocate$ModulePatcher$ExplodedResourceFinder);
+	$FieldInfo fieldInfos$$[] = {
+		{"dir", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(ModulePatcher$ExplodedResourceFinder, dir)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(ModulePatcher$ExplodedResourceFinder, init$, void, $Path*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder, close, void)},
+		{"find", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder, find, $Resource*, $String*), "java.io.IOException"},
+		{"lambda$list$0", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePatcher$ExplodedResourceFinder, lambda$list$0, $String*, $Path*)},
+		{"lambda$list$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePatcher$ExplodedResourceFinder, lambda$list$1, bool, $String*)},
+		{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder, list, $Stream*), "java.io.IOException"},
+		{"newResource", "(Ljava/lang/String;Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljdk/internal/loader/Resource;", nullptr, $PRIVATE, $method(ModulePatcher$ExplodedResourceFinder, newResource, $Resource*, $String*, $Path*, $Path*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModulePatcher$ExplodedResourceFinder", "jdk.internal.module.ModulePatcher", "ExplodedResourceFinder", $PRIVATE | $STATIC},
+		{"jdk.internal.module.ModulePatcher$ResourceFinder", "jdk.internal.module.ModulePatcher", "ResourceFinder", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.module.ModulePatcher$ExplodedResourceFinder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.ModulePatcher$ExplodedResourceFinder",
+		"java.lang.Object",
+		"jdk.internal.module.ModulePatcher$ResourceFinder",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModulePatcher"
+	};
+	$loadClass(ModulePatcher$ExplodedResourceFinder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePatcher$ExplodedResourceFinder);
+	});
 	return class$;
 }
 

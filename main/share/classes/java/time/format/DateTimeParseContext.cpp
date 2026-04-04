@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeParseContext.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/time/ZoneId.h>
 #include <java/time/chrono/Chronology.h>
@@ -40,7 +39,6 @@ using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalField = ::java::time::temporal::TemporalField;
 using $ArrayList = ::java::util::ArrayList;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
@@ -49,64 +47,13 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$FieldInfo _DateTimeParseContext_FieldInfo_[] = {
-	{"formatter", "Ljava/time/format/DateTimeFormatter;", nullptr, $PRIVATE, $field(DateTimeParseContext, formatter)},
-	{"caseSensitive", "Z", nullptr, $PRIVATE, $field(DateTimeParseContext, caseSensitive)},
-	{"strict", "Z", nullptr, $PRIVATE, $field(DateTimeParseContext, strict)},
-	{"parsed", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/time/format/Parsed;>;", $PRIVATE | $FINAL, $field(DateTimeParseContext, parsed)},
-	{"chronoListeners", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/util/function/Consumer<Ljava/time/chrono/Chronology;>;>;", $PRIVATE, $field(DateTimeParseContext, chronoListeners)},
-	{}
-};
-
-$MethodInfo _DateTimeParseContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/format/DateTimeFormatter;)V", nullptr, 0, $method(DateTimeParseContext, init$, void, $DateTimeFormatter*)},
-	{"addChronoChangedListener", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/time/chrono/Chronology;>;)V", 0, $method(DateTimeParseContext, addChronoChangedListener, void, $Consumer*)},
-	{"charEquals", "(CC)Z", nullptr, 0, $method(DateTimeParseContext, charEquals, bool, char16_t, char16_t)},
-	{"charEqualsIgnoreCase", "(CC)Z", nullptr, $STATIC, $staticMethod(DateTimeParseContext, charEqualsIgnoreCase, bool, char16_t, char16_t)},
-	{"copy", "()Ljava/time/format/DateTimeParseContext;", nullptr, 0, $method(DateTimeParseContext, copy, DateTimeParseContext*)},
-	{"currentParsed", "()Ljava/time/format/Parsed;", nullptr, $PRIVATE, $method(DateTimeParseContext, currentParsed, $Parsed*)},
-	{"endOptional", "(Z)V", nullptr, 0, $method(DateTimeParseContext, endOptional, void, bool)},
-	{"getDecimalStyle", "()Ljava/time/format/DecimalStyle;", nullptr, 0, $method(DateTimeParseContext, getDecimalStyle, $DecimalStyle*)},
-	{"getEffectiveChronology", "()Ljava/time/chrono/Chronology;", nullptr, 0, $method(DateTimeParseContext, getEffectiveChronology, $Chronology*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(DateTimeParseContext, getLocale, $Locale*)},
-	{"getParsed", "(Ljava/time/temporal/TemporalField;)Ljava/lang/Long;", nullptr, 0, $method(DateTimeParseContext, getParsed, $Long*, $TemporalField*)},
-	{"isCaseSensitive", "()Z", nullptr, 0, $method(DateTimeParseContext, isCaseSensitive, bool)},
-	{"isStrict", "()Z", nullptr, 0, $method(DateTimeParseContext, isStrict, bool)},
-	{"setCaseSensitive", "(Z)V", nullptr, 0, $method(DateTimeParseContext, setCaseSensitive, void, bool)},
-	{"setParsed", "(Ljava/time/chrono/Chronology;)V", nullptr, 0, $method(DateTimeParseContext, setParsed, void, $Chronology*)},
-	{"setParsed", "(Ljava/time/ZoneId;)V", nullptr, 0, $method(DateTimeParseContext, setParsed, void, $ZoneId*)},
-	{"setParsedDayPeriod", "(Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;)V", nullptr, 0, $method(DateTimeParseContext, setParsedDayPeriod, void, $DateTimeFormatterBuilder$DayPeriod*)},
-	{"setParsedField", "(Ljava/time/temporal/TemporalField;JII)I", nullptr, 0, $method(DateTimeParseContext, setParsedField, int32_t, $TemporalField*, int64_t, int32_t, int32_t)},
-	{"setParsedLeapSecond", "()V", nullptr, 0, $method(DateTimeParseContext, setParsedLeapSecond, void)},
-	{"setStrict", "(Z)V", nullptr, 0, $method(DateTimeParseContext, setStrict, void, bool)},
-	{"startOptional", "()V", nullptr, 0, $method(DateTimeParseContext, startOptional, void)},
-	{"subSequenceEquals", "(Ljava/lang/CharSequence;ILjava/lang/CharSequence;II)Z", nullptr, 0, $method(DateTimeParseContext, subSequenceEquals, bool, $CharSequence*, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"toResolved", "(Ljava/time/format/ResolverStyle;Ljava/util/Set;)Ljava/time/temporal/TemporalAccessor;", "(Ljava/time/format/ResolverStyle;Ljava/util/Set<Ljava/time/temporal/TemporalField;>;)Ljava/time/temporal/TemporalAccessor;", 0, $method(DateTimeParseContext, toResolved, $TemporalAccessor*, $ResolverStyle*, $Set*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeParseContext, toString, $String*)},
-	{"toUnresolved", "()Ljava/time/format/Parsed;", nullptr, 0, $method(DateTimeParseContext, toUnresolved, $Parsed*)},
-	{}
-};
-
-$ClassInfo _DateTimeParseContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.format.DateTimeParseContext",
-	"java.lang.Object",
-	nullptr,
-	_DateTimeParseContext_FieldInfo_,
-	_DateTimeParseContext_MethodInfo_
-};
-
-$Object* allocate$DateTimeParseContext($Class* clazz) {
-	return $of($alloc(DateTimeParseContext));
-}
-
 void DateTimeParseContext::init$($DateTimeFormatter* formatter) {
 	this->caseSensitive = true;
 	this->strict = true;
 	$set(this, parsed, $new($ArrayList));
 	$set(this, chronoListeners, nullptr);
 	$set(this, formatter, formatter);
-	$nc(this->parsed)->add($$new($Parsed));
+	this->parsed->add($$new($Parsed));
 }
 
 DateTimeParseContext* DateTimeParseContext::copy() {
@@ -125,7 +72,7 @@ $DecimalStyle* DateTimeParseContext::getDecimalStyle() {
 }
 
 $Chronology* DateTimeParseContext::getEffectiveChronology() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Chronology, chrono, $nc($(currentParsed()))->chrono);
 	if (chrono == nullptr) {
 		$assign(chrono, $nc(this->formatter)->getChronology());
@@ -152,7 +99,7 @@ bool DateTimeParseContext::subSequenceEquals($CharSequence* cs1, int32_t offset1
 	}
 	if (isCaseSensitive()) {
 		for (int32_t i = 0; i < length; ++i) {
-			char16_t ch1 = $nc(cs1)->charAt(offset1 + i);
+			char16_t ch1 = cs1->charAt(offset1 + i);
 			char16_t ch2 = $nc(cs2)->charAt(offset2 + i);
 			if (ch1 != ch2) {
 				return false;
@@ -160,7 +107,7 @@ bool DateTimeParseContext::subSequenceEquals($CharSequence* cs1, int32_t offset1
 		}
 	} else {
 		for (int32_t i = 0; i < length; ++i) {
-			char16_t ch1 = $nc(cs1)->charAt(offset1 + i);
+			char16_t ch1 = cs1->charAt(offset1 + i);
 			char16_t ch2 = $nc(cs2)->charAt(offset2 + i);
 			bool var$2 = ch1 != ch2;
 			if (var$2) {
@@ -210,20 +157,20 @@ void DateTimeParseContext::setStrict(bool strict) {
 }
 
 void DateTimeParseContext::startOptional() {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->parsed)->add($($nc($(currentParsed()))->copy()));
+	$useLocalObjectStack();
+	this->parsed->add($($$nc(currentParsed())->copy()));
 }
 
 void DateTimeParseContext::endOptional(bool successful) {
 	if (successful) {
-		$nc(this->parsed)->remove($nc(this->parsed)->size() - 2);
+		this->parsed->remove(this->parsed->size() - 2);
 	} else {
-		$nc(this->parsed)->remove($nc(this->parsed)->size() - 1);
+		this->parsed->remove(this->parsed->size() - 1);
 	}
 }
 
 $Parsed* DateTimeParseContext::currentParsed() {
-	return $cast($Parsed, $nc(this->parsed)->get($nc(this->parsed)->size() - 1));
+	return $cast($Parsed, this->parsed->get(this->parsed->size() - 1));
 }
 
 $Parsed* DateTimeParseContext::toUnresolved() {
@@ -242,25 +189,23 @@ $Long* DateTimeParseContext::getParsed($TemporalField* field) {
 }
 
 int32_t DateTimeParseContext::setParsedField($TemporalField* field, int64_t value, int32_t errorPos, int32_t successPos) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(field), "field"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(field, "field"_s);
 	$var($Long, old, $cast($Long, $nc($nc($(currentParsed()))->fieldValues)->put(field, $($Long::valueOf(value)))));
 	return (old != nullptr && old->longValue() != value) ? ~errorPos : successPos;
 }
 
 void DateTimeParseContext::setParsed($Chronology* chrono) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(chrono), "chrono"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(chrono, "chrono"_s);
 	$set($nc($(currentParsed())), chrono, chrono);
-	if (this->chronoListeners != nullptr && !$nc(this->chronoListeners)->isEmpty()) {
+	if (this->chronoListeners != nullptr && !this->chronoListeners->isEmpty()) {
 		$var($ConsumerArray, tmp, $new($ConsumerArray, 1));
-		$var($ConsumerArray, listeners, $fcast($ConsumerArray, $nc(this->chronoListeners)->toArray(tmp)));
-		$nc(this->chronoListeners)->clear();
+		$var($ConsumerArray, listeners, $cast($ConsumerArray, this->chronoListeners->toArray(tmp)));
+		this->chronoListeners->clear();
 		{
 			$var($ConsumerArray, arr$, listeners);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Consumer, l, arr$->get(i$));
 				{
 					$nc(l)->accept(chrono);
@@ -278,7 +223,7 @@ void DateTimeParseContext::addChronoChangedListener($Consumer* listener) {
 }
 
 void DateTimeParseContext::setParsed($ZoneId* zone) {
-	$Objects::requireNonNull($of(zone), "zone"_s);
+	$Objects::requireNonNull(zone, "zone"_s);
 	$set($nc($(currentParsed())), zone, zone);
 }
 
@@ -291,14 +236,60 @@ void DateTimeParseContext::setParsedDayPeriod($DateTimeFormatterBuilder$DayPerio
 }
 
 $String* DateTimeParseContext::toString() {
-	return $nc($(currentParsed()))->toString();
+	return $$nc(currentParsed())->toString();
 }
 
 DateTimeParseContext::DateTimeParseContext() {
 }
 
 $Class* DateTimeParseContext::load$($String* name, bool initialize) {
-	$loadClass(DateTimeParseContext, name, initialize, &_DateTimeParseContext_ClassInfo_, allocate$DateTimeParseContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"formatter", "Ljava/time/format/DateTimeFormatter;", nullptr, $PRIVATE, $field(DateTimeParseContext, formatter)},
+		{"caseSensitive", "Z", nullptr, $PRIVATE, $field(DateTimeParseContext, caseSensitive)},
+		{"strict", "Z", nullptr, $PRIVATE, $field(DateTimeParseContext, strict)},
+		{"parsed", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/time/format/Parsed;>;", $PRIVATE | $FINAL, $field(DateTimeParseContext, parsed)},
+		{"chronoListeners", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/util/function/Consumer<Ljava/time/chrono/Chronology;>;>;", $PRIVATE, $field(DateTimeParseContext, chronoListeners)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/format/DateTimeFormatter;)V", nullptr, 0, $method(DateTimeParseContext, init$, void, $DateTimeFormatter*)},
+		{"addChronoChangedListener", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/time/chrono/Chronology;>;)V", 0, $method(DateTimeParseContext, addChronoChangedListener, void, $Consumer*)},
+		{"charEquals", "(CC)Z", nullptr, 0, $method(DateTimeParseContext, charEquals, bool, char16_t, char16_t)},
+		{"charEqualsIgnoreCase", "(CC)Z", nullptr, $STATIC, $staticMethod(DateTimeParseContext, charEqualsIgnoreCase, bool, char16_t, char16_t)},
+		{"copy", "()Ljava/time/format/DateTimeParseContext;", nullptr, 0, $method(DateTimeParseContext, copy, DateTimeParseContext*)},
+		{"currentParsed", "()Ljava/time/format/Parsed;", nullptr, $PRIVATE, $method(DateTimeParseContext, currentParsed, $Parsed*)},
+		{"endOptional", "(Z)V", nullptr, 0, $method(DateTimeParseContext, endOptional, void, bool)},
+		{"getDecimalStyle", "()Ljava/time/format/DecimalStyle;", nullptr, 0, $method(DateTimeParseContext, getDecimalStyle, $DecimalStyle*)},
+		{"getEffectiveChronology", "()Ljava/time/chrono/Chronology;", nullptr, 0, $method(DateTimeParseContext, getEffectiveChronology, $Chronology*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(DateTimeParseContext, getLocale, $Locale*)},
+		{"getParsed", "(Ljava/time/temporal/TemporalField;)Ljava/lang/Long;", nullptr, 0, $method(DateTimeParseContext, getParsed, $Long*, $TemporalField*)},
+		{"isCaseSensitive", "()Z", nullptr, 0, $method(DateTimeParseContext, isCaseSensitive, bool)},
+		{"isStrict", "()Z", nullptr, 0, $method(DateTimeParseContext, isStrict, bool)},
+		{"setCaseSensitive", "(Z)V", nullptr, 0, $method(DateTimeParseContext, setCaseSensitive, void, bool)},
+		{"setParsed", "(Ljava/time/chrono/Chronology;)V", nullptr, 0, $method(DateTimeParseContext, setParsed, void, $Chronology*)},
+		{"setParsed", "(Ljava/time/ZoneId;)V", nullptr, 0, $method(DateTimeParseContext, setParsed, void, $ZoneId*)},
+		{"setParsedDayPeriod", "(Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;)V", nullptr, 0, $method(DateTimeParseContext, setParsedDayPeriod, void, $DateTimeFormatterBuilder$DayPeriod*)},
+		{"setParsedField", "(Ljava/time/temporal/TemporalField;JII)I", nullptr, 0, $method(DateTimeParseContext, setParsedField, int32_t, $TemporalField*, int64_t, int32_t, int32_t)},
+		{"setParsedLeapSecond", "()V", nullptr, 0, $method(DateTimeParseContext, setParsedLeapSecond, void)},
+		{"setStrict", "(Z)V", nullptr, 0, $method(DateTimeParseContext, setStrict, void, bool)},
+		{"startOptional", "()V", nullptr, 0, $method(DateTimeParseContext, startOptional, void)},
+		{"subSequenceEquals", "(Ljava/lang/CharSequence;ILjava/lang/CharSequence;II)Z", nullptr, 0, $method(DateTimeParseContext, subSequenceEquals, bool, $CharSequence*, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"toResolved", "(Ljava/time/format/ResolverStyle;Ljava/util/Set;)Ljava/time/temporal/TemporalAccessor;", "(Ljava/time/format/ResolverStyle;Ljava/util/Set<Ljava/time/temporal/TemporalField;>;)Ljava/time/temporal/TemporalAccessor;", 0, $method(DateTimeParseContext, toResolved, $TemporalAccessor*, $ResolverStyle*, $Set*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeParseContext, toString, $String*)},
+		{"toUnresolved", "()Ljava/time/format/Parsed;", nullptr, 0, $method(DateTimeParseContext, toUnresolved, $Parsed*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.format.DateTimeParseContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DateTimeParseContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeParseContext);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/nio/file/NoSuchFileException.h>
-
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $FileSystemException = ::java::nio::file::FileSystemException;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _NoSuchFileException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NoSuchFileException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoSuchFileException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchFileException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchFileException, init$, void, $String*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _NoSuchFileException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.NoSuchFileException",
-	"java.nio.file.FileSystemException",
-	nullptr,
-	_NoSuchFileException_FieldInfo_,
-	_NoSuchFileException_MethodInfo_
-};
-
-$Object* allocate$NoSuchFileException($Class* clazz) {
-	return $of($alloc(NoSuchFileException));
-}
 
 void NoSuchFileException::init$($String* file) {
 	$FileSystemException::init$(file);
@@ -55,7 +30,26 @@ void NoSuchFileException::throw$() {
 }
 
 $Class* NoSuchFileException::load$($String* name, bool initialize) {
-	$loadClass(NoSuchFileException, name, initialize, &_NoSuchFileException_ClassInfo_, allocate$NoSuchFileException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NoSuchFileException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchFileException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchFileException, init$, void, $String*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.NoSuchFileException",
+		"java.nio.file.FileSystemException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoSuchFileException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoSuchFileException);
+	});
 	return class$;
 }
 

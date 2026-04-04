@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/RuntimeFileAttributes.h>
-
 #include <java/nio/file/attribute/FileTime.h>
 #include <jcpp.h>
 
@@ -10,33 +9,6 @@ using $FileTime = ::java::nio::file::attribute::FileTime;
 namespace jdk {
 	namespace internal {
 		namespace jimage {
-
-$MethodInfo _RuntimeFileAttributes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeFileAttributes, init$, void)},
-	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, creationTime, $FileTime*)},
-	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, fileKey, $Object*)},
-	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isDirectory, bool)},
-	{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isOther, bool)},
-	{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isRegularFile, bool)},
-	{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isSymbolicLink, bool)},
-	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, lastAccessTime, $FileTime*)},
-	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, lastModifiedTime, $FileTime*)},
-	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, size, int64_t)},
-	{}
-};
-
-$ClassInfo _RuntimeFileAttributes_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.jimage.RuntimeFileAttributes",
-	"java.lang.Object",
-	"java.nio.file.attribute.BasicFileAttributes",
-	nullptr,
-	_RuntimeFileAttributes_MethodInfo_
-};
-
-$Object* allocate$RuntimeFileAttributes($Class* clazz) {
-	return $of($alloc(RuntimeFileAttributes));
-}
 
 void RuntimeFileAttributes::init$() {
 }
@@ -74,14 +46,37 @@ bool RuntimeFileAttributes::isSymbolicLink() {
 }
 
 $Object* RuntimeFileAttributes::fileKey() {
-	return $of(this);
+	return this;
 }
 
 RuntimeFileAttributes::RuntimeFileAttributes() {
 }
 
 $Class* RuntimeFileAttributes::load$($String* name, bool initialize) {
-	$loadClass(RuntimeFileAttributes, name, initialize, &_RuntimeFileAttributes_ClassInfo_, allocate$RuntimeFileAttributes);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeFileAttributes, init$, void)},
+		{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, creationTime, $FileTime*)},
+		{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, fileKey, $Object*)},
+		{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isDirectory, bool)},
+		{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isOther, bool)},
+		{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isRegularFile, bool)},
+		{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isSymbolicLink, bool)},
+		{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, lastAccessTime, $FileTime*)},
+		{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, lastModifiedTime, $FileTime*)},
+		{"size", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, size, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.jimage.RuntimeFileAttributes",
+		"java.lang.Object",
+		"java.nio.file.attribute.BasicFileAttributes",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RuntimeFileAttributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RuntimeFileAttributes);
+	});
 	return class$;
 }
 

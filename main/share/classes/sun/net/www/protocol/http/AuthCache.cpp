@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/AuthCache.h>
-
 #include <sun/net/www/protocol/http/AuthCacheValue.h>
 #include <jcpp.h>
 
@@ -13,28 +12,24 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$MethodInfo _AuthCache_MethodInfo_[] = {
-	{"get", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthCacheValue;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthCache, get, $AuthCacheValue*, $String*, $String*)},
-	{"put", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthCache, put, void, $String*, $AuthCacheValue*)},
-	{"remove", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthCache, remove, void, $String*, $AuthCacheValue*)},
-	{}
-};
-
-$ClassInfo _AuthCache_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.net.www.protocol.http.AuthCache",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AuthCache_MethodInfo_
-};
-
-$Object* allocate$AuthCache($Class* clazz) {
-	return $of($alloc(AuthCache));
-}
-
 $Class* AuthCache::load$($String* name, bool initialize) {
-	$loadClass(AuthCache, name, initialize, &_AuthCache_ClassInfo_, allocate$AuthCache);
+	$MethodInfo methodInfos$$[] = {
+		{"get", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthCacheValue;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthCache, get, $AuthCacheValue*, $String*, $String*)},
+		{"put", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthCache, put, void, $String*, $AuthCacheValue*)},
+		{"remove", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthCache, remove, void, $String*, $AuthCacheValue*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.net.www.protocol.http.AuthCache",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AuthCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthCache);
+	});
 	return class$;
 }
 

@@ -20,6 +20,7 @@ class $export SetTimesNanos : public ::java::lang::Object {
 	$class(SetTimesNanos, 0, ::java::lang::Object)
 public:
 	SetTimesNanos();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void testNanos(::java::nio::file::Path* path);

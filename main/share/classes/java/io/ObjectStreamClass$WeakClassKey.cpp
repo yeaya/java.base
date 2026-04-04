@@ -1,5 +1,4 @@
 #include <java/io/ObjectStreamClass$WeakClassKey.h>
-
 #include <java/io/ObjectStreamClass.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -16,43 +15,6 @@ using $WeakReference = ::java::lang::ref::WeakReference;
 namespace java {
 	namespace io {
 
-$FieldInfo _ObjectStreamClass$WeakClassKey_FieldInfo_[] = {
-	{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$WeakClassKey, hash)},
-	{}
-};
-
-$MethodInfo _ObjectStreamClass$WeakClassKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(ObjectStreamClass$WeakClassKey, init$, void, $Class*, $ReferenceQueue*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$WeakClassKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$WeakClassKey, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ObjectStreamClass$WeakClassKey_InnerClassesInfo_[] = {
-	{"java.io.ObjectStreamClass$WeakClassKey", "java.io.ObjectStreamClass", "WeakClassKey", $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectStreamClass$WeakClassKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectStreamClass$WeakClassKey",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	_ObjectStreamClass$WeakClassKey_FieldInfo_,
-	_ObjectStreamClass$WeakClassKey_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;",
-	nullptr,
-	_ObjectStreamClass$WeakClassKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectStreamClass"
-};
-
-$Object* allocate$ObjectStreamClass$WeakClassKey($Class* clazz) {
-	return $of($alloc(ObjectStreamClass$WeakClassKey));
-}
-
 void ObjectStreamClass$WeakClassKey::init$($Class* cl, $ReferenceQueue* refQueue) {
 	$WeakReference::init$(cl, refQueue);
 	this->hash = $System::identityHashCode(cl);
@@ -68,7 +30,7 @@ bool ObjectStreamClass$WeakClassKey::equals(Object$* obj) {
 	}
 	if ($instanceOf(ObjectStreamClass$WeakClassKey, obj)) {
 		$Class* referent = $cast($Class, get());
-		return (referent != nullptr) && ($nc(($cast(ObjectStreamClass$WeakClassKey, obj)))->refersTo(referent));
+		return (referent != nullptr) && ($cast(ObjectStreamClass$WeakClassKey, obj)->refersTo(referent));
 	} else {
 		return false;
 	}
@@ -78,7 +40,38 @@ ObjectStreamClass$WeakClassKey::ObjectStreamClass$WeakClassKey() {
 }
 
 $Class* ObjectStreamClass$WeakClassKey::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$WeakClassKey, name, initialize, &_ObjectStreamClass$WeakClassKey_ClassInfo_, allocate$ObjectStreamClass$WeakClassKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$WeakClassKey, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(ObjectStreamClass$WeakClassKey, init$, void, $Class*, $ReferenceQueue*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$WeakClassKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$WeakClassKey, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectStreamClass$WeakClassKey", "java.io.ObjectStreamClass", "WeakClassKey", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectStreamClass$WeakClassKey",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectStreamClass"
+	};
+	$loadClass(ObjectStreamClass$WeakClassKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$WeakClassKey);
+	});
 	return class$;
 }
 

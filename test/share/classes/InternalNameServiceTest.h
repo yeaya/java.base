@@ -12,6 +12,7 @@ class $export InternalNameServiceTest : public ::java::lang::Object {
 	$class(InternalNameServiceTest, 0, ::java::lang::Object)
 public:
 	InternalNameServiceTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addMappingToHostsFile($String* host, $String* addr, $String* hostsFileName, bool append);
 	static $String* addrToString($bytes* addr);

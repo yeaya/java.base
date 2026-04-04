@@ -1,5 +1,4 @@
 #include <HandlersPkgPrefix$Result.h>
-
 #include <HandlersPkgPrefix.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
@@ -11,43 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 
-$FieldInfo _HandlersPkgPrefix$Result_FieldInfo_[] = {
-	{"protocol", "Ljava/lang/String;", nullptr, $FINAL, $field(HandlersPkgPrefix$Result, protocol)},
-	{"url", "Ljava/net/URL;", nullptr, $FINAL, $field(HandlersPkgPrefix$Result, url)},
-	{"exception", "Ljava/lang/Exception;", nullptr, $FINAL, $field(HandlersPkgPrefix$Result, exception)},
-	{}
-};
-
-$MethodInfo _HandlersPkgPrefix$Result_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/lang/Exception;)V", nullptr, 0, $method(HandlersPkgPrefix$Result, init$, void, $String*, $URL*, $Exception*)},
-	{}
-};
-
-$InnerClassInfo _HandlersPkgPrefix$Result_InnerClassesInfo_[] = {
-	{"HandlersPkgPrefix$Result", "HandlersPkgPrefix", "Result", $STATIC},
-	{}
-};
-
-$ClassInfo _HandlersPkgPrefix$Result_ClassInfo_ = {
-	$ACC_SUPER,
-	"HandlersPkgPrefix$Result",
-	"java.lang.Object",
-	nullptr,
-	_HandlersPkgPrefix$Result_FieldInfo_,
-	_HandlersPkgPrefix$Result_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HandlersPkgPrefix$Result_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HandlersPkgPrefix"
-};
-
-$Object* allocate$HandlersPkgPrefix$Result($Class* clazz) {
-	return $of($alloc(HandlersPkgPrefix$Result));
-}
-
 void HandlersPkgPrefix$Result::init$($String* protocol, $URL* url, $Exception* exception) {
 	$set(this, protocol, protocol);
 	$set(this, url, url);
@@ -58,7 +20,38 @@ HandlersPkgPrefix$Result::HandlersPkgPrefix$Result() {
 }
 
 $Class* HandlersPkgPrefix$Result::load$($String* name, bool initialize) {
-	$loadClass(HandlersPkgPrefix$Result, name, initialize, &_HandlersPkgPrefix$Result_ClassInfo_, allocate$HandlersPkgPrefix$Result);
+	$FieldInfo fieldInfos$$[] = {
+		{"protocol", "Ljava/lang/String;", nullptr, $FINAL, $field(HandlersPkgPrefix$Result, protocol)},
+		{"url", "Ljava/net/URL;", nullptr, $FINAL, $field(HandlersPkgPrefix$Result, url)},
+		{"exception", "Ljava/lang/Exception;", nullptr, $FINAL, $field(HandlersPkgPrefix$Result, exception)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/lang/Exception;)V", nullptr, 0, $method(HandlersPkgPrefix$Result, init$, void, $String*, $URL*, $Exception*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HandlersPkgPrefix$Result", "HandlersPkgPrefix", "Result", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HandlersPkgPrefix$Result",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HandlersPkgPrefix"
+	};
+	$loadClass(HandlersPkgPrefix$Result, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HandlersPkgPrefix$Result);
+	});
 	return class$;
 }
 

@@ -12,6 +12,7 @@ class LocalTime$1 : public ::java::lang::Object {
 	$class(LocalTime$1, 0, ::java::lang::Object)
 public:
 	LocalTime$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$time$temporal$ChronoUnit;
 	static $ints* $SwitchMap$java$time$temporal$ChronoField;
 };

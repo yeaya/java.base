@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$CharPredicate.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -31,35 +30,31 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return $nc(inst$)->lambda$and$0(p, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$CharPredicate$$Lambda$lambda$and$0>());
-	}
 	Pattern$CharPredicate* inst$ = nullptr;
 	Pattern$CharPredicate* p = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$CharPredicate$$Lambda$lambda$and$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$and$0, inst$)},
-	{"p", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$and$0, p)},
-	{}
-};
-$MethodInfo Pattern$CharPredicate$$Lambda$lambda$and$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$and$0, init$, void, Pattern$CharPredicate*, Pattern$CharPredicate*)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$and$0, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$CharPredicate$$Lambda$lambda$and$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$CharPredicate$$Lambda$lambda$and$0",
-	"java.lang.Object",
-	"java.util.regex.Pattern$CharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$CharPredicate$$Lambda$lambda$and$0::load$($String* name, bool initialize) {
-	$loadClass(Pattern$CharPredicate$$Lambda$lambda$and$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$and$0, inst$)},
+		{"p", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$and$0, p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$and$0, init$, void, Pattern$CharPredicate*, Pattern$CharPredicate*)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$and$0, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$CharPredicate$$Lambda$lambda$and$0",
+		"java.lang.Object",
+		"java.util.regex.Pattern$CharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$CharPredicate$$Lambda$lambda$and$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$CharPredicate$$Lambda$lambda$and$0);
+	});
 	return class$;
 }
 $Class* Pattern$CharPredicate$$Lambda$lambda$and$0::class$ = nullptr;
@@ -74,35 +69,31 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return $nc(inst$)->lambda$union$1(p, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$CharPredicate$$Lambda$lambda$union$1$1>());
-	}
 	Pattern$CharPredicate* inst$ = nullptr;
 	Pattern$CharPredicate* p = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$CharPredicate$$Lambda$lambda$union$1$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$union$1$1, inst$)},
-	{"p", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$union$1$1, p)},
-	{}
-};
-$MethodInfo Pattern$CharPredicate$$Lambda$lambda$union$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$union$1$1, init$, void, Pattern$CharPredicate*, Pattern$CharPredicate*)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$union$1$1, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$CharPredicate$$Lambda$lambda$union$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$CharPredicate$$Lambda$lambda$union$1$1",
-	"java.lang.Object",
-	"java.util.regex.Pattern$CharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$CharPredicate$$Lambda$lambda$union$1$1::load$($String* name, bool initialize) {
-	$loadClass(Pattern$CharPredicate$$Lambda$lambda$union$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$union$1$1, inst$)},
+		{"p", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$union$1$1, p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$union$1$1, init$, void, Pattern$CharPredicate*, Pattern$CharPredicate*)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$union$1$1, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$CharPredicate$$Lambda$lambda$union$1$1",
+		"java.lang.Object",
+		"java.util.regex.Pattern$CharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$CharPredicate$$Lambda$lambda$union$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$CharPredicate$$Lambda$lambda$union$1$1);
+	});
 	return class$;
 }
 $Class* Pattern$CharPredicate$$Lambda$lambda$union$1$1::class$ = nullptr;
@@ -118,37 +109,33 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return $nc(inst$)->lambda$union$2(p1, p2, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$CharPredicate$$Lambda$lambda$union$2$2>());
-	}
 	Pattern$CharPredicate* inst$ = nullptr;
 	Pattern$CharPredicate* p1 = nullptr;
 	Pattern$CharPredicate* p2 = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$CharPredicate$$Lambda$lambda$union$2$2::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$union$2$2, inst$)},
-	{"p1", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$union$2$2, p1)},
-	{"p2", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$union$2$2, p2)},
-	{}
-};
-$MethodInfo Pattern$CharPredicate$$Lambda$lambda$union$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$union$2$2, init$, void, Pattern$CharPredicate*, Pattern$CharPredicate*, Pattern$CharPredicate*)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$union$2$2, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$CharPredicate$$Lambda$lambda$union$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$CharPredicate$$Lambda$lambda$union$2$2",
-	"java.lang.Object",
-	"java.util.regex.Pattern$CharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$CharPredicate$$Lambda$lambda$union$2$2::load$($String* name, bool initialize) {
-	$loadClass(Pattern$CharPredicate$$Lambda$lambda$union$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$union$2$2, inst$)},
+		{"p1", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$union$2$2, p1)},
+		{"p2", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$union$2$2, p2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$union$2$2, init$, void, Pattern$CharPredicate*, Pattern$CharPredicate*, Pattern$CharPredicate*)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$union$2$2, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$CharPredicate$$Lambda$lambda$union$2$2",
+		"java.lang.Object",
+		"java.util.regex.Pattern$CharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$CharPredicate$$Lambda$lambda$union$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$CharPredicate$$Lambda$lambda$union$2$2);
+	});
 	return class$;
 }
 $Class* Pattern$CharPredicate$$Lambda$lambda$union$2$2::class$ = nullptr;
@@ -162,94 +149,47 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return $nc(inst$)->lambda$negate$3(ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$CharPredicate$$Lambda$lambda$negate$3$3>());
-	}
 	Pattern$CharPredicate* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$CharPredicate$$Lambda$lambda$negate$3$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, inst$)},
-	{}
-};
-$MethodInfo Pattern$CharPredicate$$Lambda$lambda$negate$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, init$, void, Pattern$CharPredicate*)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$CharPredicate$$Lambda$lambda$negate$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$CharPredicate$$Lambda$lambda$negate$3$3",
-	"java.lang.Object",
-	"java.util.regex.Pattern$CharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$CharPredicate$$Lambda$lambda$negate$3$3::load$($String* name, bool initialize) {
-	$loadClass(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, init$, void, Pattern$CharPredicate*)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$CharPredicate$$Lambda$lambda$negate$3$3",
+		"java.lang.Object",
+		"java.util.regex.Pattern$CharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$CharPredicate$$Lambda$lambda$negate$3$3);
+	});
 	return class$;
 }
 $Class* Pattern$CharPredicate$$Lambda$lambda$negate$3$3::class$ = nullptr;
 
-$CompoundAttribute _Pattern$CharPredicate_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _Pattern$CharPredicate_MethodInfo_[] = {
-	{"and", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, and$, Pattern$CharPredicate*, Pattern$CharPredicate*)},
-	{"is", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Pattern$CharPredicate, is, bool, int32_t)},
-	{"lambda$and$0", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$and$0, bool, Pattern$CharPredicate*, int32_t)},
-	{"lambda$negate$3", "(I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$negate$3, bool, int32_t)},
-	{"lambda$union$1", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$union$1, bool, Pattern$CharPredicate*, int32_t)},
-	{"lambda$union$2", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$union$2, bool, Pattern$CharPredicate*, Pattern$CharPredicate*, int32_t)},
-	{"negate", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, negate, Pattern$CharPredicate*)},
-	{"union", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, union$, Pattern$CharPredicate*, Pattern$CharPredicate*)},
-	{"union", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, union$, Pattern$CharPredicate*, Pattern$CharPredicate*, Pattern$CharPredicate*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$CharPredicate_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$CharPredicate", "java.util.regex.Pattern", "CharPredicate", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Pattern$CharPredicate_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.util.regex.Pattern$CharPredicate",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Pattern$CharPredicate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$CharPredicate_InnerClassesInfo_,
-	_Pattern$CharPredicate_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$CharPredicate($Class* clazz) {
-	return $of($alloc(Pattern$CharPredicate));
-}
-
 Pattern$CharPredicate* Pattern$CharPredicate::and$(Pattern$CharPredicate* p) {
-	return static_cast<Pattern$CharPredicate*>($new(Pattern$CharPredicate$$Lambda$lambda$and$0, this, p));
+	return $new(Pattern$CharPredicate$$Lambda$lambda$and$0, this, p);
 }
 
 Pattern$CharPredicate* Pattern$CharPredicate::union$(Pattern$CharPredicate* p) {
-	return static_cast<Pattern$CharPredicate*>($new(Pattern$CharPredicate$$Lambda$lambda$union$1$1, this, p));
+	return $new(Pattern$CharPredicate$$Lambda$lambda$union$1$1, this, p);
 }
 
 Pattern$CharPredicate* Pattern$CharPredicate::union$(Pattern$CharPredicate* p1, Pattern$CharPredicate* p2) {
-	return static_cast<Pattern$CharPredicate*>($new(Pattern$CharPredicate$$Lambda$lambda$union$2$2, this, p1, p2));
+	return $new(Pattern$CharPredicate$$Lambda$lambda$union$2$2, this, p1, p2);
 }
 
 Pattern$CharPredicate* Pattern$CharPredicate::negate() {
-	return static_cast<Pattern$CharPredicate*>($new(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, this));
+	return $new(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, this);
 }
 
 bool Pattern$CharPredicate::lambda$negate$3(int32_t ch) {
@@ -274,20 +214,57 @@ bool Pattern$CharPredicate::lambda$and$0(Pattern$CharPredicate* p, int32_t ch) {
 
 $Class* Pattern$CharPredicate::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Pattern$CharPredicate$$Lambda$lambda$and$0::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$CharPredicate$$Lambda$lambda$and$0")) {
 			return Pattern$CharPredicate$$Lambda$lambda$and$0::load$(name, initialize);
 		}
-		if (name->equals(Pattern$CharPredicate$$Lambda$lambda$union$1$1::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$CharPredicate$$Lambda$lambda$union$1$1")) {
 			return Pattern$CharPredicate$$Lambda$lambda$union$1$1::load$(name, initialize);
 		}
-		if (name->equals(Pattern$CharPredicate$$Lambda$lambda$union$2$2::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$CharPredicate$$Lambda$lambda$union$2$2")) {
 			return Pattern$CharPredicate$$Lambda$lambda$union$2$2::load$(name, initialize);
 		}
-		if (name->equals(Pattern$CharPredicate$$Lambda$lambda$negate$3$3::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$CharPredicate$$Lambda$lambda$negate$3$3")) {
 			return Pattern$CharPredicate$$Lambda$lambda$negate$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(Pattern$CharPredicate, name, initialize, &_Pattern$CharPredicate_ClassInfo_, allocate$Pattern$CharPredicate);
+	$MethodInfo methodInfos$$[] = {
+		{"and", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, and$, Pattern$CharPredicate*, Pattern$CharPredicate*)},
+		{"is", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Pattern$CharPredicate, is, bool, int32_t)},
+		{"lambda$and$0", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$and$0, bool, Pattern$CharPredicate*, int32_t)},
+		{"lambda$negate$3", "(I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$negate$3, bool, int32_t)},
+		{"lambda$union$1", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$union$1, bool, Pattern$CharPredicate*, int32_t)},
+		{"lambda$union$2", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$union$2, bool, Pattern$CharPredicate*, Pattern$CharPredicate*, int32_t)},
+		{"negate", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, negate, Pattern$CharPredicate*)},
+		{"union", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, union$, Pattern$CharPredicate*, Pattern$CharPredicate*)},
+		{"union", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, union$, Pattern$CharPredicate*, Pattern$CharPredicate*, Pattern$CharPredicate*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$CharPredicate", "java.util.regex.Pattern", "CharPredicate", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.util.regex.Pattern$CharPredicate",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$CharPredicate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$CharPredicate);
+	});
 	return class$;
 }
 

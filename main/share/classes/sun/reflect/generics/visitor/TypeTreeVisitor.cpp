@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
-
 #include <sun/reflect/generics/tree/ArrayTypeSignature.h>
 #include <sun/reflect/generics/tree/BooleanSignature.h>
 #include <sun/reflect/generics/tree/BottomSignature.h>
@@ -42,43 +41,39 @@ namespace sun {
 		namespace generics {
 			namespace visitor {
 
-$MethodInfo _TypeTreeVisitor_MethodInfo_[] = {
-	{"getResult", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, getResult, $Object*)},
-	{"visitArrayTypeSignature", "(Lsun/reflect/generics/tree/ArrayTypeSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitArrayTypeSignature, void, $ArrayTypeSignature*)},
-	{"visitBooleanSignature", "(Lsun/reflect/generics/tree/BooleanSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitBooleanSignature, void, $BooleanSignature*)},
-	{"visitBottomSignature", "(Lsun/reflect/generics/tree/BottomSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitBottomSignature, void, $BottomSignature*)},
-	{"visitByteSignature", "(Lsun/reflect/generics/tree/ByteSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitByteSignature, void, $ByteSignature*)},
-	{"visitCharSignature", "(Lsun/reflect/generics/tree/CharSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitCharSignature, void, $CharSignature*)},
-	{"visitClassTypeSignature", "(Lsun/reflect/generics/tree/ClassTypeSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitClassTypeSignature, void, $ClassTypeSignature*)},
-	{"visitDoubleSignature", "(Lsun/reflect/generics/tree/DoubleSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitDoubleSignature, void, $DoubleSignature*)},
-	{"visitFloatSignature", "(Lsun/reflect/generics/tree/FloatSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitFloatSignature, void, $FloatSignature*)},
-	{"visitFormalTypeParameter", "(Lsun/reflect/generics/tree/FormalTypeParameter;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitFormalTypeParameter, void, $FormalTypeParameter*)},
-	{"visitIntSignature", "(Lsun/reflect/generics/tree/IntSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitIntSignature, void, $IntSignature*)},
-	{"visitLongSignature", "(Lsun/reflect/generics/tree/LongSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitLongSignature, void, $LongSignature*)},
-	{"visitShortSignature", "(Lsun/reflect/generics/tree/ShortSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitShortSignature, void, $ShortSignature*)},
-	{"visitSimpleClassTypeSignature", "(Lsun/reflect/generics/tree/SimpleClassTypeSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitSimpleClassTypeSignature, void, $SimpleClassTypeSignature*)},
-	{"visitTypeVariableSignature", "(Lsun/reflect/generics/tree/TypeVariableSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitTypeVariableSignature, void, $TypeVariableSignature*)},
-	{"visitVoidDescriptor", "(Lsun/reflect/generics/tree/VoidDescriptor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitVoidDescriptor, void, $VoidDescriptor*)},
-	{"visitWildcard", "(Lsun/reflect/generics/tree/Wildcard;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitWildcard, void, $Wildcard*)},
-	{}
-};
-
-$ClassInfo _TypeTreeVisitor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.reflect.generics.visitor.TypeTreeVisitor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TypeTreeVisitor_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$TypeTreeVisitor($Class* clazz) {
-	return $of($alloc(TypeTreeVisitor));
-}
-
 $Class* TypeTreeVisitor::load$($String* name, bool initialize) {
-	$loadClass(TypeTreeVisitor, name, initialize, &_TypeTreeVisitor_ClassInfo_, allocate$TypeTreeVisitor);
+	$MethodInfo methodInfos$$[] = {
+		{"getResult", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, getResult, $Object*)},
+		{"visitArrayTypeSignature", "(Lsun/reflect/generics/tree/ArrayTypeSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitArrayTypeSignature, void, $ArrayTypeSignature*)},
+		{"visitBooleanSignature", "(Lsun/reflect/generics/tree/BooleanSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitBooleanSignature, void, $BooleanSignature*)},
+		{"visitBottomSignature", "(Lsun/reflect/generics/tree/BottomSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitBottomSignature, void, $BottomSignature*)},
+		{"visitByteSignature", "(Lsun/reflect/generics/tree/ByteSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitByteSignature, void, $ByteSignature*)},
+		{"visitCharSignature", "(Lsun/reflect/generics/tree/CharSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitCharSignature, void, $CharSignature*)},
+		{"visitClassTypeSignature", "(Lsun/reflect/generics/tree/ClassTypeSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitClassTypeSignature, void, $ClassTypeSignature*)},
+		{"visitDoubleSignature", "(Lsun/reflect/generics/tree/DoubleSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitDoubleSignature, void, $DoubleSignature*)},
+		{"visitFloatSignature", "(Lsun/reflect/generics/tree/FloatSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitFloatSignature, void, $FloatSignature*)},
+		{"visitFormalTypeParameter", "(Lsun/reflect/generics/tree/FormalTypeParameter;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitFormalTypeParameter, void, $FormalTypeParameter*)},
+		{"visitIntSignature", "(Lsun/reflect/generics/tree/IntSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitIntSignature, void, $IntSignature*)},
+		{"visitLongSignature", "(Lsun/reflect/generics/tree/LongSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitLongSignature, void, $LongSignature*)},
+		{"visitShortSignature", "(Lsun/reflect/generics/tree/ShortSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitShortSignature, void, $ShortSignature*)},
+		{"visitSimpleClassTypeSignature", "(Lsun/reflect/generics/tree/SimpleClassTypeSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitSimpleClassTypeSignature, void, $SimpleClassTypeSignature*)},
+		{"visitTypeVariableSignature", "(Lsun/reflect/generics/tree/TypeVariableSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitTypeVariableSignature, void, $TypeVariableSignature*)},
+		{"visitVoidDescriptor", "(Lsun/reflect/generics/tree/VoidDescriptor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitVoidDescriptor, void, $VoidDescriptor*)},
+		{"visitWildcard", "(Lsun/reflect/generics/tree/Wildcard;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeTreeVisitor, visitWildcard, void, $Wildcard*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.reflect.generics.visitor.TypeTreeVisitor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(TypeTreeVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeTreeVisitor);
+	});
 	return class$;
 }
 

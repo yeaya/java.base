@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/AESParameters.h>
-
 #include <com/sun/crypto/provider/AESConstants.h>
 #include <com/sun/crypto/provider/BlockCipherParamsCore.h>
 #include <java/security/AlgorithmParametersSpi.h>
@@ -22,36 +21,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _AESParameters_FieldInfo_[] = {
-	{"core", "Lcom/sun/crypto/provider/BlockCipherParamsCore;", nullptr, $PRIVATE, $field(AESParameters, core)},
-	{}
-};
-
-$MethodInfo _AESParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AESParameters, init$, void)},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineGetEncoded, $bytes*), "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(AESParameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineInit, void, $bytes*), "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineToString, $String*)},
-	{}
-};
-
-$ClassInfo _AESParameters_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.AESParameters",
-	"java.security.AlgorithmParametersSpi",
-	nullptr,
-	_AESParameters_FieldInfo_,
-	_AESParameters_MethodInfo_
-};
-
-$Object* allocate$AESParameters($Class* clazz) {
-	return $of($alloc(AESParameters));
-}
 
 void AESParameters::init$() {
 	$AlgorithmParametersSpi::init$();
@@ -98,7 +67,32 @@ AESParameters::AESParameters() {
 }
 
 $Class* AESParameters::load$($String* name, bool initialize) {
-	$loadClass(AESParameters, name, initialize, &_AESParameters_ClassInfo_, allocate$AESParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"core", "Lcom/sun/crypto/provider/BlockCipherParamsCore;", nullptr, $PRIVATE, $field(AESParameters, core)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AESParameters, init$, void)},
+		{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+		{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+		{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(AESParameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineInit, void, $bytes*), "java.io.IOException"},
+		{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+		{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AESParameters, engineToString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.AESParameters",
+		"java.security.AlgorithmParametersSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AESParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AESParameters);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/text/Format$FieldDelegate.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/text/Format$Field.h>
 #include <java/text/Format.h>
@@ -14,39 +13,34 @@ using $Format$Field = ::java::text::Format$Field;
 namespace java {
 	namespace text {
 
-$MethodInfo _Format$FieldDelegate_MethodInfo_[] = {
-	{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Format$FieldDelegate, formatted, void, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
-	{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Format$FieldDelegate, formatted, void, int32_t, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
-	{}
-};
-
-$InnerClassInfo _Format$FieldDelegate_InnerClassesInfo_[] = {
-	{"java.text.Format$FieldDelegate", "java.text.Format", "FieldDelegate", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Format$FieldDelegate_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.text.Format$FieldDelegate",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Format$FieldDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Format$FieldDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.text.Format"
-};
-
-$Object* allocate$Format$FieldDelegate($Class* clazz) {
-	return $of($alloc(Format$FieldDelegate));
-}
-
 $Class* Format$FieldDelegate::load$($String* name, bool initialize) {
-	$loadClass(Format$FieldDelegate, name, initialize, &_Format$FieldDelegate_ClassInfo_, allocate$Format$FieldDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Format$FieldDelegate, formatted, void, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
+		{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Format$FieldDelegate, formatted, void, int32_t, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.Format$FieldDelegate", "java.text.Format", "FieldDelegate", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.text.Format$FieldDelegate",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.text.Format"
+	};
+	$loadClass(Format$FieldDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Format$FieldDelegate);
+	});
 	return class$;
 }
 

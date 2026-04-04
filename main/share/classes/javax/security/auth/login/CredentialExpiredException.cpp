@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/CredentialExpiredException.h>
-
 #include <javax/security/auth/login/CredentialException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace login {
-
-$FieldInfo _CredentialExpiredException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CredentialExpiredException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CredentialExpiredException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CredentialExpiredException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CredentialExpiredException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _CredentialExpiredException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.login.CredentialExpiredException",
-	"javax.security.auth.login.CredentialException",
-	nullptr,
-	_CredentialExpiredException_FieldInfo_,
-	_CredentialExpiredException_MethodInfo_
-};
-
-$Object* allocate$CredentialExpiredException($Class* clazz) {
-	return $of($alloc(CredentialExpiredException));
-}
 
 void CredentialExpiredException::init$() {
 	$CredentialException::init$();
@@ -56,7 +31,26 @@ void CredentialExpiredException::throw$() {
 }
 
 $Class* CredentialExpiredException::load$($String* name, bool initialize) {
-	$loadClass(CredentialExpiredException, name, initialize, &_CredentialExpiredException_ClassInfo_, allocate$CredentialExpiredException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CredentialExpiredException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CredentialExpiredException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CredentialExpiredException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.login.CredentialExpiredException",
+		"javax.security.auth.login.CredentialException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CredentialExpiredException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CredentialExpiredException);
+	});
 	return class$;
 }
 

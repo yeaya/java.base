@@ -1,5 +1,4 @@
 #include <GetXSpace$DenyRead.h>
-
 #include <GetXSpace$Deny.h>
 #include <GetXSpace.h>
 #include <java/lang/SecurityException.h>
@@ -11,43 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
-
-$FieldInfo _GetXSpace$DenyRead_FieldInfo_[] = {
-	{"err", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GetXSpace$DenyRead, err)},
-	{}
-};
-
-$MethodInfo _GetXSpace$DenyRead_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GetXSpace$DenyRead, init$, void)},
-	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GetXSpace$DenyRead, checkRead, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _GetXSpace$DenyRead_InnerClassesInfo_[] = {
-	{"GetXSpace$DenyRead", "GetXSpace", "DenyRead", $PRIVATE | $STATIC},
-	{"GetXSpace$Deny", "GetXSpace", "Deny", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _GetXSpace$DenyRead_ClassInfo_ = {
-	$ACC_SUPER,
-	"GetXSpace$DenyRead",
-	"GetXSpace$Deny",
-	nullptr,
-	_GetXSpace$DenyRead_FieldInfo_,
-	_GetXSpace$DenyRead_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetXSpace$DenyRead_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetXSpace"
-};
-
-$Object* allocate$GetXSpace$DenyRead($Class* clazz) {
-	return $of($alloc(GetXSpace$DenyRead));
-}
 
 void GetXSpace$DenyRead::init$() {
 	$GetXSpace$Deny::init$();
@@ -62,7 +24,38 @@ GetXSpace$DenyRead::GetXSpace$DenyRead() {
 }
 
 $Class* GetXSpace$DenyRead::load$($String* name, bool initialize) {
-	$loadClass(GetXSpace$DenyRead, name, initialize, &_GetXSpace$DenyRead_ClassInfo_, allocate$GetXSpace$DenyRead);
+	$FieldInfo fieldInfos$$[] = {
+		{"err", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GetXSpace$DenyRead, err)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GetXSpace$DenyRead, init$, void)},
+		{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GetXSpace$DenyRead, checkRead, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetXSpace$DenyRead", "GetXSpace", "DenyRead", $PRIVATE | $STATIC},
+		{"GetXSpace$Deny", "GetXSpace", "Deny", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GetXSpace$DenyRead",
+		"GetXSpace$Deny",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetXSpace"
+	};
+	$loadClass(GetXSpace$DenyRead, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetXSpace$DenyRead);
+	});
 	return class$;
 }
 

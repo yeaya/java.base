@@ -1,5 +1,4 @@
 #include <Basic4ref$3.h>
-
 #include <Basic4ref.h>
 #include <java/lang/ref/PhantomReference.h>
 #include <java/lang/ref/Reference.h>
@@ -13,52 +12,13 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PhantomReference = ::java::lang::ref::PhantomReference;
-using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
-
-$MethodInfo _Basic4ref$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Basic4ref$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4ref$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Basic4ref$3_EnclosingMethodInfo_ = {
-	"Basic4ref",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Basic4ref$3_InnerClassesInfo_[] = {
-	{"Basic4ref$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Basic4ref$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"Basic4ref$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_Basic4ref$3_MethodInfo_,
-	nullptr,
-	&_Basic4ref$3_EnclosingMethodInfo_,
-	_Basic4ref$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Basic4ref"
-};
-
-$Object* allocate$Basic4ref$3($Class* clazz) {
-	return $of($alloc(Basic4ref$3));
-}
 
 void Basic4ref$3::init$() {
 }
 
 void Basic4ref$3::run() {
 	$var($Basic4ref, s, $new($Basic4ref));
-	$init($Basic4ref);
 	$assignStatic($Basic4ref::rw, $new($WeakReference, s, $Basic4ref::q));
 	$assignStatic($Basic4ref::rw2, $new($WeakReference, s));
 	$assignStatic($Basic4ref::rp, $new($PhantomReference, s, $Basic4ref::q));
@@ -70,7 +30,38 @@ Basic4ref$3::Basic4ref$3() {
 }
 
 $Class* Basic4ref$3::load$($String* name, bool initialize) {
-	$loadClass(Basic4ref$3, name, initialize, &_Basic4ref$3_ClassInfo_, allocate$Basic4ref$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Basic4ref$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4ref$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Basic4ref",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic4ref$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Basic4ref$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Basic4ref"
+	};
+	$loadClass(Basic4ref$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic4ref$3);
+	});
 	return class$;
 }
 

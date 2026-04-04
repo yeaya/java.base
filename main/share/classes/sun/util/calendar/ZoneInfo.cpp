@@ -1,5 +1,4 @@
 #include <sun/util/calendar/ZoneInfo.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/util/Date.h>
 #include <java/util/GregorianCalendar.h>
@@ -49,76 +48,6 @@ using $ZoneInfoFile = ::sun::util::calendar::ZoneInfoFile;
 namespace sun {
 	namespace util {
 		namespace calendar {
-
-$FieldInfo _ZoneInfo_FieldInfo_[] = {
-	{"UTC_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, UTC_TIME)},
-	{"STANDARD_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, STANDARD_TIME)},
-	{"WALL_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, WALL_TIME)},
-	{"OFFSET_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, OFFSET_MASK)},
-	{"DST_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, DST_MASK)},
-	{"DST_NSHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, DST_NSHIFT)},
-	{"ABBR_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, ABBR_MASK)},
-	{"TRANSITION_NSHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, TRANSITION_NSHIFT)},
-	{"rawOffset", "I", nullptr, $PRIVATE, $field(ZoneInfo, rawOffset)},
-	{"rawOffsetDiff", "I", nullptr, $PRIVATE, $field(ZoneInfo, rawOffsetDiff)},
-	{"checksum", "I", nullptr, $PRIVATE, $field(ZoneInfo, checksum)},
-	{"dstSavings", "I", nullptr, $PRIVATE, $field(ZoneInfo, dstSavings)},
-	{"transitions", "[J", nullptr, $PRIVATE, $field(ZoneInfo, transitions)},
-	{"offsets", "[I", nullptr, $PRIVATE, $field(ZoneInfo, offsets)},
-	{"simpleTimeZoneParams", "[I", nullptr, $PRIVATE, $field(ZoneInfo, simpleTimeZoneParams)},
-	{"willGMTOffsetChange", "Z", nullptr, $PRIVATE, $field(ZoneInfo, willGMTOffsetChange)},
-	{"dirty", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(ZoneInfo, dirty)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, serialVersionUID)},
-	{"lastRule", "Ljava/util/SimpleTimeZone;", nullptr, $PRIVATE | $TRANSIENT, $field(ZoneInfo, lastRule)},
-	{}
-};
-
-$MethodInfo _ZoneInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ZoneInfo, init$, void)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ZoneInfo, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;III[J[I[IZ)V", nullptr, 0, $method(ZoneInfo, init$, void, $String*, int32_t, int32_t, int32_t, $longs*, $ints*, $ints*, bool)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, equals, bool, Object$*)},
-	{"getAliasTable", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ZoneInfo, getAliasTable, $Map*)},
-	{"getAvailableIDs", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneInfo, getAvailableIDs, $StringArray*)},
-	{"getAvailableIDs", "(I)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneInfo, getAvailableIDs, $StringArray*, int32_t)},
-	{"getDSTSavings", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getDSTSavings, int32_t)},
-	{"getLastRawOffset", "()I", nullptr, $PRIVATE, $method(ZoneInfo, getLastRawOffset, int32_t)},
-	{"getLastRule", "()Ljava/util/SimpleTimeZone;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ZoneInfo, getLastRule, $SimpleTimeZone*)},
-	{"getLastRuleInstance", "()Ljava/util/SimpleTimeZone;", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getLastRuleInstance, $SimpleTimeZone*)},
-	{"getOffset", "(J)I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getOffset, int32_t, int64_t)},
-	{"getOffset", "(IIIIII)I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getOffset, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getOffsets", "(J[I)I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getOffsets, int32_t, int64_t, $ints*)},
-	{"getOffsets", "(J[II)I", nullptr, $PRIVATE, $method(ZoneInfo, getOffsets, int32_t, int64_t, $ints*, int32_t)},
-	{"getOffsetsByStandard", "(J[I)I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getOffsetsByStandard, int32_t, int64_t, $ints*)},
-	{"getOffsetsByWall", "(J[I)I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getOffsetsByWall, int32_t, int64_t, $ints*)},
-	{"getRawOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getRawOffset, int32_t)},
-	{"getTimeZone", "(Ljava/lang/String;)Ljava/util/TimeZone;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneInfo, getTimeZone, $TimeZone*, $String*)},
-	{"getTransitionIndex", "(JI)I", nullptr, $PRIVATE, $method(ZoneInfo, getTransitionIndex, int32_t, int64_t, int32_t)},
-	{"hasSameRules", "(Ljava/util/TimeZone;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, hasSameRules, bool, $TimeZone*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, hashCode, int32_t)},
-	{"inDaylightTime", "(Ljava/util/Date;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, inDaylightTime, bool, $Date*)},
-	{"isDirty", "()Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, isDirty, bool)},
-	{"observesDaylightTime", "()Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, observesDaylightTime, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setRawOffset", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZoneInfo, setRawOffset, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, toString, $String*)},
-	{"useDaylightTime", "()Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, useDaylightTime, bool)},
-	{}
-};
-
-$ClassInfo _ZoneInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.calendar.ZoneInfo",
-	"java.util.TimeZone",
-	nullptr,
-	_ZoneInfo_FieldInfo_,
-	_ZoneInfo_MethodInfo_
-};
-
-$Object* allocate$ZoneInfo($Class* clazz) {
-	return $of($alloc(ZoneInfo));
-}
 
 void ZoneInfo::init$() {
 	$TimeZone::init$();
@@ -182,11 +111,11 @@ int32_t ZoneInfo::getOffsets(int64_t date, $ints* offsets, int32_t type) {
 		return offset;
 	}
 	if (index < $nc(this->transitions)->length) {
-		int64_t val = $nc(this->transitions)->get(index);
-		int32_t offset = $nc(this->offsets)->get((int32_t)((int64_t)(val & (uint64_t)ZoneInfo::OFFSET_MASK))) + this->rawOffsetDiff;
+		int64_t val = this->transitions->get(index);
+		int32_t offset = $nc(this->offsets)->get((int32_t)(val & ZoneInfo::OFFSET_MASK)) + this->rawOffsetDiff;
 		if (offsets != nullptr) {
-			int32_t dst = (int32_t)((int64_t)(($usr(val, ZoneInfo::DST_NSHIFT)) & (uint64_t)(int64_t)15));
-			int32_t save = (dst == 0) ? 0 : $nc(this->offsets)->get(dst);
+			int32_t dst = (int32_t)(($usr(val, ZoneInfo::DST_NSHIFT)) & (int64_t)0x0f);
+			int32_t save = (dst == 0) ? 0 : this->offsets->get(dst);
 			offsets->set(0, offset - save);
 			offsets->set(1, save);
 		}
@@ -209,11 +138,11 @@ int32_t ZoneInfo::getOffsets(int64_t date, $ints* offsets, int32_t type) {
 		}
 		return rawoffset + dstoffset;
 	} else {
-		int64_t val = $nc(this->transitions)->get($nc(this->transitions)->length - 1);
-		int32_t offset = $nc(this->offsets)->get((int32_t)((int64_t)(val & (uint64_t)ZoneInfo::OFFSET_MASK))) + this->rawOffsetDiff;
+		int64_t val = this->transitions->get(this->transitions->length - 1);
+		int32_t offset = $nc(this->offsets)->get((int32_t)(val & ZoneInfo::OFFSET_MASK)) + this->rawOffsetDiff;
 		if (offsets != nullptr) {
-			int32_t dst = (int32_t)((int64_t)(($usr(val, ZoneInfo::DST_NSHIFT)) & (uint64_t)(int64_t)15));
-			int32_t save = (dst == 0) ? 0 : $nc(this->offsets)->get(dst);
+			int32_t dst = (int32_t)(($usr(val, ZoneInfo::DST_NSHIFT)) & (int64_t)0x0f);
+			int32_t save = (dst == 0) ? 0 : this->offsets->get(dst);
 			offsets->set(0, offset - save);
 			offsets->set(1, save);
 		}
@@ -226,13 +155,13 @@ int32_t ZoneInfo::getTransitionIndex(int64_t date, int32_t type) {
 	int32_t high = $nc(this->transitions)->length - 1;
 	while (low <= high) {
 		int32_t mid = (low + high) / 2;
-		int64_t val = $nc(this->transitions)->get(mid);
+		int64_t val = this->transitions->get(mid);
 		int64_t midVal = $sr(val, ZoneInfo::TRANSITION_NSHIFT);
 		if (type != ZoneInfo::UTC_TIME) {
-			midVal += $nc(this->offsets)->get((int32_t)((int64_t)(val & (uint64_t)ZoneInfo::OFFSET_MASK)));
+			midVal += $nc(this->offsets)->get((int32_t)(val & ZoneInfo::OFFSET_MASK));
 		}
 		if (type == ZoneInfo::STANDARD_TIME) {
-			int32_t dstIndex = (int32_t)((int64_t)(($usr(val, ZoneInfo::DST_NSHIFT)) & (uint64_t)(int64_t)15));
+			int32_t dstIndex = (int32_t)(($usr(val, ZoneInfo::DST_NSHIFT)) & (int64_t)0x0f);
 			if (dstIndex != 0) {
 				midVal -= $nc(this->offsets)->get(dstIndex);
 			}
@@ -245,14 +174,14 @@ int32_t ZoneInfo::getTransitionIndex(int64_t date, int32_t type) {
 			return mid;
 		}
 	}
-	if (low >= $nc(this->transitions)->length) {
+	if (low >= this->transitions->length) {
 		return low;
 	}
 	return low - 1;
 }
 
 int32_t ZoneInfo::getOffset(int32_t era, int32_t year, int32_t month, int32_t day, int32_t dayOfWeek, int32_t milliseconds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (milliseconds < 0 || milliseconds >= $AbstractCalendar::DAY_IN_MILLIS) {
 		$throwNew($IllegalArgumentException);
 	}
@@ -285,7 +214,7 @@ void ZoneInfo::setRawOffset(int32_t offsetMillis) {
 		}
 		this->rawOffsetDiff = offsetMillis - this->rawOffset;
 		if (this->lastRule != nullptr) {
-			$nc(this->lastRule)->setRawOffset(offsetMillis);
+			this->lastRule->setRawOffset(offsetMillis);
 		}
 		this->dirty = true;
 	}
@@ -325,7 +254,7 @@ bool ZoneInfo::observesDaylightTime() {
 		return false;
 	}
 	for (int32_t i = index; i < $nc(this->transitions)->length; ++i) {
-		if (((int64_t)($nc(this->transitions)->get(i) & (uint64_t)ZoneInfo::DST_MASK)) != 0) {
+		if ((this->transitions->get(i) & ZoneInfo::DST_MASK) != 0) {
 			return true;
 		}
 	}
@@ -345,13 +274,13 @@ bool ZoneInfo::inDaylightTime($Date* date) {
 		return false;
 	}
 	if (index < $nc(this->transitions)->length) {
-		return ((int64_t)($nc(this->transitions)->get(index) & (uint64_t)ZoneInfo::DST_MASK)) != 0;
+		return (this->transitions->get(index) & ZoneInfo::DST_MASK) != 0;
 	}
 	$var($SimpleTimeZone, tz, getLastRule());
 	if (tz != nullptr) {
 		return tz->inDaylightTime(date);
 	} else {
-		return ((int64_t)($nc(this->transitions)->get($nc(this->transitions)->length - 1) & (uint64_t)ZoneInfo::DST_MASK)) != 0;
+		return (this->transitions->get(this->transitions->length - 1) & ZoneInfo::DST_MASK) != 0;
 	}
 }
 
@@ -360,20 +289,23 @@ int32_t ZoneInfo::getDSTSavings() {
 }
 
 $String* ZoneInfo::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$11, $$str({$($of(this)->getClass()->getName()), "[id=\""_s}));
-	$var($String, var$10, $$concat(var$11, $(getID())));
-	$var($String, var$9, $$concat(var$10, "\",offset="_s));
-	$var($String, var$8, $$concat(var$9, $$str(getLastRawOffset())));
-	$var($String, var$7, $$concat(var$8, ",dstSavings="_s));
-	$var($String, var$6, $$concat(var$7, $$str(this->dstSavings)));
-	$var($String, var$5, $$concat(var$6, ",useDaylight="_s));
-	$var($String, var$4, $$concat(var$5, $$str(useDaylightTime())));
-	$var($String, var$3, $$concat(var$4, ",transitions="_s));
-	$var($String, var$2, $$concat(var$3, $$str(((this->transitions != nullptr) ? $nc(this->transitions)->length : 0))));
-	$var($String, var$1, $$concat(var$2, ",lastRule="_s));
-	$var($String, var$0, $$concat(var$1, $((this->lastRule == nullptr ? getLastRuleInstance() : this->lastRule))));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[id=\""_s);
+	var$0->append($(getID()));
+	var$0->append("\",offset="_s);
+	var$0->append(getLastRawOffset());
+	var$0->append(",dstSavings="_s);
+	var$0->append(this->dstSavings);
+	var$0->append(",useDaylight="_s);
+	var$0->append(useDaylightTime());
+	var$0->append(",transitions="_s);
+	var$0->append((this->transitions != nullptr) ? this->transitions->length : 0);
+	var$0->append(",lastRule="_s);
+	var$0->append(this->lastRule == nullptr ? $(getLastRuleInstance()) : this->lastRule);
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 $StringArray* ZoneInfo::getAvailableIDs() {
@@ -401,16 +333,16 @@ $SimpleTimeZone* ZoneInfo::getLastRule() {
 }
 
 $SimpleTimeZone* ZoneInfo::getLastRuleInstance() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->simpleTimeZoneParams == nullptr) {
 		return nullptr;
 	}
 	if ($nc(this->simpleTimeZoneParams)->length == 10) {
 		int32_t var$0 = getLastRawOffset();
-		return $new($SimpleTimeZone, var$0, $(getID()), $nc(this->simpleTimeZoneParams)->get(0), $nc(this->simpleTimeZoneParams)->get(1), $nc(this->simpleTimeZoneParams)->get(2), $nc(this->simpleTimeZoneParams)->get(3), $nc(this->simpleTimeZoneParams)->get(4), $nc(this->simpleTimeZoneParams)->get(5), $nc(this->simpleTimeZoneParams)->get(6), $nc(this->simpleTimeZoneParams)->get(7), $nc(this->simpleTimeZoneParams)->get(8), $nc(this->simpleTimeZoneParams)->get(9), this->dstSavings);
+		return $new($SimpleTimeZone, var$0, $(getID()), this->simpleTimeZoneParams->get(0), this->simpleTimeZoneParams->get(1), this->simpleTimeZoneParams->get(2), this->simpleTimeZoneParams->get(3), this->simpleTimeZoneParams->get(4), this->simpleTimeZoneParams->get(5), this->simpleTimeZoneParams->get(6), this->simpleTimeZoneParams->get(7), this->simpleTimeZoneParams->get(8), this->simpleTimeZoneParams->get(9), this->dstSavings);
 	}
 	int32_t var$1 = getLastRawOffset();
-	return $new($SimpleTimeZone, var$1, $(getID()), $nc(this->simpleTimeZoneParams)->get(0), $nc(this->simpleTimeZoneParams)->get(1), $nc(this->simpleTimeZoneParams)->get(2), $nc(this->simpleTimeZoneParams)->get(3), $nc(this->simpleTimeZoneParams)->get(4), $nc(this->simpleTimeZoneParams)->get(5), $nc(this->simpleTimeZoneParams)->get(6), $nc(this->simpleTimeZoneParams)->get(7), this->dstSavings);
+	return $new($SimpleTimeZone, var$1, $(getID()), this->simpleTimeZoneParams->get(0), this->simpleTimeZoneParams->get(1), this->simpleTimeZoneParams->get(2), this->simpleTimeZoneParams->get(3), this->simpleTimeZoneParams->get(4), this->simpleTimeZoneParams->get(5), this->simpleTimeZoneParams->get(6), this->simpleTimeZoneParams->get(7), this->dstSavings);
 }
 
 $Object* ZoneInfo::clone() {
@@ -424,7 +356,7 @@ int32_t ZoneInfo::hashCode() {
 }
 
 bool ZoneInfo::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -432,10 +364,10 @@ bool ZoneInfo::equals(Object$* obj) {
 		return false;
 	}
 	$var(ZoneInfo, that, $cast(ZoneInfo, obj));
-	bool var$0 = $nc($(getID()))->equals($($nc(that)->getID()));
+	bool var$0 = $$nc(getID())->equals($($nc(that)->getID()));
 	if (var$0) {
 		int32_t var$1 = getLastRawOffset();
-		var$0 = (var$1 == $nc(that)->getLastRawOffset());
+		var$0 = var$1 == that->getLastRawOffset();
 	}
 	return (var$0 && (this->checksum == that->checksum));
 }
@@ -453,16 +385,16 @@ bool ZoneInfo::hasSameRules($TimeZone* other) {
 			return false;
 		}
 		bool var$1 = (this->transitions == nullptr) && (useDaylightTime() == false);
-		if (var$1 && ($nc(other)->useDaylightTime() == false)) {
+		if (var$1 && (other->useDaylightTime() == false)) {
 			return true;
 		}
 		return false;
 	}
 	int32_t var$2 = getLastRawOffset();
-	if (var$2 != $nc(($cast(ZoneInfo, other)))->getLastRawOffset()) {
+	if (var$2 != $nc($cast(ZoneInfo, other))->getLastRawOffset()) {
 		return false;
 	}
-	return (this->checksum == $nc(($cast(ZoneInfo, other)))->checksum);
+	return (this->checksum == $cast(ZoneInfo, other)->checksum);
 }
 
 $Map* ZoneInfo::getAliasTable() {
@@ -479,7 +411,72 @@ ZoneInfo::ZoneInfo() {
 }
 
 $Class* ZoneInfo::load$($String* name, bool initialize) {
-	$loadClass(ZoneInfo, name, initialize, &_ZoneInfo_ClassInfo_, allocate$ZoneInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"UTC_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, UTC_TIME)},
+		{"STANDARD_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, STANDARD_TIME)},
+		{"WALL_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, WALL_TIME)},
+		{"OFFSET_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, OFFSET_MASK)},
+		{"DST_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, DST_MASK)},
+		{"DST_NSHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, DST_NSHIFT)},
+		{"ABBR_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, ABBR_MASK)},
+		{"TRANSITION_NSHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, TRANSITION_NSHIFT)},
+		{"rawOffset", "I", nullptr, $PRIVATE, $field(ZoneInfo, rawOffset)},
+		{"rawOffsetDiff", "I", nullptr, $PRIVATE, $field(ZoneInfo, rawOffsetDiff)},
+		{"checksum", "I", nullptr, $PRIVATE, $field(ZoneInfo, checksum)},
+		{"dstSavings", "I", nullptr, $PRIVATE, $field(ZoneInfo, dstSavings)},
+		{"transitions", "[J", nullptr, $PRIVATE, $field(ZoneInfo, transitions)},
+		{"offsets", "[I", nullptr, $PRIVATE, $field(ZoneInfo, offsets)},
+		{"simpleTimeZoneParams", "[I", nullptr, $PRIVATE, $field(ZoneInfo, simpleTimeZoneParams)},
+		{"willGMTOffsetChange", "Z", nullptr, $PRIVATE, $field(ZoneInfo, willGMTOffsetChange)},
+		{"dirty", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(ZoneInfo, dirty)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneInfo, serialVersionUID)},
+		{"lastRule", "Ljava/util/SimpleTimeZone;", nullptr, $PRIVATE | $TRANSIENT, $field(ZoneInfo, lastRule)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ZoneInfo, init$, void)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ZoneInfo, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;III[J[I[IZ)V", nullptr, 0, $method(ZoneInfo, init$, void, $String*, int32_t, int32_t, int32_t, $longs*, $ints*, $ints*, bool)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, equals, bool, Object$*)},
+		{"getAliasTable", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ZoneInfo, getAliasTable, $Map*)},
+		{"getAvailableIDs", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneInfo, getAvailableIDs, $StringArray*)},
+		{"getAvailableIDs", "(I)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneInfo, getAvailableIDs, $StringArray*, int32_t)},
+		{"getDSTSavings", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getDSTSavings, int32_t)},
+		{"getLastRawOffset", "()I", nullptr, $PRIVATE, $method(ZoneInfo, getLastRawOffset, int32_t)},
+		{"getLastRule", "()Ljava/util/SimpleTimeZone;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ZoneInfo, getLastRule, $SimpleTimeZone*)},
+		{"getLastRuleInstance", "()Ljava/util/SimpleTimeZone;", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getLastRuleInstance, $SimpleTimeZone*)},
+		{"getOffset", "(J)I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getOffset, int32_t, int64_t)},
+		{"getOffset", "(IIIIII)I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getOffset, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getOffsets", "(J[I)I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getOffsets, int32_t, int64_t, $ints*)},
+		{"getOffsets", "(J[II)I", nullptr, $PRIVATE, $method(ZoneInfo, getOffsets, int32_t, int64_t, $ints*, int32_t)},
+		{"getOffsetsByStandard", "(J[I)I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getOffsetsByStandard, int32_t, int64_t, $ints*)},
+		{"getOffsetsByWall", "(J[I)I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getOffsetsByWall, int32_t, int64_t, $ints*)},
+		{"getRawOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, getRawOffset, int32_t)},
+		{"getTimeZone", "(Ljava/lang/String;)Ljava/util/TimeZone;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneInfo, getTimeZone, $TimeZone*, $String*)},
+		{"getTransitionIndex", "(JI)I", nullptr, $PRIVATE, $method(ZoneInfo, getTransitionIndex, int32_t, int64_t, int32_t)},
+		{"hasSameRules", "(Ljava/util/TimeZone;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, hasSameRules, bool, $TimeZone*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, hashCode, int32_t)},
+		{"inDaylightTime", "(Ljava/util/Date;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, inDaylightTime, bool, $Date*)},
+		{"isDirty", "()Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, isDirty, bool)},
+		{"observesDaylightTime", "()Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, observesDaylightTime, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setRawOffset", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZoneInfo, setRawOffset, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, toString, $String*)},
+		{"useDaylightTime", "()Z", nullptr, $PUBLIC, $virtualMethod(ZoneInfo, useDaylightTime, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.calendar.ZoneInfo",
+		"java.util.TimeZone",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ZoneInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZoneInfo));
+	});
 	return class$;
 }
 

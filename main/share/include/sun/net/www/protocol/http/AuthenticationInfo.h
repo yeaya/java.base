@@ -80,6 +80,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(char16_t type, ::sun::net::www::protocol::http::AuthScheme* authScheme, $String* host, int32_t port, $String* realm, $String* authenticatorKey);
 	void init$(char16_t type, ::sun::net::www::protocol::http::AuthScheme* authScheme, ::java::net::URL* url, $String* realm, $String* authenticatorKey);
 	virtual void addToCache();
@@ -118,7 +119,7 @@ public:
 	virtual bool useAuthCache();
 	void writeObject(::java::io::ObjectOutputStream* s);
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0xDC143BADD6E566F5;
+	static const int64_t serialVersionUID = (int64_t)0xdc143badd6e566f5;
 	static const char16_t SERVER_AUTHENTICATION = ((char16_t)115);
 	static const char16_t PROXY_AUTHENTICATION = ((char16_t)112);
 	static bool serializeAuth;

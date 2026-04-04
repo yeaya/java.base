@@ -53,6 +53,7 @@ class CgroupV2Subsystem : public ::jdk::internal::platform::CgroupSubsystem {
 	$class(CgroupV2Subsystem, 0, ::jdk::internal::platform::CgroupSubsystem)
 public:
 	CgroupV2Subsystem();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::platform::CgroupSubsystemController* unified);
 	virtual int64_t getBlkIOServiceCount() override;
 	virtual int64_t getBlkIOServiced() override;

@@ -1,5 +1,4 @@
 #include <sun/nio/ch/Invoker$2.h>
-
 #include <java/lang/ThreadLocal.h>
 #include <java/nio/channels/CompletionHandler.h>
 #include <sun/nio/ch/Invoker$GroupAndInvokeCount.h>
@@ -11,7 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ThreadLocal = ::java::lang::ThreadLocal;
 using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $Invoker = ::sun::nio::ch::Invoker;
 using $Invoker$GroupAndInvokeCount = ::sun::nio::ch::Invoker$GroupAndInvokeCount;
@@ -19,51 +17,6 @@ using $Invoker$GroupAndInvokeCount = ::sun::nio::ch::Invoker$GroupAndInvokeCount
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _Invoker$2_FieldInfo_[] = {
-	{"val$exc", "Ljava/lang/Throwable;", nullptr, $FINAL | $SYNTHETIC, $field(Invoker$2, val$exc)},
-	{"val$result", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(Invoker$2, val$result)},
-	{"val$attachment", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(Invoker$2, val$attachment)},
-	{"val$handler", "Ljava/nio/channels/CompletionHandler;", nullptr, $FINAL | $SYNTHETIC, $field(Invoker$2, val$handler)},
-	{}
-};
-
-$MethodInfo _Invoker$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "()V", 0, $method(Invoker$2, init$, void, $CompletionHandler*, Object$*, Object$*, $Throwable*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Invoker$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Invoker$2_EnclosingMethodInfo_ = {
-	"sun.nio.ch.Invoker",
-	"invokeIndirectly",
-	"(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V"
-};
-
-$InnerClassInfo _Invoker$2_InnerClassesInfo_[] = {
-	{"sun.nio.ch.Invoker$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Invoker$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.Invoker$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Invoker$2_FieldInfo_,
-	_Invoker$2_MethodInfo_,
-	nullptr,
-	&_Invoker$2_EnclosingMethodInfo_,
-	_Invoker$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.Invoker"
-};
-
-$Object* allocate$Invoker$2($Class* clazz) {
-	return $of($alloc(Invoker$2));
-}
 
 void Invoker$2::init$($CompletionHandler* val$handler, Object$* val$attachment, Object$* val$result, $Throwable* val$exc) {
 	$set(this, val$handler, val$handler);
@@ -85,7 +38,45 @@ Invoker$2::Invoker$2() {
 }
 
 $Class* Invoker$2::load$($String* name, bool initialize) {
-	$loadClass(Invoker$2, name, initialize, &_Invoker$2_ClassInfo_, allocate$Invoker$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$exc", "Ljava/lang/Throwable;", nullptr, $FINAL | $SYNTHETIC, $field(Invoker$2, val$exc)},
+		{"val$result", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(Invoker$2, val$result)},
+		{"val$attachment", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(Invoker$2, val$attachment)},
+		{"val$handler", "Ljava/nio/channels/CompletionHandler;", nullptr, $FINAL | $SYNTHETIC, $field(Invoker$2, val$handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "()V", 0, $method(Invoker$2, init$, void, $CompletionHandler*, Object$*, Object$*, $Throwable*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Invoker$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.ch.Invoker",
+		"invokeIndirectly",
+		"(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.Invoker$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.Invoker$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.Invoker"
+	};
+	$loadClass(Invoker$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Invoker$2);
+	});
 	return class$;
 }
 

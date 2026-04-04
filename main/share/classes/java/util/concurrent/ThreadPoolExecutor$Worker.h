@@ -44,7 +44,7 @@ public:
 	virtual bool tryRelease(int32_t unused) override;
 	void unlock();
 	::java::util::concurrent::ThreadPoolExecutor* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x552F9A9A47F02C71;
+	static const int64_t serialVersionUID = (int64_t)0x552f9a9a47f02c71;
 	$Thread* thread = nullptr;
 	::java::lang::Runnable* firstTask = nullptr;
 	$volatile(int64_t) completedTasks = 0;

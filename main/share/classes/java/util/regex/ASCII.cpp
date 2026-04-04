@@ -1,5 +1,4 @@
 #include <java/util/regex/ASCII.h>
-
 #include <jcpp.h>
 
 #undef ALNUM
@@ -26,63 +25,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _ASCII_FieldInfo_[] = {
-	{"UPPER", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, UPPER)},
-	{"LOWER", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, LOWER)},
-	{"DIGIT", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, DIGIT)},
-	{"SPACE", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, SPACE)},
-	{"PUNCT", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, PUNCT)},
-	{"CNTRL", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, CNTRL)},
-	{"BLANK", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, BLANK)},
-	{"HEX", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, HEX)},
-	{"UNDER", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, UNDER)},
-	{"ASCII", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, ASCII$)},
-	{"ALPHA", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, ALPHA)},
-	{"ALNUM", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, ALNUM)},
-	{"GRAPH", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, GRAPH)},
-	{"WORD", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, WORD)},
-	{"XDIGIT", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, XDIGIT)},
-	{"ctype", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ASCII, ctype)},
-	{}
-};
-
-$MethodInfo _ASCII_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ASCII, init$, void)},
-	{"getType", "(I)I", nullptr, $STATIC, $staticMethod(ASCII, getType, int32_t, int32_t)},
-	{"isAlnum", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isAlnum, bool, int32_t)},
-	{"isAlpha", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isAlpha, bool, int32_t)},
-	{"isAscii", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isAscii, bool, int32_t)},
-	{"isCntrl", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isCntrl, bool, int32_t)},
-	{"isDigit", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isDigit, bool, int32_t)},
-	{"isGraph", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isGraph, bool, int32_t)},
-	{"isHexDigit", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isHexDigit, bool, int32_t)},
-	{"isLower", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isLower, bool, int32_t)},
-	{"isOctDigit", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isOctDigit, bool, int32_t)},
-	{"isPrint", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isPrint, bool, int32_t)},
-	{"isPunct", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isPunct, bool, int32_t)},
-	{"isSpace", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isSpace, bool, int32_t)},
-	{"isType", "(II)Z", nullptr, $STATIC, $staticMethod(ASCII, isType, bool, int32_t, int32_t)},
-	{"isUpper", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isUpper, bool, int32_t)},
-	{"isWord", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isWord, bool, int32_t)},
-	{"toDigit", "(I)I", nullptr, $STATIC, $staticMethod(ASCII, toDigit, int32_t, int32_t)},
-	{"toLower", "(I)I", nullptr, $STATIC, $staticMethod(ASCII, toLower, int32_t, int32_t)},
-	{"toUpper", "(I)I", nullptr, $STATIC, $staticMethod(ASCII, toUpper, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ASCII_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.ASCII",
-	"java.lang.Object",
-	nullptr,
-	_ASCII_FieldInfo_,
-	_ASCII_MethodInfo_
-};
-
-$Object* allocate$ASCII($Class* clazz) {
-	return $of($alloc(ASCII));
-}
-
 $ints* ASCII::ctype = nullptr;
 
 void ASCII::init$() {
@@ -90,17 +32,17 @@ void ASCII::init$() {
 
 int32_t ASCII::getType(int32_t ch) {
 	$init(ASCII);
-	return (((int32_t)(ch & (uint32_t)-128)) == 0 ? $nc(ASCII::ctype)->get(ch) : 0);
+	return ((ch & -128) == 0 ? ASCII::ctype->get(ch) : 0);
 }
 
 bool ASCII::isType(int32_t ch, int32_t type) {
 	$init(ASCII);
-	return ((int32_t)(getType(ch) & (uint32_t)type)) != 0;
+	return (getType(ch) & type) != 0;
 }
 
 bool ASCII::isAscii(int32_t ch) {
 	$init(ASCII);
-	return (((int32_t)(ch & (uint32_t)-128)) == 0);
+	return ((ch & -128) == 0);
 }
 
 bool ASCII::isAlpha(int32_t ch) {
@@ -170,7 +112,7 @@ bool ASCII::isWord(int32_t ch) {
 
 int32_t ASCII::toDigit(int32_t ch) {
 	$init(ASCII);
-	return ((int32_t)($nc(ASCII::ctype)->get((int32_t)(ch & (uint32_t)127)) & (uint32_t)63));
+	return (ASCII::ctype->get(ch & 0x7f) & 0x3f);
 }
 
 int32_t ASCII::toLower(int32_t ch) {
@@ -183,7 +125,7 @@ int32_t ASCII::toUpper(int32_t ch) {
 	return isLower(ch) ? (ch - 32) : ch;
 }
 
-void clinit$ASCII($Class* class$) {
+void ASCII::clinit$($Class* clazz) {
 	$assignStatic(ASCII::ctype, $new($ints, {
 		ASCII::CNTRL,
 		ASCII::CNTRL,
@@ -320,7 +262,59 @@ ASCII::ASCII() {
 }
 
 $Class* ASCII::load$($String* name, bool initialize) {
-	$loadClass(ASCII, name, initialize, &_ASCII_ClassInfo_, clinit$ASCII, allocate$ASCII);
+	$FieldInfo fieldInfos$$[] = {
+		{"UPPER", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, UPPER)},
+		{"LOWER", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, LOWER)},
+		{"DIGIT", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, DIGIT)},
+		{"SPACE", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, SPACE)},
+		{"PUNCT", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, PUNCT)},
+		{"CNTRL", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, CNTRL)},
+		{"BLANK", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, BLANK)},
+		{"HEX", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, HEX)},
+		{"UNDER", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, UNDER)},
+		{"ASCII", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, ASCII$)},
+		{"ALPHA", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, ALPHA)},
+		{"ALNUM", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, ALNUM)},
+		{"GRAPH", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, GRAPH)},
+		{"WORD", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, WORD)},
+		{"XDIGIT", "I", nullptr, $STATIC | $FINAL, $constField(ASCII, XDIGIT)},
+		{"ctype", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ASCII, ctype)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ASCII, init$, void)},
+		{"getType", "(I)I", nullptr, $STATIC, $staticMethod(ASCII, getType, int32_t, int32_t)},
+		{"isAlnum", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isAlnum, bool, int32_t)},
+		{"isAlpha", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isAlpha, bool, int32_t)},
+		{"isAscii", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isAscii, bool, int32_t)},
+		{"isCntrl", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isCntrl, bool, int32_t)},
+		{"isDigit", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isDigit, bool, int32_t)},
+		{"isGraph", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isGraph, bool, int32_t)},
+		{"isHexDigit", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isHexDigit, bool, int32_t)},
+		{"isLower", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isLower, bool, int32_t)},
+		{"isOctDigit", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isOctDigit, bool, int32_t)},
+		{"isPrint", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isPrint, bool, int32_t)},
+		{"isPunct", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isPunct, bool, int32_t)},
+		{"isSpace", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isSpace, bool, int32_t)},
+		{"isType", "(II)Z", nullptr, $STATIC, $staticMethod(ASCII, isType, bool, int32_t, int32_t)},
+		{"isUpper", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isUpper, bool, int32_t)},
+		{"isWord", "(I)Z", nullptr, $STATIC, $staticMethod(ASCII, isWord, bool, int32_t)},
+		{"toDigit", "(I)I", nullptr, $STATIC, $staticMethod(ASCII, toDigit, int32_t, int32_t)},
+		{"toLower", "(I)I", nullptr, $STATIC, $staticMethod(ASCII, toLower, int32_t, int32_t)},
+		{"toUpper", "(I)I", nullptr, $STATIC, $staticMethod(ASCII, toUpper, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.ASCII",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ASCII, name, initialize, &classInfo$$, ASCII::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ASCII);
+	});
 	return class$;
 }
 

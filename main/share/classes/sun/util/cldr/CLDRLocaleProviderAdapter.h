@@ -58,6 +58,7 @@ class $export CLDRLocaleProviderAdapter : public ::sun::util::locale::provider::
 	$class(CLDRLocaleProviderAdapter, 0, ::sun::util::locale::provider::JRELocaleProviderAdapter)
 public:
 	CLDRLocaleProviderAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Locale* applyAliases(::java::util::Locale* loc);
 	::java::util::List* applyParentLocales($String* baseName, ::java::util::List* candidates);

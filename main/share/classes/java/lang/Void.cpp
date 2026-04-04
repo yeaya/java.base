@@ -1,5 +1,4 @@
 #include <java/lang/Void.h>
-
 #include <jcpp.h>
 
 #undef TYPE
@@ -11,49 +10,44 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 
-$FieldInfo _Void_FieldInfo_[] = {
-	{"TYPE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Void, TYPE)},
-	{}
-};
-
-$MethodInfo _Void_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Void, init$, void)},
-	{}
-};
-
-$ClassInfo _Void_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.Void",
-	"java.lang.Object",
-	nullptr,
-	_Void_FieldInfo_,
-	_Void_MethodInfo_
-};
-
-$Object* allocate$Void($Class* clazz) {
-	return $of($alloc(Void));
-}
-
 $Class* Void::TYPE = nullptr;
 
 void Void::init$() {
 }
 
-void clinit$Void($Class* class$) {
+void Void::clinit$($Class* clazz) {
 	$assignStatic(Void::TYPE, $Class::getPrimitiveClass("void"_s));
 }
 
 Void::Void() {
 }
 
-Void* Void::VOID$ = nullptr;
-
 $Class* Void::load$($String* name, bool initialize) {
-	$loadClass(Void, name, initialize, &_Void_ClassInfo_, clinit$Void, allocate$Void);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Void, TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Void, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.Void",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Void, name, initialize, &classInfo$$, Void::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Void);
+	});
 	return class$;
 }
 
 $Class* Void::class$ = nullptr;
+
+Void* Void::VOID$ = nullptr;
 
 	} // lang
 } // java

@@ -1,5 +1,4 @@
 #include <sun/security/tools/keytool/Main$Option.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/tools/keytool/Main.h>
 #include <jcpp.h>
@@ -64,96 +63,6 @@ namespace sun {
 	namespace security {
 		namespace tools {
 			namespace keytool {
-
-$FieldInfo _Main$Option_FieldInfo_[] = {
-	{"ALIAS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, ALIAS)},
-	{"CURVENAME", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, CURVENAME)},
-	{"DESTALIAS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTALIAS)},
-	{"DESTKEYPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTKEYPASS)},
-	{"DESTKEYSTORE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTKEYSTORE)},
-	{"DESTPROTECTED", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTPROTECTED)},
-	{"DESTPROVIDERNAME", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTPROVIDERNAME)},
-	{"DESTSTOREPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTSTOREPASS)},
-	{"DESTSTORETYPE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTSTORETYPE)},
-	{"DNAME", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DNAME)},
-	{"EXT", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, EXT)},
-	{"FILEOUT", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, FILEOUT)},
-	{"FILEIN", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, FILEIN)},
-	{"ID", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, ID)},
-	{"INFILE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, INFILE)},
-	{"KEYALG", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, KEYALG)},
-	{"KEYPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, KEYPASS)},
-	{"KEYSIZE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, KEYSIZE)},
-	{"KEYSTORE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, KEYSTORE)},
-	{"CACERTS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, CACERTS)},
-	{"NEW", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, NEW)},
-	{"NOPROMPT", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, NOPROMPT)},
-	{"OUTFILE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, OUTFILE)},
-	{"PROTECTED", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, PROTECTED)},
-	{"PROVIDERCLASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, PROVIDERCLASS)},
-	{"ADDPROVIDER", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, ADDPROVIDER)},
-	{"PROVIDERNAME", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, PROVIDERNAME)},
-	{"PROVIDERPATH", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, PROVIDERPATH)},
-	{"RFC", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, RFC)},
-	{"SIGALG", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SIGALG)},
-	{"SIGNER", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SIGNER)},
-	{"SIGNERKEYPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SIGNERKEYPASS)},
-	{"SRCALIAS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCALIAS)},
-	{"SRCKEYPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCKEYPASS)},
-	{"SRCKEYSTORE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCKEYSTORE)},
-	{"SRCPROTECTED", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCPROTECTED)},
-	{"SRCPROVIDERNAME", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCPROVIDERNAME)},
-	{"SRCSTOREPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCSTOREPASS)},
-	{"SRCSTORETYPE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCSTORETYPE)},
-	{"SSLSERVER", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SSLSERVER)},
-	{"JARFILE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, JARFILE)},
-	{"STARTDATE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, STARTDATE)},
-	{"STOREPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, STOREPASS)},
-	{"STORETYPE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, STORETYPE)},
-	{"TLS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, TLS)},
-	{"TRUSTCACERTS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, TRUSTCACERTS)},
-	{"V", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, V)},
-	{"VALIDITY", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, VALIDITY)},
-	{"$VALUES", "[Lsun/security/tools/keytool/Main$Option;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Main$Option, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Option, name$)},
-	{"arg", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Option, arg)},
-	{"description", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Option, description)},
-	{}
-};
-
-$MethodInfo _Main$Option_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/tools/keytool/Main$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main$Option, $values, $Main$OptionArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(Main$Option, init$, void, $String*, int32_t, $String*, $String*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$Option, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Option, valueOf, Main$Option*, $String*)},
-	{"values", "()[Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Option, values, $Main$OptionArray*)},
-	{}
-};
-
-$InnerClassInfo _Main$Option_InnerClassesInfo_[] = {
-	{"sun.security.tools.keytool.Main$Option", "sun.security.tools.keytool.Main", "Option", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Main$Option_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.tools.keytool.Main$Option",
-	"java.lang.Enum",
-	nullptr,
-	_Main$Option_FieldInfo_,
-	_Main$Option_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/tools/keytool/Main$Option;>;",
-	nullptr,
-	_Main$Option_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.tools.keytool.Main"
-};
-
-$Object* allocate$Main$Option($Class* clazz) {
-	return $of($alloc(Main$Option));
-}
 
 Main$Option* Main$Option::ALIAS = nullptr;
 Main$Option* Main$Option::CURVENAME = nullptr;
@@ -280,7 +189,7 @@ $String* Main$Option::toString() {
 	return $str({"-"_s, this->name$});
 }
 
-void clinit$Main$Option($Class* class$) {
+void Main$Option::clinit$($Class* clazz) {
 	$assignStatic(Main$Option::ALIAS, $new(Main$Option, "ALIAS"_s, 0, "alias"_s, "<alias>"_s, "alias.name.of.the.entry.to.process"_s));
 	$assignStatic(Main$Option::CURVENAME, $new(Main$Option, "CURVENAME"_s, 1, "groupname"_s, "<name>"_s, "groupname.option.help"_s));
 	$assignStatic(Main$Option::DESTALIAS, $new(Main$Option, "DESTALIAS"_s, 2, "destalias"_s, "<alias>"_s, "destination.alias"_s));
@@ -336,7 +245,91 @@ Main$Option::Main$Option() {
 }
 
 $Class* Main$Option::load$($String* name, bool initialize) {
-	$loadClass(Main$Option, name, initialize, &_Main$Option_ClassInfo_, clinit$Main$Option, allocate$Main$Option);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALIAS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, ALIAS)},
+		{"CURVENAME", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, CURVENAME)},
+		{"DESTALIAS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTALIAS)},
+		{"DESTKEYPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTKEYPASS)},
+		{"DESTKEYSTORE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTKEYSTORE)},
+		{"DESTPROTECTED", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTPROTECTED)},
+		{"DESTPROVIDERNAME", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTPROVIDERNAME)},
+		{"DESTSTOREPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTSTOREPASS)},
+		{"DESTSTORETYPE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DESTSTORETYPE)},
+		{"DNAME", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, DNAME)},
+		{"EXT", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, EXT)},
+		{"FILEOUT", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, FILEOUT)},
+		{"FILEIN", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, FILEIN)},
+		{"ID", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, ID)},
+		{"INFILE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, INFILE)},
+		{"KEYALG", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, KEYALG)},
+		{"KEYPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, KEYPASS)},
+		{"KEYSIZE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, KEYSIZE)},
+		{"KEYSTORE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, KEYSTORE)},
+		{"CACERTS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, CACERTS)},
+		{"NEW", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, NEW)},
+		{"NOPROMPT", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, NOPROMPT)},
+		{"OUTFILE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, OUTFILE)},
+		{"PROTECTED", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, PROTECTED)},
+		{"PROVIDERCLASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, PROVIDERCLASS)},
+		{"ADDPROVIDER", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, ADDPROVIDER)},
+		{"PROVIDERNAME", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, PROVIDERNAME)},
+		{"PROVIDERPATH", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, PROVIDERPATH)},
+		{"RFC", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, RFC)},
+		{"SIGALG", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SIGALG)},
+		{"SIGNER", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SIGNER)},
+		{"SIGNERKEYPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SIGNERKEYPASS)},
+		{"SRCALIAS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCALIAS)},
+		{"SRCKEYPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCKEYPASS)},
+		{"SRCKEYSTORE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCKEYSTORE)},
+		{"SRCPROTECTED", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCPROTECTED)},
+		{"SRCPROVIDERNAME", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCPROVIDERNAME)},
+		{"SRCSTOREPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCSTOREPASS)},
+		{"SRCSTORETYPE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SRCSTORETYPE)},
+		{"SSLSERVER", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, SSLSERVER)},
+		{"JARFILE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, JARFILE)},
+		{"STARTDATE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, STARTDATE)},
+		{"STOREPASS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, STOREPASS)},
+		{"STORETYPE", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, STORETYPE)},
+		{"TLS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, TLS)},
+		{"TRUSTCACERTS", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, TRUSTCACERTS)},
+		{"V", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, V)},
+		{"VALIDITY", "Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Option, VALIDITY)},
+		{"$VALUES", "[Lsun/security/tools/keytool/Main$Option;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Main$Option, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Option, name$)},
+		{"arg", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Option, arg)},
+		{"description", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Option, description)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/tools/keytool/Main$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main$Option, $values, $Main$OptionArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(Main$Option, init$, void, $String*, int32_t, $String*, $String*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$Option, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Option, valueOf, Main$Option*, $String*)},
+		{"values", "()[Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Option, values, $Main$OptionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.tools.keytool.Main$Option", "sun.security.tools.keytool.Main", "Option", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.tools.keytool.Main$Option",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/tools/keytool/Main$Option;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.tools.keytool.Main"
+	};
+	$loadClass(Main$Option, name, initialize, &classInfo$$, Main$Option::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Main$Option));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <subpackage/NonRepeated.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,44 +9,38 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace subpackage {
 
-$NamedAttribute NonRepeated_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _NonRepeated_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", NonRepeated_Attribute_var$0},
-	{}
-};
-
-$Attribute _NonRepeated_DefaultValue_value0 = {
-	'I', "10"
-};
-
-$MethodInfo _NonRepeated_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NonRepeated, value, int32_t), nullptr, &_NonRepeated_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _NonRepeated_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"subpackage.NonRepeated",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_NonRepeated_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_NonRepeated_Annotations_
-};
-
-$Object* allocate$NonRepeated($Class* clazz) {
-	return $of($alloc(NonRepeated));
-}
-
 $Class* NonRepeated::load$($String* name, bool initialize) {
-	$loadClass(NonRepeated, name, initialize, &_NonRepeated_ClassInfo_, allocate$NonRepeated);
+
+	$Attribute valuedefaultValue$$ = {
+		'I', "10"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NonRepeated, value, int32_t), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"subpackage.NonRepeated",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(NonRepeated, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NonRepeated);
+	});
 	return class$;
 }
 

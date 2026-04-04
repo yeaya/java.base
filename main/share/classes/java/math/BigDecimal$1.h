@@ -12,6 +12,7 @@ class BigDecimal$1 : public ::java::lang::Object {
 	$class(BigDecimal$1, 0, ::java::lang::Object)
 public:
 	BigDecimal$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$math$RoundingMode;
 };
 

@@ -1,5 +1,4 @@
 #include <LambdaClassLoaderSerialization$SerializableRunnable.h>
-
 #include <LambdaClassLoaderSerialization.h>
 #include <java/lang/Runnable.h>
 #include <jcpp.h>
@@ -8,40 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-
-$MethodInfo _LambdaClassLoaderSerialization$SerializableRunnable_MethodInfo_[] = {
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$InnerClassInfo _LambdaClassLoaderSerialization$SerializableRunnable_InnerClassesInfo_[] = {
-	{"LambdaClassLoaderSerialization$SerializableRunnable", "LambdaClassLoaderSerialization", "SerializableRunnable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LambdaClassLoaderSerialization$SerializableRunnable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"LambdaClassLoaderSerialization$SerializableRunnable",
-	nullptr,
-	"java.lang.Runnable,java.io.Serializable",
-	nullptr,
-	_LambdaClassLoaderSerialization$SerializableRunnable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LambdaClassLoaderSerialization$SerializableRunnable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LambdaClassLoaderSerialization"
-};
-
-$Object* allocate$LambdaClassLoaderSerialization$SerializableRunnable($Class* clazz) {
-	return $of($alloc(LambdaClassLoaderSerialization$SerializableRunnable));
-}
 
 int32_t LambdaClassLoaderSerialization$SerializableRunnable::hashCode() {
 	 return this->$Runnable::hashCode();
@@ -64,7 +29,36 @@ void LambdaClassLoaderSerialization$SerializableRunnable::finalize() {
 }
 
 $Class* LambdaClassLoaderSerialization$SerializableRunnable::load$($String* name, bool initialize) {
-	$loadClass(LambdaClassLoaderSerialization$SerializableRunnable, name, initialize, &_LambdaClassLoaderSerialization$SerializableRunnable_ClassInfo_, allocate$LambdaClassLoaderSerialization$SerializableRunnable);
+	$MethodInfo methodInfos$$[] = {
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LambdaClassLoaderSerialization$SerializableRunnable", "LambdaClassLoaderSerialization", "SerializableRunnable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"LambdaClassLoaderSerialization$SerializableRunnable",
+		nullptr,
+		"java.lang.Runnable,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LambdaClassLoaderSerialization"
+	};
+	$loadClass(LambdaClassLoaderSerialization$SerializableRunnable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LambdaClassLoaderSerialization$SerializableRunnable));
+	});
 	return class$;
 }
 

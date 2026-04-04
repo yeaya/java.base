@@ -1,5 +1,4 @@
 #include <sun/security/util/SignatureUtil.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
@@ -69,10 +68,8 @@ using $RSAKey = ::java::security::interfaces::RSAKey;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 using $InvalidParameterSpecException = ::java::security::spec::InvalidParameterSpecException;
-using $NamedParameterSpec = ::java::security::spec::NamedParameterSpec;
 using $PSSParameterSpec = ::java::security::spec::PSSParameterSpec;
 using $Locale = ::java::util::Locale;
-using $JavaSecuritySignatureAccess = ::jdk::internal::access::JavaSecuritySignatureAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $RSAUtil = ::sun::security::rsa::RSAUtil;
 using $ECUtil = ::sun::security::util::ECUtil;
@@ -86,55 +83,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$MethodInfo _SignatureUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureUtil, init$, void)},
-	{"autoInitInternal", "(Ljava/lang/String;Ljava/security/Key;Ljava/security/Signature;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureUtil, autoInitInternal, $Signature*, $String*, $Key*, $Signature*), "java.security.InvalidKeyException"},
-	{"checkKeyAndSigAlgMatch", "(Ljava/security/PrivateKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, checkKeyAndSigAlgMatch, void, $PrivateKey*, $String*)},
-	{"checkName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureUtil, checkName, $String*, $String*)},
-	{"createAlgorithmParameters", "(Ljava/lang/String;[B)Ljava/security/AlgorithmParameters;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureUtil, createAlgorithmParameters, $AlgorithmParameters*, $String*, $bytes*), "java.security.ProviderException"},
-	{"ecStrength", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureUtil, ecStrength, $String*, int32_t)},
-	{"extractDigestAlgFromDwithE", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, extractDigestAlgFromDwithE, $String*, $String*)},
-	{"extractKeyAlgFromDwithE", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, extractKeyAlgFromDwithE, $String*, $String*)},
-	{"fromKey", "(Ljava/lang/String;Ljava/security/Key;Ljava/lang/String;)Ljava/security/Signature;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, fromKey, $Signature*, $String*, $Key*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidKeyException"},
-	{"fromKey", "(Ljava/lang/String;Ljava/security/Key;Ljava/security/Provider;)Ljava/security/Signature;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, fromKey, $Signature*, $String*, $Key*, $Provider*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"fromSignature", "(Ljava/security/Signature;Ljava/security/PrivateKey;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, fromSignature, $AlgorithmId*, $Signature*, $PrivateKey*), "java.security.SignatureException"},
-	{"getDefaultParamSpec", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, getDefaultParamSpec, $AlgorithmParameterSpec*, $String*, $Key*)},
-	{"getDefaultSigAlgForKey", "(Ljava/security/PrivateKey;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, getDefaultSigAlgForKey, $String*, $PrivateKey*)},
-	{"getDigestAlgInPkcs7SignerInfo", "(Ljava/security/Signature;Ljava/lang/String;Ljava/security/PrivateKey;Z)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, getDigestAlgInPkcs7SignerInfo, $AlgorithmId*, $Signature*, $String*, $PrivateKey*, bool), "java.security.NoSuchAlgorithmException"},
-	{"getParamSpec", "(Ljava/lang/String;Ljava/security/AlgorithmParameters;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, getParamSpec, $AlgorithmParameterSpec*, $String*, $AlgorithmParameters*), "java.security.ProviderException"},
-	{"getParamSpec", "(Ljava/lang/String;[B)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, getParamSpec, $AlgorithmParameterSpec*, $String*, $bytes*), "java.security.ProviderException"},
-	{"ifcFfcStrength", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureUtil, ifcFfcStrength, $String*, int32_t)},
-	{"initSignWithParam", "(Ljava/security/Signature;Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, initSignWithParam, void, $Signature*, $PrivateKey*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.ProviderException,java.security.InvalidAlgorithmParameterException,java.security.InvalidKeyException"},
-	{"initVerifyWithParam", "(Ljava/security/Signature;Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, initVerifyWithParam, void, $Signature*, $PublicKey*, $AlgorithmParameterSpec*), "java.security.ProviderException,java.security.InvalidAlgorithmParameterException,java.security.InvalidKeyException"},
-	{"initVerifyWithParam", "(Ljava/security/Signature;Ljava/security/cert/Certificate;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, initVerifyWithParam, void, $Signature*, $Certificate*, $AlgorithmParameterSpec*), "java.security.ProviderException,java.security.InvalidAlgorithmParameterException,java.security.InvalidKeyException"},
-	{}
-};
-
-$InnerClassInfo _SignatureUtil_InnerClassesInfo_[] = {
-	{"sun.security.util.SignatureUtil$PSSParamsHolder", "sun.security.util.SignatureUtil", "PSSParamsHolder", $PRIVATE | $STATIC},
-	{"sun.security.util.SignatureUtil$EdDSADigestAlgHolder", "sun.security.util.SignatureUtil", "EdDSADigestAlgHolder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SignatureUtil_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.SignatureUtil",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SignatureUtil_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureUtil_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.SignatureUtil$PSSParamsHolder,sun.security.util.SignatureUtil$EdDSADigestAlgHolder"
-};
-
-$Object* allocate$SignatureUtil($Class* clazz) {
-	return $of($alloc(SignatureUtil));
-}
-
 void SignatureUtil::init$() {
 }
 
@@ -147,12 +95,12 @@ $String* SignatureUtil::checkName($String* algName$renamed) {
 			$assign(algName, algName->substring(4));
 		}
 		$KnownOIDs* ko = $KnownOIDs::findMatch(algName);
-		return ko != nullptr ? $nc(ko)->stdName() : algName;
+		return ko != nullptr ? ko->stdName() : algName;
 	}
 }
 
 $AlgorithmParameters* SignatureUtil::createAlgorithmParameters($String* algName$renamed, $bytes* paramBytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, algName, algName$renamed);
 	try {
 		$assign(algName, checkName(algName));
@@ -160,26 +108,26 @@ $AlgorithmParameters* SignatureUtil::createAlgorithmParameters($String* algName$
 		$nc(result)->init(paramBytes);
 		return result;
 	} catch ($NoSuchAlgorithmException& e) {
-		$throwNew($ProviderException, static_cast<$Throwable*>(e));
+		$throwNew($ProviderException, e);
 	} catch ($IOException& e) {
-		$throwNew($ProviderException, static_cast<$Throwable*>(e));
+		$throwNew($ProviderException, e);
 	}
 	$shouldNotReachHere();
 }
 
 $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $AlgorithmParameters* params$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, sigName, sigName$renamed);
 	$var($AlgorithmParameters, params, params$renamed);
 	$var($AlgorithmParameterSpec, paramSpec, nullptr);
 	if (params != nullptr) {
 		$init($Locale);
-		$assign(sigName, $nc($(checkName(sigName)))->toUpperCase($Locale::ENGLISH));
-		if ($nc($(params->getAlgorithm()))->indexOf("."_s) != -1) {
+		$assign(sigName, $$nc(checkName(sigName))->toUpperCase($Locale::ENGLISH));
+		if ($$nc(params->getAlgorithm())->indexOf("."_s) != -1) {
 			try {
 				$assign(params, createAlgorithmParameters(sigName, $(params->getEncoded())));
 			} catch ($IOException& e) {
-				$throwNew($ProviderException, static_cast<$Throwable*>(e));
+				$throwNew($ProviderException, e);
 			}
 		}
 		if (sigName->indexOf("RSA"_s) != -1) {
@@ -187,7 +135,7 @@ $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $
 		} else if (sigName->indexOf("ECDSA"_s) != -1) {
 			try {
 				$load($ECParameterSpec);
-				$assign(paramSpec, params->getParameterSpec($ECParameterSpec::class$));
+				$assign(paramSpec, $nc(params)->getParameterSpec($ECParameterSpec::class$));
 			} catch ($Exception& e) {
 				$throwNew($ProviderException, "Error handling EC parameters"_s, e);
 			}
@@ -199,18 +147,18 @@ $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $
 }
 
 $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $bytes* paramBytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, sigName, sigName$renamed);
 	$var($AlgorithmParameterSpec, paramSpec, nullptr);
 	if (paramBytes != nullptr) {
 		$init($Locale);
-		$assign(sigName, $nc($(checkName(sigName)))->toUpperCase($Locale::ENGLISH));
+		$assign(sigName, $$nc(checkName(sigName))->toUpperCase($Locale::ENGLISH));
 		if (sigName->indexOf("RSA"_s) != -1) {
 			$var($AlgorithmParameters, params, createAlgorithmParameters(sigName, paramBytes));
 			$assign(paramSpec, $RSAUtil::getParamSpec(params));
 		} else if (sigName->indexOf("ECDSA"_s) != -1) {
 			try {
-				$var($Provider, p, $nc($($Signature::getInstance(sigName)))->getProvider());
+				$var($Provider, p, $$nc($Signature::getInstance(sigName))->getProvider());
 				$assign(paramSpec, $ECUtil::getECParameterSpec(p, paramBytes));
 			} catch ($Exception& e) {
 				$throwNew($ProviderException, "Error handling EC parameters"_s, e);
@@ -226,74 +174,64 @@ $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $
 }
 
 void SignatureUtil::initVerifyWithParam($Signature* s, $PublicKey* key, $AlgorithmParameterSpec* params) {
-	$nc($($SharedSecrets::getJavaSecuritySignatureAccess()))->initVerify(s, key, params);
+	$$nc($SharedSecrets::getJavaSecuritySignatureAccess())->initVerify(s, key, params);
 }
 
 void SignatureUtil::initVerifyWithParam($Signature* s, $Certificate* cert, $AlgorithmParameterSpec* params) {
-	$nc($($SharedSecrets::getJavaSecuritySignatureAccess()))->initVerify(s, cert, params);
+	$$nc($SharedSecrets::getJavaSecuritySignatureAccess())->initVerify(s, cert, params);
 }
 
 void SignatureUtil::initSignWithParam($Signature* s, $PrivateKey* key, $AlgorithmParameterSpec* params, $SecureRandom* sr) {
-	$nc($($SharedSecrets::getJavaSecuritySignatureAccess()))->initSign(s, key, params, sr);
+	$$nc($SharedSecrets::getJavaSecuritySignatureAccess())->initSign(s, key, params, sr);
 }
 
 $AlgorithmId* SignatureUtil::getDigestAlgInPkcs7SignerInfo($Signature* signer, $String* sigalg, $PrivateKey* privateKey, bool directsign) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AlgorithmId, digAlgID, nullptr);
 	$var($String, kAlg, $nc(privateKey)->getAlgorithm());
 	bool var$0 = $instanceOf($EdECPrivateKey, privateKey) || $nc(kAlg)->equalsIgnoreCase("Ed25519"_s);
 	if (var$0 || $nc(kAlg)->equalsIgnoreCase("Ed448"_s)) {
 		if ($instanceOf($EdECPrivateKey, privateKey)) {
-			$assign(kAlg, $nc($($nc(($cast($EdECPrivateKey, privateKey)))->getParams()))->getName());
+			$assign(kAlg, $$nc($cast($EdECPrivateKey, privateKey)->getParams())->getName());
 		}
 		{
 			$init($Locale);
-			$var($String, s9866$, kAlg->toUpperCase($Locale::ENGLISH));
+			$var($String, s9866$, $nc(kAlg)->toUpperCase($Locale::ENGLISH));
 			int32_t tmp9866$ = -1;
 			switch (s9866$->hashCode()) {
-			case (int32_t)0xB8F0FEBB:
-				{
-					if (s9866$->equals("ED25519"_s)) {
-						tmp9866$ = 0;
-					}
-					break;
+			case (int32_t)0xb8f0febb:
+				if (s9866$->equals("ED25519"_s)) {
+					tmp9866$ = 0;
 				}
-			case 0x03EC08B9:
-				{
-					if (s9866$->equals("ED448"_s)) {
-						tmp9866$ = 1;
-					}
-					break;
+				break;
+			case 0x03ec08b9:
+				if (s9866$->equals("ED448"_s)) {
+					tmp9866$ = 1;
 				}
+				break;
 			}
 			switch (tmp9866$) {
 			case 0:
-				{
-					$init($SignatureUtil$EdDSADigestAlgHolder);
-					$assign(digAlgID, $SignatureUtil$EdDSADigestAlgHolder::sha512);
-					break;
-				}
+				$init($SignatureUtil$EdDSADigestAlgHolder);
+				$assign(digAlgID, $SignatureUtil$EdDSADigestAlgHolder::sha512);
+				break;
 			case 1:
-				{
-					if (directsign) {
-						$init($SignatureUtil$EdDSADigestAlgHolder);
-						$assign(digAlgID, $SignatureUtil$EdDSADigestAlgHolder::shake256);
-					} else {
-						$init($SignatureUtil$EdDSADigestAlgHolder);
-						$assign(digAlgID, $SignatureUtil$EdDSADigestAlgHolder::shake256$512);
-					}
-					break;
+				if (directsign) {
+					$init($SignatureUtil$EdDSADigestAlgHolder);
+					$assign(digAlgID, $SignatureUtil$EdDSADigestAlgHolder::shake256);
+				} else {
+					$init($SignatureUtil$EdDSADigestAlgHolder);
+					$assign(digAlgID, $SignatureUtil$EdDSADigestAlgHolder::shake256$512);
 				}
+				break;
 			default:
-				{
-					$throwNew($AssertionError, $of($$str({"Unknown curve name: "_s, kAlg})));
-				}
+				$throwNew($AssertionError, $$of($str({"Unknown curve name: "_s, kAlg})));
 			}
 		}
 	} else if ($nc(sigalg)->equalsIgnoreCase("RSASSA-PSS"_s)) {
 		try {
 			$load($PSSParameterSpec);
-			$assign(digAlgID, $AlgorithmId::get($($nc(($cast($PSSParameterSpec, $($nc($($nc(signer)->getParameters()))->getParameterSpec($PSSParameterSpec::class$)))))->getDigestAlgorithm())));
+			$assign(digAlgID, $AlgorithmId::get($($$sure($PSSParameterSpec, $$nc($nc(signer)->getParameters())->getParameterSpec($PSSParameterSpec::class$))->getDigestAlgorithm())));
 		} catch ($InvalidParameterSpecException& e) {
 			$throwNew($AssertionError, "Should not happen"_s, e);
 		}
@@ -304,7 +242,7 @@ $AlgorithmId* SignatureUtil::getDigestAlgInPkcs7SignerInfo($Signature* signer, $
 }
 
 $String* SignatureUtil::extractDigestAlgFromDwithE($String* signatureAlgorithm$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, signatureAlgorithm, signatureAlgorithm$renamed);
 	$init($Locale);
 	$assign(signatureAlgorithm, $nc(signatureAlgorithm)->toUpperCase($Locale::ENGLISH));
@@ -317,7 +255,7 @@ $String* SignatureUtil::extractDigestAlgFromDwithE($String* signatureAlgorithm$r
 }
 
 $String* SignatureUtil::extractKeyAlgFromDwithE($String* signatureAlgorithm$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, signatureAlgorithm, signatureAlgorithm$renamed);
 	$init($Locale);
 	$assign(signatureAlgorithm, $nc(signatureAlgorithm)->toUpperCase($Locale::ENGLISH));
@@ -338,12 +276,12 @@ $String* SignatureUtil::extractKeyAlgFromDwithE($String* signatureAlgorithm$rena
 }
 
 $AlgorithmParameterSpec* SignatureUtil::getDefaultParamSpec($String* sigAlg$renamed, $Key* k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, sigAlg, sigAlg$renamed);
 	$assign(sigAlg, checkName(sigAlg));
 	if ($nc(sigAlg)->equalsIgnoreCase("RSASSA-PSS"_s)) {
 		if ($instanceOf($RSAKey, k)) {
-			$var($AlgorithmParameterSpec, spec, $nc(($cast($RSAKey, k)))->getParams());
+			$var($AlgorithmParameterSpec, spec, $cast($RSAKey, k)->getParams());
 			if ($instanceOf($PSSParameterSpec, spec)) {
 				return spec;
 			}
@@ -352,48 +290,34 @@ $AlgorithmParameterSpec* SignatureUtil::getDefaultParamSpec($String* sigAlg$rena
 			$var($String, s13377$, ifcFfcStrength($KeyUtil::getKeySize(k)));
 			int32_t tmp13377$ = -1;
 			switch ($nc(s13377$)->hashCode()) {
-			case (int32_t)0x91B72647:
-				{
-					if (s13377$->equals("SHA256"_s)) {
-						tmp13377$ = 0;
-					}
-					break;
+			case (int32_t)0x91b72647:
+				if (s13377$->equals("SHA256"_s)) {
+					tmp13377$ = 0;
 				}
-			case (int32_t)0x91B72A63:
-				{
-					if (s13377$->equals("SHA384"_s)) {
-						tmp13377$ = 1;
-					}
-					break;
+				break;
+			case (int32_t)0x91b72a63:
+				if (s13377$->equals("SHA384"_s)) {
+					tmp13377$ = 1;
 				}
-			case (int32_t)0x91B7310A:
-				{
-					if (s13377$->equals("SHA512"_s)) {
-						tmp13377$ = 2;
-					}
-					break;
+				break;
+			case (int32_t)0x91b7310a:
+				if (s13377$->equals("SHA512"_s)) {
+					tmp13377$ = 2;
 				}
+				break;
 			}
 			switch (tmp13377$) {
 			case 0:
-				{
-					$init($SignatureUtil$PSSParamsHolder);
-					return $SignatureUtil$PSSParamsHolder::PSS_256_SPEC;
-				}
+				$init($SignatureUtil$PSSParamsHolder);
+				return $SignatureUtil$PSSParamsHolder::PSS_256_SPEC;
 			case 1:
-				{
-					$init($SignatureUtil$PSSParamsHolder);
-					return $SignatureUtil$PSSParamsHolder::PSS_384_SPEC;
-				}
+				$init($SignatureUtil$PSSParamsHolder);
+				return $SignatureUtil$PSSParamsHolder::PSS_384_SPEC;
 			case 2:
-				{
-					$init($SignatureUtil$PSSParamsHolder);
-					return $SignatureUtil$PSSParamsHolder::PSS_512_SPEC;
-				}
+				$init($SignatureUtil$PSSParamsHolder);
+				return $SignatureUtil$PSSParamsHolder::PSS_512_SPEC;
 			default:
-				{
-					$throwNew($AssertionError, $of("Should not happen"_s));
-				}
+				$throwNew($AssertionError, $of("Should not happen"_s));
 			}
 		}
 	} else {
@@ -402,7 +326,7 @@ $AlgorithmParameterSpec* SignatureUtil::getDefaultParamSpec($String* sigAlg$rena
 }
 
 $Signature* SignatureUtil::fromKey($String* sigAlg, $Key* key, $String* provider) {
-	$var($Signature, sigEngine, (provider == nullptr || $nc(provider)->isEmpty()) ? $Signature::getInstance(sigAlg) : $Signature::getInstance(sigAlg, provider));
+	$var($Signature, sigEngine, (provider == nullptr || provider->isEmpty()) ? $Signature::getInstance(sigAlg) : $Signature::getInstance(sigAlg, provider));
 	return autoInitInternal(sigAlg, key, sigEngine);
 }
 
@@ -426,10 +350,10 @@ $Signature* SignatureUtil::autoInitInternal($String* alg, $Key* key, $Signature*
 }
 
 $AlgorithmId* SignatureUtil::fromSignature($Signature* sigEngine, $PrivateKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($instanceOf($EdECKey, key)) {
-			return $AlgorithmId::get($($nc($($nc(($cast($EdECKey, key)))->getParams()))->getName()));
+			return $AlgorithmId::get($($$nc($cast($EdECKey, key)->getParams())->getName()));
 		}
 		$var($AlgorithmParameters, params, nullptr);
 		try {
@@ -452,202 +376,157 @@ $AlgorithmId* SignatureUtil::fromSignature($Signature* sigEngine, $PrivateKey* k
 }
 
 void SignatureUtil::checkKeyAndSigAlgMatch($PrivateKey* key, $String* sAlg$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, sAlg, sAlg$renamed);
 	$init($Locale);
-	$var($String, kAlg, $nc($($nc(key)->getAlgorithm()))->toUpperCase($Locale::ENGLISH));
-	$assign(sAlg, $nc($(checkName(sAlg)))->toUpperCase($Locale::ENGLISH));
+	$var($String, kAlg, $$nc($nc(key)->getAlgorithm())->toUpperCase($Locale::ENGLISH));
+	$assign(sAlg, $$nc(checkName(sAlg))->toUpperCase($Locale::ENGLISH));
 	{
 		$var($String, s17871$, sAlg);
 		int32_t tmp17871$ = -1;
 		switch (s17871$->hashCode()) {
-		case 0x69D3B2A4:
-			{
-				if (s17871$->equals("RSASSA-PSS"_s)) {
-					tmp17871$ = 0;
-				}
-				break;
+		case 0x69d3b2a4:
+			if (s17871$->equals("RSASSA-PSS"_s)) {
+				tmp17871$ = 0;
 			}
-		case 0x03EC4893:
-			{
-				if (s17871$->equals("EDDSA"_s)) {
-					tmp17871$ = 1;
-				}
-				break;
+			break;
+		case 0x03ec4893:
+			if (s17871$->equals("EDDSA"_s)) {
+				tmp17871$ = 1;
 			}
-		case (int32_t)0xB8F0FEBB:
-			{
-				if (s17871$->equals("ED25519"_s)) {
-					tmp17871$ = 2;
-				}
-				break;
+			break;
+		case (int32_t)0xb8f0febb:
+			if (s17871$->equals("ED25519"_s)) {
+				tmp17871$ = 2;
 			}
-		case 0x03EC08B9:
-			{
-				if (s17871$->equals("ED448"_s)) {
-					tmp17871$ = 3;
-				}
-				break;
+			break;
+		case 0x03ec08b9:
+			if (s17871$->equals("ED448"_s)) {
+				tmp17871$ = 3;
 			}
+			break;
 		}
 		switch (tmp17871$) {
 		case 0:
 			{
-				{
-					bool var$0 = !kAlg->equals("RSASSA-PSS"_s);
-					if (var$0 && !kAlg->equals("RSA"_s)) {
-						$throwNew($IllegalArgumentException, "key algorithm not compatible with signature algorithm"_s);
-					}
+				bool var$0 = !kAlg->equals("RSASSA-PSS"_s);
+				if (var$0 && !kAlg->equals("RSA"_s)) {
+					$throwNew($IllegalArgumentException, "key algorithm not compatible with signature algorithm"_s);
 				}
-				break;
 			}
+			break;
 		case 1:
 			{
-				{
-					bool var$2 = !kAlg->equals("EDDSA"_s);
-					bool var$1 = var$2 && !kAlg->equals("ED448"_s);
-					if (var$1 && !kAlg->equals("ED25519"_s)) {
+				bool var$2 = !kAlg->equals("EDDSA"_s);
+				bool var$1 = var$2 && !kAlg->equals("ED448"_s);
+				if (var$1 && !kAlg->equals("ED25519"_s)) {
+					$throwNew($IllegalArgumentException, "key algorithm not compatible with signature algorithm"_s);
+				}
+			}
+			break;
+		case 2:
+		case 3:
+			{
+				if ($instanceOf($EdECKey, key)) {
+					$var($String, groupName, $$nc($$nc($cast($EdECKey, key)->getParams())->getName())->toUpperCase($Locale::US));
+					if (!sAlg->equals(groupName)) {
+						$throwNew($IllegalArgumentException, "key algorithm not compatible with signature algorithm"_s);
+					}
+				} else {
+					bool var$3 = !kAlg->equals("EDDSA"_s);
+					if (var$3 && !kAlg->equals(sAlg)) {
 						$throwNew($IllegalArgumentException, "key algorithm not compatible with signature algorithm"_s);
 					}
 				}
-				break;
 			}
-		case 2:
-			{}
-		case 3:
-			{
-				{
-					if ($instanceOf($EdECKey, key)) {
-						$var($String, groupName, $nc($($nc($($nc(($cast($EdECKey, key)))->getParams()))->getName()))->toUpperCase($Locale::US));
-						if (!sAlg->equals(groupName)) {
-							$throwNew($IllegalArgumentException, "key algorithm not compatible with signature algorithm"_s);
-						}
-					} else {
-						bool var$4 = !kAlg->equals("EDDSA"_s);
-						if (var$4 && !kAlg->equals(sAlg)) {
-							$throwNew($IllegalArgumentException, "key algorithm not compatible with signature algorithm"_s);
-						}
-					}
-				}
-				break;
-			}
+			break;
 		default:
 			{
-				{
-					if (sAlg->contains("WITH"_s)) {
-						bool var$7 = sAlg->endsWith("WITHRSA"_s);
-						bool var$6 = (var$7 && !kAlg->equals("RSA"_s));
-						if (!var$6) {
-							bool var$8 = sAlg->endsWith("WITHECDSA"_s);
-							var$6 = (var$8 && !kAlg->equals("EC"_s));
-						}
-						bool var$5 = var$6;
-						if (!var$5) {
-							bool var$9 = sAlg->endsWith("WITHDSA"_s);
-							var$5 = (var$9 && !kAlg->equals("DSA"_s));
-						}
-						if (var$5) {
-							$throwNew($IllegalArgumentException, "key algorithm not compatible with signature algorithm"_s);
-						}
+				if (sAlg->contains("WITH"_s)) {
+					bool var$6 = sAlg->endsWith("WITHRSA"_s);
+					bool var$5 = var$6 && !kAlg->equals("RSA"_s);
+					if (!var$5) {
+						bool var$7 = sAlg->endsWith("WITHECDSA"_s);
+						var$5 = var$7 && !kAlg->equals("EC"_s);
+					}
+					bool var$4 = var$5;
+					if (!var$4) {
+						bool var$8 = sAlg->endsWith("WITHDSA"_s);
+						var$4 = var$8 && !kAlg->equals("DSA"_s);
+					}
+					if (var$4) {
+						$throwNew($IllegalArgumentException, "key algorithm not compatible with signature algorithm"_s);
 					}
 				}
-				break;
 			}
+			break;
 		}
 	}
 }
 
 $String* SignatureUtil::getDefaultSigAlgForKey($PrivateKey* k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, kAlg, $nc(k)->getAlgorithm());
 	$init($Locale);
 	$var($String, s20391$, $nc(kAlg)->toUpperCase($Locale::ENGLISH));
 	int32_t tmp20391$ = -1;
 	switch (s20391$->hashCode()) {
 	case 0x00010992:
-		{
-			if (s20391$->equals("DSA"_s)) {
-				tmp20391$ = 0;
-			}
-			break;
+		if (s20391$->equals("DSA"_s)) {
+			tmp20391$ = 0;
 		}
-	case 0x00013E20:
-		{
-			if (s20391$->equals("RSA"_s)) {
-				tmp20391$ = 1;
-			}
-			break;
+		break;
+	case 0x00013e20:
+		if (s20391$->equals("RSA"_s)) {
+			tmp20391$ = 1;
 		}
+		break;
 	case 2206:
-		{
-			if (s20391$->equals("EC"_s)) {
-				tmp20391$ = 2;
-			}
-			break;
+		if (s20391$->equals("EC"_s)) {
+			tmp20391$ = 2;
 		}
-	case 0x03EC4893:
-		{
-			if (s20391$->equals("EDDSA"_s)) {
-				tmp20391$ = 3;
-			}
-			break;
+		break;
+	case 0x03ec4893:
+		if (s20391$->equals("EDDSA"_s)) {
+			tmp20391$ = 3;
 		}
-	case 0x69D3B2A4:
-		{
-			if (s20391$->equals("RSASSA-PSS"_s)) {
-				tmp20391$ = 4;
-			}
-			break;
+		break;
+	case 0x69d3b2a4:
+		if (s20391$->equals("RSASSA-PSS"_s)) {
+			tmp20391$ = 4;
 		}
-	case (int32_t)0xB8F0FEBB:
-		{
-			if (s20391$->equals("ED25519"_s)) {
-				tmp20391$ = 5;
-			}
-			break;
+		break;
+	case (int32_t)0xb8f0febb:
+		if (s20391$->equals("ED25519"_s)) {
+			tmp20391$ = 5;
 		}
-	case 0x03EC08B9:
-		{
-			if (s20391$->equals("ED448"_s)) {
-				tmp20391$ = 6;
-			}
-			break;
+		break;
+	case 0x03ec08b9:
+		if (s20391$->equals("ED448"_s)) {
+			tmp20391$ = 6;
 		}
+		break;
 	}
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch (tmp20391$) {
 	case 0:
-		{}
 	case 1:
-		{
-			$assign(var$0, $str({$(ifcFfcStrength($KeyUtil::getKeySize(static_cast<$Key*>(k)))), "with"_s, kAlg}));
-			break;
-		}
+		$assign(var$0, $str({$(ifcFfcStrength($KeyUtil::getKeySize(k))), "with"_s, kAlg}));
+		break;
 	case 2:
-		{
-			$assign(var$0, $str({$(ecStrength($KeyUtil::getKeySize(static_cast<$Key*>(k)))), "withECDSA"_s}));
-			break;
-		}
+		$assign(var$0, $str({$(ecStrength($KeyUtil::getKeySize(k))), "withECDSA"_s}));
+		break;
 	case 3:
-		{
-			$assign(var$0, $instanceOf($EdECPrivateKey, k) ? $nc($($nc(($cast($EdECPrivateKey, k)))->getParams()))->getName() : kAlg);
-			break;
-		}
+		$assign(var$0, $instanceOf($EdECPrivateKey, k) ? $$nc($cast($EdECPrivateKey, k)->getParams())->getName() : kAlg);
+		break;
 	case 4:
-		{}
 	case 5:
-		{}
 	case 6:
-		{
-			$assign(var$0, kAlg);
-			break;
-		}
+		$assign(var$0, kAlg);
+		break;
 	default:
-		{
-			$assign(var$0, nullptr);
-			break;
-		}
+		$assign(var$0, nullptr);
+		break;
 	}
 	return var$0;
 }
@@ -676,7 +555,51 @@ SignatureUtil::SignatureUtil() {
 }
 
 $Class* SignatureUtil::load$($String* name, bool initialize) {
-	$loadClass(SignatureUtil, name, initialize, &_SignatureUtil_ClassInfo_, allocate$SignatureUtil);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureUtil, init$, void)},
+		{"autoInitInternal", "(Ljava/lang/String;Ljava/security/Key;Ljava/security/Signature;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureUtil, autoInitInternal, $Signature*, $String*, $Key*, $Signature*), "java.security.InvalidKeyException"},
+		{"checkKeyAndSigAlgMatch", "(Ljava/security/PrivateKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, checkKeyAndSigAlgMatch, void, $PrivateKey*, $String*)},
+		{"checkName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureUtil, checkName, $String*, $String*)},
+		{"createAlgorithmParameters", "(Ljava/lang/String;[B)Ljava/security/AlgorithmParameters;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureUtil, createAlgorithmParameters, $AlgorithmParameters*, $String*, $bytes*), "java.security.ProviderException"},
+		{"ecStrength", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureUtil, ecStrength, $String*, int32_t)},
+		{"extractDigestAlgFromDwithE", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, extractDigestAlgFromDwithE, $String*, $String*)},
+		{"extractKeyAlgFromDwithE", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, extractKeyAlgFromDwithE, $String*, $String*)},
+		{"fromKey", "(Ljava/lang/String;Ljava/security/Key;Ljava/lang/String;)Ljava/security/Signature;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, fromKey, $Signature*, $String*, $Key*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidKeyException"},
+		{"fromKey", "(Ljava/lang/String;Ljava/security/Key;Ljava/security/Provider;)Ljava/security/Signature;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, fromKey, $Signature*, $String*, $Key*, $Provider*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{"fromSignature", "(Ljava/security/Signature;Ljava/security/PrivateKey;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, fromSignature, $AlgorithmId*, $Signature*, $PrivateKey*), "java.security.SignatureException"},
+		{"getDefaultParamSpec", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, getDefaultParamSpec, $AlgorithmParameterSpec*, $String*, $Key*)},
+		{"getDefaultSigAlgForKey", "(Ljava/security/PrivateKey;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, getDefaultSigAlgForKey, $String*, $PrivateKey*)},
+		{"getDigestAlgInPkcs7SignerInfo", "(Ljava/security/Signature;Ljava/lang/String;Ljava/security/PrivateKey;Z)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, getDigestAlgInPkcs7SignerInfo, $AlgorithmId*, $Signature*, $String*, $PrivateKey*, bool), "java.security.NoSuchAlgorithmException"},
+		{"getParamSpec", "(Ljava/lang/String;Ljava/security/AlgorithmParameters;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, getParamSpec, $AlgorithmParameterSpec*, $String*, $AlgorithmParameters*), "java.security.ProviderException"},
+		{"getParamSpec", "(Ljava/lang/String;[B)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, getParamSpec, $AlgorithmParameterSpec*, $String*, $bytes*), "java.security.ProviderException"},
+		{"ifcFfcStrength", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureUtil, ifcFfcStrength, $String*, int32_t)},
+		{"initSignWithParam", "(Ljava/security/Signature;Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, initSignWithParam, void, $Signature*, $PrivateKey*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.ProviderException,java.security.InvalidAlgorithmParameterException,java.security.InvalidKeyException"},
+		{"initVerifyWithParam", "(Ljava/security/Signature;Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, initVerifyWithParam, void, $Signature*, $PublicKey*, $AlgorithmParameterSpec*), "java.security.ProviderException,java.security.InvalidAlgorithmParameterException,java.security.InvalidKeyException"},
+		{"initVerifyWithParam", "(Ljava/security/Signature;Ljava/security/cert/Certificate;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureUtil, initVerifyWithParam, void, $Signature*, $Certificate*, $AlgorithmParameterSpec*), "java.security.ProviderException,java.security.InvalidAlgorithmParameterException,java.security.InvalidKeyException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.SignatureUtil$PSSParamsHolder", "sun.security.util.SignatureUtil", "PSSParamsHolder", $PRIVATE | $STATIC},
+		{"sun.security.util.SignatureUtil$EdDSADigestAlgHolder", "sun.security.util.SignatureUtil", "EdDSADigestAlgHolder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.SignatureUtil",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.SignatureUtil$PSSParamsHolder,sun.security.util.SignatureUtil$EdDSADigestAlgHolder"
+	};
+	$loadClass(SignatureUtil, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureUtil);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/AbstractClassLoaderValue$Memoizer.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
 #include <java/lang/reflect/UndeclaredThrowableException.h>
@@ -26,48 +25,6 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$FieldInfo _AbstractClassLoaderValue$Memoizer_FieldInfo_[] = {
-	{"cl", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(AbstractClassLoaderValue$Memoizer, cl)},
-	{"clv", "Ljdk/internal/loader/AbstractClassLoaderValue;", "TCLV;", $PRIVATE | $FINAL, $field(AbstractClassLoaderValue$Memoizer, clv)},
-	{"mappingFunction", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<-Ljava/lang/ClassLoader;-TCLV;+TV;>;", $PRIVATE | $FINAL, $field(AbstractClassLoaderValue$Memoizer, mappingFunction)},
-	{"v", "Ljava/lang/Object;", "TV;", $PRIVATE | $VOLATILE, $field(AbstractClassLoaderValue$Memoizer, v)},
-	{"t", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(AbstractClassLoaderValue$Memoizer, t)},
-	{"inCall", "Z", nullptr, $PRIVATE, $field(AbstractClassLoaderValue$Memoizer, inCall)},
-	{}
-};
-
-$MethodInfo _AbstractClassLoaderValue$Memoizer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/AbstractClassLoaderValue;Ljava/util/function/BiFunction;)V", "(Ljava/lang/ClassLoader;TCLV;Ljava/util/function/BiFunction<-Ljava/lang/ClassLoader;-TCLV;+TV;>;)V", 0, $method(AbstractClassLoaderValue$Memoizer, init$, void, $ClassLoader*, $AbstractClassLoaderValue*, $BiFunction*)},
-	{"get", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Memoizer, get, $Object*), "jdk.internal.loader.AbstractClassLoaderValue$Memoizer$RecursiveInvocationException"},
-	{}
-};
-
-$InnerClassInfo _AbstractClassLoaderValue$Memoizer_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.AbstractClassLoaderValue$Memoizer", "jdk.internal.loader.AbstractClassLoaderValue", "Memoizer", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.loader.AbstractClassLoaderValue$Memoizer$RecursiveInvocationException", "jdk.internal.loader.AbstractClassLoaderValue$Memoizer", "RecursiveInvocationException", $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractClassLoaderValue$Memoizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.loader.AbstractClassLoaderValue$Memoizer",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	_AbstractClassLoaderValue$Memoizer_FieldInfo_,
-	_AbstractClassLoaderValue$Memoizer_MethodInfo_,
-	"<CLV:Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/function/Supplier<TV;>;",
-	nullptr,
-	_AbstractClassLoaderValue$Memoizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.AbstractClassLoaderValue"
-};
-
-$Object* allocate$AbstractClassLoaderValue$Memoizer($Class* clazz) {
-	return $of($alloc(AbstractClassLoaderValue$Memoizer));
-}
-
 void AbstractClassLoaderValue$Memoizer::init$($ClassLoader* cl, $AbstractClassLoaderValue* clv, $BiFunction* mappingFunction) {
 	$set(this, cl, cl);
 	$set(this, clv, clv);
@@ -75,10 +32,10 @@ void AbstractClassLoaderValue$Memoizer::init$($ClassLoader* cl, $AbstractClassLo
 }
 
 $Object* AbstractClassLoaderValue$Memoizer::get() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, v, this->v);
 	if (v != nullptr) {
-		return $of(v);
+		return v;
 	}
 	$var($Throwable, t, this->t);
 	if (t == nullptr) {
@@ -88,28 +45,26 @@ $Object* AbstractClassLoaderValue$Memoizer::get() {
 					$throwNew($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException);
 				}
 				this->inCall = true;
-				{
-					$var($Throwable, var$0, nullptr);
+				$var($Throwable, var$0, nullptr);
+				try {
 					try {
-						try {
-							$set(this, v, ($assign(v, $Objects::requireNonNull($($nc(this->mappingFunction)->apply(this->cl, this->clv))))));
-						} catch ($Throwable& x) {
-							$set(this, t, ($assign(t, x)));
-						}
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						this->inCall = false;
+						$set(this, v, $assign(v, $Objects::requireNonNull($($nc(this->mappingFunction)->apply(this->cl, this->clv)))));
+					} catch ($Throwable& x) {
+						$set(this, t, $assign(t, x));
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					this->inCall = false;
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			}
 		}
 	}
 	if (v != nullptr) {
-		return $of(v);
+		return v;
 	}
 	if ($instanceOf($Error, t)) {
 		$throw($cast($Error, t));
@@ -124,7 +79,43 @@ AbstractClassLoaderValue$Memoizer::AbstractClassLoaderValue$Memoizer() {
 }
 
 $Class* AbstractClassLoaderValue$Memoizer::load$($String* name, bool initialize) {
-	$loadClass(AbstractClassLoaderValue$Memoizer, name, initialize, &_AbstractClassLoaderValue$Memoizer_ClassInfo_, allocate$AbstractClassLoaderValue$Memoizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"cl", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(AbstractClassLoaderValue$Memoizer, cl)},
+		{"clv", "Ljdk/internal/loader/AbstractClassLoaderValue;", "TCLV;", $PRIVATE | $FINAL, $field(AbstractClassLoaderValue$Memoizer, clv)},
+		{"mappingFunction", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<-Ljava/lang/ClassLoader;-TCLV;+TV;>;", $PRIVATE | $FINAL, $field(AbstractClassLoaderValue$Memoizer, mappingFunction)},
+		{"v", "Ljava/lang/Object;", "TV;", $PRIVATE | $VOLATILE, $field(AbstractClassLoaderValue$Memoizer, v)},
+		{"t", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(AbstractClassLoaderValue$Memoizer, t)},
+		{"inCall", "Z", nullptr, $PRIVATE, $field(AbstractClassLoaderValue$Memoizer, inCall)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/AbstractClassLoaderValue;Ljava/util/function/BiFunction;)V", "(Ljava/lang/ClassLoader;TCLV;Ljava/util/function/BiFunction<-Ljava/lang/ClassLoader;-TCLV;+TV;>;)V", 0, $method(AbstractClassLoaderValue$Memoizer, init$, void, $ClassLoader*, $AbstractClassLoaderValue*, $BiFunction*)},
+		{"get", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Memoizer, get, $Object*), "jdk.internal.loader.AbstractClassLoaderValue$Memoizer$RecursiveInvocationException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.AbstractClassLoaderValue$Memoizer", "jdk.internal.loader.AbstractClassLoaderValue", "Memoizer", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.loader.AbstractClassLoaderValue$Memoizer$RecursiveInvocationException", "jdk.internal.loader.AbstractClassLoaderValue$Memoizer", "RecursiveInvocationException", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.loader.AbstractClassLoaderValue$Memoizer",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$,
+		"<CLV:Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/function/Supplier<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.AbstractClassLoaderValue"
+	};
+	$loadClass(AbstractClassLoaderValue$Memoizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractClassLoaderValue$Memoizer);
+	});
 	return class$;
 }
 

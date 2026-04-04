@@ -640,6 +640,7 @@ class $export Character$UnicodeBlock : public ::java::lang::Character$Subset {
 	$class(Character$UnicodeBlock, 0, ::java::lang::Character$Subset)
 public:
 	Character$UnicodeBlock();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* idName);
 	void init$($String* idName, $String* alias);
 	void init$($String* idName, $StringArray* aliases);

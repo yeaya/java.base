@@ -1,5 +1,4 @@
 #include <java/lang/AssertionError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -10,38 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _AssertionError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AssertionError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AssertionError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AssertionError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AssertionError, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, Object$*)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, bool)},
-	{"<init>", "(C)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, char16_t)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, int32_t)},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, int64_t)},
-	{"<init>", "(F)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, float)},
-	{"<init>", "(D)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, double)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _AssertionError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.AssertionError",
-	"java.lang.Error",
-	nullptr,
-	_AssertionError_FieldInfo_,
-	_AssertionError_MethodInfo_
-};
-
-$Object* allocate$AssertionError($Class* clazz) {
-	return $of($alloc(AssertionError));
-}
 
 void AssertionError::init$() {
 	$Error::init$();
@@ -97,7 +64,34 @@ void AssertionError::throw$() {
 }
 
 $Class* AssertionError::load$($String* name, bool initialize) {
-	$loadClass(AssertionError, name, initialize, &_AssertionError_ClassInfo_, allocate$AssertionError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AssertionError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AssertionError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AssertionError, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, Object$*)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, bool)},
+		{"<init>", "(C)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, char16_t)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, int32_t)},
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, int64_t)},
+		{"<init>", "(F)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, float)},
+		{"<init>", "(D)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, double)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.AssertionError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AssertionError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AssertionError);
+	});
 	return class$;
 }
 

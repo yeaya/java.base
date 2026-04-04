@@ -1,5 +1,4 @@
 #include <sun/security/provider/SHAKE256.h>
-
 #include <sun/security/provider/DigestBase.h>
 #include <sun/security/provider/SHA3.h>
 #include <jcpp.h>
@@ -13,29 +12,6 @@ using $SHA3 = ::sun::security::provider::SHA3;
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$MethodInfo _SHAKE256_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SHAKE256, init$, void, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SHAKE256, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"digest", "()[B", nullptr, $PUBLIC, $method(SHAKE256, digest, $bytes*)},
-	{"reset", "()V", nullptr, $PUBLIC, $method(SHAKE256, reset, void)},
-	{"update", "(B)V", nullptr, $PUBLIC, $method(SHAKE256, update, void, int8_t)},
-	{"update", "([BII)V", nullptr, $PUBLIC, $method(SHAKE256, update, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SHAKE256_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.SHAKE256",
-	"sun.security.provider.SHA3",
-	nullptr,
-	nullptr,
-	_SHAKE256_MethodInfo_
-};
-
-$Object* allocate$SHAKE256($Class* clazz) {
-	return $of($alloc(SHAKE256));
-}
 
 void SHAKE256::init$(int32_t d) {
 	$SHA3::init$("SHAKE256"_s, d, (int8_t)31, 64);
@@ -58,14 +34,33 @@ void SHAKE256::reset() {
 }
 
 $Object* SHAKE256::clone() {
-	return $of($SHA3::clone());
+	return $SHA3::clone();
 }
 
 SHAKE256::SHAKE256() {
 }
 
 $Class* SHAKE256::load$($String* name, bool initialize) {
-	$loadClass(SHAKE256, name, initialize, &_SHAKE256_ClassInfo_, allocate$SHAKE256);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SHAKE256, init$, void, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SHAKE256, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"digest", "()[B", nullptr, $PUBLIC, $method(SHAKE256, digest, $bytes*)},
+		{"reset", "()V", nullptr, $PUBLIC, $method(SHAKE256, reset, void)},
+		{"update", "(B)V", nullptr, $PUBLIC, $method(SHAKE256, update, void, int8_t)},
+		{"update", "([BII)V", nullptr, $PUBLIC, $method(SHAKE256, update, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.SHAKE256",
+		"sun.security.provider.SHA3",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SHAKE256, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SHAKE256));
+	});
 	return class$;
 }
 

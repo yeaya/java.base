@@ -29,6 +29,7 @@ class $import PipedInputStream : public ::java::io::InputStream {
 	$class(PipedInputStream, 0, ::java::io::InputStream)
 public:
 	PipedInputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::PipedOutputStream* src);
 	void init$(::java::io::PipedOutputStream* src, int32_t pipeSize);
 	void init$();

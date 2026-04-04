@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/ImageStringsReader.h>
-
 #include <java/io/UTFDataFormatException.h>
 #include <java/lang/InternalError.h>
 #include <java/nio/ByteBuffer.h>
@@ -28,51 +27,6 @@ namespace jdk {
 	namespace internal {
 		namespace jimage {
 
-$FieldInfo _ImageStringsReader_FieldInfo_[] = {
-	{"HASH_MULTIPLIER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageStringsReader, HASH_MULTIPLIER)},
-	{"POSITIVE_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageStringsReader, POSITIVE_MASK)},
-	{"reader", "Ljdk/internal/jimage/BasicImageReader;", nullptr, $PRIVATE | $FINAL, $field(ImageStringsReader, reader)},
-	{}
-};
-
-$MethodInfo _ImageStringsReader_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jimage/BasicImageReader;)V", nullptr, 0, $method(ImageStringsReader, init$, void, $BasicImageReader*)},
-	{"add", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ImageStringsReader, add, int32_t, $String*)},
-	{"charsFromByteBuffer", "([CLjava/nio/ByteBuffer;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageStringsReader, charsFromByteBuffer, void, $chars*, $ByteBuffer*, int32_t)},
-	{"charsFromByteBufferLength", "(Ljava/nio/ByteBuffer;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageStringsReader, charsFromByteBufferLength, int32_t, $ByteBuffer*, int32_t)},
-	{"charsFromMUTF8", "([C[BII)V", nullptr, $STATIC, $staticMethod(ImageStringsReader, charsFromMUTF8, void, $chars*, $bytes*, int32_t, int32_t), "java.io.UTFDataFormatException"},
-	{"charsFromMUTF8Length", "([BII)I", nullptr, $STATIC, $staticMethod(ImageStringsReader, charsFromMUTF8Length, int32_t, $bytes*, int32_t, int32_t)},
-	{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageStringsReader, get, $String*, int32_t)},
-	{"hashCode", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, hashCode, int32_t, $String*)},
-	{"hashCode", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, hashCode, int32_t, $String*, int32_t)},
-	{"hashCode", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, hashCode, int32_t, $String*, $String*)},
-	{"hashCode", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, hashCode, int32_t, $String*, $String*, int32_t)},
-	{"match", "(ILjava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(ImageStringsReader, match, int32_t, int32_t, $String*, int32_t)},
-	{"mutf8FromString", "([BILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(ImageStringsReader, mutf8FromString, void, $bytes*, int32_t, $String*)},
-	{"mutf8FromString", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, mutf8FromString, $bytes*, $String*)},
-	{"mutf8FromStringLength", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(ImageStringsReader, mutf8FromStringLength, int32_t, $String*)},
-	{"stringFromByteBuffer", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, stringFromByteBuffer, $String*, $ByteBuffer*)},
-	{"stringFromByteBuffer", "(Ljava/nio/ByteBuffer;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ImageStringsReader, stringFromByteBuffer, $String*, $ByteBuffer*, int32_t)},
-	{"stringFromByteBufferMatches", "(Ljava/nio/ByteBuffer;ILjava/lang/String;I)I", nullptr, $STATIC, $staticMethod(ImageStringsReader, stringFromByteBufferMatches, int32_t, $ByteBuffer*, int32_t, $String*, int32_t)},
-	{"stringFromMUTF8", "([BII)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, stringFromMUTF8, $String*, $bytes*, int32_t, int32_t)},
-	{"stringFromMUTF8", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, stringFromMUTF8, $String*, $bytes*)},
-	{"unmaskedHashCode", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, unmaskedHashCode, int32_t, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _ImageStringsReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.jimage.ImageStringsReader",
-	"java.lang.Object",
-	"jdk.internal.jimage.ImageStrings",
-	_ImageStringsReader_FieldInfo_,
-	_ImageStringsReader_MethodInfo_
-};
-
-$Object* allocate$ImageStringsReader($Class* clazz) {
-	return $of($alloc(ImageStringsReader));
-}
-
 void ImageStringsReader::init$($BasicImageReader* reader) {
 	$set(this, reader, $cast($BasicImageReader, $Objects::requireNonNull(reader)));
 }
@@ -97,7 +51,7 @@ int32_t ImageStringsReader::hashCode($String* s) {
 
 int32_t ImageStringsReader::hashCode($String* s, int32_t seed) {
 	$init(ImageStringsReader);
-	return (int32_t)(unmaskedHashCode(s, seed) & (uint32_t)ImageStringsReader::POSITIVE_MASK);
+	return unmaskedHashCode(s, seed) & ImageStringsReader::POSITIVE_MASK;
 }
 
 int32_t ImageStringsReader::hashCode($String* module, $String* name) {
@@ -111,7 +65,7 @@ int32_t ImageStringsReader::hashCode($String* module, $String* name, int32_t see
 	seed = unmaskedHashCode(module, seed);
 	seed = (seed * ImageStringsReader::HASH_MULTIPLIER) ^ (u'/');
 	seed = unmaskedHashCode(name, seed);
-	return (int32_t)(seed & (uint32_t)ImageStringsReader::POSITIVE_MASK);
+	return seed & ImageStringsReader::POSITIVE_MASK;
 }
 
 int32_t ImageStringsReader::unmaskedHashCode($String* s, int32_t seed) {
@@ -120,24 +74,24 @@ int32_t ImageStringsReader::unmaskedHashCode($String* s, int32_t seed) {
 	$var($bytes, buffer, nullptr);
 	for (int32_t i = 0; i < slen; ++i) {
 		int32_t uch = s->charAt(i);
-		if (((int32_t)(uch & (uint32_t)~127)) != 0) {
+		if ((uch & ~0x7f) != 0) {
 			if (buffer == nullptr) {
 				$assign(buffer, $new($bytes, 8));
 			}
 			int32_t mask = ~63;
 			int32_t n = 0;
 			do {
-				$nc(buffer)->set(n++, (int8_t)(128 | ((int32_t)(uch & (uint32_t)63))));
+				$nc(buffer)->set(n++, (int8_t)(0x80 | (uch & 0x3f)));
 				uch >>= 6;
 				mask >>= 1;
-			} while (((int32_t)(uch & (uint32_t)mask)) != 0);
+			} while ((uch & mask) != 0);
 			$nc(buffer)->set(n, (int8_t)((mask << 1) | uch));
 			do {
-				seed = (seed * ImageStringsReader::HASH_MULTIPLIER) ^ ((int32_t)(buffer->get(n--) & (uint32_t)255));
+				seed = (seed * ImageStringsReader::HASH_MULTIPLIER) ^ (buffer->get(n--) & 0xff);
 			} while (0 <= n);
 		} else if (uch == 0) {
-			seed = (seed * ImageStringsReader::HASH_MULTIPLIER) ^ (192);
-			seed = (seed * ImageStringsReader::HASH_MULTIPLIER) ^ (128);
+			seed = (seed * ImageStringsReader::HASH_MULTIPLIER) ^ (0xc0);
+			seed = (seed * ImageStringsReader::HASH_MULTIPLIER) ^ (0x80);
 		} else {
 			seed = (seed * ImageStringsReader::HASH_MULTIPLIER) ^ (uch);
 		}
@@ -153,7 +107,7 @@ int32_t ImageStringsReader::charsFromMUTF8Length($bytes* bytes, int32_t offset, 
 		if (ch == 0) {
 			break;
 		}
-		if (((int32_t)(ch & (uint32_t)192)) != 128) {
+		if ((ch & 0xc0) != 0x80) {
 			++length;
 		}
 	}
@@ -162,26 +116,26 @@ int32_t ImageStringsReader::charsFromMUTF8Length($bytes* bytes, int32_t offset, 
 
 void ImageStringsReader::charsFromMUTF8($chars* chars, $bytes* bytes, int32_t offset, int32_t count) {
 	$init(ImageStringsReader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t j = 0;
 	for (int32_t i = offset; i < offset + count; ++i) {
 		int8_t ch = $nc(bytes)->get(i);
 		if (ch == 0) {
 			break;
 		}
-		bool is_unicode = ((int32_t)(ch & (uint32_t)128)) != 0;
-		int32_t uch = (int32_t)(ch & (uint32_t)127);
+		bool is_unicode = (ch & 0x80) != 0;
+		int32_t uch = ch & 0x7f;
 		if (is_unicode) {
 			int32_t mask = 64;
-			while (((int32_t)(uch & (uint32_t)mask)) != 0) {
+			while ((uch & mask) != 0) {
 				ch = bytes->get(++i);
-				if (((int32_t)(ch & (uint32_t)192)) != 128) {
+				if ((ch & 0xc0) != 0x80) {
 					$throwNew($UTFDataFormatException, $$str({"bad continuation 0x"_s, $($Integer::toHexString(ch))}));
 				}
-				uch = (((int32_t)(uch & (uint32_t)~mask)) << 6) | ((int32_t)(ch & (uint32_t)63));
+				uch = ((uch & ~mask) << 6) | (ch & 0x3f);
 				mask <<= 6 - 1;
 			}
-			if (((int32_t)(uch & (uint32_t)0x0000FFFF)) != uch) {
+			if ((uch & 0xffff) != uch) {
 				$throwNew($UTFDataFormatException, $$str({"character out of range \\u"_s, $($Integer::toHexString(uch))}));
 			}
 		}
@@ -218,7 +172,7 @@ int32_t ImageStringsReader::charsFromByteBufferLength($ByteBuffer* buffer, int32
 		} else if (ch == 0) {
 			return asciiOnly ? length : -length;
 		}
-		if (((int32_t)(ch & (uint32_t)192)) != 128) {
+		if ((ch & 0xc0) != 0x80) {
 			++length;
 		}
 	}
@@ -227,7 +181,7 @@ int32_t ImageStringsReader::charsFromByteBufferLength($ByteBuffer* buffer, int32
 
 void ImageStringsReader::charsFromByteBuffer($chars* chars, $ByteBuffer* buffer, int32_t offset) {
 	$init(ImageStringsReader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t j = 0;
 	int32_t limit = $nc(buffer)->limit();
 	while (offset < limit) {
@@ -235,20 +189,20 @@ void ImageStringsReader::charsFromByteBuffer($chars* chars, $ByteBuffer* buffer,
 		if (ch == 0) {
 			return;
 		}
-		bool is_unicode = ((int32_t)(ch & (uint32_t)128)) != 0;
-		int32_t uch = (int32_t)(ch & (uint32_t)127);
+		bool is_unicode = (ch & 0x80) != 0;
+		int32_t uch = ch & 0x7f;
 		if (is_unicode) {
 			int32_t mask = 64;
-			while (((int32_t)(uch & (uint32_t)mask)) != 0) {
+			while ((uch & mask) != 0) {
 				ch = buffer->get(offset++);
-				if (((int32_t)(ch & (uint32_t)192)) != 128) {
+				if ((ch & 0xc0) != 0x80) {
 					$throwNew($InternalError, $$str({"Bad continuation in modified UTF-8 byte sequence: "_s, $$str(ch)}));
 				}
-				uch = (((int32_t)(uch & (uint32_t)~mask)) << 6) | ((int32_t)(ch & (uint32_t)63));
+				uch = ((uch & ~mask) << 6) | (ch & 0x3f);
 				mask <<= 6 - 1;
 			}
 		}
-		if (((int32_t)(uch & (uint32_t)0x0000FFFF)) != uch) {
+		if ((uch & 0xffff) != uch) {
 			$throwNew($InternalError, $$str({"UTF-32 char in modified UTF-8 byte sequence: "_s, $$str(uch)}));
 		}
 		$nc(chars)->set(j++, (char16_t)uch);
@@ -263,7 +217,7 @@ $String* ImageStringsReader::stringFromByteBuffer($ByteBuffer* buffer) {
 
 $String* ImageStringsReader::stringFromByteBuffer($ByteBuffer* buffer, int32_t offset) {
 	$init(ImageStringsReader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = charsFromByteBufferLength(buffer, offset);
 	if (length > 0) {
 		$var($bytes, asciiBytes, $new($bytes, length));
@@ -314,15 +268,15 @@ int32_t ImageStringsReader::mutf8FromStringLength($String* s) {
 	int32_t slen = $nc(s)->length();
 	for (int32_t i = 0; i < slen; ++i) {
 		char16_t ch = s->charAt(i);
-		int32_t uch = (int32_t)(ch & (uint32_t)0x0000FFFF);
-		if (((int32_t)(uch & (uint32_t)~127)) != 0) {
+		int32_t uch = ch & 0xffff;
+		if ((uch & ~0x7f) != 0) {
 			int32_t mask = ~63;
 			int32_t n = 0;
 			do {
 				++n;
 				uch >>= 6;
 				mask >>= 1;
-			} while (((int32_t)(uch & (uint32_t)mask)) != 0);
+			} while ((uch & mask) != 0);
 			length += n + 1;
 		} else if (uch == 0) {
 			length += 2;
@@ -340,18 +294,18 @@ void ImageStringsReader::mutf8FromString($bytes* bytes, int32_t offset, $String*
 	int32_t slen = $nc(s)->length();
 	for (int32_t i = 0; i < slen; ++i) {
 		char16_t ch = s->charAt(i);
-		int32_t uch = (int32_t)(ch & (uint32_t)0x0000FFFF);
-		if (((int32_t)(uch & (uint32_t)~127)) != 0) {
+		int32_t uch = ch & 0xffff;
+		if ((uch & ~0x7f) != 0) {
 			if (buffer == nullptr) {
 				$assign(buffer, $new($bytes, 8));
 			}
 			int32_t mask = ~63;
 			int32_t n = 0;
 			do {
-				$nc(buffer)->set(n++, (int8_t)(128 | ((int32_t)(uch & (uint32_t)63))));
+				$nc(buffer)->set(n++, (int8_t)(0x80 | (uch & 0x3f)));
 				uch >>= 6;
 				mask >>= 1;
-			} while (((int32_t)(uch & (uint32_t)mask)) != 0);
+			} while ((uch & mask) != 0);
 			$nc(buffer)->set(n, (int8_t)((mask << 1) | uch));
 			do {
 				$nc(bytes)->set(j++, buffer->get(n--));
@@ -377,7 +331,47 @@ ImageStringsReader::ImageStringsReader() {
 }
 
 $Class* ImageStringsReader::load$($String* name, bool initialize) {
-	$loadClass(ImageStringsReader, name, initialize, &_ImageStringsReader_ClassInfo_, allocate$ImageStringsReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"HASH_MULTIPLIER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageStringsReader, HASH_MULTIPLIER)},
+		{"POSITIVE_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageStringsReader, POSITIVE_MASK)},
+		{"reader", "Ljdk/internal/jimage/BasicImageReader;", nullptr, $PRIVATE | $FINAL, $field(ImageStringsReader, reader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/jimage/BasicImageReader;)V", nullptr, 0, $method(ImageStringsReader, init$, void, $BasicImageReader*)},
+		{"add", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ImageStringsReader, add, int32_t, $String*)},
+		{"charsFromByteBuffer", "([CLjava/nio/ByteBuffer;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageStringsReader, charsFromByteBuffer, void, $chars*, $ByteBuffer*, int32_t)},
+		{"charsFromByteBufferLength", "(Ljava/nio/ByteBuffer;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageStringsReader, charsFromByteBufferLength, int32_t, $ByteBuffer*, int32_t)},
+		{"charsFromMUTF8", "([C[BII)V", nullptr, $STATIC, $staticMethod(ImageStringsReader, charsFromMUTF8, void, $chars*, $bytes*, int32_t, int32_t), "java.io.UTFDataFormatException"},
+		{"charsFromMUTF8Length", "([BII)I", nullptr, $STATIC, $staticMethod(ImageStringsReader, charsFromMUTF8Length, int32_t, $bytes*, int32_t, int32_t)},
+		{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageStringsReader, get, $String*, int32_t)},
+		{"hashCode", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, hashCode, int32_t, $String*)},
+		{"hashCode", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, hashCode, int32_t, $String*, int32_t)},
+		{"hashCode", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, hashCode, int32_t, $String*, $String*)},
+		{"hashCode", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, hashCode, int32_t, $String*, $String*, int32_t)},
+		{"match", "(ILjava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(ImageStringsReader, match, int32_t, int32_t, $String*, int32_t)},
+		{"mutf8FromString", "([BILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(ImageStringsReader, mutf8FromString, void, $bytes*, int32_t, $String*)},
+		{"mutf8FromString", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, mutf8FromString, $bytes*, $String*)},
+		{"mutf8FromStringLength", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(ImageStringsReader, mutf8FromStringLength, int32_t, $String*)},
+		{"stringFromByteBuffer", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, stringFromByteBuffer, $String*, $ByteBuffer*)},
+		{"stringFromByteBuffer", "(Ljava/nio/ByteBuffer;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ImageStringsReader, stringFromByteBuffer, $String*, $ByteBuffer*, int32_t)},
+		{"stringFromByteBufferMatches", "(Ljava/nio/ByteBuffer;ILjava/lang/String;I)I", nullptr, $STATIC, $staticMethod(ImageStringsReader, stringFromByteBufferMatches, int32_t, $ByteBuffer*, int32_t, $String*, int32_t)},
+		{"stringFromMUTF8", "([BII)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, stringFromMUTF8, $String*, $bytes*, int32_t, int32_t)},
+		{"stringFromMUTF8", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, stringFromMUTF8, $String*, $bytes*)},
+		{"unmaskedHashCode", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageStringsReader, unmaskedHashCode, int32_t, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.jimage.ImageStringsReader",
+		"java.lang.Object",
+		"jdk.internal.jimage.ImageStrings",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageStringsReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageStringsReader);
+	});
 	return class$;
 }
 

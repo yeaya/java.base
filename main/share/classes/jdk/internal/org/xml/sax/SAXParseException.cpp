@@ -1,5 +1,4 @@
 #include <jdk/internal/org/xml/sax/SAXParseException.h>
-
 #include <jdk/internal/org/xml/sax/Locator.h>
 #include <jdk/internal/org/xml/sax/SAXException.h>
 #include <jcpp.h>
@@ -17,44 +16,8 @@ namespace jdk {
 			namespace xml {
 				namespace sax {
 
-$FieldInfo _SAXParseException_FieldInfo_[] = {
-	{"publicId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAXParseException, publicId)},
-	{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAXParseException, systemId)},
-	{"lineNumber", "I", nullptr, $PRIVATE, $field(SAXParseException, lineNumber)},
-	{"columnNumber", "I", nullptr, $PRIVATE, $field(SAXParseException, columnNumber)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SAXParseException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SAXParseException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/org/xml/sax/Locator;)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $Locator*)},
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/org/xml/sax/Locator;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $Locator*, $Exception*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $String*, $String*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Exception;)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $String*, $String*, int32_t, int32_t, $Exception*)},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getColumnNumber, int32_t)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getLineNumber, int32_t)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getPublicId, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getSystemId, $String*)},
-	{"init", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(SAXParseException, init, void, $String*, $String*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAXParseException, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SAXParseException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.xml.sax.SAXParseException",
-	"jdk.internal.org.xml.sax.SAXException",
-	nullptr,
-	_SAXParseException_FieldInfo_,
-	_SAXParseException_MethodInfo_
-};
-
-$Object* allocate$SAXParseException($Class* clazz) {
-	return $of($alloc(SAXParseException));
-}
-
 void SAXParseException::init$($String* message, $Locator* locator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SAXException::init$(message);
 	if (locator != nullptr) {
 		$var($String, var$0, locator->getPublicId());
@@ -67,7 +30,7 @@ void SAXParseException::init$($String* message, $Locator* locator) {
 }
 
 void SAXParseException::init$($String* message, $Locator* locator, $Exception* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SAXException::init$(message, e);
 	if (locator != nullptr) {
 		$var($String, var$0, locator->getPublicId());
@@ -113,7 +76,7 @@ int32_t SAXParseException::getColumnNumber() {
 }
 
 $String* SAXParseException::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder, $($of(this)->getClass()->getName())));
 	$var($String, message, getLocalizedMessage());
 	if (this->publicId != nullptr) {
@@ -145,7 +108,38 @@ void SAXParseException::throw$() {
 }
 
 $Class* SAXParseException::load$($String* name, bool initialize) {
-	$loadClass(SAXParseException, name, initialize, &_SAXParseException_ClassInfo_, allocate$SAXParseException);
+	$FieldInfo fieldInfos$$[] = {
+		{"publicId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAXParseException, publicId)},
+		{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAXParseException, systemId)},
+		{"lineNumber", "I", nullptr, $PRIVATE, $field(SAXParseException, lineNumber)},
+		{"columnNumber", "I", nullptr, $PRIVATE, $field(SAXParseException, columnNumber)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SAXParseException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljdk/internal/org/xml/sax/Locator;)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $Locator*)},
+		{"<init>", "(Ljava/lang/String;Ljdk/internal/org/xml/sax/Locator;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $Locator*, $Exception*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $String*, $String*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Exception;)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $String*, $String*, int32_t, int32_t, $Exception*)},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getColumnNumber, int32_t)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getLineNumber, int32_t)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getPublicId, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getSystemId, $String*)},
+		{"init", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(SAXParseException, init, void, $String*, $String*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAXParseException, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.xml.sax.SAXParseException",
+		"jdk.internal.org.xml.sax.SAXException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SAXParseException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAXParseException);
+	});
 	return class$;
 }
 

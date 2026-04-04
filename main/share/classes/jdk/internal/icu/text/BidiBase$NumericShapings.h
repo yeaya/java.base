@@ -22,6 +22,7 @@ class $export BidiBase$NumericShapings : public ::java::lang::Object {
 	$class(BidiBase$NumericShapings, 0, ::java::lang::Object)
 public:
 	BidiBase$NumericShapings();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void shape(Object$* shaper, $chars* text, int32_t start, int32_t count);
 	static ::jdk::internal::access::JavaAWTFontAccess* jafa;

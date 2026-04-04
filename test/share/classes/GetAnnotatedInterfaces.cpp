@@ -1,5 +1,4 @@
 #include <GetAnnotatedInterfaces.h>
-
 #include <GetAnnotatedInterfaces$1.h>
 #include <GetAnnotatedInterfaces$2.h>
 #include <java/lang/reflect/AnnotatedType.h>
@@ -14,7 +13,6 @@ using $GetAnnotatedInterfaces$2 = ::GetAnnotatedInterfaces$2;
 using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
 using $ObjectArray3 = $Array<::java::lang::Object, 3>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -23,47 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;
 using $Arrays = ::java::util::Arrays;
-
-$FieldInfo _GetAnnotatedInterfaces_FieldInfo_[] = {
-	{"testData", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(GetAnnotatedInterfaces, testData)},
-	{"failed", "I", nullptr, $PRIVATE | $STATIC, $staticField(GetAnnotatedInterfaces, failed)},
-	{"tests", "I", nullptr, $PRIVATE | $STATIC, $staticField(GetAnnotatedInterfaces, tests)},
-	{}
-};
-
-$MethodInfo _GetAnnotatedInterfaces_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetAnnotatedInterfaces, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAnnotatedInterfaces, main, void, $StringArray*), "java.lang.Exception"},
-	{"testReturnsZeroLengthArray", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedInterfaces, testReturnsZeroLengthArray, void)},
-	{}
-};
-
-$InnerClassInfo _GetAnnotatedInterfaces_InnerClassesInfo_[] = {
-	{"GetAnnotatedInterfaces$Clz", "GetAnnotatedInterfaces", "Clz", $STATIC | $ABSTRACT},
-	{"GetAnnotatedInterfaces$If", "GetAnnotatedInterfaces", "If", $STATIC | $INTERFACE | $ABSTRACT},
-	{"GetAnnotatedInterfaces$2", nullptr, nullptr, 0},
-	{"GetAnnotatedInterfaces$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GetAnnotatedInterfaces_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetAnnotatedInterfaces",
-	"java.lang.Object",
-	nullptr,
-	_GetAnnotatedInterfaces_FieldInfo_,
-	_GetAnnotatedInterfaces_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetAnnotatedInterfaces_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"GetAnnotatedInterfaces$Clz,GetAnnotatedInterfaces$If,GetAnnotatedInterfaces$2,GetAnnotatedInterfaces$1"
-};
-
-$Object* allocate$GetAnnotatedInterfaces($Class* clazz) {
-	return $of($alloc(GetAnnotatedInterfaces));
-}
 
 $ClassArray* GetAnnotatedInterfaces::testData = nullptr;
 int32_t GetAnnotatedInterfaces::failed = 0;
@@ -85,41 +42,37 @@ void GetAnnotatedInterfaces::main($StringArray* args) {
 
 void GetAnnotatedInterfaces::testReturnsZeroLengthArray() {
 	$init(GetAnnotatedInterfaces);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ClassArray, arr$, GetAnnotatedInterfaces::testData);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$Class* toTest = arr$->get(i$);
-			{
-				++GetAnnotatedInterfaces::tests;
-				$var($AnnotatedTypeArray, res, $nc(toTest)->getAnnotatedInterfaces());
-				if (res == nullptr) {
-					++GetAnnotatedInterfaces::failed;
-					$nc($System::out)->println($$str({toTest, ".class.getAnnotatedInterface() returns\'null\' should zero length array"_s}));
-				} else if ($nc(res)->length != 0) {
-					++GetAnnotatedInterfaces::failed;
-					$var($String, var$1, $$str({toTest, ".class.getAnnotatedInterfaces() returns: "_s}));
-					$var($String, var$0, $$concat(var$1, $($Arrays::asList(res))));
-					$nc($System::out)->println($$concat(var$0, ", should be a zero length array of AnnotatedType"_s));
-				}
+	$useLocalObjectStack();
+	$var($ClassArray, arr$, GetAnnotatedInterfaces::testData);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$Class* toTest = arr$->get(i$);
+		{
+			++GetAnnotatedInterfaces::tests;
+			$var($AnnotatedTypeArray, res, $nc(toTest)->getAnnotatedInterfaces());
+			if (res == nullptr) {
+				++GetAnnotatedInterfaces::failed;
+				$nc($System::out)->println($$str({toTest, ".class.getAnnotatedInterface() returns\'null\' should zero length array"_s}));
+			} else if (res->length != 0) {
+				++GetAnnotatedInterfaces::failed;
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append(toTest);
+				var$0->append(".class.getAnnotatedInterfaces() returns: "_s);
+				var$0->append($($Arrays::asList(res)));
+				var$0->append(", should be a zero length array of AnnotatedType"_s);
+				$nc($System::out)->println($$str(var$0));
 			}
 		}
 	}
 }
 
-void clinit$GetAnnotatedInterfaces($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void GetAnnotatedInterfaces::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$load($ObjectArray);
 	$load($ObjectArray2);
-	$load($ObjectArray3);
-	$init($Void);
-	$init($Integer);
 	$assignStatic(GetAnnotatedInterfaces::testData, $new($ClassArray, {
 		GetAnnotatedInterfaces::class$,
-		$of(($$new($GetAnnotatedInterfaces$1)))->getClass(),
-		$of(($$new($GetAnnotatedInterfaces$2)))->getClass(),
+		($$new($GetAnnotatedInterfaces$1))->getClass(),
+		($$new($GetAnnotatedInterfaces$2))->getClass(),
 		$getClass($ObjectArray),
 		$getClass($ObjectArray2),
 		$getClass($ObjectArray3),
@@ -135,7 +88,42 @@ GetAnnotatedInterfaces::GetAnnotatedInterfaces() {
 }
 
 $Class* GetAnnotatedInterfaces::load$($String* name, bool initialize) {
-	$loadClass(GetAnnotatedInterfaces, name, initialize, &_GetAnnotatedInterfaces_ClassInfo_, clinit$GetAnnotatedInterfaces, allocate$GetAnnotatedInterfaces);
+	$FieldInfo fieldInfos$$[] = {
+		{"testData", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(GetAnnotatedInterfaces, testData)},
+		{"failed", "I", nullptr, $PRIVATE | $STATIC, $staticField(GetAnnotatedInterfaces, failed)},
+		{"tests", "I", nullptr, $PRIVATE | $STATIC, $staticField(GetAnnotatedInterfaces, tests)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetAnnotatedInterfaces, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAnnotatedInterfaces, main, void, $StringArray*), "java.lang.Exception"},
+		{"testReturnsZeroLengthArray", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedInterfaces, testReturnsZeroLengthArray, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetAnnotatedInterfaces$Clz", "GetAnnotatedInterfaces", "Clz", $STATIC | $ABSTRACT},
+		{"GetAnnotatedInterfaces$If", "GetAnnotatedInterfaces", "If", $STATIC | $INTERFACE | $ABSTRACT},
+		{"GetAnnotatedInterfaces$2", nullptr, nullptr, 0},
+		{"GetAnnotatedInterfaces$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetAnnotatedInterfaces",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"GetAnnotatedInterfaces$Clz,GetAnnotatedInterfaces$If,GetAnnotatedInterfaces$2,GetAnnotatedInterfaces$1"
+	};
+	$loadClass(GetAnnotatedInterfaces, name, initialize, &classInfo$$, GetAnnotatedInterfaces::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GetAnnotatedInterfaces);
+	});
 	return class$;
 }
 

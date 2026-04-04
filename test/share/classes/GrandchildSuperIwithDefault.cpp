@@ -1,5 +1,4 @@
 #include <GrandchildSuperIwithDefault.h>
-
 #include <SonSuperIwithDefault.h>
 #include <jcpp.h>
 
@@ -8,54 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-
-$NamedAttribute GrandchildSuperIwithDefault_Attribute_var$0[] = {
-	{"modifiers", 'I', "1025"},
-	{"declaringClass", 'c', "LGrandchildSuperIwithDefault;"},
-	{}
-};
-
-$CompoundAttribute _GrandchildSuperIwithDefault_MethodAnnotations_wombat0[] = {
-	{"LExpectedModel;", GrandchildSuperIwithDefault_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute GrandchildSuperIwithDefault_Attribute_var$1[] = {
-	{"isDefault", 'Z', "true"},
-	{"declaringClass", 'c', "LGrandchildSuperIwithDefault;"},
-	{}
-};
-
-$CompoundAttribute _GrandchildSuperIwithDefault_MethodAnnotations_wombatD1[] = {
-	{"LExpectedModel;", GrandchildSuperIwithDefault_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _GrandchildSuperIwithDefault_MethodInfo_[] = {
-	{"*bar", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*foo", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"wombat", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GrandchildSuperIwithDefault, wombat, void), nullptr, nullptr, _GrandchildSuperIwithDefault_MethodAnnotations_wombat0},
-	{"wombatD", "()V", nullptr, $PUBLIC, $virtualMethod(GrandchildSuperIwithDefault, wombatD, void), nullptr, nullptr, _GrandchildSuperIwithDefault_MethodAnnotations_wombatD1},
-	{}
-};
-
-$ClassInfo _GrandchildSuperIwithDefault_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"GrandchildSuperIwithDefault",
-	nullptr,
-	"SonSuperIwithDefault,DaughterSuperIwithDefault",
-	nullptr,
-	_GrandchildSuperIwithDefault_MethodInfo_
-};
-
-$Object* allocate$GrandchildSuperIwithDefault($Class* clazz) {
-	return $of($alloc(GrandchildSuperIwithDefault));
-}
 
 void GrandchildSuperIwithDefault::bar() {
 	this->$SonSuperIwithDefault::bar();
@@ -82,10 +33,51 @@ void GrandchildSuperIwithDefault::finalize() {
 }
 
 void GrandchildSuperIwithDefault::wombatD() {
+	;
 }
 
 $Class* GrandchildSuperIwithDefault::load$($String* name, bool initialize) {
-	$loadClass(GrandchildSuperIwithDefault, name, initialize, &_GrandchildSuperIwithDefault_ClassInfo_, allocate$GrandchildSuperIwithDefault);
+	$NamedAttribute wombatmethodAnnotations$$$namedAttribute[] = {
+		{"modifiers", 'I', "1025"},
+		{"declaringClass", 'c', "LGrandchildSuperIwithDefault;"},
+		{}
+	};
+	$CompoundAttribute wombatmethodAnnotations$$[] = {
+		{"LExpectedModel;", wombatmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute wombatDmethodAnnotations$$$namedAttribute[] = {
+		{"isDefault", 'Z', "true"},
+		{"declaringClass", 'c', "LGrandchildSuperIwithDefault;"},
+		{}
+	};
+	$CompoundAttribute wombatDmethodAnnotations$$[] = {
+		{"LExpectedModel;", wombatDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*bar", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*foo", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"wombat", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GrandchildSuperIwithDefault, wombat, void), nullptr, nullptr, wombatmethodAnnotations$$},
+		{"wombatD", "()V", nullptr, $PUBLIC, $virtualMethod(GrandchildSuperIwithDefault, wombatD, void), nullptr, nullptr, wombatDmethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"GrandchildSuperIwithDefault",
+		nullptr,
+		"SonSuperIwithDefault,DaughterSuperIwithDefault",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GrandchildSuperIwithDefault, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GrandchildSuperIwithDefault));
+	});
 	return class$;
 }
 

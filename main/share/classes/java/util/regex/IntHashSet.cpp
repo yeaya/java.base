@@ -1,5 +1,4 @@
 #include <java/util/regex/IntHashSet.h>
-
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -11,35 +10,6 @@ using $Arrays = ::java::util::Arrays;
 namespace java {
 	namespace util {
 		namespace regex {
-
-$FieldInfo _IntHashSet_FieldInfo_[] = {
-	{"entries", "[I", nullptr, $PRIVATE, $field(IntHashSet, entries)},
-	{"hashes", "[I", nullptr, $PRIVATE, $field(IntHashSet, hashes)},
-	{"pos", "I", nullptr, $PRIVATE, $field(IntHashSet, pos)},
-	{}
-};
-
-$MethodInfo _IntHashSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntHashSet, init$, void)},
-	{"add", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntHashSet, add, void, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IntHashSet, clear, void)},
-	{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(IntHashSet, contains, bool, int32_t)},
-	{"expand", "()V", nullptr, $PRIVATE, $method(IntHashSet, expand, void)},
-	{}
-};
-
-$ClassInfo _IntHashSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.IntHashSet",
-	"java.lang.Object",
-	nullptr,
-	_IntHashSet_FieldInfo_,
-	_IntHashSet_MethodInfo_
-};
-
-$Object* allocate$IntHashSet($Class* clazz) {
-	return $of($alloc(IntHashSet));
-}
 
 void IntHashSet::init$() {
 	this->pos = 0;
@@ -55,25 +25,25 @@ bool IntHashSet::contains(int32_t i) {
 		if ($nc(this->entries)->get(h) == i) {
 			return true;
 		}
-		h = $nc(this->entries)->get(h + 1);
+		h = this->entries->get(h + 1);
 	}
 	return false;
 }
 
 void IntHashSet::add(int32_t i) {
 	int32_t h0 = $mod(i, $nc(this->hashes)->length);
-	int32_t next = $nc(this->hashes)->get(h0);
+	int32_t next = this->hashes->get(h0);
 	int32_t next0 = next;
 	while (next0 != -1) {
 		if ($nc(this->entries)->get(next0) == i) {
 			return;
 		}
-		next0 = $nc(this->entries)->get(next0 + 1);
+		next0 = this->entries->get(next0 + 1);
 	}
-	$nc(this->hashes)->set(h0, this->pos);
+	this->hashes->set(h0, this->pos);
 	$nc(this->entries)->set(this->pos++, i);
-	$nc(this->entries)->set(this->pos++, next);
-	if (this->pos == $nc(this->entries)->length) {
+	this->entries->set(this->pos++, next);
+	if (this->pos == this->entries->length) {
 		expand();
 	}
 }
@@ -85,7 +55,7 @@ void IntHashSet::clear() {
 }
 
 void IntHashSet::expand() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, old, this->entries);
 	$var($ints, es, $new($ints, $nc(old)->length << 1));
 	int32_t hlen = (old->length / 2) | 1;
@@ -108,7 +78,31 @@ IntHashSet::IntHashSet() {
 }
 
 $Class* IntHashSet::load$($String* name, bool initialize) {
-	$loadClass(IntHashSet, name, initialize, &_IntHashSet_ClassInfo_, allocate$IntHashSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"entries", "[I", nullptr, $PRIVATE, $field(IntHashSet, entries)},
+		{"hashes", "[I", nullptr, $PRIVATE, $field(IntHashSet, hashes)},
+		{"pos", "I", nullptr, $PRIVATE, $field(IntHashSet, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntHashSet, init$, void)},
+		{"add", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntHashSet, add, void, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IntHashSet, clear, void)},
+		{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(IntHashSet, contains, bool, int32_t)},
+		{"expand", "()V", nullptr, $PRIVATE, $method(IntHashSet, expand, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.IntHashSet",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntHashSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntHashSet);
+	});
 	return class$;
 }
 

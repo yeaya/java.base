@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberCharArrAcceptDefClass.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,33 +7,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace UniTest {
 
-$CompoundAttribute _SingleMemberCharArrAcceptDefClass_Annotations_[] = {
-	{"LUniTest/SingleMemberCharArrayDef;", nullptr},
-	{}
-};
-
-$MethodInfo _SingleMemberCharArrAcceptDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberCharArrAcceptDefClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberCharArrAcceptDefClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberCharArrAcceptDefClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberCharArrAcceptDefClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberCharArrAcceptDefClass_Annotations_
-};
-
-$Object* allocate$SingleMemberCharArrAcceptDefClass($Class* clazz) {
-	return $of($alloc(SingleMemberCharArrAcceptDefClass));
-}
-
 void SingleMemberCharArrAcceptDefClass::init$() {
 }
 
@@ -42,7 +14,29 @@ SingleMemberCharArrAcceptDefClass::SingleMemberCharArrAcceptDefClass() {
 }
 
 $Class* SingleMemberCharArrAcceptDefClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberCharArrAcceptDefClass, name, initialize, &_SingleMemberCharArrAcceptDefClass_ClassInfo_, allocate$SingleMemberCharArrAcceptDefClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberCharArrAcceptDefClass, init$, void)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberCharArrayDef;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberCharArrAcceptDefClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberCharArrAcceptDefClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberCharArrAcceptDefClass);
+	});
 	return class$;
 }
 

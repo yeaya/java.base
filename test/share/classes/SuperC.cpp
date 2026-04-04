@@ -1,5 +1,4 @@
 #include <SuperC.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -7,58 +6,51 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute SuperC_Attribute_var$0[] = {
-	{"declaringClass", 'c', "LSuperC;"},
-	{}
-};
-
-$CompoundAttribute _SuperC_MethodAnnotations_bar1[] = {
-	{"LExpectedModel;", SuperC_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute SuperC_Attribute_var$1[] = {
-	{"modifiers", 'I', "1025"},
-	{"declaringClass", 'c', "LSuperC;"},
-	{}
-};
-
-$CompoundAttribute _SuperC_MethodAnnotations_foo2[] = {
-	{"LExpectedModel;", SuperC_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _SuperC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SuperC, init$, void)},
-	{"bar", "()V", nullptr, $PUBLIC, $virtualMethod(SuperC, bar, void), nullptr, nullptr, _SuperC_MethodAnnotations_bar1},
-	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SuperC, foo, void), nullptr, nullptr, _SuperC_MethodAnnotations_foo2},
-	{}
-};
-
-$ClassInfo _SuperC_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"SuperC",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SuperC_MethodInfo_
-};
-
-$Object* allocate$SuperC($Class* clazz) {
-	return $of($alloc(SuperC));
-}
-
 void SuperC::init$() {
 }
 
 void SuperC::bar() {
+	;
 }
 
 SuperC::SuperC() {
 }
 
 $Class* SuperC::load$($String* name, bool initialize) {
-	$loadClass(SuperC, name, initialize, &_SuperC_ClassInfo_, allocate$SuperC);
+	$NamedAttribute barmethodAnnotations$$$namedAttribute[] = {
+		{"declaringClass", 'c', "LSuperC;"},
+		{}
+	};
+	$CompoundAttribute barmethodAnnotations$$[] = {
+		{"LExpectedModel;", barmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute foomethodAnnotations$$$namedAttribute[] = {
+		{"modifiers", 'I', "1025"},
+		{"declaringClass", 'c', "LSuperC;"},
+		{}
+	};
+	$CompoundAttribute foomethodAnnotations$$[] = {
+		{"LExpectedModel;", foomethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SuperC, init$, void)},
+		{"bar", "()V", nullptr, $PUBLIC, $virtualMethod(SuperC, bar, void), nullptr, nullptr, barmethodAnnotations$$},
+		{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SuperC, foo, void), nullptr, nullptr, foomethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"SuperC",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SuperC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SuperC);
+	});
 	return class$;
 }
 

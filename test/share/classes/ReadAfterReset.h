@@ -24,6 +24,7 @@ class $export ReadAfterReset : public ::java::lang::Object {
 	$class(ReadAfterReset, 0, ::java::lang::Object)
 public:
 	ReadAfterReset();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t acceptAndResetConnection(::java::net::ServerSocket* ss);
 	static void main($StringArray* args);

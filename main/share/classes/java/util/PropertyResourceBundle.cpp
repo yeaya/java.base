@@ -1,5 +1,4 @@
 #include <java/util/PropertyResourceBundle.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/Reader.h>
@@ -30,7 +29,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Properties = ::java::util::Properties;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $Set = ::java::util::Set;
@@ -42,77 +40,72 @@ using $ResourceBundleEnumeration = ::sun::util::ResourceBundleEnumeration;
 namespace java {
 	namespace util {
 
-$FieldInfo _PropertyResourceBundle_FieldInfo_[] = {
-	{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyResourceBundle, encoding)},
-	{"lookup", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(PropertyResourceBundle, lookup)},
-	{}
-};
-
-$MethodInfo _PropertyResourceBundle_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(PropertyResourceBundle, init$, void, $InputStream*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(PropertyResourceBundle, init$, void, $Reader*), "java.io.IOException"},
-	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PropertyResourceBundle, getKeys, $Enumeration*)},
-	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundle, handleGetObject, $Object*, $String*)},
-	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(PropertyResourceBundle, handleKeySet, $Set*)},
-	{}
-};
-
-$ClassInfo _PropertyResourceBundle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.PropertyResourceBundle",
-	"java.util.ResourceBundle",
-	nullptr,
-	_PropertyResourceBundle_FieldInfo_,
-	_PropertyResourceBundle_MethodInfo_
-};
-
-$Object* allocate$PropertyResourceBundle($Class* clazz) {
-	return $of($alloc(PropertyResourceBundle));
-}
-
 $String* PropertyResourceBundle::encoding = nullptr;
 
 void PropertyResourceBundle::init$($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ISO_8859_1);
-	PropertyResourceBundle::init$(static_cast<$Reader*>($$new($InputStreamReader, stream, "ISO-8859-1"_s->equals(PropertyResourceBundle::encoding) ? $($nc($ISO_8859_1::INSTANCE)->newDecoder()) : $($$new($PropertyResourceBundleCharset, "UTF-8"_s->equals(PropertyResourceBundle::encoding))->newDecoder()))));
+	PropertyResourceBundle::init$($$new($InputStreamReader, stream, "ISO-8859-1"_s->equals(PropertyResourceBundle::encoding) ? $($nc($ISO_8859_1::INSTANCE)->newDecoder()) : $($$new($PropertyResourceBundleCharset, "UTF-8"_s->equals(PropertyResourceBundle::encoding))->newDecoder())));
 }
 
 void PropertyResourceBundle::init$($Reader* reader) {
 	$ResourceBundle::init$();
 	$var($Properties, properties, $new($Properties));
 	properties->load(reader);
-	$set(this, lookup, $new($HashMap, static_cast<$Map*>(properties)));
+	$set(this, lookup, $new($HashMap, properties));
 }
 
 $Object* PropertyResourceBundle::handleGetObject($String* key) {
 	if (key == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	return $of($nc(this->lookup)->get(key));
+	return $nc(this->lookup)->get(key);
 }
 
 $Enumeration* PropertyResourceBundle::getKeys() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResourceBundle, parent, this->parent);
 	$var($Set, var$0, $nc(this->lookup)->keySet());
-	return $new($ResourceBundleEnumeration, var$0, (parent != nullptr) ? $($nc(parent)->getKeys()) : ($Enumeration*)nullptr);
+	return $new($ResourceBundleEnumeration, var$0, (parent != nullptr) ? $(parent->getKeys()) : ($Enumeration*)nullptr);
 }
 
 $Set* PropertyResourceBundle::handleKeySet() {
 	return $nc(this->lookup)->keySet();
 }
 
-void clinit$PropertyResourceBundle($Class* class$) {
+void PropertyResourceBundle::clinit$($Class* clazz) {
 	$init($Locale);
-	$assignStatic(PropertyResourceBundle::encoding, $nc($($GetPropertyAction::privilegedGetProperty("java.util.PropertyResourceBundle.encoding"_s, ""_s)))->toUpperCase($Locale::ROOT));
+	$assignStatic(PropertyResourceBundle::encoding, $$nc($GetPropertyAction::privilegedGetProperty("java.util.PropertyResourceBundle.encoding"_s, ""_s))->toUpperCase($Locale::ROOT));
 }
 
 PropertyResourceBundle::PropertyResourceBundle() {
 }
 
 $Class* PropertyResourceBundle::load$($String* name, bool initialize) {
-	$loadClass(PropertyResourceBundle, name, initialize, &_PropertyResourceBundle_ClassInfo_, clinit$PropertyResourceBundle, allocate$PropertyResourceBundle);
+	$FieldInfo fieldInfos$$[] = {
+		{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyResourceBundle, encoding)},
+		{"lookup", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(PropertyResourceBundle, lookup)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(PropertyResourceBundle, init$, void, $InputStream*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(PropertyResourceBundle, init$, void, $Reader*), "java.io.IOException"},
+		{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PropertyResourceBundle, getKeys, $Enumeration*)},
+		{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundle, handleGetObject, $Object*, $String*)},
+		{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(PropertyResourceBundle, handleKeySet, $Set*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.PropertyResourceBundle",
+		"java.util.ResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PropertyResourceBundle, name, initialize, &classInfo$$, PropertyResourceBundle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyResourceBundle);
+	});
 	return class$;
 }
 

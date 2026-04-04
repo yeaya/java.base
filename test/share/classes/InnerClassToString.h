@@ -17,6 +17,7 @@ class $export InnerClassToString : public ::java::lang::Object {
 	$class(InnerClassToString, 0, ::java::lang::Object)
 public:
 	InnerClassToString();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	void run();

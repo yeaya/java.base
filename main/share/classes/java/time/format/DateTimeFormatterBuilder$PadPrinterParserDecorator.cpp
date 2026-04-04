@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$PadPrinterParserDecorator.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/time/DateTimeException.h>
@@ -24,47 +23,6 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$FieldInfo _DateTimeFormatterBuilder$PadPrinterParserDecorator_FieldInfo_[] = {
-	{"printerParser", "Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$PadPrinterParserDecorator, printerParser)},
-	{"padWidth", "I", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$PadPrinterParserDecorator, padWidth)},
-	{"padChar", "C", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$PadPrinterParserDecorator, padChar)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$PadPrinterParserDecorator_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;IC)V", nullptr, 0, $method(DateTimeFormatterBuilder$PadPrinterParserDecorator, init$, void, $DateTimeFormatterBuilder$DateTimePrinterParser*, int32_t, char16_t)},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PadPrinterParserDecorator, format, bool, $DateTimePrintContext*, $StringBuilder*)},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PadPrinterParserDecorator, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PadPrinterParserDecorator, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$PadPrinterParserDecorator_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$PadPrinterParserDecorator", "java.time.format.DateTimeFormatterBuilder", "PadPrinterParserDecorator", $STATIC | $FINAL},
-	{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$PadPrinterParserDecorator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$PadPrinterParserDecorator",
-	"java.lang.Object",
-	"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
-	_DateTimeFormatterBuilder$PadPrinterParserDecorator_FieldInfo_,
-	_DateTimeFormatterBuilder$PadPrinterParserDecorator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$PadPrinterParserDecorator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$PadPrinterParserDecorator($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$PadPrinterParserDecorator));
-}
-
 void DateTimeFormatterBuilder$PadPrinterParserDecorator::init$($DateTimeFormatterBuilder$DateTimePrinterParser* printerParser, int32_t padWidth, char16_t padChar) {
 	$set(this, printerParser, printerParser);
 	this->padWidth = padWidth;
@@ -72,7 +30,7 @@ void DateTimeFormatterBuilder$PadPrinterParserDecorator::init$($DateTimeFormatte
 }
 
 bool DateTimeFormatterBuilder$PadPrinterParserDecorator::format($DateTimePrintContext* context, $StringBuilder* buf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t preLen = $nc(buf)->length();
 	if ($nc(this->printerParser)->format(context, buf) == false) {
 		return false;
@@ -93,21 +51,21 @@ int32_t DateTimeFormatterBuilder$PadPrinterParserDecorator::parse($DateTimeParse
 	if (position > $nc(text)->length()) {
 		$throwNew($IndexOutOfBoundsException);
 	}
-	if (position == $nc(text)->length()) {
+	if (position == text->length()) {
 		return ~position;
 	}
 	int32_t endPos = position + this->padWidth;
-	if (endPos > $nc(text)->length()) {
+	if (endPos > text->length()) {
 		if (strict) {
 			return ~position;
 		}
 		endPos = text->length();
 	}
 	int32_t pos = position;
-	while (pos < endPos && context->charEquals($nc(text)->charAt(pos), this->padChar)) {
+	while (pos < endPos && context->charEquals(text->charAt(pos), this->padChar)) {
 		++pos;
 	}
-	$assign(text, $nc(text)->subSequence(0, endPos));
+	$assign(text, text->subSequence(0, endPos));
 	int32_t resultPos = $nc(this->printerParser)->parse(context, text, pos);
 	if (resultPos != endPos && strict) {
 		return ~(position + pos);
@@ -116,7 +74,7 @@ int32_t DateTimeFormatterBuilder$PadPrinterParserDecorator::parse($DateTimeParse
 }
 
 $String* DateTimeFormatterBuilder$PadPrinterParserDecorator::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Pad("_s, this->printerParser, ","_s, $$str(this->padWidth), (this->padChar == u' ' ? ")"_s : $$str({",\'"_s, $$str(this->padChar), "\')"_s}))});
 }
 
@@ -124,7 +82,42 @@ DateTimeFormatterBuilder$PadPrinterParserDecorator::DateTimeFormatterBuilder$Pad
 }
 
 $Class* DateTimeFormatterBuilder$PadPrinterParserDecorator::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$PadPrinterParserDecorator, name, initialize, &_DateTimeFormatterBuilder$PadPrinterParserDecorator_ClassInfo_, allocate$DateTimeFormatterBuilder$PadPrinterParserDecorator);
+	$FieldInfo fieldInfos$$[] = {
+		{"printerParser", "Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$PadPrinterParserDecorator, printerParser)},
+		{"padWidth", "I", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$PadPrinterParserDecorator, padWidth)},
+		{"padChar", "C", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$PadPrinterParserDecorator, padChar)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;IC)V", nullptr, 0, $method(DateTimeFormatterBuilder$PadPrinterParserDecorator, init$, void, $DateTimeFormatterBuilder$DateTimePrinterParser*, int32_t, char16_t)},
+		{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PadPrinterParserDecorator, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+		{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PadPrinterParserDecorator, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PadPrinterParserDecorator, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$PadPrinterParserDecorator", "java.time.format.DateTimeFormatterBuilder", "PadPrinterParserDecorator", $STATIC | $FINAL},
+		{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$PadPrinterParserDecorator",
+		"java.lang.Object",
+		"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$PadPrinterParserDecorator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$PadPrinterParserDecorator);
+	});
 	return class$;
 }
 

@@ -1,40 +1,19 @@
 #include <WriteFromString.h>
-
 #include <LocalStringWriter.h>
 #include <java/io/StringWriter.h>
 #include <jcpp.h>
 
 using $LocalStringWriter = ::LocalStringWriter;
-using $PrintStream = ::java::io::PrintStream;
 using $StringWriter = ::java::io::StringWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _WriteFromString_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WriteFromString, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteFromString, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _WriteFromString_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WriteFromString",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WriteFromString_MethodInfo_
-};
-
-$Object* allocate$WriteFromString($Class* clazz) {
-	return $of($alloc(WriteFromString));
-}
-
 void WriteFromString::init$() {
 }
 
 void WriteFromString::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocalStringWriter, lsw, $new($LocalStringWriter));
 	bool result = true;
 	$var($String, testString, "Testing of what gets written"_s);
@@ -62,7 +41,22 @@ WriteFromString::WriteFromString() {
 }
 
 $Class* WriteFromString::load$($String* name, bool initialize) {
-	$loadClass(WriteFromString, name, initialize, &_WriteFromString_ClassInfo_, allocate$WriteFromString);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WriteFromString, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteFromString, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WriteFromString",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WriteFromString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WriteFromString);
+	});
 	return class$;
 }
 

@@ -45,6 +45,7 @@ class $import ExtendedOptions : public ::java::lang::Object {
 	$class(ExtendedOptions, 0, ::java::lang::Object)
 public:
 	ExtendedOptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Map* internalToExternal;
 	static ::sun::nio::fs::ExtendedOptions$InternalOption* INTERRUPTIBLE;

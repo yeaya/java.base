@@ -1,5 +1,4 @@
 #include <java/nio/file/DirectoryStream$Filter.h>
-
 #include <java/nio/file/DirectoryStream.h>
 #include <jcpp.h>
 
@@ -12,43 +11,37 @@ namespace java {
 	namespace nio {
 		namespace file {
 
-$CompoundAttribute _DirectoryStream$Filter_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _DirectoryStream$Filter_MethodInfo_[] = {
-	{"accept", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(DirectoryStream$Filter, accept, bool, Object$*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DirectoryStream$Filter_InnerClassesInfo_[] = {
-	{"java.nio.file.DirectoryStream$Filter", "java.nio.file.DirectoryStream", "Filter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DirectoryStream$Filter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.file.DirectoryStream$Filter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DirectoryStream$Filter_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_DirectoryStream$Filter_InnerClassesInfo_,
-	_DirectoryStream$Filter_Annotations_,
-	nullptr,
-	nullptr,
-	"java.nio.file.DirectoryStream"
-};
-
-$Object* allocate$DirectoryStream$Filter($Class* clazz) {
-	return $of($alloc(DirectoryStream$Filter));
-}
-
 $Class* DirectoryStream$Filter::load$($String* name, bool initialize) {
-	$loadClass(DirectoryStream$Filter, name, initialize, &_DirectoryStream$Filter_ClassInfo_, allocate$DirectoryStream$Filter);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(DirectoryStream$Filter, accept, bool, Object$*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.DirectoryStream$Filter", "java.nio.file.DirectoryStream", "Filter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.file.DirectoryStream$Filter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.nio.file.DirectoryStream"
+	};
+	$loadClass(DirectoryStream$Filter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectoryStream$Filter);
+	});
 	return class$;
 }
 

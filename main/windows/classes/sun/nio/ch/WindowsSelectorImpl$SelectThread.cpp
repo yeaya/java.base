@@ -1,5 +1,4 @@
 #include <sun/nio/ch/WindowsSelectorImpl$SelectThread.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
@@ -17,55 +16,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $WindowsSelectorImpl = ::sun::nio::ch::WindowsSelectorImpl;
-using $WindowsSelectorImpl$FinishLock = ::sun::nio::ch::WindowsSelectorImpl$FinishLock;
-using $WindowsSelectorImpl$StartLock = ::sun::nio::ch::WindowsSelectorImpl$StartLock;
 using $WindowsSelectorImpl$SubSelector = ::sun::nio::ch::WindowsSelectorImpl$SubSelector;
 
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _WindowsSelectorImpl$SelectThread_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/ch/WindowsSelectorImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsSelectorImpl$SelectThread, this$0)},
-	{"index", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SelectThread, index)},
-	{"subSelector", "Lsun/nio/ch/WindowsSelectorImpl$SubSelector;", nullptr, $FINAL, $field(WindowsSelectorImpl$SelectThread, subSelector)},
-	{"lastRun", "J", nullptr, $PRIVATE, $field(WindowsSelectorImpl$SelectThread, lastRun)},
-	{"zombie", "Z", nullptr, $PRIVATE | $VOLATILE, $field(WindowsSelectorImpl$SelectThread, zombie)},
-	{}
-};
-
-$MethodInfo _WindowsSelectorImpl$SelectThread_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;I)V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SelectThread, init$, void, $WindowsSelectorImpl*, int32_t)},
-	{"isZombie", "()Z", nullptr, 0, $method(WindowsSelectorImpl$SelectThread, isZombie, bool)},
-	{"makeZombie", "()V", nullptr, 0, $method(WindowsSelectorImpl$SelectThread, makeZombie, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsSelectorImpl$SelectThread, run, void)},
-	{}
-};
-
-$InnerClassInfo _WindowsSelectorImpl$SelectThread_InnerClassesInfo_[] = {
-	{"sun.nio.ch.WindowsSelectorImpl$SelectThread", "sun.nio.ch.WindowsSelectorImpl", "SelectThread", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _WindowsSelectorImpl$SelectThread_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.nio.ch.WindowsSelectorImpl$SelectThread",
-	"java.lang.Thread",
-	nullptr,
-	_WindowsSelectorImpl$SelectThread_FieldInfo_,
-	_WindowsSelectorImpl$SelectThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsSelectorImpl$SelectThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.WindowsSelectorImpl"
-};
-
-$Object* allocate$WindowsSelectorImpl$SelectThread($Class* clazz) {
-	return $of($alloc(WindowsSelectorImpl$SelectThread));
-}
 
 void WindowsSelectorImpl$SelectThread::init$($WindowsSelectorImpl* this$0, int32_t i) {
 	$set(this, this$0, this$0);
@@ -103,7 +58,43 @@ WindowsSelectorImpl$SelectThread::WindowsSelectorImpl$SelectThread() {
 }
 
 $Class* WindowsSelectorImpl$SelectThread::load$($String* name, bool initialize) {
-	$loadClass(WindowsSelectorImpl$SelectThread, name, initialize, &_WindowsSelectorImpl$SelectThread_ClassInfo_, allocate$WindowsSelectorImpl$SelectThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/ch/WindowsSelectorImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsSelectorImpl$SelectThread, this$0)},
+		{"index", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsSelectorImpl$SelectThread, index)},
+		{"subSelector", "Lsun/nio/ch/WindowsSelectorImpl$SubSelector;", nullptr, $FINAL, $field(WindowsSelectorImpl$SelectThread, subSelector)},
+		{"lastRun", "J", nullptr, $PRIVATE, $field(WindowsSelectorImpl$SelectThread, lastRun)},
+		{"zombie", "Z", nullptr, $PRIVATE | $VOLATILE, $field(WindowsSelectorImpl$SelectThread, zombie)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;I)V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SelectThread, init$, void, $WindowsSelectorImpl*, int32_t)},
+		{"isZombie", "()Z", nullptr, 0, $method(WindowsSelectorImpl$SelectThread, isZombie, bool)},
+		{"makeZombie", "()V", nullptr, 0, $method(WindowsSelectorImpl$SelectThread, makeZombie, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsSelectorImpl$SelectThread, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.WindowsSelectorImpl$SelectThread", "sun.nio.ch.WindowsSelectorImpl", "SelectThread", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.nio.ch.WindowsSelectorImpl$SelectThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.WindowsSelectorImpl"
+	};
+	$loadClass(WindowsSelectorImpl$SelectThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsSelectorImpl$SelectThread);
+	});
 	return class$;
 }
 

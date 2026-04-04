@@ -1,5 +1,4 @@
 #include <sun/security/x509/AuthorityInfoAccessExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/ArrayList.h>
@@ -30,7 +29,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AccessDescription = ::sun::security::x509::AccessDescription;
@@ -41,47 +39,6 @@ using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _AuthorityInfoAccessExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityInfoAccessExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityInfoAccessExtension, NAME)},
-	{"DESCRIPTIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityInfoAccessExtension, DESCRIPTIONS)},
-	{"accessDescriptions", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/AccessDescription;>;", $PRIVATE, $field(AuthorityInfoAccessExtension, accessDescriptions)},
-	{}
-};
-
-$MethodInfo _AuthorityInfoAccessExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/x509/AccessDescription;>;)V", $PUBLIC, $method(AuthorityInfoAccessExtension, init$, void, $List*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AuthorityInfoAccessExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(AuthorityInfoAccessExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/security/x509/AccessDescription;>;", $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getAccessDescriptions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/AccessDescription;>;", $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, getAccessDescriptions, $List*)},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AuthorityInfoAccessExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.AuthorityInfoAccessExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_AuthorityInfoAccessExtension_FieldInfo_,
-	_AuthorityInfoAccessExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$AuthorityInfoAccessExtension($Class* clazz) {
-	return $of($alloc(AuthorityInfoAccessExtension));
-}
 
 int32_t AuthorityInfoAccessExtension::hashCode() {
 	 return this->$Extension::hashCode();
@@ -113,7 +70,7 @@ void AuthorityInfoAccessExtension::init$($List* accessDescriptions) {
 }
 
 void AuthorityInfoAccessExtension::init$($Boolean* critical, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$();
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::AuthInfoAccess_Id);
@@ -128,9 +85,9 @@ void AuthorityInfoAccessExtension::init$($Boolean* critical, Object$* value) {
 	}
 	$set(this, accessDescriptions, $new($ArrayList));
 	while ($nc(val->data$)->available() != 0) {
-		$var($DerValue, seq, $nc(val->data$)->getDerValue());
+		$var($DerValue, seq, val->data$->getDerValue());
 		$var($AccessDescription, accessDescription, $new($AccessDescription, seq));
-		$nc(this->accessDescriptions)->add(accessDescription);
+		this->accessDescriptions->add(accessDescription);
 	}
 }
 
@@ -143,7 +100,7 @@ $String* AuthorityInfoAccessExtension::getName() {
 }
 
 void AuthorityInfoAccessExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -169,7 +126,7 @@ void AuthorityInfoAccessExtension::set($String* name, Object$* obj) {
 
 $Object* AuthorityInfoAccessExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(AuthorityInfoAccessExtension::DESCRIPTIONS)) {
-		return $of(this->accessDescriptions);
+		return this->accessDescriptions;
 	} else {
 		$throwNew($IOException, $$str({"Attribute name ["_s, name, "] not recognized by CertAttrSet:AuthorityInfoAccessExtension."_s}));
 	}
@@ -191,13 +148,13 @@ $Enumeration* AuthorityInfoAccessExtension::getElements() {
 }
 
 void AuthorityInfoAccessExtension::encodeThis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->accessDescriptions)->isEmpty()) {
 		$set(this, extensionValue, nullptr);
 	} else {
 		$var($DerOutputStream, ads, $new($DerOutputStream));
 		{
-			$var($Iterator, i$, $nc(this->accessDescriptions)->iterator());
+			$var($Iterator, i$, this->accessDescriptions->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($AccessDescription, accessDescription, $cast($AccessDescription, i$->next()));
 				{
@@ -218,14 +175,50 @@ $String* AuthorityInfoAccessExtension::toString() {
 AuthorityInfoAccessExtension::AuthorityInfoAccessExtension() {
 }
 
-void clinit$AuthorityInfoAccessExtension($Class* class$) {
+void AuthorityInfoAccessExtension::clinit$($Class* clazz) {
 	$assignStatic(AuthorityInfoAccessExtension::IDENT, "x509.info.extensions.AuthorityInfoAccess"_s);
 	$assignStatic(AuthorityInfoAccessExtension::NAME, "AuthorityInfoAccess"_s);
 	$assignStatic(AuthorityInfoAccessExtension::DESCRIPTIONS, "descriptions"_s);
 }
 
 $Class* AuthorityInfoAccessExtension::load$($String* name, bool initialize) {
-	$loadClass(AuthorityInfoAccessExtension, name, initialize, &_AuthorityInfoAccessExtension_ClassInfo_, clinit$AuthorityInfoAccessExtension, allocate$AuthorityInfoAccessExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityInfoAccessExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityInfoAccessExtension, NAME)},
+		{"DESCRIPTIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AuthorityInfoAccessExtension, DESCRIPTIONS)},
+		{"accessDescriptions", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/AccessDescription;>;", $PRIVATE, $field(AuthorityInfoAccessExtension, accessDescriptions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/x509/AccessDescription;>;)V", $PUBLIC, $method(AuthorityInfoAccessExtension, init$, void, $List*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AuthorityInfoAccessExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(AuthorityInfoAccessExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/security/x509/AccessDescription;>;", $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getAccessDescriptions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/AccessDescription;>;", $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, getAccessDescriptions, $List*)},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorityInfoAccessExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.AuthorityInfoAccessExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(AuthorityInfoAccessExtension, name, initialize, &classInfo$$, AuthorityInfoAccessExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AuthorityInfoAccessExtension));
+	});
 	return class$;
 }
 

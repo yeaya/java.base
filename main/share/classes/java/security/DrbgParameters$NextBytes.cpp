@@ -1,5 +1,4 @@
 #include <java/security/DrbgParameters$NextBytes.h>
-
 #include <java/security/DrbgParameters.h>
 #include <jcpp.h>
 
@@ -12,46 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace security {
 
-$FieldInfo _DrbgParameters$NextBytes_FieldInfo_[] = {
-	{"strength", "I", nullptr, $PRIVATE | $FINAL, $field(DrbgParameters$NextBytes, strength)},
-	{"predictionResistance", "Z", nullptr, $PRIVATE | $FINAL, $field(DrbgParameters$NextBytes, predictionResistance)},
-	{"additionalInput", "[B", nullptr, $PRIVATE | $FINAL, $field(DrbgParameters$NextBytes, additionalInput)},
-	{}
-};
-
-$MethodInfo _DrbgParameters$NextBytes_MethodInfo_[] = {
-	{"<init>", "(IZ[B)V", nullptr, $PRIVATE, $method(DrbgParameters$NextBytes, init$, void, int32_t, bool, $bytes*)},
-	{"getAdditionalInput", "()[B", nullptr, $PUBLIC, $method(DrbgParameters$NextBytes, getAdditionalInput, $bytes*)},
-	{"getPredictionResistance", "()Z", nullptr, $PUBLIC, $method(DrbgParameters$NextBytes, getPredictionResistance, bool)},
-	{"getStrength", "()I", nullptr, $PUBLIC, $method(DrbgParameters$NextBytes, getStrength, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DrbgParameters$NextBytes_InnerClassesInfo_[] = {
-	{"java.security.DrbgParameters$NextBytes", "java.security.DrbgParameters", "NextBytes", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DrbgParameters$NextBytes_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.security.DrbgParameters$NextBytes",
-	"java.lang.Object",
-	"java.security.SecureRandomParameters",
-	_DrbgParameters$NextBytes_FieldInfo_,
-	_DrbgParameters$NextBytes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrbgParameters$NextBytes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.DrbgParameters"
-};
-
-$Object* allocate$DrbgParameters$NextBytes($Class* clazz) {
-	return $of($alloc(DrbgParameters$NextBytes));
-}
-
 int32_t DrbgParameters$NextBytes::getStrength() {
 	return this->strength;
 }
@@ -61,24 +20,58 @@ bool DrbgParameters$NextBytes::getPredictionResistance() {
 }
 
 $bytes* DrbgParameters$NextBytes::getAdditionalInput() {
-	return this->additionalInput == nullptr ? ($bytes*)nullptr : $cast($bytes, $nc(this->additionalInput)->clone());
+	return this->additionalInput == nullptr ? ($bytes*)nullptr : $cast($bytes, this->additionalInput->clone());
 }
 
 void DrbgParameters$NextBytes::init$(int32_t strength, bool predictionResistance, $bytes* additionalInput) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (strength < -1) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal security strength: "_s, $$str(strength)}));
 	}
 	this->strength = strength;
 	this->predictionResistance = predictionResistance;
-	$set(this, additionalInput, (additionalInput == nullptr) ? ($bytes*)nullptr : $cast($bytes, $nc(additionalInput)->clone()));
+	$set(this, additionalInput, (additionalInput == nullptr) ? ($bytes*)nullptr : $cast($bytes, additionalInput->clone()));
 }
 
 DrbgParameters$NextBytes::DrbgParameters$NextBytes() {
 }
 
 $Class* DrbgParameters$NextBytes::load$($String* name, bool initialize) {
-	$loadClass(DrbgParameters$NextBytes, name, initialize, &_DrbgParameters$NextBytes_ClassInfo_, allocate$DrbgParameters$NextBytes);
+	$FieldInfo fieldInfos$$[] = {
+		{"strength", "I", nullptr, $PRIVATE | $FINAL, $field(DrbgParameters$NextBytes, strength)},
+		{"predictionResistance", "Z", nullptr, $PRIVATE | $FINAL, $field(DrbgParameters$NextBytes, predictionResistance)},
+		{"additionalInput", "[B", nullptr, $PRIVATE | $FINAL, $field(DrbgParameters$NextBytes, additionalInput)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IZ[B)V", nullptr, $PRIVATE, $method(DrbgParameters$NextBytes, init$, void, int32_t, bool, $bytes*)},
+		{"getAdditionalInput", "()[B", nullptr, $PUBLIC, $method(DrbgParameters$NextBytes, getAdditionalInput, $bytes*)},
+		{"getPredictionResistance", "()Z", nullptr, $PUBLIC, $method(DrbgParameters$NextBytes, getPredictionResistance, bool)},
+		{"getStrength", "()I", nullptr, $PUBLIC, $method(DrbgParameters$NextBytes, getStrength, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.DrbgParameters$NextBytes", "java.security.DrbgParameters", "NextBytes", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.security.DrbgParameters$NextBytes",
+		"java.lang.Object",
+		"java.security.SecureRandomParameters",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.DrbgParameters"
+	};
+	$loadClass(DrbgParameters$NextBytes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DrbgParameters$NextBytes);
+	});
 	return class$;
 }
 

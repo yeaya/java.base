@@ -1,5 +1,4 @@
 #include <InheritedInterfaceMethods.h>
-
 #include <InheritedInterfaceMethodsC.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
@@ -9,38 +8,18 @@ using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Method = ::java::lang::reflect::Method;
-
-$MethodInfo _InheritedInterfaceMethods_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedInterfaceMethods, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritedInterfaceMethods, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _InheritedInterfaceMethods_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"InheritedInterfaceMethods",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_InheritedInterfaceMethods_MethodInfo_
-};
-
-$Object* allocate$InheritedInterfaceMethods($Class* clazz) {
-	return $of($alloc(InheritedInterfaceMethods));
-}
 
 void InheritedInterfaceMethods::init$() {
 }
 
 void InheritedInterfaceMethods::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(InheritedInterfaceMethods);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($InheritedInterfaceMethodsC);
 	$var($MethodArray, methods, $InheritedInterfaceMethodsC::class$->getMethods());
 	for (int32_t i = 0; i < $nc(methods)->length; ++i) {
-		if ($nc($($nc(methods->get(i))->getName()))->equals("a"_s)) {
+		if ($$nc($nc(methods->get(i))->getName())->equals("a"_s)) {
 			return;
 		}
 	}
@@ -51,7 +30,22 @@ InheritedInterfaceMethods::InheritedInterfaceMethods() {
 }
 
 $Class* InheritedInterfaceMethods::load$($String* name, bool initialize) {
-	$loadClass(InheritedInterfaceMethods, name, initialize, &_InheritedInterfaceMethods_ClassInfo_, allocate$InheritedInterfaceMethods);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedInterfaceMethods, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritedInterfaceMethods, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"InheritedInterfaceMethods",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InheritedInterfaceMethods, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InheritedInterfaceMethods);
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ class EncryptedExtensions : public ::java::lang::Object {
 	$class(EncryptedExtensions, 0, ::java::lang::Object)
 public:
 	EncryptedExtensions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::HandshakeProducer* handshakeProducer;
 	static ::sun::security::ssl::SSLConsumer* handshakeConsumer;

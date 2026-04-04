@@ -1,5 +1,4 @@
 #include <java/nio/channels/Channels$ReadableByteChannelImpl.h>
-
 #include <java/io/InputStream.h>
 #include <java/lang/Math.h>
 #include <java/nio/ByteBuffer.h>
@@ -23,53 +22,6 @@ using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterr
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _Channels$ReadableByteChannelImpl_FieldInfo_[] = {
-	{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(Channels$ReadableByteChannelImpl, in)},
-	{"TRANSFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Channels$ReadableByteChannelImpl, TRANSFER_SIZE)},
-	{"buf", "[B", nullptr, $PRIVATE, $field(Channels$ReadableByteChannelImpl, buf)},
-	{"readLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Channels$ReadableByteChannelImpl, readLock)},
-	{}
-};
-
-$MethodInfo _Channels$ReadableByteChannelImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(Channels$ReadableByteChannelImpl, init$, void, $InputStream*)},
-	{"implCloseChannel", "()V", nullptr, $PROTECTED, $virtualMethod(Channels$ReadableByteChannelImpl, implCloseChannel, void), "java.io.IOException"},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Channels$ReadableByteChannelImpl, read, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Channels$ReadableByteChannelImpl_InnerClassesInfo_[] = {
-	{"java.nio.channels.Channels$ReadableByteChannelImpl", "java.nio.channels.Channels", "ReadableByteChannelImpl", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Channels$ReadableByteChannelImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.channels.Channels$ReadableByteChannelImpl",
-	"java.nio.channels.spi.AbstractInterruptibleChannel",
-	"java.nio.channels.ReadableByteChannel",
-	_Channels$ReadableByteChannelImpl_FieldInfo_,
-	_Channels$ReadableByteChannelImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Channels$ReadableByteChannelImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.channels.Channels"
-};
-
-$Object* allocate$Channels$ReadableByteChannelImpl($Class* clazz) {
-	return $of($alloc(Channels$ReadableByteChannelImpl));
-}
 
 void Channels$ReadableByteChannelImpl::close() {
 	this->$AbstractInterruptibleChannel::close();
@@ -107,7 +59,7 @@ void Channels$ReadableByteChannelImpl::init$($InputStream* in) {
 }
 
 int32_t Channels$ReadableByteChannelImpl::read($ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isOpen()) {
 		$throwNew($ClosedChannelException);
 	}
@@ -123,19 +75,17 @@ int32_t Channels$ReadableByteChannelImpl::read($ByteBuffer* dst) {
 			if ((totalRead > 0) && !($nc(this->in)->available() > 0)) {
 				break;
 			}
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					begin();
-					bytesRead = $nc(this->in)->read(this->buf, 0, bytesToRead);
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					end(bytesRead > 0);
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			$var($Throwable, var$0, nullptr);
+			try {
+				begin();
+				bytesRead = $nc(this->in)->read(this->buf, 0, bytesToRead);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				end(bytesRead > 0);
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 			if (bytesRead < 0) {
 				break;
@@ -159,7 +109,48 @@ Channels$ReadableByteChannelImpl::Channels$ReadableByteChannelImpl() {
 }
 
 $Class* Channels$ReadableByteChannelImpl::load$($String* name, bool initialize) {
-	$loadClass(Channels$ReadableByteChannelImpl, name, initialize, &_Channels$ReadableByteChannelImpl_ClassInfo_, allocate$Channels$ReadableByteChannelImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(Channels$ReadableByteChannelImpl, in)},
+		{"TRANSFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Channels$ReadableByteChannelImpl, TRANSFER_SIZE)},
+		{"buf", "[B", nullptr, $PRIVATE, $field(Channels$ReadableByteChannelImpl, buf)},
+		{"readLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Channels$ReadableByteChannelImpl, readLock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(Channels$ReadableByteChannelImpl, init$, void, $InputStream*)},
+		{"implCloseChannel", "()V", nullptr, $PROTECTED, $virtualMethod(Channels$ReadableByteChannelImpl, implCloseChannel, void), "java.io.IOException"},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Channels$ReadableByteChannelImpl, read, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.channels.Channels$ReadableByteChannelImpl", "java.nio.channels.Channels", "ReadableByteChannelImpl", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.channels.Channels$ReadableByteChannelImpl",
+		"java.nio.channels.spi.AbstractInterruptibleChannel",
+		"java.nio.channels.ReadableByteChannel",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.channels.Channels"
+	};
+	$loadClass(Channels$ReadableByteChannelImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Channels$ReadableByteChannelImpl));
+	});
 	return class$;
 }
 

@@ -49,6 +49,7 @@ class $export Striped64 : public ::java::lang::Number {
 	$class(Striped64, 0, ::java::lang::Number)
 public:
 	Striped64();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t advanceProbe(int32_t probe);
 	static int64_t apply(::java::util::function::DoubleBinaryOperator* fn, int64_t v, double x);

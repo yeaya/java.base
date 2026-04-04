@@ -1,5 +1,4 @@
 #include <java/lang/IllegalAccessError.h>
-
 #include <java/lang/IncompatibleClassChangeError.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _IllegalAccessError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalAccessError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IllegalAccessError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalAccessError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalAccessError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _IllegalAccessError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.IllegalAccessError",
-	"java.lang.IncompatibleClassChangeError",
-	nullptr,
-	_IllegalAccessError_FieldInfo_,
-	_IllegalAccessError_MethodInfo_
-};
-
-$Object* allocate$IllegalAccessError($Class* clazz) {
-	return $of($alloc(IllegalAccessError));
-}
 
 void IllegalAccessError::init$() {
 	$IncompatibleClassChangeError::init$();
@@ -54,7 +29,26 @@ void IllegalAccessError::throw$() {
 }
 
 $Class* IllegalAccessError::load$($String* name, bool initialize) {
-	$loadClass(IllegalAccessError, name, initialize, &_IllegalAccessError_ClassInfo_, allocate$IllegalAccessError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalAccessError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalAccessError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalAccessError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.IllegalAccessError",
+		"java.lang.IncompatibleClassChangeError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalAccessError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalAccessError);
+	});
 	return class$;
 }
 

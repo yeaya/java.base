@@ -1,5 +1,4 @@
 #include <java/util/Collections$CheckedNavigableMap.h>
-
 #include <java/util/Collection.h>
 #include <java/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry.h>
 #include <java/util/Collections$CheckedMap.h>
@@ -38,95 +37,6 @@ using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$CheckedNavigableMap_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CheckedNavigableMap, serialVersionUID)},
-	{"nm", "Ljava/util/NavigableMap;", "Ljava/util/NavigableMap<TK;TV;>;", $PRIVATE | $FINAL, $field(Collections$CheckedNavigableMap, nm)},
-	{}
-};
-
-$MethodInfo _Collections$CheckedNavigableMap_MethodInfo_[] = {
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC},
-	{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/NavigableMap;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/util/NavigableMap<TK;TV;>;Ljava/lang/Class<TK;>;Ljava/lang/Class<TV;>;)V", 0, $method(Collections$CheckedNavigableMap, init$, void, $NavigableMap*, $Class*, $Class*)},
-	{"ceilingEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, ceilingEntry, $Map$Entry*, Object$*)},
-	{"ceilingKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, ceilingKey, $Object*, Object$*)},
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, comparator, $Comparator*)},
-	{"descendingKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, descendingKeySet, $NavigableSet*)},
-	{"descendingMap", "()Ljava/util/NavigableMap;", "()Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, descendingMap, $NavigableMap*)},
-	{"firstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, firstEntry, $Map$Entry*)},
-	{"firstKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, firstKey, $Object*)},
-	{"floorEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, floorEntry, $Map$Entry*, Object$*)},
-	{"floorKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, floorKey, $Object*, Object$*)},
-	{"headMap", "(Ljava/lang/Object;)Ljava/util/NavigableMap;", "(TK;)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, headMap, $SortedMap*, Object$*)},
-	{"headMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, headMap, $NavigableMap*, Object$*, bool)},
-	{"higherEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, higherEntry, $Map$Entry*, Object$*)},
-	{"higherKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, higherKey, $Object*, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"keySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, keySet, $Set*)},
-	{"lastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, lastEntry, $Map$Entry*)},
-	{"lastKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, lastKey, $Object*)},
-	{"lowerEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, lowerEntry, $Map$Entry*, Object$*)},
-	{"lowerKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, lowerKey, $Object*, Object$*)},
-	{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"navigableKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, navigableKeySet, $NavigableSet*)},
-	{"pollFirstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, pollFirstEntry, $Map$Entry*)},
-	{"pollLastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, pollLastEntry, $Map$Entry*)},
-	{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
-	{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/NavigableMap;", "(TK;TK;)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, subMap, $SortedMap*, Object$*, Object$*)},
-	{"subMap", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;ZTK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, subMap, $NavigableMap*, Object$*, bool, Object$*, bool)},
-	{"tailMap", "(Ljava/lang/Object;)Ljava/util/NavigableMap;", "(TK;)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, tailMap, $SortedMap*, Object$*)},
-	{"tailMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, tailMap, $NavigableMap*, Object$*, bool)},
-	{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$CheckedNavigableMap_InnerClassesInfo_[] = {
-	{"java.util.Collections$CheckedNavigableMap", "java.util.Collections", "CheckedNavigableMap", $STATIC},
-	{"java.util.Collections$CheckedSortedMap", "java.util.Collections", "CheckedSortedMap", $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$CheckedNavigableMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$CheckedNavigableMap",
-	"java.util.Collections$CheckedSortedMap",
-	"java.util.NavigableMap",
-	_Collections$CheckedNavigableMap_FieldInfo_,
-	_Collections$CheckedNavigableMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$CheckedSortedMap<TK;TV;>;Ljava/util/NavigableMap<TK;TV;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$CheckedNavigableMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$CheckedNavigableMap($Class* clazz) {
-	return $of($alloc(Collections$CheckedNavigableMap));
-}
 
 int32_t Collections$CheckedNavigableMap::size() {
 	 return this->$Collections$CheckedSortedMap::size();
@@ -246,67 +156,67 @@ $Comparator* Collections$CheckedNavigableMap::comparator() {
 }
 
 $Object* Collections$CheckedNavigableMap::firstKey() {
-	return $of($nc(this->nm)->firstKey());
+	return $nc(this->nm)->firstKey();
 }
 
 $Object* Collections$CheckedNavigableMap::lastKey() {
-	return $of($nc(this->nm)->lastKey());
+	return $nc(this->nm)->lastKey();
 }
 
 $Map$Entry* Collections$CheckedNavigableMap::lowerEntry(Object$* key) {
 	$var($Map$Entry, lower, $nc(this->nm)->lowerEntry(key));
-	return (nullptr != lower) ? static_cast<$Map$Entry*>($new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, lower, this->valueType)) : ($Map$Entry*)nullptr;
+	return (nullptr != lower) ? $cast($Map$Entry, $new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, lower, this->valueType)) : ($Map$Entry*)nullptr;
 }
 
 $Object* Collections$CheckedNavigableMap::lowerKey(Object$* key) {
-	return $of($nc(this->nm)->lowerKey(key));
+	return $nc(this->nm)->lowerKey(key);
 }
 
 $Map$Entry* Collections$CheckedNavigableMap::floorEntry(Object$* key) {
 	$var($Map$Entry, floor, $nc(this->nm)->floorEntry(key));
-	return (nullptr != floor) ? static_cast<$Map$Entry*>($new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, floor, this->valueType)) : ($Map$Entry*)nullptr;
+	return (nullptr != floor) ? $cast($Map$Entry, $new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, floor, this->valueType)) : ($Map$Entry*)nullptr;
 }
 
 $Object* Collections$CheckedNavigableMap::floorKey(Object$* key) {
-	return $of($nc(this->nm)->floorKey(key));
+	return $nc(this->nm)->floorKey(key);
 }
 
 $Map$Entry* Collections$CheckedNavigableMap::ceilingEntry(Object$* key) {
 	$var($Map$Entry, ceiling, $nc(this->nm)->ceilingEntry(key));
-	return (nullptr != ceiling) ? static_cast<$Map$Entry*>($new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, ceiling, this->valueType)) : ($Map$Entry*)nullptr;
+	return (nullptr != ceiling) ? $cast($Map$Entry, $new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, ceiling, this->valueType)) : ($Map$Entry*)nullptr;
 }
 
 $Object* Collections$CheckedNavigableMap::ceilingKey(Object$* key) {
-	return $of($nc(this->nm)->ceilingKey(key));
+	return $nc(this->nm)->ceilingKey(key);
 }
 
 $Map$Entry* Collections$CheckedNavigableMap::higherEntry(Object$* key) {
 	$var($Map$Entry, higher, $nc(this->nm)->higherEntry(key));
-	return (nullptr != higher) ? static_cast<$Map$Entry*>($new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, higher, this->valueType)) : ($Map$Entry*)nullptr;
+	return (nullptr != higher) ? $cast($Map$Entry, $new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, higher, this->valueType)) : ($Map$Entry*)nullptr;
 }
 
 $Object* Collections$CheckedNavigableMap::higherKey(Object$* key) {
-	return $of($nc(this->nm)->higherKey(key));
+	return $nc(this->nm)->higherKey(key);
 }
 
 $Map$Entry* Collections$CheckedNavigableMap::firstEntry() {
 	$var($Map$Entry, first, $nc(this->nm)->firstEntry());
-	return (nullptr != first) ? static_cast<$Map$Entry*>($new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, first, this->valueType)) : ($Map$Entry*)nullptr;
+	return (nullptr != first) ? $cast($Map$Entry, $new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, first, this->valueType)) : ($Map$Entry*)nullptr;
 }
 
 $Map$Entry* Collections$CheckedNavigableMap::lastEntry() {
 	$var($Map$Entry, last, $nc(this->nm)->lastEntry());
-	return (nullptr != last) ? static_cast<$Map$Entry*>($new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, last, this->valueType)) : ($Map$Entry*)nullptr;
+	return (nullptr != last) ? $cast($Map$Entry, $new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, last, this->valueType)) : ($Map$Entry*)nullptr;
 }
 
 $Map$Entry* Collections$CheckedNavigableMap::pollFirstEntry() {
 	$var($Map$Entry, entry, $nc(this->nm)->pollFirstEntry());
-	return (nullptr == entry) ? ($Map$Entry*)nullptr : static_cast<$Map$Entry*>($new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, entry, this->valueType));
+	return (nullptr == entry) ? ($Map$Entry*)nullptr : $cast($Map$Entry, $new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, entry, this->valueType));
 }
 
 $Map$Entry* Collections$CheckedNavigableMap::pollLastEntry() {
 	$var($Map$Entry, entry, $nc(this->nm)->pollLastEntry());
-	return (nullptr == entry) ? ($Map$Entry*)nullptr : static_cast<$Map$Entry*>($new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, entry, this->valueType));
+	return (nullptr == entry) ? ($Map$Entry*)nullptr : $cast($Map$Entry, $new($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, entry, this->valueType));
 }
 
 $NavigableMap* Collections$CheckedNavigableMap::descendingMap() {
@@ -353,7 +263,90 @@ Collections$CheckedNavigableMap::Collections$CheckedNavigableMap() {
 }
 
 $Class* Collections$CheckedNavigableMap::load$($String* name, bool initialize) {
-	$loadClass(Collections$CheckedNavigableMap, name, initialize, &_Collections$CheckedNavigableMap_ClassInfo_, allocate$Collections$CheckedNavigableMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CheckedNavigableMap, serialVersionUID)},
+		{"nm", "Ljava/util/NavigableMap;", "Ljava/util/NavigableMap<TK;TV;>;", $PRIVATE | $FINAL, $field(Collections$CheckedNavigableMap, nm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC},
+		{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/NavigableMap;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/util/NavigableMap<TK;TV;>;Ljava/lang/Class<TK;>;Ljava/lang/Class<TV;>;)V", 0, $method(Collections$CheckedNavigableMap, init$, void, $NavigableMap*, $Class*, $Class*)},
+		{"ceilingEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, ceilingEntry, $Map$Entry*, Object$*)},
+		{"ceilingKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, ceilingKey, $Object*, Object$*)},
+		{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, comparator, $Comparator*)},
+		{"descendingKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, descendingKeySet, $NavigableSet*)},
+		{"descendingMap", "()Ljava/util/NavigableMap;", "()Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, descendingMap, $NavigableMap*)},
+		{"firstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, firstEntry, $Map$Entry*)},
+		{"firstKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, firstKey, $Object*)},
+		{"floorEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, floorEntry, $Map$Entry*, Object$*)},
+		{"floorKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, floorKey, $Object*, Object$*)},
+		{"headMap", "(Ljava/lang/Object;)Ljava/util/NavigableMap;", "(TK;)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, headMap, $SortedMap*, Object$*)},
+		{"headMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, headMap, $NavigableMap*, Object$*, bool)},
+		{"higherEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, higherEntry, $Map$Entry*, Object$*)},
+		{"higherKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, higherKey, $Object*, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"keySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, keySet, $Set*)},
+		{"lastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, lastEntry, $Map$Entry*)},
+		{"lastKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, lastKey, $Object*)},
+		{"lowerEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, lowerEntry, $Map$Entry*, Object$*)},
+		{"lowerKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, lowerKey, $Object*, Object$*)},
+		{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"navigableKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, navigableKeySet, $NavigableSet*)},
+		{"pollFirstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, pollFirstEntry, $Map$Entry*)},
+		{"pollLastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, pollLastEntry, $Map$Entry*)},
+		{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
+		{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/NavigableMap;", "(TK;TK;)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, subMap, $SortedMap*, Object$*, Object$*)},
+		{"subMap", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;ZTK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, subMap, $NavigableMap*, Object$*, bool, Object$*, bool)},
+		{"tailMap", "(Ljava/lang/Object;)Ljava/util/NavigableMap;", "(TK;)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, tailMap, $SortedMap*, Object$*)},
+		{"tailMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedNavigableMap, tailMap, $NavigableMap*, Object$*, bool)},
+		{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$CheckedNavigableMap", "java.util.Collections", "CheckedNavigableMap", $STATIC},
+		{"java.util.Collections$CheckedSortedMap", "java.util.Collections", "CheckedSortedMap", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$CheckedNavigableMap",
+		"java.util.Collections$CheckedSortedMap",
+		"java.util.NavigableMap",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$CheckedSortedMap<TK;TV;>;Ljava/util/NavigableMap<TK;TV;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$CheckedNavigableMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$CheckedNavigableMap));
+	});
 	return class$;
 }
 

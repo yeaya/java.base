@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/NumberFormatProviderImpl.h>
-
 #include <java/lang/Math.h>
 #include <java/text/CompactNumberFormat.h>
 #include <java/text/DecimalFormat.h>
@@ -50,50 +49,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _NumberFormatProviderImpl_FieldInfo_[] = {
-	{"NUMBERSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormatProviderImpl, NUMBERSTYLE)},
-	{"CURRENCYSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormatProviderImpl, CURRENCYSTYLE)},
-	{"PERCENTSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormatProviderImpl, PERCENTSTYLE)},
-	{"ACCOUNTINGSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormatProviderImpl, ACCOUNTINGSTYLE)},
-	{"INTEGERSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormatProviderImpl, INTEGERSTYLE)},
-	{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(NumberFormatProviderImpl, type)},
-	{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(NumberFormatProviderImpl, langtags)},
-	{}
-};
-
-$MethodInfo _NumberFormatProviderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(NumberFormatProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
-	{"adjustForCurrencyDefaultFractionDigits", "(Ljava/text/DecimalFormat;Ljava/text/DecimalFormatSymbols;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NumberFormatProviderImpl, adjustForCurrencyDefaultFractionDigits, void, $DecimalFormat*, $DecimalFormatSymbols*)},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getAvailableLanguageTags, $Set*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getAvailableLocales, $LocaleArray*)},
-	{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getCompactNumberInstance, $NumberFormat*, $Locale*, $NumberFormat$Style*)},
-	{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getCurrencyInstance, $NumberFormat*, $Locale*)},
-	{"getInstance", "(Ljava/util/Locale;I)Ljava/text/NumberFormat;", nullptr, $PRIVATE, $method(NumberFormatProviderImpl, getInstance, $NumberFormat*, $Locale*, int32_t)},
-	{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getIntegerInstance, $NumberFormat*, $Locale*)},
-	{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getNumberInstance, $NumberFormat*, $Locale*)},
-	{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getPercentInstance, $NumberFormat*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _NumberFormatProviderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.NumberFormatProviderImpl",
-	"java.text.spi.NumberFormatProvider",
-	"sun.util.locale.provider.AvailableLanguageTags",
-	_NumberFormatProviderImpl_FieldInfo_,
-	_NumberFormatProviderImpl_MethodInfo_
-};
-
-$Object* allocate$NumberFormatProviderImpl($Class* clazz) {
-	return $of($alloc(NumberFormatProviderImpl));
-}
-
 int32_t NumberFormatProviderImpl::hashCode() {
 	 return this->$NumberFormatProvider::hashCode();
 }
@@ -121,11 +76,11 @@ void NumberFormatProviderImpl::init$($LocaleProviderAdapter$Type* type, $Set* la
 }
 
 $LocaleArray* NumberFormatProviderImpl::getAvailableLocales() {
-	return $nc($($LocaleProviderAdapter::forType(this->type)))->getAvailableLocales();
+	return $$nc($LocaleProviderAdapter::forType(this->type))->getAvailableLocales();
 }
 
 bool NumberFormatProviderImpl::isSupportedLocale($Locale* locale) {
-	return $nc($($LocaleProviderAdapter::forType(this->type)))->isSupportedProviderLocale(locale, this->langtags);
+	return $$nc($LocaleProviderAdapter::forType(this->type))->isSupportedProviderLocale(locale, this->langtags);
 }
 
 $NumberFormat* NumberFormatProviderImpl::getCurrencyInstance($Locale* locale) {
@@ -145,13 +100,13 @@ $NumberFormat* NumberFormatProviderImpl::getPercentInstance($Locale* locale) {
 }
 
 $NumberFormat* NumberFormatProviderImpl::getInstance($Locale* locale, int32_t choice) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	$var($Locale, override$, $nc(locale)->getUnicodeLocaleType("nu"_s) == nullptr ? $CalendarDataUtility::findRegionOverride(locale) : locale);
 	$var($LocaleProviderAdapter, adapter, $LocaleProviderAdapter::forType(this->type));
-	$var($StringArray, numberPatterns, $nc($($nc(adapter)->getLocaleResources(override$)))->getNumberPatterns());
+	$var($StringArray, numberPatterns, $$nc($nc(adapter)->getLocaleResources(override$))->getNumberPatterns());
 	$var($DecimalFormatSymbols, symbols, $DecimalFormatSymbols::getInstance(override$));
 	int32_t entry = (choice == NumberFormatProviderImpl::INTEGERSTYLE) ? NumberFormatProviderImpl::NUMBERSTYLE : choice;
 	bool var$0 = choice == NumberFormatProviderImpl::CURRENCYSTYLE && $nc(numberPatterns)->length > NumberFormatProviderImpl::ACCOUNTINGSTYLE && !$nc(numberPatterns->get(NumberFormatProviderImpl::ACCOUNTINGSTYLE))->isEmpty();
@@ -171,7 +126,7 @@ $NumberFormat* NumberFormatProviderImpl::getInstance($Locale* locale, int32_t ch
 
 void NumberFormatProviderImpl::adjustForCurrencyDefaultFractionDigits($DecimalFormat* format, $DecimalFormatSymbols* symbols) {
 	$init(NumberFormatProviderImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Currency, currency, $nc(symbols)->getCurrency());
 	if (currency == nullptr) {
 		try {
@@ -195,7 +150,7 @@ void NumberFormatProviderImpl::adjustForCurrencyDefaultFractionDigits($DecimalFo
 }
 
 $NumberFormat* NumberFormatProviderImpl::getCompactNumberInstance($Locale* locale, $NumberFormat$Style* formatStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(locale);
 	$Objects::requireNonNull(formatStyle);
 	$var($Locale, override$, locale->getUnicodeLocaleType("nu"_s) == nullptr ? $CalendarDataUtility::findRegionOverride(locale) : locale);
@@ -216,7 +171,46 @@ NumberFormatProviderImpl::NumberFormatProviderImpl() {
 }
 
 $Class* NumberFormatProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(NumberFormatProviderImpl, name, initialize, &_NumberFormatProviderImpl_ClassInfo_, allocate$NumberFormatProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"NUMBERSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormatProviderImpl, NUMBERSTYLE)},
+		{"CURRENCYSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormatProviderImpl, CURRENCYSTYLE)},
+		{"PERCENTSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormatProviderImpl, PERCENTSTYLE)},
+		{"ACCOUNTINGSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormatProviderImpl, ACCOUNTINGSTYLE)},
+		{"INTEGERSTYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumberFormatProviderImpl, INTEGERSTYLE)},
+		{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(NumberFormatProviderImpl, type)},
+		{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(NumberFormatProviderImpl, langtags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(NumberFormatProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+		{"adjustForCurrencyDefaultFractionDigits", "(Ljava/text/DecimalFormat;Ljava/text/DecimalFormatSymbols;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NumberFormatProviderImpl, adjustForCurrencyDefaultFractionDigits, void, $DecimalFormat*, $DecimalFormatSymbols*)},
+		{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getAvailableLanguageTags, $Set*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getAvailableLocales, $LocaleArray*)},
+		{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getCompactNumberInstance, $NumberFormat*, $Locale*, $NumberFormat$Style*)},
+		{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getCurrencyInstance, $NumberFormat*, $Locale*)},
+		{"getInstance", "(Ljava/util/Locale;I)Ljava/text/NumberFormat;", nullptr, $PRIVATE, $method(NumberFormatProviderImpl, getInstance, $NumberFormat*, $Locale*, int32_t)},
+		{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getIntegerInstance, $NumberFormat*, $Locale*)},
+		{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getNumberInstance, $NumberFormat*, $Locale*)},
+		{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getPercentInstance, $NumberFormat*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.NumberFormatProviderImpl",
+		"java.text.spi.NumberFormatProvider",
+		"sun.util.locale.provider.AvailableLanguageTags",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NumberFormatProviderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NumberFormatProviderImpl));
+	});
 	return class$;
 }
 

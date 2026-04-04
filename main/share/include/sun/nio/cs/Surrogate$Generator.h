@@ -26,6 +26,7 @@ class $import Surrogate$Generator : public ::java::lang::Object {
 	$class(Surrogate$Generator, 0, ::java::lang::Object)
 public:
 	Surrogate$Generator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::nio::charset::CoderResult* error();
 	virtual int32_t generate(int32_t uc, int32_t len, ::java::nio::CharBuffer* dst);

@@ -1,5 +1,4 @@
 #include <java/security/DomainCombiner.h>
-
 #include <java/security/ProtectionDomain.h>
 #include <jcpp.h>
 
@@ -12,41 +11,35 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace security {
 
-$NamedAttribute DomainCombiner_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _DomainCombiner_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", DomainCombiner_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _DomainCombiner_MethodInfo_[] = {
-	{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DomainCombiner, combine, $ProtectionDomainArray*, $ProtectionDomainArray*, $ProtectionDomainArray*)},
-	{}
-};
-
-$ClassInfo _DomainCombiner_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.DomainCombiner",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DomainCombiner_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_DomainCombiner_Annotations_
-};
-
-$Object* allocate$DomainCombiner($Class* clazz) {
-	return $of($alloc(DomainCombiner));
-}
-
 $Class* DomainCombiner::load$($String* name, bool initialize) {
-	$loadClass(DomainCombiner, name, initialize, &_DomainCombiner_ClassInfo_, allocate$DomainCombiner);
+	$MethodInfo methodInfos$$[] = {
+		{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DomainCombiner, combine, $ProtectionDomainArray*, $ProtectionDomainArray*, $ProtectionDomainArray*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.DomainCombiner",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(DomainCombiner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DomainCombiner);
+	});
 	return class$;
 }
 

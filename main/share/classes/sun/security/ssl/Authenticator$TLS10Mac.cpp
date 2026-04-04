@@ -1,5 +1,4 @@
 #include <sun/security/ssl/Authenticator$TLS10Mac.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <javax/crypto/SecretKey.h>
 #include <sun/security/ssl/Authenticator$MacImpl.h>
@@ -23,50 +22,6 @@ using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _Authenticator$TLS10Mac_FieldInfo_[] = {
-	{"macImpl", "Lsun/security/ssl/Authenticator$MacImpl;", nullptr, $PRIVATE | $FINAL, $field(Authenticator$TLS10Mac, macImpl)},
-	{}
-};
-
-$MethodInfo _Authenticator$TLS10Mac_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $method(Authenticator$TLS10Mac, init$, void, $ProtocolVersion*, $CipherSuite$MacAlg*, $SecretKey*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"compute", "(BLjava/nio/ByteBuffer;[BZ)[B", nullptr, $PUBLIC, $virtualMethod(Authenticator$TLS10Mac, compute, $bytes*, int8_t, $ByteBuffer*, $bytes*, bool)},
-	{"macAlg", "()Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC, $virtualMethod(Authenticator$TLS10Mac, macAlg, $CipherSuite$MacAlg*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Authenticator$TLS10Mac_InnerClassesInfo_[] = {
-	{"sun.security.ssl.Authenticator$TLS10Mac", "sun.security.ssl.Authenticator", "TLS10Mac", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Authenticator$TLS10Authenticator", "sun.security.ssl.Authenticator", "TLS10Authenticator", $PRIVATE | $STATIC},
-	{"sun.security.ssl.Authenticator$MAC", "sun.security.ssl.Authenticator", "MAC", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Authenticator$TLS10Mac_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.Authenticator$TLS10Mac",
-	"sun.security.ssl.Authenticator$TLS10Authenticator",
-	"sun.security.ssl.Authenticator$MAC",
-	_Authenticator$TLS10Mac_FieldInfo_,
-	_Authenticator$TLS10Mac_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Authenticator$TLS10Mac_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.Authenticator"
-};
-
-$Object* allocate$Authenticator$TLS10Mac($Class* clazz) {
-	return $of($alloc(Authenticator$TLS10Mac));
-}
 
 int32_t Authenticator$TLS10Mac::hashCode() {
 	 return this->$Authenticator$TLS10Authenticator::hashCode();
@@ -105,7 +60,45 @@ Authenticator$TLS10Mac::Authenticator$TLS10Mac() {
 }
 
 $Class* Authenticator$TLS10Mac::load$($String* name, bool initialize) {
-	$loadClass(Authenticator$TLS10Mac, name, initialize, &_Authenticator$TLS10Mac_ClassInfo_, allocate$Authenticator$TLS10Mac);
+	$FieldInfo fieldInfos$$[] = {
+		{"macImpl", "Lsun/security/ssl/Authenticator$MacImpl;", nullptr, $PRIVATE | $FINAL, $field(Authenticator$TLS10Mac, macImpl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $method(Authenticator$TLS10Mac, init$, void, $ProtocolVersion*, $CipherSuite$MacAlg*, $SecretKey*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{"compute", "(BLjava/nio/ByteBuffer;[BZ)[B", nullptr, $PUBLIC, $virtualMethod(Authenticator$TLS10Mac, compute, $bytes*, int8_t, $ByteBuffer*, $bytes*, bool)},
+		{"macAlg", "()Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC, $virtualMethod(Authenticator$TLS10Mac, macAlg, $CipherSuite$MacAlg*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.Authenticator$TLS10Mac", "sun.security.ssl.Authenticator", "TLS10Mac", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Authenticator$TLS10Authenticator", "sun.security.ssl.Authenticator", "TLS10Authenticator", $PRIVATE | $STATIC},
+		{"sun.security.ssl.Authenticator$MAC", "sun.security.ssl.Authenticator", "MAC", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.Authenticator$TLS10Mac",
+		"sun.security.ssl.Authenticator$TLS10Authenticator",
+		"sun.security.ssl.Authenticator$MAC",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.Authenticator"
+	};
+	$loadClass(Authenticator$TLS10Mac, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Authenticator$TLS10Mac));
+	});
 	return class$;
 }
 

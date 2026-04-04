@@ -13,6 +13,7 @@ class Big5_Solaris$Holder : public ::java::lang::Object {
 	$class(Big5_Solaris$Holder, 0, ::java::lang::Object)
 public:
 	Big5_Solaris$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<char16_t, 2>* b2c;
 	static $chars* b2cSB;

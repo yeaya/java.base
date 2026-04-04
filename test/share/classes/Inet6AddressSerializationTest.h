@@ -41,6 +41,7 @@ class $export Inet6AddressSerializationTest : public ::java::lang::Object {
 	$class(Inet6AddressSerializationTest, 0, ::java::lang::Object)
 public:
 	Inet6AddressSerializationTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void assertAddressEqual($bytes* expectedAddress, $bytes* deserializedAddress);
 	static void assertHostAddressEqual($String* expectedHostAddress, $String* deserializedHostAddress);

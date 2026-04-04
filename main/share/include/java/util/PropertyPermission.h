@@ -53,7 +53,7 @@ public:
 	static const int32_t NONE = 0;
 	int32_t mask = 0;
 	$String* actions = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x0C49B5EBA24D7EC3;
+	static const int64_t serialVersionUID = (int64_t)0x0c49b5eba24d7ec3;
 };
 
 	} // util

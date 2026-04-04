@@ -1,5 +1,4 @@
 #include <sun/security/timestamp/TSResponse$TimestampException.h>
-
 #include <java/io/IOException.h>
 #include <sun/security/timestamp/TSResponse.h>
 #include <jcpp.h>
@@ -13,41 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace timestamp {
-
-$FieldInfo _TSResponse$TimestampException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TSResponse$TimestampException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _TSResponse$TimestampException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TSResponse$TimestampException, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _TSResponse$TimestampException_InnerClassesInfo_[] = {
-	{"sun.security.timestamp.TSResponse$TimestampException", "sun.security.timestamp.TSResponse", "TimestampException", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TSResponse$TimestampException_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.timestamp.TSResponse$TimestampException",
-	"java.io.IOException",
-	nullptr,
-	_TSResponse$TimestampException_FieldInfo_,
-	_TSResponse$TimestampException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TSResponse$TimestampException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.timestamp.TSResponse"
-};
-
-$Object* allocate$TSResponse$TimestampException($Class* clazz) {
-	return $of($alloc(TSResponse$TimestampException));
-}
 
 void TSResponse$TimestampException::init$($String* message) {
 	$IOException::init$(message);
@@ -64,7 +28,36 @@ void TSResponse$TimestampException::throw$() {
 }
 
 $Class* TSResponse$TimestampException::load$($String* name, bool initialize) {
-	$loadClass(TSResponse$TimestampException, name, initialize, &_TSResponse$TimestampException_ClassInfo_, allocate$TSResponse$TimestampException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TSResponse$TimestampException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TSResponse$TimestampException, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.timestamp.TSResponse$TimestampException", "sun.security.timestamp.TSResponse", "TimestampException", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.timestamp.TSResponse$TimestampException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.timestamp.TSResponse"
+	};
+	$loadClass(TSResponse$TimestampException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TSResponse$TimestampException);
+	});
 	return class$;
 }
 

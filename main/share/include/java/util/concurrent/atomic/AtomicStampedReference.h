@@ -34,6 +34,7 @@ class $import AtomicStampedReference : public ::java::lang::Object {
 	$class(AtomicStampedReference, 0, ::java::lang::Object)
 public:
 	AtomicStampedReference();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* initialRef, int32_t initialStamp);
 	virtual bool attemptStamp(Object$* expectedReference, int32_t newStamp);
 	bool casPair(::java::util::concurrent::atomic::AtomicStampedReference$Pair* cmp, ::java::util::concurrent::atomic::AtomicStampedReference$Pair* val);

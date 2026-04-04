@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberShortArrEmptyClass.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,42 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute SingleMemberShortArrEmptyClass_Attribute_var$1[] = {
-	{'-'}
-};
-
-$NamedAttribute SingleMemberShortArrEmptyClass_Attribute_var$0[] = {
-	{"value", '[', SingleMemberShortArrEmptyClass_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _SingleMemberShortArrEmptyClass_Annotations_[] = {
-	{"LUniTest/SingleMemberShortArray;", SingleMemberShortArrEmptyClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberShortArrEmptyClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberShortArrEmptyClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberShortArrEmptyClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberShortArrEmptyClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberShortArrEmptyClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberShortArrEmptyClass_Annotations_
-};
-
-$Object* allocate$SingleMemberShortArrEmptyClass($Class* clazz) {
-	return $of($alloc(SingleMemberShortArrEmptyClass));
-}
-
 void SingleMemberShortArrEmptyClass::init$() {
 }
 
@@ -53,7 +16,36 @@ SingleMemberShortArrEmptyClass::SingleMemberShortArrEmptyClass() {
 }
 
 $Class* SingleMemberShortArrEmptyClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberShortArrEmptyClass, name, initialize, &_SingleMemberShortArrEmptyClass_ClassInfo_, allocate$SingleMemberShortArrEmptyClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberShortArrEmptyClass, init$, void)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberShortArray;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberShortArrEmptyClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberShortArrEmptyClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberShortArrEmptyClass);
+	});
 	return class$;
 }
 

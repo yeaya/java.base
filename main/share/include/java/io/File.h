@@ -55,6 +55,7 @@ public:
 	File();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* pathname, int32_t prefixLength);
 	void init$($String* child, ::java::io::File* parent);
 	void init$($String* pathname);
@@ -130,7 +131,7 @@ public:
 	static ::jdk::internal::misc::Unsafe* UNSAFE;
 	static int64_t PATH_OFFSET;
 	static int64_t PREFIX_LENGTH_OFFSET;
-	static const int64_t serialVersionUID = (int64_t)0x042DA4450E0DE4FF;
+	static const int64_t serialVersionUID = (int64_t)0x042da4450e0de4ff;
 	$volatile(::java::nio::file::Path*) filePath = nullptr;
 };
 

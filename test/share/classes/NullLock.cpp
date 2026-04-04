@@ -1,44 +1,18 @@
 #include <NullLock.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/BufferedWriter.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/Reader.h>
-#include <java/io/Writer.h>
 #include <jcpp.h>
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $BufferedWriter = ::java::io::BufferedWriter;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
-using $Reader = ::java::io::Reader;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-
-$MethodInfo _NullLock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullLock, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullLock, main, void, $StringArray*), "java.lang.Exception"},
-	{"testBufferedReader", "()Z", nullptr, $STATIC, $staticMethod(NullLock, testBufferedReader, bool)},
-	{"testBufferedWriter", "()Z", nullptr, $STATIC, $staticMethod(NullLock, testBufferedWriter, bool)},
-	{}
-};
-
-$ClassInfo _NullLock_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NullLock",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NullLock_MethodInfo_
-};
-
-$Object* allocate$NullLock($Class* clazz) {
-	return $of($alloc(NullLock));
-}
 
 void NullLock::init$() {
 }
@@ -53,7 +27,7 @@ void NullLock::main($StringArray* argv) {
 }
 
 bool NullLock::testBufferedReader() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InputStreamReader, isr, nullptr);
 		$var($BufferedReader, br, $new($BufferedReader, isr));
@@ -64,7 +38,7 @@ bool NullLock::testBufferedReader() {
 }
 
 bool NullLock::testBufferedWriter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($OutputStreamWriter, isr, nullptr);
 		$var($BufferedWriter, br, $new($BufferedWriter, isr));
@@ -78,7 +52,24 @@ NullLock::NullLock() {
 }
 
 $Class* NullLock::load$($String* name, bool initialize) {
-	$loadClass(NullLock, name, initialize, &_NullLock_ClassInfo_, allocate$NullLock);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullLock, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullLock, main, void, $StringArray*), "java.lang.Exception"},
+		{"testBufferedReader", "()Z", nullptr, $STATIC, $staticMethod(NullLock, testBufferedReader, bool)},
+		{"testBufferedWriter", "()Z", nullptr, $STATIC, $staticMethod(NullLock, testBufferedWriter, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NullLock",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NullLock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullLock);
+	});
 	return class$;
 }
 

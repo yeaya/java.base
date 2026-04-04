@@ -15,6 +15,7 @@ class $export Finalize : public ::java::lang::Object {
 	$class(Finalize, 0, ::java::lang::Object)
 public:
 	Finalize();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void doFileChannel();
 	static void doFileInputStream();

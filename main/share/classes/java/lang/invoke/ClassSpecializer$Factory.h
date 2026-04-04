@@ -63,6 +63,7 @@ class ClassSpecializer$Factory : public ::java::lang::Object {
 	$class(ClassSpecializer$Factory, 0, ::java::lang::Object)
 public:
 	ClassSpecializer$Factory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::ClassSpecializer* this$0);
 	virtual $String* chooseFieldName($Class* type, int32_t index);
 	void emitIntConstant(int32_t con, ::jdk::internal::org::objectweb::asm$::MethodVisitor* mv);

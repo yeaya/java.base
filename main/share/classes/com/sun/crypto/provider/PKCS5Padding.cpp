@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PKCS5Padding.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Arrays.h>
 #include <javax/crypto/ShortBufferException.h>
@@ -17,32 +16,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _PKCS5Padding_FieldInfo_[] = {
-	{"blockSize", "I", nullptr, $PRIVATE, $field(PKCS5Padding, blockSize)},
-	{}
-};
-
-$MethodInfo _PKCS5Padding_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(PKCS5Padding, init$, void, int32_t)},
-	{"padLength", "(I)I", nullptr, $PUBLIC, $virtualMethod(PKCS5Padding, padLength, int32_t, int32_t)},
-	{"padWithLen", "([BII)V", nullptr, $PUBLIC, $virtualMethod(PKCS5Padding, padWithLen, void, $bytes*, int32_t, int32_t), "javax.crypto.ShortBufferException"},
-	{"unpad", "([BII)I", nullptr, $PUBLIC, $virtualMethod(PKCS5Padding, unpad, int32_t, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _PKCS5Padding_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.PKCS5Padding",
-	"java.lang.Object",
-	"com.sun.crypto.provider.Padding",
-	_PKCS5Padding_FieldInfo_,
-	_PKCS5Padding_MethodInfo_
-};
-
-$Object* allocate$PKCS5Padding($Class* clazz) {
-	return $of($alloc(PKCS5Padding));
-}
-
 void PKCS5Padding::init$(int32_t blockSize) {
 	this->blockSize = blockSize;
 }
@@ -55,7 +28,7 @@ void PKCS5Padding::padWithLen($bytes* in, int32_t off, int32_t len) {
 	if (idx > $nc(in)->length) {
 		$throwNew($ShortBufferException, "Buffer too small to hold padding"_s);
 	}
-	int8_t paddingOctet = (int8_t)((int32_t)(len & (uint32_t)255));
+	int8_t paddingOctet = (int8_t)(len & 0xff);
 	$Arrays::fill(in, off, idx, paddingOctet);
 	return;
 }
@@ -66,7 +39,7 @@ int32_t PKCS5Padding::unpad($bytes* in, int32_t off, int32_t len) {
 	}
 	int32_t idx = $Math::addExact(off, len);
 	int8_t lastByte = $nc(in)->get(idx - 1);
-	int32_t padValue = (int32_t)((int32_t)lastByte & (uint32_t)255);
+	int32_t padValue = (int32_t)lastByte & 0xff;
 	if ((padValue < 1) || (padValue > this->blockSize)) {
 		return -1;
 	}
@@ -91,7 +64,28 @@ PKCS5Padding::PKCS5Padding() {
 }
 
 $Class* PKCS5Padding::load$($String* name, bool initialize) {
-	$loadClass(PKCS5Padding, name, initialize, &_PKCS5Padding_ClassInfo_, allocate$PKCS5Padding);
+	$FieldInfo fieldInfos$$[] = {
+		{"blockSize", "I", nullptr, $PRIVATE, $field(PKCS5Padding, blockSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(PKCS5Padding, init$, void, int32_t)},
+		{"padLength", "(I)I", nullptr, $PUBLIC, $virtualMethod(PKCS5Padding, padLength, int32_t, int32_t)},
+		{"padWithLen", "([BII)V", nullptr, $PUBLIC, $virtualMethod(PKCS5Padding, padWithLen, void, $bytes*, int32_t, int32_t), "javax.crypto.ShortBufferException"},
+		{"unpad", "([BII)I", nullptr, $PUBLIC, $virtualMethod(PKCS5Padding, unpad, int32_t, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.PKCS5Padding",
+		"java.lang.Object",
+		"com.sun.crypto.provider.Padding",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PKCS5Padding, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PKCS5Padding);
+	});
 	return class$;
 }
 

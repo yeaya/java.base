@@ -23,6 +23,7 @@ class $export Bug6856817 : public ::java::lang::Object {
 	$class(Bug6856817, 0, ::java::lang::Object)
 public:
 	Bug6856817();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkFileContent(::java::nio::CharBuffer* charBuffer, ::java::io::File* file, $String* expectedValue);
 	static bool isEqual(int32_t first, int32_t second);

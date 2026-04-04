@@ -45,6 +45,7 @@ class $import TlsKeyMaterialGenerator : public ::javax::crypto::KeyGeneratorSpi 
 	$class(TlsKeyMaterialGenerator, 0, ::javax::crypto::KeyGeneratorSpi)
 public:
 	TlsKeyMaterialGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::crypto::SecretKey* engineGenerateKey() override;
 	::javax::crypto::SecretKey* engineGenerateKey0($bytes* masterSecret);

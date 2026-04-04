@@ -1,5 +1,4 @@
 #include <UniTest/Point.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,45 +9,38 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute Point_Attribute_var$1[] = {
-	{'-'}
-};
-
-$NamedAttribute Point_Attribute_var$0[] = {
-	{"value", '[', Point_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _Point_Annotations_[] = {
-	{"Ljava/lang/annotation/Target;", Point_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _Point_MethodInfo_[] = {
-	{"x", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point, x, int32_t)},
-	{"y", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point, y, int32_t)},
-	{}
-};
-
-$ClassInfo _Point_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.Point",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_Point_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Point_Annotations_
-};
-
-$Object* allocate$Point($Class* clazz) {
-	return $of($alloc(Point));
-}
-
 $Class* Point::load$($String* name, bool initialize) {
-	$loadClass(Point, name, initialize, &_Point_ClassInfo_, allocate$Point);
+	$MethodInfo methodInfos$$[] = {
+		{"x", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point, x, int32_t)},
+		{"y", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point, y, int32_t)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.Point",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Point, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Point);
+	});
 	return class$;
 }
 

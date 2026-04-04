@@ -1,5 +1,4 @@
 #include <sun/security/ssl/TrustStoreManager$TrustStoreDescriptor$1.h>
-
 #include <java/io/File.h>
 #include <java/security/KeyStore.h>
 #include <sun/security/ssl/SSLLogger.h>
@@ -19,49 +18,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _TrustStoreManager$TrustStoreDescriptor$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TrustStoreManager$TrustStoreDescriptor$1, init$, void)},
-	{"run", "()Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;", nullptr, $PUBLIC, $virtualMethod(TrustStoreManager$TrustStoreDescriptor$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _TrustStoreManager$TrustStoreDescriptor$1_EnclosingMethodInfo_ = {
-	"sun.security.ssl.TrustStoreManager$TrustStoreDescriptor",
-	"createInstance",
-	"()Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;"
-};
-
-$InnerClassInfo _TrustStoreManager$TrustStoreDescriptor$1_InnerClassesInfo_[] = {
-	{"sun.security.ssl.TrustStoreManager$TrustStoreDescriptor", "sun.security.ssl.TrustStoreManager", "TrustStoreDescriptor", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.TrustStoreManager$TrustStoreDescriptor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TrustStoreManager$TrustStoreDescriptor$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.TrustStoreManager$TrustStoreDescriptor$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_TrustStoreManager$TrustStoreDescriptor$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;>;",
-	&_TrustStoreManager$TrustStoreDescriptor$1_EnclosingMethodInfo_,
-	_TrustStoreManager$TrustStoreDescriptor$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.TrustStoreManager"
-};
-
-$Object* allocate$TrustStoreManager$TrustStoreDescriptor$1($Class* clazz) {
-	return $of($alloc(TrustStoreManager$TrustStoreDescriptor$1));
-}
-
 void TrustStoreManager$TrustStoreDescriptor$1::init$() {
 }
 
 $Object* TrustStoreManager$TrustStoreDescriptor$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TrustStoreManager$TrustStoreDescriptor);
 	$var($String, storePropName, $System::getProperty("javax.net.ssl.trustStore"_s, $TrustStoreManager$TrustStoreDescriptor::jsseDefaultStore));
 	$var($String, storePropType, $System::getProperty("javax.net.ssl.trustStoreType"_s, $($KeyStore::getDefaultType())));
@@ -77,9 +38,7 @@ $Object* TrustStoreManager$TrustStoreDescriptor$1::run() {
 		}));
 		{
 			$var($StringArray, arr$, fileNames);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, fileName, arr$->get(i$));
 				{
 					$var($File, f, $new($File, fileName));
@@ -100,14 +59,46 @@ $Object* TrustStoreManager$TrustStoreDescriptor$1::run() {
 	} else {
 		$assign(temporaryName, storePropName);
 	}
-	return $of($new($TrustStoreManager$TrustStoreDescriptor, temporaryName, storePropType, storePropProvider, storePropPassword, temporaryFile, temporaryTime));
+	return $new($TrustStoreManager$TrustStoreDescriptor, temporaryName, storePropType, storePropProvider, storePropPassword, temporaryFile, temporaryTime);
 }
 
 TrustStoreManager$TrustStoreDescriptor$1::TrustStoreManager$TrustStoreDescriptor$1() {
 }
 
 $Class* TrustStoreManager$TrustStoreDescriptor$1::load$($String* name, bool initialize) {
-	$loadClass(TrustStoreManager$TrustStoreDescriptor$1, name, initialize, &_TrustStoreManager$TrustStoreDescriptor$1_ClassInfo_, allocate$TrustStoreManager$TrustStoreDescriptor$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TrustStoreManager$TrustStoreDescriptor$1, init$, void)},
+		{"run", "()Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;", nullptr, $PUBLIC, $virtualMethod(TrustStoreManager$TrustStoreDescriptor$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.ssl.TrustStoreManager$TrustStoreDescriptor",
+		"createInstance",
+		"()Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.TrustStoreManager$TrustStoreDescriptor", "sun.security.ssl.TrustStoreManager", "TrustStoreDescriptor", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.TrustStoreManager$TrustStoreDescriptor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.TrustStoreManager$TrustStoreDescriptor$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.TrustStoreManager"
+	};
+	$loadClass(TrustStoreManager$TrustStoreDescriptor$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TrustStoreManager$TrustStoreDescriptor$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/nio/file/FileSystemLoopException.h>
-
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $FileSystemException = ::java::nio::file::FileSystemException;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _FileSystemLoopException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemLoopException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FileSystemLoopException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemLoopException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _FileSystemLoopException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.FileSystemLoopException",
-	"java.nio.file.FileSystemException",
-	nullptr,
-	_FileSystemLoopException_FieldInfo_,
-	_FileSystemLoopException_MethodInfo_
-};
-
-$Object* allocate$FileSystemLoopException($Class* clazz) {
-	return $of($alloc(FileSystemLoopException));
-}
 
 void FileSystemLoopException::init$($String* file) {
 	$FileSystemException::init$(file);
@@ -50,7 +26,25 @@ void FileSystemLoopException::throw$() {
 }
 
 $Class* FileSystemLoopException::load$($String* name, bool initialize) {
-	$loadClass(FileSystemLoopException, name, initialize, &_FileSystemLoopException_ClassInfo_, allocate$FileSystemLoopException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileSystemLoopException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemLoopException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.FileSystemLoopException",
+		"java.nio.file.FileSystemException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileSystemLoopException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemLoopException);
+	});
 	return class$;
 }
 

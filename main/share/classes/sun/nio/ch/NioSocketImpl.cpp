@@ -1,5 +1,4 @@
 #include <sun/nio/ch/NioSocketImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -31,7 +30,6 @@
 #include <java/net/StandardSocketOptions.h>
 #include <java/net/UnknownHostException.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
 #include <java/util/Objects.h>
@@ -97,7 +95,6 @@ using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -108,8 +105,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Cleaner = ::java::lang::ref::Cleaner;
-using $Cleaner$Cleanable = ::java::lang::ref::Cleaner$Cleanable;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ProtocolFamily = ::java::net::ProtocolFamily;
@@ -123,7 +118,6 @@ using $StandardProtocolFamily = ::java::net::StandardProtocolFamily;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Objects = ::java::util::Objects;
@@ -161,33 +155,29 @@ public:
 	virtual void run() override {
 		NioSocketImpl::lambda$closerFor$0(fd);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NioSocketImpl$$Lambda$lambda$closerFor$0>());
-	}
 	$FileDescriptor* fd = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo NioSocketImpl$$Lambda$lambda$closerFor$0::fieldInfos[2] = {
-	{"fd", "Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $field(NioSocketImpl$$Lambda$lambda$closerFor$0, fd)},
-	{}
-};
-$MethodInfo NioSocketImpl$$Lambda$lambda$closerFor$0::methodInfos[3] = {
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(NioSocketImpl$$Lambda$lambda$closerFor$0, init$, void, $FileDescriptor*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$$Lambda$lambda$closerFor$0, run, void)},
-	{}
-};
-$ClassInfo NioSocketImpl$$Lambda$lambda$closerFor$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.ch.NioSocketImpl$$Lambda$lambda$closerFor$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* NioSocketImpl$$Lambda$lambda$closerFor$0::load$($String* name, bool initialize) {
-	$loadClass(NioSocketImpl$$Lambda$lambda$closerFor$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"fd", "Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $field(NioSocketImpl$$Lambda$lambda$closerFor$0, fd)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(NioSocketImpl$$Lambda$lambda$closerFor$0, init$, void, $FileDescriptor*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$$Lambda$lambda$closerFor$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.ch.NioSocketImpl$$Lambda$lambda$closerFor$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NioSocketImpl$$Lambda$lambda$closerFor$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NioSocketImpl$$Lambda$lambda$closerFor$0);
+	});
 	return class$;
 }
 $Class* NioSocketImpl$$Lambda$lambda$closerFor$0::class$ = nullptr;
@@ -201,155 +191,32 @@ public:
 	virtual void run() override {
 		NioSocketImpl::lambda$closerFor$1(fd);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NioSocketImpl$$Lambda$lambda$closerFor$1$1>());
-	}
 	$FileDescriptor* fd = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo NioSocketImpl$$Lambda$lambda$closerFor$1$1::fieldInfos[2] = {
-	{"fd", "Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $field(NioSocketImpl$$Lambda$lambda$closerFor$1$1, fd)},
-	{}
-};
-$MethodInfo NioSocketImpl$$Lambda$lambda$closerFor$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(NioSocketImpl$$Lambda$lambda$closerFor$1$1, init$, void, $FileDescriptor*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$$Lambda$lambda$closerFor$1$1, run, void)},
-	{}
-};
-$ClassInfo NioSocketImpl$$Lambda$lambda$closerFor$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.ch.NioSocketImpl$$Lambda$lambda$closerFor$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* NioSocketImpl$$Lambda$lambda$closerFor$1$1::load$($String* name, bool initialize) {
-	$loadClass(NioSocketImpl$$Lambda$lambda$closerFor$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"fd", "Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $field(NioSocketImpl$$Lambda$lambda$closerFor$1$1, fd)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(NioSocketImpl$$Lambda$lambda$closerFor$1$1, init$, void, $FileDescriptor*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$$Lambda$lambda$closerFor$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.ch.NioSocketImpl$$Lambda$lambda$closerFor$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NioSocketImpl$$Lambda$lambda$closerFor$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NioSocketImpl$$Lambda$lambda$closerFor$1$1);
+	});
 	return class$;
 }
 $Class* NioSocketImpl$$Lambda$lambda$closerFor$1$1::class$ = nullptr;
-
-$FieldInfo _NioSocketImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NioSocketImpl, $assertionsDisabled)},
-	{"nd", "Lsun/nio/ch/NativeDispatcher;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NioSocketImpl, nd)},
-	{"MAX_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, MAX_BUFFER_SIZE)},
-	{"server", "Z", nullptr, $PRIVATE | $FINAL, $field(NioSocketImpl, server)},
-	{"readLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(NioSocketImpl, readLock)},
-	{"writeLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(NioSocketImpl, writeLock)},
-	{"stateLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NioSocketImpl, stateLock)},
-	{"ST_NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_NEW)},
-	{"ST_UNCONNECTED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_UNCONNECTED)},
-	{"ST_CONNECTING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_CONNECTING)},
-	{"ST_CONNECTED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_CONNECTED)},
-	{"ST_CLOSING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_CLOSING)},
-	{"ST_CLOSED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_CLOSED)},
-	{"state", "I", nullptr, $PRIVATE | $VOLATILE, $field(NioSocketImpl, state)},
-	{"stream", "Z", nullptr, $PRIVATE, $field(NioSocketImpl, stream)},
-	{"cleaner", "Ljava/lang/ref/Cleaner$Cleanable;", nullptr, $PRIVATE, $field(NioSocketImpl, cleaner)},
-	{"nonBlocking", "Z", nullptr, $PRIVATE | $VOLATILE, $field(NioSocketImpl, nonBlocking)},
-	{"readerThread", "J", nullptr, $PRIVATE, $field(NioSocketImpl, readerThread)},
-	{"writerThread", "J", nullptr, $PRIVATE, $field(NioSocketImpl, writerThread)},
-	{"isReuseAddress", "Z", nullptr, $PRIVATE, $field(NioSocketImpl, isReuseAddress)},
-	{"timeout", "I", nullptr, $PRIVATE | $VOLATILE, $field(NioSocketImpl, timeout)},
-	{"isInputClosed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(NioSocketImpl, isInputClosed)},
-	{"isOutputClosed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(NioSocketImpl, isOutputClosed)},
-	{"readEOF", "Z", nullptr, $PRIVATE, $field(NioSocketImpl, readEOF)},
-	{"connectionReset", "Z", nullptr, $PRIVATE, $field(NioSocketImpl, connectionReset)},
-	{"clientSocketOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(NioSocketImpl, clientSocketOptions)},
-	{"serverSocketOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(NioSocketImpl, serverSocketOptions)},
-	{}
-};
-
-$MethodInfo _NioSocketImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(NioSocketImpl, init$, void, bool)},
-	{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, accept, void, $SocketImpl*), "java.io.IOException"},
-	{"available", "()I", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, available, int32_t), "java.io.IOException"},
-	{"beginAccept", "()Ljava/io/FileDescriptor;", nullptr, $PRIVATE, $method(NioSocketImpl, beginAccept, $FileDescriptor*), "java.net.SocketException"},
-	{"beginConnect", "(Ljava/net/InetAddress;I)Ljava/io/FileDescriptor;", nullptr, $PRIVATE, $method(NioSocketImpl, beginConnect, $FileDescriptor*, $InetAddress*, int32_t), "java.io.IOException"},
-	{"beginRead", "()Ljava/io/FileDescriptor;", nullptr, $PRIVATE, $method(NioSocketImpl, beginRead, $FileDescriptor*), "java.net.SocketException"},
-	{"beginWrite", "()Ljava/io/FileDescriptor;", nullptr, $PRIVATE, $method(NioSocketImpl, beginWrite, $FileDescriptor*), "java.net.SocketException"},
-	{"bind", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, bind, void, $InetAddress*, int32_t), "java.io.IOException"},
-	{"booleanValue", "(Ljava/lang/Object;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(NioSocketImpl, booleanValue, bool, Object$*, $String*), "java.net.SocketException"},
-	{"close", "()V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, close, void), "java.io.IOException"},
-	{"closerFor", "(Ljava/io/FileDescriptor;Z)Ljava/lang/Runnable;", nullptr, $PRIVATE | $STATIC, $staticMethod(NioSocketImpl, closerFor, $Runnable*, $FileDescriptor*, bool)},
-	{"configureBlocking", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE, $method(NioSocketImpl, configureBlocking, void, $FileDescriptor*), "java.io.IOException"},
-	{"configureNonBlocking", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE, $method(NioSocketImpl, configureNonBlocking, void, $FileDescriptor*), "java.io.IOException"},
-	{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, connect, void, $SocketAddress*, int32_t), "java.io.IOException"},
-	{"connect", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, connect, void, $String*, int32_t), "java.io.IOException"},
-	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, connect, void, $InetAddress*, int32_t), "java.io.IOException"},
-	{"create", "(Z)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, create, void, bool), "java.io.IOException"},
-	{"endAccept", "(Z)V", nullptr, $PRIVATE, $method(NioSocketImpl, endAccept, void, bool), "java.net.SocketException"},
-	{"endConnect", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PRIVATE, $method(NioSocketImpl, endConnect, void, $FileDescriptor*, bool), "java.io.IOException"},
-	{"endRead", "(Z)V", nullptr, $PRIVATE, $method(NioSocketImpl, endRead, void, bool), "java.net.SocketException"},
-	{"endWrite", "(Z)V", nullptr, $PRIVATE, $method(NioSocketImpl, endWrite, void, bool), "java.net.SocketException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(NioSocketImpl, ensureOpen, void), "java.net.SocketException"},
-	{"ensureOpenAndConnected", "()V", nullptr, $PRIVATE, $method(NioSocketImpl, ensureOpenAndConnected, void), "java.net.SocketException"},
-	{"family", "()Ljava/net/ProtocolFamily;", nullptr, $PRIVATE | $STATIC, $staticMethod(NioSocketImpl, family, $ProtocolFamily*)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, getInputStream, $InputStream*)},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PROTECTED, $virtualMethod(NioSocketImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
-	{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl, getOption, $Object*, int32_t), "java.net.SocketException"},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, getOutputStream, $OutputStream*)},
-	{"implRead", "([BII)I", nullptr, $PRIVATE, $method(NioSocketImpl, implRead, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"implWrite", "([BII)I", nullptr, $PRIVATE, $method(NioSocketImpl, implWrite, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"intValue", "(Ljava/lang/Object;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(NioSocketImpl, intValue, int32_t, Object$*, $String*), "java.net.SocketException"},
-	{"isOpen", "()Z", nullptr, $PRIVATE, $method(NioSocketImpl, isOpen, bool)},
-	{"lambda$closerFor$0", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NioSocketImpl, lambda$closerFor$0, void, $FileDescriptor*)},
-	{"lambda$closerFor$1", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NioSocketImpl, lambda$closerFor$1, void, $FileDescriptor*)},
-	{"listen", "(I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, listen, void, int32_t), "java.io.IOException"},
-	{"park", "(Ljava/io/FileDescriptor;IJ)V", nullptr, $PRIVATE, $method(NioSocketImpl, park, void, $FileDescriptor*, int32_t, int64_t), "java.io.IOException"},
-	{"park", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE, $method(NioSocketImpl, park, void, $FileDescriptor*, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PRIVATE, $method(NioSocketImpl, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"sendUrgentData", "(I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, sendUrgentData, void, int32_t), "java.io.IOException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PROTECTED, $virtualMethod(NioSocketImpl, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
-	{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl, setOption, void, int32_t, Object$*), "java.net.SocketException"},
-	{"shutdownInput", "()V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, shutdownInput, void), "java.io.IOException"},
-	{"shutdownOutput", "()V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, shutdownOutput, void), "java.io.IOException"},
-	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PROTECTED, $virtualMethod(NioSocketImpl, supportedOptions, $Set*)},
-	{"supportsUrgentData", "()Z", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, supportsUrgentData, bool)},
-	{"timedAccept", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/net/InetSocketAddress;J)I", nullptr, $PRIVATE, $method(NioSocketImpl, timedAccept, int32_t, $FileDescriptor*, $FileDescriptor*, $InetSocketAddressArray*, int64_t), "java.io.IOException"},
-	{"timedFinishConnect", "(Ljava/io/FileDescriptor;J)Z", nullptr, $PRIVATE, $method(NioSocketImpl, timedFinishConnect, bool, $FileDescriptor*, int64_t), "java.io.IOException"},
-	{"timedRead", "(Ljava/io/FileDescriptor;[BIIJ)I", nullptr, $PRIVATE, $method(NioSocketImpl, timedRead, int32_t, $FileDescriptor*, $bytes*, int32_t, int32_t, int64_t), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryClose", "()Z", nullptr, $PRIVATE, $method(NioSocketImpl, tryClose, bool), "java.io.IOException"},
-	{"tryFinishClose", "()V", nullptr, $PRIVATE, $method(NioSocketImpl, tryFinishClose, void)},
-	{"tryLock", "(Ljava/util/concurrent/locks/ReentrantLock;JLjava/util/concurrent/TimeUnit;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(NioSocketImpl, tryLock, int64_t, $ReentrantLock*, int64_t, $TimeUnit*)},
-	{"tryRead", "(Ljava/io/FileDescriptor;[BII)I", nullptr, $PRIVATE, $method(NioSocketImpl, tryRead, int32_t, $FileDescriptor*, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"tryWrite", "(Ljava/io/FileDescriptor;[BII)I", nullptr, $PRIVATE, $method(NioSocketImpl, tryWrite, int32_t, $FileDescriptor*, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PRIVATE, $method(NioSocketImpl, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _NioSocketImpl_InnerClassesInfo_[] = {
-	{"sun.nio.ch.NioSocketImpl$2", nullptr, nullptr, 0},
-	{"sun.nio.ch.NioSocketImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NioSocketImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.nio.ch.NioSocketImpl",
-	"java.net.SocketImpl",
-	"sun.net.PlatformSocketImpl",
-	_NioSocketImpl_FieldInfo_,
-	_NioSocketImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NioSocketImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.NioSocketImpl$2,sun.nio.ch.NioSocketImpl$1"
-};
-
-$Object* allocate$NioSocketImpl($Class* clazz) {
-	return $of($alloc(NioSocketImpl));
-}
 
 $String* NioSocketImpl::toString() {
 	 return this->$SocketImpl::toString();
@@ -424,7 +291,7 @@ void NioSocketImpl::park($FileDescriptor* fd, int32_t event) {
 }
 
 void NioSocketImpl::configureBlocking($FileDescriptor* fd) {
-	if (!NioSocketImpl::$assertionsDisabled && !$nc(this->readLock)->isHeldByCurrentThread()) {
+	if (!NioSocketImpl::$assertionsDisabled && !this->readLock->isHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
 	if (this->nonBlocking) {
@@ -437,7 +304,7 @@ void NioSocketImpl::configureBlocking($FileDescriptor* fd) {
 }
 
 void NioSocketImpl::configureNonBlocking($FileDescriptor* fd) {
-	if (!NioSocketImpl::$assertionsDisabled && !$nc(this->readLock)->isHeldByCurrentThread()) {
+	if (!NioSocketImpl::$assertionsDisabled && !this->readLock->isHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
 	if (!this->nonBlocking) {
@@ -471,34 +338,32 @@ void NioSocketImpl::endRead(bool completed) {
 }
 
 int32_t NioSocketImpl::tryRead($FileDescriptor* fd, $bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, dst, $Util::getTemporaryDirectBuffer(len));
 	if (!NioSocketImpl::$assertionsDisabled && !($nc(dst)->position() == 0)) {
 		$throwNew($AssertionError);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int32_t n = $nc(NioSocketImpl::nd)->read(fd, $nc(($cast($DirectBuffer, dst)))->address(), len);
-			if (n > 0) {
-				$nc(dst)->get(b, off, n);
-			}
-			var$2 = n;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Util::offerFirstTemporaryDirectBuffer(dst);
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int32_t n = NioSocketImpl::nd->read(fd, $nc($cast($DirectBuffer, dst))->address(), len);
+		if (n > 0) {
+			dst->get(b, off, n);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = n;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Util::offerFirstTemporaryDirectBuffer(dst);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -519,64 +384,62 @@ int32_t NioSocketImpl::timedRead($FileDescriptor* fd, $bytes* b, int32_t off, in
 }
 
 int32_t NioSocketImpl::implRead($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 0;
 	$var($FileDescriptor, fd, beginRead());
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				if (this->connectionReset) {
-					$throwNew($SocketException, "Connection reset"_s);
-				}
-				if (this->isInputClosed) {
-					var$2 = -1;
-					return$1 = true;
-					goto $finally;
-				}
-				int32_t timeout = this->timeout;
-				if (timeout > 0) {
-					configureNonBlocking(fd);
-					$init($TimeUnit);
-					n = timedRead(fd, b, off, len, $TimeUnit::MILLISECONDS->toNanos(timeout));
-				} else {
-					n = tryRead(fd, b, off, len);
-					while (true) {
-						bool var$3 = $IOStatus::okayToRetry(n);
-						if (!(var$3 && isOpen())) {
-							break;
-						}
-						{
-							$init($Net);
-							park(fd, $Net::POLLIN);
-							n = tryRead(fd, b, off, len);
-						}
-					}
-				}
-				var$2 = n;
+			if (this->connectionReset) {
+				$throwNew($SocketException, "Connection reset"_s);
+			}
+			if (this->isInputClosed) {
+				var$2 = -1;
 				return$1 = true;
 				goto $finally;
-			} catch ($SocketTimeoutException& e) {
-				$throw(e);
-			} catch ($ConnectionResetException& e) {
-				this->connectionReset = true;
-				$throwNew($SocketException, "Connection reset"_s);
-			} catch ($IOException& ioe) {
-				$throwNew($SocketException, $(ioe->getMessage()));
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			endRead(n > 0);
+			int32_t timeout = this->timeout;
+			if (timeout > 0) {
+				configureNonBlocking(fd);
+				$init($TimeUnit);
+				n = timedRead(fd, b, off, len, $TimeUnit::MILLISECONDS->toNanos(timeout));
+			} else {
+				n = tryRead(fd, b, off, len);
+				while (true) {
+					bool var$3 = $IOStatus::okayToRetry(n);
+					if (!(var$3 && isOpen())) {
+						break;
+					}
+					{
+						$init($Net);
+						park(fd, $Net::POLLIN);
+						n = tryRead(fd, b, off, len);
+					}
+				}
+			}
+			var$2 = n;
+			return$1 = true;
+			goto $finally;
+		} catch ($SocketTimeoutException& e) {
+			$throw(e);
+		} catch ($ConnectionResetException& e) {
+			this->connectionReset = true;
+			$throwNew($SocketException, "Connection reset"_s);
+		} catch ($IOException& ioe) {
+			$throwNew($SocketException, $(ioe->getMessage()));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		endRead(n > 0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -586,36 +449,34 @@ int32_t NioSocketImpl::read($bytes* b, int32_t off, int32_t len) {
 	if (len == 0) {
 		return 0;
 	} else {
-		$nc(this->readLock)->lock();
-		{
-			$var($Throwable, var$0, nullptr);
-			int32_t var$2 = 0;
-			bool return$1 = false;
-			try {
-				if (this->readEOF) {
-					var$2 = -1;
-					return$1 = true;
-					goto $finally;
-				}
-				int32_t size = $Math::min(len, NioSocketImpl::MAX_BUFFER_SIZE);
-				int32_t n = implRead(b, off, size);
-				if (n == -1) {
-					this->readEOF = true;
-				}
-				var$2 = n;
+		this->readLock->lock();
+		$var($Throwable, var$0, nullptr);
+		int32_t var$2 = 0;
+		bool return$1 = false;
+		try {
+			if (this->readEOF) {
+				var$2 = -1;
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(this->readLock)->unlock();
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			int32_t size = $Math::min(len, NioSocketImpl::MAX_BUFFER_SIZE);
+			int32_t n = implRead(b, off, size);
+			if (n == -1) {
+				this->readEOF = true;
 			}
-			if (return$1) {
-				return var$2;
-			}
+			var$2 = n;
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			this->readLock->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
@@ -643,74 +504,70 @@ void NioSocketImpl::endWrite(bool completed) {
 }
 
 int32_t NioSocketImpl::tryWrite($FileDescriptor* fd, $bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, src, $Util::getTemporaryDirectBuffer(len));
 	if (!NioSocketImpl::$assertionsDisabled && !($nc(src)->position() == 0)) {
 		$throwNew($AssertionError);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			$nc(src)->put(b, off, len);
-			var$2 = $nc(NioSocketImpl::nd)->write(fd, $nc(($cast($DirectBuffer, src)))->address(), len);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Util::offerFirstTemporaryDirectBuffer(src);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		$nc(src)->put(b, off, len);
+		var$2 = NioSocketImpl::nd->write(fd, $cast($DirectBuffer, src)->address(), len);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Util::offerFirstTemporaryDirectBuffer(src);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t NioSocketImpl::implWrite($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 0;
 	$var($FileDescriptor, fd, beginWrite());
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				n = tryWrite(fd, b, off, len);
-				while (true) {
-					bool var$3 = $IOStatus::okayToRetry(n);
-					if (!(var$3 && isOpen())) {
-						break;
-					}
-					{
-						$init($Net);
-						park(fd, $Net::POLLOUT);
-						n = tryWrite(fd, b, off, len);
-					}
+			n = tryWrite(fd, b, off, len);
+			while (true) {
+				bool var$3 = $IOStatus::okayToRetry(n);
+				if (!(var$3 && isOpen())) {
+					break;
 				}
-				var$2 = n;
-				return$1 = true;
-				goto $finally;
-			} catch ($IOException& ioe) {
-				$throwNew($SocketException, $(ioe->getMessage()));
+				{
+					$init($Net);
+					park(fd, $Net::POLLOUT);
+					n = tryWrite(fd, b, off, len);
+				}
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			endWrite(n > 0);
+			var$2 = n;
+			return$1 = true;
+			goto $finally;
+		} catch ($IOException& ioe) {
+			$throwNew($SocketException, $(ioe->getMessage()));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		endWrite(n > 0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -718,31 +575,29 @@ int32_t NioSocketImpl::implWrite($bytes* b, int32_t off, int32_t len) {
 void NioSocketImpl::write($bytes* b, int32_t off, int32_t len) {
 	$Objects::checkFromIndexSize(off, len, $nc(b)->length);
 	if (len > 0) {
-		$nc(this->writeLock)->lock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				int32_t pos = off;
-				int32_t end = off + len;
-				while (pos < end) {
-					int32_t size = $Math::min((end - pos), NioSocketImpl::MAX_BUFFER_SIZE);
-					int32_t n = implWrite(b, pos, size);
-					pos += n;
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->writeLock)->unlock();
+		this->writeLock->lock();
+		$var($Throwable, var$0, nullptr);
+		try {
+			int32_t pos = off;
+			int32_t end = off + len;
+			while (pos < end) {
+				int32_t size = $Math::min((end - pos), NioSocketImpl::MAX_BUFFER_SIZE);
+				int32_t n = implWrite(b, pos, size);
+				pos += n;
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->writeLock->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void NioSocketImpl::create(bool stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->stateLock) {
 		if (this->state != NioSocketImpl::ST_NEW) {
 			$throwNew($IOException, "Already created"_s);
@@ -769,7 +624,7 @@ void NioSocketImpl::create(bool stream) {
 		$var($Runnable, closer, closerFor(fd, stream));
 		$set(this, fd, fd);
 		this->stream = stream;
-		$set(this, cleaner, $nc($($CleanerFactory::cleaner()))->register$(this, closer));
+		$set(this, cleaner, $$nc($CleanerFactory::cleaner())->register$(this, closer));
 		this->state = NioSocketImpl::ST_UNCONNECTED;
 	}
 }
@@ -814,7 +669,7 @@ void NioSocketImpl::endConnect($FileDescriptor* fd, bool completed) {
 		}
 		if (completed && state == NioSocketImpl::ST_CONNECTING) {
 			this->state = NioSocketImpl::ST_CONNECTED;
-			this->localport = $nc($($Net::localAddress(fd)))->getPort();
+			this->localport = $$nc($Net::localAddress(fd))->getPort();
 		} else if (!completed && state >= NioSocketImpl::ST_CLOSING) {
 			$throwNew($SocketException, "Socket closed"_s);
 		}
@@ -836,7 +691,7 @@ bool NioSocketImpl::timedFinishConnect($FileDescriptor* fd, int64_t nanos) {
 }
 
 void NioSocketImpl::connect($SocketAddress* remote, int32_t millis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($InetSocketAddress, remote))) {
 		$throwNew($IOException, "Unsupported address type"_s);
 	}
@@ -844,7 +699,7 @@ void NioSocketImpl::connect($SocketAddress* remote, int32_t millis) {
 	if ($nc(isa)->isUnresolved()) {
 		$throwNew($UnknownHostException, $(isa->getHostName()));
 	}
-	$var($InetAddress, address, $nc(isa)->getAddress());
+	$var($InetAddress, address, isa->getAddress());
 	if ($nc(address)->isAnyLocalAddress()) {
 		$assign(address, $InetAddress::getLocalHost());
 	}
@@ -852,57 +707,53 @@ void NioSocketImpl::connect($SocketAddress* remote, int32_t millis) {
 	$var($ReentrantLock, connectLock, this->readLock);
 	try {
 		$nc(connectLock)->lock();
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
+			bool connected = false;
+			$var($FileDescriptor, fd, beginConnect(address, port));
+			$var($Throwable, var$1, nullptr);
 			try {
-				bool connected = false;
-				$var($FileDescriptor, fd, beginConnect(address, port));
-				{
-					$var($Throwable, var$1, nullptr);
-					try {
-						if (millis > 0) {
-							configureNonBlocking(fd);
-						}
-						int32_t n = $Net::connect(fd, address, port);
-						if (n > 0) {
-							connected = true;
-						} else {
-							if (!NioSocketImpl::$assertionsDisabled && !$IOStatus::okayToRetry(n)) {
-								$throwNew($AssertionError);
-							}
-							if (millis > 0) {
-								$init($TimeUnit);
-								int64_t nanos = $TimeUnit::MILLISECONDS->toNanos(millis);
-								connected = timedFinishConnect(fd, nanos);
-							} else {
-								bool polled = false;
-								while (!polled && isOpen()) {
-									park(fd, $Net::POLLOUT);
-									polled = $Net::pollConnectNow(fd);
-								}
-								connected = polled && isOpen();
-							}
-						}
-						if (connected && millis > 0) {
-							configureBlocking(fd);
-						}
-					} catch ($Throwable& var$2) {
-						$assign(var$1, var$2);
-					} /*finally*/ {
-						endConnect(fd, connected);
+				if (millis > 0) {
+					configureNonBlocking(fd);
+				}
+				int32_t n = $Net::connect(fd, address, port);
+				if (n > 0) {
+					connected = true;
+				} else {
+					if (!NioSocketImpl::$assertionsDisabled && !$IOStatus::okayToRetry(n)) {
+						$throwNew($AssertionError);
 					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
+					if (millis > 0) {
+						$init($TimeUnit);
+						int64_t nanos = $TimeUnit::MILLISECONDS->toNanos(millis);
+						connected = timedFinishConnect(fd, nanos);
+					} else {
+						bool polled = false;
+						while (!polled && isOpen()) {
+							park(fd, $Net::POLLOUT);
+							polled = $Net::pollConnectNow(fd);
+						}
+						connected = polled && isOpen();
 					}
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
+				if (connected && millis > 0) {
+					configureBlocking(fd);
+				}
+			} catch ($Throwable& var$2) {
+				$assign(var$1, var$2);
 			} /*finally*/ {
-				connectLock->unlock();
+				endConnect(fd, connected);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			if (var$1 != nullptr) {
+				$throw(var$1);
 			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			connectLock->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IOException& ioe) {
 		close();
@@ -911,11 +762,11 @@ void NioSocketImpl::connect($SocketAddress* remote, int32_t millis) {
 }
 
 void NioSocketImpl::connect($String* host, int32_t port) {
-	connect(static_cast<$SocketAddress*>($$new($InetSocketAddress, host, port)), 0);
+	connect($$new($InetSocketAddress, host, port), 0);
 }
 
 void NioSocketImpl::connect($InetAddress* address, int32_t port) {
-	connect(static_cast<$SocketAddress*>($$new($InetSocketAddress, address, port)), 0);
+	connect($$new($InetSocketAddress, address, port), 0);
 }
 
 void NioSocketImpl::bind($InetAddress* host, int32_t port) {
@@ -927,7 +778,7 @@ void NioSocketImpl::bind($InetAddress* host, int32_t port) {
 		$NetHooks::beforeTcpBind(this->fd, host, port);
 		$Net::bind(this->fd, host, port);
 		$set(this, address, host);
-		this->localport = $nc($($Net::localAddress(this->fd)))->getPort();
+		this->localport = $$nc($Net::localAddress(this->fd))->getPort();
 	}
 }
 
@@ -983,7 +834,7 @@ int32_t NioSocketImpl::timedAccept($FileDescriptor* fd, $FileDescriptor* newfd, 
 }
 
 void NioSocketImpl::accept($SocketImpl* si) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(NioSocketImpl, nsi, $cast(NioSocketImpl, si));
 	if ($nc(nsi)->state != NioSocketImpl::ST_NEW) {
 		$throwNew($SocketException, "Not a newly created SocketImpl"_s);
@@ -1005,64 +856,60 @@ void NioSocketImpl::accept($SocketImpl* si) {
 	} else {
 		$nc(acceptLock)->lock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		int32_t n = 0;
+		$var($FileDescriptor, fd, beginAccept());
+		$var($Throwable, var$1, nullptr);
 		try {
-			int32_t n = 0;
-			$var($FileDescriptor, fd, beginAccept());
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					if (remainingNanos > 0) {
-						configureNonBlocking(fd);
-						n = timedAccept(fd, newfd, isaa, remainingNanos);
-					} else {
+			if (remainingNanos > 0) {
+				configureNonBlocking(fd);
+				n = timedAccept(fd, newfd, isaa, remainingNanos);
+			} else {
+				n = $Net::accept(fd, newfd, isaa);
+				while (true) {
+					bool var$2 = $IOStatus::okayToRetry(n);
+					if (!(var$2 && isOpen())) {
+						break;
+					}
+					{
+						park(fd, $Net::POLLIN);
 						n = $Net::accept(fd, newfd, isaa);
-						while (true) {
-							bool var$2 = $IOStatus::okayToRetry(n);
-							if (!(var$2 && isOpen())) {
-								break;
-							}
-							{
-								park(fd, $Net::POLLIN);
-								n = $Net::accept(fd, newfd, isaa);
-							}
-						}
 					}
-				} catch ($Throwable& var$3) {
-					$assign(var$1, var$3);
-				} /*finally*/ {
-					endAccept(n > 0);
-					if (!NioSocketImpl::$assertionsDisabled && !$IOStatus::check(n)) {
-						$throwNew($AssertionError);
-					}
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
 				}
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
+		} catch ($Throwable& var$3) {
+			$assign(var$1, var$3);
 		} /*finally*/ {
-			$nc(acceptLock)->unlock();
+			endAccept(n > 0);
+			if (!NioSocketImpl::$assertionsDisabled && !$IOStatus::check(n)) {
+				$throwNew($AssertionError);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		$nc(acceptLock)->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$var($InetSocketAddress, localAddress, nullptr);
 	try {
 		$assign(localAddress, $Net::localAddress(newfd));
 		$IOUtil::configureBlocking(newfd, true);
 	} catch ($IOException& ioe) {
-		$nc(NioSocketImpl::nd)->close(newfd);
+		NioSocketImpl::nd->close(newfd);
 		$throw(ioe);
 	}
 	$var($Runnable, closer, closerFor(newfd, true));
-	$synchronized($nc(nsi)->stateLock) {
+	$synchronized(nsi->stateLock) {
 		$set(nsi, fd, newfd);
 		nsi->stream = true;
-		$set(nsi, cleaner, $nc($($CleanerFactory::cleaner()))->register$(nsi, closer));
+		$set(nsi, cleaner, $$nc($CleanerFactory::cleaner())->register$(nsi, closer));
 		nsi->localport = $nc(localAddress)->getPort();
 		$set(nsi, address, $nc(isaa->get(0))->getAddress());
 		nsi->port = $nc(isaa->get(0))->getPort();
@@ -1090,27 +937,25 @@ int32_t NioSocketImpl::available() {
 }
 
 bool NioSocketImpl::tryClose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!NioSocketImpl::$assertionsDisabled && !($Thread::holdsLock(this->stateLock) && this->state == NioSocketImpl::ST_CLOSING)) {
 		$throwNew($AssertionError);
 	}
 	if (this->readerThread == 0 && this->writerThread == 0) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->cleaner)->clean();
-				} catch ($UncheckedIOException& ioe) {
-					$throw($($cast($IOException, ioe->getCause())));
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->state = NioSocketImpl::ST_CLOSED;
+				$nc(this->cleaner)->clean();
+			} catch ($UncheckedIOException& ioe) {
+				$throw($$cast($IOException, ioe->getCause()));
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->state = NioSocketImpl::ST_CLOSED;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		return true;
 	} else {
@@ -1126,7 +971,7 @@ void NioSocketImpl::tryFinishClose() {
 }
 
 void NioSocketImpl::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->stateLock) {
 		int32_t state = this->state;
 		if (state >= NioSocketImpl::ST_CLOSING) {
@@ -1140,13 +985,13 @@ void NioSocketImpl::close() {
 		try {
 			$init($StandardSocketOptions);
 			$var($SocketOption, SO_LINGER, $StandardSocketOptions::SO_LINGER);
-			if ($nc(($cast($Integer, $($Net::getSocketOption(this->fd, SO_LINGER)))))->intValue() != 0) {
+			if ($$sure($Integer, $Net::getSocketOption(this->fd, SO_LINGER))->intValue() != 0) {
 				$Net::shutdown(this->fd, $Net::SHUT_WR);
 			}
 		} catch ($IOException& ignore) {
 		}
 		if (!tryClose()) {
-			$nc(NioSocketImpl::nd)->preClose(this->fd);
+			NioSocketImpl::nd->preClose(this->fd);
 			int64_t reader = this->readerThread;
 			if (reader != 0) {
 				$NativeThread::signal(reader);
@@ -1160,7 +1005,7 @@ void NioSocketImpl::close() {
 }
 
 $Set* NioSocketImpl::supportedOptions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, options, (this->server) ? $cast($Set, NioSocketImpl::serverSocketOptions) : $cast($Set, NioSocketImpl::clientSocketOptions));
 	if (options == nullptr) {
 		$assign(options, $new($HashSet));
@@ -1192,8 +1037,8 @@ $Set* NioSocketImpl::supportedOptions() {
 }
 
 void NioSocketImpl::setOption($SocketOption* opt, Object$* value) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($(supportedOptions()))->contains(opt)) {
+	$useLocalObjectStack();
+	if (!$$nc(supportedOptions())->contains(opt)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, opt, "\' not supported"_s}));
 	}
 	if (!$nc($nc(opt)->type())->isInstance(value)) {
@@ -1204,41 +1049,37 @@ void NioSocketImpl::setOption($SocketOption* opt, Object$* value) {
 		$init($StandardSocketOptions);
 		if (opt == $StandardSocketOptions::IP_TOS) {
 			$Net::setSocketOption(this->fd, $(family()), opt, value);
-		} else {
-			if (opt == $StandardSocketOptions::SO_REUSEADDR) {
-				bool b = $nc(($cast($Boolean, value)))->booleanValue();
-				if ($Net::useExclusiveBind()) {
-					this->isReuseAddress = b;
-				} else {
-					$Net::setSocketOption(this->fd, opt, $($Boolean::valueOf(b)));
-				}
+		} else if (opt == $StandardSocketOptions::SO_REUSEADDR) {
+			bool b = $nc($cast($Boolean, value))->booleanValue();
+			if ($Net::useExclusiveBind()) {
+				this->isReuseAddress = b;
 			} else {
-				$Net::setSocketOption(this->fd, opt, value);
+				$Net::setSocketOption(this->fd, opt, $($Boolean::valueOf(b)));
 			}
+		} else {
+			$Net::setSocketOption(this->fd, opt, value);
 		}
 	}
 }
 
 $Object* NioSocketImpl::getOption($SocketOption* opt) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($(supportedOptions()))->contains(opt)) {
+	$useLocalObjectStack();
+	if (!$$nc(supportedOptions())->contains(opt)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, opt, "\' not supported"_s}));
 	}
 	$synchronized(this->stateLock) {
 		ensureOpen();
 		$init($StandardSocketOptions);
 		if (opt == $StandardSocketOptions::IP_TOS) {
-			return $of($Net::getSocketOption(this->fd, $(family()), opt));
-		} else {
-			if (opt == $StandardSocketOptions::SO_REUSEADDR) {
-				if ($Net::useExclusiveBind()) {
-					return $of($of($Boolean::valueOf(this->isReuseAddress)));
-				} else {
-					return $of($Net::getSocketOption(this->fd, opt));
-				}
+			return $Net::getSocketOption(this->fd, $(family()), opt);
+		} else if (opt == $StandardSocketOptions::SO_REUSEADDR) {
+			if ($Net::useExclusiveBind()) {
+				return $of($Boolean::valueOf(this->isReuseAddress));
 			} else {
-				return $of($Net::getSocketOption(this->fd, opt));
+				return $Net::getSocketOption(this->fd, opt);
 			}
+		} else {
+			return $Net::getSocketOption(this->fd, opt);
 		}
 	}
 }
@@ -1247,139 +1088,117 @@ bool NioSocketImpl::booleanValue(Object$* value, $String* desc) {
 	if (!($instanceOf($Boolean, value))) {
 		$throwNew($SocketException, $$str({"Bad value for "_s, desc}));
 	}
-	return $nc(($cast($Boolean, value)))->booleanValue();
+	return $nc($cast($Boolean, value))->booleanValue();
 }
 
 int32_t NioSocketImpl::intValue(Object$* value, $String* desc) {
 	if (!($instanceOf($Integer, value))) {
 		$throwNew($SocketException, $$str({"Bad value for "_s, desc}));
 	}
-	return $nc(($cast($Integer, value)))->intValue();
+	return $nc($cast($Integer, value))->intValue();
 }
 
 void NioSocketImpl::setOption(int32_t opt, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->stateLock) {
 		ensureOpen();
 		try {
 			switch (opt) {
 			case $SocketOptions::SO_LINGER:
 				{
-					{
-						int32_t i = 0;
-						if ($instanceOf($Boolean, value) && ($nc(($cast($Boolean, value)))->booleanValue()) == false) {
-							i = -1;
-						} else {
-							i = intValue(value, "SO_LINGER"_s);
-						}
-						$init($StandardSocketOptions);
-						$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_LINGER, $($Integer::valueOf(i)));
-						break;
+					int32_t i = 0;
+					if ($instanceOf($Boolean, value) && ($cast($Boolean, value)->booleanValue()) == false) {
+						i = -1;
+					} else {
+						i = intValue(value, "SO_LINGER"_s);
 					}
+					$init($StandardSocketOptions);
+					$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_LINGER, $($Integer::valueOf(i)));
+					break;
 				}
 			case $SocketOptions::SO_TIMEOUT:
 				{
-					{
-						int32_t i = intValue(value, "SO_TIMEOUT"_s);
-						if (i < 0) {
-							$throwNew($IllegalArgumentException, "timeout < 0"_s);
-						}
-						this->timeout = i;
-						break;
+					int32_t i = intValue(value, "SO_TIMEOUT"_s);
+					if (i < 0) {
+						$throwNew($IllegalArgumentException, "timeout < 0"_s);
 					}
+					this->timeout = i;
+					break;
 				}
 			case $SocketOptions::IP_TOS:
 				{
-					{
-						int32_t i = intValue(value, "IP_TOS"_s);
-						$var($FileDescriptor, var$0, this->fd);
-						$var($ProtocolFamily, var$1, family());
-						$init($StandardSocketOptions);
-						$var($SocketOption, var$2, $StandardSocketOptions::IP_TOS);
-						$Net::setSocketOption(var$0, var$1, var$2, $($Integer::valueOf(i)));
-						break;
-					}
+					int32_t i = intValue(value, "IP_TOS"_s);
+					$var($FileDescriptor, var$0, this->fd);
+					$var($ProtocolFamily, var$1, family());
+					$init($StandardSocketOptions);
+					$var($SocketOption, var$2, $StandardSocketOptions::IP_TOS);
+					$Net::setSocketOption(var$0, var$1, var$2, $($Integer::valueOf(i)));
+					break;
 				}
 			case $SocketOptions::TCP_NODELAY:
 				{
-					{
-						bool b = booleanValue(value, "TCP_NODELAY"_s);
-						$init($StandardSocketOptions);
-						$Net::setSocketOption(this->fd, $StandardSocketOptions::TCP_NODELAY, $($Boolean::valueOf(b)));
-						break;
-					}
+					bool b = booleanValue(value, "TCP_NODELAY"_s);
+					$init($StandardSocketOptions);
+					$Net::setSocketOption(this->fd, $StandardSocketOptions::TCP_NODELAY, $($Boolean::valueOf(b)));
+					break;
 				}
 			case $SocketOptions::SO_SNDBUF:
 				{
-					{
-						int32_t i = intValue(value, "SO_SNDBUF"_s);
-						if (i <= 0) {
-							$throwNew($SocketException, "SO_SNDBUF <= 0"_s);
-						}
-						$init($StandardSocketOptions);
-						$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_SNDBUF, $($Integer::valueOf(i)));
-						break;
+					int32_t i = intValue(value, "SO_SNDBUF"_s);
+					if (i <= 0) {
+						$throwNew($SocketException, "SO_SNDBUF <= 0"_s);
 					}
+					$init($StandardSocketOptions);
+					$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_SNDBUF, $($Integer::valueOf(i)));
+					break;
 				}
 			case $SocketOptions::SO_RCVBUF:
 				{
-					{
-						int32_t i = intValue(value, "SO_RCVBUF"_s);
-						if (i <= 0) {
-							$throwNew($SocketException, "SO_RCVBUF <= 0"_s);
-						}
-						$init($StandardSocketOptions);
-						$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_RCVBUF, $($Integer::valueOf(i)));
-						break;
+					int32_t i = intValue(value, "SO_RCVBUF"_s);
+					if (i <= 0) {
+						$throwNew($SocketException, "SO_RCVBUF <= 0"_s);
 					}
+					$init($StandardSocketOptions);
+					$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_RCVBUF, $($Integer::valueOf(i)));
+					break;
 				}
 			case $SocketOptions::SO_KEEPALIVE:
 				{
-					{
-						bool b = booleanValue(value, "SO_KEEPALIVE"_s);
-						$init($StandardSocketOptions);
-						$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_KEEPALIVE, $($Boolean::valueOf(b)));
-						break;
-					}
+					bool b = booleanValue(value, "SO_KEEPALIVE"_s);
+					$init($StandardSocketOptions);
+					$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_KEEPALIVE, $($Boolean::valueOf(b)));
+					break;
 				}
 			case $SocketOptions::SO_OOBINLINE:
 				{
-					{
-						bool b = booleanValue(value, "SO_OOBINLINE"_s);
-						$init($ExtendedSocketOption);
-						$Net::setSocketOption(this->fd, $ExtendedSocketOption::SO_OOBINLINE, $($Boolean::valueOf(b)));
-						break;
-					}
+					bool b = booleanValue(value, "SO_OOBINLINE"_s);
+					$init($ExtendedSocketOption);
+					$Net::setSocketOption(this->fd, $ExtendedSocketOption::SO_OOBINLINE, $($Boolean::valueOf(b)));
+					break;
 				}
 			case $SocketOptions::SO_REUSEADDR:
 				{
-					{
-						bool b = booleanValue(value, "SO_REUSEADDR"_s);
-						if ($Net::useExclusiveBind()) {
-							this->isReuseAddress = b;
-						} else {
-							$init($StandardSocketOptions);
-							$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_REUSEADDR, $($Boolean::valueOf(b)));
-						}
-						break;
+					bool b = booleanValue(value, "SO_REUSEADDR"_s);
+					if ($Net::useExclusiveBind()) {
+						this->isReuseAddress = b;
+					} else {
+						$init($StandardSocketOptions);
+						$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_REUSEADDR, $($Boolean::valueOf(b)));
 					}
+					break;
 				}
 			case $SocketOptions::SO_REUSEPORT:
 				{
-					{
-						if (!$Net::isReusePortAvailable()) {
-							$throwNew($SocketException, "SO_REUSEPORT not supported"_s);
-						}
-						bool b = booleanValue(value, "SO_REUSEPORT"_s);
-						$init($StandardSocketOptions);
-						$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_REUSEPORT, $($Boolean::valueOf(b)));
-						break;
+					if (!$Net::isReusePortAvailable()) {
+						$throwNew($SocketException, "SO_REUSEPORT not supported"_s);
 					}
+					bool b = booleanValue(value, "SO_REUSEPORT"_s);
+					$init($StandardSocketOptions);
+					$Net::setSocketOption(this->fd, $StandardSocketOptions::SO_REUSEPORT, $($Boolean::valueOf(b)));
+					break;
 				}
 			default:
-				{
-					$throwNew($SocketException, $$str({"Unknown option "_s, $$str(opt)}));
-				}
+				$throwNew($SocketException, $$str({"Unknown option "_s, $$str(opt)}));
 			}
 		} catch ($SocketException& e) {
 			$throw(e);
@@ -1392,83 +1211,58 @@ void NioSocketImpl::setOption(int32_t opt, Object$* value) {
 }
 
 $Object* NioSocketImpl::getOption(int32_t opt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->stateLock) {
 		ensureOpen();
 		try {
 			switch (opt) {
 			case $SocketOptions::SO_TIMEOUT:
-				{
-					return $of($Integer::valueOf(this->timeout));
-				}
+				return $of($Integer::valueOf(this->timeout));
 			case $SocketOptions::TCP_NODELAY:
-				{
-					$init($StandardSocketOptions);
-					return $of($Net::getSocketOption(this->fd, $StandardSocketOptions::TCP_NODELAY));
-				}
+				$init($StandardSocketOptions);
+				return $Net::getSocketOption(this->fd, $StandardSocketOptions::TCP_NODELAY);
 			case $SocketOptions::SO_OOBINLINE:
-				{
-					$init($ExtendedSocketOption);
-					return $of($Net::getSocketOption(this->fd, $ExtendedSocketOption::SO_OOBINLINE));
-				}
+				$init($ExtendedSocketOption);
+				return $Net::getSocketOption(this->fd, $ExtendedSocketOption::SO_OOBINLINE);
 			case $SocketOptions::SO_LINGER:
 				{
-					{
-						$init($StandardSocketOptions);
-						int32_t i = $nc(($cast($Integer, $($Net::getSocketOption(this->fd, $StandardSocketOptions::SO_LINGER)))))->intValue();
-						if (i == -1) {
-							$init($Boolean);
-							return $of($Boolean::FALSE);
-						} else {
-							return $of($Integer::valueOf(i));
-						}
+					$init($StandardSocketOptions);
+					int32_t i = $$sure($Integer, $Net::getSocketOption(this->fd, $StandardSocketOptions::SO_LINGER))->intValue();
+					if (i == -1) {
+						return $of($Boolean::FALSE);
+					} else {
+						return $of($Integer::valueOf(i));
 					}
 				}
 			case $SocketOptions::SO_REUSEADDR:
-				{
-					if ($Net::useExclusiveBind()) {
-						return $of($Boolean::valueOf(this->isReuseAddress));
-					} else {
-						$init($StandardSocketOptions);
-						return $of($Net::getSocketOption(this->fd, $StandardSocketOptions::SO_REUSEADDR));
-					}
+				if ($Net::useExclusiveBind()) {
+					return $of($Boolean::valueOf(this->isReuseAddress));
+				} else {
+					$init($StandardSocketOptions);
+					return $Net::getSocketOption(this->fd, $StandardSocketOptions::SO_REUSEADDR);
 				}
 			case $SocketOptions::SO_BINDADDR:
-				{
-					return $of($nc($($Net::localAddress(this->fd)))->getAddress());
-				}
+				return $$nc($Net::localAddress(this->fd))->getAddress();
 			case $SocketOptions::SO_SNDBUF:
-				{
-					$init($StandardSocketOptions);
-					return $of($Net::getSocketOption(this->fd, $StandardSocketOptions::SO_SNDBUF));
-				}
+				$init($StandardSocketOptions);
+				return $Net::getSocketOption(this->fd, $StandardSocketOptions::SO_SNDBUF);
 			case $SocketOptions::SO_RCVBUF:
-				{
-					$init($StandardSocketOptions);
-					return $of($Net::getSocketOption(this->fd, $StandardSocketOptions::SO_RCVBUF));
-				}
+				$init($StandardSocketOptions);
+				return $Net::getSocketOption(this->fd, $StandardSocketOptions::SO_RCVBUF);
 			case $SocketOptions::IP_TOS:
-				{
-					$init($StandardSocketOptions);
-					return $of($Net::getSocketOption(this->fd, $(family()), $StandardSocketOptions::IP_TOS));
-				}
+				$init($StandardSocketOptions);
+				return $Net::getSocketOption(this->fd, $(family()), $StandardSocketOptions::IP_TOS);
 			case $SocketOptions::SO_KEEPALIVE:
-				{
-					$init($StandardSocketOptions);
-					return $of($Net::getSocketOption(this->fd, $StandardSocketOptions::SO_KEEPALIVE));
-				}
+				$init($StandardSocketOptions);
+				return $Net::getSocketOption(this->fd, $StandardSocketOptions::SO_KEEPALIVE);
 			case $SocketOptions::SO_REUSEPORT:
-				{
-					if (!$Net::isReusePortAvailable()) {
-						$throwNew($SocketException, "SO_REUSEPORT not supported"_s);
-					}
-					$init($StandardSocketOptions);
-					return $of($Net::getSocketOption(this->fd, $StandardSocketOptions::SO_REUSEPORT));
+				if (!$Net::isReusePortAvailable()) {
+					$throwNew($SocketException, "SO_REUSEPORT not supported"_s);
 				}
+				$init($StandardSocketOptions);
+				return $Net::getSocketOption(this->fd, $StandardSocketOptions::SO_REUSEPORT);
 			default:
-				{
-					$throwNew($SocketException, $$str({"Unknown option "_s, $$str(opt)}));
-				}
+				$throwNew($SocketException, $$str({"Unknown option "_s, $$str(opt)}));
 			}
 		} catch ($SocketException& e) {
 			$throw(e);
@@ -1506,48 +1300,44 @@ bool NioSocketImpl::supportsUrgentData() {
 }
 
 void NioSocketImpl::sendUrgentData(int32_t data) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->writeLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	this->writeLock->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		int32_t n = 0;
+		$var($FileDescriptor, fd, beginWrite());
+		$var($Throwable, var$1, nullptr);
 		try {
-			int32_t n = 0;
-			$var($FileDescriptor, fd, beginWrite());
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					do {
-						n = $Net::sendOOB(fd, (int8_t)data);
-					} while (n == $IOStatus::INTERRUPTED && isOpen());
-					if (n == $IOStatus::UNAVAILABLE) {
-						$throwNew($SocketException, "No buffer space available"_s);
-					}
-				} catch ($Throwable& var$2) {
-					$assign(var$1, var$2);
-				} /*finally*/ {
-					endWrite(n > 0);
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
+			do {
+				n = $Net::sendOOB(fd, (int8_t)data);
+			} while (n == $IOStatus::INTERRUPTED && isOpen());
+			if (n == $IOStatus::UNAVAILABLE) {
+				$throwNew($SocketException, "No buffer space available"_s);
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
-			$nc(this->writeLock)->unlock();
+			endWrite(n > 0);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		this->writeLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $Runnable* NioSocketImpl::closerFor($FileDescriptor* fd, bool stream) {
 	$init(NioSocketImpl);
 	if (stream) {
-		return static_cast<$Runnable*>($new(NioSocketImpl$$Lambda$lambda$closerFor$0, fd));
+		return $new(NioSocketImpl$$Lambda$lambda$closerFor$0, fd);
 	} else {
-		return static_cast<$Runnable*>($new(NioSocketImpl$$Lambda$lambda$closerFor$1$1, fd));
+		return $new(NioSocketImpl$$Lambda$lambda$closerFor$1$1, fd);
 	}
 }
 
@@ -1570,7 +1360,7 @@ int64_t NioSocketImpl::tryLock($ReentrantLock* lock, int64_t timeout, $TimeUnit*
 		}
 		remainingNanos = nanos - ($System::nanoTime() - startNanos);
 	}
-	if (acquired && remainingNanos <= (int64_t)0) {
+	if (acquired && remainingNanos <= 0) {
 		$nc(lock)->unlock();
 	}
 	if (interrupted) {
@@ -1592,35 +1382,33 @@ $ProtocolFamily* NioSocketImpl::family() {
 
 void NioSocketImpl::lambda$closerFor$1($FileDescriptor* fd) {
 	$init(NioSocketImpl);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(NioSocketImpl::nd)->close(fd);
-			} catch ($IOException& ioe) {
-				$throwNew($UncheckedIOException, ioe);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$ResourceManager::afterUdpClose();
+			NioSocketImpl::nd->close(fd);
+		} catch ($IOException& ioe) {
+			$throwNew($UncheckedIOException, ioe);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$ResourceManager::afterUdpClose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void NioSocketImpl::lambda$closerFor$0($FileDescriptor* fd) {
 	$init(NioSocketImpl);
 	try {
-		$nc(NioSocketImpl::nd)->close(fd);
+		NioSocketImpl::nd->close(fd);
 	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 }
 
-void clinit$NioSocketImpl($Class* class$) {
+void NioSocketImpl::clinit$($Class* clazz) {
 	NioSocketImpl::$assertionsDisabled = !NioSocketImpl::class$->desiredAssertionStatus();
 	$assignStatic(NioSocketImpl::nd, $new($SocketDispatcher));
 }
@@ -1630,14 +1418,127 @@ NioSocketImpl::NioSocketImpl() {
 
 $Class* NioSocketImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(NioSocketImpl$$Lambda$lambda$closerFor$0::classInfo$.name)) {
+		if (name->equals("sun.nio.ch.NioSocketImpl$$Lambda$lambda$closerFor$0")) {
 			return NioSocketImpl$$Lambda$lambda$closerFor$0::load$(name, initialize);
 		}
-		if (name->equals(NioSocketImpl$$Lambda$lambda$closerFor$1$1::classInfo$.name)) {
+		if (name->equals("sun.nio.ch.NioSocketImpl$$Lambda$lambda$closerFor$1$1")) {
 			return NioSocketImpl$$Lambda$lambda$closerFor$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(NioSocketImpl, name, initialize, &_NioSocketImpl_ClassInfo_, clinit$NioSocketImpl, allocate$NioSocketImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NioSocketImpl, $assertionsDisabled)},
+		{"nd", "Lsun/nio/ch/NativeDispatcher;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NioSocketImpl, nd)},
+		{"MAX_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, MAX_BUFFER_SIZE)},
+		{"server", "Z", nullptr, $PRIVATE | $FINAL, $field(NioSocketImpl, server)},
+		{"readLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(NioSocketImpl, readLock)},
+		{"writeLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(NioSocketImpl, writeLock)},
+		{"stateLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NioSocketImpl, stateLock)},
+		{"ST_NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_NEW)},
+		{"ST_UNCONNECTED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_UNCONNECTED)},
+		{"ST_CONNECTING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_CONNECTING)},
+		{"ST_CONNECTED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_CONNECTED)},
+		{"ST_CLOSING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_CLOSING)},
+		{"ST_CLOSED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NioSocketImpl, ST_CLOSED)},
+		{"state", "I", nullptr, $PRIVATE | $VOLATILE, $field(NioSocketImpl, state)},
+		{"stream", "Z", nullptr, $PRIVATE, $field(NioSocketImpl, stream)},
+		{"cleaner", "Ljava/lang/ref/Cleaner$Cleanable;", nullptr, $PRIVATE, $field(NioSocketImpl, cleaner)},
+		{"nonBlocking", "Z", nullptr, $PRIVATE | $VOLATILE, $field(NioSocketImpl, nonBlocking)},
+		{"readerThread", "J", nullptr, $PRIVATE, $field(NioSocketImpl, readerThread)},
+		{"writerThread", "J", nullptr, $PRIVATE, $field(NioSocketImpl, writerThread)},
+		{"isReuseAddress", "Z", nullptr, $PRIVATE, $field(NioSocketImpl, isReuseAddress)},
+		{"timeout", "I", nullptr, $PRIVATE | $VOLATILE, $field(NioSocketImpl, timeout)},
+		{"isInputClosed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(NioSocketImpl, isInputClosed)},
+		{"isOutputClosed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(NioSocketImpl, isOutputClosed)},
+		{"readEOF", "Z", nullptr, $PRIVATE, $field(NioSocketImpl, readEOF)},
+		{"connectionReset", "Z", nullptr, $PRIVATE, $field(NioSocketImpl, connectionReset)},
+		{"clientSocketOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(NioSocketImpl, clientSocketOptions)},
+		{"serverSocketOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(NioSocketImpl, serverSocketOptions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(NioSocketImpl, init$, void, bool)},
+		{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, accept, void, $SocketImpl*), "java.io.IOException"},
+		{"available", "()I", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, available, int32_t), "java.io.IOException"},
+		{"beginAccept", "()Ljava/io/FileDescriptor;", nullptr, $PRIVATE, $method(NioSocketImpl, beginAccept, $FileDescriptor*), "java.net.SocketException"},
+		{"beginConnect", "(Ljava/net/InetAddress;I)Ljava/io/FileDescriptor;", nullptr, $PRIVATE, $method(NioSocketImpl, beginConnect, $FileDescriptor*, $InetAddress*, int32_t), "java.io.IOException"},
+		{"beginRead", "()Ljava/io/FileDescriptor;", nullptr, $PRIVATE, $method(NioSocketImpl, beginRead, $FileDescriptor*), "java.net.SocketException"},
+		{"beginWrite", "()Ljava/io/FileDescriptor;", nullptr, $PRIVATE, $method(NioSocketImpl, beginWrite, $FileDescriptor*), "java.net.SocketException"},
+		{"bind", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, bind, void, $InetAddress*, int32_t), "java.io.IOException"},
+		{"booleanValue", "(Ljava/lang/Object;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(NioSocketImpl, booleanValue, bool, Object$*, $String*), "java.net.SocketException"},
+		{"close", "()V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, close, void), "java.io.IOException"},
+		{"closerFor", "(Ljava/io/FileDescriptor;Z)Ljava/lang/Runnable;", nullptr, $PRIVATE | $STATIC, $staticMethod(NioSocketImpl, closerFor, $Runnable*, $FileDescriptor*, bool)},
+		{"configureBlocking", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE, $method(NioSocketImpl, configureBlocking, void, $FileDescriptor*), "java.io.IOException"},
+		{"configureNonBlocking", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE, $method(NioSocketImpl, configureNonBlocking, void, $FileDescriptor*), "java.io.IOException"},
+		{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, connect, void, $SocketAddress*, int32_t), "java.io.IOException"},
+		{"connect", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, connect, void, $String*, int32_t), "java.io.IOException"},
+		{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, connect, void, $InetAddress*, int32_t), "java.io.IOException"},
+		{"create", "(Z)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, create, void, bool), "java.io.IOException"},
+		{"endAccept", "(Z)V", nullptr, $PRIVATE, $method(NioSocketImpl, endAccept, void, bool), "java.net.SocketException"},
+		{"endConnect", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PRIVATE, $method(NioSocketImpl, endConnect, void, $FileDescriptor*, bool), "java.io.IOException"},
+		{"endRead", "(Z)V", nullptr, $PRIVATE, $method(NioSocketImpl, endRead, void, bool), "java.net.SocketException"},
+		{"endWrite", "(Z)V", nullptr, $PRIVATE, $method(NioSocketImpl, endWrite, void, bool), "java.net.SocketException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(NioSocketImpl, ensureOpen, void), "java.net.SocketException"},
+		{"ensureOpenAndConnected", "()V", nullptr, $PRIVATE, $method(NioSocketImpl, ensureOpenAndConnected, void), "java.net.SocketException"},
+		{"family", "()Ljava/net/ProtocolFamily;", nullptr, $PRIVATE | $STATIC, $staticMethod(NioSocketImpl, family, $ProtocolFamily*)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, getInputStream, $InputStream*)},
+		{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PROTECTED, $virtualMethod(NioSocketImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+		{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl, getOption, $Object*, int32_t), "java.net.SocketException"},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, getOutputStream, $OutputStream*)},
+		{"implRead", "([BII)I", nullptr, $PRIVATE, $method(NioSocketImpl, implRead, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"implWrite", "([BII)I", nullptr, $PRIVATE, $method(NioSocketImpl, implWrite, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"intValue", "(Ljava/lang/Object;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(NioSocketImpl, intValue, int32_t, Object$*, $String*), "java.net.SocketException"},
+		{"isOpen", "()Z", nullptr, $PRIVATE, $method(NioSocketImpl, isOpen, bool)},
+		{"lambda$closerFor$0", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NioSocketImpl, lambda$closerFor$0, void, $FileDescriptor*)},
+		{"lambda$closerFor$1", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NioSocketImpl, lambda$closerFor$1, void, $FileDescriptor*)},
+		{"listen", "(I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, listen, void, int32_t), "java.io.IOException"},
+		{"park", "(Ljava/io/FileDescriptor;IJ)V", nullptr, $PRIVATE, $method(NioSocketImpl, park, void, $FileDescriptor*, int32_t, int64_t), "java.io.IOException"},
+		{"park", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE, $method(NioSocketImpl, park, void, $FileDescriptor*, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PRIVATE, $method(NioSocketImpl, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"sendUrgentData", "(I)V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, sendUrgentData, void, int32_t), "java.io.IOException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PROTECTED, $virtualMethod(NioSocketImpl, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
+		{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl, setOption, void, int32_t, Object$*), "java.net.SocketException"},
+		{"shutdownInput", "()V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, shutdownInput, void), "java.io.IOException"},
+		{"shutdownOutput", "()V", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, shutdownOutput, void), "java.io.IOException"},
+		{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PROTECTED, $virtualMethod(NioSocketImpl, supportedOptions, $Set*)},
+		{"supportsUrgentData", "()Z", nullptr, $PROTECTED, $virtualMethod(NioSocketImpl, supportsUrgentData, bool)},
+		{"timedAccept", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/net/InetSocketAddress;J)I", nullptr, $PRIVATE, $method(NioSocketImpl, timedAccept, int32_t, $FileDescriptor*, $FileDescriptor*, $InetSocketAddressArray*, int64_t), "java.io.IOException"},
+		{"timedFinishConnect", "(Ljava/io/FileDescriptor;J)Z", nullptr, $PRIVATE, $method(NioSocketImpl, timedFinishConnect, bool, $FileDescriptor*, int64_t), "java.io.IOException"},
+		{"timedRead", "(Ljava/io/FileDescriptor;[BIIJ)I", nullptr, $PRIVATE, $method(NioSocketImpl, timedRead, int32_t, $FileDescriptor*, $bytes*, int32_t, int32_t, int64_t), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryClose", "()Z", nullptr, $PRIVATE, $method(NioSocketImpl, tryClose, bool), "java.io.IOException"},
+		{"tryFinishClose", "()V", nullptr, $PRIVATE, $method(NioSocketImpl, tryFinishClose, void)},
+		{"tryLock", "(Ljava/util/concurrent/locks/ReentrantLock;JLjava/util/concurrent/TimeUnit;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(NioSocketImpl, tryLock, int64_t, $ReentrantLock*, int64_t, $TimeUnit*)},
+		{"tryRead", "(Ljava/io/FileDescriptor;[BII)I", nullptr, $PRIVATE, $method(NioSocketImpl, tryRead, int32_t, $FileDescriptor*, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"tryWrite", "(Ljava/io/FileDescriptor;[BII)I", nullptr, $PRIVATE, $method(NioSocketImpl, tryWrite, int32_t, $FileDescriptor*, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PRIVATE, $method(NioSocketImpl, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.NioSocketImpl$2", nullptr, nullptr, 0},
+		{"sun.nio.ch.NioSocketImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.nio.ch.NioSocketImpl",
+		"java.net.SocketImpl",
+		"sun.net.PlatformSocketImpl",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.NioSocketImpl$2,sun.nio.ch.NioSocketImpl$1"
+	};
+	$loadClass(NioSocketImpl, name, initialize, &classInfo$$, NioSocketImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NioSocketImpl));
+	});
 	return class$;
 }
 

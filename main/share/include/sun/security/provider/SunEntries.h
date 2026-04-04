@@ -47,6 +47,7 @@ class $import SunEntries : public ::java::lang::Object {
 	$class(SunEntries, 0, ::java::lang::Object)
 public:
 	SunEntries();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::Provider* p);
 	void add(::java::security::Provider* p, $String* type, $String* algo, $String* cn);
 	void add(::java::security::Provider* p, $String* type, $String* algo, $String* cn, ::java::util::HashMap* attrs);

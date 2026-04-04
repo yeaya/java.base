@@ -56,6 +56,7 @@ class $import NormalizerBase : public ::java::lang::Cloneable {
 	$class(NormalizerBase, 0, ::java::lang::Cloneable)
 public:
 	NormalizerBase();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* str, ::jdk::internal::icu::text::NormalizerBase$Mode* mode, int32_t opt);
 	void init$($String* str, ::jdk::internal::icu::text::NormalizerBase$Mode* mode);
 	void init$(::java::text::CharacterIterator* iter, ::jdk::internal::icu::text::NormalizerBase$Mode* mode, int32_t opt);

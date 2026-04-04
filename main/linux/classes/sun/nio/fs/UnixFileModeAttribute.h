@@ -35,6 +35,7 @@ class UnixFileModeAttribute : public ::java::lang::Object {
 	$class(UnixFileModeAttribute, 0, ::java::lang::Object)
 public:
 	UnixFileModeAttribute();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t toUnixMode(::java::util::Set* perms);
 	static int32_t toUnixMode(int32_t defaultMode, $Array<::java::nio::file::attribute::FileAttribute>* attrs);

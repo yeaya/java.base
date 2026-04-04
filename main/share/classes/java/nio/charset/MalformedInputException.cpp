@@ -1,5 +1,4 @@
 #include <java/nio/charset/MalformedInputException.h>
-
 #include <java/nio/charset/CharacterCodingException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $CharacterCodingException = ::java::nio::charset::CharacterCodingException
 namespace java {
 	namespace nio {
 		namespace charset {
-
-$FieldInfo _MalformedInputException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MalformedInputException, serialVersionUID)},
-	{"inputLength", "I", nullptr, $PRIVATE, $field(MalformedInputException, inputLength)},
-	{}
-};
-
-$MethodInfo _MalformedInputException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MalformedInputException, init$, void, int32_t)},
-	{"getInputLength", "()I", nullptr, $PUBLIC, $virtualMethod(MalformedInputException, getInputLength, int32_t)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MalformedInputException, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _MalformedInputException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.charset.MalformedInputException",
-	"java.nio.charset.CharacterCodingException",
-	nullptr,
-	_MalformedInputException_FieldInfo_,
-	_MalformedInputException_MethodInfo_
-};
-
-$Object* allocate$MalformedInputException($Class* clazz) {
-	return $of($alloc(MalformedInputException));
-}
 
 void MalformedInputException::init$(int32_t inputLength) {
 	$CharacterCodingException::init$();
@@ -62,7 +35,28 @@ void MalformedInputException::throw$() {
 }
 
 $Class* MalformedInputException::load$($String* name, bool initialize) {
-	$loadClass(MalformedInputException, name, initialize, &_MalformedInputException_ClassInfo_, allocate$MalformedInputException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MalformedInputException, serialVersionUID)},
+		{"inputLength", "I", nullptr, $PRIVATE, $field(MalformedInputException, inputLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(MalformedInputException, init$, void, int32_t)},
+		{"getInputLength", "()I", nullptr, $PUBLIC, $virtualMethod(MalformedInputException, getInputLength, int32_t)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MalformedInputException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.charset.MalformedInputException",
+		"java.nio.charset.CharacterCodingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MalformedInputException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MalformedInputException);
+	});
 	return class$;
 }
 

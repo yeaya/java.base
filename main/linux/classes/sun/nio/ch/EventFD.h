@@ -13,6 +13,7 @@ class EventFD : public ::java::lang::Object {
 	$class(EventFD, 0, ::java::lang::Object)
 public:
 	EventFD();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void close();
 	int32_t efd();

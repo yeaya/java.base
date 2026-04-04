@@ -14,10 +14,13 @@ public:
 	NoSuchPaddingException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xC089D9233FD2A696;
+	static const int64_t serialVersionUID = (int64_t)0xc089d9233fd2a696;
 	NoSuchPaddingException(const NoSuchPaddingException& e);
 	virtual void throw$() override;
-	inline NoSuchPaddingException* operator ->() {
+	inline NoSuchPaddingException* operator ->() const {
+		return (NoSuchPaddingException*)throwing$;
+	}
+	inline operator NoSuchPaddingException*() const {
 		return (NoSuchPaddingException*)throwing$;
 	}
 };

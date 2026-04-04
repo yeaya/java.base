@@ -1,5 +1,4 @@
 #include <SpecialInterfaceCall/SpecialInterfaceCall$C3.h>
-
 #include <SpecialInterfaceCall/SpecialInterfaceCall.h>
 #include <jcpp.h>
 
@@ -9,37 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace SpecialInterfaceCall {
 
-$MethodInfo _SpecialInterfaceCall$C3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SpecialInterfaceCall$C3, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SpecialInterfaceCall$C3_InnerClassesInfo_[] = {
-	{"SpecialInterfaceCall.SpecialInterfaceCall$C3", "SpecialInterfaceCall.SpecialInterfaceCall", "C3", $STATIC},
-	{"SpecialInterfaceCall.SpecialInterfaceCall$I3", "SpecialInterfaceCall.SpecialInterfaceCall", "I3", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SpecialInterfaceCall$C3_ClassInfo_ = {
-	$ACC_SUPER,
-	"SpecialInterfaceCall.SpecialInterfaceCall$C3",
-	"java.lang.Object",
-	"SpecialInterfaceCall.SpecialInterfaceCall$I3",
-	nullptr,
-	_SpecialInterfaceCall$C3_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SpecialInterfaceCall$C3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SpecialInterfaceCall.SpecialInterfaceCall"
-};
-
-$Object* allocate$SpecialInterfaceCall$C3($Class* clazz) {
-	return $of($alloc(SpecialInterfaceCall$C3));
-}
-
 void SpecialInterfaceCall$C3::init$() {
 }
 
@@ -47,7 +15,33 @@ SpecialInterfaceCall$C3::SpecialInterfaceCall$C3() {
 }
 
 $Class* SpecialInterfaceCall$C3::load$($String* name, bool initialize) {
-	$loadClass(SpecialInterfaceCall$C3, name, initialize, &_SpecialInterfaceCall$C3_ClassInfo_, allocate$SpecialInterfaceCall$C3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SpecialInterfaceCall$C3, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SpecialInterfaceCall.SpecialInterfaceCall$C3", "SpecialInterfaceCall.SpecialInterfaceCall", "C3", $STATIC},
+		{"SpecialInterfaceCall.SpecialInterfaceCall$I3", "SpecialInterfaceCall.SpecialInterfaceCall", "I3", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SpecialInterfaceCall.SpecialInterfaceCall$C3",
+		"java.lang.Object",
+		"SpecialInterfaceCall.SpecialInterfaceCall$I3",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SpecialInterfaceCall.SpecialInterfaceCall"
+	};
+	$loadClass(SpecialInterfaceCall$C3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpecialInterfaceCall$C3);
+	});
 	return class$;
 }
 

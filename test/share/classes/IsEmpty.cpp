@@ -1,35 +1,10 @@
 #include <IsEmpty.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$FieldInfo _IsEmpty_FieldInfo_[] = {
-	{"tests", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(IsEmpty, tests)},
-	{}
-};
-
-$MethodInfo _IsEmpty_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IsEmpty, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsEmpty, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _IsEmpty_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IsEmpty",
-	"java.lang.Object",
-	nullptr,
-	_IsEmpty_FieldInfo_,
-	_IsEmpty_MethodInfo_
-};
-
-$Object* allocate$IsEmpty($Class* clazz) {
-	return $of($alloc(IsEmpty));
-}
 
 $StringArray* IsEmpty::tests = nullptr;
 
@@ -38,9 +13,9 @@ void IsEmpty::init$() {
 
 void IsEmpty::main($StringArray* args) {
 	$init(IsEmpty);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(IsEmpty::tests)->length; ++i) {
-		$var($String, s, $nc(IsEmpty::tests)->get(i));
+		$var($String, s, IsEmpty::tests->get(i));
 		int32_t len = $nc(s)->length();
 		bool empty = s->isEmpty();
 		if ((len != 0 && empty) || (len == 0 && !empty)) {
@@ -49,7 +24,7 @@ void IsEmpty::main($StringArray* args) {
 	}
 }
 
-void clinit$IsEmpty($Class* class$) {
+void IsEmpty::clinit$($Class* clazz) {
 	$assignStatic(IsEmpty::tests, $new($StringArray, {
 		""_s,
 		" "_s,
@@ -62,7 +37,26 @@ IsEmpty::IsEmpty() {
 }
 
 $Class* IsEmpty::load$($String* name, bool initialize) {
-	$loadClass(IsEmpty, name, initialize, &_IsEmpty_ClassInfo_, clinit$IsEmpty, allocate$IsEmpty);
+	$FieldInfo fieldInfos$$[] = {
+		{"tests", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(IsEmpty, tests)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IsEmpty, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsEmpty, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IsEmpty",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IsEmpty, name, initialize, &classInfo$$, IsEmpty::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IsEmpty);
+	});
 	return class$;
 }
 

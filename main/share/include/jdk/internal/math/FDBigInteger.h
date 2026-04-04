@@ -34,6 +34,7 @@ class $import FDBigInteger : public ::java::lang::Object {
 	$class(FDBigInteger, 0, ::java::lang::Object)
 public:
 	FDBigInteger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($ints* data, int32_t offset);
 	void init$(int64_t lValue, $chars* digits, int32_t kDigits, int32_t nDigits);
 	::jdk::internal::math::FDBigInteger* add(::jdk::internal::math::FDBigInteger* other);
@@ -75,7 +76,7 @@ public:
 	static $Array<::jdk::internal::math::FDBigInteger>* POW_5_CACHE;
 	static ::jdk::internal::math::FDBigInteger* ZERO;
 	static $ObjectArray* archivedCaches;
-	static const int64_t LONG_MASK = (int64_t)0x00000000FFFFFFFF;
+	static const int64_t LONG_MASK = (int64_t)0x00000000ffffffff;
 	$ints* data = nullptr;
 	int32_t offset = 0;
 	int32_t nWords = 0;

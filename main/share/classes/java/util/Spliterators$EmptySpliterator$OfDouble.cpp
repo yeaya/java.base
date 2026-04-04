@@ -1,5 +1,4 @@
 #include <java/util/Spliterators$EmptySpliterator$OfDouble.h>
-
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator$OfDouble.h>
 #include <java/util/Spliterator.h>
@@ -20,55 +19,6 @@ using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _Spliterators$EmptySpliterator$OfDouble_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(Spliterators$EmptySpliterator$OfDouble, init$, void)},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Spliterators$EmptySpliterator$OfDouble, forEachRemaining, void, $DoubleConsumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Spliterators$EmptySpliterator$OfDouble, tryAdvance, bool, $DoubleConsumer*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$EmptySpliterator$OfDouble, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Spliterators$EmptySpliterator$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.Spliterators$EmptySpliterator", "java.util.Spliterators", "EmptySpliterator", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.Spliterators$EmptySpliterator$OfDouble", "java.util.Spliterators$EmptySpliterator", "OfDouble", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Spliterators$EmptySpliterator$OfDouble_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.Spliterators$EmptySpliterator$OfDouble",
-	"java.util.Spliterators$EmptySpliterator",
-	"java.util.Spliterator$OfDouble",
-	nullptr,
-	_Spliterators$EmptySpliterator$OfDouble_MethodInfo_,
-	"Ljava/util/Spliterators$EmptySpliterator<Ljava/lang/Double;Ljava/util/Spliterator$OfDouble;Ljava/util/function/DoubleConsumer;>;Ljava/util/Spliterator$OfDouble;",
-	nullptr,
-	_Spliterators$EmptySpliterator$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Spliterators"
-};
-
-$Object* allocate$Spliterators$EmptySpliterator$OfDouble($Class* clazz) {
-	return $of($alloc(Spliterators$EmptySpliterator$OfDouble));
-}
 
 bool Spliterators$EmptySpliterator$OfDouble::tryAdvance(Object$* consumer) {
 	 return this->$Spliterators$EmptySpliterator::tryAdvance(consumer);
@@ -218,7 +168,51 @@ Spliterators$EmptySpliterator$OfDouble::Spliterators$EmptySpliterator$OfDouble()
 }
 
 $Class* Spliterators$EmptySpliterator$OfDouble::load$($String* name, bool initialize) {
-	$loadClass(Spliterators$EmptySpliterator$OfDouble, name, initialize, &_Spliterators$EmptySpliterator$OfDouble_ClassInfo_, allocate$Spliterators$EmptySpliterator$OfDouble);
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(Spliterators$EmptySpliterator$OfDouble, init$, void)},
+		{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Spliterators$EmptySpliterator$OfDouble, forEachRemaining, void, $DoubleConsumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Spliterators$EmptySpliterator$OfDouble, tryAdvance, bool, $DoubleConsumer*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$EmptySpliterator$OfDouble, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterators$EmptySpliterator", "java.util.Spliterators", "EmptySpliterator", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.Spliterators$EmptySpliterator$OfDouble", "java.util.Spliterators$EmptySpliterator", "OfDouble", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.Spliterators$EmptySpliterator$OfDouble",
+		"java.util.Spliterators$EmptySpliterator",
+		"java.util.Spliterator$OfDouble",
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/Spliterators$EmptySpliterator<Ljava/lang/Double;Ljava/util/Spliterator$OfDouble;Ljava/util/function/DoubleConsumer;>;Ljava/util/Spliterator$OfDouble;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Spliterators"
+	};
+	$loadClass(Spliterators$EmptySpliterator$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Spliterators$EmptySpliterator$OfDouble));
+	});
 	return class$;
 }
 

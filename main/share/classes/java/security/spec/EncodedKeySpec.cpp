@@ -1,8 +1,6 @@
 #include <java/security/spec/EncodedKeySpec.h>
-
 #include <java/security/spec/EncodedKeySpec$1.h>
 #include <java/util/Arrays.h>
-#include <jdk/internal/access/JavaSecuritySpecAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
 
@@ -14,52 +12,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $EncodedKeySpec$1 = ::java::security::spec::EncodedKeySpec$1;
 using $Arrays = ::java::util::Arrays;
-using $JavaSecuritySpecAccess = ::jdk::internal::access::JavaSecuritySpecAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 
 namespace java {
 	namespace security {
 		namespace spec {
-
-$FieldInfo _EncodedKeySpec_FieldInfo_[] = {
-	{"encodedKey", "[B", nullptr, $PRIVATE, $field(EncodedKeySpec, encodedKey)},
-	{"algorithmName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EncodedKeySpec, algorithmName)},
-	{}
-};
-
-$MethodInfo _EncodedKeySpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncodedKeySpec, init$, void, $bytes*)},
-	{"<init>", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $method(EncodedKeySpec, init$, void, $bytes*, $String*)},
-	{"clear", "()V", nullptr, 0, $virtualMethod(EncodedKeySpec, clear, void)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncodedKeySpec, getAlgorithm, $String*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncodedKeySpec, getEncoded, $bytes*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EncodedKeySpec, getFormat, $String*)},
-	{}
-};
-
-$InnerClassInfo _EncodedKeySpec_InnerClassesInfo_[] = {
-	{"java.security.spec.EncodedKeySpec$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _EncodedKeySpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.spec.EncodedKeySpec",
-	"java.lang.Object",
-	"java.security.spec.KeySpec",
-	_EncodedKeySpec_FieldInfo_,
-	_EncodedKeySpec_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EncodedKeySpec_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.security.spec.EncodedKeySpec$1"
-};
-
-$Object* allocate$EncodedKeySpec($Class* clazz) {
-	return $of($alloc(EncodedKeySpec));
-}
 
 void EncodedKeySpec::init$($bytes* encodedKey) {
 	$set(this, encodedKey, $cast($bytes, $nc(encodedKey)->clone()));
@@ -88,7 +45,7 @@ void EncodedKeySpec::clear() {
 	$Arrays::fill(this->encodedKey, (int8_t)0);
 }
 
-void clinit$EncodedKeySpec($Class* class$) {
+void EncodedKeySpec::clinit$($Class* clazz) {
 	{
 		$SharedSecrets::setJavaSecuritySpecAccess($$new($EncodedKeySpec$1));
 	}
@@ -98,7 +55,41 @@ EncodedKeySpec::EncodedKeySpec() {
 }
 
 $Class* EncodedKeySpec::load$($String* name, bool initialize) {
-	$loadClass(EncodedKeySpec, name, initialize, &_EncodedKeySpec_ClassInfo_, clinit$EncodedKeySpec, allocate$EncodedKeySpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"encodedKey", "[B", nullptr, $PRIVATE, $field(EncodedKeySpec, encodedKey)},
+		{"algorithmName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EncodedKeySpec, algorithmName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncodedKeySpec, init$, void, $bytes*)},
+		{"<init>", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $method(EncodedKeySpec, init$, void, $bytes*, $String*)},
+		{"clear", "()V", nullptr, 0, $virtualMethod(EncodedKeySpec, clear, void)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncodedKeySpec, getAlgorithm, $String*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncodedKeySpec, getEncoded, $bytes*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EncodedKeySpec, getFormat, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.spec.EncodedKeySpec$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.spec.EncodedKeySpec",
+		"java.lang.Object",
+		"java.security.spec.KeySpec",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.security.spec.EncodedKeySpec$1"
+	};
+	$loadClass(EncodedKeySpec, name, initialize, &classInfo$$, EncodedKeySpec::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EncodedKeySpec);
+	});
 	return class$;
 }
 

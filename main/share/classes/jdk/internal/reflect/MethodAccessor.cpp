@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/MethodAccessor.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,28 +8,24 @@ namespace jdk {
 	namespace internal {
 		namespace reflect {
 
-$MethodInfo _MethodAccessor_MethodInfo_[] = {
-	{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodAccessor, invoke, $Object*, Object$*, $ObjectArray*), "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
-	{"*invokeSpecial", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
-	{"*invokev", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
-	{}
-};
-
-$ClassInfo _MethodAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.reflect.MethodAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_MethodAccessor_MethodInfo_
-};
-
-$Object* allocate$MethodAccessor($Class* clazz) {
-	return $of($alloc(MethodAccessor));
-}
-
 $Class* MethodAccessor::load$($String* name, bool initialize) {
-	$loadClass(MethodAccessor, name, initialize, &_MethodAccessor_ClassInfo_, allocate$MethodAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodAccessor, invoke, $Object*, Object$*, $ObjectArray*), "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
+		{"*invokeSpecial", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
+		{"*invokev", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.reflect.MethodAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MethodAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodAccessor);
+	});
 	return class$;
 }
 

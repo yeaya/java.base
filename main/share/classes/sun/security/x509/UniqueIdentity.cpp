@@ -1,5 +1,4 @@
 #include <sun/security/x509/UniqueIdentity.h>
-
 #include <java/io/OutputStream.h>
 #include <sun/security/util/BitArray.h>
 #include <sun/security/util/DerInputStream.h>
@@ -18,35 +17,6 @@ using $DerValue = ::sun::security::util::DerValue;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _UniqueIdentity_FieldInfo_[] = {
-	{"id", "Lsun/security/util/BitArray;", nullptr, $PRIVATE, $field(UniqueIdentity, id)},
-	{}
-};
-
-$MethodInfo _UniqueIdentity_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $BitArray*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $bytes*)},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $DerValue*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;B)V", nullptr, $PUBLIC, $virtualMethod(UniqueIdentity, encode, void, $DerOutputStream*, int8_t), "java.io.IOException"},
-	{"getId", "()[Z", nullptr, $PUBLIC, $virtualMethod(UniqueIdentity, getId, $booleans*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UniqueIdentity, toString, $String*)},
-	{}
-};
-
-$ClassInfo _UniqueIdentity_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.UniqueIdentity",
-	"java.lang.Object",
-	nullptr,
-	_UniqueIdentity_FieldInfo_,
-	_UniqueIdentity_MethodInfo_
-};
-
-$Object* allocate$UniqueIdentity($Class* clazz) {
-	return $of($alloc(UniqueIdentity));
-}
 
 void UniqueIdentity::init$($BitArray* id) {
 	$set(this, id, id);
@@ -71,8 +41,8 @@ $String* UniqueIdentity::toString() {
 
 void UniqueIdentity::encode($DerOutputStream* out, int8_t tag) {
 	$var($bytes, bytes, $nc(this->id)->toByteArray());
-	int32_t excessBits = $nc(bytes)->length * 8 - $nc(this->id)->length();
-	$nc(out)->write((int32_t)tag);
+	int32_t excessBits = $nc(bytes)->length * 8 - this->id->length();
+	$nc(out)->write(tag);
 	out->putLength(bytes->length + 1);
 	out->write(excessBits);
 	out->write(bytes);
@@ -89,7 +59,31 @@ UniqueIdentity::UniqueIdentity() {
 }
 
 $Class* UniqueIdentity::load$($String* name, bool initialize) {
-	$loadClass(UniqueIdentity, name, initialize, &_UniqueIdentity_ClassInfo_, allocate$UniqueIdentity);
+	$FieldInfo fieldInfos$$[] = {
+		{"id", "Lsun/security/util/BitArray;", nullptr, $PRIVATE, $field(UniqueIdentity, id)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $BitArray*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $bytes*)},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $DerValue*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;B)V", nullptr, $PUBLIC, $virtualMethod(UniqueIdentity, encode, void, $DerOutputStream*, int8_t), "java.io.IOException"},
+		{"getId", "()[Z", nullptr, $PUBLIC, $virtualMethod(UniqueIdentity, getId, $booleans*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UniqueIdentity, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.UniqueIdentity",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UniqueIdentity, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UniqueIdentity);
+	});
 	return class$;
 }
 

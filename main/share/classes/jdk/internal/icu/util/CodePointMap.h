@@ -37,6 +37,7 @@ class CodePointMap : public ::java::lang::Iterable {
 	$class(CodePointMap, 0, ::java::lang::Iterable)
 public:
 	CodePointMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t get(int32_t c) {return 0;}
 	virtual bool getRange(int32_t start, ::jdk::internal::icu::util::CodePointMap$ValueFilter* filter, ::jdk::internal::icu::util::CodePointMap$Range* range) {return false;}

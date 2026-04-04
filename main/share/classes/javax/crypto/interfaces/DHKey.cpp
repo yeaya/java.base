@@ -1,5 +1,4 @@
 #include <javax/crypto/interfaces/DHKey.h>
-
 #include <javax/crypto/spec/DHParameterSpec.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace crypto {
 		namespace interfaces {
 
-$MethodInfo _DHKey_MethodInfo_[] = {
-	{"getParams", "()Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DHKey, getParams, $DHParameterSpec*)},
-	{}
-};
-
-$ClassInfo _DHKey_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.crypto.interfaces.DHKey",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DHKey_MethodInfo_
-};
-
-$Object* allocate$DHKey($Class* clazz) {
-	return $of($alloc(DHKey));
-}
-
 $Class* DHKey::load$($String* name, bool initialize) {
-	$loadClass(DHKey, name, initialize, &_DHKey_ClassInfo_, allocate$DHKey);
+	$MethodInfo methodInfos$$[] = {
+		{"getParams", "()Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DHKey, getParams, $DHParameterSpec*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.crypto.interfaces.DHKey",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DHKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHKey);
+	});
 	return class$;
 }
 

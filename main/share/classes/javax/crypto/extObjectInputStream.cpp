@@ -1,5 +1,4 @@
 #include <javax/crypto/extObjectInputStream.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectStreamClass.h>
@@ -18,31 +17,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace crypto {
 
-$MethodInfo _extObjectInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(extObjectInputStream, init$, void, $InputStream*), "java.io.IOException,java.io.StreamCorruptedException"},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(extObjectInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{}
-};
-
-$ClassInfo _extObjectInputStream_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.crypto.extObjectInputStream",
-	"java.io.ObjectInputStream",
-	nullptr,
-	nullptr,
-	_extObjectInputStream_MethodInfo_
-};
-
-$Object* allocate$extObjectInputStream($Class* clazz) {
-	return $of($alloc(extObjectInputStream));
-}
-
 void extObjectInputStream::init$($InputStream* in) {
 	$ObjectInputStream::init$(in);
 }
 
 $Class* extObjectInputStream::resolveClass($ObjectStreamClass* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		return $ObjectInputStream::resolveClass(v);
@@ -63,7 +43,22 @@ extObjectInputStream::extObjectInputStream() {
 }
 
 $Class* extObjectInputStream::load$($String* name, bool initialize) {
-	$loadClass(extObjectInputStream, name, initialize, &_extObjectInputStream_ClassInfo_, allocate$extObjectInputStream);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(extObjectInputStream, init$, void, $InputStream*), "java.io.IOException,java.io.StreamCorruptedException"},
+		{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(extObjectInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.crypto.extObjectInputStream",
+		"java.io.ObjectInputStream",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(extObjectInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(extObjectInputStream));
+	});
 	return class$;
 }
 

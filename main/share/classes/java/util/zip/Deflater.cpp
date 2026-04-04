@@ -1,5 +1,4 @@
 #include <java/util/zip/Deflater.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
@@ -47,111 +46,6 @@ using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _Deflater_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Deflater, $assertionsDisabled)},
-	{"zsRef", "Ljava/util/zip/Deflater$DeflaterZStreamRef;", nullptr, $PRIVATE | $FINAL, $field(Deflater, zsRef)},
-	{"input", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Deflater, input)},
-	{"inputArray", "[B", nullptr, $PRIVATE, $field(Deflater, inputArray)},
-	{"inputPos", "I", nullptr, $PRIVATE, $field(Deflater, inputPos)},
-	{"inputLim", "I", nullptr, $PRIVATE, $field(Deflater, inputLim)},
-	{"level", "I", nullptr, $PRIVATE, $field(Deflater, level)},
-	{"strategy", "I", nullptr, $PRIVATE, $field(Deflater, strategy)},
-	{"setParams", "Z", nullptr, $PRIVATE, $field(Deflater, setParams)},
-	{"finish", "Z", nullptr, $PRIVATE, $field(Deflater, finish$)},
-	{"finished", "Z", nullptr, $PRIVATE, $field(Deflater, finished$)},
-	{"bytesRead", "J", nullptr, $PRIVATE, $field(Deflater, bytesRead)},
-	{"bytesWritten", "J", nullptr, $PRIVATE, $field(Deflater, bytesWritten)},
-	{"DEFLATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, DEFLATED)},
-	{"NO_COMPRESSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, NO_COMPRESSION)},
-	{"BEST_SPEED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, BEST_SPEED)},
-	{"BEST_COMPRESSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, BEST_COMPRESSION)},
-	{"DEFAULT_COMPRESSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, DEFAULT_COMPRESSION)},
-	{"FILTERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, FILTERED)},
-	{"HUFFMAN_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, HUFFMAN_ONLY)},
-	{"DEFAULT_STRATEGY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, DEFAULT_STRATEGY)},
-	{"NO_FLUSH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, NO_FLUSH)},
-	{"SYNC_FLUSH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, SYNC_FLUSH)},
-	{"FULL_FLUSH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, FULL_FLUSH)},
-	{"FINISH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Deflater, FINISH)},
-	{}
-};
-
-$MethodInfo _Deflater_MethodInfo_[] = {
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(Deflater, init$, void, int32_t, bool)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Deflater, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Deflater, init$, void)},
-	{"deflate", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Deflater, deflate, int32_t, $bytes*, int32_t, int32_t)},
-	{"deflate", "([B)I", nullptr, $PUBLIC, $virtualMethod(Deflater, deflate, int32_t, $bytes*)},
-	{"deflate", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Deflater, deflate, int32_t, $ByteBuffer*)},
-	{"deflate", "([BIII)I", nullptr, $PUBLIC, $virtualMethod(Deflater, deflate, int32_t, $bytes*, int32_t, int32_t, int32_t)},
-	{"deflate", "(Ljava/nio/ByteBuffer;I)I", nullptr, $PUBLIC, $virtualMethod(Deflater, deflate, int32_t, $ByteBuffer*, int32_t)},
-	{"deflateBufferBuffer", "(JJIJIII)J", nullptr, $PRIVATE | $NATIVE, $method(Deflater, deflateBufferBuffer, int64_t, int64_t, int64_t, int32_t, int64_t, int32_t, int32_t, int32_t)},
-	{"deflateBufferBytes", "(JJI[BIIII)J", nullptr, $PRIVATE | $NATIVE, $method(Deflater, deflateBufferBytes, int64_t, int64_t, int64_t, int32_t, $bytes*, int32_t, int32_t, int32_t, int32_t)},
-	{"deflateBytesBuffer", "(J[BIIJIII)J", nullptr, $PRIVATE | $NATIVE, $method(Deflater, deflateBytesBuffer, int64_t, int64_t, $bytes*, int32_t, int32_t, int64_t, int32_t, int32_t, int32_t)},
-	{"deflateBytesBytes", "(J[BII[BIIII)J", nullptr, $PRIVATE | $NATIVE, $method(Deflater, deflateBytesBytes, int64_t, int64_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, int32_t, int32_t)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Deflater, end, void)},
-	{"end", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, end, void, int64_t)},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(Deflater, ensureOpen, void)},
-	{"finish", "()V", nullptr, $PUBLIC, $virtualMethod(Deflater, finish, void)},
-	{"finished", "()Z", nullptr, $PUBLIC, $virtualMethod(Deflater, finished, bool)},
-	{"getAdler", "()I", nullptr, $PUBLIC, $virtualMethod(Deflater, getAdler, int32_t)},
-	{"getAdler", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, getAdler, int32_t, int64_t)},
-	{"getBytesRead", "()J", nullptr, $PUBLIC, $virtualMethod(Deflater, getBytesRead, int64_t)},
-	{"getBytesWritten", "()J", nullptr, $PUBLIC, $virtualMethod(Deflater, getBytesWritten, int64_t)},
-	{"getTotalIn", "()I", nullptr, $PUBLIC, $virtualMethod(Deflater, getTotalIn, int32_t)},
-	{"getTotalOut", "()I", nullptr, $PUBLIC, $virtualMethod(Deflater, getTotalOut, int32_t)},
-	{"init", "(IIZ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, init, int64_t, int32_t, int32_t, bool)},
-	{"needsInput", "()Z", nullptr, $PUBLIC, $virtualMethod(Deflater, needsInput, bool)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Deflater, reset, void)},
-	{"reset", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, reset, void, int64_t)},
-	{"setDictionary", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setDictionary, void, $bytes*, int32_t, int32_t)},
-	{"setDictionary", "([B)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setDictionary, void, $bytes*)},
-	{"setDictionary", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setDictionary, void, $ByteBuffer*)},
-	{"setDictionary", "(J[BII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, setDictionary, void, int64_t, $bytes*, int32_t, int32_t)},
-	{"setDictionaryBuffer", "(JJI)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, setDictionaryBuffer, void, int64_t, int64_t, int32_t)},
-	{"setInput", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setInput, void, $bytes*, int32_t, int32_t)},
-	{"setInput", "([B)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setInput, void, $bytes*)},
-	{"setInput", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setInput, void, $ByteBuffer*)},
-	{"setLevel", "(I)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setLevel, void, int32_t)},
-	{"setStrategy", "(I)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setStrategy, void, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_deflateBufferBuffer 8
-#define _METHOD_INDEX_deflateBufferBytes 9
-#define _METHOD_INDEX_deflateBytesBuffer 10
-#define _METHOD_INDEX_deflateBytesBytes 11
-#define _METHOD_INDEX_end 13
-#define _METHOD_INDEX_getAdler 18
-#define _METHOD_INDEX_init 23
-#define _METHOD_INDEX_reset 26
-#define _METHOD_INDEX_setDictionary 30
-#define _METHOD_INDEX_setDictionaryBuffer 31
-
-$InnerClassInfo _Deflater_InnerClassesInfo_[] = {
-	{"java.util.zip.Deflater$DeflaterZStreamRef", "java.util.zip.Deflater", "DeflaterZStreamRef", $STATIC},
-	{}
-};
-
-$ClassInfo _Deflater_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.Deflater",
-	"java.lang.Object",
-	nullptr,
-	_Deflater_FieldInfo_,
-	_Deflater_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Deflater_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.zip.Deflater$DeflaterZStreamRef"
-};
-
-$Object* allocate$Deflater($Class* clazz) {
-	return $of($alloc(Deflater));
-}
 
 bool Deflater::$assertionsDisabled = false;
 
@@ -201,7 +95,7 @@ void Deflater::setDictionary($bytes* dictionary, int32_t off, int32_t len) {
 	}
 	$synchronized(this->zsRef) {
 		ensureOpen();
-		setDictionary($nc(this->zsRef)->address(), dictionary, off, len);
+		setDictionary(this->zsRef->address(), dictionary, off, len);
 	}
 }
 
@@ -210,30 +104,28 @@ void Deflater::setDictionary($bytes* dictionary) {
 }
 
 void Deflater::setDictionary($ByteBuffer* dictionary) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->zsRef) {
 		int32_t position = $nc(dictionary)->position();
 		int32_t remaining = $Math::max(dictionary->limit() - position, 0);
 		ensureOpen();
 		if (dictionary->isDirect()) {
-			int64_t address = $nc(($cast($DirectBuffer, dictionary)))->address();
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					setDictionaryBuffer($nc(this->zsRef)->address(), address + position, remaining);
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					$Reference::reachabilityFence(dictionary);
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			int64_t address = $cast($DirectBuffer, dictionary)->address();
+			$var($Throwable, var$0, nullptr);
+			try {
+				setDictionaryBuffer(this->zsRef->address(), address + position, remaining);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				$Reference::reachabilityFence(dictionary);
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		} else {
 			$var($bytes, array, $ZipUtils::getBufferArray(dictionary));
 			int32_t offset = $ZipUtils::getBufferOffset(dictionary);
-			setDictionary($nc(this->zsRef)->address(), array, offset + position, remaining);
+			setDictionary(this->zsRef->address(), array, offset + position, remaining);
 		}
 		dictionary->position(position + remaining);
 	}
@@ -242,17 +134,11 @@ void Deflater::setDictionary($ByteBuffer* dictionary) {
 void Deflater::setStrategy(int32_t strategy) {
 	switch (strategy) {
 	case Deflater::DEFAULT_STRATEGY:
-		{}
 	case Deflater::FILTERED:
-		{}
 	case Deflater::HUFFMAN_ONLY:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 	$synchronized(this->zsRef) {
 		if (this->strategy != strategy) {
@@ -277,7 +163,7 @@ void Deflater::setLevel(int32_t level) {
 bool Deflater::needsInput() {
 	$synchronized(this->zsRef) {
 		$var($ByteBuffer, input, this->input);
-		return input == nullptr ? this->inputLim == this->inputPos : !$nc(input)->hasRemaining();
+		return input == nullptr ? this->inputLim == this->inputPos : !input->hasRemaining();
 	}
 }
 
@@ -306,7 +192,7 @@ int32_t Deflater::deflate($ByteBuffer* output) {
 }
 
 int32_t Deflater::deflate($bytes* output, int32_t off, int32_t len, int32_t flush) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (off < 0 || len < 0 || off > $nc(output)->length - len) {
 		$throwNew($ArrayIndexOutOfBoundsException);
 	}
@@ -329,37 +215,35 @@ int32_t Deflater::deflate($bytes* output, int32_t off, int32_t len, int32_t flus
 		int64_t result = 0;
 		if (input == nullptr) {
 			inputPos = this->inputPos;
-			result = deflateBytesBytes($nc(this->zsRef)->address(), this->inputArray, inputPos, this->inputLim - inputPos, output, off, len, flush, params);
+			result = deflateBytesBytes(this->zsRef->address(), this->inputArray, inputPos, this->inputLim - inputPos, output, off, len, flush, params);
 		} else {
-			inputPos = $nc(input)->position();
+			inputPos = input->position();
 			int32_t inputRem = $Math::max(input->limit() - inputPos, 0);
 			if (input->isDirect()) {
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
-						int64_t inputAddress = $nc(($cast($DirectBuffer, input)))->address();
-						result = deflateBufferBytes($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, output, off, len, flush, params);
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						$Reference::reachabilityFence(input);
-					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
+				$var($Throwable, var$0, nullptr);
+				try {
+					int64_t inputAddress = $cast($DirectBuffer, input)->address();
+					result = deflateBufferBytes(this->zsRef->address(), inputAddress + inputPos, inputRem, output, off, len, flush, params);
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					$Reference::reachabilityFence(input);
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			} else {
 				$var($bytes, inputArray, $ZipUtils::getBufferArray(input));
 				int32_t inputOffset = $ZipUtils::getBufferOffset(input);
-				result = deflateBytesBytes($nc(this->zsRef)->address(), inputArray, inputOffset + inputPos, inputRem, output, off, len, flush, params);
+				result = deflateBytesBytes(this->zsRef->address(), inputArray, inputOffset + inputPos, inputRem, output, off, len, flush, params);
 			}
 		}
-		int32_t read = (int32_t)((int64_t)(result & (uint64_t)(int64_t)2147483647));
-		int32_t written = (int32_t)((int64_t)((int64_t)((uint64_t)result >> 31) & (uint64_t)(int64_t)2147483647));
-		if (((int64_t)((int64_t)((uint64_t)result >> 62) & (uint64_t)(int64_t)1)) != 0) {
+		int32_t read = (int32_t)(result & (int64_t)0x7fffffff);
+		int32_t written = (int32_t)((int64_t)((uint64_t)result >> 31) & (int64_t)0x7fffffff);
+		if (((int64_t)((uint64_t)result >> 62) & 1) != 0) {
 			this->finished$ = true;
 		}
-		if (params != 0 && ((int64_t)((int64_t)((uint64_t)result >> 63) & (uint64_t)(int64_t)1)) == 0) {
+		if (params != 0 && ((int64_t)((uint64_t)result >> 63) & 1) == 0) {
 			this->setParams = false;
 		}
 		if (input != nullptr) {
@@ -374,7 +258,7 @@ int32_t Deflater::deflate($bytes* output, int32_t off, int32_t len, int32_t flus
 }
 
 int32_t Deflater::deflate($ByteBuffer* output, int32_t flush) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(output)->isReadOnly()) {
 		$throwNew($ReadOnlyBufferException);
 	}
@@ -393,100 +277,92 @@ int32_t Deflater::deflate($ByteBuffer* output, int32_t flush) {
 		} else {
 			params = 0;
 		}
-		int32_t outputPos = $nc(output)->position();
+		int32_t outputPos = output->position();
 		int32_t outputRem = $Math::max(output->limit() - outputPos, 0);
 		int32_t inputPos = 0;
 		int64_t result = 0;
 		if (input == nullptr) {
 			inputPos = this->inputPos;
 			if (output->isDirect()) {
-				int64_t outputAddress = $nc(($cast($DirectBuffer, output)))->address();
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
-						result = deflateBytesBuffer($nc(this->zsRef)->address(), this->inputArray, inputPos, this->inputLim - inputPos, outputAddress + outputPos, outputRem, flush, params);
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						$Reference::reachabilityFence(output);
-					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
+				int64_t outputAddress = $cast($DirectBuffer, output)->address();
+				$var($Throwable, var$0, nullptr);
+				try {
+					result = deflateBytesBuffer(this->zsRef->address(), this->inputArray, inputPos, this->inputLim - inputPos, outputAddress + outputPos, outputRem, flush, params);
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					$Reference::reachabilityFence(output);
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			} else {
 				$var($bytes, outputArray, $ZipUtils::getBufferArray(output));
 				int32_t outputOffset = $ZipUtils::getBufferOffset(output);
-				result = deflateBytesBytes($nc(this->zsRef)->address(), this->inputArray, inputPos, this->inputLim - inputPos, outputArray, outputOffset + outputPos, outputRem, flush, params);
+				result = deflateBytesBytes(this->zsRef->address(), this->inputArray, inputPos, this->inputLim - inputPos, outputArray, outputOffset + outputPos, outputRem, flush, params);
 			}
 		} else {
-			inputPos = $nc(input)->position();
+			inputPos = input->position();
 			int32_t inputRem = $Math::max(input->limit() - inputPos, 0);
 			if (input->isDirect()) {
-				int64_t inputAddress = $nc(($cast($DirectBuffer, input)))->address();
-				{
-					$var($Throwable, var$2, nullptr);
-					try {
-						if (output->isDirect()) {
-							int64_t outputAddress = outputPos + $nc(($cast($DirectBuffer, output)))->address();
-							{
-								$var($Throwable, var$3, nullptr);
-								try {
-									result = deflateBufferBuffer($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, outputAddress, outputRem, flush, params);
-								} catch ($Throwable& var$4) {
-									$assign(var$3, var$4);
-								} /*finally*/ {
-									$Reference::reachabilityFence(output);
-								}
-								if (var$3 != nullptr) {
-									$throw(var$3);
-								}
-							}
-						} else {
-							$var($bytes, outputArray, $ZipUtils::getBufferArray(output));
-							int32_t outputOffset = $ZipUtils::getBufferOffset(output);
-							result = deflateBufferBytes($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, outputArray, outputOffset + outputPos, outputRem, flush, params);
+				int64_t inputAddress = $cast($DirectBuffer, input)->address();
+				$var($Throwable, var$2, nullptr);
+				try {
+					if (output->isDirect()) {
+						int64_t outputAddress = outputPos + $cast($DirectBuffer, output)->address();
+						$var($Throwable, var$3, nullptr);
+						try {
+							result = deflateBufferBuffer(this->zsRef->address(), inputAddress + inputPos, inputRem, outputAddress, outputRem, flush, params);
+						} catch ($Throwable& var$4) {
+							$assign(var$3, var$4);
+						} /*finally*/ {
+							$Reference::reachabilityFence(output);
 						}
-					} catch ($Throwable& var$5) {
-						$assign(var$2, var$5);
-					} /*finally*/ {
-						$Reference::reachabilityFence(input);
+						if (var$3 != nullptr) {
+							$throw(var$3);
+						}
+					} else {
+						$var($bytes, outputArray, $ZipUtils::getBufferArray(output));
+						int32_t outputOffset = $ZipUtils::getBufferOffset(output);
+						result = deflateBufferBytes(this->zsRef->address(), inputAddress + inputPos, inputRem, outputArray, outputOffset + outputPos, outputRem, flush, params);
 					}
-					if (var$2 != nullptr) {
-						$throw(var$2);
-					}
+				} catch ($Throwable& var$5) {
+					$assign(var$2, var$5);
+				} /*finally*/ {
+					$Reference::reachabilityFence(input);
+				}
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			} else {
 				$var($bytes, inputArray, $ZipUtils::getBufferArray(input));
 				int32_t inputOffset = $ZipUtils::getBufferOffset(input);
 				if (output->isDirect()) {
-					int64_t outputAddress = $nc(($cast($DirectBuffer, output)))->address();
-					{
-						$var($Throwable, var$6, nullptr);
-						try {
-							result = deflateBytesBuffer($nc(this->zsRef)->address(), inputArray, inputOffset + inputPos, inputRem, outputAddress + outputPos, outputRem, flush, params);
-						} catch ($Throwable& var$7) {
-							$assign(var$6, var$7);
-						} /*finally*/ {
-							$Reference::reachabilityFence(output);
-						}
-						if (var$6 != nullptr) {
-							$throw(var$6);
-						}
+					int64_t outputAddress = $cast($DirectBuffer, output)->address();
+					$var($Throwable, var$6, nullptr);
+					try {
+						result = deflateBytesBuffer(this->zsRef->address(), inputArray, inputOffset + inputPos, inputRem, outputAddress + outputPos, outputRem, flush, params);
+					} catch ($Throwable& var$7) {
+						$assign(var$6, var$7);
+					} /*finally*/ {
+						$Reference::reachabilityFence(output);
+					}
+					if (var$6 != nullptr) {
+						$throw(var$6);
 					}
 				} else {
 					$var($bytes, outputArray, $ZipUtils::getBufferArray(output));
 					int32_t outputOffset = $ZipUtils::getBufferOffset(output);
-					result = deflateBytesBytes($nc(this->zsRef)->address(), inputArray, inputOffset + inputPos, inputRem, outputArray, outputOffset + outputPos, outputRem, flush, params);
+					result = deflateBytesBytes(this->zsRef->address(), inputArray, inputOffset + inputPos, inputRem, outputArray, outputOffset + outputPos, outputRem, flush, params);
 				}
 			}
 		}
-		int32_t read = (int32_t)((int64_t)(result & (uint64_t)(int64_t)2147483647));
-		int32_t written = (int32_t)((int64_t)((int64_t)((uint64_t)result >> 31) & (uint64_t)(int64_t)2147483647));
-		if (((int64_t)((int64_t)((uint64_t)result >> 62) & (uint64_t)(int64_t)1)) != 0) {
+		int32_t read = (int32_t)(result & (int64_t)0x7fffffff);
+		int32_t written = (int32_t)((int64_t)((uint64_t)result >> 31) & (int64_t)0x7fffffff);
+		if (((int64_t)((uint64_t)result >> 62) & 1) != 0) {
 			this->finished$ = true;
 		}
-		if (params != 0 && ((int64_t)((int64_t)((uint64_t)result >> 63) & (uint64_t)(int64_t)1)) == 0) {
+		if (params != 0 && ((int64_t)((uint64_t)result >> 63) & 1) == 0) {
 			this->setParams = false;
 		}
 		if (input != nullptr) {
@@ -504,7 +380,7 @@ int32_t Deflater::deflate($ByteBuffer* output, int32_t flush) {
 int32_t Deflater::getAdler() {
 	$synchronized(this->zsRef) {
 		ensureOpen();
-		return getAdler($nc(this->zsRef)->address());
+		return getAdler(this->zsRef->address());
 	}
 }
 
@@ -533,7 +409,7 @@ int64_t Deflater::getBytesWritten() {
 void Deflater::reset() {
 	$synchronized(this->zsRef) {
 		ensureOpen();
-		reset($nc(this->zsRef)->address());
+		reset(this->zsRef->address());
 		this->finish$ = false;
 		this->finished$ = false;
 		$init($ZipUtils);
@@ -545,7 +421,7 @@ void Deflater::reset() {
 
 void Deflater::end() {
 	$synchronized(this->zsRef) {
-		$nc(this->zsRef)->clean();
+		this->zsRef->clean();
 		$init($ZipUtils);
 		$set(this, input, $ZipUtils::defaultBuf);
 	}
@@ -600,7 +476,7 @@ void Deflater::end(int64_t addr) {
 	_Java_java_util_zip_Deflater_end(addr);
 }
 
-void clinit$Deflater($Class* class$) {
+void Deflater::clinit$($Class* clazz) {
 	Deflater::$assertionsDisabled = !Deflater::class$->desiredAssertionStatus();
 	{
 		$ZipUtils::loadLibrary();
@@ -611,7 +487,95 @@ Deflater::Deflater() {
 }
 
 $Class* Deflater::load$($String* name, bool initialize) {
-	$loadClass(Deflater, name, initialize, &_Deflater_ClassInfo_, clinit$Deflater, allocate$Deflater);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Deflater, $assertionsDisabled)},
+		{"zsRef", "Ljava/util/zip/Deflater$DeflaterZStreamRef;", nullptr, $PRIVATE | $FINAL, $field(Deflater, zsRef)},
+		{"input", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Deflater, input)},
+		{"inputArray", "[B", nullptr, $PRIVATE, $field(Deflater, inputArray)},
+		{"inputPos", "I", nullptr, $PRIVATE, $field(Deflater, inputPos)},
+		{"inputLim", "I", nullptr, $PRIVATE, $field(Deflater, inputLim)},
+		{"level", "I", nullptr, $PRIVATE, $field(Deflater, level)},
+		{"strategy", "I", nullptr, $PRIVATE, $field(Deflater, strategy)},
+		{"setParams", "Z", nullptr, $PRIVATE, $field(Deflater, setParams)},
+		{"finish", "Z", nullptr, $PRIVATE, $field(Deflater, finish$)},
+		{"finished", "Z", nullptr, $PRIVATE, $field(Deflater, finished$)},
+		{"bytesRead", "J", nullptr, $PRIVATE, $field(Deflater, bytesRead)},
+		{"bytesWritten", "J", nullptr, $PRIVATE, $field(Deflater, bytesWritten)},
+		{"DEFLATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, DEFLATED)},
+		{"NO_COMPRESSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, NO_COMPRESSION)},
+		{"BEST_SPEED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, BEST_SPEED)},
+		{"BEST_COMPRESSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, BEST_COMPRESSION)},
+		{"DEFAULT_COMPRESSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, DEFAULT_COMPRESSION)},
+		{"FILTERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, FILTERED)},
+		{"HUFFMAN_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, HUFFMAN_ONLY)},
+		{"DEFAULT_STRATEGY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, DEFAULT_STRATEGY)},
+		{"NO_FLUSH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, NO_FLUSH)},
+		{"SYNC_FLUSH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, SYNC_FLUSH)},
+		{"FULL_FLUSH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Deflater, FULL_FLUSH)},
+		{"FINISH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Deflater, FINISH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(Deflater, init$, void, int32_t, bool)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Deflater, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Deflater, init$, void)},
+		{"deflate", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Deflater, deflate, int32_t, $bytes*, int32_t, int32_t)},
+		{"deflate", "([B)I", nullptr, $PUBLIC, $virtualMethod(Deflater, deflate, int32_t, $bytes*)},
+		{"deflate", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Deflater, deflate, int32_t, $ByteBuffer*)},
+		{"deflate", "([BIII)I", nullptr, $PUBLIC, $virtualMethod(Deflater, deflate, int32_t, $bytes*, int32_t, int32_t, int32_t)},
+		{"deflate", "(Ljava/nio/ByteBuffer;I)I", nullptr, $PUBLIC, $virtualMethod(Deflater, deflate, int32_t, $ByteBuffer*, int32_t)},
+		{"deflateBufferBuffer", "(JJIJIII)J", nullptr, $PRIVATE | $NATIVE, $method(Deflater, deflateBufferBuffer, int64_t, int64_t, int64_t, int32_t, int64_t, int32_t, int32_t, int32_t)},
+		{"deflateBufferBytes", "(JJI[BIIII)J", nullptr, $PRIVATE | $NATIVE, $method(Deflater, deflateBufferBytes, int64_t, int64_t, int64_t, int32_t, $bytes*, int32_t, int32_t, int32_t, int32_t)},
+		{"deflateBytesBuffer", "(J[BIIJIII)J", nullptr, $PRIVATE | $NATIVE, $method(Deflater, deflateBytesBuffer, int64_t, int64_t, $bytes*, int32_t, int32_t, int64_t, int32_t, int32_t, int32_t)},
+		{"deflateBytesBytes", "(J[BII[BIIII)J", nullptr, $PRIVATE | $NATIVE, $method(Deflater, deflateBytesBytes, int64_t, int64_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, int32_t, int32_t)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Deflater, end, void)},
+		{"end", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, end, void, int64_t)},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(Deflater, ensureOpen, void)},
+		{"finish", "()V", nullptr, $PUBLIC, $virtualMethod(Deflater, finish, void)},
+		{"finished", "()Z", nullptr, $PUBLIC, $virtualMethod(Deflater, finished, bool)},
+		{"getAdler", "()I", nullptr, $PUBLIC, $virtualMethod(Deflater, getAdler, int32_t)},
+		{"getAdler", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, getAdler, int32_t, int64_t)},
+		{"getBytesRead", "()J", nullptr, $PUBLIC, $virtualMethod(Deflater, getBytesRead, int64_t)},
+		{"getBytesWritten", "()J", nullptr, $PUBLIC, $virtualMethod(Deflater, getBytesWritten, int64_t)},
+		{"getTotalIn", "()I", nullptr, $PUBLIC, $virtualMethod(Deflater, getTotalIn, int32_t)},
+		{"getTotalOut", "()I", nullptr, $PUBLIC, $virtualMethod(Deflater, getTotalOut, int32_t)},
+		{"init", "(IIZ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, init, int64_t, int32_t, int32_t, bool)},
+		{"needsInput", "()Z", nullptr, $PUBLIC, $virtualMethod(Deflater, needsInput, bool)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Deflater, reset, void)},
+		{"reset", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, reset, void, int64_t)},
+		{"setDictionary", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setDictionary, void, $bytes*, int32_t, int32_t)},
+		{"setDictionary", "([B)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setDictionary, void, $bytes*)},
+		{"setDictionary", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setDictionary, void, $ByteBuffer*)},
+		{"setDictionary", "(J[BII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, setDictionary, void, int64_t, $bytes*, int32_t, int32_t)},
+		{"setDictionaryBuffer", "(JJI)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Deflater, setDictionaryBuffer, void, int64_t, int64_t, int32_t)},
+		{"setInput", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setInput, void, $bytes*, int32_t, int32_t)},
+		{"setInput", "([B)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setInput, void, $bytes*)},
+		{"setInput", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setInput, void, $ByteBuffer*)},
+		{"setLevel", "(I)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setLevel, void, int32_t)},
+		{"setStrategy", "(I)V", nullptr, $PUBLIC, $virtualMethod(Deflater, setStrategy, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.zip.Deflater$DeflaterZStreamRef", "java.util.zip.Deflater", "DeflaterZStreamRef", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.Deflater",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.zip.Deflater$DeflaterZStreamRef"
+	};
+	$loadClass(Deflater, name, initialize, &classInfo$$, Deflater::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Deflater);
+	});
 	return class$;
 }
 

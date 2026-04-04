@@ -1,5 +1,4 @@
 #include <sun/security/util/DisabledAlgorithmConstraints$CertPathHolder.h>
-
 #include <sun/security/util/DisabledAlgorithmConstraints.h>
 #include <jcpp.h>
 
@@ -15,47 +14,12 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _DisabledAlgorithmConstraints$CertPathHolder_FieldInfo_[] = {
-	{"CONSTRAINTS", "Lsun/security/util/DisabledAlgorithmConstraints;", nullptr, $STATIC | $FINAL, $staticField(DisabledAlgorithmConstraints$CertPathHolder, CONSTRAINTS)},
-	{}
-};
-
-$MethodInfo _DisabledAlgorithmConstraints$CertPathHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DisabledAlgorithmConstraints$CertPathHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _DisabledAlgorithmConstraints$CertPathHolder_InnerClassesInfo_[] = {
-	{"sun.security.util.DisabledAlgorithmConstraints$CertPathHolder", "sun.security.util.DisabledAlgorithmConstraints", "CertPathHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DisabledAlgorithmConstraints$CertPathHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.DisabledAlgorithmConstraints$CertPathHolder",
-	"java.lang.Object",
-	nullptr,
-	_DisabledAlgorithmConstraints$CertPathHolder_FieldInfo_,
-	_DisabledAlgorithmConstraints$CertPathHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DisabledAlgorithmConstraints$CertPathHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.DisabledAlgorithmConstraints"
-};
-
-$Object* allocate$DisabledAlgorithmConstraints$CertPathHolder($Class* clazz) {
-	return $of($alloc(DisabledAlgorithmConstraints$CertPathHolder));
-}
-
 $DisabledAlgorithmConstraints* DisabledAlgorithmConstraints$CertPathHolder::CONSTRAINTS = nullptr;
 
 void DisabledAlgorithmConstraints$CertPathHolder::init$() {
 }
 
-void clinit$DisabledAlgorithmConstraints$CertPathHolder($Class* class$) {
+void DisabledAlgorithmConstraints$CertPathHolder::clinit$($Class* clazz) {
 	$assignStatic(DisabledAlgorithmConstraints$CertPathHolder::CONSTRAINTS, $new($DisabledAlgorithmConstraints, "jdk.certpath.disabledAlgorithms"_s));
 }
 
@@ -63,7 +27,36 @@ DisabledAlgorithmConstraints$CertPathHolder::DisabledAlgorithmConstraints$CertPa
 }
 
 $Class* DisabledAlgorithmConstraints$CertPathHolder::load$($String* name, bool initialize) {
-	$loadClass(DisabledAlgorithmConstraints$CertPathHolder, name, initialize, &_DisabledAlgorithmConstraints$CertPathHolder_ClassInfo_, clinit$DisabledAlgorithmConstraints$CertPathHolder, allocate$DisabledAlgorithmConstraints$CertPathHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONSTRAINTS", "Lsun/security/util/DisabledAlgorithmConstraints;", nullptr, $STATIC | $FINAL, $staticField(DisabledAlgorithmConstraints$CertPathHolder, CONSTRAINTS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DisabledAlgorithmConstraints$CertPathHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.DisabledAlgorithmConstraints$CertPathHolder", "sun.security.util.DisabledAlgorithmConstraints", "CertPathHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.DisabledAlgorithmConstraints$CertPathHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.DisabledAlgorithmConstraints"
+	};
+	$loadClass(DisabledAlgorithmConstraints$CertPathHolder, name, initialize, &classInfo$$, DisabledAlgorithmConstraints$CertPathHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DisabledAlgorithmConstraints$CertPathHolder);
+	});
 	return class$;
 }
 

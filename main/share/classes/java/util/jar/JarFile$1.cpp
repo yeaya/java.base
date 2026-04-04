@@ -1,5 +1,4 @@
 #include <java/util/jar/JarFile$1.h>
-
 #include <java/util/Enumeration.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/jar/JarEntry.h>
@@ -22,63 +21,18 @@ namespace java {
 	namespace util {
 		namespace jar {
 
-$FieldInfo _JarFile$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/jar/JarFile;", nullptr, $FINAL | $SYNTHETIC, $field(JarFile$1, this$0)},
-	{"val$unfilteredEntries", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(JarFile$1, val$unfilteredEntries)},
-	{"entry", "Ljava/util/jar/JarEntry;", nullptr, 0, $field(JarFile$1, entry)},
-	{}
-};
-
-$MethodInfo _JarFile$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/jar/JarFile;Ljava/util/Enumeration;)V", nullptr, 0, $method(JarFile$1, init$, void, $JarFile*, $Enumeration*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(JarFile$1, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JarFile$1, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _JarFile$1_EnclosingMethodInfo_ = {
-	"java.util.jar.JarFile",
-	"entries2",
-	"()Ljava/util/Enumeration;"
-};
-
-$InnerClassInfo _JarFile$1_InnerClassesInfo_[] = {
-	{"java.util.jar.JarFile$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JarFile$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.jar.JarFile$1",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_JarFile$1_FieldInfo_,
-	_JarFile$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;",
-	&_JarFile$1_EnclosingMethodInfo_,
-	_JarFile$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.jar.JarFile"
-};
-
-$Object* allocate$JarFile$1($Class* clazz) {
-	return $of($alloc(JarFile$1));
-}
-
 void JarFile$1::init$($JarFile* this$0, $Enumeration* val$unfilteredEntries) {
 	$set(this, this$0, this$0);
 	$set(this, val$unfilteredEntries, val$unfilteredEntries);
 }
 
 bool JarFile$1::hasMoreElements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->entry != nullptr) {
 		return true;
 	}
 	while ($nc(this->val$unfilteredEntries)->hasMoreElements()) {
-		$var($JarEntry, je, $cast($JarEntry, $nc(this->val$unfilteredEntries)->nextElement()));
+		$var($JarEntry, je, $cast($JarEntry, this->val$unfilteredEntries->nextElement()));
 		if ($JarVerifier::isSigningRelated($($nc(je)->getName()))) {
 			continue;
 		}
@@ -101,7 +55,45 @@ JarFile$1::JarFile$1() {
 }
 
 $Class* JarFile$1::load$($String* name, bool initialize) {
-	$loadClass(JarFile$1, name, initialize, &_JarFile$1_ClassInfo_, allocate$JarFile$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/jar/JarFile;", nullptr, $FINAL | $SYNTHETIC, $field(JarFile$1, this$0)},
+		{"val$unfilteredEntries", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(JarFile$1, val$unfilteredEntries)},
+		{"entry", "Ljava/util/jar/JarEntry;", nullptr, 0, $field(JarFile$1, entry)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/jar/JarFile;Ljava/util/Enumeration;)V", nullptr, 0, $method(JarFile$1, init$, void, $JarFile*, $Enumeration*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(JarFile$1, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JarFile$1, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.jar.JarFile",
+		"entries2",
+		"()Ljava/util/Enumeration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.jar.JarFile$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.jar.JarFile$1",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.jar.JarFile"
+	};
+	$loadClass(JarFile$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarFile$1);
+	});
 	return class$;
 }
 

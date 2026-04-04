@@ -14,10 +14,13 @@ public:
 	PortUnreachableException();
 	void init$($String* msg);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x7570FD1B086D9BBB;
+	static const int64_t serialVersionUID = (int64_t)0x7570fd1b086d9bbb;
 	PortUnreachableException(const PortUnreachableException& e);
 	virtual void throw$() override;
-	inline PortUnreachableException* operator ->() {
+	inline PortUnreachableException* operator ->() const {
+		return (PortUnreachableException*)throwing$;
+	}
+	inline operator PortUnreachableException*() const {
 		return (PortUnreachableException*)throwing$;
 	}
 };

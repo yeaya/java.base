@@ -1,5 +1,4 @@
 #include <java/security/DigestException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _DigestException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DigestException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DigestException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DigestException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DigestException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DigestException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _DigestException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.DigestException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_DigestException_FieldInfo_,
-	_DigestException_MethodInfo_
-};
-
-$Object* allocate$DigestException($Class* clazz) {
-	return $of($alloc(DigestException));
-}
 
 void DigestException::init$() {
 	$GeneralSecurityException::init$();
@@ -64,7 +37,28 @@ void DigestException::throw$() {
 }
 
 $Class* DigestException::load$($String* name, bool initialize) {
-	$loadClass(DigestException, name, initialize, &_DigestException_ClassInfo_, allocate$DigestException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DigestException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DigestException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DigestException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DigestException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.DigestException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DigestException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DigestException);
+	});
 	return class$;
 }
 

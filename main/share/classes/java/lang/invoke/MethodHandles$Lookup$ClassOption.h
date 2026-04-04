@@ -26,6 +26,7 @@ class $export MethodHandles$Lookup$ClassOption : public ::java::lang::Enum {
 public:
 	MethodHandles$Lookup$ClassOption();
 	static $Array<::java::lang::invoke::MethodHandles$Lookup$ClassOption>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t flag);
 	static int32_t optionsToFlag(::java::util::Set* options);
 	static ::java::lang::invoke::MethodHandles$Lookup$ClassOption* valueOf($String* name);

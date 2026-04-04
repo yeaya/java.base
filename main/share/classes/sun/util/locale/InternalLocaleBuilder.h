@@ -34,6 +34,7 @@ class InternalLocaleBuilder : public ::java::lang::Object {
 	$class(InternalLocaleBuilder, 0, ::java::lang::Object)
 public:
 	InternalLocaleBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::sun::util::locale::InternalLocaleBuilder* addUnicodeLocaleAttribute($String* attribute);
 	int32_t checkVariants($String* variants, $String* sep);

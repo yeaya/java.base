@@ -1,5 +1,4 @@
 #include <java/util/Collections$CheckedSortedSet.h>
-
 #include <java/util/Collection.h>
 #include <java/util/Collections$CheckedCollection.h>
 #include <java/util/Collections$CheckedSet.h>
@@ -24,7 +23,6 @@ using $Collections = ::java::util::Collections;
 using $Collections$CheckedSet = ::java::util::Collections$CheckedSet;
 using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 using $SortedSet = ::java::util::SortedSet;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
@@ -34,73 +32,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$CheckedSortedSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CheckedSortedSet, serialVersionUID)},
-	{"ss", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<TE;>;", $PRIVATE | $FINAL, $field(Collections$CheckedSortedSet, ss)},
-	{}
-};
-
-$MethodInfo _Collections$CheckedSortedSet_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/SortedSet;Ljava/lang/Class;)V", "(Ljava/util/SortedSet<TE;>;Ljava/lang/Class<TE;>;)V", 0, $method(Collections$CheckedSortedSet, init$, void, $SortedSet*, $Class*)},
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, comparator, $Comparator*)},
-	{"first", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, first, $Object*)},
-	{"headSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, headSet, $SortedSet*, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"last", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, last, $Object*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{"subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, subSet, $SortedSet*, Object$*, Object$*)},
-	{"tailSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, tailSet, $SortedSet*, Object$*)},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$CheckedSortedSet_InnerClassesInfo_[] = {
-	{"java.util.Collections$CheckedSortedSet", "java.util.Collections", "CheckedSortedSet", $STATIC},
-	{"java.util.Collections$CheckedSet", "java.util.Collections", "CheckedSet", $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$CheckedSortedSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$CheckedSortedSet",
-	"java.util.Collections$CheckedSet",
-	"java.util.SortedSet",
-	_Collections$CheckedSortedSet_FieldInfo_,
-	_Collections$CheckedSortedSet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/Collections$CheckedSet<TE;>;Ljava/util/SortedSet<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$CheckedSortedSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$CheckedSortedSet($Class* clazz) {
-	return $of($alloc(Collections$CheckedSortedSet));
-}
 
 bool Collections$CheckedSortedSet::equals(Object$* o) {
 	 return this->$Collections$CheckedSet::equals(o);
@@ -208,11 +139,11 @@ $Comparator* Collections$CheckedSortedSet::comparator() {
 }
 
 $Object* Collections$CheckedSortedSet::first() {
-	return $of($nc(this->ss)->first());
+	return $nc(this->ss)->first();
 }
 
 $Object* Collections$CheckedSortedSet::last() {
-	return $of($nc(this->ss)->last());
+	return $nc(this->ss)->last();
 }
 
 $SortedSet* Collections$CheckedSortedSet::subSet(Object$* fromElement, Object$* toElement) {
@@ -231,7 +162,68 @@ Collections$CheckedSortedSet::Collections$CheckedSortedSet() {
 }
 
 $Class* Collections$CheckedSortedSet::load$($String* name, bool initialize) {
-	$loadClass(Collections$CheckedSortedSet, name, initialize, &_Collections$CheckedSortedSet_ClassInfo_, allocate$Collections$CheckedSortedSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CheckedSortedSet, serialVersionUID)},
+		{"ss", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<TE;>;", $PRIVATE | $FINAL, $field(Collections$CheckedSortedSet, ss)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/SortedSet;Ljava/lang/Class;)V", "(Ljava/util/SortedSet<TE;>;Ljava/lang/Class<TE;>;)V", 0, $method(Collections$CheckedSortedSet, init$, void, $SortedSet*, $Class*)},
+		{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, comparator, $Comparator*)},
+		{"first", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, first, $Object*)},
+		{"headSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, headSet, $SortedSet*, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"last", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, last, $Object*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{"subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, subSet, $SortedSet*, Object$*, Object$*)},
+		{"tailSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedSet, tailSet, $SortedSet*, Object$*)},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$CheckedSortedSet", "java.util.Collections", "CheckedSortedSet", $STATIC},
+		{"java.util.Collections$CheckedSet", "java.util.Collections", "CheckedSet", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$CheckedSortedSet",
+		"java.util.Collections$CheckedSet",
+		"java.util.SortedSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/Collections$CheckedSet<TE;>;Ljava/util/SortedSet<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$CheckedSortedSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$CheckedSortedSet));
+	});
 	return class$;
 }
 

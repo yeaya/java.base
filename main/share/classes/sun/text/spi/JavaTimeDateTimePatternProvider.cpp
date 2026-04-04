@@ -1,5 +1,4 @@
 #include <sun/text/spi/JavaTimeDateTimePatternProvider.h>
-
 #include <java/util/Locale.h>
 #include <java/util/spi/LocaleServiceProvider.h>
 #include <jcpp.h>
@@ -13,25 +12,6 @@ namespace sun {
 	namespace text {
 		namespace spi {
 
-$MethodInfo _JavaTimeDateTimePatternProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(JavaTimeDateTimePatternProvider, init$, void)},
-	{"getJavaTimeDateTimePattern", "(IILjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaTimeDateTimePatternProvider, getJavaTimeDateTimePattern, $String*, int32_t, int32_t, $String*, $Locale*)},
-	{}
-};
-
-$ClassInfo _JavaTimeDateTimePatternProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.text.spi.JavaTimeDateTimePatternProvider",
-	"java.util.spi.LocaleServiceProvider",
-	nullptr,
-	nullptr,
-	_JavaTimeDateTimePatternProvider_MethodInfo_
-};
-
-$Object* allocate$JavaTimeDateTimePatternProvider($Class* clazz) {
-	return $of($alloc(JavaTimeDateTimePatternProvider));
-}
-
 void JavaTimeDateTimePatternProvider::init$() {
 	$LocaleServiceProvider::init$();
 }
@@ -40,7 +20,22 @@ JavaTimeDateTimePatternProvider::JavaTimeDateTimePatternProvider() {
 }
 
 $Class* JavaTimeDateTimePatternProvider::load$($String* name, bool initialize) {
-	$loadClass(JavaTimeDateTimePatternProvider, name, initialize, &_JavaTimeDateTimePatternProvider_ClassInfo_, allocate$JavaTimeDateTimePatternProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(JavaTimeDateTimePatternProvider, init$, void)},
+		{"getJavaTimeDateTimePattern", "(IILjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaTimeDateTimePatternProvider, getJavaTimeDateTimePattern, $String*, int32_t, int32_t, $String*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.text.spi.JavaTimeDateTimePatternProvider",
+		"java.util.spi.LocaleServiceProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavaTimeDateTimePatternProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaTimeDateTimePatternProvider);
+	});
 	return class$;
 }
 

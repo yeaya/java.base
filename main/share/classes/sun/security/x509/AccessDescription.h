@@ -30,6 +30,7 @@ class $export AccessDescription : public ::java::lang::Object {
 	$class(AccessDescription, 0, ::java::lang::Object)
 public:
 	AccessDescription();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::util::ObjectIdentifier* accessMethod, ::sun::security::x509::GeneralName* accessLocation);
 	void init$(::sun::security::util::DerValue* derValue);
 	void encode(::sun::security::util::DerOutputStream* out);

@@ -23,6 +23,7 @@ class ReferencePipeline$StatelessOp : public ::java::util::stream::ReferencePipe
 	$class(ReferencePipeline$StatelessOp, $PRELOAD, ::java::util::stream::ReferencePipeline)
 public:
 	ReferencePipeline$StatelessOp();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::stream::AbstractPipeline* upstream, ::java::util::stream::StreamShape* inputShape, int32_t opFlags);
 	virtual bool opIsStateful() override;
 	virtual ::java::util::stream::BaseStream* unordered() override;

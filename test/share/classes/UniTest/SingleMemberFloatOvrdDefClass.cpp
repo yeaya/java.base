@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberFloatOvrdDefClass.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,38 +8,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberFloatOvrdDefClass_Attribute_var$0[] = {
-	{"value", 'F', "6.0"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberFloatOvrdDefClass_Annotations_[] = {
-	{"LUniTest/SingleMemberFloatWithDef;", SingleMemberFloatOvrdDefClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberFloatOvrdDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberFloatOvrdDefClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberFloatOvrdDefClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberFloatOvrdDefClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberFloatOvrdDefClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberFloatOvrdDefClass_Annotations_
-};
-
-$Object* allocate$SingleMemberFloatOvrdDefClass($Class* clazz) {
-	return $of($alloc(SingleMemberFloatOvrdDefClass));
-}
-
 void SingleMemberFloatOvrdDefClass::init$() {
 }
 
@@ -48,7 +15,33 @@ SingleMemberFloatOvrdDefClass::SingleMemberFloatOvrdDefClass() {
 }
 
 $Class* SingleMemberFloatOvrdDefClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberFloatOvrdDefClass, name, initialize, &_SingleMemberFloatOvrdDefClass_ClassInfo_, allocate$SingleMemberFloatOvrdDefClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberFloatOvrdDefClass, init$, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'F', "6.0"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberFloatWithDef;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberFloatOvrdDefClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberFloatOvrdDefClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberFloatOvrdDefClass);
+	});
 	return class$;
 }
 

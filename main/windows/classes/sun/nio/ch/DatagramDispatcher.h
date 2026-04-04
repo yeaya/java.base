@@ -19,6 +19,7 @@ class DatagramDispatcher : public ::sun::nio::ch::NativeDispatcher {
 	$class(DatagramDispatcher, 0, ::sun::nio::ch::NativeDispatcher)
 public:
 	DatagramDispatcher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void close(::java::io::FileDescriptor* fd) override;
 	virtual int32_t read(::java::io::FileDescriptor* fd, int64_t address, int32_t len) override;

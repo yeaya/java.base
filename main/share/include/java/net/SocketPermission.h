@@ -58,6 +58,7 @@ class $import SocketPermission : public ::java::security::Permission {
 	$class(SocketPermission, 0, ::java::security::Permission)
 public:
 	SocketPermission();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* host, $String* action);
 	void init$($String* host, int32_t mask);
 	bool authorized($String* cname, $bytes* addr);
@@ -88,7 +89,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* s);
 	void setDeny();
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x9C0550349E530942;
+	static const int64_t serialVersionUID = (int64_t)0x9c0550349e530942;
 	static const int32_t CONNECT = 1;
 	static const int32_t LISTEN = 2;
 	static const int32_t ACCEPT = 4;
@@ -96,9 +97,9 @@ public:
 	static const int32_t NONE = 0;
 	static const int32_t ALL = 15; // CONNECT | LISTEN | ACCEPT | RESOLVE
 	static const int32_t PORT_MIN = 0;
-	static const int32_t PORT_MAX = 0x0000FFFF;
+	static const int32_t PORT_MAX = 0x0000ffff;
 	static const int32_t PRIV_PORT_MAX = 1023;
-	static const int32_t DEF_EPH_LOW = 0x0000C000;
+	static const int32_t DEF_EPH_LOW = 0x0000c000;
 	int32_t mask = 0;
 	$String* actions = nullptr;
 	$String* hostname = nullptr;

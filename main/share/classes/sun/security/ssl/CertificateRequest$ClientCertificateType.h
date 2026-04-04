@@ -45,6 +45,7 @@ class CertificateRequest$ClientCertificateType : public ::java::lang::Enum {
 public:
 	CertificateRequest$ClientCertificateType();
 	static $Array<::sun::security::ssl::CertificateRequest$ClientCertificateType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name, ::java::util::List* keyAlgorithm, bool isAvailable);
 	static $StringArray* getKeyTypes($bytes* ids);

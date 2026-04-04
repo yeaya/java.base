@@ -57,6 +57,7 @@ class $export JmodFile : public ::java::lang::AutoCloseable {
 	$class(JmodFile, 0, ::java::lang::AutoCloseable)
 public:
 	JmodFile();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::Path* file);
 	static void checkMagic(::java::nio::file::Path* file);
 	virtual void close() override;

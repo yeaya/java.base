@@ -43,6 +43,7 @@ class $export Selector : public ::java::io::Closeable {
 public:
 	Selector();
 	virtual void close() override {}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int32_t doSelect(::java::util::function::Consumer* action, int64_t timeout);
 	virtual bool isOpen() {return false;}

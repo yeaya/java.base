@@ -21,6 +21,7 @@ class WindowsAsynchronousFileChannelImpl$DefaultIocpHolder : public ::java::lang
 	$class(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, 0, ::java::lang::Object)
 public:
 	WindowsAsynchronousFileChannelImpl$DefaultIocpHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::ch::Iocp* defaultIocp();
 	static ::sun::nio::ch::Iocp* defaultIocp$;

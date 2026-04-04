@@ -1,5 +1,4 @@
 #include <java/text/DateFormat$Field.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/DateFormat.h>
@@ -46,66 +45,6 @@ using $Map = ::java::util::Map;
 namespace java {
 	namespace text {
 
-$FieldInfo _DateFormat$Field_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateFormat$Field, serialVersionUID)},
-	{"instanceMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/text/DateFormat$Field;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DateFormat$Field, instanceMap)},
-	{"calendarToFieldMapping", "[Ljava/text/DateFormat$Field;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DateFormat$Field, calendarToFieldMapping)},
-	{"calendarField", "I", nullptr, $PRIVATE, $field(DateFormat$Field, calendarField)},
-	{"ERA", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, ERA)},
-	{"YEAR", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, YEAR)},
-	{"MONTH", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, MONTH)},
-	{"DAY_OF_MONTH", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, DAY_OF_MONTH)},
-	{"HOUR_OF_DAY1", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, HOUR_OF_DAY1)},
-	{"HOUR_OF_DAY0", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, HOUR_OF_DAY0)},
-	{"MINUTE", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, MINUTE)},
-	{"SECOND", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, SECOND)},
-	{"MILLISECOND", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, MILLISECOND)},
-	{"DAY_OF_WEEK", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, DAY_OF_WEEK)},
-	{"DAY_OF_YEAR", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, DAY_OF_YEAR)},
-	{"DAY_OF_WEEK_IN_MONTH", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, DAY_OF_WEEK_IN_MONTH)},
-	{"WEEK_OF_YEAR", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, WEEK_OF_YEAR)},
-	{"WEEK_OF_MONTH", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, WEEK_OF_MONTH)},
-	{"AM_PM", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, AM_PM)},
-	{"HOUR1", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, HOUR1)},
-	{"HOUR0", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, HOUR0)},
-	{"TIME_ZONE", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, TIME_ZONE)},
-	{}
-};
-
-$MethodInfo _DateFormat$Field_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(DateFormat$Field, init$, void, $String*, int32_t)},
-	{"getCalendarField", "()I", nullptr, $PUBLIC, $virtualMethod(DateFormat$Field, getCalendarField, int32_t)},
-	{"ofCalendarField", "(I)Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateFormat$Field, ofCalendarField, DateFormat$Field*, int32_t)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DateFormat$Field, readResolve, $Object*), "java.io.InvalidObjectException"},
-	{}
-};
-
-$InnerClassInfo _DateFormat$Field_InnerClassesInfo_[] = {
-	{"java.text.DateFormat$Field", "java.text.DateFormat", "Field", $PUBLIC | $STATIC},
-	{"java.text.Format$Field", "java.text.Format", "Field", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DateFormat$Field_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.text.DateFormat$Field",
-	"java.text.Format$Field",
-	nullptr,
-	_DateFormat$Field_FieldInfo_,
-	_DateFormat$Field_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateFormat$Field_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.text.DateFormat"
-};
-
-$Object* allocate$DateFormat$Field($Class* clazz) {
-	return $of($alloc(DateFormat$Field));
-}
-
 $Map* DateFormat$Field::instanceMap = nullptr;
 $DateFormat$FieldArray* DateFormat$Field::calendarToFieldMapping = nullptr;
 DateFormat$Field* DateFormat$Field::ERA = nullptr;
@@ -129,20 +68,20 @@ DateFormat$Field* DateFormat$Field::TIME_ZONE = nullptr;
 
 DateFormat$Field* DateFormat$Field::ofCalendarField(int32_t calendarField) {
 	$init(DateFormat$Field);
-	$useLocalCurrentObjectStackCache();
-	if (calendarField < 0 || calendarField >= $nc(DateFormat$Field::calendarToFieldMapping)->length) {
+	$useLocalObjectStack();
+	if (calendarField < 0 || calendarField >= DateFormat$Field::calendarToFieldMapping->length) {
 		$throwNew($IllegalArgumentException, $$str({"Unknown Calendar constant "_s, $$str(calendarField)}));
 	}
-	return $nc(DateFormat$Field::calendarToFieldMapping)->get(calendarField);
+	return DateFormat$Field::calendarToFieldMapping->get(calendarField);
 }
 
 void DateFormat$Field::init$($String* name, int32_t calendarField) {
 	$Format$Field::init$(name);
 	this->calendarField = calendarField;
-	if ($of(this)->getClass() == DateFormat$Field::class$) {
-		$nc(DateFormat$Field::instanceMap)->put(name, this);
+	if (this->getClass() == DateFormat$Field::class$) {
+		DateFormat$Field::instanceMap->put(name, this);
 		if (calendarField >= 0) {
-			$nc(DateFormat$Field::calendarToFieldMapping)->set(calendarField, this);
+			DateFormat$Field::calendarToFieldMapping->set(calendarField, this);
 		}
 	}
 }
@@ -152,19 +91,19 @@ int32_t DateFormat$Field::getCalendarField() {
 }
 
 $Object* DateFormat$Field::readResolve() {
-	$useLocalCurrentObjectStackCache();
-	if ($of(this)->getClass() != DateFormat$Field::class$) {
+	$useLocalObjectStack();
+	if (this->getClass() != DateFormat$Field::class$) {
 		$throwNew($InvalidObjectException, "subclass didn\'t correctly implement readResolve"_s);
 	}
-	$var($Object, instance, $nc(DateFormat$Field::instanceMap)->get($(getName())));
+	$var($Object, instance, DateFormat$Field::instanceMap->get($(getName())));
 	if (instance != nullptr) {
-		return $of(instance);
+		return instance;
 	} else {
 		$throwNew($InvalidObjectException, "unknown attribute name"_s);
 	}
 }
 
-void clinit$DateFormat$Field($Class* class$) {
+void DateFormat$Field::clinit$($Class* clazz) {
 	$assignStatic(DateFormat$Field::instanceMap, $new($HashMap, 18));
 	$assignStatic(DateFormat$Field::calendarToFieldMapping, $new($DateFormat$FieldArray, $Calendar::FIELD_COUNT));
 	$assignStatic(DateFormat$Field::ERA, $new(DateFormat$Field, "era"_s, $Calendar::ERA));
@@ -191,7 +130,61 @@ DateFormat$Field::DateFormat$Field() {
 }
 
 $Class* DateFormat$Field::load$($String* name, bool initialize) {
-	$loadClass(DateFormat$Field, name, initialize, &_DateFormat$Field_ClassInfo_, clinit$DateFormat$Field, allocate$DateFormat$Field);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateFormat$Field, serialVersionUID)},
+		{"instanceMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/text/DateFormat$Field;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DateFormat$Field, instanceMap)},
+		{"calendarToFieldMapping", "[Ljava/text/DateFormat$Field;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DateFormat$Field, calendarToFieldMapping)},
+		{"calendarField", "I", nullptr, $PRIVATE, $field(DateFormat$Field, calendarField)},
+		{"ERA", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, ERA)},
+		{"YEAR", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, YEAR)},
+		{"MONTH", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, MONTH)},
+		{"DAY_OF_MONTH", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, DAY_OF_MONTH)},
+		{"HOUR_OF_DAY1", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, HOUR_OF_DAY1)},
+		{"HOUR_OF_DAY0", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, HOUR_OF_DAY0)},
+		{"MINUTE", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, MINUTE)},
+		{"SECOND", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, SECOND)},
+		{"MILLISECOND", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, MILLISECOND)},
+		{"DAY_OF_WEEK", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, DAY_OF_WEEK)},
+		{"DAY_OF_YEAR", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, DAY_OF_YEAR)},
+		{"DAY_OF_WEEK_IN_MONTH", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, DAY_OF_WEEK_IN_MONTH)},
+		{"WEEK_OF_YEAR", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, WEEK_OF_YEAR)},
+		{"WEEK_OF_MONTH", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, WEEK_OF_MONTH)},
+		{"AM_PM", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, AM_PM)},
+		{"HOUR1", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, HOUR1)},
+		{"HOUR0", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, HOUR0)},
+		{"TIME_ZONE", "Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DateFormat$Field, TIME_ZONE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(DateFormat$Field, init$, void, $String*, int32_t)},
+		{"getCalendarField", "()I", nullptr, $PUBLIC, $virtualMethod(DateFormat$Field, getCalendarField, int32_t)},
+		{"ofCalendarField", "(I)Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateFormat$Field, ofCalendarField, DateFormat$Field*, int32_t)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DateFormat$Field, readResolve, $Object*), "java.io.InvalidObjectException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.DateFormat$Field", "java.text.DateFormat", "Field", $PUBLIC | $STATIC},
+		{"java.text.Format$Field", "java.text.Format", "Field", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.text.DateFormat$Field",
+		"java.text.Format$Field",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.text.DateFormat"
+	};
+	$loadClass(DateFormat$Field, name, initialize, &classInfo$$, DateFormat$Field::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DateFormat$Field);
+	});
 	return class$;
 }
 

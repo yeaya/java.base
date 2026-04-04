@@ -84,6 +84,7 @@ public:
 	BigInteger();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* val, int32_t off, int32_t len);
 	void init$($bytes* val);
 	void init$($ints* val);
@@ -246,9 +247,9 @@ public:
 	int32_t bitLengthPlusOne = 0;
 	int32_t lowestSetBitPlusTwo = 0;
 	int32_t firstNonzeroIntNumPlusTwo = 0;
-	static const int64_t LONG_MASK = (int64_t)0x00000000FFFFFFFF;
+	static const int64_t LONG_MASK = (int64_t)0x00000000ffffffff;
 	static const int32_t MAX_MAG_LENGTH = 67108864; // Integer.MAX_VALUE / Integer.SIZE + 1
-	static const int32_t PRIME_SEARCH_BIT_LENGTH_LIMIT = 0x1DCD6500;
+	static const int32_t PRIME_SEARCH_BIT_LENGTH_LIMIT = 0x1dcd6500;
 	static const int32_t KARATSUBA_THRESHOLD = 80;
 	static const int32_t TOOM_COOK_THRESHOLD = 240;
 	static const int32_t KARATSUBA_SQUARE_THRESHOLD = 128;
@@ -280,7 +281,7 @@ public:
 	static $Array<::java::math::BigInteger>* longRadix;
 	static $ints* digitsPerInt;
 	static $ints* intRadix;
-	static const int64_t serialVersionUID = (int64_t)0x8CFC9F1FA93BFB1D;
+	static const int64_t serialVersionUID = (int64_t)0x8cfc9f1fa93bfb1d;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 };
 

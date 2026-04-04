@@ -55,6 +55,7 @@ class $export Exchanger : public ::java::lang::Object {
 	$class(Exchanger, 0, ::java::lang::Object)
 public:
 	Exchanger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$Object* arenaExchange(Object$* item, bool timed, int64_t ns);
 	virtual $Object* exchange(Object$* x);

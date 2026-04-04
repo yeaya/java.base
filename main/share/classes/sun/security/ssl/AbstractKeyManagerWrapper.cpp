@@ -1,5 +1,4 @@
 #include <sun/security/ssl/AbstractKeyManagerWrapper.h>
-
 #include <java/net/Socket.h>
 #include <java/security/Principal.h>
 #include <java/security/PrivateKey.h>
@@ -21,35 +20,6 @@ using $X509KeyManager = ::javax::net::ssl::X509KeyManager;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _AbstractKeyManagerWrapper_FieldInfo_[] = {
-	{"km", "Ljavax/net/ssl/X509KeyManager;", nullptr, $PRIVATE | $FINAL, $field(AbstractKeyManagerWrapper, km)},
-	{}
-};
-
-$MethodInfo _AbstractKeyManagerWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/X509KeyManager;)V", nullptr, 0, $method(AbstractKeyManagerWrapper, init$, void, $X509KeyManager*)},
-	{"chooseClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, chooseClientAlias, $String*, $StringArray*, $PrincipalArray*, $Socket*)},
-	{"chooseServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, chooseServerAlias, $String*, $String*, $PrincipalArray*, $Socket*)},
-	{"getCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getCertificateChain, $X509CertificateArray*, $String*)},
-	{"getClientAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getClientAliases, $StringArray*, $String*, $PrincipalArray*)},
-	{"getPrivateKey", "(Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getPrivateKey, $PrivateKey*, $String*)},
-	{"getServerAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getServerAliases, $StringArray*, $String*, $PrincipalArray*)},
-	{}
-};
-
-$ClassInfo _AbstractKeyManagerWrapper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.AbstractKeyManagerWrapper",
-	"javax.net.ssl.X509ExtendedKeyManager",
-	nullptr,
-	_AbstractKeyManagerWrapper_FieldInfo_,
-	_AbstractKeyManagerWrapper_MethodInfo_
-};
-
-$Object* allocate$AbstractKeyManagerWrapper($Class* clazz) {
-	return $of($alloc(AbstractKeyManagerWrapper));
-}
 
 void AbstractKeyManagerWrapper::init$($X509KeyManager* km) {
 	$X509ExtendedKeyManager::init$();
@@ -84,7 +54,31 @@ AbstractKeyManagerWrapper::AbstractKeyManagerWrapper() {
 }
 
 $Class* AbstractKeyManagerWrapper::load$($String* name, bool initialize) {
-	$loadClass(AbstractKeyManagerWrapper, name, initialize, &_AbstractKeyManagerWrapper_ClassInfo_, allocate$AbstractKeyManagerWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"km", "Ljavax/net/ssl/X509KeyManager;", nullptr, $PRIVATE | $FINAL, $field(AbstractKeyManagerWrapper, km)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/net/ssl/X509KeyManager;)V", nullptr, 0, $method(AbstractKeyManagerWrapper, init$, void, $X509KeyManager*)},
+		{"chooseClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, chooseClientAlias, $String*, $StringArray*, $PrincipalArray*, $Socket*)},
+		{"chooseServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, chooseServerAlias, $String*, $String*, $PrincipalArray*, $Socket*)},
+		{"getCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getCertificateChain, $X509CertificateArray*, $String*)},
+		{"getClientAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getClientAliases, $StringArray*, $String*, $PrincipalArray*)},
+		{"getPrivateKey", "(Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getPrivateKey, $PrivateKey*, $String*)},
+		{"getServerAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getServerAliases, $StringArray*, $String*, $PrincipalArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.AbstractKeyManagerWrapper",
+		"javax.net.ssl.X509ExtendedKeyManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractKeyManagerWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractKeyManagerWrapper);
+	});
 	return class$;
 }
 

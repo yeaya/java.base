@@ -48,6 +48,7 @@ class $import HostnameChecker : public ::java::lang::Object {
 	$class(HostnameChecker, 0, ::java::lang::Object)
 public:
 	HostnameChecker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t checkType);
 	static ::sun::security::util::HostnameChecker* getInstance(int8_t checkType);
 	static ::sun::security::x509::X500Name* getSubjectX500Name(::java::security::cert::X509Certificate* cert);

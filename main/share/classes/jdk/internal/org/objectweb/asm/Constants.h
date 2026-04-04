@@ -220,6 +220,7 @@ class Constants : public ::java::lang::Object {
 	$class(Constants, 0, ::java::lang::Object)
 public:
 	Constants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkAsmExperimental(Object$* caller);
 	static void checkIsPreview(::java::io::InputStream* classInputStream);

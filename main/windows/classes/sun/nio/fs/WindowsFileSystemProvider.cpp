@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsFileSystemProvider.h>
-
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
@@ -35,14 +34,12 @@
 #include <java/nio/file/attribute/FileAttributeView.h>
 #include <java/nio/file/attribute/FileOwnerAttributeView.h>
 #include <java/nio/file/attribute/UserDefinedFileAttributeView.h>
-#include <java/security/Permission.h>
 #include <java/util/Collections.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <java/util/concurrent/ExecutorService.h>
 #include <jdk/internal/util/StaticProperty.h>
 #include <sun/nio/ch/ThreadPool.h>
-#include <sun/nio/fs/AbstractBasicFileAttributeView.h>
 #include <sun/nio/fs/AbstractFileSystemProvider.h>
 #include <sun/nio/fs/DynamicFileAttributeView.h>
 #include <sun/nio/fs/FileOwnerAttributeViewImpl.h>
@@ -118,14 +115,12 @@ using $DosFileAttributes = ::java::nio::file::attribute::DosFileAttributes;
 using $FileAttributeView = ::java::nio::file::attribute::FileAttributeView;
 using $FileOwnerAttributeView = ::java::nio::file::attribute::FileOwnerAttributeView;
 using $UserDefinedFileAttributeView = ::java::nio::file::attribute::UserDefinedFileAttributeView;
-using $Permission = ::java::security::Permission;
 using $Collections = ::java::util::Collections;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $StaticProperty = ::jdk::internal::util::StaticProperty;
 using $ThreadPool = ::sun::nio::ch::ThreadPool;
-using $AbstractBasicFileAttributeView = ::sun::nio::fs::AbstractBasicFileAttributeView;
 using $AbstractFileSystemProvider = ::sun::nio::fs::AbstractFileSystemProvider;
 using $DynamicFileAttributeView = ::sun::nio::fs::DynamicFileAttributeView;
 using $FileOwnerAttributeViewImpl = ::sun::nio::fs::FileOwnerAttributeViewImpl;
@@ -156,69 +151,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsFileSystemProvider_FieldInfo_[] = {
-	{"EMPTY_PATH", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileSystemProvider, EMPTY_PATH)},
-	{"theFileSystem", "Lsun/nio/fs/WindowsFileSystem;", nullptr, $PRIVATE | $FINAL, $field(WindowsFileSystemProvider, theFileSystem$)},
-	{}
-};
-
-$MethodInfo _WindowsFileSystemProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsFileSystemProvider, init$, void)},
-	{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
-	{"checkReadAccess", "(Lsun/nio/fs/WindowsPath;)V", nullptr, $PRIVATE, $method(WindowsFileSystemProvider, checkReadAccess, void, $WindowsPath*), "java.io.IOException"},
-	{"checkUri", "(Ljava/net/URI;)V", nullptr, $PRIVATE, $method(WindowsFileSystemProvider, checkUri, void, $URI*)},
-	{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
-	{"createLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, createLink, void, $Path*, $Path*), "java.io.IOException"},
-	{"createSymbolicLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, createSymbolicLink, void, $Path*, $Path*, $FileAttributeArray*), "java.io.IOException"},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Lsun/nio/fs/DynamicFileAttributeView;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, getFileAttributeView, $DynamicFileAttributeView*, $Path*, $String*, $LinkOptionArray*)},
-	{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
-	{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $FINAL, $virtualMethod(WindowsFileSystemProvider, getFileSystem, $FileSystem*, $URI*)},
-	{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, getPath, $Path*, $URI*)},
-	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, getScheme, $String*)},
-	{"getSunPathForSocketFile", "(Ljava/nio/file/Path;)[B", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, getSunPathForSocketFile, $bytes*, $Path*)},
-	{"hasDesiredAccess", "(Lsun/nio/fs/WindowsPath;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileSystemProvider, hasDesiredAccess, bool, $WindowsPath*, int32_t), "java.io.IOException"},
-	{"implDelete", "(Ljava/nio/file/Path;Z)Z", nullptr, 0, $virtualMethod(WindowsFileSystemProvider, implDelete, bool, $Path*, bool), "java.io.IOException"},
-	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, isHidden, bool, $Path*), "java.io.IOException"},
-	{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
-	{"isUnixDomainSocket", "(Lsun/nio/fs/WindowsPath;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileSystemProvider, isUnixDomainSocket, bool, $WindowsPath*), "sun.nio.fs.WindowsException"},
-	{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{"newAsynchronousFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/AsynchronousFileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, newAsynchronousFileChannel, $AsynchronousFileChannel*, $Path*, $Set*, $ExecutorService*, $FileAttributeArray*), "java.io.IOException"},
-	{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
-	{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(WindowsFileSystemProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*), "java.io.IOException"},
-	{"newFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, newFileChannel, $FileChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(WindowsFileSystemProvider, newFileSystem, $FileSystem*, $URI*, $Map*), "java.io.IOException"},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
-	{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, readSymbolicLink, $Path*, $Path*), "java.io.IOException"},
-	{"theFileSystem", "()Lsun/nio/fs/WindowsFileSystem;", nullptr, 0, $virtualMethod(WindowsFileSystemProvider, theFileSystem, $WindowsFileSystem*)},
-	{}
-};
-
-$InnerClassInfo _WindowsFileSystemProvider_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsFileSystemProvider$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _WindowsFileSystemProvider_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsFileSystemProvider",
-	"sun.nio.fs.AbstractFileSystemProvider",
-	nullptr,
-	_WindowsFileSystemProvider_FieldInfo_,
-	_WindowsFileSystemProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsFileSystemProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsFileSystemProvider$1"
-};
-
-$Object* allocate$WindowsFileSystemProvider($Class* clazz) {
-	return $of($alloc(WindowsFileSystemProvider));
-}
-
 $bytes* WindowsFileSystemProvider::EMPTY_PATH = nullptr;
 
 void WindowsFileSystemProvider::init$() {
@@ -235,14 +167,14 @@ $String* WindowsFileSystemProvider::getScheme() {
 }
 
 void WindowsFileSystemProvider::checkUri($URI* uri) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($nc(uri)->getScheme()))->equalsIgnoreCase($(getScheme()))) {
+	$useLocalObjectStack();
+	if (!$$nc($nc(uri)->getScheme())->equalsIgnoreCase($(getScheme()))) {
 		$throwNew($IllegalArgumentException, "URI does not match this provider"_s);
 	}
-	if ($nc(uri)->getRawAuthority() != nullptr) {
+	if (uri->getRawAuthority() != nullptr) {
 		$throwNew($IllegalArgumentException, "Authority component present"_s);
 	}
-	$var($String, path, $nc(uri)->getPath());
+	$var($String, path, uri->getPath());
 	if (path == nullptr) {
 		$throwNew($IllegalArgumentException, "Path component is undefined"_s);
 	}
@@ -273,7 +205,7 @@ $Path* WindowsFileSystemProvider::getPath($URI* uri) {
 }
 
 $FileChannel* WindowsFileSystemProvider::newFileChannel($Path* path, $Set* options, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (path == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -282,43 +214,40 @@ $FileChannel* WindowsFileSystemProvider::newFileChannel($Path* path, $Set* optio
 	}
 	$var($WindowsPath, file, $cast($WindowsPath, path));
 	$var($WindowsSecurityDescriptor, sd, $WindowsSecurityDescriptor::fromAttribute(attrs));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($FileChannel, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($FileChannel, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$var($String, var$3, $nc(file)->getPathForWin32Calls());
-				$var($String, var$4, file->getPathForPermissionCheck());
-				$var($Set, var$5, options);
-				$assign(var$2, $WindowsChannelFactory::newFileChannel(var$3, var$4, var$5, $nc(sd)->address()));
-				return$1 = true;
-				goto $finally;
-			} catch ($WindowsException& x) {
-				x->rethrowAsIOException(file);
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} $finally: {
-			if (sd != nullptr) {
-				sd->release();
-			}
+			$var($String, var$3, $nc(file)->getPathForWin32Calls());
+			$var($String, var$4, file->getPathForPermissionCheck());
+			$assign(var$2, $WindowsChannelFactory::newFileChannel(var$3, var$4, options, $nc(sd)->address()));
+			return$1 = true;
+			goto $finally;
+		} catch ($WindowsException& x) {
+			x->rethrowAsIOException(file);
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		if (sd != nullptr) {
+			sd->release();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $AsynchronousFileChannel* WindowsFileSystemProvider::newAsynchronousFileChannel($Path* path, $Set* options, $ExecutorService* executor, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (path == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -328,43 +257,40 @@ $AsynchronousFileChannel* WindowsFileSystemProvider::newAsynchronousFileChannel(
 	$var($WindowsPath, file, $cast($WindowsPath, path));
 	$var($ThreadPool, pool, (executor == nullptr) ? ($ThreadPool*)nullptr : $ThreadPool::wrap(executor, 0));
 	$var($WindowsSecurityDescriptor, sd, $WindowsSecurityDescriptor::fromAttribute(attrs));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($AsynchronousFileChannel, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($AsynchronousFileChannel, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$var($String, var$3, $nc(file)->getPathForWin32Calls());
-				$var($String, var$4, file->getPathForPermissionCheck());
-				$var($Set, var$5, options);
-				$assign(var$2, $WindowsChannelFactory::newAsynchronousFileChannel(var$3, var$4, var$5, $nc(sd)->address(), pool));
-				return$1 = true;
-				goto $finally;
-			} catch ($WindowsException& x) {
-				x->rethrowAsIOException(file);
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} $finally: {
-			if (sd != nullptr) {
-				sd->release();
-			}
+			$var($String, var$3, $nc(file)->getPathForWin32Calls());
+			$var($String, var$4, file->getPathForPermissionCheck());
+			$assign(var$2, $WindowsChannelFactory::newAsynchronousFileChannel(var$3, var$4, options, $nc(sd)->address(), pool));
+			return$1 = true;
+			goto $finally;
+		} catch ($WindowsException& x) {
+			x->rethrowAsIOException(file);
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		if (sd != nullptr) {
+			sd->release();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $FileAttributeView* WindowsFileSystemProvider::getFileAttributeView($Path* obj, $Class* view, $LinkOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	if (view == nullptr) {
 		$throwNew($NullPointerException);
@@ -372,23 +298,23 @@ $FileAttributeView* WindowsFileSystemProvider::getFileAttributeView($Path* obj, 
 	bool followLinks = $Util::followLinks(options);
 	$load($BasicFileAttributeView);
 	if (view == $BasicFileAttributeView::class$) {
-		return static_cast<$FileAttributeView*>($WindowsFileAttributeViews::createBasicView(file, followLinks));
+		return $cast($FileAttributeView, $WindowsFileAttributeViews::createBasicView(file, followLinks));
 	}
 	$load($DosFileAttributeView);
 	if (view == $DosFileAttributeView::class$) {
-		return static_cast<$FileAttributeView*>(static_cast<$BasicFileAttributeView*>(static_cast<$AbstractBasicFileAttributeView*>(static_cast<$WindowsFileAttributeViews$Basic*>($WindowsFileAttributeViews::createDosView(file, followLinks)))));
+		return $cast($FileAttributeView, $cast($WindowsFileAttributeViews$Basic, $WindowsFileAttributeViews::createDosView(file, followLinks)));
 	}
 	$load($AclFileAttributeView);
 	if (view == $AclFileAttributeView::class$) {
-		return static_cast<$FileAttributeView*>($new($WindowsAclFileAttributeView, file, followLinks));
+		return $cast($FileAttributeView, $new($WindowsAclFileAttributeView, file, followLinks));
 	}
 	$load($FileOwnerAttributeView);
 	if (view == $FileOwnerAttributeView::class$) {
-		return static_cast<$FileAttributeView*>($new($FileOwnerAttributeViewImpl, static_cast<$AclFileAttributeView*>($$new($WindowsAclFileAttributeView, file, followLinks))));
+		return $cast($FileAttributeView, $new($FileOwnerAttributeViewImpl, $$new($WindowsAclFileAttributeView, file, followLinks)));
 	}
 	$load($UserDefinedFileAttributeView);
 	if (view == $UserDefinedFileAttributeView::class$) {
-		return static_cast<$FileAttributeView*>($new($WindowsUserDefinedFileAttributeView, file, followLinks));
+		return $cast($FileAttributeView, $new($WindowsUserDefinedFileAttributeView, file, followLinks));
 	}
 	return ($FileAttributeView*)nullptr;
 }
@@ -410,77 +336,74 @@ $BasicFileAttributes* WindowsFileSystemProvider::readAttributes($Path* file, $Cl
 			$throwNew($UnsupportedOperationException);
 		}
 	}
-	return $nc(($cast($BasicFileAttributeView, $(getFileAttributeView(file, view, options)))))->readAttributes();
+	return $$sure($BasicFileAttributeView, getFileAttributeView(file, view, options))->readAttributes();
 }
 
 $DynamicFileAttributeView* WindowsFileSystemProvider::getFileAttributeView($Path* obj, $String* name, $LinkOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	bool followLinks = $Util::followLinks(options);
 	if ($nc(name)->equals("basic"_s)) {
 		return $WindowsFileAttributeViews::createBasicView(file, followLinks);
 	}
-	if ($nc(name)->equals("dos"_s)) {
+	if (name->equals("dos"_s)) {
 		return $WindowsFileAttributeViews::createDosView(file, followLinks);
 	}
-	if ($nc(name)->equals("acl"_s)) {
+	if (name->equals("acl"_s)) {
 		return $new($WindowsAclFileAttributeView, file, followLinks);
 	}
-	if ($nc(name)->equals("owner"_s)) {
-		return $new($FileOwnerAttributeViewImpl, static_cast<$AclFileAttributeView*>($$new($WindowsAclFileAttributeView, file, followLinks)));
+	if (name->equals("owner"_s)) {
+		return $new($FileOwnerAttributeViewImpl, $$new($WindowsAclFileAttributeView, file, followLinks));
 	}
-	if ($nc(name)->equals("user"_s)) {
+	if (name->equals("user"_s)) {
 		return $new($WindowsUserDefinedFileAttributeView, file, followLinks);
 	}
 	return nullptr;
 }
 
 $SeekableByteChannel* WindowsFileSystemProvider::newByteChannel($Path* obj, $Set* options, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	$var($WindowsSecurityDescriptor, sd, $WindowsSecurityDescriptor::fromAttribute(attrs));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($SeekableByteChannel, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($SeekableByteChannel, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$var($String, var$3, $nc(file)->getPathForWin32Calls());
-				$var($String, var$4, file->getPathForPermissionCheck());
-				$var($Set, var$5, options);
-				$assign(var$2, $WindowsChannelFactory::newFileChannel(var$3, var$4, var$5, $nc(sd)->address()));
-				return$1 = true;
-				goto $finally;
-			} catch ($WindowsException& x) {
-				x->rethrowAsIOException(file);
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} $finally: {
-			$nc(sd)->release();
+			$var($String, var$3, $nc(file)->getPathForWin32Calls());
+			$var($String, var$4, file->getPathForPermissionCheck());
+			$assign(var$2, $WindowsChannelFactory::newFileChannel(var$3, var$4, options, $nc(sd)->address()));
+			return$1 = true;
+			goto $finally;
+		} catch ($WindowsException& x) {
+			x->rethrowAsIOException(file);
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		$nc(sd)->release();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool WindowsFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	$nc(file)->checkDelete();
 	$var($WindowsFileAttributes, attrs, nullptr);
 	try {
 		$assign(attrs, $WindowsFileAttributes::get(file, false));
 		bool var$0 = $nc(attrs)->isDirectory();
-		if (var$0 || $nc(attrs)->isDirectoryLink()) {
+		if (var$0 || attrs->isDirectoryLink()) {
 			$WindowsNativeDispatcher::RemoveDirectory($(file->getPathForWin32Calls()));
 		} else {
 			$WindowsNativeDispatcher::DeleteFile($(file->getPathForWin32Calls()));
@@ -490,7 +413,7 @@ bool WindowsFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
 		bool var$1 = !failIfNotExists;
 		if (var$1) {
 			bool var$2 = x->lastError() == 2;
-			var$1 = (var$2 || x->lastError() == 3);
+			var$1 = var$2 || x->lastError() == 3;
 		}
 		if (var$1) {
 			return false;
@@ -508,45 +431,43 @@ bool WindowsFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
 }
 
 void WindowsFileSystemProvider::copy($Path* source, $Path* target, $CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, var$0, $WindowsPath::toWindowsPath(source));
 	$WindowsFileCopy::copy(var$0, $($WindowsPath::toWindowsPath(target)), options);
 }
 
 void WindowsFileSystemProvider::move($Path* source, $Path* target, $CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, var$0, $WindowsPath::toWindowsPath(source));
 	$WindowsFileCopy::move(var$0, $($WindowsPath::toWindowsPath(target)), options);
 }
 
 bool WindowsFileSystemProvider::hasDesiredAccess($WindowsPath* file, int32_t rights) {
 	$init(WindowsFileSystemProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool hasRights = false;
 	$var($String, target, $WindowsLinkSupport::getFinalPath(file, true));
 	$var($NativeBuffer, aclBuffer, $WindowsAclFileAttributeView::getFileSecurity(target, (4 | 1) | 2));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				hasRights = $WindowsSecurity::checkAccessMask($nc(aclBuffer)->address(), rights, 0x00120089, 0x00120116, 0x001200A0, 0x001F01FF);
-			} catch ($WindowsException& exc) {
-				exc->rethrowAsIOException(file);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(aclBuffer)->release();
+			hasRights = $WindowsSecurity::checkAccessMask($nc(aclBuffer)->address(), rights, 0x00120089, 0x00120116, 0x001200a0, 0x001f01ff);
+		} catch ($WindowsException& exc) {
+			exc->rethrowAsIOException(file);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(aclBuffer)->release();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return hasRights;
 }
 
 void WindowsFileSystemProvider::checkReadAccess($WindowsPath* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Set, opts, $Collections::emptySet());
 		$var($String, var$0, $nc(file)->getPathForWin32Calls());
@@ -575,39 +496,29 @@ bool WindowsFileSystemProvider::isUnixDomainSocket($WindowsPath* path) {
 }
 
 void WindowsFileSystemProvider::checkAccess($Path* obj, $AccessModeArray* modes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	bool r = false;
 	bool w = false;
 	bool x = false;
 	{
 		$var($AccessModeArray, arr$, modes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$AccessMode* mode = arr$->get(i$);
 			{
 				$init($WindowsFileSystemProvider$1);
 				switch ($nc($WindowsFileSystemProvider$1::$SwitchMap$java$nio$file$AccessMode)->get($nc((mode))->ordinal())) {
 				case 1:
-					{
-						r = true;
-						break;
-					}
+					r = true;
+					break;
 				case 2:
-					{
-						w = true;
-						break;
-					}
+					w = true;
+					break;
 				case 3:
-					{
-						x = true;
-						break;
-					}
+					x = true;
+					break;
 				default:
-					{
-						$throwNew($AssertionError, $of("Should not get here"_s));
-					}
+					$throwNew($AssertionError, $of("Should not get here"_s));
 				}
 			}
 		}
@@ -645,14 +556,14 @@ void WindowsFileSystemProvider::checkAccess($Path* obj, $AccessModeArray* modes)
 		} catch ($WindowsException& exc) {
 			exc->rethrowAsIOException(file);
 		}
-		if ($nc($($WindowsFileStore::create(file)))->isReadOnly()) {
+		if ($$nc($WindowsFileStore::create(file))->isReadOnly()) {
 			$throwNew($AccessDeniedException, $($nc(file)->getPathForExceptionMessage()), nullptr, "Read-only file system"_s);
 		}
 	}
 }
 
 bool WindowsFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, file1, $WindowsPath::toWindowsPath(obj1));
 	if ($nc(file1)->equals(obj2)) {
 		return true;
@@ -664,7 +575,7 @@ bool WindowsFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
 		return false;
 	}
 	$var($WindowsPath, file2, $cast($WindowsPath, obj2));
-	$nc(file1)->checkRead();
+	file1->checkRead();
 	$nc(file2)->checkRead();
 	int64_t h1 = 0;
 	try {
@@ -672,68 +583,64 @@ bool WindowsFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
 	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(file1);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$var($WindowsFileAttributes, attrs1, nullptr);
 		try {
-			$var($WindowsFileAttributes, attrs1, nullptr);
+			$assign(attrs1, $WindowsFileAttributes::readAttributes(h1));
+		} catch ($WindowsException& x) {
+			x->rethrowAsIOException(file1);
+		}
+		int64_t h2 = 0;
+		try {
+			h2 = file2->openForReadAttributeAccess(true);
+		} catch ($WindowsException& x) {
+			x->rethrowAsIOException(file2);
+		}
+		$var($Throwable, var$3, nullptr);
+		bool var$5 = false;
+		bool return$4 = false;
+		try {
+			$var($WindowsFileAttributes, attrs2, nullptr);
 			try {
-				$assign(attrs1, $WindowsFileAttributes::readAttributes(h1));
-			} catch ($WindowsException& x) {
-				x->rethrowAsIOException(file1);
-			}
-			int64_t h2 = 0;
-			try {
-				h2 = file2->openForReadAttributeAccess(true);
+				$assign(attrs2, $WindowsFileAttributes::readAttributes(h2));
 			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(file2);
 			}
-			{
-				$var($Throwable, var$3, nullptr);
-				bool var$5 = false;
-				bool return$4 = false;
-				try {
-					$var($WindowsFileAttributes, attrs2, nullptr);
-					try {
-						$assign(attrs2, $WindowsFileAttributes::readAttributes(h2));
-					} catch ($WindowsException& x) {
-						x->rethrowAsIOException(file2);
-					}
-					var$5 = $WindowsFileAttributes::isSameFile(attrs1, attrs2);
-					return$4 = true;
-					goto $finally1;
-				} catch ($Throwable& var$6) {
-					$assign(var$3, var$6);
-				} $finally1: {
-					$WindowsNativeDispatcher::CloseHandle(h2);
-				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
-				}
-				if (return$4) {
-					var$2 = var$5;
-					return$1 = true;
-					goto $finally;
-				}
-			}
-		} catch ($Throwable& var$7) {
-			$assign(var$0, var$7);
-		} $finally: {
-			$WindowsNativeDispatcher::CloseHandle(h1);
+			var$5 = $WindowsFileAttributes::isSameFile(attrs1, attrs2);
+			return$4 = true;
+			goto $finally1;
+		} catch ($Throwable& var$6) {
+			$assign(var$3, var$6);
+		} $finally1: {
+			$WindowsNativeDispatcher::CloseHandle(h2);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
-		if (return$1) {
-			return var$2;
+		if (return$4) {
+			var$2 = var$5;
+			return$1 = true;
+			goto $finally;
 		}
+	} catch ($Throwable& var$7) {
+		$assign(var$0, var$7);
+	} $finally: {
+		$WindowsNativeDispatcher::CloseHandle(h1);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool WindowsFileSystemProvider::isHidden($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	$nc(file)->checkRead();
 	$var($WindowsFileAttributes, attrs, nullptr);
@@ -746,7 +653,7 @@ bool WindowsFileSystemProvider::isHidden($Path* obj) {
 }
 
 $FileStore* WindowsFileSystemProvider::getFileStore($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -757,35 +664,33 @@ $FileStore* WindowsFileSystemProvider::getFileStore($Path* obj) {
 }
 
 void WindowsFileSystemProvider::createDirectory($Path* obj, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, dir, $WindowsPath::toWindowsPath(obj));
 	$nc(dir)->checkWrite();
 	$var($WindowsSecurityDescriptor, sd, $WindowsSecurityDescriptor::fromAttribute(attrs));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$var($String, var$1, dir->getPathForWin32Calls());
-				$WindowsNativeDispatcher::CreateDirectory(var$1, $nc(sd)->address());
-			} catch ($WindowsException& x) {
-				if (x->lastError() == 5) {
-					try {
-						if ($nc($($WindowsFileAttributes::get(dir, false)))->isDirectory()) {
-							$throwNew($FileAlreadyExistsException, $(dir->toString()));
-						}
-					} catch ($WindowsException& ignore) {
+			$var($String, var$1, dir->getPathForWin32Calls());
+			$WindowsNativeDispatcher::CreateDirectory(var$1, $nc(sd)->address());
+		} catch ($WindowsException& x) {
+			if (x->lastError() == 5) {
+				try {
+					if ($$nc($WindowsFileAttributes::get(dir, false))->isDirectory()) {
+						$throwNew($FileAlreadyExistsException, $(dir->toString()));
 					}
+				} catch ($WindowsException& ignore) {
 				}
-				x->rethrowAsIOException(dir);
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$nc(sd)->release();
+			x->rethrowAsIOException(dir);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$nc(sd)->release();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -799,7 +704,7 @@ $DirectoryStream* WindowsFileSystemProvider::newDirectoryStream($Path* obj, $Dir
 }
 
 void WindowsFileSystemProvider::createSymbolicLink($Path* obj1, $Path* obj2, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, link, $WindowsPath::toWindowsPath(obj1));
 	$var($WindowsPath, target, $WindowsPath::toWindowsPath(obj2));
 	if ($nc(attrs)->length > 0) {
@@ -816,24 +721,24 @@ void WindowsFileSystemProvider::createSymbolicLink($Path* obj1, $Path* obj2, $Fi
 		$throwNew($IOException, "Cannot create symbolic link to working directory relative target"_s);
 	}
 	$var($WindowsPath, resolvedTarget, nullptr);
-	if ($nc(target)->type() == $WindowsPathType::RELATIVE) {
+	if (target->type() == $WindowsPathType::RELATIVE) {
 		$var($WindowsPath, parent, $nc(link)->getParent());
-		$assign(resolvedTarget, (parent == nullptr) ? target : $nc(parent)->resolve(static_cast<$Path*>(target)));
+		$assign(resolvedTarget, (parent == nullptr) ? target : parent->resolve(target));
 	} else {
-		$assign(resolvedTarget, $nc(link)->resolve(static_cast<$Path*>(target)));
+		$assign(resolvedTarget, $nc(link)->resolve(target));
 	}
 	int32_t flags = 0;
 	try {
 		$var($WindowsFileAttributes, wattrs, $WindowsFileAttributes::get(resolvedTarget, false));
 		bool var$0 = $nc(wattrs)->isDirectory();
-		if (var$0 || $nc(wattrs)->isDirectoryLink()) {
+		if (var$0 || wattrs->isDirectoryLink()) {
 			flags |= 1;
 		}
 	} catch ($WindowsException& x) {
 	}
 	try {
 		$var($String, var$1, $nc(link)->getPathForWin32Calls());
-		$WindowsNativeDispatcher::CreateSymbolicLink(var$1, $($WindowsPath::addPrefixIfNeeded($($nc(target)->toString()))), flags);
+		$WindowsNativeDispatcher::CreateSymbolicLink(var$1, $($WindowsPath::addPrefixIfNeeded($(target->toString()))), flags);
 	} catch ($WindowsException& x) {
 		if (x->lastError() == 4392) {
 			x->rethrowAsIOException(link, target);
@@ -844,7 +749,7 @@ void WindowsFileSystemProvider::createSymbolicLink($Path* obj1, $Path* obj2, $Fi
 }
 
 void WindowsFileSystemProvider::createLink($Path* obj1, $Path* obj2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, link, $WindowsPath::toWindowsPath(obj1));
 	$var($WindowsPath, existing, $WindowsPath::toWindowsPath(obj2));
 	$var($SecurityManager, sm, $System::getSecurityManager());
@@ -862,7 +767,7 @@ void WindowsFileSystemProvider::createLink($Path* obj1, $Path* obj2) {
 }
 
 $Path* WindowsFileSystemProvider::readSymbolicLink($Path* obj1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, link, $WindowsPath::toWindowsPath(obj1));
 	$var($WindowsFileSystem, fs, $cast($WindowsFileSystem, $nc(link)->getFileSystem()));
 	$var($SecurityManager, sm, $System::getSecurityManager());
@@ -876,14 +781,14 @@ $Path* WindowsFileSystemProvider::readSymbolicLink($Path* obj1) {
 }
 
 $bytes* WindowsFileSystemProvider::getSunPathForSocketFile($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	$var($String, s, $nc(file)->toString());
 	$init($StandardCharsets);
-	return $nc(s)->isEmpty() ? WindowsFileSystemProvider::EMPTY_PATH : $nc(s)->getBytes($StandardCharsets::UTF_8);
+	return $nc(s)->isEmpty() ? WindowsFileSystemProvider::EMPTY_PATH : s->getBytes($StandardCharsets::UTF_8);
 }
 
-void clinit$WindowsFileSystemProvider($Class* class$) {
+void WindowsFileSystemProvider::clinit$($Class* clazz) {
 	$assignStatic(WindowsFileSystemProvider::EMPTY_PATH, $new($bytes, 0));
 }
 
@@ -891,7 +796,64 @@ WindowsFileSystemProvider::WindowsFileSystemProvider() {
 }
 
 $Class* WindowsFileSystemProvider::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileSystemProvider, name, initialize, &_WindowsFileSystemProvider_ClassInfo_, clinit$WindowsFileSystemProvider, allocate$WindowsFileSystemProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_PATH", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileSystemProvider, EMPTY_PATH)},
+		{"theFileSystem", "Lsun/nio/fs/WindowsFileSystem;", nullptr, $PRIVATE | $FINAL, $field(WindowsFileSystemProvider, theFileSystem$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsFileSystemProvider, init$, void)},
+		{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
+		{"checkReadAccess", "(Lsun/nio/fs/WindowsPath;)V", nullptr, $PRIVATE, $method(WindowsFileSystemProvider, checkReadAccess, void, $WindowsPath*), "java.io.IOException"},
+		{"checkUri", "(Ljava/net/URI;)V", nullptr, $PRIVATE, $method(WindowsFileSystemProvider, checkUri, void, $URI*)},
+		{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
+		{"createLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, createLink, void, $Path*, $Path*), "java.io.IOException"},
+		{"createSymbolicLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, createSymbolicLink, void, $Path*, $Path*, $FileAttributeArray*), "java.io.IOException"},
+		{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
+		{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Lsun/nio/fs/DynamicFileAttributeView;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, getFileAttributeView, $DynamicFileAttributeView*, $Path*, $String*, $LinkOptionArray*)},
+		{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
+		{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $FINAL, $virtualMethod(WindowsFileSystemProvider, getFileSystem, $FileSystem*, $URI*)},
+		{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, getPath, $Path*, $URI*)},
+		{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, getScheme, $String*)},
+		{"getSunPathForSocketFile", "(Ljava/nio/file/Path;)[B", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, getSunPathForSocketFile, $bytes*, $Path*)},
+		{"hasDesiredAccess", "(Lsun/nio/fs/WindowsPath;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileSystemProvider, hasDesiredAccess, bool, $WindowsPath*, int32_t), "java.io.IOException"},
+		{"implDelete", "(Ljava/nio/file/Path;Z)Z", nullptr, 0, $virtualMethod(WindowsFileSystemProvider, implDelete, bool, $Path*, bool), "java.io.IOException"},
+		{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, isHidden, bool, $Path*), "java.io.IOException"},
+		{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
+		{"isUnixDomainSocket", "(Lsun/nio/fs/WindowsPath;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileSystemProvider, isUnixDomainSocket, bool, $WindowsPath*), "sun.nio.fs.WindowsException"},
+		{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{"newAsynchronousFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/AsynchronousFileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, newAsynchronousFileChannel, $AsynchronousFileChannel*, $Path*, $Set*, $ExecutorService*, $FileAttributeArray*), "java.io.IOException"},
+		{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+		{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(WindowsFileSystemProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*), "java.io.IOException"},
+		{"newFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, newFileChannel, $FileChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+		{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(WindowsFileSystemProvider, newFileSystem, $FileSystem*, $URI*, $Map*), "java.io.IOException"},
+		{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsFileSystemProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
+		{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemProvider, readSymbolicLink, $Path*, $Path*), "java.io.IOException"},
+		{"theFileSystem", "()Lsun/nio/fs/WindowsFileSystem;", nullptr, 0, $virtualMethod(WindowsFileSystemProvider, theFileSystem, $WindowsFileSystem*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsFileSystemProvider$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsFileSystemProvider",
+		"sun.nio.fs.AbstractFileSystemProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsFileSystemProvider$1"
+	};
+	$loadClass(WindowsFileSystemProvider, name, initialize, &classInfo$$, WindowsFileSystemProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFileSystemProvider);
+	});
 	return class$;
 }
 

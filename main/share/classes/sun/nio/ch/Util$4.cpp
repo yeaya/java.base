@@ -1,5 +1,4 @@
 #include <sun/nio/ch/Util$4.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -19,7 +18,6 @@ using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -36,57 +34,17 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$MethodInfo _Util$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Util$4, init$, void)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Util$4, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Util$4_EnclosingMethodInfo_ = {
-	"sun.nio.ch.Util",
-	"initDBBRConstructor",
-	"()V"
-};
-
-$InnerClassInfo _Util$4_InnerClassesInfo_[] = {
-	{"sun.nio.ch.Util$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Util$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.Util$4",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_Util$4_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_Util$4_EnclosingMethodInfo_,
-	_Util$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.Util"
-};
-
-$Object* allocate$Util$4($Class* clazz) {
-	return $of($alloc(Util$4));
-}
-
 void Util$4::init$() {
 }
 
 $Object* Util$4::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$Class* cl = $Class::forName("java.nio.DirectByteBufferR"_s);
-		$init($Integer);
-		$init($Long);
 		$load($FileDescriptor);
-		$init($Boolean);
 		$load($MemorySegmentProxy);
-		$var($Constructor, ctor, $nc(cl)->getDeclaredConstructor($$new($ClassArray, {
+		$var($Constructor, ctor, cl->getDeclaredConstructor($$new($ClassArray, {
 			$Integer::TYPE,
 			$Long::TYPE,
 			$FileDescriptor::class$,
@@ -98,22 +56,53 @@ $Object* Util$4::run() {
 		$init($Util);
 		$assignStatic($Util::directByteBufferRConstructor, ctor);
 	} catch ($ClassNotFoundException& x) {
-		$throwNew($InternalError, static_cast<$Throwable*>(x));
+		$throwNew($InternalError, x);
 	} catch ($NoSuchMethodException& x) {
-		$throwNew($InternalError, static_cast<$Throwable*>(x));
+		$throwNew($InternalError, x);
 	} catch ($IllegalArgumentException& x) {
-		$throwNew($InternalError, static_cast<$Throwable*>(x));
+		$throwNew($InternalError, x);
 	} catch ($ClassCastException& x) {
-		$throwNew($InternalError, static_cast<$Throwable*>(x));
+		$throwNew($InternalError, x);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 Util$4::Util$4() {
 }
 
 $Class* Util$4::load$($String* name, bool initialize) {
-	$loadClass(Util$4, name, initialize, &_Util$4_ClassInfo_, allocate$Util$4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Util$4, init$, void)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Util$4, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.ch.Util",
+		"initDBBRConstructor",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.Util$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.Util$4",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.Util"
+	};
+	$loadClass(Util$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Util$4);
+	});
 	return class$;
 }
 

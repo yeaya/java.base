@@ -44,6 +44,7 @@ class $export CertificateX509Key : public ::sun::security::x509::CertAttrSet {
 	$class(CertificateX509Key, 0, ::sun::security::x509::CertAttrSet)
 public:
 	CertificateX509Key();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::PublicKey* key);
 	void init$(::sun::security::util::DerInputStream* in);
 	void init$(::java::io::InputStream* in);

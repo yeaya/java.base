@@ -18,6 +18,7 @@ class $export ImplicitStringConcat : public ::java::lang::Object {
 	$class(ImplicitStringConcat, 0, ::java::lang::Object)
 public:
 	ImplicitStringConcat();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test($String* expected, $String* actual);

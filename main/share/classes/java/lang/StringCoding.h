@@ -9,7 +9,7 @@ namespace java {
 	namespace lang {
 
 class StringCoding : public ::java::lang::Object {
-	$class(StringCoding, $NO_CLASS_INIT, ::java::lang::Object)
+	$class(StringCoding, $PREINIT | $NO_CLASS_INIT, ::java::lang::Object)
 public:
 	StringCoding();
 	void init$();

@@ -1,9 +1,7 @@
 #include <sun/net/www/ParseUtil.h>
-
 #include <java/io/File.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
@@ -61,9 +59,7 @@
 #undef REPORT
 
 using $File = ::java::io::File;
-using $Appendable = ::java::lang::Appendable;
 using $AssertionError = ::java::lang::AssertionError;
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -87,86 +83,6 @@ using $UTF_8 = ::sun::nio::cs::UTF_8;
 namespace sun {
 	namespace net {
 		namespace www {
-
-$FieldInfo _ParseUtil_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ParseUtil, $assertionsDisabled)},
-	{"HEX_UPPERCASE", "Ljava/util/HexFormat;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ParseUtil, HEX_UPPERCASE)},
-	{"L_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_DIGIT)},
-	{"H_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_DIGIT)},
-	{"L_HEX", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_HEX)},
-	{"H_HEX", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_HEX)},
-	{"L_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_UPALPHA)},
-	{"H_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_UPALPHA)},
-	{"L_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_LOWALPHA)},
-	{"H_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_LOWALPHA)},
-	{"L_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_ALPHA)},
-	{"H_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_ALPHA)},
-	{"L_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_ALPHANUM)},
-	{"H_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_ALPHANUM)},
-	{"L_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_MARK)},
-	{"H_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_MARK)},
-	{"L_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_UNRESERVED)},
-	{"H_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_UNRESERVED)},
-	{"L_RESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_RESERVED)},
-	{"H_RESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_RESERVED)},
-	{"L_ESCAPED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_ESCAPED)},
-	{"H_ESCAPED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_ESCAPED)},
-	{"L_URIC", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_URIC)},
-	{"H_URIC", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_URIC)},
-	{"L_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_PCHAR)},
-	{"H_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_PCHAR)},
-	{"L_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_PATH)},
-	{"H_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_PATH)},
-	{"L_DASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_DASH)},
-	{"H_DASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_DASH)},
-	{"L_USERINFO", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_USERINFO)},
-	{"H_USERINFO", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_USERINFO)},
-	{"L_REG_NAME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_REG_NAME)},
-	{"H_REG_NAME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_REG_NAME)},
-	{"L_SERVER", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_SERVER)},
-	{"H_SERVER", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_SERVER)},
-	{"L_ENCODED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_ENCODED)},
-	{"H_ENCODED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_ENCODED)},
-	{}
-};
-
-$MethodInfo _ParseUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ParseUtil, init$, void)},
-	{"appendAuthority", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, appendAuthority, void, $StringBuilder*, $String*, $String*, $String*, int32_t)},
-	{"appendEncoded", "(Ljava/nio/charset/CharsetEncoder;Ljava/lang/StringBuilder;C)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, appendEncoded, void, $CharsetEncoder*, $StringBuilder*, char16_t)},
-	{"appendEscape", "(Ljava/lang/StringBuilder;B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, appendEscape, void, $StringBuilder*, int8_t)},
-	{"appendFragment", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, appendFragment, void, $StringBuilder*, $String*)},
-	{"appendSchemeSpecificPart", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, appendSchemeSpecificPart, void, $StringBuilder*, $String*, $String*, $String*, $String*, int32_t, $String*, $String*)},
-	{"checkPath", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, checkPath, void, $String*, $String*, $String*), "java.net.URISyntaxException"},
-	{"createURI", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, createURI, $URI*, $String*, $String*, $String*, $String*, $String*), "java.net.URISyntaxException"},
-	{"decode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseUtil, decode, $String*, $String*)},
-	{"encodePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseUtil, encodePath, $String*, $String*)},
-	{"encodePath", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseUtil, encodePath, $String*, $String*, bool)},
-	{"encodePath", "(Ljava/lang/String;IC)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, encodePath, $String*, $String*, int32_t, char16_t)},
-	{"escape", "([CCI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, escape, int32_t, $chars*, char16_t, int32_t)},
-	{"fileToEncodedURL", "(Ljava/io/File;)Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseUtil, fileToEncodedURL, $URL*, $File*), "java.net.MalformedURLException"},
-	{"firstEncodeIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, firstEncodeIndex, int32_t, $String*)},
-	{"isEscaped", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, isEscaped, bool, $String*, int32_t)},
-	{"match", "(CJJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, match, bool, char16_t, int64_t, int64_t)},
-	{"quote", "(Ljava/lang/String;JJ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, quote, $String*, $String*, int64_t, int64_t)},
-	{"toString", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, toString, $String*, $String*, $String*, $String*, $String*, $String*, int32_t, $String*, $String*, $String*)},
-	{"toURI", "(Ljava/net/URL;)Ljava/net/URI;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseUtil, toURI, $URI*, $URL*)},
-	{"unescape", "(Ljava/lang/String;I)B", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, unescape, int8_t, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _ParseUtil_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.net.www.ParseUtil",
-	"java.lang.Object",
-	nullptr,
-	_ParseUtil_FieldInfo_,
-	_ParseUtil_MethodInfo_
-};
-
-$Object* allocate$ParseUtil($Class* clazz) {
-	return $of($alloc(ParseUtil));
-}
 
 bool ParseUtil::$assertionsDisabled = false;
 $HexFormat* ParseUtil::HEX_UPPERCASE = nullptr;
@@ -210,7 +126,7 @@ int32_t ParseUtil::firstEncodeIndex($String* path) {
 
 $String* ParseUtil::encodePath($String* path, int32_t index, char16_t sep) {
 	$init(ParseUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, pathCC, $nc(path)->toCharArray());
 	$var($chars, retCC, $new($chars, pathCC->length * 2 + 16 - index));
 	if (index > 0) {
@@ -230,12 +146,12 @@ $String* ParseUtil::encodePath($String* path, int32_t index, char16_t sep) {
 				$nc(retCC)->set(retLen++, c);
 			}
 		} else if (c > 2047) {
-			retLen = escape(retCC, (char16_t)(224 | ((int32_t)((c >> 12) & (uint32_t)15))), retLen);
-			retLen = escape(retCC, (char16_t)(128 | ((int32_t)((c >> 6) & (uint32_t)63))), retLen);
-			retLen = escape(retCC, (char16_t)(128 | ((int32_t)((c >> 0) & (uint32_t)63))), retLen);
+			retLen = escape(retCC, (char16_t)(0xe0 | ((c >> 12) & 0x0f)), retLen);
+			retLen = escape(retCC, (char16_t)(0x80 | ((c >> 6) & 0x3f)), retLen);
+			retLen = escape(retCC, (char16_t)(0x80 | ((c >> 0) & 0x3f)), retLen);
 		} else {
-			retLen = escape(retCC, (char16_t)(192 | ((int32_t)((c >> 6) & (uint32_t)31))), retLen);
-			retLen = escape(retCC, (char16_t)(128 | ((int32_t)((c >> 0) & (uint32_t)63))), retLen);
+			retLen = escape(retCC, (char16_t)(0xc0 | ((c >> 6) & 0x1f)), retLen);
+			retLen = escape(retCC, (char16_t)(0x80 | ((c >> 0) & 0x3f)), retLen);
 		}
 		if (retLen + 9 > $nc(retCC)->length) {
 			int32_t newLen = retCC->length * 2 + 16;
@@ -253,8 +169,8 @@ $String* ParseUtil::encodePath($String* path, int32_t index, char16_t sep) {
 int32_t ParseUtil::escape($chars* cc, char16_t c, int32_t index) {
 	$init(ParseUtil);
 	$nc(cc)->set(index++, u'%');
-	cc->set(index++, $Character::forDigit((int32_t)((c >> 4) & (uint32_t)15), 16));
-	cc->set(index++, $Character::forDigit((int32_t)(c & (uint32_t)15), 16));
+	cc->set(index++, $Character::forDigit((c >> 4) & 0x0f, 16));
+	cc->set(index++, $Character::forDigit(c & 0x0f, 16));
 	return index;
 }
 
@@ -265,9 +181,9 @@ int8_t ParseUtil::unescape($String* s, int32_t i) {
 
 $String* ParseUtil::decode($String* s) {
 	$init(ParseUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(s)->length();
-	if ((n == 0) || (s->indexOf((int32_t)u'%') < 0)) {
+	if ((n == 0) || (s->indexOf(u'%') < 0)) {
 		return s;
 	}
 	$var($StringBuilder, sb, $new($StringBuilder, n));
@@ -275,7 +191,7 @@ $String* ParseUtil::decode($String* s) {
 	$var($CharBuffer, cb, $CharBuffer::allocate(n));
 	$init($UTF_8);
 	$init($CodingErrorAction);
-	$var($CharsetDecoder, dec, $nc($($nc($($nc($UTF_8::INSTANCE)->newDecoder()))->onMalformedInput($CodingErrorAction::REPORT)))->onUnmappableCharacter($CodingErrorAction::REPORT));
+	$var($CharsetDecoder, dec, $$nc($$nc($nc($UTF_8::INSTANCE)->newDecoder())->onMalformedInput($CodingErrorAction::REPORT))->onUnmappableCharacter($CodingErrorAction::REPORT));
 	char16_t c = s->charAt(0);
 	for (int32_t i = 0; i < n;) {
 		if (!ParseUtil::$assertionsDisabled && !(c == s->charAt(i))) {
@@ -320,7 +236,7 @@ $String* ParseUtil::decode($String* s) {
 		if ($nc(cr)->isError()) {
 			$throwNew($IllegalArgumentException, "Error decoding percent encoded characters"_s);
 		}
-		sb->append($($nc($(cb->flip()))->toString()));
+		sb->append($($$nc(cb->flip())->toString()));
 	}
 	return sb->toString();
 }
@@ -332,7 +248,7 @@ $URL* ParseUtil::fileToEncodedURL($File* file) {
 	if (!$nc(path)->startsWith("/"_s)) {
 		$assign(path, $str({"/"_s, path}));
 	}
-	bool var$0 = !$nc(path)->endsWith("/"_s);
+	bool var$0 = !path->endsWith("/"_s);
 	if (var$0 && file->isDirectory()) {
 		$assign(path, $str({path, "/"_s}));
 	}
@@ -341,7 +257,7 @@ $URL* ParseUtil::fileToEncodedURL($File* file) {
 
 $URI* ParseUtil::toURI($URL* url) {
 	$init(ParseUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, protocol, $nc(url)->getProtocol());
 	$var($String, auth, url->getAuthority());
 	$var($String, path, url->getPath());
@@ -383,11 +299,11 @@ $String* ParseUtil::toString($String* scheme, $String* opaquePart, $String* auth
 
 void ParseUtil::appendSchemeSpecificPart($StringBuilder* sb, $String* opaquePart, $String* authority, $String* userInfo, $String* host, int32_t port, $String* path, $String* query) {
 	$init(ParseUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (opaquePart != nullptr) {
 		if (opaquePart->startsWith("//["_s)) {
-			int32_t end = opaquePart->indexOf((int32_t)u']');
-			if (end != -1 && opaquePart->indexOf((int32_t)u':') != -1) {
+			int32_t end = opaquePart->indexOf(u']');
+			if (end != -1 && opaquePart->indexOf(u':') != -1) {
 				$var($String, doquote, nullptr);
 				$var($String, dontquote, nullptr);
 				if (end == opaquePart->length()) {
@@ -417,14 +333,14 @@ void ParseUtil::appendSchemeSpecificPart($StringBuilder* sb, $String* opaquePart
 
 void ParseUtil::appendAuthority($StringBuilder* sb, $String* authority, $String* userInfo, $String* host, int32_t port) {
 	$init(ParseUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (host != nullptr) {
 		$nc(sb)->append("//"_s);
 		if (userInfo != nullptr) {
 			sb->append($(quote(userInfo, ParseUtil::L_USERINFO, ParseUtil::H_USERINFO)));
 			sb->append(u'@');
 		}
-		bool var$1 = (host->indexOf((int32_t)u':') >= 0);
+		bool var$1 = host->indexOf(u':') >= 0;
 		bool var$0 = var$1 && !host->startsWith("["_s);
 		bool needBrackets = (var$0 && !host->endsWith("]"_s));
 		if (needBrackets) {
@@ -441,8 +357,8 @@ void ParseUtil::appendAuthority($StringBuilder* sb, $String* authority, $String*
 	} else if (authority != nullptr) {
 		$nc(sb)->append("//"_s);
 		if (authority->startsWith("["_s)) {
-			int32_t end = authority->indexOf((int32_t)u']');
-			if (end != -1 && authority->indexOf((int32_t)u':') != -1) {
+			int32_t end = authority->indexOf(u']');
+			if (end != -1 && authority->indexOf(u':') != -1) {
 				$var($String, doquote, nullptr);
 				$var($String, dontquote, nullptr);
 				if (end == authority->length()) {
@@ -471,11 +387,11 @@ void ParseUtil::appendFragment($StringBuilder* sb, $String* fragment) {
 
 $String* ParseUtil::quote($String* s, int64_t lowMask, int64_t highMask) {
 	$init(ParseUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(s)->length();
 	$var($StringBuilder, sb, nullptr);
 	$var($CharsetEncoder, encoder, nullptr);
-	bool allowNonASCII = (((int64_t)(lowMask & (uint64_t)ParseUtil::L_ESCAPED)) != 0);
+	bool allowNonASCII = ((lowMask & ParseUtil::L_ESCAPED) != 0);
 	for (int32_t i = 0; i < s->length(); ++i) {
 		char16_t c = s->charAt(i);
 		if (c < (char16_t)0x80) {
@@ -483,26 +399,26 @@ $String* ParseUtil::quote($String* s, int64_t lowMask, int64_t highMask) {
 			if (var$0 && !isEscaped(s, i)) {
 				if (sb == nullptr) {
 					$assign(sb, $new($StringBuilder));
-					sb->append(static_cast<$CharSequence*>(s), 0, i);
+					sb->append(s, 0, i);
 				}
 				appendEscape(sb, (int8_t)c);
 			} else if (sb != nullptr) {
 				sb->append(c);
 			}
 		} else {
-			bool var$3 = allowNonASCII;
-			if (var$3) {
-				bool var$4 = $Character::isSpaceChar(c);
-				var$3 = (var$4 || $Character::isISOControl(c));
+			bool var$1 = allowNonASCII;
+			if (var$1) {
+				bool var$2 = $Character::isSpaceChar(c);
+				var$1 = var$2 || $Character::isISOControl(c);
 			}
-			if (var$3) {
+			if (var$1) {
 				if (encoder == nullptr) {
 					$init($UTF_8);
 					$assign(encoder, $nc($UTF_8::INSTANCE)->newEncoder());
 				}
 				if (sb == nullptr) {
 					$assign(sb, $new($StringBuilder));
-					sb->append(static_cast<$CharSequence*>(s), 0, i);
+					sb->append(s, 0, i);
 				}
 				appendEncoded(encoder, sb, c);
 			} else if (sb != nullptr) {
@@ -510,12 +426,12 @@ $String* ParseUtil::quote($String* s, int64_t lowMask, int64_t highMask) {
 			}
 		}
 	}
-	return (sb == nullptr) ? s : $nc(sb)->toString();
+	return (sb == nullptr) ? s : sb->toString();
 }
 
 bool ParseUtil::isEscaped($String* s, int32_t pos) {
 	$init(ParseUtil);
-	if (s == nullptr || ($nc(s)->length() <= (pos + 2))) {
+	if (s == nullptr || (s->length() <= (pos + 2))) {
 		return false;
 	}
 	bool var$1 = $nc(s)->charAt(pos) == u'%';
@@ -525,17 +441,17 @@ bool ParseUtil::isEscaped($String* s, int32_t pos) {
 
 void ParseUtil::appendEncoded($CharsetEncoder* encoder, $StringBuilder* sb, char16_t c) {
 	$init(ParseUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, bb, nullptr);
 	try {
-		$assign(bb, $nc(encoder)->encode($($CharBuffer::wrap(static_cast<$CharSequence*>($$str({""_s, $$str(c)}))))));
+		$assign(bb, $nc(encoder)->encode($($CharBuffer::wrap($$str({""_s, $$str(c)})))));
 	} catch ($CharacterCodingException& x) {
 		if (!ParseUtil::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
 	}
 	while ($nc(bb)->hasRemaining()) {
-		int32_t b = (int32_t)(bb->get() & (uint32_t)255);
+		int32_t b = bb->get() & 0xff;
 		if (b >= 128) {
 			appendEscape(sb, (int8_t)b);
 		} else {
@@ -547,16 +463,16 @@ void ParseUtil::appendEncoded($CharsetEncoder* encoder, $StringBuilder* sb, char
 void ParseUtil::appendEscape($StringBuilder* sb, int8_t b) {
 	$init(ParseUtil);
 	$nc(sb)->append(u'%');
-	$nc(ParseUtil::HEX_UPPERCASE)->toHexDigits(static_cast<$Appendable*>(sb), b);
+	$nc(ParseUtil::HEX_UPPERCASE)->toHexDigits(sb, b);
 }
 
 bool ParseUtil::match(char16_t c, int64_t lowMask, int64_t highMask) {
 	$init(ParseUtil);
 	if (c < 64) {
-		return ((int64_t)(($sl((int64_t)1, c)) & (uint64_t)lowMask)) != 0;
+		return (($sl((int64_t)1, c)) & lowMask) != 0;
 	}
 	if (c < 128) {
-		return ((int64_t)(($sl((int64_t)1, c - 64)) & (uint64_t)highMask)) != 0;
+		return (($sl((int64_t)1, c - 64)) & highMask) != 0;
 	}
 	return false;
 }
@@ -571,16 +487,91 @@ void ParseUtil::checkPath($String* s, $String* scheme, $String* path) {
 	}
 }
 
-void clinit$ParseUtil($Class* class$) {
+void ParseUtil::clinit$($Class* clazz) {
 	ParseUtil::$assertionsDisabled = !ParseUtil::class$->desiredAssertionStatus();
-	$assignStatic(ParseUtil::HEX_UPPERCASE, $nc($($HexFormat::of()))->withUpperCase());
+	$assignStatic(ParseUtil::HEX_UPPERCASE, $$nc($HexFormat::of())->withUpperCase());
 }
 
 ParseUtil::ParseUtil() {
 }
 
 $Class* ParseUtil::load$($String* name, bool initialize) {
-	$loadClass(ParseUtil, name, initialize, &_ParseUtil_ClassInfo_, clinit$ParseUtil, allocate$ParseUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ParseUtil, $assertionsDisabled)},
+		{"HEX_UPPERCASE", "Ljava/util/HexFormat;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ParseUtil, HEX_UPPERCASE)},
+		{"L_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_DIGIT)},
+		{"H_DIGIT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_DIGIT)},
+		{"L_HEX", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_HEX)},
+		{"H_HEX", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_HEX)},
+		{"L_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_UPALPHA)},
+		{"H_UPALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_UPALPHA)},
+		{"L_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_LOWALPHA)},
+		{"H_LOWALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_LOWALPHA)},
+		{"L_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_ALPHA)},
+		{"H_ALPHA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_ALPHA)},
+		{"L_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_ALPHANUM)},
+		{"H_ALPHANUM", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_ALPHANUM)},
+		{"L_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_MARK)},
+		{"H_MARK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_MARK)},
+		{"L_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_UNRESERVED)},
+		{"H_UNRESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_UNRESERVED)},
+		{"L_RESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_RESERVED)},
+		{"H_RESERVED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_RESERVED)},
+		{"L_ESCAPED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_ESCAPED)},
+		{"H_ESCAPED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_ESCAPED)},
+		{"L_URIC", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_URIC)},
+		{"H_URIC", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_URIC)},
+		{"L_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_PCHAR)},
+		{"H_PCHAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_PCHAR)},
+		{"L_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_PATH)},
+		{"H_PATH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_PATH)},
+		{"L_DASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_DASH)},
+		{"H_DASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_DASH)},
+		{"L_USERINFO", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_USERINFO)},
+		{"H_USERINFO", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_USERINFO)},
+		{"L_REG_NAME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_REG_NAME)},
+		{"H_REG_NAME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_REG_NAME)},
+		{"L_SERVER", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_SERVER)},
+		{"H_SERVER", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_SERVER)},
+		{"L_ENCODED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, L_ENCODED)},
+		{"H_ENCODED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParseUtil, H_ENCODED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ParseUtil, init$, void)},
+		{"appendAuthority", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, appendAuthority, void, $StringBuilder*, $String*, $String*, $String*, int32_t)},
+		{"appendEncoded", "(Ljava/nio/charset/CharsetEncoder;Ljava/lang/StringBuilder;C)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, appendEncoded, void, $CharsetEncoder*, $StringBuilder*, char16_t)},
+		{"appendEscape", "(Ljava/lang/StringBuilder;B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, appendEscape, void, $StringBuilder*, int8_t)},
+		{"appendFragment", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, appendFragment, void, $StringBuilder*, $String*)},
+		{"appendSchemeSpecificPart", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, appendSchemeSpecificPart, void, $StringBuilder*, $String*, $String*, $String*, $String*, int32_t, $String*, $String*)},
+		{"checkPath", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, checkPath, void, $String*, $String*, $String*), "java.net.URISyntaxException"},
+		{"createURI", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, createURI, $URI*, $String*, $String*, $String*, $String*, $String*), "java.net.URISyntaxException"},
+		{"decode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseUtil, decode, $String*, $String*)},
+		{"encodePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseUtil, encodePath, $String*, $String*)},
+		{"encodePath", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseUtil, encodePath, $String*, $String*, bool)},
+		{"encodePath", "(Ljava/lang/String;IC)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, encodePath, $String*, $String*, int32_t, char16_t)},
+		{"escape", "([CCI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, escape, int32_t, $chars*, char16_t, int32_t)},
+		{"fileToEncodedURL", "(Ljava/io/File;)Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseUtil, fileToEncodedURL, $URL*, $File*), "java.net.MalformedURLException"},
+		{"firstEncodeIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, firstEncodeIndex, int32_t, $String*)},
+		{"isEscaped", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, isEscaped, bool, $String*, int32_t)},
+		{"match", "(CJJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, match, bool, char16_t, int64_t, int64_t)},
+		{"quote", "(Ljava/lang/String;JJ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, quote, $String*, $String*, int64_t, int64_t)},
+		{"toString", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, toString, $String*, $String*, $String*, $String*, $String*, $String*, int32_t, $String*, $String*, $String*)},
+		{"toURI", "(Ljava/net/URL;)Ljava/net/URI;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseUtil, toURI, $URI*, $URL*)},
+		{"unescape", "(Ljava/lang/String;I)B", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseUtil, unescape, int8_t, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.net.www.ParseUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ParseUtil, name, initialize, &classInfo$$, ParseUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ParseUtil);
+	});
 	return class$;
 }
 

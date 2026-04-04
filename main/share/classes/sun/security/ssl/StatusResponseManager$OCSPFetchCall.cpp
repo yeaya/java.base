@@ -1,5 +1,4 @@
 #include <sun/security/ssl/StatusResponseManager$OCSPFetchCall.h>
-
 #include <java/io/IOException.h>
 #include <java/math/BigInteger.h>
 #include <java/net/URI.h>
@@ -38,65 +37,21 @@ using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $StatusResponseManager = ::sun::security::ssl::StatusResponseManager;
 using $StatusResponseManager$ResponseCacheEntry = ::sun::security::ssl::StatusResponseManager$ResponseCacheEntry;
 using $StatusResponseManager$StatusInfo = ::sun::security::ssl::StatusResponseManager$StatusInfo;
-using $Cache = ::sun::security::util::Cache;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _StatusResponseManager$OCSPFetchCall_FieldInfo_[] = {
-	{"this$0", "Lsun/security/ssl/StatusResponseManager;", nullptr, $FINAL | $SYNTHETIC, $field(StatusResponseManager$OCSPFetchCall, this$0)},
-	{"statInfo", "Lsun/security/ssl/StatusResponseManager$StatusInfo;", nullptr, 0, $field(StatusResponseManager$OCSPFetchCall, statInfo)},
-	{"ocspRequest", "Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;", nullptr, 0, $field(StatusResponseManager$OCSPFetchCall, ocspRequest)},
-	{"extensions", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/Extension;>;", 0, $field(StatusResponseManager$OCSPFetchCall, extensions)},
-	{"responderIds", "Ljava/util/List;", "Ljava/util/List<Lsun/security/provider/certpath/ResponderId;>;", 0, $field(StatusResponseManager$OCSPFetchCall, responderIds)},
-	{}
-};
-
-$MethodInfo _StatusResponseManager$OCSPFetchCall_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Lsun/security/ssl/StatusResponseManager$StatusInfo;Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;)V", nullptr, $PUBLIC, $method(StatusResponseManager$OCSPFetchCall, init$, void, $StatusResponseManager*, $StatusResponseManager$StatusInfo*, $CertStatusExtension$OCSPStatusRequest*)},
-	{"addToCache", "(Lsun/security/provider/certpath/CertId;Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;)V", nullptr, $PRIVATE, $method(StatusResponseManager$OCSPFetchCall, addToCache, void, $CertId*, $StatusResponseManager$ResponseCacheEntry*)},
-	{"call", "()Lsun/security/ssl/StatusResponseManager$StatusInfo;", nullptr, $PUBLIC, $virtualMethod(StatusResponseManager$OCSPFetchCall, call, $Object*)},
-	{"getNextTaskDelay", "(Ljava/util/Date;)J", nullptr, $PRIVATE, $method(StatusResponseManager$OCSPFetchCall, getNextTaskDelay, int64_t, $Date*)},
-	{}
-};
-
-$InnerClassInfo _StatusResponseManager$OCSPFetchCall_InnerClassesInfo_[] = {
-	{"sun.security.ssl.StatusResponseManager$OCSPFetchCall", "sun.security.ssl.StatusResponseManager", "OCSPFetchCall", 0},
-	{"sun.security.ssl.StatusResponseManager$StatusInfo", "sun.security.ssl.StatusResponseManager", "StatusInfo", 0},
-	{}
-};
-
-$ClassInfo _StatusResponseManager$OCSPFetchCall_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.StatusResponseManager$OCSPFetchCall",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_StatusResponseManager$OCSPFetchCall_FieldInfo_,
-	_StatusResponseManager$OCSPFetchCall_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Lsun/security/ssl/StatusResponseManager$StatusInfo;>;",
-	nullptr,
-	_StatusResponseManager$OCSPFetchCall_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.StatusResponseManager"
-};
-
-$Object* allocate$StatusResponseManager$OCSPFetchCall($Class* clazz) {
-	return $of($alloc(StatusResponseManager$OCSPFetchCall));
-}
-
 void StatusResponseManager$OCSPFetchCall::init$($StatusResponseManager* this$0, $StatusResponseManager$StatusInfo* info, $CertStatusExtension$OCSPStatusRequest* request) {
 	$set(this, this$0, this$0);
-	$set(this, statInfo, $cast($StatusResponseManager$StatusInfo, $Objects::requireNonNull($of(info), "Null StatusInfo not allowed"_s)));
-	$set(this, ocspRequest, $cast($CertStatusExtension$OCSPStatusRequest, $Objects::requireNonNull($of(request), "Null OCSPStatusRequest not allowed"_s)));
+	$set(this, statInfo, $cast($StatusResponseManager$StatusInfo, $Objects::requireNonNull(info, "Null StatusInfo not allowed"_s)));
+	$set(this, ocspRequest, $cast($CertStatusExtension$OCSPStatusRequest, $Objects::requireNonNull(request, "Null OCSPStatusRequest not allowed"_s)));
 	$set(this, extensions, $nc(this->ocspRequest)->extensions);
-	$set(this, responderIds, $nc(this->ocspRequest)->responderIds);
+	$set(this, responderIds, this->ocspRequest->responderIds);
 }
 
 $Object* StatusResponseManager$OCSPFetchCall::call() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
 		$SSLLogger::fine($$str({"Starting fetch for SN "_s, $($nc($nc(this->statInfo)->cid)->getSerialNumber())}), $$new($ObjectArray, 0));
@@ -108,39 +63,35 @@ $Object* StatusResponseManager$OCSPFetchCall::call() {
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
 				$SSLLogger::fine("Null URI detected, OCSP fetch aborted"_s, $$new($ObjectArray, 0));
 			}
-			return $of(this->statInfo);
-		} else {
-			if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-				$SSLLogger::fine($$str({"Attempting fetch from "_s, $nc(this->statInfo)->responder}), $$new($ObjectArray, 0));
-			}
+			return this->statInfo;
+		} else if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
+			$SSLLogger::fine($$str({"Attempting fetch from "_s, this->statInfo->responder}), $$new($ObjectArray, 0));
 		}
 		$assign(extsToSend, (this->this$0->ignoreExtensions || !$nc(this->responderIds)->isEmpty()) ? $Collections::emptyList() : this->extensions);
-		$var($bytes, respBytes, $OCSP::getOCSPBytes($($Collections::singletonList($nc(this->statInfo)->cid)), $nc(this->statInfo)->responder, extsToSend));
+		$var($bytes, respBytes, $OCSP::getOCSPBytes($($Collections::singletonList(this->statInfo->cid)), this->statInfo->responder, extsToSend));
 		if (respBytes != nullptr) {
-			$assign(cacheEntry, $new($StatusResponseManager$ResponseCacheEntry, respBytes, $nc(this->statInfo)->cid));
+			$assign(cacheEntry, $new($StatusResponseManager$ResponseCacheEntry, respBytes, this->statInfo->cid));
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
 				$SSLLogger::fine($$str({"OCSP Status: "_s, cacheEntry->status, " ("_s, $$str(respBytes->length), " bytes)"_s}), $$new($ObjectArray, 0));
 			}
 			$init($OCSPResponse$ResponseStatus);
 			if (cacheEntry->status == $OCSPResponse$ResponseStatus::SUCCESSFUL) {
-				$set($nc(this->statInfo), responseData, cacheEntry);
-				addToCache($nc(this->statInfo)->cid, cacheEntry);
+				$set(this->statInfo, responseData, cacheEntry);
+				addToCache(this->statInfo->cid, cacheEntry);
 			}
-		} else {
-			if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-				$SSLLogger::fine("No data returned from OCSP Responder"_s, $$new($ObjectArray, 0));
-			}
+		} else if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
+			$SSLLogger::fine("No data returned from OCSP Responder"_s, $$new($ObjectArray, 0));
 		}
 	} catch ($IOException& ioe) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-			$SSLLogger::fine("Caught exception: "_s, $$new($ObjectArray, {$of(ioe)}));
+			$SSLLogger::fine("Caught exception: "_s, $$new($ObjectArray, {ioe}));
 		}
 	}
-	return $of(this->statInfo);
+	return this->statInfo;
 }
 
 void StatusResponseManager$OCSPFetchCall::addToCache($CertId* certId, $StatusResponseManager$ResponseCacheEntry* entry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(entry)->nextUpdate == nullptr && this->this$0->cacheLifetime == 0) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
@@ -172,7 +123,44 @@ StatusResponseManager$OCSPFetchCall::StatusResponseManager$OCSPFetchCall() {
 }
 
 $Class* StatusResponseManager$OCSPFetchCall::load$($String* name, bool initialize) {
-	$loadClass(StatusResponseManager$OCSPFetchCall, name, initialize, &_StatusResponseManager$OCSPFetchCall_ClassInfo_, allocate$StatusResponseManager$OCSPFetchCall);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/ssl/StatusResponseManager;", nullptr, $FINAL | $SYNTHETIC, $field(StatusResponseManager$OCSPFetchCall, this$0)},
+		{"statInfo", "Lsun/security/ssl/StatusResponseManager$StatusInfo;", nullptr, 0, $field(StatusResponseManager$OCSPFetchCall, statInfo)},
+		{"ocspRequest", "Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;", nullptr, 0, $field(StatusResponseManager$OCSPFetchCall, ocspRequest)},
+		{"extensions", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/Extension;>;", 0, $field(StatusResponseManager$OCSPFetchCall, extensions)},
+		{"responderIds", "Ljava/util/List;", "Ljava/util/List<Lsun/security/provider/certpath/ResponderId;>;", 0, $field(StatusResponseManager$OCSPFetchCall, responderIds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/StatusResponseManager;Lsun/security/ssl/StatusResponseManager$StatusInfo;Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;)V", nullptr, $PUBLIC, $method(StatusResponseManager$OCSPFetchCall, init$, void, $StatusResponseManager*, $StatusResponseManager$StatusInfo*, $CertStatusExtension$OCSPStatusRequest*)},
+		{"addToCache", "(Lsun/security/provider/certpath/CertId;Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;)V", nullptr, $PRIVATE, $method(StatusResponseManager$OCSPFetchCall, addToCache, void, $CertId*, $StatusResponseManager$ResponseCacheEntry*)},
+		{"call", "()Lsun/security/ssl/StatusResponseManager$StatusInfo;", nullptr, $PUBLIC, $virtualMethod(StatusResponseManager$OCSPFetchCall, call, $Object*)},
+		{"getNextTaskDelay", "(Ljava/util/Date;)J", nullptr, $PRIVATE, $method(StatusResponseManager$OCSPFetchCall, getNextTaskDelay, int64_t, $Date*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.StatusResponseManager$OCSPFetchCall", "sun.security.ssl.StatusResponseManager", "OCSPFetchCall", 0},
+		{"sun.security.ssl.StatusResponseManager$StatusInfo", "sun.security.ssl.StatusResponseManager", "StatusInfo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.StatusResponseManager$OCSPFetchCall",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Lsun/security/ssl/StatusResponseManager$StatusInfo;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.StatusResponseManager"
+	};
+	$loadClass(StatusResponseManager$OCSPFetchCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StatusResponseManager$OCSPFetchCall);
+	});
 	return class$;
 }
 

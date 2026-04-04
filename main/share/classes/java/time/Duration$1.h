@@ -12,6 +12,7 @@ class Duration$1 : public ::java::lang::Object {
 	$class(Duration$1, 0, ::java::lang::Object)
 public:
 	Duration$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$time$temporal$ChronoUnit;
 };
 

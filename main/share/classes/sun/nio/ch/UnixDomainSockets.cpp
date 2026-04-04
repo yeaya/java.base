@@ -1,5 +1,4 @@
 #include <sun/nio/ch/UnixDomainSockets.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
@@ -39,13 +38,11 @@ using $NetPermission = ::java::net::NetPermission;
 using $SocketAddress = ::java::net::SocketAddress;
 using $UnixDomainSocketAddress = ::java::net::UnixDomainSocketAddress;
 using $UnsupportedAddressTypeException = ::java::nio::channels::UnsupportedAddressTypeException;
-using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $InvalidPathException = ::java::nio::file::InvalidPathException;
 using $Path = ::java::nio::file::Path;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $Permission = ::java::security::Permission;
 using $SecureRandom = ::java::security::SecureRandom;
 using $Random = ::java::util::Random;
 using $IOUtil = ::sun::nio::ch::IOUtil;
@@ -55,60 +52,6 @@ using $AbstractFileSystemProvider = ::sun::nio::fs::AbstractFileSystemProvider;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _UnixDomainSockets_FieldInfo_[] = {
-	{"UNNAMED", "Ljava/net/UnixDomainSocketAddress;", nullptr, $STATIC | $FINAL, $staticField(UnixDomainSockets, UNNAMED)},
-	{"supported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixDomainSockets, supported)},
-	{"tempDir", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixDomainSockets, tempDir)},
-	{"accessUnixDomainSocket", "Ljava/net/NetPermission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixDomainSockets, accessUnixDomainSocket)},
-	{"random", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixDomainSockets, random)},
-	{}
-};
-
-$MethodInfo _UnixDomainSockets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixDomainSockets, init$, void)},
-	{"accept", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(UnixDomainSockets, accept, int32_t, $FileDescriptor*, $FileDescriptor*, $StringArray*), "java.io.IOException"},
-	{"accept0", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, accept0, int32_t, $FileDescriptor*, $FileDescriptor*, $ObjectArray*), "java.io.IOException"},
-	{"bind", "(Ljava/io/FileDescriptor;Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(UnixDomainSockets, bind, void, $FileDescriptor*, $Path*), "java.io.IOException"},
-	{"bind0", "(Ljava/io/FileDescriptor;[B)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, bind0, void, $FileDescriptor*, $bytes*), "java.io.IOException"},
-	{"checkAddress", "(Ljava/net/SocketAddress;)Ljava/net/UnixDomainSocketAddress;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, checkAddress, $UnixDomainSocketAddress*, $SocketAddress*)},
-	{"checkPermission", "()V", nullptr, $STATIC, $staticMethod(UnixDomainSockets, checkPermission, void)},
-	{"connect", "(Ljava/io/FileDescriptor;Ljava/net/SocketAddress;)I", nullptr, $STATIC, $staticMethod(UnixDomainSockets, connect, int32_t, $FileDescriptor*, $SocketAddress*), "java.io.IOException"},
-	{"connect", "(Ljava/io/FileDescriptor;Ljava/nio/file/Path;)I", nullptr, $STATIC, $staticMethod(UnixDomainSockets, connect, int32_t, $FileDescriptor*, $Path*), "java.io.IOException"},
-	{"connect0", "(Ljava/io/FileDescriptor;[B)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, connect0, int32_t, $FileDescriptor*, $bytes*), "java.io.IOException"},
-	{"generateTempName", "()Ljava/net/UnixDomainSocketAddress;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, generateTempName, $UnixDomainSocketAddress*), "java.io.IOException"},
-	{"getPathBytes", "(Ljava/nio/file/Path;)[B", nullptr, $STATIC, $staticMethod(UnixDomainSockets, getPathBytes, $bytes*, $Path*)},
-	{"getRandom", "()Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixDomainSockets, getRandom, $Random*)},
-	{"getRevealedLocalAddress", "(Ljava/net/SocketAddress;)Ljava/net/UnixDomainSocketAddress;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, getRevealedLocalAddress, $UnixDomainSocketAddress*, $SocketAddress*)},
-	{"getRevealedLocalAddressAsString", "(Ljava/net/SocketAddress;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, getRevealedLocalAddressAsString, $String*, $SocketAddress*)},
-	{"init", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, init, bool)},
-	{"isSupported", "()Z", nullptr, $STATIC, $staticMethod(UnixDomainSockets, isSupported, bool)},
-	{"localAddress", "(Ljava/io/FileDescriptor;)Ljava/net/UnixDomainSocketAddress;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, localAddress, $UnixDomainSocketAddress*, $FileDescriptor*), "java.io.IOException"},
-	{"localAddress0", "(Ljava/io/FileDescriptor;)[B", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, localAddress0, $bytes*, $FileDescriptor*), "java.io.IOException"},
-	{"socket", "()Ljava/io/FileDescriptor;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, socket, $FileDescriptor*), "java.io.IOException"},
-	{"socket0", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, socket0, int32_t), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_accept0 2
-#define _METHOD_INDEX_bind0 4
-#define _METHOD_INDEX_connect0 9
-#define _METHOD_INDEX_init 15
-#define _METHOD_INDEX_localAddress0 18
-#define _METHOD_INDEX_socket0 20
-
-$ClassInfo _UnixDomainSockets_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.UnixDomainSockets",
-	"java.lang.Object",
-	nullptr,
-	_UnixDomainSockets_FieldInfo_,
-	_UnixDomainSockets_MethodInfo_
-};
-
-$Object* allocate$UnixDomainSockets($Class* clazz) {
-	return $of($alloc(UnixDomainSockets));
-}
 
 $UnixDomainSocketAddress* UnixDomainSockets::UNNAMED = nullptr;
 bool UnixDomainSockets::supported = false;
@@ -145,7 +88,7 @@ $UnixDomainSocketAddress* UnixDomainSockets::getRevealedLocalAddress($SocketAddr
 
 $UnixDomainSocketAddress* UnixDomainSockets::localAddress($FileDescriptor* fd) {
 	$init(UnixDomainSockets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, var$0, localAddress0(fd));
 	$var($String, path, $new($String, var$0, $($UnixDomainSocketsUtil::getCharset())));
 	return $UnixDomainSocketAddress::of(path);
@@ -153,9 +96,8 @@ $UnixDomainSocketAddress* UnixDomainSockets::localAddress($FileDescriptor* fd) {
 
 $bytes* UnixDomainSockets::localAddress0($FileDescriptor* fd) {
 	$init(UnixDomainSockets);
-	$var($bytes, $ret, nullptr);
-	$prepareNativeStatic(UnixDomainSockets, localAddress0, $bytes*, $FileDescriptor* fd);
-	$assign($ret, $invokeNativeStaticObject(fd));
+	$prepareNativeStatic(localAddress0, $bytes*, $FileDescriptor* fd);
+	$var($bytes, $ret, $invokeNativeStaticObject(fd));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -178,9 +120,9 @@ $UnixDomainSocketAddress* UnixDomainSockets::checkAddress($SocketAddress* sa) {
 
 $bytes* UnixDomainSockets::getPathBytes($Path* path) {
 	$init(UnixDomainSockets);
-	$useLocalCurrentObjectStackCache();
-	$var($FileSystemProvider, provider, $nc($($FileSystems::getDefault()))->provider());
-	return $nc(($cast($AbstractFileSystemProvider, provider)))->getSunPathForSocketFile(path);
+	$useLocalObjectStack();
+	$var($FileSystemProvider, provider, $$nc($FileSystems::getDefault())->provider());
+	return $nc($cast($AbstractFileSystemProvider, provider))->getSunPathForSocketFile(path);
 }
 
 $FileDescriptor* UnixDomainSockets::socket() {
@@ -209,7 +151,7 @@ $Random* UnixDomainSockets::getRandom() {
 
 $UnixDomainSocketAddress* UnixDomainSockets::generateTempName() {
 	$init(UnixDomainSockets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, dir, UnixDomainSockets::tempDir);
 	if (dir == nullptr) {
 		$throwNew($BindException, "Could not locate temporary directory for sockets"_s);
@@ -226,7 +168,7 @@ $UnixDomainSocketAddress* UnixDomainSockets::generateTempName() {
 
 int32_t UnixDomainSockets::connect($FileDescriptor* fd, $SocketAddress* sa) {
 	$init(UnixDomainSockets);
-	return UnixDomainSockets::connect(fd, $($nc(($cast($UnixDomainSocketAddress, sa)))->getPath()));
+	return UnixDomainSockets::connect(fd, $($nc($cast($UnixDomainSocketAddress, sa))->getPath()));
 }
 
 int32_t UnixDomainSockets::connect($FileDescriptor* fd, $Path* path) {
@@ -236,7 +178,7 @@ int32_t UnixDomainSockets::connect($FileDescriptor* fd, $Path* path) {
 
 int32_t UnixDomainSockets::accept($FileDescriptor* fd, $FileDescriptor* newfd, $StringArray* paths) {
 	$init(UnixDomainSockets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, array, $new($ObjectArray, 1));
 	int32_t n = accept0(fd, newfd, array);
 	if (n > 0) {
@@ -248,48 +190,44 @@ int32_t UnixDomainSockets::accept($FileDescriptor* fd, $FileDescriptor* newfd, $
 
 bool UnixDomainSockets::init() {
 	$init(UnixDomainSockets);
-	bool $ret = false;
-	$prepareNativeStatic(UnixDomainSockets, init, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(init, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t UnixDomainSockets::socket0() {
 	$init(UnixDomainSockets);
-	int32_t $ret = 0;
-	$prepareNativeStatic(UnixDomainSockets, socket0, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(socket0, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void UnixDomainSockets::bind0($FileDescriptor* fd, $bytes* path) {
 	$init(UnixDomainSockets);
-	$prepareNativeStatic(UnixDomainSockets, bind0, void, $FileDescriptor* fd, $bytes* path);
+	$prepareNativeStatic(bind0, void, $FileDescriptor* fd, $bytes* path);
 	$invokeNativeStatic(fd, path);
 	$finishNativeStatic();
 }
 
 int32_t UnixDomainSockets::connect0($FileDescriptor* fd, $bytes* path) {
 	$init(UnixDomainSockets);
-	int32_t $ret = 0;
-	$prepareNativeStatic(UnixDomainSockets, connect0, int32_t, $FileDescriptor* fd, $bytes* path);
-	$ret = $invokeNativeStatic(fd, path);
+	$prepareNativeStatic(connect0, int32_t, $FileDescriptor* fd, $bytes* path);
+	int32_t $ret = $invokeNativeStatic(fd, path);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t UnixDomainSockets::accept0($FileDescriptor* fd, $FileDescriptor* newfd, $ObjectArray* array) {
 	$init(UnixDomainSockets);
-	int32_t $ret = 0;
-	$prepareNativeStatic(UnixDomainSockets, accept0, int32_t, $FileDescriptor* fd, $FileDescriptor* newfd, $ObjectArray* array);
-	$ret = $invokeNativeStatic(fd, newfd, array);
+	$prepareNativeStatic(accept0, int32_t, $FileDescriptor* fd, $FileDescriptor* newfd, $ObjectArray* array);
+	int32_t $ret = $invokeNativeStatic(fd, newfd, array);
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$UnixDomainSockets($Class* class$) {
+void UnixDomainSockets::clinit$($Class* clazz) {
 	$assignStatic(UnixDomainSockets::UNNAMED, $UnixDomainSocketAddress::of(""_s));
 	$assignStatic(UnixDomainSockets::tempDir, $UnixDomainSocketsUtil::getTempDir());
 	$assignStatic(UnixDomainSockets::accessUnixDomainSocket, $new($NetPermission, "accessUnixDomainSocket"_s));
@@ -304,7 +242,49 @@ UnixDomainSockets::UnixDomainSockets() {
 }
 
 $Class* UnixDomainSockets::load$($String* name, bool initialize) {
-	$loadClass(UnixDomainSockets, name, initialize, &_UnixDomainSockets_ClassInfo_, clinit$UnixDomainSockets, allocate$UnixDomainSockets);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNNAMED", "Ljava/net/UnixDomainSocketAddress;", nullptr, $STATIC | $FINAL, $staticField(UnixDomainSockets, UNNAMED)},
+		{"supported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixDomainSockets, supported)},
+		{"tempDir", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixDomainSockets, tempDir)},
+		{"accessUnixDomainSocket", "Ljava/net/NetPermission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixDomainSockets, accessUnixDomainSocket)},
+		{"random", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixDomainSockets, random)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(UnixDomainSockets, init$, void)},
+		{"accept", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(UnixDomainSockets, accept, int32_t, $FileDescriptor*, $FileDescriptor*, $StringArray*), "java.io.IOException"},
+		{"accept0", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, accept0, int32_t, $FileDescriptor*, $FileDescriptor*, $ObjectArray*), "java.io.IOException"},
+		{"bind", "(Ljava/io/FileDescriptor;Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(UnixDomainSockets, bind, void, $FileDescriptor*, $Path*), "java.io.IOException"},
+		{"bind0", "(Ljava/io/FileDescriptor;[B)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, bind0, void, $FileDescriptor*, $bytes*), "java.io.IOException"},
+		{"checkAddress", "(Ljava/net/SocketAddress;)Ljava/net/UnixDomainSocketAddress;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, checkAddress, $UnixDomainSocketAddress*, $SocketAddress*)},
+		{"checkPermission", "()V", nullptr, $STATIC, $staticMethod(UnixDomainSockets, checkPermission, void)},
+		{"connect", "(Ljava/io/FileDescriptor;Ljava/net/SocketAddress;)I", nullptr, $STATIC, $staticMethod(UnixDomainSockets, connect, int32_t, $FileDescriptor*, $SocketAddress*), "java.io.IOException"},
+		{"connect", "(Ljava/io/FileDescriptor;Ljava/nio/file/Path;)I", nullptr, $STATIC, $staticMethod(UnixDomainSockets, connect, int32_t, $FileDescriptor*, $Path*), "java.io.IOException"},
+		{"connect0", "(Ljava/io/FileDescriptor;[B)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, connect0, int32_t, $FileDescriptor*, $bytes*), "java.io.IOException"},
+		{"generateTempName", "()Ljava/net/UnixDomainSocketAddress;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, generateTempName, $UnixDomainSocketAddress*), "java.io.IOException"},
+		{"getPathBytes", "(Ljava/nio/file/Path;)[B", nullptr, $STATIC, $staticMethod(UnixDomainSockets, getPathBytes, $bytes*, $Path*)},
+		{"getRandom", "()Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixDomainSockets, getRandom, $Random*)},
+		{"getRevealedLocalAddress", "(Ljava/net/SocketAddress;)Ljava/net/UnixDomainSocketAddress;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, getRevealedLocalAddress, $UnixDomainSocketAddress*, $SocketAddress*)},
+		{"getRevealedLocalAddressAsString", "(Ljava/net/SocketAddress;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, getRevealedLocalAddressAsString, $String*, $SocketAddress*)},
+		{"init", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, init, bool)},
+		{"isSupported", "()Z", nullptr, $STATIC, $staticMethod(UnixDomainSockets, isSupported, bool)},
+		{"localAddress", "(Ljava/io/FileDescriptor;)Ljava/net/UnixDomainSocketAddress;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, localAddress, $UnixDomainSocketAddress*, $FileDescriptor*), "java.io.IOException"},
+		{"localAddress0", "(Ljava/io/FileDescriptor;)[B", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, localAddress0, $bytes*, $FileDescriptor*), "java.io.IOException"},
+		{"socket", "()Ljava/io/FileDescriptor;", nullptr, $STATIC, $staticMethod(UnixDomainSockets, socket, $FileDescriptor*), "java.io.IOException"},
+		{"socket0", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixDomainSockets, socket0, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.UnixDomainSockets",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnixDomainSockets, name, initialize, &classInfo$$, UnixDomainSockets::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixDomainSockets);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/text/spi/NumberFormatProvider.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/text/NumberFormat$Style.h>
 #include <java/text/NumberFormat.h>
@@ -19,36 +18,13 @@ namespace java {
 	namespace text {
 		namespace spi {
 
-$MethodInfo _NumberFormatProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(NumberFormatProvider, init$, void)},
-	{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProvider, getCompactNumberInstance, $NumberFormat*, $Locale*, $NumberFormat$Style*)},
-	{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getCurrencyInstance, $NumberFormat*, $Locale*)},
-	{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getIntegerInstance, $NumberFormat*, $Locale*)},
-	{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getNumberInstance, $NumberFormat*, $Locale*)},
-	{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getPercentInstance, $NumberFormat*, $Locale*)},
-	{}
-};
-
-$ClassInfo _NumberFormatProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.text.spi.NumberFormatProvider",
-	"java.util.spi.LocaleServiceProvider",
-	nullptr,
-	nullptr,
-	_NumberFormatProvider_MethodInfo_
-};
-
-$Object* allocate$NumberFormatProvider($Class* clazz) {
-	return $of($alloc(NumberFormatProvider));
-}
-
 void NumberFormatProvider::init$() {
 	$LocaleServiceProvider::init$();
 }
 
 $NumberFormat* NumberFormatProvider::getCompactNumberInstance($Locale* locale, $NumberFormat$Style* formatStyle) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($UnsupportedOperationException, $$str({"The "_s, $($of(this)->getClass()->getName()), " should override this method to return compact number format instance of "_s, locale, " locale and "_s, formatStyle, " style."_s}));
+	$useLocalObjectStack();
+	$throwNew($UnsupportedOperationException, $$str({"The "_s, $(this->getClass()->getName()), " should override this method to return compact number format instance of "_s, locale, " locale and "_s, formatStyle, " style."_s}));
 	$shouldNotReachHere();
 }
 
@@ -56,7 +32,26 @@ NumberFormatProvider::NumberFormatProvider() {
 }
 
 $Class* NumberFormatProvider::load$($String* name, bool initialize) {
-	$loadClass(NumberFormatProvider, name, initialize, &_NumberFormatProvider_ClassInfo_, allocate$NumberFormatProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(NumberFormatProvider, init$, void)},
+		{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProvider, getCompactNumberInstance, $NumberFormat*, $Locale*, $NumberFormat$Style*)},
+		{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getCurrencyInstance, $NumberFormat*, $Locale*)},
+		{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getIntegerInstance, $NumberFormat*, $Locale*)},
+		{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getNumberInstance, $NumberFormat*, $Locale*)},
+		{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getPercentInstance, $NumberFormat*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.text.spi.NumberFormatProvider",
+		"java.util.spi.LocaleServiceProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NumberFormatProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NumberFormatProvider);
+	});
 	return class$;
 }
 

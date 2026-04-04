@@ -1,5 +1,4 @@
 #include <java/lang/constant/DirectMethodHandleDesc$Kind.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Math.h>
@@ -37,68 +36,6 @@ using $DirectMethodHandleDesc$1 = ::java::lang::constant::DirectMethodHandleDesc
 namespace java {
 	namespace lang {
 		namespace constant {
-
-$CompoundAttribute _DirectMethodHandleDesc$Kind_FieldAnnotations_TABLE[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$FieldInfo _DirectMethodHandleDesc$Kind_FieldInfo_[] = {
-	{"STATIC", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, STATIC)},
-	{"INTERFACE_STATIC", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, INTERFACE_STATIC)},
-	{"VIRTUAL", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, VIRTUAL)},
-	{"INTERFACE_VIRTUAL", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, INTERFACE_VIRTUAL)},
-	{"SPECIAL", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, SPECIAL)},
-	{"INTERFACE_SPECIAL", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, INTERFACE_SPECIAL)},
-	{"CONSTRUCTOR", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, CONSTRUCTOR)},
-	{"GETTER", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, GETTER)},
-	{"SETTER", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, SETTER)},
-	{"STATIC_GETTER", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, STATIC_GETTER)},
-	{"STATIC_SETTER", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, STATIC_SETTER)},
-	{"$VALUES", "[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandleDesc$Kind, $VALUES)},
-	{"refKind", "I", nullptr, $PUBLIC | $FINAL, $field(DirectMethodHandleDesc$Kind, refKind)},
-	{"isInterface", "Z", nullptr, $PUBLIC | $FINAL, $field(DirectMethodHandleDesc$Kind, isInterface)},
-	{"TABLE", "[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandleDesc$Kind, TABLE), _DirectMethodHandleDesc$Kind_FieldAnnotations_TABLE},
-	{}
-};
-
-$MethodInfo _DirectMethodHandleDesc$Kind_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DirectMethodHandleDesc$Kind, $values, $DirectMethodHandleDesc$KindArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(DirectMethodHandleDesc$Kind, init$, void, $String*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;IIZ)V", "(IZ)V", $PRIVATE, $method(DirectMethodHandleDesc$Kind, init$, void, $String*, int32_t, int32_t, bool)},
-	{"isVirtualMethod", "()Z", nullptr, 0, $method(DirectMethodHandleDesc$Kind, isVirtualMethod, bool)},
-	{"tableIndex", "(IZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, tableIndex, int32_t, int32_t, bool)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, valueOf, DirectMethodHandleDesc$Kind*, $String*)},
-	{"valueOf", "(I)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, valueOf, DirectMethodHandleDesc$Kind*, int32_t)},
-	{"valueOf", "(IZ)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, valueOf, DirectMethodHandleDesc$Kind*, int32_t, bool)},
-	{"values", "()[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, values, $DirectMethodHandleDesc$KindArray*)},
-	{}
-};
-
-$InnerClassInfo _DirectMethodHandleDesc$Kind_InnerClassesInfo_[] = {
-	{"java.lang.constant.DirectMethodHandleDesc$Kind", "java.lang.constant.DirectMethodHandleDesc", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DirectMethodHandleDesc$Kind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.constant.DirectMethodHandleDesc$Kind",
-	"java.lang.Enum",
-	nullptr,
-	_DirectMethodHandleDesc$Kind_FieldInfo_,
-	_DirectMethodHandleDesc$Kind_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/constant/DirectMethodHandleDesc$Kind;>;",
-	nullptr,
-	_DirectMethodHandleDesc$Kind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.constant.DirectMethodHandleDesc"
-};
-
-$Object* allocate$DirectMethodHandleDesc$Kind($Class* clazz) {
-	return $of($alloc(DirectMethodHandleDesc$Kind));
-}
 
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::STATIC = nullptr;
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::INTERFACE_STATIC = nullptr;
@@ -158,14 +95,14 @@ DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::valueOf(int32_t refKin
 
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::valueOf(int32_t refKind, bool isInterface) {
 	$init(DirectMethodHandleDesc$Kind);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = tableIndex(refKind, isInterface);
 	if (i >= 2 && i < $nc(DirectMethodHandleDesc$Kind::TABLE)->length) {
-		return $nc(DirectMethodHandleDesc$Kind::TABLE)->get(i);
+		return DirectMethodHandleDesc$Kind::TABLE->get(i);
 	}
 	$throwNew($IllegalArgumentException, $($String::format("refKind=%d isInterface=%s"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(refKind))),
-		$($of($Boolean::valueOf(isInterface)))
+		$($Integer::valueOf(refKind)),
+		$($Boolean::valueOf(isInterface))
 	}))));
 }
 
@@ -181,24 +118,17 @@ bool DirectMethodHandleDesc$Kind::isVirtualMethod() {
 	$init($DirectMethodHandleDesc$1);
 	switch ($nc($DirectMethodHandleDesc$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->get((this)->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
-void clinit$DirectMethodHandleDesc$Kind($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DirectMethodHandleDesc$Kind::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DirectMethodHandleDesc$Kind::STATIC, $new(DirectMethodHandleDesc$Kind, "STATIC"_s, 0, 6));
 	$assignStatic(DirectMethodHandleDesc$Kind::INTERFACE_STATIC, $new(DirectMethodHandleDesc$Kind, "INTERFACE_STATIC"_s, 1, 6, true));
 	$assignStatic(DirectMethodHandleDesc$Kind::VIRTUAL, $new(DirectMethodHandleDesc$Kind, "VIRTUAL"_s, 2, 5));
@@ -215,9 +145,7 @@ void clinit$DirectMethodHandleDesc$Kind($Class* class$) {
 		int32_t max = 0;
 		{
 			$var($DirectMethodHandleDesc$KindArray, arr$, DirectMethodHandleDesc$Kind::values());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				DirectMethodHandleDesc$Kind* k = arr$->get(i$);
 				max = $Math::max(max, DirectMethodHandleDesc$Kind::tableIndex($nc(k)->refKind, true));
 			}
@@ -225,36 +153,30 @@ void clinit$DirectMethodHandleDesc$Kind($Class* class$) {
 		$assignStatic(DirectMethodHandleDesc$Kind::TABLE, $new($DirectMethodHandleDesc$KindArray, max + 1));
 		{
 			$var($DirectMethodHandleDesc$KindArray, arr$, DirectMethodHandleDesc$Kind::values());
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				DirectMethodHandleDesc$Kind* kind = arr$->get(i$);
 				{
-					int32_t i = DirectMethodHandleDesc$Kind::tableIndex($nc(kind)->refKind, kind->isInterface);
-					if (i >= $nc(DirectMethodHandleDesc$Kind::TABLE)->length || $nc(DirectMethodHandleDesc$Kind::TABLE)->get(i) != nullptr) {
-						$throwNew($AssertionError, $of($$str({"TABLE entry for "_s, kind})));
+					int32_t i = DirectMethodHandleDesc$Kind::tableIndex($nc(kind)->refKind, $nc(kind)->isInterface);
+					if (i >= DirectMethodHandleDesc$Kind::TABLE->length || DirectMethodHandleDesc$Kind::TABLE->get(i) != nullptr) {
+						$throwNew($AssertionError, $$of($str({"TABLE entry for "_s, kind})));
 					}
-					$nc(DirectMethodHandleDesc$Kind::TABLE)->set(i, kind);
+					DirectMethodHandleDesc$Kind::TABLE->set(i, kind);
 				}
 			}
 		}
 		int32_t ii = DirectMethodHandleDesc$Kind::tableIndex(9, false);
-		if ($nc(DirectMethodHandleDesc$Kind::TABLE)->get(ii) != nullptr) {
-			$throwNew($AssertionError, $of($$str({"TABLE entry for (invokeInterface, false) used by "_s, $nc(DirectMethodHandleDesc$Kind::TABLE)->get(ii)})));
+		if (DirectMethodHandleDesc$Kind::TABLE->get(ii) != nullptr) {
+			$throwNew($AssertionError, $$of($str({"TABLE entry for (invokeInterface, false) used by "_s, DirectMethodHandleDesc$Kind::TABLE->get(ii)})));
 		}
-		$nc(DirectMethodHandleDesc$Kind::TABLE)->set(ii, DirectMethodHandleDesc$Kind::INTERFACE_VIRTUAL);
+		DirectMethodHandleDesc$Kind::TABLE->set(ii, DirectMethodHandleDesc$Kind::INTERFACE_VIRTUAL);
 		{
 			$var($DirectMethodHandleDesc$KindArray, arr$, DirectMethodHandleDesc$Kind::values());
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				DirectMethodHandleDesc$Kind* kind = arr$->get(i$);
-				{
-					if (!$nc(kind)->isInterface) {
-						int32_t i = DirectMethodHandleDesc$Kind::tableIndex(kind->refKind, true);
-						if ($nc(DirectMethodHandleDesc$Kind::TABLE)->get(i) == nullptr) {
-							$nc(DirectMethodHandleDesc$Kind::TABLE)->set(i, kind);
-						}
+				if (!$nc(kind)->isInterface) {
+					int32_t i = DirectMethodHandleDesc$Kind::tableIndex(kind->refKind, true);
+					if (DirectMethodHandleDesc$Kind::TABLE->get(i) == nullptr) {
+						DirectMethodHandleDesc$Kind::TABLE->set(i, kind);
 					}
 				}
 			}
@@ -266,7 +188,62 @@ DirectMethodHandleDesc$Kind::DirectMethodHandleDesc$Kind() {
 }
 
 $Class* DirectMethodHandleDesc$Kind::load$($String* name, bool initialize) {
-	$loadClass(DirectMethodHandleDesc$Kind, name, initialize, &_DirectMethodHandleDesc$Kind_ClassInfo_, clinit$DirectMethodHandleDesc$Kind, allocate$DirectMethodHandleDesc$Kind);
+	$CompoundAttribute TABLEfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"STATIC", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, STATIC)},
+		{"INTERFACE_STATIC", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, INTERFACE_STATIC)},
+		{"VIRTUAL", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, VIRTUAL)},
+		{"INTERFACE_VIRTUAL", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, INTERFACE_VIRTUAL)},
+		{"SPECIAL", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, SPECIAL)},
+		{"INTERFACE_SPECIAL", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, INTERFACE_SPECIAL)},
+		{"CONSTRUCTOR", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, CONSTRUCTOR)},
+		{"GETTER", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, GETTER)},
+		{"SETTER", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, SETTER)},
+		{"STATIC_GETTER", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, STATIC_GETTER)},
+		{"STATIC_SETTER", "Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DirectMethodHandleDesc$Kind, STATIC_SETTER)},
+		{"$VALUES", "[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandleDesc$Kind, $VALUES)},
+		{"refKind", "I", nullptr, $PUBLIC | $FINAL, $field(DirectMethodHandleDesc$Kind, refKind)},
+		{"isInterface", "Z", nullptr, $PUBLIC | $FINAL, $field(DirectMethodHandleDesc$Kind, isInterface)},
+		{"TABLE", "[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandleDesc$Kind, TABLE), TABLEfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DirectMethodHandleDesc$Kind, $values, $DirectMethodHandleDesc$KindArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(DirectMethodHandleDesc$Kind, init$, void, $String*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;IIZ)V", "(IZ)V", $PRIVATE, $method(DirectMethodHandleDesc$Kind, init$, void, $String*, int32_t, int32_t, bool)},
+		{"isVirtualMethod", "()Z", nullptr, 0, $method(DirectMethodHandleDesc$Kind, isVirtualMethod, bool)},
+		{"tableIndex", "(IZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, tableIndex, int32_t, int32_t, bool)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, valueOf, DirectMethodHandleDesc$Kind*, $String*)},
+		{"valueOf", "(I)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, valueOf, DirectMethodHandleDesc$Kind*, int32_t)},
+		{"valueOf", "(IZ)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, valueOf, DirectMethodHandleDesc$Kind*, int32_t, bool)},
+		{"values", "()[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, values, $DirectMethodHandleDesc$KindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.constant.DirectMethodHandleDesc$Kind", "java.lang.constant.DirectMethodHandleDesc", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.constant.DirectMethodHandleDesc$Kind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/constant/DirectMethodHandleDesc$Kind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.constant.DirectMethodHandleDesc"
+	};
+	$loadClass(DirectMethodHandleDesc$Kind, name, initialize, &classInfo$$, DirectMethodHandleDesc$Kind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectMethodHandleDesc$Kind));
+	});
 	return class$;
 }
 

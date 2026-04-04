@@ -1,5 +1,4 @@
 #include <java/util/TreeMap$KeySet.h>
-
 #include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Comparator.h>
@@ -40,82 +39,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _TreeMap$KeySet_FieldInfo_[] = {
-	{"m", "Ljava/util/NavigableMap;", "Ljava/util/NavigableMap<TE;*>;", $PRIVATE | $FINAL, $field(TreeMap$KeySet, m)},
-	{}
-};
-
-$MethodInfo _TreeMap$KeySet_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/NavigableMap;)V", "(Ljava/util/NavigableMap<TE;*>;)V", 0, $method(TreeMap$KeySet, init$, void, $NavigableMap*)},
-	{"ceiling", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, ceiling, $Object*, Object$*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySet, clear, void)},
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, comparator, $Comparator*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySet, contains, bool, Object$*)},
-	{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, descendingIterator, $Iterator*)},
-	{"descendingSet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, descendingSet, $NavigableSet*)},
-	{"first", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, first, $Object*)},
-	{"floor", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, floor, $Object*, Object$*)},
-	{"headSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, headSet, $NavigableSet*, Object$*, bool)},
-	{"headSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, headSet, $SortedSet*, Object$*)},
-	{"higher", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, higher, $Object*, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, iterator, $Iterator*)},
-	{"last", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, last, $Object*)},
-	{"lower", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, lower, $Object*, Object$*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"pollFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, pollFirst, $Object*)},
-	{"pollLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, pollLast, $Object*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySet, remove, bool, Object$*)},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySet, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, spliterator, $Spliterator*)},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"subSet", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;ZTE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, subSet, $NavigableSet*, Object$*, bool, Object$*, bool)},
-	{"subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, subSet, $SortedSet*, Object$*, Object$*)},
-	{"tailSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, tailSet, $NavigableSet*, Object$*, bool)},
-	{"tailSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, tailSet, $SortedSet*, Object$*)},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$InnerClassInfo _TreeMap$KeySet_InnerClassesInfo_[] = {
-	{"java.util.TreeMap$KeySet", "java.util.TreeMap", "KeySet", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TreeMap$KeySet_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.TreeMap$KeySet",
-	"java.util.AbstractSet",
-	"java.util.NavigableSet",
-	_TreeMap$KeySet_FieldInfo_,
-	_TreeMap$KeySet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractSet<TE;>;Ljava/util/NavigableSet<TE;>;",
-	nullptr,
-	_TreeMap$KeySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.TreeMap"
-};
-
-$Object* allocate$TreeMap$KeySet($Class* clazz) {
-	return $of($alloc(TreeMap$KeySet));
-}
 
 bool TreeMap$KeySet::equals(Object$* o) {
 	 return this->$AbstractSet::equals(o);
@@ -192,17 +115,17 @@ void TreeMap$KeySet::init$($NavigableMap* map) {
 
 $Iterator* TreeMap$KeySet::iterator() {
 	if ($instanceOf($TreeMap, this->m)) {
-		return $nc(($cast($TreeMap, this->m)))->keyIterator();
+		return $cast($TreeMap, this->m)->keyIterator();
 	} else {
-		return $nc(($cast($TreeMap$NavigableSubMap, this->m)))->keyIterator();
+		return $nc($cast($TreeMap$NavigableSubMap, this->m))->keyIterator();
 	}
 }
 
 $Iterator* TreeMap$KeySet::descendingIterator() {
 	if ($instanceOf($TreeMap, this->m)) {
-		return $nc(($cast($TreeMap, this->m)))->descendingKeyIterator();
+		return $cast($TreeMap, this->m)->descendingKeyIterator();
 	} else {
-		return $nc(($cast($TreeMap$NavigableSubMap, this->m)))->descendingKeyIterator();
+		return $nc($cast($TreeMap$NavigableSubMap, this->m))->descendingKeyIterator();
 	}
 }
 
@@ -223,27 +146,27 @@ void TreeMap$KeySet::clear() {
 }
 
 $Object* TreeMap$KeySet::lower(Object$* e) {
-	return $of($nc(this->m)->lowerKey(e));
+	return $nc(this->m)->lowerKey(e);
 }
 
 $Object* TreeMap$KeySet::floor(Object$* e) {
-	return $of($nc(this->m)->floorKey(e));
+	return $nc(this->m)->floorKey(e);
 }
 
 $Object* TreeMap$KeySet::ceiling(Object$* e) {
-	return $of($nc(this->m)->ceilingKey(e));
+	return $nc(this->m)->ceilingKey(e);
 }
 
 $Object* TreeMap$KeySet::higher(Object$* e) {
-	return $of($nc(this->m)->higherKey(e));
+	return $nc(this->m)->higherKey(e);
 }
 
 $Object* TreeMap$KeySet::first() {
-	return $of($nc(this->m)->firstKey());
+	return $nc(this->m)->firstKey();
 }
 
 $Object* TreeMap$KeySet::last() {
-	return $of($nc(this->m)->lastKey());
+	return $nc(this->m)->lastKey();
 }
 
 $Comparator* TreeMap$KeySet::comparator() {
@@ -252,12 +175,12 @@ $Comparator* TreeMap$KeySet::comparator() {
 
 $Object* TreeMap$KeySet::pollFirst() {
 	$var($Map$Entry, e, $nc(this->m)->pollFirstEntry());
-	return $of((e == nullptr) ? ($Object*)nullptr : $nc(e)->getKey());
+	return (e == nullptr) ? ($Object*)nullptr : e->getKey();
 }
 
 $Object* TreeMap$KeySet::pollLast() {
 	$var($Map$Entry, e, $nc(this->m)->pollLastEntry());
-	return $of((e == nullptr) ? ($Object*)nullptr : $nc(e)->getKey());
+	return (e == nullptr) ? ($Object*)nullptr : e->getKey();
 }
 
 bool TreeMap$KeySet::remove(Object$* o) {
@@ -302,7 +225,77 @@ TreeMap$KeySet::TreeMap$KeySet() {
 }
 
 $Class* TreeMap$KeySet::load$($String* name, bool initialize) {
-	$loadClass(TreeMap$KeySet, name, initialize, &_TreeMap$KeySet_ClassInfo_, allocate$TreeMap$KeySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"m", "Ljava/util/NavigableMap;", "Ljava/util/NavigableMap<TE;*>;", $PRIVATE | $FINAL, $field(TreeMap$KeySet, m)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/NavigableMap;)V", "(Ljava/util/NavigableMap<TE;*>;)V", 0, $method(TreeMap$KeySet, init$, void, $NavigableMap*)},
+		{"ceiling", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, ceiling, $Object*, Object$*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySet, clear, void)},
+		{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, comparator, $Comparator*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySet, contains, bool, Object$*)},
+		{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, descendingIterator, $Iterator*)},
+		{"descendingSet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, descendingSet, $NavigableSet*)},
+		{"first", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, first, $Object*)},
+		{"floor", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, floor, $Object*, Object$*)},
+		{"headSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, headSet, $NavigableSet*, Object$*, bool)},
+		{"headSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, headSet, $SortedSet*, Object$*)},
+		{"higher", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, higher, $Object*, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, iterator, $Iterator*)},
+		{"last", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, last, $Object*)},
+		{"lower", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, lower, $Object*, Object$*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"pollFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, pollFirst, $Object*)},
+		{"pollLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(TreeMap$KeySet, pollLast, $Object*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySet, remove, bool, Object$*)},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySet, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, spliterator, $Spliterator*)},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"subSet", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;ZTE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, subSet, $NavigableSet*, Object$*, bool, Object$*, bool)},
+		{"subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, subSet, $SortedSet*, Object$*, Object$*)},
+		{"tailSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, tailSet, $NavigableSet*, Object$*, bool)},
+		{"tailSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(TreeMap$KeySet, tailSet, $SortedSet*, Object$*)},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.TreeMap$KeySet", "java.util.TreeMap", "KeySet", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.TreeMap$KeySet",
+		"java.util.AbstractSet",
+		"java.util.NavigableSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractSet<TE;>;Ljava/util/NavigableSet<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.TreeMap"
+	};
+	$loadClass(TreeMap$KeySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TreeMap$KeySet));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/util/HexDumpEncoder.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
@@ -29,69 +28,26 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _HexDumpEncoder_FieldInfo_[] = {
-	{"offset", "I", nullptr, $PRIVATE, $field(HexDumpEncoder, offset)},
-	{"thisLineLength", "I", nullptr, $PRIVATE, $field(HexDumpEncoder, thisLineLength)},
-	{"currentByte", "I", nullptr, $PRIVATE, $field(HexDumpEncoder, currentByte)},
-	{"thisLine", "[B", nullptr, $PRIVATE, $field(HexDumpEncoder, thisLine)},
-	{"pStream", "Ljava/io/PrintStream;", nullptr, $PROTECTED, $field(HexDumpEncoder, pStream)},
-	{}
-};
-
-$MethodInfo _HexDumpEncoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HexDumpEncoder, init$, void)},
-	{"bytesPerAtom", "()I", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, bytesPerAtom, int32_t)},
-	{"bytesPerLine", "()I", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, bytesPerLine, int32_t)},
-	{"encode", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encode, void, $InputStream*, $OutputStream*), "java.io.IOException"},
-	{"encode", "([B)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encode, $String*, $bytes*)},
-	{"encode", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encode, $String*, $ByteBuffer*)},
-	{"encodeAtom", "(Ljava/io/OutputStream;[BII)V", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, encodeAtom, void, $OutputStream*, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"encodeBuffer", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encodeBuffer, void, $InputStream*, $OutputStream*), "java.io.IOException"},
-	{"encodeBuffer", "([BLjava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encodeBuffer, void, $bytes*, $OutputStream*), "java.io.IOException"},
-	{"encodeBuffer", "([B)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encodeBuffer, $String*, $bytes*)},
-	{"encodeBuffer", "(Ljava/nio/ByteBuffer;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encodeBuffer, void, $ByteBuffer*, $OutputStream*), "java.io.IOException"},
-	{"encodeBufferPrefix", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, encodeBufferPrefix, void, $OutputStream*), "java.io.IOException"},
-	{"encodeLinePrefix", "(Ljava/io/OutputStream;I)V", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, encodeLinePrefix, void, $OutputStream*, int32_t), "java.io.IOException"},
-	{"encodeLineSuffix", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, encodeLineSuffix, void, $OutputStream*), "java.io.IOException"},
-	{"getBytes", "(Ljava/nio/ByteBuffer;)[B", nullptr, $PRIVATE, $method(HexDumpEncoder, getBytes, $bytes*, $ByteBuffer*)},
-	{"hexDigit", "(Ljava/io/PrintStream;B)V", nullptr, $STATIC, $staticMethod(HexDumpEncoder, hexDigit, void, $PrintStream*, int8_t)},
-	{"readFully", "(Ljava/io/InputStream;[B)I", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, readFully, int32_t, $InputStream*, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _HexDumpEncoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.HexDumpEncoder",
-	"java.lang.Object",
-	nullptr,
-	_HexDumpEncoder_FieldInfo_,
-	_HexDumpEncoder_MethodInfo_
-};
-
-$Object* allocate$HexDumpEncoder($Class* clazz) {
-	return $of($alloc(HexDumpEncoder));
-}
-
 void HexDumpEncoder::init$() {
 	$set(this, thisLine, $new($bytes, 16));
 }
 
 void HexDumpEncoder::hexDigit($PrintStream* p, int8_t x) {
 	char16_t c = 0;
-	c = (char16_t)((int32_t)((x >> 4) & (uint32_t)15));
+	c = (char16_t)((x >> 4) & 0x0f);
 	if (c > 9) {
 		c = (char16_t)((c - 10) + u'A');
 	} else {
 		c = (char16_t)(c + u'0');
 	}
-	$nc(p)->write((int32_t)c);
-	c = (char16_t)((int32_t)(x & (uint32_t)15));
+	$nc(p)->write(c);
+	c = (char16_t)(x & 0x0f);
 	if (c > 9) {
 		c = (char16_t)((c - 10) + u'A');
 	} else {
 		c = (char16_t)(c + u'0');
 	}
-	p->write((int32_t)c);
+	p->write(c);
 }
 
 int32_t HexDumpEncoder::bytesPerAtom() {
@@ -108,8 +64,8 @@ void HexDumpEncoder::encodeBufferPrefix($OutputStream* o) {
 }
 
 void HexDumpEncoder::encodeLinePrefix($OutputStream* o, int32_t len) {
-	hexDigit(this->pStream, (int8_t)((int32_t)(((int32_t)((uint32_t)this->offset >> 8)) & (uint32_t)255)));
-	hexDigit(this->pStream, (int8_t)((int32_t)(this->offset & (uint32_t)255)));
+	hexDigit(this->pStream, (int8_t)(((int32_t)((uint32_t)this->offset >> 8)) & 0xff));
+	hexDigit(this->pStream, (int8_t)(this->offset & 0xff));
 	$nc(this->pStream)->print(": "_s);
 	this->currentByte = 0;
 	this->thisLineLength = len;
@@ -121,7 +77,7 @@ void HexDumpEncoder::encodeAtom($OutputStream* o, $bytes* buf, int32_t off, int3
 	$nc(this->pStream)->print(" "_s);
 	++this->currentByte;
 	if (this->currentByte == 8) {
-		$nc(this->pStream)->print("  "_s);
+		this->pStream->print("  "_s);
 	}
 }
 
@@ -130,19 +86,19 @@ void HexDumpEncoder::encodeLineSuffix($OutputStream* o) {
 		for (int32_t i = this->thisLineLength; i < 16; ++i) {
 			$nc(this->pStream)->print("   "_s);
 			if (i == 7) {
-				$nc(this->pStream)->print("  "_s);
+				this->pStream->print("  "_s);
 			}
 		}
 	}
 	$nc(this->pStream)->print(" "_s);
 	for (int32_t i = 0; i < this->thisLineLength; ++i) {
-		if (($nc(this->thisLine)->get(i) < u' ') || ($nc(this->thisLine)->get(i) > u'z')) {
-			$nc(this->pStream)->print("."_s);
+		if (($nc(this->thisLine)->get(i) < u' ') || (this->thisLine->get(i) > u'z')) {
+			this->pStream->print("."_s);
 		} else {
-			$nc(this->pStream)->write((int32_t)$nc(this->thisLine)->get(i));
+			this->pStream->write(this->thisLine->get(i));
 		}
 	}
-	$nc(this->pStream)->println();
+	this->pStream->println();
 	this->offset += this->thisLineLength;
 }
 
@@ -154,7 +110,7 @@ int32_t HexDumpEncoder::readFully($InputStream* in, $bytes* buffer) {
 		}
 		buffer->set(i, (int8_t)q);
 	}
-	return $nc(buffer)->length;
+	return buffer->length;
 }
 
 void HexDumpEncoder::encode($InputStream* inStream, $OutputStream* outStream) {
@@ -184,7 +140,7 @@ void HexDumpEncoder::encode($InputStream* inStream, $OutputStream* outStream) {
 }
 
 $String* HexDumpEncoder::encode($bytes* aBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, outStream, $new($ByteArrayOutputStream));
 	$var($ByteArrayInputStream, inStream, $new($ByteArrayInputStream, aBuffer));
 	try {
@@ -198,18 +154,18 @@ $String* HexDumpEncoder::encode($bytes* aBuffer) {
 }
 
 $bytes* HexDumpEncoder::getBytes($ByteBuffer* bb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, buf, nullptr);
 	if ($nc(bb)->hasArray()) {
 		$var($bytes, tmp, $cast($bytes, bb->array()));
-		bool var$0 = ($nc(tmp)->length == bb->capacity());
+		bool var$0 = $nc(tmp)->length == bb->capacity();
 		if (var$0 && (tmp->length == bb->remaining())) {
 			$assign(buf, tmp);
 			bb->position(bb->limit());
 		}
 	}
 	if (buf == nullptr) {
-		$assign(buf, $new($bytes, $nc(bb)->remaining()));
+		$assign(buf, $new($bytes, bb->remaining()));
 		bb->get(buf);
 	}
 	return buf;
@@ -247,15 +203,15 @@ void HexDumpEncoder::encodeBuffer($InputStream* inStream, $OutputStream* outStre
 
 void HexDumpEncoder::encodeBuffer($bytes* aBuffer, $OutputStream* aStream) {
 	$var($ByteArrayInputStream, inStream, $new($ByteArrayInputStream, aBuffer));
-	encodeBuffer(static_cast<$InputStream*>(inStream), aStream);
+	encodeBuffer(inStream, aStream);
 }
 
 $String* HexDumpEncoder::encodeBuffer($bytes* aBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, outStream, $new($ByteArrayOutputStream));
 	$var($ByteArrayInputStream, inStream, $new($ByteArrayInputStream, aBuffer));
 	try {
-		encodeBuffer(static_cast<$InputStream*>(inStream), static_cast<$OutputStream*>(outStream));
+		encodeBuffer(inStream, outStream);
 	} catch ($Exception& IOException) {
 		$throwNew($Error, "CharacterEncoder.encodeBuffer internal error"_s);
 	}
@@ -271,7 +227,45 @@ HexDumpEncoder::HexDumpEncoder() {
 }
 
 $Class* HexDumpEncoder::load$($String* name, bool initialize) {
-	$loadClass(HexDumpEncoder, name, initialize, &_HexDumpEncoder_ClassInfo_, allocate$HexDumpEncoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"offset", "I", nullptr, $PRIVATE, $field(HexDumpEncoder, offset)},
+		{"thisLineLength", "I", nullptr, $PRIVATE, $field(HexDumpEncoder, thisLineLength)},
+		{"currentByte", "I", nullptr, $PRIVATE, $field(HexDumpEncoder, currentByte)},
+		{"thisLine", "[B", nullptr, $PRIVATE, $field(HexDumpEncoder, thisLine)},
+		{"pStream", "Ljava/io/PrintStream;", nullptr, $PROTECTED, $field(HexDumpEncoder, pStream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HexDumpEncoder, init$, void)},
+		{"bytesPerAtom", "()I", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, bytesPerAtom, int32_t)},
+		{"bytesPerLine", "()I", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, bytesPerLine, int32_t)},
+		{"encode", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encode, void, $InputStream*, $OutputStream*), "java.io.IOException"},
+		{"encode", "([B)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encode, $String*, $bytes*)},
+		{"encode", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encode, $String*, $ByteBuffer*)},
+		{"encodeAtom", "(Ljava/io/OutputStream;[BII)V", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, encodeAtom, void, $OutputStream*, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"encodeBuffer", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encodeBuffer, void, $InputStream*, $OutputStream*), "java.io.IOException"},
+		{"encodeBuffer", "([BLjava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encodeBuffer, void, $bytes*, $OutputStream*), "java.io.IOException"},
+		{"encodeBuffer", "([B)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encodeBuffer, $String*, $bytes*)},
+		{"encodeBuffer", "(Ljava/nio/ByteBuffer;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(HexDumpEncoder, encodeBuffer, void, $ByteBuffer*, $OutputStream*), "java.io.IOException"},
+		{"encodeBufferPrefix", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, encodeBufferPrefix, void, $OutputStream*), "java.io.IOException"},
+		{"encodeLinePrefix", "(Ljava/io/OutputStream;I)V", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, encodeLinePrefix, void, $OutputStream*, int32_t), "java.io.IOException"},
+		{"encodeLineSuffix", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, encodeLineSuffix, void, $OutputStream*), "java.io.IOException"},
+		{"getBytes", "(Ljava/nio/ByteBuffer;)[B", nullptr, $PRIVATE, $method(HexDumpEncoder, getBytes, $bytes*, $ByteBuffer*)},
+		{"hexDigit", "(Ljava/io/PrintStream;B)V", nullptr, $STATIC, $staticMethod(HexDumpEncoder, hexDigit, void, $PrintStream*, int8_t)},
+		{"readFully", "(Ljava/io/InputStream;[B)I", nullptr, $PROTECTED, $virtualMethod(HexDumpEncoder, readFully, int32_t, $InputStream*, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.HexDumpEncoder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HexDumpEncoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HexDumpEncoder);
+	});
 	return class$;
 }
 

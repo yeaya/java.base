@@ -1,5 +1,4 @@
 #include <java/util/function/LongToDoubleFunction.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,35 +9,30 @@ namespace java {
 	namespace util {
 		namespace function {
 
-$CompoundAttribute _LongToDoubleFunction_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _LongToDoubleFunction_MethodInfo_[] = {
-	{"applyAsDouble", "(J)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongToDoubleFunction, applyAsDouble, double, int64_t)},
-	{}
-};
-
-$ClassInfo _LongToDoubleFunction_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.LongToDoubleFunction",
-	nullptr,
-	nullptr,
-	nullptr,
-	_LongToDoubleFunction_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_LongToDoubleFunction_Annotations_
-};
-
-$Object* allocate$LongToDoubleFunction($Class* clazz) {
-	return $of($alloc(LongToDoubleFunction));
-}
-
 $Class* LongToDoubleFunction::load$($String* name, bool initialize) {
-	$loadClass(LongToDoubleFunction, name, initialize, &_LongToDoubleFunction_ClassInfo_, allocate$LongToDoubleFunction);
+	$MethodInfo methodInfos$$[] = {
+		{"applyAsDouble", "(J)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongToDoubleFunction, applyAsDouble, double, int64_t)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.LongToDoubleFunction",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(LongToDoubleFunction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LongToDoubleFunction);
+	});
 	return class$;
 }
 

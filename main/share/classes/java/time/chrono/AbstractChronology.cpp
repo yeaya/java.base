@@ -1,5 +1,4 @@
 #include <java/time/chrono/AbstractChronology.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
@@ -23,8 +22,6 @@
 #include <java/time/temporal/ChronoUnit.h>
 #include <java/time/temporal/TemporalAdjuster.h>
 #include <java/time/temporal/TemporalAdjusters.h>
-#include <java/time/temporal/TemporalField.h>
-#include <java/time/temporal/TemporalUnit.h>
 #include <java/time/temporal/ValueRange.h>
 #include <java/util/Collection.h>
 #include <java/util/HashSet.h>
@@ -89,8 +86,6 @@ using $ResolverStyle = ::java::time::format::ResolverStyle;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $TemporalAdjusters = ::java::time::temporal::TemporalAdjusters;
-using $TemporalField = ::java::time::temporal::TemporalField;
-using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $ValueRange = ::java::time::temporal::ValueRange;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -107,57 +102,6 @@ namespace java {
 	namespace time {
 		namespace chrono {
 
-$FieldInfo _AbstractChronology_FieldInfo_[] = {
-	{"CHRONOS_BY_ID", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/time/chrono/Chronology;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AbstractChronology, CHRONOS_BY_ID)},
-	{"CHRONOS_BY_TYPE", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/time/chrono/Chronology;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AbstractChronology, CHRONOS_BY_TYPE)},
-	{}
-};
-
-$MethodInfo _AbstractChronology_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractChronology, init$, void)},
-	{"addFieldValue", "(Ljava/util/Map;Ljava/time/temporal/ChronoField;J)V", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/temporal/ChronoField;J)V", 0, $virtualMethod(AbstractChronology, addFieldValue, void, $Map*, $ChronoField*, int64_t)},
-	{"compareTo", "(Ljava/time/chrono/Chronology;)I", nullptr, $PUBLIC, $virtualMethod(AbstractChronology, compareTo, int32_t, $Chronology*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractChronology, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractChronology, equals, bool, Object$*)},
-	{"getAvailableChronologies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/time/chrono/Chronology;>;", $STATIC, $staticMethod(AbstractChronology, getAvailableChronologies, $Set*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractChronology, hashCode, int32_t)},
-	{"initCache", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractChronology, initCache, bool)},
-	{"of", "(Ljava/lang/String;)Ljava/time/chrono/Chronology;", nullptr, $STATIC, $staticMethod(AbstractChronology, of, $Chronology*, $String*)},
-	{"of0", "(Ljava/lang/String;)Ljava/time/chrono/Chronology;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractChronology, of0, $Chronology*, $String*)},
-	{"ofLocale", "(Ljava/util/Locale;)Ljava/time/chrono/Chronology;", nullptr, $STATIC, $staticMethod(AbstractChronology, ofLocale, $Chronology*, $Locale*)},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/chrono/Chronology;", nullptr, $STATIC, $staticMethod(AbstractChronology, readExternal, $Chronology*, $DataInput*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AbstractChronology, readObject, void, $ObjectInputStream*), "java.io.ObjectStreamException"},
-	{"registerChrono", "(Ljava/time/chrono/Chronology;)Ljava/time/chrono/Chronology;", nullptr, $STATIC, $staticMethod(AbstractChronology, registerChrono, $Chronology*, $Chronology*)},
-	{"registerChrono", "(Ljava/time/chrono/Chronology;Ljava/lang/String;)Ljava/time/chrono/Chronology;", nullptr, $STATIC, $staticMethod(AbstractChronology, registerChrono, $Chronology*, $Chronology*, $String*)},
-	{"resolveAligned", "(Ljava/time/chrono/ChronoLocalDate;JJJ)Ljava/time/chrono/ChronoLocalDate;", nullptr, 0, $virtualMethod(AbstractChronology, resolveAligned, $ChronoLocalDate*, $ChronoLocalDate*, int64_t, int64_t, int64_t)},
-	{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PUBLIC, $virtualMethod(AbstractChronology, resolveDate, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"resolveProlepticMonth", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)V", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)V", 0, $virtualMethod(AbstractChronology, resolveProlepticMonth, void, $Map*, $ResolverStyle*)},
-	{"resolveYAA", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYAA, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"resolveYAD", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYAD, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"resolveYD", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYD, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"resolveYMAA", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYMAA, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"resolveYMAD", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYMAD, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"resolveYMD", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYMD, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"resolveYearOfEra", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYearOfEra, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractChronology, toString, $String*)},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $virtualMethod(AbstractChronology, writeExternal, void, $DataOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(AbstractChronology, writeReplace, $Object*)},
-	{}
-};
-
-$ClassInfo _AbstractChronology_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.time.chrono.AbstractChronology",
-	"java.lang.Object",
-	"java.time.chrono.Chronology",
-	_AbstractChronology_FieldInfo_,
-	_AbstractChronology_MethodInfo_
-};
-
-$Object* allocate$AbstractChronology($Class* clazz) {
-	return $of($alloc(AbstractChronology));
-}
-
 $ConcurrentHashMap* AbstractChronology::CHRONOS_BY_ID = nullptr;
 $ConcurrentHashMap* AbstractChronology::CHRONOS_BY_TYPE = nullptr;
 
@@ -168,12 +112,12 @@ $Chronology* AbstractChronology::registerChrono($Chronology* chrono) {
 
 $Chronology* AbstractChronology::registerChrono($Chronology* chrono, $String* id) {
 	$init(AbstractChronology);
-	$useLocalCurrentObjectStackCache();
-	$var($Chronology, prev, $cast($Chronology, $nc(AbstractChronology::CHRONOS_BY_ID)->putIfAbsent(id, chrono)));
+	$useLocalObjectStack();
+	$var($Chronology, prev, $cast($Chronology, AbstractChronology::CHRONOS_BY_ID->putIfAbsent(id, chrono)));
 	if (prev == nullptr) {
 		$var($String, type, $nc(chrono)->getCalendarType());
 		if (type != nullptr) {
-			$nc(AbstractChronology::CHRONOS_BY_TYPE)->putIfAbsent(type, chrono);
+			AbstractChronology::CHRONOS_BY_TYPE->putIfAbsent(type, chrono);
 		}
 	}
 	return prev;
@@ -181,9 +125,9 @@ $Chronology* AbstractChronology::registerChrono($Chronology* chrono, $String* id
 
 bool AbstractChronology::initCache() {
 	$init(AbstractChronology);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	if ($nc(AbstractChronology::CHRONOS_BY_ID)->get("ISO"_s) == nullptr) {
+	if (AbstractChronology::CHRONOS_BY_ID->get("ISO"_s) == nullptr) {
 		$init($HijrahChronology);
 		registerChrono($HijrahChronology::INSTANCE);
 		$init($JapaneseChronology);
@@ -192,7 +136,7 @@ bool AbstractChronology::initCache() {
 		registerChrono($MinguoChronology::INSTANCE);
 		$init($ThaiBuddhistChronology);
 		registerChrono($ThaiBuddhistChronology::INSTANCE);
-		$var($ServiceLoader, loader, $ServiceLoader::load(AbstractChronology::class$, ($ClassLoader*)nullptr));
+		$var($ServiceLoader, loader, $ServiceLoader::load(AbstractChronology::class$, nullptr));
 		{
 			$var($Iterator, i$, $nc(loader)->iterator());
 			for (; $nc(i$)->hasNext();) {
@@ -216,9 +160,9 @@ bool AbstractChronology::initCache() {
 
 $Chronology* AbstractChronology::ofLocale($Locale* locale) {
 	$init(AbstractChronology);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$Objects::requireNonNull($of(locale), "locale"_s);
+	$Objects::requireNonNull(locale, "locale"_s);
 	$var($String, type, $nc(locale)->getUnicodeLocaleType("ca"_s));
 	bool var$0 = type == nullptr || "iso"_s->equals(type);
 	if (var$0 || "iso8601"_s->equals(type)) {
@@ -226,7 +170,7 @@ $Chronology* AbstractChronology::ofLocale($Locale* locale) {
 		return $IsoChronology::INSTANCE;
 	}
 	do {
-		$var($Chronology, chrono, $cast($Chronology, $nc(AbstractChronology::CHRONOS_BY_TYPE)->get(type)));
+		$var($Chronology, chrono, $cast($Chronology, AbstractChronology::CHRONOS_BY_TYPE->get(type)));
 		if (chrono != nullptr) {
 			return chrono;
 		}
@@ -237,10 +181,8 @@ $Chronology* AbstractChronology::ofLocale($Locale* locale) {
 		$var($Iterator, i$, $nc(loader)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Chronology, chrono, $cast($Chronology, i$->next()));
-			{
-				if ($nc(type)->equals($($nc(chrono)->getCalendarType()))) {
-					return chrono;
-				}
+			if ($nc(type)->equals($($nc(chrono)->getCalendarType()))) {
+				return chrono;
 			}
 		}
 	}
@@ -249,9 +191,9 @@ $Chronology* AbstractChronology::ofLocale($Locale* locale) {
 
 $Chronology* AbstractChronology::of($String* id) {
 	$init(AbstractChronology);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$Objects::requireNonNull($of(id), "id"_s);
+	$Objects::requireNonNull(id, "id"_s);
 	do {
 		$var($Chronology, chrono, of0(id));
 		if (chrono != nullptr) {
@@ -266,7 +208,7 @@ $Chronology* AbstractChronology::of($String* id) {
 			$var($Chronology, chrono, $cast($Chronology, i$->next()));
 			{
 				bool var$0 = $nc(id)->equals($($nc(chrono)->getId()));
-				if (var$0 || $nc(id)->equals($($nc(chrono)->getCalendarType()))) {
+				if (var$0 || id->equals($(chrono->getCalendarType()))) {
 					return chrono;
 				}
 			}
@@ -277,19 +219,19 @@ $Chronology* AbstractChronology::of($String* id) {
 
 $Chronology* AbstractChronology::of0($String* id) {
 	$init(AbstractChronology);
-	$var($Chronology, chrono, $cast($Chronology, $nc(AbstractChronology::CHRONOS_BY_ID)->get(id)));
+	$var($Chronology, chrono, $cast($Chronology, AbstractChronology::CHRONOS_BY_ID->get(id)));
 	if (chrono == nullptr) {
-		$assign(chrono, $cast($Chronology, $nc(AbstractChronology::CHRONOS_BY_TYPE)->get(id)));
+		$assign(chrono, $cast($Chronology, AbstractChronology::CHRONOS_BY_TYPE->get(id)));
 	}
 	return chrono;
 }
 
 $Set* AbstractChronology::getAvailableChronologies() {
 	$init(AbstractChronology);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	initCache();
-	$var($HashSet, chronos, $new($HashSet, $($nc(AbstractChronology::CHRONOS_BY_ID)->values())));
+	$var($HashSet, chronos, $new($HashSet, $(AbstractChronology::CHRONOS_BY_ID->values())));
 	$load($Chronology);
 	$var($ServiceLoader, loader, $ServiceLoader::load($Chronology::class$));
 	{
@@ -308,17 +250,17 @@ void AbstractChronology::init$() {
 }
 
 $ChronoLocalDate* AbstractChronology::resolveDate($Map* fieldValues, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
 	if ($nc(fieldValues)->containsKey($ChronoField::EPOCH_DAY)) {
-		return dateEpochDay($nc(($cast($Long, $(fieldValues->remove($ChronoField::EPOCH_DAY)))))->longValue());
+		return dateEpochDay($$sure($Long, fieldValues->remove($ChronoField::EPOCH_DAY))->longValue());
 	}
 	resolveProlepticMonth(fieldValues, resolverStyle);
 	$var($ChronoLocalDate, resolved, resolveYearOfEra(fieldValues, resolverStyle));
 	if (resolved != nullptr) {
 		return resolved;
 	}
-	if ($nc(fieldValues)->containsKey($ChronoField::YEAR)) {
+	if (fieldValues->containsKey($ChronoField::YEAR)) {
 		if (fieldValues->containsKey($ChronoField::MONTH_OF_YEAR)) {
 			if (fieldValues->containsKey($ChronoField::DAY_OF_MONTH)) {
 				return resolveYMD(fieldValues, resolverStyle);
@@ -348,7 +290,7 @@ $ChronoLocalDate* AbstractChronology::resolveDate($Map* fieldValues, $ResolverSt
 }
 
 void AbstractChronology::resolveProlepticMonth($Map* fieldValues, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
 	$var($Long, pMonth, $cast($Long, $nc(fieldValues)->remove($ChronoField::PROLEPTIC_MONTH)));
 	if (pMonth != nullptr) {
@@ -356,14 +298,14 @@ void AbstractChronology::resolveProlepticMonth($Map* fieldValues, $ResolverStyle
 		if (resolverStyle != $ResolverStyle::LENIENT) {
 			$ChronoField::PROLEPTIC_MONTH->checkValidValue(pMonth->longValue());
 		}
-		$var($ChronoLocalDate, chronoDate, $nc($($nc($(dateNow()))->with($ChronoField::DAY_OF_MONTH, 1)))->with($ChronoField::PROLEPTIC_MONTH, pMonth->longValue()));
+		$var($ChronoLocalDate, chronoDate, $$nc($$nc(dateNow())->with($ChronoField::DAY_OF_MONTH, 1))->with($ChronoField::PROLEPTIC_MONTH, pMonth->longValue()));
 		addFieldValue(fieldValues, $ChronoField::MONTH_OF_YEAR, $nc(chronoDate)->get($ChronoField::MONTH_OF_YEAR));
-		addFieldValue(fieldValues, $ChronoField::YEAR, $nc(chronoDate)->get($ChronoField::YEAR));
+		addFieldValue(fieldValues, $ChronoField::YEAR, chronoDate->get($ChronoField::YEAR));
 	}
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYearOfEra($Map* fieldValues, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
 	$var($Long, yoeLong, $cast($Long, $nc(fieldValues)->remove($ChronoField::YEAR_OF_ERA)));
 	if (yoeLong != nullptr) {
@@ -371,95 +313,89 @@ $ChronoLocalDate* AbstractChronology::resolveYearOfEra($Map* fieldValues, $Resol
 		int32_t yoe = 0;
 		$init($ResolverStyle);
 		if (resolverStyle != $ResolverStyle::LENIENT) {
-			yoe = $nc($(range($ChronoField::YEAR_OF_ERA)))->checkValidIntValue(yoeLong->longValue(), $ChronoField::YEAR_OF_ERA);
+			yoe = $$nc(range($ChronoField::YEAR_OF_ERA))->checkValidIntValue(yoeLong->longValue(), $ChronoField::YEAR_OF_ERA);
 		} else {
 			yoe = $Math::toIntExact(yoeLong->longValue());
 		}
 		if (eraLong != nullptr) {
-			$var($Era, eraObj, eraOf($nc($(range($ChronoField::ERA)))->checkValidIntValue(eraLong->longValue(), $ChronoField::ERA)));
+			$var($Era, eraObj, eraOf($$nc(range($ChronoField::ERA))->checkValidIntValue(eraLong->longValue(), $ChronoField::ERA)));
 			addFieldValue(fieldValues, $ChronoField::YEAR, prolepticYear(eraObj, yoe));
+		} else if (fieldValues->containsKey($ChronoField::YEAR)) {
+			int32_t year = $$nc(range($ChronoField::YEAR))->checkValidIntValue($$sure($Long, fieldValues->get($ChronoField::YEAR))->longValue(), $ChronoField::YEAR);
+			$var($ChronoLocalDate, chronoDate, dateYearDay(year, 1));
+			addFieldValue(fieldValues, $ChronoField::YEAR, prolepticYear($($nc(chronoDate)->getEra()), yoe));
+		} else if (resolverStyle == $ResolverStyle::STRICT) {
+			fieldValues->put($ChronoField::YEAR_OF_ERA, yoeLong);
 		} else {
-			if (fieldValues->containsKey($ChronoField::YEAR)) {
-				int32_t year = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->get($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
-				$var($ChronoLocalDate, chronoDate, dateYearDay(year, 1));
-				addFieldValue(fieldValues, $ChronoField::YEAR, prolepticYear($($nc(chronoDate)->getEra()), yoe));
+			$var($List, eras, this->eras());
+			if ($nc(eras)->isEmpty()) {
+				addFieldValue(fieldValues, $ChronoField::YEAR, yoe);
 			} else {
-				if (resolverStyle == $ResolverStyle::STRICT) {
-					fieldValues->put($ChronoField::YEAR_OF_ERA, yoeLong);
-				} else {
-					$var($List, eras, this->eras());
-					if ($nc(eras)->isEmpty()) {
-						addFieldValue(fieldValues, $ChronoField::YEAR, yoe);
-					} else {
-						$var($Era, eraObj, $cast($Era, eras->get(eras->size() - 1)));
-						addFieldValue(fieldValues, $ChronoField::YEAR, prolepticYear(eraObj, yoe));
-					}
-				}
+				$var($Era, eraObj, $cast($Era, eras->get(eras->size() - 1)));
+				addFieldValue(fieldValues, $ChronoField::YEAR, prolepticYear(eraObj, yoe));
 			}
 		}
-	} else {
-		if (fieldValues->containsKey($ChronoField::ERA)) {
-			$nc($(range($ChronoField::ERA)))->checkValidValue($nc(($cast($Long, $(fieldValues->get($ChronoField::ERA)))))->longValue(), $ChronoField::ERA);
-		}
+	} else if (fieldValues->containsKey($ChronoField::ERA)) {
+		$$nc(range($ChronoField::ERA))->checkValidValue($$sure($Long, fieldValues->get($ChronoField::ERA))->longValue(), $ChronoField::ERA);
 	}
 	return nullptr;
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYMD($Map* fieldValues, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $$nc(range($ChronoField::YEAR))->checkValidIntValue($$sure($Long, $nc(fieldValues)->remove($ChronoField::YEAR))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t months = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), (int64_t)1);
-		int64_t days = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_MONTH)))))->longValue(), (int64_t)1);
+		int64_t months = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::MONTH_OF_YEAR))->longValue(), (int64_t)1);
+		int64_t days = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::DAY_OF_MONTH))->longValue(), (int64_t)1);
 		$init($ChronoUnit);
-		return $nc($($nc($(date(y, 1, 1)))->plus(months, $ChronoUnit::MONTHS)))->plus(days, $ChronoUnit::DAYS);
+		return $$nc($$nc(date(y, 1, 1))->plus(months, $ChronoUnit::MONTHS))->plus(days, $ChronoUnit::DAYS);
 	}
-	int32_t moy = $nc($(range($ChronoField::MONTH_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), $ChronoField::MONTH_OF_YEAR);
+	int32_t moy = $$nc(range($ChronoField::MONTH_OF_YEAR))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::MONTH_OF_YEAR))->longValue(), $ChronoField::MONTH_OF_YEAR);
 	$var($ValueRange, domRange, range($ChronoField::DAY_OF_MONTH));
-	int32_t dom = $nc(domRange)->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_MONTH)))))->longValue(), $ChronoField::DAY_OF_MONTH);
+	int32_t dom = $nc(domRange)->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::DAY_OF_MONTH))->longValue(), $ChronoField::DAY_OF_MONTH);
 	if (resolverStyle == $ResolverStyle::SMART) {
 		try {
 			return date(y, moy, dom);
 		} catch ($DateTimeException& ex) {
-			return $nc($(date(y, moy, 1)))->with($($TemporalAdjusters::lastDayOfMonth()));
+			return $$nc(date(y, moy, 1))->with($($TemporalAdjusters::lastDayOfMonth()));
 		}
 	}
 	return date(y, moy, dom);
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYD($Map* fieldValues, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $$nc(range($ChronoField::YEAR))->checkValidIntValue($$sure($Long, $nc(fieldValues)->remove($ChronoField::YEAR))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t days = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_YEAR)))))->longValue(), (int64_t)1);
+		int64_t days = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::DAY_OF_YEAR))->longValue(), (int64_t)1);
 		$init($ChronoUnit);
-		return $nc($(dateYearDay(y, 1)))->plus(days, $ChronoUnit::DAYS);
+		return $$nc(dateYearDay(y, 1))->plus(days, $ChronoUnit::DAYS);
 	}
-	int32_t doy = $nc($(range($ChronoField::DAY_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_YEAR)))))->longValue(), $ChronoField::DAY_OF_YEAR);
+	int32_t doy = $$nc(range($ChronoField::DAY_OF_YEAR))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::DAY_OF_YEAR))->longValue(), $ChronoField::DAY_OF_YEAR);
 	return dateYearDay(y, doy);
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYMAA($Map* fieldValues, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $$nc(range($ChronoField::YEAR))->checkValidIntValue($$sure($Long, $nc(fieldValues)->remove($ChronoField::YEAR))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t months = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), (int64_t)1);
-		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), (int64_t)1);
-		int64_t days = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH)))))->longValue(), (int64_t)1);
+		int64_t months = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::MONTH_OF_YEAR))->longValue(), (int64_t)1);
+		int64_t weeks = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_MONTH))->longValue(), (int64_t)1);
+		int64_t days = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH))->longValue(), (int64_t)1);
 		$init($ChronoUnit);
-		return $nc($($nc($($nc($(this->date(y, 1, 1)))->plus(months, $ChronoUnit::MONTHS)))->plus(weeks, $ChronoUnit::WEEKS)))->plus(days, $ChronoUnit::DAYS);
+		return $$nc($$nc($$nc(this->date(y, 1, 1))->plus(months, $ChronoUnit::MONTHS))->plus(weeks, $ChronoUnit::WEEKS))->plus(days, $ChronoUnit::DAYS);
 	}
-	int32_t moy = $nc($(range($ChronoField::MONTH_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), $ChronoField::MONTH_OF_YEAR);
-	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_MONTH)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_MONTH);
-	int32_t ad = $nc($(range($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH)))))->longValue(), $ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH);
+	int32_t moy = $$nc(range($ChronoField::MONTH_OF_YEAR))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::MONTH_OF_YEAR))->longValue(), $ChronoField::MONTH_OF_YEAR);
+	int32_t aw = $$nc(range($ChronoField::ALIGNED_WEEK_OF_MONTH))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_MONTH))->longValue(), $ChronoField::ALIGNED_WEEK_OF_MONTH);
+	int32_t ad = $$nc(range($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH))->longValue(), $ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH);
 	$init($ChronoUnit);
-	$var($ChronoLocalDate, date, $nc($(this->date(y, moy, 1)))->plus((aw - 1) * 7 + (ad - 1), $ChronoUnit::DAYS));
+	$var($ChronoLocalDate, date, $$nc(this->date(y, moy, 1))->plus((aw - 1) * 7 + (ad - 1), $ChronoUnit::DAYS));
 	if (resolverStyle == $ResolverStyle::STRICT && $nc(date)->get($ChronoField::MONTH_OF_YEAR) != moy) {
 		$throwNew($DateTimeException, "Strict mode rejected resolved date as it is in a different month"_s);
 	}
@@ -467,21 +403,21 @@ $ChronoLocalDate* AbstractChronology::resolveYMAA($Map* fieldValues, $ResolverSt
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYMAD($Map* fieldValues, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $$nc(range($ChronoField::YEAR))->checkValidIntValue($$sure($Long, $nc(fieldValues)->remove($ChronoField::YEAR))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t months = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), (int64_t)1);
-		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), (int64_t)1);
-		int64_t dow = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), (int64_t)1);
+		int64_t months = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::MONTH_OF_YEAR))->longValue(), (int64_t)1);
+		int64_t weeks = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_MONTH))->longValue(), (int64_t)1);
+		int64_t dow = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::DAY_OF_WEEK))->longValue(), (int64_t)1);
 		return resolveAligned($(this->date(y, 1, 1)), months, weeks, dow);
 	}
-	int32_t moy = $nc($(range($ChronoField::MONTH_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), $ChronoField::MONTH_OF_YEAR);
-	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_MONTH)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_MONTH);
-	int32_t dow = $nc($(range($ChronoField::DAY_OF_WEEK)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), $ChronoField::DAY_OF_WEEK);
+	int32_t moy = $$nc(range($ChronoField::MONTH_OF_YEAR))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::MONTH_OF_YEAR))->longValue(), $ChronoField::MONTH_OF_YEAR);
+	int32_t aw = $$nc(range($ChronoField::ALIGNED_WEEK_OF_MONTH))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_MONTH))->longValue(), $ChronoField::ALIGNED_WEEK_OF_MONTH);
+	int32_t dow = $$nc(range($ChronoField::DAY_OF_WEEK))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::DAY_OF_WEEK))->longValue(), $ChronoField::DAY_OF_WEEK);
 	$init($ChronoUnit);
-	$var($ChronoLocalDate, date, $nc($($nc($(this->date(y, moy, 1)))->plus((aw - 1) * 7, $ChronoUnit::DAYS)))->with($($TemporalAdjusters::nextOrSame($($DayOfWeek::of(dow))))));
+	$var($ChronoLocalDate, date, $$nc($$nc(this->date(y, moy, 1))->plus((aw - 1) * 7, $ChronoUnit::DAYS))->with($($TemporalAdjusters::nextOrSame($($DayOfWeek::of(dow))))));
 	if (resolverStyle == $ResolverStyle::STRICT && $nc(date)->get($ChronoField::MONTH_OF_YEAR) != moy) {
 		$throwNew($DateTimeException, "Strict mode rejected resolved date as it is in a different month"_s);
 	}
@@ -489,20 +425,20 @@ $ChronoLocalDate* AbstractChronology::resolveYMAD($Map* fieldValues, $ResolverSt
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYAA($Map* fieldValues, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $$nc(range($ChronoField::YEAR))->checkValidIntValue($$sure($Long, $nc(fieldValues)->remove($ChronoField::YEAR))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), (int64_t)1);
-		int64_t days = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR)))))->longValue(), (int64_t)1);
+		int64_t weeks = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_YEAR))->longValue(), (int64_t)1);
+		int64_t days = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR))->longValue(), (int64_t)1);
 		$init($ChronoUnit);
-		return $nc($($nc($(dateYearDay(y, 1)))->plus(weeks, $ChronoUnit::WEEKS)))->plus(days, $ChronoUnit::DAYS);
+		return $$nc($$nc(dateYearDay(y, 1))->plus(weeks, $ChronoUnit::WEEKS))->plus(days, $ChronoUnit::DAYS);
 	}
-	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_YEAR);
-	int32_t ad = $nc($(range($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR)))))->longValue(), $ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR);
+	int32_t aw = $$nc(range($ChronoField::ALIGNED_WEEK_OF_YEAR))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_YEAR))->longValue(), $ChronoField::ALIGNED_WEEK_OF_YEAR);
+	int32_t ad = $$nc(range($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR))->longValue(), $ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR);
 	$init($ChronoUnit);
-	$var($ChronoLocalDate, date, $nc($(dateYearDay(y, 1)))->plus((aw - 1) * 7 + (ad - 1), $ChronoUnit::DAYS));
+	$var($ChronoLocalDate, date, $$nc(dateYearDay(y, 1))->plus((aw - 1) * 7 + (ad - 1), $ChronoUnit::DAYS));
 	if (resolverStyle == $ResolverStyle::STRICT && $nc(date)->get($ChronoField::YEAR) != y) {
 		$throwNew($DateTimeException, "Strict mode rejected resolved date as it is in a different year"_s);
 	}
@@ -510,19 +446,19 @@ $ChronoLocalDate* AbstractChronology::resolveYAA($Map* fieldValues, $ResolverSty
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYAD($Map* fieldValues, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $$nc(range($ChronoField::YEAR))->checkValidIntValue($$sure($Long, $nc(fieldValues)->remove($ChronoField::YEAR))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), (int64_t)1);
-		int64_t dow = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), (int64_t)1);
+		int64_t weeks = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_YEAR))->longValue(), (int64_t)1);
+		int64_t dow = $Math::subtractExact($$sure($Long, fieldValues->remove($ChronoField::DAY_OF_WEEK))->longValue(), (int64_t)1);
 		return resolveAligned($(dateYearDay(y, 1)), 0, weeks, dow);
 	}
-	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_YEAR);
-	int32_t dow = $nc($(range($ChronoField::DAY_OF_WEEK)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), $ChronoField::DAY_OF_WEEK);
+	int32_t aw = $$nc(range($ChronoField::ALIGNED_WEEK_OF_YEAR))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_YEAR))->longValue(), $ChronoField::ALIGNED_WEEK_OF_YEAR);
+	int32_t dow = $$nc(range($ChronoField::DAY_OF_WEEK))->checkValidIntValue($$sure($Long, fieldValues->remove($ChronoField::DAY_OF_WEEK))->longValue(), $ChronoField::DAY_OF_WEEK);
 	$init($ChronoUnit);
-	$var($ChronoLocalDate, date, $nc($($nc($(dateYearDay(y, 1)))->plus((aw - 1) * 7, $ChronoUnit::DAYS)))->with($($TemporalAdjusters::nextOrSame($($DayOfWeek::of(dow))))));
+	$var($ChronoLocalDate, date, $$nc($$nc(dateYearDay(y, 1))->plus((aw - 1) * 7, $ChronoUnit::DAYS))->with($($TemporalAdjusters::nextOrSame($($DayOfWeek::of(dow))))));
 	if (resolverStyle == $ResolverStyle::STRICT && $nc(date)->get($ChronoField::YEAR) != y) {
 		$throwNew($DateTimeException, "Strict mode rejected resolved date as it is in a different year"_s);
 	}
@@ -530,9 +466,9 @@ $ChronoLocalDate* AbstractChronology::resolveYAD($Map* fieldValues, $ResolverSty
 }
 
 $ChronoLocalDate* AbstractChronology::resolveAligned($ChronoLocalDate* base, int64_t months, int64_t weeks, int64_t dow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoUnit);
-	$var($ChronoLocalDate, date, $nc($($nc(base)->plus(months, $ChronoUnit::MONTHS)))->plus(weeks, $ChronoUnit::WEEKS));
+	$var($ChronoLocalDate, date, $$nc($nc(base)->plus(months, $ChronoUnit::MONTHS))->plus(weeks, $ChronoUnit::WEEKS));
 	if (dow > 7) {
 		$assign(date, $nc(date)->plus((dow - 1) / 7, $ChronoUnit::WEEKS));
 		dow = ((dow - 1) % 7) + 1;
@@ -544,7 +480,7 @@ $ChronoLocalDate* AbstractChronology::resolveAligned($ChronoLocalDate* base, int
 }
 
 void AbstractChronology::addFieldValue($Map* fieldValues, $ChronoField* field, int64_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Long, old, $cast($Long, $nc(fieldValues)->get(field)));
 	if (old != nullptr && old->longValue() != value) {
 		$throwNew($DateTimeException, $$str({"Conflict found: "_s, field, " "_s, old, " differs from "_s, field, " "_s, $$str(value)}));
@@ -553,8 +489,8 @@ void AbstractChronology::addFieldValue($Map* fieldValues, $ChronoField* field, i
 }
 
 int32_t AbstractChronology::compareTo($Chronology* other) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($(getId()))->compareTo($($nc(other)->getId()));
+	$useLocalObjectStack();
+	return $$nc(getId())->compareTo($($nc(other)->getId()));
 }
 
 bool AbstractChronology::equals(Object$* obj) {
@@ -568,8 +504,8 @@ bool AbstractChronology::equals(Object$* obj) {
 }
 
 int32_t AbstractChronology::hashCode() {
-	int32_t var$0 = $of($of(this)->getClass())->hashCode();
-	return var$0 ^ $nc($(getId()))->hashCode();
+	int32_t var$0 = $of(this)->getClass()->hashCode();
+	return var$0 ^ $$nc(getId())->hashCode();
 }
 
 $String* AbstractChronology::toString() {
@@ -577,7 +513,7 @@ $String* AbstractChronology::toString() {
 }
 
 $Object* AbstractChronology::writeReplace() {
-	return $of($new($Ser, $Ser::CHRONO_TYPE, $cast($Serializable, this)));
+	return $new($Ser, $Ser::CHRONO_TYPE, $cast($Serializable, this));
 }
 
 void AbstractChronology::readObject($ObjectInputStream* s) {
@@ -598,7 +534,7 @@ int32_t AbstractChronology::compareTo(Object$* other) {
 	return this->compareTo($cast($Chronology, other));
 }
 
-void clinit$AbstractChronology($Class* class$) {
+void AbstractChronology::clinit$($Class* clazz) {
 	$assignStatic(AbstractChronology::CHRONOS_BY_ID, $new($ConcurrentHashMap));
 	$assignStatic(AbstractChronology::CHRONOS_BY_TYPE, $new($ConcurrentHashMap));
 }
@@ -607,7 +543,53 @@ AbstractChronology::AbstractChronology() {
 }
 
 $Class* AbstractChronology::load$($String* name, bool initialize) {
-	$loadClass(AbstractChronology, name, initialize, &_AbstractChronology_ClassInfo_, clinit$AbstractChronology, allocate$AbstractChronology);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHRONOS_BY_ID", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/time/chrono/Chronology;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AbstractChronology, CHRONOS_BY_ID)},
+		{"CHRONOS_BY_TYPE", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/time/chrono/Chronology;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AbstractChronology, CHRONOS_BY_TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractChronology, init$, void)},
+		{"addFieldValue", "(Ljava/util/Map;Ljava/time/temporal/ChronoField;J)V", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/temporal/ChronoField;J)V", 0, $virtualMethod(AbstractChronology, addFieldValue, void, $Map*, $ChronoField*, int64_t)},
+		{"compareTo", "(Ljava/time/chrono/Chronology;)I", nullptr, $PUBLIC, $virtualMethod(AbstractChronology, compareTo, int32_t, $Chronology*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractChronology, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractChronology, equals, bool, Object$*)},
+		{"getAvailableChronologies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/time/chrono/Chronology;>;", $STATIC, $staticMethod(AbstractChronology, getAvailableChronologies, $Set*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractChronology, hashCode, int32_t)},
+		{"initCache", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractChronology, initCache, bool)},
+		{"of", "(Ljava/lang/String;)Ljava/time/chrono/Chronology;", nullptr, $STATIC, $staticMethod(AbstractChronology, of, $Chronology*, $String*)},
+		{"of0", "(Ljava/lang/String;)Ljava/time/chrono/Chronology;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractChronology, of0, $Chronology*, $String*)},
+		{"ofLocale", "(Ljava/util/Locale;)Ljava/time/chrono/Chronology;", nullptr, $STATIC, $staticMethod(AbstractChronology, ofLocale, $Chronology*, $Locale*)},
+		{"readExternal", "(Ljava/io/DataInput;)Ljava/time/chrono/Chronology;", nullptr, $STATIC, $staticMethod(AbstractChronology, readExternal, $Chronology*, $DataInput*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AbstractChronology, readObject, void, $ObjectInputStream*), "java.io.ObjectStreamException"},
+		{"registerChrono", "(Ljava/time/chrono/Chronology;)Ljava/time/chrono/Chronology;", nullptr, $STATIC, $staticMethod(AbstractChronology, registerChrono, $Chronology*, $Chronology*)},
+		{"registerChrono", "(Ljava/time/chrono/Chronology;Ljava/lang/String;)Ljava/time/chrono/Chronology;", nullptr, $STATIC, $staticMethod(AbstractChronology, registerChrono, $Chronology*, $Chronology*, $String*)},
+		{"resolveAligned", "(Ljava/time/chrono/ChronoLocalDate;JJJ)Ljava/time/chrono/ChronoLocalDate;", nullptr, 0, $virtualMethod(AbstractChronology, resolveAligned, $ChronoLocalDate*, $ChronoLocalDate*, int64_t, int64_t, int64_t)},
+		{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PUBLIC, $virtualMethod(AbstractChronology, resolveDate, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"resolveProlepticMonth", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)V", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)V", 0, $virtualMethod(AbstractChronology, resolveProlepticMonth, void, $Map*, $ResolverStyle*)},
+		{"resolveYAA", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYAA, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"resolveYAD", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYAD, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"resolveYD", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYD, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"resolveYMAA", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYMAA, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"resolveYMAD", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYMAD, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"resolveYMD", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYMD, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"resolveYearOfEra", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", 0, $virtualMethod(AbstractChronology, resolveYearOfEra, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractChronology, toString, $String*)},
+		{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $virtualMethod(AbstractChronology, writeExternal, void, $DataOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(AbstractChronology, writeReplace, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.time.chrono.AbstractChronology",
+		"java.lang.Object",
+		"java.time.chrono.Chronology",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractChronology, name, initialize, &classInfo$$, AbstractChronology::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractChronology);
+	});
 	return class$;
 }
 

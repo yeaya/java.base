@@ -1,5 +1,4 @@
 #include <sun/util/calendar/LocalGregorianCalendar$Date.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/util/TimeZone.h>
 #include <sun/util/calendar/BaseCalendar$Date.h>
@@ -25,51 +24,6 @@ using $Era = ::sun::util::calendar::Era;
 namespace sun {
 	namespace util {
 		namespace calendar {
-
-$FieldInfo _LocalGregorianCalendar$Date_FieldInfo_[] = {
-	{"gregorianYear", "I", nullptr, $PRIVATE, $field(LocalGregorianCalendar$Date, gregorianYear)},
-	{}
-};
-
-$MethodInfo _LocalGregorianCalendar$Date_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(LocalGregorianCalendar$Date, init$, void)},
-	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(LocalGregorianCalendar$Date, init$, void, $TimeZone*)},
-	{"addYear", "(I)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, addYear, LocalGregorianCalendar$Date*, int32_t)},
-	{"getNormalizedYear", "()I", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, getNormalizedYear, int32_t)},
-	{"setEra", "(Lsun/util/calendar/Era;)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, setEra, LocalGregorianCalendar$Date*, $Era*)},
-	{"setLocalEra", "(Lsun/util/calendar/Era;)V", nullptr, 0, $virtualMethod(LocalGregorianCalendar$Date, setLocalEra, void, $Era*)},
-	{"setLocalYear", "(I)V", nullptr, 0, $virtualMethod(LocalGregorianCalendar$Date, setLocalYear, void, int32_t)},
-	{"setNormalizedYear", "(I)V", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, setNormalizedYear, void, int32_t)},
-	{"setYear", "(I)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, setYear, LocalGregorianCalendar$Date*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _LocalGregorianCalendar$Date_InnerClassesInfo_[] = {
-	{"sun.util.calendar.LocalGregorianCalendar$Date", "sun.util.calendar.LocalGregorianCalendar", "Date", $PUBLIC | $STATIC},
-	{"sun.util.calendar.BaseCalendar$Date", "sun.util.calendar.BaseCalendar", "Date", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LocalGregorianCalendar$Date_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.calendar.LocalGregorianCalendar$Date",
-	"sun.util.calendar.BaseCalendar$Date",
-	nullptr,
-	_LocalGregorianCalendar$Date_FieldInfo_,
-	_LocalGregorianCalendar$Date_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LocalGregorianCalendar$Date_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.calendar.LocalGregorianCalendar"
-};
-
-$Object* allocate$LocalGregorianCalendar$Date($Class* clazz) {
-	return $of($alloc(LocalGregorianCalendar$Date));
-}
 
 void LocalGregorianCalendar$Date::init$() {
 	$BaseCalendar$Date::init$();
@@ -120,9 +74,9 @@ void LocalGregorianCalendar$Date::setLocalYear(int32_t year) {
 }
 
 $String* LocalGregorianCalendar$Date::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, time, $BaseCalendar$Date::toString());
-	$assign(time, $nc(time)->substring(time->indexOf((int32_t)u'T')));
+	$assign(time, $nc(time)->substring($nc(time)->indexOf(u'T')));
 	$var($StringBuffer, sb, $new($StringBuffer));
 	$var($Era, era, getEra());
 	if (era != nullptr) {
@@ -132,7 +86,7 @@ $String* LocalGregorianCalendar$Date::toString() {
 		}
 	}
 	sb->append(getYear())->append(u'.');
-	$nc($($CalendarUtils::sprintf0d(sb, getMonth(), 2)))->append(u'.');
+	$$nc($CalendarUtils::sprintf0d(sb, getMonth(), 2))->append(u'.');
 	$CalendarUtils::sprintf0d(sb, getDayOfMonth(), 2);
 	sb->append(time);
 	return sb->toString();
@@ -142,7 +96,46 @@ LocalGregorianCalendar$Date::LocalGregorianCalendar$Date() {
 }
 
 $Class* LocalGregorianCalendar$Date::load$($String* name, bool initialize) {
-	$loadClass(LocalGregorianCalendar$Date, name, initialize, &_LocalGregorianCalendar$Date_ClassInfo_, allocate$LocalGregorianCalendar$Date);
+	$FieldInfo fieldInfos$$[] = {
+		{"gregorianYear", "I", nullptr, $PRIVATE, $field(LocalGregorianCalendar$Date, gregorianYear)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(LocalGregorianCalendar$Date, init$, void)},
+		{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(LocalGregorianCalendar$Date, init$, void, $TimeZone*)},
+		{"addYear", "(I)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, addYear, LocalGregorianCalendar$Date*, int32_t)},
+		{"getNormalizedYear", "()I", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, getNormalizedYear, int32_t)},
+		{"setEra", "(Lsun/util/calendar/Era;)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, setEra, LocalGregorianCalendar$Date*, $Era*)},
+		{"setLocalEra", "(Lsun/util/calendar/Era;)V", nullptr, 0, $virtualMethod(LocalGregorianCalendar$Date, setLocalEra, void, $Era*)},
+		{"setLocalYear", "(I)V", nullptr, 0, $virtualMethod(LocalGregorianCalendar$Date, setLocalYear, void, int32_t)},
+		{"setNormalizedYear", "(I)V", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, setNormalizedYear, void, int32_t)},
+		{"setYear", "(I)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, setYear, LocalGregorianCalendar$Date*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.calendar.LocalGregorianCalendar$Date", "sun.util.calendar.LocalGregorianCalendar", "Date", $PUBLIC | $STATIC},
+		{"sun.util.calendar.BaseCalendar$Date", "sun.util.calendar.BaseCalendar", "Date", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.calendar.LocalGregorianCalendar$Date",
+		"sun.util.calendar.BaseCalendar$Date",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.calendar.LocalGregorianCalendar"
+	};
+	$loadClass(LocalGregorianCalendar$Date, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalGregorianCalendar$Date);
+	});
 	return class$;
 }
 

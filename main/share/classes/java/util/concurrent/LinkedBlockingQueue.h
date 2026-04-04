@@ -120,7 +120,7 @@ public:
 	virtual $String* toString() override;
 	virtual void unlink(::java::util::concurrent::LinkedBlockingQueue$Node* p, ::java::util::concurrent::LinkedBlockingQueue$Node* pred);
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xA0304CA040E581F6;
+	static const int64_t serialVersionUID = (int64_t)0xa0304ca040e581f6;
 	int32_t capacity = 0;
 	::java::util::concurrent::atomic::AtomicInteger* count = nullptr;
 	::java::util::concurrent::LinkedBlockingQueue$Node* head = nullptr;

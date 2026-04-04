@@ -22,6 +22,7 @@ class CertificateMessage : public ::java::lang::Object {
 	$class(CertificateMessage, 0, ::java::lang::Object)
 public:
 	CertificateMessage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLConsumer* t12HandshakeConsumer;
 	static ::sun::security::ssl::HandshakeProducer* t12HandshakeProducer;

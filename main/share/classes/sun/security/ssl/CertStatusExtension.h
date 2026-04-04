@@ -23,6 +23,7 @@ class CertStatusExtension : public ::java::lang::Object {
 	$class(CertStatusExtension, 0, ::java::lang::Object)
 public:
 	CertStatusExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::HandshakeProducer* chNetworkProducer;
 	static ::sun::security::ssl::SSLExtension$ExtensionConsumer* chOnLoadConsumer;

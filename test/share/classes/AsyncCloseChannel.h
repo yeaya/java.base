@@ -15,6 +15,7 @@ class $export AsyncCloseChannel : public ::java::lang::Object {
 	$class(AsyncCloseChannel, 0, ::java::lang::Object)
 public:
 	AsyncCloseChannel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void closeIt(::java::net::Socket* s);
 	static void main($StringArray* args);

@@ -1,10 +1,8 @@
 #include <jdk/internal/perf/PerfCounter.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/LongBuffer.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <jdk/internal/perf/Perf$GetPerfAction.h>
 #include <jdk/internal/perf/Perf.h>
 #include <jdk/internal/perf/PerfCounter$CoreCounters.h>
@@ -16,9 +14,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
-using $LongBuffer = ::java::nio::LongBuffer;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Perf = ::jdk::internal::perf::Perf;
 using $Perf$GetPerfAction = ::jdk::internal::perf::Perf$GetPerfAction;
 using $PerfCounter$CoreCounters = ::jdk::internal::perf::PerfCounter$CoreCounters;
@@ -27,65 +23,10 @@ namespace jdk {
 	namespace internal {
 		namespace perf {
 
-$FieldInfo _PerfCounter_FieldInfo_[] = {
-	{"perf", "Ljdk/internal/perf/Perf;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PerfCounter, perf)},
-	{"V_Constant", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfCounter, V_Constant)},
-	{"V_Monotonic", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfCounter, V_Monotonic)},
-	{"V_Variable", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfCounter, V_Variable)},
-	{"U_None", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfCounter, U_None)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PerfCounter, name)},
-	{"lb", "Ljava/nio/LongBuffer;", nullptr, $PRIVATE | $FINAL, $field(PerfCounter, lb)},
-	{}
-};
-
-$MethodInfo _PerfCounter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(PerfCounter, init$, void, $String*, int32_t)},
-	{"add", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfCounter, add, void, int64_t)},
-	{"addElapsedTimeFrom", "(J)V", nullptr, $PUBLIC, $virtualMethod(PerfCounter, addElapsedTimeFrom, void, int64_t)},
-	{"addTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(PerfCounter, addTime, void, int64_t)},
-	{"get", "()J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfCounter, get, int64_t)},
-	{"getFindClassTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getFindClassTime, PerfCounter*)},
-	{"getFindClasses", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getFindClasses, PerfCounter*)},
-	{"getParentDelegationTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getParentDelegationTime, PerfCounter*)},
-	{"getReadClassBytesTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getReadClassBytesTime, PerfCounter*)},
-	{"getZipFileCount", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getZipFileCount, PerfCounter*)},
-	{"getZipFileOpenTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getZipFileOpenTime, PerfCounter*)},
-	{"increment", "()V", nullptr, $PUBLIC, $virtualMethod(PerfCounter, increment, void)},
-	{"newConstantPerfCounter", "(Ljava/lang/String;)Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, newConstantPerfCounter, PerfCounter*, $String*)},
-	{"newPerfCounter", "(Ljava/lang/String;)Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, newPerfCounter, PerfCounter*, $String*)},
-	{"set", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfCounter, set, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfCounter, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _PerfCounter_InnerClassesInfo_[] = {
-	{"jdk.internal.perf.PerfCounter$CoreCounters", "jdk.internal.perf.PerfCounter", "CoreCounters", $STATIC},
-	{}
-};
-
-$ClassInfo _PerfCounter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.perf.PerfCounter",
-	"java.lang.Object",
-	nullptr,
-	_PerfCounter_FieldInfo_,
-	_PerfCounter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PerfCounter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.perf.PerfCounter$CoreCounters"
-};
-
-$Object* allocate$PerfCounter($Class* clazz) {
-	return $of($alloc(PerfCounter));
-}
-
 $Perf* PerfCounter::perf = nullptr;
 
 void PerfCounter::init$($String* name, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, name, name);
 	$var($ByteBuffer, bb, $nc(PerfCounter::perf)->createLong(name, type, PerfCounter::U_None, 0));
 	$nc(bb)->order($($ByteOrder::nativeOrder()));
@@ -174,16 +115,65 @@ PerfCounter* PerfCounter::getZipFileOpenTime() {
 	return $PerfCounter$CoreCounters::zfot;
 }
 
-void clinit$PerfCounter($Class* class$) {
+void PerfCounter::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
-	$assignStatic(PerfCounter::perf, $cast($Perf, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Perf$GetPerfAction)))));
+	$assignStatic(PerfCounter::perf, $cast($Perf, $AccessController::doPrivileged($$new($Perf$GetPerfAction))));
 }
 
 PerfCounter::PerfCounter() {
 }
 
 $Class* PerfCounter::load$($String* name, bool initialize) {
-	$loadClass(PerfCounter, name, initialize, &_PerfCounter_ClassInfo_, clinit$PerfCounter, allocate$PerfCounter);
+	$FieldInfo fieldInfos$$[] = {
+		{"perf", "Ljdk/internal/perf/Perf;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PerfCounter, perf)},
+		{"V_Constant", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfCounter, V_Constant)},
+		{"V_Monotonic", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfCounter, V_Monotonic)},
+		{"V_Variable", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfCounter, V_Variable)},
+		{"U_None", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfCounter, U_None)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PerfCounter, name)},
+		{"lb", "Ljava/nio/LongBuffer;", nullptr, $PRIVATE | $FINAL, $field(PerfCounter, lb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(PerfCounter, init$, void, $String*, int32_t)},
+		{"add", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfCounter, add, void, int64_t)},
+		{"addElapsedTimeFrom", "(J)V", nullptr, $PUBLIC, $virtualMethod(PerfCounter, addElapsedTimeFrom, void, int64_t)},
+		{"addTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(PerfCounter, addTime, void, int64_t)},
+		{"get", "()J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfCounter, get, int64_t)},
+		{"getFindClassTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getFindClassTime, PerfCounter*)},
+		{"getFindClasses", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getFindClasses, PerfCounter*)},
+		{"getParentDelegationTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getParentDelegationTime, PerfCounter*)},
+		{"getReadClassBytesTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getReadClassBytesTime, PerfCounter*)},
+		{"getZipFileCount", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getZipFileCount, PerfCounter*)},
+		{"getZipFileOpenTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getZipFileOpenTime, PerfCounter*)},
+		{"increment", "()V", nullptr, $PUBLIC, $virtualMethod(PerfCounter, increment, void)},
+		{"newConstantPerfCounter", "(Ljava/lang/String;)Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, newConstantPerfCounter, PerfCounter*, $String*)},
+		{"newPerfCounter", "(Ljava/lang/String;)Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, newPerfCounter, PerfCounter*, $String*)},
+		{"set", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfCounter, set, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfCounter, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.perf.PerfCounter$CoreCounters", "jdk.internal.perf.PerfCounter", "CoreCounters", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.perf.PerfCounter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.perf.PerfCounter$CoreCounters"
+	};
+	$loadClass(PerfCounter, name, initialize, &classInfo$$, PerfCounter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PerfCounter);
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class $export DivModTests : public ::java::lang::Object {
 	$class(DivModTests, 0, ::java::lang::Object)
 public:
 	DivModTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* doFloorDiv(int32_t x, int32_t y);
 	static $Object* doFloorDiv(int64_t x, int32_t y);

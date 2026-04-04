@@ -14,10 +14,13 @@ class $export ClosedWatchServiceException : public ::java::lang::IllegalStateExc
 public:
 	ClosedWatchServiceException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x19B85F83C6168324;
+	static const int64_t serialVersionUID = (int64_t)0x19b85f83c6168324;
 	ClosedWatchServiceException(const ClosedWatchServiceException& e);
 	virtual void throw$() override;
-	inline ClosedWatchServiceException* operator ->() {
+	inline ClosedWatchServiceException* operator ->() const {
+		return (ClosedWatchServiceException*)throwing$;
+	}
+	inline operator ClosedWatchServiceException*() const {
 		return (ClosedWatchServiceException*)throwing$;
 	}
 };

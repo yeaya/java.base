@@ -1,5 +1,4 @@
 #include <java/lang/ClassValue$Identity.h>
-
 #include <java/lang/ClassValue.h>
 #include <jcpp.h>
 
@@ -10,36 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 
-$MethodInfo _ClassValue$Identity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ClassValue$Identity, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ClassValue$Identity_InnerClassesInfo_[] = {
-	{"java.lang.ClassValue$Identity", "java.lang.ClassValue", "Identity", $STATIC},
-	{}
-};
-
-$ClassInfo _ClassValue$Identity_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ClassValue$Identity",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ClassValue$Identity_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassValue$Identity_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ClassValue"
-};
-
-$Object* allocate$ClassValue$Identity($Class* clazz) {
-	return $of($alloc(ClassValue$Identity));
-}
-
 void ClassValue$Identity::init$() {
 }
 
@@ -47,7 +16,32 @@ ClassValue$Identity::ClassValue$Identity() {
 }
 
 $Class* ClassValue$Identity::load$($String* name, bool initialize) {
-	$loadClass(ClassValue$Identity, name, initialize, &_ClassValue$Identity_ClassInfo_, allocate$ClassValue$Identity);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ClassValue$Identity, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ClassValue$Identity", "java.lang.ClassValue", "Identity", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ClassValue$Identity",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ClassValue"
+	};
+	$loadClass(ClassValue$Identity, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassValue$Identity);
+	});
 	return class$;
 }
 

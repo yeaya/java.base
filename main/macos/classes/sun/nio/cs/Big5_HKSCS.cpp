@@ -1,5 +1,4 @@
 #include <sun/nio/cs/Big5_HKSCS.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -23,45 +22,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _Big5_HKSCS_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Big5_HKSCS, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _Big5_HKSCS_InnerClassesInfo_[] = {
-	{"sun.nio.cs.Big5_HKSCS$Encoder", "sun.nio.cs.Big5_HKSCS", "Encoder", $STATIC},
-	{"sun.nio.cs.Big5_HKSCS$Decoder", "sun.nio.cs.Big5_HKSCS", "Decoder", $STATIC},
-	{}
-};
-
-$ClassInfo _Big5_HKSCS_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.Big5_HKSCS",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_Big5_HKSCS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Big5_HKSCS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.Big5_HKSCS$Encoder,sun.nio.cs.Big5_HKSCS$Decoder"
-};
-
-$Object* allocate$Big5_HKSCS($Class* clazz) {
-	return $of($alloc(Big5_HKSCS));
-}
 
 int32_t Big5_HKSCS::hashCode() {
 	 return this->$Charset::hashCode();
@@ -92,7 +52,7 @@ $String* Big5_HKSCS::historicalName() {
 }
 
 bool Big5_HKSCS::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf($Big5, cs)) || ($instanceOf(Big5_HKSCS, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf($Big5, cs)) || ($instanceOf(Big5_HKSCS, cs)));
 }
 
 $CharsetDecoder* Big5_HKSCS::newDecoder() {
@@ -107,7 +67,41 @@ Big5_HKSCS::Big5_HKSCS() {
 }
 
 $Class* Big5_HKSCS::load$($String* name, bool initialize) {
-	$loadClass(Big5_HKSCS, name, initialize, &_Big5_HKSCS_ClassInfo_, allocate$Big5_HKSCS);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Big5_HKSCS, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.Big5_HKSCS$Encoder", "sun.nio.cs.Big5_HKSCS", "Encoder", $STATIC},
+		{"sun.nio.cs.Big5_HKSCS$Decoder", "sun.nio.cs.Big5_HKSCS", "Decoder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.Big5_HKSCS",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.Big5_HKSCS$Encoder,sun.nio.cs.Big5_HKSCS$Decoder"
+	};
+	$loadClass(Big5_HKSCS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Big5_HKSCS));
+	});
 	return class$;
 }
 

@@ -1,13 +1,10 @@
 #include <GetChannel.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/BufferedWriter.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/Reader.h>
-#include <java/io/Writer.h>
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
@@ -19,8 +16,6 @@ using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
-using $Reader = ::java::io::Reader;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
@@ -28,30 +23,11 @@ using $InetAddress = ::java::net::InetAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 
-$MethodInfo _GetChannel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetChannel, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetChannel, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _GetChannel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetChannel",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_GetChannel_MethodInfo_
-};
-
-$Object* allocate$GetChannel($Class* clazz) {
-	return $of($alloc(GetChannel));
-}
-
 void GetChannel::init$() {
 }
 
 void GetChannel::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, sin, nullptr);
 	$var($Socket, soc, nullptr);
 	$var($Socket, soc1, nullptr);
@@ -75,7 +51,7 @@ void GetChannel::main($StringArray* args) {
 		$throwNew($RuntimeException, "Test failed"_s);
 	}
 	soc->close();
-	$nc(soc1)->close();
+	soc1->close();
 	srv->close();
 }
 
@@ -83,7 +59,22 @@ GetChannel::GetChannel() {
 }
 
 $Class* GetChannel::load$($String* name, bool initialize) {
-	$loadClass(GetChannel, name, initialize, &_GetChannel_ClassInfo_, allocate$GetChannel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetChannel, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetChannel, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetChannel",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GetChannel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetChannel);
+	});
 	return class$;
 }
 

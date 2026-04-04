@@ -47,6 +47,7 @@ class $export ContentInfo : public ::java::lang::Object {
 	$class(ContentInfo, 0, ::java::lang::Object)
 public:
 	ContentInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::util::ObjectIdentifier* contentType, ::sun::security::util::DerValue* content);
 	void init$($bytes* bytes);
 	void init$(::sun::security::util::DerInputStream* derin);

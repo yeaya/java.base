@@ -1,5 +1,4 @@
 #include <MetafactoryDescriptorTest.h>
-
 #include <MetafactoryDescriptorTest$C.h>
 #include <MetafactoryDescriptorTest$ConversionTable.h>
 #include <MetafactoryDescriptorTest$I.h>
@@ -45,49 +44,6 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Arrays = ::java::util::Arrays;
 
-$FieldInfo _MetafactoryDescriptorTest_FieldInfo_[] = {
-	{"lookup", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC | $FINAL, $staticField(MetafactoryDescriptorTest, lookup)},
-	{"conversions", "LMetafactoryDescriptorTest$ConversionTable;", nullptr, $PRIVATE | $STATIC, $staticField(MetafactoryDescriptorTest, conversions)},
-	{}
-};
-
-$MethodInfo _MetafactoryDescriptorTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryDescriptorTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, main, void, $StringArray*)},
-	{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, mt, $MethodType*, $Class*, $ClassArray*)},
-	{"test", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $staticMethod(MetafactoryDescriptorTest, test, void, bool, $MethodHandle*, $MethodType*, $MethodType*)},
-	{"testBridge", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, testBridge, void, bool, $MethodHandle*, $MethodType*, $MethodType*, $MethodTypeArray*)},
-	{"tryAltMetafactory", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, tryAltMetafactory, void, bool, $MethodHandle*, $MethodType*, $MethodType*, $MethodTypeArray*)},
-	{"tryMetafactory", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $staticMethod(MetafactoryDescriptorTest, tryMetafactory, void, bool, $MethodHandle*, $MethodType*, $MethodType*)},
-	{}
-};
-
-$InnerClassInfo _MetafactoryDescriptorTest_InnerClassesInfo_[] = {
-	{"MetafactoryDescriptorTest$ConversionTable", "MetafactoryDescriptorTest", "ConversionTable", $PRIVATE | $STATIC},
-	{"MetafactoryDescriptorTest$C", "MetafactoryDescriptorTest", "C", $PUBLIC | $STATIC},
-	{"MetafactoryDescriptorTest$I", "MetafactoryDescriptorTest", "I", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MetafactoryDescriptorTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MetafactoryDescriptorTest",
-	"java.lang.Object",
-	nullptr,
-	_MetafactoryDescriptorTest_FieldInfo_,
-	_MetafactoryDescriptorTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetafactoryDescriptorTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"MetafactoryDescriptorTest$ConversionTable,MetafactoryDescriptorTest$C,MetafactoryDescriptorTest$I"
-};
-
-$Object* allocate$MetafactoryDescriptorTest($Class* clazz) {
-	return $of($alloc(MetafactoryDescriptorTest));
-}
-
 $MethodHandles$Lookup* MetafactoryDescriptorTest::lookup = nullptr;
 $MetafactoryDescriptorTest$ConversionTable* MetafactoryDescriptorTest::conversions = nullptr;
 
@@ -101,16 +57,7 @@ $MethodType* MetafactoryDescriptorTest::mt($Class* ret, $ClassArray* params) {
 
 void MetafactoryDescriptorTest::main($StringArray* args) {
 	$init(MetafactoryDescriptorTest);
-	$useLocalCurrentObjectStackCache();
-	$init($Void);
-	$init($Boolean);
-	$init($Character);
-	$init($Byte);
-	$init($Short);
-	$init($Integer);
-	$init($Long);
-	$init($Float);
-	$init($Double);
+	$useLocalObjectStack();
 	$var($ClassArray, t, $new($ClassArray, {
 		$Void::TYPE,
 		$Boolean::TYPE,
@@ -131,40 +78,28 @@ void MetafactoryDescriptorTest::main($StringArray* args) {
 		for (int32_t j = 0; j < t->length; ++j) {
 			bool var$0 = $nc(t->get(j))->isAssignableFrom(t->get(i));
 			bool correctRet = var$0 || $nc(MetafactoryDescriptorTest::conversions)->contains(t->get(i), t->get(j));
-			bool var$1 = correctRet;
-			$var($MethodHandle, var$2, m);
+			$var($MethodType, var$1, mt(t->get(i), $$new($ClassArray, {$String::class$})));
+			test(correctRet, m, var$1, $(mt(t->get(j), $$new($ClassArray, {$String::class$}))));
+			$var($MethodType, var$2, mt(t->get(i), $$new($ClassArray, {$String::class$})));
 			$var($MethodType, var$3, mt(t->get(i), $$new($ClassArray, {$String::class$})));
-			test(var$1, var$2, var$3, $(mt(t->get(j), $$new($ClassArray, {$String::class$}))));
-			bool var$4 = correctRet;
-			$var($MethodHandle, var$5, m);
-			$var($MethodType, var$6, mt(t->get(i), $$new($ClassArray, {$String::class$})));
-			$var($MethodType, var$7, mt(t->get(i), $$new($ClassArray, {$String::class$})));
-			testBridge(var$4, var$5, var$6, var$7, $$new($MethodTypeArray, {$(mt(t->get(j), $$new($ClassArray, {$Object::class$})))}));
-			bool var$8 = correctRet;
-			$var($MethodHandle, var$9, m);
-			$var($MethodType, var$10, mt(t->get(i), $$new($ClassArray, {$String::class$})));
-			$var($MethodType, var$11, mt(t->get(i), $$new($ClassArray, {$String::class$})));
+			testBridge(correctRet, m, var$2, var$3, $$new($MethodTypeArray, {$(mt(t->get(j), $$new($ClassArray, {$Object::class$})))}));
+			$var($MethodType, var$4, mt(t->get(i), $$new($ClassArray, {$String::class$})));
+			$var($MethodType, var$5, mt(t->get(i), $$new($ClassArray, {$String::class$})));
 			$load($CharSequence);
-			testBridge(var$8, var$9, var$10, var$11, $$new($MethodTypeArray, {
+			testBridge(correctRet, m, var$4, var$5, $$new($MethodTypeArray, {
 				$(mt(t->get(i), $$new($ClassArray, {$CharSequence::class$}))),
 				$(mt(t->get(j), $$new($ClassArray, {$Object::class$})))
 			}));
 			if (t->get(i) != $Void::TYPE && t->get(j) != $Void::TYPE) {
 				bool correctParam = $nc(t->get(j))->isAssignableFrom(t->get(i));
-				bool var$12 = correctParam;
-				$var($MethodHandle, var$13, n);
-				$var($MethodType, var$14, mt($String::class$, $$new($ClassArray, {t->get(i)})));
-				test(var$12, var$13, var$14, $(mt($String::class$, $$new($ClassArray, {t->get(j)}))));
-				bool var$15 = correctParam;
-				$var($MethodHandle, var$16, n);
-				$var($MethodType, var$17, mt($String::class$, $$new($ClassArray, {t->get(i)})));
-				$var($MethodType, var$18, mt($String::class$, $$new($ClassArray, {t->get(i)})));
-				testBridge(var$15, var$16, var$17, var$18, $$new($MethodTypeArray, {$(mt($Object::class$, $$new($ClassArray, {t->get(j)})))}));
-				bool var$19 = correctParam;
-				$var($MethodHandle, var$20, n);
-				$var($MethodType, var$21, mt($String::class$, $$new($ClassArray, {t->get(i)})));
-				$var($MethodType, var$22, mt($String::class$, $$new($ClassArray, {t->get(i)})));
-				testBridge(var$19, var$20, var$21, var$22, $$new($MethodTypeArray, {
+				$var($MethodType, var$6, mt($String::class$, $$new($ClassArray, {t->get(i)})));
+				test(correctParam, n, var$6, $(mt($String::class$, $$new($ClassArray, {t->get(j)}))));
+				$var($MethodType, var$7, mt($String::class$, $$new($ClassArray, {t->get(i)})));
+				$var($MethodType, var$8, mt($String::class$, $$new($ClassArray, {t->get(i)})));
+				testBridge(correctParam, n, var$7, var$8, $$new($MethodTypeArray, {$(mt($Object::class$, $$new($ClassArray, {t->get(j)})))}));
+				$var($MethodType, var$9, mt($String::class$, $$new($ClassArray, {t->get(i)})));
+				$var($MethodType, var$10, mt($String::class$, $$new($ClassArray, {t->get(i)})));
+				testBridge(correctParam, n, var$9, var$10, $$new($MethodTypeArray, {
 					$(mt($CharSequence::class$, $$new($ClassArray, {t->get(i)}))),
 					$(mt($Object::class$, $$new($ClassArray, {t->get(j)})))
 				}));
@@ -186,23 +121,23 @@ void MetafactoryDescriptorTest::testBridge(bool correct, $MethodHandle* mh, $Met
 
 void MetafactoryDescriptorTest::tryMetafactory(bool correct, $MethodHandle* mh, $MethodType* instMT, $MethodType* samMT) {
 	$init(MetafactoryDescriptorTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$load($MetafactoryDescriptorTest$I);
 		$LambdaMetafactory::metafactory(MetafactoryDescriptorTest::lookup, "run"_s, $(mt($MetafactoryDescriptorTest$I::class$, $$new($ClassArray, 0))), samMT, mh, instMT);
 		if (!correct) {
-			$throwNew($AssertionError, $of($$str({"Unexpected linkage without error: impl="_s, mh, ", inst="_s, instMT, ", sam="_s, samMT})));
+			$throwNew($AssertionError, $$of($str({"Unexpected linkage without error: impl="_s, mh, ", inst="_s, instMT, ", sam="_s, samMT})));
 		}
 	} catch ($LambdaConversionException& e) {
 		if (correct) {
-			$throwNew($AssertionError, $of($$str({"Unexpected linkage error: e="_s, e, ", impl="_s, mh, ", inst="_s, instMT, ", sam="_s, samMT})));
+			$throwNew($AssertionError, $$of($str({"Unexpected linkage error: e="_s, e, ", impl="_s, mh, ", inst="_s, instMT, ", sam="_s, samMT})));
 		}
 	}
 }
 
 void MetafactoryDescriptorTest::tryAltMetafactory(bool correct, $MethodHandle* mh, $MethodType* instMT, $MethodType* samMT, $MethodTypeArray* bridgeMTs) {
 	$init(MetafactoryDescriptorTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bridge = $nc(bridgeMTs)->length > 0;
 	$var($ObjectArray, args, $new($ObjectArray, bridge ? 5 + bridgeMTs->length : 4));
 	args->set(0, samMT);
@@ -219,30 +154,43 @@ void MetafactoryDescriptorTest::tryAltMetafactory(bool correct, $MethodHandle* m
 		$load($MetafactoryDescriptorTest$I);
 		$LambdaMetafactory::altMetafactory(MetafactoryDescriptorTest::lookup, "run"_s, $(mt($MetafactoryDescriptorTest$I::class$, $$new($ClassArray, 0))), args);
 		if (!correct) {
-			$var($String, var$0, $$str({"Unexpected linkage without error: impl="_s, mh, ", inst="_s, instMT, ", sam="_s, samMT, ", bridges="_s}));
-			$throwNew($AssertionError, $of(($$concat(var$0, $($Arrays::toString(bridgeMTs))))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Unexpected linkage without error: impl="_s);
+			var$0->append(mh);
+			var$0->append(", inst="_s);
+			var$0->append(instMT);
+			var$0->append(", sam="_s);
+			var$0->append(samMT);
+			var$0->append(", bridges="_s);
+			var$0->append($($Arrays::toString(bridgeMTs)));
+			$throwNew($AssertionError, $$of($str(var$0)));
 		}
 	} catch ($LambdaConversionException& e) {
 		if (correct) {
-			$var($String, var$1, $$str({"Unexpected linkage error: e="_s, e, ", impl="_s, mh, ", inst="_s, instMT, ", sam="_s, samMT, ", bridges="_s}));
-			$throwNew($AssertionError, $of(($$concat(var$1, $($Arrays::toString(bridgeMTs))))));
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append("Unexpected linkage error: e="_s);
+			var$1->append($of(e));
+			var$1->append(", impl="_s);
+			var$1->append(mh);
+			var$1->append(", inst="_s);
+			var$1->append(instMT);
+			var$1->append(", sam="_s);
+			var$1->append(samMT);
+			var$1->append(", bridges="_s);
+			var$1->append($($Arrays::toString(bridgeMTs)));
+			$throwNew($AssertionError, $$of($str(var$1)));
 		}
 	}
 }
 
-void clinit$MetafactoryDescriptorTest($Class* class$) {
+void MetafactoryDescriptorTest::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(MetafactoryDescriptorTest::lookup, $MethodHandles::lookup());
 	$assignStatic(MetafactoryDescriptorTest::conversions, $new($MetafactoryDescriptorTest$ConversionTable));
 	{
-		$init($Character);
-		$init($Integer);
-		$nc(MetafactoryDescriptorTest::conversions)->put($Character::TYPE, $Integer::TYPE);
-		$init($Long);
+		MetafactoryDescriptorTest::conversions->put($Character::TYPE, $Integer::TYPE);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::TYPE, $Long::TYPE);
-		$init($Float);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::TYPE, $Float::TYPE);
-		$init($Double);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::TYPE, $Double::TYPE);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::TYPE, $Character::class$);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::TYPE, $Object::class$);
@@ -251,8 +199,6 @@ void clinit$MetafactoryDescriptorTest($Class* class$) {
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::class$, $Long::TYPE);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::class$, $Float::TYPE);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::class$, $Double::TYPE);
-		$init($Byte);
-		$init($Short);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Byte::TYPE, $Short::TYPE);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Byte::TYPE, $Integer::TYPE);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Byte::TYPE, $Long::TYPE);
@@ -301,7 +247,6 @@ void clinit$MetafactoryDescriptorTest($Class* class$) {
 		$nc(MetafactoryDescriptorTest::conversions)->put($Double::TYPE, $Double::class$);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Double::TYPE, $Object::class$);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Double::class$, $Double::TYPE);
-		$init($Boolean);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Boolean::TYPE, $Boolean::class$);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Boolean::TYPE, $Object::class$);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Boolean::class$, $Boolean::TYPE);
@@ -312,7 +257,44 @@ MetafactoryDescriptorTest::MetafactoryDescriptorTest() {
 }
 
 $Class* MetafactoryDescriptorTest::load$($String* name, bool initialize) {
-	$loadClass(MetafactoryDescriptorTest, name, initialize, &_MetafactoryDescriptorTest_ClassInfo_, clinit$MetafactoryDescriptorTest, allocate$MetafactoryDescriptorTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"lookup", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC | $FINAL, $staticField(MetafactoryDescriptorTest, lookup)},
+		{"conversions", "LMetafactoryDescriptorTest$ConversionTable;", nullptr, $PRIVATE | $STATIC, $staticField(MetafactoryDescriptorTest, conversions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryDescriptorTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, main, void, $StringArray*)},
+		{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, mt, $MethodType*, $Class*, $ClassArray*)},
+		{"test", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $staticMethod(MetafactoryDescriptorTest, test, void, bool, $MethodHandle*, $MethodType*, $MethodType*)},
+		{"testBridge", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, testBridge, void, bool, $MethodHandle*, $MethodType*, $MethodType*, $MethodTypeArray*)},
+		{"tryAltMetafactory", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, tryAltMetafactory, void, bool, $MethodHandle*, $MethodType*, $MethodType*, $MethodTypeArray*)},
+		{"tryMetafactory", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $staticMethod(MetafactoryDescriptorTest, tryMetafactory, void, bool, $MethodHandle*, $MethodType*, $MethodType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MetafactoryDescriptorTest$ConversionTable", "MetafactoryDescriptorTest", "ConversionTable", $PRIVATE | $STATIC},
+		{"MetafactoryDescriptorTest$C", "MetafactoryDescriptorTest", "C", $PUBLIC | $STATIC},
+		{"MetafactoryDescriptorTest$I", "MetafactoryDescriptorTest", "I", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MetafactoryDescriptorTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"MetafactoryDescriptorTest$ConversionTable,MetafactoryDescriptorTest$C,MetafactoryDescriptorTest$I"
+	};
+	$loadClass(MetafactoryDescriptorTest, name, initialize, &classInfo$$, MetafactoryDescriptorTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetafactoryDescriptorTest);
+	});
 	return class$;
 }
 

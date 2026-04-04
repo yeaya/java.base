@@ -21,6 +21,7 @@ class $export ResponderId$Type : public ::java::lang::Enum {
 public:
 	ResponderId$Type();
 	static $Array<::sun::security::provider::certpath::ResponderId$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t value, $String* name);
 	virtual $String* toString() override;
 	virtual int32_t value();

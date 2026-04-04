@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/ElectronicCodeBook.h>
-
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/security/InvalidKeyException.h>
@@ -18,43 +17,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$CompoundAttribute _ElectronicCodeBook_MethodAnnotations_implECBDecrypt4[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ElectronicCodeBook_MethodAnnotations_implECBEncrypt5[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$MethodInfo _ElectronicCodeBook_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(ElectronicCodeBook, init$, void, $SymmetricCipher*)},
-	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(ElectronicCodeBook, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(ElectronicCodeBook, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ElectronicCodeBook, getFeedback, $String*)},
-	{"implECBDecrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(ElectronicCodeBook, implECBDecrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, _ElectronicCodeBook_MethodAnnotations_implECBDecrypt4},
-	{"implECBEncrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(ElectronicCodeBook, implECBEncrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, _ElectronicCodeBook_MethodAnnotations_implECBEncrypt5},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(ElectronicCodeBook, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
-	{"reset", "()V", nullptr, 0, $virtualMethod(ElectronicCodeBook, reset, void)},
-	{"restore", "()V", nullptr, 0, $virtualMethod(ElectronicCodeBook, restore, void)},
-	{"save", "()V", nullptr, 0, $virtualMethod(ElectronicCodeBook, save, void)},
-	{}
-};
-
-$ClassInfo _ElectronicCodeBook_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.ElectronicCodeBook",
-	"com.sun.crypto.provider.FeedbackCipher",
-	nullptr,
-	nullptr,
-	_ElectronicCodeBook_MethodInfo_
-};
-
-$Object* allocate$ElectronicCodeBook($Class* clazz) {
-	return $of($alloc(ElectronicCodeBook));
-}
 
 void ElectronicCodeBook::init$($SymmetricCipher* embeddedCipher) {
 	$FeedbackCipher::init$(embeddedCipher);
@@ -116,7 +78,38 @@ ElectronicCodeBook::ElectronicCodeBook() {
 }
 
 $Class* ElectronicCodeBook::load$($String* name, bool initialize) {
-	$loadClass(ElectronicCodeBook, name, initialize, &_ElectronicCodeBook_ClassInfo_, allocate$ElectronicCodeBook);
+	$CompoundAttribute implECBDecryptmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute implECBEncryptmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(ElectronicCodeBook, init$, void, $SymmetricCipher*)},
+		{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(ElectronicCodeBook, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(ElectronicCodeBook, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ElectronicCodeBook, getFeedback, $String*)},
+		{"implECBDecrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(ElectronicCodeBook, implECBDecrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, implECBDecryptmethodAnnotations$$},
+		{"implECBEncrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(ElectronicCodeBook, implECBEncrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, implECBEncryptmethodAnnotations$$},
+		{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(ElectronicCodeBook, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
+		{"reset", "()V", nullptr, 0, $virtualMethod(ElectronicCodeBook, reset, void)},
+		{"restore", "()V", nullptr, 0, $virtualMethod(ElectronicCodeBook, restore, void)},
+		{"save", "()V", nullptr, 0, $virtualMethod(ElectronicCodeBook, save, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.ElectronicCodeBook",
+		"com.sun.crypto.provider.FeedbackCipher",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ElectronicCodeBook, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ElectronicCodeBook);
+	});
 	return class$;
 }
 

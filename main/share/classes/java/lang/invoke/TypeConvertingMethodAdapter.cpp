@@ -1,5 +1,4 @@
 #include <java/lang/invoke/TypeConvertingMethodAdapter.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Enum.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
@@ -62,52 +61,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _TypeConvertingMethodAdapter_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeConvertingMethodAdapter, $assertionsDisabled)},
-	{"NUM_WRAPPERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeConvertingMethodAdapter, NUM_WRAPPERS)},
-	{"NAME_OBJECT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, NAME_OBJECT)},
-	{"WRAPPER_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, WRAPPER_PREFIX)},
-	{"NAME_BOX_METHOD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, NAME_BOX_METHOD)},
-	{"wideningOpcodes", "[[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, wideningOpcodes)},
-	{"FROM_WRAPPER_NAME", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, FROM_WRAPPER_NAME)},
-	{"FROM_TYPE_SORT", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, FROM_TYPE_SORT)},
-	{}
-};
-
-$MethodInfo _TypeConvertingMethodAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, 0, $method(TypeConvertingMethodAdapter, init$, void, $MethodVisitor*)},
-	{"box", "(Lsun/invoke/util/Wrapper;)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, box, void, $Wrapper*)},
-	{"boxIfTypePrimitive", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, boxIfTypePrimitive, void, $Type*)},
-	{"boxingDescriptor", "(Lsun/invoke/util/Wrapper;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeConvertingMethodAdapter, boxingDescriptor, $String*, $Wrapper*)},
-	{"cast", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, cast, void, $String*, $String*)},
-	{"convertType", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", 0, $virtualMethod(TypeConvertingMethodAdapter, convertType, void, $Class*, $Class*, $Class*)},
-	{"descriptorToName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(TypeConvertingMethodAdapter, descriptorToName, $String*, $String*)},
-	{"hashWrapperName", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeConvertingMethodAdapter, hashWrapperName, int32_t, $String*)},
-	{"iconst", "(I)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, iconst, void, int32_t)},
-	{"initWidening", "(Lsun/invoke/util/Wrapper;I[Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(TypeConvertingMethodAdapter, initWidening, void, $Wrapper*, int32_t, $WrapperArray*)},
-	{"toWrapper", "(Ljava/lang/String;)Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE, $method(TypeConvertingMethodAdapter, toWrapper, $Wrapper*, $String*)},
-	{"unbox", "(Ljava/lang/String;Lsun/invoke/util/Wrapper;)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, unbox, void, $String*, $Wrapper*)},
-	{"unboxMethod", "(Lsun/invoke/util/Wrapper;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeConvertingMethodAdapter, unboxMethod, $String*, $Wrapper*)},
-	{"unboxingDescriptor", "(Lsun/invoke/util/Wrapper;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeConvertingMethodAdapter, unboxingDescriptor, $String*, $Wrapper*)},
-	{"widen", "(Lsun/invoke/util/Wrapper;Lsun/invoke/util/Wrapper;)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, widen, void, $Wrapper*, $Wrapper*)},
-	{"wrapperName", "(Lsun/invoke/util/Wrapper;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeConvertingMethodAdapter, wrapperName, $String*, $Wrapper*)},
-	{"wrapperOrNullFromDescriptor", "(Ljava/lang/String;)Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE, $method(TypeConvertingMethodAdapter, wrapperOrNullFromDescriptor, $Wrapper*, $String*)},
-	{}
-};
-
-$ClassInfo _TypeConvertingMethodAdapter_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.TypeConvertingMethodAdapter",
-	"jdk.internal.org.objectweb.asm.MethodVisitor",
-	nullptr,
-	_TypeConvertingMethodAdapter_FieldInfo_,
-	_TypeConvertingMethodAdapter_MethodInfo_
-};
-
-$Object* allocate$TypeConvertingMethodAdapter($Class* clazz) {
-	return $of($alloc(TypeConvertingMethodAdapter));
-}
-
 bool TypeConvertingMethodAdapter::$assertionsDisabled = false;
 $String* TypeConvertingMethodAdapter::NAME_OBJECT = nullptr;
 $String* TypeConvertingMethodAdapter::WRAPPER_PREFIX = nullptr;
@@ -122,15 +75,11 @@ void TypeConvertingMethodAdapter::init$($MethodVisitor* mv) {
 
 void TypeConvertingMethodAdapter::initWidening($Wrapper* to, int32_t opcode, $WrapperArray* from) {
 	$init(TypeConvertingMethodAdapter);
-	{
-		$var($WrapperArray, arr$, from);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$Wrapper* f = arr$->get(i$);
-			{
-				$nc($nc(TypeConvertingMethodAdapter::wideningOpcodes)->get($nc(f)->ordinal()))->set($nc(to)->ordinal(), opcode);
-			}
+	$var($WrapperArray, arr$, from);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$Wrapper* f = arr$->get(i$);
+		{
+			$nc(TypeConvertingMethodAdapter::wideningOpcodes->get($nc(f)->ordinal()))->set($nc(to)->ordinal(), opcode);
 		}
 	}
 }
@@ -140,19 +89,19 @@ int32_t TypeConvertingMethodAdapter::hashWrapperName($String* xn) {
 	if ($nc(xn)->length() < 3) {
 		return 0;
 	}
-	int32_t var$0 = 3 * $nc(xn)->charAt(1);
+	int32_t var$0 = 3 * xn->charAt(1);
 	return (var$0 + xn->charAt(2)) % 16;
 }
 
 $Wrapper* TypeConvertingMethodAdapter::wrapperOrNullFromDescriptor($String* desc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(desc)->startsWith(TypeConvertingMethodAdapter::WRAPPER_PREFIX)) {
 		return nullptr;
 	}
-	int32_t var$0 = $nc(TypeConvertingMethodAdapter::WRAPPER_PREFIX)->length();
-	$var($String, cname, $nc(desc)->substring(var$0, desc->length() - 1));
-	$Wrapper* w = $nc(TypeConvertingMethodAdapter::FROM_WRAPPER_NAME)->get(hashWrapperName(cname));
-	if (w == nullptr || $nc($($nc(w)->wrapperSimpleName()))->equals(cname)) {
+	int32_t var$0 = TypeConvertingMethodAdapter::WRAPPER_PREFIX->length();
+	$var($String, cname, desc->substring(var$0, desc->length() - 1));
+	$Wrapper* w = TypeConvertingMethodAdapter::FROM_WRAPPER_NAME->get(hashWrapperName(cname));
+	if (w == nullptr || $$nc(w->wrapperSimpleName())->equals(cname)) {
 		return w;
 	} else {
 		return nullptr;
@@ -171,10 +120,14 @@ $String* TypeConvertingMethodAdapter::unboxMethod($Wrapper* w) {
 
 $String* TypeConvertingMethodAdapter::boxingDescriptor($Wrapper* w) {
 	$init(TypeConvertingMethodAdapter);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"("_s, $$str($nc(w)->basicTypeChar()), ")L"_s}));
-	$var($String, var$0, $$concat(var$1, $(wrapperName(w))));
-	return $concat(var$0, ";"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("("_s);
+	var$0->append($nc(w)->basicTypeChar());
+	var$0->append(")L"_s);
+	var$0->append($(wrapperName(w)));
+	var$0->append(";"_s);
+	return $str(var$0);
 }
 
 $String* TypeConvertingMethodAdapter::unboxingDescriptor($Wrapper* w) {
@@ -183,7 +136,7 @@ $String* TypeConvertingMethodAdapter::unboxingDescriptor($Wrapper* w) {
 }
 
 void TypeConvertingMethodAdapter::boxIfTypePrimitive($Type* t) {
-	$Wrapper* w = $nc(TypeConvertingMethodAdapter::FROM_TYPE_SORT)->get($nc(t)->getSort());
+	$Wrapper* w = TypeConvertingMethodAdapter::FROM_TYPE_SORT->get($nc(t)->getSort());
 	if (w != nullptr) {
 		box(w);
 	}
@@ -191,7 +144,7 @@ void TypeConvertingMethodAdapter::boxIfTypePrimitive($Type* t) {
 
 void TypeConvertingMethodAdapter::widen($Wrapper* ws, $Wrapper* wt) {
 	if (ws != wt) {
-		int32_t opcode = $nc($nc(TypeConvertingMethodAdapter::wideningOpcodes)->get($nc(ws)->ordinal()))->get($nc(wt)->ordinal());
+		int32_t opcode = $nc(TypeConvertingMethodAdapter::wideningOpcodes->get($nc(ws)->ordinal()))->get($nc(wt)->ordinal());
 		if (opcode != $Opcodes::NOP) {
 			visitInsn(opcode);
 		}
@@ -199,17 +152,16 @@ void TypeConvertingMethodAdapter::widen($Wrapper* ws, $Wrapper* wt) {
 }
 
 void TypeConvertingMethodAdapter::box($Wrapper* w) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, wrapperName(w));
 	$var($String, var$1, TypeConvertingMethodAdapter::NAME_BOX_METHOD);
 	visitMethodInsn($Opcodes::INVOKESTATIC, var$0, var$1, $(boxingDescriptor(w)), false);
 }
 
 void TypeConvertingMethodAdapter::unbox($String* sname, $Wrapper* wt) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, sname);
-	$var($String, var$1, unboxMethod(wt));
-	visitMethodInsn($Opcodes::INVOKEVIRTUAL, var$0, var$1, $(unboxingDescriptor(wt)), false);
+	$useLocalObjectStack();
+	$var($String, var$0, unboxMethod(wt));
+	visitMethodInsn($Opcodes::INVOKEVIRTUAL, sname, var$0, $(unboxingDescriptor(wt)), false);
 }
 
 $String* TypeConvertingMethodAdapter::descriptorToName($String* desc) {
@@ -223,7 +175,7 @@ $String* TypeConvertingMethodAdapter::descriptorToName($String* desc) {
 }
 
 void TypeConvertingMethodAdapter::cast($String* ds, $String* dt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ns, descriptorToName(ds));
 	$var($String, nt, descriptorToName(dt));
 	bool var$0 = !$nc(nt)->equals(ns);
@@ -241,16 +193,15 @@ $Wrapper* TypeConvertingMethodAdapter::toWrapper($String* desc) {
 }
 
 void TypeConvertingMethodAdapter::convertType($Class* arg, $Class* target, $Class* functional) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc($of(arg))->equals(target);
 	if (var$0 && $of(arg)->equals(functional)) {
 		return;
 	}
-	$init($Void);
 	if (arg == $Void::TYPE || target == $Void::TYPE) {
 		return;
 	}
-	if ($nc(arg)->isPrimitive()) {
+	if (arg->isPrimitive()) {
 		$Wrapper* wArg = $Wrapper::forPrimitiveType(arg);
 		if ($nc(target)->isPrimitive()) {
 			widen(wArg, $($Wrapper::forPrimitiveType(target)));
@@ -289,7 +240,7 @@ void TypeConvertingMethodAdapter::convertType($Class* arg, $Class* target, $Clas
 			} else {
 				$var($String, intermediate, nullptr);
 				bool var$2 = $nc(wTarget)->isSigned();
-				if (var$2 || $nc(wTarget)->isFloating()) {
+				if (var$2 || wTarget->isFloating()) {
 					$assign(intermediate, "java/lang/Number"_s);
 				} else {
 					$assign(intermediate, wrapperName(wTarget));
@@ -315,8 +266,8 @@ void TypeConvertingMethodAdapter::iconst(int32_t cst) {
 	}
 }
 
-void clinit$TypeConvertingMethodAdapter($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void TypeConvertingMethodAdapter::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(TypeConvertingMethodAdapter::NAME_OBJECT, "java/lang/Object"_s);
 	$assignStatic(TypeConvertingMethodAdapter::WRAPPER_PREFIX, "Ljava/lang/"_s);
 	$assignStatic(TypeConvertingMethodAdapter::NAME_BOX_METHOD, "valueOf"_s);
@@ -327,22 +278,18 @@ void clinit$TypeConvertingMethodAdapter($Class* class$) {
 	{
 		{
 			$var($WrapperArray, arr$, $Wrapper::values());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$Wrapper* w = arr$->get(i$);
-				{
-					if ($nc(w)->basicTypeChar() != u'L') {
-						int32_t wi = TypeConvertingMethodAdapter::hashWrapperName($(w->wrapperSimpleName()));
-						if (!TypeConvertingMethodAdapter::$assertionsDisabled && !($nc(TypeConvertingMethodAdapter::FROM_WRAPPER_NAME)->get(wi) == nullptr)) {
-							$throwNew($AssertionError);
-						}
-						$nc(TypeConvertingMethodAdapter::FROM_WRAPPER_NAME)->set(wi, w);
+				if ($nc(w)->basicTypeChar() != u'L') {
+					int32_t wi = TypeConvertingMethodAdapter::hashWrapperName($(w->wrapperSimpleName()));
+					if (!TypeConvertingMethodAdapter::$assertionsDisabled && !(TypeConvertingMethodAdapter::FROM_WRAPPER_NAME->get(wi) == nullptr)) {
+						$throwNew($AssertionError);
 					}
+					TypeConvertingMethodAdapter::FROM_WRAPPER_NAME->set(wi, w);
 				}
 			}
 		}
-		$init($Wrapper);
+		;
 		TypeConvertingMethodAdapter::initWidening($Wrapper::LONG, $Opcodes::I2L, $$new($WrapperArray, {
 			$Wrapper::BYTE,
 			$Wrapper::SHORT,
@@ -365,14 +312,14 @@ void clinit$TypeConvertingMethodAdapter($Class* class$) {
 		}));
 		TypeConvertingMethodAdapter::initWidening($Wrapper::DOUBLE, $Opcodes::F2D, $$new($WrapperArray, {$Wrapper::FLOAT}));
 		TypeConvertingMethodAdapter::initWidening($Wrapper::DOUBLE, $Opcodes::L2D, $$new($WrapperArray, {$Wrapper::LONG}));
-		$nc(TypeConvertingMethodAdapter::FROM_TYPE_SORT)->set($Type::BYTE, $Wrapper::BYTE);
-		$nc(TypeConvertingMethodAdapter::FROM_TYPE_SORT)->set($Type::SHORT, $Wrapper::SHORT);
-		$nc(TypeConvertingMethodAdapter::FROM_TYPE_SORT)->set($Type::INT, $Wrapper::INT);
-		$nc(TypeConvertingMethodAdapter::FROM_TYPE_SORT)->set($Type::LONG, $Wrapper::LONG);
-		$nc(TypeConvertingMethodAdapter::FROM_TYPE_SORT)->set($Type::CHAR, $Wrapper::CHAR);
-		$nc(TypeConvertingMethodAdapter::FROM_TYPE_SORT)->set($Type::FLOAT, $Wrapper::FLOAT);
-		$nc(TypeConvertingMethodAdapter::FROM_TYPE_SORT)->set($Type::DOUBLE, $Wrapper::DOUBLE);
-		$nc(TypeConvertingMethodAdapter::FROM_TYPE_SORT)->set($Type::BOOLEAN, $Wrapper::BOOLEAN);
+		TypeConvertingMethodAdapter::FROM_TYPE_SORT->set($Type::BYTE, $Wrapper::BYTE);
+		TypeConvertingMethodAdapter::FROM_TYPE_SORT->set($Type::SHORT, $Wrapper::SHORT);
+		TypeConvertingMethodAdapter::FROM_TYPE_SORT->set($Type::INT, $Wrapper::INT);
+		TypeConvertingMethodAdapter::FROM_TYPE_SORT->set($Type::LONG, $Wrapper::LONG);
+		TypeConvertingMethodAdapter::FROM_TYPE_SORT->set($Type::CHAR, $Wrapper::CHAR);
+		TypeConvertingMethodAdapter::FROM_TYPE_SORT->set($Type::FLOAT, $Wrapper::FLOAT);
+		TypeConvertingMethodAdapter::FROM_TYPE_SORT->set($Type::DOUBLE, $Wrapper::DOUBLE);
+		TypeConvertingMethodAdapter::FROM_TYPE_SORT->set($Type::BOOLEAN, $Wrapper::BOOLEAN);
 	}
 }
 
@@ -380,7 +327,48 @@ TypeConvertingMethodAdapter::TypeConvertingMethodAdapter() {
 }
 
 $Class* TypeConvertingMethodAdapter::load$($String* name, bool initialize) {
-	$loadClass(TypeConvertingMethodAdapter, name, initialize, &_TypeConvertingMethodAdapter_ClassInfo_, clinit$TypeConvertingMethodAdapter, allocate$TypeConvertingMethodAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeConvertingMethodAdapter, $assertionsDisabled)},
+		{"NUM_WRAPPERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeConvertingMethodAdapter, NUM_WRAPPERS)},
+		{"NAME_OBJECT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, NAME_OBJECT)},
+		{"WRAPPER_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, WRAPPER_PREFIX)},
+		{"NAME_BOX_METHOD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, NAME_BOX_METHOD)},
+		{"wideningOpcodes", "[[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, wideningOpcodes)},
+		{"FROM_WRAPPER_NAME", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, FROM_WRAPPER_NAME)},
+		{"FROM_TYPE_SORT", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeConvertingMethodAdapter, FROM_TYPE_SORT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, 0, $method(TypeConvertingMethodAdapter, init$, void, $MethodVisitor*)},
+		{"box", "(Lsun/invoke/util/Wrapper;)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, box, void, $Wrapper*)},
+		{"boxIfTypePrimitive", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, boxIfTypePrimitive, void, $Type*)},
+		{"boxingDescriptor", "(Lsun/invoke/util/Wrapper;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeConvertingMethodAdapter, boxingDescriptor, $String*, $Wrapper*)},
+		{"cast", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, cast, void, $String*, $String*)},
+		{"convertType", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", 0, $virtualMethod(TypeConvertingMethodAdapter, convertType, void, $Class*, $Class*, $Class*)},
+		{"descriptorToName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(TypeConvertingMethodAdapter, descriptorToName, $String*, $String*)},
+		{"hashWrapperName", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeConvertingMethodAdapter, hashWrapperName, int32_t, $String*)},
+		{"iconst", "(I)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, iconst, void, int32_t)},
+		{"initWidening", "(Lsun/invoke/util/Wrapper;I[Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(TypeConvertingMethodAdapter, initWidening, void, $Wrapper*, int32_t, $WrapperArray*)},
+		{"toWrapper", "(Ljava/lang/String;)Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE, $method(TypeConvertingMethodAdapter, toWrapper, $Wrapper*, $String*)},
+		{"unbox", "(Ljava/lang/String;Lsun/invoke/util/Wrapper;)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, unbox, void, $String*, $Wrapper*)},
+		{"unboxMethod", "(Lsun/invoke/util/Wrapper;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeConvertingMethodAdapter, unboxMethod, $String*, $Wrapper*)},
+		{"unboxingDescriptor", "(Lsun/invoke/util/Wrapper;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeConvertingMethodAdapter, unboxingDescriptor, $String*, $Wrapper*)},
+		{"widen", "(Lsun/invoke/util/Wrapper;Lsun/invoke/util/Wrapper;)V", nullptr, 0, $virtualMethod(TypeConvertingMethodAdapter, widen, void, $Wrapper*, $Wrapper*)},
+		{"wrapperName", "(Lsun/invoke/util/Wrapper;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeConvertingMethodAdapter, wrapperName, $String*, $Wrapper*)},
+		{"wrapperOrNullFromDescriptor", "(Ljava/lang/String;)Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE, $method(TypeConvertingMethodAdapter, wrapperOrNullFromDescriptor, $Wrapper*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.TypeConvertingMethodAdapter",
+		"jdk.internal.org.objectweb.asm.MethodVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TypeConvertingMethodAdapter, name, initialize, &classInfo$$, TypeConvertingMethodAdapter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeConvertingMethodAdapter);
+	});
 	return class$;
 }
 

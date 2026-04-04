@@ -84,6 +84,7 @@ public:
 	String();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* original);
 	void init$($chars* value);
@@ -246,7 +247,7 @@ public:
 	int32_t hash = 0;
 	bool hashIsZero = false;
 	int8_t coder$ = 0;
-	static const int64_t serialVersionUID = (int64_t)0xA0F0A4387A3BB342;
+	static const int64_t serialVersionUID = (int64_t)0xa0f0a4387a3bb342;
 	static bool COMPACT_STRINGS;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	static const char16_t REPL = ((char16_t)65533);

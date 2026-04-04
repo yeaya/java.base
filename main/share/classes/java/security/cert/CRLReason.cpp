@@ -1,5 +1,4 @@
 #include <java/security/cert/CRLReason.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -24,44 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _CRLReason_FieldInfo_[] = {
-	{"UNSPECIFIED", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, UNSPECIFIED)},
-	{"KEY_COMPROMISE", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, KEY_COMPROMISE)},
-	{"CA_COMPROMISE", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, CA_COMPROMISE)},
-	{"AFFILIATION_CHANGED", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, AFFILIATION_CHANGED)},
-	{"SUPERSEDED", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, SUPERSEDED)},
-	{"CESSATION_OF_OPERATION", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, CESSATION_OF_OPERATION)},
-	{"CERTIFICATE_HOLD", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, CERTIFICATE_HOLD)},
-	{"UNUSED", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, UNUSED)},
-	{"REMOVE_FROM_CRL", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, REMOVE_FROM_CRL)},
-	{"PRIVILEGE_WITHDRAWN", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, PRIVILEGE_WITHDRAWN)},
-	{"AA_COMPROMISE", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, AA_COMPROMISE)},
-	{"$VALUES", "[Ljava/security/cert/CRLReason;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CRLReason, $VALUES)},
-	{}
-};
-
-$MethodInfo _CRLReason_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/cert/CRLReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CRLReason, $values, $CRLReasonArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CRLReason, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CRLReason, valueOf, CRLReason*, $String*)},
-	{"values", "()[Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CRLReason, values, $CRLReasonArray*)},
-	{}
-};
-
-$ClassInfo _CRLReason_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.security.cert.CRLReason",
-	"java.lang.Enum",
-	nullptr,
-	_CRLReason_FieldInfo_,
-	_CRLReason_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/security/cert/CRLReason;>;"
-};
-
-$Object* allocate$CRLReason($Class* clazz) {
-	return $of($alloc(CRLReason));
-}
 
 CRLReason* CRLReason::UNSPECIFIED = nullptr;
 CRLReason* CRLReason::KEY_COMPROMISE = nullptr;
@@ -107,7 +68,7 @@ void CRLReason::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CRLReason($Class* class$) {
+void CRLReason::clinit$($Class* clazz) {
 	$assignStatic(CRLReason::UNSPECIFIED, $new(CRLReason, "UNSPECIFIED"_s, 0));
 	$assignStatic(CRLReason::KEY_COMPROMISE, $new(CRLReason, "KEY_COMPROMISE"_s, 1));
 	$assignStatic(CRLReason::CA_COMPROMISE, $new(CRLReason, "CA_COMPROMISE"_s, 2));
@@ -126,7 +87,40 @@ CRLReason::CRLReason() {
 }
 
 $Class* CRLReason::load$($String* name, bool initialize) {
-	$loadClass(CRLReason, name, initialize, &_CRLReason_ClassInfo_, clinit$CRLReason, allocate$CRLReason);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNSPECIFIED", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, UNSPECIFIED)},
+		{"KEY_COMPROMISE", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, KEY_COMPROMISE)},
+		{"CA_COMPROMISE", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, CA_COMPROMISE)},
+		{"AFFILIATION_CHANGED", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, AFFILIATION_CHANGED)},
+		{"SUPERSEDED", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, SUPERSEDED)},
+		{"CESSATION_OF_OPERATION", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, CESSATION_OF_OPERATION)},
+		{"CERTIFICATE_HOLD", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, CERTIFICATE_HOLD)},
+		{"UNUSED", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, UNUSED)},
+		{"REMOVE_FROM_CRL", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, REMOVE_FROM_CRL)},
+		{"PRIVILEGE_WITHDRAWN", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, PRIVILEGE_WITHDRAWN)},
+		{"AA_COMPROMISE", "Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CRLReason, AA_COMPROMISE)},
+		{"$VALUES", "[Ljava/security/cert/CRLReason;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CRLReason, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/security/cert/CRLReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CRLReason, $values, $CRLReasonArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CRLReason, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CRLReason, valueOf, CRLReason*, $String*)},
+		{"values", "()[Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CRLReason, values, $CRLReasonArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.security.cert.CRLReason",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/security/cert/CRLReason;>;"
+	};
+	$loadClass(CRLReason, name, initialize, &classInfo$$, CRLReason::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CRLReason));
+	});
 	return class$;
 }
 

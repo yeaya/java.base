@@ -27,6 +27,7 @@ class FindOps$FindSink$OfRef : public ::java::util::stream::FindOps$FindSink {
 public:
 	FindOps$FindSink$OfRef();
 	using ::java::util::stream::FindOps$FindSink::accept;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* get() override;
 	static ::java::util::stream::TerminalOp* OP_FIND_FIRST;

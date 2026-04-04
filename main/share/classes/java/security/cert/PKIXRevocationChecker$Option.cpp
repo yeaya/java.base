@@ -1,5 +1,4 @@
 #include <java/security/cert/PKIXRevocationChecker$Option.h>
-
 #include <java/lang/Enum.h>
 #include <java/security/cert/PKIXRevocationChecker.h>
 #include <jcpp.h>
@@ -19,48 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _PKIXRevocationChecker$Option_FieldInfo_[] = {
-	{"ONLY_END_ENTITY", "Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXRevocationChecker$Option, ONLY_END_ENTITY)},
-	{"PREFER_CRLS", "Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXRevocationChecker$Option, PREFER_CRLS)},
-	{"NO_FALLBACK", "Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXRevocationChecker$Option, NO_FALLBACK)},
-	{"SOFT_FAIL", "Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXRevocationChecker$Option, SOFT_FAIL)},
-	{"$VALUES", "[Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PKIXRevocationChecker$Option, $VALUES)},
-	{}
-};
-
-$MethodInfo _PKIXRevocationChecker$Option_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PKIXRevocationChecker$Option, $values, $PKIXRevocationChecker$OptionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PKIXRevocationChecker$Option, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXRevocationChecker$Option, valueOf, PKIXRevocationChecker$Option*, $String*)},
-	{"values", "()[Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXRevocationChecker$Option, values, $PKIXRevocationChecker$OptionArray*)},
-	{}
-};
-
-$InnerClassInfo _PKIXRevocationChecker$Option_InnerClassesInfo_[] = {
-	{"java.security.cert.PKIXRevocationChecker$Option", "java.security.cert.PKIXRevocationChecker", "Option", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _PKIXRevocationChecker$Option_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.security.cert.PKIXRevocationChecker$Option",
-	"java.lang.Enum",
-	nullptr,
-	_PKIXRevocationChecker$Option_FieldInfo_,
-	_PKIXRevocationChecker$Option_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/security/cert/PKIXRevocationChecker$Option;>;",
-	nullptr,
-	_PKIXRevocationChecker$Option_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.cert.PKIXRevocationChecker"
-};
-
-$Object* allocate$PKIXRevocationChecker$Option($Class* clazz) {
-	return $of($alloc(PKIXRevocationChecker$Option));
-}
 
 PKIXRevocationChecker$Option* PKIXRevocationChecker$Option::ONLY_END_ENTITY = nullptr;
 PKIXRevocationChecker$Option* PKIXRevocationChecker$Option::PREFER_CRLS = nullptr;
@@ -92,7 +49,7 @@ void PKIXRevocationChecker$Option::init$($String* $enum$name, int32_t $enum$ordi
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$PKIXRevocationChecker$Option($Class* class$) {
+void PKIXRevocationChecker$Option::clinit$($Class* clazz) {
 	$assignStatic(PKIXRevocationChecker$Option::ONLY_END_ENTITY, $new(PKIXRevocationChecker$Option, "ONLY_END_ENTITY"_s, 0));
 	$assignStatic(PKIXRevocationChecker$Option::PREFER_CRLS, $new(PKIXRevocationChecker$Option, "PREFER_CRLS"_s, 1));
 	$assignStatic(PKIXRevocationChecker$Option::NO_FALLBACK, $new(PKIXRevocationChecker$Option, "NO_FALLBACK"_s, 2));
@@ -104,7 +61,43 @@ PKIXRevocationChecker$Option::PKIXRevocationChecker$Option() {
 }
 
 $Class* PKIXRevocationChecker$Option::load$($String* name, bool initialize) {
-	$loadClass(PKIXRevocationChecker$Option, name, initialize, &_PKIXRevocationChecker$Option_ClassInfo_, clinit$PKIXRevocationChecker$Option, allocate$PKIXRevocationChecker$Option);
+	$FieldInfo fieldInfos$$[] = {
+		{"ONLY_END_ENTITY", "Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXRevocationChecker$Option, ONLY_END_ENTITY)},
+		{"PREFER_CRLS", "Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXRevocationChecker$Option, PREFER_CRLS)},
+		{"NO_FALLBACK", "Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXRevocationChecker$Option, NO_FALLBACK)},
+		{"SOFT_FAIL", "Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXRevocationChecker$Option, SOFT_FAIL)},
+		{"$VALUES", "[Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PKIXRevocationChecker$Option, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PKIXRevocationChecker$Option, $values, $PKIXRevocationChecker$OptionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PKIXRevocationChecker$Option, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXRevocationChecker$Option, valueOf, PKIXRevocationChecker$Option*, $String*)},
+		{"values", "()[Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXRevocationChecker$Option, values, $PKIXRevocationChecker$OptionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.cert.PKIXRevocationChecker$Option", "java.security.cert.PKIXRevocationChecker", "Option", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.security.cert.PKIXRevocationChecker$Option",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/security/cert/PKIXRevocationChecker$Option;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.cert.PKIXRevocationChecker"
+	};
+	$loadClass(PKIXRevocationChecker$Option, name, initialize, &classInfo$$, PKIXRevocationChecker$Option::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PKIXRevocationChecker$Option));
+	});
 	return class$;
 }
 

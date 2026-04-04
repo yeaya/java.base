@@ -1,5 +1,4 @@
 #include <sun/nio/cs/MS949$DecodeHolder.h>
-
 #include <sun/nio/cs/DoubleByte.h>
 #include <sun/nio/cs/MS949.h>
 #include <jcpp.h>
@@ -17,44 +16,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _MS949$DecodeHolder_FieldInfo_[] = {
-	{"b2cSBStr", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MS949$DecodeHolder, b2cSBStr)},
-	{"b2cStr", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MS949$DecodeHolder, b2cStr)},
-	{"b2c", "[[C", nullptr, $STATIC | $FINAL, $staticField(MS949$DecodeHolder, b2c)},
-	{"b2cSB", "[C", nullptr, $STATIC | $FINAL, $staticField(MS949$DecodeHolder, b2cSB)},
-	{}
-};
-
-$MethodInfo _MS949$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MS949$DecodeHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _MS949$DecodeHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.MS949$DecodeHolder", "sun.nio.cs.MS949", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _MS949$DecodeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.MS949$DecodeHolder",
-	"java.lang.Object",
-	nullptr,
-	_MS949$DecodeHolder_FieldInfo_,
-	_MS949$DecodeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MS949$DecodeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.MS949"
-};
-
-$Object* allocate$MS949$DecodeHolder($Class* clazz) {
-	return $of($alloc(MS949$DecodeHolder));
-}
-
 $String* MS949$DecodeHolder::b2cSBStr = nullptr;
 $StringArray* MS949$DecodeHolder::b2cStr = nullptr;
 $charArray2* MS949$DecodeHolder::b2c = nullptr;
@@ -63,139 +24,139 @@ $chars* MS949$DecodeHolder::b2cSB = nullptr;
 void MS949$DecodeHolder::init$() {
 }
 
-void clinit$MS949$DecodeHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(MS949$DecodeHolder::b2cSBStr, $cstr({'\0', 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, '\b', '\t', '\n', 0xB, '\f', '\r', 0xE, 0xF, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7F, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD}));
+void MS949$DecodeHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(MS949$DecodeHolder::b2cSBStr, $cstr({'\0', 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, '\b', '\t', '\n', 0x0b, '\f', '\r', 0x0e, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e, 0x1f, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7f, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd}));
 	$assignStatic(MS949$DecodeHolder::b2cStr, $new($StringArray, {
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		u"갂갃갅갆갋갌갍갎갏갘갞갟갡갢갣갥갦갧갨갩갪갫갮갲갳갴������갵갶갷갺갻갽갾갿걁걂걃걄걅걆걇걈걉걊걌걎걏걐걑걒걓걕������걖걗걙걚걛걝걞걟걠걡걢걣걤걥걦걧걨걩걪걫걬걭걮걯걲걳걵걶걹걻걼걽걾걿겂겇겈겍겎겏겑겒겓겕겖겗겘겙겚겛겞겢겣겤겥겦겧겫겭겮겱겲겳겴겵겶겷겺겾겿곀곂곃곅곆곇곉곊곋곍곎곏곐곑곒곓곔곖곘곙곚곛곜곝곞곟곢곣곥곦곩곫곭곮곲곴곷곸곹곺곻곾곿괁괂괃괅괇괈괉괊괋괎괐괒괓"_s,
 		u"괔괕괖괗괙괚괛괝괞괟괡괢괣괤괥괦괧괨괪괫괮괯괰괱괲괳������괶괷괹괺괻괽괾괿굀굁굂굃굆굈굊굋굌굍굎굏굑굒굓굕굖굗������굙굚굛굜굝굞굟굠굢굤굥굦굧굨굩굪굫굮굯굱굲굷굸굹굺굾궀궃궄궅궆궇궊궋궍궎궏궑궒궓궔궕궖궗궘궙궚궛궞궟궠궡궢궣궥궦궧궨궩궪궫궬궭궮궯궰궱궲궳궴궵궶궸궹궺궻궼궽궾궿귂귃귅귆귇귉귊귋귌귍귎귏귒귔귕귖귗귘귙귚귛귝귞귟귡귢귣귥귦귧귨귩귪귫귬귭귮귯귰귱귲귳귴귵귶귷"_s,
 		u"귺귻귽귾긂긃긄긅긆긇긊긌긎긏긐긑긒긓긕긖긗긘긙긚긛긜������긝긞긟긠긡긢긣긤긥긦긧긨긩긪긫긬긭긮긯긲긳긵긶긹긻긼������긽긾긿깂깄깇깈깉깋깏깑깒깓깕깗깘깙깚깛깞깢깣깤깦깧깪깫깭깮깯깱깲깳깴깵깶깷깺깾깿꺀꺁꺂꺃꺆꺇꺈꺉꺊꺋꺍꺎꺏꺐꺑꺒꺓꺔꺕꺖꺗꺘꺙꺚꺛꺜꺝꺞꺟꺠꺡꺢꺣꺤꺥꺦꺧꺨꺩꺪꺫꺬꺭꺮꺯꺰꺱꺲꺳꺴꺵꺶꺷꺸꺹꺺꺻꺿껁껂껃껅껆껇껈껉껊껋껎껒껓껔껕껖껗껚껛껝껞껟껠껡껢껣껤껥"_s,
@@ -322,19 +283,19 @@ void clinit$MS949$DecodeHolder($Class* class$) {
 		u"������������������������������������������������������������������������������������������������禍禾花華話譁貨靴廓擴攫確碻穫丸喚奐宦幻患換歡晥桓渙煥環紈還驩鰥活滑猾豁闊凰幌徨恍惶愰慌晃晄榥況湟滉潢煌璜皇篁簧荒蝗遑隍黃匯回廻徊恢悔懷晦會檜淮澮灰獪繪膾茴蛔誨賄劃獲宖橫鐄哮嚆孝效斅曉梟涍淆"_s,
 		u"������������������������������������������������������������������������������������������������爻肴酵驍侯候厚后吼喉嗅帿後朽煦珝逅勛勳塤壎焄熏燻薰訓暈薨喧暄煊萱卉喙毁彙徽揮暉煇諱輝麾休携烋畦虧恤譎鷸兇凶匈洶胸黑昕欣炘痕吃屹紇訖欠欽歆吸恰洽翕興僖凞喜噫囍姬嬉希憙憘戱晞曦熙熹熺犧禧稀羲詰"_s,
 		u"������������������������������������������������������������������������������������������������\ue05e\ue05f\ue060\ue061\ue062\ue063\ue064\ue065\ue066\ue067\ue068\ue069\ue06a\ue06b\ue06c\ue06d\ue06e\ue06f\ue070\ue071\ue072\ue073\ue074\ue075\ue076\ue077\ue078\ue079\ue07a\ue07b\ue07c\ue07d\ue07e\ue07f\ue080\ue081\ue082\ue083\ue084\ue085\ue086\ue087\ue088\ue089\ue08a\ue08b\ue08c\ue08d\ue08e\ue08f\ue090\ue091\ue092\ue093\ue094\ue095\ue096\ue097\ue098\ue099\ue09a\ue09b\ue09c\ue09d\ue09e\ue09f\ue0a0\ue0a1\ue0a2\ue0a3\ue0a4\ue0a5\ue0a6\ue0a7\ue0a8\ue0a9\ue0aa\ue0ab\ue0ac\ue0ad\ue0ae\ue0af\ue0b0\ue0b1\ue0b2\ue0b3\ue0b4\ue0b5\ue0b6\ue0b7\ue0b8\ue0b9\ue0ba\ue0bb"_s,
-		($String*)nullptr
+		nullptr
 	}));
-	$assignStatic(MS949$DecodeHolder::b2c, $new($charArray2, $nc(MS949$DecodeHolder::b2cStr)->length));
+	$assignStatic(MS949$DecodeHolder::b2c, $new($charArray2, MS949$DecodeHolder::b2cStr->length));
 	{
-		for (int32_t i = 0; i < $nc(MS949$DecodeHolder::b2cStr)->length; ++i) {
-			if ($nc(MS949$DecodeHolder::b2cStr)->get(i) == nullptr) {
+		for (int32_t i = 0; i < MS949$DecodeHolder::b2cStr->length; ++i) {
+			if (MS949$DecodeHolder::b2cStr->get(i) == nullptr) {
 				$init($DoubleByte);
-				$nc(MS949$DecodeHolder::b2c)->set(i, $DoubleByte::B2C_UNMAPPABLE);
+				MS949$DecodeHolder::b2c->set(i, $DoubleByte::B2C_UNMAPPABLE);
 			} else {
-				$nc(MS949$DecodeHolder::b2c)->set(i, $($nc($nc(MS949$DecodeHolder::b2cStr)->get(i))->toCharArray()));
+				MS949$DecodeHolder::b2c->set(i, $($nc(MS949$DecodeHolder::b2cStr->get(i))->toCharArray()));
 			}
 		}
-		$assignStatic(MS949$DecodeHolder::b2cSB, $nc(MS949$DecodeHolder::b2cSBStr)->toCharArray());
+		$assignStatic(MS949$DecodeHolder::b2cSB, MS949$DecodeHolder::b2cSBStr->toCharArray());
 	}
 }
 
@@ -342,7 +303,39 @@ MS949$DecodeHolder::MS949$DecodeHolder() {
 }
 
 $Class* MS949$DecodeHolder::load$($String* name, bool initialize) {
-	$loadClass(MS949$DecodeHolder, name, initialize, &_MS949$DecodeHolder_ClassInfo_, clinit$MS949$DecodeHolder, allocate$MS949$DecodeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"b2cSBStr", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MS949$DecodeHolder, b2cSBStr)},
+		{"b2cStr", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MS949$DecodeHolder, b2cStr)},
+		{"b2c", "[[C", nullptr, $STATIC | $FINAL, $staticField(MS949$DecodeHolder, b2c)},
+		{"b2cSB", "[C", nullptr, $STATIC | $FINAL, $staticField(MS949$DecodeHolder, b2cSB)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MS949$DecodeHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.MS949$DecodeHolder", "sun.nio.cs.MS949", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.MS949$DecodeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.MS949"
+	};
+	$loadClass(MS949$DecodeHolder, name, initialize, &classInfo$$, MS949$DecodeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MS949$DecodeHolder);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/invoke/LambdaMetafactory.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/AbstractValidatingLambdaMetafactory.h>
 #include <java/lang/invoke/CallSite.h>
@@ -40,37 +39,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _LambdaMetafactory_FieldInfo_[] = {
-	{"FLAG_SERIALIZABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaMetafactory, FLAG_SERIALIZABLE)},
-	{"FLAG_MARKERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaMetafactory, FLAG_MARKERS)},
-	{"FLAG_BRIDGES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaMetafactory, FLAG_BRIDGES)},
-	{"EMPTY_CLASS_ARRAY", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(LambdaMetafactory, EMPTY_CLASS_ARRAY)},
-	{"EMPTY_MT_ARRAY", "[Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LambdaMetafactory, EMPTY_MT_ARRAY)},
-	{}
-};
-
-$MethodInfo _LambdaMetafactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LambdaMetafactory, init$, void)},
-	{"altMetafactory", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LambdaMetafactory, altMetafactory, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*), "java.lang.invoke.LambdaConversionException"},
-	{"extractArg", "([Ljava/lang/Object;ILjava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;ILjava/lang/Class<TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(LambdaMetafactory, extractArg, $Object*, $ObjectArray*, int32_t, $Class*)},
-	{"extractArgs", "([Ljava/lang/Object;ILjava/lang/Class;I)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;ILjava/lang/Class<TT;>;I)[TT;", $PRIVATE | $STATIC, $staticMethod(LambdaMetafactory, extractArgs, $ObjectArray*, $ObjectArray*, int32_t, $Class*, int32_t)},
-	{"metafactory", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaMetafactory, metafactory, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*), "java.lang.invoke.LambdaConversionException"},
-	{}
-};
-
-$ClassInfo _LambdaMetafactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.invoke.LambdaMetafactory",
-	"java.lang.Object",
-	nullptr,
-	_LambdaMetafactory_FieldInfo_,
-	_LambdaMetafactory_MethodInfo_
-};
-
-$Object* allocate$LambdaMetafactory($Class* clazz) {
-	return $of($alloc(LambdaMetafactory));
-}
-
 $ClassArray* LambdaMetafactory::EMPTY_CLASS_ARRAY = nullptr;
 $MethodTypeArray* LambdaMetafactory::EMPTY_MT_ARRAY = nullptr;
 
@@ -79,7 +47,7 @@ void LambdaMetafactory::init$() {
 
 $CallSite* LambdaMetafactory::metafactory($MethodHandles$Lookup* caller, $String* interfaceMethodName, $MethodType* factoryType, $MethodType* interfaceMethodType, $MethodHandle* implementation, $MethodType* dynamicMethodType) {
 	$init(LambdaMetafactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractValidatingLambdaMetafactory, mf, nullptr);
 	$var($MethodHandles$Lookup, var$0, $cast($MethodHandles$Lookup, $Objects::requireNonNull(caller)));
 	$var($MethodType, var$1, $cast($MethodType, $Objects::requireNonNull(factoryType)));
@@ -93,7 +61,7 @@ $CallSite* LambdaMetafactory::metafactory($MethodHandles$Lookup* caller, $String
 
 $CallSite* LambdaMetafactory::altMetafactory($MethodHandles$Lookup* caller, $String* interfaceMethodName, $MethodType* factoryType, $ObjectArray* args) {
 	$init(LambdaMetafactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(caller);
 	$Objects::requireNonNull(interfaceMethodName);
 	$Objects::requireNonNull(factoryType);
@@ -104,48 +72,45 @@ $CallSite* LambdaMetafactory::altMetafactory($MethodHandles$Lookup* caller, $Str
 	$load($MethodHandle);
 	$var($MethodHandle, implementation, $cast($MethodHandle, extractArg(args, argIndex++, $MethodHandle::class$)));
 	$var($MethodType, dynamicMethodType, $cast($MethodType, extractArg(args, argIndex++, $MethodType::class$)));
-	$load($Integer);
-	int32_t flags = $nc(($cast($Integer, $(extractArg(args, argIndex++, $Integer::class$)))))->intValue();
+	int32_t flags = $$sure($Integer, extractArg(args, argIndex++, $Integer::class$))->intValue();
 	$var($ClassArray, altInterfaces, LambdaMetafactory::EMPTY_CLASS_ARRAY);
 	$var($MethodTypeArray, altMethods, LambdaMetafactory::EMPTY_MT_ARRAY);
-	if (((int32_t)(flags & (uint32_t)LambdaMetafactory::FLAG_MARKERS)) != 0) {
-		int32_t altInterfaceCount = $nc(($cast($Integer, $(extractArg(args, argIndex++, $Integer::class$)))))->intValue();
+	if ((flags & LambdaMetafactory::FLAG_MARKERS) != 0) {
+		int32_t altInterfaceCount = $$sure($Integer, extractArg(args, argIndex++, $Integer::class$))->intValue();
 		if (altInterfaceCount < 0) {
 			$throwNew($IllegalArgumentException, "negative argument count"_s);
 		}
 		if (altInterfaceCount > 0) {
-			$assign(altInterfaces, $fcast($ClassArray, extractArgs(args, argIndex, $Class::class$, altInterfaceCount)));
+			$assign(altInterfaces, $cast($ClassArray, extractArgs(args, argIndex, $Class::class$, altInterfaceCount)));
 			argIndex += altInterfaceCount;
 		}
 	}
-	if (((int32_t)(flags & (uint32_t)LambdaMetafactory::FLAG_BRIDGES)) != 0) {
-		int32_t altMethodCount = $nc(($cast($Integer, $(extractArg(args, argIndex++, $Integer::class$)))))->intValue();
+	if ((flags & LambdaMetafactory::FLAG_BRIDGES) != 0) {
+		int32_t altMethodCount = $$sure($Integer, extractArg(args, argIndex++, $Integer::class$))->intValue();
 		if (altMethodCount < 0) {
 			$throwNew($IllegalArgumentException, "negative argument count"_s);
 		}
 		if (altMethodCount > 0) {
-			$assign(altMethods, $fcast($MethodTypeArray, extractArgs(args, argIndex, $MethodType::class$, altMethodCount)));
+			$assign(altMethods, $cast($MethodTypeArray, extractArgs(args, argIndex, $MethodType::class$, altMethodCount)));
 			argIndex += altMethodCount;
 		}
 	}
 	if (argIndex < args->length) {
 		$throwNew($IllegalArgumentException, "too many arguments"_s);
 	}
-	bool isSerializable = (((int32_t)(flags & (uint32_t)LambdaMetafactory::FLAG_SERIALIZABLE)) != 0);
+	bool isSerializable = ((flags & LambdaMetafactory::FLAG_SERIALIZABLE) != 0);
 	if (isSerializable) {
 		$load($Serializable);
-		bool foundSerializableSupertype = $Serializable::class$->isAssignableFrom($($cast($Class, factoryType->returnType())));
+		bool foundSerializableSupertype = $Serializable::class$->isAssignableFrom($$cast($Class, factoryType->returnType()));
 		{
 			$var($ClassArray, arr$, altInterfaces);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$Class* c = arr$->get(i$);
 				foundSerializableSupertype |= $Serializable::class$->isAssignableFrom(c);
 			}
 		}
 		if (!foundSerializableSupertype) {
-			$assign(altInterfaces, $fcast($ClassArray, $Arrays::copyOf(altInterfaces, $nc(altInterfaces)->length + 1)));
+			$assign(altInterfaces, $cast($ClassArray, $Arrays::copyOf(altInterfaces, $nc(altInterfaces)->length + 1)));
 			altInterfaces->set(altInterfaces->length - 1, $Serializable::class$);
 		}
 	}
@@ -159,16 +124,16 @@ $Object* LambdaMetafactory::extractArg($ObjectArray* args, int32_t index, $Class
 	if (index >= $nc(args)->length) {
 		$throwNew($IllegalArgumentException, "missing argument"_s);
 	}
-	$var($Object, result, $Objects::requireNonNull($nc(args)->get(index)));
+	$var($Object, result, $Objects::requireNonNull(args->get(index)));
 	if (!$nc(type)->isInstance(result)) {
 		$throwNew($IllegalArgumentException, "argument has wrong type"_s);
 	}
-	return $of($nc(type)->cast(result));
+	return type->cast(result);
 }
 
 $ObjectArray* LambdaMetafactory::extractArgs($ObjectArray* args, int32_t index, $Class* type, int32_t count) {
 	$init(LambdaMetafactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, result, $cast($ObjectArray, $1Array::newInstance(type, count)));
 	for (int32_t i = 0; i < count; ++i) {
 		result->set(i, $(extractArg(args, index + i, type)));
@@ -176,7 +141,7 @@ $ObjectArray* LambdaMetafactory::extractArgs($ObjectArray* args, int32_t index, 
 	return result;
 }
 
-void clinit$LambdaMetafactory($Class* class$) {
+void LambdaMetafactory::clinit$($Class* clazz) {
 	$assignStatic(LambdaMetafactory::EMPTY_CLASS_ARRAY, $new($ClassArray, 0));
 	$assignStatic(LambdaMetafactory::EMPTY_MT_ARRAY, $new($MethodTypeArray, 0));
 }
@@ -185,7 +150,33 @@ LambdaMetafactory::LambdaMetafactory() {
 }
 
 $Class* LambdaMetafactory::load$($String* name, bool initialize) {
-	$loadClass(LambdaMetafactory, name, initialize, &_LambdaMetafactory_ClassInfo_, clinit$LambdaMetafactory, allocate$LambdaMetafactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"FLAG_SERIALIZABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaMetafactory, FLAG_SERIALIZABLE)},
+		{"FLAG_MARKERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaMetafactory, FLAG_MARKERS)},
+		{"FLAG_BRIDGES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaMetafactory, FLAG_BRIDGES)},
+		{"EMPTY_CLASS_ARRAY", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(LambdaMetafactory, EMPTY_CLASS_ARRAY)},
+		{"EMPTY_MT_ARRAY", "[Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LambdaMetafactory, EMPTY_MT_ARRAY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LambdaMetafactory, init$, void)},
+		{"altMetafactory", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LambdaMetafactory, altMetafactory, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*), "java.lang.invoke.LambdaConversionException"},
+		{"extractArg", "([Ljava/lang/Object;ILjava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;ILjava/lang/Class<TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(LambdaMetafactory, extractArg, $Object*, $ObjectArray*, int32_t, $Class*)},
+		{"extractArgs", "([Ljava/lang/Object;ILjava/lang/Class;I)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;ILjava/lang/Class<TT;>;I)[TT;", $PRIVATE | $STATIC, $staticMethod(LambdaMetafactory, extractArgs, $ObjectArray*, $ObjectArray*, int32_t, $Class*, int32_t)},
+		{"metafactory", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaMetafactory, metafactory, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*), "java.lang.invoke.LambdaConversionException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.invoke.LambdaMetafactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LambdaMetafactory, name, initialize, &classInfo$$, LambdaMetafactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaMetafactory);
+	});
 	return class$;
 }
 

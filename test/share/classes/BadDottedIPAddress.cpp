@@ -1,5 +1,4 @@
 #include <BadDottedIPAddress.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <jcpp.h>
@@ -10,30 +9,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
-$MethodInfo _BadDottedIPAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BadDottedIPAddress, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BadDottedIPAddress, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _BadDottedIPAddress_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"BadDottedIPAddress",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_BadDottedIPAddress_MethodInfo_
-};
-
-$Object* allocate$BadDottedIPAddress($Class* clazz) {
-	return $of($alloc(BadDottedIPAddress));
-}
-
 void BadDottedIPAddress::init$() {
 }
 
 void BadDottedIPAddress::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, host, "999.999.999.999"_s);
 	bool exc_thrown = false;
 	try {
@@ -83,7 +63,22 @@ BadDottedIPAddress::BadDottedIPAddress() {
 }
 
 $Class* BadDottedIPAddress::load$($String* name, bool initialize) {
-	$loadClass(BadDottedIPAddress, name, initialize, &_BadDottedIPAddress_ClassInfo_, allocate$BadDottedIPAddress);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BadDottedIPAddress, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BadDottedIPAddress, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"BadDottedIPAddress",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BadDottedIPAddress, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BadDottedIPAddress);
+	});
 	return class$;
 }
 

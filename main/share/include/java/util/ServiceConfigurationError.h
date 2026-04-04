@@ -20,10 +20,13 @@ public:
 	ServiceConfigurationError();
 	void init$($String* msg);
 	void init$($String* msg, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x0000436C61726121;
+	static const int64_t serialVersionUID = (int64_t)0x0000436c61726121;
 	ServiceConfigurationError(const ServiceConfigurationError& e);
 	virtual void throw$() override;
-	inline ServiceConfigurationError* operator ->() {
+	inline ServiceConfigurationError* operator ->() const {
+		return (ServiceConfigurationError*)throwing$;
+	}
+	inline operator ServiceConfigurationError*() const {
 		return (ServiceConfigurationError*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/util/CodePointTrie$Data8.h>
-
 #include <java/io/DataOutputStream.h>
 #include <jdk/internal/icu/util/CodePointTrie$Data.h>
 #include <jdk/internal/icu/util/CodePointTrie$ValueWidth.h>
@@ -21,46 +20,6 @@ namespace jdk {
 		namespace icu {
 			namespace util {
 
-$FieldInfo _CodePointTrie$Data8_FieldInfo_[] = {
-	{"array", "[B", nullptr, 0, $field(CodePointTrie$Data8, array)},
-	{}
-};
-
-$MethodInfo _CodePointTrie$Data8_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(CodePointTrie$Data8, init$, void, $bytes*)},
-	{"getDataLength", "()I", nullptr, 0, $virtualMethod(CodePointTrie$Data8, getDataLength, int32_t)},
-	{"getFromIndex", "(I)I", nullptr, 0, $virtualMethod(CodePointTrie$Data8, getFromIndex, int32_t, int32_t)},
-	{"getValueWidth", "()Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, 0, $virtualMethod(CodePointTrie$Data8, getValueWidth, $CodePointTrie$ValueWidth*)},
-	{"write", "(Ljava/io/DataOutputStream;)I", nullptr, 0, $virtualMethod(CodePointTrie$Data8, write, int32_t, $DataOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CodePointTrie$Data8_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.util.CodePointTrie$Data8", "jdk.internal.icu.util.CodePointTrie", "Data8", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.util.CodePointTrie$Data", "jdk.internal.icu.util.CodePointTrie", "Data", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CodePointTrie$Data8_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.util.CodePointTrie$Data8",
-	"jdk.internal.icu.util.CodePointTrie$Data",
-	nullptr,
-	_CodePointTrie$Data8_FieldInfo_,
-	_CodePointTrie$Data8_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CodePointTrie$Data8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.util.CodePointTrie"
-};
-
-$Object* allocate$CodePointTrie$Data8($Class* clazz) {
-	return $of($alloc(CodePointTrie$Data8));
-}
-
 void CodePointTrie$Data8::init$($bytes* a) {
 	$CodePointTrie$Data::init$();
 	$set(this, array, a);
@@ -76,15 +35,13 @@ int32_t CodePointTrie$Data8::getDataLength() {
 }
 
 int32_t CodePointTrie$Data8::getFromIndex(int32_t index) {
-	return (int32_t)($nc(this->array)->get(index) & (uint32_t)255);
+	return $nc(this->array)->get(index) & 0xff;
 }
 
 int32_t CodePointTrie$Data8::write($DataOutputStream* dos) {
 	{
 		$var($bytes, arr$, this->array);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int8_t v = arr$->get(i$);
 			{
 				$nc(dos)->writeByte(v);
@@ -98,7 +55,41 @@ CodePointTrie$Data8::CodePointTrie$Data8() {
 }
 
 $Class* CodePointTrie$Data8::load$($String* name, bool initialize) {
-	$loadClass(CodePointTrie$Data8, name, initialize, &_CodePointTrie$Data8_ClassInfo_, allocate$CodePointTrie$Data8);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[B", nullptr, 0, $field(CodePointTrie$Data8, array)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, 0, $method(CodePointTrie$Data8, init$, void, $bytes*)},
+		{"getDataLength", "()I", nullptr, 0, $virtualMethod(CodePointTrie$Data8, getDataLength, int32_t)},
+		{"getFromIndex", "(I)I", nullptr, 0, $virtualMethod(CodePointTrie$Data8, getFromIndex, int32_t, int32_t)},
+		{"getValueWidth", "()Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, 0, $virtualMethod(CodePointTrie$Data8, getValueWidth, $CodePointTrie$ValueWidth*)},
+		{"write", "(Ljava/io/DataOutputStream;)I", nullptr, 0, $virtualMethod(CodePointTrie$Data8, write, int32_t, $DataOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.util.CodePointTrie$Data8", "jdk.internal.icu.util.CodePointTrie", "Data8", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.util.CodePointTrie$Data", "jdk.internal.icu.util.CodePointTrie", "Data", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.util.CodePointTrie$Data8",
+		"jdk.internal.icu.util.CodePointTrie$Data",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.util.CodePointTrie"
+	};
+	$loadClass(CodePointTrie$Data8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CodePointTrie$Data8);
+	});
 	return class$;
 }
 

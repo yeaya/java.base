@@ -1,5 +1,4 @@
 #include <java/lang/ProcessEnvironment$CheckedValues.h>
-
 #include <java/lang/ProcessEnvironment.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/Collection.h>
@@ -17,47 +16,6 @@ using $Iterator = ::java::util::Iterator;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ProcessEnvironment$CheckedValues_FieldInfo_[] = {
-	{"c", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ProcessEnvironment$CheckedValues, c)},
-	{}
-};
-
-$MethodInfo _ProcessEnvironment$CheckedValues_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $method(ProcessEnvironment$CheckedValues, init$, void, $Collection*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, contains, bool, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ProcessEnvironment$CheckedValues_InnerClassesInfo_[] = {
-	{"java.lang.ProcessEnvironment$CheckedValues", "java.lang.ProcessEnvironment", "CheckedValues", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ProcessEnvironment$CheckedValues_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ProcessEnvironment$CheckedValues",
-	"java.util.AbstractCollection",
-	nullptr,
-	_ProcessEnvironment$CheckedValues_FieldInfo_,
-	_ProcessEnvironment$CheckedValues_MethodInfo_,
-	"Ljava/util/AbstractCollection<Ljava/lang/String;>;",
-	nullptr,
-	_ProcessEnvironment$CheckedValues_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessEnvironment"
-};
-
-$Object* allocate$ProcessEnvironment$CheckedValues($Class* clazz) {
-	return $of($alloc(ProcessEnvironment$CheckedValues));
-}
 
 void ProcessEnvironment$CheckedValues::init$($Collection* c) {
 	$AbstractCollection::init$();
@@ -92,7 +50,42 @@ ProcessEnvironment$CheckedValues::ProcessEnvironment$CheckedValues() {
 }
 
 $Class* ProcessEnvironment$CheckedValues::load$($String* name, bool initialize) {
-	$loadClass(ProcessEnvironment$CheckedValues, name, initialize, &_ProcessEnvironment$CheckedValues_ClassInfo_, allocate$ProcessEnvironment$CheckedValues);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ProcessEnvironment$CheckedValues, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $method(ProcessEnvironment$CheckedValues, init$, void, $Collection*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, contains, bool, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessEnvironment$CheckedValues", "java.lang.ProcessEnvironment", "CheckedValues", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ProcessEnvironment$CheckedValues",
+		"java.util.AbstractCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractCollection<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessEnvironment"
+	};
+	$loadClass(ProcessEnvironment$CheckedValues, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessEnvironment$CheckedValues);
+	});
 	return class$;
 }
 

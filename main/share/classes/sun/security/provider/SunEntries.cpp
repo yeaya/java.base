@@ -1,11 +1,9 @@
 #include <sun/security/provider/SunEntries.h>
-
 #include <java/io/File.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <java/util/HashMap.h>
@@ -39,7 +37,6 @@ using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $HashMap = ::java::util::HashMap;
@@ -59,53 +56,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _SunEntries_FieldInfo_[] = {
-	{"DEF_SECURE_RANDOM_ALGO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SunEntries, DEF_SECURE_RANDOM_ALGO)},
-	{"services", "Ljava/util/LinkedHashSet;", "Ljava/util/LinkedHashSet<Ljava/security/Provider$Service;>;", $PRIVATE, $field(SunEntries, services)},
-	{"PROP_EGD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunEntries, PROP_EGD)},
-	{"PROP_RNDSOURCE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunEntries, PROP_RNDSOURCE)},
-	{"useLegacyDSA", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunEntries, useLegacyDSA)},
-	{"URL_DEV_RANDOM", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SunEntries, URL_DEV_RANDOM)},
-	{"URL_DEV_URANDOM", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SunEntries, URL_DEV_URANDOM)},
-	{"seedSource", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunEntries, seedSource)},
-	{}
-};
-
-$MethodInfo _SunEntries_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, 0, $method(SunEntries, init$, void, $Provider*)},
-	{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SunEntries, add, void, $Provider*, $String*, $String*, $String*)},
-	{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunEntries, add, void, $Provider*, $String*, $String*, $String*, $HashMap*)},
-	{"addWithAlias", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunEntries, addWithAlias, void, $Provider*, $String*, $String*, $String*, $HashMap*)},
-	{"getDeviceFile", "(Ljava/net/URL;)Ljava/io/File;", nullptr, $STATIC, $staticMethod(SunEntries, getDeviceFile, $File*, $URL*), "java.io.IOException"},
-	{"getSeedSource", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SunEntries, getSeedSource, $String*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/Provider$Service;>;", 0, $method(SunEntries, iterator, $Iterator*)},
-	{}
-};
-
-$InnerClassInfo _SunEntries_InnerClassesInfo_[] = {
-	{"sun.security.provider.SunEntries$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SunEntries_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.SunEntries",
-	"java.lang.Object",
-	nullptr,
-	_SunEntries_FieldInfo_,
-	_SunEntries_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunEntries_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.SunEntries$1"
-};
-
-$Object* allocate$SunEntries($Class* clazz) {
-	return $of($alloc(SunEntries));
-}
-
 $String* SunEntries::DEF_SECURE_RANDOM_ALGO = nullptr;
 $String* SunEntries::PROP_EGD = nullptr;
 $String* SunEntries::PROP_RNDSOURCE = nullptr;
@@ -115,7 +65,7 @@ $String* SunEntries::URL_DEV_URANDOM = nullptr;
 $String* SunEntries::seedSource = nullptr;
 
 void SunEntries::init$($Provider* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, services, $new($LinkedHashSet, 50, 0.9f));
 	$var($HashMap, attrs, $new($HashMap, 3));
 	attrs->put("ThreadSafe"_s, "true"_s);
@@ -211,7 +161,7 @@ void SunEntries::add($Provider* p, $String* type, $String* algo, $String* cn, $H
 }
 
 void SunEntries::addWithAlias($Provider* p, $String* type, $String* algo, $String* cn, $HashMap* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->services)->add($$new($Provider$Service, p, type, algo, cn, $($SecurityProviderConstants::getAliases(algo)), attrs));
 }
 
@@ -222,13 +172,15 @@ $String* SunEntries::getSeedSource() {
 
 $File* SunEntries::getDeviceFile($URL* device) {
 	$init(SunEntries);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($URI, deviceURI, $nc(device)->toURI());
 		if ($nc(deviceURI)->isOpaque()) {
 			$var($URI, localDir, $$new($File, $($StaticProperty::userDir()))->toURI());
-			$var($String, var$0, $($nc(localDir)->toString()));
-			$var($String, uriPath, $concat(var$0, $($nc($(deviceURI->toString()))->substring(5))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($($nc(localDir)->toString()));
+			var$0->append($($$nc(deviceURI->toString())->substring(5)));
+			$var($String, uriPath, $str(var$0));
 			return $new($File, $($URI::create(uriPath)));
 		} else {
 			return $new($File, deviceURI);
@@ -239,20 +191,20 @@ $File* SunEntries::getDeviceFile($URL* device) {
 	$shouldNotReachHere();
 }
 
-void clinit$SunEntries($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SunEntries::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(SunEntries::PROP_EGD, "java.security.egd"_s);
 	$assignStatic(SunEntries::PROP_RNDSOURCE, "securerandom.source"_s);
 	$assignStatic(SunEntries::URL_DEV_RANDOM, "file:/dev/random"_s);
 	$assignStatic(SunEntries::URL_DEV_URANDOM, "file:/dev/urandom"_s);
 	$beforeCallerSensitive();
 	SunEntries::useLegacyDSA = $Boolean::parseBoolean($($GetPropertyAction::privilegedGetProperty("jdk.security.legacyDSAKeyPairGenerator"_s)));
-	$assignStatic(SunEntries::seedSource, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunEntries$1)))));
+	$assignStatic(SunEntries::seedSource, $cast($String, $AccessController::doPrivileged($$new($SunEntries$1))));
 	{
 		bool var$0 = $NativePRNG::isAvailable();
 		if (var$0) {
 			bool var$1 = $nc(SunEntries::seedSource)->equals(SunEntries::URL_DEV_URANDOM);
-			var$0 = (var$1 || $nc(SunEntries::seedSource)->equals(SunEntries::URL_DEV_RANDOM));
+			var$0 = var$1 || SunEntries::seedSource->equals(SunEntries::URL_DEV_RANDOM);
 		}
 		$assignStatic(SunEntries::DEF_SECURE_RANDOM_ALGO, var$0 ? "NativePRNG"_s : "DRBG"_s);
 	}
@@ -262,7 +214,48 @@ SunEntries::SunEntries() {
 }
 
 $Class* SunEntries::load$($String* name, bool initialize) {
-	$loadClass(SunEntries, name, initialize, &_SunEntries_ClassInfo_, clinit$SunEntries, allocate$SunEntries);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEF_SECURE_RANDOM_ALGO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SunEntries, DEF_SECURE_RANDOM_ALGO)},
+		{"services", "Ljava/util/LinkedHashSet;", "Ljava/util/LinkedHashSet<Ljava/security/Provider$Service;>;", $PRIVATE, $field(SunEntries, services)},
+		{"PROP_EGD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunEntries, PROP_EGD)},
+		{"PROP_RNDSOURCE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunEntries, PROP_RNDSOURCE)},
+		{"useLegacyDSA", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunEntries, useLegacyDSA)},
+		{"URL_DEV_RANDOM", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SunEntries, URL_DEV_RANDOM)},
+		{"URL_DEV_URANDOM", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SunEntries, URL_DEV_URANDOM)},
+		{"seedSource", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunEntries, seedSource)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, 0, $method(SunEntries, init$, void, $Provider*)},
+		{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SunEntries, add, void, $Provider*, $String*, $String*, $String*)},
+		{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunEntries, add, void, $Provider*, $String*, $String*, $String*, $HashMap*)},
+		{"addWithAlias", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunEntries, addWithAlias, void, $Provider*, $String*, $String*, $String*, $HashMap*)},
+		{"getDeviceFile", "(Ljava/net/URL;)Ljava/io/File;", nullptr, $STATIC, $staticMethod(SunEntries, getDeviceFile, $File*, $URL*), "java.io.IOException"},
+		{"getSeedSource", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SunEntries, getSeedSource, $String*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/Provider$Service;>;", 0, $method(SunEntries, iterator, $Iterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.SunEntries$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.SunEntries",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.SunEntries$1"
+	};
+	$loadClass(SunEntries, name, initialize, &classInfo$$, SunEntries::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SunEntries);
+	});
 	return class$;
 }
 

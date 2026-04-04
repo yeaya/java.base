@@ -1,5 +1,4 @@
 #include <java/lang/ConditionalSpecialCasing.h>
-
 #include <java/lang/ConditionalSpecialCasing$Entry.h>
 #include <java/text/BreakIterator.h>
 #include <java/util/HashSet.h>
@@ -37,60 +36,6 @@ using $Normalizer = ::sun::text::Normalizer;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ConditionalSpecialCasing_FieldInfo_[] = {
-	{"FINAL_CASED", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, FINAL_CASED)},
-	{"AFTER_SOFT_DOTTED", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, AFTER_SOFT_DOTTED)},
-	{"MORE_ABOVE", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, MORE_ABOVE)},
-	{"AFTER_I", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, AFTER_I)},
-	{"NOT_BEFORE_DOT", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, NOT_BEFORE_DOT)},
-	{"COMBINING_CLASS_ABOVE", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, COMBINING_CLASS_ABOVE)},
-	{"entry", "[Ljava/lang/ConditionalSpecialCasing$Entry;", nullptr, $STATIC, $staticField(ConditionalSpecialCasing, entry)},
-	{"entryTable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Integer;Ljava/util/HashSet<Ljava/lang/ConditionalSpecialCasing$Entry;>;>;", $STATIC, $staticField(ConditionalSpecialCasing, entryTable)},
-	{}
-};
-
-$MethodInfo _ConditionalSpecialCasing_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ConditionalSpecialCasing, init$, void)},
-	{"isAfterI", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isAfterI, bool, $String*, int32_t)},
-	{"isAfterSoftDotted", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isAfterSoftDotted, bool, $String*, int32_t)},
-	{"isBeforeDot", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isBeforeDot, bool, $String*, int32_t)},
-	{"isCased", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isCased, bool, int32_t)},
-	{"isConditionMet", "(Ljava/lang/String;ILjava/util/Locale;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isConditionMet, bool, $String*, int32_t, $Locale*, int32_t)},
-	{"isFinalCased", "(Ljava/lang/String;ILjava/util/Locale;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isFinalCased, bool, $String*, int32_t, $Locale*)},
-	{"isMoreAbove", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isMoreAbove, bool, $String*, int32_t)},
-	{"isSoftDotted", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isSoftDotted, bool, int32_t)},
-	{"lookUpTable", "(Ljava/lang/String;ILjava/util/Locale;Z)[C", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, lookUpTable, $chars*, $String*, int32_t, $Locale*, bool)},
-	{"toLowerCaseCharArray", "(Ljava/lang/String;ILjava/util/Locale;)[C", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toLowerCaseCharArray, $chars*, $String*, int32_t, $Locale*)},
-	{"toLowerCaseEx", "(Ljava/lang/String;ILjava/util/Locale;)I", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toLowerCaseEx, int32_t, $String*, int32_t, $Locale*)},
-	{"toUpperCaseCharArray", "(Ljava/lang/String;ILjava/util/Locale;)[C", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toUpperCaseCharArray, $chars*, $String*, int32_t, $Locale*)},
-	{"toUpperCaseEx", "(Ljava/lang/String;ILjava/util/Locale;)I", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toUpperCaseEx, int32_t, $String*, int32_t, $Locale*)},
-	{}
-};
-
-$InnerClassInfo _ConditionalSpecialCasing_InnerClassesInfo_[] = {
-	{"java.lang.ConditionalSpecialCasing$Entry", "java.lang.ConditionalSpecialCasing", "Entry", $STATIC},
-	{}
-};
-
-$ClassInfo _ConditionalSpecialCasing_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.ConditionalSpecialCasing",
-	"java.lang.Object",
-	nullptr,
-	_ConditionalSpecialCasing_FieldInfo_,
-	_ConditionalSpecialCasing_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConditionalSpecialCasing_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.ConditionalSpecialCasing$Entry"
-};
-
-$Object* allocate$ConditionalSpecialCasing($Class* clazz) {
-	return $of($alloc(ConditionalSpecialCasing));
-}
 
 $ConditionalSpecialCasing$EntryArray* ConditionalSpecialCasing::entry = nullptr;
 $Hashtable* ConditionalSpecialCasing::entryTable = nullptr;
@@ -143,7 +88,7 @@ $chars* ConditionalSpecialCasing::toUpperCaseCharArray($String* src, int32_t ind
 
 $chars* ConditionalSpecialCasing::lookUpTable($String* src, int32_t index, $Locale* locale, bool bLowerCasing) {
 	$init(ConditionalSpecialCasing);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, set, $cast($HashSet, $nc(ConditionalSpecialCasing::entryTable)->get($($Integer::valueOf($nc(src)->codePointAt(index))))));
 	$var($chars, ret, nullptr);
 	if (set != nullptr) {
@@ -152,7 +97,7 @@ $chars* ConditionalSpecialCasing::lookUpTable($String* src, int32_t index, $Loca
 		while ($nc(iter)->hasNext()) {
 			$var($ConditionalSpecialCasing$Entry, entry, $cast($ConditionalSpecialCasing$Entry, iter->next()));
 			$var($String, conditionLang, $nc(entry)->getLanguage());
-			bool var$0 = ((conditionLang == nullptr) || ($nc(conditionLang)->equals(currentLang)));
+			bool var$0 = (conditionLang == nullptr) || (conditionLang->equals(currentLang));
 			if (var$0 && isConditionMet(src, index, locale, entry->getCondition())) {
 				$assign(ret, bLowerCasing ? entry->getLowerCase() : entry->getUpperCase());
 				if (conditionLang != nullptr) {
@@ -166,39 +111,26 @@ $chars* ConditionalSpecialCasing::lookUpTable($String* src, int32_t index, $Loca
 
 bool ConditionalSpecialCasing::isConditionMet($String* src, int32_t index, $Locale* locale, int32_t condition) {
 	$init(ConditionalSpecialCasing);
-
 	bool var$0 = false;
 	switch (condition) {
 	case ConditionalSpecialCasing::FINAL_CASED:
-		{
-			var$0 = isFinalCased(src, index, locale);
-			break;
-		}
+		var$0 = isFinalCased(src, index, locale);
+		break;
 	case ConditionalSpecialCasing::AFTER_SOFT_DOTTED:
-		{
-			var$0 = isAfterSoftDotted(src, index);
-			break;
-		}
+		var$0 = isAfterSoftDotted(src, index);
+		break;
 	case ConditionalSpecialCasing::MORE_ABOVE:
-		{
-			var$0 = isMoreAbove(src, index);
-			break;
-		}
+		var$0 = isMoreAbove(src, index);
+		break;
 	case ConditionalSpecialCasing::AFTER_I:
-		{
-			var$0 = isAfterI(src, index);
-			break;
-		}
+		var$0 = isAfterI(src, index);
+		break;
 	case ConditionalSpecialCasing::NOT_BEFORE_DOT:
-		{
-			var$0 = !isBeforeDot(src, index);
-			break;
-		}
+		var$0 = !isBeforeDot(src, index);
+		break;
 	default:
-		{
-			var$0 = true;
-			break;
-		}
+		var$0 = true;
+		break;
 	}
 	return var$0;
 }
@@ -284,7 +216,7 @@ bool ConditionalSpecialCasing::isBeforeDot($String* src, int32_t index) {
 	int32_t len = $nc(src)->length();
 	for (int32_t i = index + $Character::charCount(src->codePointAt(index)); i < len; i += $Character::charCount(ch)) {
 		ch = src->codePointAt(i);
-		if (ch == (char16_t)0x307) {
+		if (ch == (char16_t)0x0307) {
 			return true;
 		} else {
 			cc = $Normalizer::getCombiningClass(ch);
@@ -326,96 +258,79 @@ bool ConditionalSpecialCasing::isSoftDotted(int32_t ch) {
 	$init(ConditionalSpecialCasing);
 	switch (ch) {
 	case 105:
-		{}
 	case 106:
-		{}
 	case 303:
-		{}
 	case 616:
-		{}
 	case 1110:
-		{}
 	case 1112:
-		{}
 	case 7522:
-		{}
 	case 7725:
-		{}
 	case 7883:
-		{}
 	case 8305:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
-void clinit$ConditionalSpecialCasing($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ConditionalSpecialCasing::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ConditionalSpecialCasing::entry, $new($ConditionalSpecialCasing$EntryArray, {
-		$$new($ConditionalSpecialCasing$Entry, 931, $$new($chars, {(char16_t)962}), $$new($chars, {(char16_t)931}), nullptr, ConditionalSpecialCasing::FINAL_CASED),
+		$$new($ConditionalSpecialCasing$Entry, 931, $$new($chars, {962}), $$new($chars, {931}), nullptr, ConditionalSpecialCasing::FINAL_CASED),
 		$$new($ConditionalSpecialCasing$Entry, 304, $$new($chars, {
-			(char16_t)105,
-			(char16_t)775
-		}), $$new($chars, {(char16_t)304}), nullptr, 0),
-		$$new($ConditionalSpecialCasing$Entry, 775, $$new($chars, {(char16_t)775}), $$new($chars, 0), "lt"_s, ConditionalSpecialCasing::AFTER_SOFT_DOTTED),
+			105,
+			775
+		}), $$new($chars, {304}), nullptr, 0),
+		$$new($ConditionalSpecialCasing$Entry, 775, $$new($chars, {775}), $$new($chars, 0), "lt"_s, ConditionalSpecialCasing::AFTER_SOFT_DOTTED),
 		$$new($ConditionalSpecialCasing$Entry, 73, $$new($chars, {
-			(char16_t)105,
-			(char16_t)775
-		}), $$new($chars, {(char16_t)73}), "lt"_s, ConditionalSpecialCasing::MORE_ABOVE),
+			105,
+			775
+		}), $$new($chars, {73}), "lt"_s, ConditionalSpecialCasing::MORE_ABOVE),
 		$$new($ConditionalSpecialCasing$Entry, 74, $$new($chars, {
-			(char16_t)106,
-			(char16_t)775
-		}), $$new($chars, {(char16_t)74}), "lt"_s, ConditionalSpecialCasing::MORE_ABOVE),
+			106,
+			775
+		}), $$new($chars, {74}), "lt"_s, ConditionalSpecialCasing::MORE_ABOVE),
 		$$new($ConditionalSpecialCasing$Entry, 302, $$new($chars, {
-			(char16_t)303,
-			(char16_t)775
-		}), $$new($chars, {(char16_t)302}), "lt"_s, ConditionalSpecialCasing::MORE_ABOVE),
+			303,
+			775
+		}), $$new($chars, {302}), "lt"_s, ConditionalSpecialCasing::MORE_ABOVE),
 		$$new($ConditionalSpecialCasing$Entry, 204, $$new($chars, {
-			(char16_t)105,
-			(char16_t)775,
-			(char16_t)768
-		}), $$new($chars, {(char16_t)204}), "lt"_s, 0),
+			105,
+			775,
+			768
+		}), $$new($chars, {204}), "lt"_s, 0),
 		$$new($ConditionalSpecialCasing$Entry, 205, $$new($chars, {
-			(char16_t)105,
-			(char16_t)775,
-			(char16_t)769
-		}), $$new($chars, {(char16_t)205}), "lt"_s, 0),
+			105,
+			775,
+			769
+		}), $$new($chars, {205}), "lt"_s, 0),
 		$$new($ConditionalSpecialCasing$Entry, 296, $$new($chars, {
-			(char16_t)105,
-			(char16_t)775,
-			(char16_t)771
-		}), $$new($chars, {(char16_t)296}), "lt"_s, 0),
-		$$new($ConditionalSpecialCasing$Entry, 304, $$new($chars, {(char16_t)105}), $$new($chars, {(char16_t)304}), "tr"_s, 0),
-		$$new($ConditionalSpecialCasing$Entry, 304, $$new($chars, {(char16_t)105}), $$new($chars, {(char16_t)304}), "az"_s, 0),
-		$$new($ConditionalSpecialCasing$Entry, 775, $$new($chars, 0), $$new($chars, {(char16_t)775}), "tr"_s, ConditionalSpecialCasing::AFTER_I),
-		$$new($ConditionalSpecialCasing$Entry, 775, $$new($chars, 0), $$new($chars, {(char16_t)775}), "az"_s, ConditionalSpecialCasing::AFTER_I),
-		$$new($ConditionalSpecialCasing$Entry, 73, $$new($chars, {(char16_t)305}), $$new($chars, {(char16_t)73}), "tr"_s, ConditionalSpecialCasing::NOT_BEFORE_DOT),
-		$$new($ConditionalSpecialCasing$Entry, 73, $$new($chars, {(char16_t)305}), $$new($chars, {(char16_t)73}), "az"_s, ConditionalSpecialCasing::NOT_BEFORE_DOT),
-		$$new($ConditionalSpecialCasing$Entry, 105, $$new($chars, {(char16_t)105}), $$new($chars, {(char16_t)304}), "tr"_s, 0),
-		$$new($ConditionalSpecialCasing$Entry, 105, $$new($chars, {(char16_t)105}), $$new($chars, {(char16_t)304}), "az"_s, 0)
+			105,
+			775,
+			771
+		}), $$new($chars, {296}), "lt"_s, 0),
+		$$new($ConditionalSpecialCasing$Entry, 304, $$new($chars, {105}), $$new($chars, {304}), "tr"_s, 0),
+		$$new($ConditionalSpecialCasing$Entry, 304, $$new($chars, {105}), $$new($chars, {304}), "az"_s, 0),
+		$$new($ConditionalSpecialCasing$Entry, 775, $$new($chars, 0), $$new($chars, {775}), "tr"_s, ConditionalSpecialCasing::AFTER_I),
+		$$new($ConditionalSpecialCasing$Entry, 775, $$new($chars, 0), $$new($chars, {775}), "az"_s, ConditionalSpecialCasing::AFTER_I),
+		$$new($ConditionalSpecialCasing$Entry, 73, $$new($chars, {305}), $$new($chars, {73}), "tr"_s, ConditionalSpecialCasing::NOT_BEFORE_DOT),
+		$$new($ConditionalSpecialCasing$Entry, 73, $$new($chars, {305}), $$new($chars, {73}), "az"_s, ConditionalSpecialCasing::NOT_BEFORE_DOT),
+		$$new($ConditionalSpecialCasing$Entry, 105, $$new($chars, {105}), $$new($chars, {304}), "tr"_s, 0),
+		$$new($ConditionalSpecialCasing$Entry, 105, $$new($chars, {105}), $$new($chars, {304}), "az"_s, 0)
 	}));
 	$assignStatic(ConditionalSpecialCasing::entryTable, $new($Hashtable));
 	{
-		{
-			$var($ConditionalSpecialCasing$EntryArray, arr$, ConditionalSpecialCasing::entry);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($ConditionalSpecialCasing$Entry, cur, arr$->get(i$));
-				{
-					$var($Integer, cp, $Integer::valueOf($nc(cur)->getCodePoint()));
-					$var($HashSet, set, $cast($HashSet, $nc(ConditionalSpecialCasing::entryTable)->get(cp)));
-					if (set == nullptr) {
-						$assign(set, $new($HashSet));
-						$nc(ConditionalSpecialCasing::entryTable)->put(cp, set);
-					}
-					$nc(set)->add(cur);
+		$var($ConditionalSpecialCasing$EntryArray, arr$, ConditionalSpecialCasing::entry);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($ConditionalSpecialCasing$Entry, cur, arr$->get(i$));
+			{
+				$var($Integer, cp, $Integer::valueOf($nc(cur)->getCodePoint()));
+				$var($HashSet, set, $cast($HashSet, ConditionalSpecialCasing::entryTable->get(cp)));
+				if (set == nullptr) {
+					$assign(set, $new($HashSet));
+					ConditionalSpecialCasing::entryTable->put(cp, set);
 				}
+				$nc(set)->add(cur);
 			}
 		}
 	}
@@ -425,7 +340,55 @@ ConditionalSpecialCasing::ConditionalSpecialCasing() {
 }
 
 $Class* ConditionalSpecialCasing::load$($String* name, bool initialize) {
-	$loadClass(ConditionalSpecialCasing, name, initialize, &_ConditionalSpecialCasing_ClassInfo_, clinit$ConditionalSpecialCasing, allocate$ConditionalSpecialCasing);
+	$FieldInfo fieldInfos$$[] = {
+		{"FINAL_CASED", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, FINAL_CASED)},
+		{"AFTER_SOFT_DOTTED", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, AFTER_SOFT_DOTTED)},
+		{"MORE_ABOVE", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, MORE_ABOVE)},
+		{"AFTER_I", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, AFTER_I)},
+		{"NOT_BEFORE_DOT", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, NOT_BEFORE_DOT)},
+		{"COMBINING_CLASS_ABOVE", "I", nullptr, $STATIC | $FINAL, $constField(ConditionalSpecialCasing, COMBINING_CLASS_ABOVE)},
+		{"entry", "[Ljava/lang/ConditionalSpecialCasing$Entry;", nullptr, $STATIC, $staticField(ConditionalSpecialCasing, entry)},
+		{"entryTable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Integer;Ljava/util/HashSet<Ljava/lang/ConditionalSpecialCasing$Entry;>;>;", $STATIC, $staticField(ConditionalSpecialCasing, entryTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ConditionalSpecialCasing, init$, void)},
+		{"isAfterI", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isAfterI, bool, $String*, int32_t)},
+		{"isAfterSoftDotted", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isAfterSoftDotted, bool, $String*, int32_t)},
+		{"isBeforeDot", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isBeforeDot, bool, $String*, int32_t)},
+		{"isCased", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isCased, bool, int32_t)},
+		{"isConditionMet", "(Ljava/lang/String;ILjava/util/Locale;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isConditionMet, bool, $String*, int32_t, $Locale*, int32_t)},
+		{"isFinalCased", "(Ljava/lang/String;ILjava/util/Locale;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isFinalCased, bool, $String*, int32_t, $Locale*)},
+		{"isMoreAbove", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isMoreAbove, bool, $String*, int32_t)},
+		{"isSoftDotted", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isSoftDotted, bool, int32_t)},
+		{"lookUpTable", "(Ljava/lang/String;ILjava/util/Locale;Z)[C", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, lookUpTable, $chars*, $String*, int32_t, $Locale*, bool)},
+		{"toLowerCaseCharArray", "(Ljava/lang/String;ILjava/util/Locale;)[C", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toLowerCaseCharArray, $chars*, $String*, int32_t, $Locale*)},
+		{"toLowerCaseEx", "(Ljava/lang/String;ILjava/util/Locale;)I", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toLowerCaseEx, int32_t, $String*, int32_t, $Locale*)},
+		{"toUpperCaseCharArray", "(Ljava/lang/String;ILjava/util/Locale;)[C", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toUpperCaseCharArray, $chars*, $String*, int32_t, $Locale*)},
+		{"toUpperCaseEx", "(Ljava/lang/String;ILjava/util/Locale;)I", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toUpperCaseEx, int32_t, $String*, int32_t, $Locale*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ConditionalSpecialCasing$Entry", "java.lang.ConditionalSpecialCasing", "Entry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.ConditionalSpecialCasing",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.ConditionalSpecialCasing$Entry"
+	};
+	$loadClass(ConditionalSpecialCasing, name, initialize, &classInfo$$, ConditionalSpecialCasing::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ConditionalSpecialCasing);
+	});
 	return class$;
 }
 

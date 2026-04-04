@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/LocalizedLoggerWrapper.h>
-
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/util/ResourceBundle.h>
@@ -23,53 +22,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace jdk {
 	namespace internal {
 		namespace logger {
-
-$FieldInfo _LocalizedLoggerWrapper_FieldInfo_[] = {
-	{"bundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $FINAL, $field(LocalizedLoggerWrapper, bundle)},
-	{}
-};
-
-$MethodInfo _LocalizedLoggerWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/System$Logger;Ljava/util/ResourceBundle;)V", "(TL;Ljava/util/ResourceBundle;)V", $PUBLIC, $method(LocalizedLoggerWrapper, init$, void, $System$Logger*, $ResourceBundle*)},
-	{"getBundle", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $FINAL, $method(LocalizedLoggerWrapper, getBundle, $ResourceBundle*)},
-	{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, isLoggable, bool, $System$Logger$Level*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $String*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $String*, $Throwable*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $String*, $ObjectArray*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, Object$*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;)V", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $Supplier*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;Ljava/lang/Throwable;)V", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/Throwable;)V", $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $Supplier*, $Throwable*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $PlatformLogger$Level*, $String*, $Throwable*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $PlatformLogger$Level*, $String*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(LocalizedLoggerWrapper, log, void, $PlatformLogger$Level*, $String*, $ObjectArray*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $Throwable*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(LocalizedLoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _LocalizedLoggerWrapper_InnerClassesInfo_[] = {
-	{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LocalizedLoggerWrapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.logger.LocalizedLoggerWrapper",
-	"jdk.internal.logger.LoggerWrapper",
-	nullptr,
-	_LocalizedLoggerWrapper_FieldInfo_,
-	_LocalizedLoggerWrapper_MethodInfo_,
-	"<L::Ljava/lang/System$Logger;>Ljdk/internal/logger/LoggerWrapper<TL;>;",
-	nullptr,
-	_LocalizedLoggerWrapper_InnerClassesInfo_
-};
-
-$Object* allocate$LocalizedLoggerWrapper($Class* clazz) {
-	return $of($alloc(LocalizedLoggerWrapper));
-}
 
 void LocalizedLoggerWrapper::init$($System$Logger* wrapped, $ResourceBundle* bundle) {
 	$LoggerWrapper::init$(wrapped);
@@ -144,7 +96,48 @@ LocalizedLoggerWrapper::LocalizedLoggerWrapper() {
 }
 
 $Class* LocalizedLoggerWrapper::load$($String* name, bool initialize) {
-	$loadClass(LocalizedLoggerWrapper, name, initialize, &_LocalizedLoggerWrapper_ClassInfo_, allocate$LocalizedLoggerWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"bundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $FINAL, $field(LocalizedLoggerWrapper, bundle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/System$Logger;Ljava/util/ResourceBundle;)V", "(TL;Ljava/util/ResourceBundle;)V", $PUBLIC, $method(LocalizedLoggerWrapper, init$, void, $System$Logger*, $ResourceBundle*)},
+		{"getBundle", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $FINAL, $method(LocalizedLoggerWrapper, getBundle, $ResourceBundle*)},
+		{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, isLoggable, bool, $System$Logger$Level*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $String*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $String*, $Throwable*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $String*, $ObjectArray*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, Object$*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;)V", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $Supplier*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;Ljava/lang/Throwable;)V", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/Throwable;)V", $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $Supplier*, $Throwable*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $PlatformLogger$Level*, $String*, $Throwable*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, log, void, $PlatformLogger$Level*, $String*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(LocalizedLoggerWrapper, log, void, $PlatformLogger$Level*, $String*, $ObjectArray*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalizedLoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $Throwable*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(LocalizedLoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.logger.LocalizedLoggerWrapper",
+		"jdk.internal.logger.LoggerWrapper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<L::Ljava/lang/System$Logger;>Ljdk/internal/logger/LoggerWrapper<TL;>;",
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(LocalizedLoggerWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LocalizedLoggerWrapper));
+	});
 	return class$;
 }
 

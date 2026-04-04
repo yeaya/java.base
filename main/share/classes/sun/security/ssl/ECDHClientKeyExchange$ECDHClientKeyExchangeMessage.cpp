@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECDHClientKeyExchange$ECDHClientKeyExchangeMessage.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/Locale.h>
@@ -35,47 +34,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _ECDHClientKeyExchange$ECDHClientKeyExchangeMessage_FieldInfo_[] = {
-	{"encodedPoint", "[B", nullptr, $PRIVATE | $FINAL, $field(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, encodedPoint)},
-	{}
-};
-
-$MethodInfo _ECDHClientKeyExchange$ECDHClientKeyExchangeMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;[B)V", nullptr, 0, $method(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, init$, void, $HandshakeContext*, $bytes*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ECDHClientKeyExchange$ECDHClientKeyExchangeMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECDHClientKeyExchange$ECDHClientKeyExchangeMessage", "sun.security.ssl.ECDHClientKeyExchange", "ECDHClientKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ECDHClientKeyExchange$ECDHClientKeyExchangeMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ECDHClientKeyExchange$ECDHClientKeyExchangeMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_ECDHClientKeyExchange$ECDHClientKeyExchangeMessage_FieldInfo_,
-	_ECDHClientKeyExchange$ECDHClientKeyExchangeMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECDHClientKeyExchange$ECDHClientKeyExchangeMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECDHClientKeyExchange"
-};
-
-$Object* allocate$ECDHClientKeyExchange$ECDHClientKeyExchangeMessage($Class* clazz) {
-	return $of($alloc(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage));
-}
-
 void ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::init$($HandshakeContext* handshakeContext, $bytes* encodedPublicKey) {
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$set(this, encodedPoint, encodedPublicKey);
@@ -96,29 +54,29 @@ $SSLHandshake* ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::handshakeType
 }
 
 int32_t ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::messageLength() {
-	if (this->encodedPoint == nullptr || $nc(this->encodedPoint)->length == 0) {
+	if (this->encodedPoint == nullptr || this->encodedPoint->length == 0) {
 		return 0;
 	} else {
-		return 1 + $nc(this->encodedPoint)->length;
+		return 1 + this->encodedPoint->length;
 	}
 }
 
 void ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::send($HandshakeOutStream* hos) {
-	if (this->encodedPoint != nullptr && $nc(this->encodedPoint)->length != 0) {
+	if (this->encodedPoint != nullptr && this->encodedPoint->length != 0) {
 		$nc(hos)->putBytes8(this->encodedPoint);
 	}
 }
 
 $String* ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"ECDH ClientKeyExchange\": \'{\'\n  \"ecdh public\": \'{\'\n{0}\n  \'}\',\n\'}\'"_s, $Locale::ENGLISH));
-	if (this->encodedPoint == nullptr || $nc(this->encodedPoint)->length == 0) {
-		$var($ObjectArray, messageFields, $new($ObjectArray, {$of("    <implicit>"_s)}));
+	if (this->encodedPoint == nullptr || this->encodedPoint->length == 0) {
+		$var($ObjectArray, messageFields, $new($ObjectArray, {"    <implicit>"_s}));
 		return messageFormat->format(messageFields);
 	} else {
 		$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
-		$var($ObjectArray, messageFields, $new($ObjectArray, {$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->encodedPoint)), "    "_s)))}));
+		$var($ObjectArray, messageFields, $new($ObjectArray, {$($Utilities::indent($(hexEncoder->encodeBuffer(this->encodedPoint)), "    "_s))}));
 		return messageFormat->format(messageFields);
 	}
 }
@@ -127,7 +85,42 @@ ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::ECDHClientKeyExchange$ECDHCl
 }
 
 $Class* ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::load$($String* name, bool initialize) {
-	$loadClass(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, name, initialize, &_ECDHClientKeyExchange$ECDHClientKeyExchangeMessage_ClassInfo_, allocate$ECDHClientKeyExchange$ECDHClientKeyExchangeMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"encodedPoint", "[B", nullptr, $PRIVATE | $FINAL, $field(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, encodedPoint)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;[B)V", nullptr, 0, $method(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, init$, void, $HandshakeContext*, $bytes*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECDHClientKeyExchange$ECDHClientKeyExchangeMessage", "sun.security.ssl.ECDHClientKeyExchange", "ECDHClientKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ECDHClientKeyExchange$ECDHClientKeyExchangeMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECDHClientKeyExchange"
+	};
+	$loadClass(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage);
+	});
 	return class$;
 }
 

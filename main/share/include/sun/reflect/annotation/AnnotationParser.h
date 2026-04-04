@@ -64,6 +64,7 @@ class $import AnnotationParser : public ::java::lang::Object {
 	$class(AnnotationParser, 0, ::java::lang::Object)
 public:
 	AnnotationParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::annotation::Annotation* annotationForMap($Class* type, ::java::util::Map* memberValues);
 	static bool contains($ObjectArray* array, Object$* element);

@@ -32,6 +32,7 @@ class $export Lock : public ::java::lang::Object {
 	$class(Lock, 0, ::java::lang::Object)
 public:
 	Lock();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void runLockWorker(int32_t port);

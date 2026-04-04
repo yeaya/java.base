@@ -13,6 +13,7 @@ class Files$3 : public ::java::lang::Object {
 	$class(Files$3, 0, ::java::lang::Object)
 public:
 	Files$3();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$nio$file$FileTreeWalker$EventType;
 };
 

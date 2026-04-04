@@ -1,5 +1,4 @@
 #include <Lock$LockWorkerMirror.h>
-
 #include <Lock.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/SocketChannel.h>
@@ -16,60 +15,16 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $Charset = ::java::nio::charset::Charset;
 
-$FieldInfo _Lock$LockWorkerMirror_FieldInfo_[] = {
-	{"sc", "Ljava/nio/channels/SocketChannel;", nullptr, $PRIVATE | $FINAL, $field(Lock$LockWorkerMirror, sc)},
-	{}
-};
-
-$MethodInfo _Lock$LockWorkerMirror_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(Lock$LockWorkerMirror, init$, void, $SocketChannel*)},
-	{"close", "()V", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, close, void), "java.io.IOException"},
-	{"lock", "()LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, lock, Lock$LockWorkerMirror*), "java.io.IOException"},
-	{"lock", "(JJZ)LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, lock, Lock$LockWorkerMirror*, int64_t, int64_t, bool), "java.io.IOException"},
-	{"open", "(Ljava/lang/String;)LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, open, Lock$LockWorkerMirror*, $String*), "java.io.IOException"},
-	{"sendCommand", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(Lock$LockWorkerMirror, sendCommand, void, $String*, $StringArray*), "java.io.IOException"},
-	{"shutdown", "()V", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, shutdown, void), "java.io.IOException"},
-	{"unlock", "()LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, unlock, Lock$LockWorkerMirror*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Lock$LockWorkerMirror_InnerClassesInfo_[] = {
-	{"Lock$LockWorkerMirror", "Lock", "LockWorkerMirror", $STATIC},
-	{}
-};
-
-$ClassInfo _Lock$LockWorkerMirror_ClassInfo_ = {
-	$ACC_SUPER,
-	"Lock$LockWorkerMirror",
-	"java.lang.Object",
-	nullptr,
-	_Lock$LockWorkerMirror_FieldInfo_,
-	_Lock$LockWorkerMirror_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Lock$LockWorkerMirror_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Lock"
-};
-
-$Object* allocate$Lock$LockWorkerMirror($Class* clazz) {
-	return $of($alloc(Lock$LockWorkerMirror));
-}
-
 void Lock$LockWorkerMirror::init$($SocketChannel* sc) {
 	$set(this, sc, sc);
 }
 
 void Lock$LockWorkerMirror::sendCommand($String* cmd$renamed, $StringArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, cmd, cmd$renamed);
 	{
 		$var($StringArray, arr$, params);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, s, arr$->get(i$));
 			{
 				$plusAssign(cmd, $$str({" "_s, s}));
@@ -77,7 +32,7 @@ void Lock$LockWorkerMirror::sendCommand($String* cmd$renamed, $StringArray* para
 		}
 	}
 	$plusAssign(cmd, u';');
-	$var($ByteBuffer, buf, $nc($($Charset::defaultCharset()))->encode(cmd));
+	$var($ByteBuffer, buf, $$nc($Charset::defaultCharset())->encode(cmd));
 	while ($nc(buf)->hasRemaining()) {
 		$nc(this->sc)->write(buf);
 	}
@@ -106,7 +61,7 @@ Lock$LockWorkerMirror* Lock$LockWorkerMirror::lock() {
 }
 
 Lock$LockWorkerMirror* Lock$LockWorkerMirror::lock(int64_t position, int64_t size, bool shared) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	sendCommand("lock"_s, $$new($StringArray, {$$str({$$str(position), ","_s, $$str(size), ","_s, $$str(shared)})}));
 	return this;
 }
@@ -124,7 +79,43 @@ Lock$LockWorkerMirror::Lock$LockWorkerMirror() {
 }
 
 $Class* Lock$LockWorkerMirror::load$($String* name, bool initialize) {
-	$loadClass(Lock$LockWorkerMirror, name, initialize, &_Lock$LockWorkerMirror_ClassInfo_, allocate$Lock$LockWorkerMirror);
+	$FieldInfo fieldInfos$$[] = {
+		{"sc", "Ljava/nio/channels/SocketChannel;", nullptr, $PRIVATE | $FINAL, $field(Lock$LockWorkerMirror, sc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(Lock$LockWorkerMirror, init$, void, $SocketChannel*)},
+		{"close", "()V", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, close, void), "java.io.IOException"},
+		{"lock", "()LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, lock, Lock$LockWorkerMirror*), "java.io.IOException"},
+		{"lock", "(JJZ)LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, lock, Lock$LockWorkerMirror*, int64_t, int64_t, bool), "java.io.IOException"},
+		{"open", "(Ljava/lang/String;)LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, open, Lock$LockWorkerMirror*, $String*), "java.io.IOException"},
+		{"sendCommand", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(Lock$LockWorkerMirror, sendCommand, void, $String*, $StringArray*), "java.io.IOException"},
+		{"shutdown", "()V", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, shutdown, void), "java.io.IOException"},
+		{"unlock", "()LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, unlock, Lock$LockWorkerMirror*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Lock$LockWorkerMirror", "Lock", "LockWorkerMirror", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Lock$LockWorkerMirror",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Lock"
+	};
+	$loadClass(Lock$LockWorkerMirror, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Lock$LockWorkerMirror);
+	});
 	return class$;
 }
 

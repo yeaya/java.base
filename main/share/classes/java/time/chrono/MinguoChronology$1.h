@@ -13,6 +13,7 @@ class MinguoChronology$1 : public ::java::lang::Object {
 	$class(MinguoChronology$1, 0, ::java::lang::Object)
 public:
 	MinguoChronology$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$time$temporal$ChronoField;
 };
 

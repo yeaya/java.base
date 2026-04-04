@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECDHKeyExchange$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <sun/security/ssl/ECDHKeyExchange.h>
 #include <sun/security/ssl/NamedGroup$NamedGroupSpec.h>
@@ -19,53 +18,17 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _ECDHKeyExchange$1_FieldInfo_[] = {
-	{"$SwitchMap$sun$security$ssl$NamedGroup$NamedGroupSpec", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ECDHKeyExchange$1, $SwitchMap$sun$security$ssl$NamedGroup$NamedGroupSpec)},
-	{}
-};
-
-$EnclosingMethodInfo _ECDHKeyExchange$1_EnclosingMethodInfo_ = {
-	"sun.security.ssl.ECDHKeyExchange",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ECDHKeyExchange$1_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECDHKeyExchange$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ECDHKeyExchange$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"sun.security.ssl.ECDHKeyExchange$1",
-	"java.lang.Object",
-	nullptr,
-	_ECDHKeyExchange$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ECDHKeyExchange$1_EnclosingMethodInfo_,
-	_ECDHKeyExchange$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECDHKeyExchange"
-};
-
-$Object* allocate$ECDHKeyExchange$1($Class* clazz) {
-	return $of($alloc(ECDHKeyExchange$1));
-}
-
 $ints* ECDHKeyExchange$1::$SwitchMap$sun$security$ssl$NamedGroup$NamedGroupSpec = nullptr;
 
-void clinit$ECDHKeyExchange$1($Class* class$) {
+void ECDHKeyExchange$1::clinit$($Class* clazz) {
 	$assignStatic(ECDHKeyExchange$1::$SwitchMap$sun$security$ssl$NamedGroup$NamedGroupSpec, $new($ints, $($NamedGroup$NamedGroupSpec::values())->length));
 	{
 		try {
-			$nc(ECDHKeyExchange$1::$SwitchMap$sun$security$ssl$NamedGroup$NamedGroupSpec)->set($NamedGroup$NamedGroupSpec::NAMED_GROUP_ECDHE->ordinal(), 1);
+			ECDHKeyExchange$1::$SwitchMap$sun$security$ssl$NamedGroup$NamedGroupSpec->set($NamedGroup$NamedGroupSpec::NAMED_GROUP_ECDHE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ECDHKeyExchange$1::$SwitchMap$sun$security$ssl$NamedGroup$NamedGroupSpec)->set($NamedGroup$NamedGroupSpec::NAMED_GROUP_XDH->ordinal(), 2);
+			ECDHKeyExchange$1::$SwitchMap$sun$security$ssl$NamedGroup$NamedGroupSpec->set($NamedGroup$NamedGroupSpec::NAMED_GROUP_XDH->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -75,7 +38,37 @@ ECDHKeyExchange$1::ECDHKeyExchange$1() {
 }
 
 $Class* ECDHKeyExchange$1::load$($String* name, bool initialize) {
-	$loadClass(ECDHKeyExchange$1, name, initialize, &_ECDHKeyExchange$1_ClassInfo_, clinit$ECDHKeyExchange$1, allocate$ECDHKeyExchange$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$security$ssl$NamedGroup$NamedGroupSpec", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ECDHKeyExchange$1, $SwitchMap$sun$security$ssl$NamedGroup$NamedGroupSpec)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.ssl.ECDHKeyExchange",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECDHKeyExchange$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"sun.security.ssl.ECDHKeyExchange$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECDHKeyExchange"
+	};
+	$loadClass(ECDHKeyExchange$1, name, initialize, &classInfo$$, ECDHKeyExchange$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ECDHKeyExchange$1);
+	});
 	return class$;
 }
 

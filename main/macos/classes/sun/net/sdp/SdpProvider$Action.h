@@ -20,6 +20,7 @@ class SdpProvider$Action : public ::java::lang::Enum {
 public:
 	SdpProvider$Action();
 	static $Array<::sun::net::sdp::SdpProvider$Action>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::net::sdp::SdpProvider$Action* valueOf($String* name);
 	static $Array<::sun::net::sdp::SdpProvider$Action>* values();

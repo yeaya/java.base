@@ -1,5 +1,4 @@
 #include <sun/net/ftp/FtpLoginException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace net {
 		namespace ftp {
-
-$FieldInfo _FtpLoginException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FtpLoginException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FtpLoginException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FtpLoginException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _FtpLoginException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.ftp.FtpLoginException",
-	"java.io.IOException",
-	nullptr,
-	_FtpLoginException_FieldInfo_,
-	_FtpLoginException_MethodInfo_
-};
-
-$Object* allocate$FtpLoginException($Class* clazz) {
-	return $of($alloc(FtpLoginException));
-}
 
 void FtpLoginException::init$($String* s) {
 	$IOException::init$(s);
@@ -50,7 +26,25 @@ void FtpLoginException::throw$() {
 }
 
 $Class* FtpLoginException::load$($String* name, bool initialize) {
-	$loadClass(FtpLoginException, name, initialize, &_FtpLoginException_ClassInfo_, allocate$FtpLoginException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FtpLoginException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FtpLoginException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.ftp.FtpLoginException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FtpLoginException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FtpLoginException);
+	});
 	return class$;
 }
 

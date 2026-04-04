@@ -20,6 +20,7 @@ class $export Trim : public ::java::lang::Object {
 	$class(Trim, 0, ::java::lang::Object)
 public:
 	Trim();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void bash();
 	static void capacityCheck();

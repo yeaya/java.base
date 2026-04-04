@@ -44,6 +44,7 @@ class $import MethodHandle : public ::java::lang::constant::Constable {
 	$class(MethodHandle, $PRELOAD, ::java::lang::constant::Constable)
 public:
 	MethodHandle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodType* type, ::java::lang::invoke::LambdaForm* form);
 	virtual ::java::lang::invoke::MethodHandle* asCollector($Class* arrayType, int32_t arrayLength);
 	virtual ::java::lang::invoke::MethodHandle* asCollector(int32_t collectArgPos, $Class* arrayType, int32_t arrayLength);

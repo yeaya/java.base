@@ -20,6 +20,7 @@ class Alert$Level : public ::java::lang::Enum {
 public:
 	Alert$Level();
 	static $Array<::sun::security::ssl::Alert$Level>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t level, $String* description);
 	static $String* nameOf(int8_t level);
 	static ::sun::security::ssl::Alert$Level* valueOf($String* name);

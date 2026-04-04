@@ -21,6 +21,7 @@ class Calendar$AvailableCalendarTypes : public ::java::lang::Object {
 	$class(Calendar$AvailableCalendarTypes, 0, ::java::lang::Object)
 public:
 	Calendar$AvailableCalendarTypes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* SET;
 };

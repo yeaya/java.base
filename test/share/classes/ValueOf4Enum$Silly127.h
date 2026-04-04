@@ -11,6 +11,7 @@ class $export ValueOf4Enum$Silly127 : public ::java::lang::Enum {
 public:
 	ValueOf4Enum$Silly127();
 	static $Array<ValueOf4Enum$Silly127>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::ValueOf4Enum$Silly127* valueOf($String* name);
 	static $Array<ValueOf4Enum$Silly127>* values();

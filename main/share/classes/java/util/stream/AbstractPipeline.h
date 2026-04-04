@@ -54,6 +54,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::function::Supplier* source, int32_t sourceFlags, bool parallel);
 	void init$(::java::util::Spliterator* source, int32_t sourceFlags, bool parallel);
 	void init$(::java::util::stream::AbstractPipeline* previousStage, int32_t opFlags);

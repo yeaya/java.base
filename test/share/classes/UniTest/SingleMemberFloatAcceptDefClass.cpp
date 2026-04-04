@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberFloatAcceptDefClass.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,33 +7,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace UniTest {
 
-$CompoundAttribute _SingleMemberFloatAcceptDefClass_Annotations_[] = {
-	{"LUniTest/SingleMemberFloatWithDef;", nullptr},
-	{}
-};
-
-$MethodInfo _SingleMemberFloatAcceptDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberFloatAcceptDefClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberFloatAcceptDefClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberFloatAcceptDefClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberFloatAcceptDefClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberFloatAcceptDefClass_Annotations_
-};
-
-$Object* allocate$SingleMemberFloatAcceptDefClass($Class* clazz) {
-	return $of($alloc(SingleMemberFloatAcceptDefClass));
-}
-
 void SingleMemberFloatAcceptDefClass::init$() {
 }
 
@@ -42,7 +14,29 @@ SingleMemberFloatAcceptDefClass::SingleMemberFloatAcceptDefClass() {
 }
 
 $Class* SingleMemberFloatAcceptDefClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberFloatAcceptDefClass, name, initialize, &_SingleMemberFloatAcceptDefClass_ClassInfo_, allocate$SingleMemberFloatAcceptDefClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberFloatAcceptDefClass, init$, void)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberFloatWithDef;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberFloatAcceptDefClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberFloatAcceptDefClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberFloatAcceptDefClass);
+	});
 	return class$;
 }
 

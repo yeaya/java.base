@@ -1,5 +1,4 @@
 #include <sun/security/provider/DSAPublicKeyImpl.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/KeyRep$Type.h>
 #include <java/security/KeyRep.h>
@@ -21,31 +20,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _DSAPublicKeyImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DSAPublicKeyImpl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DSAPublicKeyImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAPublicKeyImpl, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(DSAPublicKeyImpl, init$, void, $bytes*), "java.security.InvalidKeyException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $method(DSAPublicKeyImpl, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$ClassInfo _DSAPublicKeyImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.DSAPublicKeyImpl",
-	"sun.security.provider.DSAPublicKey",
-	nullptr,
-	_DSAPublicKeyImpl_FieldInfo_,
-	_DSAPublicKeyImpl_MethodInfo_
-};
-
-$Object* allocate$DSAPublicKeyImpl($Class* clazz) {
-	return $of($alloc(DSAPublicKeyImpl));
-}
-
 void DSAPublicKeyImpl::init$($BigInteger* y, $BigInteger* p, $BigInteger* q, $BigInteger* g) {
 	$DSAPublicKey::init$(y, p, q, g);
 }
@@ -55,19 +29,39 @@ void DSAPublicKeyImpl::init$($bytes* encoded) {
 }
 
 $Object* DSAPublicKeyImpl::writeReplace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::PUBLIC);
 	$var($String, var$1, getAlgorithm());
 	$var($String, var$2, getFormat());
-	return $of($new($KeyRep, var$0, var$1, var$2, $(getEncoded())));
+	return $new($KeyRep, var$0, var$1, var$2, $(getEncoded()));
 }
 
 DSAPublicKeyImpl::DSAPublicKeyImpl() {
 }
 
 $Class* DSAPublicKeyImpl::load$($String* name, bool initialize) {
-	$loadClass(DSAPublicKeyImpl, name, initialize, &_DSAPublicKeyImpl_ClassInfo_, allocate$DSAPublicKeyImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DSAPublicKeyImpl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAPublicKeyImpl, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(DSAPublicKeyImpl, init$, void, $bytes*), "java.security.InvalidKeyException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $method(DSAPublicKeyImpl, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.DSAPublicKeyImpl",
+		"sun.security.provider.DSAPublicKey",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DSAPublicKeyImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DSAPublicKeyImpl));
+	});
 	return class$;
 }
 

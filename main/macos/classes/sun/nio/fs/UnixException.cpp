@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixException.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/file/AccessDeniedException.h>
 #include <java/nio/file/FileAlreadyExistsException.h>
@@ -33,41 +32,6 @@ using $Util = ::sun::nio::fs::Util;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _UnixException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(UnixException, serialVersionUID)},
-	{"errno", "I", nullptr, $PRIVATE, $field(UnixException, errno$$)},
-	{"msg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnixException, msg)},
-	{}
-};
-
-$MethodInfo _UnixException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(UnixException, init$, void, int32_t)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(UnixException, init$, void, $String*)},
-	{"asIOException", "(Lsun/nio/fs/UnixPath;)Ljava/io/IOException;", nullptr, 0, $virtualMethod(UnixException, asIOException, $IOException*, $UnixPath*)},
-	{"errno", "()I", nullptr, 0, $virtualMethod(UnixException, errno$, int32_t)},
-	{"errorString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(UnixException, errorString, $String*)},
-	{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(UnixException, fillInStackTrace, $Throwable*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixException, getMessage, $String*)},
-	{"rethrowAsIOException", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixPath;)V", nullptr, 0, $virtualMethod(UnixException, rethrowAsIOException, void, $UnixPath*, $UnixPath*), "java.io.IOException"},
-	{"rethrowAsIOException", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, $virtualMethod(UnixException, rethrowAsIOException, void, $UnixPath*), "java.io.IOException"},
-	{"setError", "(I)V", nullptr, 0, $virtualMethod(UnixException, setError, void, int32_t)},
-	{"translateToIOException", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/IOException;", nullptr, $PRIVATE, $method(UnixException, translateToIOException, $IOException*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _UnixException_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixException",
-	"java.lang.Exception",
-	nullptr,
-	_UnixException_FieldInfo_,
-	_UnixException_MethodInfo_
-};
-
-$Object* allocate$UnixException($Class* clazz) {
-	return $of($alloc(UnixException));
-}
 
 void UnixException::init$(int32_t errno$) {
 	$Exception::init$();
@@ -107,7 +71,7 @@ $Throwable* UnixException::fillInStackTrace() {
 }
 
 $IOException* UnixException::translateToIOException($String* file, $String* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->msg != nullptr) {
 		return $new($IOException, this->msg);
 	}
@@ -128,9 +92,9 @@ $IOException* UnixException::translateToIOException($String* file, $String* othe
 }
 
 void UnixException::rethrowAsIOException($UnixPath* file, $UnixPath* other) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, a, (file == nullptr) ? ($String*)nullptr : $nc(file)->getPathForExceptionMessage());
-	$var($String, b, (other == nullptr) ? ($String*)nullptr : $nc(other)->getPathForExceptionMessage());
+	$useLocalObjectStack();
+	$var($String, a, (file == nullptr) ? ($String*)nullptr : file->getPathForExceptionMessage());
+	$var($String, b, (other == nullptr) ? ($String*)nullptr : other->getPathForExceptionMessage());
 	$var($IOException, x, translateToIOException(a, b));
 	$throw(x);
 }
@@ -154,7 +118,37 @@ void UnixException::throw$() {
 }
 
 $Class* UnixException::load$($String* name, bool initialize) {
-	$loadClass(UnixException, name, initialize, &_UnixException_ClassInfo_, allocate$UnixException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(UnixException, serialVersionUID)},
+		{"errno", "I", nullptr, $PRIVATE, $field(UnixException, errno$$)},
+		{"msg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnixException, msg)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(UnixException, init$, void, int32_t)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(UnixException, init$, void, $String*)},
+		{"asIOException", "(Lsun/nio/fs/UnixPath;)Ljava/io/IOException;", nullptr, 0, $virtualMethod(UnixException, asIOException, $IOException*, $UnixPath*)},
+		{"errno", "()I", nullptr, 0, $virtualMethod(UnixException, errno$, int32_t)},
+		{"errorString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(UnixException, errorString, $String*)},
+		{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(UnixException, fillInStackTrace, $Throwable*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixException, getMessage, $String*)},
+		{"rethrowAsIOException", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixPath;)V", nullptr, 0, $virtualMethod(UnixException, rethrowAsIOException, void, $UnixPath*, $UnixPath*), "java.io.IOException"},
+		{"rethrowAsIOException", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, $virtualMethod(UnixException, rethrowAsIOException, void, $UnixPath*), "java.io.IOException"},
+		{"setError", "(I)V", nullptr, 0, $virtualMethod(UnixException, setError, void, int32_t)},
+		{"translateToIOException", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/IOException;", nullptr, $PRIVATE, $method(UnixException, translateToIOException, $IOException*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnixException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixException);
+	});
 	return class$;
 }
 

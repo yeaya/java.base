@@ -15,10 +15,13 @@ public:
 	ZipException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x6F0668A23BC0D4CF;
+	static const int64_t serialVersionUID = (int64_t)0x6f0668a23bc0d4cf;
 	ZipException(const ZipException& e);
 	virtual void throw$() override;
-	inline ZipException* operator ->() {
+	inline ZipException* operator ->() const {
+		return (ZipException*)throwing$;
+	}
+	inline operator ZipException*() const {
 		return (ZipException*)throwing$;
 	}
 };

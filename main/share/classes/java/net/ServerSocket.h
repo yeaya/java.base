@@ -40,6 +40,7 @@ class $export ServerSocket : public ::java::io::Closeable {
 	$class(ServerSocket, 0, ::java::io::Closeable)
 public:
 	ServerSocket();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::SocketImpl* impl);
 	void init$();
 	void init$(int32_t port);

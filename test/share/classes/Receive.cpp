@@ -1,5 +1,4 @@
 #include <Receive.h>
-
 #include <java/net/SocketAddress.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/ClosedChannelException.h>
@@ -14,30 +13,11 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 
-$MethodInfo _Receive_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Receive, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Receive, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Receive_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Receive",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Receive_MethodInfo_
-};
-
-$Object* allocate$Receive($Class* clazz) {
-	return $of($alloc(Receive));
-}
-
 void Receive::init$() {
 }
 
 void Receive::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(10));
 	$var($DatagramChannel, dc1, $DatagramChannel::open());
 	$nc(dc1)->close();
@@ -52,7 +32,22 @@ Receive::Receive() {
 }
 
 $Class* Receive::load$($String* name, bool initialize) {
-	$loadClass(Receive, name, initialize, &_Receive_ClassInfo_, allocate$Receive);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Receive, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Receive, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Receive",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Receive, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Receive);
+	});
 	return class$;
 }
 

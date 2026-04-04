@@ -1,42 +1,10 @@
 #include <PrivateInterfaceCall$C3.h>
-
 #include <PrivateInterfaceCall.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _PrivateInterfaceCall$C3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PrivateInterfaceCall$C3, init$, void)},
-	{}
-};
-
-$InnerClassInfo _PrivateInterfaceCall$C3_InnerClassesInfo_[] = {
-	{"PrivateInterfaceCall$C3", "PrivateInterfaceCall", "C3", $STATIC},
-	{"PrivateInterfaceCall$I3", "PrivateInterfaceCall", "I3", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PrivateInterfaceCall$C3_ClassInfo_ = {
-	$ACC_SUPER,
-	"PrivateInterfaceCall$C3",
-	"java.lang.Object",
-	"PrivateInterfaceCall$I3",
-	nullptr,
-	_PrivateInterfaceCall$C3_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrivateInterfaceCall$C3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"PrivateInterfaceCall"
-};
-
-$Object* allocate$PrivateInterfaceCall$C3($Class* clazz) {
-	return $of($alloc(PrivateInterfaceCall$C3));
-}
 
 void PrivateInterfaceCall$C3::init$() {
 }
@@ -45,7 +13,33 @@ PrivateInterfaceCall$C3::PrivateInterfaceCall$C3() {
 }
 
 $Class* PrivateInterfaceCall$C3::load$($String* name, bool initialize) {
-	$loadClass(PrivateInterfaceCall$C3, name, initialize, &_PrivateInterfaceCall$C3_ClassInfo_, allocate$PrivateInterfaceCall$C3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PrivateInterfaceCall$C3, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"PrivateInterfaceCall$C3", "PrivateInterfaceCall", "C3", $STATIC},
+		{"PrivateInterfaceCall$I3", "PrivateInterfaceCall", "I3", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"PrivateInterfaceCall$C3",
+		"java.lang.Object",
+		"PrivateInterfaceCall$I3",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"PrivateInterfaceCall"
+	};
+	$loadClass(PrivateInterfaceCall$C3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrivateInterfaceCall$C3);
+	});
 	return class$;
 }
 

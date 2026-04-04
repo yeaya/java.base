@@ -1,5 +1,4 @@
 #include <java/io/FilterWriter.h>
-
 #include <java/io/Writer.h>
 #include <jcpp.h>
 
@@ -10,34 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _FilterWriter_FieldInfo_[] = {
-	{"out", "Ljava/io/Writer;", nullptr, $PROTECTED, $field(FilterWriter, out)},
-	{}
-};
-
-$MethodInfo _FilterWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $method(FilterWriter, init$, void, $Writer*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, flush, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, write, void, int32_t), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _FilterWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.io.FilterWriter",
-	"java.io.Writer",
-	nullptr,
-	_FilterWriter_FieldInfo_,
-	_FilterWriter_MethodInfo_
-};
-
-$Object* allocate$FilterWriter($Class* clazz) {
-	return $of($alloc(FilterWriter));
-}
 
 void FilterWriter::init$($Writer* out) {
 	$Writer::init$(out);
@@ -68,7 +39,30 @@ FilterWriter::FilterWriter() {
 }
 
 $Class* FilterWriter::load$($String* name, bool initialize) {
-	$loadClass(FilterWriter, name, initialize, &_FilterWriter_ClassInfo_, allocate$FilterWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/Writer;", nullptr, $PROTECTED, $field(FilterWriter, out)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $method(FilterWriter, init$, void, $Writer*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, flush, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, write, void, int32_t), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.io.FilterWriter",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FilterWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilterWriter));
+	});
 	return class$;
 }
 

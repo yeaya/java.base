@@ -1,5 +1,4 @@
 #include <java/nio/file/DirectoryStream.h>
-
 #include <java/io/Closeable.h>
 #include <jcpp.h>
 
@@ -11,40 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$MethodInfo _DirectoryStream_MethodInfo_[] = {
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$InnerClassInfo _DirectoryStream_InnerClassesInfo_[] = {
-	{"java.nio.file.DirectoryStream$Filter", "java.nio.file.DirectoryStream", "Filter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DirectoryStream_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.file.DirectoryStream",
-	nullptr,
-	"java.io.Closeable,java.lang.Iterable",
-	nullptr,
-	_DirectoryStream_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/io/Closeable;Ljava/lang/Iterable<TT;>;",
-	nullptr,
-	_DirectoryStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.nio.file.DirectoryStream$Filter"
-};
-
-$Object* allocate$DirectoryStream($Class* clazz) {
-	return $of($alloc(DirectoryStream));
-}
 
 int32_t DirectoryStream::hashCode() {
 	 return this->$Closeable::hashCode();
@@ -67,7 +32,36 @@ void DirectoryStream::finalize() {
 }
 
 $Class* DirectoryStream::load$($String* name, bool initialize) {
-	$loadClass(DirectoryStream, name, initialize, &_DirectoryStream_ClassInfo_, allocate$DirectoryStream);
+	$MethodInfo methodInfos$$[] = {
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.DirectoryStream$Filter", "java.nio.file.DirectoryStream", "Filter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.file.DirectoryStream",
+		nullptr,
+		"java.io.Closeable,java.lang.Iterable",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/io/Closeable;Ljava/lang/Iterable<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.nio.file.DirectoryStream$Filter"
+	};
+	$loadClass(DirectoryStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectoryStream));
+	});
 	return class$;
 }
 

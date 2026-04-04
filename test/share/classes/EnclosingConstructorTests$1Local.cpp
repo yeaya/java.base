@@ -1,5 +1,4 @@
 #include <EnclosingConstructorTests$1Local.h>
-
 #include <EnclosingConstructorTests.h>
 #include <jcpp.h>
 
@@ -10,47 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _EnclosingConstructorTests$1Local_FieldInfo_[] = {
-	{"this$0", "LEnclosingConstructorTests;", nullptr, $FINAL | $SYNTHETIC, $field(EnclosingConstructorTests$1Local, this$0)},
-	{}
-};
-
-$MethodInfo _EnclosingConstructorTests$1Local_MethodInfo_[] = {
-	{"<init>", "(LEnclosingConstructorTests;)V", nullptr, 0, $method(EnclosingConstructorTests$1Local, init$, void, $EnclosingConstructorTests*)},
-	{}
-};
-
-$EnclosingMethodInfo _EnclosingConstructorTests$1Local_EnclosingMethodInfo_ = {
-	"EnclosingConstructorTests",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _EnclosingConstructorTests$1Local_InnerClassesInfo_[] = {
-	{"EnclosingConstructorTests$1Local", nullptr, "Local", 0},
-	{}
-};
-
-$ClassInfo _EnclosingConstructorTests$1Local_ClassInfo_ = {
-	$ACC_SUPER,
-	"EnclosingConstructorTests$1Local",
-	"java.lang.Object",
-	nullptr,
-	_EnclosingConstructorTests$1Local_FieldInfo_,
-	_EnclosingConstructorTests$1Local_MethodInfo_,
-	nullptr,
-	&_EnclosingConstructorTests$1Local_EnclosingMethodInfo_,
-	_EnclosingConstructorTests$1Local_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"EnclosingConstructorTests"
-};
-
-$Object* allocate$EnclosingConstructorTests$1Local($Class* clazz) {
-	return $of($alloc(EnclosingConstructorTests$1Local));
-}
-
 void EnclosingConstructorTests$1Local::init$($EnclosingConstructorTests* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -59,7 +17,41 @@ EnclosingConstructorTests$1Local::EnclosingConstructorTests$1Local() {
 }
 
 $Class* EnclosingConstructorTests$1Local::load$($String* name, bool initialize) {
-	$loadClass(EnclosingConstructorTests$1Local, name, initialize, &_EnclosingConstructorTests$1Local_ClassInfo_, allocate$EnclosingConstructorTests$1Local);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LEnclosingConstructorTests;", nullptr, $FINAL | $SYNTHETIC, $field(EnclosingConstructorTests$1Local, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LEnclosingConstructorTests;)V", nullptr, 0, $method(EnclosingConstructorTests$1Local, init$, void, $EnclosingConstructorTests*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"EnclosingConstructorTests",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"EnclosingConstructorTests$1Local", nullptr, "Local", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"EnclosingConstructorTests$1Local",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"EnclosingConstructorTests"
+	};
+	$loadClass(EnclosingConstructorTests$1Local, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnclosingConstructorTests$1Local);
+	});
 	return class$;
 }
 

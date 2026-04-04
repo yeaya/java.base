@@ -18,6 +18,7 @@ class Module$ReflectionData : public ::java::lang::Object {
 	$class(Module$ReflectionData, 0, ::java::lang::Object)
 public:
 	Module$ReflectionData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::WeakPairMap* reads;
 	static ::java::lang::WeakPairMap* exports;

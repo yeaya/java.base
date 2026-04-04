@@ -1,5 +1,4 @@
 #include <java/nio/channels/ServerSocketChannel.h>
-
 #include <java/net/ProtocolFamily.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/SocketAddress.h>
@@ -28,40 +27,6 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$MethodInfo _ServerSocketChannel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(ServerSocketChannel, init$, void, $SelectorProvider*)},
-	{"accept", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerSocketChannel, accept, $SocketChannel*), "java.io.IOException"},
-	{"bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ServerSocketChannel, bind, $NetworkChannel*, $SocketAddress*), "java.io.IOException"},
-	{"bind", "(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerSocketChannel, bind, ServerSocketChannel*, $SocketAddress*, int32_t), "java.io.IOException"},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"open", "()Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServerSocketChannel, open, ServerSocketChannel*), "java.io.IOException"},
-	{"open", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServerSocketChannel, open, ServerSocketChannel*, $ProtocolFamily*), "java.io.IOException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC | $ABSTRACT},
-	{"socket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerSocketChannel, socket, $ServerSocket*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validOps", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ServerSocketChannel, validOps, int32_t)},
-	{}
-};
-
-$ClassInfo _ServerSocketChannel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.nio.channels.ServerSocketChannel",
-	"java.nio.channels.spi.AbstractSelectableChannel",
-	"java.nio.channels.NetworkChannel",
-	nullptr,
-	_ServerSocketChannel_MethodInfo_
-};
-
-$Object* allocate$ServerSocketChannel($Class* clazz) {
-	return $of($alloc(ServerSocketChannel));
-}
 
 void ServerSocketChannel::close() {
 	this->$AbstractSelectableChannel::close();
@@ -97,12 +62,12 @@ void ServerSocketChannel::init$($SelectorProvider* provider) {
 
 ServerSocketChannel* ServerSocketChannel::open() {
 	$init(ServerSocketChannel);
-	return $nc($($SelectorProvider::provider()))->openServerSocketChannel();
+	return $$nc($SelectorProvider::provider())->openServerSocketChannel();
 }
 
 ServerSocketChannel* ServerSocketChannel::open($ProtocolFamily* family) {
 	$init(ServerSocketChannel);
-	return $nc($($SelectorProvider::provider()))->openServerSocketChannel($cast($ProtocolFamily, $Objects::requireNonNull(family)));
+	return $$nc($SelectorProvider::provider())->openServerSocketChannel($cast($ProtocolFamily, $Objects::requireNonNull(family)));
 }
 
 int32_t ServerSocketChannel::validOps() {
@@ -117,7 +82,37 @@ ServerSocketChannel::ServerSocketChannel() {
 }
 
 $Class* ServerSocketChannel::load$($String* name, bool initialize) {
-	$loadClass(ServerSocketChannel, name, initialize, &_ServerSocketChannel_ClassInfo_, allocate$ServerSocketChannel);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(ServerSocketChannel, init$, void, $SelectorProvider*)},
+		{"accept", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerSocketChannel, accept, $SocketChannel*), "java.io.IOException"},
+		{"bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ServerSocketChannel, bind, $NetworkChannel*, $SocketAddress*), "java.io.IOException"},
+		{"bind", "(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerSocketChannel, bind, ServerSocketChannel*, $SocketAddress*, int32_t), "java.io.IOException"},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"open", "()Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServerSocketChannel, open, ServerSocketChannel*), "java.io.IOException"},
+		{"open", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServerSocketChannel, open, ServerSocketChannel*, $ProtocolFamily*), "java.io.IOException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC | $ABSTRACT},
+		{"socket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerSocketChannel, socket, $ServerSocket*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validOps", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ServerSocketChannel, validOps, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.nio.channels.ServerSocketChannel",
+		"java.nio.channels.spi.AbstractSelectableChannel",
+		"java.nio.channels.NetworkChannel",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ServerSocketChannel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServerSocketChannel));
+	});
 	return class$;
 }
 

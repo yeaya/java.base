@@ -1,5 +1,4 @@
 #include <java/util/FormatterClosedException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _FormatterClosedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FormatterClosedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FormatterClosedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatterClosedException, init$, void)},
-	{}
-};
-
-$ClassInfo _FormatterClosedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.FormatterClosedException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_FormatterClosedException_FieldInfo_,
-	_FormatterClosedException_MethodInfo_
-};
-
-$Object* allocate$FormatterClosedException($Class* clazz) {
-	return $of($alloc(FormatterClosedException));
-}
 
 void FormatterClosedException::init$() {
 	$IllegalStateException::init$();
@@ -49,7 +25,25 @@ void FormatterClosedException::throw$() {
 }
 
 $Class* FormatterClosedException::load$($String* name, bool initialize) {
-	$loadClass(FormatterClosedException, name, initialize, &_FormatterClosedException_ClassInfo_, allocate$FormatterClosedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FormatterClosedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatterClosedException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.FormatterClosedException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FormatterClosedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatterClosedException);
+	});
 	return class$;
 }
 

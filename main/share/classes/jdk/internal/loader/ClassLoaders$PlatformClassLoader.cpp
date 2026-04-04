@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/ClassLoaders$PlatformClassLoader.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/InternalError.h>
 #include <jdk/internal/loader/BuiltinClassLoader.h>
@@ -21,41 +20,11 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$MethodInfo _ClassLoaders$PlatformClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/ClassLoaders$BootClassLoader;)V", nullptr, 0, $method(ClassLoaders$PlatformClassLoader, init$, void, $ClassLoaders$BootClassLoader*)},
-	{}
-};
-
-$InnerClassInfo _ClassLoaders$PlatformClassLoader_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.ClassLoaders$PlatformClassLoader", "jdk.internal.loader.ClassLoaders", "PlatformClassLoader", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ClassLoaders$PlatformClassLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.ClassLoaders$PlatformClassLoader",
-	"jdk.internal.loader.BuiltinClassLoader",
-	nullptr,
-	nullptr,
-	_ClassLoaders$PlatformClassLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassLoaders$PlatformClassLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.ClassLoaders"
-};
-
-$Object* allocate$ClassLoaders$PlatformClassLoader($Class* clazz) {
-	return $of($alloc(ClassLoaders$PlatformClassLoader));
-}
-
 void ClassLoaders$PlatformClassLoader::init$($ClassLoaders$BootClassLoader* parent) {
 	$BuiltinClassLoader::init$("platform"_s, parent, nullptr);
 }
 
-void clinit$ClassLoaders$PlatformClassLoader($Class* class$) {
+void ClassLoaders$PlatformClassLoader::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		if (!$ClassLoader::registerAsParallelCapable()) {
@@ -68,7 +37,32 @@ ClassLoaders$PlatformClassLoader::ClassLoaders$PlatformClassLoader() {
 }
 
 $Class* ClassLoaders$PlatformClassLoader::load$($String* name, bool initialize) {
-	$loadClass(ClassLoaders$PlatformClassLoader, name, initialize, &_ClassLoaders$PlatformClassLoader_ClassInfo_, clinit$ClassLoaders$PlatformClassLoader, allocate$ClassLoaders$PlatformClassLoader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/loader/ClassLoaders$BootClassLoader;)V", nullptr, 0, $method(ClassLoaders$PlatformClassLoader, init$, void, $ClassLoaders$BootClassLoader*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.ClassLoaders$PlatformClassLoader", "jdk.internal.loader.ClassLoaders", "PlatformClassLoader", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.ClassLoaders$PlatformClassLoader",
+		"jdk.internal.loader.BuiltinClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.ClassLoaders"
+	};
+	$loadClass(ClassLoaders$PlatformClassLoader, name, initialize, &classInfo$$, ClassLoaders$PlatformClassLoader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassLoaders$PlatformClassLoader);
+	});
 	return class$;
 }
 

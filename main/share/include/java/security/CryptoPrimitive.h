@@ -35,6 +35,7 @@ class $import CryptoPrimitive : public ::java::lang::Enum {
 public:
 	CryptoPrimitive();
 	static $Array<::java::security::CryptoPrimitive>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::security::CryptoPrimitive* valueOf($String* name);
 	static $Array<::java::security::CryptoPrimitive>* values();

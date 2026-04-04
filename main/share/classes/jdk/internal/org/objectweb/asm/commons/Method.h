@@ -44,6 +44,7 @@ class $export Method : public ::java::lang::Object {
 	$class(Method, 0, ::java::lang::Object)
 public:
 	Method();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $String* descriptor);
 	void init$($String* name, ::jdk::internal::org::objectweb::asm$::Type* returnType, $Array<::jdk::internal::org::objectweb::asm$::Type>* argumentTypes);
 	virtual bool equals(Object$* other) override;

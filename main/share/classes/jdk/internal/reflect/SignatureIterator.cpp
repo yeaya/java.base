@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/SignatureIterator.h>
-
 #include <java/lang/InternalError.h>
 #include <jcpp.h>
 
@@ -11,34 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jdk {
 	namespace internal {
 		namespace reflect {
-
-$FieldInfo _SignatureIterator_FieldInfo_[] = {
-	{"sig", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureIterator, sig)},
-	{"idx", "I", nullptr, $PRIVATE, $field(SignatureIterator, idx)},
-	{}
-};
-
-$MethodInfo _SignatureIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureIterator, init$, void, $String*)},
-	{"atEnd", "()Z", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, atEnd, bool)},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, next, $String*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, reset, void)},
-	{"returnType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, returnType, $String*)},
-	{}
-};
-
-$ClassInfo _SignatureIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.reflect.SignatureIterator",
-	"java.lang.Object",
-	nullptr,
-	_SignatureIterator_FieldInfo_,
-	_SignatureIterator_MethodInfo_
-};
-
-$Object* allocate$SignatureIterator($Class* clazz) {
-	return $of($alloc(SignatureIterator));
-}
 
 void SignatureIterator::init$($String* sig) {
 	$set(this, sig, sig);
@@ -64,18 +35,18 @@ $String* SignatureIterator::next() {
 	}
 	int32_t endIdx = this->idx;
 	if (c == u'[') {
-		while ((c = $nc(this->sig)->charAt(endIdx)) == u'[') {
+		while ((c = this->sig->charAt(endIdx)) == u'[') {
 			++endIdx;
 		}
 	}
 	if (c == u'L') {
-		while ($nc(this->sig)->charAt(endIdx) != u';') {
+		while (this->sig->charAt(endIdx) != u';') {
 			++endIdx;
 		}
 	}
 	int32_t beginIdx = this->idx;
 	this->idx = endIdx + 1;
-	return $nc(this->sig)->substring(beginIdx, this->idx);
+	return this->sig->substring(beginIdx, this->idx);
 }
 
 $String* SignatureIterator::returnType() {
@@ -89,7 +60,30 @@ SignatureIterator::SignatureIterator() {
 }
 
 $Class* SignatureIterator::load$($String* name, bool initialize) {
-	$loadClass(SignatureIterator, name, initialize, &_SignatureIterator_ClassInfo_, allocate$SignatureIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"sig", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureIterator, sig)},
+		{"idx", "I", nullptr, $PRIVATE, $field(SignatureIterator, idx)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureIterator, init$, void, $String*)},
+		{"atEnd", "()Z", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, atEnd, bool)},
+		{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, next, $String*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, reset, void)},
+		{"returnType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, returnType, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.reflect.SignatureIterator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignatureIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureIterator);
+	});
 	return class$;
 }
 

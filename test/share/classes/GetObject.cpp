@@ -1,31 +1,26 @@
 #include <GetObject.h>
-
 #include <jcpp.h>
 
 using $doubleArray3 = $Array<double, 3>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _GetObject_MethodInfo_[] = {
-	{"get", "([[[D)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GetObject, get, $Object*, $doubleArray3*)},
-	{}
-};
-
-$ClassInfo _GetObject_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"GetObject",
-	nullptr,
-	nullptr,
-	nullptr,
-	_GetObject_MethodInfo_
-};
-
-$Object* allocate$GetObject($Class* clazz) {
-	return $of($alloc(GetObject));
-}
-
 $Class* GetObject::load$($String* name, bool initialize) {
-	$loadClass(GetObject, name, initialize, &_GetObject_ClassInfo_, allocate$GetObject);
+	$MethodInfo methodInfos$$[] = {
+		{"get", "([[[D)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GetObject, get, $Object*, $doubleArray3*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"GetObject",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GetObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetObject);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/KWUtil.h>
-
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/lang/AssertionError.h>
 #include <java/util/Arrays.h>
@@ -24,34 +23,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _KWUtil_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(KWUtil, $assertionsDisabled)},
-	{"BLKSIZE", "I", nullptr, $STATIC | $FINAL, $constField(KWUtil, BLKSIZE)},
-	{"SEMI_BLKSIZE", "I", nullptr, $STATIC | $FINAL, $constField(KWUtil, SEMI_BLKSIZE)},
-	{"MIN_INPUTLEN", "I", nullptr, $STATIC | $FINAL, $constField(KWUtil, MIN_INPUTLEN)},
-	{}
-};
-
-$MethodInfo _KWUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(KWUtil, init$, void)},
-	{"W", "([B[BILcom/sun/crypto/provider/SymmetricCipher;)I", nullptr, $STATIC | $FINAL, $staticMethod(KWUtil, W, int32_t, $bytes*, $bytes*, int32_t, $SymmetricCipher*)},
-	{"W_INV", "([BI[BLcom/sun/crypto/provider/SymmetricCipher;)I", nullptr, $STATIC | $FINAL, $staticMethod(KWUtil, W_INV, int32_t, $bytes*, int32_t, $bytes*, $SymmetricCipher*)},
-	{}
-};
-
-$ClassInfo _KWUtil_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.crypto.provider.KWUtil",
-	"java.lang.Object",
-	nullptr,
-	_KWUtil_FieldInfo_,
-	_KWUtil_MethodInfo_
-};
-
-$Object* allocate$KWUtil($Class* clazz) {
-	return $of($alloc(KWUtil));
-}
-
 bool KWUtil::$assertionsDisabled = false;
 
 void KWUtil::init$() {
@@ -59,9 +30,9 @@ void KWUtil::init$() {
 
 int32_t KWUtil::W($bytes* icvIn, $bytes* in, int32_t inLen, $SymmetricCipher* cipher) {
 	$init(KWUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!KWUtil::$assertionsDisabled && !((inLen >= KWUtil::MIN_INPUTLEN) && (($mod(inLen, KWUtil::SEMI_BLKSIZE)) == 0))) {
-		$throwNew($AssertionError, ($of($$str({"Invalid data length for W: "_s, $$str(inLen)}))));
+		$throwNew($AssertionError, ($$of($str({"Invalid data length for W: "_s, $$str(inLen)}))));
 	}
 	if (!KWUtil::$assertionsDisabled && !($nc(icvIn)->length == KWUtil::SEMI_BLKSIZE)) {
 		$throwNew($AssertionError, $of("Invalid ICV buffer size"_s));
@@ -90,9 +61,9 @@ int32_t KWUtil::W($bytes* icvIn, $bytes* in, int32_t inLen, $SymmetricCipher* ci
 
 int32_t KWUtil::W_INV($bytes* in, int32_t inLen, $bytes* icvOut, $SymmetricCipher* cipher) {
 	$init(KWUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!KWUtil::$assertionsDisabled && !((inLen >= KWUtil::MIN_INPUTLEN) && (($mod(inLen, KWUtil::SEMI_BLKSIZE)) == 0))) {
-		$throwNew($AssertionError, ($of($$str({"Invalid data length for W_INV: "_s, $$str(inLen)}))));
+		$throwNew($AssertionError, ($$of($str({"Invalid data length for W_INV: "_s, $$str(inLen)}))));
 	}
 	if (!KWUtil::$assertionsDisabled && !($nc(icvOut)->length == KWUtil::SEMI_BLKSIZE)) {
 		$throwNew($AssertionError, $of("Invalid ICV buffer size"_s));
@@ -120,7 +91,7 @@ int32_t KWUtil::W_INV($bytes* in, int32_t inLen, $bytes* icvOut, $SymmetricCiphe
 	return inLen - KWUtil::SEMI_BLKSIZE;
 }
 
-void clinit$KWUtil($Class* class$) {
+void KWUtil::clinit$($Class* clazz) {
 	KWUtil::$assertionsDisabled = !KWUtil::class$->desiredAssertionStatus();
 }
 
@@ -128,7 +99,30 @@ KWUtil::KWUtil() {
 }
 
 $Class* KWUtil::load$($String* name, bool initialize) {
-	$loadClass(KWUtil, name, initialize, &_KWUtil_ClassInfo_, clinit$KWUtil, allocate$KWUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(KWUtil, $assertionsDisabled)},
+		{"BLKSIZE", "I", nullptr, $STATIC | $FINAL, $constField(KWUtil, BLKSIZE)},
+		{"SEMI_BLKSIZE", "I", nullptr, $STATIC | $FINAL, $constField(KWUtil, SEMI_BLKSIZE)},
+		{"MIN_INPUTLEN", "I", nullptr, $STATIC | $FINAL, $constField(KWUtil, MIN_INPUTLEN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(KWUtil, init$, void)},
+		{"W", "([B[BILcom/sun/crypto/provider/SymmetricCipher;)I", nullptr, $STATIC | $FINAL, $staticMethod(KWUtil, W, int32_t, $bytes*, $bytes*, int32_t, $SymmetricCipher*)},
+		{"W_INV", "([BI[BLcom/sun/crypto/provider/SymmetricCipher;)I", nullptr, $STATIC | $FINAL, $staticMethod(KWUtil, W_INV, int32_t, $bytes*, int32_t, $bytes*, $SymmetricCipher*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.crypto.provider.KWUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KWUtil, name, initialize, &classInfo$$, KWUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KWUtil);
+	});
 	return class$;
 }
 

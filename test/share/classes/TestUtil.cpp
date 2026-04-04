@@ -1,11 +1,9 @@
 #include <TestUtil.h>
-
 #include <TestUtil$1.h>
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems.h>
-#include <java/nio/file/FileVisitor.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/attribute/FileAttribute.h>
@@ -14,58 +12,20 @@
 using $TestUtil$1 = ::TestUtil$1;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
-using $FileVisitor = ::java::nio::file::FileVisitor;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
-
-$MethodInfo _TestUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TestUtil, init$, void)},
-	{"createDirectoryWithLongPath", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(TestUtil, createDirectoryWithLongPath, $Path*, $Path*), "java.io.IOException"},
-	{"createTemporaryDirectory", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(TestUtil, createTemporaryDirectory, $Path*, $String*), "java.io.IOException"},
-	{"createTemporaryDirectory", "()Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(TestUtil, createTemporaryDirectory, $Path*), "java.io.IOException"},
-	{"deleteUnchecked", "(Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TestUtil, deleteUnchecked, void, $Path*)},
-	{"removeAll", "(Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TestUtil, removeAll, void, $Path*), "java.io.IOException"},
-	{"supportsLinks", "(Ljava/nio/file/Path;)Z", nullptr, $STATIC, $staticMethod(TestUtil, supportsLinks, bool, $Path*)},
-	{}
-};
-
-$InnerClassInfo _TestUtil_InnerClassesInfo_[] = {
-	{"TestUtil$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestUtil_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestUtil",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestUtil_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestUtil_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestUtil$1"
-};
-
-$Object* allocate$TestUtil($Class* clazz) {
-	return $of($alloc(TestUtil));
-}
 
 void TestUtil::init$() {
 }
 
 $Path* TestUtil::createTemporaryDirectory($String* where) {
-	$useLocalCurrentObjectStackCache();
-	$var($Path, dir, $nc($($FileSystems::getDefault()))->getPath(where, $$new($StringArray, 0)));
+	$useLocalObjectStack();
+	$var($Path, dir, $$nc($FileSystems::getDefault())->getPath(where, $$new($StringArray, 0)));
 	return $Files::createTempDirectory(dir, "name"_s, $$new($FileAttributeArray, 0));
 }
 
@@ -82,14 +42,14 @@ void TestUtil::deleteUnchecked($Path* file) {
 		$Files::delete$(file);
 	} catch ($IOException& exc) {
 		$nc($System::err)->format("Unable to delete %s: %s\n"_s, $$new($ObjectArray, {
-			$of(file),
-			$of(exc)
+			file,
+			exc
 		}));
 	}
 }
 
 $Path* TestUtil::createDirectoryWithLongPath($Path* dir$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, dir, dir$renamed);
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0; i < 240; ++i) {
@@ -97,14 +57,14 @@ $Path* TestUtil::createDirectoryWithLongPath($Path* dir$renamed) {
 	}
 	$var($String, name, sb->toString());
 	do {
-		$assign(dir, $nc($($nc(dir)->resolve(name)))->resolve("."_s));
+		$assign(dir, $$nc($nc(dir)->resolve(name))->resolve("."_s));
 		$Files::createDirectory(dir, $$new($FileAttributeArray, 0));
-	} while ($nc($($nc(dir)->toString()))->length() < 2048);
+	} while ($$nc($nc(dir)->toString())->length() < 2048);
 	return dir;
 }
 
 bool TestUtil::supportsLinks($Path* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, link, $nc(dir)->resolve("testlink"_s));
 	$var($Path, target, dir->resolve("testtarget"_s));
 	try {
@@ -123,7 +83,37 @@ TestUtil::TestUtil() {
 }
 
 $Class* TestUtil::load$($String* name, bool initialize) {
-	$loadClass(TestUtil, name, initialize, &_TestUtil_ClassInfo_, allocate$TestUtil);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TestUtil, init$, void)},
+		{"createDirectoryWithLongPath", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(TestUtil, createDirectoryWithLongPath, $Path*, $Path*), "java.io.IOException"},
+		{"createTemporaryDirectory", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(TestUtil, createTemporaryDirectory, $Path*, $String*), "java.io.IOException"},
+		{"createTemporaryDirectory", "()Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(TestUtil, createTemporaryDirectory, $Path*), "java.io.IOException"},
+		{"deleteUnchecked", "(Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TestUtil, deleteUnchecked, void, $Path*)},
+		{"removeAll", "(Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TestUtil, removeAll, void, $Path*), "java.io.IOException"},
+		{"supportsLinks", "(Ljava/nio/file/Path;)Z", nullptr, $STATIC, $staticMethod(TestUtil, supportsLinks, bool, $Path*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestUtil$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestUtil",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestUtil$1"
+	};
+	$loadClass(TestUtil, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestUtil);
+	});
 	return class$;
 }
 

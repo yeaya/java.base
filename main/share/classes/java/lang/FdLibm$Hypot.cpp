@@ -1,5 +1,4 @@
 #include <java/lang/FdLibm$Hypot.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/FdLibm.h>
 #include <java/lang/Math.h>
@@ -24,44 +23,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _FdLibm$Hypot_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FdLibm$Hypot, $assertionsDisabled)},
-	{"TWO_MINUS_600", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FdLibm$Hypot, TWO_MINUS_600)},
-	{"TWO_PLUS_600", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FdLibm$Hypot, TWO_PLUS_600)},
-	{}
-};
-
-$MethodInfo _FdLibm$Hypot_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Hypot, init$, void)},
-	{"compute", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Hypot, compute, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _FdLibm$Hypot_InnerClassesInfo_[] = {
-	{"java.lang.FdLibm$Hypot", "java.lang.FdLibm", "Hypot", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _FdLibm$Hypot_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.FdLibm$Hypot",
-	"java.lang.Object",
-	nullptr,
-	_FdLibm$Hypot_FieldInfo_,
-	_FdLibm$Hypot_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FdLibm$Hypot_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.FdLibm"
-};
-
-$Object* allocate$FdLibm$Hypot($Class* clazz) {
-	return $of($alloc(FdLibm$Hypot));
-}
 
 bool FdLibm$Hypot::$assertionsDisabled = false;
 double FdLibm$Hypot::TWO_MINUS_600 = 0.0;
@@ -93,7 +54,7 @@ double FdLibm$Hypot::compute(double x, double y) {
 	}
 	int32_t ha = $FdLibm::__HI(a);
 	int32_t hb = $FdLibm::__HI(b);
-	if ((ha - hb) > 0x03C00000) {
+	if ((ha - hb) > 0x03c00000) {
 		return a + b;
 	}
 	int32_t k = 0;
@@ -125,7 +86,7 @@ double FdLibm$Hypot::compute(double x, double y) {
 	}
 	double w = a - b;
 	if (w > b) {
-		t1 = (double)0;
+		t1 = 0;
 		t1 = $FdLibm::__HI(t1, ha);
 		t2 = a - t1;
 		w = $Math::sqrt(t1 * t1 - (b * (-b) - t2 * (a + t1)));
@@ -133,10 +94,10 @@ double FdLibm$Hypot::compute(double x, double y) {
 		double y1 = 0.0;
 		double y2 = 0.0;
 		a = a + a;
-		y1 = (double)0;
+		y1 = 0;
 		y1 = $FdLibm::__HI(y1, hb);
 		y2 = b - y1;
-		t1 = (double)0;
+		t1 = 0;
 		t1 = $FdLibm::__HI(t1, ha + 0x00100000);
 		t2 = a - t1;
 		w = $Math::sqrt(t1 * y1 - (w * (-w) - (t1 * y2 + t2 * b)));
@@ -148,7 +109,7 @@ double FdLibm$Hypot::compute(double x, double y) {
 	}
 }
 
-void clinit$FdLibm$Hypot($Class* class$) {
+void FdLibm$Hypot::clinit$($Class* clazz) {
 	FdLibm$Hypot::TWO_MINUS_600 = 2.409919865102884E-181;
 	FdLibm$Hypot::TWO_PLUS_600 = 4.149515568880993E180;
 	$load($FdLibm);
@@ -159,7 +120,39 @@ FdLibm$Hypot::FdLibm$Hypot() {
 }
 
 $Class* FdLibm$Hypot::load$($String* name, bool initialize) {
-	$loadClass(FdLibm$Hypot, name, initialize, &_FdLibm$Hypot_ClassInfo_, clinit$FdLibm$Hypot, allocate$FdLibm$Hypot);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FdLibm$Hypot, $assertionsDisabled)},
+		{"TWO_MINUS_600", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FdLibm$Hypot, TWO_MINUS_600)},
+		{"TWO_PLUS_600", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FdLibm$Hypot, TWO_PLUS_600)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Hypot, init$, void)},
+		{"compute", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Hypot, compute, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.FdLibm$Hypot", "java.lang.FdLibm", "Hypot", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.FdLibm$Hypot",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.FdLibm"
+	};
+	$loadClass(FdLibm$Hypot, name, initialize, &classInfo$$, FdLibm$Hypot::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FdLibm$Hypot);
+	});
 	return class$;
 }
 

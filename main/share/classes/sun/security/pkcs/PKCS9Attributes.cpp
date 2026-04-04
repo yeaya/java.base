@@ -1,5 +1,4 @@
 #include <sun/security/pkcs/PKCS9Attributes.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Collection.h>
@@ -26,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Collection = ::java::util::Collection;
 using $Hashtable = ::java::util::Hashtable;
 using $PKCS9Attribute = ::sun::security::pkcs::PKCS9Attribute;
 using $ParsingException = ::sun::security::pkcs::ParsingException;
@@ -40,53 +38,13 @@ namespace sun {
 	namespace security {
 		namespace pkcs {
 
-$FieldInfo _PKCS9Attributes_FieldInfo_[] = {
-	{"attributes", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Lsun/security/util/ObjectIdentifier;Lsun/security/pkcs/PKCS9Attribute;>;", $PRIVATE | $FINAL, $field(PKCS9Attributes, attributes)},
-	{"permittedAttributes", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Lsun/security/util/ObjectIdentifier;Lsun/security/util/ObjectIdentifier;>;", $PRIVATE | $FINAL, $field(PKCS9Attributes, permittedAttributes)},
-	{"derEncoding", "[B", nullptr, $PRIVATE | $FINAL, $field(PKCS9Attributes, derEncoding)},
-	{"ignoreUnsupportedAttributes", "Z", nullptr, $PRIVATE, $field(PKCS9Attributes, ignoreUnsupportedAttributes)},
-	{}
-};
-
-$MethodInfo _PKCS9Attributes_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $ObjectIdentifierArray*, $DerInputStream*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;Z)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $DerInputStream*, bool), "java.io.IOException"},
-	{"<init>", "([Lsun/security/pkcs/PKCS9Attribute;)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $PKCS9AttributeArray*), "java.lang.IllegalArgumentException,java.io.IOException"},
-	{"castToDerEncoder", "([Ljava/lang/Object;)[Lsun/security/util/DerEncoder;", nullptr, $STATIC, $staticMethod(PKCS9Attributes, castToDerEncoder, $DerEncoderArray*, $ObjectArray*)},
-	{"decode", "(Lsun/security/util/DerInputStream;)[B", nullptr, $PRIVATE, $method(PKCS9Attributes, decode, $bytes*, $DerInputStream*), "java.io.IOException"},
-	{"encode", "(BLjava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, encode, void, int8_t, $OutputStream*), "java.io.IOException"},
-	{"generateDerEncoding", "()[B", nullptr, $PRIVATE, $method(PKCS9Attributes, generateDerEncoding, $bytes*), "java.io.IOException"},
-	{"getAttribute", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttribute, $PKCS9Attribute*, $ObjectIdentifier*)},
-	{"getAttribute", "(Ljava/lang/String;)Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttribute, $PKCS9Attribute*, $String*)},
-	{"getAttributeValue", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttributeValue, $Object*, $ObjectIdentifier*), "java.io.IOException"},
-	{"getAttributeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttributeValue, $Object*, $String*), "java.io.IOException"},
-	{"getAttributes", "()[Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttributes, $PKCS9AttributeArray*)},
-	{"getDerEncoding", "()[B", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getDerEncoding, $bytes*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PKCS9Attributes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.pkcs.PKCS9Attributes",
-	"java.lang.Object",
-	nullptr,
-	_PKCS9Attributes_FieldInfo_,
-	_PKCS9Attributes_MethodInfo_
-};
-
-$Object* allocate$PKCS9Attributes($Class* clazz) {
-	return $of($alloc(PKCS9Attributes));
-}
-
 void PKCS9Attributes::init$($ObjectIdentifierArray* permittedAttributes, $DerInputStream* in) {
 	$set(this, attributes, $new($Hashtable, 3));
 	this->ignoreUnsupportedAttributes = false;
 	if (permittedAttributes != nullptr) {
 		$set(this, permittedAttributes, $new($Hashtable, permittedAttributes->length));
 		for (int32_t i = 0; i < permittedAttributes->length; ++i) {
-			$nc(this->permittedAttributes)->put(permittedAttributes->get(i), permittedAttributes->get(i));
+			this->permittedAttributes->put(permittedAttributes->get(i), permittedAttributes->get(i));
 		}
 	} else {
 		$set(this, permittedAttributes, nullptr);
@@ -107,23 +65,23 @@ void PKCS9Attributes::init$($DerInputStream* in, bool ignoreUnsupportedAttribute
 }
 
 void PKCS9Attributes::init$($PKCS9AttributeArray* attribs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, attributes, $new($Hashtable, 3));
 	this->ignoreUnsupportedAttributes = false;
 	$var($ObjectIdentifier, oid, nullptr);
 	for (int32_t i = 0; i < $nc(attribs)->length; ++i) {
 		$assign(oid, $nc(attribs->get(i))->getOID());
-		if ($nc(this->attributes)->containsKey(oid)) {
+		if (this->attributes->containsKey(oid)) {
 			$throwNew($IllegalArgumentException, $$str({"PKCSAttribute "_s, $($nc(attribs->get(i))->getOID()), " duplicated while constructing PKCS9Attributes."_s}));
 		}
-		$nc(this->attributes)->put(oid, attribs->get(i));
+		this->attributes->put(oid, attribs->get(i));
 	}
 	$set(this, derEncoding, generateDerEncoding());
 	$set(this, permittedAttributes, nullptr);
 }
 
 $bytes* PKCS9Attributes::decode($DerInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, val, $nc(in)->getDerValue());
 	$var($bytes, derEncoding, $nc(val)->toByteArray());
 	$nc(derEncoding)->set(0, $DerValue::tag_SetOf);
@@ -147,23 +105,23 @@ $bytes* PKCS9Attributes::decode($DerInputStream* in) {
 		if ($nc(this->attributes)->get(oid) != nullptr) {
 			$throwNew($IOException, $$str({"Duplicate PKCS9 attribute: "_s, oid}));
 		}
-		if (this->permittedAttributes != nullptr && !$nc(this->permittedAttributes)->containsKey(oid)) {
+		if (this->permittedAttributes != nullptr && !this->permittedAttributes->containsKey(oid)) {
 			$throwNew($IOException, $$str({"Attribute "_s, oid, " not permitted in this attribute set"_s}));
 		}
-		$nc(this->attributes)->put(oid, attrib);
+		this->attributes->put(oid, attrib);
 	}
 	return reuseEncoding ? derEncoding : generateDerEncoding();
 }
 
 void PKCS9Attributes::encode(int8_t tag, $OutputStream* out) {
-	$nc(out)->write((int32_t)tag);
+	$nc(out)->write(tag);
 	out->write(this->derEncoding, 1, $nc(this->derEncoding)->length - 1);
 }
 
 $bytes* PKCS9Attributes::generateDerEncoding() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, out, $new($DerOutputStream));
-	$var($ObjectArray, attribVals, $nc($($nc(this->attributes)->values()))->toArray());
+	$var($ObjectArray, attribVals, $$nc($nc(this->attributes)->values())->toArray());
 	out->putOrderedSetOf($DerValue::tag_SetOf, $(castToDerEncoder(attribVals)));
 	return out->toByteArray();
 }
@@ -181,13 +139,12 @@ $PKCS9Attribute* PKCS9Attributes::getAttribute($String* name) {
 }
 
 $PKCS9AttributeArray* PKCS9Attributes::getAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PKCS9AttributeArray, attribs, $new($PKCS9AttributeArray, $nc(this->attributes)->size()));
 	$var($ObjectIdentifier, oid, nullptr);
 	int32_t j = 0;
-	$init($PKCS9Attribute);
 	for (int32_t i = 1; i < $nc($PKCS9Attribute::PKCS9_OIDS)->length && j < attribs->length; ++i) {
-		attribs->set(j, $(getAttribute($nc($PKCS9Attribute::PKCS9_OIDS)->get(i))));
+		attribs->set(j, $(getAttribute($PKCS9Attribute::PKCS9_OIDS->get(i))));
 		if (attribs->get(j) != nullptr) {
 			++j;
 		}
@@ -196,10 +153,10 @@ $PKCS9AttributeArray* PKCS9Attributes::getAttributes() {
 }
 
 $Object* PKCS9Attributes::getAttributeValue($ObjectIdentifier* oid) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, value, $nc($(getAttribute(oid)))->getValue());
-		return $of(value);
+		$var($Object, value, $$nc(getAttribute(oid))->getValue());
+		return value;
 	} catch ($NullPointerException& ex) {
 		$throwNew($IOException, $$str({"No value found for attribute "_s, oid}));
 	}
@@ -207,16 +164,16 @@ $Object* PKCS9Attributes::getAttributeValue($ObjectIdentifier* oid) {
 }
 
 $Object* PKCS9Attributes::getAttributeValue($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectIdentifier, oid, $PKCS9Attribute::getOID(name));
 	if (oid == nullptr) {
 		$throwNew($IOException, $$str({"Attribute name "_s, name, " not recognized or not supported."_s}));
 	}
-	return $of(getAttributeValue(oid));
+	return getAttributeValue(oid);
 }
 
 $String* PKCS9Attributes::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, 200));
 	sb->append("PKCS9 Attributes: [\n\t"_s);
 	$var($ObjectIdentifier, oid, nullptr);
@@ -224,7 +181,7 @@ $String* PKCS9Attributes::toString() {
 	bool first = true;
 	$init($PKCS9Attribute);
 	for (int32_t i = 1; i < $nc($PKCS9Attribute::PKCS9_OIDS)->length; ++i) {
-		$assign(value, getAttribute($nc($PKCS9Attribute::PKCS9_OIDS)->get(i)));
+		$assign(value, getAttribute($PKCS9Attribute::PKCS9_OIDS->get(i)));
 		if (value == nullptr) {
 			continue;
 		}
@@ -251,7 +208,42 @@ PKCS9Attributes::PKCS9Attributes() {
 }
 
 $Class* PKCS9Attributes::load$($String* name, bool initialize) {
-	$loadClass(PKCS9Attributes, name, initialize, &_PKCS9Attributes_ClassInfo_, allocate$PKCS9Attributes);
+	$FieldInfo fieldInfos$$[] = {
+		{"attributes", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Lsun/security/util/ObjectIdentifier;Lsun/security/pkcs/PKCS9Attribute;>;", $PRIVATE | $FINAL, $field(PKCS9Attributes, attributes)},
+		{"permittedAttributes", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Lsun/security/util/ObjectIdentifier;Lsun/security/util/ObjectIdentifier;>;", $PRIVATE | $FINAL, $field(PKCS9Attributes, permittedAttributes)},
+		{"derEncoding", "[B", nullptr, $PRIVATE | $FINAL, $field(PKCS9Attributes, derEncoding)},
+		{"ignoreUnsupportedAttributes", "Z", nullptr, $PRIVATE, $field(PKCS9Attributes, ignoreUnsupportedAttributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $ObjectIdentifierArray*, $DerInputStream*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerInputStream;Z)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $DerInputStream*, bool), "java.io.IOException"},
+		{"<init>", "([Lsun/security/pkcs/PKCS9Attribute;)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $PKCS9AttributeArray*), "java.lang.IllegalArgumentException,java.io.IOException"},
+		{"castToDerEncoder", "([Ljava/lang/Object;)[Lsun/security/util/DerEncoder;", nullptr, $STATIC, $staticMethod(PKCS9Attributes, castToDerEncoder, $DerEncoderArray*, $ObjectArray*)},
+		{"decode", "(Lsun/security/util/DerInputStream;)[B", nullptr, $PRIVATE, $method(PKCS9Attributes, decode, $bytes*, $DerInputStream*), "java.io.IOException"},
+		{"encode", "(BLjava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, encode, void, int8_t, $OutputStream*), "java.io.IOException"},
+		{"generateDerEncoding", "()[B", nullptr, $PRIVATE, $method(PKCS9Attributes, generateDerEncoding, $bytes*), "java.io.IOException"},
+		{"getAttribute", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttribute, $PKCS9Attribute*, $ObjectIdentifier*)},
+		{"getAttribute", "(Ljava/lang/String;)Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttribute, $PKCS9Attribute*, $String*)},
+		{"getAttributeValue", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttributeValue, $Object*, $ObjectIdentifier*), "java.io.IOException"},
+		{"getAttributeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttributeValue, $Object*, $String*), "java.io.IOException"},
+		{"getAttributes", "()[Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttributes, $PKCS9AttributeArray*)},
+		{"getDerEncoding", "()[B", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getDerEncoding, $bytes*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.pkcs.PKCS9Attributes",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PKCS9Attributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PKCS9Attributes);
+	});
 	return class$;
 }
 

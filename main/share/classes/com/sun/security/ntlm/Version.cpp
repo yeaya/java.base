@@ -1,5 +1,4 @@
 #include <com/sun/security/ntlm/Version.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -16,36 +15,6 @@ namespace com {
 	namespace sun {
 		namespace security {
 			namespace ntlm {
-
-$FieldInfo _Version_FieldInfo_[] = {
-	{"NTLM", "Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Version, NTLM)},
-	{"NTLM2", "Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Version, NTLM2)},
-	{"NTLMv2", "Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Version, NTLMv2)},
-	{"$VALUES", "[Lcom/sun/security/ntlm/Version;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Version, $VALUES)},
-	{}
-};
-
-$MethodInfo _Version_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/security/ntlm/Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Version, $values, $VersionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Version, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, valueOf, Version*, $String*)},
-	{"values", "()[Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, values, $VersionArray*)},
-	{}
-};
-
-$ClassInfo _Version_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.security.ntlm.Version",
-	"java.lang.Enum",
-	nullptr,
-	_Version_FieldInfo_,
-	_Version_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/security/ntlm/Version;>;"
-};
-
-$Object* allocate$Version($Class* clazz) {
-	return $of($alloc(Version));
-}
 
 Version* Version::NTLM = nullptr;
 Version* Version::NTLM2 = nullptr;
@@ -75,7 +44,7 @@ void Version::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Version($Class* class$) {
+void Version::clinit$($Class* clazz) {
 	$assignStatic(Version::NTLM, $new(Version, "NTLM"_s, 0));
 	$assignStatic(Version::NTLM2, $new(Version, "NTLM2"_s, 1));
 	$assignStatic(Version::NTLMv2, $new(Version, "NTLMv2"_s, 2));
@@ -86,7 +55,32 @@ Version::Version() {
 }
 
 $Class* Version::load$($String* name, bool initialize) {
-	$loadClass(Version, name, initialize, &_Version_ClassInfo_, clinit$Version, allocate$Version);
+	$FieldInfo fieldInfos$$[] = {
+		{"NTLM", "Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Version, NTLM)},
+		{"NTLM2", "Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Version, NTLM2)},
+		{"NTLMv2", "Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Version, NTLMv2)},
+		{"$VALUES", "[Lcom/sun/security/ntlm/Version;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Version, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/security/ntlm/Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Version, $values, $VersionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Version, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, valueOf, Version*, $String*)},
+		{"values", "()[Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, values, $VersionArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.security.ntlm.Version",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/security/ntlm/Version;>;"
+	};
+	$loadClass(Version, name, initialize, &classInfo$$, Version::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Version));
+	});
 	return class$;
 }
 

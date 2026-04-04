@@ -20,6 +20,7 @@ class $export CheckPermission$FileOperation : public ::java::lang::Enum {
 public:
 	CheckPermission$FileOperation();
 	static $Array<CheckPermission$FileOperation>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::CheckPermission$FileOperation* valueOf($String* name);
 	static $Array<CheckPermission$FileOperation>* values();

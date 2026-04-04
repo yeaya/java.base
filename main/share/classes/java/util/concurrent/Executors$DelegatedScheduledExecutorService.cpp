@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Executors$DelegatedScheduledExecutorService.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/Collection.h>
 #include <java/util/List.h>
@@ -21,7 +20,6 @@ using $Runnable = ::java::lang::Runnable;
 using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Callable = ::java::util::concurrent::Callable;
-using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $Executors$DelegatedExecutorService = ::java::util::concurrent::Executors$DelegatedExecutorService;
 using $Future = ::java::util::concurrent::Future;
 using $ScheduledExecutorService = ::java::util::concurrent::ScheduledExecutorService;
@@ -31,64 +29,6 @@ using $TimeUnit = ::java::util::concurrent::TimeUnit;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _Executors$DelegatedScheduledExecutorService_FieldInfo_[] = {
-	{"e", "Ljava/util/concurrent/ScheduledExecutorService;", nullptr, $PRIVATE | $FINAL, $field(Executors$DelegatedScheduledExecutorService, e)},
-	{}
-};
-
-$MethodInfo _Executors$DelegatedScheduledExecutorService_MethodInfo_[] = {
-	{"*awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/concurrent/ScheduledExecutorService;)V", nullptr, 0, $method(Executors$DelegatedScheduledExecutorService, init$, void, $ScheduledExecutorService*)},
-	{"*invokeAll", "(Ljava/util/Collection;)Ljava/util/List;", nullptr, $PUBLIC},
-	{"*invokeAll", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;", nullptr, $PUBLIC},
-	{"*invokeAny", "(Ljava/util/Collection;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*invokeAny", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*isShutdown", "()Z", nullptr, $PUBLIC},
-	{"*isTerminated", "()Z", nullptr, $PUBLIC},
-	{"schedule", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<*>;", $PUBLIC, $virtualMethod(Executors$DelegatedScheduledExecutorService, schedule, $ScheduledFuture*, $Runnable*, int64_t, $TimeUnit*)},
-	{"schedule", "(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TV;>;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<TV;>;", $PUBLIC, $virtualMethod(Executors$DelegatedScheduledExecutorService, schedule, $ScheduledFuture*, $Callable*, int64_t, $TimeUnit*)},
-	{"scheduleAtFixedRate", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<*>;", $PUBLIC, $virtualMethod(Executors$DelegatedScheduledExecutorService, scheduleAtFixedRate, $ScheduledFuture*, $Runnable*, int64_t, int64_t, $TimeUnit*)},
-	{"scheduleWithFixedDelay", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<*>;", $PUBLIC, $virtualMethod(Executors$DelegatedScheduledExecutorService, scheduleWithFixedDelay, $ScheduledFuture*, $Runnable*, int64_t, int64_t, $TimeUnit*)},
-	{"*shutdown", "()V", nullptr, $PUBLIC},
-	{"*shutdownNow", "()Ljava/util/List;", nullptr, $PUBLIC},
-	{"*submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;", nullptr, $PUBLIC},
-	{"*submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", nullptr, $PUBLIC},
-	{"*submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Executors$DelegatedScheduledExecutorService_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Executors$DelegatedScheduledExecutorService", "java.util.concurrent.Executors", "DelegatedScheduledExecutorService", $PRIVATE | $STATIC},
-	{"java.util.concurrent.Executors$DelegatedExecutorService", "java.util.concurrent.Executors", "DelegatedExecutorService", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Executors$DelegatedScheduledExecutorService_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.Executors$DelegatedScheduledExecutorService",
-	"java.util.concurrent.Executors$DelegatedExecutorService",
-	"java.util.concurrent.ScheduledExecutorService",
-	_Executors$DelegatedScheduledExecutorService_FieldInfo_,
-	_Executors$DelegatedScheduledExecutorService_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Executors$DelegatedScheduledExecutorService_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.Executors"
-};
-
-$Object* allocate$Executors$DelegatedScheduledExecutorService($Class* clazz) {
-	return $of($alloc(Executors$DelegatedScheduledExecutorService));
-}
 
 void Executors$DelegatedScheduledExecutorService::execute($Runnable* command) {
 	this->$Executors$DelegatedExecutorService::execute(command);
@@ -187,7 +127,59 @@ Executors$DelegatedScheduledExecutorService::Executors$DelegatedScheduledExecuto
 }
 
 $Class* Executors$DelegatedScheduledExecutorService::load$($String* name, bool initialize) {
-	$loadClass(Executors$DelegatedScheduledExecutorService, name, initialize, &_Executors$DelegatedScheduledExecutorService_ClassInfo_, allocate$Executors$DelegatedScheduledExecutorService);
+	$FieldInfo fieldInfos$$[] = {
+		{"e", "Ljava/util/concurrent/ScheduledExecutorService;", nullptr, $PRIVATE | $FINAL, $field(Executors$DelegatedScheduledExecutorService, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/concurrent/ScheduledExecutorService;)V", nullptr, 0, $method(Executors$DelegatedScheduledExecutorService, init$, void, $ScheduledExecutorService*)},
+		{"*invokeAll", "(Ljava/util/Collection;)Ljava/util/List;", nullptr, $PUBLIC},
+		{"*invokeAll", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;", nullptr, $PUBLIC},
+		{"*invokeAny", "(Ljava/util/Collection;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*invokeAny", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*isShutdown", "()Z", nullptr, $PUBLIC},
+		{"*isTerminated", "()Z", nullptr, $PUBLIC},
+		{"schedule", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<*>;", $PUBLIC, $virtualMethod(Executors$DelegatedScheduledExecutorService, schedule, $ScheduledFuture*, $Runnable*, int64_t, $TimeUnit*)},
+		{"schedule", "(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TV;>;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<TV;>;", $PUBLIC, $virtualMethod(Executors$DelegatedScheduledExecutorService, schedule, $ScheduledFuture*, $Callable*, int64_t, $TimeUnit*)},
+		{"scheduleAtFixedRate", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<*>;", $PUBLIC, $virtualMethod(Executors$DelegatedScheduledExecutorService, scheduleAtFixedRate, $ScheduledFuture*, $Runnable*, int64_t, int64_t, $TimeUnit*)},
+		{"scheduleWithFixedDelay", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<*>;", $PUBLIC, $virtualMethod(Executors$DelegatedScheduledExecutorService, scheduleWithFixedDelay, $ScheduledFuture*, $Runnable*, int64_t, int64_t, $TimeUnit*)},
+		{"*shutdown", "()V", nullptr, $PUBLIC},
+		{"*shutdownNow", "()Ljava/util/List;", nullptr, $PUBLIC},
+		{"*submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;", nullptr, $PUBLIC},
+		{"*submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", nullptr, $PUBLIC},
+		{"*submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Executors$DelegatedScheduledExecutorService", "java.util.concurrent.Executors", "DelegatedScheduledExecutorService", $PRIVATE | $STATIC},
+		{"java.util.concurrent.Executors$DelegatedExecutorService", "java.util.concurrent.Executors", "DelegatedExecutorService", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.Executors$DelegatedScheduledExecutorService",
+		"java.util.concurrent.Executors$DelegatedExecutorService",
+		"java.util.concurrent.ScheduledExecutorService",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.Executors"
+	};
+	$loadClass(Executors$DelegatedScheduledExecutorService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Executors$DelegatedScheduledExecutorService));
+	});
 	return class$;
 }
 

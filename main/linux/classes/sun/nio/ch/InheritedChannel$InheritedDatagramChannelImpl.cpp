@@ -1,5 +1,4 @@
 #include <sun/nio/ch/InheritedChannel$InheritedDatagramChannelImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -38,61 +37,6 @@ using $SelectionKeyImpl = ::sun::nio::ch::SelectionKeyImpl;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$MethodInfo _InheritedChannel$InheritedDatagramChannelImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/io/FileDescriptor;)V", nullptr, 0, $method(InheritedChannel$InheritedDatagramChannelImpl, init$, void, $SelectorProvider*, $FileDescriptor*), "java.io.IOException"},
-	{"bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, bind, $NetworkChannel*, $SocketAddress*), "java.io.IOException"},
-	{"connect", "(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, connect, $DatagramChannel*, $SocketAddress*), "java.io.IOException"},
-	{"disconnect", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, disconnect, $DatagramChannel*), "java.io.IOException"},
-	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, getFD, $FileDescriptor*)},
-	{"getFDVal", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, getFDVal, int32_t)},
-	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, getLocalAddress, $SocketAddress*), "java.io.IOException"},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
-	{"getRemoteAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, getRemoteAddress, $SocketAddress*), "java.io.IOException"},
-	{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, implCloseSelectableChannel, void), "java.io.IOException"},
-	{"isConnected", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, isConnected, bool)},
-	{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, join, $MembershipKey*, $InetAddress*, $NetworkInterface*, $InetAddress*), "java.io.IOException"},
-	{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, join, $MembershipKey*, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"kill", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, kill, void)},
-	{"read", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, read, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, read, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"receive", "(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, receive, $SocketAddress*, $ByteBuffer*), "java.io.IOException"},
-	{"send", "(Ljava/nio/ByteBuffer;Ljava/net/SocketAddress;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, send, int32_t, $ByteBuffer*, $SocketAddress*), "java.io.IOException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, setOption, $NetworkChannel*, $SocketOption*, Object$*), "java.io.IOException"},
-	{"socket", "()Ljava/net/DatagramSocket;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, socket, $DatagramSocket*)},
-	{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateInterestOps", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, translateInterestOps, int32_t, int32_t)},
-	{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, translateReadyOps, bool, int32_t, int32_t, $SelectionKeyImpl*)},
-	{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, write, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, write, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _InheritedChannel$InheritedDatagramChannelImpl_InnerClassesInfo_[] = {
-	{"sun.nio.ch.InheritedChannel$InheritedDatagramChannelImpl", "sun.nio.ch.InheritedChannel", "InheritedDatagramChannelImpl", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _InheritedChannel$InheritedDatagramChannelImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.InheritedChannel$InheritedDatagramChannelImpl",
-	"sun.nio.ch.DatagramChannelImpl",
-	nullptr,
-	nullptr,
-	_InheritedChannel$InheritedDatagramChannelImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InheritedChannel$InheritedDatagramChannelImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.InheritedChannel"
-};
-
-$Object* allocate$InheritedChannel$InheritedDatagramChannelImpl($Class* clazz) {
-	return $of($alloc(InheritedChannel$InheritedDatagramChannelImpl));
-}
 
 void InheritedChannel$InheritedDatagramChannelImpl::init$($SelectorProvider* sp, $FileDescriptor* fd) {
 	$DatagramChannelImpl::init$(sp, fd);
@@ -180,7 +124,7 @@ $SocketAddress* InheritedChannel$InheritedDatagramChannelImpl::receive($ByteBuff
 }
 
 $Object* InheritedChannel$InheritedDatagramChannelImpl::getOption($SocketOption* name) {
-	return $of($DatagramChannelImpl::getOption(name));
+	return $DatagramChannelImpl::getOption(name);
 }
 
 $NetworkChannel* InheritedChannel$InheritedDatagramChannelImpl::setOption($SocketOption* name, Object$* value) {
@@ -203,7 +147,57 @@ InheritedChannel$InheritedDatagramChannelImpl::InheritedChannel$InheritedDatagra
 }
 
 $Class* InheritedChannel$InheritedDatagramChannelImpl::load$($String* name, bool initialize) {
-	$loadClass(InheritedChannel$InheritedDatagramChannelImpl, name, initialize, &_InheritedChannel$InheritedDatagramChannelImpl_ClassInfo_, allocate$InheritedChannel$InheritedDatagramChannelImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/io/FileDescriptor;)V", nullptr, 0, $method(InheritedChannel$InheritedDatagramChannelImpl, init$, void, $SelectorProvider*, $FileDescriptor*), "java.io.IOException"},
+		{"bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, bind, $NetworkChannel*, $SocketAddress*), "java.io.IOException"},
+		{"connect", "(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, connect, $DatagramChannel*, $SocketAddress*), "java.io.IOException"},
+		{"disconnect", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, disconnect, $DatagramChannel*), "java.io.IOException"},
+		{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, getFD, $FileDescriptor*)},
+		{"getFDVal", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, getFDVal, int32_t)},
+		{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, getLocalAddress, $SocketAddress*), "java.io.IOException"},
+		{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+		{"getRemoteAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, getRemoteAddress, $SocketAddress*), "java.io.IOException"},
+		{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, implCloseSelectableChannel, void), "java.io.IOException"},
+		{"isConnected", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, isConnected, bool)},
+		{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, join, $MembershipKey*, $InetAddress*, $NetworkInterface*, $InetAddress*), "java.io.IOException"},
+		{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, join, $MembershipKey*, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"kill", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, kill, void)},
+		{"read", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, read, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, read, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"receive", "(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, receive, $SocketAddress*, $ByteBuffer*), "java.io.IOException"},
+		{"send", "(Ljava/nio/ByteBuffer;Ljava/net/SocketAddress;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, send, int32_t, $ByteBuffer*, $SocketAddress*), "java.io.IOException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, setOption, $NetworkChannel*, $SocketOption*, Object$*), "java.io.IOException"},
+		{"socket", "()Ljava/net/DatagramSocket;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, socket, $DatagramSocket*)},
+		{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateInterestOps", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, translateInterestOps, int32_t, int32_t)},
+		{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, translateReadyOps, bool, int32_t, int32_t, $SelectionKeyImpl*)},
+		{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, write, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedDatagramChannelImpl, write, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.InheritedChannel$InheritedDatagramChannelImpl", "sun.nio.ch.InheritedChannel", "InheritedDatagramChannelImpl", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.InheritedChannel$InheritedDatagramChannelImpl",
+		"sun.nio.ch.DatagramChannelImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.InheritedChannel"
+	};
+	$loadClass(InheritedChannel$InheritedDatagramChannelImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InheritedChannel$InheritedDatagramChannelImpl));
+	});
 	return class$;
 }
 

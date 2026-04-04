@@ -1,5 +1,4 @@
 #include <ConstructorNull.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/SequenceInputStream.h>
@@ -7,40 +6,20 @@
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $SequenceInputStream = ::java::io::SequenceInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _ConstructorNull_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ConstructorNull, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstructorNull, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ConstructorNull_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ConstructorNull",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ConstructorNull_MethodInfo_
-};
-
-$Object* allocate$ConstructorNull($Class* clazz) {
-	return $of($alloc(ConstructorNull));
-}
-
 void ConstructorNull::init$() {
 }
 
 void ConstructorNull::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, data, $new($bytes, {
-		(int8_t)10,
-		(int8_t)20
+		10,
+		20
 	}));
 	int32_t b1 = 0;
 	int32_t b2 = 0;
@@ -58,7 +37,22 @@ ConstructorNull::ConstructorNull() {
 }
 
 $Class* ConstructorNull::load$($String* name, bool initialize) {
-	$loadClass(ConstructorNull, name, initialize, &_ConstructorNull_ClassInfo_, allocate$ConstructorNull);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ConstructorNull, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstructorNull, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ConstructorNull",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ConstructorNull, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConstructorNull);
+	});
 	return class$;
 }
 

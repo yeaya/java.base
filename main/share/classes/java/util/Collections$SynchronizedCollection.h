@@ -70,7 +70,7 @@ public:
 	virtual $ObjectArray* toArray(::java::util::function::IntFunction* f) override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x2A61F84D099C99B5;
+	static const int64_t serialVersionUID = (int64_t)0x2a61f84d099c99b5;
 	::java::util::Collection* c = nullptr;
 	$Object* mutex = nullptr;
 };

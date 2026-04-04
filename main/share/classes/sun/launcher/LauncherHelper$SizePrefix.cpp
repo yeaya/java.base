@@ -1,5 +1,4 @@
 #include <sun/launcher/LauncherHelper$SizePrefix.h>
-
 #include <java/lang/Enum.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/RoundingMode.h>
@@ -23,52 +22,6 @@ using $RoundingMode = ::java::math::RoundingMode;
 
 namespace sun {
 	namespace launcher {
-
-$FieldInfo _LauncherHelper$SizePrefix_FieldInfo_[] = {
-	{"KILO", "Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LauncherHelper$SizePrefix, KILO)},
-	{"MEGA", "Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LauncherHelper$SizePrefix, MEGA)},
-	{"GIGA", "Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LauncherHelper$SizePrefix, GIGA)},
-	{"TERA", "Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LauncherHelper$SizePrefix, TERA)},
-	{"$VALUES", "[Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LauncherHelper$SizePrefix, $VALUES)},
-	{"size", "J", nullptr, 0, $field(LauncherHelper$SizePrefix, size)},
-	{"abbrev", "Ljava/lang/String;", nullptr, 0, $field(LauncherHelper$SizePrefix, abbrev)},
-	{}
-};
-
-$MethodInfo _LauncherHelper$SizePrefix_MethodInfo_[] = {
-	{"$values", "()[Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper$SizePrefix, $values, $LauncherHelper$SizePrefixArray*)},
-	{"<init>", "(Ljava/lang/String;IJLjava/lang/String;)V", "(JLjava/lang/String;)V", $PRIVATE, $method(LauncherHelper$SizePrefix, init$, void, $String*, int32_t, int64_t, $String*)},
-	{"scale", "(JLsun/launcher/LauncherHelper$SizePrefix;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper$SizePrefix, scale, $String*, int64_t, LauncherHelper$SizePrefix*)},
-	{"scaleValue", "(J)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LauncherHelper$SizePrefix, scaleValue, $String*, int64_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherHelper$SizePrefix, valueOf, LauncherHelper$SizePrefix*, $String*)},
-	{"values", "()[Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherHelper$SizePrefix, values, $LauncherHelper$SizePrefixArray*)},
-	{}
-};
-
-$InnerClassInfo _LauncherHelper$SizePrefix_InnerClassesInfo_[] = {
-	{"sun.launcher.LauncherHelper$SizePrefix", "sun.launcher.LauncherHelper", "SizePrefix", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LauncherHelper$SizePrefix_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.launcher.LauncherHelper$SizePrefix",
-	"java.lang.Enum",
-	nullptr,
-	_LauncherHelper$SizePrefix_FieldInfo_,
-	_LauncherHelper$SizePrefix_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/launcher/LauncherHelper$SizePrefix;>;",
-	nullptr,
-	_LauncherHelper$SizePrefix_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.launcher.LauncherHelper"
-};
-
-$Object* allocate$LauncherHelper$SizePrefix($Class* clazz) {
-	return $of($alloc(LauncherHelper$SizePrefix));
-}
 
 LauncherHelper$SizePrefix* LauncherHelper$SizePrefix::KILO = nullptr;
 LauncherHelper$SizePrefix* LauncherHelper$SizePrefix::MEGA = nullptr;
@@ -104,29 +57,25 @@ void LauncherHelper$SizePrefix::init$($String* $enum$name, int32_t $enum$ordinal
 
 $String* LauncherHelper$SizePrefix::scale(int64_t v, LauncherHelper$SizePrefix* prefix) {
 	$init(LauncherHelper$SizePrefix);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($RoundingMode);
-	return $str({$($nc($($nc($($BigDecimal::valueOf(v)))->divide($($BigDecimal::valueOf($nc(prefix)->size)), 2, $RoundingMode::HALF_EVEN)))->toPlainString()), $nc(prefix)->abbrev});
+	return $str({$($($($BigDecimal::valueOf(v))->divide($($BigDecimal::valueOf($nc(prefix)->size)), 2, $RoundingMode::HALF_EVEN))->toPlainString()), $nc(prefix)->abbrev});
 }
 
 $String* LauncherHelper$SizePrefix::scaleValue(int64_t v) {
 	$init(LauncherHelper$SizePrefix);
 	if (v < LauncherHelper$SizePrefix::MEGA->size) {
 		return scale(v, LauncherHelper$SizePrefix::KILO);
+	} else if (v < LauncherHelper$SizePrefix::GIGA->size) {
+		return scale(v, LauncherHelper$SizePrefix::MEGA);
+	} else if (v < LauncherHelper$SizePrefix::TERA->size) {
+		return scale(v, LauncherHelper$SizePrefix::GIGA);
 	} else {
-		if (v < LauncherHelper$SizePrefix::GIGA->size) {
-			return scale(v, LauncherHelper$SizePrefix::MEGA);
-		} else {
-			if (v < LauncherHelper$SizePrefix::TERA->size) {
-				return scale(v, LauncherHelper$SizePrefix::GIGA);
-			} else {
-				return scale(v, LauncherHelper$SizePrefix::TERA);
-			}
-		}
+		return scale(v, LauncherHelper$SizePrefix::TERA);
 	}
 }
 
-void clinit$LauncherHelper$SizePrefix($Class* class$) {
+void LauncherHelper$SizePrefix::clinit$($Class* clazz) {
 	$assignStatic(LauncherHelper$SizePrefix::KILO, $new(LauncherHelper$SizePrefix, "KILO"_s, 0, 1024, "K"_s));
 	$assignStatic(LauncherHelper$SizePrefix::MEGA, $new(LauncherHelper$SizePrefix, "MEGA"_s, 1, 1024 * 1024, "M"_s));
 	$assignStatic(LauncherHelper$SizePrefix::GIGA, $new(LauncherHelper$SizePrefix, "GIGA"_s, 2, 1024 * 1024 * 1024, "G"_s));
@@ -138,7 +87,47 @@ LauncherHelper$SizePrefix::LauncherHelper$SizePrefix() {
 }
 
 $Class* LauncherHelper$SizePrefix::load$($String* name, bool initialize) {
-	$loadClass(LauncherHelper$SizePrefix, name, initialize, &_LauncherHelper$SizePrefix_ClassInfo_, clinit$LauncherHelper$SizePrefix, allocate$LauncherHelper$SizePrefix);
+	$FieldInfo fieldInfos$$[] = {
+		{"KILO", "Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LauncherHelper$SizePrefix, KILO)},
+		{"MEGA", "Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LauncherHelper$SizePrefix, MEGA)},
+		{"GIGA", "Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LauncherHelper$SizePrefix, GIGA)},
+		{"TERA", "Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LauncherHelper$SizePrefix, TERA)},
+		{"$VALUES", "[Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LauncherHelper$SizePrefix, $VALUES)},
+		{"size", "J", nullptr, 0, $field(LauncherHelper$SizePrefix, size)},
+		{"abbrev", "Ljava/lang/String;", nullptr, 0, $field(LauncherHelper$SizePrefix, abbrev)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper$SizePrefix, $values, $LauncherHelper$SizePrefixArray*)},
+		{"<init>", "(Ljava/lang/String;IJLjava/lang/String;)V", "(JLjava/lang/String;)V", $PRIVATE, $method(LauncherHelper$SizePrefix, init$, void, $String*, int32_t, int64_t, $String*)},
+		{"scale", "(JLsun/launcher/LauncherHelper$SizePrefix;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper$SizePrefix, scale, $String*, int64_t, LauncherHelper$SizePrefix*)},
+		{"scaleValue", "(J)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LauncherHelper$SizePrefix, scaleValue, $String*, int64_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherHelper$SizePrefix, valueOf, LauncherHelper$SizePrefix*, $String*)},
+		{"values", "()[Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherHelper$SizePrefix, values, $LauncherHelper$SizePrefixArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.launcher.LauncherHelper$SizePrefix", "sun.launcher.LauncherHelper", "SizePrefix", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.launcher.LauncherHelper$SizePrefix",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/launcher/LauncherHelper$SizePrefix;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.launcher.LauncherHelper"
+	};
+	$loadClass(LauncherHelper$SizePrefix, name, initialize, &classInfo$$, LauncherHelper$SizePrefix::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LauncherHelper$SizePrefix));
+	});
 	return class$;
 }
 

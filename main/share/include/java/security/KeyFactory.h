@@ -41,6 +41,7 @@ class $import KeyFactory : public ::java::lang::Object {
 	$class(KeyFactory, 0, ::java::lang::Object)
 public:
 	KeyFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::KeyFactorySpi* keyFacSpi, ::java::security::Provider* provider, $String* algorithm);
 	void init$($String* algorithm);
 	::java::security::PrivateKey* generatePrivate(::java::security::spec::KeySpec* keySpec);

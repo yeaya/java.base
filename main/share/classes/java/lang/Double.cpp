@@ -1,5 +1,4 @@
 #include <java/lang/Double.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/Number.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -38,134 +37,6 @@ using $FloatingDecimal = ::jdk::internal::math::FloatingDecimal;
 namespace java {
 	namespace lang {
 
-$CompoundAttribute _Double_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$NamedAttribute Double_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Double_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", Double_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute Double_Attribute_var$1[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Double_MethodAnnotations_init$1[] = {
-	{"Ljava/lang/Deprecated;", Double_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _Double_MethodAnnotations_doubleToLongBits7[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Double_MethodAnnotations_doubleToRawLongBits8[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Double_MethodAnnotations_doubleValue9[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Double_MethodAnnotations_longBitsToDouble20[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Double_MethodAnnotations_valueOf32[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _Double_FieldInfo_[] = {
-	{"POSITIVE_INFINITY", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, POSITIVE_INFINITY)},
-	{"NEGATIVE_INFINITY", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, NEGATIVE_INFINITY)},
-	{"NaN", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, NaN)},
-	{"MAX_VALUE", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, MAX_VALUE)},
-	{"MIN_NORMAL", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, MIN_NORMAL)},
-	{"MIN_VALUE", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, MIN_VALUE)},
-	{"MAX_EXPONENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Double, MAX_EXPONENT)},
-	{"MIN_EXPONENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Double, MIN_EXPONENT)},
-	{"SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Double, SIZE)},
-	{"BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Double, BYTES)},
-	{"TYPE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Double;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Double, TYPE)},
-	{"value", "D", nullptr, $PRIVATE | $FINAL, $field(Double, value)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Double, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Double_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(D)V", nullptr, $PUBLIC | $DEPRECATED, $method(Double, init$, void, double), nullptr, nullptr, _Double_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Double, init$, void, $String*), "java.lang.NumberFormatException", nullptr, _Double_MethodAnnotations_init$1},
-	{"byteValue", "()B", nullptr, $PUBLIC, $virtualMethod(Double, byteValue, int8_t)},
-	{"compare", "(DD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, compare, int32_t, double, double)},
-	{"compareTo", "(Ljava/lang/Double;)I", nullptr, $PUBLIC, $method(Double, compareTo, int32_t, Double*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Double, compareTo, int32_t, Object$*)},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Double;>;", $PUBLIC, $virtualMethod(Double, describeConstable, $Optional*)},
-	{"doubleToLongBits", "(D)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, doubleToLongBits, int64_t, double), nullptr, nullptr, _Double_MethodAnnotations_doubleToLongBits7},
-	{"doubleToRawLongBits", "(D)J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Double, doubleToRawLongBits, int64_t, double), nullptr, nullptr, _Double_MethodAnnotations_doubleToRawLongBits8},
-	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(Double, doubleValue, double), nullptr, nullptr, _Double_MethodAnnotations_doubleValue9},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Double, equals, bool, Object$*)},
-	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(Double, floatValue, float)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Double, hashCode, int32_t)},
-	{"hashCode", "(D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, hashCode, int32_t, double)},
-	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Double, intValue, int32_t)},
-	{"isFinite", "(D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, isFinite, bool, double)},
-	{"isInfinite", "(D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, isInfinite, bool, double)},
-	{"isInfinite", "()Z", nullptr, $PUBLIC, $method(Double, isInfinite, bool)},
-	{"isNaN", "(D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, isNaN, bool, double)},
-	{"isNaN", "()Z", nullptr, $PUBLIC, $method(Double, isNaN, bool)},
-	{"longBitsToDouble", "(J)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Double, longBitsToDouble, double, int64_t), nullptr, nullptr, _Double_MethodAnnotations_longBitsToDouble20},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(Double, longValue, int64_t)},
-	{"max", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, max, double, double, double)},
-	{"min", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, min, double, double, double)},
-	{"parseDouble", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, parseDouble, double, $String*), "java.lang.NumberFormatException"},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Double;", nullptr, $PUBLIC, $virtualMethod(Double, resolveConstantDesc, $Object*, $MethodHandles$Lookup*)},
-	{"shortValue", "()S", nullptr, $PUBLIC, $virtualMethod(Double, shortValue, int16_t)},
-	{"sum", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, sum, double, double, double)},
-	{"toHexString", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, toHexString, $String*, double)},
-	{"toString", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, toString, $String*, double)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Double, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/Double;", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, valueOf, Double*, $String*), "java.lang.NumberFormatException"},
-	{"valueOf", "(D)Ljava/lang/Double;", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, valueOf, Double*, double), nullptr, nullptr, _Double_MethodAnnotations_valueOf32},
-	{}
-};
-
-#define _METHOD_INDEX_doubleToRawLongBits 10
-#define _METHOD_INDEX_longBitsToDouble 22
-
-$ClassInfo _Double_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.Double",
-	"java.lang.Number",
-	"java.lang.Comparable,java.lang.constant.Constable,java.lang.constant.ConstantDesc",
-	_Double_FieldInfo_,
-	_Double_MethodInfo_,
-	"Ljava/lang/Number;Ljava/lang/Comparable<Ljava/lang/Double;>;Ljava/lang/constant/Constable;Ljava/lang/constant/ConstantDesc;",
-	nullptr,
-	nullptr,
-	_Double_Annotations_
-};
-
-$Object* allocate$Double($Class* clazz) {
-	return $of($alloc(Double));
-}
-
 $Object* Double::clone() {
 	 return this->$Number::clone();
 }
@@ -183,13 +54,11 @@ double Double::MIN_VALUE = 0.0;
 $Class* Double::TYPE = nullptr;
 
 $String* Double::toString(double d) {
-	$init(Double);
 	return $FloatingDecimal::toJavaFormatString(d);
 }
 
 $String* Double::toHexString(double d) {
-	$init(Double);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isFinite(d)) {
 		return Double::toString(d);
 	} else {
@@ -203,9 +72,9 @@ $String* Double::toHexString(double d) {
 			answer->append("0.0p0"_s);
 		} else {
 			bool subnormal = (d < Double::MIN_NORMAL);
-			int64_t signifBits = ((int64_t)(Double::doubleToLongBits(d) & (uint64_t)$DoubleConsts::SIGNIF_BIT_MASK)) | (int64_t)0x1000000000000000;
+			int64_t signifBits = (Double::doubleToLongBits(d) & $DoubleConsts::SIGNIF_BIT_MASK) | (int64_t)0x1000000000000000;
 			answer->append(subnormal ? "0."_s : "1."_s);
-			$var($String, signif, $nc($($Long::toHexString(signifBits)))->substring(3, 16));
+			$var($String, signif, $$nc($Long::toHexString(signifBits))->substring(3, 16));
 			answer->append(signif->equals("0000000000000"_s) ? "0"_s : $(signif->replaceFirst("0{1,12}$"_s, ""_s)));
 			answer->append(u'p');
 			answer->append(subnormal ? Double::MIN_EXPONENT : $Math::getExponent(d));
@@ -215,32 +84,26 @@ $String* Double::toHexString(double d) {
 }
 
 Double* Double::valueOf($String* s) {
-	$init(Double);
 	return $new(Double, parseDouble(s));
 }
 
 Double* Double::valueOf(double d) {
-	$init(Double);
 	return $new(Double, d);
 }
 
 double Double::parseDouble($String* s) {
-	$init(Double);
 	return $FloatingDecimal::parseDouble(s);
 }
 
 bool Double::isNaN(double v) {
-	$init(Double);
 	return (v != v);
 }
 
 bool Double::isInfinite(double v) {
-	$init(Double);
 	return (v == Double::POSITIVE_INFINITY) || (v == Double::NEGATIVE_INFINITY);
 }
 
 bool Double::isFinite(double d) {
-	$init(Double);
 	return $Math::abs(d) <= Double::MAX_VALUE;
 }
 
@@ -295,26 +158,24 @@ int32_t Double::hashCode() {
 }
 
 int32_t Double::hashCode(double value) {
-	$init(Double);
 	int64_t bits = doubleToLongBits(value);
 	return (int32_t)(bits ^ ((int64_t)((uint64_t)bits >> 32)));
 }
 
 bool Double::equals(Object$* obj) {
-	bool var$0 = ($instanceOf(Double, obj));
+	bool var$0 = $instanceOf(Double, obj);
 	if (var$0) {
-		int64_t var$1 = doubleToLongBits($nc(($cast(Double, obj)))->value);
-		var$0 = (var$1 == doubleToLongBits(this->value));
+		int64_t var$1 = doubleToLongBits($cast(Double, obj)->value);
+		var$0 = var$1 == doubleToLongBits(this->value);
 	}
 	return var$0;
 }
 
 int64_t Double::doubleToLongBits(double value) {
-	$init(Double);
 	if (!isNaN(value)) {
 		return doubleToRawLongBits(value);
 	}
-	return 0x7FF8000000000000;
+	return (int64_t)0x7ff8000000000000;
 }
 
 int64_t Double::doubleToRawLongBits(double value) {
@@ -340,7 +201,6 @@ int32_t Double::compareTo(Double* anotherDouble) {
 }
 
 int32_t Double::compare(double d1, double d2) {
-	$init(Double);
 	if (d1 < d2) {
 		return -1;
 	}
@@ -353,17 +213,14 @@ int32_t Double::compare(double d1, double d2) {
 }
 
 double Double::sum(double a, double b) {
-	$init(Double);
 	return a + b;
 }
 
 double Double::max(double a, double b) {
-	$init(Double);
 	return $Math::max(a, b);
 }
 
 double Double::min(double a, double b) {
-	$init(Double);
 	return $Math::min(a, b);
 }
 
@@ -379,7 +236,7 @@ int32_t Double::compareTo(Object$* anotherDouble) {
 	return this->compareTo($cast(Double, anotherDouble));
 }
 
-void clinit$Double($Class* class$) {
+void Double::clinit$($Class* clazz) {
 	Double::POSITIVE_INFINITY = $div(1.0, 0.0);
 	Double::NEGATIVE_INFINITY = $div(-1.0, 0.0);
 	Double::NaN = $div(0.0, 0.0);
@@ -392,16 +249,126 @@ void clinit$Double($Class* class$) {
 Double::Double() {
 }
 
-double Double::mod(double a, double b) {
-	return std::fmod(a, b);
-}
-
 $Class* Double::load$($String* name, bool initialize) {
-	$loadClass(Double, name, initialize, &_Double_ClassInfo_, clinit$Double, allocate$Double);
+	$FieldInfo fieldInfos$$[] = {
+		{"POSITIVE_INFINITY", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, POSITIVE_INFINITY)},
+		{"NEGATIVE_INFINITY", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, NEGATIVE_INFINITY)},
+		{"NaN", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, NaN)},
+		{"MAX_VALUE", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, MAX_VALUE)},
+		{"MIN_NORMAL", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, MIN_NORMAL)},
+		{"MIN_VALUE", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, MIN_VALUE)},
+		{"MAX_EXPONENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Double, MAX_EXPONENT)},
+		{"MIN_EXPONENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Double, MIN_EXPONENT)},
+		{"SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Double, SIZE)},
+		{"BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Double, BYTES)},
+		{"TYPE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Double;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Double, TYPE)},
+		{"value", "D", nullptr, $PRIVATE | $FINAL, $field(Double, value)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Double, serialVersionUID)},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$CompoundAttribute doubleToLongBitsmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute doubleToRawLongBitsmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute doubleValuemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute longBitsToDoublemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute valueOfmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(D)V", nullptr, $PUBLIC | $DEPRECATED, $method(Double, init$, void, double), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Double, init$, void, $String*), "java.lang.NumberFormatException", nullptr, init$methodAnnotations$$$1},
+		{"byteValue", "()B", nullptr, $PUBLIC, $virtualMethod(Double, byteValue, int8_t)},
+		{"compare", "(DD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, compare, int32_t, double, double)},
+		{"compareTo", "(Ljava/lang/Double;)I", nullptr, $PUBLIC, $method(Double, compareTo, int32_t, Double*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Double, compareTo, int32_t, Object$*)},
+		{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Double;>;", $PUBLIC, $virtualMethod(Double, describeConstable, $Optional*)},
+		{"doubleToLongBits", "(D)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, doubleToLongBits, int64_t, double), nullptr, nullptr, doubleToLongBitsmethodAnnotations$$},
+		{"doubleToRawLongBits", "(D)J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Double, doubleToRawLongBits, int64_t, double), nullptr, nullptr, doubleToRawLongBitsmethodAnnotations$$},
+		{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(Double, doubleValue, double), nullptr, nullptr, doubleValuemethodAnnotations$$},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Double, equals, bool, Object$*)},
+		{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(Double, floatValue, float)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Double, hashCode, int32_t)},
+		{"hashCode", "(D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, hashCode, int32_t, double)},
+		{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Double, intValue, int32_t)},
+		{"isFinite", "(D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, isFinite, bool, double)},
+		{"isInfinite", "(D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, isInfinite, bool, double)},
+		{"isInfinite", "()Z", nullptr, $PUBLIC, $method(Double, isInfinite, bool)},
+		{"isNaN", "(D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, isNaN, bool, double)},
+		{"isNaN", "()Z", nullptr, $PUBLIC, $method(Double, isNaN, bool)},
+		{"longBitsToDouble", "(J)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Double, longBitsToDouble, double, int64_t), nullptr, nullptr, longBitsToDoublemethodAnnotations$$},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(Double, longValue, int64_t)},
+		{"max", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, max, double, double, double)},
+		{"min", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, min, double, double, double)},
+		{"parseDouble", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, parseDouble, double, $String*), "java.lang.NumberFormatException"},
+		{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Double;", nullptr, $PUBLIC, $virtualMethod(Double, resolveConstantDesc, $Object*, $MethodHandles$Lookup*)},
+		{"shortValue", "()S", nullptr, $PUBLIC, $virtualMethod(Double, shortValue, int16_t)},
+		{"sum", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, sum, double, double, double)},
+		{"toHexString", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, toHexString, $String*, double)},
+		{"toString", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, toString, $String*, double)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Double, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/Double;", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, valueOf, Double*, $String*), "java.lang.NumberFormatException"},
+		{"valueOf", "(D)Ljava/lang/Double;", nullptr, $PUBLIC | $STATIC, $staticMethod(Double, valueOf, Double*, double), nullptr, nullptr, valueOfmethodAnnotations$$$1},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.Double",
+		"java.lang.Number",
+		"java.lang.Comparable,java.lang.constant.Constable,java.lang.constant.ConstantDesc",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Number;Ljava/lang/Comparable<Ljava/lang/Double;>;Ljava/lang/constant/Constable;Ljava/lang/constant/ConstantDesc;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Double, name, initialize, &classInfo$$, Double::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Double));
+	});
 	return class$;
 }
 
 $Class* Double::class$ = nullptr;
+
+double Double::mod(double a, double b) {
+	return std::fmod(a, b);
+}
 
 	} // lang
 } // java

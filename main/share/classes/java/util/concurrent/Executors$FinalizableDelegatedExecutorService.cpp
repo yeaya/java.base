@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Executors$FinalizableDelegatedExecutorService.h>
-
 #include <java/util/concurrent/ExecutorService.h>
 #include <java/util/concurrent/Executors$DelegatedExecutorService.h>
 #include <java/util/concurrent/Executors.h>
@@ -15,38 +14,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$MethodInfo _Executors$FinalizableDelegatedExecutorService_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, 0, $method(Executors$FinalizableDelegatedExecutorService, init$, void, $ExecutorService*)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(Executors$FinalizableDelegatedExecutorService, finalize, void)},
-	{}
-};
-
-$InnerClassInfo _Executors$FinalizableDelegatedExecutorService_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Executors$FinalizableDelegatedExecutorService", "java.util.concurrent.Executors", "FinalizableDelegatedExecutorService", $PRIVATE | $STATIC},
-	{"java.util.concurrent.Executors$DelegatedExecutorService", "java.util.concurrent.Executors", "DelegatedExecutorService", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Executors$FinalizableDelegatedExecutorService_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.Executors$FinalizableDelegatedExecutorService",
-	"java.util.concurrent.Executors$DelegatedExecutorService",
-	nullptr,
-	nullptr,
-	_Executors$FinalizableDelegatedExecutorService_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Executors$FinalizableDelegatedExecutorService_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.Executors"
-};
-
-$Object* allocate$Executors$FinalizableDelegatedExecutorService($Class* clazz) {
-	return $of($alloc(Executors$FinalizableDelegatedExecutorService));
-}
-
 void Executors$FinalizableDelegatedExecutorService::init$($ExecutorService* executor) {
 	$Executors$DelegatedExecutorService::init$(executor);
 }
@@ -59,7 +26,34 @@ Executors$FinalizableDelegatedExecutorService::Executors$FinalizableDelegatedExe
 }
 
 $Class* Executors$FinalizableDelegatedExecutorService::load$($String* name, bool initialize) {
-	$loadClass(Executors$FinalizableDelegatedExecutorService, name, initialize, &_Executors$FinalizableDelegatedExecutorService_ClassInfo_, allocate$Executors$FinalizableDelegatedExecutorService);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, 0, $method(Executors$FinalizableDelegatedExecutorService, init$, void, $ExecutorService*)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(Executors$FinalizableDelegatedExecutorService, finalize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Executors$FinalizableDelegatedExecutorService", "java.util.concurrent.Executors", "FinalizableDelegatedExecutorService", $PRIVATE | $STATIC},
+		{"java.util.concurrent.Executors$DelegatedExecutorService", "java.util.concurrent.Executors", "DelegatedExecutorService", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.Executors$FinalizableDelegatedExecutorService",
+		"java.util.concurrent.Executors$DelegatedExecutorService",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.Executors"
+	};
+	$loadClass(Executors$FinalizableDelegatedExecutorService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Executors$FinalizableDelegatedExecutorService);
+	});
 	return class$;
 }
 

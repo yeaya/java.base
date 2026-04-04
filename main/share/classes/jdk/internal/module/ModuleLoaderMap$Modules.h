@@ -19,6 +19,7 @@ class ModuleLoaderMap$Modules : public ::java::lang::Object {
 	$class(ModuleLoaderMap$Modules, $PRELOAD, ::java::lang::Object)
 public:
 	ModuleLoaderMap$Modules();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* bootModules;
 	static ::java::util::Set* platformModules;

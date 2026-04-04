@@ -21,6 +21,7 @@ class $export RegistryFileTypeDetector : public ::sun::nio::fs::AbstractFileType
 	$class(RegistryFileTypeDetector, 0, ::sun::nio::fs::AbstractFileTypeDetector)
 public:
 	RegistryFileTypeDetector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* implProbeContentType(::java::nio::file::Path* file) override;
 	static $String* queryStringValue(int64_t subKey, int64_t name);

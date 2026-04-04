@@ -1,5 +1,4 @@
 #include <java/security/UnrecoverableKeyException.h>
-
 #include <java/security/UnrecoverableEntryException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $UnrecoverableEntryException = ::java::security::UnrecoverableEntryExcepti
 
 namespace java {
 	namespace security {
-
-$FieldInfo _UnrecoverableKeyException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnrecoverableKeyException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnrecoverableKeyException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnrecoverableKeyException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnrecoverableKeyException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _UnrecoverableKeyException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.UnrecoverableKeyException",
-	"java.security.UnrecoverableEntryException",
-	nullptr,
-	_UnrecoverableKeyException_FieldInfo_,
-	_UnrecoverableKeyException_MethodInfo_
-};
-
-$Object* allocate$UnrecoverableKeyException($Class* clazz) {
-	return $of($alloc(UnrecoverableKeyException));
-}
 
 void UnrecoverableKeyException::init$() {
 	$UnrecoverableEntryException::init$();
@@ -54,7 +29,26 @@ void UnrecoverableKeyException::throw$() {
 }
 
 $Class* UnrecoverableKeyException::load$($String* name, bool initialize) {
-	$loadClass(UnrecoverableKeyException, name, initialize, &_UnrecoverableKeyException_ClassInfo_, allocate$UnrecoverableKeyException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnrecoverableKeyException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnrecoverableKeyException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnrecoverableKeyException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.UnrecoverableKeyException",
+		"java.security.UnrecoverableEntryException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnrecoverableKeyException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnrecoverableKeyException);
+	});
 	return class$;
 }
 

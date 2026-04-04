@@ -22,6 +22,7 @@ class $export Restart : public ::java::lang::Object {
 	$class(Restart, 0, ::java::lang::Object)
 public:
 	Restart();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void testRestart(::java::nio::channels::AsynchronousChannelGroup* group, int32_t count);

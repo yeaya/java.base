@@ -15,6 +15,7 @@ class $export SystemProxies : public ::java::lang::Object {
 	$class(SystemProxies, 0, ::java::lang::Object)
 public:
 	SystemProxies();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void printProxies($String* proto);

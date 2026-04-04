@@ -30,6 +30,7 @@ class NTLMAuthSequence : public ::java::lang::Object {
 	$class(NTLMAuthSequence, 0, ::java::lang::Object)
 public:
 	NTLMAuthSequence();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* username, $String* password, $String* ntdomain);
 	virtual $String* getAuthHeader($String* token);
 	int64_t getCredentialsHandle($String* user, $String* domain, $String* password);

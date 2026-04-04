@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixFileSystemProvider$2.h>
-
 #include <java/nio/file/Path.h>
 #include <sun/nio/fs/AbstractFileTypeDetector.h>
 #include <sun/nio/fs/UnixFileSystemProvider.h>
@@ -19,49 +18,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _UnixFileSystemProvider$2_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/fs/UnixFileSystemProvider;", nullptr, $FINAL | $SYNTHETIC, $field(UnixFileSystemProvider$2, this$0)},
-	{"val$detectors", "[Lsun/nio/fs/AbstractFileTypeDetector;", nullptr, $FINAL | $SYNTHETIC, $field(UnixFileSystemProvider$2, val$detectors)},
-	{}
-};
-
-$MethodInfo _UnixFileSystemProvider$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;[Lsun/nio/fs/AbstractFileTypeDetector;)V", nullptr, 0, $method(UnixFileSystemProvider$2, init$, void, $UnixFileSystemProvider*, $AbstractFileTypeDetectorArray*)},
-	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(UnixFileSystemProvider$2, implProbeContentType, $String*, $Path*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _UnixFileSystemProvider$2_EnclosingMethodInfo_ = {
-	"sun.nio.fs.UnixFileSystemProvider",
-	"chain",
-	"([Lsun/nio/fs/AbstractFileTypeDetector;)Ljava/nio/file/spi/FileTypeDetector;"
-};
-
-$InnerClassInfo _UnixFileSystemProvider$2_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixFileSystemProvider$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _UnixFileSystemProvider$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixFileSystemProvider$2",
-	"sun.nio.fs.AbstractFileTypeDetector",
-	nullptr,
-	_UnixFileSystemProvider$2_FieldInfo_,
-	_UnixFileSystemProvider$2_MethodInfo_,
-	nullptr,
-	&_UnixFileSystemProvider$2_EnclosingMethodInfo_,
-	_UnixFileSystemProvider$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixFileSystemProvider"
-};
-
-$Object* allocate$UnixFileSystemProvider$2($Class* clazz) {
-	return $of($alloc(UnixFileSystemProvider$2));
-}
-
 void UnixFileSystemProvider$2::init$($UnixFileSystemProvider* this$0, $AbstractFileTypeDetectorArray* val$detectors) {
 	$set(this, this$0, this$0);
 	$set(this, val$detectors, val$detectors);
@@ -69,18 +25,14 @@ void UnixFileSystemProvider$2::init$($UnixFileSystemProvider* this$0, $AbstractF
 }
 
 $String* UnixFileSystemProvider$2::implProbeContentType($Path* file) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($AbstractFileTypeDetectorArray, arr$, this->val$detectors);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($AbstractFileTypeDetector, detector, arr$->get(i$));
-			{
-				$var($String, result, $nc(detector)->implProbeContentType(file));
-				if (result != nullptr && !result->isEmpty()) {
-					return result;
-				}
+	$useLocalObjectStack();
+	$var($AbstractFileTypeDetectorArray, arr$, this->val$detectors);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($AbstractFileTypeDetector, detector, arr$->get(i$));
+		{
+			$var($String, result, $nc(detector)->implProbeContentType(file));
+			if (result != nullptr && !result->isEmpty()) {
+				return result;
 			}
 		}
 	}
@@ -91,7 +43,43 @@ UnixFileSystemProvider$2::UnixFileSystemProvider$2() {
 }
 
 $Class* UnixFileSystemProvider$2::load$($String* name, bool initialize) {
-	$loadClass(UnixFileSystemProvider$2, name, initialize, &_UnixFileSystemProvider$2_ClassInfo_, allocate$UnixFileSystemProvider$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/fs/UnixFileSystemProvider;", nullptr, $FINAL | $SYNTHETIC, $field(UnixFileSystemProvider$2, this$0)},
+		{"val$detectors", "[Lsun/nio/fs/AbstractFileTypeDetector;", nullptr, $FINAL | $SYNTHETIC, $field(UnixFileSystemProvider$2, val$detectors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;[Lsun/nio/fs/AbstractFileTypeDetector;)V", nullptr, 0, $method(UnixFileSystemProvider$2, init$, void, $UnixFileSystemProvider*, $AbstractFileTypeDetectorArray*)},
+		{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(UnixFileSystemProvider$2, implProbeContentType, $String*, $Path*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.fs.UnixFileSystemProvider",
+		"chain",
+		"([Lsun/nio/fs/AbstractFileTypeDetector;)Ljava/nio/file/spi/FileTypeDetector;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixFileSystemProvider$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixFileSystemProvider$2",
+		"sun.nio.fs.AbstractFileTypeDetector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixFileSystemProvider"
+	};
+	$loadClass(UnixFileSystemProvider$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixFileSystemProvider$2);
+	});
 	return class$;
 }
 

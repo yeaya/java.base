@@ -20,6 +20,7 @@ class KeyUpdate$KeyUpdateRequest : public ::java::lang::Enum {
 public:
 	KeyUpdate$KeyUpdateRequest();
 	static $Array<::sun::security::ssl::KeyUpdate$KeyUpdateRequest>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name);
 	static $String* nameOf(int8_t id);
 	static ::sun::security::ssl::KeyUpdate$KeyUpdateRequest* valueOf($String* name);

@@ -1,5 +1,4 @@
 #include <java/security/Security.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
@@ -13,7 +12,6 @@
 #include <java/security/AccessController.h>
 #include <java/security/InvalidParameterException.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/Provider.h>
 #include <java/security/Security$1.h>
 #include <java/security/Security$ProviderProperty.h>
@@ -66,8 +64,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
 using $InvalidParameterException = ::java::security::InvalidParameterException;
-using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $Security$1 = ::java::security::Security$1;
 using $Security$ProviderProperty = ::java::security::Security$ProviderProperty;
@@ -85,13 +81,11 @@ using $Map = ::java::util::Map;
 using $Properties = ::java::util::Properties;
 using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
-using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $EventHelper = ::jdk::internal::event::EventHelper;
 using $SecurityPropertyModificationEvent = ::jdk::internal::event::SecurityPropertyModificationEvent;
 using $StaticProperty = ::jdk::internal::util::StaticProperty;
 using $GetInstance = ::sun::security::jca::GetInstance;
-using $GetInstance$Instance = ::sun::security::jca::GetInstance$Instance;
 using $ProviderList = ::sun::security::jca::ProviderList;
 using $Providers = ::sun::security::jca::Providers;
 using $Debug = ::sun::security::util::Debug;
@@ -100,127 +94,53 @@ using $PropertyExpander = ::sun::security::util::PropertyExpander;
 namespace java {
 	namespace security {
 
-$CompoundAttribute _Security_MethodAnnotations_getAlgorithmProperty4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Security_FieldInfo_[] = {
-	{"sdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Security, sdebug)},
-	{"props", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(Security, props)},
-	{"spiMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Security, spiMap)},
-	{}
-};
-
-$MethodInfo _Security_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Security, init$, void)},
-	{"addProvider", "(Ljava/security/Provider;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, addProvider, int32_t, $Provider*)},
-	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, check, void, $String*)},
-	{"checkInsertProvider", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, checkInsertProvider, void, $String*)},
-	{"getAlgorithmProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Security, getAlgorithmProperty, $String*, $String*, $String*), nullptr, nullptr, _Security_MethodAnnotations_getAlgorithmProperty4},
-	{"getAlgorithms", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Security, getAlgorithms, $Set*, $String*)},
-	{"getAllQualifyingCandidates", "(Ljava/lang/String;Ljava/lang/String;[Ljava/security/Provider;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/security/Provider;)Ljava/util/LinkedHashSet<Ljava/security/Provider;>;", $PRIVATE | $STATIC, $staticMethod(Security, getAllQualifyingCandidates, $LinkedHashSet*, $String*, $String*, $ProviderArray*)},
-	{"getFilterComponents", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Security, getFilterComponents, $StringArray*, $String*, $String*)},
-	{"getImpl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Security, getImpl, $ObjectArray*, $String*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getImpl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Security, getImpl, $ObjectArray*, $String*, $String*, $String*, Object$*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidAlgorithmParameterException"},
-	{"getImpl", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Security, getImpl, $ObjectArray*, $String*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getImpl", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Security, getImpl, $ObjectArray*, $String*, $String*, $Provider*, Object$*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, getProperty, $String*, $String*)},
-	{"getProvider", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, getProvider, $Provider*, $String*)},
-	{"getProviderProperty", "(Ljava/lang/String;)Ljava/security/Security$ProviderProperty;", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, getProviderProperty, $Security$ProviderProperty*, $String*)},
-	{"getProviderProperty", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, getProviderProperty, $String*, $String*, $Provider*)},
-	{"getProviders", "()[Ljava/security/Provider;", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, getProviders, $ProviderArray*)},
-	{"getProviders", "(Ljava/lang/String;)[Ljava/security/Provider;", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, getProviders, $ProviderArray*, $String*)},
-	{"getProviders", "(Ljava/util/Map;)[Ljava/security/Provider;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)[Ljava/security/Provider;", $PUBLIC | $STATIC, $staticMethod(Security, getProviders, $ProviderArray*, $Map*)},
-	{"getProvidersNotUsingCache", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/security/Provider;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/security/Provider;)Ljava/util/LinkedHashSet<Ljava/security/Provider;>;", $PRIVATE | $STATIC, $staticMethod(Security, getProvidersNotUsingCache, $LinkedHashSet*, $String*, $String*, $String*, $String*, $ProviderArray*)},
-	{"getSpiClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Security, getSpiClass, $Class*, $String*)},
-	{"initialize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, initialize, void)},
-	{"initializeStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, initializeStatic, void)},
-	{"insertProviderAt", "(Ljava/security/Provider;I)I", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Security, insertProviderAt, int32_t, $Provider*, int32_t)},
-	{"invalidateSMCache", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, invalidateSMCache, void, $String*)},
-	{"isConstraintSatisfied", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, isConstraintSatisfied, bool, $String*, $String*, $String*)},
-	{"isCriterionSatisfied", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, isCriterionSatisfied, bool, $Provider*, $String*, $String*, $String*, $String*)},
-	{"isStandardAttr", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, isStandardAttr, bool, $String*)},
-	{"removeProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Security, removeProvider, void, $String*)},
-	{"securityPropFile", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, securityPropFile, $File*, $String*)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, setProperty, void, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _Security_InnerClassesInfo_[] = {
-	{"java.security.Security$ProviderProperty", "java.security.Security", "ProviderProperty", $PRIVATE | $STATIC},
-	{"java.security.Security$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Security_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.security.Security",
-	"java.lang.Object",
-	nullptr,
-	_Security_FieldInfo_,
-	_Security_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Security_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.security.Security$ProviderProperty,java.security.Security$1"
-};
-
-$Object* allocate$Security($Class* clazz) {
-	return $of($alloc(Security));
-}
-
 $Debug* Security::sdebug = nullptr;
 $Properties* Security::props = nullptr;
 $Map* Security::spiMap = nullptr;
 
 void Security::initialize() {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(Security::props, $new($Properties));
 	bool loadedProps = false;
 	bool overrideAll = false;
 	$var($File, propFile, securityPropFile("java.security"_s));
 	if ($nc(propFile)->exists()) {
 		$var($InputStream, is, nullptr);
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$var($FileInputStream, fis, $new($FileInputStream, propFile));
-					$assign(is, $new($BufferedInputStream, fis));
-					$nc(Security::props)->load(is);
-					loadedProps = true;
-					if (Security::sdebug != nullptr) {
-						$nc(Security::sdebug)->println($$str({"reading security properties file: "_s, propFile}));
-					}
-				} catch ($IOException& e) {
-					if (Security::sdebug != nullptr) {
-						$nc(Security::sdebug)->println($$str({"unable to load security properties from "_s, propFile}));
-						e->printStackTrace();
-					}
+				$var($FileInputStream, fis, $new($FileInputStream, propFile));
+				$assign(is, $new($BufferedInputStream, fis));
+				Security::props->load(is);
+				loadedProps = true;
+				if (Security::sdebug != nullptr) {
+					Security::sdebug->println($$str({"reading security properties file: "_s, propFile}));
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				if (is != nullptr) {
-					try {
-						is->close();
-					} catch ($IOException& ioe) {
-						if (Security::sdebug != nullptr) {
-							$nc(Security::sdebug)->println("unable to close input stream"_s);
-						}
-					}
+			} catch ($IOException& e) {
+				if (Security::sdebug != nullptr) {
+					Security::sdebug->println($$str({"unable to load security properties from "_s, propFile}));
+					e->printStackTrace();
 				}
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (is != nullptr) {
+				try {
+					is->close();
+				} catch ($IOException& ioe) {
+					if (Security::sdebug != nullptr) {
+						Security::sdebug->println("unable to close input stream"_s);
+					}
+				}
 			}
 		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
 	}
-	if ("true"_s->equalsIgnoreCase($($nc(Security::props)->getProperty("security.overridePropertiesFile"_s)))) {
+	if ("true"_s->equalsIgnoreCase($(Security::props->getProperty("security.overridePropertiesFile"_s)))) {
 		$var($String, extraPropFile, $System::getProperty("java.security.properties"_s));
 		if (extraPropFile != nullptr && extraPropFile->startsWith("="_s)) {
 			overrideAll = true;
@@ -229,61 +149,59 @@ void Security::initialize() {
 		if (overrideAll) {
 			$assignStatic(Security::props, $new($Properties));
 			if (Security::sdebug != nullptr) {
-				$nc(Security::sdebug)->println("overriding other security properties files!"_s);
+				Security::sdebug->println("overriding other security properties files!"_s);
 			}
 		}
 		if (extraPropFile != nullptr) {
 			$var($BufferedInputStream, bis, nullptr);
-			{
-				$var($Throwable, var$2, nullptr);
+			$var($Throwable, var$2, nullptr);
+			try {
 				try {
+					$var($URL, propURL, nullptr);
+					$assign(extraPropFile, $PropertyExpander::expand(extraPropFile));
+					$assign(propFile, $new($File, extraPropFile));
+					if (propFile->exists()) {
+						$assign(propURL, $new($URL, $$str({"file:"_s, $(propFile->getCanonicalPath())})));
+					} else {
+						$assign(propURL, $new($URL, extraPropFile));
+					}
+					$assign(bis, $new($BufferedInputStream, $($nc(propURL)->openStream())));
+					Security::props->load(bis);
+					loadedProps = true;
+					if (Security::sdebug != nullptr) {
+						Security::sdebug->println($$str({"reading security properties file: "_s, propURL}));
+						if (overrideAll) {
+							Security::sdebug->println("overriding other security properties files!"_s);
+						}
+					}
+				} catch ($Exception& e) {
+					if (Security::sdebug != nullptr) {
+						Security::sdebug->println($$str({"unable to load security properties from "_s, extraPropFile}));
+						e->printStackTrace();
+					}
+				}
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
+			} /*finally*/ {
+				if (bis != nullptr) {
 					try {
-						$var($URL, propURL, nullptr);
-						$assign(extraPropFile, $PropertyExpander::expand(extraPropFile));
-						$assign(propFile, $new($File, extraPropFile));
-						if (propFile->exists()) {
-							$assign(propURL, $new($URL, $$str({"file:"_s, $(propFile->getCanonicalPath())})));
-						} else {
-							$assign(propURL, $new($URL, extraPropFile));
-						}
-						$assign(bis, $new($BufferedInputStream, $($nc(propURL)->openStream())));
-						$nc(Security::props)->load(static_cast<$InputStream*>(bis));
-						loadedProps = true;
+						bis->close();
+					} catch ($IOException& ioe) {
 						if (Security::sdebug != nullptr) {
-							$nc(Security::sdebug)->println($$str({"reading security properties file: "_s, propURL}));
-							if (overrideAll) {
-								$nc(Security::sdebug)->println("overriding other security properties files!"_s);
-							}
-						}
-					} catch ($Exception& e) {
-						if (Security::sdebug != nullptr) {
-							$nc(Security::sdebug)->println($$str({"unable to load security properties from "_s, extraPropFile}));
-							e->printStackTrace();
-						}
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$2, var$3);
-				} /*finally*/ {
-					if (bis != nullptr) {
-						try {
-							bis->close();
-						} catch ($IOException& ioe) {
-							if (Security::sdebug != nullptr) {
-								$nc(Security::sdebug)->println("unable to close input stream"_s);
-							}
+							Security::sdebug->println("unable to close input stream"_s);
 						}
 					}
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
-				}
+			}
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}
 	if (!loadedProps) {
 		initializeStatic();
 		if (Security::sdebug != nullptr) {
-			$nc(Security::sdebug)->println("unable to load security properties -- using defaults"_s);
+			Security::sdebug->println("unable to load security properties -- using defaults"_s);
 		}
 	}
 }
@@ -291,11 +209,11 @@ void Security::initialize() {
 void Security::initializeStatic() {
 	$init(Security);
 	$nc(Security::props)->put("security.provider.1"_s, "sun.security.provider.Sun"_s);
-	$nc(Security::props)->put("security.provider.2"_s, "sun.security.rsa.SunRsaSign"_s);
-	$nc(Security::props)->put("security.provider.3"_s, "sun.security.ssl.SunJSSE"_s);
-	$nc(Security::props)->put("security.provider.4"_s, "com.sun.crypto.provider.SunJCE"_s);
-	$nc(Security::props)->put("security.provider.5"_s, "sun.security.jgss.SunProvider"_s);
-	$nc(Security::props)->put("security.provider.6"_s, "com.sun.security.sasl.Provider"_s);
+	Security::props->put("security.provider.2"_s, "sun.security.rsa.SunRsaSign"_s);
+	Security::props->put("security.provider.3"_s, "sun.security.ssl.SunJSSE"_s);
+	Security::props->put("security.provider.4"_s, "com.sun.crypto.provider.SunJCE"_s);
+	Security::props->put("security.provider.5"_s, "sun.security.jgss.SunProvider"_s);
+	Security::props->put("security.provider.6"_s, "com.sun.security.sasl.Provider"_s);
 }
 
 void Security::init$() {
@@ -303,7 +221,7 @@ void Security::init$() {
 
 $File* Security::securityPropFile($String* filename) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	$var($String, sep, $File::separator);
 	return $new($File, $$str({$($StaticProperty::javaHome()), sep, "conf"_s, sep, "security"_s, sep, filename}));
@@ -311,22 +229,20 @@ $File* Security::securityPropFile($String* filename) {
 
 $Security$ProviderProperty* Security::getProviderProperty($String* key) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Security$ProviderProperty, entry, nullptr);
-	$var($List, providers, $nc($($Providers::getProviderList()))->providers());
+	$var($List, providers, $$nc($Providers::getProviderList())->providers());
 	for (int32_t i = 0; i < $nc(providers)->size(); ++i) {
 		$var($String, matchKey, nullptr);
 		$var($Provider, prov, $cast($Provider, providers->get(i)));
 		$var($String, prop, $nc(prov)->getProperty(key));
 		if (prop == nullptr) {
-			{
-				$var($Enumeration, e, prov->keys());
-				for (; $nc(e)->hasMoreElements() && prop == nullptr;) {
-					$assign(matchKey, $cast($String, e->nextElement()));
-					if ($nc(key)->equalsIgnoreCase(matchKey)) {
-						$assign(prop, prov->getProperty(matchKey));
-						break;
-					}
+			$var($Enumeration, e, prov->keys());
+			for (; $nc(e)->hasMoreElements() && prop == nullptr;) {
+				$assign(matchKey, $cast($String, e->nextElement()));
+				if ($nc(key)->equalsIgnoreCase(matchKey)) {
+					$assign(prop, prov->getProperty(matchKey));
+					break;
 				}
 			}
 		}
@@ -342,17 +258,15 @@ $Security$ProviderProperty* Security::getProviderProperty($String* key) {
 
 $String* Security::getProviderProperty($String* key, $Provider* provider) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prop, $nc(provider)->getProperty(key));
 	if (prop == nullptr) {
-		{
-			$var($Enumeration, e, provider->keys());
-			for (; $nc(e)->hasMoreElements() && prop == nullptr;) {
-				$var($String, matchKey, $cast($String, e->nextElement()));
-				if ($nc(key)->equalsIgnoreCase(matchKey)) {
-					$assign(prop, provider->getProperty(matchKey));
-					break;
-				}
+		$var($Enumeration, e, provider->keys());
+		for (; $nc(e)->hasMoreElements() && prop == nullptr;) {
+			$var($String, matchKey, $cast($String, e->nextElement()));
+			if ($nc(key)->equalsIgnoreCase(matchKey)) {
+				$assign(prop, provider->getProperty(matchKey));
+				break;
 			}
 		}
 	}
@@ -361,7 +275,7 @@ $String* Security::getProviderProperty($String* key, $Provider* provider) {
 
 $String* Security::getAlgorithmProperty($String* algName, $String* propName) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Security$ProviderProperty, entry, getProviderProperty($$str({"Alg."_s, propName, "."_s, algName})));
 	if (entry != nullptr) {
 		return entry->className;
@@ -371,10 +285,9 @@ $String* Security::getAlgorithmProperty($String* algName, $String* propName) {
 }
 
 int32_t Security::insertProviderAt($Provider* provider, int32_t position) {
-	$load(Security);
+	$init(Security);
 	$synchronized(class$) {
-		$init(Security);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, providerName, $nc(provider)->getName());
 		checkInsertProvider(providerName);
 		$var($ProviderList, list, $Providers::getFullProviderList());
@@ -393,10 +306,9 @@ int32_t Security::addProvider($Provider* provider) {
 }
 
 void Security::removeProvider($String* name) {
-	$load(Security);
+	$init(Security);
 	$synchronized(class$) {
-		$init(Security);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		check($$str({"removeProvider."_s, name}));
 		$var($ProviderList, list, $Providers::getFullProviderList());
 		$var($ProviderList, newList, $ProviderList::remove(list, name));
@@ -406,20 +318,20 @@ void Security::removeProvider($String* name) {
 
 $ProviderArray* Security::getProviders() {
 	$init(Security);
-	return $nc($($Providers::getFullProviderList()))->toArray();
+	return $$nc($Providers::getFullProviderList())->toArray();
 }
 
 $Provider* Security::getProvider($String* name) {
 	$init(Security);
-	return $nc($($Providers::getProviderList()))->getProvider(name);
+	return $$nc($Providers::getProviderList())->getProvider(name);
 }
 
 $ProviderArray* Security::getProviders($String* filter) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, nullptr);
 	$var($String, value, nullptr);
-	int32_t index = $nc(filter)->indexOf((int32_t)u':');
+	int32_t index = $nc(filter)->indexOf(u':');
 	if (index == -1) {
 		$assign(key, filter);
 		$assign(value, ""_s);
@@ -429,12 +341,12 @@ $ProviderArray* Security::getProviders($String* filter) {
 	}
 	$var($Hashtable, hashtableFilter, $new($Hashtable, 1));
 	hashtableFilter->put(key, value);
-	return (getProviders(static_cast<$Map*>(hashtableFilter)));
+	return (getProviders(hashtableFilter));
 }
 
 $ProviderArray* Security::getProviders($Map* filter) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProviderArray, allProviders, Security::getProviders());
 	$var($Set, keySet, $nc(filter)->keySet());
 	$var($LinkedHashSet, candidates, $new($LinkedHashSet, 5));
@@ -453,13 +365,11 @@ $ProviderArray* Security::getProviders($Map* filter) {
 				firstSearch = false;
 			}
 			if ((newCandidates != nullptr) && !newCandidates->isEmpty()) {
-				{
-					$var($Iterator, cansIte, $nc(candidates)->iterator());
-					for (; $nc(cansIte)->hasNext();) {
-						$var($Provider, prov, $cast($Provider, cansIte->next()));
-						if (!newCandidates->contains(prov)) {
-							cansIte->remove();
-						}
+				$var($Iterator, cansIte, $nc(candidates)->iterator());
+				for (; $nc(cansIte)->hasNext();) {
+					$var($Provider, prov, $cast($Provider, cansIte->next()));
+					if (!newCandidates->contains(prov)) {
+						cansIte->remove();
 					}
 				}
 			} else {
@@ -468,7 +378,7 @@ $ProviderArray* Security::getProviders($Map* filter) {
 			}
 		}
 	}
-	if (candidates == nullptr || $nc(candidates)->isEmpty()) {
+	if (candidates == nullptr || candidates->isEmpty()) {
 		return nullptr;
 	}
 	$var($ObjectArray, candidatesArray, $nc(candidates)->toArray());
@@ -482,13 +392,13 @@ $ProviderArray* Security::getProviders($Map* filter) {
 $Class* Security::getSpiClass($String* type) {
 	$init(Security);
 	$beforeCallerSensitive();
-	$Class* clazz = $cast($Class, $nc(Security::spiMap)->get(type));
+	$Class* clazz = $cast($Class, Security::spiMap->get(type));
 	if (clazz != nullptr) {
 		return clazz;
 	}
 	try {
 		clazz = $Class::forName($$str({"java.security."_s, type, "Spi"_s}));
-		$nc(Security::spiMap)->put(type, clazz);
+		Security::spiMap->put(type, clazz);
 		return clazz;
 	} catch ($ClassNotFoundException& e) {
 		$throwNew($AssertionError, "Spi class not found"_s, e);
@@ -498,37 +408,37 @@ $Class* Security::getSpiClass($String* type) {
 
 $ObjectArray* Security::getImpl($String* algorithm, $String* type, $String* provider) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (provider == nullptr) {
-		return $nc($($GetInstance::getInstance(type, getSpiClass(type), algorithm)))->toArray();
+		return $$nc($GetInstance::getInstance(type, getSpiClass(type), algorithm))->toArray();
 	} else {
-		return $nc($($GetInstance::getInstance(type, getSpiClass(type), algorithm, provider)))->toArray();
+		return $$nc($GetInstance::getInstance(type, getSpiClass(type), algorithm, provider))->toArray();
 	}
 }
 
 $ObjectArray* Security::getImpl($String* algorithm, $String* type, $String* provider, Object$* params) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (provider == nullptr) {
-		return $nc($($GetInstance::getInstance(type, getSpiClass(type), algorithm, params)))->toArray();
+		return $$nc($GetInstance::getInstance(type, getSpiClass(type), algorithm, params))->toArray();
 	} else {
-		return $nc($($GetInstance::getInstance(type, getSpiClass(type), algorithm, params, provider)))->toArray();
+		return $$nc($GetInstance::getInstance(type, getSpiClass(type), algorithm, params, provider))->toArray();
 	}
 }
 
 $ObjectArray* Security::getImpl($String* algorithm, $String* type, $Provider* provider) {
 	$init(Security);
-	return $nc($($GetInstance::getInstance(type, getSpiClass(type), algorithm, provider)))->toArray();
+	return $$nc($GetInstance::getInstance(type, getSpiClass(type), algorithm, provider))->toArray();
 }
 
 $ObjectArray* Security::getImpl($String* algorithm, $String* type, $Provider* provider, Object$* params) {
 	$init(Security);
-	return $nc($($GetInstance::getInstance(type, getSpiClass(type), algorithm, params, provider)))->toArray();
+	return $$nc($GetInstance::getInstance(type, getSpiClass(type), algorithm, params, provider))->toArray();
 }
 
 $String* Security::getProperty($String* key) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($SecurityPermission, $$str({"getProperty."_s, key})));
@@ -542,7 +452,7 @@ $String* Security::getProperty($String* key) {
 
 void Security::setProperty($String* key, $String* datum) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	check($$str({"setProperty."_s, key}));
 	$nc(Security::props)->put(key, datum);
 	invalidateSMCache(key);
@@ -560,7 +470,7 @@ void Security::invalidateSMCache($String* key) {
 	bool pa = $nc(key)->equals("package.access"_s);
 	bool pd = key->equals("package.definition"_s);
 	if (pa || pd) {
-		$nc($($SharedSecrets::getJavaLangAccess()))->invalidatePackageAccessCache();
+		$$nc($SharedSecrets::getJavaLangAccess())->invalidatePackageAccessCache();
 	}
 }
 
@@ -574,7 +484,7 @@ void Security::check($String* directive) {
 
 void Security::checkInsertProvider($String* name) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		try {
@@ -592,7 +502,7 @@ void Security::checkInsertProvider($String* name) {
 
 $LinkedHashSet* Security::getAllQualifyingCandidates($String* filterKey, $String* filterValue, $ProviderArray* allProviders) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, filterComponents, getFilterComponents(filterKey, filterValue));
 	$var($String, serviceName, $nc(filterComponents)->get(0));
 	$var($String, algName, filterComponents->get(1));
@@ -613,7 +523,7 @@ $LinkedHashSet* Security::getProvidersNotUsingCache($String* serviceName, $Strin
 
 bool Security::isCriterionSatisfied($Provider* prov, $String* serviceName, $String* algName, $String* attrName, $String* filterValue) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, $str({serviceName, $$str(u'.'), algName}));
 	if (attrName != nullptr) {
 		$plusAssign(key, $$str({$$str(u' '), attrName}));
@@ -647,7 +557,7 @@ bool Security::isStandardAttr($String* attribute) {
 	if ($nc(attribute)->equalsIgnoreCase("KeySize"_s)) {
 		return true;
 	}
-	if ($nc(attribute)->equalsIgnoreCase("ImplementedIn"_s)) {
+	if (attribute->equalsIgnoreCase("ImplementedIn"_s)) {
 		return true;
 	}
 	return false;
@@ -664,7 +574,7 @@ bool Security::isConstraintSatisfied($String* attribute, $String* value, $String
 			return false;
 		}
 	}
-	if ($nc(attribute)->equalsIgnoreCase("ImplementedIn"_s)) {
+	if (attribute->equalsIgnoreCase("ImplementedIn"_s)) {
 		return $nc(value)->equalsIgnoreCase(prop);
 	}
 	return false;
@@ -672,8 +582,8 @@ bool Security::isConstraintSatisfied($String* attribute, $String* value, $String
 
 $StringArray* Security::getFilterComponents($String* filterKey, $String* filterValue) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
-	int32_t algIndex = $nc(filterKey)->indexOf((int32_t)u'.');
+	$useLocalObjectStack();
+	int32_t algIndex = $nc(filterKey)->indexOf(u'.');
 	if (algIndex < 0) {
 		$throwNew($InvalidParameterException, "Invalid filter"_s);
 	}
@@ -686,7 +596,7 @@ $StringArray* Security::getFilterComponents($String* filterKey, $String* filterV
 			$throwNew($InvalidParameterException, "Invalid filter"_s);
 		}
 	} else {
-		int32_t attrIndex = filterKey->indexOf((int32_t)u' ');
+		int32_t attrIndex = filterKey->indexOf(u' ');
 		if (attrIndex == -1) {
 			$throwNew($InvalidParameterException, "Invalid filter"_s);
 		} else {
@@ -710,23 +620,21 @@ $StringArray* Security::getFilterComponents($String* filterKey, $String* filterV
 
 $Set* Security::getAlgorithms($String* serviceName) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = (serviceName == nullptr) || ($nc(serviceName)->isEmpty());
-	if (var$0 || ($nc(serviceName)->endsWith("."_s))) {
+	$useLocalObjectStack();
+	bool var$0 = (serviceName == nullptr) || (serviceName->isEmpty());
+	if (var$0 || (serviceName->endsWith("."_s))) {
 		return $Collections::emptySet();
 	}
 	$var($HashSet, result, $new($HashSet));
 	$var($ProviderArray, providers, Security::getProviders());
 	for (int32_t i = 0; i < $nc(providers)->length; ++i) {
-		{
-			$var($Enumeration, e, $nc(providers->get(i))->keys());
-			for (; $nc(e)->hasMoreElements();) {
-				$init($Locale);
-				$var($String, currentKey, $nc(($cast($String, $(e->nextElement()))))->toUpperCase($Locale::ENGLISH));
-				if (currentKey->startsWith($($nc(serviceName)->toUpperCase($Locale::ENGLISH)))) {
-					if (currentKey->indexOf((int32_t)u' ') < 0) {
-						result->add($(currentKey->substring($nc(serviceName)->length() + 1)));
-					}
+		$var($Enumeration, e, $nc(providers->get(i))->keys());
+		for (; $nc(e)->hasMoreElements();) {
+			$init($Locale);
+			$var($String, currentKey, $$sure($String, e->nextElement())->toUpperCase($Locale::ENGLISH));
+			if (currentKey->startsWith($($nc(serviceName)->toUpperCase($Locale::ENGLISH)))) {
+				if (currentKey->indexOf(u' ') < 0) {
+					result->add($(currentKey->substring(serviceName->length() + 1)));
 				}
 			}
 		}
@@ -734,21 +642,86 @@ $Set* Security::getAlgorithms($String* serviceName) {
 	return $Collections::unmodifiableSet(result);
 }
 
-void clinit$Security($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Security::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(Security::sdebug, $Debug::getInstance("properties"_s));
 	{
-		$var($Object, dummy, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Security$1))));
+		$var($Object, dummy, $AccessController::doPrivileged($$new($Security$1)));
 	}
-	$assignStatic(Security::spiMap, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$assignStatic(Security::spiMap, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 Security::Security() {
 }
 
 $Class* Security::load$($String* name, bool initialize) {
-	$loadClass(Security, name, initialize, &_Security_ClassInfo_, clinit$Security, allocate$Security);
+	$FieldInfo fieldInfos$$[] = {
+		{"sdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Security, sdebug)},
+		{"props", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(Security, props)},
+		{"spiMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Security, spiMap)},
+		{}
+	};
+	$CompoundAttribute getAlgorithmPropertymethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Security, init$, void)},
+		{"addProvider", "(Ljava/security/Provider;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, addProvider, int32_t, $Provider*)},
+		{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, check, void, $String*)},
+		{"checkInsertProvider", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, checkInsertProvider, void, $String*)},
+		{"getAlgorithmProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Security, getAlgorithmProperty, $String*, $String*, $String*), nullptr, nullptr, getAlgorithmPropertymethodAnnotations$$},
+		{"getAlgorithms", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Security, getAlgorithms, $Set*, $String*)},
+		{"getAllQualifyingCandidates", "(Ljava/lang/String;Ljava/lang/String;[Ljava/security/Provider;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/security/Provider;)Ljava/util/LinkedHashSet<Ljava/security/Provider;>;", $PRIVATE | $STATIC, $staticMethod(Security, getAllQualifyingCandidates, $LinkedHashSet*, $String*, $String*, $ProviderArray*)},
+		{"getFilterComponents", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Security, getFilterComponents, $StringArray*, $String*, $String*)},
+		{"getImpl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Security, getImpl, $ObjectArray*, $String*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getImpl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Security, getImpl, $ObjectArray*, $String*, $String*, $String*, Object$*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidAlgorithmParameterException"},
+		{"getImpl", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Security, getImpl, $ObjectArray*, $String*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getImpl", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Security, getImpl, $ObjectArray*, $String*, $String*, $Provider*, Object$*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, getProperty, $String*, $String*)},
+		{"getProvider", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, getProvider, $Provider*, $String*)},
+		{"getProviderProperty", "(Ljava/lang/String;)Ljava/security/Security$ProviderProperty;", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, getProviderProperty, $Security$ProviderProperty*, $String*)},
+		{"getProviderProperty", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, getProviderProperty, $String*, $String*, $Provider*)},
+		{"getProviders", "()[Ljava/security/Provider;", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, getProviders, $ProviderArray*)},
+		{"getProviders", "(Ljava/lang/String;)[Ljava/security/Provider;", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, getProviders, $ProviderArray*, $String*)},
+		{"getProviders", "(Ljava/util/Map;)[Ljava/security/Provider;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)[Ljava/security/Provider;", $PUBLIC | $STATIC, $staticMethod(Security, getProviders, $ProviderArray*, $Map*)},
+		{"getProvidersNotUsingCache", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/security/Provider;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/security/Provider;)Ljava/util/LinkedHashSet<Ljava/security/Provider;>;", $PRIVATE | $STATIC, $staticMethod(Security, getProvidersNotUsingCache, $LinkedHashSet*, $String*, $String*, $String*, $String*, $ProviderArray*)},
+		{"getSpiClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Security, getSpiClass, $Class*, $String*)},
+		{"initialize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, initialize, void)},
+		{"initializeStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, initializeStatic, void)},
+		{"insertProviderAt", "(Ljava/security/Provider;I)I", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Security, insertProviderAt, int32_t, $Provider*, int32_t)},
+		{"invalidateSMCache", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, invalidateSMCache, void, $String*)},
+		{"isConstraintSatisfied", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, isConstraintSatisfied, bool, $String*, $String*, $String*)},
+		{"isCriterionSatisfied", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, isCriterionSatisfied, bool, $Provider*, $String*, $String*, $String*, $String*)},
+		{"isStandardAttr", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, isStandardAttr, bool, $String*)},
+		{"removeProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Security, removeProvider, void, $String*)},
+		{"securityPropFile", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Security, securityPropFile, $File*, $String*)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, setProperty, void, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.Security$ProviderProperty", "java.security.Security", "ProviderProperty", $PRIVATE | $STATIC},
+		{"java.security.Security$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.security.Security",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.security.Security$ProviderProperty,java.security.Security$1"
+	};
+	$loadClass(Security, name, initialize, &classInfo$$, Security::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Security);
+	});
 	return class$;
 }
 

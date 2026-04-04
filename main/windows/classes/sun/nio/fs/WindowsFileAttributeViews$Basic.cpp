@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsFileAttributeViews$Basic.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/SecurityException.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
@@ -34,46 +33,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsFileAttributeViews$Basic_FieldInfo_[] = {
-	{"file", "Lsun/nio/fs/WindowsPath;", nullptr, $FINAL, $field(WindowsFileAttributeViews$Basic, file)},
-	{"followLinks", "Z", nullptr, $FINAL, $field(WindowsFileAttributeViews$Basic, followLinks)},
-	{}
-};
-
-$MethodInfo _WindowsFileAttributeViews$Basic_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(WindowsFileAttributeViews$Basic, init$, void, $WindowsPath*, bool)},
-	{"adjustForFatEpoch", "(J)J", nullptr, $PRIVATE, $method(WindowsFileAttributeViews$Basic, adjustForFatEpoch, int64_t, int64_t)},
-	{"readAttributes", "()Lsun/nio/fs/WindowsFileAttributes;", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributeViews$Basic, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
-	{"setFileTimes", "(JJJ)V", nullptr, 0, $virtualMethod(WindowsFileAttributeViews$Basic, setFileTimes, void, int64_t, int64_t, int64_t), "java.io.IOException"},
-	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributeViews$Basic, setTimes, void, $FileTime*, $FileTime*, $FileTime*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _WindowsFileAttributeViews$Basic_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsFileAttributeViews$Basic", "sun.nio.fs.WindowsFileAttributeViews", "Basic", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsFileAttributeViews$Basic_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsFileAttributeViews$Basic",
-	"sun.nio.fs.AbstractBasicFileAttributeView",
-	nullptr,
-	_WindowsFileAttributeViews$Basic_FieldInfo_,
-	_WindowsFileAttributeViews$Basic_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsFileAttributeViews$Basic_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsFileAttributeViews"
-};
-
-$Object* allocate$WindowsFileAttributeViews$Basic($Class* clazz) {
-	return $of($alloc(WindowsFileAttributeViews$Basic));
-}
-
 void WindowsFileAttributeViews$Basic::init$($WindowsPath* file, bool followLinks) {
 	$AbstractBasicFileAttributeView::init$();
 	$set(this, file, file);
@@ -92,8 +51,8 @@ $BasicFileAttributes* WindowsFileAttributeViews$Basic::readAttributes() {
 }
 
 int64_t WindowsFileAttributeViews$Basic::adjustForFatEpoch(int64_t time) {
-	int64_t FAT_EPOCH = 0x01A8E79FE1D58000;
-	if (time != (int64_t)-1 && time < FAT_EPOCH) {
+	int64_t FAT_EPOCH = (int64_t)119600064000000000;
+	if (time != -1 && time < FAT_EPOCH) {
 		return FAT_EPOCH;
 	} else {
 		return time;
@@ -101,7 +60,7 @@ int64_t WindowsFileAttributeViews$Basic::adjustForFatEpoch(int64_t time) {
 }
 
 void WindowsFileAttributeViews$Basic::setFileTimes(int64_t createTime, int64_t lastAccessTime, int64_t lastWriteTime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t handle = -1;
 	try {
 		int32_t flags = 0x02000000;
@@ -112,38 +71,35 @@ void WindowsFileAttributeViews$Basic::setFileTimes(int64_t createTime, int64_t l
 	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(this->file);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$WindowsNativeDispatcher::SetFileTime(handle, createTime, lastAccessTime, lastWriteTime);
-			} catch ($WindowsException& x) {
-				if (this->followLinks && x->lastError() == 87) {
-					try {
-						if ($nc($($nc($($WindowsFileStore::create(this->file)))->type()))->equals("FAT"_s)) {
-							int64_t var$1 = handle;
-							int64_t var$2 = adjustForFatEpoch(createTime);
-							int64_t var$3 = adjustForFatEpoch(lastAccessTime);
-							$WindowsNativeDispatcher::SetFileTime(var$1, var$2, var$3, adjustForFatEpoch(lastWriteTime));
-							$assign(x, nullptr);
-						}
-					} catch ($SecurityException& ignore) {
-					} catch ($WindowsException& ignore) {
-					} catch ($IOException& ignore) {
+			$WindowsNativeDispatcher::SetFileTime(handle, createTime, lastAccessTime, lastWriteTime);
+		} catch ($WindowsException& x) {
+			if (this->followLinks && x->lastError() == 87) {
+				try {
+					if ($$nc($$nc($WindowsFileStore::create(this->file))->type())->equals("FAT"_s)) {
+						int64_t var$1 = adjustForFatEpoch(createTime);
+						int64_t var$2 = adjustForFatEpoch(lastAccessTime);
+						$WindowsNativeDispatcher::SetFileTime(handle, var$1, var$2, adjustForFatEpoch(lastWriteTime));
+						$assign(x, nullptr);
 					}
-				}
-				if (x != nullptr) {
-					x->rethrowAsIOException(this->file);
+				} catch ($SecurityException& ignore) {
+				} catch ($WindowsException& ignore) {
+				} catch ($IOException& ignore) {
 				}
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} /*finally*/ {
-			$WindowsNativeDispatcher::CloseHandle(handle);
+			if (x != nullptr) {
+				x->rethrowAsIOException(this->file);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$WindowsNativeDispatcher::CloseHandle(handle);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -152,9 +108,9 @@ void WindowsFileAttributeViews$Basic::setTimes($FileTime* lastModifiedTime, $Fil
 		return;
 	}
 	$nc(this->file)->checkWrite();
-	int64_t t1 = (createTime == nullptr) ? (int64_t)-1 : $WindowsFileAttributes::toWindowsTime(createTime);
-	int64_t t2 = (lastAccessTime == nullptr) ? (int64_t)-1 : $WindowsFileAttributes::toWindowsTime(lastAccessTime);
-	int64_t t3 = (lastModifiedTime == nullptr) ? (int64_t)-1 : $WindowsFileAttributes::toWindowsTime(lastModifiedTime);
+	int64_t t1 = (createTime == nullptr) ? -1 : $WindowsFileAttributes::toWindowsTime(createTime);
+	int64_t t2 = (lastAccessTime == nullptr) ? -1 : $WindowsFileAttributes::toWindowsTime(lastAccessTime);
+	int64_t t3 = (lastModifiedTime == nullptr) ? -1 : $WindowsFileAttributes::toWindowsTime(lastModifiedTime);
 	setFileTimes(t1, t2, t3);
 }
 
@@ -162,7 +118,41 @@ WindowsFileAttributeViews$Basic::WindowsFileAttributeViews$Basic() {
 }
 
 $Class* WindowsFileAttributeViews$Basic::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileAttributeViews$Basic, name, initialize, &_WindowsFileAttributeViews$Basic_ClassInfo_, allocate$WindowsFileAttributeViews$Basic);
+	$FieldInfo fieldInfos$$[] = {
+		{"file", "Lsun/nio/fs/WindowsPath;", nullptr, $FINAL, $field(WindowsFileAttributeViews$Basic, file)},
+		{"followLinks", "Z", nullptr, $FINAL, $field(WindowsFileAttributeViews$Basic, followLinks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(WindowsFileAttributeViews$Basic, init$, void, $WindowsPath*, bool)},
+		{"adjustForFatEpoch", "(J)J", nullptr, $PRIVATE, $method(WindowsFileAttributeViews$Basic, adjustForFatEpoch, int64_t, int64_t)},
+		{"readAttributes", "()Lsun/nio/fs/WindowsFileAttributes;", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributeViews$Basic, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
+		{"setFileTimes", "(JJJ)V", nullptr, 0, $virtualMethod(WindowsFileAttributeViews$Basic, setFileTimes, void, int64_t, int64_t, int64_t), "java.io.IOException"},
+		{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributeViews$Basic, setTimes, void, $FileTime*, $FileTime*, $FileTime*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsFileAttributeViews$Basic", "sun.nio.fs.WindowsFileAttributeViews", "Basic", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsFileAttributeViews$Basic",
+		"sun.nio.fs.AbstractBasicFileAttributeView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsFileAttributeViews"
+	};
+	$loadClass(WindowsFileAttributeViews$Basic, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsFileAttributeViews$Basic));
+	});
 	return class$;
 }
 

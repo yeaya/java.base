@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/UCharacterProperty$IntProperty.h>
-
 #include <jdk/internal/icu/impl/UCharacterProperty.h>
 #include <jcpp.h>
 
@@ -13,46 +12,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace impl {
-
-$FieldInfo _UCharacterProperty$IntProperty_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/icu/impl/UCharacterProperty;", nullptr, $FINAL | $SYNTHETIC, $field(UCharacterProperty$IntProperty, this$0)},
-	{"column", "I", nullptr, 0, $field(UCharacterProperty$IntProperty, column)},
-	{"mask", "I", nullptr, 0, $field(UCharacterProperty$IntProperty, mask)},
-	{"shift", "I", nullptr, 0, $field(UCharacterProperty$IntProperty, shift)},
-	{}
-};
-
-$MethodInfo _UCharacterProperty$IntProperty_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;III)V", nullptr, 0, $method(UCharacterProperty$IntProperty, init$, void, $UCharacterProperty*, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;I)V", nullptr, 0, $method(UCharacterProperty$IntProperty, init$, void, $UCharacterProperty*, int32_t)},
-	{"getValue", "(I)I", nullptr, 0, $virtualMethod(UCharacterProperty$IntProperty, getValue, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UCharacterProperty$IntProperty_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.UCharacterProperty$IntProperty", "jdk.internal.icu.impl.UCharacterProperty", "IntProperty", $PRIVATE},
-	{}
-};
-
-$ClassInfo _UCharacterProperty$IntProperty_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.icu.impl.UCharacterProperty$IntProperty",
-	"java.lang.Object",
-	nullptr,
-	_UCharacterProperty$IntProperty_FieldInfo_,
-	_UCharacterProperty$IntProperty_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UCharacterProperty$IntProperty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.UCharacterProperty"
-};
-
-$Object* allocate$UCharacterProperty$IntProperty($Class* clazz) {
-	return $of($alloc(UCharacterProperty$IntProperty));
-}
 
 void UCharacterProperty$IntProperty::init$($UCharacterProperty* this$0, int32_t column, int32_t mask, int32_t shift) {
 	$set(this, this$0, this$0);
@@ -68,14 +27,48 @@ void UCharacterProperty$IntProperty::init$($UCharacterProperty* this$0, int32_t 
 }
 
 int32_t UCharacterProperty$IntProperty::getValue(int32_t c) {
-	return $usr((int32_t)(this->this$0->getAdditional(c, this->column) & (uint32_t)this->mask), this->shift);
+	return $usr(this->this$0->getAdditional(c, this->column) & this->mask, this->shift);
 }
 
 UCharacterProperty$IntProperty::UCharacterProperty$IntProperty() {
 }
 
 $Class* UCharacterProperty$IntProperty::load$($String* name, bool initialize) {
-	$loadClass(UCharacterProperty$IntProperty, name, initialize, &_UCharacterProperty$IntProperty_ClassInfo_, allocate$UCharacterProperty$IntProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/icu/impl/UCharacterProperty;", nullptr, $FINAL | $SYNTHETIC, $field(UCharacterProperty$IntProperty, this$0)},
+		{"column", "I", nullptr, 0, $field(UCharacterProperty$IntProperty, column)},
+		{"mask", "I", nullptr, 0, $field(UCharacterProperty$IntProperty, mask)},
+		{"shift", "I", nullptr, 0, $field(UCharacterProperty$IntProperty, shift)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;III)V", nullptr, 0, $method(UCharacterProperty$IntProperty, init$, void, $UCharacterProperty*, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;I)V", nullptr, 0, $method(UCharacterProperty$IntProperty, init$, void, $UCharacterProperty*, int32_t)},
+		{"getValue", "(I)I", nullptr, 0, $virtualMethod(UCharacterProperty$IntProperty, getValue, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.UCharacterProperty$IntProperty", "jdk.internal.icu.impl.UCharacterProperty", "IntProperty", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.icu.impl.UCharacterProperty$IntProperty",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.UCharacterProperty"
+	};
+	$loadClass(UCharacterProperty$IntProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UCharacterProperty$IntProperty);
+	});
 	return class$;
 }
 

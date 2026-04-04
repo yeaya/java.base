@@ -1,5 +1,4 @@
 #include <sun/security/util/RegisteredDomain$Type.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/util/RegisteredDomain.h>
 #include <jcpp.h>
@@ -17,46 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace util {
-
-$FieldInfo _RegisteredDomain$Type_FieldInfo_[] = {
-	{"ICANN", "Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RegisteredDomain$Type, ICANN)},
-	{"PRIVATE", "Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RegisteredDomain$Type, PRIVATE)},
-	{"$VALUES", "[Lsun/security/util/RegisteredDomain$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RegisteredDomain$Type, $VALUES)},
-	{}
-};
-
-$MethodInfo _RegisteredDomain$Type_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/util/RegisteredDomain$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RegisteredDomain$Type, $values, $RegisteredDomain$TypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RegisteredDomain$Type, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(RegisteredDomain$Type, valueOf, RegisteredDomain$Type*, $String*)},
-	{"values", "()[Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(RegisteredDomain$Type, values, $RegisteredDomain$TypeArray*)},
-	{}
-};
-
-$InnerClassInfo _RegisteredDomain$Type_InnerClassesInfo_[] = {
-	{"sun.security.util.RegisteredDomain$Type", "sun.security.util.RegisteredDomain", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _RegisteredDomain$Type_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.util.RegisteredDomain$Type",
-	"java.lang.Enum",
-	nullptr,
-	_RegisteredDomain$Type_FieldInfo_,
-	_RegisteredDomain$Type_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/util/RegisteredDomain$Type;>;",
-	nullptr,
-	_RegisteredDomain$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.RegisteredDomain"
-};
-
-$Object* allocate$RegisteredDomain$Type($Class* clazz) {
-	return $of($alloc(RegisteredDomain$Type));
-}
 
 RegisteredDomain$Type* RegisteredDomain$Type::ICANN = nullptr;
 RegisteredDomain$Type* RegisteredDomain$Type::PRIVATE = nullptr;
@@ -84,7 +43,7 @@ void RegisteredDomain$Type::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$RegisteredDomain$Type($Class* class$) {
+void RegisteredDomain$Type::clinit$($Class* clazz) {
 	$assignStatic(RegisteredDomain$Type::ICANN, $new(RegisteredDomain$Type, "ICANN"_s, 0));
 	$assignStatic(RegisteredDomain$Type::PRIVATE, $new(RegisteredDomain$Type, "PRIVATE"_s, 1));
 	$assignStatic(RegisteredDomain$Type::$VALUES, RegisteredDomain$Type::$values());
@@ -94,7 +53,41 @@ RegisteredDomain$Type::RegisteredDomain$Type() {
 }
 
 $Class* RegisteredDomain$Type::load$($String* name, bool initialize) {
-	$loadClass(RegisteredDomain$Type, name, initialize, &_RegisteredDomain$Type_ClassInfo_, clinit$RegisteredDomain$Type, allocate$RegisteredDomain$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"ICANN", "Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RegisteredDomain$Type, ICANN)},
+		{"PRIVATE", "Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RegisteredDomain$Type, PRIVATE)},
+		{"$VALUES", "[Lsun/security/util/RegisteredDomain$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RegisteredDomain$Type, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/util/RegisteredDomain$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RegisteredDomain$Type, $values, $RegisteredDomain$TypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RegisteredDomain$Type, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(RegisteredDomain$Type, valueOf, RegisteredDomain$Type*, $String*)},
+		{"values", "()[Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(RegisteredDomain$Type, values, $RegisteredDomain$TypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.RegisteredDomain$Type", "sun.security.util.RegisteredDomain", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.util.RegisteredDomain$Type",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/util/RegisteredDomain$Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.RegisteredDomain"
+	};
+	$loadClass(RegisteredDomain$Type, name, initialize, &classInfo$$, RegisteredDomain$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RegisteredDomain$Type));
+	});
 	return class$;
 }
 

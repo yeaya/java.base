@@ -27,6 +27,7 @@ class $export ClassValue$ClassValueMap : public ::java::util::WeakHashMap {
 	$class(ClassValue$ClassValueMap, 0, ::java::util::WeakHashMap)
 public:
 	ClassValue$ClassValueMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addToCache(::java::lang::ClassValue$Entry* e);
 	void addToCache(::java::lang::ClassValue* classValue, ::java::lang::ClassValue$Entry* e);

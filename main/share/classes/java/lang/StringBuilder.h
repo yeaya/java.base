@@ -33,7 +33,7 @@ namespace java {
 	namespace lang {
 
 class $export StringBuilder : public ::java::lang::AbstractStringBuilder, public ::java::io::Serializable, public ::java::lang::Comparable {
-	$class(StringBuilder, $PRELOAD | $NO_CLASS_INIT, ::java::lang::AbstractStringBuilder, ::java::io::Serializable, ::java::lang::Comparable)
+	$class(StringBuilder, $PRELOAD | $PREINIT | $NO_CLASS_INIT, ::java::lang::AbstractStringBuilder, ::java::io::Serializable, ::java::lang::Comparable)
 public:
 	StringBuilder();
 	using ::java::lang::AbstractStringBuilder::compareTo;
@@ -102,7 +102,7 @@ public:
 	virtual $String* toString() override;
 	virtual void trimToSize() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x3CD5FB145A4C6ACB;
+	static const int64_t serialVersionUID = (int64_t)0x3cd5fb145a4c6acb;
 public:
 	StringBuilder* append(const char* s);
 };

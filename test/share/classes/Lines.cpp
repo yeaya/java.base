@@ -1,15 +1,11 @@
 #include <Lines.h>
-
 #include <java/io/BufferedReader.h>
-#include <java/io/Reader.h>
 #include <java/io/StringReader.h>
 #include <java/util/Iterator.h>
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
 using $BufferedReader = ::java::io::BufferedReader;
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -17,27 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
 using $Stream = ::java::util::stream::Stream;
-
-$MethodInfo _Lines_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Lines, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Lines, main, void, $StringArray*)},
-	{"testLines", "()V", nullptr, $STATIC, $staticMethod(Lines, testLines, void)},
-	{"testString", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Lines, testString, void, $String*)},
-	{}
-};
-
-$ClassInfo _Lines_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Lines",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Lines_MethodInfo_
-};
-
-$Object* allocate$Lines($Class* clazz) {
-	return $of($alloc(Lines));
-}
 
 void Lines::init$() {
 }
@@ -76,7 +51,7 @@ void Lines::testLines() {
 }
 
 void Lines::testString($String* string) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Stream, lines, $nc(string)->lines());
 	$var($Stream, brLines, $$new($BufferedReader, $$new($StringReader, string))->lines());
 	$var($Iterator, iterator, lines->iterator());
@@ -90,12 +65,12 @@ void Lines::testString($String* string) {
 		{
 			++count;
 			$var($String, line, $cast($String, iterator->next()));
-			$var($String, brLine, $cast($String, brIterator->next()));
+			$var($String, brLine, $cast($String, $nc(brIterator)->next()));
 			if (!$nc(line)->equals(brLine)) {
 				$var($String, replace, $(string->replaceAll("\n"_s, "\\n"_s))->replaceAll("\r"_s, "\\r"_s));
 				$nc($System::err)->format("Mismatch at line %d of \"%s\"%n"_s, $$new($ObjectArray, {
-					$($of($Integer::valueOf(count))),
-					$of(replace)
+					$($Integer::valueOf(count)),
+					replace
 				}));
 				$throwNew($RuntimeException);
 			}
@@ -104,8 +79,8 @@ void Lines::testString($String* string) {
 	bool var$1 = $nc(iterator)->hasNext();
 	if (var$1 || $nc(brIterator)->hasNext()) {
 		$nc($System::err)->format("Mismatch after line %d of \"%s\"%n"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(count))),
-			$of(string)
+			$($Integer::valueOf(count)),
+			string
 		}));
 		$throwNew($RuntimeException);
 	}
@@ -115,7 +90,24 @@ Lines::Lines() {
 }
 
 $Class* Lines::load$($String* name, bool initialize) {
-	$loadClass(Lines, name, initialize, &_Lines_ClassInfo_, allocate$Lines);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Lines, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Lines, main, void, $StringArray*)},
+		{"testLines", "()V", nullptr, $STATIC, $staticMethod(Lines, testLines, void)},
+		{"testString", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Lines, testString, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Lines",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Lines, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Lines);
+	});
 	return class$;
 }
 

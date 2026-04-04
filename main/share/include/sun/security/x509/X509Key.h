@@ -60,7 +60,7 @@ public:
 	virtual void setKey(::sun::security::util::BitArray* key);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* stream);
-	static const int64_t serialVersionUID = (int64_t)0xB5A01DBE649A72A6;
+	static const int64_t serialVersionUID = (int64_t)0xb5a01dbe649a72a6;
 	::sun::security::x509::AlgorithmId* algid = nullptr;
 	$bytes* key = nullptr;
 	int32_t unusedBits = 0;

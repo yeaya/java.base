@@ -1,5 +1,4 @@
 #include <java/lang/SecurityException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,32 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _SecurityException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecurityException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SecurityException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SecurityException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SecurityException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SecurityException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _SecurityException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.SecurityException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_SecurityException_FieldInfo_,
-	_SecurityException_MethodInfo_
-};
-
-$Object* allocate$SecurityException($Class* clazz) {
-	return $of($alloc(SecurityException));
-}
 
 void SecurityException::init$() {
 	$RuntimeException::init$();
@@ -63,7 +36,28 @@ void SecurityException::throw$() {
 }
 
 $Class* SecurityException::load$($String* name, bool initialize) {
-	$loadClass(SecurityException, name, initialize, &_SecurityException_ClassInfo_, allocate$SecurityException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecurityException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SecurityException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SecurityException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SecurityException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.SecurityException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SecurityException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SecurityException);
+	});
 	return class$;
 }
 

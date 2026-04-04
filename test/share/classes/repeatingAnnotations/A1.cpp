@@ -1,5 +1,4 @@
 #include <repeatingAnnotations/A1.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,38 +8,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace repeatingAnnotations {
 
-$NamedAttribute A1_Attribute_var$0[] = {
-	{"value", 'I', "10"},
-	{}
-};
-
-$CompoundAttribute _A1_Annotations_[] = {
-	{"LrepeatingAnnotations/Ann;", A1_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _A1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(A1, init$, void)},
-	{}
-};
-
-$ClassInfo _A1_ClassInfo_ = {
-	$ACC_SUPER,
-	"repeatingAnnotations.A1",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_A1_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_A1_Annotations_
-};
-
-$Object* allocate$A1($Class* clazz) {
-	return $of($alloc(A1));
-}
-
 void A1::init$() {
 }
 
@@ -48,7 +15,33 @@ A1::A1() {
 }
 
 $Class* A1::load$($String* name, bool initialize) {
-	$loadClass(A1, name, initialize, &_A1_ClassInfo_, allocate$A1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(A1, init$, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'I', "10"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LrepeatingAnnotations/Ann;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"repeatingAnnotations.A1",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(A1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(A1);
+	});
 	return class$;
 }
 

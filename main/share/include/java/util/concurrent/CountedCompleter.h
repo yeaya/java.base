@@ -29,6 +29,7 @@ class $import CountedCompleter : public ::java::util::concurrent::ForkJoinTask {
 	$class(CountedCompleter, 0, ::java::util::concurrent::ForkJoinTask)
 public:
 	CountedCompleter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::CountedCompleter* completer, int32_t initialPendingCount);
 	void init$(::java::util::concurrent::CountedCompleter* completer);
 	void init$();
@@ -54,7 +55,7 @@ public:
 	void tryComplete();
 	virtual int32_t trySetException($Throwable* ex) override;
 	bool weakCompareAndSetPendingCount(int32_t expected, int32_t count);
-	static const int64_t serialVersionUID = (int64_t)0x489D68F7081983CE;
+	static const int64_t serialVersionUID = (int64_t)0x489d68f7081983ce;
 	::java::util::concurrent::CountedCompleter* completer = nullptr;
 	$volatile(int32_t) pending = 0;
 	static ::java::lang::invoke::VarHandle* PENDING;

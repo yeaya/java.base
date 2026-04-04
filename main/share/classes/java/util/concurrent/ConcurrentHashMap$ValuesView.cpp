@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentHashMap$ValuesView.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -37,51 +36,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _ConcurrentHashMap$ValuesView_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConcurrentHashMap$ValuesView, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ConcurrentHashMap$ValuesView_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap;)V", "(Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$ValuesView, init$, void, $ConcurrentHashMap*)},
-	{"add", "(Ljava/lang/Object;)Z", "(TV;)Z", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, add, bool, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TV;>;)Z", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, addAll, bool, $Collection*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, contains, bool, Object$*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, forEach, void, $Consumer*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, removeAll, bool, $Collection*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TV;>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, removeIf, bool, $Predicate*)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, spliterator, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _ConcurrentHashMap$ValuesView_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentHashMap$ValuesView", "java.util.concurrent.ConcurrentHashMap", "ValuesView", $STATIC | $FINAL},
-	{"java.util.concurrent.ConcurrentHashMap$CollectionView", "java.util.concurrent.ConcurrentHashMap", "CollectionView", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ConcurrentHashMap$ValuesView_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ConcurrentHashMap$ValuesView",
-	"java.util.concurrent.ConcurrentHashMap$CollectionView",
-	nullptr,
-	_ConcurrentHashMap$ValuesView_FieldInfo_,
-	_ConcurrentHashMap$ValuesView_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/ConcurrentHashMap$CollectionView<TK;TV;TV;>;Ljava/util/Collection<TV;>;Ljava/io/Serializable;",
-	nullptr,
-	_ConcurrentHashMap$ValuesView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentHashMap"
-};
-
-$Object* allocate$ConcurrentHashMap$ValuesView($Class* clazz) {
-	return $of($alloc(ConcurrentHashMap$ValuesView));
-}
-
 void ConcurrentHashMap$ValuesView::init$($ConcurrentHashMap* map) {
 	$ConcurrentHashMap$CollectionView::init$(map);
 }
@@ -91,15 +45,13 @@ bool ConcurrentHashMap$ValuesView::contains(Object$* o) {
 }
 
 bool ConcurrentHashMap$ValuesView::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (o != nullptr) {
-		{
-			$var($Iterator, it, iterator());
-			for (; $nc(it)->hasNext();) {
-				if ($of(o)->equals($(it->next()))) {
-					it->remove();
-					return true;
-				}
+		$var($Iterator, it, iterator());
+		for (; $nc(it)->hasNext();) {
+			if ($of(o)->equals($(it->next()))) {
+				it->remove();
+				return true;
 			}
 		}
 	}
@@ -107,7 +59,7 @@ bool ConcurrentHashMap$ValuesView::remove(Object$* o) {
 }
 
 $Iterator* ConcurrentHashMap$ValuesView::iterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap, m, this->map);
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	int32_t f = ($assign(t, $nc(m)->table)) == nullptr ? 0 : $nc(t)->length;
@@ -125,7 +77,7 @@ bool ConcurrentHashMap$ValuesView::addAll($Collection* c) {
 }
 
 bool ConcurrentHashMap$ValuesView::removeAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -147,22 +99,22 @@ bool ConcurrentHashMap$ValuesView::removeIf($Predicate* filter) {
 }
 
 $Spliterator* ConcurrentHashMap$ValuesView::spliterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	$var($ConcurrentHashMap, m, this->map);
 	int64_t n = $nc(m)->sumCount();
 	int32_t f = ($assign(t, m->table)) == nullptr ? 0 : $nc(t)->length;
-	return $new($ConcurrentHashMap$ValueSpliterator, t, f, 0, f, n < (int64_t)0 ? (int64_t)0 : n);
+	return $new($ConcurrentHashMap$ValueSpliterator, t, f, 0, f, n < 0 ? 0 : n);
 }
 
 void ConcurrentHashMap$ValuesView::forEach($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	if (($assign(t, $nc(this->map)->table)) != nullptr) {
-		$var($ConcurrentHashMap$Traverser, it, $new($ConcurrentHashMap$Traverser, t, $nc(t)->length, 0, t->length));
+		$var($ConcurrentHashMap$Traverser, it, $new($ConcurrentHashMap$Traverser, t, $nc(t)->length, 0, $nc(t)->length));
 		{
 			$var($ConcurrentHashMap$Node, p, nullptr);
 			for (; ($assign(p, it->advance())) != nullptr;) {
@@ -176,7 +128,46 @@ ConcurrentHashMap$ValuesView::ConcurrentHashMap$ValuesView() {
 }
 
 $Class* ConcurrentHashMap$ValuesView::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentHashMap$ValuesView, name, initialize, &_ConcurrentHashMap$ValuesView_ClassInfo_, allocate$ConcurrentHashMap$ValuesView);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConcurrentHashMap$ValuesView, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap;)V", "(Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$ValuesView, init$, void, $ConcurrentHashMap*)},
+		{"add", "(Ljava/lang/Object;)Z", "(TV;)Z", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, add, bool, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TV;>;)Z", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, addAll, bool, $Collection*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, contains, bool, Object$*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, forEach, void, $Consumer*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, removeAll, bool, $Collection*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TV;>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, removeIf, bool, $Predicate*)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, spliterator, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentHashMap$ValuesView", "java.util.concurrent.ConcurrentHashMap", "ValuesView", $STATIC | $FINAL},
+		{"java.util.concurrent.ConcurrentHashMap$CollectionView", "java.util.concurrent.ConcurrentHashMap", "CollectionView", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ConcurrentHashMap$ValuesView",
+		"java.util.concurrent.ConcurrentHashMap$CollectionView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/ConcurrentHashMap$CollectionView<TK;TV;TV;>;Ljava/util/Collection<TV;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentHashMap"
+	};
+	$loadClass(ConcurrentHashMap$ValuesView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConcurrentHashMap$ValuesView));
+	});
 	return class$;
 }
 

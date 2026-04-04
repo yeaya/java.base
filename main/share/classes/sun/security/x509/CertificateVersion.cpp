@@ -1,5 +1,4 @@
 #include <sun/security/x509/CertificateVersion.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -32,50 +31,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _CertificateVersion_FieldInfo_[] = {
-	{"V1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CertificateVersion, V1)},
-	{"V2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CertificateVersion, V2)},
-	{"V3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CertificateVersion, V3)},
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateVersion, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateVersion, NAME)},
-	{"VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateVersion, VERSION)},
-	{"version", "I", nullptr, 0, $field(CertificateVersion, version)},
-	{}
-};
-
-$MethodInfo _CertificateVersion_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, int32_t), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, $InputStream*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, $DerValue*), "java.io.IOException"},
-	{"compare", "(I)I", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, compare, int32_t, int32_t)},
-	{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(CertificateVersion, construct, void, $DerValue*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, encode, void, $OutputStream*), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateVersion, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, getName, $String*)},
-	{"getVersion", "()I", nullptr, $PRIVATE, $method(CertificateVersion, getVersion, int32_t)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CertificateVersion_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.CertificateVersion",
-	"java.lang.Object",
-	"sun.security.x509.CertAttrSet",
-	_CertificateVersion_FieldInfo_,
-	_CertificateVersion_MethodInfo_,
-	"Ljava/lang/Object;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$CertificateVersion($Class* clazz) {
-	return $of($alloc(CertificateVersion));
-}
-
 $String* CertificateVersion::IDENT = nullptr;
 $String* CertificateVersion::NAME = nullptr;
 $String* CertificateVersion::VERSION = nullptr;
@@ -90,7 +45,7 @@ void CertificateVersion::construct($DerValue* derVal$renamed) {
 	if (var$0 && derVal->isContextSpecific()) {
 		$assign(derVal, $nc(derVal->data$)->getDerValue());
 		this->version = $nc(derVal)->getInteger();
-		if ($nc(derVal->data$)->available() != 0) {
+		if (derVal->data$->available() != 0) {
 			$throwNew($IOException, "X.509 version, bad format"_s);
 		}
 	}
@@ -102,7 +57,7 @@ void CertificateVersion::init$() {
 }
 
 void CertificateVersion::init$(int32_t version) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->version = CertificateVersion::V1;
 	if (version == CertificateVersion::V1 || version == CertificateVersion::V2 || version == CertificateVersion::V3) {
 		this->version = version;
@@ -136,7 +91,7 @@ $String* CertificateVersion::toString() {
 }
 
 void CertificateVersion::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->version == CertificateVersion::V1) {
 		return;
 	}
@@ -152,7 +107,7 @@ void CertificateVersion::set($String* name, Object$* obj) {
 		$throwNew($IOException, "Attribute must be of type Integer."_s);
 	}
 	if ($nc(name)->equalsIgnoreCase(CertificateVersion::VERSION)) {
-		this->version = $nc(($cast($Integer, obj)))->intValue();
+		this->version = $nc($cast($Integer, obj))->intValue();
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet: CertificateVersion."_s);
 	}
@@ -191,14 +146,53 @@ int32_t CertificateVersion::compare(int32_t vers) {
 CertificateVersion::CertificateVersion() {
 }
 
-void clinit$CertificateVersion($Class* class$) {
+void CertificateVersion::clinit$($Class* clazz) {
 	$assignStatic(CertificateVersion::IDENT, "x509.info.version"_s);
 	$assignStatic(CertificateVersion::NAME, "version"_s);
 	$assignStatic(CertificateVersion::VERSION, "number"_s);
 }
 
 $Class* CertificateVersion::load$($String* name, bool initialize) {
-	$loadClass(CertificateVersion, name, initialize, &_CertificateVersion_ClassInfo_, clinit$CertificateVersion, allocate$CertificateVersion);
+	$FieldInfo fieldInfos$$[] = {
+		{"V1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CertificateVersion, V1)},
+		{"V2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CertificateVersion, V2)},
+		{"V3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CertificateVersion, V3)},
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateVersion, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateVersion, NAME)},
+		{"VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateVersion, VERSION)},
+		{"version", "I", nullptr, 0, $field(CertificateVersion, version)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, int32_t), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, $InputStream*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, $DerValue*), "java.io.IOException"},
+		{"compare", "(I)I", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, compare, int32_t, int32_t)},
+		{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(CertificateVersion, construct, void, $DerValue*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, encode, void, $OutputStream*), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateVersion, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, getName, $String*)},
+		{"getVersion", "()I", nullptr, $PRIVATE, $method(CertificateVersion, getVersion, int32_t)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.CertificateVersion",
+		"java.lang.Object",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(CertificateVersion, name, initialize, &classInfo$$, CertificateVersion::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateVersion);
+	});
 	return class$;
 }
 

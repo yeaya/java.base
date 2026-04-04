@@ -1,5 +1,4 @@
 #include <java/util/function/BiPredicate.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -31,35 +30,31 @@ public:
 	virtual bool test(Object$* t, Object$* u) override {
 		 return $nc(inst$)->lambda$and$0(other, t, u);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BiPredicate$$Lambda$lambda$and$0>());
-	}
 	BiPredicate* inst$ = nullptr;
 	BiPredicate* other = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo BiPredicate$$Lambda$lambda$and$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(BiPredicate$$Lambda$lambda$and$0, inst$)},
-	{"other", "Ljava/util/function/BiPredicate;", nullptr, $PUBLIC, $field(BiPredicate$$Lambda$lambda$and$0, other)},
-	{}
-};
-$MethodInfo BiPredicate$$Lambda$lambda$and$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(BiPredicate$$Lambda$lambda$and$0, init$, void, BiPredicate*, BiPredicate*)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BiPredicate$$Lambda$lambda$and$0, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo BiPredicate$$Lambda$lambda$and$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.function.BiPredicate$$Lambda$lambda$and$0",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* BiPredicate$$Lambda$lambda$and$0::load$($String* name, bool initialize) {
-	$loadClass(BiPredicate$$Lambda$lambda$and$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(BiPredicate$$Lambda$lambda$and$0, inst$)},
+		{"other", "Ljava/util/function/BiPredicate;", nullptr, $PUBLIC, $field(BiPredicate$$Lambda$lambda$and$0, other)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(BiPredicate$$Lambda$lambda$and$0, init$, void, BiPredicate*, BiPredicate*)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BiPredicate$$Lambda$lambda$and$0, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.function.BiPredicate$$Lambda$lambda$and$0",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BiPredicate$$Lambda$lambda$and$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BiPredicate$$Lambda$lambda$and$0);
+	});
 	return class$;
 }
 $Class* BiPredicate$$Lambda$lambda$and$0::class$ = nullptr;
@@ -73,33 +68,29 @@ public:
 	virtual bool test(Object$* t, Object$* u) override {
 		 return $nc(inst$)->lambda$negate$1(t, u);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BiPredicate$$Lambda$lambda$negate$1$1>());
-	}
 	BiPredicate* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo BiPredicate$$Lambda$lambda$negate$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(BiPredicate$$Lambda$lambda$negate$1$1, inst$)},
-	{}
-};
-$MethodInfo BiPredicate$$Lambda$lambda$negate$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(BiPredicate$$Lambda$lambda$negate$1$1, init$, void, BiPredicate*)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BiPredicate$$Lambda$lambda$negate$1$1, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo BiPredicate$$Lambda$lambda$negate$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.function.BiPredicate$$Lambda$lambda$negate$1$1",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* BiPredicate$$Lambda$lambda$negate$1$1::load$($String* name, bool initialize) {
-	$loadClass(BiPredicate$$Lambda$lambda$negate$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(BiPredicate$$Lambda$lambda$negate$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(BiPredicate$$Lambda$lambda$negate$1$1, init$, void, BiPredicate*)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BiPredicate$$Lambda$lambda$negate$1$1, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.function.BiPredicate$$Lambda$lambda$negate$1$1",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BiPredicate$$Lambda$lambda$negate$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BiPredicate$$Lambda$lambda$negate$1$1);
+	});
 	return class$;
 }
 $Class* BiPredicate$$Lambda$lambda$negate$1$1::class$ = nullptr;
@@ -114,84 +105,47 @@ public:
 	virtual bool test(Object$* t, Object$* u) override {
 		 return $nc(inst$)->lambda$or$2(other, t, u);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BiPredicate$$Lambda$lambda$or$2$2>());
-	}
 	BiPredicate* inst$ = nullptr;
 	BiPredicate* other = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo BiPredicate$$Lambda$lambda$or$2$2::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(BiPredicate$$Lambda$lambda$or$2$2, inst$)},
-	{"other", "Ljava/util/function/BiPredicate;", nullptr, $PUBLIC, $field(BiPredicate$$Lambda$lambda$or$2$2, other)},
-	{}
-};
-$MethodInfo BiPredicate$$Lambda$lambda$or$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(BiPredicate$$Lambda$lambda$or$2$2, init$, void, BiPredicate*, BiPredicate*)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BiPredicate$$Lambda$lambda$or$2$2, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo BiPredicate$$Lambda$lambda$or$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.function.BiPredicate$$Lambda$lambda$or$2$2",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* BiPredicate$$Lambda$lambda$or$2$2::load$($String* name, bool initialize) {
-	$loadClass(BiPredicate$$Lambda$lambda$or$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(BiPredicate$$Lambda$lambda$or$2$2, inst$)},
+		{"other", "Ljava/util/function/BiPredicate;", nullptr, $PUBLIC, $field(BiPredicate$$Lambda$lambda$or$2$2, other)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(BiPredicate$$Lambda$lambda$or$2$2, init$, void, BiPredicate*, BiPredicate*)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BiPredicate$$Lambda$lambda$or$2$2, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.function.BiPredicate$$Lambda$lambda$or$2$2",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BiPredicate$$Lambda$lambda$or$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BiPredicate$$Lambda$lambda$or$2$2);
+	});
 	return class$;
 }
 $Class* BiPredicate$$Lambda$lambda$or$2$2::class$ = nullptr;
 
-$CompoundAttribute _BiPredicate_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _BiPredicate_MethodInfo_[] = {
-	{"and", "(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;", "(Ljava/util/function/BiPredicate<-TT;-TU;>;)Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC, $virtualMethod(BiPredicate, and$, BiPredicate*, BiPredicate*)},
-	{"lambda$and$0", "(Ljava/util/function/BiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(BiPredicate, lambda$and$0, bool, BiPredicate*, Object$*, Object$*)},
-	{"lambda$negate$1", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(BiPredicate, lambda$negate$1, bool, Object$*, Object$*)},
-	{"lambda$or$2", "(Ljava/util/function/BiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(BiPredicate, lambda$or$2, bool, BiPredicate*, Object$*, Object$*)},
-	{"negate", "()Ljava/util/function/BiPredicate;", "()Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC, $virtualMethod(BiPredicate, negate, BiPredicate*)},
-	{"or", "(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;", "(Ljava/util/function/BiPredicate<-TT;-TU;>;)Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC, $virtualMethod(BiPredicate, or$, BiPredicate*, BiPredicate*)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TU;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(BiPredicate, test, bool, Object$*, Object$*)},
-	{}
-};
-
-$ClassInfo _BiPredicate_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.BiPredicate",
-	nullptr,
-	nullptr,
-	nullptr,
-	_BiPredicate_MethodInfo_,
-	"<T:Ljava/lang/Object;U:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	nullptr,
-	_BiPredicate_Annotations_
-};
-
-$Object* allocate$BiPredicate($Class* clazz) {
-	return $of($alloc(BiPredicate));
-}
-
 BiPredicate* BiPredicate::and$(BiPredicate* other) {
 	$Objects::requireNonNull(other);
-	return static_cast<BiPredicate*>($new(BiPredicate$$Lambda$lambda$and$0, this, other));
+	return $new(BiPredicate$$Lambda$lambda$and$0, this, other);
 }
 
 BiPredicate* BiPredicate::negate() {
-	return static_cast<BiPredicate*>($new(BiPredicate$$Lambda$lambda$negate$1$1, this));
+	return $new(BiPredicate$$Lambda$lambda$negate$1$1, this);
 }
 
 BiPredicate* BiPredicate::or$(BiPredicate* other) {
 	$Objects::requireNonNull(other);
-	return static_cast<BiPredicate*>($new(BiPredicate$$Lambda$lambda$or$2$2, this, other));
+	return $new(BiPredicate$$Lambda$lambda$or$2$2, this, other);
 }
 
 bool BiPredicate::lambda$or$2(BiPredicate* other, Object$* t, Object$* u) {
@@ -210,17 +164,45 @@ bool BiPredicate::lambda$and$0(BiPredicate* other, Object$* t, Object$* u) {
 
 $Class* BiPredicate::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(BiPredicate$$Lambda$lambda$and$0::classInfo$.name)) {
+		if (name->equals("java.util.function.BiPredicate$$Lambda$lambda$and$0")) {
 			return BiPredicate$$Lambda$lambda$and$0::load$(name, initialize);
 		}
-		if (name->equals(BiPredicate$$Lambda$lambda$negate$1$1::classInfo$.name)) {
+		if (name->equals("java.util.function.BiPredicate$$Lambda$lambda$negate$1$1")) {
 			return BiPredicate$$Lambda$lambda$negate$1$1::load$(name, initialize);
 		}
-		if (name->equals(BiPredicate$$Lambda$lambda$or$2$2::classInfo$.name)) {
+		if (name->equals("java.util.function.BiPredicate$$Lambda$lambda$or$2$2")) {
 			return BiPredicate$$Lambda$lambda$or$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(BiPredicate, name, initialize, &_BiPredicate_ClassInfo_, allocate$BiPredicate);
+	$MethodInfo methodInfos$$[] = {
+		{"and", "(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;", "(Ljava/util/function/BiPredicate<-TT;-TU;>;)Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC, $virtualMethod(BiPredicate, and$, BiPredicate*, BiPredicate*)},
+		{"lambda$and$0", "(Ljava/util/function/BiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(BiPredicate, lambda$and$0, bool, BiPredicate*, Object$*, Object$*)},
+		{"lambda$negate$1", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(BiPredicate, lambda$negate$1, bool, Object$*, Object$*)},
+		{"lambda$or$2", "(Ljava/util/function/BiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(BiPredicate, lambda$or$2, bool, BiPredicate*, Object$*, Object$*)},
+		{"negate", "()Ljava/util/function/BiPredicate;", "()Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC, $virtualMethod(BiPredicate, negate, BiPredicate*)},
+		{"or", "(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;", "(Ljava/util/function/BiPredicate<-TT;-TU;>;)Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC, $virtualMethod(BiPredicate, or$, BiPredicate*, BiPredicate*)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TU;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(BiPredicate, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.BiPredicate",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;U:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(BiPredicate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BiPredicate);
+	});
 	return class$;
 }
 

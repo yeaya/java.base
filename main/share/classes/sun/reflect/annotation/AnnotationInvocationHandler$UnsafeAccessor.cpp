@@ -1,5 +1,4 @@
 #include <sun/reflect/annotation/AnnotationInvocationHandler$UnsafeAccessor.h>
-
 #include <java/util/Map.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/reflect/annotation/AnnotationInvocationHandler.h>
@@ -16,45 +15,6 @@ using $AnnotationInvocationHandler = ::sun::reflect::annotation::AnnotationInvoc
 namespace sun {
 	namespace reflect {
 		namespace annotation {
-
-$FieldInfo _AnnotationInvocationHandler$UnsafeAccessor_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnnotationInvocationHandler$UnsafeAccessor, unsafe)},
-	{"typeOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnnotationInvocationHandler$UnsafeAccessor, typeOffset)},
-	{"memberValuesOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnnotationInvocationHandler$UnsafeAccessor, memberValuesOffset)},
-	{}
-};
-
-$MethodInfo _AnnotationInvocationHandler$UnsafeAccessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AnnotationInvocationHandler$UnsafeAccessor, init$, void)},
-	{"setMemberValues", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/util/Map;)V", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $STATIC, $staticMethod(AnnotationInvocationHandler$UnsafeAccessor, setMemberValues, void, $AnnotationInvocationHandler*, $Map*)},
-	{"setType", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/lang/Class;)V", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)V", $STATIC, $staticMethod(AnnotationInvocationHandler$UnsafeAccessor, setType, void, $AnnotationInvocationHandler*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _AnnotationInvocationHandler$UnsafeAccessor_InnerClassesInfo_[] = {
-	{"sun.reflect.annotation.AnnotationInvocationHandler$UnsafeAccessor", "sun.reflect.annotation.AnnotationInvocationHandler", "UnsafeAccessor", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AnnotationInvocationHandler$UnsafeAccessor_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.reflect.annotation.AnnotationInvocationHandler$UnsafeAccessor",
-	"java.lang.Object",
-	nullptr,
-	_AnnotationInvocationHandler$UnsafeAccessor_FieldInfo_,
-	_AnnotationInvocationHandler$UnsafeAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnnotationInvocationHandler$UnsafeAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.reflect.annotation.AnnotationInvocationHandler"
-};
-
-$Object* allocate$AnnotationInvocationHandler$UnsafeAccessor($Class* clazz) {
-	return $of($alloc(AnnotationInvocationHandler$UnsafeAccessor));
-}
 
 $Unsafe* AnnotationInvocationHandler$UnsafeAccessor::unsafe = nullptr;
 int64_t AnnotationInvocationHandler$UnsafeAccessor::typeOffset = 0;
@@ -73,18 +33,51 @@ void AnnotationInvocationHandler$UnsafeAccessor::setMemberValues($AnnotationInvo
 	$nc(AnnotationInvocationHandler$UnsafeAccessor::unsafe)->putReference(o, AnnotationInvocationHandler$UnsafeAccessor::memberValuesOffset, memberValues);
 }
 
-void clinit$AnnotationInvocationHandler$UnsafeAccessor($Class* class$) {
+void AnnotationInvocationHandler$UnsafeAccessor::clinit$($Class* clazz) {
 	$assignStatic(AnnotationInvocationHandler$UnsafeAccessor::unsafe, $Unsafe::getUnsafe());
 	$load($AnnotationInvocationHandler);
 	AnnotationInvocationHandler$UnsafeAccessor::typeOffset = $nc(AnnotationInvocationHandler$UnsafeAccessor::unsafe)->objectFieldOffset($AnnotationInvocationHandler::class$, "type"_s);
-	AnnotationInvocationHandler$UnsafeAccessor::memberValuesOffset = $nc(AnnotationInvocationHandler$UnsafeAccessor::unsafe)->objectFieldOffset($AnnotationInvocationHandler::class$, "memberValues"_s);
+	AnnotationInvocationHandler$UnsafeAccessor::memberValuesOffset = AnnotationInvocationHandler$UnsafeAccessor::unsafe->objectFieldOffset($AnnotationInvocationHandler::class$, "memberValues"_s);
 }
 
 AnnotationInvocationHandler$UnsafeAccessor::AnnotationInvocationHandler$UnsafeAccessor() {
 }
 
 $Class* AnnotationInvocationHandler$UnsafeAccessor::load$($String* name, bool initialize) {
-	$loadClass(AnnotationInvocationHandler$UnsafeAccessor, name, initialize, &_AnnotationInvocationHandler$UnsafeAccessor_ClassInfo_, clinit$AnnotationInvocationHandler$UnsafeAccessor, allocate$AnnotationInvocationHandler$UnsafeAccessor);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnnotationInvocationHandler$UnsafeAccessor, unsafe)},
+		{"typeOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnnotationInvocationHandler$UnsafeAccessor, typeOffset)},
+		{"memberValuesOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnnotationInvocationHandler$UnsafeAccessor, memberValuesOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AnnotationInvocationHandler$UnsafeAccessor, init$, void)},
+		{"setMemberValues", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/util/Map;)V", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $STATIC, $staticMethod(AnnotationInvocationHandler$UnsafeAccessor, setMemberValues, void, $AnnotationInvocationHandler*, $Map*)},
+		{"setType", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/lang/Class;)V", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)V", $STATIC, $staticMethod(AnnotationInvocationHandler$UnsafeAccessor, setType, void, $AnnotationInvocationHandler*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.annotation.AnnotationInvocationHandler$UnsafeAccessor", "sun.reflect.annotation.AnnotationInvocationHandler", "UnsafeAccessor", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.reflect.annotation.AnnotationInvocationHandler$UnsafeAccessor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.reflect.annotation.AnnotationInvocationHandler"
+	};
+	$loadClass(AnnotationInvocationHandler$UnsafeAccessor, name, initialize, &classInfo$$, AnnotationInvocationHandler$UnsafeAccessor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationInvocationHandler$UnsafeAccessor);
+	});
 	return class$;
 }
 

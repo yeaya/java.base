@@ -1,5 +1,4 @@
 #include <sun/net/www/HeaderParser$ParserIterator.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <sun/net/www/HeaderParser.h>
 #include <jcpp.h>
@@ -14,46 +13,6 @@ using $HeaderParser = ::sun::net::www::HeaderParser;
 namespace sun {
 	namespace net {
 		namespace www {
-
-$FieldInfo _HeaderParser$ParserIterator_FieldInfo_[] = {
-	{"this$0", "Lsun/net/www/HeaderParser;", nullptr, $FINAL | $SYNTHETIC, $field(HeaderParser$ParserIterator, this$0)},
-	{"index", "I", nullptr, 0, $field(HeaderParser$ParserIterator, index)},
-	{"returnsValue", "Z", nullptr, 0, $field(HeaderParser$ParserIterator, returnsValue)},
-	{}
-};
-
-$MethodInfo _HeaderParser$ParserIterator_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/HeaderParser;Z)V", nullptr, 0, $method(HeaderParser$ParserIterator, init$, void, $HeaderParser*, bool)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(HeaderParser$ParserIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser$ParserIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(HeaderParser$ParserIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _HeaderParser$ParserIterator_InnerClassesInfo_[] = {
-	{"sun.net.www.HeaderParser$ParserIterator", "sun.net.www.HeaderParser", "ParserIterator", 0},
-	{}
-};
-
-$ClassInfo _HeaderParser$ParserIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.HeaderParser$ParserIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_HeaderParser$ParserIterator_FieldInfo_,
-	_HeaderParser$ParserIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;",
-	nullptr,
-	_HeaderParser$ParserIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.HeaderParser"
-};
-
-$Object* allocate$HeaderParser$ParserIterator($Class* clazz) {
-	return $of($alloc(HeaderParser$ParserIterator));
-}
 
 void HeaderParser$ParserIterator::init$($HeaderParser* this$0, bool returnValue) {
 	$set(this, this$0, this$0);
@@ -76,7 +35,41 @@ HeaderParser$ParserIterator::HeaderParser$ParserIterator() {
 }
 
 $Class* HeaderParser$ParserIterator::load$($String* name, bool initialize) {
-	$loadClass(HeaderParser$ParserIterator, name, initialize, &_HeaderParser$ParserIterator_ClassInfo_, allocate$HeaderParser$ParserIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/www/HeaderParser;", nullptr, $FINAL | $SYNTHETIC, $field(HeaderParser$ParserIterator, this$0)},
+		{"index", "I", nullptr, 0, $field(HeaderParser$ParserIterator, index)},
+		{"returnsValue", "Z", nullptr, 0, $field(HeaderParser$ParserIterator, returnsValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/HeaderParser;Z)V", nullptr, 0, $method(HeaderParser$ParserIterator, init$, void, $HeaderParser*, bool)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(HeaderParser$ParserIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser$ParserIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(HeaderParser$ParserIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.HeaderParser$ParserIterator", "sun.net.www.HeaderParser", "ParserIterator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.HeaderParser$ParserIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.HeaderParser"
+	};
+	$loadClass(HeaderParser$ParserIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeaderParser$ParserIterator);
+	});
 	return class$;
 }
 

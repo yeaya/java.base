@@ -1,5 +1,4 @@
 #include <sun/util/calendar/Era.h>
-
 #include <java/util/Locale.h>
 #include <java/util/TimeZone.h>
 #include <sun/util/calendar/BaseCalendar$Date.h>
@@ -26,54 +25,16 @@ namespace sun {
 	namespace util {
 		namespace calendar {
 
-$FieldInfo _Era_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Era, name)},
-	{"abbr", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Era, abbr)},
-	{"since", "J", nullptr, $PRIVATE | $FINAL, $field(Era, since)},
-	{"sinceDate", "Lsun/util/calendar/CalendarDate;", nullptr, $PRIVATE | $FINAL, $field(Era, sinceDate)},
-	{"localTime", "Z", nullptr, $PRIVATE | $FINAL, $field(Era, localTime)},
-	{"hash", "I", nullptr, $PRIVATE, $field(Era, hash)},
-	{}
-};
-
-$MethodInfo _Era_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;JZ)V", nullptr, $PUBLIC, $method(Era, init$, void, $String*, $String*, int64_t, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Era, equals, bool, Object$*)},
-	{"getAbbreviation", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getAbbreviation, $String*)},
-	{"getDiaplayAbbreviation", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getDiaplayAbbreviation, $String*, $Locale*)},
-	{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getDisplayName, $String*, $Locale*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getName, $String*)},
-	{"getSince", "(Ljava/util/TimeZone;)J", nullptr, $PUBLIC, $method(Era, getSince, int64_t, $TimeZone*)},
-	{"getSinceDate", "()Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $method(Era, getSinceDate, $CalendarDate*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Era, hashCode, int32_t)},
-	{"isLocalTime", "()Z", nullptr, $PUBLIC, $method(Era, isLocalTime, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Era, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Era_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.calendar.Era",
-	"java.lang.Object",
-	nullptr,
-	_Era_FieldInfo_,
-	_Era_MethodInfo_
-};
-
-$Object* allocate$Era($Class* clazz) {
-	return $of($alloc(Era));
-}
-
 void Era::init$($String* name, $String* abbr, int64_t since, bool localTime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->hash = 0;
 	$set(this, name, name);
 	$set(this, abbr, abbr);
 	this->since = since;
 	this->localTime = localTime;
 	$var($Gregorian, gcal, $CalendarSystem::getGregorianCalendar());
-	$var($BaseCalendar$Date, d, static_cast<$BaseCalendar$Date*>($cast($Gregorian$Date, $nc(gcal)->newCalendarDate(nullptr))));
-	gcal->getCalendarDate(since, static_cast<$CalendarDate*>(d));
+	$var($BaseCalendar$Date, d, $cast($BaseCalendar$Date, $cast($Gregorian$Date, $nc(gcal)->newCalendarDate(nullptr))));
+	gcal->getCalendarDate(since, d);
 	$set(this, sinceDate, $new($ImmutableGregorianDate, d));
 }
 
@@ -115,7 +76,7 @@ bool Era::equals(Object$* o) {
 	}
 	$var(Era, that, $cast(Era, o));
 	bool var$0 = $nc(this->name)->equals($nc(that)->name);
-	return var$0 && $nc(this->abbr)->equals($nc(that)->abbr) && this->since == $nc(that)->since && this->localTime == that->localTime;
+	return var$0 && $nc(this->abbr)->equals(that->abbr) && this->since == that->since && this->localTime == that->localTime;
 }
 
 int32_t Era::hashCode() {
@@ -127,12 +88,12 @@ int32_t Era::hashCode() {
 }
 
 $String* Era::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(u'[');
 	sb->append($(getName()))->append(" ("_s);
 	sb->append($(getAbbreviation()))->append(u')');
-	sb->append(" since "_s)->append($($of(getSinceDate())));
+	sb->append(" since "_s)->append($(getSinceDate()));
 	if (this->localTime) {
 		sb->setLength(sb->length() - 1);
 		sb->append(" local time"_s);
@@ -145,7 +106,40 @@ Era::Era() {
 }
 
 $Class* Era::load$($String* name, bool initialize) {
-	$loadClass(Era, name, initialize, &_Era_ClassInfo_, allocate$Era);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Era, name)},
+		{"abbr", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Era, abbr)},
+		{"since", "J", nullptr, $PRIVATE | $FINAL, $field(Era, since)},
+		{"sinceDate", "Lsun/util/calendar/CalendarDate;", nullptr, $PRIVATE | $FINAL, $field(Era, sinceDate)},
+		{"localTime", "Z", nullptr, $PRIVATE | $FINAL, $field(Era, localTime)},
+		{"hash", "I", nullptr, $PRIVATE, $field(Era, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;JZ)V", nullptr, $PUBLIC, $method(Era, init$, void, $String*, $String*, int64_t, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Era, equals, bool, Object$*)},
+		{"getAbbreviation", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getAbbreviation, $String*)},
+		{"getDiaplayAbbreviation", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getDiaplayAbbreviation, $String*, $Locale*)},
+		{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getDisplayName, $String*, $Locale*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getName, $String*)},
+		{"getSince", "(Ljava/util/TimeZone;)J", nullptr, $PUBLIC, $method(Era, getSince, int64_t, $TimeZone*)},
+		{"getSinceDate", "()Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $method(Era, getSinceDate, $CalendarDate*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Era, hashCode, int32_t)},
+		{"isLocalTime", "()Z", nullptr, $PUBLIC, $method(Era, isLocalTime, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Era, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.calendar.Era",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Era, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Era);
+	});
 	return class$;
 }
 

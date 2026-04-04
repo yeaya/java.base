@@ -29,6 +29,7 @@ class $import CleanerImpl$InnocuousThreadFactory : public ::java::util::concurre
 	$class(CleanerImpl$InnocuousThreadFactory, 0, ::java::util::concurrent::ThreadFactory)
 public:
 	CleanerImpl$InnocuousThreadFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::concurrent::ThreadFactory* factory();
 	virtual $Thread* newThread(::java::lang::Runnable* r) override;

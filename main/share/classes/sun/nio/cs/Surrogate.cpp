@@ -1,5 +1,4 @@
 #include <sun/nio/cs/Surrogate.h>
-
 #include <java/lang/AssertionError.h>
 #include <jcpp.h>
 
@@ -22,56 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _Surrogate_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Surrogate, $assertionsDisabled)},
-	{"MIN_HIGH", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MIN_HIGH)},
-	{"MAX_HIGH", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MAX_HIGH)},
-	{"MIN_LOW", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MIN_LOW)},
-	{"MAX_LOW", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MAX_LOW)},
-	{"MIN", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MIN)},
-	{"MAX", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MAX)},
-	{"UCS4_MIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, UCS4_MIN)},
-	{"UCS4_MAX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, UCS4_MAX)},
-	{}
-};
-
-$MethodInfo _Surrogate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Surrogate, init$, void)},
-	{"high", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, high, char16_t, int32_t)},
-	{"is", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, is, bool, int32_t)},
-	{"isHigh", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, isHigh, bool, int32_t)},
-	{"isLow", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, isLow, bool, int32_t)},
-	{"low", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, low, char16_t, int32_t)},
-	{"neededFor", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, neededFor, bool, int32_t)},
-	{"toUCS4", "(CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, toUCS4, int32_t, char16_t, char16_t)},
-	{}
-};
-
-$InnerClassInfo _Surrogate_InnerClassesInfo_[] = {
-	{"sun.nio.cs.Surrogate$Generator", "sun.nio.cs.Surrogate", "Generator", $PUBLIC | $STATIC},
-	{"sun.nio.cs.Surrogate$Parser", "sun.nio.cs.Surrogate", "Parser", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Surrogate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.Surrogate",
-	"java.lang.Object",
-	nullptr,
-	_Surrogate_FieldInfo_,
-	_Surrogate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Surrogate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.Surrogate$Generator,sun.nio.cs.Surrogate$Parser"
-};
-
-$Object* allocate$Surrogate($Class* clazz) {
-	return $of($alloc(Surrogate));
-}
 
 bool Surrogate::$assertionsDisabled = false;
 
@@ -127,7 +76,7 @@ int32_t Surrogate::toUCS4(char16_t c, char16_t d) {
 	return $Character::toCodePoint(c, d);
 }
 
-void clinit$Surrogate($Class* class$) {
+void Surrogate::clinit$($Class* clazz) {
 	Surrogate::$assertionsDisabled = !Surrogate::class$->desiredAssertionStatus();
 }
 
@@ -135,7 +84,51 @@ Surrogate::Surrogate() {
 }
 
 $Class* Surrogate::load$($String* name, bool initialize) {
-	$loadClass(Surrogate, name, initialize, &_Surrogate_ClassInfo_, clinit$Surrogate, allocate$Surrogate);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Surrogate, $assertionsDisabled)},
+		{"MIN_HIGH", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MIN_HIGH)},
+		{"MAX_HIGH", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MAX_HIGH)},
+		{"MIN_LOW", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MIN_LOW)},
+		{"MAX_LOW", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MAX_LOW)},
+		{"MIN", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MIN)},
+		{"MAX", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, MAX)},
+		{"UCS4_MIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, UCS4_MIN)},
+		{"UCS4_MAX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Surrogate, UCS4_MAX)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Surrogate, init$, void)},
+		{"high", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, high, char16_t, int32_t)},
+		{"is", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, is, bool, int32_t)},
+		{"isHigh", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, isHigh, bool, int32_t)},
+		{"isLow", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, isLow, bool, int32_t)},
+		{"low", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, low, char16_t, int32_t)},
+		{"neededFor", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, neededFor, bool, int32_t)},
+		{"toUCS4", "(CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, toUCS4, int32_t, char16_t, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.Surrogate$Generator", "sun.nio.cs.Surrogate", "Generator", $PUBLIC | $STATIC},
+		{"sun.nio.cs.Surrogate$Parser", "sun.nio.cs.Surrogate", "Parser", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.Surrogate",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.Surrogate$Generator,sun.nio.cs.Surrogate$Parser"
+	};
+	$loadClass(Surrogate, name, initialize, &classInfo$$, Surrogate::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Surrogate);
+	});
 	return class$;
 }
 

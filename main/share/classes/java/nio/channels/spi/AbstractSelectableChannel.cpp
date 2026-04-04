@@ -1,5 +1,4 @@
 #include <java/nio/channels/spi/AbstractSelectableChannel.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -41,7 +40,6 @@ using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $Arrays = ::java::util::Arrays;
 using $Consumer = ::java::util::function::Consumer;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace nio {
@@ -56,27 +54,24 @@ public:
 	virtual bool test(Object$* k) override {
 		 return AbstractSelectableChannel::lambda$forEach$0($cast($SelectionKey, k));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AbstractSelectableChannel$$Lambda$lambda$forEach$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AbstractSelectableChannel$$Lambda$lambda$forEach$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractSelectableChannel$$Lambda$lambda$forEach$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSelectableChannel$$Lambda$lambda$forEach$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo AbstractSelectableChannel$$Lambda$lambda$forEach$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.nio.channels.spi.AbstractSelectableChannel$$Lambda$lambda$forEach$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* AbstractSelectableChannel$$Lambda$lambda$forEach$0::load$($String* name, bool initialize) {
-	$loadClass(AbstractSelectableChannel$$Lambda$lambda$forEach$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractSelectableChannel$$Lambda$lambda$forEach$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSelectableChannel$$Lambda$lambda$forEach$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.nio.channels.spi.AbstractSelectableChannel$$Lambda$lambda$forEach$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AbstractSelectableChannel$$Lambda$lambda$forEach$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractSelectableChannel$$Lambda$lambda$forEach$0);
+	});
 	return class$;
 }
 $Class* AbstractSelectableChannel$$Lambda$lambda$forEach$0::class$ = nullptr;
@@ -90,81 +85,32 @@ public:
 	virtual void accept(Object$* t) override {
 		$nc(inst$)->accept(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AbstractSelectableChannel$$Lambda$accept$1>());
-	}
 	$Consumer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AbstractSelectableChannel$$Lambda$accept$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AbstractSelectableChannel$$Lambda$accept$1, inst$)},
-	{}
-};
-$MethodInfo AbstractSelectableChannel$$Lambda$accept$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(AbstractSelectableChannel$$Lambda$accept$1, init$, void, $Consumer*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractSelectableChannel$$Lambda$accept$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo AbstractSelectableChannel$$Lambda$accept$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.nio.channels.spi.AbstractSelectableChannel$$Lambda$accept$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* AbstractSelectableChannel$$Lambda$accept$1::load$($String* name, bool initialize) {
-	$loadClass(AbstractSelectableChannel$$Lambda$accept$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AbstractSelectableChannel$$Lambda$accept$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(AbstractSelectableChannel$$Lambda$accept$1, init$, void, $Consumer*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractSelectableChannel$$Lambda$accept$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.nio.channels.spi.AbstractSelectableChannel$$Lambda$accept$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractSelectableChannel$$Lambda$accept$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractSelectableChannel$$Lambda$accept$1);
+	});
 	return class$;
 }
 $Class* AbstractSelectableChannel$$Lambda$accept$1::class$ = nullptr;
-
-$FieldInfo _AbstractSelectableChannel_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractSelectableChannel, $assertionsDisabled)},
-	{"provider", "Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $FINAL, $field(AbstractSelectableChannel, provider$)},
-	{"keys", "[Ljava/nio/channels/SelectionKey;", nullptr, $PRIVATE, $field(AbstractSelectableChannel, keys)},
-	{"keyCount", "I", nullptr, $PRIVATE, $field(AbstractSelectableChannel, keyCount)},
-	{"keyLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AbstractSelectableChannel, keyLock)},
-	{"regLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AbstractSelectableChannel, regLock)},
-	{"nonBlocking", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractSelectableChannel, nonBlocking)},
-	{}
-};
-
-$MethodInfo _AbstractSelectableChannel_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(AbstractSelectableChannel, init$, void, $SelectorProvider*)},
-	{"addKey", "(Ljava/nio/channels/SelectionKey;)V", nullptr, $PRIVATE, $method(AbstractSelectableChannel, addKey, void, $SelectionKey*)},
-	{"blockingLock", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, blockingLock, $Object*)},
-	{"configureBlocking", "(Z)Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, configureBlocking, $SelectableChannel*, bool), "java.io.IOException"},
-	{"findKey", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $PRIVATE, $method(AbstractSelectableChannel, findKey, $SelectionKey*, $Selector*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)V", $PRIVATE, $method(AbstractSelectableChannel, forEach, void, $Consumer*)},
-	{"haveValidKeys", "()Z", nullptr, $PRIVATE, $method(AbstractSelectableChannel, haveValidKeys, bool)},
-	{"implCloseChannel", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(AbstractSelectableChannel, implCloseChannel, void), "java.io.IOException"},
-	{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractSelectableChannel, implCloseSelectableChannel, void), "java.io.IOException"},
-	{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractSelectableChannel, implConfigureBlocking, void, bool), "java.io.IOException"},
-	{"isBlocking", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, isBlocking, bool)},
-	{"isRegistered", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, isRegistered, bool)},
-	{"keyFor", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, keyFor, $SelectionKey*, $Selector*)},
-	{"lambda$forEach$0", "(Ljava/nio/channels/SelectionKey;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractSelectableChannel, lambda$forEach$0, bool, $SelectionKey*)},
-	{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, provider, $SelectorProvider*)},
-	{"register", "(Ljava/nio/channels/Selector;ILjava/lang/Object;)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, register$, $SelectionKey*, $Selector*, int32_t, Object$*), "java.nio.channels.ClosedChannelException"},
-	{"removeKey", "(Ljava/nio/channels/SelectionKey;)V", nullptr, 0, $virtualMethod(AbstractSelectableChannel, removeKey, void, $SelectionKey*)},
-	{}
-};
-
-$ClassInfo _AbstractSelectableChannel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.nio.channels.spi.AbstractSelectableChannel",
-	"java.nio.channels.SelectableChannel",
-	nullptr,
-	_AbstractSelectableChannel_FieldInfo_,
-	_AbstractSelectableChannel_MethodInfo_
-};
-
-$Object* allocate$AbstractSelectableChannel($Class* clazz) {
-	return $of($alloc(AbstractSelectableChannel));
-}
 
 bool AbstractSelectableChannel::$assertionsDisabled = false;
 
@@ -186,19 +132,19 @@ void AbstractSelectableChannel::addKey($SelectionKey* k) {
 		$throwNew($AssertionError);
 	}
 	int32_t i = 0;
-	if ((this->keys != nullptr) && (this->keyCount < $nc(this->keys)->length)) {
-		for (i = 0; i < $nc(this->keys)->length; ++i) {
-			if ($nc(this->keys)->get(i) == nullptr) {
+	if ((this->keys != nullptr) && (this->keyCount < this->keys->length)) {
+		for (i = 0; i < this->keys->length; ++i) {
+			if (this->keys->get(i) == nullptr) {
 				break;
 			}
 		}
 	} else if (this->keys == nullptr) {
 		$set(this, keys, $new($SelectionKeyArray, 2));
 	} else {
-		int32_t n = $nc(this->keys)->length * 2;
+		int32_t n = this->keys->length * 2;
 		$var($SelectionKeyArray, ks, $new($SelectionKeyArray, n));
-		for (i = 0; i < $nc(this->keys)->length; ++i) {
-			ks->set(i, $nc(this->keys)->get(i));
+		for (i = 0; i < this->keys->length; ++i) {
+			ks->set(i, this->keys->get(i));
 		}
 		$set(this, keys, ks);
 		i = this->keyCount;
@@ -215,8 +161,8 @@ $SelectionKey* AbstractSelectableChannel::findKey($Selector* sel) {
 		return nullptr;
 	}
 	for (int32_t i = 0; i < $nc(this->keys)->length; ++i) {
-		if (($nc(this->keys)->get(i) != nullptr) && ($nc($nc(this->keys)->get(i))->selector() == sel)) {
-			return $nc(this->keys)->get(i);
+		if ((this->keys->get(i) != nullptr) && ($nc(this->keys->get(i))->selector() == sel)) {
+			return this->keys->get(i);
 		}
 	}
 	return nullptr;
@@ -225,12 +171,12 @@ $SelectionKey* AbstractSelectableChannel::findKey($Selector* sel) {
 void AbstractSelectableChannel::removeKey($SelectionKey* k) {
 	$synchronized(this->keyLock) {
 		for (int32_t i = 0; i < $nc(this->keys)->length; ++i) {
-			if ($nc(this->keys)->get(i) == k) {
-				$nc(this->keys)->set(i, nullptr);
+			if (this->keys->get(i) == k) {
+				this->keys->set(i, nullptr);
 				--this->keyCount;
 			}
 		}
-		$nc(($cast($AbstractSelectionKey, k)))->invalidate();
+		$nc($cast($AbstractSelectionKey, k))->invalidate();
 	}
 }
 
@@ -240,7 +186,7 @@ bool AbstractSelectableChannel::haveValidKeys() {
 			return false;
 		}
 		for (int32_t i = 0; i < $nc(this->keys)->length; ++i) {
-			if (($nc(this->keys)->get(i) != nullptr) && $nc($nc(this->keys)->get(i))->isValid()) {
+			if ((this->keys->get(i) != nullptr) && $nc(this->keys->get(i))->isValid()) {
 				return true;
 			}
 		}
@@ -261,17 +207,17 @@ $SelectionKey* AbstractSelectableChannel::keyFor($Selector* sel) {
 }
 
 void AbstractSelectableChannel::forEach($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->keyLock) {
 		$var($SelectionKeyArray, keys, this->keys);
 		if (keys != nullptr) {
-			$nc($($nc($($Arrays::stream(keys)))->filter(static_cast<$Predicate*>($$new(AbstractSelectableChannel$$Lambda$lambda$forEach$0)))))->forEach(static_cast<$Consumer*>($$new(AbstractSelectableChannel$$Lambda$accept$1, static_cast<$Consumer*>($nc(action)))));
+			$$nc($$nc($Arrays::stream(keys))->filter($$new(AbstractSelectableChannel$$Lambda$lambda$forEach$0)))->forEach($$new(AbstractSelectableChannel$$Lambda$accept$1, $nc(action)));
 		}
 	}
 }
 
 $SelectionKey* AbstractSelectableChannel::register$($Selector* sel, int32_t ops, Object$* att) {
-	if (((int32_t)(ops & (uint32_t)~validOps())) != 0) {
+	if ((ops & ~validOps()) != 0) {
 		$throwNew($IllegalArgumentException);
 	}
 	if (!isOpen()) {
@@ -290,7 +236,7 @@ $SelectionKey* AbstractSelectableChannel::register$($Selector* sel, int32_t ops,
 				k->attach(att);
 				k->interestOps(ops);
 			} else {
-				$assign(k, $nc(($cast($AbstractSelector, sel)))->register$(this, ops, att));
+				$assign(k, $nc($cast($AbstractSelector, sel))->register$(this, ops, att));
 				addKey(k);
 			}
 			return k;
@@ -299,26 +245,20 @@ $SelectionKey* AbstractSelectableChannel::register$($Selector* sel, int32_t ops,
 }
 
 void AbstractSelectableChannel::implCloseChannel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	implCloseSelectableChannel();
 	$var($SelectionKeyArray, copyOfKeys, nullptr);
 	$synchronized(this->keyLock) {
 		if (this->keys != nullptr) {
-			$assign(copyOfKeys, $cast($SelectionKeyArray, $nc(this->keys)->clone()));
+			$assign(copyOfKeys, $cast($SelectionKeyArray, this->keys->clone()));
 		}
 	}
 	if (copyOfKeys != nullptr) {
-		{
-			$var($SelectionKeyArray, arr$, copyOfKeys);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($SelectionKey, k, arr$->get(i$));
-				{
-					if (k != nullptr) {
-						k->cancel();
-					}
-				}
+		$var($SelectionKeyArray, arr$, copyOfKeys);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($SelectionKey, k, arr$->get(i$));
+			if (k != nullptr) {
+				k->cancel();
 			}
 		}
 	}
@@ -329,7 +269,7 @@ bool AbstractSelectableChannel::isBlocking() {
 }
 
 $Object* AbstractSelectableChannel::blockingLock() {
-	return $of(this->regLock);
+	return this->regLock;
 }
 
 $SelectableChannel* AbstractSelectableChannel::configureBlocking(bool block) {
@@ -354,7 +294,7 @@ bool AbstractSelectableChannel::lambda$forEach$0($SelectionKey* k) {
 	return k != nullptr;
 }
 
-void clinit$AbstractSelectableChannel($Class* class$) {
+void AbstractSelectableChannel::clinit$($Class* clazz) {
 	AbstractSelectableChannel::$assertionsDisabled = !AbstractSelectableChannel::class$->desiredAssertionStatus();
 }
 
@@ -363,14 +303,54 @@ AbstractSelectableChannel::AbstractSelectableChannel() {
 
 $Class* AbstractSelectableChannel::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AbstractSelectableChannel$$Lambda$lambda$forEach$0::classInfo$.name)) {
+		if (name->equals("java.nio.channels.spi.AbstractSelectableChannel$$Lambda$lambda$forEach$0")) {
 			return AbstractSelectableChannel$$Lambda$lambda$forEach$0::load$(name, initialize);
 		}
-		if (name->equals(AbstractSelectableChannel$$Lambda$accept$1::classInfo$.name)) {
+		if (name->equals("java.nio.channels.spi.AbstractSelectableChannel$$Lambda$accept$1")) {
 			return AbstractSelectableChannel$$Lambda$accept$1::load$(name, initialize);
 		}
 	}
-	$loadClass(AbstractSelectableChannel, name, initialize, &_AbstractSelectableChannel_ClassInfo_, clinit$AbstractSelectableChannel, allocate$AbstractSelectableChannel);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractSelectableChannel, $assertionsDisabled)},
+		{"provider", "Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $FINAL, $field(AbstractSelectableChannel, provider$)},
+		{"keys", "[Ljava/nio/channels/SelectionKey;", nullptr, $PRIVATE, $field(AbstractSelectableChannel, keys)},
+		{"keyCount", "I", nullptr, $PRIVATE, $field(AbstractSelectableChannel, keyCount)},
+		{"keyLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AbstractSelectableChannel, keyLock)},
+		{"regLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AbstractSelectableChannel, regLock)},
+		{"nonBlocking", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractSelectableChannel, nonBlocking)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(AbstractSelectableChannel, init$, void, $SelectorProvider*)},
+		{"addKey", "(Ljava/nio/channels/SelectionKey;)V", nullptr, $PRIVATE, $method(AbstractSelectableChannel, addKey, void, $SelectionKey*)},
+		{"blockingLock", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, blockingLock, $Object*)},
+		{"configureBlocking", "(Z)Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, configureBlocking, $SelectableChannel*, bool), "java.io.IOException"},
+		{"findKey", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $PRIVATE, $method(AbstractSelectableChannel, findKey, $SelectionKey*, $Selector*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)V", $PRIVATE, $method(AbstractSelectableChannel, forEach, void, $Consumer*)},
+		{"haveValidKeys", "()Z", nullptr, $PRIVATE, $method(AbstractSelectableChannel, haveValidKeys, bool)},
+		{"implCloseChannel", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(AbstractSelectableChannel, implCloseChannel, void), "java.io.IOException"},
+		{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractSelectableChannel, implCloseSelectableChannel, void), "java.io.IOException"},
+		{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractSelectableChannel, implConfigureBlocking, void, bool), "java.io.IOException"},
+		{"isBlocking", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, isBlocking, bool)},
+		{"isRegistered", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, isRegistered, bool)},
+		{"keyFor", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, keyFor, $SelectionKey*, $Selector*)},
+		{"lambda$forEach$0", "(Ljava/nio/channels/SelectionKey;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractSelectableChannel, lambda$forEach$0, bool, $SelectionKey*)},
+		{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, provider, $SelectorProvider*)},
+		{"register", "(Ljava/nio/channels/Selector;ILjava/lang/Object;)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, register$, $SelectionKey*, $Selector*, int32_t, Object$*), "java.nio.channels.ClosedChannelException"},
+		{"removeKey", "(Ljava/nio/channels/SelectionKey;)V", nullptr, 0, $virtualMethod(AbstractSelectableChannel, removeKey, void, $SelectionKey*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.nio.channels.spi.AbstractSelectableChannel",
+		"java.nio.channels.SelectableChannel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractSelectableChannel, name, initialize, &classInfo$$, AbstractSelectableChannel::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractSelectableChannel);
+	});
 	return class$;
 }
 

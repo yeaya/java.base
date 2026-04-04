@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/CredentialException.h>
-
 #include <javax/security/auth/login/LoginException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace login {
-
-$FieldInfo _CredentialException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CredentialException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CredentialException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CredentialException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CredentialException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _CredentialException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.login.CredentialException",
-	"javax.security.auth.login.LoginException",
-	nullptr,
-	_CredentialException_FieldInfo_,
-	_CredentialException_MethodInfo_
-};
-
-$Object* allocate$CredentialException($Class* clazz) {
-	return $of($alloc(CredentialException));
-}
 
 void CredentialException::init$() {
 	$LoginException::init$();
@@ -56,7 +31,26 @@ void CredentialException::throw$() {
 }
 
 $Class* CredentialException::load$($String* name, bool initialize) {
-	$loadClass(CredentialException, name, initialize, &_CredentialException_ClassInfo_, allocate$CredentialException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CredentialException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CredentialException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CredentialException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.login.CredentialException",
+		"javax.security.auth.login.LoginException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CredentialException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CredentialException);
+	});
 	return class$;
 }
 

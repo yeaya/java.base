@@ -69,6 +69,7 @@ class LambdaFormEditor : public ::java::lang::Object {
 	$class(LambdaFormEditor, 0, ::java::lang::Object)
 public:
 	LambdaFormEditor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::LambdaForm* lambdaForm);
 	virtual ::java::lang::invoke::LambdaForm* addArgumentForm(int32_t pos, ::java::lang::invoke::LambdaForm$BasicType* type);
 	virtual ::java::lang::invoke::BoundMethodHandle* bindArgumentD(::java::lang::invoke::BoundMethodHandle* mh, int32_t pos, double value);

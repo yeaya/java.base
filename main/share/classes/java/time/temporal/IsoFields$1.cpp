@@ -1,5 +1,4 @@
 #include <java/time/temporal/IsoFields$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/temporal/IsoFields$Unit.h>
 #include <java/time/temporal/IsoFields.h>
@@ -19,53 +18,17 @@ namespace java {
 	namespace time {
 		namespace temporal {
 
-$FieldInfo _IsoFields$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$IsoFields$Unit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(IsoFields$1, $SwitchMap$java$time$temporal$IsoFields$Unit)},
-	{}
-};
-
-$EnclosingMethodInfo _IsoFields$1_EnclosingMethodInfo_ = {
-	"java.time.temporal.IsoFields",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _IsoFields$1_InnerClassesInfo_[] = {
-	{"java.time.temporal.IsoFields$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _IsoFields$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.temporal.IsoFields$1",
-	"java.lang.Object",
-	nullptr,
-	_IsoFields$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_IsoFields$1_EnclosingMethodInfo_,
-	_IsoFields$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.temporal.IsoFields"
-};
-
-$Object* allocate$IsoFields$1($Class* clazz) {
-	return $of($alloc(IsoFields$1));
-}
-
 $ints* IsoFields$1::$SwitchMap$java$time$temporal$IsoFields$Unit = nullptr;
 
-void clinit$IsoFields$1($Class* class$) {
+void IsoFields$1::clinit$($Class* clazz) {
 	$assignStatic(IsoFields$1::$SwitchMap$java$time$temporal$IsoFields$Unit, $new($ints, $($IsoFields$Unit::values())->length));
 	{
 		try {
-			$nc(IsoFields$1::$SwitchMap$java$time$temporal$IsoFields$Unit)->set($IsoFields$Unit::WEEK_BASED_YEARS->ordinal(), 1);
+			IsoFields$1::$SwitchMap$java$time$temporal$IsoFields$Unit->set($IsoFields$Unit::WEEK_BASED_YEARS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(IsoFields$1::$SwitchMap$java$time$temporal$IsoFields$Unit)->set($IsoFields$Unit::QUARTER_YEARS->ordinal(), 2);
+			IsoFields$1::$SwitchMap$java$time$temporal$IsoFields$Unit->set($IsoFields$Unit::QUARTER_YEARS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -75,7 +38,37 @@ IsoFields$1::IsoFields$1() {
 }
 
 $Class* IsoFields$1::load$($String* name, bool initialize) {
-	$loadClass(IsoFields$1, name, initialize, &_IsoFields$1_ClassInfo_, clinit$IsoFields$1, allocate$IsoFields$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$IsoFields$Unit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(IsoFields$1, $SwitchMap$java$time$temporal$IsoFields$Unit)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.temporal.IsoFields",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.temporal.IsoFields$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.temporal.IsoFields$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.temporal.IsoFields"
+	};
+	$loadClass(IsoFields$1, name, initialize, &classInfo$$, IsoFields$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IsoFields$1);
+	});
 	return class$;
 }
 

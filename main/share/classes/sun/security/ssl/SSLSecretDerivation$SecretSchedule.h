@@ -15,6 +15,7 @@ class SSLSecretDerivation$SecretSchedule : public ::java::lang::Enum {
 public:
 	SSLSecretDerivation$SecretSchedule();
 	static $Array<::sun::security::ssl::SSLSecretDerivation$SecretSchedule>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* label);
 	static ::sun::security::ssl::SSLSecretDerivation$SecretSchedule* valueOf($String* name);
 	static $Array<::sun::security::ssl::SSLSecretDerivation$SecretSchedule>* values();

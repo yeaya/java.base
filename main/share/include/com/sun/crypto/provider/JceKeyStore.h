@@ -66,6 +66,7 @@ public:
 	JceKeyStore();
 	using ::java::security::KeyStoreSpi::engineStore;
 	using ::java::security::KeyStoreSpi::engineLoad;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::Enumeration* engineAliases() override;
 	virtual bool engineContainsAlias($String* alias) override;
@@ -87,8 +88,8 @@ public:
 	::java::security::MessageDigest* getPreKeyedHash($chars* password);
 	static ::java::lang::Void* lambda$engineLoad$0(::java::io::ObjectInputStream* ois2, int32_t fullLength);
 	static ::sun::security::util::Debug* debug;
-	static const int32_t JCEKS_MAGIC = 0xCECECECE;
-	static const int32_t JKS_MAGIC = 0xFEEDFEED;
+	static const int32_t JCEKS_MAGIC = 0xcececece;
+	static const int32_t JKS_MAGIC = 0xfeedfeed;
 	static const int32_t VERSION_1 = 1;
 	static const int32_t VERSION_2 = 2;
 	::java::util::Hashtable* entries = nullptr;

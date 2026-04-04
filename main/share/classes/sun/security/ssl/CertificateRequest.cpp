@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateRequest.h>
-
 #include <sun/security/ssl/CertificateRequest$T10CertificateRequestConsumer.h>
 #include <sun/security/ssl/CertificateRequest$T10CertificateRequestProducer.h>
 #include <sun/security/ssl/CertificateRequest$T12CertificateRequestConsumer.h>
@@ -27,54 +26,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertificateRequest_FieldInfo_[] = {
-	{"t10HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t10HandshakeConsumer)},
-	{"t10HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t10HandshakeProducer)},
-	{"t12HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t12HandshakeConsumer)},
-	{"t12HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t12HandshakeProducer)},
-	{"t13HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t13HandshakeConsumer)},
-	{"t13HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t13HandshakeProducer)},
-	{}
-};
-
-$MethodInfo _CertificateRequest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CertificateRequest, init$, void)},
-	{}
-};
-
-$InnerClassInfo _CertificateRequest_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateRequest$T13CertificateRequestConsumer", "sun.security.ssl.CertificateRequest", "T13CertificateRequestConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateRequest$T13CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T13CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateRequest$T13CertificateRequestMessage", "sun.security.ssl.CertificateRequest", "T13CertificateRequestMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateRequest$T12CertificateRequestConsumer", "sun.security.ssl.CertificateRequest", "T12CertificateRequestConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateRequest$T12CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T12CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateRequest$T12CertificateRequestMessage", "sun.security.ssl.CertificateRequest", "T12CertificateRequestMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateRequest$T10CertificateRequestConsumer", "sun.security.ssl.CertificateRequest", "T10CertificateRequestConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateRequest$T10CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T10CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateRequest$T10CertificateRequestMessage", "sun.security.ssl.CertificateRequest", "T10CertificateRequestMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateRequest$ClientCertificateType", "sun.security.ssl.CertificateRequest", "ClientCertificateType", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CertificateRequest_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateRequest",
-	"java.lang.Object",
-	nullptr,
-	_CertificateRequest_FieldInfo_,
-	_CertificateRequest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateRequest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateRequest$T13CertificateRequestConsumer,sun.security.ssl.CertificateRequest$T13CertificateRequestProducer,sun.security.ssl.CertificateRequest$T13CertificateRequestMessage,sun.security.ssl.CertificateRequest$T12CertificateRequestConsumer,sun.security.ssl.CertificateRequest$T12CertificateRequestProducer,sun.security.ssl.CertificateRequest$T12CertificateRequestMessage,sun.security.ssl.CertificateRequest$T10CertificateRequestConsumer,sun.security.ssl.CertificateRequest$T10CertificateRequestProducer,sun.security.ssl.CertificateRequest$T10CertificateRequestMessage,sun.security.ssl.CertificateRequest$ClientCertificateType"
-};
-
-$Object* allocate$CertificateRequest($Class* clazz) {
-	return $of($alloc(CertificateRequest));
-}
-
 $SSLConsumer* CertificateRequest::t10HandshakeConsumer = nullptr;
 $HandshakeProducer* CertificateRequest::t10HandshakeProducer = nullptr;
 $SSLConsumer* CertificateRequest::t12HandshakeConsumer = nullptr;
@@ -85,7 +36,7 @@ $HandshakeProducer* CertificateRequest::t13HandshakeProducer = nullptr;
 void CertificateRequest::init$() {
 }
 
-void clinit$CertificateRequest($Class* class$) {
+void CertificateRequest::clinit$($Class* clazz) {
 	$assignStatic(CertificateRequest::t10HandshakeConsumer, $new($CertificateRequest$T10CertificateRequestConsumer));
 	$assignStatic(CertificateRequest::t10HandshakeProducer, $new($CertificateRequest$T10CertificateRequestProducer));
 	$assignStatic(CertificateRequest::t12HandshakeConsumer, $new($CertificateRequest$T12CertificateRequestConsumer));
@@ -98,7 +49,49 @@ CertificateRequest::CertificateRequest() {
 }
 
 $Class* CertificateRequest::load$($String* name, bool initialize) {
-	$loadClass(CertificateRequest, name, initialize, &_CertificateRequest_ClassInfo_, clinit$CertificateRequest, allocate$CertificateRequest);
+	$FieldInfo fieldInfos$$[] = {
+		{"t10HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t10HandshakeConsumer)},
+		{"t10HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t10HandshakeProducer)},
+		{"t12HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t12HandshakeConsumer)},
+		{"t12HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t12HandshakeProducer)},
+		{"t13HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t13HandshakeConsumer)},
+		{"t13HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateRequest, t13HandshakeProducer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CertificateRequest, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateRequest$T13CertificateRequestConsumer", "sun.security.ssl.CertificateRequest", "T13CertificateRequestConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateRequest$T13CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T13CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateRequest$T13CertificateRequestMessage", "sun.security.ssl.CertificateRequest", "T13CertificateRequestMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateRequest$T12CertificateRequestConsumer", "sun.security.ssl.CertificateRequest", "T12CertificateRequestConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateRequest$T12CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T12CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateRequest$T12CertificateRequestMessage", "sun.security.ssl.CertificateRequest", "T12CertificateRequestMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateRequest$T10CertificateRequestConsumer", "sun.security.ssl.CertificateRequest", "T10CertificateRequestConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateRequest$T10CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T10CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateRequest$T10CertificateRequestMessage", "sun.security.ssl.CertificateRequest", "T10CertificateRequestMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateRequest$ClientCertificateType", "sun.security.ssl.CertificateRequest", "ClientCertificateType", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateRequest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateRequest$T13CertificateRequestConsumer,sun.security.ssl.CertificateRequest$T13CertificateRequestProducer,sun.security.ssl.CertificateRequest$T13CertificateRequestMessage,sun.security.ssl.CertificateRequest$T12CertificateRequestConsumer,sun.security.ssl.CertificateRequest$T12CertificateRequestProducer,sun.security.ssl.CertificateRequest$T12CertificateRequestMessage,sun.security.ssl.CertificateRequest$T10CertificateRequestConsumer,sun.security.ssl.CertificateRequest$T10CertificateRequestProducer,sun.security.ssl.CertificateRequest$T10CertificateRequestMessage,sun.security.ssl.CertificateRequest$ClientCertificateType"
+	};
+	$loadClass(CertificateRequest, name, initialize, &classInfo$$, CertificateRequest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateRequest);
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ public:
 	SocketTimeoutException();
 	void init$($String* msg);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x853A5E4AFE736354;
+	static const int64_t serialVersionUID = (int64_t)0x853a5e4afe736354;
 	SocketTimeoutException(const SocketTimeoutException& e);
 	virtual void throw$() override;
-	inline SocketTimeoutException* operator ->() {
+	inline SocketTimeoutException* operator ->() const {
+		return (SocketTimeoutException*)throwing$;
+	}
+	inline operator SocketTimeoutException*() const {
 		return (SocketTimeoutException*)throwing$;
 	}
 };

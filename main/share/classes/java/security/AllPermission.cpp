@@ -1,5 +1,4 @@
 #include <java/security/AllPermission.h>
-
 #include <java/security/AllPermissionCollection.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
@@ -14,35 +13,6 @@ using $PermissionCollection = ::java::security::PermissionCollection;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _AllPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AllPermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AllPermission_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AllPermission, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AllPermission, init$, void, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AllPermission, equals, bool, Object$*)},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AllPermission, getActions, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AllPermission, hashCode, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(AllPermission, implies, bool, $Permission*)},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(AllPermission, newPermissionCollection, $PermissionCollection*)},
-	{}
-};
-
-$ClassInfo _AllPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.security.AllPermission",
-	"java.security.Permission",
-	nullptr,
-	_AllPermission_FieldInfo_,
-	_AllPermission_MethodInfo_
-};
-
-$Object* allocate$AllPermission($Class* clazz) {
-	return $of($alloc(AllPermission));
-}
 
 void AllPermission::init$() {
 	$Permission::init$("<all permissions>"_s);
@@ -76,7 +46,31 @@ AllPermission::AllPermission() {
 }
 
 $Class* AllPermission::load$($String* name, bool initialize) {
-	$loadClass(AllPermission, name, initialize, &_AllPermission_ClassInfo_, allocate$AllPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AllPermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AllPermission, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AllPermission, init$, void, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AllPermission, equals, bool, Object$*)},
+		{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AllPermission, getActions, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AllPermission, hashCode, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(AllPermission, implies, bool, $Permission*)},
+		{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(AllPermission, newPermissionCollection, $PermissionCollection*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.security.AllPermission",
+		"java.security.Permission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AllPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AllPermission));
+	});
 	return class$;
 }
 

@@ -85,10 +85,10 @@ public:
 	static const int64_t MILLIS_PER_SECOND = (int64_t)1000;
 	static const int64_t MICROS_PER_SECOND = (int64_t)1000000;
 	static const int64_t NANOS_PER_SECOND = (int64_t)1000000000;
-	static const int32_t NANOS_PER_MILLI = 0x000F4240;
+	static const int32_t NANOS_PER_MILLI = 0x000f4240;
 	static const int32_t NANOS_PER_MICRO = 1000;
-	static const int64_t MIN_SECOND = (int64_t)0xFF8FE31014641400;
-	static const int64_t MAX_SECOND = (int64_t)0x00701CD2FA9578FF;
+	static const int64_t MIN_SECOND = (int64_t)0xff8fe31014641400;
+	static const int64_t MAX_SECOND = (int64_t)0x00701cd2fa9578ff;
 	static const int64_t DAYS_PER_10000_YEARS = 3652425; // 146097L * 25L
 	static const int64_t SECONDS_PER_10000_YEARS = 315569520000; // 146097L * 25L * 86400L
 	static const int64_t SECONDS_0000_TO_1970 = 62167219200; // ((146097L * 5L) - (30L * 365L + 7L)) * 86400L

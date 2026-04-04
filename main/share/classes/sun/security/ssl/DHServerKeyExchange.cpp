@@ -1,5 +1,4 @@
 #include <sun/security/ssl/DHServerKeyExchange.h>
-
 #include <sun/security/ssl/DHServerKeyExchange$DHServerKeyExchangeConsumer.h>
 #include <sun/security/ssl/DHServerKeyExchange$DHServerKeyExchangeProducer.h>
 #include <sun/security/ssl/HandshakeProducer.h>
@@ -19,50 +18,13 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _DHServerKeyExchange_FieldInfo_[] = {
-	{"dhHandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(DHServerKeyExchange, dhHandshakeConsumer)},
-	{"dhHandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(DHServerKeyExchange, dhHandshakeProducer)},
-	{}
-};
-
-$MethodInfo _DHServerKeyExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DHServerKeyExchange, init$, void)},
-	{}
-};
-
-$InnerClassInfo _DHServerKeyExchange_InnerClassesInfo_[] = {
-	{"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeConsumer", "sun.security.ssl.DHServerKeyExchange", "DHServerKeyExchangeConsumer", $STATIC | $FINAL},
-	{"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeProducer", "sun.security.ssl.DHServerKeyExchange", "DHServerKeyExchangeProducer", $STATIC | $FINAL},
-	{"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeMessage", "sun.security.ssl.DHServerKeyExchange", "DHServerKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DHServerKeyExchange_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.DHServerKeyExchange",
-	"java.lang.Object",
-	nullptr,
-	_DHServerKeyExchange_FieldInfo_,
-	_DHServerKeyExchange_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DHServerKeyExchange_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeConsumer,sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeProducer,sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeMessage"
-};
-
-$Object* allocate$DHServerKeyExchange($Class* clazz) {
-	return $of($alloc(DHServerKeyExchange));
-}
-
 $SSLConsumer* DHServerKeyExchange::dhHandshakeConsumer = nullptr;
 $HandshakeProducer* DHServerKeyExchange::dhHandshakeProducer = nullptr;
 
 void DHServerKeyExchange::init$() {
 }
 
-void clinit$DHServerKeyExchange($Class* class$) {
+void DHServerKeyExchange::clinit$($Class* clazz) {
 	$assignStatic(DHServerKeyExchange::dhHandshakeConsumer, $new($DHServerKeyExchange$DHServerKeyExchangeConsumer));
 	$assignStatic(DHServerKeyExchange::dhHandshakeProducer, $new($DHServerKeyExchange$DHServerKeyExchangeProducer));
 }
@@ -71,7 +33,38 @@ DHServerKeyExchange::DHServerKeyExchange() {
 }
 
 $Class* DHServerKeyExchange::load$($String* name, bool initialize) {
-	$loadClass(DHServerKeyExchange, name, initialize, &_DHServerKeyExchange_ClassInfo_, clinit$DHServerKeyExchange, allocate$DHServerKeyExchange);
+	$FieldInfo fieldInfos$$[] = {
+		{"dhHandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(DHServerKeyExchange, dhHandshakeConsumer)},
+		{"dhHandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(DHServerKeyExchange, dhHandshakeProducer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DHServerKeyExchange, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeConsumer", "sun.security.ssl.DHServerKeyExchange", "DHServerKeyExchangeConsumer", $STATIC | $FINAL},
+		{"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeProducer", "sun.security.ssl.DHServerKeyExchange", "DHServerKeyExchangeProducer", $STATIC | $FINAL},
+		{"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeMessage", "sun.security.ssl.DHServerKeyExchange", "DHServerKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.DHServerKeyExchange",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeConsumer,sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeProducer,sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeMessage"
+	};
+	$loadClass(DHServerKeyExchange, name, initialize, &classInfo$$, DHServerKeyExchange::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DHServerKeyExchange);
+	});
 	return class$;
 }
 

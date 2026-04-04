@@ -1,5 +1,4 @@
 #include <java/math/MutableBigInteger.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/math/BigDecimal.h>
@@ -32,116 +31,6 @@ using $Arrays = ::java::util::Arrays;
 namespace java {
 	namespace math {
 
-$FieldInfo _MutableBigInteger_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MutableBigInteger, $assertionsDisabled)},
-	{"value", "[I", nullptr, 0, $field(MutableBigInteger, value)},
-	{"intLen", "I", nullptr, 0, $field(MutableBigInteger, intLen)},
-	{"offset", "I", nullptr, 0, $field(MutableBigInteger, offset)},
-	{"ONE", "Ljava/math/MutableBigInteger;", nullptr, $STATIC | $FINAL, $staticField(MutableBigInteger, ONE)},
-	{"KNUTH_POW2_THRESH_LEN", "I", nullptr, $STATIC | $FINAL, $constField(MutableBigInteger, KNUTH_POW2_THRESH_LEN)},
-	{"KNUTH_POW2_THRESH_ZEROS", "I", nullptr, $STATIC | $FINAL, $constField(MutableBigInteger, KNUTH_POW2_THRESH_ZEROS)},
-	{}
-};
-
-$MethodInfo _MutableBigInteger_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MutableBigInteger, init$, void)},
-	{"<init>", "(I)V", nullptr, 0, $method(MutableBigInteger, init$, void, int32_t)},
-	{"<init>", "([I)V", nullptr, 0, $method(MutableBigInteger, init$, void, $ints*)},
-	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, 0, $method(MutableBigInteger, init$, void, $BigInteger*)},
-	{"<init>", "(Ljava/math/MutableBigInteger;)V", nullptr, 0, $method(MutableBigInteger, init$, void, MutableBigInteger*)},
-	{"add", "(Ljava/math/MutableBigInteger;)V", nullptr, 0, $virtualMethod(MutableBigInteger, add, void, MutableBigInteger*)},
-	{"addDisjoint", "(Ljava/math/MutableBigInteger;I)V", nullptr, 0, $virtualMethod(MutableBigInteger, addDisjoint, void, MutableBigInteger*, int32_t)},
-	{"addLower", "(Ljava/math/MutableBigInteger;I)V", nullptr, 0, $virtualMethod(MutableBigInteger, addLower, void, MutableBigInteger*, int32_t)},
-	{"addShifted", "(Ljava/math/MutableBigInteger;I)V", nullptr, 0, $virtualMethod(MutableBigInteger, addShifted, void, MutableBigInteger*, int32_t)},
-	{"binaryGCD", "(Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, binaryGCD, MutableBigInteger*, MutableBigInteger*)},
-	{"binaryGcd", "(II)I", nullptr, $STATIC, $staticMethod(MutableBigInteger, binaryGcd, int32_t, int32_t, int32_t)},
-	{"bitLength", "()J", nullptr, 0, $virtualMethod(MutableBigInteger, bitLength, int64_t)},
-	{"clear", "()V", nullptr, 0, $virtualMethod(MutableBigInteger, clear, void)},
-	{"compare", "(Ljava/math/MutableBigInteger;)I", nullptr, $FINAL, $method(MutableBigInteger, compare, int32_t, MutableBigInteger*)},
-	{"compareHalf", "(Ljava/math/MutableBigInteger;)I", nullptr, $FINAL, $method(MutableBigInteger, compareHalf, int32_t, MutableBigInteger*)},
-	{"compareShifted", "(Ljava/math/MutableBigInteger;I)I", nullptr, $PRIVATE, $method(MutableBigInteger, compareShifted, int32_t, MutableBigInteger*, int32_t)},
-	{"copyAndShift", "([III[III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MutableBigInteger, copyAndShift, void, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"copyValue", "(Ljava/math/MutableBigInteger;)V", nullptr, 0, $virtualMethod(MutableBigInteger, copyValue, void, MutableBigInteger*)},
-	{"copyValue", "([I)V", nullptr, 0, $virtualMethod(MutableBigInteger, copyValue, void, $ints*)},
-	{"difference", "(Ljava/math/MutableBigInteger;)I", nullptr, $PRIVATE, $method(MutableBigInteger, difference, int32_t, MutableBigInteger*)},
-	{"divWord", "(JI)J", nullptr, $STATIC, $staticMethod(MutableBigInteger, divWord, int64_t, int64_t, int32_t)},
-	{"divadd", "([I[II)I", nullptr, $PRIVATE, $method(MutableBigInteger, divadd, int32_t, $ints*, $ints*, int32_t)},
-	{"divaddLong", "(II[II)I", nullptr, $PRIVATE, $method(MutableBigInteger, divaddLong, int32_t, int32_t, int32_t, $ints*, int32_t)},
-	{"divide", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, divide, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*)},
-	{"divide", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;Z)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, divide, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*, bool)},
-	{"divide", "(JLjava/math/MutableBigInteger;)J", nullptr, 0, $virtualMethod(MutableBigInteger, divide, int64_t, int64_t, MutableBigInteger*)},
-	{"divide2n1n", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, divide2n1n, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*)},
-	{"divide3n2n", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, divide3n2n, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*)},
-	{"divideAndRemainderBurnikelZiegler", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, divideAndRemainderBurnikelZiegler, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*)},
-	{"divideKnuth", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, divideKnuth, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*)},
-	{"divideKnuth", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;Z)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, divideKnuth, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*, bool)},
-	{"divideLongMagnitude", "(JLjava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, divideLongMagnitude, MutableBigInteger*, int64_t, MutableBigInteger*)},
-	{"divideMagnitude", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;Z)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, divideMagnitude, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*, bool)},
-	{"divideOneWord", "(ILjava/math/MutableBigInteger;)I", nullptr, 0, $virtualMethod(MutableBigInteger, divideOneWord, int32_t, int32_t, MutableBigInteger*)},
-	{"ensureCapacity", "(I)V", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, ensureCapacity, void, int32_t)},
-	{"euclidModInverse", "(I)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, euclidModInverse, MutableBigInteger*, int32_t)},
-	{"fixup", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;I)Ljava/math/MutableBigInteger;", nullptr, $STATIC, $staticMethod(MutableBigInteger, fixup, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*, int32_t)},
-	{"getBlock", "(III)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, getBlock, MutableBigInteger*, int32_t, int32_t, int32_t)},
-	{"getInt", "(I)I", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, getInt, int32_t, int32_t)},
-	{"getLong", "(I)J", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, getLong, int64_t, int32_t)},
-	{"getLower", "(I)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, getLower, $BigInteger*, int32_t)},
-	{"getLowestSetBit", "()I", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, getLowestSetBit, int32_t)},
-	{"getMagnitudeArray", "()[I", nullptr, $PRIVATE, $method(MutableBigInteger, getMagnitudeArray, $ints*)},
-	{"hybridGCD", "(Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, hybridGCD, MutableBigInteger*, MutableBigInteger*)},
-	{"inverseMod32", "(I)I", nullptr, $STATIC, $staticMethod(MutableBigInteger, inverseMod32, int32_t, int32_t)},
-	{"inverseMod64", "(J)J", nullptr, $STATIC, $staticMethod(MutableBigInteger, inverseMod64, int64_t, int64_t)},
-	{"isEven", "()Z", nullptr, 0, $virtualMethod(MutableBigInteger, isEven, bool)},
-	{"isNormal", "()Z", nullptr, 0, $virtualMethod(MutableBigInteger, isNormal, bool)},
-	{"isOdd", "()Z", nullptr, 0, $virtualMethod(MutableBigInteger, isOdd, bool)},
-	{"isOne", "()Z", nullptr, 0, $virtualMethod(MutableBigInteger, isOne, bool)},
-	{"isZero", "()Z", nullptr, 0, $virtualMethod(MutableBigInteger, isZero, bool)},
-	{"keepLower", "(I)V", nullptr, $PRIVATE, $method(MutableBigInteger, keepLower, void, int32_t)},
-	{"leftShift", "(I)V", nullptr, 0, $virtualMethod(MutableBigInteger, leftShift, void, int32_t)},
-	{"modInverse", "(Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, modInverse, MutableBigInteger*, MutableBigInteger*)},
-	{"modInverseBP2", "(Ljava/math/MutableBigInteger;I)Ljava/math/MutableBigInteger;", nullptr, $STATIC, $staticMethod(MutableBigInteger, modInverseBP2, MutableBigInteger*, MutableBigInteger*, int32_t)},
-	{"modInverseMP2", "(I)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, modInverseMP2, MutableBigInteger*, int32_t)},
-	{"mul", "(ILjava/math/MutableBigInteger;)V", nullptr, 0, $virtualMethod(MutableBigInteger, mul, void, int32_t, MutableBigInteger*)},
-	{"mulsub", "([I[IIII)I", nullptr, $PRIVATE, $method(MutableBigInteger, mulsub, int32_t, $ints*, $ints*, int32_t, int32_t, int32_t)},
-	{"mulsubBorrow", "([I[IIII)I", nullptr, $PRIVATE, $method(MutableBigInteger, mulsubBorrow, int32_t, $ints*, $ints*, int32_t, int32_t, int32_t)},
-	{"mulsubLong", "([IIIII)I", nullptr, $PRIVATE, $method(MutableBigInteger, mulsubLong, int32_t, $ints*, int32_t, int32_t, int32_t, int32_t)},
-	{"multiply", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)V", nullptr, 0, $virtualMethod(MutableBigInteger, multiply, void, MutableBigInteger*, MutableBigInteger*)},
-	{"mutableModInverse", "(Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, mutableModInverse, MutableBigInteger*, MutableBigInteger*)},
-	{"normalize", "()V", nullptr, $FINAL, $method(MutableBigInteger, normalize, void)},
-	{"ones", "(I)V", nullptr, $PRIVATE, $method(MutableBigInteger, ones, void, int32_t)},
-	{"primitiveLeftShift", "(I)V", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, primitiveLeftShift, void, int32_t)},
-	{"primitiveRightShift", "(I)V", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, primitiveRightShift, void, int32_t)},
-	{"reset", "()V", nullptr, 0, $virtualMethod(MutableBigInteger, reset, void)},
-	{"rightShift", "(I)V", nullptr, 0, $virtualMethod(MutableBigInteger, rightShift, void, int32_t)},
-	{"safeLeftShift", "(I)V", nullptr, 0, $virtualMethod(MutableBigInteger, safeLeftShift, void, int32_t)},
-	{"safeRightShift", "(I)V", nullptr, 0, $virtualMethod(MutableBigInteger, safeRightShift, void, int32_t)},
-	{"setInt", "(II)V", nullptr, 0, $virtualMethod(MutableBigInteger, setInt, void, int32_t, int32_t)},
-	{"setValue", "([II)V", nullptr, 0, $virtualMethod(MutableBigInteger, setValue, void, $ints*, int32_t)},
-	{"sqrt", "()Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, sqrt, MutableBigInteger*)},
-	{"subtract", "(Ljava/math/MutableBigInteger;)I", nullptr, 0, $virtualMethod(MutableBigInteger, subtract, int32_t, MutableBigInteger*)},
-	{"toBigDecimal", "(II)Ljava/math/BigDecimal;", nullptr, 0, $virtualMethod(MutableBigInteger, toBigDecimal, $BigDecimal*, int32_t, int32_t)},
-	{"toBigInteger", "(I)Ljava/math/BigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, toBigInteger, $BigInteger*, int32_t)},
-	{"toBigInteger", "()Ljava/math/BigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, toBigInteger, $BigInteger*)},
-	{"toCompactValue", "(I)J", nullptr, 0, $virtualMethod(MutableBigInteger, toCompactValue, int64_t, int32_t)},
-	{"toIntArray", "()[I", nullptr, 0, $virtualMethod(MutableBigInteger, toIntArray, $ints*)},
-	{"toLong", "()J", nullptr, $PRIVATE, $method(MutableBigInteger, toLong, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MutableBigInteger, toString, $String*)},
-	{"unsignedLongCompare", "(JJ)Z", nullptr, $PRIVATE, $method(MutableBigInteger, unsignedLongCompare, bool, int64_t, int64_t)},
-	{}
-};
-
-$ClassInfo _MutableBigInteger_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.math.MutableBigInteger",
-	"java.lang.Object",
-	nullptr,
-	_MutableBigInteger_FieldInfo_,
-	_MutableBigInteger_MethodInfo_
-};
-
-$Object* allocate$MutableBigInteger($Class* clazz) {
-	return $of($alloc(MutableBigInteger));
-}
-
 bool MutableBigInteger::$assertionsDisabled = false;
 MutableBigInteger* MutableBigInteger::ONE = nullptr;
 
@@ -155,7 +44,7 @@ void MutableBigInteger::init$(int32_t val) {
 	this->offset = 0;
 	$set(this, value, $new($ints, 1));
 	this->intLen = 1;
-	$nc(this->value)->set(0, val);
+	this->value->set(0, val);
 }
 
 void MutableBigInteger::init$($ints* val) {
@@ -203,8 +92,8 @@ int64_t MutableBigInteger::toLong() {
 	if (this->intLen == 0) {
 		return 0;
 	}
-	int64_t d = (int64_t)($nc(this->value)->get(this->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
-	return (this->intLen == 2) ? (d << 32) | ((int64_t)($nc(this->value)->get(this->offset + 1) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) : d;
+	int64_t d = $nc(this->value)->get(this->offset) & (int64_t)0xffffffff;
+	return (this->intLen == 2) ? (d << 32) | (this->value->get(this->offset + 1) & (int64_t)0xffffffff) : d;
 }
 
 $BigInteger* MutableBigInteger::toBigInteger(int32_t sign) {
@@ -221,7 +110,7 @@ $BigInteger* MutableBigInteger::toBigInteger() {
 }
 
 $BigDecimal* MutableBigInteger::toBigDecimal(int32_t sign, int32_t scale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->intLen == 0 || sign == 0) {
 		return $BigDecimal::zeroValueOf(scale);
 	}
@@ -231,7 +120,7 @@ $BigDecimal* MutableBigInteger::toBigDecimal(int32_t sign, int32_t scale) {
 	if (len > 2 || (d < 0 && len == 2)) {
 		return $new($BigDecimal, $$new($BigInteger, mag, sign), (int64_t)0x8000000000000000, scale, 0);
 	}
-	int64_t v = (len == 2) ? (((int64_t)(mag->get(1) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) | (((int64_t)(d & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 32)) : (int64_t)(d & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t v = (len == 2) ? ((mag->get(1) & (int64_t)0xffffffff) | ((d & (int64_t)0xffffffff) << 32)) : d & (int64_t)0xffffffff;
 	return $BigDecimal::valueOf(sign == -1 ? -v : v, scale);
 }
 
@@ -243,20 +132,16 @@ int64_t MutableBigInteger::toCompactValue(int32_t sign) {
 	int32_t len = $nc(mag)->length;
 	int32_t d = mag->get(0);
 	if (len > 2 || (d < 0 && len == 2)) {
-		return 0x8000000000000000;
+		return (int64_t)0x8000000000000000;
 	}
-	int64_t v = (len == 2) ? (((int64_t)(mag->get(1) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) | (((int64_t)(d & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 32)) : (int64_t)(d & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t v = (len == 2) ? ((mag->get(1) & (int64_t)0xffffffff) | ((d & (int64_t)0xffffffff) << 32)) : d & (int64_t)0xffffffff;
 	return sign == -1 ? -v : v;
 }
 
 void MutableBigInteger::clear() {
 	this->offset = (this->intLen = 0);
-	{
-		int32_t index = 0;
-		int32_t n = $nc(this->value)->length;
-		for (; index < n; ++index) {
-			$nc(this->value)->set(index, 0);
-		}
+	for (int32_t index = 0, n = $nc(this->value)->length; index < n; ++index) {
+		this->value->set(index, 0);
 	}
 }
 
@@ -273,18 +158,14 @@ int32_t MutableBigInteger::compare(MutableBigInteger* b) {
 		return 1;
 	}
 	$var($ints, bval, b->value);
-	{
-		int32_t i = this->offset;
-		int32_t j = b->offset;
-		for (; i < this->intLen + this->offset; ++i, ++j) {
-			int32_t b1 = $nc(this->value)->get(i) + (int32_t)0x80000000;
-			int32_t b2 = $nc(bval)->get(j) + (int32_t)0x80000000;
-			if (b1 < b2) {
-				return -1;
-			}
-			if (b1 > b2) {
-				return 1;
-			}
+	for (int32_t i = this->offset, j = b->offset; i < this->intLen + this->offset; ++i, ++j) {
+		int32_t b1 = $nc(this->value)->get(i) + (int32_t)0x80000000;
+		int32_t b2 = $nc(bval)->get(j) + (int32_t)0x80000000;
+		if (b1 < b2) {
+			return -1;
+		}
+		if (b1 > b2) {
+			return 1;
 		}
 	}
 	return 0;
@@ -300,25 +181,21 @@ int32_t MutableBigInteger::compareShifted(MutableBigInteger* b, int32_t ints) {
 		return 1;
 	}
 	$var($ints, bval, b->value);
-	{
-		int32_t i = this->offset;
-		int32_t j = b->offset;
-		for (; i < alen + this->offset; ++i, ++j) {
-			int32_t b1 = $nc(this->value)->get(i) + (int32_t)0x80000000;
-			int32_t b2 = $nc(bval)->get(j) + (int32_t)0x80000000;
-			if (b1 < b2) {
-				return -1;
-			}
-			if (b1 > b2) {
-				return 1;
-			}
+	for (int32_t i = this->offset, j = b->offset; i < alen + this->offset; ++i, ++j) {
+		int32_t b1 = $nc(this->value)->get(i) + (int32_t)0x80000000;
+		int32_t b2 = $nc(bval)->get(j) + (int32_t)0x80000000;
+		if (b1 < b2) {
+			return -1;
+		}
+		if (b1 > b2) {
+			return 1;
 		}
 	}
 	return 0;
 }
 
 int32_t MutableBigInteger::compareHalf(MutableBigInteger* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t blen = $nc(b)->intLen;
 	int32_t len = this->intLen;
 	if (len <= 0) {
@@ -342,18 +219,14 @@ int32_t MutableBigInteger::compareHalf(MutableBigInteger* b) {
 		}
 	}
 	$var($ints, val, this->value);
-	{
-		int32_t i = this->offset;
-		int32_t j = bstart;
-		for (; i < len + this->offset;) {
-			int32_t bv = $nc(bval)->get(j++);
-			int64_t hb = (int64_t)((((int32_t)((uint32_t)bv >> 1)) + carry) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
-			int64_t v = (int64_t)($nc(val)->get(i++) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
-			if (v != hb) {
-				return v < hb ? -1 : 1;
-			}
-			carry = ((int32_t)(bv & (uint32_t)1)) << 31;
+	for (int32_t i = this->offset, j = bstart; i < len + this->offset;) {
+		int32_t bv = $nc(bval)->get(j++);
+		int64_t hb = (((int32_t)((uint32_t)bv >> 1)) + carry) & (int64_t)0xffffffff;
+		int64_t v = $nc(val)->get(i++) & (int64_t)0xffffffff;
+		if (v != hb) {
+			return v < hb ? -1 : 1;
 		}
+		carry = (bv & 1) << 31;
 	}
 	return carry == 0 ? 0 : -1;
 }
@@ -365,6 +238,7 @@ int32_t MutableBigInteger::getLowestSetBit() {
 	int32_t j = 0;
 	int32_t b = 0;
 	for (j = this->intLen - 1; (j > 0) && ($nc(this->value)->get(j + this->offset) == 0); --j) {
+		;
 	}
 	b = $nc(this->value)->get(j + this->offset);
 	if (b == 0) {
@@ -378,7 +252,7 @@ int32_t MutableBigInteger::getInt(int32_t index) {
 }
 
 int64_t MutableBigInteger::getLong(int32_t index) {
-	return (int64_t)($nc(this->value)->get(this->offset + index) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	return $nc(this->value)->get(this->offset + index) & (int64_t)0xffffffff;
 }
 
 void MutableBigInteger::normalize() {
@@ -393,7 +267,7 @@ void MutableBigInteger::normalize() {
 	int32_t indexBound = index + this->intLen;
 	do {
 		++index;
-	} while (index < indexBound && $nc(this->value)->get(index) == 0);
+	} while (index < indexBound && this->value->get(index) == 0);
 	int32_t numZeros = index - this->offset;
 	this->intLen -= numZeros;
 	this->offset = (this->intLen == 0 ? 0 : this->offset + numZeros);
@@ -454,11 +328,11 @@ bool MutableBigInteger::isZero() {
 }
 
 bool MutableBigInteger::isEven() {
-	return (this->intLen == 0) || (((int32_t)($nc(this->value)->get(this->offset + this->intLen - 1) & (uint32_t)1)) == 0);
+	return (this->intLen == 0) || (($nc(this->value)->get(this->offset + this->intLen - 1) & 1) == 0);
 }
 
 bool MutableBigInteger::isOdd() {
-	return isZero() ? false : (((int32_t)($nc(this->value)->get(this->offset + this->intLen - 1) & (uint32_t)1)) == 1);
+	return isZero() ? false : (($nc(this->value)->get(this->offset + this->intLen - 1) & 1) == 1);
 }
 
 bool MutableBigInteger::isNormal() {
@@ -468,7 +342,7 @@ bool MutableBigInteger::isNormal() {
 	if (this->intLen == 0) {
 		return true;
 	}
-	return ($nc(this->value)->get(this->offset) != 0);
+	return (this->value->get(this->offset) != 0);
 }
 
 $String* MutableBigInteger::toString() {
@@ -489,7 +363,7 @@ void MutableBigInteger::rightShift(int32_t n) {
 		return;
 	}
 	int32_t nInts = (int32_t)((uint32_t)n >> 5);
-	int32_t nBits = (int32_t)(n & (uint32_t)31);
+	int32_t nBits = n & 0x1f;
 	this->intLen -= nInts;
 	if (nBits == 0) {
 		return;
@@ -514,7 +388,7 @@ void MutableBigInteger::leftShift(int32_t n) {
 		return;
 	}
 	int32_t nInts = (int32_t)((uint32_t)n >> 5);
-	int32_t nBits = (int32_t)(n & (uint32_t)31);
+	int32_t nBits = n & 0x1f;
 	int32_t bitsInHighWord = $BigInteger::bitLengthForInt($nc(this->value)->get(this->offset));
 	if (n <= (32 - bitsInHighWord)) {
 		primitiveLeftShift(nBits);
@@ -524,22 +398,22 @@ void MutableBigInteger::leftShift(int32_t n) {
 	if (nBits <= (32 - bitsInHighWord)) {
 		--newLen;
 	}
-	if ($nc(this->value)->length < newLen) {
+	if (this->value->length < newLen) {
 		$var($ints, result, $new($ints, newLen));
 		for (int32_t i = 0; i < this->intLen; ++i) {
-			result->set(i, $nc(this->value)->get(this->offset + i));
+			result->set(i, this->value->get(this->offset + i));
 		}
 		setValue(result, newLen);
-	} else if ($nc(this->value)->length - this->offset >= newLen) {
+	} else if (this->value->length - this->offset >= newLen) {
 		for (int32_t i = 0; i < newLen - this->intLen; ++i) {
-			$nc(this->value)->set(this->offset + this->intLen + i, 0);
+			this->value->set(this->offset + this->intLen + i, 0);
 		}
 	} else {
 		for (int32_t i = 0; i < this->intLen; ++i) {
-			$nc(this->value)->set(i, $nc(this->value)->get(this->offset + i));
+			this->value->set(i, this->value->get(this->offset + i));
 		}
 		for (int32_t i = this->intLen; i < newLen; ++i) {
-			$nc(this->value)->set(i, 0);
+			this->value->set(i, 0);
 		}
 		this->offset = 0;
 	}
@@ -557,7 +431,7 @@ void MutableBigInteger::leftShift(int32_t n) {
 int32_t MutableBigInteger::divadd($ints* a, $ints* result, int32_t offset) {
 	int64_t carry = 0;
 	for (int32_t j = $nc(a)->length - 1; j >= 0; --j) {
-		int64_t sum = ((int64_t)(a->get(j) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + ((int64_t)($nc(result)->get(j + offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + carry;
+		int64_t sum = (a->get(j) & (int64_t)0xffffffff) + ($nc(result)->get(j + offset) & (int64_t)0xffffffff) + carry;
 		result->set(j + offset, (int32_t)sum);
 		carry = (int64_t)((uint64_t)sum >> 32);
 	}
@@ -565,26 +439,26 @@ int32_t MutableBigInteger::divadd($ints* a, $ints* result, int32_t offset) {
 }
 
 int32_t MutableBigInteger::mulsub($ints* q, $ints* a, int32_t x, int32_t len, int32_t offset) {
-	int64_t xLong = (int64_t)(x & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t xLong = x & (int64_t)0xffffffff;
 	int64_t carry = 0;
 	offset += len;
 	for (int32_t j = len - 1; j >= 0; --j) {
-		int64_t product = ((int64_t)($nc(a)->get(j) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) * xLong + carry;
+		int64_t product = ($nc(a)->get(j) & (int64_t)0xffffffff) * xLong + carry;
 		int64_t difference = $nc(q)->get(offset) - product;
 		q->set(offset--, (int32_t)difference);
-		carry = ((int64_t)((uint64_t)product >> 32)) + ((((int64_t)(difference & (uint64_t)(int64_t)0x00000000FFFFFFFF)) > ((int64_t)((~(int32_t)product) & (uint64_t)(int64_t)0x00000000FFFFFFFF))) ? 1 : 0);
+		carry = ((int64_t)((uint64_t)product >> 32)) + (((difference & (int64_t)0xffffffff) > ((~(int32_t)product) & (int64_t)0xffffffff)) ? 1 : 0);
 	}
 	return (int32_t)carry;
 }
 
 int32_t MutableBigInteger::mulsubBorrow($ints* q, $ints* a, int32_t x, int32_t len, int32_t offset) {
-	int64_t xLong = (int64_t)(x & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t xLong = x & (int64_t)0xffffffff;
 	int64_t carry = 0;
 	offset += len;
 	for (int32_t j = len - 1; j >= 0; --j) {
-		int64_t product = ((int64_t)($nc(a)->get(j) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) * xLong + carry;
+		int64_t product = ($nc(a)->get(j) & (int64_t)0xffffffff) * xLong + carry;
 		int64_t difference = $nc(q)->get(offset--) - product;
-		carry = ((int64_t)((uint64_t)product >> 32)) + ((((int64_t)(difference & (uint64_t)(int64_t)0x00000000FFFFFFFF)) > ((int64_t)((~(int32_t)product) & (uint64_t)(int64_t)0x00000000FFFFFFFF))) ? 1 : 0);
+		carry = ((int64_t)((uint64_t)product >> 32)) + (((difference & (int64_t)0xffffffff) > ((~(int32_t)product) & (int64_t)0xffffffff)) ? 1 : 0);
 	}
 	return (int32_t)carry;
 }
@@ -592,14 +466,10 @@ int32_t MutableBigInteger::mulsubBorrow($ints* q, $ints* a, int32_t x, int32_t l
 void MutableBigInteger::primitiveRightShift(int32_t n) {
 	$var($ints, val, this->value);
 	int32_t n2 = 32 - n;
-	{
-		int32_t i = this->offset + this->intLen - 1;
-		int32_t c = $nc(val)->get(i);
-		for (; i > this->offset; --i) {
-			int32_t b = c;
-			c = val->get(i - 1);
-			val->set(i, ($sl(c, n2)) | ($usr(b, n)));
-		}
+	for (int32_t i = this->offset + this->intLen - 1, c = $nc(val)->get(i); i > this->offset; --i) {
+		int32_t b = c;
+		c = val->get(i - 1);
+		val->set(i, ($sl(c, n2)) | ($usr(b, n)));
 	}
 	$usrAssign((*val)[this->offset], n);
 }
@@ -607,15 +477,10 @@ void MutableBigInteger::primitiveRightShift(int32_t n) {
 void MutableBigInteger::primitiveLeftShift(int32_t n) {
 	$var($ints, val, this->value);
 	int32_t n2 = 32 - n;
-	{
-		int32_t i = this->offset;
-		int32_t c = $nc(val)->get(i);
-		int32_t m = i + this->intLen - 1;
-		for (; i < m; ++i) {
-			int32_t b = c;
-			c = val->get(i + 1);
-			val->set(i, ($sl(b, n)) | ($usr(c, n2)));
-		}
+	for (int32_t i = this->offset, c = $nc(val)->get(i), m = i + this->intLen - 1; i < m; ++i) {
+		int32_t b = c;
+		c = val->get(i + 1);
+		val->set(i, ($sl(b, n)) | ($usr(c, n2)));
 	}
 	(*val)[this->offset + this->intLen - 1] <<= n;
 }
@@ -644,7 +509,7 @@ void MutableBigInteger::keepLower(int32_t n) {
 }
 
 void MutableBigInteger::add(MutableBigInteger* addend) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = this->intLen;
 	int32_t y = $nc(addend)->intLen;
 	int32_t resultLen = (this->intLen > addend->intLen ? this->intLen : addend->intLen);
@@ -655,7 +520,7 @@ void MutableBigInteger::add(MutableBigInteger* addend) {
 	while (x > 0 && y > 0) {
 		--x;
 		--y;
-		sum = ((int64_t)($nc(this->value)->get(x + this->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + ((int64_t)($nc(addend->value)->get(y + addend->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + carry;
+		sum = (this->value->get(x + this->offset) & (int64_t)0xffffffff) + ($nc(addend->value)->get(y + addend->offset) & (int64_t)0xffffffff) + carry;
 		result->set(rstart--, (int32_t)sum);
 		carry = (int64_t)((uint64_t)sum >> 32);
 	}
@@ -664,13 +529,13 @@ void MutableBigInteger::add(MutableBigInteger* addend) {
 		if (carry == 0 && result == this->value && rstart == (x + this->offset)) {
 			return;
 		}
-		sum = ((int64_t)($nc(this->value)->get(x + this->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + carry;
+		sum = (this->value->get(x + this->offset) & (int64_t)0xffffffff) + carry;
 		result->set(rstart--, (int32_t)sum);
 		carry = (int64_t)((uint64_t)sum >> 32);
 	}
 	while (y > 0) {
 		--y;
-		sum = ((int64_t)($nc(addend->value)->get(y + addend->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + carry;
+		sum = ($nc(addend->value)->get(y + addend->offset) & (int64_t)0xffffffff) + carry;
 		result->set(rstart--, (int32_t)sum);
 		carry = (int64_t)((uint64_t)sum >> 32);
 	}
@@ -691,12 +556,12 @@ void MutableBigInteger::add(MutableBigInteger* addend) {
 }
 
 void MutableBigInteger::addShifted(MutableBigInteger* addend, int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(addend)->isZero()) {
 		return;
 	}
 	int32_t x = this->intLen;
-	int32_t y = $nc(addend)->intLen + n;
+	int32_t y = addend->intLen + n;
 	int32_t resultLen = (this->intLen > y ? this->intLen : y);
 	$var($ints, result, $nc(this->value)->length < resultLen ? $new($ints, resultLen) : this->value);
 	int32_t rstart = $nc(result)->length - 1;
@@ -705,8 +570,8 @@ void MutableBigInteger::addShifted(MutableBigInteger* addend, int32_t n) {
 	while (x > 0 && y > 0) {
 		--x;
 		--y;
-		int32_t bval = y + addend->offset < $nc(addend->value)->length ? $nc(addend->value)->get(y + addend->offset) : 0;
-		sum = ((int64_t)($nc(this->value)->get(x + this->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + ((int64_t)(bval & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + carry;
+		int32_t bval = y + addend->offset < $nc(addend->value)->length ? addend->value->get(y + addend->offset) : 0;
+		sum = (this->value->get(x + this->offset) & (int64_t)0xffffffff) + (bval & (int64_t)0xffffffff) + carry;
 		result->set(rstart--, (int32_t)sum);
 		carry = (int64_t)((uint64_t)sum >> 32);
 	}
@@ -715,14 +580,14 @@ void MutableBigInteger::addShifted(MutableBigInteger* addend, int32_t n) {
 		if (carry == 0 && result == this->value && rstart == (x + this->offset)) {
 			return;
 		}
-		sum = ((int64_t)($nc(this->value)->get(x + this->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + carry;
+		sum = (this->value->get(x + this->offset) & (int64_t)0xffffffff) + carry;
 		result->set(rstart--, (int32_t)sum);
 		carry = (int64_t)((uint64_t)sum >> 32);
 	}
 	while (y > 0) {
 		--y;
-		int32_t bval = y + addend->offset < $nc(addend->value)->length ? $nc(addend->value)->get(y + addend->offset) : 0;
-		sum = ((int64_t)(bval & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + carry;
+		int32_t bval = y + addend->offset < $nc(addend->value)->length ? addend->value->get(y + addend->offset) : 0;
+		sum = (bval & (int64_t)0xffffffff) + carry;
 		result->set(rstart--, (int32_t)sum);
 		carry = (int64_t)((uint64_t)sum >> 32);
 	}
@@ -747,14 +612,14 @@ void MutableBigInteger::addDisjoint(MutableBigInteger* addend, int32_t n) {
 		return;
 	}
 	int32_t x = this->intLen;
-	int32_t y = $nc(addend)->intLen + n;
+	int32_t y = addend->intLen + n;
 	int32_t resultLen = (this->intLen > y ? this->intLen : y);
 	$var($ints, result, nullptr);
 	if ($nc(this->value)->length < resultLen) {
 		$assign(result, $new($ints, resultLen));
 	} else {
 		$assign(result, this->value);
-		$Arrays::fill(this->value, this->offset + this->intLen, $nc(this->value)->length, 0);
+		$Arrays::fill(this->value, this->offset + this->intLen, this->value->length, 0);
 	}
 	int32_t rstart = $nc(result)->length - 1;
 	$System::arraycopy(this->value, this->offset, result, rstart + 1 - x, x);
@@ -781,7 +646,7 @@ void MutableBigInteger::addLower(MutableBigInteger* addend, int32_t n) {
 }
 
 int32_t MutableBigInteger::subtract(MutableBigInteger* b$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MutableBigInteger, b, b$renamed);
 	$var(MutableBigInteger, a, this);
 	$var($ints, result, this->value);
@@ -795,34 +660,34 @@ int32_t MutableBigInteger::subtract(MutableBigInteger* b$renamed) {
 		$assign(a, b);
 		$assign(b, tmp);
 	}
-	int32_t resultLen = a->intLen;
+	int32_t resultLen = $nc(a)->intLen;
 	if ($nc(result)->length < resultLen) {
 		$assign(result, $new($ints, resultLen));
 	}
 	int64_t diff = 0;
 	int32_t x = a->intLen;
 	int32_t y = $nc(b)->intLen;
-	int32_t rstart = $nc(result)->length - 1;
+	int32_t rstart = result->length - 1;
 	while (y > 0) {
 		--x;
 		--y;
-		diff = ((int64_t)($nc(a->value)->get(x + a->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) - ((int64_t)($nc(b->value)->get(y + b->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) - ((int32_t)-(diff >> 32));
+		diff = ($nc(a->value)->get(x + a->offset) & (int64_t)0xffffffff) - ($nc(b->value)->get(y + b->offset) & (int64_t)0xffffffff) - ((int32_t)-(diff >> 32));
 		result->set(rstart--, (int32_t)diff);
 	}
 	while (x > 0) {
 		--x;
-		diff = ((int64_t)($nc(a->value)->get(x + a->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) - ((int32_t)-(diff >> 32));
+		diff = ($nc(a->value)->get(x + a->offset) & (int64_t)0xffffffff) - ((int32_t)-(diff >> 32));
 		result->set(rstart--, (int32_t)diff);
 	}
 	$set(this, value, result);
 	this->intLen = resultLen;
-	this->offset = $nc(this->value)->length - resultLen;
+	this->offset = this->value->length - resultLen;
 	normalize();
 	return sign;
 }
 
 int32_t MutableBigInteger::difference(MutableBigInteger* b$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MutableBigInteger, b, b$renamed);
 	$var(MutableBigInteger, a, this);
 	int32_t sign = a->compare(b);
@@ -835,18 +700,18 @@ int32_t MutableBigInteger::difference(MutableBigInteger* b$renamed) {
 		$assign(b, tmp);
 	}
 	int64_t diff = 0;
-	int32_t x = a->intLen;
+	int32_t x = $nc(a)->intLen;
 	int32_t y = $nc(b)->intLen;
 	while (y > 0) {
 		--x;
 		--y;
-		diff = ((int64_t)($nc(a->value)->get(a->offset + x) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) - ((int64_t)($nc(b->value)->get(b->offset + y) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) - ((int32_t)-(diff >> 32));
-		$nc(a->value)->set(a->offset + x, (int32_t)diff);
+		diff = ($nc(a->value)->get(a->offset + x) & (int64_t)0xffffffff) - ($nc(b->value)->get(b->offset + y) & (int64_t)0xffffffff) - ((int32_t)-(diff >> 32));
+		a->value->set(a->offset + x, (int32_t)diff);
 	}
 	while (x > 0) {
 		--x;
-		diff = ((int64_t)($nc(a->value)->get(a->offset + x) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) - ((int32_t)-(diff >> 32));
-		$nc(a->value)->set(a->offset + x, (int32_t)diff);
+		diff = ($nc(a->value)->get(a->offset + x) & (int64_t)0xffffffff) - ((int32_t)-(diff >> 32));
+		a->value->set(a->offset + x, (int32_t)diff);
 	}
 	a->normalize();
 	return sign;
@@ -859,31 +724,23 @@ void MutableBigInteger::multiply(MutableBigInteger* y, MutableBigInteger* z) {
 	if ($nc($nc(z)->value)->length < newLen) {
 		$set(z, value, $new($ints, newLen));
 	}
-	$nc(z)->offset = 0;
+	z->offset = 0;
 	z->intLen = newLen;
 	int64_t carry = 0;
-	{
-		int32_t j = yLen - 1;
-		int32_t k = yLen + xLen - 1;
-		for (; j >= 0; --j, --k) {
-			int64_t product = ((int64_t)($nc(y->value)->get(j + y->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) * ((int64_t)($nc(this->value)->get(xLen - 1 + this->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + carry;
-			$nc(z->value)->set(k, (int32_t)product);
-			carry = (int64_t)((uint64_t)product >> 32);
-		}
+	for (int32_t j = yLen - 1, k = yLen + xLen - 1; j >= 0; --j, --k) {
+		int64_t product = ($nc(y->value)->get(j + y->offset) & (int64_t)0xffffffff) * ($nc(this->value)->get(xLen - 1 + this->offset) & (int64_t)0xffffffff) + carry;
+		z->value->set(k, (int32_t)product);
+		carry = (int64_t)((uint64_t)product >> 32);
 	}
-	$nc(z->value)->set(xLen - 1, (int32_t)carry);
+	z->value->set(xLen - 1, (int32_t)carry);
 	for (int32_t i = xLen - 2; i >= 0; --i) {
 		carry = 0;
-		{
-			int32_t j = yLen - 1;
-			int32_t k = yLen + i;
-			for (; j >= 0; --j, --k) {
-				int64_t product = ((int64_t)($nc(y->value)->get(j + y->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) * ((int64_t)($nc(this->value)->get(i + this->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + ((int64_t)($nc(z->value)->get(k) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + carry;
-				$nc(z->value)->set(k, (int32_t)product);
-				carry = (int64_t)((uint64_t)product >> 32);
-			}
+		for (int32_t j = yLen - 1, k = yLen + i; j >= 0; --j, --k) {
+			int64_t product = ($nc(y->value)->get(j + y->offset) & (int64_t)0xffffffff) * ($nc(this->value)->get(i + this->offset) & (int64_t)0xffffffff) + (z->value->get(k) & (int64_t)0xffffffff) + carry;
+			z->value->set(k, (int32_t)product);
+			carry = (int64_t)((uint64_t)product >> 32);
 		}
-		$nc(z->value)->set(i, (int32_t)carry);
+		z->value->set(i, (int32_t)carry);
 	}
 	z->normalize();
 }
@@ -897,11 +754,11 @@ void MutableBigInteger::mul(int32_t y, MutableBigInteger* z) {
 		$nc(z)->clear();
 		return;
 	}
-	int64_t ylong = (int64_t)(y & (uint64_t)(int64_t)0x00000000FFFFFFFF);
-	$var($ints, zval, $nc($nc(z)->value)->length < this->intLen + 1 ? $new($ints, this->intLen + 1) : $nc(z)->value);
+	int64_t ylong = y & (int64_t)0xffffffff;
+	$var($ints, zval, $nc($nc(z)->value)->length < this->intLen + 1 ? $new($ints, this->intLen + 1) : z->value);
 	int64_t carry = 0;
 	for (int32_t i = this->intLen - 1; i >= 0; --i) {
-		int64_t product = ylong * ((int64_t)($nc(this->value)->get(i + this->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + carry;
+		int64_t product = ylong * ($nc(this->value)->get(i + this->offset) & (int64_t)0xffffffff) + carry;
 		$nc(zval)->set(i + 1, (int32_t)product);
 		carry = (int64_t)((uint64_t)product >> 32);
 	}
@@ -917,9 +774,9 @@ void MutableBigInteger::mul(int32_t y, MutableBigInteger* z) {
 }
 
 int32_t MutableBigInteger::divideOneWord(int32_t divisor, MutableBigInteger* quotient) {
-	int64_t divisorLong = (int64_t)(divisor & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t divisorLong = divisor & (int64_t)0xffffffff;
 	if (this->intLen == 1) {
-		int64_t dividendValue = (int64_t)($nc(this->value)->get(this->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+		int64_t dividendValue = $nc(this->value)->get(this->offset) & (int64_t)0xffffffff;
 		int32_t q = (int32_t)($div(dividendValue, divisorLong));
 		int32_t r = (int32_t)(dividendValue - q * divisorLong);
 		$nc($nc(quotient)->value)->set(0, q);
@@ -930,32 +787,32 @@ int32_t MutableBigInteger::divideOneWord(int32_t divisor, MutableBigInteger* quo
 	if ($nc($nc(quotient)->value)->length < this->intLen) {
 		$set(quotient, value, $new($ints, this->intLen));
 	}
-	$nc(quotient)->offset = 0;
+	quotient->offset = 0;
 	quotient->intLen = this->intLen;
 	int32_t shift = $Integer::numberOfLeadingZeros(divisor);
 	int32_t rem = $nc(this->value)->get(this->offset);
-	int64_t remLong = (int64_t)(rem & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t remLong = rem & (int64_t)0xffffffff;
 	if (remLong < divisorLong) {
-		$nc(quotient->value)->set(0, 0);
+		quotient->value->set(0, 0);
 	} else {
-		$nc(quotient->value)->set(0, (int32_t)($div(remLong, divisorLong)));
-		rem = (int32_t)(remLong - ($nc(quotient->value)->get(0) * divisorLong));
-		remLong = (int64_t)(rem & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+		quotient->value->set(0, (int32_t)($div(remLong, divisorLong)));
+		rem = (int32_t)(remLong - (quotient->value->get(0) * divisorLong));
+		remLong = rem & (int64_t)0xffffffff;
 	}
 	int32_t xlen = this->intLen;
 	while (--xlen > 0) {
-		int64_t dividendEstimate = (remLong << 32) | ((int64_t)($nc(this->value)->get(this->offset + this->intLen - xlen) & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+		int64_t dividendEstimate = (remLong << 32) | (this->value->get(this->offset + this->intLen - xlen) & (int64_t)0xffffffff);
 		int32_t q = 0;
 		if (dividendEstimate >= 0) {
 			q = (int32_t)($div(dividendEstimate, divisorLong));
 			rem = (int32_t)(dividendEstimate - q * divisorLong);
 		} else {
 			int64_t tmp = divWord(dividendEstimate, divisor);
-			q = (int32_t)((int64_t)(tmp & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+			q = (int32_t)(tmp & (int64_t)0xffffffff);
 			rem = (int32_t)((int64_t)((uint64_t)tmp >> 32));
 		}
-		$nc(quotient->value)->set(this->intLen - xlen, q);
-		remLong = (int64_t)(rem & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+		quotient->value->set(this->intLen - xlen, q);
+		remLong = rem & (int64_t)0xffffffff;
 	}
 	quotient->normalize();
 	if (shift > 0) {
@@ -970,7 +827,7 @@ MutableBigInteger* MutableBigInteger::divide(MutableBigInteger* b, MutableBigInt
 }
 
 MutableBigInteger* MutableBigInteger::divide(MutableBigInteger* b, MutableBigInteger* quotient, bool needRemainder) {
-	if ($nc(b)->intLen < $BigInteger::BURNIKEL_ZIEGLER_THRESHOLD || this->intLen - $nc(b)->intLen < $BigInteger::BURNIKEL_ZIEGLER_OFFSET) {
+	if ($nc(b)->intLen < $BigInteger::BURNIKEL_ZIEGLER_THRESHOLD || this->intLen - b->intLen < $BigInteger::BURNIKEL_ZIEGLER_OFFSET) {
 		return divideKnuth(b, quotient, needRemainder);
 	} else {
 		return divideAndRemainderBurnikelZiegler(b, quotient);
@@ -982,27 +839,27 @@ MutableBigInteger* MutableBigInteger::divideKnuth(MutableBigInteger* b, MutableB
 }
 
 MutableBigInteger* MutableBigInteger::divideKnuth(MutableBigInteger* b$renamed, MutableBigInteger* quotient, bool needRemainder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MutableBigInteger, b, b$renamed);
 	if ($nc(b)->intLen == 0) {
 		$throwNew($ArithmeticException, "BigInteger divide by zero"_s);
 	}
 	if (this->intLen == 0) {
-		$nc(quotient)->intLen = (quotient->offset = 0);
+		$nc(quotient)->intLen = ($nc(quotient)->offset = 0);
 		return needRemainder ? $new(MutableBigInteger) : (MutableBigInteger*)nullptr;
 	}
 	int32_t cmp = compare(b);
 	if (cmp < 0) {
-		$nc(quotient)->intLen = (quotient->offset = 0);
+		$nc(quotient)->intLen = ($nc(quotient)->offset = 0);
 		return needRemainder ? $new(MutableBigInteger, this) : (MutableBigInteger*)nullptr;
 	}
 	if (cmp == 0) {
-		$nc($nc(quotient)->value)->set(0, quotient->intLen = 1);
+		$nc($nc(quotient)->value)->set(0, $nc(quotient)->intLen = 1);
 		quotient->offset = 0;
 		return needRemainder ? $new(MutableBigInteger) : (MutableBigInteger*)nullptr;
 	}
 	$nc(quotient)->clear();
-	if ($nc(b)->intLen == 1) {
+	if (b->intLen == 1) {
 		int32_t r = divideOneWord($nc(b->value)->get(b->offset), quotient);
 		if (needRemainder) {
 			if (r == 0) {
@@ -1015,7 +872,7 @@ MutableBigInteger* MutableBigInteger::divideKnuth(MutableBigInteger* b$renamed, 
 	}
 	if (this->intLen >= MutableBigInteger::KNUTH_POW2_THRESH_LEN) {
 		int32_t var$0 = getLowestSetBit();
-		int32_t trailingZeroBits = $Math::min(var$0, $nc(b)->getLowestSetBit());
+		int32_t trailingZeroBits = $Math::min(var$0, b->getLowestSetBit());
 		if (trailingZeroBits >= MutableBigInteger::KNUTH_POW2_THRESH_ZEROS * 32) {
 			$var(MutableBigInteger, a, $new(MutableBigInteger, this));
 			$assign(b, $new(MutableBigInteger, b));
@@ -1030,10 +887,10 @@ MutableBigInteger* MutableBigInteger::divideKnuth(MutableBigInteger* b$renamed, 
 }
 
 MutableBigInteger* MutableBigInteger::divideAndRemainderBurnikelZiegler(MutableBigInteger* b, MutableBigInteger* quotient) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t r = this->intLen;
 	int32_t s = $nc(b)->intLen;
-	$nc(quotient)->offset = (quotient->intLen = 0);
+	$nc(quotient)->offset = ($nc(quotient)->intLen = 0);
 	if (r < s) {
 		return this;
 	} else {
@@ -1056,12 +913,12 @@ MutableBigInteger* MutableBigInteger::divideAndRemainderBurnikelZiegler(MutableB
 		$var(MutableBigInteger, qi, $new(MutableBigInteger));
 		$var(MutableBigInteger, ri, nullptr);
 		for (int32_t i = t - 2; i > 0; --i) {
-			$assign(ri, z->divide2n1n(bShifted, qi));
+			$assign(ri, $nc(z)->divide2n1n(bShifted, qi));
 			$assign(z, aShifted->getBlock(i - 1, t, n));
 			$nc(z)->addDisjoint(ri, n);
 			quotient->addShifted(qi, i * n);
 		}
-		$assign(ri, z->divide2n1n(bShifted, qi));
+		$assign(ri, $nc(z)->divide2n1n(bShifted, qi));
 		quotient->add(qi);
 		$nc(ri)->rightShift(sigma);
 		return ri;
@@ -1069,7 +926,7 @@ MutableBigInteger* MutableBigInteger::divideAndRemainderBurnikelZiegler(MutableB
 }
 
 MutableBigInteger* MutableBigInteger::divide2n1n(MutableBigInteger* b, MutableBigInteger* quotient) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(b)->intLen;
 	if (n % 2 != 0 || n < $BigInteger::BURNIKEL_ZIEGLER_THRESHOLD) {
 		return divideKnuth(b, quotient);
@@ -1086,7 +943,7 @@ MutableBigInteger* MutableBigInteger::divide2n1n(MutableBigInteger* b, MutableBi
 }
 
 MutableBigInteger* MutableBigInteger::divide3n2n(MutableBigInteger* b, MutableBigInteger* quotient) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(b)->intLen / 2;
 	$var(MutableBigInteger, a12, $new(MutableBigInteger, this));
 	a12->safeRightShift(32 * n);
@@ -1097,7 +954,7 @@ MutableBigInteger* MutableBigInteger::divide3n2n(MutableBigInteger* b, MutableBi
 	$var(MutableBigInteger, d, nullptr);
 	if (compareShifted(b, n) < 0) {
 		$assign(r, a12->divide2n1n(b1, quotient));
-		$assign(d, $new(MutableBigInteger, $($nc($($nc(quotient)->toBigInteger()))->multiply(b2))));
+		$assign(d, $new(MutableBigInteger, $($$nc($nc(quotient)->toBigInteger())->multiply(b2))));
 	} else {
 		$nc(quotient)->ones(n);
 		a12->add(b1);
@@ -1148,7 +1005,7 @@ int64_t MutableBigInteger::divide(int64_t v, MutableBigInteger* quotient) {
 		$throwNew($ArithmeticException, "BigInteger divide by zero"_s);
 	}
 	if (this->intLen == 0) {
-		$nc(quotient)->intLen = (quotient->offset = 0);
+		$nc(quotient)->intLen = ($nc(quotient)->offset = 0);
 		return 0;
 	}
 	if (v < 0) {
@@ -1157,9 +1014,9 @@ int64_t MutableBigInteger::divide(int64_t v, MutableBigInteger* quotient) {
 	int32_t d = (int32_t)((int64_t)((uint64_t)v >> 32));
 	$nc(quotient)->clear();
 	if (d == 0) {
-		return (int64_t)(divideOneWord((int32_t)v, quotient) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+		return divideOneWord((int32_t)v, quotient) & (int64_t)0xffffffff;
 	} else {
-		return $nc($(divideLongMagnitude(v, quotient)))->toLong();
+		return $$nc(divideLongMagnitude(v, quotient))->toLong();
 	}
 }
 
@@ -1176,9 +1033,9 @@ void MutableBigInteger::copyAndShift($ints* src, int32_t srcFrom, int32_t srcLen
 }
 
 MutableBigInteger* MutableBigInteger::divideMagnitude(MutableBigInteger* div, MutableBigInteger* quotient, bool needRemainder) {
-	$useLocalCurrentObjectStackCache();
-	int32_t shift = $Integer::numberOfLeadingZeros($nc($nc(div)->value)->get(div->offset));
-	int32_t dlen = $nc(div)->intLen;
+	$useLocalObjectStack();
+	int32_t shift = $Integer::numberOfLeadingZeros($nc($nc(div)->value)->get($nc(div)->offset));
+	int32_t dlen = div->intLen;
 	$var($ints, divisor, nullptr);
 	$var(MutableBigInteger, rem, nullptr);
 	if (shift > 0) {
@@ -1200,7 +1057,7 @@ MutableBigInteger* MutableBigInteger::divideMagnitude(MutableBigInteger* div, Mu
 			int32_t n2 = 32 - shift;
 			for (int32_t i = 1; i < this->intLen + 1; ++i, ++rFrom) {
 				int32_t b = c;
-				c = $nc(this->value)->get(rFrom);
+				c = this->value->get(rFrom);
 				remarr->set(i, ($sl(b, shift)) | ($usr(c, n2)));
 			}
 			remarr->set(this->intLen + 1, $sl(c, shift));
@@ -1218,7 +1075,7 @@ MutableBigInteger* MutableBigInteger::divideMagnitude(MutableBigInteger* div, Mu
 		$set(quotient, value, $new($ints, limit));
 		quotient->offset = 0;
 	}
-	$nc(quotient)->intLen = limit;
+	quotient->intLen = limit;
 	$var($ints, q, quotient->value);
 	if (rem->intLen == nlen) {
 		rem->offset = 0;
@@ -1226,7 +1083,7 @@ MutableBigInteger* MutableBigInteger::divideMagnitude(MutableBigInteger* div, Mu
 		++rem->intLen;
 	}
 	int32_t dh = $nc(divisor)->get(0);
-	int64_t dhLong = (int64_t)(dh & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t dhLong = dh & (int64_t)0xffffffff;
 	int32_t dl = divisor->get(1);
 	for (int32_t j = 0; j < limit - 1; ++j) {
 		int32_t qhat = 0;
@@ -1234,19 +1091,19 @@ MutableBigInteger* MutableBigInteger::divideMagnitude(MutableBigInteger* div, Mu
 		bool skipCorrection = false;
 		int32_t nh = $nc(rem->value)->get(j + rem->offset);
 		int32_t nh2 = nh + (int32_t)0x80000000;
-		int32_t nm = $nc(rem->value)->get(j + 1 + rem->offset);
+		int32_t nm = rem->value->get(j + 1 + rem->offset);
 		if (nh == dh) {
 			qhat = ~0;
 			qrem = nh + nm;
 			skipCorrection = qrem + (int32_t)0x80000000 < nh2;
 		} else {
-			int64_t nChunk = (((int64_t)nh) << 32) | ((int64_t)(nm & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+			int64_t nChunk = (((int64_t)nh) << 32) | (nm & (int64_t)0xffffffff);
 			if (nChunk >= 0) {
 				qhat = (int32_t)($div(nChunk, dhLong));
 				qrem = (int32_t)(nChunk - (qhat * dhLong));
 			} else {
 				int64_t tmp = divWord(nChunk, dh);
-				qhat = (int32_t)((int64_t)(tmp & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+				qhat = (int32_t)(tmp & (int64_t)0xffffffff);
 				qrem = (int32_t)((int64_t)((uint64_t)tmp >> 32));
 			}
 		}
@@ -1254,22 +1111,22 @@ MutableBigInteger* MutableBigInteger::divideMagnitude(MutableBigInteger* div, Mu
 			continue;
 		}
 		if (!skipCorrection) {
-			int64_t nl = (int64_t)($nc(rem->value)->get(j + 2 + rem->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
-			int64_t rs = (((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 32) | nl;
-			int64_t estProduct = ((int64_t)(dl & (uint64_t)(int64_t)0x00000000FFFFFFFF)) * ((int64_t)(qhat & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+			int64_t nl = rem->value->get(j + 2 + rem->offset) & (int64_t)0xffffffff;
+			int64_t rs = ((qrem & (int64_t)0xffffffff) << 32) | nl;
+			int64_t estProduct = (dl & (int64_t)0xffffffff) * (qhat & (int64_t)0xffffffff);
 			if (unsignedLongCompare(estProduct, rs)) {
 				--qhat;
-				qrem = (int32_t)(((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + dhLong);
-				if (((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) >= dhLong) {
-					estProduct -= ((int64_t)(dl & (uint64_t)(int64_t)0x00000000FFFFFFFF));
-					rs = (((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 32) | nl;
+				qrem = (int32_t)((qrem & (int64_t)0xffffffff) + dhLong);
+				if ((qrem & (int64_t)0xffffffff) >= dhLong) {
+					estProduct -= (dl & (int64_t)0xffffffff);
+					rs = ((qrem & (int64_t)0xffffffff) << 32) | nl;
 					if (unsignedLongCompare(estProduct, rs)) {
 						--qhat;
 					}
 				}
 			}
 		}
-		$nc(rem->value)->set(j + rem->offset, 0);
+		rem->value->set(j + rem->offset, 0);
 		int32_t borrow = mulsub(rem->value, divisor, qhat, dlen, j + rem->offset);
 		if (borrow + (int32_t)0x80000000 > nh2) {
 			divadd(divisor, rem->value, j + 1 + rem->offset);
@@ -1282,33 +1139,33 @@ MutableBigInteger* MutableBigInteger::divideMagnitude(MutableBigInteger* div, Mu
 	bool skipCorrection = false;
 	int32_t nh = $nc(rem->value)->get(limit - 1 + rem->offset);
 	int32_t nh2 = nh + (int32_t)0x80000000;
-	int32_t nm = $nc(rem->value)->get(limit + rem->offset);
+	int32_t nm = rem->value->get(limit + rem->offset);
 	if (nh == dh) {
 		qhat = ~0;
 		qrem = nh + nm;
 		skipCorrection = qrem + (int32_t)0x80000000 < nh2;
 	} else {
-		int64_t nChunk = (((int64_t)nh) << 32) | ((int64_t)(nm & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+		int64_t nChunk = (((int64_t)nh) << 32) | (nm & (int64_t)0xffffffff);
 		if (nChunk >= 0) {
 			qhat = (int32_t)($div(nChunk, dhLong));
 			qrem = (int32_t)(nChunk - (qhat * dhLong));
 		} else {
 			int64_t tmp = divWord(nChunk, dh);
-			qhat = (int32_t)((int64_t)(tmp & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+			qhat = (int32_t)(tmp & (int64_t)0xffffffff);
 			qrem = (int32_t)((int64_t)((uint64_t)tmp >> 32));
 		}
 	}
 	if (qhat != 0) {
 		if (!skipCorrection) {
-			int64_t nl = (int64_t)($nc(rem->value)->get(limit + 1 + rem->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
-			int64_t rs = (((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 32) | nl;
-			int64_t estProduct = ((int64_t)(dl & (uint64_t)(int64_t)0x00000000FFFFFFFF)) * ((int64_t)(qhat & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+			int64_t nl = rem->value->get(limit + 1 + rem->offset) & (int64_t)0xffffffff;
+			int64_t rs = ((qrem & (int64_t)0xffffffff) << 32) | nl;
+			int64_t estProduct = (dl & (int64_t)0xffffffff) * (qhat & (int64_t)0xffffffff);
 			if (unsignedLongCompare(estProduct, rs)) {
 				--qhat;
-				qrem = (int32_t)(((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + dhLong);
-				if (((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) >= dhLong) {
-					estProduct -= ((int64_t)(dl & (uint64_t)(int64_t)0x00000000FFFFFFFF));
-					rs = (((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 32) | nl;
+				qrem = (int32_t)((qrem & (int64_t)0xffffffff) + dhLong);
+				if ((qrem & (int64_t)0xffffffff) >= dhLong) {
+					estProduct -= (dl & (int64_t)0xffffffff);
+					rs = ((qrem & (int64_t)0xffffffff) << 32) | nl;
 					if (unsignedLongCompare(estProduct, rs)) {
 						--qhat;
 					}
@@ -1316,7 +1173,7 @@ MutableBigInteger* MutableBigInteger::divideMagnitude(MutableBigInteger* div, Mu
 			}
 		}
 		int32_t borrow = 0;
-		$nc(rem->value)->set(limit - 1 + rem->offset, 0);
+		rem->value->set(limit - 1 + rem->offset, 0);
 		if (needRemainder) {
 			borrow = mulsub(rem->value, divisor, qhat, dlen, limit - 1 + rem->offset);
 		} else {
@@ -1341,7 +1198,7 @@ MutableBigInteger* MutableBigInteger::divideMagnitude(MutableBigInteger* div, Mu
 }
 
 MutableBigInteger* MutableBigInteger::divideLongMagnitude(int64_t ldivisor, MutableBigInteger* quotient) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MutableBigInteger, rem, $new(MutableBigInteger, $$new($ints, this->intLen + 1)));
 	$System::arraycopy(this->value, this->offset, rem->value, 1, this->intLen);
 	rem->intLen = this->intLen;
@@ -1352,7 +1209,7 @@ MutableBigInteger* MutableBigInteger::divideLongMagnitude(int64_t ldivisor, Muta
 		$set(quotient, value, $new($ints, limit));
 		quotient->offset = 0;
 	}
-	$nc(quotient)->intLen = limit;
+	quotient->intLen = limit;
 	$var($ints, q, quotient->value);
 	int32_t shift = $Long::numberOfLeadingZeros(ldivisor);
 	if (shift > 0) {
@@ -1365,27 +1222,27 @@ MutableBigInteger* MutableBigInteger::divideLongMagnitude(int64_t ldivisor, Muta
 		++rem->intLen;
 	}
 	int32_t dh = (int32_t)((int64_t)((uint64_t)ldivisor >> 32));
-	int64_t dhLong = (int64_t)(dh & (uint64_t)(int64_t)0x00000000FFFFFFFF);
-	int32_t dl = (int32_t)((int64_t)(ldivisor & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+	int64_t dhLong = dh & (int64_t)0xffffffff;
+	int32_t dl = (int32_t)(ldivisor & (int64_t)0xffffffff);
 	for (int32_t j = 0; j < limit; ++j) {
 		int32_t qhat = 0;
 		int32_t qrem = 0;
 		bool skipCorrection = false;
 		int32_t nh = $nc(rem->value)->get(j + rem->offset);
 		int32_t nh2 = nh + (int32_t)0x80000000;
-		int32_t nm = $nc(rem->value)->get(j + 1 + rem->offset);
+		int32_t nm = rem->value->get(j + 1 + rem->offset);
 		if (nh == dh) {
 			qhat = ~0;
 			qrem = nh + nm;
 			skipCorrection = qrem + (int32_t)0x80000000 < nh2;
 		} else {
-			int64_t nChunk = (((int64_t)nh) << 32) | ((int64_t)(nm & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+			int64_t nChunk = (((int64_t)nh) << 32) | (nm & (int64_t)0xffffffff);
 			if (nChunk >= 0) {
 				qhat = (int32_t)($div(nChunk, dhLong));
 				qrem = (int32_t)(nChunk - (qhat * dhLong));
 			} else {
 				int64_t tmp = divWord(nChunk, dh);
-				qhat = (int32_t)((int64_t)(tmp & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+				qhat = (int32_t)(tmp & (int64_t)0xffffffff);
 				qrem = (int32_t)((int64_t)((uint64_t)tmp >> 32));
 			}
 		}
@@ -1393,22 +1250,22 @@ MutableBigInteger* MutableBigInteger::divideLongMagnitude(int64_t ldivisor, Muta
 			continue;
 		}
 		if (!skipCorrection) {
-			int64_t nl = (int64_t)($nc(rem->value)->get(j + 2 + rem->offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
-			int64_t rs = (((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 32) | nl;
-			int64_t estProduct = ((int64_t)(dl & (uint64_t)(int64_t)0x00000000FFFFFFFF)) * ((int64_t)(qhat & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+			int64_t nl = rem->value->get(j + 2 + rem->offset) & (int64_t)0xffffffff;
+			int64_t rs = ((qrem & (int64_t)0xffffffff) << 32) | nl;
+			int64_t estProduct = (dl & (int64_t)0xffffffff) * (qhat & (int64_t)0xffffffff);
 			if (unsignedLongCompare(estProduct, rs)) {
 				--qhat;
-				qrem = (int32_t)(((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + dhLong);
-				if (((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) >= dhLong) {
-					estProduct -= ((int64_t)(dl & (uint64_t)(int64_t)0x00000000FFFFFFFF));
-					rs = (((int64_t)(qrem & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 32) | nl;
+				qrem = (int32_t)((qrem & (int64_t)0xffffffff) + dhLong);
+				if ((qrem & (int64_t)0xffffffff) >= dhLong) {
+					estProduct -= (dl & (int64_t)0xffffffff);
+					rs = ((qrem & (int64_t)0xffffffff) << 32) | nl;
 					if (unsignedLongCompare(estProduct, rs)) {
 						--qhat;
 					}
 				}
 			}
 		}
-		$nc(rem->value)->set(j + rem->offset, 0);
+		rem->value->set(j + rem->offset, 0);
 		int32_t borrow = mulsubLong(rem->value, dh, dl, qhat, j + rem->offset);
 		if (borrow + (int32_t)0x80000000 > nh2) {
 			divaddLong(dh, dl, rem->value, j + 1 + rem->offset);
@@ -1426,25 +1283,25 @@ MutableBigInteger* MutableBigInteger::divideLongMagnitude(int64_t ldivisor, Muta
 
 int32_t MutableBigInteger::divaddLong(int32_t dh, int32_t dl, $ints* result, int32_t offset) {
 	int64_t carry = 0;
-	int64_t sum = ((int64_t)(dl & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + ((int64_t)($nc(result)->get(1 + offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+	int64_t sum = (dl & (int64_t)0xffffffff) + ($nc(result)->get(1 + offset) & (int64_t)0xffffffff);
 	result->set(1 + offset, (int32_t)sum);
-	sum = ((int64_t)(dh & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + ((int64_t)(result->get(offset) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) + carry;
+	sum = (dh & (int64_t)0xffffffff) + (result->get(offset) & (int64_t)0xffffffff) + carry;
 	result->set(offset, (int32_t)sum);
 	carry = (int64_t)((uint64_t)sum >> 32);
 	return (int32_t)carry;
 }
 
 int32_t MutableBigInteger::mulsubLong($ints* q, int32_t dh, int32_t dl, int32_t x, int32_t offset) {
-	int64_t xLong = (int64_t)(x & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t xLong = x & (int64_t)0xffffffff;
 	offset += 2;
-	int64_t product = ((int64_t)(dl & (uint64_t)(int64_t)0x00000000FFFFFFFF)) * xLong;
+	int64_t product = (dl & (int64_t)0xffffffff) * xLong;
 	int64_t difference = $nc(q)->get(offset) - product;
 	q->set(offset--, (int32_t)difference);
-	int64_t carry = ((int64_t)((uint64_t)product >> 32)) + ((((int64_t)(difference & (uint64_t)(int64_t)0x00000000FFFFFFFF)) > ((int64_t)((~(int32_t)product) & (uint64_t)(int64_t)0x00000000FFFFFFFF))) ? 1 : 0);
-	product = ((int64_t)(dh & (uint64_t)(int64_t)0x00000000FFFFFFFF)) * xLong + carry;
+	int64_t carry = ((int64_t)((uint64_t)product >> 32)) + (((difference & (int64_t)0xffffffff) > ((~(int32_t)product) & (int64_t)0xffffffff)) ? 1 : 0);
+	product = (dh & (int64_t)0xffffffff) * xLong + carry;
 	difference = q->get(offset) - product;
 	q->set(offset--, (int32_t)difference);
-	carry = ((int64_t)((uint64_t)product >> 32)) + ((((int64_t)(difference & (uint64_t)(int64_t)0x00000000FFFFFFFF)) > ((int64_t)((~(int32_t)product) & (uint64_t)(int64_t)0x00000000FFFFFFFF))) ? 1 : 0);
+	carry = ((int64_t)((uint64_t)product >> 32)) + (((difference & (int64_t)0xffffffff) > ((~(int32_t)product) & (int64_t)0xffffffff)) ? 1 : 0);
 	return (int32_t)carry;
 }
 
@@ -1454,13 +1311,13 @@ bool MutableBigInteger::unsignedLongCompare(int64_t one, int64_t two) {
 
 int64_t MutableBigInteger::divWord(int64_t n, int32_t d) {
 	$init(MutableBigInteger);
-	int64_t dLong = (int64_t)(d & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t dLong = d & (int64_t)0xffffffff;
 	int64_t r = 0;
 	int64_t q = 0;
 	if (dLong == 1) {
 		q = (int32_t)n;
 		r = 0;
-		return (r << 32) | ((int64_t)(q & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+		return (r << 32) | (q & (int64_t)0xffffffff);
 	}
 	q = $div(((int64_t)((uint64_t)n >> 1)), ((int64_t)((uint64_t)dLong >> 1)));
 	r = n - q * dLong;
@@ -1472,14 +1329,14 @@ int64_t MutableBigInteger::divWord(int64_t n, int32_t d) {
 		r -= dLong;
 		++q;
 	}
-	return (r << 32) | ((int64_t)(q & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+	return (r << 32) | (q & (int64_t)0xffffffff);
 }
 
 MutableBigInteger* MutableBigInteger::sqrt() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isZero()) {
 		return $new(MutableBigInteger, 0);
-	} else if ($nc(this->value)->length == 1 && ((int64_t)($nc(this->value)->get(0) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) < 4) {
+	} else if ($nc(this->value)->length == 1 && (this->value->get(0) & (int64_t)0xffffffff) < 4) {
 		return MutableBigInteger::ONE;
 	}
 	if (this->bitLength() <= 63) {
@@ -1490,7 +1347,7 @@ MutableBigInteger* MutableBigInteger::sqrt() {
 			if (xk1 >= xk) {
 				return $new(MutableBigInteger, $$new($ints, {
 					(int32_t)((int64_t)((uint64_t)xk >> 32)),
-					(int32_t)((int64_t)(xk & (uint64_t)(int64_t)0x00000000FFFFFFFF))
+					(int32_t)(xk & (int64_t)0xffffffff)
 				}));
 			}
 			xk = xk1;
@@ -1509,7 +1366,7 @@ MutableBigInteger* MutableBigInteger::sqrt() {
 		xk->normalize();
 		double d = $$new($BigInteger, xk->value, 1)->doubleValue();
 		$var($BigInteger, bi, $BigInteger::valueOf($cast(int64_t, $Math::ceil($Math::sqrt(d)))));
-		$assign(xk, $new(MutableBigInteger, $nc(bi)->mag));
+		$assign(xk, $new(MutableBigInteger, bi->mag));
 		xk->leftShift(shift / 2);
 		$var(MutableBigInteger, xk1, $new(MutableBigInteger));
 		do {
@@ -1526,15 +1383,15 @@ MutableBigInteger* MutableBigInteger::sqrt() {
 }
 
 MutableBigInteger* MutableBigInteger::hybridGCD(MutableBigInteger* b$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MutableBigInteger, b, b$renamed);
 	$var(MutableBigInteger, a, this);
 	$var(MutableBigInteger, q, $new(MutableBigInteger));
 	while ($nc(b)->intLen != 0) {
 		if ($Math::abs($nc(a)->intLen - b->intLen) < 2) {
-			return $nc(a)->binaryGCD(b);
+			return a->binaryGCD(b);
 		}
-		$var(MutableBigInteger, r, $nc(a)->divide(b, q));
+		$var(MutableBigInteger, r, a->divide(b, q));
 		$assign(a, b);
 		$assign(b, r);
 	}
@@ -1542,7 +1399,7 @@ MutableBigInteger* MutableBigInteger::hybridGCD(MutableBigInteger* b$renamed) {
 }
 
 MutableBigInteger* MutableBigInteger::binaryGCD(MutableBigInteger* v$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MutableBigInteger, v, v$renamed);
 	$var(MutableBigInteger, u, this);
 	$var(MutableBigInteger, r, $new(MutableBigInteger));
@@ -1564,7 +1421,7 @@ MutableBigInteger* MutableBigInteger::binaryGCD(MutableBigInteger* v$renamed) {
 		} else {
 			$assign(v, t);
 		}
-		if ($nc(u)->intLen < 2 && v->intLen < 2) {
+		if ($nc(u)->intLen < 2 && $nc(v)->intLen < 2) {
 			int32_t x = $nc(u->value)->get(u->offset);
 			int32_t y = $nc(v->value)->get(v->offset);
 			x = binaryGcd(x, y);
@@ -1576,7 +1433,7 @@ MutableBigInteger* MutableBigInteger::binaryGCD(MutableBigInteger* v$renamed) {
 			}
 			return r;
 		}
-		if ((tsign = $nc(u)->difference(v)) == 0) {
+		if ((tsign = u->difference(v)) == 0) {
 			break;
 		}
 		$assign(t, (tsign >= 0) ? u : v);
@@ -1613,14 +1470,14 @@ int32_t MutableBigInteger::binaryGcd(int32_t a, int32_t b) {
 }
 
 MutableBigInteger* MutableBigInteger::mutableModInverse(MutableBigInteger* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(p)->isOdd()) {
 		return modInverse(p);
 	}
 	if (isEven()) {
 		$throwNew($ArithmeticException, "BigInteger not invertible."_s);
 	}
-	int32_t powersOf2 = $nc(p)->getLowestSetBit();
+	int32_t powersOf2 = p->getLowestSetBit();
 	$var(MutableBigInteger, oddMod, $new(MutableBigInteger, p));
 	oddMod->rightShift(powersOf2);
 	if (oddMod->isOne()) {
@@ -1642,7 +1499,7 @@ MutableBigInteger* MutableBigInteger::mutableModInverse(MutableBigInteger* p) {
 }
 
 MutableBigInteger* MutableBigInteger::modInverseMP2(int32_t k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isEven()) {
 		$throwNew($ArithmeticException, "Non-invertible. (GCD != 1)"_s);
 	}
@@ -1651,19 +1508,19 @@ MutableBigInteger* MutableBigInteger::modInverseMP2(int32_t k) {
 	}
 	int32_t t = inverseMod32($nc(this->value)->get(this->offset + this->intLen - 1));
 	if (k < 33) {
-		t = (k == 32 ? t : (int32_t)(t & (uint32_t)(($sl(1, k)) - 1)));
+		t = (k == 32 ? t : t & (($sl(1, k)) - 1));
 		return $new(MutableBigInteger, t);
 	}
-	int64_t pLong = ((int64_t)($nc(this->value)->get(this->offset + this->intLen - 1) & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+	int64_t pLong = (this->value->get(this->offset + this->intLen - 1) & (int64_t)0xffffffff);
 	if (this->intLen > 1) {
-		pLong |= ((int64_t)$nc(this->value)->get(this->offset + this->intLen - 2) << 32);
+		pLong |= ((int64_t)this->value->get(this->offset + this->intLen - 2) << 32);
 	}
-	int64_t tLong = (int64_t)(t & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t tLong = t & (int64_t)0xffffffff;
 	tLong = tLong * (2 - pLong * tLong);
-	tLong = (k == 64 ? tLong : (int64_t)(tLong & (uint64_t)(($sl((int64_t)1, k)) - 1)));
+	tLong = (k == 64 ? tLong : tLong & (($sl((int64_t)1, k)) - 1));
 	$var(MutableBigInteger, result, $new(MutableBigInteger, $$new($ints, 2)));
 	$nc(result->value)->set(0, (int32_t)((int64_t)((uint64_t)tLong >> 32)));
-	$nc(result->value)->set(1, (int32_t)tLong);
+	result->value->set(1, (int32_t)tLong);
 	result->intLen = 2;
 	result->normalize();
 	return result;
@@ -1695,13 +1552,13 @@ int64_t MutableBigInteger::inverseMod64(int64_t val) {
 
 MutableBigInteger* MutableBigInteger::modInverseBP2(MutableBigInteger* mod, int32_t k) {
 	$init(MutableBigInteger);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MutableBigInteger, var$0, $new(MutableBigInteger, 1));
 	return fixup(var$0, $$new(MutableBigInteger, mod), k);
 }
 
 MutableBigInteger* MutableBigInteger::modInverse(MutableBigInteger* mod) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MutableBigInteger, p, $new(MutableBigInteger, mod));
 	$var(MutableBigInteger, f, $new(MutableBigInteger, this));
 	$var(MutableBigInteger, g, $new(MutableBigInteger, p));
@@ -1728,7 +1585,7 @@ MutableBigInteger* MutableBigInteger::modInverse(MutableBigInteger* mod) {
 			$assign(d, c);
 			$assign(c, sTemp);
 		}
-		if (((int32_t)(($nc(f->value)->get(f->offset + f->intLen - 1) ^ $nc($nc(g)->value)->get(g->offset + g->intLen - 1)) & (uint32_t)3)) == 0) {
+		if ((($nc($nc(f)->value)->get($nc(f)->offset + $nc(f)->intLen - 1) ^ $nc($nc(g)->value)->get($nc(g)->offset + $nc(g)->intLen - 1)) & 3) == 0) {
 			f->subtract(g);
 			$nc(c)->signedSubtract(d);
 		} else {
@@ -1737,14 +1594,14 @@ MutableBigInteger* MutableBigInteger::modInverse(MutableBigInteger* mod) {
 		}
 		int32_t trailingZeros = f->getLowestSetBit();
 		f->rightShift(trailingZeros);
-		d->leftShift(trailingZeros);
+		$nc(d)->leftShift(trailingZeros);
 		k += trailingZeros;
 	}
 	if ($nc(c)->compare(p) >= 0) {
 		$var(MutableBigInteger, remainder, c->divide(p, $$new(MutableBigInteger)));
 		c->copyValue(remainder);
 	}
-	if ($nc(c)->sign < 0) {
+	if (c->sign < 0) {
 		c->signedAdd(p);
 	}
 	return fixup(c, p, k);
@@ -1752,25 +1609,21 @@ MutableBigInteger* MutableBigInteger::modInverse(MutableBigInteger* mod) {
 
 MutableBigInteger* MutableBigInteger::fixup(MutableBigInteger* c$renamed, MutableBigInteger* p, int32_t k) {
 	$init(MutableBigInteger);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MutableBigInteger, c, c$renamed);
 	$var(MutableBigInteger, temp, $new(MutableBigInteger));
-	int32_t r = -inverseMod32($nc($nc(p)->value)->get(p->offset + p->intLen - 1));
-	{
-		int32_t i = 0;
-		int32_t numWords = k >> 5;
-		for (; i < numWords; ++i) {
-			int32_t v = r * $nc($nc(c)->value)->get(c->offset + c->intLen - 1);
-			$nc(p)->mul(v, temp);
-			c->add(temp);
-			--c->intLen;
-		}
+	int32_t r = -inverseMod32($nc($nc(p)->value)->get($nc(p)->offset + $nc(p)->intLen - 1));
+	for (int32_t i = 0, numWords = k >> 5; i < numWords; ++i) {
+		int32_t v = r * $nc($nc(c)->value)->get($nc(c)->offset + $nc(c)->intLen - 1);
+		p->mul(v, temp);
+		c->add(temp);
+		--c->intLen;
 	}
-	int32_t numBits = (int32_t)(k & (uint32_t)31);
+	int32_t numBits = k & 0x1f;
 	if (numBits != 0) {
-		int32_t v = r * $nc($nc(c)->value)->get(c->offset + c->intLen - 1);
+		int32_t v = r * $nc($nc(c)->value)->get($nc(c)->offset + $nc(c)->intLen - 1);
 		v &= (uint32_t)(($sl(1, numBits)) - 1);
-		$nc(p)->mul(v, temp);
+		p->mul(v, temp);
 		c->add(temp);
 		c->rightShift(numBits);
 	}
@@ -1781,7 +1634,7 @@ MutableBigInteger* MutableBigInteger::fixup(MutableBigInteger* c$renamed, Mutabl
 }
 
 MutableBigInteger* MutableBigInteger::euclidModInverse(int32_t k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MutableBigInteger, b, $new(MutableBigInteger, 1));
 	b->leftShift(k);
 	$var(MutableBigInteger, mod, $new(MutableBigInteger, b));
@@ -1810,7 +1663,7 @@ MutableBigInteger* MutableBigInteger::euclidModInverse(int32_t k) {
 		$assign(q, temp);
 		$assign(temp, swapper);
 		t0->add(q);
-		if ($nc(a)->isOne()) {
+		if (a->isOne()) {
 			return t0;
 		}
 		$assign(r, b->divide(a, q));
@@ -1833,7 +1686,7 @@ MutableBigInteger* MutableBigInteger::euclidModInverse(int32_t k) {
 	return mod;
 }
 
-void clinit$MutableBigInteger($Class* class$) {
+void MutableBigInteger::clinit$($Class* clazz) {
 	MutableBigInteger::$assertionsDisabled = !MutableBigInteger::class$->desiredAssertionStatus();
 	$assignStatic(MutableBigInteger::ONE, $new(MutableBigInteger, 1));
 }
@@ -1842,7 +1695,112 @@ MutableBigInteger::MutableBigInteger() {
 }
 
 $Class* MutableBigInteger::load$($String* name, bool initialize) {
-	$loadClass(MutableBigInteger, name, initialize, &_MutableBigInteger_ClassInfo_, clinit$MutableBigInteger, allocate$MutableBigInteger);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MutableBigInteger, $assertionsDisabled)},
+		{"value", "[I", nullptr, 0, $field(MutableBigInteger, value)},
+		{"intLen", "I", nullptr, 0, $field(MutableBigInteger, intLen)},
+		{"offset", "I", nullptr, 0, $field(MutableBigInteger, offset)},
+		{"ONE", "Ljava/math/MutableBigInteger;", nullptr, $STATIC | $FINAL, $staticField(MutableBigInteger, ONE)},
+		{"KNUTH_POW2_THRESH_LEN", "I", nullptr, $STATIC | $FINAL, $constField(MutableBigInteger, KNUTH_POW2_THRESH_LEN)},
+		{"KNUTH_POW2_THRESH_ZEROS", "I", nullptr, $STATIC | $FINAL, $constField(MutableBigInteger, KNUTH_POW2_THRESH_ZEROS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MutableBigInteger, init$, void)},
+		{"<init>", "(I)V", nullptr, 0, $method(MutableBigInteger, init$, void, int32_t)},
+		{"<init>", "([I)V", nullptr, 0, $method(MutableBigInteger, init$, void, $ints*)},
+		{"<init>", "(Ljava/math/BigInteger;)V", nullptr, 0, $method(MutableBigInteger, init$, void, $BigInteger*)},
+		{"<init>", "(Ljava/math/MutableBigInteger;)V", nullptr, 0, $method(MutableBigInteger, init$, void, MutableBigInteger*)},
+		{"add", "(Ljava/math/MutableBigInteger;)V", nullptr, 0, $virtualMethod(MutableBigInteger, add, void, MutableBigInteger*)},
+		{"addDisjoint", "(Ljava/math/MutableBigInteger;I)V", nullptr, 0, $virtualMethod(MutableBigInteger, addDisjoint, void, MutableBigInteger*, int32_t)},
+		{"addLower", "(Ljava/math/MutableBigInteger;I)V", nullptr, 0, $virtualMethod(MutableBigInteger, addLower, void, MutableBigInteger*, int32_t)},
+		{"addShifted", "(Ljava/math/MutableBigInteger;I)V", nullptr, 0, $virtualMethod(MutableBigInteger, addShifted, void, MutableBigInteger*, int32_t)},
+		{"binaryGCD", "(Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, binaryGCD, MutableBigInteger*, MutableBigInteger*)},
+		{"binaryGcd", "(II)I", nullptr, $STATIC, $staticMethod(MutableBigInteger, binaryGcd, int32_t, int32_t, int32_t)},
+		{"bitLength", "()J", nullptr, 0, $virtualMethod(MutableBigInteger, bitLength, int64_t)},
+		{"clear", "()V", nullptr, 0, $virtualMethod(MutableBigInteger, clear, void)},
+		{"compare", "(Ljava/math/MutableBigInteger;)I", nullptr, $FINAL, $method(MutableBigInteger, compare, int32_t, MutableBigInteger*)},
+		{"compareHalf", "(Ljava/math/MutableBigInteger;)I", nullptr, $FINAL, $method(MutableBigInteger, compareHalf, int32_t, MutableBigInteger*)},
+		{"compareShifted", "(Ljava/math/MutableBigInteger;I)I", nullptr, $PRIVATE, $method(MutableBigInteger, compareShifted, int32_t, MutableBigInteger*, int32_t)},
+		{"copyAndShift", "([III[III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MutableBigInteger, copyAndShift, void, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"copyValue", "(Ljava/math/MutableBigInteger;)V", nullptr, 0, $virtualMethod(MutableBigInteger, copyValue, void, MutableBigInteger*)},
+		{"copyValue", "([I)V", nullptr, 0, $virtualMethod(MutableBigInteger, copyValue, void, $ints*)},
+		{"difference", "(Ljava/math/MutableBigInteger;)I", nullptr, $PRIVATE, $method(MutableBigInteger, difference, int32_t, MutableBigInteger*)},
+		{"divWord", "(JI)J", nullptr, $STATIC, $staticMethod(MutableBigInteger, divWord, int64_t, int64_t, int32_t)},
+		{"divadd", "([I[II)I", nullptr, $PRIVATE, $method(MutableBigInteger, divadd, int32_t, $ints*, $ints*, int32_t)},
+		{"divaddLong", "(II[II)I", nullptr, $PRIVATE, $method(MutableBigInteger, divaddLong, int32_t, int32_t, int32_t, $ints*, int32_t)},
+		{"divide", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, divide, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*)},
+		{"divide", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;Z)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, divide, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*, bool)},
+		{"divide", "(JLjava/math/MutableBigInteger;)J", nullptr, 0, $virtualMethod(MutableBigInteger, divide, int64_t, int64_t, MutableBigInteger*)},
+		{"divide2n1n", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, divide2n1n, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*)},
+		{"divide3n2n", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, divide3n2n, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*)},
+		{"divideAndRemainderBurnikelZiegler", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, divideAndRemainderBurnikelZiegler, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*)},
+		{"divideKnuth", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, divideKnuth, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*)},
+		{"divideKnuth", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;Z)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, divideKnuth, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*, bool)},
+		{"divideLongMagnitude", "(JLjava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, divideLongMagnitude, MutableBigInteger*, int64_t, MutableBigInteger*)},
+		{"divideMagnitude", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;Z)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, divideMagnitude, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*, bool)},
+		{"divideOneWord", "(ILjava/math/MutableBigInteger;)I", nullptr, 0, $virtualMethod(MutableBigInteger, divideOneWord, int32_t, int32_t, MutableBigInteger*)},
+		{"ensureCapacity", "(I)V", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, ensureCapacity, void, int32_t)},
+		{"euclidModInverse", "(I)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, euclidModInverse, MutableBigInteger*, int32_t)},
+		{"fixup", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;I)Ljava/math/MutableBigInteger;", nullptr, $STATIC, $staticMethod(MutableBigInteger, fixup, MutableBigInteger*, MutableBigInteger*, MutableBigInteger*, int32_t)},
+		{"getBlock", "(III)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, getBlock, MutableBigInteger*, int32_t, int32_t, int32_t)},
+		{"getInt", "(I)I", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, getInt, int32_t, int32_t)},
+		{"getLong", "(I)J", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, getLong, int64_t, int32_t)},
+		{"getLower", "(I)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, getLower, $BigInteger*, int32_t)},
+		{"getLowestSetBit", "()I", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, getLowestSetBit, int32_t)},
+		{"getMagnitudeArray", "()[I", nullptr, $PRIVATE, $method(MutableBigInteger, getMagnitudeArray, $ints*)},
+		{"hybridGCD", "(Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, hybridGCD, MutableBigInteger*, MutableBigInteger*)},
+		{"inverseMod32", "(I)I", nullptr, $STATIC, $staticMethod(MutableBigInteger, inverseMod32, int32_t, int32_t)},
+		{"inverseMod64", "(J)J", nullptr, $STATIC, $staticMethod(MutableBigInteger, inverseMod64, int64_t, int64_t)},
+		{"isEven", "()Z", nullptr, 0, $virtualMethod(MutableBigInteger, isEven, bool)},
+		{"isNormal", "()Z", nullptr, 0, $virtualMethod(MutableBigInteger, isNormal, bool)},
+		{"isOdd", "()Z", nullptr, 0, $virtualMethod(MutableBigInteger, isOdd, bool)},
+		{"isOne", "()Z", nullptr, 0, $virtualMethod(MutableBigInteger, isOne, bool)},
+		{"isZero", "()Z", nullptr, 0, $virtualMethod(MutableBigInteger, isZero, bool)},
+		{"keepLower", "(I)V", nullptr, $PRIVATE, $method(MutableBigInteger, keepLower, void, int32_t)},
+		{"leftShift", "(I)V", nullptr, 0, $virtualMethod(MutableBigInteger, leftShift, void, int32_t)},
+		{"modInverse", "(Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, $PRIVATE, $method(MutableBigInteger, modInverse, MutableBigInteger*, MutableBigInteger*)},
+		{"modInverseBP2", "(Ljava/math/MutableBigInteger;I)Ljava/math/MutableBigInteger;", nullptr, $STATIC, $staticMethod(MutableBigInteger, modInverseBP2, MutableBigInteger*, MutableBigInteger*, int32_t)},
+		{"modInverseMP2", "(I)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, modInverseMP2, MutableBigInteger*, int32_t)},
+		{"mul", "(ILjava/math/MutableBigInteger;)V", nullptr, 0, $virtualMethod(MutableBigInteger, mul, void, int32_t, MutableBigInteger*)},
+		{"mulsub", "([I[IIII)I", nullptr, $PRIVATE, $method(MutableBigInteger, mulsub, int32_t, $ints*, $ints*, int32_t, int32_t, int32_t)},
+		{"mulsubBorrow", "([I[IIII)I", nullptr, $PRIVATE, $method(MutableBigInteger, mulsubBorrow, int32_t, $ints*, $ints*, int32_t, int32_t, int32_t)},
+		{"mulsubLong", "([IIIII)I", nullptr, $PRIVATE, $method(MutableBigInteger, mulsubLong, int32_t, $ints*, int32_t, int32_t, int32_t, int32_t)},
+		{"multiply", "(Ljava/math/MutableBigInteger;Ljava/math/MutableBigInteger;)V", nullptr, 0, $virtualMethod(MutableBigInteger, multiply, void, MutableBigInteger*, MutableBigInteger*)},
+		{"mutableModInverse", "(Ljava/math/MutableBigInteger;)Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, mutableModInverse, MutableBigInteger*, MutableBigInteger*)},
+		{"normalize", "()V", nullptr, $FINAL, $method(MutableBigInteger, normalize, void)},
+		{"ones", "(I)V", nullptr, $PRIVATE, $method(MutableBigInteger, ones, void, int32_t)},
+		{"primitiveLeftShift", "(I)V", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, primitiveLeftShift, void, int32_t)},
+		{"primitiveRightShift", "(I)V", nullptr, $PRIVATE | $FINAL, $method(MutableBigInteger, primitiveRightShift, void, int32_t)},
+		{"reset", "()V", nullptr, 0, $virtualMethod(MutableBigInteger, reset, void)},
+		{"rightShift", "(I)V", nullptr, 0, $virtualMethod(MutableBigInteger, rightShift, void, int32_t)},
+		{"safeLeftShift", "(I)V", nullptr, 0, $virtualMethod(MutableBigInteger, safeLeftShift, void, int32_t)},
+		{"safeRightShift", "(I)V", nullptr, 0, $virtualMethod(MutableBigInteger, safeRightShift, void, int32_t)},
+		{"setInt", "(II)V", nullptr, 0, $virtualMethod(MutableBigInteger, setInt, void, int32_t, int32_t)},
+		{"setValue", "([II)V", nullptr, 0, $virtualMethod(MutableBigInteger, setValue, void, $ints*, int32_t)},
+		{"sqrt", "()Ljava/math/MutableBigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, sqrt, MutableBigInteger*)},
+		{"subtract", "(Ljava/math/MutableBigInteger;)I", nullptr, 0, $virtualMethod(MutableBigInteger, subtract, int32_t, MutableBigInteger*)},
+		{"toBigDecimal", "(II)Ljava/math/BigDecimal;", nullptr, 0, $virtualMethod(MutableBigInteger, toBigDecimal, $BigDecimal*, int32_t, int32_t)},
+		{"toBigInteger", "(I)Ljava/math/BigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, toBigInteger, $BigInteger*, int32_t)},
+		{"toBigInteger", "()Ljava/math/BigInteger;", nullptr, 0, $virtualMethod(MutableBigInteger, toBigInteger, $BigInteger*)},
+		{"toCompactValue", "(I)J", nullptr, 0, $virtualMethod(MutableBigInteger, toCompactValue, int64_t, int32_t)},
+		{"toIntArray", "()[I", nullptr, 0, $virtualMethod(MutableBigInteger, toIntArray, $ints*)},
+		{"toLong", "()J", nullptr, $PRIVATE, $method(MutableBigInteger, toLong, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MutableBigInteger, toString, $String*)},
+		{"unsignedLongCompare", "(JJ)Z", nullptr, $PRIVATE, $method(MutableBigInteger, unsignedLongCompare, bool, int64_t, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.math.MutableBigInteger",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MutableBigInteger, name, initialize, &classInfo$$, MutableBigInteger::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MutableBigInteger);
+	});
 	return class$;
 }
 

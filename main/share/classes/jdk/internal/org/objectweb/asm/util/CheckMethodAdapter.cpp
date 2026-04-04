@@ -1,10 +1,8 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckMethodAdapter.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -121,14 +119,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $AnnotationVisitor = ::jdk::internal::org::objectweb::asm$::AnnotationVisitor;
 using $Attribute = ::jdk::internal::org::objectweb::asm$::Attribute;
 using $ConstantDynamic = ::jdk::internal::org::objectweb::asm$::ConstantDynamic;
@@ -150,116 +145,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace util {
-
-$FieldInfo _CheckMethodAdapter_FieldInfo_[] = {
-	{"OPCODE_METHODS", "[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, OPCODE_METHODS)},
-	{"INVALID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, INVALID)},
-	{"INVALID_DESCRIPTOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, INVALID_DESCRIPTOR)},
-	{"INVALID_TYPE_REFERENCE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, INVALID_TYPE_REFERENCE)},
-	{"INVALID_LOCAL_VARIABLE_INDEX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, INVALID_LOCAL_VARIABLE_INDEX)},
-	{"MUST_NOT_BE_NULL_OR_EMPTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, MUST_NOT_BE_NULL_OR_EMPTY)},
-	{"START_LABEL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, START_LABEL)},
-	{"END_LABEL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, END_LABEL)},
-	{"version", "I", nullptr, $PUBLIC, $field(CheckMethodAdapter, version)},
-	{"access", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, access)},
-	{"visibleAnnotableParameterCount", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, visibleAnnotableParameterCount)},
-	{"invisibleAnnotableParameterCount", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, invisibleAnnotableParameterCount)},
-	{"visitCodeCalled", "Z", nullptr, $PRIVATE, $field(CheckMethodAdapter, visitCodeCalled)},
-	{"visitMaxCalled", "Z", nullptr, $PRIVATE, $field(CheckMethodAdapter, visitMaxCalled)},
-	{"visitEndCalled", "Z", nullptr, $PRIVATE, $field(CheckMethodAdapter, visitEndCalled)},
-	{"insnCount", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, insnCount)},
-	{"labelInsnIndices", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(CheckMethodAdapter, labelInsnIndices)},
-	{"referencedLabels", "Ljava/util/Set;", "Ljava/util/Set<Ljdk/internal/org/objectweb/asm/Label;>;", $PRIVATE, $field(CheckMethodAdapter, referencedLabels)},
-	{"lastFrameInsnIndex", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, lastFrameInsnIndex)},
-	{"numExpandedFrames", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, numExpandedFrames)},
-	{"numCompressedFrames", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, numCompressedFrames)},
-	{"handlers", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/Label;>;", $PRIVATE, $field(CheckMethodAdapter, handlers)},
-	{}
-};
-
-$MethodInfo _CheckMethodAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(CheckMethodAdapter, init$, void, $MethodVisitor*)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map;)V", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;)V", $PUBLIC, $method(CheckMethodAdapter, init$, void, $MethodVisitor*, $Map*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map;)V", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;)V", $PROTECTED, $method(CheckMethodAdapter, init$, void, int32_t, $MethodVisitor*, $Map*)},
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map;)V", "(ILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;)V", $PUBLIC, $method(CheckMethodAdapter, init$, void, int32_t, $String*, $String*, $MethodVisitor*, $Map*)},
-	{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map;)V", "(IILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;)V", $PROTECTED, $method(CheckMethodAdapter, init$, void, int32_t, int32_t, $String*, $String*, $MethodVisitor*, $Map*)},
-	{"checkConstant", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkConstant, void, Object$*)},
-	{"checkDescriptor", "(ILjava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkDescriptor, void, int32_t, $String*, bool)},
-	{"checkDescriptor", "(ILjava/lang/String;IZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkDescriptor, int32_t, int32_t, $String*, int32_t, bool)},
-	{"checkFrameValue", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkFrameValue, void, Object$*)},
-	{"checkIdentifier", "(ILjava/lang/String;IILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkIdentifier, void, int32_t, $String*, int32_t, int32_t, $String*)},
-	{"checkInternalClassName", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkInternalClassName, void, int32_t, $String*, $String*)},
-	{"checkInternalName", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkInternalName, void, int32_t, $String*, $String*)},
-	{"checkLabel", "(Ljdk/internal/org/objectweb/asm/Label;ZLjava/lang/String;)V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkLabel, void, $Label*, bool, $String*)},
-	{"checkLdcConstant", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkLdcConstant, void, Object$*)},
-	{"checkMethodDescriptor", "(ILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkMethodDescriptor, void, int32_t, $String*)},
-	{"checkMethodIdentifier", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkMethodIdentifier, void, int32_t, $String*, $String*)},
-	{"checkOpcodeMethod", "(ILjdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkOpcodeMethod, void, int32_t, $CheckMethodAdapter$Method*)},
-	{"checkSignedByte", "(ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkSignedByte, void, int32_t, $String*)},
-	{"checkSignedShort", "(ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkSignedShort, void, int32_t, $String*)},
-	{"checkUnqualifiedName", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkUnqualifiedName, void, int32_t, $String*, $String*)},
-	{"checkUnsignedShort", "(ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkUnsignedShort, void, int32_t, $String*)},
-	{"checkVisitCodeCalled", "()V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkVisitCodeCalled, void)},
-	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkVisitEndNotCalled, void)},
-	{"checkVisitMaxsNotCalled", "()V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkVisitMaxsNotCalled, void)},
-	{"visitAnnotableParameterCount", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitAnnotableParameterCount, void, int32_t, bool)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAnnotationDefault", "()Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitAnnotationDefault, $AnnotationVisitor*)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitAttribute, void, $Attribute*)},
-	{"visitCode", "()V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitCode, void)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitEnd, void)},
-	{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
-	{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
-	{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitIincInsn, void, int32_t, int32_t)},
-	{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitInsn, void, int32_t)},
-	{"visitInsnAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitInsnAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitIntInsn, void, int32_t, int32_t)},
-	{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckMethodAdapter, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitJumpInsn, void, int32_t, $Label*)},
-	{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLabel, void, $Label*)},
-	{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLdcInsn, void, Object$*)},
-	{"visitLineNumber", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLineNumber, void, int32_t, $Label*)},
-	{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
-	{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLocalVariableAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $LabelArray*, $LabelArray*, $ints*, $String*, bool)},
-	{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
-	{"visitMaxs", "(II)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitMaxs, void, int32_t, int32_t)},
-	{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
-	{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitMultiANewArrayInsn, void, $String*, int32_t)},
-	{"visitParameter", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitParameter, void, $String*, int32_t)},
-	{"visitParameterAnnotation", "(ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitParameterAnnotation, $AnnotationVisitor*, int32_t, $String*, bool)},
-	{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckMethodAdapter, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
-	{"visitTryCatchAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitTryCatchAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{"visitTryCatchBlock", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitTryCatchBlock, void, $Label*, $Label*, $Label*, $String*)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitTypeInsn, void, int32_t, $String*)},
-	{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitVarInsn, void, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CheckMethodAdapter_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$Method", "jdk.internal.org.objectweb.asm.util.CheckMethodAdapter", "Method", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CheckMethodAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter",
-	"jdk.internal.org.objectweb.asm.MethodVisitor",
-	nullptr,
-	_CheckMethodAdapter_FieldInfo_,
-	_CheckMethodAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CheckMethodAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$Method,jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$1"
-};
-
-$Object* allocate$CheckMethodAdapter($Class* clazz) {
-	return $of($alloc(CheckMethodAdapter));
-}
 
 $CheckMethodAdapter$MethodArray* CheckMethodAdapter::OPCODE_METHODS = nullptr;
 $String* CheckMethodAdapter::INVALID = nullptr;
@@ -316,7 +201,7 @@ $AnnotationVisitor* CheckMethodAdapter::visitAnnotation($String* descriptor, boo
 }
 
 $AnnotationVisitor* CheckMethodAdapter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitEndNotCalled();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
 	if (sort != $TypeReference::METHOD_TYPE_PARAMETER && sort != $TypeReference::METHOD_TYPE_PARAMETER_BOUND && sort != $TypeReference::METHOD_RETURN && sort != $TypeReference::METHOD_RECEIVER && sort != $TypeReference::METHOD_FORMAL_PARAMETER && sort != $TypeReference::THROWS) {
@@ -360,7 +245,7 @@ void CheckMethodAdapter::visitAttribute($Attribute* attribute) {
 }
 
 void CheckMethodAdapter::visitCode() {
-	if (((int32_t)(this->access & (uint32_t)$Opcodes::ACC_ABSTRACT)) != 0) {
+	if ((this->access & $Opcodes::ACC_ABSTRACT) != 0) {
 		$throwNew($UnsupportedOperationException, "Abstract methods cannot have code"_s);
 	}
 	this->visitCodeCalled = true;
@@ -368,7 +253,7 @@ void CheckMethodAdapter::visitCode() {
 }
 
 void CheckMethodAdapter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* local, int32_t numStack, $ObjectArray* stack) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->insnCount == this->lastFrameInsnIndex) {
 		$throwNew($IllegalStateException, "At most one frame can be visited at a given code location."_s);
 	}
@@ -377,37 +262,25 @@ void CheckMethodAdapter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray
 	int32_t maxNumStack = 0;
 	switch (type) {
 	case $Opcodes::F_NEW:
-		{}
 	case $Opcodes::F_FULL:
-		{
-			maxNumLocal = $Integer::MAX_VALUE;
-			maxNumStack = $Integer::MAX_VALUE;
-			break;
-		}
+		maxNumLocal = $Integer::MAX_VALUE;
+		maxNumStack = $Integer::MAX_VALUE;
+		break;
 	case $Opcodes::F_SAME:
-		{
-			maxNumLocal = 0;
-			maxNumStack = 0;
-			break;
-		}
+		maxNumLocal = 0;
+		maxNumStack = 0;
+		break;
 	case $Opcodes::F_SAME1:
-		{
-			maxNumLocal = 0;
-			maxNumStack = 1;
-			break;
-		}
+		maxNumLocal = 0;
+		maxNumStack = 1;
+		break;
 	case $Opcodes::F_APPEND:
-		{}
 	case $Opcodes::F_CHOP:
-		{
-			maxNumLocal = 3;
-			maxNumStack = 0;
-			break;
-		}
+		maxNumLocal = 3;
+		maxNumStack = 0;
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid frame type "_s, $$str(type)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid frame type "_s, $$str(type)}));
 	}
 	if (numLocal > maxNumLocal) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid numLocal="_s, $$str(numLocal), " for frame type "_s, $$str(type)}));
@@ -416,14 +289,14 @@ void CheckMethodAdapter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray
 		$throwNew($IllegalArgumentException, $$str({"Invalid numStack="_s, $$str(numStack), " for frame type "_s, $$str(type)}));
 	}
 	if (type != $Opcodes::F_CHOP) {
-		if (numLocal > 0 && (local == nullptr || $nc(local)->length < numLocal)) {
+		if (numLocal > 0 && (local == nullptr || local->length < numLocal)) {
 			$throwNew($IllegalArgumentException, "Array local[] is shorter than numLocal"_s);
 		}
 		for (int32_t i = 0; i < numLocal; ++i) {
 			checkFrameValue($nc(local)->get(i));
 		}
 	}
-	if (numStack > 0 && (stack == nullptr || $nc(stack)->length < numStack)) {
+	if (numStack > 0 && (stack == nullptr || stack->length < numStack)) {
 		$throwNew($IllegalArgumentException, "Array stack[] is shorter than numStack"_s);
 	}
 	for (int32_t i = 0; i < numStack; ++i) {
@@ -450,33 +323,25 @@ void CheckMethodAdapter::visitInsn(int32_t opcode) {
 }
 
 void CheckMethodAdapter::visitIntInsn(int32_t opcode, int32_t operand) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	$init($CheckMethodAdapter$Method);
 	checkOpcodeMethod(opcode, $CheckMethodAdapter$Method::VISIT_INT_INSN);
 	switch (opcode) {
 	case $Opcodes::BIPUSH:
-		{
-			checkSignedByte(operand, "Invalid operand"_s);
-			break;
-		}
+		checkSignedByte(operand, "Invalid operand"_s);
+		break;
 	case $Opcodes::SIPUSH:
-		{
-			checkSignedShort(operand, "Invalid operand"_s);
-			break;
-		}
+		checkSignedShort(operand, "Invalid operand"_s);
+		break;
 	case $Opcodes::NEWARRAY:
-		{
-			if (operand < $Opcodes::T_BOOLEAN || operand > $Opcodes::T_LONG) {
-				$throwNew($IllegalArgumentException, $$str({"Invalid operand (must be an array type code T_...): "_s, $$str(operand)}));
-			}
-			break;
+		if (operand < $Opcodes::T_BOOLEAN || operand > $Opcodes::T_LONG) {
+			$throwNew($IllegalArgumentException, $$str({"Invalid operand (must be an array type code T_...): "_s, $$str(operand)}));
 		}
+		break;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 	$MethodVisitor::visitIntInsn(opcode, operand);
 	++this->insnCount;
@@ -518,11 +383,11 @@ void CheckMethodAdapter::visitFieldInsn(int32_t opcode, $String* owner, $String*
 }
 
 void CheckMethodAdapter::visitMethodInsn(int32_t opcodeAndSource, $String* owner, $String* name, $String* descriptor, bool isInterface) {
-	if (this->api < $Opcodes::ASM5 && ((int32_t)(opcodeAndSource & (uint32_t)$Opcodes::SOURCE_DEPRECATED)) == 0) {
+	if (this->api < $Opcodes::ASM5 && (opcodeAndSource & $Opcodes::SOURCE_DEPRECATED) == 0) {
 		$MethodVisitor::visitMethodInsn(opcodeAndSource, owner, name, descriptor, isInterface);
 		return;
 	}
-	int32_t opcode = (int32_t)(opcodeAndSource & (uint32_t)~$Opcodes::SOURCE_MASK);
+	int32_t opcode = opcodeAndSource & ~$Opcodes::SOURCE_MASK;
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	$init($CheckMethodAdapter$Method);
@@ -538,7 +403,7 @@ void CheckMethodAdapter::visitMethodInsn(int32_t opcodeAndSource, $String* owner
 	if (opcode == $Opcodes::INVOKEINTERFACE && !isInterface) {
 		$throwNew($IllegalArgumentException, "INVOKEINTERFACE can\'t be used with classes"_s);
 	}
-	if (opcode == $Opcodes::INVOKESPECIAL && isInterface && ((int32_t)(this->version & (uint32_t)0x0000FFFF)) < $Opcodes::V1_8) {
+	if (opcode == $Opcodes::INVOKESPECIAL && isInterface && (this->version & 0xffff) < $Opcodes::V1_8) {
 		$throwNew($IllegalArgumentException, "INVOKESPECIAL can\'t be used with interfaces prior to Java 8"_s);
 	}
 	$MethodVisitor::visitMethodInsn(opcodeAndSource, owner, name, descriptor, isInterface);
@@ -546,7 +411,7 @@ void CheckMethodAdapter::visitMethodInsn(int32_t opcodeAndSource, $String* owner
 }
 
 void CheckMethodAdapter::visitInvokeDynamicInsn($String* name, $String* descriptor, $Handle* bootstrapMethodHandle, $ObjectArray* bootstrapMethodArguments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	checkMethodIdentifier(this->version, name, "name"_s);
@@ -557,9 +422,7 @@ void CheckMethodAdapter::visitInvokeDynamicInsn($String* name, $String* descript
 	}
 	{
 		$var($ObjectArray, arr$, bootstrapMethodArguments);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, bootstrapMethodArgument, arr$->get(i$));
 			{
 				checkLdcConstant(bootstrapMethodArgument);
@@ -588,7 +451,7 @@ void CheckMethodAdapter::visitLabel($Label* label) {
 	if ($nc(this->labelInsnIndices)->get(label) != nullptr) {
 		$throwNew($IllegalArgumentException, "Already visited label"_s);
 	}
-	$nc(this->labelInsnIndices)->put(label, $($Integer::valueOf(this->insnCount)));
+	this->labelInsnIndices->put(label, $($Integer::valueOf(this->insnCount)));
 	$MethodVisitor::visitLabel(label);
 }
 
@@ -610,14 +473,14 @@ void CheckMethodAdapter::visitIincInsn(int32_t var, int32_t increment) {
 }
 
 void CheckMethodAdapter::visitTableSwitchInsn(int32_t min, int32_t max, $Label* dflt, $LabelArray* labels) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	if (max < min) {
 		$throwNew($IllegalArgumentException, $$str({"Max = "_s, $$str(max), " must be greater than or equal to min = "_s, $$str(min)}));
 	}
 	checkLabel(dflt, false, "default label"_s);
-	if (labels == nullptr || $nc(labels)->length != max - min + 1) {
+	if (labels == nullptr || labels->length != max - min + 1) {
 		$throwNew($IllegalArgumentException, "There must be max - min + 1 labels"_s);
 	}
 	for (int32_t i = 0; i < $nc(labels)->length; ++i) {
@@ -629,11 +492,11 @@ void CheckMethodAdapter::visitTableSwitchInsn(int32_t min, int32_t max, $Label* 
 }
 
 void CheckMethodAdapter::visitLookupSwitchInsn($Label* dflt, $ints* keys, $LabelArray* labels) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitMaxsNotCalled();
 	checkVisitCodeCalled();
 	checkLabel(dflt, false, "default label"_s);
-	if (keys == nullptr || labels == nullptr || $nc(keys)->length != $nc(labels)->length) {
+	if (keys == nullptr || labels == nullptr || keys->length != labels->length) {
 		$throwNew($IllegalArgumentException, "There must be the same number of keys and labels"_s);
 	}
 	for (int32_t i = 0; i < $nc(labels)->length; ++i) {
@@ -646,7 +509,7 @@ void CheckMethodAdapter::visitLookupSwitchInsn($Label* dflt, $ints* keys, $Label
 }
 
 void CheckMethodAdapter::visitMultiANewArrayInsn($String* descriptor, int32_t numDimensions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	checkDescriptor(this->version, descriptor, false);
@@ -656,7 +519,7 @@ void CheckMethodAdapter::visitMultiANewArrayInsn($String* descriptor, int32_t nu
 	if (numDimensions < 1) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid dimensions (must be greater than 0): "_s, $$str(numDimensions)}));
 	}
-	if (numDimensions > $nc(descriptor)->lastIndexOf((int32_t)u'[') + 1) {
+	if (numDimensions > descriptor->lastIndexOf(u'[') + 1) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid dimensions (must not be greater than numDimensions(descriptor)): "_s, $$str(numDimensions)}));
 	}
 	$MethodVisitor::visitMultiANewArrayInsn(descriptor, numDimensions);
@@ -664,7 +527,7 @@ void CheckMethodAdapter::visitMultiANewArrayInsn($String* descriptor, int32_t nu
 }
 
 $AnnotationVisitor* CheckMethodAdapter::visitInsnAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
@@ -683,8 +546,8 @@ void CheckMethodAdapter::visitTryCatchBlock($Label* start, $Label* end, $Label* 
 	checkLabel(end, false, CheckMethodAdapter::END_LABEL);
 	checkLabel(handler, false, "handler label"_s);
 	bool var$1 = $nc(this->labelInsnIndices)->get(start) != nullptr;
-	bool var$0 = var$1 || $nc(this->labelInsnIndices)->get(end) != nullptr;
-	if (var$0 || $nc(this->labelInsnIndices)->get(handler) != nullptr) {
+	bool var$0 = var$1 || this->labelInsnIndices->get(end) != nullptr;
+	if (var$0 || this->labelInsnIndices->get(handler) != nullptr) {
 		$throwNew($IllegalStateException, "Try catch blocks must be visited before their labels"_s);
 	}
 	if (type != nullptr) {
@@ -692,11 +555,11 @@ void CheckMethodAdapter::visitTryCatchBlock($Label* start, $Label* end, $Label* 
 	}
 	$MethodVisitor::visitTryCatchBlock(start, end, handler, type);
 	$nc(this->handlers)->add(start);
-	$nc(this->handlers)->add(end);
+	this->handlers->add(end);
 }
 
 $AnnotationVisitor* CheckMethodAdapter::visitTryCatchAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
@@ -709,7 +572,7 @@ $AnnotationVisitor* CheckMethodAdapter::visitTryCatchAnnotation(int32_t typeRef,
 }
 
 void CheckMethodAdapter::visitLocalVariable($String* name, $String* descriptor, $String* signature, $Label* start, $Label* end, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	checkUnqualifiedName(this->version, name, "name"_s);
@@ -720,8 +583,8 @@ void CheckMethodAdapter::visitLocalVariable($String* name, $String* descriptor, 
 	checkLabel(start, true, CheckMethodAdapter::START_LABEL);
 	checkLabel(end, true, CheckMethodAdapter::END_LABEL);
 	checkUnsignedShort(index, CheckMethodAdapter::INVALID_LOCAL_VARIABLE_INDEX);
-	int32_t startInsnIndex = $nc(($cast($Integer, $($nc(this->labelInsnIndices)->get(start)))))->intValue();
-	int32_t endInsnIndex = $nc(($cast($Integer, $($nc(this->labelInsnIndices)->get(end)))))->intValue();
+	int32_t startInsnIndex = $$sure($Integer, $nc(this->labelInsnIndices)->get(start))->intValue();
+	int32_t endInsnIndex = $$sure($Integer, this->labelInsnIndices->get(end))->intValue();
 	if (endInsnIndex < startInsnIndex) {
 		$throwNew($IllegalArgumentException, "Invalid start and end labels (end must be greater than start)"_s);
 	}
@@ -729,7 +592,7 @@ void CheckMethodAdapter::visitLocalVariable($String* name, $String* descriptor, 
 }
 
 $AnnotationVisitor* CheckMethodAdapter::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
@@ -738,15 +601,15 @@ $AnnotationVisitor* CheckMethodAdapter::visitLocalVariableAnnotation(int32_t typ
 	}
 	$CheckClassAdapter::checkTypeRef(typeRef);
 	checkDescriptor(this->version, descriptor, false);
-	if (start == nullptr || end == nullptr || index == nullptr || $nc(end)->length != $nc(start)->length || $nc(index)->length != $nc(start)->length) {
+	if (start == nullptr || end == nullptr || index == nullptr || end->length != start->length || index->length != start->length) {
 		$throwNew($IllegalArgumentException, "Invalid start, end and index arrays (must be non null and of identical length"_s);
 	}
 	for (int32_t i = 0; i < $nc(start)->length; ++i) {
 		checkLabel(start->get(i), true, CheckMethodAdapter::START_LABEL);
 		checkLabel($nc(end)->get(i), true, CheckMethodAdapter::END_LABEL);
 		checkUnsignedShort($nc(index)->get(i), CheckMethodAdapter::INVALID_LOCAL_VARIABLE_INDEX);
-		int32_t startInsnIndex = $nc(($cast($Integer, $($nc(this->labelInsnIndices)->get(start->get(i))))))->intValue();
-		int32_t endInsnIndex = $nc(($cast($Integer, $($nc(this->labelInsnIndices)->get($nc(end)->get(i))))))->intValue();
+		int32_t startInsnIndex = $$sure($Integer, $nc(this->labelInsnIndices)->get(start->get(i)))->intValue();
+		int32_t endInsnIndex = $$sure($Integer, this->labelInsnIndices->get(end->get(i)))->intValue();
 		if (endInsnIndex < startInsnIndex) {
 			$throwNew($IllegalArgumentException, "Invalid start and end labels (end must be greater than start)"_s);
 		}
@@ -763,7 +626,7 @@ void CheckMethodAdapter::visitLineNumber(int32_t line, $Label* start) {
 }
 
 void CheckMethodAdapter::visitMaxs(int32_t maxStack, int32_t maxLocals) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	this->visitMaxCalled = true;
@@ -771,16 +634,14 @@ void CheckMethodAdapter::visitMaxs(int32_t maxStack, int32_t maxLocals) {
 		$var($Iterator, i$, $nc(this->referencedLabels)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Label, l, $cast($Label, i$->next()));
-			{
-				if ($nc(this->labelInsnIndices)->get(l) == nullptr) {
-					$throwNew($IllegalStateException, "Undefined label used"_s);
-				}
+			if ($nc(this->labelInsnIndices)->get(l) == nullptr) {
+				$throwNew($IllegalStateException, "Undefined label used"_s);
 			}
 		}
 	}
 	for (int32_t i = 0; i < $nc(this->handlers)->size(); i += 2) {
-		$var($Integer, startInsnIndex, $cast($Integer, $nc(this->labelInsnIndices)->get($($nc(this->handlers)->get(i)))));
-		$var($Integer, endInsnIndex, $cast($Integer, $nc(this->labelInsnIndices)->get($($nc(this->handlers)->get(i + 1)))));
+		$var($Integer, startInsnIndex, $cast($Integer, $nc(this->labelInsnIndices)->get($(this->handlers->get(i)))));
+		$var($Integer, endInsnIndex, $cast($Integer, this->labelInsnIndices->get($(this->handlers->get(i + 1)))));
 		if (startInsnIndex == nullptr || endInsnIndex == nullptr) {
 			$throwNew($IllegalStateException, "Undefined try catch block labels"_s);
 		}
@@ -834,15 +695,15 @@ void CheckMethodAdapter::checkFrameValue(Object$* value) {
 
 void CheckMethodAdapter::checkOpcodeMethod(int32_t opcode, $CheckMethodAdapter$Method* method) {
 	$init(CheckMethodAdapter);
-	$useLocalCurrentObjectStackCache();
-	if (opcode < $Opcodes::NOP || opcode > $Opcodes::IFNONNULL || $nc(CheckMethodAdapter::OPCODE_METHODS)->get(opcode) != method) {
+	$useLocalObjectStack();
+	if (opcode < $Opcodes::NOP || opcode > $Opcodes::IFNONNULL || CheckMethodAdapter::OPCODE_METHODS->get(opcode) != method) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid opcode: "_s, $$str(opcode)}));
 	}
 }
 
 void CheckMethodAdapter::checkSignedByte(int32_t value, $String* message) {
 	$init(CheckMethodAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value < $Byte::MIN_VALUE || value > $Byte::MAX_VALUE) {
 		$throwNew($IllegalArgumentException, $$str({message, " (must be a signed byte): "_s, $$str(value)}));
 	}
@@ -850,7 +711,7 @@ void CheckMethodAdapter::checkSignedByte(int32_t value, $String* message) {
 
 void CheckMethodAdapter::checkSignedShort(int32_t value, $String* message) {
 	$init(CheckMethodAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value < $Short::MIN_VALUE || value > $Short::MAX_VALUE) {
 		$throwNew($IllegalArgumentException, $$str({message, " (must be a signed short): "_s, $$str(value)}));
 	}
@@ -858,8 +719,8 @@ void CheckMethodAdapter::checkSignedShort(int32_t value, $String* message) {
 
 void CheckMethodAdapter::checkUnsignedShort(int32_t value, $String* message) {
 	$init(CheckMethodAdapter);
-	$useLocalCurrentObjectStackCache();
-	if (value < 0 || value > 0x0000FFFF) {
+	$useLocalObjectStack();
+	if (value < 0 || value > 0x0000ffff) {
 		$throwNew($IllegalArgumentException, $$str({message, " (must be an unsigned short): "_s, $$str(value)}));
 	}
 }
@@ -872,24 +733,24 @@ void CheckMethodAdapter::checkConstant(Object$* value) {
 }
 
 void CheckMethodAdapter::checkLdcConstant(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Type, value)) {
-		int32_t sort = $nc(($cast($Type, value)))->getSort();
+		int32_t sort = $cast($Type, value)->getSort();
 		if (sort != $Type::OBJECT && sort != $Type::ARRAY && sort != $Type::METHOD) {
 			$throwNew($IllegalArgumentException, "Illegal LDC constant value"_s);
 		}
-		if (sort != $Type::METHOD && ((int32_t)(this->version & (uint32_t)0x0000FFFF)) < $Opcodes::V1_5) {
+		if (sort != $Type::METHOD && (this->version & 0xffff) < $Opcodes::V1_5) {
 			$throwNew($IllegalArgumentException, "ldc of a constant class requires at least version 1.5"_s);
 		}
-		if (sort == $Type::METHOD && ((int32_t)(this->version & (uint32_t)0x0000FFFF)) < $Opcodes::V1_7) {
+		if (sort == $Type::METHOD && (this->version & 0xffff) < $Opcodes::V1_7) {
 			$throwNew($IllegalArgumentException, "ldc of a method type requires at least version 1.7"_s);
 		}
 	} else if ($instanceOf($Handle, value)) {
-		if (((int32_t)(this->version & (uint32_t)0x0000FFFF)) < $Opcodes::V1_7) {
+		if ((this->version & 0xffff) < $Opcodes::V1_7) {
 			$throwNew($IllegalArgumentException, "ldc of a Handle requires at least version 1.7"_s);
 		}
 		$var($Handle, handle, $cast($Handle, value));
-		int32_t tag = $nc(handle)->getTag();
+		int32_t tag = handle->getTag();
 		if (tag < $Opcodes::H_GETFIELD || tag > $Opcodes::H_INVOKEINTERFACE) {
 			$throwNew($IllegalArgumentException, $$str({"invalid handle tag "_s, $$str(tag)}));
 		}
@@ -904,14 +765,14 @@ void CheckMethodAdapter::checkLdcConstant(Object$* value) {
 			checkMethodIdentifier(this->version, handleName, "handle name"_s);
 		}
 	} else if ($instanceOf($ConstantDynamic, value)) {
-		if (((int32_t)(this->version & (uint32_t)0x0000FFFF)) < $Opcodes::V11) {
+		if ((this->version & 0xffff) < $Opcodes::V11) {
 			$throwNew($IllegalArgumentException, "ldc of a ConstantDynamic requires at least version 11"_s);
 		}
 		$var($ConstantDynamic, constantDynamic, $cast($ConstantDynamic, value));
-		checkMethodIdentifier(this->version, $($nc(constantDynamic)->getName()), "constant dynamic name"_s);
-		checkDescriptor(this->version, $($nc(constantDynamic)->getDescriptor()), false);
-		checkLdcConstant($($nc(constantDynamic)->getBootstrapMethod()));
-		int32_t bootstrapMethodArgumentCount = $nc(constantDynamic)->getBootstrapMethodArgumentCount();
+		checkMethodIdentifier(this->version, $(constantDynamic->getName()), "constant dynamic name"_s);
+		checkDescriptor(this->version, $(constantDynamic->getDescriptor()), false);
+		checkLdcConstant($(constantDynamic->getBootstrapMethod()));
+		int32_t bootstrapMethodArgumentCount = constantDynamic->getBootstrapMethodArgumentCount();
 		for (int32_t i = 0; i < bootstrapMethodArgumentCount; ++i) {
 			checkLdcConstant($(constantDynamic->getBootstrapMethodArgument(i)));
 		}
@@ -927,21 +788,21 @@ void CheckMethodAdapter::checkUnqualifiedName(int32_t version, $String* name, $S
 
 void CheckMethodAdapter::checkIdentifier(int32_t version, $String* name, int32_t startPos, int32_t endPos, $String* message) {
 	$init(CheckMethodAdapter);
-	$useLocalCurrentObjectStackCache();
-	if (name == nullptr || (endPos == -1 ? $nc(name)->length() <= startPos : endPos <= startPos)) {
+	$useLocalObjectStack();
+	if (name == nullptr || (endPos == -1 ? name->length() <= startPos : endPos <= startPos)) {
 		$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, CheckMethodAdapter::MUST_NOT_BE_NULL_OR_EMPTY}));
 	}
 	int32_t max = endPos == -1 ? $nc(name)->length() : endPos;
-	if (((int32_t)(version & (uint32_t)0x0000FFFF)) >= $Opcodes::V1_5) {
-		for (int32_t i = startPos; i < max; i = name->offsetByCodePoints(i, 1)) {
-			if (".;[/"_s->indexOf(name->codePointAt(i)) != -1) {
+	if ((version & 0xffff) >= $Opcodes::V1_5) {
+		for (int32_t i = startPos; i < max; i = $nc(name)->offsetByCodePoints(i, 1)) {
+			if (".;[/"_s->indexOf($nc(name)->codePointAt(i)) != -1) {
 				$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, " (must not contain . ; [ or /): "_s, name}));
 			}
 		}
 		return;
 	}
-	for (int32_t i = startPos; i < max; i = name->offsetByCodePoints(i, 1)) {
-		if (i == startPos ? !$Character::isJavaIdentifierStart(name->codePointAt(i)) : !$Character::isJavaIdentifierPart(name->codePointAt(i))) {
+	for (int32_t i = startPos; i < max; i = $nc(name)->offsetByCodePoints(i, 1)) {
+		if (i == startPos ? !$Character::isJavaIdentifierStart($nc(name)->codePointAt(i)) : !$Character::isJavaIdentifierPart($nc(name)->codePointAt(i))) {
 			$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, " (must be a valid Java identifier): "_s, name}));
 		}
 	}
@@ -949,19 +810,19 @@ void CheckMethodAdapter::checkIdentifier(int32_t version, $String* name, int32_t
 
 void CheckMethodAdapter::checkMethodIdentifier(int32_t version, $String* name, $String* message) {
 	$init(CheckMethodAdapter);
-	$useLocalCurrentObjectStackCache();
-	if (name == nullptr || $nc(name)->length() == 0) {
+	$useLocalObjectStack();
+	if (name == nullptr || name->length() == 0) {
 		$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, CheckMethodAdapter::MUST_NOT_BE_NULL_OR_EMPTY}));
 	}
-	if (((int32_t)(version & (uint32_t)0x0000FFFF)) >= $Opcodes::V1_5) {
-		for (int32_t i = 0; i < $nc(name)->length(); i = $nc(name)->offsetByCodePoints(i, 1)) {
+	if ((version & 0xffff) >= $Opcodes::V1_5) {
+		for (int32_t i = 0; i < $nc(name)->length(); i = name->offsetByCodePoints(i, 1)) {
 			if (".;[/<>"_s->indexOf(name->codePointAt(i)) != -1) {
 				$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, " (must be a valid unqualified name): "_s, name}));
 			}
 		}
 		return;
 	}
-	for (int32_t i = 0; i < $nc(name)->length(); i = $nc(name)->offsetByCodePoints(i, 1)) {
+	for (int32_t i = 0; i < $nc(name)->length(); i = name->offsetByCodePoints(i, 1)) {
 		if (i == 0 ? !$Character::isJavaIdentifierStart(name->codePointAt(i)) : !$Character::isJavaIdentifierPart(name->codePointAt(i))) {
 			$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, " (must be a \'<init>\', \'<clinit>\' or a valid Java identifier): "_s, name}));
 		}
@@ -970,7 +831,7 @@ void CheckMethodAdapter::checkMethodIdentifier(int32_t version, $String* name, $
 
 void CheckMethodAdapter::checkInternalName(int32_t version, $String* name, $String* message) {
 	$init(CheckMethodAdapter);
-	if (name == nullptr || $nc(name)->length() == 0) {
+	if (name == nullptr || name->length() == 0) {
 		$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, CheckMethodAdapter::MUST_NOT_BE_NULL_OR_EMPTY}));
 	}
 	if ($nc(name)->charAt(0) == u'[') {
@@ -985,11 +846,11 @@ void CheckMethodAdapter::checkInternalClassName(int32_t version, $String* name, 
 	try {
 		int32_t startIndex = 0;
 		int32_t slashIndex = 0;
-		while ((slashIndex = $nc(name)->indexOf((int32_t)u'/', startIndex + 1)) != -1) {
+		while ((slashIndex = $nc(name)->indexOf(u'/', startIndex + 1)) != -1) {
 			checkIdentifier(version, name, startIndex, slashIndex, nullptr);
 			startIndex = slashIndex + 1;
 		}
-		checkIdentifier(version, name, startIndex, $nc(name)->length(), nullptr);
+		checkIdentifier(version, name, startIndex, name->length(), nullptr);
 	} catch ($IllegalArgumentException& e) {
 		$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, " (must be an internal class name): "_s, name}), e);
 	}
@@ -1005,8 +866,8 @@ void CheckMethodAdapter::checkDescriptor(int32_t version, $String* descriptor, b
 
 int32_t CheckMethodAdapter::checkDescriptor(int32_t version, $String* descriptor, int32_t startPos, bool canBeVoid) {
 	$init(CheckMethodAdapter);
-	$useLocalCurrentObjectStackCache();
-	if (descriptor == nullptr || startPos >= $nc(descriptor)->length()) {
+	$useLocalObjectStack();
+	if (descriptor == nullptr || startPos >= descriptor->length()) {
 		$throwNew($IllegalArgumentException, "Invalid type descriptor (must not be null or empty)"_s);
 	}
 	{
@@ -1014,82 +875,65 @@ int32_t CheckMethodAdapter::checkDescriptor(int32_t version, $String* descriptor
 		int32_t endPos = 0;
 		switch ($nc(descriptor)->charAt(startPos)) {
 		case u'V':
-			{
-				if (canBeVoid) {
-					return startPos + 1;
-				} else {
-					$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}));
-				}
-			}
-		case u'Z':
-			{}
-		case u'C':
-			{}
-		case u'B':
-			{}
-		case u'S':
-			{}
-		case u'I':
-			{}
-		case u'F':
-			{}
-		case u'J':
-			{}
-		case u'D':
-			{
+			if (canBeVoid) {
 				return startPos + 1;
-			}
-		case u'[':
-			{
-				pos = startPos + 1;
-				while (true) {
-					bool var$0 = pos < descriptor->length();
-					if (!(var$0 && descriptor->charAt(pos) == u'[')) {
-						break;
-					}
-					{
-						++pos;
-					}
-				}
-				if (pos < descriptor->length()) {
-					return checkDescriptor(version, descriptor, pos, false);
-				} else {
-					$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}));
-				}
-			}
-		case u'L':
-			{
-				endPos = descriptor->indexOf((int32_t)u';', startPos);
-				if (startPos == -1 || endPos - startPos < 2) {
-					$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}));
-				}
-				try {
-					checkInternalClassName(version, $(descriptor->substring(startPos + 1, endPos)), nullptr);
-				} catch ($IllegalArgumentException& e) {
-					$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}), e);
-				}
-				return endPos + 1;
-			}
-		default:
-			{
+			} else {
 				$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}));
 			}
+		case u'Z':
+		case u'C':
+		case u'B':
+		case u'S':
+		case u'I':
+		case u'F':
+		case u'J':
+		case u'D':
+			return startPos + 1;
+		case u'[':
+			pos = startPos + 1;
+			while (true) {
+				bool var$0 = pos < descriptor->length();
+				if (!(var$0 && descriptor->charAt(pos) == u'[')) {
+					break;
+				}
+				{
+					++pos;
+				}
+			}
+			if (pos < descriptor->length()) {
+				return checkDescriptor(version, descriptor, pos, false);
+			} else {
+				$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}));
+			}
+		case u'L':
+			endPos = descriptor->indexOf(u';', startPos);
+			if (startPos == -1 || endPos - startPos < 2) {
+				$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}));
+			}
+			try {
+				checkInternalClassName(version, $(descriptor->substring(startPos + 1, endPos)), nullptr);
+			} catch ($IllegalArgumentException& e) {
+				$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}), e);
+			}
+			return endPos + 1;
+		default:
+			$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}));
 		}
 	}
 }
 
 void CheckMethodAdapter::checkMethodDescriptor(int32_t version, $String* descriptor) {
 	$init(CheckMethodAdapter);
-	$useLocalCurrentObjectStackCache();
-	if (descriptor == nullptr || $nc(descriptor)->length() == 0) {
+	$useLocalObjectStack();
+	if (descriptor == nullptr || descriptor->length() == 0) {
 		$throwNew($IllegalArgumentException, "Invalid method descriptor (must not be null or empty)"_s);
 	}
 	bool var$0 = $nc(descriptor)->charAt(0) != u'(';
-	if (var$0 || $nc(descriptor)->length() < 3) {
+	if (var$0 || descriptor->length() < 3) {
 		$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}));
 	}
 	int32_t pos = 1;
-	if ($nc(descriptor)->charAt(pos) != u')') {
+	if (descriptor->charAt(pos) != u')') {
 		bool var$1 = false;
 		do {
 			if (descriptor->charAt(pos) == u'V') {
@@ -1100,13 +944,13 @@ void CheckMethodAdapter::checkMethodDescriptor(int32_t version, $String* descrip
 		} while (var$1 && descriptor->charAt(pos) != u')');
 	}
 	pos = checkDescriptor(version, descriptor, pos + 1, true);
-	if (pos != $nc(descriptor)->length()) {
+	if (pos != descriptor->length()) {
 		$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}));
 	}
 }
 
 void CheckMethodAdapter::checkLabel($Label* label, bool checkVisited, $String* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (label == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, " (must not be null)"_s}));
 	}
@@ -1115,7 +959,7 @@ void CheckMethodAdapter::checkLabel($Label* label, bool checkVisited, $String* m
 	}
 }
 
-void clinit$CheckMethodAdapter($Class* class$) {
+void CheckMethodAdapter::clinit$($Class* clazz) {
 	$assignStatic(CheckMethodAdapter::INVALID, "Invalid "_s);
 	$assignStatic(CheckMethodAdapter::INVALID_DESCRIPTOR, "Invalid descriptor: "_s);
 	$assignStatic(CheckMethodAdapter::INVALID_TYPE_REFERENCE, "Invalid type reference sort 0x"_s);
@@ -1143,34 +987,34 @@ void clinit$CheckMethodAdapter($Class* class$) {
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INT_INSN,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		$CheckMethodAdapter$Method::VISIT_VAR_INSN,
 		$CheckMethodAdapter$Method::VISIT_VAR_INSN,
 		$CheckMethodAdapter$Method::VISIT_VAR_INSN,
 		$CheckMethodAdapter$Method::VISIT_VAR_INSN,
 		$CheckMethodAdapter$Method::VISIT_VAR_INSN,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
@@ -1184,26 +1028,26 @@ void clinit$CheckMethodAdapter($Class* class$) {
 		$CheckMethodAdapter$Method::VISIT_VAR_INSN,
 		$CheckMethodAdapter$Method::VISIT_VAR_INSN,
 		$CheckMethodAdapter$Method::VISIT_VAR_INSN,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
@@ -1257,7 +1101,7 @@ void clinit$CheckMethodAdapter($Class* class$) {
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
-		($CheckMethodAdapter$Method*)nullptr,
+		nullptr,
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
@@ -1295,8 +1139,8 @@ void clinit$CheckMethodAdapter($Class* class$) {
 		$CheckMethodAdapter$Method::VISIT_JUMP_INSN,
 		$CheckMethodAdapter$Method::VISIT_JUMP_INSN,
 		$CheckMethodAdapter$Method::VISIT_VAR_INSN,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
+		nullptr,
+		nullptr,
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
@@ -1311,7 +1155,7 @@ void clinit$CheckMethodAdapter($Class* class$) {
 		$CheckMethodAdapter$Method::VISIT_METHOD_INSN,
 		$CheckMethodAdapter$Method::VISIT_METHOD_INSN,
 		$CheckMethodAdapter$Method::VISIT_METHOD_INSN,
-		($CheckMethodAdapter$Method*)nullptr,
+		nullptr,
 		$CheckMethodAdapter$Method::VISIT_TYPE_INSN,
 		$CheckMethodAdapter$Method::VISIT_INT_INSN,
 		$CheckMethodAdapter$Method::VISIT_TYPE_INSN,
@@ -1321,8 +1165,8 @@ void clinit$CheckMethodAdapter($Class* class$) {
 		$CheckMethodAdapter$Method::VISIT_TYPE_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,
-		($CheckMethodAdapter$Method*)nullptr,
-		($CheckMethodAdapter$Method*)nullptr,
+		nullptr,
+		nullptr,
 		$CheckMethodAdapter$Method::VISIT_JUMP_INSN,
 		$CheckMethodAdapter$Method::VISIT_JUMP_INSN
 	}));
@@ -1332,7 +1176,111 @@ CheckMethodAdapter::CheckMethodAdapter() {
 }
 
 $Class* CheckMethodAdapter::load$($String* name, bool initialize) {
-	$loadClass(CheckMethodAdapter, name, initialize, &_CheckMethodAdapter_ClassInfo_, clinit$CheckMethodAdapter, allocate$CheckMethodAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"OPCODE_METHODS", "[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, OPCODE_METHODS)},
+		{"INVALID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, INVALID)},
+		{"INVALID_DESCRIPTOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, INVALID_DESCRIPTOR)},
+		{"INVALID_TYPE_REFERENCE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, INVALID_TYPE_REFERENCE)},
+		{"INVALID_LOCAL_VARIABLE_INDEX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, INVALID_LOCAL_VARIABLE_INDEX)},
+		{"MUST_NOT_BE_NULL_OR_EMPTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, MUST_NOT_BE_NULL_OR_EMPTY)},
+		{"START_LABEL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, START_LABEL)},
+		{"END_LABEL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckMethodAdapter, END_LABEL)},
+		{"version", "I", nullptr, $PUBLIC, $field(CheckMethodAdapter, version)},
+		{"access", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, access)},
+		{"visibleAnnotableParameterCount", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, visibleAnnotableParameterCount)},
+		{"invisibleAnnotableParameterCount", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, invisibleAnnotableParameterCount)},
+		{"visitCodeCalled", "Z", nullptr, $PRIVATE, $field(CheckMethodAdapter, visitCodeCalled)},
+		{"visitMaxCalled", "Z", nullptr, $PRIVATE, $field(CheckMethodAdapter, visitMaxCalled)},
+		{"visitEndCalled", "Z", nullptr, $PRIVATE, $field(CheckMethodAdapter, visitEndCalled)},
+		{"insnCount", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, insnCount)},
+		{"labelInsnIndices", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(CheckMethodAdapter, labelInsnIndices)},
+		{"referencedLabels", "Ljava/util/Set;", "Ljava/util/Set<Ljdk/internal/org/objectweb/asm/Label;>;", $PRIVATE, $field(CheckMethodAdapter, referencedLabels)},
+		{"lastFrameInsnIndex", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, lastFrameInsnIndex)},
+		{"numExpandedFrames", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, numExpandedFrames)},
+		{"numCompressedFrames", "I", nullptr, $PRIVATE, $field(CheckMethodAdapter, numCompressedFrames)},
+		{"handlers", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/Label;>;", $PRIVATE, $field(CheckMethodAdapter, handlers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(CheckMethodAdapter, init$, void, $MethodVisitor*)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map;)V", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;)V", $PUBLIC, $method(CheckMethodAdapter, init$, void, $MethodVisitor*, $Map*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map;)V", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;)V", $PROTECTED, $method(CheckMethodAdapter, init$, void, int32_t, $MethodVisitor*, $Map*)},
+		{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map;)V", "(ILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;)V", $PUBLIC, $method(CheckMethodAdapter, init$, void, int32_t, $String*, $String*, $MethodVisitor*, $Map*)},
+		{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map;)V", "(IILjava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;)V", $PROTECTED, $method(CheckMethodAdapter, init$, void, int32_t, int32_t, $String*, $String*, $MethodVisitor*, $Map*)},
+		{"checkConstant", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkConstant, void, Object$*)},
+		{"checkDescriptor", "(ILjava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkDescriptor, void, int32_t, $String*, bool)},
+		{"checkDescriptor", "(ILjava/lang/String;IZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkDescriptor, int32_t, int32_t, $String*, int32_t, bool)},
+		{"checkFrameValue", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkFrameValue, void, Object$*)},
+		{"checkIdentifier", "(ILjava/lang/String;IILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkIdentifier, void, int32_t, $String*, int32_t, int32_t, $String*)},
+		{"checkInternalClassName", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkInternalClassName, void, int32_t, $String*, $String*)},
+		{"checkInternalName", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkInternalName, void, int32_t, $String*, $String*)},
+		{"checkLabel", "(Ljdk/internal/org/objectweb/asm/Label;ZLjava/lang/String;)V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkLabel, void, $Label*, bool, $String*)},
+		{"checkLdcConstant", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkLdcConstant, void, Object$*)},
+		{"checkMethodDescriptor", "(ILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkMethodDescriptor, void, int32_t, $String*)},
+		{"checkMethodIdentifier", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkMethodIdentifier, void, int32_t, $String*, $String*)},
+		{"checkOpcodeMethod", "(ILjdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkOpcodeMethod, void, int32_t, $CheckMethodAdapter$Method*)},
+		{"checkSignedByte", "(ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkSignedByte, void, int32_t, $String*)},
+		{"checkSignedShort", "(ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkSignedShort, void, int32_t, $String*)},
+		{"checkUnqualifiedName", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckMethodAdapter, checkUnqualifiedName, void, int32_t, $String*, $String*)},
+		{"checkUnsignedShort", "(ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckMethodAdapter, checkUnsignedShort, void, int32_t, $String*)},
+		{"checkVisitCodeCalled", "()V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkVisitCodeCalled, void)},
+		{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkVisitEndNotCalled, void)},
+		{"checkVisitMaxsNotCalled", "()V", nullptr, $PRIVATE, $method(CheckMethodAdapter, checkVisitMaxsNotCalled, void)},
+		{"visitAnnotableParameterCount", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitAnnotableParameterCount, void, int32_t, bool)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAnnotationDefault", "()Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitAnnotationDefault, $AnnotationVisitor*)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitAttribute, void, $Attribute*)},
+		{"visitCode", "()V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitCode, void)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitEnd, void)},
+		{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
+		{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
+		{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitIincInsn, void, int32_t, int32_t)},
+		{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitInsn, void, int32_t)},
+		{"visitInsnAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitInsnAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitIntInsn, void, int32_t, int32_t)},
+		{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckMethodAdapter, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitJumpInsn, void, int32_t, $Label*)},
+		{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLabel, void, $Label*)},
+		{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLdcInsn, void, Object$*)},
+		{"visitLineNumber", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLineNumber, void, int32_t, $Label*)},
+		{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
+		{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLocalVariableAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $LabelArray*, $LabelArray*, $ints*, $String*, bool)},
+		{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
+		{"visitMaxs", "(II)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitMaxs, void, int32_t, int32_t)},
+		{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
+		{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitMultiANewArrayInsn, void, $String*, int32_t)},
+		{"visitParameter", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitParameter, void, $String*, int32_t)},
+		{"visitParameterAnnotation", "(ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitParameterAnnotation, $AnnotationVisitor*, int32_t, $String*, bool)},
+		{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckMethodAdapter, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
+		{"visitTryCatchAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitTryCatchAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{"visitTryCatchBlock", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitTryCatchBlock, void, $Label*, $Label*, $Label*, $String*)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitTypeInsn, void, int32_t, $String*)},
+		{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter, visitVarInsn, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$Method", "jdk.internal.org.objectweb.asm.util.CheckMethodAdapter", "Method", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter",
+		"jdk.internal.org.objectweb.asm.MethodVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$Method,jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$1"
+	};
+	$loadClass(CheckMethodAdapter, name, initialize, &classInfo$$, CheckMethodAdapter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckMethodAdapter);
+	});
 	return class$;
 }
 

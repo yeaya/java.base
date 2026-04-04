@@ -1,5 +1,4 @@
 #include <sun/nio/ch/Util$BufferCache.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/nio/ch/Util.h>
@@ -20,50 +19,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _Util$BufferCache_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Util$BufferCache, $assertionsDisabled)},
-	{"buffers", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Util$BufferCache, buffers)},
-	{"count", "I", nullptr, $PRIVATE, $field(Util$BufferCache, count)},
-	{"start", "I", nullptr, $PRIVATE, $field(Util$BufferCache, start)},
-	{}
-};
-
-$MethodInfo _Util$BufferCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Util$BufferCache, init$, void)},
-	{"get", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(Util$BufferCache, get, $ByteBuffer*, int32_t)},
-	{"isEmpty", "()Z", nullptr, 0, $virtualMethod(Util$BufferCache, isEmpty, bool)},
-	{"next", "(I)I", nullptr, $PRIVATE, $method(Util$BufferCache, next, int32_t, int32_t)},
-	{"offerFirst", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $virtualMethod(Util$BufferCache, offerFirst, bool, $ByteBuffer*)},
-	{"offerLast", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $virtualMethod(Util$BufferCache, offerLast, bool, $ByteBuffer*)},
-	{"removeFirst", "()Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(Util$BufferCache, removeFirst, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _Util$BufferCache_InnerClassesInfo_[] = {
-	{"sun.nio.ch.Util$BufferCache", "sun.nio.ch.Util", "BufferCache", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Util$BufferCache_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.Util$BufferCache",
-	"java.lang.Object",
-	nullptr,
-	_Util$BufferCache_FieldInfo_,
-	_Util$BufferCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Util$BufferCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.Util"
-};
-
-$Object* allocate$Util$BufferCache($Class* clazz) {
-	return $of($alloc(Util$BufferCache));
-}
-
 bool Util$BufferCache::$assertionsDisabled = false;
 
 int32_t Util$BufferCache::next(int32_t i) {
@@ -77,7 +32,7 @@ void Util$BufferCache::init$() {
 }
 
 $ByteBuffer* Util$BufferCache::get(int32_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Util$BufferCache::$assertionsDisabled && ! !$Util::isBufferTooLarge(size)) {
 		$throwNew($AssertionError);
 	}
@@ -116,6 +71,7 @@ bool Util$BufferCache::offerFirst($ByteBuffer* buf) {
 	if (!Util$BufferCache::$assertionsDisabled && ! !$Util::isBufferTooLarge(buf)) {
 		$throwNew($AssertionError);
 	}
+	$init($Util);
 	if (this->count >= $Util::TEMP_BUF_POOL_SIZE) {
 		return false;
 	} else {
@@ -130,6 +86,7 @@ bool Util$BufferCache::offerLast($ByteBuffer* buf) {
 	if (!Util$BufferCache::$assertionsDisabled && ! !$Util::isBufferTooLarge(buf)) {
 		$throwNew($AssertionError);
 	}
+	$init($Util);
 	if (this->count >= $Util::TEMP_BUF_POOL_SIZE) {
 		return false;
 	} else {
@@ -149,13 +106,13 @@ $ByteBuffer* Util$BufferCache::removeFirst() {
 		$throwNew($AssertionError);
 	}
 	$var($ByteBuffer, buf, $nc(this->buffers)->get(this->start));
-	$nc(this->buffers)->set(this->start, nullptr);
+	this->buffers->set(this->start, nullptr);
 	this->start = next(this->start);
 	--this->count;
 	return buf;
 }
 
-void clinit$Util$BufferCache($Class* class$) {
+void Util$BufferCache::clinit$($Class* clazz) {
 	$load($Util);
 	Util$BufferCache::$assertionsDisabled = !$Util::class$->desiredAssertionStatus();
 }
@@ -164,7 +121,45 @@ Util$BufferCache::Util$BufferCache() {
 }
 
 $Class* Util$BufferCache::load$($String* name, bool initialize) {
-	$loadClass(Util$BufferCache, name, initialize, &_Util$BufferCache_ClassInfo_, clinit$Util$BufferCache, allocate$Util$BufferCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Util$BufferCache, $assertionsDisabled)},
+		{"buffers", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Util$BufferCache, buffers)},
+		{"count", "I", nullptr, $PRIVATE, $field(Util$BufferCache, count)},
+		{"start", "I", nullptr, $PRIVATE, $field(Util$BufferCache, start)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Util$BufferCache, init$, void)},
+		{"get", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(Util$BufferCache, get, $ByteBuffer*, int32_t)},
+		{"isEmpty", "()Z", nullptr, 0, $virtualMethod(Util$BufferCache, isEmpty, bool)},
+		{"next", "(I)I", nullptr, $PRIVATE, $method(Util$BufferCache, next, int32_t, int32_t)},
+		{"offerFirst", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $virtualMethod(Util$BufferCache, offerFirst, bool, $ByteBuffer*)},
+		{"offerLast", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $virtualMethod(Util$BufferCache, offerLast, bool, $ByteBuffer*)},
+		{"removeFirst", "()Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(Util$BufferCache, removeFirst, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.Util$BufferCache", "sun.nio.ch.Util", "BufferCache", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.Util$BufferCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.Util"
+	};
+	$loadClass(Util$BufferCache, name, initialize, &classInfo$$, Util$BufferCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Util$BufferCache);
+	});
 	return class$;
 }
 

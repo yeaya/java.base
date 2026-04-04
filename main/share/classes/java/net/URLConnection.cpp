@@ -1,5 +1,4 @@
 #include <java/net/URLConnection.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/AssertionError.h>
@@ -19,7 +18,6 @@
 #include <java/security/AccessController.h>
 #include <java/security/AllPermission.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Collections.h>
 #include <java/util/Date.h>
 #include <java/util/Hashtable.h>
@@ -67,7 +65,6 @@ using $UnknownContentHandler = ::java::net::UnknownContentHandler;
 using $UnknownServiceException = ::java::net::UnknownServiceException;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Collections = ::java::util::Collections;
 using $Date = ::java::util::Date;
 using $Hashtable = ::java::util::Hashtable;
@@ -83,132 +80,6 @@ using $SecurityConstants = ::sun::security::util::SecurityConstants;
 namespace java {
 	namespace net {
 
-$CompoundAttribute _URLConnection_MethodAnnotations_getDefaultRequestProperty17[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _URLConnection_MethodAnnotations_setDefaultRequestProperty50[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _URLConnection_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(URLConnection, $assertionsDisabled)},
-	{"url", "Ljava/net/URL;", nullptr, $PROTECTED, $field(URLConnection, url)},
-	{"doInput", "Z", nullptr, $PROTECTED, $field(URLConnection, doInput)},
-	{"doOutput", "Z", nullptr, $PROTECTED, $field(URLConnection, doOutput)},
-	{"defaultAllowUserInteraction", "Z", nullptr, $PRIVATE | $STATIC, $staticField(URLConnection, defaultAllowUserInteraction)},
-	{"allowUserInteraction", "Z", nullptr, $PROTECTED, $field(URLConnection, allowUserInteraction)},
-	{"defaultUseCaches", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(URLConnection, defaultUseCaches)},
-	{"useCaches", "Z", nullptr, $PROTECTED, $field(URLConnection, useCaches)},
-	{"defaultCaching", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(URLConnection, defaultCaching)},
-	{"ifModifiedSince", "J", nullptr, $PROTECTED, $field(URLConnection, ifModifiedSince)},
-	{"connected", "Z", nullptr, $PROTECTED, $field(URLConnection, connected)},
-	{"connectTimeout", "I", nullptr, $PRIVATE, $field(URLConnection, connectTimeout)},
-	{"readTimeout", "I", nullptr, $PRIVATE, $field(URLConnection, readTimeout)},
-	{"requests", "Lsun/net/www/MessageHeader;", nullptr, $PRIVATE, $field(URLConnection, requests)},
-	{"fileNameMap", "Ljava/net/FileNameMap;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(URLConnection, fileNameMap)},
-	{"factory", "Ljava/net/ContentHandlerFactory;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(URLConnection, factory)},
-	{"handlers", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/net/ContentHandler;>;", $PRIVATE | $STATIC | $FINAL, $staticField(URLConnection, handlers)},
-	{"contentClassPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLConnection, contentClassPrefix)},
-	{"contentPathProp", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLConnection, contentPathProp)},
-	{}
-};
-
-$MethodInfo _URLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $method(URLConnection, init$, void, $URL*)},
-	{"addRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, addRequestProperty, void, $String*, $String*)},
-	{"checkConnected", "()V", nullptr, $PRIVATE, $method(URLConnection, checkConnected, void)},
-	{"checkfpx", "(Ljava/io/InputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URLConnection, checkfpx, bool, $InputStream*), "java.io.IOException"},
-	{"connect", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URLConnection, connect, void), "java.io.IOException"},
-	{"getAllowUserInteraction", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, getAllowUserInteraction, bool)},
-	{"getConnectTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(URLConnection, getConnectTimeout, int32_t)},
-	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContent, $Object*), "java.io.IOException"},
-	{"getContent", "([Ljava/lang/Class;)Ljava/lang/Object;", "([Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(URLConnection, getContent, $Object*, $ClassArray*), "java.io.IOException"},
-	{"getContentEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentEncoding, $String*)},
-	{"getContentHandler", "()Ljava/net/ContentHandler;", nullptr, $PRIVATE, $method(URLConnection, getContentHandler, $ContentHandler*), "java.net.UnknownServiceException"},
-	{"getContentHandlerPkgPrefixes", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(URLConnection, getContentHandlerPkgPrefixes, $String*)},
-	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentLength, int32_t)},
-	{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentLengthLong, int64_t)},
-	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentType, $String*)},
-	{"getDate", "()J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getDate, int64_t)},
-	{"getDefaultAllowUserInteraction", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, getDefaultAllowUserInteraction, bool)},
-	{"getDefaultRequestProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(URLConnection, getDefaultRequestProperty, $String*, $String*), nullptr, nullptr, _URLConnection_MethodAnnotations_getDefaultRequestProperty17},
-	{"getDefaultUseCaches", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, getDefaultUseCaches, bool)},
-	{"getDefaultUseCaches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, getDefaultUseCaches, bool, $String*)},
-	{"getDoInput", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, getDoInput, bool)},
-	{"getDoOutput", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, getDoOutput, bool)},
-	{"getExpiration", "()J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getExpiration, int64_t)},
-	{"getFileNameMap", "()Ljava/net/FileNameMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, getFileNameMap, $FileNameMap*)},
-	{"getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderField, $String*, $String*)},
-	{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderField, $String*, int32_t)},
-	{"getHeaderFieldDate", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderFieldDate, int64_t, $String*, int64_t)},
-	{"getHeaderFieldInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderFieldInt, int32_t, $String*, int32_t)},
-	{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderFieldKey, $String*, int32_t)},
-	{"getHeaderFieldLong", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderFieldLong, int64_t, $String*, int64_t)},
-	{"getHeaderFields", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(URLConnection, getHeaderFields, $Map*)},
-	{"getIfModifiedSince", "()J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getIfModifiedSince, int64_t)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getLastModified, int64_t)},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getOutputStream, $OutputStream*), "java.io.IOException"},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getPermission, $Permission*), "java.io.IOException"},
-	{"getReadTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(URLConnection, getReadTimeout, int32_t)},
-	{"getRequestProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(URLConnection, getRequestProperties, $Map*)},
-	{"getRequestProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getRequestProperty, $String*, $String*)},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getURL, $URL*)},
-	{"getUseCaches", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, getUseCaches, bool)},
-	{"guessContentTypeFromName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, guessContentTypeFromName, $String*, $String*)},
-	{"guessContentTypeFromStream", "(Ljava/io/InputStream;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, guessContentTypeFromStream, $String*, $InputStream*), "java.io.IOException"},
-	{"lookupContentHandlerClassFor", "(Ljava/lang/String;)Ljava/net/ContentHandler;", nullptr, $PRIVATE, $method(URLConnection, lookupContentHandlerClassFor, $ContentHandler*, $String*)},
-	{"lookupContentHandlerViaProvider", "(Ljava/lang/String;)Ljava/net/ContentHandler;", nullptr, $PRIVATE, $method(URLConnection, lookupContentHandlerViaProvider, $ContentHandler*, $String*)},
-	{"readBytes", "([IILjava/io/InputStream;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(URLConnection, readBytes, int32_t, $ints*, int32_t, $InputStream*), "java.io.IOException"},
-	{"setAllowUserInteraction", "(Z)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setAllowUserInteraction, void, bool)},
-	{"setConnectTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setConnectTimeout, void, int32_t)},
-	{"setContentHandlerFactory", "(Ljava/net/ContentHandlerFactory;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(URLConnection, setContentHandlerFactory, void, $ContentHandlerFactory*)},
-	{"setDefaultAllowUserInteraction", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, setDefaultAllowUserInteraction, void, bool)},
-	{"setDefaultRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(URLConnection, setDefaultRequestProperty, void, $String*, $String*), nullptr, nullptr, _URLConnection_MethodAnnotations_setDefaultRequestProperty50},
-	{"setDefaultUseCaches", "(Z)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setDefaultUseCaches, void, bool)},
-	{"setDefaultUseCaches", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, setDefaultUseCaches, void, $String*, bool)},
-	{"setDoInput", "(Z)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setDoInput, void, bool)},
-	{"setDoOutput", "(Z)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setDoOutput, void, bool)},
-	{"setFileNameMap", "(Ljava/net/FileNameMap;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, setFileNameMap, void, $FileNameMap*)},
-	{"setIfModifiedSince", "(J)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setIfModifiedSince, void, int64_t)},
-	{"setReadTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setReadTimeout, void, int32_t)},
-	{"setRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setRequestProperty, void, $String*, $String*)},
-	{"setUseCaches", "(Z)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setUseCaches, void, bool)},
-	{"skipForward", "(Ljava/io/InputStream;J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(URLConnection, skipForward, int64_t, $InputStream*, int64_t), "java.io.IOException"},
-	{"stripOffParameters", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(URLConnection, stripOffParameters, $String*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, toString, $String*)},
-	{"typeToPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(URLConnection, typeToPackageName, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _URLConnection_InnerClassesInfo_[] = {
-	{"java.net.URLConnection$2", nullptr, nullptr, 0},
-	{"java.net.URLConnection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URLConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.net.URLConnection",
-	"java.lang.Object",
-	nullptr,
-	_URLConnection_FieldInfo_,
-	_URLConnection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URLConnection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.URLConnection$2,java.net.URLConnection$1"
-};
-
-$Object* allocate$URLConnection($Class* clazz) {
-	return $of($alloc(URLConnection));
-}
-
 bool URLConnection::$assertionsDisabled = false;
 bool URLConnection::defaultAllowUserInteraction = false;
 $volatile(bool) URLConnection::defaultUseCaches = false;
@@ -223,7 +94,7 @@ $FileNameMap* URLConnection::getFileNameMap() {
 	$init(URLConnection);
 	$var($FileNameMap, map, URLConnection::fileNameMap);
 	if (map == nullptr) {
-		$assignStatic(URLConnection::fileNameMap, ($assign(map, $new($URLConnection$1))));
+		$assignStatic(URLConnection::fileNameMap, $assign(map, $new($URLConnection$1)));
 	}
 	return map;
 }
@@ -269,7 +140,7 @@ void URLConnection::init$($URL* url) {
 	if (url == nullptr) {
 		this->useCaches = URLConnection::defaultUseCaches;
 	} else {
-		this->useCaches = getDefaultUseCaches($($nc(url)->getProtocol()));
+		this->useCaches = getDefaultUseCaches($(url->getProtocol()));
 	}
 }
 
@@ -354,12 +225,12 @@ $String* URLConnection::getHeaderField(int32_t n) {
 
 $Object* URLConnection::getContent() {
 	getInputStream();
-	return $of($nc($(getContentHandler()))->getContent(this));
+	return $$nc(getContentHandler())->getContent(this);
 }
 
 $Object* URLConnection::getContent($ClassArray* classes) {
 	getInputStream();
-	return $of($nc($(getContentHandler()))->getContent(this, classes));
+	return $$nc(getContentHandler())->getContent(this, classes);
 }
 
 $Permission* URLConnection::getPermission() {
@@ -378,7 +249,7 @@ $OutputStream* URLConnection::getOutputStream() {
 }
 
 $String* URLConnection::toString() {
-	return $str({$($of(this)->getClass()->getName()), ":"_s, this->url});
+	return $str({$(this->getClass()->getName()), ":"_s, this->url});
 }
 
 void URLConnection::setDoInput(bool doinput) {
@@ -446,18 +317,18 @@ void URLConnection::setDefaultUseCaches(bool defaultusecaches) {
 
 void URLConnection::setDefaultUseCaches($String* protocol$renamed, bool defaultVal) {
 	$init(URLConnection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, protocol, protocol$renamed);
 	$init($Locale);
 	$assign(protocol, $nc(protocol)->toLowerCase($Locale::US));
-	$nc(URLConnection::defaultCaching)->put(protocol, $($Boolean::valueOf(defaultVal)));
+	URLConnection::defaultCaching->put(protocol, $($Boolean::valueOf(defaultVal)));
 }
 
 bool URLConnection::getDefaultUseCaches($String* protocol) {
 	$init(URLConnection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
-	$var($Boolean, protoDefault, $cast($Boolean, $nc(URLConnection::defaultCaching)->get($($nc(protocol)->toLowerCase($Locale::US)))));
+	$var($Boolean, protoDefault, $cast($Boolean, URLConnection::defaultCaching->get($($nc(protocol)->toLowerCase($Locale::US)))));
 	if (protoDefault != nullptr) {
 		return protoDefault->booleanValue();
 	} else {
@@ -513,9 +384,8 @@ $String* URLConnection::getDefaultRequestProperty($String* key) {
 }
 
 void URLConnection::setContentHandlerFactory($ContentHandlerFactory* fac) {
-	$load(URLConnection);
+	$init(URLConnection);
 	$synchronized(class$) {
-		$init(URLConnection);
 		if (URLConnection::factory != nullptr) {
 			$throwNew($Error, "factory already defined"_s);
 		}
@@ -528,12 +398,12 @@ void URLConnection::setContentHandlerFactory($ContentHandlerFactory* fac) {
 }
 
 $ContentHandler* URLConnection::getContentHandler() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, contentType, stripOffParameters($(getContentType())));
 	if (contentType == nullptr) {
 		$throwNew($UnknownServiceException, "no content-type"_s);
 	}
-	$var($ContentHandler, handler, $cast($ContentHandler, $nc(URLConnection::handlers)->get(contentType)));
+	$var($ContentHandler, handler, $cast($ContentHandler, URLConnection::handlers->get(contentType)));
 	if (handler != nullptr) {
 		return handler;
 	}
@@ -545,7 +415,7 @@ $ContentHandler* URLConnection::getContentHandler() {
 	}
 	$assign(handler, lookupContentHandlerViaProvider(contentType));
 	if (handler != nullptr) {
-		$var($ContentHandler, h, $cast($ContentHandler, $nc(URLConnection::handlers)->putIfAbsent(contentType, handler)));
+		$var($ContentHandler, h, $cast($ContentHandler, URLConnection::handlers->putIfAbsent(contentType, handler)));
 		return $cast($ContentHandler, $Objects::requireNonNullElse(h, handler));
 	}
 	try {
@@ -558,7 +428,7 @@ $ContentHandler* URLConnection::getContentHandler() {
 	if (!URLConnection::$assertionsDisabled && !(handler != nullptr)) {
 		$throwNew($AssertionError);
 	}
-	$var($ContentHandler, h, $cast($ContentHandler, $nc(URLConnection::handlers)->putIfAbsent(contentType, handler)));
+	$var($ContentHandler, h, $cast($ContentHandler, URLConnection::handlers->putIfAbsent(contentType, handler)));
 	return $cast($ContentHandler, $Objects::requireNonNullElse(h, handler));
 }
 
@@ -566,7 +436,7 @@ $String* URLConnection::stripOffParameters($String* contentType) {
 	if (contentType == nullptr) {
 		return nullptr;
 	}
-	int32_t index = $nc(contentType)->indexOf((int32_t)u';');
+	int32_t index = $nc(contentType)->indexOf(u';');
 	if (index > 0) {
 		return contentType->substring(0, index);
 	} else {
@@ -575,13 +445,13 @@ $String* URLConnection::stripOffParameters($String* contentType) {
 }
 
 $ContentHandler* URLConnection::lookupContentHandlerClassFor($String* contentType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, contentHandlerClassName, typeToPackageName(contentType));
 	$var($String, contentHandlerPkgPrefixes, getContentHandlerPkgPrefixes());
 	$var($StringTokenizer, packagePrefixIter, $new($StringTokenizer, contentHandlerPkgPrefixes, "|"_s));
 	while (packagePrefixIter->hasMoreTokens()) {
-		$var($String, packagePrefix, $nc($(packagePrefixIter->nextToken()))->trim());
+		$var($String, packagePrefix, $$nc(packagePrefixIter->nextToken())->trim());
 		try {
 			$var($String, clsName, $str({packagePrefix, "."_s, contentHandlerClassName}));
 			$Class* cls = nullptr;
@@ -606,11 +476,11 @@ $ContentHandler* URLConnection::lookupContentHandlerClassFor($String* contentTyp
 
 $ContentHandler* URLConnection::lookupContentHandlerViaProvider($String* contentType) {
 	$beforeCallerSensitive();
-	return $cast($ContentHandler, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($URLConnection$2, this, contentType))));
+	return $cast($ContentHandler, $AccessController::doPrivileged($$new($URLConnection$2, this, contentType)));
 }
 
 $String* URLConnection::typeToPackageName($String* contentType$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, contentType, contentType$renamed);
 	$assign(contentType, $nc(contentType)->toLowerCase());
 	int32_t len = contentType->length();
@@ -637,7 +507,7 @@ $String* URLConnection::getContentHandlerPkgPrefixes() {
 
 $String* URLConnection::guessContentTypeFromName($String* fname) {
 	$init(URLConnection);
-	return $nc($(getFileNameMap()))->getContentTypeFor(fname);
+	return $$nc(getFileNameMap())->getContentTypeFor(fname);
 }
 
 $String* URLConnection::guessContentTypeFromStream($InputStream* is) {
@@ -645,7 +515,7 @@ $String* URLConnection::guessContentTypeFromStream($InputStream* is) {
 	if (!$nc(is)->markSupported()) {
 		return nullptr;
 	}
-	$nc(is)->mark(16);
+	is->mark(16);
 	int32_t c1 = is->read();
 	int32_t c2 = is->read();
 	int32_t c3 = is->read();
@@ -827,7 +697,7 @@ int32_t URLConnection::readBytes($ints* c, int32_t len, $InputStream* is) {
 		return -1;
 	}
 	for (int32_t i = 0; i < len; ++i) {
-		$nc(c)->set(i, (int32_t)(buf->get(i) & (uint32_t)255));
+		$nc(c)->set(i, buf->get(i) & 0xff);
 	}
 	return 0;
 }
@@ -856,7 +726,7 @@ void URLConnection::checkConnected() {
 	}
 }
 
-void clinit$URLConnection($Class* class$) {
+void URLConnection::clinit$($Class* clazz) {
 	$assignStatic(URLConnection::contentClassPrefix, "sun.net.www.content"_s);
 	$assignStatic(URLConnection::contentPathProp, "java.content.handler.pkgs"_s);
 	URLConnection::$assertionsDisabled = !URLConnection::class$->desiredAssertionStatus();
@@ -870,7 +740,125 @@ URLConnection::URLConnection() {
 }
 
 $Class* URLConnection::load$($String* name, bool initialize) {
-	$loadClass(URLConnection, name, initialize, &_URLConnection_ClassInfo_, clinit$URLConnection, allocate$URLConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(URLConnection, $assertionsDisabled)},
+		{"url", "Ljava/net/URL;", nullptr, $PROTECTED, $field(URLConnection, url)},
+		{"doInput", "Z", nullptr, $PROTECTED, $field(URLConnection, doInput)},
+		{"doOutput", "Z", nullptr, $PROTECTED, $field(URLConnection, doOutput)},
+		{"defaultAllowUserInteraction", "Z", nullptr, $PRIVATE | $STATIC, $staticField(URLConnection, defaultAllowUserInteraction)},
+		{"allowUserInteraction", "Z", nullptr, $PROTECTED, $field(URLConnection, allowUserInteraction)},
+		{"defaultUseCaches", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(URLConnection, defaultUseCaches)},
+		{"useCaches", "Z", nullptr, $PROTECTED, $field(URLConnection, useCaches)},
+		{"defaultCaching", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(URLConnection, defaultCaching)},
+		{"ifModifiedSince", "J", nullptr, $PROTECTED, $field(URLConnection, ifModifiedSince)},
+		{"connected", "Z", nullptr, $PROTECTED, $field(URLConnection, connected)},
+		{"connectTimeout", "I", nullptr, $PRIVATE, $field(URLConnection, connectTimeout)},
+		{"readTimeout", "I", nullptr, $PRIVATE, $field(URLConnection, readTimeout)},
+		{"requests", "Lsun/net/www/MessageHeader;", nullptr, $PRIVATE, $field(URLConnection, requests)},
+		{"fileNameMap", "Ljava/net/FileNameMap;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(URLConnection, fileNameMap)},
+		{"factory", "Ljava/net/ContentHandlerFactory;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(URLConnection, factory)},
+		{"handlers", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/net/ContentHandler;>;", $PRIVATE | $STATIC | $FINAL, $staticField(URLConnection, handlers)},
+		{"contentClassPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLConnection, contentClassPrefix)},
+		{"contentPathProp", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLConnection, contentPathProp)},
+		{}
+	};
+	$CompoundAttribute getDefaultRequestPropertymethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setDefaultRequestPropertymethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $method(URLConnection, init$, void, $URL*)},
+		{"addRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, addRequestProperty, void, $String*, $String*)},
+		{"checkConnected", "()V", nullptr, $PRIVATE, $method(URLConnection, checkConnected, void)},
+		{"checkfpx", "(Ljava/io/InputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URLConnection, checkfpx, bool, $InputStream*), "java.io.IOException"},
+		{"connect", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URLConnection, connect, void), "java.io.IOException"},
+		{"getAllowUserInteraction", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, getAllowUserInteraction, bool)},
+		{"getConnectTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(URLConnection, getConnectTimeout, int32_t)},
+		{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContent, $Object*), "java.io.IOException"},
+		{"getContent", "([Ljava/lang/Class;)Ljava/lang/Object;", "([Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(URLConnection, getContent, $Object*, $ClassArray*), "java.io.IOException"},
+		{"getContentEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentEncoding, $String*)},
+		{"getContentHandler", "()Ljava/net/ContentHandler;", nullptr, $PRIVATE, $method(URLConnection, getContentHandler, $ContentHandler*), "java.net.UnknownServiceException"},
+		{"getContentHandlerPkgPrefixes", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(URLConnection, getContentHandlerPkgPrefixes, $String*)},
+		{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentLength, int32_t)},
+		{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentLengthLong, int64_t)},
+		{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentType, $String*)},
+		{"getDate", "()J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getDate, int64_t)},
+		{"getDefaultAllowUserInteraction", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, getDefaultAllowUserInteraction, bool)},
+		{"getDefaultRequestProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(URLConnection, getDefaultRequestProperty, $String*, $String*), nullptr, nullptr, getDefaultRequestPropertymethodAnnotations$$},
+		{"getDefaultUseCaches", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, getDefaultUseCaches, bool)},
+		{"getDefaultUseCaches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, getDefaultUseCaches, bool, $String*)},
+		{"getDoInput", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, getDoInput, bool)},
+		{"getDoOutput", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, getDoOutput, bool)},
+		{"getExpiration", "()J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getExpiration, int64_t)},
+		{"getFileNameMap", "()Ljava/net/FileNameMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, getFileNameMap, $FileNameMap*)},
+		{"getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderField, $String*, $String*)},
+		{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderField, $String*, int32_t)},
+		{"getHeaderFieldDate", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderFieldDate, int64_t, $String*, int64_t)},
+		{"getHeaderFieldInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderFieldInt, int32_t, $String*, int32_t)},
+		{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderFieldKey, $String*, int32_t)},
+		{"getHeaderFieldLong", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderFieldLong, int64_t, $String*, int64_t)},
+		{"getHeaderFields", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(URLConnection, getHeaderFields, $Map*)},
+		{"getIfModifiedSince", "()J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getIfModifiedSince, int64_t)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(URLConnection, getLastModified, int64_t)},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getOutputStream, $OutputStream*), "java.io.IOException"},
+		{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getPermission, $Permission*), "java.io.IOException"},
+		{"getReadTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(URLConnection, getReadTimeout, int32_t)},
+		{"getRequestProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(URLConnection, getRequestProperties, $Map*)},
+		{"getRequestProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getRequestProperty, $String*, $String*)},
+		{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getURL, $URL*)},
+		{"getUseCaches", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, getUseCaches, bool)},
+		{"guessContentTypeFromName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, guessContentTypeFromName, $String*, $String*)},
+		{"guessContentTypeFromStream", "(Ljava/io/InputStream;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, guessContentTypeFromStream, $String*, $InputStream*), "java.io.IOException"},
+		{"lookupContentHandlerClassFor", "(Ljava/lang/String;)Ljava/net/ContentHandler;", nullptr, $PRIVATE, $method(URLConnection, lookupContentHandlerClassFor, $ContentHandler*, $String*)},
+		{"lookupContentHandlerViaProvider", "(Ljava/lang/String;)Ljava/net/ContentHandler;", nullptr, $PRIVATE, $method(URLConnection, lookupContentHandlerViaProvider, $ContentHandler*, $String*)},
+		{"readBytes", "([IILjava/io/InputStream;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(URLConnection, readBytes, int32_t, $ints*, int32_t, $InputStream*), "java.io.IOException"},
+		{"setAllowUserInteraction", "(Z)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setAllowUserInteraction, void, bool)},
+		{"setConnectTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setConnectTimeout, void, int32_t)},
+		{"setContentHandlerFactory", "(Ljava/net/ContentHandlerFactory;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(URLConnection, setContentHandlerFactory, void, $ContentHandlerFactory*)},
+		{"setDefaultAllowUserInteraction", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, setDefaultAllowUserInteraction, void, bool)},
+		{"setDefaultRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(URLConnection, setDefaultRequestProperty, void, $String*, $String*), nullptr, nullptr, setDefaultRequestPropertymethodAnnotations$$},
+		{"setDefaultUseCaches", "(Z)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setDefaultUseCaches, void, bool)},
+		{"setDefaultUseCaches", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, setDefaultUseCaches, void, $String*, bool)},
+		{"setDoInput", "(Z)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setDoInput, void, bool)},
+		{"setDoOutput", "(Z)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setDoOutput, void, bool)},
+		{"setFileNameMap", "(Ljava/net/FileNameMap;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLConnection, setFileNameMap, void, $FileNameMap*)},
+		{"setIfModifiedSince", "(J)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setIfModifiedSince, void, int64_t)},
+		{"setReadTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setReadTimeout, void, int32_t)},
+		{"setRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setRequestProperty, void, $String*, $String*)},
+		{"setUseCaches", "(Z)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setUseCaches, void, bool)},
+		{"skipForward", "(Ljava/io/InputStream;J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(URLConnection, skipForward, int64_t, $InputStream*, int64_t), "java.io.IOException"},
+		{"stripOffParameters", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(URLConnection, stripOffParameters, $String*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, toString, $String*)},
+		{"typeToPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(URLConnection, typeToPackageName, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.URLConnection$2", nullptr, nullptr, 0},
+		{"java.net.URLConnection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.net.URLConnection",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.URLConnection$2,java.net.URLConnection$1"
+	};
+	$loadClass(URLConnection, name, initialize, &classInfo$$, URLConnection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(URLConnection);
+	});
 	return class$;
 }
 

@@ -18,6 +18,7 @@ class $export NulFile : public ::java::lang::Object {
 	$class(NulFile, 0, ::java::lang::Object)
 public:
 	NulFile();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test($String* name);

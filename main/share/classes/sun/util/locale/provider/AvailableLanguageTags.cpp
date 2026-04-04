@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/AvailableLanguageTags.h>
-
 #include <java/util/Set.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$MethodInfo _AvailableLanguageTags_MethodInfo_[] = {
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AvailableLanguageTags, getAvailableLanguageTags, $Set*)},
-	{}
-};
-
-$ClassInfo _AvailableLanguageTags_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.util.locale.provider.AvailableLanguageTags",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AvailableLanguageTags_MethodInfo_
-};
-
-$Object* allocate$AvailableLanguageTags($Class* clazz) {
-	return $of($alloc(AvailableLanguageTags));
-}
-
 $Class* AvailableLanguageTags::load$($String* name, bool initialize) {
-	$loadClass(AvailableLanguageTags, name, initialize, &_AvailableLanguageTags_ClassInfo_, allocate$AvailableLanguageTags);
+	$MethodInfo methodInfos$$[] = {
+		{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AvailableLanguageTags, getAvailableLanguageTags, $Set*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.util.locale.provider.AvailableLanguageTags",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AvailableLanguageTags, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AvailableLanguageTags);
+	});
 	return class$;
 }
 

@@ -20,6 +20,7 @@ class GoldenDoubleValues : public ::java::lang::Object {
 	$class(GoldenDoubleValues, 0, ::java::lang::Object)
 public:
 	GoldenDoubleValues();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Locale* TestLocale;
 	static ::java::util::Locale* FullLocalizationTestLocale;

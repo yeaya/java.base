@@ -34,6 +34,7 @@ class $import AtomicIntegerArray : public ::java::io::Serializable {
 	$class(AtomicIntegerArray, 0, ::java::io::Serializable)
 public:
 	AtomicIntegerArray();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t length);
 	void init$($ints* array);
 	int32_t accumulateAndGet(int32_t i, int32_t x, ::java::util::function::IntBinaryOperator* accumulatorFunction);
@@ -67,7 +68,7 @@ public:
 	bool weakCompareAndSetPlain(int32_t i, int32_t expectedValue, int32_t newValue);
 	bool weakCompareAndSetRelease(int32_t i, int32_t expectedValue, int32_t newValue);
 	bool weakCompareAndSetVolatile(int32_t i, int32_t expectedValue, int32_t newValue);
-	static const int64_t serialVersionUID = (int64_t)0x27B857513300BD8B;
+	static const int64_t serialVersionUID = (int64_t)0x27b857513300bd8b;
 	static ::java::lang::invoke::VarHandle* AA;
 	$ints* array = nullptr;
 };

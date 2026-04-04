@@ -1,41 +1,10 @@
 #include <HostOfMemberNoHost$MemberNoHost.h>
-
 #include <HostOfMemberNoHost.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _HostOfMemberNoHost$MemberNoHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostOfMemberNoHost$MemberNoHost, init$, void)},
-	{}
-};
-
-$InnerClassInfo _HostOfMemberNoHost$MemberNoHost_InnerClassesInfo_[] = {
-	{"HostOfMemberNoHost$MemberNoHost", "HostOfMemberNoHost", "MemberNoHost", $STATIC},
-	{}
-};
-
-$ClassInfo _HostOfMemberNoHost$MemberNoHost_ClassInfo_ = {
-	$ACC_SUPER,
-	"HostOfMemberNoHost$MemberNoHost",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HostOfMemberNoHost$MemberNoHost_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HostOfMemberNoHost$MemberNoHost_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HostOfMemberNoHost"
-};
-
-$Object* allocate$HostOfMemberNoHost$MemberNoHost($Class* clazz) {
-	return $of($alloc(HostOfMemberNoHost$MemberNoHost));
-}
 
 void HostOfMemberNoHost$MemberNoHost::init$() {
 }
@@ -44,7 +13,32 @@ HostOfMemberNoHost$MemberNoHost::HostOfMemberNoHost$MemberNoHost() {
 }
 
 $Class* HostOfMemberNoHost$MemberNoHost::load$($String* name, bool initialize) {
-	$loadClass(HostOfMemberNoHost$MemberNoHost, name, initialize, &_HostOfMemberNoHost$MemberNoHost_ClassInfo_, allocate$HostOfMemberNoHost$MemberNoHost);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostOfMemberNoHost$MemberNoHost, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HostOfMemberNoHost$MemberNoHost", "HostOfMemberNoHost", "MemberNoHost", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HostOfMemberNoHost$MemberNoHost",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HostOfMemberNoHost"
+	};
+	$loadClass(HostOfMemberNoHost$MemberNoHost, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostOfMemberNoHost$MemberNoHost);
+	});
 	return class$;
 }
 

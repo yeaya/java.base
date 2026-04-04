@@ -1,5 +1,4 @@
 #include <java/lang/Float2/ParseFloat.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/math/BigDecimal.h>
@@ -27,40 +26,6 @@ namespace java {
 	namespace lang {
 		namespace Float2 {
 
-$FieldInfo _ParseFloat_FieldInfo_[] = {
-	{"HALF", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ParseFloat, HALF)},
-	{"badStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseFloat, badStrings)},
-	{"goodStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseFloat, goodStrings)},
-	{"paddedBadStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseFloat, paddedBadStrings)},
-	{"paddedGoodStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseFloat, paddedGoodStrings)},
-	{}
-};
-
-$MethodInfo _ParseFloat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ParseFloat, init$, void)},
-	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, check, void, $String*)},
-	{"check", "(Ljava/lang/String;F)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, check, void, $String*, float)},
-	{"fail", "(Ljava/lang/String;F)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, fail, void, $String*, float)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseFloat, main, void, $StringArray*), "java.lang.Exception"},
-	{"rudimentaryTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, rudimentaryTest, void)},
-	{"testParsing", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, testParsing, void, $StringArray*, bool)},
-	{"testPowers", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, testPowers, void)},
-	{}
-};
-
-$ClassInfo _ParseFloat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.Float2.ParseFloat",
-	"java.lang.Object",
-	nullptr,
-	_ParseFloat_FieldInfo_,
-	_ParseFloat_MethodInfo_
-};
-
-$Object* allocate$ParseFloat($Class* clazz) {
-	return $of($alloc(ParseFloat));
-}
-
 $BigDecimal* ParseFloat::HALF = nullptr;
 $StringArray* ParseFloat::badStrings = nullptr;
 $StringArray* ParseFloat::goodStrings = nullptr;
@@ -72,25 +37,22 @@ void ParseFloat::init$() {
 
 void ParseFloat::fail($String* val, float n) {
 	$init(ParseFloat);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$throwNew($RuntimeException, $$str({"Float.parseFloat failed. String:"_s, val, " Result:"_s, $$str(n)}));
 }
 
 void ParseFloat::check($String* val) {
 	$init(ParseFloat);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float n = $Float::parseFloat(val);
 	bool isNegativeN = n < 0 || n == 0 && 1 / n < 0;
 	float na = $Math::abs(n);
 	$var($String, s, $($nc(val)->trim())->toLowerCase());
 	switch (s->charAt(s->length() - 1)) {
 	case u'd':
-		{}
 	case u'f':
-		{
-			$assign(s, s->substring(0, s->length() - 1));
-			break;
-		}
+		$assign(s, s->substring(0, s->length() - 1));
+		break;
 	}
 	bool isNegative = false;
 	if (s->charAt(0) == u'+') {
@@ -120,22 +82,24 @@ void ParseFloat::check($String* val) {
 	$var($BigDecimal, bd, nullptr);
 	if (s->startsWith("0x"_s)) {
 		$assign(s, s->substring(2));
-		int32_t indP = s->indexOf((int32_t)u'p');
+		int32_t indP = s->indexOf(u'p');
 		int64_t exp = $Long::parseLong($(s->substring(indP + 1)));
-		int32_t indD = s->indexOf((int32_t)u'.');
+		int32_t indD = s->indexOf(u'.');
 		$var($String, significand, nullptr);
 		if (indD >= 0) {
-			$var($String, var$0, $(s->substring(0, indD)));
-			$assign(significand, $concat(var$0, $(s->substring(indD + 1, indP))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($(s->substring(0, indD)));
+			var$0->append($(s->substring(indD + 1, indP)));
+			$assign(significand, $str(var$0));
 			exp -= 4 * (indP - indD - 1);
 		} else {
 			$assign(significand, s->substring(0, indP));
 		}
 		$assign(bd, $new($BigDecimal, $$new($BigInteger, significand, 16)));
 		if (exp >= 0) {
-			$assign(bd, bd->multiply($($nc($($BigDecimal::valueOf((int64_t)2)))->pow((int32_t)exp))));
+			$assign(bd, bd->multiply($($($BigDecimal::valueOf((int64_t)2))->pow((int32_t)exp))));
 		} else {
-			$assign(bd, bd->divide($($nc($($BigDecimal::valueOf((int64_t)2)))->pow((int32_t)-exp))));
+			$assign(bd, bd->divide($($($BigDecimal::valueOf((int64_t)2))->pow((int32_t)-exp))));
 		}
 	} else {
 		$assign(bd, $new($BigDecimal, s));
@@ -151,7 +115,7 @@ void ParseFloat::check($String* val) {
 	}
 	int32_t cmpL = $nc(bd)->compareTo(l);
 	int32_t cmpU = u != nullptr ? bd->compareTo(u) : -1;
-	if (((int32_t)($Float::floatToIntBits(n) & (uint32_t)1)) != 0) {
+	if (($Float::floatToIntBits(n) & 1) != 0) {
 		if (cmpL <= 0 || cmpU >= 0) {
 			fail(val, n);
 		}
@@ -171,8 +135,7 @@ void ParseFloat::check($String* val, float expected) {
 
 void ParseFloat::rudimentaryTest() {
 	$init(ParseFloat);
-	$useLocalCurrentObjectStackCache();
-	$init($Float);
+	$useLocalObjectStack();
 	check($$new($String, $$str({""_s, $$str($Float::MIN_VALUE)})), $Float::MIN_VALUE);
 	check($$new($String, $$str({""_s, $$str($Float::MAX_VALUE)})), $Float::MAX_VALUE);
 	check("10"_s, (float)10.0);
@@ -194,7 +157,7 @@ void ParseFloat::rudimentaryTest() {
 
 void ParseFloat::testParsing($StringArray* input, bool exceptionalInput) {
 	$init(ParseFloat);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(input)->length; ++i) {
 		double d = 0.0;
 		try {
@@ -214,17 +177,16 @@ void ParseFloat::testParsing($StringArray* input, bool exceptionalInput) {
 
 void ParseFloat::testPowers() {
 	$init(ParseFloat);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = -149; i <= +127; ++i) {
 		float f = $Math::scalb(1.0f, i);
 		$var($BigDecimal, f_BD, $new($BigDecimal, (double)f));
 		$var($BigDecimal, lowerBound, f_BD->subtract($($$new($BigDecimal, (double)$Math::ulp(-$Math::nextUp(-f)))->multiply(ParseFloat::HALF))));
 		$var($BigDecimal, upperBound, f_BD->add($($$new($BigDecimal, (double)$Math::ulp(f))->multiply(ParseFloat::HALF))));
-		check($($nc(lowerBound)->toString()));
-		check($($nc(upperBound)->toString()));
+		check($(lowerBound->toString()));
+		check($(upperBound->toString()));
 	}
-	$init($Float);
-	check($($nc($($$new($BigDecimal, (double)$Float::MAX_VALUE)->add($($$new($BigDecimal, (double)$Math::ulp($Float::MAX_VALUE))->multiply(ParseFloat::HALF)))))->toString()));
+	check($($($$new($BigDecimal, (double)$Float::MAX_VALUE)->add($($$new($BigDecimal, (double)$Math::ulp($Float::MAX_VALUE))->multiply(ParseFloat::HALF))))->toString()));
 }
 
 void ParseFloat::main($StringArray* args) {
@@ -237,8 +199,8 @@ void ParseFloat::main($StringArray* args) {
 	testPowers();
 }
 
-void clinit$ParseFloat($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ParseFloat::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ParseFloat::HALF, $BigDecimal::valueOf(0.5));
 	$assignStatic(ParseFloat::badStrings, $new($StringArray, {
 		""_s,
@@ -327,13 +289,13 @@ void clinit$ParseFloat($Class* class$) {
 	}));
 	{
 		$var($String, pad, " \t\n\r\f\u0001\u000b\u001f"_s);
-		$assignStatic(ParseFloat::paddedBadStrings, $new($StringArray, $nc(ParseFloat::badStrings)->length));
-		for (int32_t i = 0; i < $nc(ParseFloat::badStrings)->length; ++i) {
-			$nc(ParseFloat::paddedBadStrings)->set(i, $$str({pad, $nc(ParseFloat::badStrings)->get(i), pad}));
+		$assignStatic(ParseFloat::paddedBadStrings, $new($StringArray, ParseFloat::badStrings->length));
+		for (int32_t i = 0; i < ParseFloat::badStrings->length; ++i) {
+			ParseFloat::paddedBadStrings->set(i, $$str({pad, ParseFloat::badStrings->get(i), pad}));
 		}
-		$assignStatic(ParseFloat::paddedGoodStrings, $new($StringArray, $nc(ParseFloat::goodStrings)->length));
-		for (int32_t i = 0; i < $nc(ParseFloat::goodStrings)->length; ++i) {
-			$nc(ParseFloat::paddedGoodStrings)->set(i, $$str({pad, $nc(ParseFloat::goodStrings)->get(i), pad}));
+		$assignStatic(ParseFloat::paddedGoodStrings, $new($StringArray, ParseFloat::goodStrings->length));
+		for (int32_t i = 0; i < ParseFloat::goodStrings->length; ++i) {
+			ParseFloat::paddedGoodStrings->set(i, $$str({pad, ParseFloat::goodStrings->get(i), pad}));
 		}
 	}
 }
@@ -342,7 +304,36 @@ ParseFloat::ParseFloat() {
 }
 
 $Class* ParseFloat::load$($String* name, bool initialize) {
-	$loadClass(ParseFloat, name, initialize, &_ParseFloat_ClassInfo_, clinit$ParseFloat, allocate$ParseFloat);
+	$FieldInfo fieldInfos$$[] = {
+		{"HALF", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ParseFloat, HALF)},
+		{"badStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseFloat, badStrings)},
+		{"goodStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseFloat, goodStrings)},
+		{"paddedBadStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseFloat, paddedBadStrings)},
+		{"paddedGoodStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseFloat, paddedGoodStrings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ParseFloat, init$, void)},
+		{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, check, void, $String*)},
+		{"check", "(Ljava/lang/String;F)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, check, void, $String*, float)},
+		{"fail", "(Ljava/lang/String;F)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, fail, void, $String*, float)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseFloat, main, void, $StringArray*), "java.lang.Exception"},
+		{"rudimentaryTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, rudimentaryTest, void)},
+		{"testParsing", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, testParsing, void, $StringArray*, bool)},
+		{"testPowers", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, testPowers, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.Float2.ParseFloat",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ParseFloat, name, initialize, &classInfo$$, ParseFloat::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ParseFloat);
+	});
 	return class$;
 }
 

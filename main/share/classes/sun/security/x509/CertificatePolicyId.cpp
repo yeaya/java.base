@@ -1,5 +1,4 @@
 #include <sun/security/x509/CertificatePolicyId.h>
-
 #include <sun/security/util/DerOutputStream.h>
 #include <sun/security/util/DerValue.h>
 #include <sun/security/util/ObjectIdentifier.h>
@@ -16,35 +15,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _CertificatePolicyId_FieldInfo_[] = {
-	{"id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(CertificatePolicyId, id)},
-	{}
-};
-
-$MethodInfo _CertificatePolicyId_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;)V", nullptr, $PUBLIC, $method(CertificatePolicyId, init$, void, $ObjectIdentifier*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(CertificatePolicyId, init$, void, $DerValue*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyId, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyId, equals, bool, Object$*)},
-	{"getIdentifier", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyId, getIdentifier, $ObjectIdentifier*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyId, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyId, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CertificatePolicyId_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.CertificatePolicyId",
-	"java.lang.Object",
-	nullptr,
-	_CertificatePolicyId_FieldInfo_,
-	_CertificatePolicyId_MethodInfo_
-};
-
-$Object* allocate$CertificatePolicyId($Class* clazz) {
-	return $of($alloc(CertificatePolicyId));
-}
-
 void CertificatePolicyId::init$($ObjectIdentifier* id) {
 	$set(this, id, id);
 }
@@ -58,7 +28,7 @@ $ObjectIdentifier* CertificatePolicyId::getIdentifier() {
 }
 
 $String* CertificatePolicyId::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $str({"CertificatePolicyId: ["_s, $($nc(this->id)->toString()), "]\n"_s}));
 	return (s);
 }
@@ -69,7 +39,7 @@ void CertificatePolicyId::encode($DerOutputStream* out) {
 
 bool CertificatePolicyId::equals(Object$* other) {
 	if ($instanceOf(CertificatePolicyId, other)) {
-		return $nc(this->id)->equals($($nc(($cast(CertificatePolicyId, other)))->getIdentifier()));
+		return $nc(this->id)->equals($($cast(CertificatePolicyId, other)->getIdentifier()));
 	} else {
 		return false;
 	}
@@ -83,7 +53,31 @@ CertificatePolicyId::CertificatePolicyId() {
 }
 
 $Class* CertificatePolicyId::load$($String* name, bool initialize) {
-	$loadClass(CertificatePolicyId, name, initialize, &_CertificatePolicyId_ClassInfo_, allocate$CertificatePolicyId);
+	$FieldInfo fieldInfos$$[] = {
+		{"id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(CertificatePolicyId, id)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;)V", nullptr, $PUBLIC, $method(CertificatePolicyId, init$, void, $ObjectIdentifier*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(CertificatePolicyId, init$, void, $DerValue*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyId, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyId, equals, bool, Object$*)},
+		{"getIdentifier", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyId, getIdentifier, $ObjectIdentifier*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyId, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyId, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.CertificatePolicyId",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertificatePolicyId, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificatePolicyId);
+	});
 	return class$;
 }
 

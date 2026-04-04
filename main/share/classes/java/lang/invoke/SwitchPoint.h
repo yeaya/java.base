@@ -22,6 +22,7 @@ class $export SwitchPoint : public ::java::lang::Object {
 	$class(SwitchPoint, 0, ::java::lang::Object)
 public:
 	SwitchPoint();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::lang::invoke::MethodHandle* guardWithTest(::java::lang::invoke::MethodHandle* target, ::java::lang::invoke::MethodHandle* fallback);
 	virtual bool hasBeenInvalidated();

@@ -1,5 +1,4 @@
 #include <java/util/stream/Stream.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -9,7 +8,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Comparator.h>
 #include <java/util/List.h>
@@ -68,7 +66,6 @@ using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Comparator = ::java::util::Comparator;
 using $List = ::java::util::List;
@@ -122,35 +119,31 @@ public:
 		$set(this, mapper, mapper);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(Stream::lambda$mapMulti$0(mapper, e));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Stream$$Lambda$lambda$mapMulti$0>());
+		 return Stream::lambda$mapMulti$0(mapper, e);
 	}
 	$BiConsumer* mapper = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Stream$$Lambda$lambda$mapMulti$0::fieldInfos[2] = {
-	{"mapper", "Ljava/util/function/BiConsumer;", nullptr, $PUBLIC, $field(Stream$$Lambda$lambda$mapMulti$0, mapper)},
-	{}
-};
-$MethodInfo Stream$$Lambda$lambda$mapMulti$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$mapMulti$0, init$, void, $BiConsumer*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$mapMulti$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Stream$$Lambda$lambda$mapMulti$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Stream$$Lambda$lambda$mapMulti$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Stream$$Lambda$lambda$mapMulti$0::load$($String* name, bool initialize) {
-	$loadClass(Stream$$Lambda$lambda$mapMulti$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mapper", "Ljava/util/function/BiConsumer;", nullptr, $PUBLIC, $field(Stream$$Lambda$lambda$mapMulti$0, mapper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$mapMulti$0, init$, void, $BiConsumer*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$mapMulti$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Stream$$Lambda$lambda$mapMulti$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Stream$$Lambda$lambda$mapMulti$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream$$Lambda$lambda$mapMulti$0);
+	});
 	return class$;
 }
 $Class* Stream$$Lambda$lambda$mapMulti$0::class$ = nullptr;
@@ -162,35 +155,31 @@ public:
 		$set(this, mapper, mapper);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(Stream::lambda$mapMultiToInt$1(mapper, e));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Stream$$Lambda$lambda$mapMultiToInt$1$1>());
+		 return Stream::lambda$mapMultiToInt$1(mapper, e);
 	}
 	$BiConsumer* mapper = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Stream$$Lambda$lambda$mapMultiToInt$1$1::fieldInfos[2] = {
-	{"mapper", "Ljava/util/function/BiConsumer;", nullptr, $PUBLIC, $field(Stream$$Lambda$lambda$mapMultiToInt$1$1, mapper)},
-	{}
-};
-$MethodInfo Stream$$Lambda$lambda$mapMultiToInt$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$mapMultiToInt$1$1, init$, void, $BiConsumer*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$mapMultiToInt$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Stream$$Lambda$lambda$mapMultiToInt$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Stream$$Lambda$lambda$mapMultiToInt$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Stream$$Lambda$lambda$mapMultiToInt$1$1::load$($String* name, bool initialize) {
-	$loadClass(Stream$$Lambda$lambda$mapMultiToInt$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mapper", "Ljava/util/function/BiConsumer;", nullptr, $PUBLIC, $field(Stream$$Lambda$lambda$mapMultiToInt$1$1, mapper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$mapMultiToInt$1$1, init$, void, $BiConsumer*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$mapMultiToInt$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Stream$$Lambda$lambda$mapMultiToInt$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Stream$$Lambda$lambda$mapMultiToInt$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream$$Lambda$lambda$mapMultiToInt$1$1);
+	});
 	return class$;
 }
 $Class* Stream$$Lambda$lambda$mapMultiToInt$1$1::class$ = nullptr;
@@ -202,35 +191,31 @@ public:
 		$set(this, mapper, mapper);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(Stream::lambda$mapMultiToLong$2(mapper, e));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Stream$$Lambda$lambda$mapMultiToLong$2$2>());
+		 return Stream::lambda$mapMultiToLong$2(mapper, e);
 	}
 	$BiConsumer* mapper = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Stream$$Lambda$lambda$mapMultiToLong$2$2::fieldInfos[2] = {
-	{"mapper", "Ljava/util/function/BiConsumer;", nullptr, $PUBLIC, $field(Stream$$Lambda$lambda$mapMultiToLong$2$2, mapper)},
-	{}
-};
-$MethodInfo Stream$$Lambda$lambda$mapMultiToLong$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$mapMultiToLong$2$2, init$, void, $BiConsumer*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$mapMultiToLong$2$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Stream$$Lambda$lambda$mapMultiToLong$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Stream$$Lambda$lambda$mapMultiToLong$2$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Stream$$Lambda$lambda$mapMultiToLong$2$2::load$($String* name, bool initialize) {
-	$loadClass(Stream$$Lambda$lambda$mapMultiToLong$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mapper", "Ljava/util/function/BiConsumer;", nullptr, $PUBLIC, $field(Stream$$Lambda$lambda$mapMultiToLong$2$2, mapper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$mapMultiToLong$2$2, init$, void, $BiConsumer*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$mapMultiToLong$2$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Stream$$Lambda$lambda$mapMultiToLong$2$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Stream$$Lambda$lambda$mapMultiToLong$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream$$Lambda$lambda$mapMultiToLong$2$2);
+	});
 	return class$;
 }
 $Class* Stream$$Lambda$lambda$mapMultiToLong$2$2::class$ = nullptr;
@@ -242,35 +227,31 @@ public:
 		$set(this, mapper, mapper);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(Stream::lambda$mapMultiToDouble$3(mapper, e));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Stream$$Lambda$lambda$mapMultiToDouble$3$3>());
+		 return Stream::lambda$mapMultiToDouble$3(mapper, e);
 	}
 	$BiConsumer* mapper = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Stream$$Lambda$lambda$mapMultiToDouble$3$3::fieldInfos[2] = {
-	{"mapper", "Ljava/util/function/BiConsumer;", nullptr, $PUBLIC, $field(Stream$$Lambda$lambda$mapMultiToDouble$3$3, mapper)},
-	{}
-};
-$MethodInfo Stream$$Lambda$lambda$mapMultiToDouble$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$mapMultiToDouble$3$3, init$, void, $BiConsumer*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$mapMultiToDouble$3$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Stream$$Lambda$lambda$mapMultiToDouble$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Stream$$Lambda$lambda$mapMultiToDouble$3$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Stream$$Lambda$lambda$mapMultiToDouble$3$3::load$($String* name, bool initialize) {
-	$loadClass(Stream$$Lambda$lambda$mapMultiToDouble$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mapper", "Ljava/util/function/BiConsumer;", nullptr, $PUBLIC, $field(Stream$$Lambda$lambda$mapMultiToDouble$3$3, mapper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$mapMultiToDouble$3$3, init$, void, $BiConsumer*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$mapMultiToDouble$3$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Stream$$Lambda$lambda$mapMultiToDouble$3$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Stream$$Lambda$lambda$mapMultiToDouble$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream$$Lambda$lambda$mapMultiToDouble$3$3);
+	});
 	return class$;
 }
 $Class* Stream$$Lambda$lambda$mapMultiToDouble$3$3::class$ = nullptr;
@@ -284,161 +265,70 @@ public:
 	virtual void run() override {
 		$nc(inst$)->close();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Stream$$Lambda$close$4>());
-	}
 	$BaseStream* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Stream$$Lambda$close$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Stream$$Lambda$close$4, inst$)},
-	{}
-};
-$MethodInfo Stream$$Lambda$close$4::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/BaseStream;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$close$4, init$, void, $BaseStream*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$close$4, run, void)},
-	{}
-};
-$ClassInfo Stream$$Lambda$close$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Stream$$Lambda$close$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Stream$$Lambda$close$4::load$($String* name, bool initialize) {
-	$loadClass(Stream$$Lambda$close$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Stream$$Lambda$close$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/BaseStream;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$close$4, init$, void, $BaseStream*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$close$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Stream$$Lambda$close$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Stream$$Lambda$close$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream$$Lambda$close$4);
+	});
 	return class$;
 }
 $Class* Stream$$Lambda$close$4::class$ = nullptr;
 
-$CompoundAttribute _Stream_MethodAnnotations_of39[] = {
-	{"Ljava/lang/SafeVarargs;", nullptr},
-	{}
-};
-
-$MethodInfo _Stream_MethodInfo_[] = {
-	{"allMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TT;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, allMatch, bool, $Predicate*)},
-	{"anyMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TT;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, anyMatch, bool, $Predicate*)},
-	{"builder", "()Ljava/util/stream/Stream$Builder;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Stream$Builder<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, builder, $Stream$Builder*)},
-	{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/BiConsumer<TR;-TT;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, collect, $Object*, $Supplier*, $BiConsumer*, $BiConsumer*)},
-	{"collect", "(Ljava/util/stream/Collector;)Ljava/lang/Object;", "<R:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/util/stream/Collector<-TT;TA;TR;>;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, collect, $Object*, $Collector*)},
-	{"concat", "(Ljava/util/stream/Stream;Ljava/util/stream/Stream;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/Stream<+TT;>;Ljava/util/stream/Stream<+TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, concat, Stream*, Stream*, Stream*)},
-	{"count", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Stream, count, int64_t)},
-	{"distinct", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, distinct, Stream*)},
-	{"dropWhile", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC, $virtualMethod(Stream, dropWhile, Stream*, $Predicate*)},
-	{"empty", "()Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, empty, Stream*)},
-	{"filter", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, filter, Stream*, $Predicate*)},
-	{"findAny", "()Ljava/util/Optional;", "()Ljava/util/Optional<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, findAny, $Optional*)},
-	{"findFirst", "()Ljava/util/Optional;", "()Ljava/util/Optional<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, findFirst, $Optional*)},
-	{"flatMap", "(Ljava/util/function/Function;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/stream/Stream<+TR;>;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, flatMap, Stream*, $Function*)},
-	{"flatMapToDouble", "(Ljava/util/function/Function;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/Function<-TT;+Ljava/util/stream/DoubleStream;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, flatMapToDouble, $DoubleStream*, $Function*)},
-	{"flatMapToInt", "(Ljava/util/function/Function;)Ljava/util/stream/IntStream;", "(Ljava/util/function/Function<-TT;+Ljava/util/stream/IntStream;>;)Ljava/util/stream/IntStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, flatMapToInt, $IntStream*, $Function*)},
-	{"flatMapToLong", "(Ljava/util/function/Function;)Ljava/util/stream/LongStream;", "(Ljava/util/function/Function<-TT;+Ljava/util/stream/LongStream;>;)Ljava/util/stream/LongStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, flatMapToLong, $LongStream*, $Function*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, forEach, void, $Consumer*)},
-	{"forEachOrdered", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, forEachOrdered, void, $Consumer*)},
-	{"generate", "(Ljava/util/function/Supplier;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, generate, Stream*, $Supplier*)},
-	{"iterate", "(Ljava/lang/Object;Ljava/util/function/UnaryOperator;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(TT;Ljava/util/function/UnaryOperator<TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, iterate, Stream*, Object$*, $UnaryOperator*)},
-	{"iterate", "(Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/UnaryOperator;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(TT;Ljava/util/function/Predicate<-TT;>;Ljava/util/function/UnaryOperator<TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, iterate, Stream*, Object$*, $Predicate*, $UnaryOperator*)},
-	{"lambda$mapMulti$0", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$mapMulti$0, Stream*, $BiConsumer*, Object$*)},
-	{"lambda$mapMultiToDouble$3", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)Ljava/util/stream/DoubleStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$mapMultiToDouble$3, $DoubleStream*, $BiConsumer*, Object$*)},
-	{"lambda$mapMultiToInt$1", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)Ljava/util/stream/IntStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$mapMultiToInt$1, $IntStream*, $BiConsumer*, Object$*)},
-	{"lambda$mapMultiToLong$2", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)Ljava/util/stream/LongStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$mapMultiToLong$2, $LongStream*, $BiConsumer*, Object$*)},
-	{"limit", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, limit, Stream*, int64_t)},
-	{"map", "(Ljava/util/function/Function;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TR;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, map, Stream*, $Function*)},
-	{"mapMulti", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/BiConsumer<-TT;-Ljava/util/function/Consumer<TR;>;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC, $virtualMethod(Stream, mapMulti, Stream*, $BiConsumer*)},
-	{"mapMultiToDouble", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/util/function/DoubleConsumer;>;)Ljava/util/stream/DoubleStream;", $PUBLIC, $virtualMethod(Stream, mapMultiToDouble, $DoubleStream*, $BiConsumer*)},
-	{"mapMultiToInt", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/IntStream;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/util/function/IntConsumer;>;)Ljava/util/stream/IntStream;", $PUBLIC, $virtualMethod(Stream, mapMultiToInt, $IntStream*, $BiConsumer*)},
-	{"mapMultiToLong", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/LongStream;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/util/function/LongConsumer;>;)Ljava/util/stream/LongStream;", $PUBLIC, $virtualMethod(Stream, mapMultiToLong, $LongStream*, $BiConsumer*)},
-	{"mapToDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, mapToDouble, $DoubleStream*, $ToDoubleFunction*)},
-	{"mapToInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;", "(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/stream/IntStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, mapToInt, $IntStream*, $ToIntFunction*)},
-	{"mapToLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/LongStream;", "(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/stream/LongStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, mapToLong, $LongStream*, $ToLongFunction*)},
-	{"max", "(Ljava/util/Comparator;)Ljava/util/Optional;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/Optional<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, max, $Optional*, $Comparator*)},
-	{"min", "(Ljava/util/Comparator;)Ljava/util/Optional;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/Optional<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, min, $Optional*, $Comparator*)},
-	{"noneMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TT;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, noneMatch, bool, $Predicate*)},
-	{"of", "(Ljava/lang/Object;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, of, Stream*, Object$*)},
-	{"of", "([Ljava/lang/Object;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Stream, of, Stream*, $ObjectArray*), nullptr, nullptr, _Stream_MethodAnnotations_of39},
-	{"ofNullable", "(Ljava/lang/Object;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, ofNullable, Stream*, Object$*)},
-	{"peek", "(Ljava/util/function/Consumer;)Ljava/util/stream/Stream;", "(Ljava/util/function/Consumer<-TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, peek, Stream*, $Consumer*)},
-	{"reduce", "(Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "(TT;Ljava/util/function/BinaryOperator<TT;>;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, reduce, $Object*, Object$*, $BinaryOperator*)},
-	{"reduce", "(Ljava/util/function/BinaryOperator;)Ljava/util/Optional;", "(Ljava/util/function/BinaryOperator<TT;>;)Ljava/util/Optional<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, reduce, $Optional*, $BinaryOperator*)},
-	{"reduce", "(Ljava/lang/Object;Ljava/util/function/BiFunction;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "<U:Ljava/lang/Object;>(TU;Ljava/util/function/BiFunction<TU;-TT;TU;>;Ljava/util/function/BinaryOperator<TU;>;)TU;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, reduce, $Object*, Object$*, $BiFunction*, $BinaryOperator*)},
-	{"skip", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, skip, Stream*, int64_t)},
-	{"sorted", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, sorted, Stream*)},
-	{"sorted", "(Ljava/util/Comparator;)Ljava/util/stream/Stream;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, sorted, Stream*, $Comparator*)},
-	{"takeWhile", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC, $virtualMethod(Stream, takeWhile, Stream*, $Predicate*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Stream, toArray, $ObjectArray*)},
-	{"toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "<A:Ljava/lang/Object;>(Ljava/util/function/IntFunction<[TA;>;)[TA;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, toArray, $ObjectArray*, $IntFunction*)},
-	{"toList", "()Ljava/util/List;", "()Ljava/util/List<TT;>;", $PUBLIC, $virtualMethod(Stream, toList, $List*)},
-	{}
-};
-
-$InnerClassInfo _Stream_InnerClassesInfo_[] = {
-	{"java.util.stream.Stream$Builder", "java.util.stream.Stream", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Stream$2", nullptr, nullptr, 0},
-	{"java.util.stream.Stream$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Stream_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.stream.Stream",
-	nullptr,
-	"java.util.stream.BaseStream",
-	nullptr,
-	_Stream_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/BaseStream<TT;Ljava/util/stream/Stream<TT;>;>;",
-	nullptr,
-	_Stream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.stream.Stream$Builder,java.util.stream.Stream$2,java.util.stream.Stream$1"
-};
-
-$Object* allocate$Stream($Class* clazz) {
-	return $of($alloc(Stream));
-}
-
 Stream* Stream::mapMulti($BiConsumer* mapper) {
 	$Objects::requireNonNull(mapper);
-	return flatMap(static_cast<$Function*>($$new(Stream$$Lambda$lambda$mapMulti$0, mapper)));
+	return flatMap($$new(Stream$$Lambda$lambda$mapMulti$0, mapper));
 }
 
 $IntStream* Stream::mapMultiToInt($BiConsumer* mapper) {
 	$Objects::requireNonNull(mapper);
-	return flatMapToInt(static_cast<$Function*>($$new(Stream$$Lambda$lambda$mapMultiToInt$1$1, mapper)));
+	return flatMapToInt($$new(Stream$$Lambda$lambda$mapMultiToInt$1$1, mapper));
 }
 
 $LongStream* Stream::mapMultiToLong($BiConsumer* mapper) {
 	$Objects::requireNonNull(mapper);
-	return flatMapToLong(static_cast<$Function*>($$new(Stream$$Lambda$lambda$mapMultiToLong$2$2, mapper)));
+	return flatMapToLong($$new(Stream$$Lambda$lambda$mapMultiToLong$2$2, mapper));
 }
 
 $DoubleStream* Stream::mapMultiToDouble($BiConsumer* mapper) {
 	$Objects::requireNonNull(mapper);
-	return flatMapToDouble(static_cast<$Function*>($$new(Stream$$Lambda$lambda$mapMultiToDouble$3$3, mapper)));
+	return flatMapToDouble($$new(Stream$$Lambda$lambda$mapMultiToDouble$3$3, mapper));
 }
 
 Stream* Stream::takeWhile($Predicate* predicate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(predicate);
-	$var($Spliterator, var$0, static_cast<$Spliterator*>($new($WhileOps$UnorderedWhileSpliterator$OfRef$Taking, $(spliterator()), true, predicate)));
-	return $cast(Stream, $nc($($StreamSupport::stream(var$0, isParallel())))->onClose(static_cast<$Runnable*>($$new(Stream$$Lambda$close$4, this))));
+	$var($Spliterator, var$0, $new($WhileOps$UnorderedWhileSpliterator$OfRef$Taking, $(spliterator()), true, predicate));
+	return $cast(Stream, $$nc($StreamSupport::stream(var$0, isParallel()))->onClose($$new(Stream$$Lambda$close$4, this)));
 }
 
 Stream* Stream::dropWhile($Predicate* predicate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(predicate);
-	$var($Spliterator, var$0, static_cast<$Spliterator*>($new($WhileOps$UnorderedWhileSpliterator$OfRef$Dropping, $(spliterator()), true, predicate)));
-	return $cast(Stream, $nc($($StreamSupport::stream(var$0, isParallel())))->onClose(static_cast<$Runnable*>($$new(Stream$$Lambda$close$4, this))));
+	$var($Spliterator, var$0, $new($WhileOps$UnorderedWhileSpliterator$OfRef$Dropping, $(spliterator()), true, predicate));
+	return $cast(Stream, $$nc($StreamSupport::stream(var$0, isParallel()))->onClose($$new(Stream$$Lambda$close$4, this)));
 }
 
 $List* Stream::toList() {
-	$useLocalCurrentObjectStackCache();
-	return $Collections::unmodifiableList($$new($ArrayList, $(static_cast<$Collection*>($Arrays::asList($(this->toArray()))))));
+	$useLocalObjectStack();
+	return $Collections::unmodifiableList($$new($ArrayList, $($Arrays::asList($(this->toArray())))));
 }
 
 $Stream$Builder* Stream::builder() {
@@ -489,7 +379,7 @@ Stream* Stream::generate($Supplier* s) {
 
 Stream* Stream::concat(Stream* a, Stream* b) {
 	$init(Stream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(a);
 	$Objects::requireNonNull(b);
 	$var($Spliterator, var$0, a->spliterator());
@@ -501,31 +391,31 @@ Stream* Stream::concat(Stream* a, Stream* b) {
 
 $DoubleStream* Stream::lambda$mapMultiToDouble$3($BiConsumer* mapper, Object$* e) {
 	$init(Stream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SpinedBuffer$OfDouble, buffer, $new($SpinedBuffer$OfDouble));
 	$nc(mapper)->accept(e, buffer);
-	return $StreamSupport::doubleStream($($cast($Spliterator$OfDouble, buffer->spliterator())), false);
+	return $StreamSupport::doubleStream($$cast($Spliterator$OfDouble, buffer->spliterator()), false);
 }
 
 $LongStream* Stream::lambda$mapMultiToLong$2($BiConsumer* mapper, Object$* e) {
 	$init(Stream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SpinedBuffer$OfLong, buffer, $new($SpinedBuffer$OfLong));
 	$nc(mapper)->accept(e, buffer);
-	return $StreamSupport::longStream($($cast($Spliterator$OfLong, buffer->spliterator())), false);
+	return $StreamSupport::longStream($$cast($Spliterator$OfLong, buffer->spliterator()), false);
 }
 
 $IntStream* Stream::lambda$mapMultiToInt$1($BiConsumer* mapper, Object$* e) {
 	$init(Stream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SpinedBuffer$OfInt, buffer, $new($SpinedBuffer$OfInt));
 	$nc(mapper)->accept(e, buffer);
-	return $StreamSupport::intStream($($cast($Spliterator$OfInt, buffer->spliterator())), false);
+	return $StreamSupport::intStream($$cast($Spliterator$OfInt, buffer->spliterator()), false);
 }
 
 Stream* Stream::lambda$mapMulti$0($BiConsumer* mapper, Object$* e) {
 	$init(Stream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SpinedBuffer, buffer, $new($SpinedBuffer));
 	$nc(mapper)->accept(e, buffer);
 	return $StreamSupport::stream($(buffer->spliterator()), false);
@@ -533,23 +423,104 @@ Stream* Stream::lambda$mapMulti$0($BiConsumer* mapper, Object$* e) {
 
 $Class* Stream::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Stream$$Lambda$lambda$mapMulti$0::classInfo$.name)) {
+		if (name->equals("java.util.stream.Stream$$Lambda$lambda$mapMulti$0")) {
 			return Stream$$Lambda$lambda$mapMulti$0::load$(name, initialize);
 		}
-		if (name->equals(Stream$$Lambda$lambda$mapMultiToInt$1$1::classInfo$.name)) {
+		if (name->equals("java.util.stream.Stream$$Lambda$lambda$mapMultiToInt$1$1")) {
 			return Stream$$Lambda$lambda$mapMultiToInt$1$1::load$(name, initialize);
 		}
-		if (name->equals(Stream$$Lambda$lambda$mapMultiToLong$2$2::classInfo$.name)) {
+		if (name->equals("java.util.stream.Stream$$Lambda$lambda$mapMultiToLong$2$2")) {
 			return Stream$$Lambda$lambda$mapMultiToLong$2$2::load$(name, initialize);
 		}
-		if (name->equals(Stream$$Lambda$lambda$mapMultiToDouble$3$3::classInfo$.name)) {
+		if (name->equals("java.util.stream.Stream$$Lambda$lambda$mapMultiToDouble$3$3")) {
 			return Stream$$Lambda$lambda$mapMultiToDouble$3$3::load$(name, initialize);
 		}
-		if (name->equals(Stream$$Lambda$close$4::classInfo$.name)) {
+		if (name->equals("java.util.stream.Stream$$Lambda$close$4")) {
 			return Stream$$Lambda$close$4::load$(name, initialize);
 		}
 	}
-	$loadClass(Stream, name, initialize, &_Stream_ClassInfo_, allocate$Stream);
+	$CompoundAttribute ofmethodAnnotations$$$1[] = {
+		{"Ljava/lang/SafeVarargs;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"allMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TT;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, allMatch, bool, $Predicate*)},
+		{"anyMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TT;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, anyMatch, bool, $Predicate*)},
+		{"builder", "()Ljava/util/stream/Stream$Builder;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Stream$Builder<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, builder, $Stream$Builder*)},
+		{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/BiConsumer<TR;-TT;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, collect, $Object*, $Supplier*, $BiConsumer*, $BiConsumer*)},
+		{"collect", "(Ljava/util/stream/Collector;)Ljava/lang/Object;", "<R:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/util/stream/Collector<-TT;TA;TR;>;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, collect, $Object*, $Collector*)},
+		{"concat", "(Ljava/util/stream/Stream;Ljava/util/stream/Stream;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/Stream<+TT;>;Ljava/util/stream/Stream<+TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, concat, Stream*, Stream*, Stream*)},
+		{"count", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Stream, count, int64_t)},
+		{"distinct", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, distinct, Stream*)},
+		{"dropWhile", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC, $virtualMethod(Stream, dropWhile, Stream*, $Predicate*)},
+		{"empty", "()Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, empty, Stream*)},
+		{"filter", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, filter, Stream*, $Predicate*)},
+		{"findAny", "()Ljava/util/Optional;", "()Ljava/util/Optional<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, findAny, $Optional*)},
+		{"findFirst", "()Ljava/util/Optional;", "()Ljava/util/Optional<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, findFirst, $Optional*)},
+		{"flatMap", "(Ljava/util/function/Function;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/stream/Stream<+TR;>;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, flatMap, Stream*, $Function*)},
+		{"flatMapToDouble", "(Ljava/util/function/Function;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/Function<-TT;+Ljava/util/stream/DoubleStream;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, flatMapToDouble, $DoubleStream*, $Function*)},
+		{"flatMapToInt", "(Ljava/util/function/Function;)Ljava/util/stream/IntStream;", "(Ljava/util/function/Function<-TT;+Ljava/util/stream/IntStream;>;)Ljava/util/stream/IntStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, flatMapToInt, $IntStream*, $Function*)},
+		{"flatMapToLong", "(Ljava/util/function/Function;)Ljava/util/stream/LongStream;", "(Ljava/util/function/Function<-TT;+Ljava/util/stream/LongStream;>;)Ljava/util/stream/LongStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, flatMapToLong, $LongStream*, $Function*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, forEach, void, $Consumer*)},
+		{"forEachOrdered", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, forEachOrdered, void, $Consumer*)},
+		{"generate", "(Ljava/util/function/Supplier;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, generate, Stream*, $Supplier*)},
+		{"iterate", "(Ljava/lang/Object;Ljava/util/function/UnaryOperator;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(TT;Ljava/util/function/UnaryOperator<TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, iterate, Stream*, Object$*, $UnaryOperator*)},
+		{"iterate", "(Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/UnaryOperator;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(TT;Ljava/util/function/Predicate<-TT;>;Ljava/util/function/UnaryOperator<TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, iterate, Stream*, Object$*, $Predicate*, $UnaryOperator*)},
+		{"lambda$mapMulti$0", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$mapMulti$0, Stream*, $BiConsumer*, Object$*)},
+		{"lambda$mapMultiToDouble$3", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)Ljava/util/stream/DoubleStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$mapMultiToDouble$3, $DoubleStream*, $BiConsumer*, Object$*)},
+		{"lambda$mapMultiToInt$1", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)Ljava/util/stream/IntStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$mapMultiToInt$1, $IntStream*, $BiConsumer*, Object$*)},
+		{"lambda$mapMultiToLong$2", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)Ljava/util/stream/LongStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$mapMultiToLong$2, $LongStream*, $BiConsumer*, Object$*)},
+		{"limit", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, limit, Stream*, int64_t)},
+		{"map", "(Ljava/util/function/Function;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TR;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, map, Stream*, $Function*)},
+		{"mapMulti", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/Stream;", "<R:Ljava/lang/Object;>(Ljava/util/function/BiConsumer<-TT;-Ljava/util/function/Consumer<TR;>;>;)Ljava/util/stream/Stream<TR;>;", $PUBLIC, $virtualMethod(Stream, mapMulti, Stream*, $BiConsumer*)},
+		{"mapMultiToDouble", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/util/function/DoubleConsumer;>;)Ljava/util/stream/DoubleStream;", $PUBLIC, $virtualMethod(Stream, mapMultiToDouble, $DoubleStream*, $BiConsumer*)},
+		{"mapMultiToInt", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/IntStream;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/util/function/IntConsumer;>;)Ljava/util/stream/IntStream;", $PUBLIC, $virtualMethod(Stream, mapMultiToInt, $IntStream*, $BiConsumer*)},
+		{"mapMultiToLong", "(Ljava/util/function/BiConsumer;)Ljava/util/stream/LongStream;", "(Ljava/util/function/BiConsumer<-TT;-Ljava/util/function/LongConsumer;>;)Ljava/util/stream/LongStream;", $PUBLIC, $virtualMethod(Stream, mapMultiToLong, $LongStream*, $BiConsumer*)},
+		{"mapToDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, mapToDouble, $DoubleStream*, $ToDoubleFunction*)},
+		{"mapToInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;", "(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/stream/IntStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, mapToInt, $IntStream*, $ToIntFunction*)},
+		{"mapToLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/LongStream;", "(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/stream/LongStream;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, mapToLong, $LongStream*, $ToLongFunction*)},
+		{"max", "(Ljava/util/Comparator;)Ljava/util/Optional;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/Optional<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, max, $Optional*, $Comparator*)},
+		{"min", "(Ljava/util/Comparator;)Ljava/util/Optional;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/Optional<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, min, $Optional*, $Comparator*)},
+		{"noneMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TT;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, noneMatch, bool, $Predicate*)},
+		{"of", "(Ljava/lang/Object;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, of, Stream*, Object$*)},
+		{"of", "([Ljava/lang/Object;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Stream, of, Stream*, $ObjectArray*), nullptr, nullptr, ofmethodAnnotations$$$1},
+		{"ofNullable", "(Ljava/lang/Object;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(Stream, ofNullable, Stream*, Object$*)},
+		{"peek", "(Ljava/util/function/Consumer;)Ljava/util/stream/Stream;", "(Ljava/util/function/Consumer<-TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, peek, Stream*, $Consumer*)},
+		{"reduce", "(Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "(TT;Ljava/util/function/BinaryOperator<TT;>;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, reduce, $Object*, Object$*, $BinaryOperator*)},
+		{"reduce", "(Ljava/util/function/BinaryOperator;)Ljava/util/Optional;", "(Ljava/util/function/BinaryOperator<TT;>;)Ljava/util/Optional<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, reduce, $Optional*, $BinaryOperator*)},
+		{"reduce", "(Ljava/lang/Object;Ljava/util/function/BiFunction;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "<U:Ljava/lang/Object;>(TU;Ljava/util/function/BiFunction<TU;-TT;TU;>;Ljava/util/function/BinaryOperator<TU;>;)TU;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, reduce, $Object*, Object$*, $BiFunction*, $BinaryOperator*)},
+		{"skip", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, skip, Stream*, int64_t)},
+		{"sorted", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, sorted, Stream*)},
+		{"sorted", "(Ljava/util/Comparator;)Ljava/util/stream/Stream;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, sorted, Stream*, $Comparator*)},
+		{"takeWhile", "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Stream<TT;>;", $PUBLIC, $virtualMethod(Stream, takeWhile, Stream*, $Predicate*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Stream, toArray, $ObjectArray*)},
+		{"toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "<A:Ljava/lang/Object;>(Ljava/util/function/IntFunction<[TA;>;)[TA;", $PUBLIC | $ABSTRACT, $virtualMethod(Stream, toArray, $ObjectArray*, $IntFunction*)},
+		{"toList", "()Ljava/util/List;", "()Ljava/util/List<TT;>;", $PUBLIC, $virtualMethod(Stream, toList, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Stream$Builder", "java.util.stream.Stream", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Stream$2", nullptr, nullptr, 0},
+		{"java.util.stream.Stream$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.stream.Stream",
+		nullptr,
+		"java.util.stream.BaseStream",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/BaseStream<TT;Ljava/util/stream/Stream<TT;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.stream.Stream$Builder,java.util.stream.Stream$2,java.util.stream.Stream$1"
+	};
+	$loadClass(Stream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream);
+	});
 	return class$;
 }
 

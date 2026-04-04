@@ -356,12 +356,12 @@ inline To* $tryCast(From& ex) {
 
 #define $(...) $ref(__VA_ARGS__)
 
-template<typename T = int8_t>
+template<typename T>
 inline T* $allocRaw(int64_t length = 1) {
 	return (T*)::java::lang::ObjectManager::allocRaw(sizeof(T[1]) * length);
 }
 
-template<typename T = int8_t>
+template<typename T>
 inline T* $allocRawOrNull(int64_t length = 1) {
 	return (T*)::java::lang::ObjectManager::allocRawOrNull(sizeof(T[1]) * length);
 }
@@ -370,12 +370,12 @@ inline void $freeRaw(void* raw) {
 	::java::lang::ObjectManager::freeRaw(raw);
 }
 
-template<typename T = int8_t>
+template<typename T>
 inline T* $allocRawStatic(int64_t length = 1) {
 	return (T*)::java::lang::ObjectManager::allocRawStatic(sizeof(T[1]) * length);
 }
 
-template<typename T = int8_t>
+template<typename T>
 inline T* $allocRawStaticOrNull(int64_t length = 1) {
 	return (T*)::java::lang::ObjectManager::allocRawStaticOrNull(sizeof(T[1]) * length);
 }
@@ -413,6 +413,24 @@ inline T* $allocStatic(int32_t length) {
 	$load(T);
 	return new(::java::lang::ObjectManager::allocStaticArray($getClass(T), length)) T(length);
 }
+template<typename T, $enable_if($is_base_of(::java::lang::Object, T) && !$is_base_of(::java::lang::BaseArray, T))>
+inline T* $allocStaticOrNull() {
+	$load(T);
+	::java::lang::Object* obj = new(::java::lang::ObjectManager::allocStaticOrNull(T::class$, sizeof(T))) T();
+	if (obj != nullptr) {
+		return new(obj) T();
+	}
+	return nullptr;
+}
+template<typename T, $enable_if($is_base_of(::java::lang::BaseArray, T))>
+inline T* $allocStaticOrNull(int32_t length) {
+	$load(T);
+	::java::lang::Object* obj = new(::java::lang::ObjectManager::allocStaticArrayOrNull($getClass(T), length)) T(length);
+	if (obj != nullptr) {
+		return new(obj) T();
+	}
+	return nullptr;
+}
 
 template<typename T, $enable_if($is_base_of(::java::lang::Object, T) && !$is_base_of(::java::lang::BaseArray, T))>
 inline T* $allocConst() {
@@ -423,6 +441,22 @@ template<typename T, $enable_if($is_base_of(::java::lang::BaseArray, T))>
 inline T* $allocConst(int32_t length) {
 	$load(T);
 	return new(::java::lang::ObjectManager::allocConstArray($getClass(T), length)) T(length);
+}
+template<typename T, $enable_if($is_base_of(::java::lang::Object, T) && !$is_base_of(::java::lang::BaseArray, T))>
+inline T* $allocConstOrNull() {
+	$load(T);
+	::java::lang::Object* obj = new(::java::lang::ObjectManager::allocConstOrNull(T::class$, sizeof(T))) T();
+	if (obj != nullptr) {
+		return new(obj) T();
+	}
+}
+template<typename T, $enable_if($is_base_of(::java::lang::BaseArray, T))>
+inline T* $allocConstOrNull(int32_t length) {
+	$load(T);
+	::java::lang::Object* obj = new(::java::lang::ObjectManager::allocConstArrayOrNull($getClass(T), length)) T(length);
+	if (obj != nullptr) {
+		return new(obj) T();
+	}
 }
 
 template<typename T, $enable_if($is_base_of(::java::lang::Object, T) && !$is_base_of(::java::lang::BaseArray, T) && $has_class(T)), typename... Types>
@@ -695,10 +729,33 @@ inline T* $new(T& ex) {
 	return $new<T>((T*)(ex.throwing$));
 }
 
-#define $alloc(x) $alloc<x>()
-#define $$alloc(x) $ref($alloc<x>())
-#define $allocOrNull(x) $allocOrNull<x>()
-#define $$allocOrNull(x) $ref($allocOrNull<x>())
+#define $$nc(...) $ref($nc(__VA_ARGS__))
+
+#define $allocRaw(x, ...) $allocRaw<x>(__VA_ARGS__)
+#define $$allocRaw(x, ...) $ref($allocRaw<x>(__VA_ARGS__))
+#define $allocRawOrNull(x, ...) $allocRawOrNull<x>(__VA_ARGS__)
+#define $$allocRawOrNull(x, ...) $ref($allocRawOrNull<x>(__VA_ARGS__))
+
+#define $allocRawStatic(x, ...) $allocRawStatic<x>(__VA_ARGS__)
+#define $$allocRawStatic(x, ...) $ref($allocRawStatic<x>(__VA_ARGS__))
+#define $allocRawStaticOrNull(x, ...) $allocRawStaticOrNull<x>(__VA_ARGS__)
+#define $$allocRawStaticOrNull(x, ...) $ref($allocRawStaticOrNull<x>(__VA_ARGS__))
+
+#define $alloc(x, ...) $alloc<x>(__VA_ARGS__)
+#define $$alloc(x, ...) $ref($alloc<x>(__VA_ARGS__))
+#define $allocOrNull(x, ...) $allocOrNull<x>(__VA_ARGS__)
+#define $$allocOrNull(x, ...) $ref($allocOrNull<x>(__VA_ARGS__))
+
+#define $allocStatic(x, ...) $allocStatic<x>(__VA_ARGS__)
+#define $$allocStatic(x, ...) $ref($allocStatic<x>(__VA_ARGS__))
+#define $allocStaticOrNull(x, ...) $allocStaticOrNull<x>(__VA_ARGS__)
+#define $$allocStaticOrNull(x, ...) $ref($allocStaticOrNull<x>(__VA_ARGS__))
+
+#define $allocConst(x, ...) $allocConst<x>(__VA_ARGS__)
+#define $$allocConst(x, ...) $ref($allocConst<x>(__VA_ARGS__))
+#define $allocConstOrNull(x, ...) $allocConstOrNull<x>(__VA_ARGS__)
+#define $$allocConstOrNull(x, ...) $ref($allocConstOrNull<x>(__VA_ARGS__))
+
 #define $new(x, ...) $new<x>(__VA_ARGS__)
 #define $$new(x, ...) $ref($new<x>(__VA_ARGS__))
 
@@ -1405,6 +1462,7 @@ template<typename To, typename From, $enable_if(
 To* $sure(From* from) {
 	$Object0* obj0 = $sureObject0(from);
 	$Class* clazz = obj0->getClass();
+	$load(To);
 	$Class* toClazz = $getClass(To);
 	if (clazz == toClazz) {
 		return (To*)(void*)obj0;
@@ -1460,6 +1518,7 @@ To* $cast(From* from) {
 	if (from != nullptr) {
 		$Object0* obj0 = $toObject0(from);
 		$Class* clazz = obj0->getClass();
+		$load(To);
 		$Class* toClazz = $getClass(To);
 		if (clazz == toClazz) {
 			return (To*)(void*)obj0;
@@ -2128,7 +2187,9 @@ inline ::java::lang::Object0* $of(T& v) {
 	return $of(v.throwing$);
 }
 
-#define $$of(x) $ref($of(x))
+#define $$of(...) $ref($of(__VA_ARGS__))
+#define $ofnc(...) $of($nc(__VA_ARGS__))
+#define $$ofnc(...) $ref($ofnc(__VA_ARGS__))
 
 class $ObjectBox {
 public:
@@ -2189,26 +2250,33 @@ inline T* ::java::lang::Array<T, 1>::get(int32_t index) {
 	return $arrayComponentCast<T>(::java::lang::ObjectArray::get(index));
 }
 
-#define $prepareNative0(methodIndex, className, methodName, returnType, ...) \
-	typedef returnType (*_NATIVE_METHOD_##methodName)(void* env, Object$*, ##__VA_ARGS__); \
-	_NATIVE_METHOD_##methodName $native$Method = (_NATIVE_METHOD_##methodName)_##className##_MethodInfo_[methodIndex].nativeAddress; \
+#define $prepareNative(methodName, returnType, ...) \
+	typedef returnType (*$native$MethodType)(void* env, Object$*, ##__VA_ARGS__); \
+	static $native$MethodType $native$Method = nullptr; \
 	if ($native$Method == nullptr) { \
-		$native$Method = (_NATIVE_METHOD_##methodName)::java::lang::System::loadNativeMethod(className::class$, &_##className##_MethodInfo_[methodIndex]); \
+		$synchronized(class$) { \
+			if ($native$Method == nullptr) { \
+				$native$Method = ($native$MethodType)class$->loadNativeMethod(#methodName, nullptr); \
+			} \
+		} \
 	} \
 	::java::lang::ObjectManager::prepareNative();
-#define $prepareNative(className, methodName, returnType, ...) \
-	$prepareNative0(_METHOD_INDEX_##methodName, className, methodName, returnType, ##__VA_ARGS__)
 
-#define $prepareNativeStatic0(methodIndex, className, methodName, returnType, ...) \
-	$init(className); \
-	typedef returnType (*_NATIVE_METHOD_##methodName)(void* env, ::java::lang::Class*, ##__VA_ARGS__); \
-	_NATIVE_METHOD_##methodName $native$Method = (_NATIVE_METHOD_##methodName)_##className##_MethodInfo_[methodIndex].nativeAddress; \
+#define $prepareNativeStatic $prepareNative
+
+#define $prepareNativeEx(methodName, descriptor, returnType, ...) \
+	typedef returnType (*$native$MethodType)(void* env, Object$*, ##__VA_ARGS__); \
+	static $native$MethodType $native$Method = nullptr; \
 	if ($native$Method == nullptr) { \
-		$native$Method = (_NATIVE_METHOD_##methodName)::java::lang::System::loadNativeMethod(className::class$, &_##className##_MethodInfo_[methodIndex]); \
+		$synchronized(class$) { \
+			if ($native$Method == nullptr) { \
+				$native$Method = ($native$MethodType)class$->loadNativeMethod(#methodName, descriptor); \
+			} \
+		} \
 	} \
 	::java::lang::ObjectManager::prepareNative();
-#define $prepareNativeStatic(className, methodName, returnType, ...) \
-	$prepareNativeStatic0(_METHOD_INDEX_##methodName, className, methodName, returnType, ##__VA_ARGS__)
+
+#define $prepareNativeStaticEx $prepareNativeEx
 
 template<typename T>
 inline T* $resolveRef(T* obj) {

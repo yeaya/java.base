@@ -1,5 +1,4 @@
 #include <MirroredBreakIterator.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/text/BreakIterator.h>
@@ -26,49 +25,8 @@ using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 
-$FieldInfo _MirroredBreakIterator_FieldInfo_[] = {
-	{"boundaries", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(MirroredBreakIterator, boundaries)},
-	{"charIndex", "I", nullptr, $PRIVATE, $field(MirroredBreakIterator, charIndex)},
-	{"boundaryIndex", "I", nullptr, $PRIVATE, $field(MirroredBreakIterator, boundaryIndex)},
-	{}
-};
-
-$MethodInfo _MirroredBreakIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/BreakIterator;)V", nullptr, 0, $method(MirroredBreakIterator, init$, void, $BreakIterator*)},
-	{"changeIndices", "(II)I", nullptr, $PRIVATE, $method(MirroredBreakIterator, changeIndices, int32_t, int32_t, int32_t)},
-	{"changeIndices", "(I)I", nullptr, $PRIVATE, $method(MirroredBreakIterator, changeIndices, int32_t, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, clone, $Object*)},
-	{"current", "()I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, current, int32_t)},
-	{"first", "()I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, first, int32_t)},
-	{"following", "(I)I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, following, int32_t, int32_t)},
-	{"getText", "()Ljava/text/CharacterIterator;", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, getText, $CharacterIterator*)},
-	{"isBoundary", "(I)Z", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, isBoundary, bool, int32_t)},
-	{"last", "()I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, last, int32_t)},
-	{"lastBoundary", "()I", nullptr, $PRIVATE, $method(MirroredBreakIterator, lastBoundary, int32_t)},
-	{"next", "(I)I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, next, int32_t, int32_t)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, next, int32_t)},
-	{"preceding", "(I)I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, preceding, int32_t, int32_t)},
-	{"previous", "()I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, previous, int32_t)},
-	{"setText", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, setText, void, $CharacterIterator*)},
-	{"validateOffset", "(I)V", nullptr, $PRIVATE, $method(MirroredBreakIterator, validateOffset, void, int32_t)},
-	{}
-};
-
-$ClassInfo _MirroredBreakIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MirroredBreakIterator",
-	"java.text.BreakIterator",
-	nullptr,
-	_MirroredBreakIterator_FieldInfo_,
-	_MirroredBreakIterator_MethodInfo_
-};
-
-$Object* allocate$MirroredBreakIterator($Class* clazz) {
-	return $of($alloc(MirroredBreakIterator));
-}
-
 void MirroredBreakIterator::init$($BreakIterator* bi) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BreakIterator::init$();
 	$var($List, b, $new($ArrayList));
 	int32_t i = $nc(bi)->first();
@@ -81,7 +39,7 @@ void MirroredBreakIterator::init$($BreakIterator* bi) {
 
 $Object* MirroredBreakIterator::clone() {
 	try {
-		return $of($BreakIterator::clone());
+		return $BreakIterator::clone();
 	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "clone failed"_s, e);
 	}
@@ -127,10 +85,10 @@ int32_t MirroredBreakIterator::previous() {
 }
 
 int32_t MirroredBreakIterator::following(int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	validateOffset(offset);
 	for (int32_t b = 0; b <= lastBoundary(); ++b) {
-		int32_t i = $nc(($cast($Integer, $($nc(this->boundaries)->get(b)))))->intValue();
+		int32_t i = $$sure($Integer, $nc(this->boundaries)->get(b))->intValue();
 		if (i > offset) {
 			return changeIndices(i, b);
 		}
@@ -139,10 +97,10 @@ int32_t MirroredBreakIterator::following(int32_t offset) {
 }
 
 int32_t MirroredBreakIterator::preceding(int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	validateOffset(offset);
 	for (int32_t b = lastBoundary(); b >= 0; --b) {
-		int32_t i = $nc(($cast($Integer, $($nc(this->boundaries)->get(b)))))->intValue();
+		int32_t i = $$sure($Integer, $nc(this->boundaries)->get(b))->intValue();
 		if (i < offset) {
 			return changeIndices(i, b);
 		}
@@ -178,17 +136,17 @@ int32_t MirroredBreakIterator::changeIndices(int32_t newCharIndex, int32_t newBo
 
 int32_t MirroredBreakIterator::changeIndices(int32_t newBoundary) {
 	try {
-		return changeIndices($nc(($cast($Integer, $($nc(this->boundaries)->get(newBoundary)))))->intValue(), newBoundary);
+		return changeIndices($$sure($Integer, $nc(this->boundaries)->get(newBoundary))->intValue(), newBoundary);
 	} catch ($IndexOutOfBoundsException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	}
 	$shouldNotReachHere();
 }
 
 void MirroredBreakIterator::validateOffset(int32_t offset) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = offset < $nc(($cast($Integer, $($nc(this->boundaries)->get(0)))))->intValue();
-	if (var$0 || offset > $nc(($cast($Integer, $($nc(this->boundaries)->get(lastBoundary())))))->intValue()) {
+	$useLocalObjectStack();
+	bool var$0 = offset < $$sure($Integer, $nc(this->boundaries)->get(0))->intValue();
+	if (var$0 || offset > $$sure($Integer, this->boundaries->get(lastBoundary()))->intValue()) {
 		$throwNew($IllegalArgumentException);
 	}
 }
@@ -197,7 +155,43 @@ MirroredBreakIterator::MirroredBreakIterator() {
 }
 
 $Class* MirroredBreakIterator::load$($String* name, bool initialize) {
-	$loadClass(MirroredBreakIterator, name, initialize, &_MirroredBreakIterator_ClassInfo_, allocate$MirroredBreakIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"boundaries", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(MirroredBreakIterator, boundaries)},
+		{"charIndex", "I", nullptr, $PRIVATE, $field(MirroredBreakIterator, charIndex)},
+		{"boundaryIndex", "I", nullptr, $PRIVATE, $field(MirroredBreakIterator, boundaryIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/text/BreakIterator;)V", nullptr, 0, $method(MirroredBreakIterator, init$, void, $BreakIterator*)},
+		{"changeIndices", "(II)I", nullptr, $PRIVATE, $method(MirroredBreakIterator, changeIndices, int32_t, int32_t, int32_t)},
+		{"changeIndices", "(I)I", nullptr, $PRIVATE, $method(MirroredBreakIterator, changeIndices, int32_t, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, clone, $Object*)},
+		{"current", "()I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, current, int32_t)},
+		{"first", "()I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, first, int32_t)},
+		{"following", "(I)I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, following, int32_t, int32_t)},
+		{"getText", "()Ljava/text/CharacterIterator;", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, getText, $CharacterIterator*)},
+		{"isBoundary", "(I)Z", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, isBoundary, bool, int32_t)},
+		{"last", "()I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, last, int32_t)},
+		{"lastBoundary", "()I", nullptr, $PRIVATE, $method(MirroredBreakIterator, lastBoundary, int32_t)},
+		{"next", "(I)I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, next, int32_t, int32_t)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, next, int32_t)},
+		{"preceding", "(I)I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, preceding, int32_t, int32_t)},
+		{"previous", "()I", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, previous, int32_t)},
+		{"setText", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $virtualMethod(MirroredBreakIterator, setText, void, $CharacterIterator*)},
+		{"validateOffset", "(I)V", nullptr, $PRIVATE, $method(MirroredBreakIterator, validateOffset, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MirroredBreakIterator",
+		"java.text.BreakIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MirroredBreakIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MirroredBreakIterator);
+	});
 	return class$;
 }
 

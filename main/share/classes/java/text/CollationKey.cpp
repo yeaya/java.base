@@ -1,5 +1,4 @@
 #include <java/text/CollationKey.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,34 +8,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 
 namespace java {
 	namespace text {
-
-$FieldInfo _CollationKey_FieldInfo_[] = {
-	{"source", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(CollationKey, source)},
-	{}
-};
-
-$MethodInfo _CollationKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CollationKey, init$, void, $String*)},
-	{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CollationKey, compareTo, int32_t, CollationKey*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CollationKey, compareTo, int32_t, Object$*)},
-	{"getSourceString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CollationKey, getSourceString, $String*)},
-	{"toByteArray", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CollationKey, toByteArray, $bytes*)},
-	{}
-};
-
-$ClassInfo _CollationKey_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.text.CollationKey",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_CollationKey_FieldInfo_,
-	_CollationKey_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/text/CollationKey;>;"
-};
-
-$Object* allocate$CollationKey($Class* clazz) {
-	return $of($alloc(CollationKey));
-}
 
 $String* CollationKey::getSourceString() {
 	return this->source;
@@ -57,7 +28,30 @@ CollationKey::CollationKey() {
 }
 
 $Class* CollationKey::load$($String* name, bool initialize) {
-	$loadClass(CollationKey, name, initialize, &_CollationKey_ClassInfo_, allocate$CollationKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"source", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(CollationKey, source)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CollationKey, init$, void, $String*)},
+		{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CollationKey, compareTo, int32_t, CollationKey*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CollationKey, compareTo, int32_t, Object$*)},
+		{"getSourceString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CollationKey, getSourceString, $String*)},
+		{"toByteArray", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CollationKey, toByteArray, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.text.CollationKey",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/text/CollationKey;>;"
+	};
+	$loadClass(CollationKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CollationKey);
+	});
 	return class$;
 }
 

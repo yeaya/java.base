@@ -19,6 +19,7 @@ class $export Locale$Category : public ::java::lang::Enum {
 public:
 	Locale$Category();
 	static $Array<::java::util::Locale$Category>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* languageKey, $String* scriptKey, $String* countryKey, $String* variantKey, $String* extensionsKey);
 	static ::java::util::Locale$Category* valueOf($String* name);
 	static $Array<::java::util::Locale$Category>* values();

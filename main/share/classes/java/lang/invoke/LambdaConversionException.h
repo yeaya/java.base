@@ -27,7 +27,10 @@ public:
 	static const int64_t serialVersionUID = 300; // 292L + 8L
 	LambdaConversionException(const LambdaConversionException& e);
 	virtual void throw$() override;
-	inline LambdaConversionException* operator ->() {
+	inline LambdaConversionException* operator ->() const {
+		return (LambdaConversionException*)throwing$;
+	}
+	inline operator LambdaConversionException*() const {
 		return (LambdaConversionException*)throwing$;
 	}
 };

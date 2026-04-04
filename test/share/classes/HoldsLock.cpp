@@ -1,5 +1,4 @@
 #include <HoldsLock.h>
-
 #include <HoldsLock$LockThread.h>
 #include <jcpp.h>
 
@@ -11,42 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$FieldInfo _HoldsLock_FieldInfo_[] = {
-	{"target", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(HoldsLock, target)},
-	{}
-};
-
-$MethodInfo _HoldsLock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HoldsLock, init$, void)},
-	{"checkLock", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HoldsLock, checkLock, void, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HoldsLock, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _HoldsLock_InnerClassesInfo_[] = {
-	{"HoldsLock$LockThread", "HoldsLock", "LockThread", $STATIC},
-	{}
-};
-
-$ClassInfo _HoldsLock_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HoldsLock",
-	"java.lang.Object",
-	nullptr,
-	_HoldsLock_FieldInfo_,
-	_HoldsLock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HoldsLock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HoldsLock$LockThread"
-};
-
-$Object* allocate$HoldsLock($Class* clazz) {
-	return $of($alloc(HoldsLock));
-}
-
 $Object* HoldsLock::target = nullptr;
 
 void HoldsLock::init$() {
@@ -54,7 +17,7 @@ void HoldsLock::init$() {
 
 void HoldsLock::checkLock(bool value) {
 	$init(HoldsLock);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($Thread::holdsLock(HoldsLock::target) != value) {
 		$throwNew($RuntimeException, $$str({"Should be "_s, $$str(value)}));
 	}
@@ -67,6 +30,7 @@ void HoldsLock::main($StringArray* args) {
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
 	} catch ($NullPointerException& e) {
 	}
+	;
 	$assignStatic(HoldsLock::target, $new($Object));
 	checkLock(false);
 	$synchronized(HoldsLock::target) {
@@ -83,7 +47,7 @@ void HoldsLock::main($StringArray* args) {
 	checkLock(false);
 }
 
-void clinit$HoldsLock($Class* class$) {
+void HoldsLock::clinit$($Class* clazz) {
 	$assignStatic(HoldsLock::target, nullptr);
 }
 
@@ -91,7 +55,37 @@ HoldsLock::HoldsLock() {
 }
 
 $Class* HoldsLock::load$($String* name, bool initialize) {
-	$loadClass(HoldsLock, name, initialize, &_HoldsLock_ClassInfo_, clinit$HoldsLock, allocate$HoldsLock);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(HoldsLock, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HoldsLock, init$, void)},
+		{"checkLock", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HoldsLock, checkLock, void, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HoldsLock, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HoldsLock$LockThread", "HoldsLock", "LockThread", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HoldsLock",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HoldsLock$LockThread"
+	};
+	$loadClass(HoldsLock, name, initialize, &classInfo$$, HoldsLock::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HoldsLock);
+	});
 	return class$;
 }
 

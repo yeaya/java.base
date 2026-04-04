@@ -1,5 +1,4 @@
 #include <java/net/AbstractPlainDatagramSocketImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
@@ -17,7 +16,6 @@
 #include <java/net/SocketOptions.h>
 #include <java/net/StandardSocketOptions.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
 #include <java/util/Objects.h>
@@ -55,7 +53,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocketImpl = ::java::net::DatagramSocketImpl;
 using $InetAddress = ::java::net::InetAddress;
-using $InetAddress$InetAddressHolder = ::java::net::InetAddress$InetAddressHolder;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
 using $SocketAddress = ::java::net::SocketAddress;
@@ -64,7 +61,6 @@ using $SocketException = ::java::net::SocketException;
 using $SocketOption = ::java::net::SocketOption;
 using $SocketOptions = ::java::net::SocketOptions;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Objects = ::java::util::Objects;
@@ -77,81 +73,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _AbstractPlainDatagramSocketImpl_FieldInfo_[] = {
-	{"timeout", "I", nullptr, 0, $field(AbstractPlainDatagramSocketImpl, timeout)},
-	{"connected", "Z", nullptr, 0, $field(AbstractPlainDatagramSocketImpl, connected)},
-	{"trafficClass", "I", nullptr, $PRIVATE, $field(AbstractPlainDatagramSocketImpl, trafficClass)},
-	{"connectedAddress", "Ljava/net/InetAddress;", nullptr, $PROTECTED, $field(AbstractPlainDatagramSocketImpl, connectedAddress)},
-	{"connectedPort", "I", nullptr, $PRIVATE, $field(AbstractPlainDatagramSocketImpl, connectedPort)},
-	{"isMulticast", "Z", nullptr, $PRIVATE | $FINAL, $field(AbstractPlainDatagramSocketImpl, isMulticast)},
-	{"os", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPlainDatagramSocketImpl, os)},
-	{"connectDisabled", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPlainDatagramSocketImpl, connectDisabled)},
-	{"checkedReusePort", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(AbstractPlainDatagramSocketImpl, checkedReusePort)},
-	{"isReusePortAvailable", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(AbstractPlainDatagramSocketImpl, isReusePortAvailable$)},
-	{"extendedOptions", "Lsun/net/ext/ExtendedSocketOptions;", nullptr, $STATIC | $FINAL, $staticField(AbstractPlainDatagramSocketImpl, extendedOptions)},
-	{"datagramSocketOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPlainDatagramSocketImpl, datagramSocketOptions$)},
-	{}
-};
-
-$MethodInfo _AbstractPlainDatagramSocketImpl_MethodInfo_[] = {
-	{"dataAvailable", "()I", nullptr, $ABSTRACT},
-	{"getTTL", "()B", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED},
-	{"getTimeToLive", "()I", nullptr, $PROTECTED | $ABSTRACT},
-	{"<init>", "(Z)V", nullptr, 0, $method(AbstractPlainDatagramSocketImpl, init$, void, bool)},
-	{"bind", "(ILjava/net/InetAddress;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AbstractPlainDatagramSocketImpl, bind, void, int32_t, $InetAddress*), "java.net.SocketException"},
-	{"bind0", "(ILjava/net/InetAddress;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, bind0, void, int32_t, $InetAddress*), "java.net.SocketException"},
-	{"close", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, close, void)},
-	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, connect, void, $InetAddress*, int32_t), "java.net.SocketException"},
-	{"connect0", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, connect0, void, $InetAddress*, int32_t), "java.net.SocketException"},
-	{"create", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AbstractPlainDatagramSocketImpl, create, void), "java.net.SocketException"},
-	{"datagramSocketClose", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, datagramSocketClose, void)},
-	{"datagramSocketCreate", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, datagramSocketCreate, void), "java.net.SocketException"},
-	{"datagramSocketOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $staticMethod(AbstractPlainDatagramSocketImpl, datagramSocketOptions, $Set*)},
-	{"disconnect", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, disconnect, void)},
-	{"disconnect0", "(I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, disconnect0, void, int32_t)},
-	{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractPlainDatagramSocketImpl, getOption, $Object*, int32_t), "java.net.SocketException"},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
-	{"isClosed", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, isClosed, bool)},
-	{"isReusePortAvailable", "()Z", nullptr, $STATIC, $staticMethod(AbstractPlainDatagramSocketImpl, isReusePortAvailable, bool)},
-	{"isReusePortAvailable0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AbstractPlainDatagramSocketImpl, isReusePortAvailable0, bool)},
-	{"join", "(Ljava/net/InetAddress;)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, join, void, $InetAddress*), "java.io.IOException"},
-	{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, join, void, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"joinGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, joinGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"leave", "(Ljava/net/InetAddress;)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, leave, void, $InetAddress*), "java.io.IOException"},
-	{"leave", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, leave, void, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"leaveGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, leaveGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"nativeConnectDisabled", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, nativeConnectDisabled, bool)},
-	{"peek", "(Ljava/net/InetAddress;)I", nullptr, $PROTECTED | $ABSTRACT},
-	{"peekData", "(Ljava/net/DatagramPacket;)I", nullptr, $PROTECTED | $ABSTRACT},
-	{"receive", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AbstractPlainDatagramSocketImpl, receive, void, $DatagramPacket*), "java.io.IOException"},
-	{"receive0", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, receive0, void, $DatagramPacket*), "java.io.IOException"},
-	{"send", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, send, void, $DatagramPacket*), "java.io.IOException"},
-	{"send0", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, send0, void, $DatagramPacket*), "java.io.IOException"},
-	{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPlainDatagramSocketImpl, setOption, void, int32_t, Object$*), "java.net.SocketException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
-	{"setTTL", "(B)V", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED},
-	{"setTimeToLive", "(I)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"socketGetOption", "(I)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, socketGetOption, $Object*, int32_t), "java.net.SocketException"},
-	{"socketSetOption", "(ILjava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, socketSetOption, void, int32_t, Object$*), "java.net.SocketException"},
-	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, supportedOptions, $Set*)},
-	{}
-};
-
-#define _METHOD_INDEX_isReusePortAvailable0 19
-
-$ClassInfo _AbstractPlainDatagramSocketImpl_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.net.AbstractPlainDatagramSocketImpl",
-	"java.net.DatagramSocketImpl",
-	nullptr,
-	_AbstractPlainDatagramSocketImpl_FieldInfo_,
-	_AbstractPlainDatagramSocketImpl_MethodInfo_
-};
-
-$Object* allocate$AbstractPlainDatagramSocketImpl($Class* clazz) {
-	return $of($alloc(AbstractPlainDatagramSocketImpl));
-}
 
 int32_t AbstractPlainDatagramSocketImpl::dataAvailable() {
 	 return this->$DatagramSocketImpl::dataAvailable();
@@ -209,7 +130,7 @@ void AbstractPlainDatagramSocketImpl::bind(int32_t lport, $InetAddress* laddr$re
 }
 
 void AbstractPlainDatagramSocketImpl::send($DatagramPacket* p$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DatagramPacket, p, p$renamed);
 	$var($InetAddress, orig, $nc(p)->getAddress());
 	if ($nc(orig)->isLinkLocalAddress()) {
@@ -218,8 +139,7 @@ void AbstractPlainDatagramSocketImpl::send($DatagramPacket* p$renamed) {
 			$var($bytes, var$0, p->getData());
 			int32_t var$1 = p->getOffset();
 			int32_t var$2 = p->getLength();
-			$var($InetAddress, var$3, scoped);
-			$assign(p, $new($DatagramPacket, var$0, var$1, var$2, var$3, p->getPort()));
+			$assign(p, $new($DatagramPacket, var$0, var$1, var$2, scoped, p->getPort()));
 		}
 	}
 	send0(p);
@@ -237,7 +157,7 @@ void AbstractPlainDatagramSocketImpl::connect($InetAddress* address$renamed, int
 }
 
 void AbstractPlainDatagramSocketImpl::disconnect() {
-	disconnect0($nc($($nc(this->connectedAddress)->holder()))->getFamily());
+	disconnect0($$nc($nc(this->connectedAddress)->holder())->getFamily());
 	this->connected = false;
 	$set(this, connectedAddress, nullptr);
 	this->connectedPort = -1;
@@ -258,7 +178,7 @@ void AbstractPlainDatagramSocketImpl::leave($InetAddress* inetaddr) {
 }
 
 void AbstractPlainDatagramSocketImpl::joinGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetSocketAddress, addr, nullptr);
 	bool var$0 = $instanceOf($InetSocketAddress, mcastaddr);
 	if (var$0) {
@@ -272,7 +192,7 @@ void AbstractPlainDatagramSocketImpl::joinGroup($SocketAddress* mcastaddr, $Netw
 }
 
 void AbstractPlainDatagramSocketImpl::leaveGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetSocketAddress, addr, nullptr);
 	bool var$0 = $instanceOf($InetSocketAddress, mcastaddr);
 	if (var$0) {
@@ -299,7 +219,7 @@ bool AbstractPlainDatagramSocketImpl::isClosed() {
 }
 
 void AbstractPlainDatagramSocketImpl::setOption(int32_t optID, Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket Closed"_s);
 	}
@@ -307,152 +227,112 @@ void AbstractPlainDatagramSocketImpl::setOption(int32_t optID, Object$* o) {
 		int32_t tmp = 0;
 		switch (optID) {
 		case $SocketOptions::SO_TIMEOUT:
-			{
-				if (!($instanceOf($Integer, o))) {
-					$throwNew($SocketException, "bad argument for SO_TIMEOUT"_s);
-				}
-				tmp = $nc(($cast($Integer, o)))->intValue();
-				if (tmp < 0) {
-					$throwNew($IllegalArgumentException, "timeout < 0"_s);
-				}
-				this->timeout = tmp;
-				return;
+			if (!($instanceOf($Integer, o))) {
+				$throwNew($SocketException, "bad argument for SO_TIMEOUT"_s);
 			}
+			tmp = $nc($cast($Integer, o))->intValue();
+			if (tmp < 0) {
+				$throwNew($IllegalArgumentException, "timeout < 0"_s);
+			}
+			this->timeout = tmp;
+			return;
 		case $SocketOptions::IP_TOS:
-			{
-				if (!($instanceOf($Integer, o))) {
-					$throwNew($SocketException, "bad argument for IP_TOS"_s);
-				}
-				this->trafficClass = ($cast($Integer, o))->intValue();
-				break;
+			if (!($instanceOf($Integer, o))) {
+				$throwNew($SocketException, "bad argument for IP_TOS"_s);
 			}
+			this->trafficClass = $nc($cast($Integer, o))->intValue();
+			break;
 		case $SocketOptions::SO_REUSEADDR:
-			{
-				if (!($instanceOf($Boolean, o))) {
-					$throwNew($SocketException, "bad argument for SO_REUSEADDR"_s);
-				}
-				break;
+			if (!($instanceOf($Boolean, o))) {
+				$throwNew($SocketException, "bad argument for SO_REUSEADDR"_s);
 			}
+			break;
 		case $SocketOptions::SO_BROADCAST:
-			{
-				if (!($instanceOf($Boolean, o))) {
-					$throwNew($SocketException, "bad argument for SO_BROADCAST"_s);
-				}
-				break;
+			if (!($instanceOf($Boolean, o))) {
+				$throwNew($SocketException, "bad argument for SO_BROADCAST"_s);
 			}
+			break;
 		case $SocketOptions::SO_BINDADDR:
-			{
-				$throwNew($SocketException, "Cannot re-bind Socket"_s);
-			}
+			$throwNew($SocketException, "Cannot re-bind Socket"_s);
 		case $SocketOptions::SO_RCVBUF:
-			{}
 		case $SocketOptions::SO_SNDBUF:
-			{
-				if (!($instanceOf($Integer, o)) || ($cast($Integer, o))->intValue() < 0) {
-					$throwNew($SocketException, "bad argument for SO_SNDBUF or SO_RCVBUF"_s);
-				}
-				break;
+			if (!($instanceOf($Integer, o)) || $cast($Integer, o)->intValue() < 0) {
+				$throwNew($SocketException, "bad argument for SO_SNDBUF or SO_RCVBUF"_s);
 			}
+			break;
 		case $SocketOptions::IP_MULTICAST_IF:
-			{
-				if (!($instanceOf($InetAddress, o))) {
-					$throwNew($SocketException, "bad argument for IP_MULTICAST_IF"_s);
-				}
-				break;
+			if (!($instanceOf($InetAddress, o))) {
+				$throwNew($SocketException, "bad argument for IP_MULTICAST_IF"_s);
 			}
+			break;
 		case $SocketOptions::IP_MULTICAST_IF2:
-			{
-				if (!($instanceOf($NetworkInterface, o))) {
-					$throwNew($SocketException, "bad argument for IP_MULTICAST_IF2"_s);
-				}
-				break;
+			if (!($instanceOf($NetworkInterface, o))) {
+				$throwNew($SocketException, "bad argument for IP_MULTICAST_IF2"_s);
 			}
+			break;
 		case $SocketOptions::IP_MULTICAST_LOOP:
-			{
-				if (!($instanceOf($Boolean, o))) {
-					$throwNew($SocketException, "bad argument for IP_MULTICAST_LOOP"_s);
-				}
-				break;
+			if (!($instanceOf($Boolean, o))) {
+				$throwNew($SocketException, "bad argument for IP_MULTICAST_LOOP"_s);
 			}
+			break;
 		case $SocketOptions::SO_REUSEPORT:
-			{
-				if (!($instanceOf($Boolean, o))) {
-					$throwNew($SocketException, "bad argument for SO_REUSEPORT"_s);
-				}
-				$init($StandardSocketOptions);
-				if (!$nc($(supportedOptions()))->contains($StandardSocketOptions::SO_REUSEPORT)) {
-					$throwNew($UnsupportedOperationException, "unsupported option"_s);
-				}
-				break;
+			if (!($instanceOf($Boolean, o))) {
+				$throwNew($SocketException, "bad argument for SO_REUSEPORT"_s);
 			}
+			$init($StandardSocketOptions);
+			if (!$$nc(supportedOptions())->contains($StandardSocketOptions::SO_REUSEPORT)) {
+				$throwNew($UnsupportedOperationException, "unsupported option"_s);
+			}
+			break;
 		default:
-			{
-				$throwNew($SocketException, $$str({"invalid option: "_s, $$str(optID)}));
-			}
+			$throwNew($SocketException, $$str({"invalid option: "_s, $$str(optID)}));
 		}
 	}
 	socketSetOption(optID, o);
 }
 
 $Object* AbstractPlainDatagramSocketImpl::getOption(int32_t optID) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket Closed"_s);
 	}
 	$var($Object, result, nullptr);
 	switch (optID) {
 	case $SocketOptions::SO_TIMEOUT:
-		{
-			$assign(result, $Integer::valueOf(this->timeout));
-			break;
-		}
+		$assign(result, $Integer::valueOf(this->timeout));
+		break;
 	case $SocketOptions::IP_TOS:
-		{
-			$assign(result, socketGetOption(optID));
-			if ($nc(($cast($Integer, result)))->intValue() == -1) {
-				$assign(result, $Integer::valueOf(this->trafficClass));
-			}
-			break;
+		$assign(result, socketGetOption(optID));
+		if ($nc($cast($Integer, result))->intValue() == -1) {
+			$assign(result, $Integer::valueOf(this->trafficClass));
 		}
+		break;
 	case $SocketOptions::SO_BINDADDR:
-		{}
 	case $SocketOptions::IP_MULTICAST_IF:
-		{}
 	case $SocketOptions::IP_MULTICAST_IF2:
-		{}
 	case $SocketOptions::SO_RCVBUF:
-		{}
 	case $SocketOptions::SO_SNDBUF:
-		{}
 	case $SocketOptions::IP_MULTICAST_LOOP:
-		{}
 	case $SocketOptions::SO_REUSEADDR:
-		{}
 	case $SocketOptions::SO_BROADCAST:
-		{
-			$assign(result, socketGetOption(optID));
-			break;
-		}
+		$assign(result, socketGetOption(optID));
+		break;
 	case $SocketOptions::SO_REUSEPORT:
-		{
-			$init($StandardSocketOptions);
-			if (!$nc($(supportedOptions()))->contains($StandardSocketOptions::SO_REUSEPORT)) {
-				$throwNew($UnsupportedOperationException, "unsupported option"_s);
-			}
-			$assign(result, socketGetOption(optID));
-			break;
+		$init($StandardSocketOptions);
+		if (!$$nc(supportedOptions())->contains($StandardSocketOptions::SO_REUSEPORT)) {
+			$throwNew($UnsupportedOperationException, "unsupported option"_s);
 		}
+		$assign(result, socketGetOption(optID));
+		break;
 	default:
-		{
-			$throwNew($SocketException, $$str({"invalid option: "_s, $$str(optID)}));
-		}
+		$throwNew($SocketException, $$str({"invalid option: "_s, $$str(optID)}));
 	}
-	return $of(result);
+	return result;
 }
 
 $Set* AbstractPlainDatagramSocketImpl::datagramSocketOptions() {
 	$init(AbstractPlainDatagramSocketImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, options, $new($HashSet));
 	$init($StandardSocketOptions);
 	options->add($StandardSocketOptions::SO_SNDBUF);
@@ -475,9 +355,9 @@ $Set* AbstractPlainDatagramSocketImpl::supportedOptions() {
 }
 
 void AbstractPlainDatagramSocketImpl::setOption($SocketOption* name, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(name);
-	if (!$nc($(supportedOptions()))->contains(name)) {
+	if (!$$nc(supportedOptions())->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
 	}
 	if (!$nc(name->type())->isInstance(value)) {
@@ -488,65 +368,49 @@ void AbstractPlainDatagramSocketImpl::setOption($SocketOption* name, Object$* va
 	}
 	$init($StandardSocketOptions);
 	if (name == $StandardSocketOptions::SO_SNDBUF) {
-		if ($nc(($cast($Integer, value)))->intValue() < 0) {
+		if ($nc($cast($Integer, value))->intValue() < 0) {
 			$throwNew($IllegalArgumentException, $$str({"Invalid send buffer size:"_s, value}));
 		}
 		setOption($SocketOptions::SO_SNDBUF, value);
-	} else {
-		if (name == $StandardSocketOptions::SO_RCVBUF) {
-			if ($nc(($cast($Integer, value)))->intValue() < 0) {
-				$throwNew($IllegalArgumentException, $$str({"Invalid recv buffer size:"_s, value}));
-			}
-			setOption($SocketOptions::SO_RCVBUF, value);
-		} else {
-			if (name == $StandardSocketOptions::SO_REUSEADDR) {
-				setOption($SocketOptions::SO_REUSEADDR, value);
-			} else {
-				if (name == $StandardSocketOptions::SO_REUSEPORT) {
-					setOption($SocketOptions::SO_REUSEPORT, value);
-				} else {
-					if (name == $StandardSocketOptions::SO_BROADCAST) {
-						setOption($SocketOptions::SO_BROADCAST, value);
-					} else {
-						if (name == $StandardSocketOptions::IP_TOS) {
-							int32_t i = $nc(($cast($Integer, value)))->intValue();
-							if (i < 0 || i > 255) {
-								$throwNew($IllegalArgumentException, $$str({"Invalid IP_TOS value: "_s, value}));
-							}
-							setOption($SocketOptions::IP_TOS, value);
-						} else {
-							if (name == $StandardSocketOptions::IP_MULTICAST_IF) {
-								setOption($SocketOptions::IP_MULTICAST_IF2, value);
-							} else {
-								if (name == $StandardSocketOptions::IP_MULTICAST_TTL) {
-									int32_t i = $nc(($cast($Integer, value)))->intValue();
-									if (i < 0 || i > 255) {
-										$throwNew($IllegalArgumentException, $$str({"Invalid TTL/hop value: "_s, value}));
-									}
-									setTimeToLive(($cast($Integer, value))->intValue());
-								} else {
-									if (name == $StandardSocketOptions::IP_MULTICAST_LOOP) {
-										bool enable = $nc(($cast($Boolean, value)))->booleanValue();
-										setOption($SocketOptions::IP_MULTICAST_LOOP, $($of($Boolean::valueOf(!enable))));
-									} else if ($nc(AbstractPlainDatagramSocketImpl::extendedOptions)->isOptionSupported(name)) {
-										$nc(AbstractPlainDatagramSocketImpl::extendedOptions)->setOption(this->fd, name, value);
-									} else {
-										$throwNew($AssertionError, $of($$str({"unknown option :"_s, name})));
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+	} else if (name == $StandardSocketOptions::SO_RCVBUF) {
+		if ($nc($cast($Integer, value))->intValue() < 0) {
+			$throwNew($IllegalArgumentException, $$str({"Invalid recv buffer size:"_s, value}));
 		}
+		setOption($SocketOptions::SO_RCVBUF, value);
+	} else if (name == $StandardSocketOptions::SO_REUSEADDR) {
+		setOption($SocketOptions::SO_REUSEADDR, value);
+	} else if (name == $StandardSocketOptions::SO_REUSEPORT) {
+		setOption($SocketOptions::SO_REUSEPORT, value);
+	} else if (name == $StandardSocketOptions::SO_BROADCAST) {
+		setOption($SocketOptions::SO_BROADCAST, value);
+	} else if (name == $StandardSocketOptions::IP_TOS) {
+		int32_t i = $nc($cast($Integer, value))->intValue();
+		if (i < 0 || i > 255) {
+			$throwNew($IllegalArgumentException, $$str({"Invalid IP_TOS value: "_s, value}));
+		}
+		setOption($SocketOptions::IP_TOS, value);
+	} else if (name == $StandardSocketOptions::IP_MULTICAST_IF) {
+		setOption($SocketOptions::IP_MULTICAST_IF2, value);
+	} else if (name == $StandardSocketOptions::IP_MULTICAST_TTL) {
+		int32_t i = $nc($cast($Integer, value))->intValue();
+		if (i < 0 || i > 255) {
+			$throwNew($IllegalArgumentException, $$str({"Invalid TTL/hop value: "_s, value}));
+		}
+		setTimeToLive($cast($Integer, value)->intValue());
+	} else if (name == $StandardSocketOptions::IP_MULTICAST_LOOP) {
+		bool enable = $nc($cast($Boolean, value))->booleanValue();
+		setOption($SocketOptions::IP_MULTICAST_LOOP, $($Boolean::valueOf(!enable)));
+	} else if ($nc(AbstractPlainDatagramSocketImpl::extendedOptions)->isOptionSupported(name)) {
+		AbstractPlainDatagramSocketImpl::extendedOptions->setOption(this->fd, name, value);
+	} else {
+		$throwNew($AssertionError, $$of($str({"unknown option :"_s, name})));
 	}
 }
 
 $Object* AbstractPlainDatagramSocketImpl::getOption($SocketOption* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(name);
-	if (!$nc($(supportedOptions()))->contains(name)) {
+	if (!$$nc(supportedOptions())->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
 	}
 	if (isClosed()) {
@@ -554,44 +418,28 @@ $Object* AbstractPlainDatagramSocketImpl::getOption($SocketOption* name) {
 	}
 	$init($StandardSocketOptions);
 	if (name == $StandardSocketOptions::SO_SNDBUF) {
-		return $of(getOption($SocketOptions::SO_SNDBUF));
+		return getOption($SocketOptions::SO_SNDBUF);
+	} else if (name == $StandardSocketOptions::SO_RCVBUF) {
+		return getOption($SocketOptions::SO_RCVBUF);
+	} else if (name == $StandardSocketOptions::SO_REUSEADDR) {
+		return getOption($SocketOptions::SO_REUSEADDR);
+	} else if (name == $StandardSocketOptions::SO_REUSEPORT) {
+		return getOption($SocketOptions::SO_REUSEPORT);
+	} else if (name == $StandardSocketOptions::SO_BROADCAST) {
+		return getOption($SocketOptions::SO_BROADCAST);
+	} else if (name == $StandardSocketOptions::IP_TOS) {
+		return getOption($SocketOptions::IP_TOS);
+	} else if (name == $StandardSocketOptions::IP_MULTICAST_IF) {
+		return getOption($SocketOptions::IP_MULTICAST_IF2);
+	} else if (name == $StandardSocketOptions::IP_MULTICAST_TTL) {
+		return $of($Integer::valueOf(getTimeToLive()));
+	} else if (name == $StandardSocketOptions::IP_MULTICAST_LOOP) {
+		bool disabled = $$sure($Boolean, getOption($SocketOptions::IP_MULTICAST_LOOP))->booleanValue();
+		return $of($Boolean::valueOf(!disabled));
+	} else if ($nc(AbstractPlainDatagramSocketImpl::extendedOptions)->isOptionSupported(name)) {
+		return AbstractPlainDatagramSocketImpl::extendedOptions->getOption(this->fd, name);
 	} else {
-		if (name == $StandardSocketOptions::SO_RCVBUF) {
-			return $of(getOption($SocketOptions::SO_RCVBUF));
-		} else {
-			if (name == $StandardSocketOptions::SO_REUSEADDR) {
-				return $of(getOption($SocketOptions::SO_REUSEADDR));
-			} else {
-				if (name == $StandardSocketOptions::SO_REUSEPORT) {
-					return $of(getOption($SocketOptions::SO_REUSEPORT));
-				} else {
-					if (name == $StandardSocketOptions::SO_BROADCAST) {
-						return $of(getOption($SocketOptions::SO_BROADCAST));
-					} else {
-						if (name == $StandardSocketOptions::IP_TOS) {
-							return $of(getOption($SocketOptions::IP_TOS));
-						} else {
-							if (name == $StandardSocketOptions::IP_MULTICAST_IF) {
-								return $of(getOption($SocketOptions::IP_MULTICAST_IF2));
-							} else {
-								if (name == $StandardSocketOptions::IP_MULTICAST_TTL) {
-									return $of($of(($Integer::valueOf(getTimeToLive()))));
-								} else {
-									if (name == $StandardSocketOptions::IP_MULTICAST_LOOP) {
-										bool disabled = $nc(($cast($Boolean, $(getOption($SocketOptions::IP_MULTICAST_LOOP)))))->booleanValue();
-										return $of($of($Boolean::valueOf(!disabled)));
-									} else if ($nc(AbstractPlainDatagramSocketImpl::extendedOptions)->isOptionSupported(name)) {
-										return $of($nc(AbstractPlainDatagramSocketImpl::extendedOptions)->getOption(this->fd, name));
-									} else {
-										$throwNew($AssertionError, $of($$str({"unknown option: "_s, name})));
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+		$throwNew($AssertionError, $$of($str({"unknown option: "_s, name})));
 	}
 }
 
@@ -601,14 +449,13 @@ bool AbstractPlainDatagramSocketImpl::nativeConnectDisabled() {
 
 bool AbstractPlainDatagramSocketImpl::isReusePortAvailable0() {
 	$init(AbstractPlainDatagramSocketImpl);
-	bool $ret = false;
-	$prepareNativeStatic(AbstractPlainDatagramSocketImpl, isReusePortAvailable0, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(isReusePortAvailable0, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$AbstractPlainDatagramSocketImpl($Class* class$) {
+void AbstractPlainDatagramSocketImpl::clinit$($Class* clazz) {
 	$assignStatic(AbstractPlainDatagramSocketImpl::os, $GetPropertyAction::privilegedGetProperty("os.name"_s));
 	AbstractPlainDatagramSocketImpl::connectDisabled = $nc(AbstractPlainDatagramSocketImpl::os)->contains("OS X"_s);
 	{
@@ -622,7 +469,75 @@ AbstractPlainDatagramSocketImpl::AbstractPlainDatagramSocketImpl() {
 }
 
 $Class* AbstractPlainDatagramSocketImpl::load$($String* name, bool initialize) {
-	$loadClass(AbstractPlainDatagramSocketImpl, name, initialize, &_AbstractPlainDatagramSocketImpl_ClassInfo_, clinit$AbstractPlainDatagramSocketImpl, allocate$AbstractPlainDatagramSocketImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"timeout", "I", nullptr, 0, $field(AbstractPlainDatagramSocketImpl, timeout)},
+		{"connected", "Z", nullptr, 0, $field(AbstractPlainDatagramSocketImpl, connected)},
+		{"trafficClass", "I", nullptr, $PRIVATE, $field(AbstractPlainDatagramSocketImpl, trafficClass)},
+		{"connectedAddress", "Ljava/net/InetAddress;", nullptr, $PROTECTED, $field(AbstractPlainDatagramSocketImpl, connectedAddress)},
+		{"connectedPort", "I", nullptr, $PRIVATE, $field(AbstractPlainDatagramSocketImpl, connectedPort)},
+		{"isMulticast", "Z", nullptr, $PRIVATE | $FINAL, $field(AbstractPlainDatagramSocketImpl, isMulticast)},
+		{"os", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPlainDatagramSocketImpl, os)},
+		{"connectDisabled", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPlainDatagramSocketImpl, connectDisabled)},
+		{"checkedReusePort", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(AbstractPlainDatagramSocketImpl, checkedReusePort)},
+		{"isReusePortAvailable", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(AbstractPlainDatagramSocketImpl, isReusePortAvailable$)},
+		{"extendedOptions", "Lsun/net/ext/ExtendedSocketOptions;", nullptr, $STATIC | $FINAL, $staticField(AbstractPlainDatagramSocketImpl, extendedOptions)},
+		{"datagramSocketOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPlainDatagramSocketImpl, datagramSocketOptions$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"dataAvailable", "()I", nullptr, $ABSTRACT},
+		{"getTTL", "()B", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED},
+		{"getTimeToLive", "()I", nullptr, $PROTECTED | $ABSTRACT},
+		{"<init>", "(Z)V", nullptr, 0, $method(AbstractPlainDatagramSocketImpl, init$, void, bool)},
+		{"bind", "(ILjava/net/InetAddress;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AbstractPlainDatagramSocketImpl, bind, void, int32_t, $InetAddress*), "java.net.SocketException"},
+		{"bind0", "(ILjava/net/InetAddress;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, bind0, void, int32_t, $InetAddress*), "java.net.SocketException"},
+		{"close", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, close, void)},
+		{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, connect, void, $InetAddress*, int32_t), "java.net.SocketException"},
+		{"connect0", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, connect0, void, $InetAddress*, int32_t), "java.net.SocketException"},
+		{"create", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AbstractPlainDatagramSocketImpl, create, void), "java.net.SocketException"},
+		{"datagramSocketClose", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, datagramSocketClose, void)},
+		{"datagramSocketCreate", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, datagramSocketCreate, void), "java.net.SocketException"},
+		{"datagramSocketOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $staticMethod(AbstractPlainDatagramSocketImpl, datagramSocketOptions, $Set*)},
+		{"disconnect", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, disconnect, void)},
+		{"disconnect0", "(I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, disconnect0, void, int32_t)},
+		{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractPlainDatagramSocketImpl, getOption, $Object*, int32_t), "java.net.SocketException"},
+		{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+		{"isClosed", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, isClosed, bool)},
+		{"isReusePortAvailable", "()Z", nullptr, $STATIC, $staticMethod(AbstractPlainDatagramSocketImpl, isReusePortAvailable, bool)},
+		{"isReusePortAvailable0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AbstractPlainDatagramSocketImpl, isReusePortAvailable0, bool)},
+		{"join", "(Ljava/net/InetAddress;)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, join, void, $InetAddress*), "java.io.IOException"},
+		{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, join, void, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"joinGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, joinGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"leave", "(Ljava/net/InetAddress;)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, leave, void, $InetAddress*), "java.io.IOException"},
+		{"leave", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, leave, void, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"leaveGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, leaveGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"nativeConnectDisabled", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, nativeConnectDisabled, bool)},
+		{"peek", "(Ljava/net/InetAddress;)I", nullptr, $PROTECTED | $ABSTRACT},
+		{"peekData", "(Ljava/net/DatagramPacket;)I", nullptr, $PROTECTED | $ABSTRACT},
+		{"receive", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AbstractPlainDatagramSocketImpl, receive, void, $DatagramPacket*), "java.io.IOException"},
+		{"receive0", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, receive0, void, $DatagramPacket*), "java.io.IOException"},
+		{"send", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, send, void, $DatagramPacket*), "java.io.IOException"},
+		{"send0", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, send0, void, $DatagramPacket*), "java.io.IOException"},
+		{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPlainDatagramSocketImpl, setOption, void, int32_t, Object$*), "java.net.SocketException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
+		{"setTTL", "(B)V", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED},
+		{"setTimeToLive", "(I)V", nullptr, $PROTECTED | $ABSTRACT},
+		{"socketGetOption", "(I)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, socketGetOption, $Object*, int32_t), "java.net.SocketException"},
+		{"socketSetOption", "(ILjava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPlainDatagramSocketImpl, socketSetOption, void, int32_t, Object$*), "java.net.SocketException"},
+		{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PROTECTED, $virtualMethod(AbstractPlainDatagramSocketImpl, supportedOptions, $Set*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.net.AbstractPlainDatagramSocketImpl",
+		"java.net.DatagramSocketImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractPlainDatagramSocketImpl, name, initialize, &classInfo$$, AbstractPlainDatagramSocketImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractPlainDatagramSocketImpl);
+	});
 	return class$;
 }
 

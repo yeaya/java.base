@@ -1,5 +1,4 @@
 #include <java/util/stream/Node$OfPrimitive.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/function/IntFunction.h>
 #include <java/util/stream/Node.h>
@@ -25,44 +24,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$MethodInfo _Node$OfPrimitive_MethodInfo_[] = {
-	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Node$OfPrimitive, asArray, $ObjectArray*, $IntFunction*)},
-	{"asPrimitiveArray", "()Ljava/lang/Object;", "()TT_ARR;", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, asPrimitiveArray, $Object*)},
-	{"copyInto", "(Ljava/lang/Object;I)V", "(TT_ARR;I)V", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, copyInto, void, Object$*, int32_t)},
-	{"forEach", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, forEach, void, Object$*)},
-	{"getChild", "(I)Ljava/util/stream/Node$OfPrimitive;", "(I)TT_NODE;", $PUBLIC, $virtualMethod(Node$OfPrimitive, getChild, $Node*, int32_t)},
-	{"newArray", "(I)Ljava/lang/Object;", "(I)TT_ARR;", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, newArray, $Object*, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfPrimitive;", "(JJLjava/util/function/IntFunction<[TT;>;)TT_NODE;", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, truncate, $Node*, int64_t, int64_t, $IntFunction*)},
-	{}
-};
-
-$InnerClassInfo _Node$OfPrimitive_InnerClassesInfo_[] = {
-	{"java.util.stream.Node$OfPrimitive", "java.util.stream.Node", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.Spliterator$OfPrimitive", "java.util.Spliterator", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Node$OfPrimitive_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.stream.Node$OfPrimitive",
-	nullptr,
-	"java.util.stream.Node",
-	nullptr,
-	_Node$OfPrimitive_MethodInfo_,
-	"<T:Ljava/lang/Object;T_CONS:Ljava/lang/Object;T_ARR:Ljava/lang/Object;T_SPLITR::Ljava/util/Spliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;T_NODE::Ljava/util/stream/Node$OfPrimitive<TT;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;>Ljava/lang/Object;Ljava/util/stream/Node<TT;>;",
-	nullptr,
-	_Node$OfPrimitive_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Node"
-};
-
-$Object* allocate$Node$OfPrimitive($Class* clazz) {
-	return $of($alloc(Node$OfPrimitive));
-}
-
 $Node* Node$OfPrimitive::getChild(int32_t i) {
 	$throwNew($IndexOutOfBoundsException);
 	$shouldNotReachHere();
@@ -84,7 +45,40 @@ $ObjectArray* Node$OfPrimitive::asArray($IntFunction* generator) {
 }
 
 $Class* Node$OfPrimitive::load$($String* name, bool initialize) {
-	$loadClass(Node$OfPrimitive, name, initialize, &_Node$OfPrimitive_ClassInfo_, allocate$Node$OfPrimitive);
+	$MethodInfo methodInfos$$[] = {
+		{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Node$OfPrimitive, asArray, $ObjectArray*, $IntFunction*)},
+		{"asPrimitiveArray", "()Ljava/lang/Object;", "()TT_ARR;", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, asPrimitiveArray, $Object*)},
+		{"copyInto", "(Ljava/lang/Object;I)V", "(TT_ARR;I)V", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, copyInto, void, Object$*, int32_t)},
+		{"forEach", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, forEach, void, Object$*)},
+		{"getChild", "(I)Ljava/util/stream/Node$OfPrimitive;", "(I)TT_NODE;", $PUBLIC, $virtualMethod(Node$OfPrimitive, getChild, $Node*, int32_t)},
+		{"newArray", "(I)Ljava/lang/Object;", "(I)TT_ARR;", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, newArray, $Object*, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfPrimitive;", "(JJLjava/util/function/IntFunction<[TT;>;)TT_NODE;", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, truncate, $Node*, int64_t, int64_t, $IntFunction*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Node$OfPrimitive", "java.util.stream.Node", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.Spliterator$OfPrimitive", "java.util.Spliterator", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.stream.Node$OfPrimitive",
+		nullptr,
+		"java.util.stream.Node",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;T_CONS:Ljava/lang/Object;T_ARR:Ljava/lang/Object;T_SPLITR::Ljava/util/Spliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;T_NODE::Ljava/util/stream/Node$OfPrimitive<TT;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;>Ljava/lang/Object;Ljava/util/stream/Node<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Node"
+	};
+	$loadClass(Node$OfPrimitive, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Node$OfPrimitive);
+	});
 	return class$;
 }
 

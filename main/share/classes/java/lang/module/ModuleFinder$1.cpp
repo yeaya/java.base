@@ -1,5 +1,4 @@
 #include <java/lang/module/ModuleFinder$1.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Optional.h>
 #include <java/util/Set.h>
@@ -17,44 +16,6 @@ namespace java {
 	namespace lang {
 		namespace module {
 
-$MethodInfo _ModuleFinder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ModuleFinder$1, init$, void)},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleFinder$1, find, $Optional*, $String*)},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleFinder$1, findAll, $Set*)},
-	{}
-};
-
-$EnclosingMethodInfo _ModuleFinder$1_EnclosingMethodInfo_ = {
-	"java.lang.module.ModuleFinder",
-	"of",
-	"([Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;"
-};
-
-$InnerClassInfo _ModuleFinder$1_InnerClassesInfo_[] = {
-	{"java.lang.module.ModuleFinder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ModuleFinder$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.module.ModuleFinder$1",
-	"java.lang.Object",
-	"java.lang.module.ModuleFinder",
-	nullptr,
-	_ModuleFinder$1_MethodInfo_,
-	nullptr,
-	&_ModuleFinder$1_EnclosingMethodInfo_,
-	_ModuleFinder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.module.ModuleFinder"
-};
-
-$Object* allocate$ModuleFinder$1($Class* clazz) {
-	return $of($alloc(ModuleFinder$1));
-}
-
 void ModuleFinder$1::init$() {
 }
 
@@ -71,7 +32,39 @@ ModuleFinder$1::ModuleFinder$1() {
 }
 
 $Class* ModuleFinder$1::load$($String* name, bool initialize) {
-	$loadClass(ModuleFinder$1, name, initialize, &_ModuleFinder$1_ClassInfo_, allocate$ModuleFinder$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ModuleFinder$1, init$, void)},
+		{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleFinder$1, find, $Optional*, $String*)},
+		{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleFinder$1, findAll, $Set*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.module.ModuleFinder",
+		"of",
+		"([Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.module.ModuleFinder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.module.ModuleFinder$1",
+		"java.lang.Object",
+		"java.lang.module.ModuleFinder",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.module.ModuleFinder"
+	};
+	$loadClass(ModuleFinder$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleFinder$1);
+	});
 	return class$;
 }
 

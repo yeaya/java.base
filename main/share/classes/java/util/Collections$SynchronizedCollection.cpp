@@ -1,5 +1,4 @@
 #include <java/util/Collections$SynchronizedCollection.h>
-
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/Iterable.h>
 #include <java/util/Collection.h>
@@ -29,69 +28,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$SynchronizedCollection_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SynchronizedCollection, serialVersionUID)},
-	{"c", "Ljava/util/Collection;", "Ljava/util/Collection<TE;>;", $FINAL, $field(Collections$SynchronizedCollection, c)},
-	{"mutex", "Ljava/lang/Object;", nullptr, $FINAL, $field(Collections$SynchronizedCollection, mutex)},
-	{}
-};
-
-$MethodInfo _Collections$SynchronizedCollection_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<TE;>;)V", 0, $method(Collections$SynchronizedCollection, init$, void, $Collection*)},
-	{"<init>", "(Ljava/util/Collection;Ljava/lang/Object;)V", "(Ljava/util/Collection<TE;>;Ljava/lang/Object;)V", 0, $method(Collections$SynchronizedCollection, init$, void, $Collection*, Object$*)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, add, bool, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, addAll, bool, $Collection*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, contains, bool, Object$*)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, containsAll, bool, $Collection*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, forEach, void, $Consumer*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, iterator, $Iterator*)},
-	{"parallelStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, parallelStream, $Stream*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, removeAll, bool, $Collection*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, removeIf, bool, $Predicate*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, retainAll, bool, $Collection*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, spliterator, $Spliterator*)},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, stream, $Stream*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, toArray, $ObjectArray*, $IntFunction*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Collections$SynchronizedCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Collections$SynchronizedCollection_InnerClassesInfo_[] = {
-	{"java.util.Collections$SynchronizedCollection", "java.util.Collections", "SynchronizedCollection", $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$SynchronizedCollection_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$SynchronizedCollection",
-	"java.lang.Object",
-	"java.util.Collection,java.io.Serializable",
-	_Collections$SynchronizedCollection_FieldInfo_,
-	_Collections$SynchronizedCollection_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Collection<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$SynchronizedCollection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$SynchronizedCollection($Class* clazz) {
-	return $of($alloc(Collections$SynchronizedCollection));
-}
 
 bool Collections$SynchronizedCollection::equals(Object$* o) {
 	 return this->$Collection::equals(o);
@@ -203,7 +139,7 @@ void Collections$SynchronizedCollection::clear() {
 
 $String* Collections$SynchronizedCollection::toString() {
 	$synchronized(this->mutex) {
-		return $nc($of(this->c))->toString();
+		return $nc(this->c)->toString();
 	}
 }
 
@@ -241,7 +177,64 @@ Collections$SynchronizedCollection::Collections$SynchronizedCollection() {
 }
 
 $Class* Collections$SynchronizedCollection::load$($String* name, bool initialize) {
-	$loadClass(Collections$SynchronizedCollection, name, initialize, &_Collections$SynchronizedCollection_ClassInfo_, allocate$Collections$SynchronizedCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SynchronizedCollection, serialVersionUID)},
+		{"c", "Ljava/util/Collection;", "Ljava/util/Collection<TE;>;", $FINAL, $field(Collections$SynchronizedCollection, c)},
+		{"mutex", "Ljava/lang/Object;", nullptr, $FINAL, $field(Collections$SynchronizedCollection, mutex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<TE;>;)V", 0, $method(Collections$SynchronizedCollection, init$, void, $Collection*)},
+		{"<init>", "(Ljava/util/Collection;Ljava/lang/Object;)V", "(Ljava/util/Collection<TE;>;Ljava/lang/Object;)V", 0, $method(Collections$SynchronizedCollection, init$, void, $Collection*, Object$*)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, add, bool, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, addAll, bool, $Collection*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, contains, bool, Object$*)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, containsAll, bool, $Collection*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, forEach, void, $Consumer*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, iterator, $Iterator*)},
+		{"parallelStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, parallelStream, $Stream*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, removeAll, bool, $Collection*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, removeIf, bool, $Predicate*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, retainAll, bool, $Collection*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, spliterator, $Spliterator*)},
+		{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, stream, $Stream*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, toArray, $ObjectArray*, $IntFunction*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedCollection, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Collections$SynchronizedCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$SynchronizedCollection", "java.util.Collections", "SynchronizedCollection", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$SynchronizedCollection",
+		"java.lang.Object",
+		"java.util.Collection,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Collection<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$SynchronizedCollection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$SynchronizedCollection));
+	});
 	return class$;
 }
 

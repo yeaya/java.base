@@ -41,6 +41,7 @@ class $export RandomSupport : public ::java::lang::Object {
 	$class(RandomSupport, 0, ::java::lang::Object)
 public:
 	RandomSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static double boundedNextDouble(::java::util::random::RandomGenerator* rng, double origin, double bound);
 	static double boundedNextDouble(::java::util::random::RandomGenerator* rng, double bound);
@@ -76,10 +77,10 @@ public:
 	static $String* BAD_FLOATING_BOUND;
 	static $String* BAD_RANGE;
 	static bool useSecureRandomSeed;
-	static const int32_t GOLDEN_RATIO_32 = 0x9E3779B9;
-	static const int64_t GOLDEN_RATIO_64 = (int64_t)0x9E3779B97F4A7C15;
-	static const int32_t SILVER_RATIO_32 = 0x6A09E667;
-	static const int64_t SILVER_RATIO_64 = (int64_t)0x6A09E667F3BCC909;
+	static const int32_t GOLDEN_RATIO_32 = 0x9e3779b9;
+	static const int64_t GOLDEN_RATIO_64 = (int64_t)0x9e3779b97f4a7c15;
+	static const int32_t SILVER_RATIO_32 = 0x6a09e667;
+	static const int64_t SILVER_RATIO_64 = (int64_t)0x6a09e667f3bcc909;
 };
 
 			} // random

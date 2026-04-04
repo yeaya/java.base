@@ -1,5 +1,4 @@
 #include <sun/nio/ch/PipeImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/nio/channels/Pipe$SinkChannel.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
@@ -26,34 +25,8 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _PipeImpl_FieldInfo_[] = {
-	{"source", "Ljava/nio/channels/Pipe$SourceChannel;", nullptr, $PRIVATE | $FINAL, $field(PipeImpl, source$)},
-	{"sink", "Ljava/nio/channels/Pipe$SinkChannel;", nullptr, $PRIVATE | $FINAL, $field(PipeImpl, sink$)},
-	{}
-};
-
-$MethodInfo _PipeImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(PipeImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
-	{"sink", "()Ljava/nio/channels/Pipe$SinkChannel;", nullptr, $PUBLIC, $virtualMethod(PipeImpl, sink, $Pipe$SinkChannel*)},
-	{"source", "()Ljava/nio/channels/Pipe$SourceChannel;", nullptr, $PUBLIC, $virtualMethod(PipeImpl, source, $Pipe$SourceChannel*)},
-	{}
-};
-
-$ClassInfo _PipeImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.PipeImpl",
-	"java.nio.channels.Pipe",
-	nullptr,
-	_PipeImpl_FieldInfo_,
-	_PipeImpl_MethodInfo_
-};
-
-$Object* allocate$PipeImpl($Class* clazz) {
-	return $of($alloc(PipeImpl));
-}
-
 void PipeImpl::init$($SelectorProvider* sp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Pipe::init$();
 	int64_t pipeFds = $IOUtil::makePipe(true);
 	int32_t readFd = (int32_t)((int64_t)((uint64_t)pipeFds >> 32));
@@ -78,7 +51,28 @@ PipeImpl::PipeImpl() {
 }
 
 $Class* PipeImpl::load$($String* name, bool initialize) {
-	$loadClass(PipeImpl, name, initialize, &_PipeImpl_ClassInfo_, allocate$PipeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"source", "Ljava/nio/channels/Pipe$SourceChannel;", nullptr, $PRIVATE | $FINAL, $field(PipeImpl, source$)},
+		{"sink", "Ljava/nio/channels/Pipe$SinkChannel;", nullptr, $PRIVATE | $FINAL, $field(PipeImpl, sink$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(PipeImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
+		{"sink", "()Ljava/nio/channels/Pipe$SinkChannel;", nullptr, $PUBLIC, $virtualMethod(PipeImpl, sink, $Pipe$SinkChannel*)},
+		{"source", "()Ljava/nio/channels/Pipe$SourceChannel;", nullptr, $PUBLIC, $virtualMethod(PipeImpl, source, $Pipe$SourceChannel*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.PipeImpl",
+		"java.nio.channels.Pipe",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PipeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PipeImpl);
+	});
 	return class$;
 }
 

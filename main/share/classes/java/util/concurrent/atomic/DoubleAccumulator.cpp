@@ -1,5 +1,4 @@
 #include <java/util/concurrent/atomic/DoubleAccumulator.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/util/concurrent/atomic/DoubleAccumulator$SerializationProxy.h>
@@ -26,53 +25,6 @@ namespace java {
 		namespace concurrent {
 			namespace atomic {
 
-$FieldInfo _DoubleAccumulator_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DoubleAccumulator, serialVersionUID)},
-	{"function", "Ljava/util/function/DoubleBinaryOperator;", nullptr, $PRIVATE | $FINAL, $field(DoubleAccumulator, function)},
-	{"identity", "J", nullptr, $PRIVATE | $FINAL, $field(DoubleAccumulator, identity)},
-	{}
-};
-
-$MethodInfo _DoubleAccumulator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/DoubleBinaryOperator;D)V", nullptr, $PUBLIC, $method(DoubleAccumulator, init$, void, $DoubleBinaryOperator*, double)},
-	{"accumulate", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, accumulate, void, double)},
-	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, doubleValue, double)},
-	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, floatValue, float)},
-	{"get", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, get, double)},
-	{"getThenReset", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, getThenReset, double)},
-	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, intValue, int32_t)},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, longValue, int64_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DoubleAccumulator, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, reset, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, toString, $String*)},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DoubleAccumulator, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _DoubleAccumulator_InnerClassesInfo_[] = {
-	{"java.util.concurrent.atomic.DoubleAccumulator$SerializationProxy", "java.util.concurrent.atomic.DoubleAccumulator", "SerializationProxy", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DoubleAccumulator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.atomic.DoubleAccumulator",
-	"java.util.concurrent.atomic.Striped64",
-	nullptr,
-	_DoubleAccumulator_FieldInfo_,
-	_DoubleAccumulator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DoubleAccumulator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.atomic.DoubleAccumulator$SerializationProxy"
-};
-
-$Object* allocate$DoubleAccumulator($Class* clazz) {
-	return $of($alloc(DoubleAccumulator));
-}
-
 void DoubleAccumulator::init$($DoubleBinaryOperator* accumulatorFunction, double identity) {
 	$Striped64::init$();
 	$set(this, function, accumulatorFunction);
@@ -80,7 +32,7 @@ void DoubleAccumulator::init$($DoubleBinaryOperator* accumulatorFunction, double
 }
 
 void DoubleAccumulator::accumulate(double x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, nullptr);
 	int64_t b = 0;
 	int64_t v = 0;
@@ -90,16 +42,16 @@ void DoubleAccumulator::accumulate(double x) {
 	bool var$0 = ($assign(cs, this->cells)) != nullptr;
 	if (!var$0) {
 		bool var$1 = (r = $Double::doubleToRawLongBits($nc(this->function)->applyAsDouble($Double::longBitsToDouble(b = this->base), x))) != b;
-		var$0 = (var$1 && !casBase(b, r));
+		var$0 = var$1 && !casBase(b, r);
 	}
 	if (var$0) {
 		int32_t index = getProbe();
 		bool uncontended = true;
-		bool var$3 = cs == nullptr || (m = $nc(cs)->length - 1) < 0;
-		bool var$2 = var$3 || ($assign(c, $nc(cs)->get((int32_t)(index & (uint32_t)m)))) == nullptr;
+		bool var$3 = cs == nullptr || (m = cs->length - 1) < 0;
+		bool var$2 = var$3 || ($assign(c, cs->get(index & m))) == nullptr;
 		if (!var$2) {
-			bool var$4 = ((r = $Double::doubleToRawLongBits($nc(this->function)->applyAsDouble($Double::longBitsToDouble(v = $nc(c)->value), x))) == v);
-			var$2 = !(uncontended = var$4 || $nc(c)->cas(v, r));
+			bool var$4 = (r = $Double::doubleToRawLongBits($nc(this->function)->applyAsDouble($Double::longBitsToDouble(v = $nc(c)->value), x))) == v;
+			var$2 = !(uncontended = var$4 || c->cas(v, r));
 		}
 		if (var$2) {
 			doubleAccumulate(x, this->function, uncontended, index);
@@ -108,19 +60,15 @@ void DoubleAccumulator::accumulate(double x) {
 }
 
 double DoubleAccumulator::get() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, this->cells);
 	double result = $Double::longBitsToDouble(this->base);
 	if (cs != nullptr) {
-		{
-			$var($Striped64$CellArray, arr$, cs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Striped64$Cell, c, arr$->get(i$));
-				if (c != nullptr) {
-					result = $nc(this->function)->applyAsDouble(result, $Double::longBitsToDouble(c->value));
-				}
+		$var($Striped64$CellArray, arr$, cs);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Striped64$Cell, c, arr$->get(i$));
+			if (c != nullptr) {
+				result = $nc(this->function)->applyAsDouble(result, $Double::longBitsToDouble(c->value));
 			}
 		}
 	}
@@ -128,41 +76,31 @@ double DoubleAccumulator::get() {
 }
 
 void DoubleAccumulator::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, this->cells);
 	this->base = this->identity;
 	if (cs != nullptr) {
-		{
-			$var($Striped64$CellArray, arr$, cs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Striped64$Cell, c, arr$->get(i$));
-				if (c != nullptr) {
-					c->reset(this->identity);
-				}
+		$var($Striped64$CellArray, arr$, cs);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Striped64$Cell, c, arr$->get(i$));
+			if (c != nullptr) {
+				c->reset(this->identity);
 			}
 		}
 	}
 }
 
 double DoubleAccumulator::getThenReset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, this->cells);
 	double result = $Double::longBitsToDouble(getAndSetBase(this->identity));
 	if (cs != nullptr) {
-		{
-			$var($Striped64$CellArray, arr$, cs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Striped64$Cell, c, arr$->get(i$));
-				{
-					if (c != nullptr) {
-						double v = $Double::longBitsToDouble(c->getAndSet(this->identity));
-						result = $nc(this->function)->applyAsDouble(result, v);
-					}
-				}
+		$var($Striped64$CellArray, arr$, cs);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Striped64$Cell, c, arr$->get(i$));
+			if (c != nullptr) {
+				double v = $Double::longBitsToDouble(c->getAndSet(this->identity));
+				result = $nc(this->function)->applyAsDouble(result, v);
 			}
 		}
 	}
@@ -190,7 +128,7 @@ float DoubleAccumulator::floatValue() {
 }
 
 $Object* DoubleAccumulator::writeReplace() {
-	return $of($new($DoubleAccumulator$SerializationProxy, get(), this->function, this->identity));
+	return $new($DoubleAccumulator$SerializationProxy, get(), this->function, this->identity);
 }
 
 void DoubleAccumulator::readObject($ObjectInputStream* s) {
@@ -201,7 +139,48 @@ DoubleAccumulator::DoubleAccumulator() {
 }
 
 $Class* DoubleAccumulator::load$($String* name, bool initialize) {
-	$loadClass(DoubleAccumulator, name, initialize, &_DoubleAccumulator_ClassInfo_, allocate$DoubleAccumulator);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DoubleAccumulator, serialVersionUID)},
+		{"function", "Ljava/util/function/DoubleBinaryOperator;", nullptr, $PRIVATE | $FINAL, $field(DoubleAccumulator, function)},
+		{"identity", "J", nullptr, $PRIVATE | $FINAL, $field(DoubleAccumulator, identity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/DoubleBinaryOperator;D)V", nullptr, $PUBLIC, $method(DoubleAccumulator, init$, void, $DoubleBinaryOperator*, double)},
+		{"accumulate", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, accumulate, void, double)},
+		{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, doubleValue, double)},
+		{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, floatValue, float)},
+		{"get", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, get, double)},
+		{"getThenReset", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, getThenReset, double)},
+		{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, intValue, int32_t)},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, longValue, int64_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DoubleAccumulator, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, reset, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, toString, $String*)},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DoubleAccumulator, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.atomic.DoubleAccumulator$SerializationProxy", "java.util.concurrent.atomic.DoubleAccumulator", "SerializationProxy", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.atomic.DoubleAccumulator",
+		"java.util.concurrent.atomic.Striped64",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.atomic.DoubleAccumulator$SerializationProxy"
+	};
+	$loadClass(DoubleAccumulator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleAccumulator);
+	});
 	return class$;
 }
 

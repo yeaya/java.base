@@ -1,5 +1,4 @@
 #include <sun/reflect/misc/MethodUtil$1.h>
-
 #include <java/lang/reflect/Method.h>
 #include <sun/reflect/misc/MethodUtil.h>
 #include <jcpp.h>
@@ -15,52 +14,14 @@ namespace sun {
 	namespace reflect {
 		namespace misc {
 
-$MethodInfo _MethodUtil$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MethodUtil$1, init$, void)},
-	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(MethodUtil$1, run, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _MethodUtil$1_EnclosingMethodInfo_ = {
-	"sun.reflect.misc.MethodUtil",
-	"getTrampoline",
-	"()Ljava/lang/reflect/Method;"
-};
-
-$InnerClassInfo _MethodUtil$1_InnerClassesInfo_[] = {
-	{"sun.reflect.misc.MethodUtil$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodUtil$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.reflect.misc.MethodUtil$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	nullptr,
-	_MethodUtil$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/reflect/Method;>;",
-	&_MethodUtil$1_EnclosingMethodInfo_,
-	_MethodUtil$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.reflect.misc.MethodUtil"
-};
-
-$Object* allocate$MethodUtil$1($Class* clazz) {
-	return $of($alloc(MethodUtil$1));
-}
-
 void MethodUtil$1::init$() {
 }
 
 $Object* MethodUtil$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* t = $MethodUtil::getTrampolineClass();
 	$load($Method);
-	$load($ObjectArray);
 	$var($ClassArray, types, $new($ClassArray, {
 		$Method::class$,
 		$Object::class$,
@@ -75,7 +36,38 @@ MethodUtil$1::MethodUtil$1() {
 }
 
 $Class* MethodUtil$1::load$($String* name, bool initialize) {
-	$loadClass(MethodUtil$1, name, initialize, &_MethodUtil$1_ClassInfo_, allocate$MethodUtil$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MethodUtil$1, init$, void)},
+		{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(MethodUtil$1, run, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.reflect.misc.MethodUtil",
+		"getTrampoline",
+		"()Ljava/lang/reflect/Method;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.misc.MethodUtil$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.reflect.misc.MethodUtil$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/reflect/Method;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.reflect.misc.MethodUtil"
+	};
+	$loadClass(MethodUtil$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodUtil$1);
+	});
 	return class$;
 }
 

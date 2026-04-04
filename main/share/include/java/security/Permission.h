@@ -31,7 +31,7 @@ public:
 	virtual bool implies(::java::security::Permission* permission) {return false;}
 	virtual ::java::security::PermissionCollection* newPermissionCollection();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xB1C6E13F2857517E;
+	static const int64_t serialVersionUID = (int64_t)0xb1c6e13f2857517e;
 	$String* name = nullptr;
 };
 

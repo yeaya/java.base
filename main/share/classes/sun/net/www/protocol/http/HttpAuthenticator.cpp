@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/HttpAuthenticator.h>
-
 #include <java/net/URL.h>
 #include <jcpp.h>
 
@@ -14,36 +13,31 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$CompoundAttribute _HttpAuthenticator_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _HttpAuthenticator_MethodInfo_[] = {
-	{"authString", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpAuthenticator, authString, $String*, $URL*, $String*, $String*)},
-	{"schemeSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpAuthenticator, schemeSupported, bool, $String*)},
-	{}
-};
-
-$ClassInfo _HttpAuthenticator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.net.www.protocol.http.HttpAuthenticator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HttpAuthenticator_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_HttpAuthenticator_Annotations_
-};
-
-$Object* allocate$HttpAuthenticator($Class* clazz) {
-	return $of($alloc(HttpAuthenticator));
-}
-
 $Class* HttpAuthenticator::load$($String* name, bool initialize) {
-	$loadClass(HttpAuthenticator, name, initialize, &_HttpAuthenticator_ClassInfo_, allocate$HttpAuthenticator);
+	$MethodInfo methodInfos$$[] = {
+		{"authString", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpAuthenticator, authString, $String*, $URL*, $String*, $String*)},
+		{"schemeSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpAuthenticator, schemeSupported, bool, $String*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.net.www.protocol.http.HttpAuthenticator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(HttpAuthenticator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpAuthenticator);
+	});
 	return class$;
 }
 

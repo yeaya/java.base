@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsPathParser$Result.h>
-
 #include <sun/nio/fs/WindowsPathParser.h>
 #include <sun/nio/fs/WindowsPathType.h>
 #include <jcpp.h>
@@ -13,46 +12,6 @@ using $WindowsPathType = ::sun::nio::fs::WindowsPathType;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _WindowsPathParser$Result_FieldInfo_[] = {
-	{"type", "Lsun/nio/fs/WindowsPathType;", nullptr, $PRIVATE | $FINAL, $field(WindowsPathParser$Result, type$)},
-	{"root", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsPathParser$Result, root$)},
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsPathParser$Result, path$)},
-	{}
-};
-
-$MethodInfo _WindowsPathParser$Result_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPathType;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(WindowsPathParser$Result, init$, void, $WindowsPathType*, $String*, $String*)},
-	{"path", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPathParser$Result, path, $String*)},
-	{"root", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPathParser$Result, root, $String*)},
-	{"type", "()Lsun/nio/fs/WindowsPathType;", nullptr, 0, $virtualMethod(WindowsPathParser$Result, type, $WindowsPathType*)},
-	{}
-};
-
-$InnerClassInfo _WindowsPathParser$Result_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsPathParser$Result", "sun.nio.fs.WindowsPathParser", "Result", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsPathParser$Result_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsPathParser$Result",
-	"java.lang.Object",
-	nullptr,
-	_WindowsPathParser$Result_FieldInfo_,
-	_WindowsPathParser$Result_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsPathParser$Result_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsPathParser"
-};
-
-$Object* allocate$WindowsPathParser$Result($Class* clazz) {
-	return $of($alloc(WindowsPathParser$Result));
-}
 
 void WindowsPathParser$Result::init$($WindowsPathType* type, $String* root, $String* path) {
 	$set(this, type$, type);
@@ -76,7 +35,41 @@ WindowsPathParser$Result::WindowsPathParser$Result() {
 }
 
 $Class* WindowsPathParser$Result::load$($String* name, bool initialize) {
-	$loadClass(WindowsPathParser$Result, name, initialize, &_WindowsPathParser$Result_ClassInfo_, allocate$WindowsPathParser$Result);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lsun/nio/fs/WindowsPathType;", nullptr, $PRIVATE | $FINAL, $field(WindowsPathParser$Result, type$)},
+		{"root", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsPathParser$Result, root$)},
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsPathParser$Result, path$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/WindowsPathType;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(WindowsPathParser$Result, init$, void, $WindowsPathType*, $String*, $String*)},
+		{"path", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPathParser$Result, path, $String*)},
+		{"root", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPathParser$Result, root, $String*)},
+		{"type", "()Lsun/nio/fs/WindowsPathType;", nullptr, 0, $virtualMethod(WindowsPathParser$Result, type, $WindowsPathType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsPathParser$Result", "sun.nio.fs.WindowsPathParser", "Result", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsPathParser$Result",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsPathParser"
+	};
+	$loadClass(WindowsPathParser$Result, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsPathParser$Result);
+	});
 	return class$;
 }
 

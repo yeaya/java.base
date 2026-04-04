@@ -1,12 +1,10 @@
 #include <java/io/ObjectStreamClass$DeserializationConstructorsCache$Key$Impl.h>
-
 #include <java/io/ObjectStreamClass$DeserializationConstructorsCache$Key.h>
 #include <java/io/ObjectStreamField.h>
 #include <jcpp.h>
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $ObjectStreamClass$DeserializationConstructorsCache$Key = ::java::io::ObjectStreamClass$DeserializationConstructorsCache$Key;
-using $ObjectStreamField = ::java::io::ObjectStreamField;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -15,50 +13,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace io {
 
-$FieldInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Impl_FieldInfo_[] = {
-	{"next", "Ljava/io/ObjectStreamClass$DeserializationConstructorsCache$Key$Impl;", nullptr, 0, $field(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, next)},
-	{"fieldNames", "[Ljava/lang/String;", nullptr, $FINAL, $field(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fieldNames)},
-	{"fieldTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $FINAL, $field(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fieldTypes)},
-	{}
-};
-
-$MethodInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Impl_MethodInfo_[] = {
-	{"<init>", "([Ljava/io/ObjectStreamField;)V", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, init$, void, $ObjectStreamFieldArray*)},
-	{"fieldName", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fieldName, $String*, int32_t)},
-	{"fieldType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fieldType, $Class*, int32_t)},
-	{"length", "()I", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, length, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Impl_InnerClassesInfo_[] = {
-	{"java.io.ObjectStreamClass$DeserializationConstructorsCache", "java.io.ObjectStreamClass", "DeserializationConstructorsCache", $PRIVATE | $STATIC | $FINAL},
-	{"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key", "java.io.ObjectStreamClass$DeserializationConstructorsCache", "Key", $STATIC | $ABSTRACT},
-	{"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Impl", "java.io.ObjectStreamClass$DeserializationConstructorsCache$Key", "Impl", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Impl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Impl",
-	"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key",
-	nullptr,
-	_ObjectStreamClass$DeserializationConstructorsCache$Key$Impl_FieldInfo_,
-	_ObjectStreamClass$DeserializationConstructorsCache$Key$Impl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectStreamClass$DeserializationConstructorsCache$Key$Impl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectStreamClass"
-};
-
-$Object* allocate$ObjectStreamClass$DeserializationConstructorsCache$Key$Impl($Class* clazz) {
-	return $of($alloc(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl));
-}
-
 void ObjectStreamClass$DeserializationConstructorsCache$Key$Impl::init$($ObjectStreamFieldArray* fields) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$ObjectStreamClass$DeserializationConstructorsCache$Key::init$();
 	$set(this, fieldNames, $new($StringArray, $nc(fields)->length));
@@ -85,7 +41,43 @@ ObjectStreamClass$DeserializationConstructorsCache$Key$Impl::ObjectStreamClass$D
 }
 
 $Class* ObjectStreamClass$DeserializationConstructorsCache$Key$Impl::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, name, initialize, &_ObjectStreamClass$DeserializationConstructorsCache$Key$Impl_ClassInfo_, allocate$ObjectStreamClass$DeserializationConstructorsCache$Key$Impl);
+	$FieldInfo fieldInfos$$[] = {
+		{"next", "Ljava/io/ObjectStreamClass$DeserializationConstructorsCache$Key$Impl;", nullptr, 0, $field(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, next)},
+		{"fieldNames", "[Ljava/lang/String;", nullptr, $FINAL, $field(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fieldNames)},
+		{"fieldTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $FINAL, $field(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fieldTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/io/ObjectStreamField;)V", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, init$, void, $ObjectStreamFieldArray*)},
+		{"fieldName", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fieldName, $String*, int32_t)},
+		{"fieldType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fieldType, $Class*, int32_t)},
+		{"length", "()I", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, length, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectStreamClass$DeserializationConstructorsCache", "java.io.ObjectStreamClass", "DeserializationConstructorsCache", $PRIVATE | $STATIC | $FINAL},
+		{"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key", "java.io.ObjectStreamClass$DeserializationConstructorsCache", "Key", $STATIC | $ABSTRACT},
+		{"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Impl", "java.io.ObjectStreamClass$DeserializationConstructorsCache$Key", "Impl", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Impl",
+		"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectStreamClass"
+	};
+	$loadClass(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/util/math/intpoly/IntegerPolynomialModBinP.h>
-
 #include <java/math/BigInteger.h>
 #include <sun/security/util/math/ImmutableIntegerModuloP.h>
 #include <sun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement.h>
@@ -8,7 +7,6 @@
 
 #undef ZERO
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -25,73 +23,25 @@ namespace sun {
 			namespace math {
 				namespace intpoly {
 
-$FieldInfo _IntegerPolynomialModBinP_FieldInfo_[] = {
-	{"reduceLimbs", "[J", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomialModBinP, reduceLimbs)},
-	{"bitOffset", "I", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomialModBinP, bitOffset)},
-	{"limbMask", "I", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomialModBinP, limbMask)},
-	{"rightBitOffset", "I", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomialModBinP, rightBitOffset)},
-	{"power", "I", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomialModBinP, power)},
-	{}
-};
-
-$MethodInfo _IntegerPolynomialModBinP_MethodInfo_[] = {
-	{"<init>", "(IIILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(IntegerPolynomialModBinP, init$, void, int32_t, int32_t, int32_t, $BigInteger*)},
-	{"carryReduce", "([J[J)V", nullptr, $PRIVATE, $method(IntegerPolynomialModBinP, carryReduce, void, $longs*, $longs*)},
-	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, finalCarryReduceLast, void, $longs*)},
-	{"getElement", "([BIIB)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomialModBinP, getElement, $ImmutableIntegerModuloP*, $bytes*, int32_t, int32_t, int8_t)},
-	{"modReduceInBits", "([JIIJ)V", nullptr, $PRIVATE, $method(IntegerPolynomialModBinP, modReduceInBits, void, $longs*, int32_t, int32_t, int64_t)},
-	{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, mult, void, $longs*, $longs*, $longs*)},
-	{"multOnly", "([J[J[J)V", nullptr, $PRIVATE, $method(IntegerPolynomialModBinP, multOnly, void, $longs*, $longs*, $longs*)},
-	{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, reduce, void, $longs*)},
-	{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, reduceIn, void, $longs*, int64_t, int32_t)},
-	{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, square, void, $longs*, $longs*)},
-	{}
-};
-
-$InnerClassInfo _IntegerPolynomialModBinP_InnerClassesInfo_[] = {
-	{"sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve448OrderField", "sun.security.util.math.intpoly.IntegerPolynomialModBinP", "Curve448OrderField", $PUBLIC | $STATIC},
-	{"sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve25519OrderField", "sun.security.util.math.intpoly.IntegerPolynomialModBinP", "Curve25519OrderField", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _IntegerPolynomialModBinP_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.math.intpoly.IntegerPolynomialModBinP",
-	"sun.security.util.math.intpoly.IntegerPolynomial",
-	nullptr,
-	_IntegerPolynomialModBinP_FieldInfo_,
-	_IntegerPolynomialModBinP_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntegerPolynomialModBinP_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve448OrderField,sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve25519OrderField"
-};
-
-$Object* allocate$IntegerPolynomialModBinP($Class* clazz) {
-	return $of($alloc(IntegerPolynomialModBinP));
-}
-
 void IntegerPolynomialModBinP::init$(int32_t bitsPerLimb, int32_t numLimbs, int32_t power, $BigInteger* subtrahend$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, subtrahend, subtrahend$renamed);
-	$IntegerPolynomial::init$(bitsPerLimb, numLimbs, 1, $($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(power)))->subtract(subtrahend)));
+	$IntegerPolynomial::init$(bitsPerLimb, numLimbs, 1, $($($($BigInteger::valueOf(2))->pow(power))->subtract(subtrahend)));
 	bool negate = false;
 	if ($nc(subtrahend)->compareTo($BigInteger::ZERO) < 0) {
 		negate = true;
 		$assign(subtrahend, subtrahend->negate());
 	}
-	int32_t reduceLimbsLength = $div($nc(subtrahend)->bitLength(), bitsPerLimb) + 1;
+	int32_t reduceLimbsLength = $div(subtrahend->bitLength(), bitsPerLimb) + 1;
 	$set(this, reduceLimbs, $new($longs, reduceLimbsLength));
 	$var($IntegerPolynomial$ImmutableElement, reduceElem, $cast($IntegerPolynomial$ImmutableElement, getElement(subtrahend)));
 	if (negate) {
 		$assign(reduceElem, $cast($IntegerPolynomial$ImmutableElement, $nc(reduceElem)->additiveInverse()));
 	}
-	$System::arraycopy($nc(reduceElem)->limbs, 0, this->reduceLimbs, 0, $nc(this->reduceLimbs)->length);
+	$System::arraycopy($nc(reduceElem)->limbs, 0, this->reduceLimbs, 0, this->reduceLimbs->length);
 	$nc($System::out)->println("reduce limbs:"_s);
-	for (int32_t i = 0; i < $nc(this->reduceLimbs)->length; ++i) {
-		$nc($System::out)->println($$str({$$str(i), ":"_s, $$str($nc(this->reduceLimbs)->get(i))}));
+	for (int32_t i = 0; i < this->reduceLimbs->length; ++i) {
+		$System::out->println($$str({$$str(i), ":"_s, $$str(this->reduceLimbs->get(i))}));
 	}
 	this->power = power;
 	this->bitOffset = numLimbs * bitsPerLimb - power;
@@ -104,14 +54,14 @@ void IntegerPolynomialModBinP::finalCarryReduceLast($longs* limbs) {
 	int32_t highBits = this->bitsPerLimb - extraBits;
 	int64_t c = $sr($nc(limbs)->get(this->numLimbs - 1), highBits);
 	(*limbs)[this->numLimbs - 1] -= $sl(c, highBits);
-	for (int32_t j = 0; j < $nc(this->reduceLimbs)->length; ++j) {
+	for (int32_t j = 0; j < this->reduceLimbs->length; ++j) {
 		int32_t reduceBits = this->power + extraBits - j * this->bitsPerLimb;
-		modReduceInBits(limbs, this->numLimbs, reduceBits, c * $nc(this->reduceLimbs)->get(j));
+		modReduceInBits(limbs, this->numLimbs, reduceBits, c * this->reduceLimbs->get(j));
 	}
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomialModBinP::getElement($bytes* v, int32_t offset, int32_t length, int8_t highByte) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, result, $new($longs, this->numLimbs));
 	int32_t numHighBits = 32 - $Integer::numberOfLeadingZeros(highByte);
 	int32_t numBits = 8 * length + numHighBits;
@@ -148,14 +98,14 @@ void IntegerPolynomialModBinP::modReduceInBits($longs* limbs, int32_t index, int
 		int32_t secondPos = $div(bits, (this->bitsPerLimb));
 		int32_t bitOffset = (secondPos + 1) * this->bitsPerLimb - bits;
 		int32_t rightBitOffset = this->bitsPerLimb - bitOffset;
-		(*$nc(limbs))[index - (secondPos + 1)] += (int64_t)(($sl(x, bitOffset)) & (uint64_t)(int64_t)this->limbMask);
+		(*$nc(limbs))[index - (secondPos + 1)] += ($sl(x, bitOffset)) & this->limbMask;
 		(*limbs)[index - secondPos] += $sr(x, rightBitOffset);
 	}
 }
 
 void IntegerPolynomialModBinP::reduceIn($longs* c, int64_t v, int32_t i) {
-	for (int32_t j = 0; j < $nc(this->reduceLimbs)->length; ++j) {
-		modReduceInBits(c, i, this->power - this->bitsPerLimb * j, $nc(this->reduceLimbs)->get(j) * v);
+	for (int32_t j = 0; j < this->reduceLimbs->length; ++j) {
+		modReduceInBits(c, i, this->power - this->bitsPerLimb * j, this->reduceLimbs->get(j) * v);
 	}
 }
 
@@ -181,7 +131,7 @@ void IntegerPolynomialModBinP::reduce($longs* a) {
 void IntegerPolynomialModBinP::square($longs* a, $longs* r) {
 	$var($longs, c, $new($longs, 2 * this->numLimbs));
 	for (int32_t i = 0; i < this->numLimbs; ++i) {
-		(*c)[2 * i] += $nc(a)->get(i) * a->get(i);
+		(*c)[2 * i] += $nc(a)->get(i) * $nc(a)->get(i);
 		for (int32_t j = i + 1; j < this->numLimbs; ++j) {
 			(*c)[i + j] += 2 * a->get(i) * a->get(j);
 		}
@@ -193,7 +143,49 @@ IntegerPolynomialModBinP::IntegerPolynomialModBinP() {
 }
 
 $Class* IntegerPolynomialModBinP::load$($String* name, bool initialize) {
-	$loadClass(IntegerPolynomialModBinP, name, initialize, &_IntegerPolynomialModBinP_ClassInfo_, allocate$IntegerPolynomialModBinP);
+	$FieldInfo fieldInfos$$[] = {
+		{"reduceLimbs", "[J", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomialModBinP, reduceLimbs)},
+		{"bitOffset", "I", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomialModBinP, bitOffset)},
+		{"limbMask", "I", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomialModBinP, limbMask)},
+		{"rightBitOffset", "I", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomialModBinP, rightBitOffset)},
+		{"power", "I", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomialModBinP, power)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(IntegerPolynomialModBinP, init$, void, int32_t, int32_t, int32_t, $BigInteger*)},
+		{"carryReduce", "([J[J)V", nullptr, $PRIVATE, $method(IntegerPolynomialModBinP, carryReduce, void, $longs*, $longs*)},
+		{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, finalCarryReduceLast, void, $longs*)},
+		{"getElement", "([BIIB)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomialModBinP, getElement, $ImmutableIntegerModuloP*, $bytes*, int32_t, int32_t, int8_t)},
+		{"modReduceInBits", "([JIIJ)V", nullptr, $PRIVATE, $method(IntegerPolynomialModBinP, modReduceInBits, void, $longs*, int32_t, int32_t, int64_t)},
+		{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, mult, void, $longs*, $longs*, $longs*)},
+		{"multOnly", "([J[J[J)V", nullptr, $PRIVATE, $method(IntegerPolynomialModBinP, multOnly, void, $longs*, $longs*, $longs*)},
+		{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, reduce, void, $longs*)},
+		{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, reduceIn, void, $longs*, int64_t, int32_t)},
+		{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, square, void, $longs*, $longs*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve448OrderField", "sun.security.util.math.intpoly.IntegerPolynomialModBinP", "Curve448OrderField", $PUBLIC | $STATIC},
+		{"sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve25519OrderField", "sun.security.util.math.intpoly.IntegerPolynomialModBinP", "Curve25519OrderField", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.math.intpoly.IntegerPolynomialModBinP",
+		"sun.security.util.math.intpoly.IntegerPolynomial",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve448OrderField,sun.security.util.math.intpoly.IntegerPolynomialModBinP$Curve25519OrderField"
+	};
+	$loadClass(IntegerPolynomialModBinP, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerPolynomialModBinP);
+	});
 	return class$;
 }
 

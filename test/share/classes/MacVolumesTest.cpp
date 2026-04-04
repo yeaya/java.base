@@ -1,5 +1,4 @@
 #include <MacVolumesTest.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
@@ -30,9 +29,7 @@ using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $BufferedReader = ::java::io::BufferedReader;
-using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -42,44 +39,13 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $DirectoryStream = ::java::nio::file::DirectoryStream;
-using $FileStore = ::java::nio::file::FileStore;
 using $Files = ::java::nio::file::Files;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
 using $Random = ::java::util::Random;
-
-$FieldInfo _MacVolumesTest_FieldInfo_[] = {
-	{"SYSTEM_VOLUME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacVolumesTest, SYSTEM_VOLUME)},
-	{"DATA_VOLUME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacVolumesTest, DATA_VOLUME)},
-	{"FIRMLINKS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacVolumesTest, FIRMLINKS)},
-	{}
-};
-
-$MethodInfo _MacVolumesTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MacVolumesTest, init$, void)},
-	{"checkDataVolume", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(MacVolumesTest, checkDataVolume, void), "java.io.IOException"},
-	{"checkFirmlinks", "()V", nullptr, $STATIC, $staticMethod(MacVolumesTest, checkFirmlinks, void), "java.io.IOException"},
-	{"checkSystemVolume", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(MacVolumesTest, checkSystemVolume, void), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MacVolumesTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _MacVolumesTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MacVolumesTest",
-	"java.lang.Object",
-	nullptr,
-	_MacVolumesTest_FieldInfo_,
-	_MacVolumesTest_MethodInfo_
-};
-
-$Object* allocate$MacVolumesTest($Class* clazz) {
-	return $of($alloc(MacVolumesTest));
-}
 
 $String* MacVolumesTest::SYSTEM_VOLUME = nullptr;
 $String* MacVolumesTest::DATA_VOLUME = nullptr;
@@ -90,10 +56,10 @@ void MacVolumesTest::init$() {
 
 void MacVolumesTest::checkSystemVolume() {
 	$init(MacVolumesTest);
-	$useLocalCurrentObjectStackCache();
-	$nc($System::out)->format("--- Checking system volume %s ---%n"_s, $$new($ObjectArray, {$of(MacVolumesTest::SYSTEM_VOLUME)}));
+	$useLocalObjectStack();
+	$nc($System::out)->format("--- Checking system volume %s ---%n"_s, $$new($ObjectArray, {MacVolumesTest::SYSTEM_VOLUME}));
 	$var($Path, root, $Path::of(MacVolumesTest::SYSTEM_VOLUME, $$new($StringArray, 0)));
-	if (!$nc($($Files::getFileStore(root)))->isReadOnly()) {
+	if (!$$nc($Files::getFileStore(root))->isReadOnly()) {
 		$throwNew($RuntimeException, "Root volume is not read-only"_s);
 	}
 	$var($Path, tempDir, nullptr);
@@ -115,112 +81,108 @@ void MacVolumesTest::checkSystemVolume() {
 	}
 	{
 		$var($DirectoryStream, ds, $Files::newDirectoryStream(etc));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$var($Iterator, paths, $nc(ds)->iterator());
-					while ($nc(paths)->hasNext()) {
-						$var($Path, p, $cast($Path, paths->next()));
-						bool var$1 = $Files::isReadable(p);
-						if (var$1 && $Files::isRegularFile(p, $$new($LinkOptionArray, 0))) {
-							$assign(path, p);
-							break;
-						}
+				$var($Iterator, paths, $nc(ds)->iterator());
+				while ($nc(paths)->hasNext()) {
+					$var($Path, p, $cast($Path, paths->next()));
+					bool var$1 = $Files::isReadable(p);
+					if (var$1 && $Files::isRegularFile(p, $$new($LinkOptionArray, 0))) {
+						$assign(path, p);
+						break;
 					}
-				} catch ($Throwable& t$) {
-					if (ds != nullptr) {
-						try {
-							ds->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} /*finally*/ {
+			} catch ($Throwable& t$) {
 				if (ds != nullptr) {
-					ds->close();
+					try {
+						ds->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} /*finally*/ {
+			if (ds != nullptr) {
+				ds->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if (path == nullptr) {
 		$nc($System::err)->println("No root test file found: skipping file test"_s);
 		return;
 	}
-	$nc($System::out)->format("Using root test file %s%n"_s, $$new($ObjectArray, {$of(path)}));
+	$System::out->format("Using root test file %s%n"_s, $$new($ObjectArray, {path}));
 	if ($Files::isWritable(path)) {
 		$throwNew($RuntimeException, $$str({"Test file "_s, path, " is writable"_s}));
 	}
 	$var($FileTime, creationTime, $cast($FileTime, $Files::getAttribute(path, "basic:creationTime"_s, $$new($LinkOptionArray, 0))));
-	$nc($System::out)->format("%s creation time: %s%n"_s, $$new($ObjectArray, {
-		$of(path),
-		$of(creationTime)
+	$System::out->format("%s creation time: %s%n"_s, $$new($ObjectArray, {
+		path,
+		creationTime
 	}));
 	int64_t size = $Files::size(path);
 	int32_t capacity = (int32_t)$Math::min((int64_t)1024, size);
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(capacity));
 	{
 		$var($SeekableByteChannel, sbc, $Files::newByteChannel(path, $$new($OpenOptionArray, 0)));
-		{
-			$var($Throwable, var$3, nullptr);
+		$var($Throwable, var$3, nullptr);
+		try {
 			try {
-				try {
-					int32_t n = $nc(sbc)->read(buf);
-					$nc($System::out)->format("Read %d bytes from %s%n"_s, $$new($ObjectArray, {
-						$($of($Integer::valueOf(n))),
-						$of(path)
-					}));
-				} catch ($Throwable& t$) {
-					if (sbc != nullptr) {
-						try {
-							sbc->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$4) {
-				$assign(var$3, var$4);
-			} /*finally*/ {
+				int32_t n = $nc(sbc)->read(buf);
+				$System::out->format("Read %d bytes from %s%n"_s, $$new($ObjectArray, {
+					$($Integer::valueOf(n)),
+					path
+				}));
+			} catch ($Throwable& t$) {
 				if (sbc != nullptr) {
-					sbc->close();
+					try {
+						sbc->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$3 != nullptr) {
-				$throw(var$3);
+		} catch ($Throwable& var$4) {
+			$assign(var$3, var$4);
+		} /*finally*/ {
+			if (sbc != nullptr) {
+				sbc->close();
 			}
+		}
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
 	}
 }
 
 void MacVolumesTest::checkDataVolume() {
 	$init(MacVolumesTest);
-	$useLocalCurrentObjectStackCache();
-	$nc($System::out)->format("--- Checking data volume %s ---%n"_s, $$new($ObjectArray, {$of(MacVolumesTest::DATA_VOLUME)}));
+	$useLocalObjectStack();
+	$nc($System::out)->format("--- Checking data volume %s ---%n"_s, $$new($ObjectArray, {MacVolumesTest::DATA_VOLUME}));
 	$var($Path, data, $Path::of(MacVolumesTest::DATA_VOLUME, $$new($StringArray, {
 		"private"_s,
 		"tmp"_s
 	})));
-	if ($nc($($Files::getFileStore(data)))->isReadOnly()) {
+	if ($$nc($Files::getFileStore(data))->isReadOnly()) {
 		$throwNew($RuntimeException, "Data volume is read-only"_s);
 	}
 	$var($Path, tempDir, $Files::createTempDirectory(data, "tempDir"_s, $$new($FileAttributeArray, 0)));
-	$nc($($nc(tempDir)->toFile()))->deleteOnExit();
-	$nc($System::out)->format("Temporary directory: %s%n"_s, $$new($ObjectArray, {$of(tempDir)}));
+	$$nc($nc(tempDir)->toFile())->deleteOnExit();
+	$System::out->format("Temporary directory: %s%n"_s, $$new($ObjectArray, {tempDir}));
 	if (!$Files::isWritable(tempDir)) {
 		$throwNew($RuntimeException, "Temporary directory is not writable"_s);
 	}
 	$var($Path, tempFile, $Files::createTempFile(tempDir, "tempFile"_s, nullptr, $$new($FileAttributeArray, 0)));
-	$nc($($nc(tempFile)->toFile()))->deleteOnExit();
-	$nc($System::out)->format("Temporary file: %s%n"_s, $$new($ObjectArray, {$of(tempFile)}));
+	$$nc($nc(tempFile)->toFile())->deleteOnExit();
+	$System::out->format("Temporary file: %s%n"_s, $$new($ObjectArray, {tempFile}));
 	if (!$Files::isWritable(tempFile)) {
 		$throwNew($RuntimeException, "Temporary file is not writable"_s);
 	}
@@ -228,140 +190,134 @@ void MacVolumesTest::checkDataVolume() {
 	$$new($Random)->nextBytes(bytes);
 	{
 		$init($StandardOpenOption);
-		$var($SeekableByteChannel, sbc, $Files::newByteChannel(tempFile, $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::WRITE)})));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($SeekableByteChannel, sbc, $Files::newByteChannel(tempFile, $$new($OpenOptionArray, {$StandardOpenOption::WRITE})));
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$var($ByteBuffer, src, $ByteBuffer::wrap(bytes));
-					if ($nc(sbc)->write(src) != bytes->length) {
-						$throwNew($RuntimeException, "Incorrect number of bytes written"_s);
-					}
-				} catch ($Throwable& t$) {
-					if (sbc != nullptr) {
-						try {
-							sbc->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
+				$var($ByteBuffer, src, $ByteBuffer::wrap(bytes));
+				if ($nc(sbc)->write(src) != bytes->length) {
+					$throwNew($RuntimeException, "Incorrect number of bytes written"_s);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+			} catch ($Throwable& t$) {
 				if (sbc != nullptr) {
-					sbc->close();
+					try {
+						sbc->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (sbc != nullptr) {
+				sbc->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	{
 		$var($SeekableByteChannel, sbc, $Files::newByteChannel(tempFile, $$new($OpenOptionArray, 0)));
-		{
-			$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$2, nullptr);
+		try {
 			try {
-				try {
-					$var($ByteBuffer, dst, $ByteBuffer::allocate(bytes->length));
-					if ($nc(sbc)->read(dst) != bytes->length) {
-						$throwNew($RuntimeException, "Incorrect number of bytes read"_s);
-					}
-					if (!$Arrays::equals($($cast($bytes, $nc(dst)->array())), bytes)) {
-						$throwNew($RuntimeException, "Bytes read != bytes written"_s);
-					}
-				} catch ($Throwable& t$) {
-					if (sbc != nullptr) {
-						try {
-							sbc->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
+				$var($ByteBuffer, dst, $ByteBuffer::allocate(bytes->length));
+				if ($nc(sbc)->read(dst) != bytes->length) {
+					$throwNew($RuntimeException, "Incorrect number of bytes read"_s);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
+				if (!$Arrays::equals($$cast($bytes, $nc(dst)->array()), bytes)) {
+					$throwNew($RuntimeException, "Bytes read != bytes written"_s);
+				}
+			} catch ($Throwable& t$) {
 				if (sbc != nullptr) {
-					sbc->close();
+					try {
+						sbc->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			if (sbc != nullptr) {
+				sbc->close();
 			}
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
 
 void MacVolumesTest::checkFirmlinks() {
 	$init(MacVolumesTest);
-	$useLocalCurrentObjectStackCache();
-	$nc($System::out)->format("--- Checking firmlinks %s ---%n"_s, $$new($ObjectArray, {$of(MacVolumesTest::FIRMLINKS)}));
+	$useLocalObjectStack();
+	$nc($System::out)->format("--- Checking firmlinks %s ---%n"_s, $$new($ObjectArray, {MacVolumesTest::FIRMLINKS}));
 	$var($Path, firmlinks, $Path::of(MacVolumesTest::FIRMLINKS, $$new($StringArray, 0)));
 	if (!$Files::exists(firmlinks, $$new($LinkOptionArray, 0))) {
-		$nc($System::err)->format("%s does not exist: skipping firmlinks test%n"_s, $$new($ObjectArray, {$of(firmlinks)}));
+		$nc($System::err)->format("%s does not exist: skipping firmlinks test%n"_s, $$new($ObjectArray, {firmlinks}));
 		return;
 	} else if (!$Files::isReadable(firmlinks)) {
-		$throwNew($RuntimeException, $($String::format("%s is not readable"_s, $$new($ObjectArray, {$of(firmlinks)}))));
+		$throwNew($RuntimeException, $($String::format("%s is not readable"_s, $$new($ObjectArray, {firmlinks}))));
 	}
 	{
 		$var($BufferedReader, br, $Files::newBufferedReader(firmlinks));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$var($String, line, nullptr);
-					while (($assign(line, $nc(br)->readLine())) != nullptr) {
-						$var($String, file, $($nc(line)->split("\\s"_s))->get(0));
-						$var($Path, path, $Path::of(file, $$new($StringArray, 0)));
-						if (!$Files::exists(path, $$new($LinkOptionArray, 0))) {
-							$nc($System::err)->format("Firmlink %s does not exist: skipping%n"_s, $$new($ObjectArray, {$of(file)}));
-							continue;
-						}
-						if ($nc($($Files::getFileStore(path)))->isReadOnly()) {
-							$var($String, msg, $String::format("%s is read-only%n"_s, $$new($ObjectArray, {$of(file)})));
-							$throwNew($RuntimeException, msg);
-						} else {
-							$nc($System::out)->format("Firmlink %s OK%n"_s, $$new($ObjectArray, {$of(file)}));
-						}
+				$var($String, line, nullptr);
+				while (($assign(line, $nc(br)->readLine())) != nullptr) {
+					$var($String, file, $($nc(line)->split("\\s"_s))->get(0));
+					$var($Path, path, $Path::of(file, $$new($StringArray, 0)));
+					if (!$Files::exists(path, $$new($LinkOptionArray, 0))) {
+						$nc($System::err)->format("Firmlink %s does not exist: skipping%n"_s, $$new($ObjectArray, {file}));
+						continue;
 					}
-				} catch ($Throwable& t$) {
-					if (br != nullptr) {
-						try {
-							br->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
+					if ($$nc($Files::getFileStore(path))->isReadOnly()) {
+						$var($String, msg, $String::format("%s is read-only%n"_s, $$new($ObjectArray, {file})));
+						$throwNew($RuntimeException, msg);
+					} else {
+						$System::out->format("Firmlink %s OK%n"_s, $$new($ObjectArray, {file}));
 					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+			} catch ($Throwable& t$) {
 				if (br != nullptr) {
-					br->close();
+					try {
+						br->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (br != nullptr) {
+				br->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void MacVolumesTest::main($StringArray* args) {
 	$init(MacVolumesTest);
-	$useLocalCurrentObjectStackCache();
-	$var($StringArray, osv, $nc($($System::getProperty("os.version"_s)))->split("\\."_s));
-	int32_t major = $nc($($Integer::valueOf(osv->get(0))))->intValue();
-	int32_t minor = $nc($($Integer::valueOf(osv->get(1))))->intValue();
+	$useLocalObjectStack();
+	$var($StringArray, osv, $$nc($System::getProperty("os.version"_s))->split("\\."_s));
+	int32_t major = $($Integer::valueOf(osv->get(0)))->intValue();
+	int32_t minor = $($Integer::valueOf(osv->get(1)))->intValue();
 	if (major < 10 || (major == 10 && minor < 15)) {
 		$nc($System::out)->format("macOS version %d.%d too old: skipping test%n"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(major))),
-			$($of($Integer::valueOf(minor)))
+			$($Integer::valueOf(major)),
+			$($Integer::valueOf(minor))
 		}));
 		return;
 	}
@@ -373,14 +329,38 @@ void MacVolumesTest::main($StringArray* args) {
 MacVolumesTest::MacVolumesTest() {
 }
 
-void clinit$MacVolumesTest($Class* class$) {
+void MacVolumesTest::clinit$($Class* clazz) {
 	$assignStatic(MacVolumesTest::SYSTEM_VOLUME, "/"_s);
 	$assignStatic(MacVolumesTest::DATA_VOLUME, "/System/Volumes/Data"_s);
 	$assignStatic(MacVolumesTest::FIRMLINKS, "/usr/share/firmlinks"_s);
 }
 
 $Class* MacVolumesTest::load$($String* name, bool initialize) {
-	$loadClass(MacVolumesTest, name, initialize, &_MacVolumesTest_ClassInfo_, clinit$MacVolumesTest, allocate$MacVolumesTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"SYSTEM_VOLUME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacVolumesTest, SYSTEM_VOLUME)},
+		{"DATA_VOLUME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacVolumesTest, DATA_VOLUME)},
+		{"FIRMLINKS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacVolumesTest, FIRMLINKS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MacVolumesTest, init$, void)},
+		{"checkDataVolume", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(MacVolumesTest, checkDataVolume, void), "java.io.IOException"},
+		{"checkFirmlinks", "()V", nullptr, $STATIC, $staticMethod(MacVolumesTest, checkFirmlinks, void), "java.io.IOException"},
+		{"checkSystemVolume", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(MacVolumesTest, checkSystemVolume, void), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MacVolumesTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MacVolumesTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MacVolumesTest, name, initialize, &classInfo$$, MacVolumesTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MacVolumesTest);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/security/AllPermissionCollection.h>
-
 #include <java/lang/SecurityException.h>
 #include <java/security/AllPermission.h>
 #include <java/security/AllPermissionCollection$1.h>
@@ -22,44 +21,6 @@ using $Enumeration = ::java::util::Enumeration;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _AllPermissionCollection_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AllPermissionCollection, serialVersionUID)},
-	{"all_allowed", "Z", nullptr, $PRIVATE, $field(AllPermissionCollection, all_allowed)},
-	{}
-};
-
-$MethodInfo _AllPermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AllPermissionCollection, init$, void)},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(AllPermissionCollection, add, void, $Permission*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(AllPermissionCollection, elements, $Enumeration*)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(AllPermissionCollection, implies, bool, $Permission*)},
-	{}
-};
-
-$InnerClassInfo _AllPermissionCollection_InnerClassesInfo_[] = {
-	{"java.security.AllPermissionCollection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AllPermissionCollection_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.security.AllPermissionCollection",
-	"java.security.PermissionCollection",
-	nullptr,
-	_AllPermissionCollection_FieldInfo_,
-	_AllPermissionCollection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AllPermissionCollection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.security.AllPermissionCollection$1"
-};
-
-$Object* allocate$AllPermissionCollection($Class* clazz) {
-	return $of($alloc(AllPermissionCollection));
-}
 
 void AllPermissionCollection::init$() {
 	$PermissionCollection::init$();
@@ -88,7 +49,39 @@ AllPermissionCollection::AllPermissionCollection() {
 }
 
 $Class* AllPermissionCollection::load$($String* name, bool initialize) {
-	$loadClass(AllPermissionCollection, name, initialize, &_AllPermissionCollection_ClassInfo_, allocate$AllPermissionCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AllPermissionCollection, serialVersionUID)},
+		{"all_allowed", "Z", nullptr, $PRIVATE, $field(AllPermissionCollection, all_allowed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AllPermissionCollection, init$, void)},
+		{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(AllPermissionCollection, add, void, $Permission*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(AllPermissionCollection, elements, $Enumeration*)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(AllPermissionCollection, implies, bool, $Permission*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.AllPermissionCollection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.security.AllPermissionCollection",
+		"java.security.PermissionCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.security.AllPermissionCollection$1"
+	};
+	$loadClass(AllPermissionCollection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AllPermissionCollection);
+	});
 	return class$;
 }
 

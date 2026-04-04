@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/ImageReader$LinkNode.h>
-
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <jdk/internal/jimage/ImageReader$Directory.h>
 #include <jdk/internal/jimage/ImageReader$Node.h>
@@ -16,46 +15,6 @@ using $ImageReader$Node = ::jdk::internal::jimage::ImageReader$Node;
 namespace jdk {
 	namespace internal {
 		namespace jimage {
-
-$FieldInfo _ImageReader$LinkNode_FieldInfo_[] = {
-	{"link", "Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PRIVATE | $FINAL, $field(ImageReader$LinkNode, link)},
-	{}
-};
-
-$MethodInfo _ImageReader$LinkNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)V", nullptr, $PRIVATE, $method(ImageReader$LinkNode, init$, void, $String*, $ImageReader$Node*)},
-	{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)Ljdk/internal/jimage/ImageReader$LinkNode;", nullptr, $STATIC, $staticMethod(ImageReader$LinkNode, create, ImageReader$LinkNode*, $ImageReader$Directory*, $String*, $ImageReader$Node*)},
-	{"isCompleted", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$LinkNode, isCompleted, bool)},
-	{"isLink", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$LinkNode, isLink, bool)},
-	{"resolveLink", "(Z)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC, $virtualMethod(ImageReader$LinkNode, resolveLink, $ImageReader$Node*, bool)},
-	{}
-};
-
-$InnerClassInfo _ImageReader$LinkNode_InnerClassesInfo_[] = {
-	{"jdk.internal.jimage.ImageReader$LinkNode", "jdk.internal.jimage.ImageReader", "LinkNode", $STATIC},
-	{"jdk.internal.jimage.ImageReader$Node", "jdk.internal.jimage.ImageReader", "Node", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImageReader$LinkNode_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.jimage.ImageReader$LinkNode",
-	"jdk.internal.jimage.ImageReader$Node",
-	nullptr,
-	_ImageReader$LinkNode_FieldInfo_,
-	_ImageReader$LinkNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageReader$LinkNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.jimage.ImageReader"
-};
-
-$Object* allocate$ImageReader$LinkNode($Class* clazz) {
-	return $of($alloc(ImageReader$LinkNode));
-}
 
 void ImageReader$LinkNode::init$($String* name, $ImageReader$Node* link) {
 	$ImageReader$Node::init$(name, $($nc(link)->getFileAttributes()));
@@ -74,7 +33,7 @@ bool ImageReader$LinkNode::isCompleted() {
 }
 
 $ImageReader$Node* ImageReader$LinkNode::resolveLink(bool recursive) {
-	return (recursive && $instanceOf(ImageReader$LinkNode, this->link)) ? $nc(($cast(ImageReader$LinkNode, this->link)))->resolveLink(true) : this->link;
+	return (recursive && $instanceOf(ImageReader$LinkNode, this->link)) ? $cast(ImageReader$LinkNode, this->link)->resolveLink(true) : this->link;
 }
 
 bool ImageReader$LinkNode::isLink() {
@@ -85,7 +44,41 @@ ImageReader$LinkNode::ImageReader$LinkNode() {
 }
 
 $Class* ImageReader$LinkNode::load$($String* name, bool initialize) {
-	$loadClass(ImageReader$LinkNode, name, initialize, &_ImageReader$LinkNode_ClassInfo_, allocate$ImageReader$LinkNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"link", "Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PRIVATE | $FINAL, $field(ImageReader$LinkNode, link)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)V", nullptr, $PRIVATE, $method(ImageReader$LinkNode, init$, void, $String*, $ImageReader$Node*)},
+		{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)Ljdk/internal/jimage/ImageReader$LinkNode;", nullptr, $STATIC, $staticMethod(ImageReader$LinkNode, create, ImageReader$LinkNode*, $ImageReader$Directory*, $String*, $ImageReader$Node*)},
+		{"isCompleted", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$LinkNode, isCompleted, bool)},
+		{"isLink", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$LinkNode, isLink, bool)},
+		{"resolveLink", "(Z)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC, $virtualMethod(ImageReader$LinkNode, resolveLink, $ImageReader$Node*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jimage.ImageReader$LinkNode", "jdk.internal.jimage.ImageReader", "LinkNode", $STATIC},
+		{"jdk.internal.jimage.ImageReader$Node", "jdk.internal.jimage.ImageReader", "Node", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.jimage.ImageReader$LinkNode",
+		"jdk.internal.jimage.ImageReader$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.jimage.ImageReader"
+	};
+	$loadClass(ImageReader$LinkNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageReader$LinkNode);
+	});
 	return class$;
 }
 

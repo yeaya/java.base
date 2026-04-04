@@ -1,5 +1,4 @@
 #include <sun/net/smtp/SmtpClient.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/UnsupportedEncodingException.h>
@@ -15,7 +14,6 @@
 #undef DEFAULT_SMTP_PORT
 
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -35,43 +33,6 @@ namespace sun {
 	namespace net {
 		namespace smtp {
 
-$FieldInfo _SmtpClient_FieldInfo_[] = {
-	{"DEFAULT_SMTP_PORT", "I", nullptr, $PRIVATE | $STATIC, $staticField(SmtpClient, DEFAULT_SMTP_PORT)},
-	{"mailhost", "Ljava/lang/String;", nullptr, 0, $field(SmtpClient, mailhost)},
-	{"message", "Lsun/net/smtp/SmtpPrintStream;", nullptr, 0, $field(SmtpClient, message)},
-	{}
-};
-
-$MethodInfo _SmtpClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SmtpClient, init$, void, $String*), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SmtpClient, init$, void), "java.io.IOException"},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SmtpClient, init$, void, int32_t), "java.io.IOException"},
-	{"closeMessage", "()V", nullptr, 0, $virtualMethod(SmtpClient, closeMessage, void), "java.io.IOException"},
-	{"closeServer", "()V", nullptr, $PUBLIC, $virtualMethod(SmtpClient, closeServer, void), "java.io.IOException"},
-	{"from", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SmtpClient, from, void, $String*), "java.io.IOException"},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(SmtpClient, getEncoding, $String*)},
-	{"getMailHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SmtpClient, getMailHost, $String*)},
-	{"issueCommand", "(Ljava/lang/String;I)V", nullptr, 0, $virtualMethod(SmtpClient, issueCommand, void, $String*, int32_t), "java.io.IOException"},
-	{"openServer", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SmtpClient, openServer, void, $String*), "java.io.IOException"},
-	{"startMessage", "()Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(SmtpClient, startMessage, $PrintStream*), "java.io.IOException"},
-	{"to", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SmtpClient, to, void, $String*), "java.io.IOException"},
-	{"toCanonical", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SmtpClient, toCanonical, void, $String*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SmtpClient_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.smtp.SmtpClient",
-	"sun.net.TransferProtocolClient",
-	nullptr,
-	_SmtpClient_FieldInfo_,
-	_SmtpClient_MethodInfo_
-};
-
-$Object* allocate$SmtpClient($Class* clazz) {
-	return $of($alloc(SmtpClient));
-}
-
 int32_t SmtpClient::DEFAULT_SMTP_PORT = 0;
 
 void SmtpClient::closeServer() {
@@ -83,7 +44,7 @@ void SmtpClient::closeServer() {
 }
 
 void SmtpClient::issueCommand($String* cmd, int32_t expect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	sendServer(cmd);
 	int32_t reply = 0;
 	while ((reply = readServerResponse()) != expect) {
@@ -94,7 +55,7 @@ void SmtpClient::issueCommand($String* cmd, int32_t expect) {
 }
 
 void SmtpClient::toCanonical($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(s)->startsWith("<"_s)) {
 		issueCommand($$str({"rcpt to: "_s, s, "\r\n"_s}), 250);
 	} else {
@@ -103,12 +64,12 @@ void SmtpClient::toCanonical($String* s) {
 }
 
 void SmtpClient::to($String* s) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(s)->indexOf((int32_t)u'\n') != -1) {
+	$useLocalObjectStack();
+	if ($nc(s)->indexOf(u'\n') != -1) {
 		$throwNew($IOException, "Illegal SMTP command"_s, $$new($IllegalArgumentException, "Illegal carriage return"_s));
 	}
 	int32_t st = 0;
-	int32_t limit = $nc(s)->length();
+	int32_t limit = s->length();
 	int32_t pos = 0;
 	int32_t lastnonsp = 0;
 	int32_t parendepth = 0;
@@ -153,11 +114,11 @@ void SmtpClient::to($String* s) {
 }
 
 void SmtpClient::from($String* s) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(s)->indexOf((int32_t)u'\n') != -1) {
+	$useLocalObjectStack();
+	if ($nc(s)->indexOf(u'\n') != -1) {
 		$throwNew($IOException, "Illegal SMTP command"_s, $$new($IllegalArgumentException, "Illegal carriage return"_s));
 	}
-	if ($nc(s)->startsWith("<"_s)) {
+	if (s->startsWith("<"_s)) {
 		issueCommand($$str({"mail from: "_s, s, "\r\n"_s}), 250);
 	} else {
 		issueCommand($$str({"mail from: <"_s, s, ">\r\n"_s}), 250);
@@ -165,10 +126,10 @@ void SmtpClient::from($String* s) {
 }
 
 void SmtpClient::openServer($String* host) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, mailhost, host);
 	openServer(this->mailhost, SmtpClient::DEFAULT_SMTP_PORT);
-	issueCommand($$str({"helo "_s, $($nc($($InetAddress::getLocalHost()))->getHostName()), "\r\n"_s}), 250);
+	issueCommand($$str({"helo "_s, $($$nc($InetAddress::getLocalHost())->getHostName()), "\r\n"_s}), 250);
 }
 
 $PrintStream* SmtpClient::startMessage() {
@@ -184,7 +145,7 @@ $PrintStream* SmtpClient::startMessage() {
 
 void SmtpClient::closeMessage() {
 	if (this->message != nullptr) {
-		$nc(this->message)->close();
+		this->message->close();
 	}
 }
 
@@ -217,7 +178,7 @@ void SmtpClient::init$($String* host) {
 }
 
 void SmtpClient::init$() {
-	SmtpClient::init$(($String*)nullptr);
+	SmtpClient::init$(nullptr);
 }
 
 void SmtpClient::init$(int32_t to) {
@@ -250,7 +211,7 @@ $String* SmtpClient::getEncoding() {
 	return $NetworkClient::encoding;
 }
 
-void clinit$SmtpClient($Class* class$) {
+void SmtpClient::clinit$($Class* clazz) {
 	SmtpClient::DEFAULT_SMTP_PORT = 25;
 }
 
@@ -258,7 +219,39 @@ SmtpClient::SmtpClient() {
 }
 
 $Class* SmtpClient::load$($String* name, bool initialize) {
-	$loadClass(SmtpClient, name, initialize, &_SmtpClient_ClassInfo_, clinit$SmtpClient, allocate$SmtpClient);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_SMTP_PORT", "I", nullptr, $PRIVATE | $STATIC, $staticField(SmtpClient, DEFAULT_SMTP_PORT)},
+		{"mailhost", "Ljava/lang/String;", nullptr, 0, $field(SmtpClient, mailhost)},
+		{"message", "Lsun/net/smtp/SmtpPrintStream;", nullptr, 0, $field(SmtpClient, message)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SmtpClient, init$, void, $String*), "java.io.IOException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SmtpClient, init$, void), "java.io.IOException"},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SmtpClient, init$, void, int32_t), "java.io.IOException"},
+		{"closeMessage", "()V", nullptr, 0, $virtualMethod(SmtpClient, closeMessage, void), "java.io.IOException"},
+		{"closeServer", "()V", nullptr, $PUBLIC, $virtualMethod(SmtpClient, closeServer, void), "java.io.IOException"},
+		{"from", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SmtpClient, from, void, $String*), "java.io.IOException"},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(SmtpClient, getEncoding, $String*)},
+		{"getMailHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SmtpClient, getMailHost, $String*)},
+		{"issueCommand", "(Ljava/lang/String;I)V", nullptr, 0, $virtualMethod(SmtpClient, issueCommand, void, $String*, int32_t), "java.io.IOException"},
+		{"openServer", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SmtpClient, openServer, void, $String*), "java.io.IOException"},
+		{"startMessage", "()Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(SmtpClient, startMessage, $PrintStream*), "java.io.IOException"},
+		{"to", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SmtpClient, to, void, $String*), "java.io.IOException"},
+		{"toCanonical", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SmtpClient, toCanonical, void, $String*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.smtp.SmtpClient",
+		"sun.net.TransferProtocolClient",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SmtpClient, name, initialize, &classInfo$$, SmtpClient::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SmtpClient);
+	});
 	return class$;
 }
 

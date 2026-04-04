@@ -1,5 +1,4 @@
 #include <java/security/KeyStore$Builder$2$1.h>
-
 #include <java/io/IOException.h>
 #include <java/security/KeyStore$Builder$2.h>
 #include <java/security/KeyStore$CallbackHandlerProtection.h>
@@ -27,56 +26,12 @@ using $UnrecoverableKeyException = ::java::security::UnrecoverableKeyException;
 namespace java {
 	namespace security {
 
-$FieldInfo _KeyStore$Builder$2$1_FieldInfo_[] = {
-	{"this$0", "Ljava/security/KeyStore$Builder$2;", nullptr, $FINAL | $SYNTHETIC, $field(KeyStore$Builder$2$1, this$0)},
-	{}
-};
-
-$MethodInfo _KeyStore$Builder$2$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore$Builder$2;)V", nullptr, 0, $method(KeyStore$Builder$2$1, init$, void, $KeyStore$Builder$2*)},
-	{"run", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$2$1, run, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _KeyStore$Builder$2$1_EnclosingMethodInfo_ = {
-	"java.security.KeyStore$Builder$2",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _KeyStore$Builder$2$1_InnerClassesInfo_[] = {
-	{"java.security.KeyStore$Builder", "java.security.KeyStore", "Builder", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.security.KeyStore$Builder$2", nullptr, nullptr, 0},
-	{"java.security.KeyStore$Builder$2$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KeyStore$Builder$2$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.KeyStore$Builder$2$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_KeyStore$Builder$2$1_FieldInfo_,
-	_KeyStore$Builder$2$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/security/KeyStore;>;",
-	&_KeyStore$Builder$2$1_EnclosingMethodInfo_,
-	_KeyStore$Builder$2$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.KeyStore"
-};
-
-$Object* allocate$KeyStore$Builder$2$1($Class* clazz) {
-	return $of($alloc(KeyStore$Builder$2$1));
-}
-
 void KeyStore$Builder$2$1::init$($KeyStore$Builder$2* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* KeyStore$Builder$2$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyStore, ks, nullptr);
 	if (this->this$0->val$provider == nullptr) {
 		$assign(ks, $KeyStore::getInstance(this->this$0->val$type));
@@ -106,14 +61,51 @@ $Object* KeyStore$Builder$2$1::run() {
 		}
 	}
 	this->this$0->getCalled = true;
-	return $of(ks);
+	return ks;
 }
 
 KeyStore$Builder$2$1::KeyStore$Builder$2$1() {
 }
 
 $Class* KeyStore$Builder$2$1::load$($String* name, bool initialize) {
-	$loadClass(KeyStore$Builder$2$1, name, initialize, &_KeyStore$Builder$2$1_ClassInfo_, allocate$KeyStore$Builder$2$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/security/KeyStore$Builder$2;", nullptr, $FINAL | $SYNTHETIC, $field(KeyStore$Builder$2$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/KeyStore$Builder$2;)V", nullptr, 0, $method(KeyStore$Builder$2$1, init$, void, $KeyStore$Builder$2*)},
+		{"run", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$2$1, run, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.security.KeyStore$Builder$2",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyStore$Builder", "java.security.KeyStore", "Builder", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.security.KeyStore$Builder$2", nullptr, nullptr, 0},
+		{"java.security.KeyStore$Builder$2$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.KeyStore$Builder$2$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/security/KeyStore;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.KeyStore"
+	};
+	$loadClass(KeyStore$Builder$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStore$Builder$2$1);
+	});
 	return class$;
 }
 

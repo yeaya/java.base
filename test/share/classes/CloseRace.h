@@ -26,6 +26,7 @@ class $export CloseRace : public ::java::lang::Object {
 	$class(CloseRace, 0, ::java::lang::Object)
 public:
 	CloseRace();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t count($booleans* bits);
 	static void dumpAllStacks();

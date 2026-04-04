@@ -1,5 +1,4 @@
 #include <java/net/Inet6Address$Inet6AddressHolder.h>
-
 #include <java/net/Inet6Address.h>
 #include <java/net/NetworkInterface.h>
 #include <java/util/Arrays.h>
@@ -15,63 +14,6 @@ using $Arrays = ::java::util::Arrays;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _Inet6Address$Inet6AddressHolder_FieldInfo_[] = {
-	{"ipaddress", "[B", nullptr, 0, $field(Inet6Address$Inet6AddressHolder, ipaddress)},
-	{"scope_id", "I", nullptr, 0, $field(Inet6Address$Inet6AddressHolder, scope_id)},
-	{"scope_id_set", "Z", nullptr, 0, $field(Inet6Address$Inet6AddressHolder, scope_id_set)},
-	{"scope_ifname", "Ljava/net/NetworkInterface;", nullptr, 0, $field(Inet6Address$Inet6AddressHolder, scope_ifname)},
-	{"scope_ifname_set", "Z", nullptr, 0, $field(Inet6Address$Inet6AddressHolder, scope_ifname_set)},
-	{}
-};
-
-$MethodInfo _Inet6Address$Inet6AddressHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Inet6Address$Inet6AddressHolder, init$, void)},
-	{"<init>", "([BIZLjava/net/NetworkInterface;Z)V", nullptr, $PRIVATE, $method(Inet6Address$Inet6AddressHolder, init$, void, $bytes*, int32_t, bool, $NetworkInterface*, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Inet6Address$Inet6AddressHolder, equals, bool, Object$*)},
-	{"getHostAddress", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, getHostAddress, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Inet6Address$Inet6AddressHolder, hashCode, int32_t)},
-	{"init", "([BI)V", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, init, void, $bytes*, int32_t)},
-	{"init", "([BLjava/net/NetworkInterface;)V", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, init, void, $bytes*, $NetworkInterface*), "java.net.UnknownHostException"},
-	{"isAnyLocalAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isAnyLocalAddress, bool)},
-	{"isIPv4CompatibleAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isIPv4CompatibleAddress, bool)},
-	{"isLinkLocalAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isLinkLocalAddress, bool)},
-	{"isLoopbackAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isLoopbackAddress, bool)},
-	{"isMCGlobal", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMCGlobal, bool)},
-	{"isMCLinkLocal", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMCLinkLocal, bool)},
-	{"isMCNodeLocal", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMCNodeLocal, bool)},
-	{"isMCOrgLocal", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMCOrgLocal, bool)},
-	{"isMCSiteLocal", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMCSiteLocal, bool)},
-	{"isMulticastAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMulticastAddress, bool)},
-	{"isSiteLocalAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isSiteLocalAddress, bool)},
-	{"setAddr", "([B)V", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, setAddr, void, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _Inet6Address$Inet6AddressHolder_InnerClassesInfo_[] = {
-	{"java.net.Inet6Address$Inet6AddressHolder", "java.net.Inet6Address", "Inet6AddressHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Inet6Address$Inet6AddressHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.Inet6Address$Inet6AddressHolder",
-	"java.lang.Object",
-	nullptr,
-	_Inet6Address$Inet6AddressHolder_FieldInfo_,
-	_Inet6Address$Inet6AddressHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Inet6Address$Inet6AddressHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.Inet6Address"
-};
-
-$Object* allocate$Inet6Address$Inet6AddressHolder($Class* clazz) {
-	return $of($alloc(Inet6Address$Inet6AddressHolder));
-}
 
 void Inet6Address$Inet6AddressHolder::init$() {
 	$set(this, ipaddress, $new($bytes, 16));
@@ -110,10 +52,10 @@ void Inet6Address$Inet6AddressHolder::init($bytes* addr, $NetworkInterface* nif)
 }
 
 $String* Inet6Address$Inet6AddressHolder::getHostAddress() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $Inet6Address::numericToTextFormat(this->ipaddress));
 	if (this->scope_ifname != nullptr) {
-		$assign(s, $str({s, "%"_s, $($nc(this->scope_ifname)->getName())}));
+		$assign(s, $str({s, "%"_s, $(this->scope_ifname->getName())}));
 	} else if (this->scope_id_set) {
 		$assign(s, $str({s, "%"_s, $$str(this->scope_id)}));
 	}
@@ -141,7 +83,7 @@ int32_t Inet6Address$Inet6AddressHolder::hashCode() {
 			int32_t j = 0;
 			int32_t component = 0;
 			while (j < 4 && i < 16) {
-				component = (component << 8) + $nc(this->ipaddress)->get(i);
+				component = (component << 8) + this->ipaddress->get(i);
 				++j;
 				++i;
 			}
@@ -154,18 +96,18 @@ int32_t Inet6Address$Inet6AddressHolder::hashCode() {
 }
 
 bool Inet6Address$Inet6AddressHolder::isIPv4CompatibleAddress() {
-	if (($nc(this->ipaddress)->get(0) == 0) && ($nc(this->ipaddress)->get(1) == 0) && ($nc(this->ipaddress)->get(2) == 0) && ($nc(this->ipaddress)->get(3) == 0) && ($nc(this->ipaddress)->get(4) == 0) && ($nc(this->ipaddress)->get(5) == 0) && ($nc(this->ipaddress)->get(6) == 0) && ($nc(this->ipaddress)->get(7) == 0) && ($nc(this->ipaddress)->get(8) == 0) && ($nc(this->ipaddress)->get(9) == 0) && ($nc(this->ipaddress)->get(10) == 0) && ($nc(this->ipaddress)->get(11) == 0)) {
+	if (($nc(this->ipaddress)->get(0) == 0) && (this->ipaddress->get(1) == 0) && (this->ipaddress->get(2) == 0) && (this->ipaddress->get(3) == 0) && (this->ipaddress->get(4) == 0) && (this->ipaddress->get(5) == 0) && (this->ipaddress->get(6) == 0) && (this->ipaddress->get(7) == 0) && (this->ipaddress->get(8) == 0) && (this->ipaddress->get(9) == 0) && (this->ipaddress->get(10) == 0) && (this->ipaddress->get(11) == 0)) {
 		return true;
 	}
 	return false;
 }
 
 bool Inet6Address$Inet6AddressHolder::isMulticastAddress() {
-	return (((int32_t)($nc(this->ipaddress)->get(0) & (uint32_t)255)) == 255);
+	return (($nc(this->ipaddress)->get(0) & 0xff) == 0xff);
 }
 
 bool Inet6Address$Inet6AddressHolder::isAnyLocalAddress() {
-	int8_t test = (int8_t)0;
+	int8_t test = 0;
 	for (int32_t i = 0; i < 16; ++i) {
 		test |= $nc(this->ipaddress)->get(i);
 	}
@@ -173,7 +115,7 @@ bool Inet6Address$Inet6AddressHolder::isAnyLocalAddress() {
 }
 
 bool Inet6Address$Inet6AddressHolder::isLoopbackAddress() {
-	int8_t test = (int8_t)0;
+	int8_t test = 0;
 	for (int32_t i = 0; i < 15; ++i) {
 		test |= $nc(this->ipaddress)->get(i);
 	}
@@ -181,38 +123,89 @@ bool Inet6Address$Inet6AddressHolder::isLoopbackAddress() {
 }
 
 bool Inet6Address$Inet6AddressHolder::isLinkLocalAddress() {
-	return (((int32_t)($nc(this->ipaddress)->get(0) & (uint32_t)255)) == 254 && ((int32_t)($nc(this->ipaddress)->get(1) & (uint32_t)192)) == 128);
+	return (($nc(this->ipaddress)->get(0) & 0xff) == 0xfe && (this->ipaddress->get(1) & 0xc0) == 0x80);
 }
 
 bool Inet6Address$Inet6AddressHolder::isSiteLocalAddress() {
-	return (((int32_t)($nc(this->ipaddress)->get(0) & (uint32_t)255)) == 254 && ((int32_t)($nc(this->ipaddress)->get(1) & (uint32_t)192)) == 192);
+	return (($nc(this->ipaddress)->get(0) & 0xff) == 0xfe && (this->ipaddress->get(1) & 0xc0) == 0xc0);
 }
 
 bool Inet6Address$Inet6AddressHolder::isMCGlobal() {
-	return (((int32_t)($nc(this->ipaddress)->get(0) & (uint32_t)255)) == 255 && ((int32_t)($nc(this->ipaddress)->get(1) & (uint32_t)15)) == 14);
+	return (($nc(this->ipaddress)->get(0) & 0xff) == 0xff && (this->ipaddress->get(1) & 0x0f) == 0x0e);
 }
 
 bool Inet6Address$Inet6AddressHolder::isMCNodeLocal() {
-	return (((int32_t)($nc(this->ipaddress)->get(0) & (uint32_t)255)) == 255 && ((int32_t)($nc(this->ipaddress)->get(1) & (uint32_t)15)) == 1);
+	return (($nc(this->ipaddress)->get(0) & 0xff) == 0xff && (this->ipaddress->get(1) & 0x0f) == 1);
 }
 
 bool Inet6Address$Inet6AddressHolder::isMCLinkLocal() {
-	return (((int32_t)($nc(this->ipaddress)->get(0) & (uint32_t)255)) == 255 && ((int32_t)($nc(this->ipaddress)->get(1) & (uint32_t)15)) == 2);
+	return (($nc(this->ipaddress)->get(0) & 0xff) == 0xff && (this->ipaddress->get(1) & 0x0f) == 2);
 }
 
 bool Inet6Address$Inet6AddressHolder::isMCSiteLocal() {
-	return (((int32_t)($nc(this->ipaddress)->get(0) & (uint32_t)255)) == 255 && ((int32_t)($nc(this->ipaddress)->get(1) & (uint32_t)15)) == 5);
+	return (($nc(this->ipaddress)->get(0) & 0xff) == 0xff && (this->ipaddress->get(1) & 0x0f) == 5);
 }
 
 bool Inet6Address$Inet6AddressHolder::isMCOrgLocal() {
-	return (((int32_t)($nc(this->ipaddress)->get(0) & (uint32_t)255)) == 255 && ((int32_t)($nc(this->ipaddress)->get(1) & (uint32_t)15)) == 8);
+	return (($nc(this->ipaddress)->get(0) & 0xff) == 0xff && (this->ipaddress->get(1) & 0x0f) == 8);
 }
 
 Inet6Address$Inet6AddressHolder::Inet6Address$Inet6AddressHolder() {
 }
 
 $Class* Inet6Address$Inet6AddressHolder::load$($String* name, bool initialize) {
-	$loadClass(Inet6Address$Inet6AddressHolder, name, initialize, &_Inet6Address$Inet6AddressHolder_ClassInfo_, allocate$Inet6Address$Inet6AddressHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"ipaddress", "[B", nullptr, 0, $field(Inet6Address$Inet6AddressHolder, ipaddress)},
+		{"scope_id", "I", nullptr, 0, $field(Inet6Address$Inet6AddressHolder, scope_id)},
+		{"scope_id_set", "Z", nullptr, 0, $field(Inet6Address$Inet6AddressHolder, scope_id_set)},
+		{"scope_ifname", "Ljava/net/NetworkInterface;", nullptr, 0, $field(Inet6Address$Inet6AddressHolder, scope_ifname)},
+		{"scope_ifname_set", "Z", nullptr, 0, $field(Inet6Address$Inet6AddressHolder, scope_ifname_set)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Inet6Address$Inet6AddressHolder, init$, void)},
+		{"<init>", "([BIZLjava/net/NetworkInterface;Z)V", nullptr, $PRIVATE, $method(Inet6Address$Inet6AddressHolder, init$, void, $bytes*, int32_t, bool, $NetworkInterface*, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Inet6Address$Inet6AddressHolder, equals, bool, Object$*)},
+		{"getHostAddress", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, getHostAddress, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Inet6Address$Inet6AddressHolder, hashCode, int32_t)},
+		{"init", "([BI)V", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, init, void, $bytes*, int32_t)},
+		{"init", "([BLjava/net/NetworkInterface;)V", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, init, void, $bytes*, $NetworkInterface*), "java.net.UnknownHostException"},
+		{"isAnyLocalAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isAnyLocalAddress, bool)},
+		{"isIPv4CompatibleAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isIPv4CompatibleAddress, bool)},
+		{"isLinkLocalAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isLinkLocalAddress, bool)},
+		{"isLoopbackAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isLoopbackAddress, bool)},
+		{"isMCGlobal", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMCGlobal, bool)},
+		{"isMCLinkLocal", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMCLinkLocal, bool)},
+		{"isMCNodeLocal", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMCNodeLocal, bool)},
+		{"isMCOrgLocal", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMCOrgLocal, bool)},
+		{"isMCSiteLocal", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMCSiteLocal, bool)},
+		{"isMulticastAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isMulticastAddress, bool)},
+		{"isSiteLocalAddress", "()Z", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, isSiteLocalAddress, bool)},
+		{"setAddr", "([B)V", nullptr, 0, $virtualMethod(Inet6Address$Inet6AddressHolder, setAddr, void, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.Inet6Address$Inet6AddressHolder", "java.net.Inet6Address", "Inet6AddressHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.Inet6Address$Inet6AddressHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.Inet6Address"
+	};
+	$loadClass(Inet6Address$Inet6AddressHolder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Inet6Address$Inet6AddressHolder);
+	});
 	return class$;
 }
 

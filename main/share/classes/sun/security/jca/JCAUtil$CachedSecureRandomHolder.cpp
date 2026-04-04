@@ -1,5 +1,4 @@
 #include <sun/security/jca/JCAUtil$CachedSecureRandomHolder.h>
-
 #include <java/security/SecureRandom.h>
 #include <sun/security/jca/JCAUtil.h>
 #include <jcpp.h>
@@ -14,47 +13,12 @@ namespace sun {
 	namespace security {
 		namespace jca {
 
-$FieldInfo _JCAUtil$CachedSecureRandomHolder_FieldInfo_[] = {
-	{"instance", "Ljava/security/SecureRandom;", nullptr, $PUBLIC | $STATIC, $staticField(JCAUtil$CachedSecureRandomHolder, instance)},
-	{}
-};
-
-$MethodInfo _JCAUtil$CachedSecureRandomHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JCAUtil$CachedSecureRandomHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _JCAUtil$CachedSecureRandomHolder_InnerClassesInfo_[] = {
-	{"sun.security.jca.JCAUtil$CachedSecureRandomHolder", "sun.security.jca.JCAUtil", "CachedSecureRandomHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JCAUtil$CachedSecureRandomHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jca.JCAUtil$CachedSecureRandomHolder",
-	"java.lang.Object",
-	nullptr,
-	_JCAUtil$CachedSecureRandomHolder_FieldInfo_,
-	_JCAUtil$CachedSecureRandomHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCAUtil$CachedSecureRandomHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jca.JCAUtil"
-};
-
-$Object* allocate$JCAUtil$CachedSecureRandomHolder($Class* clazz) {
-	return $of($alloc(JCAUtil$CachedSecureRandomHolder));
-}
-
 $SecureRandom* JCAUtil$CachedSecureRandomHolder::instance = nullptr;
 
 void JCAUtil$CachedSecureRandomHolder::init$() {
 }
 
-void clinit$JCAUtil$CachedSecureRandomHolder($Class* class$) {
+void JCAUtil$CachedSecureRandomHolder::clinit$($Class* clazz) {
 	$assignStatic(JCAUtil$CachedSecureRandomHolder::instance, $new($SecureRandom));
 }
 
@@ -62,7 +26,36 @@ JCAUtil$CachedSecureRandomHolder::JCAUtil$CachedSecureRandomHolder() {
 }
 
 $Class* JCAUtil$CachedSecureRandomHolder::load$($String* name, bool initialize) {
-	$loadClass(JCAUtil$CachedSecureRandomHolder, name, initialize, &_JCAUtil$CachedSecureRandomHolder_ClassInfo_, clinit$JCAUtil$CachedSecureRandomHolder, allocate$JCAUtil$CachedSecureRandomHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Ljava/security/SecureRandom;", nullptr, $PUBLIC | $STATIC, $staticField(JCAUtil$CachedSecureRandomHolder, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JCAUtil$CachedSecureRandomHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jca.JCAUtil$CachedSecureRandomHolder", "sun.security.jca.JCAUtil", "CachedSecureRandomHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jca.JCAUtil$CachedSecureRandomHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jca.JCAUtil"
+	};
+	$loadClass(JCAUtil$CachedSecureRandomHolder, name, initialize, &classInfo$$, JCAUtil$CachedSecureRandomHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JCAUtil$CachedSecureRandomHolder);
+	});
 	return class$;
 }
 

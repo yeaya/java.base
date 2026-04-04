@@ -12,6 +12,7 @@ class $export Class3$Class31 : public ::java::lang::Object {
 	$class(Class3$Class31, 0, ::java::lang::Object)
 public:
 	Class3$Class31();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void testAssert(bool assertsShouldBeOn);
 	static bool $assertionsDisabled;

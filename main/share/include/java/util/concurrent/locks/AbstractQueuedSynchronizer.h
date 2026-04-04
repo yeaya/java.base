@@ -57,6 +57,7 @@ class $import AbstractQueuedSynchronizer : public ::java::util::concurrent::lock
 	$class(AbstractQueuedSynchronizer, 0, ::java::util::concurrent::locks::AbstractOwnableSynchronizer)
 public:
 	AbstractQueuedSynchronizer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int32_t acquire(::java::util::concurrent::locks::AbstractQueuedSynchronizer$Node* node, int32_t arg, bool shared, bool interruptible, bool timed, int64_t time);
 	void acquire(int32_t arg);
@@ -98,7 +99,7 @@ public:
 	void tryInitializeHead();
 	virtual bool tryRelease(int32_t arg);
 	virtual bool tryReleaseShared(int32_t arg);
-	static const int64_t serialVersionUID = (int64_t)0x6655A843753F52E3;
+	static const int64_t serialVersionUID = (int64_t)0x6655a843753f52e3;
 	static const int32_t WAITING = 1;
 	static const int32_t CANCELLED = 0x80000000;
 	static const int32_t COND = 2;

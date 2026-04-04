@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamOpFlag$MaskBuilder.h>
-
 #include <java/util/Map.h>
 #include <java/util/stream/StreamOpFlag$Type.h>
 #include <java/util/stream/StreamOpFlag.h>
@@ -17,46 +16,6 @@ using $StreamOpFlag$Type = ::java::util::stream::StreamOpFlag$Type;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _StreamOpFlag$MaskBuilder_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;>;", $FINAL, $field(StreamOpFlag$MaskBuilder, map)},
-	{}
-};
-
-$MethodInfo _StreamOpFlag$MaskBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;>;)V", 0, $method(StreamOpFlag$MaskBuilder, init$, void, $Map*)},
-	{"build", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;>;", 0, $virtualMethod(StreamOpFlag$MaskBuilder, build, $Map*)},
-	{"clear", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, clear, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*)},
-	{"mask", "(Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, mask, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*, $Integer*)},
-	{"set", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, set, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*)},
-	{"setAndClear", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, setAndClear, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*)},
-	{}
-};
-
-$InnerClassInfo _StreamOpFlag$MaskBuilder_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamOpFlag$MaskBuilder", "java.util.stream.StreamOpFlag", "MaskBuilder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _StreamOpFlag$MaskBuilder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.StreamOpFlag$MaskBuilder",
-	"java.lang.Object",
-	nullptr,
-	_StreamOpFlag$MaskBuilder_FieldInfo_,
-	_StreamOpFlag$MaskBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StreamOpFlag$MaskBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamOpFlag"
-};
-
-$Object* allocate$StreamOpFlag$MaskBuilder($Class* clazz) {
-	return $of($alloc(StreamOpFlag$MaskBuilder));
-}
 
 void StreamOpFlag$MaskBuilder::init$($Map* map) {
 	$set(this, map, map);
@@ -80,12 +39,10 @@ StreamOpFlag$MaskBuilder* StreamOpFlag$MaskBuilder::setAndClear($StreamOpFlag$Ty
 }
 
 $Map* StreamOpFlag$MaskBuilder::build() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($StreamOpFlag$TypeArray, arr$, $StreamOpFlag$Type::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$StreamOpFlag$Type* t = arr$->get(i$);
 			{
 				$nc(this->map)->putIfAbsent(t, $($Integer::valueOf(0)));
@@ -99,7 +56,41 @@ StreamOpFlag$MaskBuilder::StreamOpFlag$MaskBuilder() {
 }
 
 $Class* StreamOpFlag$MaskBuilder::load$($String* name, bool initialize) {
-	$loadClass(StreamOpFlag$MaskBuilder, name, initialize, &_StreamOpFlag$MaskBuilder_ClassInfo_, allocate$StreamOpFlag$MaskBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;>;", $FINAL, $field(StreamOpFlag$MaskBuilder, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;>;)V", 0, $method(StreamOpFlag$MaskBuilder, init$, void, $Map*)},
+		{"build", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;>;", 0, $virtualMethod(StreamOpFlag$MaskBuilder, build, $Map*)},
+		{"clear", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, clear, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*)},
+		{"mask", "(Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, mask, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*, $Integer*)},
+		{"set", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, set, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*)},
+		{"setAndClear", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, setAndClear, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamOpFlag$MaskBuilder", "java.util.stream.StreamOpFlag", "MaskBuilder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.StreamOpFlag$MaskBuilder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamOpFlag"
+	};
+	$loadClass(StreamOpFlag$MaskBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamOpFlag$MaskBuilder);
+	});
 	return class$;
 }
 

@@ -9,7 +9,7 @@ namespace java {
 	namespace lang {
 
 class $import Number : public ::java::io::Serializable {
-	$class(Number, $PRELOAD | $NO_CLASS_INIT, ::java::io::Serializable)
+	$class(Number, $PRELOAD | $PREINIT | $NO_CLASS_INIT, ::java::io::Serializable)
 public:
 	Number();
 	void init$();
@@ -19,7 +19,7 @@ public:
 	virtual int32_t intValue() {return 0;}
 	virtual int64_t longValue() {return 0;}
 	virtual int16_t shortValue();
-	static const int64_t serialVersionUID = (int64_t)0x86AC951D0B94E08B;
+	static const int64_t serialVersionUID = (int64_t)0x86ac951d0b94e08b;
 };
 
 	} // lang

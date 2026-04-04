@@ -1,5 +1,4 @@
 #include <Nulls$4.h>
-
 #include <Nulls.h>
 #include <java/nio/file/SimpleFileVisitor.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SimpleFileVisitor = ::java::nio::file::SimpleFileVisitor;
 
-$MethodInfo _Nulls$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Nulls$4, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Nulls$4_EnclosingMethodInfo_ = {
-	"Nulls",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Nulls$4_InnerClassesInfo_[] = {
-	{"Nulls$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Nulls$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"Nulls$4",
-	"java.nio.file.SimpleFileVisitor",
-	nullptr,
-	nullptr,
-	_Nulls$4_MethodInfo_,
-	"Ljava/nio/file/SimpleFileVisitor<Ljava/nio/file/Path;>;",
-	&_Nulls$4_EnclosingMethodInfo_,
-	_Nulls$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Nulls"
-};
-
-$Object* allocate$Nulls$4($Class* clazz) {
-	return $of($alloc(Nulls$4));
-}
-
 void Nulls$4::init$() {
 	$SimpleFileVisitor::init$();
 }
@@ -54,7 +17,37 @@ Nulls$4::Nulls$4() {
 }
 
 $Class* Nulls$4::load$($String* name, bool initialize) {
-	$loadClass(Nulls$4, name, initialize, &_Nulls$4_ClassInfo_, allocate$Nulls$4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Nulls$4, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Nulls",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Nulls$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Nulls$4",
+		"java.nio.file.SimpleFileVisitor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljava/nio/file/SimpleFileVisitor<Ljava/nio/file/Path;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Nulls"
+	};
+	$loadClass(Nulls$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Nulls$4);
+	});
 	return class$;
 }
 

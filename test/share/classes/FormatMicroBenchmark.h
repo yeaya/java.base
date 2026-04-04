@@ -36,6 +36,7 @@ class $export FormatMicroBenchmark : public ::java::lang::Object {
 	$class(FormatMicroBenchmark, 0, ::java::lang::Object)
 public:
 	FormatMicroBenchmark();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static double allNinesThroughputLoad();
 	static $String* benchFormatAllNines(::java::text::NumberFormat* nf, bool isCurrency);
@@ -66,7 +67,7 @@ public:
 	static double tieThroughputLoad(bool isCurrency);
 	static void usage();
 	static const int32_t NB_RUNS = 20;
-	static const int32_t MAX_RANGE = 0x0007A120;
+	static const int32_t MAX_RANGE = 0x0007a120;
 	static bool Verbose;
 	static bool DoIt;
 	static $String* INTEGER_BENCH;

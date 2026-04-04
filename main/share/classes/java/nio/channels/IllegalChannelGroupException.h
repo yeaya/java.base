@@ -14,10 +14,13 @@ class $export IllegalChannelGroupException : public ::java::lang::IllegalArgumen
 public:
 	IllegalChannelGroupException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xDD5FD53CDCFB7583;
+	static const int64_t serialVersionUID = (int64_t)0xdd5fd53cdcfb7583;
 	IllegalChannelGroupException(const IllegalChannelGroupException& e);
 	virtual void throw$() override;
-	inline IllegalChannelGroupException* operator ->() {
+	inline IllegalChannelGroupException* operator ->() const {
+		return (IllegalChannelGroupException*)throwing$;
+	}
+	inline operator IllegalChannelGroupException*() const {
 		return (IllegalChannelGroupException*)throwing$;
 	}
 };

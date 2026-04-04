@@ -24,6 +24,7 @@ class $export Perf : public ::java::lang::Object {
 	$class(Perf, 0, ::java::lang::Object)
 public:
 	Perf();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::nio::ByteBuffer* attach(int32_t lvmid, $String* mode);
 	::java::nio::ByteBuffer* attach($String* user, int32_t lvmid, $String* mode);

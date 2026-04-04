@@ -36,6 +36,7 @@ class $export UntrustedCertificates : public ::java::lang::Object {
 	$class(UntrustedCertificates, 0, ::java::lang::Object)
 public:
 	UntrustedCertificates();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isUntrusted(::java::security::cert::X509Certificate* cert);
 	static ::sun::security::util::Debug* debug;

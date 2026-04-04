@@ -1,5 +1,4 @@
 #include <java/io/FilePermissionCollection$1.h>
-
 #include <java/io/FilePermission.h>
 #include <java/io/FilePermissionCollection.h>
 #include <java/security/Permission.h>
@@ -17,63 +16,20 @@ using $Permission = ::java::security::Permission;
 namespace java {
 	namespace io {
 
-$FieldInfo _FilePermissionCollection$1_FieldInfo_[] = {
-	{"this$0", "Ljava/io/FilePermissionCollection;", nullptr, $FINAL | $SYNTHETIC, $field(FilePermissionCollection$1, this$0)},
-	{}
-};
-
-$MethodInfo _FilePermissionCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FilePermissionCollection;)V", nullptr, 0, $method(FilePermissionCollection$1, init$, void, $FilePermissionCollection*)},
-	{"apply", "(Ljava/security/Permission;Ljava/security/Permission;)Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(FilePermissionCollection$1, apply, $Permission*, $Permission*, $Permission*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FilePermissionCollection$1, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _FilePermissionCollection$1_EnclosingMethodInfo_ = {
-	"java.io.FilePermissionCollection",
-	"add",
-	"(Ljava/security/Permission;)V"
-};
-
-$InnerClassInfo _FilePermissionCollection$1_InnerClassesInfo_[] = {
-	{"java.io.FilePermissionCollection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FilePermissionCollection$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.FilePermissionCollection$1",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	_FilePermissionCollection$1_FieldInfo_,
-	_FilePermissionCollection$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/BiFunction<Ljava/security/Permission;Ljava/security/Permission;Ljava/security/Permission;>;",
-	&_FilePermissionCollection$1_EnclosingMethodInfo_,
-	_FilePermissionCollection$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.FilePermissionCollection"
-};
-
-$Object* allocate$FilePermissionCollection$1($Class* clazz) {
-	return $of($alloc(FilePermissionCollection$1));
-}
-
 void FilePermissionCollection$1::init$($FilePermissionCollection* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Permission* FilePermissionCollection$1::apply($Permission* existingVal, $Permission* newVal) {
-	int32_t oldMask = $nc(($cast($FilePermission, existingVal)))->getMask();
-	int32_t newMask = $nc(($cast($FilePermission, newVal)))->getMask();
+	int32_t oldMask = $nc($cast($FilePermission, existingVal))->getMask();
+	int32_t newMask = $nc($cast($FilePermission, newVal))->getMask();
 	if (oldMask != newMask) {
 		int32_t effective = oldMask | newMask;
 		if (effective == newMask) {
 			return newVal;
 		}
 		if (effective != oldMask) {
-			return ($cast($FilePermission, newVal))->withNewActions(effective);
+			return $cast($FilePermission, newVal)->withNewActions(effective);
 		}
 	}
 	return existingVal;
@@ -87,7 +43,43 @@ FilePermissionCollection$1::FilePermissionCollection$1() {
 }
 
 $Class* FilePermissionCollection$1::load$($String* name, bool initialize) {
-	$loadClass(FilePermissionCollection$1, name, initialize, &_FilePermissionCollection$1_ClassInfo_, allocate$FilePermissionCollection$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/io/FilePermissionCollection;", nullptr, $FINAL | $SYNTHETIC, $field(FilePermissionCollection$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/FilePermissionCollection;)V", nullptr, 0, $method(FilePermissionCollection$1, init$, void, $FilePermissionCollection*)},
+		{"apply", "(Ljava/security/Permission;Ljava/security/Permission;)Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(FilePermissionCollection$1, apply, $Permission*, $Permission*, $Permission*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FilePermissionCollection$1, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.io.FilePermissionCollection",
+		"add",
+		"(Ljava/security/Permission;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.FilePermissionCollection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.FilePermissionCollection$1",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/BiFunction<Ljava/security/Permission;Ljava/security/Permission;Ljava/security/Permission;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.FilePermissionCollection"
+	};
+	$loadClass(FilePermissionCollection$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilePermissionCollection$1);
+	});
 	return class$;
 }
 

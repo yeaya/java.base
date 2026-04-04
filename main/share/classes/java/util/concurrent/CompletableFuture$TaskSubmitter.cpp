@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$TaskSubmitter.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/CompletableFuture.h>
 #include <java/util/concurrent/Executor.h>
@@ -16,43 +15,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _CompletableFuture$TaskSubmitter_FieldInfo_[] = {
-	{"executor", "Ljava/util/concurrent/Executor;", nullptr, $FINAL, $field(CompletableFuture$TaskSubmitter, executor)},
-	{"action", "Ljava/lang/Runnable;", nullptr, $FINAL, $field(CompletableFuture$TaskSubmitter, action)},
-	{}
-};
-
-$MethodInfo _CompletableFuture$TaskSubmitter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)V", nullptr, 0, $method(CompletableFuture$TaskSubmitter, init$, void, $Executor*, $Runnable*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$TaskSubmitter, run, void)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$TaskSubmitter_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$TaskSubmitter", "java.util.concurrent.CompletableFuture", "TaskSubmitter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CompletableFuture$TaskSubmitter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$TaskSubmitter",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_CompletableFuture$TaskSubmitter_FieldInfo_,
-	_CompletableFuture$TaskSubmitter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CompletableFuture$TaskSubmitter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$TaskSubmitter($Class* clazz) {
-	return $of($alloc(CompletableFuture$TaskSubmitter));
-}
-
 void CompletableFuture$TaskSubmitter::init$($Executor* executor, $Runnable* action) {
 	$set(this, executor, executor);
 	$set(this, action, action);
@@ -66,7 +28,38 @@ CompletableFuture$TaskSubmitter::CompletableFuture$TaskSubmitter() {
 }
 
 $Class* CompletableFuture$TaskSubmitter::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$TaskSubmitter, name, initialize, &_CompletableFuture$TaskSubmitter_ClassInfo_, allocate$CompletableFuture$TaskSubmitter);
+	$FieldInfo fieldInfos$$[] = {
+		{"executor", "Ljava/util/concurrent/Executor;", nullptr, $FINAL, $field(CompletableFuture$TaskSubmitter, executor)},
+		{"action", "Ljava/lang/Runnable;", nullptr, $FINAL, $field(CompletableFuture$TaskSubmitter, action)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)V", nullptr, 0, $method(CompletableFuture$TaskSubmitter, init$, void, $Executor*, $Runnable*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$TaskSubmitter, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$TaskSubmitter", "java.util.concurrent.CompletableFuture", "TaskSubmitter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$TaskSubmitter",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$TaskSubmitter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompletableFuture$TaskSubmitter);
+	});
 	return class$;
 }
 

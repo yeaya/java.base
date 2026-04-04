@@ -1,5 +1,4 @@
 #include <ArrayAssignment.h>
-
 #include <jcpp.h>
 
 using $intArray2 = $Array<int32_t, 2>;
@@ -7,34 +6,15 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _ArrayAssignment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayAssignment, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayAssignment, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ArrayAssignment_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ArrayAssignment",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ArrayAssignment_MethodInfo_
-};
-
-$Object* allocate$ArrayAssignment($Class* clazz) {
-	return $of($alloc(ArrayAssignment));
-}
-
 void ArrayAssignment::init$() {
 }
 
 void ArrayAssignment::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($intArray2, from, $new($intArray2, 5, 5));
-	$var($ObjectArray, to, static_cast<$ObjectArray*>(static_cast<$Object*>(static_cast<$intArray2*>(from))));
+	$var($ObjectArray, to, from);
 	$assign(to, $new($ObjectArray, 1));
-	if (!$of(to)->getClass()->isAssignableFrom($of(from)->getClass())) {
+	if (!to->getClass()->isAssignableFrom(from->getClass())) {
 		$throwNew($Exception, "bad array assignment check in reflection"_s);
 	}
 }
@@ -43,7 +23,22 @@ ArrayAssignment::ArrayAssignment() {
 }
 
 $Class* ArrayAssignment::load$($String* name, bool initialize) {
-	$loadClass(ArrayAssignment, name, initialize, &_ArrayAssignment_ClassInfo_, allocate$ArrayAssignment);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayAssignment, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayAssignment, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ArrayAssignment",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ArrayAssignment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayAssignment);
+	});
 	return class$;
 }
 

@@ -26,6 +26,7 @@ class AVAKeyword : public ::java::lang::Object {
 	$class(AVAKeyword, 0, ::java::lang::Object)
 public:
 	AVAKeyword();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* keyword, ::sun::security::util::ObjectIdentifier* oid, bool rfc1779Compliant, bool rfc2253Compliant);
 	static $String* getKeyword(::sun::security::util::ObjectIdentifier* oid, int32_t standard);
 	static $String* getKeyword(::sun::security::util::ObjectIdentifier* oid, int32_t standard, ::java::util::Map* extraOidMap);

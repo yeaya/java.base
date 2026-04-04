@@ -64,6 +64,7 @@ class URLClassPath$JarLoader : public ::jdk::internal::loader::URLClassPath$Load
 public:
 	URLClassPath$JarLoader();
 	using ::jdk::internal::loader::URLClassPath$Loader::getResource;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URL* url, ::java::net::URLStreamHandler* jarHandler, ::java::util::HashMap* loaderMap, ::java::security::AccessControlContext* acc);
 	static ::java::util::jar::JarFile* checkJar(::java::util::jar::JarFile* jar);
 	virtual ::jdk::internal::loader::Resource* checkResource($String* name, bool check, ::java::util::jar::JarEntry* entry);

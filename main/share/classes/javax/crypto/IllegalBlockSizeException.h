@@ -14,10 +14,13 @@ public:
 	IllegalBlockSizeException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xE4BA67348F4EB2D8;
+	static const int64_t serialVersionUID = (int64_t)0xe4ba67348f4eb2d8;
 	IllegalBlockSizeException(const IllegalBlockSizeException& e);
 	virtual void throw$() override;
-	inline IllegalBlockSizeException* operator ->() {
+	inline IllegalBlockSizeException* operator ->() const {
+		return (IllegalBlockSizeException*)throwing$;
+	}
+	inline operator IllegalBlockSizeException*() const {
 		return (IllegalBlockSizeException*)throwing$;
 	}
 };

@@ -22,6 +22,7 @@ class MemberFactory$Kind$3 : public ::util::MemberFactory$Kind {
 	$class(MemberFactory$Kind$3, 0, ::util::MemberFactory$Kind)
 public:
 	MemberFactory$Kind$3();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual ::java::lang::reflect::AccessibleObject* apply($Class* declaringClass, ::util::MemberFactory* factory);
 	virtual $Object* apply(Object$* declaringClass, Object$* factory) override;

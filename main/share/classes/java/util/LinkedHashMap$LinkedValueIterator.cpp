@@ -1,5 +1,4 @@
 #include <java/util/LinkedHashMap$LinkedValueIterator.h>
-
 #include <java/util/LinkedHashMap$Entry.h>
 #include <java/util/LinkedHashMap$LinkedHashIterator.h>
 #include <java/util/LinkedHashMap.h>
@@ -14,50 +13,6 @@ using $LinkedHashMap$LinkedHashIterator = ::java::util::LinkedHashMap$LinkedHash
 
 namespace java {
 	namespace util {
-
-$FieldInfo _LinkedHashMap$LinkedValueIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/LinkedHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedHashMap$LinkedValueIterator, this$0)},
-	{}
-};
-
-$MethodInfo _LinkedHashMap$LinkedValueIterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(LinkedHashMap$LinkedValueIterator, init$, void, $LinkedHashMap*)},
-	{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValueIterator, next, $Object*)},
-	{"*remove", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _LinkedHashMap$LinkedValueIterator_InnerClassesInfo_[] = {
-	{"java.util.LinkedHashMap$LinkedValueIterator", "java.util.LinkedHashMap", "LinkedValueIterator", $FINAL},
-	{"java.util.LinkedHashMap$LinkedHashIterator", "java.util.LinkedHashMap", "LinkedHashIterator", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LinkedHashMap$LinkedValueIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.LinkedHashMap$LinkedValueIterator",
-	"java.util.LinkedHashMap$LinkedHashIterator",
-	"java.util.Iterator",
-	_LinkedHashMap$LinkedValueIterator_FieldInfo_,
-	_LinkedHashMap$LinkedValueIterator_MethodInfo_,
-	"Ljava/util/LinkedHashMap<TK;TV;>.LinkedHashIterator;Ljava/util/Iterator<TV;>;",
-	nullptr,
-	_LinkedHashMap$LinkedValueIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.LinkedHashMap"
-};
-
-$Object* allocate$LinkedHashMap$LinkedValueIterator($Class* clazz) {
-	return $of($alloc(LinkedHashMap$LinkedValueIterator));
-}
 
 bool LinkedHashMap$LinkedValueIterator::hasNext() {
 	 return this->$LinkedHashMap$LinkedHashIterator::hasNext();
@@ -93,14 +48,52 @@ void LinkedHashMap$LinkedValueIterator::init$($LinkedHashMap* this$0) {
 }
 
 $Object* LinkedHashMap$LinkedValueIterator::next() {
-	return $of($nc($(nextNode()))->value);
+	return $nc($(nextNode()))->value;
 }
 
 LinkedHashMap$LinkedValueIterator::LinkedHashMap$LinkedValueIterator() {
 }
 
 $Class* LinkedHashMap$LinkedValueIterator::load$($String* name, bool initialize) {
-	$loadClass(LinkedHashMap$LinkedValueIterator, name, initialize, &_LinkedHashMap$LinkedValueIterator_ClassInfo_, allocate$LinkedHashMap$LinkedValueIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/LinkedHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedHashMap$LinkedValueIterator, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(LinkedHashMap$LinkedValueIterator, init$, void, $LinkedHashMap*)},
+		{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValueIterator, next, $Object*)},
+		{"*remove", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.LinkedHashMap$LinkedValueIterator", "java.util.LinkedHashMap", "LinkedValueIterator", $FINAL},
+		{"java.util.LinkedHashMap$LinkedHashIterator", "java.util.LinkedHashMap", "LinkedHashIterator", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.LinkedHashMap$LinkedValueIterator",
+		"java.util.LinkedHashMap$LinkedHashIterator",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/LinkedHashMap<TK;TV;>.LinkedHashIterator;Ljava/util/Iterator<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.LinkedHashMap"
+	};
+	$loadClass(LinkedHashMap$LinkedValueIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LinkedHashMap$LinkedValueIterator));
+	});
 	return class$;
 }
 

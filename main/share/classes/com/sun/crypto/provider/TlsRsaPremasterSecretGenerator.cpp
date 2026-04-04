@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/TlsRsaPremasterSecretGenerator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidParameterException.h>
@@ -33,35 +32,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _TlsRsaPremasterSecretGenerator_FieldInfo_[] = {
-	{"MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsRsaPremasterSecretGenerator, MSG)},
-	{"spec", "Lsun/security/internal/spec/TlsRsaPremasterSecretParameterSpec;", nullptr, $PRIVATE, $field(TlsRsaPremasterSecretGenerator, spec)},
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(TlsRsaPremasterSecretGenerator, random)},
-	{}
-};
-
-$MethodInfo _TlsRsaPremasterSecretGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TlsRsaPremasterSecretGenerator, init$, void)},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(TlsRsaPremasterSecretGenerator, engineGenerateKey, $SecretKey*)},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsRsaPremasterSecretGenerator, engineInit, void, $SecureRandom*)},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsRsaPremasterSecretGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsRsaPremasterSecretGenerator, engineInit, void, int32_t, $SecureRandom*)},
-	{}
-};
-
-$ClassInfo _TlsRsaPremasterSecretGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.TlsRsaPremasterSecretGenerator",
-	"javax.crypto.KeyGeneratorSpi",
-	nullptr,
-	_TlsRsaPremasterSecretGenerator_FieldInfo_,
-	_TlsRsaPremasterSecretGenerator_MethodInfo_
-};
-
-$Object* allocate$TlsRsaPremasterSecretGenerator($Class* clazz) {
-	return $of($alloc(TlsRsaPremasterSecretGenerator));
-}
-
 $String* TlsRsaPremasterSecretGenerator::MSG = nullptr;
 
 void TlsRsaPremasterSecretGenerator::init$() {
@@ -85,7 +55,7 @@ void TlsRsaPremasterSecretGenerator::engineInit(int32_t keysize, $SecureRandom* 
 }
 
 $SecretKey* TlsRsaPremasterSecretGenerator::engineGenerateKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->spec == nullptr) {
 		$throwNew($IllegalStateException, "TlsRsaPremasterSecretGenerator must be initialized"_s);
 	}
@@ -99,25 +69,23 @@ $SecretKey* TlsRsaPremasterSecretGenerator::engineGenerateKey() {
 	}
 	$nc(b)->set(0, (int8_t)$nc(this->spec)->getMajorVersion());
 	b->set(1, (int8_t)$nc(this->spec)->getMinorVersion());
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($SecretKey, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $new($SecretKeySpec, b, "TlsRsaPremasterSecret"_s));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(b, (int8_t)0);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($SecretKey, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $new($SecretKeySpec, b, "TlsRsaPremasterSecret"_s));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(b, (int8_t)0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -125,12 +93,36 @@ $SecretKey* TlsRsaPremasterSecretGenerator::engineGenerateKey() {
 TlsRsaPremasterSecretGenerator::TlsRsaPremasterSecretGenerator() {
 }
 
-void clinit$TlsRsaPremasterSecretGenerator($Class* class$) {
+void TlsRsaPremasterSecretGenerator::clinit$($Class* clazz) {
 	$assignStatic(TlsRsaPremasterSecretGenerator::MSG, "TlsRsaPremasterSecretGenerator must be initialized using a TlsRsaPremasterSecretParameterSpec"_s);
 }
 
 $Class* TlsRsaPremasterSecretGenerator::load$($String* name, bool initialize) {
-	$loadClass(TlsRsaPremasterSecretGenerator, name, initialize, &_TlsRsaPremasterSecretGenerator_ClassInfo_, clinit$TlsRsaPremasterSecretGenerator, allocate$TlsRsaPremasterSecretGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsRsaPremasterSecretGenerator, MSG)},
+		{"spec", "Lsun/security/internal/spec/TlsRsaPremasterSecretParameterSpec;", nullptr, $PRIVATE, $field(TlsRsaPremasterSecretGenerator, spec)},
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(TlsRsaPremasterSecretGenerator, random)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TlsRsaPremasterSecretGenerator, init$, void)},
+		{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(TlsRsaPremasterSecretGenerator, engineGenerateKey, $SecretKey*)},
+		{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsRsaPremasterSecretGenerator, engineInit, void, $SecureRandom*)},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsRsaPremasterSecretGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsRsaPremasterSecretGenerator, engineInit, void, int32_t, $SecureRandom*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.TlsRsaPremasterSecretGenerator",
+		"javax.crypto.KeyGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TlsRsaPremasterSecretGenerator, name, initialize, &classInfo$$, TlsRsaPremasterSecretGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TlsRsaPremasterSecretGenerator);
+	});
 	return class$;
 }
 

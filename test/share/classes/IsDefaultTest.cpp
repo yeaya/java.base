@@ -1,5 +1,4 @@
 #include <IsDefaultTest.h>
-
 #include <ExpectedIsDefault.h>
 #include <TestType1.h>
 #include <TestType2$nestedTestType2.h>
@@ -30,7 +29,6 @@ using $TestType6 = ::TestType6;
 using $TestType6$nestedTestType6 = ::TestType6$nestedTestType6;
 using $TestType7 = ::TestType7;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -40,31 +38,12 @@ using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
-$MethodInfo _IsDefaultTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IsDefaultTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(IsDefaultTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _IsDefaultTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IsDefaultTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IsDefaultTest_MethodInfo_
-};
-
-$Object* allocate$IsDefaultTest($Class* clazz) {
-	return $of($alloc(IsDefaultTest));
-}
-
 void IsDefaultTest::init$() {
 }
 
 void IsDefaultTest::main($StringArray* argv) {
+	$useLocalObjectStack();
 	$load(IsDefaultTest);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failures = 0;
 	int32_t visitationCount = 0;
@@ -94,27 +73,23 @@ void IsDefaultTest::main($StringArray* argv) {
 		for (; $nc(i$)->hasNext();) {
 			$Class* clazz = $cast($Class, i$->next());
 			{
-				{
-					$var($MethodArray, arr$, $nc(clazz)->getDeclaredMethods());
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$var($Method, method, arr$->get(i$));
-						{
-							$load($ExpectedIsDefault);
-							$var($ExpectedIsDefault, expectedIsDefault, $cast($ExpectedIsDefault, $nc(method)->getAnnotation($ExpectedIsDefault::class$)));
-							if (expectedIsDefault != nullptr) {
-								++visitationCount;
-								bool expected = expectedIsDefault->value();
-								bool actual = method->isDefault();
-								if (actual != expected) {
-									++failures;
-									$nc($System::err)->printf("ERROR: On %s expected isDefault of \'\'%s\'\'; got \'\'%s\'\'.\n"_s, $$new($ObjectArray, {
-										$($of(method->toString())),
-										$($of($Boolean::valueOf(expected))),
-										$($of($Boolean::valueOf(actual)))
-									}));
-								}
+				$var($MethodArray, arr$, $nc(clazz)->getDeclaredMethods());
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					$var($Method, method, arr$->get(i$));
+					{
+						$load($ExpectedIsDefault);
+						$var($ExpectedIsDefault, expectedIsDefault, $cast($ExpectedIsDefault, $nc(method)->getAnnotation($ExpectedIsDefault::class$)));
+						if (expectedIsDefault != nullptr) {
+							++visitationCount;
+							bool expected = expectedIsDefault->value();
+							bool actual = method->isDefault();
+							if (actual != expected) {
+								++failures;
+								$nc($System::err)->printf("ERROR: On %s expected isDefault of \'\'%s\'\'; got \'\'%s\'\'.\n"_s, $$new($ObjectArray, {
+									$(method->toString()),
+									$($Boolean::valueOf(expected)),
+									$($Boolean::valueOf(actual))
+								}));
 							}
 						}
 					}
@@ -136,7 +111,22 @@ IsDefaultTest::IsDefaultTest() {
 }
 
 $Class* IsDefaultTest::load$($String* name, bool initialize) {
-	$loadClass(IsDefaultTest, name, initialize, &_IsDefaultTest_ClassInfo_, allocate$IsDefaultTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IsDefaultTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(IsDefaultTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IsDefaultTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IsDefaultTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IsDefaultTest);
+	});
 	return class$;
 }
 

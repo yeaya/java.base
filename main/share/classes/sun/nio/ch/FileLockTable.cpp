@@ -1,5 +1,4 @@
 #include <sun/nio/ch/FileLockTable.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ref/Reference.h>
@@ -31,7 +30,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $FileKey = ::sun::nio::ch::FileKey;
 using $FileLockTable$FileLockReference = ::sun::nio::ch::FileLockTable$FileLockReference;
@@ -39,52 +37,6 @@ using $FileLockTable$FileLockReference = ::sun::nio::ch::FileLockTable$FileLockR
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _FileLockTable_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FileLockTable, $assertionsDisabled)},
-	{"lockMap", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Lsun/nio/ch/FileKey;Ljava/util/List<Lsun/nio/ch/FileLockTable$FileLockReference;>;>;", $PRIVATE | $STATIC, $staticField(FileLockTable, lockMap)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/nio/channels/FileLock;>;", $PRIVATE | $STATIC, $staticField(FileLockTable, queue)},
-	{"channel", "Ljava/nio/channels/Channel;", nullptr, $PRIVATE | $FINAL, $field(FileLockTable, channel)},
-	{"fileKey", "Lsun/nio/ch/FileKey;", nullptr, $PRIVATE | $FINAL, $field(FileLockTable, fileKey)},
-	{"locks", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/channels/FileLock;>;", $PRIVATE | $FINAL, $field(FileLockTable, locks)},
-	{}
-};
-
-$MethodInfo _FileLockTable_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Channel;Ljava/io/FileDescriptor;)V", nullptr, 0, $method(FileLockTable, init$, void, $Channel*, $FileDescriptor*), "java.io.IOException"},
-	{"add", "(Ljava/nio/channels/FileLock;)V", nullptr, 0, $virtualMethod(FileLockTable, add, void, $FileLock*), "java.nio.channels.OverlappingFileLockException"},
-	{"checkList", "(Ljava/util/List;JJ)V", "(Ljava/util/List<Lsun/nio/ch/FileLockTable$FileLockReference;>;JJ)V", $PRIVATE, $method(FileLockTable, checkList, void, $List*, int64_t, int64_t), "java.nio.channels.OverlappingFileLockException"},
-	{"remove", "(Ljava/nio/channels/FileLock;)V", nullptr, 0, $virtualMethod(FileLockTable, remove, void, $FileLock*)},
-	{"removeAll", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/channels/FileLock;>;", 0, $virtualMethod(FileLockTable, removeAll, $List*)},
-	{"removeKeyIfEmpty", "(Lsun/nio/ch/FileKey;Ljava/util/List;)V", "(Lsun/nio/ch/FileKey;Ljava/util/List<Lsun/nio/ch/FileLockTable$FileLockReference;>;)V", $PRIVATE, $method(FileLockTable, removeKeyIfEmpty, void, $FileKey*, $List*)},
-	{"removeStaleEntries", "()V", nullptr, $PRIVATE, $method(FileLockTable, removeStaleEntries, void)},
-	{"replace", "(Ljava/nio/channels/FileLock;Ljava/nio/channels/FileLock;)V", nullptr, 0, $virtualMethod(FileLockTable, replace, void, $FileLock*, $FileLock*)},
-	{}
-};
-
-$InnerClassInfo _FileLockTable_InnerClassesInfo_[] = {
-	{"sun.nio.ch.FileLockTable$FileLockReference", "sun.nio.ch.FileLockTable", "FileLockReference", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FileLockTable_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.FileLockTable",
-	"java.lang.Object",
-	nullptr,
-	_FileLockTable_FieldInfo_,
-	_FileLockTable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileLockTable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.FileLockTable$FileLockReference"
-};
-
-$Object* allocate$FileLockTable($Class* clazz) {
-	return $of($alloc(FileLockTable));
-}
 
 bool FileLockTable::$assertionsDisabled = false;
 $ConcurrentHashMap* FileLockTable::lockMap = nullptr;
@@ -97,7 +49,7 @@ void FileLockTable::init$($Channel* channel, $FileDescriptor* fd) {
 }
 
 void FileLockTable::add($FileLock* fl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $cast($List, $nc(FileLockTable::lockMap)->get(this->fileKey)));
 	for (;;) {
 		if (list == nullptr) {
@@ -116,10 +68,9 @@ void FileLockTable::add($FileLock* fl) {
 		$synchronized(list) {
 			$var($List, current, $cast($List, $nc(FileLockTable::lockMap)->get(this->fileKey)));
 			if (list == current) {
-				$var($List, var$0, list);
-				int64_t var$1 = $nc(fl)->position();
-				checkList(var$0, var$1, fl->size());
-				$nc(list)->add($$new($FileLockTable$FileLockReference, fl, FileLockTable::queue, this->fileKey));
+				int64_t var$0 = $nc(fl)->position();
+				checkList(list, var$0, fl->size());
+				list->add($$new($FileLockTable$FileLockReference, fl, FileLockTable::queue, this->fileKey));
 				$nc(this->locks)->add(fl);
 				break;
 			}
@@ -142,7 +93,7 @@ void FileLockTable::removeKeyIfEmpty($FileKey* fk, $List* list) {
 }
 
 void FileLockTable::remove($FileLock* fl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!FileLockTable::$assertionsDisabled && !(fl != nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -152,7 +103,7 @@ void FileLockTable::remove($FileLock* fl) {
 	}
 	$synchronized(list) {
 		int32_t index = 0;
-		while (index < $nc(list)->size()) {
+		while (index < list->size()) {
 			$var($FileLockTable$FileLockReference, ref, $cast($FileLockTable$FileLockReference, list->get(index)));
 			$var($FileLock, lock, $cast($FileLock, $nc(ref)->get()));
 			if (lock == fl) {
@@ -170,7 +121,7 @@ void FileLockTable::remove($FileLock* fl) {
 }
 
 $List* FileLockTable::removeAll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, result, $new($ArrayList));
 	$var($List, list, $cast($List, $nc(FileLockTable::lockMap)->get(this->fileKey)));
 	if (list != nullptr) {
@@ -195,20 +146,20 @@ $List* FileLockTable::removeAll() {
 }
 
 void FileLockTable::replace($FileLock* fromLock, $FileLock* toLock) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $cast($List, $nc(FileLockTable::lockMap)->get(this->fileKey)));
 	if (!FileLockTable::$assertionsDisabled && !(list != nullptr)) {
 		$throwNew($AssertionError);
 	}
 	$synchronized(list) {
-		for (int32_t index = 0; index < $nc(list)->size(); ++index) {
+		for (int32_t index = 0; index < list->size(); ++index) {
 			$var($FileLockTable$FileLockReference, ref, $cast($FileLockTable$FileLockReference, list->get(index)));
 			$var($FileLock, lock, $cast($FileLock, $nc(ref)->get()));
 			if (lock == fromLock) {
 				ref->clear();
 				list->set(index, $$new($FileLockTable$FileLockReference, toLock, FileLockTable::queue, this->fileKey));
 				$nc(this->locks)->remove(fromLock);
-				$nc(this->locks)->add(toLock);
+				this->locks->add(toLock);
 				break;
 			}
 		}
@@ -216,7 +167,7 @@ void FileLockTable::replace($FileLock* fromLock, $FileLock* toLock) {
 }
 
 void FileLockTable::checkList($List* list, int64_t position, int64_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!FileLockTable::$assertionsDisabled && !$Thread::holdsLock(list)) {
 		$throwNew($AssertionError);
 	}
@@ -235,21 +186,21 @@ void FileLockTable::checkList($List* list, int64_t position, int64_t size) {
 }
 
 void FileLockTable::removeStaleEntries() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileLockTable$FileLockReference, ref, nullptr);
 	while (($assign(ref, $cast($FileLockTable$FileLockReference, $nc(FileLockTable::queue)->poll()))) != nullptr) {
 		$var($FileKey, fk, $nc(ref)->fileKey());
 		$var($List, list, $cast($List, $nc(FileLockTable::lockMap)->get(fk)));
 		if (list != nullptr) {
 			$synchronized(list) {
-				list->remove($of(ref));
+				list->remove(ref);
 				removeKeyIfEmpty(fk, list);
 			}
 		}
 	}
 }
 
-void clinit$FileLockTable($Class* class$) {
+void FileLockTable::clinit$($Class* clazz) {
 	FileLockTable::$assertionsDisabled = !FileLockTable::class$->desiredAssertionStatus();
 	$assignStatic(FileLockTable::lockMap, $new($ConcurrentHashMap));
 	$assignStatic(FileLockTable::queue, $new($ReferenceQueue));
@@ -259,7 +210,47 @@ FileLockTable::FileLockTable() {
 }
 
 $Class* FileLockTable::load$($String* name, bool initialize) {
-	$loadClass(FileLockTable, name, initialize, &_FileLockTable_ClassInfo_, clinit$FileLockTable, allocate$FileLockTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FileLockTable, $assertionsDisabled)},
+		{"lockMap", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Lsun/nio/ch/FileKey;Ljava/util/List<Lsun/nio/ch/FileLockTable$FileLockReference;>;>;", $PRIVATE | $STATIC, $staticField(FileLockTable, lockMap)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/nio/channels/FileLock;>;", $PRIVATE | $STATIC, $staticField(FileLockTable, queue)},
+		{"channel", "Ljava/nio/channels/Channel;", nullptr, $PRIVATE | $FINAL, $field(FileLockTable, channel)},
+		{"fileKey", "Lsun/nio/ch/FileKey;", nullptr, $PRIVATE | $FINAL, $field(FileLockTable, fileKey)},
+		{"locks", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/channels/FileLock;>;", $PRIVATE | $FINAL, $field(FileLockTable, locks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/Channel;Ljava/io/FileDescriptor;)V", nullptr, 0, $method(FileLockTable, init$, void, $Channel*, $FileDescriptor*), "java.io.IOException"},
+		{"add", "(Ljava/nio/channels/FileLock;)V", nullptr, 0, $virtualMethod(FileLockTable, add, void, $FileLock*), "java.nio.channels.OverlappingFileLockException"},
+		{"checkList", "(Ljava/util/List;JJ)V", "(Ljava/util/List<Lsun/nio/ch/FileLockTable$FileLockReference;>;JJ)V", $PRIVATE, $method(FileLockTable, checkList, void, $List*, int64_t, int64_t), "java.nio.channels.OverlappingFileLockException"},
+		{"remove", "(Ljava/nio/channels/FileLock;)V", nullptr, 0, $virtualMethod(FileLockTable, remove, void, $FileLock*)},
+		{"removeAll", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/channels/FileLock;>;", 0, $virtualMethod(FileLockTable, removeAll, $List*)},
+		{"removeKeyIfEmpty", "(Lsun/nio/ch/FileKey;Ljava/util/List;)V", "(Lsun/nio/ch/FileKey;Ljava/util/List<Lsun/nio/ch/FileLockTable$FileLockReference;>;)V", $PRIVATE, $method(FileLockTable, removeKeyIfEmpty, void, $FileKey*, $List*)},
+		{"removeStaleEntries", "()V", nullptr, $PRIVATE, $method(FileLockTable, removeStaleEntries, void)},
+		{"replace", "(Ljava/nio/channels/FileLock;Ljava/nio/channels/FileLock;)V", nullptr, 0, $virtualMethod(FileLockTable, replace, void, $FileLock*, $FileLock*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.FileLockTable$FileLockReference", "sun.nio.ch.FileLockTable", "FileLockReference", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.FileLockTable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.FileLockTable$FileLockReference"
+	};
+	$loadClass(FileLockTable, name, initialize, &classInfo$$, FileLockTable::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileLockTable);
+	});
 	return class$;
 }
 

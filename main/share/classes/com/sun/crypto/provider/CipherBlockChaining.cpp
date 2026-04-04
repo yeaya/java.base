@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/CipherBlockChaining.h>
-
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/security/InvalidKeyException.h>
@@ -20,50 +19,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$CompoundAttribute _CipherBlockChaining_MethodAnnotations_implDecrypt4[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CipherBlockChaining_MethodAnnotations_implEncrypt5[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _CipherBlockChaining_FieldInfo_[] = {
-	{"r", "[B", nullptr, $PROTECTED, $field(CipherBlockChaining, r)},
-	{"k", "[B", nullptr, $PRIVATE, $field(CipherBlockChaining, k)},
-	{"rSave", "[B", nullptr, $PRIVATE, $field(CipherBlockChaining, rSave)},
-	{}
-};
-
-$MethodInfo _CipherBlockChaining_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(CipherBlockChaining, init$, void, $SymmetricCipher*)},
-	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherBlockChaining, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherBlockChaining, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CipherBlockChaining, getFeedback, $String*)},
-	{"implDecrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(CipherBlockChaining, implDecrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, _CipherBlockChaining_MethodAnnotations_implDecrypt4},
-	{"implEncrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(CipherBlockChaining, implEncrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, _CipherBlockChaining_MethodAnnotations_implEncrypt5},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(CipherBlockChaining, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
-	{"reset", "()V", nullptr, 0, $virtualMethod(CipherBlockChaining, reset, void)},
-	{"restore", "()V", nullptr, 0, $virtualMethod(CipherBlockChaining, restore, void)},
-	{"save", "()V", nullptr, 0, $virtualMethod(CipherBlockChaining, save, void)},
-	{}
-};
-
-$ClassInfo _CipherBlockChaining_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.crypto.provider.CipherBlockChaining",
-	"com.sun.crypto.provider.FeedbackCipher",
-	nullptr,
-	_CipherBlockChaining_FieldInfo_,
-	_CipherBlockChaining_MethodInfo_
-};
-
-$Object* allocate$CipherBlockChaining($Class* clazz) {
-	return $of($alloc(CipherBlockChaining));
-}
-
 void CipherBlockChaining::init$($SymmetricCipher* embeddedCipher) {
 	$FeedbackCipher::init$(embeddedCipher);
 	$set(this, rSave, nullptr);
@@ -76,7 +31,7 @@ $String* CipherBlockChaining::getFeedback() {
 }
 
 void CipherBlockChaining::init(bool decrypting, $String* algorithm, $bytes* key, $bytes* iv) {
-	if ((key == nullptr) || (iv == nullptr) || ($nc(iv)->length != this->blockSize)) {
+	if ((key == nullptr) || (iv == nullptr) || (iv->length != this->blockSize)) {
 		$throwNew($InvalidKeyException, "Internal error"_s);
 	}
 	$set(this, iv, iv);
@@ -147,7 +102,44 @@ CipherBlockChaining::CipherBlockChaining() {
 }
 
 $Class* CipherBlockChaining::load$($String* name, bool initialize) {
-	$loadClass(CipherBlockChaining, name, initialize, &_CipherBlockChaining_ClassInfo_, allocate$CipherBlockChaining);
+	$FieldInfo fieldInfos$$[] = {
+		{"r", "[B", nullptr, $PROTECTED, $field(CipherBlockChaining, r)},
+		{"k", "[B", nullptr, $PRIVATE, $field(CipherBlockChaining, k)},
+		{"rSave", "[B", nullptr, $PRIVATE, $field(CipherBlockChaining, rSave)},
+		{}
+	};
+	$CompoundAttribute implDecryptmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute implEncryptmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(CipherBlockChaining, init$, void, $SymmetricCipher*)},
+		{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherBlockChaining, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherBlockChaining, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CipherBlockChaining, getFeedback, $String*)},
+		{"implDecrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(CipherBlockChaining, implDecrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, implDecryptmethodAnnotations$$},
+		{"implEncrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(CipherBlockChaining, implEncrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, implEncryptmethodAnnotations$$},
+		{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(CipherBlockChaining, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
+		{"reset", "()V", nullptr, 0, $virtualMethod(CipherBlockChaining, reset, void)},
+		{"restore", "()V", nullptr, 0, $virtualMethod(CipherBlockChaining, restore, void)},
+		{"save", "()V", nullptr, 0, $virtualMethod(CipherBlockChaining, save, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.crypto.provider.CipherBlockChaining",
+		"com.sun.crypto.provider.FeedbackCipher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CipherBlockChaining, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CipherBlockChaining);
+	});
 	return class$;
 }
 

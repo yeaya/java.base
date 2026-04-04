@@ -1,36 +1,10 @@
 #include <GoldenFormattedValues.h>
-
 #include <jcpp.h>
 
 using $intArray2 = $Array<int32_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _GoldenFormattedValues_FieldInfo_[] = {
-	{"DecimalDigitsLocalizedFormattedValues", "[[I", nullptr, $STATIC, $staticField(GoldenFormattedValues, DecimalDigitsLocalizedFormattedValues)},
-	{"DecimalGoldenFormattedValues", "[[I", nullptr, $STATIC, $staticField(GoldenFormattedValues, DecimalGoldenFormattedValues)},
-	{"CurrencyGoldenFormattedValues", "[[I", nullptr, $STATIC, $staticField(GoldenFormattedValues, CurrencyGoldenFormattedValues)},
-	{}
-};
-
-$MethodInfo _GoldenFormattedValues_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GoldenFormattedValues, init$, void)},
-	{}
-};
-
-$ClassInfo _GoldenFormattedValues_ClassInfo_ = {
-	$ACC_SUPER,
-	"GoldenFormattedValues",
-	"java.lang.Object",
-	nullptr,
-	_GoldenFormattedValues_FieldInfo_,
-	_GoldenFormattedValues_MethodInfo_
-};
-
-$Object* allocate$GoldenFormattedValues($Class* clazz) {
-	return $of($alloc(GoldenFormattedValues));
-}
 
 $intArray2* GoldenFormattedValues::DecimalDigitsLocalizedFormattedValues = nullptr;
 $intArray2* GoldenFormattedValues::DecimalGoldenFormattedValues = nullptr;
@@ -39,8 +13,8 @@ $intArray2* GoldenFormattedValues::CurrencyGoldenFormattedValues = nullptr;
 void GoldenFormattedValues::init$() {
 }
 
-void clinit$GoldenFormattedValues($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void GoldenFormattedValues::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(GoldenFormattedValues::DecimalDigitsLocalizedFormattedValues, $new($intArray2, {
 		$$new($ints, {
 			49,
@@ -11419,7 +11393,27 @@ GoldenFormattedValues::GoldenFormattedValues() {
 }
 
 $Class* GoldenFormattedValues::load$($String* name, bool initialize) {
-	$loadClass(GoldenFormattedValues, name, initialize, &_GoldenFormattedValues_ClassInfo_, clinit$GoldenFormattedValues, allocate$GoldenFormattedValues);
+	$FieldInfo fieldInfos$$[] = {
+		{"DecimalDigitsLocalizedFormattedValues", "[[I", nullptr, $STATIC, $staticField(GoldenFormattedValues, DecimalDigitsLocalizedFormattedValues)},
+		{"DecimalGoldenFormattedValues", "[[I", nullptr, $STATIC, $staticField(GoldenFormattedValues, DecimalGoldenFormattedValues)},
+		{"CurrencyGoldenFormattedValues", "[[I", nullptr, $STATIC, $staticField(GoldenFormattedValues, CurrencyGoldenFormattedValues)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GoldenFormattedValues, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GoldenFormattedValues",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GoldenFormattedValues, name, initialize, &classInfo$$, GoldenFormattedValues::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GoldenFormattedValues);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/net/InetAddress$NameServiceAddresses.h>
-
 #include <java/net/InetAddress$Addresses.h>
 #include <java/net/InetAddress$CachedAddresses.h>
 #include <java/net/InetAddress.h>
@@ -22,50 +21,10 @@ using $InetAddress = ::java::net::InetAddress;
 using $InetAddress$Addresses = ::java::net::InetAddress$Addresses;
 using $InetAddress$CachedAddresses = ::java::net::InetAddress$CachedAddresses;
 using $UnknownHostException = ::java::net::UnknownHostException;
-using $NavigableSet = ::java::util::NavigableSet;
-using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $InetAddressCachePolicy = ::sun::net::InetAddressCachePolicy;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _InetAddress$NameServiceAddresses_FieldInfo_[] = {
-	{"host", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InetAddress$NameServiceAddresses, host)},
-	{"reqAddr", "Ljava/net/InetAddress;", nullptr, $PRIVATE | $FINAL, $field(InetAddress$NameServiceAddresses, reqAddr)},
-	{}
-};
-
-$MethodInfo _InetAddress$NameServiceAddresses_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/InetAddress;)V", nullptr, 0, $method(InetAddress$NameServiceAddresses, init$, void, $String*, $InetAddress*)},
-	{"get", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InetAddress$NameServiceAddresses, get, $InetAddressArray*), "java.net.UnknownHostException"},
-	{}
-};
-
-$InnerClassInfo _InetAddress$NameServiceAddresses_InnerClassesInfo_[] = {
-	{"java.net.InetAddress$NameServiceAddresses", "java.net.InetAddress", "NameServiceAddresses", $PRIVATE | $STATIC | $FINAL},
-	{"java.net.InetAddress$Addresses", "java.net.InetAddress", "Addresses", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _InetAddress$NameServiceAddresses_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.net.InetAddress$NameServiceAddresses",
-	"java.lang.Object",
-	"java.net.InetAddress$Addresses",
-	_InetAddress$NameServiceAddresses_FieldInfo_,
-	_InetAddress$NameServiceAddresses_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InetAddress$NameServiceAddresses_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.InetAddress"
-};
-
-$Object* allocate$InetAddress$NameServiceAddresses($Class* clazz) {
-	return $of($alloc(InetAddress$NameServiceAddresses));
-}
 
 void InetAddress$NameServiceAddresses::init$($String* host, $InetAddress* reqAddr) {
 	$set(this, host, host);
@@ -73,7 +32,7 @@ void InetAddress$NameServiceAddresses::init$($String* host, $InetAddress* reqAdd
 }
 
 $InetAddressArray* InetAddress$NameServiceAddresses::get() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress$Addresses, addresses, nullptr);
 	$synchronized(this) {
 		$init($InetAddress);
@@ -95,10 +54,10 @@ $InetAddressArray* InetAddress$NameServiceAddresses::get() {
 				cachePolicy = $InetAddressCachePolicy::getNegative();
 			}
 			if (cachePolicy == $InetAddressCachePolicy::NEVER) {
-				$nc($InetAddress::cache)->remove(this->host, this);
+				$InetAddress::cache->remove(this->host, this);
 			} else {
-				$var($InetAddress$CachedAddresses, cachedAddresses, $new($InetAddress$CachedAddresses, this->host, inetAddresses, cachePolicy == $InetAddressCachePolicy::FOREVER ? (int64_t)0 : $System::nanoTime() + (int64_t)1000000000 * cachePolicy));
-				if ($nc($InetAddress::cache)->replace(this->host, this, cachedAddresses) && cachePolicy != $InetAddressCachePolicy::FOREVER) {
+				$var($InetAddress$CachedAddresses, cachedAddresses, $new($InetAddress$CachedAddresses, this->host, inetAddresses, cachePolicy == $InetAddressCachePolicy::FOREVER ? 0 : $System::nanoTime() + (int64_t)1000000000 * cachePolicy));
+				if ($InetAddress::cache->replace(this->host, this, cachedAddresses) && cachePolicy != $InetAddressCachePolicy::FOREVER) {
 					$nc($InetAddress::expirySet)->add(cachedAddresses);
 				}
 			}
@@ -115,7 +74,39 @@ InetAddress$NameServiceAddresses::InetAddress$NameServiceAddresses() {
 }
 
 $Class* InetAddress$NameServiceAddresses::load$($String* name, bool initialize) {
-	$loadClass(InetAddress$NameServiceAddresses, name, initialize, &_InetAddress$NameServiceAddresses_ClassInfo_, allocate$InetAddress$NameServiceAddresses);
+	$FieldInfo fieldInfos$$[] = {
+		{"host", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InetAddress$NameServiceAddresses, host)},
+		{"reqAddr", "Ljava/net/InetAddress;", nullptr, $PRIVATE | $FINAL, $field(InetAddress$NameServiceAddresses, reqAddr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/net/InetAddress;)V", nullptr, 0, $method(InetAddress$NameServiceAddresses, init$, void, $String*, $InetAddress*)},
+		{"get", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InetAddress$NameServiceAddresses, get, $InetAddressArray*), "java.net.UnknownHostException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.InetAddress$NameServiceAddresses", "java.net.InetAddress", "NameServiceAddresses", $PRIVATE | $STATIC | $FINAL},
+		{"java.net.InetAddress$Addresses", "java.net.InetAddress", "Addresses", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.net.InetAddress$NameServiceAddresses",
+		"java.lang.Object",
+		"java.net.InetAddress$Addresses",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.InetAddress"
+	};
+	$loadClass(InetAddress$NameServiceAddresses, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InetAddress$NameServiceAddresses);
+	});
 	return class$;
 }
 

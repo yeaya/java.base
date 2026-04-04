@@ -1,5 +1,4 @@
 #include <TLRemoveTest.h>
-
 #include <TLRemoveTest$1.h>
 #include <TLRemoveTest$2.h>
 #include <java/lang/ThreadLocal.h>
@@ -17,44 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 
-$FieldInfo _TLRemoveTest_FieldInfo_[] = {
-	{"INITIAL_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TLRemoveTest, INITIAL_VALUE)},
-	{"REMOVE_SET_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TLRemoveTest, REMOVE_SET_VALUE)},
-	{"n", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/Integer;>;", $STATIC, $staticField(TLRemoveTest, n)},
-	{}
-};
-
-$MethodInfo _TLRemoveTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TLRemoveTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TLRemoveTest, main, void, $StringArray*), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _TLRemoveTest_InnerClassesInfo_[] = {
-	{"TLRemoveTest$2", nullptr, nullptr, 0},
-	{"TLRemoveTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TLRemoveTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TLRemoveTest",
-	"java.lang.Object",
-	nullptr,
-	_TLRemoveTest_FieldInfo_,
-	_TLRemoveTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TLRemoveTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TLRemoveTest$2,TLRemoveTest$1"
-};
-
-$Object* allocate$TLRemoveTest($Class* clazz) {
-	return $of($alloc(TLRemoveTest));
-}
-
 $ThreadLocal* TLRemoveTest::n = nullptr;
 
 void TLRemoveTest::init$() {
@@ -62,7 +23,7 @@ void TLRemoveTest::init$() {
 
 void TLRemoveTest::main($StringArray* args) {
 	$init(TLRemoveTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t threadCount = 100;
 	$var($ints, removeNode, $new($ints, {
 		10,
@@ -90,9 +51,7 @@ void TLRemoveTest::main($StringArray* args) {
 		int32_t checkValue = i;
 		{
 			$var($ints, arr$, removeNode);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				int32_t removeId = arr$->get(i$);
 				if (removeId == i) {
 					checkValue = TLRemoveTest::INITIAL_VALUE;
@@ -102,9 +61,7 @@ void TLRemoveTest::main($StringArray* args) {
 		}
 		{
 			$var($ints, arr$, removeAndSet);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				int32_t removeId = arr$->get(i$);
 				if (removeId == i) {
 					checkValue = TLRemoveTest::REMOVE_SET_VALUE;
@@ -121,7 +78,7 @@ void TLRemoveTest::main($StringArray* args) {
 	}
 }
 
-void clinit$TLRemoveTest($Class* class$) {
+void TLRemoveTest::clinit$($Class* clazz) {
 	$assignStatic(TLRemoveTest::n, $new($TLRemoveTest$1));
 }
 
@@ -129,7 +86,39 @@ TLRemoveTest::TLRemoveTest() {
 }
 
 $Class* TLRemoveTest::load$($String* name, bool initialize) {
-	$loadClass(TLRemoveTest, name, initialize, &_TLRemoveTest_ClassInfo_, clinit$TLRemoveTest, allocate$TLRemoveTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"INITIAL_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TLRemoveTest, INITIAL_VALUE)},
+		{"REMOVE_SET_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TLRemoveTest, REMOVE_SET_VALUE)},
+		{"n", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/Integer;>;", $STATIC, $staticField(TLRemoveTest, n)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TLRemoveTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TLRemoveTest, main, void, $StringArray*), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TLRemoveTest$2", nullptr, nullptr, 0},
+		{"TLRemoveTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TLRemoveTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TLRemoveTest$2,TLRemoveTest$1"
+	};
+	$loadClass(TLRemoveTest, name, initialize, &classInfo$$, TLRemoveTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TLRemoveTest);
+	});
 	return class$;
 }
 

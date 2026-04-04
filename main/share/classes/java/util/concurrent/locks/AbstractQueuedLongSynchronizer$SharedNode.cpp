@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/AbstractQueuedLongSynchronizer$SharedNode.h>
-
 #include <java/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node.h>
 #include <java/util/concurrent/locks/AbstractQueuedLongSynchronizer.h>
 #include <jcpp.h>
@@ -14,37 +13,6 @@ namespace java {
 		namespace concurrent {
 			namespace locks {
 
-$MethodInfo _AbstractQueuedLongSynchronizer$SharedNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AbstractQueuedLongSynchronizer$SharedNode, init$, void)},
-	{}
-};
-
-$InnerClassInfo _AbstractQueuedLongSynchronizer$SharedNode_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$SharedNode", "java.util.concurrent.locks.AbstractQueuedLongSynchronizer", "SharedNode", $STATIC | $FINAL},
-	{"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$Node", "java.util.concurrent.locks.AbstractQueuedLongSynchronizer", "Node", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractQueuedLongSynchronizer$SharedNode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$SharedNode",
-	"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$Node",
-	nullptr,
-	nullptr,
-	_AbstractQueuedLongSynchronizer$SharedNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractQueuedLongSynchronizer$SharedNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.AbstractQueuedLongSynchronizer"
-};
-
-$Object* allocate$AbstractQueuedLongSynchronizer$SharedNode($Class* clazz) {
-	return $of($alloc(AbstractQueuedLongSynchronizer$SharedNode));
-}
-
 void AbstractQueuedLongSynchronizer$SharedNode::init$() {
 	$AbstractQueuedLongSynchronizer$Node::init$();
 }
@@ -53,7 +21,33 @@ AbstractQueuedLongSynchronizer$SharedNode::AbstractQueuedLongSynchronizer$Shared
 }
 
 $Class* AbstractQueuedLongSynchronizer$SharedNode::load$($String* name, bool initialize) {
-	$loadClass(AbstractQueuedLongSynchronizer$SharedNode, name, initialize, &_AbstractQueuedLongSynchronizer$SharedNode_ClassInfo_, allocate$AbstractQueuedLongSynchronizer$SharedNode);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AbstractQueuedLongSynchronizer$SharedNode, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$SharedNode", "java.util.concurrent.locks.AbstractQueuedLongSynchronizer", "SharedNode", $STATIC | $FINAL},
+		{"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$Node", "java.util.concurrent.locks.AbstractQueuedLongSynchronizer", "Node", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$SharedNode",
+		"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$Node",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.AbstractQueuedLongSynchronizer"
+	};
+	$loadClass(AbstractQueuedLongSynchronizer$SharedNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractQueuedLongSynchronizer$SharedNode);
+	});
 	return class$;
 }
 

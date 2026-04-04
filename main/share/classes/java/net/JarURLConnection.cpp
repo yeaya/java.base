@@ -1,5 +1,4 @@
 #include <java/net/JarURLConnection.h>
-
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
@@ -27,47 +26,13 @@ using $ParseUtil = ::sun::net::www::ParseUtil;
 namespace java {
 	namespace net {
 
-$FieldInfo _JarURLConnection_FieldInfo_[] = {
-	{"jarFileURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(JarURLConnection, jarFileURL)},
-	{"entryName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JarURLConnection, entryName)},
-	{"jarFileURLConnection", "Ljava/net/URLConnection;", nullptr, $PROTECTED, $field(JarURLConnection, jarFileURLConnection)},
-	{}
-};
-
-$MethodInfo _JarURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $method(JarURLConnection, init$, void, $URL*), "java.net.MalformedURLException"},
-	{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getAttributes, $Attributes*), "java.io.IOException"},
-	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getCertificates, $CertificateArray*), "java.io.IOException"},
-	{"getEntryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getEntryName, $String*)},
-	{"getJarEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getJarEntry, $JarEntry*), "java.io.IOException"},
-	{"getJarFile", "()Ljava/util/jar/JarFile;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JarURLConnection, getJarFile, $JarFile*), "java.io.IOException"},
-	{"getJarFileURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getJarFileURL, $URL*)},
-	{"getMainAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getMainAttributes, $Attributes*), "java.io.IOException"},
-	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getManifest, $Manifest*), "java.io.IOException"},
-	{"parseSpecs", "(Ljava/net/URL;)V", nullptr, $PRIVATE, $method(JarURLConnection, parseSpecs, void, $URL*), "java.net.MalformedURLException"},
-	{}
-};
-
-$ClassInfo _JarURLConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.net.JarURLConnection",
-	"java.net.URLConnection",
-	nullptr,
-	_JarURLConnection_FieldInfo_,
-	_JarURLConnection_MethodInfo_
-};
-
-$Object* allocate$JarURLConnection($Class* clazz) {
-	return $of($alloc(JarURLConnection));
-}
-
 void JarURLConnection::init$($URL* url) {
 	$URLConnection::init$(url);
 	parseSpecs(url);
 }
 
 void JarURLConnection::parseSpecs($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, spec, $nc(url)->getFile());
 	int32_t separator = $nc(spec)->indexOf("!/"_s);
 	if (separator == -1) {
@@ -93,33 +58,62 @@ $String* JarURLConnection::getEntryName() {
 }
 
 $Manifest* JarURLConnection::getManifest() {
-	return $nc($(getJarFile()))->getManifest();
+	return $$nc(getJarFile())->getManifest();
 }
 
 $JarEntry* JarURLConnection::getJarEntry() {
-	return this->entryName == nullptr ? ($JarEntry*)nullptr : $nc($(getJarFile()))->getJarEntry(this->entryName);
+	return this->entryName == nullptr ? ($JarEntry*)nullptr : $$nc(getJarFile())->getJarEntry(this->entryName);
 }
 
 $Attributes* JarURLConnection::getAttributes() {
 	$var($JarEntry, e, getJarEntry());
-	return e != nullptr ? $nc(e)->getAttributes() : ($Attributes*)nullptr;
+	return e != nullptr ? e->getAttributes() : ($Attributes*)nullptr;
 }
 
 $Attributes* JarURLConnection::getMainAttributes() {
 	$var($Manifest, man, getManifest());
-	return man != nullptr ? $nc(man)->getMainAttributes() : ($Attributes*)nullptr;
+	return man != nullptr ? man->getMainAttributes() : ($Attributes*)nullptr;
 }
 
 $CertificateArray* JarURLConnection::getCertificates() {
 	$var($JarEntry, e, getJarEntry());
-	return e != nullptr ? $nc(e)->getCertificates() : ($CertificateArray*)nullptr;
+	return e != nullptr ? e->getCertificates() : ($CertificateArray*)nullptr;
 }
 
 JarURLConnection::JarURLConnection() {
 }
 
 $Class* JarURLConnection::load$($String* name, bool initialize) {
-	$loadClass(JarURLConnection, name, initialize, &_JarURLConnection_ClassInfo_, allocate$JarURLConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"jarFileURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(JarURLConnection, jarFileURL)},
+		{"entryName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JarURLConnection, entryName)},
+		{"jarFileURLConnection", "Ljava/net/URLConnection;", nullptr, $PROTECTED, $field(JarURLConnection, jarFileURLConnection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $method(JarURLConnection, init$, void, $URL*), "java.net.MalformedURLException"},
+		{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getAttributes, $Attributes*), "java.io.IOException"},
+		{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getCertificates, $CertificateArray*), "java.io.IOException"},
+		{"getEntryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getEntryName, $String*)},
+		{"getJarEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getJarEntry, $JarEntry*), "java.io.IOException"},
+		{"getJarFile", "()Ljava/util/jar/JarFile;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JarURLConnection, getJarFile, $JarFile*), "java.io.IOException"},
+		{"getJarFileURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getJarFileURL, $URL*)},
+		{"getMainAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getMainAttributes, $Attributes*), "java.io.IOException"},
+		{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getManifest, $Manifest*), "java.io.IOException"},
+		{"parseSpecs", "(Ljava/net/URL;)V", nullptr, $PRIVATE, $method(JarURLConnection, parseSpecs, void, $URL*), "java.net.MalformedURLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.net.JarURLConnection",
+		"java.net.URLConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JarURLConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarURLConnection);
+	});
 	return class$;
 }
 

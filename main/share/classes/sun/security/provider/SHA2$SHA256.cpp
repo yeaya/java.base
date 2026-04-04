@@ -1,5 +1,4 @@
 #include <sun/security/provider/SHA2$SHA256.h>
-
 #include <sun/security/provider/SHA2.h>
 #include <jcpp.h>
 
@@ -15,42 +14,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _SHA2$SHA256_FieldInfo_[] = {
-	{"INITIAL_HASHES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SHA2$SHA256, INITIAL_HASHES)},
-	{}
-};
-
-$MethodInfo _SHA2$SHA256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SHA2$SHA256, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SHA2$SHA256, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{}
-};
-
-$InnerClassInfo _SHA2$SHA256_InnerClassesInfo_[] = {
-	{"sun.security.provider.SHA2$SHA256", "sun.security.provider.SHA2", "SHA256", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SHA2$SHA256_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.SHA2$SHA256",
-	"sun.security.provider.SHA2",
-	nullptr,
-	_SHA2$SHA256_FieldInfo_,
-	_SHA2$SHA256_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SHA2$SHA256_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.SHA2"
-};
-
-$Object* allocate$SHA2$SHA256($Class* clazz) {
-	return $of($alloc(SHA2$SHA256));
-}
-
 $ints* SHA2$SHA256::INITIAL_HASHES = nullptr;
 
 void SHA2$SHA256::init$() {
@@ -58,19 +21,19 @@ void SHA2$SHA256::init$() {
 }
 
 $Object* SHA2$SHA256::clone() {
-	return $of($SHA2::clone());
+	return $SHA2::clone();
 }
 
-void clinit$SHA2$SHA256($Class* class$) {
+void SHA2$SHA256::clinit$($Class* clazz) {
 	$assignStatic(SHA2$SHA256::INITIAL_HASHES, $new($ints, {
-		0x6A09E667,
-		(int32_t)0xBB67AE85,
-		0x3C6EF372,
-		(int32_t)0xA54FF53A,
-		0x510E527F,
-		(int32_t)0x9B05688C,
-		0x1F83D9AB,
-		0x5BE0CD19
+		0x6a09e667,
+		(int32_t)0xbb67ae85,
+		0x3c6ef372,
+		(int32_t)0xa54ff53a,
+		0x510e527f,
+		(int32_t)0x9b05688c,
+		0x1f83d9ab,
+		0x5be0cd19
 	}));
 }
 
@@ -78,7 +41,37 @@ SHA2$SHA256::SHA2$SHA256() {
 }
 
 $Class* SHA2$SHA256::load$($String* name, bool initialize) {
-	$loadClass(SHA2$SHA256, name, initialize, &_SHA2$SHA256_ClassInfo_, clinit$SHA2$SHA256, allocate$SHA2$SHA256);
+	$FieldInfo fieldInfos$$[] = {
+		{"INITIAL_HASHES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SHA2$SHA256, INITIAL_HASHES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SHA2$SHA256, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SHA2$SHA256, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.SHA2$SHA256", "sun.security.provider.SHA2", "SHA256", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.SHA2$SHA256",
+		"sun.security.provider.SHA2",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.SHA2"
+	};
+	$loadClass(SHA2$SHA256, name, initialize, &classInfo$$, SHA2$SHA256::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SHA2$SHA256));
+	});
 	return class$;
 }
 

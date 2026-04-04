@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/UCharacterProperty$IsAcceptable.h>
-
 #include <jdk/internal/icu/impl/UCharacterProperty.h>
 #include <jcpp.h>
 
@@ -12,38 +11,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$MethodInfo _UCharacterProperty$IsAcceptable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(UCharacterProperty$IsAcceptable, init$, void)},
-	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(UCharacterProperty$IsAcceptable, isDataVersionAcceptable, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _UCharacterProperty$IsAcceptable_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.UCharacterProperty$IsAcceptable", "jdk.internal.icu.impl.UCharacterProperty", "IsAcceptable", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.ICUBinary$Authenticate", "jdk.internal.icu.impl.ICUBinary", "Authenticate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _UCharacterProperty$IsAcceptable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.UCharacterProperty$IsAcceptable",
-	"java.lang.Object",
-	"jdk.internal.icu.impl.ICUBinary$Authenticate",
-	nullptr,
-	_UCharacterProperty$IsAcceptable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UCharacterProperty$IsAcceptable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.UCharacterProperty"
-};
-
-$Object* allocate$UCharacterProperty$IsAcceptable($Class* clazz) {
-	return $of($alloc(UCharacterProperty$IsAcceptable));
-}
-
 void UCharacterProperty$IsAcceptable::init$() {
 }
 
@@ -55,7 +22,34 @@ UCharacterProperty$IsAcceptable::UCharacterProperty$IsAcceptable() {
 }
 
 $Class* UCharacterProperty$IsAcceptable::load$($String* name, bool initialize) {
-	$loadClass(UCharacterProperty$IsAcceptable, name, initialize, &_UCharacterProperty$IsAcceptable_ClassInfo_, allocate$UCharacterProperty$IsAcceptable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(UCharacterProperty$IsAcceptable, init$, void)},
+		{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(UCharacterProperty$IsAcceptable, isDataVersionAcceptable, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.UCharacterProperty$IsAcceptable", "jdk.internal.icu.impl.UCharacterProperty", "IsAcceptable", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.ICUBinary$Authenticate", "jdk.internal.icu.impl.ICUBinary", "Authenticate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.UCharacterProperty$IsAcceptable",
+		"java.lang.Object",
+		"jdk.internal.icu.impl.ICUBinary$Authenticate",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.UCharacterProperty"
+	};
+	$loadClass(UCharacterProperty$IsAcceptable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UCharacterProperty$IsAcceptable);
+	});
 	return class$;
 }
 

@@ -1,13 +1,10 @@
 #include <sun/security/jca/ProviderList.h>
-
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <java/security/Security.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <sun/security/jca/ProviderConfig.h>
@@ -27,7 +24,6 @@
 
 using $ProviderArray = $Array<::java::security::Provider>;
 using $ProviderConfigArray = $Array<::sun::security::jca::ProviderConfig>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Exception = ::java::lang::Exception;
@@ -35,13 +31,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $Security = ::java::security::Security;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ProviderConfig = ::sun::security::jca::ProviderConfig;
@@ -57,86 +51,6 @@ using $Debug = ::sun::security::util::Debug;
 namespace sun {
 	namespace security {
 		namespace jca {
-
-$CompoundAttribute _ProviderList_MethodAnnotations_getServices11[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ProviderList_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $STATIC | $FINAL, $staticField(ProviderList, debug)},
-	{"PC0", "[Lsun/security/jca/ProviderConfig;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, PC0)},
-	{"P0", "[Ljava/security/Provider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, P0)},
-	{"EMPTY", "Lsun/security/jca/ProviderList;", nullptr, $STATIC | $FINAL, $staticField(ProviderList, EMPTY)},
-	{"preferredPropList", "Lsun/security/jca/ProviderList$PreferredList;", nullptr, $PRIVATE | $STATIC, $staticField(ProviderList, preferredPropList)},
-	{"EMPTY_PROVIDER", "Ljava/security/Provider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, EMPTY_PROVIDER)},
-	{"configs", "[Lsun/security/jca/ProviderConfig;", nullptr, $PRIVATE | $FINAL, $field(ProviderList, configs)},
-	{"allLoaded", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ProviderList, allLoaded)},
-	{"userList", "Ljava/util/List;", "Ljava/util/List<Ljava/security/Provider;>;", $PRIVATE | $FINAL, $field(ProviderList, userList)},
-	{"SHA2Group", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SHA2Group)},
-	{"HmacSHA2Group", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, HmacSHA2Group)},
-	{"SHA2RSAGroup", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SHA2RSAGroup)},
-	{"SHA2DSAGroup", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SHA2DSAGroup)},
-	{"SHA2ECDSAGroup", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SHA2ECDSAGroup)},
-	{"SHA3Group", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SHA3Group)},
-	{"HmacSHA3Group", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, HmacSHA3Group)},
-	{}
-};
-
-$MethodInfo _ProviderList_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/jca/ProviderConfig;Z)V", nullptr, $PRIVATE, $method(ProviderList, init$, void, $ProviderConfigArray*, bool)},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ProviderList, init$, void)},
-	{"add", "(Lsun/security/jca/ProviderList;Ljava/security/Provider;)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProviderList, add, ProviderList*, ProviderList*, $Provider*)},
-	{"fromSecurityProperties", "()Lsun/security/jca/ProviderList;", nullptr, $STATIC, $staticMethod(ProviderList, fromSecurityProperties, ProviderList*)},
-	{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $method(ProviderList, getIndex, int32_t, $String*)},
-	{"getJarList", "([Ljava/lang/String;)Lsun/security/jca/ProviderList;", nullptr, 0, $method(ProviderList, getJarList, ProviderList*, $StringArray*)},
-	{"getProvider", "(I)Ljava/security/Provider;", nullptr, 0, $method(ProviderList, getProvider, $Provider*, int32_t)},
-	{"getProvider", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PUBLIC, $method(ProviderList, getProvider, $Provider*, $String*)},
-	{"getProviderConfig", "(Ljava/lang/String;)Lsun/security/jca/ProviderConfig;", nullptr, $PRIVATE, $method(ProviderList, getProviderConfig, $ProviderConfig*, $String*)},
-	{"getService", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/Provider$Service;", nullptr, $PUBLIC, $method(ProviderList, getService, $Provider$Service*, $String*, $String*)},
-	{"getServices", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC, $method(ProviderList, getServices, $List*, $String*, $String*)},
-	{"getServices", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC | $DEPRECATED, $method(ProviderList, getServices, $List*, $String*, $List*), nullptr, nullptr, _ProviderList_MethodAnnotations_getServices11},
-	{"getServices", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Lsun/security/jca/ServiceId;>;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC, $method(ProviderList, getServices, $List*, $List*)},
-	{"insertAt", "(Lsun/security/jca/ProviderList;Ljava/security/Provider;I)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProviderList, insertAt, ProviderList*, ProviderList*, $Provider*, int32_t)},
-	{"loadAll", "()I", nullptr, $PRIVATE, $method(ProviderList, loadAll, int32_t)},
-	{"newList", "([Ljava/security/Provider;)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ProviderList, newList, ProviderList*, $ProviderArray*)},
-	{"providers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/Provider;>;", $PUBLIC, $method(ProviderList, providers, $List*)},
-	{"remove", "(Lsun/security/jca/ProviderList;Ljava/lang/String;)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProviderList, remove, ProviderList*, ProviderList*, $String*)},
-	{"removeInvalid", "()Lsun/security/jca/ProviderList;", nullptr, 0, $method(ProviderList, removeInvalid, ProviderList*)},
-	{"size", "()I", nullptr, $PUBLIC, $method(ProviderList, size, int32_t)},
-	{"toArray", "()[Ljava/security/Provider;", nullptr, $PUBLIC, $method(ProviderList, toArray, $ProviderArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderList, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ProviderList_InnerClassesInfo_[] = {
-	{"sun.security.jca.ProviderList$PreferredEntry", "sun.security.jca.ProviderList", "PreferredEntry", $PRIVATE | $STATIC},
-	{"sun.security.jca.ProviderList$PreferredList", "sun.security.jca.ProviderList", "PreferredList", $STATIC | $FINAL},
-	{"sun.security.jca.ProviderList$ServiceList", "sun.security.jca.ProviderList", "ServiceList", $PRIVATE | $FINAL},
-	{"sun.security.jca.ProviderList$3", nullptr, nullptr, 0},
-	{"sun.security.jca.ProviderList$2", nullptr, nullptr, 0},
-	{"sun.security.jca.ProviderList$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProviderList_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.jca.ProviderList",
-	"java.lang.Object",
-	nullptr,
-	_ProviderList_FieldInfo_,
-	_ProviderList_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProviderList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jca.ProviderList$PreferredEntry,sun.security.jca.ProviderList$PreferredList,sun.security.jca.ProviderList$ServiceList,sun.security.jca.ProviderList$ServiceList$1,sun.security.jca.ProviderList$3,sun.security.jca.ProviderList$2,sun.security.jca.ProviderList$1"
-};
-
-$Object* allocate$ProviderList($Class* clazz) {
-	return $of($alloc(ProviderList));
-}
 
 $Debug* ProviderList::debug = nullptr;
 $ProviderConfigArray* ProviderList::PC0 = nullptr;
@@ -155,7 +69,7 @@ $StringArray* ProviderList::HmacSHA3Group = nullptr;
 ProviderList* ProviderList::fromSecurityProperties() {
 	$init(ProviderList);
 	$beforeCallerSensitive();
-	return $cast(ProviderList, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ProviderList$2))));
+	return $cast(ProviderList, $AccessController::doPrivileged($$new($ProviderList$2)));
 }
 
 ProviderList* ProviderList::add(ProviderList* providerList, $Provider* p) {
@@ -165,37 +79,33 @@ ProviderList* ProviderList::add(ProviderList* providerList, $Provider* p) {
 
 ProviderList* ProviderList::insertAt(ProviderList* providerList, $Provider* p, int32_t position) {
 	$init(ProviderList);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(providerList)->getProvider($($nc(p)->getName())) != nullptr) {
 		return providerList;
 	}
-	$var($List, list, $new($ArrayList, $(static_cast<$Collection*>($Arrays::asList($nc(providerList)->configs)))));
+	$var($List, list, $new($ArrayList, $($Arrays::asList(providerList->configs))));
 	int32_t n = list->size();
 	if ((position < 0) || (position > n)) {
 		position = n;
 	}
 	list->add(position, $$new($ProviderConfig, p));
-	return $new(ProviderList, $fcast($ProviderConfigArray, $(list->toArray(ProviderList::PC0))), true);
+	return $new(ProviderList, $$cast($ProviderConfigArray, list->toArray(ProviderList::PC0)), true);
 }
 
 ProviderList* ProviderList::remove(ProviderList* providerList, $String* name) {
 	$init(ProviderList);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(providerList)->getProvider(name) == nullptr) {
 		return providerList;
 	}
-	$var($ProviderConfigArray, configs, $new($ProviderConfigArray, $nc(providerList)->size() - 1));
+	$var($ProviderConfigArray, configs, $new($ProviderConfigArray, providerList->size() - 1));
 	int32_t j = 0;
 	{
 		$var($ProviderConfigArray, arr$, providerList->configs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ProviderConfig, config, arr$->get(i$));
-			{
-				if ($nc($($nc($($nc(config)->getProvider()))->getName()))->equals(name) == false) {
-					configs->set(j++, config);
-				}
+			if ($$nc($$nc($nc(config)->getProvider())->getName())->equals(name) == false) {
+				configs->set(j++, config);
 			}
 		}
 	}
@@ -204,7 +114,7 @@ ProviderList* ProviderList::remove(ProviderList* providerList, $String* name) {
 
 ProviderList* ProviderList::newList($ProviderArray* providers) {
 	$init(ProviderList);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProviderConfigArray, configs, $new($ProviderConfigArray, $nc(providers)->length));
 	for (int32_t i = 0; i < providers->length; ++i) {
 		configs->set(i, $$new($ProviderConfig, providers->get(i)));
@@ -219,7 +129,7 @@ void ProviderList::init$($ProviderConfigArray* configs, bool allLoaded) {
 }
 
 void ProviderList::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, userList, $new($ProviderList$3, this));
 	$var($List, configList, $new($ArrayList));
 	$var($String, entry, nullptr);
@@ -230,7 +140,7 @@ void ProviderList::init$() {
 			$nc($System::err)->println($$str({"invalid entry for security.provider."_s, $$str(i)}));
 			break;
 		}
-		int32_t k = entry->indexOf((int32_t)u' ');
+		int32_t k = entry->indexOf(u' ');
 		$var($ProviderConfig, config, nullptr);
 		if (k == -1) {
 			$assign(config, $new($ProviderConfig, entry));
@@ -244,7 +154,7 @@ void ProviderList::init$() {
 		}
 		++i;
 	}
-	$set(this, configs, $fcast($ProviderConfigArray, configList->toArray(ProviderList::PC0)));
+	$set(this, configs, $cast($ProviderConfigArray, configList->toArray(ProviderList::PC0)));
 	$assign(entry, $Security::getProperty("jdk.security.provider.preferred"_s));
 	if (entry != nullptr && !$nc(($assign(entry, entry->trim())))->isEmpty()) {
 		$var($StringArray, entries, entry->split(","_s));
@@ -253,15 +163,13 @@ void ProviderList::init$() {
 		}
 		{
 			$var($StringArray, arr$, entries);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, e, arr$->get(i$));
 				{
-					i = $nc(e)->indexOf((int32_t)u':');
+					i = $nc(e)->indexOf(u':');
 					if (i < 0) {
 						if (ProviderList::debug != nullptr) {
-							$nc(ProviderList::debug)->println($$str({"invalid preferred entry skipped.  Missing colon delimiter \""_s, e, "\""_s}));
+							ProviderList::debug->println($$str({"invalid preferred entry skipped.  Missing colon delimiter \""_s, e, "\""_s}));
 						}
 						continue;
 					}
@@ -272,13 +180,13 @@ void ProviderList::init$() {
 		}
 	}
 	if (ProviderList::debug != nullptr) {
-		$nc(ProviderList::debug)->println($$str({"provider configuration: "_s, configList}));
-		$nc(ProviderList::debug)->println($$str({"config configuration: "_s, ProviderList::preferredPropList}));
+		ProviderList::debug->println($$str({"provider configuration: "_s, configList}));
+		ProviderList::debug->println($$str({"config configuration: "_s, ProviderList::preferredPropList}));
 	}
 }
 
 ProviderList* ProviderList::getJarList($StringArray* jarProvNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, newConfigs, $new($ArrayList));
 	{
 		$var($StringArray, arr$, jarProvNames);
@@ -290,15 +198,11 @@ ProviderList* ProviderList::getJarList($StringArray* jarProvNames) {
 				$var($ProviderConfig, newConfig, $new($ProviderConfig, provName));
 				{
 					$var($ProviderConfigArray, arr$, this->configs);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 						$var($ProviderConfig, config, arr$->get(i$));
-						{
-							if ($nc(config)->equals(newConfig)) {
-								$assign(newConfig, config);
-								break;
-							}
+						if ($nc(config)->equals(newConfig)) {
+							$assign(newConfig, config);
+							break;
 						}
 					}
 				}
@@ -306,7 +210,7 @@ ProviderList* ProviderList::getJarList($StringArray* jarProvNames) {
 			}
 		}
 	}
-	$var($ProviderConfigArray, configArray, $fcast($ProviderConfigArray, newConfigs->toArray(ProviderList::PC0)));
+	$var($ProviderConfigArray, configArray, $cast($ProviderConfigArray, newConfigs->toArray(ProviderList::PC0)));
 	return $new(ProviderList, configArray, false);
 }
 
@@ -330,14 +234,14 @@ $ProviderConfig* ProviderList::getProviderConfig($String* name) {
 
 $Provider* ProviderList::getProvider($String* name) {
 	$var($ProviderConfig, config, getProviderConfig(name));
-	return (config == nullptr) ? ($Provider*)nullptr : $nc(config)->getProvider();
+	return (config == nullptr) ? ($Provider*)nullptr : config->getProvider();
 }
 
 int32_t ProviderList::getIndex($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->configs)->length; ++i) {
 		$var($Provider, p, getProvider(i));
-		if ($nc($($nc(p)->getName()))->equals(name)) {
+		if ($$nc($nc(p)->getName())->equals(name)) {
 			return i;
 		}
 	}
@@ -345,62 +249,58 @@ int32_t ProviderList::getIndex($String* name) {
 }
 
 int32_t ProviderList::loadAll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->allLoaded) {
 		return $nc(this->configs)->length;
 	}
 	if (ProviderList::debug != nullptr) {
-		$nc(ProviderList::debug)->println("Loading all providers"_s);
+		ProviderList::debug->println("Loading all providers"_s);
 		$$new($Exception, "Debug Info. Call trace:"_s)->printStackTrace();
 	}
 	int32_t n = 0;
 	for (int32_t i = 0; i < $nc(this->configs)->length; ++i) {
-		$var($Provider, p, $nc($nc(this->configs)->get(i))->getProvider());
+		$var($Provider, p, $nc(this->configs->get(i))->getProvider());
 		if (p != nullptr) {
 			++n;
 		}
 	}
-	if (n == $nc(this->configs)->length) {
+	if (n == this->configs->length) {
 		this->allLoaded = true;
 	}
 	return n;
 }
 
 ProviderList* ProviderList::removeInvalid() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = loadAll();
 	if (n == $nc(this->configs)->length) {
 		return this;
 	}
 	$var($ProviderConfigArray, newConfigs, $new($ProviderConfigArray, n));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < $nc(this->configs)->length; ++i) {
-			$var($ProviderConfig, config, $nc(this->configs)->get(i));
-			if ($nc(config)->isLoaded()) {
-				newConfigs->set(j++, config);
-			}
+	for (int32_t i = 0, j = 0; i < this->configs->length; ++i) {
+		$var($ProviderConfig, config, this->configs->get(i));
+		if ($nc(config)->isLoaded()) {
+			newConfigs->set(j++, config);
 		}
 	}
 	return $new(ProviderList, newConfigs, true);
 }
 
 $ProviderArray* ProviderList::toArray() {
-	return $fcast($ProviderArray, $nc($(providers()))->toArray(ProviderList::P0));
+	return $cast($ProviderArray, $$nc(providers())->toArray(ProviderList::P0));
 }
 
 $String* ProviderList::toString() {
-	return $nc($of($($Arrays::asList(this->configs))))->toString();
+	return $$nc($Arrays::asList(this->configs))->toString();
 }
 
 $Provider$Service* ProviderList::getService($String* type, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, pList, nullptr);
 	int32_t i = 0;
-	if (ProviderList::preferredPropList != nullptr && ($assign(pList, $nc(ProviderList::preferredPropList)->getAll(type, name))) != nullptr) {
+	if (ProviderList::preferredPropList != nullptr && ($assign(pList, ProviderList::preferredPropList->getAll(type, name))) != nullptr) {
 		for (i = 0; i < $nc(pList)->size(); ++i) {
-			$var($Provider, p, getProvider($nc(($cast($ProviderList$PreferredEntry, $(pList->get(i)))))->provider));
+			$var($Provider, p, getProvider($nc(($$cast($ProviderList$PreferredEntry, pList->get(i))))->provider));
 			$var($Provider$Service, s, $nc(p)->getService(type, name));
 			if (s != nullptr) {
 				return s;
@@ -422,7 +322,7 @@ $List* ProviderList::getServices($String* type, $String* algorithm) {
 }
 
 $List* ProviderList::getServices($String* type, $List* algorithms) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, ids, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(algorithms)->iterator());
@@ -440,7 +340,7 @@ $List* ProviderList::getServices($List* ids) {
 	return $new($ProviderList$ServiceList, this, ids);
 }
 
-void clinit$ProviderList($Class* class$) {
+void ProviderList::clinit$($Class* clazz) {
 	$assignStatic(ProviderList::debug, $Debug::getInstance("jca"_s, "ProviderList"_s));
 	$assignStatic(ProviderList::PC0, $new($ProviderConfigArray, 0));
 	$assignStatic(ProviderList::P0, $new($ProviderArray, 0));
@@ -497,7 +397,80 @@ ProviderList::ProviderList() {
 }
 
 $Class* ProviderList::load$($String* name, bool initialize) {
-	$loadClass(ProviderList, name, initialize, &_ProviderList_ClassInfo_, clinit$ProviderList, allocate$ProviderList);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $STATIC | $FINAL, $staticField(ProviderList, debug)},
+		{"PC0", "[Lsun/security/jca/ProviderConfig;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, PC0)},
+		{"P0", "[Ljava/security/Provider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, P0)},
+		{"EMPTY", "Lsun/security/jca/ProviderList;", nullptr, $STATIC | $FINAL, $staticField(ProviderList, EMPTY)},
+		{"preferredPropList", "Lsun/security/jca/ProviderList$PreferredList;", nullptr, $PRIVATE | $STATIC, $staticField(ProviderList, preferredPropList)},
+		{"EMPTY_PROVIDER", "Ljava/security/Provider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, EMPTY_PROVIDER)},
+		{"configs", "[Lsun/security/jca/ProviderConfig;", nullptr, $PRIVATE | $FINAL, $field(ProviderList, configs)},
+		{"allLoaded", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ProviderList, allLoaded)},
+		{"userList", "Ljava/util/List;", "Ljava/util/List<Ljava/security/Provider;>;", $PRIVATE | $FINAL, $field(ProviderList, userList)},
+		{"SHA2Group", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SHA2Group)},
+		{"HmacSHA2Group", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, HmacSHA2Group)},
+		{"SHA2RSAGroup", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SHA2RSAGroup)},
+		{"SHA2DSAGroup", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SHA2DSAGroup)},
+		{"SHA2ECDSAGroup", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SHA2ECDSAGroup)},
+		{"SHA3Group", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, SHA3Group)},
+		{"HmacSHA3Group", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProviderList, HmacSHA3Group)},
+		{}
+	};
+	$CompoundAttribute getServicesmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lsun/security/jca/ProviderConfig;Z)V", nullptr, $PRIVATE, $method(ProviderList, init$, void, $ProviderConfigArray*, bool)},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ProviderList, init$, void)},
+		{"add", "(Lsun/security/jca/ProviderList;Ljava/security/Provider;)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProviderList, add, ProviderList*, ProviderList*, $Provider*)},
+		{"fromSecurityProperties", "()Lsun/security/jca/ProviderList;", nullptr, $STATIC, $staticMethod(ProviderList, fromSecurityProperties, ProviderList*)},
+		{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $method(ProviderList, getIndex, int32_t, $String*)},
+		{"getJarList", "([Ljava/lang/String;)Lsun/security/jca/ProviderList;", nullptr, 0, $method(ProviderList, getJarList, ProviderList*, $StringArray*)},
+		{"getProvider", "(I)Ljava/security/Provider;", nullptr, 0, $method(ProviderList, getProvider, $Provider*, int32_t)},
+		{"getProvider", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PUBLIC, $method(ProviderList, getProvider, $Provider*, $String*)},
+		{"getProviderConfig", "(Ljava/lang/String;)Lsun/security/jca/ProviderConfig;", nullptr, $PRIVATE, $method(ProviderList, getProviderConfig, $ProviderConfig*, $String*)},
+		{"getService", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/Provider$Service;", nullptr, $PUBLIC, $method(ProviderList, getService, $Provider$Service*, $String*, $String*)},
+		{"getServices", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC, $method(ProviderList, getServices, $List*, $String*, $String*)},
+		{"getServices", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC | $DEPRECATED, $method(ProviderList, getServices, $List*, $String*, $List*), nullptr, nullptr, getServicesmethodAnnotations$$$1},
+		{"getServices", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Lsun/security/jca/ServiceId;>;)Ljava/util/List<Ljava/security/Provider$Service;>;", $PUBLIC, $method(ProviderList, getServices, $List*, $List*)},
+		{"insertAt", "(Lsun/security/jca/ProviderList;Ljava/security/Provider;I)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProviderList, insertAt, ProviderList*, ProviderList*, $Provider*, int32_t)},
+		{"loadAll", "()I", nullptr, $PRIVATE, $method(ProviderList, loadAll, int32_t)},
+		{"newList", "([Ljava/security/Provider;)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ProviderList, newList, ProviderList*, $ProviderArray*)},
+		{"providers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/Provider;>;", $PUBLIC, $method(ProviderList, providers, $List*)},
+		{"remove", "(Lsun/security/jca/ProviderList;Ljava/lang/String;)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProviderList, remove, ProviderList*, ProviderList*, $String*)},
+		{"removeInvalid", "()Lsun/security/jca/ProviderList;", nullptr, 0, $method(ProviderList, removeInvalid, ProviderList*)},
+		{"size", "()I", nullptr, $PUBLIC, $method(ProviderList, size, int32_t)},
+		{"toArray", "()[Ljava/security/Provider;", nullptr, $PUBLIC, $method(ProviderList, toArray, $ProviderArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderList, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jca.ProviderList$PreferredEntry", "sun.security.jca.ProviderList", "PreferredEntry", $PRIVATE | $STATIC},
+		{"sun.security.jca.ProviderList$PreferredList", "sun.security.jca.ProviderList", "PreferredList", $STATIC | $FINAL},
+		{"sun.security.jca.ProviderList$ServiceList", "sun.security.jca.ProviderList", "ServiceList", $PRIVATE | $FINAL},
+		{"sun.security.jca.ProviderList$3", nullptr, nullptr, 0},
+		{"sun.security.jca.ProviderList$2", nullptr, nullptr, 0},
+		{"sun.security.jca.ProviderList$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.jca.ProviderList",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jca.ProviderList$PreferredEntry,sun.security.jca.ProviderList$PreferredList,sun.security.jca.ProviderList$ServiceList,sun.security.jca.ProviderList$ServiceList$1,sun.security.jca.ProviderList$3,sun.security.jca.ProviderList$2,sun.security.jca.ProviderList$1"
+	};
+	$loadClass(ProviderList, name, initialize, &classInfo$$, ProviderList::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ProviderList);
+	});
 	return class$;
 }
 

@@ -77,7 +77,7 @@ public:
 	virtual ::java::util::NavigableMap* tailMap(Object$* fromKey, bool inclusive) override;
 	virtual $String* toString() override;
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0xBCA896E4074CACB0;
+	static const int64_t serialVersionUID = (int64_t)0xbca896e4074cacb0;
 	::java::util::NavigableMap* nm = nullptr;
 };
 

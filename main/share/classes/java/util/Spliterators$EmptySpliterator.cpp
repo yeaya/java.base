@@ -1,5 +1,4 @@
 #include <java/util/Spliterators$EmptySpliterator.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
 #include <java/util/Spliterators.h>
@@ -16,45 +15,6 @@ using $Spliterator = ::java::util::Spliterator;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _Spliterators$EmptySpliterator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Spliterators$EmptySpliterator, init$, void)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TC;)V", $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, forEachRemaining, void, Object$*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TC;)Z", $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TS;", $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Spliterators$EmptySpliterator_InnerClassesInfo_[] = {
-	{"java.util.Spliterators$EmptySpliterator", "java.util.Spliterators", "EmptySpliterator", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.Spliterators$EmptySpliterator$OfDouble", "java.util.Spliterators$EmptySpliterator", "OfDouble", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.Spliterators$EmptySpliterator$OfLong", "java.util.Spliterators$EmptySpliterator", "OfLong", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.Spliterators$EmptySpliterator$OfInt", "java.util.Spliterators$EmptySpliterator", "OfInt", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.Spliterators$EmptySpliterator$OfRef", "java.util.Spliterators$EmptySpliterator", "OfRef", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Spliterators$EmptySpliterator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.Spliterators$EmptySpliterator",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Spliterators$EmptySpliterator_MethodInfo_,
-	"<T:Ljava/lang/Object;S::Ljava/util/Spliterator<TT;>;C:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_Spliterators$EmptySpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Spliterators"
-};
-
-$Object* allocate$Spliterators$EmptySpliterator($Class* clazz) {
-	return $of($alloc(Spliterators$EmptySpliterator));
-}
 
 void Spliterators$EmptySpliterator::init$() {
 }
@@ -84,7 +44,41 @@ Spliterators$EmptySpliterator::Spliterators$EmptySpliterator() {
 }
 
 $Class* Spliterators$EmptySpliterator::load$($String* name, bool initialize) {
-	$loadClass(Spliterators$EmptySpliterator, name, initialize, &_Spliterators$EmptySpliterator_ClassInfo_, allocate$Spliterators$EmptySpliterator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Spliterators$EmptySpliterator, init$, void)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", "(TC;)V", $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, forEachRemaining, void, Object$*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", "(TC;)Z", $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()TS;", $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterators$EmptySpliterator", "java.util.Spliterators", "EmptySpliterator", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.Spliterators$EmptySpliterator$OfDouble", "java.util.Spliterators$EmptySpliterator", "OfDouble", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.Spliterators$EmptySpliterator$OfLong", "java.util.Spliterators$EmptySpliterator", "OfLong", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.Spliterators$EmptySpliterator$OfInt", "java.util.Spliterators$EmptySpliterator", "OfInt", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.Spliterators$EmptySpliterator$OfRef", "java.util.Spliterators$EmptySpliterator", "OfRef", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.Spliterators$EmptySpliterator",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;S::Ljava/util/Spliterator<TT;>;C:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Spliterators"
+	};
+	$loadClass(Spliterators$EmptySpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spliterators$EmptySpliterator);
+	});
 	return class$;
 }
 

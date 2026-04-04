@@ -39,6 +39,7 @@ public:
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, ::java::time::Duration* estimatedDuration);
 	virtual ::java::time::temporal::Temporal* addTo(::java::time::temporal::Temporal* temporal, int64_t amount) override;
 	virtual int64_t between(::java::time::temporal::Temporal* temporal1Inclusive, ::java::time::temporal::Temporal* temporal2Exclusive) override;

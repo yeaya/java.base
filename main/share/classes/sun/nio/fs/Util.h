@@ -33,6 +33,7 @@ class Util : public ::java::lang::Object {
 	$class(Util, 0, ::java::lang::Object)
 public:
 	Util();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool followLinks($Array<::java::nio::file::LinkOption>* options);
 	static ::java::nio::charset::Charset* jnuEncoding();

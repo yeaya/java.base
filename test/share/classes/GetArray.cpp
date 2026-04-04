@@ -1,31 +1,26 @@
 #include <GetArray.h>
-
 #include <jcpp.h>
 
 using $doubleArray3 = $Array<double, 3>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _GetArray_MethodInfo_[] = {
-	{"get", "([[[D)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GetArray, get, $ObjectArray*, $doubleArray3*)},
-	{}
-};
-
-$ClassInfo _GetArray_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"GetArray",
-	nullptr,
-	nullptr,
-	nullptr,
-	_GetArray_MethodInfo_
-};
-
-$Object* allocate$GetArray($Class* clazz) {
-	return $of($alloc(GetArray));
-}
-
 $Class* GetArray::load$($String* name, bool initialize) {
-	$loadClass(GetArray, name, initialize, &_GetArray_ClassInfo_, allocate$GetArray);
+	$MethodInfo methodInfos$$[] = {
+		{"get", "([[[D)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GetArray, get, $ObjectArray*, $doubleArray3*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"GetArray",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GetArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetArray);
+	});
 	return class$;
 }
 

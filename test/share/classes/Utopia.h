@@ -14,6 +14,7 @@ class $export Utopia : public ::java::lang::Enum {
 public:
 	Utopia();
 	static $Array<Utopia>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::Utopia* valueOf($String* name);
 	static $Array<Utopia>* values();

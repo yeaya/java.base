@@ -1,5 +1,4 @@
 #include <ZeroMap.h>
-
 #include <java/io/File.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/nio/MappedByteBuffer.h>
@@ -19,30 +18,11 @@ using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 using $Random = ::java::util::Random;
 
-$MethodInfo _ZeroMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ZeroMap, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZeroMap, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ZeroMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ZeroMap",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ZeroMap_MethodInfo_
-};
-
-$Object* allocate$ZeroMap($Class* clazz) {
-	return $of($alloc(ZeroMap));
-}
-
 void ZeroMap::init$() {
 }
 
 void ZeroMap::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Random, random, $new($Random));
 	int64_t filesize = random->nextInt(1024 * 1024);
 	int32_t cut = random->nextInt((int32_t)filesize);
@@ -50,33 +30,31 @@ void ZeroMap::main($StringArray* args) {
 	$nc(file)->deleteOnExit();
 	{
 		$var($RandomAccessFile, raf, $new($RandomAccessFile, file, "rw"_s));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				raf->setLength(filesize);
+				$var($FileChannel, fc, raf->getChannel());
+				$init($FileChannel$MapMode);
+				$var($MappedByteBuffer, mbb, $nc(fc)->map($FileChannel$MapMode::READ_WRITE, cut, 0));
+				$nc(mbb)->force();
+				mbb->load();
+				mbb->isLoaded();
+			} catch ($Throwable& t$) {
 				try {
-					raf->setLength(filesize);
-					$var($FileChannel, fc, raf->getChannel());
-					$init($FileChannel$MapMode);
-					$var($MappedByteBuffer, mbb, $nc(fc)->map($FileChannel$MapMode::READ_WRITE, cut, 0));
-					$nc(mbb)->force();
-					mbb->load();
-					mbb->isLoaded();
-				} catch ($Throwable& t$) {
-					try {
-						raf->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					raf->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				raf->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			raf->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$System::gc();
@@ -87,7 +65,22 @@ ZeroMap::ZeroMap() {
 }
 
 $Class* ZeroMap::load$($String* name, bool initialize) {
-	$loadClass(ZeroMap, name, initialize, &_ZeroMap_ClassInfo_, allocate$ZeroMap);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ZeroMap, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZeroMap, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ZeroMap",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ZeroMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZeroMap);
+	});
 	return class$;
 }
 

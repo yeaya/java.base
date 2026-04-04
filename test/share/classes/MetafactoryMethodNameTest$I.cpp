@@ -1,38 +1,33 @@
 #include <MetafactoryMethodNameTest$I.h>
-
 #include <MetafactoryMethodNameTest.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 
-$InnerClassInfo _MetafactoryMethodNameTest$I_InnerClassesInfo_[] = {
-	{"MetafactoryMethodNameTest$I", "MetafactoryMethodNameTest", "I", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MetafactoryMethodNameTest$I_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"MetafactoryMethodNameTest$I",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_MetafactoryMethodNameTest$I_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MetafactoryMethodNameTest"
-};
-
-$Object* allocate$MetafactoryMethodNameTest$I($Class* clazz) {
-	return $of($alloc(MetafactoryMethodNameTest$I));
-}
-
 $Class* MetafactoryMethodNameTest$I::load$($String* name, bool initialize) {
-	$loadClass(MetafactoryMethodNameTest$I, name, initialize, &_MetafactoryMethodNameTest$I_ClassInfo_, allocate$MetafactoryMethodNameTest$I);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MetafactoryMethodNameTest$I", "MetafactoryMethodNameTest", "I", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"MetafactoryMethodNameTest$I",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MetafactoryMethodNameTest"
+	};
+	$loadClass(MetafactoryMethodNameTest$I, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetafactoryMethodNameTest$I);
+	});
 	return class$;
 }
 

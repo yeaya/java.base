@@ -1,5 +1,4 @@
 #include <sun/reflect/misc/MethodUtil$Signature.h>
-
 #include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <sun/reflect/misc/MethodUtil.h>
@@ -15,45 +14,6 @@ using $Arrays = ::java::util::Arrays;
 namespace sun {
 	namespace reflect {
 		namespace misc {
-
-$FieldInfo _MethodUtil$Signature_FieldInfo_[] = {
-	{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MethodUtil$Signature, methodName)},
-	{"argClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodUtil$Signature, argClasses)},
-	{"hashCode", "I", nullptr, $PRIVATE | $FINAL, $field(MethodUtil$Signature, hashCode$)},
-	{}
-};
-
-$MethodInfo _MethodUtil$Signature_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(MethodUtil$Signature, init$, void, $Method*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodUtil$Signature, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MethodUtil$Signature, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MethodUtil$Signature_InnerClassesInfo_[] = {
-	{"sun.reflect.misc.MethodUtil$Signature", "sun.reflect.misc.MethodUtil", "Signature", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MethodUtil$Signature_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.reflect.misc.MethodUtil$Signature",
-	"java.lang.Object",
-	nullptr,
-	_MethodUtil$Signature_FieldInfo_,
-	_MethodUtil$Signature_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodUtil$Signature_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.reflect.misc.MethodUtil"
-};
-
-$Object* allocate$MethodUtil$Signature($Class* clazz) {
-	return $of($alloc(MethodUtil$Signature));
-}
 
 void MethodUtil$Signature::init$($Method* m) {
 	$set(this, methodName, $nc(m)->getName());
@@ -74,11 +34,11 @@ bool MethodUtil$Signature::equals(Object$* o2) {
 	if (!($nc(this->methodName)->equals($nc(that)->methodName))) {
 		return false;
 	}
-	if ($nc(this->argClasses)->length != $nc($nc(that)->argClasses)->length) {
+	if ($nc(this->argClasses)->length != $nc(that->argClasses)->length) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(this->argClasses)->length; ++i) {
-		if (!($nc(this->argClasses)->get(i) == $nc($nc(that)->argClasses)->get(i))) {
+	for (int32_t i = 0; i < this->argClasses->length; ++i) {
+		if (!(this->argClasses->get(i) == that->argClasses->get(i))) {
 			return false;
 		}
 	}
@@ -89,7 +49,40 @@ MethodUtil$Signature::MethodUtil$Signature() {
 }
 
 $Class* MethodUtil$Signature::load$($String* name, bool initialize) {
-	$loadClass(MethodUtil$Signature, name, initialize, &_MethodUtil$Signature_ClassInfo_, allocate$MethodUtil$Signature);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MethodUtil$Signature, methodName)},
+		{"argClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodUtil$Signature, argClasses)},
+		{"hashCode", "I", nullptr, $PRIVATE | $FINAL, $field(MethodUtil$Signature, hashCode$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(MethodUtil$Signature, init$, void, $Method*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodUtil$Signature, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MethodUtil$Signature, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.misc.MethodUtil$Signature", "sun.reflect.misc.MethodUtil", "Signature", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.reflect.misc.MethodUtil$Signature",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.reflect.misc.MethodUtil"
+	};
+	$loadClass(MethodUtil$Signature, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodUtil$Signature);
+	});
 	return class$;
 }
 

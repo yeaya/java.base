@@ -1,5 +1,4 @@
 #include <java/util/zip/ZipEntry.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/InternalError.h>
 #include <java/nio/file/attribute/FileTime.h>
@@ -39,77 +38,6 @@ namespace java {
 	namespace util {
 		namespace zip {
 
-$FieldInfo _ZipEntry_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(ZipEntry, name)},
-	{"xdostime", "J", nullptr, 0, $field(ZipEntry, xdostime)},
-	{"mtime", "Ljava/nio/file/attribute/FileTime;", nullptr, 0, $field(ZipEntry, mtime)},
-	{"atime", "Ljava/nio/file/attribute/FileTime;", nullptr, 0, $field(ZipEntry, atime)},
-	{"ctime", "Ljava/nio/file/attribute/FileTime;", nullptr, 0, $field(ZipEntry, ctime)},
-	{"crc", "J", nullptr, 0, $field(ZipEntry, crc)},
-	{"size", "J", nullptr, 0, $field(ZipEntry, size)},
-	{"csize", "J", nullptr, 0, $field(ZipEntry, csize)},
-	{"csizeSet", "Z", nullptr, 0, $field(ZipEntry, csizeSet)},
-	{"method", "I", nullptr, 0, $field(ZipEntry, method)},
-	{"flag", "I", nullptr, 0, $field(ZipEntry, flag)},
-	{"extra", "[B", nullptr, 0, $field(ZipEntry, extra)},
-	{"comment", "Ljava/lang/String;", nullptr, 0, $field(ZipEntry, comment)},
-	{"extraAttributes", "I", nullptr, 0, $field(ZipEntry, extraAttributes)},
-	{"STORED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ZipEntry, STORED)},
-	{"DEFLATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ZipEntry, DEFLATED)},
-	{"DOSTIME_BEFORE_1980", "J", nullptr, $STATIC | $FINAL, $constField(ZipEntry, DOSTIME_BEFORE_1980)},
-	{"UPPER_DOSTIME_BOUND", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZipEntry, UPPER_DOSTIME_BOUND)},
-	{}
-};
-
-$MethodInfo _ZipEntry_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ZipEntry, init$, void, $String*)},
-	{"<init>", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC, $method(ZipEntry, init$, void, ZipEntry*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, clone, $Object*)},
-	{"getComment", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getComment, $String*)},
-	{"getCompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getCompressedSize, int64_t)},
-	{"getCrc", "()J", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getCrc, int64_t)},
-	{"getCreationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getCreationTime, $FileTime*)},
-	{"getExtra", "()[B", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getExtra, $bytes*)},
-	{"getLastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getLastAccessTime, $FileTime*)},
-	{"getLastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getLastModifiedTime, $FileTime*)},
-	{"getMethod", "()I", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getMethod, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getName, $String*)},
-	{"getSize", "()J", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getSize, int64_t)},
-	{"getTime", "()J", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getTime, int64_t)},
-	{"getTimeLocal", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getTimeLocal, $LocalDateTime*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZipEntry, hashCode, int32_t)},
-	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipEntry, isDirectory, bool)},
-	{"setComment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setComment, void, $String*)},
-	{"setCompressedSize", "(J)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setCompressedSize, void, int64_t)},
-	{"setCrc", "(J)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setCrc, void, int64_t)},
-	{"setCreationTime", "(Ljava/nio/file/attribute/FileTime;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setCreationTime, ZipEntry*, $FileTime*)},
-	{"setExtra", "([B)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setExtra, void, $bytes*)},
-	{"setExtra0", "([BZZ)V", nullptr, 0, $virtualMethod(ZipEntry, setExtra0, void, $bytes*, bool, bool)},
-	{"setLastAccessTime", "(Ljava/nio/file/attribute/FileTime;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setLastAccessTime, ZipEntry*, $FileTime*)},
-	{"setLastModifiedTime", "(Ljava/nio/file/attribute/FileTime;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setLastModifiedTime, ZipEntry*, $FileTime*)},
-	{"setMethod", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setMethod, void, int32_t)},
-	{"setSize", "(J)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setSize, void, int64_t)},
-	{"setTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setTime, void, int64_t)},
-	{"setTimeLocal", "(Ljava/time/LocalDateTime;)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setTimeLocal, void, $LocalDateTime*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ZipEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.ZipEntry",
-	"java.lang.Object",
-	"java.util.zip.ZipConstants,java.lang.Cloneable",
-	_ZipEntry_FieldInfo_,
-	_ZipEntry_MethodInfo_
-};
-
-$Object* allocate$ZipEntry($Class* clazz) {
-	return $of($alloc(ZipEntry));
-}
-
 bool ZipEntry::equals(Object$* obj) {
 	 return this->$ZipConstants::equals(obj);
 }
@@ -127,8 +55,8 @@ void ZipEntry::init$($String* name) {
 	this->method = -1;
 	this->flag = 0;
 	this->extraAttributes = -1;
-	$Objects::requireNonNull($of(name), "name"_s);
-	if ($nc(name)->length() > 0x0000FFFF) {
+	$Objects::requireNonNull(name, "name"_s);
+	if ($nc(name)->length() > 0x0000ffff) {
 		$throwNew($IllegalArgumentException, "entry name too long"_s);
 	}
 	$set(this, name, name);
@@ -143,7 +71,7 @@ void ZipEntry::init$(ZipEntry* e) {
 	this->method = -1;
 	this->flag = 0;
 	this->extraAttributes = -1;
-	$Objects::requireNonNull($of(e), "entry"_s);
+	$Objects::requireNonNull(e, "entry"_s);
 	$set(this, name, $nc(e)->name);
 	this->xdostime = e->xdostime;
 	$set(this, mtime, e->mtime);
@@ -169,7 +97,7 @@ void ZipEntry::setTime(int64_t time) {
 	if (this->xdostime != ZipEntry::DOSTIME_BEFORE_1980 && time <= ZipEntry::UPPER_DOSTIME_BOUND) {
 		$set(this, mtime, nullptr);
 	} else {
-		int32_t localYear = $nc($($ZipUtils::javaEpochToLocalDateTime(time)))->getYear();
+		int32_t localYear = $$nc($ZipUtils::javaEpochToLocalDateTime(time))->getYear();
 		if (localYear >= 1980 && localYear <= 2099) {
 			$set(this, mtime, nullptr);
 		} else {
@@ -181,13 +109,13 @@ void ZipEntry::setTime(int64_t time) {
 
 int64_t ZipEntry::getTime() {
 	if (this->mtime != nullptr) {
-		return $nc(this->mtime)->toMillis();
+		return this->mtime->toMillis();
 	}
-	return (this->xdostime != -1) ? $ZipUtils::extendedDosToJavaTime(this->xdostime) : (int64_t)-1;
+	return (this->xdostime != -1) ? $ZipUtils::extendedDosToJavaTime(this->xdostime) : -1;
 }
 
 void ZipEntry::setTimeLocal($LocalDateTime* time) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t year = $nc(time)->getYear() - 1980;
 	if (year < 0) {
 		this->xdostime = ZipEntry::DOSTIME_BEFORE_1980;
@@ -196,30 +124,30 @@ void ZipEntry::setTimeLocal($LocalDateTime* time) {
 		int32_t var$3 = var$4 | (time->getDayOfMonth() << 16);
 		int32_t var$2 = var$3 | (time->getHour() << 11);
 		int32_t var$1 = var$2 | (time->getMinute() << 5);
-		int64_t var$0 = ((int64_t)((var$1 | (time->getSecond() >> 1)) & (uint64_t)(int64_t)0x00000000FFFFFFFF));
-		int32_t var$6 = (((int32_t)(time->getSecond() & (uint32_t)1)) * 1000);
-		int64_t var$5 = ((int64_t)(var$6 + time->getNano() / 0x000F4240) << 32);
+		int64_t var$0 = ((var$1 | (time->getSecond() >> 1)) & (int64_t)0xffffffff);
+		int32_t var$6 = (time->getSecond() & 1) * 0x03e8;
+		int64_t var$5 = ((int64_t)(var$6 + time->getNano() / 1000000) << 32);
 		this->xdostime = var$0 + var$5;
 	}
 	if (this->xdostime != ZipEntry::DOSTIME_BEFORE_1980 && year <= 127) {
 		$set(this, mtime, nullptr);
 	} else {
-		$set(this, mtime, $FileTime::from($($nc($($ZonedDateTime::of(time, $($ZoneId::systemDefault()))))->toInstant())));
+		$set(this, mtime, $FileTime::from($($$nc($ZonedDateTime::of(time, $($ZoneId::systemDefault())))->toInstant())));
 	}
 }
 
 $LocalDateTime* ZipEntry::getTimeLocal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mtime != nullptr) {
-		$var($Instant, var$0, $nc(this->mtime)->toInstant());
+		$var($Instant, var$0, this->mtime->toInstant());
 		return $LocalDateTime::ofInstant(var$0, $($ZoneId::systemDefault()));
 	}
 	int32_t ms = (int32_t)(this->xdostime >> 32);
-	return $LocalDateTime::of((int32_t)(((int64_t)((this->xdostime >> 25) & (uint64_t)(int64_t)127)) + 1980), (int32_t)((int64_t)((this->xdostime >> 21) & (uint64_t)(int64_t)15)), (int32_t)((int64_t)((this->xdostime >> 16) & (uint64_t)(int64_t)31)), (int32_t)((int64_t)((this->xdostime >> 11) & (uint64_t)(int64_t)31)), (int32_t)((int64_t)((this->xdostime >> 5) & (uint64_t)(int64_t)63)), (int32_t)((int64_t)((this->xdostime << 1) & (uint64_t)(int64_t)62)) + ms / 1000, (ms % 1000) * 0x000F4240);
+	return $LocalDateTime::of((int32_t)(((this->xdostime >> 25) & 0x7f) + 0x07bc), (int32_t)((this->xdostime >> 21) & 0x0f), (int32_t)((this->xdostime >> 16) & 0x1f), (int32_t)((this->xdostime >> 11) & 0x1f), (int32_t)((this->xdostime >> 5) & 0x3f), (int32_t)((this->xdostime << 1) & 0x3e) + ms / 1000, (ms % 1000) * 1000000);
 }
 
 ZipEntry* ZipEntry::setLastModifiedTime($FileTime* time) {
-	$set(this, mtime, $cast($FileTime, $Objects::requireNonNull($of(time), "lastModifiedTime"_s)));
+	$set(this, mtime, $cast($FileTime, $Objects::requireNonNull(time, "lastModifiedTime"_s)));
 	$init($TimeUnit);
 	this->xdostime = $ZipUtils::javaToExtendedDosTime($nc(time)->to($TimeUnit::MILLISECONDS));
 	return this;
@@ -237,7 +165,7 @@ $FileTime* ZipEntry::getLastModifiedTime() {
 }
 
 ZipEntry* ZipEntry::setLastAccessTime($FileTime* time) {
-	$set(this, atime, $cast($FileTime, $Objects::requireNonNull($of(time), "lastAccessTime"_s)));
+	$set(this, atime, $cast($FileTime, $Objects::requireNonNull(time, "lastAccessTime"_s)));
 	return this;
 }
 
@@ -246,7 +174,7 @@ $FileTime* ZipEntry::getLastAccessTime() {
 }
 
 ZipEntry* ZipEntry::setCreationTime($FileTime* time) {
-	$set(this, ctime, $cast($FileTime, $Objects::requireNonNull($of(time), "creationTime"_s)));
+	$set(this, ctime, $cast($FileTime, $Objects::requireNonNull(time, "creationTime"_s)));
 	return this;
 }
 
@@ -275,7 +203,7 @@ void ZipEntry::setCompressedSize(int64_t csize) {
 }
 
 void ZipEntry::setCrc(int64_t crc) {
-	if (crc < 0 || crc > (int64_t)0x00000000FFFFFFFF) {
+	if (crc < 0 || crc > (int64_t)0x00000000ffffffff) {
 		$throwNew($IllegalArgumentException, "invalid entry crc-32"_s);
 	}
 	this->crc = crc;
@@ -302,7 +230,7 @@ void ZipEntry::setExtra($bytes* extra) {
 
 void ZipEntry::setExtra0($bytes* extra, bool doZIP64, bool isLOC) {
 	if (extra != nullptr) {
-		if (extra->length > 0x0000FFFF) {
+		if (extra->length > 0x0000ffff) {
 			$throwNew($IllegalArgumentException, "invalid extra field length"_s);
 		}
 		int32_t off = 0;
@@ -321,30 +249,28 @@ void ZipEntry::setExtra0($bytes* extra, bool doZIP64, bool isLOC) {
 				int32_t sz0 = 0;
 				switch (tag) {
 				case 1:
-					{
-						if (doZIP64) {
-							if (isLOC) {
-								if (sz >= 16) {
-									this->size = $ZipUtils::get64(extra, off);
-									this->csize = $ZipUtils::get64(extra, off + 8);
+					if (doZIP64) {
+						if (isLOC) {
+							if (sz >= 16) {
+								this->size = $ZipUtils::get64(extra, off);
+								this->csize = $ZipUtils::get64(extra, off + 8);
+							}
+						} else {
+							if (this->size == (int64_t)0x00000000ffffffff) {
+								if (off + 8 > len) {
+									break;
 								}
-							} else {
-								if (this->size == (int64_t)0x00000000FFFFFFFF) {
-									if (off + 8 > len) {
-										break;
-									}
-									this->size = $ZipUtils::get64(extra, off);
+								this->size = $ZipUtils::get64(extra, off);
+							}
+							if (this->csize == (int64_t)0x00000000ffffffff) {
+								if (off + 16 > len) {
+									break;
 								}
-								if (this->csize == (int64_t)0x00000000FFFFFFFF) {
-									if (off + 16 > len) {
-										break;
-									}
-									this->csize = $ZipUtils::get64(extra, off + 8);
-								}
+								this->csize = $ZipUtils::get64(extra, off + 8);
 							}
 						}
-						break;
 					}
+					break;
 				case 10:
 					{
 						if (sz < 32) {
@@ -370,25 +296,23 @@ void ZipEntry::setExtra0($bytes* extra, bool doZIP64, bool isLOC) {
 						break;
 					}
 				case 21589:
-					{
-						flag = $Byte::toUnsignedInt(extra->get(off));
-						sz0 = 1;
-						if (((int32_t)(flag & (uint32_t)1)) != 0 && (sz0 + 4) <= sz) {
-							$set(this, mtime, $ZipUtils::unixTimeToFileTime($ZipUtils::get32S(extra, off + sz0)));
-							sz0 += 4;
-						}
-						if (((int32_t)(flag & (uint32_t)2)) != 0 && (sz0 + 4) <= sz) {
-							$set(this, atime, $ZipUtils::unixTimeToFileTime($ZipUtils::get32S(extra, off + sz0)));
-							sz0 += 4;
-						}
-						if (((int32_t)(flag & (uint32_t)4)) != 0 && (sz0 + 4) <= sz) {
-							$set(this, ctime, $ZipUtils::unixTimeToFileTime($ZipUtils::get32S(extra, off + sz0)));
-							sz0 += 4;
-						}
-						break;
+					flag = $Byte::toUnsignedInt(extra->get(off));
+					sz0 = 1;
+					if ((flag & 1) != 0 && (sz0 + 4) <= sz) {
+						$set(this, mtime, $ZipUtils::unixTimeToFileTime($ZipUtils::get32S(extra, off + sz0)));
+						sz0 += 4;
 					}
+					if ((flag & 2) != 0 && (sz0 + 4) <= sz) {
+						$set(this, atime, $ZipUtils::unixTimeToFileTime($ZipUtils::get32S(extra, off + sz0)));
+						sz0 += 4;
+					}
+					if ((flag & 4) != 0 && (sz0 + 4) <= sz) {
+						$set(this, ctime, $ZipUtils::unixTimeToFileTime($ZipUtils::get32S(extra, off + sz0)));
+						sz0 += 4;
+					}
+					break;
 				default:
-					{}
+					break;
 				}
 			}
 			off += sz;
@@ -424,10 +348,10 @@ int32_t ZipEntry::hashCode() {
 $Object* ZipEntry::clone() {
 	try {
 		$var(ZipEntry, e, $cast(ZipEntry, $ZipConstants::clone()));
-		$set($nc(e), extra, (this->extra == nullptr) ? ($bytes*)nullptr : $cast($bytes, $nc(this->extra)->clone()));
+		$set($nc(e), extra, (this->extra == nullptr) ? ($bytes*)nullptr : $cast($bytes, this->extra->clone()));
 		return $of(e);
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -436,7 +360,73 @@ ZipEntry::ZipEntry() {
 }
 
 $Class* ZipEntry::load$($String* name, bool initialize) {
-	$loadClass(ZipEntry, name, initialize, &_ZipEntry_ClassInfo_, allocate$ZipEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(ZipEntry, name)},
+		{"xdostime", "J", nullptr, 0, $field(ZipEntry, xdostime)},
+		{"mtime", "Ljava/nio/file/attribute/FileTime;", nullptr, 0, $field(ZipEntry, mtime)},
+		{"atime", "Ljava/nio/file/attribute/FileTime;", nullptr, 0, $field(ZipEntry, atime)},
+		{"ctime", "Ljava/nio/file/attribute/FileTime;", nullptr, 0, $field(ZipEntry, ctime)},
+		{"crc", "J", nullptr, 0, $field(ZipEntry, crc)},
+		{"size", "J", nullptr, 0, $field(ZipEntry, size)},
+		{"csize", "J", nullptr, 0, $field(ZipEntry, csize)},
+		{"csizeSet", "Z", nullptr, 0, $field(ZipEntry, csizeSet)},
+		{"method", "I", nullptr, 0, $field(ZipEntry, method)},
+		{"flag", "I", nullptr, 0, $field(ZipEntry, flag)},
+		{"extra", "[B", nullptr, 0, $field(ZipEntry, extra)},
+		{"comment", "Ljava/lang/String;", nullptr, 0, $field(ZipEntry, comment)},
+		{"extraAttributes", "I", nullptr, 0, $field(ZipEntry, extraAttributes)},
+		{"STORED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ZipEntry, STORED)},
+		{"DEFLATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ZipEntry, DEFLATED)},
+		{"DOSTIME_BEFORE_1980", "J", nullptr, $STATIC | $FINAL, $constField(ZipEntry, DOSTIME_BEFORE_1980)},
+		{"UPPER_DOSTIME_BOUND", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZipEntry, UPPER_DOSTIME_BOUND)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ZipEntry, init$, void, $String*)},
+		{"<init>", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC, $method(ZipEntry, init$, void, ZipEntry*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, clone, $Object*)},
+		{"getComment", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getComment, $String*)},
+		{"getCompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getCompressedSize, int64_t)},
+		{"getCrc", "()J", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getCrc, int64_t)},
+		{"getCreationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getCreationTime, $FileTime*)},
+		{"getExtra", "()[B", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getExtra, $bytes*)},
+		{"getLastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getLastAccessTime, $FileTime*)},
+		{"getLastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getLastModifiedTime, $FileTime*)},
+		{"getMethod", "()I", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getMethod, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getName, $String*)},
+		{"getSize", "()J", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getSize, int64_t)},
+		{"getTime", "()J", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getTime, int64_t)},
+		{"getTimeLocal", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, getTimeLocal, $LocalDateTime*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZipEntry, hashCode, int32_t)},
+		{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipEntry, isDirectory, bool)},
+		{"setComment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setComment, void, $String*)},
+		{"setCompressedSize", "(J)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setCompressedSize, void, int64_t)},
+		{"setCrc", "(J)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setCrc, void, int64_t)},
+		{"setCreationTime", "(Ljava/nio/file/attribute/FileTime;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setCreationTime, ZipEntry*, $FileTime*)},
+		{"setExtra", "([B)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setExtra, void, $bytes*)},
+		{"setExtra0", "([BZZ)V", nullptr, 0, $virtualMethod(ZipEntry, setExtra0, void, $bytes*, bool, bool)},
+		{"setLastAccessTime", "(Ljava/nio/file/attribute/FileTime;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setLastAccessTime, ZipEntry*, $FileTime*)},
+		{"setLastModifiedTime", "(Ljava/nio/file/attribute/FileTime;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setLastModifiedTime, ZipEntry*, $FileTime*)},
+		{"setMethod", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setMethod, void, int32_t)},
+		{"setSize", "(J)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setSize, void, int64_t)},
+		{"setTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setTime, void, int64_t)},
+		{"setTimeLocal", "(Ljava/time/LocalDateTime;)V", nullptr, $PUBLIC, $virtualMethod(ZipEntry, setTimeLocal, void, $LocalDateTime*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipEntry, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.ZipEntry",
+		"java.lang.Object",
+		"java.util.zip.ZipConstants,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ZipEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZipEntry));
+	});
 	return class$;
 }
 

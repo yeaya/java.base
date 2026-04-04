@@ -13,6 +13,7 @@ namespace sun {
 class SSLRecord : public ::sun::security::ssl::Record {
 	$interface(SSLRecord, 0, ::sun::security::ssl::Record)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static const int32_t headerSize = 5;
 	static const int32_t handshakeHeaderSize = 4;
 	static const int32_t headerPlusMaxIVSize = 21; // headerSize + maxIVLength

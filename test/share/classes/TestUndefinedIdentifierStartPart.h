@@ -9,6 +9,7 @@ class $export TestUndefinedIdentifierStartPart : public ::java::lang::Object {
 	$class(TestUndefinedIdentifierStartPart, 0, ::java::lang::Object)
 public:
 	TestUndefinedIdentifierStartPart();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static int32_t endValue;

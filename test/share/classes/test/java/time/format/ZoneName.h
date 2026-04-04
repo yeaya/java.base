@@ -21,6 +21,7 @@ class ZoneName : public ::java::lang::Object {
 	$class(ZoneName, 0, ::java::lang::Object)
 public:
 	ZoneName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* toZid($String* zid, ::java::util::Locale* locale);
 	static $String* toZid($String* zid);

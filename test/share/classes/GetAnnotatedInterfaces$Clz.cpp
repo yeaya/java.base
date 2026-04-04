@@ -1,41 +1,10 @@
 #include <GetAnnotatedInterfaces$Clz.h>
-
 #include <GetAnnotatedInterfaces.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _GetAnnotatedInterfaces$Clz_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GetAnnotatedInterfaces$Clz, init$, void)},
-	{}
-};
-
-$InnerClassInfo _GetAnnotatedInterfaces$Clz_InnerClassesInfo_[] = {
-	{"GetAnnotatedInterfaces$Clz", "GetAnnotatedInterfaces", "Clz", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GetAnnotatedInterfaces$Clz_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"GetAnnotatedInterfaces$Clz",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_GetAnnotatedInterfaces$Clz_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetAnnotatedInterfaces$Clz_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetAnnotatedInterfaces"
-};
-
-$Object* allocate$GetAnnotatedInterfaces$Clz($Class* clazz) {
-	return $of($alloc(GetAnnotatedInterfaces$Clz));
-}
 
 void GetAnnotatedInterfaces$Clz::init$() {
 }
@@ -44,7 +13,32 @@ GetAnnotatedInterfaces$Clz::GetAnnotatedInterfaces$Clz() {
 }
 
 $Class* GetAnnotatedInterfaces$Clz::load$($String* name, bool initialize) {
-	$loadClass(GetAnnotatedInterfaces$Clz, name, initialize, &_GetAnnotatedInterfaces$Clz_ClassInfo_, allocate$GetAnnotatedInterfaces$Clz);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GetAnnotatedInterfaces$Clz, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetAnnotatedInterfaces$Clz", "GetAnnotatedInterfaces", "Clz", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"GetAnnotatedInterfaces$Clz",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetAnnotatedInterfaces"
+	};
+	$loadClass(GetAnnotatedInterfaces$Clz, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetAnnotatedInterfaces$Clz);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Transfers$Failure.h>
-
 #include <Transfers.h>
 #include <jcpp.h>
 
@@ -9,39 +8,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _Transfers$Failure_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, 0, $method(Transfers$Failure, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Transfers$Failure, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _Transfers$Failure_InnerClassesInfo_[] = {
-	{"Transfers$Failure", "Transfers", "Failure", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Transfers$Failure_ClassInfo_ = {
-	$ACC_SUPER,
-	"Transfers$Failure",
-	"java.lang.RuntimeException",
-	nullptr,
-	nullptr,
-	_Transfers$Failure_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Transfers$Failure_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Transfers"
-};
-
-$Object* allocate$Transfers$Failure($Class* clazz) {
-	return $of($alloc(Transfers$Failure));
-}
-
 void Transfers$Failure::init$($Exception* x) {
-	$RuntimeException::init$(static_cast<$Throwable*>(x));
+	$RuntimeException::init$(x);
 }
 
 void Transfers$Failure::init$($String* s) {
@@ -59,7 +27,33 @@ void Transfers$Failure::throw$() {
 }
 
 $Class* Transfers$Failure::load$($String* name, bool initialize) {
-	$loadClass(Transfers$Failure, name, initialize, &_Transfers$Failure_ClassInfo_, allocate$Transfers$Failure);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, 0, $method(Transfers$Failure, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Transfers$Failure, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Transfers$Failure", "Transfers", "Failure", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Transfers$Failure",
+		"java.lang.RuntimeException",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Transfers"
+	};
+	$loadClass(Transfers$Failure, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Transfers$Failure);
+	});
 	return class$;
 }
 

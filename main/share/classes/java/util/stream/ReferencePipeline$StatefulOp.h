@@ -23,6 +23,7 @@ class ReferencePipeline$StatefulOp : public ::java::util::stream::ReferencePipel
 	$class(ReferencePipeline$StatefulOp, 0, ::java::util::stream::ReferencePipeline)
 public:
 	ReferencePipeline$StatefulOp();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::stream::AbstractPipeline* upstream, ::java::util::stream::StreamShape* inputShape, int32_t opFlags);
 	virtual ::java::util::stream::Node* opEvaluateParallel(::java::util::stream::PipelineHelper* helper, ::java::util::Spliterator* spliterator, ::java::util::function::IntFunction* generator) override;
 	virtual bool opIsStateful() override;

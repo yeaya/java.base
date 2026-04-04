@@ -1,5 +1,4 @@
 #include <ImplicitBind.h>
-
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -16,30 +15,11 @@ using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
 
-$MethodInfo _ImplicitBind_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitBind, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitBind, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ImplicitBind_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ImplicitBind",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ImplicitBind_MethodInfo_
-};
-
-$Object* allocate$ImplicitBind($Class* clazz) {
-	return $of($alloc(ImplicitBind));
-}
-
 void ImplicitBind::init$() {
 }
 
 void ImplicitBind::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DatagramSocket, s, $new($DatagramSocket, ($SocketAddress*)nullptr));
 	$var($bytes, b, "hello"_s->getBytes());
 	$var($InetAddress, ia, $InetAddress::getByName("localhost"_s));
@@ -61,7 +41,22 @@ ImplicitBind::ImplicitBind() {
 }
 
 $Class* ImplicitBind::load$($String* name, bool initialize) {
-	$loadClass(ImplicitBind, name, initialize, &_ImplicitBind_ClassInfo_, allocate$ImplicitBind);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitBind, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitBind, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ImplicitBind",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ImplicitBind, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImplicitBind);
+	});
 	return class$;
 }
 

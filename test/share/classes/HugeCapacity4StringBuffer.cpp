@@ -1,5 +1,4 @@
 #include <HugeCapacity4StringBuffer.h>
-
 #include <HugeCapacity4StringBuffer$MyHugeCharSeq.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/OutOfMemoryError.h>
@@ -19,43 +18,6 @@ using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 
-$FieldInfo _HugeCapacity4StringBuffer_FieldInfo_[] = {
-	{"failures", "I", nullptr, $PRIVATE | $STATIC, $staticField(HugeCapacity4StringBuffer, failures)},
-	{}
-};
-
-$MethodInfo _HugeCapacity4StringBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HugeCapacity4StringBuffer, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HugeCapacity4StringBuffer, main, void, $StringArray*)},
-	{"testHugeInitialCharSequence", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HugeCapacity4StringBuffer, testHugeInitialCharSequence, void)},
-	{"testHugeInitialString", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HugeCapacity4StringBuffer, testHugeInitialString, void)},
-	{}
-};
-
-$InnerClassInfo _HugeCapacity4StringBuffer_InnerClassesInfo_[] = {
-	{"HugeCapacity4StringBuffer$MyHugeCharSeq", "HugeCapacity4StringBuffer", "MyHugeCharSeq", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _HugeCapacity4StringBuffer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HugeCapacity4StringBuffer",
-	"java.lang.Object",
-	nullptr,
-	_HugeCapacity4StringBuffer_FieldInfo_,
-	_HugeCapacity4StringBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HugeCapacity4StringBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HugeCapacity4StringBuffer$MyHugeCharSeq"
-};
-
-$Object* allocate$HugeCapacity4StringBuffer($Class* clazz) {
-	return $of($alloc(HugeCapacity4StringBuffer));
-}
-
 int32_t HugeCapacity4StringBuffer::failures = 0;
 
 void HugeCapacity4StringBuffer::init$() {
@@ -63,7 +25,7 @@ void HugeCapacity4StringBuffer::init$() {
 
 void HugeCapacity4StringBuffer::main($StringArray* args) {
 	$init(HugeCapacity4StringBuffer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	testHugeInitialString();
 	testHugeInitialCharSequence();
 	if (HugeCapacity4StringBuffer::failures > 0) {
@@ -73,7 +35,7 @@ void HugeCapacity4StringBuffer::main($StringArray* args) {
 
 void HugeCapacity4StringBuffer::testHugeInitialString() {
 	$init(HugeCapacity4StringBuffer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, str, "Z"_s->repeat($Integer::MAX_VALUE - 8));
 		$var($StringBuffer, sb, $new($StringBuffer, str));
@@ -86,7 +48,7 @@ void HugeCapacity4StringBuffer::testHugeInitialString() {
 
 void HugeCapacity4StringBuffer::testHugeInitialCharSequence() {
 	$init(HugeCapacity4StringBuffer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($CharSequence, seq, $new($HugeCapacity4StringBuffer$MyHugeCharSeq));
 		$var($StringBuffer, sb, $new($StringBuffer, seq));
@@ -97,7 +59,7 @@ void HugeCapacity4StringBuffer::testHugeInitialCharSequence() {
 	}
 }
 
-void clinit$HugeCapacity4StringBuffer($Class* class$) {
+void HugeCapacity4StringBuffer::clinit$($Class* clazz) {
 	HugeCapacity4StringBuffer::failures = 0;
 }
 
@@ -105,7 +67,38 @@ HugeCapacity4StringBuffer::HugeCapacity4StringBuffer() {
 }
 
 $Class* HugeCapacity4StringBuffer::load$($String* name, bool initialize) {
-	$loadClass(HugeCapacity4StringBuffer, name, initialize, &_HugeCapacity4StringBuffer_ClassInfo_, clinit$HugeCapacity4StringBuffer, allocate$HugeCapacity4StringBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"failures", "I", nullptr, $PRIVATE | $STATIC, $staticField(HugeCapacity4StringBuffer, failures)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HugeCapacity4StringBuffer, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HugeCapacity4StringBuffer, main, void, $StringArray*)},
+		{"testHugeInitialCharSequence", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HugeCapacity4StringBuffer, testHugeInitialCharSequence, void)},
+		{"testHugeInitialString", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HugeCapacity4StringBuffer, testHugeInitialString, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HugeCapacity4StringBuffer$MyHugeCharSeq", "HugeCapacity4StringBuffer", "MyHugeCharSeq", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HugeCapacity4StringBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HugeCapacity4StringBuffer$MyHugeCharSeq"
+	};
+	$loadClass(HugeCapacity4StringBuffer, name, initialize, &classInfo$$, HugeCapacity4StringBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HugeCapacity4StringBuffer);
+	});
 	return class$;
 }
 

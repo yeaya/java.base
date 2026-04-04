@@ -1,5 +1,4 @@
 #include <sun/security/provider/MD4$1.h>
-
 #include <java/security/Provider.h>
 #include <sun/security/provider/MD4.h>
 #include <jcpp.h>
@@ -15,47 +14,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _MD4$1_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4$1, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MD4$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(MD4$1, init$, void, $String*, $String*, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _MD4$1_EnclosingMethodInfo_ = {
-	"sun.security.provider.MD4",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _MD4$1_InnerClassesInfo_[] = {
-	{"sun.security.provider.MD4$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MD4$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.MD4$1",
-	"java.security.Provider",
-	nullptr,
-	_MD4$1_FieldInfo_,
-	_MD4$1_MethodInfo_,
-	nullptr,
-	&_MD4$1_EnclosingMethodInfo_,
-	_MD4$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.MD4"
-};
-
-$Object* allocate$MD4$1($Class* clazz) {
-	return $of($alloc(MD4$1));
-}
-
 void MD4$1::init$($String* name, $String* versionStr, $String* info) {
 	$Provider::init$(name, versionStr, info);
 }
@@ -64,7 +22,41 @@ MD4$1::MD4$1() {
 }
 
 $Class* MD4$1::load$($String* name, bool initialize) {
-	$loadClass(MD4$1, name, initialize, &_MD4$1_ClassInfo_, allocate$MD4$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MD4$1, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(MD4$1, init$, void, $String*, $String*, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.provider.MD4",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.MD4$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.MD4$1",
+		"java.security.Provider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.MD4"
+	};
+	$loadClass(MD4$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MD4$1));
+	});
 	return class$;
 }
 

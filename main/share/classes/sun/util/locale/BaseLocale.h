@@ -58,6 +58,7 @@ class BaseLocale : public ::java::lang::Object {
 	$class(BaseLocale, 0, ::java::lang::Object)
 public:
 	BaseLocale();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* language, $String* script, $String* region, $String* variant, bool normalize);
 	static $String* convertOldISOCodes($String* language);
 	static ::sun::util::locale::BaseLocale* createInstance($String* language, $String* region);

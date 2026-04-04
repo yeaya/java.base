@@ -22,6 +22,7 @@ class ECDHServerKeyExchange : public ::java::lang::Object {
 	$class(ECDHServerKeyExchange, 0, ::java::lang::Object)
 public:
 	ECDHServerKeyExchange();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLConsumer* ecdheHandshakeConsumer;
 	static ::sun::security::ssl::HandshakeProducer* ecdheHandshakeProducer;

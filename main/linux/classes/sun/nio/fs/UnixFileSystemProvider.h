@@ -91,6 +91,7 @@ class $export UnixFileSystemProvider : public ::sun::nio::fs::AbstractFileSystem
 	$class(UnixFileSystemProvider, 0, ::sun::nio::fs::AbstractFileSystemProvider)
 public:
 	UnixFileSystemProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::nio::file::spi::FileTypeDetector* chain($Array<::sun::nio::fs::AbstractFileTypeDetector>* detectors);
 	virtual void checkAccess(::java::nio::file::Path* obj, $Array<::java::nio::file::AccessMode>* modes) override;

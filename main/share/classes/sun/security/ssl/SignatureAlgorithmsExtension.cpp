@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SignatureAlgorithmsExtension.h>
-
 #include <sun/security/ssl/HandshakeAbsence.h>
 #include <sun/security/ssl/HandshakeConsumer.h>
 #include <sun/security/ssl/HandshakeProducer.h>
@@ -41,59 +40,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SignatureAlgorithmsExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, chOnLoadConsumer)},
-	{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, chOnLoadAbsence)},
-	{"chOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, chOnTradeConsumer)},
-	{"chOnTradeAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, chOnTradeAbsence)},
-	{"crNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, crNetworkProducer)},
-	{"crOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, crOnLoadConsumer)},
-	{"crOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, crOnLoadAbsence)},
-	{"crOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, crOnTradeConsumer)},
-	{"ssStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, ssStringizer)},
-	{}
-};
-
-$MethodInfo _SignatureAlgorithmsExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SignatureAlgorithmsExtension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SignatureAlgorithmsExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesAbsence", "sun.security.ssl.SignatureAlgorithmsExtension", "CRSignatureSchemesAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesUpdate", "sun.security.ssl.SignatureAlgorithmsExtension", "CRSignatureSchemesUpdate", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesConsumer", "sun.security.ssl.SignatureAlgorithmsExtension", "CRSignatureSchemesConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesProducer", "sun.security.ssl.SignatureAlgorithmsExtension", "CRSignatureSchemesProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesOnTradeAbsence", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesOnLoadAbsence", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesOnLoadAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesUpdate", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesUpdate", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesConsumer", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesProducer", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SignatureAlgorithmsExtension$SignatureSchemesStringizer", "sun.security.ssl.SignatureAlgorithmsExtension", "SignatureSchemesStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SignatureAlgorithmsExtension$SignatureSchemesSpec", "sun.security.ssl.SignatureAlgorithmsExtension", "SignatureSchemesSpec", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SignatureAlgorithmsExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SignatureAlgorithmsExtension",
-	"java.lang.Object",
-	nullptr,
-	_SignatureAlgorithmsExtension_FieldInfo_,
-	_SignatureAlgorithmsExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureAlgorithmsExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesAbsence,sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesUpdate,sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesConsumer,sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesProducer,sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesOnTradeAbsence,sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesOnLoadAbsence,sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesUpdate,sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesConsumer,sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesProducer,sun.security.ssl.SignatureAlgorithmsExtension$SignatureSchemesStringizer,sun.security.ssl.SignatureAlgorithmsExtension$SignatureSchemesSpec"
-};
-
-$Object* allocate$SignatureAlgorithmsExtension($Class* clazz) {
-	return $of($alloc(SignatureAlgorithmsExtension));
-}
-
 $HandshakeProducer* SignatureAlgorithmsExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* SignatureAlgorithmsExtension::chOnLoadConsumer = nullptr;
 $HandshakeAbsence* SignatureAlgorithmsExtension::chOnLoadAbsence = nullptr;
@@ -108,7 +54,7 @@ $SSLStringizer* SignatureAlgorithmsExtension::ssStringizer = nullptr;
 void SignatureAlgorithmsExtension::init$() {
 }
 
-void clinit$SignatureAlgorithmsExtension($Class* class$) {
+void SignatureAlgorithmsExtension::clinit$($Class* clazz) {
 	$assignStatic(SignatureAlgorithmsExtension::chNetworkProducer, $new($SignatureAlgorithmsExtension$CHSignatureSchemesProducer));
 	$assignStatic(SignatureAlgorithmsExtension::chOnLoadConsumer, $new($SignatureAlgorithmsExtension$CHSignatureSchemesConsumer));
 	$assignStatic(SignatureAlgorithmsExtension::chOnLoadAbsence, $new($SignatureAlgorithmsExtension$CHSignatureSchemesOnLoadAbsence));
@@ -125,7 +71,54 @@ SignatureAlgorithmsExtension::SignatureAlgorithmsExtension() {
 }
 
 $Class* SignatureAlgorithmsExtension::load$($String* name, bool initialize) {
-	$loadClass(SignatureAlgorithmsExtension, name, initialize, &_SignatureAlgorithmsExtension_ClassInfo_, clinit$SignatureAlgorithmsExtension, allocate$SignatureAlgorithmsExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, chOnLoadConsumer)},
+		{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, chOnLoadAbsence)},
+		{"chOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, chOnTradeConsumer)},
+		{"chOnTradeAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, chOnTradeAbsence)},
+		{"crNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, crNetworkProducer)},
+		{"crOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, crOnLoadConsumer)},
+		{"crOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, crOnLoadAbsence)},
+		{"crOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, crOnTradeConsumer)},
+		{"ssStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(SignatureAlgorithmsExtension, ssStringizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SignatureAlgorithmsExtension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesAbsence", "sun.security.ssl.SignatureAlgorithmsExtension", "CRSignatureSchemesAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesUpdate", "sun.security.ssl.SignatureAlgorithmsExtension", "CRSignatureSchemesUpdate", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesConsumer", "sun.security.ssl.SignatureAlgorithmsExtension", "CRSignatureSchemesConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesProducer", "sun.security.ssl.SignatureAlgorithmsExtension", "CRSignatureSchemesProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesOnTradeAbsence", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesOnLoadAbsence", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesOnLoadAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesUpdate", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesUpdate", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesConsumer", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesProducer", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SignatureAlgorithmsExtension$SignatureSchemesStringizer", "sun.security.ssl.SignatureAlgorithmsExtension", "SignatureSchemesStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SignatureAlgorithmsExtension$SignatureSchemesSpec", "sun.security.ssl.SignatureAlgorithmsExtension", "SignatureSchemesSpec", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SignatureAlgorithmsExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesAbsence,sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesUpdate,sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesConsumer,sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesProducer,sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesOnTradeAbsence,sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesOnLoadAbsence,sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesUpdate,sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesConsumer,sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesProducer,sun.security.ssl.SignatureAlgorithmsExtension$SignatureSchemesStringizer,sun.security.ssl.SignatureAlgorithmsExtension$SignatureSchemesSpec"
+	};
+	$loadClass(SignatureAlgorithmsExtension, name, initialize, &classInfo$$, SignatureAlgorithmsExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureAlgorithmsExtension);
+	});
 	return class$;
 }
 

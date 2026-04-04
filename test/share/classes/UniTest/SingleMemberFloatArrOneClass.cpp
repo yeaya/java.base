@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberFloatArrOneClass.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,43 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute SingleMemberFloatArrOneClass_Attribute_var$1[] = {
-	{'F', "6.0"},
-	{'-'}
-};
-
-$NamedAttribute SingleMemberFloatArrOneClass_Attribute_var$0[] = {
-	{"value", '[', SingleMemberFloatArrOneClass_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _SingleMemberFloatArrOneClass_Annotations_[] = {
-	{"LUniTest/SingleMemberFloatArray;", SingleMemberFloatArrOneClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberFloatArrOneClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberFloatArrOneClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberFloatArrOneClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberFloatArrOneClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberFloatArrOneClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberFloatArrOneClass_Annotations_
-};
-
-$Object* allocate$SingleMemberFloatArrOneClass($Class* clazz) {
-	return $of($alloc(SingleMemberFloatArrOneClass));
-}
-
 void SingleMemberFloatArrOneClass::init$() {
 }
 
@@ -54,7 +16,37 @@ SingleMemberFloatArrOneClass::SingleMemberFloatArrOneClass() {
 }
 
 $Class* SingleMemberFloatArrOneClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberFloatArrOneClass, name, initialize, &_SingleMemberFloatArrOneClass_ClassInfo_, allocate$SingleMemberFloatArrOneClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberFloatArrOneClass, init$, void)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'F', "6.0"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberFloatArray;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberFloatArrOneClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberFloatArrOneClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberFloatArrOneClass);
+	});
 	return class$;
 }
 

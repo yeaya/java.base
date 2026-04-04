@@ -15,6 +15,7 @@ class Resources_it : public ::java::util::ListResourceBundle {
 	$class(Resources_it, 0, ::java::util::ListResourceBundle)
 public:
 	Resources_it();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $Array<::java::lang::Object, 2>* contents;

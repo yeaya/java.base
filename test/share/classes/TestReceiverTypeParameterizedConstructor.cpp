@@ -1,5 +1,4 @@
 #include <TestReceiverTypeParameterizedConstructor.h>
-
 #include <TestReceiverTypeParameterizedConstructor$Inner$Inner2.h>
 #include <TestReceiverTypeParameterizedConstructor$Inner.h>
 #include <TestReceiverTypeParameterizedConstructor$TypeAnnotation.h>
@@ -23,38 +22,6 @@ using $AnnotatedParameterizedType = ::java::lang::reflect::AnnotatedParameterize
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Constructor = ::java::lang::reflect::Constructor;
 
-$MethodInfo _TestReceiverTypeParameterizedConstructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestReceiverTypeParameterizedConstructor, init$, void)},
-	{"doAssert", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(TestReceiverTypeParameterizedConstructor, doAssert, void, $Class*), "java.lang.NoSuchMethodException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestReceiverTypeParameterizedConstructor, main, void, $StringArray*), "java.lang.NoSuchMethodException"},
-	{}
-};
-
-$InnerClassInfo _TestReceiverTypeParameterizedConstructor_InnerClassesInfo_[] = {
-	{"TestReceiverTypeParameterizedConstructor$TypeAnnotation", "TestReceiverTypeParameterizedConstructor", "TypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"TestReceiverTypeParameterizedConstructor$Inner", "TestReceiverTypeParameterizedConstructor", "Inner", 0},
-	{}
-};
-
-$ClassInfo _TestReceiverTypeParameterizedConstructor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestReceiverTypeParameterizedConstructor",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestReceiverTypeParameterizedConstructor_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_TestReceiverTypeParameterizedConstructor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestReceiverTypeParameterizedConstructor$TypeAnnotation,TestReceiverTypeParameterizedConstructor$Inner,TestReceiverTypeParameterizedConstructor$Inner$Inner2"
-};
-
-$Object* allocate$TestReceiverTypeParameterizedConstructor($Class* clazz) {
-	return $of($alloc(TestReceiverTypeParameterizedConstructor));
-}
-
 void TestReceiverTypeParameterizedConstructor::init$() {
 }
 
@@ -66,17 +33,17 @@ void TestReceiverTypeParameterizedConstructor::main($StringArray* args) {
 }
 
 void TestReceiverTypeParameterizedConstructor::doAssert($Class* c) {
+	$useLocalObjectStack();
 	$load(TestReceiverTypeParameterizedConstructor);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$var($Constructor, constructor, $nc(c)->getDeclaredConstructor($$new($ClassArray, {c->getDeclaringClass()})));
+	$var($Constructor, constructor, $nc(c)->getDeclaredConstructor($$new($ClassArray, {$nc(c)->getDeclaringClass()})));
 	$var($AnnotatedType, receiverType, $nc(constructor)->getAnnotatedReceiverType());
 	$var($AnnotatedParameterizedType, parameterizedType, $cast($AnnotatedParameterizedType, receiverType));
 	int32_t count = 0;
 	do {
 		$var($AnnotatedTypeArray, arguments, $nc(parameterizedType)->getAnnotatedActualTypeArguments());
 		$var($AnnotationArray, annotations, $nc($nc(arguments)->get(0))->getAnnotations());
-		if ($nc(annotations)->length != 1 || !($instanceOf($TestReceiverTypeParameterizedConstructor$TypeAnnotation, $nc(annotations)->get(0))) || $nc(($cast($TestReceiverTypeParameterizedConstructor$TypeAnnotation, $nc(annotations)->get(0))))->value() != count++) {
+		if ($nc(annotations)->length != 1 || !($instanceOf($TestReceiverTypeParameterizedConstructor$TypeAnnotation, annotations->get(0))) || $nc($cast($TestReceiverTypeParameterizedConstructor$TypeAnnotation, annotations->get(0)))->value() != count++) {
 			$throwNew($AssertionError);
 		}
 		$assign(parameterizedType, $cast($AnnotatedParameterizedType, parameterizedType->getAnnotatedOwnerType()));
@@ -87,7 +54,34 @@ TestReceiverTypeParameterizedConstructor::TestReceiverTypeParameterizedConstruct
 }
 
 $Class* TestReceiverTypeParameterizedConstructor::load$($String* name, bool initialize) {
-	$loadClass(TestReceiverTypeParameterizedConstructor, name, initialize, &_TestReceiverTypeParameterizedConstructor_ClassInfo_, allocate$TestReceiverTypeParameterizedConstructor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestReceiverTypeParameterizedConstructor, init$, void)},
+		{"doAssert", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(TestReceiverTypeParameterizedConstructor, doAssert, void, $Class*), "java.lang.NoSuchMethodException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestReceiverTypeParameterizedConstructor, main, void, $StringArray*), "java.lang.NoSuchMethodException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestReceiverTypeParameterizedConstructor$TypeAnnotation", "TestReceiverTypeParameterizedConstructor", "TypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"TestReceiverTypeParameterizedConstructor$Inner", "TestReceiverTypeParameterizedConstructor", "Inner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestReceiverTypeParameterizedConstructor",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestReceiverTypeParameterizedConstructor$TypeAnnotation,TestReceiverTypeParameterizedConstructor$Inner,TestReceiverTypeParameterizedConstructor$Inner$Inner2"
+	};
+	$loadClass(TestReceiverTypeParameterizedConstructor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestReceiverTypeParameterizedConstructor);
+	});
 	return class$;
 }
 

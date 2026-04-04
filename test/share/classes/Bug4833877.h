@@ -27,6 +27,7 @@ class $export Bug4833877 : public ::java::lang::Object {
 	$class(Bug4833877, 0, ::java::lang::Object)
 public:
 	Bug4833877();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkFormat(::java::lang::Number* num, $String* expected);
 	static void checkParse($String* text, ::java::lang::Double* expected);

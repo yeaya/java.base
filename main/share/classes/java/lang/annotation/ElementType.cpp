@@ -1,5 +1,4 @@
 #include <java/lang/annotation/ElementType.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -25,45 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace annotation {
-
-$FieldInfo _ElementType_FieldInfo_[] = {
-	{"TYPE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, TYPE)},
-	{"FIELD", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, FIELD)},
-	{"METHOD", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, METHOD)},
-	{"PARAMETER", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, PARAMETER)},
-	{"CONSTRUCTOR", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, CONSTRUCTOR)},
-	{"LOCAL_VARIABLE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, LOCAL_VARIABLE)},
-	{"ANNOTATION_TYPE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, ANNOTATION_TYPE)},
-	{"PACKAGE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, PACKAGE)},
-	{"TYPE_PARAMETER", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, TYPE_PARAMETER)},
-	{"TYPE_USE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, TYPE_USE)},
-	{"MODULE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, MODULE)},
-	{"RECORD_COMPONENT", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, RECORD_COMPONENT)},
-	{"$VALUES", "[Ljava/lang/annotation/ElementType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ElementType, $VALUES)},
-	{}
-};
-
-$MethodInfo _ElementType_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/annotation/ElementType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ElementType, $values, $ElementTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ElementType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementType, valueOf, ElementType*, $String*)},
-	{"values", "()[Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementType, values, $ElementTypeArray*)},
-	{}
-};
-
-$ClassInfo _ElementType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.annotation.ElementType",
-	"java.lang.Enum",
-	nullptr,
-	_ElementType_FieldInfo_,
-	_ElementType_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/annotation/ElementType;>;"
-};
-
-$Object* allocate$ElementType($Class* clazz) {
-	return $of($alloc(ElementType));
-}
 
 ElementType* ElementType::TYPE = nullptr;
 ElementType* ElementType::FIELD = nullptr;
@@ -111,7 +71,7 @@ void ElementType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ElementType($Class* class$) {
+void ElementType::clinit$($Class* clazz) {
 	$assignStatic(ElementType::TYPE, $new(ElementType, "TYPE"_s, 0));
 	$assignStatic(ElementType::FIELD, $new(ElementType, "FIELD"_s, 1));
 	$assignStatic(ElementType::METHOD, $new(ElementType, "METHOD"_s, 2));
@@ -131,7 +91,41 @@ ElementType::ElementType() {
 }
 
 $Class* ElementType::load$($String* name, bool initialize) {
-	$loadClass(ElementType, name, initialize, &_ElementType_ClassInfo_, clinit$ElementType, allocate$ElementType);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, TYPE)},
+		{"FIELD", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, FIELD)},
+		{"METHOD", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, METHOD)},
+		{"PARAMETER", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, PARAMETER)},
+		{"CONSTRUCTOR", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, CONSTRUCTOR)},
+		{"LOCAL_VARIABLE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, LOCAL_VARIABLE)},
+		{"ANNOTATION_TYPE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, ANNOTATION_TYPE)},
+		{"PACKAGE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, PACKAGE)},
+		{"TYPE_PARAMETER", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, TYPE_PARAMETER)},
+		{"TYPE_USE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, TYPE_USE)},
+		{"MODULE", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, MODULE)},
+		{"RECORD_COMPONENT", "Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementType, RECORD_COMPONENT)},
+		{"$VALUES", "[Ljava/lang/annotation/ElementType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ElementType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/annotation/ElementType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ElementType, $values, $ElementTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ElementType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementType, valueOf, ElementType*, $String*)},
+		{"values", "()[Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementType, values, $ElementTypeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.annotation.ElementType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/annotation/ElementType;>;"
+	};
+	$loadClass(ElementType, name, initialize, &classInfo$$, ElementType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ElementType));
+	});
 	return class$;
 }
 

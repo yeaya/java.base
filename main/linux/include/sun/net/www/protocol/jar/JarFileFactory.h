@@ -39,6 +39,7 @@ class $import JarFileFactory : public ::sun::net::www::protocol::jar::URLJarFile
 	$class(JarFileFactory, 0, ::sun::net::www::protocol::jar::URLJarFile$URLJarFileCloseController)
 public:
 	JarFileFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool cacheIfAbsent(::java::net::URL* url, ::java::util::jar::JarFile* jarFile);
 	virtual void close(::java::util::jar::JarFile* jarFile) override;

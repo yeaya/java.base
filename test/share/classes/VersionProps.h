@@ -15,6 +15,7 @@ class $export VersionProps : public ::java::lang::Object {
 	$class(VersionProps, 0, ::java::lang::Object)
 public:
 	VersionProps();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $StringArray* validVersions;

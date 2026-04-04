@@ -40,6 +40,7 @@ class $export BytecodeName : public ::java::lang::Object {
 	$class(BytecodeName, 0, ::java::lang::Object)
 public:
 	BytecodeName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* appendAll($ObjectArray* components);
 	static void checkSafeBytecodeName($String* s);

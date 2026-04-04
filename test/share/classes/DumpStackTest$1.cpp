@@ -1,5 +1,4 @@
 #include <DumpStackTest$1.h>
-
 #include <DumpStackTest$CallFrame.h>
 #include <DumpStackTest.h>
 #include <java/lang/StackTraceElement.h>
@@ -13,44 +12,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _DumpStackTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DumpStackTest$1, init$, void)},
-	{"c", "()V", nullptr, 0, $virtualMethod(DumpStackTest$1, c, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DumpStackTest$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _DumpStackTest$1_EnclosingMethodInfo_ = {
-	"DumpStackTest",
-	"testThread",
-	"()V"
-};
-
-$InnerClassInfo _DumpStackTest$1_InnerClassesInfo_[] = {
-	{"DumpStackTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DumpStackTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"DumpStackTest$1",
-	"java.lang.Thread",
-	nullptr,
-	nullptr,
-	_DumpStackTest$1_MethodInfo_,
-	nullptr,
-	&_DumpStackTest$1_EnclosingMethodInfo_,
-	_DumpStackTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"DumpStackTest"
-};
-
-$Object* allocate$DumpStackTest$1($Class* clazz) {
-	return $of($alloc(DumpStackTest$1));
-}
-
 void DumpStackTest$1::init$() {
 	$Thread::init$();
 }
@@ -60,11 +21,11 @@ void DumpStackTest$1::run() {
 }
 
 void DumpStackTest$1::c() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DumpStackTest$CallFrameArray, callStack, $new($DumpStackTest$CallFrameArray, {
 		$$new($DumpStackTest$CallFrame, $Thread::class$, "getStackTrace"_s),
-		$$new($DumpStackTest$CallFrame, $of(this)->getClass(), "c"_s),
-		$$new($DumpStackTest$CallFrame, $of(this)->getClass(), "run"_s)
+		$$new($DumpStackTest$CallFrame, this->getClass(), "c"_s),
+		$$new($DumpStackTest$CallFrame, this->getClass(), "run"_s)
 	}));
 	$DumpStackTest::assertStackTrace($($($Thread::currentThread())->getStackTrace()), callStack);
 	$DumpStackTest::getStackTrace(callStack);
@@ -74,7 +35,39 @@ DumpStackTest$1::DumpStackTest$1() {
 }
 
 $Class* DumpStackTest$1::load$($String* name, bool initialize) {
-	$loadClass(DumpStackTest$1, name, initialize, &_DumpStackTest$1_ClassInfo_, allocate$DumpStackTest$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DumpStackTest$1, init$, void)},
+		{"c", "()V", nullptr, 0, $virtualMethod(DumpStackTest$1, c, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DumpStackTest$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"DumpStackTest",
+		"testThread",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DumpStackTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"DumpStackTest$1",
+		"java.lang.Thread",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"DumpStackTest"
+	};
+	$loadClass(DumpStackTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DumpStackTest$1);
+	});
 	return class$;
 }
 

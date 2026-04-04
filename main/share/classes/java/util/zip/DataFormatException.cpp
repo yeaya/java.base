@@ -1,5 +1,4 @@
 #include <java/util/zip/DataFormatException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _DataFormatException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataFormatException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DataFormatException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DataFormatException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DataFormatException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _DataFormatException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.DataFormatException",
-	"java.lang.Exception",
-	nullptr,
-	_DataFormatException_FieldInfo_,
-	_DataFormatException_MethodInfo_
-};
-
-$Object* allocate$DataFormatException($Class* clazz) {
-	return $of($alloc(DataFormatException));
-}
 
 void DataFormatException::init$() {
 	$Exception::init$();
@@ -54,7 +29,26 @@ void DataFormatException::throw$() {
 }
 
 $Class* DataFormatException::load$($String* name, bool initialize) {
-	$loadClass(DataFormatException, name, initialize, &_DataFormatException_ClassInfo_, allocate$DataFormatException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataFormatException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DataFormatException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DataFormatException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.DataFormatException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataFormatException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataFormatException);
+	});
 	return class$;
 }
 

@@ -64,6 +64,7 @@ class EndEntityChecker : public ::java::lang::Object {
 	$class(EndEntityChecker, 0, ::java::lang::Object)
 public:
 	EndEntityChecker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* type, $String* variant);
 	virtual void check($Array<::java::security::cert::X509Certificate>* chain, Object$* parameter, bool checkUnresolvedCritExts);
 	void checkCodeSigning(::java::security::cert::X509Certificate* cert, ::java::util::Set* exts);

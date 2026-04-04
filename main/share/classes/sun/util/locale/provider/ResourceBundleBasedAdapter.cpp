@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/ResourceBundleBasedAdapter.h>
-
 #include <java/util/List.h>
 #include <java/util/Locale.h>
 #include <sun/util/resources/LocaleData.h>
@@ -16,27 +15,23 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$MethodInfo _ResourceBundleBasedAdapter_MethodInfo_[] = {
-	{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundleBasedAdapter, getCandidateLocales, $List*, $String*, $Locale*)},
-	{"getLocaleData", "()Lsun/util/resources/LocaleData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundleBasedAdapter, getLocaleData, $LocaleData*)},
-	{}
-};
-
-$ClassInfo _ResourceBundleBasedAdapter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.util.locale.provider.ResourceBundleBasedAdapter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ResourceBundleBasedAdapter_MethodInfo_
-};
-
-$Object* allocate$ResourceBundleBasedAdapter($Class* clazz) {
-	return $of($alloc(ResourceBundleBasedAdapter));
-}
-
 $Class* ResourceBundleBasedAdapter::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundleBasedAdapter, name, initialize, &_ResourceBundleBasedAdapter_ClassInfo_, allocate$ResourceBundleBasedAdapter);
+	$MethodInfo methodInfos$$[] = {
+		{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundleBasedAdapter, getCandidateLocales, $List*, $String*, $Locale*)},
+		{"getLocaleData", "()Lsun/util/resources/LocaleData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundleBasedAdapter, getLocaleData, $LocaleData*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.util.locale.provider.ResourceBundleBasedAdapter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ResourceBundleBasedAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundleBasedAdapter);
+	});
 	return class$;
 }
 

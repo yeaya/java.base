@@ -44,6 +44,7 @@ class DefaultProxySelector : public ::java::net::ProxySelector {
 	$class(DefaultProxySelector, 0, ::java::net::ProxySelector)
 public:
 	DefaultProxySelector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void connectFailed(::java::net::URI* uri, ::java::net::SocketAddress* sa, ::java::io::IOException* ioe) override;
 	int32_t defaultPort($String* protocol);

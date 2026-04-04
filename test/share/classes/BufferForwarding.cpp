@@ -1,5 +1,4 @@
 #include <BufferForwarding.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/StringBuffer.h>
@@ -13,7 +12,6 @@
 #undef A_STRING_VAL
 #undef NON_EMPTY_VAL
 
-using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -27,51 +25,6 @@ using $StringBuffer = ::java::lang::StringBuffer;
 using $StringIndexOutOfBoundsException = ::java::lang::StringIndexOutOfBoundsException;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
-
-$FieldInfo _BufferForwarding_FieldInfo_[] = {
-	{"A_STRING_BUFFER_VAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferForwarding, A_STRING_BUFFER_VAL)},
-	{"A_STRING_BUILDER_VAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferForwarding, A_STRING_BUILDER_VAL)},
-	{"A_STRING_VAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferForwarding, A_STRING_VAL)},
-	{"NON_EMPTY_VAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferForwarding, NON_EMPTY_VAL)},
-	{}
-};
-
-$MethodInfo _BufferForwarding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BufferForwarding, init$, void)},
-	{"appendCharSequence", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, appendCharSequence, void)},
-	{"assertEquals", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, assertEquals, void, $String*, $String*)},
-	{"assertEquals", "(II)V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, assertEquals, void, int32_t, int32_t)},
-	{"executeTestMethods", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, executeTestMethods, void)},
-	{"indexOfString", "()V", nullptr, 0, $virtualMethod(BufferForwarding, indexOfString, void)},
-	{"indexOfStringIntNull", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, indexOfStringIntNull, void)},
-	{"indexOfStringNull", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, indexOfStringNull, void)},
-	{"indexOfStringint", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, indexOfStringint, void)},
-	{"insertintCharSequence", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintCharSequence, void)},
-	{"insertintObject", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintObject, void)},
-	{"insertintboolean", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintboolean, void)},
-	{"insertintchar", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintchar, void)},
-	{"insertintdouble", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintdouble, void)},
-	{"insertintfloat", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintfloat, void)},
-	{"insertintint", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintint, void)},
-	{"insertintlong", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintlong, void)},
-	{"lastIndexOfString", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, lastIndexOfString, void)},
-	{"lastIndexOfStringint", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, lastIndexOfStringint, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(BufferForwarding, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _BufferForwarding_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"BufferForwarding",
-	"java.lang.Object",
-	nullptr,
-	_BufferForwarding_FieldInfo_,
-	_BufferForwarding_MethodInfo_
-};
-
-$Object* allocate$BufferForwarding($Class* clazz) {
-	return $of($alloc(BufferForwarding));
-}
 
 $String* BufferForwarding::A_STRING_BUFFER_VAL = nullptr;
 $String* BufferForwarding::A_STRING_BUILDER_VAL = nullptr;
@@ -106,7 +59,7 @@ void BufferForwarding::executeTestMethods() {
 }
 
 void BufferForwarding::appendCharSequence() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CharSequence, aString, BufferForwarding::A_STRING_VAL);
 	$var($CharSequence, aStringBuilder, $new($StringBuilder, BufferForwarding::A_STRING_BUILDER_VAL));
 	$var($CharSequence, aStringBuffer, $new($StringBuffer, BufferForwarding::A_STRING_BUFFER_VAL));
@@ -133,7 +86,7 @@ void BufferForwarding::indexOfStringint() {
 }
 
 void BufferForwarding::indexOfStringIntNull() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	try {
 		sb->indexOf(nullptr, 1);
@@ -145,7 +98,7 @@ void BufferForwarding::indexOfStringIntNull() {
 }
 
 void BufferForwarding::indexOfStringNull() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	try {
 		sb->indexOf(nullptr);
@@ -157,28 +110,28 @@ void BufferForwarding::indexOfStringNull() {
 }
 
 void BufferForwarding::insertintboolean() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool b = true;
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
-	assertEquals($($nc(sb->insert(2, b))->toString()), "01true2345"_s);
+	assertEquals($(sb->insert(2, b)->toString()), "01true2345"_s);
 }
 
 void BufferForwarding::insertintchar() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	char16_t c = u'C';
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
-	assertEquals($($nc(sb->insert(2, c))->toString()), "01C2345"_s);
+	assertEquals($(sb->insert(2, c)->toString()), "01C2345"_s);
 }
 
 void BufferForwarding::insertintCharSequence() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, initString, "012345"_s);
 	$var($CharSequence, aString, BufferForwarding::A_STRING_VAL);
 	$var($CharSequence, aStringBuilder, $new($StringBuilder, BufferForwarding::A_STRING_BUILDER_VAL));
 	$var($CharSequence, aStringBuffer, $new($StringBuffer, BufferForwarding::A_STRING_BUFFER_VAL));
-	assertEquals($($nc($$new($StringBuffer, initString)->insert(2, aString))->toString()), $$str({"01"_s, BufferForwarding::A_STRING_VAL, "2345"_s}));
-	assertEquals($($nc($$new($StringBuffer, initString)->insert(2, aStringBuilder))->toString()), $$str({"01"_s, BufferForwarding::A_STRING_BUILDER_VAL, "2345"_s}));
-	assertEquals($($nc($$new($StringBuffer, initString)->insert(2, aStringBuffer))->toString()), $$str({"01"_s, BufferForwarding::A_STRING_BUFFER_VAL, "2345"_s}));
+	assertEquals($($$new($StringBuffer, initString)->insert(2, aString)->toString()), $$str({"01"_s, BufferForwarding::A_STRING_VAL, "2345"_s}));
+	assertEquals($($$new($StringBuffer, initString)->insert(2, aStringBuilder)->toString()), $$str({"01"_s, BufferForwarding::A_STRING_BUILDER_VAL, "2345"_s}));
+	assertEquals($($$new($StringBuffer, initString)->insert(2, aStringBuffer)->toString()), $$str({"01"_s, BufferForwarding::A_STRING_BUFFER_VAL, "2345"_s}));
 	try {
 		$$new($StringBuffer, initString)->insert(7, aString);
 		$throwNew($RuntimeException, "Test failed: should have thrown IndexOutOfBoundsException"_s);
@@ -189,43 +142,43 @@ void BufferForwarding::insertintCharSequence() {
 }
 
 void BufferForwarding::insertintdouble() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double d = 99.0;
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
-	assertEquals($($nc(sb->insert(2, d))->toString()), "0199.02345"_s);
+	assertEquals($(sb->insert(2, d)->toString()), "0199.02345"_s);
 }
 
 void BufferForwarding::insertintfloat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float f = 99.0f;
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
-	assertEquals($($nc(sb->insert(2, f))->toString()), "0199.02345"_s);
+	assertEquals($(sb->insert(2, f)->toString()), "0199.02345"_s);
 }
 
 void BufferForwarding::insertintint() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 99;
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
-	assertEquals($($nc(sb->insert(2, i))->toString()), "01992345"_s);
+	assertEquals($(sb->insert(2, i)->toString()), "01992345"_s);
 }
 
 void BufferForwarding::insertintlong() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t l = 99;
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
-	assertEquals($($nc(sb->insert(2, l))->toString()), "01992345"_s);
+	assertEquals($(sb->insert(2, l)->toString()), "01992345"_s);
 }
 
 void BufferForwarding::insertintObject() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
 	$var($List, ls, $new($ArrayList));
 	ls->add("A"_s);
 	ls->add("B"_s);
-	$var($String, lsString, $of(ls)->toString());
-	assertEquals($($nc(sb->insert(2, $of(ls)))->toString()), $$str({"01"_s, lsString, "2345"_s}));
+	$var($String, lsString, ls->toString());
+	assertEquals($(sb->insert(2, ls)->toString()), $$str({"01"_s, lsString, "2345"_s}));
 	try {
-		sb->insert(sb->length() + 1, $of(ls));
+		sb->insert(sb->length() + 1, ls);
 		$throwNew($RuntimeException, "Test failed: should have thrown StringIndexOutOfBoundsException"_s);
 	} catch ($StringIndexOutOfBoundsException& soob) {
 	} catch ($Throwable& t) {
@@ -234,7 +187,7 @@ void BufferForwarding::insertintObject() {
 }
 
 void BufferForwarding::lastIndexOfString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, xyz, "xyz"_s);
 	$var($String, xyz3, "xyzxyzxyz"_s);
 	$var($StringBuffer, sb, $new($StringBuffer, xyz3));
@@ -257,7 +210,7 @@ void BufferForwarding::assertEquals($String* actual, $String* expected) {
 }
 
 void BufferForwarding::assertEquals(int32_t actual, int32_t expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (actual != expected) {
 		$throwNew($RuntimeException, $$str({"Test failed: actual = \'"_s, $$str(actual), "\', expected = \'"_s, $$str(expected), "\'"_s}));
 	}
@@ -266,7 +219,7 @@ void BufferForwarding::assertEquals(int32_t actual, int32_t expected) {
 BufferForwarding::BufferForwarding() {
 }
 
-void clinit$BufferForwarding($Class* class$) {
+void BufferForwarding::clinit$($Class* clazz) {
 	$assignStatic(BufferForwarding::A_STRING_BUFFER_VAL, "aStringBuffer"_s);
 	$assignStatic(BufferForwarding::A_STRING_BUILDER_VAL, "aStringBuilder"_s);
 	$assignStatic(BufferForwarding::A_STRING_VAL, "aString"_s);
@@ -274,7 +227,47 @@ void clinit$BufferForwarding($Class* class$) {
 }
 
 $Class* BufferForwarding::load$($String* name, bool initialize) {
-	$loadClass(BufferForwarding, name, initialize, &_BufferForwarding_ClassInfo_, clinit$BufferForwarding, allocate$BufferForwarding);
+	$FieldInfo fieldInfos$$[] = {
+		{"A_STRING_BUFFER_VAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferForwarding, A_STRING_BUFFER_VAL)},
+		{"A_STRING_BUILDER_VAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferForwarding, A_STRING_BUILDER_VAL)},
+		{"A_STRING_VAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferForwarding, A_STRING_VAL)},
+		{"NON_EMPTY_VAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferForwarding, NON_EMPTY_VAL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BufferForwarding, init$, void)},
+		{"appendCharSequence", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, appendCharSequence, void)},
+		{"assertEquals", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, assertEquals, void, $String*, $String*)},
+		{"assertEquals", "(II)V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, assertEquals, void, int32_t, int32_t)},
+		{"executeTestMethods", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, executeTestMethods, void)},
+		{"indexOfString", "()V", nullptr, 0, $virtualMethod(BufferForwarding, indexOfString, void)},
+		{"indexOfStringIntNull", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, indexOfStringIntNull, void)},
+		{"indexOfStringNull", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, indexOfStringNull, void)},
+		{"indexOfStringint", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, indexOfStringint, void)},
+		{"insertintCharSequence", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintCharSequence, void)},
+		{"insertintObject", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintObject, void)},
+		{"insertintboolean", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintboolean, void)},
+		{"insertintchar", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintchar, void)},
+		{"insertintdouble", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintdouble, void)},
+		{"insertintfloat", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintfloat, void)},
+		{"insertintint", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintint, void)},
+		{"insertintlong", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, insertintlong, void)},
+		{"lastIndexOfString", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, lastIndexOfString, void)},
+		{"lastIndexOfStringint", "()V", nullptr, $PUBLIC, $virtualMethod(BufferForwarding, lastIndexOfStringint, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(BufferForwarding, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"BufferForwarding",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufferForwarding, name, initialize, &classInfo$$, BufferForwarding::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferForwarding);
+	});
 	return class$;
 }
 

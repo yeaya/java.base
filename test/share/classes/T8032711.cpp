@@ -1,5 +1,4 @@
 #include <T8032711.h>
-
 #include <T8032711$I.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -27,45 +26,6 @@ using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 
-$FieldInfo _T8032711_FieldInfo_[] = {
-	{"l", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC, $staticField(T8032711, l)},
-	{"h", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticField(T8032711, h)},
-	{}
-};
-
-$MethodInfo _T8032711_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(T8032711, init$, void)},
-	{"here", "()V", nullptr, $STATIC, $staticMethod(T8032711, here, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(T8032711, main, void, $StringArray*), "java.lang.Throwable"},
-	{"mf", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(T8032711, mf, bool, $Class*)},
-	{"mt", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(T8032711, mt, $MethodType*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _T8032711_InnerClassesInfo_[] = {
-	{"T8032711$I", "T8032711", "I", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _T8032711_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"T8032711",
-	"java.lang.Object",
-	nullptr,
-	_T8032711_FieldInfo_,
-	_T8032711_MethodInfo_,
-	nullptr,
-	nullptr,
-	_T8032711_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"T8032711$I"
-};
-
-$Object* allocate$T8032711($Class* clazz) {
-	return $of($alloc(T8032711));
-}
-
 $MethodHandles$Lookup* T8032711::l = nullptr;
 $MethodHandle* T8032711::h = nullptr;
 
@@ -80,7 +40,7 @@ $MethodType* T8032711::mt($Class* k) {
 }
 
 bool T8032711::mf($Class* k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init(T8032711);
 		$var($MethodHandles$Lookup, var$0, T8032711::l);
@@ -89,7 +49,6 @@ bool T8032711::mf($Class* k) {
 		$var($MethodType, var$2, mt($T8032711$I::class$));
 		$var($MethodType, var$3, mt(k));
 		$var($MethodHandle, var$4, T8032711::h);
-		$init($Void);
 		$LambdaMetafactory::metafactory(var$0, var$1, var$2, var$3, var$4, $(mt($Void::TYPE)));
 	} catch ($LambdaConversionException& e) {
 		return true;
@@ -102,7 +61,6 @@ void T8032711::main($StringArray* args) {
 	$beforeCallerSensitive();
 	$init(T8032711);
 	$assignStatic(T8032711::l, $MethodHandles::lookup());
-	$init($Void);
 	$assignStatic(T8032711::h, $nc(T8032711::l)->findStatic(T8032711::class$, "here"_s, $(mt($Void::TYPE))));
 	if (mf($Void::TYPE)) {
 		$throwNew($AssertionError, $of("Error: Should work"_s));
@@ -116,7 +74,40 @@ T8032711::T8032711() {
 }
 
 $Class* T8032711::load$($String* name, bool initialize) {
-	$loadClass(T8032711, name, initialize, &_T8032711_ClassInfo_, allocate$T8032711);
+	$FieldInfo fieldInfos$$[] = {
+		{"l", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC, $staticField(T8032711, l)},
+		{"h", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticField(T8032711, h)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(T8032711, init$, void)},
+		{"here", "()V", nullptr, $STATIC, $staticMethod(T8032711, here, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(T8032711, main, void, $StringArray*), "java.lang.Throwable"},
+		{"mf", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(T8032711, mf, bool, $Class*)},
+		{"mt", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(T8032711, mt, $MethodType*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"T8032711$I", "T8032711", "I", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"T8032711",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"T8032711$I"
+	};
+	$loadClass(T8032711, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(T8032711);
+	});
 	return class$;
 }
 

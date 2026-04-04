@@ -1,5 +1,4 @@
 #include <OpsAfterClose$5.h>
-
 #include <OpsAfterClose.h>
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
@@ -12,43 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _OpsAfterClose$5_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(OpsAfterClose$5, init$, void, $String*, int32_t)},
-	{"check", "(Ljava/io/Reader;)Z", nullptr, 0, $virtualMethod(OpsAfterClose$5, check, bool, $Reader*)},
-	{}
-};
-
-$EnclosingMethodInfo _OpsAfterClose$5_EnclosingMethodInfo_ = {
-	"OpsAfterClose",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _OpsAfterClose$5_InnerClassesInfo_[] = {
-	{"OpsAfterClose$5", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _OpsAfterClose$5_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"OpsAfterClose$5",
-	"OpsAfterClose",
-	nullptr,
-	nullptr,
-	_OpsAfterClose$5_MethodInfo_,
-	nullptr,
-	&_OpsAfterClose$5_EnclosingMethodInfo_,
-	_OpsAfterClose$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"OpsAfterClose"
-};
-
-$Object* allocate$OpsAfterClose$5($Class* clazz) {
-	return $of($alloc(OpsAfterClose$5));
-}
 
 void OpsAfterClose$5::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$OpsAfterClose::init$($enum$name, $enum$ordinal);
@@ -67,7 +29,38 @@ OpsAfterClose$5::OpsAfterClose$5() {
 }
 
 $Class* OpsAfterClose$5::load$($String* name, bool initialize) {
-	$loadClass(OpsAfterClose$5, name, initialize, &_OpsAfterClose$5_ClassInfo_, allocate$OpsAfterClose$5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(OpsAfterClose$5, init$, void, $String*, int32_t)},
+		{"check", "(Ljava/io/Reader;)Z", nullptr, 0, $virtualMethod(OpsAfterClose$5, check, bool, $Reader*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"OpsAfterClose",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"OpsAfterClose$5", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"OpsAfterClose$5",
+		"OpsAfterClose",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"OpsAfterClose"
+	};
+	$loadClass(OpsAfterClose$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OpsAfterClose$5));
+	});
 	return class$;
 }
 

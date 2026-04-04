@@ -1,5 +1,4 @@
 #include <sun/net/www/MessageHeader$HeaderIterator.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/NoSuchElementException.h>
 #include <sun/net/www/MessageHeader.h>
@@ -16,49 +15,6 @@ using $MessageHeader = ::sun::net::www::MessageHeader;
 namespace sun {
 	namespace net {
 		namespace www {
-
-$FieldInfo _MessageHeader$HeaderIterator_FieldInfo_[] = {
-	{"this$0", "Lsun/net/www/MessageHeader;", nullptr, $FINAL | $SYNTHETIC, $field(MessageHeader$HeaderIterator, this$0)},
-	{"index", "I", nullptr, 0, $field(MessageHeader$HeaderIterator, index)},
-	{"next", "I", nullptr, 0, $field(MessageHeader$HeaderIterator, next$)},
-	{"key", "Ljava/lang/String;", nullptr, 0, $field(MessageHeader$HeaderIterator, key)},
-	{"haveNext", "Z", nullptr, 0, $field(MessageHeader$HeaderIterator, haveNext)},
-	{"lock", "Ljava/lang/Object;", nullptr, 0, $field(MessageHeader$HeaderIterator, lock)},
-	{}
-};
-
-$MethodInfo _MessageHeader$HeaderIterator_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/MessageHeader;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(MessageHeader$HeaderIterator, init$, void, $MessageHeader*, $String*, Object$*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageHeader$HeaderIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageHeader$HeaderIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(MessageHeader$HeaderIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _MessageHeader$HeaderIterator_InnerClassesInfo_[] = {
-	{"sun.net.www.MessageHeader$HeaderIterator", "sun.net.www.MessageHeader", "HeaderIterator", 0},
-	{}
-};
-
-$ClassInfo _MessageHeader$HeaderIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.MessageHeader$HeaderIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_MessageHeader$HeaderIterator_FieldInfo_,
-	_MessageHeader$HeaderIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;",
-	nullptr,
-	_MessageHeader$HeaderIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.MessageHeader"
-};
-
-$Object* allocate$MessageHeader$HeaderIterator($Class* clazz) {
-	return $of($alloc(MessageHeader$HeaderIterator));
-}
 
 void MessageHeader$HeaderIterator::init$($MessageHeader* this$0, $String* k, Object$* lock) {
 	$set(this, this$0, this$0);
@@ -93,7 +49,7 @@ $Object* MessageHeader$HeaderIterator::next() {
 			return $of($nc(this->this$0->values)->get(this->next$));
 		}
 		if (hasNext()) {
-			return $of(next());
+			return next();
 		} else {
 			$throwNew($NoSuchElementException, "No more elements"_s);
 		}
@@ -108,7 +64,44 @@ MessageHeader$HeaderIterator::MessageHeader$HeaderIterator() {
 }
 
 $Class* MessageHeader$HeaderIterator::load$($String* name, bool initialize) {
-	$loadClass(MessageHeader$HeaderIterator, name, initialize, &_MessageHeader$HeaderIterator_ClassInfo_, allocate$MessageHeader$HeaderIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/www/MessageHeader;", nullptr, $FINAL | $SYNTHETIC, $field(MessageHeader$HeaderIterator, this$0)},
+		{"index", "I", nullptr, 0, $field(MessageHeader$HeaderIterator, index)},
+		{"next", "I", nullptr, 0, $field(MessageHeader$HeaderIterator, next$)},
+		{"key", "Ljava/lang/String;", nullptr, 0, $field(MessageHeader$HeaderIterator, key)},
+		{"haveNext", "Z", nullptr, 0, $field(MessageHeader$HeaderIterator, haveNext)},
+		{"lock", "Ljava/lang/Object;", nullptr, 0, $field(MessageHeader$HeaderIterator, lock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/MessageHeader;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(MessageHeader$HeaderIterator, init$, void, $MessageHeader*, $String*, Object$*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageHeader$HeaderIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageHeader$HeaderIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(MessageHeader$HeaderIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.MessageHeader$HeaderIterator", "sun.net.www.MessageHeader", "HeaderIterator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.MessageHeader$HeaderIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.MessageHeader"
+	};
+	$loadClass(MessageHeader$HeaderIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageHeader$HeaderIterator);
+	});
 	return class$;
 }
 

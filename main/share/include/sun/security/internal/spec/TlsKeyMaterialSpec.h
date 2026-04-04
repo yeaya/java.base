@@ -42,7 +42,7 @@ public:
 	virtual ::javax::crypto::spec::IvParameterSpec* getServerIv();
 	virtual ::javax::crypto::SecretKey* getServerMacKey();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x0B480BF039C33324;
+	static const int64_t serialVersionUID = (int64_t)0x0b480bf039c33324;
 	::javax::crypto::SecretKey* clientMacKey = nullptr;
 	::javax::crypto::SecretKey* serverMacKey = nullptr;
 	::javax::crypto::SecretKey* clientCipherKey = nullptr;

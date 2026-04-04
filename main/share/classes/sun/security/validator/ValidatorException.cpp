@@ -1,5 +1,4 @@
 #include <sun/security/validator/ValidatorException.h>
-
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/X509Certificate.h>
 #include <jcpp.h>
@@ -23,47 +22,6 @@ namespace sun {
 	namespace security {
 		namespace validator {
 
-$FieldInfo _ValidatorException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ValidatorException, serialVersionUID)},
-	{"T_NO_TRUST_ANCHOR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_NO_TRUST_ANCHOR)},
-	{"T_EE_EXTENSIONS", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_EE_EXTENSIONS)},
-	{"T_CA_EXTENSIONS", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_CA_EXTENSIONS)},
-	{"T_CERT_EXPIRED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_CERT_EXPIRED)},
-	{"T_SIGNATURE_ERROR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_SIGNATURE_ERROR)},
-	{"T_NAME_CHAINING", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_NAME_CHAINING)},
-	{"T_ALGORITHM_DISABLED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_ALGORITHM_DISABLED)},
-	{"T_UNTRUSTED_CERT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_UNTRUSTED_CERT)},
-	{"type", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ValidatorException, type)},
-	{"cert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(ValidatorException, cert)},
-	{}
-};
-
-$MethodInfo _ValidatorException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, Object$*)},
-	{"<init>", "(Ljava/lang/Object;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, Object$*, $X509Certificate*)},
-	{"<init>", "(Ljava/lang/Object;Ljava/security/cert/X509Certificate;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, Object$*, $X509Certificate*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*, Object$*, $X509Certificate*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/security/cert/X509Certificate;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*, Object$*, $X509Certificate*, $Throwable*)},
-	{"getErrorCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(ValidatorException, getErrorCertificate, $X509Certificate*)},
-	{"getErrorType", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ValidatorException, getErrorType, $Object*)},
-	{}
-};
-
-$ClassInfo _ValidatorException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.validator.ValidatorException",
-	"java.security.cert.CertificateException",
-	nullptr,
-	_ValidatorException_FieldInfo_,
-	_ValidatorException_MethodInfo_
-};
-
-$Object* allocate$ValidatorException($Class* clazz) {
-	return $of($alloc(ValidatorException));
-}
-
 $Object* ValidatorException::T_NO_TRUST_ANCHOR = nullptr;
 $Object* ValidatorException::T_EE_EXTENSIONS = nullptr;
 $Object* ValidatorException::T_CA_EXTENSIONS = nullptr;
@@ -83,7 +41,7 @@ void ValidatorException::init$($String* msg, $Throwable* cause) {
 }
 
 void ValidatorException::init$(Object$* type) {
-	ValidatorException::init$(type, ($X509Certificate*)nullptr);
+	ValidatorException::init$(type, nullptr);
 }
 
 void ValidatorException::init$(Object$* type, $X509Certificate* cert) {
@@ -109,14 +67,14 @@ void ValidatorException::init$($String* msg, Object$* type, $X509Certificate* ce
 }
 
 $Object* ValidatorException::getErrorType() {
-	return $of(this->type);
+	return this->type;
 }
 
 $X509Certificate* ValidatorException::getErrorCertificate() {
 	return this->cert;
 }
 
-void clinit$ValidatorException($Class* class$) {
+void ValidatorException::clinit$($Class* clazz) {
 	$assignStatic(ValidatorException::T_NO_TRUST_ANCHOR, "No trusted certificate found"_s);
 	$assignStatic(ValidatorException::T_EE_EXTENSIONS, "End entity certificate extension check failed"_s);
 	$assignStatic(ValidatorException::T_CA_EXTENSIONS, "CA certificate extension check failed"_s);
@@ -138,7 +96,43 @@ void ValidatorException::throw$() {
 }
 
 $Class* ValidatorException::load$($String* name, bool initialize) {
-	$loadClass(ValidatorException, name, initialize, &_ValidatorException_ClassInfo_, clinit$ValidatorException, allocate$ValidatorException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ValidatorException, serialVersionUID)},
+		{"T_NO_TRUST_ANCHOR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_NO_TRUST_ANCHOR)},
+		{"T_EE_EXTENSIONS", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_EE_EXTENSIONS)},
+		{"T_CA_EXTENSIONS", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_CA_EXTENSIONS)},
+		{"T_CERT_EXPIRED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_CERT_EXPIRED)},
+		{"T_SIGNATURE_ERROR", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_SIGNATURE_ERROR)},
+		{"T_NAME_CHAINING", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_NAME_CHAINING)},
+		{"T_ALGORITHM_DISABLED", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_ALGORITHM_DISABLED)},
+		{"T_UNTRUSTED_CERT", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ValidatorException, T_UNTRUSTED_CERT)},
+		{"type", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ValidatorException, type)},
+		{"cert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(ValidatorException, cert)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, Object$*)},
+		{"<init>", "(Ljava/lang/Object;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, Object$*, $X509Certificate*)},
+		{"<init>", "(Ljava/lang/Object;Ljava/security/cert/X509Certificate;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, Object$*, $X509Certificate*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*, Object$*, $X509Certificate*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/security/cert/X509Certificate;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*, Object$*, $X509Certificate*, $Throwable*)},
+		{"getErrorCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(ValidatorException, getErrorCertificate, $X509Certificate*)},
+		{"getErrorType", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ValidatorException, getErrorType, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.validator.ValidatorException",
+		"java.security.cert.CertificateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ValidatorException, name, initialize, &classInfo$$, ValidatorException::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ValidatorException);
+	});
 	return class$;
 }
 

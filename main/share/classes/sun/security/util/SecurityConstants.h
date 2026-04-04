@@ -115,6 +115,7 @@ class $export SecurityConstants : public ::java::lang::Object {
 	$class(SecurityConstants, 0, ::java::lang::Object)
 public:
 	SecurityConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* FILE_DELETE_ACTION;
 	static $String* FILE_EXECUTE_ACTION;

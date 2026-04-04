@@ -1,5 +1,4 @@
 #include <javax/crypto/spec/PSource.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,41 +10,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 namespace javax {
 	namespace crypto {
 		namespace spec {
-
-$FieldInfo _PSource_FieldInfo_[] = {
-	{"pSrcName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSource, pSrcName)},
-	{}
-};
-
-$MethodInfo _PSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(PSource, init$, void, $String*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSource, getAlgorithm, $String*)},
-	{}
-};
-
-$InnerClassInfo _PSource_InnerClassesInfo_[] = {
-	{"javax.crypto.spec.PSource$PSpecified", "javax.crypto.spec.PSource", "PSpecified", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PSource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.spec.PSource",
-	"java.lang.Object",
-	nullptr,
-	_PSource_FieldInfo_,
-	_PSource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PSource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.crypto.spec.PSource$PSpecified"
-};
-
-$Object* allocate$PSource($Class* clazz) {
-	return $of($alloc(PSource));
-}
 
 void PSource::init$($String* pSrcName) {
 	if (pSrcName == nullptr) {
@@ -62,7 +26,36 @@ PSource::PSource() {
 }
 
 $Class* PSource::load$($String* name, bool initialize) {
-	$loadClass(PSource, name, initialize, &_PSource_ClassInfo_, allocate$PSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"pSrcName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSource, pSrcName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(PSource, init$, void, $String*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSource, getAlgorithm, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.crypto.spec.PSource$PSpecified", "javax.crypto.spec.PSource", "PSpecified", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.spec.PSource",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.crypto.spec.PSource$PSpecified"
+	};
+	$loadClass(PSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PSource);
+	});
 	return class$;
 }
 

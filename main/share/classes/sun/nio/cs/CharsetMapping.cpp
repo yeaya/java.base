@@ -1,9 +1,7 @@
 #include <sun/nio/cs/CharsetMapping.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
 #include <java/util/Comparator.h>
 #include <sun/nio/cs/CharsetMapping$1.h>
@@ -34,7 +32,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $Comparator = ::java::util::Comparator;
 using $CharsetMapping$1 = ::sun::nio::cs::CharsetMapping$1;
@@ -46,94 +43,6 @@ using $CharsetMapping$Entry = ::sun::nio::cs::CharsetMapping$Entry;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _CharsetMapping_FieldInfo_[] = {
-	{"UNMAPPABLE_DECODING", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharsetMapping, UNMAPPABLE_DECODING)},
-	{"UNMAPPABLE_ENCODING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharsetMapping, UNMAPPABLE_ENCODING)},
-	{"b2cSB", "[C", nullptr, 0, $field(CharsetMapping, b2cSB)},
-	{"b2cDB1", "[C", nullptr, 0, $field(CharsetMapping, b2cDB1)},
-	{"b2cDB2", "[C", nullptr, 0, $field(CharsetMapping, b2cDB2)},
-	{"b2Min", "I", nullptr, 0, $field(CharsetMapping, b2Min)},
-	{"b2Max", "I", nullptr, 0, $field(CharsetMapping, b2Max)},
-	{"b1MinDB1", "I", nullptr, 0, $field(CharsetMapping, b1MinDB1)},
-	{"b1MaxDB1", "I", nullptr, 0, $field(CharsetMapping, b1MaxDB1)},
-	{"b1MinDB2", "I", nullptr, 0, $field(CharsetMapping, b1MinDB2)},
-	{"b1MaxDB2", "I", nullptr, 0, $field(CharsetMapping, b1MaxDB2)},
-	{"dbSegSize", "I", nullptr, 0, $field(CharsetMapping, dbSegSize)},
-	{"c2b", "[C", nullptr, 0, $field(CharsetMapping, c2b)},
-	{"c2bIndex", "[C", nullptr, 0, $field(CharsetMapping, c2bIndex)},
-	{"b2cSupp", "[C", nullptr, 0, $field(CharsetMapping, b2cSupp)},
-	{"c2bSupp", "[C", nullptr, 0, $field(CharsetMapping, c2bSupp)},
-	{"b2cComp", "[Lsun/nio/cs/CharsetMapping$Entry;", nullptr, 0, $field(CharsetMapping, b2cComp)},
-	{"c2bComp", "[Lsun/nio/cs/CharsetMapping$Entry;", nullptr, 0, $field(CharsetMapping, c2bComp)},
-	{"comparatorBytes", "Ljava/util/Comparator;", "Ljava/util/Comparator<Lsun/nio/cs/CharsetMapping$Entry;>;", $STATIC, $staticField(CharsetMapping, comparatorBytes)},
-	{"comparatorCP", "Ljava/util/Comparator;", "Ljava/util/Comparator<Lsun/nio/cs/CharsetMapping$Entry;>;", $STATIC, $staticField(CharsetMapping, comparatorCP)},
-	{"comparatorComp", "Ljava/util/Comparator;", "Ljava/util/Comparator<Lsun/nio/cs/CharsetMapping$Entry;>;", $STATIC, $staticField(CharsetMapping, comparatorComp)},
-	{"MAP_SINGLEBYTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_SINGLEBYTE)},
-	{"MAP_DOUBLEBYTE1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_DOUBLEBYTE1)},
-	{"MAP_DOUBLEBYTE2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_DOUBLEBYTE2)},
-	{"MAP_SUPPLEMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_SUPPLEMENT)},
-	{"MAP_SUPPLEMENT_C2B", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_SUPPLEMENT_C2B)},
-	{"MAP_COMPOSITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_COMPOSITE)},
-	{"MAP_INDEXC2B", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_INDEXC2B)},
-	{"off", "I", nullptr, 0, $field(CharsetMapping, off)},
-	{"bb", "[B", nullptr, 0, $field(CharsetMapping, bb)},
-	{}
-};
-
-$MethodInfo _CharsetMapping_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CharsetMapping, init$, void)},
-	{"decodeComposite", "(Lsun/nio/cs/CharsetMapping$Entry;[C)[C", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, decodeComposite, $chars*, $CharsetMapping$Entry*, $chars*)},
-	{"decodeDouble", "(II)C", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, decodeDouble, char16_t, int32_t, int32_t)},
-	{"decodeSingle", "(I)C", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, decodeSingle, char16_t, int32_t)},
-	{"decodeSurrogate", "(I[C)[C", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, decodeSurrogate, $chars*, int32_t, $chars*)},
-	{"encodeChar", "(C)I", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, encodeChar, int32_t, char16_t)},
-	{"encodeComposite", "(Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, encodeComposite, int32_t, $CharsetMapping$Entry*)},
-	{"encodeSurrogate", "(CC)I", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, encodeSurrogate, int32_t, char16_t, char16_t)},
-	{"findBytes", "([Lsun/nio/cs/CharsetMapping$Entry;Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $STATIC, $staticMethod(CharsetMapping, findBytes, int32_t, $CharsetMapping$EntryArray*, $CharsetMapping$Entry*)},
-	{"findCP", "([Lsun/nio/cs/CharsetMapping$Entry;Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $STATIC, $staticMethod(CharsetMapping, findCP, int32_t, $CharsetMapping$EntryArray*, $CharsetMapping$Entry*)},
-	{"findComp", "([Lsun/nio/cs/CharsetMapping$Entry;Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $STATIC, $staticMethod(CharsetMapping, findComp, int32_t, $CharsetMapping$EntryArray*, $CharsetMapping$Entry*)},
-	{"get", "(Ljava/io/InputStream;)Lsun/nio/cs/CharsetMapping;", nullptr, $PUBLIC | $STATIC, $staticMethod(CharsetMapping, get, CharsetMapping*, $InputStream*)},
-	{"isCompositeBase", "(Lsun/nio/cs/CharsetMapping$Entry;)Z", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, isCompositeBase, bool, $CharsetMapping$Entry*)},
-	{"load", "(Ljava/io/InputStream;)Lsun/nio/cs/CharsetMapping;", nullptr, 0, $virtualMethod(CharsetMapping, load, CharsetMapping*, $InputStream*)},
-	{"readCOMPOSITE", "()V", nullptr, 0, $virtualMethod(CharsetMapping, readCOMPOSITE, void)},
-	{"readCharArray", "()[C", nullptr, $PRIVATE, $method(CharsetMapping, readCharArray, $chars*)},
-	{"readDB", "(III)[C", nullptr, 0, $virtualMethod(CharsetMapping, readDB, $chars*, int32_t, int32_t, int32_t)},
-	{"readDOUBLEBYTE1", "()V", nullptr, 0, $virtualMethod(CharsetMapping, readDOUBLEBYTE1, void)},
-	{"readDOUBLEBYTE2", "()V", nullptr, 0, $virtualMethod(CharsetMapping, readDOUBLEBYTE2, void)},
-	{"readINDEXC2B", "()V", nullptr, 0, $virtualMethod(CharsetMapping, readINDEXC2B, void)},
-	{"readNBytes", "(Ljava/io/InputStream;[BI)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CharsetMapping, readNBytes, bool, $InputStream*, $bytes*, int32_t), "java.io.IOException"},
-	{"readSINGLEBYTE", "()V", nullptr, 0, $virtualMethod(CharsetMapping, readSINGLEBYTE, void)},
-	{}
-};
-
-$InnerClassInfo _CharsetMapping_InnerClassesInfo_[] = {
-	{"sun.nio.cs.CharsetMapping$Entry", "sun.nio.cs.CharsetMapping", "Entry", $PUBLIC | $STATIC},
-	{"sun.nio.cs.CharsetMapping$4", nullptr, nullptr, 0},
-	{"sun.nio.cs.CharsetMapping$3", nullptr, nullptr, 0},
-	{"sun.nio.cs.CharsetMapping$2", nullptr, nullptr, 0},
-	{"sun.nio.cs.CharsetMapping$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CharsetMapping_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.CharsetMapping",
-	"java.lang.Object",
-	nullptr,
-	_CharsetMapping_FieldInfo_,
-	_CharsetMapping_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CharsetMapping_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.CharsetMapping$Entry,sun.nio.cs.CharsetMapping$4,sun.nio.cs.CharsetMapping$3,sun.nio.cs.CharsetMapping$2,sun.nio.cs.CharsetMapping$1"
-};
-
-$Object* allocate$CharsetMapping($Class* clazz) {
-	return $of($alloc(CharsetMapping));
-}
 
 $Comparator* CharsetMapping::comparatorBytes = nullptr;
 $Comparator* CharsetMapping::comparatorCP = nullptr;
@@ -166,7 +75,7 @@ $chars* CharsetMapping::decodeSurrogate(int32_t db, $chars* cc) {
 	int32_t end = $nc(this->b2cSupp)->length / 2;
 	int32_t i = $Arrays::binarySearch(this->b2cSupp, 0, end, (char16_t)db);
 	if (i >= 0) {
-		$Character::toChars($nc(this->b2cSupp)->get(end + i) + 0x00020000, cc, 0);
+		$Character::toChars(this->b2cSupp->get(end + i) + 0x00020000, cc, 0);
 		return cc;
 	}
 	return nullptr;
@@ -176,7 +85,7 @@ $chars* CharsetMapping::decodeComposite($CharsetMapping$Entry* comp, $chars* cc)
 	int32_t i = findBytes(this->b2cComp, comp);
 	if (i >= 0) {
 		$nc(cc)->set(0, (char16_t)$nc($nc(this->b2cComp)->get(i))->cp);
-		cc->set(1, (char16_t)$nc($nc(this->b2cComp)->get(i))->cp2);
+		cc->set(1, (char16_t)$nc(this->b2cComp->get(i))->cp2);
 		return cc;
 	}
 	return nullptr;
@@ -184,10 +93,10 @@ $chars* CharsetMapping::decodeComposite($CharsetMapping$Entry* comp, $chars* cc)
 
 int32_t CharsetMapping::encodeChar(char16_t ch) {
 	int32_t index = $nc(this->c2bIndex)->get(ch >> 8);
-	if (index == 0x0000FFFF) {
+	if (index == 0x0000ffff) {
 		return CharsetMapping::UNMAPPABLE_ENCODING;
 	}
-	return $nc(this->c2b)->get(index + ((int32_t)(ch & (uint32_t)255)));
+	return $nc(this->c2b)->get(index + (ch & 0xff));
 }
 
 int32_t CharsetMapping::encodeSurrogate(char16_t hi, char16_t lo) {
@@ -198,7 +107,7 @@ int32_t CharsetMapping::encodeSurrogate(char16_t hi, char16_t lo) {
 	int32_t end = $nc(this->c2bSupp)->length / 2;
 	int32_t i = $Arrays::binarySearch(this->c2bSupp, 0, end, (char16_t)cp);
 	if (i >= 0) {
-		return $nc(this->c2bSupp)->get(end + i);
+		return this->c2bSupp->get(end + i);
 	}
 	return CharsetMapping::UNMAPPABLE_ENCODING;
 }
@@ -221,7 +130,7 @@ int32_t CharsetMapping::encodeComposite($CharsetMapping$Entry* comp) {
 CharsetMapping* CharsetMapping::get($InputStream* is) {
 	$init(CharsetMapping);
 	$beforeCallerSensitive();
-	return $cast(CharsetMapping, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CharsetMapping$1, is))));
+	return $cast(CharsetMapping, $AccessController::doPrivileged($$new($CharsetMapping$1, is)));
 }
 
 int32_t CharsetMapping::findBytes($CharsetMapping$EntryArray* a, $CharsetMapping$Entry* k) {
@@ -254,12 +163,12 @@ bool CharsetMapping::readNBytes($InputStream* in, $bytes* bb, int32_t N) {
 }
 
 $chars* CharsetMapping::readCharArray() {
-	int32_t var$0 = (((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255)) << 8);
-	int32_t size = var$0 | ((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255));
+	int32_t var$0 = ($nc(this->bb)->get(this->off++) & 0xff) << 8;
+	int32_t size = var$0 | (this->bb->get(this->off++) & 0xff);
 	$var($chars, cc, $new($chars, size));
 	for (int32_t i = 0; i < size; ++i) {
-		int32_t var$1 = (((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255)) << 8);
-		cc->set(i, (char16_t)(var$1 | ((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255))));
+		int32_t var$1 = (this->bb->get(this->off++) & 0xff) << 8;
+		cc->set(i, (char16_t)(var$1 | (this->bb->get(this->off++) & 0xff)));
 	}
 	return cc;
 }
@@ -269,7 +178,7 @@ void CharsetMapping::readSINGLEBYTE() {
 	for (int32_t i = 0; i < $nc(map)->length; ++i) {
 		char16_t c = map->get(i);
 		if (c != CharsetMapping::UNMAPPABLE_DECODING) {
-			$nc(this->c2b)->set($nc(this->c2bIndex)->get(c >> 8) + ((int32_t)(c & (uint32_t)255)), (char16_t)i);
+			$nc(this->c2b)->set($nc(this->c2bIndex)->get(c >> 8) + (c & 0xff), (char16_t)i);
 		}
 	}
 	$set(this, b2cSB, map);
@@ -295,65 +204,61 @@ $chars* CharsetMapping::readDB(int32_t b1Min, int32_t b2Min, int32_t segSize) {
 			int32_t b1 = $div(i, segSize);
 			int32_t b2 = $mod(i, segSize);
 			int32_t b = (b1 + b1Min) * 256 + (b2 + b2Min);
-			$nc(this->c2b)->set($nc(this->c2bIndex)->get(c >> 8) + ((int32_t)(c & (uint32_t)255)), (char16_t)(b));
+			$nc(this->c2b)->set($nc(this->c2bIndex)->get(c >> 8) + (c & 0xff), (char16_t)(b));
 		}
 	}
 	return map;
 }
 
 void CharsetMapping::readDOUBLEBYTE1() {
-	int32_t var$0 = (((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255)) << 8);
-	this->b1MinDB1 = var$0 | ((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255));
-	int32_t var$1 = (((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255)) << 8);
-	this->b1MaxDB1 = var$1 | ((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255));
-	int32_t var$2 = (((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255)) << 8);
-	this->b2Min = var$2 | ((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255));
-	int32_t var$3 = (((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255)) << 8);
-	this->b2Max = var$3 | ((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255));
+	int32_t var$0 = ($nc(this->bb)->get(this->off++) & 0xff) << 8;
+	this->b1MinDB1 = var$0 | (this->bb->get(this->off++) & 0xff);
+	int32_t var$1 = (this->bb->get(this->off++) & 0xff) << 8;
+	this->b1MaxDB1 = var$1 | (this->bb->get(this->off++) & 0xff);
+	int32_t var$2 = (this->bb->get(this->off++) & 0xff) << 8;
+	this->b2Min = var$2 | (this->bb->get(this->off++) & 0xff);
+	int32_t var$3 = (this->bb->get(this->off++) & 0xff) << 8;
+	this->b2Max = var$3 | (this->bb->get(this->off++) & 0xff);
 	this->dbSegSize = this->b2Max - this->b2Min + 1;
 	$set(this, b2cDB1, readDB(this->b1MinDB1, this->b2Min, this->dbSegSize));
 }
 
 void CharsetMapping::readDOUBLEBYTE2() {
-	int32_t var$0 = (((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255)) << 8);
-	this->b1MinDB2 = var$0 | ((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255));
-	int32_t var$1 = (((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255)) << 8);
-	this->b1MaxDB2 = var$1 | ((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255));
-	int32_t var$2 = (((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255)) << 8);
-	this->b2Min = var$2 | ((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255));
-	int32_t var$3 = (((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255)) << 8);
-	this->b2Max = var$3 | ((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255));
+	int32_t var$0 = ($nc(this->bb)->get(this->off++) & 0xff) << 8;
+	this->b1MinDB2 = var$0 | (this->bb->get(this->off++) & 0xff);
+	int32_t var$1 = (this->bb->get(this->off++) & 0xff) << 8;
+	this->b1MaxDB2 = var$1 | (this->bb->get(this->off++) & 0xff);
+	int32_t var$2 = (this->bb->get(this->off++) & 0xff) << 8;
+	this->b2Min = var$2 | (this->bb->get(this->off++) & 0xff);
+	int32_t var$3 = (this->bb->get(this->off++) & 0xff) << 8;
+	this->b2Max = var$3 | (this->bb->get(this->off++) & 0xff);
 	this->dbSegSize = this->b2Max - this->b2Min + 1;
 	$set(this, b2cDB2, readDB(this->b1MinDB2, this->b2Min, this->dbSegSize));
 }
 
 void CharsetMapping::readCOMPOSITE() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, map, readCharArray());
 	int32_t mLen = $nc(map)->length / 3;
 	$set(this, b2cComp, $new($CharsetMapping$EntryArray, mLen));
 	$set(this, c2bComp, $new($CharsetMapping$EntryArray, mLen));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < mLen; ++i) {
-			$var($CharsetMapping$Entry, m, $new($CharsetMapping$Entry));
-			m->bs = map->get(j++);
-			m->cp = map->get(j++);
-			m->cp2 = map->get(j++);
-			$nc(this->b2cComp)->set(i, m);
-			$nc(this->c2bComp)->set(i, m);
-		}
+	for (int32_t i = 0, j = 0; i < mLen; ++i) {
+		$var($CharsetMapping$Entry, m, $new($CharsetMapping$Entry));
+		m->bs = map->get(j++);
+		m->cp = map->get(j++);
+		m->cp2 = map->get(j++);
+		this->b2cComp->set(i, m);
+		this->c2bComp->set(i, m);
 	}
-	$Arrays::sort(this->c2bComp, 0, $nc(this->c2bComp)->length, CharsetMapping::comparatorComp);
+	$Arrays::sort(this->c2bComp, 0, this->c2bComp->length, CharsetMapping::comparatorComp);
 }
 
 CharsetMapping* CharsetMapping::load($InputStream* in) {
 	try {
-		int32_t var$2 = (((int32_t)($nc(in)->read() & (uint32_t)255)) << 24);
-		int32_t var$1 = var$2 | (((int32_t)(in->read() & (uint32_t)255)) << 16);
-		int32_t var$0 = var$1 | (((int32_t)(in->read() & (uint32_t)255)) << 8);
-		int32_t len = var$0 | ((int32_t)(in->read() & (uint32_t)255));
+		int32_t var$2 = ($nc(in)->read() & 0xff) << 24;
+		int32_t var$1 = var$2 | ((in->read() & 0xff) << 16);
+		int32_t var$0 = var$1 | ((in->read() & 0xff) << 8);
+		int32_t len = var$0 | (in->read() & 0xff);
 		$set(this, bb, $new($bytes, len));
 		this->off = 0;
 		if (!readNBytes(in, this->bb, len)) {
@@ -361,48 +266,32 @@ CharsetMapping* CharsetMapping::load($InputStream* in) {
 		}
 		in->close();
 		while (this->off < len) {
-			int32_t var$3 = (((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255)) << 8);
-			int32_t type = var$3 | ((int32_t)($nc(this->bb)->get(this->off++) & (uint32_t)255));
+			int32_t var$3 = (this->bb->get(this->off++) & 0xff) << 8;
+			int32_t type = var$3 | (this->bb->get(this->off++) & 0xff);
 			switch (type) {
 			case CharsetMapping::MAP_INDEXC2B:
-				{
-					readINDEXC2B();
-					break;
-				}
+				readINDEXC2B();
+				break;
 			case CharsetMapping::MAP_SINGLEBYTE:
-				{
-					readSINGLEBYTE();
-					break;
-				}
+				readSINGLEBYTE();
+				break;
 			case CharsetMapping::MAP_DOUBLEBYTE1:
-				{
-					readDOUBLEBYTE1();
-					break;
-				}
+				readDOUBLEBYTE1();
+				break;
 			case CharsetMapping::MAP_DOUBLEBYTE2:
-				{
-					readDOUBLEBYTE2();
-					break;
-				}
+				readDOUBLEBYTE2();
+				break;
 			case CharsetMapping::MAP_SUPPLEMENT:
-				{
-					$set(this, b2cSupp, readCharArray());
-					break;
-				}
+				$set(this, b2cSupp, readCharArray());
+				break;
 			case CharsetMapping::MAP_SUPPLEMENT_C2B:
-				{
-					$set(this, c2bSupp, readCharArray());
-					break;
-				}
+				$set(this, c2bSupp, readCharArray());
+				break;
 			case CharsetMapping::MAP_COMPOSITE:
-				{
-					readCOMPOSITE();
-					break;
-				}
+				readCOMPOSITE();
+				break;
 			default:
-				{
-					$throwNew($RuntimeException, "Corrupted data file"_s);
-				}
+				$throwNew($RuntimeException, "Corrupted data file"_s);
 			}
 		}
 		$set(this, bb, nullptr);
@@ -414,7 +303,7 @@ CharsetMapping* CharsetMapping::load($InputStream* in) {
 	$shouldNotReachHere();
 }
 
-void clinit$CharsetMapping($Class* class$) {
+void CharsetMapping::clinit$($Class* clazz) {
 	$assignStatic(CharsetMapping::comparatorBytes, $new($CharsetMapping$2));
 	$assignStatic(CharsetMapping::comparatorCP, $new($CharsetMapping$3));
 	$assignStatic(CharsetMapping::comparatorComp, $new($CharsetMapping$4));
@@ -424,7 +313,89 @@ CharsetMapping::CharsetMapping() {
 }
 
 $Class* CharsetMapping::load$($String* name, bool initialize) {
-	$loadClass(CharsetMapping, name, initialize, &_CharsetMapping_ClassInfo_, clinit$CharsetMapping, allocate$CharsetMapping);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNMAPPABLE_DECODING", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharsetMapping, UNMAPPABLE_DECODING)},
+		{"UNMAPPABLE_ENCODING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharsetMapping, UNMAPPABLE_ENCODING)},
+		{"b2cSB", "[C", nullptr, 0, $field(CharsetMapping, b2cSB)},
+		{"b2cDB1", "[C", nullptr, 0, $field(CharsetMapping, b2cDB1)},
+		{"b2cDB2", "[C", nullptr, 0, $field(CharsetMapping, b2cDB2)},
+		{"b2Min", "I", nullptr, 0, $field(CharsetMapping, b2Min)},
+		{"b2Max", "I", nullptr, 0, $field(CharsetMapping, b2Max)},
+		{"b1MinDB1", "I", nullptr, 0, $field(CharsetMapping, b1MinDB1)},
+		{"b1MaxDB1", "I", nullptr, 0, $field(CharsetMapping, b1MaxDB1)},
+		{"b1MinDB2", "I", nullptr, 0, $field(CharsetMapping, b1MinDB2)},
+		{"b1MaxDB2", "I", nullptr, 0, $field(CharsetMapping, b1MaxDB2)},
+		{"dbSegSize", "I", nullptr, 0, $field(CharsetMapping, dbSegSize)},
+		{"c2b", "[C", nullptr, 0, $field(CharsetMapping, c2b)},
+		{"c2bIndex", "[C", nullptr, 0, $field(CharsetMapping, c2bIndex)},
+		{"b2cSupp", "[C", nullptr, 0, $field(CharsetMapping, b2cSupp)},
+		{"c2bSupp", "[C", nullptr, 0, $field(CharsetMapping, c2bSupp)},
+		{"b2cComp", "[Lsun/nio/cs/CharsetMapping$Entry;", nullptr, 0, $field(CharsetMapping, b2cComp)},
+		{"c2bComp", "[Lsun/nio/cs/CharsetMapping$Entry;", nullptr, 0, $field(CharsetMapping, c2bComp)},
+		{"comparatorBytes", "Ljava/util/Comparator;", "Ljava/util/Comparator<Lsun/nio/cs/CharsetMapping$Entry;>;", $STATIC, $staticField(CharsetMapping, comparatorBytes)},
+		{"comparatorCP", "Ljava/util/Comparator;", "Ljava/util/Comparator<Lsun/nio/cs/CharsetMapping$Entry;>;", $STATIC, $staticField(CharsetMapping, comparatorCP)},
+		{"comparatorComp", "Ljava/util/Comparator;", "Ljava/util/Comparator<Lsun/nio/cs/CharsetMapping$Entry;>;", $STATIC, $staticField(CharsetMapping, comparatorComp)},
+		{"MAP_SINGLEBYTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_SINGLEBYTE)},
+		{"MAP_DOUBLEBYTE1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_DOUBLEBYTE1)},
+		{"MAP_DOUBLEBYTE2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_DOUBLEBYTE2)},
+		{"MAP_SUPPLEMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_SUPPLEMENT)},
+		{"MAP_SUPPLEMENT_C2B", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_SUPPLEMENT_C2B)},
+		{"MAP_COMPOSITE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_COMPOSITE)},
+		{"MAP_INDEXC2B", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CharsetMapping, MAP_INDEXC2B)},
+		{"off", "I", nullptr, 0, $field(CharsetMapping, off)},
+		{"bb", "[B", nullptr, 0, $field(CharsetMapping, bb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CharsetMapping, init$, void)},
+		{"decodeComposite", "(Lsun/nio/cs/CharsetMapping$Entry;[C)[C", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, decodeComposite, $chars*, $CharsetMapping$Entry*, $chars*)},
+		{"decodeDouble", "(II)C", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, decodeDouble, char16_t, int32_t, int32_t)},
+		{"decodeSingle", "(I)C", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, decodeSingle, char16_t, int32_t)},
+		{"decodeSurrogate", "(I[C)[C", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, decodeSurrogate, $chars*, int32_t, $chars*)},
+		{"encodeChar", "(C)I", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, encodeChar, int32_t, char16_t)},
+		{"encodeComposite", "(Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, encodeComposite, int32_t, $CharsetMapping$Entry*)},
+		{"encodeSurrogate", "(CC)I", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, encodeSurrogate, int32_t, char16_t, char16_t)},
+		{"findBytes", "([Lsun/nio/cs/CharsetMapping$Entry;Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $STATIC, $staticMethod(CharsetMapping, findBytes, int32_t, $CharsetMapping$EntryArray*, $CharsetMapping$Entry*)},
+		{"findCP", "([Lsun/nio/cs/CharsetMapping$Entry;Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $STATIC, $staticMethod(CharsetMapping, findCP, int32_t, $CharsetMapping$EntryArray*, $CharsetMapping$Entry*)},
+		{"findComp", "([Lsun/nio/cs/CharsetMapping$Entry;Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $STATIC, $staticMethod(CharsetMapping, findComp, int32_t, $CharsetMapping$EntryArray*, $CharsetMapping$Entry*)},
+		{"get", "(Ljava/io/InputStream;)Lsun/nio/cs/CharsetMapping;", nullptr, $PUBLIC | $STATIC, $staticMethod(CharsetMapping, get, CharsetMapping*, $InputStream*)},
+		{"isCompositeBase", "(Lsun/nio/cs/CharsetMapping$Entry;)Z", nullptr, $PUBLIC, $virtualMethod(CharsetMapping, isCompositeBase, bool, $CharsetMapping$Entry*)},
+		{"load", "(Ljava/io/InputStream;)Lsun/nio/cs/CharsetMapping;", nullptr, 0, $virtualMethod(CharsetMapping, load, CharsetMapping*, $InputStream*)},
+		{"readCOMPOSITE", "()V", nullptr, 0, $virtualMethod(CharsetMapping, readCOMPOSITE, void)},
+		{"readCharArray", "()[C", nullptr, $PRIVATE, $method(CharsetMapping, readCharArray, $chars*)},
+		{"readDB", "(III)[C", nullptr, 0, $virtualMethod(CharsetMapping, readDB, $chars*, int32_t, int32_t, int32_t)},
+		{"readDOUBLEBYTE1", "()V", nullptr, 0, $virtualMethod(CharsetMapping, readDOUBLEBYTE1, void)},
+		{"readDOUBLEBYTE2", "()V", nullptr, 0, $virtualMethod(CharsetMapping, readDOUBLEBYTE2, void)},
+		{"readINDEXC2B", "()V", nullptr, 0, $virtualMethod(CharsetMapping, readINDEXC2B, void)},
+		{"readNBytes", "(Ljava/io/InputStream;[BI)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CharsetMapping, readNBytes, bool, $InputStream*, $bytes*, int32_t), "java.io.IOException"},
+		{"readSINGLEBYTE", "()V", nullptr, 0, $virtualMethod(CharsetMapping, readSINGLEBYTE, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.CharsetMapping$Entry", "sun.nio.cs.CharsetMapping", "Entry", $PUBLIC | $STATIC},
+		{"sun.nio.cs.CharsetMapping$4", nullptr, nullptr, 0},
+		{"sun.nio.cs.CharsetMapping$3", nullptr, nullptr, 0},
+		{"sun.nio.cs.CharsetMapping$2", nullptr, nullptr, 0},
+		{"sun.nio.cs.CharsetMapping$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.CharsetMapping",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.CharsetMapping$Entry,sun.nio.cs.CharsetMapping$4,sun.nio.cs.CharsetMapping$3,sun.nio.cs.CharsetMapping$2,sun.nio.cs.CharsetMapping$1"
+	};
+	$loadClass(CharsetMapping, name, initialize, &classInfo$$, CharsetMapping::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CharsetMapping);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsPath.h>
-
 #include <java/io/IOError.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
@@ -76,7 +75,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 using $ExtendedOptions = ::sun::nio::fs::ExtendedOptions;
-using $ExtendedOptions$InternalOption = ::sun::nio::fs::ExtendedOptions$InternalOption;
 using $Util = ::sun::nio::fs::Util;
 using $WindowsException = ::sun::nio::fs::WindowsException;
 using $WindowsFileAttributes = ::sun::nio::fs::WindowsFileAttributes;
@@ -95,95 +93,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsPath_FieldInfo_[] = {
-	{"MAX_PATH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPath, MAX_PATH)},
-	{"MAX_LONG_PATH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPath, MAX_LONG_PATH)},
-	{"fs", "Lsun/nio/fs/WindowsFileSystem;", nullptr, $PRIVATE | $FINAL, $field(WindowsPath, fs)},
-	{"type", "Lsun/nio/fs/WindowsPathType;", nullptr, $PRIVATE | $FINAL, $field(WindowsPath, type$)},
-	{"root", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsPath, root)},
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsPath, path)},
-	{"pathForWin32Calls", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/lang/String;>;", $PRIVATE | $VOLATILE, $field(WindowsPath, pathForWin32Calls)},
-	{"offsets", "[Ljava/lang/Integer;", nullptr, $PRIVATE | $VOLATILE, $field(WindowsPath, offsets)},
-	{"hash", "I", nullptr, $PRIVATE, $field(WindowsPath, hash)},
-	{}
-};
-
-$MethodInfo _WindowsPath_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;Lsun/nio/fs/WindowsPathType;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WindowsPath, init$, void, $WindowsFileSystem*, $WindowsPathType*, $String*, $String*)},
-	{"addPrefixIfNeeded", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(WindowsPath, addPrefixIfNeeded, $String*, $String*)},
-	{"checkDelete", "()V", nullptr, 0, $virtualMethod(WindowsPath, checkDelete, void)},
-	{"checkRead", "()V", nullptr, 0, $virtualMethod(WindowsPath, checkRead, void)},
-	{"checkWrite", "()V", nullptr, 0, $virtualMethod(WindowsPath, checkWrite, void)},
-	{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC, $virtualMethod(WindowsPath, compareTo, int32_t, $Path*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath, compareTo, int32_t, Object$*)},
-	{"createFromNormalizedPath", "(Lsun/nio/fs/WindowsFileSystem;Ljava/lang/String;Ljava/nio/file/attribute/BasicFileAttributes;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $staticMethod(WindowsPath, createFromNormalizedPath, WindowsPath*, $WindowsFileSystem*, $String*, $BasicFileAttributes*)},
-	{"createFromNormalizedPath", "(Lsun/nio/fs/WindowsFileSystem;Ljava/lang/String;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $staticMethod(WindowsPath, createFromNormalizedPath, WindowsPath*, $WindowsFileSystem*, $String*)},
-	{"elementAsString", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsPath, elementAsString, $String*, int32_t)},
-	{"emptyPath", "()Lsun/nio/fs/WindowsPath;", nullptr, $PRIVATE, $method(WindowsPath, emptyPath, WindowsPath*)},
-	{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsPath, endsWith, bool, $Path*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsPath, equals, bool, Object$*)},
-	{"getAbsolutePath", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsPath, getAbsolutePath, $String*), "sun.nio.fs.WindowsException"},
-	{"getFileName", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getFileName, $Path*)},
-	{"getFileSystem", "()Lsun/nio/fs/WindowsFileSystem;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getFileSystem, $FileSystem*)},
-	{"getName", "(I)Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getName, WindowsPath*, int32_t)},
-	{"getNameCount", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getNameCount, int32_t)},
-	{"getParent", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getParent, WindowsPath*)},
-	{"getPathForExceptionMessage", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPath, getPathForExceptionMessage, $String*)},
-	{"getPathForPermissionCheck", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPath, getPathForPermissionCheck, $String*)},
-	{"getPathForWin32Calls", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPath, getPathForWin32Calls, $String*), "sun.nio.fs.WindowsException"},
-	{"getRoot", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getRoot, WindowsPath*)},
-	{"hasDotOrDotDot", "()Z", nullptr, $PRIVATE, $method(WindowsPath, hasDotOrDotDot, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsPath, hashCode, int32_t)},
-	{"initOffsets", "()V", nullptr, $PRIVATE, $method(WindowsPath, initOffsets, void)},
-	{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsPath, isAbsolute, bool)},
-	{"isEmpty", "()Z", nullptr, $PRIVATE, $method(WindowsPath, isEmpty, bool)},
-	{"isSameDrive", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPath, isSameDrive, bool, $String*, $String*)},
-	{"isUnc", "()Z", nullptr, 0, $virtualMethod(WindowsPath, isUnc, bool)},
-	{"needsSlashWhenResolving", "()Z", nullptr, 0, $virtualMethod(WindowsPath, needsSlashWhenResolving, bool)},
-	{"normalize", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, normalize, WindowsPath*)},
-	{"openFileForReadAttributeAccess", "(I)J", nullptr, $PRIVATE, $method(WindowsPath, openFileForReadAttributeAccess, int64_t, int32_t), "sun.nio.fs.WindowsException"},
-	{"openForReadAttributeAccess", "(Z)J", nullptr, 0, $virtualMethod(WindowsPath, openForReadAttributeAccess, int64_t, bool), "sun.nio.fs.WindowsException"},
-	{"openSocketForReadAttributeAccess", "()J", nullptr, $PRIVATE, $method(WindowsPath, openSocketForReadAttributeAccess, int64_t), "sun.nio.fs.WindowsException"},
-	{"parse", "(Lsun/nio/fs/WindowsFileSystem;Ljava/lang/String;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $staticMethod(WindowsPath, parse, WindowsPath*, $WindowsFileSystem*, $String*)},
-	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
-	{"relativize", "(Ljava/nio/file/Path;)Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, relativize, WindowsPath*, $Path*)},
-	{"resolve", "(Ljava/nio/file/Path;)Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, resolve, WindowsPath*, $Path*)},
-	{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsPath, startsWith, bool, $Path*)},
-	{"subpath", "(II)Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, subpath, WindowsPath*, int32_t, int32_t)},
-	{"toAbsolutePath", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, toAbsolutePath, WindowsPath*)},
-	{"toRealPath", "([Ljava/nio/file/LinkOption;)Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(WindowsPath, toRealPath, WindowsPath*, $LinkOptionArray*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, toString, $String*)},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, toUri, $URI*)},
-	{"toWindowsPath", "(Ljava/nio/file/Path;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $staticMethod(WindowsPath, toWindowsPath, WindowsPath*, $Path*)},
-	{"type", "()Lsun/nio/fs/WindowsPathType;", nullptr, 0, $virtualMethod(WindowsPath, type, $WindowsPathType*)},
-	{}
-};
-
-$InnerClassInfo _WindowsPath_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsPath$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.nio.fs.WindowsPath$WindowsPathWithAttributes", "sun.nio.fs.WindowsPath", "WindowsPathWithAttributes", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsPath_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsPath",
-	"java.lang.Object",
-	"java.nio.file.Path",
-	_WindowsPath_FieldInfo_,
-	_WindowsPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsPath$1,sun.nio.fs.WindowsPath$WindowsPathWithAttributes"
-};
-
-$Object* allocate$WindowsPath($Class* clazz) {
-	return $of($alloc(WindowsPath));
-}
-
 void WindowsPath::init$($WindowsFileSystem* fs, $WindowsPathType* type, $String* root, $String* path) {
 	$set(this, fs, fs);
 	$set(this, type$, type);
@@ -193,32 +102,29 @@ void WindowsPath::init$($WindowsFileSystem* fs, $WindowsPathType* type, $String*
 
 WindowsPath* WindowsPath::parse($WindowsFileSystem* fs, $String* path) {
 	$init(WindowsPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPathParser$Result, result, $WindowsPathParser::parse(path));
-	$var($WindowsFileSystem, var$0, fs);
-	$var($WindowsPathType, var$1, $nc(result)->type());
-	$var($String, var$2, result->root());
-	return $new(WindowsPath, var$0, var$1, var$2, $(result->path()));
+	$var($WindowsPathType, var$0, $nc(result)->type());
+	$var($String, var$1, result->root());
+	return $new(WindowsPath, fs, var$0, var$1, $(result->path()));
 }
 
 WindowsPath* WindowsPath::createFromNormalizedPath($WindowsFileSystem* fs, $String* path, $BasicFileAttributes* attrs) {
 	$init(WindowsPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($WindowsPathParser$Result, result, $WindowsPathParser::parseNormalizedPath(path));
 		if (attrs == nullptr) {
-			$var($WindowsFileSystem, var$0, fs);
-			$var($WindowsPathType, var$1, $nc(result)->type());
-			$var($String, var$2, result->root());
-			return $new(WindowsPath, var$0, var$1, var$2, $(result->path()));
+			$var($WindowsPathType, var$0, $nc(result)->type());
+			$var($String, var$1, result->root());
+			return $new(WindowsPath, fs, var$0, var$1, $(result->path()));
 		} else {
-			$var($WindowsFileSystem, var$3, fs);
-			$var($WindowsPathType, var$4, $nc(result)->type());
-			$var($String, var$5, result->root());
-			return $new($WindowsPath$WindowsPathWithAttributes, var$3, var$4, var$5, $(result->path()), attrs);
+			$var($WindowsPathType, var$2, $nc(result)->type());
+			$var($String, var$3, result->root());
+			return $new($WindowsPath$WindowsPathWithAttributes, fs, var$2, var$3, $(result->path()), attrs);
 		}
 	} catch ($InvalidPathException& x) {
-		$throwNew($AssertionError, $($of(x->getMessage())));
+		$throwNew($AssertionError, $$of(x->getMessage()));
 	}
 	$shouldNotReachHere();
 }
@@ -237,13 +143,13 @@ $String* WindowsPath::getPathForPermissionCheck() {
 }
 
 $String* WindowsPath::getPathForWin32Calls() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isAbsolute();
 	if (var$0 && $nc(this->path)->length() <= WindowsPath::MAX_PATH) {
 		return this->path;
 	}
 	$var($WeakReference, ref, this->pathForWin32Calls);
-	$var($String, resolved, (ref != nullptr) ? $cast($String, $nc(ref)->get()) : ($String*)nullptr);
+	$var($String, resolved, (ref != nullptr) ? $cast($String, ref->get()) : ($String*)nullptr);
 	if (resolved != nullptr) {
 		return resolved;
 	}
@@ -264,13 +170,13 @@ $String* WindowsPath::getPathForWin32Calls() {
 }
 
 $String* WindowsPath::getAbsolutePath() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isAbsolute()) {
 		return this->path;
 	}
 	$init($WindowsPathType);
 	if (this->type$ == $WindowsPathType::RELATIVE) {
-		$var($String, defaultDirectory, $nc($($cast($WindowsFileSystem, getFileSystem())))->defaultDirectory());
+		$var($String, defaultDirectory, $$sure($WindowsFileSystem, getFileSystem())->defaultDirectory());
 		if (isEmpty()) {
 			return defaultDirectory;
 		}
@@ -283,12 +189,12 @@ $String* WindowsPath::getAbsolutePath() {
 		}
 	}
 	if (this->type$ == $WindowsPathType::DIRECTORY_RELATIVE) {
-		$var($String, defaultRoot, $nc($($cast($WindowsFileSystem, getFileSystem())))->defaultRoot());
+		$var($String, defaultRoot, $$sure($WindowsFileSystem, getFileSystem())->defaultRoot());
 		return $str({defaultRoot, $($nc(this->path)->substring(1))});
 	}
-	if (isSameDrive(this->root, $($nc($($cast($WindowsFileSystem, getFileSystem())))->defaultRoot()))) {
+	if (isSameDrive(this->root, $($$sure($WindowsFileSystem, getFileSystem())->defaultRoot()))) {
 		$var($String, remaining, $nc(this->path)->substring($nc(this->root)->length()));
-		$var($String, defaultDirectory, $nc($($cast($WindowsFileSystem, getFileSystem())))->defaultDirectory());
+		$var($String, defaultDirectory, $$sure($WindowsFileSystem, getFileSystem())->defaultDirectory());
 		if (remaining->isEmpty()) {
 			return defaultDirectory;
 		} else if ($nc(defaultDirectory)->endsWith("\\"_s)) {
@@ -311,9 +217,9 @@ $String* WindowsPath::getAbsolutePath() {
 		if ($nc(wd)->endsWith("\\"_s)) {
 			$plusAssign(result, $($nc(this->path)->substring($nc(this->root)->length())));
 		} else {
-			int32_t var$2 = $nc(this->path)->length();
-			if (var$2 > $nc(this->root)->length()) {
-				$plusAssign(result, $$str({"\\"_s, $($nc(this->path)->substring($nc(this->root)->length()))}));
+			int32_t var$1 = $nc(this->path)->length();
+			if (var$1 > $nc(this->root)->length()) {
+				$plusAssign(result, $$str({"\\"_s, $(this->path->substring(this->root->length()))}));
 			}
 		}
 		return result;
@@ -328,7 +234,7 @@ bool WindowsPath::isSameDrive($String* root1, $String* root2) {
 
 $String* WindowsPath::addPrefixIfNeeded($String* path$renamed) {
 	$init(WindowsPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, path, path$renamed);
 	if ($nc(path)->length() > WindowsPath::MAX_PATH) {
 		if (path->startsWith("\\\\"_s)) {
@@ -350,11 +256,11 @@ bool WindowsPath::isEmpty() {
 
 WindowsPath* WindowsPath::emptyPath() {
 	$init($WindowsPathType);
-	return $new(WindowsPath, $($cast($WindowsFileSystem, getFileSystem())), $WindowsPathType::RELATIVE, ""_s, ""_s);
+	return $new(WindowsPath, $$cast($WindowsFileSystem, getFileSystem()), $WindowsPathType::RELATIVE, ""_s, ""_s);
 }
 
 $Path* WindowsPath::getFileName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(this->path)->length();
 	if (len == 0) {
 		return this;
@@ -362,9 +268,9 @@ $Path* WindowsPath::getFileName() {
 	if ($nc(this->root)->length() == len) {
 		return nullptr;
 	}
-	int32_t off = $nc(this->path)->lastIndexOf((int32_t)u'\\');
-	if (off < $nc(this->root)->length()) {
-		off = $nc(this->root)->length();
+	int32_t off = this->path->lastIndexOf(u'\\');
+	if (off < this->root->length()) {
+		off = this->root->length();
 	} else {
 		++off;
 	}
@@ -372,23 +278,23 @@ $Path* WindowsPath::getFileName() {
 	$init($WindowsPathType);
 	$var($WindowsPathType, var$1, $WindowsPathType::RELATIVE);
 	$var($String, var$2, ""_s);
-	return $new(WindowsPath, var$0, var$1, var$2, $($nc(this->path)->substring(off)));
+	return $new(WindowsPath, var$0, var$1, var$2, $(this->path->substring(off)));
 }
 
 WindowsPath* WindowsPath::getParent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(this->root)->length();
 	if (var$0 == $nc(this->path)->length()) {
 		return nullptr;
 	}
-	int32_t off = $nc(this->path)->lastIndexOf((int32_t)u'\\');
-	if (off < $nc(this->root)->length()) {
+	int32_t off = this->path->lastIndexOf(u'\\');
+	if (off < this->root->length()) {
 		return getRoot();
 	} else {
 		$var($WindowsFileSystem, var$1, $cast($WindowsFileSystem, getFileSystem()));
 		$var($WindowsPathType, var$2, this->type$);
 		$var($String, var$3, this->root);
-		return $new(WindowsPath, var$1, var$2, var$3, $($nc(this->path)->substring(0, off)));
+		return $new(WindowsPath, var$1, var$2, var$3, $(this->path->substring(0, off)));
 	}
 }
 
@@ -396,7 +302,7 @@ WindowsPath* WindowsPath::getRoot() {
 	if ($nc(this->root)->isEmpty()) {
 		return nullptr;
 	}
-	return $new(WindowsPath, $($cast($WindowsFileSystem, getFileSystem())), this->type$, this->root, this->root);
+	return $new(WindowsPath, $$cast($WindowsFileSystem, getFileSystem()), this->type$, this->root, this->root);
 }
 
 $WindowsPathType* WindowsPath::type() {
@@ -412,7 +318,7 @@ bool WindowsPath::needsSlashWhenResolving() {
 	if ($nc(this->path)->endsWith("\\"_s)) {
 		return false;
 	}
-	int32_t var$0 = $nc(this->path)->length();
+	int32_t var$0 = this->path->length();
 	return var$0 > $nc(this->root)->length();
 }
 
@@ -433,7 +339,7 @@ WindowsPath* WindowsPath::toWindowsPath($Path* path) {
 }
 
 bool WindowsPath::hasDotOrDotDot() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = getNameCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($String, name, elementAsString(i));
@@ -441,7 +347,7 @@ bool WindowsPath::hasDotOrDotDot() {
 		if (var$0 && name->charAt(0) == u'.') {
 			return true;
 		}
-		bool var$2 = $nc(name)->length() == 2;
+		bool var$2 = name->length() == 2;
 		bool var$1 = var$2 && name->charAt(0) == u'.';
 		if (var$1 && name->charAt(1) == u'.') {
 			return true;
@@ -451,7 +357,7 @@ bool WindowsPath::hasDotOrDotDot() {
 }
 
 WindowsPath* WindowsPath::relativize($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(WindowsPath, child, toWindowsPath(obj));
 	if (this->equals(child)) {
 		return emptyPath();
@@ -459,7 +365,7 @@ WindowsPath* WindowsPath::relativize($Path* obj) {
 	if (this->type$ != $nc(child)->type$) {
 		$throwNew($IllegalArgumentException, "\'other\' is different type of Path"_s);
 	}
-	if (!$nc(this->root)->equalsIgnoreCase($nc(child)->root)) {
+	if (!$nc(this->root)->equalsIgnoreCase(child->root)) {
 		$throwNew($IllegalArgumentException, "\'other\' has different root"_s);
 	}
 	if (this->isEmpty()) {
@@ -467,16 +373,16 @@ WindowsPath* WindowsPath::relativize($Path* obj) {
 	}
 	$var(WindowsPath, base, this);
 	bool var$0 = base->hasDotOrDotDot();
-	if (var$0 || $nc(child)->hasDotOrDotDot()) {
+	if (var$0 || child->hasDotOrDotDot()) {
 		$assign(base, base->normalize());
 		$assign(child, child->normalize());
 	}
-	int32_t baseCount = base->getNameCount();
+	int32_t baseCount = $nc(base)->getNameCount();
 	int32_t childCount = $nc(child)->getNameCount();
 	int32_t n = $Math::min(baseCount, childCount);
 	int32_t i = 0;
 	while (i < n) {
-		if (!$nc($(base->getName(i)))->equals($(child->getName(i)))) {
+		if (!$$nc(base->getName(i))->equals($(child->getName(i)))) {
 			break;
 		}
 		++i;
@@ -497,10 +403,10 @@ WindowsPath* WindowsPath::relativize($Path* obj) {
 	if ($nc(baseRemaining)->hasDotOrDotDot()) {
 		$throwNew($IllegalArgumentException, $$str({"Unable to compute relative  path from "_s, this, " to "_s, obj}));
 	}
-	if ($nc(baseRemaining)->isEmpty()) {
+	if (baseRemaining->isEmpty()) {
 		return childRemaining;
 	}
-	int32_t dotdots = $nc(baseRemaining)->getNameCount();
+	int32_t dotdots = baseRemaining->getNameCount();
 	if (dotdots == 0) {
 		return childRemaining;
 	}
@@ -510,7 +416,7 @@ WindowsPath* WindowsPath::relativize($Path* obj) {
 	}
 	if (!isChildEmpty) {
 		for (int32_t j = 0; j < $nc(childRemaining)->getNameCount(); ++j) {
-			result->append($($nc($(childRemaining->getName(j)))->toString()));
+			result->append($($$nc(childRemaining->getName(j))->toString()));
 			result->append("\\"_s);
 		}
 	}
@@ -520,7 +426,7 @@ WindowsPath* WindowsPath::relativize($Path* obj) {
 }
 
 WindowsPath* WindowsPath::normalize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = getNameCount();
 	if (count == 0 || isEmpty()) {
 		return this;
@@ -540,7 +446,7 @@ WindowsPath* WindowsPath::normalize() {
 				prevName = i;
 				continue;
 			}
-			if ($nc(name)->length() == 1) {
+			if (name->length() == 1) {
 				if (name->charAt(0) == u'.') {
 					ignore->set(i, true);
 					--remaining;
@@ -549,8 +455,8 @@ WindowsPath* WindowsPath::normalize() {
 				}
 				continue;
 			}
-			bool var$0 = $nc(name)->charAt(0) != u'.';
-			if (var$0 || $nc(name)->charAt(1) != u'.') {
+			bool var$0 = name->charAt(0) != u'.';
+			if (var$0 || name->charAt(1) != u'.') {
 				prevName = i;
 				continue;
 			}
@@ -589,7 +495,7 @@ WindowsPath* WindowsPath::normalize() {
 	}
 	for (int32_t i = 0; i < count; ++i) {
 		if (!ignore->get(i)) {
-			result->append($($of(getName(i))));
+			result->append($(getName(i)));
 			result->append("\\"_s);
 		}
 	}
@@ -599,83 +505,75 @@ WindowsPath* WindowsPath::normalize() {
 }
 
 WindowsPath* WindowsPath::resolve($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(WindowsPath, other, toWindowsPath(obj));
 	if ($nc(other)->isEmpty()) {
 		return this;
 	}
-	if ($nc(other)->isAbsolute()) {
+	if (other->isAbsolute()) {
 		return other;
 	}
 	$init($WindowsPath$1);
-	switch ($nc($WindowsPath$1::$SwitchMap$sun$nio$fs$WindowsPathType)->get(($nc(other)->type$)->ordinal())) {
+	switch ($nc($WindowsPath$1::$SwitchMap$sun$nio$fs$WindowsPathType)->get((other->type$)->ordinal())) {
 	case 1:
 		{
-			{
-				$var($String, result, nullptr);
-				bool var$0 = $nc(this->path)->endsWith("\\"_s);
-				if (!var$0) {
-					int32_t var$1 = $nc(this->root)->length();
-					var$0 = (var$1 == $nc(this->path)->length());
-				}
-				if (var$0) {
-					$assign(result, $str({this->path, other->path}));
-				} else {
-					$assign(result, $str({this->path, "\\"_s, other->path}));
-				}
-				return $new(WindowsPath, $($cast($WindowsFileSystem, getFileSystem())), this->type$, this->root, result);
+			$var($String, result, nullptr);
+			bool var$0 = $nc(this->path)->endsWith("\\"_s);
+			if (!var$0) {
+				int32_t var$1 = $nc(this->root)->length();
+				var$0 = var$1 == this->path->length();
 			}
+			if (var$0) {
+				$assign(result, $str({this->path, other->path}));
+			} else {
+				$assign(result, $str({this->path, "\\"_s, other->path}));
+			}
+			return $new(WindowsPath, $$cast($WindowsFileSystem, getFileSystem()), this->type$, this->root, result);
 		}
 	case 2:
 		{
-			{
-				$var($String, result, nullptr);
-				if ($nc(this->root)->endsWith("\\"_s)) {
-					$assign(result, $str({this->root, $($nc(other->path)->substring(1))}));
-				} else {
-					$assign(result, $str({this->root, other->path}));
-				}
-				return createFromNormalizedPath($($cast($WindowsFileSystem, getFileSystem())), result);
+			$var($String, result, nullptr);
+			if ($nc(this->root)->endsWith("\\"_s)) {
+				$assign(result, $str({this->root, $($nc(other->path)->substring(1))}));
+			} else {
+				$assign(result, $str({this->root, other->path}));
 			}
+			return createFromNormalizedPath($$cast($WindowsFileSystem, getFileSystem()), result);
 		}
 	case 3:
 		{
-			{
-				if (!$nc(this->root)->endsWith("\\"_s)) {
-					return other;
-				}
-				$var($String, thisRoot, $nc(this->root)->substring(0, $nc(this->root)->length() - 1));
-				if (!thisRoot->equalsIgnoreCase(other->root)) {
-					return other;
-				}
-				$var($String, remaining, $nc(other->path)->substring($nc(other->root)->length()));
-				$var($String, result, nullptr);
-				if ($nc(this->path)->endsWith("\\"_s)) {
-					$assign(result, $str({this->path, remaining}));
-				} else {
-					$assign(result, $str({this->path, "\\"_s, remaining}));
-				}
-				return createFromNormalizedPath($($cast($WindowsFileSystem, getFileSystem())), result);
+			if (!$nc(this->root)->endsWith("\\"_s)) {
+				return other;
 			}
+			$var($String, thisRoot, this->root->substring(0, this->root->length() - 1));
+			if (!thisRoot->equalsIgnoreCase(other->root)) {
+				return other;
+			}
+			$var($String, remaining, $nc(other->path)->substring($nc(other->root)->length()));
+			$var($String, result, nullptr);
+			if ($nc(this->path)->endsWith("\\"_s)) {
+				$assign(result, $str({this->path, remaining}));
+			} else {
+				$assign(result, $str({this->path, "\\"_s, remaining}));
+			}
+			return createFromNormalizedPath($$cast($WindowsFileSystem, getFileSystem()), result);
 		}
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
 void WindowsPath::initOffsets() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->offsets == nullptr) {
 		$var($ArrayList, list, $new($ArrayList));
 		if (isEmpty()) {
 			list->add($($Integer::valueOf(0)));
 		} else {
 			int32_t start = $nc(this->root)->length();
-			int32_t off = $nc(this->root)->length();
+			int32_t off = this->root->length();
 			while (off < $nc(this->path)->length()) {
-				if ($nc(this->path)->charAt(off) != u'\\') {
+				if (this->path->charAt(off) != u'\\') {
 					++off;
 				} else {
 					list->add($($Integer::valueOf(start)));
@@ -688,7 +586,7 @@ void WindowsPath::initOffsets() {
 		}
 		$synchronized(this) {
 			if (this->offsets == nullptr) {
-				$set(this, offsets, $fcast($IntegerArray, list->toArray($$new($IntegerArray, list->size()))));
+				$set(this, offsets, $cast($IntegerArray, list->toArray($$new($IntegerArray, list->size()))));
 			}
 		}
 	}
@@ -709,7 +607,7 @@ $String* WindowsPath::elementAsString(int32_t i) {
 }
 
 WindowsPath* WindowsPath::getName(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initOffsets();
 	if (index < 0 || index >= $nc(this->offsets)->length) {
 		$throwNew($IllegalArgumentException);
@@ -722,7 +620,7 @@ WindowsPath* WindowsPath::getName(int32_t index) {
 }
 
 WindowsPath* WindowsPath::subpath(int32_t beginIndex, int32_t endIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initOffsets();
 	if (beginIndex < 0) {
 		$throwNew($IllegalArgumentException);
@@ -751,19 +649,19 @@ WindowsPath* WindowsPath::subpath(int32_t beginIndex, int32_t endIndex) {
 }
 
 bool WindowsPath::startsWith($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(WindowsPath, $Objects::requireNonNull(obj)))) {
 		return false;
 	}
 	$var(WindowsPath, other, $cast(WindowsPath, obj));
-	if (!$nc(this->root)->equalsIgnoreCase($nc(other)->root)) {
+	if (!$nc(this->root)->equalsIgnoreCase(other->root)) {
 		return false;
 	}
-	if ($nc(other)->isEmpty()) {
+	if (other->isEmpty()) {
 		return this->isEmpty();
 	}
 	int32_t thisCount = getNameCount();
-	int32_t otherCount = $nc(other)->getNameCount();
+	int32_t otherCount = other->getNameCount();
 	if (otherCount <= thisCount) {
 		while (--otherCount >= 0) {
 			$var($String, thisElement, this->elementAsString(otherCount));
@@ -778,20 +676,20 @@ bool WindowsPath::startsWith($Path* obj) {
 }
 
 bool WindowsPath::endsWith($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(WindowsPath, $Objects::requireNonNull(obj)))) {
 		return false;
 	}
 	$var(WindowsPath, other, $cast(WindowsPath, obj));
-	int32_t var$0 = $nc($nc(other)->path)->length();
+	int32_t var$0 = $nc(other->path)->length();
 	if (var$0 > $nc(this->path)->length()) {
 		return false;
 	}
-	if ($nc(other)->isEmpty()) {
+	if (other->isEmpty()) {
 		return this->isEmpty();
 	}
 	int32_t thisCount = this->getNameCount();
-	int32_t otherCount = $nc(other)->getNameCount();
+	int32_t otherCount = other->getNameCount();
 	if (otherCount > thisCount) {
 		return false;
 	}
@@ -815,12 +713,12 @@ bool WindowsPath::endsWith($Path* obj) {
 }
 
 int32_t WindowsPath::compareTo($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (obj == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	$var($String, s1, this->path);
-	$var($String, s2, $nc(($cast(WindowsPath, obj)))->path);
+	$var($String, s2, $nc($cast(WindowsPath, obj))->path);
 	int32_t n1 = $nc(s1)->length();
 	int32_t n2 = $nc(s2)->length();
 	int32_t min = $Math::min(n1, n2);
@@ -847,7 +745,7 @@ bool WindowsPath::equals(Object$* obj) {
 			var$0 = true;
 		}
 		if (var$0) {
-			return compareTo(static_cast<$Path*>(path)) == 0;
+			return compareTo(path) == 0;
 		}
 	}
 	return false;
@@ -857,7 +755,7 @@ int32_t WindowsPath::hashCode() {
 	int32_t h = this->hash;
 	if (h == 0) {
 		for (int32_t i = 0; i < $nc(this->path)->length(); ++i) {
-			h = 31 * h + $Character::toUpperCase($nc(this->path)->charAt(i));
+			h = 31 * h + $Character::toUpperCase(this->path->charAt(i));
 		}
 		this->hash = h;
 	}
@@ -908,7 +806,7 @@ int64_t WindowsPath::openSocketForReadAttributeAccess() {
 }
 
 void WindowsPath::checkRead() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkRead($(getPathForPermissionCheck()));
@@ -916,7 +814,7 @@ void WindowsPath::checkRead() {
 }
 
 void WindowsPath::checkWrite() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkWrite($(getPathForPermissionCheck()));
@@ -924,7 +822,7 @@ void WindowsPath::checkWrite() {
 }
 
 void WindowsPath::checkDelete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkDelete($(getPathForPermissionCheck()));
@@ -936,7 +834,7 @@ $URI* WindowsPath::toUri() {
 }
 
 WindowsPath* WindowsPath::toAbsolutePath() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isAbsolute()) {
 		return this;
 	}
@@ -954,14 +852,14 @@ WindowsPath* WindowsPath::toAbsolutePath() {
 }
 
 WindowsPath* WindowsPath::toRealPath($LinkOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkRead();
 	$var($String, rp, $WindowsLinkSupport::getRealPath(this, $Util::followLinks(options)));
-	return createFromNormalizedPath($($cast($WindowsFileSystem, getFileSystem())), rp);
+	return createFromNormalizedPath($$cast($WindowsFileSystem, getFileSystem()), rp);
 }
 
 $WatchKey* WindowsPath::register$($WatchService* watcher, $WatchEvent$KindArray* events, $WatchEvent$ModifierArray* modifiers$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WatchEvent$ModifierArray, modifiers, modifiers$renamed);
 	if (watcher == nullptr) {
 		$throwNew($NullPointerException);
@@ -974,7 +872,7 @@ $WatchKey* WindowsPath::register$($WatchService* watcher, $WatchEvent$KindArray*
 		bool watchSubtree = false;
 		int32_t ml = $nc(modifiers)->length;
 		if (ml > 0) {
-			$assign(modifiers, $fcast($WatchEvent$ModifierArray, $Arrays::copyOf(modifiers, ml)));
+			$assign(modifiers, $cast($WatchEvent$ModifierArray, $Arrays::copyOf(modifiers, ml)));
 			int32_t i = 0;
 			while (i < ml) {
 				$init($ExtendedOptions);
@@ -990,7 +888,7 @@ $WatchKey* WindowsPath::register$($WatchService* watcher, $WatchEvent$KindArray*
 			sm->checkRead($$str({s, "\\-"_s}));
 		}
 	}
-	return $nc(($cast($WindowsWatchService, watcher)))->register$(this, events, modifiers);
+	return $nc($cast($WindowsWatchService, watcher))->register$(this, events, modifiers);
 }
 
 int32_t WindowsPath::compareTo(Object$* obj) {
@@ -1001,7 +899,90 @@ WindowsPath::WindowsPath() {
 }
 
 $Class* WindowsPath::load$($String* name, bool initialize) {
-	$loadClass(WindowsPath, name, initialize, &_WindowsPath_ClassInfo_, allocate$WindowsPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_PATH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPath, MAX_PATH)},
+		{"MAX_LONG_PATH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsPath, MAX_LONG_PATH)},
+		{"fs", "Lsun/nio/fs/WindowsFileSystem;", nullptr, $PRIVATE | $FINAL, $field(WindowsPath, fs)},
+		{"type", "Lsun/nio/fs/WindowsPathType;", nullptr, $PRIVATE | $FINAL, $field(WindowsPath, type$)},
+		{"root", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsPath, root)},
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsPath, path)},
+		{"pathForWin32Calls", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/lang/String;>;", $PRIVATE | $VOLATILE, $field(WindowsPath, pathForWin32Calls)},
+		{"offsets", "[Ljava/lang/Integer;", nullptr, $PRIVATE | $VOLATILE, $field(WindowsPath, offsets)},
+		{"hash", "I", nullptr, $PRIVATE, $field(WindowsPath, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/WindowsFileSystem;Lsun/nio/fs/WindowsPathType;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WindowsPath, init$, void, $WindowsFileSystem*, $WindowsPathType*, $String*, $String*)},
+		{"addPrefixIfNeeded", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(WindowsPath, addPrefixIfNeeded, $String*, $String*)},
+		{"checkDelete", "()V", nullptr, 0, $virtualMethod(WindowsPath, checkDelete, void)},
+		{"checkRead", "()V", nullptr, 0, $virtualMethod(WindowsPath, checkRead, void)},
+		{"checkWrite", "()V", nullptr, 0, $virtualMethod(WindowsPath, checkWrite, void)},
+		{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC, $virtualMethod(WindowsPath, compareTo, int32_t, $Path*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath, compareTo, int32_t, Object$*)},
+		{"createFromNormalizedPath", "(Lsun/nio/fs/WindowsFileSystem;Ljava/lang/String;Ljava/nio/file/attribute/BasicFileAttributes;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $staticMethod(WindowsPath, createFromNormalizedPath, WindowsPath*, $WindowsFileSystem*, $String*, $BasicFileAttributes*)},
+		{"createFromNormalizedPath", "(Lsun/nio/fs/WindowsFileSystem;Ljava/lang/String;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $staticMethod(WindowsPath, createFromNormalizedPath, WindowsPath*, $WindowsFileSystem*, $String*)},
+		{"elementAsString", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsPath, elementAsString, $String*, int32_t)},
+		{"emptyPath", "()Lsun/nio/fs/WindowsPath;", nullptr, $PRIVATE, $method(WindowsPath, emptyPath, WindowsPath*)},
+		{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsPath, endsWith, bool, $Path*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsPath, equals, bool, Object$*)},
+		{"getAbsolutePath", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsPath, getAbsolutePath, $String*), "sun.nio.fs.WindowsException"},
+		{"getFileName", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getFileName, $Path*)},
+		{"getFileSystem", "()Lsun/nio/fs/WindowsFileSystem;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getFileSystem, $FileSystem*)},
+		{"getName", "(I)Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getName, WindowsPath*, int32_t)},
+		{"getNameCount", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getNameCount, int32_t)},
+		{"getParent", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getParent, WindowsPath*)},
+		{"getPathForExceptionMessage", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPath, getPathForExceptionMessage, $String*)},
+		{"getPathForPermissionCheck", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPath, getPathForPermissionCheck, $String*)},
+		{"getPathForWin32Calls", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPath, getPathForWin32Calls, $String*), "sun.nio.fs.WindowsException"},
+		{"getRoot", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, getRoot, WindowsPath*)},
+		{"hasDotOrDotDot", "()Z", nullptr, $PRIVATE, $method(WindowsPath, hasDotOrDotDot, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsPath, hashCode, int32_t)},
+		{"initOffsets", "()V", nullptr, $PRIVATE, $method(WindowsPath, initOffsets, void)},
+		{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsPath, isAbsolute, bool)},
+		{"isEmpty", "()Z", nullptr, $PRIVATE, $method(WindowsPath, isEmpty, bool)},
+		{"isSameDrive", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPath, isSameDrive, bool, $String*, $String*)},
+		{"isUnc", "()Z", nullptr, 0, $virtualMethod(WindowsPath, isUnc, bool)},
+		{"needsSlashWhenResolving", "()Z", nullptr, 0, $virtualMethod(WindowsPath, needsSlashWhenResolving, bool)},
+		{"normalize", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, normalize, WindowsPath*)},
+		{"openFileForReadAttributeAccess", "(I)J", nullptr, $PRIVATE, $method(WindowsPath, openFileForReadAttributeAccess, int64_t, int32_t), "sun.nio.fs.WindowsException"},
+		{"openForReadAttributeAccess", "(Z)J", nullptr, 0, $virtualMethod(WindowsPath, openForReadAttributeAccess, int64_t, bool), "sun.nio.fs.WindowsException"},
+		{"openSocketForReadAttributeAccess", "()J", nullptr, $PRIVATE, $method(WindowsPath, openSocketForReadAttributeAccess, int64_t), "sun.nio.fs.WindowsException"},
+		{"parse", "(Lsun/nio/fs/WindowsFileSystem;Ljava/lang/String;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $staticMethod(WindowsPath, parse, WindowsPath*, $WindowsFileSystem*, $String*)},
+		{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(WindowsPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
+		{"relativize", "(Ljava/nio/file/Path;)Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, relativize, WindowsPath*, $Path*)},
+		{"resolve", "(Ljava/nio/file/Path;)Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, resolve, WindowsPath*, $Path*)},
+		{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsPath, startsWith, bool, $Path*)},
+		{"subpath", "(II)Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, subpath, WindowsPath*, int32_t, int32_t)},
+		{"toAbsolutePath", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, toAbsolutePath, WindowsPath*)},
+		{"toRealPath", "([Ljava/nio/file/LinkOption;)Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(WindowsPath, toRealPath, WindowsPath*, $LinkOptionArray*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, toString, $String*)},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(WindowsPath, toUri, $URI*)},
+		{"toWindowsPath", "(Ljava/nio/file/Path;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $staticMethod(WindowsPath, toWindowsPath, WindowsPath*, $Path*)},
+		{"type", "()Lsun/nio/fs/WindowsPathType;", nullptr, 0, $virtualMethod(WindowsPath, type, $WindowsPathType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsPath$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.nio.fs.WindowsPath$WindowsPathWithAttributes", "sun.nio.fs.WindowsPath", "WindowsPathWithAttributes", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsPath",
+		"java.lang.Object",
+		"java.nio.file.Path",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsPath$1,sun.nio.fs.WindowsPath$WindowsPathWithAttributes"
+	};
+	$loadClass(WindowsPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsPath));
+	});
 	return class$;
 }
 

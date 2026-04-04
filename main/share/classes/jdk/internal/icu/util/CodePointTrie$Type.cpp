@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/util/CodePointTrie$Type.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/icu/util/CodePointTrie.h>
 #include <jcpp.h>
@@ -18,46 +17,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace util {
-
-$FieldInfo _CodePointTrie$Type_FieldInfo_[] = {
-	{"FAST", "Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CodePointTrie$Type, FAST)},
-	{"SMALL", "Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CodePointTrie$Type, SMALL)},
-	{"$VALUES", "[Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CodePointTrie$Type, $VALUES)},
-	{}
-};
-
-$MethodInfo _CodePointTrie$Type_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CodePointTrie$Type, $values, $CodePointTrie$TypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CodePointTrie$Type, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Type, valueOf, CodePointTrie$Type*, $String*)},
-	{"values", "()[Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Type, values, $CodePointTrie$TypeArray*)},
-	{}
-};
-
-$InnerClassInfo _CodePointTrie$Type_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.util.CodePointTrie$Type", "jdk.internal.icu.util.CodePointTrie", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CodePointTrie$Type_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.icu.util.CodePointTrie$Type",
-	"java.lang.Enum",
-	nullptr,
-	_CodePointTrie$Type_FieldInfo_,
-	_CodePointTrie$Type_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/icu/util/CodePointTrie$Type;>;",
-	nullptr,
-	_CodePointTrie$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.util.CodePointTrie"
-};
-
-$Object* allocate$CodePointTrie$Type($Class* clazz) {
-	return $of($alloc(CodePointTrie$Type));
-}
 
 CodePointTrie$Type* CodePointTrie$Type::FAST = nullptr;
 CodePointTrie$Type* CodePointTrie$Type::SMALL = nullptr;
@@ -85,7 +44,7 @@ void CodePointTrie$Type::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CodePointTrie$Type($Class* class$) {
+void CodePointTrie$Type::clinit$($Class* clazz) {
 	$assignStatic(CodePointTrie$Type::FAST, $new(CodePointTrie$Type, "FAST"_s, 0));
 	$assignStatic(CodePointTrie$Type::SMALL, $new(CodePointTrie$Type, "SMALL"_s, 1));
 	$assignStatic(CodePointTrie$Type::$VALUES, CodePointTrie$Type::$values());
@@ -95,7 +54,41 @@ CodePointTrie$Type::CodePointTrie$Type() {
 }
 
 $Class* CodePointTrie$Type::load$($String* name, bool initialize) {
-	$loadClass(CodePointTrie$Type, name, initialize, &_CodePointTrie$Type_ClassInfo_, clinit$CodePointTrie$Type, allocate$CodePointTrie$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"FAST", "Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CodePointTrie$Type, FAST)},
+		{"SMALL", "Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CodePointTrie$Type, SMALL)},
+		{"$VALUES", "[Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CodePointTrie$Type, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CodePointTrie$Type, $values, $CodePointTrie$TypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CodePointTrie$Type, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Type, valueOf, CodePointTrie$Type*, $String*)},
+		{"values", "()[Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Type, values, $CodePointTrie$TypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.util.CodePointTrie$Type", "jdk.internal.icu.util.CodePointTrie", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.icu.util.CodePointTrie$Type",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/icu/util/CodePointTrie$Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.util.CodePointTrie"
+	};
+	$loadClass(CodePointTrie$Type, name, initialize, &classInfo$$, CodePointTrie$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CodePointTrie$Type));
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class WindowsChannelFactory$2 : public ::java::lang::Object {
 	$class(WindowsChannelFactory$2, 0, ::java::lang::Object)
 public:
 	WindowsChannelFactory$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$nio$file$StandardOpenOption;
 };
 

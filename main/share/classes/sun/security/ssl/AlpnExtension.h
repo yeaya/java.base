@@ -31,6 +31,7 @@ class AlpnExtension : public ::java::lang::Object {
 	$class(AlpnExtension, 0, ::java::lang::Object)
 public:
 	AlpnExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* lambda$static$0();
 	static ::sun::security::ssl::HandshakeProducer* chNetworkProducer;

@@ -9,6 +9,7 @@ class $export BigReadWrite : public ::java::lang::Object {
 	$class(BigReadWrite, 0, ::java::lang::Object)
 public:
 	BigReadWrite();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static int32_t testSize;

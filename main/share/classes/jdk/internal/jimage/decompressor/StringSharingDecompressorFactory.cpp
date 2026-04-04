@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/decompressor/StringSharingDecompressorFactory.h>
-
 #include <java/util/Properties.h>
 #include <jdk/internal/jimage/decompressor/ResourceDecompressor.h>
 #include <jdk/internal/jimage/decompressor/ResourceDecompressorFactory.h>
@@ -21,30 +20,6 @@ namespace jdk {
 		namespace jimage {
 			namespace decompressor {
 
-$FieldInfo _StringSharingDecompressorFactory_FieldInfo_[] = {
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StringSharingDecompressorFactory, NAME)},
-	{}
-};
-
-$MethodInfo _StringSharingDecompressorFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringSharingDecompressorFactory, init$, void)},
-	{"newDecompressor", "(Ljava/util/Properties;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC, $virtualMethod(StringSharingDecompressorFactory, newDecompressor, $ResourceDecompressor*, $Properties*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _StringSharingDecompressorFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.jimage.decompressor.StringSharingDecompressorFactory",
-	"jdk.internal.jimage.decompressor.ResourceDecompressorFactory",
-	nullptr,
-	_StringSharingDecompressorFactory_FieldInfo_,
-	_StringSharingDecompressorFactory_MethodInfo_
-};
-
-$Object* allocate$StringSharingDecompressorFactory($Class* clazz) {
-	return $of($alloc(StringSharingDecompressorFactory));
-}
-
 $String* StringSharingDecompressorFactory::NAME = nullptr;
 
 void StringSharingDecompressorFactory::init$() {
@@ -58,12 +33,31 @@ $ResourceDecompressor* StringSharingDecompressorFactory::newDecompressor($Proper
 StringSharingDecompressorFactory::StringSharingDecompressorFactory() {
 }
 
-void clinit$StringSharingDecompressorFactory($Class* class$) {
+void StringSharingDecompressorFactory::clinit$($Class* clazz) {
 	$assignStatic(StringSharingDecompressorFactory::NAME, "compact-cp"_s);
 }
 
 $Class* StringSharingDecompressorFactory::load$($String* name, bool initialize) {
-	$loadClass(StringSharingDecompressorFactory, name, initialize, &_StringSharingDecompressorFactory_ClassInfo_, clinit$StringSharingDecompressorFactory, allocate$StringSharingDecompressorFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StringSharingDecompressorFactory, NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringSharingDecompressorFactory, init$, void)},
+		{"newDecompressor", "(Ljava/util/Properties;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC, $virtualMethod(StringSharingDecompressorFactory, newDecompressor, $ResourceDecompressor*, $Properties*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.jimage.decompressor.StringSharingDecompressorFactory",
+		"jdk.internal.jimage.decompressor.ResourceDecompressorFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringSharingDecompressorFactory, name, initialize, &classInfo$$, StringSharingDecompressorFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StringSharingDecompressorFactory);
+	});
 	return class$;
 }
 

@@ -46,6 +46,7 @@ class $export BitSet : public ::java::lang::Cloneable, public ::java::io::Serial
 public:
 	BitSet();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t nbits);
 	void init$($longs* words);
@@ -104,7 +105,7 @@ public:
 	$longs* words = nullptr;
 	int32_t wordsInUse = 0;
 	bool sizeIsSticky = false;
-	static const int64_t serialVersionUID = (int64_t)0x6EFD887E3934AB21;
+	static const int64_t serialVersionUID = (int64_t)0x6efd887e3934ab21;
 };
 
 	} // util

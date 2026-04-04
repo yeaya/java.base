@@ -1,5 +1,4 @@
 #include <java/util/ImmutableCollections$ListItr.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/ImmutableCollections.h>
@@ -19,69 +18,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {
 	namespace util {
-
-$CompoundAttribute _ImmutableCollections$ListItr_FieldAnnotations_list[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ImmutableCollections$ListItr_FieldAnnotations_size[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ImmutableCollections$ListItr_FieldAnnotations_isListIterator[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$FieldInfo _ImmutableCollections$ListItr_FieldInfo_[] = {
-	{"list", "Ljava/util/List;", "Ljava/util/List<TE;>;", $PRIVATE | $FINAL, $field(ImmutableCollections$ListItr, list), _ImmutableCollections$ListItr_FieldAnnotations_list},
-	{"size", "I", nullptr, $PRIVATE | $FINAL, $field(ImmutableCollections$ListItr, size), _ImmutableCollections$ListItr_FieldAnnotations_size},
-	{"isListIterator", "Z", nullptr, $PRIVATE | $FINAL, $field(ImmutableCollections$ListItr, isListIterator), _ImmutableCollections$ListItr_FieldAnnotations_isListIterator},
-	{"cursor", "I", nullptr, $PRIVATE, $field(ImmutableCollections$ListItr, cursor)},
-	{}
-};
-
-$MethodInfo _ImmutableCollections$ListItr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;I)V", "(Ljava/util/List<TE;>;I)V", 0, $method(ImmutableCollections$ListItr, init$, void, $List*, int32_t)},
-	{"<init>", "(Ljava/util/List;II)V", "(Ljava/util/List<TE;>;II)V", 0, $method(ImmutableCollections$ListItr, init$, void, $List*, int32_t, int32_t)},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, add, void, Object$*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, hasNext, bool)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, hasPrevious, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, next, $Object*)},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, previousIndex, int32_t)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, remove, void)},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, set, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ImmutableCollections$ListItr_InnerClassesInfo_[] = {
-	{"java.util.ImmutableCollections$ListItr", "java.util.ImmutableCollections", "ListItr", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ImmutableCollections$ListItr_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.ImmutableCollections$ListItr",
-	"java.lang.Object",
-	"java.util.ListIterator",
-	_ImmutableCollections$ListItr_FieldInfo_,
-	_ImmutableCollections$ListItr_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
-	nullptr,
-	_ImmutableCollections$ListItr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ImmutableCollections"
-};
-
-$Object* allocate$ImmutableCollections$ListItr($Class* clazz) {
-	return $of($alloc(ImmutableCollections$ListItr));
-}
 
 void ImmutableCollections$ListItr::init$($List* list, int32_t size) {
 	$set(this, list, list);
@@ -106,7 +42,7 @@ $Object* ImmutableCollections$ListItr::next() {
 		int32_t i = this->cursor;
 		$var($Object, next, $nc(this->list)->get(i));
 		this->cursor = i + 1;
-		return $of(next);
+		return next;
 	} catch ($IndexOutOfBoundsException& e) {
 		$throwNew($NoSuchElementException);
 	}
@@ -125,7 +61,7 @@ bool ImmutableCollections$ListItr::hasPrevious() {
 }
 
 $Object* ImmutableCollections$ListItr::previous() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isListIterator) {
 		$throw($($ImmutableCollections::uoe()));
 	}
@@ -133,7 +69,7 @@ $Object* ImmutableCollections$ListItr::previous() {
 		int32_t i = this->cursor - 1;
 		$var($Object, previous, $nc(this->list)->get(i));
 		this->cursor = i;
-		return $of(previous);
+		return previous;
 	} catch ($IndexOutOfBoundsException& e) {
 		$throwNew($NoSuchElementException);
 	}
@@ -166,7 +102,61 @@ ImmutableCollections$ListItr::ImmutableCollections$ListItr() {
 }
 
 $Class* ImmutableCollections$ListItr::load$($String* name, bool initialize) {
-	$loadClass(ImmutableCollections$ListItr, name, initialize, &_ImmutableCollections$ListItr_ClassInfo_, allocate$ImmutableCollections$ListItr);
+	$CompoundAttribute listfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute sizefieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute isListIteratorfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"list", "Ljava/util/List;", "Ljava/util/List<TE;>;", $PRIVATE | $FINAL, $field(ImmutableCollections$ListItr, list), listfieldAnnotations$$},
+		{"size", "I", nullptr, $PRIVATE | $FINAL, $field(ImmutableCollections$ListItr, size), sizefieldAnnotations$$},
+		{"isListIterator", "Z", nullptr, $PRIVATE | $FINAL, $field(ImmutableCollections$ListItr, isListIterator), isListIteratorfieldAnnotations$$},
+		{"cursor", "I", nullptr, $PRIVATE, $field(ImmutableCollections$ListItr, cursor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;I)V", "(Ljava/util/List<TE;>;I)V", 0, $method(ImmutableCollections$ListItr, init$, void, $List*, int32_t)},
+		{"<init>", "(Ljava/util/List;II)V", "(Ljava/util/List<TE;>;II)V", 0, $method(ImmutableCollections$ListItr, init$, void, $List*, int32_t, int32_t)},
+		{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, add, void, Object$*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, hasNext, bool)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, hasPrevious, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, next, $Object*)},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, previousIndex, int32_t)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, remove, void)},
+		{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, set, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ImmutableCollections$ListItr", "java.util.ImmutableCollections", "ListItr", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.ImmutableCollections$ListItr",
+		"java.lang.Object",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ImmutableCollections"
+	};
+	$loadClass(ImmutableCollections$ListItr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImmutableCollections$ListItr);
+	});
 	return class$;
 }
 

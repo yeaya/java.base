@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ClientAuthType.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -16,36 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _ClientAuthType_FieldInfo_[] = {
-	{"CLIENT_AUTH_NONE", "Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientAuthType, CLIENT_AUTH_NONE)},
-	{"CLIENT_AUTH_REQUESTED", "Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientAuthType, CLIENT_AUTH_REQUESTED)},
-	{"CLIENT_AUTH_REQUIRED", "Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientAuthType, CLIENT_AUTH_REQUIRED)},
-	{"$VALUES", "[Lsun/security/ssl/ClientAuthType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ClientAuthType, $VALUES)},
-	{}
-};
-
-$MethodInfo _ClientAuthType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/ClientAuthType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClientAuthType, $values, $ClientAuthTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ClientAuthType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientAuthType, valueOf, ClientAuthType*, $String*)},
-	{"values", "()[Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientAuthType, values, $ClientAuthTypeArray*)},
-	{}
-};
-
-$ClassInfo _ClientAuthType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.ClientAuthType",
-	"java.lang.Enum",
-	nullptr,
-	_ClientAuthType_FieldInfo_,
-	_ClientAuthType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/ClientAuthType;>;"
-};
-
-$Object* allocate$ClientAuthType($Class* clazz) {
-	return $of($alloc(ClientAuthType));
-}
 
 ClientAuthType* ClientAuthType::CLIENT_AUTH_NONE = nullptr;
 ClientAuthType* ClientAuthType::CLIENT_AUTH_REQUESTED = nullptr;
@@ -75,7 +44,7 @@ void ClientAuthType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ClientAuthType($Class* class$) {
+void ClientAuthType::clinit$($Class* clazz) {
 	$assignStatic(ClientAuthType::CLIENT_AUTH_NONE, $new(ClientAuthType, "CLIENT_AUTH_NONE"_s, 0));
 	$assignStatic(ClientAuthType::CLIENT_AUTH_REQUESTED, $new(ClientAuthType, "CLIENT_AUTH_REQUESTED"_s, 1));
 	$assignStatic(ClientAuthType::CLIENT_AUTH_REQUIRED, $new(ClientAuthType, "CLIENT_AUTH_REQUIRED"_s, 2));
@@ -86,7 +55,32 @@ ClientAuthType::ClientAuthType() {
 }
 
 $Class* ClientAuthType::load$($String* name, bool initialize) {
-	$loadClass(ClientAuthType, name, initialize, &_ClientAuthType_ClassInfo_, clinit$ClientAuthType, allocate$ClientAuthType);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLIENT_AUTH_NONE", "Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientAuthType, CLIENT_AUTH_NONE)},
+		{"CLIENT_AUTH_REQUESTED", "Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientAuthType, CLIENT_AUTH_REQUESTED)},
+		{"CLIENT_AUTH_REQUIRED", "Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientAuthType, CLIENT_AUTH_REQUIRED)},
+		{"$VALUES", "[Lsun/security/ssl/ClientAuthType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ClientAuthType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/ClientAuthType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClientAuthType, $values, $ClientAuthTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ClientAuthType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientAuthType, valueOf, ClientAuthType*, $String*)},
+		{"values", "()[Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientAuthType, values, $ClientAuthTypeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.ClientAuthType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/ClientAuthType;>;"
+	};
+	$loadClass(ClientAuthType, name, initialize, &classInfo$$, ClientAuthType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClientAuthType));
+	});
 	return class$;
 }
 

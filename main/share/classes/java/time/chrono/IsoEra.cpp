@@ -1,5 +1,4 @@
 #include <java/time/chrono/IsoEra.h>
-
 #include <java/lang/Enum.h>
 #include <java/time/DateTimeException.h>
 #include <jcpp.h>
@@ -17,42 +16,6 @@ using $DateTimeException = ::java::time::DateTimeException;
 namespace java {
 	namespace time {
 		namespace chrono {
-
-$FieldInfo _IsoEra_FieldInfo_[] = {
-	{"BCE", "Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoEra, BCE)},
-	{"CE", "Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoEra, CE)},
-	{"$VALUES", "[Ljava/time/chrono/IsoEra;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(IsoEra, $VALUES)},
-	{}
-};
-
-$MethodInfo _IsoEra_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/chrono/IsoEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsoEra, $values, $IsoEraArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(IsoEra, init$, void, $String*, int32_t)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(IsoEra, getValue, int32_t)},
-	{"of", "(I)Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoEra, of, IsoEra*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoEra, valueOf, IsoEra*, $String*)},
-	{"values", "()[Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoEra, values, $IsoEraArray*)},
-	{}
-};
-
-$ClassInfo _IsoEra_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.time.chrono.IsoEra",
-	"java.lang.Enum",
-	"java.time.chrono.Era",
-	_IsoEra_FieldInfo_,
-	_IsoEra_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/time/chrono/IsoEra;>;Ljava/time/chrono/Era;"
-};
-
-$Object* allocate$IsoEra($Class* clazz) {
-	return $of($alloc(IsoEra));
-}
 
 $String* IsoEra::toString() {
 	 return this->$Enum::toString();
@@ -102,20 +65,14 @@ void IsoEra::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 IsoEra* IsoEra::of(int32_t isoEra) {
 	$init(IsoEra);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (isoEra) {
 	case 0:
-		{
-			return IsoEra::BCE;
-		}
+		return IsoEra::BCE;
 	case 1:
-		{
-			return IsoEra::CE;
-		}
+		return IsoEra::CE;
 	default:
-		{
-			$throwNew($DateTimeException, $$str({"Invalid era: "_s, $$str(isoEra)}));
-		}
+		$throwNew($DateTimeException, $$str({"Invalid era: "_s, $$str(isoEra)}));
 	}
 }
 
@@ -123,7 +80,7 @@ int32_t IsoEra::getValue() {
 	return ordinal();
 }
 
-void clinit$IsoEra($Class* class$) {
+void IsoEra::clinit$($Class* clazz) {
 	$assignStatic(IsoEra::BCE, $new(IsoEra, "BCE"_s, 0));
 	$assignStatic(IsoEra::CE, $new(IsoEra, "CE"_s, 1));
 	$assignStatic(IsoEra::$VALUES, IsoEra::$values());
@@ -133,7 +90,38 @@ IsoEra::IsoEra() {
 }
 
 $Class* IsoEra::load$($String* name, bool initialize) {
-	$loadClass(IsoEra, name, initialize, &_IsoEra_ClassInfo_, clinit$IsoEra, allocate$IsoEra);
+	$FieldInfo fieldInfos$$[] = {
+		{"BCE", "Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoEra, BCE)},
+		{"CE", "Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoEra, CE)},
+		{"$VALUES", "[Ljava/time/chrono/IsoEra;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(IsoEra, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/time/chrono/IsoEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsoEra, $values, $IsoEraArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(IsoEra, init$, void, $String*, int32_t)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(IsoEra, getValue, int32_t)},
+		{"of", "(I)Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoEra, of, IsoEra*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoEra, valueOf, IsoEra*, $String*)},
+		{"values", "()[Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoEra, values, $IsoEraArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.time.chrono.IsoEra",
+		"java.lang.Enum",
+		"java.time.chrono.Era",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/time/chrono/IsoEra;>;Ljava/time/chrono/Era;"
+	};
+	$loadClass(IsoEra, name, initialize, &classInfo$$, IsoEra::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IsoEra));
+	});
 	return class$;
 }
 

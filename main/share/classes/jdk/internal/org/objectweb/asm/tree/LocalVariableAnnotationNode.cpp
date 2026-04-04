@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/LocalVariableAnnotationNode.h>
-
 #include <java/util/List.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Label.h>
@@ -20,7 +19,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
 using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
 using $TypePath = ::jdk::internal::org::objectweb::asm$::TypePath;
@@ -35,33 +33,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 
-$FieldInfo _LocalVariableAnnotationNode_FieldInfo_[] = {
-	{"start", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;", $PUBLIC, $field(LocalVariableAnnotationNode, start)},
-	{"end", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;", $PUBLIC, $field(LocalVariableAnnotationNode, end)},
-	{"index", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PUBLIC, $field(LocalVariableAnnotationNode, index)},
-	{}
-};
-
-$MethodInfo _LocalVariableAnnotationNode_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[ILjava/lang/String;)V", nullptr, $PUBLIC, $method(LocalVariableAnnotationNode, init$, void, int32_t, $TypePath*, $LabelNodeArray*, $LabelNodeArray*, $ints*, $String*)},
-	{"<init>", "(IILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[ILjava/lang/String;)V", nullptr, $PUBLIC, $method(LocalVariableAnnotationNode, init$, void, int32_t, int32_t, $TypePath*, $LabelNodeArray*, $LabelNodeArray*, $ints*, $String*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Z)V", nullptr, $PUBLIC, $virtualMethod(LocalVariableAnnotationNode, accept, void, $MethodVisitor*, bool)},
-	{}
-};
-
-$ClassInfo _LocalVariableAnnotationNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.LocalVariableAnnotationNode",
-	"jdk.internal.org.objectweb.asm.tree.TypeAnnotationNode",
-	nullptr,
-	_LocalVariableAnnotationNode_FieldInfo_,
-	_LocalVariableAnnotationNode_MethodInfo_
-};
-
-$Object* allocate$LocalVariableAnnotationNode($Class* clazz) {
-	return $of($alloc(LocalVariableAnnotationNode));
-}
-
 void LocalVariableAnnotationNode::init$(int32_t typeRef, $TypePath* typePath, $LabelNodeArray* start, $LabelNodeArray* end, $ints* index, $String* descriptor) {
 	LocalVariableAnnotationNode::init$($Opcodes::ASM8, typeRef, typePath, start, end, index, descriptor);
 }
@@ -74,18 +45,14 @@ void LocalVariableAnnotationNode::init$(int32_t api, int32_t typeRef, $TypePath*
 }
 
 void LocalVariableAnnotationNode::accept($MethodVisitor* methodVisitor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LabelArray, startLabels, $new($LabelArray, $nc(this->start)->size()));
 	$var($LabelArray, endLabels, $new($LabelArray, $nc(this->end)->size()));
 	$var($ints, indices, $new($ints, $nc(this->index)->size()));
-	{
-		int32_t i = 0;
-		int32_t n = startLabels->length;
-		for (; i < n; ++i) {
-			startLabels->set(i, $($nc(($cast($LabelNode, $($nc(this->start)->get(i)))))->getLabel()));
-			endLabels->set(i, $($nc(($cast($LabelNode, $($nc(this->end)->get(i)))))->getLabel()));
-			indices->set(i, $nc(($cast($Integer, $($nc(this->index)->get(i)))))->intValue());
-		}
+	for (int32_t i = 0, n = startLabels->length; i < n; ++i) {
+		startLabels->set(i, $($$sure($LabelNode, this->start->get(i))->getLabel()));
+		endLabels->set(i, $($$sure($LabelNode, this->end->get(i))->getLabel()));
+		indices->set(i, $$sure($Integer, this->index->get(i))->intValue());
 	}
 	accept($($nc(methodVisitor)->visitLocalVariableAnnotation(this->typeRef, this->typePath, startLabels, endLabels, indices, this->desc, visible)));
 }
@@ -94,7 +61,29 @@ LocalVariableAnnotationNode::LocalVariableAnnotationNode() {
 }
 
 $Class* LocalVariableAnnotationNode::load$($String* name, bool initialize) {
-	$loadClass(LocalVariableAnnotationNode, name, initialize, &_LocalVariableAnnotationNode_ClassInfo_, allocate$LocalVariableAnnotationNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"start", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;", $PUBLIC, $field(LocalVariableAnnotationNode, start)},
+		{"end", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;", $PUBLIC, $field(LocalVariableAnnotationNode, end)},
+		{"index", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PUBLIC, $field(LocalVariableAnnotationNode, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[ILjava/lang/String;)V", nullptr, $PUBLIC, $method(LocalVariableAnnotationNode, init$, void, int32_t, $TypePath*, $LabelNodeArray*, $LabelNodeArray*, $ints*, $String*)},
+		{"<init>", "(IILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[ILjava/lang/String;)V", nullptr, $PUBLIC, $method(LocalVariableAnnotationNode, init$, void, int32_t, int32_t, $TypePath*, $LabelNodeArray*, $LabelNodeArray*, $ints*, $String*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Z)V", nullptr, $PUBLIC, $virtualMethod(LocalVariableAnnotationNode, accept, void, $MethodVisitor*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.LocalVariableAnnotationNode",
+		"jdk.internal.org.objectweb.asm.tree.TypeAnnotationNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocalVariableAnnotationNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalVariableAnnotationNode);
+	});
 	return class$;
 }
 

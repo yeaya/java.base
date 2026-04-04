@@ -13,6 +13,7 @@ class $export Big5$EncodeHolder : public ::java::lang::Object {
 	$class(Big5$EncodeHolder, 0, ::java::lang::Object)
 public:
 	Big5$EncodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* c2b;
 	static $chars* c2bIndex;

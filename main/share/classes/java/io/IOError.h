@@ -19,10 +19,13 @@ class $export IOError : public ::java::lang::Error {
 public:
 	IOError();
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x00EE63F0410B0D9D;
+	static const int64_t serialVersionUID = (int64_t)0x00ee63f0410b0d9d;
 	IOError(const IOError& e);
 	virtual void throw$() override;
-	inline IOError* operator ->() {
+	inline IOError* operator ->() const {
+		return (IOError*)throwing$;
+	}
+	inline operator IOError*() const {
 		return (IOError*)throwing$;
 	}
 };

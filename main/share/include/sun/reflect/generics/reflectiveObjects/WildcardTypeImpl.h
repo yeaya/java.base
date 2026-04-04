@@ -45,6 +45,7 @@ public:
 	WildcardTypeImpl();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::sun::reflect::generics::tree::FieldTypeSignature>* ubs, $Array<::sun::reflect::generics::tree::FieldTypeSignature>* lbs, ::sun::reflect::generics::factory::GenericsFactory* f);
 	virtual bool equals(Object$* o) override;
 	virtual $Array<::java::lang::reflect::Type>* getLowerBounds() override;

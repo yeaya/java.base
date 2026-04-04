@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/Configuration$3.h>
-
 #include <javax/security/auth/login/Configuration.h>
 #include <jcpp.h>
 
@@ -15,62 +14,55 @@ namespace javax {
 		namespace auth {
 			namespace login {
 
-$FieldInfo _Configuration$3_FieldInfo_[] = {
-	{"val$untrustedImpl", "Ljavax/security/auth/login/Configuration;", nullptr, $FINAL | $SYNTHETIC, $field(Configuration$3, val$untrustedImpl)},
-	{}
-};
-
-$MethodInfo _Configuration$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/login/Configuration;)V", nullptr, 0, $method(Configuration$3, init$, void, $Configuration*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Configuration$3, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Configuration$3_EnclosingMethodInfo_ = {
-	"javax.security.auth.login.Configuration",
-	"getConfiguration",
-	"()Ljavax/security/auth/login/Configuration;"
-};
-
-$InnerClassInfo _Configuration$3_InnerClassesInfo_[] = {
-	{"javax.security.auth.login.Configuration$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Configuration$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.security.auth.login.Configuration$3",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_Configuration$3_FieldInfo_,
-	_Configuration$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Object;>;",
-	&_Configuration$3_EnclosingMethodInfo_,
-	_Configuration$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.security.auth.login.Configuration"
-};
-
-$Object* allocate$Configuration$3($Class* clazz) {
-	return $of($alloc(Configuration$3));
-}
-
 void Configuration$3::init$($Configuration* val$untrustedImpl) {
 	$set(this, val$untrustedImpl, val$untrustedImpl);
 }
 
 $Object* Configuration$3::run() {
 	$Configuration::setConfiguration(this->val$untrustedImpl);
-	return $of(nullptr);
+	return nullptr;
 }
 
 Configuration$3::Configuration$3() {
 }
 
 $Class* Configuration$3::load$($String* name, bool initialize) {
-	$loadClass(Configuration$3, name, initialize, &_Configuration$3_ClassInfo_, allocate$Configuration$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$untrustedImpl", "Ljavax/security/auth/login/Configuration;", nullptr, $FINAL | $SYNTHETIC, $field(Configuration$3, val$untrustedImpl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/auth/login/Configuration;)V", nullptr, 0, $method(Configuration$3, init$, void, $Configuration*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Configuration$3, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.security.auth.login.Configuration",
+		"getConfiguration",
+		"()Ljavax/security/auth/login/Configuration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.security.auth.login.Configuration$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.security.auth.login.Configuration$3",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.security.auth.login.Configuration"
+	};
+	$loadClass(Configuration$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Configuration$3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/invoke/util/Wrapper.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Enum.h>
@@ -67,122 +66,6 @@ namespace sun {
 	namespace invoke {
 		namespace util {
 
-$FieldInfo _Wrapper_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Wrapper, $assertionsDisabled)},
-	{"BOOLEAN", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, BOOLEAN)},
-	{"BYTE", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, BYTE)},
-	{"SHORT", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, SHORT)},
-	{"CHAR", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, CHAR)},
-	{"INT", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, INT)},
-	{"LONG", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, LONG)},
-	{"FLOAT", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, FLOAT)},
-	{"DOUBLE", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, DOUBLE)},
-	{"OBJECT", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, OBJECT)},
-	{"VOID", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, VOID)},
-	{"$VALUES", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Wrapper, $VALUES)},
-	{"COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Wrapper, COUNT)},
-	{"wrapperType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(Wrapper, wrapperType$)},
-	{"primitiveType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(Wrapper, primitiveType$)},
-	{"basicTypeChar", "C", nullptr, $PRIVATE | $FINAL, $field(Wrapper, basicTypeChar$)},
-	{"basicTypeString", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Wrapper, basicTypeString$)},
-	{"emptyArray", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Wrapper, emptyArray)},
-	{"format", "I", nullptr, $PRIVATE | $FINAL, $field(Wrapper, format)},
-	{"wrapperSimpleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Wrapper, wrapperSimpleName$)},
-	{"primitiveSimpleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Wrapper, primitiveSimpleName$)},
-	{"DOUBLE_ZERO", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Wrapper, DOUBLE_ZERO)},
-	{"FLOAT_ZERO", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Wrapper, FLOAT_ZERO)},
-	{"FROM_PRIM", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Wrapper, FROM_PRIM)},
-	{"FROM_WRAP", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Wrapper, FROM_WRAP)},
-	{"FROM_CHAR", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Wrapper, FROM_CHAR)},
-	{}
-};
-
-$MethodInfo _Wrapper_MethodInfo_[] = {
-	{"$values", "()[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Wrapper, $values, $WrapperArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/Class;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;CLjava/lang/Object;I)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;CLjava/lang/Object;I)V", $PRIVATE, $method(Wrapper, init$, void, $String*, int32_t, $Class*, $String*, $Class*, $String*, char16_t, Object$*, int32_t)},
-	{"arrayType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Wrapper, arrayType, $Class*)},
-	{"asPrimitiveType", "(Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/lang/Class<TT;>;", $PUBLIC | $STATIC, $staticMethod(Wrapper, asPrimitiveType, $Class*, $Class*)},
-	{"asWrapperType", "(Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/lang/Class<TT;>;", $PUBLIC | $STATIC, $staticMethod(Wrapper, asWrapperType, $Class*, $Class*)},
-	{"basicTypeChar", "(Ljava/lang/Class;)C", "(Ljava/lang/Class<*>;)C", $PUBLIC | $STATIC, $staticMethod(Wrapper, basicTypeChar, char16_t, $Class*)},
-	{"basicTypeChar", "()C", nullptr, $PUBLIC, $method(Wrapper, basicTypeChar, char16_t)},
-	{"basicTypeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Wrapper, basicTypeString, $String*)},
-	{"bitWidth", "()I", nullptr, $PUBLIC, $method(Wrapper, bitWidth, int32_t)},
-	{"boolValue", "(B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, boolValue, bool, int8_t)},
-	{"cast", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $method(Wrapper, cast, $Object*, Object$*, $Class*)},
-	{"checkConvertibleFrom", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, checkConvertibleFrom, bool)},
-	{"convert", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $method(Wrapper, convert, $Object*, Object$*, $Class*)},
-	{"convert", "(Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;Z)TT;", $PRIVATE, $method(Wrapper, convert, $Object*, Object$*, $Class*, bool)},
-	{"copyArrayBoxing", "(Ljava/lang/Object;I[Ljava/lang/Object;II)V", nullptr, $PUBLIC, $method(Wrapper, copyArrayBoxing, void, Object$*, int32_t, $ObjectArray*, int32_t, int32_t)},
-	{"copyArrayUnboxing", "([Ljava/lang/Object;ILjava/lang/Object;II)V", nullptr, $PUBLIC, $method(Wrapper, copyArrayUnboxing, void, $ObjectArray*, int32_t, Object$*, int32_t, int32_t)},
-	{"detailString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Wrapper, detailString, $String*)},
-	{"findPrimitiveType", "(Ljava/lang/Class;)Lsun/invoke/util/Wrapper;", "(Ljava/lang/Class<*>;)Lsun/invoke/util/Wrapper;", $STATIC, $staticMethod(Wrapper, findPrimitiveType, Wrapper*, $Class*)},
-	{"findWrapperType", "(Ljava/lang/Class;)Lsun/invoke/util/Wrapper;", "(Ljava/lang/Class<*>;)Lsun/invoke/util/Wrapper;", $STATIC, $staticMethod(Wrapper, findWrapperType, Wrapper*, $Class*)},
-	{"forBasicType", "(C)Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC, $staticMethod(Wrapper, forBasicType, Wrapper*, char16_t)},
-	{"forBasicType", "(Ljava/lang/Class;)Lsun/invoke/util/Wrapper;", "(Ljava/lang/Class<*>;)Lsun/invoke/util/Wrapper;", $PUBLIC | $STATIC, $staticMethod(Wrapper, forBasicType, Wrapper*, $Class*)},
-	{"forPrimitiveType", "(Ljava/lang/Class;)Lsun/invoke/util/Wrapper;", "(Ljava/lang/Class<*>;)Lsun/invoke/util/Wrapper;", $PUBLIC | $STATIC, $staticMethod(Wrapper, forPrimitiveType, Wrapper*, $Class*)},
-	{"forPrimitiveType", "(C)Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC, $staticMethod(Wrapper, forPrimitiveType, Wrapper*, char16_t)},
-	{"forWrapperType", "(Ljava/lang/Class;)Lsun/invoke/util/Wrapper;", "(Ljava/lang/Class<*>;)Lsun/invoke/util/Wrapper;", $PUBLIC | $STATIC, $staticMethod(Wrapper, forWrapperType, Wrapper*, $Class*)},
-	{"forceType", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<*>;Ljava/lang/Class<TT;>;)Ljava/lang/Class<TT;>;", $STATIC, $staticMethod(Wrapper, forceType, $Class*, $Class*, $Class*)},
-	{"hashChar", "(C)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, hashChar, int32_t, char16_t)},
-	{"hashPrim", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $staticMethod(Wrapper, hashPrim, int32_t, $Class*)},
-	{"hashWrap", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $staticMethod(Wrapper, hashWrap, int32_t, $Class*)},
-	{"isConvertibleFrom", "(Lsun/invoke/util/Wrapper;)Z", nullptr, $PUBLIC, $method(Wrapper, isConvertibleFrom, bool, Wrapper*)},
-	{"isDoubleWord", "()Z", nullptr, $PUBLIC, $method(Wrapper, isDoubleWord, bool)},
-	{"isFloating", "()Z", nullptr, $PUBLIC, $method(Wrapper, isFloating, bool)},
-	{"isIntegral", "()Z", nullptr, $PUBLIC, $method(Wrapper, isIntegral, bool)},
-	{"isNumeric", "()Z", nullptr, $PUBLIC, $method(Wrapper, isNumeric, bool)},
-	{"isOther", "()Z", nullptr, $PUBLIC, $method(Wrapper, isOther, bool)},
-	{"isPrimitiveType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(Wrapper, isPrimitiveType, bool, $Class*)},
-	{"isSigned", "()Z", nullptr, $PUBLIC, $method(Wrapper, isSigned, bool)},
-	{"isSingleWord", "()Z", nullptr, $PUBLIC, $method(Wrapper, isSingleWord, bool)},
-	{"isSubwordOrInt", "()Z", nullptr, $PUBLIC, $method(Wrapper, isSubwordOrInt, bool)},
-	{"isUnsigned", "()Z", nullptr, $PUBLIC, $method(Wrapper, isUnsigned, bool)},
-	{"isWrapperType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(Wrapper, isWrapperType, bool, $Class*)},
-	{"makeArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Wrapper, makeArray, $Object*, int32_t)},
-	{"newClassCastException", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/ClassCastException;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/ClassCastException;", $PRIVATE | $STATIC, $staticMethod(Wrapper, newClassCastException, $ClassCastException*, $Class*, $Class*)},
-	{"newIllegalArgumentException", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/RuntimeException;", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, newIllegalArgumentException, $RuntimeException*, $String*, Object$*)},
-	{"newIllegalArgumentException", "(Ljava/lang/String;)Ljava/lang/RuntimeException;", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, newIllegalArgumentException, $RuntimeException*, $String*)},
-	{"numberValue", "(Ljava/lang/Object;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, numberValue, $Number*, Object$*)},
-	{"primitiveSimpleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Wrapper, primitiveSimpleName, $String*)},
-	{"primitiveType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Wrapper, primitiveType, $Class*)},
-	{"stackSlots", "()I", nullptr, $PUBLIC, $method(Wrapper, stackSlots, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC, $staticMethod(Wrapper, valueOf, Wrapper*, $String*)},
-	{"values", "()[Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC, $staticMethod(Wrapper, values, $WrapperArray*)},
-	{"wrap", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Wrapper, wrap, $Object*, Object$*)},
-	{"wrap", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Wrapper, wrap, $Object*, int32_t)},
-	{"wrapperSimpleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Wrapper, wrapperSimpleName, $String*)},
-	{"wrapperType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Wrapper, wrapperType, $Class*)},
-	{"wrapperType", "(Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/lang/Class<TT;>;", $PUBLIC, $method(Wrapper, wrapperType, $Class*, $Class*)},
-	{"zero", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(Wrapper, zero, $Object*)},
-	{"zero", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $method(Wrapper, zero, $Object*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _Wrapper_InnerClassesInfo_[] = {
-	{"sun.invoke.util.Wrapper$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.invoke.util.Wrapper$Format", "sun.invoke.util.Wrapper", "Format", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Wrapper_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.invoke.util.Wrapper",
-	"java.lang.Enum",
-	nullptr,
-	_Wrapper_FieldInfo_,
-	_Wrapper_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/invoke/util/Wrapper;>;",
-	nullptr,
-	_Wrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.invoke.util.Wrapper$1,sun.invoke.util.Wrapper$Format"
-};
-
-$Object* allocate$Wrapper($Class* clazz) {
-	return $of($alloc(Wrapper));
-}
-
 bool Wrapper::$assertionsDisabled = false;
 Wrapper* Wrapper::BOOLEAN = nullptr;
 Wrapper* Wrapper::BYTE = nullptr;
@@ -240,34 +123,34 @@ void Wrapper::init$($String* $enum$name, int32_t $enum$ordinal, $Class* wtype, $
 }
 
 $String* Wrapper::detailString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({this->wrapperSimpleName$, $($Arrays::asList($$new($ObjectArray, {
-		$of(this->wrapperType$),
-		$of(this->primitiveType$),
-		$($of($Character::valueOf(this->basicTypeChar$))),
+		this->wrapperType$,
+		this->primitiveType$,
+		$($Character::valueOf(this->basicTypeChar$)),
 		$(zero()),
-		$of($$str({"0x"_s, $($Integer::toHexString(this->format))}))
+		$$str({"0x"_s, $($Integer::toHexString(this->format))})
 	})))});
 }
 
 int32_t Wrapper::bitWidth() {
-	return (int32_t)(($sr(this->format, $Wrapper$Format::SIZE_SHIFT)) & (uint32_t)$Wrapper$Format::SIZE_MASK);
+	return ($sr(this->format, $Wrapper$Format::SIZE_SHIFT)) & $Wrapper$Format::SIZE_MASK;
 }
 
 int32_t Wrapper::stackSlots() {
-	return (int32_t)(($sr(this->format, $Wrapper$Format::SLOT_SHIFT)) & (uint32_t)$Wrapper$Format::SLOT_MASK);
+	return ($sr(this->format, $Wrapper$Format::SLOT_SHIFT)) & $Wrapper$Format::SLOT_MASK;
 }
 
 bool Wrapper::isSingleWord() {
-	return ((int32_t)(this->format & (uint32_t)($sl(1, $Wrapper$Format::SLOT_SHIFT)))) != 0;
+	return (this->format & ($sl(1, $Wrapper$Format::SLOT_SHIFT))) != 0;
 }
 
 bool Wrapper::isDoubleWord() {
-	return ((int32_t)(this->format & (uint32_t)($sl(2, $Wrapper$Format::SLOT_SHIFT)))) != 0;
+	return (this->format & ($sl(2, $Wrapper$Format::SLOT_SHIFT))) != 0;
 }
 
 bool Wrapper::isNumeric() {
-	return ((int32_t)(this->format & (uint32_t)$Wrapper$Format::NUM_MASK)) != 0;
+	return (this->format & $Wrapper$Format::NUM_MASK) != 0;
 }
 
 bool Wrapper::isIntegral() {
@@ -292,17 +175,17 @@ bool Wrapper::isFloating() {
 }
 
 bool Wrapper::isOther() {
-	return ((int32_t)(this->format & (uint32_t)~$Wrapper$Format::SLOT_MASK)) == 0;
+	return (this->format & ~$Wrapper$Format::SLOT_MASK) == 0;
 }
 
 bool Wrapper::isConvertibleFrom(Wrapper* source) {
 	if (this == source) {
 		return true;
 	}
-	if (this->compareTo(static_cast<$Enum*>(source)) < 0) {
+	if (this->compareTo(source) < 0) {
 		return false;
 	}
-	bool floatOrSigned = (((int32_t)(((int32_t)(this->format & (uint32_t)$nc(source)->format)) & (uint32_t)$Wrapper$Format::SIGNED)) != 0);
+	bool floatOrSigned = (((this->format & $nc(source)->format) & $Wrapper$Format::SIGNED) != 0);
 	if (!floatOrSigned) {
 		if (this->isOther()) {
 			return true;
@@ -333,104 +216,90 @@ bool Wrapper::isConvertibleFrom(Wrapper* source) {
 
 bool Wrapper::checkConvertibleFrom() {
 	$init(Wrapper);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($WrapperArray, arr$, values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			Wrapper* w = arr$->get(i$);
-			{
-				if (!Wrapper::$assertionsDisabled && !($nc(w)->isConvertibleFrom(w))) {
+	$useLocalObjectStack();
+	$var($WrapperArray, arr$, values());
+	int32_t len$ = arr$->length;
+	int32_t i$ = 0;
+	for (; i$ < len$; ++i$) {
+		Wrapper* w = arr$->get(i$);
+		{
+			if (!Wrapper::$assertionsDisabled && !($nc(w)->isConvertibleFrom(w))) {
+				$throwNew($AssertionError);
+			}
+			if (!Wrapper::$assertionsDisabled && !(Wrapper::VOID->isConvertibleFrom(w))) {
+				$throwNew($AssertionError);
+			}
+			if (w != Wrapper::VOID) {
+				if (!Wrapper::$assertionsDisabled && !(Wrapper::OBJECT->isConvertibleFrom(w))) {
 					$throwNew($AssertionError);
 				}
-				if (!Wrapper::$assertionsDisabled && !(Wrapper::VOID->isConvertibleFrom(w))) {
+				if (!Wrapper::$assertionsDisabled && !(!$nc(w)->isConvertibleFrom(Wrapper::VOID))) {
 					$throwNew($AssertionError);
 				}
-				if (w != Wrapper::VOID) {
-					if (!Wrapper::$assertionsDisabled && !(Wrapper::OBJECT->isConvertibleFrom(w))) {
-						$throwNew($AssertionError);
-					}
-					if (!Wrapper::$assertionsDisabled && !(!$nc(w)->isConvertibleFrom(Wrapper::VOID))) {
+			}
+			if (w != Wrapper::CHAR) {
+				if (!Wrapper::$assertionsDisabled && !(!Wrapper::CHAR->isConvertibleFrom(w))) {
+					$throwNew($AssertionError);
+				}
+				if (!$nc(w)->isConvertibleFrom(Wrapper::INT)) {
+					if (!Wrapper::$assertionsDisabled && !(!w->isConvertibleFrom(Wrapper::CHAR))) {
 						$throwNew($AssertionError);
 					}
 				}
-				if (w != Wrapper::CHAR) {
-					if (!Wrapper::$assertionsDisabled && !(!Wrapper::CHAR->isConvertibleFrom(w))) {
+			}
+			if (w != Wrapper::BOOLEAN) {
+				if (!Wrapper::$assertionsDisabled && !(!Wrapper::BOOLEAN->isConvertibleFrom(w))) {
+					$throwNew($AssertionError);
+				}
+				if (w != Wrapper::VOID && w != Wrapper::OBJECT) {
+					if (!Wrapper::$assertionsDisabled && !(!$nc(w)->isConvertibleFrom(Wrapper::BOOLEAN))) {
 						$throwNew($AssertionError);
 					}
-					if (!$nc(w)->isConvertibleFrom(Wrapper::INT)) {
-						if (!Wrapper::$assertionsDisabled && !(!w->isConvertibleFrom(Wrapper::CHAR))) {
-							$throwNew($AssertionError);
-						}
-					}
 				}
-				if (w != Wrapper::BOOLEAN) {
-					if (!Wrapper::$assertionsDisabled && !(!Wrapper::BOOLEAN->isConvertibleFrom(w))) {
-						$throwNew($AssertionError);
-					}
-					if (w != Wrapper::VOID && w != Wrapper::OBJECT) {
-						if (!Wrapper::$assertionsDisabled && !(!$nc(w)->isConvertibleFrom(Wrapper::BOOLEAN))) {
-							$throwNew($AssertionError);
-						}
-					}
-				}
-				if ($nc(w)->isSigned()) {
+			}
+			if ($nc(w)->isSigned()) {
+				$var($WrapperArray, arr$, values());
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+					Wrapper* x = arr$->get(i$);
 					{
-						$var($WrapperArray, arr$, values());
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							Wrapper* x = arr$->get(i$);
-							{
-								if (w == x) {
-									continue;
+						if (w == x) {
+							continue;
+						}
+						if ($nc(x)->isFloating()) {
+							if (!Wrapper::$assertionsDisabled && !(!w->isConvertibleFrom(x))) {
+								$throwNew($AssertionError);
+							}
+						} else if (x->isSigned()) {
+							if (w->compareTo(x) < 0) {
+								if (!Wrapper::$assertionsDisabled && !(!w->isConvertibleFrom(x))) {
+									$throwNew($AssertionError);
 								}
-								if ($nc(x)->isFloating()) {
-									if (!Wrapper::$assertionsDisabled && !(!w->isConvertibleFrom(x))) {
-										$throwNew($AssertionError);
-									}
-								} else if (x->isSigned()) {
-									if (w->compareTo(static_cast<$Enum*>(x)) < 0) {
-										if (!Wrapper::$assertionsDisabled && !(!w->isConvertibleFrom(x))) {
-											$throwNew($AssertionError);
-										}
-									} else {
-										if (!Wrapper::$assertionsDisabled && !(w->isConvertibleFrom(x))) {
-											$throwNew($AssertionError);
-										}
-									}
-								}
+							} else if (!Wrapper::$assertionsDisabled && !(w->isConvertibleFrom(x))) {
+								$throwNew($AssertionError);
 							}
 						}
 					}
 				}
-				if ($nc(w)->isFloating()) {
+			}
+			if (w->isFloating()) {
+				$var($WrapperArray, arr$, values());
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+					Wrapper* x = arr$->get(i$);
 					{
-						$var($WrapperArray, arr$, values());
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							Wrapper* x = arr$->get(i$);
-							{
-								if (w == x) {
-									continue;
+						if (w == x) {
+							continue;
+						}
+						if ($nc(x)->isSigned()) {
+							if (!Wrapper::$assertionsDisabled && !(w->isConvertibleFrom(x))) {
+								$throwNew($AssertionError);
+							}
+						} else if (x->isFloating()) {
+							if (w->compareTo(x) < 0) {
+								if (!Wrapper::$assertionsDisabled && !(!w->isConvertibleFrom(x))) {
+									$throwNew($AssertionError);
 								}
-								if ($nc(x)->isSigned()) {
-									if (!Wrapper::$assertionsDisabled && !(w->isConvertibleFrom(x))) {
-										$throwNew($AssertionError);
-									}
-								} else if (x->isFloating()) {
-									if (w->compareTo(static_cast<$Enum*>(x)) < 0) {
-										if (!Wrapper::$assertionsDisabled && !(!w->isConvertibleFrom(x))) {
-											$throwNew($AssertionError);
-										}
-									} else {
-										if (!Wrapper::$assertionsDisabled && !(w->isConvertibleFrom(x))) {
-											$throwNew($AssertionError);
-										}
-									}
-								}
+							} else if (!Wrapper::$assertionsDisabled && !(w->isConvertibleFrom(x))) {
+								$throwNew($AssertionError);
 							}
 						}
 					}
@@ -445,56 +314,35 @@ $Object* Wrapper::zero() {
 	$init($Wrapper$1);
 	switch ($nc($Wrapper$1::$SwitchMap$sun$invoke$util$Wrapper)->get((this)->ordinal())) {
 	case 1:
-		{
-			$init($Boolean);
-			return $of($Boolean::FALSE);
-		}
+		return $of($Boolean::FALSE);
 	case 2:
-		{
-			return $of($Integer::valueOf(0));
-		}
+		return $of($Integer::valueOf(0));
 	case 3:
-		{
-			return $of($Byte::valueOf((int8_t)0));
-		}
+		return $of($Byte::valueOf((int8_t)0));
 	case 4:
-		{
-			return $of($Character::valueOf((char16_t)0));
-		}
+		return $of($Character::valueOf((char16_t)0));
 	case 5:
-		{
-			return $of($Short::valueOf((int16_t)0));
-		}
+		return $of($Short::valueOf((int16_t)0));
 	case 6:
-		{
-			return $of($Long::valueOf((int64_t)0));
-		}
+		return $of($Long::valueOf((int64_t)0));
 	case 7:
-		{
-			return $of(Wrapper::FLOAT_ZERO);
-		}
+		return Wrapper::FLOAT_ZERO;
 	case 8:
-		{
-			return $of(Wrapper::DOUBLE_ZERO);
-		}
+		return Wrapper::DOUBLE_ZERO;
 	case 9:
-		{}
 	case 10:
-		{}
 	default:
-		{
-			return $of(nullptr);
-		}
+		return nullptr;
 	}
 }
 
 $Object* Wrapper::zero($Class* type) {
-	return $of(convert($(zero()), type));
+	return convert($(zero()), type);
 }
 
 Wrapper* Wrapper::forPrimitiveType($Class* type) {
 	$init(Wrapper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Wrapper* w = findPrimitiveType(type);
 	if (w != nullptr) {
 		return w;
@@ -507,54 +355,34 @@ Wrapper* Wrapper::forPrimitiveType($Class* type) {
 
 Wrapper* Wrapper::forPrimitiveType(char16_t basicTypeChar) {
 	$init(Wrapper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (basicTypeChar) {
 	case u'I':
-		{
-			return Wrapper::INT;
-		}
+		return Wrapper::INT;
 	case u'J':
-		{
-			return Wrapper::LONG;
-		}
+		return Wrapper::LONG;
 	case u'S':
-		{
-			return Wrapper::SHORT;
-		}
+		return Wrapper::SHORT;
 	case u'B':
-		{
-			return Wrapper::BYTE;
-		}
+		return Wrapper::BYTE;
 	case u'C':
-		{
-			return Wrapper::CHAR;
-		}
+		return Wrapper::CHAR;
 	case u'F':
-		{
-			return Wrapper::FLOAT;
-		}
+		return Wrapper::FLOAT;
 	case u'D':
-		{
-			return Wrapper::DOUBLE;
-		}
+		return Wrapper::DOUBLE;
 	case u'Z':
-		{
-			return Wrapper::BOOLEAN;
-		}
+		return Wrapper::BOOLEAN;
 	case u'V':
-		{
-			return Wrapper::VOID;
-		}
+		return Wrapper::VOID;
 	default:
-		{
-			$throw($(newIllegalArgumentException($$str({"not primitive: "_s, $$str(basicTypeChar)}))));
-		}
+		$throw($(newIllegalArgumentException($$str({"not primitive: "_s, $$str(basicTypeChar)}))));
 	}
 }
 
 Wrapper* Wrapper::findPrimitiveType($Class* type) {
 	$init(Wrapper);
-	Wrapper* w = $nc(Wrapper::FROM_PRIM)->get(hashPrim(type));
+	Wrapper* w = Wrapper::FROM_PRIM->get(hashPrim(type));
 	if (w != nullptr && w->primitiveType$ == type) {
 		return w;
 	}
@@ -563,16 +391,14 @@ Wrapper* Wrapper::findPrimitiveType($Class* type) {
 
 Wrapper* Wrapper::forWrapperType($Class* type) {
 	$init(Wrapper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Wrapper* w = findWrapperType(type);
 	if (w != nullptr) {
 		return w;
 	}
 	{
 		$var($WrapperArray, arr$, values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			Wrapper* x = arr$->get(i$);
 			if ($nc(x)->wrapperType$ == type) {
 				$throwNew($InternalError);
@@ -584,7 +410,7 @@ Wrapper* Wrapper::forWrapperType($Class* type) {
 
 Wrapper* Wrapper::findWrapperType($Class* type) {
 	$init(Wrapper);
-	Wrapper* w = $nc(Wrapper::FROM_WRAP)->get(hashWrap(type));
+	Wrapper* w = Wrapper::FROM_WRAP->get(hashWrap(type));
 	if (w != nullptr && w->wrapperType$ == type) {
 		return w;
 	}
@@ -593,16 +419,14 @@ Wrapper* Wrapper::findWrapperType($Class* type) {
 
 Wrapper* Wrapper::forBasicType(char16_t type) {
 	$init(Wrapper);
-	$useLocalCurrentObjectStackCache();
-	Wrapper* w = $nc(Wrapper::FROM_CHAR)->get(hashChar(type));
+	$useLocalObjectStack();
+	Wrapper* w = Wrapper::FROM_CHAR->get(hashChar(type));
 	if (w != nullptr && w->basicTypeChar$ == type) {
 		return w;
 	}
 	{
 		$var($WrapperArray, arr$, values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			Wrapper* x = arr$->get(i$);
 			if ($nc(w)->basicTypeChar$ == type) {
 				$throwNew($InternalError);
@@ -626,7 +450,7 @@ int32_t Wrapper::hashPrim($Class* x) {
 	if ($nc(xn)->length() < 3) {
 		return 0;
 	}
-	char16_t var$0 = $nc(xn)->charAt(0);
+	char16_t var$0 = xn->charAt(0);
 	return (var$0 + xn->charAt(2)) % 16;
 }
 
@@ -640,7 +464,7 @@ int32_t Wrapper::hashWrap($Class* x) {
 	if ($nc(xn)->length() < offset + 3) {
 		return 0;
 	}
-	int32_t var$0 = 3 * $nc(xn)->charAt(offset + 1);
+	int32_t var$0 = 3 * xn->charAt(offset + 1);
 	return (var$0 + xn->charAt(offset + 2)) % 16;
 }
 
@@ -674,7 +498,7 @@ $ClassCastException* Wrapper::newClassCastException($Class* actual, $Class* expe
 $Class* Wrapper::asWrapperType($Class* type) {
 	$init(Wrapper);
 	if ($nc(type)->isPrimitive()) {
-		return $nc($(forPrimitiveType(type)))->wrapperType(type);
+		return $$nc(forPrimitiveType(type))->wrapperType(type);
 	}
 	return type;
 }
@@ -703,7 +527,7 @@ char16_t Wrapper::basicTypeChar($Class* type) {
 	if (!$nc(type)->isPrimitive()) {
 		return u'L';
 	} else {
-		return $nc($(forPrimitiveType(type)))->basicTypeChar();
+		return $$nc(forPrimitiveType(type))->basicTypeChar();
 	}
 }
 
@@ -724,15 +548,15 @@ $String* Wrapper::primitiveSimpleName() {
 }
 
 $Object* Wrapper::cast(Object$* x, $Class* type) {
-	return $of(convert(x, type, true));
+	return convert(x, type, true);
 }
 
 $Object* Wrapper::convert(Object$* x, $Class* type) {
-	return $of(convert(x, type, false));
+	return convert(x, type, false);
 }
 
 $Object* Wrapper::convert(Object$* x, $Class* type, bool isCast) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this == Wrapper::OBJECT) {
 		if (!Wrapper::$assertionsDisabled && !(!$nc(type)->isPrimitive())) {
 			$throwNew($AssertionError);
@@ -741,11 +565,11 @@ $Object* Wrapper::convert(Object$* x, $Class* type, bool isCast) {
 			type->cast(x);
 		}
 		$var($Object, result, x);
-		return $of(result);
+		return result;
 	}
 	$Class* wtype = wrapperType(type);
 	if ($nc(wtype)->isInstance(x)) {
-		return $of(wtype->cast(x));
+		return wtype->cast(x);
 	}
 	if (!isCast) {
 		$Class* sourceType = $nc($of(x))->getClass();
@@ -755,14 +579,13 @@ $Object* Wrapper::convert(Object$* x, $Class* type, bool isCast) {
 		}
 	} else if (x == nullptr) {
 		$var($Object, z, zero());
-		return $of(z);
+		return z;
 	}
 	$var($Object, result, wrap(x));
-	$load($Void);
-	if (!Wrapper::$assertionsDisabled && !((result == nullptr ? $Void::class$ : $nc($of(result))->getClass()) == wtype)) {
+	if (!Wrapper::$assertionsDisabled && !((result == nullptr ? $Void::class$ : result->getClass()) == wtype)) {
 		$throwNew($AssertionError);
 	}
-	return $of(result);
+	return result;
 }
 
 $Class* Wrapper::forceType($Class* type, $Class* exampleType) {
@@ -798,48 +621,28 @@ $Class* Wrapper::forceType($Class* type, $Class* exampleType) {
 $Object* Wrapper::wrap(Object$* x) {
 	switch (this->basicTypeChar$) {
 	case u'L':
-		{
-			return $of(x);
-		}
+		return $of(x);
 	case u'V':
-		{
-			return $of(nullptr);
-		}
+		return nullptr;
 	}
 	$var($Number, xn, numberValue(x));
 	switch (this->basicTypeChar$) {
 	case u'I':
-		{
-			return $of($Integer::valueOf($nc(xn)->intValue()));
-		}
+		return $of($Integer::valueOf($nc(xn)->intValue()));
 	case u'J':
-		{
-			return $of($Long::valueOf($nc(xn)->longValue()));
-		}
+		return $of($Long::valueOf($nc(xn)->longValue()));
 	case u'F':
-		{
-			return $of($Float::valueOf($nc(xn)->floatValue()));
-		}
+		return $of($Float::valueOf($nc(xn)->floatValue()));
 	case u'D':
-		{
-			return $of($Double::valueOf($nc(xn)->doubleValue()));
-		}
+		return $of($Double::valueOf($nc(xn)->doubleValue()));
 	case u'S':
-		{
-			return $of($Short::valueOf((int16_t)$nc(xn)->intValue()));
-		}
+		return $of($Short::valueOf((int16_t)$nc(xn)->intValue()));
 	case u'B':
-		{
-			return $of($Byte::valueOf((int8_t)$nc(xn)->intValue()));
-		}
+		return $of($Byte::valueOf((int8_t)$nc(xn)->intValue()));
 	case u'C':
-		{
-			return $of($Character::valueOf((char16_t)$nc(xn)->intValue()));
-		}
+		return $of($Character::valueOf((char16_t)$nc(xn)->intValue()));
 	case u'Z':
-		{
-			return $of($Boolean::valueOf(boolValue($nc(xn)->byteValue())));
-		}
+		return $of($Boolean::valueOf(boolValue($nc(xn)->byteValue())));
 	}
 	$throwNew($InternalError, "bad wrapper"_s);
 }
@@ -847,45 +650,25 @@ $Object* Wrapper::wrap(Object$* x) {
 $Object* Wrapper::wrap(int32_t x) {
 	switch (this->basicTypeChar$) {
 	case u'L':
-		{
-			return $of($Integer::valueOf(x));
-		}
+		return $of($Integer::valueOf(x));
 	case u'V':
-		{
-			return $of(nullptr);
-		}
+		return nullptr;
 	case u'I':
-		{
-			return $of($Integer::valueOf(x));
-		}
+		return $of($Integer::valueOf(x));
 	case u'J':
-		{
-			return $of($Long::valueOf((int64_t)x));
-		}
+		return $of($Long::valueOf(x));
 	case u'F':
-		{
-			return $of($Float::valueOf((float)x));
-		}
+		return $of($Float::valueOf((float)x));
 	case u'D':
-		{
-			return $of($Double::valueOf((double)x));
-		}
+		return $of($Double::valueOf((double)x));
 	case u'S':
-		{
-			return $of($Short::valueOf((int16_t)x));
-		}
+		return $of($Short::valueOf((int16_t)x));
 	case u'B':
-		{
-			return $of($Byte::valueOf((int8_t)x));
-		}
+		return $of($Byte::valueOf((int8_t)x));
 	case u'C':
-		{
-			return $of($Character::valueOf((char16_t)x));
-		}
+		return $of($Character::valueOf((char16_t)x));
 	case u'Z':
-		{
-			return $of($Boolean::valueOf(boolValue((int8_t)x)));
-		}
+		return $of($Boolean::valueOf(boolValue((int8_t)x)));
 	}
 	$throwNew($InternalError, "bad wrapper"_s);
 }
@@ -896,10 +679,10 @@ $Number* Wrapper::numberValue(Object$* x) {
 		return $cast($Number, x);
 	}
 	if ($instanceOf($Character, x)) {
-		return $Integer::valueOf((int32_t)$nc(($cast($Character, x)))->charValue());
+		return $Integer::valueOf((int32_t)$cast($Character, x)->charValue());
 	}
 	if ($instanceOf($Boolean, x)) {
-		return $Integer::valueOf($nc(($cast($Boolean, x)))->booleanValue() ? 1 : 0);
+		return $Integer::valueOf($cast($Boolean, x)->booleanValue() ? 1 : 0);
 	}
 	return $cast($Number, x);
 }
@@ -921,15 +704,15 @@ $RuntimeException* Wrapper::newIllegalArgumentException($String* message) {
 }
 
 $Object* Wrapper::makeArray(int32_t len) {
-	return $of($1Array::newInstance(this->primitiveType$, len));
+	return $1Array::newInstance(this->primitiveType$, len);
 }
 
 $Class* Wrapper::arrayType() {
-	return $nc($of(this->emptyArray))->getClass();
+	return $nc(this->emptyArray)->getClass();
 }
 
 void Wrapper::copyArrayUnboxing($ObjectArray* values, int32_t vpos, Object$* a, int32_t apos, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($of(a))->getClass() != arrayType()) {
 		$nc(arrayType())->cast(a);
 	}
@@ -941,49 +724,31 @@ void Wrapper::copyArrayUnboxing($ObjectArray* values, int32_t vpos, Object$* a, 
 }
 
 void Wrapper::copyArrayBoxing(Object$* a, int32_t apos, $ObjectArray* values, int32_t vpos, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($of(a))->getClass() != arrayType()) {
 		$nc(arrayType())->cast(a);
 	}
 	for (int32_t i = 0; i < length; ++i) {
 		$var($Object, value, $1Array::get(a, i + apos));
-		if (!Wrapper::$assertionsDisabled && !($nc($of(value))->getClass() == this->wrapperType$)) {
+		if (!Wrapper::$assertionsDisabled && !($nc(value)->getClass() == this->wrapperType$)) {
 			$throwNew($AssertionError);
 		}
 		$nc(values)->set(i + vpos, value);
 	}
 }
 
-void clinit$Wrapper($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Wrapper::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	Wrapper::$assertionsDisabled = !Wrapper::class$->desiredAssertionStatus();
-	$load($Boolean);
-	$init($Boolean);
 	$assignStatic(Wrapper::BOOLEAN, $new(Wrapper, "BOOLEAN"_s, 0, $Boolean::class$, "Boolean"_s, $Boolean::TYPE, "boolean"_s, u'Z', $$new($booleans, 0), $Wrapper$Format::unsigned$(1)));
-	$load($Byte);
-	$init($Byte);
 	$assignStatic(Wrapper::BYTE, $new(Wrapper, "BYTE"_s, 1, $Byte::class$, "Byte"_s, $Byte::TYPE, "byte"_s, u'B', $$new($bytes, 0), $Wrapper$Format::signed$(8)));
-	$load($Short);
-	$init($Short);
 	$assignStatic(Wrapper::SHORT, $new(Wrapper, "SHORT"_s, 2, $Short::class$, "Short"_s, $Short::TYPE, "short"_s, u'S', $$new($shorts, 0), $Wrapper$Format::signed$(16)));
-	$load($Character);
-	$init($Character);
 	$assignStatic(Wrapper::CHAR, $new(Wrapper, "CHAR"_s, 3, $Character::class$, "Character"_s, $Character::TYPE, "char"_s, u'C', $$new($chars, 0), $Wrapper$Format::unsigned$(16)));
-	$load($Integer);
-	$init($Integer);
 	$assignStatic(Wrapper::INT, $new(Wrapper, "INT"_s, 4, $Integer::class$, "Integer"_s, $Integer::TYPE, "int"_s, u'I', $$new($ints, 0), $Wrapper$Format::signed$(32)));
-	$load($Long);
-	$init($Long);
 	$assignStatic(Wrapper::LONG, $new(Wrapper, "LONG"_s, 5, $Long::class$, "Long"_s, $Long::TYPE, "long"_s, u'J', $$new($longs, 0), $Wrapper$Format::signed$(64)));
-	$load($Float);
-	$init($Float);
 	$assignStatic(Wrapper::FLOAT, $new(Wrapper, "FLOAT"_s, 6, $Float::class$, "Float"_s, $Float::TYPE, "float"_s, u'F', $$new($floats, 0), $Wrapper$Format::floating(32)));
-	$load($Double);
-	$init($Double);
 	$assignStatic(Wrapper::DOUBLE, $new(Wrapper, "DOUBLE"_s, 7, $Double::class$, "Double"_s, $Double::TYPE, "double"_s, u'D', $$new($doubles, 0), $Wrapper$Format::floating(64)));
 	$assignStatic(Wrapper::OBJECT, $new(Wrapper, "OBJECT"_s, 8, $Object::class$, "Object"_s, $Object::class$, "Object"_s, u'L', $$new($ObjectArray, 0), $Wrapper$Format::other(1)));
-	$load($Void);
-	$init($Void);
 	$assignStatic(Wrapper::VOID, $new(Wrapper, "VOID"_s, 9, $Void::class$, "Void"_s, $Void::TYPE, "void"_s, u'V', nullptr, $Wrapper$Format::other(0)));
 	$assignStatic(Wrapper::$VALUES, Wrapper::$values());
 	{
@@ -1000,29 +765,25 @@ void clinit$Wrapper($Class* class$) {
 	$assignStatic(Wrapper::FROM_WRAP, $new($WrapperArray, 16));
 	$assignStatic(Wrapper::FROM_CHAR, $new($WrapperArray, 16));
 	{
-		{
-			$var($WrapperArray, arr$, Wrapper::values());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				Wrapper* w = arr$->get(i$);
-				{
-					int32_t pi = Wrapper::hashPrim($nc(w)->primitiveType$);
-					int32_t wi = Wrapper::hashWrap($nc(w)->wrapperType$);
-					int32_t ci = Wrapper::hashChar($nc(w)->basicTypeChar$);
-					if (!Wrapper::$assertionsDisabled && !($nc(Wrapper::FROM_PRIM)->get(pi) == nullptr)) {
-						$throwNew($AssertionError);
-					}
-					if (!Wrapper::$assertionsDisabled && !($nc(Wrapper::FROM_WRAP)->get(wi) == nullptr)) {
-						$throwNew($AssertionError);
-					}
-					if (!Wrapper::$assertionsDisabled && !($nc(Wrapper::FROM_CHAR)->get(ci) == nullptr)) {
-						$throwNew($AssertionError);
-					}
-					$nc(Wrapper::FROM_PRIM)->set(pi, w);
-					$nc(Wrapper::FROM_WRAP)->set(wi, w);
-					$nc(Wrapper::FROM_CHAR)->set(ci, w);
+		$var($WrapperArray, arr$, Wrapper::values());
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			Wrapper* w = arr$->get(i$);
+			{
+				int32_t pi = Wrapper::hashPrim($nc(w)->primitiveType$);
+				int32_t wi = Wrapper::hashWrap(w->wrapperType$);
+				int32_t ci = Wrapper::hashChar(w->basicTypeChar$);
+				if (!Wrapper::$assertionsDisabled && !(Wrapper::FROM_PRIM->get(pi) == nullptr)) {
+					$throwNew($AssertionError);
 				}
+				if (!Wrapper::$assertionsDisabled && !(Wrapper::FROM_WRAP->get(wi) == nullptr)) {
+					$throwNew($AssertionError);
+				}
+				if (!Wrapper::$assertionsDisabled && !(Wrapper::FROM_CHAR->get(ci) == nullptr)) {
+					$throwNew($AssertionError);
+				}
+				Wrapper::FROM_PRIM->set(pi, w);
+				Wrapper::FROM_WRAP->set(wi, w);
+				Wrapper::FROM_CHAR->set(ci, w);
 			}
 		}
 	}
@@ -1032,7 +793,117 @@ Wrapper::Wrapper() {
 }
 
 $Class* Wrapper::load$($String* name, bool initialize) {
-	$loadClass(Wrapper, name, initialize, &_Wrapper_ClassInfo_, clinit$Wrapper, allocate$Wrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Wrapper, $assertionsDisabled)},
+		{"BOOLEAN", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, BOOLEAN)},
+		{"BYTE", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, BYTE)},
+		{"SHORT", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, SHORT)},
+		{"CHAR", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, CHAR)},
+		{"INT", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, INT)},
+		{"LONG", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, LONG)},
+		{"FLOAT", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, FLOAT)},
+		{"DOUBLE", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, DOUBLE)},
+		{"OBJECT", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, OBJECT)},
+		{"VOID", "Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Wrapper, VOID)},
+		{"$VALUES", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Wrapper, $VALUES)},
+		{"COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Wrapper, COUNT)},
+		{"wrapperType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(Wrapper, wrapperType$)},
+		{"primitiveType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(Wrapper, primitiveType$)},
+		{"basicTypeChar", "C", nullptr, $PRIVATE | $FINAL, $field(Wrapper, basicTypeChar$)},
+		{"basicTypeString", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Wrapper, basicTypeString$)},
+		{"emptyArray", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Wrapper, emptyArray)},
+		{"format", "I", nullptr, $PRIVATE | $FINAL, $field(Wrapper, format)},
+		{"wrapperSimpleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Wrapper, wrapperSimpleName$)},
+		{"primitiveSimpleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Wrapper, primitiveSimpleName$)},
+		{"DOUBLE_ZERO", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Wrapper, DOUBLE_ZERO)},
+		{"FLOAT_ZERO", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Wrapper, FLOAT_ZERO)},
+		{"FROM_PRIM", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Wrapper, FROM_PRIM)},
+		{"FROM_WRAP", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Wrapper, FROM_WRAP)},
+		{"FROM_CHAR", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Wrapper, FROM_CHAR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Wrapper, $values, $WrapperArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/Class;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;CLjava/lang/Object;I)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;CLjava/lang/Object;I)V", $PRIVATE, $method(Wrapper, init$, void, $String*, int32_t, $Class*, $String*, $Class*, $String*, char16_t, Object$*, int32_t)},
+		{"arrayType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Wrapper, arrayType, $Class*)},
+		{"asPrimitiveType", "(Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/lang/Class<TT;>;", $PUBLIC | $STATIC, $staticMethod(Wrapper, asPrimitiveType, $Class*, $Class*)},
+		{"asWrapperType", "(Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/lang/Class<TT;>;", $PUBLIC | $STATIC, $staticMethod(Wrapper, asWrapperType, $Class*, $Class*)},
+		{"basicTypeChar", "(Ljava/lang/Class;)C", "(Ljava/lang/Class<*>;)C", $PUBLIC | $STATIC, $staticMethod(Wrapper, basicTypeChar, char16_t, $Class*)},
+		{"basicTypeChar", "()C", nullptr, $PUBLIC, $method(Wrapper, basicTypeChar, char16_t)},
+		{"basicTypeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Wrapper, basicTypeString, $String*)},
+		{"bitWidth", "()I", nullptr, $PUBLIC, $method(Wrapper, bitWidth, int32_t)},
+		{"boolValue", "(B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, boolValue, bool, int8_t)},
+		{"cast", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $method(Wrapper, cast, $Object*, Object$*, $Class*)},
+		{"checkConvertibleFrom", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, checkConvertibleFrom, bool)},
+		{"convert", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $method(Wrapper, convert, $Object*, Object$*, $Class*)},
+		{"convert", "(Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;Z)TT;", $PRIVATE, $method(Wrapper, convert, $Object*, Object$*, $Class*, bool)},
+		{"copyArrayBoxing", "(Ljava/lang/Object;I[Ljava/lang/Object;II)V", nullptr, $PUBLIC, $method(Wrapper, copyArrayBoxing, void, Object$*, int32_t, $ObjectArray*, int32_t, int32_t)},
+		{"copyArrayUnboxing", "([Ljava/lang/Object;ILjava/lang/Object;II)V", nullptr, $PUBLIC, $method(Wrapper, copyArrayUnboxing, void, $ObjectArray*, int32_t, Object$*, int32_t, int32_t)},
+		{"detailString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Wrapper, detailString, $String*)},
+		{"findPrimitiveType", "(Ljava/lang/Class;)Lsun/invoke/util/Wrapper;", "(Ljava/lang/Class<*>;)Lsun/invoke/util/Wrapper;", $STATIC, $staticMethod(Wrapper, findPrimitiveType, Wrapper*, $Class*)},
+		{"findWrapperType", "(Ljava/lang/Class;)Lsun/invoke/util/Wrapper;", "(Ljava/lang/Class<*>;)Lsun/invoke/util/Wrapper;", $STATIC, $staticMethod(Wrapper, findWrapperType, Wrapper*, $Class*)},
+		{"forBasicType", "(C)Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC, $staticMethod(Wrapper, forBasicType, Wrapper*, char16_t)},
+		{"forBasicType", "(Ljava/lang/Class;)Lsun/invoke/util/Wrapper;", "(Ljava/lang/Class<*>;)Lsun/invoke/util/Wrapper;", $PUBLIC | $STATIC, $staticMethod(Wrapper, forBasicType, Wrapper*, $Class*)},
+		{"forPrimitiveType", "(Ljava/lang/Class;)Lsun/invoke/util/Wrapper;", "(Ljava/lang/Class<*>;)Lsun/invoke/util/Wrapper;", $PUBLIC | $STATIC, $staticMethod(Wrapper, forPrimitiveType, Wrapper*, $Class*)},
+		{"forPrimitiveType", "(C)Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC, $staticMethod(Wrapper, forPrimitiveType, Wrapper*, char16_t)},
+		{"forWrapperType", "(Ljava/lang/Class;)Lsun/invoke/util/Wrapper;", "(Ljava/lang/Class<*>;)Lsun/invoke/util/Wrapper;", $PUBLIC | $STATIC, $staticMethod(Wrapper, forWrapperType, Wrapper*, $Class*)},
+		{"forceType", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<*>;Ljava/lang/Class<TT;>;)Ljava/lang/Class<TT;>;", $STATIC, $staticMethod(Wrapper, forceType, $Class*, $Class*, $Class*)},
+		{"hashChar", "(C)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, hashChar, int32_t, char16_t)},
+		{"hashPrim", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $staticMethod(Wrapper, hashPrim, int32_t, $Class*)},
+		{"hashWrap", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $staticMethod(Wrapper, hashWrap, int32_t, $Class*)},
+		{"isConvertibleFrom", "(Lsun/invoke/util/Wrapper;)Z", nullptr, $PUBLIC, $method(Wrapper, isConvertibleFrom, bool, Wrapper*)},
+		{"isDoubleWord", "()Z", nullptr, $PUBLIC, $method(Wrapper, isDoubleWord, bool)},
+		{"isFloating", "()Z", nullptr, $PUBLIC, $method(Wrapper, isFloating, bool)},
+		{"isIntegral", "()Z", nullptr, $PUBLIC, $method(Wrapper, isIntegral, bool)},
+		{"isNumeric", "()Z", nullptr, $PUBLIC, $method(Wrapper, isNumeric, bool)},
+		{"isOther", "()Z", nullptr, $PUBLIC, $method(Wrapper, isOther, bool)},
+		{"isPrimitiveType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(Wrapper, isPrimitiveType, bool, $Class*)},
+		{"isSigned", "()Z", nullptr, $PUBLIC, $method(Wrapper, isSigned, bool)},
+		{"isSingleWord", "()Z", nullptr, $PUBLIC, $method(Wrapper, isSingleWord, bool)},
+		{"isSubwordOrInt", "()Z", nullptr, $PUBLIC, $method(Wrapper, isSubwordOrInt, bool)},
+		{"isUnsigned", "()Z", nullptr, $PUBLIC, $method(Wrapper, isUnsigned, bool)},
+		{"isWrapperType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(Wrapper, isWrapperType, bool, $Class*)},
+		{"makeArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Wrapper, makeArray, $Object*, int32_t)},
+		{"newClassCastException", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/ClassCastException;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/ClassCastException;", $PRIVATE | $STATIC, $staticMethod(Wrapper, newClassCastException, $ClassCastException*, $Class*, $Class*)},
+		{"newIllegalArgumentException", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/RuntimeException;", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, newIllegalArgumentException, $RuntimeException*, $String*, Object$*)},
+		{"newIllegalArgumentException", "(Ljava/lang/String;)Ljava/lang/RuntimeException;", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, newIllegalArgumentException, $RuntimeException*, $String*)},
+		{"numberValue", "(Ljava/lang/Object;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC, $staticMethod(Wrapper, numberValue, $Number*, Object$*)},
+		{"primitiveSimpleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Wrapper, primitiveSimpleName, $String*)},
+		{"primitiveType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Wrapper, primitiveType, $Class*)},
+		{"stackSlots", "()I", nullptr, $PUBLIC, $method(Wrapper, stackSlots, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC, $staticMethod(Wrapper, valueOf, Wrapper*, $String*)},
+		{"values", "()[Lsun/invoke/util/Wrapper;", nullptr, $PUBLIC | $STATIC, $staticMethod(Wrapper, values, $WrapperArray*)},
+		{"wrap", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Wrapper, wrap, $Object*, Object$*)},
+		{"wrap", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Wrapper, wrap, $Object*, int32_t)},
+		{"wrapperSimpleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Wrapper, wrapperSimpleName, $String*)},
+		{"wrapperType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Wrapper, wrapperType, $Class*)},
+		{"wrapperType", "(Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/lang/Class<TT;>;", $PUBLIC, $method(Wrapper, wrapperType, $Class*, $Class*)},
+		{"zero", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(Wrapper, zero, $Object*)},
+		{"zero", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $method(Wrapper, zero, $Object*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.invoke.util.Wrapper$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.invoke.util.Wrapper$Format", "sun.invoke.util.Wrapper", "Format", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.invoke.util.Wrapper",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/invoke/util/Wrapper;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.invoke.util.Wrapper$1,sun.invoke.util.Wrapper$Format"
+	};
+	$loadClass(Wrapper, name, initialize, &classInfo$$, Wrapper::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Wrapper));
+	});
 	return class$;
 }
 

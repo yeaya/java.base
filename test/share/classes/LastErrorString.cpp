@@ -1,5 +1,4 @@
 #include <LastErrorString.h>
-
 #include <LastErrorString$1.h>
 #include <LastErrorString$10.h>
 #include <LastErrorString$11.h>
@@ -56,70 +55,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$FieldInfo _LastErrorString_FieldInfo_[] = {
-	{"UNWRITEABLE_DIR", "Ljava/lang/String;", nullptr, $STATIC, $staticField(LastErrorString, UNWRITEABLE_DIR)},
-	{"UNREADABLE_FILE", "Ljava/lang/String;", nullptr, $STATIC, $staticField(LastErrorString, UNREADABLE_FILE)},
-	{"READABLE_FILE", "Ljava/lang/String;", nullptr, $STATIC, $staticField(LastErrorString, READABLE_FILE)},
-	{"WRITEABLE_FILE", "Ljava/lang/String;", nullptr, $STATIC, $staticField(LastErrorString, WRITEABLE_FILE)},
-	{"INVALID_PATH", "Ljava/lang/String;", nullptr, $STATIC, $staticField(LastErrorString, INVALID_PATH)},
-	{}
-};
-
-$MethodInfo _LastErrorString_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LastErrorString, init$, void)},
-	{"go", "()V", nullptr, $STATIC, $staticMethod(LastErrorString, go, void), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LastErrorString, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _LastErrorString_InnerClassesInfo_[] = {
-	{"LastErrorString$ReadOnlyRAFTest", "LastErrorString", "ReadOnlyRAFTest", $STATIC | $ABSTRACT},
-	{"LastErrorString$ClosedRAFTest", "LastErrorString", "ClosedRAFTest", $STATIC | $ABSTRACT},
-	{"LastErrorString$ClosedFOSTest", "LastErrorString", "ClosedFOSTest", $STATIC | $ABSTRACT},
-	{"LastErrorString$ClosedFISTest", "LastErrorString", "ClosedFISTest", $STATIC | $ABSTRACT},
-	{"LastErrorString$Test", "LastErrorString", "Test", $STATIC | $ABSTRACT},
-	{"LastErrorString$20", nullptr, nullptr, 0},
-	{"LastErrorString$19", nullptr, nullptr, 0},
-	{"LastErrorString$18", nullptr, nullptr, 0},
-	{"LastErrorString$17", nullptr, nullptr, 0},
-	{"LastErrorString$16", nullptr, nullptr, 0},
-	{"LastErrorString$15", nullptr, nullptr, 0},
-	{"LastErrorString$14", nullptr, nullptr, 0},
-	{"LastErrorString$13", nullptr, nullptr, 0},
-	{"LastErrorString$12", nullptr, nullptr, 0},
-	{"LastErrorString$11", nullptr, nullptr, 0},
-	{"LastErrorString$10", nullptr, nullptr, 0},
-	{"LastErrorString$9", nullptr, nullptr, 0},
-	{"LastErrorString$8", nullptr, nullptr, 0},
-	{"LastErrorString$7", nullptr, nullptr, 0},
-	{"LastErrorString$6", nullptr, nullptr, 0},
-	{"LastErrorString$5", nullptr, nullptr, 0},
-	{"LastErrorString$4", nullptr, nullptr, 0},
-	{"LastErrorString$3", nullptr, nullptr, 0},
-	{"LastErrorString$2", nullptr, nullptr, 0},
-	{"LastErrorString$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LastErrorString_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"LastErrorString",
-	"java.lang.Object",
-	nullptr,
-	_LastErrorString_FieldInfo_,
-	_LastErrorString_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LastErrorString_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"LastErrorString$ReadOnlyRAFTest,LastErrorString$ClosedRAFTest,LastErrorString$ClosedFOSTest,LastErrorString$ClosedFISTest,LastErrorString$Test,LastErrorString$20,LastErrorString$19,LastErrorString$18,LastErrorString$17,LastErrorString$16,LastErrorString$15,LastErrorString$14,LastErrorString$13,LastErrorString$12,LastErrorString$11,LastErrorString$10,LastErrorString$9,LastErrorString$8,LastErrorString$7,LastErrorString$6,LastErrorString$5,LastErrorString$4,LastErrorString$3,LastErrorString$2,LastErrorString$1"
-};
-
-$Object* allocate$LastErrorString($Class* clazz) {
-	return $of($alloc(LastErrorString));
-}
-
 $String* LastErrorString::UNWRITEABLE_DIR = nullptr;
 $String* LastErrorString::UNREADABLE_FILE = nullptr;
 $String* LastErrorString::READABLE_FILE = nullptr;
@@ -131,7 +66,7 @@ void LastErrorString::init$() {
 
 void LastErrorString::go() {
 	$init(LastErrorString);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$$new($LastErrorString$1, "File.createNewFile"_s)->go();
 	$$new($LastErrorString$2, "File.getCanonicalpath"_s)->go();
 	$$new($LastErrorString$3, "FileInputStream(file)"_s)->go();
@@ -159,20 +94,18 @@ void LastErrorString::main($StringArray* args) {
 	go();
 }
 
-void clinit$LastErrorString($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LastErrorString::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$init($File);
 		if ($File::separatorChar == u'/') {
 			$assignStatic(LastErrorString::UNWRITEABLE_DIR, "/etc/dfs"_s);
 			$assignStatic(LastErrorString::UNREADABLE_FILE, "/etc/shadow"_s);
+		} else if ($File::separatorChar == u'\\') {
+			$assignStatic(LastErrorString::UNREADABLE_FILE, "c:/pagefile.sys"_s);
+			$assignStatic(LastErrorString::UNWRITEABLE_DIR, "z:/fooBAR/baz/GORP"_s);
 		} else {
-			if ($File::separatorChar == u'\\') {
-				$assignStatic(LastErrorString::UNREADABLE_FILE, "c:/pagefile.sys"_s);
-				$assignStatic(LastErrorString::UNWRITEABLE_DIR, "z:/fooBAR/baz/GORP"_s);
-			} else {
-				$throwNew($RuntimeException, "What kind of system is this?"_s);
-			}
+			$throwNew($RuntimeException, "What kind of system is this?"_s);
 		}
 		$var($File, d, $new($File, $($System::getProperty("test.src"_s, "."_s))));
 		$assignStatic(LastErrorString::READABLE_FILE, $$new($File, d, "LastErrorString.java"_s)->getPath());
@@ -180,7 +113,7 @@ void clinit$LastErrorString($Class* class$) {
 		$var($String, s, "foo/"_s);
 		for (;;) {
 			$assign(s, $str({s, s}));
-			if ($nc(s)->length() > 8192) {
+			if (s->length() > 8192) {
 				break;
 			}
 		}
@@ -193,7 +126,65 @@ LastErrorString::LastErrorString() {
 }
 
 $Class* LastErrorString::load$($String* name, bool initialize) {
-	$loadClass(LastErrorString, name, initialize, &_LastErrorString_ClassInfo_, clinit$LastErrorString, allocate$LastErrorString);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNWRITEABLE_DIR", "Ljava/lang/String;", nullptr, $STATIC, $staticField(LastErrorString, UNWRITEABLE_DIR)},
+		{"UNREADABLE_FILE", "Ljava/lang/String;", nullptr, $STATIC, $staticField(LastErrorString, UNREADABLE_FILE)},
+		{"READABLE_FILE", "Ljava/lang/String;", nullptr, $STATIC, $staticField(LastErrorString, READABLE_FILE)},
+		{"WRITEABLE_FILE", "Ljava/lang/String;", nullptr, $STATIC, $staticField(LastErrorString, WRITEABLE_FILE)},
+		{"INVALID_PATH", "Ljava/lang/String;", nullptr, $STATIC, $staticField(LastErrorString, INVALID_PATH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LastErrorString, init$, void)},
+		{"go", "()V", nullptr, $STATIC, $staticMethod(LastErrorString, go, void), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LastErrorString, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LastErrorString$ReadOnlyRAFTest", "LastErrorString", "ReadOnlyRAFTest", $STATIC | $ABSTRACT},
+		{"LastErrorString$ClosedRAFTest", "LastErrorString", "ClosedRAFTest", $STATIC | $ABSTRACT},
+		{"LastErrorString$ClosedFOSTest", "LastErrorString", "ClosedFOSTest", $STATIC | $ABSTRACT},
+		{"LastErrorString$ClosedFISTest", "LastErrorString", "ClosedFISTest", $STATIC | $ABSTRACT},
+		{"LastErrorString$Test", "LastErrorString", "Test", $STATIC | $ABSTRACT},
+		{"LastErrorString$20", nullptr, nullptr, 0},
+		{"LastErrorString$19", nullptr, nullptr, 0},
+		{"LastErrorString$18", nullptr, nullptr, 0},
+		{"LastErrorString$17", nullptr, nullptr, 0},
+		{"LastErrorString$16", nullptr, nullptr, 0},
+		{"LastErrorString$15", nullptr, nullptr, 0},
+		{"LastErrorString$14", nullptr, nullptr, 0},
+		{"LastErrorString$13", nullptr, nullptr, 0},
+		{"LastErrorString$12", nullptr, nullptr, 0},
+		{"LastErrorString$11", nullptr, nullptr, 0},
+		{"LastErrorString$10", nullptr, nullptr, 0},
+		{"LastErrorString$9", nullptr, nullptr, 0},
+		{"LastErrorString$8", nullptr, nullptr, 0},
+		{"LastErrorString$7", nullptr, nullptr, 0},
+		{"LastErrorString$6", nullptr, nullptr, 0},
+		{"LastErrorString$5", nullptr, nullptr, 0},
+		{"LastErrorString$4", nullptr, nullptr, 0},
+		{"LastErrorString$3", nullptr, nullptr, 0},
+		{"LastErrorString$2", nullptr, nullptr, 0},
+		{"LastErrorString$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"LastErrorString",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"LastErrorString$ReadOnlyRAFTest,LastErrorString$ClosedRAFTest,LastErrorString$ClosedFOSTest,LastErrorString$ClosedFISTest,LastErrorString$Test,LastErrorString$20,LastErrorString$19,LastErrorString$18,LastErrorString$17,LastErrorString$16,LastErrorString$15,LastErrorString$14,LastErrorString$13,LastErrorString$12,LastErrorString$11,LastErrorString$10,LastErrorString$9,LastErrorString$8,LastErrorString$7,LastErrorString$6,LastErrorString$5,LastErrorString$4,LastErrorString$3,LastErrorString$2,LastErrorString$1"
+	};
+	$loadClass(LastErrorString, name, initialize, &classInfo$$, LastErrorString::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LastErrorString);
+	});
 	return class$;
 }
 

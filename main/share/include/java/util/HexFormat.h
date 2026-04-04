@@ -37,6 +37,7 @@ class $import HexFormat : public ::java::lang::Object {
 	$class(HexFormat, 0, ::java::lang::Object)
 public:
 	HexFormat();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* delimiter, $String* prefix, $String* suffix, $bytes* digits);
 	static int32_t checkDigitCount(int32_t fromIndex, int32_t toIndex, int32_t limit);
 	static void checkLiteral(::java::lang::CharSequence* string, int32_t index, $String* literal);

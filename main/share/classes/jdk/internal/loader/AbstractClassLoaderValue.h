@@ -50,6 +50,7 @@ class $export AbstractClassLoaderValue : public ::java::lang::Object {
 	$class(AbstractClassLoaderValue, $PRELOAD, ::java::lang::Object)
 public:
 	AbstractClassLoaderValue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* computeIfAbsent(::java::lang::ClassLoader* cl, ::java::util::function::BiFunction* mappingFunction);
 	$Object* extractValue(Object$* memoizerOrValue);

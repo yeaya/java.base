@@ -1,5 +1,4 @@
 #include <ClosedWrite.h>
-
 #include <java/io/IOException.h>
 #include <java/io/PipedInputStream.h>
 #include <java/io/PipedOutputStream.h>
@@ -8,35 +7,15 @@
 using $IOException = ::java::io::IOException;
 using $PipedInputStream = ::java::io::PipedInputStream;
 using $PipedOutputStream = ::java::io::PipedOutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$MethodInfo _ClosedWrite_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedWrite, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClosedWrite, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ClosedWrite_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ClosedWrite",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ClosedWrite_MethodInfo_
-};
-
-$Object* allocate$ClosedWrite($Class* clazz) {
-	return $of($alloc(ClosedWrite));
-}
 
 void ClosedWrite::init$() {
 }
 
 void ClosedWrite::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PipedOutputStream, os, $new($PipedOutputStream));
 	$var($PipedInputStream, is, $new($PipedInputStream));
 	os->connect(is);
@@ -53,7 +32,22 @@ ClosedWrite::ClosedWrite() {
 }
 
 $Class* ClosedWrite::load$($String* name, bool initialize) {
-	$loadClass(ClosedWrite, name, initialize, &_ClosedWrite_ClassInfo_, allocate$ClosedWrite);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedWrite, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClosedWrite, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ClosedWrite",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ClosedWrite, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClosedWrite);
+	});
 	return class$;
 }
 

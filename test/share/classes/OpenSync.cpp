@@ -1,5 +1,4 @@
 #include <OpenSync.h>
-
 #include <java/io/File.h>
 #include <java/io/RandomAccessFile.h>
 #include <jcpp.h>
@@ -13,30 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _OpenSync_FieldInfo_[] = {
-	{"log", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(OpenSync, log)},
-	{}
-};
-
-$MethodInfo _OpenSync_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OpenSync, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpenSync, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _OpenSync_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"OpenSync",
-	"java.lang.Object",
-	nullptr,
-	_OpenSync_FieldInfo_,
-	_OpenSync_MethodInfo_
-};
-
-$Object* allocate$OpenSync($Class* clazz) {
-	return $of($alloc(OpenSync));
-}
-
 $PrintStream* OpenSync::log = nullptr;
 
 void OpenSync::init$() {
@@ -44,7 +19,7 @@ void OpenSync::init$() {
 
 void OpenSync::main($StringArray* args) {
 	$init(OpenSync);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, blah, $File::createTempFile("OpenSync"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($StringArray, badModes, $new($StringArray, {
@@ -60,8 +35,8 @@ void OpenSync::main($StringArray* args) {
 		try {
 			$new($RandomAccessFile, blah, mode);
 		} catch ($IllegalArgumentException& x) {
-			$nc(OpenSync::log)->println($$str({"Mode \""_s, mode, "\": Thrown as expected: "_s, $($of(x)->getClass()->getName())}));
-			$nc(OpenSync::log)->println($$str({"  "_s, $(x->getMessage())}));
+			$nc(OpenSync::log)->println($$str({"Mode \""_s, mode, "\": Thrown as expected: "_s, $(x->getClass()->getName())}));
+			OpenSync::log->println($$str({"  "_s, $(x->getMessage())}));
 			continue;
 		}
 		$throwNew($Exception, $$str({"Exception not thrown for illegal mode "_s, mode}));
@@ -73,13 +48,13 @@ void OpenSync::main($StringArray* args) {
 	raf->writeUTF(hi);
 	raf->close();
 	$assign(raf, $new($RandomAccessFile, blah, "rwd"_s));
-	if (!$nc($(raf->readUTF()))->equals(hi)) {
+	if (!$$nc(raf->readUTF())->equals(hi)) {
 		$throwNew($Exception, "File content mismatch"_s);
 	}
 	raf->close();
 }
 
-void clinit$OpenSync($Class* class$) {
+void OpenSync::clinit$($Class* clazz) {
 	$assignStatic(OpenSync::log, $System::err);
 }
 
@@ -87,7 +62,26 @@ OpenSync::OpenSync() {
 }
 
 $Class* OpenSync::load$($String* name, bool initialize) {
-	$loadClass(OpenSync, name, initialize, &_OpenSync_ClassInfo_, clinit$OpenSync, allocate$OpenSync);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(OpenSync, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OpenSync, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpenSync, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"OpenSync",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OpenSync, name, initialize, &classInfo$$, OpenSync::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OpenSync);
+	});
 	return class$;
 }
 

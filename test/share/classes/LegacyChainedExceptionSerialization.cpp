@@ -1,13 +1,10 @@
 #include <LegacyChainedExceptionSerialization.h>
-
 #include <LegacyChainedExceptionSerialization$SubClass.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
 #include <java/lang/ExceptionInInitializerError.h>
@@ -36,10 +33,8 @@ using $ThrowableArray = $Array<::java::lang::Throwable>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Error = ::java::lang::Error;
@@ -59,54 +54,6 @@ using $Base64$Decoder = ::java::util::Base64$Decoder;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
-
-$FieldInfo _LegacyChainedExceptionSerialization_FieldInfo_[] = {
-	{"broken", "[Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticField(LegacyChainedExceptionSerialization, broken)},
-	{"EIIE_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, EIIE_OLD_VERSION)},
-	{"CNFE_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, CNFE_OLD_VERSION)},
-	{"ITE1_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, ITE1_OLD_VERSION)},
-	{"ITE2_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, ITE2_OLD_VERSION)},
-	{"UTE1_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, UTE1_OLD_VERSION)},
-	{"UTE2_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, UTE2_OLD_VERSION)},
-	{"PAE_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, PAE_OLD_VERSION)},
-	{"SERIALIZED_DATA", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Throwable;>;", $PRIVATE | $STATIC, $staticField(LegacyChainedExceptionSerialization, SERIALIZED_DATA)},
-	{}
-};
-
-$MethodInfo _LegacyChainedExceptionSerialization_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LegacyChainedExceptionSerialization, init$, void)},
-	{"deserialize", "(Ljava/lang/String;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, deserialize, $Throwable*, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, test, $Throwable*, $Throwable*), "java.lang.Exception"},
-	{"testOverriddenGetCause", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, testOverriddenGetCause, void), "java.lang.Exception"},
-	{"verify", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, verify, void, $Throwable*, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _LegacyChainedExceptionSerialization_InnerClassesInfo_[] = {
-	{"LegacyChainedExceptionSerialization$SubClass", "LegacyChainedExceptionSerialization", "SubClass", $STATIC},
-	{}
-};
-
-$ClassInfo _LegacyChainedExceptionSerialization_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"LegacyChainedExceptionSerialization",
-	"java.lang.Object",
-	nullptr,
-	_LegacyChainedExceptionSerialization_FieldInfo_,
-	_LegacyChainedExceptionSerialization_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LegacyChainedExceptionSerialization_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"LegacyChainedExceptionSerialization$SubClass"
-};
-
-$Object* allocate$LegacyChainedExceptionSerialization($Class* clazz) {
-	return $of($alloc(LegacyChainedExceptionSerialization));
-}
 
 $ThrowableArray* LegacyChainedExceptionSerialization::broken = nullptr;
 $String* LegacyChainedExceptionSerialization::EIIE_OLD_VERSION = nullptr;
@@ -123,17 +70,17 @@ void LegacyChainedExceptionSerialization::init$() {
 
 void LegacyChainedExceptionSerialization::main($StringArray* args) {
 	$init(LegacyChainedExceptionSerialization);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(LegacyChainedExceptionSerialization::broken)->length; ++i) {
-		test($nc(LegacyChainedExceptionSerialization::broken)->get(i));
+		test(LegacyChainedExceptionSerialization::broken->get(i));
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(LegacyChainedExceptionSerialization::SERIALIZED_DATA)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(LegacyChainedExceptionSerialization::SERIALIZED_DATA)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
-				$var($Throwable, t, deserialize($cast($String, $($nc(e)->getKey()))));
-				verify(t, $cast($Throwable, $($nc(e)->getValue())));
+				$var($Throwable, t, deserialize($$cast($String, $nc(e)->getKey())));
+				verify(t, $$cast($Throwable, e->getValue()));
 			}
 		}
 	}
@@ -142,7 +89,7 @@ void LegacyChainedExceptionSerialization::main($StringArray* args) {
 
 $Throwable* LegacyChainedExceptionSerialization::test($Throwable* e) {
 	$init(LegacyChainedExceptionSerialization);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, out, $new($ObjectOutputStream, bout));
 	out->writeObject(e);
@@ -155,78 +102,74 @@ $Throwable* LegacyChainedExceptionSerialization::test($Throwable* e) {
 
 void LegacyChainedExceptionSerialization::testOverriddenGetCause() {
 	$init(LegacyChainedExceptionSerialization);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LegacyChainedExceptionSerialization$SubClass, sc, $new($LegacyChainedExceptionSerialization$SubClass, $$new($NullPointerException)));
 	$var($LegacyChainedExceptionSerialization$SubClass, clone, $cast($LegacyChainedExceptionSerialization$SubClass, test(sc)));
 	$var($Throwable, cause, $nc(clone)->getException());
-	if (!($instanceOf($NullPointerException, cause)) || $nc(cause)->getMessage() != nullptr) {
+	if (!($instanceOf($NullPointerException, cause)) || cause->getMessage() != nullptr) {
 		$throwNew($RuntimeException, $$str({"unexpected cause: "_s, cause}));
 	}
 }
 
 $Throwable* LegacyChainedExceptionSerialization::deserialize($String* ser) {
 	$init(LegacyChainedExceptionSerialization);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Base64$Decoder, decoder, $Base64::getDecoder());
 	{
 		$var($ByteArrayInputStream, bin, $new($ByteArrayInputStream, $($nc(decoder)->decode(ser))));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($Throwable, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
+				$var($ObjectInputStream, ois, $new($ObjectInputStream, bin));
+				$var($Throwable, var$3, nullptr);
+				$var($Throwable, var$5, nullptr);
+				bool return$4 = false;
 				try {
-					$var($ObjectInputStream, ois, $new($ObjectInputStream, bin));
-					{
-						$var($Throwable, var$3, nullptr);
-						$var($Throwable, var$5, nullptr);
-						bool return$4 = false;
-						try {
-							try {
-								$assign(var$5, $cast($Throwable, ois->readObject()));
-								return$4 = true;
-								goto $finally1;
-							} catch ($Throwable& t$) {
-								try {
-									ois->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$6) {
-							$assign(var$3, var$6);
-						} $finally1: {
-							ois->close();
-						}
-						if (var$3 != nullptr) {
-							$throw(var$3);
-						}
-						if (return$4) {
-							$assign(var$2, var$5);
-							return$1 = true;
-							goto $finally;
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						bin->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$assign(var$5, $cast($Throwable, ois->readObject()));
+						return$4 = true;
+						goto $finally1;
+					} catch ($Throwable& t$) {
+						try {
+							ois->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
+				} $finally1: {
+					ois->close();
 				}
-			} catch ($Throwable& var$7) {
-				$assign(var$0, var$7);
-			} $finally: {
-				bin->close();
+				if (var$3 != nullptr) {
+					$throw(var$3);
+				}
+				if (return$4) {
+					$assign(var$2, var$5);
+					return$1 = true;
+					goto $finally;
+				}
+			} catch ($Throwable& t$) {
+				try {
+					bin->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
+		} $finally: {
+			bin->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
@@ -234,35 +177,35 @@ $Throwable* LegacyChainedExceptionSerialization::deserialize($String* ser) {
 
 void LegacyChainedExceptionSerialization::verify($Throwable* t, $Throwable* expected) {
 	$init(LegacyChainedExceptionSerialization);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, msg, $nc(expected)->getMessage());
 	$var($Throwable, cause, expected->getCause());
 	bool var$0 = $nc(t)->getMessage() != msg && msg != nullptr;
 	if (var$0 && !msg->equals($(t->getMessage()))) {
 		$throwNew($RuntimeException, $$str({"unexpected message: "_s, $(t->getMessage()), " expected: "_s, msg}));
 	}
-	$var($Throwable, e, $nc(t)->getCause());
-	if ($nc($of(e))->getClass() != $nc($of(cause))->getClass()) {
+	$var($Throwable, e, t->getCause());
+	if ($nc(e)->getClass() != $nc(cause)->getClass()) {
 		$throwNew($RuntimeException, $$str({"unexpected cause: "_s, $(t->getCause())}));
 	}
-	$var($String, causedBy, $nc(cause)->getMessage());
-	if ($nc(e)->getMessage() != causedBy) {
+	$var($String, causedBy, cause->getMessage());
+	if (e->getMessage() != causedBy) {
 		bool var$1 = e->getMessage() == nullptr || causedBy == nullptr;
-		if (var$1 || !$nc(causedBy)->equals($(e->getMessage()))) {
+		if (var$1 || !causedBy->equals($(e->getMessage()))) {
 			$throwNew($RuntimeException, $$str({"unexpected message: "_s, $(t->getMessage()), " expected: "_s, causedBy}));
 		}
 	}
 	$var($Throwable, exception, nullptr);
 	if ($instanceOf($ExceptionInInitializerError, t)) {
-		$assign(exception, $nc(($cast($ExceptionInInitializerError, t)))->getException());
+		$assign(exception, $cast($ExceptionInInitializerError, t)->getException());
 	} else if ($instanceOf($ClassNotFoundException, t)) {
-		$assign(exception, $nc(($cast($ClassNotFoundException, t)))->getException());
+		$assign(exception, $cast($ClassNotFoundException, t)->getException());
 	} else if ($instanceOf($InvocationTargetException, t)) {
-		$assign(exception, $nc(($cast($InvocationTargetException, t)))->getTargetException());
+		$assign(exception, $cast($InvocationTargetException, t)->getTargetException());
 	} else if ($instanceOf($UndeclaredThrowableException, t)) {
-		$assign(exception, $nc(($cast($UndeclaredThrowableException, t)))->getUndeclaredThrowable());
+		$assign(exception, $cast($UndeclaredThrowableException, t)->getUndeclaredThrowable());
 	} else if ($instanceOf($PrivilegedActionException, t)) {
-		$assign(exception, $nc(($cast($PrivilegedActionException, t)))->getException());
+		$assign(exception, $cast($PrivilegedActionException, t)->getException());
 	} else {
 		$assign(e, nullptr);
 	}
@@ -271,8 +214,8 @@ void LegacyChainedExceptionSerialization::verify($Throwable* t, $Throwable* expe
 	}
 }
 
-void clinit$LegacyChainedExceptionSerialization($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LegacyChainedExceptionSerialization::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(LegacyChainedExceptionSerialization::EIIE_OLD_VERSION, "rO0ABXNyACVqYXZhLmxhbmcuRXhjZXB0aW9uSW5Jbml0aWFsaXplckVycm9yFR400Amhk4ACAAFMAAlleGNlcHRpb250ABVMamF2YS9sYW5nL1Rocm93YWJsZTt4cgAWamF2YS5sYW5nLkxpbmthZ2VFcnJvcjGtS1U0qEq6AgAAeHIAD2phdmEubGFuZy5FcnJvckUdNlaLgg5WAgAAeHIAE2phdmEubGFuZy5UaHJvd2FibGXVxjUnOXe4ywMABEwABWNhdXNlcQB+AAFMAA1kZXRhaWxNZXNzYWdldAASTGphdmEvbGFuZy9TdHJpbmc7WwAKc3RhY2tUcmFjZXQAHltMamF2YS9sYW5nL1N0YWNrVHJhY2VFbGVtZW50O0wAFHN1cHByZXNzZWRFeGNlcHRpb25zdAAQTGphdmEvdXRpbC9MaXN0O3hwcHB1cgAeW0xqYXZhLmxhbmcuU3RhY2tUcmFjZUVsZW1lbnQ7AkYqPDz9IjkCAAB4cAAAAAFzcgAbamF2YS5sYW5nLlN0YWNrVHJhY2VFbGVtZW50YQnFmiY23YUCAAhCAAZmb3JtYXRJAApsaW5lTnVtYmVyTAAPY2xhc3NMb2FkZXJOYW1lcQB+AAVMAA5kZWNsYXJpbmdDbGFzc3EAfgAFTAAIZmlsZU5hbWVxAH4ABUwACm1ldGhvZE5hbWVxAH4ABUwACm1vZHVsZU5hbWVxAH4ABUwADW1vZHVsZVZlcnNpb25xAH4ABXhwAQAAAAd0AANhcHB0AARUZXN0dAAJVGVzdC5qYXZhdAAEbWFpbnBwc3IAH2phdmEudXRpbC5Db2xsZWN0aW9ucyRFbXB0eUxpc3R6uBe0PKee3gIAAHhweHNyAB5qYXZhLmxhbmcuTnVsbFBvaW50ZXJFeGNlcHRpb25HpaGO/zHhuAIAAHhyABpqYXZhLmxhbmcuUnVudGltZUV4Y2VwdGlvbp5fBkcKNIPlAgAAeHIAE2phdmEubGFuZy5FeGNlcHRpb27Q"
 		"/R8+GjscxAIAAHhxAH4ABHEAfgAWdAADZm9vdXEAfgAJAAAAAXNxAH4ACwEAAAAHcQB+AA1xAH4ADnEAfgAPcQB+ABBwcHEAfgASeA=="_s);
 	$assignStatic(LegacyChainedExceptionSerialization::CNFE_OLD_VERSION, "rO0ABXNyACBqYXZhLmxhbmcuQ2xhc3NOb3RGb3VuZEV4Y2VwdGlvbn9azWY+1CCOAgABTAACZXh0ABVMamF2YS9sYW5nL1Rocm93YWJsZTt4cgAmamF2YS5sYW5nLlJlZmxlY3RpdmVPcGVyYXRpb25FeGNlcHRpb24AAAAAB1vNFQIAAHhyABNqYXZhLmxhbmcuRXhjZXB0aW9u0P0fPho7HMQCAAB4cgATamF2YS5sYW5nLlRocm93YWJsZdXGNSc5d7jLAwAETAAFY2F1c2VxAH4AAUwADWRldGFpbE1lc3NhZ2V0ABJMamF2YS9sYW5nL1N0cmluZztbAApzdGFja1RyYWNldAAeW0xqYXZhL2xhbmcvU3RhY2tUcmFjZUVsZW1lbnQ7TAAUc3VwcHJlc3NlZEV4Y2VwdGlvbnN0ABBMamF2YS91dGlsL0xpc3Q7eHBwdAADYmFydXIAHltMamF2YS5sYW5nLlN0YWNrVHJhY2VFbGVtZW50OwJGKjw8/SI5AgAAeHAAAAABc3IAG2phdmEubGFuZy5TdGFja1RyYWNlRWxlbWVudGEJxZomNt2FAgAIQgAGZm9ybWF0SQAKbGluZU51bWJlckwAD2NsYXNzTG9hZGVyTmFtZXEAfgAFTAAOZGVjbGFyaW5nQ2xhc3NxAH4ABUwACGZpbGVOYW1lcQB+AAVMAAptZXRob2ROYW1lcQB+AAVMAAptb2R1bGVOYW1lcQB+AAVMAA1tb2R1bGVWZXJzaW9ucQB+AAV4cAEAAAAMdAADYXBwdAAEVGVzdHQACVRlc3QuamF2YXQABG1haW5wcHNyAB9qYXZhLnV0aWwuQ29sbGVjdGlvbnMkRW1wdHlMaXN0ergXtDynnt4CAAB4cHhzcgATamF2YS5pby5JT0V4Y2VwdGlvbmyAc2RlJfCrAgAAeHEAfgADcQB+ABV0ABJyZWFkaW5nIGNsYXNzIGZpbGV1cQB+AAoAAAABc3EAfgAMAQAAAAxxAH4ADnEAfgAP"
@@ -287,30 +230,30 @@ void clinit$LegacyChainedExceptionSerialization($Class* class$) {
 		"AAAAFHEAfgANcQB+AA5xAH4AD3EAfgAQcHBxAH4AEng="_s);
 	$assignStatic(LegacyChainedExceptionSerialization::PAE_OLD_VERSION, "rO0ABXNyACdqYXZhLnNlY3VyaXR5LlByaXZpbGVnZWRBY3Rpb25FeGNlcHRpb25Bj1P2UhH1ugIAAUwACWV4Y2VwdGlvbnQAFUxqYXZhL2xhbmcvRXhjZXB0aW9uO3hyABNqYXZhLmxhbmcuRXhjZXB0aW9u0P0fPho7HMQCAAB4cgATamF2YS5sYW5nLlRocm93YWJsZdXGNSc5d7jLAwAETAAFY2F1c2V0ABVMamF2YS9sYW5nL1Rocm93YWJsZTtMAA1kZXRhaWxNZXNzYWdldAASTGphdmEvbGFuZy9TdHJpbmc7WwAKc3RhY2tUcmFjZXQAHltMamF2YS9sYW5nL1N0YWNrVHJhY2VFbGVtZW50O0wAFHN1cHByZXNzZWRFeGNlcHRpb25zdAAQTGphdmEvdXRpbC9MaXN0O3hwcHB1cgAeW0xqYXZhLmxhbmcuU3RhY2tUcmFjZUVsZW1lbnQ7AkYqPDz9IjkCAAB4cAAAAAFzcgAbamF2YS5sYW5nLlN0YWNrVHJhY2VFbGVtZW50YQnFmiY23YUCAAhCAAZmb3JtYXRJAApsaW5lTnVtYmVyTAAPY2xhc3NMb2FkZXJOYW1lcQB+AAVMAA5kZWNsYXJpbmdDbGFzc3EAfgAFTAAIZmlsZU5hbWVxAH4ABUwACm1ldGhvZE5hbWVxAH4ABUwACm1vZHVsZU5hbWVxAH4ABUwADW1vZHVsZVZlcnNpb25xAH4ABXhwAQAAABd0AANhcHB0AARUZXN0dAAJVGVzdC5qYXZhdAAEbWFpbnBwc3IAH2phdmEudXRpbC5Db2xsZWN0aW9ucyRFbXB0eUxpc3R6uBe0PKee3gIAAHhweHNyABNqYXZhLmlvLklPRXhjZXB0aW9ubIBzZGUl8KsCAAB4cQB+AAJxAH4AFHQAA2Zvb3VxAH4ACQAAAAFzcQB+AAsBAAAAF3EAfgANcQB+AA5xAH4AD3EAfgAQcHBxAH4AEng="_s);
 	$assignStatic(LegacyChainedExceptionSerialization::broken, $new($ThrowableArray, {
-		static_cast<$Throwable*>($$new($ClassNotFoundException)),
-		static_cast<$Throwable*>($$new($ClassNotFoundException, "bar"_s, $$new($IOException, "reading class file"_s))),
-		static_cast<$Throwable*>($$new($ExceptionInInitializerError)),
-		static_cast<$Throwable*>($$new($ExceptionInInitializerError, static_cast<$Throwable*>($$new($NullPointerException, "foo"_s)))),
-		static_cast<$Throwable*>($$new($UndeclaredThrowableException, nullptr)),
-		static_cast<$Throwable*>($$new($UndeclaredThrowableException, $$new($IllegalArgumentException, "foo"_s))),
-		static_cast<$Throwable*>($$new($InvocationTargetException, nullptr)),
-		static_cast<$Throwable*>($$new($InvocationTargetException, $$new($Error, "goo"_s))),
-		static_cast<$Throwable*>($$new($PrivilegedActionException, nullptr)),
-		static_cast<$Throwable*>($$new($PrivilegedActionException, $$new($IOException, "foo"_s)))
+		$$new($ClassNotFoundException),
+		$$new($ClassNotFoundException, "bar"_s, $$new($IOException, "reading class file"_s)),
+		$$new($ExceptionInInitializerError),
+		$$new($ExceptionInInitializerError, $$new($NullPointerException, "foo"_s)),
+		$$new($UndeclaredThrowableException, nullptr),
+		$$new($UndeclaredThrowableException, $$new($IllegalArgumentException, "foo"_s)),
+		$$new($InvocationTargetException, nullptr),
+		$$new($InvocationTargetException, $$new($Error, "goo"_s)),
+		$$new($PrivilegedActionException, nullptr),
+		$$new($PrivilegedActionException, $$new($IOException, "foo"_s))
 	}));
-	$var($Object, var$0, $of(LegacyChainedExceptionSerialization::EIIE_OLD_VERSION));
-	$var($Object, var$1, $of($new($ExceptionInInitializerError, static_cast<$Throwable*>($$new($NullPointerException, "foo"_s)))));
-	$var($Object, var$2, $of(LegacyChainedExceptionSerialization::CNFE_OLD_VERSION));
-	$var($Object, var$3, $of($new($ClassNotFoundException, "bar"_s, $$new($IOException, "reading class file"_s))));
-	$var($Object, var$4, $of(LegacyChainedExceptionSerialization::ITE1_OLD_VERSION));
-	$var($Object, var$5, $of($new($InvocationTargetException, $$new($Error, "foo"_s), "bar"_s)));
-	$var($Object, var$6, $of(LegacyChainedExceptionSerialization::ITE2_OLD_VERSION));
-	$var($Object, var$7, $of($new($InvocationTargetException, $$new($Error, "goo"_s))));
-	$var($Object, var$8, $of(LegacyChainedExceptionSerialization::UTE1_OLD_VERSION));
-	$var($Object, var$9, $of($new($UndeclaredThrowableException, $$new($IllegalArgumentException, "foo"_s), "bar"_s)));
-	$var($Object, var$10, $of(LegacyChainedExceptionSerialization::UTE2_OLD_VERSION));
-	$var($Object, var$11, $of($new($UndeclaredThrowableException, $$new($IllegalArgumentException, "goo"_s))));
-	$var($Object, var$12, $of(LegacyChainedExceptionSerialization::PAE_OLD_VERSION));
+	$var($Object, var$0, LegacyChainedExceptionSerialization::EIIE_OLD_VERSION);
+	$var($Object, var$1, $new($ExceptionInInitializerError, $$new($NullPointerException, "foo"_s)));
+	$var($Object, var$2, LegacyChainedExceptionSerialization::CNFE_OLD_VERSION);
+	$var($Object, var$3, $new($ClassNotFoundException, "bar"_s, $$new($IOException, "reading class file"_s)));
+	$var($Object, var$4, LegacyChainedExceptionSerialization::ITE1_OLD_VERSION);
+	$var($Object, var$5, $new($InvocationTargetException, $$new($Error, "foo"_s), "bar"_s));
+	$var($Object, var$6, LegacyChainedExceptionSerialization::ITE2_OLD_VERSION);
+	$var($Object, var$7, $new($InvocationTargetException, $$new($Error, "goo"_s)));
+	$var($Object, var$8, LegacyChainedExceptionSerialization::UTE1_OLD_VERSION);
+	$var($Object, var$9, $new($UndeclaredThrowableException, $$new($IllegalArgumentException, "foo"_s), "bar"_s));
+	$var($Object, var$10, LegacyChainedExceptionSerialization::UTE2_OLD_VERSION);
+	$var($Object, var$11, $new($UndeclaredThrowableException, $$new($IllegalArgumentException, "goo"_s)));
+	$var($Object, var$12, LegacyChainedExceptionSerialization::PAE_OLD_VERSION);
 	$assignStatic(LegacyChainedExceptionSerialization::SERIALIZED_DATA, $Map::of(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, $$new($PrivilegedActionException, $$new($IOException, "foo"_s))));
 }
 
@@ -318,7 +261,48 @@ LegacyChainedExceptionSerialization::LegacyChainedExceptionSerialization() {
 }
 
 $Class* LegacyChainedExceptionSerialization::load$($String* name, bool initialize) {
-	$loadClass(LegacyChainedExceptionSerialization, name, initialize, &_LegacyChainedExceptionSerialization_ClassInfo_, clinit$LegacyChainedExceptionSerialization, allocate$LegacyChainedExceptionSerialization);
+	$FieldInfo fieldInfos$$[] = {
+		{"broken", "[Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticField(LegacyChainedExceptionSerialization, broken)},
+		{"EIIE_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, EIIE_OLD_VERSION)},
+		{"CNFE_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, CNFE_OLD_VERSION)},
+		{"ITE1_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, ITE1_OLD_VERSION)},
+		{"ITE2_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, ITE2_OLD_VERSION)},
+		{"UTE1_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, UTE1_OLD_VERSION)},
+		{"UTE2_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, UTE2_OLD_VERSION)},
+		{"PAE_OLD_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LegacyChainedExceptionSerialization, PAE_OLD_VERSION)},
+		{"SERIALIZED_DATA", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Throwable;>;", $PRIVATE | $STATIC, $staticField(LegacyChainedExceptionSerialization, SERIALIZED_DATA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LegacyChainedExceptionSerialization, init$, void)},
+		{"deserialize", "(Ljava/lang/String;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, deserialize, $Throwable*, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, test, $Throwable*, $Throwable*), "java.lang.Exception"},
+		{"testOverriddenGetCause", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, testOverriddenGetCause, void), "java.lang.Exception"},
+		{"verify", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, verify, void, $Throwable*, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LegacyChainedExceptionSerialization$SubClass", "LegacyChainedExceptionSerialization", "SubClass", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"LegacyChainedExceptionSerialization",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"LegacyChainedExceptionSerialization$SubClass"
+	};
+	$loadClass(LegacyChainedExceptionSerialization, name, initialize, &classInfo$$, LegacyChainedExceptionSerialization::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LegacyChainedExceptionSerialization);
+	});
 	return class$;
 }
 

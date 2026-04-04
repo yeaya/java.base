@@ -18,6 +18,7 @@ class $export PrimitiveConversionTests : public ::java::lang::Object {
 	$class(PrimitiveConversionTests, 0, ::java::lang::Object)
 public:
 	PrimitiveConversionTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static int32_t testDoubleValue();

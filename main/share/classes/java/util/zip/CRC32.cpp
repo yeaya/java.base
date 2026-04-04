@@ -1,5 +1,4 @@
 #include <java/util/zip/CRC32.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
@@ -32,61 +31,6 @@ namespace java {
 	namespace util {
 		namespace zip {
 
-$CompoundAttribute _CRC32_MethodAnnotations_update6[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CRC32_MethodAnnotations_updateByteBuffer08[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CRC32_MethodAnnotations_updateBytes011[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _CRC32_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CRC32, $assertionsDisabled)},
-	{"crc", "I", nullptr, $PRIVATE, $field(CRC32, crc)},
-	{}
-};
-
-$MethodInfo _CRC32_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CRC32, init$, void)},
-	{"getValue", "()J", nullptr, $PUBLIC, $virtualMethod(CRC32, getValue, int64_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CRC32, reset, void)},
-	{"update", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRC32, update, void, int32_t)},
-	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(CRC32, update, void, $bytes*, int32_t, int32_t)},
-	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CRC32, update, void, $ByteBuffer*)},
-	{"update", "(II)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CRC32, update, int32_t, int32_t, int32_t), nullptr, nullptr, _CRC32_MethodAnnotations_update6},
-	{"updateByteBuffer", "(IJII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32, updateByteBuffer, int32_t, int32_t, int64_t, int32_t, int32_t)},
-	{"updateByteBuffer0", "(IJII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CRC32, updateByteBuffer0, int32_t, int32_t, int64_t, int32_t, int32_t), nullptr, nullptr, _CRC32_MethodAnnotations_updateByteBuffer08},
-	{"updateByteBufferCheck", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32, updateByteBufferCheck, void, int64_t)},
-	{"updateBytes", "(I[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32, updateBytes, int32_t, int32_t, $bytes*, int32_t, int32_t)},
-	{"updateBytes0", "(I[BII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CRC32, updateBytes0, int32_t, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _CRC32_MethodAnnotations_updateBytes011},
-	{"updateBytesCheck", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32, updateBytesCheck, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_update 6
-#define _METHOD_INDEX_updateByteBuffer0 8
-#define _METHOD_INDEX_updateBytes0 11
-
-$ClassInfo _CRC32_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.CRC32",
-	"java.lang.Object",
-	"java.util.zip.Checksum",
-	_CRC32_FieldInfo_,
-	_CRC32_MethodInfo_
-};
-
-$Object* allocate$CRC32($Class* clazz) {
-	return $of($alloc(CRC32));
-}
-
 bool CRC32::$assertionsDisabled = false;
 
 void CRC32::init$() {
@@ -107,7 +51,7 @@ void CRC32::update($bytes* b, int32_t off, int32_t len) {
 }
 
 void CRC32::update($ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(buffer)->position();
 	int32_t limit = buffer->limit();
 	if (!CRC32::$assertionsDisabled && !(pos <= limit)) {
@@ -118,18 +62,16 @@ void CRC32::update($ByteBuffer* buffer) {
 		return;
 	}
 	if (buffer->isDirect()) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				this->crc = updateByteBuffer(this->crc, $nc(($cast($DirectBuffer, buffer)))->address(), pos, rem);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$Reference::reachabilityFence(buffer);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			this->crc = updateByteBuffer(this->crc, $cast($DirectBuffer, buffer)->address(), pos, rem);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$Reference::reachabilityFence(buffer);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else if (buffer->hasArray()) {
 		int32_t var$2 = this->crc;
@@ -151,7 +93,7 @@ void CRC32::reset() {
 }
 
 int64_t CRC32::getValue() {
-	return (int64_t)((int64_t)this->crc & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	return (int64_t)this->crc & (int64_t)0xffffffff;
 }
 
 int32_t CRC32::update(int32_t crc, int32_t b) {
@@ -195,12 +137,12 @@ int32_t CRC32::updateByteBuffer0(int32_t alder, int64_t addr, int32_t off, int32
 
 void CRC32::updateByteBufferCheck(int64_t addr) {
 	$init(CRC32);
-	if (addr == (int64_t)0) {
+	if (addr == 0) {
 		$throwNew($NullPointerException);
 	}
 }
 
-void clinit$CRC32($Class* class$) {
+void CRC32::clinit$($Class* clazz) {
 	CRC32::$assertionsDisabled = !CRC32::class$->desiredAssertionStatus();
 	{
 		$ZipUtils::loadLibrary();
@@ -211,7 +153,50 @@ CRC32::CRC32() {
 }
 
 $Class* CRC32::load$($String* name, bool initialize) {
-	$loadClass(CRC32, name, initialize, &_CRC32_ClassInfo_, clinit$CRC32, allocate$CRC32);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CRC32, $assertionsDisabled)},
+		{"crc", "I", nullptr, $PRIVATE, $field(CRC32, crc)},
+		{}
+	};
+	$CompoundAttribute updatemethodAnnotations$$$3[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute updateByteBuffer0methodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute updateBytes0methodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CRC32, init$, void)},
+		{"getValue", "()J", nullptr, $PUBLIC, $virtualMethod(CRC32, getValue, int64_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CRC32, reset, void)},
+		{"update", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRC32, update, void, int32_t)},
+		{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(CRC32, update, void, $bytes*, int32_t, int32_t)},
+		{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CRC32, update, void, $ByteBuffer*)},
+		{"update", "(II)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CRC32, update, int32_t, int32_t, int32_t), nullptr, nullptr, updatemethodAnnotations$$$3},
+		{"updateByteBuffer", "(IJII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32, updateByteBuffer, int32_t, int32_t, int64_t, int32_t, int32_t)},
+		{"updateByteBuffer0", "(IJII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CRC32, updateByteBuffer0, int32_t, int32_t, int64_t, int32_t, int32_t), nullptr, nullptr, updateByteBuffer0methodAnnotations$$},
+		{"updateByteBufferCheck", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32, updateByteBufferCheck, void, int64_t)},
+		{"updateBytes", "(I[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32, updateBytes, int32_t, int32_t, $bytes*, int32_t, int32_t)},
+		{"updateBytes0", "(I[BII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CRC32, updateBytes0, int32_t, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, updateBytes0methodAnnotations$$},
+		{"updateBytesCheck", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32, updateBytesCheck, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.CRC32",
+		"java.lang.Object",
+		"java.util.zip.Checksum",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CRC32, name, initialize, &classInfo$$, CRC32::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CRC32);
+	});
 	return class$;
 }
 

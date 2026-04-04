@@ -25,6 +25,7 @@ class ComparableTimSort : public ::java::lang::Object {
 	$class(ComparableTimSort, 0, ::java::lang::Object)
 public:
 	ComparableTimSort();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($ObjectArray* a, $ObjectArray* work, int32_t workBase, int32_t workLen);
 	static void binarySort($ObjectArray* a, int32_t lo, int32_t hi, int32_t start);
 	static int32_t countRunAndMakeAscending($ObjectArray* a, int32_t lo, int32_t hi);

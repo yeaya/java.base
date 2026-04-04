@@ -1,5 +1,4 @@
 #include <jdk/internal/jrtfs/JrtFileAttributeView$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <jdk/internal/jrtfs/JrtFileAttributeView$AttrID.h>
 #include <jdk/internal/jrtfs/JrtFileAttributeView.h>
@@ -16,89 +15,53 @@ namespace jdk {
 	namespace internal {
 		namespace jrtfs {
 
-$FieldInfo _JrtFileAttributeView$1_FieldInfo_[] = {
-	{"$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JrtFileAttributeView$1, $SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)},
-	{}
-};
-
-$EnclosingMethodInfo _JrtFileAttributeView$1_EnclosingMethodInfo_ = {
-	"jdk.internal.jrtfs.JrtFileAttributeView",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JrtFileAttributeView$1_InnerClassesInfo_[] = {
-	{"jdk.internal.jrtfs.JrtFileAttributeView$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JrtFileAttributeView$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"jdk.internal.jrtfs.JrtFileAttributeView$1",
-	"java.lang.Object",
-	nullptr,
-	_JrtFileAttributeView$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_JrtFileAttributeView$1_EnclosingMethodInfo_,
-	_JrtFileAttributeView$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.jrtfs.JrtFileAttributeView"
-};
-
-$Object* allocate$JrtFileAttributeView$1($Class* clazz) {
-	return $of($alloc(JrtFileAttributeView$1));
-}
-
 $ints* JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID = nullptr;
 
-void clinit$JrtFileAttributeView$1($Class* class$) {
+void JrtFileAttributeView$1::clinit$($Class* clazz) {
 	$assignStatic(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID, $new($ints, $($JrtFileAttributeView$AttrID::values())->length));
 	{
 		try {
-			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::size->ordinal(), 1);
+			JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID->set($JrtFileAttributeView$AttrID::size->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::creationTime->ordinal(), 2);
+			JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID->set($JrtFileAttributeView$AttrID::creationTime->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::lastAccessTime->ordinal(), 3);
+			JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID->set($JrtFileAttributeView$AttrID::lastAccessTime->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::lastModifiedTime->ordinal(), 4);
+			JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID->set($JrtFileAttributeView$AttrID::lastModifiedTime->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::isDirectory->ordinal(), 5);
+			JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID->set($JrtFileAttributeView$AttrID::isDirectory->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::isRegularFile->ordinal(), 6);
+			JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID->set($JrtFileAttributeView$AttrID::isRegularFile->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::isSymbolicLink->ordinal(), 7);
+			JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID->set($JrtFileAttributeView$AttrID::isSymbolicLink->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::isOther->ordinal(), 8);
+			JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID->set($JrtFileAttributeView$AttrID::isOther->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::fileKey->ordinal(), 9);
+			JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID->set($JrtFileAttributeView$AttrID::fileKey->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::compressedSize->ordinal(), 10);
+			JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID->set($JrtFileAttributeView$AttrID::compressedSize->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::extension->ordinal(), 11);
+			JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID->set($JrtFileAttributeView$AttrID::extension->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -108,7 +71,37 @@ JrtFileAttributeView$1::JrtFileAttributeView$1() {
 }
 
 $Class* JrtFileAttributeView$1::load$($String* name, bool initialize) {
-	$loadClass(JrtFileAttributeView$1, name, initialize, &_JrtFileAttributeView$1_ClassInfo_, clinit$JrtFileAttributeView$1, allocate$JrtFileAttributeView$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JrtFileAttributeView$1, $SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.jrtfs.JrtFileAttributeView",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jrtfs.JrtFileAttributeView$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"jdk.internal.jrtfs.JrtFileAttributeView$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.jrtfs.JrtFileAttributeView"
+	};
+	$loadClass(JrtFileAttributeView$1, name, initialize, &classInfo$$, JrtFileAttributeView$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JrtFileAttributeView$1);
+	});
 	return class$;
 }
 

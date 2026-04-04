@@ -36,6 +36,7 @@ class $export Subject$AuthPermissionHolder : public ::java::lang::Object {
 	$class(Subject$AuthPermissionHolder, 0, ::java::lang::Object)
 public:
 	Subject$AuthPermissionHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::security::auth::AuthPermission* DO_AS_PERMISSION;
 	static ::javax::security::auth::AuthPermission* DO_AS_PRIVILEGED_PERMISSION;

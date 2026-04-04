@@ -1,5 +1,4 @@
 #include <sun/nio/ch/SocketAdaptor$1.h>
-
 #include <java/io/InputStream.h>
 #include <java/nio/channels/spi/AbstractInterruptibleChannel.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -17,56 +16,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $SocketAdaptor = ::sun::nio::ch::SocketAdaptor;
-using $SocketChannelImpl = ::sun::nio::ch::SocketChannelImpl;
 
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _SocketAdaptor$1_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/ch/SocketAdaptor;", nullptr, $FINAL | $SYNTHETIC, $field(SocketAdaptor$1, this$0)},
-	{}
-};
-
-$MethodInfo _SocketAdaptor$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/SocketAdaptor;)V", nullptr, 0, $method(SocketAdaptor$1, init$, void, $SocketAdaptor*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, close, void), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _SocketAdaptor$1_EnclosingMethodInfo_ = {
-	"sun.nio.ch.SocketAdaptor",
-	"getInputStream",
-	"()Ljava/io/InputStream;"
-};
-
-$InnerClassInfo _SocketAdaptor$1_InnerClassesInfo_[] = {
-	{"sun.nio.ch.SocketAdaptor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SocketAdaptor$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.SocketAdaptor$1",
-	"java.io.InputStream",
-	nullptr,
-	_SocketAdaptor$1_FieldInfo_,
-	_SocketAdaptor$1_MethodInfo_,
-	nullptr,
-	&_SocketAdaptor$1_EnclosingMethodInfo_,
-	_SocketAdaptor$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.SocketAdaptor"
-};
-
-$Object* allocate$SocketAdaptor$1($Class* clazz) {
-	return $of($alloc(SocketAdaptor$1));
-}
 
 void SocketAdaptor$1::init$($SocketAdaptor* this$0) {
 	$set(this, this$0, this$0);
@@ -76,7 +29,7 @@ void SocketAdaptor$1::init$($SocketAdaptor* this$0) {
 int32_t SocketAdaptor$1::read() {
 	$var($bytes, a, $new($bytes, 1));
 	int32_t n = read(a, 0, 1);
-	return (n > 0) ? ((int32_t)(a->get(0) & (uint32_t)255)) : -1;
+	return (n > 0) ? (a->get(0) & 0xff) : -1;
 }
 
 int32_t SocketAdaptor$1::read($bytes* b, int32_t off, int32_t len) {
@@ -102,7 +55,45 @@ SocketAdaptor$1::SocketAdaptor$1() {
 }
 
 $Class* SocketAdaptor$1::load$($String* name, bool initialize) {
-	$loadClass(SocketAdaptor$1, name, initialize, &_SocketAdaptor$1_ClassInfo_, allocate$SocketAdaptor$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/ch/SocketAdaptor;", nullptr, $FINAL | $SYNTHETIC, $field(SocketAdaptor$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/SocketAdaptor;)V", nullptr, 0, $method(SocketAdaptor$1, init$, void, $SocketAdaptor*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, close, void), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.ch.SocketAdaptor",
+		"getInputStream",
+		"()Ljava/io/InputStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.SocketAdaptor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.SocketAdaptor$1",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.SocketAdaptor"
+	};
+	$loadClass(SocketAdaptor$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketAdaptor$1);
+	});
 	return class$;
 }
 

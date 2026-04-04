@@ -1,5 +1,4 @@
 #include <java/lang/Runnable.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,35 +8,30 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 
-$CompoundAttribute _Runnable_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _Runnable_MethodInfo_[] = {
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Runnable, run, void)},
-	{}
-};
-
-$ClassInfo _Runnable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.Runnable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Runnable_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Runnable_Annotations_
-};
-
-$Object* allocate$Runnable($Class* clazz) {
-	return $of($alloc(Runnable));
-}
-
 $Class* Runnable::load$($String* name, bool initialize) {
-	$loadClass(Runnable, name, initialize, &_Runnable_ClassInfo_, allocate$Runnable);
+	$MethodInfo methodInfos$$[] = {
+		{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Runnable, run, void)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.Runnable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Runnable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Runnable);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/time/chrono/HijrahChronology$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/chrono/HijrahChronology.h>
 #include <java/time/temporal/ChronoField.h>
@@ -23,69 +22,33 @@ namespace java {
 	namespace time {
 		namespace chrono {
 
-$FieldInfo _HijrahChronology$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HijrahChronology$1, $SwitchMap$java$time$temporal$ChronoField)},
-	{}
-};
-
-$EnclosingMethodInfo _HijrahChronology$1_EnclosingMethodInfo_ = {
-	"java.time.chrono.HijrahChronology",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _HijrahChronology$1_InnerClassesInfo_[] = {
-	{"java.time.chrono.HijrahChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _HijrahChronology$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.chrono.HijrahChronology$1",
-	"java.lang.Object",
-	nullptr,
-	_HijrahChronology$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_HijrahChronology$1_EnclosingMethodInfo_,
-	_HijrahChronology$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.chrono.HijrahChronology"
-};
-
-$Object* allocate$HijrahChronology$1($Class* clazz) {
-	return $of($alloc(HijrahChronology$1));
-}
-
 $ints* HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
-void clinit$HijrahChronology$1($Class* class$) {
+void HijrahChronology$1::clinit$($Class* clazz) {
 	$assignStatic(HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
-			$nc(HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::DAY_OF_MONTH->ordinal(), 1);
+			HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::DAY_OF_MONTH->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::DAY_OF_YEAR->ordinal(), 2);
+			HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::DAY_OF_YEAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ALIGNED_WEEK_OF_MONTH->ordinal(), 3);
+			HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ALIGNED_WEEK_OF_MONTH->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR->ordinal(), 4);
+			HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR_OF_ERA->ordinal(), 5);
+			HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR_OF_ERA->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ERA->ordinal(), 6);
+			HijrahChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ERA->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -95,7 +58,37 @@ HijrahChronology$1::HijrahChronology$1() {
 }
 
 $Class* HijrahChronology$1::load$($String* name, bool initialize) {
-	$loadClass(HijrahChronology$1, name, initialize, &_HijrahChronology$1_ClassInfo_, clinit$HijrahChronology$1, allocate$HijrahChronology$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HijrahChronology$1, $SwitchMap$java$time$temporal$ChronoField)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.chrono.HijrahChronology",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.chrono.HijrahChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.chrono.HijrahChronology$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.chrono.HijrahChronology"
+	};
+	$loadClass(HijrahChronology$1, name, initialize, &classInfo$$, HijrahChronology$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HijrahChronology$1);
+	});
 	return class$;
 }
 

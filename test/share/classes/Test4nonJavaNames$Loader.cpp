@@ -1,5 +1,4 @@
 #include <Test4nonJavaNames$Loader.h>
-
 #include <Test4nonJavaNames.h>
 #include <java/lang/ClassLoader.h>
 #include <jcpp.h>
@@ -11,37 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _Test4nonJavaNames$Loader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Test4nonJavaNames$Loader, init$, void)},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PROTECTED, $virtualMethod(Test4nonJavaNames$Loader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _Test4nonJavaNames$Loader_InnerClassesInfo_[] = {
-	{"Test4nonJavaNames$Loader", "Test4nonJavaNames", "Loader", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Test4nonJavaNames$Loader_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test4nonJavaNames$Loader",
-	"java.lang.ClassLoader",
-	nullptr,
-	nullptr,
-	_Test4nonJavaNames$Loader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Test4nonJavaNames$Loader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test4nonJavaNames"
-};
-
-$Object* allocate$Test4nonJavaNames$Loader($Class* clazz) {
-	return $of($alloc(Test4nonJavaNames$Loader));
-}
 
 void Test4nonJavaNames$Loader::init$() {
 	$ClassLoader::init$();
@@ -60,7 +28,33 @@ Test4nonJavaNames$Loader::Test4nonJavaNames$Loader() {
 }
 
 $Class* Test4nonJavaNames$Loader::load$($String* name, bool initialize) {
-	$loadClass(Test4nonJavaNames$Loader, name, initialize, &_Test4nonJavaNames$Loader_ClassInfo_, allocate$Test4nonJavaNames$Loader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Test4nonJavaNames$Loader, init$, void)},
+		{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PROTECTED, $virtualMethod(Test4nonJavaNames$Loader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test4nonJavaNames$Loader", "Test4nonJavaNames", "Loader", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test4nonJavaNames$Loader",
+		"java.lang.ClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test4nonJavaNames"
+	};
+	$loadClass(Test4nonJavaNames$Loader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test4nonJavaNames$Loader);
+	});
 	return class$;
 }
 

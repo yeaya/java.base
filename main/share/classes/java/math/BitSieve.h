@@ -23,6 +23,7 @@ class BitSieve : public ::java::lang::Object {
 	$class(BitSieve, 0, ::java::lang::Object)
 public:
 	BitSieve();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::math::BigInteger* base, int32_t searchLen);
 	static int64_t bit(int32_t bitIndex);

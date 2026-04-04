@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandle$VarHandleDesc.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
@@ -40,53 +39,9 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _VarHandle$VarHandleDesc_FieldInfo_[] = {
-	{"kind", "Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;", nullptr, $PRIVATE | $FINAL, $field(VarHandle$VarHandleDesc, kind)},
-	{"declaringClass", "Ljava/lang/constant/ClassDesc;", nullptr, $PRIVATE | $FINAL, $field(VarHandle$VarHandleDesc, declaringClass)},
-	{"varType", "Ljava/lang/constant/ClassDesc;", nullptr, $PRIVATE | $FINAL, $field(VarHandle$VarHandleDesc, varType$)},
-	{}
-};
-
-$MethodInfo _VarHandle$VarHandleDesc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;Ljava/lang/String;Ljava/lang/constant/ClassDesc;Ljava/lang/constant/ClassDesc;)V", nullptr, $PRIVATE, $method(VarHandle$VarHandleDesc, init$, void, $VarHandle$VarHandleDesc$Kind*, $String*, $ClassDesc*, $ClassDesc*)},
-	{"ofArray", "(Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$VarHandleDesc, ofArray, VarHandle$VarHandleDesc*, $ClassDesc*)},
-	{"ofField", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$VarHandleDesc, ofField, VarHandle$VarHandleDesc*, $ClassDesc*, $String*, $ClassDesc*)},
-	{"ofStaticField", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$VarHandleDesc, ofStaticField, VarHandle$VarHandleDesc*, $ClassDesc*, $String*, $ClassDesc*)},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandle$VarHandleDesc, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VarHandle$VarHandleDesc, toString, $String*)},
-	{"varType", "()Ljava/lang/constant/ClassDesc;", nullptr, $PUBLIC, $method(VarHandle$VarHandleDesc, varType, $ClassDesc*)},
-	{}
-};
-
-$InnerClassInfo _VarHandle$VarHandleDesc_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandle$VarHandleDesc", "java.lang.invoke.VarHandle", "VarHandleDesc", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.invoke.VarHandle$VarHandleDesc$Kind", "java.lang.invoke.VarHandle$VarHandleDesc", "Kind", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _VarHandle$VarHandleDesc_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.invoke.VarHandle$VarHandleDesc",
-	"java.lang.constant.DynamicConstantDesc",
-	nullptr,
-	_VarHandle$VarHandleDesc_FieldInfo_,
-	_VarHandle$VarHandleDesc_MethodInfo_,
-	"Ljava/lang/constant/DynamicConstantDesc<Ljava/lang/invoke/VarHandle;>;",
-	nullptr,
-	_VarHandle$VarHandleDesc_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandle"
-};
-
-$Object* allocate$VarHandle$VarHandleDesc($Class* clazz) {
-	return $of($alloc(VarHandle$VarHandleDesc));
-}
-
 void VarHandle$VarHandleDesc::init$($VarHandle$VarHandleDesc$Kind* kind, $String* name, $ClassDesc* declaringClass, $ClassDesc* varType) {
 	$init($ConstantDescs);
-	$DynamicConstantDesc::init$($nc(kind)->bootstrapMethod, name, $ConstantDescs::CD_VarHandle, $(kind->toBSMArgs(declaringClass, varType)));
+	$DynamicConstantDesc::init$($nc(kind)->bootstrapMethod, name, $ConstantDescs::CD_VarHandle, $($nc(kind)->toBSMArgs(declaringClass, varType)));
 	$set(this, kind, kind);
 	$set(this, declaringClass, declaringClass);
 	$set(this, varType$, varType);
@@ -112,14 +67,14 @@ VarHandle$VarHandleDesc* VarHandle$VarHandleDesc::ofStaticField($ClassDesc* decl
 
 VarHandle$VarHandleDesc* VarHandle$VarHandleDesc::ofArray($ClassDesc* arrayClass) {
 	$init(VarHandle$VarHandleDesc);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(arrayClass);
 	if (!arrayClass->isArray()) {
 		$throwNew($IllegalArgumentException, $$str({"Array class argument not an array: "_s, arrayClass}));
 	}
 	$init($VarHandle$VarHandleDesc$Kind);
 	$init($ConstantDescs);
-	return $new(VarHandle$VarHandleDesc, $VarHandle$VarHandleDesc$Kind::ARRAY, $ConstantDescs::DEFAULT_NAME, arrayClass, $($cast($ClassDesc, arrayClass->componentType())));
+	return $new(VarHandle$VarHandleDesc, $VarHandle$VarHandleDesc$Kind::ARRAY, $ConstantDescs::DEFAULT_NAME, arrayClass, $$cast($ClassDesc, arrayClass->componentType()));
 }
 
 $ClassDesc* VarHandle$VarHandleDesc::varType() {
@@ -127,66 +82,52 @@ $ClassDesc* VarHandle$VarHandleDesc::varType() {
 }
 
 $Object* VarHandle$VarHandleDesc::resolveConstantDesc($MethodHandles$Lookup* lookup) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($VarHandle$2);
-
-	$var($VarHandle, var$0, nullptr)
+	$var($VarHandle, var$0, nullptr);
 	switch ($nc($VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$VarHandleDesc$Kind)->get((this->kind)->ordinal())) {
 	case 1:
 		{
 			$Class* var$1 = $cast($Class, $nc(this->declaringClass)->resolveConstantDesc(lookup));
 			$var($String, var$2, constantName());
-			$assign(var$0, $nc(lookup)->findVarHandle(var$1, var$2, $cast($Class, $($nc(this->varType$)->resolveConstantDesc(lookup)))));
+			$assign(var$0, $nc(lookup)->findVarHandle(var$1, var$2, $$cast($Class, $nc(this->varType$)->resolveConstantDesc(lookup))));
 			break;
 		}
 	case 2:
 		{
 			$Class* var$3 = $cast($Class, $nc(this->declaringClass)->resolveConstantDesc(lookup));
 			$var($String, var$4, constantName());
-			$assign(var$0, $nc(lookup)->findStaticVarHandle(var$3, var$4, $cast($Class, $($nc(this->varType$)->resolveConstantDesc(lookup)))));
+			$assign(var$0, $nc(lookup)->findStaticVarHandle(var$3, var$4, $$cast($Class, $nc(this->varType$)->resolveConstantDesc(lookup))));
 			break;
 		}
 	case 3:
-		{
-			$assign(var$0, $MethodHandles::arrayElementVarHandle($cast($Class, $($nc(this->declaringClass)->resolveConstantDesc(lookup)))));
-			break;
-		}
+		$assign(var$0, $MethodHandles::arrayElementVarHandle($$cast($Class, $nc(this->declaringClass)->resolveConstantDesc(lookup))));
+		break;
 	default:
-		{
-			$throwNew($InternalError, "Cannot reach here"_s);
-		}
+		$throwNew($InternalError, "Cannot reach here"_s);
 	}
-	return $of(var$0);
+	return var$0;
 }
 
 $String* VarHandle$VarHandleDesc::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($VarHandle$2);
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch ($nc($VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$VarHandleDesc$Kind)->get((this->kind)->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{
-			$init($VarHandle$VarHandleDesc$Kind);
-			$assign(var$0, $String::format("VarHandleDesc[%s%s.%s:%s]"_s, $$new($ObjectArray, {
-				(this->kind == $VarHandle$VarHandleDesc$Kind::STATIC_FIELD) ? $of("static "_s) : $of(""_s),
-				$($of($nc(this->declaringClass)->displayName())),
-				$($of(constantName())),
-				$($of($nc(this->varType$)->displayName()))
-			})));
-			break;
-		}
+		$assign(var$0, $String::format("VarHandleDesc[%s%s.%s:%s]"_s, $$new($ObjectArray, {
+			(this->kind == $VarHandle$VarHandleDesc$Kind::STATIC_FIELD) ? "static "_s : ""_s,
+			$($nc(this->declaringClass)->displayName()),
+			$(constantName()),
+			$($nc(this->varType$)->displayName())
+		})));
+		break;
 	case 3:
-		{
-			$assign(var$0, $String::format("VarHandleDesc[%s[]]"_s, $$new($ObjectArray, {$($of($nc(this->declaringClass)->displayName()))})));
-			break;
-		}
+		$assign(var$0, $String::format("VarHandleDesc[%s[]]"_s, $$new($ObjectArray, {$($nc(this->declaringClass)->displayName())})));
+		break;
 	default:
-		{
-			$throwNew($InternalError, "Cannot reach here"_s);
-		}
+		$throwNew($InternalError, "Cannot reach here"_s);
 	}
 	return var$0;
 }
@@ -195,7 +136,45 @@ VarHandle$VarHandleDesc::VarHandle$VarHandleDesc() {
 }
 
 $Class* VarHandle$VarHandleDesc::load$($String* name, bool initialize) {
-	$loadClass(VarHandle$VarHandleDesc, name, initialize, &_VarHandle$VarHandleDesc_ClassInfo_, allocate$VarHandle$VarHandleDesc);
+	$FieldInfo fieldInfos$$[] = {
+		{"kind", "Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;", nullptr, $PRIVATE | $FINAL, $field(VarHandle$VarHandleDesc, kind)},
+		{"declaringClass", "Ljava/lang/constant/ClassDesc;", nullptr, $PRIVATE | $FINAL, $field(VarHandle$VarHandleDesc, declaringClass)},
+		{"varType", "Ljava/lang/constant/ClassDesc;", nullptr, $PRIVATE | $FINAL, $field(VarHandle$VarHandleDesc, varType$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;Ljava/lang/String;Ljava/lang/constant/ClassDesc;Ljava/lang/constant/ClassDesc;)V", nullptr, $PRIVATE, $method(VarHandle$VarHandleDesc, init$, void, $VarHandle$VarHandleDesc$Kind*, $String*, $ClassDesc*, $ClassDesc*)},
+		{"ofArray", "(Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$VarHandleDesc, ofArray, VarHandle$VarHandleDesc*, $ClassDesc*)},
+		{"ofField", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$VarHandleDesc, ofField, VarHandle$VarHandleDesc*, $ClassDesc*, $String*, $ClassDesc*)},
+		{"ofStaticField", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$VarHandleDesc, ofStaticField, VarHandle$VarHandleDesc*, $ClassDesc*, $String*, $ClassDesc*)},
+		{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandle$VarHandleDesc, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VarHandle$VarHandleDesc, toString, $String*)},
+		{"varType", "()Ljava/lang/constant/ClassDesc;", nullptr, $PUBLIC, $method(VarHandle$VarHandleDesc, varType, $ClassDesc*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandle$VarHandleDesc", "java.lang.invoke.VarHandle", "VarHandleDesc", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.invoke.VarHandle$VarHandleDesc$Kind", "java.lang.invoke.VarHandle$VarHandleDesc", "Kind", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.invoke.VarHandle$VarHandleDesc",
+		"java.lang.constant.DynamicConstantDesc",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/constant/DynamicConstantDesc<Ljava/lang/invoke/VarHandle;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandle"
+	};
+	$loadClass(VarHandle$VarHandleDesc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandle$VarHandleDesc);
+	});
 	return class$;
 }
 

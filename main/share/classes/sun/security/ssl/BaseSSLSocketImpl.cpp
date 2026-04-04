@@ -1,5 +1,4 @@
 #include <sun/security/ssl/BaseSSLSocketImpl.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -37,78 +36,6 @@ using $Utilities = ::sun::security::ssl::Utilities;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _BaseSSLSocketImpl_FieldInfo_[] = {
-	{"self", "Ljava/net/Socket;", nullptr, $PRIVATE | $FINAL, $field(BaseSSLSocketImpl, self)},
-	{"consumedInput", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(BaseSSLSocketImpl, consumedInput)},
-	{"PROP_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BaseSSLSocketImpl, PROP_NAME)},
-	{"requireCloseNotify", "Z", nullptr, $STATIC | $FINAL, $staticField(BaseSSLSocketImpl, requireCloseNotify)},
-	{}
-};
-
-$MethodInfo _BaseSSLSocketImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BaseSSLSocketImpl, init$, void)},
-	{"<init>", "(Ljava/net/Socket;)V", nullptr, 0, $method(BaseSSLSocketImpl, init$, void, $Socket*)},
-	{"<init>", "(Ljava/net/Socket;Ljava/io/InputStream;)V", nullptr, 0, $method(BaseSSLSocketImpl, init$, void, $Socket*, $InputStream*)},
-	{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, bind, void, $SocketAddress*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, close, void), "java.io.IOException"},
-	{"connect", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, connect, void, $SocketAddress*), "java.io.IOException"},
-	{"finalize", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(BaseSSLSocketImpl, finalize, void), "java.lang.Throwable"},
-	{"getChannel", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getChannel, $SocketChannel*)},
-	{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getInetAddress, $InetAddress*)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getKeepAlive", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getKeepAlive, bool), "java.net.SocketException"},
-	{"getLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getLocalAddress, $InetAddress*)},
-	{"getLocalPort", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getLocalPort, int32_t)},
-	{"getLocalSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, getLocalSocketAddress, $SocketAddress*)},
-	{"getOOBInline", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getOOBInline, bool), "java.net.SocketException"},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC, $virtualMethod(BaseSSLSocketImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, getOutputStream, $OutputStream*), "java.io.IOException"},
-	{"getPort", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getPort, int32_t)},
-	{"getReceiveBufferSize", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getReceiveBufferSize, int32_t), "java.net.SocketException"},
-	{"getRemoteSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, getRemoteSocketAddress, $SocketAddress*)},
-	{"getReuseAddress", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getReuseAddress, bool), "java.net.SocketException"},
-	{"getSendBufferSize", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getSendBufferSize, int32_t), "java.net.SocketException"},
-	{"getSoLinger", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getSoLinger, int32_t), "java.net.SocketException"},
-	{"getSoTimeout", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getSoTimeout, int32_t), "java.net.SocketException"},
-	{"getTcpNoDelay", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getTcpNoDelay, bool), "java.net.SocketException"},
-	{"getTrafficClass", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getTrafficClass, int32_t), "java.net.SocketException"},
-	{"isBound", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, isBound, bool)},
-	{"isConnected", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, isConnected, bool)},
-	{"isInputShutdown", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, isInputShutdown, bool)},
-	{"isLayered", "()Z", nullptr, 0, $virtualMethod(BaseSSLSocketImpl, isLayered, bool)},
-	{"isOutputShutdown", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, isOutputShutdown, bool)},
-	{"sendUrgentData", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, sendUrgentData, void, int32_t), "java.net.SocketException"},
-	{"setKeepAlive", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setKeepAlive, void, bool), "java.net.SocketException"},
-	{"setOOBInline", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setOOBInline, void, bool), "java.net.SocketException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/net/Socket;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/net/Socket;", $PUBLIC, $virtualMethod(BaseSSLSocketImpl, setOption, $Socket*, $SocketOption*, Object$*), "java.io.IOException"},
-	{"setPerformancePreferences", "(III)V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, setPerformancePreferences, void, int32_t, int32_t, int32_t)},
-	{"setReceiveBufferSize", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setReceiveBufferSize, void, int32_t), "java.net.SocketException"},
-	{"setReuseAddress", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setReuseAddress, void, bool), "java.net.SocketException"},
-	{"setSendBufferSize", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setSendBufferSize, void, int32_t), "java.net.SocketException"},
-	{"setSoLinger", "(ZI)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setSoLinger, void, bool, int32_t), "java.net.SocketException"},
-	{"setSoTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, setSoTimeout, void, int32_t), "java.net.SocketException"},
-	{"setTcpNoDelay", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setTcpNoDelay, void, bool), "java.net.SocketException"},
-	{"setTrafficClass", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setTrafficClass, void, int32_t), "java.net.SocketException"},
-	{"shutdownInput", "()V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, shutdownInput, void), "java.io.IOException"},
-	{"shutdownOutput", "()V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, shutdownOutput, void), "java.io.IOException"},
-	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC, $virtualMethod(BaseSSLSocketImpl, supportedOptions, $Set*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, toString, $String*)},
-	{}
-};
-
-$ClassInfo _BaseSSLSocketImpl_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.ssl.BaseSSLSocketImpl",
-	"javax.net.ssl.SSLSocket",
-	nullptr,
-	_BaseSSLSocketImpl_FieldInfo_,
-	_BaseSSLSocketImpl_MethodInfo_
-};
-
-$Object* allocate$BaseSSLSocketImpl($Class* clazz) {
-	return $of($alloc(BaseSSLSocketImpl));
-}
 
 $String* BaseSSLSocketImpl::PROP_NAME = nullptr;
 bool BaseSSLSocketImpl::requireCloseNotify = false;
@@ -216,27 +143,25 @@ bool BaseSSLSocketImpl::isOutputShutdown() {
 }
 
 void BaseSSLSocketImpl::finalize() {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			close();
+		} catch ($IOException& e1) {
 			try {
-				close();
-			} catch ($IOException& e1) {
-				try {
-					if ($equals(this->self, this)) {
-						$SSLSocket::close();
-					}
-				} catch ($IOException& e2) {
+				if ($equals(this->self, this)) {
+					$SSLSocket::close();
 				}
+			} catch ($IOException& e2) {
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SSLSocket::finalize();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SSLSocket::finalize();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -463,9 +388,9 @@ $Socket* BaseSSLSocketImpl::setOption($SocketOption* name, Object$* value) {
 
 $Object* BaseSSLSocketImpl::getOption($SocketOption* name) {
 	if ($equals(this->self, this)) {
-		return $of($SSLSocket::getOption(name));
+		return $SSLSocket::getOption(name);
 	} else {
-		return $of($nc(this->self)->getOption(name));
+		return $nc(this->self)->getOption(name);
 	}
 }
 
@@ -481,7 +406,7 @@ bool BaseSSLSocketImpl::isLayered() {
 	return (!$equals(this->self, this));
 }
 
-void clinit$BaseSSLSocketImpl($Class* class$) {
+void BaseSSLSocketImpl::clinit$($Class* clazz) {
 	$assignStatic(BaseSSLSocketImpl::PROP_NAME, "com.sun.net.ssl.requireCloseNotify"_s);
 	BaseSSLSocketImpl::requireCloseNotify = $Utilities::getBooleanProperty(BaseSSLSocketImpl::PROP_NAME, false);
 }
@@ -490,7 +415,74 @@ BaseSSLSocketImpl::BaseSSLSocketImpl() {
 }
 
 $Class* BaseSSLSocketImpl::load$($String* name, bool initialize) {
-	$loadClass(BaseSSLSocketImpl, name, initialize, &_BaseSSLSocketImpl_ClassInfo_, clinit$BaseSSLSocketImpl, allocate$BaseSSLSocketImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"self", "Ljava/net/Socket;", nullptr, $PRIVATE | $FINAL, $field(BaseSSLSocketImpl, self)},
+		{"consumedInput", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(BaseSSLSocketImpl, consumedInput)},
+		{"PROP_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BaseSSLSocketImpl, PROP_NAME)},
+		{"requireCloseNotify", "Z", nullptr, $STATIC | $FINAL, $staticField(BaseSSLSocketImpl, requireCloseNotify)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BaseSSLSocketImpl, init$, void)},
+		{"<init>", "(Ljava/net/Socket;)V", nullptr, 0, $method(BaseSSLSocketImpl, init$, void, $Socket*)},
+		{"<init>", "(Ljava/net/Socket;Ljava/io/InputStream;)V", nullptr, 0, $method(BaseSSLSocketImpl, init$, void, $Socket*, $InputStream*)},
+		{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, bind, void, $SocketAddress*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, close, void), "java.io.IOException"},
+		{"connect", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, connect, void, $SocketAddress*), "java.io.IOException"},
+		{"finalize", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(BaseSSLSocketImpl, finalize, void), "java.lang.Throwable"},
+		{"getChannel", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getChannel, $SocketChannel*)},
+		{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getInetAddress, $InetAddress*)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getKeepAlive", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getKeepAlive, bool), "java.net.SocketException"},
+		{"getLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getLocalAddress, $InetAddress*)},
+		{"getLocalPort", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getLocalPort, int32_t)},
+		{"getLocalSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, getLocalSocketAddress, $SocketAddress*)},
+		{"getOOBInline", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getOOBInline, bool), "java.net.SocketException"},
+		{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC, $virtualMethod(BaseSSLSocketImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, getOutputStream, $OutputStream*), "java.io.IOException"},
+		{"getPort", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getPort, int32_t)},
+		{"getReceiveBufferSize", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getReceiveBufferSize, int32_t), "java.net.SocketException"},
+		{"getRemoteSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, getRemoteSocketAddress, $SocketAddress*)},
+		{"getReuseAddress", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getReuseAddress, bool), "java.net.SocketException"},
+		{"getSendBufferSize", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getSendBufferSize, int32_t), "java.net.SocketException"},
+		{"getSoLinger", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getSoLinger, int32_t), "java.net.SocketException"},
+		{"getSoTimeout", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getSoTimeout, int32_t), "java.net.SocketException"},
+		{"getTcpNoDelay", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getTcpNoDelay, bool), "java.net.SocketException"},
+		{"getTrafficClass", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, getTrafficClass, int32_t), "java.net.SocketException"},
+		{"isBound", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, isBound, bool)},
+		{"isConnected", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, isConnected, bool)},
+		{"isInputShutdown", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, isInputShutdown, bool)},
+		{"isLayered", "()Z", nullptr, 0, $virtualMethod(BaseSSLSocketImpl, isLayered, bool)},
+		{"isOutputShutdown", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, isOutputShutdown, bool)},
+		{"sendUrgentData", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, sendUrgentData, void, int32_t), "java.net.SocketException"},
+		{"setKeepAlive", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setKeepAlive, void, bool), "java.net.SocketException"},
+		{"setOOBInline", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setOOBInline, void, bool), "java.net.SocketException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/net/Socket;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/net/Socket;", $PUBLIC, $virtualMethod(BaseSSLSocketImpl, setOption, $Socket*, $SocketOption*, Object$*), "java.io.IOException"},
+		{"setPerformancePreferences", "(III)V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, setPerformancePreferences, void, int32_t, int32_t, int32_t)},
+		{"setReceiveBufferSize", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setReceiveBufferSize, void, int32_t), "java.net.SocketException"},
+		{"setReuseAddress", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setReuseAddress, void, bool), "java.net.SocketException"},
+		{"setSendBufferSize", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setSendBufferSize, void, int32_t), "java.net.SocketException"},
+		{"setSoLinger", "(ZI)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setSoLinger, void, bool, int32_t), "java.net.SocketException"},
+		{"setSoTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, setSoTimeout, void, int32_t), "java.net.SocketException"},
+		{"setTcpNoDelay", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setTcpNoDelay, void, bool), "java.net.SocketException"},
+		{"setTrafficClass", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BaseSSLSocketImpl, setTrafficClass, void, int32_t), "java.net.SocketException"},
+		{"shutdownInput", "()V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, shutdownInput, void), "java.io.IOException"},
+		{"shutdownOutput", "()V", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, shutdownOutput, void), "java.io.IOException"},
+		{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC, $virtualMethod(BaseSSLSocketImpl, supportedOptions, $Set*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseSSLSocketImpl, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.ssl.BaseSSLSocketImpl",
+		"javax.net.ssl.SSLSocket",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BaseSSLSocketImpl, name, initialize, &classInfo$$, BaseSSLSocketImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BaseSSLSocketImpl);
+	});
 	return class$;
 }
 

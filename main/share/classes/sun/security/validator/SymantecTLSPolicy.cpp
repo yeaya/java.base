@@ -1,12 +1,9 @@
 #include <sun/security/validator/SymantecTLSPolicy.h>
-
 #include <java/security/cert/X509Certificate.h>
 #include <java/time/Instant.h>
 #include <java/time/LocalDate.h>
 #include <java/time/Month.h>
-#include <java/time/ZoneId.h>
 #include <java/time/ZoneOffset.h>
-#include <java/time/chrono/ChronoLocalDate.h>
 #include <java/util/Date.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
@@ -29,9 +26,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $LocalDate = ::java::time::LocalDate;
 using $Month = ::java::time::Month;
-using $ZoneId = ::java::time::ZoneId;
 using $ZoneOffset = ::java::time::ZoneOffset;
-using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $Date = ::java::util::Date;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
@@ -42,35 +37,6 @@ namespace sun {
 	namespace security {
 		namespace validator {
 
-$FieldInfo _SymantecTLSPolicy_FieldInfo_[] = {
-	{"FINGERPRINTS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SymantecTLSPolicy, FINGERPRINTS)},
-	{"DECEMBER_31_2019", "Ljava/time/LocalDate;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SymantecTLSPolicy, DECEMBER_31_2019)},
-	{"EXEMPT_SUBCAS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/time/LocalDate;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SymantecTLSPolicy, EXEMPT_SUBCAS)},
-	{"APRIL_16_2019", "Ljava/time/LocalDate;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SymantecTLSPolicy, APRIL_16_2019)},
-	{}
-};
-
-$MethodInfo _SymantecTLSPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SymantecTLSPolicy, init$, void)},
-	{"checkDistrust", "([Ljava/security/cert/X509Certificate;)V", nullptr, $STATIC, $staticMethod(SymantecTLSPolicy, checkDistrust, void, $X509CertificateArray*), "sun.security.validator.ValidatorException"},
-	{"checkNotBefore", "(Ljava/time/LocalDate;Ljava/time/LocalDate;Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SymantecTLSPolicy, checkNotBefore, void, $LocalDate*, $LocalDate*, $X509Certificate*), "sun.security.validator.ValidatorException"},
-	{"fingerprint", "(Ljava/security/cert/X509Certificate;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SymantecTLSPolicy, fingerprint, $String*, $X509Certificate*)},
-	{}
-};
-
-$ClassInfo _SymantecTLSPolicy_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.validator.SymantecTLSPolicy",
-	"java.lang.Object",
-	nullptr,
-	_SymantecTLSPolicy_FieldInfo_,
-	_SymantecTLSPolicy_MethodInfo_
-};
-
-$Object* allocate$SymantecTLSPolicy($Class* clazz) {
-	return $of($alloc(SymantecTLSPolicy));
-}
-
 $Set* SymantecTLSPolicy::FINGERPRINTS = nullptr;
 $LocalDate* SymantecTLSPolicy::DECEMBER_31_2019 = nullptr;
 $Map* SymantecTLSPolicy::EXEMPT_SUBCAS = nullptr;
@@ -78,8 +44,8 @@ $LocalDate* SymantecTLSPolicy::APRIL_16_2019 = nullptr;
 
 void SymantecTLSPolicy::checkDistrust($X509CertificateArray* chain) {
 	$init(SymantecTLSPolicy);
-	$useLocalCurrentObjectStackCache();
-	$var($X509Certificate, anchor, $nc(chain)->get(chain->length - 1));
+	$useLocalObjectStack();
+	$var($X509Certificate, anchor, $nc(chain)->get($nc(chain)->length - 1));
 	if ($nc(SymantecTLSPolicy::FINGERPRINTS)->contains($(fingerprint(anchor)))) {
 		$var($Date, notBefore, $nc(chain->get(0))->getNotBefore());
 		$init($ZoneOffset);
@@ -98,23 +64,27 @@ void SymantecTLSPolicy::checkDistrust($X509CertificateArray* chain) {
 
 $String* SymantecTLSPolicy::fingerprint($X509Certificate* cert) {
 	$init(SymantecTLSPolicy);
-	return ($instanceOf($X509CertImpl, cert)) ? $nc(($cast($X509CertImpl, cert)))->getFingerprint("SHA-256"_s) : $X509CertImpl::getFingerprint("SHA-256"_s, cert);
+	return ($instanceOf($X509CertImpl, cert)) ? $cast($X509CertImpl, cert)->getFingerprint("SHA-256"_s) : $X509CertImpl::getFingerprint("SHA-256"_s, cert);
 }
 
 void SymantecTLSPolicy::checkNotBefore($LocalDate* notBeforeDate, $LocalDate* distrustDate, $X509Certificate* anchor) {
 	$init(SymantecTLSPolicy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(notBeforeDate)->isAfter(distrustDate)) {
-		$var($String, var$0, $$str({"TLS Server certificate issued after "_s, distrustDate, " and anchored by a distrusted legacy Symantec root CA: "_s}));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("TLS Server certificate issued after "_s);
+		var$0->append(distrustDate);
+		var$0->append(" and anchored by a distrusted legacy Symantec root CA: "_s);
+		var$0->append($($nc(anchor)->getSubjectX500Principal()));
 		$init($ValidatorException);
-		$throwNew($ValidatorException, $$concat(var$0, $($nc(anchor)->getSubjectX500Principal())), $ValidatorException::T_UNTRUSTED_CERT, anchor);
+		$throwNew($ValidatorException, $$str(var$0), $ValidatorException::T_UNTRUSTED_CERT, anchor);
 	}
 }
 
 void SymantecTLSPolicy::init$() {
 }
 
-void clinit$SymantecTLSPolicy($Class* class$) {
+void SymantecTLSPolicy::clinit$($Class* clazz) {
 	$assignStatic(SymantecTLSPolicy::FINGERPRINTS, $Set::of($$new($StringArray, {
 		"FF856A2D251DCD88D36656F450126798CFABAADE40799C722DE4D2B5DB36A73A"_s,
 		"37D51006C512EAAB626421F1EC8C92013FC5F82AE98EE533EB4619B8DEB4D06C"_s,
@@ -143,7 +113,31 @@ SymantecTLSPolicy::SymantecTLSPolicy() {
 }
 
 $Class* SymantecTLSPolicy::load$($String* name, bool initialize) {
-	$loadClass(SymantecTLSPolicy, name, initialize, &_SymantecTLSPolicy_ClassInfo_, clinit$SymantecTLSPolicy, allocate$SymantecTLSPolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"FINGERPRINTS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SymantecTLSPolicy, FINGERPRINTS)},
+		{"DECEMBER_31_2019", "Ljava/time/LocalDate;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SymantecTLSPolicy, DECEMBER_31_2019)},
+		{"EXEMPT_SUBCAS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/time/LocalDate;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SymantecTLSPolicy, EXEMPT_SUBCAS)},
+		{"APRIL_16_2019", "Ljava/time/LocalDate;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SymantecTLSPolicy, APRIL_16_2019)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SymantecTLSPolicy, init$, void)},
+		{"checkDistrust", "([Ljava/security/cert/X509Certificate;)V", nullptr, $STATIC, $staticMethod(SymantecTLSPolicy, checkDistrust, void, $X509CertificateArray*), "sun.security.validator.ValidatorException"},
+		{"checkNotBefore", "(Ljava/time/LocalDate;Ljava/time/LocalDate;Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SymantecTLSPolicy, checkNotBefore, void, $LocalDate*, $LocalDate*, $X509Certificate*), "sun.security.validator.ValidatorException"},
+		{"fingerprint", "(Ljava/security/cert/X509Certificate;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SymantecTLSPolicy, fingerprint, $String*, $X509Certificate*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.validator.SymantecTLSPolicy",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SymantecTLSPolicy, name, initialize, &classInfo$$, SymantecTLSPolicy::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SymantecTLSPolicy);
+	});
 	return class$;
 }
 

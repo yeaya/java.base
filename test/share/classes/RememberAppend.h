@@ -9,6 +9,7 @@ class $export RememberAppend : public ::java::lang::Object {
 	$class(RememberAppend, 0, ::java::lang::Object)
 public:
 	RememberAppend();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $bytes* bytes;

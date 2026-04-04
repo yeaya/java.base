@@ -38,6 +38,7 @@ public:
 	JulianCalendar();
 	using ::sun::util::calendar::BaseCalendar::getFixedDate;
 	using ::sun::util::calendar::BaseCalendar::isLeapYear;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::sun::util::calendar::CalendarDate* getCalendarDate() override;
 	virtual ::sun::util::calendar::CalendarDate* getCalendarDate(int64_t millis) override;

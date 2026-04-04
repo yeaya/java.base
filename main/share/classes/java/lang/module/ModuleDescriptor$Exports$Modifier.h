@@ -20,6 +20,7 @@ class $export ModuleDescriptor$Exports$Modifier : public ::java::lang::Enum {
 public:
 	ModuleDescriptor$Exports$Modifier();
 	static $Array<::java::lang::module::ModuleDescriptor$Exports$Modifier>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::lang::module::ModuleDescriptor$Exports$Modifier* valueOf($String* name);
 	static $Array<::java::lang::module::ModuleDescriptor$Exports$Modifier>* values();

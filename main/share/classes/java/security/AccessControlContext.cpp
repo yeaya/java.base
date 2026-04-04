@@ -1,5 +1,4 @@
 #include <java/security/AccessControlContext.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/net/URL.h>
 #include <java/security/AccessControlContext$1.h>
@@ -10,7 +9,6 @@
 #include <java/security/DomainCombiner.h>
 #include <java/security/Permission.h>
 #include <java/security/Policy.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/ProtectionDomain.h>
 #include <java/security/SecurityPermission.h>
 #include <java/util/ArrayList.h>
@@ -33,16 +31,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $URL = ::java::net::URL;
 using $AccessControlContext$1 = ::java::security::AccessControlContext$1;
 using $AccessControlException = ::java::security::AccessControlException;
 using $AccessController = ::java::security::AccessController;
 using $AllPermission = ::java::security::AllPermission;
-using $CodeSource = ::java::security::CodeSource;
 using $DomainCombiner = ::java::security::DomainCombiner;
 using $Permission = ::java::security::Permission;
 using $Policy = ::java::security::Policy;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
@@ -52,87 +47,6 @@ using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace java {
 	namespace security {
-
-$NamedAttribute AccessControlContext_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _AccessControlContext_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", AccessControlContext_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _AccessControlContext_FieldInfo_[] = {
-	{"context", "[Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $field(AccessControlContext, context)},
-	{"isPrivileged", "Z", nullptr, $PRIVATE, $field(AccessControlContext, isPrivileged$)},
-	{"isAuthorized", "Z", nullptr, $PRIVATE, $field(AccessControlContext, isAuthorized$)},
-	{"privilegedContext", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(AccessControlContext, privilegedContext)},
-	{"combiner", "Ljava/security/DomainCombiner;", nullptr, $PRIVATE, $field(AccessControlContext, combiner)},
-	{"permissions", "[Ljava/security/Permission;", nullptr, $PRIVATE, $field(AccessControlContext, permissions)},
-	{"parent", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(AccessControlContext, parent)},
-	{"isWrapped", "Z", nullptr, $PRIVATE, $field(AccessControlContext, isWrapped)},
-	{"isLimited", "Z", nullptr, $PRIVATE, $field(AccessControlContext, isLimited)},
-	{"limitedContext", "[Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $field(AccessControlContext, limitedContext)},
-	{"debugInit", "Z", nullptr, $PRIVATE | $STATIC, $staticField(AccessControlContext, debugInit)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC, $staticField(AccessControlContext, debug)},
-	{}
-};
-
-$MethodInfo _AccessControlContext_MethodInfo_[] = {
-	{"<init>", "([Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(AccessControlContext, init$, void, $ProtectionDomainArray*)},
-	{"<init>", "(Ljava/security/AccessControlContext;Ljava/security/DomainCombiner;)V", nullptr, $PUBLIC, $method(AccessControlContext, init$, void, AccessControlContext*, $DomainCombiner*)},
-	{"<init>", "(Ljava/security/AccessControlContext;Ljava/security/DomainCombiner;Z)V", nullptr, 0, $method(AccessControlContext, init$, void, AccessControlContext*, $DomainCombiner*, bool)},
-	{"<init>", "(Ljava/security/ProtectionDomain;Ljava/security/DomainCombiner;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;[Ljava/security/Permission;)V", nullptr, 0, $method(AccessControlContext, init$, void, $ProtectionDomain*, $DomainCombiner*, AccessControlContext*, AccessControlContext*, $PermissionArray*)},
-	{"<init>", "([Ljava/security/ProtectionDomain;Z)V", nullptr, 0, $method(AccessControlContext, init$, void, $ProtectionDomainArray*, bool)},
-	{"<init>", "([Ljava/security/ProtectionDomain;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(AccessControlContext, init$, void, $ProtectionDomainArray*, AccessControlContext*)},
-	{"calculateFields", "(Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;[Ljava/security/Permission;)V", nullptr, $PRIVATE, $method(AccessControlContext, calculateFields, void, AccessControlContext*, AccessControlContext*, $PermissionArray*)},
-	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $method(AccessControlContext, checkPermission, void, $Permission*), "java.security.AccessControlException"},
-	{"checkPermission2", "(Ljava/security/Permission;)V", nullptr, $PRIVATE, $method(AccessControlContext, checkPermission2, void, $Permission*)},
-	{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $STATIC, $staticMethod(AccessControlContext, combine, $ProtectionDomainArray*, $ProtectionDomainArray*, $ProtectionDomainArray*)},
-	{"containsAllLimits", "(Ljava/security/AccessControlContext;)Z", nullptr, $PRIVATE, $method(AccessControlContext, containsAllLimits, bool, AccessControlContext*)},
-	{"containsAllPDs", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AccessControlContext, containsAllPDs, bool, $ProtectionDomainArray*, $ProtectionDomainArray*)},
-	{"equalContext", "(Ljava/security/AccessControlContext;)Z", nullptr, $PRIVATE, $method(AccessControlContext, equalContext, bool, AccessControlContext*)},
-	{"equalLimitedContext", "(Ljava/security/AccessControlContext;)Z", nullptr, $PRIVATE, $method(AccessControlContext, equalLimitedContext, bool, AccessControlContext*)},
-	{"equalPDs", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)Z", nullptr, $PRIVATE, $method(AccessControlContext, equalPDs, bool, $ProtectionDomainArray*, $ProtectionDomainArray*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AccessControlContext, equals, bool, Object$*)},
-	{"getAssignedCombiner", "()Ljava/security/DomainCombiner;", nullptr, 0, $method(AccessControlContext, getAssignedCombiner, $DomainCombiner*)},
-	{"getCombiner", "()Ljava/security/DomainCombiner;", nullptr, 0, $method(AccessControlContext, getCombiner, $DomainCombiner*)},
-	{"getContext", "()[Ljava/security/ProtectionDomain;", nullptr, 0, $method(AccessControlContext, getContext, $ProtectionDomainArray*)},
-	{"getDebug", "()Lsun/security/util/Debug;", nullptr, $STATIC, $staticMethod(AccessControlContext, getDebug, $Debug*)},
-	{"getDomainCombiner", "()Ljava/security/DomainCombiner;", nullptr, $PUBLIC, $method(AccessControlContext, getDomainCombiner, $DomainCombiner*)},
-	{"getNextPC", "(Ljava/security/AccessControlContext;)Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(AccessControlContext, getNextPC, AccessControlContext*, AccessControlContext*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AccessControlContext, hashCode, int32_t)},
-	{"isAuthorized", "()Z", nullptr, 0, $method(AccessControlContext, isAuthorized, bool)},
-	{"isPrivileged", "()Z", nullptr, 0, $method(AccessControlContext, isPrivileged, bool)},
-	{"optimize", "()Ljava/security/AccessControlContext;", nullptr, 0, $method(AccessControlContext, optimize, AccessControlContext*)},
-	{}
-};
-
-$InnerClassInfo _AccessControlContext_InnerClassesInfo_[] = {
-	{"java.security.AccessControlContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AccessControlContext_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.security.AccessControlContext",
-	"java.lang.Object",
-	nullptr,
-	_AccessControlContext_FieldInfo_,
-	_AccessControlContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessControlContext_InnerClassesInfo_,
-	_AccessControlContext_Annotations_,
-	nullptr,
-	"java.security.AccessControlContext$1"
-};
-
-$Object* allocate$AccessControlContext($Class* clazz) {
-	return $of($alloc(AccessControlContext));
-}
 
 bool AccessControlContext::debugInit = false;
 $Debug* AccessControlContext::debug = nullptr;
@@ -170,7 +84,7 @@ void AccessControlContext::init$($ProtectionDomainArray* context) {
 		}
 		if (!v->isEmpty()) {
 			$set(this, context, $new($ProtectionDomainArray, v->size()));
-			$set(this, context, $fcast($ProtectionDomainArray, v->toArray(this->context)));
+			$set(this, context, $cast($ProtectionDomainArray, v->toArray(this->context)));
 		}
 	}
 }
@@ -197,7 +111,7 @@ void AccessControlContext::init$(AccessControlContext* acc, $DomainCombiner* com
 }
 
 void AccessControlContext::init$($ProtectionDomain* caller, $DomainCombiner* combiner, AccessControlContext* parent$renamed, AccessControlContext* context, $PermissionArray* perms) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(AccessControlContext, parent, parent$renamed);
 	this->isAuthorized$ = false;
 	$set(this, combiner, nullptr);
@@ -297,7 +211,7 @@ bool AccessControlContext::isAuthorized() {
 }
 
 void AccessControlContext::checkPermission($Permission* perm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	bool dumpDebug = false;
 	if (perm == nullptr) {
@@ -306,10 +220,10 @@ void AccessControlContext::checkPermission($Permission* perm) {
 	if (getDebug() != nullptr) {
 		dumpDebug = !$Debug::isOn("codebase="_s);
 		if (!dumpDebug) {
-			for (int32_t i = 0; this->context != nullptr && i < $nc(this->context)->length; ++i) {
-				bool var$1 = $nc($nc(this->context)->get(i))->getCodeSource() != nullptr;
-				bool var$0 = var$1 && $nc($($nc($nc(this->context)->get(i))->getCodeSource()))->getLocation() != nullptr;
-				if (var$0 && $Debug::isOn($$str({"codebase="_s, $($nc($($nc($($nc($nc(this->context)->get(i))->getCodeSource()))->getLocation()))->toString())}))) {
+			for (int32_t i = 0; this->context != nullptr && i < this->context->length; ++i) {
+				bool var$1 = $nc(this->context->get(i))->getCodeSource() != nullptr;
+				bool var$0 = var$1 && $$nc($nc(this->context->get(i))->getCodeSource())->getLocation() != nullptr;
+				if (var$0 && $Debug::isOn($$str({"codebase="_s, $($$nc($$nc($nc(this->context->get(i))->getCodeSource())->getLocation())->toString())}))) {
 					dumpDebug = true;
 					break;
 				}
@@ -324,8 +238,8 @@ void AccessControlContext::checkPermission($Permission* perm) {
 			if (this->context == nullptr) {
 				$nc(AccessControlContext::debug)->println("domain (context is null)"_s);
 			} else {
-				for (int32_t i = 0; i < $nc(this->context)->length; ++i) {
-					$nc(AccessControlContext::debug)->println($$str({"domain "_s, $$str(i), " "_s, $nc(this->context)->get(i)}));
+				for (int32_t i = 0; i < this->context->length; ++i) {
+					$nc(AccessControlContext::debug)->println($$str({"domain "_s, $$str(i), " "_s, this->context->get(i)}));
 				}
 			}
 		}
@@ -335,18 +249,18 @@ void AccessControlContext::checkPermission($Permission* perm) {
 		return;
 	}
 	for (int32_t i = 0; i < $nc(this->context)->length; ++i) {
-		if ($nc(this->context)->get(i) != nullptr && !$nc($nc(this->context)->get(i))->impliesWithAltFilePerm(perm)) {
+		if (this->context->get(i) != nullptr && !$nc(this->context->get(i))->impliesWithAltFilePerm(perm)) {
 			if (dumpDebug) {
 				$nc(AccessControlContext::debug)->println($$str({"access denied "_s, perm}));
 			}
 			if ($Debug::isOn("failure"_s) && AccessControlContext::debug != nullptr) {
 				if (!dumpDebug) {
-					$nc(AccessControlContext::debug)->println($$str({"access denied "_s, perm}));
+					AccessControlContext::debug->println($$str({"access denied "_s, perm}));
 				}
 				$Thread::dumpStack();
-				$var($ProtectionDomain, pd, $nc(this->context)->get(i));
+				$var($ProtectionDomain, pd, this->context->get(i));
 				$var($Debug, db, AccessControlContext::debug);
-				$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AccessControlContext$1, this, db, pd)));
+				$AccessController::doPrivileged($$new($AccessControlContext$1, this, db, pd));
 			}
 			$throwNew($AccessControlException, $$str({"access denied "_s, perm}), perm);
 		}
@@ -358,21 +272,21 @@ void AccessControlContext::checkPermission($Permission* perm) {
 }
 
 void AccessControlContext::checkPermission2($Permission* perm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isLimited) {
 		return;
 	}
 	if (this->privilegedContext != nullptr) {
-		$nc(this->privilegedContext)->checkPermission2(perm);
+		this->privilegedContext->checkPermission2(perm);
 	}
 	if (this->isWrapped) {
 		return;
 	}
 	if (this->permissions != nullptr) {
 		$Class* permClass = $nc($of(perm))->getClass();
-		for (int32_t i = 0; i < $nc(this->permissions)->length; ++i) {
-			$var($Permission, limit, $nc(this->permissions)->get(i));
-			bool var$0 = $of($nc($of(limit))->getClass())->equals(permClass);
+		for (int32_t i = 0; i < this->permissions->length; ++i) {
+			$var($Permission, limit, this->permissions->get(i));
+			bool var$0 = $nc($of(limit))->getClass()->equals(permClass);
 			if (var$0 && limit->implies(perm)) {
 				return;
 			}
@@ -380,15 +294,15 @@ void AccessControlContext::checkPermission2($Permission* perm) {
 	}
 	if (this->parent != nullptr) {
 		if (this->permissions == nullptr) {
-			$nc(this->parent)->checkPermission2(perm);
+			this->parent->checkPermission2(perm);
 		} else {
-			$nc(this->parent)->checkPermission(perm);
+			this->parent->checkPermission(perm);
 		}
 	}
 }
 
 AccessControlContext* AccessControlContext::optimize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(AccessControlContext, acc, nullptr);
 	$var($DomainCombiner, combiner, nullptr);
 	$var(AccessControlContext, parent, nullptr);
@@ -410,8 +324,8 @@ AccessControlContext* AccessControlContext::optimize() {
 		}
 	}
 	bool skipStack = (this->context == nullptr);
-	bool skipAssigned = (acc == nullptr || $nc(acc)->context == nullptr);
-	$var($ProtectionDomainArray, assigned, (skipAssigned) ? ($ProtectionDomainArray*)nullptr : acc->context);
+	bool skipAssigned = (acc == nullptr || acc->context == nullptr);
+	$var($ProtectionDomainArray, assigned, (skipAssigned) ? ($ProtectionDomainArray*)nullptr : $nc(acc)->context);
 	$var($ProtectionDomainArray, pd, nullptr);
 	bool skipLimited = ((acc == nullptr || !acc->isWrapped) && parent == nullptr);
 	if (acc != nullptr && acc->combiner != nullptr) {
@@ -430,7 +344,7 @@ AccessControlContext* AccessControlContext::optimize() {
 			}
 		} else if (assigned != nullptr) {
 			if (skipLimited) {
-				if ($nc(this->context)->length == 1 && $nc(this->context)->get(0) == assigned->get(0)) {
+				if ($nc(this->context)->length == 1 && this->context->get(0) == assigned->get(0)) {
 					return acc;
 				}
 			}
@@ -452,7 +366,7 @@ AccessControlContext* AccessControlContext::optimize() {
 
 $ProtectionDomainArray* AccessControlContext::combine($ProtectionDomainArray* current, $ProtectionDomainArray* assigned) {
 	$init(AccessControlContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool skipStack = (current == nullptr);
 	bool skipAssigned = (assigned == nullptr);
 	int32_t slen = (skipStack) ? 0 : $nc(current)->length;
@@ -466,7 +380,7 @@ $ProtectionDomainArray* AccessControlContext::combine($ProtectionDomainArray* cu
 	}
 	bool outer$continue = false;
 	for (int32_t i = 0; i < slen; ++i) {
-		$var($ProtectionDomain, sd, current->get(i));
+		$var($ProtectionDomain, sd, $nc(current)->get(i));
 		if (sd != nullptr) {
 			for (int32_t j = 0; j < n; ++j) {
 				if (sd == pd->get(j)) {
@@ -482,7 +396,7 @@ $ProtectionDomainArray* AccessControlContext::combine($ProtectionDomainArray* cu
 		}
 	}
 	if (n != pd->length) {
-		if (!skipAssigned && n == assigned->length) {
+		if (!skipAssigned && n == $nc(assigned)->length) {
 			return assigned;
 		} else if (skipAssigned && n == slen) {
 			return current;
@@ -495,12 +409,12 @@ $ProtectionDomainArray* AccessControlContext::combine($ProtectionDomainArray* cu
 }
 
 void AccessControlContext::calculateFields(AccessControlContext* assigned, AccessControlContext* parent, $PermissionArray* permissions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProtectionDomainArray, parentLimit, nullptr);
 	$var($ProtectionDomainArray, assignedLimit, nullptr);
 	$var($ProtectionDomainArray, newLimit, nullptr);
-	$assign(parentLimit, (parent != nullptr) ? $nc(parent)->limitedContext : ($ProtectionDomainArray*)nullptr);
-	$assign(assignedLimit, (assigned != nullptr) ? $nc(assigned)->limitedContext : ($ProtectionDomainArray*)nullptr);
+	$assign(parentLimit, (parent != nullptr) ? parent->limitedContext : ($ProtectionDomainArray*)nullptr);
+	$assign(assignedLimit, (assigned != nullptr) ? assigned->limitedContext : ($ProtectionDomainArray*)nullptr);
 	$assign(newLimit, combine(parentLimit, assignedLimit));
 	if (newLimit != nullptr) {
 		if (this->context == nullptr || !containsAllPDs(newLimit, this->context)) {
@@ -531,10 +445,10 @@ bool AccessControlContext::equalContext(AccessControlContext* that) {
 	if (!equalPDs(this->context, $nc(that)->context)) {
 		return false;
 	}
-	if (this->combiner == nullptr && $nc(that)->combiner != nullptr) {
+	if (this->combiner == nullptr && that->combiner != nullptr) {
 		return false;
 	}
-	if (this->combiner != nullptr && !$nc($of(this->combiner))->equals($nc(that)->combiner)) {
+	if (this->combiner != nullptr && !this->combiner->equals(that->combiner)) {
 		return false;
 	}
 	return true;
@@ -555,7 +469,7 @@ bool AccessControlContext::equalPDs($ProtectionDomainArray* a, $ProtectionDomain
 }
 
 bool AccessControlContext::equalLimitedContext(AccessControlContext* that) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (that == nullptr) {
 		return false;
 	}
@@ -589,7 +503,7 @@ bool AccessControlContext::equalLimitedContext(AccessControlContext* that) {
 	if (this->parent == nullptr && $nc(that)->parent != nullptr) {
 		return false;
 	}
-	if (this->parent != nullptr && !$nc(this->parent)->equals($nc(that)->parent)) {
+	if (this->parent != nullptr && !this->parent->equals($nc(that)->parent)) {
 		return false;
 	}
 	return true;
@@ -609,7 +523,7 @@ AccessControlContext* AccessControlContext::getNextPC(AccessControlContext* acc$
 
 bool AccessControlContext::containsAllPDs($ProtectionDomainArray* thisContext, $ProtectionDomainArray* thatContext) {
 	$init(AccessControlContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool match = false;
 	$var($ProtectionDomain, thisPd, nullptr);
 	for (int32_t i = 0; i < $nc(thisContext)->length; ++i) {
@@ -619,12 +533,12 @@ bool AccessControlContext::containsAllPDs($ProtectionDomainArray* thisContext, $
 				match = (thatContext->get(j) == nullptr);
 			}
 		} else {
-			$Class* thisPdClass = $nc($of(thisPd))->getClass();
+			$Class* thisPdClass = $nc(thisPd)->getClass();
 			$var($ProtectionDomain, thatPd, nullptr);
 			for (int32_t j = 0; (j < $nc(thatContext)->length) && !match; ++j) {
 				$assign(thatPd, thatContext->get(j));
-				bool var$0 = thatPd != nullptr && thisPdClass == $of(thatPd)->getClass();
-				match = (var$0 && $of(thisPd)->equals(thatPd));
+				bool var$0 = thatPd != nullptr && thisPdClass == thatPd->getClass();
+				match = (var$0 && thisPd->equals(thatPd));
 			}
 		}
 		if (!match) {
@@ -635,19 +549,19 @@ bool AccessControlContext::containsAllPDs($ProtectionDomainArray* thisContext, $
 }
 
 bool AccessControlContext::containsAllLimits(AccessControlContext* that) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool match = false;
 	$var($Permission, thisPerm, nullptr);
 	if (this->permissions == nullptr && $nc(that)->permissions == nullptr) {
 		return true;
 	}
 	for (int32_t i = 0; i < $nc(this->permissions)->length; ++i) {
-		$var($Permission, limit, $nc(this->permissions)->get(i));
+		$var($Permission, limit, this->permissions->get(i));
 		$Class* limitClass = $nc($of(limit))->getClass();
 		match = false;
 		for (int32_t j = 0; (j < $nc($nc(that)->permissions)->length) && !match; ++j) {
-			$var($Permission, perm, $nc(that->permissions)->get(j));
-			bool var$0 = $nc($of(limitClass))->equals($nc($of(perm))->getClass());
+			$var($Permission, perm, that->permissions->get(j));
+			bool var$0 = limitClass->equals($nc($of(perm))->getClass());
 			match = (var$0 && limit->equals(perm));
 		}
 		if (!match) {
@@ -663,14 +577,14 @@ int32_t AccessControlContext::hashCode() {
 		return hashCode;
 	}
 	for (int32_t i = 0; i < $nc(this->context)->length; ++i) {
-		if ($nc(this->context)->get(i) != nullptr) {
-			hashCode ^= $nc($of($nc(this->context)->get(i)))->hashCode();
+		if (this->context->get(i) != nullptr) {
+			hashCode ^= $nc(this->context->get(i))->hashCode();
 		}
 	}
 	return hashCode;
 }
 
-void clinit$AccessControlContext($Class* class$) {
+void AccessControlContext::clinit$($Class* clazz) {
 	AccessControlContext::debugInit = false;
 	$assignStatic(AccessControlContext::debug, nullptr);
 }
@@ -679,7 +593,80 @@ AccessControlContext::AccessControlContext() {
 }
 
 $Class* AccessControlContext::load$($String* name, bool initialize) {
-	$loadClass(AccessControlContext, name, initialize, &_AccessControlContext_ClassInfo_, clinit$AccessControlContext, allocate$AccessControlContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"context", "[Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $field(AccessControlContext, context)},
+		{"isPrivileged", "Z", nullptr, $PRIVATE, $field(AccessControlContext, isPrivileged$)},
+		{"isAuthorized", "Z", nullptr, $PRIVATE, $field(AccessControlContext, isAuthorized$)},
+		{"privilegedContext", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(AccessControlContext, privilegedContext)},
+		{"combiner", "Ljava/security/DomainCombiner;", nullptr, $PRIVATE, $field(AccessControlContext, combiner)},
+		{"permissions", "[Ljava/security/Permission;", nullptr, $PRIVATE, $field(AccessControlContext, permissions)},
+		{"parent", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(AccessControlContext, parent)},
+		{"isWrapped", "Z", nullptr, $PRIVATE, $field(AccessControlContext, isWrapped)},
+		{"isLimited", "Z", nullptr, $PRIVATE, $field(AccessControlContext, isLimited)},
+		{"limitedContext", "[Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $field(AccessControlContext, limitedContext)},
+		{"debugInit", "Z", nullptr, $PRIVATE | $STATIC, $staticField(AccessControlContext, debugInit)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC, $staticField(AccessControlContext, debug)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(AccessControlContext, init$, void, $ProtectionDomainArray*)},
+		{"<init>", "(Ljava/security/AccessControlContext;Ljava/security/DomainCombiner;)V", nullptr, $PUBLIC, $method(AccessControlContext, init$, void, AccessControlContext*, $DomainCombiner*)},
+		{"<init>", "(Ljava/security/AccessControlContext;Ljava/security/DomainCombiner;Z)V", nullptr, 0, $method(AccessControlContext, init$, void, AccessControlContext*, $DomainCombiner*, bool)},
+		{"<init>", "(Ljava/security/ProtectionDomain;Ljava/security/DomainCombiner;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;[Ljava/security/Permission;)V", nullptr, 0, $method(AccessControlContext, init$, void, $ProtectionDomain*, $DomainCombiner*, AccessControlContext*, AccessControlContext*, $PermissionArray*)},
+		{"<init>", "([Ljava/security/ProtectionDomain;Z)V", nullptr, 0, $method(AccessControlContext, init$, void, $ProtectionDomainArray*, bool)},
+		{"<init>", "([Ljava/security/ProtectionDomain;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(AccessControlContext, init$, void, $ProtectionDomainArray*, AccessControlContext*)},
+		{"calculateFields", "(Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;[Ljava/security/Permission;)V", nullptr, $PRIVATE, $method(AccessControlContext, calculateFields, void, AccessControlContext*, AccessControlContext*, $PermissionArray*)},
+		{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $method(AccessControlContext, checkPermission, void, $Permission*), "java.security.AccessControlException"},
+		{"checkPermission2", "(Ljava/security/Permission;)V", nullptr, $PRIVATE, $method(AccessControlContext, checkPermission2, void, $Permission*)},
+		{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $STATIC, $staticMethod(AccessControlContext, combine, $ProtectionDomainArray*, $ProtectionDomainArray*, $ProtectionDomainArray*)},
+		{"containsAllLimits", "(Ljava/security/AccessControlContext;)Z", nullptr, $PRIVATE, $method(AccessControlContext, containsAllLimits, bool, AccessControlContext*)},
+		{"containsAllPDs", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AccessControlContext, containsAllPDs, bool, $ProtectionDomainArray*, $ProtectionDomainArray*)},
+		{"equalContext", "(Ljava/security/AccessControlContext;)Z", nullptr, $PRIVATE, $method(AccessControlContext, equalContext, bool, AccessControlContext*)},
+		{"equalLimitedContext", "(Ljava/security/AccessControlContext;)Z", nullptr, $PRIVATE, $method(AccessControlContext, equalLimitedContext, bool, AccessControlContext*)},
+		{"equalPDs", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)Z", nullptr, $PRIVATE, $method(AccessControlContext, equalPDs, bool, $ProtectionDomainArray*, $ProtectionDomainArray*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AccessControlContext, equals, bool, Object$*)},
+		{"getAssignedCombiner", "()Ljava/security/DomainCombiner;", nullptr, 0, $method(AccessControlContext, getAssignedCombiner, $DomainCombiner*)},
+		{"getCombiner", "()Ljava/security/DomainCombiner;", nullptr, 0, $method(AccessControlContext, getCombiner, $DomainCombiner*)},
+		{"getContext", "()[Ljava/security/ProtectionDomain;", nullptr, 0, $method(AccessControlContext, getContext, $ProtectionDomainArray*)},
+		{"getDebug", "()Lsun/security/util/Debug;", nullptr, $STATIC, $staticMethod(AccessControlContext, getDebug, $Debug*)},
+		{"getDomainCombiner", "()Ljava/security/DomainCombiner;", nullptr, $PUBLIC, $method(AccessControlContext, getDomainCombiner, $DomainCombiner*)},
+		{"getNextPC", "(Ljava/security/AccessControlContext;)Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(AccessControlContext, getNextPC, AccessControlContext*, AccessControlContext*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AccessControlContext, hashCode, int32_t)},
+		{"isAuthorized", "()Z", nullptr, 0, $method(AccessControlContext, isAuthorized, bool)},
+		{"isPrivileged", "()Z", nullptr, 0, $method(AccessControlContext, isPrivileged, bool)},
+		{"optimize", "()Ljava/security/AccessControlContext;", nullptr, 0, $method(AccessControlContext, optimize, AccessControlContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.AccessControlContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.security.AccessControlContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.security.AccessControlContext$1"
+	};
+	$loadClass(AccessControlContext, name, initialize, &classInfo$$, AccessControlContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessControlContext);
+	});
 	return class$;
 }
 

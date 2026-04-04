@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/reflectiveObjects/NotImplementedException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,29 +10,6 @@ namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace reflectiveObjects {
-
-$FieldInfo _NotImplementedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotImplementedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NotImplementedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NotImplementedException, init$, void)},
-	{}
-};
-
-$ClassInfo _NotImplementedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.reflectiveObjects.NotImplementedException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_NotImplementedException_FieldInfo_,
-	_NotImplementedException_MethodInfo_
-};
-
-$Object* allocate$NotImplementedException($Class* clazz) {
-	return $of($alloc(NotImplementedException));
-}
 
 void NotImplementedException::init$() {
 	$RuntimeException::init$();
@@ -50,7 +26,25 @@ void NotImplementedException::throw$() {
 }
 
 $Class* NotImplementedException::load$($String* name, bool initialize) {
-	$loadClass(NotImplementedException, name, initialize, &_NotImplementedException_ClassInfo_, allocate$NotImplementedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotImplementedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NotImplementedException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.reflectiveObjects.NotImplementedException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotImplementedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotImplementedException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/regex/PatternSyntaxException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,36 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace regex {
-
-$FieldInfo _PatternSyntaxException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PatternSyntaxException, serialVersionUID)},
-	{"desc", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PatternSyntaxException, desc)},
-	{"pattern", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PatternSyntaxException, pattern)},
-	{"index", "I", nullptr, $PRIVATE | $FINAL, $field(PatternSyntaxException, index)},
-	{}
-};
-
-$MethodInfo _PatternSyntaxException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(PatternSyntaxException, init$, void, $String*, $String*, int32_t)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getDescription, $String*)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getIndex, int32_t)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getMessage, $String*)},
-	{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getPattern, $String*)},
-	{}
-};
-
-$ClassInfo _PatternSyntaxException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.regex.PatternSyntaxException",
-	"java.lang.IllegalArgumentException",
-	nullptr,
-	_PatternSyntaxException_FieldInfo_,
-	_PatternSyntaxException_MethodInfo_
-};
-
-$Object* allocate$PatternSyntaxException($Class* clazz) {
-	return $of($alloc(PatternSyntaxException));
-}
 
 void PatternSyntaxException::init$($String* desc, $String* regex, int32_t index) {
 	$IllegalArgumentException::init$();
@@ -61,7 +30,7 @@ $String* PatternSyntaxException::getPattern() {
 }
 
 $String* PatternSyntaxException::getMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(this->desc);
 	if (this->index >= 0) {
@@ -70,7 +39,7 @@ $String* PatternSyntaxException::getMessage() {
 	}
 	sb->append($($System::lineSeparator()));
 	sb->append(this->pattern);
-	if (this->index >= 0 && this->pattern != nullptr && this->index < $nc(this->pattern)->length()) {
+	if (this->index >= 0 && this->pattern != nullptr && this->index < this->pattern->length()) {
 		sb->append($($System::lineSeparator()));
 		for (int32_t i = 0; i < this->index; ++i) {
 			sb->append(u' ');
@@ -91,7 +60,32 @@ void PatternSyntaxException::throw$() {
 }
 
 $Class* PatternSyntaxException::load$($String* name, bool initialize) {
-	$loadClass(PatternSyntaxException, name, initialize, &_PatternSyntaxException_ClassInfo_, allocate$PatternSyntaxException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PatternSyntaxException, serialVersionUID)},
+		{"desc", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PatternSyntaxException, desc)},
+		{"pattern", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PatternSyntaxException, pattern)},
+		{"index", "I", nullptr, $PRIVATE | $FINAL, $field(PatternSyntaxException, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(PatternSyntaxException, init$, void, $String*, $String*, int32_t)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getDescription, $String*)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getIndex, int32_t)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getMessage, $String*)},
+		{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getPattern, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.regex.PatternSyntaxException",
+		"java.lang.IllegalArgumentException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PatternSyntaxException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PatternSyntaxException);
+	});
 	return class$;
 }
 

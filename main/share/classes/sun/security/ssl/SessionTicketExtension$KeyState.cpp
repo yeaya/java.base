@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SessionTicketExtension$KeyState.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Set.h>
 #include <javax/crypto/SecretKey.h>
@@ -18,12 +17,7 @@ using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HashMap = ::java::util::HashMap;
-using $Set = ::java::util::Set;
-using $SecretKey = ::javax::crypto::SecretKey;
-using $SSLSessionContext = ::javax::net::ssl::SSLSessionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SessionTicketExtension = ::sun::security::ssl::SessionTicketExtension;
 using $SessionTicketExtension$StatelessKey = ::sun::security::ssl::SessionTicketExtension$StatelessKey;
 
@@ -31,55 +25,20 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SessionTicketExtension$KeyState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SessionTicketExtension$KeyState, init$, void)},
-	{"cleanup", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, cleanup, void, $HandshakeContext*)},
-	{"getCurrentKey", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, getCurrentKey, $SessionTicketExtension$StatelessKey*, $HandshakeContext*)},
-	{"getKey", "(Lsun/security/ssl/HandshakeContext;I)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, getKey, $SessionTicketExtension$StatelessKey*, $HandshakeContext*, int32_t)},
-	{"getSessionTimeout", "(Lsun/security/ssl/HandshakeContext;)I", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, getSessionTimeout, int32_t, $HandshakeContext*)},
-	{"nextKey", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(SessionTicketExtension$KeyState, nextKey, $SessionTicketExtension$StatelessKey*, $HandshakeContext*)},
-	{}
-};
-
-$InnerClassInfo _SessionTicketExtension$KeyState_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SessionTicketExtension$KeyState", "sun.security.ssl.SessionTicketExtension", "KeyState", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SessionTicketExtension$KeyState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SessionTicketExtension$KeyState",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SessionTicketExtension$KeyState_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SessionTicketExtension$KeyState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SessionTicketExtension"
-};
-
-$Object* allocate$SessionTicketExtension$KeyState($Class* clazz) {
-	return $of($alloc(SessionTicketExtension$KeyState));
-}
-
 void SessionTicketExtension$KeyState::init$() {
 }
 
 $SessionTicketExtension$StatelessKey* SessionTicketExtension$KeyState::getKey($HandshakeContext* hc, int32_t num) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SessionTicketExtension$StatelessKey, ssk, $cast($SessionTicketExtension$StatelessKey, $nc($nc($nc(hc)->sslContext)->keyHashMap)->get($($Integer::valueOf(num)))));
-	if (ssk == nullptr || $nc(ssk)->isInvalid(getSessionTimeout(hc))) {
+	if (ssk == nullptr || ssk->isInvalid(getSessionTimeout(hc))) {
 		return nullptr;
 	}
 	return ssk;
 }
 
 $SessionTicketExtension$StatelessKey* SessionTicketExtension$KeyState::getCurrentKey($HandshakeContext* hc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SessionTicketExtension);
 	$var($SessionTicketExtension$StatelessKey, ssk, $cast($SessionTicketExtension$StatelessKey, $nc($nc($nc(hc)->sslContext)->keyHashMap)->get($($Integer::valueOf($SessionTicketExtension::currentKeyID)))));
 	if (ssk != nullptr && !ssk->isExpired()) {
@@ -89,11 +48,11 @@ $SessionTicketExtension$StatelessKey* SessionTicketExtension$KeyState::getCurren
 }
 
 $SessionTicketExtension$StatelessKey* SessionTicketExtension$KeyState::nextKey($HandshakeContext* hc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SessionTicketExtension$StatelessKey, ssk, nullptr);
 	$synchronized($nc($nc(hc)->sslContext)->keyHashMap) {
 		$init($SessionTicketExtension);
-		$assign(ssk, $cast($SessionTicketExtension$StatelessKey, $nc($nc(hc->sslContext)->keyHashMap)->get($($Integer::valueOf($SessionTicketExtension::currentKeyID)))));
+		$assign(ssk, $cast($SessionTicketExtension$StatelessKey, hc->sslContext->keyHashMap->get($($Integer::valueOf($SessionTicketExtension::currentKeyID)))));
 		if (ssk != nullptr && !ssk->isExpired()) {
 			return ssk;
 		}
@@ -111,24 +70,22 @@ $SessionTicketExtension$StatelessKey* SessionTicketExtension$KeyState::nextKey($
 }
 
 void SessionTicketExtension$KeyState::cleanup($HandshakeContext* hc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t sessionTimeout = getSessionTimeout(hc);
 	$var($SessionTicketExtension$StatelessKey, ks, nullptr);
 	{
-		$var($ObjectArray, arr$, $nc($($nc($nc($nc(hc)->sslContext)->keyHashMap)->keySet()))->toArray());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($ObjectArray, arr$, $$nc($nc($nc($nc(hc)->sslContext)->keyHashMap)->keySet())->toArray());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, o, arr$->get(i$));
 			{
 				$var($Integer, i, $cast($Integer, o));
-				$assign(ks, $cast($SessionTicketExtension$StatelessKey, $nc($nc(hc->sslContext)->keyHashMap)->get(i)));
+				$assign(ks, $cast($SessionTicketExtension$StatelessKey, hc->sslContext->keyHashMap->get(i)));
 				if ($nc(ks)->isInvalid(sessionTimeout)) {
 					try {
 						$nc(ks->key)->destroy();
 					} catch ($Exception& e) {
 					}
-					$nc($nc(hc->sslContext)->keyHashMap)->remove(i);
+					hc->sslContext->keyHashMap->remove(i);
 				}
 			}
 		}
@@ -136,14 +93,44 @@ void SessionTicketExtension$KeyState::cleanup($HandshakeContext* hc) {
 }
 
 int32_t SessionTicketExtension$KeyState::getSessionTimeout($HandshakeContext* hc) {
-	return $nc($($nc($nc(hc)->sslContext)->engineGetServerSessionContext()))->getSessionTimeout() * 1000;
+	return $$nc($nc($nc(hc)->sslContext)->engineGetServerSessionContext())->getSessionTimeout() * 1000;
 }
 
 SessionTicketExtension$KeyState::SessionTicketExtension$KeyState() {
 }
 
 $Class* SessionTicketExtension$KeyState::load$($String* name, bool initialize) {
-	$loadClass(SessionTicketExtension$KeyState, name, initialize, &_SessionTicketExtension$KeyState_ClassInfo_, allocate$SessionTicketExtension$KeyState);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SessionTicketExtension$KeyState, init$, void)},
+		{"cleanup", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, cleanup, void, $HandshakeContext*)},
+		{"getCurrentKey", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, getCurrentKey, $SessionTicketExtension$StatelessKey*, $HandshakeContext*)},
+		{"getKey", "(Lsun/security/ssl/HandshakeContext;I)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, getKey, $SessionTicketExtension$StatelessKey*, $HandshakeContext*, int32_t)},
+		{"getSessionTimeout", "(Lsun/security/ssl/HandshakeContext;)I", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, getSessionTimeout, int32_t, $HandshakeContext*)},
+		{"nextKey", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(SessionTicketExtension$KeyState, nextKey, $SessionTicketExtension$StatelessKey*, $HandshakeContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SessionTicketExtension$KeyState", "sun.security.ssl.SessionTicketExtension", "KeyState", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SessionTicketExtension$KeyState",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SessionTicketExtension"
+	};
+	$loadClass(SessionTicketExtension$KeyState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SessionTicketExtension$KeyState);
+	});
 	return class$;
 }
 

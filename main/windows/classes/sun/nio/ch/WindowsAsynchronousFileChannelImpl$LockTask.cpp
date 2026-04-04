@@ -1,5 +1,4 @@
 #include <sun/nio/ch/WindowsAsynchronousFileChannelImpl$LockTask.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Runnable.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
@@ -24,59 +23,11 @@ using $FileLockImpl = ::sun::nio::ch::FileLockImpl;
 using $IOStatus = ::sun::nio::ch::IOStatus;
 using $Invoker = ::sun::nio::ch::Invoker;
 using $PendingFuture = ::sun::nio::ch::PendingFuture;
-using $PendingIoCache = ::sun::nio::ch::PendingIoCache;
 using $WindowsAsynchronousFileChannelImpl = ::sun::nio::ch::WindowsAsynchronousFileChannelImpl;
 
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _WindowsAsynchronousFileChannelImpl$LockTask_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/ch/WindowsAsynchronousFileChannelImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsAsynchronousFileChannelImpl$LockTask, this$0)},
-	{"position", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousFileChannelImpl$LockTask, position)},
-	{"fli", "Lsun/nio/ch/FileLockImpl;", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousFileChannelImpl$LockTask, fli)},
-	{"result", "Lsun/nio/ch/PendingFuture;", "Lsun/nio/ch/PendingFuture<Ljava/nio/channels/FileLock;TA;>;", $PRIVATE | $FINAL, $field(WindowsAsynchronousFileChannelImpl$LockTask, result)},
-	{}
-};
-
-$MethodInfo _WindowsAsynchronousFileChannelImpl$LockTask_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousFileChannelImpl;JLsun/nio/ch/FileLockImpl;Lsun/nio/ch/PendingFuture;)V", "(JLsun/nio/ch/FileLockImpl;Lsun/nio/ch/PendingFuture<Ljava/nio/channels/FileLock;TA;>;)V", 0, $method(WindowsAsynchronousFileChannelImpl$LockTask, init$, void, $WindowsAsynchronousFileChannelImpl*, int64_t, $FileLockImpl*, $PendingFuture*)},
-	{"completed", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$LockTask, completed, void, int32_t, bool)},
-	{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$LockTask, failed, void, int32_t, $IOException*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$LockTask, run, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsAsynchronousFileChannelImpl$LockTask_InnerClassesInfo_[] = {
-	{"sun.nio.ch.WindowsAsynchronousFileChannelImpl$LockTask", "sun.nio.ch.WindowsAsynchronousFileChannelImpl", "LockTask", $PRIVATE},
-	{"sun.nio.ch.Iocp$ResultHandler", "sun.nio.ch.Iocp", "ResultHandler", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WindowsAsynchronousFileChannelImpl$LockTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.WindowsAsynchronousFileChannelImpl$LockTask",
-	"java.lang.Object",
-	"java.lang.Runnable,sun.nio.ch.Iocp$ResultHandler",
-	_WindowsAsynchronousFileChannelImpl$LockTask_FieldInfo_,
-	_WindowsAsynchronousFileChannelImpl$LockTask_MethodInfo_,
-	"<A:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Runnable;Lsun/nio/ch/Iocp$ResultHandler;",
-	nullptr,
-	_WindowsAsynchronousFileChannelImpl$LockTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.WindowsAsynchronousFileChannelImpl"
-};
-
-$Object* allocate$WindowsAsynchronousFileChannelImpl$LockTask($Class* clazz) {
-	return $of($alloc(WindowsAsynchronousFileChannelImpl$LockTask));
-}
 
 int32_t WindowsAsynchronousFileChannelImpl$LockTask::hashCode() {
 	 return this->$Runnable::hashCode();
@@ -106,44 +57,42 @@ void WindowsAsynchronousFileChannelImpl$LockTask::init$($WindowsAsynchronousFile
 }
 
 void WindowsAsynchronousFileChannelImpl$LockTask::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t overlapped = 0;
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				this->this$0->begin();
-				overlapped = $nc(this->this$0->ioCache)->add(this->result);
-				$synchronized(this->result) {
-					int64_t var$2 = this->this$0->handle;
-					int64_t var$3 = this->position;
-					int64_t var$4 = $nc(this->fli)->size();
-					int32_t n = $WindowsAsynchronousFileChannelImpl::lockFile(var$2, var$3, var$4, $nc(this->fli)->isShared(), overlapped);
-					if (n == $IOStatus::UNAVAILABLE) {
-						return$1 = true;
-						goto $finally;
-					}
-					$nc(this->result)->setResult(this->fli);
+			this->this$0->begin();
+			overlapped = $nc(this->this$0->ioCache)->add(this->result);
+			$synchronized(this->result) {
+				int64_t var$2 = this->this$0->handle;
+				int64_t var$3 = this->position;
+				int64_t var$4 = $nc(this->fli)->size();
+				int32_t n = $WindowsAsynchronousFileChannelImpl::lockFile(var$2, var$3, var$4, this->fli->isShared(), overlapped);
+				if (n == $IOStatus::UNAVAILABLE) {
+					return$1 = true;
+					goto $finally;
 				}
-			} catch ($Throwable& x) {
-				this->this$0->removeFromFileLockTable(this->fli);
-				$nc(this->result)->setFailure($($WindowsAsynchronousFileChannelImpl::toIOException(x)));
-				if (overlapped != (int64_t)0) {
-					$nc(this->this$0->ioCache)->remove(overlapped);
-				}
+				this->result->setResult(this->fli);
 			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} $finally: {
-			this->this$0->end();
+		} catch ($Throwable& x) {
+			this->this$0->removeFromFileLockTable(this->fli);
+			$nc(this->result)->setFailure($($WindowsAsynchronousFileChannelImpl::toIOException(x)));
+			if (overlapped != 0) {
+				$nc(this->this$0->ioCache)->remove(overlapped);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		this->this$0->end();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 	$Invoker::invoke(this->result);
 }
@@ -171,7 +120,48 @@ WindowsAsynchronousFileChannelImpl$LockTask::WindowsAsynchronousFileChannelImpl$
 }
 
 $Class* WindowsAsynchronousFileChannelImpl$LockTask::load$($String* name, bool initialize) {
-	$loadClass(WindowsAsynchronousFileChannelImpl$LockTask, name, initialize, &_WindowsAsynchronousFileChannelImpl$LockTask_ClassInfo_, allocate$WindowsAsynchronousFileChannelImpl$LockTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/ch/WindowsAsynchronousFileChannelImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsAsynchronousFileChannelImpl$LockTask, this$0)},
+		{"position", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousFileChannelImpl$LockTask, position)},
+		{"fli", "Lsun/nio/ch/FileLockImpl;", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousFileChannelImpl$LockTask, fli)},
+		{"result", "Lsun/nio/ch/PendingFuture;", "Lsun/nio/ch/PendingFuture<Ljava/nio/channels/FileLock;TA;>;", $PRIVATE | $FINAL, $field(WindowsAsynchronousFileChannelImpl$LockTask, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/nio/ch/WindowsAsynchronousFileChannelImpl;JLsun/nio/ch/FileLockImpl;Lsun/nio/ch/PendingFuture;)V", "(JLsun/nio/ch/FileLockImpl;Lsun/nio/ch/PendingFuture<Ljava/nio/channels/FileLock;TA;>;)V", 0, $method(WindowsAsynchronousFileChannelImpl$LockTask, init$, void, $WindowsAsynchronousFileChannelImpl*, int64_t, $FileLockImpl*, $PendingFuture*)},
+		{"completed", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$LockTask, completed, void, int32_t, bool)},
+		{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$LockTask, failed, void, int32_t, $IOException*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$LockTask, run, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.WindowsAsynchronousFileChannelImpl$LockTask", "sun.nio.ch.WindowsAsynchronousFileChannelImpl", "LockTask", $PRIVATE},
+		{"sun.nio.ch.Iocp$ResultHandler", "sun.nio.ch.Iocp", "ResultHandler", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.WindowsAsynchronousFileChannelImpl$LockTask",
+		"java.lang.Object",
+		"java.lang.Runnable,sun.nio.ch.Iocp$ResultHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		"<A:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Runnable;Lsun/nio/ch/Iocp$ResultHandler;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.WindowsAsynchronousFileChannelImpl"
+	};
+	$loadClass(WindowsAsynchronousFileChannelImpl$LockTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsAsynchronousFileChannelImpl$LockTask));
+	});
 	return class$;
 }
 

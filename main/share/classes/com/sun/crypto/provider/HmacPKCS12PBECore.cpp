@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/HmacPKCS12PBECore.h>
-
 #include <com/sun/crypto/provider/HmacCore.h>
 #include <com/sun/crypto/provider/PKCS12PBECipherCore.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -36,48 +35,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _HmacPKCS12PBECore_FieldInfo_[] = {
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HmacPKCS12PBECore, algorithm)},
-	{"bl", "I", nullptr, $PRIVATE | $FINAL, $field(HmacPKCS12PBECore, bl)},
-	{}
-};
-
-$MethodInfo _HmacPKCS12PBECore_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(HmacPKCS12PBECore, init$, void, $String*, int32_t), "java.security.NoSuchAlgorithmException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(HmacPKCS12PBECore, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$InnerClassInfo _HmacPKCS12PBECore_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512_256", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA512_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512_224", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA512_224", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA512", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA384", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA384", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA256", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA224", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA224", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA1", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA1", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HmacPKCS12PBECore_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.crypto.provider.HmacPKCS12PBECore",
-	"com.sun.crypto.provider.HmacCore",
-	nullptr,
-	_HmacPKCS12PBECore_FieldInfo_,
-	_HmacPKCS12PBECore_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HmacPKCS12PBECore_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512_256,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512_224,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA384,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA256,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA224,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA1"
-};
-
-$Object* allocate$HmacPKCS12PBECore($Class* clazz) {
-	return $of($alloc(HmacPKCS12PBECore));
-}
-
 void HmacPKCS12PBECore::init$($String* algorithm, int32_t bl) {
 	$HmacCore::init$(algorithm, bl);
 	$set(this, algorithm, algorithm);
@@ -85,71 +42,69 @@ void HmacPKCS12PBECore::init$($String* algorithm, int32_t bl) {
 }
 
 void HmacPKCS12PBECore::engineInit($Key* key, $AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, passwdChars, nullptr);
 	$var($bytes, salt, nullptr);
 	int32_t iCount = 0;
 	if ($instanceOf($PBEKey, key)) {
 		$var($PBEKey, pbeKey, $cast($PBEKey, key));
-		$assign(passwdChars, $nc(pbeKey)->getPassword());
+		$assign(passwdChars, pbeKey->getPassword());
 		$assign(salt, pbeKey->getSalt());
 		iCount = pbeKey->getIterationCount();
 	} else if ($instanceOf($SecretKey, key)) {
 		$var($bytes, passwdBytes, nullptr);
-		bool var$0 = !($nc($($nc(key)->getAlgorithm()))->regionMatches(true, 0, "PBE"_s, 0, 3));
-		if (var$0 || ($assign(passwdBytes, $nc(key)->getEncoded())) == nullptr) {
+		bool var$0 = !($$nc(key->getAlgorithm())->regionMatches(true, 0, "PBE"_s, 0, 3));
+		if (var$0 || ($assign(passwdBytes, key->getEncoded())) == nullptr) {
 			$throwNew($InvalidKeyException, "Missing password"_s);
 		}
 		$assign(passwdChars, $new($chars, $nc(passwdBytes)->length));
 		for (int32_t i = 0; i < passwdChars->length; ++i) {
-			passwdChars->set(i, (char16_t)((int32_t)(passwdBytes->get(i) & (uint32_t)127)));
+			passwdChars->set(i, (char16_t)(passwdBytes->get(i) & 0x7f));
 		}
 		$Arrays::fill(passwdBytes, (int8_t)0);
 	} else {
 		$throwNew($InvalidKeyException, "SecretKey of PBE type required"_s);
 	}
 	$var($bytes, derivedKey, nullptr);
-	{
-		$var($Throwable, var$1, nullptr);
-		try {
-			if (params == nullptr) {
-				if ((salt == nullptr) || (iCount == 0)) {
-					$throwNew($InvalidAlgorithmParameterException, "PBEParameterSpec required for salt and iteration count"_s);
+	$var($Throwable, var$1, nullptr);
+	try {
+		if (params == nullptr) {
+			if ((salt == nullptr) || (iCount == 0)) {
+				$throwNew($InvalidAlgorithmParameterException, "PBEParameterSpec required for salt and iteration count"_s);
+			}
+		} else if (!($instanceOf($PBEParameterSpec, params))) {
+			$throwNew($InvalidAlgorithmParameterException, "PBEParameterSpec type required"_s);
+		} else {
+			$var($PBEParameterSpec, pbeParams, $cast($PBEParameterSpec, params));
+			if (salt != nullptr) {
+				if (!$Arrays::equals(salt, $(pbeParams->getSalt()))) {
+					$throwNew($InvalidAlgorithmParameterException, "Inconsistent value of salt between key and params"_s);
 				}
-			} else if (!($instanceOf($PBEParameterSpec, params))) {
-				$throwNew($InvalidAlgorithmParameterException, "PBEParameterSpec type required"_s);
 			} else {
-				$var($PBEParameterSpec, pbeParams, $cast($PBEParameterSpec, params));
-				if (salt != nullptr) {
-					if (!$Arrays::equals(salt, $($nc(pbeParams)->getSalt()))) {
-						$throwNew($InvalidAlgorithmParameterException, "Inconsistent value of salt between key and params"_s);
-					}
-				} else {
-					$assign(salt, $nc(pbeParams)->getSalt());
+				$assign(salt, pbeParams->getSalt());
+			}
+			if (iCount != 0) {
+				if (iCount != pbeParams->getIterationCount()) {
+					$throwNew($InvalidAlgorithmParameterException, "Different iteration count between key and params"_s);
 				}
-				if (iCount != 0) {
-					if (iCount != $nc(pbeParams)->getIterationCount()) {
-						$throwNew($InvalidAlgorithmParameterException, "Different iteration count between key and params"_s);
-					}
-				} else {
-					iCount = $nc(pbeParams)->getIterationCount();
-				}
+			} else {
+				iCount = pbeParams->getIterationCount();
 			}
-			if ($nc(salt)->length < 8) {
-				$throwNew($InvalidAlgorithmParameterException, "Salt must be at least 8 bytes long"_s);
-			}
-			if (iCount <= 0) {
-				$throwNew($InvalidAlgorithmParameterException, "IterationCount must be a positive number"_s);
-			}
-			$assign(derivedKey, $PKCS12PBECipherCore::derive(passwdChars, salt, iCount, engineGetMacLength(), $PKCS12PBECipherCore::MAC_KEY, this->algorithm, this->bl));
-		} catch ($Throwable& var$2) {
-			$assign(var$1, var$2);
-		} /*finally*/ {
-			$Arrays::fill(passwdChars, u'\0');
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+		if ($nc(salt)->length < 8) {
+			$throwNew($InvalidAlgorithmParameterException, "Salt must be at least 8 bytes long"_s);
 		}
+		if (iCount <= 0) {
+			$throwNew($InvalidAlgorithmParameterException, "IterationCount must be a positive number"_s);
+		}
+		$assign(derivedKey, $PKCS12PBECipherCore::derive(passwdChars, salt, iCount, engineGetMacLength(), $PKCS12PBECipherCore::MAC_KEY, this->algorithm, this->bl));
+	} catch ($Throwable& var$2) {
+		$assign(var$1, var$2);
+	} /*finally*/ {
+		$Arrays::fill(passwdChars, u'\0');
+	}
+	if (var$1 != nullptr) {
+		$throw(var$1);
 	}
 	$var($SecretKey, cipherKey, $new($SecretKeySpec, derivedKey, "HmacSHA1"_s));
 	$HmacCore::engineInit(cipherKey, nullptr);
@@ -159,7 +114,43 @@ HmacPKCS12PBECore::HmacPKCS12PBECore() {
 }
 
 $Class* HmacPKCS12PBECore::load$($String* name, bool initialize) {
-	$loadClass(HmacPKCS12PBECore, name, initialize, &_HmacPKCS12PBECore_ClassInfo_, allocate$HmacPKCS12PBECore);
+	$FieldInfo fieldInfos$$[] = {
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HmacPKCS12PBECore, algorithm)},
+		{"bl", "I", nullptr, $PRIVATE | $FINAL, $field(HmacPKCS12PBECore, bl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(HmacPKCS12PBECore, init$, void, $String*, int32_t), "java.security.NoSuchAlgorithmException"},
+		{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(HmacPKCS12PBECore, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512_256", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA512_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512_224", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA512_224", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA512", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA384", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA384", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA256", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA224", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA224", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA1", "com.sun.crypto.provider.HmacPKCS12PBECore", "HmacPKCS12PBE_SHA1", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.crypto.provider.HmacPKCS12PBECore",
+		"com.sun.crypto.provider.HmacCore",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512_256,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512_224,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA512,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA384,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA256,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA224,com.sun.crypto.provider.HmacPKCS12PBECore$HmacPKCS12PBE_SHA1"
+	};
+	$loadClass(HmacPKCS12PBECore, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HmacPKCS12PBECore));
+	});
 	return class$;
 }
 

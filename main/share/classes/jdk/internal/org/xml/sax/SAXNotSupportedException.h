@@ -17,10 +17,13 @@ public:
 	SAXNotSupportedException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0xEC4121B7A4F96F9A;
+	static const int64_t serialVersionUID = (int64_t)0xec4121b7a4f96f9a;
 	SAXNotSupportedException(const SAXNotSupportedException& e);
 	virtual void throw$() override;
-	inline SAXNotSupportedException* operator ->() {
+	inline SAXNotSupportedException* operator ->() const {
+		return (SAXNotSupportedException*)throwing$;
+	}
+	inline operator SAXNotSupportedException*() const {
 		return (SAXNotSupportedException*)throwing$;
 	}
 };

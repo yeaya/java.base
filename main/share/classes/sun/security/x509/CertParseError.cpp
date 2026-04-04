@@ -1,5 +1,4 @@
 #include <sun/security/x509/CertParseError.h>
-
 #include <sun/security/x509/CertException.h>
 #include <jcpp.h>
 
@@ -12,38 +11,6 @@ using $CertException = ::sun::security::x509::CertException;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$CompoundAttribute _CertParseError_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _CertParseError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertParseError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CertParseError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CertParseError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _CertParseError_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.x509.CertParseError",
-	"sun.security.x509.CertException",
-	nullptr,
-	_CertParseError_FieldInfo_,
-	_CertParseError_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_CertParseError_Annotations_
-};
-
-$Object* allocate$CertParseError($Class* clazz) {
-	return $of($alloc(CertParseError));
-}
 
 void CertParseError::init$($String* where) {
 	$CertException::init$($CertException::verf_PARSE_ERROR, where);
@@ -60,7 +27,33 @@ void CertParseError::throw$() {
 }
 
 $Class* CertParseError::load$($String* name, bool initialize) {
-	$loadClass(CertParseError, name, initialize, &_CertParseError_ClassInfo_, allocate$CertParseError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertParseError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CertParseError, init$, void, $String*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.x509.CertParseError",
+		"sun.security.x509.CertException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(CertParseError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertParseError);
+	});
 	return class$;
 }
 

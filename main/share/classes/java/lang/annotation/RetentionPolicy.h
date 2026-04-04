@@ -22,6 +22,7 @@ class $export RetentionPolicy : public ::java::lang::Enum {
 public:
 	RetentionPolicy();
 	static $Array<::java::lang::annotation::RetentionPolicy>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::lang::annotation::RetentionPolicy* valueOf($String* name);
 	static $Array<::java::lang::annotation::RetentionPolicy>* values();

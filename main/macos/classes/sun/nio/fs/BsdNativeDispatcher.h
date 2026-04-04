@@ -23,6 +23,7 @@ class BsdNativeDispatcher : public ::sun::nio::fs::UnixNativeDispatcher {
 	$class(BsdNativeDispatcher, 0, ::sun::nio::fs::UnixNativeDispatcher)
 public:
 	BsdNativeDispatcher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void endfsstat(int64_t iter);
 	static int32_t fsstatEntry(int64_t iter, ::sun::nio::fs::UnixMountEntry* entry);

@@ -37,6 +37,7 @@ class CheckSignatureAdapter$State : public ::java::lang::Enum {
 public:
 	CheckSignatureAdapter$State();
 	static $Array<::jdk::internal::org::objectweb::asm$::util::CheckSignatureAdapter$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::org::objectweb::asm$::util::CheckSignatureAdapter$State* valueOf($String* name);
 	static $Array<::jdk::internal::org::objectweb::asm$::util::CheckSignatureAdapter$State>* values();

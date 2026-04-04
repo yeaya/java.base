@@ -1,5 +1,4 @@
 #include <jdk/internal/invoke/VMStorageProxy.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,27 +8,23 @@ namespace jdk {
 	namespace internal {
 		namespace invoke {
 
-$MethodInfo _VMStorageProxy_MethodInfo_[] = {
-	{"index", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VMStorageProxy, index, int32_t)},
-	{"type", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VMStorageProxy, type, int32_t)},
-	{}
-};
-
-$ClassInfo _VMStorageProxy_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.invoke.VMStorageProxy",
-	nullptr,
-	nullptr,
-	nullptr,
-	_VMStorageProxy_MethodInfo_
-};
-
-$Object* allocate$VMStorageProxy($Class* clazz) {
-	return $of($alloc(VMStorageProxy));
-}
-
 $Class* VMStorageProxy::load$($String* name, bool initialize) {
-	$loadClass(VMStorageProxy, name, initialize, &_VMStorageProxy_ClassInfo_, allocate$VMStorageProxy);
+	$MethodInfo methodInfos$$[] = {
+		{"index", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VMStorageProxy, index, int32_t)},
+		{"type", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VMStorageProxy, type, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.invoke.VMStorageProxy",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VMStorageProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VMStorageProxy);
+	});
 	return class$;
 }
 

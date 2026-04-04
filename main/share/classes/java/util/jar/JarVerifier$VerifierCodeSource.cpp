@@ -1,5 +1,4 @@
 #include <java/util/jar/JarVerifier$VerifierCodeSource.h>
-
 #include <java/net/URL.h>
 #include <java/security/CodeSigner.h>
 #include <java/security/CodeSource.h>
@@ -19,50 +18,6 @@ using $CodeSource = ::java::security::CodeSource;
 namespace java {
 	namespace util {
 		namespace jar {
-
-$FieldInfo _JarVerifier$VerifierCodeSource_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JarVerifier$VerifierCodeSource, serialVersionUID)},
-	{"vlocation", "Ljava/net/URL;", nullptr, 0, $field(JarVerifier$VerifierCodeSource, vlocation)},
-	{"vsigners", "[Ljava/security/CodeSigner;", nullptr, 0, $field(JarVerifier$VerifierCodeSource, vsigners)},
-	{"vcerts", "[Ljava/security/cert/Certificate;", nullptr, 0, $field(JarVerifier$VerifierCodeSource, vcerts)},
-	{"csdomain", "Ljava/lang/Object;", nullptr, 0, $field(JarVerifier$VerifierCodeSource, csdomain)},
-	{}
-};
-
-$MethodInfo _JarVerifier$VerifierCodeSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/net/URL;[Ljava/security/CodeSigner;)V", nullptr, 0, $method(JarVerifier$VerifierCodeSource, init$, void, Object$*, $URL*, $CodeSignerArray*)},
-	{"<init>", "(Ljava/lang/Object;Ljava/net/URL;[Ljava/security/cert/Certificate;)V", nullptr, 0, $method(JarVerifier$VerifierCodeSource, init$, void, Object$*, $URL*, $CertificateArray*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierCodeSource, equals, bool, Object$*)},
-	{"getPrivateCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PRIVATE, $method(JarVerifier$VerifierCodeSource, getPrivateCertificates, $CertificateArray*)},
-	{"getPrivateSigners", "()[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $method(JarVerifier$VerifierCodeSource, getPrivateSigners, $CodeSignerArray*)},
-	{"isSameDomain", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(JarVerifier$VerifierCodeSource, isSameDomain, bool, Object$*)},
-	{}
-};
-
-$InnerClassInfo _JarVerifier$VerifierCodeSource_InnerClassesInfo_[] = {
-	{"java.util.jar.JarVerifier$VerifierCodeSource", "java.util.jar.JarVerifier", "VerifierCodeSource", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JarVerifier$VerifierCodeSource_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.jar.JarVerifier$VerifierCodeSource",
-	"java.security.CodeSource",
-	nullptr,
-	_JarVerifier$VerifierCodeSource_FieldInfo_,
-	_JarVerifier$VerifierCodeSource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JarVerifier$VerifierCodeSource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.jar.JarVerifier"
-};
-
-$Object* allocate$JarVerifier$VerifierCodeSource($Class* clazz) {
-	return $of($alloc(JarVerifier$VerifierCodeSource));
-}
 
 void JarVerifier$VerifierCodeSource::init$(Object$* csdomain, $URL* location, $CodeSignerArray* signers) {
 	$CodeSource::init$(location, signers);
@@ -91,13 +46,13 @@ bool JarVerifier$VerifierCodeSource::equals(Object$* obj) {
 		}
 		if (var$0) {
 			if (isSameDomain($nc(that)->csdomain)) {
-				if ($nc(that)->vsigners != this->vsigners || $nc(that)->vcerts != this->vcerts) {
+				if (that->vsigners != this->vsigners || that->vcerts != this->vcerts) {
 					return false;
 				}
-				if ($nc(that)->vlocation != nullptr) {
-					return $nc(that->vlocation)->equals(this->vlocation);
+				if (that->vlocation != nullptr) {
+					return that->vlocation->equals(this->vlocation);
 				} else if (this->vlocation != nullptr) {
-					return $nc(this->vlocation)->equals(that->vlocation);
+					return this->vlocation->equals(that->vlocation);
 				} else {
 					return true;
 				}
@@ -123,7 +78,45 @@ JarVerifier$VerifierCodeSource::JarVerifier$VerifierCodeSource() {
 }
 
 $Class* JarVerifier$VerifierCodeSource::load$($String* name, bool initialize) {
-	$loadClass(JarVerifier$VerifierCodeSource, name, initialize, &_JarVerifier$VerifierCodeSource_ClassInfo_, allocate$JarVerifier$VerifierCodeSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JarVerifier$VerifierCodeSource, serialVersionUID)},
+		{"vlocation", "Ljava/net/URL;", nullptr, 0, $field(JarVerifier$VerifierCodeSource, vlocation)},
+		{"vsigners", "[Ljava/security/CodeSigner;", nullptr, 0, $field(JarVerifier$VerifierCodeSource, vsigners)},
+		{"vcerts", "[Ljava/security/cert/Certificate;", nullptr, 0, $field(JarVerifier$VerifierCodeSource, vcerts)},
+		{"csdomain", "Ljava/lang/Object;", nullptr, 0, $field(JarVerifier$VerifierCodeSource, csdomain)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/net/URL;[Ljava/security/CodeSigner;)V", nullptr, 0, $method(JarVerifier$VerifierCodeSource, init$, void, Object$*, $URL*, $CodeSignerArray*)},
+		{"<init>", "(Ljava/lang/Object;Ljava/net/URL;[Ljava/security/cert/Certificate;)V", nullptr, 0, $method(JarVerifier$VerifierCodeSource, init$, void, Object$*, $URL*, $CertificateArray*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierCodeSource, equals, bool, Object$*)},
+		{"getPrivateCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PRIVATE, $method(JarVerifier$VerifierCodeSource, getPrivateCertificates, $CertificateArray*)},
+		{"getPrivateSigners", "()[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $method(JarVerifier$VerifierCodeSource, getPrivateSigners, $CodeSignerArray*)},
+		{"isSameDomain", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(JarVerifier$VerifierCodeSource, isSameDomain, bool, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.jar.JarVerifier$VerifierCodeSource", "java.util.jar.JarVerifier", "VerifierCodeSource", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.jar.JarVerifier$VerifierCodeSource",
+		"java.security.CodeSource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.jar.JarVerifier"
+	};
+	$loadClass(JarVerifier$VerifierCodeSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarVerifier$VerifierCodeSource);
+	});
 	return class$;
 }
 

@@ -33,6 +33,7 @@ class $export ThreadPool : public ::java::lang::Object {
 	$class(ThreadPool, 0, ::java::lang::Object)
 public:
 	ThreadPool();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::ExecutorService* executor, bool isFixed, int32_t poolSize);
 	static ::sun::nio::ch::ThreadPool* create(int32_t nThreads, ::java::util::concurrent::ThreadFactory* factory);
 	static ::sun::nio::ch::ThreadPool* createDefault();

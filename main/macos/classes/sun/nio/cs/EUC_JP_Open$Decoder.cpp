@@ -1,5 +1,4 @@
 #include <sun/nio/cs/EUC_JP_Open$Decoder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <sun/nio/cs/DoubleByte$Decoder.h>
@@ -25,44 +24,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _EUC_JP_Open$Decoder_FieldInfo_[] = {
-	{"DEC0208_Solaris", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC, $staticField(EUC_JP_Open$Decoder, DEC0208_Solaris)},
-	{"DEC0212_Solaris", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC, $staticField(EUC_JP_Open$Decoder, DEC0212_Solaris)},
-	{}
-};
-
-$MethodInfo _EUC_JP_Open$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(EUC_JP_Open$Decoder, init$, void, $Charset*)},
-	{"decodeDouble", "(II)C", nullptr, $PROTECTED, $virtualMethod(EUC_JP_Open$Decoder, decodeDouble, char16_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _EUC_JP_Open$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.EUC_JP_Open$Decoder", "sun.nio.cs.EUC_JP_Open", "Decoder", $PRIVATE | $STATIC},
-	{"sun.nio.cs.EUC_JP$Decoder", "sun.nio.cs.EUC_JP", "Decoder", $STATIC},
-	{}
-};
-
-$ClassInfo _EUC_JP_Open$Decoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.EUC_JP_Open$Decoder",
-	"sun.nio.cs.EUC_JP$Decoder",
-	nullptr,
-	_EUC_JP_Open$Decoder_FieldInfo_,
-	_EUC_JP_Open$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EUC_JP_Open$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.EUC_JP_Open"
-};
-
-$Object* allocate$EUC_JP_Open$Decoder($Class* clazz) {
-	return $of($alloc(EUC_JP_Open$Decoder));
-}
-
 $DoubleByte$Decoder* EUC_JP_Open$Decoder::DEC0208_Solaris = nullptr;
 $DoubleByte$Decoder* EUC_JP_Open$Decoder::DEC0212_Solaris = nullptr;
 
@@ -73,14 +34,14 @@ void EUC_JP_Open$Decoder::init$($Charset* cs) {
 
 char16_t EUC_JP_Open$Decoder::decodeDouble(int32_t byte1, int32_t byte2) {
 	char16_t c = $EUC_JP$Decoder::decodeDouble(byte1, byte2);
-	if (c == (char16_t)0xFFFD) {
+	if (c == (char16_t)0xfffd) {
 		return $nc(EUC_JP_Open$Decoder::DEC0208_Solaris)->decodeDouble(byte1 - 128, byte2 - 128);
 	}
 	return c;
 }
 
-void clinit$EUC_JP_Open$Decoder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void EUC_JP_Open$Decoder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(EUC_JP_Open$Decoder::DEC0208_Solaris, $cast($DoubleByte$Decoder, $$new($JIS_X_0208_Solaris)->newDecoder()));
 	$assignStatic(EUC_JP_Open$Decoder::DEC0212_Solaris, $cast($DoubleByte$Decoder, $$new($JIS_X_0212_Solaris)->newDecoder()));
 }
@@ -89,7 +50,39 @@ EUC_JP_Open$Decoder::EUC_JP_Open$Decoder() {
 }
 
 $Class* EUC_JP_Open$Decoder::load$($String* name, bool initialize) {
-	$loadClass(EUC_JP_Open$Decoder, name, initialize, &_EUC_JP_Open$Decoder_ClassInfo_, clinit$EUC_JP_Open$Decoder, allocate$EUC_JP_Open$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEC0208_Solaris", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC, $staticField(EUC_JP_Open$Decoder, DEC0208_Solaris)},
+		{"DEC0212_Solaris", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC, $staticField(EUC_JP_Open$Decoder, DEC0212_Solaris)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(EUC_JP_Open$Decoder, init$, void, $Charset*)},
+		{"decodeDouble", "(II)C", nullptr, $PROTECTED, $virtualMethod(EUC_JP_Open$Decoder, decodeDouble, char16_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.EUC_JP_Open$Decoder", "sun.nio.cs.EUC_JP_Open", "Decoder", $PRIVATE | $STATIC},
+		{"sun.nio.cs.EUC_JP$Decoder", "sun.nio.cs.EUC_JP", "Decoder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.EUC_JP_Open$Decoder",
+		"sun.nio.cs.EUC_JP$Decoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.EUC_JP_Open"
+	};
+	$loadClass(EUC_JP_Open$Decoder, name, initialize, &classInfo$$, EUC_JP_Open$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EUC_JP_Open$Decoder));
+	});
 	return class$;
 }
 

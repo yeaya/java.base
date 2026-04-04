@@ -1,5 +1,4 @@
 #include <java/nio/ByteBufferAsLongBufferRB.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteBufferAsLongBufferB.h>
 #include <java/nio/ByteOrder.h>
@@ -24,36 +23,6 @@ using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy
 namespace java {
 	namespace nio {
 
-$MethodInfo _ByteBufferAsLongBufferRB_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsLongBufferRB, init$, void, $ByteBuffer*, $MemorySegmentProxy*)},
-	{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsLongBufferRB, init$, void, $ByteBuffer*, int32_t, int32_t, int32_t, int32_t, int64_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, asReadOnlyBuffer, $LongBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ByteBufferAsLongBufferRB, base, $Object*)},
-	{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, compact, $LongBuffer*)},
-	{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, duplicate, $LongBuffer*)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, order, $ByteOrder*)},
-	{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, put, $LongBuffer*, int64_t)},
-	{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, put, $LongBuffer*, int32_t, int64_t)},
-	{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, slice, $LongBuffer*)},
-	{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, slice, $LongBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ByteBufferAsLongBufferRB_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.ByteBufferAsLongBufferRB",
-	"java.nio.ByteBufferAsLongBufferB",
-	nullptr,
-	nullptr,
-	_ByteBufferAsLongBufferRB_MethodInfo_
-};
-
-$Object* allocate$ByteBufferAsLongBufferRB($Class* clazz) {
-	return $of($alloc(ByteBufferAsLongBufferRB));
-}
-
 void ByteBufferAsLongBufferRB::init$($ByteBuffer* bb, $MemorySegmentProxy* segment) {
 	$ByteBufferAsLongBufferB::init$(bb, segment);
 }
@@ -63,7 +32,7 @@ void ByteBufferAsLongBufferRB::init$($ByteBuffer* bb, int32_t mark, int32_t pos,
 }
 
 $Object* ByteBufferAsLongBufferRB::base() {
-	return $of($nc(this->bb)->hb);
+	return $nc(this->bb)->hb;
 }
 
 $LongBuffer* ByteBufferAsLongBufferRB::slice() {
@@ -123,7 +92,33 @@ ByteBufferAsLongBufferRB::ByteBufferAsLongBufferRB() {
 }
 
 $Class* ByteBufferAsLongBufferRB::load$($String* name, bool initialize) {
-	$loadClass(ByteBufferAsLongBufferRB, name, initialize, &_ByteBufferAsLongBufferRB_ClassInfo_, allocate$ByteBufferAsLongBufferRB);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsLongBufferRB, init$, void, $ByteBuffer*, $MemorySegmentProxy*)},
+		{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsLongBufferRB, init$, void, $ByteBuffer*, int32_t, int32_t, int32_t, int32_t, int64_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, asReadOnlyBuffer, $LongBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ByteBufferAsLongBufferRB, base, $Object*)},
+		{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, compact, $LongBuffer*)},
+		{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, duplicate, $LongBuffer*)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, order, $ByteOrder*)},
+		{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, put, $LongBuffer*, int64_t)},
+		{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, put, $LongBuffer*, int32_t, int64_t)},
+		{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, slice, $LongBuffer*)},
+		{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferRB, slice, $LongBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.ByteBufferAsLongBufferRB",
+		"java.nio.ByteBufferAsLongBufferB",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ByteBufferAsLongBufferRB, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ByteBufferAsLongBufferRB));
+	});
 	return class$;
 }
 

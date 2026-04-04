@@ -57,6 +57,7 @@ class Reifier : public ::sun::reflect::generics::visitor::TypeTreeVisitor {
 	$class(Reifier, 0, ::sun::reflect::generics::visitor::TypeTreeVisitor)
 public:
 	Reifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::reflect::generics::factory::GenericsFactory* f);
 	::sun::reflect::generics::factory::GenericsFactory* getFactory();
 	virtual $Object* getResult() override;

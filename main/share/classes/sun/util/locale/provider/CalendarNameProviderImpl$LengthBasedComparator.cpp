@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/CalendarNameProviderImpl$LengthBasedComparator.h>
-
 #include <sun/util/locale/provider/CalendarNameProviderImpl.h>
 #include <jcpp.h>
 
@@ -14,43 +13,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$FieldInfo _CalendarNameProviderImpl$LengthBasedComparator_FieldInfo_[] = {
-	{"INSTANCE", "Lsun/util/locale/provider/CalendarNameProviderImpl$LengthBasedComparator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CalendarNameProviderImpl$LengthBasedComparator, INSTANCE)},
-	{}
-};
-
-$MethodInfo _CalendarNameProviderImpl$LengthBasedComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CalendarNameProviderImpl$LengthBasedComparator, init$, void)},
-	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl$LengthBasedComparator, compare, int32_t, $String*, $String*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CalendarNameProviderImpl$LengthBasedComparator, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _CalendarNameProviderImpl$LengthBasedComparator_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.CalendarNameProviderImpl$LengthBasedComparator", "sun.util.locale.provider.CalendarNameProviderImpl", "LengthBasedComparator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CalendarNameProviderImpl$LengthBasedComparator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.CalendarNameProviderImpl$LengthBasedComparator",
-	"java.lang.Object",
-	"java.util.Comparator",
-	_CalendarNameProviderImpl$LengthBasedComparator_FieldInfo_,
-	_CalendarNameProviderImpl$LengthBasedComparator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/String;>;",
-	nullptr,
-	_CalendarNameProviderImpl$LengthBasedComparator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.CalendarNameProviderImpl"
-};
-
-$Object* allocate$CalendarNameProviderImpl$LengthBasedComparator($Class* clazz) {
-	return $of($alloc(CalendarNameProviderImpl$LengthBasedComparator));
-}
 
 CalendarNameProviderImpl$LengthBasedComparator* CalendarNameProviderImpl$LengthBasedComparator::INSTANCE = nullptr;
 
@@ -67,7 +29,7 @@ int32_t CalendarNameProviderImpl$LengthBasedComparator::compare(Object$* o1, Obj
 	return this->compare($cast($String, o1), $cast($String, o2));
 }
 
-void clinit$CalendarNameProviderImpl$LengthBasedComparator($Class* class$) {
+void CalendarNameProviderImpl$LengthBasedComparator::clinit$($Class* clazz) {
 	$assignStatic(CalendarNameProviderImpl$LengthBasedComparator::INSTANCE, $new(CalendarNameProviderImpl$LengthBasedComparator));
 }
 
@@ -75,7 +37,38 @@ CalendarNameProviderImpl$LengthBasedComparator::CalendarNameProviderImpl$LengthB
 }
 
 $Class* CalendarNameProviderImpl$LengthBasedComparator::load$($String* name, bool initialize) {
-	$loadClass(CalendarNameProviderImpl$LengthBasedComparator, name, initialize, &_CalendarNameProviderImpl$LengthBasedComparator_ClassInfo_, clinit$CalendarNameProviderImpl$LengthBasedComparator, allocate$CalendarNameProviderImpl$LengthBasedComparator);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lsun/util/locale/provider/CalendarNameProviderImpl$LengthBasedComparator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CalendarNameProviderImpl$LengthBasedComparator, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CalendarNameProviderImpl$LengthBasedComparator, init$, void)},
+		{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl$LengthBasedComparator, compare, int32_t, $String*, $String*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CalendarNameProviderImpl$LengthBasedComparator, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.CalendarNameProviderImpl$LengthBasedComparator", "sun.util.locale.provider.CalendarNameProviderImpl", "LengthBasedComparator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.CalendarNameProviderImpl$LengthBasedComparator",
+		"java.lang.Object",
+		"java.util.Comparator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.CalendarNameProviderImpl"
+	};
+	$loadClass(CalendarNameProviderImpl$LengthBasedComparator, name, initialize, &classInfo$$, CalendarNameProviderImpl$LengthBasedComparator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CalendarNameProviderImpl$LengthBasedComparator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/NormalizerBase$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/text/Normalizer$Form.h>
 #include <java/text/Normalizer.h>
@@ -23,61 +22,25 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$FieldInfo _NormalizerBase$1_FieldInfo_[] = {
-	{"$SwitchMap$java$text$Normalizer$Form", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NormalizerBase$1, $SwitchMap$java$text$Normalizer$Form)},
-	{}
-};
-
-$EnclosingMethodInfo _NormalizerBase$1_EnclosingMethodInfo_ = {
-	"jdk.internal.icu.text.NormalizerBase",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _NormalizerBase$1_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.NormalizerBase$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _NormalizerBase$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"jdk.internal.icu.text.NormalizerBase$1",
-	"java.lang.Object",
-	nullptr,
-	_NormalizerBase$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_NormalizerBase$1_EnclosingMethodInfo_,
-	_NormalizerBase$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.NormalizerBase"
-};
-
-$Object* allocate$NormalizerBase$1($Class* clazz) {
-	return $of($alloc(NormalizerBase$1));
-}
-
 $ints* NormalizerBase$1::$SwitchMap$java$text$Normalizer$Form = nullptr;
 
-void clinit$NormalizerBase$1($Class* class$) {
+void NormalizerBase$1::clinit$($Class* clazz) {
 	$assignStatic(NormalizerBase$1::$SwitchMap$java$text$Normalizer$Form, $new($ints, $($Normalizer$Form::values())->length));
 	{
 		try {
-			$nc(NormalizerBase$1::$SwitchMap$java$text$Normalizer$Form)->set($Normalizer$Form::NFC->ordinal(), 1);
+			NormalizerBase$1::$SwitchMap$java$text$Normalizer$Form->set($Normalizer$Form::NFC->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(NormalizerBase$1::$SwitchMap$java$text$Normalizer$Form)->set($Normalizer$Form::NFD->ordinal(), 2);
+			NormalizerBase$1::$SwitchMap$java$text$Normalizer$Form->set($Normalizer$Form::NFD->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(NormalizerBase$1::$SwitchMap$java$text$Normalizer$Form)->set($Normalizer$Form::NFKC->ordinal(), 3);
+			NormalizerBase$1::$SwitchMap$java$text$Normalizer$Form->set($Normalizer$Form::NFKC->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(NormalizerBase$1::$SwitchMap$java$text$Normalizer$Form)->set($Normalizer$Form::NFKD->ordinal(), 4);
+			NormalizerBase$1::$SwitchMap$java$text$Normalizer$Form->set($Normalizer$Form::NFKD->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -87,7 +50,37 @@ NormalizerBase$1::NormalizerBase$1() {
 }
 
 $Class* NormalizerBase$1::load$($String* name, bool initialize) {
-	$loadClass(NormalizerBase$1, name, initialize, &_NormalizerBase$1_ClassInfo_, clinit$NormalizerBase$1, allocate$NormalizerBase$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$text$Normalizer$Form", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NormalizerBase$1, $SwitchMap$java$text$Normalizer$Form)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.icu.text.NormalizerBase",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.NormalizerBase$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"jdk.internal.icu.text.NormalizerBase$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.NormalizerBase"
+	};
+	$loadClass(NormalizerBase$1, name, initialize, &classInfo$$, NormalizerBase$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalizerBase$1);
+	});
 	return class$;
 }
 

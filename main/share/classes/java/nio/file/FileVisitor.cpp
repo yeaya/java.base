@@ -1,5 +1,4 @@
 #include <java/nio/file/FileVisitor.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/file/FileVisitResult.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
@@ -15,30 +14,26 @@ namespace java {
 	namespace nio {
 		namespace file {
 
-$MethodInfo _FileVisitor_MethodInfo_[] = {
-	{"postVisitDirectory", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", $PUBLIC | $ABSTRACT, $virtualMethod(FileVisitor, postVisitDirectory, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
-	{"preVisitDirectory", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", $PUBLIC | $ABSTRACT, $virtualMethod(FileVisitor, preVisitDirectory, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
-	{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", $PUBLIC | $ABSTRACT, $virtualMethod(FileVisitor, visitFile, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
-	{"visitFileFailed", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", $PUBLIC | $ABSTRACT, $virtualMethod(FileVisitor, visitFileFailed, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _FileVisitor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.file.FileVisitor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_FileVisitor_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$FileVisitor($Class* clazz) {
-	return $of($alloc(FileVisitor));
-}
-
 $Class* FileVisitor::load$($String* name, bool initialize) {
-	$loadClass(FileVisitor, name, initialize, &_FileVisitor_ClassInfo_, allocate$FileVisitor);
+	$MethodInfo methodInfos$$[] = {
+		{"postVisitDirectory", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", $PUBLIC | $ABSTRACT, $virtualMethod(FileVisitor, postVisitDirectory, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
+		{"preVisitDirectory", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", $PUBLIC | $ABSTRACT, $virtualMethod(FileVisitor, preVisitDirectory, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
+		{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", $PUBLIC | $ABSTRACT, $virtualMethod(FileVisitor, visitFile, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
+		{"visitFileFailed", "(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", "(TT;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;", $PUBLIC | $ABSTRACT, $virtualMethod(FileVisitor, visitFileFailed, $FileVisitResult*, Object$*, $IOException*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.file.FileVisitor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(FileVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileVisitor);
+	});
 	return class$;
 }
 

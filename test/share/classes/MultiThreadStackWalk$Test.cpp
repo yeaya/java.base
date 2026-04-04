@@ -1,5 +1,4 @@
 #include <MultiThreadStackWalk$Test.h>
-
 #include <MultiThreadStackWalk$Call$WalkType.h>
 #include <MultiThreadStackWalk$Call.h>
 #include <MultiThreadStackWalk$Env.h>
@@ -18,46 +17,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 
-$FieldInfo _MultiThreadStackWalk$Test_FieldInfo_[] = {
-	{"marker", "LMultiThreadStackWalk$Marker;", nullptr, $FINAL, $field(MultiThreadStackWalk$Test, marker)},
-	{"walkType", "LMultiThreadStackWalk$Call$WalkType;", nullptr, $FINAL, $field(MultiThreadStackWalk$Test, walkType)},
-	{"debug", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL, $field(MultiThreadStackWalk$Test, debug)},
-	{}
-};
-
-$MethodInfo _MultiThreadStackWalk$Test_MethodInfo_[] = {
-	{"<init>", "(LMultiThreadStackWalk$Call$WalkType;)V", nullptr, 0, $method(MultiThreadStackWalk$Test, init$, void, $MultiThreadStackWalk$Call$WalkType*)},
-	{"call", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Call;III)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Test, call, void, $MultiThreadStackWalk$Env*, $MultiThreadStackWalk$Call*, int32_t, int32_t, int32_t)},
-	{"getWalkType", "()LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Test, getWalkType, $MultiThreadStackWalk$Call$WalkType*)},
-	{}
-};
-
-$InnerClassInfo _MultiThreadStackWalk$Test_InnerClassesInfo_[] = {
-	{"MultiThreadStackWalk$Test", "MultiThreadStackWalk", "Test", $PUBLIC | $STATIC},
-	{"MultiThreadStackWalk$Call", "MultiThreadStackWalk", "Call", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MultiThreadStackWalk$Test_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MultiThreadStackWalk$Test",
-	"java.lang.Object",
-	"MultiThreadStackWalk$Call",
-	_MultiThreadStackWalk$Test_FieldInfo_,
-	_MultiThreadStackWalk$Test_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultiThreadStackWalk$Test_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MultiThreadStackWalk"
-};
-
-$Object* allocate$MultiThreadStackWalk$Test($Class* clazz) {
-	return $of($alloc(MultiThreadStackWalk$Test));
-}
-
 void MultiThreadStackWalk$Test::init$($MultiThreadStackWalk$Call$WalkType* walkType) {
 	$set(this, walkType, walkType);
 	$set(this, marker, $new($MultiThreadStackWalk$Marker, walkType));
@@ -71,7 +30,7 @@ $MultiThreadStackWalk$Call$WalkType* MultiThreadStackWalk$Test::getWalkType() {
 void MultiThreadStackWalk$Test::call($MultiThreadStackWalk$Env* env, $MultiThreadStackWalk$Call* next, int32_t total, int32_t current, int32_t markAt) {
 	if (current < total) {
 		int32_t nexti = current + 1;
-		$var($MultiThreadStackWalk$Call, nextObj, nexti == markAt ? static_cast<$MultiThreadStackWalk$Call*>(this->marker) : next);
+		$var($MultiThreadStackWalk$Call, nextObj, nexti == markAt ? $cast($MultiThreadStackWalk$Call, this->marker) : next);
 		$nc(nextObj)->call(env, next, total, nexti, markAt);
 	} else {
 		walk(env);
@@ -82,7 +41,41 @@ MultiThreadStackWalk$Test::MultiThreadStackWalk$Test() {
 }
 
 $Class* MultiThreadStackWalk$Test::load$($String* name, bool initialize) {
-	$loadClass(MultiThreadStackWalk$Test, name, initialize, &_MultiThreadStackWalk$Test_ClassInfo_, allocate$MultiThreadStackWalk$Test);
+	$FieldInfo fieldInfos$$[] = {
+		{"marker", "LMultiThreadStackWalk$Marker;", nullptr, $FINAL, $field(MultiThreadStackWalk$Test, marker)},
+		{"walkType", "LMultiThreadStackWalk$Call$WalkType;", nullptr, $FINAL, $field(MultiThreadStackWalk$Test, walkType)},
+		{"debug", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL, $field(MultiThreadStackWalk$Test, debug)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LMultiThreadStackWalk$Call$WalkType;)V", nullptr, 0, $method(MultiThreadStackWalk$Test, init$, void, $MultiThreadStackWalk$Call$WalkType*)},
+		{"call", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Call;III)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Test, call, void, $MultiThreadStackWalk$Env*, $MultiThreadStackWalk$Call*, int32_t, int32_t, int32_t)},
+		{"getWalkType", "()LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Test, getWalkType, $MultiThreadStackWalk$Call$WalkType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MultiThreadStackWalk$Test", "MultiThreadStackWalk", "Test", $PUBLIC | $STATIC},
+		{"MultiThreadStackWalk$Call", "MultiThreadStackWalk", "Call", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MultiThreadStackWalk$Test",
+		"java.lang.Object",
+		"MultiThreadStackWalk$Call",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MultiThreadStackWalk"
+	};
+	$loadClass(MultiThreadStackWalk$Test, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiThreadStackWalk$Test);
+	});
 	return class$;
 }
 

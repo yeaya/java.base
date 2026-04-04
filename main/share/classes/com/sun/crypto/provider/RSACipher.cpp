@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/RSACipher.h>
-
 #include <com/sun/crypto/provider/ConstructKeys.h>
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <java/lang/AssertionError.h>
@@ -11,7 +10,6 @@
 #include <java/security/Key.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Provider$Service.h>
-#include <java/security/Provider.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/interfaces/RSAKey.h>
 #include <java/security/interfaces/RSAPrivateKey.h>
@@ -29,7 +27,6 @@
 #include <javax/crypto/ShortBufferException.h>
 #include <javax/crypto/spec/OAEPParameterSpec.h>
 #include <javax/crypto/spec/PSource$PSpecified.h>
-#include <javax/crypto/spec/PSource.h>
 #include <sun/security/internal/spec/TlsRsaPremasterSecretParameterSpec.h>
 #include <sun/security/jca/ProviderList.h>
 #include <sun/security/jca/Providers.h>
@@ -65,13 +62,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $BigInteger = ::java::math::BigInteger;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $Provider = ::java::security::Provider;
 using $SecureRandom = ::java::security::SecureRandom;
 using $RSAKey = ::java::security::interfaces::RSAKey;
 using $RSAPrivateKey = ::java::security::interfaces::RSAPrivateKey;
@@ -88,10 +83,8 @@ using $IllegalBlockSizeException = ::javax::crypto::IllegalBlockSizeException;
 using $NoSuchPaddingException = ::javax::crypto::NoSuchPaddingException;
 using $ShortBufferException = ::javax::crypto::ShortBufferException;
 using $OAEPParameterSpec = ::javax::crypto::spec::OAEPParameterSpec;
-using $PSource = ::javax::crypto::spec::PSource;
 using $PSource$PSpecified = ::javax::crypto::spec::PSource$PSpecified;
 using $TlsRsaPremasterSecretParameterSpec = ::sun::security::internal::spec::TlsRsaPremasterSecretParameterSpec;
-using $ProviderList = ::sun::security::jca::ProviderList;
 using $Providers = ::sun::security::jca::Providers;
 using $RSACore = ::sun::security::rsa::RSACore;
 using $RSAKeyFactory = ::sun::security::rsa::RSAKeyFactory;
@@ -102,66 +95,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _RSACipher_FieldInfo_[] = {
-	{"B0", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSACipher, B0)},
-	{"MODE_ENCRYPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSACipher, MODE_ENCRYPT)},
-	{"MODE_DECRYPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSACipher, MODE_DECRYPT)},
-	{"MODE_SIGN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSACipher, MODE_SIGN)},
-	{"MODE_VERIFY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSACipher, MODE_VERIFY)},
-	{"PAD_NONE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSACipher, PAD_NONE)},
-	{"PAD_PKCS1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSACipher, PAD_PKCS1)},
-	{"PAD_OAEP_MGF1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSACipher, PAD_OAEP_MGF1)},
-	{"mode", "I", nullptr, $PRIVATE, $field(RSACipher, mode)},
-	{"paddingType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RSACipher, paddingType)},
-	{"padding", "Lsun/security/rsa/RSAPadding;", nullptr, $PRIVATE, $field(RSACipher, padding)},
-	{"spec", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $field(RSACipher, spec)},
-	{"buffer", "[B", nullptr, $PRIVATE, $field(RSACipher, buffer)},
-	{"bufOfs", "I", nullptr, $PRIVATE, $field(RSACipher, bufOfs)},
-	{"outputSize", "I", nullptr, $PRIVATE, $field(RSACipher, outputSize)},
-	{"publicKey", "Ljava/security/interfaces/RSAPublicKey;", nullptr, $PRIVATE, $field(RSACipher, publicKey)},
-	{"privateKey", "Ljava/security/interfaces/RSAPrivateKey;", nullptr, $PRIVATE, $field(RSACipher, privateKey)},
-	{"oaepHashAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RSACipher, oaepHashAlgorithm)},
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(RSACipher, random)},
-	{}
-};
-
-$MethodInfo _RSACipher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RSACipher, init$, void)},
-	{"doFinal", "()[B", nullptr, $PRIVATE, $method(RSACipher, doFinal, $bytes*), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException"},
-	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException"},
-	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException"},
-	{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineGetBlockSize, int32_t)},
-	{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineGetIV, $bytes*)},
-	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineGetOutputSize, int32_t, int32_t)},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
-	{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineWrap, $bytes*, $Key*), "java.security.InvalidKeyException,javax.crypto.IllegalBlockSizeException"},
-	{"init", "(ILjava/security/Key;Ljava/security/SecureRandom;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PRIVATE, $method(RSACipher, init, void, int32_t, $Key*, $SecureRandom*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"update", "([BII)V", nullptr, $PRIVATE, $method(RSACipher, update, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _RSACipher_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.RSACipher",
-	"javax.crypto.CipherSpi",
-	nullptr,
-	_RSACipher_FieldInfo_,
-	_RSACipher_MethodInfo_
-};
-
-$Object* allocate$RSACipher($Class* clazz) {
-	return $of($alloc(RSACipher));
-}
 
 $bytes* RSACipher::B0 = nullptr;
 $String* RSACipher::PAD_NONE = nullptr;
@@ -182,7 +115,7 @@ void RSACipher::engineSetMode($String* mode) {
 }
 
 void RSACipher::engineSetPadding($String* paddingName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(paddingName)->equalsIgnoreCase(RSACipher::PAD_NONE)) {
 		$set(this, paddingType, RSACipher::PAD_NONE);
 	} else if (paddingName->equalsIgnoreCase(RSACipher::PAD_PKCS1)) {
@@ -193,11 +126,11 @@ void RSACipher::engineSetPadding($String* paddingName) {
 		if (lowerPadding->equals("oaeppadding"_s)) {
 			$set(this, paddingType, RSACipher::PAD_OAEP_MGF1);
 		} else {
-			bool var$1 = lowerPadding->startsWith("oaepwith"_s);
-			if (var$1 && lowerPadding->endsWith("andmgf1padding"_s)) {
+			bool var$0 = lowerPadding->startsWith("oaepwith"_s);
+			if (var$0 && lowerPadding->endsWith("andmgf1padding"_s)) {
 				$set(this, paddingType, RSACipher::PAD_OAEP_MGF1);
 				$set(this, oaepHashAlgorithm, paddingName->substring(8, paddingName->length() - 14));
-				if ($nc($($Providers::getProviderList()))->getService("MessageDigest"_s, this->oaepHashAlgorithm) == nullptr) {
+				if ($$nc($Providers::getProviderList())->getService("MessageDigest"_s, this->oaepHashAlgorithm) == nullptr) {
 					$throwNew($NoSuchPaddingException, $$str({"MessageDigest not available for "_s, paddingName}));
 				}
 			} else {
@@ -220,10 +153,10 @@ $bytes* RSACipher::engineGetIV() {
 }
 
 $AlgorithmParameters* RSACipher::engineGetParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->spec != nullptr && $instanceOf($OAEPParameterSpec, this->spec)) {
 		try {
-			$var($AlgorithmParameters, params, $AlgorithmParameters::getInstance("OAEP"_s, $(static_cast<$Provider*>($SunJCE::getInstance()))));
+			$var($AlgorithmParameters, params, $AlgorithmParameters::getInstance("OAEP"_s, $($SunJCE::getInstance())));
 			$nc(params)->init(this->spec);
 			return params;
 		} catch ($NoSuchAlgorithmException& nsae) {
@@ -251,13 +184,13 @@ void RSACipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* p
 }
 
 void RSACipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (params == nullptr) {
 		init(opmode, key, random, nullptr);
 	} else {
 		try {
 			$load($OAEPParameterSpec);
-			$var($OAEPParameterSpec, spec, $cast($OAEPParameterSpec, $nc(params)->getParameterSpec($OAEPParameterSpec::class$)));
+			$var($OAEPParameterSpec, spec, $cast($OAEPParameterSpec, params->getParameterSpec($OAEPParameterSpec::class$)));
 			init(opmode, key, random, spec);
 		} catch ($InvalidParameterSpecException& ipse) {
 			$var($InvalidAlgorithmParameterException, iape, $new($InvalidAlgorithmParameterException, "Wrong parameter"_s));
@@ -268,27 +201,19 @@ void RSACipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* para
 }
 
 void RSACipher::init(int32_t opmode, $Key* key, $SecureRandom* random, $AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool encrypt = false;
 	switch (opmode) {
 	case $Cipher::ENCRYPT_MODE:
-		{}
 	case $Cipher::WRAP_MODE:
-		{
-			encrypt = true;
-			break;
-		}
+		encrypt = true;
+		break;
 	case $Cipher::DECRYPT_MODE:
-		{}
 	case $Cipher::UNWRAP_MODE:
-		{
-			encrypt = false;
-			break;
-		}
+		encrypt = false;
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Unknown mode: "_s, $$str(opmode)})));
-		}
+		$throwNew($AssertionError, $$of($str({"Unknown mode: "_s, $$str(opmode)})));
 	}
 	$var($RSAKey, rsaKey, $RSAKeyFactory::toRSAKey(key));
 	if ($instanceOf($RSAPublicKey, rsaKey)) {
@@ -354,7 +279,7 @@ void RSACipher::update($bytes* in, int32_t inOfs, int32_t inLen) {
 		return;
 	}
 	if (inLen > ($nc(this->buffer)->length - this->bufOfs)) {
-		this->bufOfs = $nc(this->buffer)->length + 1;
+		this->bufOfs = this->buffer->length + 1;
 		return;
 	}
 	$System::arraycopy(in, inOfs, this->buffer, this->bufOfs, inLen);
@@ -362,71 +287,59 @@ void RSACipher::update($bytes* in, int32_t inOfs, int32_t inLen) {
 }
 
 $bytes* RSACipher::doFinal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->bufOfs > $nc(this->buffer)->length) {
-		$throwNew($IllegalBlockSizeException, $$str({"Data must not be longer than "_s, $$str($nc(this->buffer)->length), " bytes"_s}));
+		$throwNew($IllegalBlockSizeException, $$str({"Data must not be longer than "_s, $$str(this->buffer->length), " bytes"_s}));
 	}
 	$var($bytes, paddingCopy, nullptr);
 	$var($bytes, result, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			{
-				$var($bytes, verifyBuffer, nullptr)
-				$var($bytes, decryptBuffer, nullptr)
-				switch (this->mode) {
-				case RSACipher::MODE_SIGN:
-					{
-						$assign(paddingCopy, $nc(this->padding)->pad(this->buffer, 0, this->bufOfs));
-						$assign(result, $RSACore::rsa(paddingCopy, this->privateKey, true));
-						break;
-					}
-				case RSACipher::MODE_VERIFY:
-					{
-						$assign(verifyBuffer, $RSACore::convert(this->buffer, 0, this->bufOfs));
-						$assign(paddingCopy, $RSACore::rsa(verifyBuffer, this->publicKey));
-						$assign(result, $nc(this->padding)->unpad(paddingCopy));
-						break;
-					}
-				case RSACipher::MODE_ENCRYPT:
-					{
-						$assign(paddingCopy, $nc(this->padding)->pad(this->buffer, 0, this->bufOfs));
-						$assign(result, $RSACore::rsa(paddingCopy, this->publicKey));
-						break;
-					}
-				case RSACipher::MODE_DECRYPT:
-					{
-						$assign(decryptBuffer, $RSACore::convert(this->buffer, 0, this->bufOfs));
-						$assign(paddingCopy, $RSACore::rsa(decryptBuffer, this->privateKey, false));
-						$assign(result, $nc(this->padding)->unpad(paddingCopy));
-						break;
-					}
-				default:
-					{
-						$throwNew($AssertionError, $of("Internal error"_s));
-					}
-				}
-			}
-			$assign(var$2, result);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(this->buffer, 0, this->bufOfs, (int8_t)0);
-			this->bufOfs = 0;
-			if (paddingCopy != nullptr && paddingCopy != this->buffer && paddingCopy != result) {
-				$Arrays::fill(paddingCopy, (int8_t)0);
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		{
+			$var($bytes, verifyBuffer, nullptr);
+			$var($bytes, decryptBuffer, nullptr);
+			switch (this->mode) {
+			case RSACipher::MODE_SIGN:
+				$assign(paddingCopy, $nc(this->padding)->pad(this->buffer, 0, this->bufOfs));
+				$assign(result, $RSACore::rsa(paddingCopy, this->privateKey, true));
+				break;
+			case RSACipher::MODE_VERIFY:
+				$assign(verifyBuffer, $RSACore::convert(this->buffer, 0, this->bufOfs));
+				$assign(paddingCopy, $RSACore::rsa(verifyBuffer, this->publicKey));
+				$assign(result, $nc(this->padding)->unpad(paddingCopy));
+				break;
+			case RSACipher::MODE_ENCRYPT:
+				$assign(paddingCopy, $nc(this->padding)->pad(this->buffer, 0, this->bufOfs));
+				$assign(result, $RSACore::rsa(paddingCopy, this->publicKey));
+				break;
+			case RSACipher::MODE_DECRYPT:
+				$assign(decryptBuffer, $RSACore::convert(this->buffer, 0, this->bufOfs));
+				$assign(paddingCopy, $RSACore::rsa(decryptBuffer, this->privateKey, false));
+				$assign(result, $nc(this->padding)->unpad(paddingCopy));
+				break;
+			default:
+				$throwNew($AssertionError, $of("Internal error"_s));
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$assign(var$2, result);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(this->buffer, 0, this->bufOfs, (int8_t)0);
+		this->bufOfs = 0;
+		if (paddingCopy != nullptr && paddingCopy != this->buffer && paddingCopy != result) {
+			$Arrays::fill(paddingCopy, (int8_t)0);
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -447,7 +360,7 @@ $bytes* RSACipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) {
 }
 
 int32_t RSACipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int32_t outOfs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->outputSize > $nc(out)->length - outOfs) {
 		$throwNew($ShortBufferException, $$str({"Need "_s, $$str(this->outputSize), " bytes for output"_s}));
 	}
@@ -460,51 +373,49 @@ int32_t RSACipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $byte
 }
 
 $bytes* RSACipher::engineWrap($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, $nc(key)->getEncoded());
-	if ((encoded == nullptr) || ($nc(encoded)->length == 0)) {
+	if ((encoded == nullptr) || (encoded->length == 0)) {
 		$throwNew($InvalidKeyException, "Could not obtain encoded key"_s);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		if ($nc(encoded)->length > $nc(this->buffer)->length) {
+			$throwNew($InvalidKeyException, "Key is too long for wrapping"_s);
+		}
+		update(encoded, 0, encoded->length);
 		try {
-			if ($nc(encoded)->length > $nc(this->buffer)->length) {
-				$throwNew($InvalidKeyException, "Key is too long for wrapping"_s);
-			}
-			update(encoded, 0, $nc(encoded)->length);
-			try {
-				$assign(var$2, doFinal());
-				return$1 = true;
-				goto $finally;
-			} catch ($BadPaddingException& e) {
-				$throwNew($InvalidKeyException, "Wrapping failed"_s, e);
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(encoded, (int8_t)0);
+			$assign(var$2, doFinal());
+			return$1 = true;
+			goto $finally;
+		} catch ($BadPaddingException& e) {
+			$throwNew($InvalidKeyException, "Wrapping failed"_s, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(encoded, (int8_t)0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Key* RSACipher::engineUnwrap($bytes* wrappedKey, $String* algorithm, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(wrappedKey)->length > $nc(this->buffer)->length) {
 		$throwNew($InvalidKeyException, "Key is too long for unwrapping"_s);
 	}
 	bool isTlsRsaPremasterSecret = $nc(algorithm)->equals("TlsRsaPremasterSecret"_s);
 	$var($Exception, failover, nullptr);
 	$var($bytes, encoded, nullptr);
-	update(wrappedKey, 0, $nc(wrappedKey)->length);
+	update(wrappedKey, 0, wrappedKey->length);
 	try {
 		$assign(encoded, doFinal());
 	} catch ($BadPaddingException& e) {
@@ -516,45 +427,43 @@ $Key* RSACipher::engineUnwrap($bytes* wrappedKey, $String* algorithm, int32_t ty
 	} catch ($IllegalBlockSizeException& e) {
 		$throwNew($InvalidKeyException, "Unwrapping failed"_s, e);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Key, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			if (isTlsRsaPremasterSecret) {
-				if (!($instanceOf($TlsRsaPremasterSecretParameterSpec, this->spec))) {
-					$throwNew($IllegalStateException, "No TlsRsaPremasterSecretParameterSpec specified"_s);
-				}
-				int32_t var$3 = $nc(($cast($TlsRsaPremasterSecretParameterSpec, this->spec)))->getClientVersion();
-				$assign(encoded, $KeyUtil::checkTlsPreMasterSecretKey(var$3, $nc(($cast($TlsRsaPremasterSecretParameterSpec, this->spec)))->getServerVersion(), this->random, encoded, (failover != nullptr)));
+	$var($Throwable, var$0, nullptr);
+	$var($Key, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		if (isTlsRsaPremasterSecret) {
+			if (!($instanceOf($TlsRsaPremasterSecretParameterSpec, this->spec))) {
+				$throwNew($IllegalStateException, "No TlsRsaPremasterSecretParameterSpec specified"_s);
 			}
-			$assign(var$2, $ConstructKeys::constructKey(encoded, algorithm, type));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			if (encoded != nullptr) {
-				$Arrays::fill(encoded, (int8_t)0);
-			}
+			int32_t var$3 = $nc($cast($TlsRsaPremasterSecretParameterSpec, this->spec))->getClientVersion();
+			$assign(encoded, $KeyUtil::checkTlsPreMasterSecretKey(var$3, $cast($TlsRsaPremasterSecretParameterSpec, this->spec)->getServerVersion(), this->random, encoded, (failover != nullptr)));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$assign(var$2, $ConstructKeys::constructKey(encoded, algorithm, type));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		if (encoded != nullptr) {
+			$Arrays::fill(encoded, (int8_t)0);
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t RSACipher::engineGetKeySize($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RSAKey, rsaKey, $RSAKeyFactory::toRSAKey(key));
-	return $nc($($nc(rsaKey)->getModulus()))->bitLength();
+	return $$nc($nc(rsaKey)->getModulus())->bitLength();
 }
 
-void clinit$RSACipher($Class* class$) {
+void RSACipher::clinit$($Class* clazz) {
 	$assignStatic(RSACipher::PAD_NONE, "NoPadding"_s);
 	$assignStatic(RSACipher::PAD_PKCS1, "PKCS1Padding"_s);
 	$assignStatic(RSACipher::PAD_OAEP_MGF1, "OAEP"_s);
@@ -565,7 +474,62 @@ RSACipher::RSACipher() {
 }
 
 $Class* RSACipher::load$($String* name, bool initialize) {
-	$loadClass(RSACipher, name, initialize, &_RSACipher_ClassInfo_, clinit$RSACipher, allocate$RSACipher);
+	$FieldInfo fieldInfos$$[] = {
+		{"B0", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSACipher, B0)},
+		{"MODE_ENCRYPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSACipher, MODE_ENCRYPT)},
+		{"MODE_DECRYPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSACipher, MODE_DECRYPT)},
+		{"MODE_SIGN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSACipher, MODE_SIGN)},
+		{"MODE_VERIFY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSACipher, MODE_VERIFY)},
+		{"PAD_NONE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSACipher, PAD_NONE)},
+		{"PAD_PKCS1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSACipher, PAD_PKCS1)},
+		{"PAD_OAEP_MGF1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSACipher, PAD_OAEP_MGF1)},
+		{"mode", "I", nullptr, $PRIVATE, $field(RSACipher, mode)},
+		{"paddingType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RSACipher, paddingType)},
+		{"padding", "Lsun/security/rsa/RSAPadding;", nullptr, $PRIVATE, $field(RSACipher, padding)},
+		{"spec", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $field(RSACipher, spec)},
+		{"buffer", "[B", nullptr, $PRIVATE, $field(RSACipher, buffer)},
+		{"bufOfs", "I", nullptr, $PRIVATE, $field(RSACipher, bufOfs)},
+		{"outputSize", "I", nullptr, $PRIVATE, $field(RSACipher, outputSize)},
+		{"publicKey", "Ljava/security/interfaces/RSAPublicKey;", nullptr, $PRIVATE, $field(RSACipher, publicKey)},
+		{"privateKey", "Ljava/security/interfaces/RSAPrivateKey;", nullptr, $PRIVATE, $field(RSACipher, privateKey)},
+		{"oaepHashAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RSACipher, oaepHashAlgorithm)},
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(RSACipher, random)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RSACipher, init$, void)},
+		{"doFinal", "()[B", nullptr, $PRIVATE, $method(RSACipher, doFinal, $bytes*), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException"},
+		{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException"},
+		{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException"},
+		{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineGetBlockSize, int32_t)},
+		{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineGetIV, $bytes*)},
+		{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
+		{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineGetOutputSize, int32_t, int32_t)},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
+		{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+		{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(RSACipher, engineWrap, $bytes*, $Key*), "java.security.InvalidKeyException,javax.crypto.IllegalBlockSizeException"},
+		{"init", "(ILjava/security/Key;Ljava/security/SecureRandom;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PRIVATE, $method(RSACipher, init, void, int32_t, $Key*, $SecureRandom*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"update", "([BII)V", nullptr, $PRIVATE, $method(RSACipher, update, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.RSACipher",
+		"javax.crypto.CipherSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RSACipher, name, initialize, &classInfo$$, RSACipher::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RSACipher);
+	});
 	return class$;
 }
 

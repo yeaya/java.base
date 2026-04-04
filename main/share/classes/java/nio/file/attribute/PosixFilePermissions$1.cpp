@@ -1,5 +1,4 @@
 #include <java/nio/file/attribute/PosixFilePermissions$1.h>
-
 #include <java/nio/file/attribute/PosixFilePermissions.h>
 #include <java/util/Collections.h>
 #include <java/util/Set.h>
@@ -18,49 +17,6 @@ namespace java {
 		namespace file {
 			namespace attribute {
 
-$FieldInfo _PosixFilePermissions$1_FieldInfo_[] = {
-	{"val$value", "Ljava/util/Set;", nullptr, $FINAL | $SYNTHETIC, $field(PosixFilePermissions$1, val$value)},
-	{}
-};
-
-$MethodInfo _PosixFilePermissions$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, 0, $method(PosixFilePermissions$1, init$, void, $Set*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PosixFilePermissions$1, name, $String*)},
-	{"value", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC, $virtualMethod(PosixFilePermissions$1, value, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _PosixFilePermissions$1_EnclosingMethodInfo_ = {
-	"java.nio.file.attribute.PosixFilePermissions",
-	"asFileAttribute",
-	"(Ljava/util/Set;)Ljava/nio/file/attribute/FileAttribute;"
-};
-
-$InnerClassInfo _PosixFilePermissions$1_InnerClassesInfo_[] = {
-	{"java.nio.file.attribute.PosixFilePermissions$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PosixFilePermissions$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.attribute.PosixFilePermissions$1",
-	"java.lang.Object",
-	"java.nio.file.attribute.FileAttribute",
-	_PosixFilePermissions$1_FieldInfo_,
-	_PosixFilePermissions$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/nio/file/attribute/FileAttribute<Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;>;",
-	&_PosixFilePermissions$1_EnclosingMethodInfo_,
-	_PosixFilePermissions$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.attribute.PosixFilePermissions"
-};
-
-$Object* allocate$PosixFilePermissions$1($Class* clazz) {
-	return $of($alloc(PosixFilePermissions$1));
-}
-
 void PosixFilePermissions$1::init$($Set* val$value) {
 	$set(this, val$value, val$value);
 }
@@ -70,14 +26,50 @@ $String* PosixFilePermissions$1::name() {
 }
 
 $Object* PosixFilePermissions$1::value() {
-	return $of($Collections::unmodifiableSet(this->val$value));
+	return $Collections::unmodifiableSet(this->val$value);
 }
 
 PosixFilePermissions$1::PosixFilePermissions$1() {
 }
 
 $Class* PosixFilePermissions$1::load$($String* name, bool initialize) {
-	$loadClass(PosixFilePermissions$1, name, initialize, &_PosixFilePermissions$1_ClassInfo_, allocate$PosixFilePermissions$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$value", "Ljava/util/Set;", nullptr, $FINAL | $SYNTHETIC, $field(PosixFilePermissions$1, val$value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", nullptr, 0, $method(PosixFilePermissions$1, init$, void, $Set*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PosixFilePermissions$1, name, $String*)},
+		{"value", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC, $virtualMethod(PosixFilePermissions$1, value, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.file.attribute.PosixFilePermissions",
+		"asFileAttribute",
+		"(Ljava/util/Set;)Ljava/nio/file/attribute/FileAttribute;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.attribute.PosixFilePermissions$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.attribute.PosixFilePermissions$1",
+		"java.lang.Object",
+		"java.nio.file.attribute.FileAttribute",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/nio/file/attribute/FileAttribute<Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.attribute.PosixFilePermissions"
+	};
+	$loadClass(PosixFilePermissions$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PosixFilePermissions$1);
+	});
 	return class$;
 }
 

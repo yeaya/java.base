@@ -13,6 +13,7 @@ class Authenticator$1 : public ::java::lang::Object {
 	$class(Authenticator$1, 0, ::java::lang::Object)
 public:
 	Authenticator$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$ssl$CipherSuite$MacAlg;
 };
 

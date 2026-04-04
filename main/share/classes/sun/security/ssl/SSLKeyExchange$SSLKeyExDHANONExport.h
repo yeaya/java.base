@@ -24,6 +24,7 @@ class SSLKeyExchange$SSLKeyExDHANONExport : public ::java::lang::Object {
 	$class(SSLKeyExchange$SSLKeyExDHANONExport, 0, ::java::lang::Object)
 public:
 	SSLKeyExchange$SSLKeyExDHANONExport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLKeyExchange* KE;
 };

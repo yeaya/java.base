@@ -1,5 +1,4 @@
 #include <jdk/internal/module/SystemModuleFinders$ModuleContentSpliterator.h>
-
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
 #include <java/lang/AssertionError.h>
@@ -31,12 +30,8 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayDeque = ::java::util::ArrayDeque;
 using $Collections = ::java::util::Collections;
-using $Deque = ::java::util::Deque;
-using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
-using $ImageReader = ::jdk::internal::jimage::ImageReader;
 using $ImageReader$Node = ::jdk::internal::jimage::ImageReader$Node;
 using $SystemModuleFinders = ::jdk::internal::module::SystemModuleFinders;
 using $SystemModuleFinders$SystemImage = ::jdk::internal::module::SystemModuleFinders$SystemImage;
@@ -45,87 +40,44 @@ namespace jdk {
 	namespace internal {
 		namespace module {
 
-$FieldInfo _SystemModuleFinders$ModuleContentSpliterator_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SystemModuleFinders$ModuleContentSpliterator, $assertionsDisabled)},
-	{"moduleRoot", "Ljava/lang/String;", nullptr, $FINAL, $field(SystemModuleFinders$ModuleContentSpliterator, moduleRoot)},
-	{"stack", "Ljava/util/Deque;", "Ljava/util/Deque<Ljdk/internal/jimage/ImageReader$Node;>;", $FINAL, $field(SystemModuleFinders$ModuleContentSpliterator, stack)},
-	{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljdk/internal/jimage/ImageReader$Node;>;", 0, $field(SystemModuleFinders$ModuleContentSpliterator, iterator)},
-	{}
-};
-
-$MethodInfo _SystemModuleFinders$ModuleContentSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SystemModuleFinders$ModuleContentSpliterator, init$, void, $String*), "java.io.IOException"},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, estimateSize, int64_t)},
-	{"next", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SystemModuleFinders$ModuleContentSpliterator, next, $String*), "java.io.IOException"},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _SystemModuleFinders$ModuleContentSpliterator_InnerClassesInfo_[] = {
-	{"jdk.internal.module.SystemModuleFinders$ModuleContentSpliterator", "jdk.internal.module.SystemModuleFinders", "ModuleContentSpliterator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SystemModuleFinders$ModuleContentSpliterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.SystemModuleFinders$ModuleContentSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_SystemModuleFinders$ModuleContentSpliterator_FieldInfo_,
-	_SystemModuleFinders$ModuleContentSpliterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator<Ljava/lang/String;>;",
-	nullptr,
-	_SystemModuleFinders$ModuleContentSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.SystemModuleFinders"
-};
-
-$Object* allocate$SystemModuleFinders$ModuleContentSpliterator($Class* clazz) {
-	return $of($alloc(SystemModuleFinders$ModuleContentSpliterator));
-}
-
 bool SystemModuleFinders$ModuleContentSpliterator::$assertionsDisabled = false;
 
 void SystemModuleFinders$ModuleContentSpliterator::init$($String* module) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, moduleRoot, $str({"/modules/"_s, module}));
 	$set(this, stack, $new($ArrayDeque));
-	$var($ImageReader$Node, dir, $nc($($SystemModuleFinders$SystemImage::reader()))->findNode(this->moduleRoot));
-	if (dir == nullptr || !$nc(dir)->isDirectory()) {
+	$var($ImageReader$Node, dir, $$nc($SystemModuleFinders$SystemImage::reader())->findNode(this->moduleRoot));
+	if (dir == nullptr || !dir->isDirectory()) {
 		$throwNew($IOException, $$str({this->moduleRoot, " not a directory"_s}));
 	}
-	$nc(this->stack)->push(dir);
+	this->stack->push(dir);
 	$set(this, iterator, $Collections::emptyIterator());
 }
 
 $String* SystemModuleFinders$ModuleContentSpliterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (;;) {
 		while ($nc(this->iterator)->hasNext()) {
-			$var($ImageReader$Node, node, $cast($ImageReader$Node, $nc(this->iterator)->next()));
+			$var($ImageReader$Node, node, $cast($ImageReader$Node, this->iterator->next()));
 			$var($String, name, $nc(node)->getName());
 			if (node->isDirectory()) {
-				$var($ImageReader$Node, dir, $nc($($SystemModuleFinders$SystemImage::reader()))->findNode(name));
+				$var($ImageReader$Node, dir, $$nc($SystemModuleFinders$SystemImage::reader())->findNode(name));
 				if (!SystemModuleFinders$ModuleContentSpliterator::$assertionsDisabled && !$nc(dir)->isDirectory()) {
 					$throwNew($AssertionError);
 				}
-				$nc(this->stack)->push(dir);
+				this->stack->push(dir);
 			} else {
-				return $nc(name)->substring($nc(this->moduleRoot)->length() + 1);
+				return $nc(name)->substring(this->moduleRoot->length() + 1);
 			}
 		}
-		if ($nc(this->stack)->isEmpty()) {
+		if (this->stack->isEmpty()) {
 			return nullptr;
 		} else {
-			$var($ImageReader$Node, dir, $cast($ImageReader$Node, $nc(this->stack)->poll()));
+			$var($ImageReader$Node, dir, $cast($ImageReader$Node, this->stack->poll()));
 			if (!SystemModuleFinders$ModuleContentSpliterator::$assertionsDisabled && !$nc(dir)->isDirectory()) {
 				$throwNew($AssertionError);
 			}
-			$set(this, iterator, $nc($($nc(dir)->getChildren()))->iterator());
+			$set(this, iterator, $$nc($nc(dir)->getChildren())->iterator());
 		}
 	}
 }
@@ -157,7 +109,7 @@ int64_t SystemModuleFinders$ModuleContentSpliterator::estimateSize() {
 	return $Long::MAX_VALUE;
 }
 
-void clinit$SystemModuleFinders$ModuleContentSpliterator($Class* class$) {
+void SystemModuleFinders$ModuleContentSpliterator::clinit$($Class* clazz) {
 	$load($SystemModuleFinders);
 	SystemModuleFinders$ModuleContentSpliterator::$assertionsDisabled = !$SystemModuleFinders::class$->desiredAssertionStatus();
 }
@@ -166,7 +118,44 @@ SystemModuleFinders$ModuleContentSpliterator::SystemModuleFinders$ModuleContentS
 }
 
 $Class* SystemModuleFinders$ModuleContentSpliterator::load$($String* name, bool initialize) {
-	$loadClass(SystemModuleFinders$ModuleContentSpliterator, name, initialize, &_SystemModuleFinders$ModuleContentSpliterator_ClassInfo_, clinit$SystemModuleFinders$ModuleContentSpliterator, allocate$SystemModuleFinders$ModuleContentSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SystemModuleFinders$ModuleContentSpliterator, $assertionsDisabled)},
+		{"moduleRoot", "Ljava/lang/String;", nullptr, $FINAL, $field(SystemModuleFinders$ModuleContentSpliterator, moduleRoot)},
+		{"stack", "Ljava/util/Deque;", "Ljava/util/Deque<Ljdk/internal/jimage/ImageReader$Node;>;", $FINAL, $field(SystemModuleFinders$ModuleContentSpliterator, stack)},
+		{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljdk/internal/jimage/ImageReader$Node;>;", 0, $field(SystemModuleFinders$ModuleContentSpliterator, iterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SystemModuleFinders$ModuleContentSpliterator, init$, void, $String*), "java.io.IOException"},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, estimateSize, int64_t)},
+		{"next", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SystemModuleFinders$ModuleContentSpliterator, next, $String*), "java.io.IOException"},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.SystemModuleFinders$ModuleContentSpliterator", "jdk.internal.module.SystemModuleFinders", "ModuleContentSpliterator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.SystemModuleFinders$ModuleContentSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.SystemModuleFinders"
+	};
+	$loadClass(SystemModuleFinders$ModuleContentSpliterator, name, initialize, &classInfo$$, SystemModuleFinders$ModuleContentSpliterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemModuleFinders$ModuleContentSpliterator);
+	});
 	return class$;
 }
 

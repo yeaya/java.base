@@ -85,6 +85,7 @@ class FtpClient : public ::sun::net::ftp::FtpClient {
 	$class(FtpClient, 0, ::sun::net::ftp::FtpClient)
 public:
 	FtpClient();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::sun::net::ftp::FtpClient* abort() override;
 	virtual ::sun::net::ftp::FtpClient* allocate(int64_t size) override;

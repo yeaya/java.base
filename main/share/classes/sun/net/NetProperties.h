@@ -24,6 +24,7 @@ class $export NetProperties : public ::java::lang::Object {
 	$class(NetProperties, 0, ::java::lang::Object)
 public:
 	NetProperties();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* get($String* key);
 	static ::java::lang::Boolean* getBoolean($String* key);

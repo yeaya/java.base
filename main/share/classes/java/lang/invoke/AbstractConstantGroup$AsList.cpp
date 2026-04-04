@@ -1,5 +1,4 @@
 #include <java/lang/invoke/AbstractConstantGroup$AsList.h>
-
 #include <java/lang/invoke/AbstractConstantGroup$AsIterator.h>
 #include <java/lang/invoke/AbstractConstantGroup.h>
 #include <java/lang/invoke/ConstantGroup.h>
@@ -25,54 +24,6 @@ using $List = ::java::util::List;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _AbstractConstantGroup$AsList_FieldInfo_[] = {
-	{"self", "Ljava/lang/invoke/ConstantGroup;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsList, self)},
-	{"size", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsList, size$)},
-	{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsList, offset)},
-	{"resolving", "Z", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsList, resolving)},
-	{"ifNotPresent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsList, ifNotPresent)},
-	{}
-};
-
-$MethodInfo _AbstractConstantGroup$AsList_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IIZLjava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsList, init$, void, $ConstantGroup*, int32_t, int32_t, bool, Object$*)},
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(AbstractConstantGroup$AsList, init$, void, $ConstantGroup*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IILjava/lang/Object;)V", nullptr, 0, $method(AbstractConstantGroup$AsList, init$, void, $ConstantGroup*, int32_t, int32_t, Object$*)},
-	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, get, $Object*, int32_t)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, iterator, $Iterator*)},
-	{"mapIndex", "(I)I", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsList, mapIndex, int32_t, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractConstantGroup$AsList, size, int32_t)},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, subList, $List*, int32_t, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, toArray, $ObjectArray*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _AbstractConstantGroup$AsList_InnerClassesInfo_[] = {
-	{"java.lang.invoke.AbstractConstantGroup$AsList", "java.lang.invoke.AbstractConstantGroup", "AsList", $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractConstantGroup$AsList_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.AbstractConstantGroup$AsList",
-	"java.util.AbstractList",
-	nullptr,
-	_AbstractConstantGroup$AsList_FieldInfo_,
-	_AbstractConstantGroup$AsList_MethodInfo_,
-	"Ljava/util/AbstractList<Ljava/lang/Object;>;",
-	nullptr,
-	_AbstractConstantGroup$AsList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.AbstractConstantGroup"
-};
-
-$Object* allocate$AbstractConstantGroup$AsList($Class* clazz) {
-	return $of($alloc(AbstractConstantGroup$AsList));
-}
 
 void AbstractConstantGroup$AsList::init$($ConstantGroup* self, int32_t start, int32_t end, bool resolving, Object$* ifNotPresent) {
 	$AbstractList::init$();
@@ -102,9 +53,9 @@ int32_t AbstractConstantGroup$AsList::size() {
 
 $Object* AbstractConstantGroup$AsList::get(int32_t index) {
 	if (this->resolving) {
-		return $of($nc(this->self)->get(mapIndex(index)));
+		return $nc(this->self)->get(mapIndex(index));
 	} else {
-		return $of($nc(this->self)->get(mapIndex(index), this->ifNotPresent));
+		return $nc(this->self)->get(mapIndex(index), this->ifNotPresent);
 	}
 }
 
@@ -147,7 +98,49 @@ AbstractConstantGroup$AsList::AbstractConstantGroup$AsList() {
 }
 
 $Class* AbstractConstantGroup$AsList::load$($String* name, bool initialize) {
-	$loadClass(AbstractConstantGroup$AsList, name, initialize, &_AbstractConstantGroup$AsList_ClassInfo_, allocate$AbstractConstantGroup$AsList);
+	$FieldInfo fieldInfos$$[] = {
+		{"self", "Ljava/lang/invoke/ConstantGroup;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsList, self)},
+		{"size", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsList, size$)},
+		{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsList, offset)},
+		{"resolving", "Z", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsList, resolving)},
+		{"ifNotPresent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$AsList, ifNotPresent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/ConstantGroup;IIZLjava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsList, init$, void, $ConstantGroup*, int32_t, int32_t, bool, Object$*)},
+		{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(AbstractConstantGroup$AsList, init$, void, $ConstantGroup*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/invoke/ConstantGroup;IILjava/lang/Object;)V", nullptr, 0, $method(AbstractConstantGroup$AsList, init$, void, $ConstantGroup*, int32_t, int32_t, Object$*)},
+		{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, get, $Object*, int32_t)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, iterator, $Iterator*)},
+		{"mapIndex", "(I)I", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsList, mapIndex, int32_t, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractConstantGroup$AsList, size, int32_t)},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, subList, $List*, int32_t, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, toArray, $ObjectArray*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.AbstractConstantGroup$AsList", "java.lang.invoke.AbstractConstantGroup", "AsList", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.AbstractConstantGroup$AsList",
+		"java.util.AbstractList",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractList<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.AbstractConstantGroup"
+	};
+	$loadClass(AbstractConstantGroup$AsList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractConstantGroup$AsList));
+	});
 	return class$;
 }
 

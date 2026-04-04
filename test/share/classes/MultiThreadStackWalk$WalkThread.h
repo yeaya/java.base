@@ -25,6 +25,7 @@ class $export MultiThreadStackWalk$WalkThread : public ::java::lang::Thread {
 	$class(MultiThreadStackWalk$WalkThread, 0, ::java::lang::Thread)
 public:
 	MultiThreadStackWalk$WalkThread();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::MultiThreadStackWalk$Test* test);
 	virtual void run() override;
 	static ::java::util::concurrent::atomic::AtomicLong* walkersCount;

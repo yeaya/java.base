@@ -1,5 +1,4 @@
 #include <sun/util/calendar/Gregorian$Date.h>
-
 #include <java/util/TimeZone.h>
 #include <sun/util/calendar/BaseCalendar$Date.h>
 #include <sun/util/calendar/CalendarDate.h>
@@ -15,40 +14,6 @@ using $BaseCalendar$Date = ::sun::util::calendar::BaseCalendar$Date;
 namespace sun {
 	namespace util {
 		namespace calendar {
-
-$MethodInfo _Gregorian$Date_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Gregorian$Date, init$, void)},
-	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(Gregorian$Date, init$, void, $TimeZone*)},
-	{"getNormalizedYear", "()I", nullptr, $PUBLIC, $virtualMethod(Gregorian$Date, getNormalizedYear, int32_t)},
-	{"setNormalizedYear", "(I)V", nullptr, $PUBLIC, $virtualMethod(Gregorian$Date, setNormalizedYear, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Gregorian$Date_InnerClassesInfo_[] = {
-	{"sun.util.calendar.Gregorian$Date", "sun.util.calendar.Gregorian", "Date", $STATIC},
-	{"sun.util.calendar.BaseCalendar$Date", "sun.util.calendar.BaseCalendar", "Date", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Gregorian$Date_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.calendar.Gregorian$Date",
-	"sun.util.calendar.BaseCalendar$Date",
-	nullptr,
-	nullptr,
-	_Gregorian$Date_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Gregorian$Date_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.calendar.Gregorian"
-};
-
-$Object* allocate$Gregorian$Date($Class* clazz) {
-	return $of($alloc(Gregorian$Date));
-}
 
 void Gregorian$Date::init$() {
 	$BaseCalendar$Date::init$();
@@ -70,7 +35,36 @@ Gregorian$Date::Gregorian$Date() {
 }
 
 $Class* Gregorian$Date::load$($String* name, bool initialize) {
-	$loadClass(Gregorian$Date, name, initialize, &_Gregorian$Date_ClassInfo_, allocate$Gregorian$Date);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Gregorian$Date, init$, void)},
+		{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(Gregorian$Date, init$, void, $TimeZone*)},
+		{"getNormalizedYear", "()I", nullptr, $PUBLIC, $virtualMethod(Gregorian$Date, getNormalizedYear, int32_t)},
+		{"setNormalizedYear", "(I)V", nullptr, $PUBLIC, $virtualMethod(Gregorian$Date, setNormalizedYear, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.calendar.Gregorian$Date", "sun.util.calendar.Gregorian", "Date", $STATIC},
+		{"sun.util.calendar.BaseCalendar$Date", "sun.util.calendar.BaseCalendar", "Date", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.calendar.Gregorian$Date",
+		"sun.util.calendar.BaseCalendar$Date",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.calendar.Gregorian"
+	};
+	$loadClass(Gregorian$Date, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Gregorian$Date);
+	});
 	return class$;
 }
 

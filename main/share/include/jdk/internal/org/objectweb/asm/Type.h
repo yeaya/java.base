@@ -76,6 +76,7 @@ class $import Type : public ::java::lang::Object {
 	$class(Type, 0, ::java::lang::Object)
 public:
 	Type();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t sort, $String* valueBuffer, int32_t valueBegin, int32_t valueEnd);
 	void appendDescriptor(::java::lang::StringBuilder* stringBuilder);
 	static void appendDescriptor($Class* clazz, ::java::lang::StringBuilder* stringBuilder);

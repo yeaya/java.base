@@ -1,5 +1,4 @@
 #include <java/net/SocketPermission.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
@@ -19,7 +18,6 @@
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Optional.h>
 #include <java/util/StringJoiner.h>
 #include <java/util/StringTokenizer.h>
@@ -74,8 +72,6 @@ using $UnknownHostException = ::java::net::UnknownHostException;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Optional = ::java::util::Optional;
 using $StringJoiner = ::java::util::StringJoiner;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $Function = ::java::util::function::Function;
@@ -97,130 +93,35 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($RegisteredDomain, inst$)->name());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SocketPermission$$Lambda$name>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SocketPermission$$Lambda$name::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketPermission$$Lambda$name, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketPermission$$Lambda$name, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo SocketPermission$$Lambda$name::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.net.SocketPermission$$Lambda$name",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* SocketPermission$$Lambda$name::load$($String* name, bool initialize) {
-	$loadClass(SocketPermission$$Lambda$name, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SocketPermission$$Lambda$name, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketPermission$$Lambda$name, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.net.SocketPermission$$Lambda$name",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SocketPermission$$Lambda$name, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketPermission$$Lambda$name);
+	});
 	return class$;
 }
 $Class* SocketPermission$$Lambda$name::class$ = nullptr;
-
-$FieldInfo _SocketPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, serialVersionUID)},
-	{"CONNECT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, CONNECT)},
-	{"LISTEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, LISTEN)},
-	{"ACCEPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, ACCEPT)},
-	{"RESOLVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, RESOLVE)},
-	{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, NONE)},
-	{"ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, ALL)},
-	{"PORT_MIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, PORT_MIN)},
-	{"PORT_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, PORT_MAX)},
-	{"PRIV_PORT_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, PRIV_PORT_MAX)},
-	{"DEF_EPH_LOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, DEF_EPH_LOW)},
-	{"mask", "I", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, mask)},
-	{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SocketPermission, actions)},
-	{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, hostname)},
-	{"cname", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, cname)},
-	{"addresses", "[Ljava/net/InetAddress;", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, addresses)},
-	{"wildcard", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, wildcard)},
-	{"init_with_ip", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, init_with_ip)},
-	{"invalid", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, invalid)},
-	{"portrange", "[I", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, portrange)},
-	{"defaultDeny", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, defaultDeny)},
-	{"untrusted", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, untrusted)},
-	{"trusted", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, trusted)},
-	{"trustNameService", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SocketPermission, trustNameService)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC, $staticField(SocketPermission, debug)},
-	{"debugInit", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SocketPermission, debugInit)},
-	{"cdomain", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, cdomain)},
-	{"hdomain", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, hdomain)},
-	{}
-};
-
-$MethodInfo _SocketPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SocketPermission, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(SocketPermission, init$, void, $String*, int32_t)},
-	{"authorized", "(Ljava/lang/String;[B)Z", nullptr, $PRIVATE, $method(SocketPermission, authorized, bool, $String*, $bytes*)},
-	{"authorizedIPv4", "(Ljava/lang/String;[B)Z", nullptr, $PRIVATE, $method(SocketPermission, authorizedIPv4, bool, $String*, $bytes*)},
-	{"authorizedIPv6", "(Ljava/lang/String;[B)Z", nullptr, $PRIVATE, $method(SocketPermission, authorizedIPv6, bool, $String*, $bytes*)},
-	{"checkForIDN", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, checkForIDN, $String*, $String*)},
-	{"compareHostnames", "(Ljava/net/SocketPermission;)Z", nullptr, $PRIVATE, $method(SocketPermission, compareHostnames, bool, SocketPermission*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SocketPermission, equals, bool, Object$*)},
-	{"getActions", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, getActions, $String*, int32_t)},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SocketPermission, getActions, $String*)},
-	{"getCanonName", "()V", nullptr, 0, $method(SocketPermission, getCanonName, void), "java.net.UnknownHostException"},
-	{"getDebug", "()Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SocketPermission, getDebug, $Debug*)},
-	{"getHost", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, getHost, $String*, $String*)},
-	{"getIP", "()V", nullptr, 0, $method(SocketPermission, getIP, void), "java.net.UnknownHostException"},
-	{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, getMask, int32_t, $String*)},
-	{"getMask", "()I", nullptr, 0, $method(SocketPermission, getMask, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SocketPermission, hashCode, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(SocketPermission, implies, bool, $Permission*)},
-	{"impliesIgnoreMask", "(Ljava/net/SocketPermission;)Z", nullptr, 0, $method(SocketPermission, impliesIgnoreMask, bool, SocketPermission*)},
-	{"inRange", "(IIII)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, inRange, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"includesEphemerals", "()Z", nullptr, $PRIVATE, $method(SocketPermission, includesEphemerals, bool)},
-	{"init", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(SocketPermission, init, void, $String*, int32_t)},
-	{"initEphemeralPorts", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, initEphemeralPorts, int32_t, $String*, int32_t)},
-	{"isUntrusted", "()Z", nullptr, $PRIVATE, $method(SocketPermission, isUntrusted, bool), "java.net.UnknownHostException"},
-	{"match", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SocketPermission, match, bool, $String*, $String*)},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(SocketPermission, newPermissionCollection, $PermissionCollection*)},
-	{"parsePort", "(Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(SocketPermission, parsePort, $ints*, $String*), "java.lang.Exception"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SocketPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setDeny", "()V", nullptr, $PRIVATE, $method(SocketPermission, setDeny, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SocketPermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SocketPermission_InnerClassesInfo_[] = {
-	{"java.net.SocketPermission$EphemeralRange", "java.net.SocketPermission", "EphemeralRange", $PRIVATE | $STATIC},
-	{"java.net.SocketPermission$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SocketPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.net.SocketPermission",
-	"java.security.Permission",
-	nullptr,
-	_SocketPermission_FieldInfo_,
-	_SocketPermission_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SocketPermission_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.SocketPermission$EphemeralRange,java.net.SocketPermission$1"
-};
-
-$Object* allocate$SocketPermission($Class* clazz) {
-	return $of($alloc(SocketPermission));
-}
 
 bool SocketPermission::trustNameService = false;
 $Debug* SocketPermission::debug = nullptr;
 bool SocketPermission::debugInit = false;
 
 $Debug* SocketPermission::getDebug() {
-	$load(SocketPermission);
+	$init(SocketPermission);
 	$synchronized(class$) {
-		$init(SocketPermission);
 		if (!SocketPermission::debugInit) {
 			$assignStatic(SocketPermission::debug, $Debug::getInstance("access"_s));
 			SocketPermission::debugInit = true;
@@ -230,7 +131,7 @@ $Debug* SocketPermission::getDebug() {
 }
 
 void SocketPermission::init$($String* host, $String* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Permission::init$($(getHost(host)));
 	this->defaultDeny = false;
 	$var($String, var$0, getName());
@@ -238,7 +139,7 @@ void SocketPermission::init$($String* host, $String* action) {
 }
 
 void SocketPermission::init$($String* host, int32_t mask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Permission::init$($(getHost(host)));
 	this->defaultDeny = false;
 	init($(getName()), mask);
@@ -250,21 +151,25 @@ void SocketPermission::setDeny() {
 
 $String* SocketPermission::getHost($String* host$renamed) {
 	$init(SocketPermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, host, host$renamed);
 	if ($nc(host)->isEmpty()) {
 		return "localhost"_s;
 	} else {
 		int32_t ind = 0;
 		if (host->charAt(0) != u'[') {
-			int32_t var$0 = (ind = host->indexOf((int32_t)u':'));
-			if (var$0 != host->lastIndexOf((int32_t)u':')) {
+			int32_t var$0 = ind = host->indexOf(u':');
+			if (var$0 != host->lastIndexOf(u':')) {
 				$var($StringTokenizer, st, $new($StringTokenizer, host, ":"_s));
 				int32_t tokens = st->countTokens();
 				if (tokens == 9) {
-					ind = host->lastIndexOf((int32_t)u':');
-					$var($String, var$1, $$str({"["_s, $(host->substring(0, ind)), "]"_s}));
-					$assign(host, $concat(var$1, $(host->substring(ind))));
+					ind = host->lastIndexOf(u':');
+					$var($StringBuilder, var$1, $new($StringBuilder));
+					var$1->append("["_s);
+					var$1->append($(host->substring(0, ind)));
+					var$1->append("]"_s);
+					var$1->append($(host->substring(ind)));
+					$assign(host, $str(var$1));
 				} else if (tokens == 8 && host->indexOf("::"_s) == -1) {
 					$assign(host, $str({"["_s, host, "]"_s}));
 				} else {
@@ -277,15 +182,15 @@ $String* SocketPermission::getHost($String* host$renamed) {
 }
 
 $ints* SocketPermission::parsePort($String* port) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = port == nullptr || $nc(port)->isEmpty();
-	if (var$0 || $nc(port)->equals("*"_s)) {
+	$useLocalObjectStack();
+	bool var$0 = port == nullptr || port->isEmpty();
+	if (var$0 || port->equals("*"_s)) {
 		return $new($ints, {
 			SocketPermission::PORT_MIN,
 			SocketPermission::PORT_MAX
 		});
 	}
-	int32_t dash = $nc(port)->indexOf((int32_t)u'-');
+	int32_t dash = $nc(port)->indexOf(u'-');
 	if (dash == -1) {
 		int32_t p = $Integer::parseInt(port);
 		return $new($ints, {
@@ -322,9 +227,9 @@ bool SocketPermission::includesEphemerals() {
 }
 
 void SocketPermission::init($String* host$renamed, int32_t mask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, host, host$renamed);
-	if (((int32_t)(mask & (uint32_t)SocketPermission::ALL)) != mask) {
+	if ((mask & SocketPermission::ALL) != mask) {
 		$throwNew($IllegalArgumentException, "invalid actions mask"_s);
 	}
 	this->mask = mask | SocketPermission::RESOLVE;
@@ -335,16 +240,16 @@ void SocketPermission::init($String* host$renamed, int32_t mask) {
 	$var($String, hostport, host);
 	if ($nc(host)->charAt(0) == u'[') {
 		start = 1;
-		rb = host->indexOf((int32_t)u']');
+		rb = host->indexOf(u']');
 		if (rb != -1) {
 			$assign(host, host->substring(start, rb));
 		} else {
 			$throwNew($IllegalArgumentException, $$str({"invalid host/port: "_s, host}));
 		}
-		sep = $nc(hostport)->indexOf((int32_t)u':', rb + 1);
+		sep = $nc(hostport)->indexOf(u':', rb + 1);
 	} else {
 		start = 0;
-		sep = host->indexOf((int32_t)u':', rb);
+		sep = host->indexOf(u':', rb);
 		end = sep;
 		if (sep != -1) {
 			$assign(host, host->substring(start, end));
@@ -364,7 +269,7 @@ void SocketPermission::init($String* host$renamed, int32_t mask) {
 		}));
 	}
 	$set(this, hostname, host);
-	if ($nc(host)->lastIndexOf((int32_t)u'*') > 0) {
+	if (host->lastIndexOf(u'*') > 0) {
 		$throwNew($IllegalArgumentException, "invalid host wildcard specification"_s);
 	} else if (host->startsWith("*"_s)) {
 		this->wildcard = true;
@@ -397,7 +302,7 @@ void SocketPermission::init($String* host$renamed, int32_t mask) {
 
 int32_t SocketPermission::getMask($String* action) {
 	$init(SocketPermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (action == nullptr) {
 		$throwNew($NullPointerException, "action can\'t be null"_s);
 	}
@@ -408,24 +313,16 @@ int32_t SocketPermission::getMask($String* action) {
 	$init($SecurityConstants);
 	if (action == $SecurityConstants::SOCKET_RESOLVE_ACTION) {
 		return SocketPermission::RESOLVE;
-	} else {
-		if (action == $SecurityConstants::SOCKET_CONNECT_ACTION) {
-			return SocketPermission::CONNECT;
-		} else {
-			if (action == $SecurityConstants::SOCKET_LISTEN_ACTION) {
-				return SocketPermission::LISTEN;
-			} else {
-				if (action == $SecurityConstants::SOCKET_ACCEPT_ACTION) {
-					return SocketPermission::ACCEPT;
-				} else {
-					if (action == $SecurityConstants::SOCKET_CONNECT_ACCEPT_ACTION) {
-						return SocketPermission::CONNECT | SocketPermission::ACCEPT;
-					}
-				}
-			}
-		}
+	} else if (action == $SecurityConstants::SOCKET_CONNECT_ACTION) {
+		return SocketPermission::CONNECT;
+	} else if (action == $SecurityConstants::SOCKET_LISTEN_ACTION) {
+		return SocketPermission::LISTEN;
+	} else if (action == $SecurityConstants::SOCKET_ACCEPT_ACTION) {
+		return SocketPermission::ACCEPT;
+	} else if (action == $SecurityConstants::SOCKET_CONNECT_ACCEPT_ACTION) {
+		return SocketPermission::CONNECT | SocketPermission::ACCEPT;
 	}
-	$var($chars, a, $nc(action)->toCharArray());
+	$var($chars, a, action->toCharArray());
 	int32_t i = a->length - 1;
 	if (i < 0) {
 		return mask;
@@ -433,13 +330,13 @@ int32_t SocketPermission::getMask($String* action) {
 	while (i != -1) {
 		char16_t c = 0;
 		while (true) {
-			bool var$0 = (i != -1);
+			bool var$0 = i != -1;
 			if (var$0) {
 				bool var$4 = (c = a->get(i)) == u' ';
 				bool var$3 = var$4 || c == u'\r';
 				bool var$2 = var$3 || c == u'\n';
 				bool var$1 = var$2 || c == u'\f';
-				var$0 = (var$1 || c == u'\t');
+				var$0 = var$1 || c == u'\t';
 			}
 			if (!(var$0)) {
 				break;
@@ -468,25 +365,17 @@ int32_t SocketPermission::getMask($String* action) {
 		while (i >= matchlen && !seencomma) {
 			switch (c = a->get(i - matchlen)) {
 			case u' ':
-				{}
 			case u'\r':
-				{}
 			case u'\n':
-				{}
 			case u'\f':
-				{}
 			case u'\t':
-				{
+				break;
+			default:
+				if (c == u',' && i > matchlen) {
+					seencomma = true;
 					break;
 				}
-			default:
-				{
-					if (c == u',' && i > matchlen) {
-						seencomma = true;
-						break;
-					}
-					$throwNew($IllegalArgumentException, $$str({"invalid permission: "_s, action}));
-				}
+				$throwNew($IllegalArgumentException, $$str({"invalid permission: "_s, action}));
 			}
 			--i;
 		}
@@ -496,7 +385,7 @@ int32_t SocketPermission::getMask($String* action) {
 }
 
 bool SocketPermission::isUntrusted() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->trusted) {
 		return false;
 	}
@@ -513,7 +402,7 @@ bool SocketPermission::isUntrusted() {
 					this->untrusted = true;
 					$var($Debug, debug, getDebug());
 					if (debug != nullptr && $Debug::isOn("failure"_s)) {
-						debug->println($$str({"socket access restriction: proxied host ("_s, $nc(this->addresses)->get(0), ") does not match "_s, this->cname, " from reverse lookup"_s}));
+						debug->println($$str({"socket access restriction: proxied host ("_s, this->addresses->get(0), ") does not match "_s, this->cname, " from reverse lookup"_s}));
 					}
 					return true;
 				}
@@ -528,7 +417,7 @@ bool SocketPermission::isUntrusted() {
 }
 
 void SocketPermission::getCanonName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cname != nullptr || this->invalid || this->untrusted) {
 		return;
 	}
@@ -537,9 +426,9 @@ void SocketPermission::getCanonName() {
 			getIP();
 		}
 		if (this->init_with_ip) {
-			$set(this, cname, $nc($($nc($nc(this->addresses)->get(0))->getHostName(false)))->toLowerCase());
+			$set(this, cname, $$nc($nc($nc(this->addresses)->get(0))->getHostName(false))->toLowerCase());
 		} else {
-			$set(this, cname, $nc($($nc($($InetAddress::getByName($($nc($nc(this->addresses)->get(0))->getHostAddress()))))->getHostName(false)))->toLowerCase());
+			$set(this, cname, $$nc($$nc($InetAddress::getByName($($nc($nc(this->addresses)->get(0))->getHostAddress())))->getHostName(false))->toLowerCase());
 		}
 	} catch ($UnknownHostException& uhe) {
 		this->invalid = true;
@@ -550,7 +439,7 @@ void SocketPermission::getCanonName() {
 $String* SocketPermission::checkForIDN($String* name) {
 	$init(SocketPermission);
 	bool var$0 = $nc(name)->startsWith("xn--"_s);
-	if (var$0 || $nc(name)->contains(".xn--"_s)) {
+	if (var$0 || name->contains(".xn--"_s)) {
 		return $IDN::toUnicode(name);
 	} else {
 		return name;
@@ -558,27 +447,27 @@ $String* SocketPermission::checkForIDN($String* name) {
 }
 
 bool SocketPermission::match($String* cname, $String* hname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, a, checkForIDN($($nc(cname)->toLowerCase())));
 	$var($String, b, checkForIDN($($nc(hname)->toLowerCase())));
 	bool var$0 = $nc(a)->startsWith(b);
 	if (var$0) {
 		int32_t var$2 = a->length();
-		bool var$1 = (var$2 == $nc(b)->length());
-		var$0 = (var$1 || (a->charAt($nc(b)->length()) == u'.'));
+		bool var$1 = var$2 == $nc(b)->length();
+		var$0 = var$1 || (a->charAt(b->length()) == u'.');
 	}
 	if (var$0) {
 		return true;
 	}
 	if (this->cdomain == nullptr) {
-		$set(this, cdomain, $cast($String, $nc($($nc($($RegisteredDomain::from(a)))->map(static_cast<$Function*>($$new(SocketPermission$$Lambda$name)))))->orElse(a)));
+		$set(this, cdomain, $cast($String, $$nc($$nc($RegisteredDomain::from(a))->map($$new(SocketPermission$$Lambda$name)))->orElse(a)));
 	}
 	if (this->hdomain == nullptr) {
-		$set(this, hdomain, $cast($String, $nc($($nc($($RegisteredDomain::from(b)))->map(static_cast<$Function*>($$new(SocketPermission$$Lambda$name)))))->orElse(b)));
+		$set(this, hdomain, $cast($String, $$nc($$nc($RegisteredDomain::from(b))->map($$new(SocketPermission$$Lambda$name)))->orElse(b)));
 	}
 	bool var$4 = !$nc(this->cdomain)->isEmpty();
 	bool var$3 = var$4 && !$nc(this->hdomain)->isEmpty();
-	return var$3 && $nc(this->cdomain)->equals(this->hdomain);
+	return var$3 && this->cdomain->equals(this->hdomain);
 }
 
 bool SocketPermission::authorized($String* cname, $bytes* addr) {
@@ -592,11 +481,11 @@ bool SocketPermission::authorized($String* cname, $bytes* addr) {
 }
 
 bool SocketPermission::authorizedIPv4($String* cname, $bytes* addr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, authHost, ""_s);
 	$var($InetAddress, auth, nullptr);
 	try {
-		$assign(authHost, $str({"auth."_s, $$str(((int32_t)($nc(addr)->get(3) & (uint32_t)255))), "."_s, $$str(((int32_t)(addr->get(2) & (uint32_t)255))), "."_s, $$str(((int32_t)(addr->get(1) & (uint32_t)255))), "."_s, $$str(((int32_t)(addr->get(0) & (uint32_t)255))), ".in-addr.arpa"_s}));
+		$assign(authHost, $str({"auth."_s, $$str(($nc(addr)->get(3) & 0xff)), "."_s, $$str(($nc(addr)->get(2) & 0xff)), "."_s, $$str(($nc(addr)->get(1) & 0xff)), "."_s, $$str(($nc(addr)->get(0) & 0xff)), ".in-addr.arpa"_s}));
 		$assign(authHost, $str({this->hostname, $$str(u'.'), authHost}));
 		$assign(auth, $nc($($InetAddress::getAllByName0(authHost, false)))->get(0));
 		if ($nc(auth)->equals($($InetAddress::getByAddress(addr)))) {
@@ -604,8 +493,12 @@ bool SocketPermission::authorizedIPv4($String* cname, $bytes* addr) {
 		}
 		$var($Debug, debug, getDebug());
 		if (debug != nullptr && $Debug::isOn("failure"_s)) {
-			$var($String, var$0, $$str({"socket access restriction: IP address of "_s, auth, " != "_s}));
-			debug->println($$concat(var$0, $($InetAddress::getByAddress(addr))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("socket access restriction: IP address of "_s);
+			var$0->append(auth);
+			var$0->append(" != "_s);
+			var$0->append($($InetAddress::getByAddress(addr)));
+			debug->println($$str(var$0));
 		}
 	} catch ($UnknownHostException& uhe) {
 		$var($Debug, debug, getDebug());
@@ -617,15 +510,15 @@ bool SocketPermission::authorizedIPv4($String* cname, $bytes* addr) {
 }
 
 bool SocketPermission::authorizedIPv6($String* cname, $bytes* addr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, authHost, ""_s);
 	$var($InetAddress, auth, nullptr);
 	try {
 		$var($StringBuilder, sb, $new($StringBuilder, 39));
 		for (int32_t i = 15; i >= 0; --i) {
-			sb->append($($Integer::toHexString(((int32_t)(($nc(addr)->get(i)) & (uint32_t)15)))));
+			sb->append($($Integer::toHexString((($nc(addr)->get(i)) & 0x0f))));
 			sb->append(u'.');
-			sb->append($($Integer::toHexString(((int32_t)(($nc(addr)->get(i) >> 4) & (uint32_t)15)))));
+			sb->append($($Integer::toHexString(((addr->get(i) >> 4) & 0x0f))));
 			sb->append(u'.');
 		}
 		$assign(authHost, $str({"auth."_s, $(sb->toString()), "IP6.ARPA"_s}));
@@ -636,8 +529,12 @@ bool SocketPermission::authorizedIPv6($String* cname, $bytes* addr) {
 		}
 		$var($Debug, debug, getDebug());
 		if (debug != nullptr && $Debug::isOn("failure"_s)) {
-			$var($String, var$0, $$str({"socket access restriction: IP address of "_s, auth, " != "_s}));
-			debug->println($$concat(var$0, $($InetAddress::getByAddress(addr))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("socket access restriction: IP address of "_s);
+			var$0->append(auth);
+			var$0->append(" != "_s);
+			var$0->append($($InetAddress::getByAddress(addr)));
+			debug->println($$str(var$0));
 		}
 	} catch ($UnknownHostException& uhe) {
 		$var($Debug, debug, getDebug());
@@ -649,20 +546,20 @@ bool SocketPermission::authorizedIPv6($String* cname, $bytes* addr) {
 }
 
 void SocketPermission::getIP() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->addresses != nullptr || this->wildcard || this->invalid) {
 		return;
 	}
 	try {
 		$var($String, host, nullptr);
-		if ($nc($(getName()))->charAt(0) == u'[') {
-			$assign(host, $nc($(getName()))->substring(1, $nc($(getName()))->indexOf((int32_t)u']')));
+		if ($$nc(getName())->charAt(0) == u'[') {
+			$assign(host, $$nc(getName())->substring(1, $$nc(getName())->indexOf(u']')));
 		} else {
-			int32_t i = $nc($(getName()))->indexOf((int32_t)u':');
+			int32_t i = $$nc(getName())->indexOf(u':');
 			if (i == -1) {
 				$assign(host, getName());
 			} else {
-				$assign(host, $nc($(getName()))->substring(0, i));
+				$assign(host, $$nc(getName())->substring(0, i));
 			}
 		}
 		$set(this, addresses, $new($InetAddressArray, {$nc($($InetAddress::getAllByName0(host, false)))->get(0)}));
@@ -690,17 +587,17 @@ bool SocketPermission::implies($Permission* p) {
 	if ($equals(p, this)) {
 		return true;
 	}
-	return (((int32_t)(this->mask & (uint32_t)$nc(that)->mask)) == that->mask) && impliesIgnoreMask(that);
+	return ((this->mask & $nc(that)->mask) == $nc(that)->mask) && impliesIgnoreMask(that);
 }
 
 bool SocketPermission::impliesIgnoreMask(SocketPermission* that) {
 	int32_t i = 0;
 	int32_t j = 0;
-	if (((int32_t)($nc(that)->mask & (uint32_t)SocketPermission::RESOLVE)) != that->mask) {
-		if (($nc(that->portrange)->get(0) < $nc(this->portrange)->get(0)) || ($nc(that->portrange)->get(1) > $nc(this->portrange)->get(1))) {
+	if (($nc(that)->mask & SocketPermission::RESOLVE) != $nc(that)->mask) {
+		if (($nc(that->portrange)->get(0) < $nc(this->portrange)->get(0)) || (that->portrange->get(1) > this->portrange->get(1))) {
 			bool var$0 = this->includesEphemerals();
 			if (var$0 || that->includesEphemerals()) {
-				if (!inRange($nc(this->portrange)->get(0), $nc(this->portrange)->get(1), $nc(that->portrange)->get(0), $nc(that->portrange)->get(1))) {
+				if (!inRange(this->portrange->get(0), this->portrange->get(1), that->portrange->get(0), that->portrange->get(1))) {
 					return false;
 				}
 			} else {
@@ -711,29 +608,29 @@ bool SocketPermission::impliesIgnoreMask(SocketPermission* that) {
 	if (this->wildcard && ""_s->equals(this->cname)) {
 		return true;
 	}
-	if (this->invalid || $nc(that)->invalid) {
+	if (this->invalid || that->invalid) {
 		return compareHostnames(that);
 	}
 	try {
 		if (this->init_with_ip) {
-			if ($nc(that)->wildcard) {
+			if (that->wildcard) {
 				return false;
 			}
-			if ($nc(that)->init_with_ip) {
+			if (that->init_with_ip) {
 				return ($nc($nc(this->addresses)->get(0))->equals($nc(that->addresses)->get(0)));
 			} else {
 				if (that->addresses == nullptr) {
 					that->getIP();
 				}
 				for (i = 0; i < $nc(that->addresses)->length; ++i) {
-					if ($nc($nc(this->addresses)->get(0))->equals($nc(that->addresses)->get(i))) {
+					if ($nc($nc(this->addresses)->get(0))->equals(that->addresses->get(i))) {
 						return true;
 					}
 				}
 			}
 			return false;
 		}
-		if (this->wildcard || $nc(that)->wildcard) {
+		if (this->wildcard || that->wildcard) {
 			if (this->wildcard && that->wildcard) {
 				return ($nc(that->cname)->endsWith(this->cname));
 			}
@@ -748,13 +645,13 @@ bool SocketPermission::impliesIgnoreMask(SocketPermission* that) {
 		if (this->addresses == nullptr) {
 			this->getIP();
 		}
-		if ($nc(that)->addresses == nullptr) {
+		if (that->addresses == nullptr) {
 			that->getIP();
 		}
-		if (!($nc(that)->init_with_ip && this->isUntrusted())) {
+		if (!(that->init_with_ip && this->isUntrusted())) {
 			for (j = 0; j < $nc(this->addresses)->length; ++j) {
 				for (i = 0; i < $nc(that->addresses)->length; ++i) {
-					if ($nc($nc(this->addresses)->get(j))->equals($nc(that->addresses)->get(i))) {
+					if ($nc(this->addresses->get(j))->equals(that->addresses->get(i))) {
 						return true;
 					}
 				}
@@ -774,21 +671,21 @@ bool SocketPermission::impliesIgnoreMask(SocketPermission* that) {
 }
 
 bool SocketPermission::compareHostnames(SocketPermission* that) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, thisHost, this->hostname);
 	$var($String, thatHost, $nc(that)->hostname);
 	if (thisHost == nullptr) {
 		return false;
 	} else if (this->wildcard) {
 		int32_t cnameLength = $nc(this->cname)->length();
-		return $nc(thatHost)->regionMatches(true, (thatHost->length() - cnameLength), this->cname, 0, cnameLength);
+		return $nc(thatHost)->regionMatches(true, ($nc(thatHost)->length() - cnameLength), this->cname, 0, cnameLength);
 	} else {
-		return $nc(thisHost)->equalsIgnoreCase(thatHost);
+		return thisHost->equalsIgnoreCase(thatHost);
 	}
 }
 
 bool SocketPermission::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -804,40 +701,40 @@ bool SocketPermission::equals(Object$* obj) {
 	if (this->mask != $nc(that)->mask) {
 		return false;
 	}
-	if (((int32_t)($nc(that)->mask & (uint32_t)SocketPermission::RESOLVE)) != that->mask) {
-		if (($nc(this->portrange)->get(0) != $nc(that->portrange)->get(0)) || ($nc(this->portrange)->get(1) != $nc(that->portrange)->get(1))) {
+	if ((that->mask & SocketPermission::RESOLVE) != that->mask) {
+		if (($nc(this->portrange)->get(0) != $nc(that->portrange)->get(0)) || (this->portrange->get(1) != that->portrange->get(1))) {
 			return false;
 		}
 	}
-	if ($nc($(this->getName()))->equalsIgnoreCase($($nc(that)->getName()))) {
+	if ($$nc(this->getName())->equalsIgnoreCase($(that->getName()))) {
 		return true;
 	}
 	try {
 		this->getCanonName();
-		$nc(that)->getCanonName();
+		that->getCanonName();
 	} catch ($UnknownHostException& uhe) {
 		return false;
 	}
-	if (this->invalid || $nc(that)->invalid) {
+	if (this->invalid || that->invalid) {
 		return false;
 	}
 	if (this->cname != nullptr) {
-		return $nc(this->cname)->equalsIgnoreCase($nc(that)->cname);
+		return this->cname->equalsIgnoreCase(that->cname);
 	}
 	return false;
 }
 
 int32_t SocketPermission::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->init_with_ip || this->wildcard) {
-		return $nc($(this->getName()))->hashCode();
+		return $$nc(this->getName())->hashCode();
 	}
 	try {
 		getCanonName();
 	} catch ($UnknownHostException& uhe) {
 	}
 	if (this->invalid || this->cname == nullptr) {
-		return $nc($(this->getName()))->hashCode();
+		return $$nc(this->getName())->hashCode();
 	} else {
 		return $nc(this->cname)->hashCode();
 	}
@@ -850,16 +747,16 @@ int32_t SocketPermission::getMask() {
 $String* SocketPermission::getActions(int32_t mask) {
 	$init(SocketPermission);
 	$var($StringJoiner, sj, $new($StringJoiner, ","_s));
-	if (((int32_t)(mask & (uint32_t)SocketPermission::CONNECT)) == SocketPermission::CONNECT) {
+	if ((mask & SocketPermission::CONNECT) == SocketPermission::CONNECT) {
 		sj->add("connect"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)SocketPermission::LISTEN)) == SocketPermission::LISTEN) {
+	if ((mask & SocketPermission::LISTEN) == SocketPermission::LISTEN) {
 		sj->add("listen"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)SocketPermission::ACCEPT)) == SocketPermission::ACCEPT) {
+	if ((mask & SocketPermission::ACCEPT) == SocketPermission::ACCEPT) {
 		sj->add("accept"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)SocketPermission::RESOLVE)) == SocketPermission::RESOLVE) {
+	if ((mask & SocketPermission::RESOLVE) == SocketPermission::RESOLVE) {
 		sj->add("resolve"_s);
 	}
 	return sj->toString();
@@ -895,9 +792,9 @@ void SocketPermission::readObject($ObjectInputStream* s) {
 
 int32_t SocketPermission::initEphemeralPorts($String* suffix, int32_t defval) {
 	$init(SocketPermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SocketPermission$1, suffix)))))))->intValue();
+	return $$sure($Integer, $AccessController::doPrivileged($$new($SocketPermission$1, suffix)))->intValue();
 }
 
 bool SocketPermission::inRange(int32_t policyLow, int32_t policyHigh, int32_t targetLow, int32_t targetHigh) {
@@ -926,13 +823,13 @@ bool SocketPermission::inRange(int32_t policyLow, int32_t policyHigh, int32_t ta
 	return (targetLow <= policyHigh && targetHigh <= policyHigh) || (targetLow >= ephemeralLow && targetHigh <= ephemeralHigh);
 }
 
-void clinit$SocketPermission($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SocketPermission::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(SocketPermission::debug, nullptr);
 	SocketPermission::debugInit = false;
 	{
-		$var($Boolean, tmp, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "sun.net.trustNameService"_s)))));
+		$var($Boolean, tmp, $cast($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, "sun.net.trustNameService"_s))));
 		SocketPermission::trustNameService = $nc(tmp)->booleanValue();
 	}
 }
@@ -942,11 +839,96 @@ SocketPermission::SocketPermission() {
 
 $Class* SocketPermission::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SocketPermission$$Lambda$name::classInfo$.name)) {
+		if (name->equals("java.net.SocketPermission$$Lambda$name")) {
 			return SocketPermission$$Lambda$name::load$(name, initialize);
 		}
 	}
-	$loadClass(SocketPermission, name, initialize, &_SocketPermission_ClassInfo_, clinit$SocketPermission, allocate$SocketPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, serialVersionUID)},
+		{"CONNECT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, CONNECT)},
+		{"LISTEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, LISTEN)},
+		{"ACCEPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, ACCEPT)},
+		{"RESOLVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, RESOLVE)},
+		{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, NONE)},
+		{"ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, ALL)},
+		{"PORT_MIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, PORT_MIN)},
+		{"PORT_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, PORT_MAX)},
+		{"PRIV_PORT_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, PRIV_PORT_MAX)},
+		{"DEF_EPH_LOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketPermission, DEF_EPH_LOW)},
+		{"mask", "I", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, mask)},
+		{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SocketPermission, actions)},
+		{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, hostname)},
+		{"cname", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, cname)},
+		{"addresses", "[Ljava/net/InetAddress;", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, addresses)},
+		{"wildcard", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, wildcard)},
+		{"init_with_ip", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, init_with_ip)},
+		{"invalid", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, invalid)},
+		{"portrange", "[I", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, portrange)},
+		{"defaultDeny", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, defaultDeny)},
+		{"untrusted", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, untrusted)},
+		{"trusted", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, trusted)},
+		{"trustNameService", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SocketPermission, trustNameService)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC, $staticField(SocketPermission, debug)},
+		{"debugInit", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SocketPermission, debugInit)},
+		{"cdomain", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, cdomain)},
+		{"hdomain", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(SocketPermission, hdomain)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SocketPermission, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(SocketPermission, init$, void, $String*, int32_t)},
+		{"authorized", "(Ljava/lang/String;[B)Z", nullptr, $PRIVATE, $method(SocketPermission, authorized, bool, $String*, $bytes*)},
+		{"authorizedIPv4", "(Ljava/lang/String;[B)Z", nullptr, $PRIVATE, $method(SocketPermission, authorizedIPv4, bool, $String*, $bytes*)},
+		{"authorizedIPv6", "(Ljava/lang/String;[B)Z", nullptr, $PRIVATE, $method(SocketPermission, authorizedIPv6, bool, $String*, $bytes*)},
+		{"checkForIDN", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, checkForIDN, $String*, $String*)},
+		{"compareHostnames", "(Ljava/net/SocketPermission;)Z", nullptr, $PRIVATE, $method(SocketPermission, compareHostnames, bool, SocketPermission*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SocketPermission, equals, bool, Object$*)},
+		{"getActions", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, getActions, $String*, int32_t)},
+		{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SocketPermission, getActions, $String*)},
+		{"getCanonName", "()V", nullptr, 0, $method(SocketPermission, getCanonName, void), "java.net.UnknownHostException"},
+		{"getDebug", "()Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SocketPermission, getDebug, $Debug*)},
+		{"getHost", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, getHost, $String*, $String*)},
+		{"getIP", "()V", nullptr, 0, $method(SocketPermission, getIP, void), "java.net.UnknownHostException"},
+		{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, getMask, int32_t, $String*)},
+		{"getMask", "()I", nullptr, 0, $method(SocketPermission, getMask, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SocketPermission, hashCode, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(SocketPermission, implies, bool, $Permission*)},
+		{"impliesIgnoreMask", "(Ljava/net/SocketPermission;)Z", nullptr, 0, $method(SocketPermission, impliesIgnoreMask, bool, SocketPermission*)},
+		{"inRange", "(IIII)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, inRange, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"includesEphemerals", "()Z", nullptr, $PRIVATE, $method(SocketPermission, includesEphemerals, bool)},
+		{"init", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(SocketPermission, init, void, $String*, int32_t)},
+		{"initEphemeralPorts", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketPermission, initEphemeralPorts, int32_t, $String*, int32_t)},
+		{"isUntrusted", "()Z", nullptr, $PRIVATE, $method(SocketPermission, isUntrusted, bool), "java.net.UnknownHostException"},
+		{"match", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SocketPermission, match, bool, $String*, $String*)},
+		{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(SocketPermission, newPermissionCollection, $PermissionCollection*)},
+		{"parsePort", "(Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(SocketPermission, parsePort, $ints*, $String*), "java.lang.Exception"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SocketPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setDeny", "()V", nullptr, $PRIVATE, $method(SocketPermission, setDeny, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SocketPermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.SocketPermission$EphemeralRange", "java.net.SocketPermission", "EphemeralRange", $PRIVATE | $STATIC},
+		{"java.net.SocketPermission$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.net.SocketPermission",
+		"java.security.Permission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.SocketPermission$EphemeralRange,java.net.SocketPermission$1"
+	};
+	$loadClass(SocketPermission, name, initialize, &classInfo$$, SocketPermission::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SocketPermission));
+	});
 	return class$;
 }
 

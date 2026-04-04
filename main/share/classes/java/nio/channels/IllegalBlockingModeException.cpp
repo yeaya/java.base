@@ -1,5 +1,4 @@
 #include <java/nio/channels/IllegalBlockingModeException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _IllegalBlockingModeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalBlockingModeException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IllegalBlockingModeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalBlockingModeException, init$, void)},
-	{}
-};
-
-$ClassInfo _IllegalBlockingModeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.IllegalBlockingModeException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_IllegalBlockingModeException_FieldInfo_,
-	_IllegalBlockingModeException_MethodInfo_
-};
-
-$Object* allocate$IllegalBlockingModeException($Class* clazz) {
-	return $of($alloc(IllegalBlockingModeException));
-}
 
 void IllegalBlockingModeException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void IllegalBlockingModeException::throw$() {
 }
 
 $Class* IllegalBlockingModeException::load$($String* name, bool initialize) {
-	$loadClass(IllegalBlockingModeException, name, initialize, &_IllegalBlockingModeException_ClassInfo_, allocate$IllegalBlockingModeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalBlockingModeException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalBlockingModeException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.IllegalBlockingModeException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalBlockingModeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalBlockingModeException);
+	});
 	return class$;
 }
 

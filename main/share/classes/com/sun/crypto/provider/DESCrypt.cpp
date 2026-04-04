@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DESCrypt.h>
-
 #include <com/sun/crypto/provider/DESConstants.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/security/InvalidKeyException.h>
@@ -18,100 +17,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _DESCrypt_FieldInfo_[] = {
-	{"s0p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s0p)},
-	{"s1p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s1p)},
-	{"s2p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s2p)},
-	{"s3p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s3p)},
-	{"s4p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s4p)},
-	{"s5p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s5p)},
-	{"s6p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s6p)},
-	{"s7p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s7p)},
-	{"permRight0", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRight0)},
-	{"permLeft1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeft1)},
-	{"permRight2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRight2)},
-	{"permLeft3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeft3)},
-	{"permRight4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRight4)},
-	{"permLeft5", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeft5)},
-	{"permRight6", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRight6)},
-	{"permLeft7", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeft7)},
-	{"permRight8", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRight8)},
-	{"permLeft9", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeft9)},
-	{"permRightA", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRightA)},
-	{"permLeftB", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeftB)},
-	{"permRightC", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRightC)},
-	{"permLeftD", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeftD)},
-	{"permRightE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRightE)},
-	{"permLeftF", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeftF)},
-	{"initPermLeft0", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft0)},
-	{"initPermRight0", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight0)},
-	{"initPermLeft1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft1)},
-	{"initPermRight1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight1)},
-	{"initPermLeft2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft2)},
-	{"initPermRight2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight2)},
-	{"initPermLeft3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft3)},
-	{"initPermRight3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight3)},
-	{"initPermLeft4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft4)},
-	{"initPermRight4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight4)},
-	{"initPermLeft5", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft5)},
-	{"initPermRight5", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight5)},
-	{"initPermLeft6", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft6)},
-	{"initPermRight6", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight6)},
-	{"initPermLeft7", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft7)},
-	{"initPermRight7", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight7)},
-	{"initPermLeft8", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft8)},
-	{"initPermRight8", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight8)},
-	{"initPermLeft9", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft9)},
-	{"initPermRight9", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight9)},
-	{"initPermLeftA", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftA)},
-	{"initPermRightA", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightA)},
-	{"initPermLeftB", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftB)},
-	{"initPermRightB", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightB)},
-	{"initPermLeftC", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftC)},
-	{"initPermRightC", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightC)},
-	{"initPermLeftD", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftD)},
-	{"initPermRightD", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightD)},
-	{"initPermLeftE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftE)},
-	{"initPermRightE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightE)},
-	{"initPermLeftF", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftF)},
-	{"initPermRightF", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightF)},
-	{"expandedKey", "[B", nullptr, 0, $field(DESCrypt, expandedKey)},
-	{"decrypting", "Z", nullptr, 0, $field(DESCrypt, decrypting)},
-	{}
-};
-
-$MethodInfo _DESCrypt_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(DESCrypt, init$, void)},
-	{"cipherBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESCrypt, cipherBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
-	{"decryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESCrypt, decryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
-	{"encryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESCrypt, encryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
-	{"expandKey", "([B)V", nullptr, 0, $virtualMethod(DESCrypt, expandKey, void, $bytes*)},
-	{"getBlockSize", "()I", nullptr, 0, $virtualMethod(DESCrypt, getBlockSize, int32_t)},
-	{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, $virtualMethod(DESCrypt, init, void, bool, $String*, $bytes*), "java.security.InvalidKeyException"},
-	{"initialPermutationLeft", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DESCrypt, initialPermutationLeft, int32_t, $bytes*, int32_t)},
-	{"initialPermutationRight", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DESCrypt, initialPermutationRight, int32_t, $bytes*, int32_t)},
-	{"perm", "(II[BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DESCrypt, perm, void, int32_t, int32_t, $bytes*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DESCrypt_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.crypto.provider.DESCrypt",
-	"com.sun.crypto.provider.SymmetricCipher",
-	"com.sun.crypto.provider.DESConstants",
-	_DESCrypt_FieldInfo_,
-	_DESCrypt_MethodInfo_
-};
-
-$Object* allocate$DESCrypt($Class* clazz) {
-	return $of($alloc(DESCrypt));
-}
 
 int32_t DESCrypt::hashCode() {
 	 return this->$SymmetricCipher::hashCode();
@@ -238,10 +143,10 @@ void DESCrypt::cipherBlock($bytes* in, int32_t inOffset, $bytes* out, int32_t ou
 		j = 0;
 	}
 	for (i = 0; i < 16; ++i) {
-		temp = (right << 1) | ((int32_t)((right >> 31) & (uint32_t)1));
-		left ^= ((((($nc(DESCrypt::s0p)->get(((int32_t)(temp & (uint32_t)63)) ^ $nc(key)->get(j + 0)) ^ $nc(DESCrypt::s1p)->get(((int32_t)((temp >> 4) & (uint32_t)63)) ^ key->get(j + 1))) ^ $nc(DESCrypt::s2p)->get(((int32_t)((temp >> 8) & (uint32_t)63)) ^ key->get(j + 2))) ^ $nc(DESCrypt::s3p)->get(((int32_t)((temp >> 12) & (uint32_t)63)) ^ key->get(j + 3))) ^ $nc(DESCrypt::s4p)->get(((int32_t)((temp >> 16) & (uint32_t)63)) ^ key->get(j + 4))) ^ $nc(DESCrypt::s5p)->get(((int32_t)((temp >> 20) & (uint32_t)63)) ^ key->get(j + 5))) ^ $nc(DESCrypt::s6p)->get(((int32_t)((temp >> 24) & (uint32_t)63)) ^ key->get(j + 6));
-		temp = (((int32_t)(right & (uint32_t)1)) << 5) | ((int32_t)((right >> 27) & (uint32_t)31));
-		left ^= $nc(DESCrypt::s7p)->get(temp ^ key->get(j + 7));
+		temp = (right << 1) | ((right >> 31) & 1);
+		left ^= (((((DESCrypt::s0p->get((temp & 0x3f) ^ $nc(key)->get(j + 0)) ^ DESCrypt::s1p->get(((temp >> 4) & 0x3f) ^ $nc(key)->get(j + 1))) ^ DESCrypt::s2p->get(((temp >> 8) & 0x3f) ^ $nc(key)->get(j + 2))) ^ DESCrypt::s3p->get(((temp >> 12) & 0x3f) ^ $nc(key)->get(j + 3))) ^ DESCrypt::s4p->get(((temp >> 16) & 0x3f) ^ $nc(key)->get(j + 4))) ^ DESCrypt::s5p->get(((temp >> 20) & 0x3f) ^ $nc(key)->get(j + 5))) ^ DESCrypt::s6p->get(((temp >> 24) & 0x3f) ^ $nc(key)->get(j + 6));
+		temp = ((right & 1) << 5) | ((right >> 27) & 0x1f);
+		left ^= DESCrypt::s7p->get(temp ^ key->get(j + 7));
 		temp = left;
 		left = right;
 		right = temp;
@@ -259,37 +164,37 @@ void DESCrypt::perm(int32_t left, int32_t right, $bytes* out, int32_t offset) {
 	int32_t high = 0;
 	int32_t temp = 0;
 	temp = left;
-	high = $nc(DESCrypt::permRight0)->get((int32_t)(temp & (uint32_t)15));
+	high = DESCrypt::permRight0->get(temp & 0x0f);
 	temp >>= 4;
-	low = $nc(DESCrypt::permLeft1)->get((int32_t)(temp & (uint32_t)15));
+	low = DESCrypt::permLeft1->get(temp & 0x0f);
 	temp >>= 4;
-	high |= $nc(DESCrypt::permRight2)->get((int32_t)(temp & (uint32_t)15));
+	high |= DESCrypt::permRight2->get(temp & 0x0f);
 	temp >>= 4;
-	low |= $nc(DESCrypt::permLeft3)->get((int32_t)(temp & (uint32_t)15));
+	low |= DESCrypt::permLeft3->get(temp & 0x0f);
 	temp >>= 4;
-	high |= $nc(DESCrypt::permRight4)->get((int32_t)(temp & (uint32_t)15));
+	high |= DESCrypt::permRight4->get(temp & 0x0f);
 	temp >>= 4;
-	low |= $nc(DESCrypt::permLeft5)->get((int32_t)(temp & (uint32_t)15));
+	low |= DESCrypt::permLeft5->get(temp & 0x0f);
 	temp >>= 4;
-	high |= $nc(DESCrypt::permRight6)->get((int32_t)(temp & (uint32_t)15));
+	high |= DESCrypt::permRight6->get(temp & 0x0f);
 	temp >>= 4;
-	low |= $nc(DESCrypt::permLeft7)->get((int32_t)(temp & (uint32_t)15));
+	low |= DESCrypt::permLeft7->get(temp & 0x0f);
 	temp = right;
-	high |= $nc(DESCrypt::permRight8)->get((int32_t)(temp & (uint32_t)15));
+	high |= DESCrypt::permRight8->get(temp & 0x0f);
 	temp >>= 4;
-	low |= $nc(DESCrypt::permLeft9)->get((int32_t)(temp & (uint32_t)15));
+	low |= DESCrypt::permLeft9->get(temp & 0x0f);
 	temp >>= 4;
-	high |= $nc(DESCrypt::permRightA)->get((int32_t)(temp & (uint32_t)15));
+	high |= DESCrypt::permRightA->get(temp & 0x0f);
 	temp >>= 4;
-	low |= $nc(DESCrypt::permLeftB)->get((int32_t)(temp & (uint32_t)15));
+	low |= DESCrypt::permLeftB->get(temp & 0x0f);
 	temp >>= 4;
-	high |= $nc(DESCrypt::permRightC)->get((int32_t)(temp & (uint32_t)15));
+	high |= DESCrypt::permRightC->get(temp & 0x0f);
 	temp >>= 4;
-	low |= $nc(DESCrypt::permLeftD)->get((int32_t)(temp & (uint32_t)15));
+	low |= DESCrypt::permLeftD->get(temp & 0x0f);
 	temp >>= 4;
-	high |= $nc(DESCrypt::permRightE)->get((int32_t)(temp & (uint32_t)15));
+	high |= DESCrypt::permRightE->get(temp & 0x0f);
 	temp >>= 4;
-	low |= $nc(DESCrypt::permLeftF)->get((int32_t)(temp & (uint32_t)15));
+	low |= DESCrypt::permLeftF->get(temp & 0x0f);
 	$nc(out)->set(offset + 0, (int8_t)low);
 	out->set(offset + 1, (int8_t)(low >> 8));
 	out->set(offset + 2, (int8_t)(low >> 16));
@@ -303,44 +208,44 @@ void DESCrypt::perm(int32_t left, int32_t right, $bytes* out, int32_t offset) {
 int32_t DESCrypt::initialPermutationLeft($bytes* block, int32_t offset) {
 	$init(DESCrypt);
 	int32_t l = 0;
-	l = $nc(DESCrypt::initPermLeft1)->get((int32_t)($nc(block)->get(offset) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeft0)->get((int32_t)((block->get(offset) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeft3)->get((int32_t)(block->get(offset + 1) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeft2)->get((int32_t)((block->get(offset + 1) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeft5)->get((int32_t)(block->get(offset + 2) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeft4)->get((int32_t)((block->get(offset + 2) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeft7)->get((int32_t)(block->get(offset + 3) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeft6)->get((int32_t)((block->get(offset + 3) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeft9)->get((int32_t)(block->get(offset + 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeft8)->get((int32_t)((block->get(offset + 4) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeftB)->get((int32_t)(block->get(offset + 5) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeftA)->get((int32_t)((block->get(offset + 5) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeftD)->get((int32_t)(block->get(offset + 6) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeftC)->get((int32_t)((block->get(offset + 6) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeftF)->get((int32_t)(block->get(offset + 7) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermLeftE)->get((int32_t)((block->get(offset + 7) >> 4) & (uint32_t)15));
+	l = DESCrypt::initPermLeft1->get($nc(block)->get(offset) & 0x0f);
+	l |= DESCrypt::initPermLeft0->get((block->get(offset) >> 4) & 0x0f);
+	l |= DESCrypt::initPermLeft3->get(block->get(offset + 1) & 0x0f);
+	l |= DESCrypt::initPermLeft2->get((block->get(offset + 1) >> 4) & 0x0f);
+	l |= DESCrypt::initPermLeft5->get(block->get(offset + 2) & 0x0f);
+	l |= DESCrypt::initPermLeft4->get((block->get(offset + 2) >> 4) & 0x0f);
+	l |= DESCrypt::initPermLeft7->get(block->get(offset + 3) & 0x0f);
+	l |= DESCrypt::initPermLeft6->get((block->get(offset + 3) >> 4) & 0x0f);
+	l |= DESCrypt::initPermLeft9->get(block->get(offset + 4) & 0x0f);
+	l |= DESCrypt::initPermLeft8->get((block->get(offset + 4) >> 4) & 0x0f);
+	l |= DESCrypt::initPermLeftB->get(block->get(offset + 5) & 0x0f);
+	l |= DESCrypt::initPermLeftA->get((block->get(offset + 5) >> 4) & 0x0f);
+	l |= DESCrypt::initPermLeftD->get(block->get(offset + 6) & 0x0f);
+	l |= DESCrypt::initPermLeftC->get((block->get(offset + 6) >> 4) & 0x0f);
+	l |= DESCrypt::initPermLeftF->get(block->get(offset + 7) & 0x0f);
+	l |= DESCrypt::initPermLeftE->get((block->get(offset + 7) >> 4) & 0x0f);
 	return l;
 }
 
 int32_t DESCrypt::initialPermutationRight($bytes* block, int32_t offset) {
 	$init(DESCrypt);
 	int32_t l = 0;
-	l = $nc(DESCrypt::initPermRight1)->get((int32_t)($nc(block)->get(offset) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRight0)->get((int32_t)((block->get(offset) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRight3)->get((int32_t)(block->get(offset + 1) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRight2)->get((int32_t)((block->get(offset + 1) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRight5)->get((int32_t)(block->get(offset + 2) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRight4)->get((int32_t)((block->get(offset + 2) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRight7)->get((int32_t)(block->get(offset + 3) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRight6)->get((int32_t)((block->get(offset + 3) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRight9)->get((int32_t)(block->get(offset + 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRight8)->get((int32_t)((block->get(offset + 4) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRightB)->get((int32_t)(block->get(offset + 5) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRightA)->get((int32_t)((block->get(offset + 5) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRightD)->get((int32_t)(block->get(offset + 6) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRightC)->get((int32_t)((block->get(offset + 6) >> 4) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRightF)->get((int32_t)(block->get(offset + 7) & (uint32_t)15));
-	l |= $nc(DESCrypt::initPermRightE)->get((int32_t)((block->get(offset + 7) >> 4) & (uint32_t)15));
+	l = DESCrypt::initPermRight1->get($nc(block)->get(offset) & 0x0f);
+	l |= DESCrypt::initPermRight0->get((block->get(offset) >> 4) & 0x0f);
+	l |= DESCrypt::initPermRight3->get(block->get(offset + 1) & 0x0f);
+	l |= DESCrypt::initPermRight2->get((block->get(offset + 1) >> 4) & 0x0f);
+	l |= DESCrypt::initPermRight5->get(block->get(offset + 2) & 0x0f);
+	l |= DESCrypt::initPermRight4->get((block->get(offset + 2) >> 4) & 0x0f);
+	l |= DESCrypt::initPermRight7->get(block->get(offset + 3) & 0x0f);
+	l |= DESCrypt::initPermRight6->get((block->get(offset + 3) >> 4) & 0x0f);
+	l |= DESCrypt::initPermRight9->get(block->get(offset + 4) & 0x0f);
+	l |= DESCrypt::initPermRight8->get((block->get(offset + 4) >> 4) & 0x0f);
+	l |= DESCrypt::initPermRightB->get(block->get(offset + 5) & 0x0f);
+	l |= DESCrypt::initPermRightA->get((block->get(offset + 5) >> 4) & 0x0f);
+	l |= DESCrypt::initPermRightD->get(block->get(offset + 6) & 0x0f);
+	l |= DESCrypt::initPermRightC->get((block->get(offset + 6) >> 4) & 0x0f);
+	l |= DESCrypt::initPermRightF->get(block->get(offset + 7) & 0x0f);
+	l |= DESCrypt::initPermRightE->get((block->get(offset + 7) >> 4) & 0x0f);
 	return l;
 }
 
@@ -348,7 +253,7 @@ void DESCrypt::expandKey($bytes* key) {
 	int32_t octet = 0;
 	$var($bytes, ek, $new($bytes, 128));
 	octet = $nc(key)->get(0);
-	if (((int32_t)(octet & (uint32_t)128)) != 0) {
+	if ((octet & 0x80) != 0) {
 		(*ek)[3] |= 2;
 		(*ek)[9] |= 8;
 		(*ek)[18] |= 8;
@@ -364,7 +269,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[104] |= 4;
 		(*ek)[122] |= 32;
 	}
-	if (((int32_t)(octet & (uint32_t)64)) != 0) {
+	if ((octet & 0x40) != 0) {
 		(*ek)[1] |= 4;
 		(*ek)[8] |= 1;
 		(*ek)[18] |= 4;
@@ -381,7 +286,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[112] |= 2;
 		(*ek)[123] |= 1;
 	}
-	if (((int32_t)(octet & (uint32_t)32)) != 0) {
+	if ((octet & 0x20) != 0) {
 		(*ek)[2] |= 1;
 		(*ek)[19] |= 8;
 		(*ek)[35] |= 1;
@@ -395,7 +300,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[107] |= 4;
 		(*ek)[120] |= 8;
 	}
-	if (((int32_t)(octet & (uint32_t)16)) != 0) {
+	if ((octet & 0x10) != 0) {
 		(*ek)[4] |= 32;
 		(*ek)[20] |= 2;
 		(*ek)[31] |= 4;
@@ -411,7 +316,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[119] |= 16;
 		(*ek)[126] |= 8;
 	}
-	if (((int32_t)(octet & (uint32_t)8)) != 0) {
+	if ((octet & 8) != 0) {
 		(*ek)[5] |= 4;
 		(*ek)[15] |= 4;
 		(*ek)[21] |= 32;
@@ -427,7 +332,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[118] |= 32;
 		(*ek)[124] |= 2;
 	}
-	if (((int32_t)(octet & (uint32_t)4)) != 0) {
+	if ((octet & 4) != 0) {
 		(*ek)[15] |= 2;
 		(*ek)[21] |= 2;
 		(*ek)[39] |= 8;
@@ -443,7 +348,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[117] |= 8;
 		(*ek)[126] |= 1;
 	}
-	if (((int32_t)(octet & (uint32_t)2)) != 0) {
+	if ((octet & 2) != 0) {
 		(*ek)[14] |= 16;
 		(*ek)[23] |= 32;
 		(*ek)[29] |= 1;
@@ -459,7 +364,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[127] |= 8;
 	}
 	octet = key->get(1);
-	if (((int32_t)(octet & (uint32_t)128)) != 0) {
+	if ((octet & 0x80) != 0) {
 		(*ek)[1] |= 8;
 		(*ek)[8] |= 32;
 		(*ek)[17] |= 1;
@@ -475,7 +380,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[114] |= 32;
 		(*ek)[123] |= 2;
 	}
-	if (((int32_t)(octet & (uint32_t)64)) != 0) {
+	if ((octet & 0x40) != 0) {
 		(*ek)[0] |= 1;
 		(*ek)[11] |= 16;
 		(*ek)[16] |= 4;
@@ -490,7 +395,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[115] |= 1;
 		(*ek)[121] |= 4;
 	}
-	if (((int32_t)(octet & (uint32_t)32)) != 0) {
+	if ((octet & 0x20) != 0) {
 		(*ek)[9] |= 16;
 		(*ek)[18] |= 2;
 		(*ek)[24] |= 2;
@@ -506,7 +411,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[112] |= 8;
 		(*ek)[122] |= 1;
 	}
-	if (((int32_t)(octet & (uint32_t)16)) != 0) {
+	if ((octet & 0x10) != 0) {
 		(*ek)[14] |= 32;
 		(*ek)[21] |= 4;
 		(*ek)[30] |= 2;
@@ -521,7 +426,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[118] |= 8;
 		(*ek)[124] |= 32;
 	}
-	if (((int32_t)(octet & (uint32_t)8)) != 0) {
+	if ((octet & 8) != 0) {
 		(*ek)[7] |= 4;
 		(*ek)[14] |= 2;
 		(*ek)[20] |= 16;
@@ -537,7 +442,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[116] |= 2;
 		(*ek)[125] |= 4;
 	}
-	if (((int32_t)(octet & (uint32_t)4)) != 0) {
+	if ((octet & 4) != 0) {
 		(*ek)[7] |= 2;
 		(*ek)[12] |= 1;
 		(*ek)[22] |= 4;
@@ -552,7 +457,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[111] |= 1;
 		(*ek)[118] |= 1;
 	}
-	if (((int32_t)(octet & (uint32_t)2)) != 0) {
+	if ((octet & 2) != 0) {
 		(*ek)[6] |= 16;
 		(*ek)[13] |= 16;
 		(*ek)[20] |= 4;
@@ -569,7 +474,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[119] |= 8;
 	}
 	octet = key->get(2);
-	if (((int32_t)(octet & (uint32_t)128)) != 0) {
+	if ((octet & 0x80) != 0) {
 		(*ek)[0] |= 32;
 		(*ek)[10] |= 8;
 		(*ek)[19] |= 32;
@@ -585,7 +490,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[115] |= 2;
 		(*ek)[121] |= 8;
 	}
-	if (((int32_t)(octet & (uint32_t)64)) != 0) {
+	if ((octet & 0x40) != 0) {
 		(*ek)[3] |= 16;
 		(*ek)[10] |= 4;
 		(*ek)[17] |= 32;
@@ -602,7 +507,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[113] |= 4;
 		(*ek)[120] |= 1;
 	}
-	if (((int32_t)(octet & (uint32_t)32)) != 0) {
+	if ((octet & 0x20) != 0) {
 		(*ek)[1] |= 16;
 		(*ek)[11] |= 8;
 		(*ek)[27] |= 1;
@@ -617,7 +522,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[99] |= 4;
 		(*ek)[114] |= 1;
 	}
-	if (((int32_t)(octet & (uint32_t)16)) != 0) {
+	if ((octet & 0x10) != 0) {
 		(*ek)[6] |= 32;
 		(*ek)[12] |= 2;
 		(*ek)[23] |= 4;
@@ -633,7 +538,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[111] |= 16;
 		(*ek)[116] |= 32;
 	}
-	if (((int32_t)(octet & (uint32_t)8)) != 0) {
+	if ((octet & 8) != 0) {
 		(*ek)[6] |= 2;
 		(*ek)[13] |= 32;
 		(*ek)[23] |= 1;
@@ -649,7 +554,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[117] |= 4;
 		(*ek)[127] |= 4;
 	}
-	if (((int32_t)(octet & (uint32_t)4)) != 0) {
+	if ((octet & 4) != 0) {
 		(*ek)[4] |= 1;
 		(*ek)[13] |= 2;
 		(*ek)[31] |= 8;
@@ -665,7 +570,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[109] |= 8;
 		(*ek)[127] |= 2;
 	}
-	if (((int32_t)(octet & (uint32_t)2)) != 0) {
+	if ((octet & 2) != 0) {
 		(*ek)[5] |= 16;
 		(*ek)[15] |= 32;
 		(*ek)[21] |= 1;
@@ -681,7 +586,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[126] |= 16;
 	}
 	octet = key->get(3);
-	if (((int32_t)(octet & (uint32_t)128)) != 0) {
+	if ((octet & 0x80) != 0) {
 		(*ek)[2] |= 8;
 		(*ek)[9] |= 1;
 		(*ek)[16] |= 16;
@@ -697,7 +602,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[113] |= 8;
 		(*ek)[120] |= 32;
 	}
-	if (((int32_t)(octet & (uint32_t)64)) != 0) {
+	if ((octet & 0x40) != 0) {
 		(*ek)[2] |= 4;
 		(*ek)[8] |= 4;
 		(*ek)[27] |= 2;
@@ -712,7 +617,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[112] |= 1;
 		(*ek)[123] |= 16;
 	}
-	if (((int32_t)(octet & (uint32_t)32)) != 0) {
+	if ((octet & 0x20) != 0) {
 		(*ek)[3] |= 8;
 		(*ek)[10] |= 2;
 		(*ek)[16] |= 2;
@@ -728,7 +633,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[104] |= 8;
 		(*ek)[121] |= 16;
 	}
-	if (((int32_t)(octet & (uint32_t)16)) != 0) {
+	if ((octet & 0x10) != 0) {
 		(*ek)[4] |= 2;
 		(*ek)[13] |= 4;
 		(*ek)[22] |= 2;
@@ -743,7 +648,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[110] |= 8;
 		(*ek)[126] |= 32;
 	}
-	if (((int32_t)(octet & (uint32_t)8)) != 0) {
+	if ((octet & 8) != 0) {
 		(*ek)[5] |= 32;
 		(*ek)[12] |= 16;
 		(*ek)[21] |= 8;
@@ -758,7 +663,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[119] |= 4;
 		(*ek)[126] |= 2;
 	}
-	if (((int32_t)(octet & (uint32_t)4)) != 0) {
+	if ((octet & 4) != 0) {
 		(*ek)[5] |= 2;
 		(*ek)[14] |= 4;
 		(*ek)[20] |= 8;
@@ -774,7 +679,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[119] |= 2;
 		(*ek)[124] |= 1;
 	}
-	if (((int32_t)(octet & (uint32_t)2)) != 0) {
+	if ((octet & 2) != 0) {
 		(*ek)[7] |= 32;
 		(*ek)[12] |= 4;
 		(*ek)[23] |= 16;
@@ -792,7 +697,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[125] |= 16;
 	}
 	octet = key->get(4);
-	if (((int32_t)(octet & (uint32_t)128)) != 0) {
+	if ((octet & 0x80) != 0) {
 		(*ek)[1] |= 1;
 		(*ek)[11] |= 32;
 		(*ek)[17] |= 2;
@@ -807,7 +712,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[112] |= 32;
 		(*ek)[122] |= 8;
 	}
-	if (((int32_t)(octet & (uint32_t)64)) != 0) {
+	if ((octet & 0x40) != 0) {
 		(*ek)[0] |= 4;
 		(*ek)[9] |= 32;
 		(*ek)[18] |= 32;
@@ -824,7 +729,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[115] |= 16;
 		(*ek)[122] |= 4;
 	}
-	if (((int32_t)(octet & (uint32_t)32)) != 0) {
+	if ((octet & 0x20) != 0) {
 		(*ek)[2] |= 2;
 		(*ek)[19] |= 1;
 		(*ek)[24] |= 1;
@@ -840,7 +745,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[113] |= 16;
 		(*ek)[123] |= 8;
 	}
-	if (((int32_t)(octet & (uint32_t)16)) != 0) {
+	if ((octet & 0x10) != 0) {
 		(*ek)[3] |= 4;
 		(*ek)[10] |= 16;
 		(*ek)[16] |= 8;
@@ -855,7 +760,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[112] |= 16;
 		(*ek)[121] |= 2;
 	}
-	if (((int32_t)(octet & (uint32_t)8)) != 0) {
+	if ((octet & 8) != 0) {
 		(*ek)[4] |= 16;
 		(*ek)[15] |= 1;
 		(*ek)[22] |= 1;
@@ -872,7 +777,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[118] |= 2;
 		(*ek)[125] |= 32;
 	}
-	if (((int32_t)(octet & (uint32_t)4)) != 0) {
+	if ((octet & 4) != 0) {
 		(*ek)[6] |= 4;
 		(*ek)[23] |= 8;
 		(*ek)[30] |= 16;
@@ -887,7 +792,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[116] |= 1;
 		(*ek)[125] |= 2;
 	}
-	if (((int32_t)(octet & (uint32_t)2)) != 0) {
+	if ((octet & 2) != 0) {
 		(*ek)[4] |= 4;
 		(*ek)[13] |= 1;
 		(*ek)[22] |= 8;
@@ -903,7 +808,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[127] |= 32;
 	}
 	octet = key->get(5);
-	if (((int32_t)(octet & (uint32_t)128)) != 0) {
+	if ((octet & 0x80) != 0) {
 		(*ek)[3] |= 32;
 		(*ek)[8] |= 16;
 		(*ek)[19] |= 4;
@@ -920,7 +825,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[114] |= 8;
 		(*ek)[121] |= 1;
 	}
-	if (((int32_t)(octet & (uint32_t)64)) != 0) {
+	if ((octet & 0x40) != 0) {
 		(*ek)[1] |= 32;
 		(*ek)[19] |= 2;
 		(*ek)[24] |= 32;
@@ -934,7 +839,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[114] |= 4;
 		(*ek)[120] |= 4;
 	}
-	if (((int32_t)(octet & (uint32_t)32)) != 0) {
+	if ((octet & 0x20) != 0) {
 		(*ek)[8] |= 2;
 		(*ek)[17] |= 4;
 		(*ek)[27] |= 16;
@@ -949,7 +854,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[115] |= 8;
 		(*ek)[122] |= 2;
 	}
-	if (((int32_t)(octet & (uint32_t)16)) != 0) {
+	if ((octet & 0x10) != 0) {
 		(*ek)[2] |= 16;
 		(*ek)[18] |= 1;
 		(*ek)[25] |= 16;
@@ -966,7 +871,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[113] |= 2;
 		(*ek)[123] |= 4;
 	}
-	if (((int32_t)(octet & (uint32_t)8)) != 0) {
+	if ((octet & 8) != 0) {
 		(*ek)[7] |= 1;
 		(*ek)[13] |= 8;
 		(*ek)[28] |= 1;
@@ -981,7 +886,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[117] |= 32;
 		(*ek)[124] |= 16;
 	}
-	if (((int32_t)(octet & (uint32_t)4)) != 0) {
+	if ((octet & 4) != 0) {
 		(*ek)[12] |= 8;
 		(*ek)[29] |= 16;
 		(*ek)[36] |= 4;
@@ -997,7 +902,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[117] |= 2;
 		(*ek)[126] |= 4;
 	}
-	if (((int32_t)(octet & (uint32_t)2)) != 0) {
+	if ((octet & 2) != 0) {
 		(*ek)[5] |= 1;
 		(*ek)[15] |= 16;
 		(*ek)[20] |= 32;
@@ -1015,7 +920,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[124] |= 4;
 	}
 	octet = key->get(6);
-	if (((int32_t)(octet & (uint32_t)128)) != 0) {
+	if ((octet & 0x80) != 0) {
 		(*ek)[0] |= 16;
 		(*ek)[9] |= 2;
 		(*ek)[18] |= 16;
@@ -1030,7 +935,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[113] |= 1;
 		(*ek)[123] |= 32;
 	}
-	if (((int32_t)(octet & (uint32_t)64)) != 0) {
+	if ((octet & 0x40) != 0) {
 		(*ek)[10] |= 32;
 		(*ek)[17] |= 8;
 		(*ek)[26] |= 8;
@@ -1047,7 +952,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[112] |= 4;
 		(*ek)[121] |= 32;
 	}
-	if (((int32_t)(octet & (uint32_t)32)) != 0) {
+	if ((octet & 0x20) != 0) {
 		(*ek)[0] |= 2;
 		(*ek)[11] |= 1;
 		(*ek)[16] |= 1;
@@ -1063,7 +968,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[105] |= 16;
 		(*ek)[114] |= 2;
 	}
-	if (((int32_t)(octet & (uint32_t)16)) != 0) {
+	if ((octet & 0x10) != 0) {
 		(*ek)[8] |= 8;
 		(*ek)[27] |= 8;
 		(*ek)[43] |= 1;
@@ -1077,7 +982,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[115] |= 4;
 		(*ek)[122] |= 16;
 	}
-	if (((int32_t)(octet & (uint32_t)8)) != 0) {
+	if ((octet & 8) != 0) {
 		(*ek)[5] |= 8;
 		(*ek)[14] |= 1;
 		(*ek)[23] |= 2;
@@ -1094,7 +999,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[116] |= 16;
 		(*ek)[127] |= 1;
 	}
-	if (((int32_t)(octet & (uint32_t)4)) != 0) {
+	if ((octet & 4) != 0) {
 		(*ek)[4] |= 8;
 		(*ek)[15] |= 8;
 		(*ek)[22] |= 16;
@@ -1109,7 +1014,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[108] |= 1;
 		(*ek)[118] |= 4;
 	}
-	if (((int32_t)(octet & (uint32_t)2)) != 0) {
+	if ((octet & 2) != 0) {
 		(*ek)[7] |= 16;
 		(*ek)[14] |= 8;
 		(*ek)[28] |= 2;
@@ -1125,7 +1030,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[125] |= 1;
 	}
 	octet = key->get(7);
-	if (((int32_t)(octet & (uint32_t)128)) != 0) {
+	if ((octet & 0x80) != 0) {
 		(*ek)[1] |= 2;
 		(*ek)[11] |= 4;
 		(*ek)[26] |= 1;
@@ -1142,7 +1047,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[115] |= 32;
 		(*ek)[120] |= 16;
 	}
-	if (((int32_t)(octet & (uint32_t)64)) != 0) {
+	if ((octet & 0x40) != 0) {
 		(*ek)[2] |= 32;
 		(*ek)[11] |= 2;
 		(*ek)[16] |= 32;
@@ -1156,7 +1061,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[106] |= 4;
 		(*ek)[113] |= 32;
 	}
-	if (((int32_t)(octet & (uint32_t)32)) != 0) {
+	if ((octet & 0x20) != 0) {
 		(*ek)[3] |= 1;
 		(*ek)[9] |= 4;
 		(*ek)[19] |= 16;
@@ -1171,7 +1076,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[107] |= 8;
 		(*ek)[120] |= 2;
 	}
-	if (((int32_t)(octet & (uint32_t)16)) != 0) {
+	if ((octet & 0x10) != 0) {
 		(*ek)[0] |= 8;
 		(*ek)[10] |= 1;
 		(*ek)[17] |= 16;
@@ -1188,7 +1093,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[105] |= 2;
 		(*ek)[114] |= 16;
 	}
-	if (((int32_t)(octet & (uint32_t)8)) != 0) {
+	if ((octet & 8) != 0) {
 		(*ek)[6] |= 1;
 		(*ek)[20] |= 1;
 		(*ek)[30] |= 4;
@@ -1203,7 +1108,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[119] |= 1;
 		(*ek)[125] |= 8;
 	}
-	if (((int32_t)(octet & (uint32_t)4)) != 0) {
+	if ((octet & 4) != 0) {
 		(*ek)[7] |= 8;
 		(*ek)[21] |= 16;
 		(*ek)[28] |= 4;
@@ -1219,7 +1124,7 @@ void DESCrypt::expandKey($bytes* key) {
 		(*ek)[109] |= 2;
 		(*ek)[124] |= 8;
 	}
-	if (((int32_t)(octet & (uint32_t)2)) != 0) {
+	if ((octet & 2) != 0) {
 		(*ek)[6] |= 8;
 		(*ek)[12] |= 32;
 		(*ek)[22] |= 32;
@@ -1238,7 +1143,7 @@ void DESCrypt::expandKey($bytes* key) {
 	$set(this, expandedKey, ek);
 }
 
-void clinit$DESCrypt($Class* class$) {
+void DESCrypt::clinit$($Class* clazz) {
 	$assignStatic(DESCrypt::s0p, $new($ints, {
 		0x00410100,
 		0x00010000,
@@ -1254,7 +1159,7 @@ void clinit$DESCrypt($Class* class$) {
 		0x40000100,
 		0x40400100,
 		0x00400000,
-		0,
+		0x00000000,
 		0x40010000,
 		0x00010000,
 		0x40000000,
@@ -1265,14 +1170,14 @@ void clinit$DESCrypt($Class* class$) {
 		0x40000100,
 		0x00400100,
 		0x40000000,
-		256,
+		0x00000100,
 		0x00010100,
 		0x40410000,
-		256,
+		0x00000100,
 		0x40400100,
 		0x40410000,
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x40410100,
 		0x00400100,
 		0x40010000,
@@ -1281,7 +1186,7 @@ void clinit$DESCrypt($Class* class$) {
 		0x40000100,
 		0x00400100,
 		0x40410000,
-		256,
+		0x00000100,
 		0x00010100,
 		0x40400000,
 		0x40010100,
@@ -1295,40 +1200,40 @@ void clinit$DESCrypt($Class* class$) {
 		0x00400000,
 		0x40000100,
 		0x40010000,
-		0,
+		0x00000000,
 		0x00010000,
 		0x00400000,
 		0x40400100,
 		0x00410100,
 		0x40000000,
 		0x40410000,
-		256,
+		0x00000100,
 		0x40010100
 	}));
 	$assignStatic(DESCrypt::s1p, $new($ints, {
 		0x08021002,
-		0,
+		0x00000000,
 		0x00021000,
 		0x08020000,
 		0x08000002,
-		4098,
+		0x00001002,
 		0x08001000,
 		0x00021000,
-		4096,
+		0x00001000,
 		0x08020002,
-		2,
+		0x00000002,
 		0x08001000,
 		0x00020002,
 		0x08021000,
 		0x08020000,
-		2,
+		0x00000002,
 		0x00020000,
 		0x08001002,
 		0x08020002,
-		4096,
+		0x00001000,
 		0x00021002,
 		0x08000000,
-		0,
+		0x00000000,
 		0x00020002,
 		0x08001002,
 		0x00021002,
@@ -1336,7 +1241,7 @@ void clinit$DESCrypt($Class* class$) {
 		0x08000002,
 		0x08000000,
 		0x00020000,
-		4098,
+		0x00001002,
 		0x08021002,
 		0x00020002,
 		0x08021000,
@@ -1345,74 +1250,74 @@ void clinit$DESCrypt($Class* class$) {
 		0x08021002,
 		0x00020002,
 		0x08000002,
-		0,
+		0x00000000,
 		0x08000000,
-		4098,
+		0x00001002,
 		0x00020000,
 		0x08020002,
-		4096,
+		0x00001000,
 		0x08000000,
 		0x00021002,
 		0x08001002,
 		0x08021000,
-		4096,
-		0,
+		0x00001000,
+		0x00000000,
 		0x08000002,
-		2,
+		0x00000002,
 		0x08021002,
 		0x00021000,
 		0x08020000,
 		0x08020002,
 		0x00020000,
-		4098,
+		0x00001002,
 		0x08001000,
 		0x08001002,
-		2,
+		0x00000002,
 		0x08020000,
 		0x00021000
 	}));
 	$assignStatic(DESCrypt::s2p, $new($ints, {
 		0x20800000,
 		0x00808020,
-		32,
+		0x00000020,
 		0x20800020,
 		0x20008000,
 		0x00800000,
 		0x20800020,
 		0x00008020,
 		0x00800020,
-		32768,
+		0x00008000,
 		0x00808000,
 		0x20000000,
 		0x20808020,
 		0x20000020,
 		0x20000000,
 		0x20808000,
-		0,
+		0x00000000,
 		0x20008000,
 		0x00808020,
-		32,
+		0x00000020,
 		0x20000020,
 		0x20808020,
-		32768,
+		0x00008000,
 		0x20800000,
 		0x20808000,
 		0x00800020,
 		0x20008020,
 		0x00808000,
 		0x00008020,
-		0,
+		0x00000000,
 		0x00800000,
 		0x20008020,
 		0x00808020,
-		32,
+		0x00000020,
 		0x20000000,
-		32768,
+		0x00008000,
 		0x20000020,
 		0x20008000,
 		0x00808000,
 		0x20800020,
-		0,
+		0x00000000,
 		0x00808020,
 		0x00008020,
 		0x20808000,
@@ -1424,46 +1329,46 @@ void clinit$DESCrypt($Class* class$) {
 		0x20800000,
 		0x00800000,
 		0x20808020,
-		32768,
+		0x00008000,
 		0x00800020,
 		0x20800020,
 		0x00008020,
 		0x00800020,
-		0,
+		0x00000000,
 		0x20808000,
 		0x20000020,
 		0x20800000,
 		0x20008020,
-		32,
+		0x00000020,
 		0x00808000
 	}));
 	$assignStatic(DESCrypt::s3p, $new($ints, {
 		0x00080201,
 		0x02000200,
-		1,
+		0x00000001,
 		0x02080201,
-		0,
+		0x00000000,
 		0x02080000,
 		0x02000201,
 		0x00080001,
 		0x02080200,
 		0x02000001,
 		0x02000000,
-		513,
+		0x00000201,
 		0x02000001,
 		0x00080201,
 		0x00080000,
 		0x02000000,
 		0x02080001,
 		0x00080200,
-		512,
-		1,
+		0x00000200,
+		0x00000001,
 		0x00080200,
 		0x02000201,
 		0x02080000,
-		512,
-		513,
-		0,
+		0x00000200,
+		0x00000201,
+		0x00000000,
 		0x00080001,
 		0x02080200,
 		0x02000200,
@@ -1471,114 +1376,114 @@ void clinit$DESCrypt($Class* class$) {
 		0x02080201,
 		0x00080000,
 		0x02080001,
-		513,
+		0x00000201,
 		0x00080000,
 		0x02000001,
 		0x00080200,
 		0x02000200,
-		1,
+		0x00000001,
 		0x02080000,
 		0x02000201,
-		0,
-		512,
+		0x00000000,
+		0x00000200,
 		0x00080001,
-		0,
+		0x00000000,
 		0x02080001,
 		0x02080200,
-		512,
+		0x00000200,
 		0x02000000,
 		0x02080201,
 		0x00080201,
 		0x00080000,
 		0x02080201,
-		1,
+		0x00000001,
 		0x02000200,
 		0x00080201,
 		0x00080001,
 		0x00080200,
 		0x02080000,
 		0x02000201,
-		513,
+		0x00000201,
 		0x02000000,
 		0x02000001,
 		0x02080200
 	}));
 	$assignStatic(DESCrypt::s4p, $new($ints, {
 		0x01000000,
-		8192,
-		128,
+		0x00002000,
+		0x00000080,
 		0x01002084,
 		0x01002004,
 		0x01000080,
-		8324,
+		0x00002084,
 		0x01002000,
-		8192,
-		4,
+		0x00002000,
+		0x00000004,
 		0x01000004,
-		8320,
+		0x00002080,
 		0x01000084,
 		0x01002004,
 		0x01002080,
-		0,
-		8320,
+		0x00000000,
+		0x00002080,
 		0x01000000,
-		8196,
-		132,
+		0x00002004,
+		0x00000084,
 		0x01000080,
-		8324,
-		0,
+		0x00002084,
+		0x00000000,
 		0x01000004,
-		4,
+		0x00000004,
 		0x01000084,
 		0x01002084,
-		8196,
+		0x00002004,
 		0x01002000,
-		128,
-		132,
+		0x00000080,
+		0x00000084,
 		0x01002080,
 		0x01002080,
 		0x01000084,
-		8196,
+		0x00002004,
 		0x01002000,
-		8192,
-		4,
+		0x00002000,
+		0x00000004,
 		0x01000004,
 		0x01000080,
 		0x01000000,
-		8320,
+		0x00002080,
 		0x01002084,
-		0,
-		8324,
+		0x00000000,
+		0x00002084,
 		0x01000000,
-		128,
-		8196,
+		0x00000080,
+		0x00002004,
 		0x01000084,
-		128,
-		0,
+		0x00000080,
+		0x00000000,
 		0x01002084,
 		0x01002004,
 		0x01002080,
-		132,
-		8192,
-		8320,
+		0x00000084,
+		0x00002000,
+		0x00002080,
 		0x01002004,
 		0x01000080,
-		132,
-		4,
-		8324,
+		0x00000084,
+		0x00000004,
+		0x00002084,
 		0x01002000,
 		0x01000004
 	}));
 	$assignStatic(DESCrypt::s5p, $new($ints, {
 		0x10000008,
 		0x00040008,
-		0,
+		0x00000000,
 		0x10040400,
 		0x00040008,
-		1024,
+		0x00000400,
 		0x10000408,
 		0x00040000,
-		1032,
+		0x00000408,
 		0x10040408,
 		0x00040400,
 		0x10000000,
@@ -1589,35 +1494,35 @@ void clinit$DESCrypt($Class* class$) {
 		0x00040000,
 		0x10000408,
 		0x10040008,
-		0,
-		1024,
-		8,
+		0x00000000,
+		0x00000400,
+		0x00000008,
 		0x10040400,
 		0x10040008,
 		0x10040408,
 		0x10040000,
 		0x10000000,
-		1032,
-		8,
+		0x00000408,
+		0x00000008,
 		0x00040400,
 		0x00040408,
 		0x10000400,
-		1032,
+		0x00000408,
 		0x10000000,
 		0x10000400,
 		0x00040408,
 		0x10040400,
 		0x00040008,
-		0,
+		0x00000000,
 		0x10000400,
 		0x10000000,
-		1024,
+		0x00000400,
 		0x10040008,
 		0x00040000,
 		0x00040008,
 		0x10040408,
 		0x00040400,
-		8,
+		0x00000008,
 		0x10040408,
 		0x00040400,
 		0x00040000,
@@ -1625,25 +1530,25 @@ void clinit$DESCrypt($Class* class$) {
 		0x10000008,
 		0x10040000,
 		0x00040408,
-		0,
-		1024,
+		0x00000000,
+		0x00000400,
 		0x10000008,
 		0x10000408,
 		0x10040400,
 		0x10040000,
-		1032,
-		8,
+		0x00000408,
+		0x00000008,
 		0x10040008
 	}));
 	$assignStatic(DESCrypt::s6p, $new($ints, {
-		2048,
-		64,
+		0x00000800,
+		0x00000040,
 		0x00200040,
 		(int32_t)0x80200000,
 		(int32_t)0x80200840,
 		(int32_t)0x80000800,
-		2112,
-		0,
+		0x00000840,
+		0x00000000,
 		0x00200000,
 		(int32_t)0x80200040,
 		(int32_t)0x80000040,
@@ -1653,43 +1558,43 @@ void clinit$DESCrypt($Class* class$) {
 		0x00200800,
 		(int32_t)0x80000040,
 		(int32_t)0x80200040,
-		2048,
+		0x00000800,
 		(int32_t)0x80000800,
 		(int32_t)0x80200840,
-		0,
+		0x00000000,
 		0x00200040,
 		(int32_t)0x80200000,
-		2112,
+		0x00000840,
 		(int32_t)0x80200800,
 		(int32_t)0x80000840,
 		0x00200840,
 		(int32_t)0x80000000,
 		(int32_t)0x80000840,
 		(int32_t)0x80200800,
-		64,
+		0x00000040,
 		0x00200000,
 		(int32_t)0x80000840,
 		0x00200800,
 		(int32_t)0x80200800,
 		(int32_t)0x80000040,
-		2048,
-		64,
+		0x00000800,
+		0x00000040,
 		0x00200000,
 		(int32_t)0x80200800,
 		(int32_t)0x80200040,
 		(int32_t)0x80000840,
-		2112,
-		0,
-		64,
+		0x00000840,
+		0x00000000,
+		0x00000040,
 		(int32_t)0x80200000,
 		(int32_t)0x80000000,
 		0x00200040,
-		0,
+		0x00000000,
 		(int32_t)0x80200040,
 		0x00200040,
-		2112,
+		0x00000840,
 		(int32_t)0x80000040,
-		2048,
+		0x00000800,
 		(int32_t)0x80200840,
 		0x00200000,
 		0x00200840,
@@ -1704,50 +1609,50 @@ void clinit$DESCrypt($Class* class$) {
 	$assignStatic(DESCrypt::s7p, $new($ints, {
 		0x04100010,
 		0x04104000,
-		16400,
-		0,
+		0x00004010,
+		0x00000000,
 		0x04004000,
 		0x00100010,
 		0x04100000,
 		0x04104010,
-		16,
+		0x00000010,
 		0x04000000,
 		0x00104000,
-		16400,
+		0x00004010,
 		0x00104010,
 		0x04004010,
 		0x04000010,
 		0x04100000,
-		16384,
+		0x00004000,
 		0x00104010,
 		0x00100010,
 		0x04004000,
 		0x04104010,
 		0x04000010,
-		0,
+		0x00000000,
 		0x00104000,
 		0x04000000,
 		0x00100000,
 		0x04004010,
 		0x04100010,
 		0x00100000,
-		16384,
+		0x00004000,
 		0x04104000,
-		16,
+		0x00000010,
 		0x00100000,
-		16384,
+		0x00004000,
 		0x04000010,
 		0x04104010,
-		16400,
+		0x00004010,
 		0x04000000,
-		0,
+		0x00000000,
 		0x00104000,
 		0x04100010,
 		0x04004010,
 		0x04004000,
 		0x00100010,
 		0x04104000,
-		16,
+		0x00000010,
 		0x00100010,
 		0x04004000,
 		0x04104010,
@@ -1755,172 +1660,172 @@ void clinit$DESCrypt($Class* class$) {
 		0x04100000,
 		0x04000010,
 		0x00104000,
-		16400,
+		0x00004010,
 		0x04004010,
 		0x04100000,
-		16,
+		0x00000010,
 		0x04104000,
 		0x00104010,
-		0,
+		0x00000000,
 		0x04000000,
 		0x04100010,
-		16384,
+		0x00004000,
 		0x00104010
 	}));
 	$assignStatic(DESCrypt::permRight0, $new($ints, {
-		0,
+		0x00000000,
 		0x40000000,
 		0x00400000,
 		0x40400000,
-		16384,
+		0x00004000,
 		0x40004000,
 		0x00404000,
 		0x40404000,
-		64,
+		0x00000040,
 		0x40000040,
 		0x00400040,
 		0x40400040,
-		16448,
+		0x00004040,
 		0x40004040,
 		0x00404040,
 		0x40404040
 	}));
 	$assignStatic(DESCrypt::permLeft1, $new($ints, {
-		0,
+		0x00000000,
 		0x40000000,
 		0x00400000,
 		0x40400000,
-		16384,
+		0x00004000,
 		0x40004000,
 		0x00404000,
 		0x40404000,
-		64,
+		0x00000040,
 		0x40000040,
 		0x00400040,
 		0x40400040,
-		16448,
+		0x00004040,
 		0x40004040,
 		0x00404040,
 		0x40404040
 	}));
 	$assignStatic(DESCrypt::permRight2, $new($ints, {
-		0,
+		0x00000000,
 		0x10000000,
 		0x00100000,
 		0x10100000,
-		4096,
+		0x00001000,
 		0x10001000,
 		0x00101000,
 		0x10101000,
-		16,
+		0x00000010,
 		0x10000010,
 		0x00100010,
 		0x10100010,
-		4112,
+		0x00001010,
 		0x10001010,
 		0x00101010,
 		0x10101010
 	}));
 	$assignStatic(DESCrypt::permLeft3, $new($ints, {
-		0,
+		0x00000000,
 		0x10000000,
 		0x00100000,
 		0x10100000,
-		4096,
+		0x00001000,
 		0x10001000,
 		0x00101000,
 		0x10101000,
-		16,
+		0x00000010,
 		0x10000010,
 		0x00100010,
 		0x10100010,
-		4112,
+		0x00001010,
 		0x10001010,
 		0x00101010,
 		0x10101010
 	}));
 	$assignStatic(DESCrypt::permRight4, $new($ints, {
-		0,
+		0x00000000,
 		0x04000000,
 		0x00040000,
 		0x04040000,
-		1024,
+		0x00000400,
 		0x04000400,
 		0x00040400,
 		0x04040400,
-		4,
+		0x00000004,
 		0x04000004,
 		0x00040004,
 		0x04040004,
-		1028,
+		0x00000404,
 		0x04000404,
 		0x00040404,
 		0x04040404
 	}));
 	$assignStatic(DESCrypt::permLeft5, $new($ints, {
-		0,
+		0x00000000,
 		0x04000000,
 		0x00040000,
 		0x04040000,
-		1024,
+		0x00000400,
 		0x04000400,
 		0x00040400,
 		0x04040400,
-		4,
+		0x00000004,
 		0x04000004,
 		0x00040004,
 		0x04040004,
-		1028,
+		0x00000404,
 		0x04000404,
 		0x00040404,
 		0x04040404
 	}));
 	$assignStatic(DESCrypt::permRight6, $new($ints, {
-		0,
+		0x00000000,
 		0x01000000,
 		0x00010000,
 		0x01010000,
-		256,
+		0x00000100,
 		0x01000100,
 		0x00010100,
 		0x01010100,
-		1,
+		0x00000001,
 		0x01000001,
 		0x00010001,
 		0x01010001,
-		257,
+		0x00000101,
 		0x01000101,
 		0x00010101,
 		0x01010101
 	}));
 	$assignStatic(DESCrypt::permLeft7, $new($ints, {
-		0,
+		0x00000000,
 		0x01000000,
 		0x00010000,
 		0x01010000,
-		256,
+		0x00000100,
 		0x01000100,
 		0x00010100,
 		0x01010100,
-		1,
+		0x00000001,
 		0x01000001,
 		0x00010001,
 		0x01010001,
-		257,
+		0x00000101,
 		0x01000101,
 		0x00010101,
 		0x01010101
 	}));
 	$assignStatic(DESCrypt::permRight8, $new($ints, {
-		0,
+		0x00000000,
 		(int32_t)0x80000000,
 		0x00800000,
 		(int32_t)0x80800000,
-		32768,
+		0x00008000,
 		(int32_t)0x80008000,
 		0x00808000,
 		(int32_t)0x80808000,
-		128,
+		0x00000080,
 		(int32_t)0x80000080,
 		0x00800080,
 		(int32_t)0x80800080,
@@ -1930,15 +1835,15 @@ void clinit$DESCrypt($Class* class$) {
 		(int32_t)0x80808080
 	}));
 	$assignStatic(DESCrypt::permLeft9, $new($ints, {
-		0,
+		0x00000000,
 		(int32_t)0x80000000,
 		0x00800000,
 		(int32_t)0x80800000,
-		32768,
+		0x00008000,
 		(int32_t)0x80008000,
 		0x00808000,
 		(int32_t)0x80808000,
-		128,
+		0x00000080,
 		(int32_t)0x80000080,
 		0x00800080,
 		(int32_t)0x80800080,
@@ -1948,161 +1853,161 @@ void clinit$DESCrypt($Class* class$) {
 		(int32_t)0x80808080
 	}));
 	$assignStatic(DESCrypt::permRightA, $new($ints, {
-		0,
+		0x00000000,
 		0x20000000,
 		0x00200000,
 		0x20200000,
-		8192,
+		0x00002000,
 		0x20002000,
 		0x00202000,
 		0x20202000,
-		32,
+		0x00000020,
 		0x20000020,
 		0x00200020,
 		0x20200020,
-		8224,
+		0x00002020,
 		0x20002020,
 		0x00202020,
 		0x20202020
 	}));
 	$assignStatic(DESCrypt::permLeftB, $new($ints, {
-		0,
+		0x00000000,
 		0x20000000,
 		0x00200000,
 		0x20200000,
-		8192,
+		0x00002000,
 		0x20002000,
 		0x00202000,
 		0x20202000,
-		32,
+		0x00000020,
 		0x20000020,
 		0x00200020,
 		0x20200020,
-		8224,
+		0x00002020,
 		0x20002020,
 		0x00202020,
 		0x20202020
 	}));
 	$assignStatic(DESCrypt::permRightC, $new($ints, {
-		0,
+		0x00000000,
 		0x08000000,
 		0x00080000,
 		0x08080000,
-		2048,
+		0x00000800,
 		0x08000800,
 		0x00080800,
 		0x08080800,
-		8,
+		0x00000008,
 		0x08000008,
 		0x00080008,
 		0x08080008,
-		2056,
+		0x00000808,
 		0x08000808,
 		0x00080808,
 		0x08080808
 	}));
 	$assignStatic(DESCrypt::permLeftD, $new($ints, {
-		0,
+		0x00000000,
 		0x08000000,
 		0x00080000,
 		0x08080000,
-		2048,
+		0x00000800,
 		0x08000800,
 		0x00080800,
 		0x08080800,
-		8,
+		0x00000008,
 		0x08000008,
 		0x00080008,
 		0x08080008,
-		2056,
+		0x00000808,
 		0x08000808,
 		0x00080808,
 		0x08080808
 	}));
 	$assignStatic(DESCrypt::permRightE, $new($ints, {
-		0,
+		0x00000000,
 		0x02000000,
 		0x00020000,
 		0x02020000,
-		512,
+		0x00000200,
 		0x02000200,
 		0x00020200,
 		0x02020200,
-		2,
+		0x00000002,
 		0x02000002,
 		0x00020002,
 		0x02020002,
-		514,
+		0x00000202,
 		0x02000202,
 		0x00020202,
 		0x02020202
 	}));
 	$assignStatic(DESCrypt::permLeftF, $new($ints, {
-		0,
+		0x00000000,
 		0x02000000,
 		0x00020000,
 		0x02020000,
-		512,
+		0x00000200,
 		0x02000200,
 		0x00020200,
 		0x02020200,
-		2,
+		0x00000002,
 		0x02000002,
 		0x00020002,
 		0x02020002,
-		514,
+		0x00000202,
 		0x02000202,
 		0x00020202,
 		0x02020202
 	}));
 	$assignStatic(DESCrypt::initPermLeft0, $new($ints, {
-		0,
-		32768,
-		0,
-		32768,
-		128,
+		0x00000000,
+		0x00008000,
+		0x00000000,
+		0x00008000,
+		0x00000080,
 		0x00008080,
-		128,
+		0x00000080,
 		0x00008080,
-		0,
-		32768,
-		0,
-		32768,
-		128,
+		0x00000000,
+		0x00008000,
+		0x00000000,
+		0x00008000,
+		0x00000080,
 		0x00008080,
-		128,
+		0x00000080,
 		0x00008080
 	}));
 	$assignStatic(DESCrypt::initPermRight0, $new($ints, {
-		0,
-		0,
-		32768,
-		32768,
-		0,
-		0,
-		32768,
-		32768,
-		128,
-		128,
+		0x00000000,
+		0x00000000,
+		0x00008000,
+		0x00008000,
+		0x00000000,
+		0x00000000,
+		0x00008000,
+		0x00008000,
+		0x00000080,
+		0x00000080,
 		0x00008080,
 		0x00008080,
-		128,
-		128,
+		0x00000080,
+		0x00000080,
 		0x00008080,
 		0x00008080
 	}));
 	$assignStatic(DESCrypt::initPermLeft1, $new($ints, {
-		0,
+		0x00000000,
 		(int32_t)0x80000000,
-		0,
+		0x00000000,
 		(int32_t)0x80000000,
 		0x00800000,
 		(int32_t)0x80800000,
 		0x00800000,
 		(int32_t)0x80800000,
-		0,
+		0x00000000,
 		(int32_t)0x80000000,
-		0,
+		0x00000000,
 		(int32_t)0x80000000,
 		0x00800000,
 		(int32_t)0x80800000,
@@ -2110,12 +2015,12 @@ void clinit$DESCrypt($Class* class$) {
 		(int32_t)0x80800000
 	}));
 	$assignStatic(DESCrypt::initPermRight1, $new($ints, {
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		(int32_t)0x80000000,
 		(int32_t)0x80000000,
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		(int32_t)0x80000000,
 		(int32_t)0x80000000,
 		0x00800000,
@@ -2164,17 +2069,17 @@ void clinit$DESCrypt($Class* class$) {
 		16448
 	}));
 	$assignStatic(DESCrypt::initPermLeft3, $new($ints, {
-		0,
+		0x00000000,
 		0x40000000,
-		0,
+		0x00000000,
 		0x40000000,
 		0x00400000,
 		0x40400000,
 		0x00400000,
 		0x40400000,
-		0,
+		0x00000000,
 		0x40000000,
-		0,
+		0x00000000,
 		0x40000000,
 		0x00400000,
 		0x40400000,
@@ -2182,12 +2087,12 @@ void clinit$DESCrypt($Class* class$) {
 		0x40400000
 	}));
 	$assignStatic(DESCrypt::initPermRight3, $new($ints, {
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x40000000,
 		0x40000000,
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x40000000,
 		0x40000000,
 		0x00400000,
@@ -2236,17 +2141,17 @@ void clinit$DESCrypt($Class* class$) {
 		8224
 	}));
 	$assignStatic(DESCrypt::initPermLeft5, $new($ints, {
-		0,
+		0x00000000,
 		0x20000000,
-		0,
+		0x00000000,
 		0x20000000,
 		0x00200000,
 		0x20200000,
 		0x00200000,
 		0x20200000,
-		0,
+		0x00000000,
 		0x20000000,
-		0,
+		0x00000000,
 		0x20000000,
 		0x00200000,
 		0x20200000,
@@ -2254,12 +2159,12 @@ void clinit$DESCrypt($Class* class$) {
 		0x20200000
 	}));
 	$assignStatic(DESCrypt::initPermRight5, $new($ints, {
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x20000000,
 		0x20000000,
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x20000000,
 		0x20000000,
 		0x00200000,
@@ -2308,17 +2213,17 @@ void clinit$DESCrypt($Class* class$) {
 		4112
 	}));
 	$assignStatic(DESCrypt::initPermLeft7, $new($ints, {
-		0,
+		0x00000000,
 		0x10000000,
-		0,
+		0x00000000,
 		0x10000000,
 		0x00100000,
 		0x10100000,
 		0x00100000,
 		0x10100000,
-		0,
+		0x00000000,
 		0x10000000,
-		0,
+		0x00000000,
 		0x10000000,
 		0x00100000,
 		0x10100000,
@@ -2326,12 +2231,12 @@ void clinit$DESCrypt($Class* class$) {
 		0x10100000
 	}));
 	$assignStatic(DESCrypt::initPermRight7, $new($ints, {
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x10000000,
 		0x10000000,
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x10000000,
 		0x10000000,
 		0x00100000,
@@ -2380,17 +2285,17 @@ void clinit$DESCrypt($Class* class$) {
 		2056
 	}));
 	$assignStatic(DESCrypt::initPermLeft9, $new($ints, {
-		0,
+		0x00000000,
 		0x08000000,
-		0,
+		0x00000000,
 		0x08000000,
 		0x00080000,
 		0x08080000,
 		0x00080000,
 		0x08080000,
-		0,
+		0x00000000,
 		0x08000000,
-		0,
+		0x00000000,
 		0x08000000,
 		0x00080000,
 		0x08080000,
@@ -2398,12 +2303,12 @@ void clinit$DESCrypt($Class* class$) {
 		0x08080000
 	}));
 	$assignStatic(DESCrypt::initPermRight9, $new($ints, {
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x08000000,
 		0x08000000,
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x08000000,
 		0x08000000,
 		0x00080000,
@@ -2452,17 +2357,17 @@ void clinit$DESCrypt($Class* class$) {
 		1028
 	}));
 	$assignStatic(DESCrypt::initPermLeftB, $new($ints, {
-		0,
+		0x00000000,
 		0x04000000,
-		0,
+		0x00000000,
 		0x04000000,
 		0x00040000,
 		0x04040000,
 		0x00040000,
 		0x04040000,
-		0,
+		0x00000000,
 		0x04000000,
-		0,
+		0x00000000,
 		0x04000000,
 		0x00040000,
 		0x04040000,
@@ -2470,12 +2375,12 @@ void clinit$DESCrypt($Class* class$) {
 		0x04040000
 	}));
 	$assignStatic(DESCrypt::initPermRightB, $new($ints, {
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x04000000,
 		0x04000000,
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x04000000,
 		0x04000000,
 		0x00040000,
@@ -2524,17 +2429,17 @@ void clinit$DESCrypt($Class* class$) {
 		514
 	}));
 	$assignStatic(DESCrypt::initPermLeftD, $new($ints, {
-		0,
+		0x00000000,
 		0x02000000,
-		0,
+		0x00000000,
 		0x02000000,
 		0x00020000,
 		0x02020000,
 		0x00020000,
 		0x02020000,
-		0,
+		0x00000000,
 		0x02000000,
-		0,
+		0x00000000,
 		0x02000000,
 		0x00020000,
 		0x02020000,
@@ -2542,12 +2447,12 @@ void clinit$DESCrypt($Class* class$) {
 		0x02020000
 	}));
 	$assignStatic(DESCrypt::initPermRightD, $new($ints, {
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x02000000,
 		0x02000000,
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x02000000,
 		0x02000000,
 		0x00020000,
@@ -2596,17 +2501,17 @@ void clinit$DESCrypt($Class* class$) {
 		257
 	}));
 	$assignStatic(DESCrypt::initPermLeftF, $new($ints, {
-		0,
+		0x00000000,
 		0x01000000,
-		0,
+		0x00000000,
 		0x01000000,
 		0x00010000,
 		0x01010000,
 		0x00010000,
 		0x01010000,
-		0,
+		0x00000000,
 		0x01000000,
-		0,
+		0x00000000,
 		0x01000000,
 		0x00010000,
 		0x01010000,
@@ -2614,12 +2519,12 @@ void clinit$DESCrypt($Class* class$) {
 		0x01010000
 	}));
 	$assignStatic(DESCrypt::initPermRightF, $new($ints, {
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x01000000,
 		0x01000000,
-		0,
-		0,
+		0x00000000,
+		0x00000000,
 		0x01000000,
 		0x01000000,
 		0x00010000,
@@ -2637,7 +2542,96 @@ DESCrypt::DESCrypt() {
 }
 
 $Class* DESCrypt::load$($String* name, bool initialize) {
-	$loadClass(DESCrypt, name, initialize, &_DESCrypt_ClassInfo_, clinit$DESCrypt, allocate$DESCrypt);
+	$FieldInfo fieldInfos$$[] = {
+		{"s0p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s0p)},
+		{"s1p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s1p)},
+		{"s2p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s2p)},
+		{"s3p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s3p)},
+		{"s4p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s4p)},
+		{"s5p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s5p)},
+		{"s6p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s6p)},
+		{"s7p", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, s7p)},
+		{"permRight0", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRight0)},
+		{"permLeft1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeft1)},
+		{"permRight2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRight2)},
+		{"permLeft3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeft3)},
+		{"permRight4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRight4)},
+		{"permLeft5", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeft5)},
+		{"permRight6", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRight6)},
+		{"permLeft7", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeft7)},
+		{"permRight8", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRight8)},
+		{"permLeft9", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeft9)},
+		{"permRightA", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRightA)},
+		{"permLeftB", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeftB)},
+		{"permRightC", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRightC)},
+		{"permLeftD", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeftD)},
+		{"permRightE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permRightE)},
+		{"permLeftF", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, permLeftF)},
+		{"initPermLeft0", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft0)},
+		{"initPermRight0", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight0)},
+		{"initPermLeft1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft1)},
+		{"initPermRight1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight1)},
+		{"initPermLeft2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft2)},
+		{"initPermRight2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight2)},
+		{"initPermLeft3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft3)},
+		{"initPermRight3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight3)},
+		{"initPermLeft4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft4)},
+		{"initPermRight4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight4)},
+		{"initPermLeft5", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft5)},
+		{"initPermRight5", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight5)},
+		{"initPermLeft6", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft6)},
+		{"initPermRight6", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight6)},
+		{"initPermLeft7", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft7)},
+		{"initPermRight7", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight7)},
+		{"initPermLeft8", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft8)},
+		{"initPermRight8", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight8)},
+		{"initPermLeft9", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeft9)},
+		{"initPermRight9", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRight9)},
+		{"initPermLeftA", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftA)},
+		{"initPermRightA", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightA)},
+		{"initPermLeftB", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftB)},
+		{"initPermRightB", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightB)},
+		{"initPermLeftC", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftC)},
+		{"initPermRightC", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightC)},
+		{"initPermLeftD", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftD)},
+		{"initPermRightD", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightD)},
+		{"initPermLeftE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftE)},
+		{"initPermRightE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightE)},
+		{"initPermLeftF", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermLeftF)},
+		{"initPermRightF", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESCrypt, initPermRightF)},
+		{"expandedKey", "[B", nullptr, 0, $field(DESCrypt, expandedKey)},
+		{"decrypting", "Z", nullptr, 0, $field(DESCrypt, decrypting)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(DESCrypt, init$, void)},
+		{"cipherBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESCrypt, cipherBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+		{"decryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESCrypt, decryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+		{"encryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESCrypt, encryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+		{"expandKey", "([B)V", nullptr, 0, $virtualMethod(DESCrypt, expandKey, void, $bytes*)},
+		{"getBlockSize", "()I", nullptr, 0, $virtualMethod(DESCrypt, getBlockSize, int32_t)},
+		{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, $virtualMethod(DESCrypt, init, void, bool, $String*, $bytes*), "java.security.InvalidKeyException"},
+		{"initialPermutationLeft", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DESCrypt, initialPermutationLeft, int32_t, $bytes*, int32_t)},
+		{"initialPermutationRight", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DESCrypt, initialPermutationRight, int32_t, $bytes*, int32_t)},
+		{"perm", "(II[BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DESCrypt, perm, void, int32_t, int32_t, $bytes*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.crypto.provider.DESCrypt",
+		"com.sun.crypto.provider.SymmetricCipher",
+		"com.sun.crypto.provider.DESConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DESCrypt, name, initialize, &classInfo$$, DESCrypt::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DESCrypt));
+	});
 	return class$;
 }
 

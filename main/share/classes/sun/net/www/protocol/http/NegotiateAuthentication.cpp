@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/NegotiateAuthentication.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ThreadLocal.h>
@@ -40,8 +39,6 @@ using $ThreadLocal = ::java::lang::ThreadLocal;
 using $Authenticator$RequestorType = ::java::net::Authenticator$RequestorType;
 using $URL = ::java::net::URL;
 using $Base64 = ::java::util::Base64;
-using $Base64$Decoder = ::java::util::Base64$Decoder;
-using $Base64$Encoder = ::java::util::Base64$Encoder;
 using $HashMap = ::java::util::HashMap;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $HeaderParser = ::sun::net::www::HeaderParser;
@@ -60,56 +57,6 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$FieldInfo _NegotiateAuthentication_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NegotiateAuthentication, $assertionsDisabled)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NegotiateAuthentication, serialVersionUID)},
-	{"hci", "Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PRIVATE | $FINAL, $field(NegotiateAuthentication, hci)},
-	{"supported", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Boolean;>;", $STATIC, $staticField(NegotiateAuthentication, supported)},
-	{"cache", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/util/HashMap<Ljava/lang/String;Lsun/net/www/protocol/http/Negotiator;>;>;", $STATIC, $staticField(NegotiateAuthentication, cache)},
-	{"negotiateLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NegotiateAuthentication, negotiateLock)},
-	{"cacheSPNEGO", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NegotiateAuthentication, cacheSPNEGO)},
-	{"negotiator", "Lsun/net/www/protocol/http/Negotiator;", nullptr, $PRIVATE, $field(NegotiateAuthentication, negotiator)},
-	{}
-};
-
-$MethodInfo _NegotiateAuthentication_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(NegotiateAuthentication, init$, void, $HttpCallerInfo*)},
-	{"firstToken", "()[B", nullptr, $PRIVATE, $method(NegotiateAuthentication, firstToken, $bytes*), "java.io.IOException"},
-	{"getCache", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Lsun/net/www/protocol/http/Negotiator;>;", $PRIVATE | $STATIC, $staticMethod(NegotiateAuthentication, getCache, $HashMap*)},
-	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, getHeaderValue, $String*, $URL*, $String*)},
-	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, isAuthorizationStale, bool, $String*)},
-	{"isSupported", "(Lsun/net/www/protocol/http/HttpCallerInfo;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NegotiateAuthentication, isSupported, bool, $HttpCallerInfo*)},
-	{"nextToken", "([B)[B", nullptr, $PRIVATE, $method(NegotiateAuthentication, nextToken, $bytes*, $bytes*), "java.io.IOException"},
-	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
-	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, supportsPreemptiveAuthorization, bool)},
-	{"useAuthCache", "()Z", nullptr, $PROTECTED, $virtualMethod(NegotiateAuthentication, useAuthCache, bool)},
-	{}
-};
-
-$InnerClassInfo _NegotiateAuthentication_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.NegotiateAuthentication$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NegotiateAuthentication_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.http.NegotiateAuthentication",
-	"sun.net.www.protocol.http.AuthenticationInfo",
-	nullptr,
-	_NegotiateAuthentication_FieldInfo_,
-	_NegotiateAuthentication_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NegotiateAuthentication_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.NegotiateAuthentication$1"
-};
-
-$Object* allocate$NegotiateAuthentication($Class* clazz) {
-	return $of($alloc(NegotiateAuthentication));
-}
-
 bool NegotiateAuthentication::$assertionsDisabled = false;
 $HashMap* NegotiateAuthentication::supported = nullptr;
 $ThreadLocal* NegotiateAuthentication::cache = nullptr;
@@ -117,12 +64,12 @@ $ReentrantLock* NegotiateAuthentication::negotiateLock = nullptr;
 bool NegotiateAuthentication::cacheSPNEGO = false;
 
 void NegotiateAuthentication::init$($HttpCallerInfo* hci) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Authenticator$RequestorType);
 	char16_t var$0 = $Authenticator$RequestorType::PROXY == $nc(hci)->authType ? $AuthenticationInfo::PROXY_AUTHENTICATION : $AuthenticationInfo::SERVER_AUTHENTICATION;
 	$init($AuthScheme);
-	$var($AuthScheme, var$1, $nc($nc(hci)->scheme)->equalsIgnoreCase("Negotiate"_s) ? $AuthScheme::NEGOTIATE : $AuthScheme::KERBEROS);
-	$var($URL, var$2, $nc(hci)->url);
+	$var($AuthScheme, var$1, $nc(hci->scheme)->equalsIgnoreCase("Negotiate"_s) ? $AuthScheme::NEGOTIATE : $AuthScheme::KERBEROS);
+	$var($URL, var$2, hci->url);
 	$var($String, var$3, ""_s);
 	$AuthenticationInfo::init$(var$0, var$1, var$2, var$3, $($AuthenticatorKeys::getKey(hci->authenticator)));
 	$set(this, negotiator, nullptr);
@@ -135,82 +82,78 @@ bool NegotiateAuthentication::supportsPreemptiveAuthorization() {
 
 bool NegotiateAuthentication::isSupported($HttpCallerInfo* hci) {
 	$init(NegotiateAuthentication);
-	$useLocalCurrentObjectStackCache();
-	$nc(NegotiateAuthentication::negotiateLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			if (NegotiateAuthentication::supported == nullptr) {
-				$assignStatic(NegotiateAuthentication::supported, $new($HashMap));
-			}
-			$var($String, hostname, $nc(hci)->host);
-			$assign(hostname, $nc(hostname)->toLowerCase());
-			if ($nc(NegotiateAuthentication::supported)->containsKey(hostname)) {
-				var$2 = $nc(($cast($Boolean, $($nc(NegotiateAuthentication::supported)->get(hostname)))))->booleanValue();
-				return$1 = true;
-				goto $finally;
-			}
-			$var($Negotiator, neg, $Negotiator::getNegotiator(hci));
-			if (neg != nullptr) {
-				$nc(NegotiateAuthentication::supported)->put(hostname, $($Boolean::valueOf(true)));
-				if (NegotiateAuthentication::cache == nullptr) {
-					$assignStatic(NegotiateAuthentication::cache, $new($NegotiateAuthentication$1));
-				}
-				$nc(($cast($HashMap, $($nc(NegotiateAuthentication::cache)->get()))))->put(hostname, neg);
-				var$2 = true;
-				return$1 = true;
-				goto $finally;
-			} else {
-				$nc(NegotiateAuthentication::supported)->put(hostname, $($Boolean::valueOf(false)));
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(NegotiateAuthentication::negotiateLock)->unlock();
+	$useLocalObjectStack();
+	NegotiateAuthentication::negotiateLock->lock();
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		if (NegotiateAuthentication::supported == nullptr) {
+			$assignStatic(NegotiateAuthentication::supported, $new($HashMap));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$var($String, hostname, $nc(hci)->host);
+		$assign(hostname, $nc(hostname)->toLowerCase());
+		if ($nc(NegotiateAuthentication::supported)->containsKey(hostname)) {
+			var$2 = $$sure($Boolean, NegotiateAuthentication::supported->get(hostname))->booleanValue();
+			return$1 = true;
+			goto $finally;
 		}
-		if (return$1) {
-			return var$2;
+		$var($Negotiator, neg, $Negotiator::getNegotiator(hci));
+		if (neg != nullptr) {
+			NegotiateAuthentication::supported->put(hostname, $($Boolean::valueOf(true)));
+			if (NegotiateAuthentication::cache == nullptr) {
+				$assignStatic(NegotiateAuthentication::cache, $new($NegotiateAuthentication$1));
+			}
+			$$sure($HashMap, $nc(NegotiateAuthentication::cache)->get())->put(hostname, neg);
+			var$2 = true;
+			return$1 = true;
+			goto $finally;
+		} else {
+			NegotiateAuthentication::supported->put(hostname, $($Boolean::valueOf(false)));
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
 		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		NegotiateAuthentication::negotiateLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $HashMap* NegotiateAuthentication::getCache() {
 	$init(NegotiateAuthentication);
-	$useLocalCurrentObjectStackCache();
-	$nc(NegotiateAuthentication::negotiateLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($HashMap, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			if (NegotiateAuthentication::cache == nullptr) {
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-			$assign(var$2, $cast($HashMap, $nc(NegotiateAuthentication::cache)->get()));
+	$useLocalObjectStack();
+	NegotiateAuthentication::negotiateLock->lock();
+	$var($Throwable, var$0, nullptr);
+	$var($HashMap, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		if (NegotiateAuthentication::cache == nullptr) {
+			$assign(var$2, nullptr);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(NegotiateAuthentication::negotiateLock)->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$assign(var$2, $cast($HashMap, $nc(NegotiateAuthentication::cache)->get()));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		NegotiateAuthentication::negotiateLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -229,7 +172,7 @@ bool NegotiateAuthentication::isAuthorizationStale($String* header) {
 }
 
 bool NegotiateAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, $String* raw) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!NegotiateAuthentication::$assertionsDisabled && !$nc(conn)->isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -238,9 +181,9 @@ bool NegotiateAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser
 		$var($bytes, incoming, nullptr);
 		$var($StringArray, parts, $nc(raw)->split("\\s+"_s));
 		if (parts->length > 1) {
-			$assign(incoming, $nc($($Base64::getDecoder()))->decode(parts->get(1)));
+			$assign(incoming, $$nc($Base64::getDecoder())->decode(parts->get(1)));
 		}
-		$assign(response, $str({$nc(this->hci)->scheme, " "_s, $($nc($($Base64::getEncoder()))->encodeToString(incoming == nullptr ? $(firstToken()) : $(nextToken(incoming))))}));
+		$assign(response, $str({$nc(this->hci)->scheme, " "_s, $($$nc($Base64::getEncoder())->encodeToString(incoming == nullptr ? $(firstToken()) : $(nextToken(incoming))))}));
 		$nc(conn)->setAuthenticationProperty($(getHeaderName()), response);
 		return true;
 	} catch ($IOException& e) {
@@ -250,7 +193,7 @@ bool NegotiateAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser
 }
 
 $bytes* NegotiateAuthentication::firstToken() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, negotiator, nullptr);
 	$var($HashMap, cachedMap, getCache());
 	if (cachedMap != nullptr) {
@@ -273,7 +216,7 @@ $bytes* NegotiateAuthentication::nextToken($bytes* token) {
 	return $nc(this->negotiator)->nextToken(token);
 }
 
-void clinit$NegotiateAuthentication($Class* class$) {
+void NegotiateAuthentication::clinit$($Class* clazz) {
 	NegotiateAuthentication::$assertionsDisabled = !NegotiateAuthentication::class$->desiredAssertionStatus();
 	$assignStatic(NegotiateAuthentication::supported, nullptr);
 	$assignStatic(NegotiateAuthentication::cache, nullptr);
@@ -288,7 +231,51 @@ NegotiateAuthentication::NegotiateAuthentication() {
 }
 
 $Class* NegotiateAuthentication::load$($String* name, bool initialize) {
-	$loadClass(NegotiateAuthentication, name, initialize, &_NegotiateAuthentication_ClassInfo_, clinit$NegotiateAuthentication, allocate$NegotiateAuthentication);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NegotiateAuthentication, $assertionsDisabled)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NegotiateAuthentication, serialVersionUID)},
+		{"hci", "Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PRIVATE | $FINAL, $field(NegotiateAuthentication, hci)},
+		{"supported", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Boolean;>;", $STATIC, $staticField(NegotiateAuthentication, supported)},
+		{"cache", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/util/HashMap<Ljava/lang/String;Lsun/net/www/protocol/http/Negotiator;>;>;", $STATIC, $staticField(NegotiateAuthentication, cache)},
+		{"negotiateLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NegotiateAuthentication, negotiateLock)},
+		{"cacheSPNEGO", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NegotiateAuthentication, cacheSPNEGO)},
+		{"negotiator", "Lsun/net/www/protocol/http/Negotiator;", nullptr, $PRIVATE, $field(NegotiateAuthentication, negotiator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(NegotiateAuthentication, init$, void, $HttpCallerInfo*)},
+		{"firstToken", "()[B", nullptr, $PRIVATE, $method(NegotiateAuthentication, firstToken, $bytes*), "java.io.IOException"},
+		{"getCache", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Lsun/net/www/protocol/http/Negotiator;>;", $PRIVATE | $STATIC, $staticMethod(NegotiateAuthentication, getCache, $HashMap*)},
+		{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, getHeaderValue, $String*, $URL*, $String*)},
+		{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, isAuthorizationStale, bool, $String*)},
+		{"isSupported", "(Lsun/net/www/protocol/http/HttpCallerInfo;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NegotiateAuthentication, isSupported, bool, $HttpCallerInfo*)},
+		{"nextToken", "([B)[B", nullptr, $PRIVATE, $method(NegotiateAuthentication, nextToken, $bytes*, $bytes*), "java.io.IOException"},
+		{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
+		{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, supportsPreemptiveAuthorization, bool)},
+		{"useAuthCache", "()Z", nullptr, $PROTECTED, $virtualMethod(NegotiateAuthentication, useAuthCache, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.NegotiateAuthentication$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.http.NegotiateAuthentication",
+		"sun.net.www.protocol.http.AuthenticationInfo",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.NegotiateAuthentication$1"
+	};
+	$loadClass(NegotiateAuthentication, name, initialize, &classInfo$$, NegotiateAuthentication::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NegotiateAuthentication));
+	});
 	return class$;
 }
 

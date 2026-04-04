@@ -45,6 +45,7 @@ class MethodHandleImpl$ArrayAccessor : public ::java::lang::Object {
 	$class(MethodHandleImpl$ArrayAccessor, 0, ::java::lang::Object)
 public:
 	MethodHandleImpl$ArrayAccessor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodType* correctType($Class* arrayClass, ::java::lang::invoke::MethodHandleImpl$ArrayAccess* access);
 	static ::java::lang::invoke::MethodHandle* getAccessor($Class* arrayClass, ::java::lang::invoke::MethodHandleImpl$ArrayAccess* access);

@@ -15,6 +15,7 @@ class $export ReadParams : public ::java::lang::Object {
 	$class(ReadParams, 0, ::java::lang::Object)
 public:
 	ReadParams();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test(::java::io::Reader* rdr);

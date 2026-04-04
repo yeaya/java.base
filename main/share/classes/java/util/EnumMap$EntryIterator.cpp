@@ -1,5 +1,4 @@
 #include <java/util/EnumMap$EntryIterator.h>
-
 #include <java/util/EnumMap$EntryIterator$Entry.h>
 #include <java/util/EnumMap$EnumMapIterator.h>
 #include <java/util/EnumMap.h>
@@ -18,47 +17,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace util {
 
-$FieldInfo _EnumMap$EntryIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/EnumMap;", nullptr, $FINAL | $SYNTHETIC, $field(EnumMap$EntryIterator, this$0)},
-	{"lastReturnedEntry", "Ljava/util/EnumMap$EntryIterator$Entry;", "Ljava/util/EnumMap<TK;TV;>.EntryIterator.Entry;", $PRIVATE, $field(EnumMap$EntryIterator, lastReturnedEntry)},
-	{}
-};
-
-$MethodInfo _EnumMap$EntryIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(EnumMap$EntryIterator, init$, void, $EnumMap*)},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(EnumMap$EntryIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntryIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _EnumMap$EntryIterator_InnerClassesInfo_[] = {
-	{"java.util.EnumMap$EntryIterator", "java.util.EnumMap", "EntryIterator", $PRIVATE},
-	{"java.util.EnumMap$EnumMapIterator", "java.util.EnumMap", "EnumMapIterator", $PRIVATE | $ABSTRACT},
-	{"java.util.EnumMap$EntryIterator$Entry", "java.util.EnumMap$EntryIterator", "Entry", $PRIVATE},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _EnumMap$EntryIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.EnumMap$EntryIterator",
-	"java.util.EnumMap$EnumMapIterator",
-	nullptr,
-	_EnumMap$EntryIterator_FieldInfo_,
-	_EnumMap$EntryIterator_MethodInfo_,
-	"Ljava/util/EnumMap<TK;TV;>.EnumMapIterator<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_EnumMap$EntryIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.EnumMap"
-};
-
-$Object* allocate$EnumMap$EntryIterator($Class* clazz) {
-	return $of($alloc(EnumMap$EntryIterator));
-}
-
 void EnumMap$EntryIterator::init$($EnumMap* this$0) {
 	$set(this, this$0, this$0);
 	$EnumMap$EnumMapIterator::init$(this$0);
@@ -69,11 +27,11 @@ $Object* EnumMap$EntryIterator::next() {
 		$throwNew($NoSuchElementException);
 	}
 	$set(this, lastReturnedEntry, $new($EnumMap$EntryIterator$Entry, this, this->index++));
-	return $of(this->lastReturnedEntry);
+	return this->lastReturnedEntry;
 }
 
 void EnumMap$EntryIterator::remove() {
-	this->lastReturnedIndex = ((nullptr == this->lastReturnedEntry) ? -1 : $nc(this->lastReturnedEntry)->index);
+	this->lastReturnedIndex = ((nullptr == this->lastReturnedEntry) ? -1 : this->lastReturnedEntry->index);
 	$EnumMap$EnumMapIterator::remove();
 	$nc(this->lastReturnedEntry)->index = this->lastReturnedIndex;
 	$set(this, lastReturnedEntry, nullptr);
@@ -83,7 +41,42 @@ EnumMap$EntryIterator::EnumMap$EntryIterator() {
 }
 
 $Class* EnumMap$EntryIterator::load$($String* name, bool initialize) {
-	$loadClass(EnumMap$EntryIterator, name, initialize, &_EnumMap$EntryIterator_ClassInfo_, allocate$EnumMap$EntryIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/EnumMap;", nullptr, $FINAL | $SYNTHETIC, $field(EnumMap$EntryIterator, this$0)},
+		{"lastReturnedEntry", "Ljava/util/EnumMap$EntryIterator$Entry;", "Ljava/util/EnumMap<TK;TV;>.EntryIterator.Entry;", $PRIVATE, $field(EnumMap$EntryIterator, lastReturnedEntry)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(EnumMap$EntryIterator, init$, void, $EnumMap*)},
+		{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(EnumMap$EntryIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntryIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.EnumMap$EntryIterator", "java.util.EnumMap", "EntryIterator", $PRIVATE},
+		{"java.util.EnumMap$EnumMapIterator", "java.util.EnumMap", "EnumMapIterator", $PRIVATE | $ABSTRACT},
+		{"java.util.EnumMap$EntryIterator$Entry", "java.util.EnumMap$EntryIterator", "Entry", $PRIVATE},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.EnumMap$EntryIterator",
+		"java.util.EnumMap$EnumMapIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/EnumMap<TK;TV;>.EnumMapIterator<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.EnumMap"
+	};
+	$loadClass(EnumMap$EntryIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnumMap$EntryIterator);
+	});
 	return class$;
 }
 

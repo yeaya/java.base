@@ -1,5 +1,4 @@
 #include <java/lang/invoke/LambdaForm$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/lang/invoke/LambdaForm$BasicType.h>
 #include <java/lang/invoke/LambdaForm.h>
@@ -23,69 +22,33 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _LambdaForm$1_FieldInfo_[] = {
-	{"$SwitchMap$java$lang$invoke$LambdaForm$BasicType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaForm$1, $SwitchMap$java$lang$invoke$LambdaForm$BasicType)},
-	{}
-};
-
-$EnclosingMethodInfo _LambdaForm$1_EnclosingMethodInfo_ = {
-	"java.lang.invoke.LambdaForm",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _LambdaForm$1_InnerClassesInfo_[] = {
-	{"java.lang.invoke.LambdaForm$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _LambdaForm$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.lang.invoke.LambdaForm$1",
-	"java.lang.Object",
-	nullptr,
-	_LambdaForm$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_LambdaForm$1_EnclosingMethodInfo_,
-	_LambdaForm$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.LambdaForm"
-};
-
-$Object* allocate$LambdaForm$1($Class* clazz) {
-	return $of($alloc(LambdaForm$1));
-}
-
 $ints* LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType = nullptr;
 
-void clinit$LambdaForm$1($Class* class$) {
+void LambdaForm$1::clinit$($Class* clazz) {
 	$assignStatic(LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType, $new($ints, $($LambdaForm$BasicType::values())->length));
 	{
 		try {
-			$nc(LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->set($LambdaForm$BasicType::I_TYPE->ordinal(), 1);
+			LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType->set($LambdaForm$BasicType::I_TYPE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->set($LambdaForm$BasicType::J_TYPE->ordinal(), 2);
+			LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType->set($LambdaForm$BasicType::J_TYPE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->set($LambdaForm$BasicType::F_TYPE->ordinal(), 3);
+			LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType->set($LambdaForm$BasicType::F_TYPE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->set($LambdaForm$BasicType::D_TYPE->ordinal(), 4);
+			LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType->set($LambdaForm$BasicType::D_TYPE->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->set($LambdaForm$BasicType::L_TYPE->ordinal(), 5);
+			LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType->set($LambdaForm$BasicType::L_TYPE->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->set($LambdaForm$BasicType::V_TYPE->ordinal(), 6);
+			LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType->set($LambdaForm$BasicType::V_TYPE->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -95,7 +58,37 @@ LambdaForm$1::LambdaForm$1() {
 }
 
 $Class* LambdaForm$1::load$($String* name, bool initialize) {
-	$loadClass(LambdaForm$1, name, initialize, &_LambdaForm$1_ClassInfo_, clinit$LambdaForm$1, allocate$LambdaForm$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$lang$invoke$LambdaForm$BasicType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaForm$1, $SwitchMap$java$lang$invoke$LambdaForm$BasicType)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.invoke.LambdaForm",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.LambdaForm$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.lang.invoke.LambdaForm$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.LambdaForm"
+	};
+	$loadClass(LambdaForm$1, name, initialize, &classInfo$$, LambdaForm$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaForm$1);
+	});
 	return class$;
 }
 

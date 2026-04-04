@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/Negotiator.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -32,41 +31,19 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$MethodInfo _Negotiator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Negotiator, init$, void)},
-	{"finest", "(Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Negotiator, finest, void, $Exception*)},
-	{"firstToken", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Negotiator, firstToken, $bytes*), "java.io.IOException"},
-	{"getNegotiator", "(Lsun/net/www/protocol/http/HttpCallerInfo;)Lsun/net/www/protocol/http/Negotiator;", nullptr, $STATIC, $staticMethod(Negotiator, getNegotiator, Negotiator*, $HttpCallerInfo*)},
-	{"nextToken", "([B)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Negotiator, nextToken, $bytes*, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Negotiator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.net.www.protocol.http.Negotiator",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Negotiator_MethodInfo_
-};
-
-$Object* allocate$Negotiator($Class* clazz) {
-	return $of($alloc(Negotiator));
-}
-
 void Negotiator::init$() {
 }
 
 Negotiator* Negotiator::getNegotiator($HttpCallerInfo* hci) {
+	$useLocalObjectStack();
 	$load(Negotiator);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* clazz = nullptr;
 	$var($Constructor, c, nullptr);
 	try {
 		clazz = $Class::forName("sun.net.www.protocol.http.spnego.NegotiatorImpl"_s, true, $($ClassLoader::getPlatformClassLoader()));
 		$load($HttpCallerInfo);
-		$assign(c, $nc(clazz)->getConstructor($$new($ClassArray, {$HttpCallerInfo::class$})));
+		$assign(c, clazz->getConstructor($$new($ClassArray, {$HttpCallerInfo::class$})));
 	} catch ($ClassNotFoundException& cnfe) {
 		finest(cnfe);
 		return nullptr;
@@ -74,7 +51,7 @@ Negotiator* Negotiator::getNegotiator($HttpCallerInfo* hci) {
 		$throwNew($AssertionError, $of(roe));
 	}
 	try {
-		return ($cast(Negotiator, $nc(c)->newInstance($$new($ObjectArray, {$of(hci)}))));
+		return $cast(Negotiator, $nc(c)->newInstance($$new($ObjectArray, {hci})));
 	} catch ($ReflectiveOperationException& roe) {
 		finest(roe);
 		$var($Throwable, t, roe->getCause());
@@ -95,7 +72,7 @@ Negotiator* Negotiator::getNegotiator($HttpCallerInfo* hci) {
 }
 
 void Negotiator::finest($Exception* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformLogger, logger, $HttpURLConnection::getHttpLogger());
 	$init($PlatformLogger$Level);
 	if ($nc(logger)->isLoggable($PlatformLogger$Level::FINEST)) {
@@ -107,7 +84,25 @@ Negotiator::Negotiator() {
 }
 
 $Class* Negotiator::load$($String* name, bool initialize) {
-	$loadClass(Negotiator, name, initialize, &_Negotiator_ClassInfo_, allocate$Negotiator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Negotiator, init$, void)},
+		{"finest", "(Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Negotiator, finest, void, $Exception*)},
+		{"firstToken", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Negotiator, firstToken, $bytes*), "java.io.IOException"},
+		{"getNegotiator", "(Lsun/net/www/protocol/http/HttpCallerInfo;)Lsun/net/www/protocol/http/Negotiator;", nullptr, $STATIC, $staticMethod(Negotiator, getNegotiator, Negotiator*, $HttpCallerInfo*)},
+		{"nextToken", "([B)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Negotiator, nextToken, $bytes*, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.net.www.protocol.http.Negotiator",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Negotiator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Negotiator);
+	});
 	return class$;
 }
 

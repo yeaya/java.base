@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/HttpURLConnection$4.h>
-
 #include <java/lang/SecurityException.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
@@ -21,50 +20,6 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$FieldInfo _HttpURLConnection$4_FieldInfo_[] = {
-	{"val$result", "[Z", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$4, val$result)},
-	{"val$h2", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$4, val$h2)},
-	{"val$h1", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$4, val$h1)},
-	{}
-};
-
-$MethodInfo _HttpURLConnection$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Z)V", nullptr, 0, $method(HttpURLConnection$4, init$, void, $String*, $String*, $booleans*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$4, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _HttpURLConnection$4_EnclosingMethodInfo_ = {
-	"sun.net.www.protocol.http.HttpURLConnection",
-	"hostsEqual",
-	"(Ljava/net/URL;Ljava/net/URL;)Z"
-};
-
-$InnerClassInfo _HttpURLConnection$4_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.HttpURLConnection$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HttpURLConnection$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.http.HttpURLConnection$4",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_HttpURLConnection$4_FieldInfo_,
-	_HttpURLConnection$4_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_HttpURLConnection$4_EnclosingMethodInfo_,
-	_HttpURLConnection$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.HttpURLConnection"
-};
-
-$Object* allocate$HttpURLConnection$4($Class* clazz) {
-	return $of($alloc(HttpURLConnection$4));
-}
-
 void HttpURLConnection$4::init$($String* val$h1, $String* val$h2, $booleans* val$result) {
 	$set(this, val$h1, val$h1);
 	$set(this, val$h2, val$h2);
@@ -72,7 +27,7 @@ void HttpURLConnection$4::init$($String* val$h1, $String* val$h2, $booleans* val
 }
 
 $Object* HttpURLConnection$4::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InetAddress, a1, $InetAddress::getByName(this->val$h1));
 		$var($InetAddress, a2, $InetAddress::getByName(this->val$h2));
@@ -80,14 +35,51 @@ $Object* HttpURLConnection$4::run() {
 	} catch ($UnknownHostException& e) {
 	} catch ($SecurityException& e) {
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 HttpURLConnection$4::HttpURLConnection$4() {
 }
 
 $Class* HttpURLConnection$4::load$($String* name, bool initialize) {
-	$loadClass(HttpURLConnection$4, name, initialize, &_HttpURLConnection$4_ClassInfo_, allocate$HttpURLConnection$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$result", "[Z", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$4, val$result)},
+		{"val$h2", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$4, val$h2)},
+		{"val$h1", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$4, val$h1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Z)V", nullptr, 0, $method(HttpURLConnection$4, init$, void, $String*, $String*, $booleans*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$4, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.www.protocol.http.HttpURLConnection",
+		"hostsEqual",
+		"(Ljava/net/URL;Ljava/net/URL;)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.HttpURLConnection$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.http.HttpURLConnection$4",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.HttpURLConnection"
+	};
+	$loadClass(HttpURLConnection$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpURLConnection$4);
+	});
 	return class$;
 }
 

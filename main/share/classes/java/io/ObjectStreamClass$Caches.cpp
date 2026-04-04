@@ -1,5 +1,4 @@
 #include <java/io/ObjectStreamClass$Caches.h>
-
 #include <java/io/ObjectStreamClass.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
@@ -17,44 +16,6 @@ using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 namespace java {
 	namespace io {
 
-$FieldInfo _ObjectStreamClass$Caches_FieldInfo_[] = {
-	{"localDescs", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/io/ObjectStreamClass$WeakClassKey;Ljava/lang/ref/Reference<*>;>;", $STATIC | $FINAL, $staticField(ObjectStreamClass$Caches, localDescs)},
-	{"reflectors", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/io/ObjectStreamClass$FieldReflectorKey;Ljava/lang/ref/Reference<*>;>;", $STATIC | $FINAL, $staticField(ObjectStreamClass$Caches, reflectors)},
-	{"localDescsQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ObjectStreamClass$Caches, localDescsQueue)},
-	{"reflectorsQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ObjectStreamClass$Caches, reflectorsQueue)},
-	{}
-};
-
-$MethodInfo _ObjectStreamClass$Caches_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectStreamClass$Caches, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ObjectStreamClass$Caches_InnerClassesInfo_[] = {
-	{"java.io.ObjectStreamClass$Caches", "java.io.ObjectStreamClass", "Caches", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectStreamClass$Caches_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectStreamClass$Caches",
-	"java.lang.Object",
-	nullptr,
-	_ObjectStreamClass$Caches_FieldInfo_,
-	_ObjectStreamClass$Caches_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectStreamClass$Caches_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectStreamClass"
-};
-
-$Object* allocate$ObjectStreamClass$Caches($Class* clazz) {
-	return $of($alloc(ObjectStreamClass$Caches));
-}
-
 $ConcurrentMap* ObjectStreamClass$Caches::localDescs = nullptr;
 $ConcurrentMap* ObjectStreamClass$Caches::reflectors = nullptr;
 $ReferenceQueue* ObjectStreamClass$Caches::localDescsQueue = nullptr;
@@ -63,7 +24,7 @@ $ReferenceQueue* ObjectStreamClass$Caches::reflectorsQueue = nullptr;
 void ObjectStreamClass$Caches::init$() {
 }
 
-void clinit$ObjectStreamClass$Caches($Class* class$) {
+void ObjectStreamClass$Caches::clinit$($Class* clazz) {
 	$assignStatic(ObjectStreamClass$Caches::localDescs, $new($ConcurrentHashMap));
 	$assignStatic(ObjectStreamClass$Caches::reflectors, $new($ConcurrentHashMap));
 	$assignStatic(ObjectStreamClass$Caches::localDescsQueue, $new($ReferenceQueue));
@@ -74,7 +35,39 @@ ObjectStreamClass$Caches::ObjectStreamClass$Caches() {
 }
 
 $Class* ObjectStreamClass$Caches::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$Caches, name, initialize, &_ObjectStreamClass$Caches_ClassInfo_, clinit$ObjectStreamClass$Caches, allocate$ObjectStreamClass$Caches);
+	$FieldInfo fieldInfos$$[] = {
+		{"localDescs", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/io/ObjectStreamClass$WeakClassKey;Ljava/lang/ref/Reference<*>;>;", $STATIC | $FINAL, $staticField(ObjectStreamClass$Caches, localDescs)},
+		{"reflectors", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/io/ObjectStreamClass$FieldReflectorKey;Ljava/lang/ref/Reference<*>;>;", $STATIC | $FINAL, $staticField(ObjectStreamClass$Caches, reflectors)},
+		{"localDescsQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ObjectStreamClass$Caches, localDescsQueue)},
+		{"reflectorsQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ObjectStreamClass$Caches, reflectorsQueue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectStreamClass$Caches, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectStreamClass$Caches", "java.io.ObjectStreamClass", "Caches", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectStreamClass$Caches",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectStreamClass"
+	};
+	$loadClass(ObjectStreamClass$Caches, name, initialize, &classInfo$$, ObjectStreamClass$Caches::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$Caches);
+	});
 	return class$;
 }
 

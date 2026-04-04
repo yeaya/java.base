@@ -1,5 +1,4 @@
 #include <sun/nio/cs/DoubleByte$Decoder_DBCSONLY.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CoderResult.h>
 #include <java/util/Arrays.h>
@@ -22,44 +21,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _DoubleByte$Decoder_DBCSONLY_FieldInfo_[] = {
-	{"b2cSB_UNMAPPABLE", "[C", nullptr, $STATIC | $FINAL, $staticField(DoubleByte$Decoder_DBCSONLY, b2cSB_UNMAPPABLE)},
-	{}
-};
-
-$MethodInfo _DoubleByte$Decoder_DBCSONLY_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;[[C[CIIZ)V", nullptr, $PUBLIC, $method(DoubleByte$Decoder_DBCSONLY, init$, void, $Charset*, $charArray2*, $chars*, int32_t, int32_t, bool)},
-	{"<init>", "(Ljava/nio/charset/Charset;[[C[CII)V", nullptr, $PUBLIC, $method(DoubleByte$Decoder_DBCSONLY, init$, void, $Charset*, $charArray2*, $chars*, int32_t, int32_t)},
-	{"crMalformedOrUnmappable", "(II)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Decoder_DBCSONLY, crMalformedOrUnmappable, $CoderResult*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DoubleByte$Decoder_DBCSONLY_InnerClassesInfo_[] = {
-	{"sun.nio.cs.DoubleByte$Decoder_DBCSONLY", "sun.nio.cs.DoubleByte", "Decoder_DBCSONLY", $PUBLIC | $STATIC},
-	{"sun.nio.cs.DoubleByte$Decoder", "sun.nio.cs.DoubleByte", "Decoder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DoubleByte$Decoder_DBCSONLY_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.DoubleByte$Decoder_DBCSONLY",
-	"sun.nio.cs.DoubleByte$Decoder",
-	nullptr,
-	_DoubleByte$Decoder_DBCSONLY_FieldInfo_,
-	_DoubleByte$Decoder_DBCSONLY_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DoubleByte$Decoder_DBCSONLY_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.DoubleByte"
-};
-
-$Object* allocate$DoubleByte$Decoder_DBCSONLY($Class* clazz) {
-	return $of($alloc(DoubleByte$Decoder_DBCSONLY));
-}
-
 $chars* DoubleByte$Decoder_DBCSONLY::b2cSB_UNMAPPABLE = nullptr;
 
 $CoderResult* DoubleByte$Decoder_DBCSONLY::crMalformedOrUnmappable(int32_t b1, int32_t b2) {
@@ -74,10 +35,10 @@ void DoubleByte$Decoder_DBCSONLY::init$($Charset* cs, $charArray2* b2c, $chars* 
 	$DoubleByte$Decoder::init$(cs, 0.5f, 1.0f, b2c, DoubleByte$Decoder_DBCSONLY::b2cSB_UNMAPPABLE, b2Min, b2Max, false);
 }
 
-void clinit$DoubleByte$Decoder_DBCSONLY($Class* class$) {
+void DoubleByte$Decoder_DBCSONLY::clinit$($Class* clazz) {
 	{
 		$assignStatic(DoubleByte$Decoder_DBCSONLY::b2cSB_UNMAPPABLE, $new($chars, 256));
-		$Arrays::fill(DoubleByte$Decoder_DBCSONLY::b2cSB_UNMAPPABLE, (char16_t)0xFFFD);
+		$Arrays::fill(DoubleByte$Decoder_DBCSONLY::b2cSB_UNMAPPABLE, (char16_t)0xfffd);
 	}
 }
 
@@ -85,7 +46,39 @@ DoubleByte$Decoder_DBCSONLY::DoubleByte$Decoder_DBCSONLY() {
 }
 
 $Class* DoubleByte$Decoder_DBCSONLY::load$($String* name, bool initialize) {
-	$loadClass(DoubleByte$Decoder_DBCSONLY, name, initialize, &_DoubleByte$Decoder_DBCSONLY_ClassInfo_, clinit$DoubleByte$Decoder_DBCSONLY, allocate$DoubleByte$Decoder_DBCSONLY);
+	$FieldInfo fieldInfos$$[] = {
+		{"b2cSB_UNMAPPABLE", "[C", nullptr, $STATIC | $FINAL, $staticField(DoubleByte$Decoder_DBCSONLY, b2cSB_UNMAPPABLE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;[[C[CIIZ)V", nullptr, $PUBLIC, $method(DoubleByte$Decoder_DBCSONLY, init$, void, $Charset*, $charArray2*, $chars*, int32_t, int32_t, bool)},
+		{"<init>", "(Ljava/nio/charset/Charset;[[C[CII)V", nullptr, $PUBLIC, $method(DoubleByte$Decoder_DBCSONLY, init$, void, $Charset*, $charArray2*, $chars*, int32_t, int32_t)},
+		{"crMalformedOrUnmappable", "(II)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Decoder_DBCSONLY, crMalformedOrUnmappable, $CoderResult*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.DoubleByte$Decoder_DBCSONLY", "sun.nio.cs.DoubleByte", "Decoder_DBCSONLY", $PUBLIC | $STATIC},
+		{"sun.nio.cs.DoubleByte$Decoder", "sun.nio.cs.DoubleByte", "Decoder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.DoubleByte$Decoder_DBCSONLY",
+		"sun.nio.cs.DoubleByte$Decoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.DoubleByte"
+	};
+	$loadClass(DoubleByte$Decoder_DBCSONLY, name, initialize, &classInfo$$, DoubleByte$Decoder_DBCSONLY::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DoubleByte$Decoder_DBCSONLY));
+	});
 	return class$;
 }
 

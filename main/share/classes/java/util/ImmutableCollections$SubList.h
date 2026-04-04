@@ -24,6 +24,7 @@ public:
 	using ::java::util::ImmutableCollections$AbstractImmutableList::add;
 	using ::java::util::ImmutableCollections$AbstractImmutableList::addAll;
 	using ::java::util::ImmutableCollections$AbstractImmutableList::listIterator;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::ImmutableCollections$AbstractImmutableList* root, int32_t offset, int32_t size);
 	bool allowNulls();
 	static ::java::util::ImmutableCollections$SubList* fromList(::java::util::ImmutableCollections$AbstractImmutableList* list, int32_t fromIndex, int32_t toIndex);

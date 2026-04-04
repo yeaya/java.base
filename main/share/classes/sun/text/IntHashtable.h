@@ -25,6 +25,7 @@ class $export IntHashtable : public ::java::lang::Object {
 	$class(IntHashtable, 0, ::java::lang::Object)
 public:
 	IntHashtable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t initialSize);
 	virtual $Object* clone() override;

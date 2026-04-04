@@ -1,5 +1,4 @@
 #include <TestType6$nestedTestType6.h>
-
 #include <TestType6.h>
 #include <jcpp.h>
 
@@ -9,62 +8,53 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute TestType6$nestedTestType6_Attribute_var$0[] = {
-	{"value", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _TestType6$nestedTestType6_MethodAnnotations_nestedBar0[] = {
-	{"LExpectedIsDefault;", TestType6$nestedTestType6_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute TestType6$nestedTestType6_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _TestType6$nestedTestType6_MethodAnnotations_nestedFoo1[] = {
-	{"LExpectedIsDefault;", TestType6$nestedTestType6_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _TestType6$nestedTestType6_MethodInfo_[] = {
-	{"nestedBar", "()V", nullptr, $PUBLIC, $virtualMethod(TestType6$nestedTestType6, nestedBar, void), nullptr, nullptr, _TestType6$nestedTestType6_MethodAnnotations_nestedBar0},
-	{"nestedFoo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestType6$nestedTestType6, nestedFoo, void), nullptr, nullptr, _TestType6$nestedTestType6_MethodAnnotations_nestedFoo1},
-	{}
-};
-
-$InnerClassInfo _TestType6$nestedTestType6_InnerClassesInfo_[] = {
-	{"TestType6$nestedTestType6", "TestType6", "nestedTestType6", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TestType6$nestedTestType6_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"TestType6$nestedTestType6",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TestType6$nestedTestType6_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestType6$nestedTestType6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestType6"
-};
-
-$Object* allocate$TestType6$nestedTestType6($Class* clazz) {
-	return $of($alloc(TestType6$nestedTestType6));
-}
-
 void TestType6$nestedTestType6::nestedBar() {
 }
 
 $Class* TestType6$nestedTestType6::load$($String* name, bool initialize) {
-	$loadClass(TestType6$nestedTestType6, name, initialize, &_TestType6$nestedTestType6_ClassInfo_, allocate$TestType6$nestedTestType6);
+	$NamedAttribute nestedBarmethodAnnotations$$$namedAttribute[] = {
+		{"value", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute nestedBarmethodAnnotations$$[] = {
+		{"LExpectedIsDefault;", nestedBarmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute nestedFoomethodAnnotations$$$namedAttribute[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute nestedFoomethodAnnotations$$[] = {
+		{"LExpectedIsDefault;", nestedFoomethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"nestedBar", "()V", nullptr, $PUBLIC, $virtualMethod(TestType6$nestedTestType6, nestedBar, void), nullptr, nullptr, nestedBarmethodAnnotations$$},
+		{"nestedFoo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestType6$nestedTestType6, nestedFoo, void), nullptr, nullptr, nestedFoomethodAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestType6$nestedTestType6", "TestType6", "nestedTestType6", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"TestType6$nestedTestType6",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestType6"
+	};
+	$loadClass(TestType6$nestedTestType6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestType6$nestedTestType6);
+	});
 	return class$;
 }
 

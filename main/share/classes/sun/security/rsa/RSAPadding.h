@@ -50,6 +50,7 @@ class $export RSAPadding : public ::java::lang::Object {
 	$class(RSAPadding, 0, ::java::lang::Object)
 public:
 	RSAPadding();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type, int32_t paddedSize, ::java::security::SecureRandom* random, ::javax::crypto::spec::OAEPParameterSpec* spec);
 	static $bytes* getInitialHash(::java::security::MessageDigest* md, $bytes* digestInput);
 	static ::sun::security::rsa::RSAPadding* getInstance(int32_t type, int32_t paddedSize);

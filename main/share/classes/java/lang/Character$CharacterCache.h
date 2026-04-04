@@ -18,6 +18,7 @@ class Character$CharacterCache : public ::java::lang::Object {
 	$class(Character$CharacterCache, 0, ::java::lang::Object)
 public:
 	Character$CharacterCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::java::lang::Character>* cache;
 	static $Array<::java::lang::Character>* archivedCache;

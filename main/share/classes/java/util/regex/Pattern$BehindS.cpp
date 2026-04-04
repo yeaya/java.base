@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$BehindS.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/util/regex/Matcher.h>
@@ -21,38 +20,6 @@ using $Pattern$Node = ::java::util::regex::Pattern$Node;
 namespace java {
 	namespace util {
 		namespace regex {
-
-$MethodInfo _Pattern$BehindS_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;II)V", nullptr, 0, $method(Pattern$BehindS, init$, void, $Pattern$Node*, int32_t, int32_t)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$BehindS, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$BehindS_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$BehindS", "java.util.regex.Pattern", "BehindS", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Behind", "java.util.regex.Pattern", "Behind", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$BehindS_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$BehindS",
-	"java.util.regex.Pattern$Behind",
-	nullptr,
-	nullptr,
-	_Pattern$BehindS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$BehindS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$BehindS($Class* clazz) {
-	return $of($alloc(Pattern$BehindS));
-}
 
 void Pattern$BehindS::init$($Pattern$Node* cond, int32_t rmax, int32_t rmin) {
 	$Pattern$Behind::init$(cond, rmax, rmin);
@@ -82,7 +49,34 @@ Pattern$BehindS::Pattern$BehindS() {
 }
 
 $Class* Pattern$BehindS::load$($String* name, bool initialize) {
-	$loadClass(Pattern$BehindS, name, initialize, &_Pattern$BehindS_ClassInfo_, allocate$Pattern$BehindS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$Node;II)V", nullptr, 0, $method(Pattern$BehindS, init$, void, $Pattern$Node*, int32_t, int32_t)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$BehindS, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$BehindS", "java.util.regex.Pattern", "BehindS", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Behind", "java.util.regex.Pattern", "Behind", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$BehindS",
+		"java.util.regex.Pattern$Behind",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$BehindS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$BehindS);
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ public:
 	MalformedURLException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xFD769BB78DDED186;
+	static const int64_t serialVersionUID = (int64_t)0xfd769bb78dded186;
 	MalformedURLException(const MalformedURLException& e);
 	virtual void throw$() override;
-	inline MalformedURLException* operator ->() {
+	inline MalformedURLException* operator ->() const {
+		return (MalformedURLException*)throwing$;
+	}
+	inline operator MalformedURLException*() const {
 		return (MalformedURLException*)throwing$;
 	}
 };

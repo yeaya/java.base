@@ -1,5 +1,4 @@
 #include <ErrorInInvoke.h>
-
 #include <java/lang/AbstractMethodError.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
@@ -12,26 +11,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Method = ::java::lang::reflect::Method;
 
-$MethodInfo _ErrorInInvoke_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ErrorInInvoke, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ErrorInInvoke, main, void, $StringArray*)},
-	{"run", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ErrorInInvoke, run, void)},
-	{}
-};
-
-$ClassInfo _ErrorInInvoke_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ErrorInInvoke",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ErrorInInvoke_MethodInfo_
-};
-
-$Object* allocate$ErrorInInvoke($Class* clazz) {
-	return $of($alloc(ErrorInInvoke));
-}
-
 void ErrorInInvoke::init$() {
 }
 
@@ -40,8 +19,8 @@ void ErrorInInvoke::run() {
 }
 
 void ErrorInInvoke::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(ErrorInInvoke);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, m, nullptr);
 	try {
@@ -67,7 +46,23 @@ ErrorInInvoke::ErrorInInvoke() {
 }
 
 $Class* ErrorInInvoke::load$($String* name, bool initialize) {
-	$loadClass(ErrorInInvoke, name, initialize, &_ErrorInInvoke_ClassInfo_, allocate$ErrorInInvoke);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ErrorInInvoke, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ErrorInInvoke, main, void, $StringArray*)},
+		{"run", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ErrorInInvoke, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ErrorInInvoke",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ErrorInInvoke, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ErrorInInvoke);
+	});
 	return class$;
 }
 

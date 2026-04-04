@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UTIFileTypeDetector.h>
-
 #include <java/nio/file/Path.h>
 #include <jdk/internal/loader/BootLoader.h>
 #include <sun/nio/fs/AbstractFileTypeDetector.h>
@@ -15,42 +14,19 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$MethodInfo _UTIFileTypeDetector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(UTIFileTypeDetector, init$, void)},
-	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(UTIFileTypeDetector, implProbeContentType, $String*, $Path*), "java.io.IOException"},
-	{"probe0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(UTIFileTypeDetector, probe0, $String*, $String*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_probe0 2
-
-$ClassInfo _UTIFileTypeDetector_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UTIFileTypeDetector",
-	"sun.nio.fs.AbstractFileTypeDetector",
-	nullptr,
-	nullptr,
-	_UTIFileTypeDetector_MethodInfo_
-};
-
-$Object* allocate$UTIFileTypeDetector($Class* clazz) {
-	return $of($alloc(UTIFileTypeDetector));
-}
-
 void UTIFileTypeDetector::init$() {
 	$AbstractFileTypeDetector::init$();
 }
 
 $String* UTIFileTypeDetector::probe0($String* fileExtension) {
-	$var($String, $ret, nullptr);
-	$prepareNative(UTIFileTypeDetector, probe0, $String*, $String* fileExtension);
-	$assign($ret, $invokeNativeObject(fileExtension));
+	$prepareNative(probe0, $String*, $String* fileExtension);
+	$var($String, $ret, $invokeNativeObject(fileExtension));
 	$finishNative();
 	return $ret;
 }
 
 $String* UTIFileTypeDetector::implProbeContentType($Path* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, fn, $nc(path)->getFileName());
 	if (fn == nullptr) {
 		return nullptr;
@@ -62,7 +38,7 @@ $String* UTIFileTypeDetector::implProbeContentType($Path* path) {
 	return probe0(ext);
 }
 
-void clinit$UTIFileTypeDetector($Class* class$) {
+void UTIFileTypeDetector::clinit$($Class* clazz) {
 	{
 		$BootLoader::loadLibrary("nio"_s);
 	}
@@ -72,7 +48,23 @@ UTIFileTypeDetector::UTIFileTypeDetector() {
 }
 
 $Class* UTIFileTypeDetector::load$($String* name, bool initialize) {
-	$loadClass(UTIFileTypeDetector, name, initialize, &_UTIFileTypeDetector_ClassInfo_, clinit$UTIFileTypeDetector, allocate$UTIFileTypeDetector);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(UTIFileTypeDetector, init$, void)},
+		{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(UTIFileTypeDetector, implProbeContentType, $String*, $Path*), "java.io.IOException"},
+		{"probe0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(UTIFileTypeDetector, probe0, $String*, $String*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UTIFileTypeDetector",
+		"sun.nio.fs.AbstractFileTypeDetector",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UTIFileTypeDetector, name, initialize, &classInfo$$, UTIFileTypeDetector::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UTIFileTypeDetector);
+	});
 	return class$;
 }
 

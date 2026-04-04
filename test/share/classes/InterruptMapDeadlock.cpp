@@ -1,5 +1,4 @@
 #include <InterruptMapDeadlock.h>
-
 #include <InterruptMapDeadlock$Interruptor.h>
 #include <InterruptMapDeadlock$Mapper.h>
 #include <java/lang/InterruptedException.h>
@@ -21,7 +20,6 @@ using $InterruptMapDeadlock$Interruptor = ::InterruptMapDeadlock$Interruptor;
 using $InterruptMapDeadlock$Mapper = ::InterruptMapDeadlock$Mapper;
 using $InterruptMapDeadlock$MapperArray = $Array<InterruptMapDeadlock$Mapper>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -31,63 +29,26 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $FileChannel = ::java::nio::channels::FileChannel;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $Semaphore = ::java::util::concurrent::Semaphore;
 
-$FieldInfo _InterruptMapDeadlock_FieldInfo_[] = {
-	{"MAPPER_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InterruptMapDeadlock, MAPPER_COUNT)},
-	{}
-};
-
-$MethodInfo _InterruptMapDeadlock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptMapDeadlock, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InterruptMapDeadlock, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _InterruptMapDeadlock_InnerClassesInfo_[] = {
-	{"InterruptMapDeadlock$Interruptor", "InterruptMapDeadlock", "Interruptor", $STATIC},
-	{"InterruptMapDeadlock$Mapper", "InterruptMapDeadlock", "Mapper", $STATIC},
-	{}
-};
-
-$ClassInfo _InterruptMapDeadlock_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"InterruptMapDeadlock",
-	"java.lang.Object",
-	nullptr,
-	_InterruptMapDeadlock_FieldInfo_,
-	_InterruptMapDeadlock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InterruptMapDeadlock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"InterruptMapDeadlock$Interruptor,InterruptMapDeadlock$Mapper"
-};
-
-$Object* allocate$InterruptMapDeadlock($Class* clazz) {
-	return $of($alloc(InterruptMapDeadlock));
-}
-
 void InterruptMapDeadlock::init$() {
 }
 
 void InterruptMapDeadlock::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, file, $Paths::get("data.txt"_s, $$new($StringArray, 0)));
 	$init($StandardOpenOption);
-	$nc($($FileChannel::open(file, $$new($OpenOptionArray, {
-		static_cast<$OpenOption*>($StandardOpenOption::CREATE),
-		static_cast<$OpenOption*>($StandardOpenOption::TRUNCATE_EXISTING),
-		static_cast<$OpenOption*>($StandardOpenOption::WRITE)
-	}))))->close();
+	$$nc($FileChannel::open(file, $$new($OpenOptionArray, {
+		$StandardOpenOption::CREATE,
+		$StandardOpenOption::TRUNCATE_EXISTING,
+		$StandardOpenOption::WRITE
+	})))->close();
 	$var($InterruptMapDeadlock$MapperArray, mappers, $new($InterruptMapDeadlock$MapperArray, InterruptMapDeadlock::MAPPER_COUNT));
 	for (int32_t i = 1; i <= 20; ++i) {
-		$nc($System::out)->format("Iteration: %s%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
+		$nc($System::out)->format("Iteration: %s%n"_s, $$new($ObjectArray, {$($Integer::valueOf(i))}));
 		$var($FileChannel, fc, $FileChannel::open(file, $$new($OpenOptionArray, 0)));
 		bool failed = false;
 		$var($Semaphore, gate, $new($Semaphore, 0));
@@ -111,28 +72,24 @@ void InterruptMapDeadlock::main($StringArray* args) {
 		}
 		{
 			$var($InterruptMapDeadlock$MapperArray, arr$, mappers);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($InterruptMapDeadlock$Mapper, m, arr$->get(i$));
-				{
-					try {
-						$nc(m)->join(10000);
-						$var($Exception, e, m->exception());
-						if (e != nullptr) {
-							$nc($System::err)->println($$str({"Mapper thread failed with: "_s, e}));
-							failed = true;
-						} else if (m->isAlive()) {
-							$nc($System::err)->println("Mapper thread did not terminate:"_s);
-							$var($Throwable, t, $new($Exception, "Stack trace"_s));
-							t->setStackTrace($(m->getStackTrace()));
-							t->printStackTrace();
-							failed = true;
-						}
-					} catch ($InterruptedException& x) {
-						$nc($System::err)->println("Main thread was interrupted"_s);
+				try {
+					$nc(m)->join(10000);
+					$var($Exception, e, m->exception());
+					if (e != nullptr) {
+						$nc($System::err)->println($$str({"Mapper thread failed with: "_s, e}));
+						failed = true;
+					} else if (m->isAlive()) {
+						$nc($System::err)->println("Mapper thread did not terminate:"_s);
+						$var($Throwable, t, $new($Exception, "Stack trace"_s));
+						t->setStackTrace($(m->getStackTrace()));
+						t->printStackTrace();
 						failed = true;
 					}
+				} catch ($InterruptedException& x) {
+					$nc($System::err)->println("Main thread was interrupted"_s);
+					failed = true;
 				}
 			}
 		}
@@ -148,7 +105,37 @@ InterruptMapDeadlock::InterruptMapDeadlock() {
 }
 
 $Class* InterruptMapDeadlock::load$($String* name, bool initialize) {
-	$loadClass(InterruptMapDeadlock, name, initialize, &_InterruptMapDeadlock_ClassInfo_, allocate$InterruptMapDeadlock);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAPPER_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InterruptMapDeadlock, MAPPER_COUNT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptMapDeadlock, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InterruptMapDeadlock, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"InterruptMapDeadlock$Interruptor", "InterruptMapDeadlock", "Interruptor", $STATIC},
+		{"InterruptMapDeadlock$Mapper", "InterruptMapDeadlock", "Mapper", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"InterruptMapDeadlock",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"InterruptMapDeadlock$Interruptor,InterruptMapDeadlock$Mapper"
+	};
+	$loadClass(InterruptMapDeadlock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InterruptMapDeadlock);
+	});
 	return class$;
 }
 

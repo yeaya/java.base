@@ -1,9 +1,7 @@
 #include <Basic$7.h>
-
 #include <Basic.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
-#include <java/nio/channels/CompletionHandler.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
 
@@ -16,55 +14,7 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousFileChannel = ::java::nio::channels::AsynchronousFileChannel;
-using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-
-$FieldInfo _Basic$7_FieldInfo_[] = {
-	{"val$latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $FINAL | $SYNTHETIC, $field(Basic$7, val$latch)},
-	{"val$dst", "Ljava/nio/ByteBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(Basic$7, val$dst)},
-	{"val$ch", "Ljava/nio/channels/AsynchronousFileChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Basic$7, val$ch)},
-	{}
-};
-
-$MethodInfo _Basic$7_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/AsynchronousFileChannel;Ljava/nio/ByteBuffer;Ljava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(Basic$7, init$, void, $AsynchronousFileChannel*, $ByteBuffer*, $CountDownLatch*)},
-	{"completed", "(Ljava/lang/Integer;Ljava/lang/Long;)V", nullptr, $PUBLIC, $virtualMethod(Basic$7, completed, void, $Integer*, $Long*)},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Basic$7, completed, void, Object$*, Object$*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Long;)V", nullptr, $PUBLIC, $virtualMethod(Basic$7, failed, void, $Throwable*, $Long*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Basic$7, failed, void, $Throwable*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Basic$7_EnclosingMethodInfo_ = {
-	"Basic",
-	"readAll",
-	"(Ljava/nio/channels/AsynchronousFileChannel;Ljava/nio/ByteBuffer;J)V"
-};
-
-$InnerClassInfo _Basic$7_InnerClassesInfo_[] = {
-	{"Basic$7", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Basic$7_ClassInfo_ = {
-	$ACC_SUPER,
-	"Basic$7",
-	"java.lang.Object",
-	"java.nio.channels.CompletionHandler",
-	_Basic$7_FieldInfo_,
-	_Basic$7_MethodInfo_,
-	"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;Ljava/lang/Long;>;",
-	&_Basic$7_EnclosingMethodInfo_,
-	_Basic$7_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Basic"
-};
-
-$Object* allocate$Basic$7($Class* clazz) {
-	return $of($alloc(Basic$7));
-}
 
 void Basic$7::init$($AsynchronousFileChannel* val$ch, $ByteBuffer* val$dst, $CountDownLatch* val$latch) {
 	$set(this, val$ch, val$ch);
@@ -97,7 +47,47 @@ Basic$7::Basic$7() {
 }
 
 $Class* Basic$7::load$($String* name, bool initialize) {
-	$loadClass(Basic$7, name, initialize, &_Basic$7_ClassInfo_, allocate$Basic$7);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $FINAL | $SYNTHETIC, $field(Basic$7, val$latch)},
+		{"val$dst", "Ljava/nio/ByteBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(Basic$7, val$dst)},
+		{"val$ch", "Ljava/nio/channels/AsynchronousFileChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Basic$7, val$ch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/AsynchronousFileChannel;Ljava/nio/ByteBuffer;Ljava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(Basic$7, init$, void, $AsynchronousFileChannel*, $ByteBuffer*, $CountDownLatch*)},
+		{"completed", "(Ljava/lang/Integer;Ljava/lang/Long;)V", nullptr, $PUBLIC, $virtualMethod(Basic$7, completed, void, $Integer*, $Long*)},
+		{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Basic$7, completed, void, Object$*, Object$*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Long;)V", nullptr, $PUBLIC, $virtualMethod(Basic$7, failed, void, $Throwable*, $Long*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Basic$7, failed, void, $Throwable*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Basic",
+		"readAll",
+		"(Ljava/nio/channels/AsynchronousFileChannel;Ljava/nio/ByteBuffer;J)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic$7", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Basic$7",
+		"java.lang.Object",
+		"java.nio.channels.CompletionHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;Ljava/lang/Long;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Basic"
+	};
+	$loadClass(Basic$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic$7);
+	});
 	return class$;
 }
 

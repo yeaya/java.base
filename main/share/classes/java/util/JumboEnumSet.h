@@ -45,7 +45,7 @@ public:
 	virtual bool retainAll(::java::util::Collection* c) override;
 	virtual int32_t size() override;
 	using ::java::util::EnumSet::toArray;
-	static const int64_t serialVersionUID = (int64_t)0x04A3D96AC32134E0;
+	static const int64_t serialVersionUID = (int64_t)0x04a3d96ac32134e0;
 	$longs* elements = nullptr;
 	int32_t size$ = 0;
 };

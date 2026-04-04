@@ -1,5 +1,4 @@
 #include <java/util/AbstractQueue.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/Collection.h>
@@ -29,51 +28,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _AbstractQueue_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractQueue, init$, void)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(AbstractQueue, add, bool, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(AbstractQueue, addAll, bool, $Collection*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractQueue, clear, void)},
-	{"element", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractQueue, element, $Object*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"remove", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractQueue, remove, $Object*)},
-	{"*size", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractQueue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.AbstractQueue",
-	"java.util.AbstractCollection",
-	"java.util.Queue",
-	nullptr,
-	_AbstractQueue_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractCollection<TE;>;Ljava/util/Queue<TE;>;"
-};
-
-$Object* allocate$AbstractQueue($Class* clazz) {
-	return $of($alloc(AbstractQueue));
-}
 
 bool AbstractQueue::isEmpty() {
 	 return this->$AbstractCollection::isEmpty();
@@ -166,7 +120,7 @@ bool AbstractQueue::add(Object$* e) {
 $Object* AbstractQueue::remove() {
 	$var($Object, x, poll());
 	if (x != nullptr) {
-		return $of(x);
+		return x;
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -175,7 +129,7 @@ $Object* AbstractQueue::remove() {
 $Object* AbstractQueue::element() {
 	$var($Object, x, peek());
 	if (x != nullptr) {
-		return $of(x);
+		return x;
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -183,11 +137,12 @@ $Object* AbstractQueue::element() {
 
 void AbstractQueue::clear() {
 	while (poll() != nullptr) {
+		;
 	}
 }
 
 bool AbstractQueue::addAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -211,7 +166,48 @@ AbstractQueue::AbstractQueue() {
 }
 
 $Class* AbstractQueue::load$($String* name, bool initialize) {
-	$loadClass(AbstractQueue, name, initialize, &_AbstractQueue_ClassInfo_, allocate$AbstractQueue);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractQueue, init$, void)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(AbstractQueue, add, bool, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(AbstractQueue, addAll, bool, $Collection*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractQueue, clear, void)},
+		{"element", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractQueue, element, $Object*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"remove", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractQueue, remove, $Object*)},
+		{"*size", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.AbstractQueue",
+		"java.util.AbstractCollection",
+		"java.util.Queue",
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractCollection<TE;>;Ljava/util/Queue<TE;>;"
+	};
+	$loadClass(AbstractQueue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractQueue));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <StrippingZerosTest.h>
-
 #include <java/math/BigDecimal.h>
 #include <jcpp.h>
 
@@ -12,30 +11,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 
-$MethodInfo _StrippingZerosTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StrippingZerosTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StrippingZerosTest, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _StrippingZerosTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StrippingZerosTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_StrippingZerosTest_MethodInfo_
-};
-
-$Object* allocate$StrippingZerosTest($Class* clazz) {
-	return $of($alloc(StrippingZerosTest));
-}
-
 void StrippingZerosTest::init$() {
 }
 
 void StrippingZerosTest::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BigDecimal);
 	$var($BigDecimalArray2, testCases, $new($BigDecimalArray2, {
 		$$new($BigDecimalArray, {
@@ -172,19 +152,27 @@ void StrippingZerosTest::main($StringArray* argv) {
 		})
 	}));
 	for (int32_t i = 0; i < testCases->length; ++i) {
-		if (!$nc($($nc(($nc(testCases->get(i))->get(0)))->stripTrailingZeros()))->equals($nc(testCases->get(i))->get(1))) {
-			$var($String, var$2, $$str({"For input "_s, $($nc($nc(testCases->get(i))->get(0))->toString()), " did not received expected result "_s}));
-			$var($String, var$1, $$concat(var$2, $($nc($nc(testCases->get(i))->get(1))->toString())));
-			$var($String, var$0, $$concat(var$1, ",  got "_s));
-			$throwNew($RuntimeException, $$concat(var$0, $($nc($nc(testCases->get(i))->get(0))->stripTrailingZeros())));
+		if (!$($nc(($nc(testCases->get(i))->get(0)))->stripTrailingZeros())->equals($nc(testCases->get(i))->get(1))) {
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("For input "_s);
+			var$0->append($($nc($nc(testCases->get(i))->get(0))->toString()));
+			var$0->append(" did not received expected result "_s);
+			var$0->append($($nc($nc(testCases->get(i))->get(1))->toString()));
+			var$0->append(",  got "_s);
+			var$0->append($($nc($nc(testCases->get(i))->get(0))->stripTrailingZeros()));
+			$throwNew($RuntimeException, $$str(var$0));
 		}
 		$nc(testCases->get(i))->set(0, $($nc($nc(testCases->get(i))->get(0))->negate()));
 		$nc(testCases->get(i))->set(1, $($nc($nc(testCases->get(i))->get(1))->negate()));
-		if (!$nc($($nc(($nc(testCases->get(i))->get(0)))->stripTrailingZeros()))->equals($nc(testCases->get(i))->get(1))) {
-			$var($String, var$5, $$str({"For input "_s, $($nc($nc(testCases->get(i))->get(0))->toString()), " did not received expected result "_s}));
-			$var($String, var$4, $$concat(var$5, $($nc($nc(testCases->get(i))->get(1))->toString())));
-			$var($String, var$3, $$concat(var$4, ",  got "_s));
-			$throwNew($RuntimeException, $$concat(var$3, $($nc($nc(testCases->get(i))->get(0))->stripTrailingZeros())));
+		if (!$($nc(($nc(testCases->get(i))->get(0)))->stripTrailingZeros())->equals($nc(testCases->get(i))->get(1))) {
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append("For input "_s);
+			var$1->append($($nc($nc(testCases->get(i))->get(0))->toString()));
+			var$1->append(" did not received expected result "_s);
+			var$1->append($($nc($nc(testCases->get(i))->get(1))->toString()));
+			var$1->append(",  got "_s);
+			var$1->append($($nc($nc(testCases->get(i))->get(0))->stripTrailingZeros()));
+			$throwNew($RuntimeException, $$str(var$1));
 		}
 	}
 }
@@ -193,7 +181,22 @@ StrippingZerosTest::StrippingZerosTest() {
 }
 
 $Class* StrippingZerosTest::load$($String* name, bool initialize) {
-	$loadClass(StrippingZerosTest, name, initialize, &_StrippingZerosTest_ClassInfo_, allocate$StrippingZerosTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StrippingZerosTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StrippingZerosTest, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StrippingZerosTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StrippingZerosTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StrippingZerosTest);
+	});
 	return class$;
 }
 

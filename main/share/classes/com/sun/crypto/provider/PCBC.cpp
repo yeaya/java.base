@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PCBC.h>
-
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/security/InvalidKeyException.h>
@@ -21,37 +20,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _PCBC_FieldInfo_[] = {
-	{"k", "[B", nullptr, $PRIVATE | $FINAL, $field(PCBC, k)},
-	{"kSave", "[B", nullptr, $PRIVATE, $field(PCBC, kSave)},
-	{}
-};
-
-$MethodInfo _PCBC_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(PCBC, init$, void, $SymmetricCipher*)},
-	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(PCBC, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(PCBC, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PCBC, getFeedback, $String*)},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(PCBC, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
-	{"reset", "()V", nullptr, 0, $virtualMethod(PCBC, reset, void)},
-	{"restore", "()V", nullptr, 0, $virtualMethod(PCBC, restore, void)},
-	{"save", "()V", nullptr, 0, $virtualMethod(PCBC, save, void)},
-	{}
-};
-
-$ClassInfo _PCBC_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.PCBC",
-	"com.sun.crypto.provider.FeedbackCipher",
-	nullptr,
-	_PCBC_FieldInfo_,
-	_PCBC_MethodInfo_
-};
-
-$Object* allocate$PCBC($Class* clazz) {
-	return $of($alloc(PCBC));
-}
-
 void PCBC::init$($SymmetricCipher* embeddedCipher) {
 	$FeedbackCipher::init$(embeddedCipher);
 	$set(this, kSave, nullptr);
@@ -63,7 +31,7 @@ $String* PCBC::getFeedback() {
 }
 
 void PCBC::init(bool decrypting, $String* algorithm, $bytes* key, $bytes* iv) {
-	if ((key == nullptr) || (iv == nullptr) || ($nc(iv)->length != this->blockSize)) {
+	if ((key == nullptr) || (iv == nullptr) || (iv->length != this->blockSize)) {
 		$throwNew($InvalidKeyException, "Internal error"_s);
 	}
 	$set(this, iv, iv);
@@ -94,11 +62,11 @@ int32_t PCBC::encrypt($bytes* plain, int32_t plainOffset, int32_t plainLen, $byt
 	int32_t endIndex = plainOffset + plainLen;
 	for (; plainOffset < endIndex; plainOffset += this->blockSize, cipherOffset += this->blockSize) {
 		for (i = 0; i < this->blockSize; ++i) {
-			(*$nc(this->k))[i] ^= $nc(plain)->get(i + plainOffset);
+			(*this->k)[i] ^= $nc(plain)->get(i + plainOffset);
 		}
 		$nc(this->embeddedCipher)->encryptBlock(this->k, 0, cipher, cipherOffset);
 		for (i = 0; i < this->blockSize; ++i) {
-			$nc(this->k)->set(i, (int8_t)($nc(plain)->get(i + plainOffset) ^ $nc(cipher)->get(i + cipherOffset)));
+			this->k->set(i, (int8_t)($nc(plain)->get(i + plainOffset) ^ $nc(cipher)->get(i + cipherOffset)));
 		}
 	}
 	return plainLen;
@@ -113,10 +81,10 @@ int32_t PCBC::decrypt($bytes* cipher, int32_t cipherOffset, int32_t cipherLen, $
 	for (; cipherOffset < endIndex; plainOffset += this->blockSize, cipherOffset += this->blockSize) {
 		$nc(this->embeddedCipher)->decryptBlock(cipher, cipherOffset, plain, plainOffset);
 		for (i = 0; i < this->blockSize; ++i) {
-			(*$nc(plain))[i + plainOffset] ^= $nc(this->k)->get(i);
+			(*$nc(plain))[i + plainOffset] ^= this->k->get(i);
 		}
 		for (i = 0; i < this->blockSize; ++i) {
-			$nc(this->k)->set(i, (int8_t)($nc(plain)->get(i + plainOffset) ^ $nc(cipher)->get(i + cipherOffset)));
+			this->k->set(i, (int8_t)($nc(plain)->get(i + plainOffset) ^ $nc(cipher)->get(i + cipherOffset)));
 		}
 	}
 	return cipherLen;
@@ -126,7 +94,33 @@ PCBC::PCBC() {
 }
 
 $Class* PCBC::load$($String* name, bool initialize) {
-	$loadClass(PCBC, name, initialize, &_PCBC_ClassInfo_, allocate$PCBC);
+	$FieldInfo fieldInfos$$[] = {
+		{"k", "[B", nullptr, $PRIVATE | $FINAL, $field(PCBC, k)},
+		{"kSave", "[B", nullptr, $PRIVATE, $field(PCBC, kSave)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(PCBC, init$, void, $SymmetricCipher*)},
+		{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(PCBC, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(PCBC, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PCBC, getFeedback, $String*)},
+		{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(PCBC, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
+		{"reset", "()V", nullptr, 0, $virtualMethod(PCBC, reset, void)},
+		{"restore", "()V", nullptr, 0, $virtualMethod(PCBC, restore, void)},
+		{"save", "()V", nullptr, 0, $virtualMethod(PCBC, save, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.PCBC",
+		"com.sun.crypto.provider.FeedbackCipher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PCBC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PCBC);
+	});
 	return class$;
 }
 

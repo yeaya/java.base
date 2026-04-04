@@ -1,5 +1,4 @@
 #include <java/util/Collections$CheckedCollection$1.h>
-
 #include <java/util/Collections$CheckedCollection.h>
 #include <java/util/Iterator.h>
 #include <java/util/function/Consumer.h>
@@ -17,53 +16,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 
-$FieldInfo _Collections$CheckedCollection$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/Collections$CheckedCollection;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$CheckedCollection$1, this$0)},
-	{"val$it", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$CheckedCollection$1, val$it)},
-	{}
-};
-
-$MethodInfo _Collections$CheckedCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collections$CheckedCollection;Ljava/util/Iterator;)V", "()V", 0, $method(Collections$CheckedCollection$1, init$, void, $Collections$CheckedCollection*, $Iterator*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Collections$CheckedCollection$1_EnclosingMethodInfo_ = {
-	"java.util.Collections$CheckedCollection",
-	"iterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _Collections$CheckedCollection$1_InnerClassesInfo_[] = {
-	{"java.util.Collections$CheckedCollection", "java.util.Collections", "CheckedCollection", $STATIC},
-	{"java.util.Collections$CheckedCollection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Collections$CheckedCollection$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$CheckedCollection$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Collections$CheckedCollection$1_FieldInfo_,
-	_Collections$CheckedCollection$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	&_Collections$CheckedCollection$1_EnclosingMethodInfo_,
-	_Collections$CheckedCollection$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$CheckedCollection$1($Class* clazz) {
-	return $of($alloc(Collections$CheckedCollection$1));
-}
-
 void Collections$CheckedCollection$1::init$($Collections$CheckedCollection* this$0, $Iterator* val$it) {
 	$set(this, this$0, this$0);
 	$set(this, val$it, val$it);
@@ -74,7 +26,7 @@ bool Collections$CheckedCollection$1::hasNext() {
 }
 
 $Object* Collections$CheckedCollection$1::next() {
-	return $of($nc(this->val$it)->next());
+	return $nc(this->val$it)->next();
 }
 
 void Collections$CheckedCollection$1::remove() {
@@ -89,7 +41,47 @@ Collections$CheckedCollection$1::Collections$CheckedCollection$1() {
 }
 
 $Class* Collections$CheckedCollection$1::load$($String* name, bool initialize) {
-	$loadClass(Collections$CheckedCollection$1, name, initialize, &_Collections$CheckedCollection$1_ClassInfo_, allocate$Collections$CheckedCollection$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/Collections$CheckedCollection;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$CheckedCollection$1, this$0)},
+		{"val$it", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$CheckedCollection$1, val$it)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collections$CheckedCollection;Ljava/util/Iterator;)V", "()V", 0, $method(Collections$CheckedCollection$1, init$, void, $Collections$CheckedCollection*, $Iterator*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.Collections$CheckedCollection",
+		"iterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$CheckedCollection", "java.util.Collections", "CheckedCollection", $STATIC},
+		{"java.util.Collections$CheckedCollection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$CheckedCollection$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$CheckedCollection$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$CheckedCollection$1);
+	});
 	return class$;
 }
 

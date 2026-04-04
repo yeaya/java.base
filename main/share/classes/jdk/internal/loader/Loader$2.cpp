@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/Loader$2.h>
-
 #include <java/net/URL.h>
 #include <jdk/internal/loader/Loader.h>
 #include <jdk/internal/loader/URLClassPath.h>
@@ -18,63 +17,56 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$FieldInfo _Loader$2_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/loader/Loader;", nullptr, $FINAL | $SYNTHETIC, $field(Loader$2, this$0)},
-	{"val$urlToCheck", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(Loader$2, val$urlToCheck)},
-	{}
-};
-
-$MethodInfo _Loader$2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/net/URL;)V", "()V", 0, $method(Loader$2, init$, void, $Loader*, $URL*)},
-	{"run", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Loader$2, run, $Object*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _Loader$2_EnclosingMethodInfo_ = {
-	"jdk.internal.loader.Loader",
-	"findResource",
-	"(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;"
-};
-
-$InnerClassInfo _Loader$2_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.Loader$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Loader$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.Loader$2",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_Loader$2_FieldInfo_,
-	_Loader$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/net/URL;>;",
-	&_Loader$2_EnclosingMethodInfo_,
-	_Loader$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.Loader"
-};
-
-$Object* allocate$Loader$2($Class* clazz) {
-	return $of($alloc(Loader$2));
-}
-
 void Loader$2::init$($Loader* this$0, $URL* val$urlToCheck) {
 	$set(this, this$0, this$0);
 	$set(this, val$urlToCheck, val$urlToCheck);
 }
 
 $Object* Loader$2::run() {
-	return $of($URLClassPath::checkURL(this->val$urlToCheck));
+	return $URLClassPath::checkURL(this->val$urlToCheck);
 }
 
 Loader$2::Loader$2() {
 }
 
 $Class* Loader$2::load$($String* name, bool initialize) {
-	$loadClass(Loader$2, name, initialize, &_Loader$2_ClassInfo_, allocate$Loader$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/loader/Loader;", nullptr, $FINAL | $SYNTHETIC, $field(Loader$2, this$0)},
+		{"val$urlToCheck", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(Loader$2, val$urlToCheck)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/loader/Loader;Ljava/net/URL;)V", "()V", 0, $method(Loader$2, init$, void, $Loader*, $URL*)},
+		{"run", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Loader$2, run, $Object*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.loader.Loader",
+		"findResource",
+		"(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.Loader$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.Loader$2",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/net/URL;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.Loader"
+	};
+	$loadClass(Loader$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Loader$2);
+	});
 	return class$;
 }
 

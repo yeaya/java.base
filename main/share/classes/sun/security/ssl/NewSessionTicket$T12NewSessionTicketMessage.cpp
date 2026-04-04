@@ -1,5 +1,4 @@
 #include <sun/security/ssl/NewSessionTicket$T12NewSessionTicketMessage.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/Locale.h>
@@ -33,49 +32,12 @@ using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $NewSessionTicket$NewSessionTicketMessage = ::sun::security::ssl::NewSessionTicket$NewSessionTicketMessage;
 using $Record = ::sun::security::ssl::Record;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$MethodInfo _NewSessionTicket$T12NewSessionTicketMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;I[B)V", nullptr, 0, $method(NewSessionTicket$T12NewSessionTicketMessage, init$, void, $HandshakeContext*, int32_t, $bytes*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(NewSessionTicket$T12NewSessionTicketMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _NewSessionTicket$T12NewSessionTicketMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.NewSessionTicket$T12NewSessionTicketMessage", "sun.security.ssl.NewSessionTicket", "T12NewSessionTicketMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage", "sun.security.ssl.NewSessionTicket", "NewSessionTicketMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NewSessionTicket$T12NewSessionTicketMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.NewSessionTicket$T12NewSessionTicketMessage",
-	"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage",
-	nullptr,
-	nullptr,
-	_NewSessionTicket$T12NewSessionTicketMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NewSessionTicket$T12NewSessionTicketMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.NewSessionTicket"
-};
-
-$Object* allocate$NewSessionTicket$T12NewSessionTicketMessage($Class* clazz) {
-	return $of($alloc(NewSessionTicket$T12NewSessionTicketMessage));
-}
 
 void NewSessionTicket$T12NewSessionTicketMessage::init$($HandshakeContext* context, int32_t ticketLifetime, $bytes* ticket) {
 	$NewSessionTicket$NewSessionTicketMessage::init$(context);
@@ -108,13 +70,13 @@ void NewSessionTicket$T12NewSessionTicketMessage::send($HandshakeOutStream* hos)
 }
 
 $String* NewSessionTicket$T12NewSessionTicketMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"NewSessionTicket\": \'{\'\n  \"ticket_lifetime\"      : \"{0}\",\n  \"ticket\"               : \'{\'\n{1}\n  \'}\'\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$($of($Integer::valueOf(this->ticketLifetime))),
-		$($of($Utilities::indent($(hexEncoder->encode(this->ticket)), "    "_s)))
+		$($Integer::valueOf(this->ticketLifetime)),
+		$($Utilities::indent($(hexEncoder->encode(this->ticket)), "    "_s))
 	}));
 	return messageFormat->format(messageFields);
 }
@@ -123,7 +85,38 @@ NewSessionTicket$T12NewSessionTicketMessage::NewSessionTicket$T12NewSessionTicke
 }
 
 $Class* NewSessionTicket$T12NewSessionTicketMessage::load$($String* name, bool initialize) {
-	$loadClass(NewSessionTicket$T12NewSessionTicketMessage, name, initialize, &_NewSessionTicket$T12NewSessionTicketMessage_ClassInfo_, allocate$NewSessionTicket$T12NewSessionTicketMessage);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;I[B)V", nullptr, 0, $method(NewSessionTicket$T12NewSessionTicketMessage, init$, void, $HandshakeContext*, int32_t, $bytes*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(NewSessionTicket$T12NewSessionTicketMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.NewSessionTicket$T12NewSessionTicketMessage", "sun.security.ssl.NewSessionTicket", "T12NewSessionTicketMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage", "sun.security.ssl.NewSessionTicket", "NewSessionTicketMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.NewSessionTicket$T12NewSessionTicketMessage",
+		"sun.security.ssl.NewSessionTicket$NewSessionTicketMessage",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.NewSessionTicket"
+	};
+	$loadClass(NewSessionTicket$T12NewSessionTicketMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewSessionTicket$T12NewSessionTicketMessage);
+	});
 	return class$;
 }
 

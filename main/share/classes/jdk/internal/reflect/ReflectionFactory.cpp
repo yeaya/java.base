@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/ReflectionFactory.h>
-
 #include <java/io/Externalizable.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -77,17 +76,13 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Executable = ::java::lang::reflect::Executable;
 using $Field = ::java::lang::reflect::Field;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
-using $Permission = ::java::security::Permission;
 using $Properties = ::java::util::Properties;
-using $JavaLangReflectAccess = ::jdk::internal::access::JavaLangReflectAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $VM = ::jdk::internal::misc::VM;
 using $BootstrapConstructorAccessorImpl = ::jdk::internal::reflect::BootstrapConstructorAccessorImpl;
@@ -107,79 +102,6 @@ using $SecurityConstants = ::sun::security::util::SecurityConstants;
 namespace jdk {
 	namespace internal {
 		namespace reflect {
-
-$FieldInfo _ReflectionFactory_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ReflectionFactory, $assertionsDisabled)},
-	{"initted", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ReflectionFactory, initted)},
-	{"soleInstance", "Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReflectionFactory, soleInstance)},
-	{"hasStaticInitializerMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(ReflectionFactory, hasStaticInitializerMethod)},
-	{"noInflation", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ReflectionFactory, noInflation)},
-	{"inflationThreshold", "I", nullptr, $PRIVATE | $STATIC, $staticField(ReflectionFactory, inflationThreshold$)},
-	{"disableSerialConstructorChecks", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ReflectionFactory, disableSerialConstructorChecks)},
-	{"langReflectAccess", "Ljdk/internal/access/JavaLangReflectAccess;", nullptr, $PRIVATE | $FINAL, $field(ReflectionFactory, langReflectAccess)},
-	{}
-};
-
-$MethodInfo _ReflectionFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ReflectionFactory, init$, void)},
-	{"checkInitted", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReflectionFactory, checkInitted, void)},
-	{"copyConstructor", "(Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;", "<T:Ljava/lang/Object;>(Ljava/lang/reflect/Constructor<TT;>;)Ljava/lang/reflect/Constructor<TT;>;", $PUBLIC, $virtualMethod(ReflectionFactory, copyConstructor, $Constructor*, $Constructor*)},
-	{"copyField", "(Ljava/lang/reflect/Field;)Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, copyField, $Field*, $Field*)},
-	{"copyMethod", "(Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, copyMethod, $Method*, $Method*)},
-	{"findMethodForReflection", "(Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(ReflectionFactory, findMethodForReflection, $Method*, $Method*)},
-	{"findReadWriteObjectForSerialization", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $FINAL, $method(ReflectionFactory, findReadWriteObjectForSerialization, $MethodHandle*, $Class*, $String*, $Class*)},
-	{"generateConstructor", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $FINAL, $method(ReflectionFactory, generateConstructor, $Constructor*, $Class*, $Constructor*)},
-	{"getConstructorAccessor", "(Ljava/lang/reflect/Constructor;)Ljdk/internal/reflect/ConstructorAccessor;", "(Ljava/lang/reflect/Constructor<*>;)Ljdk/internal/reflect/ConstructorAccessor;", $PUBLIC, $virtualMethod(ReflectionFactory, getConstructorAccessor, $ConstructorAccessor*, $Constructor*)},
-	{"getExecutableSharedParameterTypes", "(Ljava/lang/reflect/Executable;)[Ljava/lang/Class;", "(Ljava/lang/reflect/Executable;)[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ReflectionFactory, getExecutableSharedParameterTypes, $ClassArray*, $Executable*)},
-	{"getExecutableTypeAnnotationBytes", "(Ljava/lang/reflect/Executable;)[B", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, getExecutableTypeAnnotationBytes, $bytes*, $Executable*)},
-	{"getReflectionFactory", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectionFactory, getReflectionFactory, ReflectionFactory*)},
-	{"getReplaceResolveForSerialization", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(ReflectionFactory, getReplaceResolveForSerialization, $MethodHandle*, $Class*, $String*)},
-	{"hasStaticInitializerForSerialization", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $FINAL, $method(ReflectionFactory, hasStaticInitializerForSerialization, bool, $Class*)},
-	{"inflationThreshold", "()I", nullptr, $STATIC, $staticMethod(ReflectionFactory, inflationThreshold, int32_t)},
-	{"leafCopyMethod", "(Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, leafCopyMethod, $Method*, $Method*)},
-	{"newConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Class;IILjava/lang/String;[B[B)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;[Ljava/lang/Class<*>;IILjava/lang/String;[B[B)Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $virtualMethod(ReflectionFactory, newConstructor, $Constructor*, $Class*, $ClassArray*, $ClassArray*, int32_t, int32_t, $String*, $bytes*, $bytes*)},
-	{"newConstructorAccessor", "(Ljava/lang/reflect/Constructor;)Ljdk/internal/reflect/ConstructorAccessor;", "(Ljava/lang/reflect/Constructor<*>;)Ljdk/internal/reflect/ConstructorAccessor;", $PUBLIC, $virtualMethod(ReflectionFactory, newConstructorAccessor, $ConstructorAccessor*, $Constructor*)},
-	{"newConstructorForExternalization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForExternalization, $Constructor*, $Class*)},
-	{"newConstructorForSerialization", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForSerialization, $Constructor*, $Class*, $Constructor*)},
-	{"newConstructorForSerialization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForSerialization, $Constructor*, $Class*)},
-	{"newFieldAccessor", "(Ljava/lang/reflect/Field;Z)Ljdk/internal/reflect/FieldAccessor;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, newFieldAccessor, $FieldAccessor*, $Field*, bool)},
-	{"newInstance", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/reflect/Constructor<TT;>;[Ljava/lang/Object;Ljava/lang/Class<*>;)TT;", $PUBLIC, $virtualMethod(ReflectionFactory, newInstance, $Object*, $Constructor*, $ObjectArray*, $Class*), "java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.reflect.InvocationTargetException"},
-	{"newMethodAccessor", "(Ljava/lang/reflect/Method;)Ljdk/internal/reflect/MethodAccessor;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, newMethodAccessor, $MethodAccessor*, $Method*)},
-	{"newOptionalDataExceptionForSerialization", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<Ljava/io/OptionalDataException;>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newOptionalDataExceptionForSerialization, $Constructor*)},
-	{"packageEquals", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(ReflectionFactory, packageEquals, bool, $Class*, $Class*)},
-	{"readObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readObjectForSerialization, $MethodHandle*, $Class*)},
-	{"readObjectNoDataForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readObjectNoDataForSerialization, $MethodHandle*, $Class*)},
-	{"readResolveForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readResolveForSerialization, $MethodHandle*, $Class*)},
-	{"setConstructorAccessor", "(Ljava/lang/reflect/Constructor;Ljdk/internal/reflect/ConstructorAccessor;)V", "(Ljava/lang/reflect/Constructor<*>;Ljdk/internal/reflect/ConstructorAccessor;)V", $PUBLIC, $virtualMethod(ReflectionFactory, setConstructorAccessor, void, $Constructor*, $ConstructorAccessor*)},
-	{"superHasAccessibleConstructor", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE, $method(ReflectionFactory, superHasAccessibleConstructor, bool, $Class*)},
-	{"writeObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, writeObjectForSerialization, $MethodHandle*, $Class*)},
-	{"writeReplaceForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, writeReplaceForSerialization, $MethodHandle*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _ReflectionFactory_InnerClassesInfo_[] = {
-	{"jdk.internal.reflect.ReflectionFactory$GetReflectionFactoryAction", "jdk.internal.reflect.ReflectionFactory", "GetReflectionFactoryAction", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ReflectionFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.reflect.ReflectionFactory",
-	"java.lang.Object",
-	nullptr,
-	_ReflectionFactory_FieldInfo_,
-	_ReflectionFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReflectionFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.reflect.ReflectionFactory$GetReflectionFactoryAction"
-};
-
-$Object* allocate$ReflectionFactory($Class* clazz) {
-	return $of($alloc(ReflectionFactory));
-}
 
 bool ReflectionFactory::$assertionsDisabled = false;
 bool ReflectionFactory::initted = false;
@@ -205,7 +127,7 @@ ReflectionFactory* ReflectionFactory::getReflectionFactory() {
 
 $Method* ReflectionFactory::findMethodForReflection($Method* method) {
 	$init(ReflectionFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, altName, $str({"reflected$"_s, $($nc(method)->getName())}));
 	try {
@@ -217,7 +139,7 @@ $Method* ReflectionFactory::findMethodForReflection($Method* method) {
 }
 
 $FieldAccessor* ReflectionFactory::newFieldAccessor($Field* field$renamed, bool override$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Field, field, field$renamed);
 	checkInitted();
 	$var($Field, root, $cast($Field, $nc(this->langReflectAccess)->getRoot(field)));
@@ -228,7 +150,7 @@ $FieldAccessor* ReflectionFactory::newFieldAccessor($Field* field$renamed, bool 
 		}
 	}
 	bool isFinal = $Modifier::isFinal($nc(field)->getModifiers());
-	bool isReadOnly = isFinal && (!override$ || $nc(this->langReflectAccess)->isTrustedFinalField(field));
+	bool isReadOnly = isFinal && (!override$ || this->langReflectAccess->isTrustedFinalField(field));
 	return $UnsafeFieldAccessorFactory::newFieldAccessor(field, isReadOnly);
 }
 
@@ -254,7 +176,7 @@ $MethodAccessor* ReflectionFactory::newMethodAccessor($Method* method0) {
 }
 
 $ConstructorAccessor* ReflectionFactory::newConstructorAccessor($Constructor* c$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Constructor, c, c$renamed);
 	checkInitted();
 	$Class* declaringClass = $nc(c)->getDeclaringClass();
@@ -322,11 +244,11 @@ $ClassArray* ReflectionFactory::getExecutableSharedParameterTypes($Executable* e
 }
 
 $Object* ReflectionFactory::newInstance($Constructor* ctor, $ObjectArray* args, $Class* caller) {
-	return $of($nc(this->langReflectAccess)->newInstance(ctor, args, caller));
+	return $nc(this->langReflectAccess)->newInstance(ctor, args, caller);
 }
 
 $Constructor* ReflectionFactory::newConstructorForExternalization($Class* cl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($Externalizable);
 	if (!$Externalizable::class$->isAssignableFrom(cl)) {
@@ -352,7 +274,7 @@ $Constructor* ReflectionFactory::newConstructorForSerialization($Class* cl, $Con
 }
 
 bool ReflectionFactory::superHasAccessibleConstructor($Class* cl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* superCl = $nc(cl)->getSuperclass();
 	$load($Serializable);
@@ -365,14 +287,10 @@ bool ReflectionFactory::superHasAccessibleConstructor($Class* cl) {
 	if (packageEquals(cl, superCl)) {
 		{
 			$var($ConstructorArray, arr$, $nc(superCl)->getDeclaredConstructors());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Constructor, ctor, arr$->get(i$));
-				{
-					if (((int32_t)($nc(ctor)->getModifiers() & (uint32_t)$Modifier::PRIVATE)) == 0) {
-						return true;
-					}
+				if (($nc(ctor)->getModifiers() & $Modifier::PRIVATE) == 0) {
+					return true;
 				}
 			}
 		}
@@ -381,19 +299,15 @@ bool ReflectionFactory::superHasAccessibleConstructor($Class* cl) {
 		}
 		return false;
 	} else {
-		if (((int32_t)($nc(superCl)->getModifiers() & (uint32_t)($Modifier::PROTECTED | $Modifier::PUBLIC))) == 0) {
+		if (($nc(superCl)->getModifiers() & ($Modifier::PROTECTED | $Modifier::PUBLIC)) == 0) {
 			return false;
 		}
 		{
-			$var($ConstructorArray, arr$, $nc(superCl)->getDeclaredConstructors());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			$var($ConstructorArray, arr$, superCl->getDeclaredConstructors());
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Constructor, ctor, arr$->get(i$));
-				{
-					if (((int32_t)($nc(ctor)->getModifiers() & (uint32_t)($Modifier::PROTECTED | $Modifier::PUBLIC))) != 0) {
-						return true;
-					}
+				if (($nc(ctor)->getModifiers() & ($Modifier::PROTECTED | $Modifier::PUBLIC)) != 0) {
+					return true;
 				}
 			}
 		}
@@ -402,7 +316,7 @@ bool ReflectionFactory::superHasAccessibleConstructor($Class* cl) {
 }
 
 $Constructor* ReflectionFactory::newConstructorForSerialization($Class* cl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* initCl = cl;
 	$load($Serializable);
@@ -417,7 +331,7 @@ $Constructor* ReflectionFactory::newConstructorForSerialization($Class* cl) {
 	try {
 		$assign(constructorToCall, $nc(initCl)->getDeclaredConstructor($$new($ClassArray, 0)));
 		int32_t mods = $nc(constructorToCall)->getModifiers();
-		if (((int32_t)(mods & (uint32_t)$Modifier::PRIVATE)) != 0 || (((int32_t)(mods & (uint32_t)($Modifier::PUBLIC | $Modifier::PROTECTED))) == 0 && !packageEquals(cl, initCl))) {
+		if ((mods & $Modifier::PRIVATE) != 0 || ((mods & ($Modifier::PUBLIC | $Modifier::PROTECTED)) == 0 && !packageEquals(cl, initCl))) {
 			return nullptr;
 		}
 	} catch ($NoSuchMethodException& ex) {
@@ -427,21 +341,20 @@ $Constructor* ReflectionFactory::newConstructorForSerialization($Class* cl) {
 }
 
 $Constructor* ReflectionFactory::generateConstructor($Class* cl, $Constructor* constructorToCall) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$Class* var$0 = cl;
-	$var($ClassArray, var$1, $nc(constructorToCall)->getParameterTypes());
-	$var($ClassArray, var$2, constructorToCall->getExceptionTypes());
-	int32_t var$3 = constructorToCall->getModifiers();
-	$var($ConstructorAccessor, acc, $$new($MethodAccessorGenerator)->generateSerializationConstructor(var$0, var$1, var$2, var$3, constructorToCall->getDeclaringClass()));
-	$Class* var$4 = $nc(constructorToCall)->getDeclaringClass();
-	$var($ClassArray, var$5, constructorToCall->getParameterTypes());
-	$var($ClassArray, var$6, constructorToCall->getExceptionTypes());
-	int32_t var$7 = constructorToCall->getModifiers();
-	int32_t var$8 = $nc(this->langReflectAccess)->getConstructorSlot(constructorToCall);
-	$var($String, var$9, $nc(this->langReflectAccess)->getConstructorSignature(constructorToCall));
-	$var($bytes, var$10, $nc(this->langReflectAccess)->getConstructorAnnotations(constructorToCall));
-	$var($Constructor, c, newConstructor(var$4, var$5, var$6, var$7, var$8, var$9, var$10, $($nc(this->langReflectAccess)->getConstructorParameterAnnotations(constructorToCall))));
+	$var($ClassArray, var$0, $nc(constructorToCall)->getParameterTypes());
+	$var($ClassArray, var$1, constructorToCall->getExceptionTypes());
+	int32_t var$2 = constructorToCall->getModifiers();
+	$var($ConstructorAccessor, acc, $$new($MethodAccessorGenerator)->generateSerializationConstructor(cl, var$0, var$1, var$2, constructorToCall->getDeclaringClass()));
+	$Class* var$3 = constructorToCall->getDeclaringClass();
+	$var($ClassArray, var$4, constructorToCall->getParameterTypes());
+	$var($ClassArray, var$5, constructorToCall->getExceptionTypes());
+	int32_t var$6 = constructorToCall->getModifiers();
+	int32_t var$7 = $nc(this->langReflectAccess)->getConstructorSlot(constructorToCall);
+	$var($String, var$8, this->langReflectAccess->getConstructorSignature(constructorToCall));
+	$var($bytes, var$9, this->langReflectAccess->getConstructorAnnotations(constructorToCall));
+	$var($Constructor, c, newConstructor(var$3, var$4, var$5, var$6, var$7, var$8, var$9, $(this->langReflectAccess->getConstructorParameterAnnotations(constructorToCall))));
 	setConstructorAccessor(c, acc);
 	$nc(c)->setAccessible(true);
 	return c;
@@ -463,7 +376,7 @@ $MethodHandle* ReflectionFactory::writeObjectForSerialization($Class* cl) {
 }
 
 $MethodHandle* ReflectionFactory::findReadWriteObjectForSerialization($Class* cl, $String* methodName, $Class* streamClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($Serializable);
 	if (!$Serializable::class$->isAssignableFrom(cl)) {
@@ -472,14 +385,13 @@ $MethodHandle* ReflectionFactory::findReadWriteObjectForSerialization($Class* cl
 	try {
 		$var($Method, meth, $nc(cl)->getDeclaredMethod(methodName, $$new($ClassArray, {streamClass})));
 		int32_t mods = $nc(meth)->getModifiers();
-		$init($Void);
 		bool var$1 = meth->getReturnType() != $Void::TYPE;
 		bool var$0 = var$1 || $Modifier::isStatic(mods);
 		if (var$0 || !$Modifier::isPrivate(mods)) {
 			return nullptr;
 		}
 		meth->setAccessible(true);
-		return $nc($($MethodHandles::lookup()))->unreflect(meth);
+		return $$nc($MethodHandles::lookup())->unreflect(meth);
 	} catch ($NoSuchMethodException& ex) {
 		return nullptr;
 	} catch ($IllegalAccessException& ex1) {
@@ -497,7 +409,7 @@ $MethodHandle* ReflectionFactory::readResolveForSerialization($Class* cl) {
 }
 
 $MethodHandle* ReflectionFactory::getReplaceResolveForSerialization($Class* cl, $String* methodName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($Serializable);
 	if (!$Serializable::class$->isAssignableFrom(cl)) {
@@ -510,13 +422,13 @@ $MethodHandle* ReflectionFactory::getReplaceResolveForSerialization($Class* cl, 
 			if ($nc(m)->getReturnType() != $Object::class$) {
 				return nullptr;
 			}
-			int32_t mods = $nc(m)->getModifiers();
+			int32_t mods = m->getModifiers();
 			bool var$0 = $Modifier::isStatic(mods);
 			if (var$0 | $Modifier::isAbstract(mods)) {
 				return nullptr;
 			} else {
-				bool var$2 = $Modifier::isPublic(mods);
-				if (var$2 | $Modifier::isProtected(mods)) {
+				bool var$1 = $Modifier::isPublic(mods);
+				if (var$1 | $Modifier::isProtected(mods)) {
 				} else if ($Modifier::isPrivate(mods) && (cl != defCl)) {
 					return nullptr;
 				} else if (!packageEquals(cl, defCl)) {
@@ -525,7 +437,7 @@ $MethodHandle* ReflectionFactory::getReplaceResolveForSerialization($Class* cl, 
 			}
 			try {
 				m->setAccessible(true);
-				return $nc($($MethodHandles::lookup()))->unreflect(m);
+				return $$nc($MethodHandles::lookup())->unreflect(m);
 			} catch ($IllegalAccessException& ex0) {
 				$throwNew($InternalError, "Error"_s, ex0);
 			}
@@ -537,7 +449,7 @@ $MethodHandle* ReflectionFactory::getReplaceResolveForSerialization($Class* cl, 
 }
 
 bool ReflectionFactory::hasStaticInitializerForSerialization($Class* cl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Method, m, ReflectionFactory::hasStaticInitializerMethod);
 	if (m == nullptr) {
@@ -552,7 +464,7 @@ bool ReflectionFactory::hasStaticInitializerForSerialization($Class* cl) {
 		}
 	}
 	try {
-		return $nc(($cast($Boolean, $($nc(m)->invoke(nullptr, $$new($ObjectArray, {$of(cl)}))))))->booleanValue();
+		return $$sure($Boolean, $nc(m)->invoke(nullptr, $$new($ObjectArray, {cl})))->booleanValue();
 	} catch ($InvocationTargetException& ex) {
 		$throwNew($InternalError, "Exception invoking hasStaticInitializer"_s, ex);
 	} catch ($IllegalAccessException& ex) {
@@ -562,11 +474,10 @@ bool ReflectionFactory::hasStaticInitializerForSerialization($Class* cl) {
 }
 
 $Constructor* ReflectionFactory::newOptionalDataExceptionForSerialization() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$load($OptionalDataException);
-		$init($Boolean);
 		$var($Constructor, boolCtor, $OptionalDataException::class$->getDeclaredConstructor($$new($ClassArray, {$Boolean::TYPE})));
 		$nc(boolCtor)->setAccessible(true);
 		return boolCtor;
@@ -583,7 +494,7 @@ int32_t ReflectionFactory::inflationThreshold() {
 
 void ReflectionFactory::checkInitted() {
 	$init(ReflectionFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ReflectionFactory::initted) {
 		return;
 	}
@@ -628,7 +539,7 @@ bool ReflectionFactory::packageEquals($Class* cl1, $Class* cl2) {
 	return var$2;
 }
 
-void clinit$ReflectionFactory($Class* class$) {
+void ReflectionFactory::clinit$($Class* clazz) {
 	ReflectionFactory::$assertionsDisabled = !ReflectionFactory::class$->desiredAssertionStatus();
 	ReflectionFactory::initted = false;
 	$assignStatic(ReflectionFactory::soleInstance, $new(ReflectionFactory));
@@ -641,7 +552,74 @@ ReflectionFactory::ReflectionFactory() {
 }
 
 $Class* ReflectionFactory::load$($String* name, bool initialize) {
-	$loadClass(ReflectionFactory, name, initialize, &_ReflectionFactory_ClassInfo_, clinit$ReflectionFactory, allocate$ReflectionFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ReflectionFactory, $assertionsDisabled)},
+		{"initted", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ReflectionFactory, initted)},
+		{"soleInstance", "Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReflectionFactory, soleInstance)},
+		{"hasStaticInitializerMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(ReflectionFactory, hasStaticInitializerMethod)},
+		{"noInflation", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ReflectionFactory, noInflation)},
+		{"inflationThreshold", "I", nullptr, $PRIVATE | $STATIC, $staticField(ReflectionFactory, inflationThreshold$)},
+		{"disableSerialConstructorChecks", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ReflectionFactory, disableSerialConstructorChecks)},
+		{"langReflectAccess", "Ljdk/internal/access/JavaLangReflectAccess;", nullptr, $PRIVATE | $FINAL, $field(ReflectionFactory, langReflectAccess)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ReflectionFactory, init$, void)},
+		{"checkInitted", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReflectionFactory, checkInitted, void)},
+		{"copyConstructor", "(Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;", "<T:Ljava/lang/Object;>(Ljava/lang/reflect/Constructor<TT;>;)Ljava/lang/reflect/Constructor<TT;>;", $PUBLIC, $virtualMethod(ReflectionFactory, copyConstructor, $Constructor*, $Constructor*)},
+		{"copyField", "(Ljava/lang/reflect/Field;)Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, copyField, $Field*, $Field*)},
+		{"copyMethod", "(Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, copyMethod, $Method*, $Method*)},
+		{"findMethodForReflection", "(Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(ReflectionFactory, findMethodForReflection, $Method*, $Method*)},
+		{"findReadWriteObjectForSerialization", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $FINAL, $method(ReflectionFactory, findReadWriteObjectForSerialization, $MethodHandle*, $Class*, $String*, $Class*)},
+		{"generateConstructor", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $FINAL, $method(ReflectionFactory, generateConstructor, $Constructor*, $Class*, $Constructor*)},
+		{"getConstructorAccessor", "(Ljava/lang/reflect/Constructor;)Ljdk/internal/reflect/ConstructorAccessor;", "(Ljava/lang/reflect/Constructor<*>;)Ljdk/internal/reflect/ConstructorAccessor;", $PUBLIC, $virtualMethod(ReflectionFactory, getConstructorAccessor, $ConstructorAccessor*, $Constructor*)},
+		{"getExecutableSharedParameterTypes", "(Ljava/lang/reflect/Executable;)[Ljava/lang/Class;", "(Ljava/lang/reflect/Executable;)[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ReflectionFactory, getExecutableSharedParameterTypes, $ClassArray*, $Executable*)},
+		{"getExecutableTypeAnnotationBytes", "(Ljava/lang/reflect/Executable;)[B", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, getExecutableTypeAnnotationBytes, $bytes*, $Executable*)},
+		{"getReflectionFactory", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectionFactory, getReflectionFactory, ReflectionFactory*)},
+		{"getReplaceResolveForSerialization", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(ReflectionFactory, getReplaceResolveForSerialization, $MethodHandle*, $Class*, $String*)},
+		{"hasStaticInitializerForSerialization", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $FINAL, $method(ReflectionFactory, hasStaticInitializerForSerialization, bool, $Class*)},
+		{"inflationThreshold", "()I", nullptr, $STATIC, $staticMethod(ReflectionFactory, inflationThreshold, int32_t)},
+		{"leafCopyMethod", "(Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, leafCopyMethod, $Method*, $Method*)},
+		{"newConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Class;IILjava/lang/String;[B[B)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;[Ljava/lang/Class<*>;IILjava/lang/String;[B[B)Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $virtualMethod(ReflectionFactory, newConstructor, $Constructor*, $Class*, $ClassArray*, $ClassArray*, int32_t, int32_t, $String*, $bytes*, $bytes*)},
+		{"newConstructorAccessor", "(Ljava/lang/reflect/Constructor;)Ljdk/internal/reflect/ConstructorAccessor;", "(Ljava/lang/reflect/Constructor<*>;)Ljdk/internal/reflect/ConstructorAccessor;", $PUBLIC, $virtualMethod(ReflectionFactory, newConstructorAccessor, $ConstructorAccessor*, $Constructor*)},
+		{"newConstructorForExternalization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForExternalization, $Constructor*, $Class*)},
+		{"newConstructorForSerialization", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForSerialization, $Constructor*, $Class*, $Constructor*)},
+		{"newConstructorForSerialization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForSerialization, $Constructor*, $Class*)},
+		{"newFieldAccessor", "(Ljava/lang/reflect/Field;Z)Ljdk/internal/reflect/FieldAccessor;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, newFieldAccessor, $FieldAccessor*, $Field*, bool)},
+		{"newInstance", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/reflect/Constructor<TT;>;[Ljava/lang/Object;Ljava/lang/Class<*>;)TT;", $PUBLIC, $virtualMethod(ReflectionFactory, newInstance, $Object*, $Constructor*, $ObjectArray*, $Class*), "java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.reflect.InvocationTargetException"},
+		{"newMethodAccessor", "(Ljava/lang/reflect/Method;)Ljdk/internal/reflect/MethodAccessor;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory, newMethodAccessor, $MethodAccessor*, $Method*)},
+		{"newOptionalDataExceptionForSerialization", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<Ljava/io/OptionalDataException;>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newOptionalDataExceptionForSerialization, $Constructor*)},
+		{"packageEquals", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(ReflectionFactory, packageEquals, bool, $Class*, $Class*)},
+		{"readObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readObjectForSerialization, $MethodHandle*, $Class*)},
+		{"readObjectNoDataForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readObjectNoDataForSerialization, $MethodHandle*, $Class*)},
+		{"readResolveForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readResolveForSerialization, $MethodHandle*, $Class*)},
+		{"setConstructorAccessor", "(Ljava/lang/reflect/Constructor;Ljdk/internal/reflect/ConstructorAccessor;)V", "(Ljava/lang/reflect/Constructor<*>;Ljdk/internal/reflect/ConstructorAccessor;)V", $PUBLIC, $virtualMethod(ReflectionFactory, setConstructorAccessor, void, $Constructor*, $ConstructorAccessor*)},
+		{"superHasAccessibleConstructor", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE, $method(ReflectionFactory, superHasAccessibleConstructor, bool, $Class*)},
+		{"writeObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, writeObjectForSerialization, $MethodHandle*, $Class*)},
+		{"writeReplaceForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, writeReplaceForSerialization, $MethodHandle*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.reflect.ReflectionFactory$GetReflectionFactoryAction", "jdk.internal.reflect.ReflectionFactory", "GetReflectionFactoryAction", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.reflect.ReflectionFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.reflect.ReflectionFactory$GetReflectionFactoryAction"
+	};
+	$loadClass(ReflectionFactory, name, initialize, &classInfo$$, ReflectionFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ReflectionFactory);
+	});
 	return class$;
 }
 

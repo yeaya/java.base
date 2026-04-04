@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/ResponderId$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <sun/security/provider/certpath/ResponderId$Type.h>
 #include <sun/security/provider/certpath/ResponderId.h>
@@ -20,53 +19,17 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _ResponderId$1_FieldInfo_[] = {
-	{"$SwitchMap$sun$security$provider$certpath$ResponderId$Type", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponderId$1, $SwitchMap$sun$security$provider$certpath$ResponderId$Type)},
-	{}
-};
-
-$EnclosingMethodInfo _ResponderId$1_EnclosingMethodInfo_ = {
-	"sun.security.provider.certpath.ResponderId",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ResponderId$1_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.ResponderId$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ResponderId$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"sun.security.provider.certpath.ResponderId$1",
-	"java.lang.Object",
-	nullptr,
-	_ResponderId$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ResponderId$1_EnclosingMethodInfo_,
-	_ResponderId$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.ResponderId"
-};
-
-$Object* allocate$ResponderId$1($Class* clazz) {
-	return $of($alloc(ResponderId$1));
-}
-
 $ints* ResponderId$1::$SwitchMap$sun$security$provider$certpath$ResponderId$Type = nullptr;
 
-void clinit$ResponderId$1($Class* class$) {
+void ResponderId$1::clinit$($Class* clazz) {
 	$assignStatic(ResponderId$1::$SwitchMap$sun$security$provider$certpath$ResponderId$Type, $new($ints, $($ResponderId$Type::values())->length));
 	{
 		try {
-			$nc(ResponderId$1::$SwitchMap$sun$security$provider$certpath$ResponderId$Type)->set($ResponderId$Type::BY_NAME->ordinal(), 1);
+			ResponderId$1::$SwitchMap$sun$security$provider$certpath$ResponderId$Type->set($ResponderId$Type::BY_NAME->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ResponderId$1::$SwitchMap$sun$security$provider$certpath$ResponderId$Type)->set($ResponderId$Type::BY_KEY->ordinal(), 2);
+			ResponderId$1::$SwitchMap$sun$security$provider$certpath$ResponderId$Type->set($ResponderId$Type::BY_KEY->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -76,7 +39,37 @@ ResponderId$1::ResponderId$1() {
 }
 
 $Class* ResponderId$1::load$($String* name, bool initialize) {
-	$loadClass(ResponderId$1, name, initialize, &_ResponderId$1_ClassInfo_, clinit$ResponderId$1, allocate$ResponderId$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$security$provider$certpath$ResponderId$Type", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponderId$1, $SwitchMap$sun$security$provider$certpath$ResponderId$Type)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.provider.certpath.ResponderId",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.ResponderId$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"sun.security.provider.certpath.ResponderId$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.ResponderId"
+	};
+	$loadClass(ResponderId$1, name, initialize, &classInfo$$, ResponderId$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponderId$1);
+	});
 	return class$;
 }
 

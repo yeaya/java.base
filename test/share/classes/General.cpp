@@ -1,5 +1,4 @@
 #include <General.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
@@ -22,7 +21,6 @@ using $FileOutputStream = ::java::io::FileOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -32,50 +30,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Files = ::java::nio::file::Files;
 using $LinkOption = ::java::nio::file::LinkOption;
 using $Hashtable = ::java::util::Hashtable;
-
-$FieldInfo _General_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PUBLIC | $STATIC, $staticField(General, debug)},
-	{"win32", "Z", nullptr, $PRIVATE | $STATIC, $staticField(General, win32)},
-	{"gensymCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(General, gensymCounter)},
-	{"userDir", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(General, userDir)},
-	{"workSubDir", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(General, workSubDir)},
-	{"baseDir", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(General, baseDir)},
-	{"relative", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(General, relative)},
-	{"checked", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(General, checked)},
-	{}
-};
-
-$MethodInfo _General_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(General, init$, void)},
-	{"check", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, check, void, $String*, $String*), "java.io.IOException"},
-	{"checkNames", "(IZLjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, checkNames, void, int32_t, bool, $String*, $String*), "java.lang.Exception"},
-	{"checkSlash", "(IZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(General, checkSlash, void, int32_t, bool, $String*, $String*, $String*), "java.lang.Exception"},
-	{"checkSlashes", "(IZLjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, checkSlashes, void, int32_t, bool, $String*, $String*), "java.lang.Exception"},
-	{"ensureNon", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, ensureNon, void, $String*)},
-	{"findNon", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findNon, $String*, $String*)},
-	{"findSomeDir", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findSomeDir, $String*, $String*, bool)},
-	{"findSomeFile", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findSomeFile, $String*, $String*, $String*, $StringArray*)},
-	{"findSomeFile", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findSomeFile, $String*, $String*, bool)},
-	{"gensym", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, gensym, $String*)},
-	{"initTestData", "(I)V", nullptr, $PROTECTED | $STATIC, $staticMethod(General, initTestData, void, int32_t), "java.io.IOException"},
-	{"isSlash", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(General, isSlash, bool, char16_t)},
-	{"pathConcat", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, pathConcat, $String*, $String*, $String*)},
-	{"trimTrailingSlashes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, trimTrailingSlashes, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _General_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"General",
-	"java.lang.Object",
-	nullptr,
-	_General_FieldInfo_,
-	_General_MethodInfo_
-};
-
-$Object* allocate$General($Class* clazz) {
-	return $of($alloc(General));
-}
 
 bool General::debug = false;
 bool General::win32 = false;
@@ -91,14 +45,15 @@ void General::init$() {
 
 $String* General::gensym() {
 	$init(General);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, "x."_s);
-	return $concat(var$0, $$str(++General::gensymCounter));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("x."_s);
+	var$0->append(++General::gensymCounter);
+	return $str(var$0);
 }
 
 void General::initTestData(int32_t depth) {
 	$init(General);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	$var($File, parent, $new($File, $$str({General::userDir, $File::separator, General::workSubDir})));
 	if (!parent->mkdir()) {
@@ -120,7 +75,7 @@ void General::initTestData(int32_t depth) {
 
 $String* General::findSomeFile($String* dir, $String* subdir, $StringArray* dl) {
 	$init(General);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(dl)->length; ++i) {
 		$var($File, f, $new($File, subdir, dl->get(i)));
 		$var($File, df, $new($File, dir, $(f->getPath())));
@@ -129,14 +84,14 @@ $String* General::findSomeFile($String* dir, $String* subdir, $StringArray* dl) 
 			return f->getPath();
 		}
 	}
-	for (int32_t i = 0; i < $nc(dl)->length; ++i) {
+	for (int32_t i = 0; i < dl->length; ++i) {
 		$var($File, f, ($nc(subdir)->length() == 0) ? $new($File, dl->get(i)) : $new($File, subdir, dl->get(i)));
 		$var($File, df, $new($File, dir, $($nc(f)->getPath())));
 		$init($LinkOption);
 		if ($Files::isDirectory($(df->toPath()), $$new($LinkOptionArray, {$LinkOption::NOFOLLOW_LINKS}))) {
 			$var($StringArray, dl2, df->list());
 			if (dl2 != nullptr) {
-				$var($String, ff, findSomeFile(dir, $($nc(f)->getPath()), dl2));
+				$var($String, ff, findSomeFile(dir, $(f->getPath()), dl2));
 				if (ff != nullptr) {
 					return ff;
 				}
@@ -148,7 +103,7 @@ $String* General::findSomeFile($String* dir, $String* subdir, $StringArray* dl) 
 
 $String* General::findSomeFile($String* dir, bool create) {
 	$init(General);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, d, $new($File, dir));
 	$var($StringArray, dl, d->list());
 	if (dl == nullptr) {
@@ -181,7 +136,7 @@ $String* General::findSomeFile($String* dir, bool create) {
 
 $String* General::findSomeDir($String* dir, bool create) {
 	$init(General);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, d, $new($File, dir));
 	$var($StringArray, dl, d->list());
 	if (dl == nullptr) {
@@ -192,7 +147,7 @@ $String* General::findSomeDir($String* dir, bool create) {
 		$init($LinkOption);
 		if ($Files::isDirectory($(f->toPath()), $$new($LinkOptionArray, {$LinkOption::NOFOLLOW_LINKS}))) {
 			$var($StringArray, dl2, f->list());
-			if (dl2 == nullptr || $nc(dl2)->length >= 250) {
+			if (dl2 == nullptr || dl2->length >= 250) {
 				continue;
 			}
 			return dl->get(i);
@@ -209,7 +164,7 @@ $String* General::findSomeDir($String* dir, bool create) {
 
 $String* General::findNon($String* dir) {
 	$init(General);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, d, $new($File, dir));
 	$var($StringArray, x, $new($StringArray, {
 		"foo"_s,
@@ -234,7 +189,7 @@ $String* General::findNon($String* dir) {
 
 void General::ensureNon($String* fn) {
 	$init(General);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (($$new($File, fn))->exists()) {
 		$throwNew($RuntimeException, $$str({"Test path "_s, fn, " exists"_s}));
 	}
@@ -276,9 +231,9 @@ $String* General::pathConcat($String* a, $String* b) {
 	if ($nc(b)->length() == 0) {
 		return a;
 	}
-	bool var$1 = isSlash($nc(a)->charAt(a->length() - 1));
-	bool var$0 = var$1 || isSlash($nc(b)->charAt(0));
-	if (var$0 || (General::win32 && ($nc(a)->charAt(a->length() - 1) == u':'))) {
+	bool var$1 = isSlash(a->charAt(a->length() - 1));
+	bool var$0 = var$1 || isSlash(b->charAt(0));
+	if (var$0 || (General::win32 && (a->charAt(a->length() - 1) == u':'))) {
 		return $str({a, b});
 	} else {
 		$init($File);
@@ -288,7 +243,7 @@ $String* General::pathConcat($String* a, $String* b) {
 
 void General::check($String* answer, $String* path) {
 	$init(General);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ans, trimTrailingSlashes(answer));
 	if ($nc(path)->length() == 0) {
 		return;
@@ -297,7 +252,7 @@ void General::check($String* answer, $String* path) {
 		$nc($System::err)->println($$str({"DUP "_s, path}));
 		return;
 	}
-	$nc(General::checked)->put(path, path);
+	General::checked->put(path, path);
 	$var($String, cpath, nullptr);
 	try {
 		$var($File, f, $new($File, path));
@@ -330,7 +285,7 @@ void General::check($String* answer, $String* path) {
 
 void General::checkSlash(int32_t depth, bool create, $String* ans, $String* ask, $String* slash) {
 	$init(General);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	check(ans, $$str({ask, slash}));
 	$init($File);
 	checkNames(depth, create, $nc(ans)->endsWith($File::separator) ? ans : $$str({ans, $File::separator}), $$str({ask, slash}));
@@ -356,7 +311,7 @@ void General::checkSlashes(int32_t depth, bool create, $String* ans, $String* as
 
 void General::checkNames(int32_t depth, bool create, $String* ans, $String* ask) {
 	$init(General);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t d = depth - 1;
 	$var($File, f, $new($File, ans));
 	$var($String, n, nullptr);
@@ -380,26 +335,24 @@ void General::checkNames(int32_t depth, bool create, $String* ans, $String* ask)
 	checkSlashes(d, create, $(trimTrailingSlashes(ans)), $$str({ask, "."_s}));
 	if (($assign(n, f->getParent())) != nullptr) {
 		$var($String, n2, nullptr);
-		bool var$1 = General::win32 && (($assign(n2, $nc($(f->getParentFile()))->getParent())) != nullptr);
+		bool var$1 = General::win32 && (($assign(n2, $$nc(f->getParentFile())->getParent())) != nullptr);
 		if (var$1 && $nc(n2)->equals("\\\\"_s)) {
 			checkSlashes(d, create, ans, $$str({ask, ".."_s}));
 		} else {
 			checkSlashes(d, create, n, $$str({ask, ".."_s}));
 		}
+	} else if (General::win32) {
+		checkSlashes(d, create, ans, $$str({ask, ".."_s}));
 	} else {
-		if (General::win32) {
-			checkSlashes(d, create, ans, $$str({ask, ".."_s}));
-		} else {
-			$var($File, thisPath, $new($File, ask));
-			$var($File, nextPath, $new($File, $$str({ask, ".."_s})));
-			if (!$nc($(thisPath->getCanonicalPath()))->equals($(nextPath->getCanonicalPath()))) {
-				checkSlashes(d, create, $$str({ans, ".."_s}), $$str({ask, ".."_s}));
-			}
+		$var($File, thisPath, $new($File, ask));
+		$var($File, nextPath, $new($File, $$str({ask, ".."_s})));
+		if (!$$nc(thisPath->getCanonicalPath())->equals($(nextPath->getCanonicalPath()))) {
+			checkSlashes(d, create, $$str({ans, ".."_s}), $$str({ask, ".."_s}));
 		}
 	}
 }
 
-void clinit$General($Class* class$) {
+void General::clinit$($Class* clazz) {
 	$assignStatic(General::workSubDir, "tmp"_s);
 	General::debug = false;
 	$init($File);
@@ -415,7 +368,46 @@ General::General() {
 }
 
 $Class* General::load$($String* name, bool initialize) {
-	$loadClass(General, name, initialize, &_General_ClassInfo_, clinit$General, allocate$General);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PUBLIC | $STATIC, $staticField(General, debug)},
+		{"win32", "Z", nullptr, $PRIVATE | $STATIC, $staticField(General, win32)},
+		{"gensymCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(General, gensymCounter)},
+		{"userDir", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(General, userDir)},
+		{"workSubDir", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(General, workSubDir)},
+		{"baseDir", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(General, baseDir)},
+		{"relative", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(General, relative)},
+		{"checked", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(General, checked)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(General, init$, void)},
+		{"check", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, check, void, $String*, $String*), "java.io.IOException"},
+		{"checkNames", "(IZLjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, checkNames, void, int32_t, bool, $String*, $String*), "java.lang.Exception"},
+		{"checkSlash", "(IZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(General, checkSlash, void, int32_t, bool, $String*, $String*, $String*), "java.lang.Exception"},
+		{"checkSlashes", "(IZLjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, checkSlashes, void, int32_t, bool, $String*, $String*), "java.lang.Exception"},
+		{"ensureNon", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, ensureNon, void, $String*)},
+		{"findNon", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findNon, $String*, $String*)},
+		{"findSomeDir", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findSomeDir, $String*, $String*, bool)},
+		{"findSomeFile", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findSomeFile, $String*, $String*, $String*, $StringArray*)},
+		{"findSomeFile", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findSomeFile, $String*, $String*, bool)},
+		{"gensym", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, gensym, $String*)},
+		{"initTestData", "(I)V", nullptr, $PROTECTED | $STATIC, $staticMethod(General, initTestData, void, int32_t), "java.io.IOException"},
+		{"isSlash", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(General, isSlash, bool, char16_t)},
+		{"pathConcat", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, pathConcat, $String*, $String*, $String*)},
+		{"trimTrailingSlashes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, trimTrailingSlashes, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"General",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(General, name, initialize, &classInfo$$, General::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(General);
+	});
 	return class$;
 }
 

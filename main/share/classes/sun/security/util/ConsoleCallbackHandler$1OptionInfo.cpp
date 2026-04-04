@@ -1,5 +1,4 @@
 #include <sun/security/util/ConsoleCallbackHandler$1OptionInfo.h>
-
 #include <sun/security/util/ConsoleCallbackHandler.h>
 #include <jcpp.h>
 
@@ -14,49 +13,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _ConsoleCallbackHandler$1OptionInfo_FieldInfo_[] = {
-	{"this$0", "Lsun/security/util/ConsoleCallbackHandler;", nullptr, $FINAL | $SYNTHETIC, $field(ConsoleCallbackHandler$1OptionInfo, this$0)},
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(ConsoleCallbackHandler$1OptionInfo, name)},
-	{"value", "I", nullptr, 0, $field(ConsoleCallbackHandler$1OptionInfo, value)},
-	{}
-};
-
-$MethodInfo _ConsoleCallbackHandler$1OptionInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ConsoleCallbackHandler;Ljava/lang/String;I)V", nullptr, 0, $method(ConsoleCallbackHandler$1OptionInfo, init$, void, $ConsoleCallbackHandler*, $String*, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _ConsoleCallbackHandler$1OptionInfo_EnclosingMethodInfo_ = {
-	"sun.security.util.ConsoleCallbackHandler",
-	"doConfirmation",
-	"(Ljavax/security/auth/callback/ConfirmationCallback;)V"
-};
-
-$InnerClassInfo _ConsoleCallbackHandler$1OptionInfo_InnerClassesInfo_[] = {
-	{"sun.security.util.ConsoleCallbackHandler$1OptionInfo", nullptr, "OptionInfo", 0},
-	{}
-};
-
-$ClassInfo _ConsoleCallbackHandler$1OptionInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.ConsoleCallbackHandler$1OptionInfo",
-	"java.lang.Object",
-	nullptr,
-	_ConsoleCallbackHandler$1OptionInfo_FieldInfo_,
-	_ConsoleCallbackHandler$1OptionInfo_MethodInfo_,
-	nullptr,
-	&_ConsoleCallbackHandler$1OptionInfo_EnclosingMethodInfo_,
-	_ConsoleCallbackHandler$1OptionInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.ConsoleCallbackHandler"
-};
-
-$Object* allocate$ConsoleCallbackHandler$1OptionInfo($Class* clazz) {
-	return $of($alloc(ConsoleCallbackHandler$1OptionInfo));
-}
-
 void ConsoleCallbackHandler$1OptionInfo::init$($ConsoleCallbackHandler* this$0, $String* name, int32_t value) {
 	$set(this, this$0, this$0);
 	$set(this, name, name);
@@ -67,7 +23,43 @@ ConsoleCallbackHandler$1OptionInfo::ConsoleCallbackHandler$1OptionInfo() {
 }
 
 $Class* ConsoleCallbackHandler$1OptionInfo::load$($String* name, bool initialize) {
-	$loadClass(ConsoleCallbackHandler$1OptionInfo, name, initialize, &_ConsoleCallbackHandler$1OptionInfo_ClassInfo_, allocate$ConsoleCallbackHandler$1OptionInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/util/ConsoleCallbackHandler;", nullptr, $FINAL | $SYNTHETIC, $field(ConsoleCallbackHandler$1OptionInfo, this$0)},
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(ConsoleCallbackHandler$1OptionInfo, name)},
+		{"value", "I", nullptr, 0, $field(ConsoleCallbackHandler$1OptionInfo, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/ConsoleCallbackHandler;Ljava/lang/String;I)V", nullptr, 0, $method(ConsoleCallbackHandler$1OptionInfo, init$, void, $ConsoleCallbackHandler*, $String*, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.util.ConsoleCallbackHandler",
+		"doConfirmation",
+		"(Ljavax/security/auth/callback/ConfirmationCallback;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.ConsoleCallbackHandler$1OptionInfo", nullptr, "OptionInfo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.ConsoleCallbackHandler$1OptionInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.ConsoleCallbackHandler"
+	};
+	$loadClass(ConsoleCallbackHandler$1OptionInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConsoleCallbackHandler$1OptionInfo);
+	});
 	return class$;
 }
 

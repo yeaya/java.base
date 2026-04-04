@@ -58,6 +58,7 @@ class $export AuthorityKeyIdentifierExtension : public ::sun::security::x509::Ex
 	$class(AuthorityKeyIdentifierExtension, 0, ::sun::security::x509::Extension, ::sun::security::x509::CertAttrSet)
 public:
 	AuthorityKeyIdentifierExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::security::x509::Extension::encode;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

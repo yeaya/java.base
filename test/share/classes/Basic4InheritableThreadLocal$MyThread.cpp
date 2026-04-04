@@ -1,5 +1,4 @@
 #include <Basic4InheritableThreadLocal$MyThread.h>
-
 #include <Basic4InheritableThreadLocal.h>
 #include <java/lang/InheritableThreadLocal.h>
 #include <java/lang/InterruptedException.h>
@@ -8,58 +7,26 @@
 
 using $Basic4InheritableThreadLocal = ::Basic4InheritableThreadLocal;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $InheritableThreadLocal = ::java::lang::InheritableThreadLocal;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _Basic4InheritableThreadLocal$MyThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Basic4InheritableThreadLocal$MyThread, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4InheritableThreadLocal$MyThread, run, void)},
-	{}
-};
-
-$InnerClassInfo _Basic4InheritableThreadLocal$MyThread_InnerClassesInfo_[] = {
-	{"Basic4InheritableThreadLocal$MyThread", "Basic4InheritableThreadLocal", "MyThread", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Basic4InheritableThreadLocal$MyThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"Basic4InheritableThreadLocal$MyThread",
-	"java.lang.Thread",
-	nullptr,
-	nullptr,
-	_Basic4InheritableThreadLocal$MyThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Basic4InheritableThreadLocal$MyThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Basic4InheritableThreadLocal"
-};
-
-$Object* allocate$Basic4InheritableThreadLocal$MyThread($Class* clazz) {
-	return $of($alloc(Basic4InheritableThreadLocal$MyThread));
-}
-
 void Basic4InheritableThreadLocal$MyThread::init$() {
 	$Thread::init$();
 }
 
 void Basic4InheritableThreadLocal$MyThread::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, child, nullptr);
 	$init($Basic4InheritableThreadLocal);
-	if ($nc((($cast($Integer, $($nc($Basic4InheritableThreadLocal::n)->get())))))->intValue() < $Basic4InheritableThreadLocal::threadCount - 1) {
+	if ($$cast($Integer, $nc($Basic4InheritableThreadLocal::n)->get())->intValue() < $Basic4InheritableThreadLocal::threadCount - 1) {
 		$assign(child, $new(Basic4InheritableThreadLocal$MyThread));
 		child->start();
 	}
 	$($Thread::currentThread())->yield();
-	int32_t threadId = $nc((($cast($Integer, $($nc($Basic4InheritableThreadLocal::n)->get())))))->intValue();
+	int32_t threadId = $$cast($Integer, $Basic4InheritableThreadLocal::n->get())->intValue();
 	for (int32_t j = 0; j < threadId; ++j) {
 		++(*$nc($Basic4InheritableThreadLocal::x))[threadId];
 		$($Thread::currentThread())->yield();
@@ -77,7 +44,33 @@ Basic4InheritableThreadLocal$MyThread::Basic4InheritableThreadLocal$MyThread() {
 }
 
 $Class* Basic4InheritableThreadLocal$MyThread::load$($String* name, bool initialize) {
-	$loadClass(Basic4InheritableThreadLocal$MyThread, name, initialize, &_Basic4InheritableThreadLocal$MyThread_ClassInfo_, allocate$Basic4InheritableThreadLocal$MyThread);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Basic4InheritableThreadLocal$MyThread, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4InheritableThreadLocal$MyThread, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic4InheritableThreadLocal$MyThread", "Basic4InheritableThreadLocal", "MyThread", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Basic4InheritableThreadLocal$MyThread",
+		"java.lang.Thread",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Basic4InheritableThreadLocal"
+	};
+	$loadClass(Basic4InheritableThreadLocal$MyThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic4InheritableThreadLocal$MyThread);
+	});
 	return class$;
 }
 

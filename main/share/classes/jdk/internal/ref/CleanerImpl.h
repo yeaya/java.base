@@ -43,6 +43,7 @@ class $export CleanerImpl : public ::java::lang::Runnable {
 	$class(CleanerImpl, 0, ::java::lang::Runnable)
 public:
 	CleanerImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::ref::CleanerImpl* getCleanerImpl(::java::lang::ref::Cleaner* cleaner);
 	virtual void run() override;

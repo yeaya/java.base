@@ -69,6 +69,7 @@ class $import SimpleDateFormat : public ::java::text::DateFormat {
 public:
 	SimpleDateFormat();
 	using ::java::text::DateFormat::format;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* pattern);
 	void init$($String* pattern, ::java::util::Locale* locale);
@@ -115,7 +116,7 @@ public:
 	bool useDateFormatSymbols();
 	void zeroPaddingNumber(int32_t value, int32_t minDigits, int32_t maxDigits, ::java::lang::StringBuffer* buffer);
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0x4243C9DA93943590;
+	static const int64_t serialVersionUID = (int64_t)0x4243c9da93943590;
 	static const int32_t currentSerialVersion = 1;
 	int32_t serialVersionOnStream = 0;
 	$String* pattern = nullptr;

@@ -1,5 +1,4 @@
 #include <java/util/stream/FindOps$FindSink$OfInt.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -49,27 +48,24 @@ public:
 	virtual bool test(Object$* inst$) override {
 		 return $sure($OptionalInt, inst$)->isPresent();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FindOps$FindSink$OfInt$$Lambda$isPresent>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo FindOps$FindSink$OfInt$$Lambda$isPresent::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfInt$$Lambda$isPresent, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt$$Lambda$isPresent, test, bool, Object$*)},
-	{}
-};
-$ClassInfo FindOps$FindSink$OfInt$$Lambda$isPresent::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.FindOps$FindSink$OfInt$$Lambda$isPresent",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* FindOps$FindSink$OfInt$$Lambda$isPresent::load$($String* name, bool initialize) {
-	$loadClass(FindOps$FindSink$OfInt$$Lambda$isPresent, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfInt$$Lambda$isPresent, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt$$Lambda$isPresent, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.FindOps$FindSink$OfInt$$Lambda$isPresent",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FindOps$FindSink$OfInt$$Lambda$isPresent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FindOps$FindSink$OfInt$$Lambda$isPresent);
+	});
 	return class$;
 }
 $Class* FindOps$FindSink$OfInt$$Lambda$isPresent::class$ = nullptr;
@@ -82,83 +78,27 @@ public:
 	virtual $Object* get() override {
 		 return $of($new(FindOps$FindSink$OfInt));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FindOps$FindSink$OfInt$$Lambda$OfInt$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo FindOps$FindSink$OfInt$$Lambda$OfInt$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfInt$$Lambda$OfInt$1, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt$$Lambda$OfInt$1, get, $Object*)},
-	{}
-};
-$ClassInfo FindOps$FindSink$OfInt$$Lambda$OfInt$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.FindOps$FindSink$OfInt$$Lambda$OfInt$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* FindOps$FindSink$OfInt$$Lambda$OfInt$1::load$($String* name, bool initialize) {
-	$loadClass(FindOps$FindSink$OfInt$$Lambda$OfInt$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfInt$$Lambda$OfInt$1, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt$$Lambda$OfInt$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.FindOps$FindSink$OfInt$$Lambda$OfInt$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FindOps$FindSink$OfInt$$Lambda$OfInt$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FindOps$FindSink$OfInt$$Lambda$OfInt$1);
+	});
 	return class$;
 }
 $Class* FindOps$FindSink$OfInt$$Lambda$OfInt$1::class$ = nullptr;
-
-$FieldInfo _FindOps$FindSink$OfInt_FieldInfo_[] = {
-	{"OP_FIND_FIRST", "Ljava/util/stream/TerminalOp;", "Ljava/util/stream/TerminalOp<Ljava/lang/Integer;Ljava/util/OptionalInt;>;", $STATIC | $FINAL, $staticField(FindOps$FindSink$OfInt, OP_FIND_FIRST)},
-	{"OP_FIND_ANY", "Ljava/util/stream/TerminalOp;", "Ljava/util/stream/TerminalOp<Ljava/lang/Integer;Ljava/util/OptionalInt;>;", $STATIC | $FINAL, $staticField(FindOps$FindSink$OfInt, OP_FIND_ANY)},
-	{}
-};
-
-$MethodInfo _FindOps$FindSink$OfInt_MethodInfo_[] = {
-	{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*cancellationRequested", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(FindOps$FindSink$OfInt, init$, void)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt, accept, void, int32_t)},
-	{"accept", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FindOps$FindSink$OfInt, accept, void, $Integer*)},
-	{"get", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt, get, $Object*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _FindOps$FindSink$OfInt_InnerClassesInfo_[] = {
-	{"java.util.stream.FindOps$FindSink", "java.util.stream.FindOps", "FindSink", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.FindOps$FindSink$OfInt", "java.util.stream.FindOps$FindSink", "OfInt", $STATIC | $FINAL},
-	{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FindOps$FindSink$OfInt_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.FindOps$FindSink$OfInt",
-	"java.util.stream.FindOps$FindSink",
-	"java.util.stream.Sink$OfInt",
-	_FindOps$FindSink$OfInt_FieldInfo_,
-	_FindOps$FindSink$OfInt_MethodInfo_,
-	"Ljava/util/stream/FindOps$FindSink<Ljava/lang/Integer;Ljava/util/OptionalInt;>;Ljava/util/stream/Sink$OfInt;",
-	nullptr,
-	_FindOps$FindSink$OfInt_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.FindOps"
-};
-
-$Object* allocate$FindOps$FindSink$OfInt($Class* clazz) {
-	return $of($alloc(FindOps$FindSink$OfInt));
-}
 
 void FindOps$FindSink$OfInt::accept(Object$* value) {
 	this->$FindOps$FindSink::accept(value);
@@ -220,24 +160,24 @@ void FindOps$FindSink$OfInt::accept(int32_t value) {
 }
 
 $Object* FindOps$FindSink$OfInt::get() {
-	return $of(this->hasValue ? $OptionalInt::of($nc(($cast($Integer, this->value)))->intValue()) : ($OptionalInt*)nullptr);
+	return this->hasValue ? $OptionalInt::of($nc($cast($Integer, this->value))->intValue()) : ($OptionalInt*)nullptr;
 }
 
 void FindOps$FindSink$OfInt::accept($Integer* value) {
-	$FindOps$FindSink::accept($of(value));
+	$FindOps$FindSink::accept(value);
 }
 
-void clinit$FindOps$FindSink$OfInt($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void FindOps$FindSink$OfInt::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($StreamShape);
 	$var($StreamShape, var$0, $StreamShape::INT_VALUE);
-	$var($Object, var$1, $of($OptionalInt::empty()));
-	$var($Predicate, var$2, static_cast<$Predicate*>($new(FindOps$FindSink$OfInt$$Lambda$isPresent)));
-	$assignStatic(FindOps$FindSink$OfInt::OP_FIND_FIRST, $new($FindOps$FindOp, true, var$0, var$1, var$2, static_cast<$Supplier*>($$new(FindOps$FindSink$OfInt$$Lambda$OfInt$1))));
+	$var($Object, var$1, $OptionalInt::empty());
+	$var($Predicate, var$2, $new(FindOps$FindSink$OfInt$$Lambda$isPresent));
+	$assignStatic(FindOps$FindSink$OfInt::OP_FIND_FIRST, $new($FindOps$FindOp, true, var$0, var$1, var$2, $$new(FindOps$FindSink$OfInt$$Lambda$OfInt$1)));
 	$var($StreamShape, var$3, $StreamShape::INT_VALUE);
-	$var($Object, var$4, $of($OptionalInt::empty()));
-	$var($Predicate, var$5, static_cast<$Predicate*>($new(FindOps$FindSink$OfInt$$Lambda$isPresent)));
-	$assignStatic(FindOps$FindSink$OfInt::OP_FIND_ANY, $new($FindOps$FindOp, false, var$3, var$4, var$5, static_cast<$Supplier*>($$new(FindOps$FindSink$OfInt$$Lambda$OfInt$1))));
+	$var($Object, var$4, $OptionalInt::empty());
+	$var($Predicate, var$5, $new(FindOps$FindSink$OfInt$$Lambda$isPresent));
+	$assignStatic(FindOps$FindSink$OfInt::OP_FIND_ANY, $new($FindOps$FindOp, false, var$3, var$4, var$5, $$new(FindOps$FindSink$OfInt$$Lambda$OfInt$1)));
 }
 
 FindOps$FindSink$OfInt::FindOps$FindSink$OfInt() {
@@ -245,14 +185,61 @@ FindOps$FindSink$OfInt::FindOps$FindSink$OfInt() {
 
 $Class* FindOps$FindSink$OfInt::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(FindOps$FindSink$OfInt$$Lambda$isPresent::classInfo$.name)) {
+		if (name->equals("java.util.stream.FindOps$FindSink$OfInt$$Lambda$isPresent")) {
 			return FindOps$FindSink$OfInt$$Lambda$isPresent::load$(name, initialize);
 		}
-		if (name->equals(FindOps$FindSink$OfInt$$Lambda$OfInt$1::classInfo$.name)) {
+		if (name->equals("java.util.stream.FindOps$FindSink$OfInt$$Lambda$OfInt$1")) {
 			return FindOps$FindSink$OfInt$$Lambda$OfInt$1::load$(name, initialize);
 		}
 	}
-	$loadClass(FindOps$FindSink$OfInt, name, initialize, &_FindOps$FindSink$OfInt_ClassInfo_, clinit$FindOps$FindSink$OfInt, allocate$FindOps$FindSink$OfInt);
+	$FieldInfo fieldInfos$$[] = {
+		{"OP_FIND_FIRST", "Ljava/util/stream/TerminalOp;", "Ljava/util/stream/TerminalOp<Ljava/lang/Integer;Ljava/util/OptionalInt;>;", $STATIC | $FINAL, $staticField(FindOps$FindSink$OfInt, OP_FIND_FIRST)},
+		{"OP_FIND_ANY", "Ljava/util/stream/TerminalOp;", "Ljava/util/stream/TerminalOp<Ljava/lang/Integer;Ljava/util/OptionalInt;>;", $STATIC | $FINAL, $staticField(FindOps$FindSink$OfInt, OP_FIND_ANY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*cancellationRequested", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(FindOps$FindSink$OfInt, init$, void)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt, accept, void, int32_t)},
+		{"accept", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FindOps$FindSink$OfInt, accept, void, $Integer*)},
+		{"get", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt, get, $Object*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.FindOps$FindSink", "java.util.stream.FindOps", "FindSink", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.FindOps$FindSink$OfInt", "java.util.stream.FindOps$FindSink", "OfInt", $STATIC | $FINAL},
+		{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.FindOps$FindSink$OfInt",
+		"java.util.stream.FindOps$FindSink",
+		"java.util.stream.Sink$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/FindOps$FindSink<Ljava/lang/Integer;Ljava/util/OptionalInt;>;Ljava/util/stream/Sink$OfInt;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.FindOps"
+	};
+	$loadClass(FindOps$FindSink$OfInt, name, initialize, &classInfo$$, FindOps$FindSink$OfInt::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FindOps$FindSink$OfInt));
+	});
 	return class$;
 }
 

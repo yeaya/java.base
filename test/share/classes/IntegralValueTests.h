@@ -30,6 +30,7 @@ class $export IntegralValueTests : public ::java::lang::Object {
 	$class(IntegralValueTests, 0, ::java::lang::Object)
 public:
 	IntegralValueTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t integralValuesTest(::java::util::Map* v, bool isInt);
 	static void main($StringArray* args);

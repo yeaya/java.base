@@ -22,6 +22,7 @@ class AbstractDrbg$SeederHolder : public ::java::lang::Object {
 	$class(AbstractDrbg$SeederHolder, 0, ::java::lang::Object)
 public:
 	AbstractDrbg$SeederHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* lambda$static$0(::sun::security::provider::HashDrbg* first, int32_t entropy, int32_t minLen, int32_t maxLen, bool pr);
 	static ::sun::security::provider::EntropySource* prseeder;

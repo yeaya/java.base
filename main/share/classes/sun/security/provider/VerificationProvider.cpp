@@ -1,9 +1,7 @@
 #include <sun/security/provider/VerificationProvider.h>
-
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <java/util/Iterator.h>
@@ -22,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $Iterator = ::java::util::Iterator;
@@ -35,46 +32,10 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _VerificationProvider_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(VerificationProvider, serialVersionUID)},
-	{"ACTIVE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VerificationProvider, ACTIVE)},
-	{}
-};
-
-$MethodInfo _VerificationProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VerificationProvider, init$, void)},
-	{"putEntries", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/security/Provider$Service;>;)V", 0, $method(VerificationProvider, putEntries, void, $Iterator*)},
-	{}
-};
-
-$InnerClassInfo _VerificationProvider_InnerClassesInfo_[] = {
-	{"sun.security.provider.VerificationProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _VerificationProvider_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.VerificationProvider",
-	"java.security.Provider",
-	nullptr,
-	_VerificationProvider_FieldInfo_,
-	_VerificationProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VerificationProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.VerificationProvider$1"
-};
-
-$Object* allocate$VerificationProvider($Class* clazz) {
-	return $of($alloc(VerificationProvider));
-}
-
 bool VerificationProvider::ACTIVE = false;
 
 void VerificationProvider::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($SecurityConstants);
 	$Provider::init$("SunJarVerification"_s, $SecurityConstants::PROVIDER_VER, "Jar Verification Provider"_s);
@@ -88,18 +49,18 @@ void VerificationProvider::init$() {
 		putEntries(sunIter);
 		putEntries(rsaIter);
 	} else {
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($VerificationProvider$1, this, sunIter, rsaIter)));
+		$AccessController::doPrivileged($$new($VerificationProvider$1, this, sunIter, rsaIter));
 	}
 }
 
 void VerificationProvider::putEntries($Iterator* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(i)->hasNext()) {
-		putService($cast($Provider$Service, $(i->next())));
+		putService($$cast($Provider$Service, i->next()));
 	}
 }
 
-void clinit$VerificationProvider($Class* class$) {
+void VerificationProvider::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		bool b = false;
@@ -118,7 +79,37 @@ VerificationProvider::VerificationProvider() {
 }
 
 $Class* VerificationProvider::load$($String* name, bool initialize) {
-	$loadClass(VerificationProvider, name, initialize, &_VerificationProvider_ClassInfo_, clinit$VerificationProvider, allocate$VerificationProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(VerificationProvider, serialVersionUID)},
+		{"ACTIVE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VerificationProvider, ACTIVE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VerificationProvider, init$, void)},
+		{"putEntries", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/security/Provider$Service;>;)V", 0, $method(VerificationProvider, putEntries, void, $Iterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.VerificationProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.VerificationProvider",
+		"java.security.Provider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.VerificationProvider$1"
+	};
+	$loadClass(VerificationProvider, name, initialize, &classInfo$$, VerificationProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(VerificationProvider));
+	});
 	return class$;
 }
 

@@ -39,6 +39,7 @@ public:
 	virtual bool isEmpty() override;
 	virtual ::java::util::Iterator* iterator() override;
 	virtual $Object* last() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::NavigableSet* s);
 	virtual $Object* ceiling(Object$* e) override;
 	virtual ::java::util::Iterator* descendingIterator() override;
@@ -65,7 +66,7 @@ public:
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $ObjectArray* toArray(::java::util::function::IntFunction* f) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xAC5A33CB96748287;
+	static const int64_t serialVersionUID = (int64_t)0xac5a33cb96748287;
 	static ::java::util::NavigableSet* EMPTY_NAVIGABLE_SET;
 	::java::util::NavigableSet* ns = nullptr;
 };

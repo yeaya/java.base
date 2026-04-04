@@ -1,5 +1,4 @@
 #include <jdk/internal/util/xml/impl/Attrs.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <jcpp.h>
 
@@ -15,53 +14,8 @@ namespace jdk {
 			namespace xml {
 				namespace impl {
 
-$FieldInfo _Attrs_FieldInfo_[] = {
-	{"mItems", "[Ljava/lang/String;", nullptr, 0, $field(Attrs, mItems)},
-	{"mLength", "C", nullptr, $PRIVATE, $field(Attrs, mLength)},
-	{"mAttrIdx", "C", nullptr, $PRIVATE, $field(Attrs, mAttrIdx)},
-	{}
-};
-
-$MethodInfo _Attrs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Attrs, init$, void)},
-	{"getIndex", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(Attrs, getIndex, int32_t, $String*, $String*)},
-	{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(Attrs, getIndex, int32_t, $String*)},
-	{"getIndexNullNS", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, 0, $virtualMethod(Attrs, getIndexNullNS, int32_t, $String*, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(Attrs, getLength, int32_t)},
-	{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getLocalName, $String*, int32_t)},
-	{"getQName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getQName, $String*, int32_t)},
-	{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getType, $String*, int32_t)},
-	{"getType", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getType, $String*, $String*, $String*)},
-	{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getType, $String*, $String*)},
-	{"getURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getURI, $String*, int32_t)},
-	{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getValue, $String*, int32_t)},
-	{"getValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getValue, $String*, $String*, $String*)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getValue, $String*, $String*)},
-	{"isDeclared", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isDeclared, bool, int32_t)},
-	{"isDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isDeclared, bool, $String*)},
-	{"isDeclared", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isDeclared, bool, $String*, $String*)},
-	{"isSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isSpecified, bool, int32_t)},
-	{"isSpecified", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isSpecified, bool, $String*, $String*)},
-	{"isSpecified", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isSpecified, bool, $String*)},
-	{"setLength", "(C)V", nullptr, $PUBLIC, $virtualMethod(Attrs, setLength, void, char16_t)},
-	{}
-};
-
-$ClassInfo _Attrs_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.util.xml.impl.Attrs",
-	"java.lang.Object",
-	"jdk.internal.org.xml.sax.Attributes",
-	_Attrs_FieldInfo_,
-	_Attrs_MethodInfo_
-};
-
-$Object* allocate$Attrs($Class* clazz) {
-	return $of($alloc(Attrs));
-}
-
 void Attrs::init$() {
-	this->mAttrIdx = (char16_t)0;
+	this->mAttrIdx = 0;
 	$set(this, mItems, $new($StringArray, (8 << 3)));
 }
 
@@ -92,7 +46,7 @@ $String* Attrs::getQName(int32_t index) {
 }
 
 $String* Attrs::getType(int32_t index) {
-	return ((index >= 0) && (index < ($nc(this->mItems)->length >> 3))) ? ($nc(this->mItems)->get((index << 3) + 4)) : ($String*)nullptr;
+	return ((index >= 0) && (index < ($nc(this->mItems)->length >> 3))) ? (this->mItems->get((index << 3) + 4)) : ($String*)nullptr;
 }
 
 $String* Attrs::getValue(int32_t index) {
@@ -101,9 +55,9 @@ $String* Attrs::getValue(int32_t index) {
 
 int32_t Attrs::getIndex($String* uri, $String* localName) {
 	char16_t len = this->mLength;
-	for (char16_t idx = (char16_t)0; idx < len; ++idx) {
+	for (char16_t idx = 0; idx < len; ++idx) {
 		bool var$0 = $nc(($nc(this->mItems)->get(idx << 3)))->equals(uri);
-		if (var$0 && $nc($nc(this->mItems)->get((idx << 3) + 2))->equals(localName)) {
+		if (var$0 && $nc(this->mItems->get((idx << 3) + 2))->equals(localName)) {
 			return idx;
 		}
 	}
@@ -113,14 +67,14 @@ int32_t Attrs::getIndex($String* uri, $String* localName) {
 int32_t Attrs::getIndexNullNS($String* uri, $String* localName) {
 	char16_t len = this->mLength;
 	if (uri != nullptr) {
-		for (char16_t idx = (char16_t)0; idx < len; ++idx) {
+		for (char16_t idx = 0; idx < len; ++idx) {
 			bool var$0 = $nc(($nc(this->mItems)->get(idx << 3)))->equals(uri);
-			if (var$0 && $nc($nc(this->mItems)->get((idx << 3) + 2))->equals(localName)) {
+			if (var$0 && $nc(this->mItems->get((idx << 3) + 2))->equals(localName)) {
 				return idx;
 			}
 		}
 	} else {
-		for (char16_t idx = (char16_t)0; idx < len; ++idx) {
+		for (char16_t idx = 0; idx < len; ++idx) {
 			if ($nc($nc(this->mItems)->get((idx << 3) + 2))->equals(localName)) {
 				return idx;
 			}
@@ -131,7 +85,7 @@ int32_t Attrs::getIndexNullNS($String* uri, $String* localName) {
 
 int32_t Attrs::getIndex($String* qName) {
 	char16_t len = this->mLength;
-	for (char16_t idx = (char16_t)0; idx < len; ++idx) {
+	for (char16_t idx = 0; idx < len; ++idx) {
 		if ($nc($nc(this->mItems)->get((idx << 3) + 1))->equals(qName)) {
 			return idx;
 		}
@@ -187,7 +141,7 @@ bool Attrs::isSpecified(int32_t index) {
 		$throwNew($ArrayIndexOutOfBoundsException, ""_s);
 	}
 	$var($String, str, $nc(this->mItems)->get((index << 3) + 5));
-	return ((str != nullptr) ? ($nc(str)->charAt(0) == u'd') : true);
+	return ((str != nullptr) ? (str->charAt(0) == u'd') : true);
 }
 
 bool Attrs::isSpecified($String* uri, $String* localName) {
@@ -196,7 +150,7 @@ bool Attrs::isSpecified($String* uri, $String* localName) {
 		$throwNew($IllegalArgumentException, ""_s);
 	}
 	$var($String, str, $nc(this->mItems)->get((idx << 3) + 5));
-	return ((str != nullptr) ? ($nc(str)->charAt(0) == u'd') : true);
+	return ((str != nullptr) ? (str->charAt(0) == u'd') : true);
 }
 
 bool Attrs::isSpecified($String* qName) {
@@ -205,14 +159,54 @@ bool Attrs::isSpecified($String* qName) {
 		$throwNew($IllegalArgumentException, ""_s);
 	}
 	$var($String, str, $nc(this->mItems)->get((idx << 3) + 5));
-	return ((str != nullptr) ? ($nc(str)->charAt(0) == u'd') : true);
+	return ((str != nullptr) ? (str->charAt(0) == u'd') : true);
 }
 
 Attrs::Attrs() {
 }
 
 $Class* Attrs::load$($String* name, bool initialize) {
-	$loadClass(Attrs, name, initialize, &_Attrs_ClassInfo_, allocate$Attrs);
+	$FieldInfo fieldInfos$$[] = {
+		{"mItems", "[Ljava/lang/String;", nullptr, 0, $field(Attrs, mItems)},
+		{"mLength", "C", nullptr, $PRIVATE, $field(Attrs, mLength)},
+		{"mAttrIdx", "C", nullptr, $PRIVATE, $field(Attrs, mAttrIdx)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Attrs, init$, void)},
+		{"getIndex", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(Attrs, getIndex, int32_t, $String*, $String*)},
+		{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(Attrs, getIndex, int32_t, $String*)},
+		{"getIndexNullNS", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, 0, $virtualMethod(Attrs, getIndexNullNS, int32_t, $String*, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(Attrs, getLength, int32_t)},
+		{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getLocalName, $String*, int32_t)},
+		{"getQName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getQName, $String*, int32_t)},
+		{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getType, $String*, int32_t)},
+		{"getType", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getType, $String*, $String*, $String*)},
+		{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getType, $String*, $String*)},
+		{"getURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getURI, $String*, int32_t)},
+		{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getValue, $String*, int32_t)},
+		{"getValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getValue, $String*, $String*, $String*)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attrs, getValue, $String*, $String*)},
+		{"isDeclared", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isDeclared, bool, int32_t)},
+		{"isDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isDeclared, bool, $String*)},
+		{"isDeclared", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isDeclared, bool, $String*, $String*)},
+		{"isSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isSpecified, bool, int32_t)},
+		{"isSpecified", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isSpecified, bool, $String*, $String*)},
+		{"isSpecified", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Attrs, isSpecified, bool, $String*)},
+		{"setLength", "(C)V", nullptr, $PUBLIC, $virtualMethod(Attrs, setLength, void, char16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.util.xml.impl.Attrs",
+		"java.lang.Object",
+		"jdk.internal.org.xml.sax.Attributes",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Attrs, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attrs);
+	});
 	return class$;
 }
 

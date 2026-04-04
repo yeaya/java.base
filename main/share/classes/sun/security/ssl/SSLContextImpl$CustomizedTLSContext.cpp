@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl$CustomizedTLSContext.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -32,51 +31,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLContextImpl$CustomizedTLSContext_FieldInfo_[] = {
-	{"clientDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedTLSContext, clientDefaultProtocols)},
-	{"serverDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedTLSContext, serverDefaultProtocols)},
-	{"clientDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedTLSContext, clientDefaultCipherSuites)},
-	{"serverDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedTLSContext, serverDefaultCipherSuites)},
-	{"reservedException", "Ljava/lang/IllegalArgumentException;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedTLSContext, reservedException)},
-	{}
-};
-
-$MethodInfo _SSLContextImpl$CustomizedTLSContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(SSLContextImpl$CustomizedTLSContext, init$, void)},
-	{"customizedProtocols", "(ZLjava/util/List;)Ljava/util/List;", "(ZLjava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl$CustomizedTLSContext, customizedProtocols, $List*, bool, $List*)},
-	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$CustomizedTLSContext, getClientDefaultCipherSuites, $List*)},
-	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$CustomizedTLSContext, getClientDefaultProtocolVersions, $List*)},
-	{"getServerDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$CustomizedTLSContext, getServerDefaultCipherSuites, $List*)},
-	{"getServerDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$CustomizedTLSContext, getServerDefaultProtocolVersions, $List*)},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl$CustomizedTLSContext_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$CustomizedTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedTLSContext", $PRIVATE | $STATIC},
-	{"sun.security.ssl.SSLContextImpl$AbstractTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLContextImpl$CustomizedTLSContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.SSLContextImpl$CustomizedTLSContext",
-	"sun.security.ssl.SSLContextImpl$AbstractTLSContext",
-	nullptr,
-	_SSLContextImpl$CustomizedTLSContext_FieldInfo_,
-	_SSLContextImpl$CustomizedTLSContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl$CustomizedTLSContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl"
-};
-
-$Object* allocate$SSLContextImpl$CustomizedTLSContext($Class* clazz) {
-	return $of($alloc(SSLContextImpl$CustomizedTLSContext));
-}
-
 $List* SSLContextImpl$CustomizedTLSContext::clientDefaultProtocols = nullptr;
 $List* SSLContextImpl$CustomizedTLSContext::serverDefaultProtocols = nullptr;
 $List* SSLContextImpl$CustomizedTLSContext::clientDefaultCipherSuites = nullptr;
@@ -85,16 +39,14 @@ $IllegalArgumentException* SSLContextImpl$CustomizedTLSContext::reservedExceptio
 
 $List* SSLContextImpl$CustomizedTLSContext::customizedProtocols(bool client, $List* customized) {
 	$init(SSLContextImpl$CustomizedTLSContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, refactored, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(customized)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$ProtocolVersion* pv = $cast($ProtocolVersion, i$->next());
-			{
-				if (!$nc(pv)->isDTLS) {
-					refactored->add(pv);
-				}
+			if (!$nc(pv)->isDTLS) {
+				refactored->add(pv);
 			}
 		}
 	}
@@ -108,7 +60,7 @@ $List* SSLContextImpl$CustomizedTLSContext::customizedProtocols(bool client, $Li
 			$ProtocolVersion::TLS10
 		}));
 	} else {
-		$assign(candidates, $fcast($ProtocolVersionArray, refactored->toArray($$new($ProtocolVersionArray, 0))));
+		$assign(candidates, $cast($ProtocolVersionArray, refactored->toArray($$new($ProtocolVersionArray, 0))));
 	}
 	return $SSLContextImpl::getAvailableProtocols(candidates);
 }
@@ -136,7 +88,7 @@ $List* SSLContextImpl$CustomizedTLSContext::getServerDefaultCipherSuites() {
 	return SSLContextImpl$CustomizedTLSContext::serverDefaultCipherSuites;
 }
 
-void clinit$SSLContextImpl$CustomizedTLSContext($Class* class$) {
+void SSLContextImpl$CustomizedTLSContext::clinit$($Class* clazz) {
 	{
 		$init($SSLContextImpl$CustomizedSSLProtocols);
 		$assignStatic(SSLContextImpl$CustomizedTLSContext::reservedException, $SSLContextImpl$CustomizedSSLProtocols::reservedException);
@@ -158,7 +110,46 @@ SSLContextImpl$CustomizedTLSContext::SSLContextImpl$CustomizedTLSContext() {
 }
 
 $Class* SSLContextImpl$CustomizedTLSContext::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl$CustomizedTLSContext, name, initialize, &_SSLContextImpl$CustomizedTLSContext_ClassInfo_, clinit$SSLContextImpl$CustomizedTLSContext, allocate$SSLContextImpl$CustomizedTLSContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"clientDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedTLSContext, clientDefaultProtocols)},
+		{"serverDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedTLSContext, serverDefaultProtocols)},
+		{"clientDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedTLSContext, clientDefaultCipherSuites)},
+		{"serverDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedTLSContext, serverDefaultCipherSuites)},
+		{"reservedException", "Ljava/lang/IllegalArgumentException;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedTLSContext, reservedException)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(SSLContextImpl$CustomizedTLSContext, init$, void)},
+		{"customizedProtocols", "(ZLjava/util/List;)Ljava/util/List;", "(ZLjava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl$CustomizedTLSContext, customizedProtocols, $List*, bool, $List*)},
+		{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$CustomizedTLSContext, getClientDefaultCipherSuites, $List*)},
+		{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$CustomizedTLSContext, getClientDefaultProtocolVersions, $List*)},
+		{"getServerDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$CustomizedTLSContext, getServerDefaultCipherSuites, $List*)},
+		{"getServerDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$CustomizedTLSContext, getServerDefaultProtocolVersions, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$CustomizedTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedTLSContext", $PRIVATE | $STATIC},
+		{"sun.security.ssl.SSLContextImpl$AbstractTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.SSLContextImpl$CustomizedTLSContext",
+		"sun.security.ssl.SSLContextImpl$AbstractTLSContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl"
+	};
+	$loadClass(SSLContextImpl$CustomizedTLSContext, name, initialize, &classInfo$$, SSLContextImpl$CustomizedTLSContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl$CustomizedTLSContext);
+	});
 	return class$;
 }
 

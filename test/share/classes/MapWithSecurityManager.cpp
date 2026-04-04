@@ -1,5 +1,4 @@
 #include <MapWithSecurityManager.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/nio/channels/FileChannel$MapMode.h>
@@ -22,62 +21,41 @@ using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 
-$MethodInfo _MapWithSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MapWithSecurityManager, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MapWithSecurityManager, main, void, $StringArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _MapWithSecurityManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MapWithSecurityManager",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MapWithSecurityManager_MethodInfo_
-};
-
-$Object* allocate$MapWithSecurityManager($Class* clazz) {
-	return $of($alloc(MapWithSecurityManager));
-}
-
 void MapWithSecurityManager::init$() {
 }
 
 void MapWithSecurityManager::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(MapWithSecurityManager);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Path, tempFile, $Files::createTempFile("test"_s, "test"_s, $$new($FileAttributeArray, 0)));
 	{
 		$var($FileChannel, ch, $FileChannel::open(tempFile, $$new($OpenOptionArray, 0)));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$System::setSecurityManager($$new($SecurityManager));
-					$init($FileChannel$MapMode);
-					$nc(ch)->map($FileChannel$MapMode::READ_ONLY, 0, 0);
-				} catch ($Throwable& t$) {
-					if (ch != nullptr) {
-						try {
-							ch->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+				$System::setSecurityManager($$new($SecurityManager));
+				$init($FileChannel$MapMode);
+				$nc(ch)->map($FileChannel$MapMode::READ_ONLY, 0, 0);
+			} catch ($Throwable& t$) {
 				if (ch != nullptr) {
-					ch->close();
+					try {
+						ch->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (ch != nullptr) {
+				ch->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -86,7 +64,22 @@ MapWithSecurityManager::MapWithSecurityManager() {
 }
 
 $Class* MapWithSecurityManager::load$($String* name, bool initialize) {
-	$loadClass(MapWithSecurityManager, name, initialize, &_MapWithSecurityManager_ClassInfo_, allocate$MapWithSecurityManager);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MapWithSecurityManager, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MapWithSecurityManager, main, void, $StringArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MapWithSecurityManager",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MapWithSecurityManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MapWithSecurityManager);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/nio/file/PathMatcher.h>
-
 #include <java/nio/file/Path.h>
 #include <jcpp.h>
 
@@ -12,35 +11,30 @@ namespace java {
 	namespace nio {
 		namespace file {
 
-$CompoundAttribute _PathMatcher_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _PathMatcher_MethodInfo_[] = {
-	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PathMatcher, matches, bool, $Path*)},
-	{}
-};
-
-$ClassInfo _PathMatcher_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.file.PathMatcher",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PathMatcher_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_PathMatcher_Annotations_
-};
-
-$Object* allocate$PathMatcher($Class* clazz) {
-	return $of($alloc(PathMatcher));
-}
-
 $Class* PathMatcher::load$($String* name, bool initialize) {
-	$loadClass(PathMatcher, name, initialize, &_PathMatcher_ClassInfo_, allocate$PathMatcher);
+	$MethodInfo methodInfos$$[] = {
+		{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PathMatcher, matches, bool, $Path*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.file.PathMatcher",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(PathMatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PathMatcher);
+	});
 	return class$;
 }
 

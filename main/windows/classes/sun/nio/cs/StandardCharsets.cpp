@@ -1,5 +1,4 @@
 #include <sun/nio/cs/StandardCharsets.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
@@ -49,127 +48,6 @@ using $UTF_8 = ::sun::nio::cs::UTF_8;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$CompoundAttribute _StandardCharsets_FieldAnnotations_classMap[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StandardCharsets_FieldAnnotations_aliasMap[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StandardCharsets_FieldAnnotations_cache[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$FieldInfo _StandardCharsets_FieldInfo_[] = {
-	{"aliases_SJIS", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(StandardCharsets, aliases_SJIS$)},
-	{"aliases_MS932", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(StandardCharsets, aliases_MS932$)},
-	{"classMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(StandardCharsets, classMap$), _StandardCharsets_FieldAnnotations_classMap},
-	{"aliasMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(StandardCharsets, aliasMap$), _StandardCharsets_FieldAnnotations_aliasMap},
-	{"cache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/nio/charset/Charset;>;", $PRIVATE, $field(StandardCharsets, cache$), _StandardCharsets_FieldAnnotations_cache},
-	{"packagePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StandardCharsets, packagePrefix)},
-	{}
-};
-
-$MethodInfo _StandardCharsets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StandardCharsets, init$, void)},
-	{"aliasMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(StandardCharsets, aliasMap, $Map*)},
-	{"aliases_CESU_8", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_CESU_8, $StringArray*)},
-	{"aliases_GB18030", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_GB18030, $StringArray*)},
-	{"aliases_GBK", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_GBK, $StringArray*)},
-	{"aliases_IBM437", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM437, $StringArray*)},
-	{"aliases_IBM737", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM737, $StringArray*)},
-	{"aliases_IBM775", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM775, $StringArray*)},
-	{"aliases_IBM850", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM850, $StringArray*)},
-	{"aliases_IBM852", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM852, $StringArray*)},
-	{"aliases_IBM855", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM855, $StringArray*)},
-	{"aliases_IBM857", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM857, $StringArray*)},
-	{"aliases_IBM858", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM858, $StringArray*)},
-	{"aliases_IBM862", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM862, $StringArray*)},
-	{"aliases_IBM866", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM866, $StringArray*)},
-	{"aliases_IBM874", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM874, $StringArray*)},
-	{"aliases_ISO_8859_1", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_1, $StringArray*)},
-	{"aliases_ISO_8859_13", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_13, $StringArray*)},
-	{"aliases_ISO_8859_15", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_15, $StringArray*)},
-	{"aliases_ISO_8859_16", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_16, $StringArray*)},
-	{"aliases_ISO_8859_2", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_2, $StringArray*)},
-	{"aliases_ISO_8859_4", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_4, $StringArray*)},
-	{"aliases_ISO_8859_5", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_5, $StringArray*)},
-	{"aliases_ISO_8859_7", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_7, $StringArray*)},
-	{"aliases_ISO_8859_9", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_9, $StringArray*)},
-	{"aliases_JIS_X_0201", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_JIS_X_0201, $StringArray*)},
-	{"aliases_Johab", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_Johab, $StringArray*)},
-	{"aliases_KOI8_R", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_KOI8_R, $StringArray*)},
-	{"aliases_KOI8_U", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_KOI8_U, $StringArray*)},
-	{"aliases_MS1250", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1250, $StringArray*)},
-	{"aliases_MS1251", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1251, $StringArray*)},
-	{"aliases_MS1252", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1252, $StringArray*)},
-	{"aliases_MS1253", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1253, $StringArray*)},
-	{"aliases_MS1254", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1254, $StringArray*)},
-	{"aliases_MS1255", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1255, $StringArray*)},
-	{"aliases_MS1256", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1256, $StringArray*)},
-	{"aliases_MS1257", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1257, $StringArray*)},
-	{"aliases_MS1258", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1258, $StringArray*)},
-	{"aliases_MS874", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS874, $StringArray*)},
-	{"aliases_MS932", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS932, $StringArray*)},
-	{"aliases_MS936", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS936, $StringArray*)},
-	{"aliases_MS949", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS949, $StringArray*)},
-	{"aliases_MS950", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS950, $StringArray*)},
-	{"aliases_MS950_HKSCS", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS950_HKSCS, $StringArray*)},
-	{"aliases_MS950_HKSCS_XP", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS950_HKSCS_XP, $StringArray*)},
-	{"aliases_SJIS", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_SJIS, $StringArray*)},
-	{"aliases_US_ASCII", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_US_ASCII, $StringArray*)},
-	{"aliases_UTF_16", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_16, $StringArray*)},
-	{"aliases_UTF_16BE", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_16BE, $StringArray*)},
-	{"aliases_UTF_16LE", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_16LE, $StringArray*)},
-	{"aliases_UTF_16LE_BOM", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_16LE_BOM, $StringArray*)},
-	{"aliases_UTF_32", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_32, $StringArray*)},
-	{"aliases_UTF_32BE", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_32BE, $StringArray*)},
-	{"aliases_UTF_32BE_BOM", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_32BE_BOM, $StringArray*)},
-	{"aliases_UTF_32LE", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_32LE, $StringArray*)},
-	{"aliases_UTF_32LE_BOM", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_32LE_BOM, $StringArray*)},
-	{"aliases_UTF_8", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_8, $StringArray*)},
-	{"cache", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/nio/charset/Charset;>;", $PRIVATE, $method(StandardCharsets, cache, $Map*)},
-	{"cache", "(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;", nullptr, $PRIVATE, $method(StandardCharsets, cache, $Charset*, $String*, $Charset*)},
-	{"canonicalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(StandardCharsets, canonicalize, $String*, $String*)},
-	{"charsetForName", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $FINAL, $virtualMethod(StandardCharsets, charsetForName, $Charset*, $String*)},
-	{"charsets", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/charset/Charset;>;", $PUBLIC | $FINAL, $virtualMethod(StandardCharsets, charsets, $Iterator*)},
-	{"classMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(StandardCharsets, classMap, $Map*)},
-	{"lookup", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PRIVATE, $method(StandardCharsets, lookup, $Charset*, $String*)},
-	{"toLower", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardCharsets, toLower, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _StandardCharsets_InnerClassesInfo_[] = {
-	{"sun.nio.cs.StandardCharsets$Cache", "sun.nio.cs.StandardCharsets", "Cache", $PRIVATE | $STATIC | $FINAL},
-	{"sun.nio.cs.StandardCharsets$Classes", "sun.nio.cs.StandardCharsets", "Classes", $PRIVATE | $STATIC | $FINAL},
-	{"sun.nio.cs.StandardCharsets$Aliases", "sun.nio.cs.StandardCharsets", "Aliases", $PRIVATE | $STATIC | $FINAL},
-	{"sun.nio.cs.StandardCharsets$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StandardCharsets_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.StandardCharsets",
-	"java.nio.charset.spi.CharsetProvider",
-	nullptr,
-	_StandardCharsets_FieldInfo_,
-	_StandardCharsets_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StandardCharsets_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.StandardCharsets$Cache,sun.nio.cs.StandardCharsets$Classes,sun.nio.cs.StandardCharsets$Aliases,sun.nio.cs.StandardCharsets$1"
-};
-
-$Object* allocate$StandardCharsets($Class* clazz) {
-	return $of($alloc(StandardCharsets));
-}
 
 $StringArray* StandardCharsets::aliases_SJIS$ = nullptr;
 $StringArray* StandardCharsets::aliases_MS932$ = nullptr;
@@ -743,15 +621,15 @@ void StandardCharsets::init$() {
 }
 
 $String* StandardCharsets::canonicalize($String* csn) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, acn, $cast($String, $nc($(aliasMap()))->get(csn)));
+	$useLocalObjectStack();
+	$var($String, acn, $cast($String, $$nc(aliasMap())->get(csn)));
 	return (acn != nullptr) ? acn : csn;
 }
 
 $Map* StandardCharsets::aliasMap() {
 	$var($Map, map, this->aliasMap$);
 	if (map == nullptr) {
-		$set(this, aliasMap$, ($assign(map, $new($StandardCharsets$Aliases))));
+		$set(this, aliasMap$, $assign(map, $new($StandardCharsets$Aliases)));
 	}
 	return map;
 }
@@ -759,7 +637,7 @@ $Map* StandardCharsets::aliasMap() {
 $Map* StandardCharsets::classMap() {
 	$var($Map, map, this->classMap$);
 	if (map == nullptr) {
-		$set(this, classMap$, ($assign(map, $new($StandardCharsets$Classes))));
+		$set(this, classMap$, $assign(map, $new($StandardCharsets$Classes)));
 	}
 	return map;
 }
@@ -810,7 +688,7 @@ $String* StandardCharsets::toLower($String* s) {
 }
 
 $Charset* StandardCharsets::lookup($String* charsetName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, csn, nullptr);
 	if ($nc(charsetName)->equals("UTF-8"_s)) {
@@ -825,16 +703,16 @@ $Charset* StandardCharsets::lookup($String* charsetName) {
 	} else {
 		$assign(csn, canonicalize($(toLower(charsetName))));
 	}
-	$var($Charset, cs, $cast($Charset, $nc($(cache()))->get(csn)));
+	$var($Charset, cs, $cast($Charset, $$nc(cache())->get(csn)));
 	if (cs != nullptr) {
 		return cs;
 	}
-	$var($String, cln, $cast($String, $nc($(classMap()))->get(csn)));
+	$var($String, cln, $cast($String, $$nc(classMap())->get(csn)));
 	if (cln == nullptr) {
 		return nullptr;
 	}
 	try {
-		$var($Object, o, $Class::forName($$str({StandardCharsets::packagePrefix, cln}), true, $($of(this)->getClass()->getClassLoader()))->newInstance());
+		$var($Object, o, $Class::forName($$str({StandardCharsets::packagePrefix, cln}), true, $(this->getClass()->getClassLoader()))->newInstance());
 		return cache(csn, $cast($Charset, o));
 	} catch ($ClassNotFoundException& x) {
 		return nullptr;
@@ -847,7 +725,7 @@ $Charset* StandardCharsets::lookup($String* charsetName) {
 }
 
 $Charset* StandardCharsets::cache($String* csn, $Charset* cs) {
-	$nc($(cache()))->put(csn, cs);
+	$$nc(cache())->put(csn, cs);
 	return cs;
 }
 
@@ -858,17 +736,17 @@ $Charset* StandardCharsets::charsetForName($String* charsetName) {
 }
 
 $Iterator* StandardCharsets::charsets() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, charsetNames, nullptr);
 	$synchronized(this) {
-		$assign(charsetNames, $nc($(classMap()))->keySet());
+		$assign(charsetNames, $$nc(classMap())->keySet());
 		aliasMap();
 		cache();
 	}
 	return $new($StandardCharsets$1, this, charsetNames);
 }
 
-void clinit$StandardCharsets($Class* class$) {
+void StandardCharsets::clinit$($Class* clazz) {
 	$assignStatic(StandardCharsets::packagePrefix, "sun.nio.cs."_s);
 	$assignStatic(StandardCharsets::aliases_SJIS$, $new($StringArray, {
 		"sjis"_s,
@@ -889,7 +767,119 @@ StandardCharsets::StandardCharsets() {
 }
 
 $Class* StandardCharsets::load$($String* name, bool initialize) {
-	$loadClass(StandardCharsets, name, initialize, &_StandardCharsets_ClassInfo_, clinit$StandardCharsets, allocate$StandardCharsets);
+	$CompoundAttribute classMapfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute aliasMapfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute cachefieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"aliases_SJIS", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(StandardCharsets, aliases_SJIS$)},
+		{"aliases_MS932", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(StandardCharsets, aliases_MS932$)},
+		{"classMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(StandardCharsets, classMap$), classMapfieldAnnotations$$},
+		{"aliasMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(StandardCharsets, aliasMap$), aliasMapfieldAnnotations$$},
+		{"cache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/nio/charset/Charset;>;", $PRIVATE, $field(StandardCharsets, cache$), cachefieldAnnotations$$},
+		{"packagePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StandardCharsets, packagePrefix)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StandardCharsets, init$, void)},
+		{"aliasMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(StandardCharsets, aliasMap, $Map*)},
+		{"aliases_CESU_8", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_CESU_8, $StringArray*)},
+		{"aliases_GB18030", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_GB18030, $StringArray*)},
+		{"aliases_GBK", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_GBK, $StringArray*)},
+		{"aliases_IBM437", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM437, $StringArray*)},
+		{"aliases_IBM737", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM737, $StringArray*)},
+		{"aliases_IBM775", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM775, $StringArray*)},
+		{"aliases_IBM850", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM850, $StringArray*)},
+		{"aliases_IBM852", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM852, $StringArray*)},
+		{"aliases_IBM855", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM855, $StringArray*)},
+		{"aliases_IBM857", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM857, $StringArray*)},
+		{"aliases_IBM858", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM858, $StringArray*)},
+		{"aliases_IBM862", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM862, $StringArray*)},
+		{"aliases_IBM866", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM866, $StringArray*)},
+		{"aliases_IBM874", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_IBM874, $StringArray*)},
+		{"aliases_ISO_8859_1", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_1, $StringArray*)},
+		{"aliases_ISO_8859_13", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_13, $StringArray*)},
+		{"aliases_ISO_8859_15", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_15, $StringArray*)},
+		{"aliases_ISO_8859_16", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_16, $StringArray*)},
+		{"aliases_ISO_8859_2", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_2, $StringArray*)},
+		{"aliases_ISO_8859_4", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_4, $StringArray*)},
+		{"aliases_ISO_8859_5", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_5, $StringArray*)},
+		{"aliases_ISO_8859_7", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_7, $StringArray*)},
+		{"aliases_ISO_8859_9", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_ISO_8859_9, $StringArray*)},
+		{"aliases_JIS_X_0201", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_JIS_X_0201, $StringArray*)},
+		{"aliases_Johab", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_Johab, $StringArray*)},
+		{"aliases_KOI8_R", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_KOI8_R, $StringArray*)},
+		{"aliases_KOI8_U", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_KOI8_U, $StringArray*)},
+		{"aliases_MS1250", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1250, $StringArray*)},
+		{"aliases_MS1251", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1251, $StringArray*)},
+		{"aliases_MS1252", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1252, $StringArray*)},
+		{"aliases_MS1253", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1253, $StringArray*)},
+		{"aliases_MS1254", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1254, $StringArray*)},
+		{"aliases_MS1255", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1255, $StringArray*)},
+		{"aliases_MS1256", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1256, $StringArray*)},
+		{"aliases_MS1257", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1257, $StringArray*)},
+		{"aliases_MS1258", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS1258, $StringArray*)},
+		{"aliases_MS874", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS874, $StringArray*)},
+		{"aliases_MS932", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS932, $StringArray*)},
+		{"aliases_MS936", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS936, $StringArray*)},
+		{"aliases_MS949", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS949, $StringArray*)},
+		{"aliases_MS950", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS950, $StringArray*)},
+		{"aliases_MS950_HKSCS", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS950_HKSCS, $StringArray*)},
+		{"aliases_MS950_HKSCS_XP", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_MS950_HKSCS_XP, $StringArray*)},
+		{"aliases_SJIS", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_SJIS, $StringArray*)},
+		{"aliases_US_ASCII", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_US_ASCII, $StringArray*)},
+		{"aliases_UTF_16", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_16, $StringArray*)},
+		{"aliases_UTF_16BE", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_16BE, $StringArray*)},
+		{"aliases_UTF_16LE", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_16LE, $StringArray*)},
+		{"aliases_UTF_16LE_BOM", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_16LE_BOM, $StringArray*)},
+		{"aliases_UTF_32", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_32, $StringArray*)},
+		{"aliases_UTF_32BE", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_32BE, $StringArray*)},
+		{"aliases_UTF_32BE_BOM", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_32BE_BOM, $StringArray*)},
+		{"aliases_UTF_32LE", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_32LE, $StringArray*)},
+		{"aliases_UTF_32LE_BOM", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_32LE_BOM, $StringArray*)},
+		{"aliases_UTF_8", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StandardCharsets, aliases_UTF_8, $StringArray*)},
+		{"cache", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/nio/charset/Charset;>;", $PRIVATE, $method(StandardCharsets, cache, $Map*)},
+		{"cache", "(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;", nullptr, $PRIVATE, $method(StandardCharsets, cache, $Charset*, $String*, $Charset*)},
+		{"canonicalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(StandardCharsets, canonicalize, $String*, $String*)},
+		{"charsetForName", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $FINAL, $virtualMethod(StandardCharsets, charsetForName, $Charset*, $String*)},
+		{"charsets", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/charset/Charset;>;", $PUBLIC | $FINAL, $virtualMethod(StandardCharsets, charsets, $Iterator*)},
+		{"classMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(StandardCharsets, classMap, $Map*)},
+		{"lookup", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PRIVATE, $method(StandardCharsets, lookup, $Charset*, $String*)},
+		{"toLower", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardCharsets, toLower, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.StandardCharsets$Cache", "sun.nio.cs.StandardCharsets", "Cache", $PRIVATE | $STATIC | $FINAL},
+		{"sun.nio.cs.StandardCharsets$Classes", "sun.nio.cs.StandardCharsets", "Classes", $PRIVATE | $STATIC | $FINAL},
+		{"sun.nio.cs.StandardCharsets$Aliases", "sun.nio.cs.StandardCharsets", "Aliases", $PRIVATE | $STATIC | $FINAL},
+		{"sun.nio.cs.StandardCharsets$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.StandardCharsets",
+		"java.nio.charset.spi.CharsetProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.StandardCharsets$Cache,sun.nio.cs.StandardCharsets$Classes,sun.nio.cs.StandardCharsets$Aliases,sun.nio.cs.StandardCharsets$1"
+	};
+	$loadClass(StandardCharsets, name, initialize, &classInfo$$, StandardCharsets::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardCharsets);
+	});
 	return class$;
 }
 

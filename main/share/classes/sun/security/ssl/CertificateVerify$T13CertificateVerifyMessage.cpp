@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateVerify$T13CertificateVerifyMessage.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/GeneralSecurityException.h>
@@ -50,25 +49,21 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $PrivateKey = ::java::security::PrivateKey;
 using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Alert = ::sun::security::ssl::Alert;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $Record = ::sun::security::ssl::Record;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SignatureScheme = ::sun::security::ssl::SignatureScheme;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 using $X509Authentication$X509Credentials = ::sun::security::ssl::X509Authentication$X509Credentials;
 using $X509Authentication$X509Possession = ::sun::security::ssl::X509Authentication$X509Possession;
@@ -78,70 +73,26 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertificateVerify$T13CertificateVerifyMessage_FieldInfo_[] = {
-	{"serverSignHead", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CertificateVerify$T13CertificateVerifyMessage, serverSignHead)},
-	{"clientSignHead", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CertificateVerify$T13CertificateVerifyMessage, clientSignHead)},
-	{"signatureScheme", "Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $FINAL, $field(CertificateVerify$T13CertificateVerifyMessage, signatureScheme)},
-	{"signature", "[B", nullptr, $PRIVATE | $FINAL, $field(CertificateVerify$T13CertificateVerifyMessage, signature)},
-	{}
-};
-
-$MethodInfo _CertificateVerify$T13CertificateVerifyMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/X509Authentication$X509Possession;)V", nullptr, 0, $method(CertificateVerify$T13CertificateVerifyMessage, init$, void, $HandshakeContext*, $X509Authentication$X509Possession*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateVerify$T13CertificateVerifyMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T13CertificateVerifyMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T13CertificateVerifyMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T13CertificateVerifyMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T13CertificateVerifyMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CertificateVerify$T13CertificateVerifyMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateVerify$T13CertificateVerifyMessage", "sun.security.ssl.CertificateVerify", "T13CertificateVerifyMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CertificateVerify$T13CertificateVerifyMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateVerify$T13CertificateVerifyMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_CertificateVerify$T13CertificateVerifyMessage_FieldInfo_,
-	_CertificateVerify$T13CertificateVerifyMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateVerify$T13CertificateVerifyMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateVerify"
-};
-
-$Object* allocate$CertificateVerify$T13CertificateVerifyMessage($Class* clazz) {
-	return $of($alloc(CertificateVerify$T13CertificateVerifyMessage));
-}
-
 $bytes* CertificateVerify$T13CertificateVerifyMessage::serverSignHead = nullptr;
 $bytes* CertificateVerify$T13CertificateVerifyMessage::clientSignHead = nullptr;
 
 void CertificateVerify$T13CertificateVerifyMessage::init$($HandshakeContext* context, $X509Authentication$X509Possession* x509Possession) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(context);
-	$var($Map$Entry, schemeAndSigner, $SignatureScheme::getSignerOfPreferableAlgorithm($nc(context)->algorithmConstraints, context->peerRequestedSignatureSchemes, x509Possession, context->negotiatedProtocol));
+	$var($Map$Entry, schemeAndSigner, $SignatureScheme::getSignerOfPreferableAlgorithm($nc(context)->algorithmConstraints, $nc(context)->peerRequestedSignatureSchemes, x509Possession, $nc(context)->negotiatedProtocol));
 	if (schemeAndSigner == nullptr) {
 		$init($Alert);
-		$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"No supported CertificateVerify signature algorithm for "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm()), "  key"_s}))));
+		$throw($($nc(context->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"No supported CertificateVerify signature algorithm for "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm()), "  key"_s}))));
 	}
 	$set(this, signatureScheme, $cast($SignatureScheme, $nc(schemeAndSigner)->getKey()));
-	$var($bytes, hashValue, $nc($nc(context)->handshakeHash)->digest());
+	$var($bytes, hashValue, $nc(context->handshakeHash)->digest());
 	$var($bytes, contentCovered, nullptr);
 	if ($nc(context->sslConfig)->isClientMode) {
-		$assign(contentCovered, $Arrays::copyOf(CertificateVerify$T13CertificateVerifyMessage::clientSignHead, $nc(CertificateVerify$T13CertificateVerifyMessage::clientSignHead)->length + $nc(hashValue)->length));
-		$System::arraycopy(hashValue, 0, contentCovered, $nc(CertificateVerify$T13CertificateVerifyMessage::clientSignHead)->length, $nc(hashValue)->length);
+		$assign(contentCovered, $Arrays::copyOf(CertificateVerify$T13CertificateVerifyMessage::clientSignHead, CertificateVerify$T13CertificateVerifyMessage::clientSignHead->length + $nc(hashValue)->length));
+		$System::arraycopy(hashValue, 0, contentCovered, CertificateVerify$T13CertificateVerifyMessage::clientSignHead->length, hashValue->length);
 	} else {
-		$assign(contentCovered, $Arrays::copyOf(CertificateVerify$T13CertificateVerifyMessage::serverSignHead, $nc(CertificateVerify$T13CertificateVerifyMessage::serverSignHead)->length + $nc(hashValue)->length));
-		$System::arraycopy(hashValue, 0, contentCovered, $nc(CertificateVerify$T13CertificateVerifyMessage::serverSignHead)->length, $nc(hashValue)->length);
+		$assign(contentCovered, $Arrays::copyOf(CertificateVerify$T13CertificateVerifyMessage::serverSignHead, CertificateVerify$T13CertificateVerifyMessage::serverSignHead->length + $nc(hashValue)->length));
+		$System::arraycopy(hashValue, 0, contentCovered, CertificateVerify$T13CertificateVerifyMessage::serverSignHead->length, hashValue->length);
 	}
 	$var($bytes, temporary, nullptr);
 	try {
@@ -156,7 +107,7 @@ void CertificateVerify$T13CertificateVerifyMessage::init$($HandshakeContext* con
 }
 
 void CertificateVerify$T13CertificateVerifyMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	if ($nc(m)->remaining() < 4) {
 		$init($Alert);
@@ -174,18 +125,16 @@ void CertificateVerify$T13CertificateVerifyMessage::init$($HandshakeContext* con
 	}
 	$var($X509Authentication$X509Credentials, x509Credentials, nullptr);
 	{
-		$var($Iterator, i$, $nc($nc(context)->handshakeCredentials)->iterator());
+		$var($Iterator, i$, $nc(context->handshakeCredentials)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SSLCredentials, cd, $cast($SSLCredentials, i$->next()));
-			{
-				if ($instanceOf($X509Authentication$X509Credentials, cd)) {
-					$assign(x509Credentials, $cast($X509Authentication$X509Credentials, cd));
-					break;
-				}
+			if ($instanceOf($X509Authentication$X509Credentials, cd)) {
+				$assign(x509Credentials, $cast($X509Authentication$X509Credentials, cd));
+				break;
 			}
 		}
 	}
-	if (x509Credentials == nullptr || $nc(x509Credentials)->popPublicKey == nullptr) {
+	if (x509Credentials == nullptr || x509Credentials->popPublicKey == nullptr) {
 		$init($Alert);
 		$throw($($nc(context->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "No X509 credentials negotiated for CertificateVerify"_s)));
 	}
@@ -193,11 +142,11 @@ void CertificateVerify$T13CertificateVerifyMessage::init$($HandshakeContext* con
 	$var($bytes, hashValue, $nc(context->handshakeHash)->digest());
 	$var($bytes, contentCovered, nullptr);
 	if ($nc(context->sslConfig)->isClientMode) {
-		$assign(contentCovered, $Arrays::copyOf(CertificateVerify$T13CertificateVerifyMessage::serverSignHead, $nc(CertificateVerify$T13CertificateVerifyMessage::serverSignHead)->length + $nc(hashValue)->length));
-		$System::arraycopy(hashValue, 0, contentCovered, $nc(CertificateVerify$T13CertificateVerifyMessage::serverSignHead)->length, $nc(hashValue)->length);
+		$assign(contentCovered, $Arrays::copyOf(CertificateVerify$T13CertificateVerifyMessage::serverSignHead, CertificateVerify$T13CertificateVerifyMessage::serverSignHead->length + $nc(hashValue)->length));
+		$System::arraycopy(hashValue, 0, contentCovered, CertificateVerify$T13CertificateVerifyMessage::serverSignHead->length, hashValue->length);
 	} else {
-		$assign(contentCovered, $Arrays::copyOf(CertificateVerify$T13CertificateVerifyMessage::clientSignHead, $nc(CertificateVerify$T13CertificateVerifyMessage::clientSignHead)->length + $nc(hashValue)->length));
-		$System::arraycopy(hashValue, 0, contentCovered, $nc(CertificateVerify$T13CertificateVerifyMessage::clientSignHead)->length, $nc(hashValue)->length);
+		$assign(contentCovered, $Arrays::copyOf(CertificateVerify$T13CertificateVerifyMessage::clientSignHead, CertificateVerify$T13CertificateVerifyMessage::clientSignHead->length + $nc(hashValue)->length));
+		$System::arraycopy(hashValue, 0, contentCovered, CertificateVerify$T13CertificateVerifyMessage::clientSignHead->length, hashValue->length);
 	}
 	try {
 		$var($Signature, signer, this->signatureScheme->getVerifier($nc(x509Credentials)->popPublicKey));
@@ -236,18 +185,18 @@ void CertificateVerify$T13CertificateVerifyMessage::send($HandshakeOutStream* ho
 }
 
 $String* CertificateVerify$T13CertificateVerifyMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"CertificateVerify\": \'{\'\n  \"signature algorithm\": {0}\n  \"signature\": \'{\'\n{1}\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$of(this->signatureScheme->name$),
-		$($of($Utilities::indent($(hexEncoder->encodeBuffer(this->signature)), "    "_s)))
+		this->signatureScheme->name$,
+		$($Utilities::indent($(hexEncoder->encodeBuffer(this->signature)), "    "_s))
 	}));
 	return messageFormat->format(messageFields);
 }
 
-void clinit$CertificateVerify$T13CertificateVerifyMessage($Class* class$) {
+void CertificateVerify$T13CertificateVerifyMessage::clinit$($Class* clazz) {
 	$assignStatic(CertificateVerify$T13CertificateVerifyMessage::serverSignHead, $new($bytes, {
 		(int8_t)32,
 		(int8_t)32,
@@ -454,7 +403,45 @@ CertificateVerify$T13CertificateVerifyMessage::CertificateVerify$T13CertificateV
 }
 
 $Class* CertificateVerify$T13CertificateVerifyMessage::load$($String* name, bool initialize) {
-	$loadClass(CertificateVerify$T13CertificateVerifyMessage, name, initialize, &_CertificateVerify$T13CertificateVerifyMessage_ClassInfo_, clinit$CertificateVerify$T13CertificateVerifyMessage, allocate$CertificateVerify$T13CertificateVerifyMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"serverSignHead", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CertificateVerify$T13CertificateVerifyMessage, serverSignHead)},
+		{"clientSignHead", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CertificateVerify$T13CertificateVerifyMessage, clientSignHead)},
+		{"signatureScheme", "Lsun/security/ssl/SignatureScheme;", nullptr, $PRIVATE | $FINAL, $field(CertificateVerify$T13CertificateVerifyMessage, signatureScheme)},
+		{"signature", "[B", nullptr, $PRIVATE | $FINAL, $field(CertificateVerify$T13CertificateVerifyMessage, signature)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/X509Authentication$X509Possession;)V", nullptr, 0, $method(CertificateVerify$T13CertificateVerifyMessage, init$, void, $HandshakeContext*, $X509Authentication$X509Possession*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateVerify$T13CertificateVerifyMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T13CertificateVerifyMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T13CertificateVerifyMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T13CertificateVerifyMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T13CertificateVerifyMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateVerify$T13CertificateVerifyMessage", "sun.security.ssl.CertificateVerify", "T13CertificateVerifyMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateVerify$T13CertificateVerifyMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateVerify"
+	};
+	$loadClass(CertificateVerify$T13CertificateVerifyMessage, name, initialize, &classInfo$$, CertificateVerify$T13CertificateVerifyMessage::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateVerify$T13CertificateVerifyMessage);
+	});
 	return class$;
 }
 

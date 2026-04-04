@@ -1,5 +1,4 @@
 #include <java/lang/Process$1.h>
-
 #include <java/lang/Process.h>
 #include <jcpp.h>
 
@@ -12,50 +11,6 @@ using $Process = ::java::lang::Process;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _Process$1_FieldInfo_[] = {
-	{"this$0", "Ljava/lang/Process;", nullptr, $FINAL | $SYNTHETIC, $field(Process$1, this$0)},
-	{}
-};
-
-$MethodInfo _Process$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Process;)V", nullptr, 0, $method(Process$1, init$, void, $Process*)},
-	{"block", "()Z", nullptr, $PUBLIC, $virtualMethod(Process$1, block, bool), "java.lang.InterruptedException"},
-	{"isReleasable", "()Z", nullptr, $PUBLIC, $virtualMethod(Process$1, isReleasable, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _Process$1_EnclosingMethodInfo_ = {
-	"java.lang.Process",
-	"waitForInternal",
-	"()Ljava/lang/Process;"
-};
-
-$InnerClassInfo _Process$1_InnerClassesInfo_[] = {
-	{"java.lang.Process$1", nullptr, nullptr, 0},
-	{"java.util.concurrent.ForkJoinPool$ManagedBlocker", "java.util.concurrent.ForkJoinPool", "ManagedBlocker", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Process$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Process$1",
-	"java.lang.Object",
-	"java.util.concurrent.ForkJoinPool$ManagedBlocker",
-	_Process$1_FieldInfo_,
-	_Process$1_MethodInfo_,
-	nullptr,
-	&_Process$1_EnclosingMethodInfo_,
-	_Process$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Process"
-};
-
-$Object* allocate$Process$1($Class* clazz) {
-	return $of($alloc(Process$1));
-}
 
 void Process$1::init$($Process* this$0) {
 	$set(this, this$0, this$0);
@@ -74,7 +29,44 @@ Process$1::Process$1() {
 }
 
 $Class* Process$1::load$($String* name, bool initialize) {
-	$loadClass(Process$1, name, initialize, &_Process$1_ClassInfo_, allocate$Process$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/lang/Process;", nullptr, $FINAL | $SYNTHETIC, $field(Process$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Process;)V", nullptr, 0, $method(Process$1, init$, void, $Process*)},
+		{"block", "()Z", nullptr, $PUBLIC, $virtualMethod(Process$1, block, bool), "java.lang.InterruptedException"},
+		{"isReleasable", "()Z", nullptr, $PUBLIC, $virtualMethod(Process$1, isReleasable, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.Process",
+		"waitForInternal",
+		"()Ljava/lang/Process;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Process$1", nullptr, nullptr, 0},
+		{"java.util.concurrent.ForkJoinPool$ManagedBlocker", "java.util.concurrent.ForkJoinPool", "ManagedBlocker", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Process$1",
+		"java.lang.Object",
+		"java.util.concurrent.ForkJoinPool$ManagedBlocker",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Process"
+	};
+	$loadClass(Process$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Process$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <StaticFieldTest.h>
-
 #include <java/lang/reflect/Field.h>
 #include <jcpp.h>
 
@@ -8,38 +7,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Field = ::java::lang::reflect::Field;
-
-$FieldInfo _StaticFieldTest_FieldInfo_[] = {
-	{"byteField", "B", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, byteField)},
-	{"shortField", "S", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, shortField)},
-	{"charField", "C", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, charField)},
-	{"intField", "I", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, intField)},
-	{"longField", "J", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, longField)},
-	{"floatField", "F", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, floatField)},
-	{"doubleField", "D", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, doubleField)},
-	{"stringField", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, stringField)},
-	{}
-};
-
-$MethodInfo _StaticFieldTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StaticFieldTest, init$, void)},
-	{"getAccessibleField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $STATIC, $staticMethod(StaticFieldTest, getAccessibleField, $Field*, $String*), "java.lang.NoSuchFieldException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticFieldTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _StaticFieldTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StaticFieldTest",
-	"java.lang.Object",
-	nullptr,
-	_StaticFieldTest_FieldInfo_,
-	_StaticFieldTest_MethodInfo_
-};
-
-$Object* allocate$StaticFieldTest($Class* clazz) {
-	return $of($alloc(StaticFieldTest));
-}
 
 int8_t StaticFieldTest::byteField = 0;
 int16_t StaticFieldTest::shortField = 0;
@@ -62,8 +29,8 @@ $Field* StaticFieldTest::getAccessibleField($String* name) {
 }
 
 void StaticFieldTest::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(StaticFieldTest);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Field, byteField, getAccessibleField("byteField"_s));
 	$var($Field, shortField, getAccessibleField("shortField"_s));
@@ -112,7 +79,34 @@ StaticFieldTest::StaticFieldTest() {
 }
 
 $Class* StaticFieldTest::load$($String* name, bool initialize) {
-	$loadClass(StaticFieldTest, name, initialize, &_StaticFieldTest_ClassInfo_, allocate$StaticFieldTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"byteField", "B", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, byteField)},
+		{"shortField", "S", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, shortField)},
+		{"charField", "C", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, charField)},
+		{"intField", "I", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, intField)},
+		{"longField", "J", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, longField)},
+		{"floatField", "F", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, floatField)},
+		{"doubleField", "D", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, doubleField)},
+		{"stringField", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(StaticFieldTest, stringField)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StaticFieldTest, init$, void)},
+		{"getAccessibleField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $STATIC, $staticMethod(StaticFieldTest, getAccessibleField, $Field*, $String*), "java.lang.NoSuchFieldException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticFieldTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StaticFieldTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StaticFieldTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StaticFieldTest);
+	});
 	return class$;
 }
 

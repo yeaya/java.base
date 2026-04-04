@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsPath$WindowsPathWithAttributes.h>
-
 #include <java/lang/ref/WeakReference.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/LinkOption.h>
@@ -27,59 +26,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsPath$WindowsPathWithAttributes_FieldInfo_[] = {
-	{"ref", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/nio/file/attribute/BasicFileAttributes;>;", $FINAL, $field(WindowsPath$WindowsPathWithAttributes, ref)},
-	{}
-};
-
-$MethodInfo _WindowsPath$WindowsPathWithAttributes_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;Lsun/nio/fs/WindowsPathType;Ljava/lang/String;Ljava/lang/String;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, 0, $method(WindowsPath$WindowsPathWithAttributes, init$, void, $WindowsFileSystem*, $WindowsPathType*, $String*, $String*, $BasicFileAttributes*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, compareTo, int32_t, Object$*)},
-	{"get", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, get, $BasicFileAttributes*)},
-	{"getFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, getFileSystem, $FileSystem*)},
-	{"getName", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, getName, $WindowsPath*, int32_t)},
-	{"getParent", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, getParent, $WindowsPath*)},
-	{"getRoot", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, getRoot, $WindowsPath*)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, invalidate, void)},
-	{"normalize", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, normalize, $WindowsPath*)},
-	{"relativize", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, relativize, $WindowsPath*, $Path*)},
-	{"resolve", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, resolve, $WindowsPath*, $Path*)},
-	{"subpath", "(II)Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, subpath, $WindowsPath*, int32_t, int32_t)},
-	{"toAbsolutePath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, toAbsolutePath, $WindowsPath*)},
-	{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, toRealPath, $WindowsPath*, $LinkOptionArray*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsPath$WindowsPathWithAttributes_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsPath$WindowsPathWithAttributes", "sun.nio.fs.WindowsPath", "WindowsPathWithAttributes", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsPath$WindowsPathWithAttributes_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsPath$WindowsPathWithAttributes",
-	"sun.nio.fs.WindowsPath",
-	"sun.nio.fs.BasicFileAttributesHolder",
-	_WindowsPath$WindowsPathWithAttributes_FieldInfo_,
-	_WindowsPath$WindowsPathWithAttributes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsPath$WindowsPathWithAttributes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsPath"
-};
-
-$Object* allocate$WindowsPath$WindowsPathWithAttributes($Class* clazz) {
-	return $of($alloc(WindowsPath$WindowsPathWithAttributes));
-}
-
 bool WindowsPath$WindowsPathWithAttributes::equals(Object$* obj) {
 	 return this->$WindowsPath::equals(obj);
 }
@@ -106,11 +52,11 @@ void WindowsPath$WindowsPathWithAttributes::init$($WindowsFileSystem* fs, $Windo
 }
 
 $BasicFileAttributes* WindowsPath$WindowsPathWithAttributes::get() {
-	return $cast($BasicFileAttributes, $nc(this->ref)->get());
+	return $cast($BasicFileAttributes, this->ref->get());
 }
 
 void WindowsPath$WindowsPathWithAttributes::invalidate() {
-	$nc(this->ref)->clear();
+	this->ref->clear();
 }
 
 $WindowsPath* WindowsPath$WindowsPathWithAttributes::toRealPath($LinkOptionArray* options) {
@@ -161,7 +107,54 @@ WindowsPath$WindowsPathWithAttributes::WindowsPath$WindowsPathWithAttributes() {
 }
 
 $Class* WindowsPath$WindowsPathWithAttributes::load$($String* name, bool initialize) {
-	$loadClass(WindowsPath$WindowsPathWithAttributes, name, initialize, &_WindowsPath$WindowsPathWithAttributes_ClassInfo_, allocate$WindowsPath$WindowsPathWithAttributes);
+	$FieldInfo fieldInfos$$[] = {
+		{"ref", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/nio/file/attribute/BasicFileAttributes;>;", $FINAL, $field(WindowsPath$WindowsPathWithAttributes, ref)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lsun/nio/fs/WindowsFileSystem;Lsun/nio/fs/WindowsPathType;Ljava/lang/String;Ljava/lang/String;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, 0, $method(WindowsPath$WindowsPathWithAttributes, init$, void, $WindowsFileSystem*, $WindowsPathType*, $String*, $String*, $BasicFileAttributes*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, compareTo, int32_t, Object$*)},
+		{"get", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, get, $BasicFileAttributes*)},
+		{"getFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, getFileSystem, $FileSystem*)},
+		{"getName", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, getName, $WindowsPath*, int32_t)},
+		{"getParent", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, getParent, $WindowsPath*)},
+		{"getRoot", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, getRoot, $WindowsPath*)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, invalidate, void)},
+		{"normalize", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, normalize, $WindowsPath*)},
+		{"relativize", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, relativize, $WindowsPath*, $Path*)},
+		{"resolve", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, resolve, $WindowsPath*, $Path*)},
+		{"subpath", "(II)Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, subpath, $WindowsPath*, int32_t, int32_t)},
+		{"toAbsolutePath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, toAbsolutePath, $WindowsPath*)},
+		{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WindowsPath$WindowsPathWithAttributes, toRealPath, $WindowsPath*, $LinkOptionArray*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsPath$WindowsPathWithAttributes", "sun.nio.fs.WindowsPath", "WindowsPathWithAttributes", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsPath$WindowsPathWithAttributes",
+		"sun.nio.fs.WindowsPath",
+		"sun.nio.fs.BasicFileAttributesHolder",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsPath"
+	};
+	$loadClass(WindowsPath$WindowsPathWithAttributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsPath$WindowsPathWithAttributes));
+	});
 	return class$;
 }
 

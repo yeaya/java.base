@@ -1,5 +1,4 @@
 #include <java/nio/file/FileSystemNotFoundException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _FileSystemNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FileSystemNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FileSystemNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FileSystemNotFoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemNotFoundException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _FileSystemNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.FileSystemNotFoundException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_FileSystemNotFoundException_FieldInfo_,
-	_FileSystemNotFoundException_MethodInfo_
-};
-
-$Object* allocate$FileSystemNotFoundException($Class* clazz) {
-	return $of($alloc(FileSystemNotFoundException));
-}
 
 void FileSystemNotFoundException::init$() {
 	$RuntimeException::init$();
@@ -54,7 +29,26 @@ void FileSystemNotFoundException::throw$() {
 }
 
 $Class* FileSystemNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(FileSystemNotFoundException, name, initialize, &_FileSystemNotFoundException_ClassInfo_, allocate$FileSystemNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FileSystemNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FileSystemNotFoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemNotFoundException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.FileSystemNotFoundException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileSystemNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemNotFoundException);
+	});
 	return class$;
 }
 

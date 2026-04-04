@@ -1,5 +1,4 @@
 #include <SetLastModified.h>
-
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
 #include <java/nio/ByteBuffer.h>
@@ -12,7 +11,6 @@
 
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -21,31 +19,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
-$MethodInfo _SetLastModified_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SetLastModified, init$, void)},
-	{"ck", "(Ljava/io/File;JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SetLastModified, ck, void, $File*, int64_t, int64_t), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetLastModified, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _SetLastModified_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SetLastModified",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SetLastModified_MethodInfo_
-};
-
-$Object* allocate$SetLastModified($Class* clazz) {
-	return $of($alloc(SetLastModified));
-}
-
 void SetLastModified::init$() {
 }
 
 void SetLastModified::ck($File* f, int64_t nt, int64_t rt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (rt == nt) {
 		return;
 	}
@@ -61,7 +39,7 @@ void SetLastModified::ck($File* f, int64_t nt, int64_t rt) {
 }
 
 void SetLastModified::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, d, $new($File, $($System::getProperty("test.dir"_s, "."_s))));
 	$var($File, d2, $new($File, d, "x.SetLastModified.dir"_s));
 	$var($File, f, $new($File, d2, "x.SetLastModified"_s));
@@ -104,40 +82,38 @@ void SetLastModified::main($StringArray* args) {
 		$throwNew($Exception, $$str({"Succeeded on non-existent file: "_s, f}));
 	}
 	int64_t G = (int64_t)1024 * (int64_t)1024 * (int64_t)1024;
-	int64_t MAX_POSITION = $nc($($System::getProperty("os.name"_s)))->startsWith("Windows"_s) ? (int64_t)0 : (int64_t)3 * G;
+	int64_t MAX_POSITION = $$nc($System::getProperty("os.name"_s))->startsWith("Windows"_s) ? 0 : (int64_t)3 * G;
 	int64_t pos = 0;
 	while (pos <= MAX_POSITION) {
 		{
 			$var($FileChannel, fc, $$new($FileOutputStream, f)->getChannel());
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						$nc($($cast($FileChannel, $nc(fc)->position(pos))))->write($($ByteBuffer::wrap($("x"_s->getBytes()))));
-					} catch ($Throwable& t$) {
-						if (fc != nullptr) {
-							try {
-								fc->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
+					$$sure($FileChannel, $nc(fc)->position(pos))->write($($ByteBuffer::wrap($("x"_s->getBytes()))));
+				} catch ($Throwable& t$) {
 					if (fc != nullptr) {
-						fc->close();
+						try {
+							fc->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (fc != nullptr) {
+					fc->close();
 				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 		ot = f->lastModified();
-		$nc($System::out)->format("check with file size: %d\n"_s, $$new($ObjectArray, {$($of($Long::valueOf(f->length())))}));
+		$nc($System::out)->format("check with file size: %d\n"_s, $$new($ObjectArray, {$($Long::valueOf(f->length()))}));
 		if (!f->setLastModified(nt)) {
 			$throwNew($Exception, $$str({"setLastModified failed on file: "_s, f}));
 		}
@@ -156,7 +132,23 @@ SetLastModified::SetLastModified() {
 }
 
 $Class* SetLastModified::load$($String* name, bool initialize) {
-	$loadClass(SetLastModified, name, initialize, &_SetLastModified_ClassInfo_, allocate$SetLastModified);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SetLastModified, init$, void)},
+		{"ck", "(Ljava/io/File;JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SetLastModified, ck, void, $File*, int64_t, int64_t), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetLastModified, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SetLastModified",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SetLastModified, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SetLastModified);
+	});
 	return class$;
 }
 

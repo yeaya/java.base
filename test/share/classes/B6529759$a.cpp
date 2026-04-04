@@ -1,5 +1,4 @@
 #include <B6529759$a.h>
-
 #include <B6529759.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/URL.h>
@@ -15,38 +14,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
-
-$MethodInfo _B6529759$a_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(B6529759$a, init$, void)},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(B6529759$a, openConnection, $URLConnection*, $URL*)},
-	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(B6529759$a, parseURL, void, $URL*, $String*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _B6529759$a_InnerClassesInfo_[] = {
-	{"B6529759$a", "B6529759", "a", $STATIC},
-	{}
-};
-
-$ClassInfo _B6529759$a_ClassInfo_ = {
-	$ACC_SUPER,
-	"B6529759$a",
-	"java.net.URLStreamHandler",
-	nullptr,
-	nullptr,
-	_B6529759$a_MethodInfo_,
-	nullptr,
-	nullptr,
-	_B6529759$a_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"B6529759"
-};
-
-$Object* allocate$B6529759$a($Class* clazz) {
-	return $of($alloc(B6529759$a));
-}
 
 void B6529759$a::init$() {
 	$URLStreamHandler::init$();
@@ -65,7 +32,34 @@ B6529759$a::B6529759$a() {
 }
 
 $Class* B6529759$a::load$($String* name, bool initialize) {
-	$loadClass(B6529759$a, name, initialize, &_B6529759$a_ClassInfo_, allocate$B6529759$a);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(B6529759$a, init$, void)},
+		{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(B6529759$a, openConnection, $URLConnection*, $URL*)},
+		{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(B6529759$a, parseURL, void, $URL*, $String*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"B6529759$a", "B6529759", "a", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"B6529759$a",
+		"java.net.URLStreamHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"B6529759"
+	};
+	$loadClass(B6529759$a, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(B6529759$a);
+	});
 	return class$;
 }
 

@@ -33,6 +33,7 @@ class MethodHandleImpl$Makers : public ::java::lang::Object {
 	$class(MethodHandleImpl$Makers, 0, ::java::lang::Object)
 public:
 	MethodHandleImpl$Makers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::function::Function* PRODUCE_BLOCK_INLINING_FORM;
 	static ::java::util::function::Function* PRODUCE_REINVOKER_FORM;

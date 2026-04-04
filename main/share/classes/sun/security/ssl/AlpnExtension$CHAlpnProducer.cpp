@@ -1,5 +1,4 @@
 #include <sun/security/ssl/AlpnExtension$CHAlpnProducer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/Arrays.h>
@@ -29,65 +28,25 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Arrays = ::java::util::Arrays;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $AlpnExtension = ::sun::security::ssl::AlpnExtension;
 using $AlpnExtension$AlpnSpec = ::sun::security::ssl::AlpnExtension$AlpnSpec;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $Record = ::sun::security::ssl::Record;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _AlpnExtension$CHAlpnProducer_FieldInfo_[] = {
-	{"MAX_AP_LENGTH", "I", nullptr, $STATIC | $FINAL, $constField(AlpnExtension$CHAlpnProducer, MAX_AP_LENGTH)},
-	{"MAX_AP_LIST_LENGTH", "I", nullptr, $STATIC | $FINAL, $constField(AlpnExtension$CHAlpnProducer, MAX_AP_LIST_LENGTH)},
-	{}
-};
-
-$MethodInfo _AlpnExtension$CHAlpnProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AlpnExtension$CHAlpnProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$CHAlpnProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _AlpnExtension$CHAlpnProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.AlpnExtension$CHAlpnProducer", "sun.security.ssl.AlpnExtension", "CHAlpnProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AlpnExtension$CHAlpnProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.AlpnExtension$CHAlpnProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	_AlpnExtension$CHAlpnProducer_FieldInfo_,
-	_AlpnExtension$CHAlpnProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AlpnExtension$CHAlpnProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.AlpnExtension"
-};
-
-$Object* allocate$AlpnExtension$CHAlpnProducer($Class* clazz) {
-	return $of($alloc(AlpnExtension$CHAlpnProducer));
-}
-
 void AlpnExtension$CHAlpnProducer::init$() {
 }
 
 $bytes* AlpnExtension$CHAlpnProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::CH_ALPN)) {
@@ -99,8 +58,8 @@ $bytes* AlpnExtension$CHAlpnProducer::produce($ConnectionContext* context, $SSLH
 		$set($nc(chc->conContext), applicationProtocol, ""_s);
 		return nullptr;
 	}
-	$var($StringArray, laps, $nc($nc(chc)->sslConfig)->applicationProtocols);
-	if ((laps == nullptr) || ($nc(laps)->length == 0)) {
+	$var($StringArray, laps, chc->sslConfig->applicationProtocols);
+	if ((laps == nullptr) || (laps->length == 0)) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::info("No available application protocols"_s, $$new($ObjectArray, 0));
@@ -110,9 +69,7 @@ $bytes* AlpnExtension$CHAlpnProducer::produce($ConnectionContext* context, $SSLH
 	int32_t listLength = 0;
 	{
 		$var($StringArray, arr$, laps);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, ap, arr$->get(i$));
 			{
 				$init($AlpnExtension);
@@ -151,9 +108,7 @@ $bytes* AlpnExtension$CHAlpnProducer::produce($ConnectionContext* context, $SSLH
 	$Record::putInt16(m, listLength);
 	{
 		$var($StringArray, arr$, laps);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, ap, arr$->get(i$));
 			{
 				$init($AlpnExtension);
@@ -161,7 +116,7 @@ $bytes* AlpnExtension$CHAlpnProducer::produce($ConnectionContext* context, $SSLH
 			}
 		}
 	}
-	$nc(chc->handshakeExtensions)->put($SSLExtension::CH_ALPN, $$new($AlpnExtension$AlpnSpec, $nc(chc->sslConfig)->applicationProtocols));
+	$nc(chc->handshakeExtensions)->put($SSLExtension::CH_ALPN, $$new($AlpnExtension$AlpnSpec, chc->sslConfig->applicationProtocols));
 	return extData;
 }
 
@@ -169,7 +124,38 @@ AlpnExtension$CHAlpnProducer::AlpnExtension$CHAlpnProducer() {
 }
 
 $Class* AlpnExtension$CHAlpnProducer::load$($String* name, bool initialize) {
-	$loadClass(AlpnExtension$CHAlpnProducer, name, initialize, &_AlpnExtension$CHAlpnProducer_ClassInfo_, allocate$AlpnExtension$CHAlpnProducer);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_AP_LENGTH", "I", nullptr, $STATIC | $FINAL, $constField(AlpnExtension$CHAlpnProducer, MAX_AP_LENGTH)},
+		{"MAX_AP_LIST_LENGTH", "I", nullptr, $STATIC | $FINAL, $constField(AlpnExtension$CHAlpnProducer, MAX_AP_LIST_LENGTH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AlpnExtension$CHAlpnProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$CHAlpnProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.AlpnExtension$CHAlpnProducer", "sun.security.ssl.AlpnExtension", "CHAlpnProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.AlpnExtension$CHAlpnProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.AlpnExtension"
+	};
+	$loadClass(AlpnExtension$CHAlpnProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlpnExtension$CHAlpnProducer);
+	});
 	return class$;
 }
 

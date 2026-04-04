@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixChannelFactory.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -62,45 +61,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _UnixChannelFactory_FieldInfo_[] = {
-	{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixChannelFactory, fdAccess)},
-	{}
-};
-
-$MethodInfo _UnixChannelFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(UnixChannelFactory, init$, void)},
-	{"newAsynchronousFileChannel", "(Lsun/nio/fs/UnixPath;Ljava/util/Set;ILsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", "(Lsun/nio/fs/UnixPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;ILsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", $STATIC, $staticMethod(UnixChannelFactory, newAsynchronousFileChannel, $AsynchronousFileChannel*, $UnixPath*, $Set*, int32_t, $ThreadPool*), "sun.nio.fs.UnixException"},
-	{"newFileChannel", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Ljava/util/Set;I)Ljava/nio/channels/FileChannel;", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;I)Ljava/nio/channels/FileChannel;", $STATIC, $staticMethod(UnixChannelFactory, newFileChannel, $FileChannel*, int32_t, $UnixPath*, $String*, $Set*, int32_t), "sun.nio.fs.UnixException"},
-	{"newFileChannel", "(Lsun/nio/fs/UnixPath;Ljava/util/Set;I)Ljava/nio/channels/FileChannel;", "(Lsun/nio/fs/UnixPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;I)Ljava/nio/channels/FileChannel;", $STATIC, $staticMethod(UnixChannelFactory, newFileChannel, $FileChannel*, $UnixPath*, $Set*, int32_t), "sun.nio.fs.UnixException"},
-	{"open", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Lsun/nio/fs/UnixChannelFactory$Flags;I)Ljava/io/FileDescriptor;", nullptr, $PROTECTED | $STATIC, $staticMethod(UnixChannelFactory, open, $FileDescriptor*, int32_t, $UnixPath*, $String*, $UnixChannelFactory$Flags*, int32_t), "sun.nio.fs.UnixException"},
-	{}
-};
-
-$InnerClassInfo _UnixChannelFactory_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixChannelFactory$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.nio.fs.UnixChannelFactory$Flags", "sun.nio.fs.UnixChannelFactory", "Flags", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _UnixChannelFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixChannelFactory",
-	"java.lang.Object",
-	nullptr,
-	_UnixChannelFactory_FieldInfo_,
-	_UnixChannelFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnixChannelFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixChannelFactory$1,sun.nio.fs.UnixChannelFactory$Flags"
-};
-
-$Object* allocate$UnixChannelFactory($Class* clazz) {
-	return $of($alloc(UnixChannelFactory));
-}
-
 $JavaIOFileDescriptorAccess* UnixChannelFactory::fdAccess = nullptr;
 
 void UnixChannelFactory::init$() {
@@ -108,7 +68,7 @@ void UnixChannelFactory::init$() {
 
 $FileChannel* UnixChannelFactory::newFileChannel(int32_t dfd, $UnixPath* path, $String* pathForPermissionCheck, $Set* options, int32_t mode) {
 	$init(UnixChannelFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixChannelFactory$Flags, flags, $UnixChannelFactory$Flags::toFlags(options));
 	if (!$nc(flags)->read && !flags->write) {
 		if (flags->append) {
@@ -117,14 +77,14 @@ $FileChannel* UnixChannelFactory::newFileChannel(int32_t dfd, $UnixPath* path, $
 			flags->read = true;
 		}
 	}
-	if ($nc(flags)->read && flags->append) {
+	if (flags->read && flags->append) {
 		$throwNew($IllegalArgumentException, "READ + APPEND not allowed"_s);
 	}
-	if ($nc(flags)->append && flags->truncateExisting) {
+	if (flags->append && flags->truncateExisting) {
 		$throwNew($IllegalArgumentException, "APPEND + TRUNCATE_EXISTING not allowed"_s);
 	}
 	$var($FileDescriptor, fdObj, open(dfd, path, pathForPermissionCheck, flags, mode));
-	return $FileChannelImpl::open(fdObj, $($nc(path)->toString()), $nc(flags)->read, flags->write, flags->direct, nullptr);
+	return $FileChannelImpl::open(fdObj, $($nc(path)->toString()), flags->read, flags->write, flags->direct, nullptr);
 }
 
 $FileChannel* UnixChannelFactory::newFileChannel($UnixPath* path, $Set* options, int32_t mode) {
@@ -134,21 +94,21 @@ $FileChannel* UnixChannelFactory::newFileChannel($UnixPath* path, $Set* options,
 
 $AsynchronousFileChannel* UnixChannelFactory::newAsynchronousFileChannel($UnixPath* path, $Set* options, int32_t mode, $ThreadPool* pool) {
 	$init(UnixChannelFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnixChannelFactory$Flags, flags, $UnixChannelFactory$Flags::toFlags(options));
 	if (!$nc(flags)->read && !flags->write) {
 		flags->read = true;
 	}
-	if ($nc(flags)->append) {
+	if (flags->append) {
 		$throwNew($UnsupportedOperationException, "APPEND not allowed"_s);
 	}
 	$var($FileDescriptor, fdObj, open(-1, path, nullptr, flags, mode));
-	return $SimpleAsynchronousFileChannelImpl::open(fdObj, $nc(flags)->read, flags->write, pool);
+	return $SimpleAsynchronousFileChannelImpl::open(fdObj, flags->read, flags->write, pool);
 }
 
 $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String* pathForPermissionCheck$renamed, $UnixChannelFactory$Flags* flags, int32_t mode) {
 	$init(UnixChannelFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, pathForPermissionCheck, pathForPermissionCheck$renamed);
 	int32_t oflags = 0;
 	if ($nc(flags)->read && flags->write) {
@@ -158,7 +118,7 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 		$init($UnixConstants);
 		oflags = (flags->write) ? $UnixConstants::O_WRONLY : $UnixConstants::O_RDONLY;
 	}
-	if ($nc(flags)->write) {
+	if (flags->write) {
 		if (flags->truncateExisting) {
 			$init($UnixConstants);
 			oflags |= $UnixConstants::O_TRUNC;
@@ -169,7 +129,7 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 		}
 		if (flags->createNew) {
 			$var($bytes, pathForSysCall, $nc(path)->asByteArray());
-			if (($nc(pathForSysCall)->get(pathForSysCall->length - 1) == u'.') && (pathForSysCall->length == 1 || ($nc(pathForSysCall)->get(pathForSysCall->length - 2) == u'/'))) {
+			if (($nc(pathForSysCall)->get($nc(pathForSysCall)->length - 1) == u'.') && (pathForSysCall->length == 1 || (pathForSysCall->get(pathForSysCall->length - 2) == u'/'))) {
 				$init($UnixConstants);
 				$throwNew($UnixException, $UnixConstants::EEXIST);
 			}
@@ -181,11 +141,11 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 		}
 	}
 	bool followLinks = true;
-	if (!$nc(flags)->createNew && (flags->noFollowLinks || $nc(flags)->deleteOnClose)) {
+	if (!flags->createNew && (flags->noFollowLinks || flags->deleteOnClose)) {
 		$init($UnixConstants);
 		if (flags->deleteOnClose && $UnixConstants::O_NOFOLLOW == 0) {
 			try {
-				if ($nc($($UnixFileAttributes::get(path, false)))->isSymbolicLink()) {
+				if ($$nc($UnixFileAttributes::get(path, false))->isSymbolicLink()) {
 					$throwNew($UnixException, "DELETE_ON_CLOSE specified and file is a symbolic link"_s);
 				}
 			} catch ($UnixException& x) {
@@ -197,15 +157,15 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 		followLinks = false;
 		oflags |= $UnixConstants::O_NOFOLLOW;
 	}
-	if ($nc(flags)->dsync) {
+	if (flags->dsync) {
 		$init($UnixConstants);
 		oflags |= $UnixConstants::O_DSYNC;
 	}
-	if ($nc(flags)->sync) {
+	if (flags->sync) {
 		$init($UnixConstants);
 		oflags |= $UnixConstants::O_SYNC;
 	}
-	if ($nc(flags)->direct) {
+	if (flags->direct) {
 		$init($UnixConstants);
 		oflags |= $UnixConstants::O_DIRECT;
 	}
@@ -214,13 +174,13 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 		if (pathForPermissionCheck == nullptr) {
 			$assign(pathForPermissionCheck, $nc(path)->getPathForPermissionCheck());
 		}
-		if ($nc(flags)->read) {
+		if (flags->read) {
 			sm->checkRead(pathForPermissionCheck);
 		}
-		if ($nc(flags)->write) {
+		if (flags->write) {
 			sm->checkWrite(pathForPermissionCheck);
 		}
-		if ($nc(flags)->deleteOnClose) {
+		if (flags->deleteOnClose) {
 			sm->checkDelete(pathForPermissionCheck);
 		}
 	}
@@ -233,7 +193,7 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 		}
 	} catch ($UnixException& x) {
 		$init($UnixConstants);
-		if ($nc(flags)->createNew && (x->errno$() == $UnixConstants::EISDIR)) {
+		if (flags->createNew && (x->errno$() == $UnixConstants::EISDIR)) {
 			x->setError($UnixConstants::EEXIST);
 		}
 		if (!followLinks && (x->errno$() == $UnixConstants::ELOOP)) {
@@ -241,7 +201,7 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 		}
 		$throw(x);
 	}
-	if ($nc(flags)->deleteOnClose) {
+	if (flags->deleteOnClose) {
 		try {
 			if (dfd >= 0) {
 				$UnixNativeDispatcher::unlinkat(dfd, $($nc(path)->asByteArray()), 0);
@@ -253,11 +213,11 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 	}
 	$var($FileDescriptor, fdObj, $new($FileDescriptor));
 	$nc(UnixChannelFactory::fdAccess)->set(fdObj, fd);
-	$nc(UnixChannelFactory::fdAccess)->setAppend(fdObj, $nc(flags)->append);
+	UnixChannelFactory::fdAccess->setAppend(fdObj, flags->append);
 	return fdObj;
 }
 
-void clinit$UnixChannelFactory($Class* class$) {
+void UnixChannelFactory::clinit$($Class* clazz) {
 	$assignStatic(UnixChannelFactory::fdAccess, $SharedSecrets::getJavaIOFileDescriptorAccess());
 }
 
@@ -265,7 +225,40 @@ UnixChannelFactory::UnixChannelFactory() {
 }
 
 $Class* UnixChannelFactory::load$($String* name, bool initialize) {
-	$loadClass(UnixChannelFactory, name, initialize, &_UnixChannelFactory_ClassInfo_, clinit$UnixChannelFactory, allocate$UnixChannelFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixChannelFactory, fdAccess)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(UnixChannelFactory, init$, void)},
+		{"newAsynchronousFileChannel", "(Lsun/nio/fs/UnixPath;Ljava/util/Set;ILsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", "(Lsun/nio/fs/UnixPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;ILsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", $STATIC, $staticMethod(UnixChannelFactory, newAsynchronousFileChannel, $AsynchronousFileChannel*, $UnixPath*, $Set*, int32_t, $ThreadPool*), "sun.nio.fs.UnixException"},
+		{"newFileChannel", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Ljava/util/Set;I)Ljava/nio/channels/FileChannel;", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;I)Ljava/nio/channels/FileChannel;", $STATIC, $staticMethod(UnixChannelFactory, newFileChannel, $FileChannel*, int32_t, $UnixPath*, $String*, $Set*, int32_t), "sun.nio.fs.UnixException"},
+		{"newFileChannel", "(Lsun/nio/fs/UnixPath;Ljava/util/Set;I)Ljava/nio/channels/FileChannel;", "(Lsun/nio/fs/UnixPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;I)Ljava/nio/channels/FileChannel;", $STATIC, $staticMethod(UnixChannelFactory, newFileChannel, $FileChannel*, $UnixPath*, $Set*, int32_t), "sun.nio.fs.UnixException"},
+		{"open", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Lsun/nio/fs/UnixChannelFactory$Flags;I)Ljava/io/FileDescriptor;", nullptr, $PROTECTED | $STATIC, $staticMethod(UnixChannelFactory, open, $FileDescriptor*, int32_t, $UnixPath*, $String*, $UnixChannelFactory$Flags*, int32_t), "sun.nio.fs.UnixException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixChannelFactory$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.nio.fs.UnixChannelFactory$Flags", "sun.nio.fs.UnixChannelFactory", "Flags", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixChannelFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixChannelFactory$1,sun.nio.fs.UnixChannelFactory$Flags"
+	};
+	$loadClass(UnixChannelFactory, name, initialize, &classInfo$$, UnixChannelFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixChannelFactory);
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ class $export InterruptedByTimeoutException : public ::java::io::IOException {
 public:
 	InterruptedByTimeoutException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xC4C4FCCA4E3EFEBD;
+	static const int64_t serialVersionUID = (int64_t)0xc4c4fcca4e3efebd;
 	InterruptedByTimeoutException(const InterruptedByTimeoutException& e);
 	virtual void throw$() override;
-	inline InterruptedByTimeoutException* operator ->() {
+	inline InterruptedByTimeoutException* operator ->() const {
+		return (InterruptedByTimeoutException*)throwing$;
+	}
+	inline operator InterruptedByTimeoutException*() const {
 		return (InterruptedByTimeoutException*)throwing$;
 	}
 };

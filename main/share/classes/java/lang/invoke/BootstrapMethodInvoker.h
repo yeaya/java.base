@@ -32,6 +32,7 @@ class BootstrapMethodInvoker : public ::java::lang::Object {
 	$class(BootstrapMethodInvoker, 0, ::java::lang::Object)
 public:
 	BootstrapMethodInvoker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* invoke($Class* resultType, ::java::lang::invoke::MethodHandle* bootstrapMethod, $String* name, Object$* type, Object$* info, $Class* callerClass);
 	static $Object* invokeWithManyArguments(::java::lang::invoke::MethodHandle* bootstrapMethod, ::java::lang::invoke::MethodHandles$Lookup* caller, $String* name, Object$* type, $ObjectArray* argv);

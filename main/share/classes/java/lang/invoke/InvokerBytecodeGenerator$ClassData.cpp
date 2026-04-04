@@ -1,5 +1,4 @@
 #include <java/lang/invoke/InvokerBytecodeGenerator$ClassData.h>
-
 #include <java/lang/invoke/InvokerBytecodeGenerator.h>
 #include <jcpp.h>
 
@@ -11,45 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _InvokerBytecodeGenerator$ClassData_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(InvokerBytecodeGenerator$ClassData, name$)},
-	{"desc", "Ljava/lang/String;", nullptr, $FINAL, $field(InvokerBytecodeGenerator$ClassData, desc)},
-	{"value", "Ljava/lang/Object;", nullptr, $FINAL, $field(InvokerBytecodeGenerator$ClassData, value)},
-	{}
-};
-
-$MethodInfo _InvokerBytecodeGenerator$ClassData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(InvokerBytecodeGenerator$ClassData, init$, void, $String*, $String*, Object$*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$ClassData, name, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$ClassData, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _InvokerBytecodeGenerator$ClassData_InnerClassesInfo_[] = {
-	{"java.lang.invoke.InvokerBytecodeGenerator$ClassData", "java.lang.invoke.InvokerBytecodeGenerator", "ClassData", $STATIC},
-	{}
-};
-
-$ClassInfo _InvokerBytecodeGenerator$ClassData_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.InvokerBytecodeGenerator$ClassData",
-	"java.lang.Object",
-	nullptr,
-	_InvokerBytecodeGenerator$ClassData_FieldInfo_,
-	_InvokerBytecodeGenerator$ClassData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InvokerBytecodeGenerator$ClassData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.InvokerBytecodeGenerator"
-};
-
-$Object* allocate$InvokerBytecodeGenerator$ClassData($Class* clazz) {
-	return $of($alloc(InvokerBytecodeGenerator$ClassData));
-}
 
 void InvokerBytecodeGenerator$ClassData::init$($String* name, $String* desc, Object$* value) {
 	$set(this, name$, name);
@@ -69,7 +29,40 @@ InvokerBytecodeGenerator$ClassData::InvokerBytecodeGenerator$ClassData() {
 }
 
 $Class* InvokerBytecodeGenerator$ClassData::load$($String* name, bool initialize) {
-	$loadClass(InvokerBytecodeGenerator$ClassData, name, initialize, &_InvokerBytecodeGenerator$ClassData_ClassInfo_, allocate$InvokerBytecodeGenerator$ClassData);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(InvokerBytecodeGenerator$ClassData, name$)},
+		{"desc", "Ljava/lang/String;", nullptr, $FINAL, $field(InvokerBytecodeGenerator$ClassData, desc)},
+		{"value", "Ljava/lang/Object;", nullptr, $FINAL, $field(InvokerBytecodeGenerator$ClassData, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(InvokerBytecodeGenerator$ClassData, init$, void, $String*, $String*, Object$*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$ClassData, name, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$ClassData, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.InvokerBytecodeGenerator$ClassData", "java.lang.invoke.InvokerBytecodeGenerator", "ClassData", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.InvokerBytecodeGenerator$ClassData",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.InvokerBytecodeGenerator"
+	};
+	$loadClass(InvokerBytecodeGenerator$ClassData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvokerBytecodeGenerator$ClassData);
+	});
 	return class$;
 }
 

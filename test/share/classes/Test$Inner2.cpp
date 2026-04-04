@@ -1,5 +1,4 @@
 #include <Test$Inner2.h>
-
 #include <Test.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-
-$FieldInfo _Test$Inner2_FieldInfo_[] = {
-	{"this$0", "LTest;", nullptr, $FINAL | $SYNTHETIC, $field(Test$Inner2, this$0)},
-	{}
-};
-
-$MethodInfo _Test$Inner2_MethodInfo_[] = {
-	{"<init>", "(LTest;)V", nullptr, 0, $method(Test$Inner2, init$, void, $Test*)},
-	{"foo2", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+TV;>;)Ljava/util/List<*>;", 0, $virtualMethod(Test$Inner2, foo2, $List*, $List*)},
-	{}
-};
-
-$InnerClassInfo _Test$Inner2_InnerClassesInfo_[] = {
-	{"Test$Inner2", "Test", "Inner2", 0},
-	{}
-};
-
-$ClassInfo _Test$Inner2_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test$Inner2",
-	"java.lang.Object",
-	nullptr,
-	_Test$Inner2_FieldInfo_,
-	_Test$Inner2_MethodInfo_,
-	"<V:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_Test$Inner2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test"
-};
-
-$Object* allocate$Test$Inner2($Class* clazz) {
-	return $of($alloc(Test$Inner2));
-}
 
 void Test$Inner2::init$($Test* this$0) {
 	$set(this, this$0, this$0);
@@ -59,7 +22,37 @@ Test$Inner2::Test$Inner2() {
 }
 
 $Class* Test$Inner2::load$($String* name, bool initialize) {
-	$loadClass(Test$Inner2, name, initialize, &_Test$Inner2_ClassInfo_, allocate$Test$Inner2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTest;", nullptr, $FINAL | $SYNTHETIC, $field(Test$Inner2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTest;)V", nullptr, 0, $method(Test$Inner2, init$, void, $Test*)},
+		{"foo2", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+TV;>;)Ljava/util/List<*>;", 0, $virtualMethod(Test$Inner2, foo2, $List*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test$Inner2", "Test", "Inner2", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test$Inner2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test"
+	};
+	$loadClass(Test$Inner2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test$Inner2);
+	});
 	return class$;
 }
 

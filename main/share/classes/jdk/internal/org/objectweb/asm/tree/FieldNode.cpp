@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/FieldNode.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/List.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
@@ -21,7 +20,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 using $AnnotationVisitor = ::jdk::internal::org::objectweb::asm$::AnnotationVisitor;
 using $Attribute = ::jdk::internal::org::objectweb::asm$::Attribute;
 using $ClassVisitor = ::jdk::internal::org::objectweb::asm$::ClassVisitor;
@@ -39,45 +37,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace tree {
-
-$FieldInfo _FieldNode_FieldInfo_[] = {
-	{"access", "I", nullptr, $PUBLIC, $field(FieldNode, access)},
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FieldNode, name)},
-	{"desc", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FieldNode, desc)},
-	{"signature", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FieldNode, signature)},
-	{"value", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(FieldNode, value)},
-	{"visibleAnnotations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/AnnotationNode;>;", $PUBLIC, $field(FieldNode, visibleAnnotations)},
-	{"invisibleAnnotations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/AnnotationNode;>;", $PUBLIC, $field(FieldNode, invisibleAnnotations)},
-	{"visibleTypeAnnotations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/TypeAnnotationNode;>;", $PUBLIC, $field(FieldNode, visibleTypeAnnotations)},
-	{"invisibleTypeAnnotations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/TypeAnnotationNode;>;", $PUBLIC, $field(FieldNode, invisibleTypeAnnotations)},
-	{"attrs", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/Attribute;>;", $PUBLIC, $field(FieldNode, attrs)},
-	{}
-};
-
-$MethodInfo _FieldNode_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(FieldNode, init$, void, int32_t, $String*, $String*, $String*, Object$*)},
-	{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(FieldNode, init$, void, int32_t, int32_t, $String*, $String*, $String*, Object$*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $virtualMethod(FieldNode, accept, void, $ClassVisitor*)},
-	{"check", "(I)V", nullptr, $PUBLIC, $virtualMethod(FieldNode, check, void, int32_t)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(FieldNode, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(FieldNode, visitAttribute, void, $Attribute*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(FieldNode, visitEnd, void)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(FieldNode, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{}
-};
-
-$ClassInfo _FieldNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.FieldNode",
-	"jdk.internal.org.objectweb.asm.FieldVisitor",
-	nullptr,
-	_FieldNode_FieldInfo_,
-	_FieldNode_MethodInfo_
-};
-
-$Object* allocate$FieldNode($Class* clazz) {
-	return $of($alloc(FieldNode));
-}
 
 void FieldNode::init$(int32_t access, $String* name, $String* descriptor, $String* signature, Object$* value) {
 	FieldNode::init$($Opcodes::ASM8, access, name, descriptor, signature, value);
@@ -124,68 +83,48 @@ void FieldNode::visitEnd() {
 
 void FieldNode::check(int32_t api) {
 	if (api == $Opcodes::ASM4) {
-		if (this->visibleTypeAnnotations != nullptr && !$nc(this->visibleTypeAnnotations)->isEmpty()) {
+		if (this->visibleTypeAnnotations != nullptr && !this->visibleTypeAnnotations->isEmpty()) {
 			$throwNew($UnsupportedClassVersionException);
 		}
-		if (this->invisibleTypeAnnotations != nullptr && !$nc(this->invisibleTypeAnnotations)->isEmpty()) {
+		if (this->invisibleTypeAnnotations != nullptr && !this->invisibleTypeAnnotations->isEmpty()) {
 			$throwNew($UnsupportedClassVersionException);
 		}
 	}
 }
 
 void FieldNode::accept($ClassVisitor* classVisitor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FieldVisitor, fieldVisitor, $nc(classVisitor)->visitField(this->access, this->name, this->desc, this->signature, this->value));
 	if (fieldVisitor == nullptr) {
 		return;
 	}
 	if (this->visibleAnnotations != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->visibleAnnotations)->size();
-			for (; i < n; ++i) {
-				$var($AnnotationNode, annotation, $cast($AnnotationNode, $nc(this->visibleAnnotations)->get(i)));
-				$nc(annotation)->accept($($nc(fieldVisitor)->visitAnnotation(annotation->desc, true)));
-			}
+		for (int32_t i = 0, n = this->visibleAnnotations->size(); i < n; ++i) {
+			$var($AnnotationNode, annotation, $cast($AnnotationNode, this->visibleAnnotations->get(i)));
+			$nc(annotation)->accept($($nc(fieldVisitor)->visitAnnotation($nc(annotation)->desc, true)));
 		}
 	}
 	if (this->invisibleAnnotations != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->invisibleAnnotations)->size();
-			for (; i < n; ++i) {
-				$var($AnnotationNode, annotation, $cast($AnnotationNode, $nc(this->invisibleAnnotations)->get(i)));
-				$nc(annotation)->accept($($nc(fieldVisitor)->visitAnnotation(annotation->desc, false)));
-			}
+		for (int32_t i = 0, n = this->invisibleAnnotations->size(); i < n; ++i) {
+			$var($AnnotationNode, annotation, $cast($AnnotationNode, this->invisibleAnnotations->get(i)));
+			$nc(annotation)->accept($($nc(fieldVisitor)->visitAnnotation($nc(annotation)->desc, false)));
 		}
 	}
 	if (this->visibleTypeAnnotations != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->visibleTypeAnnotations)->size();
-			for (; i < n; ++i) {
-				$var($TypeAnnotationNode, typeAnnotation, $cast($TypeAnnotationNode, $nc(this->visibleTypeAnnotations)->get(i)));
-				$nc(typeAnnotation)->accept($($nc(fieldVisitor)->visitTypeAnnotation(typeAnnotation->typeRef, typeAnnotation->typePath, typeAnnotation->desc, true)));
-			}
+		for (int32_t i = 0, n = this->visibleTypeAnnotations->size(); i < n; ++i) {
+			$var($TypeAnnotationNode, typeAnnotation, $cast($TypeAnnotationNode, this->visibleTypeAnnotations->get(i)));
+			$nc(typeAnnotation)->accept($($nc(fieldVisitor)->visitTypeAnnotation($nc(typeAnnotation)->typeRef, $nc(typeAnnotation)->typePath, $nc(typeAnnotation)->desc, true)));
 		}
 	}
 	if (this->invisibleTypeAnnotations != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->invisibleTypeAnnotations)->size();
-			for (; i < n; ++i) {
-				$var($TypeAnnotationNode, typeAnnotation, $cast($TypeAnnotationNode, $nc(this->invisibleTypeAnnotations)->get(i)));
-				$nc(typeAnnotation)->accept($($nc(fieldVisitor)->visitTypeAnnotation(typeAnnotation->typeRef, typeAnnotation->typePath, typeAnnotation->desc, false)));
-			}
+		for (int32_t i = 0, n = this->invisibleTypeAnnotations->size(); i < n; ++i) {
+			$var($TypeAnnotationNode, typeAnnotation, $cast($TypeAnnotationNode, this->invisibleTypeAnnotations->get(i)));
+			$nc(typeAnnotation)->accept($($nc(fieldVisitor)->visitTypeAnnotation($nc(typeAnnotation)->typeRef, $nc(typeAnnotation)->typePath, $nc(typeAnnotation)->desc, false)));
 		}
 	}
 	if (this->attrs != nullptr) {
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->attrs)->size();
-			for (; i < n; ++i) {
-				$nc(fieldVisitor)->visitAttribute($cast($Attribute, $($nc(this->attrs)->get(i))));
-			}
+		for (int32_t i = 0, n = this->attrs->size(); i < n; ++i) {
+			$nc(fieldVisitor)->visitAttribute($$cast($Attribute, this->attrs->get(i)));
 		}
 	}
 	$nc(fieldVisitor)->visitEnd();
@@ -195,7 +134,41 @@ FieldNode::FieldNode() {
 }
 
 $Class* FieldNode::load$($String* name, bool initialize) {
-	$loadClass(FieldNode, name, initialize, &_FieldNode_ClassInfo_, allocate$FieldNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"access", "I", nullptr, $PUBLIC, $field(FieldNode, access)},
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FieldNode, name)},
+		{"desc", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FieldNode, desc)},
+		{"signature", "Ljava/lang/String;", nullptr, $PUBLIC, $field(FieldNode, signature)},
+		{"value", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(FieldNode, value)},
+		{"visibleAnnotations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/AnnotationNode;>;", $PUBLIC, $field(FieldNode, visibleAnnotations)},
+		{"invisibleAnnotations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/AnnotationNode;>;", $PUBLIC, $field(FieldNode, invisibleAnnotations)},
+		{"visibleTypeAnnotations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/TypeAnnotationNode;>;", $PUBLIC, $field(FieldNode, visibleTypeAnnotations)},
+		{"invisibleTypeAnnotations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/TypeAnnotationNode;>;", $PUBLIC, $field(FieldNode, invisibleTypeAnnotations)},
+		{"attrs", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/org/objectweb/asm/Attribute;>;", $PUBLIC, $field(FieldNode, attrs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(FieldNode, init$, void, int32_t, $String*, $String*, $String*, Object$*)},
+		{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(FieldNode, init$, void, int32_t, int32_t, $String*, $String*, $String*, Object$*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $virtualMethod(FieldNode, accept, void, $ClassVisitor*)},
+		{"check", "(I)V", nullptr, $PUBLIC, $virtualMethod(FieldNode, check, void, int32_t)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(FieldNode, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(FieldNode, visitAttribute, void, $Attribute*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(FieldNode, visitEnd, void)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(FieldNode, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.FieldNode",
+		"jdk.internal.org.objectweb.asm.FieldVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FieldNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FieldNode);
+	});
 	return class$;
 }
 

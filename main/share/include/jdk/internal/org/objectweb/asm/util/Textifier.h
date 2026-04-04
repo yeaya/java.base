@@ -71,6 +71,7 @@ class $import Textifier : public ::jdk::internal::org::objectweb::asm$::util::Pr
 	$class(Textifier, 0, ::jdk::internal::org::objectweb::asm$::util::Printer)
 public:
 	Textifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t api);
 	::jdk::internal::org::objectweb::asm$::util::Textifier* addNewTextifier($String* endText);

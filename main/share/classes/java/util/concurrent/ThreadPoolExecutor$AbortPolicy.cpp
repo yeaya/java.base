@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ThreadPoolExecutor$AbortPolicy.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/RejectedExecutionException.h>
 #include <java/util/concurrent/ThreadPoolExecutor.h>
@@ -16,51 +15,50 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$MethodInfo _ThreadPoolExecutor$AbortPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadPoolExecutor$AbortPolicy, init$, void)},
-	{"rejectedExecution", "(Ljava/lang/Runnable;Ljava/util/concurrent/ThreadPoolExecutor;)V", nullptr, $PUBLIC, $virtualMethod(ThreadPoolExecutor$AbortPolicy, rejectedExecution, void, $Runnable*, $ThreadPoolExecutor*)},
-	{}
-};
-
-$InnerClassInfo _ThreadPoolExecutor$AbortPolicy_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ThreadPoolExecutor$AbortPolicy", "java.util.concurrent.ThreadPoolExecutor", "AbortPolicy", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ThreadPoolExecutor$AbortPolicy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.ThreadPoolExecutor$AbortPolicy",
-	"java.lang.Object",
-	"java.util.concurrent.RejectedExecutionHandler",
-	nullptr,
-	_ThreadPoolExecutor$AbortPolicy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ThreadPoolExecutor$AbortPolicy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ThreadPoolExecutor"
-};
-
-$Object* allocate$ThreadPoolExecutor$AbortPolicy($Class* clazz) {
-	return $of($alloc(ThreadPoolExecutor$AbortPolicy));
-}
-
 void ThreadPoolExecutor$AbortPolicy::init$() {
 }
 
 void ThreadPoolExecutor$AbortPolicy::rejectedExecution($Runnable* r, $ThreadPoolExecutor* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({"Task "_s, $($nc($of(r))->toString()), " rejected from "_s}));
-	$throwNew($RejectedExecutionException, $$concat(var$0, $($nc(e)->toString())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Task "_s);
+	var$0->append($($nc($of(r))->toString()));
+	var$0->append(" rejected from "_s);
+	var$0->append($($nc(e)->toString()));
+	$throwNew($RejectedExecutionException, $$str(var$0));
 }
 
 ThreadPoolExecutor$AbortPolicy::ThreadPoolExecutor$AbortPolicy() {
 }
 
 $Class* ThreadPoolExecutor$AbortPolicy::load$($String* name, bool initialize) {
-	$loadClass(ThreadPoolExecutor$AbortPolicy, name, initialize, &_ThreadPoolExecutor$AbortPolicy_ClassInfo_, allocate$ThreadPoolExecutor$AbortPolicy);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadPoolExecutor$AbortPolicy, init$, void)},
+		{"rejectedExecution", "(Ljava/lang/Runnable;Ljava/util/concurrent/ThreadPoolExecutor;)V", nullptr, $PUBLIC, $virtualMethod(ThreadPoolExecutor$AbortPolicy, rejectedExecution, void, $Runnable*, $ThreadPoolExecutor*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ThreadPoolExecutor$AbortPolicy", "java.util.concurrent.ThreadPoolExecutor", "AbortPolicy", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.ThreadPoolExecutor$AbortPolicy",
+		"java.lang.Object",
+		"java.util.concurrent.RejectedExecutionHandler",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ThreadPoolExecutor"
+	};
+	$loadClass(ThreadPoolExecutor$AbortPolicy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadPoolExecutor$AbortPolicy);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/time/format/DateTimeFormatterBuilder.h>
@@ -8,7 +7,6 @@
 #include <java/time/format/DateTimeTextProvider.h>
 #include <java/time/format/TextStyle.h>
 #include <java/time/temporal/ChronoField.h>
-#include <java/time/temporal/TemporalField.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
@@ -27,52 +25,10 @@ using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 using $DateTimeTextProvider = ::java::time::format::DateTimeTextProvider;
 using $TextStyle = ::java::time::format::TextStyle;
 using $ChronoField = ::java::time::temporal::ChronoField;
-using $TemporalField = ::java::time::temporal::TemporalField;
 
 namespace java {
 	namespace time {
 		namespace format {
-
-$FieldInfo _DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser_FieldInfo_[] = {
-	{"style", "Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, style)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/format/TextStyle;)V", nullptr, 0, $method(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, init$, void, $TextStyle*)},
-	{"appendHMS", "(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC, $staticMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, appendHMS, $StringBuilder*, $StringBuilder*, int32_t)},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
-	{"getDigit", "(Ljava/lang/CharSequence;I)I", nullptr, 0, $method(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, getDigit, int32_t, $CharSequence*, int32_t)},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser", "java.time.format.DateTimeFormatterBuilder", "LocalizedOffsetIdPrinterParser", $STATIC | $FINAL},
-	{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser",
-	"java.lang.Object",
-	"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
-	_DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser_FieldInfo_,
-	_DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser));
-}
 
 void DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::init$($TextStyle* style) {
 	$set(this, style, style);
@@ -84,9 +40,9 @@ $StringBuilder* DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::appendH
 }
 
 bool DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	$var($Long, offsetSecs, $nc(context)->getValue(static_cast<$TemporalField*>($ChronoField::OFFSET_SECONDS)));
+	$var($Long, offsetSecs, $nc(context)->getValue($ChronoField::OFFSET_SECONDS));
 	if (offsetSecs == nullptr) {
 		return false;
 	}
@@ -138,7 +94,7 @@ int32_t DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::getDigit($CharS
 }
 
 int32_t DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = position;
 	int32_t end = $nc(text)->length();
 	$var($String, key, "timezone.gmtZeroFormat"_s);
@@ -146,14 +102,14 @@ int32_t DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::parse($DateTime
 	if (gmtText == nullptr) {
 		$assign(gmtText, "GMT"_s);
 	}
-	if (!$nc(context)->subSequenceEquals(text, pos, gmtText, 0, $nc(gmtText)->length())) {
+	if (!context->subSequenceEquals(text, pos, gmtText, 0, $nc(gmtText)->length())) {
 		return ~position;
 	}
-	pos += $nc(gmtText)->length();
+	pos += gmtText->length();
 	int32_t negative = 0;
 	if (pos == end) {
 		$init($ChronoField);
-		return $nc(context)->setParsedField($ChronoField::OFFSET_SECONDS, 0, position, pos);
+		return context->setParsedField($ChronoField::OFFSET_SECONDS, 0, position, pos);
 	}
 	char16_t sign = text->charAt(pos);
 	if (sign == u'+') {
@@ -162,7 +118,7 @@ int32_t DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::parse($DateTime
 		negative = -1;
 	} else {
 		$init($ChronoField);
-		return $nc(context)->setParsedField($ChronoField::OFFSET_SECONDS, 0, position, pos);
+		return context->setParsedField($ChronoField::OFFSET_SECONDS, 0, position, pos);
 	}
 	++pos;
 	int32_t h = 0;
@@ -223,7 +179,7 @@ int32_t DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::parse($DateTime
 	}
 	int64_t offsetSecs = negative * (h * (int64_t)3600 + m * (int64_t)60 + s);
 	$init($ChronoField);
-	return $nc(context)->setParsedField($ChronoField::OFFSET_SECONDS, offsetSecs, position, pos);
+	return context->setParsedField($ChronoField::OFFSET_SECONDS, offsetSecs, position, pos);
 }
 
 $String* DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::toString() {
@@ -234,7 +190,42 @@ DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::DateTimeFormatterBuilde
 }
 
 $Class* DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, name, initialize, &_DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser_ClassInfo_, allocate$DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, style)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/format/TextStyle;)V", nullptr, 0, $method(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, init$, void, $TextStyle*)},
+		{"appendHMS", "(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC, $staticMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, appendHMS, $StringBuilder*, $StringBuilder*, int32_t)},
+		{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+		{"getDigit", "(Ljava/lang/CharSequence;I)I", nullptr, 0, $method(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, getDigit, int32_t, $CharSequence*, int32_t)},
+		{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser", "java.time.format.DateTimeFormatterBuilder", "LocalizedOffsetIdPrinterParser", $STATIC | $FINAL},
+		{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser",
+		"java.lang.Object",
+		"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser);
+	});
 	return class$;
 }
 

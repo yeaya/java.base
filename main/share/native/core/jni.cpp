@@ -63,8 +63,8 @@ using jdk::internal::misc::Unsafe;
 
 extern const struct JNIInvokeInterface_ jni_InvokeInterface;
 
-std::atomic_bool vmCreated = false;
-struct JavaVM_ javaVM = {&jni_InvokeInterface};
+std::atomic_bool vmCreated$ = false;
+struct JavaVM_ javaVM$ = {&jni_InvokeInterface};
 
 #define resolveRef Platform::resolveRef
 #define invoke(...) Platform::invokeJni(__VA_ARGS__)
@@ -779,7 +779,7 @@ JNI_ENTRY(const jchar*, jni_GetStringChars(JNIEnv* env, jstring string, jboolean
 	$var(Object, obj2, resolveRef(string));
 	String* s = (String*)(void*)obj2;
 	int32_t length = $nc(s)->length();
-	jchar* ret = (jchar*)$allocRaw((length + 1) * sizeof(jchar));
+	jchar* ret = $allocRaw(jchar, length + 1);
 	for (int32_t i = 0; i < length; i++) {
 		ret[i] = s->charAt(i);
 	}
@@ -813,7 +813,7 @@ JNI_ENTRY(const char*, jni_GetStringUTFChars(JNIEnv* env, jstring string, jboole
 	$var(Object, obj2, resolveRef(string));
 	String* utf = (String*)(void*)obj2;
 	$var($bytes, bytes, utf->utf8Bytes());
-	char* s = (char*)$allocRaw(bytes->length);
+	char* s = $allocRaw(char, bytes->length);
 	bytes->getRegion(0, bytes->length, (int8_t*)s);
 	if (isCopy != NULL) {
 		*isCopy = JNI_TRUE;
@@ -986,7 +986,9 @@ JNI_ENTRY(jint, jni_RegisterNatives(JNIEnv* env, jclass clazz, const JNINativeMe
 					break;
 				}
 				if (stringEquals(methodInfo->name, jnm.name) && stringEquals(methodInfo->getSignature(), jnm.signature)) {
-					methodInfo->nativeAddress = jnm.fnPtr;
+					$synchronized(cls) {
+						methodInfo->nativeAddress = jnm.fnPtr;
+					}
 					break;
 				}
 				methodInfo++;
@@ -1005,7 +1007,11 @@ JNI_ENTRY(jint, jni_UnregisterNatives(JNIEnv* env, jclass clazz))
 				break;
 			}
 			if (methodInfo->nativeAddress != nullptr) {
-				methodInfo->nativeAddress = nullptr;
+				$synchronized(cls) {
+					 if (methodInfo->nativeAddress != nullptr) {
+						methodInfo->nativeAddress = nullptr;
+					 }
+				}
 				break;
 			}
 			methodInfo++;
@@ -1072,7 +1078,7 @@ JNI_ENTRY(const jchar*, jni_GetStringCritical(JNIEnv* env, jstring string, jbool
 	$var(Object, obj2, resolveRef(string));
 	String* s = (String*)(void*)obj2;
 	int32_t length = $nc(s)->length();
-	jchar* ret = (jchar*)$allocRaw((length + 1) * sizeof(jchar));
+	jchar* ret = $allocRaw(jchar, length + 1);
 	for (int32_t i = 0; i < length; i++) {
 		ret[i] = s->charAt(i);
 	}
@@ -1135,7 +1141,7 @@ JNI_ENTRY(jint, jni_GetVersion(JNIEnv* env))
 JNI_END(JNI_VERSION_10)
 
 JNI_ENTRY(jint, jni_GetJavaVM(JNIEnv* env, JavaVM** vm))
-	*vm = (JavaVM*)(&javaVM);
+	*vm = (JavaVM*)(&javaVM$);
 	return JNI_OK;
 JNI_END(JNI_ERR)
 
@@ -1446,7 +1452,7 @@ JNIEXPORT jint JNICALL JNI_GetDefaultJavaVMInitArgs(void* args_) {
 }
 
 JNIEXPORT jint JNICALL JNI_CreateJavaVM(JavaVM** vm, void** penv, void* args) {
-	if (vmCreated.exchange(true)) {
+	if (vmCreated$.exchange(true)) {
 		return JNI_EEXIST;
 	}
 	JavaVMInitArgs* initArgs = (JavaVMInitArgs*)args;
@@ -1454,7 +1460,7 @@ JNIEXPORT jint JNICALL JNI_CreateJavaVM(JavaVM** vm, void** penv, void* args) {
 	System::init();
 	// TODO
 	JavaThread* thread = JavaThread::sureCurrentThread();
-	*vm = (JavaVM*)(&javaVM);
+	*vm = (JavaVM*)(&javaVM$);
 	*(JNIEnv**)penv = thread->getJNIEnv();
 
 	fflush(stdout);
@@ -1465,7 +1471,7 @@ JNIEXPORT jint JNICALL JNI_CreateJavaVM(JavaVM** vm, void** penv, void* args) {
 JNIEXPORT jint JNICALL JNI_GetCreatedJavaVMs(JavaVM** vm_buf, jsize bufLen, jsize* numVMs) {
 	if (Machine::isInited()) {
 		if (vm_buf != nullptr && bufLen > 0 && numVMs != nullptr) {
-			*vm_buf = (JavaVM*)(&javaVM);
+			*vm_buf = (JavaVM*)(&javaVM$);
 			*numVMs = 1;
 		} else if (numVMs != nullptr) {
 			*numVMs = 0;
@@ -1475,11 +1481,11 @@ JNIEXPORT jint JNICALL JNI_GetCreatedJavaVMs(JavaVM** vm_buf, jsize bufLen, jsiz
 }
 
 jint JNICALL jni_DestroyJavaVM(JavaVM* vm) {
-	if (!vmCreated) {
+	if (!vmCreated$) {
 		return JNI_ERR;
 	}
 	System::deinit();
-	vmCreated = false;
+	vmCreated$ = false;
 	return JNI_OK;
 }
 

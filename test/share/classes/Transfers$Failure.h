@@ -19,7 +19,10 @@ public:
 	void init$($String* s);
 	Transfers$Failure(const Transfers$Failure& e);
 	virtual void throw$() override;
-	inline Transfers$Failure* operator ->() {
+	inline Transfers$Failure* operator ->() const {
+		return (Transfers$Failure*)throwing$;
+	}
+	inline operator Transfers$Failure*() const {
 		return (Transfers$Failure*)throwing$;
 	}
 };

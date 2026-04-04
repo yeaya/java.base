@@ -1,5 +1,4 @@
 #include <sun/nio/cs/UTF_16LE$Decoder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <sun/nio/cs/UTF_16LE.h>
 #include <sun/nio/cs/UnicodeDecoder.h>
@@ -17,36 +16,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$MethodInfo _UTF_16LE$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(UTF_16LE$Decoder, init$, void, $Charset*)},
-	{}
-};
-
-$InnerClassInfo _UTF_16LE$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.UTF_16LE$Decoder", "sun.nio.cs.UTF_16LE", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _UTF_16LE$Decoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.UTF_16LE$Decoder",
-	"sun.nio.cs.UnicodeDecoder",
-	nullptr,
-	nullptr,
-	_UTF_16LE$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UTF_16LE$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.UTF_16LE"
-};
-
-$Object* allocate$UTF_16LE$Decoder($Class* clazz) {
-	return $of($alloc(UTF_16LE$Decoder));
-}
-
 void UTF_16LE$Decoder::init$($Charset* cs) {
 	$UnicodeDecoder::init$(cs, $UnicodeDecoder::LITTLE);
 }
@@ -55,7 +24,32 @@ UTF_16LE$Decoder::UTF_16LE$Decoder() {
 }
 
 $Class* UTF_16LE$Decoder::load$($String* name, bool initialize) {
-	$loadClass(UTF_16LE$Decoder, name, initialize, &_UTF_16LE$Decoder_ClassInfo_, allocate$UTF_16LE$Decoder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(UTF_16LE$Decoder, init$, void, $Charset*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.UTF_16LE$Decoder", "sun.nio.cs.UTF_16LE", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.UTF_16LE$Decoder",
+		"sun.nio.cs.UnicodeDecoder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.UTF_16LE"
+	};
+	$loadClass(UTF_16LE$Decoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UTF_16LE$Decoder);
+	});
 	return class$;
 }
 

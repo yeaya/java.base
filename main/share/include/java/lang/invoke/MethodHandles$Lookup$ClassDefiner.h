@@ -22,6 +22,7 @@ class $import MethodHandles$Lookup$ClassDefiner : public ::java::lang::Object {
 	$class(MethodHandles$Lookup$ClassDefiner, 0, ::java::lang::Object)
 public:
 	MethodHandles$Lookup$ClassDefiner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodHandles$Lookup* lookup, ::java::lang::invoke::MethodHandles$Lookup$ClassFile* cf, int32_t flags);
 	virtual $String* className();
 	virtual $Class* defineClass(bool initialize);

@@ -1,5 +1,4 @@
 #include <java/time/zone/ZoneRulesProvider$1.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
 #include <java/time/zone/TzdbZoneRulesProvider.h>
@@ -23,77 +22,70 @@ namespace java {
 	namespace time {
 		namespace zone {
 
-$FieldInfo _ZoneRulesProvider$1_FieldInfo_[] = {
-	{"val$loaded", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(ZoneRulesProvider$1, val$loaded)},
-	{}
-};
-
-$MethodInfo _ZoneRulesProvider$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, 0, $method(ZoneRulesProvider$1, init$, void, $List*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZoneRulesProvider$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ZoneRulesProvider$1_EnclosingMethodInfo_ = {
-	"java.time.zone.ZoneRulesProvider",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ZoneRulesProvider$1_InnerClassesInfo_[] = {
-	{"java.time.zone.ZoneRulesProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ZoneRulesProvider$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.time.zone.ZoneRulesProvider$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ZoneRulesProvider$1_FieldInfo_,
-	_ZoneRulesProvider$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_ZoneRulesProvider$1_EnclosingMethodInfo_,
-	_ZoneRulesProvider$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.zone.ZoneRulesProvider"
-};
-
-$Object* allocate$ZoneRulesProvider$1($Class* clazz) {
-	return $of($alloc(ZoneRulesProvider$1));
-}
-
 void ZoneRulesProvider$1::init$($List* val$loaded) {
 	$set(this, val$loaded, val$loaded);
 }
 
 $Object* ZoneRulesProvider$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, prop, $System::getProperty("java.time.zone.DefaultZoneRulesProvider"_s));
 	if (prop != nullptr) {
 		try {
 			$Class* c = $Class::forName(prop, true, $($ClassLoader::getSystemClassLoader()));
 			$load($ZoneRulesProvider);
-			$var($ZoneRulesProvider, provider, $cast($ZoneRulesProvider, $ZoneRulesProvider::class$->cast($($nc(c)->newInstance()))));
+			$var($ZoneRulesProvider, provider, $cast($ZoneRulesProvider, $ZoneRulesProvider::class$->cast($(c->newInstance()))));
 			$ZoneRulesProvider::registerProvider(provider);
 			$nc(this->val$loaded)->add(provider);
 		} catch ($Exception& x) {
-			$throwNew($Error, static_cast<$Throwable*>(x));
+			$throwNew($Error, x);
 		}
 	} else {
 		$ZoneRulesProvider::registerProvider($$new($TzdbZoneRulesProvider));
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 ZoneRulesProvider$1::ZoneRulesProvider$1() {
 }
 
 $Class* ZoneRulesProvider$1::load$($String* name, bool initialize) {
-	$loadClass(ZoneRulesProvider$1, name, initialize, &_ZoneRulesProvider$1_ClassInfo_, allocate$ZoneRulesProvider$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$loaded", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(ZoneRulesProvider$1, val$loaded)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", nullptr, 0, $method(ZoneRulesProvider$1, init$, void, $List*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZoneRulesProvider$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.zone.ZoneRulesProvider",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.zone.ZoneRulesProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.time.zone.ZoneRulesProvider$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.zone.ZoneRulesProvider"
+	};
+	$loadClass(ZoneRulesProvider$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZoneRulesProvider$1);
+	});
 	return class$;
 }
 

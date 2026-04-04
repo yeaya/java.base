@@ -30,6 +30,7 @@ class $export ForkJoinPool$DefaultForkJoinWorkerThreadFactory : public ::java::u
 	$class(ForkJoinPool$DefaultForkJoinWorkerThreadFactory, 0, ::java::util::concurrent::ForkJoinPool$ForkJoinWorkerThreadFactory)
 public:
 	ForkJoinPool$DefaultForkJoinWorkerThreadFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::concurrent::ForkJoinWorkerThread* newThread(::java::util::concurrent::ForkJoinPool* pool) override;
 	static ::java::security::AccessControlContext* ACC;

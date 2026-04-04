@@ -36,6 +36,7 @@ class $export WalkFunction : public ::java::lang::Object {
 	$class(WalkFunction, 0, ::java::lang::Object)
 public:
 	WalkFunction();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::function::Function* counter();
 	static ::java::lang::Void* function(::java::util::stream::Stream* s);

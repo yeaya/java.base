@@ -61,6 +61,7 @@ class $export ZoneRules : public ::java::io::Serializable {
 	$class(ZoneRules, 0, ::java::io::Serializable)
 public:
 	ZoneRules();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::ZoneOffset* baseStandardOffset, ::java::time::ZoneOffset* baseWallOffset, ::java::util::List* standardOffsetTransitionList, ::java::util::List* transitionList, ::java::util::List* lastRules);
 	void init$($longs* standardTransitions, $Array<::java::time::ZoneOffset>* standardOffsets, $longs* savingsInstantTransitions, $Array<::java::time::ZoneOffset>* wallOffsets, $Array<::java::time::zone::ZoneOffsetTransitionRule>* lastRules);
 	void init$(::java::time::ZoneOffset* offset);
@@ -90,7 +91,7 @@ public:
 	virtual $String* toString() override;
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x2A3F985312278703;
+	static const int64_t serialVersionUID = (int64_t)0x2a3f985312278703;
 	static const int32_t LAST_CACHED_YEAR = 2100;
 	$longs* standardTransitions = nullptr;
 	$Array<::java::time::ZoneOffset>* standardOffsets = nullptr;
@@ -102,7 +103,7 @@ public:
 	static $longs* EMPTY_LONG_ARRAY;
 	static $Array<::java::time::zone::ZoneOffsetTransitionRule>* EMPTY_LASTRULES;
 	static $Array<::java::time::LocalDateTime>* EMPTY_LDT_ARRAY;
-	static const int32_t DAYS_PER_CYCLE = 0x00023AB1;
+	static const int32_t DAYS_PER_CYCLE = 0x00023ab1;
 	static const int64_t DAYS_0000_TO_1970 = 719528; // (DAYS_PER_CYCLE * 5L) - (30L * 365L + 7L)
 };
 

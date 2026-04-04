@@ -22,6 +22,7 @@ class $export ClassValue$Entry : public ::java::lang::ref::WeakReference {
 	$class(ClassValue$Entry, 0, ::java::lang::ref::WeakReference)
 public:
 	ClassValue$Entry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ClassValue$Version* version, Object$* value);
 	void init$(::java::lang::ClassValue$Version* version);
 	void assertNotPromise();

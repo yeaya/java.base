@@ -1,14 +1,11 @@
 #include <sun/security/provider/certpath/PKIXMasterCertPathValidator.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/security/cert/CertPath.h>
 #include <java/security/cert/CertPathValidatorException$Reason.h>
 #include <java/security/cert/CertPathValidatorException.h>
-#include <java/security/cert/Certificate.h>
 #include <java/security/cert/PKIXCertPathChecker.h>
 #include <java/security/cert/PKIXReason.h>
 #include <java/security/cert/X509Certificate.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -26,12 +23,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CertPath = ::java::security::cert::CertPath;
 using $CertPathValidatorException = ::java::security::cert::CertPathValidatorException;
-using $CertPathValidatorException$Reason = ::java::security::cert::CertPathValidatorException$Reason;
-using $Certificate = ::java::security::cert::Certificate;
 using $PKIXCertPathChecker = ::java::security::cert::PKIXCertPathChecker;
 using $PKIXReason = ::java::security::cert::PKIXReason;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -44,30 +38,6 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _PKIXMasterCertPathValidator_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PKIXMasterCertPathValidator, debug)},
-	{}
-};
-
-$MethodInfo _PKIXMasterCertPathValidator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PKIXMasterCertPathValidator, init$, void)},
-	{"validate", "(Ljava/security/cert/CertPath;Ljava/util/List;Ljava/util/List;)V", "(Ljava/security/cert/CertPath;Ljava/util/List<Ljava/security/cert/X509Certificate;>;Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;)V", $STATIC, $staticMethod(PKIXMasterCertPathValidator, validate, void, $CertPath*, $List*, $List*), "java.security.cert.CertPathValidatorException"},
-	{}
-};
-
-$ClassInfo _PKIXMasterCertPathValidator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.PKIXMasterCertPathValidator",
-	"java.lang.Object",
-	nullptr,
-	_PKIXMasterCertPathValidator_FieldInfo_,
-	_PKIXMasterCertPathValidator_MethodInfo_
-};
-
-$Object* allocate$PKIXMasterCertPathValidator($Class* clazz) {
-	return $of($alloc(PKIXMasterCertPathValidator));
-}
-
 $Debug* PKIXMasterCertPathValidator::debug = nullptr;
 
 void PKIXMasterCertPathValidator::init$() {
@@ -75,16 +45,16 @@ void PKIXMasterCertPathValidator::init$() {
 
 void PKIXMasterCertPathValidator::validate($CertPath* cpOriginal, $List* reversedCertList, $List* certPathCheckers) {
 	$init(PKIXMasterCertPathValidator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t cpSize = $nc(reversedCertList)->size();
 	if (PKIXMasterCertPathValidator::debug != nullptr) {
-		$nc(PKIXMasterCertPathValidator::debug)->println("--------------------------------------------------------------"_s);
-		$nc(PKIXMasterCertPathValidator::debug)->println("Executing PKIX certification path validation algorithm."_s);
+		PKIXMasterCertPathValidator::debug->println("--------------------------------------------------------------"_s);
+		PKIXMasterCertPathValidator::debug->println("Executing PKIX certification path validation algorithm."_s);
 	}
 	for (int32_t i = 0; i < cpSize; ++i) {
 		$var($X509Certificate, currCert, $cast($X509Certificate, reversedCertList->get(i)));
 		if (PKIXMasterCertPathValidator::debug != nullptr) {
-			$nc(PKIXMasterCertPathValidator::debug)->println($$str({"Checking cert"_s, $$str((i + 1)), " - Subject: "_s, $($nc(currCert)->getSubjectX500Principal())}));
+			PKIXMasterCertPathValidator::debug->println($$str({"Checking cert"_s, $$str((i + 1)), " - Subject: "_s, $($nc(currCert)->getSubjectX500Principal())}));
 		}
 		$var($Set, unresCritExts, $nc(currCert)->getCriticalExtensionOIDs());
 		if (unresCritExts == nullptr) {
@@ -101,12 +71,12 @@ void PKIXMasterCertPathValidator::validate($CertPath* cpOriginal, $List* reverse
 					}
 				}
 			}
-			$nc(PKIXMasterCertPathValidator::debug)->println($$str({"Set of critical extensions: "_s, $(joiner->toString())}));
+			PKIXMasterCertPathValidator::debug->println($$str({"Set of critical extensions: "_s, $(joiner->toString())}));
 		}
 		for (int32_t j = 0; j < $nc(certPathCheckers)->size(); ++j) {
 			$var($PKIXCertPathChecker, currChecker, $cast($PKIXCertPathChecker, certPathCheckers->get(j)));
 			if (PKIXMasterCertPathValidator::debug != nullptr) {
-				$nc(PKIXMasterCertPathValidator::debug)->println($$str({"-Using checker"_s, $$str((j + 1)), " ... ["_s, $($nc($of(currChecker))->getClass()->getName()), "]"_s}));
+				PKIXMasterCertPathValidator::debug->println($$str({"-Using checker"_s, $$str((j + 1)), " ... ["_s, $($nc($of(currChecker))->getClass()->getName()), "]"_s}));
 			}
 			if (i == 0) {
 				$nc(currChecker)->init(false);
@@ -114,14 +84,13 @@ void PKIXMasterCertPathValidator::validate($CertPath* cpOriginal, $List* reverse
 			try {
 				$nc(currChecker)->check(currCert, unresCritExts);
 				if (PKIXMasterCertPathValidator::debug != nullptr) {
-					$nc(PKIXMasterCertPathValidator::debug)->println($$str({"-checker"_s, $$str((j + 1)), " validation succeeded"_s}));
+					PKIXMasterCertPathValidator::debug->println($$str({"-checker"_s, $$str((j + 1)), " validation succeeded"_s}));
 				}
 			} catch ($CertPathValidatorException& cpve) {
 				$var($String, var$0, cpve->getMessage());
-				$var($Throwable, var$1, (cpve->getCause() != nullptr) ? cpve->getCause() : static_cast<$Throwable*>(cpve));
-				$var($CertPath, var$2, cpOriginal);
-				int32_t var$3 = cpSize - (i + 1);
-				$throwNew($CertPathValidatorException, var$0, var$1, var$2, var$3, $(cpve->getReason()));
+				$var($Throwable, var$1, (cpve->getCause() != nullptr) ? cpve->getCause() : $cast($Throwable, cpve));
+				int32_t var$2 = cpSize - (i + 1);
+				$throwNew($CertPathValidatorException, var$0, var$1, cpOriginal, var$2, $(cpve->getReason()));
 			}
 		}
 		if (!$nc(unresCritExts)->isEmpty()) {
@@ -129,16 +98,16 @@ void PKIXMasterCertPathValidator::validate($CertPath* cpOriginal, $List* reverse
 			$throwNew($CertPathValidatorException, "unrecognized critical extension(s)"_s, nullptr, cpOriginal, cpSize - (i + 1), $PKIXReason::UNRECOGNIZED_CRIT_EXT);
 		}
 		if (PKIXMasterCertPathValidator::debug != nullptr) {
-			$nc(PKIXMasterCertPathValidator::debug)->println($$str({"\ncert"_s, $$str((i + 1)), " validation succeeded.\n"_s}));
+			PKIXMasterCertPathValidator::debug->println($$str({"\ncert"_s, $$str((i + 1)), " validation succeeded.\n"_s}));
 		}
 	}
 	if (PKIXMasterCertPathValidator::debug != nullptr) {
-		$nc(PKIXMasterCertPathValidator::debug)->println("Cert path validation succeeded. (PKIX validation algorithm)"_s);
-		$nc(PKIXMasterCertPathValidator::debug)->println("--------------------------------------------------------------"_s);
+		PKIXMasterCertPathValidator::debug->println("Cert path validation succeeded. (PKIX validation algorithm)"_s);
+		PKIXMasterCertPathValidator::debug->println("--------------------------------------------------------------"_s);
 	}
 }
 
-void clinit$PKIXMasterCertPathValidator($Class* class$) {
+void PKIXMasterCertPathValidator::clinit$($Class* clazz) {
 	$assignStatic(PKIXMasterCertPathValidator::debug, $Debug::getInstance("certpath"_s));
 }
 
@@ -146,7 +115,26 @@ PKIXMasterCertPathValidator::PKIXMasterCertPathValidator() {
 }
 
 $Class* PKIXMasterCertPathValidator::load$($String* name, bool initialize) {
-	$loadClass(PKIXMasterCertPathValidator, name, initialize, &_PKIXMasterCertPathValidator_ClassInfo_, clinit$PKIXMasterCertPathValidator, allocate$PKIXMasterCertPathValidator);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PKIXMasterCertPathValidator, debug)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PKIXMasterCertPathValidator, init$, void)},
+		{"validate", "(Ljava/security/cert/CertPath;Ljava/util/List;Ljava/util/List;)V", "(Ljava/security/cert/CertPath;Ljava/util/List<Ljava/security/cert/X509Certificate;>;Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;)V", $STATIC, $staticMethod(PKIXMasterCertPathValidator, validate, void, $CertPath*, $List*, $List*), "java.security.cert.CertPathValidatorException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.PKIXMasterCertPathValidator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PKIXMasterCertPathValidator, name, initialize, &classInfo$$, PKIXMasterCertPathValidator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PKIXMasterCertPathValidator);
+	});
 	return class$;
 }
 

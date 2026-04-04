@@ -17,7 +17,10 @@ public:
 	void init$();
 	FooException(const FooException& e);
 	virtual void throw$() override;
-	inline FooException* operator ->() {
+	inline FooException* operator ->() const {
+		return (FooException*)throwing$;
+	}
+	inline operator FooException*() const {
 		return (FooException*)throwing$;
 	}
 };

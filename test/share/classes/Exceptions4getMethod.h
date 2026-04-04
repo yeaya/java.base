@@ -9,6 +9,7 @@ class $export Exceptions4getMethod : public ::java::lang::Object {
 	$class(Exceptions4getMethod, 0, ::java::lang::Object)
 public:
 	Exceptions4getMethod();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void m0();
 	virtual void m1();

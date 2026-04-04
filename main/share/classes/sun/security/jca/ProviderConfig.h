@@ -33,6 +33,7 @@ class ProviderConfig : public ::java::lang::Object {
 	$class(ProviderConfig, 0, ::java::lang::Object)
 public:
 	ProviderConfig();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* provName, $String* argument);
 	void init$($String* provName);
 	void init$(::java::security::Provider* provider);

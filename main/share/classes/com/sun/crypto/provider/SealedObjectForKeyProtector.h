@@ -40,12 +40,13 @@ class SealedObjectForKeyProtector : public ::javax::crypto::SealedObject {
 	$class(SealedObjectForKeyProtector, 0, ::javax::crypto::SealedObject)
 public:
 	SealedObjectForKeyProtector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::Serializable* object, ::javax::crypto::Cipher* c);
 	void init$(::javax::crypto::SealedObject* so);
 	::java::security::Key* getKey(::javax::crypto::Cipher* c, int32_t maxLength);
 	::java::security::AlgorithmParameters* getParameters();
 	static ::java::lang::Void* lambda$getKey$0(::java::io::ObjectInputStream* ois, int32_t maxLength);
-	static const int64_t serialVersionUID = (int64_t)0xCD57CA59E730BB53;
+	static const int64_t serialVersionUID = (int64_t)0xcd57ca59e730bb53;
 	static $String* KEY_SERIAL_FILTER;
 };
 

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/AbstractExecutorService.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
 #include <java/util/ArrayList.h>
@@ -35,7 +34,6 @@ using $List = ::java::util::List;
 using $Callable = ::java::util::concurrent::Callable;
 using $CancellationException = ::java::util::concurrent::CancellationException;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
-using $Executor = ::java::util::concurrent::Executor;
 using $ExecutorCompletionService = ::java::util::concurrent::ExecutorCompletionService;
 using $Future = ::java::util::concurrent::Future;
 using $FutureTask = ::java::util::concurrent::FutureTask;
@@ -46,41 +44,6 @@ using $TimeoutException = ::java::util::concurrent::TimeoutException;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _AbstractExecutorService_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractExecutorService, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _AbstractExecutorService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractExecutorService, init$, void)},
-	{"cancelAll", "(Ljava/util/ArrayList;)V", "<T:Ljava/lang/Object;>(Ljava/util/ArrayList<Ljava/util/concurrent/Future<TT;>;>;)V", $PRIVATE | $STATIC, $staticMethod(AbstractExecutorService, cancelAll, void, $ArrayList*)},
-	{"cancelAll", "(Ljava/util/ArrayList;I)V", "<T:Ljava/lang/Object;>(Ljava/util/ArrayList<Ljava/util/concurrent/Future<TT;>;>;I)V", $PRIVATE | $STATIC, $staticMethod(AbstractExecutorService, cancelAll, void, $ArrayList*, int32_t)},
-	{"doInvokeAny", "(Ljava/util/Collection;ZJ)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;ZJ)TT;", $PRIVATE, $method(AbstractExecutorService, doInvokeAny, $Object*, $Collection*, bool, int64_t), "java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException"},
-	{"invokeAll", "(Ljava/util/Collection;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;)Ljava/util/List<Ljava/util/concurrent/Future<TT;>;>;", $PUBLIC, $virtualMethod(AbstractExecutorService, invokeAll, $List*, $Collection*), "java.lang.InterruptedException"},
-	{"invokeAll", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;JLjava/util/concurrent/TimeUnit;)Ljava/util/List<Ljava/util/concurrent/Future<TT;>;>;", $PUBLIC, $virtualMethod(AbstractExecutorService, invokeAll, $List*, $Collection*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"invokeAny", "(Ljava/util/Collection;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;)TT;", $PUBLIC, $virtualMethod(AbstractExecutorService, invokeAny, $Object*, $Collection*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException"},
-	{"invokeAny", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;JLjava/util/concurrent/TimeUnit;)TT;", $PUBLIC, $virtualMethod(AbstractExecutorService, invokeAny, $Object*, $Collection*, int64_t, $TimeUnit*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException"},
-	{"newTaskFor", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/RunnableFuture;", "<T:Ljava/lang/Object;>(Ljava/lang/Runnable;TT;)Ljava/util/concurrent/RunnableFuture<TT;>;", $PROTECTED, $virtualMethod(AbstractExecutorService, newTaskFor, $RunnableFuture*, $Runnable*, Object$*)},
-	{"newTaskFor", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/RunnableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)Ljava/util/concurrent/RunnableFuture<TT;>;", $PROTECTED, $virtualMethod(AbstractExecutorService, newTaskFor, $RunnableFuture*, $Callable*)},
-	{"submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future<*>;", $PUBLIC, $virtualMethod(AbstractExecutorService, submit, $Future*, $Runnable*)},
-	{"submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(Ljava/lang/Runnable;TT;)Ljava/util/concurrent/Future<TT;>;", $PUBLIC, $virtualMethod(AbstractExecutorService, submit, $Future*, $Runnable*, Object$*)},
-	{"submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)Ljava/util/concurrent/Future<TT;>;", $PUBLIC, $virtualMethod(AbstractExecutorService, submit, $Future*, $Callable*)},
-	{}
-};
-
-$ClassInfo _AbstractExecutorService_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.concurrent.AbstractExecutorService",
-	"java.lang.Object",
-	"java.util.concurrent.ExecutorService",
-	_AbstractExecutorService_FieldInfo_,
-	_AbstractExecutorService_MethodInfo_
-};
-
-$Object* allocate$AbstractExecutorService($Class* clazz) {
-	return $of($alloc(AbstractExecutorService));
-}
 
 bool AbstractExecutorService::$assertionsDisabled = false;
 
@@ -123,7 +86,7 @@ $Future* AbstractExecutorService::submit($Callable* task) {
 }
 
 $Object* AbstractExecutorService::doInvokeAny($Collection* tasks, bool timed, int64_t nanos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tasks == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -133,94 +96,92 @@ $Object* AbstractExecutorService::doInvokeAny($Collection* tasks, bool timed, in
 	}
 	$var($ArrayList, futures, $new($ArrayList, ntasks));
 	$var($ExecutorCompletionService, ecs, $new($ExecutorCompletionService, this));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($ExecutionException, ee, nullptr);
-			int64_t deadline = timed ? $System::nanoTime() + nanos : (int64_t)0;
-			$var($Iterator, it, tasks->iterator());
-			futures->add($(ecs->submit($cast($Callable, $($nc(it)->next())))));
-			--ntasks;
-			int32_t active = 1;
-			for (;;) {
-				$var($Future, f, ecs->poll());
-				if (f == nullptr) {
-					if (ntasks > 0) {
-						--ntasks;
-						futures->add($(ecs->submit($cast($Callable, $($nc(it)->next())))));
-						++active;
-					} else if (active == 0) {
-						break;
-					} else if (timed) {
-						$init($TimeUnit);
-						$assign(f, ecs->poll(nanos, $TimeUnit::NANOSECONDS));
-						if (f == nullptr) {
-							$throwNew($TimeoutException);
-						}
-						nanos = deadline - $System::nanoTime();
-					} else {
-						$assign(f, ecs->take());
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($ExecutionException, ee, nullptr);
+		int64_t deadline = timed ? $System::nanoTime() + nanos : 0;
+		$var($Iterator, it, tasks->iterator());
+		futures->add($(ecs->submit($$cast($Callable, $nc(it)->next()))));
+		--ntasks;
+		int32_t active = 1;
+		for (;;) {
+			$var($Future, f, ecs->poll());
+			if (f == nullptr) {
+				if (ntasks > 0) {
+					--ntasks;
+					futures->add($(ecs->submit($$cast($Callable, it->next()))));
+					++active;
+				} else if (active == 0) {
+					break;
+				} else if (timed) {
+					$init($TimeUnit);
+					$assign(f, ecs->poll(nanos, $TimeUnit::NANOSECONDS));
+					if (f == nullptr) {
+						$throwNew($TimeoutException);
 					}
-				}
-				if (f != nullptr) {
-					--active;
-					try {
-						$assign(var$2, f->get());
-						return$1 = true;
-						goto $finally;
-					} catch ($ExecutionException& eex) {
-						$assign(ee, eex);
-					} catch ($RuntimeException& rex) {
-						$assign(ee, $new($ExecutionException, static_cast<$Throwable*>(rex)));
-					}
+					nanos = deadline - $System::nanoTime();
+				} else {
+					$assign(f, ecs->take());
 				}
 			}
-			if (ee == nullptr) {
-				$assign(ee, $new($ExecutionException));
+			if (f != nullptr) {
+				--active;
+				try {
+					$assign(var$2, f->get());
+					return$1 = true;
+					goto $finally;
+				} catch ($ExecutionException& eex) {
+					$assign(ee, eex);
+				} catch ($RuntimeException& rex) {
+					$assign(ee, $new($ExecutionException, rex));
+				}
 			}
-			$throw(ee);
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			cancelAll(futures);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (ee == nullptr) {
+			$assign(ee, $new($ExecutionException));
 		}
-		if (return$1) {
-			return var$2;
-		}
+		$throw(ee);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		cancelAll(futures);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Object* AbstractExecutorService::invokeAny($Collection* tasks) {
 	try {
-		return $of(doInvokeAny(tasks, false, 0));
+		return doInvokeAny(tasks, false, 0);
 	} catch ($TimeoutException& cannotHappen) {
 		if (!AbstractExecutorService::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 $Object* AbstractExecutorService::invokeAny($Collection* tasks, int64_t timeout, $TimeUnit* unit) {
-	return $of(doInvokeAny(tasks, true, $nc(unit)->toNanos(timeout)));
+	return doInvokeAny(tasks, true, $nc(unit)->toNanos(timeout));
 }
 
 $List* AbstractExecutorService::invokeAll($Collection* tasks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tasks == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	$var($ArrayList, futures, $new($ArrayList, $nc(tasks)->size()));
 	try {
 		{
-			$var($Iterator, i$, $nc(tasks)->iterator());
+			$var($Iterator, i$, tasks->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Callable, t, $cast($Callable, i$->next()));
 				{
@@ -230,17 +191,13 @@ $List* AbstractExecutorService::invokeAll($Collection* tasks) {
 				}
 			}
 		}
-		{
-			int32_t i = 0;
-			int32_t size = futures->size();
-			for (; i < size; ++i) {
-				$var($Future, f, $cast($Future, futures->get(i)));
-				if (!$nc(f)->isDone()) {
-					try {
-						f->get();
-					} catch ($CancellationException& ignore) {
-					} catch ($ExecutionException& ignore) {
-					}
+		for (int32_t i = 0, size = futures->size(); i < size; ++i) {
+			$var($Future, f, $cast($Future, futures->get(i)));
+			if (!$nc(f)->isDone()) {
+				try {
+					f->get();
+				} catch ($CancellationException& ignore) {
+				} catch ($ExecutionException& ignore) {
 				}
 			}
 		}
@@ -253,7 +210,7 @@ $List* AbstractExecutorService::invokeAll($Collection* tasks) {
 }
 
 $List* AbstractExecutorService::invokeAll($Collection* tasks, int64_t timeout, $TimeUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tasks == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -265,7 +222,7 @@ $List* AbstractExecutorService::invokeAll($Collection* tasks, int64_t timeout, $
 	for (;;) {
 		try {
 			{
-				$var($Iterator, i$, $nc(tasks)->iterator());
+				$var($Iterator, i$, tasks->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Callable, t, $cast($Callable, i$->next()));
 					futures->add($(newTaskFor(t)));
@@ -273,11 +230,11 @@ $List* AbstractExecutorService::invokeAll($Collection* tasks, int64_t timeout, $
 			}
 			int32_t size = futures->size();
 			for (int32_t i = 0; i < size; ++i) {
-				if (((i == 0) ? nanos : deadline - $System::nanoTime()) <= (int64_t)0) {
+				if (((i == 0) ? nanos : deadline - $System::nanoTime()) <= 0) {
 					timedOut$break = true;
 					break;
 				}
-				execute($cast($Runnable, $(futures->get(i))));
+				execute($$cast($Runnable, futures->get(i)));
 			}
 			if (timedOut$break) {
 				break;
@@ -316,13 +273,13 @@ void AbstractExecutorService::cancelAll($ArrayList* futures) {
 
 void AbstractExecutorService::cancelAll($ArrayList* futures, int32_t j) {
 	$init(AbstractExecutorService);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t size = $nc(futures)->size(); j < size; ++j) {
-		$nc(($cast($Future, $(futures->get(j)))))->cancel(true);
+		$$sure($Future, futures->get(j))->cancel(true);
 	}
 }
 
-void clinit$AbstractExecutorService($Class* class$) {
+void AbstractExecutorService::clinit$($Class* clazz) {
 	AbstractExecutorService::$assertionsDisabled = !AbstractExecutorService::class$->desiredAssertionStatus();
 }
 
@@ -330,7 +287,37 @@ AbstractExecutorService::AbstractExecutorService() {
 }
 
 $Class* AbstractExecutorService::load$($String* name, bool initialize) {
-	$loadClass(AbstractExecutorService, name, initialize, &_AbstractExecutorService_ClassInfo_, clinit$AbstractExecutorService, allocate$AbstractExecutorService);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractExecutorService, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractExecutorService, init$, void)},
+		{"cancelAll", "(Ljava/util/ArrayList;)V", "<T:Ljava/lang/Object;>(Ljava/util/ArrayList<Ljava/util/concurrent/Future<TT;>;>;)V", $PRIVATE | $STATIC, $staticMethod(AbstractExecutorService, cancelAll, void, $ArrayList*)},
+		{"cancelAll", "(Ljava/util/ArrayList;I)V", "<T:Ljava/lang/Object;>(Ljava/util/ArrayList<Ljava/util/concurrent/Future<TT;>;>;I)V", $PRIVATE | $STATIC, $staticMethod(AbstractExecutorService, cancelAll, void, $ArrayList*, int32_t)},
+		{"doInvokeAny", "(Ljava/util/Collection;ZJ)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;ZJ)TT;", $PRIVATE, $method(AbstractExecutorService, doInvokeAny, $Object*, $Collection*, bool, int64_t), "java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException"},
+		{"invokeAll", "(Ljava/util/Collection;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;)Ljava/util/List<Ljava/util/concurrent/Future<TT;>;>;", $PUBLIC, $virtualMethod(AbstractExecutorService, invokeAll, $List*, $Collection*), "java.lang.InterruptedException"},
+		{"invokeAll", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;JLjava/util/concurrent/TimeUnit;)Ljava/util/List<Ljava/util/concurrent/Future<TT;>;>;", $PUBLIC, $virtualMethod(AbstractExecutorService, invokeAll, $List*, $Collection*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"invokeAny", "(Ljava/util/Collection;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;)TT;", $PUBLIC, $virtualMethod(AbstractExecutorService, invokeAny, $Object*, $Collection*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException"},
+		{"invokeAny", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;JLjava/util/concurrent/TimeUnit;)TT;", $PUBLIC, $virtualMethod(AbstractExecutorService, invokeAny, $Object*, $Collection*, int64_t, $TimeUnit*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException"},
+		{"newTaskFor", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/RunnableFuture;", "<T:Ljava/lang/Object;>(Ljava/lang/Runnable;TT;)Ljava/util/concurrent/RunnableFuture<TT;>;", $PROTECTED, $virtualMethod(AbstractExecutorService, newTaskFor, $RunnableFuture*, $Runnable*, Object$*)},
+		{"newTaskFor", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/RunnableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)Ljava/util/concurrent/RunnableFuture<TT;>;", $PROTECTED, $virtualMethod(AbstractExecutorService, newTaskFor, $RunnableFuture*, $Callable*)},
+		{"submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future<*>;", $PUBLIC, $virtualMethod(AbstractExecutorService, submit, $Future*, $Runnable*)},
+		{"submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(Ljava/lang/Runnable;TT;)Ljava/util/concurrent/Future<TT;>;", $PUBLIC, $virtualMethod(AbstractExecutorService, submit, $Future*, $Runnable*, Object$*)},
+		{"submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)Ljava/util/concurrent/Future<TT;>;", $PUBLIC, $virtualMethod(AbstractExecutorService, submit, $Future*, $Callable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.concurrent.AbstractExecutorService",
+		"java.lang.Object",
+		"java.util.concurrent.ExecutorService",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractExecutorService, name, initialize, &classInfo$$, AbstractExecutorService::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractExecutorService);
+	});
 	return class$;
 }
 

@@ -66,6 +66,7 @@ class MethodHandleImpl : public ::java::lang::Object {
 	$class(MethodHandleImpl, 0, ::java::lang::Object)
 public:
 	MethodHandleImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool assertCorrectArity(::java::lang::invoke::MethodHandle* mh, int32_t arity);
 	static void assertSame(Object$* mh1, Object$* mh2);

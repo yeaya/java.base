@@ -14,6 +14,7 @@ class CallStaticInitOrder$Init6 : public ::java::lang::Object {
 	$class(CallStaticInitOrder$Init6, 0, ::java::lang::Object)
 public:
 	CallStaticInitOrder$Init6();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t pong;
 };

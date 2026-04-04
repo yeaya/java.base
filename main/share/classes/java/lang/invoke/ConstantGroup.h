@@ -25,6 +25,7 @@ namespace java {
 class ConstantGroup : public ::java::lang::Object {
 	$interface(ConstantGroup, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual ::java::util::List* asList();
 	virtual ::java::util::List* asList(Object$* ifNotPresent);
 	virtual int32_t copyConstants(int32_t start, int32_t end, $ObjectArray* buf, int32_t pos);

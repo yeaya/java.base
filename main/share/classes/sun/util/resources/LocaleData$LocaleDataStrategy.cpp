@@ -1,5 +1,4 @@
 #include <sun/util/resources/LocaleData$LocaleDataStrategy.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/util/Iterator.h>
@@ -34,8 +33,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
-using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 using $Set = ::java::util::Set;
 using $JRELocaleProviderAdapter = ::sun::util::locale::provider::JRELocaleProviderAdapter;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
@@ -48,48 +45,6 @@ namespace sun {
 	namespace util {
 		namespace resources {
 
-$FieldInfo _LocaleData$LocaleDataStrategy_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LocaleData$LocaleDataStrategy, $assertionsDisabled)},
-	{"INSTANCE", "Lsun/util/resources/LocaleData$LocaleDataStrategy;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LocaleData$LocaleDataStrategy, INSTANCE)},
-	{"JAVA_BASE_LOCALES", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Locale;>;", $PRIVATE | $STATIC, $staticField(LocaleData$LocaleDataStrategy, JAVA_BASE_LOCALES)},
-	{}
-};
-
-$MethodInfo _LocaleData$LocaleDataStrategy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleData$LocaleDataStrategy, init$, void)},
-	{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC, $virtualMethod(LocaleData$LocaleDataStrategy, getCandidateLocales, $List*, $String*, $Locale*)},
-	{"getResourceBundleProviderType", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class<+Ljava/util/spi/ResourceBundleProvider;>;", $PUBLIC, $virtualMethod(LocaleData$LocaleDataStrategy, getResourceBundleProviderType, $Class*, $String*, $Locale*)},
-	{"inJavaBaseModule", "(Ljava/lang/String;Ljava/util/Locale;)Z", nullptr, 0, $virtualMethod(LocaleData$LocaleDataStrategy, inJavaBaseModule, bool, $String*, $Locale*)},
-	{"toBundleName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleData$LocaleDataStrategy, toBundleName, $String*, $String*, $Locale*)},
-	{}
-};
-
-$InnerClassInfo _LocaleData$LocaleDataStrategy_InnerClassesInfo_[] = {
-	{"sun.util.resources.LocaleData$LocaleDataStrategy", "sun.util.resources.LocaleData", "LocaleDataStrategy", $PRIVATE | $STATIC},
-	{"sun.util.resources.Bundles$Strategy", "sun.util.resources.Bundles", "Strategy", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LocaleData$LocaleDataStrategy_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.resources.LocaleData$LocaleDataStrategy",
-	"java.lang.Object",
-	"sun.util.resources.Bundles$Strategy",
-	_LocaleData$LocaleDataStrategy_FieldInfo_,
-	_LocaleData$LocaleDataStrategy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LocaleData$LocaleDataStrategy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.resources.LocaleData"
-};
-
-$Object* allocate$LocaleData$LocaleDataStrategy($Class* clazz) {
-	return $of($alloc(LocaleData$LocaleDataStrategy));
-}
-
 bool LocaleData$LocaleDataStrategy::$assertionsDisabled = false;
 LocaleData$LocaleDataStrategy* LocaleData$LocaleDataStrategy::INSTANCE = nullptr;
 $Set* LocaleData$LocaleDataStrategy::JAVA_BASE_LOCALES = nullptr;
@@ -98,7 +53,7 @@ void LocaleData$LocaleDataStrategy::init$() {
 }
 
 $List* LocaleData$LocaleDataStrategy::getCandidateLocales($String* baseName, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, $str({baseName, $$str(u'-'), $($nc(locale)->toLanguageTag())}));
 	$init($LocaleData);
 	$var($List, candidates, $cast($List, $nc($LocaleData::CANDIDATES_MAP)->get(key)));
@@ -106,21 +61,19 @@ $List* LocaleData$LocaleDataStrategy::getCandidateLocales($String* baseName, $Lo
 		$init($LocaleProviderAdapter$Type);
 		$LocaleProviderAdapter$Type* type = $nc(baseName)->contains(".cldr"_s) ? $LocaleProviderAdapter$Type::CLDR : $LocaleProviderAdapter$Type::JRE;
 		$var($LocaleProviderAdapter, adapter, $LocaleProviderAdapter::forType(type));
-		$assign(candidates, $instanceOf($ResourceBundleBasedAdapter, adapter) ? $nc(($cast($ResourceBundleBasedAdapter, adapter)))->getCandidateLocales(baseName, locale) : $nc($LocaleData::defaultControl)->getCandidateLocales(baseName, locale));
-		int32_t lastDot = $nc(baseName)->lastIndexOf((int32_t)u'.');
+		$assign(candidates, $instanceOf($ResourceBundleBasedAdapter, adapter) ? $cast($ResourceBundleBasedAdapter, adapter)->getCandidateLocales(baseName, locale) : $nc($LocaleData::defaultControl)->getCandidateLocales(baseName, locale));
+		int32_t lastDot = baseName->lastIndexOf(u'.');
 		$var($String, category, (lastDot >= 0) ? baseName->substring(lastDot + 1) : baseName);
-		$var($Set, langtags, $nc(($cast($JRELocaleProviderAdapter, adapter)))->getLanguageTagSet(category));
+		$var($Set, langtags, $nc($cast($JRELocaleProviderAdapter, adapter))->getLanguageTagSet(category));
 		if (!$nc(langtags)->isEmpty()) {
-			{
-				$var($Iterator, itr, $nc(candidates)->iterator());
-				for (; $nc(itr)->hasNext();) {
-					if (!$nc(adapter)->isSupportedProviderLocale($cast($Locale, $(itr->next())), langtags)) {
-						itr->remove();
-					}
+			$var($Iterator, itr, $nc(candidates)->iterator());
+			for (; $nc(itr)->hasNext();) {
+				if (!adapter->isSupportedProviderLocale($$cast($Locale, itr->next()), langtags)) {
+					itr->remove();
 				}
 			}
 		}
-		$nc($LocaleData::CANDIDATES_MAP)->putIfAbsent(key, candidates);
+		$LocaleData::CANDIDATES_MAP->putIfAbsent(key, candidates);
 	}
 	return candidates;
 }
@@ -130,26 +83,29 @@ bool LocaleData$LocaleDataStrategy::inJavaBaseModule($String* baseName, $Locale*
 }
 
 $String* LocaleData$LocaleDataStrategy::toBundleName($String* baseName, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, newBaseName, baseName);
 	if (!inJavaBaseModule(baseName, locale)) {
 		$init($LocaleProviderAdapter$Type);
 		bool var$0 = $nc(baseName)->startsWith($($LocaleProviderAdapter$Type::JRE->getUtilResourcesPackage()));
-		if (var$0 || $nc(baseName)->startsWith($($LocaleProviderAdapter$Type::JRE->getTextResourcesPackage()))) {
+		if (var$0 || baseName->startsWith($($LocaleProviderAdapter$Type::JRE->getTextResourcesPackage()))) {
 			bool var$1 = !LocaleData$LocaleDataStrategy::$assertionsDisabled;
 			if (var$1) {
-				int32_t var$2 = $nc($($LocaleProviderAdapter$Type::JRE->getUtilResourcesPackage()))->length();
-				var$1 = !(var$2 == $nc($($LocaleProviderAdapter$Type::JRE->getTextResourcesPackage()))->length());
+				int32_t var$2 = $$nc($LocaleProviderAdapter$Type::JRE->getUtilResourcesPackage())->length();
+				var$1 = !(var$2 == $$nc($LocaleProviderAdapter$Type::JRE->getTextResourcesPackage())->length());
 			}
 			if (var$1) {
 				$throwNew($AssertionError);
 			}
-			int32_t index = $nc($($LocaleProviderAdapter$Type::JRE->getUtilResourcesPackage()))->length();
+			int32_t index = $$nc($LocaleProviderAdapter$Type::JRE->getUtilResourcesPackage())->length();
 			if (baseName->indexOf(".cldr"_s, index) > 0) {
 				index += ".cldr"_s->length();
 			}
-			$var($String, var$3, $$str({$(baseName->substring(0, index + 1)), "ext"_s}));
-			$assign(newBaseName, $concat(var$3, $(baseName->substring(index))));
+			$var($StringBuilder, var$3, $new($StringBuilder));
+			var$3->append($(baseName->substring(0, index + 1)));
+			var$3->append("ext"_s);
+			var$3->append($(baseName->substring(index)));
+			$assign(newBaseName, $str(var$3));
 		}
 	}
 	$init($LocaleData);
@@ -161,7 +117,7 @@ $Class* LocaleData$LocaleDataStrategy::getResourceBundleProviderType($String* ba
 	return inJavaBaseModule(baseName, locale) ? ($Class*)nullptr : $LocaleData$CommonResourceBundleProvider::class$;
 }
 
-void clinit$LocaleData$LocaleDataStrategy($Class* class$) {
+void LocaleData$LocaleDataStrategy::clinit$($Class* clazz) {
 	$load($LocaleData);
 	LocaleData$LocaleDataStrategy::$assertionsDisabled = !$LocaleData::class$->desiredAssertionStatus();
 	$assignStatic(LocaleData$LocaleDataStrategy::INSTANCE, $new(LocaleData$LocaleDataStrategy));
@@ -173,7 +129,43 @@ LocaleData$LocaleDataStrategy::LocaleData$LocaleDataStrategy() {
 }
 
 $Class* LocaleData$LocaleDataStrategy::load$($String* name, bool initialize) {
-	$loadClass(LocaleData$LocaleDataStrategy, name, initialize, &_LocaleData$LocaleDataStrategy_ClassInfo_, clinit$LocaleData$LocaleDataStrategy, allocate$LocaleData$LocaleDataStrategy);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LocaleData$LocaleDataStrategy, $assertionsDisabled)},
+		{"INSTANCE", "Lsun/util/resources/LocaleData$LocaleDataStrategy;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LocaleData$LocaleDataStrategy, INSTANCE)},
+		{"JAVA_BASE_LOCALES", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Locale;>;", $PRIVATE | $STATIC, $staticField(LocaleData$LocaleDataStrategy, JAVA_BASE_LOCALES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleData$LocaleDataStrategy, init$, void)},
+		{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC, $virtualMethod(LocaleData$LocaleDataStrategy, getCandidateLocales, $List*, $String*, $Locale*)},
+		{"getResourceBundleProviderType", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class<+Ljava/util/spi/ResourceBundleProvider;>;", $PUBLIC, $virtualMethod(LocaleData$LocaleDataStrategy, getResourceBundleProviderType, $Class*, $String*, $Locale*)},
+		{"inJavaBaseModule", "(Ljava/lang/String;Ljava/util/Locale;)Z", nullptr, 0, $virtualMethod(LocaleData$LocaleDataStrategy, inJavaBaseModule, bool, $String*, $Locale*)},
+		{"toBundleName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleData$LocaleDataStrategy, toBundleName, $String*, $String*, $Locale*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.resources.LocaleData$LocaleDataStrategy", "sun.util.resources.LocaleData", "LocaleDataStrategy", $PRIVATE | $STATIC},
+		{"sun.util.resources.Bundles$Strategy", "sun.util.resources.Bundles", "Strategy", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.resources.LocaleData$LocaleDataStrategy",
+		"java.lang.Object",
+		"sun.util.resources.Bundles$Strategy",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.resources.LocaleData"
+	};
+	$loadClass(LocaleData$LocaleDataStrategy, name, initialize, &classInfo$$, LocaleData$LocaleDataStrategy::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleData$LocaleDataStrategy);
+	});
 	return class$;
 }
 

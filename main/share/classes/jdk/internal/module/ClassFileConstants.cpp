@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ClassFileConstants.h>
-
 #include <jcpp.h>
 
 #undef ACC_MANDATED
@@ -29,46 +28,6 @@ namespace jdk {
 	namespace internal {
 		namespace module {
 
-$FieldInfo _ClassFileConstants_FieldInfo_[] = {
-	{"MODULE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE)},
-	{"SOURCE_FILE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, SOURCE_FILE)},
-	{"SDE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, SDE)},
-	{"MODULE_PACKAGES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE_PACKAGES)},
-	{"MODULE_MAIN_CLASS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE_MAIN_CLASS)},
-	{"MODULE_TARGET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE_TARGET)},
-	{"MODULE_HASHES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE_HASHES)},
-	{"MODULE_RESOLUTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE_RESOLUTION)},
-	{"ACC_MODULE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_MODULE)},
-	{"ACC_OPEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_OPEN)},
-	{"ACC_TRANSITIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_TRANSITIVE)},
-	{"ACC_STATIC_PHASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_STATIC_PHASE)},
-	{"ACC_SYNTHETIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_SYNTHETIC)},
-	{"ACC_MANDATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_MANDATED)},
-	{"DO_NOT_RESOLVE_BY_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, DO_NOT_RESOLVE_BY_DEFAULT)},
-	{"WARN_DEPRECATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, WARN_DEPRECATED)},
-	{"WARN_DEPRECATED_FOR_REMOVAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, WARN_DEPRECATED_FOR_REMOVAL)},
-	{"WARN_INCUBATING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, WARN_INCUBATING)},
-	{}
-};
-
-$MethodInfo _ClassFileConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ClassFileConstants, init$, void)},
-	{}
-};
-
-$ClassInfo _ClassFileConstants_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.module.ClassFileConstants",
-	"java.lang.Object",
-	nullptr,
-	_ClassFileConstants_FieldInfo_,
-	_ClassFileConstants_MethodInfo_
-};
-
-$Object* allocate$ClassFileConstants($Class* clazz) {
-	return $of($alloc(ClassFileConstants));
-}
-
 $String* ClassFileConstants::MODULE = nullptr;
 $String* ClassFileConstants::SOURCE_FILE = nullptr;
 $String* ClassFileConstants::SDE = nullptr;
@@ -84,7 +43,7 @@ void ClassFileConstants::init$() {
 ClassFileConstants::ClassFileConstants() {
 }
 
-void clinit$ClassFileConstants($Class* class$) {
+void ClassFileConstants::clinit$($Class* clazz) {
 	$assignStatic(ClassFileConstants::MODULE, "Module"_s);
 	$assignStatic(ClassFileConstants::SOURCE_FILE, "SourceFile"_s);
 	$assignStatic(ClassFileConstants::SDE, "SourceDebugExtension"_s);
@@ -96,7 +55,42 @@ void clinit$ClassFileConstants($Class* class$) {
 }
 
 $Class* ClassFileConstants::load$($String* name, bool initialize) {
-	$loadClass(ClassFileConstants, name, initialize, &_ClassFileConstants_ClassInfo_, clinit$ClassFileConstants, allocate$ClassFileConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"MODULE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE)},
+		{"SOURCE_FILE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, SOURCE_FILE)},
+		{"SDE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, SDE)},
+		{"MODULE_PACKAGES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE_PACKAGES)},
+		{"MODULE_MAIN_CLASS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE_MAIN_CLASS)},
+		{"MODULE_TARGET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE_TARGET)},
+		{"MODULE_HASHES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE_HASHES)},
+		{"MODULE_RESOLUTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassFileConstants, MODULE_RESOLUTION)},
+		{"ACC_MODULE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_MODULE)},
+		{"ACC_OPEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_OPEN)},
+		{"ACC_TRANSITIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_TRANSITIVE)},
+		{"ACC_STATIC_PHASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_STATIC_PHASE)},
+		{"ACC_SYNTHETIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_SYNTHETIC)},
+		{"ACC_MANDATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, ACC_MANDATED)},
+		{"DO_NOT_RESOLVE_BY_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, DO_NOT_RESOLVE_BY_DEFAULT)},
+		{"WARN_DEPRECATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, WARN_DEPRECATED)},
+		{"WARN_DEPRECATED_FOR_REMOVAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, WARN_DEPRECATED_FOR_REMOVAL)},
+		{"WARN_INCUBATING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassFileConstants, WARN_INCUBATING)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ClassFileConstants, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.module.ClassFileConstants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassFileConstants, name, initialize, &classInfo$$, ClassFileConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassFileConstants);
+	});
 	return class$;
 }
 

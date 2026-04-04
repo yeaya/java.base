@@ -42,6 +42,7 @@ class $export VerifyAccess : public ::java::lang::Object {
 	$class(VerifyAccess, $PRELOAD, ::java::lang::Object)
 public:
 	VerifyAccess();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool classLoaderIsAncestor($Class* parentClass, $Class* childClass);
 	static int32_t getClassModifiers($Class* c);

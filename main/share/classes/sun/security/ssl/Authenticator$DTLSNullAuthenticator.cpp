@@ -1,5 +1,4 @@
 #include <sun/security/ssl/Authenticator$DTLSNullAuthenticator.h>
-
 #include <sun/security/ssl/Authenticator$DTLSAuthenticator.h>
 #include <sun/security/ssl/Authenticator.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _Authenticator$DTLSNullAuthenticator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Authenticator$DTLSNullAuthenticator, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Authenticator$DTLSNullAuthenticator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.Authenticator$DTLSNullAuthenticator", "sun.security.ssl.Authenticator", "DTLSNullAuthenticator", $PRIVATE | $STATIC},
-	{"sun.security.ssl.Authenticator$DTLSAuthenticator", "sun.security.ssl.Authenticator", "DTLSAuthenticator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Authenticator$DTLSNullAuthenticator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.Authenticator$DTLSNullAuthenticator",
-	"sun.security.ssl.Authenticator$DTLSAuthenticator",
-	nullptr,
-	nullptr,
-	_Authenticator$DTLSNullAuthenticator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Authenticator$DTLSNullAuthenticator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.Authenticator"
-};
-
-$Object* allocate$Authenticator$DTLSNullAuthenticator($Class* clazz) {
-	return $of($alloc(Authenticator$DTLSNullAuthenticator));
-}
-
 void Authenticator$DTLSNullAuthenticator::init$() {
 	$Authenticator$DTLSAuthenticator::init$($$new($bytes, 8));
 }
@@ -52,7 +20,33 @@ Authenticator$DTLSNullAuthenticator::Authenticator$DTLSNullAuthenticator() {
 }
 
 $Class* Authenticator$DTLSNullAuthenticator::load$($String* name, bool initialize) {
-	$loadClass(Authenticator$DTLSNullAuthenticator, name, initialize, &_Authenticator$DTLSNullAuthenticator_ClassInfo_, allocate$Authenticator$DTLSNullAuthenticator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Authenticator$DTLSNullAuthenticator, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.Authenticator$DTLSNullAuthenticator", "sun.security.ssl.Authenticator", "DTLSNullAuthenticator", $PRIVATE | $STATIC},
+		{"sun.security.ssl.Authenticator$DTLSAuthenticator", "sun.security.ssl.Authenticator", "DTLSAuthenticator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.Authenticator$DTLSNullAuthenticator",
+		"sun.security.ssl.Authenticator$DTLSAuthenticator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.Authenticator"
+	};
+	$loadClass(Authenticator$DTLSNullAuthenticator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Authenticator$DTLSNullAuthenticator);
+	});
 	return class$;
 }
 

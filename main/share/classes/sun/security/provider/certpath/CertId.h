@@ -60,6 +60,7 @@ class $export CertId : public ::java::lang::Object {
 	$class(CertId, 0, ::java::lang::Object)
 public:
 	CertId();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::cert::X509Certificate* issuerCert, ::sun::security::x509::SerialNumber* serialNumber);
 	void init$(::javax::security::auth::x500::X500Principal* issuerName, ::java::security::PublicKey* issuerKey, ::sun::security::x509::SerialNumber* serialNumber);
 	void init$(::sun::security::util::DerInputStream* derIn);

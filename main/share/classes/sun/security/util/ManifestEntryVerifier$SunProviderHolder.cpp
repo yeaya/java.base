@@ -1,5 +1,4 @@
 #include <sun/security/util/ManifestEntryVerifier$SunProviderHolder.h>
-
 #include <java/security/Provider.h>
 #include <sun/security/jca/Providers.h>
 #include <sun/security/util/ManifestEntryVerifier.h>
@@ -16,47 +15,12 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _ManifestEntryVerifier$SunProviderHolder_FieldInfo_[] = {
-	{"instance", "Ljava/security/Provider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ManifestEntryVerifier$SunProviderHolder, instance)},
-	{}
-};
-
-$MethodInfo _ManifestEntryVerifier$SunProviderHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ManifestEntryVerifier$SunProviderHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ManifestEntryVerifier$SunProviderHolder_InnerClassesInfo_[] = {
-	{"sun.security.util.ManifestEntryVerifier$SunProviderHolder", "sun.security.util.ManifestEntryVerifier", "SunProviderHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ManifestEntryVerifier$SunProviderHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.ManifestEntryVerifier$SunProviderHolder",
-	"java.lang.Object",
-	nullptr,
-	_ManifestEntryVerifier$SunProviderHolder_FieldInfo_,
-	_ManifestEntryVerifier$SunProviderHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ManifestEntryVerifier$SunProviderHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.ManifestEntryVerifier"
-};
-
-$Object* allocate$ManifestEntryVerifier$SunProviderHolder($Class* clazz) {
-	return $of($alloc(ManifestEntryVerifier$SunProviderHolder));
-}
-
 $Provider* ManifestEntryVerifier$SunProviderHolder::instance = nullptr;
 
 void ManifestEntryVerifier$SunProviderHolder::init$() {
 }
 
-void clinit$ManifestEntryVerifier$SunProviderHolder($Class* class$) {
+void ManifestEntryVerifier$SunProviderHolder::clinit$($Class* clazz) {
 	$assignStatic(ManifestEntryVerifier$SunProviderHolder::instance, $Providers::getSunProvider());
 }
 
@@ -64,7 +28,36 @@ ManifestEntryVerifier$SunProviderHolder::ManifestEntryVerifier$SunProviderHolder
 }
 
 $Class* ManifestEntryVerifier$SunProviderHolder::load$($String* name, bool initialize) {
-	$loadClass(ManifestEntryVerifier$SunProviderHolder, name, initialize, &_ManifestEntryVerifier$SunProviderHolder_ClassInfo_, clinit$ManifestEntryVerifier$SunProviderHolder, allocate$ManifestEntryVerifier$SunProviderHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Ljava/security/Provider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ManifestEntryVerifier$SunProviderHolder, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ManifestEntryVerifier$SunProviderHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.ManifestEntryVerifier$SunProviderHolder", "sun.security.util.ManifestEntryVerifier", "SunProviderHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.ManifestEntryVerifier$SunProviderHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.ManifestEntryVerifier"
+	};
+	$loadClass(ManifestEntryVerifier$SunProviderHolder, name, initialize, &classInfo$$, ManifestEntryVerifier$SunProviderHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ManifestEntryVerifier$SunProviderHolder);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/TIS_620.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -23,44 +22,6 @@ using $TIS_620$Holder = ::sun::nio::cs::TIS_620$Holder;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _TIS_620_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIS_620, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(TIS_620, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIS_620, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(TIS_620, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(TIS_620, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _TIS_620_InnerClassesInfo_[] = {
-	{"sun.nio.cs.TIS_620$Holder", "sun.nio.cs.TIS_620", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TIS_620_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.TIS_620",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_TIS_620_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TIS_620_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.TIS_620$Holder"
-};
-
-$Object* allocate$TIS_620($Class* clazz) {
-	return $of($alloc(TIS_620));
-}
 
 int32_t TIS_620::hashCode() {
 	 return this->$Charset::hashCode();
@@ -91,7 +52,7 @@ $String* TIS_620::historicalName() {
 }
 
 bool TIS_620::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(TIS_620, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(TIS_620, cs)));
 }
 
 $CharsetDecoder* TIS_620::newDecoder() {
@@ -108,7 +69,40 @@ TIS_620::TIS_620() {
 }
 
 $Class* TIS_620::load$($String* name, bool initialize) {
-	$loadClass(TIS_620, name, initialize, &_TIS_620_ClassInfo_, allocate$TIS_620);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIS_620, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(TIS_620, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIS_620, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(TIS_620, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(TIS_620, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.TIS_620$Holder", "sun.nio.cs.TIS_620", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.TIS_620",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.TIS_620$Holder"
+	};
+	$loadClass(TIS_620, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TIS_620));
+	});
 	return class$;
 }
 

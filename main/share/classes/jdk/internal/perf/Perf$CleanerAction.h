@@ -26,6 +26,7 @@ class Perf$CleanerAction : public ::java::lang::Runnable {
 	$class(Perf$CleanerAction, 0, ::java::lang::Runnable)
 public:
 	Perf$CleanerAction();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::perf::Perf* perf, ::java::nio::ByteBuffer* bb);
 	virtual void run() override;
 	static bool $assertionsDisabled;

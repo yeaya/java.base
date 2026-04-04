@@ -10,6 +10,7 @@ class $export IsParallelCapable$ParaCL : public ::IsParallelCapable$TestCL {
 public:
 	IsParallelCapable$ParaCL();
 	using ::IsParallelCapable$TestCL::findClass;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool expectCapable() override;
 };

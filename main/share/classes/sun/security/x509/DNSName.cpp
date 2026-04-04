@@ -1,5 +1,4 @@
 #include <sun/security/x509/DNSName.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/CharSequence.h>
 #include <java/util/Locale.h>
@@ -30,40 +29,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _DNSName_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DNSName, name)},
-	{"alphaDigits", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DNSName, alphaDigits)},
-	{}
-};
-
-$MethodInfo _DNSName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(DNSName, init$, void, $DerValue*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(DNSName, init$, void, $String*, bool), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DNSName, init$, void, $String*), "java.io.IOException"},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(DNSName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DNSName, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DNSName, equals, bool, Object$*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DNSName, getName, $String*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(DNSName, getType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DNSName, hashCode, int32_t)},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(DNSName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DNSName, toString, $String*)},
-	{}
-};
-
-$ClassInfo _DNSName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.DNSName",
-	"java.lang.Object",
-	"sun.security.x509.GeneralNameInterface",
-	_DNSName_FieldInfo_,
-	_DNSName_MethodInfo_
-};
-
-$Object* allocate$DNSName($Class* clazz) {
-	return $of($alloc(DNSName));
-}
-
 $String* DNSName::alphaDigits = nullptr;
 
 void DNSName::init$($DerValue* derValue) {
@@ -71,44 +36,40 @@ void DNSName::init$($DerValue* derValue) {
 }
 
 void DNSName::init$($String* name, bool allowWildcard) {
-	if (name == nullptr || $nc(name)->isEmpty()) {
+	if (name == nullptr || name->isEmpty()) {
 		$throwNew($IOException, "DNSName must not be null or empty"_s);
 	}
 	if ($nc(name)->contains(" "_s)) {
 		$throwNew($IOException, "DNSName with blank components is not permitted"_s);
 	}
-	bool var$0 = $nc(name)->startsWith("."_s);
-	if (var$0 || $nc(name)->endsWith("."_s)) {
+	bool var$0 = name->startsWith("."_s);
+	if (var$0 || name->endsWith("."_s)) {
 		$throwNew($IOException, "DNSName may not begin or end with a ."_s);
 	}
-	{
-		int32_t endIndex = 0;
-		int32_t startIndex = 0;
-		for (; startIndex < $nc(name)->length(); startIndex = endIndex + 1) {
-			endIndex = name->indexOf((int32_t)u'.', startIndex);
-			if (endIndex < 0) {
-				endIndex = name->length();
-			}
-			if (endIndex - startIndex < 1) {
-				$throwNew($IOException, "DNSName with empty components are not permitted"_s);
-			}
-			if (allowWildcard) {
-				if ($nc(DNSName::alphaDigits)->indexOf((int32_t)name->charAt(startIndex)) < 0) {
-					bool var$3 = (name->length() < 3);
-					bool var$2 = var$3 || (name->indexOf((int32_t)u'*', 0) != 0);
-					bool var$1 = var$2 || (name->charAt(startIndex + 1) != u'.');
-					if (var$1 || ($nc(DNSName::alphaDigits)->indexOf((int32_t)name->charAt(startIndex + 2)) < 0)) {
-						$throwNew($IOException, "DNSName components must begin with a letter, digit, or the first component can have only a wildcard character *"_s);
-					}
+	for (int32_t endIndex = 0, startIndex = 0; startIndex < name->length(); startIndex = endIndex + 1) {
+		endIndex = name->indexOf(u'.', startIndex);
+		if (endIndex < 0) {
+			endIndex = name->length();
+		}
+		if (endIndex - startIndex < 1) {
+			$throwNew($IOException, "DNSName with empty components are not permitted"_s);
+		}
+		if (allowWildcard) {
+			if (DNSName::alphaDigits->indexOf(name->charAt(startIndex)) < 0) {
+				bool var$3 = name->length() < 3;
+				bool var$2 = var$3 || (name->indexOf(u'*', 0) != 0);
+				bool var$1 = var$2 || (name->charAt(startIndex + 1) != u'.');
+				if (var$1 || (DNSName::alphaDigits->indexOf(name->charAt(startIndex + 2)) < 0)) {
+					$throwNew($IOException, "DNSName components must begin with a letter, digit, or the first component can have only a wildcard character *"_s);
 				}
-			} else if ($nc(DNSName::alphaDigits)->indexOf((int32_t)name->charAt(startIndex)) < 0) {
-				$throwNew($IOException, "DNSName components must begin with a letter or digit"_s);
 			}
-			for (int32_t nonStartIndex = startIndex + 1; nonStartIndex < endIndex; ++nonStartIndex) {
-				char16_t x = name->charAt(nonStartIndex);
-				if ($nc((DNSName::alphaDigits))->indexOf((int32_t)x) < 0 && x != u'-') {
-					$throwNew($IOException, "DNSName components must consist of letters, digits, and hyphens"_s);
-				}
+		} else if (DNSName::alphaDigits->indexOf(name->charAt(startIndex)) < 0) {
+			$throwNew($IOException, "DNSName components must begin with a letter or digit"_s);
+		}
+		for (int32_t nonStartIndex = startIndex + 1; nonStartIndex < endIndex; ++nonStartIndex) {
+			char16_t x = name->charAt(nonStartIndex);
+			if ((DNSName::alphaDigits)->indexOf(x) < 0 && x != u'-') {
+				$throwNew($IOException, "DNSName components must consist of letters, digits, and hyphens"_s);
 			}
 		}
 	}
@@ -152,15 +113,15 @@ int32_t DNSName::hashCode() {
 }
 
 int32_t DNSName::constrains($GeneralNameInterface* inputName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_DNS) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_DNS) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$init($Locale);
-		$var($String, inName, $nc(($($nc(($cast(DNSName, inputName)))->getName())))->toLowerCase($Locale::ENGLISH));
+		$var($String, inName, ($$nc($cast(DNSName, inputName)->getName()))->toLowerCase($Locale::ENGLISH));
 		$var($String, thisName, $nc(this->name)->toLowerCase($Locale::ENGLISH));
 		if (inName->equals(thisName)) {
 			constraintType = $GeneralNameInterface::NAME_MATCH;
@@ -187,7 +148,7 @@ int32_t DNSName::constrains($GeneralNameInterface* inputName) {
 
 int32_t DNSName::subtreeDepth() {
 	int32_t sum = 1;
-	for (int32_t i = $nc(this->name)->indexOf((int32_t)u'.'); i >= 0; i = $nc(this->name)->indexOf((int32_t)u'.', i + 1)) {
+	for (int32_t i = $nc(this->name)->indexOf(u'.'); i >= 0; i = this->name->indexOf(u'.', i + 1)) {
 		++sum;
 	}
 	return sum;
@@ -196,12 +157,41 @@ int32_t DNSName::subtreeDepth() {
 DNSName::DNSName() {
 }
 
-void clinit$DNSName($Class* class$) {
+void DNSName::clinit$($Class* clazz) {
 	$assignStatic(DNSName::alphaDigits, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"_s);
 }
 
 $Class* DNSName::load$($String* name, bool initialize) {
-	$loadClass(DNSName, name, initialize, &_DNSName_ClassInfo_, clinit$DNSName, allocate$DNSName);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DNSName, name)},
+		{"alphaDigits", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DNSName, alphaDigits)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(DNSName, init$, void, $DerValue*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(DNSName, init$, void, $String*, bool), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DNSName, init$, void, $String*), "java.io.IOException"},
+		{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(DNSName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DNSName, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DNSName, equals, bool, Object$*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DNSName, getName, $String*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(DNSName, getType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DNSName, hashCode, int32_t)},
+		{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(DNSName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DNSName, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.DNSName",
+		"java.lang.Object",
+		"sun.security.x509.GeneralNameInterface",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DNSName, name, initialize, &classInfo$$, DNSName::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DNSName);
+	});
 	return class$;
 }
 

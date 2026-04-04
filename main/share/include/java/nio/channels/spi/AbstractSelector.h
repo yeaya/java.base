@@ -55,6 +55,7 @@ class $import AbstractSelector : public ::java::nio::channels::Selector {
 	$class(AbstractSelector, 0, ::java::nio::channels::Selector)
 public:
 	AbstractSelector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::SelectorProvider* provider);
 	void begin();
 	virtual void cancel(::java::nio::channels::SelectionKey* k);

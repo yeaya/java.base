@@ -21,6 +21,7 @@ class $export PrivateInterfaceCall : public ::java::lang::Object {
 	$class(PrivateInterfaceCall, 0, ::java::lang::Object)
 public:
 	PrivateInterfaceCall();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void invokeDirect(::PrivateInterfaceCall$I2* i);
 	static void invokeInterfaceMH(::PrivateInterfaceCall$I2* i);

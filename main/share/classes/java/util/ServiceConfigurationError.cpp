@@ -1,5 +1,4 @@
 #include <java/util/ServiceConfigurationError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _ServiceConfigurationError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServiceConfigurationError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ServiceConfigurationError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServiceConfigurationError, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ServiceConfigurationError, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _ServiceConfigurationError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.ServiceConfigurationError",
-	"java.lang.Error",
-	nullptr,
-	_ServiceConfigurationError_FieldInfo_,
-	_ServiceConfigurationError_MethodInfo_
-};
-
-$Object* allocate$ServiceConfigurationError($Class* clazz) {
-	return $of($alloc(ServiceConfigurationError));
-}
 
 void ServiceConfigurationError::init$($String* msg) {
 	$Error::init$(msg);
@@ -54,7 +29,26 @@ void ServiceConfigurationError::throw$() {
 }
 
 $Class* ServiceConfigurationError::load$($String* name, bool initialize) {
-	$loadClass(ServiceConfigurationError, name, initialize, &_ServiceConfigurationError_ClassInfo_, allocate$ServiceConfigurationError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServiceConfigurationError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServiceConfigurationError, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ServiceConfigurationError, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.ServiceConfigurationError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ServiceConfigurationError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceConfigurationError);
+	});
 	return class$;
 }
 

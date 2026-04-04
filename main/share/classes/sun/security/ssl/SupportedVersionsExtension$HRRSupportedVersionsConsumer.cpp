@@ -1,10 +1,8 @@
 #include <sun/security/ssl/SupportedVersionsExtension$HRRSupportedVersionsConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Map.h>
 #include <sun/security/ssl/ClientHandshakeContext.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/SSLConfiguration.h>
 #include <sun/security/ssl/SSLExtension.h>
 #include <sun/security/ssl/SSLHandshake$HandshakeMessage.h>
@@ -19,11 +17,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Map = ::java::util::Map;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -33,43 +28,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SupportedVersionsExtension$HRRSupportedVersionsConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedVersionsExtension$HRRSupportedVersionsConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SupportedVersionsExtension$HRRSupportedVersionsConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SupportedVersionsExtension$HRRSupportedVersionsConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SupportedVersionsExtension$HRRSupportedVersionsConsumer", "sun.security.ssl.SupportedVersionsExtension", "HRRSupportedVersionsConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SupportedVersionsExtension$HRRSupportedVersionsConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SupportedVersionsExtension$HRRSupportedVersionsConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLExtension$ExtensionConsumer",
-	nullptr,
-	_SupportedVersionsExtension$HRRSupportedVersionsConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SupportedVersionsExtension$HRRSupportedVersionsConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SupportedVersionsExtension"
-};
-
-$Object* allocate$SupportedVersionsExtension$HRRSupportedVersionsConsumer($Class* clazz) {
-	return $of($alloc(SupportedVersionsExtension$HRRSupportedVersionsConsumer));
-}
-
 void SupportedVersionsExtension$HRRSupportedVersionsConsumer::init$() {
 }
 
 void SupportedVersionsExtension$HRRSupportedVersionsConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::HRR_SUPPORTED_VERSIONS)) {
@@ -80,14 +43,41 @@ void SupportedVersionsExtension$HRRSupportedVersionsConsumer::consume($Connectio
 		return;
 	}
 	$var($SupportedVersionsExtension$SHSupportedVersionsSpec, spec, $new($SupportedVersionsExtension$SHSupportedVersionsSpec, chc, buffer));
-	$nc($nc(chc)->handshakeExtensions)->put($SSLExtension::HRR_SUPPORTED_VERSIONS, spec);
+	$nc(chc->handshakeExtensions)->put($SSLExtension::HRR_SUPPORTED_VERSIONS, spec);
 }
 
 SupportedVersionsExtension$HRRSupportedVersionsConsumer::SupportedVersionsExtension$HRRSupportedVersionsConsumer() {
 }
 
 $Class* SupportedVersionsExtension$HRRSupportedVersionsConsumer::load$($String* name, bool initialize) {
-	$loadClass(SupportedVersionsExtension$HRRSupportedVersionsConsumer, name, initialize, &_SupportedVersionsExtension$HRRSupportedVersionsConsumer_ClassInfo_, allocate$SupportedVersionsExtension$HRRSupportedVersionsConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedVersionsExtension$HRRSupportedVersionsConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SupportedVersionsExtension$HRRSupportedVersionsConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SupportedVersionsExtension$HRRSupportedVersionsConsumer", "sun.security.ssl.SupportedVersionsExtension", "HRRSupportedVersionsConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SupportedVersionsExtension$HRRSupportedVersionsConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLExtension$ExtensionConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SupportedVersionsExtension"
+	};
+	$loadClass(SupportedVersionsExtension$HRRSupportedVersionsConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SupportedVersionsExtension$HRRSupportedVersionsConsumer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/reflect/annotation/TypeAnnotation$LocationInfo.h>
-
 #include <java/lang/annotation/AnnotationFormatError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/ArrayList.h>
@@ -28,54 +27,6 @@ namespace sun {
 	namespace reflect {
 		namespace annotation {
 
-$FieldInfo _TypeAnnotation$LocationInfo_FieldInfo_[] = {
-	{"depth", "I", nullptr, $PRIVATE | $FINAL, $field(TypeAnnotation$LocationInfo, depth)},
-	{"locations", "[Lsun/reflect/annotation/TypeAnnotation$LocationInfo$Location;", nullptr, $PRIVATE | $FINAL, $field(TypeAnnotation$LocationInfo, locations)},
-	{"BASE_LOCATION", "Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotation$LocationInfo, BASE_LOCATION)},
-	{}
-};
-
-$MethodInfo _TypeAnnotation$LocationInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TypeAnnotation$LocationInfo, init$, void)},
-	{"<init>", "(I[Lsun/reflect/annotation/TypeAnnotation$LocationInfo$Location;)V", nullptr, $PRIVATE, $method(TypeAnnotation$LocationInfo, init$, void, int32_t, $TypeAnnotation$LocationInfo$LocationArray*)},
-	{"filter", "([Lsun/reflect/annotation/TypeAnnotation;)[Lsun/reflect/annotation/TypeAnnotation;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, filter, $TypeAnnotationArray*, $TypeAnnotationArray*)},
-	{"isSameLocationInfo", "(Lsun/reflect/annotation/TypeAnnotation$LocationInfo;)Z", nullptr, 0, $method(TypeAnnotation$LocationInfo, isSameLocationInfo, bool, TypeAnnotation$LocationInfo*)},
-	{"parseLocationInfo", "(Ljava/nio/ByteBuffer;)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotation$LocationInfo, parseLocationInfo, TypeAnnotation$LocationInfo*, $ByteBuffer*)},
-	{"popLocation", "(B)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, popLocation, TypeAnnotation$LocationInfo*, int8_t)},
-	{"pushArray", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushArray, TypeAnnotation$LocationInfo*)},
-	{"pushInner", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushInner, TypeAnnotation$LocationInfo*)},
-	{"pushLocation", "(BS)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushLocation, TypeAnnotation$LocationInfo*, int8_t, int16_t)},
-	{"pushTypeArg", "(S)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushTypeArg, TypeAnnotation$LocationInfo*, int16_t)},
-	{"pushWildcard", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushWildcard, TypeAnnotation$LocationInfo*)},
-	{}
-};
-
-$InnerClassInfo _TypeAnnotation$LocationInfo_InnerClassesInfo_[] = {
-	{"sun.reflect.annotation.TypeAnnotation$LocationInfo", "sun.reflect.annotation.TypeAnnotation", "LocationInfo", $PUBLIC | $STATIC | $FINAL},
-	{"sun.reflect.annotation.TypeAnnotation$LocationInfo$Location", "sun.reflect.annotation.TypeAnnotation$LocationInfo", "Location", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TypeAnnotation$LocationInfo_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.reflect.annotation.TypeAnnotation$LocationInfo",
-	"java.lang.Object",
-	nullptr,
-	_TypeAnnotation$LocationInfo_FieldInfo_,
-	_TypeAnnotation$LocationInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeAnnotation$LocationInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.reflect.annotation.TypeAnnotation"
-};
-
-$Object* allocate$TypeAnnotation$LocationInfo($Class* clazz) {
-	return $of($alloc(TypeAnnotation$LocationInfo));
-}
-
 TypeAnnotation$LocationInfo* TypeAnnotation$LocationInfo::BASE_LOCATION = nullptr;
 
 void TypeAnnotation$LocationInfo::init$() {
@@ -89,15 +40,15 @@ void TypeAnnotation$LocationInfo::init$(int32_t depth, $TypeAnnotation$LocationI
 
 TypeAnnotation$LocationInfo* TypeAnnotation$LocationInfo::parseLocationInfo($ByteBuffer* buf) {
 	$init(TypeAnnotation$LocationInfo);
-	$useLocalCurrentObjectStackCache();
-	int32_t depth = (int32_t)($nc(buf)->get() & (uint32_t)255);
+	$useLocalObjectStack();
+	int32_t depth = $nc(buf)->get() & 0xff;
 	if (depth == 0) {
 		return TypeAnnotation$LocationInfo::BASE_LOCATION;
 	}
 	$var($TypeAnnotation$LocationInfo$LocationArray, locations, $new($TypeAnnotation$LocationInfo$LocationArray, depth));
 	for (int32_t i = 0; i < depth; ++i) {
 		int8_t tag = buf->get();
-		int16_t index = (int16_t)((int32_t)(buf->get() & (uint32_t)255));
+		int16_t index = (int16_t)(buf->get() & 0xff);
 		if (!(tag == 0 || (tag == 1) | (tag == 2) || tag == 3)) {
 			$throwNew($AnnotationFormatError, "Bad Location encoding in Type Annotation"_s);
 		}
@@ -126,11 +77,11 @@ TypeAnnotation$LocationInfo* TypeAnnotation$LocationInfo::pushTypeArg(int16_t in
 }
 
 TypeAnnotation$LocationInfo* TypeAnnotation$LocationInfo::pushLocation(int8_t tag, int16_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newDepth = this->depth + 1;
 	$var($TypeAnnotation$LocationInfo$LocationArray, res, $new($TypeAnnotation$LocationInfo$LocationArray, newDepth));
 	$System::arraycopy(this->locations, 0, res, 0, this->depth);
-	res->set(newDepth - 1, $$new($TypeAnnotation$LocationInfo$Location, tag, (int16_t)((int32_t)(index & (uint32_t)255))));
+	res->set(newDepth - 1, $$new($TypeAnnotation$LocationInfo$Location, tag, (int16_t)(index & 0xff)));
 	return $new(TypeAnnotation$LocationInfo, newDepth, res);
 }
 
@@ -144,23 +95,19 @@ TypeAnnotation$LocationInfo* TypeAnnotation$LocationInfo::popLocation(int8_t tag
 }
 
 $TypeAnnotationArray* TypeAnnotation$LocationInfo::filter($TypeAnnotationArray* ta) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, l, $new($ArrayList, $nc(ta)->length));
 	{
 		$var($TypeAnnotationArray, arr$, ta);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($TypeAnnotation, t, arr$->get(i$));
-			{
-				if (isSameLocationInfo($($nc(t)->getLocationInfo()))) {
-					l->add(t);
-				}
+			if (isSameLocationInfo($($nc(t)->getLocationInfo()))) {
+				l->add(t);
 			}
 		}
 	}
 	$init($AnnotatedTypeFactory);
-	return $fcast($TypeAnnotationArray, l->toArray($AnnotatedTypeFactory::EMPTY_TYPE_ANNOTATION_ARRAY));
+	return $cast($TypeAnnotationArray, l->toArray($AnnotatedTypeFactory::EMPTY_TYPE_ANNOTATION_ARRAY));
 }
 
 bool TypeAnnotation$LocationInfo::isSameLocationInfo(TypeAnnotation$LocationInfo* other) {
@@ -168,14 +115,14 @@ bool TypeAnnotation$LocationInfo::isSameLocationInfo(TypeAnnotation$LocationInfo
 		return false;
 	}
 	for (int32_t i = 0; i < this->depth; ++i) {
-		if (!$nc($nc(this->locations)->get(i))->isSameLocation($nc($nc(other)->locations)->get(i))) {
+		if (!$nc($nc(this->locations)->get(i))->isSameLocation($nc(other->locations)->get(i))) {
 			return false;
 		}
 	}
 	return true;
 }
 
-void clinit$TypeAnnotation$LocationInfo($Class* class$) {
+void TypeAnnotation$LocationInfo::clinit$($Class* clazz) {
 	$assignStatic(TypeAnnotation$LocationInfo::BASE_LOCATION, $new(TypeAnnotation$LocationInfo));
 }
 
@@ -183,7 +130,49 @@ TypeAnnotation$LocationInfo::TypeAnnotation$LocationInfo() {
 }
 
 $Class* TypeAnnotation$LocationInfo::load$($String* name, bool initialize) {
-	$loadClass(TypeAnnotation$LocationInfo, name, initialize, &_TypeAnnotation$LocationInfo_ClassInfo_, clinit$TypeAnnotation$LocationInfo, allocate$TypeAnnotation$LocationInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"depth", "I", nullptr, $PRIVATE | $FINAL, $field(TypeAnnotation$LocationInfo, depth)},
+		{"locations", "[Lsun/reflect/annotation/TypeAnnotation$LocationInfo$Location;", nullptr, $PRIVATE | $FINAL, $field(TypeAnnotation$LocationInfo, locations)},
+		{"BASE_LOCATION", "Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotation$LocationInfo, BASE_LOCATION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TypeAnnotation$LocationInfo, init$, void)},
+		{"<init>", "(I[Lsun/reflect/annotation/TypeAnnotation$LocationInfo$Location;)V", nullptr, $PRIVATE, $method(TypeAnnotation$LocationInfo, init$, void, int32_t, $TypeAnnotation$LocationInfo$LocationArray*)},
+		{"filter", "([Lsun/reflect/annotation/TypeAnnotation;)[Lsun/reflect/annotation/TypeAnnotation;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, filter, $TypeAnnotationArray*, $TypeAnnotationArray*)},
+		{"isSameLocationInfo", "(Lsun/reflect/annotation/TypeAnnotation$LocationInfo;)Z", nullptr, 0, $method(TypeAnnotation$LocationInfo, isSameLocationInfo, bool, TypeAnnotation$LocationInfo*)},
+		{"parseLocationInfo", "(Ljava/nio/ByteBuffer;)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotation$LocationInfo, parseLocationInfo, TypeAnnotation$LocationInfo*, $ByteBuffer*)},
+		{"popLocation", "(B)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, popLocation, TypeAnnotation$LocationInfo*, int8_t)},
+		{"pushArray", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushArray, TypeAnnotation$LocationInfo*)},
+		{"pushInner", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushInner, TypeAnnotation$LocationInfo*)},
+		{"pushLocation", "(BS)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushLocation, TypeAnnotation$LocationInfo*, int8_t, int16_t)},
+		{"pushTypeArg", "(S)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushTypeArg, TypeAnnotation$LocationInfo*, int16_t)},
+		{"pushWildcard", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushWildcard, TypeAnnotation$LocationInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.annotation.TypeAnnotation$LocationInfo", "sun.reflect.annotation.TypeAnnotation", "LocationInfo", $PUBLIC | $STATIC | $FINAL},
+		{"sun.reflect.annotation.TypeAnnotation$LocationInfo$Location", "sun.reflect.annotation.TypeAnnotation$LocationInfo", "Location", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.reflect.annotation.TypeAnnotation$LocationInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.reflect.annotation.TypeAnnotation"
+	};
+	$loadClass(TypeAnnotation$LocationInfo, name, initialize, &classInfo$$, TypeAnnotation$LocationInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeAnnotation$LocationInfo);
+	});
 	return class$;
 }
 

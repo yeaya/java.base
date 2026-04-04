@@ -1,5 +1,4 @@
 #include <MapOverEnd.h>
-
 #include <java/io/File.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/nio/ByteBuffer.h>
@@ -19,30 +18,11 @@ using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 
-$MethodInfo _MapOverEnd_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MapOverEnd, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MapOverEnd, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _MapOverEnd_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MapOverEnd",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MapOverEnd_MethodInfo_
-};
-
-$Object* allocate$MapOverEnd($Class* clazz) {
-	return $of($alloc(MapOverEnd));
-}
-
 void MapOverEnd::init$() {
 }
 
 void MapOverEnd::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($RandomAccessFile, raf, $new($RandomAccessFile, blah, "rw"_s));
@@ -59,7 +39,22 @@ MapOverEnd::MapOverEnd() {
 }
 
 $Class* MapOverEnd::load$($String* name, bool initialize) {
-	$loadClass(MapOverEnd, name, initialize, &_MapOverEnd_ClassInfo_, allocate$MapOverEnd);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MapOverEnd, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MapOverEnd, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MapOverEnd",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MapOverEnd, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MapOverEnd);
+	});
 	return class$;
 }
 

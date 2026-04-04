@@ -1,5 +1,4 @@
 #include <javax/net/ssl/KeyManagerFactory$1.h>
-
 #include <java/security/Security.h>
 #include <javax/net/ssl/KeyManagerFactory.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$MethodInfo _KeyManagerFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(KeyManagerFactory$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyManagerFactory$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _KeyManagerFactory$1_EnclosingMethodInfo_ = {
-	"javax.net.ssl.KeyManagerFactory",
-	"getDefaultAlgorithm",
-	"()Ljava/lang/String;"
-};
-
-$InnerClassInfo _KeyManagerFactory$1_InnerClassesInfo_[] = {
-	{"javax.net.ssl.KeyManagerFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KeyManagerFactory$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.net.ssl.KeyManagerFactory$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_KeyManagerFactory$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_KeyManagerFactory$1_EnclosingMethodInfo_,
-	_KeyManagerFactory$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.net.ssl.KeyManagerFactory"
-};
-
-$Object* allocate$KeyManagerFactory$1($Class* clazz) {
-	return $of($alloc(KeyManagerFactory$1));
-}
-
 void KeyManagerFactory$1::init$() {
 }
 
@@ -62,7 +24,38 @@ KeyManagerFactory$1::KeyManagerFactory$1() {
 }
 
 $Class* KeyManagerFactory$1::load$($String* name, bool initialize) {
-	$loadClass(KeyManagerFactory$1, name, initialize, &_KeyManagerFactory$1_ClassInfo_, allocate$KeyManagerFactory$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(KeyManagerFactory$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyManagerFactory$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.net.ssl.KeyManagerFactory",
+		"getDefaultAlgorithm",
+		"()Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.net.ssl.KeyManagerFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.net.ssl.KeyManagerFactory$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.net.ssl.KeyManagerFactory"
+	};
+	$loadClass(KeyManagerFactory$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyManagerFactory$1);
+	});
 	return class$;
 }
 

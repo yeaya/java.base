@@ -1,5 +1,4 @@
 #include <java/util/IllegalFormatFlagsException.h>
-
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $IllegalFormatException = ::java::util::IllegalFormatException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _IllegalFormatFlagsException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalFormatFlagsException, serialVersionUID)},
-	{"flags", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IllegalFormatFlagsException, flags)},
-	{}
-};
-
-$MethodInfo _IllegalFormatFlagsException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalFormatFlagsException, init$, void, $String*)},
-	{"getFlags", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatFlagsException, getFlags, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatFlagsException, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _IllegalFormatFlagsException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.IllegalFormatFlagsException",
-	"java.util.IllegalFormatException",
-	nullptr,
-	_IllegalFormatFlagsException_FieldInfo_,
-	_IllegalFormatFlagsException_MethodInfo_
-};
-
-$Object* allocate$IllegalFormatFlagsException($Class* clazz) {
-	return $of($alloc(IllegalFormatFlagsException));
-}
 
 void IllegalFormatFlagsException::init$($String* f) {
 	$IllegalFormatException::init$();
@@ -65,7 +38,28 @@ void IllegalFormatFlagsException::throw$() {
 }
 
 $Class* IllegalFormatFlagsException::load$($String* name, bool initialize) {
-	$loadClass(IllegalFormatFlagsException, name, initialize, &_IllegalFormatFlagsException_ClassInfo_, allocate$IllegalFormatFlagsException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalFormatFlagsException, serialVersionUID)},
+		{"flags", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IllegalFormatFlagsException, flags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalFormatFlagsException, init$, void, $String*)},
+		{"getFlags", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatFlagsException, getFlags, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatFlagsException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.IllegalFormatFlagsException",
+		"java.util.IllegalFormatException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalFormatFlagsException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalFormatFlagsException);
+	});
 	return class$;
 }
 

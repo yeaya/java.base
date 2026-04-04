@@ -22,6 +22,7 @@ class BootstrapMethodInvoker$PushAdapter : public ::java::lang::Object {
 	$class(BootstrapMethodInvoker$PushAdapter, 0, ::java::lang::Object)
 public:
 	BootstrapMethodInvoker$PushAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* pushToBootstrapMethod(::java::lang::invoke::MethodHandle* pullModeBSM, ::java::lang::invoke::MethodHandles$Lookup* lookup, $String* name, Object$* type, $ObjectArray* arguments);
 	static ::java::lang::invoke::MethodHandle* MH_pushToBootstrapMethod;

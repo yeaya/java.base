@@ -1,5 +1,4 @@
 #include <java/lang/invoke/TypeDescriptor$OfMethod.h>
-
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -15,47 +14,42 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$MethodInfo _TypeDescriptor$OfMethod_MethodInfo_[] = {
-	{"changeParameterType", "(ILjava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", "(ITF;)TM;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, changeParameterType, TypeDescriptor$OfMethod*, int32_t, $TypeDescriptor$OfField*)},
-	{"changeReturnType", "(Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", "(TF;)TM;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, changeReturnType, TypeDescriptor$OfMethod*, $TypeDescriptor$OfField*)},
-	{"dropParameterTypes", "(II)Ljava/lang/invoke/TypeDescriptor$OfMethod;", "(II)TM;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, dropParameterTypes, TypeDescriptor$OfMethod*, int32_t, int32_t)},
-	{"insertParameterTypes", "(I[Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", "(I[TF;)TM;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, insertParameterTypes, TypeDescriptor$OfMethod*, int32_t, $TypeDescriptor$OfFieldArray*)},
-	{"parameterArray", "()[Ljava/lang/invoke/TypeDescriptor$OfField;", "()[TF;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, parameterArray, $TypeDescriptor$OfFieldArray*)},
-	{"parameterCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, parameterCount, int32_t)},
-	{"parameterList", "()Ljava/util/List;", "()Ljava/util/List<TF;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, parameterList, $List*)},
-	{"parameterType", "(I)Ljava/lang/invoke/TypeDescriptor$OfField;", "(I)TF;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, parameterType, $TypeDescriptor$OfField*, int32_t)},
-	{"returnType", "()Ljava/lang/invoke/TypeDescriptor$OfField;", "()TF;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, returnType, $TypeDescriptor$OfField*)},
-	{}
-};
-
-$InnerClassInfo _TypeDescriptor$OfMethod_InnerClassesInfo_[] = {
-	{"java.lang.invoke.TypeDescriptor$OfMethod", "java.lang.invoke.TypeDescriptor", "OfMethod", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.lang.invoke.TypeDescriptor$OfField", "java.lang.invoke.TypeDescriptor", "OfField", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TypeDescriptor$OfMethod_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.invoke.TypeDescriptor$OfMethod",
-	nullptr,
-	"java.lang.invoke.TypeDescriptor",
-	nullptr,
-	_TypeDescriptor$OfMethod_MethodInfo_,
-	"<F::Ljava/lang/invoke/TypeDescriptor$OfField<TF;>;M::Ljava/lang/invoke/TypeDescriptor$OfMethod<TF;TM;>;>Ljava/lang/Object;Ljava/lang/invoke/TypeDescriptor;",
-	nullptr,
-	_TypeDescriptor$OfMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.TypeDescriptor"
-};
-
-$Object* allocate$TypeDescriptor$OfMethod($Class* clazz) {
-	return $of($alloc(TypeDescriptor$OfMethod));
-}
-
 $Class* TypeDescriptor$OfMethod::load$($String* name, bool initialize) {
-	$loadClass(TypeDescriptor$OfMethod, name, initialize, &_TypeDescriptor$OfMethod_ClassInfo_, allocate$TypeDescriptor$OfMethod);
+	$MethodInfo methodInfos$$[] = {
+		{"changeParameterType", "(ILjava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", "(ITF;)TM;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, changeParameterType, TypeDescriptor$OfMethod*, int32_t, $TypeDescriptor$OfField*)},
+		{"changeReturnType", "(Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", "(TF;)TM;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, changeReturnType, TypeDescriptor$OfMethod*, $TypeDescriptor$OfField*)},
+		{"dropParameterTypes", "(II)Ljava/lang/invoke/TypeDescriptor$OfMethod;", "(II)TM;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, dropParameterTypes, TypeDescriptor$OfMethod*, int32_t, int32_t)},
+		{"insertParameterTypes", "(I[Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", "(I[TF;)TM;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, insertParameterTypes, TypeDescriptor$OfMethod*, int32_t, $TypeDescriptor$OfFieldArray*)},
+		{"parameterArray", "()[Ljava/lang/invoke/TypeDescriptor$OfField;", "()[TF;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, parameterArray, $TypeDescriptor$OfFieldArray*)},
+		{"parameterCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, parameterCount, int32_t)},
+		{"parameterList", "()Ljava/util/List;", "()Ljava/util/List<TF;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, parameterList, $List*)},
+		{"parameterType", "(I)Ljava/lang/invoke/TypeDescriptor$OfField;", "(I)TF;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, parameterType, $TypeDescriptor$OfField*, int32_t)},
+		{"returnType", "()Ljava/lang/invoke/TypeDescriptor$OfField;", "()TF;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfMethod, returnType, $TypeDescriptor$OfField*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.TypeDescriptor$OfMethod", "java.lang.invoke.TypeDescriptor", "OfMethod", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.lang.invoke.TypeDescriptor$OfField", "java.lang.invoke.TypeDescriptor", "OfField", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.invoke.TypeDescriptor$OfMethod",
+		nullptr,
+		"java.lang.invoke.TypeDescriptor",
+		nullptr,
+		methodInfos$$,
+		"<F::Ljava/lang/invoke/TypeDescriptor$OfField<TF;>;M::Ljava/lang/invoke/TypeDescriptor$OfMethod<TF;TM;>;>Ljava/lang/Object;Ljava/lang/invoke/TypeDescriptor;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.TypeDescriptor"
+	};
+	$loadClass(TypeDescriptor$OfMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeDescriptor$OfMethod);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <NegativeBufferSize.h>
-
 #include <MyStringWriter.h>
 #include <jcpp.h>
 
@@ -8,25 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _NegativeBufferSize_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NegativeBufferSize, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NegativeBufferSize, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _NegativeBufferSize_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NegativeBufferSize",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NegativeBufferSize_MethodInfo_
-};
-
-$Object* allocate$NegativeBufferSize($Class* clazz) {
-	return $of($alloc(NegativeBufferSize));
-}
 
 void NegativeBufferSize::init$() {
 }
@@ -44,7 +24,22 @@ NegativeBufferSize::NegativeBufferSize() {
 }
 
 $Class* NegativeBufferSize::load$($String* name, bool initialize) {
-	$loadClass(NegativeBufferSize, name, initialize, &_NegativeBufferSize_ClassInfo_, allocate$NegativeBufferSize);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NegativeBufferSize, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NegativeBufferSize, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NegativeBufferSize",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NegativeBufferSize, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NegativeBufferSize);
+	});
 	return class$;
 }
 

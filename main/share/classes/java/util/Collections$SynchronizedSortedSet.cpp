@@ -1,5 +1,4 @@
 #include <java/util/Collections$SynchronizedSortedSet.h>
-
 #include <java/util/Collection.h>
 #include <java/util/Collections$SynchronizedCollection.h>
 #include <java/util/Collections$SynchronizedSet.h>
@@ -23,7 +22,6 @@ using $Collection = ::java::util::Collection;
 using $Collections$SynchronizedSet = ::java::util::Collections$SynchronizedSet;
 using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 using $SortedSet = ::java::util::SortedSet;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
@@ -33,74 +31,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$SynchronizedSortedSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SynchronizedSortedSet, serialVersionUID)},
-	{"ss", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<TE;>;", $PRIVATE | $FINAL, $field(Collections$SynchronizedSortedSet, ss)},
-	{}
-};
-
-$MethodInfo _Collections$SynchronizedSortedSet_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/SortedSet;)V", "(Ljava/util/SortedSet<TE;>;)V", 0, $method(Collections$SynchronizedSortedSet, init$, void, $SortedSet*)},
-	{"<init>", "(Ljava/util/SortedSet;Ljava/lang/Object;)V", "(Ljava/util/SortedSet<TE;>;Ljava/lang/Object;)V", 0, $method(Collections$SynchronizedSortedSet, init$, void, $SortedSet*, Object$*)},
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, comparator, $Comparator*)},
-	{"first", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, first, $Object*)},
-	{"headSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, headSet, $SortedSet*, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"last", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, last, $Object*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{"subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, subSet, $SortedSet*, Object$*, Object$*)},
-	{"tailSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, tailSet, $SortedSet*, Object$*)},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$SynchronizedSortedSet_InnerClassesInfo_[] = {
-	{"java.util.Collections$SynchronizedSortedSet", "java.util.Collections", "SynchronizedSortedSet", $STATIC},
-	{"java.util.Collections$SynchronizedSet", "java.util.Collections", "SynchronizedSet", $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$SynchronizedSortedSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$SynchronizedSortedSet",
-	"java.util.Collections$SynchronizedSet",
-	"java.util.SortedSet",
-	_Collections$SynchronizedSortedSet_FieldInfo_,
-	_Collections$SynchronizedSortedSet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/Collections$SynchronizedSet<TE;>;Ljava/util/SortedSet<TE;>;",
-	nullptr,
-	_Collections$SynchronizedSortedSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$SynchronizedSortedSet($Class* clazz) {
-	return $of($alloc(Collections$SynchronizedSortedSet));
-}
 
 bool Collections$SynchronizedSortedSet::equals(Object$* o) {
 	 return this->$Collections$SynchronizedSet::equals(o);
@@ -234,13 +164,13 @@ $SortedSet* Collections$SynchronizedSortedSet::tailSet(Object$* fromElement) {
 
 $Object* Collections$SynchronizedSortedSet::first() {
 	$synchronized(this->mutex) {
-		return $of($nc(this->ss)->first());
+		return $nc(this->ss)->first();
 	}
 }
 
 $Object* Collections$SynchronizedSortedSet::last() {
 	$synchronized(this->mutex) {
-		return $of($nc(this->ss)->last());
+		return $nc(this->ss)->last();
 	}
 }
 
@@ -248,7 +178,69 @@ Collections$SynchronizedSortedSet::Collections$SynchronizedSortedSet() {
 }
 
 $Class* Collections$SynchronizedSortedSet::load$($String* name, bool initialize) {
-	$loadClass(Collections$SynchronizedSortedSet, name, initialize, &_Collections$SynchronizedSortedSet_ClassInfo_, allocate$Collections$SynchronizedSortedSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SynchronizedSortedSet, serialVersionUID)},
+		{"ss", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<TE;>;", $PRIVATE | $FINAL, $field(Collections$SynchronizedSortedSet, ss)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/SortedSet;)V", "(Ljava/util/SortedSet<TE;>;)V", 0, $method(Collections$SynchronizedSortedSet, init$, void, $SortedSet*)},
+		{"<init>", "(Ljava/util/SortedSet;Ljava/lang/Object;)V", "(Ljava/util/SortedSet<TE;>;Ljava/lang/Object;)V", 0, $method(Collections$SynchronizedSortedSet, init$, void, $SortedSet*, Object$*)},
+		{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, comparator, $Comparator*)},
+		{"first", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, first, $Object*)},
+		{"headSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, headSet, $SortedSet*, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"last", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, last, $Object*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{"subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, subSet, $SortedSet*, Object$*, Object$*)},
+		{"tailSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC, $virtualMethod(Collections$SynchronizedSortedSet, tailSet, $SortedSet*, Object$*)},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$SynchronizedSortedSet", "java.util.Collections", "SynchronizedSortedSet", $STATIC},
+		{"java.util.Collections$SynchronizedSet", "java.util.Collections", "SynchronizedSet", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$SynchronizedSortedSet",
+		"java.util.Collections$SynchronizedSet",
+		"java.util.SortedSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/Collections$SynchronizedSet<TE;>;Ljava/util/SortedSet<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$SynchronizedSortedSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$SynchronizedSortedSet));
+	});
 	return class$;
 }
 

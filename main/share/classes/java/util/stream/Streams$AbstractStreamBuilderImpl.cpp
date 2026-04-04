@@ -1,5 +1,4 @@
 #include <java/util/stream/Streams$AbstractStreamBuilderImpl.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/stream/Streams.h>
 #include <jcpp.h>
@@ -18,44 +17,6 @@ using $Spliterator = ::java::util::Spliterator;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Streams$AbstractStreamBuilderImpl_FieldInfo_[] = {
-	{"count", "I", nullptr, 0, $field(Streams$AbstractStreamBuilderImpl, count)},
-	{}
-};
-
-$MethodInfo _Streams$AbstractStreamBuilderImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Streams$AbstractStreamBuilderImpl, init$, void)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Streams$AbstractStreamBuilderImpl, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Streams$AbstractStreamBuilderImpl, estimateSize, int64_t)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TS;", $PUBLIC, $virtualMethod(Streams$AbstractStreamBuilderImpl, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Streams$AbstractStreamBuilderImpl_InnerClassesInfo_[] = {
-	{"java.util.stream.Streams$AbstractStreamBuilderImpl", "java.util.stream.Streams", "AbstractStreamBuilderImpl", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Streams$AbstractStreamBuilderImpl_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.Streams$AbstractStreamBuilderImpl",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_Streams$AbstractStreamBuilderImpl_FieldInfo_,
-	_Streams$AbstractStreamBuilderImpl_MethodInfo_,
-	"<T:Ljava/lang/Object;S::Ljava/util/Spliterator<TT;>;>Ljava/lang/Object;Ljava/util/Spliterator<TT;>;",
-	nullptr,
-	_Streams$AbstractStreamBuilderImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Streams"
-};
-
-$Object* allocate$Streams$AbstractStreamBuilderImpl($Class* clazz) {
-	return $of($alloc(Streams$AbstractStreamBuilderImpl));
-}
 
 void Streams$AbstractStreamBuilderImpl::init$() {
 }
@@ -76,7 +37,39 @@ Streams$AbstractStreamBuilderImpl::Streams$AbstractStreamBuilderImpl() {
 }
 
 $Class* Streams$AbstractStreamBuilderImpl::load$($String* name, bool initialize) {
-	$loadClass(Streams$AbstractStreamBuilderImpl, name, initialize, &_Streams$AbstractStreamBuilderImpl_ClassInfo_, allocate$Streams$AbstractStreamBuilderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"count", "I", nullptr, 0, $field(Streams$AbstractStreamBuilderImpl, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Streams$AbstractStreamBuilderImpl, init$, void)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Streams$AbstractStreamBuilderImpl, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Streams$AbstractStreamBuilderImpl, estimateSize, int64_t)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()TS;", $PUBLIC, $virtualMethod(Streams$AbstractStreamBuilderImpl, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Streams$AbstractStreamBuilderImpl", "java.util.stream.Streams", "AbstractStreamBuilderImpl", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.Streams$AbstractStreamBuilderImpl",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;S::Ljava/util/Spliterator<TT;>;>Ljava/lang/Object;Ljava/util/Spliterator<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Streams"
+	};
+	$loadClass(Streams$AbstractStreamBuilderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Streams$AbstractStreamBuilderImpl);
+	});
 	return class$;
 }
 

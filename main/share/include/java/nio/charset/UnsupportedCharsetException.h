@@ -15,11 +15,14 @@ public:
 	UnsupportedCharsetException();
 	void init$($String* charsetName);
 	virtual $String* getCharsetName();
-	static const int64_t serialVersionUID = (int64_t)0x14B04358A8C650FF;
+	static const int64_t serialVersionUID = (int64_t)0x14b04358a8c650ff;
 	$String* charsetName = nullptr;
 	UnsupportedCharsetException(const UnsupportedCharsetException& e);
 	virtual void throw$() override;
-	inline UnsupportedCharsetException* operator ->() {
+	inline UnsupportedCharsetException* operator ->() const {
+		return (UnsupportedCharsetException*)throwing$;
+	}
+	inline operator UnsupportedCharsetException*() const {
 		return (UnsupportedCharsetException*)throwing$;
 	}
 };

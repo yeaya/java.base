@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl$8.h>
-
 #include <java/util/Calendar$Builder.h>
 #include <java/util/Calendar.h>
 #include <java/util/Locale.h>
@@ -25,45 +24,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$MethodInfo _HostLocaleProviderAdapterImpl$8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$8, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, getAvailableLocales, $LocaleArray*)},
-	{"getInstance", "(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, getInstance, $Calendar*, $TimeZone*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, isSupportedLocale, bool, $Locale*)},
-	{}
-};
-
-$EnclosingMethodInfo _HostLocaleProviderAdapterImpl$8_EnclosingMethodInfo_ = {
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
-	"getCalendarProvider",
-	"()Lsun/util/spi/CalendarProvider;"
-};
-
-$InnerClassInfo _HostLocaleProviderAdapterImpl$8_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$8", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HostLocaleProviderAdapterImpl$8_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl$8",
-	"sun.util.spi.CalendarProvider",
-	nullptr,
-	nullptr,
-	_HostLocaleProviderAdapterImpl$8_MethodInfo_,
-	nullptr,
-	&_HostLocaleProviderAdapterImpl$8_EnclosingMethodInfo_,
-	_HostLocaleProviderAdapterImpl$8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
-};
-
-$Object* allocate$HostLocaleProviderAdapterImpl$8($Class* clazz) {
-	return $of($alloc(HostLocaleProviderAdapterImpl$8));
-}
-
 void HostLocaleProviderAdapterImpl$8::init$() {
 	$CalendarProvider::init$();
 }
@@ -77,15 +37,48 @@ bool HostLocaleProviderAdapterImpl$8::isSupportedLocale($Locale* locale) {
 }
 
 $Calendar* HostLocaleProviderAdapterImpl$8::getInstance($TimeZone* zone, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($nc($($nc($($$new($Calendar$Builder)->setLocale(locale)))->setCalendarType($($HostLocaleProviderAdapterImpl::getCalendarID($($nc(locale)->toLanguageTag()))))))->setTimeZone(zone)))->setInstant($System::currentTimeMillis())))->build();
+	$useLocalObjectStack();
+	return $$nc($$nc($$nc($$nc($$new($Calendar$Builder)->setLocale(locale))->setCalendarType($($HostLocaleProviderAdapterImpl::getCalendarID($($nc(locale)->toLanguageTag())))))->setTimeZone(zone))->setInstant($System::currentTimeMillis()))->build();
 }
 
 HostLocaleProviderAdapterImpl$8::HostLocaleProviderAdapterImpl$8() {
 }
 
 $Class* HostLocaleProviderAdapterImpl$8::load$($String* name, bool initialize) {
-	$loadClass(HostLocaleProviderAdapterImpl$8, name, initialize, &_HostLocaleProviderAdapterImpl$8_ClassInfo_, allocate$HostLocaleProviderAdapterImpl$8);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$8, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, getAvailableLocales, $LocaleArray*)},
+		{"getInstance", "(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, getInstance, $Calendar*, $TimeZone*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$8, isSupportedLocale, bool, $Locale*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
+		"getCalendarProvider",
+		"()Lsun/util/spi/CalendarProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$8", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl$8",
+		"sun.util.spi.CalendarProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
+	};
+	$loadClass(HostLocaleProviderAdapterImpl$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostLocaleProviderAdapterImpl$8);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Bug8072099.h>
-
 #include <java/text/ParseException.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Date.h>
@@ -17,31 +16,6 @@ using $ParseException = ::java::text::ParseException;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Locale = ::java::util::Locale;
 
-$FieldInfo _Bug8072099_FieldInfo_[] = {
-	{"shouldPass", "[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Bug8072099, shouldPass)},
-	{}
-};
-
-$MethodInfo _Bug8072099_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8072099, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8072099, main, void, $StringArray*)},
-	{"parseDateTimeInput", "(Ljava/text/SimpleDateFormat;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug8072099, parseDateTimeInput, void, $SimpleDateFormat*, $String*)},
-	{}
-};
-
-$ClassInfo _Bug8072099_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug8072099",
-	"java.lang.Object",
-	nullptr,
-	_Bug8072099_FieldInfo_,
-	_Bug8072099_MethodInfo_
-};
-
-$Object* allocate$Bug8072099($Class* clazz) {
-	return $of($alloc(Bug8072099));
-}
-
 $StringArray2* Bug8072099::shouldPass = nullptr;
 
 void Bug8072099::init$() {
@@ -49,32 +23,28 @@ void Bug8072099::init$() {
 
 void Bug8072099::main($StringArray* args) {
 	$init(Bug8072099);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, defaultLocale, $Locale::getDefault());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$Locale::setDefault($Locale::US);
-			{
-				$var($StringArray2, arr$, Bug8072099::shouldPass);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($StringArray, pattern, arr$->get(i$));
-					{
-						$var($SimpleDateFormat, dateTimeFormat, $new($SimpleDateFormat, $nc(pattern)->get(0)));
-						parseDateTimeInput(dateTimeFormat, $nc(pattern)->get(1));
-					}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$Locale::setDefault($Locale::US);
+		{
+			$var($StringArray2, arr$, Bug8072099::shouldPass);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($StringArray, pattern, arr$->get(i$));
+				{
+					$var($SimpleDateFormat, dateTimeFormat, $new($SimpleDateFormat, $nc(pattern)->get(0)));
+					parseDateTimeInput(dateTimeFormat, pattern->get(1));
 				}
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$Locale::setDefault(defaultLocale);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$Locale::setDefault(defaultLocale);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -87,8 +57,8 @@ void Bug8072099::parseDateTimeInput($SimpleDateFormat* format, $String* inputStr
 	}
 }
 
-void clinit$Bug8072099($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Bug8072099::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Bug8072099::shouldPass, $new($StringArray2, {
 		$$new($StringArray, {
 			"ha"_s,
@@ -121,7 +91,27 @@ Bug8072099::Bug8072099() {
 }
 
 $Class* Bug8072099::load$($String* name, bool initialize) {
-	$loadClass(Bug8072099, name, initialize, &_Bug8072099_ClassInfo_, clinit$Bug8072099, allocate$Bug8072099);
+	$FieldInfo fieldInfos$$[] = {
+		{"shouldPass", "[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Bug8072099, shouldPass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8072099, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8072099, main, void, $StringArray*)},
+		{"parseDateTimeInput", "(Ljava/text/SimpleDateFormat;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug8072099, parseDateTimeInput, void, $SimpleDateFormat*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug8072099",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Bug8072099, name, initialize, &classInfo$$, Bug8072099::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug8072099);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/ImmutableCollections$SetN$SetNIterator.h>
-
 #include <java/util/ImmutableCollections$SetN.h>
 #include <java/util/ImmutableCollections.h>
 #include <java/util/NoSuchElementException.h>
@@ -18,46 +17,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _ImmutableCollections$SetN$SetNIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/ImmutableCollections$SetN;", nullptr, $FINAL | $SYNTHETIC, $field(ImmutableCollections$SetN$SetNIterator, this$0)},
-	{"remaining", "I", nullptr, $PRIVATE, $field(ImmutableCollections$SetN$SetNIterator, remaining)},
-	{"idx", "I", nullptr, $PRIVATE, $field(ImmutableCollections$SetN$SetNIterator, idx)},
-	{}
-};
-
-$MethodInfo _ImmutableCollections$SetN$SetNIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ImmutableCollections$SetN;)V", nullptr, 0, $method(ImmutableCollections$SetN$SetNIterator, init$, void, $ImmutableCollections$SetN*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$SetN$SetNIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ImmutableCollections$SetN$SetNIterator, next, $Object*)},
-	{}
-};
-
-$InnerClassInfo _ImmutableCollections$SetN$SetNIterator_InnerClassesInfo_[] = {
-	{"java.util.ImmutableCollections$SetN", "java.util.ImmutableCollections", "SetN", $STATIC | $FINAL},
-	{"java.util.ImmutableCollections$SetN$SetNIterator", "java.util.ImmutableCollections$SetN", "SetNIterator", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _ImmutableCollections$SetN$SetNIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.ImmutableCollections$SetN$SetNIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ImmutableCollections$SetN$SetNIterator_FieldInfo_,
-	_ImmutableCollections$SetN$SetNIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_ImmutableCollections$SetN$SetNIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ImmutableCollections"
-};
-
-$Object* allocate$ImmutableCollections$SetN$SetNIterator($Class* clazz) {
-	return $of($alloc(ImmutableCollections$SetN$SetNIterator));
-}
 
 void ImmutableCollections$SetN$SetNIterator::init$($ImmutableCollections$SetN* this$0) {
 	$set(this, this$0, this$0);
@@ -84,10 +43,10 @@ $Object* ImmutableCollections$SetN$SetNIterator::next() {
 			} else if (--idx < 0) {
 				idx = len - 1;
 			}
-		} while (($assign(element, $nc(this->this$0->elements)->get(idx))) == nullptr);
+		} while (($assign(element, this->this$0->elements->get(idx))) == nullptr);
 		this->idx = idx;
 		--this->remaining;
-		return $of(element);
+		return element;
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -97,7 +56,41 @@ ImmutableCollections$SetN$SetNIterator::ImmutableCollections$SetN$SetNIterator()
 }
 
 $Class* ImmutableCollections$SetN$SetNIterator::load$($String* name, bool initialize) {
-	$loadClass(ImmutableCollections$SetN$SetNIterator, name, initialize, &_ImmutableCollections$SetN$SetNIterator_ClassInfo_, allocate$ImmutableCollections$SetN$SetNIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/ImmutableCollections$SetN;", nullptr, $FINAL | $SYNTHETIC, $field(ImmutableCollections$SetN$SetNIterator, this$0)},
+		{"remaining", "I", nullptr, $PRIVATE, $field(ImmutableCollections$SetN$SetNIterator, remaining)},
+		{"idx", "I", nullptr, $PRIVATE, $field(ImmutableCollections$SetN$SetNIterator, idx)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ImmutableCollections$SetN;)V", nullptr, 0, $method(ImmutableCollections$SetN$SetNIterator, init$, void, $ImmutableCollections$SetN*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$SetN$SetNIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ImmutableCollections$SetN$SetNIterator, next, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ImmutableCollections$SetN", "java.util.ImmutableCollections", "SetN", $STATIC | $FINAL},
+		{"java.util.ImmutableCollections$SetN$SetNIterator", "java.util.ImmutableCollections$SetN", "SetNIterator", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.ImmutableCollections$SetN$SetNIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ImmutableCollections"
+	};
+	$loadClass(ImmutableCollections$SetN$SetNIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImmutableCollections$SetN$SetNIterator);
+	});
 	return class$;
 }
 

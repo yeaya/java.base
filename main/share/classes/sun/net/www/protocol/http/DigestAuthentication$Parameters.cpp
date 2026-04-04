@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/DigestAuthentication$Parameters.h>
-
 #include <java/util/Random.h>
 #include <sun/net/www/protocol/http/DigestAuthentication.h>
 #include <jcpp.h>
@@ -15,67 +14,6 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace http {
-
-$FieldInfo _DigestAuthentication$Parameters_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestAuthentication$Parameters, serialVersionUID)},
-	{"serverQop", "Z", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, serverQop)},
-	{"opaque", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, opaque)},
-	{"cnonce", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, cnonce)},
-	{"nonce", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, nonce)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, algorithm)},
-	{"NCcount", "I", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, NCcount)},
-	{"cachedHA1", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, cachedHA1)},
-	{"redoCachedHA1", "Z", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, redoCachedHA1)},
-	{"cnonceRepeat", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestAuthentication$Parameters, cnonceRepeat)},
-	{"cnoncelen", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestAuthentication$Parameters, cnoncelen)},
-	{"random", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(DigestAuthentication$Parameters, random)},
-	{"cnonce_count", "I", nullptr, 0, $field(DigestAuthentication$Parameters, cnonce_count)},
-	{}
-};
-
-$MethodInfo _DigestAuthentication$Parameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DigestAuthentication$Parameters, init$, void)},
-	{"authQop", "()Z", nullptr, 0, $virtualMethod(DigestAuthentication$Parameters, authQop, bool)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getAlgorithm, $String*)},
-	{"getCachedHA1", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getCachedHA1, $String*)},
-	{"getCnonce", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getCnonce, $String*)},
-	{"getNCCount", "()I", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getNCCount, int32_t)},
-	{"getNonce", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getNonce, $String*)},
-	{"getOpaque", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getOpaque, $String*)},
-	{"incrementNC", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, incrementNC, void)},
-	{"setAlgorithm", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setAlgorithm, void, $String*)},
-	{"setCachedHA1", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setCachedHA1, void, $String*)},
-	{"setNewCnonce", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setNewCnonce, void)},
-	{"setNonce", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setNonce, void, $String*)},
-	{"setOpaque", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setOpaque, void, $String*)},
-	{"setQop", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setQop, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _DigestAuthentication$Parameters_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.DigestAuthentication$Parameters", "sun.net.www.protocol.http.DigestAuthentication", "Parameters", $STATIC},
-	{}
-};
-
-$ClassInfo _DigestAuthentication$Parameters_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.http.DigestAuthentication$Parameters",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_DigestAuthentication$Parameters_FieldInfo_,
-	_DigestAuthentication$Parameters_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DigestAuthentication$Parameters_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.DigestAuthentication"
-};
-
-$Object* allocate$DigestAuthentication$Parameters($Class* clazz) {
-	return $of($alloc(DigestAuthentication$Parameters));
-}
 
 $Random* DigestAuthentication$Parameters::random = nullptr;
 
@@ -119,7 +57,7 @@ $String* DigestAuthentication$Parameters::getCnonce() {
 
 void DigestAuthentication$Parameters::setNewCnonce() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($bytes, bb, $new($bytes, DigestAuthentication$Parameters::cnoncelen / 2));
 		$var($chars, cc, $new($chars, DigestAuthentication$Parameters::cnoncelen));
 		$nc(DigestAuthentication$Parameters::random)->nextBytes(bb);
@@ -136,20 +74,16 @@ void DigestAuthentication$Parameters::setNewCnonce() {
 
 void DigestAuthentication$Parameters::setQop($String* qop) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (qop != nullptr) {
 			$var($StringArray, items, qop->split(","_s));
 			{
 				$var($StringArray, arr$, items);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$var($String, item, arr$->get(i$));
-					{
-						if ("auth"_s->equalsIgnoreCase($($nc(item)->trim()))) {
-							this->serverQop = true;
-							return;
-						}
+					if ("auth"_s->equalsIgnoreCase($($nc(item)->trim()))) {
+						this->serverQop = true;
+						return;
 					}
 				}
 			}
@@ -215,7 +149,7 @@ void DigestAuthentication$Parameters::setAlgorithm($String* s) {
 	}
 }
 
-void clinit$DigestAuthentication$Parameters($Class* class$) {
+void DigestAuthentication$Parameters::clinit$($Class* clazz) {
 	{
 		$assignStatic(DigestAuthentication$Parameters::random, $new($Random));
 	}
@@ -225,7 +159,62 @@ DigestAuthentication$Parameters::DigestAuthentication$Parameters() {
 }
 
 $Class* DigestAuthentication$Parameters::load$($String* name, bool initialize) {
-	$loadClass(DigestAuthentication$Parameters, name, initialize, &_DigestAuthentication$Parameters_ClassInfo_, clinit$DigestAuthentication$Parameters, allocate$DigestAuthentication$Parameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestAuthentication$Parameters, serialVersionUID)},
+		{"serverQop", "Z", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, serverQop)},
+		{"opaque", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, opaque)},
+		{"cnonce", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, cnonce)},
+		{"nonce", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, nonce)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, algorithm)},
+		{"NCcount", "I", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, NCcount)},
+		{"cachedHA1", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, cachedHA1)},
+		{"redoCachedHA1", "Z", nullptr, $PRIVATE, $field(DigestAuthentication$Parameters, redoCachedHA1)},
+		{"cnonceRepeat", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestAuthentication$Parameters, cnonceRepeat)},
+		{"cnoncelen", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestAuthentication$Parameters, cnoncelen)},
+		{"random", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(DigestAuthentication$Parameters, random)},
+		{"cnonce_count", "I", nullptr, 0, $field(DigestAuthentication$Parameters, cnonce_count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DigestAuthentication$Parameters, init$, void)},
+		{"authQop", "()Z", nullptr, 0, $virtualMethod(DigestAuthentication$Parameters, authQop, bool)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getAlgorithm, $String*)},
+		{"getCachedHA1", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getCachedHA1, $String*)},
+		{"getCnonce", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getCnonce, $String*)},
+		{"getNCCount", "()I", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getNCCount, int32_t)},
+		{"getNonce", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getNonce, $String*)},
+		{"getOpaque", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getOpaque, $String*)},
+		{"incrementNC", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, incrementNC, void)},
+		{"setAlgorithm", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setAlgorithm, void, $String*)},
+		{"setCachedHA1", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setCachedHA1, void, $String*)},
+		{"setNewCnonce", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setNewCnonce, void)},
+		{"setNonce", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setNonce, void, $String*)},
+		{"setOpaque", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setOpaque, void, $String*)},
+		{"setQop", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setQop, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.DigestAuthentication$Parameters", "sun.net.www.protocol.http.DigestAuthentication", "Parameters", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.http.DigestAuthentication$Parameters",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.DigestAuthentication"
+	};
+	$loadClass(DigestAuthentication$Parameters, name, initialize, &classInfo$$, DigestAuthentication$Parameters::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DigestAuthentication$Parameters);
+	});
 	return class$;
 }
 

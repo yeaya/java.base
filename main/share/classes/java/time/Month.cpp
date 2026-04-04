@@ -1,5 +1,4 @@
 #include <java/time/Month.h>
-
 #include <java/lang/Enum.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/LocalDate.h>
@@ -49,7 +48,6 @@ using $LocalDate = ::java::time::LocalDate;
 using $Month$1 = ::java::time::Month$1;
 using $Chronology = ::java::time::chrono::Chronology;
 using $IsoChronology = ::java::time::chrono::IsoChronology;
-using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $TextStyle = ::java::time::format::TextStyle;
 using $ChronoField = ::java::time::temporal::ChronoField;
@@ -65,78 +63,6 @@ using $Locale = ::java::util::Locale;
 
 namespace java {
 	namespace time {
-
-$FieldInfo _Month_FieldInfo_[] = {
-	{"JANUARY", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, JANUARY)},
-	{"FEBRUARY", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, FEBRUARY)},
-	{"MARCH", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, MARCH)},
-	{"APRIL", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, APRIL)},
-	{"MAY", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, MAY)},
-	{"JUNE", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, JUNE)},
-	{"JULY", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, JULY)},
-	{"AUGUST", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, AUGUST)},
-	{"SEPTEMBER", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, SEPTEMBER)},
-	{"OCTOBER", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, OCTOBER)},
-	{"NOVEMBER", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, NOVEMBER)},
-	{"DECEMBER", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, DECEMBER)},
-	{"$VALUES", "[Ljava/time/Month;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Month, $VALUES)},
-	{"ENUMS", "[Ljava/time/Month;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Month, ENUMS)},
-	{}
-};
-
-$MethodInfo _Month_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/Month;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Month, $values, $MonthArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Month, init$, void, $String*, int32_t)},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Month, adjustInto, $Temporal*, $Temporal*)},
-	{"firstDayOfYear", "(Z)I", nullptr, $PUBLIC, $method(Month, firstDayOfYear, int32_t, bool)},
-	{"firstMonthOfQuarter", "()Ljava/time/Month;", nullptr, $PUBLIC, $method(Month, firstMonthOfQuarter, Month*)},
-	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/Month;", nullptr, $PUBLIC | $STATIC, $staticMethod(Month, from, Month*, $TemporalAccessor*)},
-	{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(Month, get, int32_t, $TemporalField*)},
-	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Month, getDisplayName, $String*, $TextStyle*, $Locale*)},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(Month, getLong, int64_t, $TemporalField*)},
-	{"getValue", "()I", nullptr, $PUBLIC, $method(Month, getValue, int32_t)},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(Month, isSupported, bool, $TemporalField*)},
-	{"length", "(Z)I", nullptr, $PUBLIC, $method(Month, length, int32_t, bool)},
-	{"maxLength", "()I", nullptr, $PUBLIC, $method(Month, maxLength, int32_t)},
-	{"minLength", "()I", nullptr, $PUBLIC, $method(Month, minLength, int32_t)},
-	{"minus", "(J)Ljava/time/Month;", nullptr, $PUBLIC, $method(Month, minus, Month*, int64_t)},
-	{"of", "(I)Ljava/time/Month;", nullptr, $PUBLIC | $STATIC, $staticMethod(Month, of, Month*, int32_t)},
-	{"plus", "(J)Ljava/time/Month;", nullptr, $PUBLIC, $method(Month, plus, Month*, int64_t)},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(Month, query, $Object*, $TemporalQuery*)},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(Month, range, $ValueRange*, $TemporalField*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/Month;", nullptr, $PUBLIC | $STATIC, $staticMethod(Month, valueOf, Month*, $String*)},
-	{"values", "()[Ljava/time/Month;", nullptr, $PUBLIC | $STATIC, $staticMethod(Month, values, $MonthArray*)},
-	{}
-};
-
-$InnerClassInfo _Month_InnerClassesInfo_[] = {
-	{"java.time.Month$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Month_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.time.Month",
-	"java.lang.Enum",
-	"java.time.temporal.TemporalAccessor,java.time.temporal.TemporalAdjuster",
-	_Month_FieldInfo_,
-	_Month_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/time/Month;>;Ljava/time/temporal/TemporalAccessor;Ljava/time/temporal/TemporalAdjuster;",
-	nullptr,
-	_Month_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.time.Month$1"
-};
-
-$Object* allocate$Month($Class* clazz) {
-	return $of($alloc(Month));
-}
 
 $String* Month::toString() {
 	 return this->$Enum::toString();
@@ -207,16 +133,16 @@ void Month::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 Month* Month::of(int32_t month) {
 	$init(Month);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (month < 1 || month > 12) {
 		$throwNew($DateTimeException, $$str({"Invalid value for MonthOfYear: "_s, $$str(month)}));
 	}
-	return $nc(Month::ENUMS)->get(month - 1);
+	return Month::ENUMS->get(month - 1);
 }
 
 Month* Month::from($TemporalAccessor* temporal$renamed) {
 	$init(Month);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TemporalAccessor, temporal, temporal$renamed);
 	if ($instanceOf(Month, temporal)) {
 		return $cast(Month, temporal);
@@ -229,8 +155,12 @@ Month* Month::from($TemporalAccessor* temporal$renamed) {
 		$init($ChronoField);
 		return of($nc(temporal)->get($ChronoField::MONTH_OF_YEAR));
 	} catch ($DateTimeException& ex) {
-		$var($String, var$0, $$str({"Unable to obtain Month from TemporalAccessor: "_s, temporal, " of type "_s}));
-		$throwNew($DateTimeException, $$concat(var$0, $($nc($of(temporal))->getClass()->getName())), ex);
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unable to obtain Month from TemporalAccessor: "_s);
+		var$0->append(temporal);
+		var$0->append(" of type "_s);
+		var$0->append($($nc($of(temporal))->getClass()->getName()));
+		$throwNew($DateTimeException, $$str(var$0), ex);
 	}
 	$shouldNotReachHere();
 }
@@ -240,9 +170,9 @@ int32_t Month::getValue() {
 }
 
 $String* Month::getDisplayName($TextStyle* style, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	return $nc($($nc($($$new($DateTimeFormatterBuilder)->appendText(static_cast<$TemporalField*>($ChronoField::MONTH_OF_YEAR), style)))->toFormatter(locale)))->format(this);
+	return $$nc($$nc($$new($DateTimeFormatterBuilder)->appendText($ChronoField::MONTH_OF_YEAR, style))->toFormatter(locale))->format(this);
 }
 
 bool Month::isSupported($TemporalField* field) {
@@ -281,7 +211,7 @@ int64_t Month::getLong($TemporalField* field) {
 
 Month* Month::plus(int64_t months) {
 	int32_t amount = (int32_t)(months % 12);
-	return $nc(Month::ENUMS)->get((ordinal() + (amount + 12)) % 12);
+	return Month::ENUMS->get((ordinal() + (amount + 12)) % 12);
 }
 
 Month* Month::minus(int64_t months) {
@@ -292,23 +222,14 @@ int32_t Month::length(bool leapYear) {
 	$init($Month$1);
 	switch ($nc($Month$1::$SwitchMap$java$time$Month)->get((this)->ordinal())) {
 	case 1:
-		{
-			return (leapYear ? 29 : 28);
-		}
+		return (leapYear ? 29 : 28);
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{}
 	case 5:
-		{
-			return 30;
-		}
+		return 30;
 	default:
-		{
-			return 31;
-		}
+		return 31;
 	}
 }
 
@@ -316,23 +237,14 @@ int32_t Month::minLength() {
 	$init($Month$1);
 	switch ($nc($Month$1::$SwitchMap$java$time$Month)->get((this)->ordinal())) {
 	case 1:
-		{
-			return 28;
-		}
+		return 28;
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{}
 	case 5:
-		{
-			return 30;
-		}
+		return 30;
 	default:
-		{
-			return 31;
-		}
+		return 31;
 	}
 }
 
@@ -340,23 +252,14 @@ int32_t Month::maxLength() {
 	$init($Month$1);
 	switch ($nc($Month$1::$SwitchMap$java$time$Month)->get((this)->ordinal())) {
 	case 1:
-		{
-			return 29;
-		}
+		return 29;
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{}
 	case 5:
-		{
-			return 30;
-		}
+		return 30;
 	default:
-		{
-			return 31;
-		}
+		return 31;
 	}
 }
 
@@ -365,83 +268,58 @@ int32_t Month::firstDayOfYear(bool leapYear) {
 	$init($Month$1);
 	switch ($nc($Month$1::$SwitchMap$java$time$Month)->get((this)->ordinal())) {
 	case 6:
-		{
-			return 1;
-		}
+		return 1;
 	case 1:
-		{
-			return 32;
-		}
+		return 32;
 	case 7:
-		{
-			return 60 + leap;
-		}
+		return 60 + leap;
 	case 2:
-		{
-			return 91 + leap;
-		}
+		return 91 + leap;
 	case 8:
-		{
-			return 121 + leap;
-		}
+		return 121 + leap;
 	case 3:
-		{
-			return 152 + leap;
-		}
+		return 152 + leap;
 	case 9:
-		{
-			return 182 + leap;
-		}
+		return 182 + leap;
 	case 10:
-		{
-			return 213 + leap;
-		}
+		return 213 + leap;
 	case 4:
-		{
-			return 244 + leap;
-		}
+		return 244 + leap;
 	case 11:
-		{
-			return 274 + leap;
-		}
+		return 274 + leap;
 	case 5:
-		{
-			return 305 + leap;
-		}
+		return 305 + leap;
 	case 12:
-		{}
 	default:
-		{
-			return 335 + leap;
-		}
+		return 335 + leap;
 	}
 }
 
 Month* Month::firstMonthOfQuarter() {
-	return $nc(Month::ENUMS)->get((ordinal() / 3) * 3);
+	return Month::ENUMS->get((ordinal() / 3) * 3);
 }
 
 $Object* Month::query($TemporalQuery* query) {
 	if (query == $TemporalQueries::chronology()) {
 		$init($IsoChronology);
-		return $of($of($IsoChronology::INSTANCE));
+		return $of($IsoChronology::INSTANCE);
 	} else if (query == $TemporalQueries::precision()) {
 		$init($ChronoUnit);
-		return $of($of($ChronoUnit::MONTHS));
+		return $of($ChronoUnit::MONTHS);
 	}
-	return $of($TemporalAccessor::query(query));
+	return $TemporalAccessor::query(query);
 }
 
 $Temporal* Month::adjustInto($Temporal* temporal) {
 	$init($IsoChronology);
-	if ($nc($($Chronology::from(temporal)))->equals($IsoChronology::INSTANCE) == false) {
+	if ($$nc($Chronology::from(temporal))->equals($IsoChronology::INSTANCE) == false) {
 		$throwNew($DateTimeException, "Adjustment only supported on ISO date-time"_s);
 	}
 	$init($ChronoField);
 	return $nc(temporal)->with($ChronoField::MONTH_OF_YEAR, getValue());
 }
 
-void clinit$Month($Class* class$) {
+void Month::clinit$($Class* clazz) {
 	$assignStatic(Month::JANUARY, $new(Month, "JANUARY"_s, 0));
 	$assignStatic(Month::FEBRUARY, $new(Month, "FEBRUARY"_s, 1));
 	$assignStatic(Month::MARCH, $new(Month, "MARCH"_s, 2));
@@ -462,7 +340,73 @@ Month::Month() {
 }
 
 $Class* Month::load$($String* name, bool initialize) {
-	$loadClass(Month, name, initialize, &_Month_ClassInfo_, clinit$Month, allocate$Month);
+	$FieldInfo fieldInfos$$[] = {
+		{"JANUARY", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, JANUARY)},
+		{"FEBRUARY", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, FEBRUARY)},
+		{"MARCH", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, MARCH)},
+		{"APRIL", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, APRIL)},
+		{"MAY", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, MAY)},
+		{"JUNE", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, JUNE)},
+		{"JULY", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, JULY)},
+		{"AUGUST", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, AUGUST)},
+		{"SEPTEMBER", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, SEPTEMBER)},
+		{"OCTOBER", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, OCTOBER)},
+		{"NOVEMBER", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, NOVEMBER)},
+		{"DECEMBER", "Ljava/time/Month;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Month, DECEMBER)},
+		{"$VALUES", "[Ljava/time/Month;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Month, $VALUES)},
+		{"ENUMS", "[Ljava/time/Month;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Month, ENUMS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/time/Month;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Month, $values, $MonthArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Month, init$, void, $String*, int32_t)},
+		{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Month, adjustInto, $Temporal*, $Temporal*)},
+		{"firstDayOfYear", "(Z)I", nullptr, $PUBLIC, $method(Month, firstDayOfYear, int32_t, bool)},
+		{"firstMonthOfQuarter", "()Ljava/time/Month;", nullptr, $PUBLIC, $method(Month, firstMonthOfQuarter, Month*)},
+		{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/Month;", nullptr, $PUBLIC | $STATIC, $staticMethod(Month, from, Month*, $TemporalAccessor*)},
+		{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(Month, get, int32_t, $TemporalField*)},
+		{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Month, getDisplayName, $String*, $TextStyle*, $Locale*)},
+		{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(Month, getLong, int64_t, $TemporalField*)},
+		{"getValue", "()I", nullptr, $PUBLIC, $method(Month, getValue, int32_t)},
+		{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(Month, isSupported, bool, $TemporalField*)},
+		{"length", "(Z)I", nullptr, $PUBLIC, $method(Month, length, int32_t, bool)},
+		{"maxLength", "()I", nullptr, $PUBLIC, $method(Month, maxLength, int32_t)},
+		{"minLength", "()I", nullptr, $PUBLIC, $method(Month, minLength, int32_t)},
+		{"minus", "(J)Ljava/time/Month;", nullptr, $PUBLIC, $method(Month, minus, Month*, int64_t)},
+		{"of", "(I)Ljava/time/Month;", nullptr, $PUBLIC | $STATIC, $staticMethod(Month, of, Month*, int32_t)},
+		{"plus", "(J)Ljava/time/Month;", nullptr, $PUBLIC, $method(Month, plus, Month*, int64_t)},
+		{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(Month, query, $Object*, $TemporalQuery*)},
+		{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(Month, range, $ValueRange*, $TemporalField*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/time/Month;", nullptr, $PUBLIC | $STATIC, $staticMethod(Month, valueOf, Month*, $String*)},
+		{"values", "()[Ljava/time/Month;", nullptr, $PUBLIC | $STATIC, $staticMethod(Month, values, $MonthArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.Month$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.time.Month",
+		"java.lang.Enum",
+		"java.time.temporal.TemporalAccessor,java.time.temporal.TemporalAdjuster",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/time/Month;>;Ljava/time/temporal/TemporalAccessor;Ljava/time/temporal/TemporalAdjuster;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.time.Month$1"
+	};
+	$loadClass(Month, name, initialize, &classInfo$$, Month::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Month));
+	});
 	return class$;
 }
 

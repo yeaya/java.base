@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl$DTLSContext.h>
-
 #include <sun/security/ssl/SSLContextImpl$CustomizedDTLSContext.h>
 #include <sun/security/ssl/SSLContextImpl.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLContextImpl$DTLSContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$DTLSContext, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl$DTLSContext_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$DTLSContext", "sun.security.ssl.SSLContextImpl", "DTLSContext", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$CustomizedDTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedDTLSContext", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLContextImpl$DTLSContext_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLContextImpl$DTLSContext",
-	"sun.security.ssl.SSLContextImpl$CustomizedDTLSContext",
-	nullptr,
-	nullptr,
-	_SSLContextImpl$DTLSContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl$DTLSContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl"
-};
-
-$Object* allocate$SSLContextImpl$DTLSContext($Class* clazz) {
-	return $of($alloc(SSLContextImpl$DTLSContext));
-}
-
 void SSLContextImpl$DTLSContext::init$() {
 	$SSLContextImpl$CustomizedDTLSContext::init$();
 }
@@ -52,7 +20,33 @@ SSLContextImpl$DTLSContext::SSLContextImpl$DTLSContext() {
 }
 
 $Class* SSLContextImpl$DTLSContext::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl$DTLSContext, name, initialize, &_SSLContextImpl$DTLSContext_ClassInfo_, allocate$SSLContextImpl$DTLSContext);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$DTLSContext, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$DTLSContext", "sun.security.ssl.SSLContextImpl", "DTLSContext", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$CustomizedDTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedDTLSContext", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLContextImpl$DTLSContext",
+		"sun.security.ssl.SSLContextImpl$CustomizedDTLSContext",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl"
+	};
+	$loadClass(SSLContextImpl$DTLSContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl$DTLSContext);
+	});
 	return class$;
 }
 

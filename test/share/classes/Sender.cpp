@@ -1,8 +1,6 @@
 #include <Sender.h>
-
 #include <Sender$Client.h>
 #include <Sender$Server.h>
-#include <java/lang/Runnable.h>
 #include <java/net/SocketAddress.h>
 #include <jcpp.h>
 
@@ -13,46 +11,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $SocketAddress = ::java::net::SocketAddress;
-
-$FieldInfo _Sender_FieldInfo_[] = {
-	{"log", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(Sender, log)},
-	{"clientISA", "Ljava/net/SocketAddress;", nullptr, $STATIC | $VOLATILE, $staticField(Sender, clientISA)},
-	{}
-};
-
-$MethodInfo _Sender_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Sender, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Sender, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "()V", nullptr, $STATIC, $staticMethod(Sender, test, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _Sender_InnerClassesInfo_[] = {
-	{"Sender$Server", "Sender", "Server", $PUBLIC | $STATIC},
-	{"Sender$Client", "Sender", "Client", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Sender_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Sender",
-	"java.lang.Object",
-	nullptr,
-	_Sender_FieldInfo_,
-	_Sender_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Sender_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Sender$Server,Sender$Client"
-};
-
-$Object* allocate$Sender($Class* clazz) {
-	return $of($alloc(Sender));
-}
 
 $PrintStream* Sender::log = nullptr;
 $volatile($SocketAddress*) Sender::clientISA = nullptr;
@@ -67,12 +26,12 @@ void Sender::main($StringArray* args) {
 
 void Sender::test() {
 	$init(Sender);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Sender$Server, server, $new($Sender$Server));
 	$var($Sender$Client, client, $new($Sender$Client, server->port()));
-	$var($Thread, serverThread, $new($Thread, static_cast<$Runnable*>(server)));
+	$var($Thread, serverThread, $new($Thread, server));
 	serverThread->start();
-	$var($Thread, clientThread, $new($Thread, static_cast<$Runnable*>(client)));
+	$var($Thread, clientThread, $new($Thread, client));
 	clientThread->start();
 	serverThread->join();
 	clientThread->join();
@@ -80,7 +39,7 @@ void Sender::test() {
 	client->throwException();
 }
 
-void clinit$Sender($Class* class$) {
+void Sender::clinit$($Class* clazz) {
 	$assignStatic(Sender::log, $System::err);
 	$assignStatic(Sender::clientISA, nullptr);
 }
@@ -89,7 +48,39 @@ Sender::Sender() {
 }
 
 $Class* Sender::load$($String* name, bool initialize) {
-	$loadClass(Sender, name, initialize, &_Sender_ClassInfo_, clinit$Sender, allocate$Sender);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(Sender, log)},
+		{"clientISA", "Ljava/net/SocketAddress;", nullptr, $STATIC | $VOLATILE, $staticField(Sender, clientISA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Sender, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Sender, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "()V", nullptr, $STATIC, $staticMethod(Sender, test, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Sender$Server", "Sender", "Server", $PUBLIC | $STATIC},
+		{"Sender$Client", "Sender", "Client", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Sender",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Sender$Server,Sender$Client"
+	};
+	$loadClass(Sender, name, initialize, &classInfo$$, Sender::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Sender);
+	});
 	return class$;
 }
 

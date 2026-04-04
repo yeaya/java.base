@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/CalendarDataUtility$CalendarWeekParameterGetter.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
 #include <java/util/Locale.h>
@@ -27,45 +26,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _CalendarDataUtility$CalendarWeekParameterGetter_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CalendarDataUtility$CalendarWeekParameterGetter, $assertionsDisabled)},
-	{"INSTANCE", "Lsun/util/locale/provider/CalendarDataUtility$CalendarWeekParameterGetter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CalendarDataUtility$CalendarWeekParameterGetter, INSTANCE)},
-	{}
-};
-
-$MethodInfo _CalendarDataUtility$CalendarWeekParameterGetter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CalendarDataUtility$CalendarWeekParameterGetter, init$, void)},
-	{"getObject", "(Ljava/util/spi/CalendarDataProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Integer;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CalendarDataUtility$CalendarWeekParameterGetter, getObject, $Integer*, $CalendarDataProvider*, $Locale*, $String*, $ObjectArray*)},
-	{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CalendarDataUtility$CalendarWeekParameterGetter, getObject, $Object*, $LocaleServiceProvider*, $Locale*, $String*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _CalendarDataUtility$CalendarWeekParameterGetter_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.CalendarDataUtility$CalendarWeekParameterGetter", "sun.util.locale.provider.CalendarDataUtility", "CalendarWeekParameterGetter", $PRIVATE | $STATIC},
-	{"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter", "sun.util.locale.provider.LocaleServiceProviderPool", "LocalizedObjectGetter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CalendarDataUtility$CalendarWeekParameterGetter_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.CalendarDataUtility$CalendarWeekParameterGetter",
-	"java.lang.Object",
-	"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter",
-	_CalendarDataUtility$CalendarWeekParameterGetter_FieldInfo_,
-	_CalendarDataUtility$CalendarWeekParameterGetter_MethodInfo_,
-	"Ljava/lang/Object;Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<Ljava/util/spi/CalendarDataProvider;Ljava/lang/Integer;>;",
-	nullptr,
-	_CalendarDataUtility$CalendarWeekParameterGetter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.CalendarDataUtility"
-};
-
-$Object* allocate$CalendarDataUtility$CalendarWeekParameterGetter($Class* clazz) {
-	return $of($alloc(CalendarDataUtility$CalendarWeekParameterGetter));
-}
-
 bool CalendarDataUtility$CalendarWeekParameterGetter::$assertionsDisabled = false;
 CalendarDataUtility$CalendarWeekParameterGetter* CalendarDataUtility$CalendarWeekParameterGetter::INSTANCE = nullptr;
 
@@ -73,7 +33,7 @@ void CalendarDataUtility$CalendarWeekParameterGetter::init$() {
 }
 
 $Integer* CalendarDataUtility$CalendarWeekParameterGetter::getObject($CalendarDataProvider* calendarDataProvider, $Locale* locale, $String* requestID, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!CalendarDataUtility$CalendarWeekParameterGetter::$assertionsDisabled && !($nc(params)->length == 0)) {
 		$throwNew($AssertionError);
 	}
@@ -82,42 +42,32 @@ $Integer* CalendarDataUtility$CalendarWeekParameterGetter::getObject($CalendarDa
 		$var($String, s10944$, requestID);
 		int32_t tmp10944$ = -1;
 		switch ($nc(s10944$)->hashCode()) {
-		case 0x1F21FC57:
-			{
-				if (s10944$->equals("firstDayOfWeek"_s)) {
-					tmp10944$ = 0;
-				}
-				break;
+		case 0x1f21fc57:
+			if (s10944$->equals("firstDayOfWeek"_s)) {
+				tmp10944$ = 0;
 			}
-		case 0x50511A67:
-			{
-				if (s10944$->equals("minimalDaysInFirstWeek"_s)) {
-					tmp10944$ = 1;
-				}
-				break;
+			break;
+		case 0x50511a67:
+			if (s10944$->equals("minimalDaysInFirstWeek"_s)) {
+				tmp10944$ = 1;
 			}
+			break;
 		}
 		switch (tmp10944$) {
 		case 0:
-			{
-				value = $nc(calendarDataProvider)->getFirstDayOfWeek(locale);
-				if (value == 0) {
-					value = 2;
-				}
-				break;
+			value = $nc(calendarDataProvider)->getFirstDayOfWeek(locale);
+			if (value == 0) {
+				value = 2;
 			}
+			break;
 		case 1:
-			{
-				value = $nc(calendarDataProvider)->getMinimalDaysInFirstWeek(locale);
-				if (value == 0) {
-					value = 1;
-				}
-				break;
+			value = $nc(calendarDataProvider)->getMinimalDaysInFirstWeek(locale);
+			if (value == 0) {
+				value = 1;
 			}
+			break;
 		default:
-			{
-				$throwNew($InternalError, $$str({"invalid requestID: "_s, requestID}));
-			}
+			$throwNew($InternalError, $$str({"invalid requestID: "_s, requestID}));
 		}
 	}
 	if (!CalendarDataUtility$CalendarWeekParameterGetter::$assertionsDisabled && !(value != 0)) {
@@ -130,7 +80,7 @@ $Object* CalendarDataUtility$CalendarWeekParameterGetter::getObject($LocaleServi
 	return $of(this->getObject($cast($CalendarDataProvider, calendarDataProvider), locale, requestID, params));
 }
 
-void clinit$CalendarDataUtility$CalendarWeekParameterGetter($Class* class$) {
+void CalendarDataUtility$CalendarWeekParameterGetter::clinit$($Class* clazz) {
 	$load($CalendarDataUtility);
 	CalendarDataUtility$CalendarWeekParameterGetter::$assertionsDisabled = !$CalendarDataUtility::class$->desiredAssertionStatus();
 	$assignStatic(CalendarDataUtility$CalendarWeekParameterGetter::INSTANCE, $new(CalendarDataUtility$CalendarWeekParameterGetter));
@@ -140,7 +90,40 @@ CalendarDataUtility$CalendarWeekParameterGetter::CalendarDataUtility$CalendarWee
 }
 
 $Class* CalendarDataUtility$CalendarWeekParameterGetter::load$($String* name, bool initialize) {
-	$loadClass(CalendarDataUtility$CalendarWeekParameterGetter, name, initialize, &_CalendarDataUtility$CalendarWeekParameterGetter_ClassInfo_, clinit$CalendarDataUtility$CalendarWeekParameterGetter, allocate$CalendarDataUtility$CalendarWeekParameterGetter);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CalendarDataUtility$CalendarWeekParameterGetter, $assertionsDisabled)},
+		{"INSTANCE", "Lsun/util/locale/provider/CalendarDataUtility$CalendarWeekParameterGetter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CalendarDataUtility$CalendarWeekParameterGetter, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CalendarDataUtility$CalendarWeekParameterGetter, init$, void)},
+		{"getObject", "(Ljava/util/spi/CalendarDataProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Integer;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CalendarDataUtility$CalendarWeekParameterGetter, getObject, $Integer*, $CalendarDataProvider*, $Locale*, $String*, $ObjectArray*)},
+		{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CalendarDataUtility$CalendarWeekParameterGetter, getObject, $Object*, $LocaleServiceProvider*, $Locale*, $String*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.CalendarDataUtility$CalendarWeekParameterGetter", "sun.util.locale.provider.CalendarDataUtility", "CalendarWeekParameterGetter", $PRIVATE | $STATIC},
+		{"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter", "sun.util.locale.provider.LocaleServiceProviderPool", "LocalizedObjectGetter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.CalendarDataUtility$CalendarWeekParameterGetter",
+		"java.lang.Object",
+		"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<Ljava/util/spi/CalendarDataProvider;Ljava/lang/Integer;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.CalendarDataUtility"
+	};
+	$loadClass(CalendarDataUtility$CalendarWeekParameterGetter, name, initialize, &classInfo$$, CalendarDataUtility$CalendarWeekParameterGetter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CalendarDataUtility$CalendarWeekParameterGetter);
+	});
 	return class$;
 }
 

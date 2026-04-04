@@ -1,5 +1,4 @@
 #include <java/nio/MappedByteBuffer.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/ref/Reference.h>
 #include <java/nio/Buffer.h>
@@ -31,62 +30,6 @@ using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scop
 namespace java {
 	namespace nio {
 
-$FieldInfo _MappedByteBuffer_FieldInfo_[] = {
-	{"fd", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $FINAL, $field(MappedByteBuffer, fd)},
-	{"isSync", "Z", nullptr, $PRIVATE | $FINAL, $field(MappedByteBuffer, isSync$)},
-	{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(MappedByteBuffer, SCOPED_MEMORY_ACCESS)},
-	{}
-};
-
-$MethodInfo _MappedByteBuffer_MethodInfo_[] = {
-	{"compact", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"duplicate", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(IIIILjava/io/FileDescriptor;ZLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(MappedByteBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $FileDescriptor*, bool, $MemorySegmentProxy*)},
-	{"<init>", "(IIIIZLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(MappedByteBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, bool, $MemorySegmentProxy*)},
-	{"<init>", "(IIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(MappedByteBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"clear", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, clear, MappedByteBuffer*)},
-	{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $FINAL, $method(MappedByteBuffer, fileDescriptor, $FileDescriptor*)},
-	{"flip", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, flip, MappedByteBuffer*)},
-	{"force", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $method(MappedByteBuffer, force, MappedByteBuffer*)},
-	{"force", "(II)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $method(MappedByteBuffer, force, MappedByteBuffer*, int32_t, int32_t)},
-	{"isLoaded", "()Z", nullptr, $PUBLIC | $FINAL, $method(MappedByteBuffer, isLoaded, bool)},
-	{"isSync", "()Z", nullptr, $FINAL, $method(MappedByteBuffer, isSync, bool)},
-	{"limit", "(I)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, limit, MappedByteBuffer*, int32_t)},
-	{"load", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $method(MappedByteBuffer, load, MappedByteBuffer*)},
-	{"mark", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, mark, MappedByteBuffer*)},
-	{"position", "(I)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, position, MappedByteBuffer*, int32_t)},
-	{"reset", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, reset, MappedByteBuffer*)},
-	{"rewind", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, rewind, MappedByteBuffer*)},
-	{"slice", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"slice", "(II)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"unmapper", "()Ljdk/internal/access/foreign/UnmapperProxy;", nullptr, 0, $virtualMethod(MappedByteBuffer, unmapper, $UnmapperProxy*)},
-	{}
-};
-
-$InnerClassInfo _MappedByteBuffer_InnerClassesInfo_[] = {
-	{"java.nio.MappedByteBuffer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MappedByteBuffer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.nio.MappedByteBuffer",
-	"java.nio.ByteBuffer",
-	nullptr,
-	_MappedByteBuffer_FieldInfo_,
-	_MappedByteBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MappedByteBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.nio.MappedByteBuffer$1"
-};
-
-$Object* allocate$MappedByteBuffer($Class* clazz) {
-	return $of($alloc(MappedByteBuffer));
-}
-
 $ScopedMemoryAccess* MappedByteBuffer::SCOPED_MEMORY_ACCESS = nullptr;
 
 void MappedByteBuffer::init$(int32_t mark, int32_t pos, int32_t lim, int32_t cap, $FileDescriptor* fd, bool isSync, $MemorySegmentProxy* segment) {
@@ -108,7 +51,7 @@ void MappedByteBuffer::init$(int32_t mark, int32_t pos, int32_t lim, int32_t cap
 }
 
 $UnmapperProxy* MappedByteBuffer::unmapper() {
-	return this->fd != nullptr ? static_cast<$UnmapperProxy*>($new($MappedByteBuffer$1, this)) : ($UnmapperProxy*)nullptr;
+	return this->fd != nullptr ? $cast($UnmapperProxy, $new($MappedByteBuffer$1, this)) : ($UnmapperProxy*)nullptr;
 }
 
 bool MappedByteBuffer::isSync() {
@@ -130,25 +73,23 @@ bool MappedByteBuffer::isLoaded() {
 }
 
 MappedByteBuffer* MappedByteBuffer::load() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fd == nullptr) {
 		return this;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($ScopedMemoryAccess$Scope, var$1, scope());
-			int64_t var$2 = this->address;
-			bool var$3 = this->isSync$;
-			$nc(MappedByteBuffer::SCOPED_MEMORY_ACCESS)->load(var$1, var$2, var$3, capacity());
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} /*finally*/ {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($ScopedMemoryAccess$Scope, var$1, scope());
+		int64_t var$2 = this->address;
+		bool var$3 = this->isSync$;
+		$nc(MappedByteBuffer::SCOPED_MEMORY_ACCESS)->load(var$1, var$2, var$3, capacity());
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return this;
 }
@@ -211,7 +152,7 @@ MappedByteBuffer* MappedByteBuffer::rewind() {
 	return this;
 }
 
-void clinit$MappedByteBuffer($Class* class$) {
+void MappedByteBuffer::clinit$($Class* clazz) {
 	$assignStatic(MappedByteBuffer::SCOPED_MEMORY_ACCESS, $ScopedMemoryAccess::getScopedMemoryAccess());
 }
 
@@ -219,7 +160,57 @@ MappedByteBuffer::MappedByteBuffer() {
 }
 
 $Class* MappedByteBuffer::load$($String* name, bool initialize) {
-	$loadClass(MappedByteBuffer, name, initialize, &_MappedByteBuffer_ClassInfo_, clinit$MappedByteBuffer, allocate$MappedByteBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"fd", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $FINAL, $field(MappedByteBuffer, fd)},
+		{"isSync", "Z", nullptr, $PRIVATE | $FINAL, $field(MappedByteBuffer, isSync$)},
+		{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(MappedByteBuffer, SCOPED_MEMORY_ACCESS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"compact", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"duplicate", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(IIIILjava/io/FileDescriptor;ZLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(MappedByteBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $FileDescriptor*, bool, $MemorySegmentProxy*)},
+		{"<init>", "(IIIIZLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(MappedByteBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, bool, $MemorySegmentProxy*)},
+		{"<init>", "(IIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(MappedByteBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"clear", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, clear, MappedByteBuffer*)},
+		{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $FINAL, $method(MappedByteBuffer, fileDescriptor, $FileDescriptor*)},
+		{"flip", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, flip, MappedByteBuffer*)},
+		{"force", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $method(MappedByteBuffer, force, MappedByteBuffer*)},
+		{"force", "(II)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $method(MappedByteBuffer, force, MappedByteBuffer*, int32_t, int32_t)},
+		{"isLoaded", "()Z", nullptr, $PUBLIC | $FINAL, $method(MappedByteBuffer, isLoaded, bool)},
+		{"isSync", "()Z", nullptr, $FINAL, $method(MappedByteBuffer, isSync, bool)},
+		{"limit", "(I)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, limit, MappedByteBuffer*, int32_t)},
+		{"load", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $method(MappedByteBuffer, load, MappedByteBuffer*)},
+		{"mark", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, mark, MappedByteBuffer*)},
+		{"position", "(I)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, position, MappedByteBuffer*, int32_t)},
+		{"reset", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, reset, MappedByteBuffer*)},
+		{"rewind", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MappedByteBuffer, rewind, MappedByteBuffer*)},
+		{"slice", "()Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"slice", "(II)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"unmapper", "()Ljdk/internal/access/foreign/UnmapperProxy;", nullptr, 0, $virtualMethod(MappedByteBuffer, unmapper, $UnmapperProxy*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.MappedByteBuffer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.nio.MappedByteBuffer",
+		"java.nio.ByteBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.nio.MappedByteBuffer$1"
+	};
+	$loadClass(MappedByteBuffer, name, initialize, &classInfo$$, MappedByteBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MappedByteBuffer));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Daemon.h>
-
 #include <MadThread.h>
 #include <java/lang/IllegalThreadStateException.h>
 #include <java/lang/ThreadGroup.h>
@@ -12,30 +11,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 
-$MethodInfo _Daemon_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Daemon, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Daemon, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Daemon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Daemon",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Daemon_MethodInfo_
-};
-
-$Object* allocate$Daemon($Class* clazz) {
-	return $of($alloc(Daemon));
-}
-
 void Daemon::init$() {
 }
 
 void Daemon::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, tg, $new($ThreadGroup, "madbot-threads"_s));
 	$var($Thread, myThread, $new($MadThread, tg, "mad"_s));
 	$var($ThreadGroup, aGroup, $new($ThreadGroup, tg, "ness"_s));
@@ -58,7 +38,22 @@ Daemon::Daemon() {
 }
 
 $Class* Daemon::load$($String* name, bool initialize) {
-	$loadClass(Daemon, name, initialize, &_Daemon_ClassInfo_, allocate$Daemon);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Daemon, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Daemon, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Daemon",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Daemon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Daemon);
+	});
 	return class$;
 }
 

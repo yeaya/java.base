@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/BitSet.h>
@@ -23,11 +22,9 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $AbstractMap = ::java::util::AbstractMap;
 using $BitSet = ::java::util::BitSet;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $JSRInlinerAdapter = ::jdk::internal::org::objectweb::asm$::commons::JSRInlinerAdapter;
 using $AbstractInsnNode = ::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode;
-using $InsnList = ::jdk::internal::org::objectweb::asm$::tree::InsnList;
 using $LabelNode = ::jdk::internal::org::objectweb::asm$::tree::LabelNode;
 
 namespace jdk {
@@ -37,59 +34,13 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$FieldInfo _JSRInlinerAdapter$Instantiation_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter;", nullptr, $FINAL | $SYNTHETIC, $field(JSRInlinerAdapter$Instantiation, this$0)},
-	{"parent", "Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;", nullptr, $FINAL, $field(JSRInlinerAdapter$Instantiation, parent)},
-	{"subroutineInsns", "Ljava/util/BitSet;", nullptr, $FINAL, $field(JSRInlinerAdapter$Instantiation, subroutineInsns)},
-	{"clonedLabels", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;", $FINAL, $field(JSRInlinerAdapter$Instantiation, clonedLabels)},
-	{"returnLabel", "Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, $FINAL, $field(JSRInlinerAdapter$Instantiation, returnLabel)},
-	{}
-};
-
-$MethodInfo _JSRInlinerAdapter$Instantiation_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter;Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;Ljava/util/BitSet;)V", nullptr, 0, $method(JSRInlinerAdapter$Instantiation, init$, void, $JSRInlinerAdapter*, JSRInlinerAdapter$Instantiation*, $BitSet*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;>;", $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, entrySet, $Set*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, equals, bool, Object$*)},
-	{"findOwner", "(I)Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;", nullptr, 0, $virtualMethod(JSRInlinerAdapter$Instantiation, findOwner, JSRInlinerAdapter$Instantiation*, int32_t)},
-	{"get", "(Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, get, $Object*, Object$*)},
-	{"getClonedLabel", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, 0, $virtualMethod(JSRInlinerAdapter$Instantiation, getClonedLabel, $LabelNode*, $LabelNode*)},
-	{"getClonedLabelForJumpInsn", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, 0, $virtualMethod(JSRInlinerAdapter$Instantiation, getClonedLabelForJumpInsn, $LabelNode*, $LabelNode*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JSRInlinerAdapter$Instantiation_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter$Instantiation", "jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter", "Instantiation", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JSRInlinerAdapter$Instantiation_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter$Instantiation",
-	"java.util.AbstractMap",
-	nullptr,
-	_JSRInlinerAdapter$Instantiation_FieldInfo_,
-	_JSRInlinerAdapter$Instantiation_MethodInfo_,
-	"Ljava/util/AbstractMap<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;",
-	nullptr,
-	_JSRInlinerAdapter$Instantiation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter"
-};
-
-$Object* allocate$JSRInlinerAdapter$Instantiation($Class* clazz) {
-	return $of($alloc(JSRInlinerAdapter$Instantiation));
-}
-
 void JSRInlinerAdapter$Instantiation::init$($JSRInlinerAdapter* this$0, JSRInlinerAdapter$Instantiation* parent, $BitSet* subroutineInsns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$AbstractMap::init$();
 	{
 		$var(JSRInlinerAdapter$Instantiation, instantiation, parent);
-		for (; instantiation != nullptr; $assign(instantiation, $nc(instantiation)->parent)) {
+		for (; instantiation != nullptr; $assign(instantiation, instantiation->parent)) {
 			if (instantiation->subroutineInsns == subroutineInsns) {
 				$throwNew($IllegalArgumentException, $$str({"Recursive invocation of "_s, subroutineInsns}));
 			}
@@ -101,7 +52,7 @@ void JSRInlinerAdapter$Instantiation::init$($JSRInlinerAdapter* this$0, JSRInlin
 	$set(this, clonedLabels, $new($HashMap));
 	$var($LabelNode, clonedLabelNode, nullptr);
 	for (int32_t insnIndex = 0; insnIndex < $nc(this$0->instructions)->size(); ++insnIndex) {
-		$var($AbstractInsnNode, insnNode, $nc(this$0->instructions)->get(insnIndex));
+		$var($AbstractInsnNode, insnNode, this$0->instructions->get(insnIndex));
 		if ($nc(insnNode)->getType() == $AbstractInsnNode::LABEL) {
 			$var($LabelNode, labelNode, $cast($LabelNode, insnNode));
 			if (clonedLabelNode == nullptr) {
@@ -115,7 +66,7 @@ void JSRInlinerAdapter$Instantiation::init$($JSRInlinerAdapter* this$0, JSRInlin
 }
 
 JSRInlinerAdapter$Instantiation* JSRInlinerAdapter$Instantiation::findOwner(int32_t insnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->subroutineInsns)->get(insnIndex)) {
 		return nullptr;
 	}
@@ -125,7 +76,7 @@ JSRInlinerAdapter$Instantiation* JSRInlinerAdapter$Instantiation::findOwner(int3
 	$var(JSRInlinerAdapter$Instantiation, owner, this);
 	{
 		$var(JSRInlinerAdapter$Instantiation, instantiation, this->parent);
-		for (; instantiation != nullptr; $assign(instantiation, $nc(instantiation)->parent)) {
+		for (; instantiation != nullptr; $assign(instantiation, instantiation->parent)) {
 			if ($nc(instantiation->subroutineInsns)->get(insnIndex)) {
 				$assign(owner, instantiation);
 			}
@@ -148,7 +99,7 @@ $Set* JSRInlinerAdapter$Instantiation::entrySet() {
 }
 
 $Object* JSRInlinerAdapter$Instantiation::get(Object$* key) {
-	return $of(getClonedLabelForJumpInsn($cast($LabelNode, key)));
+	return getClonedLabelForJumpInsn($cast($LabelNode, key));
 }
 
 bool JSRInlinerAdapter$Instantiation::equals(Object$* other) {
@@ -165,7 +116,47 @@ JSRInlinerAdapter$Instantiation::JSRInlinerAdapter$Instantiation() {
 }
 
 $Class* JSRInlinerAdapter$Instantiation::load$($String* name, bool initialize) {
-	$loadClass(JSRInlinerAdapter$Instantiation, name, initialize, &_JSRInlinerAdapter$Instantiation_ClassInfo_, allocate$JSRInlinerAdapter$Instantiation);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter;", nullptr, $FINAL | $SYNTHETIC, $field(JSRInlinerAdapter$Instantiation, this$0)},
+		{"parent", "Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;", nullptr, $FINAL, $field(JSRInlinerAdapter$Instantiation, parent)},
+		{"subroutineInsns", "Ljava/util/BitSet;", nullptr, $FINAL, $field(JSRInlinerAdapter$Instantiation, subroutineInsns)},
+		{"clonedLabels", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;", $FINAL, $field(JSRInlinerAdapter$Instantiation, clonedLabels)},
+		{"returnLabel", "Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, $FINAL, $field(JSRInlinerAdapter$Instantiation, returnLabel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter;Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;Ljava/util/BitSet;)V", nullptr, 0, $method(JSRInlinerAdapter$Instantiation, init$, void, $JSRInlinerAdapter*, JSRInlinerAdapter$Instantiation*, $BitSet*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;>;", $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, entrySet, $Set*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, equals, bool, Object$*)},
+		{"findOwner", "(I)Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;", nullptr, 0, $virtualMethod(JSRInlinerAdapter$Instantiation, findOwner, JSRInlinerAdapter$Instantiation*, int32_t)},
+		{"get", "(Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, get, $Object*, Object$*)},
+		{"getClonedLabel", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, 0, $virtualMethod(JSRInlinerAdapter$Instantiation, getClonedLabel, $LabelNode*, $LabelNode*)},
+		{"getClonedLabelForJumpInsn", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, 0, $virtualMethod(JSRInlinerAdapter$Instantiation, getClonedLabelForJumpInsn, $LabelNode*, $LabelNode*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter$Instantiation", "jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter", "Instantiation", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter$Instantiation",
+		"java.util.AbstractMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractMap<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter"
+	};
+	$loadClass(JSRInlinerAdapter$Instantiation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JSRInlinerAdapter$Instantiation);
+	});
 	return class$;
 }
 

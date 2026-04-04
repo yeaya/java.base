@@ -1,5 +1,4 @@
 #include <java/lang/NegativeArraySizeException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _NegativeArraySizeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NegativeArraySizeException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NegativeArraySizeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NegativeArraySizeException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NegativeArraySizeException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NegativeArraySizeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.NegativeArraySizeException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_NegativeArraySizeException_FieldInfo_,
-	_NegativeArraySizeException_MethodInfo_
-};
-
-$Object* allocate$NegativeArraySizeException($Class* clazz) {
-	return $of($alloc(NegativeArraySizeException));
-}
 
 void NegativeArraySizeException::init$() {
 	$RuntimeException::init$();
@@ -53,7 +28,26 @@ void NegativeArraySizeException::throw$() {
 }
 
 $Class* NegativeArraySizeException::load$($String* name, bool initialize) {
-	$loadClass(NegativeArraySizeException, name, initialize, &_NegativeArraySizeException_ClassInfo_, allocate$NegativeArraySizeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NegativeArraySizeException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NegativeArraySizeException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NegativeArraySizeException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.NegativeArraySizeException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NegativeArraySizeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NegativeArraySizeException);
+	});
 	return class$;
 }
 

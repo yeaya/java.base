@@ -21,6 +21,7 @@ class Collections$EmptyEnumeration : public ::java::util::Enumeration {
 	$class(Collections$EmptyEnumeration, 0, ::java::util::Enumeration)
 public:
 	Collections$EmptyEnumeration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::Iterator* asIterator() override;
 	virtual bool hasMoreElements() override;

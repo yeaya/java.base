@@ -23,6 +23,7 @@ class HelloRequest : public ::java::lang::Object {
 	$class(HelloRequest, 0, ::java::lang::Object)
 public:
 	HelloRequest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLProducer* kickstartProducer;
 	static ::sun::security::ssl::SSLConsumer* handshakeConsumer;

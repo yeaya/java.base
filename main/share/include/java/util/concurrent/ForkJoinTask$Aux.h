@@ -30,6 +30,7 @@ class $import ForkJoinTask$Aux : public ::java::lang::Object {
 	$class(ForkJoinTask$Aux, 0, ::java::lang::Object)
 public:
 	ForkJoinTask$Aux();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Thread* thread, $Throwable* ex);
 	bool casNext(::java::util::concurrent::ForkJoinTask$Aux* c, ::java::util::concurrent::ForkJoinTask$Aux* v);
 	$Thread* thread = nullptr;

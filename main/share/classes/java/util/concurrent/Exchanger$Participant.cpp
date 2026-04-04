@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Exchanger$Participant.h>
-
 #include <java/lang/ThreadLocal.h>
 #include <java/util/concurrent/Exchanger$Node.h>
 #include <java/util/concurrent/Exchanger.h>
@@ -15,51 +14,46 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$MethodInfo _Exchanger$Participant_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Exchanger$Participant, init$, void)},
-	{"initialValue", "()Ljava/util/concurrent/Exchanger$Node;", nullptr, $PUBLIC, $virtualMethod(Exchanger$Participant, initialValue, $Object*)},
-	{}
-};
-
-$InnerClassInfo _Exchanger$Participant_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Exchanger$Participant", "java.util.concurrent.Exchanger", "Participant", $STATIC | $FINAL},
-	{"java.util.concurrent.Exchanger$Node", "java.util.concurrent.Exchanger", "Node", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Exchanger$Participant_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.Exchanger$Participant",
-	"java.lang.ThreadLocal",
-	nullptr,
-	nullptr,
-	_Exchanger$Participant_MethodInfo_,
-	"Ljava/lang/ThreadLocal<Ljava/util/concurrent/Exchanger$Node;>;",
-	nullptr,
-	_Exchanger$Participant_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.Exchanger"
-};
-
-$Object* allocate$Exchanger$Participant($Class* clazz) {
-	return $of($alloc(Exchanger$Participant));
-}
-
 void Exchanger$Participant::init$() {
 	$ThreadLocal::init$();
 }
 
 $Object* Exchanger$Participant::initialValue() {
-	return $of($new($Exchanger$Node));
+	return $new($Exchanger$Node);
 }
 
 Exchanger$Participant::Exchanger$Participant() {
 }
 
 $Class* Exchanger$Participant::load$($String* name, bool initialize) {
-	$loadClass(Exchanger$Participant, name, initialize, &_Exchanger$Participant_ClassInfo_, allocate$Exchanger$Participant);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Exchanger$Participant, init$, void)},
+		{"initialValue", "()Ljava/util/concurrent/Exchanger$Node;", nullptr, $PUBLIC, $virtualMethod(Exchanger$Participant, initialValue, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Exchanger$Participant", "java.util.concurrent.Exchanger", "Participant", $STATIC | $FINAL},
+		{"java.util.concurrent.Exchanger$Node", "java.util.concurrent.Exchanger", "Node", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.Exchanger$Participant",
+		"java.lang.ThreadLocal",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/ThreadLocal<Ljava/util/concurrent/Exchanger$Node;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.Exchanger"
+	};
+	$loadClass(Exchanger$Participant, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Exchanger$Participant);
+	});
 	return class$;
 }
 

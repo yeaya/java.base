@@ -1,5 +1,4 @@
 #include <ICCBasher.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/util/Collections.h>
 #include <java/util/Comparator.h>
@@ -20,40 +19,13 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Collections = ::java::util::Collections;
 using $LinkedList = ::java::util::LinkedList;
-using $List = ::java::util::List;
 using $Random = ::java::util::Random;
-
-$FieldInfo _ICCBasher_FieldInfo_[] = {
-	{"TEST_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ICCBasher, TEST_SIZE)},
-	{"STRING_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ICCBasher, STRING_SIZE)},
-	{"CHAR_VALUE_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(ICCBasher, CHAR_VALUE_LIMIT)},
-	{}
-};
-
-$MethodInfo _ICCBasher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ICCBasher, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ICCBasher, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ICCBasher_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ICCBasher",
-	"java.lang.Object",
-	nullptr,
-	_ICCBasher_FieldInfo_,
-	_ICCBasher_MethodInfo_
-};
-
-$Object* allocate$ICCBasher($Class* clazz) {
-	return $of($alloc(ICCBasher));
-}
 
 void ICCBasher::init$() {
 }
 
 void ICCBasher::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedList, L1, $new($LinkedList));
 	$var($LinkedList, L2, $new($LinkedList));
 	$var($LinkedList, L3, $new($LinkedList));
@@ -69,7 +41,7 @@ void ICCBasher::main($StringArray* args) {
 			entryBuffer->append(test);
 		}
 		$assign(snippet, entryBuffer->toString());
-		$nc(snippet)->toLowerCase();
+		snippet->toLowerCase();
 		if (x < ICCBasher::TEST_SIZE) {
 			L1->add(snippet);
 		} else {
@@ -77,8 +49,10 @@ void ICCBasher::main($StringArray* args) {
 		}
 	}
 	for (int32_t x = 0; x < ICCBasher::TEST_SIZE; ++x) {
-		$var($String, var$0, $cast($String, $(L1->get(x))));
-		$var($String, entry, $concat(var$0, $cast($String, $(L2->get(x)))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($$cast($String, L1->get(x)));
+		var$0->append($$cast($String, L2->get(x)));
+		$var($String, entry, $str(var$0));
 		L3->add(entry);
 	}
 	for (int32_t x = 0; x < ICCBasher::TEST_SIZE; ++x) {
@@ -96,8 +70,10 @@ void ICCBasher::main($StringArray* args) {
 		}
 	}
 	for (int32_t x = 0; x < ICCBasher::TEST_SIZE; ++x) {
-		$var($String, var$1, $cast($String, $(L1->get(x))));
-		$var($String, entry, $concat(var$1, $cast($String, $(L2->get(x)))));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append($$cast($String, L1->get(x)));
+		var$1->append($$cast($String, L2->get(x)));
+		$var($String, entry, $str(var$1));
 		L4->add(entry);
 	}
 	$Collections::sort(L3, $String::CASE_INSENSITIVE_ORDER);
@@ -115,7 +91,28 @@ ICCBasher::ICCBasher() {
 }
 
 $Class* ICCBasher::load$($String* name, bool initialize) {
-	$loadClass(ICCBasher, name, initialize, &_ICCBasher_ClassInfo_, allocate$ICCBasher);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEST_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ICCBasher, TEST_SIZE)},
+		{"STRING_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ICCBasher, STRING_SIZE)},
+		{"CHAR_VALUE_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(ICCBasher, CHAR_VALUE_LIMIT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ICCBasher, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ICCBasher, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ICCBasher",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ICCBasher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ICCBasher);
+	});
 	return class$;
 }
 

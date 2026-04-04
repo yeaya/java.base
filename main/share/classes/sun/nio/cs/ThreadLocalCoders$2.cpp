@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ThreadLocalCoders$2.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -22,50 +21,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _ThreadLocalCoders$2_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ThreadLocalCoders$2, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _ThreadLocalCoders$2_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(ThreadLocalCoders$2, init$, void, int32_t)},
-	{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ThreadLocalCoders$2, create, $Object*, Object$*)},
-	{"hasName", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(ThreadLocalCoders$2, hasName, bool, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _ThreadLocalCoders$2_EnclosingMethodInfo_ = {
-	"sun.nio.cs.ThreadLocalCoders",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ThreadLocalCoders$2_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ThreadLocalCoders$2", nullptr, nullptr, 0},
-	{"sun.nio.cs.ThreadLocalCoders$Cache", "sun.nio.cs.ThreadLocalCoders", "Cache", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ThreadLocalCoders$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ThreadLocalCoders$2",
-	"sun.nio.cs.ThreadLocalCoders$Cache",
-	nullptr,
-	_ThreadLocalCoders$2_FieldInfo_,
-	_ThreadLocalCoders$2_MethodInfo_,
-	nullptr,
-	&_ThreadLocalCoders$2_EnclosingMethodInfo_,
-	_ThreadLocalCoders$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ThreadLocalCoders"
-};
-
-$Object* allocate$ThreadLocalCoders$2($Class* clazz) {
-	return $of($alloc(ThreadLocalCoders$2));
-}
-
 bool ThreadLocalCoders$2::$assertionsDisabled = false;
 
 void ThreadLocalCoders$2::init$(int32_t size) {
@@ -73,30 +28,30 @@ void ThreadLocalCoders$2::init$(int32_t size) {
 }
 
 bool ThreadLocalCoders$2::hasName(Object$* ob, Object$* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Charset, name)) {
-		return $nc($($nc(($cast($CharsetEncoder, ob)))->charset()))->equals(name);
+		return $$nc($nc($cast($CharsetEncoder, ob))->charset())->equals(name);
 	}
 	if ($instanceOf($String, name)) {
-		return ($nc($($nc($($nc(($cast($CharsetEncoder, ob)))->charset()))->name()))->equals(name));
+		return ($$nc($$nc($nc($cast($CharsetEncoder, ob))->charset())->name())->equals(name));
 	}
 	return false;
 }
 
 $Object* ThreadLocalCoders$2::create(Object$* name) {
 	if ($instanceOf($Charset, name)) {
-		return $of($nc(($cast($Charset, name)))->newEncoder());
+		return $cast($Charset, name)->newEncoder();
 	}
 	if ($instanceOf($String, name)) {
-		return $of($nc($($Charset::forName($cast($String, name))))->newEncoder());
+		return $$nc($Charset::forName($cast($String, name)))->newEncoder();
 	}
 	if (!ThreadLocalCoders$2::$assertionsDisabled) {
 		$throwNew($AssertionError);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
-void clinit$ThreadLocalCoders$2($Class* class$) {
+void ThreadLocalCoders$2::clinit$($Class* clazz) {
 	$load($ThreadLocalCoders);
 	ThreadLocalCoders$2::$assertionsDisabled = !$ThreadLocalCoders::class$->desiredAssertionStatus();
 }
@@ -105,7 +60,44 @@ ThreadLocalCoders$2::ThreadLocalCoders$2() {
 }
 
 $Class* ThreadLocalCoders$2::load$($String* name, bool initialize) {
-	$loadClass(ThreadLocalCoders$2, name, initialize, &_ThreadLocalCoders$2_ClassInfo_, clinit$ThreadLocalCoders$2, allocate$ThreadLocalCoders$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ThreadLocalCoders$2, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(ThreadLocalCoders$2, init$, void, int32_t)},
+		{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ThreadLocalCoders$2, create, $Object*, Object$*)},
+		{"hasName", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(ThreadLocalCoders$2, hasName, bool, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.cs.ThreadLocalCoders",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ThreadLocalCoders$2", nullptr, nullptr, 0},
+		{"sun.nio.cs.ThreadLocalCoders$Cache", "sun.nio.cs.ThreadLocalCoders", "Cache", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ThreadLocalCoders$2",
+		"sun.nio.cs.ThreadLocalCoders$Cache",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ThreadLocalCoders"
+	};
+	$loadClass(ThreadLocalCoders$2, name, initialize, &classInfo$$, ThreadLocalCoders$2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadLocalCoders$2);
+	});
 	return class$;
 }
 

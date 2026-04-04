@@ -28,6 +28,7 @@ class WindowsFileSystem$FileStoreIterator : public ::java::util::Iterator {
 	$class(WindowsFileSystem$FileStoreIterator, 0, ::java::util::Iterator)
 public:
 	WindowsFileSystem$FileStoreIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::WindowsFileSystem* this$0);
 	virtual bool hasNext() override;
 	virtual $Object* next() override;

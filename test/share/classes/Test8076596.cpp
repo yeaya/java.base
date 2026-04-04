@@ -1,5 +1,4 @@
 #include <Test8076596.h>
-
 #include <Test8076596$1.h>
 #include <java/io/Serializable.h>
 #include <java/lang/SecurityManager.h>
@@ -29,70 +28,36 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(Test8076596::lambda$new$0());
+		 return Test8076596::lambda$new$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Test8076596$$Lambda$lambda$new$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Test8076596$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8076596$$Lambda$lambda$new$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Test8076596$$Lambda$lambda$new$0, run, $Object*)},
-	{}
-};
-$ClassInfo Test8076596$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Test8076596$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Test8076596$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(Test8076596$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test8076596$$Lambda$lambda$new$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Test8076596$$Lambda$lambda$new$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Test8076596$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test8076596$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8076596$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* Test8076596$$Lambda$lambda$new$0::class$ = nullptr;
 
-$MethodInfo _Test8076596_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8076596, init$, void)},
-	{"lambda$new$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8076596, lambda$new$0, $Void*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8076596, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _Test8076596_InnerClassesInfo_[] = {
-	{"Test8076596$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test8076596_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test8076596",
-	"java.lang.SecurityManager",
-	nullptr,
-	nullptr,
-	_Test8076596_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Test8076596_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Test8076596$1"
-};
-
-$Object* allocate$Test8076596($Class* clazz) {
-	return $of($alloc(Test8076596));
-}
-
 void Test8076596::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$SecurityManager::init$();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Test8076596$$Lambda$lambda$new$0)));
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Test8076596$1, this)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(Test8076596$$Lambda$lambda$new$0)));
+	$AccessController::doPrivileged($$new($Test8076596$1, this));
 }
 
 void Test8076596::main($StringArray* args) {
@@ -109,11 +74,37 @@ Test8076596::Test8076596() {
 
 $Class* Test8076596::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Test8076596$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("Test8076596$$Lambda$lambda$new$0")) {
 			return Test8076596$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Test8076596, name, initialize, &_Test8076596_ClassInfo_, allocate$Test8076596);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test8076596, init$, void)},
+		{"lambda$new$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8076596, lambda$new$0, $Void*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8076596, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test8076596$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test8076596",
+		"java.lang.SecurityManager",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Test8076596$1"
+	};
+	$loadClass(Test8076596, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8076596);
+	});
 	return class$;
 }
 

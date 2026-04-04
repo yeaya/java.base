@@ -1,5 +1,4 @@
 #include <java/lang/Thread$State.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -19,50 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _Thread$State_FieldInfo_[] = {
-	{"NEW", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, NEW)},
-	{"RUNNABLE", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, RUNNABLE)},
-	{"BLOCKED", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, BLOCKED)},
-	{"WAITING", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, WAITING)},
-	{"TIMED_WAITING", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, TIMED_WAITING)},
-	{"TERMINATED", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, TERMINATED)},
-	{"$VALUES", "[Ljava/lang/Thread$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Thread$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _Thread$State_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/Thread$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Thread$State, $values, $Thread$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Thread$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread$State, valueOf, Thread$State*, $String*)},
-	{"values", "()[Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread$State, values, $Thread$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _Thread$State_InnerClassesInfo_[] = {
-	{"java.lang.Thread$State", "java.lang.Thread", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Thread$State_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.Thread$State",
-	"java.lang.Enum",
-	nullptr,
-	_Thread$State_FieldInfo_,
-	_Thread$State_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/Thread$State;>;",
-	nullptr,
-	_Thread$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Thread"
-};
-
-$Object* allocate$Thread$State($Class* clazz) {
-	return $of($alloc(Thread$State));
-}
 
 Thread$State* Thread$State::NEW = nullptr;
 Thread$State* Thread$State::RUNNABLE = nullptr;
@@ -98,7 +53,7 @@ void Thread$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Thread$State($Class* class$) {
+void Thread$State::clinit$($Class* clazz) {
 	$assignStatic(Thread$State::NEW, $new(Thread$State, "NEW"_s, 0));
 	$assignStatic(Thread$State::RUNNABLE, $new(Thread$State, "RUNNABLE"_s, 1));
 	$assignStatic(Thread$State::BLOCKED, $new(Thread$State, "BLOCKED"_s, 2));
@@ -112,7 +67,45 @@ Thread$State::Thread$State() {
 }
 
 $Class* Thread$State::load$($String* name, bool initialize) {
-	$loadClass(Thread$State, name, initialize, &_Thread$State_ClassInfo_, clinit$Thread$State, allocate$Thread$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"NEW", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, NEW)},
+		{"RUNNABLE", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, RUNNABLE)},
+		{"BLOCKED", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, BLOCKED)},
+		{"WAITING", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, WAITING)},
+		{"TIMED_WAITING", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, TIMED_WAITING)},
+		{"TERMINATED", "Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Thread$State, TERMINATED)},
+		{"$VALUES", "[Ljava/lang/Thread$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Thread$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/Thread$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Thread$State, $values, $Thread$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Thread$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread$State, valueOf, Thread$State*, $String*)},
+		{"values", "()[Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread$State, values, $Thread$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Thread$State", "java.lang.Thread", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.Thread$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/Thread$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Thread"
+	};
+	$loadClass(Thread$State, name, initialize, &classInfo$$, Thread$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Thread$State));
+	});
 	return class$;
 }
 

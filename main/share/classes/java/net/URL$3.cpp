@@ -1,5 +1,4 @@
 #include <java/net/URL$3.h>
-
 #include <java/net/URL.h>
 #include <java/net/URLStreamHandler.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ using $URLStreamHandler = ::java::net::URLStreamHandler;
 namespace java {
 	namespace net {
 
-$MethodInfo _URL$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(URL$3, init$, void)},
-	{"getHandler", "(Ljava/net/URL;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(URL$3, getHandler, $URLStreamHandler*, $URL*)},
-	{}
-};
-
-$EnclosingMethodInfo _URL$3_EnclosingMethodInfo_ = {
-	"java.net.URL",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _URL$3_InnerClassesInfo_[] = {
-	{"java.net.URL$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URL$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.URL$3",
-	"java.lang.Object",
-	"jdk.internal.access.JavaNetURLAccess",
-	nullptr,
-	_URL$3_MethodInfo_,
-	nullptr,
-	&_URL$3_EnclosingMethodInfo_,
-	_URL$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.URL"
-};
-
-$Object* allocate$URL$3($Class* clazz) {
-	return $of($alloc(URL$3));
-}
-
 void URL$3::init$() {
 }
 
@@ -62,7 +24,38 @@ URL$3::URL$3() {
 }
 
 $Class* URL$3::load$($String* name, bool initialize) {
-	$loadClass(URL$3, name, initialize, &_URL$3_ClassInfo_, allocate$URL$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(URL$3, init$, void)},
+		{"getHandler", "(Ljava/net/URL;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(URL$3, getHandler, $URLStreamHandler*, $URL*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.URL",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.URL$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.URL$3",
+		"java.lang.Object",
+		"jdk.internal.access.JavaNetURLAccess",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.URL"
+	};
+	$loadClass(URL$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URL$3);
+	});
 	return class$;
 }
 

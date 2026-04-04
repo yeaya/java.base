@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/TimeZoneNameUtility.h>
-
 #include <java/lang/ref/SoftReference.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Iterator.h>
@@ -16,7 +15,6 @@
 #include <sun/util/locale/provider/LocaleProviderAdapter$Type.h>
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
 #include <sun/util/locale/provider/LocaleResources.h>
-#include <sun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter.h>
 #include <sun/util/locale/provider/LocaleServiceProviderPool.h>
 #include <sun/util/locale/provider/TimeZoneNameProviderImpl.h>
 #include <sun/util/locale/provider/TimeZoneNameUtility$TimeZoneNameGetter.h>
@@ -48,9 +46,7 @@ using $TimeZoneNameProvider = ::java::util::spi::TimeZoneNameProvider;
 using $CLDRLocaleProviderAdapter = ::sun::util::cldr::CLDRLocaleProviderAdapter;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
-using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 using $LocaleServiceProviderPool = ::sun::util::locale::provider::LocaleServiceProviderPool;
-using $LocaleServiceProviderPool$LocalizedObjectGetter = ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter;
 using $TimeZoneNameProviderImpl = ::sun::util::locale::provider::TimeZoneNameProviderImpl;
 using $TimeZoneNameUtility$TimeZoneNameGetter = ::sun::util::locale::provider::TimeZoneNameUtility$TimeZoneNameGetter;
 
@@ -59,80 +55,37 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _TimeZoneNameUtility_FieldInfo_[] = {
-	{"cachedZoneData", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/util/Locale;Ljava/lang/ref/SoftReference<[[Ljava/lang/String;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(TimeZoneNameUtility, cachedZoneData)},
-	{"cachedDisplayNames", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/ref/SoftReference<Ljava/util/Map<Ljava/util/Locale;[Ljava/lang/String;>;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(TimeZoneNameUtility, cachedDisplayNames)},
-	{}
-};
-
-$MethodInfo _TimeZoneNameUtility_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TimeZoneNameUtility, init$, void)},
-	{"canonicalTZID", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, canonicalTZID, $Optional*, $String*)},
-	{"convertLDMLShortID", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, convertLDMLShortID, $Optional*, $String*)},
-	{"getZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, getZoneStrings, $StringArray2*, $Locale*)},
-	{"loadZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZoneNameUtility, loadZoneStrings, $StringArray2*, $Locale*)},
-	{"retrieveDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveDisplayName, $String*, $String*, bool, int32_t, $Locale*)},
-	{"retrieveDisplayNames", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveDisplayNames, $StringArray*, $String*, $Locale*)},
-	{"retrieveDisplayNamesImpl", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveDisplayNamesImpl, $StringArray*, $String*, $Locale*)},
-	{"retrieveGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveGenericDisplayName, $String*, $String*, int32_t, $Locale*)},
-	{}
-};
-
-$InnerClassInfo _TimeZoneNameUtility_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.TimeZoneNameUtility$TimeZoneNameGetter", "sun.util.locale.provider.TimeZoneNameUtility", "TimeZoneNameGetter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TimeZoneNameUtility_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.locale.provider.TimeZoneNameUtility",
-	"java.lang.Object",
-	nullptr,
-	_TimeZoneNameUtility_FieldInfo_,
-	_TimeZoneNameUtility_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TimeZoneNameUtility_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.TimeZoneNameUtility$TimeZoneNameGetter"
-};
-
-$Object* allocate$TimeZoneNameUtility($Class* clazz) {
-	return $of($alloc(TimeZoneNameUtility));
-}
-
 $ConcurrentHashMap* TimeZoneNameUtility::cachedZoneData = nullptr;
 $Map* TimeZoneNameUtility::cachedDisplayNames = nullptr;
 
 $StringArray2* TimeZoneNameUtility::getZoneStrings($Locale* locale) {
 	$init(TimeZoneNameUtility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray2, zones, nullptr);
-	$var($SoftReference, data, $cast($SoftReference, $nc(TimeZoneNameUtility::cachedZoneData)->get(locale)));
-	if (data == nullptr || (($assign(zones, $cast($StringArray2, $nc(data)->get()))) == nullptr)) {
+	$var($SoftReference, data, $cast($SoftReference, TimeZoneNameUtility::cachedZoneData->get(locale)));
+	if (data == nullptr || (($assign(zones, $cast($StringArray2, data->get()))) == nullptr)) {
 		$assign(zones, loadZoneStrings(locale));
 		$assign(data, $new($SoftReference, zones));
-		$nc(TimeZoneNameUtility::cachedZoneData)->put(locale, data);
+		TimeZoneNameUtility::cachedZoneData->put(locale, data);
 	}
 	return zones;
 }
 
 $StringArray2* TimeZoneNameUtility::loadZoneStrings($Locale* locale) {
 	$init(TimeZoneNameUtility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($TimeZoneNameProvider);
 	$var($LocaleProviderAdapter, adapter, $LocaleProviderAdapter::getAdapter($TimeZoneNameProvider::class$, locale));
 	$var($TimeZoneNameProvider, provider, $nc(adapter)->getTimeZoneNameProvider());
 	if ($instanceOf($TimeZoneNameProviderImpl, provider)) {
-		$var($StringArray2, zoneStrings, $nc(($cast($TimeZoneNameProviderImpl, provider)))->getZoneStrings(locale));
+		$var($StringArray2, zoneStrings, $cast($TimeZoneNameProviderImpl, provider)->getZoneStrings(locale));
 		$init($Locale);
 		if ($nc(zoneStrings)->length == 0 && $nc(locale)->equals($Locale::ROOT)) {
 			$assign(zoneStrings, getZoneStrings($Locale::ENGLISH));
 		}
 		return zoneStrings;
 	}
-	$var($Set, zoneIDs, $nc($($nc($($LocaleProviderAdapter::forJRE()))->getLocaleResources(locale)))->getZoneIDs());
+	$var($Set, zoneIDs, $$nc($$nc($LocaleProviderAdapter::forJRE())->getLocaleResources(locale))->getZoneIDs());
 	$var($List, zones, $new($LinkedList));
 	{
 		$var($Iterator, i$, $nc(zoneIDs)->iterator());
@@ -147,7 +100,7 @@ $StringArray2* TimeZoneNameUtility::loadZoneStrings($Locale* locale) {
 		}
 	}
 	$var($StringArray2, zonesArray, $new($StringArray2, zones->size()));
-	return $fcast($StringArray2, zones->toArray(zonesArray));
+	return $cast($StringArray2, zones->toArray(zonesArray));
 }
 
 $StringArray* TimeZoneNameUtility::retrieveDisplayNames($String* id, $Locale* locale) {
@@ -185,17 +138,17 @@ $Optional* TimeZoneNameUtility::convertLDMLShortID($String* shortID) {
 $Optional* TimeZoneNameUtility::canonicalTZID($String* id) {
 	$init(TimeZoneNameUtility);
 	$init($LocaleProviderAdapter$Type);
-	return $nc(($cast($CLDRLocaleProviderAdapter, $($LocaleProviderAdapter::forType($LocaleProviderAdapter$Type::CLDR)))))->canonicalTZID(id);
+	return $$sure($CLDRLocaleProviderAdapter, $LocaleProviderAdapter::forType($LocaleProviderAdapter$Type::CLDR))->canonicalTZID(id);
 }
 
 $StringArray* TimeZoneNameUtility::retrieveDisplayNamesImpl($String* id, $Locale* locale) {
 	$init(TimeZoneNameUtility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($TimeZoneNameProvider);
 	$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($TimeZoneNameProvider::class$));
 	$var($StringArray, names, nullptr);
 	$var($Map, perLocale, nullptr);
-	$var($SoftReference, ref, $cast($SoftReference, $nc(TimeZoneNameUtility::cachedDisplayNames)->get(id)));
+	$var($SoftReference, ref, $cast($SoftReference, TimeZoneNameUtility::cachedDisplayNames->get(id)));
 	if ($Objects::nonNull(ref)) {
 		$assign(perLocale, $cast($Map, $nc(ref)->get()));
 		if ($Objects::nonNull(perLocale)) {
@@ -209,33 +162,70 @@ $StringArray* TimeZoneNameUtility::retrieveDisplayNamesImpl($String* id, $Locale
 	names->set(0, id);
 	for (int32_t i = 1; i <= 6; ++i) {
 		$init($TimeZoneNameUtility$TimeZoneNameGetter);
-		names->set(i, $cast($String, $($nc(pool)->getLocalizedObject($TimeZoneNameUtility$TimeZoneNameGetter::INSTANCE, locale, i < 5 ? (i < 3 ? "std"_s : "dst"_s) : "generic"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(i % 2))),
-			$of(id)
-		})))));
+		names->set(i, $$cast($String, $nc(pool)->getLocalizedObject($TimeZoneNameUtility$TimeZoneNameGetter::INSTANCE, locale, i < 5 ? (i < 3 ? "std"_s : "dst"_s) : "generic"_s, $$new($ObjectArray, {
+			$($Integer::valueOf(i % 2)),
+			id
+		}))));
 	}
 	if ($Objects::isNull(perLocale)) {
-		$assign(perLocale, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+		$assign(perLocale, $cast($AbstractMap, $new($ConcurrentHashMap)));
 	}
 	$nc(perLocale)->put(locale, names);
 	$assign(ref, $new($SoftReference, perLocale));
-	$nc(TimeZoneNameUtility::cachedDisplayNames)->put(id, ref);
+	TimeZoneNameUtility::cachedDisplayNames->put(id, ref);
 	return names;
 }
 
 void TimeZoneNameUtility::init$() {
 }
 
-void clinit$TimeZoneNameUtility($Class* class$) {
+void TimeZoneNameUtility::clinit$($Class* clazz) {
 	$assignStatic(TimeZoneNameUtility::cachedZoneData, $new($ConcurrentHashMap));
-	$assignStatic(TimeZoneNameUtility::cachedDisplayNames, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$assignStatic(TimeZoneNameUtility::cachedDisplayNames, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 TimeZoneNameUtility::TimeZoneNameUtility() {
 }
 
 $Class* TimeZoneNameUtility::load$($String* name, bool initialize) {
-	$loadClass(TimeZoneNameUtility, name, initialize, &_TimeZoneNameUtility_ClassInfo_, clinit$TimeZoneNameUtility, allocate$TimeZoneNameUtility);
+	$FieldInfo fieldInfos$$[] = {
+		{"cachedZoneData", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/util/Locale;Ljava/lang/ref/SoftReference<[[Ljava/lang/String;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(TimeZoneNameUtility, cachedZoneData)},
+		{"cachedDisplayNames", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/ref/SoftReference<Ljava/util/Map<Ljava/util/Locale;[Ljava/lang/String;>;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(TimeZoneNameUtility, cachedDisplayNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TimeZoneNameUtility, init$, void)},
+		{"canonicalTZID", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, canonicalTZID, $Optional*, $String*)},
+		{"convertLDMLShortID", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, convertLDMLShortID, $Optional*, $String*)},
+		{"getZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, getZoneStrings, $StringArray2*, $Locale*)},
+		{"loadZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZoneNameUtility, loadZoneStrings, $StringArray2*, $Locale*)},
+		{"retrieveDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveDisplayName, $String*, $String*, bool, int32_t, $Locale*)},
+		{"retrieveDisplayNames", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveDisplayNames, $StringArray*, $String*, $Locale*)},
+		{"retrieveDisplayNamesImpl", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveDisplayNamesImpl, $StringArray*, $String*, $Locale*)},
+		{"retrieveGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveGenericDisplayName, $String*, $String*, int32_t, $Locale*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.TimeZoneNameUtility$TimeZoneNameGetter", "sun.util.locale.provider.TimeZoneNameUtility", "TimeZoneNameGetter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.locale.provider.TimeZoneNameUtility",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.TimeZoneNameUtility$TimeZoneNameGetter"
+	};
+	$loadClass(TimeZoneNameUtility, name, initialize, &classInfo$$, TimeZoneNameUtility::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeZoneNameUtility);
+	});
 	return class$;
 }
 

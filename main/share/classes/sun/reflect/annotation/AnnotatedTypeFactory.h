@@ -38,6 +38,7 @@ class $export AnnotatedTypeFactory : public ::java::lang::Object {
 	$class(AnnotatedTypeFactory, 0, ::java::lang::Object)
 public:
 	AnnotatedTypeFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::reflect::AnnotatedType* buildAnnotatedType(::java::lang::reflect::Type* type, ::sun::reflect::annotation::TypeAnnotation$LocationInfo* currentLoc, $Array<::sun::reflect::annotation::TypeAnnotation>* actualTypeAnnos, $Array<::sun::reflect::annotation::TypeAnnotation>* allOnSameTarget, ::java::lang::reflect::AnnotatedElement* decl);
 	static bool isArray(::java::lang::reflect::Type* t);

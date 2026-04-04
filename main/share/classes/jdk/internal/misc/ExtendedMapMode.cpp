@@ -1,5 +1,4 @@
 #include <jdk/internal/misc/ExtendedMapMode.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -43,59 +42,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ExtendedMapMode::lambda$static$0());
+		 return ExtendedMapMode::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ExtendedMapMode$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ExtendedMapMode$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedMapMode$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExtendedMapMode$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo ExtendedMapMode$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.misc.ExtendedMapMode$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	nullptr,
-	methodInfos
 };
 $Class* ExtendedMapMode$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(ExtendedMapMode$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedMapMode$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExtendedMapMode$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.misc.ExtendedMapMode$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExtendedMapMode$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedMapMode$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* ExtendedMapMode$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _ExtendedMapMode_FieldInfo_[] = {
-	{"MAP_MODE_CONSTRUCTOR", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMapMode, MAP_MODE_CONSTRUCTOR)},
-	{"READ_ONLY_SYNC", "Ljava/nio/channels/FileChannel$MapMode;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedMapMode, READ_ONLY_SYNC)},
-	{"READ_WRITE_SYNC", "Ljava/nio/channels/FileChannel$MapMode;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedMapMode, READ_WRITE_SYNC)},
-	{}
-};
-
-$MethodInfo _ExtendedMapMode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedMapMode, init$, void)},
-	{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedMapMode, lambda$static$0, $MethodHandles$Lookup*), "java.lang.Exception"},
-	{"newMapMode", "(Ljava/lang/String;)Ljava/nio/channels/FileChannel$MapMode;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedMapMode, newMapMode, $FileChannel$MapMode*, $String*)},
-	{}
-};
-
-$ClassInfo _ExtendedMapMode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.misc.ExtendedMapMode",
-	"java.lang.Object",
-	nullptr,
-	_ExtendedMapMode_FieldInfo_,
-	_ExtendedMapMode_MethodInfo_
-};
-
-$Object* allocate$ExtendedMapMode($Class* clazz) {
-	return $of($alloc(ExtendedMapMode));
-}
 
 $MethodHandle* ExtendedMapMode::MAP_MODE_CONSTRUCTOR = nullptr;
 $FileChannel$MapMode* ExtendedMapMode::READ_ONLY_SYNC = nullptr;
@@ -104,9 +73,9 @@ $FileChannel$MapMode* ExtendedMapMode::READ_WRITE_SYNC = nullptr;
 $FileChannel$MapMode* ExtendedMapMode::newMapMode($String* name) {
 	$init(ExtendedMapMode);
 	try {
-		return $cast($FileChannel$MapMode, $nc(ExtendedMapMode::MAP_MODE_CONSTRUCTOR)->invoke($$new($ObjectArray, {$of(name)})));
+		return $cast($FileChannel$MapMode, $nc(ExtendedMapMode::MAP_MODE_CONSTRUCTOR)->invoke($$new($ObjectArray, {name})));
 	} catch ($Throwable& e) {
-		$throwNew($InternalError, $cast($Throwable, e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -121,19 +90,18 @@ $MethodHandles$Lookup* ExtendedMapMode::lambda$static$0() {
 	return $MethodHandles::privateLookupIn($FileChannel$MapMode::class$, $($MethodHandles::lookup()));
 }
 
-void clinit$ExtendedMapMode($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ExtendedMapMode::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		try {
-			$var($PrivilegedExceptionAction, pae, static_cast<$PrivilegedExceptionAction*>($new(ExtendedMapMode$$Lambda$lambda$static$0)));
+			$var($PrivilegedExceptionAction, pae, $new(ExtendedMapMode$$Lambda$lambda$static$0));
 			$var($MethodHandles$Lookup, lookup, $cast($MethodHandles$Lookup, $AccessController::doPrivileged(pae)));
-			$init($Void);
 			$var($MethodType, methodType, $MethodType::methodType($Void::TYPE, $String::class$));
 			$load($FileChannel$MapMode);
 			$assignStatic(ExtendedMapMode::MAP_MODE_CONSTRUCTOR, $nc(lookup)->findConstructor($FileChannel$MapMode::class$, methodType));
 		} catch ($Exception& e) {
-			$throwNew($InternalError, static_cast<$Throwable*>(e));
+			$throwNew($InternalError, e);
 		}
 	}
 	$assignStatic(ExtendedMapMode::READ_ONLY_SYNC, ExtendedMapMode::newMapMode("READ_ONLY_SYNC"_s));
@@ -145,11 +113,33 @@ ExtendedMapMode::ExtendedMapMode() {
 
 $Class* ExtendedMapMode::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ExtendedMapMode$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.misc.ExtendedMapMode$$Lambda$lambda$static$0")) {
 			return ExtendedMapMode$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ExtendedMapMode, name, initialize, &_ExtendedMapMode_ClassInfo_, clinit$ExtendedMapMode, allocate$ExtendedMapMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAP_MODE_CONSTRUCTOR", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMapMode, MAP_MODE_CONSTRUCTOR)},
+		{"READ_ONLY_SYNC", "Ljava/nio/channels/FileChannel$MapMode;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedMapMode, READ_ONLY_SYNC)},
+		{"READ_WRITE_SYNC", "Ljava/nio/channels/FileChannel$MapMode;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedMapMode, READ_WRITE_SYNC)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedMapMode, init$, void)},
+		{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedMapMode, lambda$static$0, $MethodHandles$Lookup*), "java.lang.Exception"},
+		{"newMapMode", "(Ljava/lang/String;)Ljava/nio/channels/FileChannel$MapMode;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedMapMode, newMapMode, $FileChannel$MapMode*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.misc.ExtendedMapMode",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExtendedMapMode, name, initialize, &classInfo$$, ExtendedMapMode::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedMapMode);
+	});
 	return class$;
 }
 

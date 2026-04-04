@@ -18,6 +18,7 @@ class $export ITLConstructor : public ::java::lang::Object {
 	$class(ITLConstructor, 0, ::java::lang::Object)
 public:
 	ITLConstructor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test(bool inherit);

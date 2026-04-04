@@ -1,5 +1,4 @@
 #include <java/net/TwoStacksPlainDatagramSocketImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/AbstractPlainDatagramSocketImpl.h>
@@ -28,7 +27,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $AbstractPlainDatagramSocketImpl = ::java::net::AbstractPlainDatagramSocketImpl;
 using $DatagramPacket = ::java::net::DatagramPacket;
 using $InetAddress = ::java::net::InetAddress;
-using $InetAddress$InetAddressHolder = ::java::net::InetAddress$InetAddressHolder;
 using $NetworkInterface = ::java::net::NetworkInterface;
 using $SocketCleanable = ::java::net::SocketCleanable;
 using $SocketException = ::java::net::SocketException;
@@ -37,94 +35,6 @@ using $ResourceManager = ::sun::net::ResourceManager;
 
 namespace java {
 	namespace net {
-
-$CompoundAttribute _TwoStacksPlainDatagramSocketImpl_MethodAnnotations_getTTL12[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _TwoStacksPlainDatagramSocketImpl_MethodAnnotations_setTTL23[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _TwoStacksPlainDatagramSocketImpl_FieldInfo_[] = {
-	{"fd1", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, fd1)},
-	{"anyLocalBoundAddr", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, anyLocalBoundAddr)},
-	{"fduse", "I", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, fduse)},
-	{"lastfd", "I", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, lastfd)},
-	{"exclusiveBind", "Z", nullptr, $PRIVATE | $FINAL, $field(TwoStacksPlainDatagramSocketImpl, exclusiveBind)},
-	{"reuseAddressEmulated", "Z", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, reuseAddressEmulated)},
-	{"isReuseAddress", "Z", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, isReuseAddress)},
-	{}
-};
-
-$MethodInfo _TwoStacksPlainDatagramSocketImpl_MethodInfo_[] = {
-	{"<init>", "(ZZ)V", nullptr, 0, $method(TwoStacksPlainDatagramSocketImpl, init$, void, bool, bool)},
-	{"bind", "(ILjava/net/InetAddress;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, bind, void, int32_t, $InetAddress*), "java.net.SocketException"},
-	{"bind0", "(ILjava/net/InetAddress;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, bind0, void, int32_t, $InetAddress*), "java.net.SocketException"},
-	{"bind0", "(ILjava/net/InetAddress;Z)V", nullptr, $PROTECTED | $SYNCHRONIZED | $NATIVE, $method(TwoStacksPlainDatagramSocketImpl, bind0, void, int32_t, $InetAddress*, bool), "java.net.SocketException"},
-	{"close", "()V", nullptr, $PROTECTED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, close, void)},
-	{"connect0", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, connect0, void, $InetAddress*, int32_t), "java.net.SocketException"},
-	{"create", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, create, void), "java.net.SocketException"},
-	{"dataAvailable", "()I", nullptr, $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, dataAvailable, int32_t)},
-	{"datagramSocketClose", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, datagramSocketClose, void)},
-	{"datagramSocketCreate", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, datagramSocketCreate, void), "java.net.SocketException"},
-	{"disconnect0", "(I)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, disconnect0, void, int32_t)},
-	{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TwoStacksPlainDatagramSocketImpl, getOption, $Object*, int32_t), "java.net.SocketException"},
-	{"getTTL", "()B", nullptr, $PROTECTED | $NATIVE | $DEPRECATED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, getTTL, int8_t), "java.io.IOException", nullptr, _TwoStacksPlainDatagramSocketImpl_MethodAnnotations_getTTL12},
-	{"getTimeToLive", "()I", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, getTimeToLive, int32_t), "java.io.IOException"},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(TwoStacksPlainDatagramSocketImpl, init, void)},
-	{"isClosed", "()Z", nullptr, $PROTECTED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, isClosed, bool)},
-	{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, join, void, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"leave", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, leave, void, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"peek", "(Ljava/net/InetAddress;)I", nullptr, $PROTECTED | $SYNCHRONIZED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, peek, int32_t, $InetAddress*), "java.io.IOException"},
-	{"peekData", "(Ljava/net/DatagramPacket;)I", nullptr, $PROTECTED | $SYNCHRONIZED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, peekData, int32_t, $DatagramPacket*), "java.io.IOException"},
-	{"receive", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, receive, void, $DatagramPacket*), "java.io.IOException"},
-	{"receive0", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $SYNCHRONIZED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, receive0, void, $DatagramPacket*), "java.io.IOException"},
-	{"send0", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, send0, void, $DatagramPacket*), "java.io.IOException"},
-	{"setTTL", "(B)V", nullptr, $PROTECTED | $NATIVE | $DEPRECATED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, setTTL, void, int8_t), "java.io.IOException", nullptr, _TwoStacksPlainDatagramSocketImpl_MethodAnnotations_setTTL23},
-	{"setTimeToLive", "(I)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, setTimeToLive, void, int32_t), "java.io.IOException"},
-	{"socketGetOption", "(I)Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, socketGetOption, $Object*, int32_t), "java.net.SocketException"},
-	{"socketLocalAddress", "(I)Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE, $method(TwoStacksPlainDatagramSocketImpl, socketLocalAddress, $Object*, int32_t), "java.net.SocketException"},
-	{"socketNativeSetOption", "(ILjava/lang/Object;)V", nullptr, $PROTECTED | $NATIVE, $method(TwoStacksPlainDatagramSocketImpl, socketNativeSetOption, void, int32_t, Object$*), "java.net.SocketException"},
-	{"socketSetOption", "(ILjava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, socketSetOption, void, int32_t, Object$*), "java.net.SocketException"},
-	{}
-};
-
-#define _METHOD_INDEX_bind0 3
-#define _METHOD_INDEX_connect0 5
-#define _METHOD_INDEX_dataAvailable 7
-#define _METHOD_INDEX_datagramSocketClose 8
-#define _METHOD_INDEX_datagramSocketCreate 9
-#define _METHOD_INDEX_disconnect0 10
-#define _METHOD_INDEX_getTTL 12
-#define _METHOD_INDEX_getTimeToLive 13
-#define _METHOD_INDEX_init 14
-#define _METHOD_INDEX_join 16
-#define _METHOD_INDEX_leave 17
-#define _METHOD_INDEX_peek 18
-#define _METHOD_INDEX_peekData 19
-#define _METHOD_INDEX_receive0 21
-#define _METHOD_INDEX_send0 22
-#define _METHOD_INDEX_setTTL 23
-#define _METHOD_INDEX_setTimeToLive 24
-#define _METHOD_INDEX_socketGetOption 25
-#define _METHOD_INDEX_socketLocalAddress 26
-#define _METHOD_INDEX_socketNativeSetOption 27
-
-$ClassInfo _TwoStacksPlainDatagramSocketImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.net.TwoStacksPlainDatagramSocketImpl",
-	"java.net.AbstractPlainDatagramSocketImpl",
-	nullptr,
-	_TwoStacksPlainDatagramSocketImpl_FieldInfo_,
-	_TwoStacksPlainDatagramSocketImpl_MethodInfo_
-};
-
-$Object* allocate$TwoStacksPlainDatagramSocketImpl($Class* clazz) {
-	return $of($alloc(TwoStacksPlainDatagramSocketImpl));
-}
 
 void TwoStacksPlainDatagramSocketImpl::init$(bool exclBind, bool isMulticast) {
 	$AbstractPlainDatagramSocketImpl::init$(isMulticast);
@@ -168,18 +78,16 @@ void TwoStacksPlainDatagramSocketImpl::bind0(int32_t lport, $InetAddress* laddr)
 
 void TwoStacksPlainDatagramSocketImpl::receive($DatagramPacket* p) {
 	$synchronized(this) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				receive0(p);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->fduse = -1;
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			receive0(p);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->fduse = -1;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -190,23 +98,23 @@ $Object* TwoStacksPlainDatagramSocketImpl::getOption(int32_t optID) {
 	}
 	if (optID == $SocketOptions::SO_BINDADDR) {
 		if ((this->fd != nullptr && this->fd1 != nullptr) && !this->connected) {
-			return $of(this->anyLocalBoundAddr);
+			return this->anyLocalBoundAddr;
 		}
-		int32_t family = this->connectedAddress == nullptr ? -1 : $nc($($nc(this->connectedAddress)->holder()))->getFamily();
-		return $of(socketLocalAddress(family));
+		int32_t family = this->connectedAddress == nullptr ? -1 : $$nc(this->connectedAddress->holder())->getFamily();
+		return socketLocalAddress(family);
 	} else if (optID == $SocketOptions::SO_REUSEADDR && this->reuseAddressEmulated) {
 		return $of($Boolean::valueOf(this->isReuseAddress));
 	} else if (optID == $SocketOptions::SO_REUSEPORT) {
 		$throwNew($UnsupportedOperationException, "unsupported option"_s);
 	} else {
-		return $of($AbstractPlainDatagramSocketImpl::getOption(optID));
+		return $AbstractPlainDatagramSocketImpl::getOption(optID);
 	}
 }
 
 void TwoStacksPlainDatagramSocketImpl::socketSetOption(int32_t opt, Object$* val) {
 	if (opt == $SocketOptions::SO_REUSEADDR && this->exclusiveBind && this->localPort != 0) {
 		this->reuseAddressEmulated = true;
-		this->isReuseAddress = $nc(($cast($Boolean, val)))->booleanValue();
+		this->isReuseAddress = $nc($cast($Boolean, val))->booleanValue();
 	} else if (opt == $SocketOptions::SO_REUSEPORT) {
 		$throwNew($UnsupportedOperationException, "unsupported option"_s);
 	} else {
@@ -230,141 +138,134 @@ void TwoStacksPlainDatagramSocketImpl::close() {
 }
 
 void TwoStacksPlainDatagramSocketImpl::bind0(int32_t lport, $InetAddress* laddr, bool exclBind) {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, bind0, void, int32_t lport, $InetAddress* laddr, bool exclBind);
+	$prepareNative(bind0, void, int32_t lport, $InetAddress* laddr, bool exclBind);
 	$invokeNative(lport, laddr, exclBind);
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::send0($DatagramPacket* p) {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, send0, void, $DatagramPacket* p);
+	$prepareNative(send0, void, $DatagramPacket* p);
 	$invokeNative(p);
 	$finishNative();
 }
 
 int32_t TwoStacksPlainDatagramSocketImpl::peek($InetAddress* i) {
-	int32_t $ret = 0;
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, peek, int32_t, $InetAddress* i);
-	$ret = $invokeNative(i);
+	$prepareNative(peek, int32_t, $InetAddress* i);
+	int32_t $ret = $invokeNative(i);
 	$finishNative();
 	return $ret;
 }
 
 int32_t TwoStacksPlainDatagramSocketImpl::peekData($DatagramPacket* p) {
-	int32_t $ret = 0;
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, peekData, int32_t, $DatagramPacket* p);
-	$ret = $invokeNative(p);
+	$prepareNative(peekData, int32_t, $DatagramPacket* p);
+	int32_t $ret = $invokeNative(p);
 	$finishNative();
 	return $ret;
 }
 
 void TwoStacksPlainDatagramSocketImpl::receive0($DatagramPacket* p) {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, receive0, void, $DatagramPacket* p);
+	$prepareNative(receive0, void, $DatagramPacket* p);
 	$invokeNative(p);
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::setTimeToLive(int32_t ttl) {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, setTimeToLive, void, int32_t ttl);
+	$prepareNative(setTimeToLive, void, int32_t ttl);
 	$invokeNative(ttl);
 	$finishNative();
 }
 
 int32_t TwoStacksPlainDatagramSocketImpl::getTimeToLive() {
-	int32_t $ret = 0;
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, getTimeToLive, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getTimeToLive, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void TwoStacksPlainDatagramSocketImpl::setTTL(int8_t ttl) {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, setTTL, void, int8_t ttl);
+	$prepareNative(setTTL, void, int8_t ttl);
 	$invokeNative(ttl);
 	$finishNative();
 }
 
 int8_t TwoStacksPlainDatagramSocketImpl::getTTL() {
-	int8_t $ret = 0;
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, getTTL, int8_t);
-	$ret = $invokeNative();
+	$prepareNative(getTTL, int8_t);
+	int8_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void TwoStacksPlainDatagramSocketImpl::join($InetAddress* inetaddr, $NetworkInterface* netIf) {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, join, void, $InetAddress* inetaddr, $NetworkInterface* netIf);
+	$prepareNative(join, void, $InetAddress* inetaddr, $NetworkInterface* netIf);
 	$invokeNative(inetaddr, netIf);
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::leave($InetAddress* inetaddr, $NetworkInterface* netIf) {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, leave, void, $InetAddress* inetaddr, $NetworkInterface* netIf);
+	$prepareNative(leave, void, $InetAddress* inetaddr, $NetworkInterface* netIf);
 	$invokeNative(inetaddr, netIf);
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::datagramSocketCreate() {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, datagramSocketCreate, void);
+	$prepareNative(datagramSocketCreate, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::datagramSocketClose() {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, datagramSocketClose, void);
+	$prepareNative(datagramSocketClose, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::socketNativeSetOption(int32_t opt, Object$* val) {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, socketNativeSetOption, void, int32_t opt, Object$* val);
+	$prepareNative(socketNativeSetOption, void, int32_t opt, Object$* val);
 	$invokeNative(opt, val);
 	$finishNative();
 }
 
 $Object* TwoStacksPlainDatagramSocketImpl::socketGetOption(int32_t opt) {
-	$var($Object, $ret, nullptr);
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, socketGetOption, $Object*, int32_t opt);
-	$assign($ret, $invokeNativeObject(opt));
+	$prepareNative(socketGetOption, $Object*, int32_t opt);
+	$var($Object, $ret, $invokeNativeObject(opt));
 	$finishNative();
 	return $ret;
 }
 
 void TwoStacksPlainDatagramSocketImpl::connect0($InetAddress* address, int32_t port) {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, connect0, void, $InetAddress* address, int32_t port);
+	$prepareNative(connect0, void, $InetAddress* address, int32_t port);
 	$invokeNative(address, port);
 	$finishNative();
 }
 
 $Object* TwoStacksPlainDatagramSocketImpl::socketLocalAddress(int32_t family) {
-	$var($Object, $ret, nullptr);
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, socketLocalAddress, $Object*, int32_t family);
-	$assign($ret, $invokeNativeObject(family));
+	$prepareNative(socketLocalAddress, $Object*, int32_t family);
+	$var($Object, $ret, $invokeNativeObject(family));
 	$finishNative();
 	return $ret;
 }
 
 void TwoStacksPlainDatagramSocketImpl::disconnect0(int32_t family) {
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, disconnect0, void, int32_t family);
+	$prepareNative(disconnect0, void, int32_t family);
 	$invokeNative(family);
 	$finishNative();
 }
 
 int32_t TwoStacksPlainDatagramSocketImpl::dataAvailable() {
-	int32_t $ret = 0;
-	$prepareNative(TwoStacksPlainDatagramSocketImpl, dataAvailable, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(dataAvailable, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void TwoStacksPlainDatagramSocketImpl::init() {
 	$init(TwoStacksPlainDatagramSocketImpl);
-	$prepareNativeStatic(TwoStacksPlainDatagramSocketImpl, init, void);
+	$prepareNativeStatic(init, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$TwoStacksPlainDatagramSocketImpl($Class* class$) {
+void TwoStacksPlainDatagramSocketImpl::clinit$($Class* clazz) {
 	{
 		TwoStacksPlainDatagramSocketImpl::init();
 	}
@@ -374,7 +275,67 @@ TwoStacksPlainDatagramSocketImpl::TwoStacksPlainDatagramSocketImpl() {
 }
 
 $Class* TwoStacksPlainDatagramSocketImpl::load$($String* name, bool initialize) {
-	$loadClass(TwoStacksPlainDatagramSocketImpl, name, initialize, &_TwoStacksPlainDatagramSocketImpl_ClassInfo_, clinit$TwoStacksPlainDatagramSocketImpl, allocate$TwoStacksPlainDatagramSocketImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fd1", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, fd1)},
+		{"anyLocalBoundAddr", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, anyLocalBoundAddr)},
+		{"fduse", "I", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, fduse)},
+		{"lastfd", "I", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, lastfd)},
+		{"exclusiveBind", "Z", nullptr, $PRIVATE | $FINAL, $field(TwoStacksPlainDatagramSocketImpl, exclusiveBind)},
+		{"reuseAddressEmulated", "Z", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, reuseAddressEmulated)},
+		{"isReuseAddress", "Z", nullptr, $PRIVATE, $field(TwoStacksPlainDatagramSocketImpl, isReuseAddress)},
+		{}
+	};
+	$CompoundAttribute getTTLmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setTTLmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZZ)V", nullptr, 0, $method(TwoStacksPlainDatagramSocketImpl, init$, void, bool, bool)},
+		{"bind", "(ILjava/net/InetAddress;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, bind, void, int32_t, $InetAddress*), "java.net.SocketException"},
+		{"bind0", "(ILjava/net/InetAddress;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, bind0, void, int32_t, $InetAddress*), "java.net.SocketException"},
+		{"bind0", "(ILjava/net/InetAddress;Z)V", nullptr, $PROTECTED | $SYNCHRONIZED | $NATIVE, $method(TwoStacksPlainDatagramSocketImpl, bind0, void, int32_t, $InetAddress*, bool), "java.net.SocketException"},
+		{"close", "()V", nullptr, $PROTECTED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, close, void)},
+		{"connect0", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, connect0, void, $InetAddress*, int32_t), "java.net.SocketException"},
+		{"create", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, create, void), "java.net.SocketException"},
+		{"dataAvailable", "()I", nullptr, $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, dataAvailable, int32_t)},
+		{"datagramSocketClose", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, datagramSocketClose, void)},
+		{"datagramSocketCreate", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, datagramSocketCreate, void), "java.net.SocketException"},
+		{"disconnect0", "(I)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, disconnect0, void, int32_t)},
+		{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TwoStacksPlainDatagramSocketImpl, getOption, $Object*, int32_t), "java.net.SocketException"},
+		{"getTTL", "()B", nullptr, $PROTECTED | $NATIVE | $DEPRECATED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, getTTL, int8_t), "java.io.IOException", nullptr, getTTLmethodAnnotations$$},
+		{"getTimeToLive", "()I", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, getTimeToLive, int32_t), "java.io.IOException"},
+		{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(TwoStacksPlainDatagramSocketImpl, init, void)},
+		{"isClosed", "()Z", nullptr, $PROTECTED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, isClosed, bool)},
+		{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, join, void, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"leave", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, leave, void, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"peek", "(Ljava/net/InetAddress;)I", nullptr, $PROTECTED | $SYNCHRONIZED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, peek, int32_t, $InetAddress*), "java.io.IOException"},
+		{"peekData", "(Ljava/net/DatagramPacket;)I", nullptr, $PROTECTED | $SYNCHRONIZED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, peekData, int32_t, $DatagramPacket*), "java.io.IOException"},
+		{"receive", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, receive, void, $DatagramPacket*), "java.io.IOException"},
+		{"receive0", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $SYNCHRONIZED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, receive0, void, $DatagramPacket*), "java.io.IOException"},
+		{"send0", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, send0, void, $DatagramPacket*), "java.io.IOException"},
+		{"setTTL", "(B)V", nullptr, $PROTECTED | $NATIVE | $DEPRECATED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, setTTL, void, int8_t), "java.io.IOException", nullptr, setTTLmethodAnnotations$$},
+		{"setTimeToLive", "(I)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, setTimeToLive, void, int32_t), "java.io.IOException"},
+		{"socketGetOption", "(I)Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE, $virtualMethod(TwoStacksPlainDatagramSocketImpl, socketGetOption, $Object*, int32_t), "java.net.SocketException"},
+		{"socketLocalAddress", "(I)Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE, $method(TwoStacksPlainDatagramSocketImpl, socketLocalAddress, $Object*, int32_t), "java.net.SocketException"},
+		{"socketNativeSetOption", "(ILjava/lang/Object;)V", nullptr, $PROTECTED | $NATIVE, $method(TwoStacksPlainDatagramSocketImpl, socketNativeSetOption, void, int32_t, Object$*), "java.net.SocketException"},
+		{"socketSetOption", "(ILjava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(TwoStacksPlainDatagramSocketImpl, socketSetOption, void, int32_t, Object$*), "java.net.SocketException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.net.TwoStacksPlainDatagramSocketImpl",
+		"java.net.AbstractPlainDatagramSocketImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TwoStacksPlainDatagramSocketImpl, name, initialize, &classInfo$$, TwoStacksPlainDatagramSocketImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TwoStacksPlainDatagramSocketImpl);
+	});
 	return class$;
 }
 

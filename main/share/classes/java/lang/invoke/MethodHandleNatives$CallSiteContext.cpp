@@ -1,6 +1,4 @@
 #include <java/lang/invoke/MethodHandleNatives$CallSiteContext.h>
-
-#include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/MethodHandleNatives.h>
 #include <java/lang/ref/Cleaner$Cleanable.h>
@@ -11,56 +9,22 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $CallSite = ::java::lang::invoke::CallSite;
 using $MethodHandleNatives = ::java::lang::invoke::MethodHandleNatives;
-using $Cleaner = ::java::lang::ref::Cleaner;
 using $CleanerFactory = ::jdk::internal::ref::CleanerFactory;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
 
-$MethodInfo _MethodHandleNatives$CallSiteContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MethodHandleNatives$CallSiteContext, init$, void)},
-	{"make", "(Ljava/lang/invoke/CallSite;)Ljava/lang/invoke/MethodHandleNatives$CallSiteContext;", nullptr, $STATIC, $staticMethod(MethodHandleNatives$CallSiteContext, make, MethodHandleNatives$CallSiteContext*, $CallSite*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MethodHandleNatives$CallSiteContext, run, void)},
-	{}
-};
-
-$InnerClassInfo _MethodHandleNatives$CallSiteContext_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodHandleNatives$CallSiteContext", "java.lang.invoke.MethodHandleNatives", "CallSiteContext", $STATIC},
-	{}
-};
-
-$ClassInfo _MethodHandleNatives$CallSiteContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.MethodHandleNatives$CallSiteContext",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_MethodHandleNatives$CallSiteContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodHandleNatives$CallSiteContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodHandleNatives"
-};
-
-$Object* allocate$MethodHandleNatives$CallSiteContext($Class* clazz) {
-	return $of($alloc(MethodHandleNatives$CallSiteContext));
-}
-
 void MethodHandleNatives$CallSiteContext::init$() {
 }
 
 MethodHandleNatives$CallSiteContext* MethodHandleNatives$CallSiteContext::make($CallSite* cs) {
 	$init(MethodHandleNatives$CallSiteContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MethodHandleNatives$CallSiteContext, newContext, $new(MethodHandleNatives$CallSiteContext));
-	$nc($($CleanerFactory::cleaner()))->register$(cs, newContext);
+	$$nc($CleanerFactory::cleaner())->register$(cs, newContext);
 	return newContext;
 }
 
@@ -72,7 +36,34 @@ MethodHandleNatives$CallSiteContext::MethodHandleNatives$CallSiteContext() {
 }
 
 $Class* MethodHandleNatives$CallSiteContext::load$($String* name, bool initialize) {
-	$loadClass(MethodHandleNatives$CallSiteContext, name, initialize, &_MethodHandleNatives$CallSiteContext_ClassInfo_, allocate$MethodHandleNatives$CallSiteContext);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MethodHandleNatives$CallSiteContext, init$, void)},
+		{"make", "(Ljava/lang/invoke/CallSite;)Ljava/lang/invoke/MethodHandleNatives$CallSiteContext;", nullptr, $STATIC, $staticMethod(MethodHandleNatives$CallSiteContext, make, MethodHandleNatives$CallSiteContext*, $CallSite*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MethodHandleNatives$CallSiteContext, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodHandleNatives$CallSiteContext", "java.lang.invoke.MethodHandleNatives", "CallSiteContext", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.MethodHandleNatives$CallSiteContext",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodHandleNatives"
+	};
+	$loadClass(MethodHandleNatives$CallSiteContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodHandleNatives$CallSiteContext);
+	});
 	return class$;
 }
 

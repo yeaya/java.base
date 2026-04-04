@@ -1,13 +1,10 @@
 #include <java/text/MessageFormat.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/StringBuffer.h>
-#include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/CharacterIterator.h>
 #include <java/text/ChoiceFormat.h>
@@ -68,7 +65,6 @@ using $FormatArray = $Array<::java::text::Format>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -81,7 +77,6 @@ using $Number = ::java::lang::Number;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $CharacterIterator = ::java::text::CharacterIterator;
 using $ChoiceFormat = ::java::text::ChoiceFormat;
 using $DateFormat = ::java::text::DateFormat;
@@ -103,95 +98,6 @@ using $Locale$Category = ::java::util::Locale$Category;
 
 namespace java {
 	namespace text {
-
-$FieldInfo _MessageFormat_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, serialVersionUID)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(MessageFormat, locale)},
-	{"pattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MessageFormat, pattern)},
-	{"INITIAL_FORMATS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, INITIAL_FORMATS)},
-	{"formats", "[Ljava/text/Format;", nullptr, $PRIVATE, $field(MessageFormat, formats)},
-	{"offsets", "[I", nullptr, $PRIVATE, $field(MessageFormat, offsets)},
-	{"argumentNumbers", "[I", nullptr, $PRIVATE, $field(MessageFormat, argumentNumbers)},
-	{"maxOffset", "I", nullptr, $PRIVATE, $field(MessageFormat, maxOffset)},
-	{"SEG_RAW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, SEG_RAW)},
-	{"SEG_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, SEG_INDEX)},
-	{"SEG_TYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, SEG_TYPE)},
-	{"SEG_MODIFIER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, SEG_MODIFIER)},
-	{"TYPE_NULL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, TYPE_NULL)},
-	{"TYPE_NUMBER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, TYPE_NUMBER)},
-	{"TYPE_DATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, TYPE_DATE)},
-	{"TYPE_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, TYPE_TIME)},
-	{"TYPE_CHOICE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, TYPE_CHOICE)},
-	{"TYPE_KEYWORDS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageFormat, TYPE_KEYWORDS)},
-	{"MODIFIER_DEFAULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_DEFAULT)},
-	{"MODIFIER_CURRENCY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_CURRENCY)},
-	{"MODIFIER_PERCENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_PERCENT)},
-	{"MODIFIER_INTEGER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_INTEGER)},
-	{"NUMBER_MODIFIER_KEYWORDS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageFormat, NUMBER_MODIFIER_KEYWORDS)},
-	{"MODIFIER_SHORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_SHORT)},
-	{"MODIFIER_MEDIUM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_MEDIUM)},
-	{"MODIFIER_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_LONG)},
-	{"MODIFIER_FULL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_FULL)},
-	{"DATE_TIME_MODIFIER_KEYWORDS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageFormat, DATE_TIME_MODIFIER_KEYWORDS)},
-	{"DATE_TIME_MODIFIERS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageFormat, DATE_TIME_MODIFIERS)},
-	{}
-};
-
-$MethodInfo _MessageFormat_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MessageFormat, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(MessageFormat, init$, void, $String*, $Locale*)},
-	{"append", "(Ljava/lang/StringBuffer;Ljava/text/CharacterIterator;)V", nullptr, $PRIVATE, $method(MessageFormat, append, void, $StringBuffer*, $CharacterIterator*)},
-	{"applyPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, applyPattern, void, $String*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, clone, $Object*)},
-	{"copyAndFixQuotes", "(Ljava/lang/String;IILjava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(MessageFormat, copyAndFixQuotes, void, $String*, int32_t, int32_t, $StringBuilder*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MessageFormat, equals, bool, Object$*)},
-	{"findKeyword", "(Ljava/lang/String;[Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(MessageFormat, findKeyword, int32_t, $String*, $StringArray*)},
-	{"format", "([Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $FINAL, $method(MessageFormat, format, $StringBuffer*, $ObjectArray*, $StringBuffer*, $FieldPosition*)},
-	{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MessageFormat, format, $String*, $String*, $ObjectArray*)},
-	{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MessageFormat, format, $StringBuffer*, Object$*, $StringBuffer*, $FieldPosition*)},
-	{"formatToCharacterIterator", "(Ljava/lang/Object;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, formatToCharacterIterator, $AttributedCharacterIterator*, Object$*)},
-	{"getFormats", "()[Ljava/text/Format;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, getFormats, $FormatArray*)},
-	{"getFormatsByArgumentIndex", "()[Ljava/text/Format;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, getFormatsByArgumentIndex, $FormatArray*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, getLocale, $Locale*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MessageFormat, hashCode, int32_t)},
-	{"makeFormat", "(II[Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(MessageFormat, makeFormat, void, int32_t, int32_t, $StringBuilderArray*)},
-	{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, parse, $ObjectArray*, $String*, $ParsePosition*)},
-	{"parse", "(Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, parse, $ObjectArray*, $String*), "java.text.ParseException"},
-	{"parseObject", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, parseObject, $Object*, $String*, $ParsePosition*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MessageFormat, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setFormat", "(ILjava/text/Format;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, setFormat, void, int32_t, $Format*)},
-	{"setFormatByArgumentIndex", "(ILjava/text/Format;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, setFormatByArgumentIndex, void, int32_t, $Format*)},
-	{"setFormats", "([Ljava/text/Format;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, setFormats, void, $FormatArray*)},
-	{"setFormatsByArgumentIndex", "([Ljava/text/Format;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, setFormatsByArgumentIndex, void, $FormatArray*)},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, setLocale, void, $Locale*)},
-	{"subformat", "([Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;Ljava/util/List;)Ljava/lang/StringBuffer;", "([Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;Ljava/util/List<Ljava/text/AttributedCharacterIterator;>;)Ljava/lang/StringBuffer;", $PRIVATE, $method(MessageFormat, subformat, $StringBuffer*, $ObjectArray*, $StringBuffer*, $FieldPosition*, $List*)},
-	{"toPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, toPattern, $String*)},
-	{}
-};
-
-$InnerClassInfo _MessageFormat_InnerClassesInfo_[] = {
-	{"java.text.MessageFormat$Field", "java.text.MessageFormat", "Field", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MessageFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.text.MessageFormat",
-	"java.text.Format",
-	nullptr,
-	_MessageFormat_FieldInfo_,
-	_MessageFormat_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MessageFormat_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.text.MessageFormat$Field"
-};
-
-$Object* allocate$MessageFormat($Class* clazz) {
-	return $of($alloc(MessageFormat));
-}
 
 $StringArray* MessageFormat::TYPE_KEYWORDS = nullptr;
 $StringArray* MessageFormat::NUMBER_MODIFIER_KEYWORDS = nullptr;
@@ -230,7 +136,7 @@ $Locale* MessageFormat::getLocale() {
 }
 
 void MessageFormat::applyPattern($String* pattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilderArray, segments, $new($StringBuilderArray, 4));
 	segments->set(MessageFormat::SEG_RAW, $$new($StringBuilder));
 	int32_t part = MessageFormat::SEG_RAW;
@@ -265,53 +171,41 @@ void MessageFormat::applyPattern($String* pattern) {
 		} else {
 			switch (ch) {
 			case u',':
-				{
-					if (part < MessageFormat::SEG_MODIFIER) {
-						if (segments->get(++part) == nullptr) {
-							segments->set(part, $$new($StringBuilder));
-						}
-					} else {
-						$nc(segments->get(part))->append(ch);
+				if (part < MessageFormat::SEG_MODIFIER) {
+					if (segments->get(++part) == nullptr) {
+						segments->set(part, $$new($StringBuilder));
 					}
-					break;
+				} else {
+					$nc(segments->get(part))->append(ch);
 				}
+				break;
 			case u'{':
-				{
-					++braceStack;
-					$nc(segments->get(part))->append(ch);
-					break;
-				}
+				++braceStack;
+				$nc(segments->get(part))->append(ch);
+				break;
 			case u'}':
-				{
-					if (braceStack == 0) {
-						part = MessageFormat::SEG_RAW;
-						makeFormat(i, formatNumber, segments);
-						++formatNumber;
-						segments->set(MessageFormat::SEG_INDEX, nullptr);
-						segments->set(MessageFormat::SEG_TYPE, nullptr);
-						segments->set(MessageFormat::SEG_MODIFIER, nullptr);
-					} else {
-						--braceStack;
-						$nc(segments->get(part))->append(ch);
-					}
-					break;
-				}
-			case u' ':
-				{
-					if (part != MessageFormat::SEG_TYPE || $nc(segments->get(MessageFormat::SEG_TYPE))->length() > 0) {
-						$nc(segments->get(part))->append(ch);
-					}
-					break;
-				}
-			case u'\'':
-				{
-					inQuote = true;
-				}
-			default:
-				{
+				if (braceStack == 0) {
+					part = MessageFormat::SEG_RAW;
+					makeFormat(i, formatNumber, segments);
+					++formatNumber;
+					segments->set(MessageFormat::SEG_INDEX, nullptr);
+					segments->set(MessageFormat::SEG_TYPE, nullptr);
+					segments->set(MessageFormat::SEG_MODIFIER, nullptr);
+				} else {
+					--braceStack;
 					$nc(segments->get(part))->append(ch);
-					break;
 				}
+				break;
+			case u' ':
+				if (part != MessageFormat::SEG_TYPE || $nc(segments->get(MessageFormat::SEG_TYPE))->length() > 0) {
+					$nc(segments->get(part))->append(ch);
+				}
+				break;
+			case u'\'':
+				inQuote = true;
+			default:
+				$nc(segments->get(part))->append(ch);
+				break;
 			}
 		}
 	}
@@ -323,51 +217,51 @@ void MessageFormat::applyPattern($String* pattern) {
 }
 
 $String* MessageFormat::toPattern() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lastOffset = 0;
 	$var($StringBuilder, result, $new($StringBuilder));
 	for (int32_t i = 0; i <= this->maxOffset; ++i) {
 		copyAndFixQuotes(this->pattern, lastOffset, $nc(this->offsets)->get(i), result);
-		lastOffset = $nc(this->offsets)->get(i);
+		lastOffset = this->offsets->get(i);
 		result->append(u'{')->append($nc(this->argumentNumbers)->get(i));
 		$var($Format, fmt, $nc(this->formats)->get(i));
 		if (fmt == nullptr) {
 		} else if ($instanceOf($NumberFormat, fmt)) {
-			if ($nc($of(fmt))->equals($($NumberFormat::getInstance(this->locale)))) {
+			if (fmt->equals($($NumberFormat::getInstance(this->locale)))) {
 				result->append(",number"_s);
-			} else if ($of(fmt)->equals($($NumberFormat::getCurrencyInstance(this->locale)))) {
+			} else if (fmt->equals($($NumberFormat::getCurrencyInstance(this->locale)))) {
 				result->append(",number,currency"_s);
-			} else if ($of(fmt)->equals($($NumberFormat::getPercentInstance(this->locale)))) {
+			} else if (fmt->equals($($NumberFormat::getPercentInstance(this->locale)))) {
 				result->append(",number,percent"_s);
-			} else if ($of(fmt)->equals($($NumberFormat::getIntegerInstance(this->locale)))) {
+			} else if (fmt->equals($($NumberFormat::getIntegerInstance(this->locale)))) {
 				result->append(",number,integer"_s);
 			} else if ($instanceOf($DecimalFormat, fmt)) {
-				result->append(",number,"_s)->append($($nc(($cast($DecimalFormat, fmt)))->toPattern()));
+				result->append(",number,"_s)->append($($cast($DecimalFormat, fmt)->toPattern()));
 			} else if ($instanceOf($ChoiceFormat, fmt)) {
-				result->append(",choice,"_s)->append($($nc(($cast($ChoiceFormat, fmt)))->toPattern()));
+				result->append(",choice,"_s)->append($($cast($ChoiceFormat, fmt)->toPattern()));
 			} else {
 			}
 		} else if ($instanceOf($DateFormat, fmt)) {
 			int32_t index = 0;
-			for (index = MessageFormat::MODIFIER_DEFAULT; index < $nc(MessageFormat::DATE_TIME_MODIFIERS)->length; ++index) {
-				$var($DateFormat, df, $DateFormat::getDateInstance($nc(MessageFormat::DATE_TIME_MODIFIERS)->get(index), this->locale));
-				if ($nc($of(fmt))->equals(df)) {
+			for (index = MessageFormat::MODIFIER_DEFAULT; index < MessageFormat::DATE_TIME_MODIFIERS->length; ++index) {
+				$var($DateFormat, df, $DateFormat::getDateInstance(MessageFormat::DATE_TIME_MODIFIERS->get(index), this->locale));
+				if (fmt->equals(df)) {
 					result->append(",date"_s);
 					break;
 				}
-				$assign(df, $DateFormat::getTimeInstance($nc(MessageFormat::DATE_TIME_MODIFIERS)->get(index), this->locale));
-				if ($nc($of(fmt))->equals(df)) {
+				$assign(df, $DateFormat::getTimeInstance(MessageFormat::DATE_TIME_MODIFIERS->get(index), this->locale));
+				if (fmt->equals(df)) {
 					result->append(",time"_s);
 					break;
 				}
 			}
-			if (index >= $nc(MessageFormat::DATE_TIME_MODIFIERS)->length) {
+			if (index >= MessageFormat::DATE_TIME_MODIFIERS->length) {
 				if ($instanceOf($SimpleDateFormat, fmt)) {
-					result->append(",date,"_s)->append($($nc(($cast($SimpleDateFormat, fmt)))->toPattern()));
+					result->append(",date,"_s)->append($($cast($SimpleDateFormat, fmt)->toPattern()));
 				} else {
 				}
 			} else if (index != MessageFormat::MODIFIER_DEFAULT) {
-				result->append(u',')->append($nc(MessageFormat::DATE_TIME_MODIFIER_KEYWORDS)->get(index));
+				result->append(u',')->append(MessageFormat::DATE_TIME_MODIFIER_KEYWORDS->get(index));
 			}
 		} else {
 		}
@@ -415,7 +309,7 @@ $FormatArray* MessageFormat::getFormatsByArgumentIndex() {
 	int32_t maximumArgumentNumber = -1;
 	for (int32_t i = 0; i <= this->maxOffset; ++i) {
 		if ($nc(this->argumentNumbers)->get(i) > maximumArgumentNumber) {
-			maximumArgumentNumber = $nc(this->argumentNumbers)->get(i);
+			maximumArgumentNumber = this->argumentNumbers->get(i);
 		}
 	}
 	$var($FormatArray, resultArray, $new($FormatArray, maximumArgumentNumber + 1));
@@ -446,7 +340,7 @@ $StringBuffer* MessageFormat::format(Object$* arguments, $StringBuffer* result, 
 }
 
 $AttributedCharacterIterator* MessageFormat::formatToCharacterIterator(Object$* arguments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, result, $new($StringBuffer));
 	$var($ArrayList, iterators, $new($ArrayList));
 	if (arguments == nullptr) {
@@ -456,11 +350,11 @@ $AttributedCharacterIterator* MessageFormat::formatToCharacterIterator(Object$* 
 	if (iterators->size() == 0) {
 		return createAttributedCharacterIterator(""_s);
 	}
-	return createAttributedCharacterIterator($fcast($AttributedCharacterIteratorArray, $(iterators->toArray($$new($AttributedCharacterIteratorArray, iterators->size())))));
+	return createAttributedCharacterIterator($$cast($AttributedCharacterIteratorArray, iterators->toArray($$new($AttributedCharacterIteratorArray, iterators->size()))));
 }
 
 $ObjectArray* MessageFormat::parse($String* source, $ParsePosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (source == nullptr) {
 		$var($ObjectArray, empty, $new($ObjectArray, 0));
 		return empty;
@@ -468,7 +362,7 @@ $ObjectArray* MessageFormat::parse($String* source, $ParsePosition* pos) {
 	int32_t maximumArgumentNumber = -1;
 	for (int32_t i = 0; i <= this->maxOffset; ++i) {
 		if ($nc(this->argumentNumbers)->get(i) > maximumArgumentNumber) {
-			maximumArgumentNumber = $nc(this->argumentNumbers)->get(i);
+			maximumArgumentNumber = this->argumentNumbers->get(i);
 		}
 	}
 	$var($ObjectArray, resultArray, $new($ObjectArray, maximumArgumentNumber + 1));
@@ -485,7 +379,7 @@ $ObjectArray* MessageFormat::parse($String* source, $ParsePosition* pos) {
 			return nullptr;
 		}
 		if ($nc(this->formats)->get(i) == nullptr) {
-			int32_t tempLength = (i != this->maxOffset) ? $nc(this->offsets)->get(i + 1) : $nc(this->pattern)->length();
+			int32_t tempLength = (i != this->maxOffset) ? this->offsets->get(i + 1) : $nc(this->pattern)->length();
 			int32_t next = 0;
 			if (patternOffset >= tempLength) {
 				next = $nc(source)->length();
@@ -498,13 +392,13 @@ $ObjectArray* MessageFormat::parse($String* source, $ParsePosition* pos) {
 			} else {
 				$var($String, strValue, $nc(source)->substring(sourceOffset, next));
 				if (!strValue->equals($$str({"{"_s, $$str($nc(this->argumentNumbers)->get(i)), "}"_s}))) {
-					resultArray->set($nc(this->argumentNumbers)->get(i), $(source->substring(sourceOffset, next)));
+					resultArray->set(this->argumentNumbers->get(i), $(source->substring(sourceOffset, next)));
 				}
 				sourceOffset = next;
 			}
 		} else {
 			tempStatus->index = sourceOffset;
-			resultArray->set($nc(this->argumentNumbers)->get(i), $($nc($nc(this->formats)->get(i))->parseObject(source, tempStatus)));
+			resultArray->set($nc(this->argumentNumbers)->get(i), $($nc(this->formats->get(i))->parseObject(source, tempStatus)));
 			if (tempStatus->index == sourceOffset) {
 				pos->errorIndex = sourceOffset;
 				return nullptr;
@@ -513,7 +407,7 @@ $ObjectArray* MessageFormat::parse($String* source, $ParsePosition* pos) {
 		}
 	}
 	int32_t len = $nc(this->pattern)->length() - patternOffset;
-	if (len == 0 || $nc(this->pattern)->regionMatches(patternOffset, source, sourceOffset, len)) {
+	if (len == 0 || this->pattern->regionMatches(patternOffset, source, sourceOffset, len)) {
 		pos->index = sourceOffset + len;
 	} else {
 		pos->errorIndex = sourceOffset;
@@ -523,7 +417,7 @@ $ObjectArray* MessageFormat::parse($String* source, $ParsePosition* pos) {
 }
 
 $ObjectArray* MessageFormat::parse($String* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ParsePosition, pos, $new($ParsePosition, 0));
 	$var($ObjectArray, result, parse(source, pos));
 	if (pos->index == 0) {
@@ -533,16 +427,16 @@ $ObjectArray* MessageFormat::parse($String* source) {
 }
 
 $Object* MessageFormat::parseObject($String* source, $ParsePosition* pos) {
-	return $of(parse(source, pos));
+	return parse(source, pos);
 }
 
 $Object* MessageFormat::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MessageFormat, other, $cast(MessageFormat, $Format::clone()));
 	$set($nc(other), formats, $cast($FormatArray, $nc(this->formats)->clone()));
-	for (int32_t i = 0; i < $nc(this->formats)->length; ++i) {
-		if ($nc(this->formats)->get(i) != nullptr) {
-			$nc(other->formats)->set(i, $cast($Format, $($nc($nc(this->formats)->get(i))->clone())));
+	for (int32_t i = 0; i < this->formats->length; ++i) {
+		if (this->formats->get(i) != nullptr) {
+			other->formats->set(i, $$cast($Format, $nc(this->formats->get(i))->clone()));
 		}
 	}
 	$set(other, offsets, $cast($ints, $nc(this->offsets)->clone()));
@@ -556,14 +450,14 @@ bool MessageFormat::equals(Object$* obj) {
 	}
 	bool var$0 = obj == nullptr;
 	if (!var$0) {
-		var$0 = $of(this)->getClass() != $nc($of(obj))->getClass();
+		var$0 = $of(this)->getClass() != $of(obj)->getClass();
 	}
 	if (var$0) {
 		return false;
 	}
 	$var(MessageFormat, other, $cast(MessageFormat, obj));
 	bool var$4 = this->maxOffset == $nc(other)->maxOffset && $nc(this->pattern)->equals(other->pattern);
-	bool var$3 = var$4 && ((this->locale != nullptr && $nc(this->locale)->equals(other->locale)) || (this->locale == nullptr && $nc(other)->locale == nullptr));
+	bool var$3 = var$4 && ((this->locale != nullptr && this->locale->equals(other->locale)) || (this->locale == nullptr && other->locale == nullptr));
 	bool var$2 = var$3 && $Arrays::equals(this->offsets, other->offsets);
 	bool var$1 = var$2 && $Arrays::equals(this->argumentNumbers, other->argumentNumbers);
 	return (var$1 && $Arrays::equals(this->formats, other->formats));
@@ -574,14 +468,14 @@ int32_t MessageFormat::hashCode() {
 }
 
 $StringBuffer* MessageFormat::subformat($ObjectArray* arguments, $StringBuffer* result, $FieldPosition* fp, $List* characterIterators) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lastOffset = 0;
 	int32_t last = $nc(result)->length();
 	for (int32_t i = 0; i <= this->maxOffset; ++i) {
-		result->append(static_cast<$CharSequence*>(this->pattern), lastOffset, $nc(this->offsets)->get(i));
-		lastOffset = $nc(this->offsets)->get(i);
+		result->append(this->pattern, lastOffset, $nc(this->offsets)->get(i));
+		lastOffset = this->offsets->get(i);
 		int32_t argumentNumber = $nc(this->argumentNumbers)->get(i);
-		if (arguments == nullptr || argumentNumber >= $nc(arguments)->length) {
+		if (arguments == nullptr || argumentNumber >= arguments->length) {
 			result->append(u'{')->append(argumentNumber)->append(u'}');
 			continue;
 		}
@@ -592,10 +486,10 @@ $StringBuffer* MessageFormat::subformat($ObjectArray* arguments, $StringBuffer* 
 			if (obj == nullptr) {
 				$assign(arg, "null"_s);
 			} else if ($nc(this->formats)->get(i) != nullptr) {
-				$assign(subFormatter, $nc(this->formats)->get(i));
+				$assign(subFormatter, this->formats->get(i));
 				if ($instanceOf($ChoiceFormat, subFormatter)) {
-					$assign(arg, $nc($nc(this->formats)->get(i))->format(obj));
-					if ($nc(arg)->indexOf((int32_t)u'{') >= 0) {
+					$assign(arg, $nc(this->formats->get(i))->format(obj));
+					if ($nc(arg)->indexOf(u'{') >= 0) {
 						$assign(subFormatter, $new(MessageFormat, arg, this->locale));
 						$assign(obj, arguments);
 						$assign(arg, nullptr);
@@ -608,7 +502,7 @@ $StringBuffer* MessageFormat::subformat($ObjectArray* arguments, $StringBuffer* 
 			} else if ($instanceOf($String, obj)) {
 				$assign(arg, $cast($String, obj));
 			} else {
-				$assign(arg, $nc($of(obj))->toString());
+				$assign(arg, obj->toString());
 				if (arg == nullptr) {
 					$assign(arg, "null"_s);
 				}
@@ -623,7 +517,7 @@ $StringBuffer* MessageFormat::subformat($ObjectArray* arguments, $StringBuffer* 
 					append(result, subIterator);
 					if (last != result->length()) {
 						$init($MessageFormat$Field);
-						characterIterators->add($(createAttributedCharacterIterator(subIterator, static_cast<$AttributedCharacterIterator$Attribute*>($MessageFormat$Field::ARGUMENT), $($of($Integer::valueOf(argumentNumber))))));
+						characterIterators->add($(createAttributedCharacterIterator(subIterator, $MessageFormat$Field::ARGUMENT, $($Integer::valueOf(argumentNumber)))));
 						last = result->length();
 					}
 					$assign(arg, nullptr);
@@ -631,7 +525,7 @@ $StringBuffer* MessageFormat::subformat($ObjectArray* arguments, $StringBuffer* 
 				if (arg != nullptr && !arg->isEmpty()) {
 					result->append(arg);
 					$init($MessageFormat$Field);
-					characterIterators->add($(createAttributedCharacterIterator(arg, static_cast<$AttributedCharacterIterator$Attribute*>($MessageFormat$Field::ARGUMENT), $($of($Integer::valueOf(argumentNumber))))));
+					characterIterators->add($(createAttributedCharacterIterator(arg, $MessageFormat$Field::ARGUMENT, $($Integer::valueOf(argumentNumber)))));
 					last = result->length();
 				}
 			} else {
@@ -649,7 +543,7 @@ $StringBuffer* MessageFormat::subformat($ObjectArray* arguments, $StringBuffer* 
 			}
 		}
 	}
-	result->append(static_cast<$CharSequence*>(this->pattern), lastOffset, $nc(this->pattern)->length());
+	result->append(this->pattern, lastOffset, $nc(this->pattern)->length());
 	if (characterIterators != nullptr && last != result->length()) {
 		characterIterators->add($(createAttributedCharacterIterator($(result->substring(last)))));
 	}
@@ -667,11 +561,11 @@ void MessageFormat::append($StringBuffer* result, $CharacterIterator* iterator) 
 }
 
 void MessageFormat::makeFormat(int32_t position, int32_t offsetNumber, $StringBuilderArray* textSegments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, segments, $new($StringArray, $nc(textSegments)->length));
 	for (int32_t i = 0; i < textSegments->length; ++i) {
 		$var($StringBuilder, oneseg, textSegments->get(i));
-		segments->set(i, (oneseg != nullptr) ? $($nc(oneseg)->toString()) : ""_s);
+		segments->set(i, (oneseg != nullptr) ? $(oneseg->toString()) : ""_s);
 	}
 	int32_t argumentNumber = 0;
 	try {
@@ -683,7 +577,7 @@ void MessageFormat::makeFormat(int32_t position, int32_t offsetNumber, $StringBu
 		$throwNew($IllegalArgumentException, $$str({"negative argument number: "_s, $$str(argumentNumber)}));
 	}
 	if (offsetNumber >= $nc(this->formats)->length) {
-		int32_t newLength = $nc(this->formats)->length * 2;
+		int32_t newLength = this->formats->length * 2;
 		$var($FormatArray, newFormats, $new($FormatArray, newLength));
 		$var($ints, newOffsets, $new($ints, newLength));
 		$var($ints, newArgumentNumbers, $new($ints, newLength));
@@ -705,90 +599,69 @@ void MessageFormat::makeFormat(int32_t position, int32_t offsetNumber, $StringBu
 			int32_t mod = 0;
 			switch (type) {
 			case MessageFormat::TYPE_NULL:
-				{
-					break;
-				}
+				break;
 			case MessageFormat::TYPE_NUMBER:
-				{
-					switch (findKeyword(segments->get(MessageFormat::SEG_MODIFIER), MessageFormat::NUMBER_MODIFIER_KEYWORDS)) {
-					case MessageFormat::MODIFIER_DEFAULT:
-						{
-							$assign(newFormat, $NumberFormat::getInstance(this->locale));
-							break;
-						}
-					case MessageFormat::MODIFIER_CURRENCY:
-						{
-							$assign(newFormat, $NumberFormat::getCurrencyInstance(this->locale));
-							break;
-						}
-					case MessageFormat::MODIFIER_PERCENT:
-						{
-							$assign(newFormat, $NumberFormat::getPercentInstance(this->locale));
-							break;
-						}
-					case MessageFormat::MODIFIER_INTEGER:
-						{
-							$assign(newFormat, $NumberFormat::getIntegerInstance(this->locale));
-							break;
-						}
-					default:
-						{
-							try {
-								$assign(newFormat, $new($DecimalFormat, segments->get(MessageFormat::SEG_MODIFIER), $($DecimalFormatSymbols::getInstance(this->locale))));
-							} catch ($IllegalArgumentException& e) {
-								this->maxOffset = oldMaxOffset;
-								$throw(e);
-							}
-							break;
-						}
-					}
+				switch (findKeyword(segments->get(MessageFormat::SEG_MODIFIER), MessageFormat::NUMBER_MODIFIER_KEYWORDS)) {
+				case MessageFormat::MODIFIER_DEFAULT:
+					$assign(newFormat, $NumberFormat::getInstance(this->locale));
 					break;
-				}
-			case MessageFormat::TYPE_DATE:
-				{}
-			case MessageFormat::TYPE_TIME:
-				{
-					mod = findKeyword(segments->get(MessageFormat::SEG_MODIFIER), MessageFormat::DATE_TIME_MODIFIER_KEYWORDS);
-					if (mod >= 0 && mod < $nc(MessageFormat::DATE_TIME_MODIFIER_KEYWORDS)->length) {
-						if (type == MessageFormat::TYPE_DATE) {
-							$assign(newFormat, $DateFormat::getDateInstance($nc(MessageFormat::DATE_TIME_MODIFIERS)->get(mod), this->locale));
-						} else {
-							$assign(newFormat, $DateFormat::getTimeInstance($nc(MessageFormat::DATE_TIME_MODIFIERS)->get(mod), this->locale));
-						}
-					} else {
-						try {
-							$assign(newFormat, $new($SimpleDateFormat, segments->get(MessageFormat::SEG_MODIFIER), this->locale));
-						} catch ($IllegalArgumentException& e) {
-							this->maxOffset = oldMaxOffset;
-							$throw(e);
-						}
-					}
+				case MessageFormat::MODIFIER_CURRENCY:
+					$assign(newFormat, $NumberFormat::getCurrencyInstance(this->locale));
 					break;
-				}
-			case MessageFormat::TYPE_CHOICE:
-				{
+				case MessageFormat::MODIFIER_PERCENT:
+					$assign(newFormat, $NumberFormat::getPercentInstance(this->locale));
+					break;
+				case MessageFormat::MODIFIER_INTEGER:
+					$assign(newFormat, $NumberFormat::getIntegerInstance(this->locale));
+					break;
+				default:
 					try {
-						$assign(newFormat, $new($ChoiceFormat, segments->get(MessageFormat::SEG_MODIFIER)));
-					} catch ($Exception& e) {
+						$assign(newFormat, $new($DecimalFormat, segments->get(MessageFormat::SEG_MODIFIER), $($DecimalFormatSymbols::getInstance(this->locale))));
+					} catch ($IllegalArgumentException& e) {
 						this->maxOffset = oldMaxOffset;
-						$throwNew($IllegalArgumentException, $$str({"Choice Pattern incorrect: "_s, segments->get(MessageFormat::SEG_MODIFIER)}), e);
+						$throw(e);
 					}
 					break;
 				}
-			default:
-				{
-					this->maxOffset = oldMaxOffset;
-					$throwNew($IllegalArgumentException, $$str({"unknown format type: "_s, segments->get(MessageFormat::SEG_TYPE)}));
+				break;
+			case MessageFormat::TYPE_DATE:
+			case MessageFormat::TYPE_TIME:
+				mod = findKeyword(segments->get(MessageFormat::SEG_MODIFIER), MessageFormat::DATE_TIME_MODIFIER_KEYWORDS);
+				if (mod >= 0 && mod < MessageFormat::DATE_TIME_MODIFIER_KEYWORDS->length) {
+					if (type == MessageFormat::TYPE_DATE) {
+						$assign(newFormat, $DateFormat::getDateInstance(MessageFormat::DATE_TIME_MODIFIERS->get(mod), this->locale));
+					} else {
+						$assign(newFormat, $DateFormat::getTimeInstance(MessageFormat::DATE_TIME_MODIFIERS->get(mod), this->locale));
+					}
+				} else {
+					try {
+						$assign(newFormat, $new($SimpleDateFormat, segments->get(MessageFormat::SEG_MODIFIER), this->locale));
+					} catch ($IllegalArgumentException& e) {
+						this->maxOffset = oldMaxOffset;
+						$throw(e);
+					}
 				}
+				break;
+			case MessageFormat::TYPE_CHOICE:
+				try {
+					$assign(newFormat, $new($ChoiceFormat, segments->get(MessageFormat::SEG_MODIFIER)));
+				} catch ($Exception& e) {
+					this->maxOffset = oldMaxOffset;
+					$throwNew($IllegalArgumentException, $$str({"Choice Pattern incorrect: "_s, segments->get(MessageFormat::SEG_MODIFIER)}), e);
+				}
+				break;
+			default:
+				this->maxOffset = oldMaxOffset;
+				$throwNew($IllegalArgumentException, $$str({"unknown format type: "_s, segments->get(MessageFormat::SEG_TYPE)}));
 			}
 		}
 	}
-	$nc(this->formats)->set(offsetNumber, newFormat);
+	this->formats->set(offsetNumber, newFormat);
 }
 
 int32_t MessageFormat::findKeyword($String* s, $StringArray* list) {
 	$init(MessageFormat);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(list)->length; ++i) {
 		if ($nc(s)->equals(list->get(i))) {
 			return i;
@@ -797,7 +670,7 @@ int32_t MessageFormat::findKeyword($String* s, $StringArray* list) {
 	$init($Locale);
 	$var($String, ls, $($nc(s)->trim())->toLowerCase($Locale::ROOT));
 	if (ls != s) {
-		for (int32_t i = 0; i < $nc(list)->length; ++i) {
+		for (int32_t i = 0; i < list->length; ++i) {
 			if (ls->equals(list->get(i))) {
 				return i;
 			}
@@ -838,11 +711,11 @@ void MessageFormat::readObject($ObjectInputStream* in) {
 	if (isValid) {
 		int32_t lastOffset = $nc(this->pattern)->length() + 1;
 		for (int32_t i = this->maxOffset; i >= 0; --i) {
-			if (($nc(this->offsets)->get(i) < 0) || ($nc(this->offsets)->get(i) > lastOffset)) {
+			if (($nc(this->offsets)->get(i) < 0) || (this->offsets->get(i) > lastOffset)) {
 				isValid = false;
 				break;
 			} else {
-				lastOffset = $nc(this->offsets)->get(i);
+				lastOffset = this->offsets->get(i);
 			}
 		}
 	}
@@ -851,7 +724,7 @@ void MessageFormat::readObject($ObjectInputStream* in) {
 	}
 }
 
-void clinit$MessageFormat($Class* class$) {
+void MessageFormat::clinit$($Class* clazz) {
 	$assignStatic(MessageFormat::TYPE_KEYWORDS, $new($StringArray, {
 		""_s,
 		"number"_s,
@@ -885,7 +758,90 @@ MessageFormat::MessageFormat() {
 }
 
 $Class* MessageFormat::load$($String* name, bool initialize) {
-	$loadClass(MessageFormat, name, initialize, &_MessageFormat_ClassInfo_, clinit$MessageFormat, allocate$MessageFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, serialVersionUID)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(MessageFormat, locale)},
+		{"pattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MessageFormat, pattern)},
+		{"INITIAL_FORMATS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, INITIAL_FORMATS)},
+		{"formats", "[Ljava/text/Format;", nullptr, $PRIVATE, $field(MessageFormat, formats)},
+		{"offsets", "[I", nullptr, $PRIVATE, $field(MessageFormat, offsets)},
+		{"argumentNumbers", "[I", nullptr, $PRIVATE, $field(MessageFormat, argumentNumbers)},
+		{"maxOffset", "I", nullptr, $PRIVATE, $field(MessageFormat, maxOffset)},
+		{"SEG_RAW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, SEG_RAW)},
+		{"SEG_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, SEG_INDEX)},
+		{"SEG_TYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, SEG_TYPE)},
+		{"SEG_MODIFIER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, SEG_MODIFIER)},
+		{"TYPE_NULL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, TYPE_NULL)},
+		{"TYPE_NUMBER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, TYPE_NUMBER)},
+		{"TYPE_DATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, TYPE_DATE)},
+		{"TYPE_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, TYPE_TIME)},
+		{"TYPE_CHOICE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, TYPE_CHOICE)},
+		{"TYPE_KEYWORDS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageFormat, TYPE_KEYWORDS)},
+		{"MODIFIER_DEFAULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_DEFAULT)},
+		{"MODIFIER_CURRENCY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_CURRENCY)},
+		{"MODIFIER_PERCENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_PERCENT)},
+		{"MODIFIER_INTEGER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_INTEGER)},
+		{"NUMBER_MODIFIER_KEYWORDS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageFormat, NUMBER_MODIFIER_KEYWORDS)},
+		{"MODIFIER_SHORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_SHORT)},
+		{"MODIFIER_MEDIUM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_MEDIUM)},
+		{"MODIFIER_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_LONG)},
+		{"MODIFIER_FULL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MessageFormat, MODIFIER_FULL)},
+		{"DATE_TIME_MODIFIER_KEYWORDS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageFormat, DATE_TIME_MODIFIER_KEYWORDS)},
+		{"DATE_TIME_MODIFIERS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MessageFormat, DATE_TIME_MODIFIERS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MessageFormat, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(MessageFormat, init$, void, $String*, $Locale*)},
+		{"append", "(Ljava/lang/StringBuffer;Ljava/text/CharacterIterator;)V", nullptr, $PRIVATE, $method(MessageFormat, append, void, $StringBuffer*, $CharacterIterator*)},
+		{"applyPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, applyPattern, void, $String*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, clone, $Object*)},
+		{"copyAndFixQuotes", "(Ljava/lang/String;IILjava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(MessageFormat, copyAndFixQuotes, void, $String*, int32_t, int32_t, $StringBuilder*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MessageFormat, equals, bool, Object$*)},
+		{"findKeyword", "(Ljava/lang/String;[Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(MessageFormat, findKeyword, int32_t, $String*, $StringArray*)},
+		{"format", "([Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $FINAL, $method(MessageFormat, format, $StringBuffer*, $ObjectArray*, $StringBuffer*, $FieldPosition*)},
+		{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MessageFormat, format, $String*, $String*, $ObjectArray*)},
+		{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MessageFormat, format, $StringBuffer*, Object$*, $StringBuffer*, $FieldPosition*)},
+		{"formatToCharacterIterator", "(Ljava/lang/Object;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, formatToCharacterIterator, $AttributedCharacterIterator*, Object$*)},
+		{"getFormats", "()[Ljava/text/Format;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, getFormats, $FormatArray*)},
+		{"getFormatsByArgumentIndex", "()[Ljava/text/Format;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, getFormatsByArgumentIndex, $FormatArray*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, getLocale, $Locale*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MessageFormat, hashCode, int32_t)},
+		{"makeFormat", "(II[Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(MessageFormat, makeFormat, void, int32_t, int32_t, $StringBuilderArray*)},
+		{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, parse, $ObjectArray*, $String*, $ParsePosition*)},
+		{"parse", "(Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, parse, $ObjectArray*, $String*), "java.text.ParseException"},
+		{"parseObject", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, parseObject, $Object*, $String*, $ParsePosition*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MessageFormat, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setFormat", "(ILjava/text/Format;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, setFormat, void, int32_t, $Format*)},
+		{"setFormatByArgumentIndex", "(ILjava/text/Format;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, setFormatByArgumentIndex, void, int32_t, $Format*)},
+		{"setFormats", "([Ljava/text/Format;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, setFormats, void, $FormatArray*)},
+		{"setFormatsByArgumentIndex", "([Ljava/text/Format;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, setFormatsByArgumentIndex, void, $FormatArray*)},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(MessageFormat, setLocale, void, $Locale*)},
+		{"subformat", "([Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;Ljava/util/List;)Ljava/lang/StringBuffer;", "([Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;Ljava/util/List<Ljava/text/AttributedCharacterIterator;>;)Ljava/lang/StringBuffer;", $PRIVATE, $method(MessageFormat, subformat, $StringBuffer*, $ObjectArray*, $StringBuffer*, $FieldPosition*, $List*)},
+		{"toPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageFormat, toPattern, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.MessageFormat$Field", "java.text.MessageFormat", "Field", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.text.MessageFormat",
+		"java.text.Format",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.text.MessageFormat$Field"
+	};
+	$loadClass(MessageFormat, name, initialize, &classInfo$$, MessageFormat::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MessageFormat));
+	});
 	return class$;
 }
 

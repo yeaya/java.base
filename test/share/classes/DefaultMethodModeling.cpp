@@ -1,5 +1,4 @@
 #include <DefaultMethodModeling.h>
-
 #include <B1B.h>
 #include <BB.h>
 #include <Base.h>
@@ -42,7 +41,6 @@ using $SuperIchild = ::SuperIchild;
 using $SuperIwithDefault = ::SuperIwithDefault;
 using $SuperIwithDefaultChild = ::SuperIwithDefaultChild;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -51,32 +49,12 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 using $Objects = ::java::util::Objects;
 
-$MethodInfo _DefaultMethodModeling_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMethodModeling, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(DefaultMethodModeling, main, void, $StringArray*)},
-	{"testMethod", "(Ljava/lang/reflect/Method;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultMethodModeling, testMethod, int32_t, $Method*)},
-	{}
-};
-
-$ClassInfo _DefaultMethodModeling_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DefaultMethodModeling",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DefaultMethodModeling_MethodInfo_
-};
-
-$Object* allocate$DefaultMethodModeling($Class* clazz) {
-	return $of($alloc(DefaultMethodModeling));
-}
-
 void DefaultMethodModeling::init$() {
 }
 
 void DefaultMethodModeling::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(DefaultMethodModeling);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failures = 0;
 	$load($SuperC);
@@ -124,15 +102,11 @@ void DefaultMethodModeling::main($StringArray* args) {
 			{
 				$nc($System::err)->println($($nc(clazz)->toString()));
 				{
-					$var($MethodArray, arr$, $nc(clazz)->getMethods());
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					$var($MethodArray, arr$, clazz->getMethods());
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 						$var($Method, m, arr$->get(i$));
-						{
-							if ($nc(m)->getDeclaringClass() != $Object::class$) {
-								failures += testMethod(m);
-							}
+						if ($nc(m)->getDeclaringClass() != $Object::class$) {
+							failures += testMethod(m);
 						}
 					}
 				}
@@ -145,31 +119,31 @@ void DefaultMethodModeling::main($StringArray* args) {
 }
 
 int32_t DefaultMethodModeling::testMethod($Method* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($ExpectedModel);
-	$var($ExpectedModel, em, $cast($ExpectedModel, $Objects::requireNonNull($cast($ExpectedModel, $($nc(m)->getAnnotation($ExpectedModel::class$))))));
+	$var($ExpectedModel, em, $cast($ExpectedModel, $Objects::requireNonNull($$cast($ExpectedModel, $nc(m)->getAnnotation($ExpectedModel::class$)))));
 	bool failed = false;
-	int32_t var$0 = $nc(m)->getModifiers();
+	int32_t var$0 = m->getModifiers();
 	if (var$0 != $nc(em)->modifiers()) {
 		failed = true;
 		$nc($System::err)->printf("Unexpected modifiers %d; expected %d%n"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(m->getModifiers()))),
-			$($of($Integer::valueOf(em->modifiers())))
+			$($Integer::valueOf(m->getModifiers())),
+			$($Integer::valueOf(em->modifiers()))
 		}));
 	}
-	bool var$1 = $nc(m)->isDefault();
-	if (var$1 != $nc(em)->isDefault()) {
+	bool var$1 = m->isDefault();
+	if (var$1 != em->isDefault()) {
 		failed = true;
 		$nc($System::err)->printf("Unexpected isDefualt %b; expected b%n"_s, $$new($ObjectArray, {
-			$($of($Boolean::valueOf(m->isDefault()))),
-			$($of($Boolean::valueOf(em->isDefault())))
+			$($Boolean::valueOf(m->isDefault())),
+			$($Boolean::valueOf(em->isDefault()))
 		}));
 	}
-	if (!$nc($of($nc(m)->getDeclaringClass()))->equals($nc(em)->declaringClass())) {
+	if (!$nc(m->getDeclaringClass())->equals(em->declaringClass())) {
 		failed = true;
 		$nc($System::err)->printf("Unexpected isDefualt %s; expected %s%n"_s, $$new($ObjectArray, {
-			$($of($nc(m->getDeclaringClass())->toString())),
-			$($of($nc($nc(em)->declaringClass())->toString()))
+			$($nc(m->getDeclaringClass())->toString()),
+			$($nc(em->declaringClass())->toString())
 		}));
 	}
 	return (!failed) ? 0 : 1;
@@ -179,7 +153,23 @@ DefaultMethodModeling::DefaultMethodModeling() {
 }
 
 $Class* DefaultMethodModeling::load$($String* name, bool initialize) {
-	$loadClass(DefaultMethodModeling, name, initialize, &_DefaultMethodModeling_ClassInfo_, allocate$DefaultMethodModeling);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMethodModeling, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(DefaultMethodModeling, main, void, $StringArray*)},
+		{"testMethod", "(Ljava/lang/reflect/Method;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultMethodModeling, testMethod, int32_t, $Method*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DefaultMethodModeling",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultMethodModeling, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMethodModeling);
+	});
 	return class$;
 }
 

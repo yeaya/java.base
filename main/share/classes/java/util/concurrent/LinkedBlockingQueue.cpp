@@ -1,5 +1,4 @@
 #include <java/util/concurrent/LinkedBlockingQueue.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
@@ -60,7 +59,6 @@ using $LinkedBlockingQueue$LBQSpliterator = ::java::util::concurrent::LinkedBloc
 using $LinkedBlockingQueue$Node = ::java::util::concurrent::LinkedBlockingQueue$Node;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-using $Condition = ::java::util::concurrent::locks::Condition;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
@@ -80,33 +78,29 @@ public:
 	virtual bool test(Object$* e) override {
 		 return LinkedBlockingQueue::lambda$removeAll$0(c, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LinkedBlockingQueue$$Lambda$lambda$removeAll$0>());
-	}
 	$Collection* c = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LinkedBlockingQueue$$Lambda$lambda$removeAll$0::fieldInfos[2] = {
-	{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(LinkedBlockingQueue$$Lambda$lambda$removeAll$0, c)},
-	{}
-};
-$MethodInfo LinkedBlockingQueue$$Lambda$lambda$removeAll$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(LinkedBlockingQueue$$Lambda$lambda$removeAll$0, init$, void, $Collection*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$$Lambda$lambda$removeAll$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo LinkedBlockingQueue$$Lambda$lambda$removeAll$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.concurrent.LinkedBlockingQueue$$Lambda$lambda$removeAll$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* LinkedBlockingQueue$$Lambda$lambda$removeAll$0::load$($String* name, bool initialize) {
-	$loadClass(LinkedBlockingQueue$$Lambda$lambda$removeAll$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(LinkedBlockingQueue$$Lambda$lambda$removeAll$0, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(LinkedBlockingQueue$$Lambda$lambda$removeAll$0, init$, void, $Collection*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$$Lambda$lambda$removeAll$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.concurrent.LinkedBlockingQueue$$Lambda$lambda$removeAll$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LinkedBlockingQueue$$Lambda$lambda$removeAll$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedBlockingQueue$$Lambda$lambda$removeAll$0);
+	});
 	return class$;
 }
 $Class* LinkedBlockingQueue$$Lambda$lambda$removeAll$0::class$ = nullptr;
@@ -120,133 +114,32 @@ public:
 	virtual bool test(Object$* e) override {
 		 return LinkedBlockingQueue::lambda$retainAll$1(c, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1>());
-	}
 	$Collection* c = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1::fieldInfos[2] = {
-	{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1, c)},
-	{}
-};
-$MethodInfo LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1, init$, void, $Collection*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.concurrent.LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1::load$($String* name, bool initialize) {
-	$loadClass(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1, init$, void, $Collection*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.concurrent.LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1);
+	});
 	return class$;
 }
 $Class* LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
-
-$FieldInfo _LinkedBlockingQueue_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedBlockingQueue, serialVersionUID)},
-	{"capacity", "I", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, capacity)},
-	{"count", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, count)},
-	{"head", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", $TRANSIENT, $field(LinkedBlockingQueue, head)},
-	{"last", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", $PRIVATE | $TRANSIENT, $field(LinkedBlockingQueue, last)},
-	{"takeLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, takeLock)},
-	{"notEmpty", "Ljava/util/concurrent/locks/Condition;", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, notEmpty)},
-	{"putLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, putLock)},
-	{"notFull", "Ljava/util/concurrent/locks/Condition;", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, notFull)},
-	{}
-};
-
-$MethodInfo _LinkedBlockingQueue_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*element", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LinkedBlockingQueue, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(LinkedBlockingQueue, init$, void, int32_t)},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(LinkedBlockingQueue, init$, void, $Collection*)},
-	{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(LinkedBlockingQueue, bulkRemove, bool, $Predicate*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, contains, bool, Object$*)},
-	{"dequeue", "()Ljava/lang/Object;", "()TE;", $PRIVATE, $method(LinkedBlockingQueue, dequeue, $Object*)},
-	{"drainTo", "(Ljava/util/Collection;)I", "(Ljava/util/Collection<-TE;>;)I", $PUBLIC, $virtualMethod(LinkedBlockingQueue, drainTo, int32_t, $Collection*)},
-	{"drainTo", "(Ljava/util/Collection;I)I", "(Ljava/util/Collection<-TE;>;I)I", $PUBLIC, $virtualMethod(LinkedBlockingQueue, drainTo, int32_t, $Collection*, int32_t)},
-	{"enqueue", "(Ljava/util/concurrent/LinkedBlockingQueue$Node;)V", "(Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;)V", $PRIVATE, $method(LinkedBlockingQueue, enqueue, void, $LinkedBlockingQueue$Node*)},
-	{"findPred", "(Ljava/util/concurrent/LinkedBlockingQueue$Node;Ljava/util/concurrent/LinkedBlockingQueue$Node;)Ljava/util/concurrent/LinkedBlockingQueue$Node;", "(Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", 0, $virtualMethod(LinkedBlockingQueue, findPred, $LinkedBlockingQueue$Node*, $LinkedBlockingQueue$Node*, $LinkedBlockingQueue$Node*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedBlockingQueue, forEach, void, $Consumer*)},
-	{"forEachFrom", "(Ljava/util/function/Consumer;Ljava/util/concurrent/LinkedBlockingQueue$Node;)V", "(Ljava/util/function/Consumer<-TE;>;Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;)V", 0, $virtualMethod(LinkedBlockingQueue, forEachFrom, void, $Consumer*, $LinkedBlockingQueue$Node*)},
-	{"fullyLock", "()V", nullptr, 0, $virtualMethod(LinkedBlockingQueue, fullyLock, void)},
-	{"fullyUnlock", "()V", nullptr, 0, $virtualMethod(LinkedBlockingQueue, fullyUnlock, void)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, iterator, $Iterator*)},
-	{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkedBlockingQueue, lambda$removeAll$0, bool, $Collection*, Object$*)},
-	{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkedBlockingQueue, lambda$retainAll$1, bool, $Collection*, Object$*)},
-	{"offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue, offer, bool, Object$*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue, offer, bool, Object$*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, peek, $Object*)},
-	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, poll, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, poll, $Object*)},
-	{"put", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedBlockingQueue, put, void, Object$*), "java.lang.InterruptedException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LinkedBlockingQueue, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remainingCapacity", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, remainingCapacity, int32_t)},
-	{"*remove", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue, removeAll, bool, $Collection*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue, removeIf, bool, $Predicate*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue, retainAll, bool, $Collection*)},
-	{"signalNotEmpty", "()V", nullptr, $PRIVATE, $method(LinkedBlockingQueue, signalNotEmpty, void)},
-	{"signalNotFull", "()V", nullptr, $PRIVATE, $method(LinkedBlockingQueue, signalNotFull, void)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, spliterator, $Spliterator*)},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"succ", "(Ljava/util/concurrent/LinkedBlockingQueue$Node;)Ljava/util/concurrent/LinkedBlockingQueue$Node;", "(Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", 0, $virtualMethod(LinkedBlockingQueue, succ, $LinkedBlockingQueue$Node*, $LinkedBlockingQueue$Node*)},
-	{"take", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, take, $Object*), "java.lang.InterruptedException"},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, toString, $String*)},
-	{"unlink", "(Ljava/util/concurrent/LinkedBlockingQueue$Node;Ljava/util/concurrent/LinkedBlockingQueue$Node;)V", "(Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;)V", 0, $virtualMethod(LinkedBlockingQueue, unlink, void, $LinkedBlockingQueue$Node*, $LinkedBlockingQueue$Node*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LinkedBlockingQueue, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _LinkedBlockingQueue_InnerClassesInfo_[] = {
-	{"java.util.concurrent.LinkedBlockingQueue$LBQSpliterator", "java.util.concurrent.LinkedBlockingQueue", "LBQSpliterator", $PRIVATE | $FINAL},
-	{"java.util.concurrent.LinkedBlockingQueue$Itr", "java.util.concurrent.LinkedBlockingQueue", "Itr", $PRIVATE},
-	{"java.util.concurrent.LinkedBlockingQueue$Node", "java.util.concurrent.LinkedBlockingQueue", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _LinkedBlockingQueue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.LinkedBlockingQueue",
-	"java.util.AbstractQueue",
-	"java.util.concurrent.BlockingQueue,java.io.Serializable",
-	_LinkedBlockingQueue_FieldInfo_,
-	_LinkedBlockingQueue_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractQueue<TE;>;Ljava/util/concurrent/BlockingQueue<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_LinkedBlockingQueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.LinkedBlockingQueue$LBQSpliterator,java.util.concurrent.LinkedBlockingQueue$Itr,java.util.concurrent.LinkedBlockingQueue$Node"
-};
-
-$Object* allocate$LinkedBlockingQueue($Class* clazz) {
-	return $of($alloc(LinkedBlockingQueue));
-}
 
 bool LinkedBlockingQueue::add(Object$* e) {
 	 return this->$AbstractQueue::add(e);
@@ -301,56 +194,52 @@ void LinkedBlockingQueue::finalize() {
 }
 
 void LinkedBlockingQueue::signalNotEmpty() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, takeLock, this->takeLock);
 	$nc(takeLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->notEmpty)->signal();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			takeLock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->notEmpty)->signal();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		takeLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void LinkedBlockingQueue::signalNotFull() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, putLock, this->putLock);
 	$nc(putLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->notFull)->signal();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			putLock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->notFull)->signal();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		putLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void LinkedBlockingQueue::enqueue($LinkedBlockingQueue$Node* node) {
-	$set(this, last, ($set($nc(this->last), next, node)));
+	$set(this, last, $set($nc(this->last), next, node));
 }
 
 $Object* LinkedBlockingQueue::dequeue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedBlockingQueue$Node, h, this->head);
 	$var($LinkedBlockingQueue$Node, first, $nc(h)->next);
 	$set(h, next, h);
 	$set(this, head, first);
 	$var($Object, x, $nc(first)->item);
 	$set(first, item, nullptr);
-	return $of(x);
+	return x;
 }
 
 void LinkedBlockingQueue::fullyLock() {
@@ -371,50 +260,48 @@ void LinkedBlockingQueue::init$(int32_t capacity) {
 	$AbstractQueue::init$();
 	$set(this, count, $new($AtomicInteger));
 	$set(this, takeLock, $new($ReentrantLock));
-	$set(this, notEmpty, $nc(this->takeLock)->newCondition());
+	$set(this, notEmpty, this->takeLock->newCondition());
 	$set(this, putLock, $new($ReentrantLock));
-	$set(this, notFull, $nc(this->putLock)->newCondition());
+	$set(this, notFull, this->putLock->newCondition());
 	if (capacity <= 0) {
 		$throwNew($IllegalArgumentException);
 	}
 	this->capacity = capacity;
-	$set(this, last, ($set(this, head, $new($LinkedBlockingQueue$Node, nullptr))));
+	$set(this, last, $set(this, head, $new($LinkedBlockingQueue$Node, nullptr)));
 }
 
 void LinkedBlockingQueue::init$($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	LinkedBlockingQueue::init$($Integer::MAX_VALUE);
 	$var($ReentrantLock, putLock, this->putLock);
 	$nc(putLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			int32_t n = 0;
-			{
-				$var($Iterator, i$, $nc(c)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Object, e, i$->next());
-					{
-						if (e == nullptr) {
-							$throwNew($NullPointerException);
-						}
-						if (n == this->capacity) {
-							$throwNew($IllegalStateException, "Queue full"_s);
-						}
-						enqueue($$new($LinkedBlockingQueue$Node, e));
-						++n;
+	$var($Throwable, var$0, nullptr);
+	try {
+		int32_t n = 0;
+		{
+			$var($Iterator, i$, $nc(c)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Object, e, i$->next());
+				{
+					if (e == nullptr) {
+						$throwNew($NullPointerException);
 					}
+					if (n == this->capacity) {
+						$throwNew($IllegalStateException, "Queue full"_s);
+					}
+					enqueue($$new($LinkedBlockingQueue$Node, e));
+					++n;
 				}
 			}
-			$nc(this->count)->set(n);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			putLock->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$nc(this->count)->set(n);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		putLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -427,7 +314,7 @@ int32_t LinkedBlockingQueue::remainingCapacity() {
 }
 
 void LinkedBlockingQueue::put(Object$* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -436,25 +323,23 @@ void LinkedBlockingQueue::put(Object$* e) {
 	$var($ReentrantLock, putLock, this->putLock);
 	$var($AtomicInteger, count, this->count);
 	$nc(putLock)->lockInterruptibly();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while ($nc(count)->get() == this->capacity) {
-				$nc(this->notFull)->await();
-			}
-			enqueue(node);
-			c = $nc(count)->getAndIncrement();
-			if (c + 1 < this->capacity) {
-				$nc(this->notFull)->signal();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			putLock->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		while ($nc(count)->get() == this->capacity) {
+			$nc(this->notFull)->await();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		enqueue(node);
+		c = count->getAndIncrement();
+		if (c + 1 < this->capacity) {
+			$nc(this->notFull)->signal();
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		putLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (c == 0) {
 		signalNotEmpty();
@@ -462,7 +347,7 @@ void LinkedBlockingQueue::put(Object$* e) {
 }
 
 bool LinkedBlockingQueue::offer(Object$* e, int64_t timeout, $TimeUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -471,35 +356,33 @@ bool LinkedBlockingQueue::offer(Object$* e, int64_t timeout, $TimeUnit* unit) {
 	$var($ReentrantLock, putLock, this->putLock);
 	$var($AtomicInteger, count, this->count);
 	$nc(putLock)->lockInterruptibly();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			while ($nc(count)->get() == this->capacity) {
-				if (nanos <= (int64_t)0) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				}
-				nanos = $nc(this->notFull)->awaitNanos(nanos);
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		while ($nc(count)->get() == this->capacity) {
+			if (nanos <= 0) {
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
 			}
-			enqueue($$new($LinkedBlockingQueue$Node, e));
-			c = $nc(count)->getAndIncrement();
-			if (c + 1 < this->capacity) {
-				$nc(this->notFull)->signal();
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			putLock->unlock();
+			nanos = $nc(this->notFull)->awaitNanos(nanos);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		enqueue($$new($LinkedBlockingQueue$Node, e));
+		c = count->getAndIncrement();
+		if (c + 1 < this->capacity) {
+			$nc(this->notFull)->signal();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		putLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	if (c == 0) {
 		signalNotEmpty();
@@ -508,7 +391,7 @@ bool LinkedBlockingQueue::offer(Object$* e, int64_t timeout, $TimeUnit* unit) {
 }
 
 bool LinkedBlockingQueue::offer(Object$* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -520,32 +403,30 @@ bool LinkedBlockingQueue::offer(Object$* e) {
 	$var($LinkedBlockingQueue$Node, node, $new($LinkedBlockingQueue$Node, e));
 	$var($ReentrantLock, putLock, this->putLock);
 	$nc(putLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			if ($nc(count)->get() == this->capacity) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-			enqueue(node);
-			c = $nc(count)->getAndIncrement();
-			if (c + 1 < this->capacity) {
-				$nc(this->notFull)->signal();
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			putLock->unlock();
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		if (count->get() == this->capacity) {
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		enqueue(node);
+		c = count->getAndIncrement();
+		if (c + 1 < this->capacity) {
+			$nc(this->notFull)->signal();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		putLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	if (c == 0) {
 		signalNotEmpty();
@@ -554,152 +435,144 @@ bool LinkedBlockingQueue::offer(Object$* e) {
 }
 
 $Object* LinkedBlockingQueue::take() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, x, nullptr);
 	int32_t c = 0;
 	$var($AtomicInteger, count, this->count);
 	$var($ReentrantLock, takeLock, this->takeLock);
 	$nc(takeLock)->lockInterruptibly();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while ($nc(count)->get() == 0) {
-				$nc(this->notEmpty)->await();
-			}
-			$assign(x, dequeue());
-			c = $nc(count)->getAndDecrement();
-			if (c > 1) {
-				$nc(this->notEmpty)->signal();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			takeLock->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		while ($nc(count)->get() == 0) {
+			$nc(this->notEmpty)->await();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$assign(x, dequeue());
+		c = count->getAndDecrement();
+		if (c > 1) {
+			$nc(this->notEmpty)->signal();
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		takeLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (c == this->capacity) {
 		signalNotFull();
 	}
-	return $of(x);
+	return x;
 }
 
 $Object* LinkedBlockingQueue::poll(int64_t timeout, $TimeUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, x, nullptr);
 	int32_t c = 0;
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var($AtomicInteger, count, this->count);
 	$var($ReentrantLock, takeLock, this->takeLock);
 	$nc(takeLock)->lockInterruptibly();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while ($nc(count)->get() == 0) {
-				if (nanos <= (int64_t)0) {
-					$assign(var$2, nullptr);
-					return$1 = true;
-					goto $finally;
-				}
-				nanos = $nc(this->notEmpty)->awaitNanos(nanos);
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while ($nc(count)->get() == 0) {
+			if (nanos <= 0) {
+				$assign(var$2, nullptr);
+				return$1 = true;
+				goto $finally;
 			}
-			$assign(x, dequeue());
-			c = $nc(count)->getAndDecrement();
-			if (c > 1) {
-				$nc(this->notEmpty)->signal();
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			takeLock->unlock();
+			nanos = $nc(this->notEmpty)->awaitNanos(nanos);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$assign(x, dequeue());
+		c = count->getAndDecrement();
+		if (c > 1) {
+			$nc(this->notEmpty)->signal();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		takeLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	if (c == this->capacity) {
 		signalNotFull();
 	}
-	return $of(x);
+	return x;
 }
 
 $Object* LinkedBlockingQueue::poll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AtomicInteger, count, this->count);
 	if ($nc(count)->get() == 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($Object, x, nullptr);
 	int32_t c = 0;
 	$var($ReentrantLock, takeLock, this->takeLock);
 	$nc(takeLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			if ($nc(count)->get() == 0) {
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-			$assign(x, dequeue());
-			c = $nc(count)->getAndDecrement();
-			if (c > 1) {
-				$nc(this->notEmpty)->signal();
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			takeLock->unlock();
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		if (count->get() == 0) {
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$assign(x, dequeue());
+		c = count->getAndDecrement();
+		if (c > 1) {
+			$nc(this->notEmpty)->signal();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		takeLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	if (c == this->capacity) {
 		signalNotFull();
 	}
-	return $of(x);
+	return x;
 }
 
 $Object* LinkedBlockingQueue::peek() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AtomicInteger, count, this->count);
 	if ($nc(count)->get() == 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($ReentrantLock, takeLock, this->takeLock);
 	$nc(takeLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, ($nc(count)->get() > 0) ? $nc($nc(this->head)->next)->item : ($Object*)nullptr);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			takeLock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, (count->get() > 0) ? $nc($nc(this->head)->next)->item : ($Object*)nullptr);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		takeLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -716,191 +589,177 @@ void LinkedBlockingQueue::unlink($LinkedBlockingQueue$Node* p, $LinkedBlockingQu
 }
 
 bool LinkedBlockingQueue::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (o == nullptr) {
 		return false;
 	}
 	fullyLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			{
-				$var($LinkedBlockingQueue$Node, pred, this->head);
-				$var($LinkedBlockingQueue$Node, p, $nc(pred)->next);
-				for (; p != nullptr; $assign(pred, p), $assign(p, $nc(p)->next)) {
-					if ($nc($of(o))->equals(p->item)) {
-						unlink(p, pred);
-						var$2 = true;
-						return$1 = true;
-						goto $finally;
-					}
-				}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$var($LinkedBlockingQueue$Node, pred, this->head);
+		$var($LinkedBlockingQueue$Node, p, $nc(pred)->next);
+		for (; p != nullptr; $assign(pred, p), $assign(p, p->next)) {
+			if ($nc($of(o))->equals(p->item)) {
+				unlink(p, pred);
+				var$2 = true;
+				return$1 = true;
+				goto $finally;
 			}
-			var$2 = false;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			fullyUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = false;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		fullyUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool LinkedBlockingQueue::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (o == nullptr) {
 		return false;
 	}
 	fullyLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			{
-				$var($LinkedBlockingQueue$Node, p, $nc(this->head)->next);
-				for (; p != nullptr; $assign(p, $nc(p)->next)) {
-					if ($nc($of(o))->equals(p->item)) {
-						var$2 = true;
-						return$1 = true;
-						goto $finally;
-					}
-				}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$var($LinkedBlockingQueue$Node, p, $nc(this->head)->next);
+		for (; p != nullptr; $assign(p, p->next)) {
+			if ($nc($of(o))->equals(p->item)) {
+				var$2 = true;
+				return$1 = true;
+				goto $finally;
 			}
-			var$2 = false;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			fullyUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = false;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		fullyUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $ObjectArray* LinkedBlockingQueue::toArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	fullyLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($ObjectArray, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			int32_t size = $nc(this->count)->get();
-			$var($ObjectArray, a, $new($ObjectArray, size));
-			int32_t k = 0;
-			{
-				$var($LinkedBlockingQueue$Node, p, $nc(this->head)->next);
-				for (; p != nullptr; $assign(p, $nc(p)->next)) {
-					a->set(k++, p->item);
-				}
+	$var($Throwable, var$0, nullptr);
+	$var($ObjectArray, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		int32_t size = $nc(this->count)->get();
+		$var($ObjectArray, a, $new($ObjectArray, size));
+		int32_t k = 0;
+		{
+			$var($LinkedBlockingQueue$Node, p, $nc(this->head)->next);
+			for (; p != nullptr; $assign(p, p->next)) {
+				a->set(k++, p->item);
 			}
-			$assign(var$2, a);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			fullyUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$assign(var$2, a);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		fullyUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $ObjectArray* LinkedBlockingQueue::toArray($ObjectArray* a$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, a, a$renamed);
 	fullyLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($ObjectArray, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			int32_t size = $nc(this->count)->get();
-			if ($nc(a)->length < size) {
-				$assign(a, $cast($ObjectArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), size)));
-			}
-			int32_t k = 0;
-			{
-				$var($LinkedBlockingQueue$Node, p, $nc(this->head)->next);
-				for (; p != nullptr; $assign(p, $nc(p)->next)) {
-					$nc(a)->set(k++, p->item);
-				}
-			}
-			if ($nc(a)->length > k) {
-				a->set(k, nullptr);
-			}
-			$assign(var$2, a);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			fullyUnlock();
+	$var($Throwable, var$0, nullptr);
+	$var($ObjectArray, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		int32_t size = $nc(this->count)->get();
+		if ($nc(a)->length < size) {
+			$assign(a, $cast($ObjectArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), size)));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		int32_t k = 0;
+		{
+			$var($LinkedBlockingQueue$Node, p, $nc(this->head)->next);
+			for (; p != nullptr; $assign(p, p->next)) {
+				a->set(k++, p->item);
+			}
 		}
-		if (return$1) {
-			return var$2;
+		if (a->length > k) {
+			a->set(k, nullptr);
 		}
+		$assign(var$2, a);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		fullyUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $String* LinkedBlockingQueue::toString() {
-	return $Helpers::collectionToString(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractQueue*>(this))));
+	return $Helpers::collectionToString($cast($AbstractCollection, this));
 }
 
 void LinkedBlockingQueue::clear() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	fullyLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			{
-				$var($LinkedBlockingQueue$Node, p, nullptr);
-				$var($LinkedBlockingQueue$Node, h, this->head);
-				for (; ($assign(p, $nc(h)->next)) != nullptr; $assign(h, p)) {
-					$set($nc(h), next, h);
-					$set($nc(p), item, nullptr);
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		{
+			$var($LinkedBlockingQueue$Node, p, nullptr);
+			$var($LinkedBlockingQueue$Node, h, this->head);
+			for (; ($assign(p, $nc(h)->next)) != nullptr; $assign(h, p)) {
+				$set(h, next, h);
+				$set($nc(p), item, nullptr);
 			}
-			$set(this, head, this->last);
-			if ($nc(this->count)->getAndSet(0) == this->capacity) {
-				$nc(this->notFull)->signal();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			fullyUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$set(this, head, this->last);
+		if ($nc(this->count)->getAndSet(0) == this->capacity) {
+			$nc(this->notFull)->signal();
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		fullyUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -909,7 +768,7 @@ int32_t LinkedBlockingQueue::drainTo($Collection* c) {
 }
 
 int32_t LinkedBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(c);
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
@@ -920,67 +779,63 @@ int32_t LinkedBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
 	bool signalNotFull = false;
 	$var($ReentrantLock, takeLock, this->takeLock);
 	$nc(takeLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int32_t n = $Math::min(maxElements, $nc(this->count)->get());
+		$var($LinkedBlockingQueue$Node, h, this->head);
+		int32_t i = 0;
+		$var($Throwable, var$3, nullptr);
+		int32_t var$5 = 0;
+		bool return$4 = false;
 		try {
-			int32_t n = $Math::min(maxElements, $nc(this->count)->get());
-			$var($LinkedBlockingQueue$Node, h, this->head);
-			int32_t i = 0;
-			{
-				$var($Throwable, var$3, nullptr);
-				int32_t var$5 = 0;
-				bool return$4 = false;
-				try {
-					while (i < n) {
-						$var($LinkedBlockingQueue$Node, p, $nc(h)->next);
-						c->add($nc(p)->item);
-						$set($nc(p), item, nullptr);
-						$set(h, next, h);
-						$assign(h, p);
-						++i;
-					}
-					var$5 = n;
-					return$4 = true;
-					goto $finally1;
-				} catch ($Throwable& var$6) {
-					$assign(var$3, var$6);
-				} $finally1: {
-					if (i > 0) {
-						$set(this, head, h);
-						signalNotFull = ($nc(this->count)->getAndAdd(-i) == this->capacity);
-					}
-				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
-				}
-				if (return$4) {
-					var$2 = var$5;
-					return$1 = true;
-					goto $finally;
-				}
+			while (i < n) {
+				$var($LinkedBlockingQueue$Node, p, $nc(h)->next);
+				c->add($nc(p)->item);
+				$set(p, item, nullptr);
+				$set(h, next, h);
+				$assign(h, p);
+				++i;
 			}
-		} catch ($Throwable& var$7) {
-			$assign(var$0, var$7);
-		} $finally: {
-			takeLock->unlock();
-			if (signalNotFull) {
-				this->signalNotFull();
+			var$5 = n;
+			return$4 = true;
+			goto $finally1;
+		} catch ($Throwable& var$6) {
+			$assign(var$3, var$6);
+		} $finally1: {
+			if (i > 0) {
+				$set(this, head, h);
+				signalNotFull = (this->count->getAndAdd(-i) == this->capacity);
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
-		if (return$1) {
-			return var$2;
+		if (return$4) {
+			var$2 = var$5;
+			return$1 = true;
+			goto $finally;
 		}
+	} catch ($Throwable& var$7) {
+		$assign(var$0, var$7);
+	} $finally: {
+		takeLock->unlock();
+		if (signalNotFull) {
+			this->signalNotFull();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $LinkedBlockingQueue$Node* LinkedBlockingQueue::succ($LinkedBlockingQueue$Node* p$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedBlockingQueue$Node, p, p$renamed);
 	$var($LinkedBlockingQueue$Node, var$0, p);
 	if (var$0 == ($assign(p, $nc(p)->next))) {
@@ -1003,7 +858,7 @@ void LinkedBlockingQueue::forEach($Consumer* action) {
 }
 
 void LinkedBlockingQueue::forEachFrom($Consumer* action, $LinkedBlockingQueue$Node* p$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedBlockingQueue$Node, p, p$renamed);
 	int32_t batchSize = 64;
 	$var($ObjectArray, es, nullptr);
@@ -1011,36 +866,34 @@ void LinkedBlockingQueue::forEachFrom($Consumer* action, $LinkedBlockingQueue$No
 	int32_t len = 0;
 	do {
 		fullyLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (es == nullptr) {
-					if (p == nullptr) {
-						$assign(p, $nc(this->head)->next);
-					}
-					{
-						$var($LinkedBlockingQueue$Node, q, p);
-						for (; q != nullptr; $assign(q, succ(q))) {
-							if (q->item != nullptr && ++len == batchSize) {
-								break;
-							}
+		$var($Throwable, var$0, nullptr);
+		try {
+			if (es == nullptr) {
+				if (p == nullptr) {
+					$assign(p, $nc(this->head)->next);
+				}
+				{
+					$var($LinkedBlockingQueue$Node, q, p);
+					for (; q != nullptr; $assign(q, succ(q))) {
+						if (q->item != nullptr && ++len == batchSize) {
+							break;
 						}
 					}
-					$assign(es, $new($ObjectArray, len));
 				}
-				for (n = 0; p != nullptr && n < len; $assign(p, succ(p))) {
-					if (($nc(es)->set(n, p->item)) != nullptr) {
-						++n;
-					}
+				$assign(es, $new($ObjectArray, len));
+			}
+			for (n = 0; p != nullptr && n < len; $assign(p, succ(p))) {
+				if (($nc(es)->set(n, p->item)) != nullptr) {
+					++n;
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				fullyUnlock();
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			fullyUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		for (int32_t i = 0; i < n; ++i) {
 			$var($Object, e, $nc(es)->get(i));
@@ -1056,16 +909,16 @@ bool LinkedBlockingQueue::removeIf($Predicate* filter) {
 
 bool LinkedBlockingQueue::removeAll($Collection* c) {
 	$Objects::requireNonNull(c);
-	return bulkRemove(static_cast<$Predicate*>($$new(LinkedBlockingQueue$$Lambda$lambda$removeAll$0, c)));
+	return bulkRemove($$new(LinkedBlockingQueue$$Lambda$lambda$removeAll$0, c));
 }
 
 bool LinkedBlockingQueue::retainAll($Collection* c) {
 	$Objects::requireNonNull(c);
-	return bulkRemove(static_cast<$Predicate*>($$new(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1, c)));
+	return bulkRemove($$new(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1, c));
 }
 
 $LinkedBlockingQueue$Node* LinkedBlockingQueue::findPred($LinkedBlockingQueue$Node* p, $LinkedBlockingQueue$Node* ancestor$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedBlockingQueue$Node, ancestor, ancestor$renamed);
 	if ($nc(ancestor)->item == nullptr) {
 		$assign(ancestor, this->head);
@@ -1080,7 +933,7 @@ $LinkedBlockingQueue$Node* LinkedBlockingQueue::findPred($LinkedBlockingQueue$No
 }
 
 bool LinkedBlockingQueue::bulkRemove($Predicate* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool removed = false;
 	$var($LinkedBlockingQueue$Node, p, nullptr);
 	$var($LinkedBlockingQueue$Node, ancestor, this->head);
@@ -1089,32 +942,30 @@ bool LinkedBlockingQueue::bulkRemove($Predicate* filter) {
 	int32_t len = 0;
 	do {
 		fullyLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (nodes == nullptr) {
-					$assign(p, $nc(this->head)->next);
-					{
-						$var($LinkedBlockingQueue$Node, q, p);
-						for (; q != nullptr; $assign(q, succ(q))) {
-							if (q->item != nullptr && ++len == 64) {
-								break;
-							}
+		$var($Throwable, var$0, nullptr);
+		try {
+			if (nodes == nullptr) {
+				$assign(p, $nc(this->head)->next);
+				{
+					$var($LinkedBlockingQueue$Node, q, p);
+					for (; q != nullptr; $assign(q, succ(q))) {
+						if (q->item != nullptr && ++len == 64) {
+							break;
 						}
 					}
-					$assign(nodes, $new($LinkedBlockingQueue$NodeArray, len));
 				}
-				for (n = 0; p != nullptr && n < len; $assign(p, succ(p))) {
-					$nc(nodes)->set(n++, p);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				fullyUnlock();
+				$assign(nodes, $new($LinkedBlockingQueue$NodeArray, len));
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			for (n = 0; p != nullptr && n < len; $assign(p, succ(p))) {
+				$nc(nodes)->set(n++, p);
 			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			fullyUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		int64_t deathRow = 0;
 		for (int32_t i = 0; i < n; ++i) {
@@ -1126,26 +977,24 @@ bool LinkedBlockingQueue::bulkRemove($Predicate* filter) {
 		}
 		if (deathRow != 0) {
 			fullyLock();
-			{
-				$var($Throwable, var$3, nullptr);
-				try {
-					for (int32_t i = 0; i < n; ++i) {
-						$var($LinkedBlockingQueue$Node, q, nullptr);
-						if (((int64_t)(deathRow & (uint64_t)($sl((int64_t)1, i)))) != (int64_t)0 && $nc(($assign(q, $nc(nodes)->get(i))))->item != nullptr) {
-							$assign(ancestor, findPred(q, ancestor));
-							unlink(q, ancestor);
-							removed = true;
-						}
-						$nc(nodes)->set(i, nullptr);
+			$var($Throwable, var$3, nullptr);
+			try {
+				for (int32_t i = 0; i < n; ++i) {
+					$var($LinkedBlockingQueue$Node, q, nullptr);
+					if ((deathRow & ($sl((int64_t)1, i))) != 0 && $nc(($assign(q, $nc(nodes)->get(i))))->item != nullptr) {
+						$assign(ancestor, findPred(q, ancestor));
+						unlink(q, ancestor);
+						removed = true;
 					}
-				} catch ($Throwable& var$4) {
-					$assign(var$3, var$4);
-				} /*finally*/ {
-					fullyUnlock();
+					$nc(nodes)->set(i, nullptr);
 				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
-				}
+			} catch ($Throwable& var$4) {
+				$assign(var$3, var$4);
+			} /*finally*/ {
+				fullyUnlock();
+			}
+			if (var$3 != nullptr) {
+				$throw(var$3);
 			}
 		}
 	} while (n > 0 && p != nullptr);
@@ -1153,35 +1002,33 @@ bool LinkedBlockingQueue::bulkRemove($Predicate* filter) {
 }
 
 void LinkedBlockingQueue::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	fullyLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(s)->defaultWriteObject();
-			{
-				$var($LinkedBlockingQueue$Node, p, $nc(this->head)->next);
-				for (; p != nullptr; $assign(p, $nc(p)->next)) {
-					s->writeObject(p->item);
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(s)->defaultWriteObject();
+		{
+			$var($LinkedBlockingQueue$Node, p, $nc(this->head)->next);
+			for (; p != nullptr; $assign(p, p->next)) {
+				s->writeObject(p->item);
 			}
-			s->writeObject(nullptr);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			fullyUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		s->writeObject(nullptr);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		fullyUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void LinkedBlockingQueue::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	$nc(this->count)->set(0);
-	$set(this, last, ($set(this, head, $new($LinkedBlockingQueue$Node, nullptr))));
+	$set(this, last, $set(this, head, $new($LinkedBlockingQueue$Node, nullptr)));
 	for (;;) {
 		$var($Object, item, s->readObject());
 		if (item == nullptr) {
@@ -1206,14 +1053,105 @@ LinkedBlockingQueue::LinkedBlockingQueue() {
 
 $Class* LinkedBlockingQueue::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LinkedBlockingQueue$$Lambda$lambda$removeAll$0::classInfo$.name)) {
+		if (name->equals("java.util.concurrent.LinkedBlockingQueue$$Lambda$lambda$removeAll$0")) {
 			return LinkedBlockingQueue$$Lambda$lambda$removeAll$0::load$(name, initialize);
 		}
-		if (name->equals(LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1::classInfo$.name)) {
+		if (name->equals("java.util.concurrent.LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1")) {
 			return LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(LinkedBlockingQueue, name, initialize, &_LinkedBlockingQueue_ClassInfo_, allocate$LinkedBlockingQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedBlockingQueue, serialVersionUID)},
+		{"capacity", "I", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, capacity)},
+		{"count", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, count)},
+		{"head", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", $TRANSIENT, $field(LinkedBlockingQueue, head)},
+		{"last", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", $PRIVATE | $TRANSIENT, $field(LinkedBlockingQueue, last)},
+		{"takeLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, takeLock)},
+		{"notEmpty", "Ljava/util/concurrent/locks/Condition;", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, notEmpty)},
+		{"putLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, putLock)},
+		{"notFull", "Ljava/util/concurrent/locks/Condition;", nullptr, $PRIVATE | $FINAL, $field(LinkedBlockingQueue, notFull)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*element", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LinkedBlockingQueue, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(LinkedBlockingQueue, init$, void, int32_t)},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(LinkedBlockingQueue, init$, void, $Collection*)},
+		{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(LinkedBlockingQueue, bulkRemove, bool, $Predicate*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, contains, bool, Object$*)},
+		{"dequeue", "()Ljava/lang/Object;", "()TE;", $PRIVATE, $method(LinkedBlockingQueue, dequeue, $Object*)},
+		{"drainTo", "(Ljava/util/Collection;)I", "(Ljava/util/Collection<-TE;>;)I", $PUBLIC, $virtualMethod(LinkedBlockingQueue, drainTo, int32_t, $Collection*)},
+		{"drainTo", "(Ljava/util/Collection;I)I", "(Ljava/util/Collection<-TE;>;I)I", $PUBLIC, $virtualMethod(LinkedBlockingQueue, drainTo, int32_t, $Collection*, int32_t)},
+		{"enqueue", "(Ljava/util/concurrent/LinkedBlockingQueue$Node;)V", "(Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;)V", $PRIVATE, $method(LinkedBlockingQueue, enqueue, void, $LinkedBlockingQueue$Node*)},
+		{"findPred", "(Ljava/util/concurrent/LinkedBlockingQueue$Node;Ljava/util/concurrent/LinkedBlockingQueue$Node;)Ljava/util/concurrent/LinkedBlockingQueue$Node;", "(Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", 0, $virtualMethod(LinkedBlockingQueue, findPred, $LinkedBlockingQueue$Node*, $LinkedBlockingQueue$Node*, $LinkedBlockingQueue$Node*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedBlockingQueue, forEach, void, $Consumer*)},
+		{"forEachFrom", "(Ljava/util/function/Consumer;Ljava/util/concurrent/LinkedBlockingQueue$Node;)V", "(Ljava/util/function/Consumer<-TE;>;Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;)V", 0, $virtualMethod(LinkedBlockingQueue, forEachFrom, void, $Consumer*, $LinkedBlockingQueue$Node*)},
+		{"fullyLock", "()V", nullptr, 0, $virtualMethod(LinkedBlockingQueue, fullyLock, void)},
+		{"fullyUnlock", "()V", nullptr, 0, $virtualMethod(LinkedBlockingQueue, fullyUnlock, void)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, iterator, $Iterator*)},
+		{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkedBlockingQueue, lambda$removeAll$0, bool, $Collection*, Object$*)},
+		{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkedBlockingQueue, lambda$retainAll$1, bool, $Collection*, Object$*)},
+		{"offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue, offer, bool, Object$*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue, offer, bool, Object$*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, peek, $Object*)},
+		{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, poll, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, poll, $Object*)},
+		{"put", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedBlockingQueue, put, void, Object$*), "java.lang.InterruptedException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LinkedBlockingQueue, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remainingCapacity", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, remainingCapacity, int32_t)},
+		{"*remove", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue, removeAll, bool, $Collection*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue, removeIf, bool, $Predicate*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue, retainAll, bool, $Collection*)},
+		{"signalNotEmpty", "()V", nullptr, $PRIVATE, $method(LinkedBlockingQueue, signalNotEmpty, void)},
+		{"signalNotFull", "()V", nullptr, $PRIVATE, $method(LinkedBlockingQueue, signalNotFull, void)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, spliterator, $Spliterator*)},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"succ", "(Ljava/util/concurrent/LinkedBlockingQueue$Node;)Ljava/util/concurrent/LinkedBlockingQueue$Node;", "(Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", 0, $virtualMethod(LinkedBlockingQueue, succ, $LinkedBlockingQueue$Node*, $LinkedBlockingQueue$Node*)},
+		{"take", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, take, $Object*), "java.lang.InterruptedException"},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(LinkedBlockingQueue, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue, toString, $String*)},
+		{"unlink", "(Ljava/util/concurrent/LinkedBlockingQueue$Node;Ljava/util/concurrent/LinkedBlockingQueue$Node;)V", "(Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;)V", 0, $virtualMethod(LinkedBlockingQueue, unlink, void, $LinkedBlockingQueue$Node*, $LinkedBlockingQueue$Node*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LinkedBlockingQueue, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.LinkedBlockingQueue$LBQSpliterator", "java.util.concurrent.LinkedBlockingQueue", "LBQSpliterator", $PRIVATE | $FINAL},
+		{"java.util.concurrent.LinkedBlockingQueue$Itr", "java.util.concurrent.LinkedBlockingQueue", "Itr", $PRIVATE},
+		{"java.util.concurrent.LinkedBlockingQueue$Node", "java.util.concurrent.LinkedBlockingQueue", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.LinkedBlockingQueue",
+		"java.util.AbstractQueue",
+		"java.util.concurrent.BlockingQueue,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractQueue<TE;>;Ljava/util/concurrent/BlockingQueue<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.LinkedBlockingQueue$LBQSpliterator,java.util.concurrent.LinkedBlockingQueue$Itr,java.util.concurrent.LinkedBlockingQueue$Node"
+	};
+	$loadClass(LinkedBlockingQueue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LinkedBlockingQueue));
+	});
 	return class$;
 }
 

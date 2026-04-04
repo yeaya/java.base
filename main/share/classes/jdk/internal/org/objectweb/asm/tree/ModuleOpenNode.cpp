@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/ModuleOpenNode.h>
-
 #include <java/util/List.h>
 #include <jdk/internal/org/objectweb/asm/ModuleVisitor.h>
 #include <jcpp.h>
@@ -17,32 +16,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 
-$FieldInfo _ModuleOpenNode_FieldInfo_[] = {
-	{"packaze", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleOpenNode, packaze)},
-	{"access", "I", nullptr, $PUBLIC, $field(ModuleOpenNode, access)},
-	{"modules", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleOpenNode, modules)},
-	{}
-};
-
-$MethodInfo _ModuleOpenNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/util/List;)V", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ModuleOpenNode, init$, void, $String*, int32_t, $List*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleOpenNode, accept, void, $ModuleVisitor*)},
-	{}
-};
-
-$ClassInfo _ModuleOpenNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.ModuleOpenNode",
-	"java.lang.Object",
-	nullptr,
-	_ModuleOpenNode_FieldInfo_,
-	_ModuleOpenNode_MethodInfo_
-};
-
-$Object* allocate$ModuleOpenNode($Class* clazz) {
-	return $of($alloc(ModuleOpenNode));
-}
-
 void ModuleOpenNode::init$($String* packaze, int32_t access, $List* modules) {
 	$set(this, packaze, packaze);
 	this->access = access;
@@ -50,15 +23,36 @@ void ModuleOpenNode::init$($String* packaze, int32_t access, $List* modules) {
 }
 
 void ModuleOpenNode::accept($ModuleVisitor* moduleVisitor) {
-	$useLocalCurrentObjectStackCache();
-	$nc(moduleVisitor)->visitOpen(this->packaze, this->access, this->modules == nullptr ? ($StringArray*)nullptr : $fcast($StringArray, $($nc(this->modules)->toArray($$new($StringArray, 0)))));
+	$useLocalObjectStack();
+	$nc(moduleVisitor)->visitOpen(this->packaze, this->access, this->modules == nullptr ? ($StringArray*)nullptr : $$cast($StringArray, this->modules->toArray($$new($StringArray, 0))));
 }
 
 ModuleOpenNode::ModuleOpenNode() {
 }
 
 $Class* ModuleOpenNode::load$($String* name, bool initialize) {
-	$loadClass(ModuleOpenNode, name, initialize, &_ModuleOpenNode_ClassInfo_, allocate$ModuleOpenNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"packaze", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleOpenNode, packaze)},
+		{"access", "I", nullptr, $PUBLIC, $field(ModuleOpenNode, access)},
+		{"modules", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleOpenNode, modules)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/util/List;)V", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ModuleOpenNode, init$, void, $String*, int32_t, $List*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleOpenNode, accept, void, $ModuleVisitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.ModuleOpenNode",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleOpenNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleOpenNode);
+	});
 	return class$;
 }
 

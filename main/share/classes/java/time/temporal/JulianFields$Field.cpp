@@ -1,5 +1,4 @@
 #include <java/time/temporal/JulianFields$Field.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/Math.h>
 #include <java/time/DateTimeException.h>
@@ -11,7 +10,6 @@
 #include <java/time/temporal/JulianFields.h>
 #include <java/time/temporal/Temporal.h>
 #include <java/time/temporal/TemporalAccessor.h>
-#include <java/time/temporal/TemporalField.h>
 #include <java/time/temporal/TemporalUnit.h>
 #include <java/time/temporal/ValueRange.h>
 #include <java/util/Map.h>
@@ -40,7 +38,6 @@ using $ChronoField = ::java::time::temporal::ChronoField;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
-using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $ValueRange = ::java::time::temporal::ValueRange;
 using $Map = ::java::util::Map;
@@ -48,67 +45,6 @@ using $Map = ::java::util::Map;
 namespace java {
 	namespace time {
 		namespace temporal {
-
-$FieldInfo _JulianFields$Field_FieldInfo_[] = {
-	{"JULIAN_DAY", "Ljava/time/temporal/JulianFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JulianFields$Field, JULIAN_DAY)},
-	{"MODIFIED_JULIAN_DAY", "Ljava/time/temporal/JulianFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JulianFields$Field, MODIFIED_JULIAN_DAY)},
-	{"RATA_DIE", "Ljava/time/temporal/JulianFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JulianFields$Field, RATA_DIE)},
-	{"$VALUES", "[Ljava/time/temporal/JulianFields$Field;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JulianFields$Field, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(JulianFields$Field, name$)},
-	{"baseUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(JulianFields$Field, baseUnit)},
-	{"rangeUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(JulianFields$Field, rangeUnit)},
-	{"range", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(JulianFields$Field, range$)},
-	{"offset", "J", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(JulianFields$Field, offset)},
-	{}
-};
-
-$MethodInfo _JulianFields$Field_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/temporal/JulianFields$Field;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JulianFields$Field, $values, $JulianFields$FieldArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;J)V", "(Ljava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;J)V", $PRIVATE, $method(JulianFields$Field, init$, void, $String*, int32_t, $String*, $TemporalUnit*, $TemporalUnit*, int64_t)},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC, $virtualMethod(JulianFields$Field, adjustInto, $Temporal*, $Temporal*, int64_t)},
-	{"getBaseUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, getBaseUnit, $TemporalUnit*)},
-	{"getFrom", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, getFrom, int64_t, $TemporalAccessor*)},
-	{"getRangeUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, getRangeUnit, $TemporalUnit*)},
-	{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, isDateBased, bool)},
-	{"isSupportedBy", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, isSupportedBy, bool, $TemporalAccessor*)},
-	{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, isTimeBased, bool)},
-	{"range", "()Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, range, $ValueRange*)},
-	{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
-	{"resolve", "(Ljava/util/Map;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PUBLIC, $virtualMethod(JulianFields$Field, resolve, $TemporalAccessor*, $Map*, $TemporalAccessor*, $ResolverStyle*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/JulianFields$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(JulianFields$Field, valueOf, JulianFields$Field*, $String*)},
-	{"values", "()[Ljava/time/temporal/JulianFields$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(JulianFields$Field, values, $JulianFields$FieldArray*)},
-	{}
-};
-
-$InnerClassInfo _JulianFields$Field_InnerClassesInfo_[] = {
-	{"java.time.temporal.JulianFields$Field", "java.time.temporal.JulianFields", "Field", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JulianFields$Field_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.time.temporal.JulianFields$Field",
-	"java.lang.Enum",
-	"java.time.temporal.TemporalField",
-	_JulianFields$Field_FieldInfo_,
-	_JulianFields$Field_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/time/temporal/JulianFields$Field;>;Ljava/time/temporal/TemporalField;",
-	nullptr,
-	_JulianFields$Field_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.temporal.JulianFields"
-};
-
-$Object* allocate$JulianFields$Field($Class* clazz) {
-	return $of($alloc(JulianFields$Field));
-}
 
 bool JulianFields$Field::equals(Object$* other) {
 	 return this->$Enum::equals(other);
@@ -155,7 +91,7 @@ void JulianFields$Field::init$($String* $enum$name, int32_t $enum$ordinal, $Stri
 	$set(this, name$, name);
 	$set(this, baseUnit, baseUnit);
 	$set(this, rangeUnit, rangeUnit);
-	$set(this, range$, $ValueRange::of((int64_t)0xFFFFFFAAF5CEC326 + offset, (int64_t)0x000000550A1B48F7 + offset));
+	$set(this, range$, $ValueRange::of((int64_t)0xffffffaaf5cec326 + offset, (int64_t)0x000000550a1b48f7 + offset));
 	this->offset = offset;
 }
 
@@ -197,8 +133,8 @@ int64_t JulianFields$Field::getFrom($TemporalAccessor* temporal) {
 }
 
 $Temporal* JulianFields$Field::adjustInto($Temporal* temporal, int64_t newValue) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($(range()))->isValidValue(newValue) == false) {
+	$useLocalObjectStack();
+	if ($$nc(range())->isValidValue(newValue) == false) {
 		$throwNew($DateTimeException, $$str({"Invalid value: "_s, this->name$, " "_s, $$str(newValue)}));
 	}
 	$init($ChronoField);
@@ -206,14 +142,14 @@ $Temporal* JulianFields$Field::adjustInto($Temporal* temporal, int64_t newValue)
 }
 
 $TemporalAccessor* JulianFields$Field::resolve($Map* fieldValues, $TemporalAccessor* partialTemporal, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
-	int64_t value = $nc(($cast($Long, $($nc(fieldValues)->remove(this)))))->longValue();
+	$useLocalObjectStack();
+	int64_t value = $$sure($Long, $nc(fieldValues)->remove(this))->longValue();
 	$var($Chronology, chrono, $Chronology::from(partialTemporal));
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
 		return $nc(chrono)->dateEpochDay($Math::subtractExact(value, this->offset));
 	}
-	$nc($(range()))->checkValidValue(value, this);
+	$$nc(range())->checkValidValue(value, this);
 	return $nc(chrono)->dateEpochDay(value - this->offset);
 }
 
@@ -221,7 +157,7 @@ $String* JulianFields$Field::toString() {
 	return this->name$;
 }
 
-void clinit$JulianFields$Field($Class* class$) {
+void JulianFields$Field::clinit$($Class* clazz) {
 	$init($ChronoUnit);
 	$assignStatic(JulianFields$Field::JULIAN_DAY, $new(JulianFields$Field, "JULIAN_DAY"_s, 0, "JulianDay"_s, $ChronoUnit::DAYS, $ChronoUnit::FOREVER, 2440588));
 	$assignStatic(JulianFields$Field::MODIFIED_JULIAN_DAY, $new(JulianFields$Field, "MODIFIED_JULIAN_DAY"_s, 1, "ModifiedJulianDay"_s, $ChronoUnit::DAYS, $ChronoUnit::FOREVER, 40587));
@@ -233,7 +169,62 @@ JulianFields$Field::JulianFields$Field() {
 }
 
 $Class* JulianFields$Field::load$($String* name, bool initialize) {
-	$loadClass(JulianFields$Field, name, initialize, &_JulianFields$Field_ClassInfo_, clinit$JulianFields$Field, allocate$JulianFields$Field);
+	$FieldInfo fieldInfos$$[] = {
+		{"JULIAN_DAY", "Ljava/time/temporal/JulianFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JulianFields$Field, JULIAN_DAY)},
+		{"MODIFIED_JULIAN_DAY", "Ljava/time/temporal/JulianFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JulianFields$Field, MODIFIED_JULIAN_DAY)},
+		{"RATA_DIE", "Ljava/time/temporal/JulianFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JulianFields$Field, RATA_DIE)},
+		{"$VALUES", "[Ljava/time/temporal/JulianFields$Field;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JulianFields$Field, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(JulianFields$Field, name$)},
+		{"baseUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(JulianFields$Field, baseUnit)},
+		{"rangeUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(JulianFields$Field, rangeUnit)},
+		{"range", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(JulianFields$Field, range$)},
+		{"offset", "J", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(JulianFields$Field, offset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/time/temporal/JulianFields$Field;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JulianFields$Field, $values, $JulianFields$FieldArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;J)V", "(Ljava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;J)V", $PRIVATE, $method(JulianFields$Field, init$, void, $String*, int32_t, $String*, $TemporalUnit*, $TemporalUnit*, int64_t)},
+		{"adjustInto", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC, $virtualMethod(JulianFields$Field, adjustInto, $Temporal*, $Temporal*, int64_t)},
+		{"getBaseUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, getBaseUnit, $TemporalUnit*)},
+		{"getFrom", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, getFrom, int64_t, $TemporalAccessor*)},
+		{"getRangeUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, getRangeUnit, $TemporalUnit*)},
+		{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, isDateBased, bool)},
+		{"isSupportedBy", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, isSupportedBy, bool, $TemporalAccessor*)},
+		{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, isTimeBased, bool)},
+		{"range", "()Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, range, $ValueRange*)},
+		{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
+		{"resolve", "(Ljava/util/Map;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PUBLIC, $virtualMethod(JulianFields$Field, resolve, $TemporalAccessor*, $Map*, $TemporalAccessor*, $ResolverStyle*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JulianFields$Field, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/JulianFields$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(JulianFields$Field, valueOf, JulianFields$Field*, $String*)},
+		{"values", "()[Ljava/time/temporal/JulianFields$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(JulianFields$Field, values, $JulianFields$FieldArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.temporal.JulianFields$Field", "java.time.temporal.JulianFields", "Field", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.time.temporal.JulianFields$Field",
+		"java.lang.Enum",
+		"java.time.temporal.TemporalField",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/time/temporal/JulianFields$Field;>;Ljava/time/temporal/TemporalField;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.temporal.JulianFields"
+	};
+	$loadClass(JulianFields$Field, name, initialize, &classInfo$$, JulianFields$Field::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JulianFields$Field));
+	});
 	return class$;
 }
 

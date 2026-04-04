@@ -1,5 +1,4 @@
 #include <java/util/concurrent/LinkedBlockingDeque$AbstractItr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Objects.h>
@@ -25,53 +24,8 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _LinkedBlockingDeque$AbstractItr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/LinkedBlockingDeque;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedBlockingDeque$AbstractItr, this$0)},
-	{"next", "Ljava/util/concurrent/LinkedBlockingDeque$Node;", "Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", 0, $field(LinkedBlockingDeque$AbstractItr, next$)},
-	{"nextItem", "Ljava/lang/Object;", "TE;", 0, $field(LinkedBlockingDeque$AbstractItr, nextItem)},
-	{"lastRet", "Ljava/util/concurrent/LinkedBlockingDeque$Node;", "Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $PRIVATE, $field(LinkedBlockingDeque$AbstractItr, lastRet)},
-	{}
-};
-
-$MethodInfo _LinkedBlockingDeque$AbstractItr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/LinkedBlockingDeque;)V", nullptr, 0, $method(LinkedBlockingDeque$AbstractItr, init$, void, $LinkedBlockingDeque*)},
-	{"firstNode", "()Ljava/util/concurrent/LinkedBlockingDeque$Node;", "()Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(LinkedBlockingDeque$AbstractItr, firstNode, $LinkedBlockingDeque$Node*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, next, $Object*)},
-	{"nextNode", "(Ljava/util/concurrent/LinkedBlockingDeque$Node;)Ljava/util/concurrent/LinkedBlockingDeque$Node;", "(Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(LinkedBlockingDeque$AbstractItr, nextNode, $LinkedBlockingDeque$Node*, $LinkedBlockingDeque$Node*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, remove, void)},
-	{"succ", "(Ljava/util/concurrent/LinkedBlockingDeque$Node;)Ljava/util/concurrent/LinkedBlockingDeque$Node;", "(Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $PRIVATE, $method(LinkedBlockingDeque$AbstractItr, succ, $LinkedBlockingDeque$Node*, $LinkedBlockingDeque$Node*)},
-	{}
-};
-
-$InnerClassInfo _LinkedBlockingDeque$AbstractItr_InnerClassesInfo_[] = {
-	{"java.util.concurrent.LinkedBlockingDeque$AbstractItr", "java.util.concurrent.LinkedBlockingDeque", "AbstractItr", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LinkedBlockingDeque$AbstractItr_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.concurrent.LinkedBlockingDeque$AbstractItr",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_LinkedBlockingDeque$AbstractItr_FieldInfo_,
-	_LinkedBlockingDeque$AbstractItr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_LinkedBlockingDeque$AbstractItr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.LinkedBlockingDeque"
-};
-
-$Object* allocate$LinkedBlockingDeque$AbstractItr($Class* clazz) {
-	return $of($alloc(LinkedBlockingDeque$AbstractItr));
-}
-
 $LinkedBlockingDeque$Node* LinkedBlockingDeque$AbstractItr::succ($LinkedBlockingDeque$Node* p$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedBlockingDeque$Node, p, p$renamed);
 	$var($LinkedBlockingDeque$Node, var$0, p);
 	if (var$0 == ($assign(p, nextNode(p)))) {
@@ -81,24 +35,22 @@ $LinkedBlockingDeque$Node* LinkedBlockingDeque$AbstractItr::succ($LinkedBlocking
 }
 
 void LinkedBlockingDeque$AbstractItr::init$($LinkedBlockingDeque* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$var($ReentrantLock, lock, this$0->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (($set(this, next$, firstNode())) != nullptr) {
-				$set(this, nextItem, $nc(this->next$)->item);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (($set(this, next$, firstNode())) != nullptr) {
+			$set(this, nextItem, $nc(this->next$)->item);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -107,7 +59,7 @@ bool LinkedBlockingDeque$AbstractItr::hasNext() {
 }
 
 $Object* LinkedBlockingDeque$AbstractItr::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedBlockingDeque$Node, p, nullptr);
 	if (($assign(p, this->next$)) == nullptr) {
 		$throwNew($NoSuchElementException);
@@ -116,29 +68,27 @@ $Object* LinkedBlockingDeque$AbstractItr::next() {
 	$var($Object, x, this->nextItem);
 	$var($ReentrantLock, lock, this->this$0->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Object, e, nullptr);
-			for ($assign(p, nextNode(p)); p != nullptr && ($assign(e, p->item)) == nullptr;) {
-				$assign(p, succ(p));
-			}
-			$set(this, next$, p);
-			$set(this, nextItem, e);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Object, e, nullptr);
+		for ($assign(p, nextNode(p)); p != nullptr && ($assign(e, p->item)) == nullptr;) {
+			$assign(p, succ(p));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$set(this, next$, p);
+		$set(this, nextItem, e);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
 	}
-	return $of(x);
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	return x;
 }
 
 void LinkedBlockingDeque$AbstractItr::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	$var($LinkedBlockingDeque$Node, p, nullptr);
 	if (($assign(p, this->next$)) == nullptr) {
@@ -153,62 +103,30 @@ void LinkedBlockingDeque$AbstractItr::forEachRemaining($Consumer* action) {
 	int32_t len = 1;
 	do {
 		$nc(lock)->lock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (es == nullptr) {
-					$assign(p, nextNode(p));
-					{
-						$var($LinkedBlockingDeque$Node, q, p);
-						for (; q != nullptr; $assign(q, succ(q))) {
-							if (q->item != nullptr && ++len == batchSize) {
-								break;
-							}
-						}
-					}
-					$assign(es, $new($ObjectArray, len));
-					es->set(0, this->nextItem);
-					$set(this, nextItem, nullptr);
-					n = 1;
-				} else {
-					n = 0;
-				}
-				for (; p != nullptr && n < len; $assign(p, succ(p))) {
-					if (($nc(es)->set(n, p->item)) != nullptr) {
-						$set(this, lastRet, p);
-						++n;
-					}
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				lock->unlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-		}
-		for (int32_t i = 0; i < n; ++i) {
-			$var($Object, e, $nc(es)->get(i));
-			action->accept(e);
-		}
-	} while (n > 0 && p != nullptr);
-}
-
-void LinkedBlockingDeque$AbstractItr::remove() {
-	$useLocalCurrentObjectStackCache();
-	$var($LinkedBlockingDeque$Node, n, this->lastRet);
-	if (n == nullptr) {
-		$throwNew($IllegalStateException);
-	}
-	$set(this, lastRet, nullptr);
-	$var($ReentrantLock, lock, this->this$0->lock);
-	$nc(lock)->lock();
-	{
 		$var($Throwable, var$0, nullptr);
 		try {
-			if ($nc(n)->item != nullptr) {
-				this->this$0->unlink(n);
+			if (es == nullptr) {
+				$assign(p, nextNode(p));
+				{
+					$var($LinkedBlockingDeque$Node, q, p);
+					for (; q != nullptr; $assign(q, succ(q))) {
+						if (q->item != nullptr && ++len == batchSize) {
+							break;
+						}
+					}
+				}
+				$assign(es, $new($ObjectArray, len));
+				es->set(0, this->nextItem);
+				$set(this, nextItem, nullptr);
+				n = 1;
+			} else {
+				n = 0;
+			}
+			for (; p != nullptr && n < len; $assign(p, succ(p))) {
+				if (($nc(es)->set(n, p->item)) != nullptr) {
+					$set(this, lastRet, p);
+					++n;
+				}
 			}
 		} catch ($Throwable& var$1) {
 			$assign(var$0, var$1);
@@ -218,6 +136,34 @@ void LinkedBlockingDeque$AbstractItr::remove() {
 		if (var$0 != nullptr) {
 			$throw(var$0);
 		}
+		for (int32_t i = 0; i < n; ++i) {
+			$var($Object, e, $nc(es)->get(i));
+			action->accept(e);
+		}
+	} while (n > 0 && p != nullptr);
+}
+
+void LinkedBlockingDeque$AbstractItr::remove() {
+	$useLocalObjectStack();
+	$var($LinkedBlockingDeque$Node, n, this->lastRet);
+	if (n == nullptr) {
+		$throwNew($IllegalStateException);
+	}
+	$set(this, lastRet, nullptr);
+	$var($ReentrantLock, lock, this->this$0->lock);
+	$nc(lock)->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if ($nc(n)->item != nullptr) {
+			this->this$0->unlink(n);
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -225,7 +171,46 @@ LinkedBlockingDeque$AbstractItr::LinkedBlockingDeque$AbstractItr() {
 }
 
 $Class* LinkedBlockingDeque$AbstractItr::load$($String* name, bool initialize) {
-	$loadClass(LinkedBlockingDeque$AbstractItr, name, initialize, &_LinkedBlockingDeque$AbstractItr_ClassInfo_, allocate$LinkedBlockingDeque$AbstractItr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/LinkedBlockingDeque;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedBlockingDeque$AbstractItr, this$0)},
+		{"next", "Ljava/util/concurrent/LinkedBlockingDeque$Node;", "Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", 0, $field(LinkedBlockingDeque$AbstractItr, next$)},
+		{"nextItem", "Ljava/lang/Object;", "TE;", 0, $field(LinkedBlockingDeque$AbstractItr, nextItem)},
+		{"lastRet", "Ljava/util/concurrent/LinkedBlockingDeque$Node;", "Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $PRIVATE, $field(LinkedBlockingDeque$AbstractItr, lastRet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/LinkedBlockingDeque;)V", nullptr, 0, $method(LinkedBlockingDeque$AbstractItr, init$, void, $LinkedBlockingDeque*)},
+		{"firstNode", "()Ljava/util/concurrent/LinkedBlockingDeque$Node;", "()Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(LinkedBlockingDeque$AbstractItr, firstNode, $LinkedBlockingDeque$Node*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, next, $Object*)},
+		{"nextNode", "(Ljava/util/concurrent/LinkedBlockingDeque$Node;)Ljava/util/concurrent/LinkedBlockingDeque$Node;", "(Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(LinkedBlockingDeque$AbstractItr, nextNode, $LinkedBlockingDeque$Node*, $LinkedBlockingDeque$Node*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, remove, void)},
+		{"succ", "(Ljava/util/concurrent/LinkedBlockingDeque$Node;)Ljava/util/concurrent/LinkedBlockingDeque$Node;", "(Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $PRIVATE, $method(LinkedBlockingDeque$AbstractItr, succ, $LinkedBlockingDeque$Node*, $LinkedBlockingDeque$Node*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.LinkedBlockingDeque$AbstractItr", "java.util.concurrent.LinkedBlockingDeque", "AbstractItr", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.concurrent.LinkedBlockingDeque$AbstractItr",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.LinkedBlockingDeque"
+	};
+	$loadClass(LinkedBlockingDeque$AbstractItr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedBlockingDeque$AbstractItr);
+	});
 	return class$;
 }
 

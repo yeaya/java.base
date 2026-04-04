@@ -29,11 +29,12 @@ namespace java {
 	namespace lang {
 
 class $import Byte : public ::java::lang::Number, public ::java::lang::Comparable, public ::java::lang::constant::Constable {
-	$class(Byte, $PRELOAD, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable)
+	$class(Byte, $PRELOAD | $PREINIT, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable)
 public:
 	Byte();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t value);
 	void init$($String* s);
 	virtual int8_t byteValue() override;
@@ -66,7 +67,7 @@ public:
 	int8_t value = 0;
 	static const int32_t SIZE = 8;
 	static const int32_t BYTES = 1; // SIZE / Byte.SIZE
-	static const int64_t serialVersionUID = (int64_t)0x9C4E6084EE50F51C;
+	static const int64_t serialVersionUID = (int64_t)0x9c4e6084ee50f51c;
 };
 
 	} // lang

@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberEnumArrOneClass.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,43 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute SingleMemberEnumArrOneClass_Attribute_var$1[] = {
-	{'e', "LUniTest/Stooge; MOE"},
-	{'-'}
-};
-
-$NamedAttribute SingleMemberEnumArrOneClass_Attribute_var$0[] = {
-	{"value", '[', SingleMemberEnumArrOneClass_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _SingleMemberEnumArrOneClass_Annotations_[] = {
-	{"LUniTest/SingleMemberEnumArray;", SingleMemberEnumArrOneClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberEnumArrOneClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberEnumArrOneClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberEnumArrOneClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberEnumArrOneClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberEnumArrOneClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberEnumArrOneClass_Annotations_
-};
-
-$Object* allocate$SingleMemberEnumArrOneClass($Class* clazz) {
-	return $of($alloc(SingleMemberEnumArrOneClass));
-}
-
 void SingleMemberEnumArrOneClass::init$() {
 }
 
@@ -54,7 +16,37 @@ SingleMemberEnumArrOneClass::SingleMemberEnumArrOneClass() {
 }
 
 $Class* SingleMemberEnumArrOneClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberEnumArrOneClass, name, initialize, &_SingleMemberEnumArrOneClass_ClassInfo_, allocate$SingleMemberEnumArrOneClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberEnumArrOneClass, init$, void)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "LUniTest/Stooge; MOE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberEnumArray;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberEnumArrOneClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberEnumArrOneClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberEnumArrOneClass);
+	});
 	return class$;
 }
 

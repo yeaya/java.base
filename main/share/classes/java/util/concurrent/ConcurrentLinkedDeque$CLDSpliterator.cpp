@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentLinkedDeque$CLDSpliterator.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
@@ -32,58 +31,12 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _ConcurrentLinkedDeque$CLDSpliterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/ConcurrentLinkedDeque;", nullptr, $FINAL | $SYNTHETIC, $field(ConcurrentLinkedDeque$CLDSpliterator, this$0)},
-	{"MAX_BATCH", "I", nullptr, $STATIC | $FINAL, $constField(ConcurrentLinkedDeque$CLDSpliterator, MAX_BATCH)},
-	{"current", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $field(ConcurrentLinkedDeque$CLDSpliterator, current$)},
-	{"batch", "I", nullptr, 0, $field(ConcurrentLinkedDeque$CLDSpliterator, batch)},
-	{"exhausted", "Z", nullptr, 0, $field(ConcurrentLinkedDeque$CLDSpliterator, exhausted)},
-	{}
-};
-
-$MethodInfo _ConcurrentLinkedDeque$CLDSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentLinkedDeque;)V", nullptr, 0, $method(ConcurrentLinkedDeque$CLDSpliterator, init$, void, $ConcurrentLinkedDeque*)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$CLDSpliterator, characteristics, int32_t)},
-	{"current", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $PRIVATE, $method(ConcurrentLinkedDeque$CLDSpliterator, current, $ConcurrentLinkedDeque$Node*)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$CLDSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$CLDSpliterator, forEachRemaining, void, $Consumer*)},
-	{"setCurrent", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque$CLDSpliterator, setCurrent, void, $ConcurrentLinkedDeque$Node*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$CLDSpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$CLDSpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _ConcurrentLinkedDeque$CLDSpliterator_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentLinkedDeque$CLDSpliterator", "java.util.concurrent.ConcurrentLinkedDeque", "CLDSpliterator", $FINAL},
-	{}
-};
-
-$ClassInfo _ConcurrentLinkedDeque$CLDSpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ConcurrentLinkedDeque$CLDSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_ConcurrentLinkedDeque$CLDSpliterator_FieldInfo_,
-	_ConcurrentLinkedDeque$CLDSpliterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
-	nullptr,
-	_ConcurrentLinkedDeque$CLDSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentLinkedDeque"
-};
-
-$Object* allocate$ConcurrentLinkedDeque$CLDSpliterator($Class* clazz) {
-	return $of($alloc(ConcurrentLinkedDeque$CLDSpliterator));
-}
-
 void ConcurrentLinkedDeque$CLDSpliterator::init$($ConcurrentLinkedDeque* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Spliterator* ConcurrentLinkedDeque$CLDSpliterator::trySplit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentLinkedDeque$Node, p, nullptr);
 	$var($ConcurrentLinkedDeque$Node, q, nullptr);
 	if (($assign(p, current())) == nullptr || ($assign(q, $nc(p)->next)) == nullptr) {
@@ -110,7 +63,7 @@ $Spliterator* ConcurrentLinkedDeque$CLDSpliterator::trySplit() {
 }
 
 void ConcurrentLinkedDeque$CLDSpliterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	$var($ConcurrentLinkedDeque$Node, p, nullptr);
 	if (($assign(p, current())) != nullptr) {
@@ -122,7 +75,7 @@ void ConcurrentLinkedDeque$CLDSpliterator::forEachRemaining($Consumer* action) {
 				action->accept(e);
 			}
 			$var($ConcurrentLinkedDeque$Node, var$0, p);
-			if (var$0 == ($assign(p, $nc(p)->next))) {
+			if (var$0 == ($assign(p, p->next))) {
 				$assign(p, this->this$0->first());
 			}
 		} while (p != nullptr);
@@ -130,7 +83,7 @@ void ConcurrentLinkedDeque$CLDSpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool ConcurrentLinkedDeque$CLDSpliterator::tryAdvance($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	$var($ConcurrentLinkedDeque$Node, p, nullptr);
 	if (($assign(p, current())) != nullptr) {
@@ -177,7 +130,47 @@ ConcurrentLinkedDeque$CLDSpliterator::ConcurrentLinkedDeque$CLDSpliterator() {
 }
 
 $Class* ConcurrentLinkedDeque$CLDSpliterator::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentLinkedDeque$CLDSpliterator, name, initialize, &_ConcurrentLinkedDeque$CLDSpliterator_ClassInfo_, allocate$ConcurrentLinkedDeque$CLDSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/ConcurrentLinkedDeque;", nullptr, $FINAL | $SYNTHETIC, $field(ConcurrentLinkedDeque$CLDSpliterator, this$0)},
+		{"MAX_BATCH", "I", nullptr, $STATIC | $FINAL, $constField(ConcurrentLinkedDeque$CLDSpliterator, MAX_BATCH)},
+		{"current", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $field(ConcurrentLinkedDeque$CLDSpliterator, current$)},
+		{"batch", "I", nullptr, 0, $field(ConcurrentLinkedDeque$CLDSpliterator, batch)},
+		{"exhausted", "Z", nullptr, 0, $field(ConcurrentLinkedDeque$CLDSpliterator, exhausted)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ConcurrentLinkedDeque;)V", nullptr, 0, $method(ConcurrentLinkedDeque$CLDSpliterator, init$, void, $ConcurrentLinkedDeque*)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$CLDSpliterator, characteristics, int32_t)},
+		{"current", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $PRIVATE, $method(ConcurrentLinkedDeque$CLDSpliterator, current, $ConcurrentLinkedDeque$Node*)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$CLDSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$CLDSpliterator, forEachRemaining, void, $Consumer*)},
+		{"setCurrent", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque$CLDSpliterator, setCurrent, void, $ConcurrentLinkedDeque$Node*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$CLDSpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$CLDSpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentLinkedDeque$CLDSpliterator", "java.util.concurrent.ConcurrentLinkedDeque", "CLDSpliterator", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ConcurrentLinkedDeque$CLDSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentLinkedDeque"
+	};
+	$loadClass(ConcurrentLinkedDeque$CLDSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConcurrentLinkedDeque$CLDSpliterator);
+	});
 	return class$;
 }
 

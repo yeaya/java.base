@@ -1,5 +1,4 @@
 #include <java/nio/file/attribute/FileAttribute.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,28 +9,24 @@ namespace java {
 		namespace file {
 			namespace attribute {
 
-$MethodInfo _FileAttribute_MethodInfo_[] = {
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileAttribute, name, $String*)},
-	{"value", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(FileAttribute, value, $Object*)},
-	{}
-};
-
-$ClassInfo _FileAttribute_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.file.attribute.FileAttribute",
-	nullptr,
-	nullptr,
-	nullptr,
-	_FileAttribute_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$FileAttribute($Class* clazz) {
-	return $of($alloc(FileAttribute));
-}
-
 $Class* FileAttribute::load$($String* name, bool initialize) {
-	$loadClass(FileAttribute, name, initialize, &_FileAttribute_ClassInfo_, allocate$FileAttribute);
+	$MethodInfo methodInfos$$[] = {
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileAttribute, name, $String*)},
+		{"value", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(FileAttribute, value, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.file.attribute.FileAttribute",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(FileAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileAttribute);
+	});
 	return class$;
 }
 

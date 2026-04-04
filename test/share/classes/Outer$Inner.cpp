@@ -1,5 +1,4 @@
 #include <Outer$Inner.h>
-
 #include <Outer.h>
 #include <jcpp.h>
 
@@ -9,41 +8,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _Outer$Inner_FieldInfo_[] = {
-	{"this$0", "LOuter;", nullptr, $FINAL | $SYNTHETIC, $field(Outer$Inner, this$0)},
-	{}
-};
-
-$MethodInfo _Outer$Inner_MethodInfo_[] = {
-	{"<init>", "(LOuter;)V", nullptr, 0, $method(Outer$Inner, init$, void, $Outer*)},
-	{}
-};
-
-$InnerClassInfo _Outer$Inner_InnerClassesInfo_[] = {
-	{"Outer$Inner", "Outer", "Inner", 0},
-	{}
-};
-
-$ClassInfo _Outer$Inner_ClassInfo_ = {
-	$ACC_SUPER,
-	"Outer$Inner",
-	"java.lang.Object",
-	nullptr,
-	_Outer$Inner_FieldInfo_,
-	_Outer$Inner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Outer$Inner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Outer"
-};
-
-$Object* allocate$Outer$Inner($Class* clazz) {
-	return $of($alloc(Outer$Inner));
-}
-
 void Outer$Inner::init$($Outer* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -52,7 +16,36 @@ Outer$Inner::Outer$Inner() {
 }
 
 $Class* Outer$Inner::load$($String* name, bool initialize) {
-	$loadClass(Outer$Inner, name, initialize, &_Outer$Inner_ClassInfo_, allocate$Outer$Inner);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LOuter;", nullptr, $FINAL | $SYNTHETIC, $field(Outer$Inner, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LOuter;)V", nullptr, 0, $method(Outer$Inner, init$, void, $Outer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Outer$Inner", "Outer", "Inner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Outer$Inner",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Outer"
+	};
+	$loadClass(Outer$Inner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Outer$Inner);
+	});
 	return class$;
 }
 

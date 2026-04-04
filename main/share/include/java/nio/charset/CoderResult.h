@@ -34,6 +34,7 @@ class $import CoderResult : public ::java::lang::Object {
 	$class(CoderResult, 0, ::java::lang::Object)
 public:
 	CoderResult();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type, int32_t length);
 	virtual bool isError();
 	virtual bool isMalformed();

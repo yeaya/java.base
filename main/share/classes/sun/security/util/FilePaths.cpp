@@ -1,5 +1,4 @@
 #include <sun/security/util/FilePaths.h>
-
 #include <java/io/File.h>
 #include <jdk/internal/util/StaticProperty.h>
 #include <jcpp.h>
@@ -13,25 +12,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$MethodInfo _FilePaths_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FilePaths, init$, void)},
-	{"cacerts", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FilePaths, cacerts, $String*)},
-	{}
-};
-
-$ClassInfo _FilePaths_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.FilePaths",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_FilePaths_MethodInfo_
-};
-
-$Object* allocate$FilePaths($Class* clazz) {
-	return $of($alloc(FilePaths));
-}
-
 void FilePaths::init$() {
 }
 
@@ -44,7 +24,22 @@ FilePaths::FilePaths() {
 }
 
 $Class* FilePaths::load$($String* name, bool initialize) {
-	$loadClass(FilePaths, name, initialize, &_FilePaths_ClassInfo_, allocate$FilePaths);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FilePaths, init$, void)},
+		{"cacerts", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FilePaths, cacerts, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.FilePaths",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FilePaths, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilePaths);
+	});
 	return class$;
 }
 

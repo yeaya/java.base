@@ -1,5 +1,4 @@
 #include <java/net/DefaultInterface.h>
-
 #include <java/net/NetworkInterface.h>
 #include <jcpp.h>
 
@@ -9,25 +8,6 @@ using $NetworkInterface = ::java::net::NetworkInterface;
 
 namespace java {
 	namespace net {
-
-$MethodInfo _DefaultInterface_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultInterface, init$, void)},
-	{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DefaultInterface, getDefault, $NetworkInterface*)},
-	{}
-};
-
-$ClassInfo _DefaultInterface_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.DefaultInterface",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DefaultInterface_MethodInfo_
-};
-
-$Object* allocate$DefaultInterface($Class* clazz) {
-	return $of($alloc(DefaultInterface));
-}
 
 void DefaultInterface::init$() {
 }
@@ -40,7 +20,22 @@ DefaultInterface::DefaultInterface() {
 }
 
 $Class* DefaultInterface::load$($String* name, bool initialize) {
-	$loadClass(DefaultInterface, name, initialize, &_DefaultInterface_ClassInfo_, allocate$DefaultInterface);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultInterface, init$, void)},
+		{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DefaultInterface, getDefault, $NetworkInterface*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.DefaultInterface",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultInterface, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultInterface);
+	});
 	return class$;
 }
 

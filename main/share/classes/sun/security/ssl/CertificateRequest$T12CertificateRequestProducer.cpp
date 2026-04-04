@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateRequest$T12CertificateRequestProducer.h>
-
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/HashMap.h>
@@ -13,7 +12,6 @@
 #include <sun/security/ssl/CipherSuite$KeyExchange.h>
 #include <sun/security/ssl/CipherSuite.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeOutStream.h>
 #include <sun/security/ssl/SSLConfiguration.h>
 #include <sun/security/ssl/SSLContextImpl.h>
@@ -34,81 +32,43 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
-using $List = ::java::util::List;
-using $X509TrustManager = ::javax::net::ssl::X509TrustManager;
 using $Alert = ::sun::security::ssl::Alert;
 using $CertificateRequest$T12CertificateRequestMessage = ::sun::security::ssl::CertificateRequest$T12CertificateRequestMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 using $SignatureScheme = ::sun::security::ssl::SignatureScheme;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertificateRequest$T12CertificateRequestProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateRequest$T12CertificateRequestProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T12CertificateRequestProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CertificateRequest$T12CertificateRequestProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateRequest$T12CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T12CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertificateRequest$T12CertificateRequestProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateRequest$T12CertificateRequestProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_CertificateRequest$T12CertificateRequestProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateRequest$T12CertificateRequestProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateRequest"
-};
-
-$Object* allocate$CertificateRequest$T12CertificateRequestProducer($Class* clazz) {
-	return $of($alloc(CertificateRequest$T12CertificateRequestProducer));
-}
-
 void CertificateRequest$T12CertificateRequestProducer::init$() {
 }
 
 $bytes* CertificateRequest$T12CertificateRequestProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if ($nc(shc)->localSupportedSignAlgs == nullptr) {
 		$set(shc, localSupportedSignAlgs, $SignatureScheme::getSupportedAlgorithms(shc->sslConfig, shc->algorithmConstraints, shc->activeProtocols));
 	}
-	if ($nc(shc)->localSupportedSignAlgs == nullptr || $nc($nc(shc)->localSupportedSignAlgs)->isEmpty()) {
+	if (shc->localSupportedSignAlgs == nullptr || shc->localSupportedSignAlgs->isEmpty()) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "No supported signature algorithm"_s)));
 	}
-	$var($X509CertificateArray, caCerts, $nc($($nc($nc(shc)->sslContext)->getX509TrustManager()))->getAcceptedIssuers());
+	$var($X509CertificateArray, caCerts, $$nc($nc(shc->sslContext)->getX509TrustManager())->getAcceptedIssuers());
 	$var($CertificateRequest$T12CertificateRequestMessage, crm, $new($CertificateRequest$T12CertificateRequestMessage, shc, caCerts, $nc(shc->negotiatedCipherSuite)->keyExchange, shc->localSupportedSignAlgs));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Produced CertificateRequest handshake message"_s, $$new($ObjectArray, {$of(crm)}));
+		$SSLLogger::fine("Produced CertificateRequest handshake message"_s, $$new($ObjectArray, {crm}));
 	}
 	crm->write(shc->handshakeOutput);
 	$nc(shc->handshakeOutput)->flush();
 	$init($SSLHandshake);
 	$nc(shc->handshakeConsumers)->put($($Byte::valueOf($SSLHandshake::CERTIFICATE->id)), $SSLHandshake::CERTIFICATE);
-	$nc(shc->handshakeConsumers)->put($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)), $SSLHandshake::CERTIFICATE_VERIFY);
+	shc->handshakeConsumers->put($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)), $SSLHandshake::CERTIFICATE_VERIFY);
 	return nullptr;
 }
 
@@ -116,7 +76,33 @@ CertificateRequest$T12CertificateRequestProducer::CertificateRequest$T12Certific
 }
 
 $Class* CertificateRequest$T12CertificateRequestProducer::load$($String* name, bool initialize) {
-	$loadClass(CertificateRequest$T12CertificateRequestProducer, name, initialize, &_CertificateRequest$T12CertificateRequestProducer_ClassInfo_, allocate$CertificateRequest$T12CertificateRequestProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateRequest$T12CertificateRequestProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T12CertificateRequestProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateRequest$T12CertificateRequestProducer", "sun.security.ssl.CertificateRequest", "T12CertificateRequestProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateRequest$T12CertificateRequestProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateRequest"
+	};
+	$loadClass(CertificateRequest$T12CertificateRequestProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateRequest$T12CertificateRequestProducer);
+	});
 	return class$;
 }
 

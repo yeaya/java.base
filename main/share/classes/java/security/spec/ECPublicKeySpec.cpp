@@ -1,5 +1,4 @@
 #include <java/security/spec/ECPublicKeySpec.h>
-
 #include <java/security/spec/ECParameterSpec.h>
 #include <java/security/spec/ECPoint.h>
 #include <jcpp.h>
@@ -17,32 +16,6 @@ using $ECPoint = ::java::security::spec::ECPoint;
 namespace java {
 	namespace security {
 		namespace spec {
-
-$FieldInfo _ECPublicKeySpec_FieldInfo_[] = {
-	{"w", "Ljava/security/spec/ECPoint;", nullptr, $PRIVATE, $field(ECPublicKeySpec, w)},
-	{"params", "Ljava/security/spec/ECParameterSpec;", nullptr, $PRIVATE, $field(ECPublicKeySpec, params)},
-	{}
-};
-
-$MethodInfo _ECPublicKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/ECPoint;Ljava/security/spec/ECParameterSpec;)V", nullptr, $PUBLIC, $method(ECPublicKeySpec, init$, void, $ECPoint*, $ECParameterSpec*)},
-	{"getParams", "()Ljava/security/spec/ECParameterSpec;", nullptr, $PUBLIC, $virtualMethod(ECPublicKeySpec, getParams, $ECParameterSpec*)},
-	{"getW", "()Ljava/security/spec/ECPoint;", nullptr, $PUBLIC, $virtualMethod(ECPublicKeySpec, getW, $ECPoint*)},
-	{}
-};
-
-$ClassInfo _ECPublicKeySpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.ECPublicKeySpec",
-	"java.lang.Object",
-	"java.security.spec.KeySpec",
-	_ECPublicKeySpec_FieldInfo_,
-	_ECPublicKeySpec_MethodInfo_
-};
-
-$Object* allocate$ECPublicKeySpec($Class* clazz) {
-	return $of($alloc(ECPublicKeySpec));
-}
 
 void ECPublicKeySpec::init$($ECPoint* w, $ECParameterSpec* params) {
 	if (w == nullptr) {
@@ -71,7 +44,28 @@ ECPublicKeySpec::ECPublicKeySpec() {
 }
 
 $Class* ECPublicKeySpec::load$($String* name, bool initialize) {
-	$loadClass(ECPublicKeySpec, name, initialize, &_ECPublicKeySpec_ClassInfo_, allocate$ECPublicKeySpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"w", "Ljava/security/spec/ECPoint;", nullptr, $PRIVATE, $field(ECPublicKeySpec, w)},
+		{"params", "Ljava/security/spec/ECParameterSpec;", nullptr, $PRIVATE, $field(ECPublicKeySpec, params)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/ECPoint;Ljava/security/spec/ECParameterSpec;)V", nullptr, $PUBLIC, $method(ECPublicKeySpec, init$, void, $ECPoint*, $ECParameterSpec*)},
+		{"getParams", "()Ljava/security/spec/ECParameterSpec;", nullptr, $PUBLIC, $virtualMethod(ECPublicKeySpec, getParams, $ECParameterSpec*)},
+		{"getW", "()Ljava/security/spec/ECPoint;", nullptr, $PUBLIC, $virtualMethod(ECPublicKeySpec, getW, $ECPoint*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.ECPublicKeySpec",
+		"java.lang.Object",
+		"java.security.spec.KeySpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ECPublicKeySpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECPublicKeySpec);
+	});
 	return class$;
 }
 

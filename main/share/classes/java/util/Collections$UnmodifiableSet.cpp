@@ -1,5 +1,4 @@
 #include <java/util/Collections$UnmodifiableSet.h>
-
 #include <java/util/Collection.h>
 #include <java/util/Collections$UnmodifiableCollection.h>
 #include <java/util/Collections.h>
@@ -28,66 +27,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$UnmodifiableSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Collections$UnmodifiableSet_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<+TE;>;)V", 0, $method(Collections$UnmodifiableSet, init$, void, $Set*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableSet, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableSet, hashCode, int32_t)},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$UnmodifiableSet_InnerClassesInfo_[] = {
-	{"java.util.Collections$UnmodifiableSet", "java.util.Collections", "UnmodifiableSet", $STATIC},
-	{"java.util.Collections$UnmodifiableCollection", "java.util.Collections", "UnmodifiableCollection", $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$UnmodifiableSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$UnmodifiableSet",
-	"java.util.Collections$UnmodifiableCollection",
-	"java.util.Set",
-	_Collections$UnmodifiableSet_FieldInfo_,
-	_Collections$UnmodifiableSet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableCollection<TE;>;Ljava/util/Set<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$UnmodifiableSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$UnmodifiableSet($Class* clazz) {
-	return $of($alloc(Collections$UnmodifiableSet));
-}
 
 int32_t Collections$UnmodifiableSet::size() {
 	 return this->$Collections$UnmodifiableCollection::size();
@@ -193,7 +132,61 @@ Collections$UnmodifiableSet::Collections$UnmodifiableSet() {
 }
 
 $Class* Collections$UnmodifiableSet::load$($String* name, bool initialize) {
-	$loadClass(Collections$UnmodifiableSet, name, initialize, &_Collections$UnmodifiableSet_ClassInfo_, allocate$Collections$UnmodifiableSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<+TE;>;)V", 0, $method(Collections$UnmodifiableSet, init$, void, $Set*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableSet, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableSet, hashCode, int32_t)},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$UnmodifiableSet", "java.util.Collections", "UnmodifiableSet", $STATIC},
+		{"java.util.Collections$UnmodifiableCollection", "java.util.Collections", "UnmodifiableCollection", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$UnmodifiableSet",
+		"java.util.Collections$UnmodifiableCollection",
+		"java.util.Set",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableCollection<TE;>;Ljava/util/Set<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$UnmodifiableSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$UnmodifiableSet));
+	});
 	return class$;
 }
 

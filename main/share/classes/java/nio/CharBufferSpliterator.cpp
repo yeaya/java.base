@@ -1,5 +1,4 @@
 #include <java/nio/CharBufferSpliterator.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/CharBuffer.h>
@@ -23,54 +22,11 @@ using $IntConsumer = ::java::util::function::IntConsumer;
 namespace java {
 	namespace nio {
 
-$FieldInfo _CharBufferSpliterator_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CharBufferSpliterator, $assertionsDisabled)},
-	{"buffer", "Ljava/nio/CharBuffer;", nullptr, $PRIVATE | $FINAL, $field(CharBufferSpliterator, buffer)},
-	{"index", "I", nullptr, $PRIVATE, $field(CharBufferSpliterator, index)},
-	{"limit", "I", nullptr, $PRIVATE | $FINAL, $field(CharBufferSpliterator, limit)},
-	{}
-};
-
-$MethodInfo _CharBufferSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/CharBuffer;)V", nullptr, 0, $method(CharBufferSpliterator, init$, void, $CharBuffer*)},
-	{"<init>", "(Ljava/nio/CharBuffer;II)V", nullptr, 0, $method(CharBufferSpliterator, init$, void, $CharBuffer*, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, forEachRemaining, void, $IntConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharBufferSpliterator, forEachRemaining, void, Object$*)},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, tryAdvance, bool, $IntConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharBufferSpliterator, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, trySplit, $Spliterator$OfInt*)},
-	{}
-};
-
-$InnerClassInfo _CharBufferSpliterator_InnerClassesInfo_[] = {
-	{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CharBufferSpliterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.CharBufferSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator$OfInt",
-	_CharBufferSpliterator_FieldInfo_,
-	_CharBufferSpliterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CharBufferSpliterator_InnerClassesInfo_
-};
-
-$Object* allocate$CharBufferSpliterator($Class* clazz) {
-	return $of($alloc(CharBufferSpliterator));
-}
-
 bool CharBufferSpliterator::$assertionsDisabled = false;
 
 void CharBufferSpliterator::init$($CharBuffer* buffer) {
-	$var($CharBuffer, var$0, buffer);
-	int32_t var$1 = $nc(buffer)->position();
-	CharBufferSpliterator::init$(var$0, var$1, buffer->limit());
+	int32_t var$0 = $nc(buffer)->position();
+	CharBufferSpliterator::init$(buffer, var$0, buffer->limit());
 }
 
 void CharBufferSpliterator::init$($CharBuffer* buffer, int32_t origin, int32_t limit) {
@@ -85,7 +41,7 @@ void CharBufferSpliterator::init$($CharBuffer* buffer, int32_t origin, int32_t l
 $Spliterator$OfInt* CharBufferSpliterator::trySplit() {
 	int32_t lo = this->index;
 	int32_t mid = (int32_t)((uint32_t)(lo + this->limit) >> 1);
-	return (lo >= mid) ? ($Spliterator$OfInt*)nullptr : static_cast<$Spliterator$OfInt*>($new(CharBufferSpliterator, this->buffer, lo, this->index = mid));
+	return (lo >= mid) ? ($Spliterator$OfInt*)nullptr : $cast($Spliterator$OfInt, $new(CharBufferSpliterator, this->buffer, lo, this->index = mid));
 }
 
 void CharBufferSpliterator::forEachRemaining($IntConsumer* action) {
@@ -128,7 +84,7 @@ bool CharBufferSpliterator::tryAdvance(Object$* action) {
 	return this->tryAdvance($cast($IntConsumer, action));
 }
 
-void clinit$CharBufferSpliterator($Class* class$) {
+void CharBufferSpliterator::clinit$($Class* clazz) {
 	CharBufferSpliterator::$assertionsDisabled = !CharBufferSpliterator::class$->desiredAssertionStatus();
 }
 
@@ -136,7 +92,43 @@ CharBufferSpliterator::CharBufferSpliterator() {
 }
 
 $Class* CharBufferSpliterator::load$($String* name, bool initialize) {
-	$loadClass(CharBufferSpliterator, name, initialize, &_CharBufferSpliterator_ClassInfo_, clinit$CharBufferSpliterator, allocate$CharBufferSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CharBufferSpliterator, $assertionsDisabled)},
+		{"buffer", "Ljava/nio/CharBuffer;", nullptr, $PRIVATE | $FINAL, $field(CharBufferSpliterator, buffer)},
+		{"index", "I", nullptr, $PRIVATE, $field(CharBufferSpliterator, index)},
+		{"limit", "I", nullptr, $PRIVATE | $FINAL, $field(CharBufferSpliterator, limit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/CharBuffer;)V", nullptr, 0, $method(CharBufferSpliterator, init$, void, $CharBuffer*)},
+		{"<init>", "(Ljava/nio/CharBuffer;II)V", nullptr, 0, $method(CharBufferSpliterator, init$, void, $CharBuffer*, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, forEachRemaining, void, $IntConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharBufferSpliterator, forEachRemaining, void, Object$*)},
+		{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, tryAdvance, bool, $IntConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharBufferSpliterator, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, trySplit, $Spliterator$OfInt*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.CharBufferSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(CharBufferSpliterator, name, initialize, &classInfo$$, CharBufferSpliterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CharBufferSpliterator);
+	});
 	return class$;
 }
 

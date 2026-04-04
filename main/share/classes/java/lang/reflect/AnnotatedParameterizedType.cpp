@@ -1,5 +1,4 @@
 #include <java/lang/reflect/AnnotatedParameterizedType.h>
-
 #include <java/lang/reflect/AnnotatedType.h>
 #include <jcpp.h>
 
@@ -12,27 +11,23 @@ namespace java {
 	namespace lang {
 		namespace reflect {
 
-$MethodInfo _AnnotatedParameterizedType_MethodInfo_[] = {
-	{"getAnnotatedActualTypeArguments", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedParameterizedType, getAnnotatedActualTypeArguments, $AnnotatedTypeArray*)},
-	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedParameterizedType, getAnnotatedOwnerType, $AnnotatedType*)},
-	{}
-};
-
-$ClassInfo _AnnotatedParameterizedType_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.reflect.AnnotatedParameterizedType",
-	nullptr,
-	"java.lang.reflect.AnnotatedType",
-	nullptr,
-	_AnnotatedParameterizedType_MethodInfo_
-};
-
-$Object* allocate$AnnotatedParameterizedType($Class* clazz) {
-	return $of($alloc(AnnotatedParameterizedType));
-}
-
 $Class* AnnotatedParameterizedType::load$($String* name, bool initialize) {
-	$loadClass(AnnotatedParameterizedType, name, initialize, &_AnnotatedParameterizedType_ClassInfo_, allocate$AnnotatedParameterizedType);
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotatedActualTypeArguments", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedParameterizedType, getAnnotatedActualTypeArguments, $AnnotatedTypeArray*)},
+		{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedParameterizedType, getAnnotatedOwnerType, $AnnotatedType*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.reflect.AnnotatedParameterizedType",
+		nullptr,
+		"java.lang.reflect.AnnotatedType",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AnnotatedParameterizedType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotatedParameterizedType);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/security/DrbgParameters$Reseed.h>
-
 #include <java/security/DrbgParameters.h>
 #include <jcpp.h>
 
@@ -11,62 +10,56 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace security {
 
-$FieldInfo _DrbgParameters$Reseed_FieldInfo_[] = {
-	{"additionalInput", "[B", nullptr, $PRIVATE | $FINAL, $field(DrbgParameters$Reseed, additionalInput)},
-	{"predictionResistance", "Z", nullptr, $PRIVATE | $FINAL, $field(DrbgParameters$Reseed, predictionResistance)},
-	{}
-};
-
-$MethodInfo _DrbgParameters$Reseed_MethodInfo_[] = {
-	{"<init>", "(Z[B)V", nullptr, $PRIVATE, $method(DrbgParameters$Reseed, init$, void, bool, $bytes*)},
-	{"getAdditionalInput", "()[B", nullptr, $PUBLIC, $method(DrbgParameters$Reseed, getAdditionalInput, $bytes*)},
-	{"getPredictionResistance", "()Z", nullptr, $PUBLIC, $method(DrbgParameters$Reseed, getPredictionResistance, bool)},
-	{}
-};
-
-$InnerClassInfo _DrbgParameters$Reseed_InnerClassesInfo_[] = {
-	{"java.security.DrbgParameters$Reseed", "java.security.DrbgParameters", "Reseed", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DrbgParameters$Reseed_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.security.DrbgParameters$Reseed",
-	"java.lang.Object",
-	"java.security.SecureRandomParameters",
-	_DrbgParameters$Reseed_FieldInfo_,
-	_DrbgParameters$Reseed_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrbgParameters$Reseed_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.DrbgParameters"
-};
-
-$Object* allocate$DrbgParameters$Reseed($Class* clazz) {
-	return $of($alloc(DrbgParameters$Reseed));
-}
-
 bool DrbgParameters$Reseed::getPredictionResistance() {
 	return this->predictionResistance;
 }
 
 $bytes* DrbgParameters$Reseed::getAdditionalInput() {
-	return this->additionalInput == nullptr ? ($bytes*)nullptr : $cast($bytes, $nc(this->additionalInput)->clone());
+	return this->additionalInput == nullptr ? ($bytes*)nullptr : $cast($bytes, this->additionalInput->clone());
 }
 
 void DrbgParameters$Reseed::init$(bool predictionResistance, $bytes* additionalInput) {
 	this->predictionResistance = predictionResistance;
-	$set(this, additionalInput, (additionalInput == nullptr) ? ($bytes*)nullptr : $cast($bytes, $nc(additionalInput)->clone()));
+	$set(this, additionalInput, (additionalInput == nullptr) ? ($bytes*)nullptr : $cast($bytes, additionalInput->clone()));
 }
 
 DrbgParameters$Reseed::DrbgParameters$Reseed() {
 }
 
 $Class* DrbgParameters$Reseed::load$($String* name, bool initialize) {
-	$loadClass(DrbgParameters$Reseed, name, initialize, &_DrbgParameters$Reseed_ClassInfo_, allocate$DrbgParameters$Reseed);
+	$FieldInfo fieldInfos$$[] = {
+		{"additionalInput", "[B", nullptr, $PRIVATE | $FINAL, $field(DrbgParameters$Reseed, additionalInput)},
+		{"predictionResistance", "Z", nullptr, $PRIVATE | $FINAL, $field(DrbgParameters$Reseed, predictionResistance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z[B)V", nullptr, $PRIVATE, $method(DrbgParameters$Reseed, init$, void, bool, $bytes*)},
+		{"getAdditionalInput", "()[B", nullptr, $PUBLIC, $method(DrbgParameters$Reseed, getAdditionalInput, $bytes*)},
+		{"getPredictionResistance", "()Z", nullptr, $PUBLIC, $method(DrbgParameters$Reseed, getPredictionResistance, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.DrbgParameters$Reseed", "java.security.DrbgParameters", "Reseed", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.security.DrbgParameters$Reseed",
+		"java.lang.Object",
+		"java.security.SecureRandomParameters",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.DrbgParameters"
+	};
+	$loadClass(DrbgParameters$Reseed, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DrbgParameters$Reseed);
+	});
 	return class$;
 }
 

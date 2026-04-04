@@ -1,5 +1,4 @@
 #include <jdk/internal/org/xml/sax/ErrorHandler.h>
-
 #include <jdk/internal/org/xml/sax/SAXParseException.h>
 #include <jcpp.h>
 
@@ -13,28 +12,24 @@ namespace jdk {
 			namespace xml {
 				namespace sax {
 
-$MethodInfo _ErrorHandler_MethodInfo_[] = {
-	{"error", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ErrorHandler, error, void, $SAXParseException*), "jdk.internal.org.xml.sax.SAXException"},
-	{"fatalError", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ErrorHandler, fatalError, void, $SAXParseException*), "jdk.internal.org.xml.sax.SAXException"},
-	{"warning", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ErrorHandler, warning, void, $SAXParseException*), "jdk.internal.org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _ErrorHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.org.xml.sax.ErrorHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ErrorHandler_MethodInfo_
-};
-
-$Object* allocate$ErrorHandler($Class* clazz) {
-	return $of($alloc(ErrorHandler));
-}
-
 $Class* ErrorHandler::load$($String* name, bool initialize) {
-	$loadClass(ErrorHandler, name, initialize, &_ErrorHandler_ClassInfo_, allocate$ErrorHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"error", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ErrorHandler, error, void, $SAXParseException*), "jdk.internal.org.xml.sax.SAXException"},
+		{"fatalError", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ErrorHandler, fatalError, void, $SAXParseException*), "jdk.internal.org.xml.sax.SAXException"},
+		{"warning", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ErrorHandler, warning, void, $SAXParseException*), "jdk.internal.org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.org.xml.sax.ErrorHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ErrorHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ErrorHandler);
+	});
 	return class$;
 }
 

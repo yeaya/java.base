@@ -22,10 +22,13 @@ public:
 	void init$($String* msg);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x27C15C46E25BAE70;
+	static const int64_t serialVersionUID = (int64_t)0x27c15c46e25bae70;
 	InvalidAlgorithmParameterException(const InvalidAlgorithmParameterException& e);
 	virtual void throw$() override;
-	inline InvalidAlgorithmParameterException* operator ->() {
+	inline InvalidAlgorithmParameterException* operator ->() const {
+		return (InvalidAlgorithmParameterException*)throwing$;
+	}
+	inline operator InvalidAlgorithmParameterException*() const {
 		return (InvalidAlgorithmParameterException*)throwing$;
 	}
 };

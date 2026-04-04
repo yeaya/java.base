@@ -1,5 +1,4 @@
 #include <java/lang/System.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/Console.h>
@@ -7,7 +6,6 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/InputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/ClassLoader.h>
@@ -56,7 +54,6 @@
 #include <java/util/ResourceBundle.h>
 #include <java/util/Set.h>
 #include <jdk/internal/access/JavaIOAccess.h>
-#include <jdk/internal/access/JavaLangAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jdk/internal/logger/LazyLoggers.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -99,7 +96,6 @@ using $FileDescriptor = ::java::io::FileDescriptor;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
@@ -128,7 +124,6 @@ using $System$CallersHolder = ::java::lang::System$CallersHolder;
 using $System$Logger = ::java::lang::System$Logger;
 using $System$LoggerFinder = ::java::lang::System$LoggerFinder;
 using $Terminator = ::java::lang::Terminator;
-using $ThreadGroup = ::java::lang::ThreadGroup;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $VersionProps = ::java::lang::VersionProps;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
@@ -141,7 +136,6 @@ using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $CodeSource = ::java::security::CodeSource;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $Iterator = ::java::util::Iterator;
@@ -151,9 +145,6 @@ using $Objects = ::java::util::Objects;
 using $Properties = ::java::util::Properties;
 using $PropertyPermission = ::java::util::PropertyPermission;
 using $ResourceBundle = ::java::util::ResourceBundle;
-using $Set = ::java::util::Set;
-using $JavaIOAccess = ::jdk::internal::access::JavaIOAccess;
-using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $LazyLoggers = ::jdk::internal::logger::LazyLoggers;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
@@ -175,35 +166,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->getProtectionDomain());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<System$$Lambda$getProtectionDomain>());
+		 return $nc(inst$)->getProtectionDomain();
 	}
 	$Class* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo System$$Lambda$getProtectionDomain::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(System$$Lambda$getProtectionDomain, inst$)},
-	{}
-};
-$MethodInfo System$$Lambda$getProtectionDomain::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(System$$Lambda$getProtectionDomain, init$, void, $Class*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(System$$Lambda$getProtectionDomain, run, $Object*)},
-	{}
-};
-$ClassInfo System$$Lambda$getProtectionDomain::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.System$$Lambda$getProtectionDomain",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* System$$Lambda$getProtectionDomain::load$($String* name, bool initialize) {
-	$loadClass(System$$Lambda$getProtectionDomain, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(System$$Lambda$getProtectionDomain, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(System$$Lambda$getProtectionDomain, init$, void, $Class*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(System$$Lambda$getProtectionDomain, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.System$$Lambda$getProtectionDomain",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(System$$Lambda$getProtectionDomain, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(System$$Lambda$getProtectionDomain);
+	});
 	return class$;
 }
 $Class* System$$Lambda$getProtectionDomain::class$ = nullptr;
@@ -217,220 +204,38 @@ public:
 		this->caller = caller;
 	}
 	virtual $Object* run() override {
-		 return $of(System::lambda$getLogger$0(name, rb, caller));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<System$$Lambda$lambda$getLogger$0$1>());
+		 return System::lambda$getLogger$0(name, rb, caller);
 	}
 	$String* name = nullptr;
 	$ResourceBundle* rb = nullptr;
 	$Class* caller = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo System$$Lambda$lambda$getLogger$0$1::fieldInfos[4] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(System$$Lambda$lambda$getLogger$0$1, name)},
-	{"rb", "Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $field(System$$Lambda$lambda$getLogger$0$1, rb)},
-	{"caller", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(System$$Lambda$lambda$getLogger$0$1, caller)},
-	{}
-};
-$MethodInfo System$$Lambda$lambda$getLogger$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(System$$Lambda$lambda$getLogger$0$1, init$, void, $String*, $ResourceBundle*, $Class*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(System$$Lambda$lambda$getLogger$0$1, run, $Object*)},
-	{}
-};
-$ClassInfo System$$Lambda$lambda$getLogger$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.System$$Lambda$lambda$getLogger$0$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* System$$Lambda$lambda$getLogger$0$1::load$($String* name, bool initialize) {
-	$loadClass(System$$Lambda$lambda$getLogger$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(System$$Lambda$lambda$getLogger$0$1, name)},
+		{"rb", "Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $field(System$$Lambda$lambda$getLogger$0$1, rb)},
+		{"caller", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(System$$Lambda$lambda$getLogger$0$1, caller)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(System$$Lambda$lambda$getLogger$0$1, init$, void, $String*, $ResourceBundle*, $Class*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(System$$Lambda$lambda$getLogger$0$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.System$$Lambda$lambda$getLogger$0$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(System$$Lambda$lambda$getLogger$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(System$$Lambda$lambda$getLogger$0$1);
+	});
 	return class$;
 }
 $Class* System$$Lambda$lambda$getLogger$0$1::class$ = nullptr;
-
-$CompoundAttribute _System_FieldAnnotations_allowSecurityManager[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _System_FieldAnnotations_initialErrStream[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _System_MethodAnnotations_arraycopy2[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _System_MethodAnnotations_currentTimeMillis9[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _System_MethodAnnotations_getLogger12[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _System_MethodAnnotations_getLogger13[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$NamedAttribute System_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _System_MethodAnnotations_getSecurityManager17[] = {
-	{"Ljava/lang/Deprecated;", System_Attribute_var$0},
-	{}
-};
-
-$CompoundAttribute _System_MethodAnnotations_identityHashCode20[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _System_MethodAnnotations_load28[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _System_MethodAnnotations_loadLibrary29[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _System_MethodAnnotations_nanoTime32[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$NamedAttribute System_Attribute_var$1[] = {
-	{"since", 's', "17"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _System_MethodAnnotations_setSecurityManager45[] = {
-	{"Ljava/lang/Deprecated;", System_Attribute_var$1},
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$FieldInfo _System_FieldInfo_[] = {
-	{"in", "Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(System, in)},
-	{"out", "Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(System, out)},
-	{"err", "Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(System, err)},
-	{"NEVER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(System, NEVER)},
-	{"MAYBE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(System, MAYBE)},
-	{"allowSecurityManager", "I", nullptr, $PRIVATE | $STATIC, $staticField(System, allowSecurityManager$), _System_FieldAnnotations_allowSecurityManager},
-	{"security", "Ljava/lang/SecurityManager;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(System, security)},
-	{"cons", "Ljava/io/Console;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(System, cons)},
-	{"initialErrStream", "Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(System, initialErrStream), _System_FieldAnnotations_initialErrStream},
-	{"props", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(System, props)},
-	{"lineSeparator", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(System, lineSeparator$)},
-	{"bootLayer", "Ljava/lang/ModuleLayer;", nullptr, $STATIC, $staticField(System, bootLayer)},
-	{}
-};
-
-$MethodInfo _System_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(System, init$, void)},
-	{"allowSecurityManager", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(System, allowSecurityManager, bool)},
-	{"arraycopy", "(Ljava/lang/Object;ILjava/lang/Object;II)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, arraycopy, void, Object$*, int32_t, Object$*, int32_t, int32_t), nullptr, nullptr, _System_MethodAnnotations_arraycopy2},
-	{"checkIO", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, checkIO, void)},
-	{"checkKey", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, checkKey, void, $String*)},
-	{"clearProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, clearProperty, $String*, $String*)},
-	{"codeSource", "(Ljava/lang/Class;)Ljava/net/URL;", "(Ljava/lang/Class<*>;)Ljava/net/URL;", $PRIVATE | $STATIC, $staticMethod(System, codeSource, $URL*, $Class*)},
-	{"console", "()Ljava/io/Console;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, console, $Console*)},
-	{"createProperties", "(Ljava/util/Map;)Ljava/util/Properties;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/util/Properties;", $PRIVATE | $STATIC, $staticMethod(System, createProperties, $Properties*, $Map*)},
-	{"currentTimeMillis", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, currentTimeMillis, int64_t), nullptr, nullptr, _System_MethodAnnotations_currentTimeMillis9},
-	{"exit", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, exit, void, int32_t)},
-	{"gc", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, gc, void)},
-	{"getLogger", "(Ljava/lang/String;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getLogger, $System$Logger*, $String*), nullptr, nullptr, _System_MethodAnnotations_getLogger12},
-	{"getLogger", "(Ljava/lang/String;Ljava/util/ResourceBundle;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getLogger, $System$Logger*, $String*, $ResourceBundle*), nullptr, nullptr, _System_MethodAnnotations_getLogger13},
-	{"getProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getProperties, $Properties*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getProperty, $String*, $String*)},
-	{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getProperty, $String*, $String*, $String*)},
-	{"getSecurityManager", "()Ljava/lang/SecurityManager;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(System, getSecurityManager, $SecurityManager*), nullptr, nullptr, _System_MethodAnnotations_getSecurityManager17},
-	{"getenv", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getenv, $String*, $String*)},
-	{"getenv", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(System, getenv, $Map*)},
-	{"identityHashCode", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, identityHashCode, int32_t, Object$*), nullptr, nullptr, _System_MethodAnnotations_identityHashCode20},
-	{"implSetSecurityManager", "(Ljava/lang/SecurityManager;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, implSetSecurityManager, void, $SecurityManager*)},
-	{"inheritedChannel", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, inheritedChannel, $Channel*), "java.io.IOException"},
-	{"initPhase1", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, initPhase1, void)},
-	{"initPhase2", "(ZZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(System, initPhase2, int32_t, bool, bool)},
-	{"initPhase3", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, initPhase3, void)},
-	{"lambda$getLogger$0", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Class;)Ljava/lang/System$Logger;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(System, lambda$getLogger$0, $System$Logger*, $String*, $ResourceBundle*, $Class*)},
-	{"lineSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, lineSeparator, $String*)},
-	{"load", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, load, void, $String*), nullptr, nullptr, _System_MethodAnnotations_load28},
-	{"loadLibrary", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, loadLibrary, void, $String*), nullptr, nullptr, _System_MethodAnnotations_loadLibrary29},
-	{"logInitException", "(ZZLjava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, logInitException, void, bool, bool, $String*, $Throwable*)},
-	{"mapLibraryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, mapLibraryName, $String*, $String*)},
-	{"nanoTime", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, nanoTime, int64_t), nullptr, nullptr, _System_MethodAnnotations_nanoTime32},
-	{"newPrintStream", "(Ljava/io/FileOutputStream;Ljava/lang/String;)Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(System, newPrintStream, $PrintStream*, $FileOutputStream*, $String*)},
-	{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, registerNatives, void)},
-	{"runFinalization", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, runFinalization, void)},
-	{"setErr", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setErr, void, $PrintStream*)},
-	{"setErr0", "(Ljava/io/PrintStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, setErr0, void, $PrintStream*)},
-	{"setIn", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setIn, void, $InputStream*)},
-	{"setIn0", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, setIn0, void, $InputStream*)},
-	{"setJavaLangAccess", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, setJavaLangAccess, void)},
-	{"setOut", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setOut, void, $PrintStream*)},
-	{"setOut0", "(Ljava/io/PrintStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, setOut0, void, $PrintStream*)},
-	{"setProperties", "(Ljava/util/Properties;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setProperties, void, $Properties*)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setProperty, $String*, $String*, $String*)},
-	{"setSecurityManager", "(Ljava/lang/SecurityManager;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(System, setSecurityManager, void, $SecurityManager*), nullptr, nullptr, _System_MethodAnnotations_setSecurityManager45},
-	{"setSecurityManager0", "(Ljava/lang/SecurityManager;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(System, setSecurityManager0, void, $SecurityManager*)},
-	{}
-};
-
-#define _METHOD_INDEX_arraycopy 2
-#define _METHOD_INDEX_currentTimeMillis 9
-#define _METHOD_INDEX_identityHashCode 20
-#define _METHOD_INDEX_mapLibraryName 31
-#define _METHOD_INDEX_nanoTime 32
-#define _METHOD_INDEX_registerNatives 34
-#define _METHOD_INDEX_setErr0 37
-#define _METHOD_INDEX_setIn0 39
-#define _METHOD_INDEX_setOut0 42
-
-$InnerClassInfo _System_InnerClassesInfo_[] = {
-	{"java.lang.System$LoggerFinder", "java.lang.System", "LoggerFinder", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.lang.System$CallersHolder", "java.lang.System", "CallersHolder", $PRIVATE | $STATIC},
-	{"java.lang.System$2", nullptr, nullptr, 0},
-	{"java.lang.System$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _System_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.System",
-	"java.lang.Object",
-	nullptr,
-	_System_FieldInfo_,
-	_System_MethodInfo_,
-	nullptr,
-	nullptr,
-	_System_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.System$LoggerFinder,java.lang.System$Logger,java.lang.System$Logger$Level,java.lang.System$CallersHolder,java.lang.System$2,java.lang.System$1"
-};
-
-$Object* allocate$System($Class* clazz) {
-	return $of($alloc(System));
-}
 
 $InputStream* System::in = nullptr;
 $PrintStream* System::out = nullptr;
@@ -469,12 +274,12 @@ void System::setErr($PrintStream* err) {
 }
 
 $Console* System::console() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Console, c, nullptr);
 	if (($assign(c, System::cons)) == nullptr) {
 		$synchronized(System::class$) {
 			if (($assign(c, System::cons)) == nullptr) {
-				$assignStatic(System::cons, ($assign(c, $nc($($SharedSecrets::getJavaIOAccess()))->console())));
+				$assignStatic(System::cons, $assign(c, $$nc($SharedSecrets::getJavaIOAccess())->console()));
 			}
 		}
 	}
@@ -482,11 +287,11 @@ $Console* System::console() {
 }
 
 $Channel* System::inheritedChannel() {
-	return $nc($($SelectorProvider::provider()))->inheritedChannel();
+	return $$nc($SelectorProvider::provider())->inheritedChannel();
 }
 
 void System::checkIO() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "setIO"_s));
@@ -506,15 +311,15 @@ void System::setErr0($PrintStream* err) {
 }
 
 $URL* System::codeSource($Class* clazz) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(System$$Lambda$getProtectionDomain, static_cast<$Class*>($nc(clazz)))));
-	$var($CodeSource, cs, $nc(($cast($ProtectionDomain, $($AccessController::doPrivileged(pa)))))->getCodeSource());
-	return (cs != nullptr) ? $nc(cs)->getLocation() : ($URL*)nullptr;
+	$var($PrivilegedAction, pa, $new(System$$Lambda$getProtectionDomain, $nc(clazz)));
+	$var($CodeSource, cs, $$sure($ProtectionDomain, $AccessController::doPrivileged(pa))->getCodeSource());
+	return (cs != nullptr) ? cs->getLocation() : ($URL*)nullptr;
 }
 
 void System::setSecurityManager($SecurityManager* sm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (allowSecurityManager()) {
 		$Class* callerClass = $Reflection::getCallerClass();
 		$init($System$CallersHolder);
@@ -527,8 +332,8 @@ void System::setSecurityManager($SecurityManager* sm) {
 				$assign(source, $str({$($nc(callerClass)->getName()), " ("_s, url, ")"_s}));
 			}
 			$nc(System::initialErrStream)->printf("WARNING: A terminally deprecated method in java.lang.System has been called\nWARNING: System::setSecurityManager has been called by %s\nWARNING: Please consider reporting this to the maintainers of %s\nWARNING: System::setSecurityManager will be removed in a future release\n"_s, $$new($ObjectArray, {
-				$of(source),
-				$($of($nc(callerClass)->getName()))
+				source,
+				$($nc(callerClass)->getName())
 			}));
 		}
 		implSetSecurityManager(sm);
@@ -553,16 +358,15 @@ void System::implSetSecurityManager($SecurityManager* sm) {
 }
 
 void System::setSecurityManager0($SecurityManager* s) {
-	$load(System);
 	$synchronized(class$) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		$var($SecurityManager, sm, getSecurityManager());
 		if (sm != nullptr) {
 			sm->checkPermission($$new($RuntimePermission, "setSecurityManager"_s));
 		}
 		if ((s != nullptr) && ($of(s)->getClass()->getClassLoader() != nullptr)) {
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($System$1, s)));
+			$AccessController::doPrivileged($$new($System$1, s));
 		}
 		$assignStatic(System::security, s);
 	}
@@ -676,9 +480,8 @@ void System::arraycopy(Object$* src, int32_t srcPos, Object$* dest, int32_t dest
 
 int32_t System::identityHashCode(Object$* x) {
 	$init(System);
-	int32_t $ret = 0;
-	$prepareNativeStatic(System, identityHashCode, int32_t, Object$* x);
-	$ret = $invokeNativeStatic(x);
+	$prepareNativeStatic(identityHashCode, int32_t, Object$* x);
+	int32_t $ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -696,7 +499,7 @@ $String* System::lineSeparator() {
 }
 
 void System::setProperties($Properties* props$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, props, props$renamed);
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
@@ -729,7 +532,7 @@ $String* System::getProperty($String* key, $String* def) {
 }
 
 $String* System::setProperty($String* key, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkKey(key);
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
@@ -740,7 +543,7 @@ $String* System::setProperty($String* key, $String* value) {
 }
 
 $String* System::clearProperty($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkKey(key);
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
@@ -759,7 +562,7 @@ void System::checkKey($String* key) {
 }
 
 $String* System::getenv($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, $$str({"getenv."_s, name})));
@@ -768,7 +571,7 @@ $String* System::getenv($String* name) {
 }
 
 $Map* System::getenv() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "getenv.*"_s));
@@ -786,7 +589,7 @@ $System$Logger* System::getLogger($String* name) {
 }
 
 $System$Logger* System::getLogger($String* name, $ResourceBundle* bundle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResourceBundle, rb, $cast($ResourceBundle, $Objects::requireNonNull(bundle)));
 	$Objects::requireNonNull(name);
 	$Class* caller = $Reflection::getCallerClass();
@@ -795,55 +598,54 @@ $System$Logger* System::getLogger($String* name, $ResourceBundle* bundle) {
 	}
 	$var($SecurityManager, sm, System::getSecurityManager());
 	if (sm != nullptr) {
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(System$$Lambda$lambda$getLogger$0$1, name, rb, caller)));
+		$var($PrivilegedAction, pa, $new(System$$Lambda$lambda$getLogger$0$1, name, rb, caller));
 		$init($System$LoggerFinder);
-		return $cast($System$Logger, $AccessController::doPrivileged(pa, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($System$LoggerFinder::LOGGERFINDER_PERMISSION)})));
+		return $cast($System$Logger, $AccessController::doPrivileged(pa, nullptr, $$new($PermissionArray, {$System$LoggerFinder::LOGGERFINDER_PERMISSION})));
 	}
-	return $nc($($System$LoggerFinder::accessProvider()))->getLocalizedLogger(name, rb, $($nc(caller)->getModule()));
+	return $$nc($System$LoggerFinder::accessProvider())->getLocalizedLogger(name, rb, $($nc(caller)->getModule()));
 }
 
 void System::exit(int32_t status) {
-	$nc($($Runtime::getRuntime()))->exit(status);
+	$$nc($Runtime::getRuntime())->exit(status);
 }
 
 void System::gc() {
-	$nc($($Runtime::getRuntime()))->gc();
+	$$nc($Runtime::getRuntime())->gc();
 }
 
 void System::runFinalization() {
-	$nc($($Runtime::getRuntime()))->runFinalization();
+	$$nc($Runtime::getRuntime())->runFinalization();
 }
 
 void System::load($String* filename) {
-	$nc($($Runtime::getRuntime()))->load0($Reflection::getCallerClass(), filename);
+	$$nc($Runtime::getRuntime())->load0($Reflection::getCallerClass(), filename);
 }
 
 void System::loadLibrary($String* libname) {
-	$nc($($Runtime::getRuntime()))->loadLibrary0($Reflection::getCallerClass(), libname);
+	$$nc($Runtime::getRuntime())->loadLibrary0($Reflection::getCallerClass(), libname);
 }
 
 $String* System::mapLibraryName($String* libname) {
 	$init(System);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(System, mapLibraryName, $String*, $String* libname);
-	$assign($ret, $invokeNativeStaticObject(libname));
+	$prepareNativeStatic(mapLibraryName, $String*, $String* libname);
+	$var($String, $ret, $invokeNativeStaticObject(libname));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $PrintStream* System::newPrintStream($FileOutputStream* fos, $String* enc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (enc != nullptr) {
 		try {
-			return $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, fos, 128)), true, enc);
+			return $new($PrintStream, $$new($BufferedOutputStream, fos, 128), true, enc);
 		} catch ($UnsupportedEncodingException& uee) {
 		}
 	}
-	return $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, fos, 128)), true);
+	return $new($PrintStream, $$new($BufferedOutputStream, fos, 128), true);
 }
 
 void System::logInitException(bool printToStderr, bool printStackTrace, $String* msg, $Throwable* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($VM::initLevel() < 1) {
 		$throwNew($InternalError, "system classes not initialized"_s);
 	}
@@ -854,12 +656,10 @@ void System::logInitException(bool printToStderr, bool printStackTrace, $String*
 	if (printStackTrace) {
 		$nc(e)->printStackTrace(log);
 	} else {
-		$nc(log)->println($of(e));
+		$nc(log)->println(e);
 		{
 			$var($ThrowableArray, arr$, $nc(e)->getSuppressed());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Throwable, suppressed, arr$->get(i$));
 				{
 					log->println($$str({"Suppressed: "_s, suppressed}));
@@ -874,10 +674,10 @@ void System::logInitException(bool printToStderr, bool printStackTrace, $String*
 }
 
 $Properties* System::createProperties($Map* initialProps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, properties, $new($Properties, $nc(initialProps)->size()));
 	{
-		$var($Iterator, i$, $nc($($nc(initialProps)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(initialProps->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
@@ -886,59 +686,41 @@ $Properties* System::createProperties($Map* initialProps) {
 					$var($String, s90167$, prop);
 					int32_t tmp90167$ = -1;
 					switch ($nc(s90167$)->hashCode()) {
-					case (int32_t)0xCA271E53:
-						{
-							if (s90167$->equals("sun.nio.MaxDirectMemorySize"_s)) {
-								tmp90167$ = 0;
-							}
-							break;
+					case (int32_t)0xca271e53:
+						if (s90167$->equals("sun.nio.MaxDirectMemorySize"_s)) {
+							tmp90167$ = 0;
 						}
-					case 0x04E90D84:
-						{
-							if (s90167$->equals("sun.nio.PageAlignDirectMemory"_s)) {
-								tmp90167$ = 1;
-							}
-							break;
+						break;
+					case 0x04e90d84:
+						if (s90167$->equals("sun.nio.PageAlignDirectMemory"_s)) {
+							tmp90167$ = 1;
 						}
-					case 0x779CC0C8:
-						{
-							if (s90167$->equals("java.lang.Integer.IntegerCache.high"_s)) {
-								tmp90167$ = 2;
-							}
-							break;
+						break;
+					case 0x779cc0c8:
+						if (s90167$->equals("java.lang.Integer.IntegerCache.high"_s)) {
+							tmp90167$ = 2;
 						}
-					case (int32_t)0xF7D2310F:
-						{
-							if (s90167$->equals("sun.java.launcher.diag"_s)) {
-								tmp90167$ = 3;
-							}
-							break;
+						break;
+					case (int32_t)0xf7d2310f:
+						if (s90167$->equals("sun.java.launcher.diag"_s)) {
+							tmp90167$ = 3;
 						}
-					case (int32_t)0xA0EE7DAE:
-						{
-							if (s90167$->equals("jdk.boot.class.path.append"_s)) {
-								tmp90167$ = 4;
-							}
-							break;
+						break;
+					case (int32_t)0xa0ee7dae:
+						if (s90167$->equals("jdk.boot.class.path.append"_s)) {
+							tmp90167$ = 4;
 						}
+						break;
 					}
 					switch (tmp90167$) {
 					case 0:
-						{}
 					case 1:
-						{}
 					case 2:
-						{}
 					case 3:
-						{}
 					case 4:
-						{
-							break;
-						}
+						break;
 					default:
-						{
-							properties->put(prop, $(entry->getValue()));
-						}
+						properties->put(prop, $(entry->getValue()));
 					}
 				}
 			}
@@ -948,7 +730,7 @@ $Properties* System::createProperties($Map* initialProps) {
 }
 
 void System::initPhase1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setJavaLangAccess();
 	$var($Map, tempProps, $SystemProps::initProperties());
 	$VersionProps::init(tempProps);
@@ -961,12 +743,12 @@ void System::initPhase1() {
 	$var($FileOutputStream, fdOut, $new($FileOutputStream, $FileDescriptor::out));
 	$var($FileOutputStream, fdErr, $new($FileOutputStream, $FileDescriptor::err));
 	setIn0($$new($BufferedInputStream, fdIn));
-	setOut0($(newPrintStream(fdOut, $($nc(System::props)->getProperty("sun.stdout.encoding"_s)))));
-	setErr0($(newPrintStream(fdErr, $($nc(System::props)->getProperty("sun.stderr.encoding"_s)))));
+	setOut0($(newPrintStream(fdOut, $(System::props->getProperty("sun.stdout.encoding"_s)))));
+	setErr0($(newPrintStream(fdErr, $(System::props->getProperty("sun.stderr.encoding"_s)))));
 	$Terminator::setup();
 	$VM::initializeOSEnvironment();
 	$var($Thread, current, $Thread::currentThread());
-	$nc($(current->getThreadGroup()))->add(current);
+	$$nc(current->getThreadGroup())->add(current);
 	$VM::initLevel(1);
 }
 
@@ -985,88 +767,69 @@ int32_t System::initPhase2(bool printToStderr, bool printStackTrace) {
 }
 
 void System::initPhase3() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($StringConcatFactory);
-	$nc($($Unsafe::getUnsafe()))->ensureClassInitialized($StringConcatFactory::class$);
+	$$nc($Unsafe::getUnsafe())->ensureClassInitialized($StringConcatFactory::class$);
 	$var($String, smProp, System::getProperty("java.security.manager"_s));
 	bool needWarning = false;
 	if (smProp != nullptr) {
-		{
-			$var($String, s96088$, smProp);
-			int32_t tmp96088$ = -1;
-			switch (s96088$->hashCode()) {
-			case 0x102AC77B:
-				{
-					if (s96088$->equals("disallow"_s)) {
-						tmp96088$ = 0;
-					}
-					break;
-				}
-			case 0x0589A349:
-				{
-					if (s96088$->equals("allow"_s)) {
-						tmp96088$ = 1;
-					}
-					break;
-				}
-			case 0:
-				{
-					if (s96088$->equals(""_s)) {
-						tmp96088$ = 2;
-					}
-					break;
-				}
-			case 0x5C13D641:
-				{
-					if (s96088$->equals("default"_s)) {
-						tmp96088$ = 3;
-					}
-					break;
-				}
+		$var($String, s96088$, smProp);
+		int32_t tmp96088$ = -1;
+		switch (s96088$->hashCode()) {
+		case 0x102ac77b:
+			if (s96088$->equals("disallow"_s)) {
+				tmp96088$ = 0;
 			}
-			switch (tmp96088$) {
-			case 0:
-				{
-					System::allowSecurityManager$ = System::NEVER;
-					break;
-				}
-			case 1:
-				{
-					System::allowSecurityManager$ = System::MAYBE;
-					break;
-				}
-			case 2:
-				{}
-			case 3:
-				{
-					implSetSecurityManager($$new($SecurityManager));
-					System::allowSecurityManager$ = System::MAYBE;
-					needWarning = true;
-					break;
-				}
-			default:
-				{
-					try {
-						$var($ClassLoader, cl, $ClassLoader::getBuiltinAppClassLoader());
-						$Class* c = $Class::forName(smProp, false, cl);
-						$var($Constructor, ctor, $nc(c)->getConstructor($$new($ClassArray, 0)));
-						$load($SecurityManager);
-						bool var$1 = !$SecurityManager::class$->isAssignableFrom(c);
-						bool var$0 = var$1 || !$Modifier::isPublic(c->getModifiers());
-						if (var$0 || !$Modifier::isPublic($nc(ctor)->getModifiers())) {
-							$throwNew($Error, $$str({"Could not create SecurityManager: "_s, $($nc(ctor)->toString())}));
-						}
-						$nc(ctor)->setAccessible(true);
-						$var($SecurityManager, sm, $cast($SecurityManager, ctor->newInstance($$new($ObjectArray, 0))));
-						implSetSecurityManager(sm);
-						needWarning = true;
-					} catch ($Exception& e) {
-						$throwNew($InternalError, "Could not create SecurityManager"_s, e);
-					}
-					System::allowSecurityManager$ = System::MAYBE;
-				}
+			break;
+		case 0x0589a349:
+			if (s96088$->equals("allow"_s)) {
+				tmp96088$ = 1;
 			}
+			break;
+		case 0:
+			if (s96088$->equals(""_s)) {
+				tmp96088$ = 2;
+			}
+			break;
+		case 0x5c13d641:
+			if (s96088$->equals("default"_s)) {
+				tmp96088$ = 3;
+			}
+			break;
+		}
+		switch (tmp96088$) {
+		case 0:
+			System::allowSecurityManager$ = System::NEVER;
+			break;
+		case 1:
+			System::allowSecurityManager$ = System::MAYBE;
+			break;
+		case 2:
+		case 3:
+			implSetSecurityManager($$new($SecurityManager));
+			System::allowSecurityManager$ = System::MAYBE;
+			needWarning = true;
+			break;
+		default:
+			try {
+				$var($ClassLoader, cl, $ClassLoader::getBuiltinAppClassLoader());
+				$Class* c = $Class::forName(smProp, false, cl);
+				$var($Constructor, ctor, c->getConstructor($$new($ClassArray, 0)));
+				$load($SecurityManager);
+				bool var$1 = !$SecurityManager::class$->isAssignableFrom(c);
+				bool var$0 = var$1 || !$Modifier::isPublic(c->getModifiers());
+				if (var$0 || !$Modifier::isPublic($nc(ctor)->getModifiers())) {
+					$throwNew($Error, $$str({"Could not create SecurityManager: "_s, $($nc(ctor)->toString())}));
+				}
+				$nc(ctor)->setAccessible(true);
+				$var($SecurityManager, sm, $cast($SecurityManager, ctor->newInstance($$new($ObjectArray, 0))));
+				implSetSecurityManager(sm);
+				needWarning = true;
+			} catch ($Exception& e) {
+				$throwNew($InternalError, "Could not create SecurityManager"_s, e);
+			}
+			System::allowSecurityManager$ = System::MAYBE;
 		}
 	} else {
 		System::allowSecurityManager$ = System::MAYBE;
@@ -1086,11 +849,11 @@ void System::setJavaLangAccess() {
 }
 
 $System$Logger* System::lambda$getLogger$0($String* name, $ResourceBundle* rb, $Class* caller) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($System$LoggerFinder::accessProvider()))->getLocalizedLogger(name, rb, $($nc(caller)->getModule()));
+	$useLocalObjectStack();
+	return $$nc($System$LoggerFinder::accessProvider())->getLocalizedLogger(name, rb, $($nc(caller)->getModule()));
 }
 
-void clinit$System($Class* class$) {
+void System::clinit$($Class* clazz) {
 	{
 		System::registerNatives();
 	}
@@ -1101,6 +864,169 @@ void clinit$System($Class* class$) {
 
 System::System() {
 }
+
+$Class* System::load$($String* name, bool initialize) {
+	if (name != nullptr) {
+		if (name->equals("java.lang.System$$Lambda$getProtectionDomain")) {
+			return System$$Lambda$getProtectionDomain::load$(name, initialize);
+		}
+		if (name->equals("java.lang.System$$Lambda$lambda$getLogger$0$1")) {
+			return System$$Lambda$lambda$getLogger$0$1::load$(name, initialize);
+		}
+	}
+	$CompoundAttribute allowSecurityManagerfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute initialErrStreamfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"in", "Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(System, in)},
+		{"out", "Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(System, out)},
+		{"err", "Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(System, err)},
+		{"NEVER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(System, NEVER)},
+		{"MAYBE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(System, MAYBE)},
+		{"allowSecurityManager", "I", nullptr, $PRIVATE | $STATIC, $staticField(System, allowSecurityManager$), allowSecurityManagerfieldAnnotations$$},
+		{"security", "Ljava/lang/SecurityManager;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(System, security)},
+		{"cons", "Ljava/io/Console;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(System, cons)},
+		{"initialErrStream", "Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(System, initialErrStream), initialErrStreamfieldAnnotations$$},
+		{"props", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(System, props)},
+		{"lineSeparator", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(System, lineSeparator$)},
+		{"bootLayer", "Ljava/lang/ModuleLayer;", nullptr, $STATIC, $staticField(System, bootLayer)},
+		{}
+	};
+	$CompoundAttribute arraycopymethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute currentTimeMillismethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLoggermethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLoggermethodAnnotations$$$1[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$NamedAttribute getSecurityManagermethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute getSecurityManagermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getSecurityManagermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute identityHashCodemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute loadmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute loadLibrarymethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute nanoTimemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$NamedAttribute setSecurityManagermethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute setSecurityManagermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", setSecurityManagermethodAnnotations$$$namedAttribute},
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(System, init$, void)},
+		{"allowSecurityManager", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(System, allowSecurityManager, bool)},
+		{"arraycopy", "(Ljava/lang/Object;ILjava/lang/Object;II)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, arraycopy, void, Object$*, int32_t, Object$*, int32_t, int32_t), nullptr, nullptr, arraycopymethodAnnotations$$},
+		{"checkIO", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, checkIO, void)},
+		{"checkKey", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, checkKey, void, $String*)},
+		{"clearProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, clearProperty, $String*, $String*)},
+		{"codeSource", "(Ljava/lang/Class;)Ljava/net/URL;", "(Ljava/lang/Class<*>;)Ljava/net/URL;", $PRIVATE | $STATIC, $staticMethod(System, codeSource, $URL*, $Class*)},
+		{"console", "()Ljava/io/Console;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, console, $Console*)},
+		{"createProperties", "(Ljava/util/Map;)Ljava/util/Properties;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/util/Properties;", $PRIVATE | $STATIC, $staticMethod(System, createProperties, $Properties*, $Map*)},
+		{"currentTimeMillis", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, currentTimeMillis, int64_t), nullptr, nullptr, currentTimeMillismethodAnnotations$$},
+		{"exit", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, exit, void, int32_t)},
+		{"gc", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, gc, void)},
+		{"getLogger", "(Ljava/lang/String;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getLogger, $System$Logger*, $String*), nullptr, nullptr, getLoggermethodAnnotations$$},
+		{"getLogger", "(Ljava/lang/String;Ljava/util/ResourceBundle;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getLogger, $System$Logger*, $String*, $ResourceBundle*), nullptr, nullptr, getLoggermethodAnnotations$$$1},
+		{"getProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getProperties, $Properties*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getProperty, $String*, $String*)},
+		{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getProperty, $String*, $String*, $String*)},
+		{"getSecurityManager", "()Ljava/lang/SecurityManager;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(System, getSecurityManager, $SecurityManager*), nullptr, nullptr, getSecurityManagermethodAnnotations$$},
+		{"getenv", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getenv, $String*, $String*)},
+		{"getenv", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(System, getenv, $Map*)},
+		{"identityHashCode", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, identityHashCode, int32_t, Object$*), nullptr, nullptr, identityHashCodemethodAnnotations$$},
+		{"implSetSecurityManager", "(Ljava/lang/SecurityManager;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, implSetSecurityManager, void, $SecurityManager*)},
+		{"inheritedChannel", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, inheritedChannel, $Channel*), "java.io.IOException"},
+		{"initPhase1", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, initPhase1, void)},
+		{"initPhase2", "(ZZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(System, initPhase2, int32_t, bool, bool)},
+		{"initPhase3", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, initPhase3, void)},
+		{"lambda$getLogger$0", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Class;)Ljava/lang/System$Logger;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(System, lambda$getLogger$0, $System$Logger*, $String*, $ResourceBundle*, $Class*)},
+		{"lineSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, lineSeparator, $String*)},
+		{"load", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, load, void, $String*), nullptr, nullptr, loadmethodAnnotations$$},
+		{"loadLibrary", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, loadLibrary, void, $String*), nullptr, nullptr, loadLibrarymethodAnnotations$$},
+		{"logInitException", "(ZZLjava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, logInitException, void, bool, bool, $String*, $Throwable*)},
+		{"mapLibraryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, mapLibraryName, $String*, $String*)},
+		{"nanoTime", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, nanoTime, int64_t), nullptr, nullptr, nanoTimemethodAnnotations$$},
+		{"newPrintStream", "(Ljava/io/FileOutputStream;Ljava/lang/String;)Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(System, newPrintStream, $PrintStream*, $FileOutputStream*, $String*)},
+		{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, registerNatives, void)},
+		{"runFinalization", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, runFinalization, void)},
+		{"setErr", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setErr, void, $PrintStream*)},
+		{"setErr0", "(Ljava/io/PrintStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, setErr0, void, $PrintStream*)},
+		{"setIn", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setIn, void, $InputStream*)},
+		{"setIn0", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, setIn0, void, $InputStream*)},
+		{"setJavaLangAccess", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, setJavaLangAccess, void)},
+		{"setOut", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setOut, void, $PrintStream*)},
+		{"setOut0", "(Ljava/io/PrintStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, setOut0, void, $PrintStream*)},
+		{"setProperties", "(Ljava/util/Properties;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setProperties, void, $Properties*)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setProperty, $String*, $String*, $String*)},
+		{"setSecurityManager", "(Ljava/lang/SecurityManager;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(System, setSecurityManager, void, $SecurityManager*), nullptr, nullptr, setSecurityManagermethodAnnotations$$},
+		{"setSecurityManager0", "(Ljava/lang/SecurityManager;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(System, setSecurityManager0, void, $SecurityManager*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.System$LoggerFinder", "java.lang.System", "LoggerFinder", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.lang.System$CallersHolder", "java.lang.System", "CallersHolder", $PRIVATE | $STATIC},
+		{"java.lang.System$2", nullptr, nullptr, 0},
+		{"java.lang.System$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.System",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.System$LoggerFinder,java.lang.System$Logger,java.lang.System$Logger$Level,java.lang.System$CallersHolder,java.lang.System$2,java.lang.System$1"
+	};
+	$loadClass(System, name, initialize, &classInfo$$, System::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(System);
+	});
+	return class$;
+}
+
+$Class* System::class$ = nullptr;
 
 void System::addLibrary(Library* lib) {
 	Machine::addLibrary(lib);
@@ -1154,25 +1080,6 @@ void System::run(String* mainClass, $StringArray* args) {
 String* System::getSystemClassPath() {
 	return Machine::getSystemClassPath();
 }
-
-void* System::loadNativeMethod(Class* clazz, MethodInfo* methodInfo) {
-	return Machine::loadNativeMethod(clazz, methodInfo);
-}
-
-$Class* System::load$($String* name, bool initialize) {
-	if (name != nullptr) {
-		if (name->equals(System$$Lambda$getProtectionDomain::classInfo$.name)) {
-			return System$$Lambda$getProtectionDomain::load$(name, initialize);
-		}
-		if (name->equals(System$$Lambda$lambda$getLogger$0$1::classInfo$.name)) {
-			return System$$Lambda$lambda$getLogger$0$1::load$(name, initialize);
-		}
-	}
-	$loadClass(System, name, initialize, &_System_ClassInfo_, clinit$System, allocate$System);
-	return class$;
-}
-
-$Class* System::class$ = nullptr;
 
 	} // lang
 } // java

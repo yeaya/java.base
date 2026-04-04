@@ -1,5 +1,4 @@
 #include <java/security/DigestOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/security/MessageDigest.h>
@@ -14,36 +13,6 @@ using $MessageDigest = ::java::security::MessageDigest;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _DigestOutputStream_FieldInfo_[] = {
-	{"on", "Z", nullptr, $PRIVATE, $field(DigestOutputStream, on$)},
-	{"digest", "Ljava/security/MessageDigest;", nullptr, $PROTECTED, $field(DigestOutputStream, digest)},
-	{}
-};
-
-$MethodInfo _DigestOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/security/MessageDigest;)V", nullptr, $PUBLIC, $method(DigestOutputStream, init$, void, $OutputStream*, $MessageDigest*)},
-	{"getMessageDigest", "()Ljava/security/MessageDigest;", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, getMessageDigest, $MessageDigest*)},
-	{"on", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, on, void, bool)},
-	{"setMessageDigest", "(Ljava/security/MessageDigest;)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, setMessageDigest, void, $MessageDigest*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, toString, $String*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DigestOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.DigestOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_DigestOutputStream_FieldInfo_,
-	_DigestOutputStream_MethodInfo_
-};
-
-$Object* allocate$DigestOutputStream($Class* clazz) {
-	return $of($alloc(DigestOutputStream));
-}
 
 void DigestOutputStream::init$($OutputStream* stream, $MessageDigest* digest) {
 	$FilterOutputStream::init$(stream);
@@ -85,7 +54,32 @@ DigestOutputStream::DigestOutputStream() {
 }
 
 $Class* DigestOutputStream::load$($String* name, bool initialize) {
-	$loadClass(DigestOutputStream, name, initialize, &_DigestOutputStream_ClassInfo_, allocate$DigestOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"on", "Z", nullptr, $PRIVATE, $field(DigestOutputStream, on$)},
+		{"digest", "Ljava/security/MessageDigest;", nullptr, $PROTECTED, $field(DigestOutputStream, digest)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;Ljava/security/MessageDigest;)V", nullptr, $PUBLIC, $method(DigestOutputStream, init$, void, $OutputStream*, $MessageDigest*)},
+		{"getMessageDigest", "()Ljava/security/MessageDigest;", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, getMessageDigest, $MessageDigest*)},
+		{"on", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, on, void, bool)},
+		{"setMessageDigest", "(Ljava/security/MessageDigest;)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, setMessageDigest, void, $MessageDigest*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, toString, $String*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.DigestOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DigestOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DigestOutputStream));
+	});
 	return class$;
 }
 

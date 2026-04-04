@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsUserDefinedFileAttributeView.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/nio/ByteBuffer.h>
@@ -56,39 +55,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsUserDefinedFileAttributeView_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsUserDefinedFileAttributeView, unsafe)},
-	{"file", "Lsun/nio/fs/WindowsPath;", nullptr, $PRIVATE | $FINAL, $field(WindowsUserDefinedFileAttributeView, file)},
-	{"followLinks", "Z", nullptr, $PRIVATE | $FINAL, $field(WindowsUserDefinedFileAttributeView, followLinks)},
-	{}
-};
-
-$MethodInfo _WindowsUserDefinedFileAttributeView_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(WindowsUserDefinedFileAttributeView, init$, void, $WindowsPath*, bool)},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, delete$, void, $String*), "java.io.IOException"},
-	{"join", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsUserDefinedFileAttributeView, join, $String*, $String*, $String*)},
-	{"join", "(Lsun/nio/fs/WindowsPath;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsUserDefinedFileAttributeView, join, $String*, $WindowsPath*, $String*), "sun.nio.fs.WindowsException"},
-	{"list", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, list, $List*), "java.io.IOException"},
-	{"listUsingStreamEnumeration", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(WindowsUserDefinedFileAttributeView, listUsingStreamEnumeration, $List*), "java.io.IOException"},
-	{"read", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, read, int32_t, $String*, $ByteBuffer*), "java.io.IOException"},
-	{"size", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, size, int32_t, $String*), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, write, int32_t, $String*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _WindowsUserDefinedFileAttributeView_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsUserDefinedFileAttributeView",
-	"sun.nio.fs.AbstractUserDefinedFileAttributeView",
-	nullptr,
-	_WindowsUserDefinedFileAttributeView_FieldInfo_,
-	_WindowsUserDefinedFileAttributeView_MethodInfo_
-};
-
-$Object* allocate$WindowsUserDefinedFileAttributeView($Class* clazz) {
-	return $of($alloc(WindowsUserDefinedFileAttributeView));
-}
-
 $Unsafe* WindowsUserDefinedFileAttributeView::unsafe = nullptr;
 
 $String* WindowsUserDefinedFileAttributeView::join($String* file, $String* name) {
@@ -109,32 +75,30 @@ void WindowsUserDefinedFileAttributeView::init$($WindowsPath* file, bool followL
 }
 
 $List* WindowsUserDefinedFileAttributeView::listUsingStreamEnumeration() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $new($ArrayList));
 	try {
 		$var($WindowsNativeDispatcher$FirstStream, first, $WindowsNativeDispatcher::FindFirstStream($($nc(this->file)->getPathForWin32Calls())));
 		if (first != nullptr) {
 			int64_t handle = first->handle();
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					$var($String, name, first->name());
-					if (!$nc(name)->equals("::$DATA"_s)) {
-						$var($StringArray, segs, name->split(":"_s));
-						list->add(segs->get(1));
-					}
-					while (($assign(name, $WindowsNativeDispatcher::FindNextStream(handle))) != nullptr) {
-						$var($StringArray, segs, $nc(name)->split(":"_s));
-						list->add(segs->get(1));
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					$WindowsNativeDispatcher::FindClose(handle);
+			$var($Throwable, var$0, nullptr);
+			try {
+				$var($String, name, first->name());
+				if (!$nc(name)->equals("::$DATA"_s)) {
+					$var($StringArray, segs, name->split(":"_s));
+					list->add(segs->get(1));
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+				while (($assign(name, $WindowsNativeDispatcher::FindNextStream(handle))) != nullptr) {
+					$var($StringArray, segs, $nc(name)->split(":"_s));
+					list->add(segs->get(1));
 				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				$WindowsNativeDispatcher::FindClose(handle);
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	} catch ($WindowsException& x) {
@@ -151,7 +115,7 @@ $List* WindowsUserDefinedFileAttributeView::list() {
 }
 
 int32_t WindowsUserDefinedFileAttributeView::size($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), true, false);
 	}
@@ -168,35 +132,33 @@ int32_t WindowsUserDefinedFileAttributeView::size($String* name) {
 	} catch ($WindowsException& x) {
 		x->rethrowAsIOException($(join($($nc(this->file)->getPathForPermissionCheck()), name)));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int64_t size = $nc(fc)->size();
-			if (size > $Integer::MAX_VALUE) {
-				$throwNew($ArithmeticException, "Stream too large"_s);
-			}
-			var$2 = (int32_t)size;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(fc)->close();
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int64_t size = $nc(fc)->size();
+		if (size > $Integer::MAX_VALUE) {
+			$throwNew($ArithmeticException, "Stream too large"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = (int32_t)size;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(fc)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t WindowsUserDefinedFileAttributeView::read($String* name, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), true, false);
 	}
@@ -213,43 +175,41 @@ int32_t WindowsUserDefinedFileAttributeView::read($String* name, $ByteBuffer* ds
 	} catch ($WindowsException& x) {
 		x->rethrowAsIOException($(join($($nc(this->file)->getPathForPermissionCheck()), name)));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int64_t var$3 = $nc(fc)->size();
-			if (var$3 > $nc(dst)->remaining()) {
-				$throwNew($IOException, "Stream too large"_s);
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int64_t var$3 = $nc(fc)->size();
+		if (var$3 > $nc(dst)->remaining()) {
+			$throwNew($IOException, "Stream too large"_s);
+		}
+		int32_t total = 0;
+		while (dst->hasRemaining()) {
+			int32_t n = fc->read(dst);
+			if (n < 0) {
+				break;
 			}
-			int32_t total = 0;
-			while ($nc(dst)->hasRemaining()) {
-				int32_t n = $nc(fc)->read(dst);
-				if (n < 0) {
-					break;
-				}
-				total += n;
-			}
-			var$2 = total;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$nc(fc)->close();
+			total += n;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = total;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$nc(fc)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t WindowsUserDefinedFileAttributeView::write($String* name, $ByteBuffer* src) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), false, true);
 	}
@@ -263,69 +223,65 @@ int32_t WindowsUserDefinedFileAttributeView::write($String* name, $ByteBuffer* s
 	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(this->file);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		$var($Set, opts, $new($HashSet));
+		if (!this->followLinks) {
+			$init($WindowsChannelFactory);
+			opts->add($WindowsChannelFactory::OPEN_REPARSE_POINT);
+		}
+		$init($StandardOpenOption);
+		opts->add($StandardOpenOption::CREATE);
+		opts->add($StandardOpenOption::WRITE);
+		opts->add($StandardOpenOption::TRUNCATE_EXISTING);
+		$var($FileChannel, named, nullptr);
 		try {
-			$var($Set, opts, $new($HashSet));
-			if (!this->followLinks) {
-				$init($WindowsChannelFactory);
-				opts->add($WindowsChannelFactory::OPEN_REPARSE_POINT);
-			}
-			$init($StandardOpenOption);
-			opts->add($StandardOpenOption::CREATE);
-			opts->add($StandardOpenOption::WRITE);
-			opts->add($StandardOpenOption::TRUNCATE_EXISTING);
-			$var($FileChannel, named, nullptr);
-			try {
-				$assign(named, $WindowsChannelFactory::newFileChannel($(join(this->file, name)), nullptr, opts, 0));
-			} catch ($WindowsException& x) {
-				x->rethrowAsIOException($(join($($nc(this->file)->getPathForPermissionCheck()), name)));
-			}
-			{
-				$var($Throwable, var$3, nullptr);
-				int32_t var$5 = 0;
-				bool return$4 = false;
-				try {
-					int32_t rem = $nc(src)->remaining();
-					while (src->hasRemaining()) {
-						$nc(named)->write(src);
-					}
-					var$5 = rem;
-					return$4 = true;
-					goto $finally1;
-				} catch ($Throwable& var$6) {
-					$assign(var$3, var$6);
-				} $finally1: {
-					$nc(named)->close();
-				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
-				}
-				if (return$4) {
-					var$2 = var$5;
-					return$1 = true;
-					goto $finally;
-				}
-			}
-		} catch ($Throwable& var$7) {
-			$assign(var$0, var$7);
-		} $finally: {
-			$WindowsNativeDispatcher::CloseHandle(handle);
+			$assign(named, $WindowsChannelFactory::newFileChannel($(join(this->file, name)), nullptr, opts, 0));
+		} catch ($WindowsException& x) {
+			x->rethrowAsIOException($(join($($nc(this->file)->getPathForPermissionCheck()), name)));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$var($Throwable, var$3, nullptr);
+		int32_t var$5 = 0;
+		bool return$4 = false;
+		try {
+			int32_t rem = $nc(src)->remaining();
+			while (src->hasRemaining()) {
+				$nc(named)->write(src);
+			}
+			var$5 = rem;
+			return$4 = true;
+			goto $finally1;
+		} catch ($Throwable& var$6) {
+			$assign(var$3, var$6);
+		} $finally1: {
+			$nc(named)->close();
 		}
-		if (return$1) {
-			return var$2;
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
+		if (return$4) {
+			var$2 = var$5;
+			return$1 = true;
+			goto $finally;
+		}
+	} catch ($Throwable& var$7) {
+		$assign(var$0, var$7);
+	} $finally: {
+		$WindowsNativeDispatcher::CloseHandle(handle);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void WindowsUserDefinedFileAttributeView::delete$($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), false, true);
 	}
@@ -338,7 +294,7 @@ void WindowsUserDefinedFileAttributeView::delete$($String* name) {
 	}
 }
 
-void clinit$WindowsUserDefinedFileAttributeView($Class* class$) {
+void WindowsUserDefinedFileAttributeView::clinit$($Class* clazz) {
 	$assignStatic(WindowsUserDefinedFileAttributeView::unsafe, $Unsafe::getUnsafe());
 }
 
@@ -346,7 +302,35 @@ WindowsUserDefinedFileAttributeView::WindowsUserDefinedFileAttributeView() {
 }
 
 $Class* WindowsUserDefinedFileAttributeView::load$($String* name, bool initialize) {
-	$loadClass(WindowsUserDefinedFileAttributeView, name, initialize, &_WindowsUserDefinedFileAttributeView_ClassInfo_, clinit$WindowsUserDefinedFileAttributeView, allocate$WindowsUserDefinedFileAttributeView);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsUserDefinedFileAttributeView, unsafe)},
+		{"file", "Lsun/nio/fs/WindowsPath;", nullptr, $PRIVATE | $FINAL, $field(WindowsUserDefinedFileAttributeView, file)},
+		{"followLinks", "Z", nullptr, $PRIVATE | $FINAL, $field(WindowsUserDefinedFileAttributeView, followLinks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(WindowsUserDefinedFileAttributeView, init$, void, $WindowsPath*, bool)},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, delete$, void, $String*), "java.io.IOException"},
+		{"join", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsUserDefinedFileAttributeView, join, $String*, $String*, $String*)},
+		{"join", "(Lsun/nio/fs/WindowsPath;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsUserDefinedFileAttributeView, join, $String*, $WindowsPath*, $String*), "sun.nio.fs.WindowsException"},
+		{"list", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, list, $List*), "java.io.IOException"},
+		{"listUsingStreamEnumeration", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(WindowsUserDefinedFileAttributeView, listUsingStreamEnumeration, $List*), "java.io.IOException"},
+		{"read", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, read, int32_t, $String*, $ByteBuffer*), "java.io.IOException"},
+		{"size", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, size, int32_t, $String*), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, write, int32_t, $String*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsUserDefinedFileAttributeView",
+		"sun.nio.fs.AbstractUserDefinedFileAttributeView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsUserDefinedFileAttributeView, name, initialize, &classInfo$$, WindowsUserDefinedFileAttributeView::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsUserDefinedFileAttributeView));
+	});
 	return class$;
 }
 

@@ -44,6 +44,7 @@ class $import LazyLoggers$LazyLoggerAccessor : public ::jdk::internal::logger::L
 	$class(LazyLoggers$LazyLoggerAccessor, 0, ::jdk::internal::logger::LazyLoggers$LoggerAccessor)
 public:
 	LazyLoggers$LazyLoggerAccessor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, ::jdk::internal::logger::LazyLoggers$LazyLoggerFactories* factories, ::java::lang::Module* module);
 	void init$($String* name, ::jdk::internal::logger::LazyLoggers$LazyLoggerFactories* factories, ::java::lang::Module* module, ::java::lang::Void* unused);
 	::java::lang::System$Logger* createLogger();

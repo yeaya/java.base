@@ -1,5 +1,4 @@
 #include <java/io/InputStreamReader.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
 #include <java/nio/CharBuffer.h>
@@ -22,41 +21,9 @@ using $StreamDecoder = ::sun::nio::cs::StreamDecoder;
 namespace java {
 	namespace io {
 
-$FieldInfo _InputStreamReader_FieldInfo_[] = {
-	{"sd", "Lsun/nio/cs/StreamDecoder;", nullptr, $PRIVATE | $FINAL, $field(InputStreamReader, sd)},
-	{}
-};
-
-$MethodInfo _InputStreamReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*)},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*, $String*), "java.io.UnsupportedEncodingException"},
-	{"<init>", "(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*, $Charset*)},
-	{"<init>", "(Ljava/io/InputStream;Ljava/nio/charset/CharsetDecoder;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*, $CharsetDecoder*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, close, void), "java.io.IOException"},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, getEncoding, $String*)},
-	{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, read, int32_t, $CharBuffer*), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, read, int32_t), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, ready, bool), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _InputStreamReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.InputStreamReader",
-	"java.io.Reader",
-	nullptr,
-	_InputStreamReader_FieldInfo_,
-	_InputStreamReader_MethodInfo_
-};
-
-$Object* allocate$InputStreamReader($Class* clazz) {
-	return $of($alloc(InputStreamReader));
-}
-
 void InputStreamReader::init$($InputStream* in) {
 	$Reader::init$(in);
-	$set(this, sd, $StreamDecoder::forInputStreamReader(in, $of(this), $($Charset::defaultCharset())));
+	$set(this, sd, $StreamDecoder::forInputStreamReader(in, this, $($Charset::defaultCharset())));
 }
 
 void InputStreamReader::init$($InputStream* in, $String* charsetName) {
@@ -64,7 +31,7 @@ void InputStreamReader::init$($InputStream* in, $String* charsetName) {
 	if (charsetName == nullptr) {
 		$throwNew($NullPointerException, "charsetName"_s);
 	}
-	$set(this, sd, $StreamDecoder::forInputStreamReader(in, $of(this), charsetName));
+	$set(this, sd, $StreamDecoder::forInputStreamReader(in, this, charsetName));
 }
 
 void InputStreamReader::init$($InputStream* in, $Charset* cs) {
@@ -72,7 +39,7 @@ void InputStreamReader::init$($InputStream* in, $Charset* cs) {
 	if (cs == nullptr) {
 		$throwNew($NullPointerException, "charset"_s);
 	}
-	$set(this, sd, $StreamDecoder::forInputStreamReader(in, $of(this), cs));
+	$set(this, sd, $StreamDecoder::forInputStreamReader(in, this, cs));
 }
 
 void InputStreamReader::init$($InputStream* in, $CharsetDecoder* dec) {
@@ -80,7 +47,7 @@ void InputStreamReader::init$($InputStream* in, $CharsetDecoder* dec) {
 	if (dec == nullptr) {
 		$throwNew($NullPointerException, "charset decoder"_s);
 	}
-	$set(this, sd, $StreamDecoder::forInputStreamReader(in, $of(this), dec));
+	$set(this, sd, $StreamDecoder::forInputStreamReader(in, this, dec));
 }
 
 $String* InputStreamReader::getEncoding() {
@@ -111,7 +78,34 @@ InputStreamReader::InputStreamReader() {
 }
 
 $Class* InputStreamReader::load$($String* name, bool initialize) {
-	$loadClass(InputStreamReader, name, initialize, &_InputStreamReader_ClassInfo_, allocate$InputStreamReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"sd", "Lsun/nio/cs/StreamDecoder;", nullptr, $PRIVATE | $FINAL, $field(InputStreamReader, sd)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*)},
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*, $String*), "java.io.UnsupportedEncodingException"},
+		{"<init>", "(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*, $Charset*)},
+		{"<init>", "(Ljava/io/InputStream;Ljava/nio/charset/CharsetDecoder;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*, $CharsetDecoder*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, close, void), "java.io.IOException"},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, getEncoding, $String*)},
+		{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, read, int32_t, $CharBuffer*), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, read, int32_t), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, ready, bool), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.InputStreamReader",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputStreamReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InputStreamReader));
+	});
 	return class$;
 }
 

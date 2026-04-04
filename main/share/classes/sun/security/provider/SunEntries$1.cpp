@@ -1,5 +1,4 @@
 #include <sun/security/provider/SunEntries$1.h>
-
 #include <java/security/Security.h>
 #include <jcpp.h>
 
@@ -12,43 +11,6 @@ using $Security = ::java::security::Security;
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$MethodInfo _SunEntries$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SunEntries$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunEntries$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SunEntries$1_EnclosingMethodInfo_ = {
-	"sun.security.provider.SunEntries",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SunEntries$1_InnerClassesInfo_[] = {
-	{"sun.security.provider.SunEntries$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SunEntries$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.SunEntries$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_SunEntries$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_SunEntries$1_EnclosingMethodInfo_,
-	_SunEntries$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.SunEntries"
-};
-
-$Object* allocate$SunEntries$1($Class* clazz) {
-	return $of($alloc(SunEntries$1));
-}
 
 void SunEntries$1::init$() {
 }
@@ -69,7 +31,38 @@ SunEntries$1::SunEntries$1() {
 }
 
 $Class* SunEntries$1::load$($String* name, bool initialize) {
-	$loadClass(SunEntries$1, name, initialize, &_SunEntries$1_ClassInfo_, allocate$SunEntries$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SunEntries$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunEntries$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.provider.SunEntries",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.SunEntries$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.SunEntries$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.SunEntries"
+	};
+	$loadClass(SunEntries$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunEntries$1);
+	});
 	return class$;
 }
 

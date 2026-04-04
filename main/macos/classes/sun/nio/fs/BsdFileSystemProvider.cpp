@@ -1,5 +1,4 @@
 #include <sun/nio/fs/BsdFileSystemProvider.h>
-
 #include <java/nio/file/FileStore.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/Path.h>
@@ -35,28 +34,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$MethodInfo _BsdFileSystemProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BsdFileSystemProvider, init$, void)},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(BsdFileSystemProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Lsun/nio/fs/DynamicFileAttributeView;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BsdFileSystemProvider, getFileAttributeView, $DynamicFileAttributeView*, $Path*, $String*, $LinkOptionArray*)},
-	{"getFileStore", "(Lsun/nio/fs/UnixPath;)Lsun/nio/fs/BsdFileStore;", nullptr, 0, $virtualMethod(BsdFileSystemProvider, getFileStore, $FileStore*, $UnixPath*), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/lang/String;)Lsun/nio/fs/BsdFileSystem;", nullptr, 0, $virtualMethod(BsdFileSystemProvider, newFileSystem, $UnixFileSystem*, $String*)},
-	{}
-};
-
-$ClassInfo _BsdFileSystemProvider_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.BsdFileSystemProvider",
-	"sun.nio.fs.UnixFileSystemProvider",
-	nullptr,
-	nullptr,
-	_BsdFileSystemProvider_MethodInfo_
-};
-
-$Object* allocate$BsdFileSystemProvider($Class* clazz) {
-	return $of($alloc(BsdFileSystemProvider));
-}
-
 void BsdFileSystemProvider::init$() {
 	$UnixFileSystemProvider::init$();
 }
@@ -73,7 +50,7 @@ $FileAttributeView* BsdFileSystemProvider::getFileAttributeView($Path* obj, $Cla
 	$load($UserDefinedFileAttributeView);
 	if (type == $UserDefinedFileAttributeView::class$) {
 		$var($UnixPath, var$0, $UnixPath::toUnixPath(obj));
-		return static_cast<$FileAttributeView*>($new($BsdUserDefinedFileAttributeView, var$0, $Util::followLinks(options)));
+		return $cast($FileAttributeView, $new($BsdUserDefinedFileAttributeView, var$0, $Util::followLinks(options)));
 	}
 	return $UnixFileSystemProvider::getFileAttributeView(obj, type, options);
 }
@@ -90,7 +67,25 @@ BsdFileSystemProvider::BsdFileSystemProvider() {
 }
 
 $Class* BsdFileSystemProvider::load$($String* name, bool initialize) {
-	$loadClass(BsdFileSystemProvider, name, initialize, &_BsdFileSystemProvider_ClassInfo_, allocate$BsdFileSystemProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BsdFileSystemProvider, init$, void)},
+		{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(BsdFileSystemProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
+		{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Lsun/nio/fs/DynamicFileAttributeView;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BsdFileSystemProvider, getFileAttributeView, $DynamicFileAttributeView*, $Path*, $String*, $LinkOptionArray*)},
+		{"getFileStore", "(Lsun/nio/fs/UnixPath;)Lsun/nio/fs/BsdFileStore;", nullptr, 0, $virtualMethod(BsdFileSystemProvider, getFileStore, $FileStore*, $UnixPath*), "java.io.IOException"},
+		{"newFileSystem", "(Ljava/lang/String;)Lsun/nio/fs/BsdFileSystem;", nullptr, 0, $virtualMethod(BsdFileSystemProvider, newFileSystem, $UnixFileSystem*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.BsdFileSystemProvider",
+		"sun.nio.fs.UnixFileSystemProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BsdFileSystemProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BsdFileSystemProvider);
+	});
 	return class$;
 }
 

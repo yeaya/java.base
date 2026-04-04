@@ -1,5 +1,4 @@
 #include <java/net/CookiePolicy$3.h>
-
 #include <java/net/HttpCookie.h>
 #include <java/net/URI.h>
 #include <jcpp.h>
@@ -14,48 +13,11 @@ using $URI = ::java::net::URI;
 namespace java {
 	namespace net {
 
-$MethodInfo _CookiePolicy$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CookiePolicy$3, init$, void)},
-	{"shouldAccept", "(Ljava/net/URI;Ljava/net/HttpCookie;)Z", nullptr, $PUBLIC, $virtualMethod(CookiePolicy$3, shouldAccept, bool, $URI*, $HttpCookie*)},
-	{}
-};
-
-$EnclosingMethodInfo _CookiePolicy$3_EnclosingMethodInfo_ = {
-	"java.net.CookiePolicy",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _CookiePolicy$3_InnerClassesInfo_[] = {
-	{"java.net.CookiePolicy$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CookiePolicy$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.CookiePolicy$3",
-	"java.lang.Object",
-	"java.net.CookiePolicy",
-	nullptr,
-	_CookiePolicy$3_MethodInfo_,
-	nullptr,
-	&_CookiePolicy$3_EnclosingMethodInfo_,
-	_CookiePolicy$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.CookiePolicy"
-};
-
-$Object* allocate$CookiePolicy$3($Class* clazz) {
-	return $of($alloc(CookiePolicy$3));
-}
-
 void CookiePolicy$3::init$() {
 }
 
 bool CookiePolicy$3::shouldAccept($URI* uri, $HttpCookie* cookie) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (uri == nullptr || cookie == nullptr) {
 		return false;
 	}
@@ -67,7 +29,38 @@ CookiePolicy$3::CookiePolicy$3() {
 }
 
 $Class* CookiePolicy$3::load$($String* name, bool initialize) {
-	$loadClass(CookiePolicy$3, name, initialize, &_CookiePolicy$3_ClassInfo_, allocate$CookiePolicy$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CookiePolicy$3, init$, void)},
+		{"shouldAccept", "(Ljava/net/URI;Ljava/net/HttpCookie;)Z", nullptr, $PUBLIC, $virtualMethod(CookiePolicy$3, shouldAccept, bool, $URI*, $HttpCookie*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.CookiePolicy",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.CookiePolicy$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.CookiePolicy$3",
+		"java.lang.Object",
+		"java.net.CookiePolicy",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.CookiePolicy"
+	};
+	$loadClass(CookiePolicy$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CookiePolicy$3);
+	});
 	return class$;
 }
 

@@ -45,6 +45,7 @@ class $import DateTimeFormatterBuilder$ReducedPrinterParser : public ::java::tim
 	$class(DateTimeFormatterBuilder$ReducedPrinterParser, 0, ::java::time::format::DateTimeFormatterBuilder$NumberPrinterParser)
 public:
 	DateTimeFormatterBuilder$ReducedPrinterParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::temporal::TemporalField* field, int32_t minWidth, int32_t maxWidth, int32_t baseValue, ::java::time::chrono::ChronoLocalDate* baseDate);
 	void init$(::java::time::temporal::TemporalField* field, int32_t minWidth, int32_t maxWidth, int32_t baseValue, ::java::time::chrono::ChronoLocalDate* baseDate, int32_t subsequentWidth);
 	virtual int64_t getValue(::java::time::format::DateTimePrintContext* context, int64_t value) override;

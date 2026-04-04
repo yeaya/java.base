@@ -27,6 +27,7 @@ class $import AccessControlContext : public ::java::lang::Object {
 	$class(AccessControlContext, $PRELOAD, ::java::lang::Object)
 public:
 	AccessControlContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::java::security::ProtectionDomain>* context);
 	void init$(::java::security::AccessControlContext* acc, ::java::security::DomainCombiner* combiner);
 	void init$(::java::security::AccessControlContext* acc, ::java::security::DomainCombiner* combiner, bool preauthorized);

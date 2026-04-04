@@ -1,5 +1,4 @@
 #include <MultiThreadedSystemProxies$1.h>
-
 #include <MultiThreadedSystemProxies.h>
 #include <java/net/ProxySelector.h>
 #include <java/net/URI.h>
@@ -16,49 +15,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ProxySelector = ::java::net::ProxySelector;
 using $URI = ::java::net::URI;
 
-$FieldInfo _MultiThreadedSystemProxies$1_FieldInfo_[] = {
-	{"val$uri", "Ljava/net/URI;", nullptr, $FINAL | $SYNTHETIC, $field(MultiThreadedSystemProxies$1, val$uri)},
-	{"val$ps", "Ljava/net/ProxySelector;", nullptr, $FINAL | $SYNTHETIC, $field(MultiThreadedSystemProxies$1, val$ps)},
-	{}
-};
-
-$MethodInfo _MultiThreadedSystemProxies$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/ProxySelector;Ljava/net/URI;)V", "()V", 0, $method(MultiThreadedSystemProxies$1, init$, void, $ProxySelector*, $URI*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiThreadedSystemProxies$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _MultiThreadedSystemProxies$1_EnclosingMethodInfo_ = {
-	"MultiThreadedSystemProxies",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _MultiThreadedSystemProxies$1_InnerClassesInfo_[] = {
-	{"MultiThreadedSystemProxies$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MultiThreadedSystemProxies$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"MultiThreadedSystemProxies$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_MultiThreadedSystemProxies$1_FieldInfo_,
-	_MultiThreadedSystemProxies$1_MethodInfo_,
-	nullptr,
-	&_MultiThreadedSystemProxies$1_EnclosingMethodInfo_,
-	_MultiThreadedSystemProxies$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MultiThreadedSystemProxies"
-};
-
-$Object* allocate$MultiThreadedSystemProxies$1($Class* clazz) {
-	return $of($alloc(MultiThreadedSystemProxies$1));
-}
-
 void MultiThreadedSystemProxies$1::init$($ProxySelector* val$ps, $URI* val$uri) {
 	$set(this, val$ps, val$ps);
 	$set(this, val$uri, val$uri);
@@ -68,7 +24,7 @@ void MultiThreadedSystemProxies$1::run() {
 	try {
 		$nc(this->val$ps)->select(this->val$uri);
 	} catch ($Exception& x) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(x));
+		$throwNew($RuntimeException, x);
 	}
 }
 
@@ -76,7 +32,43 @@ MultiThreadedSystemProxies$1::MultiThreadedSystemProxies$1() {
 }
 
 $Class* MultiThreadedSystemProxies$1::load$($String* name, bool initialize) {
-	$loadClass(MultiThreadedSystemProxies$1, name, initialize, &_MultiThreadedSystemProxies$1_ClassInfo_, allocate$MultiThreadedSystemProxies$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$uri", "Ljava/net/URI;", nullptr, $FINAL | $SYNTHETIC, $field(MultiThreadedSystemProxies$1, val$uri)},
+		{"val$ps", "Ljava/net/ProxySelector;", nullptr, $FINAL | $SYNTHETIC, $field(MultiThreadedSystemProxies$1, val$ps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/ProxySelector;Ljava/net/URI;)V", "()V", 0, $method(MultiThreadedSystemProxies$1, init$, void, $ProxySelector*, $URI*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiThreadedSystemProxies$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"MultiThreadedSystemProxies",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MultiThreadedSystemProxies$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MultiThreadedSystemProxies$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MultiThreadedSystemProxies"
+	};
+	$loadClass(MultiThreadedSystemProxies$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiThreadedSystemProxies$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/HelloVerifyRequest.h>
-
 #include <sun/security/ssl/HandshakeProducer.h>
 #include <sun/security/ssl/HelloVerifyRequest$HelloVerifyRequestConsumer.h>
 #include <sun/security/ssl/HelloVerifyRequest$HelloVerifyRequestProducer.h>
@@ -19,50 +18,13 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _HelloVerifyRequest_FieldInfo_[] = {
-	{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(HelloVerifyRequest, handshakeConsumer)},
-	{"handshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(HelloVerifyRequest, handshakeProducer)},
-	{}
-};
-
-$MethodInfo _HelloVerifyRequest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HelloVerifyRequest, init$, void)},
-	{}
-};
-
-$InnerClassInfo _HelloVerifyRequest_InnerClassesInfo_[] = {
-	{"sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestConsumer", "sun.security.ssl.HelloVerifyRequest", "HelloVerifyRequestConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestProducer", "sun.security.ssl.HelloVerifyRequest", "HelloVerifyRequestProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestMessage", "sun.security.ssl.HelloVerifyRequest", "HelloVerifyRequestMessage", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HelloVerifyRequest_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.HelloVerifyRequest",
-	"java.lang.Object",
-	nullptr,
-	_HelloVerifyRequest_FieldInfo_,
-	_HelloVerifyRequest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HelloVerifyRequest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestConsumer,sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestProducer,sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestMessage"
-};
-
-$Object* allocate$HelloVerifyRequest($Class* clazz) {
-	return $of($alloc(HelloVerifyRequest));
-}
-
 $SSLConsumer* HelloVerifyRequest::handshakeConsumer = nullptr;
 $HandshakeProducer* HelloVerifyRequest::handshakeProducer = nullptr;
 
 void HelloVerifyRequest::init$() {
 }
 
-void clinit$HelloVerifyRequest($Class* class$) {
+void HelloVerifyRequest::clinit$($Class* clazz) {
 	$assignStatic(HelloVerifyRequest::handshakeConsumer, $new($HelloVerifyRequest$HelloVerifyRequestConsumer));
 	$assignStatic(HelloVerifyRequest::handshakeProducer, $new($HelloVerifyRequest$HelloVerifyRequestProducer));
 }
@@ -71,7 +33,38 @@ HelloVerifyRequest::HelloVerifyRequest() {
 }
 
 $Class* HelloVerifyRequest::load$($String* name, bool initialize) {
-	$loadClass(HelloVerifyRequest, name, initialize, &_HelloVerifyRequest_ClassInfo_, clinit$HelloVerifyRequest, allocate$HelloVerifyRequest);
+	$FieldInfo fieldInfos$$[] = {
+		{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(HelloVerifyRequest, handshakeConsumer)},
+		{"handshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(HelloVerifyRequest, handshakeProducer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HelloVerifyRequest, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestConsumer", "sun.security.ssl.HelloVerifyRequest", "HelloVerifyRequestConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestProducer", "sun.security.ssl.HelloVerifyRequest", "HelloVerifyRequestProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestMessage", "sun.security.ssl.HelloVerifyRequest", "HelloVerifyRequestMessage", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.HelloVerifyRequest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestConsumer,sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestProducer,sun.security.ssl.HelloVerifyRequest$HelloVerifyRequestMessage"
+	};
+	$loadClass(HelloVerifyRequest, name, initialize, &classInfo$$, HelloVerifyRequest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HelloVerifyRequest);
+	});
 	return class$;
 }
 

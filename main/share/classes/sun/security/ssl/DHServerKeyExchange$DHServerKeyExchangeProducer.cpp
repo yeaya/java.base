@@ -1,9 +1,7 @@
 #include <sun/security/ssl/DHServerKeyExchange$DHServerKeyExchangeProducer.h>
-
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/DHServerKeyExchange$DHServerKeyExchangeMessage.h>
 #include <sun/security/ssl/DHServerKeyExchange.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeOutStream.h>
 #include <sun/security/ssl/SSLHandshake$HandshakeMessage.h>
 #include <sun/security/ssl/SSLLogger.h>
@@ -15,8 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $DHServerKeyExchange$DHServerKeyExchangeMessage = ::sun::security::ssl::DHServerKeyExchange$DHServerKeyExchangeMessage;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
@@ -25,50 +21,19 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _DHServerKeyExchange$DHServerKeyExchangeProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DHServerKeyExchange$DHServerKeyExchangeProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DHServerKeyExchange$DHServerKeyExchangeProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeProducer", "sun.security.ssl.DHServerKeyExchange", "DHServerKeyExchangeProducer", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DHServerKeyExchange$DHServerKeyExchangeProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_DHServerKeyExchange$DHServerKeyExchangeProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DHServerKeyExchange$DHServerKeyExchangeProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.DHServerKeyExchange"
-};
-
-$Object* allocate$DHServerKeyExchange$DHServerKeyExchangeProducer($Class* clazz) {
-	return $of($alloc(DHServerKeyExchange$DHServerKeyExchangeProducer));
-}
-
 void DHServerKeyExchange$DHServerKeyExchangeProducer::init$() {
 }
 
 $bytes* DHServerKeyExchange$DHServerKeyExchangeProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($DHServerKeyExchange$DHServerKeyExchangeMessage, skem, $new($DHServerKeyExchange$DHServerKeyExchangeMessage, shc));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Produced DH ServerKeyExchange handshake message"_s, $$new($ObjectArray, {$of(skem)}));
+		$SSLLogger::fine("Produced DH ServerKeyExchange handshake message"_s, $$new($ObjectArray, {skem}));
 	}
 	skem->write($nc(shc)->handshakeOutput);
-	$nc($nc(shc)->handshakeOutput)->flush();
+	$nc(shc->handshakeOutput)->flush();
 	return nullptr;
 }
 
@@ -76,7 +41,33 @@ DHServerKeyExchange$DHServerKeyExchangeProducer::DHServerKeyExchange$DHServerKey
 }
 
 $Class* DHServerKeyExchange$DHServerKeyExchangeProducer::load$($String* name, bool initialize) {
-	$loadClass(DHServerKeyExchange$DHServerKeyExchangeProducer, name, initialize, &_DHServerKeyExchange$DHServerKeyExchangeProducer_ClassInfo_, allocate$DHServerKeyExchange$DHServerKeyExchangeProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DHServerKeyExchange$DHServerKeyExchangeProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeProducer", "sun.security.ssl.DHServerKeyExchange", "DHServerKeyExchangeProducer", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.DHServerKeyExchange$DHServerKeyExchangeProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.DHServerKeyExchange"
+	};
+	$loadClass(DHServerKeyExchange$DHServerKeyExchangeProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHServerKeyExchange$DHServerKeyExchangeProducer);
+	});
 	return class$;
 }
 

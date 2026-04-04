@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/ClassLoaderHelper.h>
-
 #include <java/io/File.h>
 #include <java/util/ArrayList.h>
 #include <jcpp.h>
@@ -13,26 +12,6 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$MethodInfo _ClassLoaderHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ClassLoaderHelper, init$, void)},
-	{"mapAlternativeName", "(Ljava/io/File;)Ljava/io/File;", nullptr, $STATIC, $staticMethod(ClassLoaderHelper, mapAlternativeName, $File*, $File*)},
-	{"parsePath", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ClassLoaderHelper, parsePath, $StringArray*, $String*)},
-	{}
-};
-
-$ClassInfo _ClassLoaderHelper_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.ClassLoaderHelper",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ClassLoaderHelper_MethodInfo_
-};
-
-$Object* allocate$ClassLoaderHelper($Class* clazz) {
-	return $of($alloc(ClassLoaderHelper));
-}
-
 void ClassLoaderHelper::init$() {
 }
 
@@ -41,26 +20,42 @@ $File* ClassLoaderHelper::mapAlternativeName($File* lib) {
 }
 
 $StringArray* ClassLoaderHelper::parsePath($String* ldPath) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	char16_t ps = $File::pathSeparatorChar;
 	$var($ArrayList, paths, $new($ArrayList));
 	int32_t pathStart = 0;
 	int32_t pathEnd = 0;
-	while ((pathEnd = $nc(ldPath)->indexOf((int32_t)ps, pathStart)) >= 0) {
+	while ((pathEnd = $nc(ldPath)->indexOf(ps, pathStart)) >= 0) {
 		paths->add((pathStart < pathEnd) ? $(ldPath->substring(pathStart, pathEnd)) : "."_s);
 		pathStart = pathEnd + 1;
 	}
-	int32_t ldLen = $nc(ldPath)->length();
+	int32_t ldLen = ldPath->length();
 	paths->add((pathStart < ldLen) ? $(ldPath->substring(pathStart, ldLen)) : "."_s);
-	return $fcast($StringArray, paths->toArray($$new($StringArray, paths->size())));
+	return $cast($StringArray, paths->toArray($$new($StringArray, paths->size())));
 }
 
 ClassLoaderHelper::ClassLoaderHelper() {
 }
 
 $Class* ClassLoaderHelper::load$($String* name, bool initialize) {
-	$loadClass(ClassLoaderHelper, name, initialize, &_ClassLoaderHelper_ClassInfo_, allocate$ClassLoaderHelper);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ClassLoaderHelper, init$, void)},
+		{"mapAlternativeName", "(Ljava/io/File;)Ljava/io/File;", nullptr, $STATIC, $staticMethod(ClassLoaderHelper, mapAlternativeName, $File*, $File*)},
+		{"parsePath", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ClassLoaderHelper, parsePath, $StringArray*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.ClassLoaderHelper",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ClassLoaderHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassLoaderHelper);
+	});
 	return class$;
 }
 

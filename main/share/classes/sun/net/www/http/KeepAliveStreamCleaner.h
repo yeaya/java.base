@@ -50,6 +50,7 @@ public:
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void lock();
 	virtual bool offer(::sun::net::www::http::KeepAliveCleanerEntry* e);

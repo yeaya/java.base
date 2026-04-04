@@ -70,6 +70,7 @@ class $import ConstantPool : public ::java::lang::Object {
 	$class(ConstantPool, $PRELOAD, ::java::lang::Object)
 public:
 	ConstantPool();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Class* getClassAt(int32_t index);
 	$Class* getClassAt0(Object$* constantPoolOop, int32_t index);

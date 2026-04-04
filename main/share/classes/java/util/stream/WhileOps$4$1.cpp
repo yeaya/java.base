@@ -1,5 +1,4 @@
 #include <java/util/stream/WhileOps$4$1.h>
-
 #include <java/util/function/DoublePredicate.h>
 #include <java/util/stream/Sink$ChainedDouble.h>
 #include <java/util/stream/Sink.h>
@@ -11,7 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DoublePredicate = ::java::util::function::DoublePredicate;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedDouble = ::java::util::stream::Sink$ChainedDouble;
 using $WhileOps$4 = ::java::util::stream::WhileOps$4;
@@ -19,53 +17,6 @@ using $WhileOps$4 = ::java::util::stream::WhileOps$4;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _WhileOps$4$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/stream/WhileOps$4;", nullptr, $FINAL | $SYNTHETIC, $field(WhileOps$4$1, this$0)},
-	{"take", "Z", nullptr, 0, $field(WhileOps$4$1, take)},
-	{}
-};
-
-$MethodInfo _WhileOps$4$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/WhileOps$4;Ljava/util/stream/Sink;)V", nullptr, 0, $method(WhileOps$4$1, init$, void, $WhileOps$4*, $Sink*)},
-	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(WhileOps$4$1, accept, void, double)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(WhileOps$4$1, begin, void, int64_t)},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(WhileOps$4$1, cancellationRequested, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _WhileOps$4$1_EnclosingMethodInfo_ = {
-	"java.util.stream.WhileOps$4",
-	"opWrapSink",
-	"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
-};
-
-$InnerClassInfo _WhileOps$4$1_InnerClassesInfo_[] = {
-	{"java.util.stream.WhileOps$4", nullptr, nullptr, 0},
-	{"java.util.stream.WhileOps$4$1", nullptr, nullptr, 0},
-	{"java.util.stream.Sink$ChainedDouble", "java.util.stream.Sink", "ChainedDouble", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WhileOps$4$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.WhileOps$4$1",
-	"java.util.stream.Sink$ChainedDouble",
-	nullptr,
-	_WhileOps$4$1_FieldInfo_,
-	_WhileOps$4$1_MethodInfo_,
-	"Ljava/util/stream/Sink$ChainedDouble<Ljava/lang/Double;>;",
-	&_WhileOps$4$1_EnclosingMethodInfo_,
-	_WhileOps$4$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.WhileOps"
-};
-
-$Object* allocate$WhileOps$4$1($Class* clazz) {
-	return $of($alloc(WhileOps$4$1));
-}
 
 void WhileOps$4$1::init$($WhileOps$4* this$0, $Sink* downstream) {
 	$set(this, this$0, this$0);
@@ -92,7 +43,47 @@ WhileOps$4$1::WhileOps$4$1() {
 }
 
 $Class* WhileOps$4$1::load$($String* name, bool initialize) {
-	$loadClass(WhileOps$4$1, name, initialize, &_WhileOps$4$1_ClassInfo_, allocate$WhileOps$4$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/stream/WhileOps$4;", nullptr, $FINAL | $SYNTHETIC, $field(WhileOps$4$1, this$0)},
+		{"take", "Z", nullptr, 0, $field(WhileOps$4$1, take)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/WhileOps$4;Ljava/util/stream/Sink;)V", nullptr, 0, $method(WhileOps$4$1, init$, void, $WhileOps$4*, $Sink*)},
+		{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(WhileOps$4$1, accept, void, double)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(WhileOps$4$1, begin, void, int64_t)},
+		{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(WhileOps$4$1, cancellationRequested, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.WhileOps$4",
+		"opWrapSink",
+		"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.WhileOps$4", nullptr, nullptr, 0},
+		{"java.util.stream.WhileOps$4$1", nullptr, nullptr, 0},
+		{"java.util.stream.Sink$ChainedDouble", "java.util.stream.Sink", "ChainedDouble", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.WhileOps$4$1",
+		"java.util.stream.Sink$ChainedDouble",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/Sink$ChainedDouble<Ljava/lang/Double;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.WhileOps"
+	};
+	$loadClass(WhileOps$4$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WhileOps$4$1));
+	});
 	return class$;
 }
 

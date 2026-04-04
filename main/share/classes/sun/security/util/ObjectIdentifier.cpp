@@ -1,5 +1,4 @@
 #include <sun/security/util/ObjectIdentifier.h>
-
 #include <java/io/IOException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -42,74 +41,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _ObjectIdentifier_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ObjectIdentifier, $assertionsDisabled)},
-	{"MAXIMUM_OID_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectIdentifier, MAXIMUM_OID_SIZE)},
-	{"encoding", "[B", nullptr, $PRIVATE, $field(ObjectIdentifier, encoding)},
-	{"stringForm", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(ObjectIdentifier, stringForm)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectIdentifier, serialVersionUID)},
-	{"components", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ObjectIdentifier, components)},
-	{"componentLen", "I", nullptr, $PRIVATE, $field(ObjectIdentifier, componentLen)},
-	{"componentsCalculated", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(ObjectIdentifier, componentsCalculated)},
-	{"oidTable", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/security/util/ObjectIdentifier;>;", $PRIVATE | $STATIC, $staticField(ObjectIdentifier, oidTable)},
-	{}
-};
-
-$MethodInfo _ObjectIdentifier_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ObjectIdentifier, init$, void, $String*), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, 0, $method(ObjectIdentifier, init$, void, $bytes*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(ObjectIdentifier, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"check", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, check, void, $bytes*), "java.io.IOException"},
-	{"checkCount", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkCount, void, int32_t), "java.io.IOException"},
-	{"checkFirstComponent", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkFirstComponent, void, int32_t), "java.io.IOException"},
-	{"checkFirstComponent", "(Ljava/math/BigInteger;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkFirstComponent, void, $BigInteger*), "java.io.IOException"},
-	{"checkOidSize", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkOidSize, void, int32_t), "java.io.IOException"},
-	{"checkOtherComponent", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkOtherComponent, void, int32_t, int32_t), "java.io.IOException"},
-	{"checkOtherComponent", "(ILjava/math/BigInteger;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkOtherComponent, void, int32_t, $BigInteger*), "java.io.IOException"},
-	{"checkSecondComponent", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkSecondComponent, void, int32_t, int32_t), "java.io.IOException"},
-	{"checkSecondComponent", "(ILjava/math/BigInteger;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkSecondComponent, void, int32_t, $BigInteger*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, 0, $method(ObjectIdentifier, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectIdentifier, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectIdentifier, hashCode, int32_t)},
-	{"init", "([II)V", nullptr, $PRIVATE, $method(ObjectIdentifier, init, void, $ints*, int32_t), "java.io.IOException"},
-	{"of", "(Ljava/lang/String;)Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectIdentifier, of, ObjectIdentifier*, $String*), "java.io.IOException"},
-	{"of", "(Lsun/security/util/KnownOIDs;)Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectIdentifier, of, ObjectIdentifier*, $KnownOIDs*)},
-	{"pack", "([BIIII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, pack, $bytes*, $bytes*, int32_t, int32_t, int32_t, int32_t)},
-	{"pack7Oid", "([BII[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, pack7Oid, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"pack7Oid", "(I[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, pack7Oid, int32_t, int32_t, $bytes*, int32_t)},
-	{"pack7Oid", "(Ljava/math/BigInteger;[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, pack7Oid, int32_t, $BigInteger*, $bytes*, int32_t)},
-	{"pack8", "([BII[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, pack8, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ObjectIdentifier, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toIntArray", "()[I", nullptr, $PRIVATE, $method(ObjectIdentifier, toIntArray, $ints*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectIdentifier, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ObjectIdentifier, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ObjectIdentifier_InnerClassesInfo_[] = {
-	{"sun.security.util.ObjectIdentifier$HugeOidNotSupportedByOldJDK", "sun.security.util.ObjectIdentifier", "HugeOidNotSupportedByOldJDK", $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectIdentifier_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.util.ObjectIdentifier",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_ObjectIdentifier_FieldInfo_,
-	_ObjectIdentifier_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectIdentifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.ObjectIdentifier$HugeOidNotSupportedByOldJDK"
-};
-
-$Object* allocate$ObjectIdentifier($Class* clazz) {
-	return $of($alloc(ObjectIdentifier));
-}
-
 bool ObjectIdentifier::$assertionsDisabled = false;
 $ConcurrentHashMap* ObjectIdentifier::oidTable = nullptr;
 
@@ -123,7 +54,7 @@ void ObjectIdentifier::readObject($ObjectInputStream* is) {
 		checkOidSize(this->componentLen);
 		init(comp, this->componentLen);
 	} else {
-		checkOidSize($nc(this->encoding)->length);
+		checkOidSize(this->encoding->length);
 		check(this->encoding);
 	}
 }
@@ -144,7 +75,7 @@ void ObjectIdentifier::writeObject($ObjectOutputStream* os) {
 }
 
 void ObjectIdentifier::init$($String* oid) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, encoding, nullptr);
 	$set(this, components, nullptr);
 	this->componentLen = -1;
@@ -177,7 +108,7 @@ void ObjectIdentifier::init$($String* oid) {
 				} else {
 					if (count == 1) {
 						checkSecondComponent(first, bignum);
-						$assign(bignum, bignum->add($($BigInteger::valueOf((int64_t)(40 * first)))));
+						$assign(bignum, bignum->add($($BigInteger::valueOf(40 * first))));
 					} else {
 						checkOtherComponent(count, bignum);
 					}
@@ -224,27 +155,27 @@ void ObjectIdentifier::init$($bytes* encoding) {
 }
 
 void ObjectIdentifier::init$($DerInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, encoding, nullptr);
 	$set(this, components, nullptr);
 	this->componentLen = -1;
 	this->componentsCalculated = false;
-	$set(this, encoding, $nc($($nc($($nc(in)->getDerValue()))->getOID()))->encoding);
+	$set(this, encoding, $nc($($$nc($nc(in)->getDerValue())->getOID()))->encoding);
 }
 
 void ObjectIdentifier::init($ints* components, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = 0;
 	$var($bytes, tmp, $new($bytes, length * 5 + 1));
-	if ($nc(components)->get(1) < $Integer::MAX_VALUE - components->get(0) * 40) {
+	if ($nc(components)->get(1) < $Integer::MAX_VALUE - $nc(components)->get(0) * 40) {
 		pos += pack7Oid(components->get(0) * 40 + components->get(1), tmp, pos);
 	} else {
-		$var($BigInteger, big, $BigInteger::valueOf((int64_t)components->get(1)));
-		$assign(big, $nc(big)->add($($BigInteger::valueOf((int64_t)(components->get(0) * 40)))));
+		$var($BigInteger, big, $BigInteger::valueOf(components->get(1)));
+		$assign(big, big->add($($BigInteger::valueOf(components->get(0) * 40))));
 		pos += pack7Oid(big, tmp, pos);
 	}
 	for (int32_t i = 2; i < length; ++i) {
-		pos += pack7Oid($nc(components)->get(i), tmp, pos);
+		pos += pack7Oid(components->get(i), tmp, pos);
 		checkOidSize(pos);
 	}
 	$set(this, encoding, $new($bytes, pos));
@@ -263,14 +194,14 @@ ObjectIdentifier* ObjectIdentifier::of($String* oidStr) {
 
 ObjectIdentifier* ObjectIdentifier::of($KnownOIDs* o) {
 	$init(ObjectIdentifier);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, oidStr, $nc(o)->value());
 	$var(ObjectIdentifier, oid, $cast(ObjectIdentifier, $nc(ObjectIdentifier::oidTable)->get(oidStr)));
 	if (oid == nullptr) {
 		try {
 			$assign(oid, $new(ObjectIdentifier, oidStr));
 		} catch ($IOException& ioe) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+			$throwNew($RuntimeException, ioe);
 		}
 		$nc(ObjectIdentifier::oidTable)->put(oidStr, oid);
 	}
@@ -297,24 +228,24 @@ int32_t ObjectIdentifier::hashCode() {
 }
 
 $ints* ObjectIdentifier::toIntArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(this->encoding)->length;
 	$var($ints, result, $new($ints, 20));
 	int32_t which = 0;
 	int32_t fromPos = 0;
 	for (int32_t i = 0; i < length; ++i) {
-		if (((int32_t)($nc(this->encoding)->get(i) & (uint32_t)128)) == 0) {
+		if ((this->encoding->get(i) & 0x80) == 0) {
 			if (i - fromPos + 1 > 4) {
 				$var($BigInteger, big, $new($BigInteger, $(pack(this->encoding, fromPos, i - fromPos + 1, 7, 8))));
 				if (fromPos == 0) {
 					result->set(which++, 2);
-					$var($BigInteger, second, big->subtract($($BigInteger::valueOf((int64_t)80))));
-					if ($nc(second)->compareTo($($BigInteger::valueOf((int64_t)$Integer::MAX_VALUE))) == 1) {
+					$var($BigInteger, second, big->subtract($($BigInteger::valueOf(80))));
+					if (second->compareTo($($BigInteger::valueOf($Integer::MAX_VALUE))) == 1) {
 						return nullptr;
 					} else {
 						result->set(which++, second->intValue());
 					}
-				} else if (big->compareTo($($BigInteger::valueOf((int64_t)$Integer::MAX_VALUE))) == 1) {
+				} else if (big->compareTo($($BigInteger::valueOf($Integer::MAX_VALUE))) == 1) {
 					return nullptr;
 				} else {
 					result->set(which++, big->intValue());
@@ -323,8 +254,8 @@ $ints* ObjectIdentifier::toIntArray() {
 				int32_t retval = 0;
 				for (int32_t j = fromPos; j <= i; ++j) {
 					retval <<= 7;
-					int8_t tmp = $nc(this->encoding)->get(j);
-					retval |= ((int32_t)(tmp & (uint32_t)127));
+					int8_t tmp = this->encoding->get(j);
+					retval |= (tmp & 0x7f);
 				}
 				if (fromPos == 0) {
 					if (retval < 80) {
@@ -348,14 +279,14 @@ $ints* ObjectIdentifier::toIntArray() {
 }
 
 $String* ObjectIdentifier::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, this->stringForm);
 	if (s == nullptr) {
 		int32_t length = $nc(this->encoding)->length;
 		$var($StringBuilder, sb, $new($StringBuilder, length * 4));
 		int32_t fromPos = 0;
 		for (int32_t i = 0; i < length; ++i) {
-			if (((int32_t)($nc(this->encoding)->get(i) & (uint32_t)128)) == 0) {
+			if ((this->encoding->get(i) & 0x80) == 0) {
 				if (fromPos != 0) {
 					sb->append(u'.');
 				}
@@ -363,16 +294,16 @@ $String* ObjectIdentifier::toString() {
 					$var($BigInteger, big, $new($BigInteger, $(pack(this->encoding, fromPos, i - fromPos + 1, 7, 8))));
 					if (fromPos == 0) {
 						sb->append("2."_s);
-						sb->append($($of(big->subtract($($BigInteger::valueOf((int64_t)80))))));
+						sb->append($(big->subtract($($BigInteger::valueOf(80)))));
 					} else {
-						sb->append($of(big));
+						sb->append(big);
 					}
 				} else {
 					int32_t retval = 0;
 					for (int32_t j = fromPos; j <= i; ++j) {
 						retval <<= 7;
-						int8_t tmp = $nc(this->encoding)->get(j);
-						retval |= ((int32_t)(tmp & (uint32_t)127));
+						int8_t tmp = this->encoding->get(j);
+						retval |= (tmp & 0x7f);
 					}
 					if (fromPos == 0) {
 						if (retval < 80) {
@@ -416,7 +347,7 @@ $bytes* ObjectIdentifier::pack($bytes* in, int32_t ioffset, int32_t ilength, int
 		if (count > ow - $mod(opos, ow)) {
 			count = ow - $mod(opos, ow);
 		}
-		(*out)[$div(opos, ow)] |= $sl((int32_t)(($sr($nc(in)->get(ioffset + $div(ipos, iw)) + 256, iw - $mod(ipos, iw) - count)) & (uint32_t)(($sl(1, count)) - 1)), ow - $mod(opos, ow) - count);
+		(*out)[$div(opos, ow)] |= $sl(($sr($nc(in)->get(ioffset + $div(ipos, iw)) + 256, iw - $mod(ipos, iw) - count)) & (($sl(1, count)) - 1), ow - $mod(opos, ow) - count);
 		ipos += count;
 		opos += count;
 	}
@@ -463,17 +394,17 @@ int32_t ObjectIdentifier::pack7Oid(int32_t input, $bytes* out, int32_t ooffset) 
 int32_t ObjectIdentifier::pack7Oid($BigInteger* input, $bytes* out, int32_t ooffset) {
 	$init(ObjectIdentifier);
 	$var($bytes, b, $nc(input)->toByteArray());
-	return pack7Oid(b, 0, $nc(b)->length, out, ooffset);
+	return pack7Oid(b, 0, b->length, out, ooffset);
 }
 
 void ObjectIdentifier::check($bytes* encoding) {
 	$init(ObjectIdentifier);
 	int32_t length = $nc(encoding)->length;
-	if (length < 1 || ((int32_t)(encoding->get(length - 1) & (uint32_t)128)) != 0) {
+	if (length < 1 || (encoding->get(length - 1) & 0x80) != 0) {
 		$throwNew($IOException, "ObjectIdentifier() -- Invalid DER encoding, not ended"_s);
 	}
 	for (int32_t i = 0; i < length; ++i) {
-		if (encoding->get(i) == (int8_t)128 && (i == 0 || ((int32_t)(encoding->get(i - 1) & (uint32_t)128)) == 0)) {
+		if (encoding->get(i) == (int8_t)128 && (i == 0 || (encoding->get(i - 1) & 0x80) == 0)) {
 			$throwNew($IOException, "ObjectIdentifier() -- Invalid DER encoding, useless extra octet detected"_s);
 		}
 	}
@@ -496,7 +427,7 @@ void ObjectIdentifier::checkFirstComponent(int32_t first) {
 void ObjectIdentifier::checkFirstComponent($BigInteger* first) {
 	$init(ObjectIdentifier);
 	bool var$0 = $nc(first)->signum() == -1;
-	if (var$0 || $nc(first)->compareTo($BigInteger::TWO) > 0) {
+	if (var$0 || first->compareTo($BigInteger::TWO) > 0) {
 		$throwNew($IOException, "ObjectIdentifier() -- First oid component is invalid "_s);
 	}
 }
@@ -511,14 +442,14 @@ void ObjectIdentifier::checkSecondComponent(int32_t first, int32_t second) {
 void ObjectIdentifier::checkSecondComponent(int32_t first, $BigInteger* second) {
 	$init(ObjectIdentifier);
 	bool var$0 = $nc(second)->signum() == -1;
-	if (var$0 || first != 2 && $nc(second)->compareTo($($BigInteger::valueOf((int64_t)39))) == 1) {
+	if (var$0 || first != 2 && second->compareTo($($BigInteger::valueOf(39))) == 1) {
 		$throwNew($IOException, "ObjectIdentifier() -- Second oid component is invalid "_s);
 	}
 }
 
 void ObjectIdentifier::checkOtherComponent(int32_t i, int32_t num) {
 	$init(ObjectIdentifier);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (num < 0) {
 		$throwNew($IOException, $$str({"ObjectIdentifier() -- oid component #"_s, $$str((i + 1)), " must be non-negative "_s}));
 	}
@@ -526,7 +457,7 @@ void ObjectIdentifier::checkOtherComponent(int32_t i, int32_t num) {
 
 void ObjectIdentifier::checkOtherComponent(int32_t i, $BigInteger* num) {
 	$init(ObjectIdentifier);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(num)->signum() == -1) {
 		$throwNew($IOException, $$str({"ObjectIdentifier() -- oid component #"_s, $$str((i + 1)), " must be non-negative "_s}));
 	}
@@ -534,13 +465,13 @@ void ObjectIdentifier::checkOtherComponent(int32_t i, $BigInteger* num) {
 
 void ObjectIdentifier::checkOidSize(int32_t oidLength) {
 	$init(ObjectIdentifier);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oidLength > ObjectIdentifier::MAXIMUM_OID_SIZE) {
 		$throwNew($IOException, $$str({"ObjectIdentifier encoded length exceeds the restriction in JDK (OId length(>=): "_s, $$str(oidLength), ", Restriction: "_s, $$str(ObjectIdentifier::MAXIMUM_OID_SIZE), ")"_s}));
 	}
 }
 
-void clinit$ObjectIdentifier($Class* class$) {
+void ObjectIdentifier::clinit$($Class* clazz) {
 	ObjectIdentifier::$assertionsDisabled = !ObjectIdentifier::class$->desiredAssertionStatus();
 	$assignStatic(ObjectIdentifier::oidTable, $new($ConcurrentHashMap));
 }
@@ -549,7 +480,69 @@ ObjectIdentifier::ObjectIdentifier() {
 }
 
 $Class* ObjectIdentifier::load$($String* name, bool initialize) {
-	$loadClass(ObjectIdentifier, name, initialize, &_ObjectIdentifier_ClassInfo_, clinit$ObjectIdentifier, allocate$ObjectIdentifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ObjectIdentifier, $assertionsDisabled)},
+		{"MAXIMUM_OID_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectIdentifier, MAXIMUM_OID_SIZE)},
+		{"encoding", "[B", nullptr, $PRIVATE, $field(ObjectIdentifier, encoding)},
+		{"stringForm", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(ObjectIdentifier, stringForm)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectIdentifier, serialVersionUID)},
+		{"components", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ObjectIdentifier, components)},
+		{"componentLen", "I", nullptr, $PRIVATE, $field(ObjectIdentifier, componentLen)},
+		{"componentsCalculated", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(ObjectIdentifier, componentsCalculated)},
+		{"oidTable", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/security/util/ObjectIdentifier;>;", $PRIVATE | $STATIC, $staticField(ObjectIdentifier, oidTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ObjectIdentifier, init$, void, $String*), "java.io.IOException"},
+		{"<init>", "([B)V", nullptr, 0, $method(ObjectIdentifier, init$, void, $bytes*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(ObjectIdentifier, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"check", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, check, void, $bytes*), "java.io.IOException"},
+		{"checkCount", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkCount, void, int32_t), "java.io.IOException"},
+		{"checkFirstComponent", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkFirstComponent, void, int32_t), "java.io.IOException"},
+		{"checkFirstComponent", "(Ljava/math/BigInteger;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkFirstComponent, void, $BigInteger*), "java.io.IOException"},
+		{"checkOidSize", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkOidSize, void, int32_t), "java.io.IOException"},
+		{"checkOtherComponent", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkOtherComponent, void, int32_t, int32_t), "java.io.IOException"},
+		{"checkOtherComponent", "(ILjava/math/BigInteger;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkOtherComponent, void, int32_t, $BigInteger*), "java.io.IOException"},
+		{"checkSecondComponent", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkSecondComponent, void, int32_t, int32_t), "java.io.IOException"},
+		{"checkSecondComponent", "(ILjava/math/BigInteger;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, checkSecondComponent, void, int32_t, $BigInteger*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, 0, $method(ObjectIdentifier, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectIdentifier, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectIdentifier, hashCode, int32_t)},
+		{"init", "([II)V", nullptr, $PRIVATE, $method(ObjectIdentifier, init, void, $ints*, int32_t), "java.io.IOException"},
+		{"of", "(Ljava/lang/String;)Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectIdentifier, of, ObjectIdentifier*, $String*), "java.io.IOException"},
+		{"of", "(Lsun/security/util/KnownOIDs;)Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectIdentifier, of, ObjectIdentifier*, $KnownOIDs*)},
+		{"pack", "([BIIII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, pack, $bytes*, $bytes*, int32_t, int32_t, int32_t, int32_t)},
+		{"pack7Oid", "([BII[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, pack7Oid, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"pack7Oid", "(I[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, pack7Oid, int32_t, int32_t, $bytes*, int32_t)},
+		{"pack7Oid", "(Ljava/math/BigInteger;[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, pack7Oid, int32_t, $BigInteger*, $bytes*, int32_t)},
+		{"pack8", "([BII[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectIdentifier, pack8, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ObjectIdentifier, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toIntArray", "()[I", nullptr, $PRIVATE, $method(ObjectIdentifier, toIntArray, $ints*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectIdentifier, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ObjectIdentifier, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.ObjectIdentifier$HugeOidNotSupportedByOldJDK", "sun.security.util.ObjectIdentifier", "HugeOidNotSupportedByOldJDK", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.util.ObjectIdentifier",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.ObjectIdentifier$HugeOidNotSupportedByOldJDK"
+	};
+	$loadClass(ObjectIdentifier, name, initialize, &classInfo$$, ObjectIdentifier::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectIdentifier);
+	});
 	return class$;
 }
 

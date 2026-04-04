@@ -64,13 +64,13 @@ public:
 	bool isSEAsianSwapping();
 	static void reverse(::java::lang::StringBuffer* result, int32_t from, int32_t to);
 	bool usedInContractSeq(int32_t c);
-	static const int32_t EXPANDCHARINDEX = 0x7E000000;
-	static const int32_t CONTRACTCHARINDEX = 0x7F000000;
+	static const int32_t EXPANDCHARINDEX = 0x7e000000;
+	static const int32_t CONTRACTCHARINDEX = 0x7f000000;
 	static const int32_t UNMAPPED = (-1);
-	static const int32_t PRIMARYORDERMASK = 0xFFFF0000;
-	static const int32_t SECONDARYORDERMASK = 0x0000FF00;
+	static const int32_t PRIMARYORDERMASK = 0xffff0000;
+	static const int32_t SECONDARYORDERMASK = 0x0000ff00;
 	static const int32_t TERTIARYORDERMASK = 255;
-	static const int32_t PRIMARYDIFFERENCEONLY = 0xFFFF0000;
+	static const int32_t PRIMARYDIFFERENCEONLY = 0xffff0000;
 	static const int32_t SECONDARYDIFFERENCEONLY = (-256);
 	static const int32_t PRIMARYORDERSHIFT = 16;
 	static const int32_t SECONDARYORDERSHIFT = 8;

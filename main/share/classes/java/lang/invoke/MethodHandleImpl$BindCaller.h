@@ -32,6 +32,7 @@ class MethodHandleImpl$BindCaller : public ::java::lang::Object {
 	$class(MethodHandleImpl$BindCaller, 0, ::java::lang::Object)
 public:
 	MethodHandleImpl$BindCaller();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandle* bindCaller(::java::lang::invoke::MethodHandle* mh, $Class* hostClass);
 	static bool checkCallerClass($Class* expected);

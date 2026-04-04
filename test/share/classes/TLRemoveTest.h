@@ -20,6 +20,7 @@ class $export TLRemoveTest : public ::java::lang::Object {
 	$class(TLRemoveTest, 0, ::java::lang::Object)
 public:
 	TLRemoveTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static const int32_t INITIAL_VALUE = 101;

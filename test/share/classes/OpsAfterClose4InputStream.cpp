@@ -1,5 +1,4 @@
 #include <OpsAfterClose4InputStream.h>
-
 #include <OpsAfterClose4InputStream$1.h>
 #include <OpsAfterClose4InputStream$2.h>
 #include <OpsAfterClose4InputStream$3.h>
@@ -53,7 +52,6 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $PipedInputStream = ::java::io::PipedInputStream;
 using $PipedOutputStream = ::java::io::PipedOutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $PushbackInputStream = ::java::io::PushbackInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
@@ -61,65 +59,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _OpsAfterClose4InputStream_FieldInfo_[] = {
-	{"READ", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, READ)},
-	{"READ_BUF", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, READ_BUF)},
-	{"READ_BUF_OFF", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, READ_BUF_OFF)},
-	{"AVAILABLE", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, AVAILABLE)},
-	{"SKIP", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, SKIP)},
-	{"MARK", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, MARK)},
-	{"RESET", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, RESET)},
-	{"MARK_SUPPORTED", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, MARK_SUPPORTED)},
-	{"CLOSE", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, CLOSE)},
-	{"$VALUES", "[LOpsAfterClose4InputStream;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(OpsAfterClose4InputStream, $VALUES)},
-	{}
-};
-
-$MethodInfo _OpsAfterClose4InputStream_MethodInfo_[] = {
-	{"$values", "()[LOpsAfterClose4InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpsAfterClose4InputStream, $values, $OpsAfterClose4InputStreamArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OpsAfterClose4InputStream, init$, void, $String*, int32_t)},
-	{"check", "(Ljava/io/InputStream;)Z", nullptr, $ABSTRACT, $virtualMethod(OpsAfterClose4InputStream, check, bool, $InputStream*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4InputStream, main, void, $StringArray*), "java.lang.Exception"},
-	{"testFileInputStream", "(Ljava/io/FileInputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4InputStream, testFileInputStream, bool, $FileInputStream*), "java.lang.Exception"},
-	{"testInputStream", "(Ljava/io/InputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4InputStream, testInputStream, bool, $InputStream*), "java.lang.Exception"},
-	{"testPushbackInputStream", "(Ljava/io/PushbackInputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4InputStream, testPushbackInputStream, bool, $PushbackInputStream*), "java.lang.Exception"},
-	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4InputStream, valueOf, OpsAfterClose4InputStream*, $String*)},
-	{"values", "()[LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4InputStream, values, $OpsAfterClose4InputStreamArray*)},
-	{}
-};
-
-$InnerClassInfo _OpsAfterClose4InputStream_InnerClassesInfo_[] = {
-	{"OpsAfterClose4InputStream$9", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4InputStream$8", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4InputStream$7", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4InputStream$6", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4InputStream$5", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4InputStream$4", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4InputStream$3", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4InputStream$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4InputStream$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _OpsAfterClose4InputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
-	"OpsAfterClose4InputStream",
-	"java.lang.Enum",
-	nullptr,
-	_OpsAfterClose4InputStream_FieldInfo_,
-	_OpsAfterClose4InputStream_MethodInfo_,
-	"Ljava/lang/Enum<LOpsAfterClose4InputStream;>;",
-	nullptr,
-	_OpsAfterClose4InputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"OpsAfterClose4InputStream$9,OpsAfterClose4InputStream$8,OpsAfterClose4InputStream$7,OpsAfterClose4InputStream$6,OpsAfterClose4InputStream$5,OpsAfterClose4InputStream$4,OpsAfterClose4InputStream$3,OpsAfterClose4InputStream$2,OpsAfterClose4InputStream$1"
-};
-
-$Object* allocate$OpsAfterClose4InputStream($Class* clazz) {
-	return $of($alloc(OpsAfterClose4InputStream));
-}
 
 OpsAfterClose4InputStream* OpsAfterClose4InputStream::READ = nullptr;
 OpsAfterClose4InputStream* OpsAfterClose4InputStream::READ_BUF = nullptr;
@@ -163,61 +102,55 @@ void OpsAfterClose4InputStream::init$($String* $enum$name, int32_t $enum$ordinal
 
 void OpsAfterClose4InputStream::main($StringArray* args) {
 	$init(OpsAfterClose4InputStream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool failed = false;
 	$var($File, f, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "f.txt"_s));
 	f->createNewFile();
 	f->deleteOnExit();
 	$var($FileInputStream, fis, $new($FileInputStream, f));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (testInputStream(fis)) {
-				failed = true;
-			}
-			if (testFileInputStream(fis)) {
-				failed = true;
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			fis->close();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (testInputStream(fis)) {
+			failed = true;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (testFileInputStream(fis)) {
+			failed = true;
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		fis->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$var($BufferedInputStream, bs, $new($BufferedInputStream, $$new($FileInputStream, f)));
-	{
-		$var($Throwable, var$2, nullptr);
-		try {
-			if (testInputStream(bs)) {
-				failed = true;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$2, var$3);
-		} /*finally*/ {
-			bs->close();
+	$var($Throwable, var$2, nullptr);
+	try {
+		if (testInputStream(bs)) {
+			failed = true;
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$2, var$3);
+	} /*finally*/ {
+		bs->close();
+	}
+	if (var$2 != nullptr) {
+		$throw(var$2);
 	}
 	$var($DataInputStream, dis, $new($DataInputStream, $$new($FileInputStream, f)));
-	{
-		$var($Throwable, var$4, nullptr);
-		try {
-			if (testInputStream(dis)) {
-				failed = true;
-			}
-		} catch ($Throwable& var$5) {
-			$assign(var$4, var$5);
-		} /*finally*/ {
-			dis->close();
+	$var($Throwable, var$4, nullptr);
+	try {
+		if (testInputStream(dis)) {
+			failed = true;
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
+	} catch ($Throwable& var$5) {
+		$assign(var$4, var$5);
+	} /*finally*/ {
+		dis->close();
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
 	}
 	$var($PushbackInputStream, pbis, $new($PushbackInputStream, $$new($ByteArrayInputStream, $$new($bytes, 20))));
 	if (testInputStream(pbis)) {
@@ -237,38 +170,36 @@ void OpsAfterClose4InputStream::main($StringArray* args) {
 
 bool OpsAfterClose4InputStream::testInputStream($InputStream* is) {
 	$init(OpsAfterClose4InputStream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(is)->close();
 	bool failed = false;
 	bool result = false;
 	$nc($System::out)->println($$str({"Testing :"_s, is}));
 	{
 		$var($OpsAfterClose4InputStreamArray, arr$, OpsAfterClose4InputStream::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			OpsAfterClose4InputStream* op = arr$->get(i$);
 			{
 				if ($nc(op)->equals(OpsAfterClose4InputStream::AVAILABLE) && ($instanceOf($PipedInputStream, is))) {
 					continue;
 				}
-				result = $nc(op)->check(is);
+				result = op->check(is);
 				if (!result) {
 					failed = true;
 				}
-				$nc($System::out)->println($$str({op, ":"_s, $$str(result)}));
+				$System::out->println($$str({op, ":"_s, $$str(result)}));
 			}
 		}
 	}
 	if (failed) {
-		$nc($System::out)->println($$str({"Test failed for the failed operation{s} above for :"_s, is}));
+		$System::out->println($$str({"Test failed for the failed operation{s} above for :"_s, is}));
 	}
 	return failed;
 }
 
 bool OpsAfterClose4InputStream::testPushbackInputStream($PushbackInputStream* pis) {
 	$init(OpsAfterClose4InputStream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool failed = false;
 	try {
 		$nc(pis)->unread(1);
@@ -310,7 +241,7 @@ bool OpsAfterClose4InputStream::testFileInputStream($FileInputStream* fis) {
 	return failed;
 }
 
-void clinit$OpsAfterClose4InputStream($Class* class$) {
+void OpsAfterClose4InputStream::clinit$($Class* clazz) {
 	$assignStatic(OpsAfterClose4InputStream::READ, $new($OpsAfterClose4InputStream$1, "READ"_s, 0));
 	$assignStatic(OpsAfterClose4InputStream::READ_BUF, $new($OpsAfterClose4InputStream$2, "READ_BUF"_s, 1));
 	$assignStatic(OpsAfterClose4InputStream::READ_BUF_OFF, $new($OpsAfterClose4InputStream$3, "READ_BUF_OFF"_s, 2));
@@ -327,7 +258,60 @@ OpsAfterClose4InputStream::OpsAfterClose4InputStream() {
 }
 
 $Class* OpsAfterClose4InputStream::load$($String* name, bool initialize) {
-	$loadClass(OpsAfterClose4InputStream, name, initialize, &_OpsAfterClose4InputStream_ClassInfo_, clinit$OpsAfterClose4InputStream, allocate$OpsAfterClose4InputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"READ", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, READ)},
+		{"READ_BUF", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, READ_BUF)},
+		{"READ_BUF_OFF", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, READ_BUF_OFF)},
+		{"AVAILABLE", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, AVAILABLE)},
+		{"SKIP", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, SKIP)},
+		{"MARK", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, MARK)},
+		{"RESET", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, RESET)},
+		{"MARK_SUPPORTED", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, MARK_SUPPORTED)},
+		{"CLOSE", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, CLOSE)},
+		{"$VALUES", "[LOpsAfterClose4InputStream;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(OpsAfterClose4InputStream, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LOpsAfterClose4InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpsAfterClose4InputStream, $values, $OpsAfterClose4InputStreamArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OpsAfterClose4InputStream, init$, void, $String*, int32_t)},
+		{"check", "(Ljava/io/InputStream;)Z", nullptr, $ABSTRACT, $virtualMethod(OpsAfterClose4InputStream, check, bool, $InputStream*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4InputStream, main, void, $StringArray*), "java.lang.Exception"},
+		{"testFileInputStream", "(Ljava/io/FileInputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4InputStream, testFileInputStream, bool, $FileInputStream*), "java.lang.Exception"},
+		{"testInputStream", "(Ljava/io/InputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4InputStream, testInputStream, bool, $InputStream*), "java.lang.Exception"},
+		{"testPushbackInputStream", "(Ljava/io/PushbackInputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4InputStream, testPushbackInputStream, bool, $PushbackInputStream*), "java.lang.Exception"},
+		{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4InputStream, valueOf, OpsAfterClose4InputStream*, $String*)},
+		{"values", "()[LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4InputStream, values, $OpsAfterClose4InputStreamArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"OpsAfterClose4InputStream$9", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4InputStream$8", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4InputStream$7", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4InputStream$6", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4InputStream$5", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4InputStream$4", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4InputStream$3", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4InputStream$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4InputStream$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
+		"OpsAfterClose4InputStream",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LOpsAfterClose4InputStream;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"OpsAfterClose4InputStream$9,OpsAfterClose4InputStream$8,OpsAfterClose4InputStream$7,OpsAfterClose4InputStream$6,OpsAfterClose4InputStream$5,OpsAfterClose4InputStream$4,OpsAfterClose4InputStream$3,OpsAfterClose4InputStream$2,OpsAfterClose4InputStream$1"
+	};
+	$loadClass(OpsAfterClose4InputStream, name, initialize, &classInfo$$, OpsAfterClose4InputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OpsAfterClose4InputStream));
+	});
 	return class$;
 }
 

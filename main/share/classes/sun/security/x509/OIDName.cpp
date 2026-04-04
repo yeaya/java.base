@@ -1,5 +1,4 @@
 #include <sun/security/x509/OIDName.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -26,39 +25,6 @@ using $GeneralNameInterface = ::sun::security::x509::GeneralNameInterface;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _OIDName_FieldInfo_[] = {
-	{"oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(OIDName, oid)},
-	{}
-};
-
-$MethodInfo _OIDName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(OIDName, init$, void, $DerValue*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;)V", nullptr, $PUBLIC, $method(OIDName, init$, void, $ObjectIdentifier*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OIDName, init$, void, $String*), "java.io.IOException"},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(OIDName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(OIDName, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OIDName, equals, bool, Object$*)},
-	{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(OIDName, getOID, $ObjectIdentifier*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(OIDName, getType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OIDName, hashCode, int32_t)},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(OIDName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OIDName, toString, $String*)},
-	{}
-};
-
-$ClassInfo _OIDName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.OIDName",
-	"java.lang.Object",
-	"sun.security.x509.GeneralNameInterface",
-	_OIDName_FieldInfo_,
-	_OIDName_MethodInfo_
-};
-
-$Object* allocate$OIDName($Class* clazz) {
-	return $of($alloc(OIDName));
-}
 
 void OIDName::init$($DerValue* derValue) {
 	$set(this, oid, $nc(derValue)->getOID());
@@ -111,7 +77,7 @@ int32_t OIDName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_OID) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_OID) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else if (this->equals($cast(OIDName, inputName))) {
 		constraintType = $GeneralNameInterface::NAME_MATCH;
@@ -130,7 +96,35 @@ OIDName::OIDName() {
 }
 
 $Class* OIDName::load$($String* name, bool initialize) {
-	$loadClass(OIDName, name, initialize, &_OIDName_ClassInfo_, allocate$OIDName);
+	$FieldInfo fieldInfos$$[] = {
+		{"oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(OIDName, oid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(OIDName, init$, void, $DerValue*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;)V", nullptr, $PUBLIC, $method(OIDName, init$, void, $ObjectIdentifier*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OIDName, init$, void, $String*), "java.io.IOException"},
+		{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(OIDName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(OIDName, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OIDName, equals, bool, Object$*)},
+		{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(OIDName, getOID, $ObjectIdentifier*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(OIDName, getType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OIDName, hashCode, int32_t)},
+		{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(OIDName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OIDName, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.OIDName",
+		"java.lang.Object",
+		"sun.security.x509.GeneralNameInterface",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OIDName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OIDName);
+	});
 	return class$;
 }
 

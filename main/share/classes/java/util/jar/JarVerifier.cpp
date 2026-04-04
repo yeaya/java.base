@@ -1,5 +1,4 @@
 #include <java/util/jar/JarVerifier.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -12,7 +11,6 @@
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -31,7 +29,6 @@
 #include <java/util/jar/JarVerifier$2.h>
 #include <java/util/jar/JarVerifier$3.h>
 #include <java/util/jar/JarVerifier$VerifierCodeSource.h>
-#include <java/util/zip/ZipEntry.h>
 #include <jdk/internal/util/jar/JarIndex.h>
 #include <sun/security/util/Debug.h>
 #include <sun/security/util/ManifestDigester.h>
@@ -59,12 +56,9 @@ using $CodeSigner = ::java::security::CodeSigner;
 using $CodeSource = ::java::security::CodeSource;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $SignatureException = ::java::security::SignatureException;
-using $CertPath = ::java::security::cert::CertPath;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;
@@ -74,14 +68,12 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarFile = ::java::util::jar::JarFile;
 using $JarVerifier$1 = ::java::util::jar::JarVerifier$1;
 using $JarVerifier$2 = ::java::util::jar::JarVerifier$2;
 using $JarVerifier$3 = ::java::util::jar::JarVerifier$3;
 using $JarVerifier$VerifierCodeSource = ::java::util::jar::JarVerifier$VerifierCodeSource;
-using $ZipEntry = ::java::util::zip::ZipEntry;
 using $JarIndex = ::jdk::internal::util::jar::JarIndex;
 using $Debug = ::sun::security::util::Debug;
 using $ManifestDigester = ::sun::security::util::ManifestDigester;
@@ -91,98 +83,6 @@ using $SignatureFileVerifier = ::sun::security::util::SignatureFileVerifier;
 namespace java {
 	namespace util {
 		namespace jar {
-
-$CompoundAttribute _JarVerifier_MethodAnnotations_getCerts6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _JarVerifier_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $STATIC | $FINAL, $staticField(JarVerifier, debug)},
-	{"verifiedSigners", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;", $PRIVATE, $field(JarVerifier, verifiedSigners)},
-	{"sigFileSigners", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;", $PRIVATE, $field(JarVerifier, sigFileSigners)},
-	{"sigFileData", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;[B>;", $PRIVATE, $field(JarVerifier, sigFileData)},
-	{"pendingBlocks", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/util/SignatureFileVerifier;>;", $PRIVATE, $field(JarVerifier, pendingBlocks)},
-	{"signerCache", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[Ljava/security/CodeSigner;>;", $PRIVATE, $field(JarVerifier, signerCache)},
-	{"parsingBlockOrSF", "Z", nullptr, $PRIVATE, $field(JarVerifier, parsingBlockOrSF)},
-	{"parsingMeta", "Z", nullptr, $PRIVATE, $field(JarVerifier, parsingMeta)},
-	{"anyToVerify", "Z", nullptr, $PRIVATE, $field(JarVerifier, anyToVerify)},
-	{"baos", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE, $field(JarVerifier, baos)},
-	{"manDig", "Lsun/security/util/ManifestDigester;", nullptr, $PRIVATE | $VOLATILE, $field(JarVerifier, manDig)},
-	{"manifestRawBytes", "[B", nullptr, 0, $field(JarVerifier, manifestRawBytes)},
-	{"manifestName", "Ljava/lang/String;", nullptr, $FINAL, $field(JarVerifier, manifestName)},
-	{"eagerValidation", "Z", nullptr, 0, $field(JarVerifier, eagerValidation)},
-	{"csdomain", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(JarVerifier, csdomain)},
-	{"manifestDigests", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE, $field(JarVerifier, manifestDigests)},
-	{"urlToCodeSourceMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/net/URL;Ljava/util/Map<[Ljava/security/CodeSigner;Ljava/security/CodeSource;>;>;", $PRIVATE, $field(JarVerifier, urlToCodeSourceMap)},
-	{"signerToCodeSource", "Ljava/util/Map;", "Ljava/util/Map<[Ljava/security/CodeSigner;Ljava/security/CodeSource;>;", $PRIVATE, $field(JarVerifier, signerToCodeSource)},
-	{"lastURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(JarVerifier, lastURL)},
-	{"lastURLMap", "Ljava/util/Map;", "Ljava/util/Map<[Ljava/security/CodeSigner;Ljava/security/CodeSource;>;", $PRIVATE, $field(JarVerifier, lastURLMap)},
-	{"emptySigner", "[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $field(JarVerifier, emptySigner)},
-	{"signerMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;", $PRIVATE, $field(JarVerifier, signerMap$)},
-	{"jarCodeSigners", "Ljava/util/List;", "Ljava/util/List<[Ljava/security/CodeSigner;>;", $PRIVATE, $field(JarVerifier, jarCodeSigners)},
-	{}
-};
-
-$MethodInfo _JarVerifier_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(JarVerifier, init$, void, $String*, $bytes*)},
-	{"beginEntry", "(Ljava/util/jar/JarEntry;Lsun/security/util/ManifestEntryVerifier;)V", nullptr, $PUBLIC, $virtualMethod(JarVerifier, beginEntry, void, $JarEntry*, $ManifestEntryVerifier*), "java.io.IOException"},
-	{"doneWithMeta", "()V", nullptr, 0, $virtualMethod(JarVerifier, doneWithMeta, void)},
-	{"entries2", "(Ljava/util/jar/JarFile;Ljava/util/Enumeration;)Ljava/util/Enumeration;", "(Ljava/util/jar/JarFile;Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;)Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(JarVerifier, entries2, $Enumeration*, $JarFile*, $Enumeration*)},
-	{"entryNames", "(Ljava/util/jar/JarFile;[Ljava/security/CodeSource;)Ljava/util/Enumeration;", "(Ljava/util/jar/JarFile;[Ljava/security/CodeSource;)Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(JarVerifier, entryNames, $Enumeration*, $JarFile*, $CodeSourceArray*)},
-	{"findMatchingSigners", "(Ljava/security/CodeSource;)[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $method(JarVerifier, findMatchingSigners, $CodeSignerArray*, $CodeSource*)},
-	{"getCerts", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JarVerifier, getCerts, $CertificateArray*, $String*), nullptr, nullptr, _JarVerifier_MethodAnnotations_getCerts6},
-	{"getCerts", "(Ljava/util/jar/JarFile;Ljava/util/jar/JarEntry;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JarVerifier, getCerts, $CertificateArray*, $JarFile*, $JarEntry*)},
-	{"getCodeSigners", "(Ljava/lang/String;)[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(JarVerifier, getCodeSigners, $CodeSignerArray*, $String*)},
-	{"getCodeSigners", "(Ljava/util/jar/JarFile;Ljava/util/jar/JarEntry;)[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(JarVerifier, getCodeSigners, $CodeSignerArray*, $JarFile*, $JarEntry*)},
-	{"getCodeSource", "(Ljava/net/URL;Ljava/lang/String;)Ljava/security/CodeSource;", nullptr, $PUBLIC, $virtualMethod(JarVerifier, getCodeSource, $CodeSource*, $URL*, $String*)},
-	{"getCodeSource", "(Ljava/net/URL;Ljava/util/jar/JarFile;Ljava/util/jar/JarEntry;)Ljava/security/CodeSource;", nullptr, $PUBLIC, $virtualMethod(JarVerifier, getCodeSource, $CodeSource*, $URL*, $JarFile*, $JarEntry*)},
-	{"getCodeSources", "(Ljava/util/jar/JarFile;Ljava/net/URL;)[Ljava/security/CodeSource;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JarVerifier, getCodeSources, $CodeSourceArray*, $JarFile*, $URL*)},
-	{"getJarCodeSigners", "()Ljava/util/List;", "()Ljava/util/List<[Ljava/security/CodeSigner;>;", $PRIVATE | $SYNCHRONIZED, $method(JarVerifier, getJarCodeSigners, $List*)},
-	{"getManifestDigests", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(JarVerifier, getManifestDigests, $List*)},
-	{"getUnsignedCS", "(Ljava/net/URL;)Ljava/security/CodeSource;", nullptr, $STATIC, $staticMethod(JarVerifier, getUnsignedCS, $CodeSource*, $URL*)},
-	{"isSigningRelated", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(JarVerifier, isSigningRelated, bool, $String*)},
-	{"isTrustedManifestEntry", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(JarVerifier, isTrustedManifestEntry, bool, $String*)},
-	{"mapSignersToCertArray", "([Ljava/security/CodeSigner;)[Ljava/security/cert/Certificate;", nullptr, $PRIVATE | $STATIC, $staticMethod(JarVerifier, mapSignersToCertArray, $CertificateArray*, $CodeSignerArray*)},
-	{"mapSignersToCodeSource", "(Ljava/net/URL;[Ljava/security/CodeSigner;)Ljava/security/CodeSource;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JarVerifier, mapSignersToCodeSource, $CodeSource*, $URL*, $CodeSignerArray*)},
-	{"mapSignersToCodeSources", "(Ljava/net/URL;Ljava/util/List;Z)[Ljava/security/CodeSource;", "(Ljava/net/URL;Ljava/util/List<[Ljava/security/CodeSigner;>;Z)[Ljava/security/CodeSource;", $PRIVATE, $method(JarVerifier, mapSignersToCodeSources, $CodeSourceArray*, $URL*, $List*, bool)},
-	{"nothingToVerify", "()Z", nullptr, 0, $virtualMethod(JarVerifier, nothingToVerify, bool)},
-	{"processEntry", "(Lsun/security/util/ManifestEntryVerifier;)V", nullptr, $PRIVATE, $method(JarVerifier, processEntry, void, $ManifestEntryVerifier*), "java.io.IOException"},
-	{"setEagerValidation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JarVerifier, setEagerValidation, void, bool)},
-	{"signerMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;", $PRIVATE | $SYNCHRONIZED, $method(JarVerifier, signerMap, $Map*)},
-	{"unsignedEntryNames", "(Ljava/util/jar/JarFile;)Ljava/util/Enumeration;", "(Ljava/util/jar/JarFile;)Ljava/util/Enumeration<Ljava/lang/String;>;", $PRIVATE, $method(JarVerifier, unsignedEntryNames, $Enumeration*, $JarFile*)},
-	{"update", "(ILsun/security/util/ManifestEntryVerifier;)V", nullptr, $PUBLIC, $virtualMethod(JarVerifier, update, void, int32_t, $ManifestEntryVerifier*), "java.io.IOException"},
-	{"update", "(I[BIILsun/security/util/ManifestEntryVerifier;)V", nullptr, $PUBLIC, $virtualMethod(JarVerifier, update, void, int32_t, $bytes*, int32_t, int32_t, $ManifestEntryVerifier*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JarVerifier_InnerClassesInfo_[] = {
-	{"java.util.jar.JarVerifier$VerifierCodeSource", "java.util.jar.JarVerifier", "VerifierCodeSource", $PRIVATE | $STATIC},
-	{"java.util.jar.JarVerifier$VerifierStream", "java.util.jar.JarVerifier", "VerifierStream", $STATIC},
-	{"java.util.jar.JarVerifier$3", nullptr, nullptr, 0},
-	{"java.util.jar.JarVerifier$2", nullptr, nullptr, 0},
-	{"java.util.jar.JarVerifier$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JarVerifier_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.jar.JarVerifier",
-	"java.lang.Object",
-	nullptr,
-	_JarVerifier_FieldInfo_,
-	_JarVerifier_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JarVerifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.jar.JarVerifier$VerifierCodeSource,java.util.jar.JarVerifier$VerifierStream,java.util.jar.JarVerifier$3,java.util.jar.JarVerifier$2,java.util.jar.JarVerifier$1"
-};
-
-$Object* allocate$JarVerifier($Class* clazz) {
-	return $of($alloc(JarVerifier));
-}
 
 $Debug* JarVerifier::debug = nullptr;
 
@@ -206,12 +106,12 @@ void JarVerifier::init$($String* name, $bytes* rawBytes) {
 }
 
 void JarVerifier::beginEntry($JarEntry* je, $ManifestEntryVerifier* mev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (je == nullptr) {
 		return;
 	}
 	if (JarVerifier::debug != nullptr) {
-		$nc(JarVerifier::debug)->println($$str({"beginEntry "_s, $($nc(je)->getName())}));
+		JarVerifier::debug->println($$str({"beginEntry "_s, $($nc(je)->getName())}));
 	}
 	$var($String, name, $nc(je)->getName());
 	if (this->parsingMeta) {
@@ -247,11 +147,11 @@ void JarVerifier::beginEntry($JarEntry* je, $ManifestEntryVerifier* mev) {
 	if ($nc(name)->startsWith("./"_s)) {
 		$assign(name, name->substring(2));
 	}
-	if ($nc(name)->startsWith("/"_s)) {
+	if (name->startsWith("/"_s)) {
 		$assign(name, name->substring(1));
 	}
 	$init($JarFile);
-	if (!$nc(name)->equalsIgnoreCase($JarFile::MANIFEST_NAME)) {
+	if (!name->equalsIgnoreCase($JarFile::MANIFEST_NAME)) {
 		bool var$2 = $nc(this->sigFileSigners)->get(name) != nullptr;
 		if (var$2 || $nc(this->verifiedSigners)->get(name) != nullptr) {
 			$nc(mev)->setEntry(name, je);
@@ -287,7 +187,7 @@ void JarVerifier::update(int32_t n, $bytes* b, int32_t off, int32_t len, $Manife
 }
 
 void JarVerifier::processEntry($ManifestEntryVerifier* mev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->parsingBlockOrSF) {
 		$var($JarEntry, je, $nc(mev)->getEntry());
 		if ((je != nullptr) && (je->signers == nullptr)) {
@@ -298,10 +198,10 @@ void JarVerifier::processEntry($ManifestEntryVerifier* mev) {
 		try {
 			this->parsingBlockOrSF = false;
 			if (JarVerifier::debug != nullptr) {
-				$nc(JarVerifier::debug)->println("processEntry: processing block"_s);
+				JarVerifier::debug->println("processEntry: processing block"_s);
 			}
 			$init($Locale);
-			$var($String, uname, $nc($($nc($($nc(mev)->getEntry()))->getName()))->toUpperCase($Locale::ENGLISH));
+			$var($String, uname, $$nc($$nc($nc(mev)->getEntry())->getName())->toUpperCase($Locale::ENGLISH));
 			if (uname->endsWith(".SF"_s)) {
 				$var($String, key, uname->substring(0, uname->length() - 3));
 				$var($bytes, bytes, $nc(this->baos)->toByteArray());
@@ -310,20 +210,18 @@ void JarVerifier::processEntry($ManifestEntryVerifier* mev) {
 					$var($Iterator, i$, $nc(this->pendingBlocks)->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($SignatureFileVerifier, sfv, $cast($SignatureFileVerifier, i$->next()));
-						{
-							if ($nc(sfv)->needSignatureFile(key)) {
-								if (JarVerifier::debug != nullptr) {
-									$nc(JarVerifier::debug)->println("processEntry: processing pending block"_s);
-								}
-								sfv->setSignatureFile(bytes);
-								sfv->process(this->sigFileSigners, this->manifestDigests, this->manifestName);
+						if ($nc(sfv)->needSignatureFile(key)) {
+							if (JarVerifier::debug != nullptr) {
+								JarVerifier::debug->println("processEntry: processing pending block"_s);
 							}
+							sfv->setSignatureFile(bytes);
+							sfv->process(this->sigFileSigners, this->manifestDigests, this->manifestName);
 						}
 					}
 				}
 				return;
 			}
-			$var($String, key, uname->substring(0, uname->lastIndexOf((int32_t)u'.')));
+			$var($String, key, uname->substring(0, uname->lastIndexOf(u'.')));
 			if (this->signerCache == nullptr) {
 				$set(this, signerCache, $new($ArrayList));
 			}
@@ -340,7 +238,7 @@ void JarVerifier::processEntry($ManifestEntryVerifier* mev) {
 				$var($bytes, bytes, $cast($bytes, $nc(this->sigFileData)->get(key)));
 				if (bytes == nullptr) {
 					if (JarVerifier::debug != nullptr) {
-						$nc(JarVerifier::debug)->println("adding pending block"_s);
+						JarVerifier::debug->println("adding pending block"_s);
 					}
 					$nc(this->pendingBlocks)->add(sfv);
 					return;
@@ -351,19 +249,19 @@ void JarVerifier::processEntry($ManifestEntryVerifier* mev) {
 			sfv->process(this->sigFileSigners, this->manifestDigests, this->manifestName);
 		} catch ($IOException& e) {
 			if (JarVerifier::debug != nullptr) {
-				$nc(JarVerifier::debug)->println($$str({"processEntry caught: "_s, e}));
+				JarVerifier::debug->println($$str({"processEntry caught: "_s, e}));
 			}
 		} catch ($CertificateException& e) {
 			if (JarVerifier::debug != nullptr) {
-				$nc(JarVerifier::debug)->println($$str({"processEntry caught: "_s, e}));
+				JarVerifier::debug->println($$str({"processEntry caught: "_s, e}));
 			}
 		} catch ($NoSuchAlgorithmException& e) {
 			if (JarVerifier::debug != nullptr) {
-				$nc(JarVerifier::debug)->println($$str({"processEntry caught: "_s, e}));
+				JarVerifier::debug->println($$str({"processEntry caught: "_s, e}));
 			}
 		} catch ($SignatureException& e) {
 			if (JarVerifier::debug != nullptr) {
-				$nc(JarVerifier::debug)->println($$str({"processEntry caught: "_s, e}));
+				JarVerifier::debug->println($$str({"processEntry caught: "_s, e}));
 			}
 		}
 	}
@@ -382,7 +280,7 @@ $CodeSignerArray* JarVerifier::getCodeSigners($String* name) {
 }
 
 $CodeSignerArray* JarVerifier::getCodeSigners($JarFile* jar, $JarEntry* entry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(entry)->getName());
 	if (this->eagerValidation && $nc(this->sigFileSigners)->get(name) != nullptr) {
 		try {
@@ -401,21 +299,19 @@ $CodeSignerArray* JarVerifier::getCodeSigners($JarFile* jar, $JarEntry* entry) {
 
 $CertificateArray* JarVerifier::mapSignersToCertArray($CodeSignerArray* signers) {
 	$init(JarVerifier);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (signers != nullptr) {
 		$var($ArrayList, certChains, $new($ArrayList));
 		{
 			$var($CodeSignerArray, arr$, signers);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($CodeSigner, signer, arr$->get(i$));
 				{
-					certChains->addAll($($nc($($nc(signer)->getSignerCertPath()))->getCertificates()));
+					certChains->addAll($($$nc($nc(signer)->getSignerCertPath())->getCertificates()));
 				}
 			}
 		}
-		return $fcast($CertificateArray, certChains->toArray($$new($CertificateArray, certChains->size())));
+		return $cast($CertificateArray, certChains->toArray($$new($CertificateArray, certChains->size())));
 	}
 	return nullptr;
 }
@@ -432,15 +328,15 @@ void JarVerifier::doneWithMeta() {
 	$set(this, pendingBlocks, nullptr);
 	$set(this, signerCache, nullptr);
 	$set(this, manDig, nullptr);
-	if ($nc(this->sigFileSigners)->containsKey(this->manifestName)) {
-		$var($CodeSignerArray, codeSigners, $cast($CodeSignerArray, $nc(this->sigFileSigners)->remove(this->manifestName)));
+	if (this->sigFileSigners->containsKey(this->manifestName)) {
+		$var($CodeSignerArray, codeSigners, $cast($CodeSignerArray, this->sigFileSigners->remove(this->manifestName)));
 		$nc(this->verifiedSigners)->put(this->manifestName, codeSigners);
 	}
 }
 
 $CodeSource* JarVerifier::mapSignersToCodeSource($URL* url, $CodeSignerArray* signers) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Map, map, nullptr);
 		if (url == this->lastURL) {
 			$assign(map, this->lastURLMap);
@@ -448,7 +344,7 @@ $CodeSource* JarVerifier::mapSignersToCodeSource($URL* url, $CodeSignerArray* si
 			$assign(map, $cast($Map, $nc(this->urlToCodeSourceMap)->get(url)));
 			if (map == nullptr) {
 				$assign(map, $new($HashMap));
-				$nc(this->urlToCodeSourceMap)->put(url, map);
+				this->urlToCodeSourceMap->put(url, map);
 			}
 			$set(this, lastURLMap, map);
 			$set(this, lastURL, url);
@@ -463,7 +359,7 @@ $CodeSource* JarVerifier::mapSignersToCodeSource($URL* url, $CodeSignerArray* si
 }
 
 $CodeSourceArray* JarVerifier::mapSignersToCodeSources($URL* url, $List* signers, bool unsigned$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, sources, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(signers)->iterator());
@@ -477,11 +373,11 @@ $CodeSourceArray* JarVerifier::mapSignersToCodeSources($URL* url, $List* signers
 	if (unsigned$) {
 		sources->add($(mapSignersToCodeSource(url, nullptr)));
 	}
-	return $fcast($CodeSourceArray, sources->toArray($$new($CodeSourceArray, sources->size())));
+	return $cast($CodeSourceArray, sources->toArray($$new($CodeSourceArray, sources->size())));
 }
 
 $CodeSignerArray* JarVerifier::findMatchingSigners($CodeSource* cs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($JarVerifier$VerifierCodeSource, vcs, nullptr);
 		bool var$0 = $instanceOf($JarVerifier$VerifierCodeSource, cs);
@@ -500,9 +396,7 @@ $CodeSignerArray* JarVerifier::findMatchingSigners($CodeSource* cs) {
 	$var($List, sourceList, $new($ArrayList));
 	{
 		$var($CodeSourceArray, arr$, sources);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CodeSource, source, arr$->get(i$));
 			{
 				sourceList->add(source);
@@ -512,7 +406,7 @@ $CodeSignerArray* JarVerifier::findMatchingSigners($CodeSource* cs) {
 	int32_t j = sourceList->indexOf(cs);
 	if (j != -1) {
 		$var($CodeSignerArray, match, nullptr);
-		$assign(match, $nc(($cast($JarVerifier$VerifierCodeSource, $(sourceList->get(j)))))->getPrivateSigners());
+		$assign(match, $$sure($JarVerifier$VerifierCodeSource, sourceList->get(j))->getPrivateSigners());
 		if (match == nullptr) {
 			$assign(match, this->emptySigner);
 		}
@@ -526,8 +420,8 @@ $Map* JarVerifier::signerMap() {
 		if (this->signerMap$ == nullptr) {
 			int32_t var$0 = $nc(this->verifiedSigners)->size();
 			$set(this, signerMap$, $new($HashMap, var$0 + $nc(this->sigFileSigners)->size()));
-			$nc(this->signerMap$)->putAll(this->verifiedSigners);
-			$nc(this->signerMap$)->putAll(this->sigFileSigners);
+			this->signerMap$->putAll(this->verifiedSigners);
+			this->signerMap$->putAll(this->sigFileSigners);
 		}
 		return this->signerMap$;
 	}
@@ -535,16 +429,14 @@ $Map* JarVerifier::signerMap() {
 
 $Enumeration* JarVerifier::entryNames($JarFile* jar, $CodeSourceArray* cs) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Map, map, signerMap());
-		$var($Iterator, itor, $nc($($nc(map)->entrySet()))->iterator());
+		$var($Iterator, itor, $$nc($nc(map)->entrySet())->iterator());
 		bool matchUnsigned = false;
 		$var($List, req, $new($ArrayList, $nc(cs)->length));
 		{
 			$var($CodeSourceArray, arr$, cs);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($CodeSource, c, arr$->get(i$));
 				{
 					$var($CodeSignerArray, match, findMatchingSigners(c));
@@ -567,7 +459,7 @@ $Enumeration* JarVerifier::entryNames($JarFile* jar, $CodeSourceArray* cs) {
 }
 
 $Enumeration* JarVerifier::entries2($JarFile* jar, $Enumeration* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, map, $new($HashMap));
 	map->putAll($(signerMap()));
 	$var($Enumeration, enum_, e);
@@ -580,7 +472,7 @@ bool JarVerifier::isSigningRelated($String* name) {
 }
 
 $Enumeration* JarVerifier::unsignedEntryNames($JarFile* jar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, map, signerMap());
 	$var($Enumeration, entries, $nc(jar)->entries());
 	return $new($JarVerifier$3, this, entries, map);
@@ -588,13 +480,13 @@ $Enumeration* JarVerifier::unsignedEntryNames($JarFile* jar) {
 
 $List* JarVerifier::getJarCodeSigners() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($CodeSignerArray, signers, nullptr);
 		if (this->jarCodeSigners == nullptr) {
 			$var($HashSet, set, $new($HashSet));
-			set->addAll($($nc($(signerMap()))->values()));
+			set->addAll($($$nc(signerMap())->values()));
 			$set(this, jarCodeSigners, $new($ArrayList));
-			$nc(this->jarCodeSigners)->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(set))));
+			this->jarCodeSigners->addAll($cast($AbstractCollection, set));
 		}
 		return this->jarCodeSigners;
 	}
@@ -602,21 +494,21 @@ $List* JarVerifier::getJarCodeSigners() {
 
 $CodeSourceArray* JarVerifier::getCodeSources($JarFile* jar, $URL* url) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		bool hasUnsigned = $nc($(unsignedEntryNames(jar)))->hasMoreElements();
+		$useLocalObjectStack();
+		bool hasUnsigned = $$nc(unsignedEntryNames(jar))->hasMoreElements();
 		return mapSignersToCodeSources(url, $(getJarCodeSigners()), hasUnsigned);
 	}
 }
 
 $CodeSource* JarVerifier::getCodeSource($URL* url, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CodeSignerArray, signers, nullptr);
-	$assign(signers, $cast($CodeSignerArray, $nc($(signerMap()))->get(name)));
+	$assign(signers, $cast($CodeSignerArray, $$nc(signerMap())->get(name)));
 	return mapSignersToCodeSource(url, signers);
 }
 
 $CodeSource* JarVerifier::getCodeSource($URL* url, $JarFile* jar, $JarEntry* je) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CodeSignerArray, signers, nullptr);
 	return mapSignersToCodeSource(url, $(getCodeSigners(jar, je)));
 }
@@ -633,23 +525,23 @@ $List* JarVerifier::getManifestDigests() {
 
 $CodeSource* JarVerifier::getUnsignedCS($URL* url) {
 	$init(JarVerifier);
-	return $new($JarVerifier$VerifierCodeSource, ($Object*)nullptr, url, ($CertificateArray*)nullptr);
+	return $new($JarVerifier$VerifierCodeSource, nullptr, url, ($CertificateArray*)nullptr);
 }
 
 bool JarVerifier::isTrustedManifestEntry($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CodeSignerArray, forMan, $cast($CodeSignerArray, $nc(this->verifiedSigners)->get(this->manifestName)));
 	if (forMan == nullptr) {
 		return true;
 	}
 	$var($CodeSignerArray, forName, $cast($CodeSignerArray, $nc(this->sigFileSigners)->get(name)));
 	if (forName == nullptr) {
-		$assign(forName, $cast($CodeSignerArray, $nc(this->verifiedSigners)->get(name)));
+		$assign(forName, $cast($CodeSignerArray, this->verifiedSigners->get(name)));
 	}
 	return forName != nullptr && forName->length == $nc(forMan)->length;
 }
 
-void clinit$JarVerifier($Class* class$) {
+void JarVerifier::clinit$($Class* clazz) {
 	$assignStatic(JarVerifier::debug, $Debug::getInstance("jar"_s));
 }
 
@@ -657,7 +549,92 @@ JarVerifier::JarVerifier() {
 }
 
 $Class* JarVerifier::load$($String* name, bool initialize) {
-	$loadClass(JarVerifier, name, initialize, &_JarVerifier_ClassInfo_, clinit$JarVerifier, allocate$JarVerifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $STATIC | $FINAL, $staticField(JarVerifier, debug)},
+		{"verifiedSigners", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;", $PRIVATE, $field(JarVerifier, verifiedSigners)},
+		{"sigFileSigners", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;", $PRIVATE, $field(JarVerifier, sigFileSigners)},
+		{"sigFileData", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;[B>;", $PRIVATE, $field(JarVerifier, sigFileData)},
+		{"pendingBlocks", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/util/SignatureFileVerifier;>;", $PRIVATE, $field(JarVerifier, pendingBlocks)},
+		{"signerCache", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[Ljava/security/CodeSigner;>;", $PRIVATE, $field(JarVerifier, signerCache)},
+		{"parsingBlockOrSF", "Z", nullptr, $PRIVATE, $field(JarVerifier, parsingBlockOrSF)},
+		{"parsingMeta", "Z", nullptr, $PRIVATE, $field(JarVerifier, parsingMeta)},
+		{"anyToVerify", "Z", nullptr, $PRIVATE, $field(JarVerifier, anyToVerify)},
+		{"baos", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE, $field(JarVerifier, baos)},
+		{"manDig", "Lsun/security/util/ManifestDigester;", nullptr, $PRIVATE | $VOLATILE, $field(JarVerifier, manDig)},
+		{"manifestRawBytes", "[B", nullptr, 0, $field(JarVerifier, manifestRawBytes)},
+		{"manifestName", "Ljava/lang/String;", nullptr, $FINAL, $field(JarVerifier, manifestName)},
+		{"eagerValidation", "Z", nullptr, 0, $field(JarVerifier, eagerValidation)},
+		{"csdomain", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(JarVerifier, csdomain)},
+		{"manifestDigests", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE, $field(JarVerifier, manifestDigests)},
+		{"urlToCodeSourceMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/net/URL;Ljava/util/Map<[Ljava/security/CodeSigner;Ljava/security/CodeSource;>;>;", $PRIVATE, $field(JarVerifier, urlToCodeSourceMap)},
+		{"signerToCodeSource", "Ljava/util/Map;", "Ljava/util/Map<[Ljava/security/CodeSigner;Ljava/security/CodeSource;>;", $PRIVATE, $field(JarVerifier, signerToCodeSource)},
+		{"lastURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(JarVerifier, lastURL)},
+		{"lastURLMap", "Ljava/util/Map;", "Ljava/util/Map<[Ljava/security/CodeSigner;Ljava/security/CodeSource;>;", $PRIVATE, $field(JarVerifier, lastURLMap)},
+		{"emptySigner", "[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $field(JarVerifier, emptySigner)},
+		{"signerMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;", $PRIVATE, $field(JarVerifier, signerMap$)},
+		{"jarCodeSigners", "Ljava/util/List;", "Ljava/util/List<[Ljava/security/CodeSigner;>;", $PRIVATE, $field(JarVerifier, jarCodeSigners)},
+		{}
+	};
+	$CompoundAttribute getCertsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(JarVerifier, init$, void, $String*, $bytes*)},
+		{"beginEntry", "(Ljava/util/jar/JarEntry;Lsun/security/util/ManifestEntryVerifier;)V", nullptr, $PUBLIC, $virtualMethod(JarVerifier, beginEntry, void, $JarEntry*, $ManifestEntryVerifier*), "java.io.IOException"},
+		{"doneWithMeta", "()V", nullptr, 0, $virtualMethod(JarVerifier, doneWithMeta, void)},
+		{"entries2", "(Ljava/util/jar/JarFile;Ljava/util/Enumeration;)Ljava/util/Enumeration;", "(Ljava/util/jar/JarFile;Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;)Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(JarVerifier, entries2, $Enumeration*, $JarFile*, $Enumeration*)},
+		{"entryNames", "(Ljava/util/jar/JarFile;[Ljava/security/CodeSource;)Ljava/util/Enumeration;", "(Ljava/util/jar/JarFile;[Ljava/security/CodeSource;)Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(JarVerifier, entryNames, $Enumeration*, $JarFile*, $CodeSourceArray*)},
+		{"findMatchingSigners", "(Ljava/security/CodeSource;)[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $method(JarVerifier, findMatchingSigners, $CodeSignerArray*, $CodeSource*)},
+		{"getCerts", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JarVerifier, getCerts, $CertificateArray*, $String*), nullptr, nullptr, getCertsmethodAnnotations$$},
+		{"getCerts", "(Ljava/util/jar/JarFile;Ljava/util/jar/JarEntry;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JarVerifier, getCerts, $CertificateArray*, $JarFile*, $JarEntry*)},
+		{"getCodeSigners", "(Ljava/lang/String;)[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(JarVerifier, getCodeSigners, $CodeSignerArray*, $String*)},
+		{"getCodeSigners", "(Ljava/util/jar/JarFile;Ljava/util/jar/JarEntry;)[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(JarVerifier, getCodeSigners, $CodeSignerArray*, $JarFile*, $JarEntry*)},
+		{"getCodeSource", "(Ljava/net/URL;Ljava/lang/String;)Ljava/security/CodeSource;", nullptr, $PUBLIC, $virtualMethod(JarVerifier, getCodeSource, $CodeSource*, $URL*, $String*)},
+		{"getCodeSource", "(Ljava/net/URL;Ljava/util/jar/JarFile;Ljava/util/jar/JarEntry;)Ljava/security/CodeSource;", nullptr, $PUBLIC, $virtualMethod(JarVerifier, getCodeSource, $CodeSource*, $URL*, $JarFile*, $JarEntry*)},
+		{"getCodeSources", "(Ljava/util/jar/JarFile;Ljava/net/URL;)[Ljava/security/CodeSource;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JarVerifier, getCodeSources, $CodeSourceArray*, $JarFile*, $URL*)},
+		{"getJarCodeSigners", "()Ljava/util/List;", "()Ljava/util/List<[Ljava/security/CodeSigner;>;", $PRIVATE | $SYNCHRONIZED, $method(JarVerifier, getJarCodeSigners, $List*)},
+		{"getManifestDigests", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(JarVerifier, getManifestDigests, $List*)},
+		{"getUnsignedCS", "(Ljava/net/URL;)Ljava/security/CodeSource;", nullptr, $STATIC, $staticMethod(JarVerifier, getUnsignedCS, $CodeSource*, $URL*)},
+		{"isSigningRelated", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(JarVerifier, isSigningRelated, bool, $String*)},
+		{"isTrustedManifestEntry", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(JarVerifier, isTrustedManifestEntry, bool, $String*)},
+		{"mapSignersToCertArray", "([Ljava/security/CodeSigner;)[Ljava/security/cert/Certificate;", nullptr, $PRIVATE | $STATIC, $staticMethod(JarVerifier, mapSignersToCertArray, $CertificateArray*, $CodeSignerArray*)},
+		{"mapSignersToCodeSource", "(Ljava/net/URL;[Ljava/security/CodeSigner;)Ljava/security/CodeSource;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JarVerifier, mapSignersToCodeSource, $CodeSource*, $URL*, $CodeSignerArray*)},
+		{"mapSignersToCodeSources", "(Ljava/net/URL;Ljava/util/List;Z)[Ljava/security/CodeSource;", "(Ljava/net/URL;Ljava/util/List<[Ljava/security/CodeSigner;>;Z)[Ljava/security/CodeSource;", $PRIVATE, $method(JarVerifier, mapSignersToCodeSources, $CodeSourceArray*, $URL*, $List*, bool)},
+		{"nothingToVerify", "()Z", nullptr, 0, $virtualMethod(JarVerifier, nothingToVerify, bool)},
+		{"processEntry", "(Lsun/security/util/ManifestEntryVerifier;)V", nullptr, $PRIVATE, $method(JarVerifier, processEntry, void, $ManifestEntryVerifier*), "java.io.IOException"},
+		{"setEagerValidation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JarVerifier, setEagerValidation, void, bool)},
+		{"signerMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;", $PRIVATE | $SYNCHRONIZED, $method(JarVerifier, signerMap, $Map*)},
+		{"unsignedEntryNames", "(Ljava/util/jar/JarFile;)Ljava/util/Enumeration;", "(Ljava/util/jar/JarFile;)Ljava/util/Enumeration<Ljava/lang/String;>;", $PRIVATE, $method(JarVerifier, unsignedEntryNames, $Enumeration*, $JarFile*)},
+		{"update", "(ILsun/security/util/ManifestEntryVerifier;)V", nullptr, $PUBLIC, $virtualMethod(JarVerifier, update, void, int32_t, $ManifestEntryVerifier*), "java.io.IOException"},
+		{"update", "(I[BIILsun/security/util/ManifestEntryVerifier;)V", nullptr, $PUBLIC, $virtualMethod(JarVerifier, update, void, int32_t, $bytes*, int32_t, int32_t, $ManifestEntryVerifier*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.jar.JarVerifier$VerifierCodeSource", "java.util.jar.JarVerifier", "VerifierCodeSource", $PRIVATE | $STATIC},
+		{"java.util.jar.JarVerifier$VerifierStream", "java.util.jar.JarVerifier", "VerifierStream", $STATIC},
+		{"java.util.jar.JarVerifier$3", nullptr, nullptr, 0},
+		{"java.util.jar.JarVerifier$2", nullptr, nullptr, 0},
+		{"java.util.jar.JarVerifier$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.jar.JarVerifier",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.jar.JarVerifier$VerifierCodeSource,java.util.jar.JarVerifier$VerifierStream,java.util.jar.JarVerifier$3,java.util.jar.JarVerifier$2,java.util.jar.JarVerifier$1"
+	};
+	$loadClass(JarVerifier, name, initialize, &classInfo$$, JarVerifier::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JarVerifier);
+	});
 	return class$;
 }
 

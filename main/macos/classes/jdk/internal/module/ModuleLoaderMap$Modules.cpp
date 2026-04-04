@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleLoaderMap$Modules.h>
-
 #include <java/util/Set.h>
 #include <jdk/internal/module/ModuleLoaderMap.h>
 #include <jcpp.h>
@@ -14,50 +13,14 @@ namespace jdk {
 	namespace internal {
 		namespace module {
 
-$FieldInfo _ModuleLoaderMap$Modules_FieldInfo_[] = {
-	{"bootModules", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ModuleLoaderMap$Modules, bootModules)},
-	{"platformModules", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ModuleLoaderMap$Modules, platformModules)},
-	{}
-};
-
-$MethodInfo _ModuleLoaderMap$Modules_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ModuleLoaderMap$Modules, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ModuleLoaderMap$Modules_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModuleLoaderMap$Modules", "jdk.internal.module.ModuleLoaderMap", "Modules", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ModuleLoaderMap$Modules_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.ModuleLoaderMap$Modules",
-	"java.lang.Object",
-	nullptr,
-	_ModuleLoaderMap$Modules_FieldInfo_,
-	_ModuleLoaderMap$Modules_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleLoaderMap$Modules_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModuleLoaderMap"
-};
-
-$Object* allocate$ModuleLoaderMap$Modules($Class* clazz) {
-	return $of($alloc(ModuleLoaderMap$Modules));
-}
-
 $Set* ModuleLoaderMap$Modules::bootModules = nullptr;
 $Set* ModuleLoaderMap$Modules::platformModules = nullptr;
 
 void ModuleLoaderMap$Modules::init$() {
 }
 
-void clinit$ModuleLoaderMap$Modules($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ModuleLoaderMap$Modules::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ModuleLoaderMap$Modules::bootModules, $Set::of($$new($StringArray, {
 		"java.base"_s,
 		"java.datatransfer"_s,
@@ -117,7 +80,37 @@ ModuleLoaderMap$Modules::ModuleLoaderMap$Modules() {
 }
 
 $Class* ModuleLoaderMap$Modules::load$($String* name, bool initialize) {
-	$loadClass(ModuleLoaderMap$Modules, name, initialize, &_ModuleLoaderMap$Modules_ClassInfo_, clinit$ModuleLoaderMap$Modules, allocate$ModuleLoaderMap$Modules);
+	$FieldInfo fieldInfos$$[] = {
+		{"bootModules", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ModuleLoaderMap$Modules, bootModules)},
+		{"platformModules", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ModuleLoaderMap$Modules, platformModules)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ModuleLoaderMap$Modules, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModuleLoaderMap$Modules", "jdk.internal.module.ModuleLoaderMap", "Modules", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.ModuleLoaderMap$Modules",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModuleLoaderMap"
+	};
+	$loadClass(ModuleLoaderMap$Modules, name, initialize, &classInfo$$, ModuleLoaderMap$Modules::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleLoaderMap$Modules);
+	});
 	return class$;
 }
 

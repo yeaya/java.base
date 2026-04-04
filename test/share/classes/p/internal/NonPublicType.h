@@ -12,6 +12,7 @@ class NonPublicType : public ::java::lang::Object {
 	$class(NonPublicType, 0, ::java::lang::Object)
 public:
 	NonPublicType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* obj;
 };

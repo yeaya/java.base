@@ -1,5 +1,4 @@
 #include <java/io/EOFException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _EOFException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EOFException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _EOFException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EOFException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EOFException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _EOFException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.EOFException",
-	"java.io.IOException",
-	nullptr,
-	_EOFException_FieldInfo_,
-	_EOFException_MethodInfo_
-};
-
-$Object* allocate$EOFException($Class* clazz) {
-	return $of($alloc(EOFException));
-}
 
 void EOFException::init$() {
 	$IOException::init$();
@@ -54,7 +29,26 @@ void EOFException::throw$() {
 }
 
 $Class* EOFException::load$($String* name, bool initialize) {
-	$loadClass(EOFException, name, initialize, &_EOFException_ClassInfo_, allocate$EOFException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EOFException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EOFException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EOFException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.EOFException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EOFException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EOFException);
+	});
 	return class$;
 }
 

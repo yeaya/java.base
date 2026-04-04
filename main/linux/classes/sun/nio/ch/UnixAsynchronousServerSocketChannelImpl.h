@@ -71,6 +71,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::ch::Port* port);
 	void enableAccept();
 	::java::nio::channels::AsynchronousSocketChannel* finishAccept(::java::io::FileDescriptor* newfd, ::java::net::InetSocketAddress* remote, ::java::security::AccessControlContext* acc);

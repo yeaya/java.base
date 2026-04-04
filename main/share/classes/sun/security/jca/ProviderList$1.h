@@ -23,7 +23,7 @@ public:
 	void init$($String* name, $String* versionStr, $String* info);
 	virtual ::java::security::Provider$Service* getService($String* type, $String* algorithm) override;
 	using ::java::security::Provider::load;
-	static const int64_t serialVersionUID = (int64_t)0x0FFA6E84CA1E2BC5;
+	static const int64_t serialVersionUID = (int64_t)0x0ffa6e84ca1e2bc5;
 };
 
 		} // jca

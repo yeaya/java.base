@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckClassAdapter.h>
-
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -42,7 +41,6 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckMethodAdapter.h>
 #include <jdk/internal/org/objectweb/asm/util/CheckModuleAdapter.h>
 #include <jdk/internal/org/objectweb/asm/util/CheckRecordComponentAdapter.h>
-#include <jdk/internal/org/objectweb/asm/util/Printer.h>
 #include <jdk/internal/org/objectweb/asm/util/Textifier.h>
 #include <jdk/internal/org/objectweb/asm/util/TraceMethodVisitor.h>
 #include <jcpp.h>
@@ -100,7 +98,6 @@
 
 using $FileInputStream = ::java::io::FileInputStream;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;
@@ -117,7 +114,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $AnnotationVisitor = ::jdk::internal::org::objectweb::asm$::AnnotationVisitor;
 using $Attribute = ::jdk::internal::org::objectweb::asm$::Attribute;
 using $ClassReader = ::jdk::internal::org::objectweb::asm$::ClassReader;
@@ -130,16 +126,13 @@ using $RecordComponentVisitor = ::jdk::internal::org::objectweb::asm$::RecordCom
 using $Type = ::jdk::internal::org::objectweb::asm$::Type;
 using $TypePath = ::jdk::internal::org::objectweb::asm$::TypePath;
 using $TypeReference = ::jdk::internal::org::objectweb::asm$::TypeReference;
-using $AbstractInsnNode = ::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode;
 using $ClassNode = ::jdk::internal::org::objectweb::asm$::tree::ClassNode;
-using $InsnList = ::jdk::internal::org::objectweb::asm$::tree::InsnList;
 using $MethodNode = ::jdk::internal::org::objectweb::asm$::tree::MethodNode;
 using $TryCatchBlockNode = ::jdk::internal::org::objectweb::asm$::tree::TryCatchBlockNode;
 using $Analyzer = ::jdk::internal::org::objectweb::asm$::tree::analysis::Analyzer;
 using $AnalyzerException = ::jdk::internal::org::objectweb::asm$::tree::analysis::AnalyzerException;
 using $BasicValue = ::jdk::internal::org::objectweb::asm$::tree::analysis::BasicValue;
 using $Frame = ::jdk::internal::org::objectweb::asm$::tree::analysis::Frame;
-using $Interpreter = ::jdk::internal::org::objectweb::asm$::tree::analysis::Interpreter;
 using $SimpleVerifier = ::jdk::internal::org::objectweb::asm$::tree::analysis::SimpleVerifier;
 using $CheckAnnotationAdapter = ::jdk::internal::org::objectweb::asm$::util::CheckAnnotationAdapter;
 using $CheckClassAdapter$1 = ::jdk::internal::org::objectweb::asm$::util::CheckClassAdapter$1;
@@ -147,7 +140,6 @@ using $CheckFieldAdapter = ::jdk::internal::org::objectweb::asm$::util::CheckFie
 using $CheckMethodAdapter = ::jdk::internal::org::objectweb::asm$::util::CheckMethodAdapter;
 using $CheckModuleAdapter = ::jdk::internal::org::objectweb::asm$::util::CheckModuleAdapter;
 using $CheckRecordComponentAdapter = ::jdk::internal::org::objectweb::asm$::util::CheckRecordComponentAdapter;
-using $Printer = ::jdk::internal::org::objectweb::asm$::util::Printer;
 using $Textifier = ::jdk::internal::org::objectweb::asm$::util::Textifier;
 using $TraceMethodVisitor = ::jdk::internal::org::objectweb::asm$::util::TraceMethodVisitor;
 
@@ -157,98 +149,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace util {
-
-$CompoundAttribute _CheckClassAdapter_MethodAnnotations_visitPermittedSubclassExperimental39[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _CheckClassAdapter_FieldInfo_[] = {
-	{"USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckClassAdapter, USAGE)},
-	{"ERROR_AT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckClassAdapter, ERROR_AT)},
-	{"checkDataFlow", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, checkDataFlow)},
-	{"version", "I", nullptr, $PRIVATE, $field(CheckClassAdapter, version)},
-	{"visitCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitCalled)},
-	{"visitModuleCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitModuleCalled)},
-	{"visitSourceCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitSourceCalled)},
-	{"visitOuterClassCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitOuterClassCalled)},
-	{"visitNestHostCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitNestHostCalled)},
-	{"nestMemberPackageName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CheckClassAdapter, nestMemberPackageName)},
-	{"visitEndCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitEndCalled)},
-	{"labelInsnIndices", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;", $PRIVATE, $field(CheckClassAdapter, labelInsnIndices)},
-	{}
-};
-
-$MethodInfo _CheckClassAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $method(CheckClassAdapter, init$, void, $ClassVisitor*)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Z)V", nullptr, $PUBLIC, $method(CheckClassAdapter, init$, void, $ClassVisitor*, bool)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;Z)V", nullptr, $PROTECTED, $method(CheckClassAdapter, init$, void, int32_t, $ClassVisitor*, bool)},
-	{"checkAccess", "(II)V", nullptr, $STATIC, $staticMethod(CheckClassAdapter, checkAccess, void, int32_t, int32_t)},
-	{"checkChar", "(CLjava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkChar, int32_t, char16_t, $String*, int32_t)},
-	{"checkClassSignature", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, checkClassSignature, void, $String*)},
-	{"checkClassTypeSignature", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkClassTypeSignature, int32_t, $String*, int32_t)},
-	{"checkFieldSignature", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, checkFieldSignature, void, $String*)},
-	{"checkFullyQualifiedName", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckClassAdapter, checkFullyQualifiedName, void, int32_t, $String*, $String*)},
-	{"checkJavaTypeSignature", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkJavaTypeSignature, int32_t, $String*, int32_t)},
-	{"checkMethodSignature", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, checkMethodSignature, void, $String*)},
-	{"checkReferenceTypeSignature", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkReferenceTypeSignature, int32_t, $String*, int32_t)},
-	{"checkSignatureIdentifier", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkSignatureIdentifier, int32_t, $String*, int32_t)},
-	{"checkState", "()V", nullptr, $PRIVATE, $method(CheckClassAdapter, checkState, void)},
-	{"checkTypeArgument", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkTypeArgument, int32_t, $String*, int32_t)},
-	{"checkTypeArguments", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkTypeArguments, int32_t, $String*, int32_t)},
-	{"checkTypeParameter", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkTypeParameter, int32_t, $String*, int32_t)},
-	{"checkTypeParameters", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkTypeParameters, int32_t, $String*, int32_t)},
-	{"checkTypeRef", "(I)V", nullptr, $STATIC, $staticMethod(CheckClassAdapter, checkTypeRef, void, int32_t)},
-	{"checkTypeVariableSignature", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkTypeVariableSignature, int32_t, $String*, int32_t)},
-	{"getChar", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, getChar, char16_t, $String*, int32_t)},
-	{"getUnqualifiedName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, getUnqualifiedName, $String*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, main, void, $StringArray*), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;Ljava/io/PrintWriter;)V", nullptr, $STATIC, $staticMethod(CheckClassAdapter, main, void, $StringArray*, $PrintWriter*), "java.io.IOException"},
-	{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, packageName, $String*, $String*)},
-	{"printAnalyzerResult", "(Ljdk/internal/org/objectweb/asm/tree/MethodNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Analyzer;Ljava/io/PrintWriter;)V", "(Ljdk/internal/org/objectweb/asm/tree/MethodNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Analyzer<Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;>;Ljava/io/PrintWriter;)V", $STATIC, $staticMethod(CheckClassAdapter, printAnalyzerResult, void, $MethodNode*, $Analyzer*, $PrintWriter*)},
-	{"verify", "(Ljdk/internal/org/objectweb/asm/ClassReader;ZLjava/io/PrintWriter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, verify, void, $ClassReader*, bool, $PrintWriter*)},
-	{"verify", "(Ljdk/internal/org/objectweb/asm/ClassReader;Ljava/lang/ClassLoader;ZLjava/io/PrintWriter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, verify, void, $ClassReader*, $ClassLoader*, bool, $PrintWriter*)},
-	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitAttribute, void, $Attribute*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitEnd, void)},
-	{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitField, $FieldVisitor*, int32_t, $String*, $String*, $String*, Object$*)},
-	{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
-	{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitMethod, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
-	{"visitNestHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitNestHost, void, $String*)},
-	{"visitNestMember", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitNestMember, void, $String*)},
-	{"visitOuterClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitOuterClass, void, $String*, $String*, $String*)},
-	{"visitPermittedSubclassExperimental", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CheckClassAdapter, visitPermittedSubclassExperimental, void, $String*), nullptr, nullptr, _CheckClassAdapter_MethodAnnotations_visitPermittedSubclassExperimental39},
-	{"visitRecordComponent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitRecordComponent, $RecordComponentVisitor*, $String*, $String*, $String*)},
-	{"visitSource", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitSource, void, $String*, $String*)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{}
-};
-
-$InnerClassInfo _CheckClassAdapter_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.util.CheckClassAdapter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CheckClassAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.CheckClassAdapter",
-	"jdk.internal.org.objectweb.asm.ClassVisitor",
-	nullptr,
-	_CheckClassAdapter_FieldInfo_,
-	_CheckClassAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CheckClassAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.util.CheckClassAdapter$1"
-};
-
-$Object* allocate$CheckClassAdapter($Class* clazz) {
-	return $of($alloc(CheckClassAdapter));
-}
 
 $String* CheckClassAdapter::USAGE = nullptr;
 $String* CheckClassAdapter::ERROR_AT = nullptr;
@@ -271,7 +171,7 @@ void CheckClassAdapter::init$(int32_t api, $ClassVisitor* classVisitor, bool che
 }
 
 void CheckClassAdapter::visit(int32_t version, int32_t access, $String* name, $String* signature, $String* superName, $StringArray* interfaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->visitCalled) {
 		$throwNew($IllegalStateException, "visit must be called only once"_s);
 	}
@@ -289,7 +189,7 @@ void CheckClassAdapter::visit(int32_t version, int32_t access, $String* name, $S
 		if (superName != nullptr) {
 			$throwNew($IllegalArgumentException, "The super class name of the Object class must be \'null\'"_s);
 		}
-	} else if ($nc(name)->endsWith("module-info"_s)) {
+	} else if (name->endsWith("module-info"_s)) {
 		if (superName != nullptr) {
 			$throwNew($IllegalArgumentException, "The super class name of a module-info class must be \'null\'"_s);
 		}
@@ -299,7 +199,7 @@ void CheckClassAdapter::visit(int32_t version, int32_t access, $String* name, $S
 	if (signature != nullptr) {
 		checkClassSignature(signature);
 	}
-	if (((int32_t)(access & (uint32_t)$Opcodes::ACC_INTERFACE)) != 0 && !"java/lang/Object"_s->equals(superName)) {
+	if ((access & $Opcodes::ACC_INTERFACE) != 0 && !"java/lang/Object"_s->equals(superName)) {
 		$throwNew($IllegalArgumentException, "The super class name of interfaces must be \'java/lang/Object\'"_s);
 	}
 	if (interfaces != nullptr) {
@@ -321,7 +221,7 @@ void CheckClassAdapter::visitSource($String* file, $String* debug) {
 }
 
 $ModuleVisitor* CheckClassAdapter::visitModule($String* name, int32_t access, $String* version) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkState();
 	if (this->visitModuleCalled) {
 		$throwNew($IllegalStateException, "visitModule can be called only once."_s);
@@ -329,7 +229,7 @@ $ModuleVisitor* CheckClassAdapter::visitModule($String* name, int32_t access, $S
 	this->visitModuleCalled = true;
 	checkFullyQualifiedName(this->version, name, "module name"_s);
 	checkAccess(access, ($Opcodes::ACC_OPEN | $Opcodes::ACC_SYNTHETIC) | $Opcodes::ACC_MANDATED);
-	$var($CheckModuleAdapter, checkModuleAdapter, $new($CheckModuleAdapter, this->api, $($ClassVisitor::visitModule(name, access, version)), ((int32_t)(access & (uint32_t)$Opcodes::ACC_OPEN)) != 0));
+	$var($CheckModuleAdapter, checkModuleAdapter, $new($CheckModuleAdapter, this->api, $($ClassVisitor::visitModule(name, access, version)), (access & $Opcodes::ACC_OPEN) != 0));
 	checkModuleAdapter->classVersion = this->version;
 	return checkModuleAdapter;
 }
@@ -348,7 +248,7 @@ void CheckClassAdapter::visitNestHost($String* nestHost) {
 }
 
 void CheckClassAdapter::visitNestMember($String* nestMember) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkState();
 	$CheckMethodAdapter::checkInternalName(this->version, nestMember, "nestMember"_s);
 	if (this->visitNestHostCalled) {
@@ -357,7 +257,7 @@ void CheckClassAdapter::visitNestMember($String* nestMember) {
 	$var($String, packageName, CheckClassAdapter::packageName(nestMember));
 	if (this->nestMemberPackageName == nullptr) {
 		$set(this, nestMemberPackageName, packageName);
-	} else if (!$nc(this->nestMemberPackageName)->equals(packageName)) {
+	} else if (!this->nestMemberPackageName->equals(packageName)) {
 		$throwNew($IllegalStateException, $$str({"nest member "_s, nestMember, " should be in the package "_s, this->nestMemberPackageName}));
 	}
 	$ClassVisitor::visitNestMember(nestMember);
@@ -434,7 +334,7 @@ $FieldVisitor* CheckClassAdapter::visitField(int32_t access, $String* name, $Str
 }
 
 $MethodVisitor* CheckClassAdapter::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkState();
 	checkAccess(access, (((((((((((($Opcodes::ACC_PUBLIC | $Opcodes::ACC_PRIVATE) | $Opcodes::ACC_PROTECTED) | $Opcodes::ACC_STATIC) | $Opcodes::ACC_FINAL) | $Opcodes::ACC_SYNCHRONIZED) | $Opcodes::ACC_BRIDGE) | $Opcodes::ACC_VARARGS) | $Opcodes::ACC_NATIVE) | $Opcodes::ACC_ABSTRACT) | $Opcodes::ACC_STRICT) | $Opcodes::ACC_SYNTHETIC) | $Opcodes::ACC_MANDATED) | $Opcodes::ACC_DEPRECATED);
 	bool var$0 = !"<init>"_s->equals(name);
@@ -467,7 +367,7 @@ $AnnotationVisitor* CheckClassAdapter::visitAnnotation($String* descriptor, bool
 }
 
 $AnnotationVisitor* CheckClassAdapter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkState();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
 	if (sort != $TypeReference::CLASS_TYPE_PARAMETER && sort != $TypeReference::CLASS_TYPE_PARAMETER_BOUND && sort != $TypeReference::CLASS_EXTENDS) {
@@ -503,15 +403,15 @@ void CheckClassAdapter::checkState() {
 
 void CheckClassAdapter::checkAccess(int32_t access, int32_t possibleAccess) {
 	$init(CheckClassAdapter);
-	$useLocalCurrentObjectStackCache();
-	if (((int32_t)(access & (uint32_t)~possibleAccess)) != 0) {
+	$useLocalObjectStack();
+	if ((access & ~possibleAccess) != 0) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid access flags: "_s, $$str(access)}));
 	}
 	int32_t publicProtectedPrivate = ($Opcodes::ACC_PUBLIC | $Opcodes::ACC_PROTECTED) | $Opcodes::ACC_PRIVATE;
-	if ($Integer::bitCount((int32_t)(access & (uint32_t)publicProtectedPrivate)) > 1) {
+	if ($Integer::bitCount(access & publicProtectedPrivate) > 1) {
 		$throwNew($IllegalArgumentException, $$str({"public, protected and private are mutually exclusive: "_s, $$str(access)}));
 	}
-	if ($Integer::bitCount((int32_t)(access & (uint32_t)($Opcodes::ACC_FINAL | $Opcodes::ACC_ABSTRACT))) > 1) {
+	if ($Integer::bitCount(access & ($Opcodes::ACC_FINAL | $Opcodes::ACC_ABSTRACT)) > 1) {
 		$throwNew($IllegalArgumentException, $$str({"final and abstract are mutually exclusive: "_s, $$str(access)}));
 	}
 }
@@ -521,11 +421,11 @@ void CheckClassAdapter::checkFullyQualifiedName(int32_t version, $String* name, 
 	try {
 		int32_t startIndex = 0;
 		int32_t dotIndex = 0;
-		while ((dotIndex = $nc(name)->indexOf((int32_t)u'.', startIndex + 1)) != -1) {
+		while ((dotIndex = $nc(name)->indexOf(u'.', startIndex + 1)) != -1) {
 			$CheckMethodAdapter::checkIdentifier(version, name, startIndex, dotIndex, nullptr);
 			startIndex = dotIndex + 1;
 		}
-		$CheckMethodAdapter::checkIdentifier(version, name, startIndex, $nc(name)->length(), nullptr);
+		$CheckMethodAdapter::checkIdentifier(version, name, startIndex, name->length(), nullptr);
 	} catch ($IllegalArgumentException& e) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid "_s, source, " (must be a fully qualified name): "_s, name}), e);
 	}
@@ -533,7 +433,7 @@ void CheckClassAdapter::checkFullyQualifiedName(int32_t version, $String* name, 
 
 void CheckClassAdapter::checkClassSignature($String* signature) {
 	$init(CheckClassAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = 0;
 	if (getChar(signature, 0) == u'<') {
 		pos = checkTypeParameters(signature, pos);
@@ -549,13 +449,13 @@ void CheckClassAdapter::checkClassSignature($String* signature) {
 
 void CheckClassAdapter::checkMethodSignature($String* signature) {
 	$init(CheckClassAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = 0;
 	if (getChar(signature, 0) == u'<') {
 		pos = checkTypeParameters(signature, pos);
 	}
 	pos = checkChar(u'(', signature, pos);
-	while ("ZCBSIFJDL[T"_s->indexOf((int32_t)getChar(signature, pos)) != -1) {
+	while ("ZCBSIFJDL[T"_s->indexOf(getChar(signature, pos)) != -1) {
 		pos = checkJavaTypeSignature(signature, pos);
 	}
 	pos = checkChar(u')', signature, pos);
@@ -579,7 +479,7 @@ void CheckClassAdapter::checkMethodSignature($String* signature) {
 
 void CheckClassAdapter::checkFieldSignature($String* signature) {
 	$init(CheckClassAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = checkReferenceTypeSignature(signature, 0);
 	if (pos != $nc(signature)->length()) {
 		$throwNew($IllegalArgumentException, $$str({signature, CheckClassAdapter::ERROR_AT, $$str(pos)}));
@@ -602,7 +502,7 @@ int32_t CheckClassAdapter::checkTypeParameter($String* signature, int32_t startP
 	int32_t pos = startPos;
 	pos = checkSignatureIdentifier(signature, pos);
 	pos = checkChar(u':', signature, pos);
-	if ("L[T"_s->indexOf((int32_t)getChar(signature, pos)) != -1) {
+	if ("L[T"_s->indexOf(getChar(signature, pos)) != -1) {
 		pos = checkReferenceTypeSignature(signature, pos);
 	}
 	while (getChar(signature, pos) == u':') {
@@ -615,17 +515,11 @@ int32_t CheckClassAdapter::checkReferenceTypeSignature($String* signature, int32
 	$init(CheckClassAdapter);
 	switch (getChar(signature, pos)) {
 	case u'L':
-		{
-			return checkClassTypeSignature(signature, pos);
-		}
+		return checkClassTypeSignature(signature, pos);
 	case u'[':
-		{
-			return checkJavaTypeSignature(signature, pos + 1);
-		}
+		return checkJavaTypeSignature(signature, pos + 1);
 	default:
-		{
-			return checkTypeVariableSignature(signature, pos);
-		}
+		return checkTypeVariableSignature(signature, pos);
 	}
 }
 
@@ -685,33 +579,22 @@ int32_t CheckClassAdapter::checkJavaTypeSignature($String* signature, int32_t st
 	int32_t pos = startPos;
 	switch (getChar(signature, pos)) {
 	case u'B':
-		{}
 	case u'C':
-		{}
 	case u'D':
-		{}
 	case u'F':
-		{}
 	case u'I':
-		{}
 	case u'J':
-		{}
 	case u'S':
-		{}
 	case u'Z':
-		{
-			return pos + 1;
-		}
+		return pos + 1;
 	default:
-		{
-			return checkReferenceTypeSignature(signature, pos);
-		}
+		return checkReferenceTypeSignature(signature, pos);
 	}
 }
 
 int32_t CheckClassAdapter::checkSignatureIdentifier($String* signature, int32_t startPos) {
 	$init(CheckClassAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = startPos;
 	while (true) {
 		bool var$0 = pos < $nc(signature)->length();
@@ -730,7 +613,7 @@ int32_t CheckClassAdapter::checkSignatureIdentifier($String* signature, int32_t 
 
 int32_t CheckClassAdapter::checkChar(char16_t c, $String* signature, int32_t pos) {
 	$init(CheckClassAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getChar(signature, pos) == c) {
 		return pos + 1;
 	}
@@ -739,83 +622,55 @@ int32_t CheckClassAdapter::checkChar(char16_t c, $String* signature, int32_t pos
 
 char16_t CheckClassAdapter::getChar($String* string, int32_t pos) {
 	$init(CheckClassAdapter);
-	return pos < $nc(string)->length() ? $nc(string)->charAt(pos) : (char16_t)0;
+	return pos < $nc(string)->length() ? string->charAt(pos) : (char16_t)0;
 }
 
 void CheckClassAdapter::checkTypeRef(int32_t typeRef) {
 	$init(CheckClassAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mask = 0;
 	switch ((int32_t)((uint32_t)typeRef >> 24)) {
 	case $TypeReference::CLASS_TYPE_PARAMETER:
-		{}
 	case $TypeReference::METHOD_TYPE_PARAMETER:
-		{}
 	case $TypeReference::METHOD_FORMAL_PARAMETER:
-		{
-			mask = (int32_t)0xFFFF0000;
-			break;
-		}
+		mask = (int32_t)0xffff0000;
+		break;
 	case $TypeReference::FIELD:
-		{}
 	case $TypeReference::METHOD_RETURN:
-		{}
 	case $TypeReference::METHOD_RECEIVER:
-		{}
 	case $TypeReference::LOCAL_VARIABLE:
-		{}
 	case $TypeReference::RESOURCE_VARIABLE:
-		{}
 	case $TypeReference::INSTANCEOF:
-		{}
 	case $TypeReference::NEW:
-		{}
 	case $TypeReference::CONSTRUCTOR_REFERENCE:
-		{}
 	case $TypeReference::METHOD_REFERENCE:
-		{
-			mask = (int32_t)0xFF000000;
-			break;
-		}
+		mask = (int32_t)0xff000000;
+		break;
 	case $TypeReference::CLASS_EXTENDS:
-		{}
 	case $TypeReference::CLASS_TYPE_PARAMETER_BOUND:
-		{}
 	case $TypeReference::METHOD_TYPE_PARAMETER_BOUND:
-		{}
 	case $TypeReference::THROWS:
-		{}
 	case $TypeReference::EXCEPTION_PARAMETER:
-		{
-			mask = -256;
-			break;
-		}
+		mask = -256;
+		break;
 	case $TypeReference::CAST:
-		{}
 	case $TypeReference::CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT:
-		{}
 	case $TypeReference::METHOD_INVOCATION_TYPE_ARGUMENT:
-		{}
 	case $TypeReference::CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT:
-		{}
 	case $TypeReference::METHOD_REFERENCE_TYPE_ARGUMENT:
-		{
-			mask = (int32_t)0xFF0000FF;
-			break;
-		}
+		mask = (int32_t)0xff0000ff;
+		break;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
-	if (((int32_t)(typeRef & (uint32_t)~mask)) != 0) {
+	if ((typeRef & ~mask) != 0) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid type reference 0x"_s, $($Integer::toHexString(typeRef))}));
 	}
 }
 
 $String* CheckClassAdapter::packageName($String* name) {
 	$init(CheckClassAdapter);
-	int32_t index = $nc(name)->lastIndexOf((int32_t)u'/');
+	int32_t index = $nc(name)->lastIndexOf(u'/');
 	if (index == -1) {
 		return ""_s;
 	}
@@ -824,18 +679,18 @@ $String* CheckClassAdapter::packageName($String* name) {
 
 void CheckClassAdapter::main($StringArray* args) {
 	$init(CheckClassAdapter);
-	main(args, $$new($PrintWriter, static_cast<$OutputStream*>($System::err), true));
+	main(args, $$new($PrintWriter, $System::err, true));
 }
 
 void CheckClassAdapter::main($StringArray* args, $PrintWriter* logger) {
 	$init(CheckClassAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(args)->length != 1) {
 		$nc(logger)->println(CheckClassAdapter::USAGE);
 		return;
 	}
 	$var($ClassReader, classReader, nullptr);
-	if ($nc($nc(args)->get(0))->endsWith(".class"_s)) {
+	if ($nc(args->get(0))->endsWith(".class"_s)) {
 		$var($InputStream, inputStream, $new($FileInputStream, args->get(0)));
 		$assign(classReader, $new($ClassReader, inputStream));
 	} else {
@@ -851,7 +706,7 @@ void CheckClassAdapter::verify($ClassReader* classReader, bool printResults, $Pr
 
 void CheckClassAdapter::verify($ClassReader* classReader, $ClassLoader* loader, bool printResults, $PrintWriter* printWriter) {
 	$init(CheckClassAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassNode, classNode, $new($ClassNode));
 	$nc(classReader)->accept($$new($CheckClassAdapter$1, $Opcodes::ASM9_EXPERIMENTAL, classNode, false), $ClassReader::SKIP_DEBUG);
 	$var($Type, syperType, classNode->superName == nullptr ? ($Type*)nullptr : $Type::getObjectType(classNode->superName));
@@ -871,7 +726,7 @@ void CheckClassAdapter::verify($ClassReader* classReader, $ClassLoader* loader, 
 		for (; $nc(i$)->hasNext();) {
 			$var($MethodNode, method, $cast($MethodNode, i$->next()));
 			{
-				$var($SimpleVerifier, verifier, $new($SimpleVerifier, $($Type::getObjectType(classNode->name)), syperType, interfaces, ((int32_t)(classNode->access & (uint32_t)$Opcodes::ACC_INTERFACE)) != 0));
+				$var($SimpleVerifier, verifier, $new($SimpleVerifier, $($Type::getObjectType(classNode->name)), syperType, interfaces, (classNode->access & $Opcodes::ACC_INTERFACE) != 0));
 				$var($Analyzer, analyzer, $new($Analyzer, verifier));
 				if (loader != nullptr) {
 					verifier->setClassLoader(loader);
@@ -892,34 +747,38 @@ void CheckClassAdapter::verify($ClassReader* classReader, $ClassLoader* loader, 
 
 void CheckClassAdapter::printAnalyzerResult($MethodNode* method, $Analyzer* analyzer, $PrintWriter* printWriter) {
 	$init(CheckClassAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Textifier, textifier, $new($Textifier));
 	$var($TraceMethodVisitor, traceMethodVisitor, $new($TraceMethodVisitor, textifier));
-	$nc(printWriter)->println($$str({$nc(method)->name, method->desc}));
-	for (int32_t i = 0; i < $nc($nc(method)->instructions)->size(); ++i) {
-		$nc($($nc(method->instructions)->get(i)))->accept(traceMethodVisitor);
+	$nc(printWriter)->println($$str({$nc(method)->name, $nc(method)->desc}));
+	for (int32_t i = 0; i < $nc(method->instructions)->size(); ++i) {
+		$$nc(method->instructions->get(i))->accept(traceMethodVisitor);
 		$var($StringBuilder, stringBuilder, $new($StringBuilder));
 		$var($Frame, frame, $nc($($nc(analyzer)->getFrames()))->get(i));
 		if (frame == nullptr) {
 			stringBuilder->append(u'?');
 		} else {
-			for (int32_t j = 0; j < $nc(frame)->getLocals(); ++j) {
-				stringBuilder->append($(getUnqualifiedName($($nc(($cast($BasicValue, $(frame->getLocal(j)))))->toString()))))->append(u' ');
+			for (int32_t j = 0; j < frame->getLocals(); ++j) {
+				stringBuilder->append($(getUnqualifiedName($($$sure($BasicValue, frame->getLocal(j))->toString()))))->append(u' ');
 			}
 			stringBuilder->append(" : "_s);
-			for (int32_t j = 0; j < $nc(frame)->getStackSize(); ++j) {
-				stringBuilder->append($(getUnqualifiedName($($nc(($cast($BasicValue, $(frame->getStack(j)))))->toString()))))->append(u' ');
+			for (int32_t j = 0; j < frame->getStackSize(); ++j) {
+				stringBuilder->append($(getUnqualifiedName($($$sure($BasicValue, frame->getStack(j))->toString()))))->append(u' ');
 			}
 		}
 		while (stringBuilder->length() < method->maxStack + method->maxLocals + 1) {
 			stringBuilder->append(u' ');
 		}
-		printWriter->print($($nc($($Integer::toString(i + 0x000186A0)))->substring(1)));
-		$var($String, var$0, $$str({" "_s, stringBuilder, " : "_s}));
-		printWriter->print($$concat(var$0, $($nc(textifier->text)->get($nc(textifier->text)->size() - 1))));
+		printWriter->print($($($Integer::toString(i + 100000))->substring(1)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(" "_s);
+		var$0->append(stringBuilder);
+		var$0->append(" : "_s);
+		var$0->append($($nc(textifier->text)->get($nc(textifier->text)->size() - 1)));
+		printWriter->print($$str(var$0));
 	}
 	{
-		$var($Iterator, i$, $nc($nc(method)->tryCatchBlocks)->iterator());
+		$var($Iterator, i$, $nc(method->tryCatchBlocks)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($TryCatchBlockNode, tryCatchBlock, $cast($TryCatchBlockNode, i$->next()));
 			{
@@ -933,7 +792,7 @@ void CheckClassAdapter::printAnalyzerResult($MethodNode* method, $Analyzer* anal
 
 $String* CheckClassAdapter::getUnqualifiedName($String* name) {
 	$init(CheckClassAdapter);
-	int32_t lastSlashIndex = $nc(name)->lastIndexOf((int32_t)u'/');
+	int32_t lastSlashIndex = $nc(name)->lastIndexOf(u'/');
 	if (lastSlashIndex == -1) {
 		return name;
 	} else {
@@ -948,13 +807,98 @@ $String* CheckClassAdapter::getUnqualifiedName($String* name) {
 CheckClassAdapter::CheckClassAdapter() {
 }
 
-void clinit$CheckClassAdapter($Class* class$) {
+void CheckClassAdapter::clinit$($Class* clazz) {
 	$assignStatic(CheckClassAdapter::USAGE, "Verifies the given class.\nUsage: CheckClassAdapter <fully qualified class name or class file name>"_s);
 	$assignStatic(CheckClassAdapter::ERROR_AT, ": error at index "_s);
 }
 
 $Class* CheckClassAdapter::load$($String* name, bool initialize) {
-	$loadClass(CheckClassAdapter, name, initialize, &_CheckClassAdapter_ClassInfo_, clinit$CheckClassAdapter, allocate$CheckClassAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckClassAdapter, USAGE)},
+		{"ERROR_AT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckClassAdapter, ERROR_AT)},
+		{"checkDataFlow", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, checkDataFlow)},
+		{"version", "I", nullptr, $PRIVATE, $field(CheckClassAdapter, version)},
+		{"visitCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitCalled)},
+		{"visitModuleCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitModuleCalled)},
+		{"visitSourceCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitSourceCalled)},
+		{"visitOuterClassCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitOuterClassCalled)},
+		{"visitNestHostCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitNestHostCalled)},
+		{"nestMemberPackageName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CheckClassAdapter, nestMemberPackageName)},
+		{"visitEndCalled", "Z", nullptr, $PRIVATE, $field(CheckClassAdapter, visitEndCalled)},
+		{"labelInsnIndices", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/Integer;>;", $PRIVATE, $field(CheckClassAdapter, labelInsnIndices)},
+		{}
+	};
+	$CompoundAttribute visitPermittedSubclassExperimentalmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $method(CheckClassAdapter, init$, void, $ClassVisitor*)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Z)V", nullptr, $PUBLIC, $method(CheckClassAdapter, init$, void, $ClassVisitor*, bool)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;Z)V", nullptr, $PROTECTED, $method(CheckClassAdapter, init$, void, int32_t, $ClassVisitor*, bool)},
+		{"checkAccess", "(II)V", nullptr, $STATIC, $staticMethod(CheckClassAdapter, checkAccess, void, int32_t, int32_t)},
+		{"checkChar", "(CLjava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkChar, int32_t, char16_t, $String*, int32_t)},
+		{"checkClassSignature", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, checkClassSignature, void, $String*)},
+		{"checkClassTypeSignature", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkClassTypeSignature, int32_t, $String*, int32_t)},
+		{"checkFieldSignature", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, checkFieldSignature, void, $String*)},
+		{"checkFullyQualifiedName", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckClassAdapter, checkFullyQualifiedName, void, int32_t, $String*, $String*)},
+		{"checkJavaTypeSignature", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkJavaTypeSignature, int32_t, $String*, int32_t)},
+		{"checkMethodSignature", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, checkMethodSignature, void, $String*)},
+		{"checkReferenceTypeSignature", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkReferenceTypeSignature, int32_t, $String*, int32_t)},
+		{"checkSignatureIdentifier", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkSignatureIdentifier, int32_t, $String*, int32_t)},
+		{"checkState", "()V", nullptr, $PRIVATE, $method(CheckClassAdapter, checkState, void)},
+		{"checkTypeArgument", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkTypeArgument, int32_t, $String*, int32_t)},
+		{"checkTypeArguments", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkTypeArguments, int32_t, $String*, int32_t)},
+		{"checkTypeParameter", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkTypeParameter, int32_t, $String*, int32_t)},
+		{"checkTypeParameters", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkTypeParameters, int32_t, $String*, int32_t)},
+		{"checkTypeRef", "(I)V", nullptr, $STATIC, $staticMethod(CheckClassAdapter, checkTypeRef, void, int32_t)},
+		{"checkTypeVariableSignature", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, checkTypeVariableSignature, int32_t, $String*, int32_t)},
+		{"getChar", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, getChar, char16_t, $String*, int32_t)},
+		{"getUnqualifiedName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, getUnqualifiedName, $String*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, main, void, $StringArray*), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;Ljava/io/PrintWriter;)V", nullptr, $STATIC, $staticMethod(CheckClassAdapter, main, void, $StringArray*, $PrintWriter*), "java.io.IOException"},
+		{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckClassAdapter, packageName, $String*, $String*)},
+		{"printAnalyzerResult", "(Ljdk/internal/org/objectweb/asm/tree/MethodNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Analyzer;Ljava/io/PrintWriter;)V", "(Ljdk/internal/org/objectweb/asm/tree/MethodNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Analyzer<Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;>;Ljava/io/PrintWriter;)V", $STATIC, $staticMethod(CheckClassAdapter, printAnalyzerResult, void, $MethodNode*, $Analyzer*, $PrintWriter*)},
+		{"verify", "(Ljdk/internal/org/objectweb/asm/ClassReader;ZLjava/io/PrintWriter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, verify, void, $ClassReader*, bool, $PrintWriter*)},
+		{"verify", "(Ljdk/internal/org/objectweb/asm/ClassReader;Ljava/lang/ClassLoader;ZLjava/io/PrintWriter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckClassAdapter, verify, void, $ClassReader*, $ClassLoader*, bool, $PrintWriter*)},
+		{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitAttribute, void, $Attribute*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitEnd, void)},
+		{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitField, $FieldVisitor*, int32_t, $String*, $String*, $String*, Object$*)},
+		{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
+		{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitMethod, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
+		{"visitNestHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitNestHost, void, $String*)},
+		{"visitNestMember", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitNestMember, void, $String*)},
+		{"visitOuterClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitOuterClass, void, $String*, $String*, $String*)},
+		{"visitPermittedSubclassExperimental", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CheckClassAdapter, visitPermittedSubclassExperimental, void, $String*), nullptr, nullptr, visitPermittedSubclassExperimentalmethodAnnotations$$},
+		{"visitRecordComponent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitRecordComponent, $RecordComponentVisitor*, $String*, $String*, $String*)},
+		{"visitSource", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitSource, void, $String*, $String*)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckClassAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.util.CheckClassAdapter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.CheckClassAdapter",
+		"jdk.internal.org.objectweb.asm.ClassVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.util.CheckClassAdapter$1"
+	};
+	$loadClass(CheckClassAdapter, name, initialize, &classInfo$$, CheckClassAdapter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckClassAdapter);
+	});
 	return class$;
 }
 

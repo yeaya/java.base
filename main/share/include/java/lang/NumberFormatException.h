@@ -22,10 +22,13 @@ public:
 	void init$($String* s);
 	static ::java::lang::NumberFormatException* forCharSequence(::java::lang::CharSequence* s, int32_t beginIndex, int32_t endIndex, int32_t errorIndex);
 	static ::java::lang::NumberFormatException* forInputString($String* s, int32_t radix);
-	static const int64_t serialVersionUID = (int64_t)0xD876893FFB8CEA12;
+	static const int64_t serialVersionUID = (int64_t)0xd876893ffb8cea12;
 	NumberFormatException(const NumberFormatException& e);
 	virtual void throw$() override;
-	inline NumberFormatException* operator ->() {
+	inline NumberFormatException* operator ->() const {
+		return (NumberFormatException*)throwing$;
+	}
+	inline operator NumberFormatException*() const {
 		return (NumberFormatException*)throwing$;
 	}
 };

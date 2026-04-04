@@ -1,42 +1,10 @@
 #include <ProxyClashTest$ClashWithRunnable.h>
-
 #include <ProxyClashTest.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _ProxyClashTest$ClashWithRunnable_MethodInfo_[] = {
-	{"foo", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyClashTest$ClashWithRunnable, foo, void)},
-	{"run", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyClashTest$ClashWithRunnable, run, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ProxyClashTest$ClashWithRunnable_InnerClassesInfo_[] = {
-	{"ProxyClashTest$ClashWithRunnable", "ProxyClashTest", "ClashWithRunnable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ProxyClashTest$ClashWithRunnable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"ProxyClashTest$ClashWithRunnable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ProxyClashTest$ClashWithRunnable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProxyClashTest$ClashWithRunnable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ProxyClashTest"
-};
-
-$Object* allocate$ProxyClashTest$ClashWithRunnable($Class* clazz) {
-	return $of($alloc(ProxyClashTest$ClashWithRunnable));
-}
 
 int32_t ProxyClashTest$ClashWithRunnable::run() {
 	return 123;
@@ -46,7 +14,33 @@ void ProxyClashTest$ClashWithRunnable::foo() {
 }
 
 $Class* ProxyClashTest$ClashWithRunnable::load$($String* name, bool initialize) {
-	$loadClass(ProxyClashTest$ClashWithRunnable, name, initialize, &_ProxyClashTest$ClashWithRunnable_ClassInfo_, allocate$ProxyClashTest$ClashWithRunnable);
+	$MethodInfo methodInfos$$[] = {
+		{"foo", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyClashTest$ClashWithRunnable, foo, void)},
+		{"run", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyClashTest$ClashWithRunnable, run, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ProxyClashTest$ClashWithRunnable", "ProxyClashTest", "ClashWithRunnable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"ProxyClashTest$ClashWithRunnable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ProxyClashTest"
+	};
+	$loadClass(ProxyClashTest$ClashWithRunnable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxyClashTest$ClashWithRunnable);
+	});
 	return class$;
 }
 

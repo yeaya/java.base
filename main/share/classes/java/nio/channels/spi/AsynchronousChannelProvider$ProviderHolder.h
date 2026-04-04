@@ -24,6 +24,7 @@ class AsynchronousChannelProvider$ProviderHolder : public ::java::lang::Object {
 	$class(AsynchronousChannelProvider$ProviderHolder, 0, ::java::lang::Object)
 public:
 	AsynchronousChannelProvider$ProviderHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::channels::spi::AsynchronousChannelProvider* load();
 	static ::java::nio::channels::spi::AsynchronousChannelProvider* loadProviderAsService();

@@ -44,7 +44,7 @@ public:
 	virtual void putNextEntry(::java::util::zip::ZipEntry* ze) override;
 	static void set16($bytes* b, int32_t off, int32_t value);
 	using ::java::util::zip::ZipOutputStream::write;
-	static const int32_t JAR_MAGIC = 0x0000CAFE;
+	static const int32_t JAR_MAGIC = 0x0000cafe;
 	bool firstEntry = false;
 };
 

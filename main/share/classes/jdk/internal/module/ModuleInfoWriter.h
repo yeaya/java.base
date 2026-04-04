@@ -60,6 +60,7 @@ class $export ModuleInfoWriter : public ::java::lang::Object {
 	$class(ModuleInfoWriter, 0, ::java::lang::Object)
 public:
 	ModuleInfoWriter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::Integer* lambda$toModuleInfo$0(::java::lang::Integer* x, ::java::lang::Integer* y);
 	static $String* lambda$toModuleInfo$4($String* sn);

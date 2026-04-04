@@ -13,6 +13,7 @@ class AbstractDrbg$NonceProvider : public ::java::lang::Object {
 	$class(AbstractDrbg$NonceProvider, 0, ::java::lang::Object)
 public:
 	AbstractDrbg$NonceProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* next();
 	static $bytes* block;

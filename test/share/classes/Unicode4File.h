@@ -15,6 +15,7 @@ class $export Unicode4File : public ::java::lang::Object {
 	$class(Unicode4File, 0, ::java::lang::Object)
 public:
 	Unicode4File();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool creat(::java::io::File* f);
 	static void fail($String* msg);

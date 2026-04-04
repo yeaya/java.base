@@ -39,6 +39,7 @@ class Class$Atomic : public ::java::lang::Object {
 	$class(Class$Atomic, 0, ::java::lang::Object)
 public:
 	Class$Atomic();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool casAnnotationData($Class* clazz, ::java::lang::Class$AnnotationData* oldData, ::java::lang::Class$AnnotationData* newData);
 	static bool casAnnotationType($Class* clazz, ::sun::reflect::annotation::AnnotationType* oldType, ::sun::reflect::annotation::AnnotationType* newType);

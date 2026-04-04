@@ -1,6 +1,4 @@
 #include <sun/nio/ch/IOVecWrapper.h>
-
-#include <java/lang/Runnable.h>
 #include <java/lang/ThreadLocal.h>
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
@@ -21,11 +19,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ThreadLocal = ::java::lang::ThreadLocal;
-using $Cleaner = ::java::lang::ref::Cleaner;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $CleanerFactory = ::jdk::internal::ref::CleanerFactory;
 using $AllocatedNativeObject = ::sun::nio::ch::AllocatedNativeObject;
 using $IOVecWrapper$Deallocator = ::sun::nio::ch::IOVecWrapper$Deallocator;
@@ -34,61 +29,6 @@ using $Util = ::sun::nio::ch::Util;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _IOVecWrapper_FieldInfo_[] = {
-	{"BASE_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IOVecWrapper, BASE_OFFSET)},
-	{"LEN_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IOVecWrapper, LEN_OFFSET)},
-	{"SIZE_IOVEC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IOVecWrapper, SIZE_IOVEC)},
-	{"vecArray", "Lsun/nio/ch/AllocatedNativeObject;", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, vecArray)},
-	{"size", "I", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, size)},
-	{"buf", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, buf)},
-	{"position", "[I", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, position)},
-	{"remaining", "[I", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, remaining)},
-	{"shadow", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, shadow)},
-	{"address", "J", nullptr, $FINAL, $field(IOVecWrapper, address)},
-	{"addressSize", "I", nullptr, $STATIC, $staticField(IOVecWrapper, addressSize)},
-	{"cached", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lsun/nio/ch/IOVecWrapper;>;", $PRIVATE | $STATIC | $FINAL, $staticField(IOVecWrapper, cached)},
-	{}
-};
-
-$MethodInfo _IOVecWrapper_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(IOVecWrapper, init$, void, int32_t)},
-	{"clearRefs", "(I)V", nullptr, 0, $virtualMethod(IOVecWrapper, clearRefs, void, int32_t)},
-	{"get", "(I)Lsun/nio/ch/IOVecWrapper;", nullptr, $STATIC, $staticMethod(IOVecWrapper, get, IOVecWrapper*, int32_t)},
-	{"getBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(IOVecWrapper, getBuffer, $ByteBuffer*, int32_t)},
-	{"getPosition", "(I)I", nullptr, 0, $virtualMethod(IOVecWrapper, getPosition, int32_t, int32_t)},
-	{"getRemaining", "(I)I", nullptr, 0, $virtualMethod(IOVecWrapper, getRemaining, int32_t, int32_t)},
-	{"getShadow", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(IOVecWrapper, getShadow, $ByteBuffer*, int32_t)},
-	{"putBase", "(IJ)V", nullptr, 0, $virtualMethod(IOVecWrapper, putBase, void, int32_t, int64_t)},
-	{"putLen", "(IJ)V", nullptr, 0, $virtualMethod(IOVecWrapper, putLen, void, int32_t, int64_t)},
-	{"setBuffer", "(ILjava/nio/ByteBuffer;II)V", nullptr, 0, $virtualMethod(IOVecWrapper, setBuffer, void, int32_t, $ByteBuffer*, int32_t, int32_t)},
-	{"setShadow", "(ILjava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(IOVecWrapper, setShadow, void, int32_t, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _IOVecWrapper_InnerClassesInfo_[] = {
-	{"sun.nio.ch.IOVecWrapper$Deallocator", "sun.nio.ch.IOVecWrapper", "Deallocator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _IOVecWrapper_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.IOVecWrapper",
-	"java.lang.Object",
-	nullptr,
-	_IOVecWrapper_FieldInfo_,
-	_IOVecWrapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IOVecWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.IOVecWrapper$Deallocator"
-};
-
-$Object* allocate$IOVecWrapper($Class* clazz) {
-	return $of($alloc(IOVecWrapper));
-}
 
 int32_t IOVecWrapper::LEN_OFFSET = 0;
 int32_t IOVecWrapper::SIZE_IOVEC = 0;
@@ -107,24 +47,24 @@ void IOVecWrapper::init$(int32_t size) {
 
 IOVecWrapper* IOVecWrapper::get(int32_t size) {
 	$init(IOVecWrapper);
-	$useLocalCurrentObjectStackCache();
-	$var(IOVecWrapper, wrapper, $cast(IOVecWrapper, $nc(IOVecWrapper::cached)->get()));
+	$useLocalObjectStack();
+	$var(IOVecWrapper, wrapper, $cast(IOVecWrapper, IOVecWrapper::cached->get()));
 	if (wrapper != nullptr && wrapper->size < size) {
 		$nc(wrapper->vecArray)->free();
 		$assign(wrapper, nullptr);
 	}
 	if (wrapper == nullptr) {
 		$assign(wrapper, $new(IOVecWrapper, size));
-		$nc($($CleanerFactory::cleaner()))->register$(wrapper, $$new($IOVecWrapper$Deallocator, wrapper->vecArray));
-		$nc(IOVecWrapper::cached)->set(wrapper);
+		$$nc($CleanerFactory::cleaner())->register$(wrapper, $$new($IOVecWrapper$Deallocator, wrapper->vecArray));
+		IOVecWrapper::cached->set(wrapper);
 	}
 	return wrapper;
 }
 
 void IOVecWrapper::setBuffer(int32_t i, $ByteBuffer* buf, int32_t pos, int32_t rem) {
-	$nc(this->buf)->set(i, buf);
-	$nc(this->position)->set(i, pos);
-	$nc(this->remaining)->set(i, rem);
+	this->buf->set(i, buf);
+	this->position->set(i, pos);
+	this->remaining->set(i, rem);
 }
 
 void IOVecWrapper::setShadow(int32_t i, $ByteBuffer* buf) {
@@ -170,10 +110,10 @@ void IOVecWrapper::putLen(int32_t i, int64_t len) {
 	}
 }
 
-void clinit$IOVecWrapper($Class* class$) {
+void IOVecWrapper::clinit$($Class* clazz) {
 	$assignStatic(IOVecWrapper::cached, $new($ThreadLocal));
 	{
-		IOVecWrapper::addressSize = $nc($($Util::unsafe()))->addressSize();
+		IOVecWrapper::addressSize = $$nc($Util::unsafe())->addressSize();
 		IOVecWrapper::LEN_OFFSET = IOVecWrapper::addressSize;
 		IOVecWrapper::SIZE_IOVEC = (int16_t)(IOVecWrapper::addressSize * 2);
 	}
@@ -183,7 +123,56 @@ IOVecWrapper::IOVecWrapper() {
 }
 
 $Class* IOVecWrapper::load$($String* name, bool initialize) {
-	$loadClass(IOVecWrapper, name, initialize, &_IOVecWrapper_ClassInfo_, clinit$IOVecWrapper, allocate$IOVecWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASE_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IOVecWrapper, BASE_OFFSET)},
+		{"LEN_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IOVecWrapper, LEN_OFFSET)},
+		{"SIZE_IOVEC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IOVecWrapper, SIZE_IOVEC)},
+		{"vecArray", "Lsun/nio/ch/AllocatedNativeObject;", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, vecArray)},
+		{"size", "I", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, size)},
+		{"buf", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, buf)},
+		{"position", "[I", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, position)},
+		{"remaining", "[I", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, remaining)},
+		{"shadow", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper, shadow)},
+		{"address", "J", nullptr, $FINAL, $field(IOVecWrapper, address)},
+		{"addressSize", "I", nullptr, $STATIC, $staticField(IOVecWrapper, addressSize)},
+		{"cached", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lsun/nio/ch/IOVecWrapper;>;", $PRIVATE | $STATIC | $FINAL, $staticField(IOVecWrapper, cached)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(IOVecWrapper, init$, void, int32_t)},
+		{"clearRefs", "(I)V", nullptr, 0, $virtualMethod(IOVecWrapper, clearRefs, void, int32_t)},
+		{"get", "(I)Lsun/nio/ch/IOVecWrapper;", nullptr, $STATIC, $staticMethod(IOVecWrapper, get, IOVecWrapper*, int32_t)},
+		{"getBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(IOVecWrapper, getBuffer, $ByteBuffer*, int32_t)},
+		{"getPosition", "(I)I", nullptr, 0, $virtualMethod(IOVecWrapper, getPosition, int32_t, int32_t)},
+		{"getRemaining", "(I)I", nullptr, 0, $virtualMethod(IOVecWrapper, getRemaining, int32_t, int32_t)},
+		{"getShadow", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(IOVecWrapper, getShadow, $ByteBuffer*, int32_t)},
+		{"putBase", "(IJ)V", nullptr, 0, $virtualMethod(IOVecWrapper, putBase, void, int32_t, int64_t)},
+		{"putLen", "(IJ)V", nullptr, 0, $virtualMethod(IOVecWrapper, putLen, void, int32_t, int64_t)},
+		{"setBuffer", "(ILjava/nio/ByteBuffer;II)V", nullptr, 0, $virtualMethod(IOVecWrapper, setBuffer, void, int32_t, $ByteBuffer*, int32_t, int32_t)},
+		{"setShadow", "(ILjava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(IOVecWrapper, setShadow, void, int32_t, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.IOVecWrapper$Deallocator", "sun.nio.ch.IOVecWrapper", "Deallocator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.IOVecWrapper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.IOVecWrapper$Deallocator"
+	};
+	$loadClass(IOVecWrapper, name, initialize, &classInfo$$, IOVecWrapper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IOVecWrapper);
+	});
 	return class$;
 }
 

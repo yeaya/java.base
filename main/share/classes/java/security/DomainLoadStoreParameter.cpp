@@ -1,5 +1,4 @@
 #include <java/security/DomainLoadStoreParameter.h>
-
 #include <java/net/URI.h>
 #include <java/security/KeyStore$ProtectionParameter.h>
 #include <java/util/Collections.h>
@@ -20,41 +19,6 @@ using $Map = ::java::util::Map;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _DomainLoadStoreParameter_FieldInfo_[] = {
-	{"configuration", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(DomainLoadStoreParameter, configuration)},
-	{"protectionParams", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;", $PRIVATE | $FINAL, $field(DomainLoadStoreParameter, protectionParams)},
-	{}
-};
-
-$MethodInfo _DomainLoadStoreParameter_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;Ljava/util/Map;)V", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;)V", $PUBLIC, $method(DomainLoadStoreParameter, init$, void, $URI*, $Map*)},
-	{"getConfiguration", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(DomainLoadStoreParameter, getConfiguration, $URI*)},
-	{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC, $virtualMethod(DomainLoadStoreParameter, getProtectionParameter, $KeyStore$ProtectionParameter*)},
-	{"getProtectionParams", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;", $PUBLIC, $method(DomainLoadStoreParameter, getProtectionParams, $Map*)},
-	{}
-};
-
-$InnerClassInfo _DomainLoadStoreParameter_InnerClassesInfo_[] = {
-	{"java.security.KeyStore$LoadStoreParameter", "java.security.KeyStore", "LoadStoreParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DomainLoadStoreParameter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.security.DomainLoadStoreParameter",
-	"java.lang.Object",
-	"java.security.KeyStore$LoadStoreParameter",
-	_DomainLoadStoreParameter_FieldInfo_,
-	_DomainLoadStoreParameter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DomainLoadStoreParameter_InnerClassesInfo_
-};
-
-$Object* allocate$DomainLoadStoreParameter($Class* clazz) {
-	return $of($alloc(DomainLoadStoreParameter));
-}
 
 void DomainLoadStoreParameter::init$($URI* configuration, $Map* protectionParams) {
 	if (configuration == nullptr || protectionParams == nullptr) {
@@ -80,7 +44,36 @@ DomainLoadStoreParameter::DomainLoadStoreParameter() {
 }
 
 $Class* DomainLoadStoreParameter::load$($String* name, bool initialize) {
-	$loadClass(DomainLoadStoreParameter, name, initialize, &_DomainLoadStoreParameter_ClassInfo_, allocate$DomainLoadStoreParameter);
+	$FieldInfo fieldInfos$$[] = {
+		{"configuration", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(DomainLoadStoreParameter, configuration)},
+		{"protectionParams", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;", $PRIVATE | $FINAL, $field(DomainLoadStoreParameter, protectionParams)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URI;Ljava/util/Map;)V", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;)V", $PUBLIC, $method(DomainLoadStoreParameter, init$, void, $URI*, $Map*)},
+		{"getConfiguration", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(DomainLoadStoreParameter, getConfiguration, $URI*)},
+		{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC, $virtualMethod(DomainLoadStoreParameter, getProtectionParameter, $KeyStore$ProtectionParameter*)},
+		{"getProtectionParams", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;", $PUBLIC, $method(DomainLoadStoreParameter, getProtectionParams, $Map*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyStore$LoadStoreParameter", "java.security.KeyStore", "LoadStoreParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.security.DomainLoadStoreParameter",
+		"java.lang.Object",
+		"java.security.KeyStore$LoadStoreParameter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(DomainLoadStoreParameter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DomainLoadStoreParameter);
+	});
 	return class$;
 }
 

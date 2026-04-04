@@ -78,6 +78,7 @@ class $export OCSPResponse : public ::java::lang::Object {
 	$class(OCSPResponse, 0, ::java::lang::Object)
 public:
 	OCSPResponse();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* bytes);
 	::java::util::Set* getCertIds();
 	::sun::security::provider::certpath::ResponderId* getResponderId();
@@ -98,7 +99,7 @@ public:
 	static const int32_t CERT_STATUS_UNKNOWN = 2;
 	static const int32_t NAME_TAG = 1;
 	static const int32_t KEY_TAG = 2;
-	static const int32_t DEFAULT_MAX_CLOCK_SKEW = 0x000DBBA0;
+	static const int32_t DEFAULT_MAX_CLOCK_SKEW = 0x000dbba0;
 	static int32_t MAX_CLOCK_SKEW;
 	static $Array<::java::security::cert::CRLReason>* values;
 	::sun::security::provider::certpath::OCSPResponse$ResponseStatus* responseStatus = nullptr;

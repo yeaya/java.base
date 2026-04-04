@@ -1,5 +1,4 @@
 #include <sun/nio/ch/ServerSocketAdaptor.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/InternalError.h>
@@ -78,88 +77,39 @@ public:
 		$set(this, ssc, ssc);
 	}
 	virtual $Object* run() override {
-		 return $of(ServerSocketAdaptor::lambda$create$0(ssc));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ServerSocketAdaptor$$Lambda$lambda$create$0>());
+		 return ServerSocketAdaptor::lambda$create$0(ssc);
 	}
 	$ServerSocketChannelImpl* ssc = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ServerSocketAdaptor$$Lambda$lambda$create$0::fieldInfos[2] = {
-	{"ssc", "Lsun/nio/ch/ServerSocketChannelImpl;", nullptr, $PUBLIC, $field(ServerSocketAdaptor$$Lambda$lambda$create$0, ssc)},
-	{}
-};
-$MethodInfo ServerSocketAdaptor$$Lambda$lambda$create$0::methodInfos[3] = {
-	{"<init>", "(Lsun/nio/ch/ServerSocketChannelImpl;)V", nullptr, $PUBLIC, $method(ServerSocketAdaptor$$Lambda$lambda$create$0, init$, void, $ServerSocketChannelImpl*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor$$Lambda$lambda$create$0, run, $Object*)},
-	{}
-};
-$ClassInfo ServerSocketAdaptor$$Lambda$lambda$create$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.ch.ServerSocketAdaptor$$Lambda$lambda$create$0",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ServerSocketAdaptor$$Lambda$lambda$create$0::load$($String* name, bool initialize) {
-	$loadClass(ServerSocketAdaptor$$Lambda$lambda$create$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"ssc", "Lsun/nio/ch/ServerSocketChannelImpl;", nullptr, $PUBLIC, $field(ServerSocketAdaptor$$Lambda$lambda$create$0, ssc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/ServerSocketChannelImpl;)V", nullptr, $PUBLIC, $method(ServerSocketAdaptor$$Lambda$lambda$create$0, init$, void, $ServerSocketChannelImpl*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor$$Lambda$lambda$create$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.ch.ServerSocketAdaptor$$Lambda$lambda$create$0",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ServerSocketAdaptor$$Lambda$lambda$create$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerSocketAdaptor$$Lambda$lambda$create$0);
+	});
 	return class$;
 }
 $Class* ServerSocketAdaptor$$Lambda$lambda$create$0::class$ = nullptr;
 
-$FieldInfo _ServerSocketAdaptor_FieldInfo_[] = {
-	{"ssc", "Lsun/nio/ch/ServerSocketChannelImpl;", nullptr, $PRIVATE | $FINAL, $field(ServerSocketAdaptor, ssc)},
-	{"timeout", "I", nullptr, $PRIVATE | $VOLATILE, $field(ServerSocketAdaptor, timeout)},
-	{}
-};
-
-$MethodInfo _ServerSocketAdaptor_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/ServerSocketChannelImpl;)V", nullptr, $PRIVATE, $method(ServerSocketAdaptor, init$, void, $ServerSocketChannelImpl*)},
-	{"accept", "()Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, accept, $Socket*), "java.io.IOException"},
-	{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, bind, void, $SocketAddress*), "java.io.IOException"},
-	{"bind", "(Ljava/net/SocketAddress;I)V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, bind, void, $SocketAddress*, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, close, void), "java.io.IOException"},
-	{"create", "(Lsun/nio/ch/ServerSocketChannelImpl;)Ljava/net/ServerSocket;", nullptr, $STATIC, $staticMethod(ServerSocketAdaptor, create, $ServerSocket*, $ServerSocketChannelImpl*)},
-	{"getChannel", "()Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getChannel, $ServerSocketChannel*)},
-	{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getInetAddress, $InetAddress*)},
-	{"getLocalPort", "()I", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getLocalPort, int32_t)},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC, $virtualMethod(ServerSocketAdaptor, getOption, $Object*, $SocketOption*), "java.io.IOException"},
-	{"getReceiveBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getReceiveBufferSize, int32_t), "java.net.SocketException"},
-	{"getReuseAddress", "()Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getReuseAddress, bool), "java.net.SocketException"},
-	{"getSoTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getSoTimeout, int32_t), "java.net.SocketException"},
-	{"isBound", "()Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, isBound, bool)},
-	{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, isClosed, bool)},
-	{"lambda$create$0", "(Lsun/nio/ch/ServerSocketChannelImpl;)Ljava/net/ServerSocket;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ServerSocketAdaptor, lambda$create$0, $ServerSocket*, $ServerSocketChannelImpl*), "java.lang.Exception"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/net/ServerSocket;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/net/ServerSocket;", $PUBLIC, $virtualMethod(ServerSocketAdaptor, setOption, $ServerSocket*, $SocketOption*, Object$*), "java.io.IOException"},
-	{"setReceiveBufferSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, setReceiveBufferSize, void, int32_t), "java.net.SocketException"},
-	{"setReuseAddress", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, setReuseAddress, void, bool), "java.net.SocketException"},
-	{"setSoTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, setSoTimeout, void, int32_t), "java.net.SocketException"},
-	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC, $virtualMethod(ServerSocketAdaptor, supportedOptions, $Set*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ServerSocketAdaptor_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.ServerSocketAdaptor",
-	"java.net.ServerSocket",
-	nullptr,
-	_ServerSocketAdaptor_FieldInfo_,
-	_ServerSocketAdaptor_MethodInfo_
-};
-
-$Object* allocate$ServerSocketAdaptor($Class* clazz) {
-	return $of($alloc(ServerSocketAdaptor));
-}
-
 $ServerSocket* ServerSocketAdaptor::create($ServerSocketChannelImpl* ssc) {
 	$init(ServerSocketAdaptor);
 	$beforeCallerSensitive();
-	$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(ServerSocketAdaptor$$Lambda$lambda$create$0, ssc)));
+	$var($PrivilegedExceptionAction, pa, $new(ServerSocketAdaptor$$Lambda$lambda$create$0, ssc));
 	try {
 		return $cast($ServerSocket, $AccessController::doPrivileged(pa));
 	} catch ($PrivilegedActionException& pae) {
@@ -190,12 +140,12 @@ void ServerSocketAdaptor::bind($SocketAddress* local$renamed, int32_t backlog) {
 }
 
 $InetAddress* ServerSocketAdaptor::getInetAddress() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SocketAddress, local, $nc(this->ssc)->localAddress());
 	if (local == nullptr) {
 		return nullptr;
 	} else {
-		return $nc($($Net::getRevealedLocalAddress(local)))->getAddress();
+		return $$nc($Net::getRevealedLocalAddress(local))->getAddress();
 	}
 }
 
@@ -204,7 +154,7 @@ int32_t ServerSocketAdaptor::getLocalPort() {
 	if (local == nullptr) {
 		return -1;
 	} else {
-		return $nc(local)->getPort();
+		return local->getPort();
 	}
 }
 
@@ -273,7 +223,7 @@ void ServerSocketAdaptor::setReuseAddress(bool on) {
 bool ServerSocketAdaptor::getReuseAddress() {
 	try {
 		$init($StandardSocketOptions);
-		return $nc(($cast($Boolean, $($nc(this->ssc)->getOption($StandardSocketOptions::SO_REUSEADDR)))))->booleanValue();
+		return $$sure($Boolean, $nc(this->ssc)->getOption($StandardSocketOptions::SO_REUSEADDR))->booleanValue();
 	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 		return false;
@@ -282,13 +232,17 @@ bool ServerSocketAdaptor::getReuseAddress() {
 }
 
 $String* ServerSocketAdaptor::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isBound()) {
 		return "ServerSocket[unbound]"_s;
 	}
-	$var($String, var$1, $$str({"ServerSocket[addr="_s, $(getInetAddress()), ",localport="_s}));
-	$var($String, var$0, $$concat(var$1, $$str(getLocalPort())));
-	return $concat(var$0, "]"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("ServerSocket[addr="_s);
+	var$0->append($(getInetAddress()));
+	var$0->append(",localport="_s);
+	var$0->append(getLocalPort());
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 void ServerSocketAdaptor::setReceiveBufferSize(int32_t size) {
@@ -306,7 +260,7 @@ void ServerSocketAdaptor::setReceiveBufferSize(int32_t size) {
 int32_t ServerSocketAdaptor::getReceiveBufferSize() {
 	try {
 		$init($StandardSocketOptions);
-		return $nc(($cast($Integer, $($nc(this->ssc)->getOption($StandardSocketOptions::SO_RCVBUF)))))->intValue();
+		return $$sure($Integer, $nc(this->ssc)->getOption($StandardSocketOptions::SO_RCVBUF))->intValue();
 	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 		return -1;
@@ -320,7 +274,7 @@ $ServerSocket* ServerSocketAdaptor::setOption($SocketOption* name, Object$* valu
 }
 
 $Object* ServerSocketAdaptor::getOption($SocketOption* name) {
-	return $of($nc(this->ssc)->getOption(name));
+	return $nc(this->ssc)->getOption(name);
 }
 
 $Set* ServerSocketAdaptor::supportedOptions() {
@@ -337,11 +291,51 @@ ServerSocketAdaptor::ServerSocketAdaptor() {
 
 $Class* ServerSocketAdaptor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ServerSocketAdaptor$$Lambda$lambda$create$0::classInfo$.name)) {
+		if (name->equals("sun.nio.ch.ServerSocketAdaptor$$Lambda$lambda$create$0")) {
 			return ServerSocketAdaptor$$Lambda$lambda$create$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ServerSocketAdaptor, name, initialize, &_ServerSocketAdaptor_ClassInfo_, allocate$ServerSocketAdaptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"ssc", "Lsun/nio/ch/ServerSocketChannelImpl;", nullptr, $PRIVATE | $FINAL, $field(ServerSocketAdaptor, ssc)},
+		{"timeout", "I", nullptr, $PRIVATE | $VOLATILE, $field(ServerSocketAdaptor, timeout)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/ServerSocketChannelImpl;)V", nullptr, $PRIVATE, $method(ServerSocketAdaptor, init$, void, $ServerSocketChannelImpl*)},
+		{"accept", "()Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, accept, $Socket*), "java.io.IOException"},
+		{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, bind, void, $SocketAddress*), "java.io.IOException"},
+		{"bind", "(Ljava/net/SocketAddress;I)V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, bind, void, $SocketAddress*, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, close, void), "java.io.IOException"},
+		{"create", "(Lsun/nio/ch/ServerSocketChannelImpl;)Ljava/net/ServerSocket;", nullptr, $STATIC, $staticMethod(ServerSocketAdaptor, create, $ServerSocket*, $ServerSocketChannelImpl*)},
+		{"getChannel", "()Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getChannel, $ServerSocketChannel*)},
+		{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getInetAddress, $InetAddress*)},
+		{"getLocalPort", "()I", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getLocalPort, int32_t)},
+		{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC, $virtualMethod(ServerSocketAdaptor, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+		{"getReceiveBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getReceiveBufferSize, int32_t), "java.net.SocketException"},
+		{"getReuseAddress", "()Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getReuseAddress, bool), "java.net.SocketException"},
+		{"getSoTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, getSoTimeout, int32_t), "java.net.SocketException"},
+		{"isBound", "()Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, isBound, bool)},
+		{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, isClosed, bool)},
+		{"lambda$create$0", "(Lsun/nio/ch/ServerSocketChannelImpl;)Ljava/net/ServerSocket;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ServerSocketAdaptor, lambda$create$0, $ServerSocket*, $ServerSocketChannelImpl*), "java.lang.Exception"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/net/ServerSocket;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/net/ServerSocket;", $PUBLIC, $virtualMethod(ServerSocketAdaptor, setOption, $ServerSocket*, $SocketOption*, Object$*), "java.io.IOException"},
+		{"setReceiveBufferSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, setReceiveBufferSize, void, int32_t), "java.net.SocketException"},
+		{"setReuseAddress", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, setReuseAddress, void, bool), "java.net.SocketException"},
+		{"setSoTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, setSoTimeout, void, int32_t), "java.net.SocketException"},
+		{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC, $virtualMethod(ServerSocketAdaptor, supportedOptions, $Set*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerSocketAdaptor, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.ServerSocketAdaptor",
+		"java.net.ServerSocket",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ServerSocketAdaptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerSocketAdaptor);
+	});
 	return class$;
 }
 

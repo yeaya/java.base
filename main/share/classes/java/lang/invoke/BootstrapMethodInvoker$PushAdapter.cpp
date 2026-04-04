@@ -1,5 +1,4 @@
 #include <java/lang/invoke/BootstrapMethodInvoker$PushAdapter.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/invoke/BootstrapCallInfo.h>
 #include <java/lang/invoke/BootstrapMethodInvoker.h>
@@ -16,7 +15,6 @@
 #undef THIS_CLASS
 #undef TRACE_METHOD_LINKAGE
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -34,42 +32,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _BootstrapMethodInvoker$PushAdapter_FieldInfo_[] = {
-	{"MH_pushToBootstrapMethod", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(BootstrapMethodInvoker$PushAdapter, MH_pushToBootstrapMethod)},
-	{}
-};
-
-$MethodInfo _BootstrapMethodInvoker$PushAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BootstrapMethodInvoker$PushAdapter, init$, void)},
-	{"pushToBootstrapMethod", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $staticMethod(BootstrapMethodInvoker$PushAdapter, pushToBootstrapMethod, $Object*, $MethodHandle*, $MethodHandles$Lookup*, $String*, Object$*, $ObjectArray*), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _BootstrapMethodInvoker$PushAdapter_InnerClassesInfo_[] = {
-	{"java.lang.invoke.BootstrapMethodInvoker$PushAdapter", "java.lang.invoke.BootstrapMethodInvoker", "PushAdapter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _BootstrapMethodInvoker$PushAdapter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.BootstrapMethodInvoker$PushAdapter",
-	"java.lang.Object",
-	nullptr,
-	_BootstrapMethodInvoker$PushAdapter_FieldInfo_,
-	_BootstrapMethodInvoker$PushAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BootstrapMethodInvoker$PushAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.BootstrapMethodInvoker"
-};
-
-$Object* allocate$BootstrapMethodInvoker$PushAdapter($Class* clazz) {
-	return $of($alloc(BootstrapMethodInvoker$PushAdapter));
-}
-
 $MethodHandle* BootstrapMethodInvoker$PushAdapter::MH_pushToBootstrapMethod = nullptr;
 
 void BootstrapMethodInvoker$PushAdapter::init$() {
@@ -77,24 +39,23 @@ void BootstrapMethodInvoker$PushAdapter::init$() {
 
 $Object* BootstrapMethodInvoker$PushAdapter::pushToBootstrapMethod($MethodHandle* pullModeBSM, $MethodHandles$Lookup* lookup, $String* name, Object$* type, $ObjectArray* arguments) {
 	$init(BootstrapMethodInvoker$PushAdapter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantGroup, cons, $ConstantGroup::makeConstantGroup($($Arrays::asList(arguments))));
 	$var($BootstrapCallInfo, bsci, $BootstrapCallInfo::makeBootstrapCallInfo(pullModeBSM, name, type, cons));
 	$init($MethodHandleStatics);
 	if ($MethodHandleStatics::TRACE_METHOD_LINKAGE) {
 		$nc($System::out)->println("pull-mode BSM gets pushed arguments from fake BSCI"_s);
 	}
-	return $of($nc(pullModeBSM)->invoke($$new($ObjectArray, {$of(lookup), $of(bsci)})));
+	return $nc(pullModeBSM)->invoke($$new($ObjectArray, {lookup, bsci}));
 }
 
-void clinit$BootstrapMethodInvoker$PushAdapter($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void BootstrapMethodInvoker$PushAdapter::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$Class* THIS_CLASS = BootstrapMethodInvoker$PushAdapter::class$;
 		try {
 			$init($MethodHandles$Lookup);
 			$load($MethodHandle);
-			$load($ObjectArray);
 			$assignStatic(BootstrapMethodInvoker$PushAdapter::MH_pushToBootstrapMethod, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(THIS_CLASS, "pushToBootstrapMethod"_s, $($MethodType::methodType($Object::class$, $MethodHandle::class$, $$new($ClassArray, {
 				$MethodHandles$Lookup::class$,
 				$String::class$,
@@ -102,7 +63,7 @@ void clinit$BootstrapMethodInvoker$PushAdapter($Class* class$) {
 				$getClass($ObjectArray)
 			})))));
 		} catch ($Throwable& ex) {
-			$throwNew($InternalError, $cast($Throwable, ex));
+			$throwNew($InternalError, ex);
 		}
 	}
 }
@@ -111,7 +72,37 @@ BootstrapMethodInvoker$PushAdapter::BootstrapMethodInvoker$PushAdapter() {
 }
 
 $Class* BootstrapMethodInvoker$PushAdapter::load$($String* name, bool initialize) {
-	$loadClass(BootstrapMethodInvoker$PushAdapter, name, initialize, &_BootstrapMethodInvoker$PushAdapter_ClassInfo_, clinit$BootstrapMethodInvoker$PushAdapter, allocate$BootstrapMethodInvoker$PushAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"MH_pushToBootstrapMethod", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(BootstrapMethodInvoker$PushAdapter, MH_pushToBootstrapMethod)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BootstrapMethodInvoker$PushAdapter, init$, void)},
+		{"pushToBootstrapMethod", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $staticMethod(BootstrapMethodInvoker$PushAdapter, pushToBootstrapMethod, $Object*, $MethodHandle*, $MethodHandles$Lookup*, $String*, Object$*, $ObjectArray*), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.BootstrapMethodInvoker$PushAdapter", "java.lang.invoke.BootstrapMethodInvoker", "PushAdapter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.BootstrapMethodInvoker$PushAdapter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.BootstrapMethodInvoker"
+	};
+	$loadClass(BootstrapMethodInvoker$PushAdapter, name, initialize, &classInfo$$, BootstrapMethodInvoker$PushAdapter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BootstrapMethodInvoker$PushAdapter);
+	});
 	return class$;
 }
 

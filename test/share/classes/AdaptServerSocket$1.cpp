@@ -1,18 +1,13 @@
 #include <AdaptServerSocket$1.h>
-
 #include <AdaptServerSocket.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/InterruptedException.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Socket.h>
-#include <java/net/SocketAddress.h>
 #include <jcpp.h>
 
 using $AdaptServerSocket = ::AdaptServerSocket;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;
@@ -22,50 +17,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Socket = ::java::net::Socket;
-using $SocketAddress = ::java::net::SocketAddress;
-
-$FieldInfo _AdaptServerSocket$1_FieldInfo_[] = {
-	{"val$port", "I", nullptr, $FINAL | $SYNTHETIC, $field(AdaptServerSocket$1, val$port)},
-	{"val$dally", "I", nullptr, $FINAL | $SYNTHETIC, $field(AdaptServerSocket$1, val$dally)},
-	{}
-};
-
-$MethodInfo _AdaptServerSocket$1_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(AdaptServerSocket$1, init$, void, int32_t, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AdaptServerSocket$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _AdaptServerSocket$1_EnclosingMethodInfo_ = {
-	"AdaptServerSocket",
-	"startClient",
-	"(II)V"
-};
-
-$InnerClassInfo _AdaptServerSocket$1_InnerClassesInfo_[] = {
-	{"AdaptServerSocket$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AdaptServerSocket$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"AdaptServerSocket$1",
-	"java.lang.Thread",
-	nullptr,
-	_AdaptServerSocket$1_FieldInfo_,
-	_AdaptServerSocket$1_MethodInfo_,
-	nullptr,
-	&_AdaptServerSocket$1_EnclosingMethodInfo_,
-	_AdaptServerSocket$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"AdaptServerSocket"
-};
-
-$Object* allocate$AdaptServerSocket$1($Class* clazz) {
-	return $of($alloc(AdaptServerSocket$1));
-}
 
 void AdaptServerSocket$1::init$(int32_t val$dally, int32_t val$port) {
 	this->val$dally = val$dally;
@@ -74,51 +25,49 @@ void AdaptServerSocket$1::init$(int32_t val$dally, int32_t val$port) {
 }
 
 void AdaptServerSocket$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Socket, so, $new($Socket));
-		{
-			$var($Throwable, var$0, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$init($AdaptServerSocket);
-					$nc($AdaptServerSocket::out)->println($$str({"client:  "_s, so}));
-					$AdaptServerSocket::clientStarted = true;
-					if (this->val$dally > 0) {
-						$Thread::sleep(this->val$dally);
-					}
-					so->connect($$new($InetSocketAddress, this->val$port));
-					if ($Thread::interrupted()) {
-						$nc($AdaptServerSocket::out)->println("client interrupted"_s);
-						return$1 = true;
-						goto $finally;
-					}
-					$nc($AdaptServerSocket::out)->println($$str({"client:  "_s, so}));
-					int32_t a = $nc($(so->getInputStream()))->read();
-					$nc($AdaptServerSocket::out)->println($$str({"client:  read "_s, $$str(a)}));
-					a += 1;
-					$nc($(so->getOutputStream()))->write(a);
-					$nc($AdaptServerSocket::out)->println($$str({"client:  wrote "_s, $$str(a)}));
-				} catch ($Throwable& t$) {
-					try {
-						so->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+				$init($AdaptServerSocket);
+				$nc($AdaptServerSocket::out)->println($$str({"client:  "_s, so}));
+				$AdaptServerSocket::clientStarted = true;
+				if (this->val$dally > 0) {
+					$Thread::sleep(this->val$dally);
 				}
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} $finally: {
-				so->close();
+				so->connect($$new($InetSocketAddress, this->val$port));
+				if ($Thread::interrupted()) {
+					$AdaptServerSocket::out->println("client interrupted"_s);
+					return$1 = true;
+					goto $finally;
+				}
+				$AdaptServerSocket::out->println($$str({"client:  "_s, so}));
+				int32_t a = $$nc(so->getInputStream())->read();
+				$AdaptServerSocket::out->println($$str({"client:  read "_s, $$str(a)}));
+				a += 1;
+				$$nc(so->getOutputStream())->write(a);
+				$AdaptServerSocket::out->println($$str({"client:  wrote "_s, $$str(a)}));
+			} catch ($Throwable& t$) {
+				try {
+					so->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return;
-			}
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} $finally: {
+			so->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return;
 		}
 	} catch ($Exception& x) {
 		if ($instanceOf($InterruptedException, x)) {
@@ -134,7 +83,43 @@ AdaptServerSocket$1::AdaptServerSocket$1() {
 }
 
 $Class* AdaptServerSocket$1::load$($String* name, bool initialize) {
-	$loadClass(AdaptServerSocket$1, name, initialize, &_AdaptServerSocket$1_ClassInfo_, allocate$AdaptServerSocket$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$port", "I", nullptr, $FINAL | $SYNTHETIC, $field(AdaptServerSocket$1, val$port)},
+		{"val$dally", "I", nullptr, $FINAL | $SYNTHETIC, $field(AdaptServerSocket$1, val$dally)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, 0, $method(AdaptServerSocket$1, init$, void, int32_t, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AdaptServerSocket$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"AdaptServerSocket",
+		"startClient",
+		"(II)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AdaptServerSocket$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"AdaptServerSocket$1",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"AdaptServerSocket"
+	};
+	$loadClass(AdaptServerSocket$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AdaptServerSocket$1);
+	});
 	return class$;
 }
 

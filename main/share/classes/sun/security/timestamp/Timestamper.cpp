@@ -1,5 +1,4 @@
 #include <sun/security/timestamp/Timestamper.h>
-
 #include <sun/security/timestamp/TSRequest.h>
 #include <sun/security/timestamp/TSResponse.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace sun {
 	namespace security {
 		namespace timestamp {
 
-$MethodInfo _Timestamper_MethodInfo_[] = {
-	{"generateTimestamp", "(Lsun/security/timestamp/TSRequest;)Lsun/security/timestamp/TSResponse;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Timestamper, generateTimestamp, $TSResponse*, $TSRequest*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Timestamper_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.security.timestamp.Timestamper",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Timestamper_MethodInfo_
-};
-
-$Object* allocate$Timestamper($Class* clazz) {
-	return $of($alloc(Timestamper));
-}
-
 $Class* Timestamper::load$($String* name, bool initialize) {
-	$loadClass(Timestamper, name, initialize, &_Timestamper_ClassInfo_, allocate$Timestamper);
+	$MethodInfo methodInfos$$[] = {
+		{"generateTimestamp", "(Lsun/security/timestamp/TSRequest;)Lsun/security/timestamp/TSResponse;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Timestamper, generateTimestamp, $TSResponse*, $TSRequest*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.security.timestamp.Timestamper",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Timestamper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Timestamper);
+	});
 	return class$;
 }
 

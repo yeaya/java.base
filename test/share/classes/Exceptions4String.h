@@ -15,6 +15,7 @@ class $export Exceptions4String : public ::java::lang::Object {
 	$class(Exceptions4String, 0, ::java::lang::Object)
 public:
 	Exceptions4String();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void byteArray();
 	static void byteArrayCharset();

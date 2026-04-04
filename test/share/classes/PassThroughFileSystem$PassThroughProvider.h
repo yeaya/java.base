@@ -58,6 +58,7 @@ class PassThroughFileSystem$PassThroughProvider : public ::java::nio::file::spi:
 	$class(PassThroughFileSystem$PassThroughProvider, 0, ::java::nio::file::spi::FileSystemProvider)
 public:
 	PassThroughFileSystem$PassThroughProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void checkAccess(::java::nio::file::Path* file, $Array<::java::nio::file::AccessMode>* modes) override;
 	void checkScheme(::java::net::URI* uri);

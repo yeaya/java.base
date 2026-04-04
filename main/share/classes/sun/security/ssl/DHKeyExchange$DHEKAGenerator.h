@@ -22,6 +22,7 @@ class DHKeyExchange$DHEKAGenerator : public ::sun::security::ssl::SSLKeyAgreemen
 	$class(DHKeyExchange$DHEKAGenerator, 0, ::sun::security::ssl::SSLKeyAgreementGenerator)
 public:
 	DHKeyExchange$DHEKAGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::sun::security::ssl::SSLKeyDerivation* createKeyDerivation(::sun::security::ssl::HandshakeContext* context) override;
 	static ::sun::security::ssl::DHKeyExchange$DHEKAGenerator* instance;

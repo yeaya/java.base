@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentHashMap$EntrySpliterator.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/ConcurrentHashMap$MapEntry.h>
 #include <java/util/concurrent/ConcurrentHashMap$Node.h>
@@ -28,54 +27,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _ConcurrentHashMap$EntrySpliterator_FieldInfo_[] = {
-	{"map", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;", $FINAL, $field(ConcurrentHashMap$EntrySpliterator, map)},
-	{"est", "J", nullptr, 0, $field(ConcurrentHashMap$EntrySpliterator, est)},
-	{}
-};
-
-$MethodInfo _ConcurrentHashMap$EntrySpliterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIIJLjava/util/concurrent/ConcurrentHashMap;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIIJLjava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$EntrySpliterator, init$, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t, int32_t, int64_t, $ConcurrentHashMap*)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, forEachRemaining, void, $Consumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/concurrent/ConcurrentHashMap$EntrySpliterator;", "()Ljava/util/concurrent/ConcurrentHashMap$EntrySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _ConcurrentHashMap$EntrySpliterator_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentHashMap$EntrySpliterator", "java.util.concurrent.ConcurrentHashMap", "EntrySpliterator", $STATIC | $FINAL},
-	{"java.util.concurrent.ConcurrentHashMap$Traverser", "java.util.concurrent.ConcurrentHashMap", "Traverser", $STATIC},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ConcurrentHashMap$EntrySpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ConcurrentHashMap$EntrySpliterator",
-	"java.util.concurrent.ConcurrentHashMap$Traverser",
-	"java.util.Spliterator",
-	_ConcurrentHashMap$EntrySpliterator_FieldInfo_,
-	_ConcurrentHashMap$EntrySpliterator_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/ConcurrentHashMap$Traverser<TK;TV;>;Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_ConcurrentHashMap$EntrySpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentHashMap"
-};
-
-$Object* allocate$ConcurrentHashMap$EntrySpliterator($Class* clazz) {
-	return $of($alloc(ConcurrentHashMap$EntrySpliterator));
-}
 
 int32_t ConcurrentHashMap$EntrySpliterator::hashCode() {
 	 return this->$ConcurrentHashMap$Traverser::hashCode();
@@ -107,25 +58,25 @@ $Spliterator* ConcurrentHashMap$EntrySpliterator::trySplit() {
 	int32_t i = 0;
 	int32_t f = 0;
 	int32_t h = 0;
-	int32_t var$0 = (h = (int32_t)((uint32_t)((i = this->baseIndex) + (f = this->baseLimit)) >> 1));
-	return (var$0 <= i ? (ConcurrentHashMap$EntrySpliterator*)nullptr : $new(ConcurrentHashMap$EntrySpliterator, this->tab, this->baseSize, this->baseLimit = h, f, $usrAssign(this->est, 1), this->map));
+	int32_t var$0 = h = (int32_t)((uint32_t)((i = this->baseIndex) + (f = this->baseLimit)) >> 1);
+	return var$0 <= i ? (ConcurrentHashMap$EntrySpliterator*)nullptr : $new(ConcurrentHashMap$EntrySpliterator, this->tab, this->baseSize, this->baseLimit = h, f, $usrAssign(this->est, 1), this->map);
 }
 
 void ConcurrentHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	{
 		$var($ConcurrentHashMap$Node, p, nullptr);
 		for (; ($assign(p, advance())) != nullptr;) {
-			$nc(action)->accept($$new($ConcurrentHashMap$MapEntry, $nc(p)->key, p->val, this->map));
+			$nc(action)->accept($$new($ConcurrentHashMap$MapEntry, $nc(p)->key, $nc(p)->val, this->map));
 		}
 	}
 }
 
 bool ConcurrentHashMap$EntrySpliterator::tryAdvance($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -133,7 +84,7 @@ bool ConcurrentHashMap$EntrySpliterator::tryAdvance($Consumer* action) {
 	if (($assign(p, advance())) == nullptr) {
 		return false;
 	}
-	$nc(action)->accept($$new($ConcurrentHashMap$MapEntry, $nc(p)->key, p->val, this->map));
+	$nc(action)->accept($$new($ConcurrentHashMap$MapEntry, $nc(p)->key, $nc(p)->val, this->map));
 	return true;
 }
 
@@ -149,7 +100,49 @@ ConcurrentHashMap$EntrySpliterator::ConcurrentHashMap$EntrySpliterator() {
 }
 
 $Class* ConcurrentHashMap$EntrySpliterator::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentHashMap$EntrySpliterator, name, initialize, &_ConcurrentHashMap$EntrySpliterator_ClassInfo_, allocate$ConcurrentHashMap$EntrySpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;", $FINAL, $field(ConcurrentHashMap$EntrySpliterator, map)},
+		{"est", "J", nullptr, 0, $field(ConcurrentHashMap$EntrySpliterator, est)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIIJLjava/util/concurrent/ConcurrentHashMap;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIIJLjava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$EntrySpliterator, init$, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t, int32_t, int64_t, $ConcurrentHashMap*)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, forEachRemaining, void, $Consumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/concurrent/ConcurrentHashMap$EntrySpliterator;", "()Ljava/util/concurrent/ConcurrentHashMap$EntrySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentHashMap$EntrySpliterator", "java.util.concurrent.ConcurrentHashMap", "EntrySpliterator", $STATIC | $FINAL},
+		{"java.util.concurrent.ConcurrentHashMap$Traverser", "java.util.concurrent.ConcurrentHashMap", "Traverser", $STATIC},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ConcurrentHashMap$EntrySpliterator",
+		"java.util.concurrent.ConcurrentHashMap$Traverser",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/ConcurrentHashMap$Traverser<TK;TV;>;Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentHashMap"
+	};
+	$loadClass(ConcurrentHashMap$EntrySpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConcurrentHashMap$EntrySpliterator));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TieRoundingTest.h>
-
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/RoundingMode.h>
@@ -15,7 +14,6 @@
 
 using $RoundingModeArray = $Array<::java::math::RoundingMode>;
 using $StringArray2 = $Array<::java::lang::String, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -28,35 +26,6 @@ using $DecimalFormat = ::java::text::DecimalFormat;
 using $NumberFormat = ::java::text::NumberFormat;
 using $Locale = ::java::util::Locale;
 
-$FieldInfo _TieRoundingTest_FieldInfo_[] = {
-	{"testCounter", "I", nullptr, $STATIC, $staticField(TieRoundingTest, testCounter)},
-	{"errorCounter", "I", nullptr, $STATIC, $staticField(TieRoundingTest, errorCounter)},
-	{"allPassed", "Z", nullptr, $STATIC, $staticField(TieRoundingTest, allPassed)},
-	{}
-};
-
-$MethodInfo _TieRoundingTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TieRoundingTest, init$, void)},
-	{"formatOutputTestDouble", "(Ljava/text/NumberFormat;DLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TieRoundingTest, formatOutputTestDouble, void, $NumberFormat*, double, $String*, $String*, $String*)},
-	{"formatOutputTestLong", "(Ljava/text/NumberFormat;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TieRoundingTest, formatOutputTestLong, void, $NumberFormat*, int64_t, $String*, $String*, $String*)},
-	{"formatOutputTestObject", "(Ljava/text/NumberFormat;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TieRoundingTest, formatOutputTestObject, void, $NumberFormat*, Object$*, $String*, $String*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TieRoundingTest, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _TieRoundingTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TieRoundingTest",
-	"java.lang.Object",
-	nullptr,
-	_TieRoundingTest_FieldInfo_,
-	_TieRoundingTest_MethodInfo_
-};
-
-$Object* allocate$TieRoundingTest($Class* clazz) {
-	return $of($alloc(TieRoundingTest));
-}
-
 int32_t TieRoundingTest::testCounter = 0;
 int32_t TieRoundingTest::errorCounter = 0;
 bool TieRoundingTest::allPassed = false;
@@ -66,102 +35,102 @@ void TieRoundingTest::init$() {
 
 void TieRoundingTest::formatOutputTestDouble($NumberFormat* nf, double doubleToTest, $String* tiePosition, $String* inputDigits, $String* expectedOutput) {
 	$init(TieRoundingTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mfd = $nc(nf)->getMaximumFractionDigits();
 	$RoundingMode* rm = nf->getRoundingMode();
 	$var($String, result, nf->format(doubleToTest));
 	if (!$nc(result)->equals(expectedOutput)) {
 		$nc($System::out)->println();
-		$nc($System::out)->println("========================================"_s);
-		$nc($System::out)->println($$str({"***Failure : error formatting value from string : "_s, inputDigits}));
-		$nc($System::out)->println($$str({"NumberFormat pattern is  : "_s, $($nc(($cast($DecimalFormat, nf)))->toPattern())}));
-		$nc($System::out)->println($$str({"Maximum number of fractional digits : "_s, $$str(mfd)}));
-		$nc($System::out)->println($$str({"Fractional rounding digit : "_s, $$str((mfd + 1))}));
-		$nc($System::out)->println($$str({"Position of value relative to tie : "_s, tiePosition}));
-		$nc($System::out)->println($$str({"Rounding Mode : "_s, rm}));
-		$nc($System::out)->println($$str({"BigDecimal output : "_s, $($$new($BigDecimal, doubleToTest)->toString())}));
-		$nc($System::out)->println($$str({"FloatingDecimal output : "_s, $$str(doubleToTest)}));
-		$nc($System::out)->println($$str({"Error. Formatted result different from expected.\nExpected output is : \""_s, expectedOutput, "\"\nFormated output is : \""_s, result, "\""_s}));
-		$nc($System::out)->println("========================================"_s);
-		$nc($System::out)->println();
+		$System::out->println("========================================"_s);
+		$System::out->println($$str({"***Failure : error formatting value from string : "_s, inputDigits}));
+		$System::out->println($$str({"NumberFormat pattern is  : "_s, $($cast($DecimalFormat, nf)->toPattern())}));
+		$System::out->println($$str({"Maximum number of fractional digits : "_s, $$str(mfd)}));
+		$System::out->println($$str({"Fractional rounding digit : "_s, $$str((mfd + 1))}));
+		$System::out->println($$str({"Position of value relative to tie : "_s, tiePosition}));
+		$System::out->println($$str({"Rounding Mode : "_s, rm}));
+		$System::out->println($$str({"BigDecimal output : "_s, $($$new($BigDecimal, doubleToTest)->toString())}));
+		$System::out->println($$str({"FloatingDecimal output : "_s, $$str(doubleToTest)}));
+		$System::out->println($$str({"Error. Formatted result different from expected.\nExpected output is : \""_s, expectedOutput, "\"\nFormated output is : \""_s, result, "\""_s}));
+		$System::out->println("========================================"_s);
+		$System::out->println();
 		++TieRoundingTest::errorCounter;
 		TieRoundingTest::allPassed = false;
 	} else {
 		++TieRoundingTest::testCounter;
 		$nc($System::out)->println($$str({"\nSuccess for double value : "_s, $$str(doubleToTest), " :"_s}));
-		$nc($System::out)->println($$str({" Input digits :"_s, inputDigits, ", BigDecimal value : "_s, $($$new($BigDecimal, doubleToTest)->toString())}));
-		$nc($System::out)->print($$str({" Rounding mode: "_s, rm}));
-		$nc($System::out)->print($$str({", fract digits : "_s, $$str(mfd)}));
-		$nc($System::out)->print($$str({", position : "_s, tiePosition, " tie"_s}));
-		$nc($System::out)->print($$str({", result : "_s, result}));
-		$nc($System::out)->println($$str({", expected : "_s, expectedOutput}));
+		$System::out->println($$str({" Input digits :"_s, inputDigits, ", BigDecimal value : "_s, $($$new($BigDecimal, doubleToTest)->toString())}));
+		$System::out->print($$str({" Rounding mode: "_s, rm}));
+		$System::out->print($$str({", fract digits : "_s, $$str(mfd)}));
+		$System::out->print($$str({", position : "_s, tiePosition, " tie"_s}));
+		$System::out->print($$str({", result : "_s, result}));
+		$System::out->println($$str({", expected : "_s, expectedOutput}));
 	}
 }
 
 void TieRoundingTest::formatOutputTestLong($NumberFormat* nf, int64_t longToTest, $String* tiePosition, $String* inputDigits, $String* expectedOutput) {
 	$init(TieRoundingTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mfd = $nc(nf)->getMaximumFractionDigits();
 	$RoundingMode* rm = nf->getRoundingMode();
 	$var($String, result, nf->format(longToTest));
 	if (!$nc(result)->equals(expectedOutput)) {
 		$nc($System::out)->println();
-		$nc($System::out)->println("========================================"_s);
-		$nc($System::out)->println($$str({"***Failure : error formatting value from string : "_s, inputDigits}));
-		$nc($System::out)->println($$str({"NumberFormat pattern is  : "_s, $($nc(($cast($DecimalFormat, nf)))->toPattern())}));
-		$nc($System::out)->println($$str({"Maximum number of fractional digits : "_s, $$str(mfd)}));
-		$nc($System::out)->println($$str({"Fractional rounding digit : "_s, $$str((mfd + 1))}));
-		$nc($System::out)->println($$str({"Position of value relative to tie : "_s, tiePosition}));
-		$nc($System::out)->println($$str({"Rounding Mode : "_s, rm}));
-		$nc($System::out)->println($$str({"Error. Formatted result different from expected.\nExpected output is : \""_s, expectedOutput, "\"\nFormated output is : \""_s, result, "\""_s}));
-		$nc($System::out)->println("========================================"_s);
-		$nc($System::out)->println();
+		$System::out->println("========================================"_s);
+		$System::out->println($$str({"***Failure : error formatting value from string : "_s, inputDigits}));
+		$System::out->println($$str({"NumberFormat pattern is  : "_s, $($cast($DecimalFormat, nf)->toPattern())}));
+		$System::out->println($$str({"Maximum number of fractional digits : "_s, $$str(mfd)}));
+		$System::out->println($$str({"Fractional rounding digit : "_s, $$str((mfd + 1))}));
+		$System::out->println($$str({"Position of value relative to tie : "_s, tiePosition}));
+		$System::out->println($$str({"Rounding Mode : "_s, rm}));
+		$System::out->println($$str({"Error. Formatted result different from expected.\nExpected output is : \""_s, expectedOutput, "\"\nFormated output is : \""_s, result, "\""_s}));
+		$System::out->println("========================================"_s);
+		$System::out->println();
 		++TieRoundingTest::errorCounter;
 		TieRoundingTest::allPassed = false;
 	} else {
 		++TieRoundingTest::testCounter;
 		$nc($System::out)->print($$str({"Success. Long input :"_s, inputDigits}));
-		$nc($System::out)->print($$str({", rounding : "_s, rm}));
-		$nc($System::out)->print($$str({", fract digits : "_s, $$str(mfd)}));
-		$nc($System::out)->print($$str({", tie position : "_s, tiePosition}));
-		$nc($System::out)->println($$str({", expected : "_s, expectedOutput}));
+		$System::out->print($$str({", rounding : "_s, rm}));
+		$System::out->print($$str({", fract digits : "_s, $$str(mfd)}));
+		$System::out->print($$str({", tie position : "_s, tiePosition}));
+		$System::out->println($$str({", expected : "_s, expectedOutput}));
 	}
 }
 
 void TieRoundingTest::formatOutputTestObject($NumberFormat* nf, Object$* someNumber, $String* tiePosition, $String* inputDigits, $String* expectedOutput) {
 	$init(TieRoundingTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mfd = $nc(nf)->getMaximumFractionDigits();
 	$RoundingMode* rm = nf->getRoundingMode();
 	$var($String, result, nf->format(someNumber));
 	if (!$nc(result)->equals(expectedOutput)) {
 		$nc($System::out)->println();
-		$nc($System::out)->println("========================================"_s);
-		$nc($System::out)->println($$str({"***Failure : error formatting value from string : "_s, inputDigits}));
-		$nc($System::out)->println($$str({"NumberFormat pattern is  : "_s, $($nc(($cast($DecimalFormat, nf)))->toPattern())}));
-		$nc($System::out)->println($$str({"Maximum number of fractional digits : "_s, $$str(mfd)}));
-		$nc($System::out)->println($$str({"Fractional rounding digit : "_s, $$str((mfd + 1))}));
-		$nc($System::out)->println($$str({"Position of value relative to tie : "_s, tiePosition}));
-		$nc($System::out)->println($$str({"Rounding Mode : "_s, rm}));
-		$nc($System::out)->println($$str({"Number self output representation: "_s, someNumber}));
-		$nc($System::out)->println($$str({"Error. Formatted result different from expected.\nExpected output is : \""_s, expectedOutput, "\"\nFormated output is : \""_s, result, "\""_s}));
-		$nc($System::out)->println("========================================"_s);
-		$nc($System::out)->println();
+		$System::out->println("========================================"_s);
+		$System::out->println($$str({"***Failure : error formatting value from string : "_s, inputDigits}));
+		$System::out->println($$str({"NumberFormat pattern is  : "_s, $($cast($DecimalFormat, nf)->toPattern())}));
+		$System::out->println($$str({"Maximum number of fractional digits : "_s, $$str(mfd)}));
+		$System::out->println($$str({"Fractional rounding digit : "_s, $$str((mfd + 1))}));
+		$System::out->println($$str({"Position of value relative to tie : "_s, tiePosition}));
+		$System::out->println($$str({"Rounding Mode : "_s, rm}));
+		$System::out->println($$str({"Number self output representation: "_s, someNumber}));
+		$System::out->println($$str({"Error. Formatted result different from expected.\nExpected output is : \""_s, expectedOutput, "\"\nFormated output is : \""_s, result, "\""_s}));
+		$System::out->println("========================================"_s);
+		$System::out->println();
 		++TieRoundingTest::errorCounter;
 		TieRoundingTest::allPassed = false;
 	} else {
 		++TieRoundingTest::testCounter;
 		$nc($System::out)->print($$str({"Success. Number input :"_s, inputDigits}));
-		$nc($System::out)->print($$str({", rounding : "_s, rm}));
-		$nc($System::out)->print($$str({", fract digits : "_s, $$str(mfd)}));
-		$nc($System::out)->print($$str({", tie position : "_s, tiePosition}));
-		$nc($System::out)->println($$str({", expected : "_s, expectedOutput}));
+		$System::out->print($$str({", rounding : "_s, rm}));
+		$System::out->print($$str({", fract digits : "_s, $$str(mfd)}));
+		$System::out->print($$str({", tie position : "_s, tiePosition}));
+		$System::out->println($$str({", expected : "_s, expectedOutput}));
 	}
 }
 
 void TieRoundingTest::main($StringArray* args) {
 	$init(TieRoundingTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($RoundingMode);
 	$var($RoundingModeArray, roundingModes, $new($RoundingModeArray, {
 		$RoundingMode::HALF_DOWN,
@@ -296,7 +265,7 @@ void TieRoundingTest::main($StringArray* args) {
 		$var($NumberFormat, dfDefault, $NumberFormat::getInstance($Locale::US));
 		$RoundingMode* rmode = roundingModes->get(r);
 		$nc(dfDefault)->setRoundingMode(rmode);
-		$nc($System::out)->println($$str({"\n----- Now checking "_s, rmode, " rounding mode -----"_s}));
+		$System::out->println($$str({"\n----- Now checking "_s, rmode, " rounding mode -----"_s}));
 		for (int32_t i = 0; i < values3FractDigits->length; ++i) {
 			double d = values3FractDigits->get(i);
 			$var($String, tiePosition, tieRelativePositions->get(i));
@@ -305,7 +274,7 @@ void TieRoundingTest::main($StringArray* args) {
 			formatOutputTestDouble(dfDefault, d, tiePosition, input, expected);
 		}
 	}
-	$nc($System::out)->println("\n===== testing 5 digits rounding position ====="_s);
+	$System::out->println("\n===== testing 5 digits rounding position ====="_s);
 	$var($doubles, values5FractDigits, $new($doubles, {
 		1.3135,
 		1.3125,
@@ -413,7 +382,7 @@ void TieRoundingTest::main($StringArray* args) {
 		$var($DecimalFormat, df5, $cast($DecimalFormat, $NumberFormat::getInstance($Locale::US)));
 		$RoundingMode* rmode = roundingModes->get(r);
 		$nc(df5)->setRoundingMode(rmode);
-		$nc($System::out)->println($$str({"\n----- Now checking "_s, rmode, " rounding mode -----"_s}));
+		$System::out->println($$str({"\n----- Now checking "_s, rmode, " rounding mode -----"_s}));
 		df5->applyPattern("#,###.#####"_s);
 		for (int32_t i = 0; i < values5FractDigits->length; ++i) {
 			double d = values5FractDigits->get(i);
@@ -423,8 +392,8 @@ void TieRoundingTest::main($StringArray* args) {
 			formatOutputTestDouble(df5, d, tiePosition, input, expected);
 		}
 	}
-	$nc($System::out)->println("\n===== testing long values ====="_s);
-	int64_t l = 0x00007048860DDF79;
+	$System::out->println("\n===== testing long values ====="_s);
+	int64_t l = (int64_t)0x00007048860ddf79;
 	$init($Locale);
 	$var($DecimalFormat, dfLong, $cast($DecimalFormat, $NumberFormat::getInstance($Locale::US)));
 	$var($String, tiePosition, "exact"_s);
@@ -435,20 +404,20 @@ void TieRoundingTest::main($StringArray* args) {
 	dfLong->applyPattern("0.###E0"_s);
 	$assign(expected, "1.235E14"_s);
 	formatOutputTestLong(dfLong, l, tiePosition, input, expected);
-	l = 0x00007046F165C400;
+	l = (int64_t)123450000000000;
 	$assign(input, "123450000000000L"_s);
 	$assign(expected, "1.234E14"_s);
 	formatOutputTestLong(dfLong, l, tiePosition, input, expected);
-	l = 0x0003825A77E07C00;
+	l = (int64_t)987750000000000;
 	$assign(input, "987750000000000L"_s);
 	$assign(expected, "9.878E14"_s);
 	formatOutputTestLong(dfLong, l, tiePosition, input, expected);
 	dfLong->applyPattern("#,###.0E0"_s);
-	l = 0x0003825BA1E66E00;
+	l = (int64_t)987755000000000;
 	$assign(input, "987755000000000L"_s);
 	$assign(expected, "987.76E12"_s);
 	formatOutputTestLong(dfLong, l, tiePosition, input, expected);
-	$nc($System::out)->println("\n===== testing BigInteger values ====="_s);
+	$System::out->println("\n===== testing BigInteger values ====="_s);
 	$var($String, stringValue, "12345678901234567890123456789012345"_s);
 	$var($BigInteger, bi, $new($BigInteger, stringValue));
 	$var($DecimalFormat, dfBig, $cast($DecimalFormat, $NumberFormat::getInstance($Locale::US)));
@@ -478,7 +447,7 @@ void TieRoundingTest::main($StringArray* args) {
 	$assign(stringValue, "98775500000000000000000000000000000"_s);
 	$assign(input, stringValue);
 	$assign(expected, "987.76E34"_s);
-	$nc($System::out)->println("\n===== testing BigDecimal values ====="_s);
+	$System::out->println("\n===== testing BigDecimal values ====="_s);
 	$assign(dfBig, $cast($DecimalFormat, $NumberFormat::getInstance($Locale::US)));
 	$assign(stringValue, "0.68850000000000000088817841970012523233890533447265625"_s);
 	$var($BigDecimal, bd, $new($BigDecimal, stringValue));
@@ -488,25 +457,25 @@ void TieRoundingTest::main($StringArray* args) {
 	formatOutputTestObject(dfBig, bd, tiePosition, input, expected);
 	$assign(stringValue, "0.31149999999999999911182158029987476766109466552734375"_s);
 	$assign(bd, $new($BigDecimal, stringValue));
-	dfBig->applyPattern("#,##0.####"_s);
+	$nc(dfBig)->applyPattern("#,##0.####"_s);
 	$assign(tiePosition, "exact"_s);
 	$assign(input, stringValue);
 	$assign(expected, "0.3115"_s);
 	formatOutputTestObject(dfBig, bd, tiePosition, input, expected);
-	$nc($System::out)->println();
-	$nc($System::out)->println($$str({"==> "_s, $$str(TieRoundingTest::testCounter), " tests passed successfully"_s}));
-	$nc($System::out)->println($$str({"==> "_s, $$str(TieRoundingTest::errorCounter), " tests failed"_s}));
-	$nc($System::out)->println();
+	$System::out->println();
+	$System::out->println($$str({"==> "_s, $$str(TieRoundingTest::testCounter), " tests passed successfully"_s}));
+	$System::out->println($$str({"==> "_s, $$str(TieRoundingTest::errorCounter), " tests failed"_s}));
+	$System::out->println();
 	if (TieRoundingTest::allPassed) {
-		$nc($System::out)->println("Success in formating all the values with the given parameters"_s);
+		$System::out->println("Success in formating all the values with the given parameters"_s);
 	} else {
 		$var($String, s, $str({"Test failed with "_s, $$str(TieRoundingTest::errorCounter), " formating error(s)."_s}));
-		$nc($System::out)->println(s);
+		$System::out->println(s);
 		$throwNew($RuntimeException, s);
 	}
 }
 
-void clinit$TieRoundingTest($Class* class$) {
+void TieRoundingTest::clinit$($Class* clazz) {
 	TieRoundingTest::testCounter = 0;
 	TieRoundingTest::errorCounter = 0;
 	TieRoundingTest::allPassed = true;
@@ -516,7 +485,31 @@ TieRoundingTest::TieRoundingTest() {
 }
 
 $Class* TieRoundingTest::load$($String* name, bool initialize) {
-	$loadClass(TieRoundingTest, name, initialize, &_TieRoundingTest_ClassInfo_, clinit$TieRoundingTest, allocate$TieRoundingTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"testCounter", "I", nullptr, $STATIC, $staticField(TieRoundingTest, testCounter)},
+		{"errorCounter", "I", nullptr, $STATIC, $staticField(TieRoundingTest, errorCounter)},
+		{"allPassed", "Z", nullptr, $STATIC, $staticField(TieRoundingTest, allPassed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TieRoundingTest, init$, void)},
+		{"formatOutputTestDouble", "(Ljava/text/NumberFormat;DLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TieRoundingTest, formatOutputTestDouble, void, $NumberFormat*, double, $String*, $String*, $String*)},
+		{"formatOutputTestLong", "(Ljava/text/NumberFormat;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TieRoundingTest, formatOutputTestLong, void, $NumberFormat*, int64_t, $String*, $String*, $String*)},
+		{"formatOutputTestObject", "(Ljava/text/NumberFormat;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TieRoundingTest, formatOutputTestObject, void, $NumberFormat*, Object$*, $String*, $String*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TieRoundingTest, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TieRoundingTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TieRoundingTest, name, initialize, &classInfo$$, TieRoundingTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TieRoundingTest);
+	});
 	return class$;
 }
 

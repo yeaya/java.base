@@ -19,6 +19,7 @@ class $import DatagramPacket : public ::java::lang::Object {
 	$class(DatagramPacket, 0, ::java::lang::Object)
 public:
 	DatagramPacket();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* buf, int32_t offset, int32_t length);
 	void init$($bytes* buf, int32_t length);
 	void init$($bytes* buf, int32_t offset, int32_t length, ::java::net::InetAddress* address, int32_t port);

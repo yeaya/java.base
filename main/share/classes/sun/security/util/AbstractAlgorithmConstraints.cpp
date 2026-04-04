@@ -1,10 +1,7 @@
 #include <sun/security/util/AbstractAlgorithmConstraints.h>
-
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -19,10 +16,8 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -34,51 +29,15 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _AbstractAlgorithmConstraints_FieldInfo_[] = {
-	{"decomposer", "Lsun/security/util/AlgorithmDecomposer;", nullptr, $PROTECTED | $FINAL, $field(AbstractAlgorithmConstraints, decomposer)},
-	{}
-};
-
-$MethodInfo _AbstractAlgorithmConstraints_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/AlgorithmDecomposer;)V", nullptr, $PROTECTED, $method(AbstractAlgorithmConstraints, init$, void, $AlgorithmDecomposer*)},
-	{"checkAlgorithm", "(Ljava/util/List;Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)Z", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)Z", $STATIC, $staticMethod(AbstractAlgorithmConstraints, checkAlgorithm, bool, $List*, $String*, $AlgorithmDecomposer*)},
-	{"getAlgorithms", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $STATIC, $staticMethod(AbstractAlgorithmConstraints, getAlgorithms, $List*, $String*)},
-	{}
-};
-
-$InnerClassInfo _AbstractAlgorithmConstraints_InnerClassesInfo_[] = {
-	{"sun.security.util.AbstractAlgorithmConstraints$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractAlgorithmConstraints_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.security.util.AbstractAlgorithmConstraints",
-	"java.lang.Object",
-	"java.security.AlgorithmConstraints",
-	_AbstractAlgorithmConstraints_FieldInfo_,
-	_AbstractAlgorithmConstraints_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractAlgorithmConstraints_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.AbstractAlgorithmConstraints$1"
-};
-
-$Object* allocate$AbstractAlgorithmConstraints($Class* clazz) {
-	return $of($alloc(AbstractAlgorithmConstraints));
-}
-
 void AbstractAlgorithmConstraints::init$($AlgorithmDecomposer* decomposer) {
 	$set(this, decomposer, decomposer);
 }
 
 $List* AbstractAlgorithmConstraints::getAlgorithms($String* propertyName) {
 	$init(AbstractAlgorithmConstraints);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, property, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AbstractAlgorithmConstraints$1, propertyName)))));
+	$var($String, property, $cast($String, $AccessController::doPrivileged($$new($AbstractAlgorithmConstraints$1, propertyName))));
 	$var($StringArray, algorithmsInProperty, nullptr);
 	if (property != nullptr && !property->isEmpty()) {
 		bool var$1 = property->length() >= 2;
@@ -94,13 +53,13 @@ $List* AbstractAlgorithmConstraints::getAlgorithms($String* propertyName) {
 	if (algorithmsInProperty == nullptr) {
 		return $Collections::emptyList();
 	}
-	return $new($ArrayList, $(static_cast<$Collection*>($Arrays::asList(algorithmsInProperty))));
+	return $new($ArrayList, $($Arrays::asList(algorithmsInProperty)));
 }
 
 bool AbstractAlgorithmConstraints::checkAlgorithm($List* algorithms, $String* algorithm, $AlgorithmDecomposer* decomposer) {
 	$init(AbstractAlgorithmConstraints);
-	$useLocalCurrentObjectStackCache();
-	if (algorithm == nullptr || $nc(algorithm)->isEmpty()) {
+	$useLocalObjectStack();
+	if (algorithm == nullptr || algorithm->isEmpty()) {
 		$throwNew($IllegalArgumentException, "No algorithm name specified"_s);
 	}
 	$var($Set, elements, nullptr);
@@ -109,7 +68,7 @@ bool AbstractAlgorithmConstraints::checkAlgorithm($List* algorithms, $String* al
 		for (; $nc(i$)->hasNext();) {
 			$var($String, item, $cast($String, i$->next()));
 			{
-				if (item == nullptr || $nc(item)->isEmpty()) {
+				if (item == nullptr || item->isEmpty()) {
 					continue;
 				}
 				if ($nc(item)->equalsIgnoreCase(algorithm)) {
@@ -122,10 +81,8 @@ bool AbstractAlgorithmConstraints::checkAlgorithm($List* algorithms, $String* al
 					$var($Iterator, i$, $nc(elements)->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($String, element, $cast($String, i$->next()));
-						{
-							if ($nc(item)->equalsIgnoreCase(element)) {
-								return false;
-							}
+						if (item->equalsIgnoreCase(element)) {
+							return false;
 						}
 					}
 				}
@@ -139,7 +96,37 @@ AbstractAlgorithmConstraints::AbstractAlgorithmConstraints() {
 }
 
 $Class* AbstractAlgorithmConstraints::load$($String* name, bool initialize) {
-	$loadClass(AbstractAlgorithmConstraints, name, initialize, &_AbstractAlgorithmConstraints_ClassInfo_, allocate$AbstractAlgorithmConstraints);
+	$FieldInfo fieldInfos$$[] = {
+		{"decomposer", "Lsun/security/util/AlgorithmDecomposer;", nullptr, $PROTECTED | $FINAL, $field(AbstractAlgorithmConstraints, decomposer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/AlgorithmDecomposer;)V", nullptr, $PROTECTED, $method(AbstractAlgorithmConstraints, init$, void, $AlgorithmDecomposer*)},
+		{"checkAlgorithm", "(Ljava/util/List;Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)Z", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)Z", $STATIC, $staticMethod(AbstractAlgorithmConstraints, checkAlgorithm, bool, $List*, $String*, $AlgorithmDecomposer*)},
+		{"getAlgorithms", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $STATIC, $staticMethod(AbstractAlgorithmConstraints, getAlgorithms, $List*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.AbstractAlgorithmConstraints$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.security.util.AbstractAlgorithmConstraints",
+		"java.lang.Object",
+		"java.security.AlgorithmConstraints",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.AbstractAlgorithmConstraints$1"
+	};
+	$loadClass(AbstractAlgorithmConstraints, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractAlgorithmConstraints);
+	});
 	return class$;
 }
 

@@ -37,7 +37,7 @@ public:
 	virtual void write(::java::io::DataOutput* out) override;
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x746262147BB70E18;
+	static const int64_t serialVersionUID = (int64_t)0x746262147bb70e18;
 	$String* id = nullptr;
 	::java::time::zone::ZoneRules* rules = nullptr;
 };

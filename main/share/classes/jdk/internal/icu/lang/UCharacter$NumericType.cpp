@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/lang/UCharacter$NumericType.h>
-
 #include <jdk/internal/icu/lang/UCharacter.h>
 #include <jcpp.h>
 
@@ -18,42 +17,37 @@ namespace jdk {
 		namespace icu {
 			namespace lang {
 
-$FieldInfo _UCharacter$NumericType_FieldInfo_[] = {
-	{"NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$NumericType, NONE)},
-	{"DECIMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$NumericType, DECIMAL)},
-	{"DIGIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$NumericType, DIGIT)},
-	{"NUMERIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$NumericType, NUMERIC)},
-	{"COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$NumericType, COUNT)},
-	{}
-};
-
-$InnerClassInfo _UCharacter$NumericType_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.lang.UCharacter$NumericType", "jdk.internal.icu.lang.UCharacter", "NumericType", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _UCharacter$NumericType_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.icu.lang.UCharacter$NumericType",
-	nullptr,
-	nullptr,
-	_UCharacter$NumericType_FieldInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_UCharacter$NumericType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.lang.UCharacter"
-};
-
-$Object* allocate$UCharacter$NumericType($Class* clazz) {
-	return $of($alloc(UCharacter$NumericType));
-}
-
 $Class* UCharacter$NumericType::load$($String* name, bool initialize) {
-	$loadClass(UCharacter$NumericType, name, initialize, &_UCharacter$NumericType_ClassInfo_, allocate$UCharacter$NumericType);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$NumericType, NONE)},
+		{"DECIMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$NumericType, DECIMAL)},
+		{"DIGIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$NumericType, DIGIT)},
+		{"NUMERIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$NumericType, NUMERIC)},
+		{"COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacter$NumericType, COUNT)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.lang.UCharacter$NumericType", "jdk.internal.icu.lang.UCharacter", "NumericType", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.icu.lang.UCharacter$NumericType",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.lang.UCharacter"
+	};
+	$loadClass(UCharacter$NumericType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UCharacter$NumericType);
+	});
 	return class$;
 }
 

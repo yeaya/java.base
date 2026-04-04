@@ -1,5 +1,4 @@
 #include <sun/security/x509/PKIXExtensions.h>
-
 #include <sun/security/util/KnownOIDs.h>
 #include <sun/security/util/ObjectIdentifier.h>
 #include <jcpp.h>
@@ -13,55 +12,6 @@ using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _PKIXExtensions_FieldInfo_[] = {
-	{"AuthorityKey_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, AuthorityKey_Id)},
-	{"SubjectKey_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, SubjectKey_Id)},
-	{"KeyUsage_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, KeyUsage_Id)},
-	{"PrivateKeyUsage_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, PrivateKeyUsage_Id)},
-	{"CertificatePolicies_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, CertificatePolicies_Id)},
-	{"PolicyMappings_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, PolicyMappings_Id)},
-	{"SubjectAlternativeName_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, SubjectAlternativeName_Id)},
-	{"IssuerAlternativeName_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, IssuerAlternativeName_Id)},
-	{"SubjectDirectoryAttributes_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, SubjectDirectoryAttributes_Id)},
-	{"BasicConstraints_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, BasicConstraints_Id)},
-	{"NameConstraints_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, NameConstraints_Id)},
-	{"PolicyConstraints_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, PolicyConstraints_Id)},
-	{"CRLDistributionPoints_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, CRLDistributionPoints_Id)},
-	{"CRLNumber_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, CRLNumber_Id)},
-	{"IssuingDistributionPoint_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, IssuingDistributionPoint_Id)},
-	{"DeltaCRLIndicator_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, DeltaCRLIndicator_Id)},
-	{"ReasonCode_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, ReasonCode_Id)},
-	{"HoldInstructionCode_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, HoldInstructionCode_Id)},
-	{"InvalidityDate_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, InvalidityDate_Id)},
-	{"ExtendedKeyUsage_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, ExtendedKeyUsage_Id)},
-	{"InhibitAnyPolicy_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, InhibitAnyPolicy_Id)},
-	{"CertificateIssuer_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, CertificateIssuer_Id)},
-	{"AuthInfoAccess_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, AuthInfoAccess_Id)},
-	{"SubjectInfoAccess_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, SubjectInfoAccess_Id)},
-	{"FreshestCRL_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, FreshestCRL_Id)},
-	{"OCSPNoCheck_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, OCSPNoCheck_Id)},
-	{"OCSPNonce_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, OCSPNonce_Id)},
-	{}
-};
-
-$MethodInfo _PKIXExtensions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PKIXExtensions, init$, void)},
-	{}
-};
-
-$ClassInfo _PKIXExtensions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.PKIXExtensions",
-	"java.lang.Object",
-	nullptr,
-	_PKIXExtensions_FieldInfo_,
-	_PKIXExtensions_MethodInfo_
-};
-
-$Object* allocate$PKIXExtensions($Class* clazz) {
-	return $of($alloc(PKIXExtensions));
-}
 
 $ObjectIdentifier* PKIXExtensions::AuthorityKey_Id = nullptr;
 $ObjectIdentifier* PKIXExtensions::SubjectKey_Id = nullptr;
@@ -94,7 +44,7 @@ $ObjectIdentifier* PKIXExtensions::OCSPNonce_Id = nullptr;
 void PKIXExtensions::init$() {
 }
 
-void clinit$PKIXExtensions($Class* class$) {
+void PKIXExtensions::clinit$($Class* clazz) {
 	$init($KnownOIDs);
 	$assignStatic(PKIXExtensions::AuthorityKey_Id, $ObjectIdentifier::of($KnownOIDs::AuthorityKeyID));
 	$assignStatic(PKIXExtensions::SubjectKey_Id, $ObjectIdentifier::of($KnownOIDs::SubjectKeyID));
@@ -129,7 +79,51 @@ PKIXExtensions::PKIXExtensions() {
 }
 
 $Class* PKIXExtensions::load$($String* name, bool initialize) {
-	$loadClass(PKIXExtensions, name, initialize, &_PKIXExtensions_ClassInfo_, clinit$PKIXExtensions, allocate$PKIXExtensions);
+	$FieldInfo fieldInfos$$[] = {
+		{"AuthorityKey_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, AuthorityKey_Id)},
+		{"SubjectKey_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, SubjectKey_Id)},
+		{"KeyUsage_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, KeyUsage_Id)},
+		{"PrivateKeyUsage_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, PrivateKeyUsage_Id)},
+		{"CertificatePolicies_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, CertificatePolicies_Id)},
+		{"PolicyMappings_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, PolicyMappings_Id)},
+		{"SubjectAlternativeName_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, SubjectAlternativeName_Id)},
+		{"IssuerAlternativeName_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, IssuerAlternativeName_Id)},
+		{"SubjectDirectoryAttributes_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, SubjectDirectoryAttributes_Id)},
+		{"BasicConstraints_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, BasicConstraints_Id)},
+		{"NameConstraints_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, NameConstraints_Id)},
+		{"PolicyConstraints_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, PolicyConstraints_Id)},
+		{"CRLDistributionPoints_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, CRLDistributionPoints_Id)},
+		{"CRLNumber_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, CRLNumber_Id)},
+		{"IssuingDistributionPoint_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, IssuingDistributionPoint_Id)},
+		{"DeltaCRLIndicator_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, DeltaCRLIndicator_Id)},
+		{"ReasonCode_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, ReasonCode_Id)},
+		{"HoldInstructionCode_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, HoldInstructionCode_Id)},
+		{"InvalidityDate_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, InvalidityDate_Id)},
+		{"ExtendedKeyUsage_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, ExtendedKeyUsage_Id)},
+		{"InhibitAnyPolicy_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, InhibitAnyPolicy_Id)},
+		{"CertificateIssuer_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, CertificateIssuer_Id)},
+		{"AuthInfoAccess_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, AuthInfoAccess_Id)},
+		{"SubjectInfoAccess_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, SubjectInfoAccess_Id)},
+		{"FreshestCRL_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, FreshestCRL_Id)},
+		{"OCSPNoCheck_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, OCSPNoCheck_Id)},
+		{"OCSPNonce_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PKIXExtensions, OCSPNonce_Id)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PKIXExtensions, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.PKIXExtensions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PKIXExtensions, name, initialize, &classInfo$$, PKIXExtensions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PKIXExtensions);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/FdLibm$Exp.h>
-
 #include <java/lang/FdLibm.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <jcpp.h>
@@ -14,55 +13,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _FdLibm$Exp_FieldInfo_[] = {
-	{"one", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, one)},
-	{"half", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, half)},
-	{"huge", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, huge)},
-	{"twom1000", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, twom1000)},
-	{"o_threshold", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, o_threshold)},
-	{"u_threshold", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, u_threshold)},
-	{"ln2HI", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, ln2HI)},
-	{"ln2LO", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, ln2LO)},
-	{"invln2", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, invln2)},
-	{"P1", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, P1)},
-	{"P2", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, P2)},
-	{"P3", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, P3)},
-	{"P4", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, P4)},
-	{"P5", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, P5)},
-	{}
-};
-
-$MethodInfo _FdLibm$Exp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Exp, init$, void)},
-	{"compute", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Exp, compute, double, double)},
-	{}
-};
-
-$InnerClassInfo _FdLibm$Exp_InnerClassesInfo_[] = {
-	{"java.lang.FdLibm$Exp", "java.lang.FdLibm", "Exp", $STATIC},
-	{}
-};
-
-$ClassInfo _FdLibm$Exp_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.FdLibm$Exp",
-	"java.lang.Object",
-	nullptr,
-	_FdLibm$Exp_FieldInfo_,
-	_FdLibm$Exp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FdLibm$Exp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.FdLibm"
-};
-
-$Object* allocate$FdLibm$Exp($Class* clazz) {
-	return $of($alloc(FdLibm$Exp));
-}
 
 double FdLibm$Exp::one = 0.0;
 $doubles* FdLibm$Exp::half = nullptr;
@@ -94,11 +44,11 @@ double FdLibm$Exp::compute(double x) {
 	int32_t xsb = 0;
 	int32_t hx = 0;
 	hx = $FdLibm::__HI(x);
-	xsb = (int32_t)((hx >> 31) & (uint32_t)1);
-	hx &= (uint32_t)0x7FFFFFFF;
-	if (hx >= 0x40862E42) {
-		if (hx >= 0x7FF00000) {
-			if ((((int32_t)(hx & (uint32_t)0x000FFFFF)) | $FdLibm::__LO(x)) != 0) {
+	xsb = (hx >> 31) & 1;
+	hx &= (uint32_t)0x7fffffff;
+	if (hx >= 0x40862e42) {
+		if (hx >= 0x7ff00000) {
+			if (((hx & 0x000fffff) | $FdLibm::__LO(x)) != 0) {
 				return x + x;
 			} else {
 				return (xsb == 0) ? x : 0.0;
@@ -111,19 +61,19 @@ double FdLibm$Exp::compute(double x) {
 			return FdLibm$Exp::twom1000 * FdLibm$Exp::twom1000;
 		}
 	}
-	if (hx > 0x3FD62E42) {
-		if (hx < 0x3FF0A2B2) {
-			hi = x - $nc(FdLibm$Exp::ln2HI)->get(xsb);
-			lo = $nc(FdLibm$Exp::ln2LO)->get(xsb);
+	if (hx > 0x3fd62e42) {
+		if (hx < 0x3ff0a2b2) {
+			hi = x - FdLibm$Exp::ln2HI->get(xsb);
+			lo = FdLibm$Exp::ln2LO->get(xsb);
 			k = 1 - xsb - xsb;
 		} else {
-			k = $cast(int32_t, (FdLibm$Exp::invln2 * x + $nc(FdLibm$Exp::half)->get(xsb)));
+			k = $cast(int32_t, (FdLibm$Exp::invln2 * x + FdLibm$Exp::half->get(xsb)));
 			t = (double)k;
-			hi = x - t * $nc(FdLibm$Exp::ln2HI)->get(0);
-			lo = t * $nc(FdLibm$Exp::ln2LO)->get(0);
+			hi = x - t * FdLibm$Exp::ln2HI->get(0);
+			lo = t * FdLibm$Exp::ln2LO->get(0);
 		}
 		x = hi - lo;
-	} else if (hx < 0x3E300000) {
+	} else if (hx < 0x3e300000) {
 		if (FdLibm$Exp::huge + x > FdLibm$Exp::one) {
 			return FdLibm$Exp::one + x;
 		}
@@ -146,7 +96,7 @@ double FdLibm$Exp::compute(double x) {
 	}
 }
 
-void clinit$FdLibm$Exp($Class* class$) {
+void FdLibm$Exp::clinit$($Class* clazz) {
 	FdLibm$Exp::one = 1.0;
 	FdLibm$Exp::huge = 1.0E300;
 	FdLibm$Exp::twom1000 = 9.332636185032189E-302;
@@ -176,7 +126,50 @@ FdLibm$Exp::FdLibm$Exp() {
 }
 
 $Class* FdLibm$Exp::load$($String* name, bool initialize) {
-	$loadClass(FdLibm$Exp, name, initialize, &_FdLibm$Exp_ClassInfo_, clinit$FdLibm$Exp, allocate$FdLibm$Exp);
+	$FieldInfo fieldInfos$$[] = {
+		{"one", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, one)},
+		{"half", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, half)},
+		{"huge", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, huge)},
+		{"twom1000", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, twom1000)},
+		{"o_threshold", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, o_threshold)},
+		{"u_threshold", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, u_threshold)},
+		{"ln2HI", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, ln2HI)},
+		{"ln2LO", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, ln2LO)},
+		{"invln2", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, invln2)},
+		{"P1", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, P1)},
+		{"P2", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, P2)},
+		{"P3", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, P3)},
+		{"P4", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, P4)},
+		{"P5", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FdLibm$Exp, P5)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Exp, init$, void)},
+		{"compute", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Exp, compute, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.FdLibm$Exp", "java.lang.FdLibm", "Exp", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.FdLibm$Exp",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.FdLibm"
+	};
+	$loadClass(FdLibm$Exp, name, initialize, &classInfo$$, FdLibm$Exp::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FdLibm$Exp);
+	});
 	return class$;
 }
 

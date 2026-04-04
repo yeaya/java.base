@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/Printer.h>
-
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/PrintWriter.h>
@@ -52,118 +51,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace util {
-
-$CompoundAttribute _Printer_MethodAnnotations_visitMethodInsn46[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Printer_MethodAnnotations_visitPermittedSubclassExperimental59[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Printer_FieldInfo_[] = {
-	{"OPCODES", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Printer, OPCODES)},
-	{"TYPES", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Printer, TYPES)},
-	{"HANDLE_TAG", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Printer, HANDLE_TAG)},
-	{"UNSUPPORTED_OPERATION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Printer, UNSUPPORTED_OPERATION)},
-	{"api", "I", nullptr, $PROTECTED | $FINAL, $field(Printer, api)},
-	{"stringBuilder", "Ljava/lang/StringBuilder;", nullptr, $PROTECTED | $FINAL, $field(Printer, stringBuilder)},
-	{"text", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC | $FINAL, $field(Printer, text)},
-	{}
-};
-
-$MethodInfo _Printer_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(Printer, init$, void, int32_t)},
-	{"appendString", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Printer, appendString, void, $StringBuilder*, $String*)},
-	{"getText", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Printer, getText, $List*)},
-	{"main", "([Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/util/Printer;Ljava/io/PrintWriter;Ljava/io/PrintWriter;)V", nullptr, $STATIC, $staticMethod(Printer, main, void, $StringArray*, $String*, Printer*, $PrintWriter*, $PrintWriter*), "java.io.IOException"},
-	{"print", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(Printer, print, void, $PrintWriter*)},
-	{"printList", "(Ljava/io/PrintWriter;Ljava/util/List;)V", "(Ljava/io/PrintWriter;Ljava/util/List<*>;)V", $STATIC, $staticMethod(Printer, printList, void, $PrintWriter*, $List*)},
-	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visit, void, $String*, Object$*)},
-	{"visitAnnotableParameterCount", "(IZ)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitAnnotableParameterCount, Printer*, int32_t, bool)},
-	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitAnnotation, Printer*, $String*, $String*)},
-	{"visitAnnotationDefault", "()Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitAnnotationDefault, Printer*)},
-	{"visitAnnotationEnd", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitAnnotationEnd, void)},
-	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitArray, Printer*, $String*)},
-	{"visitClassAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitClassAnnotation, Printer*, $String*, bool)},
-	{"visitClassAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitClassAttribute, void, $Attribute*)},
-	{"visitClassEnd", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitClassEnd, void)},
-	{"visitClassTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitClassTypeAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
-	{"visitCode", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitCode, void)},
-	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitEnum, void, $String*, $String*, $String*)},
-	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Printer, visitExport, void, $String*, int32_t, $StringArray*)},
-	{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitField, Printer*, int32_t, $String*, $String*, $String*, Object$*)},
-	{"visitFieldAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitFieldAnnotation, Printer*, $String*, bool)},
-	{"visitFieldAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitFieldAttribute, void, $Attribute*)},
-	{"visitFieldEnd", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitFieldEnd, void)},
-	{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
-	{"visitFieldTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitFieldTypeAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
-	{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
-	{"visitIincInsn", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitIincInsn, void, int32_t, int32_t)},
-	{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
-	{"visitInsn", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitInsn, void, int32_t)},
-	{"visitInsnAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitInsnAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
-	{"visitIntInsn", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitIntInsn, void, int32_t, int32_t)},
-	{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Printer, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitJumpInsn, void, int32_t, $Label*)},
-	{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitLabel, void, $Label*)},
-	{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitLdcInsn, void, Object$*)},
-	{"visitLineNumber", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitLineNumber, void, int32_t, $Label*)},
-	{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
-	{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitLocalVariableAnnotation, Printer*, int32_t, $TypePath*, $LabelArray*, $LabelArray*, $ints*, $String*, bool)},
-	{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitMainClass, void, $String*)},
-	{"visitMaxs", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMaxs, void, int32_t, int32_t)},
-	{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMethod, Printer*, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"visitMethodAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMethodAnnotation, Printer*, $String*, bool)},
-	{"visitMethodAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMethodAttribute, void, $Attribute*)},
-	{"visitMethodEnd", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMethodEnd, void)},
-	{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Printer, visitMethodInsn, void, int32_t, $String*, $String*, $String*), nullptr, nullptr, _Printer_MethodAnnotations_visitMethodInsn46},
-	{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
-	{"visitMethodTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitMethodTypeAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
-	{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitModule, Printer*, $String*, int32_t, $String*)},
-	{"visitModuleEnd", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, visitModuleEnd, void)},
-	{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMultiANewArrayInsn, void, $String*, int32_t)},
-	{"visitNestHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitNestHost, void, $String*)},
-	{"visitNestMember", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitNestMember, void, $String*)},
-	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Printer, visitOpen, void, $String*, int32_t, $StringArray*)},
-	{"visitOuterClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitOuterClass, void, $String*, $String*, $String*)},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitPackage, void, $String*)},
-	{"visitParameter", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitParameter, void, $String*, int32_t)},
-	{"visitParameterAnnotation", "(ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitParameterAnnotation, Printer*, int32_t, $String*, bool)},
-	{"visitPermittedSubclassExperimental", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Printer, visitPermittedSubclassExperimental, void, $String*), nullptr, nullptr, _Printer_MethodAnnotations_visitPermittedSubclassExperimental59},
-	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Printer, visitProvide, void, $String*, $StringArray*)},
-	{"visitRecordComponent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitRecordComponent, Printer*, $String*, $String*, $String*)},
-	{"visitRecordComponentAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitRecordComponentAnnotation, Printer*, $String*, bool)},
-	{"visitRecordComponentAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitRecordComponentAttribute, void, $Attribute*)},
-	{"visitRecordComponentEnd", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, visitRecordComponentEnd, void)},
-	{"visitRecordComponentTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitRecordComponentTypeAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
-	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitRequire, void, $String*, int32_t, $String*)},
-	{"visitSource", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitSource, void, $String*, $String*)},
-	{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Printer, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
-	{"visitTryCatchAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitTryCatchAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
-	{"visitTryCatchBlock", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitTryCatchBlock, void, $Label*, $Label*, $Label*, $String*)},
-	{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitTypeInsn, void, int32_t, $String*)},
-	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitUse, void, $String*)},
-	{"visitVarInsn", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitVarInsn, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _Printer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.org.objectweb.asm.util.Printer",
-	"java.lang.Object",
-	nullptr,
-	_Printer_FieldInfo_,
-	_Printer_MethodInfo_
-};
-
-$Object* allocate$Printer($Class* clazz) {
-	return $of($alloc(Printer));
-}
 
 $StringArray* Printer::OPCODES = nullptr;
 $StringArray* Printer::TYPES = nullptr;
@@ -305,25 +192,21 @@ void Printer::print($PrintWriter* printWriter) {
 
 void Printer::printList($PrintWriter* printWriter, $List* list) {
 	$init(Printer);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(list)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Object, o, i$->next());
-			{
-				if ($instanceOf($List, o)) {
-					printList(printWriter, $cast($List, o));
-				} else {
-					$nc(printWriter)->print($($nc($of(o))->toString()));
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(list)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Object, o, i$->next());
+		if ($instanceOf($List, o)) {
+			printList(printWriter, $cast($List, o));
+		} else {
+			$nc(printWriter)->print($($nc(o)->toString()));
 		}
 	}
 }
 
 void Printer::appendString($StringBuilder* stringBuilder, $String* string) {
 	$init(Printer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(stringBuilder)->append(u'\"');
 	for (int32_t i = 0; i < $nc(string)->length(); ++i) {
 		char16_t c = string->charAt(i);
@@ -354,15 +237,15 @@ void Printer::appendString($StringBuilder* stringBuilder, $String* string) {
 
 void Printer::main($StringArray* args, $String* usage, Printer* printer, $PrintWriter* output, $PrintWriter* logger) {
 	$init(Printer);
-	$useLocalCurrentObjectStackCache();
-	if ($nc(args)->length < 1 || $nc(args)->length > 2 || ($nc($nc(args)->get(0))->equals("-debug"_s) && args->length != 2)) {
+	$useLocalObjectStack();
+	if ($nc(args)->length < 1 || args->length > 2 || ($nc(args->get(0))->equals("-debug"_s) && args->length != 2)) {
 		$nc(logger)->println(usage);
 		return;
 	}
 	$var($TraceClassVisitor, traceClassVisitor, $new($TraceClassVisitor, nullptr, printer, output));
 	$var($String, className, nullptr);
 	int32_t parsingOptions = 0;
-	if ($nc($nc(args)->get(0))->equals("-debug"_s)) {
+	if ($nc(args->get(0))->equals("-debug"_s)) {
 		$assign(className, args->get(1));
 		parsingOptions = $ClassReader::SKIP_DEBUG;
 	} else {
@@ -370,8 +253,8 @@ void Printer::main($StringArray* args, $String* usage, Printer* printer, $PrintW
 		parsingOptions = 0;
 	}
 	bool var$1 = $nc(className)->endsWith(".class"_s);
-	bool var$0 = var$1 || $nc(className)->indexOf((int32_t)u'\\') != -1;
-	if (var$0 || $nc(className)->indexOf((int32_t)u'/') != -1) {
+	bool var$0 = var$1 || className->indexOf(u'\\') != -1;
+	if (var$0 || className->indexOf(u'/') != -1) {
 		$var($InputStream, inputStream, $new($FileInputStream, className));
 		$$new($ClassReader, inputStream)->accept(traceClassVisitor, parsingOptions);
 	} else {
@@ -379,7 +262,7 @@ void Printer::main($StringArray* args, $String* usage, Printer* printer, $PrintW
 	}
 }
 
-void clinit$Printer($Class* class$) {
+void Printer::clinit$($Class* clazz) {
 	$assignStatic(Printer::UNSUPPORTED_OPERATION, "Must be overridden"_s);
 	$assignStatic(Printer::OPCODES, $new($StringArray, {
 		"NOP"_s,
@@ -615,7 +498,112 @@ Printer::Printer() {
 }
 
 $Class* Printer::load$($String* name, bool initialize) {
-	$loadClass(Printer, name, initialize, &_Printer_ClassInfo_, clinit$Printer, allocate$Printer);
+	$FieldInfo fieldInfos$$[] = {
+		{"OPCODES", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Printer, OPCODES)},
+		{"TYPES", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Printer, TYPES)},
+		{"HANDLE_TAG", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Printer, HANDLE_TAG)},
+		{"UNSUPPORTED_OPERATION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Printer, UNSUPPORTED_OPERATION)},
+		{"api", "I", nullptr, $PROTECTED | $FINAL, $field(Printer, api)},
+		{"stringBuilder", "Ljava/lang/StringBuilder;", nullptr, $PROTECTED | $FINAL, $field(Printer, stringBuilder)},
+		{"text", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC | $FINAL, $field(Printer, text)},
+		{}
+	};
+	$CompoundAttribute visitMethodInsnmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute visitPermittedSubclassExperimentalmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(Printer, init$, void, int32_t)},
+		{"appendString", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Printer, appendString, void, $StringBuilder*, $String*)},
+		{"getText", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(Printer, getText, $List*)},
+		{"main", "([Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/util/Printer;Ljava/io/PrintWriter;Ljava/io/PrintWriter;)V", nullptr, $STATIC, $staticMethod(Printer, main, void, $StringArray*, $String*, Printer*, $PrintWriter*, $PrintWriter*), "java.io.IOException"},
+		{"print", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(Printer, print, void, $PrintWriter*)},
+		{"printList", "(Ljava/io/PrintWriter;Ljava/util/List;)V", "(Ljava/io/PrintWriter;Ljava/util/List<*>;)V", $STATIC, $staticMethod(Printer, printList, void, $PrintWriter*, $List*)},
+		{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visit, void, $String*, Object$*)},
+		{"visitAnnotableParameterCount", "(IZ)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitAnnotableParameterCount, Printer*, int32_t, bool)},
+		{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitAnnotation, Printer*, $String*, $String*)},
+		{"visitAnnotationDefault", "()Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitAnnotationDefault, Printer*)},
+		{"visitAnnotationEnd", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitAnnotationEnd, void)},
+		{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitArray, Printer*, $String*)},
+		{"visitClassAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitClassAnnotation, Printer*, $String*, bool)},
+		{"visitClassAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitClassAttribute, void, $Attribute*)},
+		{"visitClassEnd", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitClassEnd, void)},
+		{"visitClassTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitClassTypeAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
+		{"visitCode", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitCode, void)},
+		{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitEnum, void, $String*, $String*, $String*)},
+		{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Printer, visitExport, void, $String*, int32_t, $StringArray*)},
+		{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitField, Printer*, int32_t, $String*, $String*, $String*, Object$*)},
+		{"visitFieldAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitFieldAnnotation, Printer*, $String*, bool)},
+		{"visitFieldAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitFieldAttribute, void, $Attribute*)},
+		{"visitFieldEnd", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitFieldEnd, void)},
+		{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
+		{"visitFieldTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitFieldTypeAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
+		{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
+		{"visitIincInsn", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitIincInsn, void, int32_t, int32_t)},
+		{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
+		{"visitInsn", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitInsn, void, int32_t)},
+		{"visitInsnAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitInsnAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
+		{"visitIntInsn", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitIntInsn, void, int32_t, int32_t)},
+		{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Printer, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitJumpInsn, void, int32_t, $Label*)},
+		{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitLabel, void, $Label*)},
+		{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitLdcInsn, void, Object$*)},
+		{"visitLineNumber", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitLineNumber, void, int32_t, $Label*)},
+		{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
+		{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitLocalVariableAnnotation, Printer*, int32_t, $TypePath*, $LabelArray*, $LabelArray*, $ints*, $String*, bool)},
+		{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
+		{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitMainClass, void, $String*)},
+		{"visitMaxs", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMaxs, void, int32_t, int32_t)},
+		{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMethod, Printer*, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"visitMethodAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMethodAnnotation, Printer*, $String*, bool)},
+		{"visitMethodAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMethodAttribute, void, $Attribute*)},
+		{"visitMethodEnd", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMethodEnd, void)},
+		{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Printer, visitMethodInsn, void, int32_t, $String*, $String*, $String*), nullptr, nullptr, visitMethodInsnmethodAnnotations$$},
+		{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
+		{"visitMethodTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitMethodTypeAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
+		{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitModule, Printer*, $String*, int32_t, $String*)},
+		{"visitModuleEnd", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, visitModuleEnd, void)},
+		{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitMultiANewArrayInsn, void, $String*, int32_t)},
+		{"visitNestHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitNestHost, void, $String*)},
+		{"visitNestMember", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitNestMember, void, $String*)},
+		{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Printer, visitOpen, void, $String*, int32_t, $StringArray*)},
+		{"visitOuterClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitOuterClass, void, $String*, $String*, $String*)},
+		{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitPackage, void, $String*)},
+		{"visitParameter", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitParameter, void, $String*, int32_t)},
+		{"visitParameterAnnotation", "(ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitParameterAnnotation, Printer*, int32_t, $String*, bool)},
+		{"visitPermittedSubclassExperimental", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Printer, visitPermittedSubclassExperimental, void, $String*), nullptr, nullptr, visitPermittedSubclassExperimentalmethodAnnotations$$},
+		{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Printer, visitProvide, void, $String*, $StringArray*)},
+		{"visitRecordComponent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitRecordComponent, Printer*, $String*, $String*, $String*)},
+		{"visitRecordComponentAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitRecordComponentAnnotation, Printer*, $String*, bool)},
+		{"visitRecordComponentAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitRecordComponentAttribute, void, $Attribute*)},
+		{"visitRecordComponentEnd", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, visitRecordComponentEnd, void)},
+		{"visitRecordComponentTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitRecordComponentTypeAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
+		{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitRequire, void, $String*, int32_t, $String*)},
+		{"visitSource", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitSource, void, $String*, $String*)},
+		{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Printer, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
+		{"visitTryCatchAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC, $virtualMethod(Printer, visitTryCatchAnnotation, Printer*, int32_t, $TypePath*, $String*, bool)},
+		{"visitTryCatchBlock", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitTryCatchBlock, void, $Label*, $Label*, $Label*, $String*)},
+		{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitTypeInsn, void, int32_t, $String*)},
+		{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, visitUse, void, $String*)},
+		{"visitVarInsn", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Printer, visitVarInsn, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.org.objectweb.asm.util.Printer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Printer, name, initialize, &classInfo$$, Printer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Printer);
+	});
 	return class$;
 }
 

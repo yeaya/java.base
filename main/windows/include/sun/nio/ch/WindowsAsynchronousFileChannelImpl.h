@@ -80,6 +80,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::FileDescriptor* fdObj, bool reading, bool writing, ::sun::nio::ch::Iocp* iocp, bool isDefaultIocp);
 	virtual void close() override;
 	virtual void force(bool metaData) override;

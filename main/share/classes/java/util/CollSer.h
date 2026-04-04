@@ -33,7 +33,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* ois);
 	$Object* readResolve();
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0x578EABB63A1BA811;
+	static const int64_t serialVersionUID = (int64_t)0x578eabb63a1ba811;
 	static const int32_t IMM_LIST = 1;
 	static const int32_t IMM_SET = 2;
 	static const int32_t IMM_MAP = 3;

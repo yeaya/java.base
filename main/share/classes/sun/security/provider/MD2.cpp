@@ -1,5 +1,4 @@
 #include <sun/security/provider/MD2.h>
-
 #include <java/util/Arrays.h>
 #include <sun/security/provider/DigestBase.h>
 #include <jcpp.h>
@@ -21,37 +20,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _MD2_FieldInfo_[] = {
-	{"X", "[I", nullptr, $PRIVATE, $field(MD2, X)},
-	{"C", "[I", nullptr, $PRIVATE, $field(MD2, C)},
-	{"cBytes", "[B", nullptr, $PRIVATE, $field(MD2, cBytes)},
-	{"S", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MD2, S)},
-	{"PADDING", "[[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MD2, PADDING)},
-	{}
-};
-
-$MethodInfo _MD2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MD2, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MD2, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"implCompress", "([BI)V", nullptr, 0, $virtualMethod(MD2, implCompress, void, $bytes*, int32_t)},
-	{"implDigest", "([BI)V", nullptr, 0, $virtualMethod(MD2, implDigest, void, $bytes*, int32_t)},
-	{"implReset", "()V", nullptr, 0, $virtualMethod(MD2, implReset, void)},
-	{}
-};
-
-$ClassInfo _MD2_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.MD2",
-	"sun.security.provider.DigestBase",
-	nullptr,
-	_MD2_FieldInfo_,
-	_MD2_MethodInfo_
-};
-
-$Object* allocate$MD2($Class* clazz) {
-	return $of($alloc(MD2));
-}
-
 $ints* MD2::S = nullptr;
 $byteArray2* MD2::PADDING = nullptr;
 
@@ -64,7 +32,7 @@ void MD2::init$() {
 
 $Object* MD2::clone() {
 	$var(MD2, copy, $cast(MD2, $DigestBase::clone()));
-	$set($nc(copy), X, $cast($ints, $nc(copy->X)->clone()));
+	$set($nc(copy), X, $cast($ints, $nc($nc(copy)->X)->clone()));
 	$set(copy, C, $cast($ints, $nc(copy->C)->clone()));
 	$set(copy, cBytes, $new($bytes, 16));
 	return $of(copy);
@@ -76,7 +44,7 @@ void MD2::implReset() {
 }
 
 void MD2::implDigest($bytes* out, int32_t ofs) {
-	int32_t padValue = 16 - ((int32_t)((int32_t)this->bytesProcessed & (uint32_t)15));
+	int32_t padValue = 0x10 - ((int32_t)this->bytesProcessed & 0x0f);
 	engineUpdate($nc(MD2::PADDING)->get(padValue), 0, padValue);
 	for (int32_t i = 0; i < 16; ++i) {
 		$nc(this->cBytes)->set(i, (int8_t)$nc(this->C)->get(i));
@@ -89,25 +57,25 @@ void MD2::implDigest($bytes* out, int32_t ofs) {
 
 void MD2::implCompress($bytes* b, int32_t ofs) {
 	for (int32_t i = 0; i < 16; ++i) {
-		int32_t k = (int32_t)($nc(b)->get(ofs + i) & (uint32_t)255);
+		int32_t k = $nc(b)->get(ofs + i) & 0xff;
 		$nc(this->X)->set(16 + i, k);
-		$nc(this->X)->set(32 + i, k ^ $nc(this->X)->get(i));
+		this->X->set(32 + i, k ^ this->X->get(i));
 	}
 	int32_t t = $nc(this->C)->get(15);
 	for (int32_t i = 0; i < 16; ++i) {
-		t = ((*$nc(this->C))[i] ^= $nc(MD2::S)->get($nc(this->X)->get(16 + i) ^ t));
+		t = ((*this->C)[i] ^= MD2::S->get($nc(this->X)->get(16 + i) ^ t));
 	}
 	t = 0;
 	for (int32_t i = 0; i < 18; ++i) {
 		for (int32_t j = 0; j < 48; ++j) {
-			t = ((*$nc(this->X))[j] ^= $nc(MD2::S)->get(t));
+			t = ((*$nc(this->X))[j] ^= MD2::S->get(t));
 		}
-		t = (int32_t)((t + i) & (uint32_t)255);
+		t = (t + i) & 0xff;
 	}
 }
 
-void clinit$MD2($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MD2::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(MD2::S, $new($ints, {
 		41,
 		46,
@@ -371,7 +339,7 @@ void clinit$MD2($Class* class$) {
 		for (int32_t i = 1; i < 17; ++i) {
 			$var($bytes, b, $new($bytes, i));
 			$Arrays::fill(b, (int8_t)i);
-			$nc(MD2::PADDING)->set(i, b);
+			MD2::PADDING->set(i, b);
 		}
 	}
 }
@@ -380,7 +348,33 @@ MD2::MD2() {
 }
 
 $Class* MD2::load$($String* name, bool initialize) {
-	$loadClass(MD2, name, initialize, &_MD2_ClassInfo_, clinit$MD2, allocate$MD2);
+	$FieldInfo fieldInfos$$[] = {
+		{"X", "[I", nullptr, $PRIVATE, $field(MD2, X)},
+		{"C", "[I", nullptr, $PRIVATE, $field(MD2, C)},
+		{"cBytes", "[B", nullptr, $PRIVATE, $field(MD2, cBytes)},
+		{"S", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MD2, S)},
+		{"PADDING", "[[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MD2, PADDING)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MD2, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MD2, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"implCompress", "([BI)V", nullptr, 0, $virtualMethod(MD2, implCompress, void, $bytes*, int32_t)},
+		{"implDigest", "([BI)V", nullptr, 0, $virtualMethod(MD2, implDigest, void, $bytes*, int32_t)},
+		{"implReset", "()V", nullptr, 0, $virtualMethod(MD2, implReset, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.MD2",
+		"sun.security.provider.DigestBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MD2, name, initialize, &classInfo$$, MD2::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MD2));
+	});
 	return class$;
 }
 

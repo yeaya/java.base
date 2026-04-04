@@ -1,5 +1,4 @@
 #include <java/util/Collections$CheckedSortedMap.h>
-
 #include <java/util/Collection.h>
 #include <java/util/Collections$CheckedMap.h>
 #include <java/util/Collections.h>
@@ -29,77 +28,6 @@ using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$CheckedSortedMap_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CheckedSortedMap, serialVersionUID)},
-	{"sm", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<TK;TV;>;", $PRIVATE | $FINAL, $field(Collections$CheckedSortedMap, sm)},
-	{}
-};
-
-$MethodInfo _Collections$CheckedSortedMap_MethodInfo_[] = {
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC},
-	{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/SortedMap;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/util/SortedMap<TK;TV;>;Ljava/lang/Class<TK;>;Ljava/lang/Class<TV;>;)V", 0, $method(Collections$CheckedSortedMap, init$, void, $SortedMap*, $Class*, $Class*)},
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, comparator, $Comparator*)},
-	{"firstKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, firstKey, $Object*)},
-	{"headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, headMap, $SortedMap*, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*keySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"lastKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, lastKey, $Object*)},
-	{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
-	{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, subMap, $SortedMap*, Object$*, Object$*)},
-	{"tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, tailMap, $SortedMap*, Object$*)},
-	{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$CheckedSortedMap_InnerClassesInfo_[] = {
-	{"java.util.Collections$CheckedSortedMap", "java.util.Collections", "CheckedSortedMap", $STATIC},
-	{"java.util.Collections$CheckedMap", "java.util.Collections", "CheckedMap", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$CheckedSortedMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$CheckedSortedMap",
-	"java.util.Collections$CheckedMap",
-	"java.util.SortedMap",
-	_Collections$CheckedSortedMap_FieldInfo_,
-	_Collections$CheckedSortedMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$CheckedMap<TK;TV;>;Ljava/util/SortedMap<TK;TV;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$CheckedSortedMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$CheckedSortedMap($Class* clazz) {
-	return $of($alloc(Collections$CheckedSortedMap));
-}
 
 int32_t Collections$CheckedSortedMap::size() {
 	 return this->$Collections$CheckedMap::size();
@@ -223,11 +151,11 @@ $Comparator* Collections$CheckedSortedMap::comparator() {
 }
 
 $Object* Collections$CheckedSortedMap::firstKey() {
-	return $of($nc(this->sm)->firstKey());
+	return $nc(this->sm)->firstKey();
 }
 
 $Object* Collections$CheckedSortedMap::lastKey() {
-	return $of($nc(this->sm)->lastKey());
+	return $nc(this->sm)->lastKey();
 }
 
 $SortedMap* Collections$CheckedSortedMap::subMap(Object$* fromKey, Object$* toKey) {
@@ -246,7 +174,72 @@ Collections$CheckedSortedMap::Collections$CheckedSortedMap() {
 }
 
 $Class* Collections$CheckedSortedMap::load$($String* name, bool initialize) {
-	$loadClass(Collections$CheckedSortedMap, name, initialize, &_Collections$CheckedSortedMap_ClassInfo_, allocate$Collections$CheckedSortedMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CheckedSortedMap, serialVersionUID)},
+		{"sm", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<TK;TV;>;", $PRIVATE | $FINAL, $field(Collections$CheckedSortedMap, sm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC},
+		{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/SortedMap;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/util/SortedMap<TK;TV;>;Ljava/lang/Class<TK;>;Ljava/lang/Class<TV;>;)V", 0, $method(Collections$CheckedSortedMap, init$, void, $SortedMap*, $Class*, $Class*)},
+		{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, comparator, $Comparator*)},
+		{"firstKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, firstKey, $Object*)},
+		{"headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, headMap, $SortedMap*, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*keySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"lastKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, lastKey, $Object*)},
+		{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
+		{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, subMap, $SortedMap*, Object$*, Object$*)},
+		{"tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedSortedMap, tailMap, $SortedMap*, Object$*)},
+		{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$CheckedSortedMap", "java.util.Collections", "CheckedSortedMap", $STATIC},
+		{"java.util.Collections$CheckedMap", "java.util.Collections", "CheckedMap", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$CheckedSortedMap",
+		"java.util.Collections$CheckedMap",
+		"java.util.SortedMap",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$CheckedMap<TK;TV;>;Ljava/util/SortedMap<TK;TV;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$CheckedSortedMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$CheckedSortedMap));
+	});
 	return class$;
 }
 

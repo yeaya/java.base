@@ -1,5 +1,4 @@
 #include <jdk/internal/util/xml/impl/XMLStreamWriterImpl$Element.h>
-
 #include <jdk/internal/util/xml/impl/XMLStreamWriterImpl.h>
 #include <jcpp.h>
 
@@ -13,51 +12,6 @@ namespace jdk {
 		namespace util {
 			namespace xml {
 				namespace impl {
-
-$FieldInfo _XMLStreamWriterImpl$Element_FieldInfo_[] = {
-	{"_parent", "Ljdk/internal/util/xml/impl/XMLStreamWriterImpl$Element;", nullptr, $PROTECTED, $field(XMLStreamWriterImpl$Element, _parent)},
-	{"_Depth", "S", nullptr, $PROTECTED, $field(XMLStreamWriterImpl$Element, _Depth)},
-	{"_isEmptyElement", "Z", nullptr, 0, $field(XMLStreamWriterImpl$Element, _isEmptyElement)},
-	{"_localpart", "Ljava/lang/String;", nullptr, 0, $field(XMLStreamWriterImpl$Element, _localpart)},
-	{"_state", "I", nullptr, 0, $field(XMLStreamWriterImpl$Element, _state)},
-	{}
-};
-
-$MethodInfo _XMLStreamWriterImpl$Element_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl$Element, init$, void)},
-	{"<init>", "(Ljdk/internal/util/xml/impl/XMLStreamWriterImpl$Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl$Element, init$, void, XMLStreamWriterImpl$Element*, $String*, bool)},
-	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, getLocalName, $String*)},
-	{"getParent", "()Ljdk/internal/util/xml/impl/XMLStreamWriterImpl$Element;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, getParent, XMLStreamWriterImpl$Element*)},
-	{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, getState, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, isEmpty, bool)},
-	{"setState", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, setState, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _XMLStreamWriterImpl$Element_InnerClassesInfo_[] = {
-	{"jdk.internal.util.xml.impl.XMLStreamWriterImpl$Element", "jdk.internal.util.xml.impl.XMLStreamWriterImpl", "Element", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _XMLStreamWriterImpl$Element_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.util.xml.impl.XMLStreamWriterImpl$Element",
-	"java.lang.Object",
-	nullptr,
-	_XMLStreamWriterImpl$Element_FieldInfo_,
-	_XMLStreamWriterImpl$Element_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLStreamWriterImpl$Element_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.util.xml.impl.XMLStreamWriterImpl"
-};
-
-$Object* allocate$XMLStreamWriterImpl$Element($Class* clazz) {
-	return $of($alloc(XMLStreamWriterImpl$Element));
-}
 
 void XMLStreamWriterImpl$Element::init$() {
 	this->_isEmptyElement = false;
@@ -94,7 +48,46 @@ XMLStreamWriterImpl$Element::XMLStreamWriterImpl$Element() {
 }
 
 $Class* XMLStreamWriterImpl$Element::load$($String* name, bool initialize) {
-	$loadClass(XMLStreamWriterImpl$Element, name, initialize, &_XMLStreamWriterImpl$Element_ClassInfo_, allocate$XMLStreamWriterImpl$Element);
+	$FieldInfo fieldInfos$$[] = {
+		{"_parent", "Ljdk/internal/util/xml/impl/XMLStreamWriterImpl$Element;", nullptr, $PROTECTED, $field(XMLStreamWriterImpl$Element, _parent)},
+		{"_Depth", "S", nullptr, $PROTECTED, $field(XMLStreamWriterImpl$Element, _Depth)},
+		{"_isEmptyElement", "Z", nullptr, 0, $field(XMLStreamWriterImpl$Element, _isEmptyElement)},
+		{"_localpart", "Ljava/lang/String;", nullptr, 0, $field(XMLStreamWriterImpl$Element, _localpart)},
+		{"_state", "I", nullptr, 0, $field(XMLStreamWriterImpl$Element, _state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl$Element, init$, void)},
+		{"<init>", "(Ljdk/internal/util/xml/impl/XMLStreamWriterImpl$Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl$Element, init$, void, XMLStreamWriterImpl$Element*, $String*, bool)},
+		{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, getLocalName, $String*)},
+		{"getParent", "()Ljdk/internal/util/xml/impl/XMLStreamWriterImpl$Element;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, getParent, XMLStreamWriterImpl$Element*)},
+		{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, getState, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, isEmpty, bool)},
+		{"setState", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, setState, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.util.xml.impl.XMLStreamWriterImpl$Element", "jdk.internal.util.xml.impl.XMLStreamWriterImpl", "Element", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.util.xml.impl.XMLStreamWriterImpl$Element",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.util.xml.impl.XMLStreamWriterImpl"
+	};
+	$loadClass(XMLStreamWriterImpl$Element, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLStreamWriterImpl$Element);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/io/ObjectStreamConstants.h>
-
 #include <java/io/SerializablePermission.h>
 #include <jcpp.h>
 
@@ -40,64 +39,60 @@ using $FieldInfo = ::java::lang::FieldInfo;
 namespace java {
 	namespace io {
 
-$FieldInfo _ObjectStreamConstants_FieldInfo_[] = {
-	{"STREAM_MAGIC", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, STREAM_MAGIC)},
-	{"STREAM_VERSION", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, STREAM_VERSION)},
-	{"TC_BASE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_BASE)},
-	{"TC_NULL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_NULL)},
-	{"TC_REFERENCE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_REFERENCE)},
-	{"TC_CLASSDESC", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_CLASSDESC)},
-	{"TC_OBJECT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_OBJECT)},
-	{"TC_STRING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_STRING)},
-	{"TC_ARRAY", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_ARRAY)},
-	{"TC_CLASS", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_CLASS)},
-	{"TC_BLOCKDATA", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_BLOCKDATA)},
-	{"TC_ENDBLOCKDATA", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_ENDBLOCKDATA)},
-	{"TC_RESET", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_RESET)},
-	{"TC_BLOCKDATALONG", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_BLOCKDATALONG)},
-	{"TC_EXCEPTION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_EXCEPTION)},
-	{"TC_LONGSTRING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_LONGSTRING)},
-	{"TC_PROXYCLASSDESC", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_PROXYCLASSDESC)},
-	{"TC_ENUM", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_ENUM)},
-	{"TC_MAX", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_MAX)},
-	{"baseWireHandle", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, baseWireHandle)},
-	{"SC_WRITE_METHOD", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, SC_WRITE_METHOD)},
-	{"SC_BLOCK_DATA", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, SC_BLOCK_DATA)},
-	{"SC_SERIALIZABLE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, SC_SERIALIZABLE)},
-	{"SC_EXTERNALIZABLE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, SC_EXTERNALIZABLE)},
-	{"SC_ENUM", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, SC_ENUM)},
-	{"SUBSTITUTION_PERMISSION", "Ljava/io/SerializablePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ObjectStreamConstants, SUBSTITUTION_PERMISSION)},
-	{"SUBCLASS_IMPLEMENTATION_PERMISSION", "Ljava/io/SerializablePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ObjectStreamConstants, SUBCLASS_IMPLEMENTATION_PERMISSION)},
-	{"SERIAL_FILTER_PERMISSION", "Ljava/io/SerializablePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ObjectStreamConstants, SERIAL_FILTER_PERMISSION)},
-	{"PROTOCOL_VERSION_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, PROTOCOL_VERSION_1)},
-	{"PROTOCOL_VERSION_2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, PROTOCOL_VERSION_2)},
-	{}
-};
-
-$ClassInfo _ObjectStreamConstants_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.io.ObjectStreamConstants",
-	nullptr,
-	nullptr,
-	_ObjectStreamConstants_FieldInfo_
-};
-
-$Object* allocate$ObjectStreamConstants($Class* clazz) {
-	return $of($alloc(ObjectStreamConstants));
-}
-
 $SerializablePermission* ObjectStreamConstants::SUBSTITUTION_PERMISSION = nullptr;
 $SerializablePermission* ObjectStreamConstants::SUBCLASS_IMPLEMENTATION_PERMISSION = nullptr;
 $SerializablePermission* ObjectStreamConstants::SERIAL_FILTER_PERMISSION = nullptr;
 
-void clinit$ObjectStreamConstants($Class* class$) {
+void ObjectStreamConstants::clinit$($Class* clazz) {
 	$assignStatic(ObjectStreamConstants::SUBSTITUTION_PERMISSION, $new($SerializablePermission, "enableSubstitution"_s));
 	$assignStatic(ObjectStreamConstants::SUBCLASS_IMPLEMENTATION_PERMISSION, $new($SerializablePermission, "enableSubclassImplementation"_s));
 	$assignStatic(ObjectStreamConstants::SERIAL_FILTER_PERMISSION, $new($SerializablePermission, "serialFilter"_s));
 }
 
 $Class* ObjectStreamConstants::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamConstants, name, initialize, &_ObjectStreamConstants_ClassInfo_, clinit$ObjectStreamConstants, allocate$ObjectStreamConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"STREAM_MAGIC", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, STREAM_MAGIC)},
+		{"STREAM_VERSION", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, STREAM_VERSION)},
+		{"TC_BASE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_BASE)},
+		{"TC_NULL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_NULL)},
+		{"TC_REFERENCE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_REFERENCE)},
+		{"TC_CLASSDESC", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_CLASSDESC)},
+		{"TC_OBJECT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_OBJECT)},
+		{"TC_STRING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_STRING)},
+		{"TC_ARRAY", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_ARRAY)},
+		{"TC_CLASS", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_CLASS)},
+		{"TC_BLOCKDATA", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_BLOCKDATA)},
+		{"TC_ENDBLOCKDATA", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_ENDBLOCKDATA)},
+		{"TC_RESET", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_RESET)},
+		{"TC_BLOCKDATALONG", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_BLOCKDATALONG)},
+		{"TC_EXCEPTION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_EXCEPTION)},
+		{"TC_LONGSTRING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_LONGSTRING)},
+		{"TC_PROXYCLASSDESC", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_PROXYCLASSDESC)},
+		{"TC_ENUM", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_ENUM)},
+		{"TC_MAX", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, TC_MAX)},
+		{"baseWireHandle", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, baseWireHandle)},
+		{"SC_WRITE_METHOD", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, SC_WRITE_METHOD)},
+		{"SC_BLOCK_DATA", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, SC_BLOCK_DATA)},
+		{"SC_SERIALIZABLE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, SC_SERIALIZABLE)},
+		{"SC_EXTERNALIZABLE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, SC_EXTERNALIZABLE)},
+		{"SC_ENUM", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, SC_ENUM)},
+		{"SUBSTITUTION_PERMISSION", "Ljava/io/SerializablePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ObjectStreamConstants, SUBSTITUTION_PERMISSION)},
+		{"SUBCLASS_IMPLEMENTATION_PERMISSION", "Ljava/io/SerializablePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ObjectStreamConstants, SUBCLASS_IMPLEMENTATION_PERMISSION)},
+		{"SERIAL_FILTER_PERMISSION", "Ljava/io/SerializablePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ObjectStreamConstants, SERIAL_FILTER_PERMISSION)},
+		{"PROTOCOL_VERSION_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, PROTOCOL_VERSION_1)},
+		{"PROTOCOL_VERSION_2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjectStreamConstants, PROTOCOL_VERSION_2)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.io.ObjectStreamConstants",
+		nullptr,
+		nullptr,
+		fieldInfos$$
+	};
+	$loadClass(ObjectStreamConstants, name, initialize, &classInfo$$, ObjectStreamConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamConstants);
+	});
 	return class$;
 }
 

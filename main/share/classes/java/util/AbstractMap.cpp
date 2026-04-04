@@ -1,5 +1,4 @@
 #include <java/util/AbstractMap.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/AbstractMap$1.h>
@@ -29,66 +28,11 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace util {
 
-$FieldInfo _AbstractMap_FieldInfo_[] = {
-	{"keySet", "Ljava/util/Set;", "Ljava/util/Set<TK;>;", $TRANSIENT, $field(AbstractMap, keySet$)},
-	{"values", "Ljava/util/Collection;", "Ljava/util/Collection<TV;>;", $TRANSIENT, $field(AbstractMap, values$)},
-	{}
-};
-
-$MethodInfo _AbstractMap_MethodInfo_[] = {
-	{"entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractMap, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractMap, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(AbstractMap, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap, containsKey, bool, Object$*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap, containsValue, bool, Object$*)},
-	{"eq", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractMap, eq, bool, Object$*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(AbstractMap, get, $Object*, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractMap, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(AbstractMap, keySet, $Set*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(AbstractMap, put, $Object*, Object$*, Object$*)},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $virtualMethod(AbstractMap, putAll, void, $Map*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(AbstractMap, remove, $Object*, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractMap, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractMap, toString, $String*)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(AbstractMap, values, $Collection*)},
-	{}
-};
-
-$InnerClassInfo _AbstractMap_InnerClassesInfo_[] = {
-	{"java.util.AbstractMap$SimpleImmutableEntry", "java.util.AbstractMap", "SimpleImmutableEntry", $PUBLIC | $STATIC},
-	{"java.util.AbstractMap$SimpleEntry", "java.util.AbstractMap", "SimpleEntry", $PUBLIC | $STATIC},
-	{"java.util.AbstractMap$2", nullptr, nullptr, 0},
-	{"java.util.AbstractMap$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.AbstractMap",
-	"java.lang.Object",
-	"java.util.Map",
-	_AbstractMap_FieldInfo_,
-	_AbstractMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Map<TK;TV;>;",
-	nullptr,
-	_AbstractMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.AbstractMap$SimpleImmutableEntry,java.util.AbstractMap$SimpleEntry,java.util.AbstractMap$2,java.util.AbstractMap$2$1,java.util.AbstractMap$1,java.util.AbstractMap$1$1"
-};
-
-$Object* allocate$AbstractMap($Class* clazz) {
-	return $of($alloc(AbstractMap));
-}
-
 void AbstractMap::init$() {
 }
 
 int32_t AbstractMap::size() {
-	return $nc($(entrySet()))->size();
+	return $$nc(entrySet())->size();
 }
 
 bool AbstractMap::isEmpty() {
@@ -96,8 +40,8 @@ bool AbstractMap::isEmpty() {
 }
 
 bool AbstractMap::containsValue(Object$* value) {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, i, $nc($(entrySet()))->iterator());
+	$useLocalObjectStack();
+	$var($Iterator, i, $$nc(entrySet())->iterator());
 	if (value == nullptr) {
 		while ($nc(i)->hasNext()) {
 			$var($Map$Entry, e, $cast($Map$Entry, i->next()));
@@ -108,7 +52,7 @@ bool AbstractMap::containsValue(Object$* value) {
 	} else {
 		while ($nc(i)->hasNext()) {
 			$var($Map$Entry, e, $cast($Map$Entry, i->next()));
-			if ($nc($of(value))->equals($($nc(e)->getValue()))) {
+			if ($of(value)->equals($($nc(e)->getValue()))) {
 				return true;
 			}
 		}
@@ -117,8 +61,8 @@ bool AbstractMap::containsValue(Object$* value) {
 }
 
 bool AbstractMap::containsKey(Object$* key) {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, i, $nc($(entrySet()))->iterator());
+	$useLocalObjectStack();
+	$var($Iterator, i, $$nc(entrySet())->iterator());
 	if (key == nullptr) {
 		while ($nc(i)->hasNext()) {
 			$var($Map$Entry, e, $cast($Map$Entry, i->next()));
@@ -129,7 +73,7 @@ bool AbstractMap::containsKey(Object$* key) {
 	} else {
 		while ($nc(i)->hasNext()) {
 			$var($Map$Entry, e, $cast($Map$Entry, i->next()));
-			if ($nc($of(key))->equals($($nc(e)->getKey()))) {
+			if ($of(key)->equals($($nc(e)->getKey()))) {
 				return true;
 			}
 		}
@@ -138,24 +82,24 @@ bool AbstractMap::containsKey(Object$* key) {
 }
 
 $Object* AbstractMap::get(Object$* key) {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, i, $nc($(entrySet()))->iterator());
+	$useLocalObjectStack();
+	$var($Iterator, i, $$nc(entrySet())->iterator());
 	if (key == nullptr) {
 		while ($nc(i)->hasNext()) {
 			$var($Map$Entry, e, $cast($Map$Entry, i->next()));
 			if ($nc(e)->getKey() == nullptr) {
-				return $of(e->getValue());
+				return e->getValue();
 			}
 		}
 	} else {
 		while ($nc(i)->hasNext()) {
 			$var($Map$Entry, e, $cast($Map$Entry, i->next()));
-			if ($nc($of(key))->equals($($nc(e)->getKey()))) {
-				return $of($nc(e)->getValue());
+			if ($of(key)->equals($($nc(e)->getKey()))) {
+				return e->getValue();
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* AbstractMap::put(Object$* key, Object$* value) {
@@ -164,8 +108,8 @@ $Object* AbstractMap::put(Object$* key, Object$* value) {
 }
 
 $Object* AbstractMap::remove(Object$* key) {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, i, $nc($(entrySet()))->iterator());
+	$useLocalObjectStack();
+	$var($Iterator, i, $$nc(entrySet())->iterator());
 	$var($Map$Entry, correctEntry, nullptr);
 	if (key == nullptr) {
 		while (correctEntry == nullptr && $nc(i)->hasNext()) {
@@ -177,7 +121,7 @@ $Object* AbstractMap::remove(Object$* key) {
 	} else {
 		while (correctEntry == nullptr && $nc(i)->hasNext()) {
 			$var($Map$Entry, e, $cast($Map$Entry, i->next()));
-			if ($nc($of(key))->equals($($nc(e)->getKey()))) {
+			if ($of(key)->equals($($nc(e)->getKey()))) {
 				$assign(correctEntry, e);
 			}
 		}
@@ -187,23 +131,21 @@ $Object* AbstractMap::remove(Object$* key) {
 		$assign(oldValue, correctEntry->getValue());
 		$nc(i)->remove();
 	}
-	return $of(oldValue);
+	return oldValue;
 }
 
 void AbstractMap::putAll($Map* m) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(m)->entrySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
-			$var($Object, var$0, $nc(e)->getKey());
-			put(var$0, $(e->getValue()));
-		}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(m)->entrySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
+		$var($Object, var$0, $nc(e)->getKey());
+		put(var$0, $(e->getValue()));
 	}
 }
 
 void AbstractMap::clear() {
-	$nc($(entrySet()))->clear();
+	$$nc(entrySet())->clear();
 }
 
 $Set* AbstractMap::keySet() {
@@ -225,7 +167,7 @@ $Collection* AbstractMap::values() {
 }
 
 bool AbstractMap::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -243,21 +185,19 @@ bool AbstractMap::equals(Object$* o) {
 		return false;
 	}
 	try {
-		{
-			$var($Iterator, i$, $nc($(entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
-				{
-					$var($Object, key, $nc(e)->getKey());
-					$var($Object, value, e->getValue());
-					if (value == nullptr) {
-						bool var$2 = $nc(m)->get(key) == nullptr;
-						if (!(var$2 && m->containsKey(key))) {
-							return false;
-						}
-					} else if (!$nc($of(value))->equals($($nc(m)->get(key)))) {
+		$var($Iterator, i$, $$nc(entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
+			{
+				$var($Object, key, $nc(e)->getKey());
+				$var($Object, value, e->getValue());
+				if (value == nullptr) {
+					bool var$2 = m->get(key) == nullptr;
+					if (!(var$2 && m->containsKey(key))) {
 						return false;
 					}
+				} else if (!value->equals($(m->get(key)))) {
+					return false;
 				}
 			}
 		}
@@ -270,10 +210,10 @@ bool AbstractMap::equals(Object$* o) {
 }
 
 int32_t AbstractMap::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t h = 0;
 	{
-		$var($Iterator, i$, $nc($(entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			h += $nc(entry)->hashCode();
@@ -283,15 +223,15 @@ int32_t AbstractMap::hashCode() {
 }
 
 $String* AbstractMap::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, i, $nc($(entrySet()))->iterator());
+	$useLocalObjectStack();
+	$var($Iterator, i, $$nc(entrySet())->iterator());
 	if (!$nc(i)->hasNext()) {
 		return "{}"_s;
 	}
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(u'{');
 	for (;;) {
-		$var($Map$Entry, e, $cast($Map$Entry, $nc(i)->next()));
+		$var($Map$Entry, e, $cast($Map$Entry, i->next()));
 		$var($Object, key, $nc(e)->getKey());
 		$var($Object, value, e->getValue());
 		sb->append($equals(key, this) ? $of("(this Map)"_s) : key);
@@ -308,19 +248,68 @@ $Object* AbstractMap::clone() {
 	$var(AbstractMap, result, $cast(AbstractMap, $Map::clone()));
 	$set($nc(result), keySet$, nullptr);
 	$set(result, values$, nullptr);
-	return $of(result);
+	return result;
 }
 
 bool AbstractMap::eq(Object$* o1, Object$* o2) {
 	$init(AbstractMap);
-	return o1 == nullptr ? o2 == nullptr : $nc($of(o1))->equals(o2);
+	return o1 == nullptr ? o2 == nullptr : $of(o1)->equals(o2);
 }
 
 AbstractMap::AbstractMap() {
 }
 
 $Class* AbstractMap::load$($String* name, bool initialize) {
-	$loadClass(AbstractMap, name, initialize, &_AbstractMap_ClassInfo_, allocate$AbstractMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"keySet", "Ljava/util/Set;", "Ljava/util/Set<TK;>;", $TRANSIENT, $field(AbstractMap, keySet$)},
+		{"values", "Ljava/util/Collection;", "Ljava/util/Collection<TV;>;", $TRANSIENT, $field(AbstractMap, values$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractMap, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractMap, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(AbstractMap, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap, containsKey, bool, Object$*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap, containsValue, bool, Object$*)},
+		{"eq", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractMap, eq, bool, Object$*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(AbstractMap, get, $Object*, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractMap, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(AbstractMap, keySet, $Set*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(AbstractMap, put, $Object*, Object$*, Object$*)},
+		{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $virtualMethod(AbstractMap, putAll, void, $Map*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(AbstractMap, remove, $Object*, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractMap, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractMap, toString, $String*)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(AbstractMap, values, $Collection*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.AbstractMap$SimpleImmutableEntry", "java.util.AbstractMap", "SimpleImmutableEntry", $PUBLIC | $STATIC},
+		{"java.util.AbstractMap$SimpleEntry", "java.util.AbstractMap", "SimpleEntry", $PUBLIC | $STATIC},
+		{"java.util.AbstractMap$2", nullptr, nullptr, 0},
+		{"java.util.AbstractMap$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.AbstractMap",
+		"java.lang.Object",
+		"java.util.Map",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Map<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.AbstractMap$SimpleImmutableEntry,java.util.AbstractMap$SimpleEntry,java.util.AbstractMap$2,java.util.AbstractMap$2$1,java.util.AbstractMap$1,java.util.AbstractMap$1$1"
+	};
+	$loadClass(AbstractMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractMap);
+	});
 	return class$;
 }
 

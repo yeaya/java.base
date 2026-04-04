@@ -31,6 +31,7 @@ class SessionTicketExtension$SessionTicketSpec : public ::sun::security::ssl::SS
 	$class(SessionTicketExtension$SessionTicketSpec, 0, ::sun::security::ssl::SSLExtension$SSLExtensionSpec)
 public:
 	SessionTicketExtension$SessionTicketSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::security::ssl::HandshakeContext* hc, $bytes* b);
 	void init$(::sun::security::ssl::HandshakeContext* hc, ::java::nio::ByteBuffer* buf);

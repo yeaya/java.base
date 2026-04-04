@@ -1,5 +1,4 @@
 #include <java/io/ObjectStreamClass$2.h>
-
 #include <java/io/InvalidClassException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -33,73 +32,28 @@ using $Void = ::java::lang::Void;
 namespace java {
 	namespace io {
 
-$FieldInfo _ObjectStreamClass$2_FieldInfo_[] = {
-	{"this$0", "Ljava/io/ObjectStreamClass;", nullptr, $FINAL | $SYNTHETIC, $field(ObjectStreamClass$2, this$0)},
-	{"val$cl", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(ObjectStreamClass$2, val$cl)},
-	{}
-};
-
-$MethodInfo _ObjectStreamClass$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ObjectStreamClass;Ljava/lang/Class;)V", nullptr, 0, $method(ObjectStreamClass$2, init$, void, $ObjectStreamClass*, $Class*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ObjectStreamClass$2_EnclosingMethodInfo_ = {
-	"java.io.ObjectStreamClass",
-	"<init>",
-	"(Ljava/lang/Class;)V"
-};
-
-$InnerClassInfo _ObjectStreamClass$2_InnerClassesInfo_[] = {
-	{"java.io.ObjectStreamClass$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ObjectStreamClass$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectStreamClass$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ObjectStreamClass$2_FieldInfo_,
-	_ObjectStreamClass$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_ObjectStreamClass$2_EnclosingMethodInfo_,
-	_ObjectStreamClass$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectStreamClass"
-};
-
-$Object* allocate$ObjectStreamClass$2($Class* clazz) {
-	return $of($alloc(ObjectStreamClass$2));
-}
-
 void ObjectStreamClass$2::init$($ObjectStreamClass* this$0, $Class* val$cl) {
 	$set(this, this$0, this$0);
 	$set(this, val$cl, val$cl);
 }
 
 $Object* ObjectStreamClass$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->isEnum$) {
 		$set(this->this$0, suid, $Long::valueOf((int64_t)0));
-		$init($ObjectStreamClass);
 		$set(this->this$0, fields, $ObjectStreamClass::NO_FIELDS);
-		return $of(nullptr);
+		return nullptr;
 	}
 	if ($nc(this->val$cl)->isArray()) {
-		$init($ObjectStreamClass);
 		$set(this->this$0, fields, $ObjectStreamClass::NO_FIELDS);
-		return $of(nullptr);
+		return nullptr;
 	}
 	$set(this->this$0, suid, $ObjectStreamClass::getDeclaredSUID(this->val$cl));
 	try {
 		$set(this->this$0, fields, $ObjectStreamClass::getSerialFields(this->val$cl));
 		this->this$0->computeFieldOffsets();
 	} catch ($InvalidClassException& e) {
-		$set(this->this$0, serializeEx, ($set(this->this$0, deserializeEx, $new($ObjectStreamClass$ExceptionInfo, e->classname, $(e->getMessage())))));
+		$set(this->this$0, serializeEx, $set(this->this$0, deserializeEx, $new($ObjectStreamClass$ExceptionInfo, e->classname, $(e->getMessage()))));
 		$set(this->this$0, fields, $ObjectStreamClass::NO_FIELDS);
 	}
 	if (this->this$0->isRecord$) {
@@ -110,7 +64,6 @@ $Object* ObjectStreamClass$2::run() {
 	} else {
 		$set(this->this$0, cons, $ObjectStreamClass::getSerializableConstructor(this->val$cl));
 		$load($ObjectOutputStream);
-		$init($Void);
 		$set(this->this$0, writeObjectMethod, $ObjectStreamClass::getPrivateMethod(this->val$cl, "writeObject"_s, $$new($ClassArray, {$ObjectOutputStream::class$}), $Void::TYPE));
 		$load($ObjectInputStream);
 		$set(this->this$0, readObjectMethod, $ObjectStreamClass::getPrivateMethod(this->val$cl, "readObject"_s, $$new($ClassArray, {$ObjectInputStream::class$}), $Void::TYPE));
@@ -120,14 +73,50 @@ $Object* ObjectStreamClass$2::run() {
 	$set(this->this$0, domains, this->this$0->getProtectionDomains(this->this$0->cons, this->val$cl));
 	$set(this->this$0, writeReplaceMethod, $ObjectStreamClass::getInheritableMethod(this->val$cl, "writeReplace"_s, nullptr, $Object::class$));
 	$set(this->this$0, readResolveMethod, $ObjectStreamClass::getInheritableMethod(this->val$cl, "readResolve"_s, nullptr, $Object::class$));
-	return $of(nullptr);
+	return nullptr;
 }
 
 ObjectStreamClass$2::ObjectStreamClass$2() {
 }
 
 $Class* ObjectStreamClass$2::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$2, name, initialize, &_ObjectStreamClass$2_ClassInfo_, allocate$ObjectStreamClass$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/io/ObjectStreamClass;", nullptr, $FINAL | $SYNTHETIC, $field(ObjectStreamClass$2, this$0)},
+		{"val$cl", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(ObjectStreamClass$2, val$cl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/ObjectStreamClass;Ljava/lang/Class;)V", nullptr, 0, $method(ObjectStreamClass$2, init$, void, $ObjectStreamClass*, $Class*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.io.ObjectStreamClass",
+		"<init>",
+		"(Ljava/lang/Class;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectStreamClass$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectStreamClass$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectStreamClass"
+	};
+	$loadClass(ObjectStreamClass$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$2);
+	});
 	return class$;
 }
 

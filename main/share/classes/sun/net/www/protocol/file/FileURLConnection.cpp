@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/file/FileURLConnection.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/File.h>
@@ -16,7 +15,6 @@
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collections.h>
-#include <java/util/Comparator.h>
 #include <java/util/Date.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
@@ -57,9 +55,7 @@ using $Collator = ::java::text::Collator;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
-using $Comparator = ::java::util::Comparator;
 using $Date = ::java::util::Date;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $TimeZone = ::java::util::TimeZone;
@@ -75,55 +71,6 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace file {
-
-$FieldInfo _FileURLConnection_FieldInfo_[] = {
-	{"CONTENT_LENGTH", "Ljava/lang/String;", nullptr, $STATIC, $staticField(FileURLConnection, CONTENT_LENGTH)},
-	{"CONTENT_TYPE", "Ljava/lang/String;", nullptr, $STATIC, $staticField(FileURLConnection, CONTENT_TYPE)},
-	{"TEXT_PLAIN", "Ljava/lang/String;", nullptr, $STATIC, $staticField(FileURLConnection, TEXT_PLAIN)},
-	{"LAST_MODIFIED", "Ljava/lang/String;", nullptr, $STATIC, $staticField(FileURLConnection, LAST_MODIFIED)},
-	{"contentType", "Ljava/lang/String;", nullptr, 0, $field(FileURLConnection, contentType)},
-	{"is", "Ljava/io/InputStream;", nullptr, 0, $field(FileURLConnection, is)},
-	{"file", "Ljava/io/File;", nullptr, 0, $field(FileURLConnection, file)},
-	{"filename", "Ljava/lang/String;", nullptr, 0, $field(FileURLConnection, filename)},
-	{"isDirectory", "Z", nullptr, 0, $field(FileURLConnection, isDirectory)},
-	{"exists", "Z", nullptr, 0, $field(FileURLConnection, exists)},
-	{"files", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(FileURLConnection, files)},
-	{"length", "J", nullptr, 0, $field(FileURLConnection, length)},
-	{"lastModified", "J", nullptr, 0, $field(FileURLConnection, lastModified)},
-	{"initializedHeaders", "Z", nullptr, $PRIVATE, $field(FileURLConnection, initializedHeaders)},
-	{"permission", "Ljava/security/Permission;", nullptr, 0, $field(FileURLConnection, permission)},
-	{}
-};
-
-$MethodInfo _FileURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Ljava/io/File;)V", nullptr, $PROTECTED, $method(FileURLConnection, init$, void, $URL*, $File*)},
-	{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, connect, void), "java.io.IOException"},
-	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getContentLength, int32_t)},
-	{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getContentLengthLong, int64_t)},
-	{"getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getHeaderField, $String*, $String*)},
-	{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getHeaderField, $String*, int32_t)},
-	{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getHeaderFieldKey, $String*, int32_t)},
-	{"getHeaderFields", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(FileURLConnection, getHeaderFields, $Map*)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileURLConnection, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getLastModified, int64_t)},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getPermission, $Permission*), "java.io.IOException"},
-	{"getProperties", "()Lsun/net/www/MessageHeader;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getProperties, $MessageHeader*)},
-	{"initializeHeaders", "()V", nullptr, $PRIVATE, $method(FileURLConnection, initializeHeaders, void)},
-	{}
-};
-
-$ClassInfo _FileURLConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.file.FileURLConnection",
-	"sun.net.www.URLConnection",
-	nullptr,
-	_FileURLConnection_FieldInfo_,
-	_FileURLConnection_MethodInfo_
-};
-
-$Object* allocate$FileURLConnection($Class* clazz) {
-	return $of($alloc(FileURLConnection));
-}
 
 $String* FileURLConnection::CONTENT_LENGTH = nullptr;
 $String* FileURLConnection::CONTENT_TYPE = nullptr;
@@ -141,23 +88,23 @@ void FileURLConnection::init$($URL* u, $File* file) {
 }
 
 void FileURLConnection::connect() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->connected) {
 		try {
 			$set(this, filename, $nc(this->file)->toString());
-			this->isDirectory = $nc(this->file)->isDirectory();
+			this->isDirectory = this->file->isDirectory();
 			if (this->isDirectory) {
-				$var($StringArray, fileList, $nc(this->file)->list());
+				$var($StringArray, fileList, this->file->list());
 				if (fileList == nullptr) {
 					$throwNew($FileNotFoundException, $$str({this->filename, " exists, but is not accessible"_s}));
 				}
 				$set(this, files, $Arrays::asList(fileList));
 			} else {
 				$set(this, is, $new($BufferedInputStream, $$new($FileInputStream, this->filename)));
-				bool meteredInput = $nc($($ProgressMonitor::getDefault()))->shouldMeterInput(this->url, "GET"_s);
+				bool meteredInput = $$nc($ProgressMonitor::getDefault())->shouldMeterInput(this->url, "GET"_s);
 				if (meteredInput) {
-					$var($ProgressSource, pi, $new($ProgressSource, this->url, "GET"_s, $nc(this->file)->length()));
-					$set(this, is, $new($MeteredStream, this->is, pi, $nc(this->file)->length()));
+					$var($ProgressSource, pi, $new($ProgressSource, this->url, "GET"_s, this->file->length()));
+					$set(this, is, $new($MeteredStream, this->is, pi, this->file->length()));
 				}
 			}
 		} catch ($IOException& e) {
@@ -168,7 +115,7 @@ void FileURLConnection::connect() {
 }
 
 void FileURLConnection::initializeHeaders() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		connect();
 		this->exists = $nc(this->file)->exists();
@@ -176,7 +123,7 @@ void FileURLConnection::initializeHeaders() {
 	}
 	if (!this->initializedHeaders || !this->exists) {
 		this->length = $nc(this->file)->length();
-		this->lastModified = $nc(this->file)->lastModified();
+		this->lastModified = this->file->lastModified();
 		if (!this->isDirectory) {
 			$var($FileNameMap, map, $1URLConnection::getFileNameMap());
 			$set(this, contentType, $nc(map)->getContentTypeFor(this->filename));
@@ -189,7 +136,7 @@ void FileURLConnection::initializeHeaders() {
 				$init($Locale);
 				$var($SimpleDateFormat, fo, $new($SimpleDateFormat, "EEE, dd MMM yyyy HH:mm:ss \'GMT\'"_s, $Locale::US));
 				fo->setTimeZone($($TimeZone::getTimeZone("GMT"_s)));
-				$nc(this->properties)->add(FileURLConnection::LAST_MODIFIED, $(fo->format(date)));
+				this->properties->add(FileURLConnection::LAST_MODIFIED, $(fo->format(date)));
 			}
 		} else {
 			$nc(this->properties)->add(FileURLConnection::CONTENT_TYPE, FileURLConnection::TEXT_PLAIN);
@@ -243,7 +190,7 @@ int64_t FileURLConnection::getLastModified() {
 
 $InputStream* FileURLConnection::getInputStream() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		int32_t iconHeight = 0;
 		int32_t iconWidth = 0;
 		connect();
@@ -256,11 +203,11 @@ $InputStream* FileURLConnection::getInputStream() {
 				}
 				$Collections::sort(this->files, $($Collator::getInstance()));
 				for (int32_t i = 0; i < $nc(this->files)->size(); ++i) {
-					$var($String, fileName, $cast($String, $nc(this->files)->get(i)));
+					$var($String, fileName, $cast($String, this->files->get(i)));
 					sb->append(fileName);
 					sb->append("\n"_s);
 				}
-				$set(this, is, $new($ByteArrayInputStream, $($nc($(sb->toString()))->getBytes())));
+				$set(this, is, $new($ByteArrayInputStream, $($(sb->toString())->getBytes())));
 			} else {
 				$throwNew($FileNotFoundException, this->filename);
 			}
@@ -270,7 +217,7 @@ $InputStream* FileURLConnection::getInputStream() {
 }
 
 $Permission* FileURLConnection::getPermission() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->permission == nullptr) {
 		$var($String, decodedPath, $ParseUtil::decode($($nc(this->url)->getPath())));
 		$init($File);
@@ -282,13 +229,13 @@ $Permission* FileURLConnection::getPermission() {
 			if (var$0 && decodedPath->charAt(2) == u':') {
 				$assign(decodedPath, decodedPath->substring(1));
 			}
-			$set(this, permission, $new($FilePermission, $($nc(decodedPath)->replace(u'/', $File::separatorChar)), "read"_s));
+			$set(this, permission, $new($FilePermission, $(decodedPath->replace(u'/', $File::separatorChar)), "read"_s));
 		}
 	}
 	return this->permission;
 }
 
-void clinit$FileURLConnection($Class* class$) {
+void FileURLConnection::clinit$($Class* clazz) {
 	$assignStatic(FileURLConnection::CONTENT_LENGTH, "content-length"_s);
 	$assignStatic(FileURLConnection::CONTENT_TYPE, "content-type"_s);
 	$assignStatic(FileURLConnection::TEXT_PLAIN, "text/plain"_s);
@@ -299,7 +246,51 @@ FileURLConnection::FileURLConnection() {
 }
 
 $Class* FileURLConnection::load$($String* name, bool initialize) {
-	$loadClass(FileURLConnection, name, initialize, &_FileURLConnection_ClassInfo_, clinit$FileURLConnection, allocate$FileURLConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONTENT_LENGTH", "Ljava/lang/String;", nullptr, $STATIC, $staticField(FileURLConnection, CONTENT_LENGTH)},
+		{"CONTENT_TYPE", "Ljava/lang/String;", nullptr, $STATIC, $staticField(FileURLConnection, CONTENT_TYPE)},
+		{"TEXT_PLAIN", "Ljava/lang/String;", nullptr, $STATIC, $staticField(FileURLConnection, TEXT_PLAIN)},
+		{"LAST_MODIFIED", "Ljava/lang/String;", nullptr, $STATIC, $staticField(FileURLConnection, LAST_MODIFIED)},
+		{"contentType", "Ljava/lang/String;", nullptr, 0, $field(FileURLConnection, contentType)},
+		{"is", "Ljava/io/InputStream;", nullptr, 0, $field(FileURLConnection, is)},
+		{"file", "Ljava/io/File;", nullptr, 0, $field(FileURLConnection, file)},
+		{"filename", "Ljava/lang/String;", nullptr, 0, $field(FileURLConnection, filename)},
+		{"isDirectory", "Z", nullptr, 0, $field(FileURLConnection, isDirectory)},
+		{"exists", "Z", nullptr, 0, $field(FileURLConnection, exists)},
+		{"files", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(FileURLConnection, files)},
+		{"length", "J", nullptr, 0, $field(FileURLConnection, length)},
+		{"lastModified", "J", nullptr, 0, $field(FileURLConnection, lastModified)},
+		{"initializedHeaders", "Z", nullptr, $PRIVATE, $field(FileURLConnection, initializedHeaders)},
+		{"permission", "Ljava/security/Permission;", nullptr, 0, $field(FileURLConnection, permission)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;Ljava/io/File;)V", nullptr, $PROTECTED, $method(FileURLConnection, init$, void, $URL*, $File*)},
+		{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, connect, void), "java.io.IOException"},
+		{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getContentLength, int32_t)},
+		{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getContentLengthLong, int64_t)},
+		{"getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getHeaderField, $String*, $String*)},
+		{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getHeaderField, $String*, int32_t)},
+		{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getHeaderFieldKey, $String*, int32_t)},
+		{"getHeaderFields", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(FileURLConnection, getHeaderFields, $Map*)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileURLConnection, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getLastModified, int64_t)},
+		{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getPermission, $Permission*), "java.io.IOException"},
+		{"getProperties", "()Lsun/net/www/MessageHeader;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getProperties, $MessageHeader*)},
+		{"initializeHeaders", "()V", nullptr, $PRIVATE, $method(FileURLConnection, initializeHeaders, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.file.FileURLConnection",
+		"sun.net.www.URLConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileURLConnection, name, initialize, &classInfo$$, FileURLConnection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileURLConnection);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/x509/OCSPNoCheckExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -26,43 +25,6 @@ using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _OCSPNoCheckExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OCSPNoCheckExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OCSPNoCheckExtension, NAME)},
-	{}
-};
-
-$MethodInfo _OCSPNoCheckExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OCSPNoCheckExtension, init$, void), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(OCSPNoCheckExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(OCSPNoCheckExtension, delete$, void, $String*), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OCSPNoCheckExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(OCSPNoCheckExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OCSPNoCheckExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(OCSPNoCheckExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _OCSPNoCheckExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.OCSPNoCheckExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_OCSPNoCheckExtension_FieldInfo_,
-	_OCSPNoCheckExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$OCSPNoCheckExtension($Class* clazz) {
-	return $of($alloc(OCSPNoCheckExtension));
-}
 
 void OCSPNoCheckExtension::encode($OutputStream* out) {
 	this->$Extension::encode(out);
@@ -131,13 +93,45 @@ $String* OCSPNoCheckExtension::getName() {
 OCSPNoCheckExtension::OCSPNoCheckExtension() {
 }
 
-void clinit$OCSPNoCheckExtension($Class* class$) {
+void OCSPNoCheckExtension::clinit$($Class* clazz) {
 	$assignStatic(OCSPNoCheckExtension::IDENT, "x509.info.extensions.OCSPNoCheck"_s);
 	$assignStatic(OCSPNoCheckExtension::NAME, "OCSPNoCheck"_s);
 }
 
 $Class* OCSPNoCheckExtension::load$($String* name, bool initialize) {
-	$loadClass(OCSPNoCheckExtension, name, initialize, &_OCSPNoCheckExtension_ClassInfo_, clinit$OCSPNoCheckExtension, allocate$OCSPNoCheckExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OCSPNoCheckExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OCSPNoCheckExtension, NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OCSPNoCheckExtension, init$, void), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(OCSPNoCheckExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(OCSPNoCheckExtension, delete$, void, $String*), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OCSPNoCheckExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(OCSPNoCheckExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OCSPNoCheckExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(OCSPNoCheckExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.OCSPNoCheckExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(OCSPNoCheckExtension, name, initialize, &classInfo$$, OCSPNoCheckExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OCSPNoCheckExtension));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberBooleanArray.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,40 +8,34 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberBooleanArray_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberBooleanArray_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberBooleanArray_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberBooleanArray_MethodInfo_[] = {
-	{"value", "()[Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberBooleanArray, value, $booleans*)},
-	{}
-};
-
-$ClassInfo _SingleMemberBooleanArray_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberBooleanArray",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberBooleanArray_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberBooleanArray_Annotations_
-};
-
-$Object* allocate$SingleMemberBooleanArray($Class* clazz) {
-	return $of($alloc(SingleMemberBooleanArray));
-}
-
 $Class* SingleMemberBooleanArray::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberBooleanArray, name, initialize, &_SingleMemberBooleanArray_ClassInfo_, allocate$SingleMemberBooleanArray);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberBooleanArray, value, $booleans*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberBooleanArray",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberBooleanArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberBooleanArray);
+	});
 	return class$;
 }
 

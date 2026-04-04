@@ -1,5 +1,4 @@
 #include <sun/security/util/AlgorithmDecomposer.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -26,35 +25,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _AlgorithmDecomposer_FieldInfo_[] = {
-	{"PATTERN", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AlgorithmDecomposer, PATTERN)},
-	{}
-};
-
-$MethodInfo _AlgorithmDecomposer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AlgorithmDecomposer, init$, void)},
-	{"decompose", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AlgorithmDecomposer, decompose, $Set*, $String*)},
-	{"decomposeImpl", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AlgorithmDecomposer, decomposeImpl, $Set*, $String*)},
-	{"decomposeOneHash", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(AlgorithmDecomposer, decomposeOneHash, $Set*, $String*)},
-	{"getAliases", "(Ljava/lang/String;)Ljava/util/Collection;", "(Ljava/lang/String;)Ljava/util/Collection<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(AlgorithmDecomposer, getAliases, $Collection*, $String*)},
-	{"hasLoop", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(AlgorithmDecomposer, hasLoop, void, $Set*, $String*, $String*)},
-	{"hashName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmDecomposer, hashName, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _AlgorithmDecomposer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.AlgorithmDecomposer",
-	"java.lang.Object",
-	nullptr,
-	_AlgorithmDecomposer_FieldInfo_,
-	_AlgorithmDecomposer_MethodInfo_
-};
-
-$Object* allocate$AlgorithmDecomposer($Class* clazz) {
-	return $of($alloc(AlgorithmDecomposer));
-}
-
 $Pattern* AlgorithmDecomposer::PATTERN = nullptr;
 
 void AlgorithmDecomposer::init$() {
@@ -62,7 +32,7 @@ void AlgorithmDecomposer::init$() {
 
 $Set* AlgorithmDecomposer::decomposeImpl($String* algorithm) {
 	$init(AlgorithmDecomposer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, elements, $new($HashSet));
 	$var($StringArray, transTokens, $nc(algorithm)->split("/"_s));
 	{
@@ -72,18 +42,16 @@ $Set* AlgorithmDecomposer::decomposeImpl($String* algorithm) {
 		for (; i$ < len$; ++i$) {
 			$var($String, transToken, arr$->get(i$));
 			{
-				if (transToken == nullptr || $nc(transToken)->isEmpty()) {
+				if (transToken == nullptr || transToken->isEmpty()) {
 					continue;
 				}
 				$var($StringArray, tokens, $nc(AlgorithmDecomposer::PATTERN)->split(transToken));
 				{
 					$var($StringArray, arr$, tokens);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 						$var($String, token, arr$->get(i$));
 						{
-							if (token == nullptr || $nc(token)->isEmpty()) {
+							if (token == nullptr || token->isEmpty()) {
 								continue;
 							}
 							elements->add(token);
@@ -97,7 +65,7 @@ $Set* AlgorithmDecomposer::decomposeImpl($String* algorithm) {
 }
 
 $Set* AlgorithmDecomposer::decompose($String* algorithm) {
-	if (algorithm == nullptr || $nc(algorithm)->isEmpty()) {
+	if (algorithm == nullptr || algorithm->isEmpty()) {
 		return $new($HashSet);
 	}
 	$var($Set, elements, decomposeImpl(algorithm));
@@ -105,39 +73,39 @@ $Set* AlgorithmDecomposer::decompose($String* algorithm) {
 	if (var$0 && !elements->contains("SHA-1"_s)) {
 		elements->add("SHA-1"_s);
 	}
-	bool var$1 = $nc(elements)->contains("SHA-1"_s);
+	bool var$1 = elements->contains("SHA-1"_s);
 	if (var$1 && !elements->contains("SHA1"_s)) {
 		elements->add("SHA1"_s);
 	}
-	bool var$2 = $nc(elements)->contains("SHA224"_s);
+	bool var$2 = elements->contains("SHA224"_s);
 	if (var$2 && !elements->contains("SHA-224"_s)) {
 		elements->add("SHA-224"_s);
 	}
-	bool var$3 = $nc(elements)->contains("SHA-224"_s);
+	bool var$3 = elements->contains("SHA-224"_s);
 	if (var$3 && !elements->contains("SHA224"_s)) {
 		elements->add("SHA224"_s);
 	}
-	bool var$4 = $nc(elements)->contains("SHA256"_s);
+	bool var$4 = elements->contains("SHA256"_s);
 	if (var$4 && !elements->contains("SHA-256"_s)) {
 		elements->add("SHA-256"_s);
 	}
-	bool var$5 = $nc(elements)->contains("SHA-256"_s);
+	bool var$5 = elements->contains("SHA-256"_s);
 	if (var$5 && !elements->contains("SHA256"_s)) {
 		elements->add("SHA256"_s);
 	}
-	bool var$6 = $nc(elements)->contains("SHA384"_s);
+	bool var$6 = elements->contains("SHA384"_s);
 	if (var$6 && !elements->contains("SHA-384"_s)) {
 		elements->add("SHA-384"_s);
 	}
-	bool var$7 = $nc(elements)->contains("SHA-384"_s);
+	bool var$7 = elements->contains("SHA-384"_s);
 	if (var$7 && !elements->contains("SHA384"_s)) {
 		elements->add("SHA384"_s);
 	}
-	bool var$8 = $nc(elements)->contains("SHA512"_s);
+	bool var$8 = elements->contains("SHA512"_s);
 	if (var$8 && !elements->contains("SHA-512"_s)) {
 		elements->add("SHA-512"_s);
 	}
-	bool var$9 = $nc(elements)->contains("SHA-512"_s);
+	bool var$9 = elements->contains("SHA-512"_s);
 	if (var$9 && !elements->contains("SHA512"_s)) {
 		elements->add("SHA512"_s);
 	}
@@ -148,7 +116,7 @@ $Collection* AlgorithmDecomposer::getAliases($String* algorithm) {
 	$init(AlgorithmDecomposer);
 	$var($StringArray, aliases, nullptr);
 	bool var$0 = $nc(algorithm)->equalsIgnoreCase("DH"_s);
-	if (var$0 || $nc(algorithm)->equalsIgnoreCase("DiffieHellman"_s)) {
+	if (var$0 || algorithm->equalsIgnoreCase("DiffieHellman"_s)) {
 		$assign(aliases, $new($StringArray, {
 			"DH"_s,
 			"DiffieHellman"_s
@@ -171,7 +139,7 @@ void AlgorithmDecomposer::hasLoop($Set* elements, $String* find, $String* replac
 
 $Set* AlgorithmDecomposer::decomposeOneHash($String* algorithm) {
 	$init(AlgorithmDecomposer);
-	if (algorithm == nullptr || $nc(algorithm)->isEmpty()) {
+	if (algorithm == nullptr || algorithm->isEmpty()) {
 		return $new($HashSet);
 	}
 	$var($Set, elements, decomposeImpl(algorithm));
@@ -185,10 +153,10 @@ $Set* AlgorithmDecomposer::decomposeOneHash($String* algorithm) {
 
 $String* AlgorithmDecomposer::hashName($String* algorithm) {
 	$init(AlgorithmDecomposer);
-	return $nc(algorithm)->replace(static_cast<$CharSequence*>("-"_s), static_cast<$CharSequence*>(""_s));
+	return $nc(algorithm)->replace("-"_s, ""_s);
 }
 
-void clinit$AlgorithmDecomposer($Class* class$) {
+void AlgorithmDecomposer::clinit$($Class* clazz) {
 	$assignStatic(AlgorithmDecomposer::PATTERN, $Pattern::compile("with|and|(?<!padd)in"_s, $Pattern::CASE_INSENSITIVE));
 }
 
@@ -196,7 +164,31 @@ AlgorithmDecomposer::AlgorithmDecomposer() {
 }
 
 $Class* AlgorithmDecomposer::load$($String* name, bool initialize) {
-	$loadClass(AlgorithmDecomposer, name, initialize, &_AlgorithmDecomposer_ClassInfo_, clinit$AlgorithmDecomposer, allocate$AlgorithmDecomposer);
+	$FieldInfo fieldInfos$$[] = {
+		{"PATTERN", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AlgorithmDecomposer, PATTERN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AlgorithmDecomposer, init$, void)},
+		{"decompose", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AlgorithmDecomposer, decompose, $Set*, $String*)},
+		{"decomposeImpl", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AlgorithmDecomposer, decomposeImpl, $Set*, $String*)},
+		{"decomposeOneHash", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(AlgorithmDecomposer, decomposeOneHash, $Set*, $String*)},
+		{"getAliases", "(Ljava/lang/String;)Ljava/util/Collection;", "(Ljava/lang/String;)Ljava/util/Collection<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(AlgorithmDecomposer, getAliases, $Collection*, $String*)},
+		{"hasLoop", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(AlgorithmDecomposer, hasLoop, void, $Set*, $String*, $String*)},
+		{"hashName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmDecomposer, hashName, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.AlgorithmDecomposer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AlgorithmDecomposer, name, initialize, &classInfo$$, AlgorithmDecomposer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AlgorithmDecomposer);
+	});
 	return class$;
 }
 

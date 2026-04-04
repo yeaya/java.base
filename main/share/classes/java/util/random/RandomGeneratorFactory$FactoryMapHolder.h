@@ -23,6 +23,7 @@ class RandomGeneratorFactory$FactoryMapHolder : public ::java::lang::Object {
 	$class(RandomGeneratorFactory$FactoryMapHolder, 0, ::java::lang::Object)
 public:
 	RandomGeneratorFactory$FactoryMapHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Map* createFactoryMap();
 	static bool lambda$createFactoryMap$0(::java::util::ServiceLoader$Provider* p);

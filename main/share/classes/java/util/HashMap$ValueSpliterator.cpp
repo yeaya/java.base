@@ -1,5 +1,4 @@
 #include <java/util/HashMap$ValueSpliterator.h>
-
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/HashMap$HashMapSpliterator.h>
 #include <java/util/HashMap$Node.h>
@@ -24,47 +23,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _HashMap$ValueSpliterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/HashMap;IIII)V", "(Ljava/util/HashMap<TK;TV;>;IIII)V", 0, $method(HashMap$ValueSpliterator, init$, void, $HashMap*, int32_t, int32_t, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(HashMap$ValueSpliterator, characteristics, int32_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC, $virtualMethod(HashMap$ValueSpliterator, forEachRemaining, void, $Consumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TV;>;)Z", $PUBLIC, $virtualMethod(HashMap$ValueSpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/HashMap$ValueSpliterator;", "()Ljava/util/HashMap$ValueSpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(HashMap$ValueSpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _HashMap$ValueSpliterator_InnerClassesInfo_[] = {
-	{"java.util.HashMap$ValueSpliterator", "java.util.HashMap", "ValueSpliterator", $STATIC | $FINAL},
-	{"java.util.HashMap$HashMapSpliterator", "java.util.HashMap", "HashMapSpliterator", $STATIC},
-	{}
-};
-
-$ClassInfo _HashMap$ValueSpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.HashMap$ValueSpliterator",
-	"java.util.HashMap$HashMapSpliterator",
-	"java.util.Spliterator",
-	nullptr,
-	_HashMap$ValueSpliterator_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/HashMap$HashMapSpliterator<TK;TV;>;Ljava/util/Spliterator<TV;>;",
-	nullptr,
-	_HashMap$ValueSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.HashMap"
-};
-
-$Object* allocate$HashMap$ValueSpliterator($Class* clazz) {
-	return $of($alloc(HashMap$ValueSpliterator));
-}
 
 int64_t HashMap$ValueSpliterator::estimateSize() {
 	 return this->$HashMap$HashMapSpliterator::estimateSize();
@@ -98,11 +56,11 @@ $Spliterator* HashMap$ValueSpliterator::trySplit() {
 	int32_t hi = getFence();
 	int32_t lo = this->index;
 	int32_t mid = (int32_t)((uint32_t)(lo + hi) >> 1);
-	return ((lo >= mid || this->current != nullptr) ? (HashMap$ValueSpliterator*)nullptr : $new(HashMap$ValueSpliterator, this->map, lo, this->index = mid, $usrAssign(this->est, 1), this->expectedModCount));
+	return (lo >= mid || this->current != nullptr) ? (HashMap$ValueSpliterator*)nullptr : $new(HashMap$ValueSpliterator, this->map, lo, this->index = mid, $usrAssign(this->est, 1), this->expectedModCount);
 }
 
 void HashMap$ValueSpliterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	int32_t hi = 0;
 	int32_t mc = 0;
@@ -113,7 +71,7 @@ void HashMap$ValueSpliterator::forEachRemaining($Consumer* action) {
 	$var($HashMap$NodeArray, tab, $nc(m)->table);
 	if ((hi = this->fence) < 0) {
 		mc = (this->expectedModCount = m->modCount);
-		hi = (this->fence = (tab == nullptr) ? 0 : $nc(tab)->length);
+		hi = (this->fence = (tab == nullptr) ? 0 : tab->length);
 	} else {
 		mc = this->expectedModCount;
 	}
@@ -123,10 +81,10 @@ void HashMap$ValueSpliterator::forEachRemaining($Consumer* action) {
 		$set(this, current, nullptr);
 		do {
 			if (p == nullptr) {
-				$assign(p, $nc(tab)->get(i++));
+				$assign(p, tab->get(i++));
 			} else {
-				$nc(action)->accept($nc(p)->value);
-				$assign(p, $nc(p)->next);
+				$nc(action)->accept(p->value);
+				$assign(p, p->next);
 			}
 		} while (p != nullptr || i < hi);
 		if (m->modCount != mc) {
@@ -136,7 +94,7 @@ void HashMap$ValueSpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool HashMap$ValueSpliterator::tryAdvance($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hi = 0;
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
@@ -147,10 +105,10 @@ bool HashMap$ValueSpliterator::tryAdvance($Consumer* action) {
 			if (this->current == nullptr) {
 				$set(this, current, tab->get(this->index++));
 			} else {
-				$var($Object, v, $nc(this->current)->value);
-				$set(this, current, $nc(this->current)->next);
+				$var($Object, v, this->current->value);
+				$set(this, current, this->current->next);
 				$nc(action)->accept(v);
-				if ($nc(this->map)->modCount != this->expectedModCount) {
+				if (this->map->modCount != this->expectedModCount) {
 					$throwNew($ConcurrentModificationException);
 				}
 				return true;
@@ -168,7 +126,43 @@ HashMap$ValueSpliterator::HashMap$ValueSpliterator() {
 }
 
 $Class* HashMap$ValueSpliterator::load$($String* name, bool initialize) {
-	$loadClass(HashMap$ValueSpliterator, name, initialize, &_HashMap$ValueSpliterator_ClassInfo_, allocate$HashMap$ValueSpliterator);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/HashMap;IIII)V", "(Ljava/util/HashMap<TK;TV;>;IIII)V", 0, $method(HashMap$ValueSpliterator, init$, void, $HashMap*, int32_t, int32_t, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(HashMap$ValueSpliterator, characteristics, int32_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC, $virtualMethod(HashMap$ValueSpliterator, forEachRemaining, void, $Consumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TV;>;)Z", $PUBLIC, $virtualMethod(HashMap$ValueSpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/HashMap$ValueSpliterator;", "()Ljava/util/HashMap$ValueSpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(HashMap$ValueSpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.HashMap$ValueSpliterator", "java.util.HashMap", "ValueSpliterator", $STATIC | $FINAL},
+		{"java.util.HashMap$HashMapSpliterator", "java.util.HashMap", "HashMapSpliterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.HashMap$ValueSpliterator",
+		"java.util.HashMap$HashMapSpliterator",
+		"java.util.Spliterator",
+		nullptr,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/HashMap$HashMapSpliterator<TK;TV;>;Ljava/util/Spliterator<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.HashMap"
+	};
+	$loadClass(HashMap$ValueSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HashMap$ValueSpliterator));
+	});
 	return class$;
 }
 

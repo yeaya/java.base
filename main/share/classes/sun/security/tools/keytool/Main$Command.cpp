@@ -1,5 +1,4 @@
 #include <sun/security/tools/keytool/Main$Command.h>
-
 #include <java/lang/Enum.h>
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
@@ -85,7 +84,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collator = ::java::text::Collator;
 using $Locale = ::java::util::Locale;
 using $Main = ::sun::security::tools::keytool::Main;
 using $Main$Option = ::sun::security::tools::keytool::Main$Option;
@@ -94,73 +92,6 @@ namespace sun {
 	namespace security {
 		namespace tools {
 			namespace keytool {
-
-$FieldInfo _Main$Command_FieldInfo_[] = {
-	{"CERTREQ", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, CERTREQ)},
-	{"CHANGEALIAS", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, CHANGEALIAS)},
-	{"DELETE", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, DELETE)},
-	{"EXPORTCERT", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, EXPORTCERT)},
-	{"GENKEYPAIR", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, GENKEYPAIR)},
-	{"GENSECKEY", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, GENSECKEY)},
-	{"GENCERT", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, GENCERT)},
-	{"IMPORTCERT", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, IMPORTCERT)},
-	{"IMPORTPASS", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, IMPORTPASS)},
-	{"IMPORTKEYSTORE", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, IMPORTKEYSTORE)},
-	{"KEYPASSWD", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, KEYPASSWD)},
-	{"LIST", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, LIST)},
-	{"PRINTCERT", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, PRINTCERT)},
-	{"PRINTCERTREQ", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, PRINTCERTREQ)},
-	{"PRINTCRL", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, PRINTCRL)},
-	{"STOREPASSWD", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, STOREPASSWD)},
-	{"SHOWINFO", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, SHOWINFO)},
-	{"KEYCLONE", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, KEYCLONE)},
-	{"SELFCERT", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, SELFCERT)},
-	{"GENCRL", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, GENCRL)},
-	{"IDENTITYDB", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, IDENTITYDB)},
-	{"$VALUES", "[Lsun/security/tools/keytool/Main$Command;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Main$Command, $VALUES)},
-	{"description", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Command, description)},
-	{"options", "[Lsun/security/tools/keytool/Main$Option;", nullptr, $FINAL, $field(Main$Command, options)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Command, name$)},
-	{"altName", "Ljava/lang/String;", nullptr, 0, $field(Main$Command, altName)},
-	{}
-};
-
-$MethodInfo _Main$Command_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/tools/keytool/Main$Command;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main$Command, $values, $Main$CommandArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;[Lsun/security/tools/keytool/Main$Option;)V", "(Ljava/lang/String;[Lsun/security/tools/keytool/Main$Option;)V", $PRIVATE | $TRANSIENT, $method(Main$Command, init$, void, $String*, int32_t, $String*, $Main$OptionArray*)},
-	{"getAltName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Main$Command, getAltName, $String*)},
-	{"getCommand", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Command, getCommand, Main$Command*, $String*)},
-	{"setAltName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main$Command, setAltName, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$Command, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Command, valueOf, Main$Command*, $String*)},
-	{"values", "()[Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Command, values, $Main$CommandArray*)},
-	{}
-};
-
-$InnerClassInfo _Main$Command_InnerClassesInfo_[] = {
-	{"sun.security.tools.keytool.Main$Command", "sun.security.tools.keytool.Main", "Command", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Main$Command_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.tools.keytool.Main$Command",
-	"java.lang.Enum",
-	nullptr,
-	_Main$Command_FieldInfo_,
-	_Main$Command_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/tools/keytool/Main$Command;>;",
-	nullptr,
-	_Main$Command_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.tools.keytool.Main"
-};
-
-$Object* allocate$Main$Command($Class* clazz) {
-	return $of($alloc(Main$Command));
-}
 
 Main$Command* Main$Command::CERTREQ = nullptr;
 Main$Command* Main$Command::CHANGEALIAS = nullptr;
@@ -223,12 +154,12 @@ Main$Command* Main$Command::valueOf($String* name) {
 }
 
 void Main$Command::init$($String* $enum$name, int32_t $enum$ordinal, $String* d, $Main$OptionArray* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Enum::init$($enum$name, $enum$ordinal);
 	$set(this, description, d);
 	$set(this, options, o);
 	$init($Locale);
-	$set(this, name$, $str({"-"_s, $($nc($(name()))->toLowerCase($Locale::ENGLISH))}));
+	$set(this, name$, $str({"-"_s, $($$nc(name())->toLowerCase($Locale::ENGLISH))}));
 }
 
 $String* Main$Command::toString() {
@@ -245,26 +176,22 @@ void Main$Command::setAltName($String* altName) {
 
 Main$Command* Main$Command::getCommand($String* cmd) {
 	$init(Main$Command);
-	{
-		$var($Main$CommandArray, arr$, Main$Command::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			Main$Command* c = arr$->get(i$);
-			{
-				$init($Main);
-				bool var$0 = $nc($Main::collator)->compare(cmd, $nc(c)->name$) == 0;
-				if (var$0 || ($nc(c)->altName != nullptr && $nc($Main::collator)->compare(cmd, c->altName) == 0)) {
-					return c;
-				}
+	$var($Main$CommandArray, arr$, Main$Command::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		Main$Command* c = arr$->get(i$);
+		{
+			$init($Main);
+			bool var$0 = $nc($Main::collator)->compare(cmd, $nc(c)->name$) == 0;
+			if (var$0 || (c->altName != nullptr && $Main::collator->compare(cmd, c->altName) == 0)) {
+				return c;
 			}
 		}
 	}
 	return nullptr;
 }
 
-void clinit$Main$Command($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Main$Command::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($Main$Option);
 	$assignStatic(Main$Command::CERTREQ, $new(Main$Command, "CERTREQ"_s, 0, "Generates.a.certificate.request"_s, $$new($Main$OptionArray, {
 		$Main$Option::ALIAS,
@@ -580,7 +507,68 @@ Main$Command::Main$Command() {
 }
 
 $Class* Main$Command::load$($String* name, bool initialize) {
-	$loadClass(Main$Command, name, initialize, &_Main$Command_ClassInfo_, clinit$Main$Command, allocate$Main$Command);
+	$FieldInfo fieldInfos$$[] = {
+		{"CERTREQ", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, CERTREQ)},
+		{"CHANGEALIAS", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, CHANGEALIAS)},
+		{"DELETE", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, DELETE)},
+		{"EXPORTCERT", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, EXPORTCERT)},
+		{"GENKEYPAIR", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, GENKEYPAIR)},
+		{"GENSECKEY", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, GENSECKEY)},
+		{"GENCERT", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, GENCERT)},
+		{"IMPORTCERT", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, IMPORTCERT)},
+		{"IMPORTPASS", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, IMPORTPASS)},
+		{"IMPORTKEYSTORE", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, IMPORTKEYSTORE)},
+		{"KEYPASSWD", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, KEYPASSWD)},
+		{"LIST", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, LIST)},
+		{"PRINTCERT", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, PRINTCERT)},
+		{"PRINTCERTREQ", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, PRINTCERTREQ)},
+		{"PRINTCRL", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, PRINTCRL)},
+		{"STOREPASSWD", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, STOREPASSWD)},
+		{"SHOWINFO", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, SHOWINFO)},
+		{"KEYCLONE", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, KEYCLONE)},
+		{"SELFCERT", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, SELFCERT)},
+		{"GENCRL", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, GENCRL)},
+		{"IDENTITYDB", "Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Main$Command, IDENTITYDB)},
+		{"$VALUES", "[Lsun/security/tools/keytool/Main$Command;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Main$Command, $VALUES)},
+		{"description", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Command, description)},
+		{"options", "[Lsun/security/tools/keytool/Main$Option;", nullptr, $FINAL, $field(Main$Command, options)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(Main$Command, name$)},
+		{"altName", "Ljava/lang/String;", nullptr, 0, $field(Main$Command, altName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/tools/keytool/Main$Command;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main$Command, $values, $Main$CommandArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;[Lsun/security/tools/keytool/Main$Option;)V", "(Ljava/lang/String;[Lsun/security/tools/keytool/Main$Option;)V", $PRIVATE | $TRANSIENT, $method(Main$Command, init$, void, $String*, int32_t, $String*, $Main$OptionArray*)},
+		{"getAltName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Main$Command, getAltName, $String*)},
+		{"getCommand", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Command, getCommand, Main$Command*, $String*)},
+		{"setAltName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main$Command, setAltName, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$Command, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Command, valueOf, Main$Command*, $String*)},
+		{"values", "()[Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Command, values, $Main$CommandArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.tools.keytool.Main$Command", "sun.security.tools.keytool.Main", "Command", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.tools.keytool.Main$Command",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/tools/keytool/Main$Command;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.tools.keytool.Main"
+	};
+	$loadClass(Main$Command, name, initialize, &classInfo$$, Main$Command::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Main$Command));
+	});
 	return class$;
 }
 

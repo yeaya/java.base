@@ -19,6 +19,7 @@ class $import Formatter$BigDecimalLayoutForm : public ::java::lang::Enum {
 public:
 	Formatter$BigDecimalLayoutForm();
 	static $Array<::java::util::Formatter$BigDecimalLayoutForm>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::util::Formatter$BigDecimalLayoutForm* valueOf($String* name);
 	static $Array<::java::util::Formatter$BigDecimalLayoutForm>* values();

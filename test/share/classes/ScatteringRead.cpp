@@ -1,5 +1,4 @@
 #include <ScatteringRead.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/Pipe$SinkChannel.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
@@ -20,31 +19,6 @@ using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
 using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
 using $Random = ::java::util::Random;
 
-$FieldInfo _ScatteringRead_FieldInfo_[] = {
-	{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(ScatteringRead, generator)},
-	{}
-};
-
-$MethodInfo _ScatteringRead_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ScatteringRead, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScatteringRead, main, void, $StringArray*), "java.lang.Exception"},
-	{"scScatter", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScatteringRead, scScatter, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ScatteringRead_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ScatteringRead",
-	"java.lang.Object",
-	nullptr,
-	_ScatteringRead_FieldInfo_,
-	_ScatteringRead_MethodInfo_
-};
-
-$Object* allocate$ScatteringRead($Class* clazz) {
-	return $of($alloc(ScatteringRead));
-}
-
 $Random* ScatteringRead::generator = nullptr;
 
 void ScatteringRead::init$() {
@@ -57,7 +31,7 @@ void ScatteringRead::main($StringArray* args) {
 
 void ScatteringRead::scScatter() {
 	$init(ScatteringRead);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pipe, p, $Pipe::open());
 	$var($Pipe$SinkChannel, sink, $nc(p)->sink());
 	$var($Pipe$SourceChannel, source, p->source());
@@ -87,7 +61,7 @@ void ScatteringRead::scScatter() {
 	source->close();
 }
 
-void clinit$ScatteringRead($Class* class$) {
+void ScatteringRead::clinit$($Class* clazz) {
 	$assignStatic(ScatteringRead::generator, $new($Random));
 }
 
@@ -95,7 +69,27 @@ ScatteringRead::ScatteringRead() {
 }
 
 $Class* ScatteringRead::load$($String* name, bool initialize) {
-	$loadClass(ScatteringRead, name, initialize, &_ScatteringRead_ClassInfo_, clinit$ScatteringRead, allocate$ScatteringRead);
+	$FieldInfo fieldInfos$$[] = {
+		{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(ScatteringRead, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ScatteringRead, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScatteringRead, main, void, $StringArray*), "java.lang.Exception"},
+		{"scScatter", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScatteringRead, scScatter, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ScatteringRead",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScatteringRead, name, initialize, &classInfo$$, ScatteringRead::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ScatteringRead);
+	});
 	return class$;
 }
 

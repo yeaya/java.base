@@ -14,6 +14,7 @@ class $export Test4nonJavaNames : public ::java::lang::Object {
 	$class(Test4nonJavaNames, 0, ::java::lang::Object)
 public:
 	Test4nonJavaNames();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* CLASS_NAME;

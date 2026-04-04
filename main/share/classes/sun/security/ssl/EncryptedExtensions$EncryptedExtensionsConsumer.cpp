@@ -1,5 +1,4 @@
 #include <sun/security/ssl/EncryptedExtensions$EncryptedExtensionsConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap.h>
@@ -7,7 +6,6 @@
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/EncryptedExtensions$EncryptedExtensionsMessage.h>
 #include <sun/security/ssl/EncryptedExtensions.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/SSLConfiguration.h>
 #include <sun/security/ssl/SSLExtension.h>
 #include <sun/security/ssl/SSLExtensions.h>
@@ -23,13 +21,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $EncryptedExtensions$EncryptedExtensionsMessage = ::sun::security::ssl::EncryptedExtensions$EncryptedExtensionsMessage;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
-using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 
@@ -37,60 +31,55 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _EncryptedExtensions$EncryptedExtensionsConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(EncryptedExtensions$EncryptedExtensionsConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(EncryptedExtensions$EncryptedExtensionsConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _EncryptedExtensions$EncryptedExtensionsConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.EncryptedExtensions$EncryptedExtensionsConsumer", "sun.security.ssl.EncryptedExtensions", "EncryptedExtensionsConsumer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _EncryptedExtensions$EncryptedExtensionsConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.EncryptedExtensions$EncryptedExtensionsConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLConsumer",
-	nullptr,
-	_EncryptedExtensions$EncryptedExtensionsConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EncryptedExtensions$EncryptedExtensionsConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.EncryptedExtensions"
-};
-
-$Object* allocate$EncryptedExtensions$EncryptedExtensionsConsumer($Class* clazz) {
-	return $of($alloc(EncryptedExtensions$EncryptedExtensionsConsumer));
-}
-
 void EncryptedExtensions$EncryptedExtensionsConsumer::init$() {
 }
 
 void EncryptedExtensions$EncryptedExtensionsConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(chc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::ENCRYPTED_EXTENSIONS->id)));
 	$var($EncryptedExtensions$EncryptedExtensionsMessage, eem, $new($EncryptedExtensions$EncryptedExtensionsMessage, chc, message));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Consuming EncryptedExtensions handshake message"_s, $$new($ObjectArray, {$of(eem)}));
+		$SSLLogger::fine("Consuming EncryptedExtensions handshake message"_s, $$new($ObjectArray, {eem}));
 	}
 	$var($SSLExtensionArray, extTypes, $nc(chc->sslConfig)->getEnabledExtensions($SSLHandshake::ENCRYPTED_EXTENSIONS));
 	$nc(eem->extensions)->consumeOnLoad(chc, extTypes);
-	$nc(eem->extensions)->consumeOnTrade(chc, extTypes);
+	eem->extensions->consumeOnTrade(chc, extTypes);
 }
 
 EncryptedExtensions$EncryptedExtensionsConsumer::EncryptedExtensions$EncryptedExtensionsConsumer() {
 }
 
 $Class* EncryptedExtensions$EncryptedExtensionsConsumer::load$($String* name, bool initialize) {
-	$loadClass(EncryptedExtensions$EncryptedExtensionsConsumer, name, initialize, &_EncryptedExtensions$EncryptedExtensionsConsumer_ClassInfo_, allocate$EncryptedExtensions$EncryptedExtensionsConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(EncryptedExtensions$EncryptedExtensionsConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(EncryptedExtensions$EncryptedExtensionsConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.EncryptedExtensions$EncryptedExtensionsConsumer", "sun.security.ssl.EncryptedExtensions", "EncryptedExtensionsConsumer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.EncryptedExtensions$EncryptedExtensionsConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.EncryptedExtensions"
+	};
+	$loadClass(EncryptedExtensions$EncryptedExtensionsConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EncryptedExtensions$EncryptedExtensionsConsumer);
+	});
 	return class$;
 }
 

@@ -22,10 +22,13 @@ public:
 	void init$($String* s);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x5F74DC826F65D637;
+	static const int64_t serialVersionUID = (int64_t)0x5f74dc826f65d637;
 	SecurityException(const SecurityException& e);
 	virtual void throw$() override;
-	inline SecurityException* operator ->() {
+	inline SecurityException* operator ->() const {
+		return (SecurityException*)throwing$;
+	}
+	inline operator SecurityException*() const {
 		return (SecurityException*)throwing$;
 	}
 };

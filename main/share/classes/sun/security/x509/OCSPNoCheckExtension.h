@@ -31,6 +31,7 @@ class $export OCSPNoCheckExtension : public ::sun::security::x509::Extension, pu
 	$class(OCSPNoCheckExtension, 0, ::sun::security::x509::Extension, ::sun::security::x509::CertAttrSet)
 public:
 	OCSPNoCheckExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::security::x509::Extension::encode;
 	virtual $Object* clone() override;
 	virtual void encode(::java::io::OutputStream* out) override;

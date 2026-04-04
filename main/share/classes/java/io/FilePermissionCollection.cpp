@@ -1,5 +1,4 @@
 #include <java/io/FilePermissionCollection.h>
-
 #include <java/io/FilePermission.h>
 #include <java/io/FilePermissionCollection$1.h>
 #include <java/io/ObjectInputStream$GetField.h>
@@ -15,7 +14,6 @@
 #include <java/util/Iterator.h>
 #include <java/util/Vector.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
-#include <java/util/function/BiFunction.h>
 #include <jcpp.h>
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
@@ -34,56 +32,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
-using $Collection = ::java::util::Collection;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $Vector = ::java::util::Vector;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
-using $BiFunction = ::java::util::function::BiFunction;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _FilePermissionCollection_FieldInfo_[] = {
-	{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/security/Permission;>;", $PRIVATE | $TRANSIENT, $field(FilePermissionCollection, perms)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermissionCollection, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermissionCollection, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _FilePermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FilePermissionCollection, init$, void)},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(FilePermissionCollection, add, void, $Permission*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(FilePermissionCollection, elements, $Enumeration*)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(FilePermissionCollection, implies, bool, $Permission*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FilePermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(FilePermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FilePermissionCollection_InnerClassesInfo_[] = {
-	{"java.io.FilePermissionCollection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FilePermissionCollection_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.io.FilePermissionCollection",
-	"java.security.PermissionCollection",
-	nullptr,
-	_FilePermissionCollection_FieldInfo_,
-	_FilePermissionCollection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilePermissionCollection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.io.FilePermissionCollection$1"
-};
-
-$Object* allocate$FilePermissionCollection($Class* clazz) {
-	return $of($alloc(FilePermissionCollection));
-}
 
 $ObjectStreamFieldArray* FilePermissionCollection::serialPersistentFields = nullptr;
 
@@ -93,7 +48,7 @@ void FilePermissionCollection::init$() {
 }
 
 void FilePermissionCollection::add($Permission* permission) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FilePermission, fp, nullptr);
 	bool var$0 = $instanceOf($FilePermission, permission);
 	if (var$0) {
@@ -106,13 +61,12 @@ void FilePermissionCollection::add($Permission* permission) {
 	if (isReadOnly()) {
 		$throwNew($SecurityException, "attempt to add a Permission to a readonly PermissionCollection"_s);
 	}
-	$var($Object, var$1, $of($nc(fp)->getName()));
-	$var($Object, var$2, $of(fp));
-	$nc(this->perms)->merge(var$1, var$2, $$new($FilePermissionCollection$1, this));
+	$var($Object, var$1, $nc(fp)->getName());
+	$nc(this->perms)->merge(var$1, fp, $$new($FilePermissionCollection$1, this));
 }
 
 bool FilePermissionCollection::implies($Permission* permission) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FilePermission, fperm, nullptr);
 	bool var$0 = $instanceOf($FilePermission, permission);
 	if (var$0) {
@@ -126,18 +80,18 @@ bool FilePermissionCollection::implies($Permission* permission) {
 	int32_t effective = 0;
 	int32_t needed = desired;
 	{
-		$var($Iterator, i$, $nc($($nc(this->perms)->values()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->perms)->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Permission, perm, $cast($Permission, i$->next()));
 			{
 				$var($FilePermission, fp, $cast($FilePermission, perm));
-				bool var$1 = (((int32_t)(needed & (uint32_t)$nc(fp)->getMask())) != 0);
+				bool var$1 = (needed & $nc(fp)->getMask()) != 0;
 				if (var$1 && fp->impliesIgnoreMask(fperm)) {
 					effective |= fp->getMask();
-					if (((int32_t)(effective & (uint32_t)desired)) == desired) {
+					if ((effective & desired) == desired) {
 						return true;
 					}
-					needed = ((int32_t)(desired & (uint32_t)~effective));
+					needed = (desired & ~effective);
 				}
 			}
 		}
@@ -150,20 +104,20 @@ $Enumeration* FilePermissionCollection::elements() {
 }
 
 void FilePermissionCollection::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, permissions, $new($Vector, $($nc(this->perms)->values())));
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
-	$nc(pfields)->put("permissions"_s, $of(permissions));
+	$nc(pfields)->put("permissions"_s, permissions);
 	out->writeFields();
 }
 
 void FilePermissionCollection::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
-	$var($Vector, permissions, $cast($Vector, $nc(gfields)->get("permissions"_s, ($Object*)nullptr)));
+	$var($Vector, permissions, $cast($Vector, $nc(gfields)->get("permissions"_s, nullptr)));
 	$set(this, perms, $new($ConcurrentHashMap, $nc(permissions)->size()));
 	{
-		$var($Iterator, i$, $nc(permissions)->iterator());
+		$var($Iterator, i$, permissions->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Permission, perm, $cast($Permission, i$->next()));
 			{
@@ -173,7 +127,7 @@ void FilePermissionCollection::readObject($ObjectInputStream* in) {
 	}
 }
 
-void clinit$FilePermissionCollection($Class* class$) {
+void FilePermissionCollection::clinit$($Class* clazz) {
 	$load($Vector);
 	$assignStatic(FilePermissionCollection::serialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "permissions"_s, $Vector::class$)}));
 }
@@ -182,7 +136,42 @@ FilePermissionCollection::FilePermissionCollection() {
 }
 
 $Class* FilePermissionCollection::load$($String* name, bool initialize) {
-	$loadClass(FilePermissionCollection, name, initialize, &_FilePermissionCollection_ClassInfo_, clinit$FilePermissionCollection, allocate$FilePermissionCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/security/Permission;>;", $PRIVATE | $TRANSIENT, $field(FilePermissionCollection, perms)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePermissionCollection, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePermissionCollection, serialPersistentFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FilePermissionCollection, init$, void)},
+		{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(FilePermissionCollection, add, void, $Permission*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(FilePermissionCollection, elements, $Enumeration*)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(FilePermissionCollection, implies, bool, $Permission*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FilePermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(FilePermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.FilePermissionCollection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.io.FilePermissionCollection",
+		"java.security.PermissionCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.io.FilePermissionCollection$1"
+	};
+	$loadClass(FilePermissionCollection, name, initialize, &classInfo$$, FilePermissionCollection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FilePermissionCollection);
+	});
 	return class$;
 }
 

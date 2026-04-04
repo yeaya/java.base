@@ -1,5 +1,4 @@
 #include <java/util/ResourceBundle$2.h>
-
 #include <java/util/Enumeration.h>
 #include <java/util/ResourceBundle.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ using $ResourceBundle = ::java::util::ResourceBundle;
 namespace java {
 	namespace util {
 
-$MethodInfo _ResourceBundle$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ResourceBundle$2, init$, void)},
-	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResourceBundle$2, getKeys, $Enumeration*)},
-	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ResourceBundle$2, handleGetObject, $Object*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$2, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _ResourceBundle$2_EnclosingMethodInfo_ = {
-	"java.util.ResourceBundle",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ResourceBundle$2_InnerClassesInfo_[] = {
-	{"java.util.ResourceBundle$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ResourceBundle$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ResourceBundle$2",
-	"java.util.ResourceBundle",
-	nullptr,
-	nullptr,
-	_ResourceBundle$2_MethodInfo_,
-	nullptr,
-	&_ResourceBundle$2_EnclosingMethodInfo_,
-	_ResourceBundle$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ResourceBundle"
-};
-
-$Object* allocate$ResourceBundle$2($Class* clazz) {
-	return $of($alloc(ResourceBundle$2));
-}
-
 void ResourceBundle$2::init$() {
 	$ResourceBundle::init$();
 }
@@ -62,7 +22,7 @@ $Enumeration* ResourceBundle$2::getKeys() {
 }
 
 $Object* ResourceBundle$2::handleGetObject($String* key) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $String* ResourceBundle$2::toString() {
@@ -73,7 +33,40 @@ ResourceBundle$2::ResourceBundle$2() {
 }
 
 $Class* ResourceBundle$2::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$2, name, initialize, &_ResourceBundle$2_ClassInfo_, allocate$ResourceBundle$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ResourceBundle$2, init$, void)},
+		{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResourceBundle$2, getKeys, $Enumeration*)},
+		{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ResourceBundle$2, handleGetObject, $Object*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$2, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.ResourceBundle",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ResourceBundle$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ResourceBundle$2",
+		"java.util.ResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ResourceBundle"
+	};
+	$loadClass(ResourceBundle$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$2);
+	});
 	return class$;
 }
 

@@ -21,6 +21,7 @@ class $export ObjectInputFilter$Status : public ::java::lang::Enum {
 public:
 	ObjectInputFilter$Status();
 	static $Array<::java::io::ObjectInputFilter$Status>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::io::ObjectInputFilter$Status* valueOf($String* name);
 	static $Array<::java::io::ObjectInputFilter$Status>* values();

@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/SPILocaleProviderAdapter$CollatorProviderDelegate.h>
-
 #include <java/text/Collator.h>
 #include <java/text/spi/CollatorProvider.h>
 #include <java/util/AbstractMap.h>
@@ -29,51 +28,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _SPILocaleProviderAdapter$CollatorProviderDelegate_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/CollatorProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$CollatorProviderDelegate, map)},
-	{}
-};
-
-$MethodInfo _SPILocaleProviderAdapter$CollatorProviderDelegate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$CollatorProviderDelegate, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, getAvailableLocales, $LocaleArray*)},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/CollatorProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, getDelegateMap, $Map*)},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, getInstance, $Collator*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SPILocaleProviderAdapter$CollatorProviderDelegate_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$CollatorProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "CollatorProviderDelegate", $STATIC},
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SPILocaleProviderAdapter$CollatorProviderDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.SPILocaleProviderAdapter$CollatorProviderDelegate",
-	"java.text.spi.CollatorProvider",
-	"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
-	_SPILocaleProviderAdapter$CollatorProviderDelegate_FieldInfo_,
-	_SPILocaleProviderAdapter$CollatorProviderDelegate_MethodInfo_,
-	"Ljava/text/spi/CollatorProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/text/spi/CollatorProvider;>;",
-	nullptr,
-	_SPILocaleProviderAdapter$CollatorProviderDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.SPILocaleProviderAdapter"
-};
-
-$Object* allocate$SPILocaleProviderAdapter$CollatorProviderDelegate($Class* clazz) {
-	return $of($alloc(SPILocaleProviderAdapter$CollatorProviderDelegate));
-}
-
 int32_t SPILocaleProviderAdapter$CollatorProviderDelegate::hashCode() {
 	 return this->$CollatorProvider::hashCode();
 }
@@ -96,7 +50,7 @@ void SPILocaleProviderAdapter$CollatorProviderDelegate::finalize() {
 
 void SPILocaleProviderAdapter$CollatorProviderDelegate::init$() {
 	$CollatorProvider::init$();
-	$set(this, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, map, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 $Map* SPILocaleProviderAdapter$CollatorProviderDelegate::getDelegateMap() {
@@ -112,7 +66,7 @@ bool SPILocaleProviderAdapter$CollatorProviderDelegate::isSupportedLocale($Local
 }
 
 $Collator* SPILocaleProviderAdapter$CollatorProviderDelegate::getInstance($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CollatorProvider, cp, $cast($CollatorProvider, getImpl(locale)));
@@ -123,7 +77,46 @@ SPILocaleProviderAdapter$CollatorProviderDelegate::SPILocaleProviderAdapter$Coll
 }
 
 $Class* SPILocaleProviderAdapter$CollatorProviderDelegate::load$($String* name, bool initialize) {
-	$loadClass(SPILocaleProviderAdapter$CollatorProviderDelegate, name, initialize, &_SPILocaleProviderAdapter$CollatorProviderDelegate_ClassInfo_, allocate$SPILocaleProviderAdapter$CollatorProviderDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/CollatorProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$CollatorProviderDelegate, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$CollatorProviderDelegate, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, getAvailableLocales, $LocaleArray*)},
+		{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/CollatorProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, getDelegateMap, $Map*)},
+		{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, getInstance, $Collator*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$CollatorProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "CollatorProviderDelegate", $STATIC},
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.SPILocaleProviderAdapter$CollatorProviderDelegate",
+		"java.text.spi.CollatorProvider",
+		"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/text/spi/CollatorProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/text/spi/CollatorProvider;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.SPILocaleProviderAdapter"
+	};
+	$loadClass(SPILocaleProviderAdapter$CollatorProviderDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SPILocaleProviderAdapter$CollatorProviderDelegate));
+	});
 	return class$;
 }
 

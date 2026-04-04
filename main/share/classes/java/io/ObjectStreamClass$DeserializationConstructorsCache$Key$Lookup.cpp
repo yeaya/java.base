@@ -1,12 +1,10 @@
 #include <java/io/ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup.h>
-
 #include <java/io/ObjectStreamClass$DeserializationConstructorsCache$Key.h>
 #include <java/io/ObjectStreamField.h>
 #include <jcpp.h>
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $ObjectStreamClass$DeserializationConstructorsCache$Key = ::java::io::ObjectStreamClass$DeserializationConstructorsCache$Key;
-using $ObjectStreamField = ::java::io::ObjectStreamField;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -14,46 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup_FieldInfo_[] = {
-	{"fields", "[Ljava/io/ObjectStreamField;", nullptr, $FINAL, $field(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, fields)},
-	{}
-};
-
-$MethodInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup_MethodInfo_[] = {
-	{"<init>", "([Ljava/io/ObjectStreamField;)V", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, init$, void, $ObjectStreamFieldArray*)},
-	{"fieldName", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, fieldName, $String*, int32_t)},
-	{"fieldType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, fieldType, $Class*, int32_t)},
-	{"length", "()I", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, length, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup_InnerClassesInfo_[] = {
-	{"java.io.ObjectStreamClass$DeserializationConstructorsCache", "java.io.ObjectStreamClass", "DeserializationConstructorsCache", $PRIVATE | $STATIC | $FINAL},
-	{"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key", "java.io.ObjectStreamClass$DeserializationConstructorsCache", "Key", $STATIC | $ABSTRACT},
-	{"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup", "java.io.ObjectStreamClass$DeserializationConstructorsCache$Key", "Lookup", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup",
-	"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key",
-	nullptr,
-	_ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup_FieldInfo_,
-	_ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectStreamClass"
-};
-
-$Object* allocate$ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup($Class* clazz) {
-	return $of($alloc(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup));
-}
 
 void ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup::init$($ObjectStreamFieldArray* fields) {
 	$ObjectStreamClass$DeserializationConstructorsCache$Key::init$();
@@ -77,7 +35,41 @@ ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup::ObjectStreamClass
 }
 
 $Class* ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, name, initialize, &_ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup_ClassInfo_, allocate$ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup);
+	$FieldInfo fieldInfos$$[] = {
+		{"fields", "[Ljava/io/ObjectStreamField;", nullptr, $FINAL, $field(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, fields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/io/ObjectStreamField;)V", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, init$, void, $ObjectStreamFieldArray*)},
+		{"fieldName", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, fieldName, $String*, int32_t)},
+		{"fieldType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, fieldType, $Class*, int32_t)},
+		{"length", "()I", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, length, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectStreamClass$DeserializationConstructorsCache", "java.io.ObjectStreamClass", "DeserializationConstructorsCache", $PRIVATE | $STATIC | $FINAL},
+		{"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key", "java.io.ObjectStreamClass$DeserializationConstructorsCache", "Key", $STATIC | $ABSTRACT},
+		{"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup", "java.io.ObjectStreamClass$DeserializationConstructorsCache$Key", "Lookup", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup",
+		"java.io.ObjectStreamClass$DeserializationConstructorsCache$Key",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectStreamClass"
+	};
+	$loadClass(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup);
+	});
 	return class$;
 }
 

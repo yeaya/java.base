@@ -1,5 +1,4 @@
 #include <java/nio/file/DirectoryNotEmptyException.h>
-
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $FileSystemException = ::java::nio::file::FileSystemException;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _DirectoryNotEmptyException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DirectoryNotEmptyException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DirectoryNotEmptyException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DirectoryNotEmptyException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _DirectoryNotEmptyException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.DirectoryNotEmptyException",
-	"java.nio.file.FileSystemException",
-	nullptr,
-	_DirectoryNotEmptyException_FieldInfo_,
-	_DirectoryNotEmptyException_MethodInfo_
-};
-
-$Object* allocate$DirectoryNotEmptyException($Class* clazz) {
-	return $of($alloc(DirectoryNotEmptyException));
-}
 
 void DirectoryNotEmptyException::init$($String* dir) {
 	$FileSystemException::init$(dir);
@@ -50,7 +26,25 @@ void DirectoryNotEmptyException::throw$() {
 }
 
 $Class* DirectoryNotEmptyException::load$($String* name, bool initialize) {
-	$loadClass(DirectoryNotEmptyException, name, initialize, &_DirectoryNotEmptyException_ClassInfo_, allocate$DirectoryNotEmptyException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DirectoryNotEmptyException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DirectoryNotEmptyException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.DirectoryNotEmptyException",
+		"java.nio.file.FileSystemException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DirectoryNotEmptyException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectoryNotEmptyException);
+	});
 	return class$;
 }
 

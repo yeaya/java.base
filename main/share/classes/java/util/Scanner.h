@@ -103,6 +103,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::Readable* source, ::java::util::regex::Pattern* pattern);
 	void init$(::java::lang::Readable* source);
 	void init$(::java::io::InputStream* source);

@@ -22,10 +22,13 @@ public:
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xC4ED287B664055FC;
+	static const int64_t serialVersionUID = (int64_t)0xc4ed287b664055fc;
 	AnnotationFormatError(const AnnotationFormatError& e);
 	virtual void throw$() override;
-	inline AnnotationFormatError* operator ->() {
+	inline AnnotationFormatError* operator ->() const {
+		return (AnnotationFormatError*)throwing$;
+	}
+	inline operator AnnotationFormatError*() const {
 		return (AnnotationFormatError*)throwing$;
 	}
 };

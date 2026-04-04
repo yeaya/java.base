@@ -1,5 +1,4 @@
 #include <sun/security/ssl/KeyShareExtension$CHKeyShareOnTradeAbsence.h>
-
 #include <java/util/Map.h>
 #include <javax/net/ssl/SSLException.h>
 #include <sun/security/ssl/Alert.h>
@@ -18,55 +17,21 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _KeyShareExtension$CHKeyShareOnTradeAbsence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyShareExtension$CHKeyShareOnTradeAbsence, init$, void)},
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$CHKeyShareOnTradeAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _KeyShareExtension$CHKeyShareOnTradeAbsence_InnerClassesInfo_[] = {
-	{"sun.security.ssl.KeyShareExtension$CHKeyShareOnTradeAbsence", "sun.security.ssl.KeyShareExtension", "CHKeyShareOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KeyShareExtension$CHKeyShareOnTradeAbsence_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.KeyShareExtension$CHKeyShareOnTradeAbsence",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeAbsence",
-	nullptr,
-	_KeyShareExtension$CHKeyShareOnTradeAbsence_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyShareExtension$CHKeyShareOnTradeAbsence_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.KeyShareExtension"
-};
-
-$Object* allocate$KeyShareExtension$CHKeyShareOnTradeAbsence($Class* clazz) {
-	return $of($alloc(KeyShareExtension$CHKeyShareOnTradeAbsence));
-}
-
 void KeyShareExtension$CHKeyShareOnTradeAbsence::init$() {
 }
 
 void KeyShareExtension$CHKeyShareOnTradeAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	bool var$0 = $nc($nc(shc)->negotiatedProtocol)->useTLS13PlusSpec();
 	$init($SSLExtension);
@@ -80,7 +45,33 @@ KeyShareExtension$CHKeyShareOnTradeAbsence::KeyShareExtension$CHKeyShareOnTradeA
 }
 
 $Class* KeyShareExtension$CHKeyShareOnTradeAbsence::load$($String* name, bool initialize) {
-	$loadClass(KeyShareExtension$CHKeyShareOnTradeAbsence, name, initialize, &_KeyShareExtension$CHKeyShareOnTradeAbsence_ClassInfo_, allocate$KeyShareExtension$CHKeyShareOnTradeAbsence);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(KeyShareExtension$CHKeyShareOnTradeAbsence, init$, void)},
+		{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$CHKeyShareOnTradeAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.KeyShareExtension$CHKeyShareOnTradeAbsence", "sun.security.ssl.KeyShareExtension", "CHKeyShareOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.KeyShareExtension$CHKeyShareOnTradeAbsence",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeAbsence",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.KeyShareExtension"
+	};
+	$loadClass(KeyShareExtension$CHKeyShareOnTradeAbsence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyShareExtension$CHKeyShareOnTradeAbsence);
+	});
 	return class$;
 }
 

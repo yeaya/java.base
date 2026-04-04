@@ -1,5 +1,4 @@
 #include <TransferTo$Thrower.h>
-
 #include <TransferTo.h>
 #include <jcpp.h>
 
@@ -7,38 +6,33 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _TransferTo$Thrower_MethodInfo_[] = {
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransferTo$Thrower, run, void), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _TransferTo$Thrower_InnerClassesInfo_[] = {
-	{"TransferTo$Thrower", "TransferTo", "Thrower", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TransferTo$Thrower_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"TransferTo$Thrower",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TransferTo$Thrower_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransferTo$Thrower_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TransferTo"
-};
-
-$Object* allocate$TransferTo$Thrower($Class* clazz) {
-	return $of($alloc(TransferTo$Thrower));
-}
-
 $Class* TransferTo$Thrower::load$($String* name, bool initialize) {
-	$loadClass(TransferTo$Thrower, name, initialize, &_TransferTo$Thrower_ClassInfo_, allocate$TransferTo$Thrower);
+	$MethodInfo methodInfos$$[] = {
+		{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransferTo$Thrower, run, void), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TransferTo$Thrower", "TransferTo", "Thrower", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"TransferTo$Thrower",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TransferTo"
+	};
+	$loadClass(TransferTo$Thrower, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransferTo$Thrower);
+	});
 	return class$;
 }
 

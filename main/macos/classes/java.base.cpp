@@ -1,12 +1,9 @@
 #include <java.base.h>
-
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <java/lang/Array.h>
 #include <apple/security/AppleProvider.h>
 #include <apple/security/AppleProvider$1.h>
@@ -13206,6 +13203,7 @@ $bytes* java$base$GetResource($String* name) {
 }
 
 void java$base::init() {
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.base", "17.35", "",
 		&_java$base_ModuleInfo_,

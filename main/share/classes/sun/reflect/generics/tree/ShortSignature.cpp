@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/ShortSignature.h>
-
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace tree {
-
-$FieldInfo _ShortSignature_FieldInfo_[] = {
-	{"singleton", "Lsun/reflect/generics/tree/ShortSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ShortSignature, singleton)},
-	{}
-};
-
-$MethodInfo _ShortSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ShortSignature, init$, void)},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(ShortSignature, accept, void, $TypeTreeVisitor*)},
-	{"make", "()Lsun/reflect/generics/tree/ShortSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortSignature, make, ShortSignature*)},
-	{}
-};
-
-$ClassInfo _ShortSignature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.tree.ShortSignature",
-	"java.lang.Object",
-	"sun.reflect.generics.tree.BaseType",
-	_ShortSignature_FieldInfo_,
-	_ShortSignature_MethodInfo_
-};
-
-$Object* allocate$ShortSignature($Class* clazz) {
-	return $of($alloc(ShortSignature));
-}
 
 ShortSignature* ShortSignature::singleton = nullptr;
 
@@ -52,7 +26,7 @@ void ShortSignature::accept($TypeTreeVisitor* v) {
 	$nc(v)->visitShortSignature(this);
 }
 
-void clinit$ShortSignature($Class* class$) {
+void ShortSignature::clinit$($Class* clazz) {
 	$assignStatic(ShortSignature::singleton, $new(ShortSignature));
 }
 
@@ -60,7 +34,27 @@ ShortSignature::ShortSignature() {
 }
 
 $Class* ShortSignature::load$($String* name, bool initialize) {
-	$loadClass(ShortSignature, name, initialize, &_ShortSignature_ClassInfo_, clinit$ShortSignature, allocate$ShortSignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"singleton", "Lsun/reflect/generics/tree/ShortSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ShortSignature, singleton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ShortSignature, init$, void)},
+		{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(ShortSignature, accept, void, $TypeTreeVisitor*)},
+		{"make", "()Lsun/reflect/generics/tree/ShortSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortSignature, make, ShortSignature*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.tree.ShortSignature",
+		"java.lang.Object",
+		"sun.reflect.generics.tree.BaseType",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShortSignature, name, initialize, &classInfo$$, ShortSignature::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortSignature);
+	});
 	return class$;
 }
 

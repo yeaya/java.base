@@ -45,6 +45,7 @@ class $export SubjectAlternativeNameExtension : public ::sun::security::x509::Ex
 	$class(SubjectAlternativeNameExtension, 0, ::sun::security::x509::Extension, ::sun::security::x509::CertAttrSet)
 public:
 	SubjectAlternativeNameExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::security::x509::Extension::encode;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

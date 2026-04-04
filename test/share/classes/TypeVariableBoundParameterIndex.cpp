@@ -1,5 +1,4 @@
 #include <TypeVariableBoundParameterIndex.h>
-
 #include <TypeVariableBoundParameterIndex$Sample.h>
 #include <TypeVariableBoundParameterIndex$TypeAnnotation.h>
 #include <java/lang/AssertionError.h>
@@ -18,47 +17,15 @@ using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $AnnotatedParameterizedType = ::java::lang::reflect::AnnotatedParameterizedType;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
-
-$MethodInfo _TypeVariableBoundParameterIndex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeVariableBoundParameterIndex, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeVariableBoundParameterIndex, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TypeVariableBoundParameterIndex_InnerClassesInfo_[] = {
-	{"TypeVariableBoundParameterIndex$Sample", "TypeVariableBoundParameterIndex", "Sample", $STATIC},
-	{"TypeVariableBoundParameterIndex$TypeAnnotation", "TypeVariableBoundParameterIndex", "TypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _TypeVariableBoundParameterIndex_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TypeVariableBoundParameterIndex",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TypeVariableBoundParameterIndex_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeVariableBoundParameterIndex_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TypeVariableBoundParameterIndex$Sample,TypeVariableBoundParameterIndex$TypeAnnotation"
-};
-
-$Object* allocate$TypeVariableBoundParameterIndex($Class* clazz) {
-	return $of($alloc(TypeVariableBoundParameterIndex));
-}
 
 void TypeVariableBoundParameterIndex::init$() {
 }
 
 void TypeVariableBoundParameterIndex::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($TypeVariableBoundParameterIndex$Sample);
 	$var($TypeVariableArray, variables, $TypeVariableBoundParameterIndex$Sample::class$->getTypeParameters());
 	for (int32_t i = 0; i < 2; ++i) {
@@ -69,7 +36,7 @@ void TypeVariableBoundParameterIndex::main($StringArray* args) {
 		$var($AnnotatedTypeArray, actualTypeArguments, $nc(parameterizedType)->getAnnotatedActualTypeArguments());
 		$var($AnnotationArray, annotations, $nc($nc(actualTypeArguments)->get(0))->getAnnotations());
 		$load($TypeVariableBoundParameterIndex$TypeAnnotation);
-		if ($nc(annotations)->length != 1 || $nc($nc(annotations)->get(0))->annotationType() != $TypeVariableBoundParameterIndex$TypeAnnotation::class$) {
+		if ($nc(annotations)->length != 1 || $nc(annotations->get(0))->annotationType() != $TypeVariableBoundParameterIndex$TypeAnnotation::class$) {
 			$throwNew($AssertionError);
 		}
 	}
@@ -88,7 +55,33 @@ TypeVariableBoundParameterIndex::TypeVariableBoundParameterIndex() {
 }
 
 $Class* TypeVariableBoundParameterIndex::load$($String* name, bool initialize) {
-	$loadClass(TypeVariableBoundParameterIndex, name, initialize, &_TypeVariableBoundParameterIndex_ClassInfo_, allocate$TypeVariableBoundParameterIndex);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TypeVariableBoundParameterIndex, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeVariableBoundParameterIndex, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TypeVariableBoundParameterIndex$Sample", "TypeVariableBoundParameterIndex", "Sample", $STATIC},
+		{"TypeVariableBoundParameterIndex$TypeAnnotation", "TypeVariableBoundParameterIndex", "TypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TypeVariableBoundParameterIndex",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TypeVariableBoundParameterIndex$Sample,TypeVariableBoundParameterIndex$TypeAnnotation"
+	};
+	$loadClass(TypeVariableBoundParameterIndex, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeVariableBoundParameterIndex);
+	});
 	return class$;
 }
 

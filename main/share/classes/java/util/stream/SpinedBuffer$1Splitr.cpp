@@ -1,5 +1,4 @@
 #include <java/util/stream/SpinedBuffer$1Splitr.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
@@ -24,58 +23,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _SpinedBuffer$1Splitr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/stream/SpinedBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(SpinedBuffer$1Splitr, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SpinedBuffer$1Splitr, $assertionsDisabled)},
-	{"splSpineIndex", "I", nullptr, 0, $field(SpinedBuffer$1Splitr, splSpineIndex)},
-	{"lastSpineIndex", "I", nullptr, $FINAL, $field(SpinedBuffer$1Splitr, lastSpineIndex)},
-	{"splElementIndex", "I", nullptr, 0, $field(SpinedBuffer$1Splitr, splElementIndex)},
-	{"lastSpineElementFence", "I", nullptr, $FINAL, $field(SpinedBuffer$1Splitr, lastSpineElementFence)},
-	{"splChunk", "[Ljava/lang/Object;", "[TE;", 0, $field(SpinedBuffer$1Splitr, splChunk)},
-	{}
-};
-
-$MethodInfo _SpinedBuffer$1Splitr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/SpinedBuffer;IIII)V", nullptr, 0, $method(SpinedBuffer$1Splitr, init$, void, $SpinedBuffer*, int32_t, int32_t, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, forEachRemaining, void, $Consumer*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, trySplit, $Spliterator*)},
-	{}
-};
-
-$EnclosingMethodInfo _SpinedBuffer$1Splitr_EnclosingMethodInfo_ = {
-	"java.util.stream.SpinedBuffer",
-	"spliterator",
-	"()Ljava/util/Spliterator;"
-};
-
-$InnerClassInfo _SpinedBuffer$1Splitr_InnerClassesInfo_[] = {
-	{"java.util.stream.SpinedBuffer$1Splitr", nullptr, "Splitr", 0},
-	{}
-};
-
-$ClassInfo _SpinedBuffer$1Splitr_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.SpinedBuffer$1Splitr",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_SpinedBuffer$1Splitr_FieldInfo_,
-	_SpinedBuffer$1Splitr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
-	&_SpinedBuffer$1Splitr_EnclosingMethodInfo_,
-	_SpinedBuffer$1Splitr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SpinedBuffer"
-};
-
-$Object* allocate$SpinedBuffer$1Splitr($Class* clazz) {
-	return $of($alloc(SpinedBuffer$1Splitr));
-}
-
 bool SpinedBuffer$1Splitr::$assertionsDisabled = false;
 
 void SpinedBuffer$1Splitr::init$($SpinedBuffer* this$0, int32_t firstSpineIndex, int32_t lastSpineIndex, int32_t firstSpineElementIndex, int32_t lastSpineElementFence) {
@@ -87,7 +34,7 @@ void SpinedBuffer$1Splitr::init$($SpinedBuffer* this$0, int32_t firstSpineIndex,
 	if (!SpinedBuffer$1Splitr::$assertionsDisabled && !(this$0->spine != nullptr || firstSpineIndex == 0 && lastSpineIndex == 0)) {
 		$throwNew($AssertionError);
 	}
-	$set(this, splChunk, (this$0->spine == nullptr) ? this$0->curChunk : $nc(this$0->spine)->get(firstSpineIndex));
+	$set(this, splChunk, (this$0->spine == nullptr) ? this$0->curChunk : this$0->spine->get(firstSpineIndex));
 }
 
 int64_t SpinedBuffer$1Splitr::estimateSize() {
@@ -106,7 +53,7 @@ bool SpinedBuffer$1Splitr::tryAdvance($Consumer* consumer) {
 			this->splElementIndex = 0;
 			++this->splSpineIndex;
 			if (this->this$0->spine != nullptr && this->splSpineIndex <= this->lastSpineIndex) {
-				$set(this, splChunk, $nc(this->this$0->spine)->get(this->splSpineIndex));
+				$set(this, splChunk, this->this$0->spine->get(this->splSpineIndex));
 			}
 		}
 		return true;
@@ -115,7 +62,7 @@ bool SpinedBuffer$1Splitr::tryAdvance($Consumer* consumer) {
 }
 
 void SpinedBuffer$1Splitr::forEachRemaining($Consumer* consumer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(consumer);
 	if (this->splSpineIndex < this->lastSpineIndex || (this->splSpineIndex == this->lastSpineIndex && this->splElementIndex < this->lastSpineElementFence)) {
 		int32_t i = this->splElementIndex;
@@ -137,12 +84,12 @@ void SpinedBuffer$1Splitr::forEachRemaining($Consumer* consumer) {
 }
 
 $Spliterator* SpinedBuffer$1Splitr::trySplit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->splSpineIndex < this->lastSpineIndex) {
 		$var($Spliterator, ret, $new(SpinedBuffer$1Splitr, this->this$0, this->splSpineIndex, this->lastSpineIndex - 1, this->splElementIndex, $nc($nc(this->this$0->spine)->get(this->lastSpineIndex - 1))->length));
 		this->splSpineIndex = this->lastSpineIndex;
 		this->splElementIndex = 0;
-		$set(this, splChunk, $nc(this->this$0->spine)->get(this->splSpineIndex));
+		$set(this, splChunk, this->this$0->spine->get(this->splSpineIndex));
 		return ret;
 	} else if (this->splSpineIndex == this->lastSpineIndex) {
 		int32_t t = (this->lastSpineElementFence - this->splElementIndex) / 2;
@@ -158,7 +105,7 @@ $Spliterator* SpinedBuffer$1Splitr::trySplit() {
 	}
 }
 
-void clinit$SpinedBuffer$1Splitr($Class* class$) {
+void SpinedBuffer$1Splitr::clinit$($Class* clazz) {
 	$load($SpinedBuffer);
 	SpinedBuffer$1Splitr::$assertionsDisabled = !$SpinedBuffer::class$->desiredAssertionStatus();
 }
@@ -167,7 +114,52 @@ SpinedBuffer$1Splitr::SpinedBuffer$1Splitr() {
 }
 
 $Class* SpinedBuffer$1Splitr::load$($String* name, bool initialize) {
-	$loadClass(SpinedBuffer$1Splitr, name, initialize, &_SpinedBuffer$1Splitr_ClassInfo_, clinit$SpinedBuffer$1Splitr, allocate$SpinedBuffer$1Splitr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/stream/SpinedBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(SpinedBuffer$1Splitr, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SpinedBuffer$1Splitr, $assertionsDisabled)},
+		{"splSpineIndex", "I", nullptr, 0, $field(SpinedBuffer$1Splitr, splSpineIndex)},
+		{"lastSpineIndex", "I", nullptr, $FINAL, $field(SpinedBuffer$1Splitr, lastSpineIndex)},
+		{"splElementIndex", "I", nullptr, 0, $field(SpinedBuffer$1Splitr, splElementIndex)},
+		{"lastSpineElementFence", "I", nullptr, $FINAL, $field(SpinedBuffer$1Splitr, lastSpineElementFence)},
+		{"splChunk", "[Ljava/lang/Object;", "[TE;", 0, $field(SpinedBuffer$1Splitr, splChunk)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/SpinedBuffer;IIII)V", nullptr, 0, $method(SpinedBuffer$1Splitr, init$, void, $SpinedBuffer*, int32_t, int32_t, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, forEachRemaining, void, $Consumer*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, trySplit, $Spliterator*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.SpinedBuffer",
+		"spliterator",
+		"()Ljava/util/Spliterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SpinedBuffer$1Splitr", nullptr, "Splitr", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.SpinedBuffer$1Splitr",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SpinedBuffer"
+	};
+	$loadClass(SpinedBuffer$1Splitr, name, initialize, &classInfo$$, SpinedBuffer$1Splitr::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SpinedBuffer$1Splitr);
+	});
 	return class$;
 }
 

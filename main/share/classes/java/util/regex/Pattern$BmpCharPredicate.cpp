@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$BmpCharPredicate.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -33,35 +32,31 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return $nc(inst$)->lambda$and$0(p, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$BmpCharPredicate$$Lambda$lambda$and$0>());
-	}
 	Pattern$BmpCharPredicate* inst$ = nullptr;
 	$Pattern$CharPredicate* p = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$BmpCharPredicate$$Lambda$lambda$and$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, inst$)},
-	{"p", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, p)},
-	{}
-};
-$MethodInfo Pattern$BmpCharPredicate$$Lambda$lambda$and$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$BmpCharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, init$, void, Pattern$BmpCharPredicate*, $Pattern$CharPredicate*)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$BmpCharPredicate$$Lambda$lambda$and$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$BmpCharPredicate$$Lambda$lambda$and$0",
-	"java.lang.Object",
-	"java.util.regex.Pattern$BmpCharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$BmpCharPredicate$$Lambda$lambda$and$0::load$($String* name, bool initialize) {
-	$loadClass(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, inst$)},
+		{"p", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$BmpCharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, init$, void, Pattern$BmpCharPredicate*, $Pattern$CharPredicate*)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$BmpCharPredicate$$Lambda$lambda$and$0",
+		"java.lang.Object",
+		"java.util.regex.Pattern$BmpCharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$BmpCharPredicate$$Lambda$lambda$and$0);
+	});
 	return class$;
 }
 $Class* Pattern$BmpCharPredicate$$Lambda$lambda$and$0::class$ = nullptr;
@@ -76,35 +71,31 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return $nc(inst$)->lambda$union$2(p, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1>());
-	}
 	Pattern$BmpCharPredicate* inst$ = nullptr;
 	$Pattern$CharPredicate* p = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, inst$)},
-	{"p", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, p)},
-	{}
-};
-$MethodInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$BmpCharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, init$, void, Pattern$BmpCharPredicate*, $Pattern$CharPredicate*)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1",
-	"java.lang.Object",
-	"java.util.regex.Pattern$BmpCharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::load$($String* name, bool initialize) {
-	$loadClass(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, inst$)},
+		{"p", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$BmpCharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, init$, void, Pattern$BmpCharPredicate*, $Pattern$CharPredicate*)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1",
+		"java.lang.Object",
+		"java.util.regex.Pattern$BmpCharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1);
+	});
 	return class$;
 }
 $Class* Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::class$ = nullptr;
@@ -118,101 +109,57 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return Pattern$BmpCharPredicate::lambda$union$4(predicates, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2>());
-	}
 	$Pattern$CharPredicateArray* predicates = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::fieldInfos[2] = {
-	{"predicates", "[Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, predicates)},
-	{}
-};
-$MethodInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::methodInfos[3] = {
-	{"<init>", "([Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, init$, void, $Pattern$CharPredicateArray*)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2",
-	"java.lang.Object",
-	"java.util.regex.Pattern$CharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::load$($String* name, bool initialize) {
-	$loadClass(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"predicates", "[Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $field(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, predicates)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, init$, void, $Pattern$CharPredicateArray*)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2",
+		"java.lang.Object",
+		"java.util.regex.Pattern$CharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2);
+	});
 	return class$;
 }
 $Class* Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::class$ = nullptr;
 
-$MethodInfo _Pattern$BmpCharPredicate_MethodInfo_[] = {
-	{"and", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate, and$, $Pattern$CharPredicate*, $Pattern$CharPredicate*)},
-	{"lambda$and$0", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$BmpCharPredicate, lambda$and$0, bool, $Pattern$CharPredicate*, int32_t)},
-	{"lambda$union$2", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$BmpCharPredicate, lambda$union$2, bool, $Pattern$CharPredicate*, int32_t)},
-	{"lambda$union$4", "([Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern$BmpCharPredicate, lambda$union$4, bool, $Pattern$CharPredicateArray*, int32_t)},
-	{"union", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate, union$, $Pattern$CharPredicate*, $Pattern$CharPredicate*)},
-	{"union", "([Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Pattern$BmpCharPredicate, union$, $Pattern$CharPredicate*, $Pattern$CharPredicateArray*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$BmpCharPredicate_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$BmpCharPredicate", "java.util.regex.Pattern", "BmpCharPredicate", $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.regex.Pattern$CharPredicate", "java.util.regex.Pattern", "CharPredicate", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Pattern$BmpCharPredicate_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.util.regex.Pattern$BmpCharPredicate",
-	nullptr,
-	"java.util.regex.Pattern$CharPredicate",
-	nullptr,
-	_Pattern$BmpCharPredicate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$BmpCharPredicate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$BmpCharPredicate($Class* clazz) {
-	return $of($alloc(Pattern$BmpCharPredicate));
-}
-
 $Pattern$CharPredicate* Pattern$BmpCharPredicate::and$($Pattern$CharPredicate* p) {
 	if ($instanceOf(Pattern$BmpCharPredicate, p)) {
-		return (static_cast<Pattern$BmpCharPredicate*>($new(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, this, p)));
+		return ($cast(Pattern$BmpCharPredicate, $new(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, this, p)));
 	}
-	return static_cast<$Pattern$CharPredicate*>($new(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, this, p));
+	return $new(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, this, p);
 }
 
 $Pattern$CharPredicate* Pattern$BmpCharPredicate::union$($Pattern$CharPredicate* p) {
 	if ($instanceOf(Pattern$BmpCharPredicate, p)) {
-		return (static_cast<Pattern$BmpCharPredicate*>($new(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, this, p)));
+		return ($cast(Pattern$BmpCharPredicate, $new(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, this, p)));
 	}
-	return static_cast<$Pattern$CharPredicate*>($new(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, this, p));
+	return $new(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, this, p);
 }
 
 $Pattern$CharPredicate* Pattern$BmpCharPredicate::union$($Pattern$CharPredicateArray* predicates) {
 	$init(Pattern$BmpCharPredicate);
-	$useLocalCurrentObjectStackCache();
-	$var($Pattern$CharPredicate, cp, static_cast<$Pattern$CharPredicate*>($new(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, predicates)));
+	$useLocalObjectStack();
+	$var($Pattern$CharPredicate, cp, $new(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, predicates));
 	{
 		$var($Pattern$CharPredicateArray, arr$, predicates);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Pattern$CharPredicate, p, arr$->get(i$));
-			{
-				if (!($instanceOf(Pattern$BmpCharPredicate, p))) {
-					return cp;
-				}
+			if (!($instanceOf(Pattern$BmpCharPredicate, p))) {
+				return cp;
 			}
 		}
 	}
@@ -221,18 +168,12 @@ $Pattern$CharPredicate* Pattern$BmpCharPredicate::union$($Pattern$CharPredicateA
 
 bool Pattern$BmpCharPredicate::lambda$union$4($Pattern$CharPredicateArray* predicates, int32_t ch) {
 	$init(Pattern$BmpCharPredicate);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Pattern$CharPredicateArray, arr$, predicates);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Pattern$CharPredicate, p, arr$->get(i$));
-			{
-				if (!$nc(p)->is(ch)) {
-					return false;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Pattern$CharPredicateArray, arr$, predicates);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Pattern$CharPredicate, p, arr$->get(i$));
+		if (!$nc(p)->is(ch)) {
+			return false;
 		}
 	}
 	return true;
@@ -250,17 +191,48 @@ bool Pattern$BmpCharPredicate::lambda$and$0($Pattern$CharPredicate* p, int32_t c
 
 $Class* Pattern$BmpCharPredicate::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Pattern$BmpCharPredicate$$Lambda$lambda$and$0::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$BmpCharPredicate$$Lambda$lambda$and$0")) {
 			return Pattern$BmpCharPredicate$$Lambda$lambda$and$0::load$(name, initialize);
 		}
-		if (name->equals(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1")) {
 			return Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::load$(name, initialize);
 		}
-		if (name->equals(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2")) {
 			return Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::load$(name, initialize);
 		}
 	}
-	$loadClass(Pattern$BmpCharPredicate, name, initialize, &_Pattern$BmpCharPredicate_ClassInfo_, allocate$Pattern$BmpCharPredicate);
+	$MethodInfo methodInfos$$[] = {
+		{"and", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate, and$, $Pattern$CharPredicate*, $Pattern$CharPredicate*)},
+		{"lambda$and$0", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$BmpCharPredicate, lambda$and$0, bool, $Pattern$CharPredicate*, int32_t)},
+		{"lambda$union$2", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$BmpCharPredicate, lambda$union$2, bool, $Pattern$CharPredicate*, int32_t)},
+		{"lambda$union$4", "([Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern$BmpCharPredicate, lambda$union$4, bool, $Pattern$CharPredicateArray*, int32_t)},
+		{"union", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate, union$, $Pattern$CharPredicate*, $Pattern$CharPredicate*)},
+		{"union", "([Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Pattern$BmpCharPredicate, union$, $Pattern$CharPredicate*, $Pattern$CharPredicateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$BmpCharPredicate", "java.util.regex.Pattern", "BmpCharPredicate", $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.regex.Pattern$CharPredicate", "java.util.regex.Pattern", "CharPredicate", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.util.regex.Pattern$BmpCharPredicate",
+		nullptr,
+		"java.util.regex.Pattern$CharPredicate",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$BmpCharPredicate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$BmpCharPredicate);
+	});
 	return class$;
 }
 

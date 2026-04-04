@@ -76,7 +76,7 @@ public:
 	virtual ::java::time::chrono::ChronoZonedDateTime* withZoneSameLocal(::java::time::ZoneId* zone) override;
 	void writeExternal(::java::io::ObjectOutput* out);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0xB6FA480E92B4D959;
+	static const int64_t serialVersionUID = (int64_t)0xb6fa480e92b4d959;
 	::java::time::chrono::ChronoLocalDateTimeImpl* dateTime = nullptr;
 	::java::time::ZoneOffset* offset = nullptr;
 	::java::time::ZoneId* zone = nullptr;

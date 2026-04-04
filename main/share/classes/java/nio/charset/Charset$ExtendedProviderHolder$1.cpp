@@ -1,5 +1,4 @@
 #include <java/nio/charset/Charset$ExtendedProviderHolder$1.h>
-
 #include <java/nio/charset/Charset$ExtendedProviderHolder.h>
 #include <java/nio/charset/spi/CharsetProvider.h>
 #include <java/util/Arrays.h>
@@ -21,53 +20,14 @@ namespace java {
 	namespace nio {
 		namespace charset {
 
-$MethodInfo _Charset$ExtendedProviderHolder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Charset$ExtendedProviderHolder$1, init$, void)},
-	{"run", "()[Ljava/nio/charset/spi/CharsetProvider;", nullptr, $PUBLIC, $virtualMethod(Charset$ExtendedProviderHolder$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Charset$ExtendedProviderHolder$1_EnclosingMethodInfo_ = {
-	"java.nio.charset.Charset$ExtendedProviderHolder",
-	"extendedProviders",
-	"()[Ljava/nio/charset/spi/CharsetProvider;"
-};
-
-$InnerClassInfo _Charset$ExtendedProviderHolder$1_InnerClassesInfo_[] = {
-	{"java.nio.charset.Charset$ExtendedProviderHolder", "java.nio.charset.Charset", "ExtendedProviderHolder", $PRIVATE | $STATIC},
-	{"java.nio.charset.Charset$ExtendedProviderHolder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Charset$ExtendedProviderHolder$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.charset.Charset$ExtendedProviderHolder$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_Charset$ExtendedProviderHolder$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<[Ljava/nio/charset/spi/CharsetProvider;>;",
-	&_Charset$ExtendedProviderHolder$1_EnclosingMethodInfo_,
-	_Charset$ExtendedProviderHolder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.charset.Charset"
-};
-
-$Object* allocate$Charset$ExtendedProviderHolder$1($Class* clazz) {
-	return $of($alloc(Charset$ExtendedProviderHolder$1));
-}
-
 void Charset$ExtendedProviderHolder$1::init$() {
 }
 
 $Object* Charset$ExtendedProviderHolder$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($CharsetProviderArray, cps, $new($CharsetProviderArray, 1));
 	int32_t n = 0;
-	$load($CharsetProvider);
 	$var($ServiceLoader, sl, $ServiceLoader::loadInstalled($CharsetProvider::class$));
 	{
 		$var($Iterator, i$, $nc(sl)->iterator());
@@ -75,20 +35,52 @@ $Object* Charset$ExtendedProviderHolder$1::run() {
 			$var($CharsetProvider, cp, $cast($CharsetProvider, i$->next()));
 			{
 				if (n + 1 > cps->length) {
-					$assign(cps, $fcast($CharsetProviderArray, $Arrays::copyOf(cps, cps->length << 1)));
+					$assign(cps, $cast($CharsetProviderArray, $Arrays::copyOf(cps, cps->length << 1)));
 				}
 				cps->set(n++, cp);
 			}
 		}
 	}
-	return $of(n == cps->length ? cps : $fcast($CharsetProviderArray, $Arrays::copyOf(cps, n)));
+	return n == cps->length ? cps : $cast($CharsetProviderArray, $Arrays::copyOf(cps, n));
 }
 
 Charset$ExtendedProviderHolder$1::Charset$ExtendedProviderHolder$1() {
 }
 
 $Class* Charset$ExtendedProviderHolder$1::load$($String* name, bool initialize) {
-	$loadClass(Charset$ExtendedProviderHolder$1, name, initialize, &_Charset$ExtendedProviderHolder$1_ClassInfo_, allocate$Charset$ExtendedProviderHolder$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Charset$ExtendedProviderHolder$1, init$, void)},
+		{"run", "()[Ljava/nio/charset/spi/CharsetProvider;", nullptr, $PUBLIC, $virtualMethod(Charset$ExtendedProviderHolder$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.charset.Charset$ExtendedProviderHolder",
+		"extendedProviders",
+		"()[Ljava/nio/charset/spi/CharsetProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.charset.Charset$ExtendedProviderHolder", "java.nio.charset.Charset", "ExtendedProviderHolder", $PRIVATE | $STATIC},
+		{"java.nio.charset.Charset$ExtendedProviderHolder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.charset.Charset$ExtendedProviderHolder$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<[Ljava/nio/charset/spi/CharsetProvider;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.charset.Charset"
+	};
+	$loadClass(Charset$ExtendedProviderHolder$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Charset$ExtendedProviderHolder$1);
+	});
 	return class$;
 }
 

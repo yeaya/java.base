@@ -67,6 +67,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::Executor* executor, int32_t maxBufferCapacity, ::java::util::function::BiConsumer* handler);
 	void init$(::java::util::concurrent::Executor* executor, int32_t maxBufferCapacity);
 	void init$();

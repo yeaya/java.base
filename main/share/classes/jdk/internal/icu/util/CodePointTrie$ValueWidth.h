@@ -23,6 +23,7 @@ class CodePointTrie$ValueWidth : public ::java::lang::Enum {
 public:
 	CodePointTrie$ValueWidth();
 	static $Array<::jdk::internal::icu::util::CodePointTrie$ValueWidth>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::icu::util::CodePointTrie$ValueWidth* valueOf($String* name);
 	static $Array<::jdk::internal::icu::util::CodePointTrie$ValueWidth>* values();

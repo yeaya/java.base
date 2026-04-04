@@ -15,6 +15,7 @@ class $export IndexOf : public ::java::lang::Object {
 	$class(IndexOf, 0, ::java::lang::Object)
 public:
 	IndexOf();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void compareIndexOfLastIndexOf();
 	static void compareStringStringBuffer();

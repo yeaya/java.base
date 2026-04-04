@@ -1,5 +1,4 @@
 #include <jdk/internal/javac/PreviewFeature$Feature.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/javac/PreviewFeature.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jdk {
 	namespace internal {
 		namespace javac {
-
-$FieldInfo _PreviewFeature$Feature_FieldInfo_[] = {
-	{"SEALED_CLASSES", "Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PreviewFeature$Feature, SEALED_CLASSES)},
-	{"SWITCH_PATTERN_MATCHING", "Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PreviewFeature$Feature, SWITCH_PATTERN_MATCHING)},
-	{"TEST", "Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PreviewFeature$Feature, TEST)},
-	{"$VALUES", "[Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PreviewFeature$Feature, $VALUES)},
-	{}
-};
-
-$MethodInfo _PreviewFeature$Feature_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PreviewFeature$Feature, $values, $PreviewFeature$FeatureArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PreviewFeature$Feature, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(PreviewFeature$Feature, valueOf, PreviewFeature$Feature*, $String*)},
-	{"values", "()[Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(PreviewFeature$Feature, values, $PreviewFeature$FeatureArray*)},
-	{}
-};
-
-$InnerClassInfo _PreviewFeature$Feature_InnerClassesInfo_[] = {
-	{"jdk.internal.javac.PreviewFeature$Feature", "jdk.internal.javac.PreviewFeature", "Feature", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _PreviewFeature$Feature_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.javac.PreviewFeature$Feature",
-	"java.lang.Enum",
-	nullptr,
-	_PreviewFeature$Feature_FieldInfo_,
-	_PreviewFeature$Feature_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/javac/PreviewFeature$Feature;>;",
-	nullptr,
-	_PreviewFeature$Feature_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.javac.PreviewFeature"
-};
-
-$Object* allocate$PreviewFeature$Feature($Class* clazz) {
-	return $of($alloc(PreviewFeature$Feature));
-}
 
 PreviewFeature$Feature* PreviewFeature$Feature::SEALED_CLASSES = nullptr;
 PreviewFeature$Feature* PreviewFeature$Feature::SWITCH_PATTERN_MATCHING = nullptr;
@@ -88,7 +46,7 @@ void PreviewFeature$Feature::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$PreviewFeature$Feature($Class* class$) {
+void PreviewFeature$Feature::clinit$($Class* clazz) {
 	$assignStatic(PreviewFeature$Feature::SEALED_CLASSES, $new(PreviewFeature$Feature, "SEALED_CLASSES"_s, 0));
 	$assignStatic(PreviewFeature$Feature::SWITCH_PATTERN_MATCHING, $new(PreviewFeature$Feature, "SWITCH_PATTERN_MATCHING"_s, 1));
 	$assignStatic(PreviewFeature$Feature::TEST, $new(PreviewFeature$Feature, "TEST"_s, 2));
@@ -99,7 +57,42 @@ PreviewFeature$Feature::PreviewFeature$Feature() {
 }
 
 $Class* PreviewFeature$Feature::load$($String* name, bool initialize) {
-	$loadClass(PreviewFeature$Feature, name, initialize, &_PreviewFeature$Feature_ClassInfo_, clinit$PreviewFeature$Feature, allocate$PreviewFeature$Feature);
+	$FieldInfo fieldInfos$$[] = {
+		{"SEALED_CLASSES", "Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PreviewFeature$Feature, SEALED_CLASSES)},
+		{"SWITCH_PATTERN_MATCHING", "Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PreviewFeature$Feature, SWITCH_PATTERN_MATCHING)},
+		{"TEST", "Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PreviewFeature$Feature, TEST)},
+		{"$VALUES", "[Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PreviewFeature$Feature, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PreviewFeature$Feature, $values, $PreviewFeature$FeatureArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PreviewFeature$Feature, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(PreviewFeature$Feature, valueOf, PreviewFeature$Feature*, $String*)},
+		{"values", "()[Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(PreviewFeature$Feature, values, $PreviewFeature$FeatureArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.javac.PreviewFeature$Feature", "jdk.internal.javac.PreviewFeature", "Feature", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.javac.PreviewFeature$Feature",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/javac/PreviewFeature$Feature;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.javac.PreviewFeature"
+	};
+	$loadClass(PreviewFeature$Feature, name, initialize, &classInfo$$, PreviewFeature$Feature::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PreviewFeature$Feature));
+	});
 	return class$;
 }
 

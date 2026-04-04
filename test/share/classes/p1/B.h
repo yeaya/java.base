@@ -16,6 +16,7 @@ class B : public ::java::lang::Object {
 	$class(B, 0, ::java::lang::Object)
 public:
 	B();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::p1::B* INSTANCE;
 };

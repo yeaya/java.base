@@ -1,5 +1,4 @@
 #include <java/io/UTFDataFormatException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _UTFDataFormatException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UTFDataFormatException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UTFDataFormatException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UTFDataFormatException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UTFDataFormatException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _UTFDataFormatException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.UTFDataFormatException",
-	"java.io.IOException",
-	nullptr,
-	_UTFDataFormatException_FieldInfo_,
-	_UTFDataFormatException_MethodInfo_
-};
-
-$Object* allocate$UTFDataFormatException($Class* clazz) {
-	return $of($alloc(UTFDataFormatException));
-}
 
 void UTFDataFormatException::init$() {
 	$IOException::init$();
@@ -54,7 +29,26 @@ void UTFDataFormatException::throw$() {
 }
 
 $Class* UTFDataFormatException::load$($String* name, bool initialize) {
-	$loadClass(UTFDataFormatException, name, initialize, &_UTFDataFormatException_ClassInfo_, allocate$UTFDataFormatException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UTFDataFormatException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UTFDataFormatException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UTFDataFormatException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.UTFDataFormatException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UTFDataFormatException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UTFDataFormatException);
+	});
 	return class$;
 }
 

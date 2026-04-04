@@ -1,5 +1,4 @@
 #include <sun/security/jca/ProviderConfig$1.h>
-
 #include <java/io/File.h>
 #include <sun/security/jca/ProviderConfig.h>
 #include <jcpp.h>
@@ -20,64 +19,19 @@ namespace sun {
 	namespace security {
 		namespace jca {
 
-$FieldInfo _ProviderConfig$1_FieldInfo_[] = {
-	{"this$0", "Lsun/security/jca/ProviderConfig;", nullptr, $FINAL | $SYNTHETIC, $field(ProviderConfig$1, this$0)},
-	{}
-};
-
-$MethodInfo _ProviderConfig$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jca/ProviderConfig;)V", nullptr, 0, $method(ProviderConfig$1, init$, void, $ProviderConfig*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ProviderConfig$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ProviderConfig$1_EnclosingMethodInfo_ = {
-	"sun.security.jca.ProviderConfig",
-	"checkSunPKCS11Solaris",
-	"()V"
-};
-
-$InnerClassInfo _ProviderConfig$1_InnerClassesInfo_[] = {
-	{"sun.security.jca.ProviderConfig$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProviderConfig$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jca.ProviderConfig$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ProviderConfig$1_FieldInfo_,
-	_ProviderConfig$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_ProviderConfig$1_EnclosingMethodInfo_,
-	_ProviderConfig$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jca.ProviderConfig"
-};
-
-$Object* allocate$ProviderConfig$1($Class* clazz) {
-	return $of($alloc(ProviderConfig$1));
-}
-
 void ProviderConfig$1::init$($ProviderConfig* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* ProviderConfig$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $new($File, "/usr/lib/libpkcs11.so"_s));
 	if (file->exists() == false) {
-		$init($Boolean);
 		return $of($Boolean::FALSE);
 	}
 	if ("false"_s->equalsIgnoreCase($($System::getProperty("sun.security.pkcs11.enable-solaris"_s)))) {
-		$init($Boolean);
 		return $of($Boolean::FALSE);
 	}
-	$init($Boolean);
 	return $of($Boolean::TRUE);
 }
 
@@ -85,7 +39,42 @@ ProviderConfig$1::ProviderConfig$1() {
 }
 
 $Class* ProviderConfig$1::load$($String* name, bool initialize) {
-	$loadClass(ProviderConfig$1, name, initialize, &_ProviderConfig$1_ClassInfo_, allocate$ProviderConfig$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/jca/ProviderConfig;", nullptr, $FINAL | $SYNTHETIC, $field(ProviderConfig$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jca/ProviderConfig;)V", nullptr, 0, $method(ProviderConfig$1, init$, void, $ProviderConfig*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ProviderConfig$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.jca.ProviderConfig",
+		"checkSunPKCS11Solaris",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jca.ProviderConfig$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jca.ProviderConfig$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jca.ProviderConfig"
+	};
+	$loadClass(ProviderConfig$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProviderConfig$1);
+	});
 	return class$;
 }
 

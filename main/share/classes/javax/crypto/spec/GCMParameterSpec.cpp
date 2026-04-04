@@ -1,5 +1,4 @@
 #include <javax/crypto/spec/GCMParameterSpec.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,34 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace crypto {
 		namespace spec {
-
-$FieldInfo _GCMParameterSpec_FieldInfo_[] = {
-	{"iv", "[B", nullptr, $PRIVATE, $field(GCMParameterSpec, iv)},
-	{"tLen", "I", nullptr, $PRIVATE, $field(GCMParameterSpec, tLen)},
-	{}
-};
-
-$MethodInfo _GCMParameterSpec_MethodInfo_[] = {
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(GCMParameterSpec, init$, void, int32_t, $bytes*)},
-	{"<init>", "(I[BII)V", nullptr, $PUBLIC, $method(GCMParameterSpec, init$, void, int32_t, $bytes*, int32_t, int32_t)},
-	{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(GCMParameterSpec, getIV, $bytes*)},
-	{"getTLen", "()I", nullptr, $PUBLIC, $virtualMethod(GCMParameterSpec, getTLen, int32_t)},
-	{"init", "(I[BII)V", nullptr, $PRIVATE, $method(GCMParameterSpec, init, void, int32_t, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _GCMParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.spec.GCMParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec",
-	_GCMParameterSpec_FieldInfo_,
-	_GCMParameterSpec_MethodInfo_
-};
-
-$Object* allocate$GCMParameterSpec($Class* clazz) {
-	return $of($alloc(GCMParameterSpec));
-}
 
 void GCMParameterSpec::init$(int32_t tLen, $bytes* src) {
 	if (src == nullptr) {
@@ -55,7 +26,7 @@ void GCMParameterSpec::init(int32_t tLen, $bytes* src, int32_t offset, int32_t l
 		$throwNew($IllegalArgumentException, "Length argument is negative"_s);
 	}
 	this->tLen = tLen;
-	if ((src == nullptr) || (len < 0) || (offset < 0) || (len > ($nc(src)->length - offset))) {
+	if ((src == nullptr) || (len < 0) || (offset < 0) || (len > (src->length - offset))) {
 		$throwNew($IllegalArgumentException, "Invalid buffer arguments"_s);
 	}
 	$set(this, iv, $new($bytes, len));
@@ -74,7 +45,30 @@ GCMParameterSpec::GCMParameterSpec() {
 }
 
 $Class* GCMParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(GCMParameterSpec, name, initialize, &_GCMParameterSpec_ClassInfo_, allocate$GCMParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"iv", "[B", nullptr, $PRIVATE, $field(GCMParameterSpec, iv)},
+		{"tLen", "I", nullptr, $PRIVATE, $field(GCMParameterSpec, tLen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(GCMParameterSpec, init$, void, int32_t, $bytes*)},
+		{"<init>", "(I[BII)V", nullptr, $PUBLIC, $method(GCMParameterSpec, init$, void, int32_t, $bytes*, int32_t, int32_t)},
+		{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(GCMParameterSpec, getIV, $bytes*)},
+		{"getTLen", "()I", nullptr, $PUBLIC, $virtualMethod(GCMParameterSpec, getTLen, int32_t)},
+		{"init", "(I[BII)V", nullptr, $PRIVATE, $method(GCMParameterSpec, init, void, int32_t, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.spec.GCMParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GCMParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GCMParameterSpec);
+	});
 	return class$;
 }
 

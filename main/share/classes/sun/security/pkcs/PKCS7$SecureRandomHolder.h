@@ -22,6 +22,7 @@ class PKCS7$SecureRandomHolder : public ::java::lang::Object {
 	$class(PKCS7$SecureRandomHolder, 0, ::java::lang::Object)
 public:
 	PKCS7$SecureRandomHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::SecureRandom* RANDOM;
 };

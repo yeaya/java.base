@@ -22,6 +22,7 @@ class $import ECPoint : public ::java::lang::Object {
 	$class(ECPoint, 0, ::java::lang::Object)
 public:
 	ECPoint();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::math::BigInteger* x, ::java::math::BigInteger* y);
 	virtual bool equals(Object$* obj) override;

@@ -1,5 +1,4 @@
 #include <java/util/OptionalDouble.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/function/DoubleConsumer.h>
@@ -25,61 +24,10 @@ using $DoubleStream = ::java::util::stream::DoubleStream;
 namespace java {
 	namespace util {
 
-$CompoundAttribute _OptionalDouble_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _OptionalDouble_FieldInfo_[] = {
-	{"EMPTY", "Ljava/util/OptionalDouble;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OptionalDouble, EMPTY)},
-	{"isPresent", "Z", nullptr, $PRIVATE | $FINAL, $field(OptionalDouble, isPresent$)},
-	{"value", "D", nullptr, $PRIVATE | $FINAL, $field(OptionalDouble, value)},
-	{}
-};
-
-$MethodInfo _OptionalDouble_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(OptionalDouble, init$, void)},
-	{"<init>", "(D)V", nullptr, $PRIVATE, $method(OptionalDouble, init$, void, double)},
-	{"empty", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalDouble, empty, OptionalDouble*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OptionalDouble, equals, bool, Object$*)},
-	{"getAsDouble", "()D", nullptr, $PUBLIC, $method(OptionalDouble, getAsDouble, double)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OptionalDouble, hashCode, int32_t)},
-	{"ifPresent", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $method(OptionalDouble, ifPresent, void, $DoubleConsumer*)},
-	{"ifPresentOrElse", "(Ljava/util/function/DoubleConsumer;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(OptionalDouble, ifPresentOrElse, void, $DoubleConsumer*, $Runnable*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(OptionalDouble, isEmpty, bool)},
-	{"isPresent", "()Z", nullptr, $PUBLIC, $method(OptionalDouble, isPresent, bool)},
-	{"of", "(D)Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalDouble, of, OptionalDouble*, double)},
-	{"orElse", "(D)D", nullptr, $PUBLIC, $method(OptionalDouble, orElse, double, double)},
-	{"orElseGet", "(Ljava/util/function/DoubleSupplier;)D", nullptr, $PUBLIC, $method(OptionalDouble, orElseGet, double, $DoubleSupplier*)},
-	{"orElseThrow", "()D", nullptr, $PUBLIC, $method(OptionalDouble, orElseThrow, double)},
-	{"orElseThrow", "(Ljava/util/function/Supplier;)D", "<X:Ljava/lang/Throwable;>(Ljava/util/function/Supplier<+TX;>;)D^TX;", $PUBLIC, $method(OptionalDouble, orElseThrow, double, $Supplier*), "java.lang.Throwable"},
-	{"stream", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $method(OptionalDouble, stream, $DoubleStream*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionalDouble, toString, $String*)},
-	{}
-};
-
-$ClassInfo _OptionalDouble_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.OptionalDouble",
-	"java.lang.Object",
-	nullptr,
-	_OptionalDouble_FieldInfo_,
-	_OptionalDouble_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_OptionalDouble_Annotations_
-};
-
-$Object* allocate$OptionalDouble($Class* clazz) {
-	return $of($alloc(OptionalDouble));
-}
-
 OptionalDouble* OptionalDouble::EMPTY = nullptr;
 
 void OptionalDouble::init$() {
 	this->isPresent$ = false;
-	$init($Double);
 	this->value = $Double::NaN;
 }
 
@@ -154,7 +102,7 @@ double OptionalDouble::orElseThrow($Supplier* exceptionSupplier) {
 	if (this->isPresent$) {
 		return this->value;
 	} else {
-		$throw($cast($Throwable, $($nc(exceptionSupplier)->get())));
+		$throw($$cast($Throwable, $nc(exceptionSupplier)->get()));
 	}
 }
 
@@ -169,7 +117,7 @@ bool OptionalDouble::equals(Object$* obj) {
 		var$1 = true;
 	}
 	bool var$0 = var$1;
-	return var$0 && (this->isPresent$ && $nc(other)->isPresent$ ? $Double::compare(this->value, $nc(other)->value) == 0 : this->isPresent$ == $nc(other)->isPresent$);
+	return var$0 && (this->isPresent$ && $nc(other)->isPresent$ ? $Double::compare(this->value, other->value) == 0 : this->isPresent$ == $nc(other)->isPresent$);
 }
 
 int32_t OptionalDouble::hashCode() {
@@ -177,11 +125,11 @@ int32_t OptionalDouble::hashCode() {
 }
 
 $String* OptionalDouble::toString() {
-	$useLocalCurrentObjectStackCache();
-	return this->isPresent$ ? $String::format("OptionalDouble[%s]"_s, $$new($ObjectArray, {$($of($Double::valueOf(this->value)))})) : "OptionalDouble.empty"_s;
+	$useLocalObjectStack();
+	return this->isPresent$ ? $String::format("OptionalDouble[%s]"_s, $$new($ObjectArray, {$($Double::valueOf(this->value))})) : "OptionalDouble.empty"_s;
 }
 
-void clinit$OptionalDouble($Class* class$) {
+void OptionalDouble::clinit$($Class* clazz) {
 	$assignStatic(OptionalDouble::EMPTY, $new(OptionalDouble));
 }
 
@@ -189,7 +137,51 @@ OptionalDouble::OptionalDouble() {
 }
 
 $Class* OptionalDouble::load$($String* name, bool initialize) {
-	$loadClass(OptionalDouble, name, initialize, &_OptionalDouble_ClassInfo_, clinit$OptionalDouble, allocate$OptionalDouble);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY", "Ljava/util/OptionalDouble;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OptionalDouble, EMPTY)},
+		{"isPresent", "Z", nullptr, $PRIVATE | $FINAL, $field(OptionalDouble, isPresent$)},
+		{"value", "D", nullptr, $PRIVATE | $FINAL, $field(OptionalDouble, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(OptionalDouble, init$, void)},
+		{"<init>", "(D)V", nullptr, $PRIVATE, $method(OptionalDouble, init$, void, double)},
+		{"empty", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalDouble, empty, OptionalDouble*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OptionalDouble, equals, bool, Object$*)},
+		{"getAsDouble", "()D", nullptr, $PUBLIC, $method(OptionalDouble, getAsDouble, double)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OptionalDouble, hashCode, int32_t)},
+		{"ifPresent", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $method(OptionalDouble, ifPresent, void, $DoubleConsumer*)},
+		{"ifPresentOrElse", "(Ljava/util/function/DoubleConsumer;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(OptionalDouble, ifPresentOrElse, void, $DoubleConsumer*, $Runnable*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $method(OptionalDouble, isEmpty, bool)},
+		{"isPresent", "()Z", nullptr, $PUBLIC, $method(OptionalDouble, isPresent, bool)},
+		{"of", "(D)Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionalDouble, of, OptionalDouble*, double)},
+		{"orElse", "(D)D", nullptr, $PUBLIC, $method(OptionalDouble, orElse, double, double)},
+		{"orElseGet", "(Ljava/util/function/DoubleSupplier;)D", nullptr, $PUBLIC, $method(OptionalDouble, orElseGet, double, $DoubleSupplier*)},
+		{"orElseThrow", "()D", nullptr, $PUBLIC, $method(OptionalDouble, orElseThrow, double)},
+		{"orElseThrow", "(Ljava/util/function/Supplier;)D", "<X:Ljava/lang/Throwable;>(Ljava/util/function/Supplier<+TX;>;)D^TX;", $PUBLIC, $method(OptionalDouble, orElseThrow, double, $Supplier*), "java.lang.Throwable"},
+		{"stream", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $method(OptionalDouble, stream, $DoubleStream*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionalDouble, toString, $String*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.OptionalDouble",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(OptionalDouble, name, initialize, &classInfo$$, OptionalDouble::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OptionalDouble);
+	});
 	return class$;
 }
 

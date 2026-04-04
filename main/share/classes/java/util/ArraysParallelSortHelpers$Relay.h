@@ -15,7 +15,7 @@ public:
 	void init$(::java::util::concurrent::CountedCompleter* task);
 	virtual void compute() override;
 	virtual void onCompletion(::java::util::concurrent::CountedCompleter* t) override;
-	static const int64_t serialVersionUID = (int64_t)0x21F3DDCE4497AB4C;
+	static const int64_t serialVersionUID = (int64_t)0x21f3ddce4497ab4c;
 	::java::util::concurrent::CountedCompleter* task = nullptr;
 };
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/RenegoInfoExtension$SHRenegotiationInfoProducer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Map.h>
 #include <sun/security/ssl/ConnectionContext.h>
@@ -21,7 +20,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Map = ::java::util::Map;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $Record = ::sun::security::ssl::Record;
 using $RenegoInfoExtension$RenegotiationInfoSpec = ::sun::security::ssl::RenegoInfoExtension$RenegotiationInfoSpec;
@@ -34,42 +32,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _RenegoInfoExtension$SHRenegotiationInfoProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(RenegoInfoExtension$SHRenegotiationInfoProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(RenegoInfoExtension$SHRenegotiationInfoProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RenegoInfoExtension$SHRenegotiationInfoProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoProducer", "sun.security.ssl.RenegoInfoExtension", "SHRenegotiationInfoProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RenegoInfoExtension$SHRenegotiationInfoProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_RenegoInfoExtension$SHRenegotiationInfoProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RenegoInfoExtension$SHRenegotiationInfoProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.RenegoInfoExtension"
-};
-
-$Object* allocate$RenegoInfoExtension$SHRenegotiationInfoProducer($Class* clazz) {
-	return $of($alloc(RenegoInfoExtension$SHRenegotiationInfoProducer));
-}
-
 void RenegoInfoExtension$SHRenegotiationInfoProducer::init$() {
 }
 
 $bytes* RenegoInfoExtension$SHRenegotiationInfoProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($RenegoInfoExtension$RenegotiationInfoSpec, requestedSpec, $cast($RenegoInfoExtension$RenegotiationInfoSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_RENEGOTIATION_INFO)));
@@ -87,20 +54,20 @@ $bytes* RenegoInfoExtension$SHRenegotiationInfoProducer::produce($ConnectionCont
 		}
 		return nullptr;
 	}
-	if (!$nc(shc->conContext)->isNegotiated) {
-		$var($bytes, extData, $new($bytes, {(int8_t)0}));
+	if (!shc->conContext->isNegotiated) {
+		$var($bytes, extData, $new($bytes, {0}));
 		$init($RenegoInfoExtension$RenegotiationInfoSpec);
-		$nc(shc->handshakeExtensions)->put($SSLExtension::SH_RENEGOTIATION_INFO, $RenegoInfoExtension$RenegotiationInfoSpec::NOMINAL);
+		shc->handshakeExtensions->put($SSLExtension::SH_RENEGOTIATION_INFO, $RenegoInfoExtension$RenegotiationInfoSpec::NOMINAL);
 		return extData;
 	} else {
-		int32_t infoLen = $nc($nc(shc->conContext)->clientVerifyData)->length + $nc($nc(shc->conContext)->serverVerifyData)->length;
+		int32_t infoLen = $nc(shc->conContext->clientVerifyData)->length + $nc(shc->conContext->serverVerifyData)->length;
 		$var($bytes, extData, $new($bytes, infoLen + 1));
 		$var($ByteBuffer, m, $ByteBuffer::wrap(extData));
 		$Record::putInt8(m, infoLen);
-		$nc(m)->put($nc(shc->conContext)->clientVerifyData);
-		m->put($nc(shc->conContext)->serverVerifyData);
+		$nc(m)->put(shc->conContext->clientVerifyData);
+		m->put(shc->conContext->serverVerifyData);
 		$init($RenegoInfoExtension$RenegotiationInfoSpec);
-		$nc(shc->handshakeExtensions)->put($SSLExtension::SH_RENEGOTIATION_INFO, $RenegoInfoExtension$RenegotiationInfoSpec::NOMINAL);
+		shc->handshakeExtensions->put($SSLExtension::SH_RENEGOTIATION_INFO, $RenegoInfoExtension$RenegotiationInfoSpec::NOMINAL);
 		return extData;
 	}
 }
@@ -109,7 +76,33 @@ RenegoInfoExtension$SHRenegotiationInfoProducer::RenegoInfoExtension$SHRenegotia
 }
 
 $Class* RenegoInfoExtension$SHRenegotiationInfoProducer::load$($String* name, bool initialize) {
-	$loadClass(RenegoInfoExtension$SHRenegotiationInfoProducer, name, initialize, &_RenegoInfoExtension$SHRenegotiationInfoProducer_ClassInfo_, allocate$RenegoInfoExtension$SHRenegotiationInfoProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(RenegoInfoExtension$SHRenegotiationInfoProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(RenegoInfoExtension$SHRenegotiationInfoProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoProducer", "sun.security.ssl.RenegoInfoExtension", "SHRenegotiationInfoProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.RenegoInfoExtension$SHRenegotiationInfoProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.RenegoInfoExtension"
+	};
+	$loadClass(RenegoInfoExtension$SHRenegotiationInfoProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RenegoInfoExtension$SHRenegotiationInfoProducer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/jar/JarOutputStream.h>
-
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
@@ -29,37 +28,8 @@ namespace java {
 	namespace util {
 		namespace jar {
 
-$FieldInfo _JarOutputStream_FieldInfo_[] = {
-	{"JAR_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JarOutputStream, JAR_MAGIC)},
-	{"firstEntry", "Z", nullptr, $PRIVATE, $field(JarOutputStream, firstEntry)},
-	{}
-};
-
-$MethodInfo _JarOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/jar/Manifest;)V", nullptr, $PUBLIC, $method(JarOutputStream, init$, void, $OutputStream*, $Manifest*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(JarOutputStream, init$, void, $OutputStream*), "java.io.IOException"},
-	{"get16", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(JarOutputStream, get16, int32_t, $bytes*, int32_t)},
-	{"hasMagic", "([B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JarOutputStream, hasMagic, bool, $bytes*)},
-	{"putNextEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC, $virtualMethod(JarOutputStream, putNextEntry, void, $ZipEntry*), "java.io.IOException"},
-	{"set16", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JarOutputStream, set16, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _JarOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.jar.JarOutputStream",
-	"java.util.zip.ZipOutputStream",
-	nullptr,
-	_JarOutputStream_FieldInfo_,
-	_JarOutputStream_MethodInfo_
-};
-
-$Object* allocate$JarOutputStream($Class* clazz) {
-	return $of($alloc(JarOutputStream));
-}
-
 void JarOutputStream::init$($OutputStream* out, $Manifest* man) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ZipOutputStream::init$(out);
 	this->firstEntry = true;
 	if (man == nullptr) {
@@ -78,14 +48,14 @@ void JarOutputStream::init$($OutputStream* out) {
 }
 
 void JarOutputStream::putNextEntry($ZipEntry* ze) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->firstEntry) {
 		$var($bytes, edata, $nc(ze)->getExtra());
 		if (edata == nullptr || !hasMagic(edata)) {
 			if (edata == nullptr) {
 				$assign(edata, $new($bytes, 4));
 			} else {
-				$var($bytes, tmp, $new($bytes, $nc(edata)->length + 4));
+				$var($bytes, tmp, $new($bytes, edata->length + 4));
 				$System::arraycopy(edata, 0, tmp, 4, edata->length);
 				$assign(edata, tmp);
 			}
@@ -116,7 +86,7 @@ bool JarOutputStream::hasMagic($bytes* edata) {
 int32_t JarOutputStream::get16($bytes* b, int32_t off) {
 	$init(JarOutputStream);
 	int32_t var$0 = $Byte::toUnsignedInt($nc(b)->get(off));
-	return var$0 | ($Byte::toUnsignedInt($nc(b)->get(off + 1)) << 8);
+	return var$0 | ($Byte::toUnsignedInt(b->get(off + 1)) << 8);
 }
 
 void JarOutputStream::set16($bytes* b, int32_t off, int32_t value) {
@@ -129,7 +99,31 @@ JarOutputStream::JarOutputStream() {
 }
 
 $Class* JarOutputStream::load$($String* name, bool initialize) {
-	$loadClass(JarOutputStream, name, initialize, &_JarOutputStream_ClassInfo_, allocate$JarOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"JAR_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JarOutputStream, JAR_MAGIC)},
+		{"firstEntry", "Z", nullptr, $PRIVATE, $field(JarOutputStream, firstEntry)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;Ljava/util/jar/Manifest;)V", nullptr, $PUBLIC, $method(JarOutputStream, init$, void, $OutputStream*, $Manifest*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(JarOutputStream, init$, void, $OutputStream*), "java.io.IOException"},
+		{"get16", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(JarOutputStream, get16, int32_t, $bytes*, int32_t)},
+		{"hasMagic", "([B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JarOutputStream, hasMagic, bool, $bytes*)},
+		{"putNextEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC, $virtualMethod(JarOutputStream, putNextEntry, void, $ZipEntry*), "java.io.IOException"},
+		{"set16", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JarOutputStream, set16, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.jar.JarOutputStream",
+		"java.util.zip.ZipOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JarOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JarOutputStream));
+	});
 	return class$;
 }
 

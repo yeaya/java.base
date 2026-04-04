@@ -35,6 +35,7 @@ class SSLSecretDerivation : public ::sun::security::ssl::SSLKeyDerivation {
 	$class(SSLSecretDerivation, 0, ::sun::security::ssl::SSLKeyDerivation)
 public:
 	SSLSecretDerivation();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::HandshakeContext* context, ::javax::crypto::SecretKey* secret);
 	static $bytes* createHkdfInfo($bytes* label, $bytes* context, int32_t length);
 	virtual ::javax::crypto::SecretKey* deriveKey($String* algorithm, ::java::security::spec::AlgorithmParameterSpec* params) override;

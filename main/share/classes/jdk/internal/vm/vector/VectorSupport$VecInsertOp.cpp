@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/vector/VectorSupport$VecInsertOp.h>
-
 #include <jdk/internal/vm/vector/VectorSupport.h>
 #include <jcpp.h>
 
@@ -12,38 +11,33 @@ namespace jdk {
 		namespace vm {
 			namespace vector {
 
-$MethodInfo _VectorSupport$VecInsertOp_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;IJ)Ljava/lang/Object;", "(TV;IJ)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VecInsertOp, apply, $Object*, Object$*, int32_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _VectorSupport$VecInsertOp_InnerClassesInfo_[] = {
-	{"jdk.internal.vm.vector.VectorSupport$VecInsertOp", "jdk.internal.vm.vector.VectorSupport", "VecInsertOp", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VectorSupport$VecInsertOp_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.vm.vector.VectorSupport$VecInsertOp",
-	nullptr,
-	nullptr,
-	nullptr,
-	_VectorSupport$VecInsertOp_MethodInfo_,
-	"<V:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_VectorSupport$VecInsertOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.vm.vector.VectorSupport"
-};
-
-$Object* allocate$VectorSupport$VecInsertOp($Class* clazz) {
-	return $of($alloc(VectorSupport$VecInsertOp));
-}
-
 $Class* VectorSupport$VecInsertOp::load$($String* name, bool initialize) {
-	$loadClass(VectorSupport$VecInsertOp, name, initialize, &_VectorSupport$VecInsertOp_ClassInfo_, allocate$VectorSupport$VecInsertOp);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljava/lang/Object;IJ)Ljava/lang/Object;", "(TV;IJ)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VecInsertOp, apply, $Object*, Object$*, int32_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.vm.vector.VectorSupport$VecInsertOp", "jdk.internal.vm.vector.VectorSupport", "VecInsertOp", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.vm.vector.VectorSupport$VecInsertOp",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.vm.vector.VectorSupport"
+	};
+	$loadClass(VectorSupport$VecInsertOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VectorSupport$VecInsertOp);
+	});
 	return class$;
 }
 

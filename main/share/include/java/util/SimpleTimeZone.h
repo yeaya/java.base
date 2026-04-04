@@ -54,6 +54,7 @@ class $import SimpleTimeZone : public ::java::util::TimeZone {
 	$class(SimpleTimeZone, 0, ::java::util::TimeZone)
 public:
 	SimpleTimeZone();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t rawOffset, $String* ID);
 	void init$(int32_t rawOffset, $String* ID, int32_t startMonth, int32_t startDay, int32_t startDayOfWeek, int32_t startTime, int32_t endMonth, int32_t endDay, int32_t endDayOfWeek, int32_t endTime);
 	void init$(int32_t rawOffset, $String* ID, int32_t startMonth, int32_t startDay, int32_t startDayOfWeek, int32_t startTime, int32_t endMonth, int32_t endDay, int32_t endDayOfWeek, int32_t endTime, int32_t dstSavings);
@@ -125,7 +126,7 @@ public:
 	static const int32_t WALL_TIME = 0;
 	static const int32_t STANDARD_TIME = 1;
 	static const int32_t UTC_TIME = 2;
-	static const int64_t serialVersionUID = (int64_t)0xFA675D60D15EF5A6;
+	static const int64_t serialVersionUID = (int64_t)0xfa675d60d15ef5a6;
 	static const int32_t currentSerialVersion = 2;
 	int32_t serialVersionOnStream = 0;
 	static const int32_t MAX_RULE_NUM = 6;

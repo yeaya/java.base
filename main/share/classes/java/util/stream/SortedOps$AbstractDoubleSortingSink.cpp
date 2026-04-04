@@ -1,5 +1,4 @@
 #include <java/util/stream/SortedOps$AbstractDoubleSortingSink.h>
-
 #include <java/util/stream/Sink$ChainedDouble.h>
 #include <java/util/stream/Sink.h>
 #include <java/util/stream/SortedOps.h>
@@ -16,43 +15,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _SortedOps$AbstractDoubleSortingSink_FieldInfo_[] = {
-	{"cancellationRequestedCalled", "Z", nullptr, $PROTECTED, $field(SortedOps$AbstractDoubleSortingSink, cancellationRequestedCalled)},
-	{}
-};
-
-$MethodInfo _SortedOps$AbstractDoubleSortingSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Double;>;)V", 0, $method(SortedOps$AbstractDoubleSortingSink, init$, void, $Sink*)},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SortedOps$AbstractDoubleSortingSink, cancellationRequested, bool)},
-	{}
-};
-
-$InnerClassInfo _SortedOps$AbstractDoubleSortingSink_InnerClassesInfo_[] = {
-	{"java.util.stream.SortedOps$AbstractDoubleSortingSink", "java.util.stream.SortedOps", "AbstractDoubleSortingSink", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Sink$ChainedDouble", "java.util.stream.Sink", "ChainedDouble", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SortedOps$AbstractDoubleSortingSink_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.SortedOps$AbstractDoubleSortingSink",
-	"java.util.stream.Sink$ChainedDouble",
-	nullptr,
-	_SortedOps$AbstractDoubleSortingSink_FieldInfo_,
-	_SortedOps$AbstractDoubleSortingSink_MethodInfo_,
-	"Ljava/util/stream/Sink$ChainedDouble<Ljava/lang/Double;>;",
-	nullptr,
-	_SortedOps$AbstractDoubleSortingSink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SortedOps"
-};
-
-$Object* allocate$SortedOps$AbstractDoubleSortingSink($Class* clazz) {
-	return $of($alloc(SortedOps$AbstractDoubleSortingSink));
-}
-
 void SortedOps$AbstractDoubleSortingSink::init$($Sink* downstream) {
 	$Sink$ChainedDouble::init$(downstream);
 }
@@ -66,7 +28,38 @@ SortedOps$AbstractDoubleSortingSink::SortedOps$AbstractDoubleSortingSink() {
 }
 
 $Class* SortedOps$AbstractDoubleSortingSink::load$($String* name, bool initialize) {
-	$loadClass(SortedOps$AbstractDoubleSortingSink, name, initialize, &_SortedOps$AbstractDoubleSortingSink_ClassInfo_, allocate$SortedOps$AbstractDoubleSortingSink);
+	$FieldInfo fieldInfos$$[] = {
+		{"cancellationRequestedCalled", "Z", nullptr, $PROTECTED, $field(SortedOps$AbstractDoubleSortingSink, cancellationRequestedCalled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Double;>;)V", 0, $method(SortedOps$AbstractDoubleSortingSink, init$, void, $Sink*)},
+		{"cancellationRequested", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SortedOps$AbstractDoubleSortingSink, cancellationRequested, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SortedOps$AbstractDoubleSortingSink", "java.util.stream.SortedOps", "AbstractDoubleSortingSink", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Sink$ChainedDouble", "java.util.stream.Sink", "ChainedDouble", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.SortedOps$AbstractDoubleSortingSink",
+		"java.util.stream.Sink$ChainedDouble",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/Sink$ChainedDouble<Ljava/lang/Double;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SortedOps"
+	};
+	$loadClass(SortedOps$AbstractDoubleSortingSink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SortedOps$AbstractDoubleSortingSink));
+	});
 	return class$;
 }
 

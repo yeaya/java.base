@@ -48,6 +48,7 @@ class $export IdentityHashMap : public ::java::util::AbstractMap, public ::java:
 public:
 	IdentityHashMap();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t expectedMaxSize);
 	void init$(::java::util::Map* m);
@@ -91,7 +92,7 @@ public:
 	int32_t modCount = 0;
 	static $Object* NULL_KEY;
 	::java::util::Set* entrySet$ = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x71A2650133F2E980;
+	static const int64_t serialVersionUID = (int64_t)0x71a2650133f2e980;
 };
 
 	} // util

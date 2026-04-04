@@ -26,6 +26,7 @@ class $import Signal : public ::java::lang::Object {
 	$class(Signal, $PRELOAD, ::java::lang::Object)
 public:
 	Signal();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	static void dispatch(int32_t number);
 	virtual bool equals(Object$* obj) override;

@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/NTLMAuthenticationProxy.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -42,44 +41,6 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$FieldInfo _NTLMAuthenticationProxy_FieldInfo_[] = {
-	{"supportsTA", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(NTLMAuthenticationProxy, supportsTA)},
-	{"isTrustedSite", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(NTLMAuthenticationProxy, isTrustedSite$)},
-	{"clazzStr", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, clazzStr)},
-	{"supportsTAStr", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, supportsTAStr)},
-	{"isTrustedSiteStr", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, isTrustedSiteStr)},
-	{"proxy", "Lsun/net/www/protocol/http/NTLMAuthenticationProxy;", nullptr, $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, proxy)},
-	{"supported", "Z", nullptr, $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, supported)},
-	{"supportsTransparentAuth", "Z", nullptr, $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, supportsTransparentAuth$)},
-	{"fourArgCtr", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;", $PRIVATE | $FINAL, $field(NTLMAuthenticationProxy, fourArgCtr)},
-	{"sixArgCtr", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;", $PRIVATE | $FINAL, $field(NTLMAuthenticationProxy, sixArgCtr)},
-	{}
-};
-
-$MethodInfo _NTLMAuthenticationProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Constructor;Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;)V", $PRIVATE, $method(NTLMAuthenticationProxy, init$, void, $Constructor*, $Constructor*)},
-	{"create", "(ZLjava/net/URL;Ljava/net/PasswordAuthentication;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, 0, $virtualMethod(NTLMAuthenticationProxy, create, $AuthenticationInfo*, bool, $URL*, $PasswordAuthentication*, $String*)},
-	{"create", "(ZLjava/lang/String;ILjava/net/PasswordAuthentication;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, 0, $virtualMethod(NTLMAuthenticationProxy, create, $AuthenticationInfo*, bool, $String*, int32_t, $PasswordAuthentication*, $String*)},
-	{"finest", "(Ljava/lang/Exception;)V", nullptr, $STATIC, $staticMethod(NTLMAuthenticationProxy, finest, void, $Exception*)},
-	{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthenticationProxy, isTrustedSite, bool, $URL*)},
-	{"supportsTransparentAuth", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NTLMAuthenticationProxy, supportsTransparentAuth, bool)},
-	{"tryLoadNTLMAuthentication", "()Lsun/net/www/protocol/http/NTLMAuthenticationProxy;", nullptr, $PRIVATE | $STATIC, $staticMethod(NTLMAuthenticationProxy, tryLoadNTLMAuthentication, NTLMAuthenticationProxy*)},
-	{}
-};
-
-$ClassInfo _NTLMAuthenticationProxy_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.http.NTLMAuthenticationProxy",
-	"java.lang.Object",
-	nullptr,
-	_NTLMAuthenticationProxy_FieldInfo_,
-	_NTLMAuthenticationProxy_MethodInfo_
-};
-
-$Object* allocate$NTLMAuthenticationProxy($Class* clazz) {
-	return $of($alloc(NTLMAuthenticationProxy));
-}
-
 $Method* NTLMAuthenticationProxy::supportsTA = nullptr;
 $Method* NTLMAuthenticationProxy::isTrustedSite$ = nullptr;
 $String* NTLMAuthenticationProxy::clazzStr = nullptr;
@@ -95,14 +56,14 @@ void NTLMAuthenticationProxy::init$($Constructor* fourArgCtr, $Constructor* sixA
 }
 
 $AuthenticationInfo* NTLMAuthenticationProxy::create(bool isProxy, $URL* url, $PasswordAuthentication* pw, $String* authenticatorKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		return $cast($AuthenticationInfo, $nc(this->fourArgCtr)->newInstance($$new($ObjectArray, {
-			$($of($Boolean::valueOf(isProxy))),
-			$of(url),
-			$of(pw),
-			$of(authenticatorKey)
+			$($Boolean::valueOf(isProxy)),
+			url,
+			pw,
+			authenticatorKey
 		})));
 	} catch ($ReflectiveOperationException& roe) {
 		finest(roe);
@@ -111,15 +72,15 @@ $AuthenticationInfo* NTLMAuthenticationProxy::create(bool isProxy, $URL* url, $P
 }
 
 $AuthenticationInfo* NTLMAuthenticationProxy::create(bool isProxy, $String* host, int32_t port, $PasswordAuthentication* pw, $String* authenticatorKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		return $cast($AuthenticationInfo, $nc(this->sixArgCtr)->newInstance($$new($ObjectArray, {
-			$($of($Boolean::valueOf(isProxy))),
-			$of(host),
-			$($of($Integer::valueOf(port))),
-			$of(pw),
-			$of(authenticatorKey)
+			$($Boolean::valueOf(isProxy)),
+			host,
+			$($Integer::valueOf(port)),
+			pw,
+			authenticatorKey
 		})));
 	} catch ($ReflectiveOperationException& roe) {
 		finest(roe);
@@ -129,10 +90,10 @@ $AuthenticationInfo* NTLMAuthenticationProxy::create(bool isProxy, $String* host
 
 bool NTLMAuthenticationProxy::supportsTransparentAuth() {
 	$init(NTLMAuthenticationProxy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		return $nc(($cast($Boolean, $($nc(NTLMAuthenticationProxy::supportsTA)->invoke(nullptr, $$new($ObjectArray, 0))))))->booleanValue();
+		return $$sure($Boolean, $nc(NTLMAuthenticationProxy::supportsTA)->invoke(nullptr, $$new($ObjectArray, 0)))->booleanValue();
 	} catch ($ReflectiveOperationException& roe) {
 		finest(roe);
 	}
@@ -141,10 +102,10 @@ bool NTLMAuthenticationProxy::supportsTransparentAuth() {
 
 bool NTLMAuthenticationProxy::isTrustedSite($URL* url) {
 	$init(NTLMAuthenticationProxy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		return $nc(($cast($Boolean, $($nc(NTLMAuthenticationProxy::isTrustedSite$)->invoke(nullptr, $$new($ObjectArray, {$of(url)}))))))->booleanValue();
+		return $$sure($Boolean, $nc(NTLMAuthenticationProxy::isTrustedSite$)->invoke(nullptr, $$new($ObjectArray, {url})))->booleanValue();
 	} catch ($ReflectiveOperationException& roe) {
 		finest(roe);
 	}
@@ -153,7 +114,7 @@ bool NTLMAuthenticationProxy::isTrustedSite($URL* url) {
 
 NTLMAuthenticationProxy* NTLMAuthenticationProxy::tryLoadNTLMAuthentication() {
 	$init(NTLMAuthenticationProxy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* cl = nullptr;
 	$var($Constructor, fourArg, nullptr);
@@ -161,7 +122,6 @@ NTLMAuthenticationProxy* NTLMAuthenticationProxy::tryLoadNTLMAuthentication() {
 	try {
 		cl = $Class::forName(NTLMAuthenticationProxy::clazzStr, true, nullptr);
 		if (cl != nullptr) {
-			$init($Boolean);
 			$load($URL);
 			$load($PasswordAuthentication);
 			$assign(fourArg, cl->getConstructor($$new($ClassArray, {
@@ -170,7 +130,6 @@ NTLMAuthenticationProxy* NTLMAuthenticationProxy::tryLoadNTLMAuthentication() {
 				$PasswordAuthentication::class$,
 				$String::class$
 			})));
-			$init($Integer);
 			$assign(sixArg, cl->getConstructor($$new($ClassArray, {
 				$Boolean::TYPE,
 				$String::class$,
@@ -192,7 +151,7 @@ NTLMAuthenticationProxy* NTLMAuthenticationProxy::tryLoadNTLMAuthentication() {
 
 void NTLMAuthenticationProxy::finest($Exception* e) {
 	$init(NTLMAuthenticationProxy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformLogger, logger, $HttpURLConnection::getHttpLogger());
 	$init($PlatformLogger$Level);
 	if ($nc(logger)->isLoggable($PlatformLogger$Level::FINEST)) {
@@ -200,7 +159,7 @@ void NTLMAuthenticationProxy::finest($Exception* e) {
 	}
 }
 
-void clinit$NTLMAuthenticationProxy($Class* class$) {
+void NTLMAuthenticationProxy::clinit$($Class* clazz) {
 	$assignStatic(NTLMAuthenticationProxy::clazzStr, "sun.net.www.protocol.http.ntlm.NTLMAuthentication"_s);
 	$assignStatic(NTLMAuthenticationProxy::supportsTAStr, "supportsTransparentAuth"_s);
 	$assignStatic(NTLMAuthenticationProxy::isTrustedSiteStr, "isTrustedSite"_s);
@@ -213,7 +172,40 @@ NTLMAuthenticationProxy::NTLMAuthenticationProxy() {
 }
 
 $Class* NTLMAuthenticationProxy::load$($String* name, bool initialize) {
-	$loadClass(NTLMAuthenticationProxy, name, initialize, &_NTLMAuthenticationProxy_ClassInfo_, clinit$NTLMAuthenticationProxy, allocate$NTLMAuthenticationProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"supportsTA", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(NTLMAuthenticationProxy, supportsTA)},
+		{"isTrustedSite", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(NTLMAuthenticationProxy, isTrustedSite$)},
+		{"clazzStr", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, clazzStr)},
+		{"supportsTAStr", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, supportsTAStr)},
+		{"isTrustedSiteStr", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, isTrustedSiteStr)},
+		{"proxy", "Lsun/net/www/protocol/http/NTLMAuthenticationProxy;", nullptr, $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, proxy)},
+		{"supported", "Z", nullptr, $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, supported)},
+		{"supportsTransparentAuth", "Z", nullptr, $STATIC | $FINAL, $staticField(NTLMAuthenticationProxy, supportsTransparentAuth$)},
+		{"fourArgCtr", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;", $PRIVATE | $FINAL, $field(NTLMAuthenticationProxy, fourArgCtr)},
+		{"sixArgCtr", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;", $PRIVATE | $FINAL, $field(NTLMAuthenticationProxy, sixArgCtr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Constructor;Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;)V", $PRIVATE, $method(NTLMAuthenticationProxy, init$, void, $Constructor*, $Constructor*)},
+		{"create", "(ZLjava/net/URL;Ljava/net/PasswordAuthentication;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, 0, $virtualMethod(NTLMAuthenticationProxy, create, $AuthenticationInfo*, bool, $URL*, $PasswordAuthentication*, $String*)},
+		{"create", "(ZLjava/lang/String;ILjava/net/PasswordAuthentication;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, 0, $virtualMethod(NTLMAuthenticationProxy, create, $AuthenticationInfo*, bool, $String*, int32_t, $PasswordAuthentication*, $String*)},
+		{"finest", "(Ljava/lang/Exception;)V", nullptr, $STATIC, $staticMethod(NTLMAuthenticationProxy, finest, void, $Exception*)},
+		{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthenticationProxy, isTrustedSite, bool, $URL*)},
+		{"supportsTransparentAuth", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NTLMAuthenticationProxy, supportsTransparentAuth, bool)},
+		{"tryLoadNTLMAuthentication", "()Lsun/net/www/protocol/http/NTLMAuthenticationProxy;", nullptr, $PRIVATE | $STATIC, $staticMethod(NTLMAuthenticationProxy, tryLoadNTLMAuthentication, NTLMAuthenticationProxy*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.http.NTLMAuthenticationProxy",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NTLMAuthenticationProxy, name, initialize, &classInfo$$, NTLMAuthenticationProxy::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NTLMAuthenticationProxy);
+	});
 	return class$;
 }
 

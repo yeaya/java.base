@@ -31,6 +31,7 @@ class ClientHandshakeContext : public ::sun::security::ssl::HandshakeContext {
 	$class(ClientHandshakeContext, 0, ::sun::security::ssl::HandshakeContext)
 public:
 	ClientHandshakeContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::SSLContextImpl* sslContext, ::sun::security::ssl::TransportContext* conContext);
 	virtual void kickstart() override;
 	static bool allowUnsafeServerCertChange;

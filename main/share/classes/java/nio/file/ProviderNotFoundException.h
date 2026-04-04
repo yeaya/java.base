@@ -15,10 +15,13 @@ public:
 	ProviderNotFoundException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xE5E8DA9542B6D95E;
+	static const int64_t serialVersionUID = (int64_t)0xe5e8da9542b6d95e;
 	ProviderNotFoundException(const ProviderNotFoundException& e);
 	virtual void throw$() override;
-	inline ProviderNotFoundException* operator ->() {
+	inline ProviderNotFoundException* operator ->() const {
+		return (ProviderNotFoundException*)throwing$;
+	}
+	inline operator ProviderNotFoundException*() const {
 		return (ProviderNotFoundException*)throwing$;
 	}
 };

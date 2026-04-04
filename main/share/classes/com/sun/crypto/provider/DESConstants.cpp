@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DESConstants.h>
-
 #include <jcpp.h>
 
 #undef DES_BLOCK_SIZE
@@ -12,25 +11,21 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _DESConstants_FieldInfo_[] = {
-	{"DES_BLOCK_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DESConstants, DES_BLOCK_SIZE)},
-	{}
-};
-
-$ClassInfo _DESConstants_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.crypto.provider.DESConstants",
-	nullptr,
-	nullptr,
-	_DESConstants_FieldInfo_
-};
-
-$Object* allocate$DESConstants($Class* clazz) {
-	return $of($alloc(DESConstants));
-}
-
 $Class* DESConstants::load$($String* name, bool initialize) {
-	$loadClass(DESConstants, name, initialize, &_DESConstants_ClassInfo_, allocate$DESConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"DES_BLOCK_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DESConstants, DES_BLOCK_SIZE)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.crypto.provider.DESConstants",
+		nullptr,
+		nullptr,
+		fieldInfos$$
+	};
+	$loadClass(DESConstants, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DESConstants);
+	});
 	return class$;
 }
 

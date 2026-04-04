@@ -1,9 +1,7 @@
 #include <java/io/UnixFileSystem.h>
-
 #include <java/io/ExpiringCache.h>
 #include <java/io/File.h>
 #include <java/io/FileSystem.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/util/Properties.h>
@@ -18,7 +16,6 @@ using $FileArray = $Array<::java::io::File>;
 using $ExpiringCache = ::java::io::ExpiringCache;
 using $File = ::java::io::File;
 using $FileSystem = ::java::io::FileSystem;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -32,94 +29,12 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace java {
 	namespace io {
 
-$FieldInfo _UnixFileSystem_FieldInfo_[] = {
-	{"slash", "C", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, slash)},
-	{"colon", "C", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, colon)},
-	{"javaHome", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, javaHome)},
-	{"userDir", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, userDir)},
-	{"cache", "Ljava/io/ExpiringCache;", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, cache)},
-	{"javaHomePrefixCache", "Ljava/io/ExpiringCache;", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, javaHomePrefixCache)},
-	{}
-};
-
-$MethodInfo _UnixFileSystem_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnixFileSystem, init$, void)},
-	{"canonicalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, canonicalize, $String*, $String*), "java.io.IOException"},
-	{"canonicalize0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(UnixFileSystem, canonicalize0, $String*, $String*), "java.io.IOException"},
-	{"checkAccess", "(Ljava/io/File;I)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, checkAccess, bool, $File*, int32_t)},
-	{"compare", "(Ljava/io/File;Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, compare, int32_t, $File*, $File*)},
-	{"createDirectory", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, createDirectory, bool, $File*)},
-	{"createFileExclusively", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, createFileExclusively, bool, $String*), "java.io.IOException"},
-	{"delete", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, delete$, bool, $File*)},
-	{"delete0", "(Ljava/io/File;)Z", nullptr, $PRIVATE | $NATIVE, $method(UnixFileSystem, delete0, bool, $File*)},
-	{"fromURIPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, fromURIPath, $String*, $String*)},
-	{"getBooleanAttributes", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, getBooleanAttributes, int32_t, $File*)},
-	{"getBooleanAttributes0", "(Ljava/io/File;)I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, getBooleanAttributes0, int32_t, $File*)},
-	{"getDefaultParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, getDefaultParent, $String*)},
-	{"getLastModifiedTime", "(Ljava/io/File;)J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, getLastModifiedTime, int64_t, $File*)},
-	{"getLength", "(Ljava/io/File;)J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, getLength, int64_t, $File*)},
-	{"getNameMax", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, getNameMax, int32_t, $String*)},
-	{"getNameMax0", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $NATIVE, $method(UnixFileSystem, getNameMax0, int64_t, $String*)},
-	{"getPathSeparator", "()C", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, getPathSeparator, char16_t)},
-	{"getSeparator", "()C", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, getSeparator, char16_t)},
-	{"getSpace", "(Ljava/io/File;I)J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, getSpace, int64_t, $File*, int32_t)},
-	{"hasBooleanAttributes", "(Ljava/io/File;I)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, hasBooleanAttributes, bool, $File*, int32_t)},
-	{"hashCode", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, hashCode, int32_t, $File*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixFileSystem, initIDs, void)},
-	{"isAbsolute", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, isAbsolute, bool, $File*)},
-	{"isHidden", "(Ljava/io/File;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixFileSystem, isHidden, int32_t, $File*)},
-	{"list", "(Ljava/io/File;)[Ljava/lang/String;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, list, $StringArray*, $File*)},
-	{"listRoots", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, listRoots, $FileArray*)},
-	{"normalize", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(UnixFileSystem, normalize, $String*, $String*, int32_t)},
-	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, normalize, $String*, $String*)},
-	{"parentOrNull", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnixFileSystem, parentOrNull, $String*, $String*)},
-	{"prefixLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, prefixLength, int32_t, $String*)},
-	{"rename", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, rename, bool, $File*, $File*)},
-	{"rename0", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PRIVATE | $NATIVE, $method(UnixFileSystem, rename0, bool, $File*, $File*)},
-	{"resolve", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, resolve, $String*, $String*, $String*)},
-	{"resolve", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, resolve, $String*, $File*)},
-	{"setLastModifiedTime", "(Ljava/io/File;J)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, setLastModifiedTime, bool, $File*, int64_t)},
-	{"setPermission", "(Ljava/io/File;IZZ)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, setPermission, bool, $File*, int32_t, bool, bool)},
-	{"setReadOnly", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, setReadOnly, bool, $File*)},
-	{}
-};
-
-#define _METHOD_INDEX_canonicalize0 2
-#define _METHOD_INDEX_checkAccess 3
-#define _METHOD_INDEX_createDirectory 5
-#define _METHOD_INDEX_createFileExclusively 6
-#define _METHOD_INDEX_delete0 8
-#define _METHOD_INDEX_getBooleanAttributes0 11
-#define _METHOD_INDEX_getLastModifiedTime 13
-#define _METHOD_INDEX_getLength 14
-#define _METHOD_INDEX_getNameMax0 16
-#define _METHOD_INDEX_getSpace 19
-#define _METHOD_INDEX_initIDs 22
-#define _METHOD_INDEX_list 25
-#define _METHOD_INDEX_rename0 32
-#define _METHOD_INDEX_setLastModifiedTime 35
-#define _METHOD_INDEX_setPermission 36
-#define _METHOD_INDEX_setReadOnly 37
-
-$ClassInfo _UnixFileSystem_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.UnixFileSystem",
-	"java.io.FileSystem",
-	nullptr,
-	_UnixFileSystem_FieldInfo_,
-	_UnixFileSystem_MethodInfo_
-};
-
-$Object* allocate$UnixFileSystem($Class* clazz) {
-	return $of($alloc(UnixFileSystem));
-}
-
 void UnixFileSystem::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FileSystem::init$();
 	$var($Properties, props, $GetPropertyAction::privilegedGetProperties());
-	this->slash = $nc($($nc(props)->getProperty("file.separator"_s)))->charAt(0);
-	this->colon = $nc($(props->getProperty("path.separator"_s)))->charAt(0);
+	this->slash = $$nc($nc(props)->getProperty("file.separator"_s))->charAt(0);
+	this->colon = $$nc(props->getProperty("path.separator"_s))->charAt(0);
 	$set(this, javaHome, $StaticProperty::javaHome());
 	$set(this, userDir, $StaticProperty::userDir());
 	$init($FileSystem);
@@ -148,9 +63,9 @@ $String* UnixFileSystem::normalize($String* pathname, int32_t off) {
 	}
 	$var($StringBuilder, sb, $new($StringBuilder, n));
 	if (off > 0) {
-		sb->append(static_cast<$CharSequence*>(pathname), 0, off);
+		sb->append(pathname, 0, off);
 	}
-	char16_t prevChar = (char16_t)0;
+	char16_t prevChar = 0;
 	for (int32_t i = off; i < n; ++i) {
 		char16_t c = pathname->charAt(i);
 		if ((prevChar == u'/') && (c == u'/')) {
@@ -181,7 +96,7 @@ $String* UnixFileSystem::resolve($String* parent, $String* child) {
 	if ($nc(child)->isEmpty()) {
 		return parent;
 	}
-	if ($nc(child)->charAt(0) == u'/') {
+	if (child->charAt(0) == u'/') {
 		if ($nc(parent)->equals("/"_s)) {
 			return child;
 		}
@@ -211,7 +126,7 @@ bool UnixFileSystem::isAbsolute($File* f) {
 }
 
 $String* UnixFileSystem::resolve($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isAbsolute(f)) {
 		return $nc(f)->getPath();
 	}
@@ -223,7 +138,7 @@ $String* UnixFileSystem::resolve($File* f) {
 }
 
 $String* UnixFileSystem::canonicalize($String* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($FileSystem);
 	if (!$FileSystem::useCanonCaches) {
 		return canonicalize0(path);
@@ -239,13 +154,13 @@ $String* UnixFileSystem::canonicalize($String* path) {
 					if (resDir != nullptr) {
 						$var($String, filename, $nc(path)->substring(1 + dir->length()));
 						$assign(res, $str({resDir, $$str(this->slash), filename}));
-						$nc(this->cache)->put($$str({dir, $$str(this->slash), filename}), res);
+						this->cache->put($$str({dir, $$str(this->slash), filename}), res);
 					}
 				}
 			}
 			if (res == nullptr) {
 				$assign(res, canonicalize0(path));
-				$nc(this->cache)->put(path, res);
+				this->cache->put(path, res);
 				if ($FileSystem::useCanonPrefixCache && dir != nullptr && dir->startsWith(this->javaHome)) {
 					$assign(resDir, parentOrNull(res));
 					if (resDir != nullptr && resDir->equals(dir)) {
@@ -263,9 +178,8 @@ $String* UnixFileSystem::canonicalize($String* path) {
 }
 
 $String* UnixFileSystem::canonicalize0($String* path) {
-	$var($String, $ret, nullptr);
-	$prepareNative(UnixFileSystem, canonicalize0, $String*, $String* path);
-	$assign($ret, $invokeNativeObject(path));
+	$prepareNative(canonicalize0, $String*, $String* path);
+	$var($String, $ret, $invokeNativeObject(path));
 	$finishNative();
 	return $ret;
 }
@@ -305,9 +219,8 @@ $String* UnixFileSystem::parentOrNull($String* path) {
 }
 
 int32_t UnixFileSystem::getBooleanAttributes0($File* f) {
-	int32_t $ret = 0;
-	$prepareNative(UnixFileSystem, getBooleanAttributes0, int32_t, $File* f);
-	$ret = $invokeNative(f);
+	$prepareNative(getBooleanAttributes0, int32_t, $File* f);
+	int32_t $ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -319,53 +232,48 @@ int32_t UnixFileSystem::getBooleanAttributes($File* f) {
 
 bool UnixFileSystem::hasBooleanAttributes($File* f, int32_t attributes) {
 	int32_t rv = getBooleanAttributes0(f);
-	if (((int32_t)(attributes & (uint32_t)$FileSystem::BA_HIDDEN)) != 0) {
+	if ((attributes & $FileSystem::BA_HIDDEN) != 0) {
 		rv |= isHidden(f);
 	}
-	return ((int32_t)(rv & (uint32_t)attributes)) == attributes;
+	return (rv & attributes) == attributes;
 }
 
 int32_t UnixFileSystem::isHidden($File* f) {
 	$init(UnixFileSystem);
-	return $nc($($nc(f)->getName()))->startsWith("."_s) ? $FileSystem::BA_HIDDEN : 0;
+	return $$nc($nc(f)->getName())->startsWith("."_s) ? $FileSystem::BA_HIDDEN : 0;
 }
 
 bool UnixFileSystem::checkAccess($File* f, int32_t access) {
-	bool $ret = false;
-	$prepareNative(UnixFileSystem, checkAccess, bool, $File* f, int32_t access);
-	$ret = $invokeNative(f, access);
+	$prepareNative(checkAccess, bool, $File* f, int32_t access);
+	bool $ret = $invokeNative(f, access);
 	$finishNative();
 	return $ret;
 }
 
 int64_t UnixFileSystem::getLastModifiedTime($File* f) {
-	int64_t $ret = 0;
-	$prepareNative(UnixFileSystem, getLastModifiedTime, int64_t, $File* f);
-	$ret = $invokeNative(f);
+	$prepareNative(getLastModifiedTime, int64_t, $File* f);
+	int64_t $ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
 
 int64_t UnixFileSystem::getLength($File* f) {
-	int64_t $ret = 0;
-	$prepareNative(UnixFileSystem, getLength, int64_t, $File* f);
-	$ret = $invokeNative(f);
+	$prepareNative(getLength, int64_t, $File* f);
+	int64_t $ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
 
 bool UnixFileSystem::setPermission($File* f, int32_t access, bool enable, bool owneronly) {
-	bool $ret = false;
-	$prepareNative(UnixFileSystem, setPermission, bool, $File* f, int32_t access, bool enable, bool owneronly);
-	$ret = $invokeNative(f, access, enable, owneronly);
+	$prepareNative(setPermission, bool, $File* f, int32_t access, bool enable, bool owneronly);
+	bool $ret = $invokeNative(f, access, enable, owneronly);
 	$finishNative();
 	return $ret;
 }
 
 bool UnixFileSystem::createFileExclusively($String* path) {
-	bool $ret = false;
-	$prepareNative(UnixFileSystem, createFileExclusively, bool, $String* path);
-	$ret = $invokeNative(path);
+	$prepareNative(createFileExclusively, bool, $String* path);
+	bool $ret = $invokeNative(path);
 	$finishNative();
 	return $ret;
 }
@@ -382,25 +290,22 @@ bool UnixFileSystem::delete$($File* f) {
 }
 
 bool UnixFileSystem::delete0($File* f) {
-	bool $ret = false;
-	$prepareNative(UnixFileSystem, delete0, bool, $File* f);
-	$ret = $invokeNative(f);
+	$prepareNative(delete0, bool, $File* f);
+	bool $ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
 
 $StringArray* UnixFileSystem::list($File* f) {
-	$var($StringArray, $ret, nullptr);
-	$prepareNative(UnixFileSystem, list, $StringArray*, $File* f);
-	$assign($ret, $invokeNativeObject(f));
+	$prepareNative(list, $StringArray*, $File* f);
+	$var($StringArray, $ret, $invokeNativeObject(f));
 	$finishNative();
 	return $ret;
 }
 
 bool UnixFileSystem::createDirectory($File* f) {
-	bool $ret = false;
-	$prepareNative(UnixFileSystem, createDirectory, bool, $File* f);
-	$ret = $invokeNative(f);
+	$prepareNative(createDirectory, bool, $File* f);
+	bool $ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -417,31 +322,28 @@ bool UnixFileSystem::rename($File* f1, $File* f2) {
 }
 
 bool UnixFileSystem::rename0($File* f1, $File* f2) {
-	bool $ret = false;
-	$prepareNative(UnixFileSystem, rename0, bool, $File* f1, $File* f2);
-	$ret = $invokeNative(f1, f2);
+	$prepareNative(rename0, bool, $File* f1, $File* f2);
+	bool $ret = $invokeNative(f1, f2);
 	$finishNative();
 	return $ret;
 }
 
 bool UnixFileSystem::setLastModifiedTime($File* f, int64_t time) {
-	bool $ret = false;
-	$prepareNative(UnixFileSystem, setLastModifiedTime, bool, $File* f, int64_t time);
-	$ret = $invokeNative(f, time);
+	$prepareNative(setLastModifiedTime, bool, $File* f, int64_t time);
+	bool $ret = $invokeNative(f, time);
 	$finishNative();
 	return $ret;
 }
 
 bool UnixFileSystem::setReadOnly($File* f) {
-	bool $ret = false;
-	$prepareNative(UnixFileSystem, setReadOnly, bool, $File* f);
-	$ret = $invokeNative(f);
+	$prepareNative(setReadOnly, bool, $File* f);
+	bool $ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
 
 $FileArray* UnixFileSystem::listRoots() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($SecurityManager, security, $System::getSecurityManager());
 		if (security != nullptr) {
@@ -455,17 +357,15 @@ $FileArray* UnixFileSystem::listRoots() {
 }
 
 int64_t UnixFileSystem::getSpace($File* f, int32_t t) {
-	int64_t $ret = 0;
-	$prepareNative(UnixFileSystem, getSpace, int64_t, $File* f, int32_t t);
-	$ret = $invokeNative(f, t);
+	$prepareNative(getSpace, int64_t, $File* f, int32_t t);
+	int64_t $ret = $invokeNative(f, t);
 	$finishNative();
 	return $ret;
 }
 
 int64_t UnixFileSystem::getNameMax0($String* path) {
-	int64_t $ret = 0;
-	$prepareNative(UnixFileSystem, getNameMax0, int64_t, $String* path);
-	$ret = $invokeNative(path);
+	$prepareNative(getNameMax0, int64_t, $String* path);
+	int64_t $ret = $invokeNative(path);
 	$finishNative();
 	return $ret;
 }
@@ -479,22 +379,22 @@ int32_t UnixFileSystem::getNameMax($String* path) {
 }
 
 int32_t UnixFileSystem::compare($File* f1, $File* f2) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc(f1)->getPath()))->compareTo($($nc(f2)->getPath()));
+	$useLocalObjectStack();
+	return $$nc($nc(f1)->getPath())->compareTo($($nc(f2)->getPath()));
 }
 
 int32_t UnixFileSystem::hashCode($File* f) {
-	return $nc($($nc(f)->getPath()))->hashCode() ^ 0x0012D591;
+	return $$nc($nc(f)->getPath())->hashCode() ^ 0x0012d591;
 }
 
 void UnixFileSystem::initIDs() {
 	$init(UnixFileSystem);
-	$prepareNativeStatic(UnixFileSystem, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$UnixFileSystem($Class* class$) {
+void UnixFileSystem::clinit$($Class* clazz) {
 	{
 		UnixFileSystem::initIDs();
 	}
@@ -504,7 +404,67 @@ UnixFileSystem::UnixFileSystem() {
 }
 
 $Class* UnixFileSystem::load$($String* name, bool initialize) {
-	$loadClass(UnixFileSystem, name, initialize, &_UnixFileSystem_ClassInfo_, clinit$UnixFileSystem, allocate$UnixFileSystem);
+	$FieldInfo fieldInfos$$[] = {
+		{"slash", "C", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, slash)},
+		{"colon", "C", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, colon)},
+		{"javaHome", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, javaHome)},
+		{"userDir", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, userDir)},
+		{"cache", "Ljava/io/ExpiringCache;", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, cache)},
+		{"javaHomePrefixCache", "Ljava/io/ExpiringCache;", nullptr, $PRIVATE | $FINAL, $field(UnixFileSystem, javaHomePrefixCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnixFileSystem, init$, void)},
+		{"canonicalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, canonicalize, $String*, $String*), "java.io.IOException"},
+		{"canonicalize0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(UnixFileSystem, canonicalize0, $String*, $String*), "java.io.IOException"},
+		{"checkAccess", "(Ljava/io/File;I)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, checkAccess, bool, $File*, int32_t)},
+		{"compare", "(Ljava/io/File;Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, compare, int32_t, $File*, $File*)},
+		{"createDirectory", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, createDirectory, bool, $File*)},
+		{"createFileExclusively", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, createFileExclusively, bool, $String*), "java.io.IOException"},
+		{"delete", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, delete$, bool, $File*)},
+		{"delete0", "(Ljava/io/File;)Z", nullptr, $PRIVATE | $NATIVE, $method(UnixFileSystem, delete0, bool, $File*)},
+		{"fromURIPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, fromURIPath, $String*, $String*)},
+		{"getBooleanAttributes", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, getBooleanAttributes, int32_t, $File*)},
+		{"getBooleanAttributes0", "(Ljava/io/File;)I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, getBooleanAttributes0, int32_t, $File*)},
+		{"getDefaultParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, getDefaultParent, $String*)},
+		{"getLastModifiedTime", "(Ljava/io/File;)J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, getLastModifiedTime, int64_t, $File*)},
+		{"getLength", "(Ljava/io/File;)J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, getLength, int64_t, $File*)},
+		{"getNameMax", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, getNameMax, int32_t, $String*)},
+		{"getNameMax0", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $NATIVE, $method(UnixFileSystem, getNameMax0, int64_t, $String*)},
+		{"getPathSeparator", "()C", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, getPathSeparator, char16_t)},
+		{"getSeparator", "()C", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, getSeparator, char16_t)},
+		{"getSpace", "(Ljava/io/File;I)J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, getSpace, int64_t, $File*, int32_t)},
+		{"hasBooleanAttributes", "(Ljava/io/File;I)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, hasBooleanAttributes, bool, $File*, int32_t)},
+		{"hashCode", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, hashCode, int32_t, $File*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(UnixFileSystem, initIDs, void)},
+		{"isAbsolute", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, isAbsolute, bool, $File*)},
+		{"isHidden", "(Ljava/io/File;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixFileSystem, isHidden, int32_t, $File*)},
+		{"list", "(Ljava/io/File;)[Ljava/lang/String;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, list, $StringArray*, $File*)},
+		{"listRoots", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, listRoots, $FileArray*)},
+		{"normalize", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(UnixFileSystem, normalize, $String*, $String*, int32_t)},
+		{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, normalize, $String*, $String*)},
+		{"parentOrNull", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnixFileSystem, parentOrNull, $String*, $String*)},
+		{"prefixLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, prefixLength, int32_t, $String*)},
+		{"rename", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, rename, bool, $File*, $File*)},
+		{"rename0", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PRIVATE | $NATIVE, $method(UnixFileSystem, rename0, bool, $File*, $File*)},
+		{"resolve", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, resolve, $String*, $String*, $String*)},
+		{"resolve", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, resolve, $String*, $File*)},
+		{"setLastModifiedTime", "(Ljava/io/File;J)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, setLastModifiedTime, bool, $File*, int64_t)},
+		{"setPermission", "(Ljava/io/File;IZZ)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, setPermission, bool, $File*, int32_t, bool, bool)},
+		{"setReadOnly", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(UnixFileSystem, setReadOnly, bool, $File*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.UnixFileSystem",
+		"java.io.FileSystem",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnixFileSystem, name, initialize, &classInfo$$, UnixFileSystem::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixFileSystem);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SupportedGroupsExtension.h>
-
 #include <sun/security/ssl/HandshakeAbsence.h>
 #include <sun/security/ssl/HandshakeProducer.h>
 #include <sun/security/ssl/SSLExtension$ExtensionConsumer.h>
@@ -31,52 +30,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SupportedGroupsExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, chOnLoadConsumer)},
-	{"chOnTradAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, chOnTradAbsence)},
-	{"sgsStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, sgsStringizer)},
-	{"eeNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, eeNetworkProducer)},
-	{"eeOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, eeOnLoadConsumer)},
-	{}
-};
-
-$MethodInfo _SupportedGroupsExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SupportedGroupsExtension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SupportedGroupsExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SupportedGroupsExtension$EESupportedGroupsConsumer", "sun.security.ssl.SupportedGroupsExtension", "EESupportedGroupsConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SupportedGroupsExtension$EESupportedGroupsProducer", "sun.security.ssl.SupportedGroupsExtension", "EESupportedGroupsProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsConsumer", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsProducer", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SupportedGroupsExtension$SupportedGroups", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroups", $STATIC},
-	{"sun.security.ssl.SupportedGroupsExtension$SupportedGroupsStringizer", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroupsStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SupportedGroupsExtension$SupportedGroupsSpec", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroupsSpec", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SupportedGroupsExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SupportedGroupsExtension",
-	"java.lang.Object",
-	nullptr,
-	_SupportedGroupsExtension_FieldInfo_,
-	_SupportedGroupsExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SupportedGroupsExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SupportedGroupsExtension$EESupportedGroupsConsumer,sun.security.ssl.SupportedGroupsExtension$EESupportedGroupsProducer,sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence,sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsConsumer,sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsProducer,sun.security.ssl.SupportedGroupsExtension$SupportedGroups,sun.security.ssl.SupportedGroupsExtension$SupportedGroupsStringizer,sun.security.ssl.SupportedGroupsExtension$SupportedGroupsSpec"
-};
-
-$Object* allocate$SupportedGroupsExtension($Class* clazz) {
-	return $of($alloc(SupportedGroupsExtension));
-}
-
 $HandshakeProducer* SupportedGroupsExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* SupportedGroupsExtension::chOnLoadConsumer = nullptr;
 $HandshakeAbsence* SupportedGroupsExtension::chOnTradAbsence = nullptr;
@@ -87,7 +40,7 @@ $SSLExtension$ExtensionConsumer* SupportedGroupsExtension::eeOnLoadConsumer = nu
 void SupportedGroupsExtension::init$() {
 }
 
-void clinit$SupportedGroupsExtension($Class* class$) {
+void SupportedGroupsExtension::clinit$($Class* clazz) {
 	$assignStatic(SupportedGroupsExtension::chNetworkProducer, $new($SupportedGroupsExtension$CHSupportedGroupsProducer));
 	$assignStatic(SupportedGroupsExtension::chOnLoadConsumer, $new($SupportedGroupsExtension$CHSupportedGroupsConsumer));
 	$assignStatic(SupportedGroupsExtension::chOnTradAbsence, $new($SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence));
@@ -100,7 +53,47 @@ SupportedGroupsExtension::SupportedGroupsExtension() {
 }
 
 $Class* SupportedGroupsExtension::load$($String* name, bool initialize) {
-	$loadClass(SupportedGroupsExtension, name, initialize, &_SupportedGroupsExtension_ClassInfo_, clinit$SupportedGroupsExtension, allocate$SupportedGroupsExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, chOnLoadConsumer)},
+		{"chOnTradAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, chOnTradAbsence)},
+		{"sgsStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, sgsStringizer)},
+		{"eeNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, eeNetworkProducer)},
+		{"eeOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension, eeOnLoadConsumer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SupportedGroupsExtension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SupportedGroupsExtension$EESupportedGroupsConsumer", "sun.security.ssl.SupportedGroupsExtension", "EESupportedGroupsConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SupportedGroupsExtension$EESupportedGroupsProducer", "sun.security.ssl.SupportedGroupsExtension", "EESupportedGroupsProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsConsumer", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsProducer", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SupportedGroupsExtension$SupportedGroups", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroups", $STATIC},
+		{"sun.security.ssl.SupportedGroupsExtension$SupportedGroupsStringizer", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroupsStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SupportedGroupsExtension$SupportedGroupsSpec", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroupsSpec", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SupportedGroupsExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SupportedGroupsExtension$EESupportedGroupsConsumer,sun.security.ssl.SupportedGroupsExtension$EESupportedGroupsProducer,sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence,sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsConsumer,sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsProducer,sun.security.ssl.SupportedGroupsExtension$SupportedGroups,sun.security.ssl.SupportedGroupsExtension$SupportedGroupsStringizer,sun.security.ssl.SupportedGroupsExtension$SupportedGroupsSpec"
+	};
+	$loadClass(SupportedGroupsExtension, name, initialize, &classInfo$$, SupportedGroupsExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SupportedGroupsExtension);
+	});
 	return class$;
 }
 

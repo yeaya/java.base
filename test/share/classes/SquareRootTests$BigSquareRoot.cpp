@@ -1,5 +1,4 @@
 #include <SquareRootTests$BigSquareRoot.h>
-
 #include <SquareRootTests$1.h>
 #include <SquareRootTests.h>
 #include <java/lang/AssertionError.h>
@@ -33,47 +32,6 @@ using $BigInteger = ::java::math::BigInteger;
 using $MathContext = ::java::math::MathContext;
 using $RoundingMode = ::java::math::RoundingMode;
 
-$FieldInfo _SquareRootTests$BigSquareRoot_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SquareRootTests$BigSquareRoot, $assertionsDisabled)},
-	{"ONE_HALF", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SquareRootTests$BigSquareRoot, ONE_HALF)},
-	{}
-};
-
-$MethodInfo _SquareRootTests$BigSquareRoot_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SquareRootTests$BigSquareRoot, init$, void)},
-	{"isPowerOfTen", "(Ljava/math/BigDecimal;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, isPowerOfTen, bool, $BigDecimal*)},
-	{"sqrt", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, sqrt, $BigDecimal*, $BigDecimal*, $MathContext*)},
-	{"square", "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, square, $BigDecimal*, $BigDecimal*)},
-	{"squareRootResultAssertions", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, squareRootResultAssertions, bool, $BigDecimal*, $BigDecimal*, $MathContext*)},
-	{"squareRootZeroResultAssertions", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, squareRootZeroResultAssertions, bool, $BigDecimal*, $BigDecimal*, $MathContext*)},
-	{}
-};
-
-$InnerClassInfo _SquareRootTests$BigSquareRoot_InnerClassesInfo_[] = {
-	{"SquareRootTests$BigSquareRoot", "SquareRootTests", "BigSquareRoot", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SquareRootTests$BigSquareRoot_ClassInfo_ = {
-	$ACC_SUPER,
-	"SquareRootTests$BigSquareRoot",
-	"java.lang.Object",
-	nullptr,
-	_SquareRootTests$BigSquareRoot_FieldInfo_,
-	_SquareRootTests$BigSquareRoot_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SquareRootTests$BigSquareRoot_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SquareRootTests"
-};
-
-$Object* allocate$SquareRootTests$BigSquareRoot($Class* clazz) {
-	return $of($alloc(SquareRootTests$BigSquareRoot));
-}
-
 bool SquareRootTests$BigSquareRoot::$assertionsDisabled = false;
 $BigDecimal* SquareRootTests$BigSquareRoot::ONE_HALF = nullptr;
 
@@ -93,16 +51,16 @@ $BigDecimal* SquareRootTests$BigSquareRoot::square($BigDecimal* bd) {
 
 $BigDecimal* SquareRootTests$BigSquareRoot::sqrt($BigDecimal* bd, $MathContext* mc) {
 	$init(SquareRootTests$BigSquareRoot);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t signum = $nc(bd)->signum();
 	if (signum == 1) {
 		int32_t preferredScale = bd->scale() / 2;
 		$var($BigDecimal, zeroWithFinalPreferredScale, $BigDecimal::valueOf(0, preferredScale));
 		$var($BigDecimal, stripped, bd->stripTrailingZeros());
-		int32_t strippedScale = $nc(stripped)->scale();
+		int32_t strippedScale = stripped->scale();
 		if (isPowerOfTen(stripped) && strippedScale % 2 == 0) {
 			$var($BigDecimal, result, $BigDecimal::valueOf(1, strippedScale / 2));
-			if ($nc(result)->scale() != preferredScale) {
+			if (result->scale() != preferredScale) {
 				$assign(result, result->add(zeroWithFinalPreferredScale, mc));
 			}
 			return result;
@@ -120,12 +78,12 @@ $BigDecimal* SquareRootTests$BigSquareRoot::sqrt($BigDecimal* bd, $MathContext* 
 		if (var$1) {
 			$init($SquareRootTests);
 			bool var$2 = $nc($SquareRootTests::ONE_TENTH)->compareTo(working) <= 0;
-			var$1 = !(var$2 && $nc(working)->compareTo($BigDecimal::TEN) < 0);
+			var$1 = !(var$2 && working->compareTo($BigDecimal::TEN) < 0);
 		}
 		if (var$1) {
 			$throwNew($AssertionError);
 		}
-		$var($BigDecimal, guess, $new($BigDecimal, $Math::sqrt($nc(working)->doubleValue())));
+		$var($BigDecimal, guess, $new($BigDecimal, $Math::sqrt(working->doubleValue())));
 		int32_t guessPrecision = 15;
 		int32_t originalPrecision = $nc(mc)->getPrecision();
 		int32_t targetPrecision = 0;
@@ -135,12 +93,12 @@ $BigDecimal* SquareRootTests$BigSquareRoot::sqrt($BigDecimal* bd, $MathContext* 
 			targetPrecision = originalPrecision;
 		}
 		$var($BigDecimal, approx, guess);
-		int32_t workingPrecision = $nc(working)->precision();
+		int32_t workingPrecision = working->precision();
 		int32_t loopPrecision = $Math::max(2 * $Math::max(targetPrecision, workingPrecision) + 2, 34);
 		do {
 			$init($RoundingMode);
 			$var($MathContext, mcTmp, $new($MathContext, loopPrecision, $RoundingMode::HALF_EVEN));
-			$assign(approx, $nc(SquareRootTests$BigSquareRoot::ONE_HALF)->multiply($(approx->add($(working->divide(approx, mcTmp)), mcTmp))));
+			$assign(approx, SquareRootTests$BigSquareRoot::ONE_HALF->multiply($(approx->add($(working->divide(approx, mcTmp)), mcTmp))));
 			guessPrecision *= 2;
 		} while (guessPrecision < loopPrecision);
 		$var($BigDecimal, result, nullptr);
@@ -149,41 +107,35 @@ $BigDecimal* SquareRootTests$BigSquareRoot::sqrt($BigDecimal* bd, $MathContext* 
 		if (targetRm == $RoundingMode::UNNECESSARY || originalPrecision == 0) {
 			$RoundingMode* tmpRm = (targetRm == $RoundingMode::UNNECESSARY) ? $RoundingMode::DOWN : targetRm;
 			$var($MathContext, mcTmp, $new($MathContext, targetPrecision, tmpRm));
-			$assign(result, $nc($(approx->scaleByPowerOfTen(-scaleAdjust / 2)))->round(mcTmp));
-			if ($nc($(bd->subtract($(square(result)))))->compareTo($BigDecimal::ZERO) != 0) {
+			$assign(result, $(approx->scaleByPowerOfTen(-scaleAdjust / 2))->round(mcTmp));
+			if ($(bd->subtract($(square(result))))->compareTo($BigDecimal::ZERO) != 0) {
 				$throwNew($ArithmeticException, "Computed square root not exact."_s);
 			}
 		} else {
-			$assign(result, $nc($(approx->scaleByPowerOfTen(-scaleAdjust / 2)))->round(mc));
+			$assign(result, $(approx->scaleByPowerOfTen(-scaleAdjust / 2))->round(mc));
 		}
 		if (!SquareRootTests$BigSquareRoot::$assertionsDisabled && !squareRootResultAssertions(bd, result, mc)) {
 			$throwNew($AssertionError);
 		}
 		if ($nc(result)->scale() != preferredScale) {
-			$assign(result, $nc($(result->stripTrailingZeros()))->add(zeroWithFinalPreferredScale, $$new($MathContext, originalPrecision, $RoundingMode::UNNECESSARY)));
+			$assign(result, $(result->stripTrailingZeros())->add(zeroWithFinalPreferredScale, $$new($MathContext, originalPrecision, $RoundingMode::UNNECESSARY)));
 		}
 		return result;
 	} else {
 		switch (signum) {
 		case -1:
-			{
-				$throwNew($ArithmeticException, "Attempted square root of negative BigDecimal"_s);
-			}
+			$throwNew($ArithmeticException, "Attempted square root of negative BigDecimal"_s);
 		case 0:
-			{
-				return $BigDecimal::valueOf(0, bd->scale() / 2);
-			}
+			return $BigDecimal::valueOf(0, bd->scale() / 2);
 		default:
-			{
-				$throwNew($AssertionError, $of("Bad value from signum"_s));
-			}
+			$throwNew($AssertionError, $of("Bad value from signum"_s));
 		}
 	}
 }
 
 bool SquareRootTests$BigSquareRoot::squareRootResultAssertions($BigDecimal* input, $BigDecimal* result, $MathContext* mc) {
 	$init(SquareRootTests$BigSquareRoot);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(result)->signum() == 0) {
 		return squareRootZeroResultAssertions(input, result, mc);
 	} else {
@@ -191,55 +143,49 @@ bool SquareRootTests$BigSquareRoot::squareRootResultAssertions($BigDecimal* inpu
 		$var($BigDecimal, ulp, result->ulp());
 		$var($BigDecimal, neighborUp, result->add(ulp));
 		if (isPowerOfTen(result)) {
-			$assign(ulp, $nc(ulp)->divide($BigDecimal::TEN));
+			$assign(ulp, ulp->divide($BigDecimal::TEN));
 		}
 		$var($BigDecimal, neighborDown, result->subtract(ulp));
 		bool var$0 = result->signum() != 1;
 		if (var$0 || $nc(input)->signum() != 1) {
 			return false;
 		}
-		$init($SquareRootTests$1);
 		{
-			$var($BigDecimal, err, nullptr)
-			$var($BigDecimal, errUp, nullptr)
-			$var($BigDecimal, errDown, nullptr)
+			$init($SquareRootTests$1);
+			$var($BigDecimal, err, nullptr);
+			$var($BigDecimal, errUp, nullptr);
+			$var($BigDecimal, errDown, nullptr);
 			int32_t err_comp_errUp = 0;
 			int32_t err_comp_errDown = 0;
 			switch ($nc($SquareRootTests$1::$SwitchMap$java$math$RoundingMode)->get($nc((rm))->ordinal())) {
 			case 1:
-				{}
 			case 2:
 				{
 					bool var$1 = !SquareRootTests$BigSquareRoot::$assertionsDisabled;
 					if (var$1) {
-						bool var$2 = $nc($(square(result)))->compareTo(input) <= 0;
-						var$1 = !(var$2 && $nc($(square(neighborUp)))->compareTo(input) > 0);
+						bool var$2 = $$nc(square(result))->compareTo(input) <= 0;
+						var$1 = !(var$2 && $$nc(square(neighborUp))->compareTo(input) > 0);
 					}
 					if (var$1) {
-						$throwNew($AssertionError, $of($$str({"Square of result out for bounds rounding "_s, rm})));
+						$throwNew($AssertionError, $$of($str({"Square of result out for bounds rounding "_s, rm})));
 					}
 					return true;
 				}
 			case 3:
-				{}
 			case 4:
-				{
-					if (!SquareRootTests$BigSquareRoot::$assertionsDisabled && !($nc($(square(result)))->compareTo(input) >= 0)) {
-						$throwNew($AssertionError, $of($$str({"Square of result too small rounding "_s, rm})));
-					}
-					if (!SquareRootTests$BigSquareRoot::$assertionsDisabled && !($nc($(square(neighborDown)))->compareTo(input) < 0)) {
-						$throwNew($AssertionError, $of($$str({"Square of down neighbor too large rounding  "_s, rm, "\n\t input: "_s, input, "\t neighborDown: "_s, neighborDown, "\t sqrt: "_s, result, "\t"_s, mc})));
-					}
-					return true;
+				if (!SquareRootTests$BigSquareRoot::$assertionsDisabled && !($$nc(square(result))->compareTo(input) >= 0)) {
+					$throwNew($AssertionError, $$of($str({"Square of result too small rounding "_s, rm})));
 				}
+				if (!SquareRootTests$BigSquareRoot::$assertionsDisabled && !($$nc(square(neighborDown))->compareTo(input) < 0)) {
+					$throwNew($AssertionError, $$of($str({"Square of down neighbor too large rounding  "_s, rm, "\n\t input: "_s, input, "\t neighborDown: "_s, neighborDown, "\t sqrt: "_s, result, "\t"_s, mc})));
+				}
+				return true;
 			case 5:
-				{}
 			case 6:
-				{}
 			case 7:
 				{
-					$assign(err, $nc($($nc($(square(result)))->subtract(input)))->abs());
-					$assign(errUp, $nc($(square(neighborUp)))->subtract(input));
+					$assign(err, $($$nc(square(result))->subtract(input))->abs());
+					$assign(errUp, $$nc(square(neighborUp))->subtract(input));
 					$assign(errDown, $nc(input)->subtract($(square(neighborDown))));
 					err_comp_errUp = $nc(err)->compareTo(errUp);
 					err_comp_errDown = err->compareTo(errDown);
@@ -257,9 +203,7 @@ bool SquareRootTests$BigSquareRoot::squareRootResultAssertions($BigDecimal* inpu
 					return true;
 				}
 			default:
-				{
-					return true;
-				}
+				return true;
 			}
 		}
 	}
@@ -271,7 +215,7 @@ bool SquareRootTests$BigSquareRoot::squareRootZeroResultAssertions($BigDecimal* 
 	return $nc(input)->compareTo($BigDecimal::ZERO) == 0;
 }
 
-void clinit$SquareRootTests$BigSquareRoot($Class* class$) {
+void SquareRootTests$BigSquareRoot::clinit$($Class* clazz) {
 	$load($SquareRootTests);
 	SquareRootTests$BigSquareRoot::$assertionsDisabled = !$SquareRootTests::class$->desiredAssertionStatus();
 	$assignStatic(SquareRootTests$BigSquareRoot::ONE_HALF, $BigDecimal::valueOf(5, 1));
@@ -281,7 +225,42 @@ SquareRootTests$BigSquareRoot::SquareRootTests$BigSquareRoot() {
 }
 
 $Class* SquareRootTests$BigSquareRoot::load$($String* name, bool initialize) {
-	$loadClass(SquareRootTests$BigSquareRoot, name, initialize, &_SquareRootTests$BigSquareRoot_ClassInfo_, clinit$SquareRootTests$BigSquareRoot, allocate$SquareRootTests$BigSquareRoot);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SquareRootTests$BigSquareRoot, $assertionsDisabled)},
+		{"ONE_HALF", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SquareRootTests$BigSquareRoot, ONE_HALF)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SquareRootTests$BigSquareRoot, init$, void)},
+		{"isPowerOfTen", "(Ljava/math/BigDecimal;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, isPowerOfTen, bool, $BigDecimal*)},
+		{"sqrt", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, sqrt, $BigDecimal*, $BigDecimal*, $MathContext*)},
+		{"square", "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, square, $BigDecimal*, $BigDecimal*)},
+		{"squareRootResultAssertions", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, squareRootResultAssertions, bool, $BigDecimal*, $BigDecimal*, $MathContext*)},
+		{"squareRootZeroResultAssertions", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, squareRootZeroResultAssertions, bool, $BigDecimal*, $BigDecimal*, $MathContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SquareRootTests$BigSquareRoot", "SquareRootTests", "BigSquareRoot", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SquareRootTests$BigSquareRoot",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SquareRootTests"
+	};
+	$loadClass(SquareRootTests$BigSquareRoot, name, initialize, &classInfo$$, SquareRootTests$BigSquareRoot::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SquareRootTests$BigSquareRoot);
+	});
 	return class$;
 }
 

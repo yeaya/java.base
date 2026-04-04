@@ -15,10 +15,13 @@ public:
 	void init$();
 	void init$($String* s);
 	void init$(int32_t index);
-	static const int64_t serialVersionUID = (int64_t)0xA22550CD6F6344F6;
+	static const int64_t serialVersionUID = (int64_t)0xa22550cd6f6344f6;
 	StringIndexOutOfBoundsException(const StringIndexOutOfBoundsException& e);
 	virtual void throw$() override;
-	inline StringIndexOutOfBoundsException* operator ->() {
+	inline StringIndexOutOfBoundsException* operator ->() const {
+		return (StringIndexOutOfBoundsException*)throwing$;
+	}
+	inline operator StringIndexOutOfBoundsException*() const {
 		return (StringIndexOutOfBoundsException*)throwing$;
 	}
 };

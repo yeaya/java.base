@@ -20,6 +20,7 @@ class AESKeyWrapPadded : public ::com::sun::crypto::provider::FeedbackCipher {
 	$class(AESKeyWrapPadded, 0, ::com::sun::crypto::provider::FeedbackCipher)
 public:
 	AESKeyWrapPadded();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t decrypt($bytes* ct, int32_t ctOfs, int32_t ctLen, $bytes* pt, int32_t ptOfs) override;
 	virtual int32_t decryptFinal($bytes* ct, int32_t dummy1, int32_t ctLen, $bytes* dummy2, int32_t dummy3) override;

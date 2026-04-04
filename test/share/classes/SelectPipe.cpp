@@ -1,5 +1,4 @@
 #include <SelectPipe.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/Pipe$SinkChannel.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
@@ -29,30 +28,6 @@ using $Selector = ::java::nio::channels::Selector;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $Random = ::java::util::Random;
 
-$FieldInfo _SelectPipe_FieldInfo_[] = {
-	{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(SelectPipe, generator)},
-	{}
-};
-
-$MethodInfo _SelectPipe_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectPipe, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SelectPipe, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _SelectPipe_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SelectPipe",
-	"java.lang.Object",
-	nullptr,
-	_SelectPipe_FieldInfo_,
-	_SelectPipe_MethodInfo_
-};
-
-$Object* allocate$SelectPipe($Class* clazz) {
-	return $of($alloc(SelectPipe));
-}
-
 $Random* SelectPipe::generator = nullptr;
 
 void SelectPipe::init$() {
@@ -60,7 +35,7 @@ void SelectPipe::init$() {
 
 void SelectPipe::main($StringArray* args) {
 	$init(SelectPipe);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SelectorProvider, sp, $SelectorProvider::provider());
 	$var($Selector, selector, $Selector::open());
 	$var($Pipe, p, $nc(sp)->openPipe());
@@ -83,7 +58,7 @@ void SelectPipe::main($StringArray* args) {
 		}
 		totalWritten += written;
 	}
-	if ($nc(selector)->select((int64_t)1000) == 0) {
+	if ($nc(selector)->select(1000) == 0) {
 		$throwNew($Exception, "test failed"_s);
 	}
 	$var($ByteBuffer, incomingdata, $ByteBuffer::allocateDirect(10));
@@ -96,7 +71,7 @@ void SelectPipe::main($StringArray* args) {
 	} while (totalRead < 10);
 	sink->close();
 	source->close();
-	$nc(selector)->close();
+	selector->close();
 	for (int32_t i = 0; i < 10; ++i) {
 		int8_t var$0 = outgoingdata->get(i);
 		if (var$0 != $nc(incomingdata)->get(i)) {
@@ -105,7 +80,7 @@ void SelectPipe::main($StringArray* args) {
 	}
 }
 
-void clinit$SelectPipe($Class* class$) {
+void SelectPipe::clinit$($Class* clazz) {
 	$assignStatic(SelectPipe::generator, $new($Random));
 }
 
@@ -113,7 +88,26 @@ SelectPipe::SelectPipe() {
 }
 
 $Class* SelectPipe::load$($String* name, bool initialize) {
-	$loadClass(SelectPipe, name, initialize, &_SelectPipe_ClassInfo_, clinit$SelectPipe, allocate$SelectPipe);
+	$FieldInfo fieldInfos$$[] = {
+		{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(SelectPipe, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SelectPipe, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SelectPipe, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SelectPipe",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SelectPipe, name, initialize, &classInfo$$, SelectPipe::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SelectPipe);
+	});
 	return class$;
 }
 

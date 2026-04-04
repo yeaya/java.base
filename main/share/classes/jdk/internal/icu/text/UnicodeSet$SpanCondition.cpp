@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/UnicodeSet$SpanCondition.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/icu/text/UnicodeSet.h>
 #include <jcpp.h>
@@ -19,47 +18,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace text {
-
-$FieldInfo _UnicodeSet$SpanCondition_FieldInfo_[] = {
-	{"NOT_CONTAINED", "Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeSet$SpanCondition, NOT_CONTAINED)},
-	{"CONTAINED", "Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeSet$SpanCondition, CONTAINED)},
-	{"SIMPLE", "Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeSet$SpanCondition, SIMPLE)},
-	{"$VALUES", "[Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UnicodeSet$SpanCondition, $VALUES)},
-	{}
-};
-
-$MethodInfo _UnicodeSet$SpanCondition_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicodeSet$SpanCondition, $values, $UnicodeSet$SpanConditionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnicodeSet$SpanCondition, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSet$SpanCondition, valueOf, UnicodeSet$SpanCondition*, $String*)},
-	{"values", "()[Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSet$SpanCondition, values, $UnicodeSet$SpanConditionArray*)},
-	{}
-};
-
-$InnerClassInfo _UnicodeSet$SpanCondition_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.UnicodeSet$SpanCondition", "jdk.internal.icu.text.UnicodeSet", "SpanCondition", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _UnicodeSet$SpanCondition_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.icu.text.UnicodeSet$SpanCondition",
-	"java.lang.Enum",
-	nullptr,
-	_UnicodeSet$SpanCondition_FieldInfo_,
-	_UnicodeSet$SpanCondition_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/icu/text/UnicodeSet$SpanCondition;>;",
-	nullptr,
-	_UnicodeSet$SpanCondition_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.UnicodeSet"
-};
-
-$Object* allocate$UnicodeSet$SpanCondition($Class* clazz) {
-	return $of($alloc(UnicodeSet$SpanCondition));
-}
 
 UnicodeSet$SpanCondition* UnicodeSet$SpanCondition::NOT_CONTAINED = nullptr;
 UnicodeSet$SpanCondition* UnicodeSet$SpanCondition::CONTAINED = nullptr;
@@ -89,7 +47,7 @@ void UnicodeSet$SpanCondition::init$($String* $enum$name, int32_t $enum$ordinal)
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$UnicodeSet$SpanCondition($Class* class$) {
+void UnicodeSet$SpanCondition::clinit$($Class* clazz) {
 	$assignStatic(UnicodeSet$SpanCondition::NOT_CONTAINED, $new(UnicodeSet$SpanCondition, "NOT_CONTAINED"_s, 0));
 	$assignStatic(UnicodeSet$SpanCondition::CONTAINED, $new(UnicodeSet$SpanCondition, "CONTAINED"_s, 1));
 	$assignStatic(UnicodeSet$SpanCondition::SIMPLE, $new(UnicodeSet$SpanCondition, "SIMPLE"_s, 2));
@@ -100,7 +58,42 @@ UnicodeSet$SpanCondition::UnicodeSet$SpanCondition() {
 }
 
 $Class* UnicodeSet$SpanCondition::load$($String* name, bool initialize) {
-	$loadClass(UnicodeSet$SpanCondition, name, initialize, &_UnicodeSet$SpanCondition_ClassInfo_, clinit$UnicodeSet$SpanCondition, allocate$UnicodeSet$SpanCondition);
+	$FieldInfo fieldInfos$$[] = {
+		{"NOT_CONTAINED", "Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeSet$SpanCondition, NOT_CONTAINED)},
+		{"CONTAINED", "Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeSet$SpanCondition, CONTAINED)},
+		{"SIMPLE", "Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeSet$SpanCondition, SIMPLE)},
+		{"$VALUES", "[Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UnicodeSet$SpanCondition, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicodeSet$SpanCondition, $values, $UnicodeSet$SpanConditionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnicodeSet$SpanCondition, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSet$SpanCondition, valueOf, UnicodeSet$SpanCondition*, $String*)},
+		{"values", "()[Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSet$SpanCondition, values, $UnicodeSet$SpanConditionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.UnicodeSet$SpanCondition", "jdk.internal.icu.text.UnicodeSet", "SpanCondition", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.icu.text.UnicodeSet$SpanCondition",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/icu/text/UnicodeSet$SpanCondition;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.UnicodeSet"
+	};
+	$loadClass(UnicodeSet$SpanCondition, name, initialize, &classInfo$$, UnicodeSet$SpanCondition::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnicodeSet$SpanCondition));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <handlers/jar/Handler.h>
-
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <java/net/URLStreamHandler.h>
@@ -23,30 +22,6 @@ using $Set = ::java::util::Set;
 namespace handlers {
 	namespace jar {
 
-$FieldInfo _Handler_FieldInfo_[] = {
-	{"URLS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/URL;>;", $PUBLIC | $STATIC, $staticField(Handler, URLS)},
-	{}
-};
-
-$MethodInfo _Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Handler, init$, void)},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Handler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"handlers.jar.Handler",
-	"java.net.URLStreamHandler",
-	nullptr,
-	_Handler_FieldInfo_,
-	_Handler_MethodInfo_
-};
-
-$Object* allocate$Handler($Class* clazz) {
-	return $of($alloc(Handler));
-}
-
 $Set* Handler::URLS = nullptr;
 
 void Handler::init$() {
@@ -58,7 +33,7 @@ $URLConnection* Handler::openConnection($URL* u) {
 	return nullptr;
 }
 
-void clinit$Handler($Class* class$) {
+void Handler::clinit$($Class* clazz) {
 	$assignStatic(Handler::URLS, $Collections::synchronizedSet($$new($HashSet)));
 }
 
@@ -66,7 +41,26 @@ Handler::Handler() {
 }
 
 $Class* Handler::load$($String* name, bool initialize) {
-	$loadClass(Handler, name, initialize, &_Handler_ClassInfo_, clinit$Handler, allocate$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"URLS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/URL;>;", $PUBLIC | $STATIC, $staticField(Handler, URLS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Handler, init$, void)},
+		{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"handlers.jar.Handler",
+		"java.net.URLStreamHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Handler, name, initialize, &classInfo$$, Handler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Handler);
+	});
 	return class$;
 }
 

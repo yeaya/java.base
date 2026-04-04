@@ -15,6 +15,7 @@ class $export ComposedCharIter : public ::java::lang::Object {
 	$class(ComposedCharIter, 0, ::java::lang::Object)
 public:
 	ComposedCharIter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$String* decomposition();
 	int32_t next();

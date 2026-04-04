@@ -1,5 +1,4 @@
 #include <java/lang/module/Configuration.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
@@ -85,35 +84,31 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* apply(Object$* cf) override {
-		 return $of(Configuration::lambda$findModule$0(name, $cast(Configuration, cf)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Configuration$$Lambda$lambda$findModule$0>());
+		 return Configuration::lambda$findModule$0(name, $cast(Configuration, cf));
 	}
 	$String* name = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Configuration$$Lambda$lambda$findModule$0::fieldInfos[2] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Configuration$$Lambda$lambda$findModule$0, name)},
-	{}
-};
-$MethodInfo Configuration$$Lambda$lambda$findModule$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Configuration$$Lambda$lambda$findModule$0, init$, void, $String*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$lambda$findModule$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Configuration$$Lambda$lambda$findModule$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.module.Configuration$$Lambda$lambda$findModule$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Configuration$$Lambda$lambda$findModule$0::load$($String* name, bool initialize) {
-	$loadClass(Configuration$$Lambda$lambda$findModule$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Configuration$$Lambda$lambda$findModule$0, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Configuration$$Lambda$lambda$findModule$0, init$, void, $String*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$lambda$findModule$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.module.Configuration$$Lambda$lambda$findModule$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Configuration$$Lambda$lambda$findModule$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Configuration$$Lambda$lambda$findModule$0);
+	});
 	return class$;
 }
 $Class* Configuration$$Lambda$lambda$findModule$0::class$ = nullptr;
@@ -126,27 +121,24 @@ public:
 	virtual bool test(Object$* obj) override {
 		 return $Objects::nonNull(obj);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Configuration$$Lambda$nonNull$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Configuration$$Lambda$nonNull$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$nonNull$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$nonNull$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Configuration$$Lambda$nonNull$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.module.Configuration$$Lambda$nonNull$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Configuration$$Lambda$nonNull$1::load$($String* name, bool initialize) {
-	$loadClass(Configuration$$Lambda$nonNull$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$nonNull$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$nonNull$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.module.Configuration$$Lambda$nonNull$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Configuration$$Lambda$nonNull$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Configuration$$Lambda$nonNull$1);
+	});
 	return class$;
 }
 $Class* Configuration$$Lambda$nonNull$1::class$ = nullptr;
@@ -157,29 +149,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ResolvedModule, inst$)->reference());
+		 return $sure($ResolvedModule, inst$)->reference();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Configuration$$Lambda$reference$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Configuration$$Lambda$reference$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$reference$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$reference$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Configuration$$Lambda$reference$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.module.Configuration$$Lambda$reference$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Configuration$$Lambda$reference$2::load$($String* name, bool initialize) {
-	$loadClass(Configuration$$Lambda$reference$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$reference$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$reference$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.module.Configuration$$Lambda$reference$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Configuration$$Lambda$reference$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Configuration$$Lambda$reference$2);
+	});
 	return class$;
 }
 $Class* Configuration$$Lambda$reference$2::class$ = nullptr;
@@ -190,29 +179,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleReference, inst$)->descriptor());
+		 return $sure($ModuleReference, inst$)->descriptor();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Configuration$$Lambda$descriptor$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Configuration$$Lambda$descriptor$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$descriptor$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$descriptor$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Configuration$$Lambda$descriptor$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.module.Configuration$$Lambda$descriptor$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Configuration$$Lambda$descriptor$3::load$($String* name, bool initialize) {
-	$loadClass(Configuration$$Lambda$descriptor$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$descriptor$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$descriptor$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.module.Configuration$$Lambda$descriptor$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Configuration$$Lambda$descriptor$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Configuration$$Lambda$descriptor$3);
+	});
 	return class$;
 }
 $Class* Configuration$$Lambda$descriptor$3::class$ = nullptr;
@@ -225,82 +211,27 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($ResolvedModule, inst$)->name());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Configuration$$Lambda$name$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Configuration$$Lambda$name$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$name$4, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$name$4, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Configuration$$Lambda$name$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.module.Configuration$$Lambda$name$4",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Configuration$$Lambda$name$4::load$($String* name, bool initialize) {
-	$loadClass(Configuration$$Lambda$name$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$name$4, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$name$4, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.module.Configuration$$Lambda$name$4",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Configuration$$Lambda$name$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Configuration$$Lambda$name$4);
+	});
 	return class$;
 }
 $Class* Configuration$$Lambda$name$4::class$ = nullptr;
-
-$CompoundAttribute _Configuration_FieldAnnotations_EMPTY_CONFIGURATION[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$FieldInfo _Configuration_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Configuration, $assertionsDisabled)},
-	{"EMPTY_CONFIGURATION", "Ljava/lang/module/Configuration;", nullptr, $PRIVATE | $STATIC, $staticField(Configuration, EMPTY_CONFIGURATION), _Configuration_FieldAnnotations_EMPTY_CONFIGURATION},
-	{"parents", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/module/Configuration;>;", $PRIVATE | $FINAL, $field(Configuration, parents$)},
-	{"graph", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/module/ResolvedModule;Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;>;", $PRIVATE | $FINAL, $field(Configuration, graph)},
-	{"modules", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", $PRIVATE | $FINAL, $field(Configuration, modules$)},
-	{"nameToModule", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ResolvedModule;>;", $PRIVATE | $FINAL, $field(Configuration, nameToModule)},
-	{"targetPlatform", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Configuration, targetPlatform$)},
-	{"allConfigurations", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/module/Configuration;>;", $PRIVATE | $VOLATILE, $field(Configuration, allConfigurations)},
-	{}
-};
-
-$MethodInfo _Configuration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Configuration, init$, void)},
-	{"<init>", "(Ljava/util/List;Ljava/lang/module/Resolver;)V", "(Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/Resolver;)V", $PRIVATE, $method(Configuration, init$, void, $List*, $Resolver*)},
-	{"<init>", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map;)V", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;)V", 0, $method(Configuration, init$, void, $ModuleFinder*, $Map*)},
-	{"configurations", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/module/Configuration;>;", 0, $method(Configuration, configurations, $Stream*)},
-	{"descriptors", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor;>;", 0, $method(Configuration, descriptors, $Set*)},
-	{"empty", "()Ljava/lang/module/Configuration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Configuration, empty, Configuration*)},
-	{"findModule", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ResolvedModule;>;", $PUBLIC, $method(Configuration, findModule, $Optional*, $String*)},
-	{"lambda$findModule$0", "(Ljava/lang/String;Ljava/lang/module/Configuration;)Ljava/lang/module/ResolvedModule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Configuration, lambda$findModule$0, $ResolvedModule*, $String*, Configuration*)},
-	{"modules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", $PUBLIC, $method(Configuration, modules, $Set*)},
-	{"parents", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/module/Configuration;>;", $PUBLIC, $method(Configuration, parents, $List*)},
-	{"reads", "(Ljava/lang/module/ResolvedModule;)Ljava/util/Set;", "(Ljava/lang/module/ResolvedModule;)Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", 0, $method(Configuration, reads, $Set*, $ResolvedModule*)},
-	{"resolve", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC, $method(Configuration, resolve, Configuration*, $ModuleFinder*, $ModuleFinder*, $Collection*)},
-	{"resolve", "(Ljava/lang/module/ModuleFinder;Ljava/util/List;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $staticMethod(Configuration, resolve, Configuration*, $ModuleFinder*, $List*, $ModuleFinder*, $Collection*)},
-	{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC, $method(Configuration, resolveAndBind, Configuration*, $ModuleFinder*, $ModuleFinder*, $Collection*)},
-	{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", $STATIC, $staticMethod(Configuration, resolveAndBind, Configuration*, $ModuleFinder*, $Collection*, $PrintStream*)},
-	{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/util/List;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $staticMethod(Configuration, resolveAndBind, Configuration*, $ModuleFinder*, $List*, $ModuleFinder*, $Collection*)},
-	{"targetPlatform", "()Ljava/lang/String;", nullptr, 0, $method(Configuration, targetPlatform, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Configuration, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Configuration_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.module.Configuration",
-	"java.lang.Object",
-	nullptr,
-	_Configuration_FieldInfo_,
-	_Configuration_MethodInfo_
-};
-
-$Object* allocate$Configuration($Class* clazz) {
-	return $of($alloc(Configuration));
-}
 
 bool Configuration::$assertionsDisabled = false;
 Configuration* Configuration::EMPTY_CONFIGURATION = nullptr;
@@ -318,13 +249,13 @@ void Configuration::init$() {
 }
 
 void Configuration::init$($List* parents, $Resolver* resolver) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, g, $nc(resolver)->finish(this));
 	$var($Map$EntryArray, nameEntries, $new($Map$EntryArray, $nc(g)->size()));
 	$var($ResolvedModuleArray, moduleArray, $new($ResolvedModuleArray, g->size()));
 	int32_t i = 0;
 	{
-		$var($Iterator, i$, $nc($(g->keySet()))->iterator());
+		$var($Iterator, i$, $$nc(g->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ResolvedModule, resolvedModule, $cast($ResolvedModule, i$->next()));
 			{
@@ -342,23 +273,23 @@ void Configuration::init$($List* parents, $Resolver* resolver) {
 }
 
 void Configuration::init$($ModuleFinder* finder, $Map* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t moduleCount = $nc(map)->size();
 	$var($Map$EntryArray, nameEntries, $new($Map$EntryArray, moduleCount));
 	$var($ResolvedModuleArray, moduleArray, $new($ResolvedModuleArray, moduleCount));
 	$var($String, targetPlatform, nullptr);
 	int32_t i = 0;
 	{
-		$var($Iterator, i$, $nc($(map->keySet()))->iterator());
+		$var($Iterator, i$, $$nc(map->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, name, $cast($String, i$->next()));
 			{
-				$var($ModuleReference, mref, $cast($ModuleReference, $nc($($nc(finder)->find(name)))->orElse(nullptr)));
+				$var($ModuleReference, mref, $cast($ModuleReference, $$nc($nc(finder)->find(name))->orElse(nullptr)));
 				if (!Configuration::$assertionsDisabled && !(mref != nullptr)) {
 					$throwNew($AssertionError);
 				}
 				if (targetPlatform == nullptr && $instanceOf($ModuleReferenceImpl, mref)) {
-					$var($ModuleTarget, target, $nc(($cast($ModuleReferenceImpl, mref)))->moduleTarget());
+					$var($ModuleTarget, target, $cast($ModuleReferenceImpl, mref)->moduleTarget());
 					if (target != nullptr) {
 						$assign(targetPlatform, target->targetPlatform());
 					}
@@ -388,7 +319,7 @@ void Configuration::init$($ModuleFinder* finder, $Map* map) {
 					for (; $nc(i$)->hasNext();) {
 						$var($String, name, $cast($String, i$->next()));
 						{
-							readsArray->set(j++, $cast($ResolvedModule, $($nc(nameToModule)->get(name))));
+							readsArray->set(j++, $$cast($ResolvedModule, $nc(nameToModule)->get(name)));
 						}
 					}
 				}
@@ -396,7 +327,7 @@ void Configuration::init$($ModuleFinder* finder, $Map* map) {
 			}
 		}
 	}
-	$set(this, parents$, $List::of($($of(empty()))));
+	$set(this, parents$, $List::of($(empty())));
 	$set(this, graph, $Map::ofEntries(moduleEntries));
 	$set(this, modules$, $Set::of(moduleArray));
 	$set(this, nameToModule, nameToModule);
@@ -404,29 +335,29 @@ void Configuration::init$($ModuleFinder* finder, $Map* map) {
 }
 
 Configuration* Configuration::resolve($ModuleFinder* before, $ModuleFinder* after, $Collection* roots) {
-	return resolve(before, $($List::of($of(this))), after, roots);
+	return resolve(before, $($List::of(this)), after, roots);
 }
 
 Configuration* Configuration::resolveAndBind($ModuleFinder* before, $ModuleFinder* after, $Collection* roots) {
-	return resolveAndBind(before, $($List::of($of(this))), after, roots);
+	return resolveAndBind(before, $($List::of(this)), after, roots);
 }
 
 Configuration* Configuration::resolveAndBind($ModuleFinder* finder, $Collection* roots, $PrintStream* traceOutput) {
 	$init(Configuration);
-	$useLocalCurrentObjectStackCache();
-	$var($List, parents, $List::of($($of(empty()))));
+	$useLocalObjectStack();
+	$var($List, parents, $List::of($(empty())));
 	$var($Resolver, resolver, $new($Resolver, finder, parents, $($ModuleFinder::of($$new($PathArray, 0))), traceOutput));
-	$nc($(resolver->resolve(roots)))->bind(false);
+	$$nc(resolver->resolve(roots))->bind(false);
 	return $new(Configuration, parents, resolver);
 }
 
 Configuration* Configuration::resolve($ModuleFinder* before, $List* parents, $ModuleFinder* after, $Collection* roots) {
 	$init(Configuration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(before);
 	$Objects::requireNonNull(after);
 	$Objects::requireNonNull(roots);
-	$var($List, parentList, $new($ArrayList, static_cast<$Collection*>(parents)));
+	$var($List, parentList, $new($ArrayList, parents));
 	if (parentList->isEmpty()) {
 		$throwNew($IllegalArgumentException, "\'parents\' is empty"_s);
 	}
@@ -437,16 +368,16 @@ Configuration* Configuration::resolve($ModuleFinder* before, $List* parents, $Mo
 
 Configuration* Configuration::resolveAndBind($ModuleFinder* before, $List* parents, $ModuleFinder* after, $Collection* roots) {
 	$init(Configuration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(before);
 	$Objects::requireNonNull(after);
 	$Objects::requireNonNull(roots);
-	$var($List, parentList, $new($ArrayList, static_cast<$Collection*>(parents)));
+	$var($List, parentList, $new($ArrayList, parents));
 	if (parentList->isEmpty()) {
 		$throwNew($IllegalArgumentException, "\'parents\' is empty"_s);
 	}
 	$var($Resolver, resolver, $new($Resolver, before, parentList, after, nullptr));
-	$nc($(resolver->resolve(roots)))->bind();
+	$$nc(resolver->resolve(roots))->bind();
 	return $new(Configuration, parentList, resolver);
 }
 
@@ -464,33 +395,33 @@ $Set* Configuration::modules() {
 }
 
 $Optional* Configuration::findModule($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(name);
 	$var($ResolvedModule, m, $cast($ResolvedModule, $nc(this->nameToModule)->get(name)));
 	if (m != nullptr) {
 		return $Optional::of(m);
 	}
 	if (!$nc(this->parents$)->isEmpty()) {
-		return $nc($($nc($($nc($($nc($(configurations()))->skip(1)))->map(static_cast<$Function*>($$new(Configuration$$Lambda$lambda$findModule$0, name)))))->filter(static_cast<$Predicate*>($$new(Configuration$$Lambda$nonNull$1)))))->findFirst();
+		return $$nc($$nc($$nc($$nc(configurations())->skip(1))->map($$new(Configuration$$Lambda$lambda$findModule$0, name)))->filter($$new(Configuration$$Lambda$nonNull$1)))->findFirst();
 	}
 	return $Optional::empty();
 }
 
 $Set* Configuration::descriptors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->modules$)->isEmpty()) {
 		return $Set::of();
 	} else {
-		return $cast($Set, $nc($($nc($($nc($($nc(this->modules$)->stream()))->map(static_cast<$Function*>($$new(Configuration$$Lambda$reference$2)))))->map(static_cast<$Function*>($$new(Configuration$$Lambda$descriptor$3)))))->collect($($Collectors::toSet())));
+		return $cast($Set, $$nc($$nc($$nc(this->modules$->stream())->map($$new(Configuration$$Lambda$reference$2)))->map($$new(Configuration$$Lambda$descriptor$3)))->collect($($Collectors::toSet())));
 	}
 }
 
 $Set* Configuration::reads($ResolvedModule* m) {
-	return $Set::copyOf($cast($Collection, $($nc(this->graph)->get(m))));
+	return $Set::copyOf($$cast($Collection, $nc(this->graph)->get(m)));
 }
 
 $Stream* Configuration::configurations() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, allConfigurations, this->allConfigurations);
 	if (allConfigurations == nullptr) {
 		$assign(allConfigurations, $new($ArrayList));
@@ -502,7 +433,7 @@ $Stream* Configuration::configurations() {
 			$var(Configuration, layer, $cast(Configuration, stack->pop()));
 			allConfigurations->add(layer);
 			for (int32_t i = $nc($nc(layer)->parents$)->size() - 1; i >= 0; --i) {
-				$var(Configuration, parent, $cast(Configuration, $nc(layer->parents$)->get(i)));
+				$var(Configuration, parent, $cast(Configuration, layer->parents$->get(i)));
 				if (visited->add(parent)) {
 					stack->push(parent);
 				}
@@ -514,8 +445,8 @@ $Stream* Configuration::configurations() {
 }
 
 $String* Configuration::toString() {
-	$useLocalCurrentObjectStackCache();
-	return $cast($String, $nc($($nc($($nc($(modules()))->stream()))->map(static_cast<$Function*>($$new(Configuration$$Lambda$name$4)))))->collect($($Collectors::joining(", "_s))));
+	$useLocalObjectStack();
+	return $cast($String, $$nc($$nc($$nc(modules())->stream())->map($$new(Configuration$$Lambda$name$4)))->collect($($Collectors::joining(", "_s))));
 }
 
 $ResolvedModule* Configuration::lambda$findModule$0($String* name, Configuration* cf) {
@@ -523,7 +454,7 @@ $ResolvedModule* Configuration::lambda$findModule$0($String* name, Configuration
 	return $cast($ResolvedModule, $nc($nc(cf)->nameToModule)->get(name));
 }
 
-void clinit$Configuration($Class* class$) {
+void Configuration::clinit$($Class* clazz) {
 	Configuration::$assertionsDisabled = !Configuration::class$->desiredAssertionStatus();
 	{
 		$CDS::initializeFromArchive(Configuration::class$);
@@ -538,23 +469,69 @@ Configuration::Configuration() {
 
 $Class* Configuration::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Configuration$$Lambda$lambda$findModule$0::classInfo$.name)) {
+		if (name->equals("java.lang.module.Configuration$$Lambda$lambda$findModule$0")) {
 			return Configuration$$Lambda$lambda$findModule$0::load$(name, initialize);
 		}
-		if (name->equals(Configuration$$Lambda$nonNull$1::classInfo$.name)) {
+		if (name->equals("java.lang.module.Configuration$$Lambda$nonNull$1")) {
 			return Configuration$$Lambda$nonNull$1::load$(name, initialize);
 		}
-		if (name->equals(Configuration$$Lambda$reference$2::classInfo$.name)) {
+		if (name->equals("java.lang.module.Configuration$$Lambda$reference$2")) {
 			return Configuration$$Lambda$reference$2::load$(name, initialize);
 		}
-		if (name->equals(Configuration$$Lambda$descriptor$3::classInfo$.name)) {
+		if (name->equals("java.lang.module.Configuration$$Lambda$descriptor$3")) {
 			return Configuration$$Lambda$descriptor$3::load$(name, initialize);
 		}
-		if (name->equals(Configuration$$Lambda$name$4::classInfo$.name)) {
+		if (name->equals("java.lang.module.Configuration$$Lambda$name$4")) {
 			return Configuration$$Lambda$name$4::load$(name, initialize);
 		}
 	}
-	$loadClass(Configuration, name, initialize, &_Configuration_ClassInfo_, clinit$Configuration, allocate$Configuration);
+	$CompoundAttribute EMPTY_CONFIGURATIONfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Configuration, $assertionsDisabled)},
+		{"EMPTY_CONFIGURATION", "Ljava/lang/module/Configuration;", nullptr, $PRIVATE | $STATIC, $staticField(Configuration, EMPTY_CONFIGURATION), EMPTY_CONFIGURATIONfieldAnnotations$$},
+		{"parents", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/module/Configuration;>;", $PRIVATE | $FINAL, $field(Configuration, parents$)},
+		{"graph", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/module/ResolvedModule;Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;>;", $PRIVATE | $FINAL, $field(Configuration, graph)},
+		{"modules", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", $PRIVATE | $FINAL, $field(Configuration, modules$)},
+		{"nameToModule", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ResolvedModule;>;", $PRIVATE | $FINAL, $field(Configuration, nameToModule)},
+		{"targetPlatform", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Configuration, targetPlatform$)},
+		{"allConfigurations", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/module/Configuration;>;", $PRIVATE | $VOLATILE, $field(Configuration, allConfigurations)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Configuration, init$, void)},
+		{"<init>", "(Ljava/util/List;Ljava/lang/module/Resolver;)V", "(Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/Resolver;)V", $PRIVATE, $method(Configuration, init$, void, $List*, $Resolver*)},
+		{"<init>", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map;)V", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;)V", 0, $method(Configuration, init$, void, $ModuleFinder*, $Map*)},
+		{"configurations", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/module/Configuration;>;", 0, $method(Configuration, configurations, $Stream*)},
+		{"descriptors", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor;>;", 0, $method(Configuration, descriptors, $Set*)},
+		{"empty", "()Ljava/lang/module/Configuration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Configuration, empty, Configuration*)},
+		{"findModule", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ResolvedModule;>;", $PUBLIC, $method(Configuration, findModule, $Optional*, $String*)},
+		{"lambda$findModule$0", "(Ljava/lang/String;Ljava/lang/module/Configuration;)Ljava/lang/module/ResolvedModule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Configuration, lambda$findModule$0, $ResolvedModule*, $String*, Configuration*)},
+		{"modules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", $PUBLIC, $method(Configuration, modules, $Set*)},
+		{"parents", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/module/Configuration;>;", $PUBLIC, $method(Configuration, parents, $List*)},
+		{"reads", "(Ljava/lang/module/ResolvedModule;)Ljava/util/Set;", "(Ljava/lang/module/ResolvedModule;)Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", 0, $method(Configuration, reads, $Set*, $ResolvedModule*)},
+		{"resolve", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC, $method(Configuration, resolve, Configuration*, $ModuleFinder*, $ModuleFinder*, $Collection*)},
+		{"resolve", "(Ljava/lang/module/ModuleFinder;Ljava/util/List;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $staticMethod(Configuration, resolve, Configuration*, $ModuleFinder*, $List*, $ModuleFinder*, $Collection*)},
+		{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC, $method(Configuration, resolveAndBind, Configuration*, $ModuleFinder*, $ModuleFinder*, $Collection*)},
+		{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", $STATIC, $staticMethod(Configuration, resolveAndBind, Configuration*, $ModuleFinder*, $Collection*, $PrintStream*)},
+		{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/util/List;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $staticMethod(Configuration, resolveAndBind, Configuration*, $ModuleFinder*, $List*, $ModuleFinder*, $Collection*)},
+		{"targetPlatform", "()Ljava/lang/String;", nullptr, 0, $method(Configuration, targetPlatform, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Configuration, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.module.Configuration",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Configuration, name, initialize, &classInfo$$, Configuration::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Configuration);
+	});
 	return class$;
 }
 

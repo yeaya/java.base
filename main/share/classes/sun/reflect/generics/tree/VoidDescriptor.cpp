@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/VoidDescriptor.h>
-
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace tree {
-
-$FieldInfo _VoidDescriptor_FieldInfo_[] = {
-	{"singleton", "Lsun/reflect/generics/tree/VoidDescriptor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VoidDescriptor, singleton)},
-	{}
-};
-
-$MethodInfo _VoidDescriptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(VoidDescriptor, init$, void)},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(VoidDescriptor, accept, void, $TypeTreeVisitor*)},
-	{"make", "()Lsun/reflect/generics/tree/VoidDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(VoidDescriptor, make, VoidDescriptor*)},
-	{}
-};
-
-$ClassInfo _VoidDescriptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.tree.VoidDescriptor",
-	"java.lang.Object",
-	"sun.reflect.generics.tree.ReturnType",
-	_VoidDescriptor_FieldInfo_,
-	_VoidDescriptor_MethodInfo_
-};
-
-$Object* allocate$VoidDescriptor($Class* clazz) {
-	return $of($alloc(VoidDescriptor));
-}
 
 VoidDescriptor* VoidDescriptor::singleton = nullptr;
 
@@ -52,7 +26,7 @@ void VoidDescriptor::accept($TypeTreeVisitor* v) {
 	$nc(v)->visitVoidDescriptor(this);
 }
 
-void clinit$VoidDescriptor($Class* class$) {
+void VoidDescriptor::clinit$($Class* clazz) {
 	$assignStatic(VoidDescriptor::singleton, $new(VoidDescriptor));
 }
 
@@ -60,7 +34,27 @@ VoidDescriptor::VoidDescriptor() {
 }
 
 $Class* VoidDescriptor::load$($String* name, bool initialize) {
-	$loadClass(VoidDescriptor, name, initialize, &_VoidDescriptor_ClassInfo_, clinit$VoidDescriptor, allocate$VoidDescriptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"singleton", "Lsun/reflect/generics/tree/VoidDescriptor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VoidDescriptor, singleton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(VoidDescriptor, init$, void)},
+		{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(VoidDescriptor, accept, void, $TypeTreeVisitor*)},
+		{"make", "()Lsun/reflect/generics/tree/VoidDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(VoidDescriptor, make, VoidDescriptor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.tree.VoidDescriptor",
+		"java.lang.Object",
+		"sun.reflect.generics.tree.ReturnType",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VoidDescriptor, name, initialize, &classInfo$$, VoidDescriptor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VoidDescriptor);
+	});
 	return class$;
 }
 

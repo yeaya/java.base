@@ -1,5 +1,4 @@
 #include <ValueOf4Enum$Silly1.h>
-
 #include <ValueOf4Enum.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -10,45 +9,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _ValueOf4Enum$Silly1_FieldInfo_[] = {
-	{"e1", "LValueOf4Enum$Silly1;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly1, e1)},
-	{"$VALUES", "[LValueOf4Enum$Silly1;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ValueOf4Enum$Silly1, $VALUES)},
-	{}
-};
-
-$MethodInfo _ValueOf4Enum$Silly1_MethodInfo_[] = {
-	{"$values", "()[LValueOf4Enum$Silly1;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ValueOf4Enum$Silly1, $values, $ValueOf4Enum$Silly1Array*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ValueOf4Enum$Silly1, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LValueOf4Enum$Silly1;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Enum$Silly1, valueOf, ValueOf4Enum$Silly1*, $String*)},
-	{"values", "()[LValueOf4Enum$Silly1;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Enum$Silly1, values, $ValueOf4Enum$Silly1Array*)},
-	{}
-};
-
-$InnerClassInfo _ValueOf4Enum$Silly1_InnerClassesInfo_[] = {
-	{"ValueOf4Enum$Silly1", "ValueOf4Enum", "Silly1", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ValueOf4Enum$Silly1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"ValueOf4Enum$Silly1",
-	"java.lang.Enum",
-	nullptr,
-	_ValueOf4Enum$Silly1_FieldInfo_,
-	_ValueOf4Enum$Silly1_MethodInfo_,
-	"Ljava/lang/Enum<LValueOf4Enum$Silly1;>;",
-	nullptr,
-	_ValueOf4Enum$Silly1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ValueOf4Enum"
-};
-
-$Object* allocate$ValueOf4Enum$Silly1($Class* clazz) {
-	return $of($alloc(ValueOf4Enum$Silly1));
-}
 
 ValueOf4Enum$Silly1* ValueOf4Enum$Silly1::e1 = nullptr;
 $ValueOf4Enum$Silly1Array* ValueOf4Enum$Silly1::$VALUES = nullptr;
@@ -72,7 +32,7 @@ void ValueOf4Enum$Silly1::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ValueOf4Enum$Silly1($Class* class$) {
+void ValueOf4Enum$Silly1::clinit$($Class* clazz) {
 	$assignStatic(ValueOf4Enum$Silly1::e1, $new(ValueOf4Enum$Silly1, "e1"_s, 0));
 	$assignStatic(ValueOf4Enum$Silly1::$VALUES, ValueOf4Enum$Silly1::$values());
 }
@@ -81,7 +41,40 @@ ValueOf4Enum$Silly1::ValueOf4Enum$Silly1() {
 }
 
 $Class* ValueOf4Enum$Silly1::load$($String* name, bool initialize) {
-	$loadClass(ValueOf4Enum$Silly1, name, initialize, &_ValueOf4Enum$Silly1_ClassInfo_, clinit$ValueOf4Enum$Silly1, allocate$ValueOf4Enum$Silly1);
+	$FieldInfo fieldInfos$$[] = {
+		{"e1", "LValueOf4Enum$Silly1;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ValueOf4Enum$Silly1, e1)},
+		{"$VALUES", "[LValueOf4Enum$Silly1;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ValueOf4Enum$Silly1, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LValueOf4Enum$Silly1;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ValueOf4Enum$Silly1, $values, $ValueOf4Enum$Silly1Array*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ValueOf4Enum$Silly1, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LValueOf4Enum$Silly1;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Enum$Silly1, valueOf, ValueOf4Enum$Silly1*, $String*)},
+		{"values", "()[LValueOf4Enum$Silly1;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Enum$Silly1, values, $ValueOf4Enum$Silly1Array*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ValueOf4Enum$Silly1", "ValueOf4Enum", "Silly1", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"ValueOf4Enum$Silly1",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LValueOf4Enum$Silly1;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ValueOf4Enum"
+	};
+	$loadClass(ValueOf4Enum$Silly1, name, initialize, &classInfo$$, ValueOf4Enum$Silly1::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ValueOf4Enum$Silly1));
+	});
 	return class$;
 }
 

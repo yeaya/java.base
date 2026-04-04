@@ -20,7 +20,10 @@ public:
 	int32_t index = 0;
 	LocaleSyntaxException(const LocaleSyntaxException& e);
 	virtual void throw$() override;
-	inline LocaleSyntaxException* operator ->() {
+	inline LocaleSyntaxException* operator ->() const {
+		return (LocaleSyntaxException*)throwing$;
+	}
+	inline operator LocaleSyntaxException*() const {
 		return (LocaleSyntaxException*)throwing$;
 	}
 };

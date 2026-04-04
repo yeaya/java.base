@@ -20,6 +20,7 @@ class $import FloatingDecimal$ExceptionalBinaryToASCIIBuffer : public ::jdk::int
 	$class(FloatingDecimal$ExceptionalBinaryToASCIIBuffer, 0, ::jdk::internal::math::FloatingDecimal$BinaryToASCIIConverter)
 public:
 	FloatingDecimal$ExceptionalBinaryToASCIIBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* image, bool isNegative);
 	virtual void appendTo(::java::lang::Appendable* buf) override;
 	virtual bool decimalDigitsExact() override;

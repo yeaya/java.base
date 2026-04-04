@@ -1,5 +1,4 @@
 #include <javax/crypto/CryptoPermissions.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
@@ -8,7 +7,6 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/io/Reader.h>
 #include <java/lang/SecurityException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -18,7 +16,6 @@
 #include <java/util/AbstractMap.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Hashtable.h>
-#include <java/util/Map.h>
 #include <java/util/Vector.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <javax/crypto/CryptoAllPermission.h>
@@ -41,7 +38,6 @@ using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ObjectOutputStream$PutField = ::java::io::ObjectOutputStream$PutField;
 using $ObjectStreamField = ::java::io::ObjectStreamField;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -53,7 +49,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
-using $Map = ::java::util::Map;
 using $Vector = ::java::util::Vector;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $CryptoAllPermission = ::javax::crypto::CryptoAllPermission;
@@ -64,43 +59,6 @@ using $PermissionsEnumerator = ::javax::crypto::PermissionsEnumerator;
 namespace javax {
 	namespace crypto {
 
-$FieldInfo _CryptoPermissions_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CryptoPermissions, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CryptoPermissions, serialPersistentFields)},
-	{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/security/PermissionCollection;>;", $PRIVATE | $TRANSIENT, $field(CryptoPermissions, perms)},
-	{}
-};
-
-$MethodInfo _CryptoPermissions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CryptoPermissions, init$, void)},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(CryptoPermissions, add, void, $Permission*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(CryptoPermissions, elements, $Enumeration*)},
-	{"getMinimum", "(Ljavax/crypto/CryptoPermissions;)Ljavax/crypto/CryptoPermissions;", nullptr, 0, $method(CryptoPermissions, getMinimum, CryptoPermissions*, CryptoPermissions*)},
-	{"getMinimum", "(Ljava/security/PermissionCollection;Ljava/security/PermissionCollection;)[Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(CryptoPermissions, getMinimum, $CryptoPermissionArray*, $PermissionCollection*, $PermissionCollection*)},
-	{"getMinimum", "(ILjava/security/PermissionCollection;)[Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(CryptoPermissions, getMinimum, $CryptoPermissionArray*, int32_t, $PermissionCollection*)},
-	{"getPermissionCollection", "(Ljava/lang/String;)Ljava/security/PermissionCollection;", nullptr, 0, $method(CryptoPermissions, getPermissionCollection, $PermissionCollection*, $String*)},
-	{"getPermissionCollection", "(Ljavax/crypto/CryptoPermission;)Ljava/security/PermissionCollection;", nullptr, $PRIVATE, $method(CryptoPermissions, getPermissionCollection, $PermissionCollection*, $CryptoPermission*)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(CryptoPermissions, implies, bool, $Permission*)},
-	{"isEmpty", "()Z", nullptr, 0, $method(CryptoPermissions, isEmpty, bool)},
-	{"load", "(Ljava/io/InputStream;)V", nullptr, 0, $method(CryptoPermissions, load, void, $InputStream*), "java.io.IOException,javax.crypto.CryptoPolicyParser$ParsingException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CryptoPermissions, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CryptoPermissions, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CryptoPermissions_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.crypto.CryptoPermissions",
-	"java.security.PermissionCollection",
-	nullptr,
-	_CryptoPermissions_FieldInfo_,
-	_CryptoPermissions_MethodInfo_
-};
-
-$Object* allocate$CryptoPermissions($Class* clazz) {
-	return $of($alloc(CryptoPermissions));
-}
-
 $ObjectStreamFieldArray* CryptoPermissions::serialPersistentFields = nullptr;
 
 void CryptoPermissions::init$() {
@@ -109,7 +67,7 @@ void CryptoPermissions::init$() {
 }
 
 void CryptoPermissions::load($InputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CryptoPolicyParser, parser, $new($CryptoPolicyParser));
 	$init($StandardCharsets);
 	parser->read($$new($BufferedReader, $$new($InputStreamReader, in, $StandardCharsets::UTF_8)));
@@ -124,7 +82,7 @@ bool CryptoPermissions::isEmpty() {
 }
 
 void CryptoPermissions::add($Permission* permission) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isReadOnly()) {
 		$throwNew($SecurityException, "Attempt to add a Permission to a readonly CryptoPermissions object"_s);
 	}
@@ -139,7 +97,7 @@ void CryptoPermissions::add($Permission* permission) {
 }
 
 bool CryptoPermissions::implies($Permission* permission) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($CryptoPermission, permission))) {
 		return false;
 	}
@@ -157,7 +115,7 @@ $Enumeration* CryptoPermissions::elements() {
 }
 
 CryptoPermissions* CryptoPermissions::getMinimum(CryptoPermissions* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (other == nullptr) {
 		return nullptr;
 	}
@@ -170,10 +128,10 @@ CryptoPermissions* CryptoPermissions::getMinimum(CryptoPermissions* other) {
 	}
 	$var(CryptoPermissions, ret, $new(CryptoPermissions));
 	$init($CryptoPermission);
-	$var($PermissionCollection, thatWildcard, $cast($PermissionCollection, $nc($nc(other)->perms)->get($CryptoPermission::ALG_NAME_WILDCARD)));
+	$var($PermissionCollection, thatWildcard, $cast($PermissionCollection, $nc(other->perms)->get($CryptoPermission::ALG_NAME_WILDCARD)));
 	int32_t maxKeySize = 0;
 	if (thatWildcard != nullptr) {
-		maxKeySize = $nc(($cast($CryptoPermission, $($nc($(thatWildcard->elements()))->nextElement()))))->getMaxKeySize();
+		maxKeySize = $$sure($CryptoPermission, $$nc(thatWildcard->elements())->nextElement())->getMaxKeySize();
 	}
 	$var($Enumeration, thisKeys, $nc(this->perms)->keys());
 	while ($nc(thisKeys)->hasMoreElements()) {
@@ -197,7 +155,7 @@ CryptoPermissions* CryptoPermissions::getMinimum(CryptoPermissions* other) {
 	if (thisWildcard == nullptr) {
 		return ret;
 	}
-	maxKeySize = $nc(($cast($CryptoPermission, $($nc($($nc(thisWildcard)->elements()))->nextElement()))))->getMaxKeySize();
+	maxKeySize = $$sure($CryptoPermission, $$nc($nc(thisWildcard)->elements())->nextElement())->getMaxKeySize();
 	$var($Enumeration, thatKeys, $nc(other->perms)->keys());
 	while ($nc(thatKeys)->hasMoreElements()) {
 		$var($String, alg, $cast($String, thatKeys->nextElement()));
@@ -215,7 +173,7 @@ CryptoPermissions* CryptoPermissions::getMinimum(CryptoPermissions* other) {
 }
 
 $CryptoPermissionArray* CryptoPermissions::getMinimum($PermissionCollection* thisPc, $PermissionCollection* thatPc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, permVector, $new($Vector, 2));
 	$var($Enumeration, thisPcPermissions, $nc(thisPc)->elements());
 	while ($nc(thisPcPermissions)->hasMoreElements()) {
@@ -238,7 +196,7 @@ $CryptoPermissionArray* CryptoPermissions::getMinimum($PermissionCollection* thi
 }
 
 $CryptoPermissionArray* CryptoPermissions::getMinimum(int32_t maxKeySize, $PermissionCollection* pc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, permVector, $new($Vector, 1));
 	$var($Enumeration, enum_, $nc(pc)->elements());
 	while ($nc(enum_)->hasMoreElements()) {
@@ -247,13 +205,11 @@ $CryptoPermissionArray* CryptoPermissions::getMinimum(int32_t maxKeySize, $Permi
 			permVector->addElement(cp);
 		} else if (cp->getCheckParam()) {
 			$var($String, var$0, cp->getAlgorithm());
-			int32_t var$1 = maxKeySize;
-			$var($AlgorithmParameterSpec, var$2, cp->getAlgorithmParameterSpec());
-			permVector->addElement($$new($CryptoPermission, var$0, var$1, var$2, $(cp->getExemptionMechanism())));
+			$var($AlgorithmParameterSpec, var$1, cp->getAlgorithmParameterSpec());
+			permVector->addElement($$new($CryptoPermission, var$0, maxKeySize, var$1, $(cp->getExemptionMechanism())));
 		} else {
-			$var($String, var$3, cp->getAlgorithm());
-			int32_t var$4 = maxKeySize;
-			permVector->addElement($$new($CryptoPermission, var$3, var$4, $(cp->getExemptionMechanism())));
+			$var($String, var$2, cp->getAlgorithm());
+			permVector->addElement($$new($CryptoPermission, var$2, maxKeySize, $(cp->getExemptionMechanism())));
 		}
 	}
 	$var($CryptoPermissionArray, ret, $new($CryptoPermissionArray, permVector->size()));
@@ -275,7 +231,7 @@ $PermissionCollection* CryptoPermissions::getPermissionCollection($String* alg) 
 }
 
 $PermissionCollection* CryptoPermissions::getPermissionCollection($CryptoPermission* cryptoPerm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, alg, $nc(cryptoPerm)->getAlgorithm());
 	$var($PermissionCollection, pc, $cast($PermissionCollection, $nc(this->perms)->get(alg)));
 	if (pc == nullptr) {
@@ -285,25 +241,25 @@ $PermissionCollection* CryptoPermissions::getPermissionCollection($CryptoPermiss
 }
 
 void CryptoPermissions::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$var($Hashtable, permTable, ($cast($Hashtable, $nc(fields)->get("perms"_s, ($Object*)nullptr))));
+	$var($Hashtable, permTable, $cast($Hashtable, $nc(fields)->get("perms"_s, nullptr)));
 	if (permTable != nullptr) {
-		$set(this, perms, $new($ConcurrentHashMap, static_cast<$Map*>(permTable)));
+		$set(this, perms, $new($ConcurrentHashMap, permTable));
 	} else {
 		$set(this, perms, $new($ConcurrentHashMap));
 	}
 }
 
 void CryptoPermissions::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
-	$var($Hashtable, permTable, $new($Hashtable, static_cast<$Map*>(static_cast<$AbstractMap*>(this->perms))));
+	$useLocalObjectStack();
+	$var($Hashtable, permTable, $new($Hashtable, $cast($AbstractMap, this->perms)));
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
-	$nc(fields)->put("perms"_s, $of(permTable));
+	$nc(fields)->put("perms"_s, permTable);
 	s->writeFields();
 }
 
-void clinit$CryptoPermissions($Class* class$) {
+void CryptoPermissions::clinit$($Class* clazz) {
 	$load($Hashtable);
 	$assignStatic(CryptoPermissions::serialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "perms"_s, $Hashtable::class$)}));
 }
@@ -312,7 +268,39 @@ CryptoPermissions::CryptoPermissions() {
 }
 
 $Class* CryptoPermissions::load$($String* name, bool initialize) {
-	$loadClass(CryptoPermissions, name, initialize, &_CryptoPermissions_ClassInfo_, clinit$CryptoPermissions, allocate$CryptoPermissions);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CryptoPermissions, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CryptoPermissions, serialPersistentFields)},
+		{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/security/PermissionCollection;>;", $PRIVATE | $TRANSIENT, $field(CryptoPermissions, perms)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CryptoPermissions, init$, void)},
+		{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(CryptoPermissions, add, void, $Permission*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(CryptoPermissions, elements, $Enumeration*)},
+		{"getMinimum", "(Ljavax/crypto/CryptoPermissions;)Ljavax/crypto/CryptoPermissions;", nullptr, 0, $method(CryptoPermissions, getMinimum, CryptoPermissions*, CryptoPermissions*)},
+		{"getMinimum", "(Ljava/security/PermissionCollection;Ljava/security/PermissionCollection;)[Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(CryptoPermissions, getMinimum, $CryptoPermissionArray*, $PermissionCollection*, $PermissionCollection*)},
+		{"getMinimum", "(ILjava/security/PermissionCollection;)[Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(CryptoPermissions, getMinimum, $CryptoPermissionArray*, int32_t, $PermissionCollection*)},
+		{"getPermissionCollection", "(Ljava/lang/String;)Ljava/security/PermissionCollection;", nullptr, 0, $method(CryptoPermissions, getPermissionCollection, $PermissionCollection*, $String*)},
+		{"getPermissionCollection", "(Ljavax/crypto/CryptoPermission;)Ljava/security/PermissionCollection;", nullptr, $PRIVATE, $method(CryptoPermissions, getPermissionCollection, $PermissionCollection*, $CryptoPermission*)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(CryptoPermissions, implies, bool, $Permission*)},
+		{"isEmpty", "()Z", nullptr, 0, $method(CryptoPermissions, isEmpty, bool)},
+		{"load", "(Ljava/io/InputStream;)V", nullptr, 0, $method(CryptoPermissions, load, void, $InputStream*), "java.io.IOException,javax.crypto.CryptoPolicyParser$ParsingException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CryptoPermissions, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CryptoPermissions, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.crypto.CryptoPermissions",
+		"java.security.PermissionCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CryptoPermissions, name, initialize, &classInfo$$, CryptoPermissions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CryptoPermissions);
+	});
 	return class$;
 }
 

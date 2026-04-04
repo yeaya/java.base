@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/BlockCipherParamsCore.h>
-
 #include <java/io/IOException.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/security/spec/InvalidParameterSpecException.h>
@@ -30,38 +29,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _BlockCipherParamsCore_FieldInfo_[] = {
-	{"block_size", "I", nullptr, $PRIVATE, $field(BlockCipherParamsCore, block_size)},
-	{"iv", "[B", nullptr, $PRIVATE, $field(BlockCipherParamsCore, iv)},
-	{"moreSizes", "[I", nullptr, $PRIVATE, $field(BlockCipherParamsCore, moreSizes)},
-	{}
-};
-
-$MethodInfo _BlockCipherParamsCore_MethodInfo_[] = {
-	{"<init>", "(I[I)V", nullptr, $TRANSIENT, $method(BlockCipherParamsCore, init$, void, int32_t, $ints*)},
-	{"getEncoded", "()[B", nullptr, 0, $method(BlockCipherParamsCore, getEncoded, $bytes*), "java.io.IOException"},
-	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, 0, $method(BlockCipherParamsCore, getEncoded, $bytes*, $String*), "java.io.IOException"},
-	{"getParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", 0, $method(BlockCipherParamsCore, getParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
-	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(BlockCipherParamsCore, init, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
-	{"init", "([B)V", nullptr, 0, $method(BlockCipherParamsCore, init, void, $bytes*), "java.io.IOException"},
-	{"init", "([BLjava/lang/String;)V", nullptr, 0, $method(BlockCipherParamsCore, init, void, $bytes*, $String*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BlockCipherParamsCore, toString, $String*)},
-	{}
-};
-
-$ClassInfo _BlockCipherParamsCore_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.BlockCipherParamsCore",
-	"java.lang.Object",
-	nullptr,
-	_BlockCipherParamsCore_FieldInfo_,
-	_BlockCipherParamsCore_MethodInfo_
-};
-
-$Object* allocate$BlockCipherParamsCore($Class* clazz) {
-	return $of($alloc(BlockCipherParamsCore));
-}
-
 void BlockCipherParamsCore::init$(int32_t blksize, $ints* moreSizes) {
 	this->block_size = 0;
 	$set(this, iv, nullptr);
@@ -71,25 +38,19 @@ void BlockCipherParamsCore::init$(int32_t blksize, $ints* moreSizes) {
 }
 
 void BlockCipherParamsCore::init($AlgorithmParameterSpec* paramSpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($IvParameterSpec, paramSpec))) {
 		$throwNew($InvalidParameterSpecException, "Inappropriate parameter specification"_s);
 	}
-	$var($bytes, tmpIv, $nc(($cast($IvParameterSpec, paramSpec)))->getIV());
+	$var($bytes, tmpIv, $nc($cast($IvParameterSpec, paramSpec))->getIV());
 	bool check = ($nc(tmpIv)->length == this->block_size);
 	if (!check && this->moreSizes != nullptr) {
-		{
-			$var($ints, arr$, this->moreSizes);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				int32_t s = arr$->get(i$);
-				{
-					if (tmpIv->length == s) {
-						check = true;
-						break;
-					}
-				}
+		$var($ints, arr$, this->moreSizes);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			int32_t s = arr$->get(i$);
+			if (tmpIv->length == s) {
+				check = true;
+				break;
 			}
 		}
 	}
@@ -101,7 +62,7 @@ void BlockCipherParamsCore::init($AlgorithmParameterSpec* paramSpec) {
 }
 
 void BlockCipherParamsCore::init($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerInputStream, der, $new($DerInputStream, encoded));
 	$var($bytes, tmpIv, der->getOctetString());
 	if (der->available() != 0) {
@@ -142,7 +103,7 @@ $bytes* BlockCipherParamsCore::getEncoded($String* encodingMethod) {
 }
 
 $String* BlockCipherParamsCore::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, LINE_SEP, $System::lineSeparator());
 	$var($String, ivString, $str({LINE_SEP, "    iv:"_s, LINE_SEP, "["_s}));
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
@@ -155,7 +116,34 @@ BlockCipherParamsCore::BlockCipherParamsCore() {
 }
 
 $Class* BlockCipherParamsCore::load$($String* name, bool initialize) {
-	$loadClass(BlockCipherParamsCore, name, initialize, &_BlockCipherParamsCore_ClassInfo_, allocate$BlockCipherParamsCore);
+	$FieldInfo fieldInfos$$[] = {
+		{"block_size", "I", nullptr, $PRIVATE, $field(BlockCipherParamsCore, block_size)},
+		{"iv", "[B", nullptr, $PRIVATE, $field(BlockCipherParamsCore, iv)},
+		{"moreSizes", "[I", nullptr, $PRIVATE, $field(BlockCipherParamsCore, moreSizes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[I)V", nullptr, $TRANSIENT, $method(BlockCipherParamsCore, init$, void, int32_t, $ints*)},
+		{"getEncoded", "()[B", nullptr, 0, $method(BlockCipherParamsCore, getEncoded, $bytes*), "java.io.IOException"},
+		{"getEncoded", "(Ljava/lang/String;)[B", nullptr, 0, $method(BlockCipherParamsCore, getEncoded, $bytes*, $String*), "java.io.IOException"},
+		{"getParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", 0, $method(BlockCipherParamsCore, getParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+		{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(BlockCipherParamsCore, init, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+		{"init", "([B)V", nullptr, 0, $method(BlockCipherParamsCore, init, void, $bytes*), "java.io.IOException"},
+		{"init", "([BLjava/lang/String;)V", nullptr, 0, $method(BlockCipherParamsCore, init, void, $bytes*, $String*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BlockCipherParamsCore, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.BlockCipherParamsCore",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BlockCipherParamsCore, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BlockCipherParamsCore);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/provider/HmacDrbg.h>
-
 #include <java/lang/InternalError.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -23,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $NoSuchProviderException = ::java::security::NoSuchProviderException;
 using $SecureRandomParameters = ::java::security::SecureRandomParameters;
@@ -36,42 +34,10 @@ using $Mac = ::javax::crypto::Mac;
 using $SecretKeySpec = ::javax::crypto::spec::SecretKeySpec;
 using $AbstractDrbg = ::sun::security::provider::AbstractDrbg;
 using $AbstractHashDrbg = ::sun::security::provider::AbstractHashDrbg;
-using $Debug = ::sun::security::util::Debug;
 
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _HmacDrbg_FieldInfo_[] = {
-	{"mac", "Ljavax/crypto/Mac;", nullptr, $PRIVATE, $field(HmacDrbg, mac)},
-	{"macAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HmacDrbg, macAlg)},
-	{"v", "[B", nullptr, $PRIVATE, $field(HmacDrbg, v)},
-	{"k", "[B", nullptr, $PRIVATE, $field(HmacDrbg, k)},
-	{}
-};
-
-$MethodInfo _HmacDrbg_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(HmacDrbg, init$, void, $SecureRandomParameters*)},
-	{"generateAlgorithm", "([B[B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HmacDrbg, generateAlgorithm, void, $bytes*, $bytes*)},
-	{"hashReseedInternal", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PROTECTED | $FINAL | $SYNCHRONIZED, $virtualMethod(HmacDrbg, hashReseedInternal, void, $List*)},
-	{"initEngine", "()V", nullptr, $PROTECTED, $virtualMethod(HmacDrbg, initEngine, void)},
-	{"status", "()V", nullptr, $PRIVATE, $method(HmacDrbg, status, void)},
-	{"update", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PRIVATE, $method(HmacDrbg, update, void, $List*)},
-	{}
-};
-
-$ClassInfo _HmacDrbg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.HmacDrbg",
-	"sun.security.provider.AbstractHashDrbg",
-	nullptr,
-	_HmacDrbg_FieldInfo_,
-	_HmacDrbg_MethodInfo_
-};
-
-$Object* allocate$HmacDrbg($Class* clazz) {
-	return $of($alloc(HmacDrbg));
-}
 
 void HmacDrbg::init$($SecureRandomParameters* params) {
 	$AbstractHashDrbg::init$();
@@ -80,56 +46,56 @@ void HmacDrbg::init$($SecureRandomParameters* params) {
 }
 
 void HmacDrbg::status() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AbstractDrbg);
 	if ($AbstractDrbg::debug != nullptr) {
-		$nc($AbstractDrbg::debug)->println($of(this), $$str({"V = "_s, $($nc($($HexFormat::of()))->formatHex(this->v))}));
-		$nc($AbstractDrbg::debug)->println($of(this), $$str({"Key = "_s, $($nc($($HexFormat::of()))->formatHex(this->k))}));
-		$nc($AbstractDrbg::debug)->println($of(this), $$str({"reseed counter = "_s, $$str(this->reseedCounter)}));
+		$AbstractDrbg::debug->println(this, $$str({"V = "_s, $($$nc($HexFormat::of())->formatHex(this->v))}));
+		$AbstractDrbg::debug->println(this, $$str({"Key = "_s, $($$nc($HexFormat::of())->formatHex(this->k))}));
+		$AbstractDrbg::debug->println(this, $$str({"reseed counter = "_s, $$str(this->reseedCounter)}));
 	}
 }
 
 void HmacDrbg::update($List* inputs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(this->mac)->init($$new($SecretKeySpec, this->k, this->macAlg));
-		$nc(this->mac)->update(this->v);
-		$nc(this->mac)->update((int8_t)0);
+		this->mac->update(this->v);
+		this->mac->update((int8_t)0);
 		{
 			$var($Iterator, i$, $nc(inputs)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($bytes, input, $cast($bytes, i$->next()));
 				{
-					$nc(this->mac)->update(input);
+					this->mac->update(input);
 				}
 			}
 		}
-		$set(this, k, $nc(this->mac)->doFinal());
-		$nc(this->mac)->init($$new($SecretKeySpec, this->k, this->macAlg));
-		$set(this, v, $nc(this->mac)->doFinal(this->v));
+		$set(this, k, this->mac->doFinal());
+		this->mac->init($$new($SecretKeySpec, this->k, this->macAlg));
+		$set(this, v, this->mac->doFinal(this->v));
 		if (!inputs->isEmpty()) {
-			$nc(this->mac)->update(this->v);
-			$nc(this->mac)->update((int8_t)1);
+			this->mac->update(this->v);
+			this->mac->update((int8_t)1);
 			{
 				$var($Iterator, i$, inputs->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($bytes, input, $cast($bytes, i$->next()));
 					{
-						$nc(this->mac)->update(input);
+						this->mac->update(input);
 					}
 				}
 			}
-			$set(this, k, $nc(this->mac)->doFinal());
-			$nc(this->mac)->init($$new($SecretKeySpec, this->k, this->macAlg));
-			$set(this, v, $nc(this->mac)->doFinal(this->v));
+			$set(this, k, this->mac->doFinal());
+			this->mac->init($$new($SecretKeySpec, this->k, this->macAlg));
+			$set(this, v, this->mac->doFinal(this->v));
 		}
 	} catch ($InvalidKeyException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 }
 
 void HmacDrbg::initEngine() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, macAlg, $str({"HmacSHA"_s, $($nc(this->algorithm)->substring(4))}));
 	try {
 		$set(this, mac, $Mac::getInstance(this->macAlg, "SunJCE"_s));
@@ -162,10 +128,10 @@ void HmacDrbg::hashReseedInternal($List* input) {
 
 void HmacDrbg::generateAlgorithm($bytes* result, $bytes* additionalInput) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$init($AbstractDrbg);
 		if ($AbstractDrbg::debug != nullptr) {
-			$nc($AbstractDrbg::debug)->println($of(this), "generateAlgorithm"_s);
+			$AbstractDrbg::debug->println(this, "generateAlgorithm"_s);
 		}
 		if (additionalInput != nullptr) {
 			update($($Collections::singletonList(additionalInput)));
@@ -176,7 +142,7 @@ void HmacDrbg::generateAlgorithm($bytes* result, $bytes* additionalInput) {
 			try {
 				$nc(this->mac)->init($$new($SecretKeySpec, this->k, this->macAlg));
 			} catch ($InvalidKeyException& e) {
-				$throwNew($InternalError, static_cast<$Throwable*>(e));
+				$throwNew($InternalError, e);
 			}
 			$set(this, v, $nc(this->mac)->doFinal(this->v));
 			$System::arraycopy(this->v, 0, result, pos, len > this->outLen ? this->outLen : len);
@@ -199,7 +165,33 @@ HmacDrbg::HmacDrbg() {
 }
 
 $Class* HmacDrbg::load$($String* name, bool initialize) {
-	$loadClass(HmacDrbg, name, initialize, &_HmacDrbg_ClassInfo_, allocate$HmacDrbg);
+	$FieldInfo fieldInfos$$[] = {
+		{"mac", "Ljavax/crypto/Mac;", nullptr, $PRIVATE, $field(HmacDrbg, mac)},
+		{"macAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HmacDrbg, macAlg)},
+		{"v", "[B", nullptr, $PRIVATE, $field(HmacDrbg, v)},
+		{"k", "[B", nullptr, $PRIVATE, $field(HmacDrbg, k)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(HmacDrbg, init$, void, $SecureRandomParameters*)},
+		{"generateAlgorithm", "([B[B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HmacDrbg, generateAlgorithm, void, $bytes*, $bytes*)},
+		{"hashReseedInternal", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PROTECTED | $FINAL | $SYNCHRONIZED, $virtualMethod(HmacDrbg, hashReseedInternal, void, $List*)},
+		{"initEngine", "()V", nullptr, $PROTECTED, $virtualMethod(HmacDrbg, initEngine, void)},
+		{"status", "()V", nullptr, $PRIVATE, $method(HmacDrbg, status, void)},
+		{"update", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PRIVATE, $method(HmacDrbg, update, void, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.HmacDrbg",
+		"sun.security.provider.AbstractHashDrbg",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HmacDrbg, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HmacDrbg);
+	});
 	return class$;
 }
 

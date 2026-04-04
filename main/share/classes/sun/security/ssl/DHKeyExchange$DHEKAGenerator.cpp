@@ -1,5 +1,4 @@
 #include <sun/security/ssl/DHKeyExchange$DHEKAGenerator.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/PrivateKey.h>
 #include <java/security/PublicKey.h>
@@ -28,62 +27,20 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
-using $PublicKey = ::java::security::PublicKey;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $DHPublicKey = ::javax::crypto::interfaces::DHPublicKey;
 using $DHParameterSpec = ::javax::crypto::spec::DHParameterSpec;
 using $Alert = ::sun::security::ssl::Alert;
 using $DHKeyExchange$DHECredentials = ::sun::security::ssl::DHKeyExchange$DHECredentials;
 using $DHKeyExchange$DHEPossession = ::sun::security::ssl::DHKeyExchange$DHEPossession;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $KAKeyDerivation = ::sun::security::ssl::KAKeyDerivation;
-using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _DHKeyExchange$DHEKAGenerator_FieldInfo_[] = {
-	{"instance", "Lsun/security/ssl/DHKeyExchange$DHEKAGenerator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DHKeyExchange$DHEKAGenerator, instance)},
-	{}
-};
-
-$MethodInfo _DHKeyExchange$DHEKAGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DHKeyExchange$DHEKAGenerator, init$, void)},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEKAGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DHKeyExchange$DHEKAGenerator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.DHKeyExchange$DHEKAGenerator", "sun.security.ssl.DHKeyExchange", "DHEKAGenerator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DHKeyExchange$DHEKAGenerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.DHKeyExchange$DHEKAGenerator",
-	"java.lang.Object",
-	"sun.security.ssl.SSLKeyAgreementGenerator",
-	_DHKeyExchange$DHEKAGenerator_FieldInfo_,
-	_DHKeyExchange$DHEKAGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DHKeyExchange$DHEKAGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.DHKeyExchange"
-};
-
-$Object* allocate$DHKeyExchange$DHEKAGenerator($Class* clazz) {
-	return $of($alloc(DHKeyExchange$DHEKAGenerator));
-}
 
 DHKeyExchange$DHEKAGenerator* DHKeyExchange$DHEKAGenerator::instance = nullptr;
 
@@ -91,7 +48,7 @@ void DHKeyExchange$DHEKAGenerator::init$() {
 }
 
 $SSLKeyDerivation* DHKeyExchange$DHEKAGenerator::createKeyDerivation($HandshakeContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DHKeyExchange$DHEPossession, dhePossession, nullptr);
 	$var($DHKeyExchange$DHECredentials, dheCredentials, nullptr);
 	{
@@ -119,9 +76,9 @@ $SSLKeyDerivation* DHKeyExchange$DHEKAGenerator::createKeyDerivation($HandshakeC
 								}
 							} else {
 								$var($DHParameterSpec, pps, $nc(dhep->publicKey)->getParams());
-								$var($DHParameterSpec, cps, $nc(dhec->popPublicKey)->getParams());
-								bool var$0 = $nc($($nc(pps)->getP()))->equals($($nc(cps)->getP()));
-								if (var$0 && $nc($(pps->getG()))->equals($($nc(cps)->getG()))) {
+								$var($DHParameterSpec, cps, $nc($nc(dhec)->popPublicKey)->getParams());
+								bool var$0 = $$nc($nc(pps)->getP())->equals($($nc(cps)->getP()));
+								if (var$0 && $$nc(pps->getG())->equals($(cps->getG()))) {
 									$assign(dheCredentials, $cast($DHKeyExchange$DHECredentials, cred));
 									break;
 								}
@@ -143,7 +100,7 @@ $SSLKeyDerivation* DHKeyExchange$DHEKAGenerator::createKeyDerivation($HandshakeC
 	return $new($KAKeyDerivation, "DiffieHellman"_s, context, $nc(dhePossession)->privateKey, $nc(dheCredentials)->popPublicKey);
 }
 
-void clinit$DHKeyExchange$DHEKAGenerator($Class* class$) {
+void DHKeyExchange$DHEKAGenerator::clinit$($Class* clazz) {
 	$assignStatic(DHKeyExchange$DHEKAGenerator::instance, $new(DHKeyExchange$DHEKAGenerator));
 }
 
@@ -151,7 +108,37 @@ DHKeyExchange$DHEKAGenerator::DHKeyExchange$DHEKAGenerator() {
 }
 
 $Class* DHKeyExchange$DHEKAGenerator::load$($String* name, bool initialize) {
-	$loadClass(DHKeyExchange$DHEKAGenerator, name, initialize, &_DHKeyExchange$DHEKAGenerator_ClassInfo_, clinit$DHKeyExchange$DHEKAGenerator, allocate$DHKeyExchange$DHEKAGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lsun/security/ssl/DHKeyExchange$DHEKAGenerator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DHKeyExchange$DHEKAGenerator, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DHKeyExchange$DHEKAGenerator, init$, void)},
+		{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEKAGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.DHKeyExchange$DHEKAGenerator", "sun.security.ssl.DHKeyExchange", "DHEKAGenerator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.DHKeyExchange$DHEKAGenerator",
+		"java.lang.Object",
+		"sun.security.ssl.SSLKeyAgreementGenerator",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.DHKeyExchange"
+	};
+	$loadClass(DHKeyExchange$DHEKAGenerator, name, initialize, &classInfo$$, DHKeyExchange$DHEKAGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DHKeyExchange$DHEKAGenerator);
+	});
 	return class$;
 }
 

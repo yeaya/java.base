@@ -33,6 +33,7 @@ class UnsafeFieldAccessorImpl : public ::jdk::internal::reflect::FieldAccessorIm
 	$class(UnsafeFieldAccessorImpl, $PRELOAD, ::jdk::internal::reflect::FieldAccessorImpl)
 public:
 	UnsafeFieldAccessorImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::Field* field);
 	virtual void ensureObj(Object$* o);
 	$String* getQualifiedFieldName();

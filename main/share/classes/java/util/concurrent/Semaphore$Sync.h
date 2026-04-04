@@ -19,7 +19,7 @@ public:
 	int32_t nonfairTryAcquireShared(int32_t acquires);
 	void reducePermits(int32_t reductions);
 	virtual bool tryReleaseShared(int32_t releases) override;
-	static const int64_t serialVersionUID = (int64_t)0x108C7583C161B715;
+	static const int64_t serialVersionUID = (int64_t)0x108c7583c161b715;
 };
 
 		} // concurrent

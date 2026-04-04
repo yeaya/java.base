@@ -1,5 +1,4 @@
 #include <sun/nio/ch/NativeSocketAddress.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
 #include <java/lang/OutOfMemoryError.h>
@@ -67,87 +66,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _NativeSocketAddress_FieldInfo_[] = {
-	{"JNINA", "Ljdk/internal/access/JavaNetInetAddressAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, JNINA)},
-	{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, UNSAFE)},
-	{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, ARRAY_BASE_OFFSET)},
-	{"AF_INET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, AF_INET)},
-	{"AF_INET6", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, AF_INET6)},
-	{"SIZEOF_SOCKADDR4", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, SIZEOF_SOCKADDR4)},
-	{"SIZEOF_SOCKADDR6", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, SIZEOF_SOCKADDR6)},
-	{"SIZEOF_SOCKETADDRESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, SIZEOF_SOCKETADDRESS)},
-	{"SIZEOF_FAMILY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, SIZEOF_FAMILY)},
-	{"OFFSET_FAMILY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_FAMILY)},
-	{"OFFSET_SIN4_PORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN4_PORT)},
-	{"OFFSET_SIN4_ADDR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN4_ADDR)},
-	{"OFFSET_SIN6_PORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN6_PORT)},
-	{"OFFSET_SIN6_ADDR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN6_ADDR)},
-	{"OFFSET_SIN6_SCOPE_ID", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN6_SCOPE_ID)},
-	{"OFFSET_SIN6_FLOWINFO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN6_FLOWINFO)},
-	{"address", "J", nullptr, $PRIVATE | $FINAL, $field(NativeSocketAddress, address$)},
-	{}
-};
-
-$MethodInfo _NativeSocketAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NativeSocketAddress, init$, void)},
-	{"AFINET", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, AFINET, int32_t)},
-	{"AFINET6", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, AFINET6, int32_t)},
-	{"address", "()J", nullptr, 0, $virtualMethod(NativeSocketAddress, address, int64_t)},
-	{"address", "(I)Ljava/net/InetAddress;", nullptr, $PRIVATE, $method(NativeSocketAddress, address, $InetAddress*, int32_t)},
-	{"allocate", "(I)[Lsun/nio/ch/NativeSocketAddress;", nullptr, $STATIC, $staticMethod(NativeSocketAddress, allocate, $NativeSocketAddressArray*, int32_t)},
-	{"decode", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(NativeSocketAddress, decode, $InetSocketAddress*), "java.net.SocketException"},
-	{"encode", "(Ljava/net/ProtocolFamily;Ljava/net/InetSocketAddress;)I", nullptr, 0, $virtualMethod(NativeSocketAddress, encode, int32_t, $ProtocolFamily*, $InetSocketAddress*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NativeSocketAddress, equals, bool, Object$*)},
-	{"family", "()I", nullptr, $PRIVATE, $method(NativeSocketAddress, family, int32_t)},
-	{"freeAll", "([Lsun/nio/ch/NativeSocketAddress;)V", nullptr, $STATIC, $staticMethod(NativeSocketAddress, freeAll, void, $NativeSocketAddressArray*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NativeSocketAddress, hashCode, int32_t)},
-	{"mismatch", "(Lsun/nio/ch/NativeSocketAddress;)I", nullptr, $PRIVATE, $method(NativeSocketAddress, mismatch, int32_t, NativeSocketAddress*)},
-	{"offsetFamily", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetFamily, int32_t)},
-	{"offsetSin4Addr", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin4Addr, int32_t)},
-	{"offsetSin4Port", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin4Port, int32_t)},
-	{"offsetSin6Addr", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin6Addr, int32_t)},
-	{"offsetSin6FlowInfo", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin6FlowInfo, int32_t)},
-	{"offsetSin6Port", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin6Port, int32_t)},
-	{"offsetSin6ScopeId", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin6ScopeId, int32_t)},
-	{"port", "(I)I", nullptr, $PRIVATE, $method(NativeSocketAddress, port, int32_t, int32_t)},
-	{"putAddress", "(ILjava/net/InetAddress;)V", nullptr, $PRIVATE, $method(NativeSocketAddress, putAddress, void, int32_t, $InetAddress*)},
-	{"putAddress", "(JLjava/net/Inet4Address;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeSocketAddress, putAddress, void, int64_t, $Inet4Address*)},
-	{"putAddress", "(JLjava/net/Inet6Address;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeSocketAddress, putAddress, void, int64_t, $Inet6Address*)},
-	{"putFamily", "(I)V", nullptr, $PRIVATE, $method(NativeSocketAddress, putFamily, void, int32_t)},
-	{"putPort", "(II)V", nullptr, $PRIVATE, $method(NativeSocketAddress, putPort, void, int32_t, int32_t)},
-	{"sizeofFamily", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, sizeofFamily, int32_t)},
-	{"sizeofSockAddr4", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, sizeofSockAddr4, int32_t)},
-	{"sizeofSockAddr6", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, sizeofSockAddr6, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NativeSocketAddress, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_AFINET 1
-#define _METHOD_INDEX_AFINET6 2
-#define _METHOD_INDEX_offsetFamily 13
-#define _METHOD_INDEX_offsetSin4Addr 14
-#define _METHOD_INDEX_offsetSin4Port 15
-#define _METHOD_INDEX_offsetSin6Addr 16
-#define _METHOD_INDEX_offsetSin6FlowInfo 17
-#define _METHOD_INDEX_offsetSin6Port 18
-#define _METHOD_INDEX_offsetSin6ScopeId 19
-#define _METHOD_INDEX_sizeofFamily 26
-#define _METHOD_INDEX_sizeofSockAddr4 27
-#define _METHOD_INDEX_sizeofSockAddr6 28
-
-$ClassInfo _NativeSocketAddress_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.NativeSocketAddress",
-	"java.lang.Object",
-	nullptr,
-	_NativeSocketAddress_FieldInfo_,
-	_NativeSocketAddress_MethodInfo_
-};
-
-$Object* allocate$NativeSocketAddress($Class* clazz) {
-	return $of($alloc(NativeSocketAddress));
-}
-
 $JavaNetInetAddressAccess* NativeSocketAddress::JNINA = nullptr;
 $Unsafe* NativeSocketAddress::UNSAFE = nullptr;
 int64_t NativeSocketAddress::ARRAY_BASE_OFFSET = 0;
@@ -171,13 +89,13 @@ int64_t NativeSocketAddress::address() {
 
 void NativeSocketAddress::init$() {
 	int64_t base = $nc(NativeSocketAddress::UNSAFE)->allocateMemory(NativeSocketAddress::SIZEOF_SOCKETADDRESS);
-	$nc(NativeSocketAddress::UNSAFE)->setMemory(base, NativeSocketAddress::SIZEOF_SOCKETADDRESS, (int8_t)0);
+	NativeSocketAddress::UNSAFE->setMemory(base, NativeSocketAddress::SIZEOF_SOCKETADDRESS, (int8_t)0);
 	this->address$ = base;
 }
 
 $NativeSocketAddressArray* NativeSocketAddress::allocate(int32_t count) {
 	$init(NativeSocketAddress);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NativeSocketAddressArray, array, $new($NativeSocketAddressArray, count));
 	for (int32_t i = 0; i < count; ++i) {
 		try {
@@ -192,7 +110,7 @@ $NativeSocketAddressArray* NativeSocketAddress::allocate(int32_t count) {
 
 void NativeSocketAddress::freeAll($NativeSocketAddressArray* array) {
 	$init(NativeSocketAddress);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(array)->length; ++i) {
 		$var(NativeSocketAddress, sa, array->get(i));
 		if (sa != nullptr) {
@@ -202,7 +120,7 @@ void NativeSocketAddress::freeAll($NativeSocketAddressArray* array) {
 }
 
 int32_t NativeSocketAddress::encode($ProtocolFamily* protocolFamily, $InetSocketAddress* isa) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StandardProtocolFamily);
 	if ($equals(protocolFamily, $StandardProtocolFamily::INET)) {
 		$var($InetAddress, ia, $nc(isa)->getAddress());
@@ -216,7 +134,7 @@ int32_t NativeSocketAddress::encode($ProtocolFamily* protocolFamily, $InetSocket
 	} else {
 		putFamily(NativeSocketAddress::AF_INET6);
 		putAddress(NativeSocketAddress::AF_INET6, $($nc(isa)->getAddress()));
-		putPort(NativeSocketAddress::AF_INET6, $nc(isa)->getPort());
+		putPort(NativeSocketAddress::AF_INET6, isa->getPort());
 		$nc(NativeSocketAddress::UNSAFE)->putInt(this->address$ + NativeSocketAddress::OFFSET_SIN6_FLOWINFO, 0);
 		return NativeSocketAddress::SIZEOF_SOCKADDR6;
 	}
@@ -240,7 +158,7 @@ int32_t NativeSocketAddress::mismatch(NativeSocketAddress* other) {
 	i = NativeSocketAddress::SIZEOF_SOCKETADDRESS - ~i;
 	for (; i < NativeSocketAddress::SIZEOF_SOCKETADDRESS; ++i) {
 		int8_t var$0 = $nc(NativeSocketAddress::UNSAFE)->getByte(this->address$ + i);
-		if (var$0 != $nc(NativeSocketAddress::UNSAFE)->getByte($nc(other)->address$ + i)) {
+		if (var$0 != NativeSocketAddress::UNSAFE->getByte(other->address$ + i)) {
 			return i;
 		}
 	}
@@ -264,11 +182,16 @@ int32_t NativeSocketAddress::hashCode() {
 }
 
 $String* NativeSocketAddress::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t family = this->family();
 	if (family == NativeSocketAddress::AF_INET || family == NativeSocketAddress::AF_INET6) {
-		$var($String, var$0, $$str({((family == NativeSocketAddress::AF_INET) ? "AF_INET"_s : "AF_INET6"_s), ", address="_s, $(address(family)), ", port="_s}));
-		return $concat(var$0, $$str(port(family)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append((family == NativeSocketAddress::AF_INET) ? "AF_INET"_s : "AF_INET6"_s);
+		var$0->append(", address="_s);
+		var$0->append($(address(family)));
+		var$0->append(", port="_s);
+		var$0->append(port(family));
+		return $str(var$0);
 	} else {
 		return "<unknown>"_s;
 	}
@@ -299,24 +222,24 @@ int32_t NativeSocketAddress::port(int32_t family) {
 	int8_t b2 = 0;
 	if (family == NativeSocketAddress::AF_INET) {
 		b1 = $nc(NativeSocketAddress::UNSAFE)->getByte(this->address$ + NativeSocketAddress::OFFSET_SIN4_PORT);
-		b2 = $nc(NativeSocketAddress::UNSAFE)->getByte(this->address$ + NativeSocketAddress::OFFSET_SIN4_PORT + 1);
+		b2 = NativeSocketAddress::UNSAFE->getByte(this->address$ + NativeSocketAddress::OFFSET_SIN4_PORT + 1);
 	} else {
 		b1 = $nc(NativeSocketAddress::UNSAFE)->getByte(this->address$ + NativeSocketAddress::OFFSET_SIN6_PORT);
-		b2 = $nc(NativeSocketAddress::UNSAFE)->getByte(this->address$ + NativeSocketAddress::OFFSET_SIN6_PORT + 1);
+		b2 = NativeSocketAddress::UNSAFE->getByte(this->address$ + NativeSocketAddress::OFFSET_SIN6_PORT + 1);
 	}
-	int32_t var$0 = ($Byte::toUnsignedInt(b1) << 8);
+	int32_t var$0 = $Byte::toUnsignedInt(b1) << 8;
 	return var$0 + $Byte::toUnsignedInt(b2);
 }
 
 void NativeSocketAddress::putPort(int32_t family, int32_t port) {
-	int8_t b1 = (int8_t)((int32_t)((port >> 8) & (uint32_t)255));
-	int8_t b2 = (int8_t)((int32_t)((port >> 0) & (uint32_t)255));
+	int8_t b1 = (int8_t)((port >> 8) & 0xff);
+	int8_t b2 = (int8_t)((port >> 0) & 0xff);
 	if (family == NativeSocketAddress::AF_INET) {
 		$nc(NativeSocketAddress::UNSAFE)->putByte(this->address$ + NativeSocketAddress::OFFSET_SIN4_PORT, b1);
-		$nc(NativeSocketAddress::UNSAFE)->putByte(this->address$ + NativeSocketAddress::OFFSET_SIN4_PORT + 1, b2);
+		NativeSocketAddress::UNSAFE->putByte(this->address$ + NativeSocketAddress::OFFSET_SIN4_PORT + 1, b2);
 	} else {
 		$nc(NativeSocketAddress::UNSAFE)->putByte(this->address$ + NativeSocketAddress::OFFSET_SIN6_PORT, b1);
-		$nc(NativeSocketAddress::UNSAFE)->putByte(this->address$ + NativeSocketAddress::OFFSET_SIN6_PORT + 1, b2);
+		NativeSocketAddress::UNSAFE->putByte(this->address$ + NativeSocketAddress::OFFSET_SIN6_PORT + 1, b2);
 	}
 }
 
@@ -339,10 +262,10 @@ $InetAddress* NativeSocketAddress::address(int32_t family) {
 		if (scope_id == 0) {
 			return $InetAddress::getByAddress(bytes);
 		} else {
-			return $Inet6Address::getByAddress(($String*)nullptr, bytes, scope_id);
+			return $Inet6Address::getByAddress(nullptr, bytes, scope_id);
 		}
 	} catch ($UnknownHostException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -354,8 +277,8 @@ void NativeSocketAddress::putAddress(int32_t family, $InetAddress* ia) {
 		int32_t scope_id = 0;
 		if ($instanceOf($Inet4Address, ia)) {
 			$nc(NativeSocketAddress::UNSAFE)->setMemory(this->address$ + NativeSocketAddress::OFFSET_SIN6_ADDR, 10, (int8_t)0);
-			$nc(NativeSocketAddress::UNSAFE)->putByte(this->address$ + NativeSocketAddress::OFFSET_SIN6_ADDR + 10, (int8_t)255);
-			$nc(NativeSocketAddress::UNSAFE)->putByte(this->address$ + NativeSocketAddress::OFFSET_SIN6_ADDR + 11, (int8_t)255);
+			NativeSocketAddress::UNSAFE->putByte(this->address$ + NativeSocketAddress::OFFSET_SIN6_ADDR + 10, (int8_t)255);
+			NativeSocketAddress::UNSAFE->putByte(this->address$ + NativeSocketAddress::OFFSET_SIN6_ADDR + 11, (int8_t)255);
 			putAddress(this->address$ + NativeSocketAddress::OFFSET_SIN6_ADDR + 12, $cast($Inet4Address, ia));
 			scope_id = 0;
 		} else {
@@ -370,10 +293,10 @@ void NativeSocketAddress::putAddress(int32_t family, $InetAddress* ia) {
 void NativeSocketAddress::putAddress(int64_t address, $Inet4Address* ia) {
 	$init(NativeSocketAddress);
 	int32_t ipAddress = $nc(NativeSocketAddress::JNINA)->addressValue(ia);
-	$nc(NativeSocketAddress::UNSAFE)->putByte(address + 0, (int8_t)((int32_t)(((int32_t)((uint32_t)ipAddress >> 24)) & (uint32_t)255)));
-	$nc(NativeSocketAddress::UNSAFE)->putByte(address + 1, (int8_t)((int32_t)(((int32_t)((uint32_t)ipAddress >> 16)) & (uint32_t)255)));
-	$nc(NativeSocketAddress::UNSAFE)->putByte(address + 2, (int8_t)((int32_t)(((int32_t)((uint32_t)ipAddress >> 8)) & (uint32_t)255)));
-	$nc(NativeSocketAddress::UNSAFE)->putByte(address + 3, (int8_t)((int32_t)(ipAddress & (uint32_t)255)));
+	$nc(NativeSocketAddress::UNSAFE)->putByte(address + 0, (int8_t)(((int32_t)((uint32_t)ipAddress >> 24)) & 0xff));
+	NativeSocketAddress::UNSAFE->putByte(address + 1, (int8_t)(((int32_t)((uint32_t)ipAddress >> 16)) & 0xff));
+	NativeSocketAddress::UNSAFE->putByte(address + 2, (int8_t)(((int32_t)((uint32_t)ipAddress >> 8)) & 0xff));
+	NativeSocketAddress::UNSAFE->putByte(address + 3, (int8_t)(ipAddress & 0xff));
 }
 
 void NativeSocketAddress::putAddress(int64_t address, $Inet6Address* ia) {
@@ -384,116 +307,103 @@ void NativeSocketAddress::putAddress(int64_t address, $Inet6Address* ia) {
 
 int32_t NativeSocketAddress::AFINET() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, AFINET, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(AFINET, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t NativeSocketAddress::AFINET6() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, AFINET6, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(AFINET6, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t NativeSocketAddress::sizeofSockAddr4() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, sizeofSockAddr4, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(sizeofSockAddr4, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t NativeSocketAddress::sizeofSockAddr6() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, sizeofSockAddr6, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(sizeofSockAddr6, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t NativeSocketAddress::sizeofFamily() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, sizeofFamily, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(sizeofFamily, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t NativeSocketAddress::offsetFamily() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, offsetFamily, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(offsetFamily, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t NativeSocketAddress::offsetSin4Port() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, offsetSin4Port, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(offsetSin4Port, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t NativeSocketAddress::offsetSin4Addr() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, offsetSin4Addr, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(offsetSin4Addr, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t NativeSocketAddress::offsetSin6Port() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, offsetSin6Port, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(offsetSin6Port, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t NativeSocketAddress::offsetSin6Addr() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, offsetSin6Addr, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(offsetSin6Addr, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t NativeSocketAddress::offsetSin6ScopeId() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, offsetSin6ScopeId, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(offsetSin6ScopeId, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t NativeSocketAddress::offsetSin6FlowInfo() {
 	$init(NativeSocketAddress);
-	int32_t $ret = 0;
-	$prepareNativeStatic(NativeSocketAddress, offsetSin6FlowInfo, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(offsetSin6FlowInfo, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$NativeSocketAddress($Class* class$) {
+void NativeSocketAddress::clinit$($Class* clazz) {
 	$assignStatic(NativeSocketAddress::JNINA, $SharedSecrets::getJavaNetInetAddressAccess());
 	$assignStatic(NativeSocketAddress::UNSAFE, $Unsafe::getUnsafe());
-	$load($bytes);
 	NativeSocketAddress::ARRAY_BASE_OFFSET = $nc(NativeSocketAddress::UNSAFE)->arrayBaseOffset($getClass($bytes));
 	NativeSocketAddress::AF_INET = NativeSocketAddress::AFINET();
 	NativeSocketAddress::AF_INET6 = NativeSocketAddress::AFINET6();
@@ -517,7 +427,70 @@ NativeSocketAddress::NativeSocketAddress() {
 }
 
 $Class* NativeSocketAddress::load$($String* name, bool initialize) {
-	$loadClass(NativeSocketAddress, name, initialize, &_NativeSocketAddress_ClassInfo_, clinit$NativeSocketAddress, allocate$NativeSocketAddress);
+	$FieldInfo fieldInfos$$[] = {
+		{"JNINA", "Ljdk/internal/access/JavaNetInetAddressAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, JNINA)},
+		{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, UNSAFE)},
+		{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, ARRAY_BASE_OFFSET)},
+		{"AF_INET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, AF_INET)},
+		{"AF_INET6", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, AF_INET6)},
+		{"SIZEOF_SOCKADDR4", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, SIZEOF_SOCKADDR4)},
+		{"SIZEOF_SOCKADDR6", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, SIZEOF_SOCKADDR6)},
+		{"SIZEOF_SOCKETADDRESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, SIZEOF_SOCKETADDRESS)},
+		{"SIZEOF_FAMILY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, SIZEOF_FAMILY)},
+		{"OFFSET_FAMILY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_FAMILY)},
+		{"OFFSET_SIN4_PORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN4_PORT)},
+		{"OFFSET_SIN4_ADDR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN4_ADDR)},
+		{"OFFSET_SIN6_PORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN6_PORT)},
+		{"OFFSET_SIN6_ADDR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN6_ADDR)},
+		{"OFFSET_SIN6_SCOPE_ID", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN6_SCOPE_ID)},
+		{"OFFSET_SIN6_FLOWINFO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeSocketAddress, OFFSET_SIN6_FLOWINFO)},
+		{"address", "J", nullptr, $PRIVATE | $FINAL, $field(NativeSocketAddress, address$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NativeSocketAddress, init$, void)},
+		{"AFINET", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, AFINET, int32_t)},
+		{"AFINET6", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, AFINET6, int32_t)},
+		{"address", "()J", nullptr, 0, $virtualMethod(NativeSocketAddress, address, int64_t)},
+		{"address", "(I)Ljava/net/InetAddress;", nullptr, $PRIVATE, $method(NativeSocketAddress, address, $InetAddress*, int32_t)},
+		{"allocate", "(I)[Lsun/nio/ch/NativeSocketAddress;", nullptr, $STATIC, $staticMethod(NativeSocketAddress, allocate, $NativeSocketAddressArray*, int32_t)},
+		{"decode", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(NativeSocketAddress, decode, $InetSocketAddress*), "java.net.SocketException"},
+		{"encode", "(Ljava/net/ProtocolFamily;Ljava/net/InetSocketAddress;)I", nullptr, 0, $virtualMethod(NativeSocketAddress, encode, int32_t, $ProtocolFamily*, $InetSocketAddress*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NativeSocketAddress, equals, bool, Object$*)},
+		{"family", "()I", nullptr, $PRIVATE, $method(NativeSocketAddress, family, int32_t)},
+		{"freeAll", "([Lsun/nio/ch/NativeSocketAddress;)V", nullptr, $STATIC, $staticMethod(NativeSocketAddress, freeAll, void, $NativeSocketAddressArray*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NativeSocketAddress, hashCode, int32_t)},
+		{"mismatch", "(Lsun/nio/ch/NativeSocketAddress;)I", nullptr, $PRIVATE, $method(NativeSocketAddress, mismatch, int32_t, NativeSocketAddress*)},
+		{"offsetFamily", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetFamily, int32_t)},
+		{"offsetSin4Addr", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin4Addr, int32_t)},
+		{"offsetSin4Port", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin4Port, int32_t)},
+		{"offsetSin6Addr", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin6Addr, int32_t)},
+		{"offsetSin6FlowInfo", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin6FlowInfo, int32_t)},
+		{"offsetSin6Port", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin6Port, int32_t)},
+		{"offsetSin6ScopeId", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, offsetSin6ScopeId, int32_t)},
+		{"port", "(I)I", nullptr, $PRIVATE, $method(NativeSocketAddress, port, int32_t, int32_t)},
+		{"putAddress", "(ILjava/net/InetAddress;)V", nullptr, $PRIVATE, $method(NativeSocketAddress, putAddress, void, int32_t, $InetAddress*)},
+		{"putAddress", "(JLjava/net/Inet4Address;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeSocketAddress, putAddress, void, int64_t, $Inet4Address*)},
+		{"putAddress", "(JLjava/net/Inet6Address;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeSocketAddress, putAddress, void, int64_t, $Inet6Address*)},
+		{"putFamily", "(I)V", nullptr, $PRIVATE, $method(NativeSocketAddress, putFamily, void, int32_t)},
+		{"putPort", "(II)V", nullptr, $PRIVATE, $method(NativeSocketAddress, putPort, void, int32_t, int32_t)},
+		{"sizeofFamily", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, sizeofFamily, int32_t)},
+		{"sizeofSockAddr4", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, sizeofSockAddr4, int32_t)},
+		{"sizeofSockAddr6", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSocketAddress, sizeofSockAddr6, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NativeSocketAddress, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.NativeSocketAddress",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NativeSocketAddress, name, initialize, &classInfo$$, NativeSocketAddress::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeSocketAddress);
+	});
 	return class$;
 }
 

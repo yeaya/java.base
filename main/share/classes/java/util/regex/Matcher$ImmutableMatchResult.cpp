@@ -1,12 +1,10 @@
 #include <java/util/regex/Matcher$ImmutableMatchResult.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/regex/Matcher.h>
 #include <jcpp.h>
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -17,53 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace regex {
-
-$FieldInfo _Matcher$ImmutableMatchResult_FieldInfo_[] = {
-	{"first", "I", nullptr, $PRIVATE | $FINAL, $field(Matcher$ImmutableMatchResult, first)},
-	{"last", "I", nullptr, $PRIVATE | $FINAL, $field(Matcher$ImmutableMatchResult, last)},
-	{"groups", "[I", nullptr, $PRIVATE | $FINAL, $field(Matcher$ImmutableMatchResult, groups)},
-	{"groupCount", "I", nullptr, $PRIVATE | $FINAL, $field(Matcher$ImmutableMatchResult, groupCount$)},
-	{"text", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Matcher$ImmutableMatchResult, text)},
-	{}
-};
-
-$MethodInfo _Matcher$ImmutableMatchResult_MethodInfo_[] = {
-	{"<init>", "(III[ILjava/lang/String;)V", nullptr, 0, $method(Matcher$ImmutableMatchResult, init$, void, int32_t, int32_t, int32_t, $ints*, $String*)},
-	{"checkMatch", "()V", nullptr, $PRIVATE, $method(Matcher$ImmutableMatchResult, checkMatch, void)},
-	{"end", "()I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, end, int32_t)},
-	{"end", "(I)I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, end, int32_t, int32_t)},
-	{"group", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, group, $String*)},
-	{"group", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, group, $String*, int32_t)},
-	{"groupCount", "()I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, groupCount, int32_t)},
-	{"start", "()I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, start, int32_t)},
-	{"start", "(I)I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, start, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Matcher$ImmutableMatchResult_InnerClassesInfo_[] = {
-	{"java.util.regex.Matcher$ImmutableMatchResult", "java.util.regex.Matcher", "ImmutableMatchResult", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Matcher$ImmutableMatchResult_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Matcher$ImmutableMatchResult",
-	"java.lang.Object",
-	"java.util.regex.MatchResult",
-	_Matcher$ImmutableMatchResult_FieldInfo_,
-	_Matcher$ImmutableMatchResult_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Matcher$ImmutableMatchResult_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Matcher"
-};
-
-$Object* allocate$Matcher$ImmutableMatchResult($Class* clazz) {
-	return $of($alloc(Matcher$ImmutableMatchResult));
-}
 
 void Matcher$ImmutableMatchResult::init$(int32_t first, int32_t last, int32_t groupCount, $ints* groups, $String* text) {
 	this->first = first;
@@ -79,7 +30,7 @@ int32_t Matcher$ImmutableMatchResult::start() {
 }
 
 int32_t Matcher$ImmutableMatchResult::start(int32_t group) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkMatch();
 	if (group < 0 || group > this->groupCount$) {
 		$throwNew($IndexOutOfBoundsException, $$str({"No group "_s, $$str(group)}));
@@ -93,7 +44,7 @@ int32_t Matcher$ImmutableMatchResult::end() {
 }
 
 int32_t Matcher$ImmutableMatchResult::end(int32_t group) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkMatch();
 	if (group < 0 || group > this->groupCount$) {
 		$throwNew($IndexOutOfBoundsException, $$str({"No group "_s, $$str(group)}));
@@ -111,15 +62,15 @@ $String* Matcher$ImmutableMatchResult::group() {
 }
 
 $String* Matcher$ImmutableMatchResult::group(int32_t group) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkMatch();
 	if (group < 0 || group > this->groupCount$) {
 		$throwNew($IndexOutOfBoundsException, $$str({"No group "_s, $$str(group)}));
 	}
-	if (($nc(this->groups)->get(group * 2) == -1) || ($nc(this->groups)->get(group * 2 + 1) == -1)) {
+	if (($nc(this->groups)->get(group * 2) == -1) || (this->groups->get(group * 2 + 1) == -1)) {
 		return nullptr;
 	}
-	return $($nc(this->text)->subSequence($nc(this->groups)->get(group * 2), $nc(this->groups)->get(group * 2 + 1)))->toString();
+	return $($nc(this->text)->subSequence(this->groups->get(group * 2), this->groups->get(group * 2 + 1)))->toString();
 }
 
 void Matcher$ImmutableMatchResult::checkMatch() {
@@ -132,7 +83,48 @@ Matcher$ImmutableMatchResult::Matcher$ImmutableMatchResult() {
 }
 
 $Class* Matcher$ImmutableMatchResult::load$($String* name, bool initialize) {
-	$loadClass(Matcher$ImmutableMatchResult, name, initialize, &_Matcher$ImmutableMatchResult_ClassInfo_, allocate$Matcher$ImmutableMatchResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"first", "I", nullptr, $PRIVATE | $FINAL, $field(Matcher$ImmutableMatchResult, first)},
+		{"last", "I", nullptr, $PRIVATE | $FINAL, $field(Matcher$ImmutableMatchResult, last)},
+		{"groups", "[I", nullptr, $PRIVATE | $FINAL, $field(Matcher$ImmutableMatchResult, groups)},
+		{"groupCount", "I", nullptr, $PRIVATE | $FINAL, $field(Matcher$ImmutableMatchResult, groupCount$)},
+		{"text", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Matcher$ImmutableMatchResult, text)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(III[ILjava/lang/String;)V", nullptr, 0, $method(Matcher$ImmutableMatchResult, init$, void, int32_t, int32_t, int32_t, $ints*, $String*)},
+		{"checkMatch", "()V", nullptr, $PRIVATE, $method(Matcher$ImmutableMatchResult, checkMatch, void)},
+		{"end", "()I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, end, int32_t)},
+		{"end", "(I)I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, end, int32_t, int32_t)},
+		{"group", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, group, $String*)},
+		{"group", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, group, $String*, int32_t)},
+		{"groupCount", "()I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, groupCount, int32_t)},
+		{"start", "()I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, start, int32_t)},
+		{"start", "(I)I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, start, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Matcher$ImmutableMatchResult", "java.util.regex.Matcher", "ImmutableMatchResult", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Matcher$ImmutableMatchResult",
+		"java.lang.Object",
+		"java.util.regex.MatchResult",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Matcher"
+	};
+	$loadClass(Matcher$ImmutableMatchResult, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Matcher$ImmutableMatchResult);
+	});
 	return class$;
 }
 

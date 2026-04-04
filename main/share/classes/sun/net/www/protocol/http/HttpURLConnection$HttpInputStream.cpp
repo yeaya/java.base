@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/HttpURLConnection$HttpInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -15,7 +14,6 @@
 using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -29,58 +27,6 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace http {
-
-$FieldInfo _HttpURLConnection$HttpInputStream_FieldInfo_[] = {
-	{"this$0", "Lsun/net/www/protocol/http/HttpURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$HttpInputStream, this$0)},
-	{"cacheRequest", "Ljava/net/CacheRequest;", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, cacheRequest)},
-	{"outputStream", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, outputStream)},
-	{"marked", "Z", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, marked)},
-	{"inCache", "I", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, inCache)},
-	{"markCount", "I", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, markCount)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, closed)},
-	{"skipBuffer", "[B", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, skipBuffer)},
-	{"SKIP_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpURLConnection$HttpInputStream, SKIP_BUFFER_SIZE)},
-	{}
-};
-
-$MethodInfo _HttpURLConnection$HttpInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(HttpURLConnection$HttpInputStream, init$, void, $HttpURLConnection*, $InputStream*)},
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/io/InputStream;Ljava/net/CacheRequest;)V", nullptr, $PUBLIC, $method(HttpURLConnection$HttpInputStream, init$, void, $HttpURLConnection*, $InputStream*, $CacheRequest*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, close, void), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(HttpURLConnection$HttpInputStream, ensureOpen, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpURLConnection$HttpInputStream, mark, void, int32_t)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpURLConnection$HttpInputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _HttpURLConnection$HttpInputStream_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.HttpURLConnection$HttpInputStream", "sun.net.www.protocol.http.HttpURLConnection", "HttpInputStream", 0},
-	{}
-};
-
-$ClassInfo _HttpURLConnection$HttpInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.http.HttpURLConnection$HttpInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_HttpURLConnection$HttpInputStream_FieldInfo_,
-	_HttpURLConnection$HttpInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpURLConnection$HttpInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.HttpURLConnection"
-};
-
-$Object* allocate$HttpURLConnection$HttpInputStream($Class* clazz) {
-	return $of($alloc(HttpURLConnection$HttpInputStream));
-}
 
 void HttpURLConnection$HttpInputStream::init$($HttpURLConnection* this$0, $InputStream* is) {
 	$set(this, this$0, this$0);
@@ -139,10 +85,10 @@ int32_t HttpURLConnection$HttpInputStream::read() {
 	try {
 		$var($bytes, b, $new($bytes, 1));
 		int32_t ret = read(b);
-		return (ret == -1 ? ret : ((int32_t)(b->get(0) & (uint32_t)255)));
+		return (ret == -1 ? ret : (b->get(0) & 0xff));
 	} catch ($IOException& ioex) {
 		if (this->cacheRequest != nullptr) {
-			$nc(this->cacheRequest)->abort();
+			this->cacheRequest->abort();
 		}
 		$throw(ioex);
 	}
@@ -170,7 +116,7 @@ int32_t HttpURLConnection$HttpInputStream::read($bytes* b, int32_t off, int32_t 
 			nWrite = newLen;
 		}
 		if (nWrite > 0 && this->outputStream != nullptr) {
-			$nc(this->outputStream)->write(b, off + (newLen - nWrite), nWrite);
+			this->outputStream->write(b, off + (newLen - nWrite), nWrite);
 		}
 		if (this->marked) {
 			this->markCount += newLen;
@@ -178,7 +124,7 @@ int32_t HttpURLConnection$HttpInputStream::read($bytes* b, int32_t off, int32_t 
 		return newLen;
 	} catch ($IOException& ioex) {
 		if (this->cacheRequest != nullptr) {
-			$nc(this->cacheRequest)->abort();
+			this->cacheRequest->abort();
 		}
 		$throw(ioex);
 	}
@@ -210,34 +156,32 @@ void HttpURLConnection$HttpInputStream::close() {
 	if (this->closed) {
 		return;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				if (this->outputStream != nullptr) {
-					if (read() != -1) {
-						$nc(this->cacheRequest)->abort();
-					} else {
-						$nc(this->outputStream)->close();
-					}
-				}
-				$FilterInputStream::close();
-			} catch ($IOException& ioex) {
-				if (this->cacheRequest != nullptr) {
+			if (this->outputStream != nullptr) {
+				if (read() != -1) {
 					$nc(this->cacheRequest)->abort();
+				} else {
+					this->outputStream->close();
 				}
-				$throw(ioex);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->closed = true;
-			$set(this->this$0, http, nullptr);
-			this->this$0->checkResponseCredentials(true);
+			$FilterInputStream::close();
+		} catch ($IOException& ioex) {
+			if (this->cacheRequest != nullptr) {
+				this->cacheRequest->abort();
+			}
+			$throw(ioex);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->closed = true;
+		$set(this->this$0, http, nullptr);
+		this->this$0->checkResponseCredentials(true);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -245,7 +189,53 @@ HttpURLConnection$HttpInputStream::HttpURLConnection$HttpInputStream() {
 }
 
 $Class* HttpURLConnection$HttpInputStream::load$($String* name, bool initialize) {
-	$loadClass(HttpURLConnection$HttpInputStream, name, initialize, &_HttpURLConnection$HttpInputStream_ClassInfo_, allocate$HttpURLConnection$HttpInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/www/protocol/http/HttpURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$HttpInputStream, this$0)},
+		{"cacheRequest", "Ljava/net/CacheRequest;", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, cacheRequest)},
+		{"outputStream", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, outputStream)},
+		{"marked", "Z", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, marked)},
+		{"inCache", "I", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, inCache)},
+		{"markCount", "I", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, markCount)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, closed)},
+		{"skipBuffer", "[B", nullptr, $PRIVATE, $field(HttpURLConnection$HttpInputStream, skipBuffer)},
+		{"SKIP_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpURLConnection$HttpInputStream, SKIP_BUFFER_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(HttpURLConnection$HttpInputStream, init$, void, $HttpURLConnection*, $InputStream*)},
+		{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/io/InputStream;Ljava/net/CacheRequest;)V", nullptr, $PUBLIC, $method(HttpURLConnection$HttpInputStream, init$, void, $HttpURLConnection*, $InputStream*, $CacheRequest*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, close, void), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(HttpURLConnection$HttpInputStream, ensureOpen, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpURLConnection$HttpInputStream, mark, void, int32_t)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpURLConnection$HttpInputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.HttpURLConnection$HttpInputStream", "sun.net.www.protocol.http.HttpURLConnection", "HttpInputStream", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.http.HttpURLConnection$HttpInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.HttpURLConnection"
+	};
+	$loadClass(HttpURLConnection$HttpInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpURLConnection$HttpInputStream);
+	});
 	return class$;
 }
 

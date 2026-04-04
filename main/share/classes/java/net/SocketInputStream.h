@@ -31,6 +31,7 @@ class SocketInputStream : public ::java::io::FileInputStream {
 	$class(SocketInputStream, 0, ::java::io::FileInputStream)
 public:
 	SocketInputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::AbstractPlainSocketImpl* impl);
 	virtual int32_t available() override;
 	virtual void close() override;

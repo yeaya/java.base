@@ -43,6 +43,7 @@ class $import CertificateIssuerExtension : public ::sun::security::x509::Extensi
 	$class(CertificateIssuerExtension, 0, ::sun::security::x509::Extension, ::sun::security::x509::CertAttrSet)
 public:
 	CertificateIssuerExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::security::x509::Extension::encode;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

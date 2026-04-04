@@ -1,5 +1,4 @@
 #include <java/util/Locale$LocaleKey.h>
-
 #include <java/util/Locale.h>
 #include <sun/util/locale/BaseLocale.h>
 #include <sun/util/locale/LocaleExtensions.h>
@@ -15,51 +14,12 @@ using $LocaleExtensions = ::sun::util::locale::LocaleExtensions;
 namespace java {
 	namespace util {
 
-$FieldInfo _Locale$LocaleKey_FieldInfo_[] = {
-	{"base", "Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE | $FINAL, $field(Locale$LocaleKey, base)},
-	{"exts", "Lsun/util/locale/LocaleExtensions;", nullptr, $PRIVATE | $FINAL, $field(Locale$LocaleKey, exts)},
-	{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(Locale$LocaleKey, hash)},
-	{}
-};
-
-$MethodInfo _Locale$LocaleKey_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)V", nullptr, $PRIVATE, $method(Locale$LocaleKey, init$, void, $BaseLocale*, $LocaleExtensions*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locale$LocaleKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Locale$LocaleKey, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Locale$LocaleKey_InnerClassesInfo_[] = {
-	{"java.util.Locale$LocaleKey", "java.util.Locale", "LocaleKey", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Locale$LocaleKey_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.Locale$LocaleKey",
-	"java.lang.Object",
-	nullptr,
-	_Locale$LocaleKey_FieldInfo_,
-	_Locale$LocaleKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Locale$LocaleKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Locale"
-};
-
-$Object* allocate$Locale$LocaleKey($Class* clazz) {
-	return $of($alloc(Locale$LocaleKey));
-}
-
 void Locale$LocaleKey::init$($BaseLocale* baseLocale, $LocaleExtensions* extensions) {
 	$set(this, base, baseLocale);
 	$set(this, exts, extensions);
 	int32_t h = $nc(this->base)->hashCode();
 	if (this->exts != nullptr) {
-		h ^= $nc(this->exts)->hashCode();
+		h ^= this->exts->hashCode();
 	}
 	this->hash = h;
 }
@@ -77,13 +37,13 @@ bool Locale$LocaleKey::equals(Object$* obj) {
 	if (!(var$0)) {
 		return false;
 	}
-	if (this->hash != $nc(other)->hash || !$nc(this->base)->equals($nc(other)->base)) {
+	if (this->hash != $nc(other)->hash || !$nc(this->base)->equals(other->base)) {
 		return false;
 	}
 	if (this->exts == nullptr) {
-		return $nc(other)->exts == nullptr;
+		return other->exts == nullptr;
 	}
-	return $nc(this->exts)->equals($nc(other)->exts);
+	return $nc(this->exts)->equals(other->exts);
 }
 
 int32_t Locale$LocaleKey::hashCode() {
@@ -94,7 +54,40 @@ Locale$LocaleKey::Locale$LocaleKey() {
 }
 
 $Class* Locale$LocaleKey::load$($String* name, bool initialize) {
-	$loadClass(Locale$LocaleKey, name, initialize, &_Locale$LocaleKey_ClassInfo_, allocate$Locale$LocaleKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"base", "Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE | $FINAL, $field(Locale$LocaleKey, base)},
+		{"exts", "Lsun/util/locale/LocaleExtensions;", nullptr, $PRIVATE | $FINAL, $field(Locale$LocaleKey, exts)},
+		{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(Locale$LocaleKey, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)V", nullptr, $PRIVATE, $method(Locale$LocaleKey, init$, void, $BaseLocale*, $LocaleExtensions*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locale$LocaleKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Locale$LocaleKey, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Locale$LocaleKey", "java.util.Locale", "LocaleKey", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.Locale$LocaleKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Locale"
+	};
+	$loadClass(Locale$LocaleKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locale$LocaleKey);
+	});
 	return class$;
 }
 

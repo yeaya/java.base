@@ -30,6 +30,7 @@ class $import Surrogate : public ::java::lang::Object {
 	$class(Surrogate, 0, ::java::lang::Object)
 public:
 	Surrogate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static char16_t high(int32_t uc);
 	static bool is(int32_t c);

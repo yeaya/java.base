@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLEngineOutputRecord.h>
-
 #include <java/lang/Math.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/concurrent/locks/ReentrantLock.h>
@@ -33,10 +32,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
 using $Alert = ::sun::security::ssl::Alert;
-using $Authenticator = ::sun::security::ssl::Authenticator;
 using $Ciphertext = ::sun::security::ssl::Ciphertext;
 using $ContentType = ::sun::security::ssl::ContentType;
 using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
@@ -52,61 +49,6 @@ using $SSLRecord = ::sun::security::ssl::SSLRecord;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLEngineOutputRecord_FieldInfo_[] = {
-	{"fragmenter", "Lsun/security/ssl/SSLEngineOutputRecord$HandshakeFragment;", nullptr, $PRIVATE, $field(SSLEngineOutputRecord, fragmenter)},
-	{"isTalkingToV2", "Z", nullptr, $PRIVATE, $field(SSLEngineOutputRecord, isTalkingToV2)},
-	{"v2ClientHello", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(SSLEngineOutputRecord, v2ClientHello)},
-	{"isCloseWaiting", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SSLEngineOutputRecord, isCloseWaiting)},
-	{}
-};
-
-$MethodInfo _SSLEngineOutputRecord_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/security/ssl/HandshakeHash;)V", nullptr, 0, $method(SSLEngineOutputRecord, init$, void, $HandshakeHash*)},
-	{"acquireCiphertext", "(Ljava/nio/ByteBuffer;)Lsun/security/ssl/Ciphertext;", nullptr, $PRIVATE, $method(SSLEngineOutputRecord, acquireCiphertext, $Ciphertext*, $ByteBuffer*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SSLEngineOutputRecord, close, void), "java.io.IOException"},
-	{"encode", "([Ljava/nio/ByteBuffer;II[Ljava/nio/ByteBuffer;II)Lsun/security/ssl/Ciphertext;", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, encode, $Ciphertext*, $ByteBufferArray*, int32_t, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
-	{"encode", "([Ljava/nio/ByteBuffer;IILjava/nio/ByteBuffer;)Lsun/security/ssl/Ciphertext;", nullptr, $PRIVATE, $method(SSLEngineOutputRecord, encode, $Ciphertext*, $ByteBufferArray*, int32_t, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"encodeAlert", "(BB)V", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, encodeAlert, void, int8_t, int8_t), "java.io.IOException"},
-	{"encodeChangeCipherSpec", "()V", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, encodeChangeCipherSpec, void), "java.io.IOException"},
-	{"encodeHandshake", "([BII)V", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, encodeHandshake, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"encodeV2NoCipher", "()V", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, encodeV2NoCipher, void), "java.io.IOException"},
-	{"isClosed", "()Z", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, isClosed, bool)},
-	{"isEmpty", "()Z", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, isEmpty, bool)},
-	{"needToSplitPayload", "()Z", nullptr, 0, $method(SSLEngineOutputRecord, needToSplitPayload, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{}
-};
-
-$InnerClassInfo _SSLEngineOutputRecord_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLEngineOutputRecord$HandshakeFragment", "sun.security.ssl.SSLEngineOutputRecord", "HandshakeFragment", $FINAL},
-	{"sun.security.ssl.SSLEngineOutputRecord$HandshakeMemo", "sun.security.ssl.SSLEngineOutputRecord", "HandshakeMemo", $PRIVATE | $STATIC},
-	{"sun.security.ssl.SSLEngineOutputRecord$RecordMemo", "sun.security.ssl.SSLEngineOutputRecord", "RecordMemo", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLEngineOutputRecord_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLEngineOutputRecord",
-	"sun.security.ssl.OutputRecord",
-	"sun.security.ssl.SSLRecord",
-	_SSLEngineOutputRecord_FieldInfo_,
-	_SSLEngineOutputRecord_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLEngineOutputRecord_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLEngineOutputRecord$HandshakeFragment,sun.security.ssl.SSLEngineOutputRecord$HandshakeMemo,sun.security.ssl.SSLEngineOutputRecord$RecordMemo"
-};
-
-$Object* allocate$SSLEngineOutputRecord($Class* clazz) {
-	return $of($alloc(SSLEngineOutputRecord));
-}
 
 $String* SSLEngineOutputRecord::toString() {
 	 return this->$OutputRecord::toString();
@@ -137,24 +79,22 @@ void SSLEngineOutputRecord::init$($HandshakeHash* handshakeHash) {
 
 void SSLEngineOutputRecord::close() {
 	$nc(this->recordLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (!this->$OutputRecord::isClosed$) {
-				if (this->fragmenter != nullptr && !$nc(this->fragmenter)->isEmpty()) {
-					this->isCloseWaiting = true;
-				} else {
-					$OutputRecord::close();
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!this->$OutputRecord::isClosed$) {
+			if (this->fragmenter != nullptr && !this->fragmenter->isEmpty()) {
+				this->isCloseWaiting = true;
+			} else {
+				$OutputRecord::close();
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->recordLock)->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->recordLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -163,7 +103,7 @@ bool SSLEngineOutputRecord::isClosed() {
 }
 
 void SSLEngineOutputRecord::encodeAlert(int8_t level, int8_t description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
@@ -178,11 +118,11 @@ void SSLEngineOutputRecord::encodeAlert(int8_t level, int8_t description) {
 }
 
 void SSLEngineOutputRecord::encodeHandshake($bytes* source, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
-			$SSLLogger::warning("outbound has closed, ignore outbound handshake message"_s, $$new($ObjectArray, {$($of($ByteBuffer::wrap(source, offset, length)))}));
+			$SSLLogger::warning("outbound has closed, ignore outbound handshake message"_s, $$new($ObjectArray, {$($ByteBuffer::wrap(source, offset, length))}));
 		}
 		return;
 	}
@@ -203,7 +143,7 @@ void SSLEngineOutputRecord::encodeHandshake($bytes* source, int32_t offset, int3
 	}
 	int8_t handshakeType = $nc(source)->get(offset);
 	if ($nc(this->handshakeHash)->isHashable(handshakeType)) {
-		$nc(this->handshakeHash)->deliver(source, offset, length);
+		this->handshakeHash->deliver(source, offset, length);
 	}
 	$nc(this->fragmenter)->queueUpFragment(source, offset, length);
 }
@@ -227,7 +167,7 @@ void SSLEngineOutputRecord::encodeV2NoCipher() {
 }
 
 $Ciphertext* SSLEngineOutputRecord::encode($ByteBufferArray* srcs$renamed, int32_t srcsOffset, int32_t srcsLength, $ByteBufferArray* dsts, int32_t dstsOffset, int32_t dstsLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBufferArray, srcs, srcs$renamed);
 	if (this->$OutputRecord::isClosed$) {
 		$init($SSLLogger);
@@ -246,7 +186,7 @@ $Ciphertext* SSLEngineOutputRecord::encode($ByteBufferArray* srcs$renamed, int32
 }
 
 $Ciphertext* SSLEngineOutputRecord::encode($ByteBufferArray* sources, int32_t offset, int32_t length, $ByteBuffer* destination) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($nc(this->writeCipher)->authenticator)->seqNumOverflow()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
@@ -258,7 +198,7 @@ $Ciphertext* SSLEngineOutputRecord::encode($ByteBufferArray* sources, int32_t of
 	if (ct != nullptr) {
 		return ct;
 	}
-	if (sources == nullptr || $nc(sources)->length == 0) {
+	if (sources == nullptr || sources->length == 0) {
 		return nullptr;
 	}
 	int32_t srcsRemains = 0;
@@ -297,7 +237,7 @@ $Ciphertext* SSLEngineOutputRecord::encode($ByteBufferArray* sources, int32_t of
 		int32_t srcsLen = offset + length;
 		for (int32_t i = offset; (i < srcsLen) && (remains > 0); ++i) {
 			int32_t amount = $Math::min($nc($nc(sources)->get(i))->remaining(), remains);
-			int32_t srcLimit = $nc($nc(sources)->get(i))->limit();
+			int32_t srcLimit = $nc(sources->get(i))->limit();
 			$nc(sources->get(i))->limit($nc(sources->get(i))->position() + amount);
 			destination->put(sources->get(i));
 			$nc(sources->get(i))->limit(srcLimit);
@@ -319,9 +259,9 @@ $Ciphertext* SSLEngineOutputRecord::encode($ByteBufferArray* sources, int32_t of
 		recordSN = encrypt(this->writeCipher, $ContentType::APPLICATION_DATA->id, destination, dstPos, dstLim, $SSLRecord::headerSize, this->protocolVersion);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
 			$var($ByteBuffer, temporary, destination->duplicate());
-			$nc(temporary)->limit(temporary->position());
+			$nc(temporary)->limit($nc(temporary)->position());
 			temporary->position(dstPos);
-			$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {$of(temporary)}));
+			$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {temporary}));
 		}
 		packetLeftSize -= destination->position() - dstPos;
 		destination->limit(dstLim);
@@ -335,13 +275,13 @@ $Ciphertext* SSLEngineOutputRecord::encode($ByteBufferArray* sources, int32_t of
 }
 
 $Ciphertext* SSLEngineOutputRecord::acquireCiphertext($ByteBuffer* destination) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isTalkingToV2) {
 		$init($SSLRecord);
 		$nc(destination)->put($SSLRecord::v2NoCipher);
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
-			$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {$of($SSLRecord::v2NoCipher)}));
+			$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {$SSLRecord::v2NoCipher}));
 		}
 		this->isTalkingToV2 = false;
 		$init($ContentType);
@@ -352,11 +292,14 @@ $Ciphertext* SSLEngineOutputRecord::acquireCiphertext($ByteBuffer* destination) 
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$) {
 			if ($SSLLogger::isOn("record"_s)) {
-				$var($String, var$0, $$str({$($($Thread::currentThread())->getName()), ", WRITE: SSLv2 ClientHello message, length = "_s}));
-				$SSLLogger::fine($$concat(var$0, $$str($nc(this->v2ClientHello)->remaining())), $$new($ObjectArray, 0));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($($($Thread::currentThread())->getName()));
+				var$0->append(", WRITE: SSLv2 ClientHello message, length = "_s);
+				var$0->append(this->v2ClientHello->remaining());
+				$SSLLogger::fine($$str(var$0), $$new($ObjectArray, 0));
 			}
 			if ($SSLLogger::isOn("packet"_s)) {
-				$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {$of(this->v2ClientHello)}));
+				$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {this->v2ClientHello}));
 			}
 		}
 		$nc(destination)->put(this->v2ClientHello);
@@ -366,17 +309,17 @@ $Ciphertext* SSLEngineOutputRecord::acquireCiphertext($ByteBuffer* destination) 
 		return $new($Ciphertext, $ContentType::HANDSHAKE->id, $SSLHandshake::CLIENT_HELLO->id, -1);
 	}
 	if (this->fragmenter != nullptr) {
-		return $nc(this->fragmenter)->acquireCiphertext(destination);
+		return this->fragmenter->acquireCiphertext(destination);
 	}
 	return nullptr;
 }
 
 bool SSLEngineOutputRecord::isEmpty() {
-	return (!this->isTalkingToV2) && (this->v2ClientHello == nullptr) && ((this->fragmenter == nullptr) || $nc(this->fragmenter)->isEmpty());
+	return (!this->isTalkingToV2) && (this->v2ClientHello == nullptr) && ((this->fragmenter == nullptr) || this->fragmenter->isEmpty());
 }
 
 bool SSLEngineOutputRecord::needToSplitPayload() {
-	bool var$0 = (!$nc(this->protocolVersion)->useTLS11PlusSpec());
+	bool var$0 = !$nc(this->protocolVersion)->useTLS11PlusSpec();
 	$init($Record);
 	return var$0 && $nc(this->writeCipher)->isCBCMode() && !this->isFirstAppOutputRecord && $Record::enableCBCProtection;
 }
@@ -385,7 +328,56 @@ SSLEngineOutputRecord::SSLEngineOutputRecord() {
 }
 
 $Class* SSLEngineOutputRecord::load$($String* name, bool initialize) {
-	$loadClass(SSLEngineOutputRecord, name, initialize, &_SSLEngineOutputRecord_ClassInfo_, allocate$SSLEngineOutputRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"fragmenter", "Lsun/security/ssl/SSLEngineOutputRecord$HandshakeFragment;", nullptr, $PRIVATE, $field(SSLEngineOutputRecord, fragmenter)},
+		{"isTalkingToV2", "Z", nullptr, $PRIVATE, $field(SSLEngineOutputRecord, isTalkingToV2)},
+		{"v2ClientHello", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(SSLEngineOutputRecord, v2ClientHello)},
+		{"isCloseWaiting", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SSLEngineOutputRecord, isCloseWaiting)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/security/ssl/HandshakeHash;)V", nullptr, 0, $method(SSLEngineOutputRecord, init$, void, $HandshakeHash*)},
+		{"acquireCiphertext", "(Ljava/nio/ByteBuffer;)Lsun/security/ssl/Ciphertext;", nullptr, $PRIVATE, $method(SSLEngineOutputRecord, acquireCiphertext, $Ciphertext*, $ByteBuffer*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SSLEngineOutputRecord, close, void), "java.io.IOException"},
+		{"encode", "([Ljava/nio/ByteBuffer;II[Ljava/nio/ByteBuffer;II)Lsun/security/ssl/Ciphertext;", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, encode, $Ciphertext*, $ByteBufferArray*, int32_t, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+		{"encode", "([Ljava/nio/ByteBuffer;IILjava/nio/ByteBuffer;)Lsun/security/ssl/Ciphertext;", nullptr, $PRIVATE, $method(SSLEngineOutputRecord, encode, $Ciphertext*, $ByteBufferArray*, int32_t, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"encodeAlert", "(BB)V", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, encodeAlert, void, int8_t, int8_t), "java.io.IOException"},
+		{"encodeChangeCipherSpec", "()V", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, encodeChangeCipherSpec, void), "java.io.IOException"},
+		{"encodeHandshake", "([BII)V", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, encodeHandshake, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"encodeV2NoCipher", "()V", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, encodeV2NoCipher, void), "java.io.IOException"},
+		{"isClosed", "()Z", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, isClosed, bool)},
+		{"isEmpty", "()Z", nullptr, 0, $virtualMethod(SSLEngineOutputRecord, isEmpty, bool)},
+		{"needToSplitPayload", "()Z", nullptr, 0, $method(SSLEngineOutputRecord, needToSplitPayload, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLEngineOutputRecord$HandshakeFragment", "sun.security.ssl.SSLEngineOutputRecord", "HandshakeFragment", $FINAL},
+		{"sun.security.ssl.SSLEngineOutputRecord$HandshakeMemo", "sun.security.ssl.SSLEngineOutputRecord", "HandshakeMemo", $PRIVATE | $STATIC},
+		{"sun.security.ssl.SSLEngineOutputRecord$RecordMemo", "sun.security.ssl.SSLEngineOutputRecord", "RecordMemo", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLEngineOutputRecord",
+		"sun.security.ssl.OutputRecord",
+		"sun.security.ssl.SSLRecord",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLEngineOutputRecord$HandshakeFragment,sun.security.ssl.SSLEngineOutputRecord$HandshakeMemo,sun.security.ssl.SSLEngineOutputRecord$RecordMemo"
+	};
+	$loadClass(SSLEngineOutputRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLEngineOutputRecord));
+	});
 	return class$;
 }
 

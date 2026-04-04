@@ -1,11 +1,9 @@
 #include <Bug8001209.h>
-
 #include <java/lang/Number.h>
 #include <java/text/ChoiceFormat.h>
 #include <java/text/ParsePosition.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -13,39 +11,20 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ChoiceFormat = ::java::text::ChoiceFormat;
 using $ParsePosition = ::java::text::ParsePosition;
 
-$MethodInfo _Bug8001209_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8001209, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8001209, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Bug8001209_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug8001209",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Bug8001209_MethodInfo_
-};
-
-$Object* allocate$Bug8001209($Class* clazz) {
-	return $of($alloc(Bug8001209));
-}
-
 void Bug8001209::init$() {
 }
 
 void Bug8001209::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool err = false;
 	$var($doubles, limits, $new($doubles, {
-		(double)1,
-		(double)2,
-		(double)3,
-		(double)4,
-		(double)5,
-		(double)6,
-		(double)7
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7
 	}));
 	$var($StringArray, dayOfWeekNames, $new($StringArray, {
 		"Sun"_s,
@@ -64,11 +43,11 @@ void Bug8001209::main($StringArray* args) {
 		$var($String, s, form->format(i));
 		before->append(" "_s);
 		before->append(s);
-		before->append($($of(form->parse($(form->format(i)), status))));
+		before->append($(form->parse($(form->format(i)), status)));
 	}
 	$var($String, original, before->toString());
 	$var($doubles, newLimits, form->getLimits());
-	$var($StringArray, newFormats, $fcast($StringArray, form->getFormats()));
+	$var($StringArray, newFormats, $cast($StringArray, form->getFormats()));
 	$nc(newFormats)->set(6, "Doyoubi"_s);
 	$var($StringBuilder, after, $new($StringBuilder));
 	for (double i = 1.0; i <= 7.0; ++i) {
@@ -76,9 +55,9 @@ void Bug8001209::main($StringArray* args) {
 		$var($String, s, form->format(i));
 		after->append(" "_s);
 		after->append(s);
-		after->append($($of(form->parse($(form->format(i)), status))));
+		after->append($(form->parse($(form->format(i)), status)));
 	}
-	if (!$nc(original)->equals($(after->toString()))) {
+	if (!original->equals($(after->toString()))) {
 		err = true;
 		$nc($System::err)->println($$str({"  Expected:"_s, before, "\n  Got:     "_s, after}));
 	}
@@ -89,9 +68,9 @@ void Bug8001209::main($StringArray* args) {
 		$var($String, s, form->format(i));
 		after->append(" "_s);
 		after->append(s);
-		after->append($($of(form->parse($(form->format(i)), status))));
+		after->append($(form->parse($(form->format(i)), status)));
 	}
-	if (!$nc(original)->equals($(after->toString()))) {
+	if (!original->equals($(after->toString()))) {
 		err = true;
 		$nc($System::err)->println($$str({"  Expected:"_s, before, "\n  Got:     "_s, after}));
 	}
@@ -106,7 +85,22 @@ Bug8001209::Bug8001209() {
 }
 
 $Class* Bug8001209::load$($String* name, bool initialize) {
-	$loadClass(Bug8001209, name, initialize, &_Bug8001209_ClassInfo_, allocate$Bug8001209);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8001209, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8001209, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug8001209",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug8001209, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug8001209);
+	});
 	return class$;
 }
 

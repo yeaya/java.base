@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ForkJoinTask$AdaptedRunnable.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/ForkJoinTask.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -17,57 +16,6 @@ using $TimeUnit = ::java::util::concurrent::TimeUnit;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _ForkJoinTask$AdaptedRunnable_FieldInfo_[] = {
-	{"runnable", "Ljava/lang/Runnable;", nullptr, $FINAL, $field(ForkJoinTask$AdaptedRunnable, runnable)},
-	{"result", "Ljava/lang/Object;", "TT;", 0, $field(ForkJoinTask$AdaptedRunnable, result)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ForkJoinTask$AdaptedRunnable, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ForkJoinTask$AdaptedRunnable_MethodInfo_[] = {
-	{"*cancel", "(Z)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
-	{"*get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/Object;)V", "(Ljava/lang/Runnable;TT;)V", 0, $method(ForkJoinTask$AdaptedRunnable, init$, void, $Runnable*, Object$*)},
-	{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedRunnable, exec, bool)},
-	{"getRawResult", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedRunnable, getRawResult, $Object*)},
-	{"*isCancelled", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*isDone", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedRunnable, run, void)},
-	{"setRawResult", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedRunnable, setRawResult, void, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForkJoinTask$AdaptedRunnable, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ForkJoinTask$AdaptedRunnable_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ForkJoinTask$AdaptedRunnable", "java.util.concurrent.ForkJoinTask", "AdaptedRunnable", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ForkJoinTask$AdaptedRunnable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ForkJoinTask$AdaptedRunnable",
-	"java.util.concurrent.ForkJoinTask",
-	"java.util.concurrent.RunnableFuture",
-	_ForkJoinTask$AdaptedRunnable_FieldInfo_,
-	_ForkJoinTask$AdaptedRunnable_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/concurrent/ForkJoinTask<TT;>;Ljava/util/concurrent/RunnableFuture<TT;>;",
-	nullptr,
-	_ForkJoinTask$AdaptedRunnable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ForkJoinTask"
-};
-
-$Object* allocate$ForkJoinTask$AdaptedRunnable($Class* clazz) {
-	return $of($alloc(ForkJoinTask$AdaptedRunnable));
-}
 
 bool ForkJoinTask$AdaptedRunnable::cancel(bool mayInterruptIfRunning) {
 	 return this->$ForkJoinTask::cancel(mayInterruptIfRunning);
@@ -115,7 +63,7 @@ void ForkJoinTask$AdaptedRunnable::init$($Runnable* runnable, Object$* result) {
 }
 
 $Object* ForkJoinTask$AdaptedRunnable::getRawResult() {
-	return $of(this->result);
+	return this->result;
 }
 
 void ForkJoinTask$AdaptedRunnable::setRawResult(Object$* v) {
@@ -139,7 +87,52 @@ ForkJoinTask$AdaptedRunnable::ForkJoinTask$AdaptedRunnable() {
 }
 
 $Class* ForkJoinTask$AdaptedRunnable::load$($String* name, bool initialize) {
-	$loadClass(ForkJoinTask$AdaptedRunnable, name, initialize, &_ForkJoinTask$AdaptedRunnable_ClassInfo_, allocate$ForkJoinTask$AdaptedRunnable);
+	$FieldInfo fieldInfos$$[] = {
+		{"runnable", "Ljava/lang/Runnable;", nullptr, $FINAL, $field(ForkJoinTask$AdaptedRunnable, runnable)},
+		{"result", "Ljava/lang/Object;", "TT;", 0, $field(ForkJoinTask$AdaptedRunnable, result)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ForkJoinTask$AdaptedRunnable, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*cancel", "(Z)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
+		{"*get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/Runnable;Ljava/lang/Object;)V", "(Ljava/lang/Runnable;TT;)V", 0, $method(ForkJoinTask$AdaptedRunnable, init$, void, $Runnable*, Object$*)},
+		{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedRunnable, exec, bool)},
+		{"getRawResult", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedRunnable, getRawResult, $Object*)},
+		{"*isCancelled", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*isDone", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedRunnable, run, void)},
+		{"setRawResult", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedRunnable, setRawResult, void, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForkJoinTask$AdaptedRunnable, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ForkJoinTask$AdaptedRunnable", "java.util.concurrent.ForkJoinTask", "AdaptedRunnable", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ForkJoinTask$AdaptedRunnable",
+		"java.util.concurrent.ForkJoinTask",
+		"java.util.concurrent.RunnableFuture",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/concurrent/ForkJoinTask<TT;>;Ljava/util/concurrent/RunnableFuture<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ForkJoinTask"
+	};
+	$loadClass(ForkJoinTask$AdaptedRunnable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ForkJoinTask$AdaptedRunnable));
+	});
 	return class$;
 }
 

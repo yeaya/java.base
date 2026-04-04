@@ -1,9 +1,7 @@
 #include <java/lang/module/ModuleDescriptor$Requires.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/module/ModuleDescriptor$Version.h>
 #include <java/lang/module/ModuleDescriptor.h>
-#include <java/util/Collection.h>
 #include <java/util/Objects.h>
 #include <java/util/Optional.h>
 #include <java/util/Set.h>
@@ -17,7 +15,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $ModuleDescriptor$Version = ::java::lang::module::ModuleDescriptor$Version;
-using $Collection = ::java::util::Collection;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
@@ -25,56 +22,6 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace lang {
 		namespace module {
-
-$FieldInfo _ModuleDescriptor$Requires_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleDescriptor$Requires, $assertionsDisabled)},
-	{"mods", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor$Requires, mods)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor$Requires, name$)},
-	{"compiledVersion", "Ljava/lang/module/ModuleDescriptor$Version;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor$Requires, compiledVersion$)},
-	{"rawCompiledVersion", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor$Requires, rawCompiledVersion$)},
-	{}
-};
-
-$MethodInfo _ModuleDescriptor$Requires_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;)V", $PRIVATE, $method(ModuleDescriptor$Requires, init$, void, $Set*, $String*, $ModuleDescriptor$Version*, $String*)},
-	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Z)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Z)V", $PRIVATE, $method(ModuleDescriptor$Requires, init$, void, $Set*, $String*, $ModuleDescriptor$Version*, bool)},
-	{"compareTo", "(Ljava/lang/module/ModuleDescriptor$Requires;)I", nullptr, $PUBLIC, $method(ModuleDescriptor$Requires, compareTo, int32_t, ModuleDescriptor$Requires*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ModuleDescriptor$Requires, compareTo, int32_t, Object$*)},
-	{"compiledVersion", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/module/ModuleDescriptor$Version;>;", $PUBLIC, $method(ModuleDescriptor$Requires, compiledVersion, $Optional*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Requires, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Requires, hashCode, int32_t)},
-	{"modifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;", $PUBLIC, $method(ModuleDescriptor$Requires, modifiers, $Set*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModuleDescriptor$Requires, name, $String*)},
-	{"rawCompiledVersion", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(ModuleDescriptor$Requires, rawCompiledVersion, $Optional*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Requires, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ModuleDescriptor$Requires_InnerClassesInfo_[] = {
-	{"java.lang.module.ModuleDescriptor$Requires", "java.lang.module.ModuleDescriptor", "Requires", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.module.ModuleDescriptor$Requires$Modifier", "java.lang.module.ModuleDescriptor$Requires", "Modifier", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ModuleDescriptor$Requires_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.module.ModuleDescriptor$Requires",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_ModuleDescriptor$Requires_FieldInfo_,
-	_ModuleDescriptor$Requires_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/lang/module/ModuleDescriptor$Requires;>;",
-	nullptr,
-	_ModuleDescriptor$Requires_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.module.ModuleDescriptor"
-};
-
-$Object* allocate$ModuleDescriptor$Requires($Class* clazz) {
-	return $of($alloc(ModuleDescriptor$Requires));
-}
 
 bool ModuleDescriptor$Requires::$assertionsDisabled = false;
 
@@ -109,32 +56,32 @@ $Optional* ModuleDescriptor$Requires::compiledVersion() {
 
 $Optional* ModuleDescriptor$Requires::rawCompiledVersion() {
 	if (this->compiledVersion$ != nullptr) {
-		return $Optional::of($($nc(this->compiledVersion$)->toString()));
+		return $Optional::of($(this->compiledVersion$->toString()));
 	} else {
 		return $Optional::ofNullable(this->rawCompiledVersion$);
 	}
 }
 
 int32_t ModuleDescriptor$Requires::compareTo(ModuleDescriptor$Requires* that) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this == that) {
 		return 0;
 	}
-	int32_t c = $nc($(this->name()))->compareTo($($nc(that)->name()));
+	int32_t c = $$nc(this->name())->compareTo($($nc(that)->name()));
 	if (c != 0) {
 		return c;
 	}
 	int64_t v1 = $ModuleDescriptor::modsValue($(this->modifiers()));
-	int64_t v2 = $ModuleDescriptor::modsValue($($nc(that)->modifiers()));
+	int64_t v2 = $ModuleDescriptor::modsValue($(that->modifiers()));
 	c = $Long::compare(v1, v2);
 	if (c != 0) {
 		return c;
 	}
-	c = $ModuleDescriptor::compare($of(this->compiledVersion$), $of($nc(that)->compiledVersion$));
+	c = $ModuleDescriptor::compare(this->compiledVersion$, that->compiledVersion$);
 	if (c != 0) {
 		return c;
 	}
-	c = $ModuleDescriptor::compare($of(this->rawCompiledVersion$), $of($nc(that)->rawCompiledVersion$));
+	c = $ModuleDescriptor::compare(this->rawCompiledVersion$, that->rawCompiledVersion$);
 	if (c != 0) {
 		return c;
 	}
@@ -148,27 +95,27 @@ bool ModuleDescriptor$Requires::equals(Object$* ob) {
 		$assign(that, $cast(ModuleDescriptor$Requires, ob));
 		var$4 = true;
 	}
-	bool var$3 = (var$4);
+	bool var$3 = var$4;
 	bool var$2 = var$3 && $nc(this->name$)->equals($nc(that)->name$);
-	bool var$1 = var$2 && $nc(this->mods)->equals($nc(that)->mods);
-	bool var$0 = var$1 && $Objects::equals(this->compiledVersion$, $nc(that)->compiledVersion$);
-	return var$0 && $Objects::equals(this->rawCompiledVersion$, $nc(that)->rawCompiledVersion$);
+	bool var$1 = var$2 && $nc(this->mods)->equals(that->mods);
+	bool var$0 = var$1 && $Objects::equals(this->compiledVersion$, that->compiledVersion$);
+	return var$0 && $Objects::equals(this->rawCompiledVersion$, that->rawCompiledVersion$);
 }
 
 int32_t ModuleDescriptor$Requires::hashCode() {
 	int32_t var$0 = $nc(this->name$)->hashCode() * 43;
 	int32_t hash = var$0 + $nc(this->mods)->hashCode();
 	if (this->compiledVersion$ != nullptr) {
-		hash = hash * 43 + $nc(this->compiledVersion$)->hashCode();
+		hash = hash * 43 + this->compiledVersion$->hashCode();
 	}
 	if (this->rawCompiledVersion$ != nullptr) {
-		hash = hash * 43 + $nc(this->rawCompiledVersion$)->hashCode();
+		hash = hash * 43 + this->rawCompiledVersion$->hashCode();
 	}
 	return hash;
 }
 
 $String* ModuleDescriptor$Requires::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, what, nullptr);
 	if (this->compiledVersion$ != nullptr) {
 		$assign(what, $str({$(name()), " (@"_s, this->compiledVersion$, ")"_s}));
@@ -182,7 +129,7 @@ int32_t ModuleDescriptor$Requires::compareTo(Object$* that) {
 	return this->compareTo($cast(ModuleDescriptor$Requires, that));
 }
 
-void clinit$ModuleDescriptor$Requires($Class* class$) {
+void ModuleDescriptor$Requires::clinit$($Class* clazz) {
 	$load($ModuleDescriptor);
 	ModuleDescriptor$Requires::$assertionsDisabled = !$ModuleDescriptor::class$->desiredAssertionStatus();
 }
@@ -191,7 +138,51 @@ ModuleDescriptor$Requires::ModuleDescriptor$Requires() {
 }
 
 $Class* ModuleDescriptor$Requires::load$($String* name, bool initialize) {
-	$loadClass(ModuleDescriptor$Requires, name, initialize, &_ModuleDescriptor$Requires_ClassInfo_, clinit$ModuleDescriptor$Requires, allocate$ModuleDescriptor$Requires);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleDescriptor$Requires, $assertionsDisabled)},
+		{"mods", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor$Requires, mods)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor$Requires, name$)},
+		{"compiledVersion", "Ljava/lang/module/ModuleDescriptor$Version;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor$Requires, compiledVersion$)},
+		{"rawCompiledVersion", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor$Requires, rawCompiledVersion$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;)V", $PRIVATE, $method(ModuleDescriptor$Requires, init$, void, $Set*, $String*, $ModuleDescriptor$Version*, $String*)},
+		{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Z)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Z)V", $PRIVATE, $method(ModuleDescriptor$Requires, init$, void, $Set*, $String*, $ModuleDescriptor$Version*, bool)},
+		{"compareTo", "(Ljava/lang/module/ModuleDescriptor$Requires;)I", nullptr, $PUBLIC, $method(ModuleDescriptor$Requires, compareTo, int32_t, ModuleDescriptor$Requires*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ModuleDescriptor$Requires, compareTo, int32_t, Object$*)},
+		{"compiledVersion", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/module/ModuleDescriptor$Version;>;", $PUBLIC, $method(ModuleDescriptor$Requires, compiledVersion, $Optional*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Requires, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Requires, hashCode, int32_t)},
+		{"modifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;", $PUBLIC, $method(ModuleDescriptor$Requires, modifiers, $Set*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModuleDescriptor$Requires, name, $String*)},
+		{"rawCompiledVersion", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(ModuleDescriptor$Requires, rawCompiledVersion, $Optional*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Requires, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.module.ModuleDescriptor$Requires", "java.lang.module.ModuleDescriptor", "Requires", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.module.ModuleDescriptor$Requires$Modifier", "java.lang.module.ModuleDescriptor$Requires", "Modifier", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.module.ModuleDescriptor$Requires",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/lang/module/ModuleDescriptor$Requires;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.module.ModuleDescriptor"
+	};
+	$loadClass(ModuleDescriptor$Requires, name, initialize, &classInfo$$, ModuleDescriptor$Requires::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleDescriptor$Requires);
+	});
 	return class$;
 }
 

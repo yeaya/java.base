@@ -38,7 +38,7 @@ public:
 	virtual bool isReadOnly();
 	virtual void setReadOnly();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xA2A4DAD66A180929;
+	static const int64_t serialVersionUID = (int64_t)0xa2a4dad66a180929;
 	$volatile(bool) readOnly = false;
 };
 

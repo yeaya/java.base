@@ -42,6 +42,7 @@ class $export AnnotationSupport : public ::java::lang::Object {
 	$class(AnnotationSupport, 0, ::java::lang::Object)
 public:
 	AnnotationSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkTypes($Array<::java::lang::annotation::Annotation>* annotations, ::java::lang::annotation::Annotation* container, $Class* annoClass);
 	static bool containerBeforeContainee(::java::util::Map* annotations, $Class* annoClass);

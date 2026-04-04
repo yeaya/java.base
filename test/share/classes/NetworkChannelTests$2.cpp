@@ -1,5 +1,4 @@
 #include <NetworkChannelTests$2.h>
-
 #include <NetworkChannelTests.h>
 #include <java/nio/channels/NetworkChannel.h>
 #include <java/nio/channels/ServerSocketChannel.h>
@@ -12,44 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NetworkChannel = ::java::nio::channels::NetworkChannel;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 
-$MethodInfo _NetworkChannelTests$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NetworkChannelTests$2, init$, void)},
-	{"open", "()Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC, $virtualMethod(NetworkChannelTests$2, open, $NetworkChannel*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _NetworkChannelTests$2_EnclosingMethodInfo_ = {
-	"NetworkChannelTests",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _NetworkChannelTests$2_InnerClassesInfo_[] = {
-	{"NetworkChannelTests$2", nullptr, nullptr, 0},
-	{"NetworkChannelTests$ChannelFactory", "NetworkChannelTests", "ChannelFactory", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NetworkChannelTests$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"NetworkChannelTests$2",
-	"java.lang.Object",
-	"NetworkChannelTests$ChannelFactory",
-	nullptr,
-	_NetworkChannelTests$2_MethodInfo_,
-	nullptr,
-	&_NetworkChannelTests$2_EnclosingMethodInfo_,
-	_NetworkChannelTests$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NetworkChannelTests"
-};
-
-$Object* allocate$NetworkChannelTests$2($Class* clazz) {
-	return $of($alloc(NetworkChannelTests$2));
-}
-
 void NetworkChannelTests$2::init$() {
 }
 
@@ -61,7 +22,39 @@ NetworkChannelTests$2::NetworkChannelTests$2() {
 }
 
 $Class* NetworkChannelTests$2::load$($String* name, bool initialize) {
-	$loadClass(NetworkChannelTests$2, name, initialize, &_NetworkChannelTests$2_ClassInfo_, allocate$NetworkChannelTests$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NetworkChannelTests$2, init$, void)},
+		{"open", "()Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC, $virtualMethod(NetworkChannelTests$2, open, $NetworkChannel*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"NetworkChannelTests",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NetworkChannelTests$2", nullptr, nullptr, 0},
+		{"NetworkChannelTests$ChannelFactory", "NetworkChannelTests", "ChannelFactory", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NetworkChannelTests$2",
+		"java.lang.Object",
+		"NetworkChannelTests$ChannelFactory",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NetworkChannelTests"
+	};
+	$loadClass(NetworkChannelTests$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NetworkChannelTests$2);
+	});
 	return class$;
 }
 

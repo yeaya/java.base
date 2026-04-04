@@ -14,10 +14,13 @@ public:
 	UnknownError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x2309D67432EC5009;
+	static const int64_t serialVersionUID = (int64_t)0x2309d67432ec5009;
 	UnknownError(const UnknownError& e);
 	virtual void throw$() override;
-	inline UnknownError* operator ->() {
+	inline UnknownError* operator ->() const {
+		return (UnknownError*)throwing$;
+	}
+	inline operator UnknownError*() const {
 		return (UnknownError*)throwing$;
 	}
 };

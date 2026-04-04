@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ServerHello$T13HelloRetryRequestConsumer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <javax/net/ssl/SSLException.h>
@@ -9,7 +8,6 @@
 #include <sun/security/ssl/ClientHandshakeContext.h>
 #include <sun/security/ssl/ClientHello$ClientHelloMessage.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeHash.h>
 #include <sun/security/ssl/HandshakeOutStream.h>
 #include <sun/security/ssl/OutputRecord.h>
@@ -42,61 +40,24 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Alert = ::sun::security::ssl::Alert;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
-using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $OutputRecord = ::sun::security::ssl::OutputRecord;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $ServerHello$ServerHelloMessage = ::sun::security::ssl::ServerHello$ServerHelloMessage;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ServerHello$T13HelloRetryRequestConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerHello$T13HelloRetryRequestConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(ServerHello$T13HelloRetryRequestConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ServerHello$T13HelloRetryRequestConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ServerHello$T13HelloRetryRequestConsumer", "sun.security.ssl.ServerHello", "T13HelloRetryRequestConsumer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ServerHello$T13HelloRetryRequestConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ServerHello$T13HelloRetryRequestConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeConsumer",
-	nullptr,
-	_ServerHello$T13HelloRetryRequestConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerHello$T13HelloRetryRequestConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ServerHello"
-};
-
-$Object* allocate$ServerHello$T13HelloRetryRequestConsumer($Class* clazz) {
-	return $of($alloc(ServerHello$T13HelloRetryRequestConsumer));
-}
-
 void ServerHello$T13HelloRetryRequestConsumer::init$() {
 }
 
 void ServerHello$T13HelloRetryRequestConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($ServerHello$ServerHelloMessage, helloRetryRequest, $cast($ServerHello$ServerHelloMessage, message));
 	$init($ProtocolVersion);
@@ -104,11 +65,11 @@ void ServerHello$T13HelloRetryRequestConsumer::consume($ConnectionContext* conte
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::PROTOCOL_VERSION, "The HelloRetryRequest.legacy_version is not TLS 1.2"_s)));
 	}
-	$set($nc(chc), negotiatedCipherSuite, $nc(helloRetryRequest)->cipherSuite);
+	$set($nc(chc), negotiatedCipherSuite, helloRetryRequest->cipherSuite);
 	$init($SSLHandshake);
 	$var($SSLExtensionArray, extTypes, $nc(chc->sslConfig)->getEnabledExtensions($SSLHandshake::HELLO_RETRY_REQUEST));
 	$nc(helloRetryRequest->extensions)->consumeOnLoad(chc, extTypes);
-	$nc(helloRetryRequest->extensions)->consumeOnTrade(chc, extTypes);
+	helloRetryRequest->extensions->consumeOnTrade(chc, extTypes);
 	$nc(chc->handshakeHash)->finish();
 	$var($HandshakeOutStream, hos, $new($HandshakeOutStream, nullptr));
 	try {
@@ -117,27 +78,27 @@ void ServerHello$T13HelloRetryRequestConsumer::consume($ConnectionContext* conte
 		$init($Alert);
 		$throw($($nc(chc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Failed to construct message hash"_s, ioe)));
 	}
-	$nc(chc->handshakeHash)->deliver($(hos->toByteArray()));
-	$nc(chc->handshakeHash)->determine(chc->negotiatedProtocol, chc->negotiatedCipherSuite);
-	$var($bytes, clientHelloHash, $nc(chc->handshakeHash)->digest());
+	chc->handshakeHash->deliver($(hos->toByteArray()));
+	chc->handshakeHash->determine(chc->negotiatedProtocol, chc->negotiatedCipherSuite);
+	$var($bytes, clientHelloHash, chc->handshakeHash->digest());
 	int32_t hashLen = $nc(chc->negotiatedCipherSuite)->hashAlg->hashLength;
 	$var($bytes, hashedClientHello, $new($bytes, 4 + hashLen));
 	hashedClientHello->set(0, $SSLHandshake::MESSAGE_HASH->id);
 	hashedClientHello->set(1, (int8_t)0);
 	hashedClientHello->set(2, (int8_t)0);
-	hashedClientHello->set(3, (int8_t)((int32_t)(hashLen & (uint32_t)255)));
+	hashedClientHello->set(3, (int8_t)(hashLen & 0xff));
 	$System::arraycopy(clientHelloHash, 0, hashedClientHello, 4, hashLen);
-	$nc(chc->handshakeHash)->finish();
-	$nc(chc->handshakeHash)->deliver(hashedClientHello);
+	chc->handshakeHash->finish();
+	chc->handshakeHash->deliver(hashedClientHello);
 	int32_t hrrBodyLen = $nc(helloRetryRequest->handshakeRecord)->remaining();
 	$var($bytes, hrrMessage, $new($bytes, 4 + hrrBodyLen));
 	hrrMessage->set(0, $SSLHandshake::HELLO_RETRY_REQUEST->id);
-	hrrMessage->set(1, (int8_t)((int32_t)((hrrBodyLen >> 16) & (uint32_t)255)));
-	hrrMessage->set(2, (int8_t)((int32_t)((hrrBodyLen >> 8) & (uint32_t)255)));
-	hrrMessage->set(3, (int8_t)((int32_t)(hrrBodyLen & (uint32_t)255)));
-	$var($ByteBuffer, hrrBody, $nc(helloRetryRequest->handshakeRecord)->duplicate());
+	hrrMessage->set(1, (int8_t)((hrrBodyLen >> 16) & 0xff));
+	hrrMessage->set(2, (int8_t)((hrrBodyLen >> 8) & 0xff));
+	hrrMessage->set(3, (int8_t)(hrrBodyLen & 0xff));
+	$var($ByteBuffer, hrrBody, helloRetryRequest->handshakeRecord->duplicate());
 	$nc(hrrBody)->get(hrrMessage, 4, hrrBodyLen);
-	$nc(chc->handshakeHash)->receive(hrrMessage);
+	chc->handshakeHash->receive(hrrMessage);
 	$init($SSLExtension);
 	$nc($nc(chc->initialClientHelloMsg)->extensions)->reproduce(chc, $$new($SSLExtensionArray, {
 		$SSLExtension::CH_COOKIE,
@@ -151,7 +112,33 @@ ServerHello$T13HelloRetryRequestConsumer::ServerHello$T13HelloRetryRequestConsum
 }
 
 $Class* ServerHello$T13HelloRetryRequestConsumer::load$($String* name, bool initialize) {
-	$loadClass(ServerHello$T13HelloRetryRequestConsumer, name, initialize, &_ServerHello$T13HelloRetryRequestConsumer_ClassInfo_, allocate$ServerHello$T13HelloRetryRequestConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServerHello$T13HelloRetryRequestConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(ServerHello$T13HelloRetryRequestConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ServerHello$T13HelloRetryRequestConsumer", "sun.security.ssl.ServerHello", "T13HelloRetryRequestConsumer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ServerHello$T13HelloRetryRequestConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ServerHello"
+	};
+	$loadClass(ServerHello$T13HelloRetryRequestConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerHello$T13HelloRetryRequestConsumer);
+	});
 	return class$;
 }
 

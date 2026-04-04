@@ -1,5 +1,4 @@
 #include <java/security/InvalidAlgorithmParameterException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _InvalidAlgorithmParameterException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidAlgorithmParameterException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidAlgorithmParameterException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _InvalidAlgorithmParameterException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.InvalidAlgorithmParameterException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_InvalidAlgorithmParameterException_FieldInfo_,
-	_InvalidAlgorithmParameterException_MethodInfo_
-};
-
-$Object* allocate$InvalidAlgorithmParameterException($Class* clazz) {
-	return $of($alloc(InvalidAlgorithmParameterException));
-}
 
 void InvalidAlgorithmParameterException::init$() {
 	$GeneralSecurityException::init$();
@@ -64,7 +37,28 @@ void InvalidAlgorithmParameterException::throw$() {
 }
 
 $Class* InvalidAlgorithmParameterException::load$($String* name, bool initialize) {
-	$loadClass(InvalidAlgorithmParameterException, name, initialize, &_InvalidAlgorithmParameterException_ClassInfo_, allocate$InvalidAlgorithmParameterException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidAlgorithmParameterException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.InvalidAlgorithmParameterException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidAlgorithmParameterException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidAlgorithmParameterException);
+	});
 	return class$;
 }
 

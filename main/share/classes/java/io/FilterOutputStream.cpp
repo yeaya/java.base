@@ -1,5 +1,4 @@
 #include <java/io/FilterOutputStream.h>
-
 #include <java/io/OutputStream.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/ThreadDeath.h>
@@ -14,36 +13,6 @@ using $ThreadDeath = ::java::lang::ThreadDeath;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _FilterOutputStream_FieldInfo_[] = {
-	{"out", "Ljava/io/OutputStream;", nullptr, $PROTECTED, $field(FilterOutputStream, out)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(FilterOutputStream, closed)},
-	{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FilterOutputStream, closeLock)},
-	{}
-};
-
-$MethodInfo _FilterOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(FilterOutputStream, init$, void, $OutputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FilterOutputStream, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FilterOutputStream, flush, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FilterOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(FilterOutputStream, write, void, $bytes*), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(FilterOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _FilterOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.FilterOutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	_FilterOutputStream_FieldInfo_,
-	_FilterOutputStream_MethodInfo_
-};
-
-$Object* allocate$FilterOutputStream($Class* clazz) {
-	return $of($alloc(FilterOutputStream));
-}
 
 void FilterOutputStream::init$($OutputStream* out) {
 	$OutputStream::init$();
@@ -64,7 +33,7 @@ void FilterOutputStream::write($bytes* b, int32_t off, int32_t len) {
 		$throwNew($IndexOutOfBoundsException);
 	}
 	for (int32_t i = 0; i < len; ++i) {
-		write((int32_t)$nc(b)->get(off + i));
+		write(b->get(off + i));
 	}
 }
 
@@ -73,7 +42,7 @@ void FilterOutputStream::flush() {
 }
 
 void FilterOutputStream::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closed) {
 		return;
 	}
@@ -84,38 +53,36 @@ void FilterOutputStream::close() {
 		this->closed = true;
 	}
 	$var($Throwable, flushException, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			flush();
+		} catch ($Throwable& e) {
+			$assign(flushException, e);
+			$throw(e);
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (flushException == nullptr) {
+			$nc(this->out)->close();
+		} else {
 			try {
-				flush();
-			} catch ($Throwable& e) {
-				$assign(flushException, e);
-				$throw(e);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (flushException == nullptr) {
 				$nc(this->out)->close();
-			} else {
-				try {
-					$nc(this->out)->close();
-				} catch ($Throwable& closeException) {
-					if (($instanceOf($ThreadDeath, flushException)) && !($instanceOf($ThreadDeath, closeException))) {
-						$nc(flushException)->addSuppressed(closeException);
-						$throw($cast($ThreadDeath, flushException));
-					}
-					if (flushException != closeException) {
-						closeException->addSuppressed(flushException);
-					}
-					$throw(closeException);
+			} catch ($Throwable& closeException) {
+				if (($instanceOf($ThreadDeath, flushException)) && !($instanceOf($ThreadDeath, closeException))) {
+					flushException->addSuppressed(closeException);
+					$throw($cast($ThreadDeath, flushException));
 				}
+				if (flushException != closeException) {
+					closeException->addSuppressed(flushException);
+				}
+				$throw(closeException);
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -123,7 +90,32 @@ FilterOutputStream::FilterOutputStream() {
 }
 
 $Class* FilterOutputStream::load$($String* name, bool initialize) {
-	$loadClass(FilterOutputStream, name, initialize, &_FilterOutputStream_ClassInfo_, allocate$FilterOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/OutputStream;", nullptr, $PROTECTED, $field(FilterOutputStream, out)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(FilterOutputStream, closed)},
+		{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FilterOutputStream, closeLock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(FilterOutputStream, init$, void, $OutputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FilterOutputStream, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FilterOutputStream, flush, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FilterOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(FilterOutputStream, write, void, $bytes*), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(FilterOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.FilterOutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FilterOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilterOutputStream));
+	});
 	return class$;
 }
 

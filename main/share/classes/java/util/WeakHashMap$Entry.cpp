@@ -1,5 +1,4 @@
 #include <java/util/WeakHashMap$Entry.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/WeakReference.h>
@@ -21,52 +20,6 @@ using $WeakHashMap = ::java::util::WeakHashMap;
 namespace java {
 	namespace util {
 
-$FieldInfo _WeakHashMap$Entry_FieldInfo_[] = {
-	{"value", "Ljava/lang/Object;", "TV;", 0, $field(WeakHashMap$Entry, value)},
-	{"hash", "I", nullptr, $FINAL, $field(WeakHashMap$Entry, hash)},
-	{"next", "Ljava/util/WeakHashMap$Entry;", "Ljava/util/WeakHashMap$Entry<TK;TV;>;", 0, $field(WeakHashMap$Entry, next)},
-	{}
-};
-
-$MethodInfo _WeakHashMap$Entry_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;ILjava/util/WeakHashMap$Entry;)V", "(Ljava/lang/Object;TV;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;ILjava/util/WeakHashMap$Entry<TK;TV;>;)V", 0, $method(WeakHashMap$Entry, init$, void, Object$*, Object$*, $ReferenceQueue*, int32_t, WeakHashMap$Entry*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Entry, equals, bool, Object$*)},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(WeakHashMap$Entry, getKey, $Object*)},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(WeakHashMap$Entry, getValue, $Object*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Entry, hashCode, int32_t)},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(WeakHashMap$Entry, setValue, $Object*, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Entry, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _WeakHashMap$Entry_InnerClassesInfo_[] = {
-	{"java.util.WeakHashMap$Entry", "java.util.WeakHashMap", "Entry", $PRIVATE | $STATIC},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WeakHashMap$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.WeakHashMap$Entry",
-	"java.lang.ref.WeakReference",
-	"java.util.Map$Entry",
-	_WeakHashMap$Entry_FieldInfo_,
-	_WeakHashMap$Entry_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/ref/WeakReference<Ljava/lang/Object;>;Ljava/util/Map$Entry<TK;TV;>;",
-	nullptr,
-	_WeakHashMap$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.WeakHashMap"
-};
-
-$Object* allocate$WeakHashMap$Entry($Class* clazz) {
-	return $of($alloc(WeakHashMap$Entry));
-}
-
 $Object* WeakHashMap$Entry::clone() {
 	 return this->$WeakReference::clone();
 }
@@ -83,21 +36,21 @@ void WeakHashMap$Entry::init$(Object$* key, Object$* value, $ReferenceQueue* que
 }
 
 $Object* WeakHashMap$Entry::getKey() {
-	return $of($WeakHashMap::unmaskNull($(get())));
+	return $WeakHashMap::unmaskNull($(get()));
 }
 
 $Object* WeakHashMap$Entry::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 $Object* WeakHashMap$Entry::setValue(Object$* newValue) {
 	$var($Object, oldValue, this->value);
 	$set(this, value, newValue);
-	return $of(oldValue);
+	return oldValue;
 }
 
 bool WeakHashMap$Entry::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, e, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -109,10 +62,10 @@ bool WeakHashMap$Entry::equals(Object$* o) {
 	}
 	$var($Object, k1, getKey());
 	$var($Object, k2, $nc(e)->getKey());
-	if ($equals(k1, k2) || (k1 != nullptr && $of(k1)->equals(k2))) {
+	if ($equals(k1, k2) || (k1 != nullptr && k1->equals(k2))) {
 		$var($Object, v1, getValue());
 		$var($Object, v2, e->getValue());
-		if ($equals(v1, v2) || (v1 != nullptr && $of(v1)->equals(v2))) {
+		if ($equals(v1, v2) || (v1 != nullptr && v1->equals(v2))) {
 			return true;
 		}
 	}
@@ -120,7 +73,7 @@ bool WeakHashMap$Entry::equals(Object$* o) {
 }
 
 int32_t WeakHashMap$Entry::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, k, getKey());
 	$var($Object, v, getValue());
 	int32_t var$0 = $Objects::hashCode(k);
@@ -128,16 +81,59 @@ int32_t WeakHashMap$Entry::hashCode() {
 }
 
 $String* WeakHashMap$Entry::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$(getKey()), "="_s}));
-	return $concat(var$0, $(getValue()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(getKey()));
+	var$0->append("="_s);
+	var$0->append($(getValue()));
+	return $str(var$0);
 }
 
 WeakHashMap$Entry::WeakHashMap$Entry() {
 }
 
 $Class* WeakHashMap$Entry::load$($String* name, bool initialize) {
-	$loadClass(WeakHashMap$Entry, name, initialize, &_WeakHashMap$Entry_ClassInfo_, allocate$WeakHashMap$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/Object;", "TV;", 0, $field(WeakHashMap$Entry, value)},
+		{"hash", "I", nullptr, $FINAL, $field(WeakHashMap$Entry, hash)},
+		{"next", "Ljava/util/WeakHashMap$Entry;", "Ljava/util/WeakHashMap$Entry<TK;TV;>;", 0, $field(WeakHashMap$Entry, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;ILjava/util/WeakHashMap$Entry;)V", "(Ljava/lang/Object;TV;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;ILjava/util/WeakHashMap$Entry<TK;TV;>;)V", 0, $method(WeakHashMap$Entry, init$, void, Object$*, Object$*, $ReferenceQueue*, int32_t, WeakHashMap$Entry*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Entry, equals, bool, Object$*)},
+		{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(WeakHashMap$Entry, getKey, $Object*)},
+		{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(WeakHashMap$Entry, getValue, $Object*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Entry, hashCode, int32_t)},
+		{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(WeakHashMap$Entry, setValue, $Object*, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Entry, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.WeakHashMap$Entry", "java.util.WeakHashMap", "Entry", $PRIVATE | $STATIC},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.WeakHashMap$Entry",
+		"java.lang.ref.WeakReference",
+		"java.util.Map$Entry",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/ref/WeakReference<Ljava/lang/Object;>;Ljava/util/Map$Entry<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.WeakHashMap"
+	};
+	$loadClass(WeakHashMap$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WeakHashMap$Entry));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/StringPrep$StringPrepTrieImpl.h>
-
 #include <jdk/internal/icu/impl/CharTrie.h>
 #include <jdk/internal/icu/text/StringPrep.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$FieldInfo _StringPrep$StringPrepTrieImpl_FieldInfo_[] = {
-	{"sprepTrie", "Ljdk/internal/icu/impl/CharTrie;", nullptr, $PRIVATE, $field(StringPrep$StringPrepTrieImpl, sprepTrie)},
-	{}
-};
-
-$MethodInfo _StringPrep$StringPrepTrieImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StringPrep$StringPrepTrieImpl, init$, void)},
-	{"getFoldingOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(StringPrep$StringPrepTrieImpl, getFoldingOffset, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _StringPrep$StringPrepTrieImpl_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.StringPrep$StringPrepTrieImpl", "jdk.internal.icu.text.StringPrep", "StringPrepTrieImpl", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.Trie$DataManipulate", "jdk.internal.icu.impl.Trie", "DataManipulate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StringPrep$StringPrepTrieImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.text.StringPrep$StringPrepTrieImpl",
-	"java.lang.Object",
-	"jdk.internal.icu.impl.Trie$DataManipulate",
-	_StringPrep$StringPrepTrieImpl_FieldInfo_,
-	_StringPrep$StringPrepTrieImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringPrep$StringPrepTrieImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.StringPrep"
-};
-
-$Object* allocate$StringPrep$StringPrepTrieImpl($Class* clazz) {
-	return $of($alloc(StringPrep$StringPrepTrieImpl));
-}
-
 void StringPrep$StringPrepTrieImpl::init$() {
 	$set(this, sprepTrie, nullptr);
 }
@@ -63,7 +25,38 @@ StringPrep$StringPrepTrieImpl::StringPrep$StringPrepTrieImpl() {
 }
 
 $Class* StringPrep$StringPrepTrieImpl::load$($String* name, bool initialize) {
-	$loadClass(StringPrep$StringPrepTrieImpl, name, initialize, &_StringPrep$StringPrepTrieImpl_ClassInfo_, allocate$StringPrep$StringPrepTrieImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"sprepTrie", "Ljdk/internal/icu/impl/CharTrie;", nullptr, $PRIVATE, $field(StringPrep$StringPrepTrieImpl, sprepTrie)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StringPrep$StringPrepTrieImpl, init$, void)},
+		{"getFoldingOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(StringPrep$StringPrepTrieImpl, getFoldingOffset, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.StringPrep$StringPrepTrieImpl", "jdk.internal.icu.text.StringPrep", "StringPrepTrieImpl", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.Trie$DataManipulate", "jdk.internal.icu.impl.Trie", "DataManipulate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.text.StringPrep$StringPrepTrieImpl",
+		"java.lang.Object",
+		"jdk.internal.icu.impl.Trie$DataManipulate",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.StringPrep"
+	};
+	$loadClass(StringPrep$StringPrepTrieImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringPrep$StringPrepTrieImpl);
+	});
 	return class$;
 }
 

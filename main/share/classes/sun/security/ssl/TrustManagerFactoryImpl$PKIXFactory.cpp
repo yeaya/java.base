@@ -1,5 +1,4 @@
 #include <sun/security/ssl/TrustManagerFactoryImpl$PKIXFactory.h>
-
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/cert/CertPathParameters.h>
 #include <java/security/cert/PKIXBuilderParameters.h>
@@ -32,38 +31,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _TrustManagerFactoryImpl$PKIXFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TrustManagerFactoryImpl$PKIXFactory, init$, void)},
-	{"getInstance", "(Ljava/util/Collection;)Ljavax/net/ssl/X509TrustManager;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)Ljavax/net/ssl/X509TrustManager;", 0, $virtualMethod(TrustManagerFactoryImpl$PKIXFactory, getInstance, $X509TrustManager*, $Collection*)},
-	{"getInstance", "(Ljavax/net/ssl/ManagerFactoryParameters;)Ljavax/net/ssl/X509TrustManager;", nullptr, 0, $virtualMethod(TrustManagerFactoryImpl$PKIXFactory, getInstance, $X509TrustManager*, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$InnerClassInfo _TrustManagerFactoryImpl$PKIXFactory_InnerClassesInfo_[] = {
-	{"sun.security.ssl.TrustManagerFactoryImpl$PKIXFactory", "sun.security.ssl.TrustManagerFactoryImpl", "PKIXFactory", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TrustManagerFactoryImpl$PKIXFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.ssl.TrustManagerFactoryImpl$PKIXFactory",
-	"sun.security.ssl.TrustManagerFactoryImpl",
-	nullptr,
-	nullptr,
-	_TrustManagerFactoryImpl$PKIXFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TrustManagerFactoryImpl$PKIXFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.TrustManagerFactoryImpl"
-};
-
-$Object* allocate$TrustManagerFactoryImpl$PKIXFactory($Class* clazz) {
-	return $of($alloc(TrustManagerFactoryImpl$PKIXFactory));
-}
-
 void TrustManagerFactoryImpl$PKIXFactory::init$() {
 	$TrustManagerFactoryImpl::init$();
 }
@@ -74,11 +41,11 @@ $X509TrustManager* TrustManagerFactoryImpl$PKIXFactory::getInstance($Collection*
 }
 
 $X509TrustManager* TrustManagerFactoryImpl$PKIXFactory::getInstance($ManagerFactoryParameters* spec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($CertPathTrustManagerParameters, spec))) {
 		$throwNew($InvalidAlgorithmParameterException, "Parameters must be CertPathTrustManagerParameters"_s);
 	}
-	$var($CertPathParameters, params, $nc(($cast($CertPathTrustManagerParameters, spec)))->getParameters());
+	$var($CertPathParameters, params, $nc($cast($CertPathTrustManagerParameters, spec))->getParameters());
 	if (!($instanceOf($PKIXBuilderParameters, params))) {
 		$throwNew($InvalidAlgorithmParameterException, "Encapsulated parameters must be PKIXBuilderParameters"_s);
 	}
@@ -91,7 +58,34 @@ TrustManagerFactoryImpl$PKIXFactory::TrustManagerFactoryImpl$PKIXFactory() {
 }
 
 $Class* TrustManagerFactoryImpl$PKIXFactory::load$($String* name, bool initialize) {
-	$loadClass(TrustManagerFactoryImpl$PKIXFactory, name, initialize, &_TrustManagerFactoryImpl$PKIXFactory_ClassInfo_, allocate$TrustManagerFactoryImpl$PKIXFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TrustManagerFactoryImpl$PKIXFactory, init$, void)},
+		{"getInstance", "(Ljava/util/Collection;)Ljavax/net/ssl/X509TrustManager;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)Ljavax/net/ssl/X509TrustManager;", 0, $virtualMethod(TrustManagerFactoryImpl$PKIXFactory, getInstance, $X509TrustManager*, $Collection*)},
+		{"getInstance", "(Ljavax/net/ssl/ManagerFactoryParameters;)Ljavax/net/ssl/X509TrustManager;", nullptr, 0, $virtualMethod(TrustManagerFactoryImpl$PKIXFactory, getInstance, $X509TrustManager*, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.TrustManagerFactoryImpl$PKIXFactory", "sun.security.ssl.TrustManagerFactoryImpl", "PKIXFactory", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.ssl.TrustManagerFactoryImpl$PKIXFactory",
+		"sun.security.ssl.TrustManagerFactoryImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.TrustManagerFactoryImpl"
+	};
+	$loadClass(TrustManagerFactoryImpl$PKIXFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TrustManagerFactoryImpl$PKIXFactory);
+	});
 	return class$;
 }
 

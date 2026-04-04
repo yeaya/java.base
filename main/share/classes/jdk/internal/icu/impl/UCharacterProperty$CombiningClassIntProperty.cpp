@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/UCharacterProperty$CombiningClassIntProperty.h>
-
 #include <jdk/internal/icu/impl/UCharacterProperty$IntProperty.h>
 #include <jdk/internal/icu/impl/UCharacterProperty.h>
 #include <jcpp.h>
@@ -16,42 +15,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$FieldInfo _UCharacterProperty$CombiningClassIntProperty_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/icu/impl/UCharacterProperty;", nullptr, $FINAL | $SYNTHETIC, $field(UCharacterProperty$CombiningClassIntProperty, this$0)},
-	{}
-};
-
-$MethodInfo _UCharacterProperty$CombiningClassIntProperty_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;I)V", nullptr, 0, $method(UCharacterProperty$CombiningClassIntProperty, init$, void, $UCharacterProperty*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UCharacterProperty$CombiningClassIntProperty_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.UCharacterProperty$CombiningClassIntProperty", "jdk.internal.icu.impl.UCharacterProperty", "CombiningClassIntProperty", $PRIVATE},
-	{"jdk.internal.icu.impl.UCharacterProperty$IntProperty", "jdk.internal.icu.impl.UCharacterProperty", "IntProperty", $PRIVATE},
-	{}
-};
-
-$ClassInfo _UCharacterProperty$CombiningClassIntProperty_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.icu.impl.UCharacterProperty$CombiningClassIntProperty",
-	"jdk.internal.icu.impl.UCharacterProperty$IntProperty",
-	nullptr,
-	_UCharacterProperty$CombiningClassIntProperty_FieldInfo_,
-	_UCharacterProperty$CombiningClassIntProperty_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UCharacterProperty$CombiningClassIntProperty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.UCharacterProperty"
-};
-
-$Object* allocate$UCharacterProperty$CombiningClassIntProperty($Class* clazz) {
-	return $of($alloc(UCharacterProperty$CombiningClassIntProperty));
-}
-
 void UCharacterProperty$CombiningClassIntProperty::init$($UCharacterProperty* this$0, int32_t source) {
 	$set(this, this$0, this$0);
 	$UCharacterProperty$IntProperty::init$(this$0, source);
@@ -61,7 +24,37 @@ UCharacterProperty$CombiningClassIntProperty::UCharacterProperty$CombiningClassI
 }
 
 $Class* UCharacterProperty$CombiningClassIntProperty::load$($String* name, bool initialize) {
-	$loadClass(UCharacterProperty$CombiningClassIntProperty, name, initialize, &_UCharacterProperty$CombiningClassIntProperty_ClassInfo_, allocate$UCharacterProperty$CombiningClassIntProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/icu/impl/UCharacterProperty;", nullptr, $FINAL | $SYNTHETIC, $field(UCharacterProperty$CombiningClassIntProperty, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;I)V", nullptr, 0, $method(UCharacterProperty$CombiningClassIntProperty, init$, void, $UCharacterProperty*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.UCharacterProperty$CombiningClassIntProperty", "jdk.internal.icu.impl.UCharacterProperty", "CombiningClassIntProperty", $PRIVATE},
+		{"jdk.internal.icu.impl.UCharacterProperty$IntProperty", "jdk.internal.icu.impl.UCharacterProperty", "IntProperty", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.icu.impl.UCharacterProperty$CombiningClassIntProperty",
+		"jdk.internal.icu.impl.UCharacterProperty$IntProperty",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.UCharacterProperty"
+	};
+	$loadClass(UCharacterProperty$CombiningClassIntProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UCharacterProperty$CombiningClassIntProperty);
+	});
 	return class$;
 }
 

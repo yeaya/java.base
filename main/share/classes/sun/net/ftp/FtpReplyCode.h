@@ -120,6 +120,7 @@ class FtpReplyCode : public ::java::lang::Enum {
 public:
 	FtpReplyCode();
 	static $Array<::sun::net::ftp::FtpReplyCode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t val);
 	static ::sun::net::ftp::FtpReplyCode* find(int32_t v);
 	virtual int32_t getValue();

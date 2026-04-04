@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLCipher$T11BlockWriteCipherGenerator.h>
-
 #include <java/security/Key.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -26,39 +25,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLCipher$T11BlockWriteCipherGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLCipher$T11BlockWriteCipherGenerator, init$, void)},
-	{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T11BlockWriteCipherGenerator, createCipher, $SSLCipher$SSLWriteCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
-	{}
-};
-
-$InnerClassInfo _SSLCipher$T11BlockWriteCipherGenerator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLCipher$T11BlockWriteCipherGenerator", "sun.security.ssl.SSLCipher", "T11BlockWriteCipherGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLCipher$WriteCipherGenerator", "sun.security.ssl.SSLCipher", "WriteCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.security.ssl.SSLCipher$T11BlockWriteCipherGenerator$BlockWriteCipher", "sun.security.ssl.SSLCipher$T11BlockWriteCipherGenerator", "BlockWriteCipher", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLCipher$T11BlockWriteCipherGenerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLCipher$T11BlockWriteCipherGenerator",
-	"java.lang.Object",
-	"sun.security.ssl.SSLCipher$WriteCipherGenerator",
-	nullptr,
-	_SSLCipher$T11BlockWriteCipherGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLCipher$T11BlockWriteCipherGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLCipher"
-};
-
-$Object* allocate$SSLCipher$T11BlockWriteCipherGenerator($Class* clazz) {
-	return $of($alloc(SSLCipher$T11BlockWriteCipherGenerator));
-}
-
 void SSLCipher$T11BlockWriteCipherGenerator::init$() {
 }
 
@@ -70,7 +36,35 @@ SSLCipher$T11BlockWriteCipherGenerator::SSLCipher$T11BlockWriteCipherGenerator()
 }
 
 $Class* SSLCipher$T11BlockWriteCipherGenerator::load$($String* name, bool initialize) {
-	$loadClass(SSLCipher$T11BlockWriteCipherGenerator, name, initialize, &_SSLCipher$T11BlockWriteCipherGenerator_ClassInfo_, allocate$SSLCipher$T11BlockWriteCipherGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLCipher$T11BlockWriteCipherGenerator, init$, void)},
+		{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T11BlockWriteCipherGenerator, createCipher, $SSLCipher$SSLWriteCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLCipher$T11BlockWriteCipherGenerator", "sun.security.ssl.SSLCipher", "T11BlockWriteCipherGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLCipher$WriteCipherGenerator", "sun.security.ssl.SSLCipher", "WriteCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.security.ssl.SSLCipher$T11BlockWriteCipherGenerator$BlockWriteCipher", "sun.security.ssl.SSLCipher$T11BlockWriteCipherGenerator", "BlockWriteCipher", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLCipher$T11BlockWriteCipherGenerator",
+		"java.lang.Object",
+		"sun.security.ssl.SSLCipher$WriteCipherGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLCipher"
+	};
+	$loadClass(SSLCipher$T11BlockWriteCipherGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLCipher$T11BlockWriteCipherGenerator);
+	});
 	return class$;
 }
 

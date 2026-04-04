@@ -1,5 +1,4 @@
 #include <sun/nio/fs/AbstractAclFileAttributeView.h>
-
 #include <java/nio/file/attribute/AclFileAttributeView.h>
 #include <java/nio/file/attribute/FileOwnerAttributeView.h>
 #include <java/nio/file/attribute/UserPrincipal.h>
@@ -26,38 +25,6 @@ using $Map = ::java::util::Map;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _AbstractAclFileAttributeView_FieldInfo_[] = {
-	{"OWNER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractAclFileAttributeView, OWNER_NAME)},
-	{"ACL_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractAclFileAttributeView, ACL_NAME)},
-	{}
-};
-
-$MethodInfo _AbstractAclFileAttributeView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(AbstractAclFileAttributeView, init$, void)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractAclFileAttributeView, name, $String*)},
-	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $FINAL, $virtualMethod(AbstractAclFileAttributeView, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractAclFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractAclFileAttributeView_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.nio.fs.AbstractAclFileAttributeView",
-	"java.lang.Object",
-	"java.nio.file.attribute.AclFileAttributeView,sun.nio.fs.DynamicFileAttributeView",
-	_AbstractAclFileAttributeView_FieldInfo_,
-	_AbstractAclFileAttributeView_MethodInfo_
-};
-
-$Object* allocate$AbstractAclFileAttributeView($Class* clazz) {
-	return $of($alloc(AbstractAclFileAttributeView));
-}
 
 int32_t AbstractAclFileAttributeView::hashCode() {
 	 return this->$AclFileAttributeView::hashCode();
@@ -90,12 +57,12 @@ $String* AbstractAclFileAttributeView::name() {
 }
 
 void AbstractAclFileAttributeView::setAttribute($String* attribute, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(attribute)->equals(AbstractAclFileAttributeView::OWNER_NAME)) {
 		setOwner($cast($UserPrincipal, value));
 		return;
 	}
-	if ($nc(attribute)->equals(AbstractAclFileAttributeView::ACL_NAME)) {
+	if (attribute->equals(AbstractAclFileAttributeView::ACL_NAME)) {
 		setAcl($cast($List, value));
 		return;
 	}
@@ -103,14 +70,12 @@ void AbstractAclFileAttributeView::setAttribute($String* attribute, Object$* val
 }
 
 $Map* AbstractAclFileAttributeView::readAttributes($StringArray* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool acl = false;
 	bool owner = false;
 	{
 		$var($StringArray, arr$, attributes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, attribute, arr$->get(i$));
 			{
 				if ($nc(attribute)->equals("*"_s)) {
@@ -118,11 +83,11 @@ $Map* AbstractAclFileAttributeView::readAttributes($StringArray* attributes) {
 					acl = true;
 					continue;
 				}
-				if ($nc(attribute)->equals(AbstractAclFileAttributeView::ACL_NAME)) {
+				if (attribute->equals(AbstractAclFileAttributeView::ACL_NAME)) {
 					acl = true;
 					continue;
 				}
-				if ($nc(attribute)->equals(AbstractAclFileAttributeView::OWNER_NAME)) {
+				if (attribute->equals(AbstractAclFileAttributeView::OWNER_NAME)) {
 					owner = true;
 					continue;
 				}
@@ -143,13 +108,40 @@ $Map* AbstractAclFileAttributeView::readAttributes($StringArray* attributes) {
 AbstractAclFileAttributeView::AbstractAclFileAttributeView() {
 }
 
-void clinit$AbstractAclFileAttributeView($Class* class$) {
+void AbstractAclFileAttributeView::clinit$($Class* clazz) {
 	$assignStatic(AbstractAclFileAttributeView::OWNER_NAME, "owner"_s);
 	$assignStatic(AbstractAclFileAttributeView::ACL_NAME, "acl"_s);
 }
 
 $Class* AbstractAclFileAttributeView::load$($String* name, bool initialize) {
-	$loadClass(AbstractAclFileAttributeView, name, initialize, &_AbstractAclFileAttributeView_ClassInfo_, clinit$AbstractAclFileAttributeView, allocate$AbstractAclFileAttributeView);
+	$FieldInfo fieldInfos$$[] = {
+		{"OWNER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractAclFileAttributeView, OWNER_NAME)},
+		{"ACL_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractAclFileAttributeView, ACL_NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(AbstractAclFileAttributeView, init$, void)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractAclFileAttributeView, name, $String*)},
+		{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $FINAL, $virtualMethod(AbstractAclFileAttributeView, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractAclFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.nio.fs.AbstractAclFileAttributeView",
+		"java.lang.Object",
+		"java.nio.file.attribute.AclFileAttributeView,sun.nio.fs.DynamicFileAttributeView",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractAclFileAttributeView, name, initialize, &classInfo$$, AbstractAclFileAttributeView::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractAclFileAttributeView));
+	});
 	return class$;
 }
 

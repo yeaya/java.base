@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/GCTR.h>
-
 #include <com/sun/crypto/provider/CounterMode.h>
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/GaloisCounterMode.h>
@@ -31,43 +30,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _GCTR_FieldInfo_[] = {
-	{"MAX_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GCTR, MAX_LEN)},
-	{"block", "[B", nullptr, $PRIVATE, $field(GCTR, block)},
-	{}
-};
-
-$MethodInfo _GCTR_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;[B)V", nullptr, 0, $method(GCTR, init$, void, $SymmetricCipher*, $bytes*)},
-	{"blocksUntilRollover", "()J", nullptr, $PRIVATE, $method(GCTR, blocksUntilRollover, int64_t)},
-	{"checkBlock", "()V", nullptr, $PRIVATE, $method(GCTR, checkBlock, void)},
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GCTR, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GCTR, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*)},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(GCTR, getFeedback, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GCTR, update, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"update", "([BIILjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GCTR, update, int32_t, $bytes*, int32_t, int32_t, $ByteBuffer*)},
-	{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GCTR, update, int32_t, $ByteBuffer*, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _GCTR_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.GCTR",
-	"com.sun.crypto.provider.CounterMode",
-	"com.sun.crypto.provider.GCM",
-	_GCTR_FieldInfo_,
-	_GCTR_MethodInfo_
-};
-
-$Object* allocate$GCTR($Class* clazz) {
-	return $of($alloc(GCTR));
-}
-
 int32_t GCTR::hashCode() {
 	 return this->$CounterMode::hashCode();
 }
@@ -89,7 +51,7 @@ void GCTR::finalize() {
 }
 
 void GCTR::init$($SymmetricCipher* cipher, $bytes* initialCounterBlk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$CounterMode::init$(cipher);
 	if ($nc(initialCounterBlk)->length != this->blockSize) {
 		$throwNew($RuntimeException, $$str({"length of initial counter block ("_s, $$str(initialCounterBlk->length), ") not equal to blockSize ("_s, $$str(this->blockSize), ")"_s}));
@@ -106,7 +68,7 @@ int64_t GCTR::blocksUntilRollover() {
 	$var($ByteBuffer, buf, $ByteBuffer::wrap(this->counter, $nc(this->counter)->length - 4, 4));
 	$init($ByteOrder);
 	$nc(buf)->order($ByteOrder::BIG_ENDIAN);
-	int64_t ctr32 = (int64_t)((int64_t)0x00000000FFFFFFFF & (uint64_t)(int64_t)buf->getInt());
+	int64_t ctr32 = (int64_t)0xffffffff & buf->getInt();
 	int64_t blocksLeft = ((int64_t)1 << 32) - ctr32;
 	return blocksLeft;
 }
@@ -141,7 +103,7 @@ int32_t GCTR::update($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int3
 			$nc(this->embeddedCipher)->encryptBlock(this->counter, 0, this->block, 0);
 			for (int32_t n = 0; n < this->blockSize; ++n) {
 				int32_t index = (i * this->blockSize + n);
-				$nc(out)->set(outOfs + index, (int8_t)($nc(in)->get(inOfs + index) ^ $nc(this->block)->get(n)));
+				out->set(outOfs + index, (int8_t)(in->get(inOfs + index) ^ $nc(this->block)->get(n)));
 			}
 			$GaloisCounterMode::increment32(this->counter);
 		}
@@ -152,14 +114,11 @@ int32_t GCTR::update($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int3
 }
 
 int32_t GCTR::update($bytes* in, int32_t inOfs, int32_t inLen, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(dst)->isDirect()) {
-		$var($bytes, var$0, in);
-		int32_t var$1 = inOfs;
-		int32_t var$2 = inLen;
-		$var($bytes, var$3, $cast($bytes, dst->array()));
-		int32_t var$4 = dst->arrayOffset();
-		int32_t len = update(var$0, var$1, var$2, var$3, var$4 + dst->position());
+		$var($bytes, var$0, $cast($bytes, dst->array()));
+		int32_t var$1 = dst->arrayOffset();
+		int32_t len = update(in, inOfs, inLen, var$0, var$1 + dst->position());
 		dst->position(dst->position() + len);
 		return len;
 	}
@@ -177,7 +136,7 @@ int32_t GCTR::update($bytes* in, int32_t inOfs, int32_t inLen, $ByteBuffer* dst)
 			$nc(this->embeddedCipher)->encryptBlock(this->counter, 0, this->block, 0);
 			for (int32_t n = 0; n < this->blockSize; ++n) {
 				int32_t index = (i * this->blockSize + n);
-				$nc(dst)->put((int8_t)($nc(in)->get(inOfs + index) ^ $nc(this->block)->get(n)));
+				dst->put((int8_t)(in->get(inOfs + index) ^ $nc(this->block)->get(n)));
 			}
 			$GaloisCounterMode::increment32(this->counter);
 		}
@@ -189,18 +148,18 @@ int32_t GCTR::update($bytes* in, int32_t inOfs, int32_t inLen, $ByteBuffer* dst)
 		int32_t offset = inOfs;
 		while (processed > GCTR::MAX_LEN) {
 			encrypt(in, offset, GCTR::MAX_LEN, out, 0);
-			$nc(dst)->put(out, 0, GCTR::MAX_LEN);
+			dst->put(out, 0, GCTR::MAX_LEN);
 			processed -= GCTR::MAX_LEN;
 			offset += GCTR::MAX_LEN;
 		}
 		encrypt(in, offset, processed, out, 0);
-		$nc(dst)->put(out, 0, $Math::min(dst->remaining(), processed));
+		dst->put(out, 0, $Math::min(dst->remaining(), processed));
 		return len;
 	}
 }
 
 int32_t GCTR::update($ByteBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = 0;
 	bool var$0 = $nc(src)->hasArray();
 	if (var$0 && $nc(dst)->hasArray()) {
@@ -217,7 +176,7 @@ int32_t GCTR::update($ByteBuffer* src, $ByteBuffer* dst) {
 		return len;
 	}
 	int64_t blocksLeft = blocksUntilRollover();
-	int32_t numOfCompleteBlocks = $div($nc(src)->remaining(), this->blockSize);
+	int32_t numOfCompleteBlocks = $div(src->remaining(), this->blockSize);
 	if (numOfCompleteBlocks >= blocksLeft) {
 		checkBlock();
 		for (int32_t i = 0; i < numOfCompleteBlocks; ++i) {
@@ -263,7 +222,7 @@ int32_t GCTR::doFinal($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int
 }
 
 int32_t GCTR::doFinal($ByteBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(src)->hasArray();
 	if (var$0 && $nc(dst)->hasArray()) {
 		$var($bytes, var$1, $cast($bytes, src->array()));
@@ -277,7 +236,7 @@ int32_t GCTR::doFinal($ByteBuffer* src, $ByteBuffer* dst) {
 		dst->position(dst->position() + len);
 		return len;
 	}
-	int32_t len = $nc(src)->remaining();
+	int32_t len = src->remaining();
 	int32_t lastBlockSize = $mod(len, this->blockSize);
 	update(src, dst);
 	if (lastBlockSize != 0) {
@@ -294,7 +253,39 @@ GCTR::GCTR() {
 }
 
 $Class* GCTR::load$($String* name, bool initialize) {
-	$loadClass(GCTR, name, initialize, &_GCTR_ClassInfo_, allocate$GCTR);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GCTR, MAX_LEN)},
+		{"block", "[B", nullptr, $PRIVATE, $field(GCTR, block)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;[B)V", nullptr, 0, $method(GCTR, init$, void, $SymmetricCipher*, $bytes*)},
+		{"blocksUntilRollover", "()J", nullptr, $PRIVATE, $method(GCTR, blocksUntilRollover, int64_t)},
+		{"checkBlock", "()V", nullptr, $PRIVATE, $method(GCTR, checkBlock, void)},
+		{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GCTR, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GCTR, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*)},
+		{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(GCTR, getFeedback, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"update", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GCTR, update, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"update", "([BIILjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GCTR, update, int32_t, $bytes*, int32_t, int32_t, $ByteBuffer*)},
+		{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GCTR, update, int32_t, $ByteBuffer*, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.GCTR",
+		"com.sun.crypto.provider.CounterMode",
+		"com.sun.crypto.provider.GCM",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GCTR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GCTR));
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ public:
 	UnsupportedEncodingException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xC4AEB85A4E6628A2;
+	static const int64_t serialVersionUID = (int64_t)0xc4aeb85a4e6628a2;
 	UnsupportedEncodingException(const UnsupportedEncodingException& e);
 	virtual void throw$() override;
-	inline UnsupportedEncodingException* operator ->() {
+	inline UnsupportedEncodingException* operator ->() const {
+		return (UnsupportedEncodingException*)throwing$;
+	}
+	inline operator UnsupportedEncodingException*() const {
 		return (UnsupportedEncodingException*)throwing$;
 	}
 };

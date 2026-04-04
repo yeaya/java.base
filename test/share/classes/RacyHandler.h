@@ -25,6 +25,7 @@ class $export RacyHandler : public ::java::lang::Object {
 	$class(RacyHandler, 0, ::java::lang::Object)
 public:
 	RacyHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::net::URLStreamHandler* getURLStreamHandler();
 	::java::net::URLStreamHandler* lambda$runTest$0($String* proto);

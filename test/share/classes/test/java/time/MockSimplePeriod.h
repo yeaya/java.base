@@ -36,6 +36,7 @@ public:
 	MockSimplePeriod();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t amount, ::java::time::temporal::TemporalUnit* unit);
 	virtual ::java::time::temporal::Temporal* addTo(::java::time::temporal::Temporal* temporal) override;
 	int32_t compareTo(::test::java::time::MockSimplePeriod* otherPeriod);

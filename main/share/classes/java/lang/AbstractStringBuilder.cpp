@@ -1,5 +1,4 @@
 #include <java/lang/AbstractStringBuilder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/CharSequence.h>
@@ -75,35 +74,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$chars$0());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AbstractStringBuilder$$Lambda$lambda$chars$0>());
+		 return $nc(inst$)->lambda$chars$0();
 	}
 	AbstractStringBuilder* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AbstractStringBuilder$$Lambda$lambda$chars$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AbstractStringBuilder$$Lambda$lambda$chars$0, inst$)},
-	{}
-};
-$MethodInfo AbstractStringBuilder$$Lambda$lambda$chars$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/AbstractStringBuilder;)V", nullptr, $PUBLIC, $method(AbstractStringBuilder$$Lambda$lambda$chars$0, init$, void, AbstractStringBuilder*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder$$Lambda$lambda$chars$0, get, $Object*)},
-	{}
-};
-$ClassInfo AbstractStringBuilder$$Lambda$lambda$chars$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.AbstractStringBuilder$$Lambda$lambda$chars$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* AbstractStringBuilder$$Lambda$lambda$chars$0::load$($String* name, bool initialize) {
-	$loadClass(AbstractStringBuilder$$Lambda$lambda$chars$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AbstractStringBuilder$$Lambda$lambda$chars$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/AbstractStringBuilder;)V", nullptr, $PUBLIC, $method(AbstractStringBuilder$$Lambda$lambda$chars$0, init$, void, AbstractStringBuilder*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder$$Lambda$lambda$chars$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.AbstractStringBuilder$$Lambda$lambda$chars$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractStringBuilder$$Lambda$lambda$chars$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractStringBuilder$$Lambda$lambda$chars$0);
+	});
 	return class$;
 }
 $Class* AbstractStringBuilder$$Lambda$lambda$chars$0::class$ = nullptr;
@@ -115,147 +110,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$codePoints$1());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AbstractStringBuilder$$Lambda$lambda$codePoints$1$1>());
+		 return $nc(inst$)->lambda$codePoints$1();
 	}
 	AbstractStringBuilder* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AbstractStringBuilder$$Lambda$lambda$codePoints$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1, inst$)},
-	{}
-};
-$MethodInfo AbstractStringBuilder$$Lambda$lambda$codePoints$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/AbstractStringBuilder;)V", nullptr, $PUBLIC, $method(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1, init$, void, AbstractStringBuilder*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1, get, $Object*)},
-	{}
-};
-$ClassInfo AbstractStringBuilder$$Lambda$lambda$codePoints$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.AbstractStringBuilder$$Lambda$lambda$codePoints$1$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* AbstractStringBuilder$$Lambda$lambda$codePoints$1$1::load$($String* name, bool initialize) {
-	$loadClass(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/AbstractStringBuilder;)V", nullptr, $PUBLIC, $method(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1, init$, void, AbstractStringBuilder*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.AbstractStringBuilder$$Lambda$lambda$codePoints$1$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1);
+	});
 	return class$;
 }
 $Class* AbstractStringBuilder$$Lambda$lambda$codePoints$1$1::class$ = nullptr;
-
-$FieldInfo _AbstractStringBuilder_FieldInfo_[] = {
-	{"value", "[B", nullptr, 0, $field(AbstractStringBuilder, value)},
-	{"coder", "B", nullptr, 0, $field(AbstractStringBuilder, coder)},
-	{"count", "I", nullptr, 0, $field(AbstractStringBuilder, count)},
-	{"EMPTYVALUE", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractStringBuilder, EMPTYVALUE)},
-	{"MAX_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractStringBuilder, MAX_ARRAY_SIZE)},
-	{}
-};
-
-$MethodInfo _AbstractStringBuilder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(AbstractStringBuilder, init$, void)},
-	{"<init>", "(I)V", nullptr, 0, $method(AbstractStringBuilder, init$, void, int32_t)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AbstractStringBuilder, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, 0, $method(AbstractStringBuilder, init$, void, $CharSequence*)},
-	{"append", "(Ljava/lang/Object;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, Object$*)},
-	{"append", "(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $String*)},
-	{"append", "(Ljava/lang/StringBuffer;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $StringBuffer*)},
-	{"append", "(Ljava/lang/AbstractStringBuilder;)Ljava/lang/AbstractStringBuilder;", nullptr, 0, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, AbstractStringBuilder*)},
-	{"append", "(Ljava/lang/CharSequence;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $CharSequence*)},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $CharSequence*, int32_t, int32_t)},
-	{"append", "([C)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $chars*)},
-	{"append", "([CII)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $chars*, int32_t, int32_t)},
-	{"append", "(Z)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, bool)},
-	{"append", "(C)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, char16_t)},
-	{"append", "(I)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, int32_t)},
-	{"append", "(J)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, int64_t)},
-	{"append", "(F)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, float)},
-	{"append", "(D)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, double)},
-	{"appendChars", "([CII)V", nullptr, $PRIVATE | $FINAL, $method(AbstractStringBuilder, appendChars, void, $chars*, int32_t, int32_t)},
-	{"appendChars", "(Ljava/lang/String;II)V", nullptr, $PRIVATE | $FINAL, $method(AbstractStringBuilder, appendChars, void, $String*, int32_t, int32_t)},
-	{"appendChars", "(Ljava/lang/CharSequence;II)V", nullptr, $PRIVATE | $FINAL, $method(AbstractStringBuilder, appendChars, void, $CharSequence*, int32_t, int32_t)},
-	{"appendCodePoint", "(I)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, appendCodePoint, AbstractStringBuilder*, int32_t)},
-	{"appendNull", "()Ljava/lang/AbstractStringBuilder;", nullptr, $PRIVATE, $method(AbstractStringBuilder, appendNull, AbstractStringBuilder*)},
-	{"capacity", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, capacity, int32_t)},
-	{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, charAt, char16_t, int32_t)},
-	{"chars", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, chars, $IntStream*)},
-	{"checkRange", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractStringBuilder, checkRange, void, int32_t, int32_t, int32_t)},
-	{"checkRangeSIOOBE", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractStringBuilder, checkRangeSIOOBE, void, int32_t, int32_t, int32_t)},
-	{"codePointAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, codePointAt, int32_t, int32_t)},
-	{"codePointBefore", "(I)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, codePointBefore, int32_t, int32_t)},
-	{"codePointCount", "(II)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, codePointCount, int32_t, int32_t, int32_t)},
-	{"codePoints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, codePoints, $IntStream*)},
-	{"compareTo", "(Ljava/lang/AbstractStringBuilder;)I", nullptr, 0, $virtualMethod(AbstractStringBuilder, compareTo, int32_t, AbstractStringBuilder*)},
-	{"delete", "(II)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, delete$, AbstractStringBuilder*, int32_t, int32_t)},
-	{"deleteCharAt", "(I)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, deleteCharAt, AbstractStringBuilder*, int32_t)},
-	{"ensureCapacity", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, ensureCapacity, void, int32_t)},
-	{"ensureCapacityInternal", "(I)V", nullptr, $PRIVATE, $method(AbstractStringBuilder, ensureCapacityInternal, void, int32_t)},
-	{"getBytes", "([BIB)V", nullptr, 0, $virtualMethod(AbstractStringBuilder, getBytes, void, $bytes*, int32_t, int8_t)},
-	{"getChars", "(II[CI)V", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, getChars, void, int32_t, int32_t, $chars*, int32_t)},
-	{"getCoder", "()B", nullptr, $FINAL, $method(AbstractStringBuilder, getCoder, int8_t)},
-	{"getValue", "()[B", nullptr, $FINAL, $method(AbstractStringBuilder, getValue, $bytes*)},
-	{"indexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, indexOf, int32_t, $String*)},
-	{"indexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, indexOf, int32_t, $String*, int32_t)},
-	{"inflate", "()V", nullptr, $PRIVATE, $method(AbstractStringBuilder, inflate, void)},
-	{"initBytes", "([CII)V", nullptr, 0, $virtualMethod(AbstractStringBuilder, initBytes, void, $chars*, int32_t, int32_t)},
-	{"insert", "(I[CII)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, $chars*, int32_t, int32_t)},
-	{"insert", "(ILjava/lang/Object;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, Object$*)},
-	{"insert", "(ILjava/lang/String;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, $String*)},
-	{"insert", "(I[C)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, $chars*)},
-	{"insert", "(ILjava/lang/CharSequence;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, $CharSequence*)},
-	{"insert", "(ILjava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"insert", "(IZ)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, bool)},
-	{"insert", "(IC)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, char16_t)},
-	{"insert", "(II)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, int32_t)},
-	{"insert", "(IJ)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, int64_t)},
-	{"insert", "(IF)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, float)},
-	{"insert", "(ID)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, double)},
-	{"isLatin1", "()Z", nullptr, $FINAL, $method(AbstractStringBuilder, isLatin1, bool)},
-	{"lambda$chars$0", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(AbstractStringBuilder, lambda$chars$0, $Spliterator$OfInt*)},
-	{"lambda$codePoints$1", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(AbstractStringBuilder, lambda$codePoints$1, $Spliterator$OfInt*)},
-	{"lastIndexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, lastIndexOf, int32_t, $String*)},
-	{"lastIndexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, lastIndexOf, int32_t, $String*, int32_t)},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, length, int32_t)},
-	{"newCapacity", "(I)I", nullptr, $PRIVATE, $method(AbstractStringBuilder, newCapacity, int32_t, int32_t)},
-	{"offsetByCodePoints", "(II)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, offsetByCodePoints, int32_t, int32_t, int32_t)},
-	{"putCharsAt", "(I[CII)V", nullptr, $PRIVATE | $FINAL, $method(AbstractStringBuilder, putCharsAt, void, int32_t, $chars*, int32_t, int32_t)},
-	{"putCharsAt", "(ILjava/lang/CharSequence;II)V", nullptr, $PRIVATE | $FINAL, $method(AbstractStringBuilder, putCharsAt, void, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"putStringAt", "(ILjava/lang/String;II)V", nullptr, $PRIVATE, $method(AbstractStringBuilder, putStringAt, void, int32_t, $String*, int32_t, int32_t)},
-	{"putStringAt", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(AbstractStringBuilder, putStringAt, void, int32_t, $String*)},
-	{"replace", "(IILjava/lang/String;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, replace, AbstractStringBuilder*, int32_t, int32_t, $String*)},
-	{"reverse", "()Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, reverse, AbstractStringBuilder*)},
-	{"setCharAt", "(IC)V", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, setCharAt, void, int32_t, char16_t)},
-	{"setLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, setLength, void, int32_t)},
-	{"shift", "(II)V", nullptr, $PRIVATE, $method(AbstractStringBuilder, shift, void, int32_t, int32_t)},
-	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, subSequence, $CharSequence*, int32_t, int32_t)},
-	{"substring", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, substring, $String*, int32_t)},
-	{"substring", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, substring, $String*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"trimToSize", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, trimToSize, void)},
-	{}
-};
-
-$ClassInfo _AbstractStringBuilder_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.lang.AbstractStringBuilder",
-	"java.lang.Object",
-	"java.lang.Appendable,java.lang.CharSequence",
-	_AbstractStringBuilder_FieldInfo_,
-	_AbstractStringBuilder_MethodInfo_
-};
-
-$Object* allocate$AbstractStringBuilder($Class* clazz) {
-	return $of($alloc(AbstractStringBuilder));
-}
 
 $String* AbstractStringBuilder::toString() {
 	 return this->$Appendable::toString();
@@ -286,10 +168,10 @@ void AbstractStringBuilder::init$() {
 void AbstractStringBuilder::init$(int32_t capacity) {
 	if ($String::COMPACT_STRINGS) {
 		$set(this, value, $new($bytes, capacity));
-		this->coder = (int8_t)0;
+		this->coder = 0;
 	} else {
 		$set(this, value, $StringUTF16::newBytesFor(capacity));
-		this->coder = (int8_t)1;
+		this->coder = 1;
 	}
 }
 
@@ -298,12 +180,12 @@ void AbstractStringBuilder::init$($String* str) {
 	int32_t capacity = (length < $Integer::MAX_VALUE - 16) ? length + 16 : $Integer::MAX_VALUE;
 	int8_t initCoder = str->coder();
 	this->coder = initCoder;
-	$set(this, value, (initCoder == (int8_t)0) ? $new($bytes, capacity) : $StringUTF16::newBytesFor(capacity));
+	$set(this, value, (initCoder == 0) ? $new($bytes, capacity) : $StringUTF16::newBytesFor(capacity));
 	append(str);
 }
 
 void AbstractStringBuilder::init$($CharSequence* seq) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(seq)->length();
 	if (length < 0) {
 		$throwNew($NegativeArraySizeException, $$str({"Negative length: "_s, $$str(length)}));
@@ -312,22 +194,22 @@ void AbstractStringBuilder::init$($CharSequence* seq) {
 	int8_t initCoder = 0;
 	if ($String::COMPACT_STRINGS) {
 		if ($instanceOf(AbstractStringBuilder, seq)) {
-			initCoder = $nc(($cast(AbstractStringBuilder, seq)))->getCoder();
+			initCoder = $cast(AbstractStringBuilder, seq)->getCoder();
 		} else if ($instanceOf($String, seq)) {
-			initCoder = $nc(($cast($String, seq)))->coder();
+			initCoder = $cast($String, seq)->coder();
 		} else {
-			initCoder = (int8_t)0;
+			initCoder = 0;
 		}
 	} else {
-		initCoder = (int8_t)1;
+		initCoder = 1;
 	}
 	this->coder = initCoder;
-	$set(this, value, (initCoder == (int8_t)0) ? $new($bytes, capacity) : $StringUTF16::newBytesFor(capacity));
+	$set(this, value, (initCoder == 0) ? $new($bytes, capacity) : $StringUTF16::newBytesFor(capacity));
 	append(seq);
 }
 
 int32_t AbstractStringBuilder::compareTo(AbstractStringBuilder* another) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this == another) {
 		return 0;
 	}
@@ -380,7 +262,7 @@ void AbstractStringBuilder::inflate() {
 	$var($bytes, buf, $StringUTF16::newBytesFor($nc(this->value)->length));
 	$StringLatin1::inflate(this->value, 0, buf, 0, this->count);
 	$set(this, value, buf);
-	this->coder = (int8_t)1;
+	this->coder = 1;
 }
 
 void AbstractStringBuilder::trimToSize() {
@@ -408,7 +290,7 @@ void AbstractStringBuilder::setLength(int32_t newLength) {
 char16_t AbstractStringBuilder::charAt(int32_t index) {
 	$String::checkIndex(index, this->count);
 	if (isLatin1()) {
-		return (char16_t)((int32_t)($nc(this->value)->get(index) & (uint32_t)255));
+		return (char16_t)($nc(this->value)->get(index) & 0xff);
 	}
 	return $StringUTF16::charAt(this->value, index);
 }
@@ -418,7 +300,7 @@ int32_t AbstractStringBuilder::codePointAt(int32_t index) {
 	$var($bytes, value, this->value);
 	$String::checkIndex(index, count);
 	if (isLatin1()) {
-		return (int32_t)($nc(value)->get(index) & (uint32_t)255);
+		return $nc(value)->get(index) & 0xff;
 	}
 	return $StringUTF16::codePointAtSB(value, index, count);
 }
@@ -429,7 +311,7 @@ int32_t AbstractStringBuilder::codePointBefore(int32_t index) {
 		$throwNew($StringIndexOutOfBoundsException, index);
 	}
 	if (isLatin1()) {
-		return (int32_t)($nc(this->value)->get(i) & (uint32_t)255);
+		return $nc(this->value)->get(i) & 0xff;
 	}
 	return $StringUTF16::codePointBeforeSB(this->value, index);
 }
@@ -491,7 +373,7 @@ AbstractStringBuilder* AbstractStringBuilder::append($String* str) {
 }
 
 AbstractStringBuilder* AbstractStringBuilder::append($StringBuffer* sb) {
-	return this->append(static_cast<AbstractStringBuilder*>(sb));
+	return this->append($cast(AbstractStringBuilder, sb));
 }
 
 AbstractStringBuilder* AbstractStringBuilder::append(AbstractStringBuilder* asb) {
@@ -636,12 +518,12 @@ AbstractStringBuilder* AbstractStringBuilder::append(int64_t l) {
 }
 
 AbstractStringBuilder* AbstractStringBuilder::append(float f) {
-	$FloatingDecimal::appendTo(f, static_cast<$Appendable*>(this));
+	$FloatingDecimal::appendTo(f, this);
 	return this;
 }
 
 AbstractStringBuilder* AbstractStringBuilder::append(double d) {
-	$FloatingDecimal::appendTo(d, static_cast<$Appendable*>(this));
+	$FloatingDecimal::appendTo(d, this);
 	return this;
 }
 
@@ -844,11 +726,11 @@ AbstractStringBuilder* AbstractStringBuilder::reverse() {
 }
 
 $IntStream* AbstractStringBuilder::chars() {
-	return $StreamSupport::intStream(static_cast<$Supplier*>($$new(AbstractStringBuilder$$Lambda$lambda$chars$0, this)), ($Spliterator::ORDERED | $Spliterator::SIZED) | $Spliterator::SUBSIZED, false);
+	return $StreamSupport::intStream($$new(AbstractStringBuilder$$Lambda$lambda$chars$0, this), ($Spliterator::ORDERED | $Spliterator::SIZED) | $Spliterator::SUBSIZED, false);
 }
 
 $IntStream* AbstractStringBuilder::codePoints() {
-	return $StreamSupport::intStream(static_cast<$Supplier*>($$new(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1, this)), $Spliterator::ORDERED, false);
+	return $StreamSupport::intStream($$new(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1, this), $Spliterator::ORDERED, false);
 }
 
 $bytes* AbstractStringBuilder::getValue() {
@@ -867,37 +749,33 @@ void AbstractStringBuilder::initBytes($chars* value, int32_t off, int32_t len) {
 	if ($String::COMPACT_STRINGS) {
 		$set(this, value, $StringUTF16::compress(value, off, len));
 		if (this->value != nullptr) {
-			this->coder = (int8_t)0;
+			this->coder = 0;
 			return;
 		}
 	}
-	this->coder = (int8_t)1;
+	this->coder = 1;
 	$set(this, value, $StringUTF16::toBytes(value, off, len));
 }
 
 int8_t AbstractStringBuilder::getCoder() {
-	return $String::COMPACT_STRINGS ? this->coder : (int8_t)1;
+	return $String::COMPACT_STRINGS ? this->coder : 1;
 }
 
 bool AbstractStringBuilder::isLatin1() {
-	return $String::COMPACT_STRINGS && this->coder == (int8_t)0;
+	return $String::COMPACT_STRINGS && this->coder == 0;
 }
 
 void AbstractStringBuilder::putCharsAt(int32_t index, $chars* s, int32_t off, int32_t end) {
 	if (isLatin1()) {
 		$var($bytes, val, this->value);
-		{
-			int32_t i = off;
-			int32_t j = index;
-			for (; i < end; ++i) {
-				char16_t c = $nc(s)->get(i);
-				if ($StringLatin1::canEncode(c)) {
-					$nc(val)->set(j++, (int8_t)c);
-				} else {
-					inflate();
-					$StringUTF16::putCharsSB(this->value, j, s, i, end);
-					return;
-				}
+		for (int32_t i = off, j = index; i < end; ++i) {
+			char16_t c = $nc(s)->get(i);
+			if ($StringLatin1::canEncode(c)) {
+				$nc(val)->set(j++, (int8_t)c);
+			} else {
+				inflate();
+				$StringUTF16::putCharsSB(this->value, j, s, i, end);
+				return;
 			}
 		}
 	} else {
@@ -908,18 +786,14 @@ void AbstractStringBuilder::putCharsAt(int32_t index, $chars* s, int32_t off, in
 void AbstractStringBuilder::putCharsAt(int32_t index, $CharSequence* s, int32_t off, int32_t end) {
 	if (isLatin1()) {
 		$var($bytes, val, this->value);
-		{
-			int32_t i = off;
-			int32_t j = index;
-			for (; i < end; ++i) {
-				char16_t c = $nc(s)->charAt(i);
-				if ($StringLatin1::canEncode(c)) {
-					$nc(val)->set(j++, (int8_t)c);
-				} else {
-					inflate();
-					$StringUTF16::putCharsSB(this->value, j, s, i, end);
-					return;
-				}
+		for (int32_t i = off, j = index; i < end; ++i) {
+			char16_t c = $nc(s)->charAt(i);
+			if ($StringLatin1::canEncode(c)) {
+				$nc(val)->set(j++, (int8_t)c);
+			} else {
+				inflate();
+				$StringUTF16::putCharsSB(this->value, j, s, i, end);
+				return;
 			}
 		}
 	} else {
@@ -932,7 +806,7 @@ void AbstractStringBuilder::putStringAt(int32_t index, $String* str, int32_t off
 	if (var$0 != $nc(str)->coder()) {
 		inflate();
 	}
-	$nc(str)->getBytes(this->value, off, index, this->coder, end - off);
+	str->getBytes(this->value, off, index, this->coder, end - off);
 }
 
 void AbstractStringBuilder::putStringAt(int32_t index, $String* str) {
@@ -943,20 +817,16 @@ void AbstractStringBuilder::appendChars($chars* s, int32_t off, int32_t end) {
 	int32_t count = this->count;
 	if (isLatin1()) {
 		$var($bytes, val, this->value);
-		{
-			int32_t i = off;
-			int32_t j = count;
-			for (; i < end; ++i) {
-				char16_t c = $nc(s)->get(i);
-				if ($StringLatin1::canEncode(c)) {
-					$nc(val)->set(j++, (int8_t)c);
-				} else {
-					this->count = (count = j);
-					inflate();
-					$StringUTF16::putCharsSB(this->value, j, s, i, end);
-					this->count = count + end - i;
-					return;
-				}
+		for (int32_t i = off, j = count; i < end; ++i) {
+			char16_t c = $nc(s)->get(i);
+			if ($StringLatin1::canEncode(c)) {
+				$nc(val)->set(j++, (int8_t)c);
+			} else {
+				this->count = (count = j);
+				inflate();
+				$StringUTF16::putCharsSB(this->value, j, s, i, end);
+				this->count = count + end - i;
+				return;
 			}
 		}
 	} else {
@@ -966,33 +836,29 @@ void AbstractStringBuilder::appendChars($chars* s, int32_t off, int32_t end) {
 }
 
 void AbstractStringBuilder::appendChars($String* s, int32_t off, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isLatin1()) {
 		if ($nc(s)->isLatin1()) {
 			$System::arraycopy($(s->value()), off, this->value, this->count, end - off);
 		} else {
 			$var($bytes, val, this->value);
-			{
-				int32_t i = off;
-				int32_t j = this->count;
-				for (; i < end; ++i) {
-					char16_t c = s->charAt(i);
-					if ($StringLatin1::canEncode(c)) {
-						$nc(val)->set(j++, (int8_t)c);
-					} else {
-						this->count = j;
-						inflate();
-						$System::arraycopy($(s->value()), i << (int8_t)1, this->value, j << (int8_t)1, (end - i) << (int8_t)1);
-						this->count += end - i;
-						return;
-					}
+			for (int32_t i = off, j = this->count; i < end; ++i) {
+				char16_t c = s->charAt(i);
+				if ($StringLatin1::canEncode(c)) {
+					$nc(val)->set(j++, (int8_t)c);
+				} else {
+					this->count = j;
+					inflate();
+					$System::arraycopy($(s->value()), i << 1, this->value, j << 1, (end - i) << 1);
+					this->count += end - i;
+					return;
 				}
 			}
 		}
 	} else if ($nc(s)->isLatin1()) {
-		$StringUTF16::putCharsSB(this->value, this->count, static_cast<$CharSequence*>(s), off, end);
+		$StringUTF16::putCharsSB(this->value, this->count, s, off, end);
 	} else {
-		$System::arraycopy($(s->value()), off << (int8_t)1, this->value, this->count << (int8_t)1, (end - off) << (int8_t)1);
+		$System::arraycopy($(s->value()), off << 1, this->value, this->count << 1, (end - off) << 1);
 	}
 	this->count += end - off;
 }
@@ -1000,20 +866,16 @@ void AbstractStringBuilder::appendChars($String* s, int32_t off, int32_t end) {
 void AbstractStringBuilder::appendChars($CharSequence* s, int32_t off, int32_t end) {
 	if (isLatin1()) {
 		$var($bytes, val, this->value);
-		{
-			int32_t i = off;
-			int32_t j = this->count;
-			for (; i < end; ++i) {
-				char16_t c = $nc(s)->charAt(i);
-				if ($StringLatin1::canEncode(c)) {
-					$nc(val)->set(j++, (int8_t)c);
-				} else {
-					this->count = j;
-					inflate();
-					$StringUTF16::putCharsSB(this->value, j, s, i, end);
-					this->count += end - i;
-					return;
-				}
+		for (int32_t i = off, j = this->count; i < end; ++i) {
+			char16_t c = $nc(s)->charAt(i);
+			if ($StringLatin1::canEncode(c)) {
+				$nc(val)->set(j++, (int8_t)c);
+			} else {
+				this->count = j;
+				inflate();
+				$StringUTF16::putCharsSB(this->value, j, s, i, end);
+				this->count += end - i;
+				return;
 			}
 		}
 	} else {
@@ -1023,16 +885,14 @@ void AbstractStringBuilder::appendChars($CharSequence* s, int32_t off, int32_t e
 }
 
 void AbstractStringBuilder::checkRange(int32_t start, int32_t end, int32_t len) {
-	$init(AbstractStringBuilder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start < 0 || start > end || end > len) {
 		$throwNew($IndexOutOfBoundsException, $$str({"start "_s, $$str(start), ", end "_s, $$str(end), ", length "_s, $$str(len)}));
 	}
 }
 
 void AbstractStringBuilder::checkRangeSIOOBE(int32_t start, int32_t end, int32_t len) {
-	$init(AbstractStringBuilder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start < 0 || start > end || end > len) {
 		$throwNew($StringIndexOutOfBoundsException, $$str({"start "_s, $$str(start), ", end "_s, $$str(end), ", length "_s, $$str(len)}));
 	}
@@ -1042,17 +902,17 @@ $Spliterator$OfInt* AbstractStringBuilder::lambda$codePoints$1() {
 	$var($bytes, val, this->value);
 	int32_t count = this->count;
 	int8_t coder = this->coder;
-	return coder == (int8_t)0 ? static_cast<$Spliterator$OfInt*>($new($StringLatin1$CharsSpliterator, val, 0, count, 0)) : static_cast<$Spliterator$OfInt*>($new($StringUTF16$CodePointsSpliterator, val, 0, count, 0));
+	return coder == 0 ? $cast($Spliterator$OfInt, $new($StringLatin1$CharsSpliterator, val, 0, count, 0)) : $cast($Spliterator$OfInt, $new($StringUTF16$CodePointsSpliterator, val, 0, count, 0));
 }
 
 $Spliterator$OfInt* AbstractStringBuilder::lambda$chars$0() {
 	$var($bytes, val, this->value);
 	int32_t count = this->count;
 	int8_t coder = this->coder;
-	return coder == (int8_t)0 ? static_cast<$Spliterator$OfInt*>($new($StringLatin1$CharsSpliterator, val, 0, count, 0)) : static_cast<$Spliterator$OfInt*>($new($StringUTF16$CharsSpliterator, val, 0, count, 0));
+	return coder == 0 ? $cast($Spliterator$OfInt, $new($StringLatin1$CharsSpliterator, val, 0, count, 0)) : $cast($Spliterator$OfInt, $new($StringUTF16$CharsSpliterator, val, 0, count, 0));
 }
 
-void clinit$AbstractStringBuilder($Class* class$) {
+void AbstractStringBuilder::clinit$($Class* clazz) {
 	$assignStatic(AbstractStringBuilder::EMPTYVALUE, $new($bytes, 0));
 }
 
@@ -1061,14 +921,118 @@ AbstractStringBuilder::AbstractStringBuilder() {
 
 $Class* AbstractStringBuilder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AbstractStringBuilder$$Lambda$lambda$chars$0::classInfo$.name)) {
+		if (name->equals("java.lang.AbstractStringBuilder$$Lambda$lambda$chars$0")) {
 			return AbstractStringBuilder$$Lambda$lambda$chars$0::load$(name, initialize);
 		}
-		if (name->equals(AbstractStringBuilder$$Lambda$lambda$codePoints$1$1::classInfo$.name)) {
+		if (name->equals("java.lang.AbstractStringBuilder$$Lambda$lambda$codePoints$1$1")) {
 			return AbstractStringBuilder$$Lambda$lambda$codePoints$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(AbstractStringBuilder, name, initialize, &_AbstractStringBuilder_ClassInfo_, clinit$AbstractStringBuilder, allocate$AbstractStringBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "[B", nullptr, 0, $field(AbstractStringBuilder, value)},
+		{"coder", "B", nullptr, 0, $field(AbstractStringBuilder, coder)},
+		{"count", "I", nullptr, 0, $field(AbstractStringBuilder, count)},
+		{"EMPTYVALUE", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractStringBuilder, EMPTYVALUE)},
+		{"MAX_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractStringBuilder, MAX_ARRAY_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(AbstractStringBuilder, init$, void)},
+		{"<init>", "(I)V", nullptr, 0, $method(AbstractStringBuilder, init$, void, int32_t)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AbstractStringBuilder, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, 0, $method(AbstractStringBuilder, init$, void, $CharSequence*)},
+		{"append", "(Ljava/lang/Object;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, Object$*)},
+		{"append", "(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $String*)},
+		{"append", "(Ljava/lang/StringBuffer;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $StringBuffer*)},
+		{"append", "(Ljava/lang/AbstractStringBuilder;)Ljava/lang/AbstractStringBuilder;", nullptr, 0, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, AbstractStringBuilder*)},
+		{"append", "(Ljava/lang/CharSequence;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $CharSequence*)},
+		{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $CharSequence*, int32_t, int32_t)},
+		{"append", "([C)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $chars*)},
+		{"append", "([CII)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, $chars*, int32_t, int32_t)},
+		{"append", "(Z)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, bool)},
+		{"append", "(C)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, char16_t)},
+		{"append", "(I)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, int32_t)},
+		{"append", "(J)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, int64_t)},
+		{"append", "(F)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, float)},
+		{"append", "(D)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, append, AbstractStringBuilder*, double)},
+		{"appendChars", "([CII)V", nullptr, $PRIVATE | $FINAL, $method(AbstractStringBuilder, appendChars, void, $chars*, int32_t, int32_t)},
+		{"appendChars", "(Ljava/lang/String;II)V", nullptr, $PRIVATE | $FINAL, $method(AbstractStringBuilder, appendChars, void, $String*, int32_t, int32_t)},
+		{"appendChars", "(Ljava/lang/CharSequence;II)V", nullptr, $PRIVATE | $FINAL, $method(AbstractStringBuilder, appendChars, void, $CharSequence*, int32_t, int32_t)},
+		{"appendCodePoint", "(I)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, appendCodePoint, AbstractStringBuilder*, int32_t)},
+		{"appendNull", "()Ljava/lang/AbstractStringBuilder;", nullptr, $PRIVATE, $method(AbstractStringBuilder, appendNull, AbstractStringBuilder*)},
+		{"capacity", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, capacity, int32_t)},
+		{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, charAt, char16_t, int32_t)},
+		{"chars", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, chars, $IntStream*)},
+		{"checkRange", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractStringBuilder, checkRange, void, int32_t, int32_t, int32_t)},
+		{"checkRangeSIOOBE", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractStringBuilder, checkRangeSIOOBE, void, int32_t, int32_t, int32_t)},
+		{"codePointAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, codePointAt, int32_t, int32_t)},
+		{"codePointBefore", "(I)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, codePointBefore, int32_t, int32_t)},
+		{"codePointCount", "(II)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, codePointCount, int32_t, int32_t, int32_t)},
+		{"codePoints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, codePoints, $IntStream*)},
+		{"compareTo", "(Ljava/lang/AbstractStringBuilder;)I", nullptr, 0, $virtualMethod(AbstractStringBuilder, compareTo, int32_t, AbstractStringBuilder*)},
+		{"delete", "(II)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, delete$, AbstractStringBuilder*, int32_t, int32_t)},
+		{"deleteCharAt", "(I)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, deleteCharAt, AbstractStringBuilder*, int32_t)},
+		{"ensureCapacity", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, ensureCapacity, void, int32_t)},
+		{"ensureCapacityInternal", "(I)V", nullptr, $PRIVATE, $method(AbstractStringBuilder, ensureCapacityInternal, void, int32_t)},
+		{"getBytes", "([BIB)V", nullptr, 0, $virtualMethod(AbstractStringBuilder, getBytes, void, $bytes*, int32_t, int8_t)},
+		{"getChars", "(II[CI)V", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, getChars, void, int32_t, int32_t, $chars*, int32_t)},
+		{"getCoder", "()B", nullptr, $FINAL, $method(AbstractStringBuilder, getCoder, int8_t)},
+		{"getValue", "()[B", nullptr, $FINAL, $method(AbstractStringBuilder, getValue, $bytes*)},
+		{"indexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, indexOf, int32_t, $String*)},
+		{"indexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, indexOf, int32_t, $String*, int32_t)},
+		{"inflate", "()V", nullptr, $PRIVATE, $method(AbstractStringBuilder, inflate, void)},
+		{"initBytes", "([CII)V", nullptr, 0, $virtualMethod(AbstractStringBuilder, initBytes, void, $chars*, int32_t, int32_t)},
+		{"insert", "(I[CII)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, $chars*, int32_t, int32_t)},
+		{"insert", "(ILjava/lang/Object;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, Object$*)},
+		{"insert", "(ILjava/lang/String;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, $String*)},
+		{"insert", "(I[C)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, $chars*)},
+		{"insert", "(ILjava/lang/CharSequence;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, $CharSequence*)},
+		{"insert", "(ILjava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"insert", "(IZ)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, bool)},
+		{"insert", "(IC)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, char16_t)},
+		{"insert", "(II)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, int32_t)},
+		{"insert", "(IJ)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, int64_t)},
+		{"insert", "(IF)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, float)},
+		{"insert", "(ID)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, insert, AbstractStringBuilder*, int32_t, double)},
+		{"isLatin1", "()Z", nullptr, $FINAL, $method(AbstractStringBuilder, isLatin1, bool)},
+		{"lambda$chars$0", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(AbstractStringBuilder, lambda$chars$0, $Spliterator$OfInt*)},
+		{"lambda$codePoints$1", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(AbstractStringBuilder, lambda$codePoints$1, $Spliterator$OfInt*)},
+		{"lastIndexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, lastIndexOf, int32_t, $String*)},
+		{"lastIndexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, lastIndexOf, int32_t, $String*, int32_t)},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, length, int32_t)},
+		{"newCapacity", "(I)I", nullptr, $PRIVATE, $method(AbstractStringBuilder, newCapacity, int32_t, int32_t)},
+		{"offsetByCodePoints", "(II)I", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, offsetByCodePoints, int32_t, int32_t, int32_t)},
+		{"putCharsAt", "(I[CII)V", nullptr, $PRIVATE | $FINAL, $method(AbstractStringBuilder, putCharsAt, void, int32_t, $chars*, int32_t, int32_t)},
+		{"putCharsAt", "(ILjava/lang/CharSequence;II)V", nullptr, $PRIVATE | $FINAL, $method(AbstractStringBuilder, putCharsAt, void, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"putStringAt", "(ILjava/lang/String;II)V", nullptr, $PRIVATE, $method(AbstractStringBuilder, putStringAt, void, int32_t, $String*, int32_t, int32_t)},
+		{"putStringAt", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(AbstractStringBuilder, putStringAt, void, int32_t, $String*)},
+		{"replace", "(IILjava/lang/String;)Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, replace, AbstractStringBuilder*, int32_t, int32_t, $String*)},
+		{"reverse", "()Ljava/lang/AbstractStringBuilder;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, reverse, AbstractStringBuilder*)},
+		{"setCharAt", "(IC)V", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, setCharAt, void, int32_t, char16_t)},
+		{"setLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, setLength, void, int32_t)},
+		{"shift", "(II)V", nullptr, $PRIVATE, $method(AbstractStringBuilder, shift, void, int32_t, int32_t)},
+		{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, subSequence, $CharSequence*, int32_t, int32_t)},
+		{"substring", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, substring, $String*, int32_t)},
+		{"substring", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, substring, $String*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"trimToSize", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractStringBuilder, trimToSize, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.lang.AbstractStringBuilder",
+		"java.lang.Object",
+		"java.lang.Appendable,java.lang.CharSequence",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractStringBuilder, name, initialize, &classInfo$$, AbstractStringBuilder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractStringBuilder));
+	});
 	return class$;
 }
 

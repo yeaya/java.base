@@ -42,6 +42,7 @@ class $export GetMacAddress : public ::java::util::concurrent::Callable {
 	$class(GetMacAddress, 0, ::java::util::concurrent::Callable)
 public:
 	GetMacAddress();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::NetworkInterface* ni, $String* name, ::java::util::concurrent::Phaser* phaser);
 	virtual $Object* call() override;
 	static ::java::util::stream::Stream* getNetworkInterfacesAsStream();

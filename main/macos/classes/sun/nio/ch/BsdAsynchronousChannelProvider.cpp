@@ -1,5 +1,4 @@
 #include <sun/nio/ch/BsdAsynchronousChannelProvider.h>
-
 #include <java/nio/channels/AsynchronousChannelGroup.h>
 #include <java/nio/channels/AsynchronousServerSocketChannel.h>
 #include <java/nio/channels/AsynchronousSocketChannel.h>
@@ -34,39 +33,10 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _BsdAsynchronousChannelProvider_FieldInfo_[] = {
-	{"defaultPort", "Lsun/nio/ch/KQueuePort;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(BsdAsynchronousChannelProvider, defaultPort)},
-	{}
-};
-
-$MethodInfo _BsdAsynchronousChannelProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BsdAsynchronousChannelProvider, init$, void)},
-	{"defaultEventPort", "()Lsun/nio/ch/KQueuePort;", nullptr, $PRIVATE, $method(BsdAsynchronousChannelProvider, defaultEventPort, $KQueuePort*), "java.io.IOException"},
-	{"openAsynchronousChannelGroup", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(BsdAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, int32_t, $ThreadFactory*), "java.io.IOException"},
-	{"openAsynchronousChannelGroup", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(BsdAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, $ExecutorService*, int32_t), "java.io.IOException"},
-	{"openAsynchronousServerSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(BsdAsynchronousChannelProvider, openAsynchronousServerSocketChannel, $AsynchronousServerSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
-	{"openAsynchronousSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC, $virtualMethod(BsdAsynchronousChannelProvider, openAsynchronousSocketChannel, $AsynchronousSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
-	{"toPort", "(Ljava/nio/channels/AsynchronousChannelGroup;)Lsun/nio/ch/Port;", nullptr, $PRIVATE, $method(BsdAsynchronousChannelProvider, toPort, $Port*, $AsynchronousChannelGroup*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _BsdAsynchronousChannelProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.BsdAsynchronousChannelProvider",
-	"java.nio.channels.spi.AsynchronousChannelProvider",
-	nullptr,
-	_BsdAsynchronousChannelProvider_FieldInfo_,
-	_BsdAsynchronousChannelProvider_MethodInfo_
-};
-
-$Object* allocate$BsdAsynchronousChannelProvider($Class* clazz) {
-	return $of($alloc(BsdAsynchronousChannelProvider));
-}
-
 $volatile($KQueuePort*) BsdAsynchronousChannelProvider::defaultPort = nullptr;
 
 $KQueuePort* BsdAsynchronousChannelProvider::defaultEventPort() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (BsdAsynchronousChannelProvider::defaultPort == nullptr) {
 		$synchronized(BsdAsynchronousChannelProvider::class$) {
 			if (BsdAsynchronousChannelProvider::defaultPort == nullptr) {
@@ -82,12 +52,12 @@ void BsdAsynchronousChannelProvider::init$() {
 }
 
 $AsynchronousChannelGroup* BsdAsynchronousChannelProvider::openAsynchronousChannelGroup(int32_t nThreads, $ThreadFactory* factory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $$new($KQueuePort, this, $($ThreadPool::create(nThreads, factory)))->start();
 }
 
 $AsynchronousChannelGroup* BsdAsynchronousChannelProvider::openAsynchronousChannelGroup($ExecutorService* executor, int32_t initialSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $$new($KQueuePort, this, $($ThreadPool::wrap(executor, initialSize)))->start();
 }
 
@@ -114,7 +84,31 @@ BsdAsynchronousChannelProvider::BsdAsynchronousChannelProvider() {
 }
 
 $Class* BsdAsynchronousChannelProvider::load$($String* name, bool initialize) {
-	$loadClass(BsdAsynchronousChannelProvider, name, initialize, &_BsdAsynchronousChannelProvider_ClassInfo_, allocate$BsdAsynchronousChannelProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultPort", "Lsun/nio/ch/KQueuePort;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(BsdAsynchronousChannelProvider, defaultPort)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BsdAsynchronousChannelProvider, init$, void)},
+		{"defaultEventPort", "()Lsun/nio/ch/KQueuePort;", nullptr, $PRIVATE, $method(BsdAsynchronousChannelProvider, defaultEventPort, $KQueuePort*), "java.io.IOException"},
+		{"openAsynchronousChannelGroup", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(BsdAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, int32_t, $ThreadFactory*), "java.io.IOException"},
+		{"openAsynchronousChannelGroup", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(BsdAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, $ExecutorService*, int32_t), "java.io.IOException"},
+		{"openAsynchronousServerSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(BsdAsynchronousChannelProvider, openAsynchronousServerSocketChannel, $AsynchronousServerSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+		{"openAsynchronousSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC, $virtualMethod(BsdAsynchronousChannelProvider, openAsynchronousSocketChannel, $AsynchronousSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+		{"toPort", "(Ljava/nio/channels/AsynchronousChannelGroup;)Lsun/nio/ch/Port;", nullptr, $PRIVATE, $method(BsdAsynchronousChannelProvider, toPort, $Port*, $AsynchronousChannelGroup*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.BsdAsynchronousChannelProvider",
+		"java.nio.channels.spi.AsynchronousChannelProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BsdAsynchronousChannelProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BsdAsynchronousChannelProvider);
+	});
 	return class$;
 }
 

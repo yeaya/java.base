@@ -50,6 +50,7 @@ class UnixPath : public ::java::nio::file::Path {
 public:
 	UnixPath();
 	using ::java::nio::file::Path::endsWith;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::UnixFileSystem* fs, $bytes* path);
 	void init$(::sun::nio::fs::UnixFileSystem* fs, $String* input);
 	virtual $bytes* asByteArray();

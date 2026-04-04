@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/ParameterNode.h>
-
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
 #include <jcpp.h>
 
@@ -15,31 +14,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 
-$FieldInfo _ParameterNode_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ParameterNode, name)},
-	{"access", "I", nullptr, $PUBLIC, $field(ParameterNode, access)},
-	{}
-};
-
-$MethodInfo _ParameterNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ParameterNode, init$, void, $String*, int32_t)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ParameterNode, accept, void, $MethodVisitor*)},
-	{}
-};
-
-$ClassInfo _ParameterNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.ParameterNode",
-	"java.lang.Object",
-	nullptr,
-	_ParameterNode_FieldInfo_,
-	_ParameterNode_MethodInfo_
-};
-
-$Object* allocate$ParameterNode($Class* clazz) {
-	return $of($alloc(ParameterNode));
-}
-
 void ParameterNode::init$($String* name, int32_t access) {
 	$set(this, name, name);
 	this->access = access;
@@ -53,7 +27,27 @@ ParameterNode::ParameterNode() {
 }
 
 $Class* ParameterNode::load$($String* name, bool initialize) {
-	$loadClass(ParameterNode, name, initialize, &_ParameterNode_ClassInfo_, allocate$ParameterNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ParameterNode, name)},
+		{"access", "I", nullptr, $PUBLIC, $field(ParameterNode, access)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ParameterNode, init$, void, $String*, int32_t)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ParameterNode, accept, void, $MethodVisitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.ParameterNode",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ParameterNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParameterNode);
+	});
 	return class$;
 }
 

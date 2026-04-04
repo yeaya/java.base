@@ -1,5 +1,4 @@
 #include <TestThread.h>
-
 #include <java/lang/InterruptedException.h>
 #include <jcpp.h>
 
@@ -9,38 +8,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _TestThread_FieldInfo_[] = {
-	{"failure", "Ljava/lang/Exception;", nullptr, 0, $field(TestThread, failure)},
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(TestThread, name)},
-	{"log", "Ljava/io/PrintStream;", nullptr, $PROTECTED | $FINAL, $field(TestThread, log)},
-	{"main", "Ljava/lang/Thread;", nullptr, 0, $field(TestThread, main)},
-	{}
-};
-
-$MethodInfo _TestThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/io/PrintStream;)V", nullptr, 0, $method(TestThread, init$, void, $String*, $PrintStream*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TestThread, init$, void, $String*)},
-	{"finish", "(J)I", nullptr, 0, $virtualMethod(TestThread, finish, int32_t, int64_t)},
-	{"finishAndThrow", "(J)V", nullptr, 0, $virtualMethod(TestThread, finishAndThrow, void, int64_t), "java.lang.Exception"},
-	{"go", "()V", nullptr, $ABSTRACT, $virtualMethod(TestThread, go, void), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestThread, run, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestThread, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TestThread_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"TestThread",
-	"java.lang.Thread",
-	nullptr,
-	_TestThread_FieldInfo_,
-	_TestThread_MethodInfo_
-};
-
-$Object* allocate$TestThread($Class* clazz) {
-	return $of($alloc(TestThread));
-}
 
 void TestThread::init$($String* name, $PrintStream* log) {
 	$Thread::init$($$str({"TestThread-"_s, name}));
@@ -73,14 +40,14 @@ int32_t TestThread::finish(int64_t timeout) {
 		$set(this, failure, $new($Exception, $$str({this->name, ": Timed out"_s})));
 	}
 	if (this->failure != nullptr) {
-		$nc(this->failure)->printStackTrace(this->log);
+		this->failure->printStackTrace(this->log);
 		return 0;
 	}
 	return 1;
 }
 
 void TestThread::finishAndThrow(int64_t timeout) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		join(timeout);
 	} catch ($InterruptedException& x) {
@@ -104,7 +71,34 @@ TestThread::TestThread() {
 }
 
 $Class* TestThread::load$($String* name, bool initialize) {
-	$loadClass(TestThread, name, initialize, &_TestThread_ClassInfo_, allocate$TestThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"failure", "Ljava/lang/Exception;", nullptr, 0, $field(TestThread, failure)},
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(TestThread, name)},
+		{"log", "Ljava/io/PrintStream;", nullptr, $PROTECTED | $FINAL, $field(TestThread, log)},
+		{"main", "Ljava/lang/Thread;", nullptr, 0, $field(TestThread, main)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/io/PrintStream;)V", nullptr, 0, $method(TestThread, init$, void, $String*, $PrintStream*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TestThread, init$, void, $String*)},
+		{"finish", "(J)I", nullptr, 0, $virtualMethod(TestThread, finish, int32_t, int64_t)},
+		{"finishAndThrow", "(J)V", nullptr, 0, $virtualMethod(TestThread, finishAndThrow, void, int64_t), "java.lang.Exception"},
+		{"go", "()V", nullptr, $ABSTRACT, $virtualMethod(TestThread, go, void), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestThread, run, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestThread, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"TestThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestThread);
+	});
 	return class$;
 }
 

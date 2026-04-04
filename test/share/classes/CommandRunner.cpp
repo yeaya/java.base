@@ -1,5 +1,4 @@
 #include <CommandRunner.h>
-
 #include <StreamDrainer.h>
 #include <java/io/InputStream.h>
 #include <java/lang/Process.h>
@@ -17,42 +16,16 @@ using $ProcessBuilder = ::java::lang::ProcessBuilder;
 using $Runtime = ::java::lang::Runtime;
 using $Random = ::java::util::Random;
 
-$FieldInfo _CommandRunner_FieldInfo_[] = {
-	{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(CommandRunner, generator)},
-	{"exitValue", "I", nullptr, $PUBLIC | $FINAL, $field(CommandRunner, exitValue)},
-	{"out", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(CommandRunner, out)},
-	{"err", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(CommandRunner, err)},
-	{}
-};
-
-$MethodInfo _CommandRunner_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(CommandRunner, init$, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _CommandRunner_ClassInfo_ = {
-	$ACC_SUPER,
-	"CommandRunner",
-	"java.lang.Object",
-	nullptr,
-	_CommandRunner_FieldInfo_,
-	_CommandRunner_MethodInfo_
-};
-
-$Object* allocate$CommandRunner($Class* clazz) {
-	return $of($alloc(CommandRunner));
-}
-
 $Random* CommandRunner::generator = nullptr;
 
 void CommandRunner::init$($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$var($Process, p, ($nc(CommandRunner::generator)->nextInt(2) == 0) ? $$new($ProcessBuilder, args)->start() : $nc($($Runtime::getRuntime()))->exec(args));
+	$useLocalObjectStack();
+	$var($Process, p, ($nc(CommandRunner::generator)->nextInt(2) == 0) ? $$new($ProcessBuilder, args)->start() : $$nc($Runtime::getRuntime())->exec(args));
 	$var($StreamDrainer, d1, $new($StreamDrainer, $($nc(p)->getInputStream())));
-	$var($StreamDrainer, d2, $new($StreamDrainer, $($nc(p)->getErrorStream())));
+	$var($StreamDrainer, d2, $new($StreamDrainer, $(p->getErrorStream())));
 	d1->start();
 	d2->start();
-	$nc(p)->waitFor();
+	p->waitFor();
 	d1->join();
 	d2->join();
 	this->exitValue = p->exitValue();
@@ -60,7 +33,7 @@ void CommandRunner::init$($StringArray* args) {
 	$set(this, err, d2->toString());
 }
 
-void clinit$CommandRunner($Class* class$) {
+void CommandRunner::clinit$($Class* clazz) {
 	$assignStatic(CommandRunner::generator, $new($Random));
 }
 
@@ -68,7 +41,28 @@ CommandRunner::CommandRunner() {
 }
 
 $Class* CommandRunner::load$($String* name, bool initialize) {
-	$loadClass(CommandRunner, name, initialize, &_CommandRunner_ClassInfo_, clinit$CommandRunner, allocate$CommandRunner);
+	$FieldInfo fieldInfos$$[] = {
+		{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(CommandRunner, generator)},
+		{"exitValue", "I", nullptr, $PUBLIC | $FINAL, $field(CommandRunner, exitValue)},
+		{"out", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(CommandRunner, out)},
+		{"err", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(CommandRunner, err)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(CommandRunner, init$, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"CommandRunner",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CommandRunner, name, initialize, &classInfo$$, CommandRunner::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CommandRunner);
+	});
 	return class$;
 }
 

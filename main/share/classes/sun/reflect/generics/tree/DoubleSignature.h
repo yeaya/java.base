@@ -24,6 +24,7 @@ class $export DoubleSignature : public ::sun::reflect::generics::tree::BaseType 
 	$class(DoubleSignature, 0, ::sun::reflect::generics::tree::BaseType)
 public:
 	DoubleSignature();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void accept(::sun::reflect::generics::visitor::TypeTreeVisitor* v) override;
 	static ::sun::reflect::generics::tree::DoubleSignature* make();

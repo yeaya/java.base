@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$TreeInfo.h>
-
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
@@ -11,45 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace regex {
-
-$FieldInfo _Pattern$TreeInfo_FieldInfo_[] = {
-	{"minLength", "I", nullptr, 0, $field(Pattern$TreeInfo, minLength)},
-	{"maxLength", "I", nullptr, 0, $field(Pattern$TreeInfo, maxLength)},
-	{"maxValid", "Z", nullptr, 0, $field(Pattern$TreeInfo, maxValid)},
-	{"deterministic", "Z", nullptr, 0, $field(Pattern$TreeInfo, deterministic)},
-	{}
-};
-
-$MethodInfo _Pattern$TreeInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Pattern$TreeInfo, init$, void)},
-	{"reset", "()V", nullptr, 0, $method(Pattern$TreeInfo, reset, void)},
-	{}
-};
-
-$InnerClassInfo _Pattern$TreeInfo_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$TreeInfo", "java.util.regex.Pattern", "TreeInfo", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Pattern$TreeInfo_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$TreeInfo",
-	"java.lang.Object",
-	nullptr,
-	_Pattern$TreeInfo_FieldInfo_,
-	_Pattern$TreeInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$TreeInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$TreeInfo($Class* clazz) {
-	return $of($alloc(Pattern$TreeInfo));
-}
 
 void Pattern$TreeInfo::init$() {
 	reset();
@@ -66,7 +26,40 @@ Pattern$TreeInfo::Pattern$TreeInfo() {
 }
 
 $Class* Pattern$TreeInfo::load$($String* name, bool initialize) {
-	$loadClass(Pattern$TreeInfo, name, initialize, &_Pattern$TreeInfo_ClassInfo_, allocate$Pattern$TreeInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"minLength", "I", nullptr, 0, $field(Pattern$TreeInfo, minLength)},
+		{"maxLength", "I", nullptr, 0, $field(Pattern$TreeInfo, maxLength)},
+		{"maxValid", "Z", nullptr, 0, $field(Pattern$TreeInfo, maxValid)},
+		{"deterministic", "Z", nullptr, 0, $field(Pattern$TreeInfo, deterministic)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Pattern$TreeInfo, init$, void)},
+		{"reset", "()V", nullptr, 0, $method(Pattern$TreeInfo, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$TreeInfo", "java.util.regex.Pattern", "TreeInfo", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$TreeInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$TreeInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$TreeInfo);
+	});
 	return class$;
 }
 

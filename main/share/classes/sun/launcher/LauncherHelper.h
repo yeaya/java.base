@@ -85,6 +85,7 @@ class LauncherHelper : public ::java::lang::Object {
 	$class(LauncherHelper, 0, ::java::lang::Object)
 public:
 	LauncherHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void abort($Throwable* t, $String* msgKey, $ObjectArray* args);
 	static void addExportsOrOpens($String* value, bool open);

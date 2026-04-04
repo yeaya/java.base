@@ -30,6 +30,7 @@ class CertStatusExtension$CertStatusRequestSpec : public ::sun::security::ssl::S
 	$class(CertStatusExtension$CertStatusRequestSpec, 0, ::sun::security::ssl::SSLExtension$SSLExtensionSpec)
 public:
 	CertStatusExtension$CertStatusRequestSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::CertStatusExtension$CertStatusRequest* statusRequest);
 	void init$(::sun::security::ssl::HandshakeContext* hc, ::java::nio::ByteBuffer* buffer);
 	virtual $String* toString() override;

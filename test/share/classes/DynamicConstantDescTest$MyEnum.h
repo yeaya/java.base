@@ -16,6 +16,7 @@ class $export DynamicConstantDescTest$MyEnum : public ::java::lang::Enum {
 public:
 	DynamicConstantDescTest$MyEnum();
 	static $Array<DynamicConstantDescTest$MyEnum>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::DynamicConstantDescTest$MyEnum* valueOf($String* name);
 	static $Array<DynamicConstantDescTest$MyEnum>* values();

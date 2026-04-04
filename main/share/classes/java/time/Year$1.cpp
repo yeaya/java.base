@@ -1,5 +1,4 @@
 #include <java/time/Year$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/Year.h>
 #include <java/time/temporal/ChronoField.h>
@@ -26,83 +25,46 @@ using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 namespace java {
 	namespace time {
 
-$FieldInfo _Year$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Year$1, $SwitchMap$java$time$temporal$ChronoUnit)},
-	{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Year$1, $SwitchMap$java$time$temporal$ChronoField)},
-	{}
-};
-
-$EnclosingMethodInfo _Year$1_EnclosingMethodInfo_ = {
-	"java.time.Year",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Year$1_InnerClassesInfo_[] = {
-	{"java.time.Year$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Year$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.Year$1",
-	"java.lang.Object",
-	nullptr,
-	_Year$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Year$1_EnclosingMethodInfo_,
-	_Year$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.Year"
-};
-
-$Object* allocate$Year$1($Class* clazz) {
-	return $of($alloc(Year$1));
-}
-
 $ints* Year$1::$SwitchMap$java$time$temporal$ChronoUnit = nullptr;
 $ints* Year$1::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
-void clinit$Year$1($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Year$1::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Year$1::$SwitchMap$java$time$temporal$ChronoUnit, $new($ints, $($ChronoUnit::values())->length));
 	{
 		try {
-			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::YEARS->ordinal(), 1);
+			Year$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::YEARS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::DECADES->ordinal(), 2);
+			Year$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::DECADES->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::CENTURIES->ordinal(), 3);
+			Year$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::CENTURIES->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MILLENNIA->ordinal(), 4);
+			Year$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MILLENNIA->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::ERAS->ordinal(), 5);
+			Year$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::ERAS->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Year$1::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
-			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR_OF_ERA->ordinal(), 1);
+			Year$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR_OF_ERA->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR->ordinal(), 2);
+			Year$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ERA->ordinal(), 3);
+			Year$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ERA->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -112,7 +74,38 @@ Year$1::Year$1() {
 }
 
 $Class* Year$1::load$($String* name, bool initialize) {
-	$loadClass(Year$1, name, initialize, &_Year$1_ClassInfo_, clinit$Year$1, allocate$Year$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Year$1, $SwitchMap$java$time$temporal$ChronoUnit)},
+		{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Year$1, $SwitchMap$java$time$temporal$ChronoField)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.Year",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.Year$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.Year$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.Year"
+	};
+	$loadClass(Year$1, name, initialize, &classInfo$$, Year$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Year$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/RSAKeyExchange$RSAPremasterSecret.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -43,10 +42,8 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PrivateKey = ::java::security::PrivateKey;
-using $Provider = ::java::security::Provider;
 using $PublicKey = ::java::security::PublicKey;
 using $SecureRandom = ::java::security::SecureRandom;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
@@ -58,7 +55,6 @@ using $TlsRsaPremasterSecretParameterSpec = ::sun::security::internal::spec::Tls
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $JsseJce = ::sun::security::ssl::JsseJce;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
@@ -67,51 +63,6 @@ using $KeyUtil = ::sun::security::util::KeyUtil;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _RSAKeyExchange$RSAPremasterSecret_FieldInfo_[] = {
-	{"premasterSecret", "Ljavax/crypto/SecretKey;", nullptr, $FINAL, $field(RSAKeyExchange$RSAPremasterSecret, premasterSecret)},
-	{}
-};
-
-$MethodInfo _RSAKeyExchange$RSAPremasterSecret_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(RSAKeyExchange$RSAPremasterSecret, init$, void, $SecretKey*)},
-	{"createPremasterSecret", "(Lsun/security/ssl/ClientHandshakeContext;)Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;", nullptr, $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, createPremasterSecret, RSAKeyExchange$RSAPremasterSecret*, $ClientHandshakeContext*), "java.security.GeneralSecurityException"},
-	{"decode", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/security/PrivateKey;[B)Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;", nullptr, $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, decode, RSAKeyExchange$RSAPremasterSecret*, $ServerHandshakeContext*, $PrivateKey*, $bytes*), "java.security.GeneralSecurityException"},
-	{"generatePremasterSecret", "(II[BLjava/security/SecureRandom;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, generatePremasterSecret, $SecretKey*, int32_t, int32_t, $bytes*, $SecureRandom*), "java.security.GeneralSecurityException"},
-	{"getEncoded", "(Ljava/security/PublicKey;Ljava/security/SecureRandom;)[B", nullptr, 0, $method(RSAKeyExchange$RSAPremasterSecret, getEncoded, $bytes*, $PublicKey*, $SecureRandom*), "java.security.GeneralSecurityException"},
-	{"safeProviderName", "(Ljavax/crypto/Cipher;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, safeProviderName, $String*, $Cipher*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _RSAKeyExchange$RSAPremasterSecret_InnerClassesInfo_[] = {
-	{"sun.security.ssl.RSAKeyExchange$RSAPremasterSecret", "sun.security.ssl.RSAKeyExchange", "RSAPremasterSecret", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RSAKeyExchange$RSAPremasterSecret_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.RSAKeyExchange$RSAPremasterSecret",
-	"java.lang.Object",
-	"sun.security.ssl.SSLPossession,sun.security.ssl.SSLCredentials",
-	_RSAKeyExchange$RSAPremasterSecret_FieldInfo_,
-	_RSAKeyExchange$RSAPremasterSecret_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RSAKeyExchange$RSAPremasterSecret_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.RSAKeyExchange"
-};
-
-$Object* allocate$RSAKeyExchange$RSAPremasterSecret($Class* clazz) {
-	return $of($alloc(RSAKeyExchange$RSAPremasterSecret));
-}
 
 int32_t RSAKeyExchange$RSAPremasterSecret::hashCode() {
 	 return this->$SSLPossession::hashCode();
@@ -140,59 +91,66 @@ void RSAKeyExchange$RSAPremasterSecret::init$($SecretKey* premasterSecret) {
 $bytes* RSAKeyExchange$RSAPremasterSecret::getEncoded($PublicKey* publicKey, $SecureRandom* secureRandom) {
 	$init($JsseJce);
 	$var($Cipher, cipher, $Cipher::getInstance($JsseJce::CIPHER_RSA_PKCS1));
-	$nc(cipher)->init($Cipher::WRAP_MODE, static_cast<$Key*>(publicKey), secureRandom);
+	$nc(cipher)->init($Cipher::WRAP_MODE, publicKey, secureRandom);
 	return cipher->wrap(this->premasterSecret);
 }
 
 RSAKeyExchange$RSAPremasterSecret* RSAKeyExchange$RSAPremasterSecret::createPremasterSecret($ClientHandshakeContext* chc) {
 	$init(RSAKeyExchange$RSAPremasterSecret);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, algorithm, $nc($nc(chc)->negotiatedProtocol)->useTLS12PlusSpec() ? "SunTls12RsaPremasterSecret"_s : "SunTlsRsaPremasterSecret"_s);
 	$var($KeyGenerator, kg, $KeyGenerator::getInstance(algorithm));
-	$var($TlsRsaPremasterSecretParameterSpec, spec, $new($TlsRsaPremasterSecretParameterSpec, $nc(chc)->clientHelloVersion, $nc(chc->negotiatedProtocol)->id));
-	$nc(kg)->init(static_cast<$AlgorithmParameterSpec*>(spec), $($nc($nc(chc)->sslContext)->getSecureRandom()));
+	$var($TlsRsaPremasterSecretParameterSpec, spec, $new($TlsRsaPremasterSecretParameterSpec, chc->clientHelloVersion, chc->negotiatedProtocol->id));
+	$nc(kg)->init(spec, $($nc(chc->sslContext)->getSecureRandom()));
 	return $new(RSAKeyExchange$RSAPremasterSecret, $(kg->generateKey()));
 }
 
 RSAKeyExchange$RSAPremasterSecret* RSAKeyExchange$RSAPremasterSecret::decode($ServerHandshakeContext* shc, $PrivateKey* privateKey, $bytes* encrypted) {
 	$init(RSAKeyExchange$RSAPremasterSecret);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, nullptr);
 	bool needFailover = false;
 	$init($JsseJce);
 	$var($Cipher, cipher, $Cipher::getInstance($JsseJce::CIPHER_RSA_PKCS1));
 	try {
-		$var($Key, var$0, static_cast<$Key*>(privateKey));
-		$var($AlgorithmParameterSpec, var$1, static_cast<$AlgorithmParameterSpec*>($new($TlsRsaPremasterSecretParameterSpec, $nc(shc)->clientHelloVersion, $nc(shc->negotiatedProtocol)->id)));
-		$nc(cipher)->init($Cipher::UNWRAP_MODE, var$0, var$1, $($nc($nc(shc)->sslContext)->getSecureRandom()));
-		needFailover = !$KeyUtil::isOracleJCEProvider($($nc($(cipher->getProvider()))->getName()));
+		$var($AlgorithmParameterSpec, var$0, $new($TlsRsaPremasterSecretParameterSpec, $nc(shc)->clientHelloVersion, $nc($nc(shc)->negotiatedProtocol)->id));
+		$nc(cipher)->init($Cipher::UNWRAP_MODE, privateKey, var$0, $($nc(shc->sslContext)->getSecureRandom()));
+		needFailover = !$KeyUtil::isOracleJCEProvider($($$nc($nc(cipher)->getProvider())->getName()));
 	} catch ($InvalidKeyException& iue) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-			$var($String, var$2, $$str({"The Cipher provider "_s, $(safeProviderName(cipher)), " caused exception: "_s}));
-			$SSLLogger::warning($$concat(var$2, $(iue->getMessage())), $$new($ObjectArray, 0));
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append("The Cipher provider "_s);
+			var$1->append($(safeProviderName(cipher)));
+			var$1->append(" caused exception: "_s);
+			var$1->append($(iue->getMessage()));
+			$SSLLogger::warning($$str(var$1), $$new($ObjectArray, 0));
 		}
 		needFailover = true;
 	} catch ($UnsupportedOperationException& iue) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-			$var($String, var$3, $$str({"The Cipher provider "_s, $(safeProviderName(cipher)), " caused exception: "_s}));
-			$SSLLogger::warning($$concat(var$3, $(iue->getMessage())), $$new($ObjectArray, 0));
+			$var($StringBuilder, var$2, $new($StringBuilder));
+			var$2->append("The Cipher provider "_s);
+			var$2->append($(safeProviderName(cipher)));
+			var$2->append(" caused exception: "_s);
+			var$2->append($(iue->getMessage()));
+			$SSLLogger::warning($$str(var$2), $$new($ObjectArray, 0));
 		}
 		needFailover = true;
 	}
 	$var($SecretKey, preMaster, nullptr);
 	if (needFailover) {
 		$assign(cipher, $Cipher::getInstance($JsseJce::CIPHER_RSA_PKCS1));
-		$nc(cipher)->init($Cipher::DECRYPT_MODE, static_cast<$Key*>(privateKey));
+		$nc(cipher)->init($Cipher::DECRYPT_MODE, privateKey);
 		bool failed = false;
 		try {
 			$assign(encoded, cipher->doFinal(encrypted));
 		} catch ($BadPaddingException& bpe) {
 			failed = true;
 		}
-		$assign(encoded, $KeyUtil::checkTlsPreMasterSecretKey($nc(shc)->clientHelloVersion, $nc(shc->negotiatedProtocol)->id, $($nc(shc->sslContext)->getSecureRandom()), encoded, failed));
-		$assign(preMaster, generatePremasterSecret($nc(shc)->clientHelloVersion, $nc(shc->negotiatedProtocol)->id, encoded, $($nc(shc->sslContext)->getSecureRandom())));
+		$assign(encoded, $KeyUtil::checkTlsPreMasterSecretKey($nc(shc)->clientHelloVersion, $nc($nc(shc)->negotiatedProtocol)->id, $($nc($nc(shc)->sslContext)->getSecureRandom()), encoded, failed));
+		$assign(preMaster, generatePremasterSecret(shc->clientHelloVersion, shc->negotiatedProtocol->id, encoded, $(shc->sslContext->getSecureRandom())));
 	} else {
 		$assign(preMaster, $cast($SecretKey, $nc(cipher)->unwrap(encrypted, "TlsRsaPremasterSecret"_s, $Cipher::SECRET_KEY)));
 	}
@@ -201,13 +159,13 @@ RSAKeyExchange$RSAPremasterSecret* RSAKeyExchange$RSAPremasterSecret::decode($Se
 
 $String* RSAKeyExchange$RSAPremasterSecret::safeProviderName($Cipher* cipher) {
 	$init(RSAKeyExchange$RSAPremasterSecret);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		return $nc($($nc(cipher)->getProvider()))->toString();
+		return $$nc($nc(cipher)->getProvider())->toString();
 	} catch ($Exception& e) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-			$SSLLogger::fine("Retrieving The Cipher provider name caused exception "_s, $$new($ObjectArray, {$of(e)}));
+			$SSLLogger::fine("Retrieving The Cipher provider name caused exception "_s, $$new($ObjectArray, {e}));
 		}
 	}
 	try {
@@ -215,7 +173,7 @@ $String* RSAKeyExchange$RSAPremasterSecret::safeProviderName($Cipher* cipher) {
 	} catch ($Exception& e) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-			$SSLLogger::fine("Retrieving The Cipher name caused exception "_s, $$new($ObjectArray, {$of(e)}));
+			$SSLLogger::fine("Retrieving The Cipher name caused exception "_s, $$new($ObjectArray, {e}));
 		}
 	}
 	return "(cipher/provider names not available)"_s;
@@ -223,7 +181,7 @@ $String* RSAKeyExchange$RSAPremasterSecret::safeProviderName($Cipher* cipher) {
 
 $SecretKey* RSAKeyExchange$RSAPremasterSecret::generatePremasterSecret(int32_t clientVersion, int32_t serverVersion, $bytes* encodedSecret, $SecureRandom* generator) {
 	$init(RSAKeyExchange$RSAPremasterSecret);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 		$SSLLogger::fine("Generating a premaster secret"_s, $$new($ObjectArray, 0));
@@ -232,7 +190,7 @@ $SecretKey* RSAKeyExchange$RSAPremasterSecret::generatePremasterSecret(int32_t c
 		$init($ProtocolVersion);
 		$var($String, s, (clientVersion >= $ProtocolVersion::TLS12->id) ? "SunTls12RsaPremasterSecret"_s : "SunTlsRsaPremasterSecret"_s);
 		$var($KeyGenerator, kg, $KeyGenerator::getInstance(s));
-		$nc(kg)->init(static_cast<$AlgorithmParameterSpec*>($$new($TlsRsaPremasterSecretParameterSpec, clientVersion, serverVersion, encodedSecret)), generator);
+		$nc(kg)->init($$new($TlsRsaPremasterSecretParameterSpec, clientVersion, serverVersion, encodedSecret), generator);
 		return kg->generateKey();
 	} catch ($InvalidAlgorithmParameterException& iae) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
@@ -254,7 +212,46 @@ RSAKeyExchange$RSAPremasterSecret::RSAKeyExchange$RSAPremasterSecret() {
 }
 
 $Class* RSAKeyExchange$RSAPremasterSecret::load$($String* name, bool initialize) {
-	$loadClass(RSAKeyExchange$RSAPremasterSecret, name, initialize, &_RSAKeyExchange$RSAPremasterSecret_ClassInfo_, allocate$RSAKeyExchange$RSAPremasterSecret);
+	$FieldInfo fieldInfos$$[] = {
+		{"premasterSecret", "Ljavax/crypto/SecretKey;", nullptr, $FINAL, $field(RSAKeyExchange$RSAPremasterSecret, premasterSecret)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(RSAKeyExchange$RSAPremasterSecret, init$, void, $SecretKey*)},
+		{"createPremasterSecret", "(Lsun/security/ssl/ClientHandshakeContext;)Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;", nullptr, $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, createPremasterSecret, RSAKeyExchange$RSAPremasterSecret*, $ClientHandshakeContext*), "java.security.GeneralSecurityException"},
+		{"decode", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/security/PrivateKey;[B)Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;", nullptr, $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, decode, RSAKeyExchange$RSAPremasterSecret*, $ServerHandshakeContext*, $PrivateKey*, $bytes*), "java.security.GeneralSecurityException"},
+		{"generatePremasterSecret", "(II[BLjava/security/SecureRandom;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, generatePremasterSecret, $SecretKey*, int32_t, int32_t, $bytes*, $SecureRandom*), "java.security.GeneralSecurityException"},
+		{"getEncoded", "(Ljava/security/PublicKey;Ljava/security/SecureRandom;)[B", nullptr, 0, $method(RSAKeyExchange$RSAPremasterSecret, getEncoded, $bytes*, $PublicKey*, $SecureRandom*), "java.security.GeneralSecurityException"},
+		{"safeProviderName", "(Ljavax/crypto/Cipher;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, safeProviderName, $String*, $Cipher*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.RSAKeyExchange$RSAPremasterSecret", "sun.security.ssl.RSAKeyExchange", "RSAPremasterSecret", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.RSAKeyExchange$RSAPremasterSecret",
+		"java.lang.Object",
+		"sun.security.ssl.SSLPossession,sun.security.ssl.SSLCredentials",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.RSAKeyExchange"
+	};
+	$loadClass(RSAKeyExchange$RSAPremasterSecret, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RSAKeyExchange$RSAPremasterSecret));
+	});
 	return class$;
 }
 

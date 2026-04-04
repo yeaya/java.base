@@ -1,12 +1,10 @@
 #include <java/util/jar/JarFile.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/EOFException.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/OutOfMemoryError.h>
@@ -45,7 +43,6 @@
 #include <java/util/stream/Stream.h>
 #include <java/util/zip/ZipEntry.h>
 #include <java/util/zip/ZipFile.h>
-#include <jdk/internal/access/JavaUtilJarAccess.h>
 #include <jdk/internal/access/JavaUtilZipFileAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <sun/security/action/GetPropertyAction.h>
@@ -82,9 +79,7 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -124,11 +119,9 @@ using $Manifest$FastInputStream = ::java::util::jar::Manifest$FastInputStream;
 using $Stream = ::java::util::stream::Stream;
 using $ZipEntry = ::java::util::zip::ZipEntry;
 using $ZipFile = ::java::util::zip::ZipFile;
-using $JavaUtilJarAccess = ::jdk::internal::access::JavaUtilJarAccess;
 using $JavaUtilZipFileAccess = ::jdk::internal::access::JavaUtilZipFileAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
-using $Debug = ::sun::security::util::Debug;
 using $ManifestEntryVerifier = ::sun::security::util::ManifestEntryVerifier;
 
 namespace java {
@@ -144,33 +137,29 @@ public:
 	virtual $Object* apply(Object$* name) override {
 		 return $of($nc(inst$)->getBasename($cast($String, name)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JarFile$$Lambda$getBasename>());
-	}
 	JarFile* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JarFile$$Lambda$getBasename::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JarFile$$Lambda$getBasename, inst$)},
-	{}
-};
-$MethodInfo JarFile$$Lambda$getBasename::methodInfos[3] = {
-	{"<init>", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $method(JarFile$$Lambda$getBasename, init$, void, JarFile*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JarFile$$Lambda$getBasename, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JarFile$$Lambda$getBasename::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.jar.JarFile$$Lambda$getBasename",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* JarFile$$Lambda$getBasename::load$($String* name, bool initialize) {
-	$loadClass(JarFile$$Lambda$getBasename, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JarFile$$Lambda$getBasename, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $method(JarFile$$Lambda$getBasename, init$, void, JarFile*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JarFile$$Lambda$getBasename, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.jar.JarFile$$Lambda$getBasename",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JarFile$$Lambda$getBasename, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarFile$$Lambda$getBasename);
+	});
 	return class$;
 }
 $Class* JarFile$$Lambda$getBasename::class$ = nullptr;
@@ -183,27 +172,24 @@ public:
 	virtual bool test(Object$* obj) override {
 		 return $Objects::nonNull(obj);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JarFile$$Lambda$nonNull$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JarFile$$Lambda$nonNull$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JarFile$$Lambda$nonNull$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JarFile$$Lambda$nonNull$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo JarFile$$Lambda$nonNull$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.jar.JarFile$$Lambda$nonNull$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* JarFile$$Lambda$nonNull$1::load$($String* name, bool initialize) {
-	$loadClass(JarFile$$Lambda$nonNull$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JarFile$$Lambda$nonNull$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JarFile$$Lambda$nonNull$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.jar.JarFile$$Lambda$nonNull$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JarFile$$Lambda$nonNull$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarFile$$Lambda$nonNull$1);
+	});
 	return class$;
 }
 $Class* JarFile$$Lambda$nonNull$1::class$ = nullptr;
@@ -217,138 +203,32 @@ public:
 	virtual $Object* apply(Object$* name) override {
 		 return $of($nc(inst$)->getJarEntry($cast($String, name)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JarFile$$Lambda$getJarEntry$2>());
-	}
 	JarFile* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JarFile$$Lambda$getJarEntry$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JarFile$$Lambda$getJarEntry$2, inst$)},
-	{}
-};
-$MethodInfo JarFile$$Lambda$getJarEntry$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $method(JarFile$$Lambda$getJarEntry$2, init$, void, JarFile*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JarFile$$Lambda$getJarEntry$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JarFile$$Lambda$getJarEntry$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.jar.JarFile$$Lambda$getJarEntry$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* JarFile$$Lambda$getJarEntry$2::load$($String* name, bool initialize) {
-	$loadClass(JarFile$$Lambda$getJarEntry$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JarFile$$Lambda$getJarEntry$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $method(JarFile$$Lambda$getJarEntry$2, init$, void, JarFile*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JarFile$$Lambda$getJarEntry$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.jar.JarFile$$Lambda$getJarEntry$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JarFile$$Lambda$getJarEntry$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarFile$$Lambda$getJarEntry$2);
+	});
 	return class$;
 }
 $Class* JarFile$$Lambda$getJarEntry$2::class$ = nullptr;
-
-$FieldInfo _JarFile_FieldInfo_[] = {
-	{"BASE_VERSION", "Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, BASE_VERSION)},
-	{"BASE_VERSION_FEATURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, BASE_VERSION_FEATURE)},
-	{"RUNTIME_VERSION", "Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, RUNTIME_VERSION)},
-	{"MULTI_RELEASE_ENABLED", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, MULTI_RELEASE_ENABLED)},
-	{"MULTI_RELEASE_FORCED", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, MULTI_RELEASE_FORCED)},
-	{"isInitializing", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, isInitializing$)},
-	{"MAX_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JarFile, MAX_ARRAY_SIZE)},
-	{"manRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/util/jar/Manifest;>;", $PRIVATE, $field(JarFile, manRef)},
-	{"manEntry", "Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $field(JarFile, manEntry)},
-	{"jv", "Ljava/util/jar/JarVerifier;", nullptr, $PRIVATE, $field(JarFile, jv)},
-	{"jvInitialized", "Z", nullptr, $PRIVATE, $field(JarFile, jvInitialized)},
-	{"verify", "Z", nullptr, $PRIVATE, $field(JarFile, verify)},
-	{"version", "Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $FINAL, $field(JarFile, version)},
-	{"versionFeature", "I", nullptr, $PRIVATE | $FINAL, $field(JarFile, versionFeature)},
-	{"isMultiRelease", "Z", nullptr, $PRIVATE, $field(JarFile, isMultiRelease$)},
-	{"hasClassPathAttribute", "Z", nullptr, $PRIVATE, $field(JarFile, hasClassPathAttribute$)},
-	{"hasCheckedSpecialAttributes", "Z", nullptr, $PRIVATE | $VOLATILE, $field(JarFile, hasCheckedSpecialAttributes)},
-	{"JUZFA", "Ljdk/internal/access/JavaUtilZipFileAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, JUZFA)},
-	{"META_INF", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, META_INF)},
-	{"META_INF_VERSIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, META_INF_VERSIONS)},
-	{"MANIFEST_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JarFile, MANIFEST_NAME)},
-	{"CLASSPATH_CHARS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, CLASSPATH_CHARS)},
-	{"CLASSPATH_LASTOCC", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, CLASSPATH_LASTOCC)},
-	{"CLASSPATH_OPTOSFT", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, CLASSPATH_OPTOSFT)},
-	{"MULTIRELEASE_CHARS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, MULTIRELEASE_CHARS)},
-	{"MULTIRELEASE_LASTOCC", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, MULTIRELEASE_LASTOCC)},
-	{"MULTIRELEASE_OPTOSFT", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, MULTIRELEASE_OPTOSFT)},
-	{}
-};
-
-$MethodInfo _JarFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $String*, bool), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $File*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;Z)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $File*, bool), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;ZI)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $File*, bool, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;ZILjava/lang/Runtime$Version;)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $File*, bool, int32_t, $Runtime$Version*), "java.io.IOException"},
-	{"baseVersion", "()Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarFile, baseVersion, $Runtime$Version*)},
-	{"checkForSpecialAttributes", "()V", nullptr, $PRIVATE, $method(JarFile, checkForSpecialAttributes, void), "java.io.IOException"},
-	{"ensureInitialization", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(JarFile, ensureInitialization, void)},
-	{"entries", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(JarFile, entries, $Enumeration*)},
-	{"entries2", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", 0, $virtualMethod(JarFile, entries2, $Enumeration*)},
-	{"entryFor", "(Ljava/lang/String;)Ljava/util/jar/JarEntry;", nullptr, 0, $virtualMethod(JarFile, entryFor, $JarEntry*, $String*)},
-	{"entryNames", "([Ljava/security/CodeSource;)Ljava/util/Enumeration;", "([Ljava/security/CodeSource;)Ljava/util/Enumeration<Ljava/lang/String;>;", 0, $virtualMethod(JarFile, entryNames, $Enumeration*, $CodeSourceArray*)},
-	{"getBasename", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JarFile, getBasename, $String*, $String*)},
-	{"getBytes", "(Ljava/util/zip/ZipEntry;)[B", nullptr, $PRIVATE, $method(JarFile, getBytes, $bytes*, $ZipEntry*), "java.io.IOException"},
-	{"getCodeSource", "(Ljava/net/URL;Ljava/lang/String;)Ljava/security/CodeSource;", nullptr, 0, $virtualMethod(JarFile, getCodeSource, $CodeSource*, $URL*, $String*)},
-	{"getCodeSources", "(Ljava/net/URL;)[Ljava/security/CodeSource;", nullptr, 0, $virtualMethod(JarFile, getCodeSources, $CodeSourceArray*, $URL*)},
-	{"getEntry", "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(JarFile, getEntry, $ZipEntry*, $String*)},
-	{"getInputStream", "(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JarFile, getInputStream, $InputStream*, $ZipEntry*), "java.io.IOException"},
-	{"getJarEntry", "(Ljava/lang/String;)Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JarFile, getJarEntry, $JarEntry*, $String*)},
-	{"getManEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $method(JarFile, getManEntry, $JarEntry*)},
-	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(JarFile, getManifest, $Manifest*), "java.io.IOException"},
-	{"getManifestDigests", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", 0, $virtualMethod(JarFile, getManifestDigests, $List*)},
-	{"getManifestFromReference", "()Ljava/util/jar/Manifest;", nullptr, $PRIVATE, $method(JarFile, getManifestFromReference, $Manifest*), "java.io.IOException"},
-	{"getRealName", "(Ljava/util/jar/JarEntry;)Ljava/lang/String;", nullptr, 0, $virtualMethod(JarFile, getRealName, $String*, $JarEntry*)},
-	{"getVersion", "()Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $FINAL, $method(JarFile, getVersion, $Runtime$Version*)},
-	{"getVersionedEntry", "(Ljava/lang/String;Ljava/util/jar/JarEntry;)Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $method(JarFile, getVersionedEntry, $JarEntry*, $String*, $JarEntry*)},
-	{"hasClassPathAttribute", "()Z", nullptr, 0, $virtualMethod(JarFile, hasClassPathAttribute, bool), "java.io.IOException"},
-	{"initializeVerifier", "()V", nullptr, $PRIVATE, $method(JarFile, initializeVerifier, void)},
-	{"isInitializing", "()Z", nullptr, $STATIC, $staticMethod(JarFile, isInitializing, bool)},
-	{"isMultiRelease", "()Z", nullptr, $PUBLIC | $FINAL, $method(JarFile, isMultiRelease, bool)},
-	{"match", "([B[B[B[B)I", nullptr, $PRIVATE, $method(JarFile, match, int32_t, $bytes*, $bytes*, $bytes*, $bytes*)},
-	{"maybeInstantiateVerifier", "()V", nullptr, $PRIVATE, $method(JarFile, maybeInstantiateVerifier, void), "java.io.IOException"},
-	{"newEntry", "(Ljava/util/jar/JarEntry;)Ljava/util/jar/JarEntry;", nullptr, 0, $virtualMethod(JarFile, newEntry, $JarEntry*, $JarEntry*)},
-	{"newEntry", "(Ljava/lang/String;)Ljava/util/jar/JarEntry;", nullptr, 0, $virtualMethod(JarFile, newEntry, $JarEntry*, $String*)},
-	{"runtimeVersion", "()Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarFile, runtimeVersion, $Runtime$Version*)},
-	{"setEagerValidation", "(Z)V", nullptr, 0, $virtualMethod(JarFile, setEagerValidation, void, bool)},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(JarFile, stream, $Stream*)},
-	{"unsignedEntryNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PRIVATE, $method(JarFile, unsignedEntryNames, $Enumeration*)},
-	{"verifiableEntry", "(Ljava/util/zip/ZipEntry;)Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $method(JarFile, verifiableEntry, $JarEntry*, $ZipEntry*)},
-	{"versionedStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(JarFile, versionedStream, $Stream*)},
-	{}
-};
-
-$InnerClassInfo _JarFile_InnerClassesInfo_[] = {
-	{"java.util.jar.JarFile$JarFileEntry", "java.util.jar.JarFile", "JarFileEntry", $PRIVATE},
-	{"java.util.jar.JarFile$2", nullptr, nullptr, 0},
-	{"java.util.jar.JarFile$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JarFile_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.jar.JarFile",
-	"java.util.zip.ZipFile",
-	nullptr,
-	_JarFile_FieldInfo_,
-	_JarFile_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JarFile_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.jar.JarFile$JarFileEntry,java.util.jar.JarFile$2,java.util.jar.JarFile$1"
-};
-
-$Object* allocate$JarFile($Class* clazz) {
-	return $of($alloc(JarFile));
-}
 
 $Runtime$Version* JarFile::BASE_VERSION = nullptr;
 int32_t JarFile::BASE_VERSION_FEATURE = 0;
@@ -439,8 +319,8 @@ $Manifest* JarFile::getManifest() {
 }
 
 $Manifest* JarFile::getManifestFromReference() {
-	$useLocalCurrentObjectStackCache();
-	$var($Manifest, man, this->manRef != nullptr ? $cast($Manifest, $nc(this->manRef)->get()) : ($Manifest*)nullptr);
+	$useLocalObjectStack();
+	$var($Manifest, man, this->manRef != nullptr ? $cast($Manifest, this->manRef->get()) : ($Manifest*)nullptr);
 	if (man == nullptr) {
 		$var($JarEntry, manEntry, getManEntry());
 		if (manEntry != nullptr) {
@@ -452,42 +332,38 @@ $Manifest* JarFile::getManifestFromReference() {
 					} else {
 						$init($JarVerifier);
 						if ($JarVerifier::debug != nullptr) {
-							$nc($JarVerifier::debug)->println("Multiple MANIFEST.MF found. Treat JAR file as unsigned"_s);
+							$JarVerifier::debug->println("Multiple MANIFEST.MF found. Treat JAR file as unsigned"_s);
 						}
 					}
 				}
 				$var($JarVerifier, var$0, this->jv);
-				$var($InputStream, var$1, static_cast<$InputStream*>($new($ByteArrayInputStream, b)));
+				$var($InputStream, var$1, $new($ByteArrayInputStream, b));
 				$assign(man, $new($Manifest, var$0, var$1, $(getName())));
 			} else {
-				{
-					$var($InputStream, is, $ZipFile::getInputStream(manEntry));
-					{
-						$var($Throwable, var$2, nullptr);
-						try {
+				$var($InputStream, is, $ZipFile::getInputStream(manEntry));
+				$var($Throwable, var$2, nullptr);
+				try {
+					try {
+						$assign(man, $new($Manifest, is, $(getName())));
+					} catch ($Throwable& t$) {
+						if (is != nullptr) {
 							try {
-								$assign(man, $new($Manifest, is, $(getName())));
-							} catch ($Throwable& t$) {
-								if (is != nullptr) {
-									try {
-										is->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$3) {
-							$assign(var$2, var$3);
-						} /*finally*/ {
-							if (is != nullptr) {
 								is->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
 							}
 						}
-						if (var$2 != nullptr) {
-							$throw(var$2);
-						}
+						$throw(t$);
 					}
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
+				} /*finally*/ {
+					if (is != nullptr) {
+						is->close();
+					}
+				}
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			}
 			$set(this, manRef, $new($SoftReference, man));
@@ -521,9 +397,9 @@ $Stream* JarFile::stream() {
 }
 
 $Stream* JarFile::versionedStream() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isMultiRelease()) {
-		return $nc($($nc($($nc($($nc($($nc($($nc(JarFile::JUZFA)->entryNameStream(this)))->map(static_cast<$Function*>($$new(JarFile$$Lambda$getBasename, this)))))->filter(static_cast<$Predicate*>($$new(JarFile$$Lambda$nonNull$1)))))->distinct()))->map(static_cast<$Function*>($$new(JarFile$$Lambda$getJarEntry$2, this)))))->filter(static_cast<$Predicate*>($$new(JarFile$$Lambda$nonNull$1)));
+		return $$nc($$nc($$nc($$nc($$nc($nc(JarFile::JUZFA)->entryNameStream(this))->map($$new(JarFile$$Lambda$getBasename, this)))->filter($$new(JarFile$$Lambda$nonNull$1)))->distinct())->map($$new(JarFile$$Lambda$getJarEntry$2, this)))->filter($$new(JarFile$$Lambda$nonNull$1));
 	}
 	return stream();
 }
@@ -534,8 +410,8 @@ $JarEntry* JarFile::entryFor($String* name) {
 
 $String* JarFile::getBasename($String* name) {
 	if ($nc(name)->startsWith(JarFile::META_INF_VERSIONS)) {
-		int32_t off = $nc(JarFile::META_INF_VERSIONS)->length();
-		int32_t index = name->indexOf((int32_t)u'/', off);
+		int32_t off = JarFile::META_INF_VERSIONS->length();
+		int32_t index = name->indexOf(u'/', off);
 		try {
 			bool var$0 = index == -1 || index == (name->length() - 1);
 			if (var$0 || $Integer::parseInt(name, off, index, 10) > this->versionFeature) {
@@ -550,7 +426,7 @@ $String* JarFile::getBasename($String* name) {
 }
 
 $JarEntry* JarFile::getVersionedEntry($String* name, $JarEntry* defaultEntry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(name)->startsWith(JarFile::META_INF)) {
 		$var($ints, versions, $nc(JarFile::JUZFA)->getMetaInfVersions(this));
 		if (JarFile::BASE_VERSION_FEATURE < this->versionFeature && $nc(versions)->length > 0) {
@@ -591,7 +467,7 @@ void JarFile::maybeInstantiateVerifier() {
 }
 
 void JarFile::initializeVerifier() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ManifestEntryVerifier, mev, nullptr);
 	try {
 		$var($List, names, $nc(JarFile::JUZFA)->getManifestAndSignatureRelatedFiles(this));
@@ -626,7 +502,7 @@ void JarFile::initializeVerifier() {
 		this->verify = false;
 		$init($JarVerifier);
 		if ($JarVerifier::debug != nullptr) {
-			$nc($JarVerifier::debug)->println("jarfile parsing error!"_s);
+			$JarVerifier::debug->println("jarfile parsing error!"_s);
 			ex->printStackTrace();
 		}
 	} catch ($IllegalArgumentException& ex) {
@@ -634,18 +510,18 @@ void JarFile::initializeVerifier() {
 		this->verify = false;
 		$init($JarVerifier);
 		if ($JarVerifier::debug != nullptr) {
-			$nc($JarVerifier::debug)->println("jarfile parsing error!"_s);
+			$JarVerifier::debug->println("jarfile parsing error!"_s);
 			ex->printStackTrace();
 		}
 	}
 	if (this->jv != nullptr) {
-		$nc(this->jv)->doneWithMeta();
+		this->jv->doneWithMeta();
 		if ($JarVerifier::debug != nullptr) {
-			$nc($JarVerifier::debug)->println("done with meta!"_s);
+			$JarVerifier::debug->println("done with meta!"_s);
 		}
 		if ($nc(this->jv)->nothingToVerify()) {
 			if ($JarVerifier::debug != nullptr) {
-				$nc($JarVerifier::debug)->println("nothing to verify!"_s);
+				$JarVerifier::debug->println("nothing to verify!"_s);
 			}
 			$set(this, jv, nullptr);
 			this->verify = false;
@@ -654,58 +530,56 @@ void JarFile::initializeVerifier() {
 }
 
 $bytes* JarFile::getBytes($ZipEntry* ze) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($InputStream, is, $ZipFile::getInputStream(ze));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($bytes, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($bytes, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					int64_t uncompressedSize = $nc(ze)->getSize();
-					if (uncompressedSize > JarFile::MAX_ARRAY_SIZE) {
-						$throwNew($OutOfMemoryError, "Required array size too large"_s);
-					}
-					int32_t len = (int32_t)uncompressedSize;
-					int32_t bytesRead = 0;
-					$var($bytes, b, nullptr);
-					if (len != -1 && len <= 0x0000FFFF) {
-						$assign(b, $new($bytes, len));
-						bytesRead = $nc(is)->readNBytes(b, 0, len);
-					} else {
-						$assign(b, $nc(is)->readAllBytes());
-						bytesRead = $nc(b)->length;
-					}
-					if (len != -1 && len != bytesRead) {
-						$throwNew($EOFException, $$str({"Expected:"_s, $$str(len), ", read:"_s, $$str(bytesRead)}));
-					}
-					$assign(var$2, b);
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (is != nullptr) {
-						try {
-							is->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
+				int64_t uncompressedSize = $nc(ze)->getSize();
+				if (uncompressedSize > JarFile::MAX_ARRAY_SIZE) {
+					$throwNew($OutOfMemoryError, "Required array size too large"_s);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
+				int32_t len = (int32_t)uncompressedSize;
+				int32_t bytesRead = 0;
+				$var($bytes, b, nullptr);
+				if (len != -1 && len <= 0x0000ffff) {
+					$assign(b, $new($bytes, len));
+					bytesRead = $nc(is)->readNBytes(b, 0, len);
+				} else {
+					$assign(b, $nc(is)->readAllBytes());
+					bytesRead = $nc(b)->length;
+				}
+				if (len != -1 && len != bytesRead) {
+					$throwNew($EOFException, $$str({"Expected:"_s, $$str(len), ", read:"_s, $$str(bytesRead)}));
+				}
+				$assign(var$2, b);
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				if (is != nullptr) {
-					is->close();
+					try {
+						is->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (is != nullptr) {
+				is->close();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
@@ -713,7 +587,7 @@ $bytes* JarFile::getBytes($ZipEntry* ze) {
 
 $InputStream* JarFile::getInputStream($ZipEntry* ze) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		maybeInstantiateVerifier();
 		if (this->jv == nullptr) {
 			return $ZipFile::getInputStream(ze);
@@ -732,14 +606,14 @@ $InputStream* JarFile::getInputStream($ZipEntry* ze) {
 }
 
 $JarEntry* JarFile::verifiableEntry($ZipEntry* ze$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ZipEntry, ze, ze$renamed);
 	if ($instanceOf($JarFile$JarFileEntry, ze)) {
-		return $nc(($cast($JarFile$JarFileEntry, ze)))->realEntry();
+		return $cast($JarFile$JarFileEntry, ze)->realEntry();
 	}
 	$assign(ze, getJarEntry($($nc(ze)->getName())));
 	if ($instanceOf($JarFile$JarFileEntry, ze)) {
-		return $nc(($cast($JarFile$JarFileEntry, ze)))->realEntry();
+		return $cast($JarFile$JarFileEntry, ze)->realEntry();
 	}
 	return $cast($JarEntry, ze);
 }
@@ -773,7 +647,7 @@ int32_t JarFile::match($bytes* src, $bytes* b, $bytes* lastOcc, $bytes* optoSft)
 				}
 				if (c != src->get(j)) {
 					int32_t badShift = $nc(lastOcc)->get(c - 32);
-					i += $Math::max(j + 1 - badShift, (int32_t)$nc(optoSft)->get(j));
+					i += $Math::max(j + 1 - badShift, $nc(optoSft)->get(j));
 					next$continue = true;
 					break;
 				}
@@ -793,7 +667,7 @@ int32_t JarFile::match($bytes* src, $bytes* b, $bytes* lastOcc, $bytes* optoSft)
 }
 
 void JarFile::checkForSpecialAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->hasCheckedSpecialAttributes) {
 		return;
 	}
@@ -825,24 +699,21 @@ void JarFile::ensureInitialization() {
 		try {
 			maybeInstantiateVerifier();
 		} catch ($IOException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		}
 		if (this->jv != nullptr && !this->jvInitialized) {
-			$init($Boolean);
-			$nc(JarFile::isInitializing$)->set($Boolean::TRUE);
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					initializeVerifier();
-					this->jvInitialized = true;
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					$nc(JarFile::isInitializing$)->set($Boolean::FALSE);
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			JarFile::isInitializing$->set($Boolean::TRUE);
+			$var($Throwable, var$0, nullptr);
+			try {
+				initializeVerifier();
+				this->jvInitialized = true;
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				JarFile::isInitializing$->set($Boolean::FALSE);
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
@@ -850,8 +721,8 @@ void JarFile::ensureInitialization() {
 
 bool JarFile::isInitializing() {
 	$init(JarFile);
-	$var($Boolean, value, $cast($Boolean, $nc(JarFile::isInitializing$)->get()));
-	return (value == nullptr) ? false : $nc(value)->booleanValue();
+	$var($Boolean, value, $cast($Boolean, JarFile::isInitializing$->get()));
+	return (value == nullptr) ? false : value->booleanValue();
 }
 
 $JarEntry* JarFile::newEntry($JarEntry* je) {
@@ -872,23 +743,19 @@ $JarEntry* JarFile::newEntry($String* name) {
 }
 
 $Enumeration* JarFile::entryNames($CodeSourceArray* cs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureInitialization();
 	if (this->jv != nullptr) {
-		return $nc(this->jv)->entryNames(this, cs);
+		return this->jv->entryNames(this, cs);
 	}
 	bool includeUnsigned = false;
 	{
 		$var($CodeSourceArray, arr$, cs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CodeSource, c, arr$->get(i$));
-			{
-				if ($nc(c)->getCodeSigners() == nullptr) {
-					includeUnsigned = true;
-					break;
-				}
+			if ($nc(c)->getCodeSigners() == nullptr) {
+				includeUnsigned = true;
+				break;
 			}
 		}
 	}
@@ -900,20 +767,20 @@ $Enumeration* JarFile::entryNames($CodeSourceArray* cs) {
 }
 
 $Enumeration* JarFile::entries2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureInitialization();
 	if (this->jv != nullptr) {
-		return $nc(this->jv)->entries2(this, $($nc(JarFile::JUZFA)->entries(this)));
+		return this->jv->entries2(this, $($nc(JarFile::JUZFA)->entries(this)));
 	}
 	$var($Enumeration, unfilteredEntries, $nc(JarFile::JUZFA)->entries(this));
 	return $new($JarFile$1, this, unfilteredEntries);
 }
 
 $CodeSourceArray* JarFile::getCodeSources($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureInitialization();
 	if (this->jv != nullptr) {
-		return $nc(this->jv)->getCodeSources(this, url);
+		return this->jv->getCodeSources(this, url);
 	}
 	$var($Enumeration, unsigned$, unsignedEntryNames());
 	if ($nc(unsigned$)->hasMoreElements()) {
@@ -929,10 +796,10 @@ $Enumeration* JarFile::unsignedEntryNames() {
 }
 
 $CodeSource* JarFile::getCodeSource($URL* url, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureInitialization();
 	if (this->jv != nullptr) {
-		if ($nc(this->jv)->eagerValidation) {
+		if (this->jv->eagerValidation) {
 			$var($CodeSource, cs, nullptr);
 			$var($JarEntry, je, getJarEntry(name));
 			if (je != nullptr) {
@@ -952,23 +819,23 @@ void JarFile::setEagerValidation(bool eager) {
 	try {
 		maybeInstantiateVerifier();
 	} catch ($IOException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	if (this->jv != nullptr) {
-		$nc(this->jv)->setEagerValidation(eager);
+		this->jv->setEagerValidation(eager);
 	}
 }
 
 $List* JarFile::getManifestDigests() {
 	ensureInitialization();
 	if (this->jv != nullptr) {
-		return $nc(this->jv)->getManifestDigests();
+		return this->jv->getManifestDigests();
 	}
 	return $new($ArrayList);
 }
 
-void clinit$JarFile($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JarFile::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JarFile::META_INF, "META-INF/"_s);
 	$assignStatic(JarFile::META_INF_VERSIONS, $str({JarFile::META_INF, "versions/"_s}));
 	$assignStatic(JarFile::MANIFEST_NAME, $str({JarFile::META_INF, "MANIFEST.MF"_s}));
@@ -979,7 +846,7 @@ void clinit$JarFile($Class* class$) {
 		$assignStatic(JarFile::BASE_VERSION, $Runtime$Version::parse($($Integer::toString(8))));
 		JarFile::BASE_VERSION_FEATURE = $nc(JarFile::BASE_VERSION)->feature();
 		$var($String, jarVersion, $GetPropertyAction::privilegedGetProperty("jdk.util.jar.version"_s));
-		int32_t runtimeVersion = $nc($($Runtime::version()))->feature();
+		int32_t runtimeVersion = $$nc($Runtime::version())->feature();
 		if (jarVersion != nullptr) {
 			int32_t jarVer = $Integer::parseInt(jarVersion);
 			runtimeVersion = (jarVer > runtimeVersion) ? runtimeVersion : $Math::max(jarVer, JarFile::BASE_VERSION_FEATURE);
@@ -990,46 +857,36 @@ void clinit$JarFile($Class* class$) {
 			$var($String, s9313$, enableMultiRelease);
 			int32_t tmp9313$ = -1;
 			switch ($nc(s9313$)->hashCode()) {
-			case 0x05CB1923:
-				{
-					if (s9313$->equals("false"_s)) {
-						tmp9313$ = 0;
-					}
-					break;
+			case 0x05cb1923:
+				if (s9313$->equals("false"_s)) {
+					tmp9313$ = 0;
 				}
-			case 0x05D18AEB:
-				{
-					if (s9313$->equals("force"_s)) {
-						tmp9313$ = 1;
-					}
-					break;
+				break;
+			case 0x05d18aeb:
+				if (s9313$->equals("force"_s)) {
+					tmp9313$ = 1;
 				}
+				break;
 			}
 			switch (tmp9313$) {
 			case 0:
 				{
-					{
-						JarFile::MULTI_RELEASE_ENABLED = false;
-						JarFile::MULTI_RELEASE_FORCED = false;
-					}
-					break;
+					JarFile::MULTI_RELEASE_ENABLED = false;
+					JarFile::MULTI_RELEASE_FORCED = false;
 				}
+				break;
 			case 1:
 				{
-					{
-						JarFile::MULTI_RELEASE_ENABLED = true;
-						JarFile::MULTI_RELEASE_FORCED = true;
-					}
-					break;
+					JarFile::MULTI_RELEASE_ENABLED = true;
+					JarFile::MULTI_RELEASE_FORCED = true;
 				}
+				break;
 			default:
 				{
-					{
-						JarFile::MULTI_RELEASE_ENABLED = true;
-						JarFile::MULTI_RELEASE_FORCED = false;
-					}
-					break;
+					JarFile::MULTI_RELEASE_ENABLED = true;
+					JarFile::MULTI_RELEASE_FORCED = false;
 				}
+				break;
 			}
 		}
 	}
@@ -1071,39 +928,39 @@ void clinit$JarFile($Class* class$) {
 	{
 		$assignStatic(JarFile::CLASSPATH_LASTOCC, $new($bytes, 65));
 		$assignStatic(JarFile::CLASSPATH_OPTOSFT, $new($bytes, 12));
-		$nc(JarFile::CLASSPATH_LASTOCC)->set((int32_t)u'C' - 32, (int8_t)1);
-		$nc(JarFile::CLASSPATH_LASTOCC)->set((int32_t)u'L' - 32, (int8_t)2);
-		$nc(JarFile::CLASSPATH_LASTOCC)->set((int32_t)u'S' - 32, (int8_t)5);
-		$nc(JarFile::CLASSPATH_LASTOCC)->set((int32_t)u'-' - 32, (int8_t)6);
-		$nc(JarFile::CLASSPATH_LASTOCC)->set((int32_t)u'P' - 32, (int8_t)7);
-		$nc(JarFile::CLASSPATH_LASTOCC)->set((int32_t)u'A' - 32, (int8_t)8);
-		$nc(JarFile::CLASSPATH_LASTOCC)->set((int32_t)u'T' - 32, (int8_t)9);
-		$nc(JarFile::CLASSPATH_LASTOCC)->set((int32_t)u'H' - 32, (int8_t)10);
-		$nc(JarFile::CLASSPATH_LASTOCC)->set((int32_t)u':' - 32, (int8_t)11);
-		$nc(JarFile::CLASSPATH_LASTOCC)->set((int32_t)u' ' - 32, (int8_t)12);
+		JarFile::CLASSPATH_LASTOCC->set((int32_t)u'C' - 32, 1);
+		JarFile::CLASSPATH_LASTOCC->set((int32_t)u'L' - 32, 2);
+		JarFile::CLASSPATH_LASTOCC->set((int32_t)u'S' - 32, 5);
+		JarFile::CLASSPATH_LASTOCC->set((int32_t)u'-' - 32, 6);
+		JarFile::CLASSPATH_LASTOCC->set((int32_t)u'P' - 32, 7);
+		JarFile::CLASSPATH_LASTOCC->set((int32_t)u'A' - 32, 8);
+		JarFile::CLASSPATH_LASTOCC->set((int32_t)u'T' - 32, 9);
+		JarFile::CLASSPATH_LASTOCC->set((int32_t)u'H' - 32, 10);
+		JarFile::CLASSPATH_LASTOCC->set((int32_t)u':' - 32, 11);
+		JarFile::CLASSPATH_LASTOCC->set((int32_t)u' ' - 32, 12);
 		for (int32_t i = 0; i < 11; ++i) {
-			$nc(JarFile::CLASSPATH_OPTOSFT)->set(i, (int8_t)12);
+			JarFile::CLASSPATH_OPTOSFT->set(i, 12);
 		}
-		$nc(JarFile::CLASSPATH_OPTOSFT)->set(11, (int8_t)1);
+		JarFile::CLASSPATH_OPTOSFT->set(11, 1);
 		$assignStatic(JarFile::MULTIRELEASE_LASTOCC, $new($bytes, 65));
 		$assignStatic(JarFile::MULTIRELEASE_OPTOSFT, $new($bytes, 19));
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u'M' - 32, (int8_t)1);
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u'I' - 32, (int8_t)5);
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u'-' - 32, (int8_t)6);
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u'L' - 32, (int8_t)9);
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u'A' - 32, (int8_t)11);
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u'S' - 32, (int8_t)12);
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u':' - 32, (int8_t)14);
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u' ' - 32, (int8_t)15);
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u'T' - 32, (int8_t)16);
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u'R' - 32, (int8_t)17);
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u'U' - 32, (int8_t)18);
-		$nc(JarFile::MULTIRELEASE_LASTOCC)->set((int32_t)u'E' - 32, (int8_t)19);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u'M' - 32, 1);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u'I' - 32, 5);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u'-' - 32, 6);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u'L' - 32, 9);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u'A' - 32, 11);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u'S' - 32, 12);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u':' - 32, 14);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u' ' - 32, 15);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u'T' - 32, 16);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u'R' - 32, 17);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u'U' - 32, 18);
+		JarFile::MULTIRELEASE_LASTOCC->set((int32_t)u'E' - 32, 19);
 		for (int32_t i = 0; i < 17; ++i) {
-			$nc(JarFile::MULTIRELEASE_OPTOSFT)->set(i, (int8_t)19);
+			JarFile::MULTIRELEASE_OPTOSFT->set(i, 19);
 		}
-		$nc(JarFile::MULTIRELEASE_OPTOSFT)->set(17, (int8_t)6);
-		$nc(JarFile::MULTIRELEASE_OPTOSFT)->set(18, (int8_t)1);
+		JarFile::MULTIRELEASE_OPTOSFT->set(17, 6);
+		JarFile::MULTIRELEASE_OPTOSFT->set(18, 1);
 	}
 }
 
@@ -1112,17 +969,113 @@ JarFile::JarFile() {
 
 $Class* JarFile::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JarFile$$Lambda$getBasename::classInfo$.name)) {
+		if (name->equals("java.util.jar.JarFile$$Lambda$getBasename")) {
 			return JarFile$$Lambda$getBasename::load$(name, initialize);
 		}
-		if (name->equals(JarFile$$Lambda$nonNull$1::classInfo$.name)) {
+		if (name->equals("java.util.jar.JarFile$$Lambda$nonNull$1")) {
 			return JarFile$$Lambda$nonNull$1::load$(name, initialize);
 		}
-		if (name->equals(JarFile$$Lambda$getJarEntry$2::classInfo$.name)) {
+		if (name->equals("java.util.jar.JarFile$$Lambda$getJarEntry$2")) {
 			return JarFile$$Lambda$getJarEntry$2::load$(name, initialize);
 		}
 	}
-	$loadClass(JarFile, name, initialize, &_JarFile_ClassInfo_, clinit$JarFile, allocate$JarFile);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASE_VERSION", "Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, BASE_VERSION)},
+		{"BASE_VERSION_FEATURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, BASE_VERSION_FEATURE)},
+		{"RUNTIME_VERSION", "Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, RUNTIME_VERSION)},
+		{"MULTI_RELEASE_ENABLED", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, MULTI_RELEASE_ENABLED)},
+		{"MULTI_RELEASE_FORCED", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, MULTI_RELEASE_FORCED)},
+		{"isInitializing", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, isInitializing$)},
+		{"MAX_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JarFile, MAX_ARRAY_SIZE)},
+		{"manRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/util/jar/Manifest;>;", $PRIVATE, $field(JarFile, manRef)},
+		{"manEntry", "Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $field(JarFile, manEntry)},
+		{"jv", "Ljava/util/jar/JarVerifier;", nullptr, $PRIVATE, $field(JarFile, jv)},
+		{"jvInitialized", "Z", nullptr, $PRIVATE, $field(JarFile, jvInitialized)},
+		{"verify", "Z", nullptr, $PRIVATE, $field(JarFile, verify)},
+		{"version", "Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $FINAL, $field(JarFile, version)},
+		{"versionFeature", "I", nullptr, $PRIVATE | $FINAL, $field(JarFile, versionFeature)},
+		{"isMultiRelease", "Z", nullptr, $PRIVATE, $field(JarFile, isMultiRelease$)},
+		{"hasClassPathAttribute", "Z", nullptr, $PRIVATE, $field(JarFile, hasClassPathAttribute$)},
+		{"hasCheckedSpecialAttributes", "Z", nullptr, $PRIVATE | $VOLATILE, $field(JarFile, hasCheckedSpecialAttributes)},
+		{"JUZFA", "Ljdk/internal/access/JavaUtilZipFileAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, JUZFA)},
+		{"META_INF", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, META_INF)},
+		{"META_INF_VERSIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, META_INF_VERSIONS)},
+		{"MANIFEST_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JarFile, MANIFEST_NAME)},
+		{"CLASSPATH_CHARS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, CLASSPATH_CHARS)},
+		{"CLASSPATH_LASTOCC", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, CLASSPATH_LASTOCC)},
+		{"CLASSPATH_OPTOSFT", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, CLASSPATH_OPTOSFT)},
+		{"MULTIRELEASE_CHARS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, MULTIRELEASE_CHARS)},
+		{"MULTIRELEASE_LASTOCC", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, MULTIRELEASE_LASTOCC)},
+		{"MULTIRELEASE_OPTOSFT", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarFile, MULTIRELEASE_OPTOSFT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $String*, bool), "java.io.IOException"},
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $File*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/File;Z)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $File*, bool), "java.io.IOException"},
+		{"<init>", "(Ljava/io/File;ZI)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $File*, bool, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/io/File;ZILjava/lang/Runtime$Version;)V", nullptr, $PUBLIC, $method(JarFile, init$, void, $File*, bool, int32_t, $Runtime$Version*), "java.io.IOException"},
+		{"baseVersion", "()Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarFile, baseVersion, $Runtime$Version*)},
+		{"checkForSpecialAttributes", "()V", nullptr, $PRIVATE, $method(JarFile, checkForSpecialAttributes, void), "java.io.IOException"},
+		{"ensureInitialization", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(JarFile, ensureInitialization, void)},
+		{"entries", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(JarFile, entries, $Enumeration*)},
+		{"entries2", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", 0, $virtualMethod(JarFile, entries2, $Enumeration*)},
+		{"entryFor", "(Ljava/lang/String;)Ljava/util/jar/JarEntry;", nullptr, 0, $virtualMethod(JarFile, entryFor, $JarEntry*, $String*)},
+		{"entryNames", "([Ljava/security/CodeSource;)Ljava/util/Enumeration;", "([Ljava/security/CodeSource;)Ljava/util/Enumeration<Ljava/lang/String;>;", 0, $virtualMethod(JarFile, entryNames, $Enumeration*, $CodeSourceArray*)},
+		{"getBasename", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JarFile, getBasename, $String*, $String*)},
+		{"getBytes", "(Ljava/util/zip/ZipEntry;)[B", nullptr, $PRIVATE, $method(JarFile, getBytes, $bytes*, $ZipEntry*), "java.io.IOException"},
+		{"getCodeSource", "(Ljava/net/URL;Ljava/lang/String;)Ljava/security/CodeSource;", nullptr, 0, $virtualMethod(JarFile, getCodeSource, $CodeSource*, $URL*, $String*)},
+		{"getCodeSources", "(Ljava/net/URL;)[Ljava/security/CodeSource;", nullptr, 0, $virtualMethod(JarFile, getCodeSources, $CodeSourceArray*, $URL*)},
+		{"getEntry", "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(JarFile, getEntry, $ZipEntry*, $String*)},
+		{"getInputStream", "(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JarFile, getInputStream, $InputStream*, $ZipEntry*), "java.io.IOException"},
+		{"getJarEntry", "(Ljava/lang/String;)Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JarFile, getJarEntry, $JarEntry*, $String*)},
+		{"getManEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $method(JarFile, getManEntry, $JarEntry*)},
+		{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(JarFile, getManifest, $Manifest*), "java.io.IOException"},
+		{"getManifestDigests", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", 0, $virtualMethod(JarFile, getManifestDigests, $List*)},
+		{"getManifestFromReference", "()Ljava/util/jar/Manifest;", nullptr, $PRIVATE, $method(JarFile, getManifestFromReference, $Manifest*), "java.io.IOException"},
+		{"getRealName", "(Ljava/util/jar/JarEntry;)Ljava/lang/String;", nullptr, 0, $virtualMethod(JarFile, getRealName, $String*, $JarEntry*)},
+		{"getVersion", "()Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $FINAL, $method(JarFile, getVersion, $Runtime$Version*)},
+		{"getVersionedEntry", "(Ljava/lang/String;Ljava/util/jar/JarEntry;)Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $method(JarFile, getVersionedEntry, $JarEntry*, $String*, $JarEntry*)},
+		{"hasClassPathAttribute", "()Z", nullptr, 0, $virtualMethod(JarFile, hasClassPathAttribute, bool), "java.io.IOException"},
+		{"initializeVerifier", "()V", nullptr, $PRIVATE, $method(JarFile, initializeVerifier, void)},
+		{"isInitializing", "()Z", nullptr, $STATIC, $staticMethod(JarFile, isInitializing, bool)},
+		{"isMultiRelease", "()Z", nullptr, $PUBLIC | $FINAL, $method(JarFile, isMultiRelease, bool)},
+		{"match", "([B[B[B[B)I", nullptr, $PRIVATE, $method(JarFile, match, int32_t, $bytes*, $bytes*, $bytes*, $bytes*)},
+		{"maybeInstantiateVerifier", "()V", nullptr, $PRIVATE, $method(JarFile, maybeInstantiateVerifier, void), "java.io.IOException"},
+		{"newEntry", "(Ljava/util/jar/JarEntry;)Ljava/util/jar/JarEntry;", nullptr, 0, $virtualMethod(JarFile, newEntry, $JarEntry*, $JarEntry*)},
+		{"newEntry", "(Ljava/lang/String;)Ljava/util/jar/JarEntry;", nullptr, 0, $virtualMethod(JarFile, newEntry, $JarEntry*, $String*)},
+		{"runtimeVersion", "()Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarFile, runtimeVersion, $Runtime$Version*)},
+		{"setEagerValidation", "(Z)V", nullptr, 0, $virtualMethod(JarFile, setEagerValidation, void, bool)},
+		{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(JarFile, stream, $Stream*)},
+		{"unsignedEntryNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PRIVATE, $method(JarFile, unsignedEntryNames, $Enumeration*)},
+		{"verifiableEntry", "(Ljava/util/zip/ZipEntry;)Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $method(JarFile, verifiableEntry, $JarEntry*, $ZipEntry*)},
+		{"versionedStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(JarFile, versionedStream, $Stream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.jar.JarFile$JarFileEntry", "java.util.jar.JarFile", "JarFileEntry", $PRIVATE},
+		{"java.util.jar.JarFile$2", nullptr, nullptr, 0},
+		{"java.util.jar.JarFile$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.jar.JarFile",
+		"java.util.zip.ZipFile",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.jar.JarFile$JarFileEntry,java.util.jar.JarFile$2,java.util.jar.JarFile$1"
+	};
+	$loadClass(JarFile, name, initialize, &classInfo$$, JarFile::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JarFile));
+	});
 	return class$;
 }
 

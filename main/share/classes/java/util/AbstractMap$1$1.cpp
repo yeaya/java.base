@@ -1,5 +1,4 @@
 #include <java/util/AbstractMap$1$1.h>
-
 #include <java/util/AbstractMap$1.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Iterator.h>
@@ -12,64 +11,15 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractMap$1 = ::java::util::AbstractMap$1;
-using $Iterator = ::java::util::Iterator;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace util {
 
-$FieldInfo _AbstractMap$1$1_FieldInfo_[] = {
-	{"this$1", "Ljava/util/AbstractMap$1;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractMap$1$1, this$1)},
-	{"i", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE, $field(AbstractMap$1$1, i)},
-	{}
-};
-
-$MethodInfo _AbstractMap$1$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/AbstractMap$1;)V", nullptr, 0, $method(AbstractMap$1$1, init$, void, $AbstractMap$1*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$1$1, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(AbstractMap$1$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractMap$1$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _AbstractMap$1$1_EnclosingMethodInfo_ = {
-	"java.util.AbstractMap$1",
-	"iterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _AbstractMap$1$1_InnerClassesInfo_[] = {
-	{"java.util.AbstractMap$1", nullptr, nullptr, 0},
-	{"java.util.AbstractMap$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractMap$1$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.AbstractMap$1$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_AbstractMap$1$1_FieldInfo_,
-	_AbstractMap$1$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TK;>;",
-	&_AbstractMap$1$1_EnclosingMethodInfo_,
-	_AbstractMap$1$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.AbstractMap"
-};
-
-$Object* allocate$AbstractMap$1$1($Class* clazz) {
-	return $of($alloc(AbstractMap$1$1));
-}
-
 void AbstractMap$1$1::init$($AbstractMap$1* this$1) {
 	$set(this, this$1, this$1);
-	$set(this, i, $nc($($nc(this->this$1->this$0)->entrySet()))->iterator());
+	$set(this, i, $$nc($nc(this->this$1->this$0)->entrySet())->iterator());
 }
 
 bool AbstractMap$1$1::hasNext() {
@@ -77,7 +27,7 @@ bool AbstractMap$1$1::hasNext() {
 }
 
 $Object* AbstractMap$1$1::next() {
-	return $of($nc(($cast($Map$Entry, $($nc(this->i)->next()))))->getKey());
+	return $$sure($Map$Entry, $nc(this->i)->next())->getKey();
 }
 
 void AbstractMap$1$1::remove() {
@@ -88,7 +38,46 @@ AbstractMap$1$1::AbstractMap$1$1() {
 }
 
 $Class* AbstractMap$1$1::load$($String* name, bool initialize) {
-	$loadClass(AbstractMap$1$1, name, initialize, &_AbstractMap$1$1_ClassInfo_, allocate$AbstractMap$1$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljava/util/AbstractMap$1;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractMap$1$1, this$1)},
+		{"i", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE, $field(AbstractMap$1$1, i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/AbstractMap$1;)V", nullptr, 0, $method(AbstractMap$1$1, init$, void, $AbstractMap$1*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$1$1, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(AbstractMap$1$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractMap$1$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.AbstractMap$1",
+		"iterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.AbstractMap$1", nullptr, nullptr, 0},
+		{"java.util.AbstractMap$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.AbstractMap$1$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TK;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.AbstractMap"
+	};
+	$loadClass(AbstractMap$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractMap$1$1);
+	});
 	return class$;
 }
 

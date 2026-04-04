@@ -1,5 +1,4 @@
 #include <jdk/internal/access/foreign/MemoryAddressProxy.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
 #include <jcpp.h>
@@ -20,32 +19,8 @@ namespace jdk {
 		namespace access {
 			namespace foreign {
 
-$MethodInfo _MemoryAddressProxy_MethodInfo_[] = {
-	{"addOffsets", "(JJLjdk/internal/access/foreign/MemoryAddressProxy;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryAddressProxy, addOffsets, int64_t, int64_t, int64_t, MemoryAddressProxy*)},
-	{"checkAccess", "(JJZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, checkAccess, void, int64_t, int64_t, bool)},
-	{"isSmall", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, isSmall, bool)},
-	{"multiplyOffsets", "(JJLjdk/internal/access/foreign/MemoryAddressProxy;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryAddressProxy, multiplyOffsets, int64_t, int64_t, int64_t, MemoryAddressProxy*)},
-	{"overflowException", "(JJ)Ljava/lang/IndexOutOfBoundsException;", nullptr, $PRIVATE | $STATIC, $staticMethod(MemoryAddressProxy, overflowException, $IndexOutOfBoundsException*, int64_t, int64_t)},
-	{"unsafeGetBase", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, unsafeGetBase, $Object*)},
-	{"unsafeGetOffset", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, unsafeGetOffset, int64_t)},
-	{}
-};
-
-$ClassInfo _MemoryAddressProxy_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.access.foreign.MemoryAddressProxy",
-	nullptr,
-	nullptr,
-	nullptr,
-	_MemoryAddressProxy_MethodInfo_
-};
-
-$Object* allocate$MemoryAddressProxy($Class* clazz) {
-	return $of($alloc(MemoryAddressProxy));
-}
-
 int64_t MemoryAddressProxy::addOffsets(int64_t op1, int64_t op2, MemoryAddressProxy* addr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(addr)->isSmall()) {
 		if (op1 > $Integer::MAX_VALUE || op2 > $Integer::MAX_VALUE || op1 < $Integer::MIN_VALUE || op2 < $Integer::MIN_VALUE) {
 			$throw($(overflowException($Integer::MIN_VALUE, $Integer::MAX_VALUE)));
@@ -68,7 +43,7 @@ int64_t MemoryAddressProxy::addOffsets(int64_t op1, int64_t op2, MemoryAddressPr
 }
 
 int64_t MemoryAddressProxy::multiplyOffsets(int64_t op1, int64_t op2, MemoryAddressProxy* addr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(addr)->isSmall()) {
 		if (op1 > $Integer::MAX_VALUE || op2 > $Integer::MAX_VALUE || op1 < $Integer::MIN_VALUE || op2 < $Integer::MIN_VALUE) {
 			$throw($(overflowException($Integer::MIN_VALUE, $Integer::MAX_VALUE)));
@@ -91,15 +66,35 @@ int64_t MemoryAddressProxy::multiplyOffsets(int64_t op1, int64_t op2, MemoryAddr
 }
 
 $IndexOutOfBoundsException* MemoryAddressProxy::overflowException(int64_t min, int64_t max) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($IndexOutOfBoundsException, $($String::format("Overflow occurred during offset computation ; offset exceeded range { %d .. %d }"_s, $$new($ObjectArray, {
-		$($of($Long::valueOf(min))),
-		$($of($Long::valueOf(max)))
+		$($Long::valueOf(min)),
+		$($Long::valueOf(max))
 	}))));
 }
 
 $Class* MemoryAddressProxy::load$($String* name, bool initialize) {
-	$loadClass(MemoryAddressProxy, name, initialize, &_MemoryAddressProxy_ClassInfo_, allocate$MemoryAddressProxy);
+	$MethodInfo methodInfos$$[] = {
+		{"addOffsets", "(JJLjdk/internal/access/foreign/MemoryAddressProxy;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryAddressProxy, addOffsets, int64_t, int64_t, int64_t, MemoryAddressProxy*)},
+		{"checkAccess", "(JJZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, checkAccess, void, int64_t, int64_t, bool)},
+		{"isSmall", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, isSmall, bool)},
+		{"multiplyOffsets", "(JJLjdk/internal/access/foreign/MemoryAddressProxy;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryAddressProxy, multiplyOffsets, int64_t, int64_t, int64_t, MemoryAddressProxy*)},
+		{"overflowException", "(JJ)Ljava/lang/IndexOutOfBoundsException;", nullptr, $PRIVATE | $STATIC, $staticMethod(MemoryAddressProxy, overflowException, $IndexOutOfBoundsException*, int64_t, int64_t)},
+		{"unsafeGetBase", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, unsafeGetBase, $Object*)},
+		{"unsafeGetOffset", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, unsafeGetOffset, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.access.foreign.MemoryAddressProxy",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MemoryAddressProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryAddressProxy);
+	});
 	return class$;
 }
 

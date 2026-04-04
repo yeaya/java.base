@@ -61,6 +61,7 @@ public:
 	virtual $Object* getOrDefault(Object$* key, Object$* defaultValue) override;
 	virtual int32_t hashCode() override;
 	virtual bool isEmpty() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Comparator* comparator);
 	void init$(::java::util::Map* m);
@@ -166,7 +167,7 @@ public:
 	static $Object* UNBOUNDED;
 	static const bool RED = false;
 	static const bool BLACK = true;
-	static const int64_t serialVersionUID = (int64_t)0x0CC1F63E2D256AE6;
+	static const int64_t serialVersionUID = (int64_t)0x0cc1f63e2d256ae6;
 };
 
 	} // util

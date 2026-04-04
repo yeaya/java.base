@@ -1,5 +1,4 @@
 #include <sun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/ssl/PskKeyExchangeModesExtension.h>
 #include <jcpp.h>
@@ -17,50 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _PskKeyExchangeModesExtension$PskKeyExchangeMode_FieldInfo_[] = {
-	{"PSK_KE", "Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PskKeyExchangeModesExtension$PskKeyExchangeMode, PSK_KE)},
-	{"PSK_DHE_KE", "Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PskKeyExchangeModesExtension$PskKeyExchangeMode, PSK_DHE_KE)},
-	{"$VALUES", "[Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PskKeyExchangeModesExtension$PskKeyExchangeMode, $VALUES)},
-	{"id", "B", nullptr, $FINAL, $field(PskKeyExchangeModesExtension$PskKeyExchangeMode, id)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(PskKeyExchangeModesExtension$PskKeyExchangeMode, name$)},
-	{}
-};
-
-$MethodInfo _PskKeyExchangeModesExtension$PskKeyExchangeMode_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PskKeyExchangeModesExtension$PskKeyExchangeMode, $values, $PskKeyExchangeModesExtension$PskKeyExchangeModeArray*)},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(PskKeyExchangeModesExtension$PskKeyExchangeMode, init$, void, $String*, int32_t, int8_t, $String*)},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PskKeyExchangeModesExtension$PskKeyExchangeMode, nameOf, $String*, int8_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(PskKeyExchangeModesExtension$PskKeyExchangeMode, valueOf, PskKeyExchangeModesExtension$PskKeyExchangeMode*, $String*)},
-	{"valueOf", "(B)Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $STATIC, $staticMethod(PskKeyExchangeModesExtension$PskKeyExchangeMode, valueOf, PskKeyExchangeModesExtension$PskKeyExchangeMode*, int8_t)},
-	{"values", "()[Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(PskKeyExchangeModesExtension$PskKeyExchangeMode, values, $PskKeyExchangeModesExtension$PskKeyExchangeModeArray*)},
-	{}
-};
-
-$InnerClassInfo _PskKeyExchangeModesExtension$PskKeyExchangeMode_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeMode", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeMode", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _PskKeyExchangeModesExtension$PskKeyExchangeMode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeMode",
-	"java.lang.Enum",
-	nullptr,
-	_PskKeyExchangeModesExtension$PskKeyExchangeMode_FieldInfo_,
-	_PskKeyExchangeModesExtension$PskKeyExchangeMode_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;>;",
-	nullptr,
-	_PskKeyExchangeModesExtension$PskKeyExchangeMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PskKeyExchangeModesExtension"
-};
-
-$Object* allocate$PskKeyExchangeModesExtension$PskKeyExchangeMode($Class* clazz) {
-	return $of($alloc(PskKeyExchangeModesExtension$PskKeyExchangeMode));
-}
 
 PskKeyExchangeModesExtension$PskKeyExchangeMode* PskKeyExchangeModesExtension$PskKeyExchangeMode::PSK_KE = nullptr;
 PskKeyExchangeModesExtension$PskKeyExchangeMode* PskKeyExchangeModesExtension$PskKeyExchangeMode::PSK_DHE_KE = nullptr;
@@ -92,17 +47,11 @@ void PskKeyExchangeModesExtension$PskKeyExchangeMode::init$($String* $enum$name,
 
 PskKeyExchangeModesExtension$PskKeyExchangeMode* PskKeyExchangeModesExtension$PskKeyExchangeMode::valueOf(int8_t id) {
 	$init(PskKeyExchangeModesExtension$PskKeyExchangeMode);
-	{
-		$var($PskKeyExchangeModesExtension$PskKeyExchangeModeArray, arr$, values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			PskKeyExchangeModesExtension$PskKeyExchangeMode* pkem = arr$->get(i$);
-			{
-				if ($nc(pkem)->id == id) {
-					return pkem;
-				}
-			}
+	$var($PskKeyExchangeModesExtension$PskKeyExchangeModeArray, arr$, values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		PskKeyExchangeModesExtension$PskKeyExchangeMode* pkem = arr$->get(i$);
+		if ($nc(pkem)->id == id) {
+			return pkem;
 		}
 	}
 	return nullptr;
@@ -110,24 +59,20 @@ PskKeyExchangeModesExtension$PskKeyExchangeMode* PskKeyExchangeModesExtension$Ps
 
 $String* PskKeyExchangeModesExtension$PskKeyExchangeMode::nameOf(int8_t id) {
 	$init(PskKeyExchangeModesExtension$PskKeyExchangeMode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($PskKeyExchangeModesExtension$PskKeyExchangeModeArray, arr$, PskKeyExchangeModesExtension$PskKeyExchangeMode::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			PskKeyExchangeModesExtension$PskKeyExchangeMode* pkem = arr$->get(i$);
-			{
-				if ($nc(pkem)->id == id) {
-					return pkem->name$;
-				}
+			if ($nc(pkem)->id == id) {
+				return pkem->name$;
 			}
 		}
 	}
-	return $str({"<UNKNOWN PskKeyExchangeMode TYPE: "_s, $$str(((int32_t)(id & (uint32_t)255))), ">"_s});
+	return $str({"<UNKNOWN PskKeyExchangeMode TYPE: "_s, $$str((id & 0xff)), ">"_s});
 }
 
-void clinit$PskKeyExchangeModesExtension$PskKeyExchangeMode($Class* class$) {
+void PskKeyExchangeModesExtension$PskKeyExchangeMode::clinit$($Class* clazz) {
 	$assignStatic(PskKeyExchangeModesExtension$PskKeyExchangeMode::PSK_KE, $new(PskKeyExchangeModesExtension$PskKeyExchangeMode, "PSK_KE"_s, 0, (int8_t)0, "psk_ke"_s));
 	$assignStatic(PskKeyExchangeModesExtension$PskKeyExchangeMode::PSK_DHE_KE, $new(PskKeyExchangeModesExtension$PskKeyExchangeMode, "PSK_DHE_KE"_s, 1, (int8_t)1, "psk_dhe_ke"_s));
 	$assignStatic(PskKeyExchangeModesExtension$PskKeyExchangeMode::$VALUES, PskKeyExchangeModesExtension$PskKeyExchangeMode::$values());
@@ -137,7 +82,45 @@ PskKeyExchangeModesExtension$PskKeyExchangeMode::PskKeyExchangeModesExtension$Ps
 }
 
 $Class* PskKeyExchangeModesExtension$PskKeyExchangeMode::load$($String* name, bool initialize) {
-	$loadClass(PskKeyExchangeModesExtension$PskKeyExchangeMode, name, initialize, &_PskKeyExchangeModesExtension$PskKeyExchangeMode_ClassInfo_, clinit$PskKeyExchangeModesExtension$PskKeyExchangeMode, allocate$PskKeyExchangeModesExtension$PskKeyExchangeMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"PSK_KE", "Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PskKeyExchangeModesExtension$PskKeyExchangeMode, PSK_KE)},
+		{"PSK_DHE_KE", "Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PskKeyExchangeModesExtension$PskKeyExchangeMode, PSK_DHE_KE)},
+		{"$VALUES", "[Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PskKeyExchangeModesExtension$PskKeyExchangeMode, $VALUES)},
+		{"id", "B", nullptr, $FINAL, $field(PskKeyExchangeModesExtension$PskKeyExchangeMode, id)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(PskKeyExchangeModesExtension$PskKeyExchangeMode, name$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PskKeyExchangeModesExtension$PskKeyExchangeMode, $values, $PskKeyExchangeModesExtension$PskKeyExchangeModeArray*)},
+		{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(PskKeyExchangeModesExtension$PskKeyExchangeMode, init$, void, $String*, int32_t, int8_t, $String*)},
+		{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PskKeyExchangeModesExtension$PskKeyExchangeMode, nameOf, $String*, int8_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(PskKeyExchangeModesExtension$PskKeyExchangeMode, valueOf, PskKeyExchangeModesExtension$PskKeyExchangeMode*, $String*)},
+		{"valueOf", "(B)Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $STATIC, $staticMethod(PskKeyExchangeModesExtension$PskKeyExchangeMode, valueOf, PskKeyExchangeModesExtension$PskKeyExchangeMode*, int8_t)},
+		{"values", "()[Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(PskKeyExchangeModesExtension$PskKeyExchangeMode, values, $PskKeyExchangeModesExtension$PskKeyExchangeModeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeMode", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeMode", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PskKeyExchangeModesExtension"
+	};
+	$loadClass(PskKeyExchangeModesExtension$PskKeyExchangeMode, name, initialize, &classInfo$$, PskKeyExchangeModesExtension$PskKeyExchangeMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PskKeyExchangeModesExtension$PskKeyExchangeMode));
+	});
 	return class$;
 }
 

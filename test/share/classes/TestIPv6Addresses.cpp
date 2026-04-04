@@ -1,15 +1,12 @@
 #include <TestIPv6Addresses.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/net/InetAddress.h>
 #include <java/net/SocketPermission.h>
 #include <java/net/URL.h>
 #include <java/net/UnknownHostException.h>
 #include <java/security/AccessControlException.h>
-#include <java/security/Permission.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -20,33 +17,13 @@ using $SocketPermission = ::java::net::SocketPermission;
 using $URL = ::java::net::URL;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $AccessControlException = ::java::security::AccessControlException;
-using $Permission = ::java::security::Permission;
-
-$MethodInfo _TestIPv6Addresses_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestIPv6Addresses, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestIPv6Addresses, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _TestIPv6Addresses_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestIPv6Addresses",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestIPv6Addresses_MethodInfo_
-};
-
-$Object* allocate$TestIPv6Addresses($Class* clazz) {
-	return $of($alloc(TestIPv6Addresses));
-}
 
 void TestIPv6Addresses::init$() {
 }
 
 void TestIPv6Addresses::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(TestIPv6Addresses);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($InetAddress, ia1, $InetAddress::getByName("fe80::a00:20ff:feae:45c9"_s));
@@ -60,15 +37,15 @@ void TestIPv6Addresses::main($StringArray* args) {
 		if (!u1->equals(u2)) {
 			$throwNew($RuntimeException, "URL constructor failed forliteral IPv6 addresses"_s);
 		}
-		bool var$0 = !$nc($(u1->getHost()))->equals($(u2->getHost()));
-		if (var$0 || !$nc($(u1->getHost()))->equals("[fe80::a00:20ff:feae:45c9]"_s)) {
+		bool var$0 = !$$nc(u1->getHost())->equals($(u2->getHost()));
+		if (var$0 || !$$nc(u1->getHost())->equals("[fe80::a00:20ff:feae:45c9]"_s)) {
 			$throwNew($RuntimeException, "URL.getHost() failed forliteral IPv6 addresses"_s);
 		}
-		if (!$nc($(u1->getAuthority()))->equals("[fe80::a00:20ff:feae:45c9]:80"_s)) {
+		if (!$$nc(u1->getAuthority())->equals("[fe80::a00:20ff:feae:45c9]:80"_s)) {
 			$throwNew($RuntimeException, "URL.getAuthority() failed forliteral IPv6 addresses"_s);
 		}
 		$var($SocketPermission, sp1, $new($SocketPermission, $$str({$(u1->getHost()), ":80-"_s}), "resolve"_s));
-		$var($SocketPermission, sp2, $new($SocketPermission, $$str({$($nc(ia1)->getHostAddress()), ":8080"_s}), "resolve"_s));
+		$var($SocketPermission, sp2, $new($SocketPermission, $$str({$(ia1->getHostAddress()), ":8080"_s}), "resolve"_s));
 		if (!sp1->implies(sp2)) {
 			$throwNew($RuntimeException, "SocketPermission implies doesn\'t work for literal IPv6 addresses"_s);
 		}
@@ -93,7 +70,22 @@ TestIPv6Addresses::TestIPv6Addresses() {
 }
 
 $Class* TestIPv6Addresses::load$($String* name, bool initialize) {
-	$loadClass(TestIPv6Addresses, name, initialize, &_TestIPv6Addresses_ClassInfo_, allocate$TestIPv6Addresses);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestIPv6Addresses, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestIPv6Addresses, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestIPv6Addresses",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestIPv6Addresses, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestIPv6Addresses);
+	});
 	return class$;
 }
 

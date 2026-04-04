@@ -1,27 +1,8 @@
 #include <Class2.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _Class2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Class2, init$, void)},
-	{}
-};
-
-$ClassInfo _Class2_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Class2",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Class2_MethodInfo_
-};
-
-$Object* allocate$Class2($Class* clazz) {
-	return $of($alloc(Class2));
-}
 
 void Class2::init$() {
 }
@@ -30,7 +11,21 @@ Class2::Class2() {
 }
 
 $Class* Class2::load$($String* name, bool initialize) {
-	$loadClass(Class2, name, initialize, &_Class2_ClassInfo_, allocate$Class2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Class2, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Class2",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Class2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Class2);
+	});
 	return class$;
 }
 

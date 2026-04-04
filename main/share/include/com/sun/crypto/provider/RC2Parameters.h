@@ -26,6 +26,7 @@ class $import RC2Parameters : public ::java::security::AlgorithmParametersSpi {
 	$class(RC2Parameters, 0, ::java::security::AlgorithmParametersSpi)
 public:
 	RC2Parameters();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $bytes* engineGetEncoded() override;
 	virtual $bytes* engineGetEncoded($String* encodingMethod) override;

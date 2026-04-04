@@ -1,5 +1,4 @@
 #include <repeatingAnnotations/D1.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,62 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace repeatingAnnotations {
 
-$NamedAttribute D1_Attribute_var$3[] = {
-	{"value", 'I', "10"},
-	{}
-};
-
-$CompoundAttribute D1_CompoundAttribute_var$2 = {
-"LrepeatingAnnotations/Ann;", D1_Attribute_var$3
-};
-
-$NamedAttribute D1_Attribute_var$5[] = {
-	{"value", 'I', "11"},
-	{}
-};
-
-$CompoundAttribute D1_CompoundAttribute_var$4 = {
-"LrepeatingAnnotations/Ann;", D1_Attribute_var$5
-};
-
-$Attribute D1_Attribute_var$1[] = {
-	{'@', &D1_CompoundAttribute_var$2},
-	{'@', &D1_CompoundAttribute_var$4},
-	{'-'}
-};
-
-$NamedAttribute D1_Attribute_var$0[] = {
-	{"value", '[', D1_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _D1_Annotations_[] = {
-	{"LrepeatingAnnotations/AnnCont;", D1_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _D1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D1, init$, void)},
-	{}
-};
-
-$ClassInfo _D1_ClassInfo_ = {
-	$ACC_SUPER,
-	"repeatingAnnotations.D1",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_D1_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_D1_Annotations_
-};
-
-$Object* allocate$D1($Class* clazz) {
-	return $of($alloc(D1));
-}
-
 void D1::init$() {
 }
 
@@ -73,7 +16,52 @@ D1::D1() {
 }
 
 $Class* D1::load$($String* name, bool initialize) {
-	$loadClass(D1, name, initialize, &_D1_ClassInfo_, allocate$D1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D1, init$, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$compoundAttribute$namedAttribute[] = {
+		{"value", 'I', "10"},
+		{}
+	};
+$CompoundAttribute annotations$$$namedAttribute$compoundAttribute = {
+	"LrepeatingAnnotations/Ann;", annotations$$$namedAttribute$compoundAttribute$namedAttribute
+};
+	$NamedAttribute annotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute$namedAttribute[] = {
+		{"value", 'I', "11"},
+		{}
+	};
+$CompoundAttribute annotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute = {
+	"LrepeatingAnnotations/Ann;", annotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute$namedAttribute
+};
+	$Attribute $attribute[] = {
+		{'@', &annotations$$$namedAttribute$compoundAttribute},
+		{'@', &annotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LrepeatingAnnotations/AnnCont;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"repeatingAnnotations.D1",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(D1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D1);
+	});
 	return class$;
 }
 

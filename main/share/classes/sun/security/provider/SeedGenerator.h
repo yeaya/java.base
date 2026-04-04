@@ -26,6 +26,7 @@ class SeedGenerator : public ::java::lang::Object {
 	$class(SeedGenerator, 0, ::java::lang::Object)
 public:
 	SeedGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addNetworkAdapterInfo(::java::security::MessageDigest* md);
 	static void generateSeed($bytes* result);

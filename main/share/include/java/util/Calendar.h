@@ -204,6 +204,7 @@ class $import Calendar : public ::java::io::Serializable, public ::java::lang::C
 public:
 	Calendar();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::TimeZone* zone, ::java::util::Locale* aLocale);
 	virtual void add(int32_t field, int32_t amount) {}
@@ -366,7 +367,7 @@ public:
 	int32_t nextStamp = 0;
 	static const int32_t currentSerialVersion = 1;
 	int32_t serialVersionOnStream = 0;
-	static const int64_t serialVersionUID = (int64_t)0xE6EA4D1EC8DC5B8E;
+	static const int64_t serialVersionUID = (int64_t)0xe6ea4d1ec8dc5b8e;
 	static const int32_t ERA_MASK = 1; // (1 << ERA)
 	static const int32_t YEAR_MASK = 2; // (1 << YEAR)
 	static const int32_t MONTH_MASK = 4; // (1 << MONTH)

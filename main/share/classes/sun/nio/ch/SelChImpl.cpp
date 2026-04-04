@@ -1,5 +1,4 @@
 #include <sun/nio/ch/SelChImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <sun/nio/ch/Net.h>
@@ -19,31 +18,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$MethodInfo _SelChImpl_MethodInfo_[] = {
-	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, getFD, $FileDescriptor*)},
-	{"getFDVal", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, getFDVal, int32_t)},
-	{"kill", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, kill, void), "java.io.IOException"},
-	{"park", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(SelChImpl, park, void, int32_t, int64_t), "java.io.IOException"},
-	{"park", "(I)V", nullptr, $PUBLIC, $virtualMethod(SelChImpl, park, void, int32_t), "java.io.IOException"},
-	{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateInterestOps", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, translateInterestOps, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SelChImpl_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.nio.ch.SelChImpl",
-	nullptr,
-	"java.nio.channels.Channel",
-	nullptr,
-	_SelChImpl_MethodInfo_
-};
-
-$Object* allocate$SelChImpl($Class* clazz) {
-	return $of($alloc(SelChImpl));
-}
-
 void SelChImpl::park(int32_t event, int64_t nanos) {
 	int64_t millis = 0;
 	if (nanos <= 0) {
@@ -60,7 +34,28 @@ void SelChImpl::park(int32_t event) {
 }
 
 $Class* SelChImpl::load$($String* name, bool initialize) {
-	$loadClass(SelChImpl, name, initialize, &_SelChImpl_ClassInfo_, allocate$SelChImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, getFD, $FileDescriptor*)},
+		{"getFDVal", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, getFDVal, int32_t)},
+		{"kill", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, kill, void), "java.io.IOException"},
+		{"park", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(SelChImpl, park, void, int32_t, int64_t), "java.io.IOException"},
+		{"park", "(I)V", nullptr, $PUBLIC, $virtualMethod(SelChImpl, park, void, int32_t), "java.io.IOException"},
+		{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateInterestOps", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, translateInterestOps, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.nio.ch.SelChImpl",
+		nullptr,
+		"java.nio.channels.Channel",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SelChImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SelChImpl);
+	});
 	return class$;
 }
 

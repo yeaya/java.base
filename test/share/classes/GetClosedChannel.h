@@ -14,6 +14,7 @@ class $export GetClosedChannel : public ::java::lang::Object {
 	$class(GetClosedChannel, 0, ::java::lang::Object)
 public:
 	GetClosedChannel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static bool $assertionsDisabled;

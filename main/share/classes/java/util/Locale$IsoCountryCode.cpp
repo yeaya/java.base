@@ -1,5 +1,4 @@
 #include <java/util/Locale$IsoCountryCode.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Enum.h>
 #include <java/lang/invoke/CallSite.h>
@@ -48,79 +47,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure(Locale$IsoCountryCode, inst$)->createCountryCodeSet());
+		 return $sure(Locale$IsoCountryCode, inst$)->createCountryCodeSet();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Locale$IsoCountryCode$$Lambda$createCountryCodeSet>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Locale$IsoCountryCode$$Lambda$createCountryCodeSet::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Locale$IsoCountryCode$$Lambda$createCountryCodeSet, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale$IsoCountryCode$$Lambda$createCountryCodeSet, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Locale$IsoCountryCode$$Lambda$createCountryCodeSet::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Locale$IsoCountryCode$$Lambda$createCountryCodeSet",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Locale$IsoCountryCode$$Lambda$createCountryCodeSet::load$($String* name, bool initialize) {
-	$loadClass(Locale$IsoCountryCode$$Lambda$createCountryCodeSet, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Locale$IsoCountryCode$$Lambda$createCountryCodeSet, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale$IsoCountryCode$$Lambda$createCountryCodeSet, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Locale$IsoCountryCode$$Lambda$createCountryCodeSet",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Locale$IsoCountryCode$$Lambda$createCountryCodeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locale$IsoCountryCode$$Lambda$createCountryCodeSet);
+	});
 	return class$;
 }
 $Class* Locale$IsoCountryCode$$Lambda$createCountryCodeSet::class$ = nullptr;
-
-$FieldInfo _Locale$IsoCountryCode_FieldInfo_[] = {
-	{"PART1_ALPHA2", "Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$IsoCountryCode, PART1_ALPHA2)},
-	{"PART1_ALPHA3", "Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$IsoCountryCode, PART1_ALPHA3)},
-	{"PART3", "Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$IsoCountryCode, PART3)},
-	{"$VALUES", "[Ljava/util/Locale$IsoCountryCode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Locale$IsoCountryCode, $VALUES)},
-	{"iso3166CodesMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale$IsoCountryCode;Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $staticField(Locale$IsoCountryCode, iso3166CodesMap)},
-	{}
-};
-
-$MethodInfo _Locale$IsoCountryCode_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/Locale$IsoCountryCode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locale$IsoCountryCode, $values, $Locale$IsoCountryCodeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Locale$IsoCountryCode, init$, void, $String*, int32_t)},
-	{"createCountryCodeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $ABSTRACT, $virtualMethod(Locale$IsoCountryCode, createCountryCodeSet, $Set*)},
-	{"retrieveISOCountryCodes", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set;", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $staticMethod(Locale$IsoCountryCode, retrieveISOCountryCodes, $Set*, Locale$IsoCountryCode*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$IsoCountryCode, valueOf, Locale$IsoCountryCode*, $String*)},
-	{"values", "()[Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$IsoCountryCode, values, $Locale$IsoCountryCodeArray*)},
-	{}
-};
-
-$InnerClassInfo _Locale$IsoCountryCode_InnerClassesInfo_[] = {
-	{"java.util.Locale$IsoCountryCode", "java.util.Locale", "IsoCountryCode", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
-	{"java.util.Locale$IsoCountryCode$3", nullptr, nullptr, $FINAL | $ENUM},
-	{"java.util.Locale$IsoCountryCode$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"java.util.Locale$IsoCountryCode$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Locale$IsoCountryCode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
-	"java.util.Locale$IsoCountryCode",
-	"java.lang.Enum",
-	nullptr,
-	_Locale$IsoCountryCode_FieldInfo_,
-	_Locale$IsoCountryCode_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/util/Locale$IsoCountryCode;>;",
-	nullptr,
-	_Locale$IsoCountryCode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Locale"
-};
-
-$Object* allocate$Locale$IsoCountryCode($Class* clazz) {
-	return $of($alloc(Locale$IsoCountryCode));
-}
 
 Locale$IsoCountryCode* Locale$IsoCountryCode::PART1_ALPHA2 = nullptr;
 Locale$IsoCountryCode* Locale$IsoCountryCode::PART1_ALPHA3 = nullptr;
@@ -153,15 +102,15 @@ void Locale$IsoCountryCode::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 $Set* Locale$IsoCountryCode::retrieveISOCountryCodes(Locale$IsoCountryCode* type) {
 	$init(Locale$IsoCountryCode);
-	return $cast($Set, $nc(Locale$IsoCountryCode::iso3166CodesMap)->computeIfAbsent(type, static_cast<$Function*>($$new(Locale$IsoCountryCode$$Lambda$createCountryCodeSet))));
+	return $cast($Set, $nc(Locale$IsoCountryCode::iso3166CodesMap)->computeIfAbsent(type, $$new(Locale$IsoCountryCode$$Lambda$createCountryCodeSet)));
 }
 
-void clinit$Locale$IsoCountryCode($Class* class$) {
+void Locale$IsoCountryCode::clinit$($Class* clazz) {
 	$assignStatic(Locale$IsoCountryCode::PART1_ALPHA2, $new($Locale$IsoCountryCode$1, "PART1_ALPHA2"_s, 0));
 	$assignStatic(Locale$IsoCountryCode::PART1_ALPHA3, $new($Locale$IsoCountryCode$2, "PART1_ALPHA3"_s, 1));
 	$assignStatic(Locale$IsoCountryCode::PART3, $new($Locale$IsoCountryCode$3, "PART3"_s, 2));
 	$assignStatic(Locale$IsoCountryCode::$VALUES, Locale$IsoCountryCode::$values());
-	$assignStatic(Locale$IsoCountryCode::iso3166CodesMap, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$assignStatic(Locale$IsoCountryCode::iso3166CodesMap, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 Locale$IsoCountryCode::Locale$IsoCountryCode() {
@@ -169,11 +118,52 @@ Locale$IsoCountryCode::Locale$IsoCountryCode() {
 
 $Class* Locale$IsoCountryCode::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Locale$IsoCountryCode$$Lambda$createCountryCodeSet::classInfo$.name)) {
+		if (name->equals("java.util.Locale$IsoCountryCode$$Lambda$createCountryCodeSet")) {
 			return Locale$IsoCountryCode$$Lambda$createCountryCodeSet::load$(name, initialize);
 		}
 	}
-	$loadClass(Locale$IsoCountryCode, name, initialize, &_Locale$IsoCountryCode_ClassInfo_, clinit$Locale$IsoCountryCode, allocate$Locale$IsoCountryCode);
+	$FieldInfo fieldInfos$$[] = {
+		{"PART1_ALPHA2", "Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$IsoCountryCode, PART1_ALPHA2)},
+		{"PART1_ALPHA3", "Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$IsoCountryCode, PART1_ALPHA3)},
+		{"PART3", "Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$IsoCountryCode, PART3)},
+		{"$VALUES", "[Ljava/util/Locale$IsoCountryCode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Locale$IsoCountryCode, $VALUES)},
+		{"iso3166CodesMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale$IsoCountryCode;Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $staticField(Locale$IsoCountryCode, iso3166CodesMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/util/Locale$IsoCountryCode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locale$IsoCountryCode, $values, $Locale$IsoCountryCodeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Locale$IsoCountryCode, init$, void, $String*, int32_t)},
+		{"createCountryCodeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $ABSTRACT, $virtualMethod(Locale$IsoCountryCode, createCountryCodeSet, $Set*)},
+		{"retrieveISOCountryCodes", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set;", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $staticMethod(Locale$IsoCountryCode, retrieveISOCountryCodes, $Set*, Locale$IsoCountryCode*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$IsoCountryCode, valueOf, Locale$IsoCountryCode*, $String*)},
+		{"values", "()[Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$IsoCountryCode, values, $Locale$IsoCountryCodeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Locale$IsoCountryCode", "java.util.Locale", "IsoCountryCode", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
+		{"java.util.Locale$IsoCountryCode$3", nullptr, nullptr, $FINAL | $ENUM},
+		{"java.util.Locale$IsoCountryCode$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"java.util.Locale$IsoCountryCode$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
+		"java.util.Locale$IsoCountryCode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/util/Locale$IsoCountryCode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Locale"
+	};
+	$loadClass(Locale$IsoCountryCode, name, initialize, &classInfo$$, Locale$IsoCountryCode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Locale$IsoCountryCode));
+	});
 	return class$;
 }
 

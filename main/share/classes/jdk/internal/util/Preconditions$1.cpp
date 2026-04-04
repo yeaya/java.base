@@ -1,5 +1,4 @@
 #include <jdk/internal/util/Preconditions$1.h>
-
 #include <java/util/List.h>
 #include <java/util/function/Function.h>
 #include <jdk/internal/util/Preconditions.h>
@@ -19,49 +18,6 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 
-$FieldInfo _Preconditions$1_FieldInfo_[] = {
-	{"val$f", "Ljava/util/function/Function;", nullptr, $FINAL | $SYNTHETIC, $field(Preconditions$1, val$f)},
-	{}
-};
-
-$MethodInfo _Preconditions$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Function;)V", "()V", 0, $method(Preconditions$1, init$, void, $Function*)},
-	{"apply", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/RuntimeException;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;)TX;", $PUBLIC, $virtualMethod(Preconditions$1, apply, $RuntimeException*, $String*, $List*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Preconditions$1, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Preconditions$1_EnclosingMethodInfo_ = {
-	"jdk.internal.util.Preconditions",
-	"outOfBoundsExceptionFormatter",
-	"(Ljava/util/function/Function;)Ljava/util/function/BiFunction;"
-};
-
-$InnerClassInfo _Preconditions$1_InnerClassesInfo_[] = {
-	{"jdk.internal.util.Preconditions$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Preconditions$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.util.Preconditions$1",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	_Preconditions$1_FieldInfo_,
-	_Preconditions$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;",
-	&_Preconditions$1_EnclosingMethodInfo_,
-	_Preconditions$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.util.Preconditions"
-};
-
-$Object* allocate$Preconditions$1($Class* clazz) {
-	return $of($alloc(Preconditions$1));
-}
-
 void Preconditions$1::init$($Function* val$f) {
 	$set(this, val$f, val$f);
 }
@@ -71,14 +27,50 @@ $RuntimeException* Preconditions$1::apply($String* checkKind, $List* args) {
 }
 
 $Object* Preconditions$1::apply(Object$* checkKind, Object$* args) {
-	return $of(this->apply($cast($String, checkKind), $cast($List, args)));
+	return this->apply($cast($String, checkKind), $cast($List, args));
 }
 
 Preconditions$1::Preconditions$1() {
 }
 
 $Class* Preconditions$1::load$($String* name, bool initialize) {
-	$loadClass(Preconditions$1, name, initialize, &_Preconditions$1_ClassInfo_, allocate$Preconditions$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$f", "Ljava/util/function/Function;", nullptr, $FINAL | $SYNTHETIC, $field(Preconditions$1, val$f)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Function;)V", "()V", 0, $method(Preconditions$1, init$, void, $Function*)},
+		{"apply", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/RuntimeException;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;)TX;", $PUBLIC, $virtualMethod(Preconditions$1, apply, $RuntimeException*, $String*, $List*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Preconditions$1, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.util.Preconditions",
+		"outOfBoundsExceptionFormatter",
+		"(Ljava/util/function/Function;)Ljava/util/function/BiFunction;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.util.Preconditions$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.util.Preconditions$1",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.util.Preconditions"
+	};
+	$loadClass(Preconditions$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Preconditions$1);
+	});
 	return class$;
 }
 

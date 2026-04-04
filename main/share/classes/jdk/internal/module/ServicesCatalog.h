@@ -43,6 +43,7 @@ class $export ServicesCatalog : public ::java::lang::Object {
 	$class(ServicesCatalog, $PRELOAD, ::java::lang::Object)
 public:
 	ServicesCatalog();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addProvider(::java::lang::Module* module, $Class* service, $Class* impl);
 	void addProviders($String* service, $Array<::jdk::internal::module::ServicesCatalog$ServiceProvider>* providers);

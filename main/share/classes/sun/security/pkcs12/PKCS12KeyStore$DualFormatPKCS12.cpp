@@ -1,5 +1,4 @@
 #include <sun/security/pkcs12/PKCS12KeyStore$DualFormatPKCS12.h>
-
 #include <sun/security/pkcs12/PKCS12KeyStore.h>
 #include <sun/security/provider/JavaKeyStore$JKS.h>
 #include <sun/security/util/KeyStoreDelegator.h>
@@ -16,36 +15,6 @@ namespace sun {
 	namespace security {
 		namespace pkcs12 {
 
-$MethodInfo _PKCS12KeyStore$DualFormatPKCS12_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PKCS12KeyStore$DualFormatPKCS12, init$, void)},
-	{}
-};
-
-$InnerClassInfo _PKCS12KeyStore$DualFormatPKCS12_InnerClassesInfo_[] = {
-	{"sun.security.pkcs12.PKCS12KeyStore$DualFormatPKCS12", "sun.security.pkcs12.PKCS12KeyStore", "DualFormatPKCS12", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PKCS12KeyStore$DualFormatPKCS12_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.pkcs12.PKCS12KeyStore$DualFormatPKCS12",
-	"sun.security.util.KeyStoreDelegator",
-	nullptr,
-	nullptr,
-	_PKCS12KeyStore$DualFormatPKCS12_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PKCS12KeyStore$DualFormatPKCS12_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.pkcs12.PKCS12KeyStore"
-};
-
-$Object* allocate$PKCS12KeyStore$DualFormatPKCS12($Class* clazz) {
-	return $of($alloc(PKCS12KeyStore$DualFormatPKCS12));
-}
-
 void PKCS12KeyStore$DualFormatPKCS12::init$() {
 	$load($PKCS12KeyStore);
 	$load($JavaKeyStore$JKS);
@@ -56,7 +25,32 @@ PKCS12KeyStore$DualFormatPKCS12::PKCS12KeyStore$DualFormatPKCS12() {
 }
 
 $Class* PKCS12KeyStore$DualFormatPKCS12::load$($String* name, bool initialize) {
-	$loadClass(PKCS12KeyStore$DualFormatPKCS12, name, initialize, &_PKCS12KeyStore$DualFormatPKCS12_ClassInfo_, allocate$PKCS12KeyStore$DualFormatPKCS12);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PKCS12KeyStore$DualFormatPKCS12, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.pkcs12.PKCS12KeyStore$DualFormatPKCS12", "sun.security.pkcs12.PKCS12KeyStore", "DualFormatPKCS12", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.pkcs12.PKCS12KeyStore$DualFormatPKCS12",
+		"sun.security.util.KeyStoreDelegator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.pkcs12.PKCS12KeyStore"
+	};
+	$loadClass(PKCS12KeyStore$DualFormatPKCS12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PKCS12KeyStore$DualFormatPKCS12);
+	});
 	return class$;
 }
 

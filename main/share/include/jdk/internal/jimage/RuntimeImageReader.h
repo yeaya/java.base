@@ -41,6 +41,7 @@ class $import RuntimeImageReader : public ::java::lang::AutoCloseable {
 	$class(RuntimeImageReader, 0, ::java::lang::AutoCloseable)
 public:
 	RuntimeImageReader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::jdk::internal::jimage::ImageReader$Node* buildNode($String* name);
 	::jdk::internal::jimage::ImageReader$Directory* buildRootDirectory();

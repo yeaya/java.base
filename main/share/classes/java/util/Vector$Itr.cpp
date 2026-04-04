@@ -1,5 +1,4 @@
 #include <java/util/Vector$Itr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/NoSuchElementException.h>
@@ -22,49 +21,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 
-$FieldInfo _Vector$Itr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/Vector;", nullptr, $FINAL | $SYNTHETIC, $field(Vector$Itr, this$0)},
-	{"cursor", "I", nullptr, 0, $field(Vector$Itr, cursor)},
-	{"lastRet", "I", nullptr, 0, $field(Vector$Itr, lastRet)},
-	{"expectedModCount", "I", nullptr, 0, $field(Vector$Itr, expectedModCount)},
-	{}
-};
-
-$MethodInfo _Vector$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Vector;)V", nullptr, $PRIVATE, $method(Vector$Itr, init$, void, $Vector*)},
-	{"checkForComodification", "()V", nullptr, $FINAL, $method(Vector$Itr, checkForComodification, void)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Vector$Itr, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Vector$Itr, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Vector$Itr, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Vector$Itr, remove, void)},
-	{}
-};
-
-$InnerClassInfo _Vector$Itr_InnerClassesInfo_[] = {
-	{"java.util.Vector$Itr", "java.util.Vector", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Vector$Itr_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Vector$Itr",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Vector$Itr_FieldInfo_,
-	_Vector$Itr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_Vector$Itr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Vector"
-};
-
-$Object* allocate$Vector$Itr($Class* clazz) {
-	return $of($alloc(Vector$Itr));
-}
-
 void Vector$Itr::init$($Vector* this$0) {
 	$set(this, this$0, this$0);
 	this->lastRet = -1;
@@ -83,7 +39,7 @@ $Object* Vector$Itr::next() {
 			$throwNew($NoSuchElementException);
 		}
 		this->cursor = i + 1;
-		return $of(this->this$0->elementData(this->lastRet = i));
+		return this->this$0->elementData(this->lastRet = i);
 	}
 }
 
@@ -101,7 +57,7 @@ void Vector$Itr::remove() {
 }
 
 void Vector$Itr::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	$synchronized(this->this$0) {
 		int32_t size = this->this$0->elementCount;
@@ -132,7 +88,44 @@ Vector$Itr::Vector$Itr() {
 }
 
 $Class* Vector$Itr::load$($String* name, bool initialize) {
-	$loadClass(Vector$Itr, name, initialize, &_Vector$Itr_ClassInfo_, allocate$Vector$Itr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/Vector;", nullptr, $FINAL | $SYNTHETIC, $field(Vector$Itr, this$0)},
+		{"cursor", "I", nullptr, 0, $field(Vector$Itr, cursor)},
+		{"lastRet", "I", nullptr, 0, $field(Vector$Itr, lastRet)},
+		{"expectedModCount", "I", nullptr, 0, $field(Vector$Itr, expectedModCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Vector;)V", nullptr, $PRIVATE, $method(Vector$Itr, init$, void, $Vector*)},
+		{"checkForComodification", "()V", nullptr, $FINAL, $method(Vector$Itr, checkForComodification, void)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Vector$Itr, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Vector$Itr, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Vector$Itr, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Vector$Itr, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Vector$Itr", "java.util.Vector", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Vector$Itr",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Vector"
+	};
+	$loadClass(Vector$Itr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Vector$Itr);
+	});
 	return class$;
 }
 

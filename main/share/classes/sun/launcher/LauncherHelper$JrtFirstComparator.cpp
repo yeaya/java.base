@@ -1,5 +1,4 @@
 #include <sun/launcher/LauncherHelper$JrtFirstComparator.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -33,72 +32,32 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleReference, inst$)->descriptor());
+		 return $sure($ModuleReference, inst$)->descriptor();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LauncherHelper$JrtFirstComparator$$Lambda$descriptor>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LauncherHelper$JrtFirstComparator$$Lambda$descriptor::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$JrtFirstComparator$$Lambda$descriptor, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$JrtFirstComparator$$Lambda$descriptor, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo LauncherHelper$JrtFirstComparator$$Lambda$descriptor::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.launcher.LauncherHelper$JrtFirstComparator$$Lambda$descriptor",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* LauncherHelper$JrtFirstComparator$$Lambda$descriptor::load$($String* name, bool initialize) {
-	$loadClass(LauncherHelper$JrtFirstComparator$$Lambda$descriptor, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$JrtFirstComparator$$Lambda$descriptor, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$JrtFirstComparator$$Lambda$descriptor, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.launcher.LauncherHelper$JrtFirstComparator$$Lambda$descriptor",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LauncherHelper$JrtFirstComparator$$Lambda$descriptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LauncherHelper$JrtFirstComparator$$Lambda$descriptor);
+	});
 	return class$;
 }
 $Class* LauncherHelper$JrtFirstComparator$$Lambda$descriptor::class$ = nullptr;
 
-$FieldInfo _LauncherHelper$JrtFirstComparator_FieldInfo_[] = {
-	{"real", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/lang/module/ModuleReference;>;", $PRIVATE | $FINAL, $field(LauncherHelper$JrtFirstComparator, real)},
-	{}
-};
-
-$MethodInfo _LauncherHelper$JrtFirstComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LauncherHelper$JrtFirstComparator, init$, void)},
-	{"compare", "(Ljava/lang/module/ModuleReference;Ljava/lang/module/ModuleReference;)I", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$JrtFirstComparator, compare, int32_t, $ModuleReference*, $ModuleReference*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LauncherHelper$JrtFirstComparator, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _LauncherHelper$JrtFirstComparator_InnerClassesInfo_[] = {
-	{"sun.launcher.LauncherHelper$JrtFirstComparator", "sun.launcher.LauncherHelper", "JrtFirstComparator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LauncherHelper$JrtFirstComparator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.launcher.LauncherHelper$JrtFirstComparator",
-	"java.lang.Object",
-	"java.util.Comparator",
-	_LauncherHelper$JrtFirstComparator_FieldInfo_,
-	_LauncherHelper$JrtFirstComparator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/module/ModuleReference;>;",
-	nullptr,
-	_LauncherHelper$JrtFirstComparator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.launcher.LauncherHelper"
-};
-
-$Object* allocate$LauncherHelper$JrtFirstComparator($Class* clazz) {
-	return $of($alloc(LauncherHelper$JrtFirstComparator));
-}
-
 void LauncherHelper$JrtFirstComparator::init$() {
-	$set(this, real, $Comparator::comparing(static_cast<$Function*>($$new(LauncherHelper$JrtFirstComparator$$Lambda$descriptor))));
+	$set(this, real, $Comparator::comparing($$new(LauncherHelper$JrtFirstComparator$$Lambda$descriptor)));
 }
 
 int32_t LauncherHelper$JrtFirstComparator::compare($ModuleReference* a, $ModuleReference* b) {
@@ -118,11 +77,42 @@ LauncherHelper$JrtFirstComparator::LauncherHelper$JrtFirstComparator() {
 
 $Class* LauncherHelper$JrtFirstComparator::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LauncherHelper$JrtFirstComparator$$Lambda$descriptor::classInfo$.name)) {
+		if (name->equals("sun.launcher.LauncherHelper$JrtFirstComparator$$Lambda$descriptor")) {
 			return LauncherHelper$JrtFirstComparator$$Lambda$descriptor::load$(name, initialize);
 		}
 	}
-	$loadClass(LauncherHelper$JrtFirstComparator, name, initialize, &_LauncherHelper$JrtFirstComparator_ClassInfo_, allocate$LauncherHelper$JrtFirstComparator);
+	$FieldInfo fieldInfos$$[] = {
+		{"real", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/lang/module/ModuleReference;>;", $PRIVATE | $FINAL, $field(LauncherHelper$JrtFirstComparator, real)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LauncherHelper$JrtFirstComparator, init$, void)},
+		{"compare", "(Ljava/lang/module/ModuleReference;Ljava/lang/module/ModuleReference;)I", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$JrtFirstComparator, compare, int32_t, $ModuleReference*, $ModuleReference*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LauncherHelper$JrtFirstComparator, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.launcher.LauncherHelper$JrtFirstComparator", "sun.launcher.LauncherHelper", "JrtFirstComparator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.launcher.LauncherHelper$JrtFirstComparator",
+		"java.lang.Object",
+		"java.util.Comparator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/module/ModuleReference;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.launcher.LauncherHelper"
+	};
+	$loadClass(LauncherHelper$JrtFirstComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LauncherHelper$JrtFirstComparator);
+	});
 	return class$;
 }
 

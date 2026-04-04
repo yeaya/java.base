@@ -27,6 +27,7 @@ class $export FloatingDecimal$ASCIIToBinaryBuffer : public ::jdk::internal::math
 	$class(FloatingDecimal$ASCIIToBinaryBuffer, 0, ::jdk::internal::math::FloatingDecimal$ASCIIToBinaryConverter)
 public:
 	FloatingDecimal$ASCIIToBinaryBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool negSign, int32_t decExponent, $chars* digits, int32_t n);
 	virtual double doubleValue() override;
 	virtual float floatValue() override;

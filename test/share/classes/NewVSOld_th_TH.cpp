@@ -1,8 +1,6 @@
 #include <NewVSOld_th_TH.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/text/BreakIterator.h>
 #include <java/util/Locale.h>
@@ -14,7 +12,6 @@
 
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -22,30 +19,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BreakIterator = ::java::text::BreakIterator;
 using $Locale = ::java::util::Locale;
 
-$MethodInfo _NewVSOld_th_TH_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NewVSOld_th_TH, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NewVSOld_th_TH, main, void, $StringArray*), "java.io.FileNotFoundException,java.io.UnsupportedEncodingException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _NewVSOld_th_TH_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NewVSOld_th_TH",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NewVSOld_th_TH_MethodInfo_
-};
-
-$Object* allocate$NewVSOld_th_TH($Class* clazz) {
-	return $of($alloc(NewVSOld_th_TH));
-}
-
 void NewVSOld_th_TH::init$() {
 }
 
 void NewVSOld_th_TH::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ENCODING, "UTF-8"_s);
 	$var($Locale, THAI_LOCALE, $new($Locale, "th"_s, "TH"_s));
 	$var($String, rawFileName, "test_th_TH.txt"_s);
@@ -56,60 +34,56 @@ void NewVSOld_th_TH::main($StringArray* args) {
 	$var($File, f, nullptr);
 	$assign(f, $new($File, $($System::getProperty("test.src"_s, "."_s)), rawFileName));
 	{
-		$var($InputStreamReader, rawReader, $new($InputStreamReader, static_cast<$InputStream*>($$new($FileInputStream, f)), ENCODING));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($InputStreamReader, rawReader, $new($InputStreamReader, $$new($FileInputStream, f), ENCODING));
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					int32_t c = 0;
-					while ((c = rawReader->read()) != -1) {
-						rawText->append((char16_t)c);
-					}
-				} catch ($Throwable& t$) {
-					try {
-						rawReader->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+				int32_t c = 0;
+				while ((c = rawReader->read()) != -1) {
+					rawText->append((char16_t)c);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				rawReader->close();
+			} catch ($Throwable& t$) {
+				try {
+					rawReader->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			rawReader->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$assign(f, $new($File, $($System::getProperty("test.src"_s, "."_s)), oldFileName));
 	{
-		$var($InputStreamReader, oldReader, $new($InputStreamReader, static_cast<$InputStream*>($$new($FileInputStream, f)), ENCODING));
-		{
-			$var($Throwable, var$2, nullptr);
+		$var($InputStreamReader, oldReader, $new($InputStreamReader, $$new($FileInputStream, f), ENCODING));
+		$var($Throwable, var$2, nullptr);
+		try {
 			try {
-				try {
-					int32_t c = 0;
-					while ((c = oldReader->read()) != -1) {
-						oldText->append((char16_t)c);
-					}
-				} catch ($Throwable& t$) {
-					try {
-						oldReader->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+				int32_t c = 0;
+				while ((c = oldReader->read()) != -1) {
+					oldText->append((char16_t)c);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				oldReader->close();
+			} catch ($Throwable& t$) {
+				try {
+					oldReader->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			oldReader->close();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 	$var($BreakIterator, breakIterator, $BreakIterator::getWordInstance(THAI_LOCALE));
@@ -121,7 +95,7 @@ void NewVSOld_th_TH::main($StringArray* args) {
 	}
 	$var($String, cooked, cookedText->toString());
 	$var($String, old, oldText->toString());
-	if ($nc(cooked)->compareTo(old) != 0) {
+	if (cooked->compareTo(old) != 0) {
 		$throwNew($RuntimeException, "Text not broken the same as with the old BreakIterators"_s);
 	}
 }
@@ -130,7 +104,22 @@ NewVSOld_th_TH::NewVSOld_th_TH() {
 }
 
 $Class* NewVSOld_th_TH::load$($String* name, bool initialize) {
-	$loadClass(NewVSOld_th_TH, name, initialize, &_NewVSOld_th_TH_ClassInfo_, allocate$NewVSOld_th_TH);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NewVSOld_th_TH, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NewVSOld_th_TH, main, void, $StringArray*), "java.io.FileNotFoundException,java.io.UnsupportedEncodingException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NewVSOld_th_TH",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NewVSOld_th_TH, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewVSOld_th_TH);
+	});
 	return class$;
 }
 

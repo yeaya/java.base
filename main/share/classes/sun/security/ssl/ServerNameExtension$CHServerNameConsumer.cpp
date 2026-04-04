@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ServerNameExtension$CHServerNameConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -11,7 +10,6 @@
 #include <javax/net/ssl/SSLException.h>
 #include <sun/security/ssl/Alert.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/SSLConfiguration.h>
 #include <sun/security/ssl/SSLExtension.h>
 #include <sun/security/ssl/SSLHandshake$HandshakeMessage.h>
@@ -33,63 +31,26 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $SNIMatcher = ::javax::net::ssl::SNIMatcher;
 using $SNIServerName = ::javax::net::ssl::SNIServerName;
 using $Alert = ::sun::security::ssl::Alert;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 using $ServerNameExtension$CHServerNamesSpec = ::sun::security::ssl::ServerNameExtension$CHServerNamesSpec;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ServerNameExtension$CHServerNameConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerNameExtension$CHServerNameConsumer, init$, void)},
-	{"chooseSni", "(Ljava/util/Collection;Ljava/util/List;)Ljavax/net/ssl/SNIServerName;", "(Ljava/util/Collection<Ljavax/net/ssl/SNIMatcher;>;Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;)Ljavax/net/ssl/SNIServerName;", $PRIVATE | $STATIC, $staticMethod(ServerNameExtension$CHServerNameConsumer, chooseSni, $SNIServerName*, $Collection*, $List*)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ServerNameExtension$CHServerNameConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ServerNameExtension$CHServerNameConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ServerNameExtension$CHServerNameConsumer", "sun.security.ssl.ServerNameExtension", "CHServerNameConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ServerNameExtension$CHServerNameConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ServerNameExtension$CHServerNameConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLExtension$ExtensionConsumer",
-	nullptr,
-	_ServerNameExtension$CHServerNameConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerNameExtension$CHServerNameConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ServerNameExtension"
-};
-
-$Object* allocate$ServerNameExtension$CHServerNameConsumer($Class* clazz) {
-	return $of($alloc(ServerNameExtension$CHServerNameConsumer));
-}
-
 void ServerNameExtension$CHServerNameConsumer::init$() {
 }
 
 void ServerNameExtension$CHServerNameConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::CH_SERVER_NAME)) {
@@ -100,10 +61,10 @@ void ServerNameExtension$CHServerNameConsumer::consume($ConnectionContext* conte
 		return;
 	}
 	$var($ServerNameExtension$CHServerNamesSpec, spec, $new($ServerNameExtension$CHServerNamesSpec, shc, buffer));
-	$nc($nc(shc)->handshakeExtensions)->put($SSLExtension::CH_SERVER_NAME, spec);
+	$nc(shc->handshakeExtensions)->put($SSLExtension::CH_SERVER_NAME, spec);
 	$var($SNIServerName, sni, nullptr);
-	if (!$nc($nc(shc->sslConfig)->sniMatchers)->isEmpty()) {
-		$assign(sni, chooseSni($nc(shc->sslConfig)->sniMatchers, spec->serverNames));
+	if (!$nc(shc->sslConfig->sniMatchers)->isEmpty()) {
+		$assign(sni, chooseSni(shc->sslConfig->sniMatchers, spec->serverNames));
 		if (sni != nullptr) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
@@ -120,7 +81,7 @@ void ServerNameExtension$CHServerNameConsumer::consume($ConnectionContext* conte
 		}
 	}
 	if (shc->isResumption && shc->resumingSession != nullptr) {
-		if (!$Objects::equals(sni, $nc(shc->resumingSession)->serverNameIndication)) {
+		if (!$Objects::equals(sni, shc->resumingSession->serverNameIndication)) {
 			shc->isResumption = false;
 			$set(shc, resumingSession, nullptr);
 			$init($SSLLogger);
@@ -135,26 +96,22 @@ void ServerNameExtension$CHServerNameConsumer::consume($ConnectionContext* conte
 
 $SNIServerName* ServerNameExtension$CHServerNameConsumer::chooseSni($Collection* matchers, $List* sniNames) {
 	$init(ServerNameExtension$CHServerNameConsumer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (sniNames != nullptr && !sniNames->isEmpty()) {
-		{
-			$var($Iterator, i$, $nc(matchers)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($SNIMatcher, matcher, $cast($SNIMatcher, i$->next()));
+		$var($Iterator, i$, $nc(matchers)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($SNIMatcher, matcher, $cast($SNIMatcher, i$->next()));
+			{
+				int32_t matcherType = $nc(matcher)->getType();
 				{
-					int32_t matcherType = $nc(matcher)->getType();
-					{
-						$var($Iterator, i$, sniNames->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($SNIServerName, sniName, $cast($SNIServerName, i$->next()));
-							{
-								if ($nc(sniName)->getType() == matcherType) {
-									if (matcher->matches(sniName)) {
-										return sniName;
-									}
-									break;
-								}
+					$var($Iterator, i$, sniNames->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($SNIServerName, sniName, $cast($SNIServerName, i$->next()));
+						if ($nc(sniName)->getType() == matcherType) {
+							if (matcher->matches(sniName)) {
+								return sniName;
 							}
+							break;
 						}
 					}
 				}
@@ -168,7 +125,35 @@ ServerNameExtension$CHServerNameConsumer::ServerNameExtension$CHServerNameConsum
 }
 
 $Class* ServerNameExtension$CHServerNameConsumer::load$($String* name, bool initialize) {
-	$loadClass(ServerNameExtension$CHServerNameConsumer, name, initialize, &_ServerNameExtension$CHServerNameConsumer_ClassInfo_, allocate$ServerNameExtension$CHServerNameConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServerNameExtension$CHServerNameConsumer, init$, void)},
+		{"chooseSni", "(Ljava/util/Collection;Ljava/util/List;)Ljavax/net/ssl/SNIServerName;", "(Ljava/util/Collection<Ljavax/net/ssl/SNIMatcher;>;Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;)Ljavax/net/ssl/SNIServerName;", $PRIVATE | $STATIC, $staticMethod(ServerNameExtension$CHServerNameConsumer, chooseSni, $SNIServerName*, $Collection*, $List*)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ServerNameExtension$CHServerNameConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ServerNameExtension$CHServerNameConsumer", "sun.security.ssl.ServerNameExtension", "CHServerNameConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ServerNameExtension$CHServerNameConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLExtension$ExtensionConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ServerNameExtension"
+	};
+	$loadClass(ServerNameExtension$CHServerNameConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerNameExtension$CHServerNameConsumer);
+	});
 	return class$;
 }
 

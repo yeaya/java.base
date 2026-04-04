@@ -1,7 +1,5 @@
 #include <sun/security/ssl/SSLKeyExchange$SSLKeyExDHERSA.h>
-
 #include <java/util/List.h>
-#include <sun/security/ssl/SSLKeyAgreement.h>
 #include <sun/security/ssl/SSLKeyExchange$T12KeyAgreement.h>
 #include <sun/security/ssl/SSLKeyExchange.h>
 #include <sun/security/ssl/X509Authentication.h>
@@ -16,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $SSLKeyAgreement = ::sun::security::ssl::SSLKeyAgreement;
 using $SSLKeyExchange = ::sun::security::ssl::SSLKeyExchange;
 using $SSLKeyExchange$T12KeyAgreement = ::sun::security::ssl::SSLKeyExchange$T12KeyAgreement;
 using $X509Authentication = ::sun::security::ssl::X509Authentication;
@@ -25,57 +22,51 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLKeyExchange$SSLKeyExDHERSA_FieldInfo_[] = {
-	{"KE", "Lsun/security/ssl/SSLKeyExchange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLKeyExchange$SSLKeyExDHERSA, KE)},
-	{}
-};
-
-$MethodInfo _SSLKeyExchange$SSLKeyExDHERSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLKeyExchange$SSLKeyExDHERSA, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SSLKeyExchange$SSLKeyExDHERSA_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLKeyExchange$SSLKeyExDHERSA", "sun.security.ssl.SSLKeyExchange", "SSLKeyExDHERSA", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLKeyExchange$SSLKeyExDHERSA_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.SSLKeyExchange$SSLKeyExDHERSA",
-	"java.lang.Object",
-	nullptr,
-	_SSLKeyExchange$SSLKeyExDHERSA_FieldInfo_,
-	_SSLKeyExchange$SSLKeyExDHERSA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLKeyExchange$SSLKeyExDHERSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLKeyExchange"
-};
-
-$Object* allocate$SSLKeyExchange$SSLKeyExDHERSA($Class* clazz) {
-	return $of($alloc(SSLKeyExchange$SSLKeyExDHERSA));
-}
-
 $SSLKeyExchange* SSLKeyExchange$SSLKeyExDHERSA::KE = nullptr;
 
 void SSLKeyExchange$SSLKeyExDHERSA::init$() {
 }
 
-void clinit$SSLKeyExchange$SSLKeyExDHERSA($Class* class$) {
+void SSLKeyExchange$SSLKeyExDHERSA::clinit$($Class* clazz) {
 	$init($X509Authentication);
 	$init($SSLKeyExchange$T12KeyAgreement);
-	$assignStatic(SSLKeyExchange$SSLKeyExDHERSA::KE, $new($SSLKeyExchange, $($List::of($of($X509Authentication::RSA))), $SSLKeyExchange$T12KeyAgreement::DHE));
+	$assignStatic(SSLKeyExchange$SSLKeyExDHERSA::KE, $new($SSLKeyExchange, $($List::of($X509Authentication::RSA)), $SSLKeyExchange$T12KeyAgreement::DHE));
 }
 
 SSLKeyExchange$SSLKeyExDHERSA::SSLKeyExchange$SSLKeyExDHERSA() {
 }
 
 $Class* SSLKeyExchange$SSLKeyExDHERSA::load$($String* name, bool initialize) {
-	$loadClass(SSLKeyExchange$SSLKeyExDHERSA, name, initialize, &_SSLKeyExchange$SSLKeyExDHERSA_ClassInfo_, clinit$SSLKeyExchange$SSLKeyExDHERSA, allocate$SSLKeyExchange$SSLKeyExDHERSA);
+	$FieldInfo fieldInfos$$[] = {
+		{"KE", "Lsun/security/ssl/SSLKeyExchange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLKeyExchange$SSLKeyExDHERSA, KE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLKeyExchange$SSLKeyExDHERSA, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLKeyExchange$SSLKeyExDHERSA", "sun.security.ssl.SSLKeyExchange", "SSLKeyExDHERSA", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.SSLKeyExchange$SSLKeyExDHERSA",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLKeyExchange"
+	};
+	$loadClass(SSLKeyExchange$SSLKeyExDHERSA, name, initialize, &classInfo$$, SSLKeyExchange$SSLKeyExDHERSA::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLKeyExchange$SSLKeyExDHERSA);
+	});
 	return class$;
 }
 

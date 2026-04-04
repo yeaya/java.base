@@ -1,5 +1,4 @@
 #include <apple/security/AppleProvider$ProviderService.h>
-
 #include <apple/security/AppleProvider.h>
 #include <apple/security/KeychainStore.h>
 #include <java/security/InvalidParameterException.h>
@@ -27,44 +26,12 @@ using $Map = ::java::util::Map;
 namespace apple {
 	namespace security {
 
-$MethodInfo _AppleProvider$ProviderService_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(AppleProvider$ProviderService, init$, void, $Provider*, $String*, $String*, $String*)},
-	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AppleProvider$ProviderService, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
-	{}
-};
-
-$InnerClassInfo _AppleProvider$ProviderService_InnerClassesInfo_[] = {
-	{"apple.security.AppleProvider$ProviderService", "apple.security.AppleProvider", "ProviderService", $PRIVATE | $STATIC | $FINAL},
-	{"java.security.Provider$Service", "java.security.Provider", "Service", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AppleProvider$ProviderService_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"apple.security.AppleProvider$ProviderService",
-	"java.security.Provider$Service",
-	nullptr,
-	nullptr,
-	_AppleProvider$ProviderService_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AppleProvider$ProviderService_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.security.AppleProvider"
-};
-
-$Object* allocate$AppleProvider$ProviderService($Class* clazz) {
-	return $of($alloc(AppleProvider$ProviderService));
-}
-
 void AppleProvider$ProviderService::init$($Provider* p, $String* type, $String* algo, $String* cn) {
 	$Provider$Service::init$(p, type, algo, cn, nullptr, nullptr);
 }
 
 $Object* AppleProvider$ProviderService::newInstance(Object$* ctrParamObj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, type, getType());
 	if (ctrParamObj != nullptr) {
 		$throwNew($InvalidParameterException, $$str({"constructorParameter not used with "_s, type, " engines"_s}));
@@ -73,7 +40,7 @@ $Object* AppleProvider$ProviderService::newInstance(Object$* ctrParamObj) {
 	try {
 		if ($nc(type)->equals("KeyStore"_s)) {
 			if ($nc(algo)->equals("KeychainStore"_s)) {
-				return $of($new($KeychainStore));
+				return $new($KeychainStore);
 			}
 		}
 	} catch ($Exception& ex) {
@@ -87,7 +54,34 @@ AppleProvider$ProviderService::AppleProvider$ProviderService() {
 }
 
 $Class* AppleProvider$ProviderService::load$($String* name, bool initialize) {
-	$loadClass(AppleProvider$ProviderService, name, initialize, &_AppleProvider$ProviderService_ClassInfo_, allocate$AppleProvider$ProviderService);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(AppleProvider$ProviderService, init$, void, $Provider*, $String*, $String*, $String*)},
+		{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AppleProvider$ProviderService, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.security.AppleProvider$ProviderService", "apple.security.AppleProvider", "ProviderService", $PRIVATE | $STATIC | $FINAL},
+		{"java.security.Provider$Service", "java.security.Provider", "Service", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"apple.security.AppleProvider$ProviderService",
+		"java.security.Provider$Service",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.security.AppleProvider"
+	};
+	$loadClass(AppleProvider$ProviderService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppleProvider$ProviderService);
+	});
 	return class$;
 }
 

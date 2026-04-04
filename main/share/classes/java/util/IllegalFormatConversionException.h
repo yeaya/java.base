@@ -21,7 +21,10 @@ public:
 	$Class* arg = nullptr;
 	IllegalFormatConversionException(const IllegalFormatConversionException& e);
 	virtual void throw$() override;
-	inline IllegalFormatConversionException* operator ->() {
+	inline IllegalFormatConversionException* operator ->() const {
+		return (IllegalFormatConversionException*)throwing$;
+	}
+	inline operator IllegalFormatConversionException*() const {
 		return (IllegalFormatConversionException*)throwing$;
 	}
 };

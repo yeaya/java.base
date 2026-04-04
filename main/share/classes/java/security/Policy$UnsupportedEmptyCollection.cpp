@@ -1,5 +1,4 @@
 #include <java/security/Policy$UnsupportedEmptyCollection.h>
-
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
 #include <java/security/Permissions.h>
@@ -18,45 +17,6 @@ using $Enumeration = ::java::util::Enumeration;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _Policy$UnsupportedEmptyCollection_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Policy$UnsupportedEmptyCollection, serialVersionUID)},
-	{"perms", "Ljava/security/Permissions;", nullptr, $PRIVATE, $field(Policy$UnsupportedEmptyCollection, perms)},
-	{}
-};
-
-$MethodInfo _Policy$UnsupportedEmptyCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Policy$UnsupportedEmptyCollection, init$, void)},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(Policy$UnsupportedEmptyCollection, add, void, $Permission*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(Policy$UnsupportedEmptyCollection, elements, $Enumeration*)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(Policy$UnsupportedEmptyCollection, implies, bool, $Permission*)},
-	{}
-};
-
-$InnerClassInfo _Policy$UnsupportedEmptyCollection_InnerClassesInfo_[] = {
-	{"java.security.Policy$UnsupportedEmptyCollection", "java.security.Policy", "UnsupportedEmptyCollection", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Policy$UnsupportedEmptyCollection_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.Policy$UnsupportedEmptyCollection",
-	"java.security.PermissionCollection",
-	nullptr,
-	_Policy$UnsupportedEmptyCollection_FieldInfo_,
-	_Policy$UnsupportedEmptyCollection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Policy$UnsupportedEmptyCollection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.Policy"
-};
-
-$Object* allocate$Policy$UnsupportedEmptyCollection($Class* clazz) {
-	return $of($alloc(Policy$UnsupportedEmptyCollection));
-}
 
 void Policy$UnsupportedEmptyCollection::init$() {
 	$PermissionCollection::init$();
@@ -80,7 +40,40 @@ Policy$UnsupportedEmptyCollection::Policy$UnsupportedEmptyCollection() {
 }
 
 $Class* Policy$UnsupportedEmptyCollection::load$($String* name, bool initialize) {
-	$loadClass(Policy$UnsupportedEmptyCollection, name, initialize, &_Policy$UnsupportedEmptyCollection_ClassInfo_, allocate$Policy$UnsupportedEmptyCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Policy$UnsupportedEmptyCollection, serialVersionUID)},
+		{"perms", "Ljava/security/Permissions;", nullptr, $PRIVATE, $field(Policy$UnsupportedEmptyCollection, perms)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Policy$UnsupportedEmptyCollection, init$, void)},
+		{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(Policy$UnsupportedEmptyCollection, add, void, $Permission*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(Policy$UnsupportedEmptyCollection, elements, $Enumeration*)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(Policy$UnsupportedEmptyCollection, implies, bool, $Permission*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.Policy$UnsupportedEmptyCollection", "java.security.Policy", "UnsupportedEmptyCollection", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.Policy$UnsupportedEmptyCollection",
+		"java.security.PermissionCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.Policy"
+	};
+	$loadClass(Policy$UnsupportedEmptyCollection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Policy$UnsupportedEmptyCollection);
+	});
 	return class$;
 }
 

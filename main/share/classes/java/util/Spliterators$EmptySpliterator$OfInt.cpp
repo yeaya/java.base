@@ -1,5 +1,4 @@
 #include <java/util/Spliterators$EmptySpliterator$OfInt.h>
-
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator$OfInt.h>
 #include <java/util/Spliterator.h>
@@ -20,55 +19,6 @@ using $IntConsumer = ::java::util::function::IntConsumer;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _Spliterators$EmptySpliterator$OfInt_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(Spliterators$EmptySpliterator$OfInt, init$, void)},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Spliterators$EmptySpliterator$OfInt, forEachRemaining, void, $IntConsumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Spliterators$EmptySpliterator$OfInt, tryAdvance, bool, $IntConsumer*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$EmptySpliterator$OfInt, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Spliterators$EmptySpliterator$OfInt_InnerClassesInfo_[] = {
-	{"java.util.Spliterators$EmptySpliterator", "java.util.Spliterators", "EmptySpliterator", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.Spliterators$EmptySpliterator$OfInt", "java.util.Spliterators$EmptySpliterator", "OfInt", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Spliterators$EmptySpliterator$OfInt_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.Spliterators$EmptySpliterator$OfInt",
-	"java.util.Spliterators$EmptySpliterator",
-	"java.util.Spliterator$OfInt",
-	nullptr,
-	_Spliterators$EmptySpliterator$OfInt_MethodInfo_,
-	"Ljava/util/Spliterators$EmptySpliterator<Ljava/lang/Integer;Ljava/util/Spliterator$OfInt;Ljava/util/function/IntConsumer;>;Ljava/util/Spliterator$OfInt;",
-	nullptr,
-	_Spliterators$EmptySpliterator$OfInt_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Spliterators"
-};
-
-$Object* allocate$Spliterators$EmptySpliterator$OfInt($Class* clazz) {
-	return $of($alloc(Spliterators$EmptySpliterator$OfInt));
-}
 
 bool Spliterators$EmptySpliterator$OfInt::tryAdvance(Object$* consumer) {
 	 return this->$Spliterators$EmptySpliterator::tryAdvance(consumer);
@@ -218,7 +168,51 @@ Spliterators$EmptySpliterator$OfInt::Spliterators$EmptySpliterator$OfInt() {
 }
 
 $Class* Spliterators$EmptySpliterator$OfInt::load$($String* name, bool initialize) {
-	$loadClass(Spliterators$EmptySpliterator$OfInt, name, initialize, &_Spliterators$EmptySpliterator$OfInt_ClassInfo_, allocate$Spliterators$EmptySpliterator$OfInt);
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(Spliterators$EmptySpliterator$OfInt, init$, void)},
+		{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Spliterators$EmptySpliterator$OfInt, forEachRemaining, void, $IntConsumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Spliterators$EmptySpliterator$OfInt, tryAdvance, bool, $IntConsumer*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$EmptySpliterator$OfInt, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterators$EmptySpliterator", "java.util.Spliterators", "EmptySpliterator", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.Spliterators$EmptySpliterator$OfInt", "java.util.Spliterators$EmptySpliterator", "OfInt", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.Spliterators$EmptySpliterator$OfInt",
+		"java.util.Spliterators$EmptySpliterator",
+		"java.util.Spliterator$OfInt",
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/Spliterators$EmptySpliterator<Ljava/lang/Integer;Ljava/util/Spliterator$OfInt;Ljava/util/function/IntConsumer;>;Ljava/util/Spliterator$OfInt;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Spliterators"
+	};
+	$loadClass(Spliterators$EmptySpliterator$OfInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Spliterators$EmptySpliterator$OfInt));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Destroy.h>
-
 #include <Destroy$1.h>
 #include <Destroy$Task.h>
 #include <java/io/Serializable.h>
@@ -18,7 +17,6 @@
 
 using $Destroy$1 = ::Destroy$1;
 using $Destroy$Task = ::Destroy$Task;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -41,68 +39,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->destroy();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Destroy$$Lambda$destroy>());
-	}
 	$ThreadGroup* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Destroy$$Lambda$destroy::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Destroy$$Lambda$destroy, inst$)},
-	{}
-};
-$MethodInfo Destroy$$Lambda$destroy::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(Destroy$$Lambda$destroy, init$, void, $ThreadGroup*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Destroy$$Lambda$destroy, run, void)},
-	{}
-};
-$ClassInfo Destroy$$Lambda$destroy::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Destroy$$Lambda$destroy",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Destroy$$Lambda$destroy::load$($String* name, bool initialize) {
-	$loadClass(Destroy$$Lambda$destroy, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Destroy$$Lambda$destroy, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(Destroy$$Lambda$destroy, init$, void, $ThreadGroup*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Destroy$$Lambda$destroy, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Destroy$$Lambda$destroy",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Destroy$$Lambda$destroy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Destroy$$Lambda$destroy);
+	});
 	return class$;
 }
 $Class* Destroy$$Lambda$destroy::class$ = nullptr;
-
-$MethodInfo _Destroy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Destroy, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Destroy, main, void, $StringArray*), "java.lang.Exception"},
-	{"testDestroyChild", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Destroy, testDestroyChild, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _Destroy_InnerClassesInfo_[] = {
-	{"Destroy$Task", "Destroy", "Task", $STATIC | $FINAL},
-	{"Destroy$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Destroy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Destroy",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Destroy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Destroy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Destroy$Task,Destroy$1"
-};
-
-$Object* allocate$Destroy($Class* clazz) {
-	return $of($alloc(Destroy));
-}
 
 void Destroy::init$() {
 }
@@ -112,7 +74,7 @@ void Destroy::main($StringArray* args) {
 }
 
 void Destroy::testDestroyChild() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, root, $new($ThreadGroup, "root"_s));
 	$var($ThreadGroup, parent, $new($ThreadGroup, root, "parent"_s));
 	$var($ThreadGroup, child1, $new($ThreadGroup, parent, "child1"_s));
@@ -123,37 +85,35 @@ void Destroy::testDestroyChild() {
 	$var($Thread, t2, $new($Thread, parent, $$new($Destroy$Task, sem2, count), "PT2"_s));
 	sem1->acquire();
 	sem2->acquire();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			t1->start();
-			t2->start();
-			$nc($System::out)->println("\nAwaiting parent threads..."_s);
-			count->await();
-			$var($ThreadArray, threads, $new($ThreadArray, 2));
-			int32_t nb = root->enumerate(threads, true);
-			if (nb != 2) {
-				$throwNew($AssertionError, $of($$str({"wrong number of threads: "_s, $$str(nb)})));
-			}
-			$var($Thread, t3, $new($Thread, static_cast<$Runnable*>($$new(Destroy$$Lambda$destroy, static_cast<$ThreadGroup*>(child1))), "destroy"_s));
-			$var($AtomicInteger, nbr, $new($AtomicInteger));
-			$var($Thread, t4, $new($Destroy$1, "enumerate"_s, nbr, root));
-			t4->start();
-			t3->start();
-			t4->join();
-			t3->join();
-			if (nbr->get() != nb) {
-				$throwNew($AssertionError, $of($$str({"wrong number of threads: "_s, $$str(nbr->get())})));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			sem1->release();
-			sem2->release();
+	$var($Throwable, var$0, nullptr);
+	try {
+		t1->start();
+		t2->start();
+		$nc($System::out)->println("\nAwaiting parent threads..."_s);
+		count->await();
+		$var($ThreadArray, threads, $new($ThreadArray, 2));
+		int32_t nb = root->enumerate(threads, true);
+		if (nb != 2) {
+			$throwNew($AssertionError, $$of($str({"wrong number of threads: "_s, $$str(nb)})));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$var($Thread, t3, $new($Thread, $$new(Destroy$$Lambda$destroy, child1), "destroy"_s));
+		$var($AtomicInteger, nbr, $new($AtomicInteger));
+		$var($Thread, t4, $new($Destroy$1, "enumerate"_s, nbr, root));
+		t4->start();
+		t3->start();
+		t4->join();
+		t3->join();
+		if (nbr->get() != nb) {
+			$throwNew($AssertionError, $$of($str({"wrong number of threads: "_s, $$str(nbr->get())})));
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		sem1->release();
+		sem2->release();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	t1->join();
 	t2->join();
@@ -164,11 +124,38 @@ Destroy::Destroy() {
 
 $Class* Destroy::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Destroy$$Lambda$destroy::classInfo$.name)) {
+		if (name->equals("Destroy$$Lambda$destroy")) {
 			return Destroy$$Lambda$destroy::load$(name, initialize);
 		}
 	}
-	$loadClass(Destroy, name, initialize, &_Destroy_ClassInfo_, allocate$Destroy);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Destroy, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Destroy, main, void, $StringArray*), "java.lang.Exception"},
+		{"testDestroyChild", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Destroy, testDestroyChild, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Destroy$Task", "Destroy", "Task", $STATIC | $FINAL},
+		{"Destroy$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Destroy",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Destroy$Task,Destroy$1"
+	};
+	$loadClass(Destroy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Destroy);
+	});
 	return class$;
 }
 

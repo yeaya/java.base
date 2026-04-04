@@ -16,10 +16,13 @@ public:
 	AccountNotFoundException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x14CB34FD629799D6;
+	static const int64_t serialVersionUID = (int64_t)0x14cb34fd629799d6;
 	AccountNotFoundException(const AccountNotFoundException& e);
 	virtual void throw$() override;
-	inline AccountNotFoundException* operator ->() {
+	inline AccountNotFoundException* operator ->() const {
+		return (AccountNotFoundException*)throwing$;
+	}
+	inline operator AccountNotFoundException*() const {
 		return (AccountNotFoundException*)throwing$;
 	}
 };

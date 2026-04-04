@@ -31,6 +31,7 @@ public:
 	Big5_HKSCS$Encoder();
 	using ::sun::nio::cs::HKSCS$Encoder::canEncode;
 	using ::sun::nio::cs::HKSCS$Encoder::encode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	static ::sun::nio::cs::DoubleByte$Encoder* big5;
 	static $Array<char16_t, 2>* c2bBmp;

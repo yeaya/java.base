@@ -1,5 +1,4 @@
 #include <jdk/internal/access/JavaNetURLAccess.h>
-
 #include <java/net/URL.h>
 #include <java/net/URLStreamHandler.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace jdk {
 	namespace internal {
 		namespace access {
 
-$MethodInfo _JavaNetURLAccess_MethodInfo_[] = {
-	{"getHandler", "(Ljava/net/URL;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaNetURLAccess, getHandler, $URLStreamHandler*, $URL*)},
-	{}
-};
-
-$ClassInfo _JavaNetURLAccess_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.access.JavaNetURLAccess",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavaNetURLAccess_MethodInfo_
-};
-
-$Object* allocate$JavaNetURLAccess($Class* clazz) {
-	return $of($alloc(JavaNetURLAccess));
-}
-
 $Class* JavaNetURLAccess::load$($String* name, bool initialize) {
-	$loadClass(JavaNetURLAccess, name, initialize, &_JavaNetURLAccess_ClassInfo_, allocate$JavaNetURLAccess);
+	$MethodInfo methodInfos$$[] = {
+		{"getHandler", "(Ljava/net/URL;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaNetURLAccess, getHandler, $URLStreamHandler*, $URL*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.access.JavaNetURLAccess",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavaNetURLAccess, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaNetURLAccess);
+	});
 	return class$;
 }
 

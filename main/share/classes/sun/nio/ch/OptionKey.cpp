@@ -1,5 +1,4 @@
 #include <sun/nio/ch/OptionKey.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,32 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _OptionKey_FieldInfo_[] = {
-	{"level", "I", nullptr, $PRIVATE, $field(OptionKey, level$)},
-	{"name", "I", nullptr, $PRIVATE, $field(OptionKey, name$)},
-	{}
-};
-
-$MethodInfo _OptionKey_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(OptionKey, init$, void, int32_t, int32_t)},
-	{"level", "()I", nullptr, 0, $virtualMethod(OptionKey, level, int32_t)},
-	{"name", "()I", nullptr, 0, $virtualMethod(OptionKey, name, int32_t)},
-	{}
-};
-
-$ClassInfo _OptionKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.OptionKey",
-	"java.lang.Object",
-	nullptr,
-	_OptionKey_FieldInfo_,
-	_OptionKey_MethodInfo_
-};
-
-$Object* allocate$OptionKey($Class* clazz) {
-	return $of($alloc(OptionKey));
-}
 
 void OptionKey::init$(int32_t level, int32_t name) {
 	this->level$ = level;
@@ -53,7 +26,28 @@ OptionKey::OptionKey() {
 }
 
 $Class* OptionKey::load$($String* name, bool initialize) {
-	$loadClass(OptionKey, name, initialize, &_OptionKey_ClassInfo_, allocate$OptionKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"level", "I", nullptr, $PRIVATE, $field(OptionKey, level$)},
+		{"name", "I", nullptr, $PRIVATE, $field(OptionKey, name$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, 0, $method(OptionKey, init$, void, int32_t, int32_t)},
+		{"level", "()I", nullptr, 0, $virtualMethod(OptionKey, level, int32_t)},
+		{"name", "()I", nullptr, 0, $virtualMethod(OptionKey, name, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.OptionKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OptionKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OptionKey);
+	});
 	return class$;
 }
 

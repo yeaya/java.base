@@ -9,6 +9,7 @@ class Bar : public ::java::lang::Object {
 	$class(Bar, 0, ::java::lang::Object)
 public:
 	Bar();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* obj;
 };

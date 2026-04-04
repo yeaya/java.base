@@ -1,5 +1,4 @@
 #include <java/lang/Thread$1.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/reflect/Method.h>
@@ -20,75 +19,30 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 namespace java {
 	namespace lang {
 
-$FieldInfo _Thread$1_FieldInfo_[] = {
-	{"val$subcl", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(Thread$1, val$subcl)},
-	{}
-};
-
-$MethodInfo _Thread$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(Thread$1, init$, void, $Class*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Thread$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Thread$1_EnclosingMethodInfo_ = {
-	"java.lang.Thread",
-	"auditSubclass",
-	"(Ljava/lang/Class;)Z"
-};
-
-$InnerClassInfo _Thread$1_InnerClassesInfo_[] = {
-	{"java.lang.Thread$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Thread$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Thread$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_Thread$1_FieldInfo_,
-	_Thread$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_Thread$1_EnclosingMethodInfo_,
-	_Thread$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Thread"
-};
-
-$Object* allocate$Thread$1($Class* clazz) {
-	return $of($alloc(Thread$1));
-}
-
 void Thread$1::init$($Class* val$subcl) {
 	$set(this, val$subcl, val$subcl);
 }
 
 $Object* Thread$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		$Class* cl = this->val$subcl;
 		for (; cl != $Thread::class$; cl = $nc(cl)->getSuperclass()) {
 			try {
-				cl->getDeclaredMethod("getContextClassLoader"_s, $$new($ClassArray, 0));
-				$init($Boolean);
+				$nc(cl)->getDeclaredMethod("getContextClassLoader"_s, $$new($ClassArray, 0));
 				return $of($Boolean::TRUE);
 			} catch ($NoSuchMethodException& ex) {
 			}
 			try {
 				$load($ClassLoader);
 				$var($ClassArray, params, $new($ClassArray, {$ClassLoader::class$}));
-				cl->getDeclaredMethod("setContextClassLoader"_s, params);
-				$init($Boolean);
+				$nc(cl)->getDeclaredMethod("setContextClassLoader"_s, params);
 				return $of($Boolean::TRUE);
 			} catch ($NoSuchMethodException& ex) {
 			}
 		}
 	}
-	$init($Boolean);
 	return $of($Boolean::FALSE);
 }
 
@@ -96,7 +50,42 @@ Thread$1::Thread$1() {
 }
 
 $Class* Thread$1::load$($String* name, bool initialize) {
-	$loadClass(Thread$1, name, initialize, &_Thread$1_ClassInfo_, allocate$Thread$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$subcl", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(Thread$1, val$subcl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(Thread$1, init$, void, $Class*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Thread$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.Thread",
+		"auditSubclass",
+		"(Ljava/lang/Class;)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Thread$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Thread$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Thread"
+	};
+	$loadClass(Thread$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Thread$1);
+	});
 	return class$;
 }
 

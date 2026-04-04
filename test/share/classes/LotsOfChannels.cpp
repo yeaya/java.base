@@ -1,5 +1,4 @@
 #include <LotsOfChannels.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/Pipe$SinkChannel.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
@@ -28,39 +27,12 @@ using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
 using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
-using $Set = ::java::util::Set;
-
-$FieldInfo _LotsOfChannels_FieldInfo_[] = {
-	{"PIPES_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LotsOfChannels, PIPES_COUNT)},
-	{"BUF_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LotsOfChannels, BUF_SIZE)},
-	{"LOOPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LotsOfChannels, LOOPS)},
-	{}
-};
-
-$MethodInfo _LotsOfChannels_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LotsOfChannels, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LotsOfChannels, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _LotsOfChannels_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"LotsOfChannels",
-	"java.lang.Object",
-	nullptr,
-	_LotsOfChannels_FieldInfo_,
-	_LotsOfChannels_MethodInfo_
-};
-
-$Object* allocate$LotsOfChannels($Class* clazz) {
-	return $of($alloc(LotsOfChannels));
-}
 
 void LotsOfChannels::init$() {
 }
 
 void LotsOfChannels::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PipeArray, pipes, $new($PipeArray, LotsOfChannels::PIPES_COUNT));
 	$var($Pipe, pipe, $Pipe::open());
 	$var($Pipe$SinkChannel, sink, $nc(pipe)->sink());
@@ -80,15 +52,15 @@ void LotsOfChannels::main($StringArray* argv) {
 	for (int32_t i = 0; i < LotsOfChannels::LOOPS; ++i) {
 		$nc(sink)->write($($ByteBuffer::allocate(LotsOfChannels::BUF_SIZE)));
 		int32_t x = $nc(sel)->selectNow();
-		$nc($(sel->selectedKeys()))->clear();
+		$$nc(sel->selectedKeys())->clear();
 		source->read($($ByteBuffer::allocate(LotsOfChannels::BUF_SIZE)));
 	}
 	for (int32_t i = 0; i < LotsOfChannels::PIPES_COUNT; ++i) {
-		$nc($($nc(pipes->get(i))->sink()))->close();
-		$nc($($nc(pipes->get(i))->source()))->close();
+		$$nc($nc(pipes->get(i))->sink())->close();
+		$$nc($nc(pipes->get(i))->source())->close();
 	}
-	$nc($(pipe->sink()))->close();
-	$nc($(pipe->source()))->close();
+	$$nc(pipe->sink())->close();
+	$$nc(pipe->source())->close();
 	$nc(sel)->close();
 }
 
@@ -96,7 +68,28 @@ LotsOfChannels::LotsOfChannels() {
 }
 
 $Class* LotsOfChannels::load$($String* name, bool initialize) {
-	$loadClass(LotsOfChannels, name, initialize, &_LotsOfChannels_ClassInfo_, allocate$LotsOfChannels);
+	$FieldInfo fieldInfos$$[] = {
+		{"PIPES_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LotsOfChannels, PIPES_COUNT)},
+		{"BUF_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LotsOfChannels, BUF_SIZE)},
+		{"LOOPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LotsOfChannels, LOOPS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LotsOfChannels, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LotsOfChannels, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"LotsOfChannels",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LotsOfChannels, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LotsOfChannels);
+	});
 	return class$;
 }
 

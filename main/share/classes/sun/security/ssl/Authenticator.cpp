@@ -1,5 +1,4 @@
 #include <sun/security/ssl/Authenticator.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Arrays.h>
 #include <javax/crypto/SecretKey.h>
@@ -42,67 +41,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _Authenticator_FieldInfo_[] = {
-	{"block", "[B", nullptr, $PROTECTED | $FINAL, $field(Authenticator, block)},
-	{}
-};
-
-$MethodInfo _Authenticator_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(Authenticator, init$, void, $bytes*)},
-	{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0, $virtualMethod(Authenticator, acquireAuthenticationBytes, $bytes*, int8_t, int32_t, $bytes*)},
-	{"increaseSequenceNumber", "()V", nullptr, $FINAL, $method(Authenticator, increaseSequenceNumber, void)},
-	{"nullDtlsMac", "()Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $staticMethod(Authenticator, nullDtlsMac, Authenticator*)},
-	{"nullTlsMac", "()Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $staticMethod(Authenticator, nullTlsMac, Authenticator*)},
-	{"seqNumIsHuge", "()Z", nullptr, $ABSTRACT, $virtualMethod(Authenticator, seqNumIsHuge, bool)},
-	{"seqNumOverflow", "()Z", nullptr, $ABSTRACT, $virtualMethod(Authenticator, seqNumOverflow, bool)},
-	{"sequenceNumber", "()[B", nullptr, $FINAL, $method(Authenticator, sequenceNumber, $bytes*)},
-	{"setEpochNumber", "(I)V", nullptr, 0, $virtualMethod(Authenticator, setEpochNumber, void, int32_t)},
-	{"toLong", "([B)J", nullptr, $STATIC | $FINAL, $staticMethod(Authenticator, toLong, int64_t, $bytes*)},
-	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $staticMethod(Authenticator, valueOf, Authenticator*, $ProtocolVersion*)},
-	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)Lsun/security/ssl/Authenticator;", "<T:Lsun/security/ssl/Authenticator;:Lsun/security/ssl/Authenticator$MAC;>(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)TT;", $STATIC, $staticMethod(Authenticator, valueOf, Authenticator*, $ProtocolVersion*, $CipherSuite$MacAlg*, $SecretKey*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{}
-};
-
-$InnerClassInfo _Authenticator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.Authenticator$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.security.ssl.Authenticator$DTLS10Mac", "sun.security.ssl.Authenticator", "DTLS10Mac", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Authenticator$DTLSNullMac", "sun.security.ssl.Authenticator", "DTLSNullMac", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Authenticator$TLS10Mac", "sun.security.ssl.Authenticator", "TLS10Mac", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Authenticator$SSL30Mac", "sun.security.ssl.Authenticator", "SSL30Mac", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Authenticator$SSLNullMac", "sun.security.ssl.Authenticator", "SSLNullMac", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Authenticator$MacImpl", "sun.security.ssl.Authenticator", "MacImpl", $PRIVATE},
-	{"sun.security.ssl.Authenticator$MAC", "sun.security.ssl.Authenticator", "MAC", $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.security.ssl.Authenticator$DTLS13Authenticator", "sun.security.ssl.Authenticator", "DTLS13Authenticator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Authenticator$DTLS10Authenticator", "sun.security.ssl.Authenticator", "DTLS10Authenticator", $PRIVATE | $STATIC},
-	{"sun.security.ssl.Authenticator$DTLSNullAuthenticator", "sun.security.ssl.Authenticator", "DTLSNullAuthenticator", $PRIVATE | $STATIC},
-	{"sun.security.ssl.Authenticator$DTLSAuthenticator", "sun.security.ssl.Authenticator", "DTLSAuthenticator", $PRIVATE | $STATIC},
-	{"sun.security.ssl.Authenticator$TLS13Authenticator", "sun.security.ssl.Authenticator", "TLS13Authenticator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Authenticator$TLS10Authenticator", "sun.security.ssl.Authenticator", "TLS10Authenticator", $PRIVATE | $STATIC},
-	{"sun.security.ssl.Authenticator$SSL30Authenticator", "sun.security.ssl.Authenticator", "SSL30Authenticator", $PRIVATE | $STATIC},
-	{"sun.security.ssl.Authenticator$SSLNullAuthenticator", "sun.security.ssl.Authenticator", "SSLNullAuthenticator", $PRIVATE | $STATIC},
-	{"sun.security.ssl.Authenticator$SSLAuthenticator", "sun.security.ssl.Authenticator", "SSLAuthenticator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Authenticator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.ssl.Authenticator",
-	"java.lang.Object",
-	nullptr,
-	_Authenticator_FieldInfo_,
-	_Authenticator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Authenticator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.Authenticator$1,sun.security.ssl.Authenticator$DTLS10Mac,sun.security.ssl.Authenticator$DTLSNullMac,sun.security.ssl.Authenticator$TLS10Mac,sun.security.ssl.Authenticator$SSL30Mac,sun.security.ssl.Authenticator$SSLNullMac,sun.security.ssl.Authenticator$MacImpl,sun.security.ssl.Authenticator$MAC,sun.security.ssl.Authenticator$DTLS13Authenticator,sun.security.ssl.Authenticator$DTLS10Authenticator,sun.security.ssl.Authenticator$DTLSNullAuthenticator,sun.security.ssl.Authenticator$DTLSAuthenticator,sun.security.ssl.Authenticator$TLS13Authenticator,sun.security.ssl.Authenticator$TLS10Authenticator,sun.security.ssl.Authenticator$SSL30Authenticator,sun.security.ssl.Authenticator$SSLNullAuthenticator,sun.security.ssl.Authenticator$SSLAuthenticator"
-};
-
-$Object* allocate$Authenticator($Class* clazz) {
-	return $of($alloc(Authenticator));
-}
-
 void Authenticator::init$($bytes* block) {
 	$set(this, block, block);
 }
@@ -128,14 +66,14 @@ Authenticator* Authenticator::valueOf($ProtocolVersion* protocolVersion, $Cipher
 		if (protocolVersion->useTLS13PlusSpec()) {
 			$throwNew($RuntimeException, "No MacAlg used in DTLS 1.3"_s);
 		} else {
-			return static_cast<Authenticator*>(($new($Authenticator$DTLS10Mac, protocolVersion, macAlg, key)));
+			return $cast(Authenticator, ($new($Authenticator$DTLS10Mac, protocolVersion, macAlg, key)));
 		}
 	} else if (protocolVersion->useTLS13PlusSpec()) {
 		$throwNew($RuntimeException, "No MacAlg used in TLS 1.3"_s);
 	} else if (protocolVersion->useTLS10PlusSpec()) {
-		return static_cast<Authenticator*>(($new($Authenticator$TLS10Mac, protocolVersion, macAlg, key)));
+		return $cast(Authenticator, ($new($Authenticator$TLS10Mac, protocolVersion, macAlg, key)));
 	} else {
-		return static_cast<Authenticator*>(($new($Authenticator$SSL30Mac, protocolVersion, macAlg, key)));
+		return $cast(Authenticator, ($new($Authenticator$SSL30Mac, protocolVersion, macAlg, key)));
 	}
 }
 
@@ -158,7 +96,7 @@ void Authenticator::setEpochNumber(int32_t epoch) {
 void Authenticator::increaseSequenceNumber() {
 	int32_t k = 7;
 	while (true) {
-		bool var$0 = (k >= 0);
+		bool var$0 = k >= 0;
 		if (!(var$0 && (++(*$nc(this->block))[k] == 0))) {
 			break;
 		}
@@ -175,7 +113,7 @@ $bytes* Authenticator::acquireAuthenticationBytes(int8_t type, int32_t length, $
 
 int64_t Authenticator::toLong($bytes* recordEnS) {
 	if (recordEnS != nullptr && recordEnS->length == 8) {
-		return (((((((((int64_t)(recordEnS->get(0) & (uint64_t)(int64_t)255)) << 56) | (((int64_t)(recordEnS->get(1) & (uint64_t)(int64_t)255)) << 48)) | (((int64_t)(recordEnS->get(2) & (uint64_t)(int64_t)255)) << 40)) | (((int64_t)(recordEnS->get(3) & (uint64_t)(int64_t)255)) << 32)) | (((int64_t)(recordEnS->get(4) & (uint64_t)(int64_t)255)) << 24)) | (((int64_t)(recordEnS->get(5) & (uint64_t)(int64_t)255)) << 16)) | (((int64_t)(recordEnS->get(6) & (uint64_t)(int64_t)255)) << 8)) | ((int64_t)(recordEnS->get(7) & (uint64_t)(int64_t)255));
+		return ((((((((recordEnS->get(0) & (int64_t)0xff) << 56) | ((recordEnS->get(1) & (int64_t)0xff) << 48)) | ((recordEnS->get(2) & (int64_t)0xff) << 40)) | ((recordEnS->get(3) & (int64_t)0xff) << 32)) | ((recordEnS->get(4) & (int64_t)0xff) << 24)) | ((recordEnS->get(5) & (int64_t)0xff) << 16)) | ((recordEnS->get(6) & (int64_t)0xff) << 8)) | (recordEnS->get(7) & (int64_t)0xff);
 	}
 	return -1;
 }
@@ -184,7 +122,62 @@ Authenticator::Authenticator() {
 }
 
 $Class* Authenticator::load$($String* name, bool initialize) {
-	$loadClass(Authenticator, name, initialize, &_Authenticator_ClassInfo_, allocate$Authenticator);
+	$FieldInfo fieldInfos$$[] = {
+		{"block", "[B", nullptr, $PROTECTED | $FINAL, $field(Authenticator, block)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PRIVATE, $method(Authenticator, init$, void, $bytes*)},
+		{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0, $virtualMethod(Authenticator, acquireAuthenticationBytes, $bytes*, int8_t, int32_t, $bytes*)},
+		{"increaseSequenceNumber", "()V", nullptr, $FINAL, $method(Authenticator, increaseSequenceNumber, void)},
+		{"nullDtlsMac", "()Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $staticMethod(Authenticator, nullDtlsMac, Authenticator*)},
+		{"nullTlsMac", "()Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $staticMethod(Authenticator, nullTlsMac, Authenticator*)},
+		{"seqNumIsHuge", "()Z", nullptr, $ABSTRACT, $virtualMethod(Authenticator, seqNumIsHuge, bool)},
+		{"seqNumOverflow", "()Z", nullptr, $ABSTRACT, $virtualMethod(Authenticator, seqNumOverflow, bool)},
+		{"sequenceNumber", "()[B", nullptr, $FINAL, $method(Authenticator, sequenceNumber, $bytes*)},
+		{"setEpochNumber", "(I)V", nullptr, 0, $virtualMethod(Authenticator, setEpochNumber, void, int32_t)},
+		{"toLong", "([B)J", nullptr, $STATIC | $FINAL, $staticMethod(Authenticator, toLong, int64_t, $bytes*)},
+		{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $staticMethod(Authenticator, valueOf, Authenticator*, $ProtocolVersion*)},
+		{"valueOf", "(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)Lsun/security/ssl/Authenticator;", "<T:Lsun/security/ssl/Authenticator;:Lsun/security/ssl/Authenticator$MAC;>(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)TT;", $STATIC, $staticMethod(Authenticator, valueOf, Authenticator*, $ProtocolVersion*, $CipherSuite$MacAlg*, $SecretKey*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.Authenticator$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.security.ssl.Authenticator$DTLS10Mac", "sun.security.ssl.Authenticator", "DTLS10Mac", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Authenticator$DTLSNullMac", "sun.security.ssl.Authenticator", "DTLSNullMac", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Authenticator$TLS10Mac", "sun.security.ssl.Authenticator", "TLS10Mac", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Authenticator$SSL30Mac", "sun.security.ssl.Authenticator", "SSL30Mac", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Authenticator$SSLNullMac", "sun.security.ssl.Authenticator", "SSLNullMac", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Authenticator$MacImpl", "sun.security.ssl.Authenticator", "MacImpl", $PRIVATE},
+		{"sun.security.ssl.Authenticator$MAC", "sun.security.ssl.Authenticator", "MAC", $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.security.ssl.Authenticator$DTLS13Authenticator", "sun.security.ssl.Authenticator", "DTLS13Authenticator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Authenticator$DTLS10Authenticator", "sun.security.ssl.Authenticator", "DTLS10Authenticator", $PRIVATE | $STATIC},
+		{"sun.security.ssl.Authenticator$DTLSNullAuthenticator", "sun.security.ssl.Authenticator", "DTLSNullAuthenticator", $PRIVATE | $STATIC},
+		{"sun.security.ssl.Authenticator$DTLSAuthenticator", "sun.security.ssl.Authenticator", "DTLSAuthenticator", $PRIVATE | $STATIC},
+		{"sun.security.ssl.Authenticator$TLS13Authenticator", "sun.security.ssl.Authenticator", "TLS13Authenticator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Authenticator$TLS10Authenticator", "sun.security.ssl.Authenticator", "TLS10Authenticator", $PRIVATE | $STATIC},
+		{"sun.security.ssl.Authenticator$SSL30Authenticator", "sun.security.ssl.Authenticator", "SSL30Authenticator", $PRIVATE | $STATIC},
+		{"sun.security.ssl.Authenticator$SSLNullAuthenticator", "sun.security.ssl.Authenticator", "SSLNullAuthenticator", $PRIVATE | $STATIC},
+		{"sun.security.ssl.Authenticator$SSLAuthenticator", "sun.security.ssl.Authenticator", "SSLAuthenticator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.ssl.Authenticator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.Authenticator$1,sun.security.ssl.Authenticator$DTLS10Mac,sun.security.ssl.Authenticator$DTLSNullMac,sun.security.ssl.Authenticator$TLS10Mac,sun.security.ssl.Authenticator$SSL30Mac,sun.security.ssl.Authenticator$SSLNullMac,sun.security.ssl.Authenticator$MacImpl,sun.security.ssl.Authenticator$MAC,sun.security.ssl.Authenticator$DTLS13Authenticator,sun.security.ssl.Authenticator$DTLS10Authenticator,sun.security.ssl.Authenticator$DTLSNullAuthenticator,sun.security.ssl.Authenticator$DTLSAuthenticator,sun.security.ssl.Authenticator$TLS13Authenticator,sun.security.ssl.Authenticator$TLS10Authenticator,sun.security.ssl.Authenticator$SSL30Authenticator,sun.security.ssl.Authenticator$SSLNullAuthenticator,sun.security.ssl.Authenticator$SSLAuthenticator"
+	};
+	$loadClass(Authenticator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Authenticator);
+	});
 	return class$;
 }
 

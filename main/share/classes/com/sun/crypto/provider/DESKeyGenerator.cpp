@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DESKeyGenerator.h>
-
 #include <com/sun/crypto/provider/DESKey.h>
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -36,34 +35,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _DESKeyGenerator_FieldInfo_[] = {
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(DESKeyGenerator, random)},
-	{}
-};
-
-$MethodInfo _DESKeyGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DESKeyGenerator, init$, void)},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineGenerateKey, $SecretKey*)},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineInit, void, $SecureRandom*)},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
-	{"setParityBit", "([BI)V", nullptr, $STATIC, $staticMethod(DESKeyGenerator, setParityBit, void, $bytes*, int32_t)},
-	{}
-};
-
-$ClassInfo _DESKeyGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DESKeyGenerator",
-	"javax.crypto.KeyGeneratorSpi",
-	nullptr,
-	_DESKeyGenerator_FieldInfo_,
-	_DESKeyGenerator_MethodInfo_
-};
-
-$Object* allocate$DESKeyGenerator($Class* clazz) {
-	return $of($alloc(DESKeyGenerator));
-}
-
 void DESKeyGenerator::init$() {
 	$KeyGeneratorSpi::init$();
 	$set(this, random, nullptr);
@@ -85,7 +56,7 @@ void DESKeyGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* DESKeyGenerator::engineGenerateKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DESKey, desKey, nullptr);
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
@@ -109,8 +80,8 @@ void DESKeyGenerator::setParityBit($bytes* key, int32_t offset) {
 		return;
 	}
 	for (int32_t i = 0; i < $DESKeySpec::DES_KEY_LEN; ++i) {
-		int32_t b = (int32_t)($nc(key)->get(offset) & (uint32_t)254);
-		b |= ((int32_t)($Integer::bitCount(b) & (uint32_t)1)) ^ 1;
+		int32_t b = $nc(key)->get(offset) & 0xfe;
+		b |= ($Integer::bitCount(b) & 1) ^ 1;
 		key->set(offset++, (int8_t)b);
 	}
 }
@@ -119,7 +90,30 @@ DESKeyGenerator::DESKeyGenerator() {
 }
 
 $Class* DESKeyGenerator::load$($String* name, bool initialize) {
-	$loadClass(DESKeyGenerator, name, initialize, &_DESKeyGenerator_ClassInfo_, allocate$DESKeyGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(DESKeyGenerator, random)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DESKeyGenerator, init$, void)},
+		{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineGenerateKey, $SecretKey*)},
+		{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineInit, void, $SecureRandom*)},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
+		{"setParityBit", "([BI)V", nullptr, $STATIC, $staticMethod(DESKeyGenerator, setParityBit, void, $bytes*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DESKeyGenerator",
+		"javax.crypto.KeyGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DESKeyGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DESKeyGenerator);
+	});
 	return class$;
 }
 

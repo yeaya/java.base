@@ -66,6 +66,7 @@ class ConstantUtils : public ::java::lang::Object {
 	$class(ConstantUtils, 0, ::java::lang::Object)
 public:
 	ConstantUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t arrayDepth($String* descriptorString);
 	static $String* binaryToInternal($String* name);

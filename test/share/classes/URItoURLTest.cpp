@@ -1,11 +1,9 @@
 #include <URItoURLTest.h>
-
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -14,31 +12,11 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 
-$MethodInfo _URItoURLTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(URItoURLTest, init$, void)},
-	{"equalsComponents", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(URItoURLTest, equalsComponents, bool, $String*, $String*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URItoURLTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _URItoURLTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"URItoURLTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_URItoURLTest_MethodInfo_
-};
-
-$Object* allocate$URItoURLTest($Class* clazz) {
-	return $of($alloc(URItoURLTest));
-}
-
 void URItoURLTest::init$() {
 }
 
 void URItoURLTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, classUrl, $new($URL, "jrt:/java.base/java/lang/Object.class"_s));
 	$var($StringArray, uris, $new($StringArray, {
 		"mailto:xyz@abc.de"_s,
@@ -69,78 +47,74 @@ void URItoURLTest::main($StringArray* args) {
 	bool isURLFailed = false;
 	{
 		$var($StringArray, arr$, uris);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, uriString, arr$->get(i$));
 			{
 				$var($URI, uri, $URI::create(uriString));
 				$var($URL, url1, $new($URL, $($nc(uri)->toString())));
-				$var($URL, url2, $nc(uri)->toURL());
+				$var($URL, url2, uri->toURL());
 				$nc($System::out)->println($$str({"Testing URI "_s, uri}));
 				if (!url1->equals(url2)) {
-					$nc($System::out)->println("equals() FAILED"_s);
+					$System::out->println("equals() FAILED"_s);
 					isURLFailed = true;
 				}
 				int32_t var$0 = url1->hashCode();
 				if (var$0 != $nc(url2)->hashCode()) {
-					$nc($System::out)->println("hashCode() DIDN\'T MATCH"_s);
+					$System::out->println("hashCode() DIDN\'T MATCH"_s);
 					isURLFailed = true;
 				}
 				if (!url1->sameFile(url2)) {
-					$nc($System::out)->println("sameFile() FAILED"_s);
+					$System::out->println("sameFile() FAILED"_s);
 					isURLFailed = true;
 				}
 				$var($String, var$1, "getPath()"_s);
 				$var($String, var$2, url1->getPath());
-				if (!equalsComponents(var$1, var$2, $($nc(url2)->getPath()))) {
+				if (!equalsComponents(var$1, var$2, $(url2->getPath()))) {
 					isURLFailed = true;
 				}
 				$var($String, var$3, "getFile()"_s);
 				$var($String, var$4, url1->getFile());
-				if (!equalsComponents(var$3, var$4, $($nc(url2)->getFile()))) {
+				if (!equalsComponents(var$3, var$4, $(url2->getFile()))) {
 					isURLFailed = true;
 				}
 				$var($String, var$5, "getHost()"_s);
 				$var($String, var$6, url1->getHost());
-				if (!equalsComponents(var$5, var$6, $($nc(url2)->getHost()))) {
+				if (!equalsComponents(var$5, var$6, $(url2->getHost()))) {
 					isURLFailed = true;
 				}
 				$var($String, var$7, "getAuthority()"_s);
 				$var($String, var$8, url1->getAuthority());
-				if (!equalsComponents(var$7, var$8, $($nc(url2)->getAuthority()))) {
+				if (!equalsComponents(var$7, var$8, $(url2->getAuthority()))) {
 					isURLFailed = true;
 				}
 				$var($String, var$9, "getRef()"_s);
 				$var($String, var$10, url1->getRef());
-				if (!equalsComponents(var$9, var$10, $($nc(url2)->getRef()))) {
+				if (!equalsComponents(var$9, var$10, $(url2->getRef()))) {
 					isURLFailed = true;
 				}
 				$var($String, var$11, "getUserInfo()"_s);
 				$var($String, var$12, url1->getUserInfo());
-				if (!equalsComponents(var$11, var$12, $($nc(url2)->getUserInfo()))) {
+				if (!equalsComponents(var$11, var$12, $(url2->getUserInfo()))) {
 					isURLFailed = true;
 				}
 				$var($String, var$13, "toString()"_s);
 				$var($String, var$14, url1->toString());
-				if (!equalsComponents(var$13, var$14, $($nc(url2)->toString()))) {
+				if (!equalsComponents(var$13, var$14, $(url2->toString()))) {
 					isURLFailed = true;
 				}
 				if (isURLFailed) {
 					isTestFailed = true;
 				} else {
-					$nc($System::out)->println("PASSED .."_s);
+					$System::out->println("PASSED .."_s);
 				}
-				$nc($System::out)->println();
+				$System::out->println();
 				isURLFailed = false;
 			}
 		}
 	}
 	{
 		$var($StringArray, arr$, malformedUrls);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, malformedUrl, arr$->get(i$));
 			{
 				$var($Exception, toURLEx, nullptr);
@@ -155,7 +129,7 @@ void URItoURLTest::main($StringArray* args) {
 				} catch ($Exception& e) {
 					$assign(newURLEx, e);
 				}
-				if (!($instanceOf($MalformedURLException, toURLEx)) || !($instanceOf($MalformedURLException, newURLEx)) || !$nc($($nc(toURLEx)->getMessage()))->equals($($nc(newURLEx)->getMessage()))) {
+				if (!($instanceOf($MalformedURLException, toURLEx)) || !($instanceOf($MalformedURLException, newURLEx)) || !$$nc(toURLEx->getMessage())->equals($(newURLEx->getMessage()))) {
 					isTestFailed = true;
 					$nc($System::out)->println($$str({"Expected the same MalformedURLException: "_s, newURLEx, " vs "_s, toURLEx}));
 				}
@@ -164,9 +138,7 @@ void URItoURLTest::main($StringArray* args) {
 	}
 	{
 		$var($StringArray, arr$, illegalUris);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, illegalUri, arr$->get(i$));
 			{
 				try {
@@ -186,11 +158,11 @@ void URItoURLTest::main($StringArray* args) {
 }
 
 bool URItoURLTest::equalsComponents($String* method, $String* comp1, $String* comp2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((comp1 != nullptr) && (!comp1->equals(comp2))) {
 		$nc($System::out)->println($$str({method, " DIDN\'T MATCH  ===>"_s}));
-		$nc($System::out)->println($$str({"    URL(URI.toString()) returns:"_s, comp1}));
-		$nc($System::out)->println($$str({"    URI.toURL() returns:"_s, comp2}));
+		$System::out->println($$str({"    URL(URI.toString()) returns:"_s, comp1}));
+		$System::out->println($$str({"    URI.toURL() returns:"_s, comp2}));
 		return false;
 	}
 	return true;
@@ -200,7 +172,23 @@ URItoURLTest::URItoURLTest() {
 }
 
 $Class* URItoURLTest::load$($String* name, bool initialize) {
-	$loadClass(URItoURLTest, name, initialize, &_URItoURLTest_ClassInfo_, allocate$URItoURLTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(URItoURLTest, init$, void)},
+		{"equalsComponents", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(URItoURLTest, equalsComponents, bool, $String*, $String*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URItoURLTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"URItoURLTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(URItoURLTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URItoURLTest);
+	});
 	return class$;
 }
 

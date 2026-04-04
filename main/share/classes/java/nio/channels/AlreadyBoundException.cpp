@@ -1,5 +1,4 @@
 #include <java/nio/channels/AlreadyBoundException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _AlreadyBoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlreadyBoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AlreadyBoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AlreadyBoundException, init$, void)},
-	{}
-};
-
-$ClassInfo _AlreadyBoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.AlreadyBoundException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_AlreadyBoundException_FieldInfo_,
-	_AlreadyBoundException_MethodInfo_
-};
-
-$Object* allocate$AlreadyBoundException($Class* clazz) {
-	return $of($alloc(AlreadyBoundException));
-}
 
 void AlreadyBoundException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void AlreadyBoundException::throw$() {
 }
 
 $Class* AlreadyBoundException::load$($String* name, bool initialize) {
-	$loadClass(AlreadyBoundException, name, initialize, &_AlreadyBoundException_ClassInfo_, allocate$AlreadyBoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlreadyBoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AlreadyBoundException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.AlreadyBoundException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AlreadyBoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlreadyBoundException);
+	});
 	return class$;
 }
 

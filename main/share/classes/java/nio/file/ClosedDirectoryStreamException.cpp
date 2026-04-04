@@ -1,5 +1,4 @@
 #include <java/nio/file/ClosedDirectoryStreamException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _ClosedDirectoryStreamException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ClosedDirectoryStreamException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ClosedDirectoryStreamException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedDirectoryStreamException, init$, void)},
-	{}
-};
-
-$ClassInfo _ClosedDirectoryStreamException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.ClosedDirectoryStreamException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_ClosedDirectoryStreamException_FieldInfo_,
-	_ClosedDirectoryStreamException_MethodInfo_
-};
-
-$Object* allocate$ClosedDirectoryStreamException($Class* clazz) {
-	return $of($alloc(ClosedDirectoryStreamException));
-}
 
 void ClosedDirectoryStreamException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void ClosedDirectoryStreamException::throw$() {
 }
 
 $Class* ClosedDirectoryStreamException::load$($String* name, bool initialize) {
-	$loadClass(ClosedDirectoryStreamException, name, initialize, &_ClosedDirectoryStreamException_ClassInfo_, allocate$ClosedDirectoryStreamException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ClosedDirectoryStreamException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedDirectoryStreamException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.ClosedDirectoryStreamException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClosedDirectoryStreamException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClosedDirectoryStreamException);
+	});
 	return class$;
 }
 

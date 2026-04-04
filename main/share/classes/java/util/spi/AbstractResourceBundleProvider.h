@@ -45,6 +45,7 @@ class $export AbstractResourceBundleProvider : public ::java::util::spi::Resourc
 	$class(AbstractResourceBundleProvider, 0, ::java::util::spi::ResourceBundleProvider)
 public:
 	AbstractResourceBundleProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($StringArray* formats);
 	virtual ::java::util::ResourceBundle* getBundle($String* baseName, ::java::util::Locale* locale) override;

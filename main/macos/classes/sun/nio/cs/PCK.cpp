@@ -1,5 +1,4 @@
 #include <sun/nio/cs/PCK.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -27,45 +26,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _PCK_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PCK, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(PCK, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PCK, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(PCK, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(PCK, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _PCK_InnerClassesInfo_[] = {
-	{"sun.nio.cs.PCK$EncodeHolder", "sun.nio.cs.PCK", "EncodeHolder", $STATIC},
-	{"sun.nio.cs.PCK$DecodeHolder", "sun.nio.cs.PCK", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _PCK_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.PCK",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_PCK_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PCK_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.PCK$EncodeHolder,sun.nio.cs.PCK$DecodeHolder"
-};
-
-$Object* allocate$PCK($Class* clazz) {
-	return $of($alloc(PCK));
-}
 
 int32_t PCK::hashCode() {
 	 return this->$Charset::hashCode();
@@ -96,7 +56,7 @@ $String* PCK::historicalName() {
 }
 
 bool PCK::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(PCK, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(PCK, cs)));
 }
 
 $CharsetDecoder* PCK::newDecoder() {
@@ -113,7 +73,41 @@ PCK::PCK() {
 }
 
 $Class* PCK::load$($String* name, bool initialize) {
-	$loadClass(PCK, name, initialize, &_PCK_ClassInfo_, allocate$PCK);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PCK, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(PCK, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PCK, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(PCK, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(PCK, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.PCK$EncodeHolder", "sun.nio.cs.PCK", "EncodeHolder", $STATIC},
+		{"sun.nio.cs.PCK$DecodeHolder", "sun.nio.cs.PCK", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.PCK",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.PCK$EncodeHolder,sun.nio.cs.PCK$DecodeHolder"
+	};
+	$loadClass(PCK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PCK));
+	});
 	return class$;
 }
 

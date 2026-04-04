@@ -1,5 +1,4 @@
 #include <ReferenceEnqueuePending.h>
-
 #include <ReferenceEnqueuePending$NumberedWeakReference.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runtime.h>
@@ -11,7 +10,6 @@
 
 using $ReferenceEnqueuePending$NumberedWeakReference = ::ReferenceEnqueuePending$NumberedWeakReference;
 using $ReferenceEnqueuePending$NumberedWeakReferenceArray = $Array<ReferenceEnqueuePending$NumberedWeakReference>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -23,51 +21,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 
-$FieldInfo _ReferenceEnqueuePending_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $STATIC | $FINAL, $staticField(ReferenceEnqueuePending, debug)},
-	{"iterations", "I", nullptr, $STATIC | $FINAL, $constField(ReferenceEnqueuePending, iterations)},
-	{"gc_trigger", "I", nullptr, $STATIC | $FINAL, $constField(ReferenceEnqueuePending, gc_trigger)},
-	{"a", "[I", nullptr, $STATIC, $staticField(ReferenceEnqueuePending, a)},
-	{"b", "[LReferenceEnqueuePending$NumberedWeakReference;", nullptr, $STATIC, $staticField(ReferenceEnqueuePending, b)},
-	{}
-};
-
-$MethodInfo _ReferenceEnqueuePending_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceEnqueuePending, init$, void)},
-	{"checkResult", "(Ljava/lang/ref/ReferenceQueue;I)V", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;I)V", $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, checkResult, void, $ReferenceQueue*, int32_t)},
-	{"forceGc", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, forceGc, void, int64_t), "java.lang.InterruptedException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReferenceEnqueuePending, main, void, $StringArray*), "java.lang.Exception"},
-	{"printMissingElements", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, printMissingElements, void, int32_t, int32_t)},
-	{"raisePriority", "()V", nullptr, $STATIC, $staticMethod(ReferenceEnqueuePending, raisePriority, void)},
-	{"sort", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, sort, void, int32_t)},
-	{"waitForReference", "(Ljava/lang/ref/ReferenceQueue;)LReferenceEnqueuePending$NumberedWeakReference;", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;)LReferenceEnqueuePending$NumberedWeakReference;", $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, waitForReference, $ReferenceEnqueuePending$NumberedWeakReference*, $ReferenceQueue*)},
-	{}
-};
-
-$InnerClassInfo _ReferenceEnqueuePending_InnerClassesInfo_[] = {
-	{"ReferenceEnqueuePending$NumberedWeakReference", "ReferenceEnqueuePending", "NumberedWeakReference", $STATIC},
-	{}
-};
-
-$ClassInfo _ReferenceEnqueuePending_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ReferenceEnqueuePending",
-	"java.lang.Object",
-	nullptr,
-	_ReferenceEnqueuePending_FieldInfo_,
-	_ReferenceEnqueuePending_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReferenceEnqueuePending_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ReferenceEnqueuePending$NumberedWeakReference"
-};
-
-$Object* allocate$ReferenceEnqueuePending($Class* clazz) {
-	return $of($alloc(ReferenceEnqueuePending));
-}
-
 bool ReferenceEnqueuePending::debug = false;
 $ints* ReferenceEnqueuePending::a = nullptr;
 $ReferenceEnqueuePending$NumberedWeakReferenceArray* ReferenceEnqueuePending::b = nullptr;
@@ -77,7 +30,7 @@ void ReferenceEnqueuePending::init$() {
 
 void ReferenceEnqueuePending::main($StringArray* argv) {
 	$init(ReferenceEnqueuePending);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ReferenceEnqueuePending::debug) {
 		$nc($System::out)->println("Starting the test."_s);
 	}
@@ -116,7 +69,7 @@ $ReferenceEnqueuePending$NumberedWeakReference* ReferenceEnqueuePending::waitFor
 
 void ReferenceEnqueuePending::checkResult($ReferenceQueue* queue, int32_t expected) {
 	$init(ReferenceEnqueuePending);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ReferenceEnqueuePending::debug) {
 		$nc($System::out)->println("Reading the queue"_s);
 	}
@@ -141,7 +94,7 @@ void ReferenceEnqueuePending::checkResult($ReferenceQueue* queue, int32_t expect
 	for (int32_t i = 0; i < length; ++i) {
 		if ($nc(ReferenceEnqueuePending::a)->get(i) != i) {
 			if (ReferenceEnqueuePending::debug) {
-				$nc($System::out)->println($$str({"a["_s, $$str(i), "] is not "_s, $$str(i), " but "_s, $$str($nc(ReferenceEnqueuePending::a)->get(i))}));
+				$nc($System::out)->println($$str({"a["_s, $$str(i), "] is not "_s, $$str(i), " but "_s, $$str(ReferenceEnqueuePending::a->get(i))}));
 			}
 			fail = true;
 		}
@@ -154,33 +107,33 @@ void ReferenceEnqueuePending::checkResult($ReferenceQueue* queue, int32_t expect
 
 void ReferenceEnqueuePending::printMissingElements(int32_t length, int32_t expected) {
 	$init(ReferenceEnqueuePending);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("The following numbers were not found in the reference queue: "_s);
 	int32_t missing = 0;
 	int32_t element = 0;
 	for (int32_t i = 0; i < length; ++i) {
 		while (($nc(ReferenceEnqueuePending::a)->get(i) != element) & (element < expected)) {
-			$nc($System::out)->print($$str({$$str(element), " "_s}));
+			$System::out->print($$str({$$str(element), " "_s}));
 			if (missing % 20 == 19) {
-				$nc($System::out)->println(" "_s);
+				$System::out->println(" "_s);
 			}
 			++missing;
 			++element;
 		}
 		++element;
 	}
-	$nc($System::out)->print("\n"_s);
+	$System::out->print("\n"_s);
 }
 
 void ReferenceEnqueuePending::forceGc(int64_t millis) {
 	$init(ReferenceEnqueuePending);
-	$nc($($Runtime::getRuntime()))->gc();
+	$$nc($Runtime::getRuntime())->gc();
 	$Thread::sleep(millis);
 }
 
 void ReferenceEnqueuePending::sort(int32_t length) {
 	$init(ReferenceEnqueuePending);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hold = 0;
 	if (ReferenceEnqueuePending::debug) {
 		$nc($System::out)->println($$str({"Sorting. Length="_s, $$str(length)}));
@@ -188,9 +141,9 @@ void ReferenceEnqueuePending::sort(int32_t length) {
 	for (int32_t pass = 1; pass < length; ++pass) {
 		for (int32_t i = 0; i < length - pass; ++i) {
 			if ($nc(ReferenceEnqueuePending::a)->get(i) > $nc(ReferenceEnqueuePending::a)->get(i + 1)) {
-				hold = $nc(ReferenceEnqueuePending::a)->get(i);
-				$nc(ReferenceEnqueuePending::a)->set(i, $nc(ReferenceEnqueuePending::a)->get(i + 1));
-				$nc(ReferenceEnqueuePending::a)->set(i + 1, hold);
+				hold = ReferenceEnqueuePending::a->get(i);
+				ReferenceEnqueuePending::a->set(i, ReferenceEnqueuePending::a->get(i + 1));
+				ReferenceEnqueuePending::a->set(i + 1, hold);
 			}
 		}
 	}
@@ -202,7 +155,7 @@ void ReferenceEnqueuePending::raisePriority() {
 	tr->setPriority($Thread::MAX_PRIORITY);
 }
 
-void clinit$ReferenceEnqueuePending($Class* class$) {
+void ReferenceEnqueuePending::clinit$($Class* clazz) {
 	ReferenceEnqueuePending::debug = $System::getProperty("test.debug"_s) != nullptr;
 	$assignStatic(ReferenceEnqueuePending::a, $new($ints, 2 * ReferenceEnqueuePending::iterations));
 	$assignStatic(ReferenceEnqueuePending::b, $new($ReferenceEnqueuePending$NumberedWeakReferenceArray, ReferenceEnqueuePending::iterations));
@@ -212,7 +165,46 @@ ReferenceEnqueuePending::ReferenceEnqueuePending() {
 }
 
 $Class* ReferenceEnqueuePending::load$($String* name, bool initialize) {
-	$loadClass(ReferenceEnqueuePending, name, initialize, &_ReferenceEnqueuePending_ClassInfo_, clinit$ReferenceEnqueuePending, allocate$ReferenceEnqueuePending);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $STATIC | $FINAL, $staticField(ReferenceEnqueuePending, debug)},
+		{"iterations", "I", nullptr, $STATIC | $FINAL, $constField(ReferenceEnqueuePending, iterations)},
+		{"gc_trigger", "I", nullptr, $STATIC | $FINAL, $constField(ReferenceEnqueuePending, gc_trigger)},
+		{"a", "[I", nullptr, $STATIC, $staticField(ReferenceEnqueuePending, a)},
+		{"b", "[LReferenceEnqueuePending$NumberedWeakReference;", nullptr, $STATIC, $staticField(ReferenceEnqueuePending, b)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceEnqueuePending, init$, void)},
+		{"checkResult", "(Ljava/lang/ref/ReferenceQueue;I)V", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;I)V", $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, checkResult, void, $ReferenceQueue*, int32_t)},
+		{"forceGc", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, forceGc, void, int64_t), "java.lang.InterruptedException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReferenceEnqueuePending, main, void, $StringArray*), "java.lang.Exception"},
+		{"printMissingElements", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, printMissingElements, void, int32_t, int32_t)},
+		{"raisePriority", "()V", nullptr, $STATIC, $staticMethod(ReferenceEnqueuePending, raisePriority, void)},
+		{"sort", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, sort, void, int32_t)},
+		{"waitForReference", "(Ljava/lang/ref/ReferenceQueue;)LReferenceEnqueuePending$NumberedWeakReference;", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;)LReferenceEnqueuePending$NumberedWeakReference;", $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, waitForReference, $ReferenceEnqueuePending$NumberedWeakReference*, $ReferenceQueue*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ReferenceEnqueuePending$NumberedWeakReference", "ReferenceEnqueuePending", "NumberedWeakReference", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ReferenceEnqueuePending",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ReferenceEnqueuePending$NumberedWeakReference"
+	};
+	$loadClass(ReferenceEnqueuePending, name, initialize, &classInfo$$, ReferenceEnqueuePending::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceEnqueuePending);
+	});
 	return class$;
 }
 

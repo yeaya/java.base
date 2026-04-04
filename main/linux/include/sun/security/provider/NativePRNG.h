@@ -43,6 +43,7 @@ class $import NativePRNG : public ::java::security::SecureRandomSpi {
 public:
 	NativePRNG();
 	using ::java::security::SecureRandomSpi::engineNextBytes;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $bytes* engineGenerateSeed(int32_t numBytes) override;
 	virtual void engineNextBytes($bytes* bytes) override;
@@ -50,7 +51,7 @@ public:
 	static ::java::net::URL* getEgdUrl();
 	static ::sun::security::provider::NativePRNG$RandomIO* initIO(::sun::security::provider::NativePRNG$Variant* v);
 	static bool isAvailable();
-	static const int64_t serialVersionUID = (int64_t)0xA46B51988987CBDC;
+	static const int64_t serialVersionUID = (int64_t)0xa46b51988987cbdc;
 	static ::sun::security::util::Debug* debug;
 	static $String* NAME_RANDOM;
 	static $String* NAME_URANDOM;

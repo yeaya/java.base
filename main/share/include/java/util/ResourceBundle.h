@@ -54,6 +54,7 @@ class $import ResourceBundle : public ::java::lang::Object {
 	$class(ResourceBundle, 0, ::java::lang::Object)
 public:
 	ResourceBundle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool checkList(::java::util::List* a);
 	static void checkNamedModule($Class* caller);

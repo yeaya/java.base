@@ -1,5 +1,4 @@
 #include <java/util/stream/Streams$DoubleStreamBuilderImpl.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Comparator.h>
 #include <java/util/Objects.h>
@@ -33,65 +32,6 @@ using $Streams$AbstractStreamBuilderImpl = ::java::util::stream::Streams$Abstrac
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Streams$DoubleStreamBuilderImpl_FieldInfo_[] = {
-	{"first", "D", nullptr, 0, $field(Streams$DoubleStreamBuilderImpl, first)},
-	{"buffer", "Ljava/util/stream/SpinedBuffer$OfDouble;", nullptr, 0, $field(Streams$DoubleStreamBuilderImpl, buffer)},
-	{}
-};
-
-$MethodInfo _Streams$DoubleStreamBuilderImpl_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(Streams$DoubleStreamBuilderImpl, init$, void)},
-	{"<init>", "(D)V", nullptr, 0, $method(Streams$DoubleStreamBuilderImpl, init$, void, double)},
-	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Streams$DoubleStreamBuilderImpl, accept, void, double)},
-	{"build", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(Streams$DoubleStreamBuilderImpl, build, $DoubleStream*)},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $method(Streams$DoubleStreamBuilderImpl, forEachRemaining, void, $DoubleConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Streams$DoubleStreamBuilderImpl, forEachRemaining, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $method(Streams$DoubleStreamBuilderImpl, tryAdvance, bool, $DoubleConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Streams$DoubleStreamBuilderImpl, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$DoubleStreamBuilderImpl, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Streams$DoubleStreamBuilderImpl_InnerClassesInfo_[] = {
-	{"java.util.stream.Streams$DoubleStreamBuilderImpl", "java.util.stream.Streams", "DoubleStreamBuilderImpl", $STATIC | $FINAL},
-	{"java.util.stream.Streams$AbstractStreamBuilderImpl", "java.util.stream.Streams", "AbstractStreamBuilderImpl", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.DoubleStream$Builder", "java.util.stream.DoubleStream", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Streams$DoubleStreamBuilderImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Streams$DoubleStreamBuilderImpl",
-	"java.util.stream.Streams$AbstractStreamBuilderImpl",
-	"java.util.stream.DoubleStream$Builder,java.util.Spliterator$OfDouble",
-	_Streams$DoubleStreamBuilderImpl_FieldInfo_,
-	_Streams$DoubleStreamBuilderImpl_MethodInfo_,
-	"Ljava/util/stream/Streams$AbstractStreamBuilderImpl<Ljava/lang/Double;Ljava/util/Spliterator$OfDouble;>;Ljava/util/stream/DoubleStream$Builder;Ljava/util/Spliterator$OfDouble;",
-	nullptr,
-	_Streams$DoubleStreamBuilderImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Streams"
-};
-
-$Object* allocate$Streams$DoubleStreamBuilderImpl($Class* clazz) {
-	return $of($alloc(Streams$DoubleStreamBuilderImpl));
-}
 
 int64_t Streams$DoubleStreamBuilderImpl::estimateSize() {
 	 return this->$Streams$AbstractStreamBuilderImpl::estimateSize();
@@ -230,7 +170,7 @@ void Streams$DoubleStreamBuilderImpl::accept(double t) {
 	} else if (this->count > 0) {
 		if (this->buffer == nullptr) {
 			$set(this, buffer, $new($SpinedBuffer$OfDouble));
-			$nc(this->buffer)->accept(this->first);
+			this->buffer->accept(this->first);
 			++this->count;
 		}
 		$nc(this->buffer)->accept(t);
@@ -243,7 +183,7 @@ $DoubleStream* Streams$DoubleStreamBuilderImpl::build() {
 	int32_t c = this->count;
 	if (c >= 0) {
 		this->count = -this->count - 1;
-		return (c < 2) ? $StreamSupport::doubleStream($as($Spliterator$OfDouble, this), false) : $StreamSupport::doubleStream($($cast($Spliterator$OfDouble, $nc(this->buffer)->spliterator())), false);
+		return (c < 2) ? $StreamSupport::doubleStream($as($Spliterator$OfDouble, this), false) : $StreamSupport::doubleStream($$cast($Spliterator$OfDouble, $nc(this->buffer)->spliterator()), false);
 	}
 	$throwNew($IllegalStateException);
 }
@@ -283,7 +223,60 @@ Streams$DoubleStreamBuilderImpl::Streams$DoubleStreamBuilderImpl() {
 }
 
 $Class* Streams$DoubleStreamBuilderImpl::load$($String* name, bool initialize) {
-	$loadClass(Streams$DoubleStreamBuilderImpl, name, initialize, &_Streams$DoubleStreamBuilderImpl_ClassInfo_, allocate$Streams$DoubleStreamBuilderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"first", "D", nullptr, 0, $field(Streams$DoubleStreamBuilderImpl, first)},
+		{"buffer", "Ljava/util/stream/SpinedBuffer$OfDouble;", nullptr, 0, $field(Streams$DoubleStreamBuilderImpl, buffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(Streams$DoubleStreamBuilderImpl, init$, void)},
+		{"<init>", "(D)V", nullptr, 0, $method(Streams$DoubleStreamBuilderImpl, init$, void, double)},
+		{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Streams$DoubleStreamBuilderImpl, accept, void, double)},
+		{"build", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(Streams$DoubleStreamBuilderImpl, build, $DoubleStream*)},
+		{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $method(Streams$DoubleStreamBuilderImpl, forEachRemaining, void, $DoubleConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Streams$DoubleStreamBuilderImpl, forEachRemaining, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $method(Streams$DoubleStreamBuilderImpl, tryAdvance, bool, $DoubleConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Streams$DoubleStreamBuilderImpl, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$DoubleStreamBuilderImpl, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Streams$DoubleStreamBuilderImpl", "java.util.stream.Streams", "DoubleStreamBuilderImpl", $STATIC | $FINAL},
+		{"java.util.stream.Streams$AbstractStreamBuilderImpl", "java.util.stream.Streams", "AbstractStreamBuilderImpl", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.DoubleStream$Builder", "java.util.stream.DoubleStream", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Streams$DoubleStreamBuilderImpl",
+		"java.util.stream.Streams$AbstractStreamBuilderImpl",
+		"java.util.stream.DoubleStream$Builder,java.util.Spliterator$OfDouble",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/Streams$AbstractStreamBuilderImpl<Ljava/lang/Double;Ljava/util/Spliterator$OfDouble;>;Ljava/util/stream/DoubleStream$Builder;Ljava/util/Spliterator$OfDouble;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Streams"
+	};
+	$loadClass(Streams$DoubleStreamBuilderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Streams$DoubleStreamBuilderImpl));
+	});
 	return class$;
 }
 

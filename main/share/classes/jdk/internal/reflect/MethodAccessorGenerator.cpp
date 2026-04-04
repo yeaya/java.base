@@ -1,8 +1,6 @@
 #include <jdk/internal/reflect/MethodAccessorGenerator.h>
-
 #include <java/lang/InternalError.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <jdk/internal/reflect/AccessorGenerator.h>
 #include <jdk/internal/reflect/ByteVector.h>
 #include <jdk/internal/reflect/ByteVectorFactory.h>
@@ -31,7 +29,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AccessorGenerator = ::jdk::internal::reflect::AccessorGenerator;
 using $ByteVector = ::jdk::internal::reflect::ByteVector;
 using $ByteVectorFactory = ::jdk::internal::reflect::ByteVectorFactory;
@@ -48,64 +45,6 @@ namespace jdk {
 	namespace internal {
 		namespace reflect {
 
-$FieldInfo _MethodAccessorGenerator_FieldInfo_[] = {
-	{"NUM_BASE_CPOOL_ENTRIES", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodAccessorGenerator, NUM_BASE_CPOOL_ENTRIES)},
-	{"NUM_METHODS", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodAccessorGenerator, NUM_METHODS)},
-	{"NUM_SERIALIZATION_CPOOL_ENTRIES", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodAccessorGenerator, NUM_SERIALIZATION_CPOOL_ENTRIES)},
-	{"methodSymnum", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MethodAccessorGenerator, methodSymnum)},
-	{"constructorSymnum", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MethodAccessorGenerator, constructorSymnum)},
-	{"serializationConstructorSymnum", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MethodAccessorGenerator, serializationConstructorSymnum)},
-	{"declaringClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(MethodAccessorGenerator, declaringClass)},
-	{"parameterTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(MethodAccessorGenerator, parameterTypes)},
-	{"returnType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(MethodAccessorGenerator, returnType)},
-	{"isConstructor", "Z", nullptr, $PRIVATE, $field(MethodAccessorGenerator, isConstructor)},
-	{"forSerialization", "Z", nullptr, $PRIVATE, $field(MethodAccessorGenerator, forSerialization)},
-	{"targetMethodRef", "S", nullptr, $PRIVATE, $field(MethodAccessorGenerator, targetMethodRef)},
-	{"invokeIdx", "S", nullptr, $PRIVATE, $field(MethodAccessorGenerator, invokeIdx)},
-	{"invokeDescriptorIdx", "S", nullptr, $PRIVATE, $field(MethodAccessorGenerator, invokeDescriptorIdx)},
-	{"nonPrimitiveParametersBaseIdx", "S", nullptr, $PRIVATE, $field(MethodAccessorGenerator, nonPrimitiveParametersBaseIdx)},
-	{}
-};
-
-$MethodInfo _MethodAccessorGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MethodAccessorGenerator, init$, void)},
-	{"buildInternalSignature", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MethodAccessorGenerator, buildInternalSignature, $String*)},
-	{"emitInvoke", "()V", nullptr, $PRIVATE, $method(MethodAccessorGenerator, emitInvoke, void)},
-	{"generate", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;IZZLjava/lang/Class;)Ljdk/internal/reflect/MagicAccessorImpl;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;IZZLjava/lang/Class<*>;)Ljdk/internal/reflect/MagicAccessorImpl;", $PRIVATE, $method(MethodAccessorGenerator, generate, $MagicAccessorImpl*, $Class*, $String*, $ClassArray*, $Class*, $ClassArray*, int32_t, bool, bool, $Class*)},
-	{"generateConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Class;I)Ljdk/internal/reflect/ConstructorAccessor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;[Ljava/lang/Class<*>;I)Ljdk/internal/reflect/ConstructorAccessor;", $PUBLIC, $virtualMethod(MethodAccessorGenerator, generateConstructor, $ConstructorAccessor*, $Class*, $ClassArray*, $ClassArray*, int32_t)},
-	{"generateMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;I)Ljdk/internal/reflect/MethodAccessor;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;I)Ljdk/internal/reflect/MethodAccessor;", $PUBLIC, $virtualMethod(MethodAccessorGenerator, generateMethod, $MethodAccessor*, $Class*, $String*, $ClassArray*, $Class*, $ClassArray*, int32_t)},
-	{"generateName", "(ZZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MethodAccessorGenerator, generateName, $String*, bool, bool)},
-	{"generateSerializationConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Class;ILjava/lang/Class;)Ljdk/internal/reflect/SerializationConstructorAccessorImpl;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;[Ljava/lang/Class<*>;ILjava/lang/Class<*>;)Ljdk/internal/reflect/SerializationConstructorAccessorImpl;", $PUBLIC, $virtualMethod(MethodAccessorGenerator, generateSerializationConstructor, $SerializationConstructorAccessorImpl*, $Class*, $ClassArray*, $ClassArray*, int32_t, $Class*)},
-	{"isInterface", "()Z", nullptr, $PRIVATE, $method(MethodAccessorGenerator, isInterface, bool)},
-	{"numNonPrimitiveParameterTypes", "()I", nullptr, $PRIVATE, $method(MethodAccessorGenerator, numNonPrimitiveParameterTypes, int32_t)},
-	{"usesPrimitiveTypes", "()Z", nullptr, $PRIVATE, $method(MethodAccessorGenerator, usesPrimitiveTypes, bool)},
-	{}
-};
-
-$InnerClassInfo _MethodAccessorGenerator_InnerClassesInfo_[] = {
-	{"jdk.internal.reflect.MethodAccessorGenerator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodAccessorGenerator_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.reflect.MethodAccessorGenerator",
-	"jdk.internal.reflect.AccessorGenerator",
-	nullptr,
-	_MethodAccessorGenerator_FieldInfo_,
-	_MethodAccessorGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodAccessorGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.reflect.MethodAccessorGenerator$1"
-};
-
-$Object* allocate$MethodAccessorGenerator($Class* clazz) {
-	return $of($alloc(MethodAccessorGenerator));
-}
-
 $volatile(int32_t) MethodAccessorGenerator::methodSymnum = 0;
 $volatile(int32_t) MethodAccessorGenerator::constructorSymnum = 0;
 $volatile(int32_t) MethodAccessorGenerator::serializationConstructorSymnum = 0;
@@ -119,17 +58,15 @@ $MethodAccessor* MethodAccessorGenerator::generateMethod($Class* declaringClass,
 }
 
 $ConstructorAccessor* MethodAccessorGenerator::generateConstructor($Class* declaringClass, $ClassArray* parameterTypes, $ClassArray* checkedExceptions, int32_t modifiers) {
-	$init($Void);
 	return $cast($ConstructorAccessor, generate(declaringClass, "<init>"_s, parameterTypes, $Void::TYPE, checkedExceptions, modifiers, true, false, nullptr));
 }
 
 $SerializationConstructorAccessorImpl* MethodAccessorGenerator::generateSerializationConstructor($Class* declaringClass, $ClassArray* parameterTypes, $ClassArray* checkedExceptions, int32_t modifiers, $Class* targetConstructorClass) {
-	$init($Void);
 	return $cast($SerializationConstructorAccessorImpl, generate(declaringClass, "<init>"_s, parameterTypes, $Void::TYPE, checkedExceptions, modifiers, true, true, targetConstructorClass));
 }
 
 $MagicAccessorImpl* MethodAccessorGenerator::generate($Class* declaringClass, $String* name, $ClassArray* parameterTypes, $Class* returnType, $ClassArray* checkedExceptions, int32_t modifiers, bool isConstructor, bool forSerialization, $Class* serializationTargetClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ByteVector, vec, $ByteVectorFactory::create());
 	$set(this, asm$, $new($ClassFileAssembler, vec));
@@ -139,7 +76,7 @@ $MagicAccessorImpl* MethodAccessorGenerator::generate($Class* declaringClass, $S
 	this->modifiers = modifiers;
 	this->isConstructor = isConstructor;
 	this->forSerialization = forSerialization;
-	$nc(this->asm$)->emitMagicAndVersion();
+	this->asm$->emitMagicAndVersion();
 	int16_t numCPEntries = (int16_t)(MethodAccessorGenerator::NUM_BASE_CPOOL_ENTRIES + $AccessorGenerator::NUM_COMMON_CPOOL_ENTRIES);
 	bool usesPrimitives = usesPrimitiveTypes();
 	if (usesPrimitives) {
@@ -149,87 +86,87 @@ $MagicAccessorImpl* MethodAccessorGenerator::generate($Class* declaringClass, $S
 		numCPEntries += MethodAccessorGenerator::NUM_SERIALIZATION_CPOOL_ENTRIES;
 	}
 	numCPEntries += (int16_t)(2 * numNonPrimitiveParameterTypes());
-	$nc(this->asm$)->emitShort(add(numCPEntries, $AccessorGenerator::S1));
+	this->asm$->emitShort(add(numCPEntries, $AccessorGenerator::S1));
 	$var($String, generatedName, generateName(isConstructor, forSerialization));
-	$nc(this->asm$)->emitConstantPoolUTF8(generatedName);
-	$nc(this->asm$)->emitConstantPoolClass($nc(this->asm$)->cpi());
-	this->thisClass = $nc(this->asm$)->cpi();
+	this->asm$->emitConstantPoolUTF8(generatedName);
+	this->asm$->emitConstantPoolClass(this->asm$->cpi());
+	this->thisClass = this->asm$->cpi();
 	if (isConstructor) {
 		if (forSerialization) {
-			$nc(this->asm$)->emitConstantPoolUTF8("jdk/internal/reflect/SerializationConstructorAccessorImpl"_s);
+			this->asm$->emitConstantPoolUTF8("jdk/internal/reflect/SerializationConstructorAccessorImpl"_s);
 		} else {
-			$nc(this->asm$)->emitConstantPoolUTF8("jdk/internal/reflect/ConstructorAccessorImpl"_s);
+			this->asm$->emitConstantPoolUTF8("jdk/internal/reflect/ConstructorAccessorImpl"_s);
 		}
 	} else {
-		$nc(this->asm$)->emitConstantPoolUTF8("jdk/internal/reflect/MethodAccessorImpl"_s);
+		this->asm$->emitConstantPoolUTF8("jdk/internal/reflect/MethodAccessorImpl"_s);
 	}
-	$nc(this->asm$)->emitConstantPoolClass($nc(this->asm$)->cpi());
-	this->superClass = $nc(this->asm$)->cpi();
-	$nc(this->asm$)->emitConstantPoolUTF8($(getClassName(declaringClass, false)));
-	$nc(this->asm$)->emitConstantPoolClass($nc(this->asm$)->cpi());
-	this->targetClass = $nc(this->asm$)->cpi();
+	this->asm$->emitConstantPoolClass(this->asm$->cpi());
+	this->superClass = this->asm$->cpi();
+	this->asm$->emitConstantPoolUTF8($(getClassName(declaringClass, false)));
+	this->asm$->emitConstantPoolClass(this->asm$->cpi());
+	this->targetClass = this->asm$->cpi();
 	int16_t serializationTargetClassIdx = (int16_t)0;
 	if (forSerialization) {
-		$nc(this->asm$)->emitConstantPoolUTF8($(getClassName(serializationTargetClass, false)));
-		$nc(this->asm$)->emitConstantPoolClass($nc(this->asm$)->cpi());
-		serializationTargetClassIdx = $nc(this->asm$)->cpi();
+		this->asm$->emitConstantPoolUTF8($(getClassName(serializationTargetClass, false)));
+		this->asm$->emitConstantPoolClass(this->asm$->cpi());
+		serializationTargetClassIdx = this->asm$->cpi();
 	}
-	$nc(this->asm$)->emitConstantPoolUTF8(name);
-	$nc(this->asm$)->emitConstantPoolUTF8($(buildInternalSignature()));
-	int16_t var$0 = sub($nc(this->asm$)->cpi(), $AccessorGenerator::S1);
-	$nc(this->asm$)->emitConstantPoolNameAndType(var$0, $nc(this->asm$)->cpi());
+	this->asm$->emitConstantPoolUTF8(name);
+	this->asm$->emitConstantPoolUTF8($(buildInternalSignature()));
+	int16_t var$0 = sub(this->asm$->cpi(), $AccessorGenerator::S1);
+	this->asm$->emitConstantPoolNameAndType(var$0, this->asm$->cpi());
 	if (isInterface()) {
-		$nc(this->asm$)->emitConstantPoolInterfaceMethodref(this->targetClass, $nc(this->asm$)->cpi());
+		this->asm$->emitConstantPoolInterfaceMethodref(this->targetClass, this->asm$->cpi());
 	} else if (forSerialization) {
-		$nc(this->asm$)->emitConstantPoolMethodref(serializationTargetClassIdx, $nc(this->asm$)->cpi());
+		this->asm$->emitConstantPoolMethodref(serializationTargetClassIdx, this->asm$->cpi());
 	} else {
-		$nc(this->asm$)->emitConstantPoolMethodref(this->targetClass, $nc(this->asm$)->cpi());
+		this->asm$->emitConstantPoolMethodref(this->targetClass, this->asm$->cpi());
 	}
-	this->targetMethodRef = $nc(this->asm$)->cpi();
+	this->targetMethodRef = this->asm$->cpi();
 	if (isConstructor) {
-		$nc(this->asm$)->emitConstantPoolUTF8("newInstance"_s);
+		this->asm$->emitConstantPoolUTF8("newInstance"_s);
 	} else {
-		$nc(this->asm$)->emitConstantPoolUTF8("invoke"_s);
+		this->asm$->emitConstantPoolUTF8("invoke"_s);
 	}
-	this->invokeIdx = $nc(this->asm$)->cpi();
+	this->invokeIdx = this->asm$->cpi();
 	if (isConstructor) {
-		$nc(this->asm$)->emitConstantPoolUTF8("([Ljava/lang/Object;)Ljava/lang/Object;"_s);
+		this->asm$->emitConstantPoolUTF8("([Ljava/lang/Object;)Ljava/lang/Object;"_s);
 	} else {
-		$nc(this->asm$)->emitConstantPoolUTF8("(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;"_s);
+		this->asm$->emitConstantPoolUTF8("(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;"_s);
 	}
-	this->invokeDescriptorIdx = $nc(this->asm$)->cpi();
-	this->nonPrimitiveParametersBaseIdx = add($nc(this->asm$)->cpi(), $AccessorGenerator::S2);
+	this->invokeDescriptorIdx = this->asm$->cpi();
+	this->nonPrimitiveParametersBaseIdx = add(this->asm$->cpi(), $AccessorGenerator::S2);
 	for (int32_t i = 0; i < $nc(parameterTypes)->length; ++i) {
 		$Class* c = parameterTypes->get(i);
 		if (!isPrimitive(c)) {
-			$nc(this->asm$)->emitConstantPoolUTF8($(getClassName(c, false)));
-			$nc(this->asm$)->emitConstantPoolClass($nc(this->asm$)->cpi());
+			this->asm$->emitConstantPoolUTF8($(getClassName(c, false)));
+			this->asm$->emitConstantPoolClass(this->asm$->cpi());
 		}
 	}
 	emitCommonConstantPoolEntries();
 	if (usesPrimitives) {
 		emitBoxingContantPoolEntries();
 	}
-	if ($nc(this->asm$)->cpi() != numCPEntries) {
-		$throwNew($InternalError, $$str({"Adjust this code (cpi = "_s, $$str($nc(this->asm$)->cpi()), ", numCPEntries = "_s, $$str(numCPEntries), ")"_s}));
+	if (this->asm$->cpi() != numCPEntries) {
+		$throwNew($InternalError, $$str({"Adjust this code (cpi = "_s, $$str(this->asm$->cpi()), ", numCPEntries = "_s, $$str(numCPEntries), ")"_s}));
 	}
-	$nc(this->asm$)->emitShort($ClassFileConstants::ACC_PUBLIC);
-	$nc(this->asm$)->emitShort(this->thisClass);
-	$nc(this->asm$)->emitShort(this->superClass);
-	$nc(this->asm$)->emitShort($AccessorGenerator::S0);
-	$nc(this->asm$)->emitShort($AccessorGenerator::S0);
-	$nc(this->asm$)->emitShort(MethodAccessorGenerator::NUM_METHODS);
+	this->asm$->emitShort($ClassFileConstants::ACC_PUBLIC);
+	this->asm$->emitShort(this->thisClass);
+	this->asm$->emitShort(this->superClass);
+	this->asm$->emitShort($AccessorGenerator::S0);
+	this->asm$->emitShort($AccessorGenerator::S0);
+	this->asm$->emitShort(MethodAccessorGenerator::NUM_METHODS);
 	emitConstructor();
 	emitInvoke();
-	$nc(this->asm$)->emitShort($AccessorGenerator::S0);
+	this->asm$->emitShort($AccessorGenerator::S0);
 	$nc(vec)->trim();
 	$var($bytes, bytes, vec->getData());
-	return $cast($MagicAccessorImpl, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($MethodAccessorGenerator$1, this, generatedName, bytes, declaringClass))));
+	return $cast($MagicAccessorImpl, $AccessController::doPrivileged($$new($MethodAccessorGenerator$1, this, generatedName, bytes, declaringClass)));
 }
 
 void MethodAccessorGenerator::emitInvoke() {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(this->parameterTypes)->length > 0x0000FFFF) {
+	$useLocalObjectStack();
+	if ($nc(this->parameterTypes)->length > 0x0000ffff) {
 		$throwNew($InternalError, "Can\'t handle more than 65535 parameters"_s);
 	}
 	$var($ClassFileAssembler, cb, $new($ClassFileAssembler));
@@ -238,7 +175,7 @@ void MethodAccessorGenerator::emitInvoke() {
 	} else {
 		cb->setMaxLocals(3);
 	}
-	int16_t illegalArgStartPC = (int16_t)0;
+	int16_t illegalArgStartPC = 0;
 	if (this->isConstructor) {
 		cb->opc_new(this->targetClass);
 		cb->opc_dup();
@@ -256,7 +193,7 @@ void MethodAccessorGenerator::emitInvoke() {
 		cb->opc_checkcast(this->targetClass);
 	}
 	$var($Label, successLabel, $new($Label));
-	if ($nc(this->parameterTypes)->length == 0) {
+	if (this->parameterTypes->length == 0) {
 		if (this->isConstructor) {
 			cb->opc_aload_1();
 		} else {
@@ -270,7 +207,7 @@ void MethodAccessorGenerator::emitInvoke() {
 		cb->opc_aload_2();
 	}
 	cb->opc_arraylength();
-	cb->opc_sipush((int16_t)$nc(this->parameterTypes)->length);
+	cb->opc_sipush((int16_t)this->parameterTypes->length);
 	cb->opc_if_icmpeq(successLabel);
 	cb->opc_new(this->illegalArgumentClass);
 	cb->opc_dup();
@@ -279,9 +216,9 @@ void MethodAccessorGenerator::emitInvoke() {
 	successLabel->bind();
 	int16_t paramTypeCPIdx = this->nonPrimitiveParametersBaseIdx;
 	$var($Label, nextParamLabel, nullptr);
-	int8_t count = (int8_t)1;
-	for (int32_t i = 0; i < $nc(this->parameterTypes)->length; ++i) {
-		$Class* paramType = $nc(this->parameterTypes)->get(i);
+	int8_t count = 1;
+	for (int32_t i = 0; i < this->parameterTypes->length; ++i) {
+		$Class* paramType = this->parameterTypes->get(i);
 		count += (int8_t)typeSizeInStackSlots(paramType);
 		if (nextParamLabel != nullptr) {
 			nextParamLabel->bind();
@@ -304,7 +241,7 @@ void MethodAccessorGenerator::emitInvoke() {
 			$assign(nextParamLabel, $new($Label));
 			$init($AccessorGenerator);
 			for (int32_t j = 0; j < $nc($AccessorGenerator::primitiveTypes)->length; ++j) {
-				$Class* c = $nc($AccessorGenerator::primitiveTypes)->get(j);
+				$Class* c = $AccessorGenerator::primitiveTypes->get(j);
 				if (canWidenTo(c, paramType)) {
 					if (l != nullptr) {
 						l->bind();
@@ -360,11 +297,8 @@ void MethodAccessorGenerator::emitInvoke() {
 		if (isPrimitive(this->returnType)) {
 			int16_t var$1 = boxingMethodForPrimitiveType(this->returnType);
 			cb->opc_invokestatic(var$1, typeSizeInStackSlots(this->returnType), 0);
-		} else {
-			$init($Void);
-			if (this->returnType == $Void::TYPE) {
-				cb->opc_aconst_null();
-			}
+		} else if (this->returnType == $Void::TYPE) {
+			cb->opc_aconst_null();
 		}
 	}
 	cb->opc_areturn();
@@ -404,7 +338,7 @@ bool MethodAccessorGenerator::usesPrimitiveTypes() {
 		return true;
 	}
 	for (int32_t i = 0; i < $nc(this->parameterTypes)->length; ++i) {
-		if ($nc($nc(this->parameterTypes)->get(i))->isPrimitive()) {
+		if ($nc(this->parameterTypes->get(i))->isPrimitive()) {
 			return true;
 		}
 	}
@@ -414,7 +348,7 @@ bool MethodAccessorGenerator::usesPrimitiveTypes() {
 int32_t MethodAccessorGenerator::numNonPrimitiveParameterTypes() {
 	int32_t num = 0;
 	for (int32_t i = 0; i < $nc(this->parameterTypes)->length; ++i) {
-		if (!$nc($nc(this->parameterTypes)->get(i))->isPrimitive()) {
+		if (!$nc(this->parameterTypes->get(i))->isPrimitive()) {
 			++num;
 		}
 	}
@@ -426,11 +360,11 @@ bool MethodAccessorGenerator::isInterface() {
 }
 
 $String* MethodAccessorGenerator::buildInternalSignature() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("("_s);
 	for (int32_t i = 0; i < $nc(this->parameterTypes)->length; ++i) {
-		sb->append($(getClassName($nc(this->parameterTypes)->get(i), true)));
+		sb->append($(getClassName(this->parameterTypes->get(i), true)));
 	}
 	sb->append(")"_s);
 	sb->append($(getClassName(this->returnType, true)));
@@ -438,10 +372,9 @@ $String* MethodAccessorGenerator::buildInternalSignature() {
 }
 
 $String* MethodAccessorGenerator::generateName(bool isConstructor, bool forSerialization) {
-	$load(MethodAccessorGenerator);
+	$init(MethodAccessorGenerator);
 	$synchronized(class$) {
-		$init(MethodAccessorGenerator);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isConstructor) {
 			if (forSerialization) {
 				int32_t num = ++MethodAccessorGenerator::serializationConstructorSymnum;
@@ -461,7 +394,59 @@ MethodAccessorGenerator::MethodAccessorGenerator() {
 }
 
 $Class* MethodAccessorGenerator::load$($String* name, bool initialize) {
-	$loadClass(MethodAccessorGenerator, name, initialize, &_MethodAccessorGenerator_ClassInfo_, allocate$MethodAccessorGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"NUM_BASE_CPOOL_ENTRIES", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodAccessorGenerator, NUM_BASE_CPOOL_ENTRIES)},
+		{"NUM_METHODS", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodAccessorGenerator, NUM_METHODS)},
+		{"NUM_SERIALIZATION_CPOOL_ENTRIES", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodAccessorGenerator, NUM_SERIALIZATION_CPOOL_ENTRIES)},
+		{"methodSymnum", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MethodAccessorGenerator, methodSymnum)},
+		{"constructorSymnum", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MethodAccessorGenerator, constructorSymnum)},
+		{"serializationConstructorSymnum", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MethodAccessorGenerator, serializationConstructorSymnum)},
+		{"declaringClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(MethodAccessorGenerator, declaringClass)},
+		{"parameterTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(MethodAccessorGenerator, parameterTypes)},
+		{"returnType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(MethodAccessorGenerator, returnType)},
+		{"isConstructor", "Z", nullptr, $PRIVATE, $field(MethodAccessorGenerator, isConstructor)},
+		{"forSerialization", "Z", nullptr, $PRIVATE, $field(MethodAccessorGenerator, forSerialization)},
+		{"targetMethodRef", "S", nullptr, $PRIVATE, $field(MethodAccessorGenerator, targetMethodRef)},
+		{"invokeIdx", "S", nullptr, $PRIVATE, $field(MethodAccessorGenerator, invokeIdx)},
+		{"invokeDescriptorIdx", "S", nullptr, $PRIVATE, $field(MethodAccessorGenerator, invokeDescriptorIdx)},
+		{"nonPrimitiveParametersBaseIdx", "S", nullptr, $PRIVATE, $field(MethodAccessorGenerator, nonPrimitiveParametersBaseIdx)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MethodAccessorGenerator, init$, void)},
+		{"buildInternalSignature", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MethodAccessorGenerator, buildInternalSignature, $String*)},
+		{"emitInvoke", "()V", nullptr, $PRIVATE, $method(MethodAccessorGenerator, emitInvoke, void)},
+		{"generate", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;IZZLjava/lang/Class;)Ljdk/internal/reflect/MagicAccessorImpl;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;IZZLjava/lang/Class<*>;)Ljdk/internal/reflect/MagicAccessorImpl;", $PRIVATE, $method(MethodAccessorGenerator, generate, $MagicAccessorImpl*, $Class*, $String*, $ClassArray*, $Class*, $ClassArray*, int32_t, bool, bool, $Class*)},
+		{"generateConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Class;I)Ljdk/internal/reflect/ConstructorAccessor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;[Ljava/lang/Class<*>;I)Ljdk/internal/reflect/ConstructorAccessor;", $PUBLIC, $virtualMethod(MethodAccessorGenerator, generateConstructor, $ConstructorAccessor*, $Class*, $ClassArray*, $ClassArray*, int32_t)},
+		{"generateMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;I)Ljdk/internal/reflect/MethodAccessor;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;I)Ljdk/internal/reflect/MethodAccessor;", $PUBLIC, $virtualMethod(MethodAccessorGenerator, generateMethod, $MethodAccessor*, $Class*, $String*, $ClassArray*, $Class*, $ClassArray*, int32_t)},
+		{"generateName", "(ZZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MethodAccessorGenerator, generateName, $String*, bool, bool)},
+		{"generateSerializationConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Class;ILjava/lang/Class;)Ljdk/internal/reflect/SerializationConstructorAccessorImpl;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;[Ljava/lang/Class<*>;ILjava/lang/Class<*>;)Ljdk/internal/reflect/SerializationConstructorAccessorImpl;", $PUBLIC, $virtualMethod(MethodAccessorGenerator, generateSerializationConstructor, $SerializationConstructorAccessorImpl*, $Class*, $ClassArray*, $ClassArray*, int32_t, $Class*)},
+		{"isInterface", "()Z", nullptr, $PRIVATE, $method(MethodAccessorGenerator, isInterface, bool)},
+		{"numNonPrimitiveParameterTypes", "()I", nullptr, $PRIVATE, $method(MethodAccessorGenerator, numNonPrimitiveParameterTypes, int32_t)},
+		{"usesPrimitiveTypes", "()Z", nullptr, $PRIVATE, $method(MethodAccessorGenerator, usesPrimitiveTypes, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.reflect.MethodAccessorGenerator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.reflect.MethodAccessorGenerator",
+		"jdk.internal.reflect.AccessorGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.reflect.MethodAccessorGenerator$1"
+	};
+	$loadClass(MethodAccessorGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodAccessorGenerator);
+	});
 	return class$;
 }
 

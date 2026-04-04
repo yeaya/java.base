@@ -12,6 +12,7 @@ class $export NativeThread : public ::java::lang::Object {
 	$class(NativeThread, 0, ::java::lang::Object)
 public:
 	NativeThread();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t getID();
 	static int32_t getSIGPIPE();

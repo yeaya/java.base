@@ -1,7 +1,5 @@
 #include <sun/nio/cs/SingleByte$Decoder.h>
-
 #include <java/lang/Math.h>
-#include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -22,7 +20,6 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
@@ -35,61 +32,6 @@ using $SingleByte = ::sun::nio::cs::SingleByte;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _SingleByte$Decoder_FieldInfo_[] = {
-	{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SingleByte$Decoder, JLA)},
-	{"b2c", "[C", nullptr, $PRIVATE | $FINAL, $field(SingleByte$Decoder, b2c)},
-	{"isASCIICompatible", "Z", nullptr, $PRIVATE | $FINAL, $field(SingleByte$Decoder, isASCIICompatible$)},
-	{"isLatin1Decodable", "Z", nullptr, $PRIVATE | $FINAL, $field(SingleByte$Decoder, isLatin1Decodable$)},
-	{"repl", "C", nullptr, $PRIVATE, $field(SingleByte$Decoder, repl)},
-	{}
-};
-
-$MethodInfo _SingleByte$Decoder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/charset/Charset;[C)V", nullptr, $PUBLIC, $method(SingleByte$Decoder, init$, void, $Charset*, $chars*)},
-	{"<init>", "(Ljava/nio/charset/Charset;[CZ)V", nullptr, $PUBLIC, $method(SingleByte$Decoder, init$, void, $Charset*, $chars*, bool)},
-	{"<init>", "(Ljava/nio/charset/Charset;[CZZ)V", nullptr, $PUBLIC, $method(SingleByte$Decoder, init$, void, $Charset*, $chars*, bool, bool)},
-	{"decode", "(I)C", nullptr, $PUBLIC | $FINAL, $method(SingleByte$Decoder, decode, char16_t, int32_t)},
-	{"decode", "([BII[C)I", nullptr, $PUBLIC, $virtualMethod(SingleByte$Decoder, decode, int32_t, $bytes*, int32_t, int32_t, $chars*)},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SingleByte$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SingleByte$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(SingleByte$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeToLatin1", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(SingleByte$Decoder, decodeToLatin1, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
-	{"implReplaceWith", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SingleByte$Decoder, implReplaceWith, void, $String*)},
-	{"isASCIICompatible", "()Z", nullptr, $PUBLIC, $virtualMethod(SingleByte$Decoder, isASCIICompatible, bool)},
-	{"isLatin1Decodable", "()Z", nullptr, $PUBLIC, $virtualMethod(SingleByte$Decoder, isLatin1Decodable, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SingleByte$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.SingleByte$Decoder", "sun.nio.cs.SingleByte", "Decoder", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SingleByte$Decoder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.nio.cs.SingleByte$Decoder",
-	"java.nio.charset.CharsetDecoder",
-	"sun.nio.cs.ArrayDecoder",
-	_SingleByte$Decoder_FieldInfo_,
-	_SingleByte$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SingleByte$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.SingleByte"
-};
-
-$Object* allocate$SingleByte$Decoder($Class* clazz) {
-	return $of($alloc(SingleByte$Decoder));
-}
 
 int32_t SingleByte$Decoder::hashCode() {
 	 return this->$CharsetDecoder::hashCode();
@@ -115,7 +57,7 @@ $JavaLangAccess* SingleByte$Decoder::JLA = nullptr;
 
 void SingleByte$Decoder::init$($Charset* cs, $chars* b2c) {
 	$CharsetDecoder::init$(cs, 1.0f, 1.0f);
-	this->repl = (char16_t)0xFFFD;
+	this->repl = (char16_t)0xfffd;
 	$set(this, b2c, b2c);
 	this->isASCIICompatible$ = false;
 	this->isLatin1Decodable$ = false;
@@ -123,7 +65,7 @@ void SingleByte$Decoder::init$($Charset* cs, $chars* b2c) {
 
 void SingleByte$Decoder::init$($Charset* cs, $chars* b2c, bool isASCIICompatible) {
 	$CharsetDecoder::init$(cs, 1.0f, 1.0f);
-	this->repl = (char16_t)0xFFFD;
+	this->repl = (char16_t)0xfffd;
 	$set(this, b2c, b2c);
 	this->isASCIICompatible$ = isASCIICompatible;
 	this->isLatin1Decodable$ = false;
@@ -131,14 +73,14 @@ void SingleByte$Decoder::init$($Charset* cs, $chars* b2c, bool isASCIICompatible
 
 void SingleByte$Decoder::init$($Charset* cs, $chars* b2c, bool isASCIICompatible, bool isLatin1Decodable) {
 	$CharsetDecoder::init$(cs, 1.0f, 1.0f);
-	this->repl = (char16_t)0xFFFD;
+	this->repl = (char16_t)0xfffd;
 	$set(this, b2c, b2c);
 	this->isASCIICompatible$ = isASCIICompatible;
 	this->isLatin1Decodable$ = isLatin1Decodable;
 }
 
 $CoderResult* SingleByte$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -161,8 +103,8 @@ $CoderResult* SingleByte$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer*
 		dp += n;
 	}
 	while (sp < sl) {
-		char16_t c = decode((int32_t)$nc(sa)->get(sp));
-		if (c == (char16_t)0xFFFD) {
+		char16_t c = decode($nc(sa)->get(sp));
+		if (c == (char16_t)0xfffd) {
 			return $SingleByte::withResult($($CoderResult::unmappableForLength(1)), src, sp, dst, dp);
 		}
 		$nc(da)->set(dp++, c);
@@ -172,44 +114,42 @@ $CoderResult* SingleByte$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer*
 }
 
 $CoderResult* SingleByte$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mark = $nc(src)->position();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				char16_t c = decode((int32_t)src->get());
-				if (c == (char16_t)0xFFFD) {
-					$assign(var$2, $CoderResult::unmappableForLength(1));
-					return$1 = true;
-					goto $finally;
-				}
-				if (!$nc(dst)->hasRemaining()) {
-					$init($CoderResult);
-					$assign(var$2, $CoderResult::OVERFLOW);
-					return$1 = true;
-					goto $finally;
-				}
-				$nc(dst)->put(c);
-				++mark;
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			char16_t c = decode(src->get());
+			if (c == (char16_t)0xfffd) {
+				$assign(var$2, $CoderResult::unmappableForLength(1));
+				return$1 = true;
+				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
+			if (!$nc(dst)->hasRemaining()) {
+				$init($CoderResult);
+				$assign(var$2, $CoderResult::OVERFLOW);
+				return$1 = true;
+				goto $finally;
+			}
+			dst->put(c);
+			++mark;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -237,7 +177,7 @@ int32_t SingleByte$Decoder::decodeToLatin1($bytes* src, int32_t sp, int32_t len,
 	}
 	int32_t dp = 0;
 	while (dp < len) {
-		$nc(dst)->set(dp++, (int8_t)decode((int32_t)$nc(src)->get(sp++)));
+		dst->set(dp++, (int8_t)decode($nc(src)->get(sp++)));
 	}
 	return dp;
 }
@@ -248,8 +188,8 @@ int32_t SingleByte$Decoder::decode($bytes* src, int32_t sp, int32_t len, $chars*
 	}
 	int32_t dp = 0;
 	while (dp < len) {
-		$nc(dst)->set(dp, decode((int32_t)$nc(src)->get(sp++)));
-		if (dst->get(dp) == (char16_t)0xFFFD) {
+		dst->set(dp, decode($nc(src)->get(sp++)));
+		if (dst->get(dp) == (char16_t)0xfffd) {
 			dst->set(dp, this->repl);
 		}
 		++dp;
@@ -265,7 +205,7 @@ bool SingleByte$Decoder::isLatin1Decodable() {
 	return this->isLatin1Decodable$;
 }
 
-void clinit$SingleByte$Decoder($Class* class$) {
+void SingleByte$Decoder::clinit$($Class* clazz) {
 	$assignStatic(SingleByte$Decoder::JLA, $SharedSecrets::getJavaLangAccess());
 }
 
@@ -273,7 +213,56 @@ SingleByte$Decoder::SingleByte$Decoder() {
 }
 
 $Class* SingleByte$Decoder::load$($String* name, bool initialize) {
-	$loadClass(SingleByte$Decoder, name, initialize, &_SingleByte$Decoder_ClassInfo_, clinit$SingleByte$Decoder, allocate$SingleByte$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SingleByte$Decoder, JLA)},
+		{"b2c", "[C", nullptr, $PRIVATE | $FINAL, $field(SingleByte$Decoder, b2c)},
+		{"isASCIICompatible", "Z", nullptr, $PRIVATE | $FINAL, $field(SingleByte$Decoder, isASCIICompatible$)},
+		{"isLatin1Decodable", "Z", nullptr, $PRIVATE | $FINAL, $field(SingleByte$Decoder, isLatin1Decodable$)},
+		{"repl", "C", nullptr, $PRIVATE, $field(SingleByte$Decoder, repl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/nio/charset/Charset;[C)V", nullptr, $PUBLIC, $method(SingleByte$Decoder, init$, void, $Charset*, $chars*)},
+		{"<init>", "(Ljava/nio/charset/Charset;[CZ)V", nullptr, $PUBLIC, $method(SingleByte$Decoder, init$, void, $Charset*, $chars*, bool)},
+		{"<init>", "(Ljava/nio/charset/Charset;[CZZ)V", nullptr, $PUBLIC, $method(SingleByte$Decoder, init$, void, $Charset*, $chars*, bool, bool)},
+		{"decode", "(I)C", nullptr, $PUBLIC | $FINAL, $method(SingleByte$Decoder, decode, char16_t, int32_t)},
+		{"decode", "([BII[C)I", nullptr, $PUBLIC, $virtualMethod(SingleByte$Decoder, decode, int32_t, $bytes*, int32_t, int32_t, $chars*)},
+		{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SingleByte$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SingleByte$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(SingleByte$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeToLatin1", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(SingleByte$Decoder, decodeToLatin1, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+		{"implReplaceWith", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SingleByte$Decoder, implReplaceWith, void, $String*)},
+		{"isASCIICompatible", "()Z", nullptr, $PUBLIC, $virtualMethod(SingleByte$Decoder, isASCIICompatible, bool)},
+		{"isLatin1Decodable", "()Z", nullptr, $PUBLIC, $virtualMethod(SingleByte$Decoder, isLatin1Decodable, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.SingleByte$Decoder", "sun.nio.cs.SingleByte", "Decoder", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.nio.cs.SingleByte$Decoder",
+		"java.nio.charset.CharsetDecoder",
+		"sun.nio.cs.ArrayDecoder",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.SingleByte"
+	};
+	$loadClass(SingleByte$Decoder, name, initialize, &classInfo$$, SingleByte$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SingleByte$Decoder));
+	});
 	return class$;
 }
 

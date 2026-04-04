@@ -15,6 +15,7 @@ class $export MessageFormatsByArgumentIndex : public ::java::lang::Object {
 	$class(MessageFormatsByArgumentIndex, 0, ::java::lang::Object)
 public:
 	MessageFormatsByArgumentIndex();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkPattern($String* actual, $String* expected);
 	static void checkSubformat($Array<::java::text::Format>* subformats, int32_t index, ::java::text::Format* expected);

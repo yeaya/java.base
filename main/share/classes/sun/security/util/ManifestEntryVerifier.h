@@ -43,6 +43,7 @@ class $export ManifestEntryVerifier : public ::java::lang::Object {
 	$class(ManifestEntryVerifier, 0, ::java::lang::Object)
 public:
 	ManifestEntryVerifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::jar::Manifest* man);
 	virtual ::java::util::jar::JarEntry* getEntry();
 	::sun::security::util::JarConstraintsParameters* getParams(::java::util::Map* verifiedSigners, ::java::util::Map* sigFileSigners);

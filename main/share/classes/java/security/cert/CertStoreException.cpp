@@ -1,5 +1,4 @@
 #include <java/security/cert/CertStoreException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _CertStoreException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertStoreException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CertStoreException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertStoreException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertStoreException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertStoreException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertStoreException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _CertStoreException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.cert.CertStoreException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_CertStoreException_FieldInfo_,
-	_CertStoreException_MethodInfo_
-};
-
-$Object* allocate$CertStoreException($Class* clazz) {
-	return $of($alloc(CertStoreException));
-}
 
 void CertStoreException::init$() {
 	$GeneralSecurityException::init$();
@@ -65,7 +38,28 @@ void CertStoreException::throw$() {
 }
 
 $Class* CertStoreException::load$($String* name, bool initialize) {
-	$loadClass(CertStoreException, name, initialize, &_CertStoreException_ClassInfo_, allocate$CertStoreException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertStoreException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertStoreException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertStoreException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertStoreException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertStoreException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.cert.CertStoreException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertStoreException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertStoreException);
+	});
 	return class$;
 }
 

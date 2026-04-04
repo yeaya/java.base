@@ -37,6 +37,7 @@ class UnixNativeDispatcher : public ::java::lang::Object {
 	$class(UnixNativeDispatcher, 0, ::java::lang::Object)
 public:
 	UnixNativeDispatcher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void access(::sun::nio::fs::UnixPath* path, int32_t amode);
 	static void access0(int64_t pathAddress, int32_t amode);

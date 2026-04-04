@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckAnnotationAdapter.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
@@ -35,38 +34,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$FieldInfo _CheckAnnotationAdapter_FieldInfo_[] = {
-	{"useNamedValue", "Z", nullptr, $PRIVATE | $FINAL, $field(CheckAnnotationAdapter, useNamedValue)},
-	{"visitEndCalled", "Z", nullptr, $PRIVATE, $field(CheckAnnotationAdapter, visitEndCalled)},
-	{}
-};
-
-$MethodInfo _CheckAnnotationAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;)V", nullptr, $PUBLIC, $method(CheckAnnotationAdapter, init$, void, $AnnotationVisitor*)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;Z)V", nullptr, 0, $method(CheckAnnotationAdapter, init$, void, $AnnotationVisitor*, bool)},
-	{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CheckAnnotationAdapter, checkName, void, $String*)},
-	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckAnnotationAdapter, checkVisitEndNotCalled, void)},
-	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visit, void, $String*, Object$*)},
-	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitAnnotation, $AnnotationVisitor*, $String*, $String*)},
-	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitArray, $AnnotationVisitor*, $String*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitEnd, void)},
-	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitEnum, void, $String*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _CheckAnnotationAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.CheckAnnotationAdapter",
-	"jdk.internal.org.objectweb.asm.AnnotationVisitor",
-	nullptr,
-	_CheckAnnotationAdapter_FieldInfo_,
-	_CheckAnnotationAdapter_MethodInfo_
-};
-
-$Object* allocate$CheckAnnotationAdapter($Class* clazz) {
-	return $of($alloc(CheckAnnotationAdapter));
-}
-
 void CheckAnnotationAdapter::init$($AnnotationVisitor* annotationVisitor) {
 	CheckAnnotationAdapter::init$(annotationVisitor, true);
 }
@@ -82,7 +49,7 @@ void CheckAnnotationAdapter::visit($String* name, Object$* value) {
 	if (!($instanceOf($Byte, value) || $instanceOf($Boolean, value) || $instanceOf($Character, value) || $instanceOf($Short, value) || $instanceOf($Integer, value) || $instanceOf($Long, value) || $instanceOf($Float, value) || $instanceOf($Double, value) || $instanceOf($String, value) || $instanceOf($Type, value) || $instanceOf($bytes, value) || $instanceOf($booleans, value) || $instanceOf($chars, value) || $instanceOf($shorts, value) || $instanceOf($ints, value) || $instanceOf($longs, value) || $instanceOf($floats, value) || $instanceOf($doubles, value))) {
 		$throwNew($IllegalArgumentException, "Invalid annotation value"_s);
 	}
-	if ($instanceOf($Type, value) && $nc(($cast($Type, value)))->getSort() == $Type::METHOD) {
+	if ($instanceOf($Type, value) && $cast($Type, value)->getSort() == $Type::METHOD) {
 		$throwNew($IllegalArgumentException, "Invalid annotation value"_s);
 	}
 	$AnnotationVisitor::visit(name, value);
@@ -133,7 +100,34 @@ CheckAnnotationAdapter::CheckAnnotationAdapter() {
 }
 
 $Class* CheckAnnotationAdapter::load$($String* name, bool initialize) {
-	$loadClass(CheckAnnotationAdapter, name, initialize, &_CheckAnnotationAdapter_ClassInfo_, allocate$CheckAnnotationAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"useNamedValue", "Z", nullptr, $PRIVATE | $FINAL, $field(CheckAnnotationAdapter, useNamedValue)},
+		{"visitEndCalled", "Z", nullptr, $PRIVATE, $field(CheckAnnotationAdapter, visitEndCalled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;)V", nullptr, $PUBLIC, $method(CheckAnnotationAdapter, init$, void, $AnnotationVisitor*)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;Z)V", nullptr, 0, $method(CheckAnnotationAdapter, init$, void, $AnnotationVisitor*, bool)},
+		{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CheckAnnotationAdapter, checkName, void, $String*)},
+		{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckAnnotationAdapter, checkVisitEndNotCalled, void)},
+		{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visit, void, $String*, Object$*)},
+		{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitAnnotation, $AnnotationVisitor*, $String*, $String*)},
+		{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitArray, $AnnotationVisitor*, $String*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitEnd, void)},
+		{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitEnum, void, $String*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.CheckAnnotationAdapter",
+		"jdk.internal.org.objectweb.asm.AnnotationVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CheckAnnotationAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckAnnotationAdapter);
+	});
 	return class$;
 }
 

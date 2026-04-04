@@ -1,5 +1,4 @@
 #include <java/lang/invoke/ConstantGroup$1Impl.h>
-
 #include <java/lang/invoke/AbstractConstantGroup$WithCache.h>
 #include <java/lang/invoke/ConstantGroup.h>
 #include <java/util/List.h>
@@ -19,51 +18,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _ConstantGroup$1Impl_FieldInfo_[] = {
-	{"val$constantProvider", "Ljava/util/function/IntFunction;", nullptr, $FINAL | $SYNTHETIC, $field(ConstantGroup$1Impl, val$constantProvider)},
-	{"val$ifNotPresent", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(ConstantGroup$1Impl, val$ifNotPresent)},
-	{"val$constants", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(ConstantGroup$1Impl, val$constants)},
-	{}
-};
-
-$MethodInfo _ConstantGroup$1Impl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/Object;Ljava/util/function/IntFunction;)V", "()V", 0, $method(ConstantGroup$1Impl, init$, void, $List*, Object$*, $IntFunction*)},
-	{"fillCache", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ConstantGroup$1Impl, fillCache, $Object*, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _ConstantGroup$1Impl_EnclosingMethodInfo_ = {
-	"java.lang.invoke.ConstantGroup",
-	"makeConstantGroup",
-	"(Ljava/util/List;Ljava/lang/Object;Ljava/util/function/IntFunction;)Ljava/lang/invoke/ConstantGroup;"
-};
-
-$InnerClassInfo _ConstantGroup$1Impl_InnerClassesInfo_[] = {
-	{"java.lang.invoke.ConstantGroup$1Impl", nullptr, "Impl", 0},
-	{"java.lang.invoke.AbstractConstantGroup$WithCache", "java.lang.invoke.AbstractConstantGroup", "WithCache", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ConstantGroup$1Impl_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.ConstantGroup$1Impl",
-	"java.lang.invoke.AbstractConstantGroup$WithCache",
-	nullptr,
-	_ConstantGroup$1Impl_FieldInfo_,
-	_ConstantGroup$1Impl_MethodInfo_,
-	nullptr,
-	&_ConstantGroup$1Impl_EnclosingMethodInfo_,
-	_ConstantGroup$1Impl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.ConstantGroup"
-};
-
-$Object* allocate$ConstantGroup$1Impl($Class* clazz) {
-	return $of($alloc(ConstantGroup$1Impl));
-}
-
 void ConstantGroup$1Impl::init$($List* val$constants, Object$* val$ifNotPresent, $IntFunction* val$constantProvider) {
 	$set(this, val$constants, val$constants);
 	$set(this, val$ifNotPresent, val$ifNotPresent);
@@ -76,14 +30,52 @@ $Object* ConstantGroup$1Impl::fillCache(int32_t index) {
 	if (this->val$constantProvider == nullptr) {
 		$AbstractConstantGroup$WithCache::fillCache(index);
 	}
-	return $of($nc(this->val$constantProvider)->apply(index));
+	return $nc(this->val$constantProvider)->apply(index);
 }
 
 ConstantGroup$1Impl::ConstantGroup$1Impl() {
 }
 
 $Class* ConstantGroup$1Impl::load$($String* name, bool initialize) {
-	$loadClass(ConstantGroup$1Impl, name, initialize, &_ConstantGroup$1Impl_ClassInfo_, allocate$ConstantGroup$1Impl);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$constantProvider", "Ljava/util/function/IntFunction;", nullptr, $FINAL | $SYNTHETIC, $field(ConstantGroup$1Impl, val$constantProvider)},
+		{"val$ifNotPresent", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(ConstantGroup$1Impl, val$ifNotPresent)},
+		{"val$constants", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(ConstantGroup$1Impl, val$constants)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/lang/Object;Ljava/util/function/IntFunction;)V", "()V", 0, $method(ConstantGroup$1Impl, init$, void, $List*, Object$*, $IntFunction*)},
+		{"fillCache", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ConstantGroup$1Impl, fillCache, $Object*, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.invoke.ConstantGroup",
+		"makeConstantGroup",
+		"(Ljava/util/List;Ljava/lang/Object;Ljava/util/function/IntFunction;)Ljava/lang/invoke/ConstantGroup;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.ConstantGroup$1Impl", nullptr, "Impl", 0},
+		{"java.lang.invoke.AbstractConstantGroup$WithCache", "java.lang.invoke.AbstractConstantGroup", "WithCache", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.ConstantGroup$1Impl",
+		"java.lang.invoke.AbstractConstantGroup$WithCache",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.ConstantGroup"
+	};
+	$loadClass(ConstantGroup$1Impl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConstantGroup$1Impl);
+	});
 	return class$;
 }
 

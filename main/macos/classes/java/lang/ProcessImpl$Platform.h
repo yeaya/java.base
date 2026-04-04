@@ -32,6 +32,7 @@ class ProcessImpl$Platform : public ::java::lang::Enum {
 public:
 	ProcessImpl$Platform();
 	static $Array<::java::lang::ProcessImpl$Platform>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $Array<::java::lang::ProcessImpl$LaunchMechanism>* launchMechanisms);
 	static ::java::lang::ProcessImpl$Platform* get();
 	::java::lang::ProcessImpl$LaunchMechanism* lambda$launchMechanism$0();

@@ -1,5 +1,4 @@
 #include <java/lang/Error.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,33 +7,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _Error_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Error, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Error_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Error, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Error, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Error, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Error, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PROTECTED, $method(Error, init$, void, $String*, $Throwable*, bool, bool)},
-	{}
-};
-
-$ClassInfo _Error_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.Error",
-	"java.lang.Throwable",
-	nullptr,
-	_Error_FieldInfo_,
-	_Error_MethodInfo_
-};
-
-$Object* allocate$Error($Class* clazz) {
-	return $of($alloc(Error));
-}
 
 void Error::init$() {
 	$Throwable::init$();
@@ -67,7 +39,29 @@ void Error::throw$() {
 }
 
 $Class* Error::load$($String* name, bool initialize) {
-	$loadClass(Error, name, initialize, &_Error_ClassInfo_, allocate$Error);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Error, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Error, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Error, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Error, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Error, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PROTECTED, $method(Error, init$, void, $String*, $Throwable*, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.Error",
+		"java.lang.Throwable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Error, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Error);
+	});
 	return class$;
 }
 

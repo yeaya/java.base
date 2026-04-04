@@ -45,6 +45,7 @@ class $import Subject : public ::java::io::Serializable {
 	$class(Subject, 0, ::java::io::Serializable)
 public:
 	Subject();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool readOnly, ::java::util::Set* principals, ::java::util::Set* pubCredentials, ::java::util::Set* privCredentials);
 	static ::java::util::LinkedList* collectionNullClean(::java::util::Collection* coll);
@@ -69,7 +70,7 @@ public:
 	virtual $String* toString() override;
 	$String* toString(bool includePrivateCredentials);
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0x8CB232930033FA68;
+	static const int64_t serialVersionUID = (int64_t)0x8cb232930033fa68;
 	::java::util::Set* principals = nullptr;
 	::java::util::Set* pubCredentials = nullptr;
 	::java::util::Set* privCredentials = nullptr;

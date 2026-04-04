@@ -1,5 +1,4 @@
 #include <AsyncCloseChannel$ServerThread.h>
-
 #include <AsyncCloseChannel.h>
 #include <java/io/IOException.h>
 #include <java/net/ServerSocket.h>
@@ -12,44 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ServerSocket = ::java::net::ServerSocket;
-
-$FieldInfo _AsyncCloseChannel$ServerThread_FieldInfo_[] = {
-	{"server", "Ljava/net/ServerSocket;", nullptr, 0, $field(AsyncCloseChannel$ServerThread, server)},
-	{}
-};
-
-$MethodInfo _AsyncCloseChannel$ServerThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AsyncCloseChannel$ServerThread, init$, void)},
-	{"interrupt", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$ServerThread, interrupt, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$ServerThread, run, void)},
-	{"runEx", "()V", nullptr, $ABSTRACT, $virtualMethod(AsyncCloseChannel$ServerThread, runEx, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _AsyncCloseChannel$ServerThread_InnerClassesInfo_[] = {
-	{"AsyncCloseChannel$ServerThread", "AsyncCloseChannel", "ServerThread", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AsyncCloseChannel$ServerThread_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"AsyncCloseChannel$ServerThread",
-	"java.lang.Thread",
-	nullptr,
-	_AsyncCloseChannel$ServerThread_FieldInfo_,
-	_AsyncCloseChannel$ServerThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AsyncCloseChannel$ServerThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"AsyncCloseChannel"
-};
-
-$Object* allocate$AsyncCloseChannel$ServerThread($Class* clazz) {
-	return $of($alloc(AsyncCloseChannel$ServerThread));
-}
 
 void AsyncCloseChannel$ServerThread::init$() {
 	$Thread::init$();
@@ -64,7 +25,7 @@ void AsyncCloseChannel$ServerThread::interrupt() {
 	$Thread::interrupt();
 	if (this->server != nullptr) {
 		try {
-			$nc(this->server)->close();
+			this->server->close();
 		} catch ($IOException& ex) {
 			ex->printStackTrace();
 		}
@@ -83,7 +44,39 @@ AsyncCloseChannel$ServerThread::AsyncCloseChannel$ServerThread() {
 }
 
 $Class* AsyncCloseChannel$ServerThread::load$($String* name, bool initialize) {
-	$loadClass(AsyncCloseChannel$ServerThread, name, initialize, &_AsyncCloseChannel$ServerThread_ClassInfo_, allocate$AsyncCloseChannel$ServerThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"server", "Ljava/net/ServerSocket;", nullptr, 0, $field(AsyncCloseChannel$ServerThread, server)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AsyncCloseChannel$ServerThread, init$, void)},
+		{"interrupt", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$ServerThread, interrupt, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$ServerThread, run, void)},
+		{"runEx", "()V", nullptr, $ABSTRACT, $virtualMethod(AsyncCloseChannel$ServerThread, runEx, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AsyncCloseChannel$ServerThread", "AsyncCloseChannel", "ServerThread", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"AsyncCloseChannel$ServerThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"AsyncCloseChannel"
+	};
+	$loadClass(AsyncCloseChannel$ServerThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AsyncCloseChannel$ServerThread);
+	});
 	return class$;
 }
 

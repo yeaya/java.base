@@ -29,6 +29,7 @@ class $export NumberFormatProviderImpl : public ::java::text::spi::NumberFormatP
 	$class(NumberFormatProviderImpl, 0, ::java::text::spi::NumberFormatProvider)
 public:
 	NumberFormatProviderImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::util::Locale>* getAvailableLocales() override;
 	virtual ::java::text::NumberFormat* getCompactNumberInstance(::java::util::Locale* locale, ::java::text::NumberFormat$Style* style) override;

@@ -36,6 +36,7 @@ class $import IsoFields : public ::java::lang::Object {
 	$class(IsoFields, 0, ::java::lang::Object)
 public:
 	IsoFields();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isIso(::java::time::temporal::TemporalAccessor* temporal);
 	static ::java::time::temporal::TemporalField* DAY_OF_QUARTER;

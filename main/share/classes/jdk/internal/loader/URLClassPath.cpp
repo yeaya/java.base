@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/URLClassPath.h>
-
 #include <java/io/File.h>
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
@@ -15,7 +14,6 @@
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
@@ -51,7 +49,6 @@ using $URLArray = $Array<::java::net::URL>;
 using $File = ::java::io::File;
 using $FilePermission = ::java::io::FilePermission;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -69,7 +66,6 @@ using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $ArrayDeque = ::java::util::ArrayDeque;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
@@ -95,78 +91,6 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$FieldInfo _URLClassPath_FieldInfo_[] = {
-	{"USER_AGENT_JAVA_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, USER_AGENT_JAVA_VERSION)},
-	{"JAVA_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, JAVA_VERSION)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, DEBUG)},
-	{"DISABLE_JAR_CHECKING", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, DISABLE_JAR_CHECKING)},
-	{"DISABLE_ACC_CHECKING", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, DISABLE_ACC_CHECKING)},
-	{"DISABLE_CP_URL_CHECK", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, DISABLE_CP_URL_CHECK)},
-	{"DEBUG_CP_URL_CHECK", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, DEBUG_CP_URL_CHECK)},
-	{"path", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/net/URL;>;", $PRIVATE | $FINAL, $field(URLClassPath, path)},
-	{"unopenedUrls", "Ljava/util/ArrayDeque;", "Ljava/util/ArrayDeque<Ljava/net/URL;>;", $PRIVATE | $FINAL, $field(URLClassPath, unopenedUrls)},
-	{"loaders", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljdk/internal/loader/URLClassPath$Loader;>;", $PRIVATE | $FINAL, $field(URLClassPath, loaders)},
-	{"lmap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljdk/internal/loader/URLClassPath$Loader;>;", $PRIVATE | $FINAL, $field(URLClassPath, lmap)},
-	{"jarHandler", "Ljava/net/URLStreamHandler;", nullptr, $PRIVATE | $FINAL, $field(URLClassPath, jarHandler)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(URLClassPath, closed)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(URLClassPath, acc)},
-	{"JNUA", "Ljdk/internal/access/JavaNetURLAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, JNUA)},
-	{}
-};
-
-$MethodInfo _URLClassPath_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;Ljava/net/URLStreamHandlerFactory;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(URLClassPath, init$, void, $URLArray*, $URLStreamHandlerFactory*, $AccessControlContext*)},
-	{"<init>", "([Ljava/net/URL;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(URLClassPath, init$, void, $URLArray*, $AccessControlContext*)},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(URLClassPath, init$, void, $String*, bool)},
-	{"addFile", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLClassPath, addFile, void, $String*)},
-	{"addURL", "(Ljava/net/URL;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(URLClassPath, addURL, void, $URL*)},
-	{"check", "(Ljava/net/URL;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLClassPath, check, void, $URL*), "java.io.IOException"},
-	{"checkURL", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLClassPath, checkURL, $URL*, $URL*)},
-	{"closeLoaders", "()Ljava/util/List;", "()Ljava/util/List<Ljava/io/IOException;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(URLClassPath, closeLoaders, $List*)},
-	{"findResource", "(Ljava/lang/String;Z)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath, findResource, $URL*, $String*, bool)},
-	{"findResources", "(Ljava/lang/String;Z)Ljava/util/Enumeration;", "(Ljava/lang/String;Z)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(URLClassPath, findResources, $Enumeration*, $String*, bool)},
-	{"getLoader", "(I)Ljdk/internal/loader/URLClassPath$Loader;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(URLClassPath, getLoader, $URLClassPath$Loader*, int32_t)},
-	{"getLoader", "(Ljava/net/URL;)Ljdk/internal/loader/URLClassPath$Loader;", nullptr, $PRIVATE, $method(URLClassPath, getLoader, $URLClassPath$Loader*, $URL*), "java.io.IOException"},
-	{"getResource", "(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC, $virtualMethod(URLClassPath, getResource, $Resource*, $String*, bool)},
-	{"getResource", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC, $virtualMethod(URLClassPath, getResource, $Resource*, $String*)},
-	{"getResources", "(Ljava/lang/String;Z)Ljava/util/Enumeration;", "(Ljava/lang/String;Z)Ljava/util/Enumeration<Ljdk/internal/loader/Resource;>;", $PUBLIC, $virtualMethod(URLClassPath, getResources, $Enumeration*, $String*, bool)},
-	{"getResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljdk/internal/loader/Resource;>;", $PUBLIC, $virtualMethod(URLClassPath, getResources, $Enumeration*, $String*)},
-	{"getURLs", "()[Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath, getURLs, $URLArray*)},
-	{"isDefaultJarHandler", "(Ljava/net/URL;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URLClassPath, isDefaultJarHandler, bool, $URL*)},
-	{"push", "([Ljava/net/URL;)V", nullptr, $PRIVATE, $method(URLClassPath, push, void, $URLArray*)},
-	{"toFileURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(URLClassPath, toFileURL, $URL*, $String*)},
-	{}
-};
-
-$InnerClassInfo _URLClassPath_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.URLClassPath$FileLoader", "jdk.internal.loader.URLClassPath", "FileLoader", $PRIVATE | $STATIC},
-	{"jdk.internal.loader.URLClassPath$JarLoader", "jdk.internal.loader.URLClassPath", "JarLoader", $PRIVATE | $STATIC},
-	{"jdk.internal.loader.URLClassPath$Loader", "jdk.internal.loader.URLClassPath", "Loader", $PRIVATE | $STATIC},
-	{"jdk.internal.loader.URLClassPath$3", nullptr, nullptr, 0},
-	{"jdk.internal.loader.URLClassPath$2", nullptr, nullptr, 0},
-	{"jdk.internal.loader.URLClassPath$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URLClassPath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.loader.URLClassPath",
-	"java.lang.Object",
-	nullptr,
-	_URLClassPath_FieldInfo_,
-	_URLClassPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URLClassPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.URLClassPath$FileLoader,jdk.internal.loader.URLClassPath$FileLoader$1,jdk.internal.loader.URLClassPath$JarLoader,jdk.internal.loader.URLClassPath$JarLoader$3,jdk.internal.loader.URLClassPath$JarLoader$2,jdk.internal.loader.URLClassPath$JarLoader$1,jdk.internal.loader.URLClassPath$Loader,jdk.internal.loader.URLClassPath$Loader$1,jdk.internal.loader.URLClassPath$3,jdk.internal.loader.URLClassPath$2,jdk.internal.loader.URLClassPath$1"
-};
-
-$Object* allocate$URLClassPath($Class* clazz) {
-	return $of($alloc(URLClassPath));
-}
-
 $String* URLClassPath::USER_AGENT_JAVA_VERSION = nullptr;
 $String* URLClassPath::JAVA_VERSION = nullptr;
 bool URLClassPath::DEBUG = false;
@@ -177,17 +101,15 @@ bool URLClassPath::DEBUG_CP_URL_CHECK = false;
 $JavaNetURLAccess* URLClassPath::JNUA = nullptr;
 
 void URLClassPath::init$($URLArray* urls, $URLStreamHandlerFactory* factory, $AccessControlContext* acc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, loaders, $new($ArrayList));
 	$set(this, lmap, $new($HashMap));
 	this->closed = false;
 	$var($ArrayList, path, $new($ArrayList, $nc(urls)->length));
-	$var($ArrayDeque, unopenedUrls, $new($ArrayDeque, $nc(urls)->length));
+	$var($ArrayDeque, unopenedUrls, $new($ArrayDeque, urls->length));
 	{
 		$var($URLArray, arr$, urls);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($URL, url, arr$->get(i$));
 			{
 				path->add(url);
@@ -214,7 +136,7 @@ void URLClassPath::init$($URLArray* urls, $AccessControlContext* acc) {
 }
 
 void URLClassPath::init$($String* cp, bool skipEmptyElements) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, loaders, $new($ArrayList));
 	$set(this, lmap, $new($HashMap));
 	this->closed = false;
@@ -238,7 +160,7 @@ void URLClassPath::init$($String* cp, bool skipEmptyElements) {
 	int32_t size = path->size();
 	$var($ArrayDeque, unopenedUrls, $new($ArrayDeque, size));
 	for (int32_t i = 0; i < size; ++i) {
-		unopenedUrls->add($cast($URL, $(path->get(i))));
+		unopenedUrls->add($$cast($URL, path->get(i)));
 	}
 	$set(this, unopenedUrls, unopenedUrls);
 	$set(this, path, path);
@@ -248,7 +170,7 @@ void URLClassPath::init$($String* cp, bool skipEmptyElements) {
 
 $List* URLClassPath::closeLoaders() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->closed) {
 			return $Collections::emptyList();
 		}
@@ -257,12 +179,10 @@ $List* URLClassPath::closeLoaders() {
 			$var($Iterator, i$, $nc(this->loaders)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($URLClassPath$Loader, loader, $cast($URLClassPath$Loader, i$->next()));
-				{
-					try {
-						$nc(loader)->close();
-					} catch ($IOException& e) {
-						result->add(e);
-					}
+				try {
+					$nc(loader)->close();
+				} catch ($IOException& e) {
+					result->add(e);
 				}
 			}
 		}
@@ -278,8 +198,8 @@ void URLClassPath::addURL($URL* url) {
 		}
 		$synchronized(this->unopenedUrls) {
 			if (!$nc(this->path)->contains(url)) {
-				$nc(this->unopenedUrls)->addLast(url);
-				$nc(this->path)->add(url);
+				this->unopenedUrls->addLast(url);
+				this->path->add(url);
 			}
 		}
 	}
@@ -294,7 +214,7 @@ void URLClassPath::addFile($String* s) {
 
 $URL* URLClassPath::toFileURL($String* s) {
 	$init(URLClassPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($File, f, $$new($File, s)->getCanonicalFile());
 		return $ParseUtil::fileToEncodedURL(f);
@@ -306,12 +226,12 @@ $URL* URLClassPath::toFileURL($String* s) {
 
 $URLArray* URLClassPath::getURLs() {
 	$synchronized(this->unopenedUrls) {
-		return $fcast($URLArray, $nc(this->path)->toArray($$new($URLArray, 0)));
+		return $cast($URLArray, $nc(this->path)->toArray($$new($URLArray, 0)));
 	}
 }
 
 $URL* URLClassPath::findResource($String* name, bool check) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URLClassPath$Loader, loader, nullptr);
 	for (int32_t i = 0; ($assign(loader, getLoader(i))) != nullptr; ++i) {
 		$var($URL, url, $nc(loader)->findResource(name, check));
@@ -323,7 +243,7 @@ $URL* URLClassPath::findResource($String* name, bool check) {
 }
 
 $Resource* URLClassPath::getResource($String* name, bool check) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (URLClassPath::DEBUG) {
 		$nc($System::err)->println($$str({"URLClassPath.getResource(\""_s, name, "\")"_s}));
 	}
@@ -355,14 +275,14 @@ $Enumeration* URLClassPath::getResources($String* name) {
 
 $URLClassPath$Loader* URLClassPath::getLoader(int32_t index) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->closed) {
 			return nullptr;
 		}
 		while ($nc(this->loaders)->size() < index + 1) {
 			$var($URL, url, nullptr);
 			$synchronized(this->unopenedUrls) {
-				$assign(url, $cast($URL, $nc(this->unopenedUrls)->pollFirst()));
+				$assign(url, $cast($URL, this->unopenedUrls->pollFirst()));
 				if (url == nullptr) {
 					return nullptr;
 				}
@@ -386,20 +306,20 @@ $URLClassPath$Loader* URLClassPath::getLoader(int32_t index) {
 				}
 				continue;
 			}
-			$nc(this->loaders)->add(loader);
-			$nc(this->lmap)->put(urlNoFragString, loader);
+			this->loaders->add(loader);
+			this->lmap->put(urlNoFragString, loader);
 		}
-		return $cast($URLClassPath$Loader, $nc(this->loaders)->get(index));
+		return $cast($URLClassPath$Loader, this->loaders->get(index));
 	}
 }
 
 $URLClassPath$Loader* URLClassPath::getLoader($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		return $cast($URLClassPath$Loader, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($URLClassPath$3, this, url)), this->acc));
+		return $cast($URLClassPath$Loader, $AccessController::doPrivileged($$new($URLClassPath$3, this, url), this->acc));
 	} catch ($PrivilegedActionException& pae) {
-		$throw($cast($IOException, $(pae->getException())));
+		$throw($$cast($IOException, pae->getException()));
 	}
 	$shouldNotReachHere();
 }
@@ -413,7 +333,7 @@ bool URLClassPath::isDefaultJarHandler($URL* u) {
 void URLClassPath::push($URLArray* urls) {
 	$synchronized(this->unopenedUrls) {
 		for (int32_t i = $nc(urls)->length - 1; i >= 0; --i) {
-			$nc(this->unopenedUrls)->addFirst(urls->get(i));
+			this->unopenedUrls->addFirst(urls->get(i));
 		}
 	}
 }
@@ -432,7 +352,7 @@ $URL* URLClassPath::checkURL($URL* url) {
 
 void URLClassPath::check($URL* url) {
 	$init(URLClassPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		$var($URLConnection, urlConnection, $nc(url)->openConnection());
@@ -441,14 +361,14 @@ void URLClassPath::check($URL* url) {
 			try {
 				security->checkPermission(perm);
 			} catch ($SecurityException& se) {
-				if (($instanceOf($FilePermission, perm)) && $nc($(perm->getActions()))->indexOf("read"_s) != -1) {
+				if (($instanceOf($FilePermission, perm)) && $$nc(perm->getActions())->indexOf("read"_s) != -1) {
 					security->checkRead($(perm->getName()));
-				} else if (($instanceOf($SocketPermission, perm)) && $nc($(perm->getActions()))->indexOf("connect"_s) != -1) {
+				} else if (($instanceOf($SocketPermission, perm)) && $$nc(perm->getActions())->indexOf("connect"_s) != -1) {
 					$var($URL, locUrl, url);
 					if ($instanceOf($JarURLConnection, urlConnection)) {
-						$assign(locUrl, $nc(($cast($JarURLConnection, urlConnection)))->getJarFileURL());
+						$assign(locUrl, $cast($JarURLConnection, urlConnection)->getJarFileURL());
 					}
-					$var($String, var$0, locUrl->getHost());
+					$var($String, var$0, $nc(locUrl)->getHost());
 					security->checkConnect(var$0, locUrl->getPort());
 				} else {
 					$throw(se);
@@ -458,8 +378,8 @@ void URLClassPath::check($URL* url) {
 	}
 }
 
-void clinit$URLClassPath($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void URLClassPath::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(URLClassPath::USER_AGENT_JAVA_VERSION, "UA-Java-Version"_s);
 	{
 		$var($Properties, props, $GetPropertyAction::privilegedGetProperties());
@@ -509,7 +429,73 @@ URLClassPath::URLClassPath() {
 }
 
 $Class* URLClassPath::load$($String* name, bool initialize) {
-	$loadClass(URLClassPath, name, initialize, &_URLClassPath_ClassInfo_, clinit$URLClassPath, allocate$URLClassPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"USER_AGENT_JAVA_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, USER_AGENT_JAVA_VERSION)},
+		{"JAVA_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, JAVA_VERSION)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, DEBUG)},
+		{"DISABLE_JAR_CHECKING", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, DISABLE_JAR_CHECKING)},
+		{"DISABLE_ACC_CHECKING", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, DISABLE_ACC_CHECKING)},
+		{"DISABLE_CP_URL_CHECK", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, DISABLE_CP_URL_CHECK)},
+		{"DEBUG_CP_URL_CHECK", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, DEBUG_CP_URL_CHECK)},
+		{"path", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/net/URL;>;", $PRIVATE | $FINAL, $field(URLClassPath, path)},
+		{"unopenedUrls", "Ljava/util/ArrayDeque;", "Ljava/util/ArrayDeque<Ljava/net/URL;>;", $PRIVATE | $FINAL, $field(URLClassPath, unopenedUrls)},
+		{"loaders", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljdk/internal/loader/URLClassPath$Loader;>;", $PRIVATE | $FINAL, $field(URLClassPath, loaders)},
+		{"lmap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljdk/internal/loader/URLClassPath$Loader;>;", $PRIVATE | $FINAL, $field(URLClassPath, lmap)},
+		{"jarHandler", "Ljava/net/URLStreamHandler;", nullptr, $PRIVATE | $FINAL, $field(URLClassPath, jarHandler)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(URLClassPath, closed)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(URLClassPath, acc)},
+		{"JNUA", "Ljdk/internal/access/JavaNetURLAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URLClassPath, JNUA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/net/URL;Ljava/net/URLStreamHandlerFactory;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(URLClassPath, init$, void, $URLArray*, $URLStreamHandlerFactory*, $AccessControlContext*)},
+		{"<init>", "([Ljava/net/URL;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(URLClassPath, init$, void, $URLArray*, $AccessControlContext*)},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(URLClassPath, init$, void, $String*, bool)},
+		{"addFile", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLClassPath, addFile, void, $String*)},
+		{"addURL", "(Ljava/net/URL;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(URLClassPath, addURL, void, $URL*)},
+		{"check", "(Ljava/net/URL;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLClassPath, check, void, $URL*), "java.io.IOException"},
+		{"checkURL", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLClassPath, checkURL, $URL*, $URL*)},
+		{"closeLoaders", "()Ljava/util/List;", "()Ljava/util/List<Ljava/io/IOException;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(URLClassPath, closeLoaders, $List*)},
+		{"findResource", "(Ljava/lang/String;Z)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath, findResource, $URL*, $String*, bool)},
+		{"findResources", "(Ljava/lang/String;Z)Ljava/util/Enumeration;", "(Ljava/lang/String;Z)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(URLClassPath, findResources, $Enumeration*, $String*, bool)},
+		{"getLoader", "(I)Ljdk/internal/loader/URLClassPath$Loader;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(URLClassPath, getLoader, $URLClassPath$Loader*, int32_t)},
+		{"getLoader", "(Ljava/net/URL;)Ljdk/internal/loader/URLClassPath$Loader;", nullptr, $PRIVATE, $method(URLClassPath, getLoader, $URLClassPath$Loader*, $URL*), "java.io.IOException"},
+		{"getResource", "(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC, $virtualMethod(URLClassPath, getResource, $Resource*, $String*, bool)},
+		{"getResource", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC, $virtualMethod(URLClassPath, getResource, $Resource*, $String*)},
+		{"getResources", "(Ljava/lang/String;Z)Ljava/util/Enumeration;", "(Ljava/lang/String;Z)Ljava/util/Enumeration<Ljdk/internal/loader/Resource;>;", $PUBLIC, $virtualMethod(URLClassPath, getResources, $Enumeration*, $String*, bool)},
+		{"getResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljdk/internal/loader/Resource;>;", $PUBLIC, $virtualMethod(URLClassPath, getResources, $Enumeration*, $String*)},
+		{"getURLs", "()[Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath, getURLs, $URLArray*)},
+		{"isDefaultJarHandler", "(Ljava/net/URL;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URLClassPath, isDefaultJarHandler, bool, $URL*)},
+		{"push", "([Ljava/net/URL;)V", nullptr, $PRIVATE, $method(URLClassPath, push, void, $URLArray*)},
+		{"toFileURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(URLClassPath, toFileURL, $URL*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.URLClassPath$FileLoader", "jdk.internal.loader.URLClassPath", "FileLoader", $PRIVATE | $STATIC},
+		{"jdk.internal.loader.URLClassPath$JarLoader", "jdk.internal.loader.URLClassPath", "JarLoader", $PRIVATE | $STATIC},
+		{"jdk.internal.loader.URLClassPath$Loader", "jdk.internal.loader.URLClassPath", "Loader", $PRIVATE | $STATIC},
+		{"jdk.internal.loader.URLClassPath$3", nullptr, nullptr, 0},
+		{"jdk.internal.loader.URLClassPath$2", nullptr, nullptr, 0},
+		{"jdk.internal.loader.URLClassPath$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.loader.URLClassPath",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.URLClassPath$FileLoader,jdk.internal.loader.URLClassPath$FileLoader$1,jdk.internal.loader.URLClassPath$JarLoader,jdk.internal.loader.URLClassPath$JarLoader$3,jdk.internal.loader.URLClassPath$JarLoader$2,jdk.internal.loader.URLClassPath$JarLoader$1,jdk.internal.loader.URLClassPath$Loader,jdk.internal.loader.URLClassPath$Loader$1,jdk.internal.loader.URLClassPath$3,jdk.internal.loader.URLClassPath$2,jdk.internal.loader.URLClassPath$1"
+	};
+	$loadClass(URLClassPath, name, initialize, &classInfo$$, URLClassPath::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(URLClassPath);
+	});
 	return class$;
 }
 

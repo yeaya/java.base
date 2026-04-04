@@ -15,6 +15,7 @@ class $export Supplementary4StringBuilder : public ::java::lang::Object {
 	$class(Supplementary4StringBuilder, 0, ::java::lang::Object)
 public:
 	Supplementary4StringBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check(bool err, $String* msg);
 	static void check(bool err, $String* s, int32_t got, int32_t expected);

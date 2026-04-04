@@ -1,5 +1,4 @@
 #include <sun/security/provider/PolicyFile$1.h>
-
 #include <java/security/Security.h>
 #include <sun/security/provider/PolicyFile.h>
 #include <jcpp.h>
@@ -16,54 +15,12 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _PolicyFile$1_FieldInfo_[] = {
-	{"this$0", "Lsun/security/provider/PolicyFile;", nullptr, $FINAL | $SYNTHETIC, $field(PolicyFile$1, this$0)},
-	{}
-};
-
-$MethodInfo _PolicyFile$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/PolicyFile;)V", nullptr, 0, $method(PolicyFile$1, init$, void, $PolicyFile*)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyFile$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _PolicyFile$1_EnclosingMethodInfo_ = {
-	"sun.security.provider.PolicyFile",
-	"init",
-	"(Ljava/net/URL;)V"
-};
-
-$InnerClassInfo _PolicyFile$1_InnerClassesInfo_[] = {
-	{"sun.security.provider.PolicyFile$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PolicyFile$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.PolicyFile$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_PolicyFile$1_FieldInfo_,
-	_PolicyFile$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_PolicyFile$1_EnclosingMethodInfo_,
-	_PolicyFile$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.PolicyFile"
-};
-
-$Object* allocate$PolicyFile$1($Class* clazz) {
-	return $of($alloc(PolicyFile$1));
-}
-
 void PolicyFile$1::init$($PolicyFile* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* PolicyFile$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->expandProperties = "true"_s->equalsIgnoreCase($($Security::getProperty("policy.expandProperties"_s)));
 	this->this$0->allowSystemProperties = "true"_s->equalsIgnoreCase($($Security::getProperty("policy.allowSystemProperty"_s)));
 	this->this$0->notUtf8 = "false"_s->equalsIgnoreCase($($System::getProperty("sun.security.policy.utf8"_s)));
@@ -74,7 +31,42 @@ PolicyFile$1::PolicyFile$1() {
 }
 
 $Class* PolicyFile$1::load$($String* name, bool initialize) {
-	$loadClass(PolicyFile$1, name, initialize, &_PolicyFile$1_ClassInfo_, allocate$PolicyFile$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/provider/PolicyFile;", nullptr, $FINAL | $SYNTHETIC, $field(PolicyFile$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/provider/PolicyFile;)V", nullptr, 0, $method(PolicyFile$1, init$, void, $PolicyFile*)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyFile$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.provider.PolicyFile",
+		"init",
+		"(Ljava/net/URL;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.PolicyFile$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.PolicyFile$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.PolicyFile"
+	};
+	$loadClass(PolicyFile$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PolicyFile$1);
+	});
 	return class$;
 }
 

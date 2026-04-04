@@ -1,5 +1,4 @@
 #include <java/lang/invoke/NativeMethodHandle.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/NoSuchMethodException.h>
@@ -32,7 +31,6 @@ using $LambdaForm$NameArray = $Array<::java::lang::invoke::LambdaForm$Name>;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -55,61 +53,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$CompoundAttribute _NativeMethodHandle_MethodAnnotations_internalFallback3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _NativeMethodHandle_MethodAnnotations_internalNativeEntryPoint4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _NativeMethodHandle_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeMethodHandle, $assertionsDisabled)},
-	{"nep", "Ljdk/internal/invoke/NativeEntryPoint;", nullptr, $FINAL, $field(NativeMethodHandle, nep)},
-	{"fallback", "Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL, $field(NativeMethodHandle, fallback)},
-	{"IMPL_NAMES", "Ljava/lang/invoke/MemberName$Factory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeMethodHandle, IMPL_NAMES)},
-	{}
-};
-
-$MethodInfo _NativeMethodHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodHandle;Ljdk/internal/invoke/NativeEntryPoint;)V", nullptr, $PRIVATE, $method(NativeMethodHandle, init$, void, $MethodType*, $LambdaForm*, $MethodHandle*, $NativeEntryPoint*)},
-	{"allTypesPrimitive", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethodHandle, allTypesPrimitive, bool, $MethodType*)},
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL, $virtualMethod(NativeMethodHandle, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
-	{"internalFallback", "(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(NativeMethodHandle, internalFallback, $MethodHandle*, Object$*), nullptr, nullptr, _NativeMethodHandle_MethodAnnotations_internalFallback3},
-	{"internalNativeEntryPoint", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(NativeMethodHandle, internalNativeEntryPoint, $Object*, Object$*), nullptr, nullptr, _NativeMethodHandle_MethodAnnotations_internalNativeEntryPoint4},
-	{"make", "(Ljdk/internal/invoke/NativeEntryPoint;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(NativeMethodHandle, make, $MethodHandle*, $NativeEntryPoint*, $MethodHandle*)},
-	{"makePreparedLambdaForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethodHandle, makePreparedLambdaForm, $LambdaForm*, $MethodType*)},
-	{"preparedLambdaForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethodHandle, preparedLambdaForm, $LambdaForm*, $MethodType*)},
-	{"rebind", "()Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(NativeMethodHandle, rebind, $BoundMethodHandle*)},
-	{}
-};
-
-$InnerClassInfo _NativeMethodHandle_InnerClassesInfo_[] = {
-	{"java.lang.invoke.NativeMethodHandle$Lazy", "java.lang.invoke.NativeMethodHandle", "Lazy", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _NativeMethodHandle_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.NativeMethodHandle",
-	"java.lang.invoke.MethodHandle",
-	nullptr,
-	_NativeMethodHandle_FieldInfo_,
-	_NativeMethodHandle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativeMethodHandle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.NativeMethodHandle$Lazy"
-};
-
-$Object* allocate$NativeMethodHandle($Class* clazz) {
-	return $of($alloc(NativeMethodHandle));
-}
-
 bool NativeMethodHandle::$assertionsDisabled = false;
 $MemberName$Factory* NativeMethodHandle::IMPL_NAMES = nullptr;
 
@@ -121,14 +64,18 @@ void NativeMethodHandle::init$($MethodType* type, $LambdaForm* form, $MethodHand
 
 $MethodHandle* NativeMethodHandle::make($NativeEntryPoint* nep, $MethodHandle* fallback) {
 	$init(NativeMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodType, type, $nc(nep)->type());
 	if (!allTypesPrimitive(type)) {
 		$throwNew($IllegalArgumentException, $$str({"Type must only contain primitives: "_s, type}));
 	}
 	if (type != $nc(fallback)->type()) {
-		$var($String, var$0, $$str({"Type of fallback must match: "_s, type, " != "_s}));
-		$throwNew($IllegalArgumentException, $$concat(var$0, $(fallback->type())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Type of fallback must match: "_s);
+		var$0->append(type);
+		var$0->append(" != "_s);
+		var$0->append($(fallback->type()));
+		$throwNew($IllegalArgumentException, $$str(var$0));
 	}
 	$var($LambdaForm, lform, preparedLambdaForm(type));
 	return $new(NativeMethodHandle, type, lform, fallback, nep);
@@ -136,20 +83,16 @@ $MethodHandle* NativeMethodHandle::make($NativeEntryPoint* nep, $MethodHandle* f
 
 bool NativeMethodHandle::allTypesPrimitive($MethodType* type) {
 	$init(NativeMethodHandle);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($cast($Class, $nc(type)->returnType())))->isPrimitive()) {
+	$useLocalObjectStack();
+	if (!$$sure($Class, $nc(type)->returnType())->isPrimitive()) {
 		return false;
 	}
 	{
-		$var($ClassArray, arr$, $fcast($ClassArray, $nc(type)->parameterArray()));
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($ClassArray, arr$, $cast($ClassArray, type->parameterArray()));
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* pType = arr$->get(i$);
-			{
-				if (!$nc(pType)->isPrimitive()) {
-					return false;
-				}
+			if (!$nc(pType)->isPrimitive()) {
+				return false;
 			}
 		}
 	}
@@ -158,29 +101,29 @@ bool NativeMethodHandle::allTypesPrimitive($MethodType* type) {
 
 $LambdaForm* NativeMethodHandle::preparedLambdaForm($MethodType* mtype$renamed) {
 	$init(NativeMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodType, mtype, mtype$renamed);
 	int32_t id = $MethodTypeForm::LF_INVNATIVE;
 	$assign(mtype, $nc(mtype)->basicType());
-	$var($LambdaForm, lform, $nc($(mtype->form()))->cachedLambdaForm(id));
+	$var($LambdaForm, lform, $$nc($nc(mtype)->form())->cachedLambdaForm(id));
 	if (lform != nullptr) {
 		return lform;
 	}
 	$assign(lform, makePreparedLambdaForm(mtype));
-	return $nc($(mtype->form()))->setCachedLambdaForm(id, lform);
+	return $$nc(mtype->form())->setCachedLambdaForm(id, lform);
 }
 
 $LambdaForm* NativeMethodHandle::makePreparedLambdaForm($MethodType* mtype) {
 	$init(NativeMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($MethodHandle);
-	$var($MethodType, linkerType, $nc($($nc(mtype)->insertParameterTypes(0, $$new($ClassArray, {$MethodHandle::class$}))))->appendParameterTypes($$new($ClassArray, {$Object::class$})));
-	$var($MemberName, linker, $new($MemberName, $MethodHandle::class$, "linkToNative"_s, linkerType, (int8_t)6));
+	$var($MethodType, linkerType, $$nc($nc(mtype)->insertParameterTypes(0, $$new($ClassArray, {$MethodHandle::class$})))->appendParameterTypes($$new($ClassArray, {$Object::class$})));
+	$var($MemberName, linker, $new($MemberName, $MethodHandle::class$, "linkToNative"_s, linkerType, 6));
 	try {
 		$load($NoSuchMethodException);
-		$assign(linker, $nc(NativeMethodHandle::IMPL_NAMES)->resolveOrFail((int8_t)6, linker, nullptr, -1, $NoSuchMethodException::class$));
+		$assign(linker, $nc(NativeMethodHandle::IMPL_NAMES)->resolveOrFail(6, linker, nullptr, -1, $NoSuchMethodException::class$));
 	} catch ($ReflectiveOperationException& ex) {
-		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
+		$throw($($MethodHandleStatics::newInternalError(ex)));
 	}
 	int32_t NMH_THIS = 0;
 	int32_t ARG_BASE = 1;
@@ -194,8 +137,8 @@ $LambdaForm* NativeMethodHandle::makePreparedLambdaForm($MethodType* mtype) {
 		$throwNew($AssertionError);
 	}
 	$init($NativeMethodHandle$Lazy);
-	$nc(names)->set(GET_FALLBACK, $$new($LambdaForm$Name, $NativeMethodHandle$Lazy::NF_internalFallback, $$new($ObjectArray, {$of(names->get(NMH_THIS))})));
-	names->set(GET_NEP, $$new($LambdaForm$Name, $NativeMethodHandle$Lazy::NF_internalNativeEntryPoint, $$new($ObjectArray, {$of(names->get(NMH_THIS))})));
+	$nc(names)->set(GET_FALLBACK, $$new($LambdaForm$Name, $NativeMethodHandle$Lazy::NF_internalFallback, $$new($ObjectArray, {$nc(names)->get(NMH_THIS)})));
+	names->set(GET_NEP, $$new($LambdaForm$Name, $NativeMethodHandle$Lazy::NF_internalNativeEntryPoint, $$new($ObjectArray, {names->get(NMH_THIS)})));
 	$var($ObjectArray, outArgs, $new($ObjectArray, $nc(linkerType)->parameterCount()));
 	outArgs->set(0, names->get(GET_FALLBACK));
 	$System::arraycopy(names, ARG_BASE, outArgs, 1, mtype->parameterCount());
@@ -207,7 +150,7 @@ $LambdaForm* NativeMethodHandle::makePreparedLambdaForm($MethodType* mtype) {
 }
 
 $MethodHandle* NativeMethodHandle::copyWith($MethodType* mt, $LambdaForm* lf) {
-	if (!NativeMethodHandle::$assertionsDisabled && !($of(this)->getClass() == NativeMethodHandle::class$)) {
+	if (!NativeMethodHandle::$assertionsDisabled && !(this->getClass() == NativeMethodHandle::class$)) {
 		$throwNew($AssertionError);
 	}
 	return $new(NativeMethodHandle, mt, lf, this->fallback, this->nep);
@@ -219,15 +162,15 @@ $BoundMethodHandle* NativeMethodHandle::rebind() {
 
 $Object* NativeMethodHandle::internalNativeEntryPoint(Object$* mh) {
 	$init(NativeMethodHandle);
-	return $of($nc(($cast(NativeMethodHandle, mh)))->nep);
+	return $nc($cast(NativeMethodHandle, mh))->nep;
 }
 
 $MethodHandle* NativeMethodHandle::internalFallback(Object$* mh) {
 	$init(NativeMethodHandle);
-	return $nc(($cast(NativeMethodHandle, mh)))->fallback;
+	return $nc($cast(NativeMethodHandle, mh))->fallback;
 }
 
-void clinit$NativeMethodHandle($Class* class$) {
+void NativeMethodHandle::clinit$($Class* clazz) {
 	NativeMethodHandle::$assertionsDisabled = !NativeMethodHandle::class$->desiredAssertionStatus();
 	$assignStatic(NativeMethodHandle::IMPL_NAMES, $MemberName::getFactory());
 }
@@ -236,7 +179,54 @@ NativeMethodHandle::NativeMethodHandle() {
 }
 
 $Class* NativeMethodHandle::load$($String* name, bool initialize) {
-	$loadClass(NativeMethodHandle, name, initialize, &_NativeMethodHandle_ClassInfo_, clinit$NativeMethodHandle, allocate$NativeMethodHandle);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeMethodHandle, $assertionsDisabled)},
+		{"nep", "Ljdk/internal/invoke/NativeEntryPoint;", nullptr, $FINAL, $field(NativeMethodHandle, nep)},
+		{"fallback", "Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL, $field(NativeMethodHandle, fallback)},
+		{"IMPL_NAMES", "Ljava/lang/invoke/MemberName$Factory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeMethodHandle, IMPL_NAMES)},
+		{}
+	};
+	$CompoundAttribute internalFallbackmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute internalNativeEntryPointmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodHandle;Ljdk/internal/invoke/NativeEntryPoint;)V", nullptr, $PRIVATE, $method(NativeMethodHandle, init$, void, $MethodType*, $LambdaForm*, $MethodHandle*, $NativeEntryPoint*)},
+		{"allTypesPrimitive", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethodHandle, allTypesPrimitive, bool, $MethodType*)},
+		{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL, $virtualMethod(NativeMethodHandle, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
+		{"internalFallback", "(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(NativeMethodHandle, internalFallback, $MethodHandle*, Object$*), nullptr, nullptr, internalFallbackmethodAnnotations$$},
+		{"internalNativeEntryPoint", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(NativeMethodHandle, internalNativeEntryPoint, $Object*, Object$*), nullptr, nullptr, internalNativeEntryPointmethodAnnotations$$},
+		{"make", "(Ljdk/internal/invoke/NativeEntryPoint;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(NativeMethodHandle, make, $MethodHandle*, $NativeEntryPoint*, $MethodHandle*)},
+		{"makePreparedLambdaForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethodHandle, makePreparedLambdaForm, $LambdaForm*, $MethodType*)},
+		{"preparedLambdaForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethodHandle, preparedLambdaForm, $LambdaForm*, $MethodType*)},
+		{"rebind", "()Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(NativeMethodHandle, rebind, $BoundMethodHandle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.NativeMethodHandle$Lazy", "java.lang.invoke.NativeMethodHandle", "Lazy", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.NativeMethodHandle",
+		"java.lang.invoke.MethodHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.NativeMethodHandle$Lazy"
+	};
+	$loadClass(NativeMethodHandle, name, initialize, &classInfo$$, NativeMethodHandle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeMethodHandle);
+	});
 	return class$;
 }
 

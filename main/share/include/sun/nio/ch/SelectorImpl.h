@@ -54,6 +54,7 @@ public:
 	using ::java::nio::channels::spi::AbstractSelector::cancel;
 	using ::java::nio::channels::spi::AbstractSelector::begin;
 	using ::java::nio::channels::spi::AbstractSelector::end;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::SelectorProvider* sp);
 	void begin(bool blocking);
 	virtual void cancel(::sun::nio::ch::SelectionKeyImpl* ski);

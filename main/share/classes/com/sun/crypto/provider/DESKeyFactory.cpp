@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DESKeyFactory.h>
-
 #include <com/sun/crypto/provider/DESKey.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/spec/InvalidKeySpecException.h>
@@ -28,61 +27,38 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _DESKeyFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DESKeyFactory, init$, void)},
-	{"engineGenerateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DESKeyFactory, engineGenerateSecret, $SecretKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
-	{"engineGetKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PROTECTED, $virtualMethod(DESKeyFactory, engineGetKeySpec, $KeySpec*, $SecretKey*, $Class*), "java.security.spec.InvalidKeySpecException"},
-	{"engineTranslateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DESKeyFactory, engineTranslateKey, $SecretKey*, $SecretKey*), "java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _DESKeyFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DESKeyFactory",
-	"javax.crypto.SecretKeyFactorySpi",
-	nullptr,
-	nullptr,
-	_DESKeyFactory_MethodInfo_
-};
-
-$Object* allocate$DESKeyFactory($Class* clazz) {
-	return $of($alloc(DESKeyFactory));
-}
-
 void DESKeyFactory::init$() {
 	$SecretKeyFactorySpi::init$();
 }
 
 $SecretKey* DESKeyFactory::engineGenerateSecret($KeySpec* keySpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, encoded, nullptr);
 		if ($instanceOf($DESKeySpec, keySpec)) {
-			$assign(encoded, $nc(($cast($DESKeySpec, keySpec)))->getKey());
+			$assign(encoded, $cast($DESKeySpec, keySpec)->getKey());
 		} else if ($instanceOf($SecretKeySpec, keySpec)) {
-			$assign(encoded, $nc(($cast($SecretKeySpec, keySpec)))->getEncoded());
+			$assign(encoded, $cast($SecretKeySpec, keySpec)->getEncoded());
 		} else {
 			$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($SecretKey, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$assign(var$2, $new($DESKey, encoded));
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$Arrays::fill(encoded, (int8_t)0);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		$var($Throwable, var$0, nullptr);
+		$var($SecretKey, var$2, nullptr);
+		bool return$1 = false;
+		try {
+			$assign(var$2, $new($DESKey, encoded));
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			$Arrays::fill(encoded, (int8_t)0);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($InvalidKeyException& e) {
 		$throwNew($InvalidKeySpecException, $(e->getMessage()));
@@ -91,34 +67,32 @@ $SecretKey* DESKeyFactory::engineGenerateSecret($KeySpec* keySpec) {
 }
 
 $KeySpec* DESKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		bool var$0 = ($instanceOf($SecretKey, key)) && ($nc($($nc(key)->getAlgorithm()))->equalsIgnoreCase("DES"_s));
-		if (var$0 && ($nc($(key->getFormat()))->equalsIgnoreCase("RAW"_s))) {
+		bool var$0 = ($instanceOf($SecretKey, key)) && ($$nc(key->getAlgorithm())->equalsIgnoreCase("DES"_s));
+		if (var$0 && ($$nc(key->getFormat())->equalsIgnoreCase("RAW"_s))) {
 			$load($DESKeySpec);
 			if ((keySpec != nullptr) && keySpec->isAssignableFrom($DESKeySpec::class$)) {
 				$var($bytes, encoded, key->getEncoded());
-				{
-					$var($Throwable, var$1, nullptr);
-					$var($KeySpec, var$3, nullptr);
-					bool return$2 = false;
-					try {
-						$assign(var$3, $new($DESKeySpec, encoded));
-						return$2 = true;
-						goto $finally;
-					} catch ($Throwable& var$4) {
-						$assign(var$1, var$4);
-					} $finally: {
-						if (encoded != nullptr) {
-							$Arrays::fill(encoded, (int8_t)0);
-						}
+				$var($Throwable, var$1, nullptr);
+				$var($KeySpec, var$3, nullptr);
+				bool return$2 = false;
+				try {
+					$assign(var$3, $new($DESKeySpec, encoded));
+					return$2 = true;
+					goto $finally;
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
+				} $finally: {
+					if (encoded != nullptr) {
+						$Arrays::fill(encoded, (int8_t)0);
 					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
-					}
-					if (return$2) {
-						return var$3;
-					}
+				}
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+				if (return$2) {
+					return var$3;
 				}
 			} else {
 				$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
@@ -133,10 +107,10 @@ $KeySpec* DESKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpec) {
 }
 
 $SecretKey* DESKeyFactory::engineTranslateKey($SecretKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		bool var$0 = (key != nullptr) && ($nc($(key->getAlgorithm()))->equalsIgnoreCase("DES"_s));
-		if (var$0 && ($nc($(key->getFormat()))->equalsIgnoreCase("RAW"_s))) {
+		bool var$0 = (key != nullptr) && ($$nc(key->getAlgorithm())->equalsIgnoreCase("DES"_s));
+		if (var$0 && ($$nc(key->getFormat())->equalsIgnoreCase("RAW"_s))) {
 			if ($instanceOf($DESKey, key)) {
 				return key;
 			}
@@ -156,7 +130,24 @@ DESKeyFactory::DESKeyFactory() {
 }
 
 $Class* DESKeyFactory::load$($String* name, bool initialize) {
-	$loadClass(DESKeyFactory, name, initialize, &_DESKeyFactory_ClassInfo_, allocate$DESKeyFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DESKeyFactory, init$, void)},
+		{"engineGenerateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DESKeyFactory, engineGenerateSecret, $SecretKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+		{"engineGetKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PROTECTED, $virtualMethod(DESKeyFactory, engineGetKeySpec, $KeySpec*, $SecretKey*, $Class*), "java.security.spec.InvalidKeySpecException"},
+		{"engineTranslateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DESKeyFactory, engineTranslateKey, $SecretKey*, $SecretKey*), "java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DESKeyFactory",
+		"javax.crypto.SecretKeyFactorySpi",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DESKeyFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DESKeyFactory);
+	});
 	return class$;
 }
 

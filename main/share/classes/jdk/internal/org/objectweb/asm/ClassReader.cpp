@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/ClassReader.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -407,95 +406,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 
-$CompoundAttribute _ClassReader_FieldAnnotations_b[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ClassReader_FieldInfo_[] = {
-	{"SKIP_CODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassReader, SKIP_CODE)},
-	{"SKIP_DEBUG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassReader, SKIP_DEBUG)},
-	{"SKIP_FRAMES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassReader, SKIP_FRAMES)},
-	{"EXPAND_FRAMES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassReader, EXPAND_FRAMES)},
-	{"EXPAND_ASM_INSNS", "I", nullptr, $STATIC | $FINAL, $constField(ClassReader, EXPAND_ASM_INSNS)},
-	{"INPUT_STREAM_DATA_CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassReader, INPUT_STREAM_DATA_CHUNK_SIZE)},
-	{"b", "[B", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $field(ClassReader, b), _ClassReader_FieldAnnotations_b},
-	{"classFileBuffer", "[B", nullptr, $FINAL, $field(ClassReader, classFileBuffer)},
-	{"cpInfoOffsets", "[I", nullptr, $PRIVATE | $FINAL, $field(ClassReader, cpInfoOffsets)},
-	{"constantUtf8Values", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassReader, constantUtf8Values)},
-	{"constantDynamicValues", "[Ljdk/internal/org/objectweb/asm/ConstantDynamic;", nullptr, $PRIVATE | $FINAL, $field(ClassReader, constantDynamicValues)},
-	{"bootstrapMethodOffsets", "[I", nullptr, $PRIVATE | $FINAL, $field(ClassReader, bootstrapMethodOffsets)},
-	{"maxStringLength", "I", nullptr, $PRIVATE | $FINAL, $field(ClassReader, maxStringLength)},
-	{"header", "I", nullptr, $PUBLIC | $FINAL, $field(ClassReader, header)},
-	{}
-};
-
-$MethodInfo _ClassReader_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ClassReader, init$, void, $bytes*)},
-	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(ClassReader, init$, void, $bytes*, int32_t, int32_t)},
-	{"<init>", "([BIZ)V", nullptr, 0, $method(ClassReader, init$, void, $bytes*, int32_t, bool)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ClassReader, init$, void, $InputStream*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassReader, init$, void, $String*), "java.io.IOException"},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;I)V", nullptr, $PUBLIC, $virtualMethod(ClassReader, accept, void, $ClassVisitor*, int32_t)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;[Ljdk/internal/org/objectweb/asm/Attribute;I)V", nullptr, $PUBLIC, $virtualMethod(ClassReader, accept, void, $ClassVisitor*, $AttributeArray*, int32_t)},
-	{"computeImplicitFrame", "(Ljdk/internal/org/objectweb/asm/Context;)V", nullptr, $PRIVATE, $method(ClassReader, computeImplicitFrame, void, $Context*)},
-	{"createDebugLabel", "(I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PRIVATE, $method(ClassReader, createDebugLabel, void, int32_t, $LabelArray*)},
-	{"createLabel", "(I[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PRIVATE, $method(ClassReader, createLabel, $Label*, int32_t, $LabelArray*)},
-	{"getAccess", "()I", nullptr, $PUBLIC, $virtualMethod(ClassReader, getAccess, int32_t)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, getClassName, $String*)},
-	{"getFirstAttributeOffset", "()I", nullptr, $FINAL, $method(ClassReader, getFirstAttributeOffset, int32_t)},
-	{"getInterfaces", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, getInterfaces, $StringArray*)},
-	{"getItem", "(I)I", nullptr, $PUBLIC, $virtualMethod(ClassReader, getItem, int32_t, int32_t)},
-	{"getItemCount", "()I", nullptr, $PUBLIC, $virtualMethod(ClassReader, getItemCount, int32_t)},
-	{"getMaxStringLength", "()I", nullptr, $PUBLIC, $virtualMethod(ClassReader, getMaxStringLength, int32_t)},
-	{"getSuperName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, getSuperName, $String*)},
-	{"getTypeAnnotationBytecodeOffset", "([II)I", nullptr, $PRIVATE, $method(ClassReader, getTypeAnnotationBytecodeOffset, int32_t, $ints*, int32_t)},
-	{"readAttribute", "([Ljdk/internal/org/objectweb/asm/Attribute;Ljava/lang/String;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PRIVATE, $method(ClassReader, readAttribute, $Attribute*, $AttributeArray*, $String*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
-	{"readBootstrapMethodsAttribute", "(I)[I", nullptr, $PRIVATE, $method(ClassReader, readBootstrapMethodsAttribute, $ints*, int32_t)},
-	{"readByte", "(I)I", nullptr, $PUBLIC, $virtualMethod(ClassReader, readByte, int32_t, int32_t)},
-	{"readClass", "(I[C)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, readClass, $String*, int32_t, $chars*)},
-	{"readCode", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/Context;I)V", nullptr, $PRIVATE, $method(ClassReader, readCode, void, $MethodVisitor*, $Context*, int32_t)},
-	{"readConst", "(I[C)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader, readConst, $Object*, int32_t, $chars*)},
-	{"readConstantDynamic", "(I[C)Ljdk/internal/org/objectweb/asm/ConstantDynamic;", nullptr, $PRIVATE, $method(ClassReader, readConstantDynamic, $ConstantDynamic*, int32_t, $chars*)},
-	{"readElementValue", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;ILjava/lang/String;[C)I", nullptr, $PRIVATE, $method(ClassReader, readElementValue, int32_t, $AnnotationVisitor*, int32_t, $String*, $chars*)},
-	{"readElementValues", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;IZ[C)I", nullptr, $PRIVATE, $method(ClassReader, readElementValues, int32_t, $AnnotationVisitor*, int32_t, bool, $chars*)},
-	{"readField", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/Context;I)I", nullptr, $PRIVATE, $method(ClassReader, readField, int32_t, $ClassVisitor*, $Context*, int32_t)},
-	{"readInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(ClassReader, readInt, int32_t, int32_t)},
-	{"readLabel", "(I[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PROTECTED, $virtualMethod(ClassReader, readLabel, $Label*, int32_t, $LabelArray*)},
-	{"readLong", "(I)J", nullptr, $PUBLIC, $virtualMethod(ClassReader, readLong, int64_t, int32_t)},
-	{"readMethod", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/Context;I)I", nullptr, $PRIVATE, $method(ClassReader, readMethod, int32_t, $ClassVisitor*, $Context*, int32_t)},
-	{"readModule", "(I[C)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, readModule, $String*, int32_t, $chars*)},
-	{"readModuleAttributes", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/Context;IILjava/lang/String;)V", nullptr, $PRIVATE, $method(ClassReader, readModuleAttributes, void, $ClassVisitor*, $Context*, int32_t, int32_t, $String*)},
-	{"readPackage", "(I[C)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, readPackage, $String*, int32_t, $chars*)},
-	{"readParameterAnnotations", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/Context;IZ)V", nullptr, $PRIVATE, $method(ClassReader, readParameterAnnotations, void, $MethodVisitor*, $Context*, int32_t, bool)},
-	{"readRecordComponent", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/Context;I)I", nullptr, $PRIVATE, $method(ClassReader, readRecordComponent, int32_t, $ClassVisitor*, $Context*, int32_t)},
-	{"readShort", "(I)S", nullptr, $PUBLIC, $virtualMethod(ClassReader, readShort, int16_t, int32_t)},
-	{"readStackMapFrame", "(IZZLjdk/internal/org/objectweb/asm/Context;)I", nullptr, $PRIVATE, $method(ClassReader, readStackMapFrame, int32_t, int32_t, bool, bool, $Context*)},
-	{"readStream", "(Ljava/io/InputStream;Z)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ClassReader, readStream, $bytes*, $InputStream*, bool), "java.io.IOException"},
-	{"readStringish", "(I[C)Ljava/lang/String;", nullptr, $PRIVATE, $method(ClassReader, readStringish, $String*, int32_t, $chars*)},
-	{"readTypeAnnotationTarget", "(Ljdk/internal/org/objectweb/asm/Context;I)I", nullptr, $PRIVATE, $method(ClassReader, readTypeAnnotationTarget, int32_t, $Context*, int32_t)},
-	{"readTypeAnnotations", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/Context;IZ)[I", nullptr, $PRIVATE, $method(ClassReader, readTypeAnnotations, $ints*, $MethodVisitor*, $Context*, int32_t, bool)},
-	{"readUTF8", "(I[C)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, readUTF8, $String*, int32_t, $chars*)},
-	{"readUnsignedShort", "(I)I", nullptr, $PUBLIC, $virtualMethod(ClassReader, readUnsignedShort, int32_t, int32_t)},
-	{"readUtf", "(I[C)Ljava/lang/String;", nullptr, $FINAL, $method(ClassReader, readUtf, $String*, int32_t, $chars*)},
-	{"readUtf", "(II[C)Ljava/lang/String;", nullptr, $PRIVATE, $method(ClassReader, readUtf, $String*, int32_t, int32_t, $chars*)},
-	{"readVerificationTypeInfo", "(I[Ljava/lang/Object;I[C[Ljdk/internal/org/objectweb/asm/Label;)I", nullptr, $PRIVATE, $method(ClassReader, readVerificationTypeInfo, int32_t, int32_t, $ObjectArray*, int32_t, $chars*, $LabelArray*)},
-	{}
-};
-
-$ClassInfo _ClassReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.ClassReader",
-	"java.lang.Object",
-	nullptr,
-	_ClassReader_FieldInfo_,
-	_ClassReader_MethodInfo_
-};
-
-$Object* allocate$ClassReader($Class* clazz) {
-	return $of($alloc(ClassReader));
-}
-
 void ClassReader::init$($bytes* classFile) {
 	ClassReader::init$(classFile, 0, $nc(classFile)->length);
 }
@@ -505,7 +415,7 @@ void ClassReader::init$($bytes* classFileBuffer, int32_t classFileOffset, int32_
 }
 
 void ClassReader::init$($bytes* classFileBuffer, int32_t classFileOffset, bool checkClassVersion) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, classFileBuffer, classFileBuffer);
 	$set(this, b, classFileBuffer);
 	if (checkClassVersion && readShort(classFileOffset + 6) > $Opcodes::V17) {
@@ -520,75 +430,49 @@ void ClassReader::init$($bytes* classFileBuffer, int32_t classFileOffset, bool c
 	bool hasBootstrapMethods = false;
 	bool hasConstantDynamic = false;
 	while (currentCpInfoIndex < constantPoolCount) {
-		$nc(this->cpInfoOffsets)->set(currentCpInfoIndex++, currentCpInfoOffset + 1);
+		this->cpInfoOffsets->set(currentCpInfoIndex++, currentCpInfoOffset + 1);
 		int32_t cpInfoSize = 0;
 		switch ($nc(classFileBuffer)->get(currentCpInfoOffset)) {
 		case $Symbol::CONSTANT_FIELDREF_TAG:
-			{}
 		case $Symbol::CONSTANT_METHODREF_TAG:
-			{}
 		case $Symbol::CONSTANT_INTERFACE_METHODREF_TAG:
-			{}
 		case $Symbol::CONSTANT_INTEGER_TAG:
-			{}
 		case $Symbol::CONSTANT_FLOAT_TAG:
-			{}
 		case $Symbol::CONSTANT_NAME_AND_TYPE_TAG:
-			{
-				cpInfoSize = 5;
-				break;
-			}
+			cpInfoSize = 5;
+			break;
 		case $Symbol::CONSTANT_DYNAMIC_TAG:
-			{
-				cpInfoSize = 5;
-				hasBootstrapMethods = true;
-				hasConstantDynamic = true;
-				break;
-			}
+			cpInfoSize = 5;
+			hasBootstrapMethods = true;
+			hasConstantDynamic = true;
+			break;
 		case $Symbol::CONSTANT_INVOKE_DYNAMIC_TAG:
-			{
-				cpInfoSize = 5;
-				hasBootstrapMethods = true;
-				break;
-			}
+			cpInfoSize = 5;
+			hasBootstrapMethods = true;
+			break;
 		case $Symbol::CONSTANT_LONG_TAG:
-			{}
 		case $Symbol::CONSTANT_DOUBLE_TAG:
-			{
-				cpInfoSize = 9;
-				++currentCpInfoIndex;
-				break;
-			}
+			cpInfoSize = 9;
+			++currentCpInfoIndex;
+			break;
 		case $Symbol::CONSTANT_UTF8_TAG:
-			{
-				cpInfoSize = 3 + readUnsignedShort(currentCpInfoOffset + 1);
-				if (cpInfoSize > currentMaxStringLength) {
-					currentMaxStringLength = cpInfoSize;
-				}
-				break;
+			cpInfoSize = 3 + readUnsignedShort(currentCpInfoOffset + 1);
+			if (cpInfoSize > currentMaxStringLength) {
+				currentMaxStringLength = cpInfoSize;
 			}
+			break;
 		case $Symbol::CONSTANT_METHOD_HANDLE_TAG:
-			{
-				cpInfoSize = 4;
-				break;
-			}
+			cpInfoSize = 4;
+			break;
 		case $Symbol::CONSTANT_CLASS_TAG:
-			{}
 		case $Symbol::CONSTANT_STRING_TAG:
-			{}
 		case $Symbol::CONSTANT_METHOD_TYPE_TAG:
-			{}
 		case $Symbol::CONSTANT_PACKAGE_TAG:
-			{}
 		case $Symbol::CONSTANT_MODULE_TAG:
-			{
-				cpInfoSize = 3;
-				break;
-			}
+			cpInfoSize = 3;
+			break;
 		default:
-			{
-				$throwNew($IllegalArgumentException);
-			}
+			$throwNew($IllegalArgumentException);
 		}
 		currentCpInfoOffset += cpInfoSize;
 	}
@@ -603,71 +487,67 @@ void ClassReader::init$($InputStream* inputStream) {
 }
 
 void ClassReader::init$($String* className) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ClassReader::init$($(readStream($($ClassLoader::getSystemResourceAsStream($$str({$($nc(className)->replace(u'.', u'/')), ".class"_s}))), true)));
 }
 
 $bytes* ClassReader::readStream($InputStream* inputStream, bool close) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inputStream == nullptr) {
 		$throwNew($IOException, "Class not found"_s);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($ByteArrayOutputStream, outputStream, $new($ByteArrayOutputStream));
+		$var($Throwable, var$3, nullptr);
+		$var($bytes, var$5, nullptr);
+		bool return$4 = false;
 		try {
-			$var($ByteArrayOutputStream, outputStream, $new($ByteArrayOutputStream));
-			{
-				$var($Throwable, var$3, nullptr);
-				$var($bytes, var$5, nullptr);
-				bool return$4 = false;
+			try {
+				$var($bytes, data, $new($bytes, ClassReader::INPUT_STREAM_DATA_CHUNK_SIZE));
+				int32_t bytesRead = 0;
+				while ((bytesRead = $nc(inputStream)->read(data, 0, data->length)) != -1) {
+					outputStream->write(data, 0, bytesRead);
+				}
+				outputStream->flush();
+				$assign(var$5, outputStream->toByteArray());
+				return$4 = true;
+				goto $finally1;
+			} catch ($Throwable& t$) {
 				try {
-					try {
-						$var($bytes, data, $new($bytes, ClassReader::INPUT_STREAM_DATA_CHUNK_SIZE));
-						int32_t bytesRead = 0;
-						while ((bytesRead = $nc(inputStream)->read(data, 0, data->length)) != -1) {
-							outputStream->write(data, 0, bytesRead);
-						}
-						outputStream->flush();
-						$assign(var$5, outputStream->toByteArray());
-						return$4 = true;
-						goto $finally1;
-					} catch ($Throwable& t$) {
-						try {
-							outputStream->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$6) {
-					$assign(var$3, var$6);
-				} $finally1: {
 					outputStream->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
-				}
-				if (return$4) {
-					$assign(var$2, var$5);
-					return$1 = true;
-					goto $finally;
-				}
+				$throw(t$);
 			}
-		} catch ($Throwable& var$7) {
-			$assign(var$0, var$7);
-		} $finally: {
-			if (close) {
-				$nc(inputStream)->close();
-			}
+		} catch ($Throwable& var$6) {
+			$assign(var$3, var$6);
+		} $finally1: {
+			outputStream->close();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
-		if (return$1) {
-			return var$2;
+		if (return$4) {
+			$assign(var$2, var$5);
+			return$1 = true;
+			goto $finally;
 		}
+	} catch ($Throwable& var$7) {
+		$assign(var$0, var$7);
+	} $finally: {
+		if (close) {
+			$nc(inputStream)->close();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -685,7 +565,7 @@ $String* ClassReader::getSuperName() {
 }
 
 $StringArray* ClassReader::getInterfaces() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentOffset = this->header + 6;
 	int32_t interfacesCount = readUnsignedShort(currentOffset);
 	$var($StringArray, interfaces, $new($StringArray, interfacesCount));
@@ -704,7 +584,7 @@ void ClassReader::accept($ClassVisitor* classVisitor, int32_t parsingOptions) {
 }
 
 void ClassReader::accept($ClassVisitor* classVisitor, $AttributeArray* attributePrototypes, int32_t parsingOptions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Context, context, $new($Context));
 	$set(context, attributePrototypes, attributePrototypes);
 	context->parsingOptions = parsingOptions;
@@ -745,89 +625,53 @@ void ClassReader::accept($ClassVisitor* classVisitor, $AttributeArray* attribute
 		$init($Constants);
 		if ($nc($Constants::SOURCE_FILE)->equals(attributeName)) {
 			$assign(sourceFile, readUTF8(currentAttributeOffset, charBuffer));
-		} else {
-			if ($nc($Constants::INNER_CLASSES)->equals(attributeName)) {
-				innerClassesOffset = currentAttributeOffset;
-			} else {
-				if ($nc($Constants::ENCLOSING_METHOD)->equals(attributeName)) {
-					enclosingMethodOffset = currentAttributeOffset;
-				} else {
-					if ($nc($Constants::NEST_HOST)->equals(attributeName)) {
-						$assign(nestHostClass, readClass(currentAttributeOffset, charBuffer));
-					} else {
-						if ($nc($Constants::NEST_MEMBERS)->equals(attributeName)) {
-							nestMembersOffset = currentAttributeOffset;
-						} else {
-							if ($nc($Constants::PERMITTED_SUBCLASSES)->equals(attributeName)) {
-								permittedSubclassesOffset = currentAttributeOffset;
-							} else {
-								if ($nc($Constants::SIGNATURE)->equals(attributeName)) {
-									$assign(signature, readUTF8(currentAttributeOffset, charBuffer));
-								} else {
-									if ($nc($Constants::RUNTIME_VISIBLE_ANNOTATIONS)->equals(attributeName)) {
-										runtimeVisibleAnnotationsOffset = currentAttributeOffset;
-									} else {
-										if ($nc($Constants::RUNTIME_VISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
-											runtimeVisibleTypeAnnotationsOffset = currentAttributeOffset;
-										} else {
-											if ($nc($Constants::DEPRECATED)->equals(attributeName)) {
-												accessFlags |= $Opcodes::ACC_DEPRECATED;
-											} else {
-												if ($nc($Constants::SYNTHETIC)->equals(attributeName)) {
-													accessFlags |= $Opcodes::ACC_SYNTHETIC;
-												} else {
-													if ($nc($Constants::SOURCE_DEBUG_EXTENSION)->equals(attributeName)) {
-														if (attributeLength > $nc(this->classFileBuffer)->length - currentAttributeOffset) {
-															$throwNew($IllegalArgumentException);
-														}
-														$assign(sourceDebugExtension, readUtf(currentAttributeOffset, attributeLength, $$new($chars, attributeLength)));
-													} else {
-														if ($nc($Constants::RUNTIME_INVISIBLE_ANNOTATIONS)->equals(attributeName)) {
-															runtimeInvisibleAnnotationsOffset = currentAttributeOffset;
-														} else {
-															if ($nc($Constants::RUNTIME_INVISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
-																runtimeInvisibleTypeAnnotationsOffset = currentAttributeOffset;
-															} else {
-																if ($nc($Constants::RECORD)->equals(attributeName)) {
-																	recordOffset = currentAttributeOffset;
-																	accessFlags |= $Opcodes::ACC_RECORD;
-																} else {
-																	if ($nc($Constants::MODULE)->equals(attributeName)) {
-																		moduleOffset = currentAttributeOffset;
-																	} else {
-																		if ($nc($Constants::MODULE_MAIN_CLASS)->equals(attributeName)) {
-																			$assign(moduleMainClass, readClass(currentAttributeOffset, charBuffer));
-																		} else {
-																			if ($nc($Constants::MODULE_PACKAGES)->equals(attributeName)) {
-																				modulePackagesOffset = currentAttributeOffset;
-																			} else {
-																				if (!$nc($Constants::BOOTSTRAP_METHODS)->equals(attributeName)) {
-																					$var($Attribute, attribute, readAttribute(attributePrototypes, attributeName, currentAttributeOffset, attributeLength, charBuffer, -1, nullptr));
-																					$set($nc(attribute), nextAttribute, attributes);
-																					$assign(attributes, attribute);
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+		} else if ($nc($Constants::INNER_CLASSES)->equals(attributeName)) {
+			innerClassesOffset = currentAttributeOffset;
+		} else if ($nc($Constants::ENCLOSING_METHOD)->equals(attributeName)) {
+			enclosingMethodOffset = currentAttributeOffset;
+		} else if ($nc($Constants::NEST_HOST)->equals(attributeName)) {
+			$assign(nestHostClass, readClass(currentAttributeOffset, charBuffer));
+		} else if ($nc($Constants::NEST_MEMBERS)->equals(attributeName)) {
+			nestMembersOffset = currentAttributeOffset;
+		} else if ($nc($Constants::PERMITTED_SUBCLASSES)->equals(attributeName)) {
+			permittedSubclassesOffset = currentAttributeOffset;
+		} else if ($nc($Constants::SIGNATURE)->equals(attributeName)) {
+			$assign(signature, readUTF8(currentAttributeOffset, charBuffer));
+		} else if ($nc($Constants::RUNTIME_VISIBLE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeVisibleAnnotationsOffset = currentAttributeOffset;
+		} else if ($nc($Constants::RUNTIME_VISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeVisibleTypeAnnotationsOffset = currentAttributeOffset;
+		} else if ($nc($Constants::DEPRECATED)->equals(attributeName)) {
+			accessFlags |= $Opcodes::ACC_DEPRECATED;
+		} else if ($nc($Constants::SYNTHETIC)->equals(attributeName)) {
+			accessFlags |= $Opcodes::ACC_SYNTHETIC;
+		} else if ($nc($Constants::SOURCE_DEBUG_EXTENSION)->equals(attributeName)) {
+			if (attributeLength > $nc(this->classFileBuffer)->length - currentAttributeOffset) {
+				$throwNew($IllegalArgumentException);
 			}
+			$assign(sourceDebugExtension, readUtf(currentAttributeOffset, attributeLength, $$new($chars, attributeLength)));
+		} else if ($nc($Constants::RUNTIME_INVISIBLE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeInvisibleAnnotationsOffset = currentAttributeOffset;
+		} else if ($nc($Constants::RUNTIME_INVISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeInvisibleTypeAnnotationsOffset = currentAttributeOffset;
+		} else if ($nc($Constants::RECORD)->equals(attributeName)) {
+			recordOffset = currentAttributeOffset;
+			accessFlags |= $Opcodes::ACC_RECORD;
+		} else if ($nc($Constants::MODULE)->equals(attributeName)) {
+			moduleOffset = currentAttributeOffset;
+		} else if ($nc($Constants::MODULE_MAIN_CLASS)->equals(attributeName)) {
+			$assign(moduleMainClass, readClass(currentAttributeOffset, charBuffer));
+		} else if ($nc($Constants::MODULE_PACKAGES)->equals(attributeName)) {
+			modulePackagesOffset = currentAttributeOffset;
+		} else if (!$nc($Constants::BOOTSTRAP_METHODS)->equals(attributeName)) {
+			$var($Attribute, attribute, readAttribute(attributePrototypes, attributeName, currentAttributeOffset, attributeLength, charBuffer, -1, nullptr));
+			$set($nc(attribute), nextAttribute, attributes);
+			$assign(attributes, attribute);
 		}
 		currentAttributeOffset += attributeLength;
 	}
 	$nc(classVisitor)->visit(readInt($nc(this->cpInfoOffsets)->get(1) - 7), accessFlags, thisClass, signature, superClass, interfaces);
-	if (((int32_t)(parsingOptions & (uint32_t)ClassReader::SKIP_DEBUG)) == 0 && (sourceFile != nullptr || sourceDebugExtension != nullptr)) {
+	if ((parsingOptions & ClassReader::SKIP_DEBUG) == 0 && (sourceFile != nullptr || sourceDebugExtension != nullptr)) {
 		classVisitor->visitSource(sourceFile, sourceDebugExtension);
 	}
 	if (moduleOffset != 0) {
@@ -839,8 +683,8 @@ void ClassReader::accept($ClassVisitor* classVisitor, $AttributeArray* attribute
 	if (enclosingMethodOffset != 0) {
 		$var($String, className, readClass(enclosingMethodOffset, charBuffer));
 		int32_t methodIndex = readUnsignedShort(enclosingMethodOffset + 2);
-		$var($String, name, methodIndex == 0 ? ($String*)nullptr : readUTF8($nc(this->cpInfoOffsets)->get(methodIndex), charBuffer));
-		$var($String, type, methodIndex == 0 ? ($String*)nullptr : readUTF8($nc(this->cpInfoOffsets)->get(methodIndex) + 2, charBuffer));
+		$var($String, name, methodIndex == 0 ? ($String*)nullptr : readUTF8(this->cpInfoOffsets->get(methodIndex), charBuffer));
+		$var($String, type, methodIndex == 0 ? ($String*)nullptr : readUTF8(this->cpInfoOffsets->get(methodIndex) + 2, charBuffer));
 		classVisitor->visitOuterClass(className, name, type);
 	}
 	if (runtimeVisibleAnnotationsOffset != 0) {
@@ -935,7 +779,7 @@ void ClassReader::accept($ClassVisitor* classVisitor, $AttributeArray* attribute
 }
 
 void ClassReader::readModuleAttributes($ClassVisitor* classVisitor, $Context* context, int32_t moduleOffset, int32_t modulePackagesOffset, $String* moduleMainClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, buffer, $nc(context)->charBuffer);
 	int32_t currentOffset = moduleOffset;
 	$var($String, moduleName, readModule(currentOffset, buffer));
@@ -1023,7 +867,7 @@ void ClassReader::readModuleAttributes($ClassVisitor* classVisitor, $Context* co
 }
 
 int32_t ClassReader::readRecordComponent($ClassVisitor* classVisitor, $Context* context, int32_t recordComponentOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, charBuffer, $nc(context)->charBuffer);
 	int32_t currentOffset = recordComponentOffset;
 	$var($String, name, readUTF8(currentOffset, charBuffer));
@@ -1044,26 +888,18 @@ int32_t ClassReader::readRecordComponent($ClassVisitor* classVisitor, $Context* 
 		$init($Constants);
 		if ($nc($Constants::SIGNATURE)->equals(attributeName)) {
 			$assign(signature, readUTF8(currentOffset, charBuffer));
+		} else if ($nc($Constants::RUNTIME_VISIBLE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeVisibleAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::RUNTIME_VISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeVisibleTypeAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::RUNTIME_INVISIBLE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeInvisibleAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::RUNTIME_INVISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeInvisibleTypeAnnotationsOffset = currentOffset;
 		} else {
-			if ($nc($Constants::RUNTIME_VISIBLE_ANNOTATIONS)->equals(attributeName)) {
-				runtimeVisibleAnnotationsOffset = currentOffset;
-			} else {
-				if ($nc($Constants::RUNTIME_VISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
-					runtimeVisibleTypeAnnotationsOffset = currentOffset;
-				} else {
-					if ($nc($Constants::RUNTIME_INVISIBLE_ANNOTATIONS)->equals(attributeName)) {
-						runtimeInvisibleAnnotationsOffset = currentOffset;
-					} else {
-						if ($nc($Constants::RUNTIME_INVISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
-							runtimeInvisibleTypeAnnotationsOffset = currentOffset;
-						} else {
-							$var($Attribute, attribute, readAttribute(context->attributePrototypes, attributeName, currentOffset, attributeLength, charBuffer, -1, nullptr));
-							$set($nc(attribute), nextAttribute, attributes);
-							$assign(attributes, attribute);
-						}
-					}
-				}
-			}
+			$var($Attribute, attribute, readAttribute(context->attributePrototypes, attributeName, currentOffset, attributeLength, charBuffer, -1, nullptr));
+			$set($nc(attribute), nextAttribute, attributes);
+			$assign(attributes, attribute);
 		}
 		currentOffset += attributeLength;
 	}
@@ -1120,7 +956,7 @@ int32_t ClassReader::readRecordComponent($ClassVisitor* classVisitor, $Context* 
 }
 
 int32_t ClassReader::readField($ClassVisitor* classVisitor, $Context* context, int32_t fieldInfoOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, charBuffer, $nc(context)->charBuffer);
 	int32_t currentOffset = fieldInfoOffset;
 	int32_t accessFlags = readUnsignedShort(currentOffset);
@@ -1144,38 +980,24 @@ int32_t ClassReader::readField($ClassVisitor* classVisitor, $Context* context, i
 		if ($nc($Constants::CONSTANT_VALUE)->equals(attributeName)) {
 			int32_t constantvalueIndex = readUnsignedShort(currentOffset);
 			$assign(constantValue, constantvalueIndex == 0 ? ($Object*)nullptr : readConst(constantvalueIndex, charBuffer));
+		} else if ($nc($Constants::SIGNATURE)->equals(attributeName)) {
+			$assign(signature, readUTF8(currentOffset, charBuffer));
+		} else if ($nc($Constants::DEPRECATED)->equals(attributeName)) {
+			accessFlags |= $Opcodes::ACC_DEPRECATED;
+		} else if ($nc($Constants::SYNTHETIC)->equals(attributeName)) {
+			accessFlags |= $Opcodes::ACC_SYNTHETIC;
+		} else if ($nc($Constants::RUNTIME_VISIBLE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeVisibleAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::RUNTIME_VISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeVisibleTypeAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::RUNTIME_INVISIBLE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeInvisibleAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::RUNTIME_INVISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeInvisibleTypeAnnotationsOffset = currentOffset;
 		} else {
-			if ($nc($Constants::SIGNATURE)->equals(attributeName)) {
-				$assign(signature, readUTF8(currentOffset, charBuffer));
-			} else {
-				if ($nc($Constants::DEPRECATED)->equals(attributeName)) {
-					accessFlags |= $Opcodes::ACC_DEPRECATED;
-				} else {
-					if ($nc($Constants::SYNTHETIC)->equals(attributeName)) {
-						accessFlags |= $Opcodes::ACC_SYNTHETIC;
-					} else {
-						if ($nc($Constants::RUNTIME_VISIBLE_ANNOTATIONS)->equals(attributeName)) {
-							runtimeVisibleAnnotationsOffset = currentOffset;
-						} else {
-							if ($nc($Constants::RUNTIME_VISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
-								runtimeVisibleTypeAnnotationsOffset = currentOffset;
-							} else {
-								if ($nc($Constants::RUNTIME_INVISIBLE_ANNOTATIONS)->equals(attributeName)) {
-									runtimeInvisibleAnnotationsOffset = currentOffset;
-								} else {
-									if ($nc($Constants::RUNTIME_INVISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
-										runtimeInvisibleTypeAnnotationsOffset = currentOffset;
-									} else {
-										$var($Attribute, attribute, readAttribute(context->attributePrototypes, attributeName, currentOffset, attributeLength, charBuffer, -1, nullptr));
-										$set($nc(attribute), nextAttribute, attributes);
-										$assign(attributes, attribute);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+			$var($Attribute, attribute, readAttribute(context->attributePrototypes, attributeName, currentOffset, attributeLength, charBuffer, -1, nullptr));
+			$set($nc(attribute), nextAttribute, attributes);
+			$assign(attributes, attribute);
 		}
 		currentOffset += attributeLength;
 	}
@@ -1232,7 +1054,7 @@ int32_t ClassReader::readField($ClassVisitor* classVisitor, $Context* context, i
 }
 
 int32_t ClassReader::readMethod($ClassVisitor* classVisitor, $Context* context, int32_t methodInfoOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, charBuffer, $nc(context)->charBuffer);
 	int32_t currentOffset = methodInfoOffset;
 	context->currentMethodAccessFlags = readUnsignedShort(currentOffset);
@@ -1261,68 +1083,44 @@ int32_t ClassReader::readMethod($ClassVisitor* classVisitor, $Context* context, 
 		currentOffset += 6;
 		$init($Constants);
 		if ($nc($Constants::CODE)->equals(attributeName)) {
-			if (((int32_t)(context->parsingOptions & (uint32_t)ClassReader::SKIP_CODE)) == 0) {
+			if ((context->parsingOptions & ClassReader::SKIP_CODE) == 0) {
 				codeOffset = currentOffset;
 			}
-		} else {
-			if ($nc($Constants::EXCEPTIONS)->equals(attributeName)) {
-				exceptionsOffset = currentOffset;
-				$assign(exceptions, $new($StringArray, readUnsignedShort(exceptionsOffset)));
-				int32_t currentExceptionOffset = exceptionsOffset + 2;
-				for (int32_t i = 0; i < exceptions->length; ++i) {
-					exceptions->set(i, $(readClass(currentExceptionOffset, charBuffer)));
-					currentExceptionOffset += 2;
-				}
-			} else {
-				if ($nc($Constants::SIGNATURE)->equals(attributeName)) {
-					signatureIndex = readUnsignedShort(currentOffset);
-				} else {
-					if ($nc($Constants::DEPRECATED)->equals(attributeName)) {
-						context->currentMethodAccessFlags |= $Opcodes::ACC_DEPRECATED;
-					} else {
-						if ($nc($Constants::RUNTIME_VISIBLE_ANNOTATIONS)->equals(attributeName)) {
-							runtimeVisibleAnnotationsOffset = currentOffset;
-						} else {
-							if ($nc($Constants::RUNTIME_VISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
-								runtimeVisibleTypeAnnotationsOffset = currentOffset;
-							} else {
-								if ($nc($Constants::ANNOTATION_DEFAULT)->equals(attributeName)) {
-									annotationDefaultOffset = currentOffset;
-								} else {
-									if ($nc($Constants::SYNTHETIC)->equals(attributeName)) {
-										synthetic = true;
-										context->currentMethodAccessFlags |= $Opcodes::ACC_SYNTHETIC;
-									} else {
-										if ($nc($Constants::RUNTIME_INVISIBLE_ANNOTATIONS)->equals(attributeName)) {
-											runtimeInvisibleAnnotationsOffset = currentOffset;
-										} else {
-											if ($nc($Constants::RUNTIME_INVISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
-												runtimeInvisibleTypeAnnotationsOffset = currentOffset;
-											} else {
-												if ($nc($Constants::RUNTIME_VISIBLE_PARAMETER_ANNOTATIONS)->equals(attributeName)) {
-													runtimeVisibleParameterAnnotationsOffset = currentOffset;
-												} else {
-													if ($nc($Constants::RUNTIME_INVISIBLE_PARAMETER_ANNOTATIONS)->equals(attributeName)) {
-														runtimeInvisibleParameterAnnotationsOffset = currentOffset;
-													} else {
-														if ($nc($Constants::METHOD_PARAMETERS)->equals(attributeName)) {
-															methodParametersOffset = currentOffset;
-														} else {
-															$var($Attribute, attribute, readAttribute(context->attributePrototypes, attributeName, currentOffset, attributeLength, charBuffer, -1, nullptr));
-															$set($nc(attribute), nextAttribute, attributes);
-															$assign(attributes, attribute);
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+		} else if ($nc($Constants::EXCEPTIONS)->equals(attributeName)) {
+			exceptionsOffset = currentOffset;
+			$assign(exceptions, $new($StringArray, readUnsignedShort(exceptionsOffset)));
+			int32_t currentExceptionOffset = exceptionsOffset + 2;
+			for (int32_t i = 0; i < exceptions->length; ++i) {
+				exceptions->set(i, $(readClass(currentExceptionOffset, charBuffer)));
+				currentExceptionOffset += 2;
 			}
+		} else if ($nc($Constants::SIGNATURE)->equals(attributeName)) {
+			signatureIndex = readUnsignedShort(currentOffset);
+		} else if ($nc($Constants::DEPRECATED)->equals(attributeName)) {
+			context->currentMethodAccessFlags |= $Opcodes::ACC_DEPRECATED;
+		} else if ($nc($Constants::RUNTIME_VISIBLE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeVisibleAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::RUNTIME_VISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeVisibleTypeAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::ANNOTATION_DEFAULT)->equals(attributeName)) {
+			annotationDefaultOffset = currentOffset;
+		} else if ($nc($Constants::SYNTHETIC)->equals(attributeName)) {
+			synthetic = true;
+			context->currentMethodAccessFlags |= $Opcodes::ACC_SYNTHETIC;
+		} else if ($nc($Constants::RUNTIME_INVISIBLE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeInvisibleAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::RUNTIME_INVISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
+			runtimeInvisibleTypeAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::RUNTIME_VISIBLE_PARAMETER_ANNOTATIONS)->equals(attributeName)) {
+			runtimeVisibleParameterAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::RUNTIME_INVISIBLE_PARAMETER_ANNOTATIONS)->equals(attributeName)) {
+			runtimeInvisibleParameterAnnotationsOffset = currentOffset;
+		} else if ($nc($Constants::METHOD_PARAMETERS)->equals(attributeName)) {
+			methodParametersOffset = currentOffset;
+		} else {
+			$var($Attribute, attribute, readAttribute(context->attributePrototypes, attributeName, currentOffset, attributeLength, charBuffer, -1, nullptr));
+			$set($nc(attribute), nextAttribute, attributes);
+			$assign(attributes, attribute);
 		}
 		currentOffset += attributeLength;
 	}
@@ -1332,12 +1130,12 @@ int32_t ClassReader::readMethod($ClassVisitor* classVisitor, $Context* context, 
 	}
 	if ($instanceOf($MethodWriter, methodVisitor)) {
 		$var($MethodWriter, methodWriter, $cast($MethodWriter, methodVisitor));
-		if ($nc(methodWriter)->canCopyMethodAttributes(this, synthetic, ((int32_t)(context->currentMethodAccessFlags & (uint32_t)$Opcodes::ACC_DEPRECATED)) != 0, readUnsignedShort(methodInfoOffset + 4), signatureIndex, exceptionsOffset)) {
+		if (methodWriter->canCopyMethodAttributes(this, synthetic, (context->currentMethodAccessFlags & $Opcodes::ACC_DEPRECATED) != 0, readUnsignedShort(methodInfoOffset + 4), signatureIndex, exceptionsOffset)) {
 			methodWriter->setMethodAttributesSource(methodInfoOffset, currentOffset - methodInfoOffset);
 			return currentOffset;
 		}
 	}
-	if (methodParametersOffset != 0 && ((int32_t)(context->parsingOptions & (uint32_t)ClassReader::SKIP_DEBUG)) == 0) {
+	if (methodParametersOffset != 0 && (context->parsingOptions & ClassReader::SKIP_DEBUG) == 0) {
 		int32_t parametersCount = readByte(methodParametersOffset);
 		int32_t currentParameterOffset = methodParametersOffset + 1;
 		while (parametersCount-- > 0) {
@@ -1412,7 +1210,7 @@ int32_t ClassReader::readMethod($ClassVisitor* classVisitor, $Context* context, 
 }
 
 void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int32_t codeOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentOffset = codeOffset;
 	$var($bytes, classBuffer, this->classFileBuffer);
 	$var($chars, charBuffer, $nc(context)->charBuffer);
@@ -1428,443 +1226,235 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 	$var($LabelArray, labels, $set(context, currentMethodLabels, $new($LabelArray, codeLength + 1)));
 	while (currentOffset < bytecodeEndOffset) {
 		int32_t bytecodeOffset = currentOffset - bytecodeStartOffset;
-		int32_t opcode = (int32_t)($nc(classBuffer)->get(currentOffset) & (uint32_t)255);
+		int32_t opcode = $nc(classBuffer)->get(currentOffset) & 0xff;
 		{
 			int32_t numTableEntries = 0;
 			int32_t numSwitchCases = 0;
 			switch (opcode) {
 			case $Opcodes::NOP:
-				{}
 			case $Opcodes::ACONST_NULL:
-				{}
 			case $Opcodes::ICONST_M1:
-				{}
 			case $Opcodes::ICONST_0:
-				{}
 			case $Opcodes::ICONST_1:
-				{}
 			case $Opcodes::ICONST_2:
-				{}
 			case $Opcodes::ICONST_3:
-				{}
 			case $Opcodes::ICONST_4:
-				{}
 			case $Opcodes::ICONST_5:
-				{}
 			case $Opcodes::LCONST_0:
-				{}
 			case $Opcodes::LCONST_1:
-				{}
 			case $Opcodes::FCONST_0:
-				{}
 			case $Opcodes::FCONST_1:
-				{}
 			case $Opcodes::FCONST_2:
-				{}
 			case $Opcodes::DCONST_0:
-				{}
 			case $Opcodes::DCONST_1:
-				{}
 			case $Opcodes::IALOAD:
-				{}
 			case $Opcodes::LALOAD:
-				{}
 			case $Opcodes::FALOAD:
-				{}
 			case $Opcodes::DALOAD:
-				{}
 			case $Opcodes::AALOAD:
-				{}
 			case $Opcodes::BALOAD:
-				{}
 			case $Opcodes::CALOAD:
-				{}
 			case $Opcodes::SALOAD:
-				{}
 			case $Opcodes::IASTORE:
-				{}
 			case $Opcodes::LASTORE:
-				{}
 			case $Opcodes::FASTORE:
-				{}
 			case $Opcodes::DASTORE:
-				{}
 			case $Opcodes::AASTORE:
-				{}
 			case $Opcodes::BASTORE:
-				{}
 			case $Opcodes::CASTORE:
-				{}
 			case $Opcodes::SASTORE:
-				{}
 			case $Opcodes::POP:
-				{}
 			case $Opcodes::POP2:
-				{}
 			case $Opcodes::DUP:
-				{}
 			case $Opcodes::DUP_X1:
-				{}
 			case $Opcodes::DUP_X2:
-				{}
 			case $Opcodes::DUP2:
-				{}
 			case $Opcodes::DUP2_X1:
-				{}
 			case $Opcodes::DUP2_X2:
-				{}
 			case $Opcodes::SWAP:
-				{}
 			case $Opcodes::IADD:
-				{}
 			case $Opcodes::LADD:
-				{}
 			case $Opcodes::FADD:
-				{}
 			case $Opcodes::DADD:
-				{}
 			case $Opcodes::ISUB:
-				{}
 			case $Opcodes::LSUB:
-				{}
 			case $Opcodes::FSUB:
-				{}
 			case $Opcodes::DSUB:
-				{}
 			case $Opcodes::IMUL:
-				{}
 			case $Opcodes::LMUL:
-				{}
 			case $Opcodes::FMUL:
-				{}
 			case $Opcodes::DMUL:
-				{}
 			case $Opcodes::IDIV:
-				{}
 			case $Opcodes::LDIV:
-				{}
 			case $Opcodes::FDIV:
-				{}
 			case $Opcodes::DDIV:
-				{}
 			case $Opcodes::IREM:
-				{}
 			case $Opcodes::LREM:
-				{}
 			case $Opcodes::FREM:
-				{}
 			case $Opcodes::DREM:
-				{}
 			case $Opcodes::INEG:
-				{}
 			case $Opcodes::LNEG:
-				{}
 			case $Opcodes::FNEG:
-				{}
 			case $Opcodes::DNEG:
-				{}
 			case $Opcodes::ISHL:
-				{}
 			case $Opcodes::LSHL:
-				{}
 			case $Opcodes::ISHR:
-				{}
 			case $Opcodes::LSHR:
-				{}
 			case $Opcodes::IUSHR:
-				{}
 			case $Opcodes::LUSHR:
-				{}
 			case $Opcodes::IAND:
-				{}
 			case $Opcodes::LAND:
-				{}
 			case $Opcodes::IOR:
-				{}
 			case $Opcodes::LOR:
-				{}
 			case $Opcodes::IXOR:
-				{}
 			case $Opcodes::LXOR:
-				{}
 			case $Opcodes::I2L:
-				{}
 			case $Opcodes::I2F:
-				{}
 			case $Opcodes::I2D:
-				{}
 			case $Opcodes::L2I:
-				{}
 			case $Opcodes::L2F:
-				{}
 			case $Opcodes::L2D:
-				{}
 			case $Opcodes::F2I:
-				{}
 			case $Opcodes::F2L:
-				{}
 			case $Opcodes::F2D:
-				{}
 			case $Opcodes::D2I:
-				{}
 			case $Opcodes::D2L:
-				{}
 			case $Opcodes::D2F:
-				{}
 			case $Opcodes::I2B:
-				{}
 			case $Opcodes::I2C:
-				{}
 			case $Opcodes::I2S:
-				{}
 			case $Opcodes::LCMP:
-				{}
 			case $Opcodes::FCMPL:
-				{}
 			case $Opcodes::FCMPG:
-				{}
 			case $Opcodes::DCMPL:
-				{}
 			case $Opcodes::DCMPG:
-				{}
 			case $Opcodes::IRETURN:
-				{}
 			case $Opcodes::LRETURN:
-				{}
 			case $Opcodes::FRETURN:
-				{}
 			case $Opcodes::DRETURN:
-				{}
 			case $Opcodes::ARETURN:
-				{}
 			case $Opcodes::RETURN:
-				{}
 			case $Opcodes::ARRAYLENGTH:
-				{}
 			case $Opcodes::ATHROW:
-				{}
 			case $Opcodes::MONITORENTER:
-				{}
 			case $Opcodes::MONITOREXIT:
-				{}
 			case $Constants::ILOAD_0:
-				{}
 			case $Constants::ILOAD_1:
-				{}
 			case $Constants::ILOAD_2:
-				{}
 			case $Constants::ILOAD_3:
-				{}
 			case $Constants::LLOAD_0:
-				{}
 			case $Constants::LLOAD_1:
-				{}
 			case $Constants::LLOAD_2:
-				{}
 			case $Constants::LLOAD_3:
-				{}
 			case $Constants::FLOAD_0:
-				{}
 			case $Constants::FLOAD_1:
-				{}
 			case $Constants::FLOAD_2:
-				{}
 			case $Constants::FLOAD_3:
-				{}
 			case $Constants::DLOAD_0:
-				{}
 			case $Constants::DLOAD_1:
-				{}
 			case $Constants::DLOAD_2:
-				{}
 			case $Constants::DLOAD_3:
-				{}
 			case $Constants::ALOAD_0:
-				{}
 			case $Constants::ALOAD_1:
-				{}
 			case $Constants::ALOAD_2:
-				{}
 			case $Constants::ALOAD_3:
-				{}
 			case $Constants::ISTORE_0:
-				{}
 			case $Constants::ISTORE_1:
-				{}
 			case $Constants::ISTORE_2:
-				{}
 			case $Constants::ISTORE_3:
-				{}
 			case $Constants::LSTORE_0:
-				{}
 			case $Constants::LSTORE_1:
-				{}
 			case $Constants::LSTORE_2:
-				{}
 			case $Constants::LSTORE_3:
-				{}
 			case $Constants::FSTORE_0:
-				{}
 			case $Constants::FSTORE_1:
-				{}
 			case $Constants::FSTORE_2:
-				{}
 			case $Constants::FSTORE_3:
-				{}
 			case $Constants::DSTORE_0:
-				{}
 			case $Constants::DSTORE_1:
-				{}
 			case $Constants::DSTORE_2:
-				{}
 			case $Constants::DSTORE_3:
-				{}
 			case $Constants::ASTORE_0:
-				{}
 			case $Constants::ASTORE_1:
-				{}
 			case $Constants::ASTORE_2:
-				{}
 			case $Constants::ASTORE_3:
-				{
-					currentOffset += 1;
-					break;
-				}
+				currentOffset += 1;
+				break;
 			case $Opcodes::IFEQ:
-				{}
 			case $Opcodes::IFNE:
-				{}
 			case $Opcodes::IFLT:
-				{}
 			case $Opcodes::IFGE:
-				{}
 			case $Opcodes::IFGT:
-				{}
 			case $Opcodes::IFLE:
-				{}
 			case $Opcodes::IF_ICMPEQ:
-				{}
 			case $Opcodes::IF_ICMPNE:
-				{}
 			case $Opcodes::IF_ICMPLT:
-				{}
 			case $Opcodes::IF_ICMPGE:
-				{}
 			case $Opcodes::IF_ICMPGT:
-				{}
 			case $Opcodes::IF_ICMPLE:
-				{}
 			case $Opcodes::IF_ACMPEQ:
-				{}
 			case $Opcodes::IF_ACMPNE:
-				{}
 			case $Opcodes::GOTO:
-				{}
 			case $Opcodes::JSR:
-				{}
 			case $Opcodes::IFNULL:
-				{}
 			case $Opcodes::IFNONNULL:
-				{
-					createLabel(bytecodeOffset + readShort(currentOffset + 1), labels);
-					currentOffset += 3;
-					break;
-				}
+				createLabel(bytecodeOffset + readShort(currentOffset + 1), labels);
+				currentOffset += 3;
+				break;
 			case $Constants::ASM_IFEQ:
-				{}
 			case $Constants::ASM_IFNE:
-				{}
 			case $Constants::ASM_IFLT:
-				{}
 			case $Constants::ASM_IFGE:
-				{}
 			case $Constants::ASM_IFGT:
-				{}
 			case $Constants::ASM_IFLE:
-				{}
 			case $Constants::ASM_IF_ICMPEQ:
-				{}
 			case $Constants::ASM_IF_ICMPNE:
-				{}
 			case $Constants::ASM_IF_ICMPLT:
-				{}
 			case $Constants::ASM_IF_ICMPGE:
-				{}
 			case $Constants::ASM_IF_ICMPGT:
-				{}
 			case $Constants::ASM_IF_ICMPLE:
-				{}
 			case $Constants::ASM_IF_ACMPEQ:
-				{}
 			case $Constants::ASM_IF_ACMPNE:
-				{}
 			case $Constants::ASM_GOTO:
-				{}
 			case $Constants::ASM_JSR:
-				{}
 			case $Constants::ASM_IFNULL:
-				{}
 			case $Constants::ASM_IFNONNULL:
-				{
-					createLabel(bytecodeOffset + readUnsignedShort(currentOffset + 1), labels);
-					currentOffset += 3;
-					break;
-				}
+				createLabel(bytecodeOffset + readUnsignedShort(currentOffset + 1), labels);
+				currentOffset += 3;
+				break;
 			case $Constants::GOTO_W:
-				{}
 			case $Constants::JSR_W:
-				{}
 			case $Constants::ASM_GOTO_W:
-				{
-					createLabel(bytecodeOffset + readInt(currentOffset + 1), labels);
-					currentOffset += 5;
-					break;
-				}
+				createLabel(bytecodeOffset + readInt(currentOffset + 1), labels);
+				currentOffset += 5;
+				break;
 			case $Constants::WIDE:
-				{
-					switch ((int32_t)(classBuffer->get(currentOffset + 1) & (uint32_t)255)) {
-					case $Opcodes::ILOAD:
-						{}
-					case $Opcodes::FLOAD:
-						{}
-					case $Opcodes::ALOAD:
-						{}
-					case $Opcodes::LLOAD:
-						{}
-					case $Opcodes::DLOAD:
-						{}
-					case $Opcodes::ISTORE:
-						{}
-					case $Opcodes::FSTORE:
-						{}
-					case $Opcodes::ASTORE:
-						{}
-					case $Opcodes::LSTORE:
-						{}
-					case $Opcodes::DSTORE:
-						{}
-					case $Opcodes::RET:
-						{
-							currentOffset += 4;
-							break;
-						}
-					case $Opcodes::IINC:
-						{
-							currentOffset += 6;
-							break;
-						}
-					default:
-						{
-							$throwNew($IllegalArgumentException);
-						}
-					}
+				switch (classBuffer->get(currentOffset + 1) & 0xff) {
+				case $Opcodes::ILOAD:
+				case $Opcodes::FLOAD:
+				case $Opcodes::ALOAD:
+				case $Opcodes::LLOAD:
+				case $Opcodes::DLOAD:
+				case $Opcodes::ISTORE:
+				case $Opcodes::FSTORE:
+				case $Opcodes::ASTORE:
+				case $Opcodes::LSTORE:
+				case $Opcodes::DSTORE:
+				case $Opcodes::RET:
+					currentOffset += 4;
 					break;
+				case $Opcodes::IINC:
+					currentOffset += 6;
+					break;
+				default:
+					$throwNew($IllegalArgumentException);
 				}
+				break;
 			case $Opcodes::TABLESWITCH:
 				{
-					currentOffset += 4 - ((int32_t)(bytecodeOffset & (uint32_t)3));
-					createLabel(bytecodeOffset + readInt(currentOffset), labels);
 					int32_t var$0 = readInt(currentOffset + 8);
+					currentOffset += 4 - (bytecodeOffset & 3);
+					createLabel(bytecodeOffset + readInt(currentOffset), labels);
 					numTableEntries = var$0 - readInt(currentOffset + 4) + 1;
 					currentOffset += 12;
 					while (numTableEntries-- > 0) {
@@ -1874,97 +1464,57 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 					break;
 				}
 			case $Opcodes::LOOKUPSWITCH:
-				{
-					currentOffset += 4 - ((int32_t)(bytecodeOffset & (uint32_t)3));
-					createLabel(bytecodeOffset + readInt(currentOffset), labels);
-					numSwitchCases = readInt(currentOffset + 4);
+				currentOffset += 4 - (bytecodeOffset & 3);
+				createLabel(bytecodeOffset + readInt(currentOffset), labels);
+				numSwitchCases = readInt(currentOffset + 4);
+				currentOffset += 8;
+				while (numSwitchCases-- > 0) {
+					createLabel(bytecodeOffset + readInt(currentOffset + 4), labels);
 					currentOffset += 8;
-					while (numSwitchCases-- > 0) {
-						createLabel(bytecodeOffset + readInt(currentOffset + 4), labels);
-						currentOffset += 8;
-					}
-					break;
 				}
+				break;
 			case $Opcodes::ILOAD:
-				{}
 			case $Opcodes::LLOAD:
-				{}
 			case $Opcodes::FLOAD:
-				{}
 			case $Opcodes::DLOAD:
-				{}
 			case $Opcodes::ALOAD:
-				{}
 			case $Opcodes::ISTORE:
-				{}
 			case $Opcodes::LSTORE:
-				{}
 			case $Opcodes::FSTORE:
-				{}
 			case $Opcodes::DSTORE:
-				{}
 			case $Opcodes::ASTORE:
-				{}
 			case $Opcodes::RET:
-				{}
 			case $Opcodes::BIPUSH:
-				{}
 			case $Opcodes::NEWARRAY:
-				{}
 			case $Opcodes::LDC:
-				{
-					currentOffset += 2;
-					break;
-				}
+				currentOffset += 2;
+				break;
 			case $Opcodes::SIPUSH:
-				{}
 			case $Constants::LDC_W:
-				{}
 			case $Constants::LDC2_W:
-				{}
 			case $Opcodes::GETSTATIC:
-				{}
 			case $Opcodes::PUTSTATIC:
-				{}
 			case $Opcodes::GETFIELD:
-				{}
 			case $Opcodes::PUTFIELD:
-				{}
 			case $Opcodes::INVOKEVIRTUAL:
-				{}
 			case $Opcodes::INVOKESPECIAL:
-				{}
 			case $Opcodes::INVOKESTATIC:
-				{}
 			case $Opcodes::NEW:
-				{}
 			case $Opcodes::ANEWARRAY:
-				{}
 			case $Opcodes::CHECKCAST:
-				{}
 			case $Opcodes::INSTANCEOF:
-				{}
 			case $Opcodes::IINC:
-				{
-					currentOffset += 3;
-					break;
-				}
+				currentOffset += 3;
+				break;
 			case $Opcodes::INVOKEINTERFACE:
-				{}
 			case $Opcodes::INVOKEDYNAMIC:
-				{
-					currentOffset += 5;
-					break;
-				}
+				currentOffset += 5;
+				break;
 			case $Opcodes::MULTIANEWARRAY:
-				{
-					currentOffset += 4;
-					break;
-				}
+				currentOffset += 4;
+				break;
 			default:
-				{
-					$throwNew($IllegalArgumentException);
-				}
+				$throwNew($IllegalArgumentException);
 			}
 		}
 	}
@@ -1994,7 +1544,7 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 		currentOffset += 6;
 		$init($Constants);
 		if ($nc($Constants::LOCAL_VARIABLE_TABLE)->equals(attributeName)) {
-			if (((int32_t)(context->parsingOptions & (uint32_t)ClassReader::SKIP_DEBUG)) == 0) {
+			if ((context->parsingOptions & ClassReader::SKIP_DEBUG) == 0) {
 				localVariableTableOffset = currentOffset;
 				int32_t currentLocalVariableTableOffset = currentOffset;
 				int32_t localVariableTableLength = readUnsignedShort(currentLocalVariableTableOffset);
@@ -2007,54 +1557,44 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 					currentLocalVariableTableOffset += 10;
 				}
 			}
-		} else {
-			if ($nc($Constants::LOCAL_VARIABLE_TYPE_TABLE)->equals(attributeName)) {
-				localVariableTypeTableOffset = currentOffset;
-			} else {
-				if ($nc($Constants::LINE_NUMBER_TABLE)->equals(attributeName)) {
-					if (((int32_t)(context->parsingOptions & (uint32_t)ClassReader::SKIP_DEBUG)) == 0) {
-						int32_t currentLineNumberTableOffset = currentOffset;
-						int32_t lineNumberTableLength = readUnsignedShort(currentLineNumberTableOffset);
-						currentLineNumberTableOffset += 2;
-						while (lineNumberTableLength-- > 0) {
-							int32_t startPc = readUnsignedShort(currentLineNumberTableOffset);
-							int32_t lineNumber = readUnsignedShort(currentLineNumberTableOffset + 2);
-							currentLineNumberTableOffset += 4;
-							createDebugLabel(startPc, labels);
-							$nc($nc(labels)->get(startPc))->addLineNumber(lineNumber);
-						}
-					}
-				} else {
-					if ($nc($Constants::RUNTIME_VISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
-						$assign(visibleTypeAnnotationOffsets, readTypeAnnotations(methodVisitor, context, currentOffset, true));
-					} else {
-						if ($nc($Constants::RUNTIME_INVISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
-							$assign(invisibleTypeAnnotationOffsets, readTypeAnnotations(methodVisitor, context, currentOffset, false));
-						} else {
-							if ($nc($Constants::STACK_MAP_TABLE)->equals(attributeName)) {
-								if (((int32_t)(context->parsingOptions & (uint32_t)ClassReader::SKIP_FRAMES)) == 0) {
-									stackMapFrameOffset = currentOffset + 2;
-									stackMapTableEndOffset = currentOffset + attributeLength;
-								}
-							} else if ("StackMap"_s->equals(attributeName)) {
-								if (((int32_t)(context->parsingOptions & (uint32_t)ClassReader::SKIP_FRAMES)) == 0) {
-									stackMapFrameOffset = currentOffset + 2;
-									stackMapTableEndOffset = currentOffset + attributeLength;
-									compressedFrames = false;
-								}
-							} else {
-								$var($Attribute, attribute, readAttribute(context->attributePrototypes, attributeName, currentOffset, attributeLength, charBuffer, codeOffset, labels));
-								$set($nc(attribute), nextAttribute, attributes);
-								$assign(attributes, attribute);
-							}
-						}
-					}
+		} else if ($nc($Constants::LOCAL_VARIABLE_TYPE_TABLE)->equals(attributeName)) {
+			localVariableTypeTableOffset = currentOffset;
+		} else if ($nc($Constants::LINE_NUMBER_TABLE)->equals(attributeName)) {
+			if ((context->parsingOptions & ClassReader::SKIP_DEBUG) == 0) {
+				int32_t currentLineNumberTableOffset = currentOffset;
+				int32_t lineNumberTableLength = readUnsignedShort(currentLineNumberTableOffset);
+				currentLineNumberTableOffset += 2;
+				while (lineNumberTableLength-- > 0) {
+					int32_t startPc = readUnsignedShort(currentLineNumberTableOffset);
+					int32_t lineNumber = readUnsignedShort(currentLineNumberTableOffset + 2);
+					currentLineNumberTableOffset += 4;
+					createDebugLabel(startPc, labels);
+					$nc($nc(labels)->get(startPc))->addLineNumber(lineNumber);
 				}
 			}
+		} else if ($nc($Constants::RUNTIME_VISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
+			$assign(visibleTypeAnnotationOffsets, readTypeAnnotations(methodVisitor, context, currentOffset, true));
+		} else if ($nc($Constants::RUNTIME_INVISIBLE_TYPE_ANNOTATIONS)->equals(attributeName)) {
+			$assign(invisibleTypeAnnotationOffsets, readTypeAnnotations(methodVisitor, context, currentOffset, false));
+		} else if ($nc($Constants::STACK_MAP_TABLE)->equals(attributeName)) {
+			if ((context->parsingOptions & ClassReader::SKIP_FRAMES) == 0) {
+				stackMapFrameOffset = currentOffset + 2;
+				stackMapTableEndOffset = currentOffset + attributeLength;
+			}
+		} else if ("StackMap"_s->equals(attributeName)) {
+			if ((context->parsingOptions & ClassReader::SKIP_FRAMES) == 0) {
+				stackMapFrameOffset = currentOffset + 2;
+				stackMapTableEndOffset = currentOffset + attributeLength;
+				compressedFrames = false;
+			}
+		} else {
+			$var($Attribute, attribute, readAttribute(context->attributePrototypes, attributeName, currentOffset, attributeLength, charBuffer, codeOffset, labels));
+			$set($nc(attribute), nextAttribute, attributes);
+			$assign(attributes, attribute);
 		}
 		currentOffset += attributeLength;
 	}
-	bool expandFrames = ((int32_t)(context->parsingOptions & (uint32_t)ClassReader::EXPAND_FRAMES)) != 0;
+	bool expandFrames = (context->parsingOptions & ClassReader::EXPAND_FRAMES) != 0;
 	if (stackMapFrameOffset != 0) {
 		context->currentFrameOffset = -1;
 		context->currentFrameType = 0;
@@ -2069,13 +1609,13 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 		for (int32_t offset = stackMapFrameOffset; offset < stackMapTableEndOffset - 2; ++offset) {
 			if ($nc(classBuffer)->get(offset) == $Frame::ITEM_UNINITIALIZED) {
 				int32_t potentialBytecodeOffset = readUnsignedShort(offset + 1);
-				if (potentialBytecodeOffset >= 0 && potentialBytecodeOffset < codeLength && ((int32_t)(classBuffer->get(bytecodeStartOffset + potentialBytecodeOffset) & (uint32_t)255)) == $Opcodes::NEW) {
+				if (potentialBytecodeOffset >= 0 && potentialBytecodeOffset < codeLength && (classBuffer->get(bytecodeStartOffset + potentialBytecodeOffset) & 0xff) == $Opcodes::NEW) {
 					createLabel(potentialBytecodeOffset, labels);
 				}
 			}
 		}
 	}
-	if (expandFrames && ((int32_t)(context->parsingOptions & (uint32_t)ClassReader::EXPAND_ASM_INSNS)) != 0) {
+	if (expandFrames && (context->parsingOptions & ClassReader::EXPAND_ASM_INSNS) != 0) {
 		$nc(methodVisitor)->visitFrame($Opcodes::F_NEW, maxLocals, nullptr, 0, nullptr);
 	}
 	int32_t currentVisibleTypeAnnotationIndex = 0;
@@ -2083,13 +1623,13 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 	int32_t currentInvisibleTypeAnnotationIndex = 0;
 	int32_t currentInvisibleTypeAnnotationBytecodeOffset = getTypeAnnotationBytecodeOffset(invisibleTypeAnnotationOffsets, 0);
 	bool insertFrame = false;
-	int32_t wideJumpOpcodeDelta = ((int32_t)(context->parsingOptions & (uint32_t)ClassReader::EXPAND_ASM_INSNS)) == 0 ? $Constants::WIDE_JUMP_OPCODE_DELTA : 0;
+	int32_t wideJumpOpcodeDelta = (context->parsingOptions & ClassReader::EXPAND_ASM_INSNS) == 0 ? $Constants::WIDE_JUMP_OPCODE_DELTA : 0;
 	currentOffset = bytecodeStartOffset;
 	while (currentOffset < bytecodeEndOffset) {
 		int32_t currentBytecodeOffset = currentOffset - bytecodeStartOffset;
 		$var($Label, currentLabel, $nc(labels)->get(currentBytecodeOffset));
 		if (currentLabel != nullptr) {
-			currentLabel->accept(methodVisitor, ((int32_t)(context->parsingOptions & (uint32_t)ClassReader::SKIP_DEBUG)) == 0);
+			currentLabel->accept(methodVisitor, (context->parsingOptions & ClassReader::SKIP_DEBUG) == 0);
 		}
 		while (stackMapFrameOffset != 0 && (context->currentFrameOffset == currentBytecodeOffset || context->currentFrameOffset == -1)) {
 			if (context->currentFrameOffset != -1) {
@@ -2107,614 +1647,371 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 			}
 		}
 		if (insertFrame) {
-			if (((int32_t)(context->parsingOptions & (uint32_t)ClassReader::EXPAND_FRAMES)) != 0) {
+			if ((context->parsingOptions & ClassReader::EXPAND_FRAMES) != 0) {
 				$nc(methodVisitor)->visitFrame($Constants::F_INSERT, 0, nullptr, 0, nullptr);
 			}
 			insertFrame = false;
 		}
-		int32_t opcode = (int32_t)($nc(classBuffer)->get(currentOffset) & (uint32_t)255);
+		int32_t opcode = $nc(classBuffer)->get(currentOffset) & 0xff;
 		switch (opcode) {
 		case $Opcodes::NOP:
-			{}
 		case $Opcodes::ACONST_NULL:
-			{}
 		case $Opcodes::ICONST_M1:
-			{}
 		case $Opcodes::ICONST_0:
-			{}
 		case $Opcodes::ICONST_1:
-			{}
 		case $Opcodes::ICONST_2:
-			{}
 		case $Opcodes::ICONST_3:
-			{}
 		case $Opcodes::ICONST_4:
-			{}
 		case $Opcodes::ICONST_5:
-			{}
 		case $Opcodes::LCONST_0:
-			{}
 		case $Opcodes::LCONST_1:
-			{}
 		case $Opcodes::FCONST_0:
-			{}
 		case $Opcodes::FCONST_1:
-			{}
 		case $Opcodes::FCONST_2:
-			{}
 		case $Opcodes::DCONST_0:
-			{}
 		case $Opcodes::DCONST_1:
-			{}
 		case $Opcodes::IALOAD:
-			{}
 		case $Opcodes::LALOAD:
-			{}
 		case $Opcodes::FALOAD:
-			{}
 		case $Opcodes::DALOAD:
-			{}
 		case $Opcodes::AALOAD:
-			{}
 		case $Opcodes::BALOAD:
-			{}
 		case $Opcodes::CALOAD:
-			{}
 		case $Opcodes::SALOAD:
-			{}
 		case $Opcodes::IASTORE:
-			{}
 		case $Opcodes::LASTORE:
-			{}
 		case $Opcodes::FASTORE:
-			{}
 		case $Opcodes::DASTORE:
-			{}
 		case $Opcodes::AASTORE:
-			{}
 		case $Opcodes::BASTORE:
-			{}
 		case $Opcodes::CASTORE:
-			{}
 		case $Opcodes::SASTORE:
-			{}
 		case $Opcodes::POP:
-			{}
 		case $Opcodes::POP2:
-			{}
 		case $Opcodes::DUP:
-			{}
 		case $Opcodes::DUP_X1:
-			{}
 		case $Opcodes::DUP_X2:
-			{}
 		case $Opcodes::DUP2:
-			{}
 		case $Opcodes::DUP2_X1:
-			{}
 		case $Opcodes::DUP2_X2:
-			{}
 		case $Opcodes::SWAP:
-			{}
 		case $Opcodes::IADD:
-			{}
 		case $Opcodes::LADD:
-			{}
 		case $Opcodes::FADD:
-			{}
 		case $Opcodes::DADD:
-			{}
 		case $Opcodes::ISUB:
-			{}
 		case $Opcodes::LSUB:
-			{}
 		case $Opcodes::FSUB:
-			{}
 		case $Opcodes::DSUB:
-			{}
 		case $Opcodes::IMUL:
-			{}
 		case $Opcodes::LMUL:
-			{}
 		case $Opcodes::FMUL:
-			{}
 		case $Opcodes::DMUL:
-			{}
 		case $Opcodes::IDIV:
-			{}
 		case $Opcodes::LDIV:
-			{}
 		case $Opcodes::FDIV:
-			{}
 		case $Opcodes::DDIV:
-			{}
 		case $Opcodes::IREM:
-			{}
 		case $Opcodes::LREM:
-			{}
 		case $Opcodes::FREM:
-			{}
 		case $Opcodes::DREM:
-			{}
 		case $Opcodes::INEG:
-			{}
 		case $Opcodes::LNEG:
-			{}
 		case $Opcodes::FNEG:
-			{}
 		case $Opcodes::DNEG:
-			{}
 		case $Opcodes::ISHL:
-			{}
 		case $Opcodes::LSHL:
-			{}
 		case $Opcodes::ISHR:
-			{}
 		case $Opcodes::LSHR:
-			{}
 		case $Opcodes::IUSHR:
-			{}
 		case $Opcodes::LUSHR:
-			{}
 		case $Opcodes::IAND:
-			{}
 		case $Opcodes::LAND:
-			{}
 		case $Opcodes::IOR:
-			{}
 		case $Opcodes::LOR:
-			{}
 		case $Opcodes::IXOR:
-			{}
 		case $Opcodes::LXOR:
-			{}
 		case $Opcodes::I2L:
-			{}
 		case $Opcodes::I2F:
-			{}
 		case $Opcodes::I2D:
-			{}
 		case $Opcodes::L2I:
-			{}
 		case $Opcodes::L2F:
-			{}
 		case $Opcodes::L2D:
-			{}
 		case $Opcodes::F2I:
-			{}
 		case $Opcodes::F2L:
-			{}
 		case $Opcodes::F2D:
-			{}
 		case $Opcodes::D2I:
-			{}
 		case $Opcodes::D2L:
-			{}
 		case $Opcodes::D2F:
-			{}
 		case $Opcodes::I2B:
-			{}
 		case $Opcodes::I2C:
-			{}
 		case $Opcodes::I2S:
-			{}
 		case $Opcodes::LCMP:
-			{}
 		case $Opcodes::FCMPL:
-			{}
 		case $Opcodes::FCMPG:
-			{}
 		case $Opcodes::DCMPL:
-			{}
 		case $Opcodes::DCMPG:
-			{}
 		case $Opcodes::IRETURN:
-			{}
 		case $Opcodes::LRETURN:
-			{}
 		case $Opcodes::FRETURN:
-			{}
 		case $Opcodes::DRETURN:
-			{}
 		case $Opcodes::ARETURN:
-			{}
 		case $Opcodes::RETURN:
-			{}
 		case $Opcodes::ARRAYLENGTH:
-			{}
 		case $Opcodes::ATHROW:
-			{}
 		case $Opcodes::MONITORENTER:
-			{}
 		case $Opcodes::MONITOREXIT:
-			{
-				$nc(methodVisitor)->visitInsn(opcode);
-				currentOffset += 1;
-				break;
-			}
+			$nc(methodVisitor)->visitInsn(opcode);
+			currentOffset += 1;
+			break;
 		case $Constants::ILOAD_0:
-			{}
 		case $Constants::ILOAD_1:
-			{}
 		case $Constants::ILOAD_2:
-			{}
 		case $Constants::ILOAD_3:
-			{}
 		case $Constants::LLOAD_0:
-			{}
 		case $Constants::LLOAD_1:
-			{}
 		case $Constants::LLOAD_2:
-			{}
 		case $Constants::LLOAD_3:
-			{}
 		case $Constants::FLOAD_0:
-			{}
 		case $Constants::FLOAD_1:
-			{}
 		case $Constants::FLOAD_2:
-			{}
 		case $Constants::FLOAD_3:
-			{}
 		case $Constants::DLOAD_0:
-			{}
 		case $Constants::DLOAD_1:
-			{}
 		case $Constants::DLOAD_2:
-			{}
 		case $Constants::DLOAD_3:
-			{}
 		case $Constants::ALOAD_0:
-			{}
 		case $Constants::ALOAD_1:
-			{}
 		case $Constants::ALOAD_2:
-			{}
 		case $Constants::ALOAD_3:
-			{
-				opcode -= $Constants::ILOAD_0;
-				$nc(methodVisitor)->visitVarInsn($Opcodes::ILOAD + (opcode >> 2), (int32_t)(opcode & (uint32_t)3));
-				currentOffset += 1;
-				break;
-			}
+			opcode -= $Constants::ILOAD_0;
+			$nc(methodVisitor)->visitVarInsn($Opcodes::ILOAD + (opcode >> 2), opcode & 3);
+			currentOffset += 1;
+			break;
 		case $Constants::ISTORE_0:
-			{}
 		case $Constants::ISTORE_1:
-			{}
 		case $Constants::ISTORE_2:
-			{}
 		case $Constants::ISTORE_3:
-			{}
 		case $Constants::LSTORE_0:
-			{}
 		case $Constants::LSTORE_1:
-			{}
 		case $Constants::LSTORE_2:
-			{}
 		case $Constants::LSTORE_3:
-			{}
 		case $Constants::FSTORE_0:
-			{}
 		case $Constants::FSTORE_1:
-			{}
 		case $Constants::FSTORE_2:
-			{}
 		case $Constants::FSTORE_3:
-			{}
 		case $Constants::DSTORE_0:
-			{}
 		case $Constants::DSTORE_1:
-			{}
 		case $Constants::DSTORE_2:
-			{}
 		case $Constants::DSTORE_3:
-			{}
 		case $Constants::ASTORE_0:
-			{}
 		case $Constants::ASTORE_1:
-			{}
 		case $Constants::ASTORE_2:
-			{}
 		case $Constants::ASTORE_3:
-			{
-				opcode -= $Constants::ISTORE_0;
-				$nc(methodVisitor)->visitVarInsn($Opcodes::ISTORE + (opcode >> 2), (int32_t)(opcode & (uint32_t)3));
-				currentOffset += 1;
-				break;
-			}
+			opcode -= $Constants::ISTORE_0;
+			$nc(methodVisitor)->visitVarInsn($Opcodes::ISTORE + (opcode >> 2), opcode & 3);
+			currentOffset += 1;
+			break;
 		case $Opcodes::IFEQ:
-			{}
 		case $Opcodes::IFNE:
-			{}
 		case $Opcodes::IFLT:
-			{}
 		case $Opcodes::IFGE:
-			{}
 		case $Opcodes::IFGT:
-			{}
 		case $Opcodes::IFLE:
-			{}
 		case $Opcodes::IF_ICMPEQ:
-			{}
 		case $Opcodes::IF_ICMPNE:
-			{}
 		case $Opcodes::IF_ICMPLT:
-			{}
 		case $Opcodes::IF_ICMPGE:
-			{}
 		case $Opcodes::IF_ICMPGT:
-			{}
 		case $Opcodes::IF_ICMPLE:
-			{}
 		case $Opcodes::IF_ACMPEQ:
-			{}
 		case $Opcodes::IF_ACMPNE:
-			{}
 		case $Opcodes::GOTO:
-			{}
 		case $Opcodes::JSR:
-			{}
 		case $Opcodes::IFNULL:
-			{}
 		case $Opcodes::IFNONNULL:
+			$nc(methodVisitor)->visitJumpInsn(opcode, labels->get(currentBytecodeOffset + readShort(currentOffset + 1)));
+			currentOffset += 3;
+			break;
+		case $Constants::GOTO_W:
+		case $Constants::JSR_W:
+			$nc(methodVisitor)->visitJumpInsn(opcode - wideJumpOpcodeDelta, labels->get(currentBytecodeOffset + readInt(currentOffset + 1)));
+			currentOffset += 5;
+			break;
+		case $Constants::ASM_IFEQ:
+		case $Constants::ASM_IFNE:
+		case $Constants::ASM_IFLT:
+		case $Constants::ASM_IFGE:
+		case $Constants::ASM_IFGT:
+		case $Constants::ASM_IFLE:
+		case $Constants::ASM_IF_ICMPEQ:
+		case $Constants::ASM_IF_ICMPNE:
+		case $Constants::ASM_IF_ICMPLT:
+		case $Constants::ASM_IF_ICMPGE:
+		case $Constants::ASM_IF_ICMPGT:
+		case $Constants::ASM_IF_ICMPLE:
+		case $Constants::ASM_IF_ACMPEQ:
+		case $Constants::ASM_IF_ACMPNE:
+		case $Constants::ASM_GOTO:
+		case $Constants::ASM_JSR:
+		case $Constants::ASM_IFNULL:
+		case $Constants::ASM_IFNONNULL:
 			{
-				$nc(methodVisitor)->visitJumpInsn(opcode, labels->get(currentBytecodeOffset + readShort(currentOffset + 1)));
+				opcode = opcode < $Constants::ASM_IFNULL ? opcode - $Constants::ASM_OPCODE_DELTA : opcode - $Constants::ASM_IFNULL_OPCODE_DELTA;
+				$var($Label, target, labels->get(currentBytecodeOffset + readUnsignedShort(currentOffset + 1)));
+				if (opcode == $Opcodes::GOTO || opcode == $Opcodes::JSR) {
+					$nc(methodVisitor)->visitJumpInsn(opcode + $Constants::WIDE_JUMP_OPCODE_DELTA, target);
+				} else {
+					opcode = opcode < $Opcodes::GOTO ? ((opcode + 1) ^ 1) - 1 : opcode ^ 1;
+					$var($Label, endif, createLabel(currentBytecodeOffset + 3, labels));
+					$nc(methodVisitor)->visitJumpInsn(opcode, endif);
+					methodVisitor->visitJumpInsn($Constants::GOTO_W, target);
+					insertFrame = true;
+				}
 				currentOffset += 3;
 				break;
 			}
-		case $Constants::GOTO_W:
-			{}
-		case $Constants::JSR_W:
-			{
-				$nc(methodVisitor)->visitJumpInsn(opcode - wideJumpOpcodeDelta, labels->get(currentBytecodeOffset + readInt(currentOffset + 1)));
-				currentOffset += 5;
-				break;
-			}
-		case $Constants::ASM_IFEQ:
-			{}
-		case $Constants::ASM_IFNE:
-			{}
-		case $Constants::ASM_IFLT:
-			{}
-		case $Constants::ASM_IFGE:
-			{}
-		case $Constants::ASM_IFGT:
-			{}
-		case $Constants::ASM_IFLE:
-			{}
-		case $Constants::ASM_IF_ICMPEQ:
-			{}
-		case $Constants::ASM_IF_ICMPNE:
-			{}
-		case $Constants::ASM_IF_ICMPLT:
-			{}
-		case $Constants::ASM_IF_ICMPGE:
-			{}
-		case $Constants::ASM_IF_ICMPGT:
-			{}
-		case $Constants::ASM_IF_ICMPLE:
-			{}
-		case $Constants::ASM_IF_ACMPEQ:
-			{}
-		case $Constants::ASM_IF_ACMPNE:
-			{}
-		case $Constants::ASM_GOTO:
-			{}
-		case $Constants::ASM_JSR:
-			{}
-		case $Constants::ASM_IFNULL:
-			{}
-		case $Constants::ASM_IFNONNULL:
-			{
-				{
-					opcode = opcode < $Constants::ASM_IFNULL ? opcode - $Constants::ASM_OPCODE_DELTA : opcode - $Constants::ASM_IFNULL_OPCODE_DELTA;
-					$var($Label, target, labels->get(currentBytecodeOffset + readUnsignedShort(currentOffset + 1)));
-					if (opcode == $Opcodes::GOTO || opcode == $Opcodes::JSR) {
-						$nc(methodVisitor)->visitJumpInsn(opcode + $Constants::WIDE_JUMP_OPCODE_DELTA, target);
-					} else {
-						opcode = opcode < $Opcodes::GOTO ? ((opcode + 1) ^ 1) - 1 : opcode ^ 1;
-						$var($Label, endif, createLabel(currentBytecodeOffset + 3, labels));
-						$nc(methodVisitor)->visitJumpInsn(opcode, endif);
-						methodVisitor->visitJumpInsn($Constants::GOTO_W, target);
-						insertFrame = true;
-					}
-					currentOffset += 3;
-					break;
-				}
-			}
 		case $Constants::ASM_GOTO_W:
-			{
-				$nc(methodVisitor)->visitJumpInsn($Constants::GOTO_W, labels->get(currentBytecodeOffset + readInt(currentOffset + 1)));
-				insertFrame = true;
-				currentOffset += 5;
-				break;
-			}
+			$nc(methodVisitor)->visitJumpInsn($Constants::GOTO_W, labels->get(currentBytecodeOffset + readInt(currentOffset + 1)));
+			insertFrame = true;
+			currentOffset += 5;
+			break;
 		case $Constants::WIDE:
-			{
-				opcode = (int32_t)(classBuffer->get(currentOffset + 1) & (uint32_t)255);
-				if (opcode == $Opcodes::IINC) {
-					int32_t var$1 = readUnsignedShort(currentOffset + 2);
-					$nc(methodVisitor)->visitIincInsn(var$1, readShort(currentOffset + 4));
-					currentOffset += 6;
-				} else {
-					$nc(methodVisitor)->visitVarInsn(opcode, readUnsignedShort(currentOffset + 2));
-					currentOffset += 4;
-				}
-				break;
+			opcode = classBuffer->get(currentOffset + 1) & 0xff;
+			if (opcode == $Opcodes::IINC) {
+				int32_t var$1 = readUnsignedShort(currentOffset + 2);
+				$nc(methodVisitor)->visitIincInsn(var$1, readShort(currentOffset + 4));
+				currentOffset += 6;
+			} else {
+				$nc(methodVisitor)->visitVarInsn(opcode, readUnsignedShort(currentOffset + 2));
+				currentOffset += 4;
 			}
+			break;
 		case $Opcodes::TABLESWITCH:
 			{
-				{
-					currentOffset += 4 - ((int32_t)(currentBytecodeOffset & (uint32_t)3));
-					$var($Label, defaultLabel, labels->get(currentBytecodeOffset + readInt(currentOffset)));
-					int32_t low = readInt(currentOffset + 4);
-					int32_t high = readInt(currentOffset + 8);
-					currentOffset += 12;
-					$var($LabelArray, table, $new($LabelArray, high - low + 1));
-					for (int32_t i = 0; i < table->length; ++i) {
-						table->set(i, labels->get(currentBytecodeOffset + readInt(currentOffset)));
-						currentOffset += 4;
-					}
-					$nc(methodVisitor)->visitTableSwitchInsn(low, high, defaultLabel, table);
-					break;
+				currentOffset += 4 - (currentBytecodeOffset & 3);
+				$var($Label, defaultLabel, labels->get(currentBytecodeOffset + readInt(currentOffset)));
+				int32_t low = readInt(currentOffset + 4);
+				int32_t high = readInt(currentOffset + 8);
+				currentOffset += 12;
+				$var($LabelArray, table, $new($LabelArray, high - low + 1));
+				for (int32_t i = 0; i < table->length; ++i) {
+					table->set(i, labels->get(currentBytecodeOffset + readInt(currentOffset)));
+					currentOffset += 4;
 				}
+				$nc(methodVisitor)->visitTableSwitchInsn(low, high, defaultLabel, table);
+				break;
 			}
 		case $Opcodes::LOOKUPSWITCH:
 			{
-				{
-					currentOffset += 4 - ((int32_t)(currentBytecodeOffset & (uint32_t)3));
-					$var($Label, defaultLabel, labels->get(currentBytecodeOffset + readInt(currentOffset)));
-					int32_t numPairs = readInt(currentOffset + 4);
+				currentOffset += 4 - (currentBytecodeOffset & 3);
+				$var($Label, defaultLabel, labels->get(currentBytecodeOffset + readInt(currentOffset)));
+				int32_t numPairs = readInt(currentOffset + 4);
+				currentOffset += 8;
+				$var($ints, keys, $new($ints, numPairs));
+				$var($LabelArray, values, $new($LabelArray, numPairs));
+				for (int32_t i = 0; i < numPairs; ++i) {
+					keys->set(i, readInt(currentOffset));
+					values->set(i, labels->get(currentBytecodeOffset + readInt(currentOffset + 4)));
 					currentOffset += 8;
-					$var($ints, keys, $new($ints, numPairs));
-					$var($LabelArray, values, $new($LabelArray, numPairs));
-					for (int32_t i = 0; i < numPairs; ++i) {
-						keys->set(i, readInt(currentOffset));
-						values->set(i, labels->get(currentBytecodeOffset + readInt(currentOffset + 4)));
-						currentOffset += 8;
-					}
-					$nc(methodVisitor)->visitLookupSwitchInsn(defaultLabel, keys, values);
-					break;
 				}
+				$nc(methodVisitor)->visitLookupSwitchInsn(defaultLabel, keys, values);
+				break;
 			}
 		case $Opcodes::ILOAD:
-			{}
 		case $Opcodes::LLOAD:
-			{}
 		case $Opcodes::FLOAD:
-			{}
 		case $Opcodes::DLOAD:
-			{}
 		case $Opcodes::ALOAD:
-			{}
 		case $Opcodes::ISTORE:
-			{}
 		case $Opcodes::LSTORE:
-			{}
 		case $Opcodes::FSTORE:
-			{}
 		case $Opcodes::DSTORE:
-			{}
 		case $Opcodes::ASTORE:
-			{}
 		case $Opcodes::RET:
-			{
-				$nc(methodVisitor)->visitVarInsn(opcode, (int32_t)(classBuffer->get(currentOffset + 1) & (uint32_t)255));
-				currentOffset += 2;
-				break;
-			}
+			$nc(methodVisitor)->visitVarInsn(opcode, classBuffer->get(currentOffset + 1) & 0xff);
+			currentOffset += 2;
+			break;
 		case $Opcodes::BIPUSH:
-			{}
 		case $Opcodes::NEWARRAY:
-			{
-				$nc(methodVisitor)->visitIntInsn(opcode, classBuffer->get(currentOffset + 1));
-				currentOffset += 2;
-				break;
-			}
+			$nc(methodVisitor)->visitIntInsn(opcode, classBuffer->get(currentOffset + 1));
+			currentOffset += 2;
+			break;
 		case $Opcodes::SIPUSH:
-			{
-				$nc(methodVisitor)->visitIntInsn(opcode, readShort(currentOffset + 1));
-				currentOffset += 3;
-				break;
-			}
+			$nc(methodVisitor)->visitIntInsn(opcode, readShort(currentOffset + 1));
+			currentOffset += 3;
+			break;
 		case $Opcodes::LDC:
-			{
-				$nc(methodVisitor)->visitLdcInsn($(readConst((int32_t)(classBuffer->get(currentOffset + 1) & (uint32_t)255), charBuffer)));
-				currentOffset += 2;
-				break;
-			}
+			$nc(methodVisitor)->visitLdcInsn($(readConst(classBuffer->get(currentOffset + 1) & 0xff, charBuffer)));
+			currentOffset += 2;
+			break;
 		case $Constants::LDC_W:
-			{}
 		case $Constants::LDC2_W:
-			{
-				$nc(methodVisitor)->visitLdcInsn($(readConst(readUnsignedShort(currentOffset + 1), charBuffer)));
-				currentOffset += 3;
-				break;
-			}
+			$nc(methodVisitor)->visitLdcInsn($(readConst(readUnsignedShort(currentOffset + 1), charBuffer)));
+			currentOffset += 3;
+			break;
 		case $Opcodes::GETSTATIC:
-			{}
 		case $Opcodes::PUTSTATIC:
-			{}
 		case $Opcodes::GETFIELD:
-			{}
 		case $Opcodes::PUTFIELD:
-			{}
 		case $Opcodes::INVOKEVIRTUAL:
-			{}
 		case $Opcodes::INVOKESPECIAL:
-			{}
 		case $Opcodes::INVOKESTATIC:
-			{}
 		case $Opcodes::INVOKEINTERFACE:
 			{
-				{
-					int32_t cpInfoOffset = $nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1));
-					int32_t nameAndTypeCpInfoOffset = $nc(this->cpInfoOffsets)->get(readUnsignedShort(cpInfoOffset + 2));
-					$var($String, owner, readClass(cpInfoOffset, charBuffer));
-					$var($String, name, readUTF8(nameAndTypeCpInfoOffset, charBuffer));
-					$var($String, descriptor, readUTF8(nameAndTypeCpInfoOffset + 2, charBuffer));
-					if (opcode < $Opcodes::INVOKEVIRTUAL) {
-						$nc(methodVisitor)->visitFieldInsn(opcode, owner, name, descriptor);
-					} else {
-						bool isInterface = classBuffer->get(cpInfoOffset - 1) == $Symbol::CONSTANT_INTERFACE_METHODREF_TAG;
-						$nc(methodVisitor)->visitMethodInsn(opcode, owner, name, descriptor, isInterface);
-					}
-					if (opcode == $Opcodes::INVOKEINTERFACE) {
-						currentOffset += 5;
-					} else {
-						currentOffset += 3;
-					}
-					break;
+				int32_t cpInfoOffset = $nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1));
+				int32_t nameAndTypeCpInfoOffset = this->cpInfoOffsets->get(readUnsignedShort(cpInfoOffset + 2));
+				$var($String, owner, readClass(cpInfoOffset, charBuffer));
+				$var($String, name, readUTF8(nameAndTypeCpInfoOffset, charBuffer));
+				$var($String, descriptor, readUTF8(nameAndTypeCpInfoOffset + 2, charBuffer));
+				if (opcode < $Opcodes::INVOKEVIRTUAL) {
+					$nc(methodVisitor)->visitFieldInsn(opcode, owner, name, descriptor);
+				} else {
+					bool isInterface = classBuffer->get(cpInfoOffset - 1) == $Symbol::CONSTANT_INTERFACE_METHODREF_TAG;
+					$nc(methodVisitor)->visitMethodInsn(opcode, owner, name, descriptor, isInterface);
 				}
+				if (opcode == $Opcodes::INVOKEINTERFACE) {
+					currentOffset += 5;
+				} else {
+					currentOffset += 3;
+				}
+				break;
 			}
 		case $Opcodes::INVOKEDYNAMIC:
 			{
-				{
-					int32_t cpInfoOffset = $nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1));
-					int32_t nameAndTypeCpInfoOffset = $nc(this->cpInfoOffsets)->get(readUnsignedShort(cpInfoOffset + 2));
-					$var($String, name, readUTF8(nameAndTypeCpInfoOffset, charBuffer));
-					$var($String, descriptor, readUTF8(nameAndTypeCpInfoOffset + 2, charBuffer));
-					int32_t bootstrapMethodOffset = $nc(this->bootstrapMethodOffsets)->get(readUnsignedShort(cpInfoOffset));
-					$var($Handle, handle, $cast($Handle, readConst(readUnsignedShort(bootstrapMethodOffset), charBuffer)));
-					$var($ObjectArray, bootstrapMethodArguments, $new($ObjectArray, readUnsignedShort(bootstrapMethodOffset + 2)));
-					bootstrapMethodOffset += 4;
-					for (int32_t i = 0; i < bootstrapMethodArguments->length; ++i) {
-						bootstrapMethodArguments->set(i, $(readConst(readUnsignedShort(bootstrapMethodOffset), charBuffer)));
-						bootstrapMethodOffset += 2;
-					}
-					$nc(methodVisitor)->visitInvokeDynamicInsn(name, descriptor, handle, bootstrapMethodArguments);
-					currentOffset += 5;
-					break;
+				int32_t cpInfoOffset = $nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1));
+				int32_t nameAndTypeCpInfoOffset = this->cpInfoOffsets->get(readUnsignedShort(cpInfoOffset + 2));
+				$var($String, name, readUTF8(nameAndTypeCpInfoOffset, charBuffer));
+				$var($String, descriptor, readUTF8(nameAndTypeCpInfoOffset + 2, charBuffer));
+				int32_t bootstrapMethodOffset = $nc(this->bootstrapMethodOffsets)->get(readUnsignedShort(cpInfoOffset));
+				$var($Handle, handle, $cast($Handle, readConst(readUnsignedShort(bootstrapMethodOffset), charBuffer)));
+				$var($ObjectArray, bootstrapMethodArguments, $new($ObjectArray, readUnsignedShort(bootstrapMethodOffset + 2)));
+				bootstrapMethodOffset += 4;
+				for (int32_t i = 0; i < bootstrapMethodArguments->length; ++i) {
+					bootstrapMethodArguments->set(i, $(readConst(readUnsignedShort(bootstrapMethodOffset), charBuffer)));
+					bootstrapMethodOffset += 2;
 				}
+				$nc(methodVisitor)->visitInvokeDynamicInsn(name, descriptor, handle, bootstrapMethodArguments);
+				currentOffset += 5;
+				break;
 			}
 		case $Opcodes::NEW:
-			{}
 		case $Opcodes::ANEWARRAY:
-			{}
 		case $Opcodes::CHECKCAST:
-			{}
 		case $Opcodes::INSTANCEOF:
-			{
-				$nc(methodVisitor)->visitTypeInsn(opcode, $(readClass(currentOffset + 1, charBuffer)));
-				currentOffset += 3;
-				break;
-			}
+			$nc(methodVisitor)->visitTypeInsn(opcode, $(readClass(currentOffset + 1, charBuffer)));
+			currentOffset += 3;
+			break;
 		case $Opcodes::IINC:
-			{
-				$nc(methodVisitor)->visitIincInsn((int32_t)(classBuffer->get(currentOffset + 1) & (uint32_t)255), classBuffer->get(currentOffset + 2));
-				currentOffset += 3;
-				break;
-			}
+			$nc(methodVisitor)->visitIincInsn(classBuffer->get(currentOffset + 1) & 0xff, classBuffer->get(currentOffset + 2));
+			currentOffset += 3;
+			break;
 		case $Opcodes::MULTIANEWARRAY:
-			{
-				$nc(methodVisitor)->visitMultiANewArrayInsn($(readClass(currentOffset + 1, charBuffer)), (int32_t)(classBuffer->get(currentOffset + 3) & (uint32_t)255));
-				currentOffset += 4;
-				break;
-			}
+			$nc(methodVisitor)->visitMultiANewArrayInsn($(readClass(currentOffset + 1, charBuffer)), classBuffer->get(currentOffset + 3) & 0xff);
+			currentOffset += 4;
+			break;
 		default:
-			{
-				$throwNew($AssertionError);
-			}
+			$throwNew($AssertionError);
 		}
 		while (visibleTypeAnnotationOffsets != nullptr && currentVisibleTypeAnnotationIndex < visibleTypeAnnotationOffsets->length && currentVisibleTypeAnnotationBytecodeOffset <= currentBytecodeOffset) {
 			if (currentVisibleTypeAnnotationBytecodeOffset == currentBytecodeOffset) {
@@ -2738,7 +2035,7 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 	if ($nc(labels)->get(codeLength) != nullptr) {
 		$nc(methodVisitor)->visitLabel(labels->get(codeLength));
 	}
-	if (localVariableTableOffset != 0 && ((int32_t)(context->parsingOptions & (uint32_t)ClassReader::SKIP_DEBUG)) == 0) {
+	if (localVariableTableOffset != 0 && (context->parsingOptions & ClassReader::SKIP_DEBUG) == 0) {
 		$var($ints, typeTable, nullptr);
 		if (localVariableTypeTableOffset != 0) {
 			$assign(typeTable, $new($ints, readUnsignedShort(localVariableTypeTableOffset) * 3));
@@ -2769,43 +2066,35 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 					}
 				}
 			}
-			$nc(methodVisitor)->visitLocalVariable(name, descriptor, signature, $nc(labels)->get(startPc), labels->get(startPc + length), index);
+			$nc(methodVisitor)->visitLocalVariable(name, descriptor, signature, labels->get(startPc), labels->get(startPc + length), index);
 		}
 	}
 	if (visibleTypeAnnotationOffsets != nullptr) {
-		{
-			$var($ints, arr$, visibleTypeAnnotationOffsets);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				int32_t typeAnnotationOffset = arr$->get(i$);
-				{
-					int32_t targetType = readByte(typeAnnotationOffset);
-					if (targetType == $TypeReference::LOCAL_VARIABLE || targetType == $TypeReference::RESOURCE_VARIABLE) {
-						currentOffset = readTypeAnnotationTarget(context, typeAnnotationOffset);
-						$var($String, annotationDescriptor, readUTF8(currentOffset, charBuffer));
-						currentOffset += 2;
-						readElementValues($($nc(methodVisitor)->visitLocalVariableAnnotation(context->currentTypeAnnotationTarget, context->currentTypeAnnotationTargetPath, context->currentLocalVariableAnnotationRangeStarts, context->currentLocalVariableAnnotationRangeEnds, context->currentLocalVariableAnnotationRangeIndices, annotationDescriptor, true)), currentOffset, true, charBuffer);
-					}
+		$var($ints, arr$, visibleTypeAnnotationOffsets);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			int32_t typeAnnotationOffset = arr$->get(i$);
+			{
+				int32_t targetType = readByte(typeAnnotationOffset);
+				if (targetType == $TypeReference::LOCAL_VARIABLE || targetType == $TypeReference::RESOURCE_VARIABLE) {
+					currentOffset = readTypeAnnotationTarget(context, typeAnnotationOffset);
+					$var($String, annotationDescriptor, readUTF8(currentOffset, charBuffer));
+					currentOffset += 2;
+					readElementValues($($nc(methodVisitor)->visitLocalVariableAnnotation(context->currentTypeAnnotationTarget, context->currentTypeAnnotationTargetPath, context->currentLocalVariableAnnotationRangeStarts, context->currentLocalVariableAnnotationRangeEnds, context->currentLocalVariableAnnotationRangeIndices, annotationDescriptor, true)), currentOffset, true, charBuffer);
 				}
 			}
 		}
 	}
 	if (invisibleTypeAnnotationOffsets != nullptr) {
-		{
-			$var($ints, arr$, invisibleTypeAnnotationOffsets);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				int32_t typeAnnotationOffset = arr$->get(i$);
-				{
-					int32_t targetType = readByte(typeAnnotationOffset);
-					if (targetType == $TypeReference::LOCAL_VARIABLE || targetType == $TypeReference::RESOURCE_VARIABLE) {
-						currentOffset = readTypeAnnotationTarget(context, typeAnnotationOffset);
-						$var($String, annotationDescriptor, readUTF8(currentOffset, charBuffer));
-						currentOffset += 2;
-						readElementValues($($nc(methodVisitor)->visitLocalVariableAnnotation(context->currentTypeAnnotationTarget, context->currentTypeAnnotationTargetPath, context->currentLocalVariableAnnotationRangeStarts, context->currentLocalVariableAnnotationRangeEnds, context->currentLocalVariableAnnotationRangeIndices, annotationDescriptor, false)), currentOffset, true, charBuffer);
-					}
+		$var($ints, arr$, invisibleTypeAnnotationOffsets);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			int32_t typeAnnotationOffset = arr$->get(i$);
+			{
+				int32_t targetType = readByte(typeAnnotationOffset);
+				if (targetType == $TypeReference::LOCAL_VARIABLE || targetType == $TypeReference::RESOURCE_VARIABLE) {
+					currentOffset = readTypeAnnotationTarget(context, typeAnnotationOffset);
+					$var($String, annotationDescriptor, readUTF8(currentOffset, charBuffer));
+					currentOffset += 2;
+					readElementValues($($nc(methodVisitor)->visitLocalVariableAnnotation(context->currentTypeAnnotationTarget, context->currentTypeAnnotationTargetPath, context->currentLocalVariableAnnotationRangeStarts, context->currentLocalVariableAnnotationRangeEnds, context->currentLocalVariableAnnotationRangeIndices, annotationDescriptor, false)), currentOffset, true, charBuffer);
 				}
 			}
 		}
@@ -2823,7 +2112,7 @@ $Label* ClassReader::readLabel(int32_t bytecodeOffset, $LabelArray* labels) {
 	if ($nc(labels)->get(bytecodeOffset) == nullptr) {
 		labels->set(bytecodeOffset, $$new($Label));
 	}
-	return $nc(labels)->get(bytecodeOffset);
+	return labels->get(bytecodeOffset);
 }
 
 $Label* ClassReader::createLabel(int32_t bytecodeOffset, $LabelArray* labels) {
@@ -2839,7 +2128,7 @@ void ClassReader::createDebugLabel(int32_t bytecodeOffset, $LabelArray* labels) 
 }
 
 $ints* ClassReader::readTypeAnnotations($MethodVisitor* methodVisitor, $Context* context, int32_t runtimeTypeAnnotationsOffset, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, charBuffer, $nc(context)->charBuffer);
 	int32_t currentOffset = runtimeTypeAnnotationsOffset;
 	$var($ints, typeAnnotationsOffsets, $new($ints, readUnsignedShort(currentOffset)));
@@ -2851,70 +2140,43 @@ $ints* ClassReader::readTypeAnnotations($MethodVisitor* methodVisitor, $Context*
 			int32_t tableLength = 0;
 			switch ((int32_t)((uint32_t)targetType >> 24)) {
 			case $TypeReference::LOCAL_VARIABLE:
-				{}
 			case $TypeReference::RESOURCE_VARIABLE:
-				{
-					tableLength = readUnsignedShort(currentOffset + 1);
-					currentOffset += 3;
-					while (tableLength-- > 0) {
-						int32_t startPc = readUnsignedShort(currentOffset);
-						int32_t length = readUnsignedShort(currentOffset + 2);
-						currentOffset += 6;
-						createLabel(startPc, context->currentMethodLabels);
-						createLabel(startPc + length, context->currentMethodLabels);
-					}
-					break;
+				tableLength = readUnsignedShort(currentOffset + 1);
+				currentOffset += 3;
+				while (tableLength-- > 0) {
+					int32_t startPc = readUnsignedShort(currentOffset);
+					int32_t length = readUnsignedShort(currentOffset + 2);
+					currentOffset += 6;
+					createLabel(startPc, context->currentMethodLabels);
+					createLabel(startPc + length, context->currentMethodLabels);
 				}
+				break;
 			case $TypeReference::CAST:
-				{}
 			case $TypeReference::CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT:
-				{}
 			case $TypeReference::METHOD_INVOCATION_TYPE_ARGUMENT:
-				{}
 			case $TypeReference::CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT:
-				{}
 			case $TypeReference::METHOD_REFERENCE_TYPE_ARGUMENT:
-				{
-					currentOffset += 4;
-					break;
-				}
+				currentOffset += 4;
+				break;
 			case $TypeReference::CLASS_EXTENDS:
-				{}
 			case $TypeReference::CLASS_TYPE_PARAMETER_BOUND:
-				{}
 			case $TypeReference::METHOD_TYPE_PARAMETER_BOUND:
-				{}
 			case $TypeReference::THROWS:
-				{}
 			case $TypeReference::EXCEPTION_PARAMETER:
-				{}
 			case $TypeReference::INSTANCEOF:
-				{}
 			case $TypeReference::NEW:
-				{}
 			case $TypeReference::CONSTRUCTOR_REFERENCE:
-				{}
 			case $TypeReference::METHOD_REFERENCE:
-				{
-					currentOffset += 3;
-					break;
-				}
+				currentOffset += 3;
+				break;
 			case $TypeReference::CLASS_TYPE_PARAMETER:
-				{}
 			case $TypeReference::METHOD_TYPE_PARAMETER:
-				{}
 			case $TypeReference::METHOD_FORMAL_PARAMETER:
-				{}
 			case $TypeReference::FIELD:
-				{}
 			case $TypeReference::METHOD_RETURN:
-				{}
 			case $TypeReference::METHOD_RECEIVER:
-				{}
 			default:
-				{
-					$throwNew($IllegalArgumentException);
-				}
+				$throwNew($IllegalArgumentException);
 			}
 		}
 		int32_t pathLength = readByte(currentOffset);
@@ -2923,7 +2185,7 @@ $ints* ClassReader::readTypeAnnotations($MethodVisitor* methodVisitor, $Context*
 			currentOffset += 1 + 2 * pathLength;
 			$var($String, annotationDescriptor, readUTF8(currentOffset, charBuffer));
 			currentOffset += 2;
-			currentOffset = readElementValues($($nc(methodVisitor)->visitTryCatchAnnotation((int32_t)(targetType & (uint32_t)-256), path, annotationDescriptor, visible)), currentOffset, true, charBuffer);
+			currentOffset = readElementValues($($nc(methodVisitor)->visitTryCatchAnnotation(targetType & -256, path, annotationDescriptor, visible)), currentOffset, true, charBuffer);
 		} else {
 			currentOffset += 3 + 2 * pathLength;
 			currentOffset = readElementValues(nullptr, currentOffset, true, charBuffer);
@@ -2933,104 +2195,74 @@ $ints* ClassReader::readTypeAnnotations($MethodVisitor* methodVisitor, $Context*
 }
 
 int32_t ClassReader::getTypeAnnotationBytecodeOffset($ints* typeAnnotationOffsets, int32_t typeAnnotationIndex) {
-	if (typeAnnotationOffsets == nullptr || typeAnnotationIndex >= $nc(typeAnnotationOffsets)->length || readByte($nc(typeAnnotationOffsets)->get(typeAnnotationIndex)) < $TypeReference::INSTANCEOF) {
+	if (typeAnnotationOffsets == nullptr || typeAnnotationIndex >= typeAnnotationOffsets->length || readByte(typeAnnotationOffsets->get(typeAnnotationIndex)) < $TypeReference::INSTANCEOF) {
 		return -1;
 	}
 	return readUnsignedShort($nc(typeAnnotationOffsets)->get(typeAnnotationIndex) + 1);
 }
 
 int32_t ClassReader::readTypeAnnotationTarget($Context* context, int32_t typeAnnotationOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentOffset = typeAnnotationOffset;
 	int32_t targetType = readInt(typeAnnotationOffset);
 	{
 		int32_t tableLength = 0;
 		switch ((int32_t)((uint32_t)targetType >> 24)) {
 		case $TypeReference::CLASS_TYPE_PARAMETER:
-			{}
 		case $TypeReference::METHOD_TYPE_PARAMETER:
-			{}
 		case $TypeReference::METHOD_FORMAL_PARAMETER:
-			{
-				targetType &= (uint32_t)(int32_t)0xFFFF0000;
-				currentOffset += 2;
-				break;
-			}
+			targetType &= (uint32_t)(int32_t)0xffff0000;
+			currentOffset += 2;
+			break;
 		case $TypeReference::FIELD:
-			{}
 		case $TypeReference::METHOD_RETURN:
-			{}
 		case $TypeReference::METHOD_RECEIVER:
-			{
-				targetType &= (uint32_t)(int32_t)0xFF000000;
-				currentOffset += 1;
-				break;
-			}
+			targetType &= (uint32_t)(int32_t)0xff000000;
+			currentOffset += 1;
+			break;
 		case $TypeReference::LOCAL_VARIABLE:
-			{}
 		case $TypeReference::RESOURCE_VARIABLE:
-			{
-				targetType &= (uint32_t)(int32_t)0xFF000000;
-				tableLength = readUnsignedShort(currentOffset + 1);
-				currentOffset += 3;
-				$set($nc(context), currentLocalVariableAnnotationRangeStarts, $new($LabelArray, tableLength));
-				$set($nc(context), currentLocalVariableAnnotationRangeEnds, $new($LabelArray, tableLength));
-				$set($nc(context), currentLocalVariableAnnotationRangeIndices, $new($ints, tableLength));
-				for (int32_t i = 0; i < tableLength; ++i) {
-					int32_t startPc = readUnsignedShort(currentOffset);
-					int32_t length = readUnsignedShort(currentOffset + 2);
-					int32_t index = readUnsignedShort(currentOffset + 4);
-					currentOffset += 6;
-					$nc($nc(context)->currentLocalVariableAnnotationRangeStarts)->set(i, $(createLabel(startPc, context->currentMethodLabels)));
-					$nc(context->currentLocalVariableAnnotationRangeEnds)->set(i, $(createLabel(startPc + length, context->currentMethodLabels)));
-					$nc(context->currentLocalVariableAnnotationRangeIndices)->set(i, index);
-				}
-				break;
+			targetType &= (uint32_t)(int32_t)0xff000000;
+			tableLength = readUnsignedShort(currentOffset + 1);
+			currentOffset += 3;
+			$set($nc(context), currentLocalVariableAnnotationRangeStarts, $new($LabelArray, tableLength));
+			$set(context, currentLocalVariableAnnotationRangeEnds, $new($LabelArray, tableLength));
+			$set(context, currentLocalVariableAnnotationRangeIndices, $new($ints, tableLength));
+			for (int32_t i = 0; i < tableLength; ++i) {
+				int32_t startPc = readUnsignedShort(currentOffset);
+				int32_t length = readUnsignedShort(currentOffset + 2);
+				int32_t index = readUnsignedShort(currentOffset + 4);
+				currentOffset += 6;
+				context->currentLocalVariableAnnotationRangeStarts->set(i, $(createLabel(startPc, context->currentMethodLabels)));
+				context->currentLocalVariableAnnotationRangeEnds->set(i, $(createLabel(startPc + length, context->currentMethodLabels)));
+				context->currentLocalVariableAnnotationRangeIndices->set(i, index);
 			}
+			break;
 		case $TypeReference::CAST:
-			{}
 		case $TypeReference::CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT:
-			{}
 		case $TypeReference::METHOD_INVOCATION_TYPE_ARGUMENT:
-			{}
 		case $TypeReference::CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT:
-			{}
 		case $TypeReference::METHOD_REFERENCE_TYPE_ARGUMENT:
-			{
-				targetType &= (uint32_t)(int32_t)0xFF0000FF;
-				currentOffset += 4;
-				break;
-			}
+			targetType &= (uint32_t)(int32_t)0xff0000ff;
+			currentOffset += 4;
+			break;
 		case $TypeReference::CLASS_EXTENDS:
-			{}
 		case $TypeReference::CLASS_TYPE_PARAMETER_BOUND:
-			{}
 		case $TypeReference::METHOD_TYPE_PARAMETER_BOUND:
-			{}
 		case $TypeReference::THROWS:
-			{}
 		case $TypeReference::EXCEPTION_PARAMETER:
-			{
-				targetType &= (uint32_t)-256;
-				currentOffset += 3;
-				break;
-			}
+			targetType &= (uint32_t)-256;
+			currentOffset += 3;
+			break;
 		case $TypeReference::INSTANCEOF:
-			{}
 		case $TypeReference::NEW:
-			{}
 		case $TypeReference::CONSTRUCTOR_REFERENCE:
-			{}
 		case $TypeReference::METHOD_REFERENCE:
-			{
-				targetType &= (uint32_t)(int32_t)0xFF000000;
-				currentOffset += 3;
-				break;
-			}
+			targetType &= (uint32_t)(int32_t)0xff000000;
+			currentOffset += 3;
+			break;
 		default:
-			{
-				$throwNew($IllegalArgumentException);
-			}
+			$throwNew($IllegalArgumentException);
 		}
 	}
 	$nc(context)->currentTypeAnnotationTarget = targetType;
@@ -3040,9 +2272,9 @@ int32_t ClassReader::readTypeAnnotationTarget($Context* context, int32_t typeAnn
 }
 
 void ClassReader::readParameterAnnotations($MethodVisitor* methodVisitor, $Context* context, int32_t runtimeParameterAnnotationsOffset, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentOffset = runtimeParameterAnnotationsOffset;
-	int32_t numParameters = (int32_t)($nc(this->classFileBuffer)->get(currentOffset++) & (uint32_t)255);
+	int32_t numParameters = $nc(this->classFileBuffer)->get(currentOffset++) & 0xff;
 	$nc(methodVisitor)->visitAnnotableParameterCount(numParameters, visible);
 	$var($chars, charBuffer, $nc(context)->charBuffer);
 	for (int32_t i = 0; i < numParameters; ++i) {
@@ -3057,7 +2289,7 @@ void ClassReader::readParameterAnnotations($MethodVisitor* methodVisitor, $Conte
 }
 
 int32_t ClassReader::readElementValues($AnnotationVisitor* annotationVisitor, int32_t annotationOffset, bool named, $chars* charBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentOffset = annotationOffset;
 	int32_t numElementValuePairs = readUnsignedShort(currentOffset);
 	currentOffset += 2;
@@ -3078,93 +2310,64 @@ int32_t ClassReader::readElementValues($AnnotationVisitor* annotationVisitor, in
 }
 
 int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int32_t elementValueOffset, $String* elementName, $chars* charBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentOffset = elementValueOffset;
 	if (annotationVisitor == nullptr) {
-		switch ((int32_t)($nc(this->classFileBuffer)->get(currentOffset) & (uint32_t)255)) {
+		switch ($nc(this->classFileBuffer)->get(currentOffset) & 0xff) {
 		case u'e':
-			{
-				return currentOffset + 5;
-			}
+			return currentOffset + 5;
 		case u'@':
-			{
-				return readElementValues(nullptr, currentOffset + 3, true, charBuffer);
-			}
+			return readElementValues(nullptr, currentOffset + 3, true, charBuffer);
 		case u'[':
-			{
-				return readElementValues(nullptr, currentOffset + 1, false, charBuffer);
-			}
+			return readElementValues(nullptr, currentOffset + 1, false, charBuffer);
 		default:
-			{
-				return currentOffset + 3;
-			}
+			return currentOffset + 3;
 		}
 	}
 	{
 		int32_t numValues = 0;
-		switch ((int32_t)($nc(this->classFileBuffer)->get(currentOffset++) & (uint32_t)255)) {
+		switch ($nc(this->classFileBuffer)->get(currentOffset++) & 0xff) {
 		case u'B':
-			{
-				$nc(annotationVisitor)->visit(elementName, $($Byte::valueOf((int8_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset))))));
-				currentOffset += 2;
-				break;
-			}
+			$nc(annotationVisitor)->visit(elementName, $($Byte::valueOf((int8_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset))))));
+			currentOffset += 2;
+			break;
 		case u'C':
-			{
-				$nc(annotationVisitor)->visit(elementName, $($Character::valueOf((char16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset))))));
-				currentOffset += 2;
-				break;
-			}
+			$nc(annotationVisitor)->visit(elementName, $($Character::valueOf((char16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset))))));
+			currentOffset += 2;
+			break;
 		case u'D':
-			{}
 		case u'F':
-			{}
 		case u'I':
-			{}
 		case u'J':
-			{
-				$nc(annotationVisitor)->visit(elementName, $(readConst(readUnsignedShort(currentOffset), charBuffer)));
-				currentOffset += 2;
-				break;
-			}
+			$nc(annotationVisitor)->visit(elementName, $(readConst(readUnsignedShort(currentOffset), charBuffer)));
+			currentOffset += 2;
+			break;
 		case u'S':
-			{
-				$nc(annotationVisitor)->visit(elementName, $($Short::valueOf((int16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset))))));
-				currentOffset += 2;
-				break;
-			}
+			$nc(annotationVisitor)->visit(elementName, $($Short::valueOf((int16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset))))));
+			currentOffset += 2;
+			break;
 		case u'Z':
-			{
-				$init($Boolean);
-				$nc(annotationVisitor)->visit(elementName, readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset))) == 0 ? $Boolean::FALSE : $Boolean::TRUE);
-				currentOffset += 2;
-				break;
-			}
+			$nc(annotationVisitor)->visit(elementName, readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset))) == 0 ? $Boolean::FALSE : $Boolean::TRUE);
+			currentOffset += 2;
+			break;
 		case u's':
-			{
-				$nc(annotationVisitor)->visit(elementName, $(readUTF8(currentOffset, charBuffer)));
-				currentOffset += 2;
-				break;
-			}
+			$nc(annotationVisitor)->visit(elementName, $(readUTF8(currentOffset, charBuffer)));
+			currentOffset += 2;
+			break;
 		case u'e':
 			{
-				$var($String, var$0, elementName);
-				$var($String, var$1, readUTF8(currentOffset, charBuffer));
-				$nc(annotationVisitor)->visitEnum(var$0, var$1, $(readUTF8(currentOffset + 2, charBuffer)));
+				$var($String, var$0, readUTF8(currentOffset, charBuffer));
+				$nc(annotationVisitor)->visitEnum(elementName, var$0, $(readUTF8(currentOffset + 2, charBuffer)));
 				currentOffset += 4;
 				break;
 			}
 		case u'c':
-			{
-				$nc(annotationVisitor)->visit(elementName, $($Type::getType($(readUTF8(currentOffset, charBuffer)))));
-				currentOffset += 2;
-				break;
-			}
+			$nc(annotationVisitor)->visit(elementName, $($Type::getType($(readUTF8(currentOffset, charBuffer)))));
+			currentOffset += 2;
+			break;
 		case u'@':
-			{
-				currentOffset = readElementValues($($nc(annotationVisitor)->visitAnnotation(elementName, $(readUTF8(currentOffset, charBuffer)))), currentOffset + 2, true, charBuffer);
-				break;
-			}
+			currentOffset = readElementValues($($nc(annotationVisitor)->visitAnnotation(elementName, $(readUTF8(currentOffset, charBuffer)))), currentOffset + 2, true, charBuffer);
+			break;
 		case u'[':
 			{
 				numValues = readUnsignedShort(currentOffset);
@@ -3173,119 +2376,99 @@ int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int
 					return readElementValues($($nc(annotationVisitor)->visitArray(elementName)), currentOffset - 2, false, charBuffer);
 				}
 				{
-					$var($bytes, byteValues, nullptr)
-					$var($booleans, booleanValues, nullptr)
-					$var($shorts, shortValues, nullptr)
-					$var($chars, charValues, nullptr)
-					$var($ints, intValues, nullptr)
-					$var($longs, longValues, nullptr)
-					$var($floats, floatValues, nullptr)
-					$var($doubles, doubleValues, nullptr)
-					switch ((int32_t)($nc(this->classFileBuffer)->get(currentOffset) & (uint32_t)255)) {
+					$var($bytes, byteValues, nullptr);
+					$var($booleans, booleanValues, nullptr);
+					$var($shorts, shortValues, nullptr);
+					$var($chars, charValues, nullptr);
+					$var($ints, intValues, nullptr);
+					$var($longs, longValues, nullptr);
+					$var($floats, floatValues, nullptr);
+					$var($doubles, doubleValues, nullptr);
+					switch (this->classFileBuffer->get(currentOffset) & 0xff) {
 					case u'B':
-						{
-							$assign(byteValues, $new($bytes, numValues));
-							for (int32_t i = 0; i < numValues; ++i) {
-								$nc(byteValues)->set(i, (int8_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
-								currentOffset += 3;
-							}
-							$nc(annotationVisitor)->visit(elementName, byteValues);
-							break;
+						$assign(byteValues, $new($bytes, numValues));
+						for (int32_t i = 0; i < numValues; ++i) {
+							$nc(byteValues)->set(i, (int8_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
+							currentOffset += 3;
 						}
+						$nc(annotationVisitor)->visit(elementName, byteValues);
+						break;
 					case u'Z':
-						{
-							$assign(booleanValues, $new($booleans, numValues));
-							for (int32_t i = 0; i < numValues; ++i) {
-								$nc(booleanValues)->set(i, readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))) != 0);
-								currentOffset += 3;
-							}
-							$nc(annotationVisitor)->visit(elementName, booleanValues);
-							break;
+						$assign(booleanValues, $new($booleans, numValues));
+						for (int32_t i = 0; i < numValues; ++i) {
+							$nc(booleanValues)->set(i, readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))) != 0);
+							currentOffset += 3;
 						}
+						$nc(annotationVisitor)->visit(elementName, booleanValues);
+						break;
 					case u'S':
-						{
-							$assign(shortValues, $new($shorts, numValues));
-							for (int32_t i = 0; i < numValues; ++i) {
-								$nc(shortValues)->set(i, (int16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
-								currentOffset += 3;
-							}
-							$nc(annotationVisitor)->visit(elementName, shortValues);
-							break;
+						$assign(shortValues, $new($shorts, numValues));
+						for (int32_t i = 0; i < numValues; ++i) {
+							$nc(shortValues)->set(i, (int16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
+							currentOffset += 3;
 						}
+						$nc(annotationVisitor)->visit(elementName, shortValues);
+						break;
 					case u'C':
-						{
-							$assign(charValues, $new($chars, numValues));
-							for (int32_t i = 0; i < numValues; ++i) {
-								$nc(charValues)->set(i, (char16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
-								currentOffset += 3;
-							}
-							$nc(annotationVisitor)->visit(elementName, charValues);
-							break;
+						$assign(charValues, $new($chars, numValues));
+						for (int32_t i = 0; i < numValues; ++i) {
+							$nc(charValues)->set(i, (char16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
+							currentOffset += 3;
 						}
+						$nc(annotationVisitor)->visit(elementName, charValues);
+						break;
 					case u'I':
-						{
-							$assign(intValues, $new($ints, numValues));
-							for (int32_t i = 0; i < numValues; ++i) {
-								$nc(intValues)->set(i, readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
-								currentOffset += 3;
-							}
-							$nc(annotationVisitor)->visit(elementName, intValues);
-							break;
+						$assign(intValues, $new($ints, numValues));
+						for (int32_t i = 0; i < numValues; ++i) {
+							$nc(intValues)->set(i, readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
+							currentOffset += 3;
 						}
+						$nc(annotationVisitor)->visit(elementName, intValues);
+						break;
 					case u'J':
-						{
-							$assign(longValues, $new($longs, numValues));
-							for (int32_t i = 0; i < numValues; ++i) {
-								$nc(longValues)->set(i, readLong($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
-								currentOffset += 3;
-							}
-							$nc(annotationVisitor)->visit(elementName, longValues);
-							break;
+						$assign(longValues, $new($longs, numValues));
+						for (int32_t i = 0; i < numValues; ++i) {
+							$nc(longValues)->set(i, readLong($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
+							currentOffset += 3;
 						}
+						$nc(annotationVisitor)->visit(elementName, longValues);
+						break;
 					case u'F':
-						{
-							$assign(floatValues, $new($floats, numValues));
-							for (int32_t i = 0; i < numValues; ++i) {
-								$nc(floatValues)->set(i, $Float::intBitsToFloat(readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1)))));
-								currentOffset += 3;
-							}
-							$nc(annotationVisitor)->visit(elementName, floatValues);
-							break;
+						$assign(floatValues, $new($floats, numValues));
+						for (int32_t i = 0; i < numValues; ++i) {
+							$nc(floatValues)->set(i, $Float::intBitsToFloat(readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1)))));
+							currentOffset += 3;
 						}
+						$nc(annotationVisitor)->visit(elementName, floatValues);
+						break;
 					case u'D':
-						{
-							$assign(doubleValues, $new($doubles, numValues));
-							for (int32_t i = 0; i < numValues; ++i) {
-								$nc(doubleValues)->set(i, $Double::longBitsToDouble(readLong($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1)))));
-								currentOffset += 3;
-							}
-							$nc(annotationVisitor)->visit(elementName, doubleValues);
-							break;
+						$assign(doubleValues, $new($doubles, numValues));
+						for (int32_t i = 0; i < numValues; ++i) {
+							$nc(doubleValues)->set(i, $Double::longBitsToDouble(readLong($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1)))));
+							currentOffset += 3;
 						}
+						$nc(annotationVisitor)->visit(elementName, doubleValues);
+						break;
 					default:
-						{
-							currentOffset = readElementValues($($nc(annotationVisitor)->visitArray(elementName)), currentOffset - 2, false, charBuffer);
-							break;
-						}
+						currentOffset = readElementValues($($nc(annotationVisitor)->visitArray(elementName)), currentOffset - 2, false, charBuffer);
+						break;
 					}
 				}
 				break;
 			}
 		default:
-			{
-				$throwNew($IllegalArgumentException);
-			}
+			$throwNew($IllegalArgumentException);
 		}
 	}
 	return currentOffset;
 }
 
 void ClassReader::computeImplicitFrame($Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, methodDescriptor, $nc(context)->currentMethodDescriptor);
 	$var($ObjectArray, locals, context->currentFrameLocalTypes);
 	int32_t numLocal = 0;
-	if (((int32_t)(context->currentMethodAccessFlags & (uint32_t)$Opcodes::ACC_STATIC)) == 0) {
+	if ((context->currentMethodAccessFlags & $Opcodes::ACC_STATIC) == 0) {
 		if ("<init>"_s->equals(context->currentMethodName)) {
 			$init($Opcodes);
 			$nc(locals)->set(numLocal++, $Opcodes::UNINITIALIZED_THIS);
@@ -3298,76 +2481,58 @@ void ClassReader::computeImplicitFrame($Context* context) {
 		int32_t currentArgumentDescriptorStartOffset = currentMethodDescritorOffset;
 		switch ($nc(methodDescriptor)->charAt(currentMethodDescritorOffset++)) {
 		case u'Z':
-			{}
 		case u'C':
-			{}
 		case u'B':
-			{}
 		case u'S':
-			{}
 		case u'I':
-			{
-				$init($Opcodes);
-				$nc(locals)->set(numLocal++, $Opcodes::INTEGER);
-				break;
-			}
+			$init($Opcodes);
+			$nc(locals)->set(numLocal++, $Opcodes::INTEGER);
+			break;
 		case u'F':
-			{
-				$init($Opcodes);
-				$nc(locals)->set(numLocal++, $Opcodes::FLOAT);
-				break;
-			}
+			$init($Opcodes);
+			$nc(locals)->set(numLocal++, $Opcodes::FLOAT);
+			break;
 		case u'J':
-			{
-				$init($Opcodes);
-				$nc(locals)->set(numLocal++, $Opcodes::LONG);
-				break;
-			}
+			$init($Opcodes);
+			$nc(locals)->set(numLocal++, $Opcodes::LONG);
+			break;
 		case u'D':
-			{
-				$init($Opcodes);
-				$nc(locals)->set(numLocal++, $Opcodes::DOUBLE);
-				break;
-			}
+			$init($Opcodes);
+			$nc(locals)->set(numLocal++, $Opcodes::DOUBLE);
+			break;
 		case u'[':
-			{
-				while (methodDescriptor->charAt(currentMethodDescritorOffset) == u'[') {
-					++currentMethodDescritorOffset;
-				}
-				if (methodDescriptor->charAt(currentMethodDescritorOffset) == u'L') {
-					++currentMethodDescritorOffset;
-					while (methodDescriptor->charAt(currentMethodDescritorOffset) != u';') {
-						++currentMethodDescritorOffset;
-					}
-				}
-				$nc(locals)->set(numLocal++, $(methodDescriptor->substring(currentArgumentDescriptorStartOffset, ++currentMethodDescritorOffset)));
-				break;
+			while (methodDescriptor->charAt(currentMethodDescritorOffset) == u'[') {
+				++currentMethodDescritorOffset;
 			}
-		case u'L':
-			{
+			if (methodDescriptor->charAt(currentMethodDescritorOffset) == u'L') {
+				++currentMethodDescritorOffset;
 				while (methodDescriptor->charAt(currentMethodDescritorOffset) != u';') {
 					++currentMethodDescritorOffset;
 				}
-				$nc(locals)->set(numLocal++, $(methodDescriptor->substring(currentArgumentDescriptorStartOffset + 1, currentMethodDescritorOffset++)));
-				break;
 			}
+			$nc(locals)->set(numLocal++, $(methodDescriptor->substring(currentArgumentDescriptorStartOffset, ++currentMethodDescritorOffset)));
+			break;
+		case u'L':
+			while (methodDescriptor->charAt(currentMethodDescritorOffset) != u';') {
+				++currentMethodDescritorOffset;
+			}
+			$nc(locals)->set(numLocal++, $(methodDescriptor->substring(currentArgumentDescriptorStartOffset + 1, currentMethodDescritorOffset++)));
+			break;
 		default:
-			{
-				context->currentFrameLocalCount = numLocal;
-				return;
-			}
+			context->currentFrameLocalCount = numLocal;
+			return;
 		}
 	}
 }
 
 int32_t ClassReader::readStackMapFrame(int32_t stackMapFrameOffset, bool compressed, bool expand, $Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentOffset = stackMapFrameOffset;
 	$var($chars, charBuffer, $nc(context)->charBuffer);
 	$var($LabelArray, labels, context->currentMethodLabels);
 	int32_t frameType = 0;
 	if (compressed) {
-		frameType = (int32_t)($nc(this->classFileBuffer)->get(currentOffset++) & (uint32_t)255);
+		frameType = $nc(this->classFileBuffer)->get(currentOffset++) & 0xff;
 	} else {
 		frameType = $Frame::FULL_FRAME;
 		context->currentFrameOffset = -1;
@@ -3432,68 +2597,48 @@ int32_t ClassReader::readStackMapFrame(int32_t stackMapFrameOffset, bool compres
 }
 
 int32_t ClassReader::readVerificationTypeInfo(int32_t verificationTypeInfoOffset, $ObjectArray* frame, int32_t index, $chars* charBuffer, $LabelArray* labels) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentOffset = verificationTypeInfoOffset;
-	int32_t tag = (int32_t)($nc(this->classFileBuffer)->get(currentOffset++) & (uint32_t)255);
+	int32_t tag = $nc(this->classFileBuffer)->get(currentOffset++) & 0xff;
 	switch (tag) {
 	case $Frame::ITEM_TOP:
-		{
-			$init($Opcodes);
-			$nc(frame)->set(index, $Opcodes::TOP);
-			break;
-		}
+		$init($Opcodes);
+		$nc(frame)->set(index, $Opcodes::TOP);
+		break;
 	case $Frame::ITEM_INTEGER:
-		{
-			$init($Opcodes);
-			$nc(frame)->set(index, $Opcodes::INTEGER);
-			break;
-		}
+		$init($Opcodes);
+		$nc(frame)->set(index, $Opcodes::INTEGER);
+		break;
 	case $Frame::ITEM_FLOAT:
-		{
-			$init($Opcodes);
-			$nc(frame)->set(index, $Opcodes::FLOAT);
-			break;
-		}
+		$init($Opcodes);
+		$nc(frame)->set(index, $Opcodes::FLOAT);
+		break;
 	case $Frame::ITEM_DOUBLE:
-		{
-			$init($Opcodes);
-			$nc(frame)->set(index, $Opcodes::DOUBLE);
-			break;
-		}
+		$init($Opcodes);
+		$nc(frame)->set(index, $Opcodes::DOUBLE);
+		break;
 	case $Frame::ITEM_LONG:
-		{
-			$init($Opcodes);
-			$nc(frame)->set(index, $Opcodes::LONG);
-			break;
-		}
+		$init($Opcodes);
+		$nc(frame)->set(index, $Opcodes::LONG);
+		break;
 	case $Frame::ITEM_NULL:
-		{
-			$init($Opcodes);
-			$nc(frame)->set(index, $Opcodes::NULL);
-			break;
-		}
+		$init($Opcodes);
+		$nc(frame)->set(index, $Opcodes::NULL);
+		break;
 	case $Frame::ITEM_UNINITIALIZED_THIS:
-		{
-			$init($Opcodes);
-			$nc(frame)->set(index, $Opcodes::UNINITIALIZED_THIS);
-			break;
-		}
+		$init($Opcodes);
+		$nc(frame)->set(index, $Opcodes::UNINITIALIZED_THIS);
+		break;
 	case $Frame::ITEM_OBJECT:
-		{
-			$nc(frame)->set(index, $(readClass(currentOffset, charBuffer)));
-			currentOffset += 2;
-			break;
-		}
+		$nc(frame)->set(index, $(readClass(currentOffset, charBuffer)));
+		currentOffset += 2;
+		break;
 	case $Frame::ITEM_UNINITIALIZED:
-		{
-			$nc(frame)->set(index, $(createLabel(readUnsignedShort(currentOffset), labels)));
-			currentOffset += 2;
-			break;
-		}
+		$nc(frame)->set(index, $(createLabel(readUnsignedShort(currentOffset), labels)));
+		currentOffset += 2;
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 	return currentOffset;
 }
@@ -3522,7 +2667,7 @@ int32_t ClassReader::getFirstAttributeOffset() {
 }
 
 $ints* ClassReader::readBootstrapMethodsAttribute(int32_t maxStringLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, charBuffer, $new($chars, maxStringLength));
 	int32_t currentAttributeOffset = getFirstAttributeOffset();
 	$var($ints, currentBootstrapMethodOffsets, nullptr);
@@ -3546,17 +2691,13 @@ $ints* ClassReader::readBootstrapMethodsAttribute(int32_t maxStringLength) {
 }
 
 $Attribute* ClassReader::readAttribute($AttributeArray* attributePrototypes, $String* type, int32_t offset, int32_t length, $chars* charBuffer, int32_t codeAttributeOffset, $LabelArray* labels) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($AttributeArray, arr$, attributePrototypes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, attributePrototype, arr$->get(i$));
-			{
-				if ($nc($nc(attributePrototype)->type)->equals(type)) {
-					return attributePrototype->read(this, offset, length, charBuffer, codeAttributeOffset, labels);
-				}
+			if ($nc($nc(attributePrototype)->type)->equals(type)) {
+				return attributePrototype->read(this, offset, length, charBuffer, codeAttributeOffset, labels);
 			}
 		}
 	}
@@ -3576,27 +2717,27 @@ int32_t ClassReader::getMaxStringLength() {
 }
 
 int32_t ClassReader::readByte(int32_t offset) {
-	return (int32_t)($nc(this->classFileBuffer)->get(offset) & (uint32_t)255);
+	return $nc(this->classFileBuffer)->get(offset) & 0xff;
 }
 
 int32_t ClassReader::readUnsignedShort(int32_t offset) {
 	$var($bytes, classBuffer, this->classFileBuffer);
-	return (((int32_t)($nc(classBuffer)->get(offset) & (uint32_t)255)) << 8) | ((int32_t)(classBuffer->get(offset + 1) & (uint32_t)255));
+	return (($nc(classBuffer)->get(offset) & 0xff) << 8) | ($nc(classBuffer)->get(offset + 1) & 0xff);
 }
 
 int16_t ClassReader::readShort(int32_t offset) {
 	$var($bytes, classBuffer, this->classFileBuffer);
-	return (int16_t)((((int32_t)($nc(classBuffer)->get(offset) & (uint32_t)255)) << 8) | ((int32_t)(classBuffer->get(offset + 1) & (uint32_t)255)));
+	return (int16_t)((($nc(classBuffer)->get(offset) & 0xff) << 8) | ($nc(classBuffer)->get(offset + 1) & 0xff));
 }
 
 int32_t ClassReader::readInt(int32_t offset) {
 	$var($bytes, classBuffer, this->classFileBuffer);
-	return (((((int32_t)($nc(classBuffer)->get(offset) & (uint32_t)255)) << 24) | (((int32_t)(classBuffer->get(offset + 1) & (uint32_t)255)) << 16)) | (((int32_t)(classBuffer->get(offset + 2) & (uint32_t)255)) << 8)) | ((int32_t)(classBuffer->get(offset + 3) & (uint32_t)255));
+	return (((($nc(classBuffer)->get(offset) & 0xff) << 24) | (($nc(classBuffer)->get(offset + 1) & 0xff) << 16)) | (($nc(classBuffer)->get(offset + 2) & 0xff) << 8)) | ($nc(classBuffer)->get(offset + 3) & 0xff);
 }
 
 int64_t ClassReader::readLong(int32_t offset) {
 	int64_t l1 = readInt(offset);
-	int64_t l0 = (int64_t)(readInt(offset + 4) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t l0 = readInt(offset + 4) & (int64_t)0xffffffff;
 	return (l1 << 32) | l0;
 }
 
@@ -3609,13 +2750,13 @@ $String* ClassReader::readUTF8(int32_t offset, $chars* charBuffer) {
 }
 
 $String* ClassReader::readUtf(int32_t constantPoolEntryIndex, $chars* charBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, value, $nc(this->constantUtf8Values)->get(constantPoolEntryIndex));
 	if (value != nullptr) {
 		return value;
 	}
 	int32_t cpInfoOffset = $nc(this->cpInfoOffsets)->get(constantPoolEntryIndex);
-	return $nc(this->constantUtf8Values)->set(constantPoolEntryIndex, $(readUtf(cpInfoOffset + 2, readUnsignedShort(cpInfoOffset), charBuffer)));
+	return this->constantUtf8Values->set(constantPoolEntryIndex, $(readUtf(cpInfoOffset + 2, readUnsignedShort(cpInfoOffset), charBuffer)));
 }
 
 $String* ClassReader::readUtf(int32_t utfOffset, int32_t utfLength, $chars* charBuffer) {
@@ -3625,13 +2766,13 @@ $String* ClassReader::readUtf(int32_t utfOffset, int32_t utfLength, $chars* char
 	$var($bytes, classBuffer, this->classFileBuffer);
 	while (currentOffset < endOffset) {
 		int32_t currentByte = $nc(classBuffer)->get(currentOffset++);
-		if (((int32_t)(currentByte & (uint32_t)128)) == 0) {
-			$nc(charBuffer)->set(strLength++, (char16_t)((int32_t)(currentByte & (uint32_t)127)));
-		} else if (((int32_t)(currentByte & (uint32_t)224)) == 192) {
-			$nc(charBuffer)->set(strLength++, (char16_t)((((int32_t)(currentByte & (uint32_t)31)) << 6) + ((int32_t)(classBuffer->get(currentOffset++) & (uint32_t)63))));
+		if ((currentByte & 0x80) == 0) {
+			$nc(charBuffer)->set(strLength++, (char16_t)(currentByte & 0x7f));
+		} else if ((currentByte & 0xe0) == 0xc0) {
+			$nc(charBuffer)->set(strLength++, (char16_t)(((currentByte & 0x1f) << 6) + (classBuffer->get(currentOffset++) & 0x3f)));
 		} else {
-			int32_t var$0 = (((int32_t)(currentByte & (uint32_t)15)) << 12) + (((int32_t)(classBuffer->get(currentOffset++) & (uint32_t)63)) << 6);
-			$nc(charBuffer)->set(strLength++, (char16_t)(var$0 + ((int32_t)(classBuffer->get(currentOffset++) & (uint32_t)63))));
+			int32_t var$0 = ((currentByte & 0x0f) << 12) + ((classBuffer->get(currentOffset++) & 0x3f) << 6);
+			$nc(charBuffer)->set(strLength++, (char16_t)(var$0 + (classBuffer->get(currentOffset++) & 0x3f)));
 		}
 	}
 	return $new($String, charBuffer, 0, strLength);
@@ -3654,13 +2795,13 @@ $String* ClassReader::readPackage(int32_t offset, $chars* charBuffer) {
 }
 
 $ConstantDynamic* ClassReader::readConstantDynamic(int32_t constantPoolEntryIndex, $chars* charBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantDynamic, constantDynamic, $nc(this->constantDynamicValues)->get(constantPoolEntryIndex));
 	if (constantDynamic != nullptr) {
 		return constantDynamic;
 	}
 	int32_t cpInfoOffset = $nc(this->cpInfoOffsets)->get(constantPoolEntryIndex);
-	int32_t nameAndTypeCpInfoOffset = $nc(this->cpInfoOffsets)->get(readUnsignedShort(cpInfoOffset + 2));
+	int32_t nameAndTypeCpInfoOffset = this->cpInfoOffsets->get(readUnsignedShort(cpInfoOffset + 2));
 	$var($String, name, readUTF8(nameAndTypeCpInfoOffset, charBuffer));
 	$var($String, descriptor, readUTF8(nameAndTypeCpInfoOffset + 2, charBuffer));
 	int32_t bootstrapMethodOffset = $nc(this->bootstrapMethodOffsets)->get(readUnsignedShort(cpInfoOffset));
@@ -3671,68 +2812,48 @@ $ConstantDynamic* ClassReader::readConstantDynamic(int32_t constantPoolEntryInde
 		bootstrapMethodArguments->set(i, $(readConst(readUnsignedShort(bootstrapMethodOffset), charBuffer)));
 		bootstrapMethodOffset += 2;
 	}
-	return $nc(this->constantDynamicValues)->set(constantPoolEntryIndex, $$new($ConstantDynamic, name, descriptor, handle, bootstrapMethodArguments));
+	return this->constantDynamicValues->set(constantPoolEntryIndex, $$new($ConstantDynamic, name, descriptor, handle, bootstrapMethodArguments));
 }
 
 $Object* ClassReader::readConst(int32_t constantPoolEntryIndex, $chars* charBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t cpInfoOffset = $nc(this->cpInfoOffsets)->get(constantPoolEntryIndex);
 	{
 		int32_t referenceKind = 0;
 		int32_t referenceCpInfoOffset = 0;
 		int32_t nameAndTypeCpInfoOffset = 0;
-		$var($String, owner, nullptr)
-		$var($String, name, nullptr)
-		$var($String, descriptor, nullptr)
+		$var($String, owner, nullptr);
+		$var($String, name, nullptr);
+		$var($String, descriptor, nullptr);
 		bool isInterface = false;
 		switch ($nc(this->classFileBuffer)->get(cpInfoOffset - 1)) {
 		case $Symbol::CONSTANT_INTEGER_TAG:
-			{
-				return $of($Integer::valueOf(readInt(cpInfoOffset)));
-			}
+			return $of($Integer::valueOf(readInt(cpInfoOffset)));
 		case $Symbol::CONSTANT_FLOAT_TAG:
-			{
-				return $of($Float::valueOf($Float::intBitsToFloat(readInt(cpInfoOffset))));
-			}
+			return $of($Float::valueOf($Float::intBitsToFloat(readInt(cpInfoOffset))));
 		case $Symbol::CONSTANT_LONG_TAG:
-			{
-				return $of($Long::valueOf(readLong(cpInfoOffset)));
-			}
+			return $of($Long::valueOf(readLong(cpInfoOffset)));
 		case $Symbol::CONSTANT_DOUBLE_TAG:
-			{
-				return $of($Double::valueOf($Double::longBitsToDouble(readLong(cpInfoOffset))));
-			}
+			return $of($Double::valueOf($Double::longBitsToDouble(readLong(cpInfoOffset))));
 		case $Symbol::CONSTANT_CLASS_TAG:
-			{
-				return $of($Type::getObjectType($(readUTF8(cpInfoOffset, charBuffer))));
-			}
+			return $Type::getObjectType($(readUTF8(cpInfoOffset, charBuffer)));
 		case $Symbol::CONSTANT_STRING_TAG:
-			{
-				return $of(readUTF8(cpInfoOffset, charBuffer));
-			}
+			return $of(readUTF8(cpInfoOffset, charBuffer));
 		case $Symbol::CONSTANT_METHOD_TYPE_TAG:
-			{
-				return $of($Type::getMethodType($(readUTF8(cpInfoOffset, charBuffer))));
-			}
+			return $Type::getMethodType($(readUTF8(cpInfoOffset, charBuffer)));
 		case $Symbol::CONSTANT_METHOD_HANDLE_TAG:
-			{
-				referenceKind = readByte(cpInfoOffset);
-				referenceCpInfoOffset = $nc(this->cpInfoOffsets)->get(readUnsignedShort(cpInfoOffset + 1));
-				nameAndTypeCpInfoOffset = $nc(this->cpInfoOffsets)->get(readUnsignedShort(referenceCpInfoOffset + 2));
-				$assign(owner, readClass(referenceCpInfoOffset, charBuffer));
-				$assign(name, readUTF8(nameAndTypeCpInfoOffset, charBuffer));
-				$assign(descriptor, readUTF8(nameAndTypeCpInfoOffset + 2, charBuffer));
-				isInterface = $nc(this->classFileBuffer)->get(referenceCpInfoOffset - 1) == $Symbol::CONSTANT_INTERFACE_METHODREF_TAG;
-				return $of($new($Handle, referenceKind, owner, name, descriptor, isInterface));
-			}
+			referenceKind = readByte(cpInfoOffset);
+			referenceCpInfoOffset = this->cpInfoOffsets->get(readUnsignedShort(cpInfoOffset + 1));
+			nameAndTypeCpInfoOffset = this->cpInfoOffsets->get(readUnsignedShort(referenceCpInfoOffset + 2));
+			$assign(owner, readClass(referenceCpInfoOffset, charBuffer));
+			$assign(name, readUTF8(nameAndTypeCpInfoOffset, charBuffer));
+			$assign(descriptor, readUTF8(nameAndTypeCpInfoOffset + 2, charBuffer));
+			isInterface = this->classFileBuffer->get(referenceCpInfoOffset - 1) == $Symbol::CONSTANT_INTERFACE_METHODREF_TAG;
+			return $new($Handle, referenceKind, owner, name, descriptor, isInterface);
 		case $Symbol::CONSTANT_DYNAMIC_TAG:
-			{
-				return $of(readConstantDynamic(constantPoolEntryIndex, charBuffer));
-			}
+			return readConstantDynamic(constantPoolEntryIndex, charBuffer);
 		default:
-			{
-				$throwNew($IllegalArgumentException);
-			}
+			$throwNew($IllegalArgumentException);
 		}
 	}
 }
@@ -3741,7 +2862,90 @@ ClassReader::ClassReader() {
 }
 
 $Class* ClassReader::load$($String* name, bool initialize) {
-	$loadClass(ClassReader, name, initialize, &_ClassReader_ClassInfo_, allocate$ClassReader);
+	$CompoundAttribute bfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"SKIP_CODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassReader, SKIP_CODE)},
+		{"SKIP_DEBUG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassReader, SKIP_DEBUG)},
+		{"SKIP_FRAMES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassReader, SKIP_FRAMES)},
+		{"EXPAND_FRAMES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClassReader, EXPAND_FRAMES)},
+		{"EXPAND_ASM_INSNS", "I", nullptr, $STATIC | $FINAL, $constField(ClassReader, EXPAND_ASM_INSNS)},
+		{"INPUT_STREAM_DATA_CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassReader, INPUT_STREAM_DATA_CHUNK_SIZE)},
+		{"b", "[B", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $field(ClassReader, b), bfieldAnnotations$$},
+		{"classFileBuffer", "[B", nullptr, $FINAL, $field(ClassReader, classFileBuffer)},
+		{"cpInfoOffsets", "[I", nullptr, $PRIVATE | $FINAL, $field(ClassReader, cpInfoOffsets)},
+		{"constantUtf8Values", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassReader, constantUtf8Values)},
+		{"constantDynamicValues", "[Ljdk/internal/org/objectweb/asm/ConstantDynamic;", nullptr, $PRIVATE | $FINAL, $field(ClassReader, constantDynamicValues)},
+		{"bootstrapMethodOffsets", "[I", nullptr, $PRIVATE | $FINAL, $field(ClassReader, bootstrapMethodOffsets)},
+		{"maxStringLength", "I", nullptr, $PRIVATE | $FINAL, $field(ClassReader, maxStringLength)},
+		{"header", "I", nullptr, $PUBLIC | $FINAL, $field(ClassReader, header)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(ClassReader, init$, void, $bytes*)},
+		{"<init>", "([BII)V", nullptr, $PUBLIC, $method(ClassReader, init$, void, $bytes*, int32_t, int32_t)},
+		{"<init>", "([BIZ)V", nullptr, 0, $method(ClassReader, init$, void, $bytes*, int32_t, bool)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ClassReader, init$, void, $InputStream*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassReader, init$, void, $String*), "java.io.IOException"},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;I)V", nullptr, $PUBLIC, $virtualMethod(ClassReader, accept, void, $ClassVisitor*, int32_t)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;[Ljdk/internal/org/objectweb/asm/Attribute;I)V", nullptr, $PUBLIC, $virtualMethod(ClassReader, accept, void, $ClassVisitor*, $AttributeArray*, int32_t)},
+		{"computeImplicitFrame", "(Ljdk/internal/org/objectweb/asm/Context;)V", nullptr, $PRIVATE, $method(ClassReader, computeImplicitFrame, void, $Context*)},
+		{"createDebugLabel", "(I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PRIVATE, $method(ClassReader, createDebugLabel, void, int32_t, $LabelArray*)},
+		{"createLabel", "(I[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PRIVATE, $method(ClassReader, createLabel, $Label*, int32_t, $LabelArray*)},
+		{"getAccess", "()I", nullptr, $PUBLIC, $virtualMethod(ClassReader, getAccess, int32_t)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, getClassName, $String*)},
+		{"getFirstAttributeOffset", "()I", nullptr, $FINAL, $method(ClassReader, getFirstAttributeOffset, int32_t)},
+		{"getInterfaces", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, getInterfaces, $StringArray*)},
+		{"getItem", "(I)I", nullptr, $PUBLIC, $virtualMethod(ClassReader, getItem, int32_t, int32_t)},
+		{"getItemCount", "()I", nullptr, $PUBLIC, $virtualMethod(ClassReader, getItemCount, int32_t)},
+		{"getMaxStringLength", "()I", nullptr, $PUBLIC, $virtualMethod(ClassReader, getMaxStringLength, int32_t)},
+		{"getSuperName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, getSuperName, $String*)},
+		{"getTypeAnnotationBytecodeOffset", "([II)I", nullptr, $PRIVATE, $method(ClassReader, getTypeAnnotationBytecodeOffset, int32_t, $ints*, int32_t)},
+		{"readAttribute", "([Ljdk/internal/org/objectweb/asm/Attribute;Ljava/lang/String;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PRIVATE, $method(ClassReader, readAttribute, $Attribute*, $AttributeArray*, $String*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
+		{"readBootstrapMethodsAttribute", "(I)[I", nullptr, $PRIVATE, $method(ClassReader, readBootstrapMethodsAttribute, $ints*, int32_t)},
+		{"readByte", "(I)I", nullptr, $PUBLIC, $virtualMethod(ClassReader, readByte, int32_t, int32_t)},
+		{"readClass", "(I[C)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, readClass, $String*, int32_t, $chars*)},
+		{"readCode", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/Context;I)V", nullptr, $PRIVATE, $method(ClassReader, readCode, void, $MethodVisitor*, $Context*, int32_t)},
+		{"readConst", "(I[C)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader, readConst, $Object*, int32_t, $chars*)},
+		{"readConstantDynamic", "(I[C)Ljdk/internal/org/objectweb/asm/ConstantDynamic;", nullptr, $PRIVATE, $method(ClassReader, readConstantDynamic, $ConstantDynamic*, int32_t, $chars*)},
+		{"readElementValue", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;ILjava/lang/String;[C)I", nullptr, $PRIVATE, $method(ClassReader, readElementValue, int32_t, $AnnotationVisitor*, int32_t, $String*, $chars*)},
+		{"readElementValues", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;IZ[C)I", nullptr, $PRIVATE, $method(ClassReader, readElementValues, int32_t, $AnnotationVisitor*, int32_t, bool, $chars*)},
+		{"readField", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/Context;I)I", nullptr, $PRIVATE, $method(ClassReader, readField, int32_t, $ClassVisitor*, $Context*, int32_t)},
+		{"readInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(ClassReader, readInt, int32_t, int32_t)},
+		{"readLabel", "(I[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PROTECTED, $virtualMethod(ClassReader, readLabel, $Label*, int32_t, $LabelArray*)},
+		{"readLong", "(I)J", nullptr, $PUBLIC, $virtualMethod(ClassReader, readLong, int64_t, int32_t)},
+		{"readMethod", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/Context;I)I", nullptr, $PRIVATE, $method(ClassReader, readMethod, int32_t, $ClassVisitor*, $Context*, int32_t)},
+		{"readModule", "(I[C)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, readModule, $String*, int32_t, $chars*)},
+		{"readModuleAttributes", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/Context;IILjava/lang/String;)V", nullptr, $PRIVATE, $method(ClassReader, readModuleAttributes, void, $ClassVisitor*, $Context*, int32_t, int32_t, $String*)},
+		{"readPackage", "(I[C)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, readPackage, $String*, int32_t, $chars*)},
+		{"readParameterAnnotations", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/Context;IZ)V", nullptr, $PRIVATE, $method(ClassReader, readParameterAnnotations, void, $MethodVisitor*, $Context*, int32_t, bool)},
+		{"readRecordComponent", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/Context;I)I", nullptr, $PRIVATE, $method(ClassReader, readRecordComponent, int32_t, $ClassVisitor*, $Context*, int32_t)},
+		{"readShort", "(I)S", nullptr, $PUBLIC, $virtualMethod(ClassReader, readShort, int16_t, int32_t)},
+		{"readStackMapFrame", "(IZZLjdk/internal/org/objectweb/asm/Context;)I", nullptr, $PRIVATE, $method(ClassReader, readStackMapFrame, int32_t, int32_t, bool, bool, $Context*)},
+		{"readStream", "(Ljava/io/InputStream;Z)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ClassReader, readStream, $bytes*, $InputStream*, bool), "java.io.IOException"},
+		{"readStringish", "(I[C)Ljava/lang/String;", nullptr, $PRIVATE, $method(ClassReader, readStringish, $String*, int32_t, $chars*)},
+		{"readTypeAnnotationTarget", "(Ljdk/internal/org/objectweb/asm/Context;I)I", nullptr, $PRIVATE, $method(ClassReader, readTypeAnnotationTarget, int32_t, $Context*, int32_t)},
+		{"readTypeAnnotations", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/Context;IZ)[I", nullptr, $PRIVATE, $method(ClassReader, readTypeAnnotations, $ints*, $MethodVisitor*, $Context*, int32_t, bool)},
+		{"readUTF8", "(I[C)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader, readUTF8, $String*, int32_t, $chars*)},
+		{"readUnsignedShort", "(I)I", nullptr, $PUBLIC, $virtualMethod(ClassReader, readUnsignedShort, int32_t, int32_t)},
+		{"readUtf", "(I[C)Ljava/lang/String;", nullptr, $FINAL, $method(ClassReader, readUtf, $String*, int32_t, $chars*)},
+		{"readUtf", "(II[C)Ljava/lang/String;", nullptr, $PRIVATE, $method(ClassReader, readUtf, $String*, int32_t, int32_t, $chars*)},
+		{"readVerificationTypeInfo", "(I[Ljava/lang/Object;I[C[Ljdk/internal/org/objectweb/asm/Label;)I", nullptr, $PRIVATE, $method(ClassReader, readVerificationTypeInfo, int32_t, int32_t, $ObjectArray*, int32_t, $chars*, $LabelArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.ClassReader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader);
+	});
 	return class$;
 }
 

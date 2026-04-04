@@ -15,10 +15,13 @@ public:
 	InvalidModuleDescriptorException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x437E3BCA19D21D34;
+	static const int64_t serialVersionUID = (int64_t)0x437e3bca19d21d34;
 	InvalidModuleDescriptorException(const InvalidModuleDescriptorException& e);
 	virtual void throw$() override;
-	inline InvalidModuleDescriptorException* operator ->() {
+	inline InvalidModuleDescriptorException* operator ->() const {
+		return (InvalidModuleDescriptorException*)throwing$;
+	}
+	inline operator InvalidModuleDescriptorException*() const {
 		return (InvalidModuleDescriptorException*)throwing$;
 	}
 };

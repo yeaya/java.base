@@ -1,5 +1,4 @@
 #include <sun/security/x509/AlgIdDSA.h>
-
 #include <java/io/IOException.h>
 #include <java/math/BigInteger.h>
 #include <java/security/ProviderException.h>
@@ -19,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $ProviderException = ::java::security::ProviderException;
 using $Debug = ::sun::security::util::Debug;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AlgorithmId = ::sun::security::x509::AlgorithmId;
@@ -27,50 +25,6 @@ using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$CompoundAttribute _AlgIdDSA_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _AlgIdDSA_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlgIdDSA, serialVersionUID)},
-	{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(AlgIdDSA, p)},
-	{"q", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(AlgIdDSA, q)},
-	{"g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(AlgIdDSA, g)},
-	{}
-};
-
-$MethodInfo _AlgIdDSA_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(AlgIdDSA, init$, void), nullptr, nullptr, _AlgIdDSA_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(AlgIdDSA, init$, void, $BigInteger*, $BigInteger*, $BigInteger*)},
-	{"decodeParams", "()V", nullptr, $PROTECTED, $virtualMethod(AlgIdDSA, decodeParams, void), "java.io.IOException"},
-	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(AlgIdDSA, getG, $BigInteger*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlgIdDSA, getName, $String*)},
-	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(AlgIdDSA, getP, $BigInteger*)},
-	{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(AlgIdDSA, getQ, $BigInteger*)},
-	{"initializeParams", "()V", nullptr, $PRIVATE, $method(AlgIdDSA, initializeParams, void), "java.io.IOException"},
-	{"paramsToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AlgIdDSA, paramsToString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlgIdDSA, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AlgIdDSA_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.x509.AlgIdDSA",
-	"sun.security.x509.AlgorithmId",
-	"java.security.interfaces.DSAParams",
-	_AlgIdDSA_FieldInfo_,
-	_AlgIdDSA_MethodInfo_
-};
-
-$Object* allocate$AlgIdDSA($Class* clazz) {
-	return $of($alloc(AlgIdDSA));
-}
 
 bool AlgIdDSA::equals(Object$* other) {
 	 return this->$AlgorithmId::equals(other);
@@ -127,7 +81,7 @@ $String* AlgIdDSA::getName() {
 }
 
 void AlgIdDSA::initializeParams() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	out->putInteger(this->p);
 	out->putInteger(this->q);
@@ -138,7 +92,7 @@ void AlgIdDSA::initializeParams() {
 }
 
 void AlgIdDSA::decodeParams() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->encodedParams == nullptr) {
 		$throwNew($IOException, "DSA alg params are null"_s);
 	}
@@ -147,11 +101,11 @@ void AlgIdDSA::decodeParams() {
 		$throwNew($IOException, "DSA alg parsing error"_s);
 	}
 	$nc(params->data$)->reset();
-	$set(this, p, $nc(params->data$)->getBigInteger());
-	$set(this, q, $nc(params->data$)->getBigInteger());
-	$set(this, g, $nc(params->data$)->getBigInteger());
-	if ($nc(params->data$)->available() != 0) {
-		$throwNew($IOException, $$str({"AlgIdDSA params, extra="_s, $$str($nc(params->data$)->available())}));
+	$set(this, p, params->data$->getBigInteger());
+	$set(this, q, params->data$->getBigInteger());
+	$set(this, g, params->data$->getBigInteger());
+	if (params->data$->available() != 0) {
+		$throwNew($IOException, $$str({"AlgIdDSA params, extra="_s, $$str(params->data$->available())}));
 	}
 }
 
@@ -160,15 +114,19 @@ $String* AlgIdDSA::toString() {
 }
 
 $String* AlgIdDSA::paramsToString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->encodedParams == nullptr) {
 		return " null\n"_s;
 	} else {
-		$var($String, var$3, $$str({"\n    p:\n"_s, $($Debug::toHexString(this->p)), "\n    q:\n"_s}));
-		$var($String, var$2, $$concat(var$3, $($Debug::toHexString(this->q))));
-		$var($String, var$1, $$concat(var$2, "\n    g:\n"_s));
-		$var($String, var$0, $$concat(var$1, $($Debug::toHexString(this->g))));
-		return $concat(var$0, "\n"_s);
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("\n    p:\n"_s);
+		var$0->append($($Debug::toHexString(this->p)));
+		var$0->append("\n    q:\n"_s);
+		var$0->append($($Debug::toHexString(this->q)));
+		var$0->append("\n    g:\n"_s);
+		var$0->append($($Debug::toHexString(this->g)));
+		var$0->append("\n"_s);
+		return $str(var$0);
 	}
 }
 
@@ -176,7 +134,45 @@ AlgIdDSA::AlgIdDSA() {
 }
 
 $Class* AlgIdDSA::load$($String* name, bool initialize) {
-	$loadClass(AlgIdDSA, name, initialize, &_AlgIdDSA_ClassInfo_, allocate$AlgIdDSA);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlgIdDSA, serialVersionUID)},
+		{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(AlgIdDSA, p)},
+		{"q", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(AlgIdDSA, q)},
+		{"g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(AlgIdDSA, g)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(AlgIdDSA, init$, void), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(AlgIdDSA, init$, void, $BigInteger*, $BigInteger*, $BigInteger*)},
+		{"decodeParams", "()V", nullptr, $PROTECTED, $virtualMethod(AlgIdDSA, decodeParams, void), "java.io.IOException"},
+		{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(AlgIdDSA, getG, $BigInteger*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlgIdDSA, getName, $String*)},
+		{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(AlgIdDSA, getP, $BigInteger*)},
+		{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(AlgIdDSA, getQ, $BigInteger*)},
+		{"initializeParams", "()V", nullptr, $PRIVATE, $method(AlgIdDSA, initializeParams, void), "java.io.IOException"},
+		{"paramsToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AlgIdDSA, paramsToString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlgIdDSA, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.x509.AlgIdDSA",
+		"sun.security.x509.AlgorithmId",
+		"java.security.interfaces.DSAParams",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AlgIdDSA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AlgIdDSA));
+	});
 	return class$;
 }
 

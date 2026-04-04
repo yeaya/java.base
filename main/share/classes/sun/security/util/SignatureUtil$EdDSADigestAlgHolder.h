@@ -21,6 +21,7 @@ class $export SignatureUtil$EdDSADigestAlgHolder : public ::java::lang::Object {
 	$class(SignatureUtil$EdDSADigestAlgHolder, 0, ::java::lang::Object)
 public:
 	SignatureUtil$EdDSADigestAlgHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::x509::AlgorithmId* sha512;
 	static ::sun::security::x509::AlgorithmId* shake256;

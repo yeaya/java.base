@@ -1,12 +1,10 @@
 #include <sun/nio/ch/PendingIoCache$1.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
 #include <sun/nio/ch/Iocp$ResultHandler.h>
 #include <sun/nio/ch/PendingIoCache.h>
 #include <jcpp.h>
 
-using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,49 +17,6 @@ using $PendingIoCache = ::sun::nio::ch::PendingIoCache;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _PendingIoCache$1_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/ch/PendingIoCache;", nullptr, $FINAL | $SYNTHETIC, $field(PendingIoCache$1, this$0)},
-	{"val$rh", "Lsun/nio/ch/Iocp$ResultHandler;", nullptr, $FINAL | $SYNTHETIC, $field(PendingIoCache$1, val$rh)},
-	{}
-};
-
-$MethodInfo _PendingIoCache$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/PendingIoCache;Lsun/nio/ch/Iocp$ResultHandler;)V", "()V", 0, $method(PendingIoCache$1, init$, void, $PendingIoCache*, $Iocp$ResultHandler*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PendingIoCache$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _PendingIoCache$1_EnclosingMethodInfo_ = {
-	"sun.nio.ch.PendingIoCache",
-	"clearPendingIoMap",
-	"()V"
-};
-
-$InnerClassInfo _PendingIoCache$1_InnerClassesInfo_[] = {
-	{"sun.nio.ch.PendingIoCache$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PendingIoCache$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.PendingIoCache$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_PendingIoCache$1_FieldInfo_,
-	_PendingIoCache$1_MethodInfo_,
-	nullptr,
-	&_PendingIoCache$1_EnclosingMethodInfo_,
-	_PendingIoCache$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.PendingIoCache"
-};
-
-$Object* allocate$PendingIoCache$1($Class* clazz) {
-	return $of($alloc(PendingIoCache$1));
-}
 
 void PendingIoCache$1::init$($PendingIoCache* this$0, $Iocp$ResultHandler* val$rh) {
 	$set(this, this$0, this$0);
@@ -76,7 +31,43 @@ PendingIoCache$1::PendingIoCache$1() {
 }
 
 $Class* PendingIoCache$1::load$($String* name, bool initialize) {
-	$loadClass(PendingIoCache$1, name, initialize, &_PendingIoCache$1_ClassInfo_, allocate$PendingIoCache$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/ch/PendingIoCache;", nullptr, $FINAL | $SYNTHETIC, $field(PendingIoCache$1, this$0)},
+		{"val$rh", "Lsun/nio/ch/Iocp$ResultHandler;", nullptr, $FINAL | $SYNTHETIC, $field(PendingIoCache$1, val$rh)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/PendingIoCache;Lsun/nio/ch/Iocp$ResultHandler;)V", "()V", 0, $method(PendingIoCache$1, init$, void, $PendingIoCache*, $Iocp$ResultHandler*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PendingIoCache$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.ch.PendingIoCache",
+		"clearPendingIoMap",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.PendingIoCache$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.PendingIoCache$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.PendingIoCache"
+	};
+	$loadClass(PendingIoCache$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PendingIoCache$1);
+	});
 	return class$;
 }
 

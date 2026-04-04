@@ -1,5 +1,4 @@
 #include <javax/security/auth/Refreshable.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,27 +8,23 @@ namespace javax {
 	namespace security {
 		namespace auth {
 
-$MethodInfo _Refreshable_MethodInfo_[] = {
-	{"isCurrent", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Refreshable, isCurrent, bool)},
-	{"refresh", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Refreshable, refresh, void), "javax.security.auth.RefreshFailedException"},
-	{}
-};
-
-$ClassInfo _Refreshable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.security.auth.Refreshable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Refreshable_MethodInfo_
-};
-
-$Object* allocate$Refreshable($Class* clazz) {
-	return $of($alloc(Refreshable));
-}
-
 $Class* Refreshable::load$($String* name, bool initialize) {
-	$loadClass(Refreshable, name, initialize, &_Refreshable_ClassInfo_, allocate$Refreshable);
+	$MethodInfo methodInfos$$[] = {
+		{"isCurrent", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Refreshable, isCurrent, bool)},
+		{"refresh", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Refreshable, refresh, void), "javax.security.auth.RefreshFailedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.security.auth.Refreshable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Refreshable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Refreshable);
+	});
 	return class$;
 }
 

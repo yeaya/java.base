@@ -1,5 +1,4 @@
 #include <java/nio/charset/StandardCharsets.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/charset/Charset.h>
 #include <sun/nio/cs/ISO_8859_1.h>
@@ -33,34 +32,6 @@ namespace java {
 	namespace nio {
 		namespace charset {
 
-$FieldInfo _StandardCharsets_FieldInfo_[] = {
-	{"US_ASCII", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, US_ASCII)},
-	{"ISO_8859_1", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, ISO_8859_1)},
-	{"UTF_8", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, UTF_8)},
-	{"UTF_16BE", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, UTF_16BE)},
-	{"UTF_16LE", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, UTF_16LE)},
-	{"UTF_16", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, UTF_16)},
-	{}
-};
-
-$MethodInfo _StandardCharsets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StandardCharsets, init$, void)},
-	{}
-};
-
-$ClassInfo _StandardCharsets_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.nio.charset.StandardCharsets",
-	"java.lang.Object",
-	nullptr,
-	_StandardCharsets_FieldInfo_,
-	_StandardCharsets_MethodInfo_
-};
-
-$Object* allocate$StandardCharsets($Class* clazz) {
-	return $of($alloc(StandardCharsets));
-}
-
 $Charset* StandardCharsets::US_ASCII = nullptr;
 $Charset* StandardCharsets::ISO_8859_1 = nullptr;
 $Charset* StandardCharsets::UTF_8 = nullptr;
@@ -72,7 +43,7 @@ void StandardCharsets::init$() {
 	$throwNew($AssertionError, $of("No java.nio.charset.StandardCharsets instances for you!"_s));
 }
 
-void clinit$StandardCharsets($Class* class$) {
+void StandardCharsets::clinit$($Class* clazz) {
 	$init($US_ASCII);
 	$assignStatic(StandardCharsets::US_ASCII, $US_ASCII::INSTANCE);
 	$init($ISO_8859_1);
@@ -88,7 +59,30 @@ StandardCharsets::StandardCharsets() {
 }
 
 $Class* StandardCharsets::load$($String* name, bool initialize) {
-	$loadClass(StandardCharsets, name, initialize, &_StandardCharsets_ClassInfo_, clinit$StandardCharsets, allocate$StandardCharsets);
+	$FieldInfo fieldInfos$$[] = {
+		{"US_ASCII", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, US_ASCII)},
+		{"ISO_8859_1", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, ISO_8859_1)},
+		{"UTF_8", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, UTF_8)},
+		{"UTF_16BE", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, UTF_16BE)},
+		{"UTF_16LE", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, UTF_16LE)},
+		{"UTF_16", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StandardCharsets, UTF_16)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StandardCharsets, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.nio.charset.StandardCharsets",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StandardCharsets, name, initialize, &classInfo$$, StandardCharsets::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardCharsets);
+	});
 	return class$;
 }
 

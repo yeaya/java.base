@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/OCSPNonceExtension.h>
-
 #include <java/security/SecureRandom.h>
 #include <java/util/Objects.h>
 #include <sun/security/util/Debug.h>
@@ -27,36 +26,6 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _OCSPNonceExtension_FieldInfo_[] = {
-	{"EXTENSION_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OCSPNonceExtension, EXTENSION_NAME)},
-	{"nonceData", "[B", nullptr, $PRIVATE, $field(OCSPNonceExtension, nonceData)},
-	{}
-};
-
-$MethodInfo _OCSPNonceExtension_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, int32_t), "java.io.IOException"},
-	{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, bool, int32_t), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, $bytes*), "java.io.IOException"},
-	{"<init>", "(Z[B)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, bool, $bytes*), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(OCSPNonceExtension, getName, $String*)},
-	{"getNonceValue", "()[B", nullptr, $PUBLIC, $method(OCSPNonceExtension, getNonceValue, $bytes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OCSPNonceExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _OCSPNonceExtension_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.certpath.OCSPNonceExtension",
-	"sun.security.x509.Extension",
-	nullptr,
-	_OCSPNonceExtension_FieldInfo_,
-	_OCSPNonceExtension_MethodInfo_
-};
-
-$Object* allocate$OCSPNonceExtension($Class* clazz) {
-	return $of($alloc(OCSPNonceExtension));
-}
-
 $String* OCSPNonceExtension::EXTENSION_NAME = nullptr;
 
 void OCSPNonceExtension::init$(int32_t length) {
@@ -64,7 +33,7 @@ void OCSPNonceExtension::init$(int32_t length) {
 }
 
 void OCSPNonceExtension::init$(bool isCritical, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$();
 	$set(this, nonceData, nullptr);
 	$init($PKIXExtensions);
@@ -90,7 +59,7 @@ void OCSPNonceExtension::init$(bool isCritical, $bytes* incomingNonce) {
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::OCSPNonce_Id);
 	this->critical = isCritical;
-	$Objects::requireNonNull($of(incomingNonce), "Nonce data must be non-null"_s);
+	$Objects::requireNonNull(incomingNonce, "Nonce data must be non-null"_s);
 	if ($nc(incomingNonce)->length > 0 && incomingNonce->length <= 32) {
 		$set(this, nonceData, $cast($bytes, incomingNonce->clone()));
 		$set(this, extensionValue, $$new($DerValue, $DerValue::tag_OctetString, this->nonceData)->toByteArray());
@@ -104,7 +73,7 @@ $bytes* OCSPNonceExtension::getNonceValue() {
 }
 
 $String* OCSPNonceExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append(OCSPNonceExtension::EXTENSION_NAME)->append(": "_s);
 	sb->append((this->nonceData == nullptr) ? ""_s : $($Debug::toString(this->nonceData)));
@@ -119,12 +88,37 @@ $String* OCSPNonceExtension::getName() {
 OCSPNonceExtension::OCSPNonceExtension() {
 }
 
-void clinit$OCSPNonceExtension($Class* class$) {
+void OCSPNonceExtension::clinit$($Class* clazz) {
 	$assignStatic(OCSPNonceExtension::EXTENSION_NAME, "OCSPNonce"_s);
 }
 
 $Class* OCSPNonceExtension::load$($String* name, bool initialize) {
-	$loadClass(OCSPNonceExtension, name, initialize, &_OCSPNonceExtension_ClassInfo_, clinit$OCSPNonceExtension, allocate$OCSPNonceExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXTENSION_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OCSPNonceExtension, EXTENSION_NAME)},
+		{"nonceData", "[B", nullptr, $PRIVATE, $field(OCSPNonceExtension, nonceData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, int32_t), "java.io.IOException"},
+		{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, bool, int32_t), "java.io.IOException"},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, $bytes*), "java.io.IOException"},
+		{"<init>", "(Z[B)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, bool, $bytes*), "java.io.IOException"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(OCSPNonceExtension, getName, $String*)},
+		{"getNonceValue", "()[B", nullptr, $PUBLIC, $method(OCSPNonceExtension, getNonceValue, $bytes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OCSPNonceExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.certpath.OCSPNonceExtension",
+		"sun.security.x509.Extension",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OCSPNonceExtension, name, initialize, &classInfo$$, OCSPNonceExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OCSPNonceExtension);
+	});
 	return class$;
 }
 

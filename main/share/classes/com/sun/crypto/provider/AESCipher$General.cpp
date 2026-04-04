@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/AESCipher$General.h>
-
 #include <com/sun/crypto/provider/AESCipher.h>
 #include <jcpp.h>
 
@@ -13,36 +12,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _AESCipher$General_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AESCipher$General, init$, void)},
-	{}
-};
-
-$InnerClassInfo _AESCipher$General_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.AESCipher$General", "com.sun.crypto.provider.AESCipher", "General", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AESCipher$General_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.AESCipher$General",
-	"com.sun.crypto.provider.AESCipher",
-	nullptr,
-	nullptr,
-	_AESCipher$General_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AESCipher$General_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.AESCipher"
-};
-
-$Object* allocate$AESCipher$General($Class* clazz) {
-	return $of($alloc(AESCipher$General));
-}
-
 void AESCipher$General::init$() {
 	$AESCipher::init$(-1);
 }
@@ -51,7 +20,32 @@ AESCipher$General::AESCipher$General() {
 }
 
 $Class* AESCipher$General::load$($String* name, bool initialize) {
-	$loadClass(AESCipher$General, name, initialize, &_AESCipher$General_ClassInfo_, allocate$AESCipher$General);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AESCipher$General, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.AESCipher$General", "com.sun.crypto.provider.AESCipher", "General", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.AESCipher$General",
+		"com.sun.crypto.provider.AESCipher",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.AESCipher"
+	};
+	$loadClass(AESCipher$General, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AESCipher$General);
+	});
 	return class$;
 }
 

@@ -26,12 +26,13 @@ class $export NativePRNG$NonBlocking : public ::java::security::SecureRandomSpi 
 public:
 	NativePRNG$NonBlocking();
 	using ::java::security::SecureRandomSpi::engineNextBytes;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $bytes* engineGenerateSeed(int32_t numBytes) override;
 	virtual void engineNextBytes($bytes* bytes) override;
 	virtual void engineSetSeed($bytes* seed) override;
 	static bool isAvailable();
-	static const int64_t serialVersionUID = (int64_t)0xF0B4AF8E52876B71;
+	static const int64_t serialVersionUID = (int64_t)0xf0b4af8e52876b71;
 	static ::sun::security::provider::NativePRNG$RandomIO* INSTANCE;
 };
 

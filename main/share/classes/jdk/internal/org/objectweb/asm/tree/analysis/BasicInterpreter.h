@@ -72,6 +72,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t api);
 	virtual ::jdk::internal::org::objectweb::asm$::tree::analysis::BasicValue* binaryOperation(::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode* insn, ::jdk::internal::org::objectweb::asm$::tree::analysis::BasicValue* value1, ::jdk::internal::org::objectweb::asm$::tree::analysis::BasicValue* value2);

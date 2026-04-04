@@ -1,5 +1,4 @@
 #include <java/security/cert/CertificateEncodingException.h>
-
 #include <java/security/cert/CertificateException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $CertificateException = ::java::security::cert::CertificateException;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _CertificateEncodingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateEncodingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CertificateEncodingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _CertificateEncodingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.cert.CertificateEncodingException",
-	"java.security.cert.CertificateException",
-	nullptr,
-	_CertificateEncodingException_FieldInfo_,
-	_CertificateEncodingException_MethodInfo_
-};
-
-$Object* allocate$CertificateEncodingException($Class* clazz) {
-	return $of($alloc(CertificateEncodingException));
-}
 
 void CertificateEncodingException::init$() {
 	$CertificateException::init$();
@@ -65,7 +38,28 @@ void CertificateEncodingException::throw$() {
 }
 
 $Class* CertificateEncodingException::load$($String* name, bool initialize) {
-	$loadClass(CertificateEncodingException, name, initialize, &_CertificateEncodingException_ClassInfo_, allocate$CertificateEncodingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateEncodingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.cert.CertificateEncodingException",
+		"java.security.cert.CertificateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertificateEncodingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateEncodingException);
+	});
 	return class$;
 }
 

@@ -31,7 +31,7 @@ public:
 	void init$();
 	virtual $bytes* produce(::sun::security::ssl::ConnectionContext* context, ::sun::security::ssl::SSLHandshake$HandshakeMessage* message) override;
 	static const int32_t MAX_AP_LENGTH = 255;
-	static const int32_t MAX_AP_LIST_LENGTH = 0x0000FFFF;
+	static const int32_t MAX_AP_LIST_LENGTH = 0x0000ffff;
 };
 
 		} // ssl

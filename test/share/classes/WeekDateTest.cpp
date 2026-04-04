@@ -1,5 +1,4 @@
 #include <WeekDateTest.h>
-
 #include <java/text/ParseException.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Calendar.h>
@@ -12,7 +11,6 @@
 #undef US
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -25,39 +23,6 @@ using $Date = ::java::util::Date;
 using $GregorianCalendar = ::java::util::GregorianCalendar;
 using $Locale = ::java::util::Locale;
 using $TimeZone = ::java::util::TimeZone;
-
-$FieldInfo _WeekDateTest_FieldInfo_[] = {
-	{"ymdFormat", "Ljava/text/SimpleDateFormat;", nullptr, $STATIC, $staticField(WeekDateTest, ymdFormat)},
-	{"ywdFormat", "Ljava/text/SimpleDateFormat;", nullptr, $STATIC, $staticField(WeekDateTest, ywdFormat)},
-	{"roundTripData", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(WeekDateTest, roundTripData)},
-	{"leniencyData", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(WeekDateTest, leniencyData)},
-	{"invalidData", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(WeekDateTest, invalidData)},
-	{}
-};
-
-$MethodInfo _WeekDateTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WeekDateTest, init$, void)},
-	{"formatTest", "([[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, formatTest, void, $StringArray2*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WeekDateTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"newCalendar", "()Ljava/util/GregorianCalendar;", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, newCalendar, $GregorianCalendar*)},
-	{"noWeekDateSupport", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, noWeekDateSupport, void), "java.lang.Exception"},
-	{"nonLenientTest", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, nonLenientTest, void, $StringArray*)},
-	{"parseTest", "([[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, parseTest, void, $StringArray2*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _WeekDateTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WeekDateTest",
-	"java.lang.Object",
-	nullptr,
-	_WeekDateTest_FieldInfo_,
-	_WeekDateTest_MethodInfo_
-};
-
-$Object* allocate$WeekDateTest($Class* clazz) {
-	return $of($alloc(WeekDateTest));
-}
 
 $SimpleDateFormat* WeekDateTest::ymdFormat = nullptr;
 $SimpleDateFormat* WeekDateTest::ywdFormat = nullptr;
@@ -79,22 +44,18 @@ void WeekDateTest::main($StringArray* args) {
 
 void WeekDateTest::formatTest($StringArray2* data) {
 	$init(WeekDateTest);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($StringArray2, arr$, data);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($StringArray, dates, arr$->get(i$));
-			{
-				$var($String, regularDate, $nc(dates)->get(0));
-				$var($String, weekDate, dates->get(1));
-				$var($Date, date, nullptr);
-				$assign(date, $nc(WeekDateTest::ymdFormat)->parse(regularDate));
-				$var($String, s, $nc(WeekDateTest::ywdFormat)->format(date));
-				if (!$nc(s)->equals(weekDate)) {
-					$throwNew($RuntimeException, $$str({"format: got="_s, s, ", expecetd="_s, weekDate}));
-				}
+	$useLocalObjectStack();
+	$var($StringArray2, arr$, data);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($StringArray, dates, arr$->get(i$));
+		{
+			$var($String, regularDate, $nc(dates)->get(0));
+			$var($String, weekDate, dates->get(1));
+			$var($Date, date, nullptr);
+			$assign(date, $nc(WeekDateTest::ymdFormat)->parse(regularDate));
+			$var($String, s, $nc(WeekDateTest::ywdFormat)->format(date));
+			if (!$nc(s)->equals(weekDate)) {
+				$throwNew($RuntimeException, $$str({"format: got="_s, s, ", expecetd="_s, weekDate}));
 			}
 		}
 	}
@@ -102,25 +63,21 @@ void WeekDateTest::formatTest($StringArray2* data) {
 
 void WeekDateTest::parseTest($StringArray2* data) {
 	$init(WeekDateTest);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($StringArray2, arr$, data);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($StringArray, dates, arr$->get(i$));
-			{
-				$var($String, regularDate, $nc(dates)->get(0));
-				$var($String, weekDate, dates->get(1));
-				$var($Date, date1, nullptr);
-				$var($Date, date2, nullptr);
-				$assign(date1, $nc(WeekDateTest::ymdFormat)->parse(regularDate));
-				$assign(date2, $nc(WeekDateTest::ywdFormat)->parse(weekDate));
-				if (!$nc(date1)->equals(date2)) {
-					$nc($System::err)->println($$str({regularDate, ": date1 = "_s, date1}));
-					$nc($System::err)->println($$str({weekDate, ": date2 = "_s, date2}));
-					$throwNew($RuntimeException, "parse: date1 != date2"_s);
-				}
+	$useLocalObjectStack();
+	$var($StringArray2, arr$, data);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($StringArray, dates, arr$->get(i$));
+		{
+			$var($String, regularDate, $nc(dates)->get(0));
+			$var($String, weekDate, dates->get(1));
+			$var($Date, date1, nullptr);
+			$var($Date, date2, nullptr);
+			$assign(date1, $nc(WeekDateTest::ymdFormat)->parse(regularDate));
+			$assign(date2, $nc(WeekDateTest::ywdFormat)->parse(weekDate));
+			if (!$nc(date1)->equals(date2)) {
+				$nc($System::err)->println($$str({regularDate, ": date1 = "_s, date1}));
+				$System::err->println($$str({weekDate, ": date2 = "_s, date2}));
+				$throwNew($RuntimeException, "parse: date1 != date2"_s);
 			}
 		}
 	}
@@ -128,34 +85,30 @@ void WeekDateTest::parseTest($StringArray2* data) {
 
 void WeekDateTest::nonLenientTest($StringArray* data) {
 	$init(WeekDateTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(WeekDateTest::ywdFormat)->setLenient(false);
 	{
 		$var($StringArray, arr$, data);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, date, arr$->get(i$));
-			{
-				try {
-					$var($Date, d, $nc(WeekDateTest::ywdFormat)->parse(date));
-					$throwNew($RuntimeException, $$str({"No ParseException thrown with "_s, date}));
-				} catch ($ParseException& e) {
-				}
+			try {
+				$var($Date, d, WeekDateTest::ywdFormat->parse(date));
+				$throwNew($RuntimeException, $$str({"No ParseException thrown with "_s, date}));
+			} catch ($ParseException& e) {
 			}
 		}
 	}
-	$nc(WeekDateTest::ywdFormat)->setLenient(true);
+	WeekDateTest::ywdFormat->setLenient(true);
 }
 
 void WeekDateTest::noWeekDateSupport() {
 	$init(WeekDateTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TimeZone, var$0, $TimeZone::getTimeZone("GMT"_s));
 	$var($Calendar, jcal, $Calendar::getInstance(var$0, $$new($Locale, "ja"_s, "JP"_s, "JP"_s)));
 	$var($String, format, "2-W01-2"_s);
 	int32_t expectedYear = 2019;
-	if ($System::currentTimeMillis() < (int64_t)0x0000016A70B0DC00) {
+	if ($System::currentTimeMillis() < (int64_t)1556668800000) {
 		$assign(format, "21-W01-3"_s);
 		expectedYear = 2008;
 	}
@@ -170,10 +123,10 @@ void WeekDateTest::noWeekDateSupport() {
 	bool var$1 = var$2 || gcal->get(2) != 11;
 	if (var$1 || gcal->get(5) != 31) {
 		$var($String, s, $String::format("noWeekDateSupport: got %04d-%02d-%02d, expected %4d-12-31%n"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(gcal->get(1)))),
-			$($of($Integer::valueOf(gcal->get(2) + 1))),
-			$($of($Integer::valueOf(gcal->get(5)))),
-			$($of($Integer::valueOf(expectedYear)))
+			$($Integer::valueOf(gcal->get(1))),
+			$($Integer::valueOf(gcal->get(2) + 1)),
+			$($Integer::valueOf(gcal->get(5))),
+			$($Integer::valueOf(expectedYear))
 		})));
 		$throwNew($RuntimeException, s);
 	}
@@ -181,20 +134,20 @@ void WeekDateTest::noWeekDateSupport() {
 
 $GregorianCalendar* WeekDateTest::newCalendar() {
 	$init(WeekDateTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GregorianCalendar, cal, $new($GregorianCalendar, $($TimeZone::getTimeZone("GMT"_s))));
 	cal->setFirstDayOfWeek(2);
 	cal->setMinimalDaysInFirstWeek(4);
 	return cal;
 }
 
-void clinit$WeekDateTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void WeekDateTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($Locale);
 	$assignStatic(WeekDateTest::ymdFormat, $new($SimpleDateFormat, "yyyy-MM-dd"_s, $Locale::US));
 	$assignStatic(WeekDateTest::ywdFormat, $new($SimpleDateFormat, "YYYY-\'W\'ww-u"_s, $Locale::US));
 	{
-		$nc(WeekDateTest::ymdFormat)->setCalendar($(WeekDateTest::newCalendar()));
+		WeekDateTest::ymdFormat->setCalendar($(WeekDateTest::newCalendar()));
 		$nc(WeekDateTest::ywdFormat)->setCalendar($(WeekDateTest::newCalendar()));
 	}
 	$assignStatic(WeekDateTest::roundTripData, $new($StringArray2, {
@@ -314,7 +267,35 @@ WeekDateTest::WeekDateTest() {
 }
 
 $Class* WeekDateTest::load$($String* name, bool initialize) {
-	$loadClass(WeekDateTest, name, initialize, &_WeekDateTest_ClassInfo_, clinit$WeekDateTest, allocate$WeekDateTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"ymdFormat", "Ljava/text/SimpleDateFormat;", nullptr, $STATIC, $staticField(WeekDateTest, ymdFormat)},
+		{"ywdFormat", "Ljava/text/SimpleDateFormat;", nullptr, $STATIC, $staticField(WeekDateTest, ywdFormat)},
+		{"roundTripData", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(WeekDateTest, roundTripData)},
+		{"leniencyData", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(WeekDateTest, leniencyData)},
+		{"invalidData", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(WeekDateTest, invalidData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WeekDateTest, init$, void)},
+		{"formatTest", "([[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, formatTest, void, $StringArray2*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WeekDateTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"newCalendar", "()Ljava/util/GregorianCalendar;", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, newCalendar, $GregorianCalendar*)},
+		{"noWeekDateSupport", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, noWeekDateSupport, void), "java.lang.Exception"},
+		{"nonLenientTest", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, nonLenientTest, void, $StringArray*)},
+		{"parseTest", "([[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, parseTest, void, $StringArray2*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WeekDateTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WeekDateTest, name, initialize, &classInfo$$, WeekDateTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WeekDateTest);
+	});
 	return class$;
 }
 

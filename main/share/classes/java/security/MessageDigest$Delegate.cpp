@@ -1,5 +1,4 @@
 #include <java/security/MessageDigest$Delegate.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
 #include <java/lang/Module.h>
@@ -20,7 +19,6 @@ using $Cloneable = ::java::lang::Cloneable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $MessageDigest = ::java::security::MessageDigest;
@@ -33,56 +31,6 @@ using $MessageDigestSpi2 = ::sun::security::util::MessageDigestSpi2;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _MessageDigest$Delegate_FieldInfo_[] = {
-	{"digestSpi", "Ljava/security/MessageDigestSpi;", nullptr, $PRIVATE | $FINAL, $field(MessageDigest$Delegate, digestSpi)},
-	{}
-};
-
-$MethodInfo _MessageDigest$Delegate_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/security/MessageDigestSpi;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PRIVATE, $method(MessageDigest$Delegate, init$, void, $MessageDigestSpi*, $String*, $Provider*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageDigest$Delegate, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"engineDigest", "()[B", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineDigest, $bytes*)},
-	{"engineDigest", "([BII)I", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineDigest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
-	{"engineGetDigestLength", "()I", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineGetDigestLength, int32_t)},
-	{"engineReset", "()V", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineReset, void)},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineUpdate, void, int8_t)},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineUpdate, void, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineUpdate, void, $ByteBuffer*)},
-	{"engineUpdate", "(Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $virtualMethod(MessageDigest$Delegate, engineUpdate, void, $SecretKey*), "java.security.InvalidKeyException"},
-	{"of", "(Ljava/security/MessageDigestSpi;Ljava/lang/String;Ljava/security/Provider;)Ljava/security/MessageDigest$Delegate;", nullptr, $STATIC, $staticMethod(MessageDigest$Delegate, of, MessageDigest$Delegate*, $MessageDigestSpi*, $String*, $Provider*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MessageDigest$Delegate_InnerClassesInfo_[] = {
-	{"java.security.MessageDigest$Delegate", "java.security.MessageDigest", "Delegate", $PRIVATE | $STATIC},
-	{"java.security.MessageDigest$Delegate$CloneableDelegate", "java.security.MessageDigest$Delegate", "CloneableDelegate", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MessageDigest$Delegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.MessageDigest$Delegate",
-	"java.security.MessageDigest",
-	"sun.security.util.MessageDigestSpi2",
-	_MessageDigest$Delegate_FieldInfo_,
-	_MessageDigest$Delegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MessageDigest$Delegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.MessageDigest"
-};
-
-$Object* allocate$MessageDigest$Delegate($Class* clazz) {
-	return $of($alloc(MessageDigest$Delegate));
-}
 
 $String* MessageDigest$Delegate::toString() {
 	 return this->$MessageDigest::toString();
@@ -102,18 +50,18 @@ void MessageDigest$Delegate::finalize() {
 
 MessageDigest$Delegate* MessageDigest$Delegate::of($MessageDigestSpi* digestSpi, $String* algo, $Provider* p) {
 	$init(MessageDigest$Delegate);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(digestSpi);
 	bool isCloneable = ($instanceOf($Cloneable, digestSpi));
-	bool var$0 = isCloneable && $nc($($nc(p)->getName()))->startsWith("SunPKCS11"_s);
-	if (var$0 && $nc($($nc($($of(p)->getClass()->getModule()))->getName()))->equals("jdk.crypto.cryptoki"_s)) {
+	bool var$0 = isCloneable && $$nc($nc(p)->getName())->startsWith("SunPKCS11"_s);
+	if (var$0 && $$nc($$nc($of(p)->getClass()->getModule())->getName())->equals("jdk.crypto.cryptoki"_s)) {
 		try {
 			digestSpi->clone();
 		} catch ($CloneNotSupportedException& cnse) {
 			isCloneable = false;
 		}
 	}
-	return (isCloneable ? static_cast<MessageDigest$Delegate*>($new($MessageDigest$Delegate$CloneableDelegate, digestSpi, algo, p)) : $new(MessageDigest$Delegate, digestSpi, algo, p));
+	return (isCloneable ? $cast(MessageDigest$Delegate, $new($MessageDigest$Delegate$CloneableDelegate, digestSpi, algo, p)) : $new(MessageDigest$Delegate, digestSpi, algo, p));
 }
 
 void MessageDigest$Delegate::init$($MessageDigestSpi* digestSpi, $String* algorithm, $Provider* p) {
@@ -122,11 +70,11 @@ void MessageDigest$Delegate::init$($MessageDigestSpi* digestSpi, $String* algori
 }
 
 $Object* MessageDigest$Delegate::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Cloneable, this)) {
-		$var($MessageDigest, that, $new($MessageDigest$Delegate$CloneableDelegate, $cast($MessageDigestSpi, $($nc(this->digestSpi)->clone())), $nc((static_cast<$MessageDigest*>(this)))->algorithm, $nc((static_cast<$MessageDigest*>(this)))->provider));
-		that->state = $nc((static_cast<$MessageDigest*>(this)))->state;
-		return $of(that);
+		$var($MessageDigest, that, $new($MessageDigest$Delegate$CloneableDelegate, $$cast($MessageDigestSpi, $nc(this->digestSpi)->clone()), $cast($MessageDigest, this)->algorithm, $cast($MessageDigest, this)->provider));
+		that->state = $cast($MessageDigest, this)->state;
+		return that;
 	} else {
 		$throwNew($CloneNotSupportedException);
 	}
@@ -150,7 +98,7 @@ void MessageDigest$Delegate::engineUpdate($ByteBuffer* input) {
 
 void MessageDigest$Delegate::engineUpdate($SecretKey* key) {
 	if ($instanceOf($MessageDigestSpi2, this->digestSpi)) {
-		$nc(($cast($MessageDigestSpi2, this->digestSpi)))->engineUpdate(key);
+		$cast($MessageDigestSpi2, this->digestSpi)->engineUpdate(key);
 	} else {
 		$throwNew($UnsupportedOperationException, "Digest does not support update of SecretKey object"_s);
 	}
@@ -172,7 +120,51 @@ MessageDigest$Delegate::MessageDigest$Delegate() {
 }
 
 $Class* MessageDigest$Delegate::load$($String* name, bool initialize) {
-	$loadClass(MessageDigest$Delegate, name, initialize, &_MessageDigest$Delegate_ClassInfo_, allocate$MessageDigest$Delegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"digestSpi", "Ljava/security/MessageDigestSpi;", nullptr, $PRIVATE | $FINAL, $field(MessageDigest$Delegate, digestSpi)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/security/MessageDigestSpi;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PRIVATE, $method(MessageDigest$Delegate, init$, void, $MessageDigestSpi*, $String*, $Provider*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageDigest$Delegate, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"engineDigest", "()[B", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineDigest, $bytes*)},
+		{"engineDigest", "([BII)I", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineDigest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
+		{"engineGetDigestLength", "()I", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineGetDigestLength, int32_t)},
+		{"engineReset", "()V", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineReset, void)},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineUpdate, void, int8_t)},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineUpdate, void, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(MessageDigest$Delegate, engineUpdate, void, $ByteBuffer*)},
+		{"engineUpdate", "(Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $virtualMethod(MessageDigest$Delegate, engineUpdate, void, $SecretKey*), "java.security.InvalidKeyException"},
+		{"of", "(Ljava/security/MessageDigestSpi;Ljava/lang/String;Ljava/security/Provider;)Ljava/security/MessageDigest$Delegate;", nullptr, $STATIC, $staticMethod(MessageDigest$Delegate, of, MessageDigest$Delegate*, $MessageDigestSpi*, $String*, $Provider*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.MessageDigest$Delegate", "java.security.MessageDigest", "Delegate", $PRIVATE | $STATIC},
+		{"java.security.MessageDigest$Delegate$CloneableDelegate", "java.security.MessageDigest$Delegate", "CloneableDelegate", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.MessageDigest$Delegate",
+		"java.security.MessageDigest",
+		"sun.security.util.MessageDigestSpi2",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.MessageDigest"
+	};
+	$loadClass(MessageDigest$Delegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MessageDigest$Delegate));
+	});
 	return class$;
 }
 

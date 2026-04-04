@@ -1,5 +1,4 @@
 #include <sun/security/x509/BasicConstraintsExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -26,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
@@ -36,49 +34,6 @@ using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _BasicConstraintsExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicConstraintsExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicConstraintsExtension, NAME)},
-	{"IS_CA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicConstraintsExtension, IS_CA)},
-	{"PATH_LEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicConstraintsExtension, PATH_LEN)},
-	{"ca", "Z", nullptr, $PRIVATE, $field(BasicConstraintsExtension, ca)},
-	{"pathLen", "I", nullptr, $PRIVATE, $field(BasicConstraintsExtension, pathLen)},
-	{}
-};
-
-$MethodInfo _BasicConstraintsExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(BasicConstraintsExtension, init$, void, bool, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;ZI)V", nullptr, $PUBLIC, $method(BasicConstraintsExtension, init$, void, $Boolean*, bool, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(BasicConstraintsExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(BasicConstraintsExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BasicConstraintsExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _BasicConstraintsExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.BasicConstraintsExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_BasicConstraintsExtension_FieldInfo_,
-	_BasicConstraintsExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$BasicConstraintsExtension($Class* clazz) {
-	return $of($alloc(BasicConstraintsExtension));
-}
 
 int32_t BasicConstraintsExtension::hashCode() {
 	 return this->$Extension::hashCode();
@@ -102,7 +57,7 @@ $String* BasicConstraintsExtension::IS_CA = nullptr;
 $String* BasicConstraintsExtension::PATH_LEN = nullptr;
 
 void BasicConstraintsExtension::encodeThis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->ca) {
@@ -132,7 +87,7 @@ void BasicConstraintsExtension::init$($Boolean* critical, bool ca, int32_t len) 
 }
 
 void BasicConstraintsExtension::init$($Boolean* critical, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$();
 	this->ca = false;
 	this->pathLen = -1;
@@ -144,27 +99,27 @@ void BasicConstraintsExtension::init$($Boolean* critical, Object$* value) {
 	if (val->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding of BasicConstraints"_s);
 	}
-	if (val->data$ == nullptr || $nc(val->data$)->available() == 0) {
+	if (val->data$ == nullptr || val->data$->available() == 0) {
 		return;
 	}
 	$var($DerValue, opt, $nc(val->data$)->getDerValue());
 	if ($nc(opt)->tag != $DerValue::tag_Boolean) {
 		return;
 	}
-	this->ca = $nc(opt)->getBoolean();
-	if ($nc(val->data$)->available() == 0) {
+	this->ca = opt->getBoolean();
+	if (val->data$->available() == 0) {
 		this->pathLen = $Integer::MAX_VALUE;
 		return;
 	}
-	$assign(opt, $nc(val->data$)->getDerValue());
-	if (opt->tag != $DerValue::tag_Integer) {
+	$assign(opt, val->data$->getDerValue());
+	if ($nc(opt)->tag != $DerValue::tag_Integer) {
 		$throwNew($IOException, "Invalid encoding of BasicConstraints"_s);
 	}
 	this->pathLen = opt->getInteger();
 }
 
 $String* BasicConstraintsExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, pathLenAsString, nullptr);
 	if (this->pathLen < 0) {
 		$assign(pathLenAsString, " undefined"_s);
@@ -177,7 +132,7 @@ $String* BasicConstraintsExtension::toString() {
 }
 
 void BasicConstraintsExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -198,12 +153,12 @@ void BasicConstraintsExtension::set($String* name, Object$* obj) {
 		if (!($instanceOf($Boolean, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Boolean."_s);
 		}
-		this->ca = $nc(($cast($Boolean, obj)))->booleanValue();
+		this->ca = $nc($cast($Boolean, obj))->booleanValue();
 	} else if (name->equalsIgnoreCase(BasicConstraintsExtension::PATH_LEN)) {
 		if (!($instanceOf($Integer, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Integer."_s);
 		}
-		this->pathLen = $nc(($cast($Integer, obj)))->intValue();
+		this->pathLen = $nc($cast($Integer, obj))->intValue();
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:BasicConstraints."_s);
 	}
@@ -212,9 +167,9 @@ void BasicConstraintsExtension::set($String* name, Object$* obj) {
 
 $Object* BasicConstraintsExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(BasicConstraintsExtension::IS_CA)) {
-		return $of(($Boolean::valueOf(this->ca)));
+		return ($of($Boolean::valueOf(this->ca)));
 	} else if (name->equalsIgnoreCase(BasicConstraintsExtension::PATH_LEN)) {
-		return $of(($Integer::valueOf(this->pathLen)));
+		return ($of($Integer::valueOf(this->pathLen)));
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:BasicConstraints."_s);
 	}
@@ -245,7 +200,7 @@ $String* BasicConstraintsExtension::getName() {
 BasicConstraintsExtension::BasicConstraintsExtension() {
 }
 
-void clinit$BasicConstraintsExtension($Class* class$) {
+void BasicConstraintsExtension::clinit$($Class* clazz) {
 	$assignStatic(BasicConstraintsExtension::IDENT, "x509.info.extensions.BasicConstraints"_s);
 	$assignStatic(BasicConstraintsExtension::NAME, "BasicConstraints"_s);
 	$assignStatic(BasicConstraintsExtension::IS_CA, "is_ca"_s);
@@ -253,7 +208,45 @@ void clinit$BasicConstraintsExtension($Class* class$) {
 }
 
 $Class* BasicConstraintsExtension::load$($String* name, bool initialize) {
-	$loadClass(BasicConstraintsExtension, name, initialize, &_BasicConstraintsExtension_ClassInfo_, clinit$BasicConstraintsExtension, allocate$BasicConstraintsExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicConstraintsExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicConstraintsExtension, NAME)},
+		{"IS_CA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicConstraintsExtension, IS_CA)},
+		{"PATH_LEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicConstraintsExtension, PATH_LEN)},
+		{"ca", "Z", nullptr, $PRIVATE, $field(BasicConstraintsExtension, ca)},
+		{"pathLen", "I", nullptr, $PRIVATE, $field(BasicConstraintsExtension, pathLen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(BasicConstraintsExtension, init$, void, bool, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;ZI)V", nullptr, $PUBLIC, $method(BasicConstraintsExtension, init$, void, $Boolean*, bool, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(BasicConstraintsExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(BasicConstraintsExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BasicConstraintsExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicConstraintsExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.BasicConstraintsExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(BasicConstraintsExtension, name, initialize, &classInfo$$, BasicConstraintsExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicConstraintsExtension));
+	});
 	return class$;
 }
 

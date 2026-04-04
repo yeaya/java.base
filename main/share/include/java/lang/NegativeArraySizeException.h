@@ -14,10 +14,13 @@ public:
 	NegativeArraySizeException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x83A7441933C37C8B;
+	static const int64_t serialVersionUID = (int64_t)0x83a7441933c37c8b;
 	NegativeArraySizeException(const NegativeArraySizeException& e);
 	virtual void throw$() override;
-	inline NegativeArraySizeException* operator ->() {
+	inline NegativeArraySizeException* operator ->() const {
+		return (NegativeArraySizeException*)throwing$;
+	}
+	inline operator NegativeArraySizeException*() const {
 		return (NegativeArraySizeException*)throwing$;
 	}
 };

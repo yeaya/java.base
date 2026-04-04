@@ -47,6 +47,7 @@ class $export ImageReaderFactory : public ::java::lang::Object {
 	$class(ImageReaderFactory, 0, ::java::lang::Object)
 public:
 	ImageReaderFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::jimage::ImageReader* get(::java::nio::file::Path* jimage);
 	static ::jdk::internal::jimage::ImageReader* getImageReader();

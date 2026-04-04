@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/vector/VectorSupport$Vector.h>
-
 #include <jdk/internal/vm/vector/VectorSupport$VectorPayload.h>
 #include <jdk/internal/vm/vector/VectorSupport.h>
 #include <jcpp.h>
@@ -14,37 +13,6 @@ namespace jdk {
 		namespace vm {
 			namespace vector {
 
-$MethodInfo _VectorSupport$Vector_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VectorSupport$Vector, init$, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _VectorSupport$Vector_InnerClassesInfo_[] = {
-	{"jdk.internal.vm.vector.VectorSupport$Vector", "jdk.internal.vm.vector.VectorSupport", "Vector", $PUBLIC | $STATIC},
-	{"jdk.internal.vm.vector.VectorSupport$VectorPayload", "jdk.internal.vm.vector.VectorSupport", "VectorPayload", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _VectorSupport$Vector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.vm.vector.VectorSupport$Vector",
-	"jdk.internal.vm.vector.VectorSupport$VectorPayload",
-	nullptr,
-	nullptr,
-	_VectorSupport$Vector_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljdk/internal/vm/vector/VectorSupport$VectorPayload;",
-	nullptr,
-	_VectorSupport$Vector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.vm.vector.VectorSupport"
-};
-
-$Object* allocate$VectorSupport$Vector($Class* clazz) {
-	return $of($alloc(VectorSupport$Vector));
-}
-
 void VectorSupport$Vector::init$(Object$* payload) {
 	$VectorSupport$VectorPayload::init$(payload);
 }
@@ -53,7 +21,33 @@ VectorSupport$Vector::VectorSupport$Vector() {
 }
 
 $Class* VectorSupport$Vector::load$($String* name, bool initialize) {
-	$loadClass(VectorSupport$Vector, name, initialize, &_VectorSupport$Vector_ClassInfo_, allocate$VectorSupport$Vector);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VectorSupport$Vector, init$, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.vm.vector.VectorSupport$Vector", "jdk.internal.vm.vector.VectorSupport", "Vector", $PUBLIC | $STATIC},
+		{"jdk.internal.vm.vector.VectorSupport$VectorPayload", "jdk.internal.vm.vector.VectorSupport", "VectorPayload", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.vm.vector.VectorSupport$Vector",
+		"jdk.internal.vm.vector.VectorSupport$VectorPayload",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljdk/internal/vm/vector/VectorSupport$VectorPayload;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.vm.vector.VectorSupport"
+	};
+	$loadClass(VectorSupport$Vector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VectorSupport$Vector);
+	});
 	return class$;
 }
 

@@ -15,6 +15,7 @@ class $export NetworkInterfaceEmptyGetInetAddressesTest : public ::java::lang::O
 	$class(NetworkInterfaceEmptyGetInetAddressesTest, 0, ::java::lang::Object)
 public:
 	NetworkInterfaceEmptyGetInetAddressesTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void incrementExceptionCount();
 	static void main($StringArray* args);

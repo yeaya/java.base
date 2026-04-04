@@ -1,5 +1,4 @@
 #include <java/lang/invoke/AbstractConstantGroup$BSCIWithCache.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/AbstractConstantGroup$WithCache.h>
 #include <java/lang/invoke/AbstractConstantGroup.h>
@@ -24,62 +23,6 @@ using $List = ::java::util::List;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _AbstractConstantGroup$BSCIWithCache_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractConstantGroup$BSCIWithCache, $assertionsDisabled)},
-	{"bsm", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$BSCIWithCache, bsm)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$BSCIWithCache, name)},
-	{"type", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(AbstractConstantGroup$BSCIWithCache, type)},
-	{}
-};
-
-$MethodInfo _AbstractConstantGroup$BSCIWithCache_MethodInfo_[] = {
-	{"*asList", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*asList", "(Ljava/lang/Object;)Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*copyConstants", "(II[Ljava/lang/Object;I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*copyConstants", "(II[Ljava/lang/Object;ILjava/lang/Object;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;I)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;TT;I)V", 0, $method(AbstractConstantGroup$BSCIWithCache, init$, void, $MethodHandle*, $String*, Object$*, int32_t)},
-	{"bootstrapMethod", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, bootstrapMethod, $MethodHandle*)},
-	{"invocationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, invocationName, $String*)},
-	{"invocationType", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, invocationType, $Object*)},
-	{"*isPresent", "(I)Z", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*subGroup", "(II)Ljava/lang/invoke/ConstantGroup;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AbstractConstantGroup$BSCIWithCache_InnerClassesInfo_[] = {
-	{"java.lang.invoke.AbstractConstantGroup$BSCIWithCache", "java.lang.invoke.AbstractConstantGroup", "BSCIWithCache", $STATIC},
-	{"java.lang.invoke.AbstractConstantGroup$WithCache", "java.lang.invoke.AbstractConstantGroup", "WithCache", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractConstantGroup$BSCIWithCache_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.AbstractConstantGroup$BSCIWithCache",
-	"java.lang.invoke.AbstractConstantGroup$WithCache",
-	"java.lang.invoke.BootstrapCallInfo",
-	_AbstractConstantGroup$BSCIWithCache_FieldInfo_,
-	_AbstractConstantGroup$BSCIWithCache_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/invoke/AbstractConstantGroup$WithCache;Ljava/lang/invoke/BootstrapCallInfo<TT;>;",
-	nullptr,
-	_AbstractConstantGroup$BSCIWithCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.AbstractConstantGroup"
-};
-
-$Object* allocate$AbstractConstantGroup$BSCIWithCache($Class* clazz) {
-	return $of($alloc(AbstractConstantGroup$BSCIWithCache));
-}
 
 $Object* AbstractConstantGroup$BSCIWithCache::get(int32_t i) {
 	 return this->$AbstractConstantGroup$WithCache::get(i);
@@ -136,9 +79,15 @@ void AbstractConstantGroup$BSCIWithCache::finalize() {
 bool AbstractConstantGroup$BSCIWithCache::$assertionsDisabled = false;
 
 $String* AbstractConstantGroup$BSCIWithCache::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({this->bsm, "/"_s, this->name, ":"_s, this->type}));
-	return $concat(var$0, $($AbstractConstantGroup$WithCache::toString()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(this->bsm);
+	var$0->append("/"_s);
+	var$0->append(this->name);
+	var$0->append(":"_s);
+	var$0->append(this->type);
+	var$0->append($($AbstractConstantGroup$WithCache::toString()));
+	return $str(var$0);
 }
 
 void AbstractConstantGroup$BSCIWithCache::init$($MethodHandle* bsm, $String* name, Object$* type, int32_t size) {
@@ -160,10 +109,10 @@ $String* AbstractConstantGroup$BSCIWithCache::invocationName() {
 }
 
 $Object* AbstractConstantGroup$BSCIWithCache::invocationType() {
-	return $of(this->type);
+	return this->type;
 }
 
-void clinit$AbstractConstantGroup$BSCIWithCache($Class* class$) {
+void AbstractConstantGroup$BSCIWithCache::clinit$($Class* clazz) {
 	$load($AbstractConstantGroup);
 	AbstractConstantGroup$BSCIWithCache::$assertionsDisabled = !$AbstractConstantGroup::class$->desiredAssertionStatus();
 }
@@ -172,7 +121,57 @@ AbstractConstantGroup$BSCIWithCache::AbstractConstantGroup$BSCIWithCache() {
 }
 
 $Class* AbstractConstantGroup$BSCIWithCache::load$($String* name, bool initialize) {
-	$loadClass(AbstractConstantGroup$BSCIWithCache, name, initialize, &_AbstractConstantGroup$BSCIWithCache_ClassInfo_, clinit$AbstractConstantGroup$BSCIWithCache, allocate$AbstractConstantGroup$BSCIWithCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractConstantGroup$BSCIWithCache, $assertionsDisabled)},
+		{"bsm", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$BSCIWithCache, bsm)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AbstractConstantGroup$BSCIWithCache, name)},
+		{"type", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(AbstractConstantGroup$BSCIWithCache, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*asList", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*asList", "(Ljava/lang/Object;)Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*copyConstants", "(II[Ljava/lang/Object;I)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*copyConstants", "(II[Ljava/lang/Object;ILjava/lang/Object;)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;I)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;TT;I)V", 0, $method(AbstractConstantGroup$BSCIWithCache, init$, void, $MethodHandle*, $String*, Object$*, int32_t)},
+		{"bootstrapMethod", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, bootstrapMethod, $MethodHandle*)},
+		{"invocationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, invocationName, $String*)},
+		{"invocationType", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, invocationType, $Object*)},
+		{"*isPresent", "(I)Z", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*subGroup", "(II)Ljava/lang/invoke/ConstantGroup;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.AbstractConstantGroup$BSCIWithCache", "java.lang.invoke.AbstractConstantGroup", "BSCIWithCache", $STATIC},
+		{"java.lang.invoke.AbstractConstantGroup$WithCache", "java.lang.invoke.AbstractConstantGroup", "WithCache", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.AbstractConstantGroup$BSCIWithCache",
+		"java.lang.invoke.AbstractConstantGroup$WithCache",
+		"java.lang.invoke.BootstrapCallInfo",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/invoke/AbstractConstantGroup$WithCache;Ljava/lang/invoke/BootstrapCallInfo<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.AbstractConstantGroup"
+	};
+	$loadClass(AbstractConstantGroup$BSCIWithCache, name, initialize, &classInfo$$, AbstractConstantGroup$BSCIWithCache::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractConstantGroup$BSCIWithCache));
+	});
 	return class$;
 }
 

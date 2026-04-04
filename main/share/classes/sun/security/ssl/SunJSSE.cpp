@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SunJSSE.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -30,7 +29,6 @@ using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace sun {
@@ -44,66 +42,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$registerAlgorithms$0());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SunJSSE$$Lambda$lambda$registerAlgorithms$0>());
+		 return $nc(inst$)->lambda$registerAlgorithms$0();
 	}
 	SunJSSE* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SunJSSE$$Lambda$lambda$registerAlgorithms$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SunJSSE$$Lambda$lambda$registerAlgorithms$0, inst$)},
-	{}
-};
-$MethodInfo SunJSSE$$Lambda$lambda$registerAlgorithms$0::methodInfos[3] = {
-	{"<init>", "(Lsun/security/ssl/SunJSSE;)V", nullptr, $PUBLIC, $method(SunJSSE$$Lambda$lambda$registerAlgorithms$0, init$, void, SunJSSE*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunJSSE$$Lambda$lambda$registerAlgorithms$0, run, $Object*)},
-	{}
-};
-$ClassInfo SunJSSE$$Lambda$lambda$registerAlgorithms$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.ssl.SunJSSE$$Lambda$lambda$registerAlgorithms$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* SunJSSE$$Lambda$lambda$registerAlgorithms$0::load$($String* name, bool initialize) {
-	$loadClass(SunJSSE$$Lambda$lambda$registerAlgorithms$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SunJSSE$$Lambda$lambda$registerAlgorithms$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/SunJSSE;)V", nullptr, $PUBLIC, $method(SunJSSE$$Lambda$lambda$registerAlgorithms$0, init$, void, SunJSSE*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunJSSE$$Lambda$lambda$registerAlgorithms$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.ssl.SunJSSE$$Lambda$lambda$registerAlgorithms$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SunJSSE$$Lambda$lambda$registerAlgorithms$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunJSSE$$Lambda$lambda$registerAlgorithms$0);
+	});
 	return class$;
 }
 $Class* SunJSSE$$Lambda$lambda$registerAlgorithms$0::class$ = nullptr;
-
-$FieldInfo _SunJSSE_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunJSSE, serialVersionUID)},
-	{"info", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunJSSE, info)},
-	{}
-};
-
-$MethodInfo _SunJSSE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SunJSSE, init$, void)},
-	{"doRegister", "()V", nullptr, $PRIVATE, $method(SunJSSE, doRegister, void)},
-	{"lambda$registerAlgorithms$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(SunJSSE, lambda$registerAlgorithms$0, $Void*)},
-	{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunJSSE, ps, void, $String*, $String*, $String*, $List*, $HashMap*)},
-	{"registerAlgorithms", "()V", nullptr, $PRIVATE, $method(SunJSSE, registerAlgorithms, void)},
-	{}
-};
-
-$ClassInfo _SunJSSE_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.ssl.SunJSSE",
-	"java.security.Provider",
-	nullptr,
-	_SunJSSE_FieldInfo_,
-	_SunJSSE_MethodInfo_
-};
-
-$Object* allocate$SunJSSE($Class* clazz) {
-	return $of($alloc(SunJSSE));
-}
 
 $String* SunJSSE::info = nullptr;
 
@@ -115,7 +81,7 @@ void SunJSSE::init$() {
 
 void SunJSSE::registerAlgorithms() {
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(SunJSSE$$Lambda$lambda$registerAlgorithms$0, this)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(SunJSSE$$Lambda$lambda$registerAlgorithms$0, this)));
 }
 
 void SunJSSE::ps($String* type, $String* algo, $String* cn, $List* a, $HashMap* attrs) {
@@ -123,17 +89,17 @@ void SunJSSE::ps($String* type, $String* algo, $String* cn, $List* a, $HashMap* 
 }
 
 void SunJSSE::doRegister() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ps("Signature"_s, "MD5andSHA1withRSA"_s, "sun.security.ssl.RSASignature"_s, nullptr, nullptr);
 	ps("KeyManagerFactory"_s, "SunX509"_s, "sun.security.ssl.KeyManagerFactoryImpl$SunX509"_s, nullptr, nullptr);
-	ps("KeyManagerFactory"_s, "NewSunX509"_s, "sun.security.ssl.KeyManagerFactoryImpl$X509"_s, $($List::of($of("PKIX"_s))), nullptr);
+	ps("KeyManagerFactory"_s, "NewSunX509"_s, "sun.security.ssl.KeyManagerFactoryImpl$X509"_s, $($List::of("PKIX"_s)), nullptr);
 	ps("TrustManagerFactory"_s, "SunX509"_s, "sun.security.ssl.TrustManagerFactoryImpl$SimpleFactory"_s, nullptr, nullptr);
 	ps("TrustManagerFactory"_s, "PKIX"_s, "sun.security.ssl.TrustManagerFactoryImpl$PKIXFactory"_s, $($List::of("SunPKIX"_s, "X509"_s, "X.509"_s)), nullptr);
-	ps("SSLContext"_s, "TLSv1"_s, "sun.security.ssl.SSLContextImpl$TLS10Context"_s, $($List::of($of("SSLv3"_s))), nullptr);
+	ps("SSLContext"_s, "TLSv1"_s, "sun.security.ssl.SSLContextImpl$TLS10Context"_s, $($List::of("SSLv3"_s)), nullptr);
 	ps("SSLContext"_s, "TLSv1.1"_s, "sun.security.ssl.SSLContextImpl$TLS11Context"_s, nullptr, nullptr);
 	ps("SSLContext"_s, "TLSv1.2"_s, "sun.security.ssl.SSLContextImpl$TLS12Context"_s, nullptr, nullptr);
 	ps("SSLContext"_s, "TLSv1.3"_s, "sun.security.ssl.SSLContextImpl$TLS13Context"_s, nullptr, nullptr);
-	ps("SSLContext"_s, "TLS"_s, "sun.security.ssl.SSLContextImpl$TLSContext"_s, $($List::of($of("SSL"_s))), nullptr);
+	ps("SSLContext"_s, "TLS"_s, "sun.security.ssl.SSLContextImpl$TLSContext"_s, $($List::of("SSL"_s)), nullptr);
 	ps("SSLContext"_s, "DTLSv1.0"_s, "sun.security.ssl.SSLContextImpl$DTLS10Context"_s, nullptr, nullptr);
 	ps("SSLContext"_s, "DTLSv1.2"_s, "sun.security.ssl.SSLContextImpl$DTLS12Context"_s, nullptr, nullptr);
 	ps("SSLContext"_s, "DTLS"_s, "sun.security.ssl.SSLContextImpl$DTLSContext"_s, nullptr, nullptr);
@@ -149,17 +115,40 @@ $Void* SunJSSE::lambda$registerAlgorithms$0() {
 SunJSSE::SunJSSE() {
 }
 
-void clinit$SunJSSE($Class* class$) {
+void SunJSSE::clinit$($Class* clazz) {
 	$assignStatic(SunJSSE::info, "Sun JSSE provider(PKCS12, SunX509/PKIX key/trust factories, SSLv3/TLSv1/TLSv1.1/TLSv1.2/TLSv1.3/DTLSv1.0/DTLSv1.2)"_s);
 }
 
 $Class* SunJSSE::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SunJSSE$$Lambda$lambda$registerAlgorithms$0::classInfo$.name)) {
+		if (name->equals("sun.security.ssl.SunJSSE$$Lambda$lambda$registerAlgorithms$0")) {
 			return SunJSSE$$Lambda$lambda$registerAlgorithms$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SunJSSE, name, initialize, &_SunJSSE_ClassInfo_, clinit$SunJSSE, allocate$SunJSSE);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunJSSE, serialVersionUID)},
+		{"info", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunJSSE, info)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SunJSSE, init$, void)},
+		{"doRegister", "()V", nullptr, $PRIVATE, $method(SunJSSE, doRegister, void)},
+		{"lambda$registerAlgorithms$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(SunJSSE, lambda$registerAlgorithms$0, $Void*)},
+		{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunJSSE, ps, void, $String*, $String*, $String*, $List*, $HashMap*)},
+		{"registerAlgorithms", "()V", nullptr, $PRIVATE, $method(SunJSSE, registerAlgorithms, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.ssl.SunJSSE",
+		"java.security.Provider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SunJSSE, name, initialize, &classInfo$$, SunJSSE::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SunJSSE));
+	});
 	return class$;
 }
 

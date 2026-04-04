@@ -1,5 +1,4 @@
 #include <sun/nio/cs/UTF_8.h>
-
 #include <java/nio/Buffer.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
@@ -30,46 +29,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _UTF_8_FieldInfo_[] = {
-	{"INSTANCE", "Lsun/nio/cs/UTF_8;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UTF_8, INSTANCE)},
-	{}
-};
-
-$MethodInfo _UTF_8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UTF_8, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UTF_8, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UTF_8, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(UTF_8, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(UTF_8, newEncoder, $CharsetEncoder*)},
-	{"updatePositions", "(Ljava/nio/Buffer;ILjava/nio/Buffer;I)V", nullptr, $STATIC | $FINAL, $staticMethod(UTF_8, updatePositions, void, $Buffer*, int32_t, $Buffer*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UTF_8_InnerClassesInfo_[] = {
-	{"sun.nio.cs.UTF_8$Encoder", "sun.nio.cs.UTF_8", "Encoder", $PRIVATE | $STATIC | $FINAL},
-	{"sun.nio.cs.UTF_8$Decoder", "sun.nio.cs.UTF_8", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _UTF_8_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.nio.cs.UTF_8",
-	"sun.nio.cs.Unicode",
-	nullptr,
-	_UTF_8_FieldInfo_,
-	_UTF_8_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UTF_8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.UTF_8$Encoder,sun.nio.cs.UTF_8$Decoder"
-};
-
-$Object* allocate$UTF_8($Class* clazz) {
-	return $of($alloc(UTF_8));
-}
-
 UTF_8* UTF_8::INSTANCE = nullptr;
 
 void UTF_8::init$() {
@@ -90,15 +49,15 @@ $CharsetEncoder* UTF_8::newEncoder() {
 
 void UTF_8::updatePositions($Buffer* src, int32_t sp, $Buffer* dst, int32_t dp) {
 	$init(UTF_8);
-	$nc(src)->position(sp - src->arrayOffset());
-	$nc(dst)->position(dp - dst->arrayOffset());
+	$nc(src)->position(sp - $nc(src)->arrayOffset());
+	$nc(dst)->position(dp - $nc(dst)->arrayOffset());
 }
 
 bool UTF_8::contains($Charset* cs) {
 	return $Unicode::contains(cs);
 }
 
-void clinit$UTF_8($Class* class$) {
+void UTF_8::clinit$($Class* clazz) {
 	$assignStatic(UTF_8::INSTANCE, $new(UTF_8));
 }
 
@@ -106,7 +65,41 @@ UTF_8::UTF_8() {
 }
 
 $Class* UTF_8::load$($String* name, bool initialize) {
-	$loadClass(UTF_8, name, initialize, &_UTF_8_ClassInfo_, clinit$UTF_8, allocate$UTF_8);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lsun/nio/cs/UTF_8;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UTF_8, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UTF_8, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UTF_8, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UTF_8, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(UTF_8, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(UTF_8, newEncoder, $CharsetEncoder*)},
+		{"updatePositions", "(Ljava/nio/Buffer;ILjava/nio/Buffer;I)V", nullptr, $STATIC | $FINAL, $staticMethod(UTF_8, updatePositions, void, $Buffer*, int32_t, $Buffer*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.UTF_8$Encoder", "sun.nio.cs.UTF_8", "Encoder", $PRIVATE | $STATIC | $FINAL},
+		{"sun.nio.cs.UTF_8$Decoder", "sun.nio.cs.UTF_8", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.nio.cs.UTF_8",
+		"sun.nio.cs.Unicode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.UTF_8$Encoder,sun.nio.cs.UTF_8$Decoder"
+	};
+	$loadClass(UTF_8, name, initialize, &classInfo$$, UTF_8::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UTF_8));
+	});
 	return class$;
 }
 

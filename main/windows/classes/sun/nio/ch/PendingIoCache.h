@@ -36,6 +36,7 @@ class PendingIoCache : public ::java::lang::Object {
 	$class(PendingIoCache, 0, ::java::lang::Object)
 public:
 	PendingIoCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int64_t add(::sun::nio::ch::PendingFuture* result);
 	void clearPendingIoMap();

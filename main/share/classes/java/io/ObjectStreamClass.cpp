@@ -1,5 +1,4 @@
 #include <java/io/ObjectStreamClass.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/DataOutputStream.h>
 #include <java/io/Externalizable.h>
@@ -24,7 +23,6 @@
 #include <java/io/ObjectStreamConstants.h>
 #include <java/io/ObjectStreamException.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
@@ -72,7 +70,6 @@
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collections.h>
-#include <java/util/Comparator.h>
 #include <java/util/HashSet.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
@@ -138,7 +135,6 @@ using $ObjectStreamClass$WeakClassKey = ::java::io::ObjectStreamClass$WeakClassK
 using $ObjectStreamConstants = ::java::io::ObjectStreamConstants;
 using $ObjectStreamException = ::java::io::ObjectStreamException;
 using $ObjectStreamField = ::java::io::ObjectStreamField;
-using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -164,14 +160,12 @@ using $SecurityException = ::java::lang::SecurityException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Field = ::java::lang::reflect::Field;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
-using $Member = ::java::lang::reflect::Member;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Proxy = ::java::lang::reflect::Proxy;
@@ -189,14 +183,11 @@ using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
-using $Comparator = ::java::util::Comparator;
 using $HashSet = ::java::util::HashSet;
-using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $Function = ::java::util::function::Function;
 using $IntFunction = ::java::util::function::IntFunction;
-using $Stream = ::java::util::stream::Stream;
 using $JavaSecurityAccess = ::jdk::internal::access::JavaSecurityAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $Reflection = ::jdk::internal::reflect::Reflection;
@@ -216,33 +207,29 @@ public:
 	virtual $Object* run() override {
 		 return $nc(inst$)->lambda$newInstance$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ObjectStreamClass$$Lambda$lambda$newInstance$0>());
-	}
 	ObjectStreamClass* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ObjectStreamClass$$Lambda$lambda$newInstance$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ObjectStreamClass$$Lambda$lambda$newInstance$0, inst$)},
-	{}
-};
-$MethodInfo ObjectStreamClass$$Lambda$lambda$newInstance$0::methodInfos[3] = {
-	{"<init>", "(Ljava/io/ObjectStreamClass;)V", nullptr, $PUBLIC, $method(ObjectStreamClass$$Lambda$lambda$newInstance$0, init$, void, ObjectStreamClass*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$$Lambda$lambda$newInstance$0, run, $Object*)},
-	{}
-};
-$ClassInfo ObjectStreamClass$$Lambda$lambda$newInstance$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.io.ObjectStreamClass$$Lambda$lambda$newInstance$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ObjectStreamClass$$Lambda$lambda$newInstance$0::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$$Lambda$lambda$newInstance$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ObjectStreamClass$$Lambda$lambda$newInstance$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/ObjectStreamClass;)V", nullptr, $PUBLIC, $method(ObjectStreamClass$$Lambda$lambda$newInstance$0, init$, void, ObjectStreamClass*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$$Lambda$lambda$newInstance$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.io.ObjectStreamClass$$Lambda$lambda$newInstance$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ObjectStreamClass$$Lambda$lambda$newInstance$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$$Lambda$lambda$newInstance$0);
+	});
 	return class$;
 }
 $Class* ObjectStreamClass$$Lambda$lambda$newInstance$0::class$ = nullptr;
@@ -254,35 +241,31 @@ public:
 		this->cls = cls;
 	}
 	virtual $Object* run() override {
-		 return $of(ObjectStreamClass::lambda$canonicalRecordCtr$2(cls));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1>());
+		 return ObjectStreamClass::lambda$canonicalRecordCtr$2(cls);
 	}
 	$Class* cls = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1::fieldInfos[2] = {
-	{"cls", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1, cls)},
-	{}
-};
-$MethodInfo ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1, init$, void, $Class*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1, run, $Object*)},
-	{}
-};
-$ClassInfo ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.io.ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"cls", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1, cls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1, init$, void, $Class*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.io.ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1);
+	});
 	return class$;
 }
 $Class* ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1::class$ = nullptr;
@@ -295,27 +278,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($RecordComponent, inst$)->getType());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ObjectStreamClass$$Lambda$getType$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ObjectStreamClass$$Lambda$getType$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectStreamClass$$Lambda$getType$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$$Lambda$getType$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ObjectStreamClass$$Lambda$getType$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.io.ObjectStreamClass$$Lambda$getType$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ObjectStreamClass$$Lambda$getType$2::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$$Lambda$getType$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectStreamClass$$Lambda$getType$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$$Lambda$getType$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.io.ObjectStreamClass$$Lambda$getType$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ObjectStreamClass$$Lambda$getType$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$$Lambda$getType$2);
+	});
 	return class$;
 }
 $Class* ObjectStreamClass$$Lambda$getType$2::class$ = nullptr;
@@ -326,203 +306,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(ObjectStreamClass::lambda$canonicalRecordCtr$1(x$0));
+		 return ObjectStreamClass::lambda$canonicalRecordCtr$1(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.io.ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.io.ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3);
+	});
 	return class$;
 }
 $Class* ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3::class$ = nullptr;
-
-$CompoundAttribute _ObjectStreamClass_MethodAnnotations_forClass11[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$FieldInfo _ObjectStreamClass_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ObjectStreamClass, $assertionsDisabled)},
-	{"NO_FIELDS", "[Ljava/io/ObjectStreamField;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ObjectStreamClass, NO_FIELDS)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectStreamClass, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectStreamClass, serialPersistentFields)},
-	{"reflFactory", "Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectStreamClass, reflFactory)},
-	{"cl", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(ObjectStreamClass, cl)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectStreamClass, name)},
-	{"suid", "Ljava/lang/Long;", nullptr, $PRIVATE | $VOLATILE, $field(ObjectStreamClass, suid)},
-	{"isProxy", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, isProxy$)},
-	{"isEnum", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, isEnum$)},
-	{"isRecord", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, isRecord$)},
-	{"serializable", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, serializable)},
-	{"externalizable", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, externalizable)},
-	{"hasWriteObjectData", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, hasWriteObjectData$)},
-	{"hasBlockExternalData", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, hasBlockExternalData$)},
-	{"resolveEx", "Ljava/lang/ClassNotFoundException;", nullptr, $PRIVATE, $field(ObjectStreamClass, resolveEx)},
-	{"deserializeEx", "Ljava/io/ObjectStreamClass$ExceptionInfo;", nullptr, $PRIVATE, $field(ObjectStreamClass, deserializeEx)},
-	{"serializeEx", "Ljava/io/ObjectStreamClass$ExceptionInfo;", nullptr, $PRIVATE, $field(ObjectStreamClass, serializeEx)},
-	{"defaultSerializeEx", "Ljava/io/ObjectStreamClass$ExceptionInfo;", nullptr, $PRIVATE, $field(ObjectStreamClass, defaultSerializeEx)},
-	{"fields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE, $field(ObjectStreamClass, fields)},
-	{"primDataSize", "I", nullptr, $PRIVATE, $field(ObjectStreamClass, primDataSize)},
-	{"numObjFields", "I", nullptr, $PRIVATE, $field(ObjectStreamClass, numObjFields)},
-	{"fieldRefl", "Ljava/io/ObjectStreamClass$FieldReflector;", nullptr, $PRIVATE, $field(ObjectStreamClass, fieldRefl)},
-	{"dataLayout", "[Ljava/io/ObjectStreamClass$ClassDataSlot;", nullptr, $PRIVATE | $VOLATILE, $field(ObjectStreamClass, dataLayout)},
-	{"cons", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", $PRIVATE, $field(ObjectStreamClass, cons)},
-	{"canonicalCtr", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $field(ObjectStreamClass, canonicalCtr)},
-	{"deserializationCtrs", "Ljava/io/ObjectStreamClass$DeserializationConstructorsCache;", nullptr, $PRIVATE, $field(ObjectStreamClass, deserializationCtrs)},
-	{"deserializationCtr", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $field(ObjectStreamClass, deserializationCtr)},
-	{"domains", "[Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $field(ObjectStreamClass, domains)},
-	{"writeObjectMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ObjectStreamClass, writeObjectMethod)},
-	{"readObjectMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ObjectStreamClass, readObjectMethod)},
-	{"readObjectNoDataMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ObjectStreamClass, readObjectNoDataMethod)},
-	{"writeReplaceMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ObjectStreamClass, writeReplaceMethod)},
-	{"readResolveMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ObjectStreamClass, readResolveMethod)},
-	{"localDesc", "Ljava/io/ObjectStreamClass;", nullptr, $PRIVATE, $field(ObjectStreamClass, localDesc)},
-	{"superDesc", "Ljava/io/ObjectStreamClass;", nullptr, $PRIVATE, $field(ObjectStreamClass, superDesc)},
-	{"initialized", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, initialized)},
-	{}
-};
-
-$MethodInfo _ObjectStreamClass_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(ObjectStreamClass, init$, void, $Class*)},
-	{"<init>", "()V", nullptr, 0, $method(ObjectStreamClass, init$, void)},
-	{"canonicalRecordCtr", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, canonicalRecordCtr, $MethodHandle*, $Class*)},
-	{"checkDefaultSerialize", "()V", nullptr, 0, $virtualMethod(ObjectStreamClass, checkDefaultSerialize, void), "java.io.InvalidClassException"},
-	{"checkDeserialize", "()V", nullptr, 0, $virtualMethod(ObjectStreamClass, checkDeserialize, void), "java.io.InvalidClassException"},
-	{"checkInitialized", "()V", nullptr, $FINAL, $method(ObjectStreamClass, checkInitialized, void), "java.io.InvalidClassException"},
-	{"checkObjFieldValueTypes", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, checkObjFieldValueTypes, void, Object$*, $ObjectArray*)},
-	{"checkSerialize", "()V", nullptr, 0, $virtualMethod(ObjectStreamClass, checkSerialize, void), "java.io.InvalidClassException"},
-	{"classNamesEqual", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, classNamesEqual, bool, $String*, $String*)},
-	{"computeDefaultSUID", "(Ljava/lang/Class;)J", "(Ljava/lang/Class<*>;)J", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, computeDefaultSUID, int64_t, $Class*)},
-	{"computeFieldOffsets", "()V", nullptr, $PRIVATE, $method(ObjectStreamClass, computeFieldOffsets, void), "java.io.InvalidClassException"},
-	{"forClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ObjectStreamClass, forClass, $Class*), nullptr, nullptr, _ObjectStreamClass_MethodAnnotations_forClass11},
-	{"getClassDataLayout", "()[Ljava/io/ObjectStreamClass$ClassDataSlot;", nullptr, 0, $virtualMethod(ObjectStreamClass, getClassDataLayout, $ObjectStreamClass$ClassDataSlotArray*), "java.io.InvalidClassException"},
-	{"getClassDataLayout0", "()[Ljava/io/ObjectStreamClass$ClassDataSlot;", nullptr, $PRIVATE, $method(ObjectStreamClass, getClassDataLayout0, $ObjectStreamClass$ClassDataSlotArray*), "java.io.InvalidClassException"},
-	{"getDeclaredSUID", "(Ljava/lang/Class;)Ljava/lang/Long;", "(Ljava/lang/Class<*>;)Ljava/lang/Long;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getDeclaredSUID, $Long*, $Class*)},
-	{"getDeclaredSerialFields", "(Ljava/lang/Class;)[Ljava/io/ObjectStreamField;", "(Ljava/lang/Class<*>;)[Ljava/io/ObjectStreamField;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getDeclaredSerialFields, $ObjectStreamFieldArray*, $Class*), "java.io.InvalidClassException"},
-	{"getDefaultSerialFields", "(Ljava/lang/Class;)[Ljava/io/ObjectStreamField;", "(Ljava/lang/Class<*>;)[Ljava/io/ObjectStreamField;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getDefaultSerialFields, $ObjectStreamFieldArray*, $Class*)},
-	{"getExternalizableConstructor", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getExternalizableConstructor, $Constructor*, $Class*)},
-	{"getField", "(Ljava/lang/String;)Ljava/io/ObjectStreamField;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass, getField, $ObjectStreamField*, $String*)},
-	{"getField", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectStreamField;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/io/ObjectStreamField;", 0, $virtualMethod(ObjectStreamClass, getField, $ObjectStreamField*, $String*, $Class*)},
-	{"getFields", "()[Ljava/io/ObjectStreamField;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass, getFields, $ObjectStreamFieldArray*)},
-	{"getFields", "(Z)[Ljava/io/ObjectStreamField;", nullptr, 0, $virtualMethod(ObjectStreamClass, getFields, $ObjectStreamFieldArray*, bool)},
-	{"getInheritableMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getInheritableMethod, $Method*, $Class*, $String*, $ClassArray*, $Class*)},
-	{"getLocalDesc", "()Ljava/io/ObjectStreamClass;", nullptr, 0, $virtualMethod(ObjectStreamClass, getLocalDesc, ObjectStreamClass*)},
-	{"getMethodSignature", "([Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/String;", "([Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getMethodSignature, $String*, $ClassArray*, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass, getName, $String*)},
-	{"getNumObjFields", "()I", nullptr, 0, $virtualMethod(ObjectStreamClass, getNumObjFields, int32_t)},
-	{"getObjFieldValues", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, getObjFieldValues, void, Object$*, $ObjectArray*)},
-	{"getPrimDataSize", "()I", nullptr, 0, $virtualMethod(ObjectStreamClass, getPrimDataSize, int32_t)},
-	{"getPrimFieldValues", "(Ljava/lang/Object;[B)V", nullptr, 0, $virtualMethod(ObjectStreamClass, getPrimFieldValues, void, Object$*, $bytes*)},
-	{"getPrivateMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getPrivateMethod, $Method*, $Class*, $String*, $ClassArray*, $Class*)},
-	{"getProtectionDomains", "(Ljava/lang/reflect/Constructor;Ljava/lang/Class;)[Ljava/security/ProtectionDomain;", "(Ljava/lang/reflect/Constructor<*>;Ljava/lang/Class<*>;)[Ljava/security/ProtectionDomain;", $PRIVATE, $method(ObjectStreamClass, getProtectionDomains, $ProtectionDomainArray*, $Constructor*, $Class*)},
-	{"getRecordConstructor", "()Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(ObjectStreamClass, getRecordConstructor, $MethodHandle*)},
-	{"getReflector", "([Ljava/io/ObjectStreamField;Ljava/io/ObjectStreamClass;)Ljava/io/ObjectStreamClass$FieldReflector;", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getReflector, $ObjectStreamClass$FieldReflector*, $ObjectStreamFieldArray*, ObjectStreamClass*), "java.io.InvalidClassException"},
-	{"getResolveException", "()Ljava/lang/ClassNotFoundException;", nullptr, 0, $virtualMethod(ObjectStreamClass, getResolveException, $ClassNotFoundException*)},
-	{"getSerialFields", "(Ljava/lang/Class;)[Ljava/io/ObjectStreamField;", "(Ljava/lang/Class<*>;)[Ljava/io/ObjectStreamField;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getSerialFields, $ObjectStreamFieldArray*, $Class*), "java.io.InvalidClassException"},
-	{"getSerialVersionUID", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass, getSerialVersionUID, int64_t)},
-	{"getSerializableConstructor", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getSerializableConstructor, $Constructor*, $Class*)},
-	{"getSuperDesc", "()Ljava/io/ObjectStreamClass;", nullptr, 0, $virtualMethod(ObjectStreamClass, getSuperDesc, ObjectStreamClass*)},
-	{"getVariantFor", "(Ljava/lang/Class;)Ljava/io/ObjectStreamClass;", "(Ljava/lang/Class<*>;)Ljava/io/ObjectStreamClass;", $PRIVATE, $method(ObjectStreamClass, getVariantFor, ObjectStreamClass*, $Class*), "java.io.InvalidClassException"},
-	{"hasBlockExternalData", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasBlockExternalData, bool)},
-	{"hasReadObjectMethod", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasReadObjectMethod, bool)},
-	{"hasReadObjectNoDataMethod", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasReadObjectNoDataMethod, bool)},
-	{"hasReadResolveMethod", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasReadResolveMethod, bool)},
-	{"hasStaticInitializer", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC | $NATIVE, $staticMethod(ObjectStreamClass, hasStaticInitializer, bool, $Class*)},
-	{"hasWriteObjectData", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasWriteObjectData, bool)},
-	{"hasWriteObjectMethod", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasWriteObjectMethod, bool)},
-	{"hasWriteReplaceMethod", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasWriteReplaceMethod, bool)},
-	{"initNative", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ObjectStreamClass, initNative, void)},
-	{"initNonProxy", "(Ljava/io/ObjectStreamClass;Ljava/lang/Class;Ljava/lang/ClassNotFoundException;Ljava/io/ObjectStreamClass;)V", "(Ljava/io/ObjectStreamClass;Ljava/lang/Class<*>;Ljava/lang/ClassNotFoundException;Ljava/io/ObjectStreamClass;)V", 0, $virtualMethod(ObjectStreamClass, initNonProxy, void, ObjectStreamClass*, $Class*, $ClassNotFoundException*, ObjectStreamClass*), "java.io.InvalidClassException"},
-	{"initProxy", "(Ljava/lang/Class;Ljava/lang/ClassNotFoundException;Ljava/io/ObjectStreamClass;)V", "(Ljava/lang/Class<*>;Ljava/lang/ClassNotFoundException;Ljava/io/ObjectStreamClass;)V", 0, $virtualMethod(ObjectStreamClass, initProxy, void, $Class*, $ClassNotFoundException*, ObjectStreamClass*), "java.io.InvalidClassException"},
-	{"invokeReadObject", "(Ljava/lang/Object;Ljava/io/ObjectInputStream;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, invokeReadObject, void, Object$*, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.lang.UnsupportedOperationException"},
-	{"invokeReadObjectNoData", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, invokeReadObjectNoData, void, Object$*), "java.io.IOException,java.lang.UnsupportedOperationException"},
-	{"invokeReadResolve", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ObjectStreamClass, invokeReadResolve, $Object*, Object$*), "java.io.IOException,java.lang.UnsupportedOperationException"},
-	{"invokeWriteObject", "(Ljava/lang/Object;Ljava/io/ObjectOutputStream;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, invokeWriteObject, void, Object$*, $ObjectOutputStream*), "java.io.IOException,java.lang.UnsupportedOperationException"},
-	{"invokeWriteReplace", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ObjectStreamClass, invokeWriteReplace, $Object*, Object$*), "java.io.IOException,java.lang.UnsupportedOperationException"},
-	{"isEnum", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isEnum, bool)},
-	{"isExternalizable", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isExternalizable, bool)},
-	{"isInstantiable", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isInstantiable, bool)},
-	{"isProxy", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isProxy, bool)},
-	{"isRecord", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isRecord, bool)},
-	{"isSerializable", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isSerializable, bool)},
-	{"lambda$canonicalRecordCtr$1", "(I)[Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectStreamClass, lambda$canonicalRecordCtr$1, $ClassArray*, int32_t)},
-	{"lambda$canonicalRecordCtr$2", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectStreamClass, lambda$canonicalRecordCtr$2, $MethodHandle*, $Class*)},
-	{"lambda$newInstance$0", "()Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(ObjectStreamClass, lambda$newInstance$0, $Object*)},
-	{"lookup", "(Ljava/lang/Class;)Ljava/io/ObjectStreamClass;", "(Ljava/lang/Class<*>;)Ljava/io/ObjectStreamClass;", $PUBLIC | $STATIC, $staticMethod(ObjectStreamClass, lookup, ObjectStreamClass*, $Class*)},
-	{"lookup", "(Ljava/lang/Class;Z)Ljava/io/ObjectStreamClass;", "(Ljava/lang/Class<*>;Z)Ljava/io/ObjectStreamClass;", $STATIC, $staticMethod(ObjectStreamClass, lookup, ObjectStreamClass*, $Class*, bool)},
-	{"lookupAny", "(Ljava/lang/Class;)Ljava/io/ObjectStreamClass;", "(Ljava/lang/Class<*>;)Ljava/io/ObjectStreamClass;", $PUBLIC | $STATIC, $staticMethod(ObjectStreamClass, lookupAny, ObjectStreamClass*, $Class*)},
-	{"matchFields", "([Ljava/io/ObjectStreamField;Ljava/io/ObjectStreamClass;)[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, matchFields, $ObjectStreamFieldArray*, $ObjectStreamFieldArray*, ObjectStreamClass*), "java.io.InvalidClassException"},
-	{"newInstance", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ObjectStreamClass, newInstance, $Object*), "java.lang.InstantiationException,java.lang.reflect.InvocationTargetException,java.lang.UnsupportedOperationException"},
-	{"noPermissionsDomain", "()Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $method(ObjectStreamClass, noPermissionsDomain, $ProtectionDomain*)},
-	{"packageEquals", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, packageEquals, bool, $Class*, $Class*)},
-	{"processQueue", "(Ljava/lang/ref/ReferenceQueue;Ljava/util/concurrent/ConcurrentMap;)V", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;Ljava/util/concurrent/ConcurrentMap<+Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;*>;)V", $STATIC, $staticMethod(ObjectStreamClass, processQueue, void, $ReferenceQueue*, $ConcurrentMap*)},
-	{"readNonProxy", "(Ljava/io/ObjectInputStream;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, readNonProxy, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"requireInitialized", "()V", nullptr, $PRIVATE | $FINAL, $method(ObjectStreamClass, requireInitialized, void)},
-	{"setObjFieldValues", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, setObjFieldValues, void, Object$*, $ObjectArray*)},
-	{"setPrimFieldValues", "(Ljava/lang/Object;[B)V", nullptr, 0, $virtualMethod(ObjectStreamClass, setPrimFieldValues, void, Object$*, $bytes*)},
-	{"throwMiscException", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, throwMiscException, void, $Throwable*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass, toString, $String*)},
-	{"writeNonProxy", "(Ljava/io/ObjectOutputStream;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, writeNonProxy, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_hasStaticInitializer 44
-#define _METHOD_INDEX_initNative 48
-
-$InnerClassInfo _ObjectStreamClass_InnerClassesInfo_[] = {
-	{"java.io.ObjectStreamClass$RecordSupport", "java.io.ObjectStreamClass", "RecordSupport", $STATIC | $FINAL},
-	{"java.io.ObjectStreamClass$DeserializationConstructorsCache", "java.io.ObjectStreamClass", "DeserializationConstructorsCache", $PRIVATE | $STATIC | $FINAL},
-	{"java.io.ObjectStreamClass$WeakClassKey", "java.io.ObjectStreamClass", "WeakClassKey", $STATIC},
-	{"java.io.ObjectStreamClass$FieldReflectorKey", "java.io.ObjectStreamClass", "FieldReflectorKey", $PRIVATE | $STATIC},
-	{"java.io.ObjectStreamClass$FieldReflector", "java.io.ObjectStreamClass", "FieldReflector", $PRIVATE | $STATIC},
-	{"java.io.ObjectStreamClass$MemberSignature", "java.io.ObjectStreamClass", "MemberSignature", $PRIVATE | $STATIC},
-	{"java.io.ObjectStreamClass$ClassDataSlot", "java.io.ObjectStreamClass", "ClassDataSlot", $STATIC},
-	{"java.io.ObjectStreamClass$EntryFuture", "java.io.ObjectStreamClass", "EntryFuture", $PRIVATE | $STATIC},
-	{"java.io.ObjectStreamClass$ExceptionInfo", "java.io.ObjectStreamClass", "ExceptionInfo", $PRIVATE | $STATIC},
-	{"java.io.ObjectStreamClass$Caches", "java.io.ObjectStreamClass", "Caches", $PRIVATE | $STATIC},
-	{"java.io.ObjectStreamClass$5", nullptr, nullptr, 0},
-	{"java.io.ObjectStreamClass$4", nullptr, nullptr, 0},
-	{"java.io.ObjectStreamClass$3", nullptr, nullptr, 0},
-	{"java.io.ObjectStreamClass$2", nullptr, nullptr, 0},
-	{"java.io.ObjectStreamClass$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ObjectStreamClass_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.ObjectStreamClass",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_ObjectStreamClass_FieldInfo_,
-	_ObjectStreamClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectStreamClass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.io.ObjectStreamClass$RecordSupport,java.io.ObjectStreamClass$DeserializationConstructorsCache,java.io.ObjectStreamClass$DeserializationConstructorsCache$Key,java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Impl,java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup,java.io.ObjectStreamClass$WeakClassKey,java.io.ObjectStreamClass$FieldReflectorKey,java.io.ObjectStreamClass$FieldReflector,java.io.ObjectStreamClass$MemberSignature,java.io.ObjectStreamClass$ClassDataSlot,java.io.ObjectStreamClass$EntryFuture,java.io.ObjectStreamClass$EntryFuture$1,java.io.ObjectStreamClass$ExceptionInfo,java.io.ObjectStreamClass$Caches,java.io.ObjectStreamClass$5,java.io.ObjectStreamClass$4,java.io.ObjectStreamClass$3,java.io.ObjectStreamClass$2,java.io.ObjectStreamClass$1"
-};
-
-$Object* allocate$ObjectStreamClass($Class* clazz) {
-	return $of($alloc(ObjectStreamClass));
-}
 
 bool ObjectStreamClass::$assertionsDisabled = false;
 $ObjectStreamFieldArray* ObjectStreamClass::NO_FIELDS = nullptr;
@@ -531,7 +337,7 @@ $ReflectionFactory* ObjectStreamClass::reflFactory = nullptr;
 
 void ObjectStreamClass::initNative() {
 	$init(ObjectStreamClass);
-	$prepareNativeStatic(ObjectStreamClass, initNative, void);
+	$prepareNativeStatic(initNative, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -556,13 +362,13 @@ int64_t ObjectStreamClass::getSerialVersionUID() {
 		if (this->isRecord$) {
 			return 0;
 		}
-		$set(this, suid, $cast($Long, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ObjectStreamClass$1, this)))));
+		$set(this, suid, $cast($Long, $AccessController::doPrivileged($$new($ObjectStreamClass$1, this))));
 	}
 	return $nc(this->suid)->longValue();
 }
 
 $Class* ObjectStreamClass::forClass() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cl == nullptr) {
 		return nullptr;
 	}
@@ -591,7 +397,7 @@ $String* ObjectStreamClass::toString() {
 
 ObjectStreamClass* ObjectStreamClass::lookup($Class* cl, bool all) {
 	$init(ObjectStreamClass);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Serializable);
 	if (!(all || $Serializable::class$->isAssignableFrom(cl))) {
 		return nullptr;
@@ -610,9 +416,9 @@ ObjectStreamClass* ObjectStreamClass::lookup($Class* cl, bool all) {
 		$var($Reference, newRef, $new($SoftReference, newEntry));
 		do {
 			if (ref != nullptr) {
-				$nc($ObjectStreamClass$Caches::localDescs)->remove(key, ref);
+				$ObjectStreamClass$Caches::localDescs->remove(key, ref);
 			}
-			$assign(ref, $cast($Reference, $nc($ObjectStreamClass$Caches::localDescs)->putIfAbsent(key, newRef)));
+			$assign(ref, $cast($Reference, $ObjectStreamClass$Caches::localDescs->putIfAbsent(key, newRef)));
 			if (ref != nullptr) {
 				$assign(entry, ref->get());
 			}
@@ -626,7 +432,7 @@ ObjectStreamClass* ObjectStreamClass::lookup($Class* cl, bool all) {
 	}
 	if ($instanceOf($ObjectStreamClass$EntryFuture, entry)) {
 		$assign(future, $cast($ObjectStreamClass$EntryFuture, entry));
-		if ($nc(future)->getOwner() == $Thread::currentThread()) {
+		if (future->getOwner() == $Thread::currentThread()) {
 			$assign(entry, nullptr);
 		} else {
 			$assign(entry, future->get());
@@ -639,7 +445,7 @@ ObjectStreamClass* ObjectStreamClass::lookup($Class* cl, bool all) {
 			$assign(entry, th);
 		}
 		if ($nc(future)->set(entry)) {
-			$nc($ObjectStreamClass$Caches::localDescs)->put(key, $$new($SoftReference, entry));
+			$ObjectStreamClass$Caches::localDescs->put(key, $$new($SoftReference, entry));
 		} else {
 			$assign(entry, future->get());
 		}
@@ -661,7 +467,6 @@ void ObjectStreamClass::init$($Class* cl) {
 	$set(this, cl, cl);
 	$set(this, name, $nc(cl)->getName());
 	this->isProxy$ = $Proxy::isProxyClass(cl);
-	$load($Enum);
 	this->isEnum$ = $Enum::class$->isAssignableFrom(cl);
 	this->isRecord$ = cl->isRecord();
 	$load($Serializable);
@@ -672,7 +477,7 @@ void ObjectStreamClass::init$($Class* cl) {
 	$set(this, superDesc, (superCl != nullptr) ? lookup(superCl, false) : (ObjectStreamClass*)nullptr);
 	$set(this, localDesc, this);
 	if (this->serializable) {
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ObjectStreamClass$2, this, cl)));
+		$AccessController::doPrivileged($$new($ObjectStreamClass$2, this, cl));
 	} else {
 		$set(this, suid, $Long::valueOf((int64_t)0));
 		$set(this, fields, ObjectStreamClass::NO_FIELDS);
@@ -680,7 +485,7 @@ void ObjectStreamClass::init$($Class* cl) {
 	try {
 		$set(this, fieldRefl, getReflector(this->fields, this));
 	} catch ($InvalidClassException& ex) {
-		$throwNew($InternalError, static_cast<$Throwable*>(ex));
+		$throwNew($InternalError, ex);
 	}
 	if (this->deserializeEx == nullptr) {
 		if (this->isEnum$) {
@@ -693,7 +498,7 @@ void ObjectStreamClass::init$($Class* cl) {
 		$set(this, deserializeEx, $new($ObjectStreamClass$ExceptionInfo, this->name, "record canonical constructor not found"_s));
 	} else {
 		for (int32_t i = 0; i < $nc(this->fields)->length; ++i) {
-			if ($nc($nc(this->fields)->get(i))->getField() == nullptr) {
+			if ($nc(this->fields->get(i))->getField() == nullptr) {
 				$set(this, defaultSerializeEx, $new($ObjectStreamClass$ExceptionInfo, this->name, "unmatched serializable field(s) declared"_s));
 			}
 		}
@@ -712,7 +517,7 @@ $ProtectionDomain* ObjectStreamClass::noPermissionsDomain() {
 }
 
 $ProtectionDomainArray* ObjectStreamClass::getProtectionDomains($Constructor* cons, $Class* cl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ProtectionDomainArray, domains, nullptr);
 	bool var$0 = cons != nullptr && $nc(cl)->getClassLoader() != nullptr;
@@ -733,14 +538,14 @@ $ProtectionDomainArray* ObjectStreamClass::getProtectionDomains($Constructor* co
 				if (pds == nullptr) {
 					$assign(pds, $new($HashSet));
 				} else {
-					$nc(pds)->clear();
+					pds->clear();
 				}
 				$nc(pds)->add($(noPermissionsDomain()));
 				break;
 			}
 		}
 		if (pds != nullptr) {
-			$assign(domains, $fcast($ProtectionDomainArray, pds->toArray($$new($ProtectionDomainArray, 0))));
+			$assign(domains, $cast($ProtectionDomainArray, pds->toArray($$new($ProtectionDomainArray, 0))));
 		}
 	}
 	return domains;
@@ -763,20 +568,20 @@ void ObjectStreamClass::initProxy($Class* cl, $ClassNotFoundException* resolveEx
 	$set(this, fields, ObjectStreamClass::NO_FIELDS);
 	if (osc != nullptr) {
 		$set(this, localDesc, osc);
-		$set(this, name, $nc(this->localDesc)->name);
-		this->externalizable = $nc(this->localDesc)->externalizable;
-		$set(this, writeReplaceMethod, $nc(this->localDesc)->writeReplaceMethod);
-		$set(this, readResolveMethod, $nc(this->localDesc)->readResolveMethod);
-		$set(this, deserializeEx, $nc(this->localDesc)->deserializeEx);
-		$set(this, domains, $nc(this->localDesc)->domains);
-		$set(this, cons, $nc(this->localDesc)->cons);
+		$set(this, name, this->localDesc->name);
+		this->externalizable = this->localDesc->externalizable;
+		$set(this, writeReplaceMethod, this->localDesc->writeReplaceMethod);
+		$set(this, readResolveMethod, this->localDesc->readResolveMethod);
+		$set(this, deserializeEx, this->localDesc->deserializeEx);
+		$set(this, domains, this->localDesc->domains);
+		$set(this, cons, this->localDesc->cons);
 	}
 	$set(this, fieldRefl, getReflector(this->fields, this->localDesc));
 	this->initialized = true;
 }
 
 void ObjectStreamClass::initNonProxy(ObjectStreamClass* model, $Class* cl, $ClassNotFoundException* resolveEx, ObjectStreamClass* superDesc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t suid = $nc(model)->getSerialVersionUID();
 	$var(ObjectStreamClass, osc, nullptr);
 	if (cl != nullptr) {
@@ -784,23 +589,23 @@ void ObjectStreamClass::initNonProxy(ObjectStreamClass* model, $Class* cl, $Clas
 		if ($nc(osc)->isProxy$) {
 			$throwNew($InvalidClassException, "cannot bind non-proxy descriptor to a proxy class"_s);
 		}
-		if (model->isEnum$ != $nc(osc)->isEnum$) {
+		if (model->isEnum$ != osc->isEnum$) {
 			$throwNew($InvalidClassException, model->isEnum$ ? "cannot bind enum descriptor to a non-enum class"_s : "cannot bind non-enum descriptor to an enum class"_s);
 		}
-		bool var$1 = model->serializable == $nc(osc)->serializable && !cl->isArray();
+		bool var$1 = model->serializable == osc->serializable && !cl->isArray();
 		bool var$0 = var$1 && !cl->isRecord();
 		if (var$0 && suid != osc->getSerialVersionUID()) {
 			$throwNew($InvalidClassException, osc->name, $$str({"local class incompatible: stream classdesc serialVersionUID = "_s, $$str(suid), ", local class serialVersionUID = "_s, $$str(osc->getSerialVersionUID())}));
 		}
-		if (!classNamesEqual(model->name, $nc(osc)->name)) {
-			$throwNew($InvalidClassException, $nc(osc)->name, $$str({"local class name incompatible with stream class name \""_s, model->name, "\""_s}));
+		if (!classNamesEqual(model->name, osc->name)) {
+			$throwNew($InvalidClassException, osc->name, $$str({"local class name incompatible with stream class name \""_s, model->name, "\""_s}));
 		}
 		if (!model->isEnum$) {
-			if ((model->serializable == $nc(osc)->serializable) && (model->externalizable != osc->externalizable)) {
+			if ((model->serializable == osc->serializable) && (model->externalizable != osc->externalizable)) {
 				$throwNew($InvalidClassException, osc->name, "Serializable incompatible with Externalizable"_s);
 			}
-			if ((model->serializable != $nc(osc)->serializable) || (model->externalizable != $nc(osc)->externalizable) || !(model->serializable || model->externalizable)) {
-				$set(this, deserializeEx, $new($ObjectStreamClass$ExceptionInfo, $nc(osc)->name, "class invalid for deserialization"_s));
+			if ((model->serializable != osc->serializable) || (model->externalizable != osc->externalizable) || !(model->serializable || model->externalizable)) {
+				$set(this, deserializeEx, $new($ObjectStreamClass$ExceptionInfo, osc->name, "class invalid for deserialization"_s));
 			}
 		}
 	}
@@ -820,22 +625,22 @@ void ObjectStreamClass::initNonProxy(ObjectStreamClass* model, $Class* cl, $Clas
 	this->numObjFields = model->numObjFields;
 	if (osc != nullptr) {
 		$set(this, localDesc, osc);
-		this->isRecord$ = $nc(this->localDesc)->isRecord$;
-		$set(this, canonicalCtr, $nc(this->localDesc)->canonicalCtr);
-		$set(this, deserializationCtrs, $nc(this->localDesc)->deserializationCtrs);
-		$set(this, writeObjectMethod, $nc(this->localDesc)->writeObjectMethod);
-		$set(this, readObjectMethod, $nc(this->localDesc)->readObjectMethod);
-		$set(this, readObjectNoDataMethod, $nc(this->localDesc)->readObjectNoDataMethod);
-		$set(this, writeReplaceMethod, $nc(this->localDesc)->writeReplaceMethod);
-		$set(this, readResolveMethod, $nc(this->localDesc)->readResolveMethod);
+		this->isRecord$ = this->localDesc->isRecord$;
+		$set(this, canonicalCtr, this->localDesc->canonicalCtr);
+		$set(this, deserializationCtrs, this->localDesc->deserializationCtrs);
+		$set(this, writeObjectMethod, this->localDesc->writeObjectMethod);
+		$set(this, readObjectMethod, this->localDesc->readObjectMethod);
+		$set(this, readObjectNoDataMethod, this->localDesc->readObjectNoDataMethod);
+		$set(this, writeReplaceMethod, this->localDesc->writeReplaceMethod);
+		$set(this, readResolveMethod, this->localDesc->readResolveMethod);
 		if (this->deserializeEx == nullptr) {
-			$set(this, deserializeEx, $nc(this->localDesc)->deserializeEx);
+			$set(this, deserializeEx, this->localDesc->deserializeEx);
 		}
-		$set(this, domains, $nc(this->localDesc)->domains);
-		if (!ObjectStreamClass::$assertionsDisabled && !($nc(cl)->isRecord() ? $nc(this->localDesc)->cons == nullptr : true)) {
+		$set(this, domains, this->localDesc->domains);
+		if (!ObjectStreamClass::$assertionsDisabled && !($nc(cl)->isRecord() ? this->localDesc->cons == nullptr : true)) {
 			$throwNew($AssertionError);
 		}
-		$set(this, cons, $nc(this->localDesc)->cons);
+		$set(this, cons, this->localDesc->cons);
 	}
 	$set(this, fieldRefl, getReflector(this->fields, this->localDesc));
 	$set(this, fields, $nc(this->fieldRefl)->getFields());
@@ -843,21 +648,21 @@ void ObjectStreamClass::initNonProxy(ObjectStreamClass* model, $Class* cl, $Clas
 }
 
 void ObjectStreamClass::readNonProxy($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, name, $nc(in)->readUTF());
 	$set(this, suid, $Long::valueOf(in->readLong()));
 	this->isProxy$ = false;
 	int8_t flags = in->readByte();
-	this->hasWriteObjectData$ = (((int32_t)(flags & (uint32_t)(int32_t)$ObjectStreamConstants::SC_WRITE_METHOD)) != 0);
-	this->hasBlockExternalData$ = (((int32_t)(flags & (uint32_t)(int32_t)$ObjectStreamConstants::SC_BLOCK_DATA)) != 0);
-	this->externalizable = (((int32_t)(flags & (uint32_t)(int32_t)$ObjectStreamConstants::SC_EXTERNALIZABLE)) != 0);
-	bool sflag = (((int32_t)(flags & (uint32_t)(int32_t)$ObjectStreamConstants::SC_SERIALIZABLE)) != 0);
+	this->hasWriteObjectData$ = ((flags & $ObjectStreamConstants::SC_WRITE_METHOD) != 0);
+	this->hasBlockExternalData$ = ((flags & $ObjectStreamConstants::SC_BLOCK_DATA) != 0);
+	this->externalizable = ((flags & $ObjectStreamConstants::SC_EXTERNALIZABLE) != 0);
+	bool sflag = ((flags & $ObjectStreamConstants::SC_SERIALIZABLE) != 0);
 	if (this->externalizable && sflag) {
 		$throwNew($InvalidClassException, this->name, "serializable and externalizable flags conflict"_s);
 	}
 	this->serializable = this->externalizable || sflag;
-	this->isEnum$ = (((int32_t)(flags & (uint32_t)(int32_t)$ObjectStreamConstants::SC_ENUM)) != 0);
-	if (this->isEnum$ && $nc(this->suid)->longValue() != (int64_t)0) {
+	this->isEnum$ = ((flags & $ObjectStreamConstants::SC_ENUM) != 0);
+	if (this->isEnum$ && $nc(this->suid)->longValue() != 0) {
 		$throwNew($InvalidClassException, this->name, $$str({"enum descriptor has non-zero serialVersionUID: "_s, this->suid}));
 	}
 	int32_t numFields = in->readShort();
@@ -872,17 +677,17 @@ void ObjectStreamClass::readNonProxy($ObjectInputStream* in) {
 		try {
 			$nc(this->fields)->set(i, $$new($ObjectStreamField, fname, signature, false));
 		} catch ($RuntimeException& e) {
-			$throw($cast($IOException, $($$new($InvalidClassException, this->name, $$str({"invalid descriptor for field "_s, fname}))->initCause(e))));
+			$throw($$cast($IOException, $$new($InvalidClassException, this->name, $$str({"invalid descriptor for field "_s, fname}))->initCause(e)));
 		}
 	}
 	computeFieldOffsets();
 }
 
 void ObjectStreamClass::writeNonProxy($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->writeUTF(this->name);
 	out->writeLong(getSerialVersionUID());
-	int8_t flags = (int8_t)0;
+	int8_t flags = 0;
 	if (this->externalizable) {
 		flags |= $ObjectStreamConstants::SC_EXTERNALIZABLE;
 		int32_t protocol = out->getProtocolVersion();
@@ -900,11 +705,11 @@ void ObjectStreamClass::writeNonProxy($ObjectOutputStream* out) {
 	}
 	out->writeByte(flags);
 	out->writeShort($nc(this->fields)->length);
-	for (int32_t i = 0; i < $nc(this->fields)->length; ++i) {
-		$var($ObjectStreamField, f, $nc(this->fields)->get(i));
+	for (int32_t i = 0; i < this->fields->length; ++i) {
+		$var($ObjectStreamField, f, this->fields->get(i));
 		out->writeByte($nc(f)->getTypeCode());
-		out->writeUTF($($nc(f)->getName()));
-		if (!$nc(f)->isPrimitive()) {
+		out->writeUTF($(f->getName()));
+		if (!f->isPrimitive()) {
 			out->writeTypeString($(f->getTypeString()));
 		}
 	}
@@ -929,21 +734,21 @@ void ObjectStreamClass::checkInitialized() {
 void ObjectStreamClass::checkDeserialize() {
 	requireInitialized();
 	if (this->deserializeEx != nullptr) {
-		$throw($($nc(this->deserializeEx)->newInvalidClassException()));
+		$throw($(this->deserializeEx->newInvalidClassException()));
 	}
 }
 
 void ObjectStreamClass::checkSerialize() {
 	requireInitialized();
 	if (this->serializeEx != nullptr) {
-		$throw($($nc(this->serializeEx)->newInvalidClassException()));
+		$throw($(this->serializeEx->newInvalidClassException()));
 	}
 }
 
 void ObjectStreamClass::checkDefaultSerialize() {
 	requireInitialized();
 	if (this->defaultSerializeEx != nullptr) {
-		$throw($($nc(this->defaultSerializeEx)->newInvalidClassException()));
+		$throw($(this->defaultSerializeEx->newInvalidClassException()));
 	}
 }
 
@@ -962,11 +767,11 @@ $ObjectStreamFieldArray* ObjectStreamClass::getFields(bool copy) {
 }
 
 $ObjectStreamField* ObjectStreamClass::getField($String* name, $Class* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	for (int32_t i = 0; i < $nc(this->fields)->length; ++i) {
-		$var($ObjectStreamField, f, $nc(this->fields)->get(i));
-		if ($nc($($nc(f)->getName()))->equals(name)) {
+		$var($ObjectStreamField, f, this->fields->get(i));
+		if ($$nc($nc(f)->getName())->equals(name)) {
 			if (type == nullptr || (type == $Object::class$ && !f->isPrimitive())) {
 				return f;
 			}
@@ -1045,20 +850,19 @@ bool ObjectStreamClass::hasReadResolveMethod() {
 }
 
 $Object* ObjectStreamClass::newInstance() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->cons != nullptr) {
 		try {
-			if (this->domains == nullptr || $nc(this->domains)->length == 0) {
-				return $of($nc(this->cons)->newInstance($$new($ObjectArray, 0)));
+			if (this->domains == nullptr || this->domains->length == 0) {
+				return this->cons->newInstance($$new($ObjectArray, 0));
 			} else {
 				$var($JavaSecurityAccess, jsa, $SharedSecrets::getJavaSecurityAccess());
-				$var($PrivilegedAction, pea, static_cast<$PrivilegedAction*>($new(ObjectStreamClass$$Lambda$lambda$newInstance$0, this)));
+				$var($PrivilegedAction, pea, $new(ObjectStreamClass$$Lambda$lambda$newInstance$0, this));
 				try {
-					$var($PrivilegedAction, var$0, pea);
-					$var($AccessControlContext, var$1, $AccessController::getContext());
-					return $of($nc(jsa)->doIntersectionPrivilege(var$0, var$1, $$new($AccessControlContext, this->domains)));
+					$var($AccessControlContext, var$0, $AccessController::getContext());
+					return $nc(jsa)->doIntersectionPrivilege(pea, var$0, $$new($AccessControlContext, this->domains));
 				} catch ($UndeclaredThrowableException& x) {
 					$var($Throwable, cause, x->getCause());
 					if ($instanceOf($InstantiationException, cause)) {
@@ -1074,7 +878,7 @@ $Object* ObjectStreamClass::newInstance() {
 				}
 			}
 		} catch ($IllegalAccessException& ex) {
-			$throwNew($InternalError, static_cast<$Throwable*>(ex));
+			$throwNew($InternalError, ex);
 		} catch ($InstantiationError& err) {
 			$var($InstantiationException, ex, $new($InstantiationException));
 			ex->initCause(err);
@@ -1087,12 +891,12 @@ $Object* ObjectStreamClass::newInstance() {
 }
 
 void ObjectStreamClass::invokeWriteObject(Object$* obj, $ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->writeObjectMethod != nullptr) {
 		try {
-			$nc(this->writeObjectMethod)->invoke(obj, $$new($ObjectArray, {$of(out)}));
+			this->writeObjectMethod->invoke(obj, $$new($ObjectArray, {out}));
 		} catch ($InvocationTargetException& ex) {
 			$var($Throwable, th, ex->getCause());
 			if ($instanceOf($IOException, th)) {
@@ -1101,7 +905,7 @@ void ObjectStreamClass::invokeWriteObject(Object$* obj, $ObjectOutputStream* out
 				throwMiscException(th);
 			}
 		} catch ($IllegalAccessException& ex) {
-			$throwNew($InternalError, static_cast<$Throwable*>(ex));
+			$throwNew($InternalError, ex);
 		}
 	} else {
 		$throwNew($UnsupportedOperationException);
@@ -1109,12 +913,12 @@ void ObjectStreamClass::invokeWriteObject(Object$* obj, $ObjectOutputStream* out
 }
 
 void ObjectStreamClass::invokeReadObject(Object$* obj, $ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->readObjectMethod != nullptr) {
 		try {
-			$nc(this->readObjectMethod)->invoke(obj, $$new($ObjectArray, {$of(in)}));
+			this->readObjectMethod->invoke(obj, $$new($ObjectArray, {in}));
 		} catch ($InvocationTargetException& ex) {
 			$var($Throwable, th, ex->getCause());
 			if ($instanceOf($ClassNotFoundException, th)) {
@@ -1125,7 +929,7 @@ void ObjectStreamClass::invokeReadObject(Object$* obj, $ObjectInputStream* in) {
 				throwMiscException(th);
 			}
 		} catch ($IllegalAccessException& ex) {
-			$throwNew($InternalError, static_cast<$Throwable*>(ex));
+			$throwNew($InternalError, ex);
 		}
 	} else {
 		$throwNew($UnsupportedOperationException);
@@ -1137,7 +941,7 @@ void ObjectStreamClass::invokeReadObjectNoData(Object$* obj) {
 	requireInitialized();
 	if (this->readObjectNoDataMethod != nullptr) {
 		try {
-			$nc(this->readObjectNoDataMethod)->invoke(obj, ($ObjectArray*)nullptr);
+			this->readObjectNoDataMethod->invoke(obj, ($ObjectArray*)nullptr);
 		} catch ($InvocationTargetException& ex) {
 			$var($Throwable, th, ex->getCause());
 			if ($instanceOf($ObjectStreamException, th)) {
@@ -1146,7 +950,7 @@ void ObjectStreamClass::invokeReadObjectNoData(Object$* obj) {
 				throwMiscException(th);
 			}
 		} catch ($IllegalAccessException& ex) {
-			$throwNew($InternalError, static_cast<$Throwable*>(ex));
+			$throwNew($InternalError, ex);
 		}
 	} else {
 		$throwNew($UnsupportedOperationException);
@@ -1158,7 +962,7 @@ $Object* ObjectStreamClass::invokeWriteReplace(Object$* obj) {
 	requireInitialized();
 	if (this->writeReplaceMethod != nullptr) {
 		try {
-			return $of($nc(this->writeReplaceMethod)->invoke(obj, ($ObjectArray*)nullptr));
+			return this->writeReplaceMethod->invoke(obj, ($ObjectArray*)nullptr);
 		} catch ($InvocationTargetException& ex) {
 			$var($Throwable, th, ex->getCause());
 			if ($instanceOf($ObjectStreamException, th)) {
@@ -1168,7 +972,7 @@ $Object* ObjectStreamClass::invokeWriteReplace(Object$* obj) {
 				$throwNew($InternalError, th);
 			}
 		} catch ($IllegalAccessException& ex) {
-			$throwNew($InternalError, static_cast<$Throwable*>(ex));
+			$throwNew($InternalError, ex);
 		}
 	} else {
 		$throwNew($UnsupportedOperationException);
@@ -1181,7 +985,7 @@ $Object* ObjectStreamClass::invokeReadResolve(Object$* obj) {
 	requireInitialized();
 	if (this->readResolveMethod != nullptr) {
 		try {
-			return $of($nc(this->readResolveMethod)->invoke(obj, ($ObjectArray*)nullptr));
+			return this->readResolveMethod->invoke(obj, ($ObjectArray*)nullptr);
 		} catch ($InvocationTargetException& ex) {
 			$var($Throwable, th, ex->getCause());
 			if ($instanceOf($ObjectStreamException, th)) {
@@ -1191,7 +995,7 @@ $Object* ObjectStreamClass::invokeReadResolve(Object$* obj) {
 				$throwNew($InternalError, th);
 			}
 		} catch ($IllegalAccessException& ex) {
-			$throwNew($InternalError, static_cast<$Throwable*>(ex));
+			$throwNew($InternalError, ex);
 		}
 	} else {
 		$throwNew($UnsupportedOperationException);
@@ -1207,7 +1011,7 @@ $ObjectStreamClass$ClassDataSlotArray* ObjectStreamClass::getClassDataLayout() {
 }
 
 $ObjectStreamClass$ClassDataSlotArray* ObjectStreamClass::getClassDataLayout0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, slots, $new($ArrayList));
 	$Class* start = this->cl;
 	$Class* end = this->cl;
@@ -1219,17 +1023,17 @@ $ObjectStreamClass$ClassDataSlotArray* ObjectStreamClass::getClassDataLayout0() 
 	{
 		$var(ObjectStreamClass, d, this);
 		for (; d != nullptr; $assign(d, d->superDesc)) {
-			if (oscNames->contains($nc(d)->name)) {
+			if (oscNames->contains(d->name)) {
 				$throwNew($InvalidClassException, "Circular reference."_s);
 			} else {
-				oscNames->add($nc(d)->name);
+				oscNames->add(d->name);
 			}
-			$var($String, searchName, ($nc(d)->cl != nullptr) ? $nc($nc(d)->cl)->getName() : d->name);
+			$var($String, searchName, (d->cl != nullptr) ? d->cl->getName() : d->name);
 			$Class* match = nullptr;
 			{
 				$Class* c = start;
 				for (; c != end; c = $nc(c)->getSuperclass()) {
-					if ($nc(searchName)->equals($(c->getName()))) {
+					if ($nc(searchName)->equals($($nc(c)->getName()))) {
 						match = c;
 						break;
 					}
@@ -1254,7 +1058,7 @@ $ObjectStreamClass$ClassDataSlotArray* ObjectStreamClass::getClassDataLayout0() 
 		}
 	}
 	$Collections::reverse(slots);
-	return $fcast($ObjectStreamClass$ClassDataSlotArray, slots->toArray($$new($ObjectStreamClass$ClassDataSlotArray, slots->size())));
+	return $cast($ObjectStreamClass$ClassDataSlotArray, slots->toArray($$new($ObjectStreamClass$ClassDataSlotArray, slots->size())));
 }
 
 int32_t ObjectStreamClass::getPrimDataSize() {
@@ -1286,69 +1090,52 @@ void ObjectStreamClass::setObjFieldValues(Object$* obj, $ObjectArray* vals) {
 }
 
 void ObjectStreamClass::computeFieldOffsets() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->primDataSize = 0;
 	this->numObjFields = 0;
 	int32_t firstObjIndex = -1;
 	for (int32_t i = 0; i < $nc(this->fields)->length; ++i) {
-		$var($ObjectStreamField, f, $nc(this->fields)->get(i));
+		$var($ObjectStreamField, f, this->fields->get(i));
 		switch ($nc(f)->getTypeCode()) {
 		case u'Z':
-			{}
 		case u'B':
-			{
-				f->setOffset(this->primDataSize++);
-				break;
-			}
+			f->setOffset(this->primDataSize++);
+			break;
 		case u'C':
-			{}
 		case u'S':
 			{
-				{
-					f->setOffset(this->primDataSize);
-					this->primDataSize += 2;
-				}
-				break;
+				f->setOffset(this->primDataSize);
+				this->primDataSize += 2;
 			}
+			break;
 		case u'I':
-			{}
 		case u'F':
 			{
-				{
-					f->setOffset(this->primDataSize);
-					this->primDataSize += 4;
-				}
-				break;
+				f->setOffset(this->primDataSize);
+				this->primDataSize += 4;
 			}
+			break;
 		case u'J':
-			{}
 		case u'D':
 			{
-				{
-					f->setOffset(this->primDataSize);
-					this->primDataSize += 8;
-				}
-				break;
+				f->setOffset(this->primDataSize);
+				this->primDataSize += 8;
 			}
+			break;
 		case u'[':
-			{}
 		case u'L':
 			{
-				{
-					f->setOffset(this->numObjFields++);
-					if (firstObjIndex == -1) {
-						firstObjIndex = i;
-					}
+				f->setOffset(this->numObjFields++);
+				if (firstObjIndex == -1) {
+					firstObjIndex = i;
 				}
-				break;
 			}
+			break;
 		default:
-			{
-				$throwNew($InternalError);
-			}
+			$throwNew($InternalError);
 		}
 	}
-	if (firstObjIndex != -1 && firstObjIndex + this->numObjFields != $nc(this->fields)->length) {
+	if (firstObjIndex != -1 && firstObjIndex + this->numObjFields != this->fields->length) {
 		$throwNew($InvalidClassException, this->name, "illegal field order"_s);
 	}
 }
@@ -1372,7 +1159,7 @@ $Constructor* ObjectStreamClass::getExternalizableConstructor($Class* cl) {
 	try {
 		$var($Constructor, cons, $nc(cl)->getDeclaredConstructor(($ClassArray*)nullptr));
 		$nc(cons)->setAccessible(true);
-		return (((int32_t)(cons->getModifiers() & (uint32_t)$Modifier::PUBLIC)) != 0) ? cons : ($Constructor*)nullptr;
+		return ((cons->getModifiers() & $Modifier::PUBLIC) != 0) ? cons : ($Constructor*)nullptr;
 	} catch ($NoSuchMethodException& ex) {
 		return nullptr;
 	}
@@ -1386,12 +1173,12 @@ $Constructor* ObjectStreamClass::getSerializableConstructor($Class* cl) {
 
 $MethodHandle* ObjectStreamClass::canonicalRecordCtr($Class* cls) {
 	$init(ObjectStreamClass);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (!ObjectStreamClass::$assertionsDisabled && !$nc(cls)->isRecord()) {
-		$throwNew($AssertionError, $of($$str({"Expected record, got: "_s, cls})));
+		$throwNew($AssertionError, $$of($str({"Expected record, got: "_s, cls})));
 	}
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1, cls)));
+	$var($PrivilegedAction, pa, $new(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1, cls));
 	return $cast($MethodHandle, $AccessController::doPrivileged(pa));
 }
 
@@ -1412,16 +1199,16 @@ $Method* ObjectStreamClass::getInheritableMethod($Class* cl, $String* name, $Cla
 			defCl = defCl->getSuperclass();
 		}
 	}
-	if ((meth == nullptr) || ($nc(meth)->getReturnType() != returnType)) {
+	if ((meth == nullptr) || (meth->getReturnType() != returnType)) {
 		return nullptr;
 	}
 	$nc(meth)->setAccessible(true);
 	int32_t mods = meth->getModifiers();
-	if (((int32_t)(mods & (uint32_t)($Modifier::STATIC | $Modifier::ABSTRACT))) != 0) {
+	if ((mods & ($Modifier::STATIC | $Modifier::ABSTRACT)) != 0) {
 		return nullptr;
-	} else if (((int32_t)(mods & (uint32_t)($Modifier::PUBLIC | $Modifier::PROTECTED))) != 0) {
+	} else if ((mods & ($Modifier::PUBLIC | $Modifier::PROTECTED)) != 0) {
 		return meth;
-	} else if (((int32_t)(mods & (uint32_t)$Modifier::PRIVATE)) != 0) {
+	} else if ((mods & $Modifier::PRIVATE) != 0) {
 		return (cl == defCl) ? meth : ($Method*)nullptr;
 	} else {
 		return packageEquals(cl, defCl) ? meth : ($Method*)nullptr;
@@ -1435,7 +1222,7 @@ $Method* ObjectStreamClass::getPrivateMethod($Class* cl, $String* name, $ClassAr
 		$var($Method, meth, $nc(cl)->getDeclaredMethod(name, argTypes));
 		$nc(meth)->setAccessible(true);
 		int32_t mods = meth->getModifiers();
-		return ((meth->getReturnType() == returnType) && (((int32_t)(mods & (uint32_t)$Modifier::STATIC)) == 0) && (((int32_t)(mods & (uint32_t)$Modifier::PRIVATE)) != 0)) ? meth : ($Method*)nullptr;
+		return ((meth->getReturnType() == returnType) && ((mods & $Modifier::STATIC) == 0) && ((mods & $Modifier::PRIVATE) != 0)) ? meth : ($Method*)nullptr;
 	} catch ($NoSuchMethodException& ex) {
 		return nullptr;
 	}
@@ -1454,8 +1241,8 @@ bool ObjectStreamClass::packageEquals($Class* cl1, $Class* cl2) {
 
 bool ObjectStreamClass::classNamesEqual($String* name1, $String* name2) {
 	$init(ObjectStreamClass);
-	int32_t idx1 = $nc(name1)->lastIndexOf((int32_t)u'.') + 1;
-	int32_t idx2 = $nc(name2)->lastIndexOf((int32_t)u'.') + 1;
+	int32_t idx1 = $nc(name1)->lastIndexOf(u'.') + 1;
+	int32_t idx2 = $nc(name2)->lastIndexOf(u'.') + 1;
 	int32_t len1 = name1->length() - idx1;
 	int32_t len2 = name2->length() - idx2;
 	return len1 == len2 && name1->regionMatches(idx1, name2, idx2, len1);
@@ -1498,9 +1285,9 @@ $ObjectStreamFieldArray* ObjectStreamClass::getSerialFields($Class* cl) {
 		$Arrays::sort(fields);
 	} else {
 		$load($Externalizable);
-		bool var$3 = !$Externalizable::class$->isAssignableFrom(cl);
-		bool var$2 = var$3 && !$Proxy::isProxyClass(cl);
-		if (var$2 && !cl->isInterface()) {
+		bool var$1 = !$Externalizable::class$->isAssignableFrom(cl);
+		bool var$0 = var$1 && !$Proxy::isProxyClass(cl);
+		if (var$0 && !cl->isInterface()) {
 			if (($assign(fields, getDeclaredSerialFields(cl))) == nullptr) {
 				$assign(fields, getDefaultSerialFields(cl));
 			}
@@ -1514,13 +1301,13 @@ $ObjectStreamFieldArray* ObjectStreamClass::getSerialFields($Class* cl) {
 
 $ObjectStreamFieldArray* ObjectStreamClass::getDeclaredSerialFields($Class* cl) {
 	$init(ObjectStreamClass);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ObjectStreamFieldArray, serialPersistentFields, nullptr);
 	try {
 		$var($Field, f, $nc(cl)->getDeclaredField("serialPersistentFields"_s));
 		int32_t mask = ($Modifier::PRIVATE | $Modifier::STATIC) | $Modifier::FINAL;
-		if (((int32_t)($nc(f)->getModifiers() & (uint32_t)mask)) == mask) {
+		if (($nc(f)->getModifiers() & mask) == mask) {
 			f->setAccessible(true);
 			$assign(serialPersistentFields, $cast($ObjectStreamFieldArray, f->get(nullptr)));
 		}
@@ -1528,7 +1315,7 @@ $ObjectStreamFieldArray* ObjectStreamClass::getDeclaredSerialFields($Class* cl) 
 	}
 	if (serialPersistentFields == nullptr) {
 		return nullptr;
-	} else if ($nc(serialPersistentFields)->length == 0) {
+	} else if (serialPersistentFields->length == 0) {
 		return ObjectStreamClass::NO_FIELDS;
 	}
 	$var($ObjectStreamFieldArray, boundFields, $new($ObjectStreamFieldArray, $nc(serialPersistentFields)->length));
@@ -1542,16 +1329,15 @@ $ObjectStreamFieldArray* ObjectStreamClass::getDeclaredSerialFields($Class* cl) 
 		fieldNames->add(fname);
 		try {
 			$var($Field, f, $nc(cl)->getDeclaredField(fname));
-			bool var$0 = ($nc(f)->getType() == spf->getType());
-			if (var$0 && (((int32_t)(f->getModifiers() & (uint32_t)$Modifier::STATIC)) == 0)) {
+			bool var$0 = $nc(f)->getType() == spf->getType();
+			if (var$0 && ((f->getModifiers() & $Modifier::STATIC) == 0)) {
 				boundFields->set(i, $$new($ObjectStreamField, f, spf->isUnshared(), true));
 			}
 		} catch ($NoSuchFieldException& ex) {
 		}
 		if (boundFields->get(i) == nullptr) {
-			$var($String, var$1, fname);
-			$Class* var$2 = spf->getType();
-			boundFields->set(i, $$new($ObjectStreamField, var$1, var$2, spf->isUnshared()));
+			$Class* var$1 = spf->getType();
+			boundFields->set(i, $$new($ObjectStreamField, fname, var$1, spf->isUnshared()));
 		}
 	}
 	return boundFields;
@@ -1559,18 +1345,18 @@ $ObjectStreamFieldArray* ObjectStreamClass::getDeclaredSerialFields($Class* cl) 
 
 $ObjectStreamFieldArray* ObjectStreamClass::getDefaultSerialFields($Class* cl) {
 	$init(ObjectStreamClass);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($FieldArray, clFields, $nc(cl)->getDeclaredFields());
 	$var($ArrayList, list, $new($ArrayList));
 	int32_t mask = $Modifier::STATIC | $Modifier::TRANSIENT;
 	for (int32_t i = 0; i < $nc(clFields)->length; ++i) {
-		if (((int32_t)($nc(clFields->get(i))->getModifiers() & (uint32_t)mask)) == 0) {
+		if (($nc(clFields->get(i))->getModifiers() & mask) == 0) {
 			list->add($$new($ObjectStreamField, clFields->get(i), false, true));
 		}
 	}
 	int32_t size = list->size();
-	return (size == 0) ? ObjectStreamClass::NO_FIELDS : $fcast($ObjectStreamFieldArray, list->toArray($$new($ObjectStreamFieldArray, size)));
+	return (size == 0) ? ObjectStreamClass::NO_FIELDS : $cast($ObjectStreamFieldArray, list->toArray($$new($ObjectStreamFieldArray, size)));
 }
 
 $Long* ObjectStreamClass::getDeclaredSUID($Class* cl) {
@@ -1579,7 +1365,7 @@ $Long* ObjectStreamClass::getDeclaredSUID($Class* cl) {
 	try {
 		$var($Field, f, $nc(cl)->getDeclaredField("serialVersionUID"_s));
 		int32_t mask = $Modifier::STATIC | $Modifier::FINAL;
-		if (((int32_t)($nc(f)->getModifiers() & (uint32_t)mask)) == mask) {
+		if (($nc(f)->getModifiers() & mask) == mask) {
 			f->setAccessible(true);
 			return $Long::valueOf(f->getLong(nullptr));
 		}
@@ -1590,7 +1376,7 @@ $Long* ObjectStreamClass::getDeclaredSUID($Class* cl) {
 
 int64_t ObjectStreamClass::computeDefaultSUID($Class* cl) {
 	$init(ObjectStreamClass);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($Serializable);
 	bool var$0 = !$Serializable::class$->isAssignableFrom(cl);
@@ -1601,10 +1387,10 @@ int64_t ObjectStreamClass::computeDefaultSUID($Class* cl) {
 		$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
 		$var($DataOutputStream, dout, $new($DataOutputStream, bout));
 		dout->writeUTF($($nc(cl)->getName()));
-		int32_t classMods = (int32_t)($nc(cl)->getModifiers() & (uint32_t)((($Modifier::PUBLIC | $Modifier::FINAL) | $Modifier::INTERFACE) | $Modifier::ABSTRACT));
+		int32_t classMods = cl->getModifiers() & ((($Modifier::PUBLIC | $Modifier::FINAL) | $Modifier::INTERFACE) | $Modifier::ABSTRACT);
 		$var($MethodArray, methods, cl->getDeclaredMethods());
-		if (((int32_t)(classMods & (uint32_t)$Modifier::INTERFACE)) != 0) {
-			classMods = ($nc(methods)->length > 0) ? (classMods | $Modifier::ABSTRACT) : ((int32_t)(classMods & (uint32_t)~$Modifier::ABSTRACT));
+		if ((classMods & $Modifier::INTERFACE) != 0) {
+			classMods = ($nc(methods)->length > 0) ? (classMods | $Modifier::ABSTRACT) : (classMods & ~$Modifier::ABSTRACT);
 		}
 		dout->writeInt(classMods);
 		if (!cl->isArray()) {
@@ -1626,8 +1412,8 @@ int64_t ObjectStreamClass::computeDefaultSUID($Class* cl) {
 		$Arrays::sort(fieldSigs, $$new($ObjectStreamClass$3));
 		for (int32_t i = 0; i < fieldSigs->length; ++i) {
 			$var($ObjectStreamClass$MemberSignature, sig, fieldSigs->get(i));
-			int32_t mods = (int32_t)($nc($nc(sig)->member)->getModifiers() & (uint32_t)(((((($Modifier::PUBLIC | $Modifier::PRIVATE) | $Modifier::PROTECTED) | $Modifier::STATIC) | $Modifier::FINAL) | $Modifier::VOLATILE) | $Modifier::TRANSIENT));
-			if ((((int32_t)(mods & (uint32_t)$Modifier::PRIVATE)) == 0) || (((int32_t)(mods & (uint32_t)($Modifier::STATIC | $Modifier::TRANSIENT))) == 0)) {
+			int32_t mods = $nc($nc(sig)->member)->getModifiers() & (((((($Modifier::PUBLIC | $Modifier::PRIVATE) | $Modifier::PROTECTED) | $Modifier::STATIC) | $Modifier::FINAL) | $Modifier::VOLATILE) | $Modifier::TRANSIENT);
+			if (((mods & $Modifier::PRIVATE) == 0) || ((mods & ($Modifier::STATIC | $Modifier::TRANSIENT)) == 0)) {
 				dout->writeUTF(sig->name);
 				dout->writeInt(mods);
 				dout->writeUTF(sig->signature);
@@ -1646,8 +1432,8 @@ int64_t ObjectStreamClass::computeDefaultSUID($Class* cl) {
 		$Arrays::sort(consSigs, $$new($ObjectStreamClass$4));
 		for (int32_t i = 0; i < consSigs->length; ++i) {
 			$var($ObjectStreamClass$MemberSignature, sig, consSigs->get(i));
-			int32_t mods = (int32_t)($nc($nc(sig)->member)->getModifiers() & (uint32_t)(((((((($Modifier::PUBLIC | $Modifier::PRIVATE) | $Modifier::PROTECTED) | $Modifier::STATIC) | $Modifier::FINAL) | $Modifier::SYNCHRONIZED) | $Modifier::NATIVE) | $Modifier::ABSTRACT) | $Modifier::STRICT));
-			if (((int32_t)(mods & (uint32_t)$Modifier::PRIVATE)) == 0) {
+			int32_t mods = $nc($nc(sig)->member)->getModifiers() & (((((((($Modifier::PUBLIC | $Modifier::PRIVATE) | $Modifier::PROTECTED) | $Modifier::STATIC) | $Modifier::FINAL) | $Modifier::SYNCHRONIZED) | $Modifier::NATIVE) | $Modifier::ABSTRACT) | $Modifier::STRICT);
+			if ((mods & $Modifier::PRIVATE) == 0) {
 				dout->writeUTF("<init>"_s);
 				dout->writeInt(mods);
 				dout->writeUTF($($nc(sig->signature)->replace(u'/', u'.')));
@@ -1660,8 +1446,8 @@ int64_t ObjectStreamClass::computeDefaultSUID($Class* cl) {
 		$Arrays::sort(methSigs, $$new($ObjectStreamClass$5));
 		for (int32_t i = 0; i < methSigs->length; ++i) {
 			$var($ObjectStreamClass$MemberSignature, sig, methSigs->get(i));
-			int32_t mods = (int32_t)($nc($nc(sig)->member)->getModifiers() & (uint32_t)(((((((($Modifier::PUBLIC | $Modifier::PRIVATE) | $Modifier::PROTECTED) | $Modifier::STATIC) | $Modifier::FINAL) | $Modifier::SYNCHRONIZED) | $Modifier::NATIVE) | $Modifier::ABSTRACT) | $Modifier::STRICT));
-			if (((int32_t)(mods & (uint32_t)$Modifier::PRIVATE)) == 0) {
+			int32_t mods = $nc($nc(sig)->member)->getModifiers() & (((((((($Modifier::PUBLIC | $Modifier::PRIVATE) | $Modifier::PROTECTED) | $Modifier::STATIC) | $Modifier::FINAL) | $Modifier::SYNCHRONIZED) | $Modifier::NATIVE) | $Modifier::ABSTRACT) | $Modifier::STRICT);
+			if ((mods & $Modifier::PRIVATE) == 0) {
 				dout->writeUTF(sig->name);
 				dout->writeInt(mods);
 				dout->writeUTF($($nc(sig->signature)->replace(u'/', u'.')));
@@ -1672,11 +1458,11 @@ int64_t ObjectStreamClass::computeDefaultSUID($Class* cl) {
 		$var($bytes, hashBytes, $nc(md)->digest($(bout->toByteArray())));
 		int64_t hash = 0;
 		for (int32_t i = $Math::min($nc(hashBytes)->length, 8) - 1; i >= 0; --i) {
-			hash = (hash << 8) | ((int32_t)($nc(hashBytes)->get(i) & (uint32_t)255));
+			hash = (hash << 8) | (hashBytes->get(i) & 0xff);
 		}
 		return hash;
 	} catch ($IOException& ex) {
-		$throwNew($InternalError, static_cast<$Throwable*>(ex));
+		$throwNew($InternalError, ex);
 	} catch ($NoSuchAlgorithmException& ex) {
 		$throwNew($SecurityException, $(ex->getMessage()));
 	}
@@ -1685,17 +1471,16 @@ int64_t ObjectStreamClass::computeDefaultSUID($Class* cl) {
 
 bool ObjectStreamClass::hasStaticInitializer($Class* cl) {
 	$init(ObjectStreamClass);
-	bool $ret = false;
-	$prepareNativeStatic(ObjectStreamClass, hasStaticInitializer, bool, $Class* cl);
-	$ret = $invokeNativeStatic(cl);
+	$prepareNativeStatic(hasStaticInitializer, bool, $Class* cl);
+	bool $ret = $invokeNativeStatic(cl);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $ObjectStreamClass$FieldReflector* ObjectStreamClass::getReflector($ObjectStreamFieldArray* fields, ObjectStreamClass* localDesc) {
 	$init(ObjectStreamClass);
-	$useLocalCurrentObjectStackCache();
-	$Class* cl = (localDesc != nullptr && $nc(fields)->length > 0) ? $nc(localDesc)->cl : ($Class*)nullptr;
+	$useLocalObjectStack();
+	$Class* cl = (localDesc != nullptr && $nc(fields)->length > 0) ? localDesc->cl : ($Class*)nullptr;
 	$init($ObjectStreamClass$Caches);
 	processQueue($ObjectStreamClass$Caches::reflectorsQueue, $ObjectStreamClass$Caches::reflectors);
 	$var($ObjectStreamClass$FieldReflectorKey, key, $new($ObjectStreamClass$FieldReflectorKey, cl, fields, $ObjectStreamClass$Caches::reflectorsQueue));
@@ -1710,9 +1495,9 @@ $ObjectStreamClass$FieldReflector* ObjectStreamClass::getReflector($ObjectStream
 		$var($Reference, newRef, $new($SoftReference, newEntry));
 		do {
 			if (ref != nullptr) {
-				$nc($ObjectStreamClass$Caches::reflectors)->remove(key, ref);
+				$ObjectStreamClass$Caches::reflectors->remove(key, ref);
 			}
-			$assign(ref, $cast($Reference, $nc($ObjectStreamClass$Caches::reflectors)->putIfAbsent(key, newRef)));
+			$assign(ref, $cast($Reference, $ObjectStreamClass$Caches::reflectors->putIfAbsent(key, newRef)));
 			if (ref != nullptr) {
 				$assign(entry, ref->get());
 			}
@@ -1724,7 +1509,7 @@ $ObjectStreamClass$FieldReflector* ObjectStreamClass::getReflector($ObjectStream
 	if ($instanceOf($ObjectStreamClass$FieldReflector, entry)) {
 		return $cast($ObjectStreamClass$FieldReflector, entry);
 	} else if ($instanceOf($ObjectStreamClass$EntryFuture, entry)) {
-		$assign(entry, $nc(($cast($ObjectStreamClass$EntryFuture, entry)))->get());
+		$assign(entry, $cast($ObjectStreamClass$EntryFuture, entry)->get());
 	} else if (entry == nullptr) {
 		try {
 			$assign(entry, $new($ObjectStreamClass$FieldReflector, $(matchFields(fields, localDesc))));
@@ -1732,7 +1517,7 @@ $ObjectStreamClass$FieldReflector* ObjectStreamClass::getReflector($ObjectStream
 			$assign(entry, th);
 		}
 		$nc(future)->set(entry);
-		$nc($ObjectStreamClass$Caches::reflectors)->put(key, $$new($SoftReference, entry));
+		$ObjectStreamClass$Caches::reflectors->put(key, $$new($SoftReference, entry));
 	}
 	if ($instanceOf($ObjectStreamClass$FieldReflector, entry)) {
 		return $cast($ObjectStreamClass$FieldReflector, entry);
@@ -1749,25 +1534,25 @@ $ObjectStreamClass$FieldReflector* ObjectStreamClass::getReflector($ObjectStream
 
 $ObjectStreamFieldArray* ObjectStreamClass::matchFields($ObjectStreamFieldArray* fields, ObjectStreamClass* localDesc) {
 	$init(ObjectStreamClass);
-	$useLocalCurrentObjectStackCache();
-	$var($ObjectStreamFieldArray, localFields, (localDesc != nullptr) ? $nc(localDesc)->fields : ObjectStreamClass::NO_FIELDS);
+	$useLocalObjectStack();
+	$var($ObjectStreamFieldArray, localFields, (localDesc != nullptr) ? localDesc->fields : ObjectStreamClass::NO_FIELDS);
 	$var($ObjectStreamFieldArray, matches, $new($ObjectStreamFieldArray, $nc(fields)->length));
 	for (int32_t i = 0; i < fields->length; ++i) {
 		$var($ObjectStreamField, f, fields->get(i));
 		$var($ObjectStreamField, m, nullptr);
 		for (int32_t j = 0; j < $nc(localFields)->length; ++j) {
 			$var($ObjectStreamField, lf, localFields->get(j));
-			if ($nc($($nc(f)->getName()))->equals($($nc(lf)->getName()))) {
+			if ($$nc($nc(f)->getName())->equals($($nc(lf)->getName()))) {
 				bool var$1 = f->isPrimitive();
-				bool var$0 = (var$1 || $nc(lf)->isPrimitive());
+				bool var$0 = var$1 || lf->isPrimitive();
 				if (var$0) {
 					char16_t var$2 = f->getTypeCode();
 					var$0 = var$2 != lf->getTypeCode();
 				}
 				if (var$0) {
-					$throwNew($InvalidClassException, localDesc->name, $$str({"incompatible types for field "_s, $(f->getName())}));
+					$throwNew($InvalidClassException, $nc(localDesc)->name, $$str({"incompatible types for field "_s, $(f->getName())}));
 				}
-				if ($nc(lf)->getField() != nullptr) {
+				if (lf->getField() != nullptr) {
 					$var($Field, var$3, lf->getField());
 					$assign(m, $new($ObjectStreamField, var$3, lf->isUnshared(), false));
 				} else {
@@ -1797,13 +1582,13 @@ void ObjectStreamClass::processQueue($ReferenceQueue* queue, $ConcurrentMap* map
 
 $MethodHandle* ObjectStreamClass::lambda$canonicalRecordCtr$2($Class* cls) {
 	$init(ObjectStreamClass);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($ClassArray, paramTypes, $fcast($ClassArray, $nc($($nc($($Arrays::stream($($nc(cls)->getRecordComponents()))))->map(static_cast<$Function*>($$new(ObjectStreamClass$$Lambda$getType$2)))))->toArray(static_cast<$IntFunction*>($$new(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3)))));
+	$var($ClassArray, paramTypes, $cast($ClassArray, $$nc($$nc($Arrays::stream($($nc(cls)->getRecordComponents())))->map($$new(ObjectStreamClass$$Lambda$getType$2)))->toArray($$new(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3))));
 	try {
-		$var($Constructor, ctr, $nc(cls)->getDeclaredConstructor(paramTypes));
+		$var($Constructor, ctr, cls->getDeclaredConstructor(paramTypes));
 		$nc(ctr)->setAccessible(true);
-		return $nc($($MethodHandles::lookup()))->unreflectConstructor(ctr);
+		return $$nc($MethodHandles::lookup())->unreflectConstructor(ctr);
 	} catch ($IllegalAccessException& e) {
 		return nullptr;
 	} catch ($NoSuchMethodException& e) {
@@ -1820,7 +1605,7 @@ $ClassArray* ObjectStreamClass::lambda$canonicalRecordCtr$1(int32_t x$0) {
 $Object* ObjectStreamClass::lambda$newInstance$0() {
 	$beforeCallerSensitive();
 	try {
-		return $of($nc(this->cons)->newInstance($$new($ObjectArray, 0)));
+		return $nc(this->cons)->newInstance($$new($ObjectArray, 0));
 	} catch ($InstantiationException& x) {
 		$throwNew($UndeclaredThrowableException, x);
 	} catch ($InvocationTargetException& x) {
@@ -1831,12 +1616,12 @@ $Object* ObjectStreamClass::lambda$newInstance$0() {
 	$shouldNotReachHere();
 }
 
-void clinit$ObjectStreamClass($Class* class$) {
+void ObjectStreamClass::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	ObjectStreamClass::$assertionsDisabled = !ObjectStreamClass::class$->desiredAssertionStatus();
 	$assignStatic(ObjectStreamClass::NO_FIELDS, $new($ObjectStreamFieldArray, 0));
 	$assignStatic(ObjectStreamClass::serialPersistentFields, ObjectStreamClass::NO_FIELDS);
-	$assignStatic(ObjectStreamClass::reflFactory, $cast($ReflectionFactory, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ReflectionFactory$GetReflectionFactoryAction)))));
+	$assignStatic(ObjectStreamClass::reflFactory, $cast($ReflectionFactory, $AccessController::doPrivileged($$new($ReflectionFactory$GetReflectionFactoryAction))));
 	{
 		ObjectStreamClass::initNative();
 	}
@@ -1847,20 +1632,181 @@ ObjectStreamClass::ObjectStreamClass() {
 
 $Class* ObjectStreamClass::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ObjectStreamClass$$Lambda$lambda$newInstance$0::classInfo$.name)) {
+		if (name->equals("java.io.ObjectStreamClass$$Lambda$lambda$newInstance$0")) {
 			return ObjectStreamClass$$Lambda$lambda$newInstance$0::load$(name, initialize);
 		}
-		if (name->equals(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1::classInfo$.name)) {
+		if (name->equals("java.io.ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1")) {
 			return ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$2$1::load$(name, initialize);
 		}
-		if (name->equals(ObjectStreamClass$$Lambda$getType$2::classInfo$.name)) {
+		if (name->equals("java.io.ObjectStreamClass$$Lambda$getType$2")) {
 			return ObjectStreamClass$$Lambda$getType$2::load$(name, initialize);
 		}
-		if (name->equals(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3::classInfo$.name)) {
+		if (name->equals("java.io.ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3")) {
 			return ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3::load$(name, initialize);
 		}
 	}
-	$loadClass(ObjectStreamClass, name, initialize, &_ObjectStreamClass_ClassInfo_, clinit$ObjectStreamClass, allocate$ObjectStreamClass);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ObjectStreamClass, $assertionsDisabled)},
+		{"NO_FIELDS", "[Ljava/io/ObjectStreamField;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ObjectStreamClass, NO_FIELDS)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectStreamClass, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectStreamClass, serialPersistentFields)},
+		{"reflFactory", "Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectStreamClass, reflFactory)},
+		{"cl", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(ObjectStreamClass, cl)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectStreamClass, name)},
+		{"suid", "Ljava/lang/Long;", nullptr, $PRIVATE | $VOLATILE, $field(ObjectStreamClass, suid)},
+		{"isProxy", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, isProxy$)},
+		{"isEnum", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, isEnum$)},
+		{"isRecord", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, isRecord$)},
+		{"serializable", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, serializable)},
+		{"externalizable", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, externalizable)},
+		{"hasWriteObjectData", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, hasWriteObjectData$)},
+		{"hasBlockExternalData", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, hasBlockExternalData$)},
+		{"resolveEx", "Ljava/lang/ClassNotFoundException;", nullptr, $PRIVATE, $field(ObjectStreamClass, resolveEx)},
+		{"deserializeEx", "Ljava/io/ObjectStreamClass$ExceptionInfo;", nullptr, $PRIVATE, $field(ObjectStreamClass, deserializeEx)},
+		{"serializeEx", "Ljava/io/ObjectStreamClass$ExceptionInfo;", nullptr, $PRIVATE, $field(ObjectStreamClass, serializeEx)},
+		{"defaultSerializeEx", "Ljava/io/ObjectStreamClass$ExceptionInfo;", nullptr, $PRIVATE, $field(ObjectStreamClass, defaultSerializeEx)},
+		{"fields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE, $field(ObjectStreamClass, fields)},
+		{"primDataSize", "I", nullptr, $PRIVATE, $field(ObjectStreamClass, primDataSize)},
+		{"numObjFields", "I", nullptr, $PRIVATE, $field(ObjectStreamClass, numObjFields)},
+		{"fieldRefl", "Ljava/io/ObjectStreamClass$FieldReflector;", nullptr, $PRIVATE, $field(ObjectStreamClass, fieldRefl)},
+		{"dataLayout", "[Ljava/io/ObjectStreamClass$ClassDataSlot;", nullptr, $PRIVATE | $VOLATILE, $field(ObjectStreamClass, dataLayout)},
+		{"cons", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", $PRIVATE, $field(ObjectStreamClass, cons)},
+		{"canonicalCtr", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $field(ObjectStreamClass, canonicalCtr)},
+		{"deserializationCtrs", "Ljava/io/ObjectStreamClass$DeserializationConstructorsCache;", nullptr, $PRIVATE, $field(ObjectStreamClass, deserializationCtrs)},
+		{"deserializationCtr", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $field(ObjectStreamClass, deserializationCtr)},
+		{"domains", "[Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $field(ObjectStreamClass, domains)},
+		{"writeObjectMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ObjectStreamClass, writeObjectMethod)},
+		{"readObjectMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ObjectStreamClass, readObjectMethod)},
+		{"readObjectNoDataMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ObjectStreamClass, readObjectNoDataMethod)},
+		{"writeReplaceMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ObjectStreamClass, writeReplaceMethod)},
+		{"readResolveMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ObjectStreamClass, readResolveMethod)},
+		{"localDesc", "Ljava/io/ObjectStreamClass;", nullptr, $PRIVATE, $field(ObjectStreamClass, localDesc)},
+		{"superDesc", "Ljava/io/ObjectStreamClass;", nullptr, $PRIVATE, $field(ObjectStreamClass, superDesc)},
+		{"initialized", "Z", nullptr, $PRIVATE, $field(ObjectStreamClass, initialized)},
+		{}
+	};
+	$CompoundAttribute forClassmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(ObjectStreamClass, init$, void, $Class*)},
+		{"<init>", "()V", nullptr, 0, $method(ObjectStreamClass, init$, void)},
+		{"canonicalRecordCtr", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, canonicalRecordCtr, $MethodHandle*, $Class*)},
+		{"checkDefaultSerialize", "()V", nullptr, 0, $virtualMethod(ObjectStreamClass, checkDefaultSerialize, void), "java.io.InvalidClassException"},
+		{"checkDeserialize", "()V", nullptr, 0, $virtualMethod(ObjectStreamClass, checkDeserialize, void), "java.io.InvalidClassException"},
+		{"checkInitialized", "()V", nullptr, $FINAL, $method(ObjectStreamClass, checkInitialized, void), "java.io.InvalidClassException"},
+		{"checkObjFieldValueTypes", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, checkObjFieldValueTypes, void, Object$*, $ObjectArray*)},
+		{"checkSerialize", "()V", nullptr, 0, $virtualMethod(ObjectStreamClass, checkSerialize, void), "java.io.InvalidClassException"},
+		{"classNamesEqual", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, classNamesEqual, bool, $String*, $String*)},
+		{"computeDefaultSUID", "(Ljava/lang/Class;)J", "(Ljava/lang/Class<*>;)J", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, computeDefaultSUID, int64_t, $Class*)},
+		{"computeFieldOffsets", "()V", nullptr, $PRIVATE, $method(ObjectStreamClass, computeFieldOffsets, void), "java.io.InvalidClassException"},
+		{"forClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ObjectStreamClass, forClass, $Class*), nullptr, nullptr, forClassmethodAnnotations$$},
+		{"getClassDataLayout", "()[Ljava/io/ObjectStreamClass$ClassDataSlot;", nullptr, 0, $virtualMethod(ObjectStreamClass, getClassDataLayout, $ObjectStreamClass$ClassDataSlotArray*), "java.io.InvalidClassException"},
+		{"getClassDataLayout0", "()[Ljava/io/ObjectStreamClass$ClassDataSlot;", nullptr, $PRIVATE, $method(ObjectStreamClass, getClassDataLayout0, $ObjectStreamClass$ClassDataSlotArray*), "java.io.InvalidClassException"},
+		{"getDeclaredSUID", "(Ljava/lang/Class;)Ljava/lang/Long;", "(Ljava/lang/Class<*>;)Ljava/lang/Long;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getDeclaredSUID, $Long*, $Class*)},
+		{"getDeclaredSerialFields", "(Ljava/lang/Class;)[Ljava/io/ObjectStreamField;", "(Ljava/lang/Class<*>;)[Ljava/io/ObjectStreamField;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getDeclaredSerialFields, $ObjectStreamFieldArray*, $Class*), "java.io.InvalidClassException"},
+		{"getDefaultSerialFields", "(Ljava/lang/Class;)[Ljava/io/ObjectStreamField;", "(Ljava/lang/Class<*>;)[Ljava/io/ObjectStreamField;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getDefaultSerialFields, $ObjectStreamFieldArray*, $Class*)},
+		{"getExternalizableConstructor", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getExternalizableConstructor, $Constructor*, $Class*)},
+		{"getField", "(Ljava/lang/String;)Ljava/io/ObjectStreamField;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass, getField, $ObjectStreamField*, $String*)},
+		{"getField", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectStreamField;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/io/ObjectStreamField;", 0, $virtualMethod(ObjectStreamClass, getField, $ObjectStreamField*, $String*, $Class*)},
+		{"getFields", "()[Ljava/io/ObjectStreamField;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass, getFields, $ObjectStreamFieldArray*)},
+		{"getFields", "(Z)[Ljava/io/ObjectStreamField;", nullptr, 0, $virtualMethod(ObjectStreamClass, getFields, $ObjectStreamFieldArray*, bool)},
+		{"getInheritableMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getInheritableMethod, $Method*, $Class*, $String*, $ClassArray*, $Class*)},
+		{"getLocalDesc", "()Ljava/io/ObjectStreamClass;", nullptr, 0, $virtualMethod(ObjectStreamClass, getLocalDesc, ObjectStreamClass*)},
+		{"getMethodSignature", "([Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/String;", "([Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getMethodSignature, $String*, $ClassArray*, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass, getName, $String*)},
+		{"getNumObjFields", "()I", nullptr, 0, $virtualMethod(ObjectStreamClass, getNumObjFields, int32_t)},
+		{"getObjFieldValues", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, getObjFieldValues, void, Object$*, $ObjectArray*)},
+		{"getPrimDataSize", "()I", nullptr, 0, $virtualMethod(ObjectStreamClass, getPrimDataSize, int32_t)},
+		{"getPrimFieldValues", "(Ljava/lang/Object;[B)V", nullptr, 0, $virtualMethod(ObjectStreamClass, getPrimFieldValues, void, Object$*, $bytes*)},
+		{"getPrivateMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getPrivateMethod, $Method*, $Class*, $String*, $ClassArray*, $Class*)},
+		{"getProtectionDomains", "(Ljava/lang/reflect/Constructor;Ljava/lang/Class;)[Ljava/security/ProtectionDomain;", "(Ljava/lang/reflect/Constructor<*>;Ljava/lang/Class<*>;)[Ljava/security/ProtectionDomain;", $PRIVATE, $method(ObjectStreamClass, getProtectionDomains, $ProtectionDomainArray*, $Constructor*, $Class*)},
+		{"getRecordConstructor", "()Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(ObjectStreamClass, getRecordConstructor, $MethodHandle*)},
+		{"getReflector", "([Ljava/io/ObjectStreamField;Ljava/io/ObjectStreamClass;)Ljava/io/ObjectStreamClass$FieldReflector;", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getReflector, $ObjectStreamClass$FieldReflector*, $ObjectStreamFieldArray*, ObjectStreamClass*), "java.io.InvalidClassException"},
+		{"getResolveException", "()Ljava/lang/ClassNotFoundException;", nullptr, 0, $virtualMethod(ObjectStreamClass, getResolveException, $ClassNotFoundException*)},
+		{"getSerialFields", "(Ljava/lang/Class;)[Ljava/io/ObjectStreamField;", "(Ljava/lang/Class<*>;)[Ljava/io/ObjectStreamField;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getSerialFields, $ObjectStreamFieldArray*, $Class*), "java.io.InvalidClassException"},
+		{"getSerialVersionUID", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass, getSerialVersionUID, int64_t)},
+		{"getSerializableConstructor", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, getSerializableConstructor, $Constructor*, $Class*)},
+		{"getSuperDesc", "()Ljava/io/ObjectStreamClass;", nullptr, 0, $virtualMethod(ObjectStreamClass, getSuperDesc, ObjectStreamClass*)},
+		{"getVariantFor", "(Ljava/lang/Class;)Ljava/io/ObjectStreamClass;", "(Ljava/lang/Class<*>;)Ljava/io/ObjectStreamClass;", $PRIVATE, $method(ObjectStreamClass, getVariantFor, ObjectStreamClass*, $Class*), "java.io.InvalidClassException"},
+		{"hasBlockExternalData", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasBlockExternalData, bool)},
+		{"hasReadObjectMethod", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasReadObjectMethod, bool)},
+		{"hasReadObjectNoDataMethod", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasReadObjectNoDataMethod, bool)},
+		{"hasReadResolveMethod", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasReadResolveMethod, bool)},
+		{"hasStaticInitializer", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC | $NATIVE, $staticMethod(ObjectStreamClass, hasStaticInitializer, bool, $Class*)},
+		{"hasWriteObjectData", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasWriteObjectData, bool)},
+		{"hasWriteObjectMethod", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasWriteObjectMethod, bool)},
+		{"hasWriteReplaceMethod", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, hasWriteReplaceMethod, bool)},
+		{"initNative", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ObjectStreamClass, initNative, void)},
+		{"initNonProxy", "(Ljava/io/ObjectStreamClass;Ljava/lang/Class;Ljava/lang/ClassNotFoundException;Ljava/io/ObjectStreamClass;)V", "(Ljava/io/ObjectStreamClass;Ljava/lang/Class<*>;Ljava/lang/ClassNotFoundException;Ljava/io/ObjectStreamClass;)V", 0, $virtualMethod(ObjectStreamClass, initNonProxy, void, ObjectStreamClass*, $Class*, $ClassNotFoundException*, ObjectStreamClass*), "java.io.InvalidClassException"},
+		{"initProxy", "(Ljava/lang/Class;Ljava/lang/ClassNotFoundException;Ljava/io/ObjectStreamClass;)V", "(Ljava/lang/Class<*>;Ljava/lang/ClassNotFoundException;Ljava/io/ObjectStreamClass;)V", 0, $virtualMethod(ObjectStreamClass, initProxy, void, $Class*, $ClassNotFoundException*, ObjectStreamClass*), "java.io.InvalidClassException"},
+		{"invokeReadObject", "(Ljava/lang/Object;Ljava/io/ObjectInputStream;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, invokeReadObject, void, Object$*, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.lang.UnsupportedOperationException"},
+		{"invokeReadObjectNoData", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, invokeReadObjectNoData, void, Object$*), "java.io.IOException,java.lang.UnsupportedOperationException"},
+		{"invokeReadResolve", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ObjectStreamClass, invokeReadResolve, $Object*, Object$*), "java.io.IOException,java.lang.UnsupportedOperationException"},
+		{"invokeWriteObject", "(Ljava/lang/Object;Ljava/io/ObjectOutputStream;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, invokeWriteObject, void, Object$*, $ObjectOutputStream*), "java.io.IOException,java.lang.UnsupportedOperationException"},
+		{"invokeWriteReplace", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ObjectStreamClass, invokeWriteReplace, $Object*, Object$*), "java.io.IOException,java.lang.UnsupportedOperationException"},
+		{"isEnum", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isEnum, bool)},
+		{"isExternalizable", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isExternalizable, bool)},
+		{"isInstantiable", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isInstantiable, bool)},
+		{"isProxy", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isProxy, bool)},
+		{"isRecord", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isRecord, bool)},
+		{"isSerializable", "()Z", nullptr, 0, $virtualMethod(ObjectStreamClass, isSerializable, bool)},
+		{"lambda$canonicalRecordCtr$1", "(I)[Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectStreamClass, lambda$canonicalRecordCtr$1, $ClassArray*, int32_t)},
+		{"lambda$canonicalRecordCtr$2", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectStreamClass, lambda$canonicalRecordCtr$2, $MethodHandle*, $Class*)},
+		{"lambda$newInstance$0", "()Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(ObjectStreamClass, lambda$newInstance$0, $Object*)},
+		{"lookup", "(Ljava/lang/Class;)Ljava/io/ObjectStreamClass;", "(Ljava/lang/Class<*>;)Ljava/io/ObjectStreamClass;", $PUBLIC | $STATIC, $staticMethod(ObjectStreamClass, lookup, ObjectStreamClass*, $Class*)},
+		{"lookup", "(Ljava/lang/Class;Z)Ljava/io/ObjectStreamClass;", "(Ljava/lang/Class<*>;Z)Ljava/io/ObjectStreamClass;", $STATIC, $staticMethod(ObjectStreamClass, lookup, ObjectStreamClass*, $Class*, bool)},
+		{"lookupAny", "(Ljava/lang/Class;)Ljava/io/ObjectStreamClass;", "(Ljava/lang/Class<*>;)Ljava/io/ObjectStreamClass;", $PUBLIC | $STATIC, $staticMethod(ObjectStreamClass, lookupAny, ObjectStreamClass*, $Class*)},
+		{"matchFields", "([Ljava/io/ObjectStreamField;Ljava/io/ObjectStreamClass;)[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, matchFields, $ObjectStreamFieldArray*, $ObjectStreamFieldArray*, ObjectStreamClass*), "java.io.InvalidClassException"},
+		{"newInstance", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ObjectStreamClass, newInstance, $Object*), "java.lang.InstantiationException,java.lang.reflect.InvocationTargetException,java.lang.UnsupportedOperationException"},
+		{"noPermissionsDomain", "()Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $method(ObjectStreamClass, noPermissionsDomain, $ProtectionDomain*)},
+		{"packageEquals", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, packageEquals, bool, $Class*, $Class*)},
+		{"processQueue", "(Ljava/lang/ref/ReferenceQueue;Ljava/util/concurrent/ConcurrentMap;)V", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;Ljava/util/concurrent/ConcurrentMap<+Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;*>;)V", $STATIC, $staticMethod(ObjectStreamClass, processQueue, void, $ReferenceQueue*, $ConcurrentMap*)},
+		{"readNonProxy", "(Ljava/io/ObjectInputStream;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, readNonProxy, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"requireInitialized", "()V", nullptr, $PRIVATE | $FINAL, $method(ObjectStreamClass, requireInitialized, void)},
+		{"setObjFieldValues", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, setObjFieldValues, void, Object$*, $ObjectArray*)},
+		{"setPrimFieldValues", "(Ljava/lang/Object;[B)V", nullptr, 0, $virtualMethod(ObjectStreamClass, setPrimFieldValues, void, Object$*, $bytes*)},
+		{"throwMiscException", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass, throwMiscException, void, $Throwable*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass, toString, $String*)},
+		{"writeNonProxy", "(Ljava/io/ObjectOutputStream;)V", nullptr, 0, $virtualMethod(ObjectStreamClass, writeNonProxy, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectStreamClass$RecordSupport", "java.io.ObjectStreamClass", "RecordSupport", $STATIC | $FINAL},
+		{"java.io.ObjectStreamClass$DeserializationConstructorsCache", "java.io.ObjectStreamClass", "DeserializationConstructorsCache", $PRIVATE | $STATIC | $FINAL},
+		{"java.io.ObjectStreamClass$WeakClassKey", "java.io.ObjectStreamClass", "WeakClassKey", $STATIC},
+		{"java.io.ObjectStreamClass$FieldReflectorKey", "java.io.ObjectStreamClass", "FieldReflectorKey", $PRIVATE | $STATIC},
+		{"java.io.ObjectStreamClass$FieldReflector", "java.io.ObjectStreamClass", "FieldReflector", $PRIVATE | $STATIC},
+		{"java.io.ObjectStreamClass$MemberSignature", "java.io.ObjectStreamClass", "MemberSignature", $PRIVATE | $STATIC},
+		{"java.io.ObjectStreamClass$ClassDataSlot", "java.io.ObjectStreamClass", "ClassDataSlot", $STATIC},
+		{"java.io.ObjectStreamClass$EntryFuture", "java.io.ObjectStreamClass", "EntryFuture", $PRIVATE | $STATIC},
+		{"java.io.ObjectStreamClass$ExceptionInfo", "java.io.ObjectStreamClass", "ExceptionInfo", $PRIVATE | $STATIC},
+		{"java.io.ObjectStreamClass$Caches", "java.io.ObjectStreamClass", "Caches", $PRIVATE | $STATIC},
+		{"java.io.ObjectStreamClass$5", nullptr, nullptr, 0},
+		{"java.io.ObjectStreamClass$4", nullptr, nullptr, 0},
+		{"java.io.ObjectStreamClass$3", nullptr, nullptr, 0},
+		{"java.io.ObjectStreamClass$2", nullptr, nullptr, 0},
+		{"java.io.ObjectStreamClass$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.ObjectStreamClass",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.io.ObjectStreamClass$RecordSupport,java.io.ObjectStreamClass$DeserializationConstructorsCache,java.io.ObjectStreamClass$DeserializationConstructorsCache$Key,java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Impl,java.io.ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup,java.io.ObjectStreamClass$WeakClassKey,java.io.ObjectStreamClass$FieldReflectorKey,java.io.ObjectStreamClass$FieldReflector,java.io.ObjectStreamClass$MemberSignature,java.io.ObjectStreamClass$ClassDataSlot,java.io.ObjectStreamClass$EntryFuture,java.io.ObjectStreamClass$EntryFuture$1,java.io.ObjectStreamClass$ExceptionInfo,java.io.ObjectStreamClass$Caches,java.io.ObjectStreamClass$5,java.io.ObjectStreamClass$4,java.io.ObjectStreamClass$3,java.io.ObjectStreamClass$2,java.io.ObjectStreamClass$1"
+	};
+	$loadClass(ObjectStreamClass, name, initialize, &classInfo$$, ObjectStreamClass::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass);
+	});
 	return class$;
 }
 

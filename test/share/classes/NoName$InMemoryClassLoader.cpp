@@ -1,5 +1,4 @@
 #include <NoName$InMemoryClassLoader.h>
-
 #include <NoName.h>
 #include <java/lang/ClassLoader.h>
 #include <jcpp.h>
@@ -8,37 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _NoName$InMemoryClassLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(NoName$InMemoryClassLoader, init$, void)},
-	{"defineClass", "(Ljava/lang/String;[B)Ljava/lang/Class;", "(Ljava/lang/String;[B)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(NoName$InMemoryClassLoader, defineClass, $Class*, $String*, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _NoName$InMemoryClassLoader_InnerClassesInfo_[] = {
-	{"NoName$InMemoryClassLoader", "NoName", "InMemoryClassLoader", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _NoName$InMemoryClassLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"NoName$InMemoryClassLoader",
-	"java.lang.ClassLoader",
-	nullptr,
-	nullptr,
-	_NoName$InMemoryClassLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NoName$InMemoryClassLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NoName"
-};
-
-$Object* allocate$NoName$InMemoryClassLoader($Class* clazz) {
-	return $of($alloc(NoName$InMemoryClassLoader));
-}
 
 void NoName$InMemoryClassLoader::init$() {
 	$ClassLoader::init$();
@@ -52,7 +20,33 @@ NoName$InMemoryClassLoader::NoName$InMemoryClassLoader() {
 }
 
 $Class* NoName$InMemoryClassLoader::load$($String* name, bool initialize) {
-	$loadClass(NoName$InMemoryClassLoader, name, initialize, &_NoName$InMemoryClassLoader_ClassInfo_, allocate$NoName$InMemoryClassLoader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(NoName$InMemoryClassLoader, init$, void)},
+		{"defineClass", "(Ljava/lang/String;[B)Ljava/lang/Class;", "(Ljava/lang/String;[B)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(NoName$InMemoryClassLoader, defineClass, $Class*, $String*, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NoName$InMemoryClassLoader", "NoName", "InMemoryClassLoader", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NoName$InMemoryClassLoader",
+		"java.lang.ClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NoName"
+	};
+	$loadClass(NoName$InMemoryClassLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoName$InMemoryClassLoader);
+	});
 	return class$;
 }
 

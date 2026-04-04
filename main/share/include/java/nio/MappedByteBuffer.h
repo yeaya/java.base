@@ -41,6 +41,7 @@ public:
 	using ::java::nio::ByteBuffer::limit;
 	virtual ::java::nio::MappedByteBuffer* compact() override {return nullptr;}
 	virtual ::java::nio::MappedByteBuffer* duplicate() override {return nullptr;}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t mark, int32_t pos, int32_t lim, int32_t cap, ::java::io::FileDescriptor* fd, bool isSync, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	void init$(int32_t mark, int32_t pos, int32_t lim, int32_t cap, bool isSync, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	void init$(int32_t mark, int32_t pos, int32_t lim, int32_t cap, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);

@@ -1,5 +1,4 @@
 #include <TestValueExact.h>
-
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -10,7 +9,6 @@
 #undef ZERO
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
-using $PrintStream = ::java::io::PrintStream;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -20,29 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
 using $BigInteger = ::java::math::BigInteger;
-
-$MethodInfo _TestValueExact_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestValueExact, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestValueExact, main, void, $StringArray*)},
-	{"testByteValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testByteValueExact, int32_t)},
-	{"testIntValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testIntValueExact, int32_t)},
-	{"testLongValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testLongValueExact, int32_t)},
-	{"testShortValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testShortValueExact, int32_t)},
-	{}
-};
-
-$ClassInfo _TestValueExact_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestValueExact",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestValueExact_MethodInfo_
-};
-
-$Object* allocate$TestValueExact($Class* clazz) {
-	return $of($alloc(TestValueExact));
-}
 
 void TestValueExact::init$() {
 }
@@ -59,7 +34,7 @@ void TestValueExact::main($StringArray* args) {
 }
 
 int32_t TestValueExact::testLongValueExact() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t errors = 0;
 	$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
@@ -68,14 +43,12 @@ int32_t TestValueExact::testLongValueExact() {
 		$($BigInteger::valueOf($Long::MAX_VALUE))
 	}));
 	$var($BigIntegerArray, outOfRange, $new($BigIntegerArray, {
-		$($nc($($BigInteger::valueOf($Long::MIN_VALUE)))->subtract($BigInteger::ONE)),
-		$($nc($($BigInteger::valueOf($Long::MAX_VALUE)))->add($BigInteger::ONE))
+		$($($BigInteger::valueOf($Long::MIN_VALUE))->subtract($BigInteger::ONE)),
+		$($($BigInteger::valueOf($Long::MAX_VALUE))->add($BigInteger::ONE))
 	}));
 	{
 		$var($BigIntegerArray, arr$, inRange);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigInteger, bi, arr$->get(i$));
 			{
 				int64_t var$0 = $nc(bi)->longValueExact();
@@ -88,17 +61,14 @@ int32_t TestValueExact::testLongValueExact() {
 	}
 	{
 		$var($BigIntegerArray, arr$, outOfRange);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigInteger, bi, arr$->get(i$));
-			{
-				try {
-					int64_t value = $nc(bi)->longValueExact();
-					$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
-					++errors;
-				} catch ($ArithmeticException& ae) {
-				}
+			try {
+				int64_t value = $nc(bi)->longValueExact();
+				$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
+				++errors;
+			} catch ($ArithmeticException& ae) {
+				;
 			}
 		}
 	}
@@ -106,15 +76,15 @@ int32_t TestValueExact::testLongValueExact() {
 }
 
 int32_t TestValueExact::testIntValueExact() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t errors = 0;
 	$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
-		$($BigInteger::valueOf((int64_t)$Integer::MIN_VALUE)),
+		$($BigInteger::valueOf($Integer::MIN_VALUE)),
 		$BigInteger::ZERO,
 		$BigInteger::ONE,
 		$BigInteger::TEN,
-		$($BigInteger::valueOf((int64_t)$Integer::MAX_VALUE))
+		$($BigInteger::valueOf($Integer::MAX_VALUE))
 	}));
 	$var($BigIntegerArray, outOfRange, $new($BigIntegerArray, {
 		$($BigInteger::valueOf((int64_t)$Integer::MIN_VALUE - 1)),
@@ -122,9 +92,7 @@ int32_t TestValueExact::testIntValueExact() {
 	}));
 	{
 		$var($BigIntegerArray, arr$, inRange);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigInteger, bi, arr$->get(i$));
 			{
 				int32_t var$0 = $nc(bi)->intValueExact();
@@ -137,17 +105,14 @@ int32_t TestValueExact::testIntValueExact() {
 	}
 	{
 		$var($BigIntegerArray, arr$, outOfRange);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigInteger, bi, arr$->get(i$));
-			{
-				try {
-					int32_t value = $nc(bi)->intValueExact();
-					$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
-					++errors;
-				} catch ($ArithmeticException& ae) {
-				}
+			try {
+				int32_t value = $nc(bi)->intValueExact();
+				$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
+				++errors;
+			} catch ($ArithmeticException& ae) {
+				;
 			}
 		}
 	}
@@ -155,29 +120,27 @@ int32_t TestValueExact::testIntValueExact() {
 }
 
 int32_t TestValueExact::testShortValueExact() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t errors = 0;
 	$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
-		$($BigInteger::valueOf((int64_t)$Short::MIN_VALUE)),
+		$($BigInteger::valueOf($Short::MIN_VALUE)),
 		$BigInteger::ZERO,
 		$BigInteger::ONE,
 		$BigInteger::TEN,
-		$($BigInteger::valueOf((int64_t)$Short::MAX_VALUE))
+		$($BigInteger::valueOf($Short::MAX_VALUE))
 	}));
 	$var($BigIntegerArray, outOfRange, $new($BigIntegerArray, {
 		$($BigInteger::valueOf((int64_t)$Integer::MIN_VALUE - 1)),
 		$($BigInteger::valueOf((int64_t)$Integer::MIN_VALUE)),
-		$($BigInteger::valueOf((int64_t)((int32_t)$Short::MIN_VALUE - 1))),
-		$($BigInteger::valueOf((int64_t)((int32_t)$Short::MAX_VALUE + 1))),
+		$($BigInteger::valueOf((int32_t)$Short::MIN_VALUE - 1)),
+		$($BigInteger::valueOf((int32_t)$Short::MAX_VALUE + 1)),
 		$($BigInteger::valueOf((int64_t)$Integer::MAX_VALUE)),
 		$($BigInteger::valueOf((int64_t)$Integer::MAX_VALUE + 1))
 	}));
 	{
 		$var($BigIntegerArray, arr$, inRange);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigInteger, bi, arr$->get(i$));
 			{
 				int16_t var$0 = $nc(bi)->shortValueExact();
@@ -190,17 +153,14 @@ int32_t TestValueExact::testShortValueExact() {
 	}
 	{
 		$var($BigIntegerArray, arr$, outOfRange);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigInteger, bi, arr$->get(i$));
-			{
-				try {
-					int32_t value = $nc(bi)->shortValueExact();
-					$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
-					++errors;
-				} catch ($ArithmeticException& ae) {
-				}
+			try {
+				int32_t value = $nc(bi)->shortValueExact();
+				$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
+				++errors;
+			} catch ($ArithmeticException& ae) {
+				;
 			}
 		}
 	}
@@ -208,33 +168,31 @@ int32_t TestValueExact::testShortValueExact() {
 }
 
 int32_t TestValueExact::testByteValueExact() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t errors = 0;
 	$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
-		$($BigInteger::valueOf((int64_t)$Byte::MIN_VALUE)),
+		$($BigInteger::valueOf($Byte::MIN_VALUE)),
 		$($BigInteger::valueOf((int64_t)0)),
 		$BigInteger::ONE,
 		$BigInteger::TEN,
-		$($BigInteger::valueOf((int64_t)$Byte::MAX_VALUE))
+		$($BigInteger::valueOf($Byte::MAX_VALUE))
 	}));
 	$var($BigIntegerArray, outOfRange, $new($BigIntegerArray, {
 		$($BigInteger::valueOf((int64_t)$Integer::MIN_VALUE - 1)),
 		$($BigInteger::valueOf((int64_t)$Integer::MIN_VALUE)),
-		$($BigInteger::valueOf((int64_t)((int32_t)$Short::MIN_VALUE - 1))),
-		$($BigInteger::valueOf((int64_t)(int32_t)$Short::MIN_VALUE)),
-		$($BigInteger::valueOf((int64_t)((int32_t)$Byte::MIN_VALUE - 1))),
-		$($BigInteger::valueOf((int64_t)((int32_t)$Byte::MAX_VALUE + 1))),
-		$($BigInteger::valueOf((int64_t)((int32_t)$Short::MAX_VALUE + 1))),
-		$($BigInteger::valueOf((int64_t)(int32_t)$Short::MAX_VALUE)),
+		$($BigInteger::valueOf((int32_t)$Short::MIN_VALUE - 1)),
+		$($BigInteger::valueOf((int32_t)$Short::MIN_VALUE)),
+		$($BigInteger::valueOf((int32_t)$Byte::MIN_VALUE - 1)),
+		$($BigInteger::valueOf((int32_t)$Byte::MAX_VALUE + 1)),
+		$($BigInteger::valueOf((int32_t)$Short::MAX_VALUE + 1)),
+		$($BigInteger::valueOf((int32_t)$Short::MAX_VALUE)),
 		$($BigInteger::valueOf((int64_t)$Integer::MAX_VALUE)),
 		$($BigInteger::valueOf((int64_t)$Integer::MAX_VALUE + 1))
 	}));
 	{
 		$var($BigIntegerArray, arr$, inRange);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigInteger, bi, arr$->get(i$));
 			{
 				int8_t var$0 = $nc(bi)->byteValueExact();
@@ -247,17 +205,14 @@ int32_t TestValueExact::testByteValueExact() {
 	}
 	{
 		$var($BigIntegerArray, arr$, outOfRange);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigInteger, bi, arr$->get(i$));
-			{
-				try {
-					int32_t value = $nc(bi)->byteValueExact();
-					$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
-					++errors;
-				} catch ($ArithmeticException& ae) {
-				}
+			try {
+				int32_t value = $nc(bi)->byteValueExact();
+				$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
+				++errors;
+			} catch ($ArithmeticException& ae) {
+				;
 			}
 		}
 	}
@@ -268,7 +223,26 @@ TestValueExact::TestValueExact() {
 }
 
 $Class* TestValueExact::load$($String* name, bool initialize) {
-	$loadClass(TestValueExact, name, initialize, &_TestValueExact_ClassInfo_, allocate$TestValueExact);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestValueExact, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestValueExact, main, void, $StringArray*)},
+		{"testByteValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testByteValueExact, int32_t)},
+		{"testIntValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testIntValueExact, int32_t)},
+		{"testLongValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testLongValueExact, int32_t)},
+		{"testShortValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testShortValueExact, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestValueExact",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestValueExact, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestValueExact);
+	});
 	return class$;
 }
 

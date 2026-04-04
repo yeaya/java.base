@@ -1,41 +1,10 @@
 #include <SuppressedExceptions$NoSuppression.h>
-
 #include <SuppressedExceptions.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _SuppressedExceptions$NoSuppression_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(SuppressedExceptions$NoSuppression, init$, void, bool)},
-	{}
-};
-
-$InnerClassInfo _SuppressedExceptions$NoSuppression_InnerClassesInfo_[] = {
-	{"SuppressedExceptions$NoSuppression", "SuppressedExceptions", "NoSuppression", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SuppressedExceptions$NoSuppression_ClassInfo_ = {
-	$ACC_SUPER,
-	"SuppressedExceptions$NoSuppression",
-	"java.lang.Throwable",
-	nullptr,
-	nullptr,
-	_SuppressedExceptions$NoSuppression_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SuppressedExceptions$NoSuppression_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SuppressedExceptions"
-};
-
-$Object* allocate$SuppressedExceptions$NoSuppression($Class* clazz) {
-	return $of($alloc(SuppressedExceptions$NoSuppression));
-}
 
 void SuppressedExceptions$NoSuppression::init$(bool enableSuppression) {
 	$Throwable::init$("The medium."_s, nullptr, enableSuppression, true);
@@ -52,7 +21,32 @@ void SuppressedExceptions$NoSuppression::throw$() {
 }
 
 $Class* SuppressedExceptions$NoSuppression::load$($String* name, bool initialize) {
-	$loadClass(SuppressedExceptions$NoSuppression, name, initialize, &_SuppressedExceptions$NoSuppression_ClassInfo_, allocate$SuppressedExceptions$NoSuppression);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(SuppressedExceptions$NoSuppression, init$, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SuppressedExceptions$NoSuppression", "SuppressedExceptions", "NoSuppression", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SuppressedExceptions$NoSuppression",
+		"java.lang.Throwable",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SuppressedExceptions"
+	};
+	$loadClass(SuppressedExceptions$NoSuppression, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SuppressedExceptions$NoSuppression);
+	});
 	return class$;
 }
 

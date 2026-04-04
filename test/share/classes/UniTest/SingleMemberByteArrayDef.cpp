@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberByteArrayDef.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,49 +9,42 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberByteArrayDef_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberByteArrayDef_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberByteArrayDef_Attribute_var$0},
-	{}
-};
-
-$Attribute SingleMemberByteArrayDef_Attribute_var$1[] = {
-	{'B', "11"},
-	{'-'}
-};
-
-$Attribute _SingleMemberByteArrayDef_DefaultValue_value0 = {
-	'[', SingleMemberByteArrayDef_Attribute_var$1
-};
-
-$MethodInfo _SingleMemberByteArrayDef_MethodInfo_[] = {
-	{"value", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberByteArrayDef, value, $bytes*), nullptr, &_SingleMemberByteArrayDef_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _SingleMemberByteArrayDef_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberByteArrayDef",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberByteArrayDef_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberByteArrayDef_Annotations_
-};
-
-$Object* allocate$SingleMemberByteArrayDef($Class* clazz) {
-	return $of($alloc(SingleMemberByteArrayDef));
-}
-
 $Class* SingleMemberByteArrayDef::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberByteArrayDef, name, initialize, &_SingleMemberByteArrayDef_ClassInfo_, allocate$SingleMemberByteArrayDef);
+	$Attribute $attribute[] = {
+		{'B', "11"},
+		{'-'}
+	};
+
+	$Attribute valuedefaultValue$$ = {
+		'[', $attribute
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberByteArrayDef, value, $bytes*), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberByteArrayDef",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberByteArrayDef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberByteArrayDef);
+	});
 	return class$;
 }
 

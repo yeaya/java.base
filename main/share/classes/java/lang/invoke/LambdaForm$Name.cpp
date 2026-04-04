@@ -1,5 +1,4 @@
 #include <java/lang/invoke/LambdaForm$Name.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/ClassSpecializer$SpeciesData.h>
 #include <java/lang/invoke/LambdaForm$1.h>
@@ -39,89 +38,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$CompoundAttribute _LambdaForm$Name_FieldAnnotations_index[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _LambdaForm$Name_FieldAnnotations_arguments[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$FieldInfo _LambdaForm$Name_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaForm$Name, $assertionsDisabled)},
-	{"type", "Ljava/lang/invoke/LambdaForm$BasicType;", nullptr, $FINAL, $field(LambdaForm$Name, type$)},
-	{"index", "S", nullptr, 0, $field(LambdaForm$Name, index$), _LambdaForm$Name_FieldAnnotations_index},
-	{"function", "Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $FINAL, $field(LambdaForm$Name, function)},
-	{"constraint", "Ljava/lang/Object;", nullptr, $FINAL, $field(LambdaForm$Name, constraint)},
-	{"arguments", "[Ljava/lang/Object;", nullptr, $FINAL, $field(LambdaForm$Name, arguments), _LambdaForm$Name_FieldAnnotations_arguments},
-	{}
-};
-
-$MethodInfo _LambdaForm$Name_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/invoke/LambdaForm$BasicType;Ljava/lang/invoke/LambdaForm$NamedFunction;[Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(LambdaForm$Name, init$, void, int32_t, $LambdaForm$BasicType*, $LambdaForm$NamedFunction*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/invoke/LambdaForm$Name;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(LambdaForm$Name, init$, void, LambdaForm$Name*, Object$*)},
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(LambdaForm$Name, init$, void, $MethodHandle*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(LambdaForm$Name, init$, void, $MethodType*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/invoke/MemberName;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(LambdaForm$Name, init$, void, $MemberName*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/invoke/LambdaForm$NamedFunction;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(LambdaForm$Name, init$, void, $LambdaForm$NamedFunction*, $ObjectArray*)},
-	{"<init>", "(ILjava/lang/invoke/LambdaForm$BasicType;)V", nullptr, 0, $method(LambdaForm$Name, init$, void, int32_t, $LambdaForm$BasicType*)},
-	{"<init>", "(Ljava/lang/invoke/LambdaForm$BasicType;)V", nullptr, 0, $method(LambdaForm$Name, init$, void, $LambdaForm$BasicType*)},
-	{"cloneWithIndex", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaForm$Name, cloneWithIndex, LambdaForm$Name*, int32_t)},
-	{"debugString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LambdaForm$Name, debugString, $String*)},
-	{"equals", "(Ljava/lang/invoke/LambdaForm$Name;)Z", nullptr, $PUBLIC, $method(LambdaForm$Name, equals, bool, LambdaForm$Name*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LambdaForm$Name, equals, bool, Object$*)},
-	{"exprString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LambdaForm$Name, exprString, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LambdaForm$Name, hashCode, int32_t)},
-	{"index", "()I", nullptr, 0, $method(LambdaForm$Name, index, int32_t)},
-	{"initIndex", "(I)Z", nullptr, 0, $method(LambdaForm$Name, initIndex, bool, int32_t)},
-	{"internArguments", "()V", nullptr, 0, $method(LambdaForm$Name, internArguments, void)},
-	{"isConstantZero", "()Z", nullptr, 0, $method(LambdaForm$Name, isConstantZero, bool)},
-	{"isInvokeBasic", "()Z", nullptr, 0, $method(LambdaForm$Name, isInvokeBasic, bool)},
-	{"isLinkerMethodInvoke", "()Z", nullptr, 0, $method(LambdaForm$Name, isLinkerMethodInvoke, bool)},
-	{"isParam", "()Z", nullptr, 0, $method(LambdaForm$Name, isParam, bool)},
-	{"lastUseIndex", "(Ljava/lang/invoke/LambdaForm$Name;)I", nullptr, 0, $method(LambdaForm$Name, lastUseIndex, int32_t, LambdaForm$Name*)},
-	{"newIndex", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaForm$Name, newIndex, LambdaForm$Name*, int32_t)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LambdaForm$Name, paramString, $String*)},
-	{"refersTo", "(Ljava/lang/Class;Ljava/lang/String;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;)Z", 0, $method(LambdaForm$Name, refersTo, bool, $Class*, $String*)},
-	{"replaceName", "(Ljava/lang/invoke/LambdaForm$Name;Ljava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaForm$Name, replaceName, LambdaForm$Name*, LambdaForm$Name*, LambdaForm$Name*)},
-	{"replaceNames", "([Ljava/lang/invoke/LambdaForm$Name;[Ljava/lang/invoke/LambdaForm$Name;II)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaForm$Name, replaceNames, LambdaForm$Name*, $LambdaForm$NameArray*, $LambdaForm$NameArray*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaForm$Name, toString, $String*)},
-	{"type", "()Ljava/lang/invoke/LambdaForm$BasicType;", nullptr, 0, $method(LambdaForm$Name, type, $LambdaForm$BasicType*)},
-	{"typeChar", "()C", nullptr, 0, $method(LambdaForm$Name, typeChar, char16_t)},
-	{"typesMatch", "(Ljava/lang/invoke/LambdaForm$NamedFunction;[Ljava/lang/Object;)Z", nullptr, $PRIVATE | $TRANSIENT, $method(LambdaForm$Name, typesMatch, bool, $LambdaForm$NamedFunction*, $ObjectArray*)},
-	{"typesMatch", "(Ljava/lang/invoke/LambdaForm$BasicType;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaForm$Name, typesMatch, bool, $LambdaForm$BasicType*, Object$*)},
-	{"useCount", "(Ljava/lang/invoke/LambdaForm$Name;)I", nullptr, 0, $method(LambdaForm$Name, useCount, int32_t, LambdaForm$Name*)},
-	{"withConstraint", "(Ljava/lang/Object;)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaForm$Name, withConstraint, LambdaForm$Name*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _LambdaForm$Name_InnerClassesInfo_[] = {
-	{"java.lang.invoke.LambdaForm$Name", "java.lang.invoke.LambdaForm", "Name", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LambdaForm$Name_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.LambdaForm$Name",
-	"java.lang.Object",
-	nullptr,
-	_LambdaForm$Name_FieldInfo_,
-	_LambdaForm$Name_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LambdaForm$Name_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.LambdaForm"
-};
-
-$Object* allocate$LambdaForm$Name($Class* clazz) {
-	return $of($alloc(LambdaForm$Name));
-}
-
 bool LambdaForm$Name::$assertionsDisabled = false;
 
 void LambdaForm$Name::init$(int32_t index, $LambdaForm$BasicType* type, $LambdaForm$NamedFunction* function, $ObjectArray* arguments) {
@@ -156,7 +72,7 @@ void LambdaForm$Name::init$($MethodHandle* function, $ObjectArray* arguments) {
 void LambdaForm$Name::init$($MethodType* functionType, $ObjectArray* arguments) {
 	LambdaForm$Name::init$($$new($LambdaForm$NamedFunction, functionType), arguments);
 	$init($LambdaForm$BasicType);
-	if (!LambdaForm$Name::$assertionsDisabled && !($instanceOf(LambdaForm$Name, $nc(arguments)->get(0)) && $nc(($cast(LambdaForm$Name, arguments->get(0))))->type$ == $LambdaForm$BasicType::L_TYPE)) {
+	if (!LambdaForm$Name::$assertionsDisabled && !($instanceOf(LambdaForm$Name, $nc(arguments)->get(0)) && $nc($cast(LambdaForm$Name, arguments->get(0)))->type$ == $LambdaForm$BasicType::L_TYPE)) {
 		$throwNew($AssertionError);
 	}
 }
@@ -166,12 +82,10 @@ void LambdaForm$Name::init$($MemberName* function, $ObjectArray* arguments) {
 }
 
 void LambdaForm$Name::init$($LambdaForm$NamedFunction* function, $ObjectArray* arguments$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, arguments, arguments$renamed);
 	$var($LambdaForm$BasicType, var$0, $nc(function)->returnType());
-	$var($LambdaForm$NamedFunction, var$1, function);
-	$load($ObjectArray);
-	LambdaForm$Name::init$(-1, var$0, var$1, $assign(arguments, $Arrays::copyOf(arguments, $nc(arguments)->length, $getClass($ObjectArray))));
+	LambdaForm$Name::init$(-1, var$0, function, $assign(arguments, $Arrays::copyOf(arguments, $nc(arguments)->length, $getClass($ObjectArray))));
 	if (!LambdaForm$Name::$assertionsDisabled && !(typesMatch(function, arguments))) {
 		$throwNew($AssertionError);
 	}
@@ -215,8 +129,8 @@ LambdaForm$Name* LambdaForm$Name::newIndex(int32_t i) {
 }
 
 LambdaForm$Name* LambdaForm$Name::cloneWithIndex(int32_t i) {
-	$useLocalCurrentObjectStackCache();
-	$var($ObjectArray, newArguments, (this->arguments == nullptr) ? ($ObjectArray*)nullptr : $cast($ObjectArray, $nc(this->arguments)->clone()));
+	$useLocalObjectStack();
+	$var($ObjectArray, newArguments, (this->arguments == nullptr) ? ($ObjectArray*)nullptr : $cast($ObjectArray, this->arguments->clone()));
 	return $$new(LambdaForm$Name, i, this->type$, this->function, newArguments)->withConstraint(this->constraint);
 }
 
@@ -252,7 +166,7 @@ LambdaForm$Name* LambdaForm$Name::replaceName(LambdaForm$Name* oldName, LambdaFo
 }
 
 LambdaForm$Name* LambdaForm$Name::replaceNames($LambdaForm$NameArray* oldNames, $LambdaForm$NameArray* newNames, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start >= end) {
 		return this;
 	}
@@ -283,7 +197,7 @@ LambdaForm$Name* LambdaForm$Name::replaceNames($LambdaForm$NameArray* oldNames, 
 							replaced = true;
 							$assign(arguments, $cast($ObjectArray, arguments->clone()));
 						}
-						arguments->set(j, $nc(newNames)->get(i));
+						arguments->set(j, newNames->get(i));
 						eachArg$continue = true;
 						break;
 					}
@@ -302,7 +216,7 @@ LambdaForm$Name* LambdaForm$Name::replaceNames($LambdaForm$NameArray* oldNames, 
 }
 
 void LambdaForm$Name::internArguments() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, arguments, this->arguments);
 	for (int32_t j = 0; j < $nc(arguments)->length; ++j) {
 		{
@@ -332,8 +246,8 @@ bool LambdaForm$Name::isConstantZero() {
 }
 
 bool LambdaForm$Name::refersTo($Class* declaringClass, $String* methodName) {
-	bool var$0 = this->function != nullptr && $nc(this->function)->member() != nullptr;
-	return var$0 && $nc($($nc(this->function)->member()))->refersTo(declaringClass, methodName);
+	bool var$0 = this->function != nullptr && this->function->member() != nullptr;
+	return var$0 && $$nc(this->function->member())->refersTo(declaringClass, methodName);
 }
 
 bool LambdaForm$Name::isInvokeBasic() {
@@ -351,7 +265,7 @@ bool LambdaForm$Name::isInvokeBasic() {
 }
 
 bool LambdaForm$Name::isLinkerMethodInvoke() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->function == nullptr) {
 		return false;
 	}
@@ -363,38 +277,39 @@ bool LambdaForm$Name::isLinkerMethodInvoke() {
 	bool var$2 = member != nullptr && member->getDeclaringClass() == $MethodHandle::class$;
 	bool var$1 = var$2 && !member->isPublic();
 	bool var$0 = var$1 && member->isStatic();
-	return var$0 && $nc($(member->getName()))->startsWith("linkTo"_s);
+	return var$0 && $$nc(member->getName())->startsWith("linkTo"_s);
 }
 
 $String* LambdaForm$Name::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, (isParam() ? "a"_s : "t"_s));
-	$var($String, var$1, $$concat(var$2, $$str((this->index$ >= 0 ? (int32_t)this->index$ : $System::identityHashCode(this)))));
-	$var($String, var$0, $$concat(var$1, ":"_s));
-	return $concat(var$0, $$str(typeChar()));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(isParam() ? "a"_s : "t"_s);
+	var$0->append(this->index$ >= 0 ? this->index$ : $System::identityHashCode(this));
+	var$0->append(":"_s);
+	var$0->append(typeChar());
+	return $str(var$0);
 }
 
 $String* LambdaForm$Name::debugString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, paramString());
 	return (this->function == nullptr) ? s : $str({s, "="_s, $(exprString())});
 }
 
 $String* LambdaForm$Name::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, toString());
 	$var($Object, c, this->constraint);
 	if (c == nullptr) {
 		return s;
 	}
 	if ($instanceOf($Class, c)) {
-		$assign(c, $nc(($cast($Class, c)))->getSimpleName());
+		$assign(c, $cast($Class, c)->getSimpleName());
 	}
 	return $str({s, "/"_s, c});
 }
 
 $String* LambdaForm$Name::exprString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->function == nullptr) {
 		return toString();
 	}
@@ -403,9 +318,7 @@ $String* LambdaForm$Name::exprString() {
 	$var($String, cma, ""_s);
 	{
 		$var($ObjectArray, arr$, this->arguments);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, a, arr$->get(i$));
 			{
 				buf->append(cma);
@@ -423,15 +336,31 @@ $String* LambdaForm$Name::exprString() {
 }
 
 bool LambdaForm$Name::typesMatch($LambdaForm$NamedFunction* function, $ObjectArray* arguments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!LambdaForm$Name::$assertionsDisabled && !($nc(arguments)->length == $nc(function)->arity())) {
-		$var($String, var$0, $$str({"arity mismatch: arguments.length="_s, $$str(arguments->length), " == function.arity()="_s, $$str(function->arity()), " in "_s}));
-		$throwNew($AssertionError, $of(($$concat(var$0, $(debugString())))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("arity mismatch: arguments.length="_s);
+		var$0->append(arguments->length);
+		var$0->append(" == function.arity()="_s);
+		var$0->append(function->arity());
+		var$0->append(" in "_s);
+		var$0->append($(debugString()));
+		$throwNew($AssertionError, $$of($str(var$0)));
 	}
 	for (int32_t i = 0; i < $nc(arguments)->length; ++i) {
 		if (!LambdaForm$Name::$assertionsDisabled && !(typesMatch($($nc(function)->parameterType(i)), arguments->get(i)))) {
-			$var($String, var$1, $$str({"types don\'t match: function.parameterType("_s, $$str(i), ")="_s, $($nc(function)->parameterType(i)), ", arguments["_s, $$str(i), "]="_s, arguments->get(i), " in "_s}));
-			$throwNew($AssertionError, $of(($$concat(var$1, $(debugString())))));
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append("types don\'t match: function.parameterType("_s);
+			var$1->append(i);
+			var$1->append(")="_s);
+			var$1->append($(function->parameterType(i)));
+			var$1->append(", arguments["_s);
+			var$1->append(i);
+			var$1->append("]="_s);
+			var$1->append(arguments->get(i));
+			var$1->append(" in "_s);
+			var$1->append($(debugString()));
+			$throwNew($AssertionError, $$of($str(var$1)));
 		}
 	}
 	return true;
@@ -440,26 +369,18 @@ bool LambdaForm$Name::typesMatch($LambdaForm$NamedFunction* function, $ObjectArr
 bool LambdaForm$Name::typesMatch($LambdaForm$BasicType* parameterType, Object$* object) {
 	$init(LambdaForm$Name);
 	if ($instanceOf(LambdaForm$Name, object)) {
-		return $nc(($cast(LambdaForm$Name, object)))->type$ == parameterType;
+		return $cast(LambdaForm$Name, object)->type$ == parameterType;
 	}
 	$init($LambdaForm$1);
 	switch ($nc($LambdaForm$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get($nc((parameterType))->ordinal())) {
 	case 1:
-		{
-			return $instanceOf($Integer, object);
-		}
+		return $instanceOf($Integer, object);
 	case 2:
-		{
-			return $instanceOf($Long, object);
-		}
+		return $instanceOf($Long, object);
 	case 3:
-		{
-			return $instanceOf($Float, object);
-		}
+		return $instanceOf($Float, object);
 	case 4:
-		{
-			return $instanceOf($Double, object);
-		}
+		return $instanceOf($Double, object);
 	}
 	if (!LambdaForm$Name::$assertionsDisabled && !(parameterType == $LambdaForm$BasicType::L_TYPE)) {
 		$throwNew($AssertionError);
@@ -472,7 +393,7 @@ int32_t LambdaForm$Name::lastUseIndex(LambdaForm$Name* n) {
 		return -1;
 	}
 	for (int32_t i = $nc(this->arguments)->length; --i >= 0;) {
-		if ($equals($nc(this->arguments)->get(i), n)) {
+		if ($equals(this->arguments->get(i), n)) {
 			return i;
 		}
 	}
@@ -480,20 +401,14 @@ int32_t LambdaForm$Name::lastUseIndex(LambdaForm$Name* n) {
 }
 
 int32_t LambdaForm$Name::useCount(LambdaForm$Name* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	if (this->arguments != nullptr) {
-		{
-			$var($ObjectArray, arr$, this->arguments);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Object0, argument, arr$->get(i$));
-				{
-					if ($equals(argument, n)) {
-						++count;
-					}
-				}
+		$var($ObjectArray, arr$, this->arguments);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Object0, argument, arr$->get(i$));
+			if ($equals(argument, n)) {
+				++count;
 			}
 		}
 	}
@@ -523,7 +438,7 @@ int32_t LambdaForm$Name::hashCode() {
 	return var$0 ^ $Arrays::hashCode(this->arguments);
 }
 
-void clinit$LambdaForm$Name($Class* class$) {
+void LambdaForm$Name::clinit$($Class* clazz) {
 	$load($LambdaForm);
 	LambdaForm$Name::$assertionsDisabled = !$LambdaForm::class$->desiredAssertionStatus();
 }
@@ -532,7 +447,82 @@ LambdaForm$Name::LambdaForm$Name() {
 }
 
 $Class* LambdaForm$Name::load$($String* name, bool initialize) {
-	$loadClass(LambdaForm$Name, name, initialize, &_LambdaForm$Name_ClassInfo_, clinit$LambdaForm$Name, allocate$LambdaForm$Name);
+	$CompoundAttribute indexfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute argumentsfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaForm$Name, $assertionsDisabled)},
+		{"type", "Ljava/lang/invoke/LambdaForm$BasicType;", nullptr, $FINAL, $field(LambdaForm$Name, type$)},
+		{"index", "S", nullptr, 0, $field(LambdaForm$Name, index$), indexfieldAnnotations$$},
+		{"function", "Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $FINAL, $field(LambdaForm$Name, function)},
+		{"constraint", "Ljava/lang/Object;", nullptr, $FINAL, $field(LambdaForm$Name, constraint)},
+		{"arguments", "[Ljava/lang/Object;", nullptr, $FINAL, $field(LambdaForm$Name, arguments), argumentsfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/invoke/LambdaForm$BasicType;Ljava/lang/invoke/LambdaForm$NamedFunction;[Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(LambdaForm$Name, init$, void, int32_t, $LambdaForm$BasicType*, $LambdaForm$NamedFunction*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/invoke/LambdaForm$Name;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(LambdaForm$Name, init$, void, LambdaForm$Name*, Object$*)},
+		{"<init>", "(Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(LambdaForm$Name, init$, void, $MethodHandle*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(LambdaForm$Name, init$, void, $MethodType*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/invoke/MemberName;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(LambdaForm$Name, init$, void, $MemberName*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/invoke/LambdaForm$NamedFunction;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(LambdaForm$Name, init$, void, $LambdaForm$NamedFunction*, $ObjectArray*)},
+		{"<init>", "(ILjava/lang/invoke/LambdaForm$BasicType;)V", nullptr, 0, $method(LambdaForm$Name, init$, void, int32_t, $LambdaForm$BasicType*)},
+		{"<init>", "(Ljava/lang/invoke/LambdaForm$BasicType;)V", nullptr, 0, $method(LambdaForm$Name, init$, void, $LambdaForm$BasicType*)},
+		{"cloneWithIndex", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaForm$Name, cloneWithIndex, LambdaForm$Name*, int32_t)},
+		{"debugString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LambdaForm$Name, debugString, $String*)},
+		{"equals", "(Ljava/lang/invoke/LambdaForm$Name;)Z", nullptr, $PUBLIC, $method(LambdaForm$Name, equals, bool, LambdaForm$Name*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LambdaForm$Name, equals, bool, Object$*)},
+		{"exprString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LambdaForm$Name, exprString, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LambdaForm$Name, hashCode, int32_t)},
+		{"index", "()I", nullptr, 0, $method(LambdaForm$Name, index, int32_t)},
+		{"initIndex", "(I)Z", nullptr, 0, $method(LambdaForm$Name, initIndex, bool, int32_t)},
+		{"internArguments", "()V", nullptr, 0, $method(LambdaForm$Name, internArguments, void)},
+		{"isConstantZero", "()Z", nullptr, 0, $method(LambdaForm$Name, isConstantZero, bool)},
+		{"isInvokeBasic", "()Z", nullptr, 0, $method(LambdaForm$Name, isInvokeBasic, bool)},
+		{"isLinkerMethodInvoke", "()Z", nullptr, 0, $method(LambdaForm$Name, isLinkerMethodInvoke, bool)},
+		{"isParam", "()Z", nullptr, 0, $method(LambdaForm$Name, isParam, bool)},
+		{"lastUseIndex", "(Ljava/lang/invoke/LambdaForm$Name;)I", nullptr, 0, $method(LambdaForm$Name, lastUseIndex, int32_t, LambdaForm$Name*)},
+		{"newIndex", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaForm$Name, newIndex, LambdaForm$Name*, int32_t)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LambdaForm$Name, paramString, $String*)},
+		{"refersTo", "(Ljava/lang/Class;Ljava/lang/String;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;)Z", 0, $method(LambdaForm$Name, refersTo, bool, $Class*, $String*)},
+		{"replaceName", "(Ljava/lang/invoke/LambdaForm$Name;Ljava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaForm$Name, replaceName, LambdaForm$Name*, LambdaForm$Name*, LambdaForm$Name*)},
+		{"replaceNames", "([Ljava/lang/invoke/LambdaForm$Name;[Ljava/lang/invoke/LambdaForm$Name;II)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaForm$Name, replaceNames, LambdaForm$Name*, $LambdaForm$NameArray*, $LambdaForm$NameArray*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaForm$Name, toString, $String*)},
+		{"type", "()Ljava/lang/invoke/LambdaForm$BasicType;", nullptr, 0, $method(LambdaForm$Name, type, $LambdaForm$BasicType*)},
+		{"typeChar", "()C", nullptr, 0, $method(LambdaForm$Name, typeChar, char16_t)},
+		{"typesMatch", "(Ljava/lang/invoke/LambdaForm$NamedFunction;[Ljava/lang/Object;)Z", nullptr, $PRIVATE | $TRANSIENT, $method(LambdaForm$Name, typesMatch, bool, $LambdaForm$NamedFunction*, $ObjectArray*)},
+		{"typesMatch", "(Ljava/lang/invoke/LambdaForm$BasicType;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LambdaForm$Name, typesMatch, bool, $LambdaForm$BasicType*, Object$*)},
+		{"useCount", "(Ljava/lang/invoke/LambdaForm$Name;)I", nullptr, 0, $method(LambdaForm$Name, useCount, int32_t, LambdaForm$Name*)},
+		{"withConstraint", "(Ljava/lang/Object;)Ljava/lang/invoke/LambdaForm$Name;", nullptr, 0, $method(LambdaForm$Name, withConstraint, LambdaForm$Name*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.LambdaForm$Name", "java.lang.invoke.LambdaForm", "Name", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.LambdaForm$Name",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.LambdaForm"
+	};
+	$loadClass(LambdaForm$Name, name, initialize, &classInfo$$, LambdaForm$Name::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaForm$Name);
+	});
 	return class$;
 }
 

@@ -43,9 +43,9 @@ public:
 	static const int32_t minute = 60000; // 60 * second
 	static const int32_t hour = 3600000; // 60 * minute
 	static const int32_t day = 86400000; // 24 * hour
-	static const int32_t month = 0x9A7EC800; // 30 * day
-	static const int32_t year = 0x57B12C00; // 365 * day
-	static const int32_t someday = 0x792AFC80; // 30 * year + 3 * month + 19 * day + 5 * hour
+	static const int32_t month = 0x9a7ec800; // 30 * day
+	static const int32_t year = 0x57b12c00; // 365 * day
+	static const int32_t someday = 0x792afc80; // 30 * year + 3 * month + 19 * day + 5 * hour
 };
 
 #pragma pop_macro("ID")

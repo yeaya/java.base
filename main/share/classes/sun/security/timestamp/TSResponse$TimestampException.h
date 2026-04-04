@@ -14,10 +14,13 @@ class $export TSResponse$TimestampException : public ::java::io::IOException {
 public:
 	TSResponse$TimestampException();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0xE95B4786FD3B9BA7;
+	static const int64_t serialVersionUID = (int64_t)0xe95b4786fd3b9ba7;
 	TSResponse$TimestampException(const TSResponse$TimestampException& e);
 	virtual void throw$() override;
-	inline TSResponse$TimestampException* operator ->() {
+	inline TSResponse$TimestampException* operator ->() const {
+		return (TSResponse$TimestampException*)throwing$;
+	}
+	inline operator TSResponse$TimestampException*() const {
 		return (TSResponse$TimestampException*)throwing$;
 	}
 };

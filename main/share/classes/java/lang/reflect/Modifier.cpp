@@ -1,5 +1,4 @@
 #include <java/lang/reflect/Modifier.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/util/StringJoiner.h>
@@ -42,173 +41,105 @@ namespace java {
 	namespace lang {
 		namespace reflect {
 
-$FieldInfo _Modifier_FieldInfo_[] = {
-	{"PUBLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, PUBLIC)},
-	{"PRIVATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, PRIVATE)},
-	{"PROTECTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, PROTECTED)},
-	{"STATIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, STATIC)},
-	{"FINAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, FINAL)},
-	{"SYNCHRONIZED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, SYNCHRONIZED)},
-	{"VOLATILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, VOLATILE)},
-	{"TRANSIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, TRANSIENT)},
-	{"NATIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, NATIVE)},
-	{"INTERFACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, INTERFACE)},
-	{"ABSTRACT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, ABSTRACT)},
-	{"STRICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, STRICT)},
-	{"BRIDGE", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, BRIDGE)},
-	{"VARARGS", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, VARARGS)},
-	{"SYNTHETIC", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, SYNTHETIC)},
-	{"ANNOTATION", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, ANNOTATION)},
-	{"ENUM", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, ENUM)},
-	{"MANDATED", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, MANDATED)},
-	{"CLASS_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, CLASS_MODIFIERS)},
-	{"INTERFACE_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, INTERFACE_MODIFIERS)},
-	{"CONSTRUCTOR_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, CONSTRUCTOR_MODIFIERS)},
-	{"METHOD_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, METHOD_MODIFIERS)},
-	{"FIELD_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, FIELD_MODIFIERS)},
-	{"PARAMETER_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, PARAMETER_MODIFIERS)},
-	{"ACCESS_MODIFIERS", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, ACCESS_MODIFIERS)},
-	{}
-};
-
-$MethodInfo _Modifier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Modifier, init$, void)},
-	{"classModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, classModifiers, int32_t)},
-	{"constructorModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, constructorModifiers, int32_t)},
-	{"fieldModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, fieldModifiers, int32_t)},
-	{"interfaceModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, interfaceModifiers, int32_t)},
-	{"isAbstract", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isAbstract, bool, int32_t)},
-	{"isFinal", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isFinal, bool, int32_t)},
-	{"isInterface", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isInterface, bool, int32_t)},
-	{"isMandated", "(I)Z", nullptr, $STATIC, $staticMethod(Modifier, isMandated, bool, int32_t)},
-	{"isNative", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isNative, bool, int32_t)},
-	{"isPrivate", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isPrivate, bool, int32_t)},
-	{"isProtected", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isProtected, bool, int32_t)},
-	{"isPublic", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isPublic, bool, int32_t)},
-	{"isStatic", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isStatic, bool, int32_t)},
-	{"isStrict", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isStrict, bool, int32_t)},
-	{"isSynchronized", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isSynchronized, bool, int32_t)},
-	{"isSynthetic", "(I)Z", nullptr, $STATIC, $staticMethod(Modifier, isSynthetic, bool, int32_t)},
-	{"isTransient", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isTransient, bool, int32_t)},
-	{"isVolatile", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isVolatile, bool, int32_t)},
-	{"methodModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, methodModifiers, int32_t)},
-	{"parameterModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, parameterModifiers, int32_t)},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, toString, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _Modifier_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.reflect.Modifier",
-	"java.lang.Object",
-	nullptr,
-	_Modifier_FieldInfo_,
-	_Modifier_MethodInfo_
-};
-
-$Object* allocate$Modifier($Class* clazz) {
-	return $of($alloc(Modifier));
-}
-
 void Modifier::init$() {
 	$throwNew($AssertionError);
 }
 
 bool Modifier::isPublic(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::PUBLIC)) != 0;
+	return (mod & Modifier::PUBLIC) != 0;
 }
 
 bool Modifier::isPrivate(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::PRIVATE)) != 0;
+	return (mod & Modifier::PRIVATE) != 0;
 }
 
 bool Modifier::isProtected(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::PROTECTED)) != 0;
+	return (mod & Modifier::PROTECTED) != 0;
 }
 
 bool Modifier::isStatic(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::STATIC)) != 0;
+	return (mod & Modifier::STATIC) != 0;
 }
 
 bool Modifier::isFinal(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::FINAL)) != 0;
+	return (mod & Modifier::FINAL) != 0;
 }
 
 bool Modifier::isSynchronized(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::SYNCHRONIZED)) != 0;
+	return (mod & Modifier::SYNCHRONIZED) != 0;
 }
 
 bool Modifier::isVolatile(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::VOLATILE)) != 0;
+	return (mod & Modifier::VOLATILE) != 0;
 }
 
 bool Modifier::isTransient(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::TRANSIENT)) != 0;
+	return (mod & Modifier::TRANSIENT) != 0;
 }
 
 bool Modifier::isNative(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::NATIVE)) != 0;
+	return (mod & Modifier::NATIVE) != 0;
 }
 
 bool Modifier::isInterface(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::INTERFACE)) != 0;
+	return (mod & Modifier::INTERFACE) != 0;
 }
 
 bool Modifier::isAbstract(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::ABSTRACT)) != 0;
+	return (mod & Modifier::ABSTRACT) != 0;
 }
 
 bool Modifier::isStrict(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::STRICT)) != 0;
+	return (mod & Modifier::STRICT) != 0;
 }
 
 $String* Modifier::toString(int32_t mod) {
 	$var($StringJoiner, sj, $new($StringJoiner, " "_s));
-	if (((int32_t)(mod & (uint32_t)Modifier::PUBLIC)) != 0) {
+	if ((mod & Modifier::PUBLIC) != 0) {
 		sj->add("public"_s);
 	}
-	if (((int32_t)(mod & (uint32_t)Modifier::PROTECTED)) != 0) {
+	if ((mod & Modifier::PROTECTED) != 0) {
 		sj->add("protected"_s);
 	}
-	if (((int32_t)(mod & (uint32_t)Modifier::PRIVATE)) != 0) {
+	if ((mod & Modifier::PRIVATE) != 0) {
 		sj->add("private"_s);
 	}
-	if (((int32_t)(mod & (uint32_t)Modifier::ABSTRACT)) != 0) {
+	if ((mod & Modifier::ABSTRACT) != 0) {
 		sj->add("abstract"_s);
 	}
-	if (((int32_t)(mod & (uint32_t)Modifier::STATIC)) != 0) {
+	if ((mod & Modifier::STATIC) != 0) {
 		sj->add("static"_s);
 	}
-	if (((int32_t)(mod & (uint32_t)Modifier::FINAL)) != 0) {
+	if ((mod & Modifier::FINAL) != 0) {
 		sj->add("final"_s);
 	}
-	if (((int32_t)(mod & (uint32_t)Modifier::TRANSIENT)) != 0) {
+	if ((mod & Modifier::TRANSIENT) != 0) {
 		sj->add("transient"_s);
 	}
-	if (((int32_t)(mod & (uint32_t)Modifier::VOLATILE)) != 0) {
+	if ((mod & Modifier::VOLATILE) != 0) {
 		sj->add("volatile"_s);
 	}
-	if (((int32_t)(mod & (uint32_t)Modifier::SYNCHRONIZED)) != 0) {
+	if ((mod & Modifier::SYNCHRONIZED) != 0) {
 		sj->add("synchronized"_s);
 	}
-	if (((int32_t)(mod & (uint32_t)Modifier::NATIVE)) != 0) {
+	if ((mod & Modifier::NATIVE) != 0) {
 		sj->add("native"_s);
 	}
-	if (((int32_t)(mod & (uint32_t)Modifier::STRICT)) != 0) {
+	if ((mod & Modifier::STRICT) != 0) {
 		sj->add("strictfp"_s);
 	}
-	if (((int32_t)(mod & (uint32_t)Modifier::INTERFACE)) != 0) {
+	if ((mod & Modifier::INTERFACE) != 0) {
 		sj->add("interface"_s);
 	}
 	return sj->toString();
 }
 
 bool Modifier::isSynthetic(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::SYNTHETIC)) != 0;
+	return (mod & Modifier::SYNTHETIC) != 0;
 }
 
 bool Modifier::isMandated(int32_t mod) {
-	return ((int32_t)(mod & (uint32_t)Modifier::MANDATED)) != 0;
+	return (mod & Modifier::MANDATED) != 0;
 }
 
 int32_t Modifier::classModifiers() {
@@ -239,7 +170,70 @@ Modifier::Modifier() {
 }
 
 $Class* Modifier::load$($String* name, bool initialize) {
-	$loadClass(Modifier, name, initialize, &_Modifier_ClassInfo_, allocate$Modifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"PUBLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, PUBLIC)},
+		{"PRIVATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, PRIVATE)},
+		{"PROTECTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, PROTECTED)},
+		{"STATIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, STATIC)},
+		{"FINAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, FINAL)},
+		{"SYNCHRONIZED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, SYNCHRONIZED)},
+		{"VOLATILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, VOLATILE)},
+		{"TRANSIENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, TRANSIENT)},
+		{"NATIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, NATIVE)},
+		{"INTERFACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, INTERFACE)},
+		{"ABSTRACT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, ABSTRACT)},
+		{"STRICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Modifier, STRICT)},
+		{"BRIDGE", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, BRIDGE)},
+		{"VARARGS", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, VARARGS)},
+		{"SYNTHETIC", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, SYNTHETIC)},
+		{"ANNOTATION", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, ANNOTATION)},
+		{"ENUM", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, ENUM)},
+		{"MANDATED", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, MANDATED)},
+		{"CLASS_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, CLASS_MODIFIERS)},
+		{"INTERFACE_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, INTERFACE_MODIFIERS)},
+		{"CONSTRUCTOR_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, CONSTRUCTOR_MODIFIERS)},
+		{"METHOD_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, METHOD_MODIFIERS)},
+		{"FIELD_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, FIELD_MODIFIERS)},
+		{"PARAMETER_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Modifier, PARAMETER_MODIFIERS)},
+		{"ACCESS_MODIFIERS", "I", nullptr, $STATIC | $FINAL, $constField(Modifier, ACCESS_MODIFIERS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Modifier, init$, void)},
+		{"classModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, classModifiers, int32_t)},
+		{"constructorModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, constructorModifiers, int32_t)},
+		{"fieldModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, fieldModifiers, int32_t)},
+		{"interfaceModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, interfaceModifiers, int32_t)},
+		{"isAbstract", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isAbstract, bool, int32_t)},
+		{"isFinal", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isFinal, bool, int32_t)},
+		{"isInterface", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isInterface, bool, int32_t)},
+		{"isMandated", "(I)Z", nullptr, $STATIC, $staticMethod(Modifier, isMandated, bool, int32_t)},
+		{"isNative", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isNative, bool, int32_t)},
+		{"isPrivate", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isPrivate, bool, int32_t)},
+		{"isProtected", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isProtected, bool, int32_t)},
+		{"isPublic", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isPublic, bool, int32_t)},
+		{"isStatic", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isStatic, bool, int32_t)},
+		{"isStrict", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isStrict, bool, int32_t)},
+		{"isSynchronized", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isSynchronized, bool, int32_t)},
+		{"isSynthetic", "(I)Z", nullptr, $STATIC, $staticMethod(Modifier, isSynthetic, bool, int32_t)},
+		{"isTransient", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isTransient, bool, int32_t)},
+		{"isVolatile", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, isVolatile, bool, int32_t)},
+		{"methodModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, methodModifiers, int32_t)},
+		{"parameterModifiers", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, parameterModifiers, int32_t)},
+		{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, toString, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.reflect.Modifier",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Modifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modifier);
+	});
 	return class$;
 }
 

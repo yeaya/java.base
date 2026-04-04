@@ -1,5 +1,4 @@
 #include <java/nio/StringCharBuffer.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
@@ -30,53 +29,9 @@ using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy
 namespace java {
 	namespace nio {
 
-$FieldInfo _StringCharBuffer_FieldInfo_[] = {
-	{"str", "Ljava/lang/CharSequence;", nullptr, 0, $field(StringCharBuffer, str)},
-	{}
-};
-
-$MethodInfo _StringCharBuffer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/CharSequence;II)V", nullptr, 0, $method(StringCharBuffer, init$, void, $CharSequence*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/CharSequence;IIIII)V", nullptr, $PRIVATE, $method(StringCharBuffer, init$, void, $CharSequence*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"asReadOnlyBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, asReadOnlyBuffer, $CharBuffer*)},
-	{"charRegionOrder", "()Ljava/nio/ByteOrder;", nullptr, 0, $virtualMethod(StringCharBuffer, charRegionOrder, $ByteOrder*)},
-	{"compact", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, compact, $CharBuffer*)},
-	{"compareTo", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, compareTo, int32_t, $CharBuffer*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringCharBuffer, compareTo, int32_t, Object$*)},
-	{"duplicate", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, duplicate, $CharBuffer*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, equals, bool, Object$*)},
-	{"get", "()C", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, get, char16_t)},
-	{"get", "(I)C", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, get, char16_t, int32_t)},
-	{"getUnchecked", "(I)C", nullptr, 0, $virtualMethod(StringCharBuffer, getUnchecked, char16_t, int32_t)},
-	{"isAddressable", "()Z", nullptr, 0, $virtualMethod(StringCharBuffer, isAddressable, bool)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, order, $ByteOrder*)},
-	{"put", "(C)Ljava/nio/CharBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, put, $CharBuffer*, char16_t)},
-	{"put", "(IC)Ljava/nio/CharBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, put, $CharBuffer*, int32_t, char16_t)},
-	{"slice", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, slice, $CharBuffer*)},
-	{"slice", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, slice, $CharBuffer*, int32_t, int32_t)},
-	{"subSequence", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, subSequence, $CharSequence*, int32_t, int32_t)},
-	{"toString", "(II)Ljava/lang/String;", nullptr, $FINAL, $virtualMethod(StringCharBuffer, toString, $String*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _StringCharBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.StringCharBuffer",
-	"java.nio.CharBuffer",
-	nullptr,
-	_StringCharBuffer_FieldInfo_,
-	_StringCharBuffer_MethodInfo_
-};
-
-$Object* allocate$StringCharBuffer($Class* clazz) {
-	return $of($alloc(StringCharBuffer));
-}
-
 void StringCharBuffer::init$($CharSequence* s, int32_t start, int32_t end) {
 	$CharBuffer::init$(-1, start, end, $nc(s)->length(), nullptr);
-	int32_t n = $nc(s)->length();
+	int32_t n = s->length();
 	$Objects::checkFromToIndex(start, end, n);
 	$set(this, str, s);
 	this->$CharBuffer::isReadOnly$ = true;
@@ -144,7 +99,7 @@ bool StringCharBuffer::isReadOnly() {
 }
 
 $String* StringCharBuffer::toString(int32_t start, int32_t end) {
-	return $nc($($nc(this->str)->subSequence(start + this->offset, end + this->offset)))->toString();
+	return $$nc($nc(this->str)->subSequence(start + this->offset, end + this->offset))->toString();
 }
 
 $CharSequence* StringCharBuffer::subSequence(int32_t start, int32_t end) {
@@ -196,7 +151,7 @@ bool StringCharBuffer::equals(Object$* ob) {
 	if (thisRem < 0 || thisRem != thatRem) {
 		return false;
 	}
-	return $BufferMismatch::mismatch(static_cast<$CharBuffer*>(this), thisPos, that, thatPos, thisRem) < 0;
+	return $BufferMismatch::mismatch(this, thisPos, that, thatPos, thisRem) < 0;
 }
 
 int32_t StringCharBuffer::compareTo($CharBuffer* that) {
@@ -208,7 +163,7 @@ int32_t StringCharBuffer::compareTo($CharBuffer* that) {
 	if (length < 0) {
 		return -1;
 	}
-	int32_t i = $BufferMismatch::mismatch(static_cast<$CharBuffer*>(this), thisPos, that, thatPos, length);
+	int32_t i = $BufferMismatch::mismatch(this, thisPos, that, thatPos, length);
 	if (i >= 0) {
 		char16_t var$0 = this->get(thisPos + i);
 		return $Character::compare(var$0, that->get(thatPos + i));
@@ -224,7 +179,46 @@ StringCharBuffer::StringCharBuffer() {
 }
 
 $Class* StringCharBuffer::load$($String* name, bool initialize) {
-	$loadClass(StringCharBuffer, name, initialize, &_StringCharBuffer_ClassInfo_, allocate$StringCharBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"str", "Ljava/lang/CharSequence;", nullptr, 0, $field(StringCharBuffer, str)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/CharSequence;II)V", nullptr, 0, $method(StringCharBuffer, init$, void, $CharSequence*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/CharSequence;IIIII)V", nullptr, $PRIVATE, $method(StringCharBuffer, init$, void, $CharSequence*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"asReadOnlyBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, asReadOnlyBuffer, $CharBuffer*)},
+		{"charRegionOrder", "()Ljava/nio/ByteOrder;", nullptr, 0, $virtualMethod(StringCharBuffer, charRegionOrder, $ByteOrder*)},
+		{"compact", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, compact, $CharBuffer*)},
+		{"compareTo", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, compareTo, int32_t, $CharBuffer*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringCharBuffer, compareTo, int32_t, Object$*)},
+		{"duplicate", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, duplicate, $CharBuffer*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, equals, bool, Object$*)},
+		{"get", "()C", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, get, char16_t)},
+		{"get", "(I)C", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, get, char16_t, int32_t)},
+		{"getUnchecked", "(I)C", nullptr, 0, $virtualMethod(StringCharBuffer, getUnchecked, char16_t, int32_t)},
+		{"isAddressable", "()Z", nullptr, 0, $virtualMethod(StringCharBuffer, isAddressable, bool)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, order, $ByteOrder*)},
+		{"put", "(C)Ljava/nio/CharBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, put, $CharBuffer*, char16_t)},
+		{"put", "(IC)Ljava/nio/CharBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, put, $CharBuffer*, int32_t, char16_t)},
+		{"slice", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, slice, $CharBuffer*)},
+		{"slice", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(StringCharBuffer, slice, $CharBuffer*, int32_t, int32_t)},
+		{"subSequence", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringCharBuffer, subSequence, $CharSequence*, int32_t, int32_t)},
+		{"toString", "(II)Ljava/lang/String;", nullptr, $FINAL, $virtualMethod(StringCharBuffer, toString, $String*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.StringCharBuffer",
+		"java.nio.CharBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringCharBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringCharBuffer));
+	});
 	return class$;
 }
 

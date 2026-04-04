@@ -1,5 +1,4 @@
 #include <java/security/cert/CertPathBuilderException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _CertPathBuilderException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertPathBuilderException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CertPathBuilderException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _CertPathBuilderException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.cert.CertPathBuilderException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_CertPathBuilderException_FieldInfo_,
-	_CertPathBuilderException_MethodInfo_
-};
-
-$Object* allocate$CertPathBuilderException($Class* clazz) {
-	return $of($alloc(CertPathBuilderException));
-}
 
 void CertPathBuilderException::init$() {
 	$GeneralSecurityException::init$();
@@ -65,7 +38,28 @@ void CertPathBuilderException::throw$() {
 }
 
 $Class* CertPathBuilderException::load$($String* name, bool initialize) {
-	$loadClass(CertPathBuilderException, name, initialize, &_CertPathBuilderException_ClassInfo_, allocate$CertPathBuilderException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertPathBuilderException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.cert.CertPathBuilderException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertPathBuilderException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertPathBuilderException);
+	});
 	return class$;
 }
 

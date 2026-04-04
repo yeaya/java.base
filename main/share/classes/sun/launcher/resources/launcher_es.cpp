@@ -1,5 +1,4 @@
 #include <sun/launcher/resources/launcher_es.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -12,134 +11,115 @@ namespace sun {
 	namespace launcher {
 		namespace resources {
 
-$MethodInfo _launcher_es_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(launcher_es, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(launcher_es, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _launcher_es_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.launcher.resources.launcher_es",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_launcher_es_MethodInfo_
-};
-
-$Object* allocate$launcher_es($Class* clazz) {
-	return $of($alloc(launcher_es));
-}
-
 void launcher_es::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* launcher_es::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("java.launcher.X.macosx.usage"_s),
-			$of(u"\nLas siguientes opciones son específicas para Mac OS X:\n    -XstartOnFirstThread\n                      ejecutar el método main() del primer thread (AppKit)\n    -Xdock:name=<application name>\n                      sustituir al nombre por defecto de la aplicación que se muestra en el Dock\n    -Xdock:icon=<ruta de acceso a archivo de icono>\n                      sustituir al icono por defecto que se muestra en el Dock\n\n"_s)
+			"java.launcher.X.macosx.usage"_s,
+			u"\nLas siguientes opciones son específicas para Mac OS X:\n    -XstartOnFirstThread\n                      ejecutar el método main() del primer thread (AppKit)\n    -Xdock:name=<application name>\n                      sustituir al nombre por defecto de la aplicación que se muestra en el Dock\n    -Xdock:icon=<ruta de acceso a archivo de icono>\n                      sustituir al icono por defecto que se muestra en el Dock\n\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.X.usage"_s),
-			$of(u"-Xbatch           desactivar compilación de fondo\n    -Xbootclasspath/a:<directorios y archivos zip/jar separados por {0}>\n                      agregar al final de la ruta de clase de inicialización de datos\n    -Xcheck:jni       realizar comprobaciones adicionales para las funciones de JNI\n    -Xcomp            fuerza la compilación de métodos en la primera llamada\n    -Xdebug           se proporciona para ofrecer compatibilidad con versiones anteriores\n    -Xdiag            mostrar mensajes de diagnóstico adicionales\n    -Xfuture          activar las comprobaciones más estrictas, anticipándose al futuro valor por defecto\n    -Xint             solo ejecución de modo interpretado\n    -Xinternalversionn\n                      muestra información de la versión de JVM más detallada que la\n                      opción -version\n    -Xloggc:    registrar el estado de GC en un archivo con registros de hora\n    -Xmixed           ejecución de modo mixto (por defecto)\n    -Xmn<tamaño>        define el tamaño inicial y "
+			"java.launcher.X.usage"_s,
+			u"-Xbatch           desactivar compilación de fondo\n    -Xbootclasspath/a:<directorios y archivos zip/jar separados por {0}>\n                      agregar al final de la ruta de clase de inicialización de datos\n    -Xcheck:jni       realizar comprobaciones adicionales para las funciones de JNI\n    -Xcomp            fuerza la compilación de métodos en la primera llamada\n    -Xdebug           se proporciona para ofrecer compatibilidad con versiones anteriores\n    -Xdiag            mostrar mensajes de diagnóstico adicionales\n    -Xfuture          activar las comprobaciones más estrictas, anticipándose al futuro valor por defecto\n    -Xint             solo ejecución de modo interpretado\n    -Xinternalversionn\n                      muestra información de la versión de JVM más detallada que la\n                      opción -version\n    -Xloggc:    registrar el estado de GC en un archivo con registros de hora\n    -Xmixed           ejecución de modo mixto (por defecto)\n    -Xmn<tamaño>        define el tamaño inicial y "
 				"máximo (en bytes) de la pila\n                      para la generación más joven (incubadora)\n    -Xms<size>        define el tamaño inicial de la pila de Java\n    -Xmx<size>        define el tamaño máximo de la pila de Java\n    -Xnoclassgc       desactivar la recolección de basura de clases\n    -Xrs              reducir el uso de señales de sistema operativo por parte de Java/VM (consulte la documentación)\n    -Xshare:auto      usar datos de clase compartidos si es posible (valor por defecto)\n    -Xshare:off       no intentar usar datos de clase compartidos\n    -Xshare:on        es obligatorio el uso de datos de clase compartidos, de lo contrario se producirá un fallo.\n    -XshowSettings    mostrar toda la configuración y continuar\n    -XshowSettings:all\n                      mostrar todos los valores y continuar\n    -XshowSettings:locale\n                      mostrar todos los valores relacionados con la configuración regional y continuar\n    -XshowSettings:properties\n                      mostrar todos los "
 				"valores de propiedad y continuar\n    -XshowSettings:vm mostrar todos los valores relacionados con vm y continuar\n    -Xss<tamaño>        definir tamaño de la pila del thread de Java\n    -Xverify          define el modo del verificador de código de bytes\n    --add-reads <módulo>=<módulo-destino>(,<módulo-destino>)*\n                      actualiza <módulo> para leer <módulo-destino>, independientemente\n                      de la declaración del módulo. \n                      <módulo-destino> puede ser ALL-UNNAMED para leer todos los\n                      módulos sin nombre.\n    --add-exports <módulo>/<paquete>=<módulo-destino>(,<módulo-destino>)*\n                      actualiza <módulo> para exportar <paquete> en <módulo-destino>,\n                      independientemente de la declaración del módulo.\n                      <módulo-destino> puede ser ALL-UNNAMED para exportar a todos los\n                      módulos sin nombre.\n    --add-opens <módulo>/<paquete>=<módulo-destino>(,<módulo-destino>)*\n            "
-				"          actualiza <módulo> para abrir <paquete> en\n                      <módulo-destino>, independientemente de la declaración del módulo.\n    --illegal-access=<valor>\n                      permitir or denegar el acceso a miembros de tipos en módulos con nombre.\n                      por código en módulos sin nombre.\n                      <value> es \"denegar\", \"permitir\", \"advertir\" o \"depurar\"\n                      Esta opción se eliminará en la próxima versión.\n    --limit-modules <nombre módulo>[,<nombre módulo>...]\n       limitar el universo de módulos observables\n    --patch-module <módulo>=({0})*\n                      aumentar o anular un módulo con clases y recursos\n                      en directorios o archivos JAR\n\nEstas opciones están sujetas a cambio sin previo aviso."_s)
+				"          actualiza <módulo> para abrir <paquete> en\n                      <módulo-destino>, independientemente de la declaración del módulo.\n    --illegal-access=<valor>\n                      permitir or denegar el acceso a miembros de tipos en módulos con nombre.\n                      por código en módulos sin nombre.\n                      <value> es \"denegar\", \"permitir\", \"advertir\" o \"depurar\"\n                      Esta opción se eliminará en la próxima versión.\n    --limit-modules <nombre módulo>[,<nombre módulo>...]\n       limitar el universo de módulos observables\n    --patch-module <módulo>=({0})*\n                      aumentar o anular un módulo con clases y recursos\n                      en directorios o archivos JAR\n\nEstas opciones están sujetas a cambio sin previo aviso."_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error1"_s),
-			$of("Error: no se ha encontrado o cargado la clase principal {0}\nCausado por: {1}: {2}"_s)
+			"java.launcher.cls.error1"_s,
+			"Error: no se ha encontrado o cargado la clase principal {0}\nCausado por: {1}: {2}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error2"_s),
-			$of(u"Error: el método principal no es {0} en la clase {1}, defina el método principal del siguiente modo:\n   public static void main(String[] args)"_s)
+			"java.launcher.cls.error2"_s,
+			u"Error: el método principal no es {0} en la clase {1}, defina el método principal del siguiente modo:\n   public static void main(String[] args)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error3"_s),
-			$of(u"Error: el método principal debe devolver un valor del tipo void en la clase {0}, \ndefina el método principal del siguiente modo:\n   public static void main(String[] args)"_s)
+			"java.launcher.cls.error3"_s,
+			u"Error: el método principal debe devolver un valor del tipo void en la clase {0}, \ndefina el método principal del siguiente modo:\n   public static void main(String[] args)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error4"_s),
-			$of(u"Error: no se ha encontrado el método principal en la clase {0}, defina el método principal del siguiente modo:\\n   public static void main(String[] args)\\nde lo contrario, se deberá ampliar una clase de aplicación JavaFX {1}"_s)
+			"java.launcher.cls.error4"_s,
+			u"Error: no se ha encontrado el método principal en la clase {0}, defina el método principal del siguiente modo:\\n   public static void main(String[] args)\\nde lo contrario, se deberá ampliar una clase de aplicación JavaFX {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error5"_s),
-			$of(u"Error: faltan los componentes de JavaFX runtime y son necesarios para ejecutar esta aplicación"_s)
+			"java.launcher.cls.error5"_s,
+			u"Error: faltan los componentes de JavaFX runtime y son necesarios para ejecutar esta aplicación"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error6"_s),
-			$of("Error: Se ha producido un error de enlace al cargar la clase principal {0}\n\t{1}"_s)
+			"java.launcher.cls.error6"_s,
+			"Error: Se ha producido un error de enlace al cargar la clase principal {0}\n\t{1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error7"_s),
-			$of("Error: no se ha podido inicializar la clase principal {0}\nCausado por: {1}: {2}"_s)
+			"java.launcher.cls.error7"_s,
+			"Error: no se ha podido inicializar la clase principal {0}\nCausado por: {1}: {2}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.init.error"_s),
-			$of(u"error de inicialización"_s)
+			"java.launcher.init.error"_s,
+			u"error de inicialización"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.jar.error1"_s),
-			$of("Error: se ha producido un error inesperado al intentar abrir el archivo {0}"_s)
+			"java.launcher.jar.error1"_s,
+			"Error: se ha producido un error inesperado al intentar abrir el archivo {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.jar.error2"_s),
-			$of("no se ha encontrado el manifiesto en {0}"_s)
+			"java.launcher.jar.error2"_s,
+			"no se ha encontrado el manifiesto en {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.jar.error3"_s),
-			$of(u"no hay ningún atributo de manifiesto principal en {0}"_s)
+			"java.launcher.jar.error3"_s,
+			u"no hay ningún atributo de manifiesto principal en {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.jar.error4"_s),
-			$of("error al cargar el agente de java en {0}"_s)
+			"java.launcher.jar.error4"_s,
+			"error al cargar el agente de java en {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.javafx.error1"_s),
-			$of(u"Error: el método launchApplication de JavaFX tiene una firma que no es correcta.\\nSe debe declarar estático y devolver un valor de tipo nulo"_s)
+			"java.launcher.javafx.error1"_s,
+			u"Error: el método launchApplication de JavaFX tiene una firma que no es correcta.\\nSe debe declarar estático y devolver un valor de tipo nulo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.module.error1"_s),
-			$of(u"el módulo {0} no tiene ningún atributo MainClass, utilice -m <módulo>/<clase-principal>"_s)
+			"java.launcher.module.error1"_s,
+			u"el módulo {0} no tiene ningún atributo MainClass, utilice -m <módulo>/<clase-principal>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.module.error2"_s),
-			$of(u"Error: no se ha encontrado o cargado la clase principal {0} en el módulo {1}"_s)
+			"java.launcher.module.error2"_s,
+			u"Error: no se ha encontrado o cargado la clase principal {0} en el módulo {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.module.error3"_s),
-			$of(u"Error: no se ha podido cargar la clase principal {0} del módulo {1}\n\t{2}"_s)
+			"java.launcher.module.error3"_s,
+			u"Error: no se ha podido cargar la clase principal {0} del módulo {1}\n\t{2}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.module.error4"_s),
-			$of("No se ha encontrado {0}"_s)
+			"java.launcher.module.error4"_s,
+			"No se ha encontrado {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.module.error5"_s),
-			$of(u"Error: no se ha podido inicializar la clase principal {0} del módulo {1}\nCausado por: {1}: {2}"_s)
+			"java.launcher.module.error5"_s,
+			u"Error: no se ha podido inicializar la clase principal {0} del módulo {1}\nCausado por: {1}: {2}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.opt.footer"_s),
-			$of(u"    -cp <ruta de búsqueda de clase de directorios y archivos zip/jar>\n    -classpath <ruta de búsqueda de clase de directorios y archivos zip/jar>\n    --class-path <ruta de búsqueda de clase de directorios y archivos zip/jar>\n                  Una lista separada por el carácter {0}, archivos JAR\n                  y archivos ZIP para buscar archivos de clases.\n    -p <ruta módulo>\n    --module-path <ruta módulo>...\n                  Una lista de directorios separada por el carácter {0}, cada directorio\n                  es un directorio de módulos.\n    --upgrade-module-path <ruta módulo>...\n                  Una lista de directorios separada por el carácter {0}, cada directorio\n                  es un directorio de módulos que sustituye a\n                  los módulos actualizables en la imagen de tiempo de ejecución\n    --add-modules <nombre módulo>[,<nombre módulo>...]\n                  módulos de raíz que resolver, además del módulo inicial.\n                  <nombre módulo> también puede ser ALL-DEFAULT, A"
+			"java.launcher.opt.footer"_s,
+			u"    -cp <ruta de búsqueda de clase de directorios y archivos zip/jar>\n    -classpath <ruta de búsqueda de clase de directorios y archivos zip/jar>\n    --class-path <ruta de búsqueda de clase de directorios y archivos zip/jar>\n                  Una lista separada por el carácter {0}, archivos JAR\n                  y archivos ZIP para buscar archivos de clases.\n    -p <ruta módulo>\n    --module-path <ruta módulo>...\n                  Una lista de directorios separada por el carácter {0}, cada directorio\n                  es un directorio de módulos.\n    --upgrade-module-path <ruta módulo>...\n                  Una lista de directorios separada por el carácter {0}, cada directorio\n                  es un directorio de módulos que sustituye a\n                  los módulos actualizables en la imagen de tiempo de ejecución\n    --add-modules <nombre módulo>[,<nombre módulo>...]\n                  módulos de raíz que resolver, además del módulo inicial.\n                  <nombre módulo> también puede ser ALL-DEFAULT, A"
 				"LL-SYSTEM,\n                  ALL-MODULE-PATH.\n    --list-modules\n                  mostrar módulos observables y salir\n    -d <nombre de módulo>\n    --describe-module <nombre módulo>\n                  describir un módulo y salir\n    --dry-run     crear VM y cargar la clase principal pero sin ejecutar el método principal.\n                  La opción --dry-run puede ser útil para validar\n                  las opciones de línea de comandos, como la configuración del sistema de módulos.\n    --validate-modules\n                  validar todos los módulos y salir\n                  La opción --validate-modules puede ser útil para encontrar\n                  conflictos y otros errores con módulos en la ruta de módulos.\n    -D<nombre>=<valor>\n                  definir una propiedad de sistema\n    -verbose:[class|module|gc|jni]\n                  activar la salida en modo verbose\n    -version      imprimir versión de producto en el flujo de errores y salir\n    --version     imprimir versión de producto en el flujo de sal"
 				"ida y salir\n    -showversion  imprimir versión de producto en el flujo de errores y continuar\n    --show-version\n                  -showversion  imprimir versión de producto en el flujo de salida y continuar\n    --show-module-resolution\n                  mostrar la salida de resolución de módulo durante el inicio\n    -? -h -help\n                  imprimir este mensaje de ayuda en el flujo de errores\n    --help        imprimir este mensaje de ayuda en el flujo de salida\n    -X            imprimir ayuda de opciones adicionales en el flujo de errores\n    --help-extra  imprimir ayuda de opciones adicionales en el flujo de salida\n    -ea[:<nombre paquete>...|:<nombre clase>]\n    -enableassertions[:<nombre paquete>...|:<nombre clase>]\n                  activar afirmaciones con una granularidad especificada\n    -da[:<nombre paquete>...|:<nombre clase>]\n    -disableassertions[:<nombre paquete>...|:<nombre clase>]\n                  desactivar afirmaciones con una granularidad especificada\n    -esa | -enablesystemasser"
 				"tions\n                  activar afirmaciones del sistema\n    -dsa | -disablesystemassertions\n                  desactivar afirmaciones del sistema\n    -agentlib:<nombre bib>[=<opciones>]\n                  cargar biblioteca de agente nativo <nombre bib>, por ejemplo, -agentlib:jdwp\n                  ver también -agentlib:jdwp=help\n    -agentpath:<nombre ruta>[=<opciones>]\n                  cargar biblioteca de agente nativo por nombre completo de ruta\n    -javaagent:<ruta jar>[=<opciones>]\n                  cargar agente de lenguaje de programación Java, ver java.lang.instrument\n    -splash:<ruta imagen>\n       mostrar pantalla de presentación con imagen especificada\n                  Las imágenes a escala HiDPI están soportadas y se usan automáticamente\n                  si están disponibles. El nombre de archivo de la imagen sin escala, por ejemplo, image.ext,\n                  siempre debe transmitirse como el argumento para la opción -splash.\n                  La imagen a escala más adecuada que se haya pr"
-				"oporcionado se escogerá\n                  automáticamente.\n                  Consulte la documentación de la API de la pantalla de presentación para obtener más información.\n    @argument files\n                  uno o más archivos de argumentos que contienen opciones\n    -disable-@files\n                  evitar una mayor expansión del archivo de argumentos\nPara especificar un argumento para una opción larga, puede usar --<nombre>=<valor> o\n--<nombre> <valor>.\n"_s)
+				"oporcionado se escogerá\n                  automáticamente.\n                  Consulte la documentación de la API de la pantalla de presentación para obtener más información.\n    @argument files\n                  uno o más archivos de argumentos que contienen opciones\n    -disable-@files\n                  evitar una mayor expansión del archivo de argumentos\nPara especificar un argumento para una opción larga, puede usar --<nombre>=<valor> o\n--<nombre> <valor>.\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.opt.header"_s),
-			$of(u"Sintaxis: {0} [opciones] <clase principal> [argumentos...]\n           (para ejecutar una clase)\n   o  {0} [opciones] -jar <archivo jar> [argumentos...]\n           (para ejecutar un archivo jar)\n   o  {0} [opciones] -m <módulo>[/<clase principal>] [argumentos...]\n       {0} [opciones] --module <módulo>[/<clase principal>] [argumentos...]\n           (para ejecutar la clase principal en un módulo)\n\n Argumentos que siguen la clase principal, -jar <archivo jar>, -m o --module\n <módulo>/<clase principal> se transfieren como argumentos a una clase principal.\n\n donde las opciones incluyen:\n\n"_s)
+			"java.launcher.opt.header"_s,
+			u"Sintaxis: {0} [opciones] <clase principal> [argumentos...]\n           (para ejecutar una clase)\n   o  {0} [opciones] -jar <archivo jar> [argumentos...]\n           (para ejecutar un archivo jar)\n   o  {0} [opciones] -m <módulo>[/<clase principal>] [argumentos...]\n       {0} [opciones] --module <módulo>[/<clase principal>] [argumentos...]\n           (para ejecutar la clase principal en un módulo)\n\n Argumentos que siguen la clase principal, -jar <archivo jar>, -m o --module\n <módulo>/<clase principal> se transfieren como argumentos a una clase principal.\n\n donde las opciones incluyen:\n\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.opt.hotspot"_s),
-			$of(u"    {0}\t  es un sinónimo de la VM \"{1}\" [en desuso]\n"_s)
+			"java.launcher.opt.hotspot"_s,
+			u"    {0}\t  es un sinónimo de la VM \"{1}\" [en desuso]\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.opt.vmselect"_s),
-			$of("    {0}\t  para seleccionar la VM \"{1}\"\n"_s)
+			"java.launcher.opt.vmselect"_s,
+			"    {0}\t  para seleccionar la VM \"{1}\"\n"_s
 		})
 	});
 }
@@ -148,7 +128,22 @@ launcher_es::launcher_es() {
 }
 
 $Class* launcher_es::load$($String* name, bool initialize) {
-	$loadClass(launcher_es, name, initialize, &_launcher_es_ClassInfo_, allocate$launcher_es);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(launcher_es, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(launcher_es, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.launcher.resources.launcher_es",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(launcher_es, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(launcher_es);
+	});
 	return class$;
 }
 

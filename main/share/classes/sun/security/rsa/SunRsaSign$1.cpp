@@ -1,5 +1,4 @@
 #include <sun/security/rsa/SunRsaSign$1.h>
-
 #include <java/util/Iterator.h>
 #include <sun/security/rsa/SunRsaSign.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace sun {
 	namespace security {
 		namespace rsa {
 
-$FieldInfo _SunRsaSign$1_FieldInfo_[] = {
-	{"this$0", "Lsun/security/rsa/SunRsaSign;", nullptr, $FINAL | $SYNTHETIC, $field(SunRsaSign$1, this$0)},
-	{"val$serviceIter", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(SunRsaSign$1, val$serviceIter)},
-	{}
-};
-
-$MethodInfo _SunRsaSign$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/rsa/SunRsaSign;Ljava/util/Iterator;)V", "()V", 0, $method(SunRsaSign$1, init$, void, $SunRsaSign*, $Iterator*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SunRsaSign$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SunRsaSign$1_EnclosingMethodInfo_ = {
-	"sun.security.rsa.SunRsaSign",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _SunRsaSign$1_InnerClassesInfo_[] = {
-	{"sun.security.rsa.SunRsaSign$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SunRsaSign$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.rsa.SunRsaSign$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_SunRsaSign$1_FieldInfo_,
-	_SunRsaSign$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_SunRsaSign$1_EnclosingMethodInfo_,
-	_SunRsaSign$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.rsa.SunRsaSign"
-};
-
-$Object* allocate$SunRsaSign$1($Class* clazz) {
-	return $of($alloc(SunRsaSign$1));
-}
-
 void SunRsaSign$1::init$($SunRsaSign* this$0, $Iterator* val$serviceIter) {
 	$set(this, this$0, this$0);
 	$set(this, val$serviceIter, val$serviceIter);
@@ -66,14 +22,50 @@ void SunRsaSign$1::init$($SunRsaSign* this$0, $Iterator* val$serviceIter) {
 
 $Object* SunRsaSign$1::run() {
 	this->this$0->putEntries(this->val$serviceIter);
-	return $of(nullptr);
+	return nullptr;
 }
 
 SunRsaSign$1::SunRsaSign$1() {
 }
 
 $Class* SunRsaSign$1::load$($String* name, bool initialize) {
-	$loadClass(SunRsaSign$1, name, initialize, &_SunRsaSign$1_ClassInfo_, allocate$SunRsaSign$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/rsa/SunRsaSign;", nullptr, $FINAL | $SYNTHETIC, $field(SunRsaSign$1, this$0)},
+		{"val$serviceIter", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(SunRsaSign$1, val$serviceIter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/rsa/SunRsaSign;Ljava/util/Iterator;)V", "()V", 0, $method(SunRsaSign$1, init$, void, $SunRsaSign*, $Iterator*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SunRsaSign$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.rsa.SunRsaSign",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.rsa.SunRsaSign$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.rsa.SunRsaSign$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.rsa.SunRsaSign"
+	};
+	$loadClass(SunRsaSign$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunRsaSign$1);
+	});
 	return class$;
 }
 

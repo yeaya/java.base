@@ -30,10 +30,10 @@ public:
 	void resetHashes();
 	$ints* W = nullptr;
 	$ints* state = nullptr;
-	static const int32_t round1_kt = 0x5A827999;
-	static const int32_t round2_kt = 0x6ED9EBA1;
-	static const int32_t round3_kt = 0x8F1BBCDC;
-	static const int32_t round4_kt = 0xCA62C1D6;
+	static const int32_t round1_kt = 0x5a827999;
+	static const int32_t round2_kt = 0x6ed9eba1;
+	static const int32_t round3_kt = 0x8f1bbcdc;
+	static const int32_t round4_kt = 0xca62c1d6;
 };
 
 		} // provider

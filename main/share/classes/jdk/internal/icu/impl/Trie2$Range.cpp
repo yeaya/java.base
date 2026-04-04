@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/Trie2$Range.h>
-
 #include <jdk/internal/icu/impl/Trie2.h>
 #include <jcpp.h>
 
@@ -14,51 +13,11 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$FieldInfo _Trie2$Range_FieldInfo_[] = {
-	{"startCodePoint", "I", nullptr, $PUBLIC, $field(Trie2$Range, startCodePoint)},
-	{"endCodePoint", "I", nullptr, $PUBLIC, $field(Trie2$Range, endCodePoint)},
-	{"value", "I", nullptr, $PUBLIC, $field(Trie2$Range, value)},
-	{"leadSurrogate", "Z", nullptr, $PUBLIC, $field(Trie2$Range, leadSurrogate)},
-	{}
-};
-
-$MethodInfo _Trie2$Range_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Trie2$Range, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Trie2$Range, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Trie2$Range, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Trie2$Range_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.Trie2$Range", "jdk.internal.icu.impl.Trie2", "Range", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Trie2$Range_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.icu.impl.Trie2$Range",
-	"java.lang.Object",
-	nullptr,
-	_Trie2$Range_FieldInfo_,
-	_Trie2$Range_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Trie2$Range_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.Trie2"
-};
-
-$Object* allocate$Trie2$Range($Class* clazz) {
-	return $of($alloc(Trie2$Range));
-}
-
 void Trie2$Range::init$() {
 }
 
 bool Trie2$Range::equals(Object$* other) {
-	if (other == nullptr || !($of($nc($of(other))->getClass())->equals($of(this)->getClass()))) {
+	if (other == nullptr || !($of(other)->getClass()->equals($of(this)->getClass()))) {
 		return false;
 	}
 	$var(Trie2$Range, tother, $cast(Trie2$Range, other));
@@ -78,7 +37,41 @@ Trie2$Range::Trie2$Range() {
 }
 
 $Class* Trie2$Range::load$($String* name, bool initialize) {
-	$loadClass(Trie2$Range, name, initialize, &_Trie2$Range_ClassInfo_, allocate$Trie2$Range);
+	$FieldInfo fieldInfos$$[] = {
+		{"startCodePoint", "I", nullptr, $PUBLIC, $field(Trie2$Range, startCodePoint)},
+		{"endCodePoint", "I", nullptr, $PUBLIC, $field(Trie2$Range, endCodePoint)},
+		{"value", "I", nullptr, $PUBLIC, $field(Trie2$Range, value)},
+		{"leadSurrogate", "Z", nullptr, $PUBLIC, $field(Trie2$Range, leadSurrogate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Trie2$Range, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Trie2$Range, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Trie2$Range, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.Trie2$Range", "jdk.internal.icu.impl.Trie2", "Range", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.icu.impl.Trie2$Range",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.Trie2"
+	};
+	$loadClass(Trie2$Range, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Trie2$Range);
+	});
 	return class$;
 }
 

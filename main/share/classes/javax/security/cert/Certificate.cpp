@@ -1,5 +1,4 @@
 #include <javax/security/cert/Certificate.h>
-
 #include <java/security/PublicKey.h>
 #include <javax/security/cert/CertificateException.h>
 #include <jcpp.h>
@@ -15,46 +14,6 @@ namespace javax {
 	namespace security {
 		namespace cert {
 
-$NamedAttribute Certificate_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Certificate_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", Certificate_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _Certificate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Certificate, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Certificate, equals, bool, Object$*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getEncoded, $bytes*), "javax.security.cert.CertificateEncodingException"},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getPublicKey, $PublicKey*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Certificate, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"verify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, verify, void, $PublicKey*), "javax.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{"verify", "(Ljava/security/PublicKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, verify, void, $PublicKey*, $String*), "javax.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{}
-};
-
-$ClassInfo _Certificate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.security.cert.Certificate",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Certificate_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Certificate_Annotations_
-};
-
-$Object* allocate$Certificate($Class* clazz) {
-	return $of($alloc(Certificate));
-}
-
 $String* Certificate::toString() {
 	 return this->$Object::toString();
 }
@@ -63,7 +22,7 @@ void Certificate::init$() {
 }
 
 bool Certificate::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -72,12 +31,12 @@ bool Certificate::equals(Object$* other) {
 	}
 	try {
 		$var($bytes, thisCert, this->getEncoded());
-		$var($bytes, otherCert, $nc(($cast(Certificate, other)))->getEncoded());
+		$var($bytes, otherCert, $nc($cast(Certificate, other))->getEncoded());
 		if ($nc(thisCert)->length != $nc(otherCert)->length) {
 			return false;
 		}
-		for (int32_t i = 0; i < $nc(thisCert)->length; ++i) {
-			if (thisCert->get(i) != $nc(otherCert)->get(i)) {
+		for (int32_t i = 0; i < thisCert->length; ++i) {
+			if (thisCert->get(i) != otherCert->get(i)) {
 				return false;
 			}
 		}
@@ -106,7 +65,41 @@ Certificate::Certificate() {
 }
 
 $Class* Certificate::load$($String* name, bool initialize) {
-	$loadClass(Certificate, name, initialize, &_Certificate_ClassInfo_, allocate$Certificate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Certificate, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Certificate, equals, bool, Object$*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getEncoded, $bytes*), "javax.security.cert.CertificateEncodingException"},
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getPublicKey, $PublicKey*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Certificate, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"verify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, verify, void, $PublicKey*), "javax.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+		{"verify", "(Ljava/security/PublicKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, verify, void, $PublicKey*, $String*), "javax.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.security.cert.Certificate",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Certificate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Certificate);
+	});
 	return class$;
 }
 

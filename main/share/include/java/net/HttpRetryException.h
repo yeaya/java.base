@@ -17,12 +17,15 @@ public:
 	virtual $String* getLocation();
 	virtual $String* getReason();
 	virtual int32_t responseCode();
-	static const int64_t serialVersionUID = (int64_t)0x8084B1666C2FE1AB;
+	static const int64_t serialVersionUID = (int64_t)0x8084b1666c2fe1ab;
 	int32_t responseCode$ = 0;
 	$String* location = nullptr;
 	HttpRetryException(const HttpRetryException& e);
 	virtual void throw$() override;
-	inline HttpRetryException* operator ->() {
+	inline HttpRetryException* operator ->() const {
+		return (HttpRetryException*)throwing$;
+	}
+	inline operator HttpRetryException*() const {
 		return (HttpRetryException*)throwing$;
 	}
 };

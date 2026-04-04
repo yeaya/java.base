@@ -1,5 +1,4 @@
 #include <Exceptions4String$24.h>
-
 #include <Exceptions4String.h>
 #include <jcpp.h>
 
@@ -8,43 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _Exceptions4String$24_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Exceptions4String$24, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Exceptions4String$24, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Exceptions4String$24_EnclosingMethodInfo_ = {
-	"Exceptions4String",
-	"byteArrayOffLength",
-	"()V"
-};
-
-$InnerClassInfo _Exceptions4String$24_InnerClassesInfo_[] = {
-	{"Exceptions4String$24", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Exceptions4String$24_ClassInfo_ = {
-	$ACC_SUPER,
-	"Exceptions4String$24",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_Exceptions4String$24_MethodInfo_,
-	nullptr,
-	&_Exceptions4String$24_EnclosingMethodInfo_,
-	_Exceptions4String$24_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Exceptions4String"
-};
-
-$Object* allocate$Exceptions4String$24($Class* clazz) {
-	return $of($alloc(Exceptions4String$24));
-}
 
 void Exceptions4String$24::init$() {
 }
@@ -58,7 +20,38 @@ Exceptions4String$24::Exceptions4String$24() {
 }
 
 $Class* Exceptions4String$24::load$($String* name, bool initialize) {
-	$loadClass(Exceptions4String$24, name, initialize, &_Exceptions4String$24_ClassInfo_, allocate$Exceptions4String$24);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Exceptions4String$24, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Exceptions4String$24, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Exceptions4String",
+		"byteArrayOffLength",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Exceptions4String$24", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Exceptions4String$24",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Exceptions4String"
+	};
+	$loadClass(Exceptions4String$24, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Exceptions4String$24);
+	});
 	return class$;
 }
 

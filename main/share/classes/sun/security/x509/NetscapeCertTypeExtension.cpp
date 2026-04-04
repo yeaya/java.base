@@ -1,5 +1,4 @@
 #include <sun/security/x509/NetscapeCertTypeExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -51,71 +50,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _NetscapeCertTypeExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, NAME)},
-	{"SSL_CLIENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, SSL_CLIENT)},
-	{"SSL_SERVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, SSL_SERVER)},
-	{"S_MIME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, S_MIME)},
-	{"OBJECT_SIGNING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, OBJECT_SIGNING)},
-	{"SSL_CA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, SSL_CA)},
-	{"S_MIME_CA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, S_MIME_CA)},
-	{"OBJECT_SIGNING_CA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, OBJECT_SIGNING_CA)},
-	{"NetscapeCertType_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(NetscapeCertTypeExtension, NetscapeCertType_Id)},
-	{"bitString", "[Z", nullptr, $PRIVATE, $field(NetscapeCertTypeExtension, bitString)},
-	{"mMapData", "[Lsun/security/x509/NetscapeCertTypeExtension$MapEntry;", nullptr, $PRIVATE | $STATIC, $staticField(NetscapeCertTypeExtension, mMapData)},
-	{"mAttributeNames", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, mAttributeNames)},
-	{}
-};
-
-$MethodInfo _NetscapeCertTypeExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(NetscapeCertTypeExtension, init$, void, $bytes*), "java.io.IOException"},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(NetscapeCertTypeExtension, init$, void, $booleans*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(NetscapeCertTypeExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NetscapeCertTypeExtension, init$, void)},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(NetscapeCertTypeExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, getElements, $Enumeration*)},
-	{"getKeyUsageMappedBits", "()[Z", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, getKeyUsageMappedBits, $booleans*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, getName, $String*)},
-	{"getPosition", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NetscapeCertTypeExtension, getPosition, int32_t, $String*), "java.io.IOException"},
-	{"isSet", "(I)Z", nullptr, $PRIVATE, $method(NetscapeCertTypeExtension, isSet, bool, int32_t)},
-	{"set", "(IZ)V", nullptr, $PRIVATE, $method(NetscapeCertTypeExtension, set, void, int32_t, bool)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _NetscapeCertTypeExtension_InnerClassesInfo_[] = {
-	{"sun.security.x509.NetscapeCertTypeExtension$MapEntry", "sun.security.x509.NetscapeCertTypeExtension", "MapEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _NetscapeCertTypeExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.NetscapeCertTypeExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_NetscapeCertTypeExtension_FieldInfo_,
-	_NetscapeCertTypeExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;",
-	nullptr,
-	_NetscapeCertTypeExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.x509.NetscapeCertTypeExtension$MapEntry"
-};
-
-$Object* allocate$NetscapeCertTypeExtension($Class* clazz) {
-	return $of($alloc(NetscapeCertTypeExtension));
-}
-
 int32_t NetscapeCertTypeExtension::hashCode() {
 	 return this->$Extension::hashCode();
 }
@@ -148,31 +82,31 @@ $Vector* NetscapeCertTypeExtension::mAttributeNames = nullptr;
 int32_t NetscapeCertTypeExtension::getPosition($String* name) {
 	$init(NetscapeCertTypeExtension);
 	for (int32_t i = 0; i < $nc(NetscapeCertTypeExtension::mMapData)->length; ++i) {
-		if ($nc(name)->equalsIgnoreCase($nc($nc(NetscapeCertTypeExtension::mMapData)->get(i))->mName)) {
-			return $nc($nc(NetscapeCertTypeExtension::mMapData)->get(i))->mPosition;
+		if ($nc(name)->equalsIgnoreCase($nc(NetscapeCertTypeExtension::mMapData->get(i))->mName)) {
+			return $nc(NetscapeCertTypeExtension::mMapData->get(i))->mPosition;
 		}
 	}
 	$throwNew($IOException, $$str({"Attribute name ["_s, name, "] not recognized by CertAttrSet:NetscapeCertType."_s}));
 }
 
 void NetscapeCertTypeExtension::encodeThis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, os, $new($DerOutputStream));
 	os->putTruncatedUnalignedBitString($$new($BitArray, this->bitString));
 	$set(this, extensionValue, os->toByteArray());
 }
 
 bool NetscapeCertTypeExtension::isSet(int32_t position) {
-	return (position < $nc(this->bitString)->length) && $nc(this->bitString)->get(position);
+	return (position < $nc(this->bitString)->length) && this->bitString->get(position);
 }
 
 void NetscapeCertTypeExtension::set(int32_t position, bool val) {
 	if (position >= $nc(this->bitString)->length) {
 		$var($booleans, tmp, $new($booleans, position + 1));
-		$System::arraycopy(this->bitString, 0, tmp, 0, $nc(this->bitString)->length);
+		$System::arraycopy(this->bitString, 0, tmp, 0, this->bitString->length);
 		$set(this, bitString, tmp);
 	}
-	$nc(this->bitString)->set(position, val);
+	this->bitString->set(position, val);
 }
 
 void NetscapeCertTypeExtension::init$($bytes* bitString) {
@@ -192,13 +126,13 @@ void NetscapeCertTypeExtension::init$($booleans* bitString) {
 }
 
 void NetscapeCertTypeExtension::init$($Boolean* critical, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$();
 	$set(this, extensionId, NetscapeCertTypeExtension::NetscapeCertType_Id);
 	this->critical = $nc(critical)->booleanValue();
 	$set(this, extensionValue, $cast($bytes, value));
 	$var($DerValue, val, $new($DerValue, this->extensionValue));
-	$set(this, bitString, $nc($(val->getUnalignedBitString()))->toBooleanArray());
+	$set(this, bitString, $$nc(val->getUnalignedBitString())->toBooleanArray());
 }
 
 void NetscapeCertTypeExtension::init$() {
@@ -212,7 +146,7 @@ void NetscapeCertTypeExtension::set($String* name, Object$* obj) {
 	if (!($instanceOf($Boolean, obj))) {
 		$throwNew($IOException, "Attribute must be of type Boolean."_s);
 	}
-	bool val = $nc(($cast($Boolean, obj)))->booleanValue();
+	bool val = $nc($cast($Boolean, obj))->booleanValue();
 	set(getPosition(name), val);
 	encodeThis();
 }
@@ -227,7 +161,7 @@ void NetscapeCertTypeExtension::delete$($String* name) {
 }
 
 $String* NetscapeCertTypeExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()));
 	sb->append("NetscapeCertType [\n"_s);
@@ -257,7 +191,7 @@ $String* NetscapeCertTypeExtension::toString() {
 }
 
 void NetscapeCertTypeExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$set(this, extensionId, NetscapeCertTypeExtension::NetscapeCertType_Id);
@@ -269,7 +203,7 @@ void NetscapeCertTypeExtension::encode($OutputStream* out) {
 }
 
 $Enumeration* NetscapeCertTypeExtension::getElements() {
-	return $nc(NetscapeCertTypeExtension::mAttributeNames)->elements();
+	return NetscapeCertTypeExtension::mAttributeNames->elements();
 }
 
 $String* NetscapeCertTypeExtension::getName() {
@@ -277,34 +211,30 @@ $String* NetscapeCertTypeExtension::getName() {
 }
 
 $booleans* NetscapeCertTypeExtension::getKeyUsageMappedBits() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyUsageExtension, keyUsage, $new($KeyUsageExtension));
-	$init($Boolean);
 	$var($Boolean, val, $Boolean::TRUE);
 	try {
 		bool var$1 = isSet(getPosition(NetscapeCertTypeExtension::SSL_CLIENT));
 		bool var$0 = var$1 || isSet(getPosition(NetscapeCertTypeExtension::S_MIME));
 		if (var$0 || isSet(getPosition(NetscapeCertTypeExtension::OBJECT_SIGNING))) {
-			$init($KeyUsageExtension);
-			keyUsage->set($KeyUsageExtension::DIGITAL_SIGNATURE, $of(val));
+			keyUsage->set($KeyUsageExtension::DIGITAL_SIGNATURE, val);
 		}
 		if (isSet(getPosition(NetscapeCertTypeExtension::SSL_SERVER))) {
-			$init($KeyUsageExtension);
-			keyUsage->set($KeyUsageExtension::KEY_ENCIPHERMENT, $of(val));
+			keyUsage->set($KeyUsageExtension::KEY_ENCIPHERMENT, val);
 		}
 		bool var$3 = isSet(getPosition(NetscapeCertTypeExtension::SSL_CA));
 		bool var$2 = var$3 || isSet(getPosition(NetscapeCertTypeExtension::S_MIME_CA));
 		if (var$2 || isSet(getPosition(NetscapeCertTypeExtension::OBJECT_SIGNING_CA))) {
-			$init($KeyUsageExtension);
-			keyUsage->set($KeyUsageExtension::KEY_CERTSIGN, $of(val));
+			keyUsage->set($KeyUsageExtension::KEY_CERTSIGN, val);
 		}
 	} catch ($IOException& e) {
 	}
 	return keyUsage->getBits();
 }
 
-void clinit$NetscapeCertTypeExtension($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void NetscapeCertTypeExtension::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(NetscapeCertTypeExtension::IDENT, "x509.info.extensions.NetscapeCertType"_s);
 	$assignStatic(NetscapeCertTypeExtension::NAME, "NetscapeCertType"_s);
 	$assignStatic(NetscapeCertTypeExtension::SSL_CLIENT, "ssl_client"_s);
@@ -327,15 +257,11 @@ void clinit$NetscapeCertTypeExtension($Class* class$) {
 	}));
 	$assignStatic(NetscapeCertTypeExtension::mAttributeNames, $new($Vector));
 	{
-		{
-			$var($NetscapeCertTypeExtension$MapEntryArray, arr$, NetscapeCertTypeExtension::mMapData);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($NetscapeCertTypeExtension$MapEntry, entry, arr$->get(i$));
-				{
-					$nc(NetscapeCertTypeExtension::mAttributeNames)->add($nc(entry)->mName);
-				}
+		$var($NetscapeCertTypeExtension$MapEntryArray, arr$, NetscapeCertTypeExtension::mMapData);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($NetscapeCertTypeExtension$MapEntry, entry, arr$->get(i$));
+			{
+				NetscapeCertTypeExtension::mAttributeNames->add($nc(entry)->mName);
 			}
 		}
 	}
@@ -345,7 +271,66 @@ NetscapeCertTypeExtension::NetscapeCertTypeExtension() {
 }
 
 $Class* NetscapeCertTypeExtension::load$($String* name, bool initialize) {
-	$loadClass(NetscapeCertTypeExtension, name, initialize, &_NetscapeCertTypeExtension_ClassInfo_, clinit$NetscapeCertTypeExtension, allocate$NetscapeCertTypeExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, NAME)},
+		{"SSL_CLIENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, SSL_CLIENT)},
+		{"SSL_SERVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, SSL_SERVER)},
+		{"S_MIME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, S_MIME)},
+		{"OBJECT_SIGNING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, OBJECT_SIGNING)},
+		{"SSL_CA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, SSL_CA)},
+		{"S_MIME_CA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, S_MIME_CA)},
+		{"OBJECT_SIGNING_CA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, OBJECT_SIGNING_CA)},
+		{"NetscapeCertType_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(NetscapeCertTypeExtension, NetscapeCertType_Id)},
+		{"bitString", "[Z", nullptr, $PRIVATE, $field(NetscapeCertTypeExtension, bitString)},
+		{"mMapData", "[Lsun/security/x509/NetscapeCertTypeExtension$MapEntry;", nullptr, $PRIVATE | $STATIC, $staticField(NetscapeCertTypeExtension, mMapData)},
+		{"mAttributeNames", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(NetscapeCertTypeExtension, mAttributeNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(NetscapeCertTypeExtension, init$, void, $bytes*), "java.io.IOException"},
+		{"<init>", "([Z)V", nullptr, $PUBLIC, $method(NetscapeCertTypeExtension, init$, void, $booleans*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(NetscapeCertTypeExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NetscapeCertTypeExtension, init$, void)},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(NetscapeCertTypeExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, getElements, $Enumeration*)},
+		{"getKeyUsageMappedBits", "()[Z", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, getKeyUsageMappedBits, $booleans*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, getName, $String*)},
+		{"getPosition", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NetscapeCertTypeExtension, getPosition, int32_t, $String*), "java.io.IOException"},
+		{"isSet", "(I)Z", nullptr, $PRIVATE, $method(NetscapeCertTypeExtension, isSet, bool, int32_t)},
+		{"set", "(IZ)V", nullptr, $PRIVATE, $method(NetscapeCertTypeExtension, set, void, int32_t, bool)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NetscapeCertTypeExtension, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.x509.NetscapeCertTypeExtension$MapEntry", "sun.security.x509.NetscapeCertTypeExtension", "MapEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.NetscapeCertTypeExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.x509.NetscapeCertTypeExtension$MapEntry"
+	};
+	$loadClass(NetscapeCertTypeExtension, name, initialize, &classInfo$$, NetscapeCertTypeExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NetscapeCertTypeExtension));
+	});
 	return class$;
 }
 

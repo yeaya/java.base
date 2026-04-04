@@ -1,5 +1,4 @@
 #include <DB.h>
-
 #include <jcpp.h>
 
 #undef DB
@@ -8,68 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-
-$NamedAttribute DB_Attribute_var$0[] = {
-	{"declaringClass", 'c', "LDB;"},
-	{}
-};
-
-$CompoundAttribute _DB_MethodAnnotations_baz1[] = {
-	{"LExpectedModel;", DB_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute DB_Attribute_var$1[] = {
-	{"declaringClass", 'c', "LDB;"},
-	{}
-};
-
-$CompoundAttribute _DB_MethodAnnotations_foo2[] = {
-	{"LExpectedModel;", DB_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute DB_Attribute_var$2[] = {
-	{"declaringClass", 'c', "LDB;"},
-	{}
-};
-
-$CompoundAttribute _DB_MethodAnnotations_quux3[] = {
-	{"LExpectedModel;", DB_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute DB_Attribute_var$3[] = {
-	{"declaringClass", 'c', "LDB;"},
-	{}
-};
-
-$CompoundAttribute _DB_MethodAnnotations_wombat4[] = {
-	{"LExpectedModel;", DB_Attribute_var$3},
-	{}
-};
-
-$MethodInfo _DB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DB, init$, void)},
-	{"baz", "()V", nullptr, $PUBLIC, $virtualMethod(DB, baz, void), nullptr, nullptr, _DB_MethodAnnotations_baz1},
-	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(DB, foo, void), nullptr, nullptr, _DB_MethodAnnotations_foo2},
-	{"quux", "()V", nullptr, $PUBLIC, $virtualMethod(DB, quux, void), nullptr, nullptr, _DB_MethodAnnotations_quux3},
-	{"wombat", "()V", nullptr, $PUBLIC, $virtualMethod(DB, wombat, void), nullptr, nullptr, _DB_MethodAnnotations_wombat4},
-	{}
-};
-
-$ClassInfo _DB_ClassInfo_ = {
-	$ACC_SUPER,
-	"DB",
-	"java.lang.Object",
-	"GrandchildSuperIwithDefault",
-	nullptr,
-	_DB_MethodInfo_
-};
-
-$Object* allocate$DB($Class* clazz) {
-	return $of($alloc(DB));
-}
 
 void DB::init$() {
 }
@@ -90,7 +27,57 @@ DB::DB() {
 }
 
 $Class* DB::load$($String* name, bool initialize) {
-	$loadClass(DB, name, initialize, &_DB_ClassInfo_, allocate$DB);
+	$NamedAttribute bazmethodAnnotations$$$namedAttribute[] = {
+		{"declaringClass", 'c', "LDB;"},
+		{}
+	};
+	$CompoundAttribute bazmethodAnnotations$$[] = {
+		{"LExpectedModel;", bazmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute foomethodAnnotations$$$namedAttribute[] = {
+		{"declaringClass", 'c', "LDB;"},
+		{}
+	};
+	$CompoundAttribute foomethodAnnotations$$[] = {
+		{"LExpectedModel;", foomethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute quuxmethodAnnotations$$$namedAttribute[] = {
+		{"declaringClass", 'c', "LDB;"},
+		{}
+	};
+	$CompoundAttribute quuxmethodAnnotations$$[] = {
+		{"LExpectedModel;", quuxmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute wombatmethodAnnotations$$$namedAttribute[] = {
+		{"declaringClass", 'c', "LDB;"},
+		{}
+	};
+	$CompoundAttribute wombatmethodAnnotations$$[] = {
+		{"LExpectedModel;", wombatmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DB, init$, void)},
+		{"baz", "()V", nullptr, $PUBLIC, $virtualMethod(DB, baz, void), nullptr, nullptr, bazmethodAnnotations$$},
+		{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(DB, foo, void), nullptr, nullptr, foomethodAnnotations$$},
+		{"quux", "()V", nullptr, $PUBLIC, $virtualMethod(DB, quux, void), nullptr, nullptr, quuxmethodAnnotations$$},
+		{"wombat", "()V", nullptr, $PUBLIC, $virtualMethod(DB, wombat, void), nullptr, nullptr, wombatmethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"DB",
+		"java.lang.Object",
+		"GrandchildSuperIwithDefault",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DB, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DB));
+	});
 	return class$;
 }
 

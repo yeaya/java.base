@@ -1,5 +1,4 @@
 #include <java/util/Collections$EmptyListIterator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Collections$EmptyIterator.h>
@@ -22,57 +21,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$EmptyListIterator_FieldInfo_[] = {
-	{"EMPTY_ITERATOR", "Ljava/util/Collections$EmptyListIterator;", "Ljava/util/Collections$EmptyListIterator<Ljava/lang/Object;>;", $STATIC | $FINAL, $staticField(Collections$EmptyListIterator, EMPTY_ITERATOR)},
-	{}
-};
-
-$MethodInfo _Collections$EmptyListIterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"*hasNext", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Collections$EmptyListIterator, init$, void)},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Collections$EmptyListIterator, add, void, Object$*)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$EmptyListIterator, hasPrevious, bool)},
-	{"*next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$EmptyListIterator, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$EmptyListIterator, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$EmptyListIterator, previousIndex, int32_t)},
-	{"*remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Collections$EmptyListIterator, set, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$EmptyListIterator_InnerClassesInfo_[] = {
-	{"java.util.Collections$EmptyListIterator", "java.util.Collections", "EmptyListIterator", $PRIVATE | $STATIC},
-	{"java.util.Collections$EmptyIterator", "java.util.Collections", "EmptyIterator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$EmptyListIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$EmptyListIterator",
-	"java.util.Collections$EmptyIterator",
-	"java.util.ListIterator",
-	_Collections$EmptyListIterator_FieldInfo_,
-	_Collections$EmptyListIterator_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/Collections$EmptyIterator<TE;>;Ljava/util/ListIterator<TE;>;",
-	nullptr,
-	_Collections$EmptyListIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$EmptyListIterator($Class* clazz) {
-	return $of($alloc(Collections$EmptyListIterator));
-}
 
 bool Collections$EmptyListIterator::hasNext() {
 	 return this->$Collections$EmptyIterator::hasNext();
@@ -141,7 +89,7 @@ void Collections$EmptyListIterator::add(Object$* e) {
 	$throwNew($UnsupportedOperationException);
 }
 
-void clinit$Collections$EmptyListIterator($Class* class$) {
+void Collections$EmptyListIterator::clinit$($Class* clazz) {
 	$assignStatic(Collections$EmptyListIterator::EMPTY_ITERATOR, $new(Collections$EmptyListIterator));
 }
 
@@ -149,7 +97,52 @@ Collections$EmptyListIterator::Collections$EmptyListIterator() {
 }
 
 $Class* Collections$EmptyListIterator::load$($String* name, bool initialize) {
-	$loadClass(Collections$EmptyListIterator, name, initialize, &_Collections$EmptyListIterator_ClassInfo_, clinit$Collections$EmptyListIterator, allocate$Collections$EmptyListIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_ITERATOR", "Ljava/util/Collections$EmptyListIterator;", "Ljava/util/Collections$EmptyListIterator<Ljava/lang/Object;>;", $STATIC | $FINAL, $staticField(Collections$EmptyListIterator, EMPTY_ITERATOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"*hasNext", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Collections$EmptyListIterator, init$, void)},
+		{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Collections$EmptyListIterator, add, void, Object$*)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$EmptyListIterator, hasPrevious, bool)},
+		{"*next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$EmptyListIterator, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$EmptyListIterator, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$EmptyListIterator, previousIndex, int32_t)},
+		{"*remove", "()V", nullptr, $PUBLIC},
+		{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Collections$EmptyListIterator, set, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$EmptyListIterator", "java.util.Collections", "EmptyListIterator", $PRIVATE | $STATIC},
+		{"java.util.Collections$EmptyIterator", "java.util.Collections", "EmptyIterator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$EmptyListIterator",
+		"java.util.Collections$EmptyIterator",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/Collections$EmptyIterator<TE;>;Ljava/util/ListIterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$EmptyListIterator, name, initialize, &classInfo$$, Collections$EmptyListIterator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$EmptyListIterator));
+	});
 	return class$;
 }
 

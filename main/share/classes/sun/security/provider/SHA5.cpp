@@ -1,5 +1,4 @@
 #include <sun/security/provider/SHA5.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
@@ -27,67 +26,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$CompoundAttribute _SHA5_MethodAnnotations_implCompress03[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _SHA5_FieldInfo_[] = {
-	{"ITERATION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SHA5, ITERATION)},
-	{"ROUND_CONSTS", "[J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SHA5, ROUND_CONSTS)},
-	{"W", "[J", nullptr, $PRIVATE, $field(SHA5, W)},
-	{"state", "[J", nullptr, $PRIVATE, $field(SHA5, state)},
-	{"initialHashes", "[J", nullptr, $PRIVATE | $FINAL, $field(SHA5, initialHashes)},
-	{}
-};
-
-$MethodInfo _SHA5_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I[J)V", nullptr, 0, $method(SHA5, init$, void, $String*, int32_t, $longs*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SHA5, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"implCompress", "([BI)V", nullptr, $FINAL, $virtualMethod(SHA5, implCompress, void, $bytes*, int32_t)},
-	{"implCompress0", "([BI)V", nullptr, $PRIVATE | $FINAL, $method(SHA5, implCompress0, void, $bytes*, int32_t), nullptr, nullptr, _SHA5_MethodAnnotations_implCompress03},
-	{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(SHA5, implCompressCheck, void, $bytes*, int32_t)},
-	{"implDigest", "([BI)V", nullptr, $FINAL, $virtualMethod(SHA5, implDigest, void, $bytes*, int32_t)},
-	{"implReset", "()V", nullptr, $FINAL, $virtualMethod(SHA5, implReset, void)},
-	{"lf_R", "(JI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_R, int64_t, int64_t, int32_t)},
-	{"lf_S", "(JI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_S, int64_t, int64_t, int32_t)},
-	{"lf_ch", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_ch, int64_t, int64_t, int64_t, int64_t)},
-	{"lf_delta0", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_delta0, int64_t, int64_t)},
-	{"lf_delta1", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_delta1, int64_t, int64_t)},
-	{"lf_maj", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_maj, int64_t, int64_t, int64_t, int64_t)},
-	{"lf_sigma0", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_sigma0, int64_t, int64_t)},
-	{"lf_sigma1", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_sigma1, int64_t, int64_t)},
-	{"resetHashes", "()V", nullptr, $PRIVATE, $method(SHA5, resetHashes, void)},
-	{}
-};
-
-$InnerClassInfo _SHA5_InnerClassesInfo_[] = {
-	{"sun.security.provider.SHA5$SHA512_256", "sun.security.provider.SHA5", "SHA512_256", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.SHA5$SHA512_224", "sun.security.provider.SHA5", "SHA512_224", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.SHA5$SHA384", "sun.security.provider.SHA5", "SHA384", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.SHA5$SHA512", "sun.security.provider.SHA5", "SHA512", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SHA5_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.provider.SHA5",
-	"sun.security.provider.DigestBase",
-	nullptr,
-	_SHA5_FieldInfo_,
-	_SHA5_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SHA5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.SHA5$SHA512_256,sun.security.provider.SHA5$SHA512_224,sun.security.provider.SHA5$SHA384,sun.security.provider.SHA5$SHA512"
-};
-
-$Object* allocate$SHA5($Class* clazz) {
-	return $of($alloc(SHA5));
-}
-
 $longs* SHA5::ROUND_CONSTS = nullptr;
 
 void SHA5::init$($String* name, int32_t digestLength, $longs* initialHashes) {
@@ -100,7 +38,7 @@ void SHA5::init$($String* name, int32_t digestLength, $longs* initialHashes) {
 void SHA5::implReset() {
 	resetHashes();
 	if (this->W != nullptr) {
-		$Arrays::fill(this->W, (int64_t)0);
+		$Arrays::fill(this->W, 0);
 	}
 }
 
@@ -110,7 +48,7 @@ void SHA5::resetHashes() {
 
 void SHA5::implDigest($bytes* out, int32_t ofs) {
 	int64_t bitsProcessed = this->bytesProcessed << 3;
-	int32_t index = (int32_t)((int32_t)this->bytesProcessed & (uint32_t)127);
+	int32_t index = (int32_t)this->bytesProcessed & 0x7f;
 	int32_t padLen = (index < 112) ? (112 - index) : (240 - index);
 	$init($DigestBase);
 	engineUpdate($DigestBase::padding, 0, padLen + 8);
@@ -128,12 +66,12 @@ void SHA5::implDigest($bytes* out, int32_t ofs) {
 
 int64_t SHA5::lf_ch(int64_t x, int64_t y, int64_t z) {
 	$init(SHA5);
-	return ((int64_t)(x & (uint64_t)y)) ^ ((int64_t)((~x) & (uint64_t)z));
+	return (x & y) ^ ((~x) & z);
 }
 
 int64_t SHA5::lf_maj(int64_t x, int64_t y, int64_t z) {
 	$init(SHA5);
-	return (((int64_t)(x & (uint64_t)y)) ^ ((int64_t)(x & (uint64_t)z))) ^ ((int64_t)(y & (uint64_t)z));
+	return ((x & y) ^ (x & z)) ^ (y & z);
 }
 
 int64_t SHA5::lf_R(int64_t x, int32_t s) {
@@ -193,19 +131,19 @@ void SHA5::implCompress0($bytes* buf, int32_t ofs) {
 	$ByteArrayAccess::b2lBig128(buf, ofs, this->W);
 	for (int32_t t = 16; t < SHA5::ITERATION; ++t) {
 		int64_t var$0 = lf_delta1($nc(this->W)->get(t - 2)) + $nc(this->W)->get(t - 7);
-		$nc(this->W)->set(t, var$0 + lf_delta0($nc(this->W)->get(t - 15)) + $nc(this->W)->get(t - 16));
+		$nc(this->W)->set(t, var$0 + lf_delta0(this->W->get(t - 15)) + this->W->get(t - 16));
 	}
 	int64_t a = $nc(this->state)->get(0);
-	int64_t b = $nc(this->state)->get(1);
-	int64_t c = $nc(this->state)->get(2);
-	int64_t d = $nc(this->state)->get(3);
-	int64_t e = $nc(this->state)->get(4);
-	int64_t f = $nc(this->state)->get(5);
-	int64_t g = $nc(this->state)->get(6);
-	int64_t h = $nc(this->state)->get(7);
+	int64_t b = this->state->get(1);
+	int64_t c = this->state->get(2);
+	int64_t d = this->state->get(3);
+	int64_t e = this->state->get(4);
+	int64_t f = this->state->get(5);
+	int64_t g = this->state->get(6);
+	int64_t h = this->state->get(7);
 	for (int32_t i = 0; i < SHA5::ITERATION; ++i) {
 		int64_t var$1 = h + lf_sigma1(e);
-		int64_t T1 = var$1 + lf_ch(e, f, g) + $nc(SHA5::ROUND_CONSTS)->get(i) + $nc(this->W)->get(i);
+		int64_t T1 = var$1 + lf_ch(e, f, g) + SHA5::ROUND_CONSTS->get(i) + $nc(this->W)->get(i);
 		int64_t var$2 = lf_sigma0(a);
 		int64_t T2 = var$2 + lf_maj(a, b, c);
 		h = g;
@@ -217,105 +155,105 @@ void SHA5::implCompress0($bytes* buf, int32_t ofs) {
 		b = a;
 		a = T1 + T2;
 	}
-	(*$nc(this->state))[0] += a;
-	(*$nc(this->state))[1] += b;
-	(*$nc(this->state))[2] += c;
-	(*$nc(this->state))[3] += d;
-	(*$nc(this->state))[4] += e;
-	(*$nc(this->state))[5] += f;
-	(*$nc(this->state))[6] += g;
-	(*$nc(this->state))[7] += h;
+	(*this->state)[0] += a;
+	(*this->state)[1] += b;
+	(*this->state)[2] += c;
+	(*this->state)[3] += d;
+	(*this->state)[4] += e;
+	(*this->state)[5] += f;
+	(*this->state)[6] += g;
+	(*this->state)[7] += h;
 }
 
 $Object* SHA5::clone() {
 	$var(SHA5, copy, $cast(SHA5, $DigestBase::clone()));
-	$set($nc(copy), state, $cast($longs, $nc(copy->state)->clone()));
+	$set($nc(copy), state, $cast($longs, $nc($nc(copy)->state)->clone()));
 	$set(copy, W, nullptr);
 	return $of(copy);
 }
 
-void clinit$SHA5($Class* class$) {
+void SHA5::clinit$($Class* clazz) {
 	$assignStatic(SHA5::ROUND_CONSTS, $new($longs, {
-		(int64_t)0x428A2F98D728AE22,
-		(int64_t)0x7137449123EF65CD,
-		(int64_t)0xB5C0FBCFEC4D3B2F,
-		(int64_t)0xE9B5DBA58189DBBC,
-		(int64_t)0x3956C25BF348B538,
-		(int64_t)0x59F111F1B605D019,
-		(int64_t)0x923F82A4AF194F9B,
-		(int64_t)0xAB1C5ED5DA6D8118,
-		(int64_t)0xD807AA98A3030242,
-		(int64_t)0x12835B0145706FBE,
-		(int64_t)0x243185BE4EE4B28C,
-		(int64_t)0x550C7DC3D5FFB4E2,
-		(int64_t)0x72BE5D74F27B896F,
-		(int64_t)0x80DEB1FE3B1696B1,
-		(int64_t)0x9BDC06A725C71235,
-		(int64_t)0xC19BF174CF692694,
-		(int64_t)0xE49B69C19EF14AD2,
-		(int64_t)0xEFBE4786384F25E3,
-		(int64_t)0x0FC19DC68B8CD5B5,
-		(int64_t)0x240CA1CC77AC9C65,
-		(int64_t)0x2DE92C6F592B0275,
-		(int64_t)0x4A7484AA6EA6E483,
-		(int64_t)0x5CB0A9DCBD41FBD4,
-		(int64_t)0x76F988DA831153B5,
-		(int64_t)0x983E5152EE66DFAB,
-		(int64_t)0xA831C66D2DB43210,
-		(int64_t)0xB00327C898FB213F,
-		(int64_t)0xBF597FC7BEEF0EE4,
-		(int64_t)0xC6E00BF33DA88FC2,
-		(int64_t)0xD5A79147930AA725,
-		(int64_t)0x06CA6351E003826F,
-		(int64_t)0x142929670A0E6E70,
-		(int64_t)0x27B70A8546D22FFC,
-		(int64_t)0x2E1B21385C26C926,
-		(int64_t)0x4D2C6DFC5AC42AED,
-		(int64_t)0x53380D139D95B3DF,
-		(int64_t)0x650A73548BAF63DE,
-		(int64_t)0x766A0ABB3C77B2A8,
-		(int64_t)0x81C2C92E47EDAEE6,
-		(int64_t)0x92722C851482353B,
-		(int64_t)0xA2BFE8A14CF10364,
-		(int64_t)0xA81A664BBC423001,
-		(int64_t)0xC24B8B70D0F89791,
-		(int64_t)0xC76C51A30654BE30,
-		(int64_t)0xD192E819D6EF5218,
-		(int64_t)0xD69906245565A910,
-		(int64_t)0xF40E35855771202A,
-		(int64_t)0x106AA07032BBD1B8,
-		(int64_t)0x19A4C116B8D2D0C8,
-		(int64_t)0x1E376C085141AB53,
-		(int64_t)0x2748774CDF8EEB99,
-		(int64_t)0x34B0BCB5E19B48A8,
-		(int64_t)0x391C0CB3C5C95A63,
-		(int64_t)0x4ED8AA4AE3418ACB,
-		(int64_t)0x5B9CCA4F7763E373,
-		(int64_t)0x682E6FF3D6B2B8A3,
-		(int64_t)0x748F82EE5DEFB2FC,
-		(int64_t)0x78A5636F43172F60,
-		(int64_t)0x84C87814A1F0AB72,
-		(int64_t)0x8CC702081A6439EC,
-		(int64_t)0x90BEFFFA23631E28,
-		(int64_t)0xA4506CEBDE82BDE9,
-		(int64_t)0xBEF9A3F7B2C67915,
-		(int64_t)0xC67178F2E372532B,
-		(int64_t)0xCA273ECEEA26619C,
-		(int64_t)0xD186B8C721C0C207,
-		(int64_t)0xEADA7DD6CDE0EB1E,
-		(int64_t)0xF57D4F7FEE6ED178,
-		(int64_t)0x06F067AA72176FBA,
-		(int64_t)0x0A637DC5A2C898A6,
-		(int64_t)0x113F9804BEF90DAE,
-		(int64_t)0x1B710B35131C471B,
-		(int64_t)0x28DB77F523047D84,
-		(int64_t)0x32CAAB7B40C72493,
-		(int64_t)0x3C9EBE0A15C9BEBC,
-		(int64_t)0x431D67C49C100D4C,
-		(int64_t)0x4CC5D4BECB3E42B6,
-		(int64_t)0x597F299CFC657E2A,
-		(int64_t)0x5FCB6FAB3AD6FAEC,
-		(int64_t)0x6C44198C4A475817
+		(int64_t)0x428a2f98d728ae22,
+		(int64_t)0x7137449123ef65cd,
+		(int64_t)0xb5c0fbcfec4d3b2f,
+		(int64_t)0xe9b5dba58189dbbc,
+		(int64_t)0x3956c25bf348b538,
+		(int64_t)0x59f111f1b605d019,
+		(int64_t)0x923f82a4af194f9b,
+		(int64_t)0xab1c5ed5da6d8118,
+		(int64_t)0xd807aa98a3030242,
+		(int64_t)0x12835b0145706fbe,
+		(int64_t)0x243185be4ee4b28c,
+		(int64_t)0x550c7dc3d5ffb4e2,
+		(int64_t)0x72be5d74f27b896f,
+		(int64_t)0x80deb1fe3b1696b1,
+		(int64_t)0x9bdc06a725c71235,
+		(int64_t)0xc19bf174cf692694,
+		(int64_t)0xe49b69c19ef14ad2,
+		(int64_t)0xefbe4786384f25e3,
+		(int64_t)0x0fc19dc68b8cd5b5,
+		(int64_t)0x240ca1cc77ac9c65,
+		(int64_t)0x2de92c6f592b0275,
+		(int64_t)0x4a7484aa6ea6e483,
+		(int64_t)0x5cb0a9dcbd41fbd4,
+		(int64_t)0x76f988da831153b5,
+		(int64_t)0x983e5152ee66dfab,
+		(int64_t)0xa831c66d2db43210,
+		(int64_t)0xb00327c898fb213f,
+		(int64_t)0xbf597fc7beef0ee4,
+		(int64_t)0xc6e00bf33da88fc2,
+		(int64_t)0xd5a79147930aa725,
+		(int64_t)0x06ca6351e003826f,
+		(int64_t)0x142929670a0e6e70,
+		(int64_t)0x27b70a8546d22ffc,
+		(int64_t)0x2e1b21385c26c926,
+		(int64_t)0x4d2c6dfc5ac42aed,
+		(int64_t)0x53380d139d95b3df,
+		(int64_t)0x650a73548baf63de,
+		(int64_t)0x766a0abb3c77b2a8,
+		(int64_t)0x81c2c92e47edaee6,
+		(int64_t)0x92722c851482353b,
+		(int64_t)0xa2bfe8a14cf10364,
+		(int64_t)0xa81a664bbc423001,
+		(int64_t)0xc24b8b70d0f89791,
+		(int64_t)0xc76c51a30654be30,
+		(int64_t)0xd192e819d6ef5218,
+		(int64_t)0xd69906245565a910,
+		(int64_t)0xf40e35855771202a,
+		(int64_t)0x106aa07032bbd1b8,
+		(int64_t)0x19a4c116b8d2d0c8,
+		(int64_t)0x1e376c085141ab53,
+		(int64_t)0x2748774cdf8eeb99,
+		(int64_t)0x34b0bcb5e19b48a8,
+		(int64_t)0x391c0cb3c5c95a63,
+		(int64_t)0x4ed8aa4ae3418acb,
+		(int64_t)0x5b9cca4f7763e373,
+		(int64_t)0x682e6ff3d6b2b8a3,
+		(int64_t)0x748f82ee5defb2fc,
+		(int64_t)0x78a5636f43172f60,
+		(int64_t)0x84c87814a1f0ab72,
+		(int64_t)0x8cc702081a6439ec,
+		(int64_t)0x90befffa23631e28,
+		(int64_t)0xa4506cebde82bde9,
+		(int64_t)0xbef9a3f7b2c67915,
+		(int64_t)0xc67178f2e372532b,
+		(int64_t)0xca273eceea26619c,
+		(int64_t)0xd186b8c721c0c207,
+		(int64_t)0xeada7dd6cde0eb1e,
+		(int64_t)0xf57d4f7fee6ed178,
+		(int64_t)0x06f067aa72176fba,
+		(int64_t)0x0a637dc5a2c898a6,
+		(int64_t)0x113f9804bef90dae,
+		(int64_t)0x1b710b35131c471b,
+		(int64_t)0x28db77f523047d84,
+		(int64_t)0x32caab7b40c72493,
+		(int64_t)0x3c9ebe0a15c9bebc,
+		(int64_t)0x431d67c49c100d4c,
+		(int64_t)0x4cc5d4becb3e42b6,
+		(int64_t)0x597f299cfc657e2a,
+		(int64_t)0x5fcb6fab3ad6faec,
+		(int64_t)0x6c44198c4a475817
 	}));
 }
 
@@ -323,7 +261,61 @@ SHA5::SHA5() {
 }
 
 $Class* SHA5::load$($String* name, bool initialize) {
-	$loadClass(SHA5, name, initialize, &_SHA5_ClassInfo_, clinit$SHA5, allocate$SHA5);
+	$FieldInfo fieldInfos$$[] = {
+		{"ITERATION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SHA5, ITERATION)},
+		{"ROUND_CONSTS", "[J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SHA5, ROUND_CONSTS)},
+		{"W", "[J", nullptr, $PRIVATE, $field(SHA5, W)},
+		{"state", "[J", nullptr, $PRIVATE, $field(SHA5, state)},
+		{"initialHashes", "[J", nullptr, $PRIVATE | $FINAL, $field(SHA5, initialHashes)},
+		{}
+	};
+	$CompoundAttribute implCompress0methodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I[J)V", nullptr, 0, $method(SHA5, init$, void, $String*, int32_t, $longs*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SHA5, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"implCompress", "([BI)V", nullptr, $FINAL, $virtualMethod(SHA5, implCompress, void, $bytes*, int32_t)},
+		{"implCompress0", "([BI)V", nullptr, $PRIVATE | $FINAL, $method(SHA5, implCompress0, void, $bytes*, int32_t), nullptr, nullptr, implCompress0methodAnnotations$$},
+		{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(SHA5, implCompressCheck, void, $bytes*, int32_t)},
+		{"implDigest", "([BI)V", nullptr, $FINAL, $virtualMethod(SHA5, implDigest, void, $bytes*, int32_t)},
+		{"implReset", "()V", nullptr, $FINAL, $virtualMethod(SHA5, implReset, void)},
+		{"lf_R", "(JI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_R, int64_t, int64_t, int32_t)},
+		{"lf_S", "(JI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_S, int64_t, int64_t, int32_t)},
+		{"lf_ch", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_ch, int64_t, int64_t, int64_t, int64_t)},
+		{"lf_delta0", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_delta0, int64_t, int64_t)},
+		{"lf_delta1", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_delta1, int64_t, int64_t)},
+		{"lf_maj", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_maj, int64_t, int64_t, int64_t, int64_t)},
+		{"lf_sigma0", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_sigma0, int64_t, int64_t)},
+		{"lf_sigma1", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_sigma1, int64_t, int64_t)},
+		{"resetHashes", "()V", nullptr, $PRIVATE, $method(SHA5, resetHashes, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.SHA5$SHA512_256", "sun.security.provider.SHA5", "SHA512_256", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.SHA5$SHA512_224", "sun.security.provider.SHA5", "SHA512_224", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.SHA5$SHA384", "sun.security.provider.SHA5", "SHA384", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.SHA5$SHA512", "sun.security.provider.SHA5", "SHA512", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.provider.SHA5",
+		"sun.security.provider.DigestBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.SHA5$SHA512_256,sun.security.provider.SHA5$SHA512_224,sun.security.provider.SHA5$SHA384,sun.security.provider.SHA5$SHA512"
+	};
+	$loadClass(SHA5, name, initialize, &classInfo$$, SHA5::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SHA5));
+	});
 	return class$;
 }
 

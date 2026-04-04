@@ -1,5 +1,4 @@
 #include <java/io/InvalidClassException.h>
-
 #include <java/io/ObjectStreamException.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _InvalidClassException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidClassException, serialVersionUID)},
-	{"classname", "Ljava/lang/String;", nullptr, $PUBLIC, $field(InvalidClassException, classname)},
-	{}
-};
-
-$MethodInfo _InvalidClassException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidClassException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidClassException, init$, void, $String*, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidClassException, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidClassException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.InvalidClassException",
-	"java.io.ObjectStreamException",
-	nullptr,
-	_InvalidClassException_FieldInfo_,
-	_InvalidClassException_MethodInfo_
-};
-
-$Object* allocate$InvalidClassException($Class* clazz) {
-	return $of($alloc(InvalidClassException));
-}
 
 void InvalidClassException::init$($String* reason) {
 	$ObjectStreamException::init$(reason);
@@ -65,7 +38,28 @@ void InvalidClassException::throw$() {
 }
 
 $Class* InvalidClassException::load$($String* name, bool initialize) {
-	$loadClass(InvalidClassException, name, initialize, &_InvalidClassException_ClassInfo_, allocate$InvalidClassException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidClassException, serialVersionUID)},
+		{"classname", "Ljava/lang/String;", nullptr, $PUBLIC, $field(InvalidClassException, classname)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidClassException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidClassException, init$, void, $String*, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidClassException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.InvalidClassException",
+		"java.io.ObjectStreamException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidClassException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidClassException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/spi/CalendarNameProvider.h>
-
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
 #include <java/util/spi/LocaleServiceProvider.h>
@@ -15,26 +14,6 @@ namespace java {
 	namespace util {
 		namespace spi {
 
-$MethodInfo _CalendarNameProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(CalendarNameProvider, init$, void)},
-	{"getDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarNameProvider, getDisplayName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
-	{"getDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CalendarNameProvider, getDisplayNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
-	{}
-};
-
-$ClassInfo _CalendarNameProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.spi.CalendarNameProvider",
-	"java.util.spi.LocaleServiceProvider",
-	nullptr,
-	nullptr,
-	_CalendarNameProvider_MethodInfo_
-};
-
-$Object* allocate$CalendarNameProvider($Class* clazz) {
-	return $of($alloc(CalendarNameProvider));
-}
-
 void CalendarNameProvider::init$() {
 	$LocaleServiceProvider::init$();
 }
@@ -43,7 +22,23 @@ CalendarNameProvider::CalendarNameProvider() {
 }
 
 $Class* CalendarNameProvider::load$($String* name, bool initialize) {
-	$loadClass(CalendarNameProvider, name, initialize, &_CalendarNameProvider_ClassInfo_, allocate$CalendarNameProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(CalendarNameProvider, init$, void)},
+		{"getDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarNameProvider, getDisplayName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
+		{"getDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CalendarNameProvider, getDisplayNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.spi.CalendarNameProvider",
+		"java.util.spi.LocaleServiceProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CalendarNameProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CalendarNameProvider);
+	});
 	return class$;
 }
 

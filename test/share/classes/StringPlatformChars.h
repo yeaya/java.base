@@ -12,6 +12,7 @@ class $export StringPlatformChars : public ::java::lang::Object {
 	$class(StringPlatformChars, 0, ::java::lang::Object)
 public:
 	StringPlatformChars();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* getBytes($String* string);
 	static void main($StringArray* args);

@@ -13,10 +13,13 @@ class $export SyncFailedException : public ::java::io::IOException {
 public:
 	SyncFailedException();
 	void init$($String* desc);
-	static const int64_t serialVersionUID = (int64_t)0xDF573F4C0CD5053E;
+	static const int64_t serialVersionUID = (int64_t)0xdf573f4c0cd5053e;
 	SyncFailedException(const SyncFailedException& e);
 	virtual void throw$() override;
-	inline SyncFailedException* operator ->() {
+	inline SyncFailedException* operator ->() const {
+		return (SyncFailedException*)throwing$;
+	}
+	inline operator SyncFailedException*() const {
 		return (SyncFailedException*)throwing$;
 	}
 };

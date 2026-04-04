@@ -1,5 +1,4 @@
 #include <sun/security/util/LocalizedMessage.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/ResourceBundle.h>
@@ -23,34 +22,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _LocalizedMessage_FieldInfo_[] = {
-	{"RESOURCES", "Lsun/security/util/Resources;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LocalizedMessage, RESOURCES)},
-	{"key", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LocalizedMessage, key)},
-	{}
-};
-
-$MethodInfo _LocalizedMessage_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LocalizedMessage, init$, void, $String*)},
-	{"formatLocalized", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(LocalizedMessage, formatLocalized, $String*, $ObjectArray*)},
-	{"formatNonlocalized", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(LocalizedMessage, formatNonlocalized, $String*, $ObjectArray*)},
-	{"getLocalized", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LocalizedMessage, getLocalized, $String*, $String*, $ObjectArray*)},
-	{"getNonlocalized", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LocalizedMessage, getNonlocalized, $String*, $String*, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _LocalizedMessage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.LocalizedMessage",
-	"java.lang.Object",
-	nullptr,
-	_LocalizedMessage_FieldInfo_,
-	_LocalizedMessage_MethodInfo_
-};
-
-$Object* allocate$LocalizedMessage($Class* clazz) {
-	return $of($alloc(LocalizedMessage));
-}
-
 $Resources* LocalizedMessage::RESOURCES = nullptr;
 
 void LocalizedMessage::init$($String* key) {
@@ -67,18 +38,18 @@ $String* LocalizedMessage::formatNonlocalized($ObjectArray* arguments) {
 
 $String* LocalizedMessage::getNonlocalized($String* key, $ObjectArray* arguments) {
 	$init(LocalizedMessage);
-	$useLocalCurrentObjectStackCache();
-	$var($String, value, $nc(LocalizedMessage::RESOURCES)->getString(key));
-	if (arguments == nullptr || $nc(arguments)->length == 0) {
+	$useLocalObjectStack();
+	$var($String, value, LocalizedMessage::RESOURCES->getString(key));
+	if (arguments == nullptr || arguments->length == 0) {
 		return value;
 	}
 	$var($StringBuilder, sb, $new($StringBuilder));
 	int32_t nextBraceIndex = 0;
-	while ((nextBraceIndex = $nc(value)->indexOf((int32_t)u'{')) >= 0) {
+	while ((nextBraceIndex = $nc(value)->indexOf(u'{')) >= 0) {
 		$var($String, firstPart, value->substring(0, nextBraceIndex));
 		sb->append(firstPart);
 		$assign(value, value->substring(nextBraceIndex + 1));
-		nextBraceIndex = value->indexOf((int32_t)u'}');
+		nextBraceIndex = value->indexOf(u'}');
 		if (nextBraceIndex < 0) {
 			$throwNew($RuntimeException, "Unmatched braces"_s);
 		}
@@ -97,7 +68,7 @@ $String* LocalizedMessage::getNonlocalized($String* key, $ObjectArray* arguments
 
 $String* LocalizedMessage::getLocalized($String* key, $ObjectArray* arguments) {
 	$init(LocalizedMessage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, value, $ResourcesMgr::getString(key));
 	if (arguments == nullptr) {
 		return value;
@@ -106,7 +77,7 @@ $String* LocalizedMessage::getLocalized($String* key, $ObjectArray* arguments) {
 	return form->format(arguments);
 }
 
-void clinit$LocalizedMessage($Class* class$) {
+void LocalizedMessage::clinit$($Class* clazz) {
 	$assignStatic(LocalizedMessage::RESOURCES, $new($Resources));
 }
 
@@ -114,7 +85,30 @@ LocalizedMessage::LocalizedMessage() {
 }
 
 $Class* LocalizedMessage::load$($String* name, bool initialize) {
-	$loadClass(LocalizedMessage, name, initialize, &_LocalizedMessage_ClassInfo_, clinit$LocalizedMessage, allocate$LocalizedMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"RESOURCES", "Lsun/security/util/Resources;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LocalizedMessage, RESOURCES)},
+		{"key", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LocalizedMessage, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LocalizedMessage, init$, void, $String*)},
+		{"formatLocalized", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(LocalizedMessage, formatLocalized, $String*, $ObjectArray*)},
+		{"formatNonlocalized", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(LocalizedMessage, formatNonlocalized, $String*, $ObjectArray*)},
+		{"getLocalized", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LocalizedMessage, getLocalized, $String*, $String*, $ObjectArray*)},
+		{"getNonlocalized", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LocalizedMessage, getNonlocalized, $String*, $String*, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.LocalizedMessage",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocalizedMessage, name, initialize, &classInfo$$, LocalizedMessage::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalizedMessage);
+	});
 	return class$;
 }
 

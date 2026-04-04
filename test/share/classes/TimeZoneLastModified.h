@@ -15,7 +15,7 @@ public:
 	void init$();
 	static void main($StringArray* args);
 	static int32_t test($String* timeZoneID);
-	static const int64_t TIME = (int64_t)0x000000EE3B69DCD2;
+	static const int64_t TIME = (int64_t)0x000000ee3b69dcd2;
 };
 
 #pragma pop_macro("TIME")

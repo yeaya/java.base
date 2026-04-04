@@ -1,7 +1,4 @@
 #include <java/time/Ser.h>
-
-#include <java/io/DataInput.h>
-#include <java/io/DataOutput.h>
 #include <java/io/InvalidClassException.h>
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectOutput.h>
@@ -39,8 +36,6 @@
 #undef ZONE_OFFSET_TYPE
 #undef ZONE_REGION_TYPE
 
-using $DataInput = ::java::io::DataInput;
-using $DataOutput = ::java::io::DataOutput;
 using $InvalidClassException = ::java::io::InvalidClassException;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectOutput = ::java::io::ObjectOutput;
@@ -67,52 +62,6 @@ using $ZonedDateTime = ::java::time::ZonedDateTime;
 namespace java {
 	namespace time {
 
-$FieldInfo _Ser_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Ser, serialVersionUID)},
-	{"DURATION_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, DURATION_TYPE)},
-	{"INSTANT_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, INSTANT_TYPE)},
-	{"LOCAL_DATE_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, LOCAL_DATE_TYPE)},
-	{"LOCAL_TIME_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, LOCAL_TIME_TYPE)},
-	{"LOCAL_DATE_TIME_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, LOCAL_DATE_TIME_TYPE)},
-	{"ZONE_DATE_TIME_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, ZONE_DATE_TIME_TYPE)},
-	{"ZONE_REGION_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, ZONE_REGION_TYPE)},
-	{"ZONE_OFFSET_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, ZONE_OFFSET_TYPE)},
-	{"OFFSET_TIME_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, OFFSET_TIME_TYPE)},
-	{"OFFSET_DATE_TIME_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, OFFSET_DATE_TIME_TYPE)},
-	{"YEAR_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, YEAR_TYPE)},
-	{"YEAR_MONTH_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, YEAR_MONTH_TYPE)},
-	{"MONTH_DAY_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, MONTH_DAY_TYPE)},
-	{"PERIOD_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, PERIOD_TYPE)},
-	{"type", "B", nullptr, $PRIVATE, $field(Ser, type)},
-	{"object", "Ljava/io/Serializable;", nullptr, $PRIVATE, $field(Ser, object)},
-	{}
-};
-
-$MethodInfo _Ser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Ser, init$, void)},
-	{"<init>", "(BLjava/io/Serializable;)V", nullptr, 0, $method(Ser, init$, void, int8_t, $Serializable*)},
-	{"read", "(Ljava/io/ObjectInput;)Ljava/io/Serializable;", nullptr, $STATIC, $staticMethod(Ser, read, $Serializable*, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(Ser, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readInternal", "(BLjava/io/ObjectInput;)Ljava/io/Serializable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Ser, readInternal, $Serializable*, int8_t, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Ser, readResolve, $Object*)},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(Ser, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
-	{"writeInternal", "(BLjava/lang/Object;Ljava/io/ObjectOutput;)V", nullptr, $STATIC, $staticMethod(Ser, writeInternal, void, int8_t, Object$*, $ObjectOutput*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Ser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.Ser",
-	"java.lang.Object",
-	"java.io.Externalizable",
-	_Ser_FieldInfo_,
-	_Ser_MethodInfo_
-};
-
-$Object* allocate$Ser($Class* clazz) {
-	return $of($alloc(Ser));
-}
-
 void Ser::init$() {
 }
 
@@ -130,79 +79,49 @@ void Ser::writeInternal(int8_t type, Object$* object, $ObjectOutput* out) {
 	$nc(out)->writeByte(type);
 	switch (type) {
 	case Ser::DURATION_TYPE:
-		{
-			$nc(($cast($Duration, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($Duration, object))->writeExternal(out);
+		break;
 	case Ser::INSTANT_TYPE:
-		{
-			$nc(($cast($Instant, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($Instant, object))->writeExternal(out);
+		break;
 	case Ser::LOCAL_DATE_TYPE:
-		{
-			$nc(($cast($LocalDate, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($LocalDate, object))->writeExternal(out);
+		break;
 	case Ser::LOCAL_DATE_TIME_TYPE:
-		{
-			$nc(($cast($LocalDateTime, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($LocalDateTime, object))->writeExternal(out);
+		break;
 	case Ser::LOCAL_TIME_TYPE:
-		{
-			$nc(($cast($LocalTime, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($LocalTime, object))->writeExternal(out);
+		break;
 	case Ser::ZONE_REGION_TYPE:
-		{
-			$nc(($cast($ZoneRegion, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($ZoneRegion, object))->writeExternal(out);
+		break;
 	case Ser::ZONE_OFFSET_TYPE:
-		{
-			$nc(($cast($ZoneOffset, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($ZoneOffset, object))->writeExternal(out);
+		break;
 	case Ser::ZONE_DATE_TIME_TYPE:
-		{
-			$nc(($cast($ZonedDateTime, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($ZonedDateTime, object))->writeExternal(out);
+		break;
 	case Ser::OFFSET_TIME_TYPE:
-		{
-			$nc(($cast($OffsetTime, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($OffsetTime, object))->writeExternal(out);
+		break;
 	case Ser::OFFSET_DATE_TIME_TYPE:
-		{
-			$nc(($cast($OffsetDateTime, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($OffsetDateTime, object))->writeExternal(out);
+		break;
 	case Ser::YEAR_TYPE:
-		{
-			$nc(($cast($Year, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($Year, object))->writeExternal(out);
+		break;
 	case Ser::YEAR_MONTH_TYPE:
-		{
-			$nc(($cast($YearMonth, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($YearMonth, object))->writeExternal(out);
+		break;
 	case Ser::MONTH_DAY_TYPE:
-		{
-			$nc(($cast($MonthDay, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($MonthDay, object))->writeExternal(out);
+		break;
 	case Ser::PERIOD_TYPE:
-		{
-			$nc(($cast($Period, object)))->writeExternal(out);
-			break;
-		}
+		$nc($cast($Period, object))->writeExternal(out);
+		break;
 	default:
-		{
-			$throwNew($InvalidClassException, "Unknown serialized type"_s);
-		}
+		$throwNew($InvalidClassException, "Unknown serialized type"_s);
 	}
 }
 
@@ -221,77 +140,88 @@ $Serializable* Ser::readInternal(int8_t type, $ObjectInput* in) {
 	$init(Ser);
 	switch (type) {
 	case Ser::DURATION_TYPE:
-		{
-			return $Duration::readExternal(in);
-		}
+		return $Duration::readExternal(in);
 	case Ser::INSTANT_TYPE:
-		{
-			return $Instant::readExternal(in);
-		}
+		return $Instant::readExternal(in);
 	case Ser::LOCAL_DATE_TYPE:
-		{
-			return $LocalDate::readExternal(in);
-		}
+		return $LocalDate::readExternal(in);
 	case Ser::LOCAL_DATE_TIME_TYPE:
-		{
-			return $LocalDateTime::readExternal(in);
-		}
+		return $LocalDateTime::readExternal(in);
 	case Ser::LOCAL_TIME_TYPE:
-		{
-			return $LocalTime::readExternal(in);
-		}
+		return $LocalTime::readExternal(in);
 	case Ser::ZONE_DATE_TIME_TYPE:
-		{
-			return $ZonedDateTime::readExternal(in);
-		}
+		return $ZonedDateTime::readExternal(in);
 	case Ser::ZONE_OFFSET_TYPE:
-		{
-			return $ZoneOffset::readExternal(in);
-		}
+		return $ZoneOffset::readExternal(in);
 	case Ser::ZONE_REGION_TYPE:
-		{
-			return $ZoneRegion::readExternal(in);
-		}
+		return $ZoneRegion::readExternal(in);
 	case Ser::OFFSET_TIME_TYPE:
-		{
-			return $OffsetTime::readExternal(in);
-		}
+		return $OffsetTime::readExternal(in);
 	case Ser::OFFSET_DATE_TIME_TYPE:
-		{
-			return $OffsetDateTime::readExternal(in);
-		}
+		return $OffsetDateTime::readExternal(in);
 	case Ser::YEAR_TYPE:
-		{
-			return $Year::readExternal(in);
-		}
+		return $Year::readExternal(in);
 	case Ser::YEAR_MONTH_TYPE:
-		{
-			return $YearMonth::readExternal(in);
-		}
+		return $YearMonth::readExternal(in);
 	case Ser::MONTH_DAY_TYPE:
-		{
-			return $MonthDay::readExternal(in);
-		}
+		return $MonthDay::readExternal(in);
 	case Ser::PERIOD_TYPE:
-		{
-			return $Period::readExternal(in);
-		}
+		return $Period::readExternal(in);
 	default:
-		{
-			$throwNew($StreamCorruptedException, "Unknown serialized type"_s);
-		}
+		$throwNew($StreamCorruptedException, "Unknown serialized type"_s);
 	}
 }
 
 $Object* Ser::readResolve() {
-	return $of(this->object);
+	return this->object;
 }
 
 Ser::Ser() {
 }
 
 $Class* Ser::load$($String* name, bool initialize) {
-	$loadClass(Ser, name, initialize, &_Ser_ClassInfo_, allocate$Ser);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Ser, serialVersionUID)},
+		{"DURATION_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, DURATION_TYPE)},
+		{"INSTANT_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, INSTANT_TYPE)},
+		{"LOCAL_DATE_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, LOCAL_DATE_TYPE)},
+		{"LOCAL_TIME_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, LOCAL_TIME_TYPE)},
+		{"LOCAL_DATE_TIME_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, LOCAL_DATE_TIME_TYPE)},
+		{"ZONE_DATE_TIME_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, ZONE_DATE_TIME_TYPE)},
+		{"ZONE_REGION_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, ZONE_REGION_TYPE)},
+		{"ZONE_OFFSET_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, ZONE_OFFSET_TYPE)},
+		{"OFFSET_TIME_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, OFFSET_TIME_TYPE)},
+		{"OFFSET_DATE_TIME_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, OFFSET_DATE_TIME_TYPE)},
+		{"YEAR_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, YEAR_TYPE)},
+		{"YEAR_MONTH_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, YEAR_MONTH_TYPE)},
+		{"MONTH_DAY_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, MONTH_DAY_TYPE)},
+		{"PERIOD_TYPE", "B", nullptr, $STATIC | $FINAL, $constField(Ser, PERIOD_TYPE)},
+		{"type", "B", nullptr, $PRIVATE, $field(Ser, type)},
+		{"object", "Ljava/io/Serializable;", nullptr, $PRIVATE, $field(Ser, object)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Ser, init$, void)},
+		{"<init>", "(BLjava/io/Serializable;)V", nullptr, 0, $method(Ser, init$, void, int8_t, $Serializable*)},
+		{"read", "(Ljava/io/ObjectInput;)Ljava/io/Serializable;", nullptr, $STATIC, $staticMethod(Ser, read, $Serializable*, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(Ser, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readInternal", "(BLjava/io/ObjectInput;)Ljava/io/Serializable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Ser, readInternal, $Serializable*, int8_t, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Ser, readResolve, $Object*)},
+		{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(Ser, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
+		{"writeInternal", "(BLjava/lang/Object;Ljava/io/ObjectOutput;)V", nullptr, $STATIC, $staticMethod(Ser, writeInternal, void, int8_t, Object$*, $ObjectOutput*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.Ser",
+		"java.lang.Object",
+		"java.io.Externalizable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Ser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Ser);
+	});
 	return class$;
 }
 

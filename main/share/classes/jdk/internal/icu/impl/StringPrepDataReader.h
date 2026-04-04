@@ -27,6 +27,7 @@ class StringPrepDataReader : public ::jdk::internal::icu::impl::ICUBinary$Authen
 	$class(StringPrepDataReader, 0, ::jdk::internal::icu::impl::ICUBinary$Authenticate)
 public:
 	StringPrepDataReader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::InputStream* inputStream);
 	$bytes* getDataFormatVersion();
 	$bytes* getUnicodeVersion();

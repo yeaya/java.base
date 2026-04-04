@@ -19,6 +19,7 @@ class LocaleEquivalentMaps : public ::java::lang::Object {
 	$class(LocaleEquivalentMaps, 0, ::java::lang::Object)
 public:
 	LocaleEquivalentMaps();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Map* singleEquivMap;
 	static ::java::util::Map* multiEquivsMap;

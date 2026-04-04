@@ -1,5 +1,4 @@
 #include <java/util/ImmutableCollections$AbstractImmutableMap.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ImmutableCollections.h>
@@ -20,60 +19,6 @@ using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace util {
-
-$CompoundAttribute _ImmutableCollections$AbstractImmutableMap_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$MethodInfo _ImmutableCollections$AbstractImmutableMap_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$AbstractImmutableMap, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, clear, void)},
-	{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, compute, $Object*, Object$*, $BiFunction*)},
-	{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(TK;Ljava/util/function/Function<-TK;+TV;>;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, computeIfAbsent, $Object*, Object$*, $Function*)},
-	{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, computeIfPresent, $Object*, Object$*, $BiFunction*)},
-	{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TV;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, getOrDefault, $Object*, Object$*, Object$*)},
-	{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;TV;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, merge, $Object*, Object$*, Object$*, $BiFunction*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, put, $Object*, Object$*, Object$*)},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, putAll, void, $Map*)},
-	{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, putIfAbsent, $Object*, Object$*, Object$*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, remove, $Object*, Object$*)},
-	{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, remove, bool, Object$*, Object$*)},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, replace, $Object*, Object$*, Object$*)},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK;TV;TV;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, replace, bool, Object$*, Object$*, Object$*)},
-	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, replaceAll, void, $BiFunction*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ImmutableCollections$AbstractImmutableMap_InnerClassesInfo_[] = {
-	{"java.util.ImmutableCollections$AbstractImmutableMap", "java.util.ImmutableCollections", "AbstractImmutableMap", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImmutableCollections$AbstractImmutableMap_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.ImmutableCollections$AbstractImmutableMap",
-	"java.util.AbstractMap",
-	"java.io.Serializable",
-	nullptr,
-	_ImmutableCollections$AbstractImmutableMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/AbstractMap<TK;TV;>;Ljava/io/Serializable;",
-	nullptr,
-	_ImmutableCollections$AbstractImmutableMap_InnerClassesInfo_,
-	_ImmutableCollections$AbstractImmutableMap_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.ImmutableCollections"
-};
-
-$Object* allocate$ImmutableCollections$AbstractImmutableMap($Class* clazz) {
-	return $of($alloc(ImmutableCollections$AbstractImmutableMap));
-}
 
 bool ImmutableCollections$AbstractImmutableMap::equals(Object$* o) {
 	 return this->$AbstractMap::equals(o);
@@ -163,14 +108,62 @@ void ImmutableCollections$AbstractImmutableMap::replaceAll($BiFunction* f) {
 
 $Object* ImmutableCollections$AbstractImmutableMap::getOrDefault(Object$* key, Object$* defaultValue) {
 	$var($Object, v, nullptr);
-	return $of((($assign(v, get(key))) != nullptr) ? v : $of(defaultValue));
+	return (($assign(v, get(key))) != nullptr) ? v : $of(defaultValue);
 }
 
 ImmutableCollections$AbstractImmutableMap::ImmutableCollections$AbstractImmutableMap() {
 }
 
 $Class* ImmutableCollections$AbstractImmutableMap::load$($String* name, bool initialize) {
-	$loadClass(ImmutableCollections$AbstractImmutableMap, name, initialize, &_ImmutableCollections$AbstractImmutableMap_ClassInfo_, allocate$ImmutableCollections$AbstractImmutableMap);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$AbstractImmutableMap, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, clear, void)},
+		{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, compute, $Object*, Object$*, $BiFunction*)},
+		{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(TK;Ljava/util/function/Function<-TK;+TV;>;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, computeIfAbsent, $Object*, Object$*, $Function*)},
+		{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, computeIfPresent, $Object*, Object$*, $BiFunction*)},
+		{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TV;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, getOrDefault, $Object*, Object$*, Object$*)},
+		{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;TV;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, merge, $Object*, Object$*, Object$*, $BiFunction*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, put, $Object*, Object$*, Object$*)},
+		{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, putAll, void, $Map*)},
+		{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, putIfAbsent, $Object*, Object$*, Object$*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, remove, $Object*, Object$*)},
+		{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, remove, bool, Object$*, Object$*)},
+		{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, replace, $Object*, Object$*, Object$*)},
+		{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK;TV;TV;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, replace, bool, Object$*, Object$*, Object$*)},
+		{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableMap, replaceAll, void, $BiFunction*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ImmutableCollections$AbstractImmutableMap", "java.util.ImmutableCollections", "AbstractImmutableMap", $STATIC | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.ImmutableCollections$AbstractImmutableMap",
+		"java.util.AbstractMap",
+		"java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/AbstractMap<TK;TV;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.ImmutableCollections"
+	};
+	$loadClass(ImmutableCollections$AbstractImmutableMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImmutableCollections$AbstractImmutableMap));
+	});
 	return class$;
 }
 

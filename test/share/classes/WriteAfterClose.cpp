@@ -1,5 +1,4 @@
 #include <WriteAfterClose.h>
-
 #include <java/io/IOException.h>
 #include <java/io/PipedInputStream.h>
 #include <java/io/PipedOutputStream.h>
@@ -12,35 +11,16 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _WriteAfterClose_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WriteAfterClose, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteAfterClose, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _WriteAfterClose_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WriteAfterClose",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WriteAfterClose_MethodInfo_
-};
-
-$Object* allocate$WriteAfterClose($Class* clazz) {
-	return $of($alloc(WriteAfterClose));
-}
-
 void WriteAfterClose::init$() {
 }
 
 void WriteAfterClose::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PipedInputStream, in, $new($PipedInputStream));
 	$var($PipedOutputStream, out, $new($PipedOutputStream, in));
 	in->close();
 	try {
-		out->write((int32_t)u'a');
+		out->write(u'a');
 		$throwNew($Exception, "Should not allow write after close"_s);
 	} catch ($IOException& e) {
 	}
@@ -50,7 +30,22 @@ WriteAfterClose::WriteAfterClose() {
 }
 
 $Class* WriteAfterClose::load$($String* name, bool initialize) {
-	$loadClass(WriteAfterClose, name, initialize, &_WriteAfterClose_ClassInfo_, allocate$WriteAfterClose);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WriteAfterClose, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteAfterClose, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WriteAfterClose",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WriteAfterClose, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WriteAfterClose);
+	});
 	return class$;
 }
 

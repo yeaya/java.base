@@ -1,5 +1,4 @@
 #include <java/security/AuthProvider.h>
-
 #include <java/security/Provider.h>
 #include <javax/security/auth/Subject.h>
 #include <javax/security/auth/callback/CallbackHandler.h>
@@ -18,43 +17,6 @@ using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 namespace java {
 	namespace security {
 
-$NamedAttribute AuthProvider_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _AuthProvider_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", AuthProvider_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _AuthProvider_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthProvider, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AuthProvider_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;DLjava/lang/String;)V", nullptr, $PROTECTED | $DEPRECATED, $method(AuthProvider, init$, void, $String*, double, $String*), nullptr, nullptr, _AuthProvider_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AuthProvider, init$, void, $String*, $String*, $String*)},
-	{"login", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthProvider, login, void, $Subject*, $CallbackHandler*), "javax.security.auth.login.LoginException"},
-	{"logout", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthProvider, logout, void), "javax.security.auth.login.LoginException"},
-	{"setCallbackHandler", "(Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthProvider, setCallbackHandler, void, $CallbackHandler*)},
-	{}
-};
-
-$ClassInfo _AuthProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.AuthProvider",
-	"java.security.Provider",
-	nullptr,
-	_AuthProvider_FieldInfo_,
-	_AuthProvider_MethodInfo_
-};
-
-$Object* allocate$AuthProvider($Class* clazz) {
-	return $of($alloc(AuthProvider));
-}
-
 void AuthProvider::init$($String* name, double version, $String* info) {
 	$Provider::init$(name, $($Double::toString(version)), info);
 }
@@ -67,7 +29,37 @@ AuthProvider::AuthProvider() {
 }
 
 $Class* AuthProvider::load$($String* name, bool initialize) {
-	$loadClass(AuthProvider, name, initialize, &_AuthProvider_ClassInfo_, allocate$AuthProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthProvider, serialVersionUID)},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;DLjava/lang/String;)V", nullptr, $PROTECTED | $DEPRECATED, $method(AuthProvider, init$, void, $String*, double, $String*), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AuthProvider, init$, void, $String*, $String*, $String*)},
+		{"login", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthProvider, login, void, $Subject*, $CallbackHandler*), "javax.security.auth.login.LoginException"},
+		{"logout", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthProvider, logout, void), "javax.security.auth.login.LoginException"},
+		{"setCallbackHandler", "(Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthProvider, setCallbackHandler, void, $CallbackHandler*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.AuthProvider",
+		"java.security.Provider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AuthProvider));
+	});
 	return class$;
 }
 

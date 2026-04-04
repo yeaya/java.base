@@ -1,5 +1,4 @@
 #include <GetResource.h>
-
 #include <GetResource$1.h>
 #include <GetResource$2.h>
 #include <java/lang/InterruptedException.h>
@@ -15,46 +14,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CyclicBarrier = ::java::util::concurrent::CyclicBarrier;
 
-$FieldInfo _GetResource_FieldInfo_[] = {
-	{"go", "Ljava/util/concurrent/CyclicBarrier;", nullptr, 0, $field(GetResource, go)},
-	{"done", "Ljava/util/concurrent/CyclicBarrier;", nullptr, 0, $field(GetResource, done)},
-	{"t1", "Ljava/lang/Thread;", nullptr, 0, $field(GetResource, t1)},
-	{"t2", "Ljava/lang/Thread;", nullptr, 0, $field(GetResource, t2)},
-	{}
-};
-
-$MethodInfo _GetResource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetResource, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetResource, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetResource, run, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _GetResource_InnerClassesInfo_[] = {
-	{"GetResource$2", nullptr, nullptr, 0},
-	{"GetResource$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GetResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetResource",
-	"java.lang.Object",
-	nullptr,
-	_GetResource_FieldInfo_,
-	_GetResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"GetResource$2,GetResource$1"
-};
-
-$Object* allocate$GetResource($Class* clazz) {
-	return $of($alloc(GetResource));
-}
-
 void GetResource::init$() {
 	$set(this, go, $new($CyclicBarrier, 2));
 	$set(this, done, $new($CyclicBarrier, 2));
@@ -66,13 +25,13 @@ void GetResource::run() {
 	$nc(this->t1)->start();
 	$nc(this->t2)->start();
 	try {
-		$nc(this->t1)->join();
+		this->t1->join();
 	} catch ($InterruptedException& e) {
 		e->printStackTrace();
 		$throw(e);
 	}
 	try {
-		$nc(this->t2)->join();
+		this->t2->join();
 	} catch ($InterruptedException& e) {
 		e->printStackTrace();
 		$throw(e);
@@ -87,7 +46,41 @@ GetResource::GetResource() {
 }
 
 $Class* GetResource::load$($String* name, bool initialize) {
-	$loadClass(GetResource, name, initialize, &_GetResource_ClassInfo_, allocate$GetResource);
+	$FieldInfo fieldInfos$$[] = {
+		{"go", "Ljava/util/concurrent/CyclicBarrier;", nullptr, 0, $field(GetResource, go)},
+		{"done", "Ljava/util/concurrent/CyclicBarrier;", nullptr, 0, $field(GetResource, done)},
+		{"t1", "Ljava/lang/Thread;", nullptr, 0, $field(GetResource, t1)},
+		{"t2", "Ljava/lang/Thread;", nullptr, 0, $field(GetResource, t2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetResource, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetResource, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetResource, run, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetResource$2", nullptr, nullptr, 0},
+		{"GetResource$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetResource",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"GetResource$2,GetResource$1"
+	};
+	$loadClass(GetResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetResource);
+	});
 	return class$;
 }
 

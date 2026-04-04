@@ -1,5 +1,4 @@
 #include <java/lang/Deprecated.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -11,68 +10,60 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace lang {
 
-$NamedAttribute Deprecated_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute Deprecated_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
-	{'e', "Ljava/lang/annotation/ElementType; FIELD"},
-	{'e', "Ljava/lang/annotation/ElementType; LOCAL_VARIABLE"},
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'e', "Ljava/lang/annotation/ElementType; PACKAGE"},
-	{'e', "Ljava/lang/annotation/ElementType; MODULE"},
-	{'e', "Ljava/lang/annotation/ElementType; PARAMETER"},
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'-'}
-};
-
-$NamedAttribute Deprecated_Attribute_var$1[] = {
-	{"value", '[', Deprecated_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _Deprecated_Annotations_[] = {
-	{"Ljava/lang/annotation/Documented;", nullptr},
-	{"Ljava/lang/annotation/Retention;", Deprecated_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", Deprecated_Attribute_var$1},
-	{}
-};
-
-$Attribute _Deprecated_DefaultValue_forRemoval0 = {
-	'Z', "false"
-};
-
-$Attribute _Deprecated_DefaultValue_since1 = {
-	's', ""
-};
-
-$MethodInfo _Deprecated_MethodInfo_[] = {
-	{"forRemoval", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Deprecated, forRemoval, bool), nullptr, &_Deprecated_DefaultValue_forRemoval0},
-	{"since", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Deprecated, since, $String*), nullptr, &_Deprecated_DefaultValue_since1},
-	{}
-};
-
-$ClassInfo _Deprecated_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"java.lang.Deprecated",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_Deprecated_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Deprecated_Annotations_
-};
-
-$Object* allocate$Deprecated($Class* clazz) {
-	return $of($alloc(Deprecated));
-}
-
 $Class* Deprecated::load$($String* name, bool initialize) {
-	$loadClass(Deprecated, name, initialize, &_Deprecated_ClassInfo_, allocate$Deprecated);
+
+	$Attribute forRemovaldefaultValue$$ = {
+		'Z', "false"
+	};
+
+	$Attribute sincedefaultValue$$ = {
+		's', ""
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"forRemoval", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Deprecated, forRemoval, bool), nullptr, &forRemovaldefaultValue$$},
+		{"since", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Deprecated, since, $String*), nullptr, &sincedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
+		{'e', "Ljava/lang/annotation/ElementType; FIELD"},
+		{'e', "Ljava/lang/annotation/ElementType; LOCAL_VARIABLE"},
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'e', "Ljava/lang/annotation/ElementType; PACKAGE"},
+		{'e', "Ljava/lang/annotation/ElementType; MODULE"},
+		{'e', "Ljava/lang/annotation/ElementType; PARAMETER"},
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Documented;", nullptr},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"java.lang.Deprecated",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Deprecated, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Deprecated);
+	});
 	return class$;
 }
 

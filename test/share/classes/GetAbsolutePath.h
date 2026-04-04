@@ -9,6 +9,7 @@ class $export GetAbsolutePath : public ::java::lang::Object {
 	$class(GetAbsolutePath, 0, ::java::lang::Object)
 public:
 	GetAbsolutePath();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void ck($String* path, $String* ans);
 	static void main($StringArray* args);

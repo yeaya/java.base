@@ -1,5 +1,4 @@
 #include <sun/security/jca/Providers.h>
-
 #include <java/lang/ThreadLocal.h>
 #include <java/security/Provider.h>
 #include <sun/security/jca/JCAUtil.h>
@@ -23,51 +22,11 @@ using $JCAUtil = ::sun::security::jca::JCAUtil;
 using $ProviderList = ::sun::security::jca::ProviderList;
 using $Sun = ::sun::security::provider::Sun;
 using $VerificationProvider = ::sun::security::provider::VerificationProvider;
-using $Debug = ::sun::security::util::Debug;
 using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 
 namespace sun {
 	namespace security {
 		namespace jca {
-
-$FieldInfo _Providers_FieldInfo_[] = {
-	{"threadLists", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lsun/security/jca/ProviderList;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Providers, threadLists)},
-	{"threadListsUsed", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Providers, threadListsUsed)},
-	{"providerList", "Lsun/security/jca/ProviderList;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Providers, providerList)},
-	{"jarVerificationProviders", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Providers, jarVerificationProviders)},
-	{}
-};
-
-$MethodInfo _Providers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Providers, init$, void)},
-	{"beginThreadProviderList", "(Lsun/security/jca/ProviderList;)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Providers, beginThreadProviderList, $ProviderList*, $ProviderList*)},
-	{"changeThreadProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, changeThreadProviderList, void, $ProviderList*)},
-	{"clearCachedValues", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, clearCachedValues, void)},
-	{"endThreadProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Providers, endThreadProviderList, void, $ProviderList*)},
-	{"getFullProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getFullProviderList, $ProviderList*)},
-	{"getProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getProviderList, $ProviderList*)},
-	{"getSunProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getSunProvider, $Provider*)},
-	{"getSystemProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, getSystemProviderList, $ProviderList*)},
-	{"getThreadProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getThreadProviderList, $ProviderList*)},
-	{"setProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, setProviderList, void, $ProviderList*)},
-	{"setSystemProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, setSystemProviderList, void, $ProviderList*)},
-	{"startJarVerification", "()Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, startJarVerification, $Object*)},
-	{"stopJarVerification", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, stopJarVerification, void, Object$*)},
-	{}
-};
-
-$ClassInfo _Providers_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jca.Providers",
-	"java.lang.Object",
-	nullptr,
-	_Providers_FieldInfo_,
-	_Providers_MethodInfo_
-};
-
-$Object* allocate$Providers($Class* clazz) {
-	return $of($alloc(Providers));
-}
 
 $ThreadLocal* Providers::threadLists = nullptr;
 $volatile(int32_t) Providers::threadListsUsed = 0;
@@ -84,7 +43,7 @@ $Provider* Providers::getSunProvider() {
 
 $Object* Providers::startJarVerification() {
 	$init(Providers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProviderList, currentList, getProviderList());
 	$var($ProviderList, jarList, $nc(currentList)->getJarList(Providers::jarVerificationProviders));
 	if ($nc(jarList)->getProvider("SUN"_s) == nullptr) {
@@ -96,7 +55,7 @@ $Object* Providers::startJarVerification() {
 		}
 		$ProviderList::add(jarList, p);
 	}
-	return $of(beginThreadProviderList(jarList));
+	return beginThreadProviderList(jarList);
 }
 
 void Providers::stopJarVerification(Object$* obj) {
@@ -131,7 +90,7 @@ void Providers::clearCachedValues() {
 
 $ProviderList* Providers::getFullProviderList() {
 	$init(Providers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProviderList, list, nullptr);
 	$synchronized(Providers::class$) {
 		$assign(list, getThreadProviderList());
@@ -168,52 +127,50 @@ $ProviderList* Providers::getThreadProviderList() {
 	if (Providers::threadListsUsed == 0) {
 		return nullptr;
 	}
-	return $cast($ProviderList, $nc(Providers::threadLists)->get());
+	return $cast($ProviderList, Providers::threadLists->get());
 }
 
 void Providers::changeThreadProviderList($ProviderList* list) {
 	$init(Providers);
-	$nc(Providers::threadLists)->set(list);
+	Providers::threadLists->set(list);
 }
 
 $ProviderList* Providers::beginThreadProviderList($ProviderList* list) {
-	$load(Providers);
+	$init(Providers);
 	$synchronized(class$) {
-		$init(Providers);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$init($ProviderList);
 		if ($ProviderList::debug != nullptr) {
-			$nc($ProviderList::debug)->println($$str({"ThreadLocal providers: "_s, list}));
+			$ProviderList::debug->println($$str({"ThreadLocal providers: "_s, list}));
 		}
-		$var($ProviderList, oldList, $cast($ProviderList, $nc(Providers::threadLists)->get()));
+		$var($ProviderList, oldList, $cast($ProviderList, Providers::threadLists->get()));
 		++Providers::threadListsUsed;
-		$nc(Providers::threadLists)->set(list);
+		Providers::threadLists->set(list);
 		return oldList;
 	}
 }
 
 void Providers::endThreadProviderList($ProviderList* list) {
-	$load(Providers);
+	$init(Providers);
 	$synchronized(class$) {
-		$init(Providers);
 		if (list == nullptr) {
 			$init($ProviderList);
 			if ($ProviderList::debug != nullptr) {
-				$nc($ProviderList::debug)->println("Disabling ThreadLocal providers"_s);
+				$ProviderList::debug->println("Disabling ThreadLocal providers"_s);
 			}
-			$nc(Providers::threadLists)->remove();
+			Providers::threadLists->remove();
 		} else {
 			$init($ProviderList);
 			if ($ProviderList::debug != nullptr) {
-				$nc($ProviderList::debug)->println($$str({"Restoring previous ThreadLocal providers: "_s, list}));
+				$ProviderList::debug->println($$str({"Restoring previous ThreadLocal providers: "_s, list}));
 			}
-			$nc(Providers::threadLists)->set(list);
+			Providers::threadLists->set(list);
 		}
 		--Providers::threadListsUsed;
 	}
 }
 
-void clinit$Providers($Class* class$) {
+void Providers::clinit$($Class* clazz) {
 	$assignStatic(Providers::threadLists, $new($ThreadLocal));
 	{
 		$init($ProviderList);
@@ -232,7 +189,41 @@ Providers::Providers() {
 }
 
 $Class* Providers::load$($String* name, bool initialize) {
-	$loadClass(Providers, name, initialize, &_Providers_ClassInfo_, clinit$Providers, allocate$Providers);
+	$FieldInfo fieldInfos$$[] = {
+		{"threadLists", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lsun/security/jca/ProviderList;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Providers, threadLists)},
+		{"threadListsUsed", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Providers, threadListsUsed)},
+		{"providerList", "Lsun/security/jca/ProviderList;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Providers, providerList)},
+		{"jarVerificationProviders", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Providers, jarVerificationProviders)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Providers, init$, void)},
+		{"beginThreadProviderList", "(Lsun/security/jca/ProviderList;)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Providers, beginThreadProviderList, $ProviderList*, $ProviderList*)},
+		{"changeThreadProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, changeThreadProviderList, void, $ProviderList*)},
+		{"clearCachedValues", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, clearCachedValues, void)},
+		{"endThreadProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Providers, endThreadProviderList, void, $ProviderList*)},
+		{"getFullProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getFullProviderList, $ProviderList*)},
+		{"getProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getProviderList, $ProviderList*)},
+		{"getSunProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getSunProvider, $Provider*)},
+		{"getSystemProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, getSystemProviderList, $ProviderList*)},
+		{"getThreadProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getThreadProviderList, $ProviderList*)},
+		{"setProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, setProviderList, void, $ProviderList*)},
+		{"setSystemProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, setSystemProviderList, void, $ProviderList*)},
+		{"startJarVerification", "()Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, startJarVerification, $Object*)},
+		{"stopJarVerification", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, stopJarVerification, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jca.Providers",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Providers, name, initialize, &classInfo$$, Providers::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Providers);
+	});
 	return class$;
 }
 

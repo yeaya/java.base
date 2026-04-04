@@ -66,6 +66,7 @@ class $export BasicImageReader : public ::java::lang::AutoCloseable {
 	$class(BasicImageReader, 0, ::java::lang::AutoCloseable)
 public:
 	BasicImageReader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::Path* path, ::java::nio::ByteOrder* byteOrder);
 	void init$(::java::nio::file::Path* imagePath);
 	virtual void close() override;

@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/util/CodePointMap$RangeOption.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/icu/util/CodePointMap.h>
 #include <jcpp.h>
@@ -19,47 +18,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace util {
-
-$FieldInfo _CodePointMap$RangeOption_FieldInfo_[] = {
-	{"NORMAL", "Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CodePointMap$RangeOption, NORMAL)},
-	{"FIXED_LEAD_SURROGATES", "Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CodePointMap$RangeOption, FIXED_LEAD_SURROGATES)},
-	{"FIXED_ALL_SURROGATES", "Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CodePointMap$RangeOption, FIXED_ALL_SURROGATES)},
-	{"$VALUES", "[Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CodePointMap$RangeOption, $VALUES)},
-	{}
-};
-
-$MethodInfo _CodePointMap$RangeOption_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CodePointMap$RangeOption, $values, $CodePointMap$RangeOptionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CodePointMap$RangeOption, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointMap$RangeOption, valueOf, CodePointMap$RangeOption*, $String*)},
-	{"values", "()[Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointMap$RangeOption, values, $CodePointMap$RangeOptionArray*)},
-	{}
-};
-
-$InnerClassInfo _CodePointMap$RangeOption_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.util.CodePointMap$RangeOption", "jdk.internal.icu.util.CodePointMap", "RangeOption", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CodePointMap$RangeOption_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.icu.util.CodePointMap$RangeOption",
-	"java.lang.Enum",
-	nullptr,
-	_CodePointMap$RangeOption_FieldInfo_,
-	_CodePointMap$RangeOption_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/icu/util/CodePointMap$RangeOption;>;",
-	nullptr,
-	_CodePointMap$RangeOption_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.util.CodePointMap"
-};
-
-$Object* allocate$CodePointMap$RangeOption($Class* clazz) {
-	return $of($alloc(CodePointMap$RangeOption));
-}
 
 CodePointMap$RangeOption* CodePointMap$RangeOption::NORMAL = nullptr;
 CodePointMap$RangeOption* CodePointMap$RangeOption::FIXED_LEAD_SURROGATES = nullptr;
@@ -89,7 +47,7 @@ void CodePointMap$RangeOption::init$($String* $enum$name, int32_t $enum$ordinal)
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CodePointMap$RangeOption($Class* class$) {
+void CodePointMap$RangeOption::clinit$($Class* clazz) {
 	$assignStatic(CodePointMap$RangeOption::NORMAL, $new(CodePointMap$RangeOption, "NORMAL"_s, 0));
 	$assignStatic(CodePointMap$RangeOption::FIXED_LEAD_SURROGATES, $new(CodePointMap$RangeOption, "FIXED_LEAD_SURROGATES"_s, 1));
 	$assignStatic(CodePointMap$RangeOption::FIXED_ALL_SURROGATES, $new(CodePointMap$RangeOption, "FIXED_ALL_SURROGATES"_s, 2));
@@ -100,7 +58,42 @@ CodePointMap$RangeOption::CodePointMap$RangeOption() {
 }
 
 $Class* CodePointMap$RangeOption::load$($String* name, bool initialize) {
-	$loadClass(CodePointMap$RangeOption, name, initialize, &_CodePointMap$RangeOption_ClassInfo_, clinit$CodePointMap$RangeOption, allocate$CodePointMap$RangeOption);
+	$FieldInfo fieldInfos$$[] = {
+		{"NORMAL", "Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CodePointMap$RangeOption, NORMAL)},
+		{"FIXED_LEAD_SURROGATES", "Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CodePointMap$RangeOption, FIXED_LEAD_SURROGATES)},
+		{"FIXED_ALL_SURROGATES", "Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CodePointMap$RangeOption, FIXED_ALL_SURROGATES)},
+		{"$VALUES", "[Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CodePointMap$RangeOption, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CodePointMap$RangeOption, $values, $CodePointMap$RangeOptionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CodePointMap$RangeOption, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointMap$RangeOption, valueOf, CodePointMap$RangeOption*, $String*)},
+		{"values", "()[Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointMap$RangeOption, values, $CodePointMap$RangeOptionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.util.CodePointMap$RangeOption", "jdk.internal.icu.util.CodePointMap", "RangeOption", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.icu.util.CodePointMap$RangeOption",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/icu/util/CodePointMap$RangeOption;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.util.CodePointMap"
+	};
+	$loadClass(CodePointMap$RangeOption, name, initialize, &classInfo$$, CodePointMap$RangeOption::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CodePointMap$RangeOption));
+	});
 	return class$;
 }
 

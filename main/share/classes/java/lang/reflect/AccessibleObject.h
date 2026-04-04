@@ -29,6 +29,7 @@ class $export AccessibleObject : public ::java::lang::reflect::AnnotatedElement 
 	$class(AccessibleObject, $PRELOAD, ::java::lang::reflect::AnnotatedElement)
 public:
 	AccessibleObject();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool canAccess(Object$* obj);
 	void checkAccess($Class* caller, $Class* memberClass, $Class* targetClass, int32_t modifiers);

@@ -1,5 +1,4 @@
 #include <KeySets$Catch.h>
-
 #include <KeySets.h>
 #include <jcpp.h>
 
@@ -8,39 +7,8 @@ using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _KeySets$Catch_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(KeySets$Catch, init$, void, $Class*), "java.lang.Exception"},
-	{"go", "()V", nullptr, $ABSTRACT, $virtualMethod(KeySets$Catch, go, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _KeySets$Catch_InnerClassesInfo_[] = {
-	{"KeySets$Catch", "KeySets", "Catch", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeySets$Catch_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"KeySets$Catch",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_KeySets$Catch_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeySets$Catch_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"KeySets"
-};
-
-$Object* allocate$KeySets$Catch($Class* clazz) {
-	return $of($alloc(KeySets$Catch));
-}
-
 void KeySets$Catch::init$($Class* xc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		go();
 	} catch ($Exception& x) {
@@ -56,7 +24,33 @@ KeySets$Catch::KeySets$Catch() {
 }
 
 $Class* KeySets$Catch::load$($String* name, bool initialize) {
-	$loadClass(KeySets$Catch, name, initialize, &_KeySets$Catch_ClassInfo_, allocate$KeySets$Catch);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(KeySets$Catch, init$, void, $Class*), "java.lang.Exception"},
+		{"go", "()V", nullptr, $ABSTRACT, $virtualMethod(KeySets$Catch, go, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"KeySets$Catch", "KeySets", "Catch", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"KeySets$Catch",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"KeySets"
+	};
+	$loadClass(KeySets$Catch, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeySets$Catch);
+	});
 	return class$;
 }
 

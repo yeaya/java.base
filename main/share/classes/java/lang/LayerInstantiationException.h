@@ -22,10 +22,13 @@ public:
 	void init$($String* msg);
 	void init$($Throwable* cause);
 	void init$($String* msg, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xF36C63CD4C0382A5;
+	static const int64_t serialVersionUID = (int64_t)0xf36c63cd4c0382a5;
 	LayerInstantiationException(const LayerInstantiationException& e);
 	virtual void throw$() override;
-	inline LayerInstantiationException* operator ->() {
+	inline LayerInstantiationException* operator ->() const {
+		return (LayerInstantiationException*)throwing$;
+	}
+	inline operator LayerInstantiationException*() const {
 		return (LayerInstantiationException*)throwing$;
 	}
 };

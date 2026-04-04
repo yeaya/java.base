@@ -1,5 +1,4 @@
 #include <sun/net/sdp/SdpProvider$Action.h>
-
 #include <java/lang/Enum.h>
 #include <sun/net/sdp/SdpProvider.h>
 #include <jcpp.h>
@@ -17,46 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace net {
 		namespace sdp {
-
-$FieldInfo _SdpProvider$Action_FieldInfo_[] = {
-	{"BIND", "Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SdpProvider$Action, BIND)},
-	{"CONNECT", "Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SdpProvider$Action, CONNECT)},
-	{"$VALUES", "[Lsun/net/sdp/SdpProvider$Action;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SdpProvider$Action, $VALUES)},
-	{}
-};
-
-$MethodInfo _SdpProvider$Action_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/sdp/SdpProvider$Action;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SdpProvider$Action, $values, $SdpProvider$ActionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SdpProvider$Action, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpProvider$Action, valueOf, SdpProvider$Action*, $String*)},
-	{"values", "()[Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpProvider$Action, values, $SdpProvider$ActionArray*)},
-	{}
-};
-
-$InnerClassInfo _SdpProvider$Action_InnerClassesInfo_[] = {
-	{"sun.net.sdp.SdpProvider$Action", "sun.net.sdp.SdpProvider", "Action", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SdpProvider$Action_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.net.sdp.SdpProvider$Action",
-	"java.lang.Enum",
-	nullptr,
-	_SdpProvider$Action_FieldInfo_,
-	_SdpProvider$Action_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/net/sdp/SdpProvider$Action;>;",
-	nullptr,
-	_SdpProvider$Action_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.sdp.SdpProvider"
-};
-
-$Object* allocate$SdpProvider$Action($Class* clazz) {
-	return $of($alloc(SdpProvider$Action));
-}
 
 SdpProvider$Action* SdpProvider$Action::BIND = nullptr;
 SdpProvider$Action* SdpProvider$Action::CONNECT = nullptr;
@@ -84,7 +43,7 @@ void SdpProvider$Action::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$SdpProvider$Action($Class* class$) {
+void SdpProvider$Action::clinit$($Class* clazz) {
 	$assignStatic(SdpProvider$Action::BIND, $new(SdpProvider$Action, "BIND"_s, 0));
 	$assignStatic(SdpProvider$Action::CONNECT, $new(SdpProvider$Action, "CONNECT"_s, 1));
 	$assignStatic(SdpProvider$Action::$VALUES, SdpProvider$Action::$values());
@@ -94,7 +53,41 @@ SdpProvider$Action::SdpProvider$Action() {
 }
 
 $Class* SdpProvider$Action::load$($String* name, bool initialize) {
-	$loadClass(SdpProvider$Action, name, initialize, &_SdpProvider$Action_ClassInfo_, clinit$SdpProvider$Action, allocate$SdpProvider$Action);
+	$FieldInfo fieldInfos$$[] = {
+		{"BIND", "Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SdpProvider$Action, BIND)},
+		{"CONNECT", "Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SdpProvider$Action, CONNECT)},
+		{"$VALUES", "[Lsun/net/sdp/SdpProvider$Action;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SdpProvider$Action, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/net/sdp/SdpProvider$Action;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SdpProvider$Action, $values, $SdpProvider$ActionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SdpProvider$Action, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpProvider$Action, valueOf, SdpProvider$Action*, $String*)},
+		{"values", "()[Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpProvider$Action, values, $SdpProvider$ActionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.sdp.SdpProvider$Action", "sun.net.sdp.SdpProvider", "Action", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.net.sdp.SdpProvider$Action",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/net/sdp/SdpProvider$Action;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.sdp.SdpProvider"
+	};
+	$loadClass(SdpProvider$Action, name, initialize, &classInfo$$, SdpProvider$Action::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SdpProvider$Action));
+	});
 	return class$;
 }
 

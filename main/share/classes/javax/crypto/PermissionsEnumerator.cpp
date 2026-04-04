@@ -1,5 +1,4 @@
 #include <javax/crypto/PermissionsEnumerator.h>
-
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
 #include <java/util/Enumeration.h>
@@ -16,34 +15,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _PermissionsEnumerator_FieldInfo_[] = {
-	{"perms", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/security/PermissionCollection;>;", $PRIVATE | $FINAL, $field(PermissionsEnumerator, perms)},
-	{"permset", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/security/Permission;>;", $PRIVATE, $field(PermissionsEnumerator, permset)},
-	{}
-};
-
-$MethodInfo _PermissionsEnumerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljava/security/PermissionCollection;>;)V", 0, $method(PermissionsEnumerator, init$, void, $Enumeration*)},
-	{"getNextEnumWithMore", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PRIVATE, $method(PermissionsEnumerator, getNextEnumWithMore, $Enumeration*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PermissionsEnumerator, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/security/Permission;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PermissionsEnumerator, nextElement, $Object*)},
-	{}
-};
-
-$ClassInfo _PermissionsEnumerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.crypto.PermissionsEnumerator",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_PermissionsEnumerator_FieldInfo_,
-	_PermissionsEnumerator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/security/Permission;>;"
-};
-
-$Object* allocate$PermissionsEnumerator($Class* clazz) {
-	return $of($alloc(PermissionsEnumerator));
-}
 
 void PermissionsEnumerator::init$($Enumeration* e) {
 	$set(this, perms, e);
@@ -74,9 +45,9 @@ $Object* PermissionsEnumerator::nextElement() {
 }
 
 $Enumeration* PermissionsEnumerator::getNextEnumWithMore() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(this->perms)->hasMoreElements()) {
-		$var($PermissionCollection, pc, $cast($PermissionCollection, $nc(this->perms)->nextElement()));
+		$var($PermissionCollection, pc, $cast($PermissionCollection, this->perms->nextElement()));
 		$var($Enumeration, next, $nc(pc)->elements());
 		if ($nc(next)->hasMoreElements()) {
 			return next;
@@ -89,7 +60,30 @@ PermissionsEnumerator::PermissionsEnumerator() {
 }
 
 $Class* PermissionsEnumerator::load$($String* name, bool initialize) {
-	$loadClass(PermissionsEnumerator, name, initialize, &_PermissionsEnumerator_ClassInfo_, allocate$PermissionsEnumerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"perms", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/security/PermissionCollection;>;", $PRIVATE | $FINAL, $field(PermissionsEnumerator, perms)},
+		{"permset", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/security/Permission;>;", $PRIVATE, $field(PermissionsEnumerator, permset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljava/security/PermissionCollection;>;)V", 0, $method(PermissionsEnumerator, init$, void, $Enumeration*)},
+		{"getNextEnumWithMore", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PRIVATE, $method(PermissionsEnumerator, getNextEnumWithMore, $Enumeration*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PermissionsEnumerator, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/security/Permission;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PermissionsEnumerator, nextElement, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.crypto.PermissionsEnumerator",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/security/Permission;>;"
+	};
+	$loadClass(PermissionsEnumerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PermissionsEnumerator);
+	});
 	return class$;
 }
 

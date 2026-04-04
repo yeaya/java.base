@@ -18,6 +18,7 @@ class $export Unsigned : public ::java::lang::Object {
 	$class(Unsigned, 0, ::java::lang::Object)
 public:
 	Unsigned();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t compUnsigned(int64_t x, int64_t y);
 	static void main($StringArray* args);

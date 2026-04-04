@@ -1,5 +1,4 @@
 #include <sun/nio/ch/ServerSocketChannelImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
@@ -114,97 +113,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _ServerSocketChannelImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ServerSocketChannelImpl, $assertionsDisabled)},
-	{"nd", "Lsun/nio/ch/NativeDispatcher;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerSocketChannelImpl, nd)},
-	{"family", "Ljava/net/ProtocolFamily;", nullptr, $PRIVATE | $FINAL, $field(ServerSocketChannelImpl, family)},
-	{"fd", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $FINAL, $field(ServerSocketChannelImpl, fd)},
-	{"fdVal", "I", nullptr, $PRIVATE | $FINAL, $field(ServerSocketChannelImpl, fdVal)},
-	{"acceptLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(ServerSocketChannelImpl, acceptLock)},
-	{"stateLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ServerSocketChannelImpl, stateLock)},
-	{"ST_INUSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerSocketChannelImpl, ST_INUSE)},
-	{"ST_CLOSING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerSocketChannelImpl, ST_CLOSING)},
-	{"ST_CLOSED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerSocketChannelImpl, ST_CLOSED)},
-	{"state", "I", nullptr, $PRIVATE, $field(ServerSocketChannelImpl, state)},
-	{"thread", "J", nullptr, $PRIVATE, $field(ServerSocketChannelImpl, thread)},
-	{"localAddress", "Ljava/net/SocketAddress;", nullptr, $PRIVATE, $field(ServerSocketChannelImpl, localAddress$)},
-	{"isReuseAddress", "Z", nullptr, $PRIVATE, $field(ServerSocketChannelImpl, isReuseAddress)},
-	{"socket", "Ljava/net/ServerSocket;", nullptr, $PRIVATE, $field(ServerSocketChannelImpl, socket$)},
-	{}
-};
-
-$MethodInfo _ServerSocketChannelImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(ServerSocketChannelImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/net/ProtocolFamily;)V", nullptr, 0, $method(ServerSocketChannelImpl, init$, void, $SelectorProvider*, $ProtocolFamily*), "java.io.IOException"},
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/net/ProtocolFamily;Ljava/io/FileDescriptor;Z)V", nullptr, 0, $method(ServerSocketChannelImpl, init$, void, $SelectorProvider*, $ProtocolFamily*, $FileDescriptor*, bool), "java.io.IOException"},
-	{"accept", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, accept, $SocketChannel*), "java.io.IOException"},
-	{"begin", "(Z)V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, begin, void, bool), "java.nio.channels.ClosedChannelException"},
-	{"bind", "(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, bind, $ServerSocketChannel*, $SocketAddress*, int32_t), "java.io.IOException"},
-	{"blockingAccept", "(J)Ljava/nio/channels/SocketChannel;", nullptr, 0, $virtualMethod(ServerSocketChannelImpl, blockingAccept, $SocketChannel*, int64_t), "java.io.IOException"},
-	{"end", "(ZZ)V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, end, void, bool, bool), "java.nio.channels.AsynchronousCloseException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, ensureOpen, void), "java.nio.channels.ClosedChannelException"},
-	{"finishAccept", "(Ljava/io/FileDescriptor;Ljava/net/SocketAddress;)Ljava/nio/channels/SocketChannel;", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, finishAccept, $SocketChannel*, $FileDescriptor*, $SocketAddress*), "java.io.IOException"},
-	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, getFD, $FileDescriptor*)},
-	{"getFDVal", "()I", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, getFDVal, int32_t)},
-	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, getLocalAddress, $SocketAddress*), "java.io.IOException"},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC, $virtualMethod(ServerSocketChannelImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
-	{"implAccept", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/net/SocketAddress;)I", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, implAccept, int32_t, $FileDescriptor*, $FileDescriptor*, $SocketAddressArray*), "java.io.IOException"},
-	{"implCloseBlockingMode", "()V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, implCloseBlockingMode, void), "java.io.IOException"},
-	{"implCloseNonBlockingMode", "()V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, implCloseNonBlockingMode, void), "java.io.IOException"},
-	{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, $virtualMethod(ServerSocketChannelImpl, implCloseSelectableChannel, void), "java.io.IOException"},
-	{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED, $virtualMethod(ServerSocketChannelImpl, implConfigureBlocking, void, bool), "java.io.IOException"},
-	{"isBound", "()Z", nullptr, 0, $virtualMethod(ServerSocketChannelImpl, isBound, bool)},
-	{"isNetSocket", "()Z", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, isNetSocket, bool)},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"isUnixSocket", "()Z", nullptr, 0, $virtualMethod(ServerSocketChannelImpl, isUnixSocket, bool)},
-	{"kill", "()V", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, kill, void)},
-	{"localAddress", "()Ljava/net/SocketAddress;", nullptr, 0, $virtualMethod(ServerSocketChannelImpl, localAddress, $SocketAddress*)},
-	{"lockedConfigureBlocking", "(Z)V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, lockedConfigureBlocking, void, bool), "java.io.IOException"},
-	{"netBind", "(Ljava/net/SocketAddress;I)Ljava/net/SocketAddress;", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, netBind, $SocketAddress*, $SocketAddress*, int32_t), "java.io.IOException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/ServerSocketChannel;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/nio/channels/ServerSocketChannel;", $PUBLIC, $virtualMethod(ServerSocketChannelImpl, setOption, $NetworkChannel*, $SocketOption*, Object$*), "java.io.IOException"},
-	{"socket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, socket, $ServerSocket*)},
-	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $FINAL, $virtualMethod(ServerSocketChannelImpl, supportedOptions, $Set*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, toString, $String*)},
-	{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateInterestOps", "(I)I", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, translateInterestOps, int32_t, int32_t)},
-	{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, translateReadyOps, bool, int32_t, int32_t, $SelectionKeyImpl*)},
-	{"tryClose", "()Z", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, tryClose, bool), "java.io.IOException"},
-	{"tryFinishClose", "()V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, tryFinishClose, void)},
-	{"tryLockedConfigureBlocking", "(Z)Z", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, tryLockedConfigureBlocking, bool, bool), "java.io.IOException"},
-	{"unixBind", "(Ljava/net/SocketAddress;I)Ljava/net/SocketAddress;", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, unixBind, $SocketAddress*, $SocketAddress*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ServerSocketChannelImpl_InnerClassesInfo_[] = {
-	{"sun.nio.ch.ServerSocketChannelImpl$DefaultOptionsHolder", "sun.nio.ch.ServerSocketChannelImpl", "DefaultOptionsHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ServerSocketChannelImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.ServerSocketChannelImpl",
-	"java.nio.channels.ServerSocketChannel",
-	"sun.nio.ch.SelChImpl",
-	_ServerSocketChannelImpl_FieldInfo_,
-	_ServerSocketChannelImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerSocketChannelImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.ServerSocketChannelImpl$DefaultOptionsHolder"
-};
-
-$Object* allocate$ServerSocketChannelImpl($Class* clazz) {
-	return $of($alloc(ServerSocketChannelImpl));
-}
-
 void ServerSocketChannelImpl::close() {
 	this->$ServerSocketChannel::close();
 }
@@ -234,14 +142,14 @@ $NativeDispatcher* ServerSocketChannelImpl::nd = nullptr;
 
 void ServerSocketChannelImpl::init$($SelectorProvider* sp) {
 	$init($StandardProtocolFamily);
-	ServerSocketChannelImpl::init$(sp, $Net::isIPv6Available() ? static_cast<$ProtocolFamily*>($StandardProtocolFamily::INET6) : static_cast<$ProtocolFamily*>($StandardProtocolFamily::INET));
+	ServerSocketChannelImpl::init$(sp, $Net::isIPv6Available() ? $StandardProtocolFamily::INET6 : $StandardProtocolFamily::INET);
 }
 
 void ServerSocketChannelImpl::init$($SelectorProvider* sp, $ProtocolFamily* family) {
 	$ServerSocketChannel::init$(sp);
 	$set(this, acceptLock, $new($ReentrantLock));
 	$set(this, stateLock, $new($Object));
-	$Objects::requireNonNull($of(family), "\'family\' is null"_s);
+	$Objects::requireNonNull(family, "\'family\' is null"_s);
 	$init($StandardProtocolFamily);
 	if ((!$equals(family, $StandardProtocolFamily::INET)) && (!$equals(family, $StandardProtocolFamily::INET6)) && (!$equals(family, $StandardProtocolFamily::UNIX))) {
 		$throwNew($UnsupportedOperationException, "Protocol family not supported"_s);
@@ -266,7 +174,7 @@ void ServerSocketChannelImpl::init$($SelectorProvider* sp, $ProtocolFamily* fami
 	if ($equals(family, $StandardProtocolFamily::UNIX)) {
 		$set(this, family, $StandardProtocolFamily::UNIX);
 	} else {
-		$set(this, family, $Net::isIPv6Available() ? static_cast<$ProtocolFamily*>($StandardProtocolFamily::INET6) : static_cast<$ProtocolFamily*>($StandardProtocolFamily::INET));
+		$set(this, family, $Net::isIPv6Available() ? $StandardProtocolFamily::INET6 : $StandardProtocolFamily::INET);
 	}
 	$set(this, fd, fd);
 	this->fdVal = $IOUtil::fdVal(fd);
@@ -322,9 +230,9 @@ $SocketAddress* ServerSocketChannelImpl::getLocalAddress() {
 }
 
 $NetworkChannel* ServerSocketChannelImpl::setOption($SocketOption* name, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(name);
-	if (!$nc($(supportedOptions()))->contains(name)) {
+	if (!$$nc(supportedOptions())->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
 	}
 	if (!$nc(name->type())->isInstance(value)) {
@@ -335,7 +243,7 @@ $NetworkChannel* ServerSocketChannelImpl::setOption($SocketOption* name, Object$
 		$init($StandardSocketOptions);
 		bool var$0 = isNetSocket() && name == $StandardSocketOptions::SO_REUSEADDR;
 		if (var$0 && $Net::useExclusiveBind()) {
-			this->isReuseAddress = $nc(($cast($Boolean, value)))->booleanValue();
+			this->isReuseAddress = $nc($cast($Boolean, value))->booleanValue();
 		} else {
 			$init($Net);
 			$Net::setSocketOption(this->fd, $Net::UNSPEC, name, value);
@@ -345,9 +253,9 @@ $NetworkChannel* ServerSocketChannelImpl::setOption($SocketOption* name, Object$
 }
 
 $Object* ServerSocketChannelImpl::getOption($SocketOption* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(name);
-	if (!$nc($(supportedOptions()))->contains(name)) {
+	if (!$$nc(supportedOptions())->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
 	}
 	$synchronized(this->stateLock) {
@@ -355,10 +263,10 @@ $Object* ServerSocketChannelImpl::getOption($SocketOption* name) {
 		$init($StandardSocketOptions);
 		bool var$0 = isNetSocket() && name == $StandardSocketOptions::SO_REUSEADDR;
 		if (var$0 && $Net::useExclusiveBind()) {
-			return $of($of($Boolean::valueOf(this->isReuseAddress)));
+			return $of($Boolean::valueOf(this->isReuseAddress));
 		} else {
 			$init($Net);
-			return $of($Net::getSocketOption(this->fd, $Net::UNSPEC, name));
+			return $Net::getSocketOption(this->fd, $Net::UNSPEC, name);
 		}
 	}
 }
@@ -389,14 +297,14 @@ $ServerSocketChannel* ServerSocketChannelImpl::bind($SocketAddress* local, int32
 }
 
 $SocketAddress* ServerSocketChannelImpl::unixBind($SocketAddress* local, int32_t backlog) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$UnixDomainSockets::checkPermission();
 	if (local == nullptr) {
 		bool bound = false;
 		int32_t attempts = 0;
 		while (attempts < 10 && !bound) {
 			try {
-				$var($Path, path, $nc($($UnixDomainSockets::generateTempName()))->getPath());
+				$var($Path, path, $$nc($UnixDomainSockets::generateTempName())->getPath());
 				$UnixDomainSockets::bind(this->fd, path);
 				bound = true;
 			} catch ($BindException& e) {
@@ -407,7 +315,7 @@ $SocketAddress* ServerSocketChannelImpl::unixBind($SocketAddress* local, int32_t
 			$throwNew($BindException, "Could not bind to temporary name"_s);
 		}
 	} else {
-		$var($Path, path, $nc($($UnixDomainSockets::checkAddress(local)))->getPath());
+		$var($Path, path, $$nc($UnixDomainSockets::checkAddress(local))->getPath());
 		$UnixDomainSockets::bind(this->fd, path);
 	}
 	$Net::listen(this->fd, backlog < 1 ? 50 : backlog);
@@ -415,7 +323,7 @@ $SocketAddress* ServerSocketChannelImpl::unixBind($SocketAddress* local, int32_t
 }
 
 $SocketAddress* ServerSocketChannelImpl::netBind($SocketAddress* local, int32_t backlog) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetSocketAddress, isa, nullptr);
 	if (local == nullptr) {
 		$assign(isa, $new($InetSocketAddress, $($Net::anyLocalAddress(this->family)), 0));
@@ -431,7 +339,7 @@ $SocketAddress* ServerSocketChannelImpl::netBind($SocketAddress* local, int32_t 
 	$NetHooks::beforeTcpBind(var$0, var$1, isa->getPort());
 	$var($ProtocolFamily, var$2, this->family);
 	$var($FileDescriptor, var$3, this->fd);
-	$var($InetAddress, var$4, $nc(isa)->getAddress());
+	$var($InetAddress, var$4, isa->getAddress());
 	$Net::bind(var$2, var$3, var$4, isa->getPort());
 	$Net::listen(this->fd, backlog < 1 ? 50 : backlog);
 	return $Net::localAddress(this->fd);
@@ -465,53 +373,49 @@ void ServerSocketChannelImpl::end(bool blocking, bool completed) {
 }
 
 $SocketChannel* ServerSocketChannelImpl::accept() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 0;
 	$var($FileDescriptor, newfd, $new($FileDescriptor));
 	$var($SocketAddressArray, saa, $new($SocketAddressArray, 1));
 	$nc(this->acceptLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		bool blocking = isBlocking();
+		$var($Throwable, var$1, nullptr);
 		try {
-			bool blocking = isBlocking();
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					begin(blocking);
-					n = implAccept(this->fd, newfd, saa);
-					if (blocking) {
-						while (true) {
-							bool var$2 = $IOStatus::okayToRetry(n);
-							if (!(var$2 && isOpen())) {
-								break;
-							}
-							{
-								$init($Net);
-								park($Net::POLLIN);
-								n = implAccept(this->fd, newfd, saa);
-							}
-						}
+			begin(blocking);
+			n = implAccept(this->fd, newfd, saa);
+			if (blocking) {
+				while (true) {
+					bool var$2 = $IOStatus::okayToRetry(n);
+					if (!(var$2 && isOpen())) {
+						break;
 					}
-				} catch ($Throwable& var$3) {
-					$assign(var$1, var$3);
-				} /*finally*/ {
-					end(blocking, n > 0);
-					if (!ServerSocketChannelImpl::$assertionsDisabled && !$IOStatus::check(n)) {
-						$throwNew($AssertionError);
+					{
+						$init($Net);
+						park($Net::POLLIN);
+						n = implAccept(this->fd, newfd, saa);
 					}
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
 				}
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
+		} catch ($Throwable& var$3) {
+			$assign(var$1, var$3);
 		} /*finally*/ {
-			$nc(this->acceptLock)->unlock();
+			end(blocking, n > 0);
+			if (!ServerSocketChannelImpl::$assertionsDisabled && !$IOStatus::check(n)) {
+				$throwNew($AssertionError);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		this->acceptLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (n > 0) {
 		return finishAccept(newfd, saa->get(0));
@@ -521,7 +425,7 @@ $SocketChannel* ServerSocketChannelImpl::accept() {
 }
 
 int32_t ServerSocketChannelImpl::implAccept($FileDescriptor* fd, $FileDescriptor* newfd, $SocketAddressArray* saa) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isUnixSocket()) {
 		$UnixDomainSockets::checkPermission();
 		$var($StringArray, pa, $new($StringArray, 1));
@@ -541,62 +445,56 @@ int32_t ServerSocketChannelImpl::implAccept($FileDescriptor* fd, $FileDescriptor
 }
 
 $SocketChannel* ServerSocketChannelImpl::blockingAccept(int64_t nanos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 0;
 	$var($FileDescriptor, newfd, $new($FileDescriptor));
 	$var($SocketAddressArray, saa, $new($SocketAddressArray, 1));
 	$nc(this->acceptLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!isBlocking()) {
+			$throwNew($IllegalBlockingModeException);
+		}
+		$var($Throwable, var$1, nullptr);
 		try {
-			if (!isBlocking()) {
-				$throwNew($IllegalBlockingModeException);
-			}
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					begin(true);
-					lockedConfigureBlocking(false);
-					{
-						$var($Throwable, var$2, nullptr);
-						try {
-							int64_t startNanos = $System::nanoTime();
-							n = implAccept(this->fd, newfd, saa);
-							while (n == $IOStatus::UNAVAILABLE && isOpen()) {
-								int64_t remainingNanos = nanos - ($System::nanoTime() - startNanos);
-								if (remainingNanos <= 0) {
-									$throwNew($SocketTimeoutException, "Accept timed out"_s);
-								}
-								$init($Net);
-								park($Net::POLLIN, remainingNanos);
-								n = implAccept(this->fd, newfd, saa);
-							}
-						} catch ($Throwable& var$3) {
-							$assign(var$2, var$3);
-						} /*finally*/ {
-							tryLockedConfigureBlocking(true);
-						}
-						if (var$2 != nullptr) {
-							$throw(var$2);
-						}
+			begin(true);
+			lockedConfigureBlocking(false);
+			$var($Throwable, var$2, nullptr);
+			try {
+				int64_t startNanos = $System::nanoTime();
+				n = implAccept(this->fd, newfd, saa);
+				while (n == $IOStatus::UNAVAILABLE && isOpen()) {
+					int64_t remainingNanos = nanos - ($System::nanoTime() - startNanos);
+					if (remainingNanos <= 0) {
+						$throwNew($SocketTimeoutException, "Accept timed out"_s);
 					}
-				} catch ($Throwable& var$4) {
-					$assign(var$1, var$4);
-				} /*finally*/ {
-					end(true, n > 0);
+					$init($Net);
+					park($Net::POLLIN, remainingNanos);
+					n = implAccept(this->fd, newfd, saa);
 				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
+			} /*finally*/ {
+				tryLockedConfigureBlocking(true);
 			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
+			if (var$2 != nullptr) {
+				$throw(var$2);
+			}
+		} catch ($Throwable& var$4) {
+			$assign(var$1, var$4);
 		} /*finally*/ {
-			$nc(this->acceptLock)->unlock();
+			end(true, n > 0);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} /*finally*/ {
+		this->acceptLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (!ServerSocketChannelImpl::$assertionsDisabled && !(n > 0)) {
 		$throwNew($AssertionError);
@@ -605,20 +503,20 @@ $SocketChannel* ServerSocketChannelImpl::blockingAccept(int64_t nanos) {
 }
 
 $SocketChannel* ServerSocketChannelImpl::finishAccept($FileDescriptor* newfd, $SocketAddress* sa) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$IOUtil::configureBlocking(newfd, true);
 		if (isNetSocket()) {
 			$var($SecurityManager, sm, $System::getSecurityManager());
 			if (sm != nullptr) {
 				$var($InetSocketAddress, isa, $cast($InetSocketAddress, sa));
-				$var($String, var$0, $nc($($nc(isa)->getAddress()))->getHostAddress());
+				$var($String, var$0, $$nc($nc(isa)->getAddress())->getHostAddress());
 				sm->checkAccept(var$0, isa->getPort());
 			}
 		}
 		return $new($SocketChannelImpl, $(provider()), this->family, newfd, sa);
 	} catch ($Exception& e) {
-		$nc(ServerSocketChannelImpl::nd)->close(newfd);
+		ServerSocketChannelImpl::nd->close(newfd);
 		$throw(e);
 	}
 	$shouldNotReachHere();
@@ -626,18 +524,16 @@ $SocketChannel* ServerSocketChannelImpl::finishAccept($FileDescriptor* newfd, $S
 
 void ServerSocketChannelImpl::implConfigureBlocking(bool block) {
 	$nc(this->acceptLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			lockedConfigureBlocking(block);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->acceptLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		lockedConfigureBlocking(block);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->acceptLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -671,7 +567,7 @@ bool ServerSocketChannelImpl::tryClose() {
 	}
 	if ((this->thread == 0) && !isRegistered()) {
 		this->state = ServerSocketChannelImpl::ST_CLOSED;
-		$nc(ServerSocketChannelImpl::nd)->close(this->fd);
+		ServerSocketChannelImpl::nd->close(this->fd);
 		return true;
 	} else {
 		return false;
@@ -694,7 +590,7 @@ void ServerSocketChannelImpl::implCloseBlockingMode() {
 		if (!tryClose()) {
 			int64_t th = this->thread;
 			if (th != 0) {
-				$nc(ServerSocketChannelImpl::nd)->preClose(this->fd);
+				ServerSocketChannelImpl::nd->preClose(this->fd);
 				$NativeThread::signal(th);
 			}
 		}
@@ -709,7 +605,7 @@ void ServerSocketChannelImpl::implCloseNonBlockingMode() {
 		this->state = ServerSocketChannelImpl::ST_CLOSING;
 	}
 	$nc(this->acceptLock)->lock();
-	$nc(this->acceptLock)->unlock();
+	this->acceptLock->unlock();
 	$synchronized(this->stateLock) {
 		if (this->state == ServerSocketChannelImpl::ST_CLOSING) {
 			tryClose();
@@ -753,19 +649,19 @@ bool ServerSocketChannelImpl::translateReadyOps(int32_t ops, int32_t initialOps,
 	int32_t oldOps = ski->nioReadyOps();
 	int32_t newOps = initialOps;
 	$init($Net);
-	if (((int32_t)(ops & (uint32_t)(int32_t)$Net::POLLNVAL)) != 0) {
+	if ((ops & $Net::POLLNVAL) != 0) {
 		return false;
 	}
-	if (((int32_t)(ops & (uint32_t)($Net::POLLERR | $Net::POLLHUP))) != 0) {
+	if ((ops & ($Net::POLLERR | $Net::POLLHUP)) != 0) {
 		newOps = intOps;
 		ski->nioReadyOps(newOps);
-		return ((int32_t)(newOps & (uint32_t)~oldOps)) != 0;
+		return (newOps & ~oldOps) != 0;
 	}
-	if ((((int32_t)(ops & (uint32_t)(int32_t)$Net::POLLIN)) != 0) && (((int32_t)(intOps & (uint32_t)$SelectionKey::OP_ACCEPT)) != 0)) {
+	if (((ops & $Net::POLLIN) != 0) && ((intOps & $SelectionKey::OP_ACCEPT) != 0)) {
 		newOps |= $SelectionKey::OP_ACCEPT;
 	}
 	ski->nioReadyOps(newOps);
-	return ((int32_t)(newOps & (uint32_t)~oldOps)) != 0;
+	return (newOps & ~oldOps) != 0;
 }
 
 bool ServerSocketChannelImpl::translateAndUpdateReadyOps(int32_t ops, $SelectionKeyImpl* ski) {
@@ -778,7 +674,7 @@ bool ServerSocketChannelImpl::translateAndSetReadyOps(int32_t ops, $SelectionKey
 
 int32_t ServerSocketChannelImpl::translateInterestOps(int32_t ops) {
 	int32_t newOps = 0;
-	if (((int32_t)(ops & (uint32_t)$SelectionKey::OP_ACCEPT)) != 0) {
+	if ((ops & $SelectionKey::OP_ACCEPT) != 0) {
 		$init($Net);
 		newOps |= $Net::POLLIN;
 	}
@@ -794,7 +690,7 @@ int32_t ServerSocketChannelImpl::getFDVal() {
 }
 
 $String* ServerSocketChannelImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($of(this)->getClass()->getName()));
 	sb->append(u'[');
@@ -816,7 +712,7 @@ $String* ServerSocketChannelImpl::toString() {
 	return sb->toString();
 }
 
-void clinit$ServerSocketChannelImpl($Class* class$) {
+void ServerSocketChannelImpl::clinit$($Class* clazz) {
 	ServerSocketChannelImpl::$assertionsDisabled = !ServerSocketChannelImpl::class$->desiredAssertionStatus();
 	$assignStatic(ServerSocketChannelImpl::nd, $new($SocketDispatcher));
 }
@@ -825,7 +721,92 @@ ServerSocketChannelImpl::ServerSocketChannelImpl() {
 }
 
 $Class* ServerSocketChannelImpl::load$($String* name, bool initialize) {
-	$loadClass(ServerSocketChannelImpl, name, initialize, &_ServerSocketChannelImpl_ClassInfo_, clinit$ServerSocketChannelImpl, allocate$ServerSocketChannelImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ServerSocketChannelImpl, $assertionsDisabled)},
+		{"nd", "Lsun/nio/ch/NativeDispatcher;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServerSocketChannelImpl, nd)},
+		{"family", "Ljava/net/ProtocolFamily;", nullptr, $PRIVATE | $FINAL, $field(ServerSocketChannelImpl, family)},
+		{"fd", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $FINAL, $field(ServerSocketChannelImpl, fd)},
+		{"fdVal", "I", nullptr, $PRIVATE | $FINAL, $field(ServerSocketChannelImpl, fdVal)},
+		{"acceptLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(ServerSocketChannelImpl, acceptLock)},
+		{"stateLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ServerSocketChannelImpl, stateLock)},
+		{"ST_INUSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerSocketChannelImpl, ST_INUSE)},
+		{"ST_CLOSING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerSocketChannelImpl, ST_CLOSING)},
+		{"ST_CLOSED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerSocketChannelImpl, ST_CLOSED)},
+		{"state", "I", nullptr, $PRIVATE, $field(ServerSocketChannelImpl, state)},
+		{"thread", "J", nullptr, $PRIVATE, $field(ServerSocketChannelImpl, thread)},
+		{"localAddress", "Ljava/net/SocketAddress;", nullptr, $PRIVATE, $field(ServerSocketChannelImpl, localAddress$)},
+		{"isReuseAddress", "Z", nullptr, $PRIVATE, $field(ServerSocketChannelImpl, isReuseAddress)},
+		{"socket", "Ljava/net/ServerSocket;", nullptr, $PRIVATE, $field(ServerSocketChannelImpl, socket$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(ServerSocketChannelImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/net/ProtocolFamily;)V", nullptr, 0, $method(ServerSocketChannelImpl, init$, void, $SelectorProvider*, $ProtocolFamily*), "java.io.IOException"},
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/net/ProtocolFamily;Ljava/io/FileDescriptor;Z)V", nullptr, 0, $method(ServerSocketChannelImpl, init$, void, $SelectorProvider*, $ProtocolFamily*, $FileDescriptor*, bool), "java.io.IOException"},
+		{"accept", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, accept, $SocketChannel*), "java.io.IOException"},
+		{"begin", "(Z)V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, begin, void, bool), "java.nio.channels.ClosedChannelException"},
+		{"bind", "(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, bind, $ServerSocketChannel*, $SocketAddress*, int32_t), "java.io.IOException"},
+		{"blockingAccept", "(J)Ljava/nio/channels/SocketChannel;", nullptr, 0, $virtualMethod(ServerSocketChannelImpl, blockingAccept, $SocketChannel*, int64_t), "java.io.IOException"},
+		{"end", "(ZZ)V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, end, void, bool, bool), "java.nio.channels.AsynchronousCloseException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, ensureOpen, void), "java.nio.channels.ClosedChannelException"},
+		{"finishAccept", "(Ljava/io/FileDescriptor;Ljava/net/SocketAddress;)Ljava/nio/channels/SocketChannel;", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, finishAccept, $SocketChannel*, $FileDescriptor*, $SocketAddress*), "java.io.IOException"},
+		{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, getFD, $FileDescriptor*)},
+		{"getFDVal", "()I", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, getFDVal, int32_t)},
+		{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, getLocalAddress, $SocketAddress*), "java.io.IOException"},
+		{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC, $virtualMethod(ServerSocketChannelImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+		{"implAccept", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/net/SocketAddress;)I", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, implAccept, int32_t, $FileDescriptor*, $FileDescriptor*, $SocketAddressArray*), "java.io.IOException"},
+		{"implCloseBlockingMode", "()V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, implCloseBlockingMode, void), "java.io.IOException"},
+		{"implCloseNonBlockingMode", "()V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, implCloseNonBlockingMode, void), "java.io.IOException"},
+		{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, $virtualMethod(ServerSocketChannelImpl, implCloseSelectableChannel, void), "java.io.IOException"},
+		{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED, $virtualMethod(ServerSocketChannelImpl, implConfigureBlocking, void, bool), "java.io.IOException"},
+		{"isBound", "()Z", nullptr, 0, $virtualMethod(ServerSocketChannelImpl, isBound, bool)},
+		{"isNetSocket", "()Z", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, isNetSocket, bool)},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"isUnixSocket", "()Z", nullptr, 0, $virtualMethod(ServerSocketChannelImpl, isUnixSocket, bool)},
+		{"kill", "()V", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, kill, void)},
+		{"localAddress", "()Ljava/net/SocketAddress;", nullptr, 0, $virtualMethod(ServerSocketChannelImpl, localAddress, $SocketAddress*)},
+		{"lockedConfigureBlocking", "(Z)V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, lockedConfigureBlocking, void, bool), "java.io.IOException"},
+		{"netBind", "(Ljava/net/SocketAddress;I)Ljava/net/SocketAddress;", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, netBind, $SocketAddress*, $SocketAddress*, int32_t), "java.io.IOException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/ServerSocketChannel;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/nio/channels/ServerSocketChannel;", $PUBLIC, $virtualMethod(ServerSocketChannelImpl, setOption, $NetworkChannel*, $SocketOption*, Object$*), "java.io.IOException"},
+		{"socket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, socket, $ServerSocket*)},
+		{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $FINAL, $virtualMethod(ServerSocketChannelImpl, supportedOptions, $Set*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, toString, $String*)},
+		{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateInterestOps", "(I)I", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, translateInterestOps, int32_t, int32_t)},
+		{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(ServerSocketChannelImpl, translateReadyOps, bool, int32_t, int32_t, $SelectionKeyImpl*)},
+		{"tryClose", "()Z", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, tryClose, bool), "java.io.IOException"},
+		{"tryFinishClose", "()V", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, tryFinishClose, void)},
+		{"tryLockedConfigureBlocking", "(Z)Z", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, tryLockedConfigureBlocking, bool, bool), "java.io.IOException"},
+		{"unixBind", "(Ljava/net/SocketAddress;I)Ljava/net/SocketAddress;", nullptr, $PRIVATE, $method(ServerSocketChannelImpl, unixBind, $SocketAddress*, $SocketAddress*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.ServerSocketChannelImpl$DefaultOptionsHolder", "sun.nio.ch.ServerSocketChannelImpl", "DefaultOptionsHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.ServerSocketChannelImpl",
+		"java.nio.channels.ServerSocketChannel",
+		"sun.nio.ch.SelChImpl",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.ServerSocketChannelImpl$DefaultOptionsHolder"
+	};
+	$loadClass(ServerSocketChannelImpl, name, initialize, &classInfo$$, ServerSocketChannelImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServerSocketChannelImpl));
+	});
 	return class$;
 }
 

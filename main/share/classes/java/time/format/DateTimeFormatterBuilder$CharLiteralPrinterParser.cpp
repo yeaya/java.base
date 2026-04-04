@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$CharLiteralPrinterParser.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/time/format/DateTimeFormatterBuilder.h>
 #include <java/time/format/DateTimeParseContext.h>
@@ -18,45 +17,6 @@ using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 namespace java {
 	namespace time {
 		namespace format {
-
-$FieldInfo _DateTimeFormatterBuilder$CharLiteralPrinterParser_FieldInfo_[] = {
-	{"literal", "C", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$CharLiteralPrinterParser, literal)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$CharLiteralPrinterParser_MethodInfo_[] = {
-	{"<init>", "(C)V", nullptr, 0, $method(DateTimeFormatterBuilder$CharLiteralPrinterParser, init$, void, char16_t)},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CharLiteralPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CharLiteralPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CharLiteralPrinterParser, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$CharLiteralPrinterParser_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$CharLiteralPrinterParser", "java.time.format.DateTimeFormatterBuilder", "CharLiteralPrinterParser", $STATIC | $FINAL},
-	{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$CharLiteralPrinterParser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$CharLiteralPrinterParser",
-	"java.lang.Object",
-	"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
-	_DateTimeFormatterBuilder$CharLiteralPrinterParser_FieldInfo_,
-	_DateTimeFormatterBuilder$CharLiteralPrinterParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$CharLiteralPrinterParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$CharLiteralPrinterParser($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$CharLiteralPrinterParser));
-}
 
 void DateTimeFormatterBuilder$CharLiteralPrinterParser::init$(char16_t literal) {
 	this->literal = literal;
@@ -82,7 +42,7 @@ int32_t DateTimeFormatterBuilder$CharLiteralPrinterParser::parse($DateTimeParseC
 				char16_t var$3 = $Character::toLowerCase(ch);
 				var$1 = var$3 != $Character::toLowerCase(this->literal);
 			}
-			var$0 = (var$1);
+			var$0 = var$1;
 		}
 		if (var$0) {
 			return ~position;
@@ -102,7 +62,40 @@ DateTimeFormatterBuilder$CharLiteralPrinterParser::DateTimeFormatterBuilder$Char
 }
 
 $Class* DateTimeFormatterBuilder$CharLiteralPrinterParser::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$CharLiteralPrinterParser, name, initialize, &_DateTimeFormatterBuilder$CharLiteralPrinterParser_ClassInfo_, allocate$DateTimeFormatterBuilder$CharLiteralPrinterParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"literal", "C", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$CharLiteralPrinterParser, literal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(C)V", nullptr, 0, $method(DateTimeFormatterBuilder$CharLiteralPrinterParser, init$, void, char16_t)},
+		{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CharLiteralPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+		{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CharLiteralPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CharLiteralPrinterParser, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$CharLiteralPrinterParser", "java.time.format.DateTimeFormatterBuilder", "CharLiteralPrinterParser", $STATIC | $FINAL},
+		{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$CharLiteralPrinterParser",
+		"java.lang.Object",
+		"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$CharLiteralPrinterParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$CharLiteralPrinterParser);
+	});
 	return class$;
 }
 

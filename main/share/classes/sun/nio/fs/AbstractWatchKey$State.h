@@ -20,6 +20,7 @@ class AbstractWatchKey$State : public ::java::lang::Enum {
 public:
 	AbstractWatchKey$State();
 	static $Array<::sun::nio::fs::AbstractWatchKey$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::nio::fs::AbstractWatchKey$State* valueOf($String* name);
 	static $Array<::sun::nio::fs::AbstractWatchKey$State>* values();

@@ -1,5 +1,4 @@
 #include <sun/security/provider/PolicyParser$PermissionEntry.h>
-
 #include <java/io/PrintWriter.h>
 #include <sun/security/provider/PolicyParser.h>
 #include <jcpp.h>
@@ -14,48 +13,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _PolicyParser$PermissionEntry_FieldInfo_[] = {
-	{"permission", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$PermissionEntry, permission)},
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$PermissionEntry, name)},
-	{"action", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$PermissionEntry, action)},
-	{"signedBy", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$PermissionEntry, signedBy)},
-	{}
-};
-
-$MethodInfo _PolicyParser$PermissionEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyParser$PermissionEntry, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$PermissionEntry, init$, void, $String*, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PermissionEntry, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PermissionEntry, hashCode, int32_t)},
-	{"write", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PermissionEntry, write, void, $PrintWriter*)},
-	{}
-};
-
-$InnerClassInfo _PolicyParser$PermissionEntry_InnerClassesInfo_[] = {
-	{"sun.security.provider.PolicyParser$PermissionEntry", "sun.security.provider.PolicyParser", "PermissionEntry", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PolicyParser$PermissionEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.PolicyParser$PermissionEntry",
-	"java.lang.Object",
-	nullptr,
-	_PolicyParser$PermissionEntry_FieldInfo_,
-	_PolicyParser$PermissionEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PolicyParser$PermissionEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.PolicyParser"
-};
-
-$Object* allocate$PolicyParser$PermissionEntry($Class* clazz) {
-	return $of($alloc(PolicyParser$PermissionEntry));
-}
-
 void PolicyParser$PermissionEntry::init$() {
 }
 
@@ -68,10 +25,10 @@ void PolicyParser$PermissionEntry::init$($String* permission, $String* name, $St
 int32_t PolicyParser$PermissionEntry::hashCode() {
 	int32_t retval = $nc(this->permission)->hashCode();
 	if (this->name != nullptr) {
-		retval ^= $nc(this->name)->hashCode();
+		retval ^= this->name->hashCode();
 	}
 	if (this->action != nullptr) {
-		retval ^= $nc(this->action)->hashCode();
+		retval ^= this->action->hashCode();
 	}
 	return retval;
 }
@@ -88,40 +45,40 @@ bool PolicyParser$PermissionEntry::equals(Object$* obj) {
 		if ($nc(that)->permission != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->permission)->equals($nc(that)->permission)) {
+	} else if (!this->permission->equals($nc(that)->permission)) {
 		return false;
 	}
 	if (this->name == nullptr) {
 		if ($nc(that)->name != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->name)->equals($nc(that)->name)) {
+	} else if (!this->name->equals($nc(that)->name)) {
 		return false;
 	}
 	if (this->action == nullptr) {
 		if ($nc(that)->action != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->action)->equals($nc(that)->action)) {
+	} else if (!this->action->equals($nc(that)->action)) {
 		return false;
 	}
 	if (this->signedBy == nullptr) {
 		if ($nc(that)->signedBy != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->signedBy)->equals($nc(that)->signedBy)) {
+	} else if (!this->signedBy->equals($nc(that)->signedBy)) {
 		return false;
 	}
 	return true;
 }
 
 void PolicyParser$PermissionEntry::write($PrintWriter* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->print("permission "_s);
 	out->print(this->permission);
 	if (this->name != nullptr) {
 		out->print(" \""_s);
-		out->print($($($nc(this->name)->replaceAll("\\\\"_s, "\\\\\\\\"_s))->replaceAll("\\\""_s, "\\\\\\\""_s)));
+		out->print($($(this->name->replaceAll("\\\\"_s, "\\\\\\\\"_s))->replaceAll("\\\""_s, "\\\\\\\""_s)));
 		out->print(u'\"');
 	}
 	if (this->action != nullptr) {
@@ -141,7 +98,43 @@ PolicyParser$PermissionEntry::PolicyParser$PermissionEntry() {
 }
 
 $Class* PolicyParser$PermissionEntry::load$($String* name, bool initialize) {
-	$loadClass(PolicyParser$PermissionEntry, name, initialize, &_PolicyParser$PermissionEntry_ClassInfo_, allocate$PolicyParser$PermissionEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"permission", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$PermissionEntry, permission)},
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$PermissionEntry, name)},
+		{"action", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$PermissionEntry, action)},
+		{"signedBy", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$PermissionEntry, signedBy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyParser$PermissionEntry, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$PermissionEntry, init$, void, $String*, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PermissionEntry, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PermissionEntry, hashCode, int32_t)},
+		{"write", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PermissionEntry, write, void, $PrintWriter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.PolicyParser$PermissionEntry", "sun.security.provider.PolicyParser", "PermissionEntry", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.PolicyParser$PermissionEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.PolicyParser"
+	};
+	$loadClass(PolicyParser$PermissionEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PolicyParser$PermissionEntry);
+	});
 	return class$;
 }
 

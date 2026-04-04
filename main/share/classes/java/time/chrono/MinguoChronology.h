@@ -69,6 +69,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::time::chrono::ChronoLocalDate* date(::java::time::chrono::Era* era, int32_t yearOfEra, int32_t month, int32_t dayOfMonth) override;
 	virtual ::java::time::chrono::ChronoLocalDate* date(int32_t prolepticYear, int32_t month, int32_t dayOfMonth) override;
@@ -94,7 +95,7 @@ public:
 	virtual ::java::time::chrono::ChronoZonedDateTime* zonedDateTime(::java::time::temporal::TemporalAccessor* temporal) override;
 	virtual ::java::time::chrono::ChronoZonedDateTime* zonedDateTime(::java::time::Instant* instant, ::java::time::ZoneId* zone) override;
 	static ::java::time::chrono::MinguoChronology* INSTANCE;
-	static const int64_t serialVersionUID = (int64_t)0x0E6DFCF4568E9FBB;
+	static const int64_t serialVersionUID = (int64_t)0x0e6dfcf4568e9fbb;
 	static const int32_t YEARS_DIFFERENCE = 1911;
 };
 

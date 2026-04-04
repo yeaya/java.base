@@ -55,6 +55,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int64_t seed);
 	virtual ::java::util::stream::DoubleStream* doubles(int64_t streamSize) override;
@@ -90,9 +91,9 @@ public:
 	virtual void setSeed(int64_t seed);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x363296344BF00A53;
+	static const int64_t serialVersionUID = (int64_t)0x363296344bf00a53;
 	::java::util::concurrent::atomic::AtomicLong* seed = nullptr;
-	static const int64_t multiplier = (int64_t)0x00000005DEECE66D;
+	static const int64_t multiplier = (int64_t)0x00000005deece66d;
 	static const int64_t addend = (int64_t)11;
 	static const int64_t mask = 281474976710655; // (1L << 48) - 1
 	static double DOUBLE_UNIT;

@@ -21,6 +21,7 @@ class $export Reference : public ::java::lang::Object {
 	$class(Reference, $PRELOAD, ::java::lang::Object)
 public:
 	Reference();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* referent);
 	void init$(Object$* referent, ::java::lang::ref::ReferenceQueue* queue);
 	virtual void clear();

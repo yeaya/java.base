@@ -33,6 +33,7 @@ class $export AclEntry$Builder : public ::java::lang::Object {
 	$class(AclEntry$Builder, 0, ::java::lang::Object)
 public:
 	AclEntry$Builder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::attribute::AclEntryType* type, ::java::nio::file::attribute::UserPrincipal* who, ::java::util::Set* perms, ::java::util::Set* flags);
 	::java::nio::file::attribute::AclEntry* build();
 	static void checkSet(::java::util::Set* set, $Class* type);

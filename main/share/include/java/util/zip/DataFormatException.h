@@ -15,10 +15,13 @@ public:
 	DataFormatException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x1ECDB85601655EEC;
+	static const int64_t serialVersionUID = (int64_t)0x1ecdb85601655eec;
 	DataFormatException(const DataFormatException& e);
 	virtual void throw$() override;
-	inline DataFormatException* operator ->() {
+	inline DataFormatException* operator ->() const {
+		return (DataFormatException*)throwing$;
+	}
+	inline operator DataFormatException*() const {
 		return (DataFormatException*)throwing$;
 	}
 };

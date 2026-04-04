@@ -22,6 +22,7 @@ class ClassLoaders$PlatformClassLoader : public ::jdk::internal::loader::Builtin
 public:
 	ClassLoaders$PlatformClassLoader();
 	using ::jdk::internal::loader::BuiltinClassLoader::defineClass;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::loader::ClassLoaders$BootClassLoader* parent);
 	using ::jdk::internal::loader::BuiltinClassLoader::loadClass;
 };

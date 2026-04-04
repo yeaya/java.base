@@ -1,5 +1,4 @@
 #include <javax/crypto/AEADBadTagException.h>
-
 #include <javax/crypto/BadPaddingException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $BadPaddingException = ::javax::crypto::BadPaddingException;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _AEADBadTagException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AEADBadTagException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AEADBadTagException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AEADBadTagException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AEADBadTagException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _AEADBadTagException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.AEADBadTagException",
-	"javax.crypto.BadPaddingException",
-	nullptr,
-	_AEADBadTagException_FieldInfo_,
-	_AEADBadTagException_MethodInfo_
-};
-
-$Object* allocate$AEADBadTagException($Class* clazz) {
-	return $of($alloc(AEADBadTagException));
-}
 
 void AEADBadTagException::init$() {
 	$BadPaddingException::init$();
@@ -54,7 +29,26 @@ void AEADBadTagException::throw$() {
 }
 
 $Class* AEADBadTagException::load$($String* name, bool initialize) {
-	$loadClass(AEADBadTagException, name, initialize, &_AEADBadTagException_ClassInfo_, allocate$AEADBadTagException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AEADBadTagException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AEADBadTagException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AEADBadTagException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.AEADBadTagException",
+		"javax.crypto.BadPaddingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AEADBadTagException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AEADBadTagException);
+	});
 	return class$;
 }
 

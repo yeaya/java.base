@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl$AbstractDTLSContext.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <javax/net/ssl/SSLEngine.h>
@@ -29,53 +28,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLContextImpl$AbstractDTLSContext_FieldInfo_[] = {
-	{"supportedProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$AbstractDTLSContext, supportedProtocols)},
-	{"serverDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$AbstractDTLSContext, serverDefaultProtocols)},
-	{"supportedCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$AbstractDTLSContext, supportedCipherSuites)},
-	{"serverDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$AbstractDTLSContext, serverDefaultCipherSuites)},
-	{}
-};
-
-$MethodInfo _SSLContextImpl$AbstractDTLSContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLContextImpl$AbstractDTLSContext, init$, void)},
-	{"createSSLEngineImpl", "()Ljavax/net/ssl/SSLEngine;", nullptr, 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, createSSLEngineImpl, $SSLEngine*)},
-	{"createSSLEngineImpl", "(Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;", nullptr, 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, createSSLEngineImpl, $SSLEngine*, $String*, int32_t)},
-	{"engineGetDefaultSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl$AbstractDTLSContext, engineGetDefaultSSLParameters, $SSLParameters*)},
-	{"engineGetSupportedSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl$AbstractDTLSContext, engineGetSupportedSSLParameters, $SSLParameters*)},
-	{"getServerDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, getServerDefaultCipherSuites, $List*)},
-	{"getServerDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, getServerDefaultProtocolVersions, $List*)},
-	{"getSupportedCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, getSupportedCipherSuites, $List*)},
-	{"getSupportedProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, getSupportedProtocolVersions, $List*)},
-	{"isDTLS", "()Z", nullptr, 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, isDTLS, bool)},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl$AbstractDTLSContext_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$AbstractDTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractDTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLContextImpl$AbstractDTLSContext_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.ssl.SSLContextImpl$AbstractDTLSContext",
-	"sun.security.ssl.SSLContextImpl",
-	nullptr,
-	_SSLContextImpl$AbstractDTLSContext_FieldInfo_,
-	_SSLContextImpl$AbstractDTLSContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl$AbstractDTLSContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl"
-};
-
-$Object* allocate$SSLContextImpl$AbstractDTLSContext($Class* clazz) {
-	return $of($alloc(SSLContextImpl$AbstractDTLSContext));
-}
-
 $List* SSLContextImpl$AbstractDTLSContext::supportedProtocols = nullptr;
 $List* SSLContextImpl$AbstractDTLSContext::serverDefaultProtocols = nullptr;
 $List* SSLContextImpl$AbstractDTLSContext::supportedCipherSuites = nullptr;
@@ -92,11 +44,11 @@ $SSLParameters* SSLContextImpl$AbstractDTLSContext::engineGetDefaultSSLParameter
 }
 
 $SSLParameters* SSLContextImpl$AbstractDTLSContext::engineGetSupportedSSLParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLEngine, engine, createSSLEngineImpl());
 	$var($SSLParameters, params, $new($SSLParameters));
 	params->setCipherSuites($($nc(engine)->getSupportedCipherSuites()));
-	params->setProtocols($($nc(engine)->getSupportedProtocols()));
+	params->setProtocols($(engine->getSupportedProtocols()));
 	return params;
 }
 
@@ -128,8 +80,8 @@ bool SSLContextImpl$AbstractDTLSContext::isDTLS() {
 	return true;
 }
 
-void clinit$SSLContextImpl$AbstractDTLSContext($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SSLContextImpl$AbstractDTLSContext::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$init($ProtocolVersion);
 		$assignStatic(SSLContextImpl$AbstractDTLSContext::supportedProtocols, $Arrays::asList($$new($ProtocolVersionArray, {
@@ -149,7 +101,48 @@ SSLContextImpl$AbstractDTLSContext::SSLContextImpl$AbstractDTLSContext() {
 }
 
 $Class* SSLContextImpl$AbstractDTLSContext::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl$AbstractDTLSContext, name, initialize, &_SSLContextImpl$AbstractDTLSContext_ClassInfo_, clinit$SSLContextImpl$AbstractDTLSContext, allocate$SSLContextImpl$AbstractDTLSContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"supportedProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$AbstractDTLSContext, supportedProtocols)},
+		{"serverDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$AbstractDTLSContext, serverDefaultProtocols)},
+		{"supportedCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$AbstractDTLSContext, supportedCipherSuites)},
+		{"serverDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$AbstractDTLSContext, serverDefaultCipherSuites)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLContextImpl$AbstractDTLSContext, init$, void)},
+		{"createSSLEngineImpl", "()Ljavax/net/ssl/SSLEngine;", nullptr, 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, createSSLEngineImpl, $SSLEngine*)},
+		{"createSSLEngineImpl", "(Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;", nullptr, 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, createSSLEngineImpl, $SSLEngine*, $String*, int32_t)},
+		{"engineGetDefaultSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl$AbstractDTLSContext, engineGetDefaultSSLParameters, $SSLParameters*)},
+		{"engineGetSupportedSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl$AbstractDTLSContext, engineGetSupportedSSLParameters, $SSLParameters*)},
+		{"getServerDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, getServerDefaultCipherSuites, $List*)},
+		{"getServerDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, getServerDefaultProtocolVersions, $List*)},
+		{"getSupportedCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, getSupportedCipherSuites, $List*)},
+		{"getSupportedProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, getSupportedProtocolVersions, $List*)},
+		{"isDTLS", "()Z", nullptr, 0, $virtualMethod(SSLContextImpl$AbstractDTLSContext, isDTLS, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$AbstractDTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractDTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.ssl.SSLContextImpl$AbstractDTLSContext",
+		"sun.security.ssl.SSLContextImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl"
+	};
+	$loadClass(SSLContextImpl$AbstractDTLSContext, name, initialize, &classInfo$$, SSLContextImpl$AbstractDTLSContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl$AbstractDTLSContext);
+	});
 	return class$;
 }
 

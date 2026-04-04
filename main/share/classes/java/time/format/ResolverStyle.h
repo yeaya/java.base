@@ -22,6 +22,7 @@ class $export ResolverStyle : public ::java::lang::Enum {
 public:
 	ResolverStyle();
 	static $Array<::java::time::format::ResolverStyle>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::time::format::ResolverStyle* valueOf($String* name);
 	static $Array<::java::time::format::ResolverStyle>* values();

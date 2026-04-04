@@ -1,5 +1,4 @@
 #include <sun/security/util/math/intpoly/P384OrderField.h>
-
 #include <java/math/BigInteger.h>
 #include <sun/security/util/math/intpoly/IntegerPolynomial.h>
 #include <jcpp.h>
@@ -23,46 +22,6 @@ namespace sun {
 			namespace math {
 				namespace intpoly {
 
-$FieldInfo _P384OrderField_FieldInfo_[] = {
-	{"BITS_PER_LIMB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P384OrderField, BITS_PER_LIMB)},
-	{"NUM_LIMBS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P384OrderField, NUM_LIMBS)},
-	{"MAX_ADDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P384OrderField, MAX_ADDS)},
-	{"MODULUS", "Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(P384OrderField, MODULUS)},
-	{"CARRY_ADD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P384OrderField, CARRY_ADD)},
-	{"LIMB_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P384OrderField, LIMB_MASK)},
-	{}
-};
-
-$MethodInfo _P384OrderField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(P384OrderField, init$, void)},
-	{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(P384OrderField, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce", "([JJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(P384OrderField, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce0", "([JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P384OrderField, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce0", "([JJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P384OrderField, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce1", "([JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P384OrderField, carryReduce1, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce2", "([JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P384OrderField, carryReduce2, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(P384OrderField, evaluateModulus, $BigInteger*)},
-	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(P384OrderField, finalCarryReduceLast, void, $longs*)},
-	{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(P384OrderField, mult, void, $longs*, $longs*, $longs*)},
-	{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(P384OrderField, reduce, void, $longs*)},
-	{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(P384OrderField, reduceIn, void, $longs*, int64_t, int32_t)},
-	{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(P384OrderField, square, void, $longs*, $longs*)},
-	{}
-};
-
-$ClassInfo _P384OrderField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.math.intpoly.P384OrderField",
-	"sun.security.util.math.intpoly.IntegerPolynomial",
-	nullptr,
-	_P384OrderField_FieldInfo_,
-	_P384OrderField_MethodInfo_
-};
-
-$Object* allocate$P384OrderField($Class* clazz) {
-	return $of($alloc(P384OrderField));
-}
-
 $BigInteger* P384OrderField::MODULUS = nullptr;
 
 void P384OrderField::init$() {
@@ -71,58 +30,58 @@ void P384OrderField::init$() {
 
 $BigInteger* P384OrderField::evaluateModulus() {
 	$init(P384OrderField);
-	$useLocalCurrentObjectStackCache();
-	$var($BigInteger, result, $nc($($BigInteger::valueOf((int64_t)2)))->pow(384));
-	$assign(result, $nc(result)->subtract($($BigInteger::valueOf((int64_t)0x033AD68D))));
-	$assign(result, result->subtract($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(28)))->multiply($($BigInteger::valueOf((int64_t)0x013E6953))))));
-	$assign(result, result->add($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(56)))->multiply($($BigInteger::valueOf((int64_t)0x00A77AED))))));
-	$assign(result, result->add($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(84)))->multiply($($BigInteger::valueOf((int64_t)0x00DB248B))))));
-	$assign(result, result->subtract($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(112)))->multiply($($BigInteger::valueOf((int64_t)0x0220A7E6))))));
-	$assign(result, result->subtract($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(140)))->multiply($($BigInteger::valueOf((int64_t)0x07E0BC8D))))));
-	$assign(result, result->subtract($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(168)))->multiply($($BigInteger::valueOf((int64_t)0x00389CB2))))));
+	$useLocalObjectStack();
+	$var($BigInteger, result, $($BigInteger::valueOf(2))->pow(384));
+	$assign(result, result->subtract($($BigInteger::valueOf(0x033ad68d))));
+	$assign(result, result->subtract($($($($BigInteger::valueOf(2))->pow(28))->multiply($($BigInteger::valueOf(0x013e6953))))));
+	$assign(result, result->add($($($($BigInteger::valueOf(2))->pow(56))->multiply($($BigInteger::valueOf(0x00a77aed))))));
+	$assign(result, result->add($($($($BigInteger::valueOf(2))->pow(84))->multiply($($BigInteger::valueOf(0x00db248b))))));
+	$assign(result, result->subtract($($($($BigInteger::valueOf(2))->pow(112))->multiply($($BigInteger::valueOf(0x0220a7e6))))));
+	$assign(result, result->subtract($($($($BigInteger::valueOf(2))->pow(140))->multiply($($BigInteger::valueOf(0x07e0bc8d))))));
+	$assign(result, result->subtract($($($($BigInteger::valueOf(2))->pow(168))->multiply($($BigInteger::valueOf(0x00389cb2))))));
 	return result;
 }
 
 void P384OrderField::reduceIn($longs* limbs, int64_t v, int32_t i) {
-	int64_t t0 = 0x033AD68D * v;
-	(*$nc(limbs))[i - 14] += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	int64_t t0 = 0x033ad68d * v;
+	(*$nc(limbs))[i - 14] += (t0 << 8) & P384OrderField::LIMB_MASK;
 	(*limbs)[i - 13] += t0 >> 20;
-	int64_t t1 = 0x013E6953 * v;
-	(*limbs)[i - 13] += (int64_t)((t1 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	int64_t t1 = 0x013e6953 * v;
+	(*limbs)[i - 13] += (t1 << 8) & P384OrderField::LIMB_MASK;
 	(*limbs)[i - 12] += t1 >> 20;
-	int64_t t2 = (int32_t)0xFF588513 * v;
-	(*limbs)[i - 12] += (int64_t)((t2 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	int64_t t2 = (int32_t)0xff588513 * v;
+	(*limbs)[i - 12] += (t2 << 8) & P384OrderField::LIMB_MASK;
 	(*limbs)[i - 11] += t2 >> 20;
-	int64_t t3 = (int32_t)0xFF24DB75 * v;
-	(*limbs)[i - 11] += (int64_t)((t3 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	int64_t t3 = (int32_t)0xff24db75 * v;
+	(*limbs)[i - 11] += (t3 << 8) & P384OrderField::LIMB_MASK;
 	(*limbs)[i - 10] += t3 >> 20;
-	int64_t t4 = 0x0220A7E6 * v;
-	(*limbs)[i - 10] += (int64_t)((t4 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	int64_t t4 = 0x0220a7e6 * v;
+	(*limbs)[i - 10] += (t4 << 8) & P384OrderField::LIMB_MASK;
 	(*limbs)[i - 9] += t4 >> 20;
-	int64_t t5 = 0x07E0BC8D * v;
-	(*limbs)[i - 9] += (int64_t)((t5 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	int64_t t5 = 0x07e0bc8d * v;
+	(*limbs)[i - 9] += (t5 << 8) & P384OrderField::LIMB_MASK;
 	(*limbs)[i - 8] += t5 >> 20;
-	int64_t t6 = 0x00389CB2 * v;
-	(*limbs)[i - 8] += (int64_t)((t6 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	int64_t t6 = 0x00389cb2 * v;
+	(*limbs)[i - 8] += (t6 << 8) & P384OrderField::LIMB_MASK;
 	(*limbs)[i - 7] += t6 >> 20;
 }
 
 void P384OrderField::finalCarryReduceLast($longs* limbs) {
 	int64_t c = $nc(limbs)->get(13) >> 20;
 	(*limbs)[13] -= c << 20;
-	int64_t t7 = 0x033AD68D * c;
+	int64_t t7 = 0x033ad68d * c;
 	(*limbs)[0] += t7;
-	t7 = 0x013E6953 * c;
+	t7 = 0x013e6953 * c;
 	(*limbs)[1] += t7;
-	t7 = (int32_t)0xFF588513 * c;
+	t7 = (int32_t)0xff588513 * c;
 	(*limbs)[2] += t7;
-	t7 = (int32_t)0xFF24DB75 * c;
+	t7 = (int32_t)0xff24db75 * c;
 	(*limbs)[3] += t7;
-	t7 = 0x0220A7E6 * c;
+	t7 = 0x0220a7e6 * c;
 	(*limbs)[4] += t7;
-	t7 = 0x07E0BC8D * c;
+	t7 = 0x07e0bc8d * c;
 	(*limbs)[5] += t7;
-	t7 = 0x00389CB2 * c;
+	t7 = 0x00389cb2 * c;
 	(*limbs)[6] += t7;
 }
 
@@ -214,299 +173,299 @@ void P384OrderField::carryReduce($longs* r, int64_t c0, int64_t c1, int64_t c2, 
 
 void P384OrderField::carryReduce0($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13, int64_t c14, int64_t c15, int64_t c16, int64_t c17, int64_t c18, int64_t c19, int64_t c20, int64_t c21, int64_t c22, int64_t c23, int64_t c24, int64_t c25, int64_t c26, int64_t c27) {
 	int64_t t0 = 0;
-	t0 = 0x033AD68D * c27;
-	c13 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c27;
+	c13 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c14 += t0 >> 20;
-	t0 = 0x013E6953 * c27;
-	c14 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c27;
+	c14 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c15 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c27;
-	c15 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c27;
+	c15 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c16 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c27;
-	c16 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c27;
+	c16 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c17 += t0 >> 20;
-	t0 = 0x0220A7E6 * c27;
-	c17 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c27;
+	c17 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c18 += t0 >> 20;
-	t0 = 0x07E0BC8D * c27;
-	c18 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c27;
+	c18 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c19 += t0 >> 20;
-	t0 = 0x00389CB2 * c27;
-	c19 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c27;
+	c19 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c20 += t0 >> 20;
-	t0 = 0x033AD68D * c26;
-	c12 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c26;
+	c12 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c13 += t0 >> 20;
-	t0 = 0x013E6953 * c26;
-	c13 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c26;
+	c13 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c14 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c26;
-	c14 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c26;
+	c14 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c15 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c26;
-	c15 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c26;
+	c15 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c16 += t0 >> 20;
-	t0 = 0x0220A7E6 * c26;
-	c16 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c26;
+	c16 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c17 += t0 >> 20;
-	t0 = 0x07E0BC8D * c26;
-	c17 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c26;
+	c17 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c18 += t0 >> 20;
-	t0 = 0x00389CB2 * c26;
-	c18 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c26;
+	c18 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c19 += t0 >> 20;
-	t0 = 0x033AD68D * c25;
-	c11 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c25;
+	c11 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c12 += t0 >> 20;
-	t0 = 0x013E6953 * c25;
-	c12 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c25;
+	c12 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c13 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c25;
-	c13 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c25;
+	c13 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c14 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c25;
-	c14 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c25;
+	c14 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c15 += t0 >> 20;
-	t0 = 0x0220A7E6 * c25;
-	c15 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c25;
+	c15 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c16 += t0 >> 20;
-	t0 = 0x07E0BC8D * c25;
-	c16 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c25;
+	c16 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c17 += t0 >> 20;
-	t0 = 0x00389CB2 * c25;
-	c17 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c25;
+	c17 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c18 += t0 >> 20;
-	t0 = 0x033AD68D * c24;
-	c10 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c24;
+	c10 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c11 += t0 >> 20;
-	t0 = 0x013E6953 * c24;
-	c11 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c24;
+	c11 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c12 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c24;
-	c12 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c24;
+	c12 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c13 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c24;
-	c13 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c24;
+	c13 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c14 += t0 >> 20;
-	t0 = 0x0220A7E6 * c24;
-	c14 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c24;
+	c14 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c15 += t0 >> 20;
-	t0 = 0x07E0BC8D * c24;
-	c15 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c24;
+	c15 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c16 += t0 >> 20;
-	t0 = 0x00389CB2 * c24;
-	c16 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c24;
+	c16 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c17 += t0 >> 20;
-	t0 = 0x033AD68D * c23;
-	c9 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c23;
+	c9 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c10 += t0 >> 20;
-	t0 = 0x013E6953 * c23;
-	c10 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c23;
+	c10 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c11 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c23;
-	c11 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c23;
+	c11 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c12 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c23;
-	c12 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c23;
+	c12 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c13 += t0 >> 20;
-	t0 = 0x0220A7E6 * c23;
-	c13 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c23;
+	c13 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c14 += t0 >> 20;
-	t0 = 0x07E0BC8D * c23;
-	c14 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c23;
+	c14 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c15 += t0 >> 20;
-	t0 = 0x00389CB2 * c23;
-	c15 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c23;
+	c15 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c16 += t0 >> 20;
-	t0 = 0x033AD68D * c22;
-	c8 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c22;
+	c8 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c9 += t0 >> 20;
-	t0 = 0x013E6953 * c22;
-	c9 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c22;
+	c9 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c10 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c22;
-	c10 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c22;
+	c10 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c11 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c22;
-	c11 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c22;
+	c11 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c12 += t0 >> 20;
-	t0 = 0x0220A7E6 * c22;
-	c12 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c22;
+	c12 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c13 += t0 >> 20;
-	t0 = 0x07E0BC8D * c22;
-	c13 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c22;
+	c13 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c14 += t0 >> 20;
-	t0 = 0x00389CB2 * c22;
-	c14 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c22;
+	c14 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c15 += t0 >> 20;
-	t0 = 0x033AD68D * c21;
-	c7 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c21;
+	c7 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c8 += t0 >> 20;
-	t0 = 0x013E6953 * c21;
-	c8 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c21;
+	c8 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c9 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c21;
-	c9 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c21;
+	c9 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c10 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c21;
-	c10 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c21;
+	c10 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c11 += t0 >> 20;
-	t0 = 0x0220A7E6 * c21;
-	c11 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c21;
+	c11 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c12 += t0 >> 20;
-	t0 = 0x07E0BC8D * c21;
-	c12 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c21;
+	c12 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c13 += t0 >> 20;
-	t0 = 0x00389CB2 * c21;
-	c13 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c21;
+	c13 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c14 += t0 >> 20;
-	t0 = 0x033AD68D * c20;
-	c6 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c20;
+	c6 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c7 += t0 >> 20;
-	t0 = 0x013E6953 * c20;
-	c7 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c20;
+	c7 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c8 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c20;
-	c8 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c20;
+	c8 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c9 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c20;
-	c9 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c20;
+	c9 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c10 += t0 >> 20;
-	t0 = 0x0220A7E6 * c20;
-	c10 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c20;
+	c10 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c11 += t0 >> 20;
-	t0 = 0x07E0BC8D * c20;
-	c11 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c20;
+	c11 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c12 += t0 >> 20;
-	t0 = 0x00389CB2 * c20;
-	c12 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c20;
+	c12 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c13 += t0 >> 20;
-	t0 = 0x033AD68D * c19;
-	c5 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c19;
+	c5 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c6 += t0 >> 20;
-	t0 = 0x013E6953 * c19;
-	c6 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c19;
+	c6 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c7 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c19;
-	c7 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c19;
+	c7 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c8 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c19;
-	c8 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c19;
+	c8 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c9 += t0 >> 20;
-	t0 = 0x0220A7E6 * c19;
-	c9 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c19;
+	c9 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c10 += t0 >> 20;
-	t0 = 0x07E0BC8D * c19;
-	c10 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c19;
+	c10 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c11 += t0 >> 20;
-	t0 = 0x00389CB2 * c19;
-	c11 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c19;
+	c11 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c12 += t0 >> 20;
-	t0 = 0x033AD68D * c18;
-	c4 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c18;
+	c4 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c5 += t0 >> 20;
-	t0 = 0x013E6953 * c18;
-	c5 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c18;
+	c5 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c6 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c18;
-	c6 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c18;
+	c6 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c7 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c18;
-	c7 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c18;
+	c7 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c8 += t0 >> 20;
-	t0 = 0x0220A7E6 * c18;
-	c8 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c18;
+	c8 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c9 += t0 >> 20;
-	t0 = 0x07E0BC8D * c18;
-	c9 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c18;
+	c9 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c10 += t0 >> 20;
-	t0 = 0x00389CB2 * c18;
-	c10 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c18;
+	c10 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c11 += t0 >> 20;
-	t0 = 0x033AD68D * c17;
-	c3 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c17;
+	c3 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c4 += t0 >> 20;
-	t0 = 0x013E6953 * c17;
-	c4 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c17;
+	c4 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c5 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c17;
-	c5 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c17;
+	c5 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c6 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c17;
-	c6 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c17;
+	c6 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c7 += t0 >> 20;
-	t0 = 0x0220A7E6 * c17;
-	c7 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c17;
+	c7 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c8 += t0 >> 20;
-	t0 = 0x07E0BC8D * c17;
-	c8 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c17;
+	c8 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c9 += t0 >> 20;
-	t0 = 0x00389CB2 * c17;
-	c9 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c17;
+	c9 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c10 += t0 >> 20;
-	t0 = 0x033AD68D * c16;
-	c2 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c16;
+	c2 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c3 += t0 >> 20;
-	t0 = 0x013E6953 * c16;
-	c3 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c16;
+	c3 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c4 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c16;
-	c4 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c16;
+	c4 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c5 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c16;
-	c5 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c16;
+	c5 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c6 += t0 >> 20;
-	t0 = 0x0220A7E6 * c16;
-	c6 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c16;
+	c6 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c7 += t0 >> 20;
-	t0 = 0x07E0BC8D * c16;
-	c7 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c16;
+	c7 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c8 += t0 >> 20;
-	t0 = 0x00389CB2 * c16;
-	c8 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c16;
+	c8 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c9 += t0 >> 20;
-	t0 = 0x033AD68D * c15;
-	c1 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c15;
+	c1 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c2 += t0 >> 20;
-	t0 = 0x013E6953 * c15;
-	c2 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c15;
+	c2 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c3 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c15;
-	c3 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c15;
+	c3 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c4 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c15;
-	c4 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c15;
+	c4 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c5 += t0 >> 20;
-	t0 = 0x0220A7E6 * c15;
-	c5 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c15;
+	c5 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c6 += t0 >> 20;
-	t0 = 0x07E0BC8D * c15;
-	c6 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c15;
+	c6 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c7 += t0 >> 20;
-	t0 = 0x00389CB2 * c15;
-	c7 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c15;
+	c7 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c8 += t0 >> 20;
-	t0 = 0x033AD68D * c14;
-	c0 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c14;
+	c0 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c1 += t0 >> 20;
-	t0 = 0x013E6953 * c14;
-	c1 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c14;
+	c1 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c2 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c14;
-	c2 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c14;
+	c2 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c3 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c14;
-	c3 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c14;
+	c3 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c4 += t0 >> 20;
-	t0 = 0x0220A7E6 * c14;
-	c4 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c14;
+	c4 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c5 += t0 >> 20;
-	t0 = 0x07E0BC8D * c14;
-	c5 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c14;
+	c5 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c6 += t0 >> 20;
-	t0 = 0x00389CB2 * c14;
-	c6 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c14;
+	c6 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c7 += t0 >> 20;
 	c14 = 0;
 	carryReduce1(r, c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27);
@@ -561,26 +520,26 @@ void P384OrderField::carryReduce1($longs* r, int64_t c0, int64_t c1, int64_t c2,
 
 void P384OrderField::carryReduce2($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13, int64_t c14, int64_t c15, int64_t c16, int64_t c17, int64_t c18, int64_t c19, int64_t c20, int64_t c21, int64_t c22, int64_t c23, int64_t c24, int64_t c25, int64_t c26, int64_t c27) {
 	int64_t t0 = 0;
-	t0 = 0x033AD68D * c14;
-	c0 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c14;
+	c0 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c1 += t0 >> 20;
-	t0 = 0x013E6953 * c14;
-	c1 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c14;
+	c1 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c2 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c14;
-	c2 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c14;
+	c2 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c3 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c14;
-	c3 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c14;
+	c3 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c4 += t0 >> 20;
-	t0 = 0x0220A7E6 * c14;
-	c4 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c14;
+	c4 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c5 += t0 >> 20;
-	t0 = 0x07E0BC8D * c14;
-	c5 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c14;
+	c5 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c6 += t0 >> 20;
-	t0 = 0x00389CB2 * c14;
-	c6 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c14;
+	c6 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c7 += t0 >> 20;
 	t0 = (c0 + P384OrderField::CARRY_ADD) >> 28;
 	c0 -= (t0 << 28);
@@ -686,26 +645,26 @@ void P384OrderField::carryReduce($longs* r, int64_t c0, int64_t c1, int64_t c2, 
 
 void P384OrderField::carryReduce0($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13, int64_t c14) {
 	int64_t t0 = 0;
-	t0 = 0x033AD68D * c14;
-	c0 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x033ad68d * c14;
+	c0 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c1 += t0 >> 20;
-	t0 = 0x013E6953 * c14;
-	c1 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x013e6953 * c14;
+	c1 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c2 += t0 >> 20;
-	t0 = (int32_t)0xFF588513 * c14;
-	c2 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff588513 * c14;
+	c2 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c3 += t0 >> 20;
-	t0 = (int32_t)0xFF24DB75 * c14;
-	c3 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = (int32_t)0xff24db75 * c14;
+	c3 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c4 += t0 >> 20;
-	t0 = 0x0220A7E6 * c14;
-	c4 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x0220a7e6 * c14;
+	c4 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c5 += t0 >> 20;
-	t0 = 0x07E0BC8D * c14;
-	c5 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x07e0bc8d * c14;
+	c5 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c6 += t0 >> 20;
-	t0 = 0x00389CB2 * c14;
-	c6 += (int64_t)((t0 << 8) & (uint64_t)(int64_t)P384OrderField::LIMB_MASK);
+	t0 = 0x00389cb2 * c14;
+	c6 += (t0 << 8) & P384OrderField::LIMB_MASK;
 	c7 += t0 >> 20;
 	t0 = (c0 + P384OrderField::CARRY_ADD) >> 28;
 	c0 -= (t0 << 28);
@@ -794,11 +753,11 @@ void P384OrderField::mult($longs* a, $longs* b, $longs* r) {
 }
 
 void P384OrderField::reduce($longs* a) {
-	carryReduce(a, $nc(a)->get(0), a->get(1), a->get(2), a->get(3), a->get(4), a->get(5), a->get(6), a->get(7), a->get(8), a->get(9), a->get(10), a->get(11), a->get(12), a->get(13));
+	carryReduce(a, $nc(a)->get(0), $nc(a)->get(1), $nc(a)->get(2), $nc(a)->get(3), $nc(a)->get(4), $nc(a)->get(5), $nc(a)->get(6), $nc(a)->get(7), $nc(a)->get(8), $nc(a)->get(9), $nc(a)->get(10), $nc(a)->get(11), $nc(a)->get(12), $nc(a)->get(13));
 }
 
 void P384OrderField::square($longs* a, $longs* r) {
-	int64_t c0 = ($nc(a)->get(0) * a->get(0));
+	int64_t c0 = ($nc(a)->get(0) * $nc(a)->get(0));
 	int64_t c1 = 2 * (a->get(0) * a->get(1));
 	int64_t c2 = 2 * (a->get(0) * a->get(2)) + (a->get(1) * a->get(1));
 	int64_t c3 = 2 * ((a->get(0) * a->get(3)) + (a->get(1) * a->get(2)));
@@ -828,7 +787,7 @@ void P384OrderField::square($longs* a, $longs* r) {
 	carryReduce(r, c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26);
 }
 
-void clinit$P384OrderField($Class* class$) {
+void P384OrderField::clinit$($Class* clazz) {
 	$assignStatic(P384OrderField::MODULUS, P384OrderField::evaluateModulus());
 }
 
@@ -836,7 +795,42 @@ P384OrderField::P384OrderField() {
 }
 
 $Class* P384OrderField::load$($String* name, bool initialize) {
-	$loadClass(P384OrderField, name, initialize, &_P384OrderField_ClassInfo_, clinit$P384OrderField, allocate$P384OrderField);
+	$FieldInfo fieldInfos$$[] = {
+		{"BITS_PER_LIMB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P384OrderField, BITS_PER_LIMB)},
+		{"NUM_LIMBS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P384OrderField, NUM_LIMBS)},
+		{"MAX_ADDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P384OrderField, MAX_ADDS)},
+		{"MODULUS", "Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(P384OrderField, MODULUS)},
+		{"CARRY_ADD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P384OrderField, CARRY_ADD)},
+		{"LIMB_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(P384OrderField, LIMB_MASK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(P384OrderField, init$, void)},
+		{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(P384OrderField, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce", "([JJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(P384OrderField, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce0", "([JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P384OrderField, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce0", "([JJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P384OrderField, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce1", "([JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P384OrderField, carryReduce1, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce2", "([JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(P384OrderField, carryReduce2, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(P384OrderField, evaluateModulus, $BigInteger*)},
+		{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(P384OrderField, finalCarryReduceLast, void, $longs*)},
+		{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(P384OrderField, mult, void, $longs*, $longs*, $longs*)},
+		{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(P384OrderField, reduce, void, $longs*)},
+		{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(P384OrderField, reduceIn, void, $longs*, int64_t, int32_t)},
+		{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(P384OrderField, square, void, $longs*, $longs*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.math.intpoly.P384OrderField",
+		"sun.security.util.math.intpoly.IntegerPolynomial",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(P384OrderField, name, initialize, &classInfo$$, P384OrderField::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(P384OrderField);
+	});
 	return class$;
 }
 

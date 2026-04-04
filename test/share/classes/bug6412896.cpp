@@ -1,5 +1,4 @@
 #include <bug6412896.h>
-
 #include <java/text/DateFormatSymbols.h>
 #include <jcpp.h>
 
@@ -10,31 +9,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DateFormatSymbols = ::java::text::DateFormatSymbols;
-
-$FieldInfo _bug6412896_FieldInfo_[] = {
-	{"zoneOK", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(bug6412896, zoneOK)},
-	{"zoneNG", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(bug6412896, zoneNG)},
-	{}
-};
-
-$MethodInfo _bug6412896_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6412896, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6412896, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _bug6412896_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6412896",
-	"java.lang.Object",
-	nullptr,
-	_bug6412896_FieldInfo_,
-	_bug6412896_MethodInfo_
-};
-
-$Object* allocate$bug6412896($Class* clazz) {
-	return $of($alloc(bug6412896));
-}
 
 $StringArray2* bug6412896::zoneOK = nullptr;
 $StringArray2* bug6412896::zoneNG = nullptr;
@@ -53,8 +27,8 @@ void bug6412896::main($StringArray* args) {
 	}
 }
 
-void clinit$bug6412896($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void bug6412896::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(bug6412896::zoneOK, $new($StringArray2, {$$new($StringArray, {
 		"America/Los_Angeles"_s,
 		"Pacific Standard Time"_s,
@@ -74,7 +48,27 @@ bug6412896::bug6412896() {
 }
 
 $Class* bug6412896::load$($String* name, bool initialize) {
-	$loadClass(bug6412896, name, initialize, &_bug6412896_ClassInfo_, clinit$bug6412896, allocate$bug6412896);
+	$FieldInfo fieldInfos$$[] = {
+		{"zoneOK", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(bug6412896, zoneOK)},
+		{"zoneNG", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(bug6412896, zoneNG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6412896, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6412896, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6412896",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6412896, name, initialize, &classInfo$$, bug6412896::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6412896);
+	});
 	return class$;
 }
 

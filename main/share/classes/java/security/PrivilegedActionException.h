@@ -21,16 +21,20 @@ class $export PrivilegedActionException : public ::java::lang::Exception {
 	$class(PrivilegedActionException, 0, ::java::lang::Exception)
 public:
 	PrivilegedActionException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::Exception* exception);
 	virtual ::java::lang::Exception* getException();
 	void readObject(::java::io::ObjectInputStream* s);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x418F53F65211F5BA;
+	static const int64_t serialVersionUID = (int64_t)0x418f53f65211f5ba;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	PrivilegedActionException(const PrivilegedActionException& e);
 	virtual void throw$() override;
-	inline PrivilegedActionException* operator ->() {
+	inline PrivilegedActionException* operator ->() const {
+		return (PrivilegedActionException*)throwing$;
+	}
+	inline operator PrivilegedActionException*() const {
 		return (PrivilegedActionException*)throwing$;
 	}
 };

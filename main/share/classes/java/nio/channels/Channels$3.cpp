@@ -1,5 +1,4 @@
 #include <java/nio/channels/Channels$3.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -25,58 +24,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousByteChannel = ::java::nio::channels::AsynchronousByteChannel;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
-using $Future = ::java::util::concurrent::Future;
 
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _Channels$3_FieldInfo_[] = {
-	{"val$ch", "Ljava/nio/channels/AsynchronousByteChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Channels$3, val$ch)},
-	{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Channels$3, bb)},
-	{"bs", "[B", nullptr, $PRIVATE, $field(Channels$3, bs)},
-	{"b1", "[B", nullptr, $PRIVATE, $field(Channels$3, b1)},
-	{}
-};
-
-$MethodInfo _Channels$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/AsynchronousByteChannel;)V", nullptr, 0, $method(Channels$3, init$, void, $AsynchronousByteChannel*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Channels$3, close, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Channels$3, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Channels$3, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _Channels$3_EnclosingMethodInfo_ = {
-	"java.nio.channels.Channels",
-	"newOutputStream",
-	"(Ljava/nio/channels/AsynchronousByteChannel;)Ljava/io/OutputStream;"
-};
-
-$InnerClassInfo _Channels$3_InnerClassesInfo_[] = {
-	{"java.nio.channels.Channels$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Channels$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.channels.Channels$3",
-	"java.io.OutputStream",
-	nullptr,
-	_Channels$3_FieldInfo_,
-	_Channels$3_MethodInfo_,
-	nullptr,
-	&_Channels$3_EnclosingMethodInfo_,
-	_Channels$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.channels.Channels"
-};
-
-$Object* allocate$Channels$3($Class* clazz) {
-	return $of($alloc(Channels$3));
-}
 
 void Channels$3::init$($AsynchronousByteChannel* val$ch) {
 	$set(this, val$ch, val$ch);
@@ -95,40 +46,38 @@ void Channels$3::write(int32_t b) {
 
 void Channels$3::write($bytes* bs, int32_t off, int32_t len) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ((off < 0) || (off > $nc(bs)->length) || (len < 0) || ((off + len) > $nc(bs)->length) || ((off + len) < 0)) {
 			$throwNew($IndexOutOfBoundsException);
 		} else if (len == 0) {
 			return;
 		}
 		$var($ByteBuffer, bb, (this->bs == bs) ? this->bb : $ByteBuffer::wrap(bs));
-		$nc(bb)->limit($Math::min(off + len, bb->capacity()));
+		$nc(bb)->limit($Math::min(off + len, $nc(bb)->capacity()));
 		bb->position(off);
 		$set(this, bb, bb);
 		$set(this, bs, bs);
 		bool interrupted = false;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				while (bb->remaining() > 0) {
-					try {
-						$nc($($nc(this->val$ch)->write(bb)))->get();
-					} catch ($ExecutionException& ee) {
-						$throwNew($IOException, $(ee->getCause()));
-					} catch ($InterruptedException& ie) {
-						interrupted = true;
-					}
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				if (interrupted) {
-					$($Thread::currentThread())->interrupt();
+		$var($Throwable, var$0, nullptr);
+		try {
+			while (bb->remaining() > 0) {
+				try {
+					$$nc($nc(this->val$ch)->write(bb))->get();
+				} catch ($ExecutionException& ee) {
+					$throwNew($IOException, $(ee->getCause()));
+				} catch ($InterruptedException& ie) {
+					interrupted = true;
 				}
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (interrupted) {
+				$($Thread::currentThread())->interrupt();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -141,7 +90,47 @@ Channels$3::Channels$3() {
 }
 
 $Class* Channels$3::load$($String* name, bool initialize) {
-	$loadClass(Channels$3, name, initialize, &_Channels$3_ClassInfo_, allocate$Channels$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$ch", "Ljava/nio/channels/AsynchronousByteChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Channels$3, val$ch)},
+		{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Channels$3, bb)},
+		{"bs", "[B", nullptr, $PRIVATE, $field(Channels$3, bs)},
+		{"b1", "[B", nullptr, $PRIVATE, $field(Channels$3, b1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/AsynchronousByteChannel;)V", nullptr, 0, $method(Channels$3, init$, void, $AsynchronousByteChannel*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Channels$3, close, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Channels$3, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Channels$3, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.channels.Channels",
+		"newOutputStream",
+		"(Ljava/nio/channels/AsynchronousByteChannel;)Ljava/io/OutputStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.channels.Channels$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.channels.Channels$3",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.channels.Channels"
+	};
+	$loadClass(Channels$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Channels$3));
+	});
 	return class$;
 }
 

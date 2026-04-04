@@ -14,10 +14,13 @@ public:
 	UnrecoverableEntryException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xC12C5B7A252DED39;
+	static const int64_t serialVersionUID = (int64_t)0xc12c5b7a252ded39;
 	UnrecoverableEntryException(const UnrecoverableEntryException& e);
 	virtual void throw$() override;
-	inline UnrecoverableEntryException* operator ->() {
+	inline UnrecoverableEntryException* operator ->() const {
+		return (UnrecoverableEntryException*)throwing$;
+	}
+	inline operator UnrecoverableEntryException*() const {
 		return (UnrecoverableEntryException*)throwing$;
 	}
 };

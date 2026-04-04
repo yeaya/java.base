@@ -1,7 +1,5 @@
 #include <sun/util/BuddhistCalendar.h>
-
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/CharSequence.h>
 #include <java/util/Calendar.h>
 #include <java/util/GregorianCalendar.h>
 #include <java/util/Locale.h>
@@ -15,7 +13,6 @@
 #undef YEAR
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -29,46 +26,6 @@ using $CalendarDataUtility = ::sun::util::locale::provider::CalendarDataUtility;
 
 namespace sun {
 	namespace util {
-
-$FieldInfo _BuddhistCalendar_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BuddhistCalendar, serialVersionUID)},
-	{"BUDDHIST_YEAR_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BuddhistCalendar, BUDDHIST_YEAR_OFFSET)},
-	{"yearOffset", "I", nullptr, $PRIVATE | $TRANSIENT, $field(BuddhistCalendar, yearOffset)},
-	{}
-};
-
-$MethodInfo _BuddhistCalendar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void)},
-	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void, $TimeZone*)},
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void, $Locale*)},
-	{"<init>", "(Ljava/util/TimeZone;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void, $TimeZone*, $Locale*)},
-	{"add", "(II)V", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, add, void, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, equals, bool, Object$*)},
-	{"get", "(I)I", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, get, int32_t, int32_t)},
-	{"getActualMaximum", "(I)I", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, getActualMaximum, int32_t, int32_t)},
-	{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, getCalendarType, $String*)},
-	{"getDisplayName", "(IILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, getDisplayName, $String*, int32_t, int32_t, $Locale*)},
-	{"getDisplayNames", "(IILjava/util/Locale;)Ljava/util/Map;", "(IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(BuddhistCalendar, getDisplayNames, $Map*, int32_t, int32_t, $Locale*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BuddhistCalendar, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"roll", "(II)V", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, roll, void, int32_t, int32_t)},
-	{"set", "(II)V", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, set, void, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, toString, $String*)},
-	{}
-};
-
-$ClassInfo _BuddhistCalendar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.BuddhistCalendar",
-	"java.util.GregorianCalendar",
-	nullptr,
-	_BuddhistCalendar_FieldInfo_,
-	_BuddhistCalendar_MethodInfo_
-};
-
-$Object* allocate$BuddhistCalendar($Class* clazz) {
-	return $of($alloc(BuddhistCalendar));
-}
 
 void BuddhistCalendar::init$() {
 	$GregorianCalendar::init$();
@@ -120,36 +77,32 @@ void BuddhistCalendar::set(int32_t field, int32_t value) {
 void BuddhistCalendar::add(int32_t field, int32_t amount) {
 	int32_t savedYearOffset = this->yearOffset;
 	this->yearOffset = 0;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$GregorianCalendar::add(field, amount);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->yearOffset = savedYearOffset;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$GregorianCalendar::add(field, amount);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->yearOffset = savedYearOffset;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void BuddhistCalendar::roll(int32_t field, int32_t amount) {
 	int32_t savedYearOffset = this->yearOffset;
 	this->yearOffset = 0;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$GregorianCalendar::roll(field, amount);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->yearOffset = savedYearOffset;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$GregorianCalendar::roll(field, amount);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->yearOffset = savedYearOffset;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -170,31 +123,29 @@ $Map* BuddhistCalendar::getDisplayNames(int32_t field, int32_t style, $Locale* l
 int32_t BuddhistCalendar::getActualMaximum(int32_t field) {
 	int32_t savedYearOffset = this->yearOffset;
 	this->yearOffset = 0;
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			var$2 = $GregorianCalendar::getActualMaximum(field);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			this->yearOffset = savedYearOffset;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		var$2 = $GregorianCalendar::getActualMaximum(field);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->yearOffset = savedYearOffset;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $String* BuddhistCalendar::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $GregorianCalendar::toString());
 	if (!isSet($Calendar::YEAR)) {
 		return s;
@@ -206,11 +157,12 @@ $String* BuddhistCalendar::toString() {
 	}
 	p += yearField->length();
 	$var($StringBuilder, sb, $new($StringBuilder, s->length() + 10));
-	sb->append(static_cast<$CharSequence*>(s), 0, p);
+	sb->append(s, 0, p);
 	while ($Character::isDigit(s->charAt(p++))) {
+		;
 	}
 	int32_t year = internalGet($Calendar::YEAR) + BuddhistCalendar::BUDDHIST_YEAR_OFFSET;
-	sb->append(year)->append(static_cast<$CharSequence*>(s), p - 1, s->length());
+	sb->append(year)->append(s, p - 1, s->length());
 	return sb->toString();
 }
 
@@ -223,7 +175,42 @@ BuddhistCalendar::BuddhistCalendar() {
 }
 
 $Class* BuddhistCalendar::load$($String* name, bool initialize) {
-	$loadClass(BuddhistCalendar, name, initialize, &_BuddhistCalendar_ClassInfo_, allocate$BuddhistCalendar);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BuddhistCalendar, serialVersionUID)},
+		{"BUDDHIST_YEAR_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BuddhistCalendar, BUDDHIST_YEAR_OFFSET)},
+		{"yearOffset", "I", nullptr, $PRIVATE | $TRANSIENT, $field(BuddhistCalendar, yearOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void)},
+		{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void, $TimeZone*)},
+		{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void, $Locale*)},
+		{"<init>", "(Ljava/util/TimeZone;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void, $TimeZone*, $Locale*)},
+		{"add", "(II)V", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, add, void, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, equals, bool, Object$*)},
+		{"get", "(I)I", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, get, int32_t, int32_t)},
+		{"getActualMaximum", "(I)I", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, getActualMaximum, int32_t, int32_t)},
+		{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, getCalendarType, $String*)},
+		{"getDisplayName", "(IILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, getDisplayName, $String*, int32_t, int32_t, $Locale*)},
+		{"getDisplayNames", "(IILjava/util/Locale;)Ljava/util/Map;", "(IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(BuddhistCalendar, getDisplayNames, $Map*, int32_t, int32_t, $Locale*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BuddhistCalendar, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"roll", "(II)V", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, roll, void, int32_t, int32_t)},
+		{"set", "(II)V", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, set, void, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.BuddhistCalendar",
+		"java.util.GregorianCalendar",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BuddhistCalendar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BuddhistCalendar));
+	});
 	return class$;
 }
 

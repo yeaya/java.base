@@ -1,5 +1,4 @@
 #include <GetAnnotatedReceiverType$Inner2$Inner3$Inner7.h>
-
 #include <GetAnnotatedReceiverType$Inner2$Inner3.h>
 #include <jcpp.h>
 
@@ -8,44 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _GetAnnotatedReceiverType$Inner2$Inner3$Inner7_FieldInfo_[] = {
-	{"this$2", "LGetAnnotatedReceiverType$Inner2$Inner3;", nullptr, $FINAL | $SYNTHETIC, $field(GetAnnotatedReceiverType$Inner2$Inner3$Inner7, this$2)},
-	{}
-};
-
-$MethodInfo _GetAnnotatedReceiverType$Inner2$Inner3$Inner7_MethodInfo_[] = {
-	{"<init>", "(LGetAnnotatedReceiverType$Inner2$Inner3;)V", nullptr, $PUBLIC, $method(GetAnnotatedReceiverType$Inner2$Inner3$Inner7, init$, void, $GetAnnotatedReceiverType$Inner2$Inner3*)},
-	{"innerMethod7", "()V", nullptr, $PUBLIC, $virtualMethod(GetAnnotatedReceiverType$Inner2$Inner3$Inner7, innerMethod7, void)},
-	{}
-};
-
-$InnerClassInfo _GetAnnotatedReceiverType$Inner2$Inner3$Inner7_InnerClassesInfo_[] = {
-	{"GetAnnotatedReceiverType$Inner2", "GetAnnotatedReceiverType", "Inner2", $PUBLIC},
-	{"GetAnnotatedReceiverType$Inner2$Inner3", "GetAnnotatedReceiverType$Inner2", "Inner3", $PUBLIC},
-	{"GetAnnotatedReceiverType$Inner2$Inner3$Inner7", "GetAnnotatedReceiverType$Inner2$Inner3", "Inner7", $PUBLIC},
-	{}
-};
-
-$ClassInfo _GetAnnotatedReceiverType$Inner2$Inner3$Inner7_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetAnnotatedReceiverType$Inner2$Inner3$Inner7",
-	"java.lang.Object",
-	nullptr,
-	_GetAnnotatedReceiverType$Inner2$Inner3$Inner7_FieldInfo_,
-	_GetAnnotatedReceiverType$Inner2$Inner3$Inner7_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_GetAnnotatedReceiverType$Inner2$Inner3$Inner7_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetAnnotatedReceiverType"
-};
-
-$Object* allocate$GetAnnotatedReceiverType$Inner2$Inner3$Inner7($Class* clazz) {
-	return $of($alloc(GetAnnotatedReceiverType$Inner2$Inner3$Inner7));
-}
 
 void GetAnnotatedReceiverType$Inner2$Inner3$Inner7::init$($GetAnnotatedReceiverType$Inner2$Inner3* this$2) {
 	$set(this, this$2, this$2);
@@ -58,7 +19,39 @@ GetAnnotatedReceiverType$Inner2$Inner3$Inner7::GetAnnotatedReceiverType$Inner2$I
 }
 
 $Class* GetAnnotatedReceiverType$Inner2$Inner3$Inner7::load$($String* name, bool initialize) {
-	$loadClass(GetAnnotatedReceiverType$Inner2$Inner3$Inner7, name, initialize, &_GetAnnotatedReceiverType$Inner2$Inner3$Inner7_ClassInfo_, allocate$GetAnnotatedReceiverType$Inner2$Inner3$Inner7);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$2", "LGetAnnotatedReceiverType$Inner2$Inner3;", nullptr, $FINAL | $SYNTHETIC, $field(GetAnnotatedReceiverType$Inner2$Inner3$Inner7, this$2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LGetAnnotatedReceiverType$Inner2$Inner3;)V", nullptr, $PUBLIC, $method(GetAnnotatedReceiverType$Inner2$Inner3$Inner7, init$, void, $GetAnnotatedReceiverType$Inner2$Inner3*)},
+		{"innerMethod7", "()V", nullptr, $PUBLIC, $virtualMethod(GetAnnotatedReceiverType$Inner2$Inner3$Inner7, innerMethod7, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetAnnotatedReceiverType$Inner2", "GetAnnotatedReceiverType", "Inner2", $PUBLIC},
+		{"GetAnnotatedReceiverType$Inner2$Inner3", "GetAnnotatedReceiverType$Inner2", "Inner3", $PUBLIC},
+		{"GetAnnotatedReceiverType$Inner2$Inner3$Inner7", "GetAnnotatedReceiverType$Inner2$Inner3", "Inner7", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetAnnotatedReceiverType$Inner2$Inner3$Inner7",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetAnnotatedReceiverType"
+	};
+	$loadClass(GetAnnotatedReceiverType$Inner2$Inner3$Inner7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetAnnotatedReceiverType$Inner2$Inner3$Inner7);
+	});
 	return class$;
 }
 

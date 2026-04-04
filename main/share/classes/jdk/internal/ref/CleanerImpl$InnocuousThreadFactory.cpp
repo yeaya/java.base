@@ -1,5 +1,4 @@
 #include <jdk/internal/ref/CleanerImpl$InnocuousThreadFactory.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/ThreadFactory.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
@@ -22,44 +21,6 @@ namespace jdk {
 	namespace internal {
 		namespace ref {
 
-$FieldInfo _CleanerImpl$InnocuousThreadFactory_FieldInfo_[] = {
-	{"factory", "Ljava/util/concurrent/ThreadFactory;", nullptr, $STATIC | $FINAL, $staticField(CleanerImpl$InnocuousThreadFactory, factory$)},
-	{"cleanerThreadNumber", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $FINAL, $field(CleanerImpl$InnocuousThreadFactory, cleanerThreadNumber)},
-	{}
-};
-
-$MethodInfo _CleanerImpl$InnocuousThreadFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CleanerImpl$InnocuousThreadFactory, init$, void)},
-	{"factory", "()Ljava/util/concurrent/ThreadFactory;", nullptr, $STATIC, $staticMethod(CleanerImpl$InnocuousThreadFactory, factory, $ThreadFactory*)},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(CleanerImpl$InnocuousThreadFactory, newThread, $Thread*, $Runnable*)},
-	{}
-};
-
-$InnerClassInfo _CleanerImpl$InnocuousThreadFactory_InnerClassesInfo_[] = {
-	{"jdk.internal.ref.CleanerImpl$InnocuousThreadFactory", "jdk.internal.ref.CleanerImpl", "InnocuousThreadFactory", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CleanerImpl$InnocuousThreadFactory_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.ref.CleanerImpl$InnocuousThreadFactory",
-	"java.lang.Object",
-	"java.util.concurrent.ThreadFactory",
-	_CleanerImpl$InnocuousThreadFactory_FieldInfo_,
-	_CleanerImpl$InnocuousThreadFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CleanerImpl$InnocuousThreadFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.ref.CleanerImpl"
-};
-
-$Object* allocate$CleanerImpl$InnocuousThreadFactory($Class* clazz) {
-	return $of($alloc(CleanerImpl$InnocuousThreadFactory));
-}
-
 $ThreadFactory* CleanerImpl$InnocuousThreadFactory::factory$ = nullptr;
 
 void CleanerImpl$InnocuousThreadFactory::init$() {
@@ -72,11 +33,11 @@ $ThreadFactory* CleanerImpl$InnocuousThreadFactory::factory() {
 }
 
 $Thread* CleanerImpl$InnocuousThreadFactory::newThread($Runnable* r) {
-	$useLocalCurrentObjectStackCache();
-	return $InnocuousThread::newThread($$str({"Cleaner-"_s, $$str($nc(this->cleanerThreadNumber)->getAndIncrement())}), r, $Thread::MIN_PRIORITY - 2);
+	$useLocalObjectStack();
+	return $InnocuousThread::newThread($$str({"Cleaner-"_s, $$str(this->cleanerThreadNumber->getAndIncrement())}), r, $Thread::MIN_PRIORITY - 2);
 }
 
-void clinit$CleanerImpl$InnocuousThreadFactory($Class* class$) {
+void CleanerImpl$InnocuousThreadFactory::clinit$($Class* clazz) {
 	$assignStatic(CleanerImpl$InnocuousThreadFactory::factory$, $new(CleanerImpl$InnocuousThreadFactory));
 }
 
@@ -84,7 +45,39 @@ CleanerImpl$InnocuousThreadFactory::CleanerImpl$InnocuousThreadFactory() {
 }
 
 $Class* CleanerImpl$InnocuousThreadFactory::load$($String* name, bool initialize) {
-	$loadClass(CleanerImpl$InnocuousThreadFactory, name, initialize, &_CleanerImpl$InnocuousThreadFactory_ClassInfo_, clinit$CleanerImpl$InnocuousThreadFactory, allocate$CleanerImpl$InnocuousThreadFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"factory", "Ljava/util/concurrent/ThreadFactory;", nullptr, $STATIC | $FINAL, $staticField(CleanerImpl$InnocuousThreadFactory, factory$)},
+		{"cleanerThreadNumber", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $FINAL, $field(CleanerImpl$InnocuousThreadFactory, cleanerThreadNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CleanerImpl$InnocuousThreadFactory, init$, void)},
+		{"factory", "()Ljava/util/concurrent/ThreadFactory;", nullptr, $STATIC, $staticMethod(CleanerImpl$InnocuousThreadFactory, factory, $ThreadFactory*)},
+		{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(CleanerImpl$InnocuousThreadFactory, newThread, $Thread*, $Runnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.ref.CleanerImpl$InnocuousThreadFactory", "jdk.internal.ref.CleanerImpl", "InnocuousThreadFactory", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.ref.CleanerImpl$InnocuousThreadFactory",
+		"java.lang.Object",
+		"java.util.concurrent.ThreadFactory",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.ref.CleanerImpl"
+	};
+	$loadClass(CleanerImpl$InnocuousThreadFactory, name, initialize, &classInfo$$, CleanerImpl$InnocuousThreadFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CleanerImpl$InnocuousThreadFactory);
+	});
 	return class$;
 }
 

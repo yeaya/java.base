@@ -45,6 +45,7 @@ class $import StreamDecoder : public ::java::io::Reader {
 	$class(StreamDecoder, 0, ::java::io::Reader)
 public:
 	StreamDecoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::InputStream* in, Object$* lock, ::java::nio::charset::Charset* cs);
 	void init$(::java::io::InputStream* in, Object$* lock, ::java::nio::charset::CharsetDecoder* dec);
 	void init$(::java::nio::channels::ReadableByteChannel* ch, ::java::nio::charset::CharsetDecoder* dec, int32_t mbc);

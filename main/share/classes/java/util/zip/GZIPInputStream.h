@@ -55,7 +55,7 @@ public:
 	::java::util::zip::CRC32* crc = nullptr;
 	bool eos = false;
 	bool closed = false;
-	static const int32_t GZIP_MAGIC = 0x00008B1F;
+	static const int32_t GZIP_MAGIC = 0x00008b1f;
 	static const int32_t FTEXT = 1;
 	static const int32_t FHCRC = 2;
 	static const int32_t FEXTRA = 4;

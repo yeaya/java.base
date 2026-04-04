@@ -1,5 +1,4 @@
 #include <java/util/stream/ForEachOps$ForEachOp$OfInt.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/function/IntConsumer.h>
@@ -26,60 +25,6 @@ using $StreamShape = ::java::util::stream::StreamShape;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _ForEachOps$ForEachOp$OfInt_FieldInfo_[] = {
-	{"consumer", "Ljava/util/function/IntConsumer;", nullptr, $FINAL, $field(ForEachOps$ForEachOp$OfInt, consumer)},
-	{}
-};
-
-$MethodInfo _ForEachOps$ForEachOp$OfInt_MethodInfo_[] = {
-	{"*accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*cancellationRequested", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/IntConsumer;Z)V", nullptr, 0, $method(ForEachOps$ForEachOp$OfInt, init$, void, $IntConsumer*, bool)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, accept, void, int32_t)},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, get, $Object*)},
-	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, inputShape, $StreamShape*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ForEachOps$ForEachOp$OfInt_InnerClassesInfo_[] = {
-	{"java.util.stream.ForEachOps$ForEachOp", "java.util.stream.ForEachOps", "ForEachOp", $STATIC | $ABSTRACT},
-	{"java.util.stream.ForEachOps$ForEachOp$OfInt", "java.util.stream.ForEachOps$ForEachOp", "OfInt", $STATIC | $FINAL},
-	{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ForEachOps$ForEachOp$OfInt_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.ForEachOps$ForEachOp$OfInt",
-	"java.util.stream.ForEachOps$ForEachOp",
-	"java.util.stream.Sink$OfInt",
-	_ForEachOps$ForEachOp$OfInt_FieldInfo_,
-	_ForEachOps$ForEachOp$OfInt_MethodInfo_,
-	"Ljava/util/stream/ForEachOps$ForEachOp<Ljava/lang/Integer;>;Ljava/util/stream/Sink$OfInt;",
-	nullptr,
-	_ForEachOps$ForEachOp$OfInt_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ForEachOps"
-};
-
-$Object* allocate$ForEachOps$ForEachOp$OfInt($Class* clazz) {
-	return $of($alloc(ForEachOps$ForEachOp$OfInt));
-}
 
 int32_t ForEachOps$ForEachOp$OfInt::hashCode() {
 	 return this->$ForEachOps$ForEachOp::hashCode();
@@ -144,22 +89,70 @@ void ForEachOps$ForEachOp$OfInt::accept(int32_t t) {
 }
 
 $Object* ForEachOps$ForEachOp$OfInt::evaluateSequential($PipelineHelper* helper, $Spliterator* spliterator) {
-	return $of($ForEachOps$ForEachOp::evaluateSequential(helper, spliterator));
+	return $ForEachOps$ForEachOp::evaluateSequential(helper, spliterator);
 }
 
 $Object* ForEachOps$ForEachOp$OfInt::evaluateParallel($PipelineHelper* helper, $Spliterator* spliterator) {
-	return $of($ForEachOps$ForEachOp::evaluateParallel(helper, spliterator));
+	return $ForEachOps$ForEachOp::evaluateParallel(helper, spliterator);
 }
 
 $Object* ForEachOps$ForEachOp$OfInt::get() {
-	return $of($ForEachOps$ForEachOp::get());
+	return $ForEachOps$ForEachOp::get();
 }
 
 ForEachOps$ForEachOp$OfInt::ForEachOps$ForEachOp$OfInt() {
 }
 
 $Class* ForEachOps$ForEachOp$OfInt::load$($String* name, bool initialize) {
-	$loadClass(ForEachOps$ForEachOp$OfInt, name, initialize, &_ForEachOps$ForEachOp$OfInt_ClassInfo_, allocate$ForEachOps$ForEachOp$OfInt);
+	$FieldInfo fieldInfos$$[] = {
+		{"consumer", "Ljava/util/function/IntConsumer;", nullptr, $FINAL, $field(ForEachOps$ForEachOp$OfInt, consumer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*cancellationRequested", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/function/IntConsumer;Z)V", nullptr, 0, $method(ForEachOps$ForEachOp$OfInt, init$, void, $IntConsumer*, bool)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, accept, void, int32_t)},
+		{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+		{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, get, $Object*)},
+		{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, inputShape, $StreamShape*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ForEachOps$ForEachOp", "java.util.stream.ForEachOps", "ForEachOp", $STATIC | $ABSTRACT},
+		{"java.util.stream.ForEachOps$ForEachOp$OfInt", "java.util.stream.ForEachOps$ForEachOp", "OfInt", $STATIC | $FINAL},
+		{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.ForEachOps$ForEachOp$OfInt",
+		"java.util.stream.ForEachOps$ForEachOp",
+		"java.util.stream.Sink$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/ForEachOps$ForEachOp<Ljava/lang/Integer;>;Ljava/util/stream/Sink$OfInt;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ForEachOps"
+	};
+	$loadClass(ForEachOps$ForEachOp$OfInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ForEachOps$ForEachOp$OfInt));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <SendDatagramToBadAddress.h>
-
 #include <SendDatagramToBadAddress$Server.h>
 #include <java/io/InterruptedIOException.h>
 #include <java/net/DatagramPacket.h>
@@ -10,7 +9,6 @@
 
 using $SendDatagramToBadAddress$Server = ::SendDatagramToBadAddress$Server;
 using $InterruptedIOException = ::java::io::InterruptedIOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -21,45 +19,6 @@ using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $Properties = ::java::util::Properties;
 
-$FieldInfo _SendDatagramToBadAddress_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $STATIC, $staticField(SendDatagramToBadAddress, debug)},
-	{}
-};
-
-$MethodInfo _SendDatagramToBadAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SendDatagramToBadAddress, init$, void)},
-	{"OSsupportsFeature", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SendDatagramToBadAddress, OSsupportsFeature, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SendDatagramToBadAddress, main, void, $StringArray*), "java.lang.Exception"},
-	{"print", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SendDatagramToBadAddress, print, void, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SendDatagramToBadAddress, run, void), "java.lang.Exception"},
-	{"test", "(Ljava/net/DatagramSocket;)V", nullptr, $PRIVATE, $method(SendDatagramToBadAddress, test, void, $DatagramSocket*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _SendDatagramToBadAddress_InnerClassesInfo_[] = {
-	{"SendDatagramToBadAddress$Server", "SendDatagramToBadAddress", "Server", 0},
-	{}
-};
-
-$ClassInfo _SendDatagramToBadAddress_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SendDatagramToBadAddress",
-	"java.lang.Object",
-	nullptr,
-	_SendDatagramToBadAddress_FieldInfo_,
-	_SendDatagramToBadAddress_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SendDatagramToBadAddress_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"SendDatagramToBadAddress$Server"
-};
-
-$Object* allocate$SendDatagramToBadAddress($Class* clazz) {
-	return $of($alloc(SendDatagramToBadAddress));
-}
-
 bool SendDatagramToBadAddress::debug = false;
 
 void SendDatagramToBadAddress::init$() {
@@ -67,16 +26,16 @@ void SendDatagramToBadAddress::init$() {
 
 bool SendDatagramToBadAddress::OSsupportsFeature() {
 	$init(SendDatagramToBadAddress);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, p, $System::getProperties());
 	$var($String, v, nullptr);
-	if ($nc($($nc(p)->getProperty("os.name"_s)))->equals("Windows 2000"_s)) {
+	if ($$nc($nc(p)->getProperty("os.name"_s))->equals("Windows 2000"_s)) {
 		return (true);
 	}
-	if ($nc($($nc(p)->getProperty("os.name"_s)))->equals("Linux"_s)) {
+	if ($$nc(p->getProperty("os.name"_s))->equals("Linux"_s)) {
 		return (true);
 	}
-	if ($nc($($nc(p)->getProperty("os.name"_s)))->startsWith("Mac OS"_s)) {
+	if ($$nc(p->getProperty("os.name"_s))->startsWith("Mac OS"_s)) {
 		return (true);
 	}
 	return false;
@@ -99,39 +58,37 @@ void SendDatagramToBadAddress::main($StringArray* args) {
 }
 
 void SendDatagramToBadAddress::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (OSsupportsFeature()) {
 		print("running on OS that supports ICMP port unreachable"_s);
 	}
 	{
 		$var($DatagramSocket, sock, $new($DatagramSocket));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				test(sock);
+			} catch ($Throwable& t$) {
 				try {
-					test(sock);
-				} catch ($Throwable& t$) {
-					try {
-						sock->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					sock->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				sock->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			sock->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void SendDatagramToBadAddress::test($DatagramSocket* sock) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	print($$str({"Testing with "_s, $nc($of(sock))->getClass()}));
 	$var($InetAddress, addr, $InetAddress::getLoopbackAddress());
 	$var($DatagramSocket, serversock, $new($DatagramSocket, 0));
@@ -142,7 +99,7 @@ void SendDatagramToBadAddress::test($DatagramSocket* sock) {
 	$var($SendDatagramToBadAddress$Server, s, $new($SendDatagramToBadAddress$Server, this, serversock));
 	int32_t i = 0;
 	print("Checking send to connected address ..."_s);
-	$nc(sock)->connect(addr, port);
+	sock->connect(addr, port);
 	for (i = 0; i < loop; ++i) {
 		try {
 			$assign(buf, $nc(($$str({"Hello, server"_s, $$str(i)})))->getBytes());
@@ -194,7 +151,7 @@ void SendDatagramToBadAddress::test($DatagramSocket* sock) {
 	}
 }
 
-void clinit$SendDatagramToBadAddress($Class* class$) {
+void SendDatagramToBadAddress::clinit$($Class* clazz) {
 	SendDatagramToBadAddress::debug = false;
 }
 
@@ -202,7 +159,40 @@ SendDatagramToBadAddress::SendDatagramToBadAddress() {
 }
 
 $Class* SendDatagramToBadAddress::load$($String* name, bool initialize) {
-	$loadClass(SendDatagramToBadAddress, name, initialize, &_SendDatagramToBadAddress_ClassInfo_, clinit$SendDatagramToBadAddress, allocate$SendDatagramToBadAddress);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $STATIC, $staticField(SendDatagramToBadAddress, debug)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SendDatagramToBadAddress, init$, void)},
+		{"OSsupportsFeature", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SendDatagramToBadAddress, OSsupportsFeature, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SendDatagramToBadAddress, main, void, $StringArray*), "java.lang.Exception"},
+		{"print", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SendDatagramToBadAddress, print, void, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SendDatagramToBadAddress, run, void), "java.lang.Exception"},
+		{"test", "(Ljava/net/DatagramSocket;)V", nullptr, $PRIVATE, $method(SendDatagramToBadAddress, test, void, $DatagramSocket*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SendDatagramToBadAddress$Server", "SendDatagramToBadAddress", "Server", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SendDatagramToBadAddress",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"SendDatagramToBadAddress$Server"
+	};
+	$loadClass(SendDatagramToBadAddress, name, initialize, &classInfo$$, SendDatagramToBadAddress::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SendDatagramToBadAddress);
+	});
 	return class$;
 }
 

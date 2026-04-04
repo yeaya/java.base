@@ -30,6 +30,7 @@ class $export JmodFile$Section : public ::java::lang::Enum {
 public:
 	JmodFile$Section();
 	static $Array<::jdk::internal::jmod::JmodFile$Section>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* jmodDir);
 	virtual $String* jmodDir();
 	static ::jdk::internal::jmod::JmodFile$Section* valueOf($String* name);

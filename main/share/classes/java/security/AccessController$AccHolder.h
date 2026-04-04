@@ -18,6 +18,7 @@ class AccessController$AccHolder : public ::java::lang::Object {
 	$class(AccessController$AccHolder, 0, ::java::lang::Object)
 public:
 	AccessController$AccHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::AccessControlContext* innocuousAcc;
 };

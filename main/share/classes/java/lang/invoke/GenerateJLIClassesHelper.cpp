@@ -1,5 +1,4 @@
 #include <java/lang/invoke/GenerateJLIClassesHelper.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
@@ -87,10 +86,8 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BoundMethodHandle = ::java::lang::invoke::BoundMethodHandle;
-using $BoundMethodHandle$Specializer = ::java::lang::invoke::BoundMethodHandle$Specializer;
 using $BoundMethodHandle$SpeciesData = ::java::lang::invoke::BoundMethodHandle$SpeciesData;
 using $ClassSpecializer$Factory = ::java::lang::invoke::ClassSpecializer$Factory;
-using $ClassSpecializer$SpeciesData = ::java::lang::invoke::ClassSpecializer$SpeciesData;
 using $DelegatingMethodHandle = ::java::lang::invoke::DelegatingMethodHandle;
 using $DirectMethodHandle = ::java::lang::invoke::DirectMethodHandle;
 using $GenerateJLIClassesHelper$HolderClassBuilder = ::java::lang::invoke::GenerateJLIClassesHelper$HolderClassBuilder;
@@ -125,29 +122,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return $of(GenerateJLIClassesHelper::lambda$generateHolderClasses$0($cast($String, line)));
+		 return GenerateJLIClassesHelper::lambda$generateHolderClasses$0($cast($String, line));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.invoke.GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0::load$($String* name, bool initialize) {
-	$loadClass(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.invoke.GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0);
+	});
 	return class$;
 }
 $Class* GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0::class$ = nullptr;
@@ -161,88 +155,32 @@ public:
 	virtual void accept(Object$* parts) override {
 		GenerateJLIClassesHelper::lambda$generateHolderClasses$1(builder, $cast($StringArray, parts));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1>());
-	}
 	$GenerateJLIClassesHelper$HolderClassBuilder* builder = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1::fieldInfos[2] = {
-	{"builder", "Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;", nullptr, $PUBLIC, $field(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1, builder)},
-	{}
-};
-$MethodInfo GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;)V", nullptr, $PUBLIC, $method(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1, init$, void, $GenerateJLIClassesHelper$HolderClassBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.invoke.GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1::load$($String* name, bool initialize) {
-	$loadClass(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"builder", "Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;", nullptr, $PUBLIC, $field(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1, builder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;)V", nullptr, $PUBLIC, $method(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1, init$, void, $GenerateJLIClassesHelper$HolderClassBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.invoke.GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1);
+	});
 	return class$;
 }
 $Class* GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1::class$ = nullptr;
-
-$FieldInfo _GenerateJLIClassesHelper_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GenerateJLIClassesHelper, $assertionsDisabled)},
-	{"DMH_METHOD_TYPE_MAP", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, DMH_METHOD_TYPE_MAP)},
-	{"DIRECT_HOLDER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, DIRECT_HOLDER)},
-	{"DELEGATING_HOLDER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, DELEGATING_HOLDER)},
-	{"BASIC_FORMS_HOLDER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, BASIC_FORMS_HOLDER)},
-	{"INVOKERS_HOLDER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, INVOKERS_HOLDER)},
-	{"INVOKERS_HOLDER_CLASS_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, INVOKERS_HOLDER_CLASS_NAME)},
-	{"BMH_SPECIES_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, BMH_SPECIES_PREFIX)},
-	{}
-};
-
-$MethodInfo _GenerateJLIClassesHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GenerateJLIClassesHelper, init$, void)},
-	{"generateBasicFormsClassBytes", "(Ljava/lang/String;)[B", nullptr, $STATIC, $staticMethod(GenerateJLIClassesHelper, generateBasicFormsClassBytes, $bytes*, $String*)},
-	{"generateCodeBytesForLFs", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/invoke/LambdaForm;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerateJLIClassesHelper, generateCodeBytesForLFs, $bytes*, $String*, $StringArray*, $LambdaFormArray*)},
-	{"generateConcreteBMHClassBytes", "(Ljava/lang/String;)Ljava/util/Map$Entry;", "(Ljava/lang/String;)Ljava/util/Map$Entry<Ljava/lang/String;[B>;", $STATIC, $staticMethod(GenerateJLIClassesHelper, generateConcreteBMHClassBytes, $Map$Entry*, $String*)},
-	{"generateDelegatingMethodHandleHolderClassBytes", "(Ljava/lang/String;[Ljava/lang/invoke/MethodType;)[B", nullptr, $STATIC, $staticMethod(GenerateJLIClassesHelper, generateDelegatingMethodHandleHolderClassBytes, $bytes*, $String*, $MethodTypeArray*)},
-	{"generateDirectMethodHandleHolderClassBytes", "(Ljava/lang/String;[Ljava/lang/invoke/MethodType;[I)[B", nullptr, $STATIC, $staticMethod(GenerateJLIClassesHelper, generateDirectMethodHandleHolderClassBytes, $bytes*, $String*, $MethodTypeArray*, $ints*)},
-	{"generateHolderClasses", "(Ljava/util/stream/Stream;)Ljava/util/Map;", "(Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/util/Map<Ljava/lang/String;[B>;", $STATIC, $staticMethod(GenerateJLIClassesHelper, generateHolderClasses, $Map*, $Stream*)},
-	{"generateInvokersHolderClassBytes", "(Ljava/lang/String;[Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)[B", nullptr, $STATIC, $staticMethod(GenerateJLIClassesHelper, generateInvokersHolderClassBytes, $bytes*, $String*, $MethodTypeArray*, $MethodTypeArray*)},
-	{"lambda$generateHolderClasses$0", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GenerateJLIClassesHelper, lambda$generateHolderClasses$0, $StringArray*, $String*)},
-	{"lambda$generateHolderClasses$1", "(Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GenerateJLIClassesHelper, lambda$generateHolderClasses$1, void, $GenerateJLIClassesHelper$HolderClassBuilder*, $StringArray*)},
-	{"makeDelegateFor", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerateJLIClassesHelper, makeDelegateFor, $LambdaForm*, $MethodType*)},
-	{"makeReinvokerFor", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerateJLIClassesHelper, makeReinvokerFor, $LambdaForm*, $MethodType*)},
-	{}
-};
-
-$InnerClassInfo _GenerateJLIClassesHelper_InnerClassesInfo_[] = {
-	{"java.lang.invoke.GenerateJLIClassesHelper$HolderClassBuilder", "java.lang.invoke.GenerateJLIClassesHelper", "HolderClassBuilder", $STATIC},
-	{}
-};
-
-$ClassInfo _GenerateJLIClassesHelper_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.GenerateJLIClassesHelper",
-	"java.lang.Object",
-	nullptr,
-	_GenerateJLIClassesHelper_FieldInfo_,
-	_GenerateJLIClassesHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GenerateJLIClassesHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.GenerateJLIClassesHelper$HolderClassBuilder"
-};
-
-$Object* allocate$GenerateJLIClassesHelper($Class* clazz) {
-	return $of($alloc(GenerateJLIClassesHelper));
-}
 
 bool GenerateJLIClassesHelper::$assertionsDisabled = false;
 $Map* GenerateJLIClassesHelper::DMH_METHOD_TYPE_MAP = nullptr;
@@ -258,34 +196,32 @@ void GenerateJLIClassesHelper::init$() {
 
 $Map* GenerateJLIClassesHelper::generateHolderClasses($Stream* traces) {
 	$init(GenerateJLIClassesHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(traces);
 	$var($GenerateJLIClassesHelper$HolderClassBuilder, builder, $new($GenerateJLIClassesHelper$HolderClassBuilder));
-	$nc($(traces->map(static_cast<$Function*>($$new(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0)))))->forEach(static_cast<$Consumer*>($$new(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1, builder)));
+	$$nc(traces->map($$new(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0)))->forEach($$new(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1, builder));
 	return builder->build();
 }
 
 $bytes* GenerateJLIClassesHelper::generateBasicFormsClassBytes($String* className) {
 	$init(GenerateJLIClassesHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, forms, $new($ArrayList));
 	$var($ArrayList, names, $new($ArrayList));
 	$var($HashSet, dedupSet, $new($HashSet));
 	{
 		$var($LambdaForm$BasicTypeArray, arr$, $LambdaForm$BasicType::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$LambdaForm$BasicType* type = arr$->get(i$);
 			{
 				$var($LambdaForm, zero, $LambdaForm::zeroForm(type));
-				$var($String, name, $str({$nc(zero)->kind->defaultLambdaName, "_"_s, $$str($nc($(zero->returnType()))->basicTypeChar())}));
+				$var($String, name, $str({$nc(zero)->kind->defaultLambdaName, "_"_s, $$str($$nc($nc(zero)->returnType())->basicTypeChar())}));
 				if (dedupSet->add(name)) {
 					names->add(name);
 					forms->add(zero);
 				}
 				$var($LambdaForm, identity, $LambdaForm::identityForm(type));
-				$assign(name, $str({$nc(identity)->kind->defaultLambdaName, "_"_s, $$str($nc($(identity->returnType()))->basicTypeChar())}));
+				$assign(name, $str({$nc(identity)->kind->defaultLambdaName, "_"_s, $$str($$nc($nc(identity)->returnType())->basicTypeChar())}));
 				if (dedupSet->add(name)) {
 					names->add(name);
 					forms->add(identity);
@@ -293,32 +229,29 @@ $bytes* GenerateJLIClassesHelper::generateBasicFormsClassBytes($String* classNam
 			}
 		}
 	}
-	$var($String, var$0, className);
-	$var($StringArray, var$1, $fcast($StringArray, names->toArray($$new($StringArray, 0))));
-	return generateCodeBytesForLFs(var$0, var$1, $fcast($LambdaFormArray, $(forms->toArray($$new($LambdaFormArray, 0)))));
+	$var($StringArray, var$0, $cast($StringArray, names->toArray($$new($StringArray, 0))));
+	return generateCodeBytesForLFs(className, var$0, $$cast($LambdaFormArray, forms->toArray($$new($LambdaFormArray, 0))));
 }
 
 $bytes* GenerateJLIClassesHelper::generateDirectMethodHandleHolderClassBytes($String* className, $MethodTypeArray* methodTypes, $ints* types) {
 	$init(GenerateJLIClassesHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, forms, $new($ArrayList));
 	$var($ArrayList, names, $new($ArrayList));
 	for (int32_t i = 0; i < $nc(methodTypes)->length; ++i) {
-		if ($nc(types)->get(i) == 0 || $nc(types)->get(i) == 4) {
+		if ($nc(types)->get(i) == 0 || types->get(i) == 4) {
 			bool var$0 = $nc(methodTypes->get(i))->parameterCount() < 1;
 			if (var$0 || $cast($Class, $nc(methodTypes->get(i))->parameterType(0)) != $Object::class$) {
 				$throwNew($InternalError, $$str({"Invalid method type for "_s, (types->get(i) == 0 ? "invokeVirtual"_s : "invokeInterface"_s), " DMH, needs at least two leading reference arguments: "_s, methodTypes->get(i)}));
 			}
 		}
-		$var($LambdaForm, form, $DirectMethodHandle::makePreparedLambdaForm(methodTypes->get(i), $nc(types)->get(i)));
+		$var($LambdaForm, form, $DirectMethodHandle::makePreparedLambdaForm(methodTypes->get(i), types->get(i)));
 		forms->add(form);
 		names->add($nc(form)->kind->defaultLambdaName);
 	}
 	{
 		$var($WrapperArray, arr$, $Wrapper::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Wrapper* wrapper = arr$->get(i$);
 			{
 				if (wrapper == $Wrapper::VOID) {
@@ -341,14 +274,13 @@ $bytes* GenerateJLIClassesHelper::generateDirectMethodHandleHolderClassBytes($St
 			}
 		}
 	}
-	$var($String, var$1, className);
-	$var($StringArray, var$2, $fcast($StringArray, names->toArray($$new($StringArray, 0))));
-	return generateCodeBytesForLFs(var$1, var$2, $fcast($LambdaFormArray, $(forms->toArray($$new($LambdaFormArray, 0)))));
+	$var($StringArray, var$1, $cast($StringArray, names->toArray($$new($StringArray, 0))));
+	return generateCodeBytesForLFs(className, var$1, $$cast($LambdaFormArray, forms->toArray($$new($LambdaFormArray, 0))));
 }
 
 $bytes* GenerateJLIClassesHelper::generateDelegatingMethodHandleHolderClassBytes($String* className, $MethodTypeArray* methodTypes) {
 	$init(GenerateJLIClassesHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, dedupSet, $new($HashSet));
 	$var($ArrayList, forms, $new($ArrayList));
 	$var($ArrayList, names, $new($ArrayList));
@@ -356,7 +288,7 @@ $bytes* GenerateJLIClassesHelper::generateDelegatingMethodHandleHolderClassBytes
 		if (dedupSet->add(methodTypes->get(i))) {
 			$var($LambdaForm, reinvoker, makeReinvokerFor(methodTypes->get(i)));
 			forms->add(reinvoker);
-			$var($String, speciesSig, $cast($String, $nc($($BoundMethodHandle::speciesDataFor(reinvoker)))->key()));
+			$var($String, speciesSig, $cast($String, $$nc($BoundMethodHandle::speciesDataFor(reinvoker))->key()));
 			if (!GenerateJLIClassesHelper::$assertionsDisabled && !($nc(speciesSig)->equals("L"_s))) {
 				$throwNew($AssertionError);
 			}
@@ -366,14 +298,13 @@ $bytes* GenerateJLIClassesHelper::generateDelegatingMethodHandleHolderClassBytes
 			names->add($nc(delegate)->kind->defaultLambdaName);
 		}
 	}
-	$var($String, var$0, className);
-	$var($StringArray, var$1, $fcast($StringArray, names->toArray($$new($StringArray, 0))));
-	return generateCodeBytesForLFs(var$0, var$1, $fcast($LambdaFormArray, $(forms->toArray($$new($LambdaFormArray, 0)))));
+	$var($StringArray, var$0, $cast($StringArray, names->toArray($$new($StringArray, 0))));
+	return generateCodeBytesForLFs(className, var$0, $$cast($LambdaFormArray, forms->toArray($$new($LambdaFormArray, 0))));
 }
 
 $bytes* GenerateJLIClassesHelper::generateInvokersHolderClassBytes($String* className, $MethodTypeArray* invokerMethodTypes, $MethodTypeArray* callSiteMethodTypes) {
 	$init(GenerateJLIClassesHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, dedupSet, $new($HashSet));
 	$var($ArrayList, forms, $new($ArrayList));
 	$var($ArrayList, names, $new($ArrayList));
@@ -385,17 +316,13 @@ $bytes* GenerateJLIClassesHelper::generateInvokersHolderClassBytes($String* clas
 	}));
 	for (int32_t i = 0; i < $nc(invokerMethodTypes)->length; ++i) {
 		if (dedupSet->add(invokerMethodTypes->get(i))) {
-			{
-				$var($ints, arr$, types);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					int32_t type = arr$->get(i$);
-					{
-						$var($LambdaForm, invokerForm, $Invokers::invokeHandleForm(invokerMethodTypes->get(i), false, type));
-						forms->add(invokerForm);
-						names->add($nc(invokerForm)->kind->defaultLambdaName);
-					}
+			$var($ints, arr$, types);
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				int32_t type = arr$->get(i$);
+				{
+					$var($LambdaForm, invokerForm, $Invokers::invokeHandleForm(invokerMethodTypes->get(i), false, type));
+					forms->add(invokerForm);
+					names->add($nc(invokerForm)->kind->defaultLambdaName);
 				}
 			}
 		}
@@ -411,18 +338,17 @@ $bytes* GenerateJLIClassesHelper::generateInvokersHolderClassBytes($String* clas
 			names->add($nc(methodHandleForm)->kind->defaultLambdaName);
 		}
 	}
-	$var($String, var$0, className);
-	$var($StringArray, var$1, $fcast($StringArray, names->toArray($$new($StringArray, 0))));
-	return generateCodeBytesForLFs(var$0, var$1, $fcast($LambdaFormArray, $(forms->toArray($$new($LambdaFormArray, 0)))));
+	$var($StringArray, var$0, $cast($StringArray, names->toArray($$new($StringArray, 0))));
+	return generateCodeBytesForLFs(className, var$0, $$cast($LambdaFormArray, forms->toArray($$new($LambdaFormArray, 0))));
 }
 
 $bytes* GenerateJLIClassesHelper::generateCodeBytesForLFs($String* className, $StringArray* names, $LambdaFormArray* forms) {
 	$init(GenerateJLIClassesHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassWriter, cw, $new($ClassWriter, $ClassWriter::COMPUTE_MAXS + $ClassWriter::COMPUTE_FRAMES));
 	$init($InvokerBytecodeGenerator);
 	cw->visit($Opcodes::V1_8, $Opcodes::ACC_PRIVATE + $Opcodes::ACC_FINAL + $Opcodes::ACC_SUPER, className, nullptr, $InvokerBytecodeGenerator::INVOKER_SUPER_NAME, nullptr);
-	cw->visitSource($($nc(className)->substring(className->lastIndexOf((int32_t)u'/') + 1)), nullptr);
+	cw->visitSource($($nc(className)->substring($nc(className)->lastIndexOf(u'/') + 1)), nullptr);
 	for (int32_t i = 0; i < $nc(forms)->length; ++i) {
 		$var($InvokerBytecodeGenerator, g, $new($InvokerBytecodeGenerator, className, $nc(names)->get(i), forms->get(i), $($nc(forms->get(i))->methodType())));
 		g->setClassWriter(cw);
@@ -433,11 +359,10 @@ $bytes* GenerateJLIClassesHelper::generateCodeBytesForLFs($String* className, $S
 
 $LambdaForm* GenerateJLIClassesHelper::makeReinvokerFor($MethodType* type) {
 	$init(GenerateJLIClassesHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandle, emptyHandle, $MethodHandles::empty(type));
-	$var($MethodHandle, var$0, emptyHandle);
-	$var($Object, var$1, $of($BoundMethodHandle::speciesData_L()));
-	return $DelegatingMethodHandle::makeReinvokerForm(var$0, $MethodTypeForm::LF_REBIND, var$1, $($nc($($BoundMethodHandle::speciesData_L()))->getterFunction(0)));
+	$var($Object, var$0, $BoundMethodHandle::speciesData_L());
+	return $DelegatingMethodHandle::makeReinvokerForm(emptyHandle, $MethodTypeForm::LF_REBIND, var$0, $($$nc($BoundMethodHandle::speciesData_L())->getterFunction(0)));
 }
 
 $LambdaForm* GenerateJLIClassesHelper::makeDelegateFor($MethodType* type) {
@@ -450,91 +375,77 @@ $LambdaForm* GenerateJLIClassesHelper::makeDelegateFor($MethodType* type) {
 
 $Map$Entry* GenerateJLIClassesHelper::generateConcreteBMHClassBytes($String* types) {
 	$init(GenerateJLIClassesHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($chars, arr$, $nc(types)->toCharArray());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			char16_t c = arr$->get(i$);
-			{
-				if (!$LambdaForm$BasicType::isArgBasicTypeChar(c)) {
-					$throwNew($IllegalArgumentException, "All characters must correspond to a basic field type: LIJFD"_s);
-				}
+			if (!$LambdaForm$BasicType::isArgBasicTypeChar(c)) {
+				$throwNew($IllegalArgumentException, "All characters must correspond to a basic field type: LIJFD"_s);
 			}
 		}
 	}
 	$init($BoundMethodHandle);
 	$var($BoundMethodHandle$SpeciesData, species, $cast($BoundMethodHandle$SpeciesData, $nc($BoundMethodHandle::SPECIALIZER)->findSpecies(types)));
 	$var($String, className, $nc($nc(species)->speciesCode())->getName());
-	$var($ClassSpecializer$Factory, factory, $nc($BoundMethodHandle::SPECIALIZER)->factory());
+	$var($ClassSpecializer$Factory, factory, $BoundMethodHandle::SPECIALIZER->factory());
 	$var($bytes, code, $nc(factory)->generateConcreteSpeciesCodeFile(className, species));
 	return $Map::entry($($nc(className)->replace(u'.', u'/')), code);
 }
 
 void GenerateJLIClassesHelper::lambda$generateHolderClasses$1($GenerateJLIClassesHelper$HolderClassBuilder* builder, $StringArray* parts) {
 	$init(GenerateJLIClassesHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($String, s12863$, $nc(parts)->get(0));
 		int32_t tmp12863$ = -1;
 		switch ($nc(s12863$)->hashCode()) {
-		case (int32_t)0xD71EFA2F:
-			{
-				if (s12863$->equals("[SPECIES_RESOLVE]"_s)) {
-					tmp12863$ = 0;
-				}
-				break;
+		case (int32_t)0xd71efa2f:
+			if (s12863$->equals("[SPECIES_RESOLVE]"_s)) {
+				tmp12863$ = 0;
 			}
-		case (int32_t)0xDBD2A5FB:
-			{
-				if (s12863$->equals("[LF_RESOLVE]"_s)) {
-					tmp12863$ = 1;
-				}
-				break;
+			break;
+		case (int32_t)0xdbd2a5fb:
+			if (s12863$->equals("[LF_RESOLVE]"_s)) {
+				tmp12863$ = 1;
 			}
+			break;
 		}
 		{
-			$var($String, methodType, nullptr)
+			$var($String, methodType, nullptr);
 			switch (tmp12863$) {
 			case 0:
-				{
-					if (!GenerateJLIClassesHelper::$assertionsDisabled && !(parts->length >= 2)) {
-						$throwNew($AssertionError);
-					}
-					if ($nc(parts->get(1))->startsWith(GenerateJLIClassesHelper::BMH_SPECIES_PREFIX)) {
-						$var($String, species, $nc(parts->get(1))->substring($nc(GenerateJLIClassesHelper::BMH_SPECIES_PREFIX)->length()));
-						if (!"L"_s->equals(species)) {
-							$nc(builder)->addSpeciesType(species);
-						}
-					}
-					break;
+				if (!GenerateJLIClassesHelper::$assertionsDisabled && !(parts->length >= 2)) {
+					$throwNew($AssertionError);
 				}
+				if ($nc(parts->get(1))->startsWith(GenerateJLIClassesHelper::BMH_SPECIES_PREFIX)) {
+					$var($String, species, $nc(parts->get(1))->substring(GenerateJLIClassesHelper::BMH_SPECIES_PREFIX->length()));
+					if (!"L"_s->equals(species)) {
+						$nc(builder)->addSpeciesType(species);
+					}
+				}
+				break;
 			case 1:
-				{
-					if (!GenerateJLIClassesHelper::$assertionsDisabled && !(parts->length > 3)) {
-						$throwNew($AssertionError);
-					}
-					$assign(methodType, parts->get(3));
-					if ($nc(parts->get(1))->equals(GenerateJLIClassesHelper::INVOKERS_HOLDER_CLASS_NAME)) {
-						bool var$0 = "linkToTargetMethod"_s->equals(parts->get(2));
-						if (var$0 || "linkToCallSite"_s->equals(parts->get(2))) {
-							$nc(builder)->addCallSiteType(methodType);
-						} else {
-							$nc(builder)->addInvokerType(methodType);
-						}
-					} else if ($nc(parts->get(1))->contains("DirectMethodHandle"_s)) {
-						$var($String, dmh, parts->get(2));
-						if ($nc(GenerateJLIClassesHelper::DMH_METHOD_TYPE_MAP)->containsKey(dmh)) {
-							$nc(builder)->addDMHMethodType(dmh, methodType);
-						}
-					}
-					break;
+				if (!GenerateJLIClassesHelper::$assertionsDisabled && !(parts->length > 3)) {
+					$throwNew($AssertionError);
 				}
+				$assign(methodType, parts->get(3));
+				if ($nc(parts->get(1))->equals(GenerateJLIClassesHelper::INVOKERS_HOLDER_CLASS_NAME)) {
+					bool var$0 = "linkToTargetMethod"_s->equals(parts->get(2));
+					if (var$0 || "linkToCallSite"_s->equals(parts->get(2))) {
+						$nc(builder)->addCallSiteType(methodType);
+					} else {
+						$nc(builder)->addInvokerType(methodType);
+					}
+				} else if ($nc(parts->get(1))->contains("DirectMethodHandle"_s)) {
+					$var($String, dmh, parts->get(2));
+					if ($nc(GenerateJLIClassesHelper::DMH_METHOD_TYPE_MAP)->containsKey(dmh)) {
+						$nc(builder)->addDMHMethodType(dmh, methodType);
+					}
+				}
+				break;
 			default:
-				{
-					break;
-				}
+				break;
 			}
 		}
 	}
@@ -545,8 +456,8 @@ $StringArray* GenerateJLIClassesHelper::lambda$generateHolderClasses$0($String* 
 	return $nc(line)->split(" "_s);
 }
 
-void clinit$GenerateJLIClassesHelper($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void GenerateJLIClassesHelper::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(GenerateJLIClassesHelper::DIRECT_HOLDER, "java/lang/invoke/DirectMethodHandle$Holder"_s);
 	$assignStatic(GenerateJLIClassesHelper::DELEGATING_HOLDER, "java/lang/invoke/DelegatingMethodHandle$Holder"_s);
 	$assignStatic(GenerateJLIClassesHelper::BASIC_FORMS_HOLDER, "java/lang/invoke/LambdaForm$Holder"_s);
@@ -554,21 +465,21 @@ void clinit$GenerateJLIClassesHelper($Class* class$) {
 	$assignStatic(GenerateJLIClassesHelper::BMH_SPECIES_PREFIX, "java.lang.invoke.BoundMethodHandle$Species_"_s);
 	GenerateJLIClassesHelper::$assertionsDisabled = !GenerateJLIClassesHelper::class$->desiredAssertionStatus();
 	$init($LambdaForm$Kind);
-	$var($Object, var$0, $of($LambdaForm$Kind::DIRECT_INVOKE_VIRTUAL->methodName));
-	$var($Object, var$1, $of($Integer::valueOf(0)));
-	$var($Object, var$2, $of($LambdaForm$Kind::DIRECT_INVOKE_STATIC->methodName));
-	$var($Object, var$3, $of($Integer::valueOf(1)));
-	$var($Object, var$4, $of($LambdaForm$Kind::DIRECT_INVOKE_SPECIAL->methodName));
-	$var($Object, var$5, $of($Integer::valueOf(2)));
-	$var($Object, var$6, $of($LambdaForm$Kind::DIRECT_NEW_INVOKE_SPECIAL->methodName));
-	$var($Object, var$7, $of($Integer::valueOf(3)));
-	$var($Object, var$8, $of($LambdaForm$Kind::DIRECT_INVOKE_INTERFACE->methodName));
-	$var($Object, var$9, $of($Integer::valueOf(4)));
-	$var($Object, var$10, $of($LambdaForm$Kind::DIRECT_INVOKE_STATIC_INIT->methodName));
-	$var($Object, var$11, $of($Integer::valueOf(5)));
-	$var($Object, var$12, $of($LambdaForm$Kind::DIRECT_INVOKE_SPECIAL_IFC->methodName));
+	$var($Object, var$0, $LambdaForm$Kind::DIRECT_INVOKE_VIRTUAL->methodName);
+	$var($Object, var$1, $Integer::valueOf(0));
+	$var($Object, var$2, $LambdaForm$Kind::DIRECT_INVOKE_STATIC->methodName);
+	$var($Object, var$3, $Integer::valueOf(1));
+	$var($Object, var$4, $LambdaForm$Kind::DIRECT_INVOKE_SPECIAL->methodName);
+	$var($Object, var$5, $Integer::valueOf(2));
+	$var($Object, var$6, $LambdaForm$Kind::DIRECT_NEW_INVOKE_SPECIAL->methodName);
+	$var($Object, var$7, $Integer::valueOf(3));
+	$var($Object, var$8, $LambdaForm$Kind::DIRECT_INVOKE_INTERFACE->methodName);
+	$var($Object, var$9, $Integer::valueOf(4));
+	$var($Object, var$10, $LambdaForm$Kind::DIRECT_INVOKE_STATIC_INIT->methodName);
+	$var($Object, var$11, $Integer::valueOf(5));
+	$var($Object, var$12, $LambdaForm$Kind::DIRECT_INVOKE_SPECIAL_IFC->methodName);
 	$assignStatic(GenerateJLIClassesHelper::DMH_METHOD_TYPE_MAP, $Map::of(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, $($Integer::valueOf(20))));
-	$assignStatic(GenerateJLIClassesHelper::INVOKERS_HOLDER_CLASS_NAME, $nc(GenerateJLIClassesHelper::INVOKERS_HOLDER)->replace(u'/', u'.'));
+	$assignStatic(GenerateJLIClassesHelper::INVOKERS_HOLDER_CLASS_NAME, GenerateJLIClassesHelper::INVOKERS_HOLDER->replace(u'/', u'.'));
 }
 
 GenerateJLIClassesHelper::GenerateJLIClassesHelper() {
@@ -576,14 +487,60 @@ GenerateJLIClassesHelper::GenerateJLIClassesHelper() {
 
 $Class* GenerateJLIClassesHelper::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0::classInfo$.name)) {
+		if (name->equals("java.lang.invoke.GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0")) {
 			return GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0::load$(name, initialize);
 		}
-		if (name->equals(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1::classInfo$.name)) {
+		if (name->equals("java.lang.invoke.GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1")) {
 			return GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(GenerateJLIClassesHelper, name, initialize, &_GenerateJLIClassesHelper_ClassInfo_, clinit$GenerateJLIClassesHelper, allocate$GenerateJLIClassesHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GenerateJLIClassesHelper, $assertionsDisabled)},
+		{"DMH_METHOD_TYPE_MAP", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, DMH_METHOD_TYPE_MAP)},
+		{"DIRECT_HOLDER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, DIRECT_HOLDER)},
+		{"DELEGATING_HOLDER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, DELEGATING_HOLDER)},
+		{"BASIC_FORMS_HOLDER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, BASIC_FORMS_HOLDER)},
+		{"INVOKERS_HOLDER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, INVOKERS_HOLDER)},
+		{"INVOKERS_HOLDER_CLASS_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, INVOKERS_HOLDER_CLASS_NAME)},
+		{"BMH_SPECIES_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GenerateJLIClassesHelper, BMH_SPECIES_PREFIX)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GenerateJLIClassesHelper, init$, void)},
+		{"generateBasicFormsClassBytes", "(Ljava/lang/String;)[B", nullptr, $STATIC, $staticMethod(GenerateJLIClassesHelper, generateBasicFormsClassBytes, $bytes*, $String*)},
+		{"generateCodeBytesForLFs", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/invoke/LambdaForm;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerateJLIClassesHelper, generateCodeBytesForLFs, $bytes*, $String*, $StringArray*, $LambdaFormArray*)},
+		{"generateConcreteBMHClassBytes", "(Ljava/lang/String;)Ljava/util/Map$Entry;", "(Ljava/lang/String;)Ljava/util/Map$Entry<Ljava/lang/String;[B>;", $STATIC, $staticMethod(GenerateJLIClassesHelper, generateConcreteBMHClassBytes, $Map$Entry*, $String*)},
+		{"generateDelegatingMethodHandleHolderClassBytes", "(Ljava/lang/String;[Ljava/lang/invoke/MethodType;)[B", nullptr, $STATIC, $staticMethod(GenerateJLIClassesHelper, generateDelegatingMethodHandleHolderClassBytes, $bytes*, $String*, $MethodTypeArray*)},
+		{"generateDirectMethodHandleHolderClassBytes", "(Ljava/lang/String;[Ljava/lang/invoke/MethodType;[I)[B", nullptr, $STATIC, $staticMethod(GenerateJLIClassesHelper, generateDirectMethodHandleHolderClassBytes, $bytes*, $String*, $MethodTypeArray*, $ints*)},
+		{"generateHolderClasses", "(Ljava/util/stream/Stream;)Ljava/util/Map;", "(Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/util/Map<Ljava/lang/String;[B>;", $STATIC, $staticMethod(GenerateJLIClassesHelper, generateHolderClasses, $Map*, $Stream*)},
+		{"generateInvokersHolderClassBytes", "(Ljava/lang/String;[Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)[B", nullptr, $STATIC, $staticMethod(GenerateJLIClassesHelper, generateInvokersHolderClassBytes, $bytes*, $String*, $MethodTypeArray*, $MethodTypeArray*)},
+		{"lambda$generateHolderClasses$0", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GenerateJLIClassesHelper, lambda$generateHolderClasses$0, $StringArray*, $String*)},
+		{"lambda$generateHolderClasses$1", "(Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GenerateJLIClassesHelper, lambda$generateHolderClasses$1, void, $GenerateJLIClassesHelper$HolderClassBuilder*, $StringArray*)},
+		{"makeDelegateFor", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerateJLIClassesHelper, makeDelegateFor, $LambdaForm*, $MethodType*)},
+		{"makeReinvokerFor", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerateJLIClassesHelper, makeReinvokerFor, $LambdaForm*, $MethodType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.GenerateJLIClassesHelper$HolderClassBuilder", "java.lang.invoke.GenerateJLIClassesHelper", "HolderClassBuilder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.GenerateJLIClassesHelper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.GenerateJLIClassesHelper$HolderClassBuilder"
+	};
+	$loadClass(GenerateJLIClassesHelper, name, initialize, &classInfo$$, GenerateJLIClassesHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GenerateJLIClassesHelper);
+	});
 	return class$;
 }
 

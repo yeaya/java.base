@@ -1,5 +1,4 @@
 #include <sun/nio/ch/Reflect$ReflectionError.h>
-
 #include <java/lang/Error.h>
 #include <sun/nio/ch/Reflect.h>
 #include <jcpp.h>
@@ -13,41 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _Reflect$ReflectionError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Reflect$ReflectionError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Reflect$ReflectionError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(Reflect$ReflectionError, init$, void, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _Reflect$ReflectionError_InnerClassesInfo_[] = {
-	{"sun.nio.ch.Reflect$ReflectionError", "sun.nio.ch.Reflect", "ReflectionError", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Reflect$ReflectionError_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.Reflect$ReflectionError",
-	"java.lang.Error",
-	nullptr,
-	_Reflect$ReflectionError_FieldInfo_,
-	_Reflect$ReflectionError_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Reflect$ReflectionError_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.Reflect"
-};
-
-$Object* allocate$Reflect$ReflectionError($Class* clazz) {
-	return $of($alloc(Reflect$ReflectionError));
-}
 
 void Reflect$ReflectionError::init$($Throwable* x) {
 	$Error::init$(x);
@@ -64,7 +28,36 @@ void Reflect$ReflectionError::throw$() {
 }
 
 $Class* Reflect$ReflectionError::load$($String* name, bool initialize) {
-	$loadClass(Reflect$ReflectionError, name, initialize, &_Reflect$ReflectionError_ClassInfo_, allocate$Reflect$ReflectionError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Reflect$ReflectionError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(Reflect$ReflectionError, init$, void, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.Reflect$ReflectionError", "sun.nio.ch.Reflect", "ReflectionError", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.Reflect$ReflectionError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.Reflect"
+	};
+	$loadClass(Reflect$ReflectionError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Reflect$ReflectionError);
+	});
 	return class$;
 }
 

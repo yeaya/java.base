@@ -60,6 +60,7 @@ class $import InetAddress : public ::java::io::Serializable {
 	$class(InetAddress, 0, ::java::io::Serializable)
 public:
 	InetAddress();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::net::InetAddress* anyLocalAddress();
 	static int32_t checkNumericZone($String* s);
@@ -113,7 +114,7 @@ public:
 	::java::net::InetAddress$InetAddressHolder* holder$ = nullptr;
 	static ::java::net::InetAddress$NameService* nameService;
 	$String* canonicalHostName = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x2D9B57AF9FE3EBDB;
+	static const int64_t serialVersionUID = (int64_t)0x2d9b57af9fe3ebdb;
 	static ::java::util::concurrent::ConcurrentMap* cache;
 	static ::java::util::NavigableSet* expirySet;
 	static ::java::net::InetAddressImpl* impl;

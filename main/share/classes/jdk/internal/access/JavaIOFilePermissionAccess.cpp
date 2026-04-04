@@ -1,5 +1,4 @@
 #include <jdk/internal/access/JavaIOFilePermissionAccess.h>
-
 #include <java/io/FilePermission.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace jdk {
 	namespace internal {
 		namespace access {
 
-$MethodInfo _JavaIOFilePermissionAccess_MethodInfo_[] = {
-	{"newPermPlusAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFilePermissionAccess, newPermPlusAltPath, $FilePermission*, $FilePermission*)},
-	{"newPermUsingAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFilePermissionAccess, newPermUsingAltPath, $FilePermission*, $FilePermission*)},
-	{}
-};
-
-$ClassInfo _JavaIOFilePermissionAccess_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.access.JavaIOFilePermissionAccess",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavaIOFilePermissionAccess_MethodInfo_
-};
-
-$Object* allocate$JavaIOFilePermissionAccess($Class* clazz) {
-	return $of($alloc(JavaIOFilePermissionAccess));
-}
-
 $Class* JavaIOFilePermissionAccess::load$($String* name, bool initialize) {
-	$loadClass(JavaIOFilePermissionAccess, name, initialize, &_JavaIOFilePermissionAccess_ClassInfo_, allocate$JavaIOFilePermissionAccess);
+	$MethodInfo methodInfos$$[] = {
+		{"newPermPlusAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFilePermissionAccess, newPermPlusAltPath, $FilePermission*, $FilePermission*)},
+		{"newPermUsingAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFilePermissionAccess, newPermUsingAltPath, $FilePermission*, $FilePermission*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.access.JavaIOFilePermissionAccess",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavaIOFilePermissionAccess, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaIOFilePermissionAccess);
+	});
 	return class$;
 }
 

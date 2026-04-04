@@ -22,6 +22,7 @@ class $export AccessMode : public ::java::lang::Enum {
 public:
 	AccessMode();
 	static $Array<::java::nio::file::AccessMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::nio::file::AccessMode* valueOf($String* name);
 	static $Array<::java::nio::file::AccessMode>* values();

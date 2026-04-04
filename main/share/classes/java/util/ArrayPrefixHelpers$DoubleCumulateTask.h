@@ -35,7 +35,7 @@ public:
 	int32_t origin = 0;
 	int32_t fence = 0;
 	int32_t threshold = 0;
-	static const int64_t serialVersionUID = (int64_t)0xF7DABE10650E651F;
+	static const int64_t serialVersionUID = (int64_t)0xf7dabe10650e651f;
 };
 
 	} // util

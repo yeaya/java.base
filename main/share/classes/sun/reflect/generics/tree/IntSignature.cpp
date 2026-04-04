@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/IntSignature.h>
-
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace tree {
-
-$FieldInfo _IntSignature_FieldInfo_[] = {
-	{"singleton", "Lsun/reflect/generics/tree/IntSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntSignature, singleton)},
-	{}
-};
-
-$MethodInfo _IntSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(IntSignature, init$, void)},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(IntSignature, accept, void, $TypeTreeVisitor*)},
-	{"make", "()Lsun/reflect/generics/tree/IntSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntSignature, make, IntSignature*)},
-	{}
-};
-
-$ClassInfo _IntSignature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.tree.IntSignature",
-	"java.lang.Object",
-	"sun.reflect.generics.tree.BaseType",
-	_IntSignature_FieldInfo_,
-	_IntSignature_MethodInfo_
-};
-
-$Object* allocate$IntSignature($Class* clazz) {
-	return $of($alloc(IntSignature));
-}
 
 IntSignature* IntSignature::singleton = nullptr;
 
@@ -52,7 +26,7 @@ void IntSignature::accept($TypeTreeVisitor* v) {
 	$nc(v)->visitIntSignature(this);
 }
 
-void clinit$IntSignature($Class* class$) {
+void IntSignature::clinit$($Class* clazz) {
 	$assignStatic(IntSignature::singleton, $new(IntSignature));
 }
 
@@ -60,7 +34,27 @@ IntSignature::IntSignature() {
 }
 
 $Class* IntSignature::load$($String* name, bool initialize) {
-	$loadClass(IntSignature, name, initialize, &_IntSignature_ClassInfo_, clinit$IntSignature, allocate$IntSignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"singleton", "Lsun/reflect/generics/tree/IntSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntSignature, singleton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(IntSignature, init$, void)},
+		{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(IntSignature, accept, void, $TypeTreeVisitor*)},
+		{"make", "()Lsun/reflect/generics/tree/IntSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntSignature, make, IntSignature*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.tree.IntSignature",
+		"java.lang.Object",
+		"sun.reflect.generics.tree.BaseType",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntSignature, name, initialize, &classInfo$$, IntSignature::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IntSignature);
+	});
 	return class$;
 }
 

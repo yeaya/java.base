@@ -10,6 +10,7 @@ class $export IsParallelCapable$NonParaSubCL2 : public ::IsParallelCapable$NonPa
 public:
 	IsParallelCapable$NonParaSubCL2();
 	using ::IsParallelCapable$NonParaCL::findClass;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool expectCapable() override;
 };

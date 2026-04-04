@@ -1,5 +1,4 @@
 #include <java/util/EnumMap$Values.h>
-
 #include <java/util/AbstractCollection.h>
 #include <java/util/EnumMap$ValueIterator.h>
 #include <java/util/EnumMap.h>
@@ -17,46 +16,6 @@ using $Iterator = ::java::util::Iterator;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _EnumMap$Values_FieldInfo_[] = {
-	{"this$0", "Ljava/util/EnumMap;", nullptr, $FINAL | $SYNTHETIC, $field(EnumMap$Values, this$0)},
-	{}
-};
-
-$MethodInfo _EnumMap$Values_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(EnumMap$Values, init$, void, $EnumMap*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(EnumMap$Values, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$Values, contains, bool, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(EnumMap$Values, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$Values, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(EnumMap$Values, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _EnumMap$Values_InnerClassesInfo_[] = {
-	{"java.util.EnumMap$Values", "java.util.EnumMap", "Values", $PRIVATE},
-	{}
-};
-
-$ClassInfo _EnumMap$Values_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.EnumMap$Values",
-	"java.util.AbstractCollection",
-	nullptr,
-	_EnumMap$Values_FieldInfo_,
-	_EnumMap$Values_MethodInfo_,
-	"Ljava/util/AbstractCollection<TV;>;",
-	nullptr,
-	_EnumMap$Values_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.EnumMap"
-};
-
-$Object* allocate$EnumMap$Values($Class* clazz) {
-	return $of($alloc(EnumMap$Values));
-}
 
 void EnumMap$Values::init$($EnumMap* this$0) {
 	$set(this, this$0, this$0);
@@ -79,8 +38,8 @@ bool EnumMap$Values::remove(Object$* o$renamed) {
 	$var($Object, o, o$renamed);
 	$assign(o, this->this$0->maskNull(o));
 	for (int32_t i = 0; i < $nc(this->this$0->vals)->length; ++i) {
-		if ($nc($of(o))->equals($nc(this->this$0->vals)->get(i))) {
-			$nc(this->this$0->vals)->set(i, nullptr);
+		if ($nc($of(o))->equals(this->this$0->vals->get(i))) {
+			this->this$0->vals->set(i, nullptr);
 			--this->this$0->size$;
 			return true;
 		}
@@ -96,7 +55,41 @@ EnumMap$Values::EnumMap$Values() {
 }
 
 $Class* EnumMap$Values::load$($String* name, bool initialize) {
-	$loadClass(EnumMap$Values, name, initialize, &_EnumMap$Values_ClassInfo_, allocate$EnumMap$Values);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/EnumMap;", nullptr, $FINAL | $SYNTHETIC, $field(EnumMap$Values, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(EnumMap$Values, init$, void, $EnumMap*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(EnumMap$Values, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$Values, contains, bool, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(EnumMap$Values, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$Values, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(EnumMap$Values, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.EnumMap$Values", "java.util.EnumMap", "Values", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.EnumMap$Values",
+		"java.util.AbstractCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractCollection<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.EnumMap"
+	};
+	$loadClass(EnumMap$Values, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnumMap$Values);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertSignAlgsExtension$CertSignatureSchemesStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/CertSignAlgsExtension.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertSignAlgsExtension$CertSignatureSchemesStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertSignAlgsExtension$CertSignatureSchemesStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertSignAlgsExtension$CertSignatureSchemesStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _CertSignAlgsExtension$CertSignatureSchemesStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertSignAlgsExtension$CertSignatureSchemesStringizer", "sun.security.ssl.CertSignAlgsExtension", "CertSignatureSchemesStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertSignAlgsExtension$CertSignatureSchemesStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertSignAlgsExtension$CertSignatureSchemesStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_CertSignAlgsExtension$CertSignatureSchemesStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertSignAlgsExtension$CertSignatureSchemesStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertSignAlgsExtension"
-};
-
-$Object* allocate$CertSignAlgsExtension$CertSignatureSchemesStringizer($Class* clazz) {
-	return $of($alloc(CertSignAlgsExtension$CertSignatureSchemesStringizer));
-}
-
 void CertSignAlgsExtension$CertSignatureSchemesStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ CertSignAlgsExtension$CertSignatureSchemesStringizer::CertSignAlgsExtension$Cert
 }
 
 $Class* CertSignAlgsExtension$CertSignatureSchemesStringizer::load$($String* name, bool initialize) {
-	$loadClass(CertSignAlgsExtension$CertSignatureSchemesStringizer, name, initialize, &_CertSignAlgsExtension$CertSignatureSchemesStringizer_ClassInfo_, allocate$CertSignAlgsExtension$CertSignatureSchemesStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertSignAlgsExtension$CertSignatureSchemesStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertSignAlgsExtension$CertSignatureSchemesStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertSignAlgsExtension$CertSignatureSchemesStringizer", "sun.security.ssl.CertSignAlgsExtension", "CertSignatureSchemesStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertSignAlgsExtension$CertSignatureSchemesStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertSignAlgsExtension"
+	};
+	$loadClass(CertSignAlgsExtension$CertSignatureSchemesStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertSignAlgsExtension$CertSignatureSchemesStringizer);
+	});
 	return class$;
 }
 

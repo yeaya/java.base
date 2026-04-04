@@ -1,5 +1,4 @@
 #include <jdk/internal/util/jar/JarIndex.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/BufferedWriter.h>
 #include <java/io/File.h>
@@ -7,8 +6,6 @@
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/Reader.h>
-#include <java/io/Writer.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashMap.h>
@@ -36,18 +33,14 @@ using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
-using $Reader = ::java::io::Reader;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Vector = ::java::util::Vector;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarFile = ::java::util::jar::JarFile;
@@ -60,45 +53,6 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 			namespace jar {
-
-$FieldInfo _JarIndex_FieldInfo_[] = {
-	{"indexMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/LinkedList<Ljava/lang/String;>;>;", $PRIVATE, $field(JarIndex, indexMap)},
-	{"jarMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/LinkedList<Ljava/lang/String;>;>;", $PRIVATE, $field(JarIndex, jarMap)},
-	{"jarFiles", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(JarIndex, jarFiles)},
-	{"INDEX_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JarIndex, INDEX_NAME)},
-	{"metaInfFilenames", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarIndex, metaInfFilenames)},
-	{}
-};
-
-$MethodInfo _JarIndex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JarIndex, init$, void)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(JarIndex, init$, void, $InputStream*), "java.io.IOException"},
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JarIndex, init$, void, $StringArray*), "java.io.IOException"},
-	{"add", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, add, void, $String*, $String*)},
-	{"addMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JarIndex, addMapping, void, $String*, $String*)},
-	{"addToList", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/LinkedList<Ljava/lang/String;>;>;)V", $PRIVATE, $method(JarIndex, addToList, void, $String*, $String*, $HashMap*)},
-	{"get", "(Ljava/lang/String;)Ljava/util/LinkedList;", "(Ljava/lang/String;)Ljava/util/LinkedList<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JarIndex, get, $LinkedList*, $String*)},
-	{"getJarFiles", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarIndex, getJarFiles, $StringArray*)},
-	{"getJarIndex", "(Ljava/util/jar/JarFile;)Ljdk/internal/util/jar/JarIndex;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarIndex, getJarIndex, JarIndex*, $JarFile*), "java.io.IOException"},
-	{"merge", "(Ljdk/internal/util/jar/JarIndex;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, merge, void, JarIndex*, $String*)},
-	{"parseJars", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JarIndex, parseJars, void, $StringArray*), "java.io.IOException"},
-	{"read", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, read, void, $InputStream*), "java.io.IOException"},
-	{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, write, void, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _JarIndex_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.util.jar.JarIndex",
-	"java.lang.Object",
-	nullptr,
-	_JarIndex_FieldInfo_,
-	_JarIndex_MethodInfo_
-};
-
-$Object* allocate$JarIndex($Class* clazz) {
-	return $of($alloc(JarIndex));
-}
 
 $String* JarIndex::INDEX_NAME = nullptr;
 bool JarIndex::metaInfFilenames = false;
@@ -121,7 +75,7 @@ void JarIndex::init$($StringArray* files) {
 
 JarIndex* JarIndex::getJarIndex($JarFile* jar) {
 	$init(JarIndex);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JarIndex, index, nullptr);
 	$var($JarEntry, e, $nc(jar)->getJarEntry(JarIndex::INDEX_NAME));
 	if (e != nullptr) {
@@ -140,18 +94,18 @@ void JarIndex::addToList($String* key, $String* value, $HashMap* t) {
 		$assign(list, $new($LinkedList));
 		list->add(value);
 		t->put(key, list);
-	} else if (!$nc(list)->contains(value)) {
+	} else if (!list->contains(value)) {
 		list->add(value);
 	}
 }
 
 $LinkedList* JarIndex::get($String* fileName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedList, jarFiles, nullptr);
 	if (($assign(jarFiles, $cast($LinkedList, $nc(this->indexMap)->get(fileName)))) == nullptr) {
 		int32_t pos = 0;
-		if ((pos = $nc(fileName)->lastIndexOf((int32_t)u'/')) != -1) {
-			$assign(jarFiles, $cast($LinkedList, $nc(this->indexMap)->get($(fileName->substring(0, pos)))));
+		if ((pos = $nc(fileName)->lastIndexOf(u'/')) != -1) {
+			$assign(jarFiles, $cast($LinkedList, this->indexMap->get($(fileName->substring(0, pos)))));
 		}
 	}
 	return jarFiles;
@@ -160,7 +114,7 @@ $LinkedList* JarIndex::get($String* fileName) {
 void JarIndex::add($String* fileName, $String* jarName) {
 	$var($String, packageName, nullptr);
 	int32_t pos = 0;
-	if ((pos = $nc(fileName)->lastIndexOf((int32_t)u'/')) != -1) {
+	if ((pos = $nc(fileName)->lastIndexOf(u'/')) != -1) {
 		$assign(packageName, fileName->substring(0, pos));
 	} else {
 		$assign(packageName, fileName);
@@ -174,7 +128,7 @@ void JarIndex::addMapping($String* jarItem, $String* jarName) {
 }
 
 void JarIndex::parseJars($StringArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (files == nullptr) {
 		return;
 	}
@@ -188,13 +142,13 @@ void JarIndex::parseJars($StringArray* files) {
 			$var($ZipEntry, entry, $cast($ZipEntry, entries->nextElement()));
 			$var($String, fileName, $nc(entry)->getName());
 			bool var$2 = $nc(fileName)->equals("META-INF/"_s);
-			bool var$1 = var$2 || $nc(fileName)->equals(JarIndex::INDEX_NAME);
+			bool var$1 = var$2 || fileName->equals(JarIndex::INDEX_NAME);
 			$init($JarFile);
-			bool var$0 = var$1 || $nc(fileName)->equals($JarFile::MANIFEST_NAME);
-			if (var$0 || $nc(fileName)->startsWith("META-INF/versions/"_s)) {
+			bool var$0 = var$1 || fileName->equals($JarFile::MANIFEST_NAME);
+			if (var$0 || fileName->startsWith("META-INF/versions/"_s)) {
 				continue;
 			}
-			if (!JarIndex::metaInfFilenames || !$nc(fileName)->startsWith("META-INF/"_s)) {
+			if (!JarIndex::metaInfFilenames || !fileName->startsWith("META-INF/"_s)) {
 				add(fileName, currentJar);
 			} else if (!entry->isDirectory()) {
 				addMapping(fileName, currentJar);
@@ -205,19 +159,19 @@ void JarIndex::parseJars($StringArray* files) {
 }
 
 void JarIndex::write($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($UTF_8);
-	$var($BufferedWriter, bw, $new($BufferedWriter, $$new($OutputStreamWriter, out, static_cast<$Charset*>($UTF_8::INSTANCE))));
+	$var($BufferedWriter, bw, $new($BufferedWriter, $$new($OutputStreamWriter, out, $UTF_8::INSTANCE)));
 	bw->write("JarIndex-Version: 1.0\n\n"_s);
 	if (this->jarFiles != nullptr) {
-		for (int32_t i = 0; i < $nc(this->jarFiles)->length; ++i) {
-			$var($String, jar, $nc(this->jarFiles)->get(i));
+		for (int32_t i = 0; i < this->jarFiles->length; ++i) {
+			$var($String, jar, this->jarFiles->get(i));
 			bw->write($$str({jar, "\n"_s}));
 			$var($LinkedList, jarlist, $cast($LinkedList, $nc(this->jarMap)->get(jar)));
 			if (jarlist != nullptr) {
 				$var($Iterator, listitr, jarlist->iterator());
 				while ($nc(listitr)->hasNext()) {
-					bw->write($$str({$cast($String, $(listitr->next())), "\n"_s}));
+					bw->write($$str({$$cast($String, listitr->next()), "\n"_s}));
 				}
 			}
 			bw->write("\n"_s);
@@ -227,9 +181,9 @@ void JarIndex::write($OutputStream* out) {
 }
 
 void JarIndex::read($InputStream* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($UTF_8);
-	$var($BufferedReader, br, $new($BufferedReader, $$new($InputStreamReader, is, static_cast<$Charset*>($UTF_8::INSTANCE))));
+	$var($BufferedReader, br, $new($BufferedReader, $$new($InputStreamReader, is, $UTF_8::INSTANCE)));
 	$var($String, line, nullptr);
 	$var($String, currentJar, nullptr);
 	$var($Vector, jars, $new($Vector));
@@ -239,13 +193,14 @@ void JarIndex::read($InputStream* is) {
 			break;
 		}
 		{
+			;
 		}
 	}
 	for (; line != nullptr; $assign(line, br->readLine())) {
-		if ($nc(line)->isEmpty()) {
+		if (line->isEmpty()) {
 			continue;
 		}
-		if ($nc(line)->endsWith(".jar"_s)) {
+		if (line->endsWith(".jar"_s)) {
 			$assign(currentJar, line);
 			jars->add(currentJar);
 		} else {
@@ -253,12 +208,12 @@ void JarIndex::read($InputStream* is) {
 			addMapping(name, currentJar);
 		}
 	}
-	$set(this, jarFiles, $fcast($StringArray, jars->toArray($$new($StringArray, jars->size()))));
+	$set(this, jarFiles, $cast($StringArray, jars->toArray($$new($StringArray, jars->size()))));
 }
 
 void JarIndex::merge(JarIndex* toIndex, $String* path) {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, itr, $nc($($nc(this->indexMap)->entrySet()))->iterator());
+	$useLocalObjectStack();
+	$var($Iterator, itr, $$nc($nc(this->indexMap)->entrySet())->iterator());
 	while ($nc(itr)->hasNext()) {
 		$var($Map$Entry, e, $cast($Map$Entry, itr->next()));
 		$var($String, packageName, $cast($String, $nc(e)->getKey()));
@@ -274,7 +229,7 @@ void JarIndex::merge(JarIndex* toIndex, $String* path) {
 	}
 }
 
-void clinit$JarIndex($Class* class$) {
+void JarIndex::clinit$($Class* clazz) {
 	$assignStatic(JarIndex::INDEX_NAME, "META-INF/INDEX.LIST"_s);
 	JarIndex::metaInfFilenames = "true"_s->equals($($GetPropertyAction::privilegedGetProperty("sun.misc.JarIndex.metaInfFilenames"_s)));
 }
@@ -283,7 +238,41 @@ JarIndex::JarIndex() {
 }
 
 $Class* JarIndex::load$($String* name, bool initialize) {
-	$loadClass(JarIndex, name, initialize, &_JarIndex_ClassInfo_, clinit$JarIndex, allocate$JarIndex);
+	$FieldInfo fieldInfos$$[] = {
+		{"indexMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/LinkedList<Ljava/lang/String;>;>;", $PRIVATE, $field(JarIndex, indexMap)},
+		{"jarMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/LinkedList<Ljava/lang/String;>;>;", $PRIVATE, $field(JarIndex, jarMap)},
+		{"jarFiles", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(JarIndex, jarFiles)},
+		{"INDEX_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JarIndex, INDEX_NAME)},
+		{"metaInfFilenames", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JarIndex, metaInfFilenames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JarIndex, init$, void)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(JarIndex, init$, void, $InputStream*), "java.io.IOException"},
+		{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JarIndex, init$, void, $StringArray*), "java.io.IOException"},
+		{"add", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, add, void, $String*, $String*)},
+		{"addMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JarIndex, addMapping, void, $String*, $String*)},
+		{"addToList", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/LinkedList<Ljava/lang/String;>;>;)V", $PRIVATE, $method(JarIndex, addToList, void, $String*, $String*, $HashMap*)},
+		{"get", "(Ljava/lang/String;)Ljava/util/LinkedList;", "(Ljava/lang/String;)Ljava/util/LinkedList<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JarIndex, get, $LinkedList*, $String*)},
+		{"getJarFiles", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarIndex, getJarFiles, $StringArray*)},
+		{"getJarIndex", "(Ljava/util/jar/JarFile;)Ljdk/internal/util/jar/JarIndex;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarIndex, getJarIndex, JarIndex*, $JarFile*), "java.io.IOException"},
+		{"merge", "(Ljdk/internal/util/jar/JarIndex;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, merge, void, JarIndex*, $String*)},
+		{"parseJars", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JarIndex, parseJars, void, $StringArray*), "java.io.IOException"},
+		{"read", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, read, void, $InputStream*), "java.io.IOException"},
+		{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, write, void, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.util.jar.JarIndex",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JarIndex, name, initialize, &classInfo$$, JarIndex::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JarIndex);
+	});
 	return class$;
 }
 

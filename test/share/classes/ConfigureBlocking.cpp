@@ -1,5 +1,4 @@
 #include <ConfigureBlocking.h>
-
 #include <java/nio/channels/ClosedChannelException.h>
 #include <java/nio/channels/DatagramChannel.h>
 #include <java/nio/channels/SelectableChannel.h>
@@ -17,35 +16,16 @@ using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
-$MethodInfo _ConfigureBlocking_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ConfigureBlocking, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ConfigureBlocking, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ConfigureBlocking_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ConfigureBlocking",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ConfigureBlocking_MethodInfo_
-};
-
-$Object* allocate$ConfigureBlocking($Class* clazz) {
-	return $of($alloc(ConfigureBlocking));
-}
-
 void ConfigureBlocking::init$() {
 }
 
 void ConfigureBlocking::main($StringArray* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SelectableChannelArray, channels, nullptr);
 	$assign(channels, $new($SelectableChannelArray, {
-		$(static_cast<$SelectableChannel*>($DatagramChannel::open())),
-		$(static_cast<$SelectableChannel*>($SocketChannel::open())),
-		$(static_cast<$SelectableChannel*>($ServerSocketChannel::open()))
+		$($DatagramChannel::open()),
+		$($SocketChannel::open()),
+		$($ServerSocketChannel::open())
 	}));
 	for (int32_t i = 0; i < channels->length; ++i) {
 		$var($SelectableChannel, channel, channels->get(i));
@@ -62,7 +42,22 @@ ConfigureBlocking::ConfigureBlocking() {
 }
 
 $Class* ConfigureBlocking::load$($String* name, bool initialize) {
-	$loadClass(ConfigureBlocking, name, initialize, &_ConfigureBlocking_ClassInfo_, allocate$ConfigureBlocking);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ConfigureBlocking, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ConfigureBlocking, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ConfigureBlocking",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ConfigureBlocking, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConfigureBlocking);
+	});
 	return class$;
 }
 

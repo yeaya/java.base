@@ -1,5 +1,4 @@
 #include <java/net/SocketInputStream.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/FileInputStream.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
@@ -27,47 +26,6 @@ using $ConnectionResetException = ::sun::net::ConnectionResetException;
 namespace java {
 	namespace net {
 
-$FieldInfo _SocketInputStream_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketInputStream, $assertionsDisabled)},
-	{"eof", "Z", nullptr, $PRIVATE, $field(SocketInputStream, eof)},
-	{"impl", "Ljava/net/AbstractPlainSocketImpl;", nullptr, $PRIVATE, $field(SocketInputStream, impl)},
-	{"temp", "[B", nullptr, $PRIVATE, $field(SocketInputStream, temp)},
-	{}
-};
-
-$MethodInfo _SocketInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/AbstractPlainSocketImpl;)V", nullptr, 0, $method(SocketInputStream, init$, void, $AbstractPlainSocketImpl*), "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, close, void), "java.io.IOException"},
-	{"getChannel", "()Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketInputStream, getChannel, $FileChannel*)},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketInputStream, init, void)},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "([BIII)I", nullptr, 0, $virtualMethod(SocketInputStream, read, int32_t, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, read, int32_t), "java.io.IOException"},
-	{"setEOF", "(Z)V", nullptr, 0, $virtualMethod(SocketInputStream, setEOF, void, bool)},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{"socketRead", "(Ljava/io/FileDescriptor;[BIII)I", nullptr, $PRIVATE, $method(SocketInputStream, socketRead, int32_t, $FileDescriptor*, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"socketRead0", "(Ljava/io/FileDescriptor;[BIII)I", nullptr, $PRIVATE | $NATIVE, $method(SocketInputStream, socketRead0, int32_t, $FileDescriptor*, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_init 4
-#define _METHOD_INDEX_socketRead0 12
-
-$ClassInfo _SocketInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.SocketInputStream",
-	"java.io.FileInputStream",
-	nullptr,
-	_SocketInputStream_FieldInfo_,
-	_SocketInputStream_MethodInfo_
-};
-
-$Object* allocate$SocketInputStream($Class* clazz) {
-	return $of($alloc(SocketInputStream));
-}
-
 bool SocketInputStream::$assertionsDisabled = false;
 
 void SocketInputStream::init$($AbstractPlainSocketImpl* impl) {
@@ -81,9 +39,8 @@ $FileChannel* SocketInputStream::getChannel() {
 }
 
 int32_t SocketInputStream::socketRead0($FileDescriptor* fd, $bytes* b, int32_t off, int32_t len, int32_t timeout) {
-	int32_t $ret = 0;
-	$prepareNative(SocketInputStream, socketRead0, int32_t, $FileDescriptor* fd, $bytes* b, int32_t off, int32_t len, int32_t timeout);
-	$ret = $invokeNative(fd, b, off, len, timeout);
+	$prepareNative(socketRead0, int32_t, $FileDescriptor* fd, $bytes* b, int32_t off, int32_t len, int32_t timeout);
+	int32_t $ret = $invokeNative(fd, b, off, len, timeout);
 	$finishNative();
 	return $ret;
 }
@@ -101,7 +58,7 @@ int32_t SocketInputStream::read($bytes* b, int32_t off, int32_t length) {
 }
 
 int32_t SocketInputStream::read($bytes* b, int32_t off, int32_t length, int32_t timeout) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 0;
 	if (this->eof) {
 		return -1;
@@ -113,40 +70,38 @@ int32_t SocketInputStream::read($bytes* b, int32_t off, int32_t length, int32_t 
 		if (length == 0) {
 			return 0;
 		}
-		$throwNew($ArrayIndexOutOfBoundsException, $$str({"length == "_s, $$str(length), " off == "_s, $$str(off), " buffer length == "_s, $$str(b->length)}));
+		$throwNew($ArrayIndexOutOfBoundsException, $$str({"length == "_s, $$str(length), " off == "_s, $$str(off), " buffer length == "_s, $$str($nc(b)->length)}));
 	}
-	$var($FileDescriptor, fd, $nc(this->impl)->acquireFD());
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
+	$var($FileDescriptor, fd, this->impl->acquireFD());
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				n = socketRead(fd, b, off, length, timeout);
-				if (n > 0) {
-					var$2 = n;
-					return$1 = true;
-					goto $finally;
-				}
-			} catch ($ConnectionResetException& rstExc) {
-				$nc(this->impl)->setConnectionReset();
+			n = socketRead(fd, b, off, length, timeout);
+			if (n > 0) {
+				var$2 = n;
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->impl)->releaseFD();
+		} catch ($ConnectionResetException& rstExc) {
+			this->impl->setConnectionReset();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->impl->releaseFD();
 	}
-	if ($nc(this->impl)->isClosedOrPending()) {
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	if (this->impl->isClosedOrPending()) {
 		$throwNew($SocketException, "Socket closed"_s);
 	}
-	if ($nc(this->impl)->isConnectionReset()) {
+	if (this->impl->isConnectionReset()) {
 		$throwNew($SocketException, "Connection reset"_s);
 	}
 	this->eof = true;
@@ -162,7 +117,7 @@ int32_t SocketInputStream::read() {
 	if (n <= 0) {
 		return -1;
 	}
-	return (int32_t)($nc(this->temp)->get(0) & (uint32_t)255);
+	return this->temp->get(0) & 0xff;
 }
 
 int64_t SocketInputStream::skip(int64_t numbytes) {
@@ -199,12 +154,12 @@ void SocketInputStream::close() {
 
 void SocketInputStream::init() {
 	$init(SocketInputStream);
-	$prepareNativeStatic(SocketInputStream, init, void);
+	$prepareNativeStatic(init, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$SocketInputStream($Class* class$) {
+void SocketInputStream::clinit$($Class* clazz) {
 	SocketInputStream::$assertionsDisabled = !SocketInputStream::class$->desiredAssertionStatus();
 	{
 		SocketInputStream::init();
@@ -215,7 +170,40 @@ SocketInputStream::SocketInputStream() {
 }
 
 $Class* SocketInputStream::load$($String* name, bool initialize) {
-	$loadClass(SocketInputStream, name, initialize, &_SocketInputStream_ClassInfo_, clinit$SocketInputStream, allocate$SocketInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketInputStream, $assertionsDisabled)},
+		{"eof", "Z", nullptr, $PRIVATE, $field(SocketInputStream, eof)},
+		{"impl", "Ljava/net/AbstractPlainSocketImpl;", nullptr, $PRIVATE, $field(SocketInputStream, impl)},
+		{"temp", "[B", nullptr, $PRIVATE, $field(SocketInputStream, temp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/AbstractPlainSocketImpl;)V", nullptr, 0, $method(SocketInputStream, init$, void, $AbstractPlainSocketImpl*), "java.io.IOException"},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, close, void), "java.io.IOException"},
+		{"getChannel", "()Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketInputStream, getChannel, $FileChannel*)},
+		{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketInputStream, init, void)},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "([BIII)I", nullptr, 0, $virtualMethod(SocketInputStream, read, int32_t, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, read, int32_t), "java.io.IOException"},
+		{"setEOF", "(Z)V", nullptr, 0, $virtualMethod(SocketInputStream, setEOF, void, bool)},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SocketInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{"socketRead", "(Ljava/io/FileDescriptor;[BIII)I", nullptr, $PRIVATE, $method(SocketInputStream, socketRead, int32_t, $FileDescriptor*, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"socketRead0", "(Ljava/io/FileDescriptor;[BIII)I", nullptr, $PRIVATE | $NATIVE, $method(SocketInputStream, socketRead0, int32_t, $FileDescriptor*, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.SocketInputStream",
+		"java.io.FileInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketInputStream, name, initialize, &classInfo$$, SocketInputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketInputStream);
+	});
 	return class$;
 }
 

@@ -30,6 +30,7 @@ class $export TestLayer : public ::java::lang::Object {
 	$class(TestLayer, 0, ::java::lang::Object)
 public:
 	TestLayer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Class* findClass(::java::lang::Module* module, $String* cn);
 	static void main($StringArray* args);

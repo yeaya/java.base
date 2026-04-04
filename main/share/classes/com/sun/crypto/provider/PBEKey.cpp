@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PBEKey.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -33,7 +32,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Cleaner = ::java::lang::ref::Cleaner;
 using $Reference = ::java::lang::ref::Reference;
 using $KeyRep = ::java::security::KeyRep;
 using $KeyRep$Type = ::java::security::KeyRep$Type;
@@ -59,73 +57,35 @@ public:
 	virtual void run() override {
 		PBEKey::lambda$new$0(k);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PBEKey$$Lambda$lambda$new$0>());
-	}
 	$bytes* k = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PBEKey$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"k", "[B", nullptr, $PUBLIC, $field(PBEKey$$Lambda$lambda$new$0, k)},
-	{}
-};
-$MethodInfo PBEKey$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(PBEKey$$Lambda$lambda$new$0, init$, void, $bytes*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PBEKey$$Lambda$lambda$new$0, run, void)},
-	{}
-};
-$ClassInfo PBEKey$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.crypto.provider.PBEKey$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* PBEKey$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(PBEKey$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"k", "[B", nullptr, $PUBLIC, $field(PBEKey$$Lambda$lambda$new$0, k)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(PBEKey$$Lambda$lambda$new$0, init$, void, $bytes*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PBEKey$$Lambda$lambda$new$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.crypto.provider.PBEKey$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PBEKey$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PBEKey$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* PBEKey$$Lambda$lambda$new$0::class$ = nullptr;
 
-$FieldInfo _PBEKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(PBEKey, serialVersionUID)},
-	{"key", "[B", nullptr, $PRIVATE, $field(PBEKey, key)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PBEKey, type)},
-	{}
-};
-
-$MethodInfo _PBEKey_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/spec/PBEKeySpec;Ljava/lang/String;Z)V", nullptr, 0, $method(PBEKey, init$, void, $PBEKeySpec*, $String*, bool), "java.security.spec.InvalidKeySpecException"},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(PBEKey, destroy, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PBEKey, equals, bool, Object$*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBEKey, getAlgorithm, $String*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(PBEKey, getEncoded, $bytes*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBEKey, getFormat, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PBEKey, hashCode, int32_t)},
-	{"lambda$new$0", "([B)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PBEKey, lambda$new$0, void, $bytes*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PBEKey, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(PBEKey, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$ClassInfo _PBEKey_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.PBEKey",
-	"java.lang.Object",
-	"javax.crypto.SecretKey",
-	_PBEKey_FieldInfo_,
-	_PBEKey_MethodInfo_
-};
-
-$Object* allocate$PBEKey($Class* clazz) {
-	return $of($alloc(PBEKey));
-}
-
 void PBEKey::init$($PBEKeySpec* keySpec, $String* keytype, bool useCleaner) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, passwd, $nc(keySpec)->getPassword());
 	if (passwd == nullptr) {
 		$assign(passwd, $new($chars, 0));
@@ -137,15 +97,15 @@ void PBEKey::init$($PBEKeySpec* keySpec, $String* keytype, bool useCleaner) {
 			}
 		}
 	}
-	$set(this, key, $new($bytes, $nc(passwd)->length));
+	$set(this, key, $new($bytes, passwd->length));
 	for (int32_t i = 0; i < passwd->length; ++i) {
-		$nc(this->key)->set(i, (int8_t)((int32_t)(passwd->get(i) & (uint32_t)127)));
+		this->key->set(i, (int8_t)(passwd->get(i) & 0x7f));
 	}
 	$Arrays::fill(passwd, u'\0');
 	$set(this, type, keytype);
 	if (useCleaner) {
 		$var($bytes, k, this->key);
-		$nc($($CleanerFactory::cleaner()))->register$(this, static_cast<$Runnable*>($$new(PBEKey$$Lambda$lambda$new$0, k)));
+		$$nc($CleanerFactory::cleaner())->register$(this, $$new(PBEKey$$Lambda$lambda$new$0, k));
 	}
 }
 
@@ -164,17 +124,17 @@ $String* PBEKey::getFormat() {
 }
 
 int32_t PBEKey::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t retval = 0;
 	for (int32_t i = 1; i < $nc(this->key)->length; ++i) {
-		retval += $nc(this->key)->get(i) * i;
+		retval += this->key->get(i) * i;
 	}
 	$init($Locale);
-	return (retval ^= $($nc($(getAlgorithm()))->toLowerCase($Locale::ENGLISH))->hashCode());
+	return (retval ^= $($$nc(getAlgorithm())->toLowerCase($Locale::ENGLISH))->hashCode());
 }
 
 bool PBEKey::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -182,10 +142,10 @@ bool PBEKey::equals(Object$* obj) {
 		return false;
 	}
 	$var($SecretKey, that, $cast($SecretKey, obj));
-	if (!($nc($($nc(that)->getAlgorithm()))->equalsIgnoreCase(this->type))) {
+	if (!($$nc($nc(that)->getAlgorithm())->equalsIgnoreCase(this->type))) {
 		return false;
 	}
-	$var($bytes, thatEncoded, $nc(that)->getEncoded());
+	$var($bytes, thatEncoded, that->getEncoded());
 	bool ret = $MessageDigest::isEqual(this->key, thatEncoded);
 	$Arrays::fill(thatEncoded, (int8_t)0);
 	return ret;
@@ -204,11 +164,11 @@ void PBEKey::readObject($ObjectInputStream* s) {
 }
 
 $Object* PBEKey::writeReplace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::SECRET);
 	$var($String, var$1, getAlgorithm());
-	return $of($new($KeyRep, var$0, var$1, $(getFormat()), this->key));
+	return $new($KeyRep, var$0, var$1, $(getFormat()), this->key);
 }
 
 void PBEKey::lambda$new$0($bytes* k) {
@@ -221,11 +181,40 @@ PBEKey::PBEKey() {
 
 $Class* PBEKey::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PBEKey$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("com.sun.crypto.provider.PBEKey$$Lambda$lambda$new$0")) {
 			return PBEKey$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(PBEKey, name, initialize, &_PBEKey_ClassInfo_, allocate$PBEKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(PBEKey, serialVersionUID)},
+		{"key", "[B", nullptr, $PRIVATE, $field(PBEKey, key)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PBEKey, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/crypto/spec/PBEKeySpec;Ljava/lang/String;Z)V", nullptr, 0, $method(PBEKey, init$, void, $PBEKeySpec*, $String*, bool), "java.security.spec.InvalidKeySpecException"},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(PBEKey, destroy, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PBEKey, equals, bool, Object$*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBEKey, getAlgorithm, $String*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(PBEKey, getEncoded, $bytes*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBEKey, getFormat, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PBEKey, hashCode, int32_t)},
+		{"lambda$new$0", "([B)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PBEKey, lambda$new$0, void, $bytes*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PBEKey, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(PBEKey, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.PBEKey",
+		"java.lang.Object",
+		"javax.crypto.SecretKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PBEKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PBEKey));
+	});
 	return class$;
 }
 

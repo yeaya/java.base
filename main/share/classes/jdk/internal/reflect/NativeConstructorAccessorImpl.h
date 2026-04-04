@@ -41,6 +41,7 @@ class NativeConstructorAccessorImpl : public ::jdk::internal::reflect::Construct
 	$class(NativeConstructorAccessorImpl, 0, ::jdk::internal::reflect::ConstructorAccessorImpl)
 public:
 	NativeConstructorAccessorImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::Constructor* c);
 	virtual $Object* newInstance($ObjectArray* args) override;
 	static $Object* newInstance0(::java::lang::reflect::Constructor* c, $ObjectArray* args);

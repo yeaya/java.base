@@ -1,5 +1,4 @@
 #include <sun/security/util/KeyUtil.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParameters.h>
@@ -65,44 +64,16 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$MethodInfo _KeyUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyUtil, init$, void)},
-	{"checkTlsPreMasterSecretKey", "(IILjava/security/SecureRandom;[BZ)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyUtil, checkTlsPreMasterSecretKey, $bytes*, int32_t, int32_t, $SecureRandom*, $bytes*, bool)},
-	{"getKeySize", "(Ljava/security/Key;)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, getKeySize, int32_t, $Key*)},
-	{"getKeySize", "(Ljava/security/AlgorithmParameters;)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, getKeySize, int32_t, $AlgorithmParameters*)},
-	{"isOracleJCEProvider", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, isOracleJCEProvider, bool, $String*)},
-	{"trimZeroes", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyUtil, trimZeroes, $bytes*, $bytes*)},
-	{"validate", "(Ljava/security/Key;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, validate, void, $Key*), "java.security.InvalidKeyException"},
-	{"validate", "(Ljava/security/spec/KeySpec;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, validate, void, $KeySpec*), "java.security.InvalidKeyException"},
-	{"validateDHPublicKey", "(Ljavax/crypto/interfaces/DHPublicKey;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyUtil, validateDHPublicKey, void, $DHPublicKey*), "java.security.InvalidKeyException"},
-	{"validateDHPublicKey", "(Ljavax/crypto/spec/DHPublicKeySpec;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyUtil, validateDHPublicKey, void, $DHPublicKeySpec*), "java.security.InvalidKeyException"},
-	{"validateDHPublicKey", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyUtil, validateDHPublicKey, void, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _KeyUtil_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.util.KeyUtil",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_KeyUtil_MethodInfo_
-};
-
-$Object* allocate$KeyUtil($Class* clazz) {
-	return $of($alloc(KeyUtil));
-}
-
 void KeyUtil::init$() {
 }
 
 int32_t KeyUtil::getKeySize($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = -1;
 	if ($instanceOf($Length, key)) {
 		try {
 			$var($Length, ruler, $cast($Length, key));
-			size = $nc(ruler)->length();
+			size = ruler->length();
 		} catch ($UnsupportedOperationException& usoe) {
 		}
 		if (size >= 0) {
@@ -111,7 +82,7 @@ int32_t KeyUtil::getKeySize($Key* key) {
 	}
 	if ($instanceOf($SecretKey, key)) {
 		$var($SecretKey, sk, $cast($SecretKey, key));
-		$var($String, format, $nc(sk)->getFormat());
+		$var($String, format, sk->getFormat());
 		if ("RAW"_s->equals(format)) {
 			$var($bytes, encoded, sk->getEncoded());
 			if (encoded != nullptr) {
@@ -121,104 +92,92 @@ int32_t KeyUtil::getKeySize($Key* key) {
 		}
 	} else if ($instanceOf($RSAKey, key)) {
 		$var($RSAKey, pubk, $cast($RSAKey, key));
-		size = $nc($($nc(pubk)->getModulus()))->bitLength();
+		size = $$nc(pubk->getModulus())->bitLength();
 	} else if ($instanceOf($ECKey, key)) {
 		$var($ECKey, pubk, $cast($ECKey, key));
-		size = $nc($($nc($($nc(pubk)->getParams()))->getOrder()))->bitLength();
+		size = $$nc($$nc(pubk->getParams())->getOrder())->bitLength();
 	} else if ($instanceOf($DSAKey, key)) {
 		$var($DSAKey, pubk, $cast($DSAKey, key));
-		$var($DSAParams, params, $nc(pubk)->getParams());
-		size = (params != nullptr) ? $nc($($nc(params)->getP()))->bitLength() : -1;
+		$var($DSAParams, params, pubk->getParams());
+		size = (params != nullptr) ? $$nc(params->getP())->bitLength() : -1;
 	} else if ($instanceOf($DHKey, key)) {
 		$var($DHKey, pubk, $cast($DHKey, key));
-		size = $nc($($nc($($nc(pubk)->getParams()))->getP()))->bitLength();
+		size = $$nc($$nc(pubk->getParams())->getP())->bitLength();
 	} else if ($instanceOf($XECKey, key)) {
 		$var($XECKey, pubk, $cast($XECKey, key));
-		$var($AlgorithmParameterSpec, params, $nc(pubk)->getParams());
+		$var($AlgorithmParameterSpec, params, pubk->getParams());
 		if ($instanceOf($NamedParameterSpec, params)) {
-			$var($String, name, $nc(($cast($NamedParameterSpec, params)))->getName());
+			$var($String, name, $cast($NamedParameterSpec, params)->getName());
 			if ($nc(name)->equalsIgnoreCase($($nc($NamedParameterSpec::X25519)->getName()))) {
 				size = 255;
+			} else if (name->equalsIgnoreCase($($nc($NamedParameterSpec::X448)->getName()))) {
+				size = 448;
 			} else {
-				if (name->equalsIgnoreCase($($nc($NamedParameterSpec::X448)->getName()))) {
-					size = 448;
-				} else {
-					size = -1;
-				}
+				size = -1;
 			}
 		} else {
 			size = -1;
 		}
 	} else if ($instanceOf($EdECKey, key)) {
-		$var($String, nc, $nc($($nc(($cast($EdECKey, key)))->getParams()))->getName());
+		$var($String, nc, $$nc($cast($EdECKey, key)->getParams())->getName());
 		if ($nc(nc)->equalsIgnoreCase($($nc($NamedParameterSpec::ED25519)->getName()))) {
 			size = 255;
+		} else if (nc->equalsIgnoreCase($($nc($NamedParameterSpec::ED448)->getName()))) {
+			size = 448;
 		} else {
-			if (nc->equalsIgnoreCase($($nc($NamedParameterSpec::ED448)->getName()))) {
-				size = 448;
-			} else {
-				size = -1;
-			}
+			size = -1;
 		}
 	}
 	return size;
 }
 
 int32_t KeyUtil::getKeySize($AlgorithmParameters* parameters) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, algorithm, $nc(parameters)->getAlgorithm());
 	{
 		$var($String, s5767$, algorithm);
 		int32_t tmp5767$ = -1;
 		switch ($nc(s5767$)->hashCode()) {
 		case 2206:
-			{
-				if (s5767$->equals("EC"_s)) {
-					tmp5767$ = 0;
-				}
-				break;
+			if (s5767$->equals("EC"_s)) {
+				tmp5767$ = 0;
 			}
-		case (int32_t)0x8A33DDBC:
-			{
-				if (s5767$->equals("DiffieHellman"_s)) {
-					tmp5767$ = 1;
-				}
-				break;
+			break;
+		case (int32_t)0x8a33ddbc:
+			if (s5767$->equals("DiffieHellman"_s)) {
+				tmp5767$ = 1;
 			}
+			break;
 		}
 		switch (tmp5767$) {
 		case 0:
-			{
-				try {
-					$load($ECKeySizeParameterSpec);
-					$var($ECKeySizeParameterSpec, ps, $cast($ECKeySizeParameterSpec, parameters->getParameterSpec($ECKeySizeParameterSpec::class$)));
-					if (ps != nullptr) {
-						return ps->getKeySize();
-					}
-				} catch ($InvalidParameterSpecException& ipse) {
+			try {
+				$load($ECKeySizeParameterSpec);
+				$var($ECKeySizeParameterSpec, ps, $cast($ECKeySizeParameterSpec, parameters->getParameterSpec($ECKeySizeParameterSpec::class$)));
+				if (ps != nullptr) {
+					return ps->getKeySize();
 				}
-				try {
-					$load($ECParameterSpec);
-					$var($ECParameterSpec, ps, $cast($ECParameterSpec, parameters->getParameterSpec($ECParameterSpec::class$)));
-					if (ps != nullptr) {
-						return $nc($(ps->getOrder()))->bitLength();
-					}
-				} catch ($InvalidParameterSpecException& ipse) {
-				}
-				break;
+			} catch ($InvalidParameterSpecException& ipse) {
 			}
+			try {
+				$load($ECParameterSpec);
+				$var($ECParameterSpec, ps, $cast($ECParameterSpec, parameters->getParameterSpec($ECParameterSpec::class$)));
+				if (ps != nullptr) {
+					return $$nc(ps->getOrder())->bitLength();
+				}
+			} catch ($InvalidParameterSpecException& ipse) {
+			}
+			break;
 		case 1:
-			{
-				try {
-					$load($DHParameterSpec);
-					$var($DHParameterSpec, ps, $cast($DHParameterSpec, parameters->getParameterSpec($DHParameterSpec::class$)));
-					if (ps != nullptr) {
-						return $nc($(ps->getP()))->bitLength();
-					}
-				} catch ($InvalidParameterSpecException& ipse) {
+			try {
+				$load($DHParameterSpec);
+				$var($DHParameterSpec, ps, $cast($DHParameterSpec, parameters->getParameterSpec($DHParameterSpec::class$)));
+				if (ps != nullptr) {
+					return $$nc(ps->getP())->bitLength();
 				}
-				break;
+			} catch ($InvalidParameterSpecException& ipse) {
 			}
+			break;
 		}
 	}
 	return -1;
@@ -246,14 +205,14 @@ bool KeyUtil::isOracleJCEProvider($String* providerName) {
 	bool var$0 = providerName != nullptr;
 	if (var$0) {
 		bool var$2 = providerName->equals("SunJCE"_s);
-		bool var$1 = var$2 || $nc(providerName)->equals("SunMSCAPI"_s);
-		var$0 = (var$1 || providerName->startsWith("SunPKCS11"_s));
+		bool var$1 = var$2 || providerName->equals("SunMSCAPI"_s);
+		var$0 = var$1 || providerName->startsWith("SunPKCS11"_s);
 	}
 	return var$0;
 }
 
 $bytes* KeyUtil::checkTlsPreMasterSecretKey(int32_t clientVersion, int32_t serverVersion, $SecureRandom* random$renamed, $bytes* encoded$renamed, bool isFailOver) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecureRandom, random, random$renamed);
 	$var($bytes, encoded, encoded$renamed);
 	if (random == nullptr) {
@@ -265,7 +224,7 @@ $bytes* KeyUtil::checkTlsPreMasterSecretKey(int32_t clientVersion, int32_t serve
 		if (encoded->length != 48) {
 			return replacer;
 		}
-		int32_t encodedVersion = (((int32_t)(encoded->get(0) & (uint32_t)255)) << 8) | ((int32_t)(encoded->get(1) & (uint32_t)255));
+		int32_t encodedVersion = ((encoded->get(0) & 0xff) << 8) | (encoded->get(1) & 0xff);
 		if (clientVersion != encodedVersion) {
 			if (clientVersion > 769 || serverVersion != encodedVersion) {
 				$assign(encoded, replacer);
@@ -277,7 +236,7 @@ $bytes* KeyUtil::checkTlsPreMasterSecretKey(int32_t clientVersion, int32_t serve
 }
 
 void KeyUtil::validateDHPublicKey($DHPublicKey* publicKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DHParameterSpec, paramSpec, $nc(publicKey)->getParams());
 	$var($BigInteger, p, $nc(paramSpec)->getP());
 	$var($BigInteger, g, paramSpec->getG());
@@ -286,25 +245,25 @@ void KeyUtil::validateDHPublicKey($DHPublicKey* publicKey) {
 }
 
 void KeyUtil::validateDHPublicKey($DHPublicKeySpec* publicKeySpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, var$0, $nc(publicKeySpec)->getP());
 	$var($BigInteger, var$1, publicKeySpec->getG());
 	validateDHPublicKey(var$0, var$1, $(publicKeySpec->getY()));
 }
 
 void KeyUtil::validateDHPublicKey($BigInteger* p, $BigInteger* g, $BigInteger* y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BigInteger);
 	$var($BigInteger, leftOpen, $BigInteger::ONE);
 	$var($BigInteger, rightOpen, $nc(p)->subtract($BigInteger::ONE));
 	if ($nc(y)->compareTo(leftOpen) <= 0) {
 		$throwNew($InvalidKeyException, "Diffie-Hellman public key is too small"_s);
 	}
-	if ($nc(y)->compareTo(rightOpen) >= 0) {
+	if (y->compareTo(rightOpen) >= 0) {
 		$throwNew($InvalidKeyException, "Diffie-Hellman public key is too large"_s);
 	}
 	$var($BigInteger, r, p->remainder(y));
-	if ($nc(r)->equals($BigInteger::ZERO)) {
+	if (r->equals($BigInteger::ZERO)) {
 		$throwNew($InvalidKeyException, "Invalid Diffie-Hellman parameters"_s);
 	}
 }
@@ -317,7 +276,7 @@ $bytes* KeyUtil::trimZeroes($bytes* b) {
 	if (i == 0) {
 		return b;
 	}
-	$var($bytes, t, $new($bytes, $nc(b)->length - i));
+	$var($bytes, t, $new($bytes, b->length - i));
 	$System::arraycopy(b, i, t, 0, t->length);
 	return t;
 }
@@ -326,7 +285,31 @@ KeyUtil::KeyUtil() {
 }
 
 $Class* KeyUtil::load$($String* name, bool initialize) {
-	$loadClass(KeyUtil, name, initialize, &_KeyUtil_ClassInfo_, allocate$KeyUtil);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyUtil, init$, void)},
+		{"checkTlsPreMasterSecretKey", "(IILjava/security/SecureRandom;[BZ)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyUtil, checkTlsPreMasterSecretKey, $bytes*, int32_t, int32_t, $SecureRandom*, $bytes*, bool)},
+		{"getKeySize", "(Ljava/security/Key;)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, getKeySize, int32_t, $Key*)},
+		{"getKeySize", "(Ljava/security/AlgorithmParameters;)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, getKeySize, int32_t, $AlgorithmParameters*)},
+		{"isOracleJCEProvider", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, isOracleJCEProvider, bool, $String*)},
+		{"trimZeroes", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyUtil, trimZeroes, $bytes*, $bytes*)},
+		{"validate", "(Ljava/security/Key;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, validate, void, $Key*), "java.security.InvalidKeyException"},
+		{"validate", "(Ljava/security/spec/KeySpec;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, validate, void, $KeySpec*), "java.security.InvalidKeyException"},
+		{"validateDHPublicKey", "(Ljavax/crypto/interfaces/DHPublicKey;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyUtil, validateDHPublicKey, void, $DHPublicKey*), "java.security.InvalidKeyException"},
+		{"validateDHPublicKey", "(Ljavax/crypto/spec/DHPublicKeySpec;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyUtil, validateDHPublicKey, void, $DHPublicKeySpec*), "java.security.InvalidKeyException"},
+		{"validateDHPublicKey", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyUtil, validateDHPublicKey, void, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.util.KeyUtil",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyUtil, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyUtil);
+	});
 	return class$;
 }
 

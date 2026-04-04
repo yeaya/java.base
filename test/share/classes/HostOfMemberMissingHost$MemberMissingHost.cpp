@@ -1,41 +1,10 @@
 #include <HostOfMemberMissingHost$MemberMissingHost.h>
-
 #include <HostOfMemberMissingHost.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _HostOfMemberMissingHost$MemberMissingHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostOfMemberMissingHost$MemberMissingHost, init$, void)},
-	{}
-};
-
-$InnerClassInfo _HostOfMemberMissingHost$MemberMissingHost_InnerClassesInfo_[] = {
-	{"HostOfMemberMissingHost$MemberMissingHost", "HostOfMemberMissingHost", "MemberMissingHost", $STATIC},
-	{}
-};
-
-$ClassInfo _HostOfMemberMissingHost$MemberMissingHost_ClassInfo_ = {
-	$ACC_SUPER,
-	"HostOfMemberMissingHost$MemberMissingHost",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HostOfMemberMissingHost$MemberMissingHost_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HostOfMemberMissingHost$MemberMissingHost_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HostOfMemberMissingHost"
-};
-
-$Object* allocate$HostOfMemberMissingHost$MemberMissingHost($Class* clazz) {
-	return $of($alloc(HostOfMemberMissingHost$MemberMissingHost));
-}
 
 void HostOfMemberMissingHost$MemberMissingHost::init$() {
 }
@@ -44,7 +13,32 @@ HostOfMemberMissingHost$MemberMissingHost::HostOfMemberMissingHost$MemberMissing
 }
 
 $Class* HostOfMemberMissingHost$MemberMissingHost::load$($String* name, bool initialize) {
-	$loadClass(HostOfMemberMissingHost$MemberMissingHost, name, initialize, &_HostOfMemberMissingHost$MemberMissingHost_ClassInfo_, allocate$HostOfMemberMissingHost$MemberMissingHost);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostOfMemberMissingHost$MemberMissingHost, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HostOfMemberMissingHost$MemberMissingHost", "HostOfMemberMissingHost", "MemberMissingHost", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HostOfMemberMissingHost$MemberMissingHost",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HostOfMemberMissingHost"
+	};
+	$loadClass(HostOfMemberMissingHost$MemberMissingHost, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostOfMemberMissingHost$MemberMissingHost);
+	});
 	return class$;
 }
 

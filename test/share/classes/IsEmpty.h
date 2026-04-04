@@ -9,6 +9,7 @@ class $export IsEmpty : public ::java::lang::Object {
 	$class(IsEmpty, 0, ::java::lang::Object)
 public:
 	IsEmpty();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $StringArray* tests;

@@ -202,13 +202,13 @@ static bool decodeLocked(const void* addr, char* buf, int buflen) {
 
 void WindowsDecoder::init() {
 	::java::lang::LockGuard guard(decorderLock);
-	resourceBlockBuffer = $allocRaw(MAX_RESOUCE_BLOCK_SIZE);
+	resourceBlockBuffer = $allocRaw(int8_t, MAX_RESOUCE_BLOCK_SIZE);
 	HANDLE hProcess = GetCurrentProcess();
 	HMODULE hMods[MAX_HMODULE_SIZE];
 	DWORD cbNeeded;
 	if (EnumProcessModules(hProcess, hMods, sizeof(hMods), &cbNeeded)) {
 		hmoduleCount = cbNeeded / sizeof(HMODULE);
-		hmodules = (ModuleInfo*)$allocRaw(sizeof(ModuleInfo) * hmoduleCount);
+		hmodules = (ModuleInfo*)$allocRaw(int8_t, sizeof(ModuleInfo) * hmoduleCount);
 		for (int32_t i = 0; i < hmoduleCount; i++) {
 			MODULEINFO modInfo;
 			if (GetModuleInformation(hProcess, hMods[i], &modInfo, sizeof(modInfo))) {

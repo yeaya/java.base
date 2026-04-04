@@ -23,6 +23,7 @@ class DHKeyAgreement$AllowKDF : public ::java::lang::Object {
 	$class(DHKeyAgreement$AllowKDF, 0, ::java::lang::Object)
 public:
 	DHKeyAgreement$AllowKDF();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool getValue();
 	static ::java::lang::Boolean* lambda$getValue$0();

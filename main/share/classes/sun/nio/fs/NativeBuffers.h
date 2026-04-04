@@ -36,6 +36,7 @@ class NativeBuffers : public ::java::lang::Object {
 	$class(NativeBuffers, 0, ::java::lang::Object)
 public:
 	NativeBuffers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::fs::NativeBuffer* allocNativeBuffer(int32_t size);
 	static ::sun::nio::fs::NativeBuffer* asNativeBuffer($bytes* cstr);

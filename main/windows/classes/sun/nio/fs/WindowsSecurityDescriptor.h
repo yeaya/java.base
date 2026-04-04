@@ -62,6 +62,7 @@ class WindowsSecurityDescriptor : public ::java::lang::Object {
 	$class(WindowsSecurityDescriptor, 0, ::java::lang::Object)
 public:
 	WindowsSecurityDescriptor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::List* acl);
 	virtual int64_t address();

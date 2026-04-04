@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CipherSuite$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <sun/security/ssl/CipherSuite.h>
 #include <sun/security/ssl/CipherType.h>
@@ -19,53 +18,17 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CipherSuite$1_FieldInfo_[] = {
-	{"$SwitchMap$sun$security$ssl$CipherType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CipherSuite$1, $SwitchMap$sun$security$ssl$CipherType)},
-	{}
-};
-
-$EnclosingMethodInfo _CipherSuite$1_EnclosingMethodInfo_ = {
-	"sun.security.ssl.CipherSuite",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _CipherSuite$1_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CipherSuite$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _CipherSuite$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"sun.security.ssl.CipherSuite$1",
-	"java.lang.Object",
-	nullptr,
-	_CipherSuite$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_CipherSuite$1_EnclosingMethodInfo_,
-	_CipherSuite$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CipherSuite"
-};
-
-$Object* allocate$CipherSuite$1($Class* clazz) {
-	return $of($alloc(CipherSuite$1));
-}
-
 $ints* CipherSuite$1::$SwitchMap$sun$security$ssl$CipherType = nullptr;
 
-void clinit$CipherSuite$1($Class* class$) {
+void CipherSuite$1::clinit$($Class* clazz) {
 	$assignStatic(CipherSuite$1::$SwitchMap$sun$security$ssl$CipherType, $new($ints, $($CipherType::values())->length));
 	{
 		try {
-			$nc(CipherSuite$1::$SwitchMap$sun$security$ssl$CipherType)->set($CipherType::BLOCK_CIPHER->ordinal(), 1);
+			CipherSuite$1::$SwitchMap$sun$security$ssl$CipherType->set($CipherType::BLOCK_CIPHER->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CipherSuite$1::$SwitchMap$sun$security$ssl$CipherType)->set($CipherType::AEAD_CIPHER->ordinal(), 2);
+			CipherSuite$1::$SwitchMap$sun$security$ssl$CipherType->set($CipherType::AEAD_CIPHER->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -75,7 +38,37 @@ CipherSuite$1::CipherSuite$1() {
 }
 
 $Class* CipherSuite$1::load$($String* name, bool initialize) {
-	$loadClass(CipherSuite$1, name, initialize, &_CipherSuite$1_ClassInfo_, clinit$CipherSuite$1, allocate$CipherSuite$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$security$ssl$CipherType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CipherSuite$1, $SwitchMap$sun$security$ssl$CipherType)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.ssl.CipherSuite",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CipherSuite$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"sun.security.ssl.CipherSuite$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CipherSuite"
+	};
+	$loadClass(CipherSuite$1, name, initialize, &classInfo$$, CipherSuite$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CipherSuite$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/module/Modules.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
@@ -82,7 +81,6 @@ using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $JavaLangModuleAccess = ::jdk::internal::access::JavaLangModuleAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
@@ -104,35 +102,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->getClassLoader());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Modules$$Lambda$getClassLoader>());
+		 return $nc(inst$)->getClassLoader();
 	}
 	$Module* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Modules$$Lambda$getClassLoader::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Modules$$Lambda$getClassLoader, inst$)},
-	{}
-};
-$MethodInfo Modules$$Lambda$getClassLoader::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$getClassLoader, init$, void, $Module*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$getClassLoader, run, $Object*)},
-	{}
-};
-$ClassInfo Modules$$Lambda$getClassLoader::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.Modules$$Lambda$getClassLoader",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Modules$$Lambda$getClassLoader::load$($String* name, bool initialize) {
-	$loadClass(Modules$$Lambda$getClassLoader, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Modules$$Lambda$getClassLoader, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$getClassLoader, init$, void, $Module*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$getClassLoader, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.Modules$$Lambda$getClassLoader",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Modules$$Lambda$getClassLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules$$Lambda$getClassLoader);
+	});
 	return class$;
 }
 $Class* Modules$$Lambda$getClassLoader::class$ = nullptr;
@@ -145,27 +139,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($Module, inst$)->getName());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Modules$$Lambda$getName$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Modules$$Lambda$getName$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$getName$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$getName$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Modules$$Lambda$getName$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.Modules$$Lambda$getName$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Modules$$Lambda$getName$1::load$($String* name, bool initialize) {
-	$loadClass(Modules$$Lambda$getName$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$getName$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$getName$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.Modules$$Lambda$getName$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Modules$$Lambda$getName$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules$$Lambda$getName$1);
+	});
 	return class$;
 }
 $Class* Modules$$Lambda$getName$1::class$ = nullptr;
@@ -178,27 +169,24 @@ public:
 	virtual bool test(Object$* inst$) override {
 		 return $sure($ModuleDescriptor$Exports, inst$)->isQualified();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Modules$$Lambda$isQualified$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Modules$$Lambda$isQualified$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$isQualified$2, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$isQualified$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Modules$$Lambda$isQualified$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.Modules$$Lambda$isQualified$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Modules$$Lambda$isQualified$2::load$($String* name, bool initialize) {
-	$loadClass(Modules$$Lambda$isQualified$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$isQualified$2, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$isQualified$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.Modules$$Lambda$isQualified$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Modules$$Lambda$isQualified$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules$$Lambda$isQualified$2);
+	});
 	return class$;
 }
 $Class* Modules$$Lambda$isQualified$2::class$ = nullptr;
@@ -213,35 +201,31 @@ public:
 	virtual void accept(Object$* e) override {
 		Modules::lambda$loadModule$1(map, m, $cast($ModuleDescriptor$Exports, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Modules$$Lambda$lambda$loadModule$1$3>());
-	}
 	$Map* map = nullptr;
 	$Module* m = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Modules$$Lambda$lambda$loadModule$1$3::fieldInfos[3] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$1$3, map)},
-	{"m", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$1$3, m)},
-	{}
-};
-$MethodInfo Modules$$Lambda$lambda$loadModule$1$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$1$3, init$, void, $Map*, $Module*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$1$3, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Modules$$Lambda$lambda$loadModule$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.Modules$$Lambda$lambda$loadModule$1$3",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Modules$$Lambda$lambda$loadModule$1$3::load$($String* name, bool initialize) {
-	$loadClass(Modules$$Lambda$lambda$loadModule$1$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$1$3, map)},
+		{"m", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$1$3, m)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$1$3, init$, void, $Map*, $Module*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$1$3, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.Modules$$Lambda$lambda$loadModule$1$3",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Modules$$Lambda$lambda$loadModule$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules$$Lambda$lambda$loadModule$1$3);
+	});
 	return class$;
 }
 $Class* Modules$$Lambda$lambda$loadModule$1$3::class$ = nullptr;
@@ -254,27 +238,24 @@ public:
 	virtual bool test(Object$* inst$) override {
 		 return $sure($ModuleDescriptor$Opens, inst$)->isQualified();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Modules$$Lambda$isQualified$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Modules$$Lambda$isQualified$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$isQualified$4, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$isQualified$4, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Modules$$Lambda$isQualified$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.Modules$$Lambda$isQualified$4",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Modules$$Lambda$isQualified$4::load$($String* name, bool initialize) {
-	$loadClass(Modules$$Lambda$isQualified$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$isQualified$4, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$isQualified$4, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.Modules$$Lambda$isQualified$4",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Modules$$Lambda$isQualified$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules$$Lambda$isQualified$4);
+	});
 	return class$;
 }
 $Class* Modules$$Lambda$isQualified$4::class$ = nullptr;
@@ -289,35 +270,31 @@ public:
 	virtual void accept(Object$* o) override {
 		Modules::lambda$loadModule$3(map, m, $cast($ModuleDescriptor$Opens, o));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Modules$$Lambda$lambda$loadModule$3$5>());
-	}
 	$Map* map = nullptr;
 	$Module* m = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Modules$$Lambda$lambda$loadModule$3$5::fieldInfos[3] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$3$5, map)},
-	{"m", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$3$5, m)},
-	{}
-};
-$MethodInfo Modules$$Lambda$lambda$loadModule$3$5::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$3$5, init$, void, $Map*, $Module*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$3$5, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Modules$$Lambda$lambda$loadModule$3$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.Modules$$Lambda$lambda$loadModule$3$5",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Modules$$Lambda$lambda$loadModule$3$5::load$($String* name, bool initialize) {
-	$loadClass(Modules$$Lambda$lambda$loadModule$3$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$3$5, map)},
+		{"m", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$3$5, m)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$3$5, init$, void, $Map*, $Module*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$3$5, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.Modules$$Lambda$lambda$loadModule$3$5",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Modules$$Lambda$lambda$loadModule$3$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules$$Lambda$lambda$loadModule$3$5);
+	});
 	return class$;
 }
 $Class* Modules$$Lambda$lambda$loadModule$3$5::class$ = nullptr;
@@ -328,29 +305,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(Modules::lambda$loadModule$4());
+		 return Modules::lambda$loadModule$4();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Modules$$Lambda$lambda$loadModule$4$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Modules$$Lambda$lambda$loadModule$4$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$4$6, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$4$6, get, $Object*)},
-	{}
-};
-$ClassInfo Modules$$Lambda$lambda$loadModule$4$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.Modules$$Lambda$lambda$loadModule$4$6",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* Modules$$Lambda$lambda$loadModule$4$6::load$($String* name, bool initialize) {
-	$loadClass(Modules$$Lambda$lambda$loadModule$4$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$4$6, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$4$6, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.Modules$$Lambda$lambda$loadModule$4$6",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Modules$$Lambda$lambda$loadModule$4$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules$$Lambda$lambda$loadModule$4$6);
+	});
 	return class$;
 }
 $Class* Modules$$Lambda$lambda$loadModule$4$6::class$ = nullptr;
@@ -366,37 +340,33 @@ public:
 	virtual void accept(Object$* target) override {
 		Modules::lambda$loadModule$2(map, m, o, $cast($String, target));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Modules$$Lambda$lambda$loadModule$2$7>());
-	}
 	$Map* map = nullptr;
 	$Module* m = nullptr;
 	$ModuleDescriptor$Opens* o = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Modules$$Lambda$lambda$loadModule$2$7::fieldInfos[4] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$2$7, map)},
-	{"m", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$2$7, m)},
-	{"o", "Ljava/lang/module/ModuleDescriptor$Opens;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$2$7, o)},
-	{}
-};
-$MethodInfo Modules$$Lambda$lambda$loadModule$2$7::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$2$7, init$, void, $Map*, $Module*, $ModuleDescriptor$Opens*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$2$7, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Modules$$Lambda$lambda$loadModule$2$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.Modules$$Lambda$lambda$loadModule$2$7",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Modules$$Lambda$lambda$loadModule$2$7::load$($String* name, bool initialize) {
-	$loadClass(Modules$$Lambda$lambda$loadModule$2$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$2$7, map)},
+		{"m", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$2$7, m)},
+		{"o", "Ljava/lang/module/ModuleDescriptor$Opens;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$2$7, o)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$2$7, init$, void, $Map*, $Module*, $ModuleDescriptor$Opens*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$2$7, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.Modules$$Lambda$lambda$loadModule$2$7",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Modules$$Lambda$lambda$loadModule$2$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules$$Lambda$lambda$loadModule$2$7);
+	});
 	return class$;
 }
 $Class* Modules$$Lambda$lambda$loadModule$2$7::class$ = nullptr;
@@ -412,85 +382,36 @@ public:
 	virtual void accept(Object$* target) override {
 		Modules::lambda$loadModule$0(map, m, e, $cast($String, target));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Modules$$Lambda$lambda$loadModule$0$8>());
-	}
 	$Map* map = nullptr;
 	$Module* m = nullptr;
 	$ModuleDescriptor$Exports* e = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Modules$$Lambda$lambda$loadModule$0$8::fieldInfos[4] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$0$8, map)},
-	{"m", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$0$8, m)},
-	{"e", "Ljava/lang/module/ModuleDescriptor$Exports;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$0$8, e)},
-	{}
-};
-$MethodInfo Modules$$Lambda$lambda$loadModule$0$8::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$0$8, init$, void, $Map*, $Module*, $ModuleDescriptor$Exports*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$0$8, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Modules$$Lambda$lambda$loadModule$0$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.Modules$$Lambda$lambda$loadModule$0$8",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Modules$$Lambda$lambda$loadModule$0$8::load$($String* name, bool initialize) {
-	$loadClass(Modules$$Lambda$lambda$loadModule$0$8, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$0$8, map)},
+		{"m", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$0$8, m)},
+		{"e", "Ljava/lang/module/ModuleDescriptor$Exports;", nullptr, $PUBLIC, $field(Modules$$Lambda$lambda$loadModule$0$8, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$0$8, init$, void, $Map*, $Module*, $ModuleDescriptor$Exports*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$0$8, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.Modules$$Lambda$lambda$loadModule$0$8",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Modules$$Lambda$lambda$loadModule$0$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules$$Lambda$lambda$loadModule$0$8);
+	});
 	return class$;
 }
 $Class* Modules$$Lambda$lambda$loadModule$0$8::class$ = nullptr;
-
-$FieldInfo _Modules_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Modules, $assertionsDisabled)},
-	{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Modules, JLA)},
-	{"JLMA", "Ljdk/internal/access/JavaLangModuleAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Modules, JLMA)},
-	{"topLayer", "Ljava/lang/ModuleLayer;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Modules, topLayer)},
-	{}
-};
-
-$MethodInfo _Modules_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Modules, init$, void)},
-	{"addExports", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addExports, void, $Module*, $String*, $Module*)},
-	{"addExports", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addExports, void, $Module*, $String*)},
-	{"addExportsToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addExportsToAllUnnamed, void, $Module*, $String*)},
-	{"addOpens", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addOpens, void, $Module*, $String*, $Module*)},
-	{"addOpensToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addOpensToAllUnnamed, void, $Module*, $String*)},
-	{"addProvides", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(Modules, addProvides, void, $Module*, $Class*, $Class*)},
-	{"addReads", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addReads, void, $Module*, $Module*)},
-	{"addReadsAllUnnamed", "(Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addReadsAllUnnamed, void, $Module*)},
-	{"addUses", "(Ljava/lang/Module;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(Modules, addUses, void, $Module*, $Class*)},
-	{"defineModule", "(Ljava/lang/ClassLoader;Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;)Ljava/lang/Module;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, defineModule, $Module*, $ClassLoader*, $ModuleDescriptor*, $URI*)},
-	{"findLoadedModule", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/Module;>;", $PUBLIC | $STATIC, $staticMethod(Modules, findLoadedModule, $Optional*, $String*)},
-	{"lambda$loadModule$0", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$0, void, $Map*, $Module*, $ModuleDescriptor$Exports*, $String*)},
-	{"lambda$loadModule$1", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$1, void, $Map*, $Module*, $ModuleDescriptor$Exports*)},
-	{"lambda$loadModule$2", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$2, void, $Map*, $Module*, $ModuleDescriptor$Opens*, $String*)},
-	{"lambda$loadModule$3", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$3, void, $Map*, $Module*, $ModuleDescriptor$Opens*)},
-	{"lambda$loadModule$4", "()Ljava/lang/InternalError;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$4, $InternalError*)},
-	{"loadModule", "(Ljava/lang/String;)Ljava/lang/Module;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Modules, loadModule, $Module*, $String*)},
-	{"newBootLayerConfiguration", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $staticMethod(Modules, newBootLayerConfiguration, $Configuration*, $ModuleFinder*, $Collection*, $PrintStream*)},
-	{"transformedByAgent", "(Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, transformedByAgent, void, $Module*)},
-	{}
-};
-
-$ClassInfo _Modules_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.module.Modules",
-	"java.lang.Object",
-	nullptr,
-	_Modules_FieldInfo_,
-	_Modules_MethodInfo_
-};
-
-$Object* allocate$Modules($Class* clazz) {
-	return $of($alloc(Modules));
-}
 
 bool Modules::$assertionsDisabled = false;
 $JavaLangAccess* Modules::JLA = nullptr;
@@ -547,10 +468,10 @@ void Modules::addUses($Module* m, $Class* service) {
 
 void Modules::addProvides($Module* m, $Class* service, $Class* impl) {
 	$init(Modules);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ModuleLayer, layer, $nc(m)->getLayer());
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(Modules$$Lambda$getClassLoader, static_cast<$Module*>(m))));
+	$var($PrivilegedAction, pa, $new(Modules$$Lambda$getClassLoader, m));
 	$var($ClassLoader, loader, $cast($ClassLoader, $AccessController::doPrivileged(pa)));
 	$var($ClassLoader, platformClassLoader, $ClassLoaders::platformClassLoader());
 	if (layer == nullptr || loader == nullptr || loader == platformClassLoader) {
@@ -563,7 +484,7 @@ void Modules::addProvides($Module* m, $Class* service, $Class* impl) {
 		$nc(catalog)->addProvider(m, service, impl);
 	}
 	if (layer != nullptr) {
-		$nc($($nc(Modules::JLA)->getServicesCatalog(layer)))->addProvider(m, service, impl);
+		$$nc($nc(Modules::JLA)->getServicesCatalog(layer))->addProvider(m, service, impl);
 	}
 }
 
@@ -574,41 +495,40 @@ $Configuration* Modules::newBootLayerConfiguration($ModuleFinder* finder, $Colle
 
 void Modules::transformedByAgent($Module* m) {
 	$init(Modules);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	addReads(m, $($BootLoader::getUnnamedModule()));
-	addReads(m, $($nc($($ClassLoaders::appClassLoader()))->getUnnamedModule()));
+	addReads(m, $($$nc($ClassLoaders::appClassLoader())->getUnnamedModule()));
 }
 
 $Module* Modules::loadModule($String* name) {
-	$load(Modules);
+	$init(Modules);
 	$synchronized(class$) {
-		$init(Modules);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ModuleLayer, top, Modules::topLayer);
 		if (top == nullptr) {
 			$assign(top, $ModuleLayer::boot());
 		}
-		$var($Module, module, $cast($Module, $nc($($nc(top)->findModule(name)))->orElse(nullptr)));
+		$var($Module, module, $cast($Module, $$nc($nc(top)->findModule(name))->orElse(nullptr)));
 		if (module != nullptr) {
 			return module;
 		}
 		$var($ModuleFinder, empty, $ModuleFinder::of($$new($PathArray, 0)));
 		$var($ModuleFinder, finder, $ModuleBootstrap::unlimitedFinder());
-		$var($Set, roots, $Set::of($of(name)));
-		$var($Configuration, cf, $nc($(top->configuration()))->resolveAndBind(empty, finder, static_cast<$Collection*>(roots)));
+		$var($Set, roots, $Set::of(name));
+		$var($Configuration, cf, $$nc(top->configuration())->resolveAndBind(empty, finder, roots));
 		$var($Function, clf, $ModuleLoaderMap::mappingFunction(cf));
 		$var($ModuleLayer, newLayer, top->defineModules(cf, clf));
-		$var($Function, var$0, static_cast<$Function*>($new(Modules$$Lambda$getName$1)));
-		$var($Map, map, $cast($Map, $nc($($nc($($nc(newLayer)->modules()))->stream()))->collect($($Collectors::toMap(var$0, $($Function::identity()))))));
+		$var($Function, var$0, $new(Modules$$Lambda$getName$1));
+		$var($Map, map, $cast($Map, $$nc($$nc($nc(newLayer)->modules())->stream())->collect($($Collectors::toMap(var$0, $($Function::identity()))))));
 		$var($ModuleLayer, layer, top);
 		while (layer != nullptr) {
 			{
-				$var($Iterator, i$, $nc($(layer->modules()))->iterator());
+				$var($Iterator, i$, $$nc(layer->modules())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Module, m, $cast($Module, i$->next()));
 					{
-						$nc($($nc($($nc($($nc($($nc(m)->getDescriptor()))->exports()))->stream()))->filter(static_cast<$Predicate*>($$new(Modules$$Lambda$isQualified$2)))))->forEach(static_cast<$Consumer*>($$new(Modules$$Lambda$lambda$loadModule$1$3, map, m)));
-						$nc($($nc($($nc($($nc($(m->getDescriptor()))->opens()))->stream()))->filter(static_cast<$Predicate*>($$new(Modules$$Lambda$isQualified$4)))))->forEach(static_cast<$Consumer*>($$new(Modules$$Lambda$lambda$loadModule$3$5, map, m)));
+						$$nc($$nc($$nc($$nc($nc(m)->getDescriptor())->exports())->stream())->filter($$new(Modules$$Lambda$isQualified$2)))->forEach($$new(Modules$$Lambda$lambda$loadModule$1$3, map, m));
+						$$nc($$nc($$nc($$nc(m->getDescriptor())->opens())->stream())->filter($$new(Modules$$Lambda$isQualified$4)))->forEach($$new(Modules$$Lambda$lambda$loadModule$3$5, map, m));
 					}
 				}
 			}
@@ -616,27 +536,27 @@ $Module* Modules::loadModule($String* name) {
 			if (!Modules::$assertionsDisabled && !($nc(parents)->size() <= 1)) {
 				$throwNew($AssertionError);
 			}
-			$assign(layer, $nc(parents)->isEmpty() ? ($ModuleLayer*)nullptr : $cast($ModuleLayer, $nc(parents)->get(0)));
+			$assign(layer, $nc(parents)->isEmpty() ? ($ModuleLayer*)nullptr : $cast($ModuleLayer, parents->get(0)));
 		}
 		$nc(Modules::JLA)->addNonExportedPackages(newLayer);
 		{
-			$var($Iterator, i$, $nc($($nc(cf)->modules()))->iterator());
+			$var($Iterator, i$, $$nc($nc(cf)->modules())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($ResolvedModule, resolvedModule, $cast($ResolvedModule, i$->next()));
 				{
 					$var($ModuleReference, mref, $nc(resolvedModule)->reference());
-					$var($String, mn, $nc($($nc(mref)->descriptor()))->name());
+					$var($String, mn, $$nc($nc(mref)->descriptor())->name());
 					$var($ClassLoader, cl, $cast($ClassLoader, $nc(clf)->apply(mn)));
 					if (cl == nullptr) {
 						$BootLoader::loadModule(mref);
 					} else {
-						$nc(($cast($BuiltinClassLoader, cl)))->loadModule(mref);
+						$cast($BuiltinClassLoader, cl)->loadModule(mref);
 					}
 				}
 			}
 		}
 		$assignStatic(Modules::topLayer, newLayer);
-		return $cast($Module, $nc($(newLayer->findModule(name)))->orElseThrow(static_cast<$Supplier*>($$new(Modules$$Lambda$lambda$loadModule$4$6))));
+		return $cast($Module, $$nc($nc(newLayer)->findModule(name))->orElseThrow($$new(Modules$$Lambda$lambda$loadModule$4$6)));
 	}
 }
 
@@ -656,13 +576,13 @@ $InternalError* Modules::lambda$loadModule$4() {
 
 void Modules::lambda$loadModule$3($Map* map, $Module* m, $ModuleDescriptor$Opens* o) {
 	$init(Modules);
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(o)->targets()))->forEach(static_cast<$Consumer*>($$new(Modules$$Lambda$lambda$loadModule$2$7, map, m, o)));
+	$useLocalObjectStack();
+	$$nc($nc(o)->targets())->forEach($$new(Modules$$Lambda$lambda$loadModule$2$7, map, m, o));
 }
 
 void Modules::lambda$loadModule$2($Map* map, $Module* m, $ModuleDescriptor$Opens* o, $String* target) {
 	$init(Modules);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Module, other, $cast($Module, $nc(map)->get(target)));
 	if (other != nullptr) {
 		addOpens(m, $($nc(o)->source()), other);
@@ -671,20 +591,20 @@ void Modules::lambda$loadModule$2($Map* map, $Module* m, $ModuleDescriptor$Opens
 
 void Modules::lambda$loadModule$1($Map* map, $Module* m, $ModuleDescriptor$Exports* e) {
 	$init(Modules);
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(e)->targets()))->forEach(static_cast<$Consumer*>($$new(Modules$$Lambda$lambda$loadModule$0$8, map, m, e)));
+	$useLocalObjectStack();
+	$$nc($nc(e)->targets())->forEach($$new(Modules$$Lambda$lambda$loadModule$0$8, map, m, e));
 }
 
 void Modules::lambda$loadModule$0($Map* map, $Module* m, $ModuleDescriptor$Exports* e, $String* target) {
 	$init(Modules);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Module, other, $cast($Module, $nc(map)->get(target)));
 	if (other != nullptr) {
 		addExports(m, $($nc(e)->source()), other);
 	}
 }
 
-void clinit$Modules($Class* class$) {
+void Modules::clinit$($Class* clazz) {
 	Modules::$assertionsDisabled = !Modules::class$->desiredAssertionStatus();
 	$assignStatic(Modules::JLA, $SharedSecrets::getJavaLangAccess());
 	$assignStatic(Modules::JLMA, $SharedSecrets::getJavaLangModuleAccess());
@@ -695,35 +615,75 @@ Modules::Modules() {
 
 $Class* Modules::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Modules$$Lambda$getClassLoader::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.Modules$$Lambda$getClassLoader")) {
 			return Modules$$Lambda$getClassLoader::load$(name, initialize);
 		}
-		if (name->equals(Modules$$Lambda$getName$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.Modules$$Lambda$getName$1")) {
 			return Modules$$Lambda$getName$1::load$(name, initialize);
 		}
-		if (name->equals(Modules$$Lambda$isQualified$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.Modules$$Lambda$isQualified$2")) {
 			return Modules$$Lambda$isQualified$2::load$(name, initialize);
 		}
-		if (name->equals(Modules$$Lambda$lambda$loadModule$1$3::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.Modules$$Lambda$lambda$loadModule$1$3")) {
 			return Modules$$Lambda$lambda$loadModule$1$3::load$(name, initialize);
 		}
-		if (name->equals(Modules$$Lambda$isQualified$4::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.Modules$$Lambda$isQualified$4")) {
 			return Modules$$Lambda$isQualified$4::load$(name, initialize);
 		}
-		if (name->equals(Modules$$Lambda$lambda$loadModule$3$5::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.Modules$$Lambda$lambda$loadModule$3$5")) {
 			return Modules$$Lambda$lambda$loadModule$3$5::load$(name, initialize);
 		}
-		if (name->equals(Modules$$Lambda$lambda$loadModule$4$6::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.Modules$$Lambda$lambda$loadModule$4$6")) {
 			return Modules$$Lambda$lambda$loadModule$4$6::load$(name, initialize);
 		}
-		if (name->equals(Modules$$Lambda$lambda$loadModule$2$7::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.Modules$$Lambda$lambda$loadModule$2$7")) {
 			return Modules$$Lambda$lambda$loadModule$2$7::load$(name, initialize);
 		}
-		if (name->equals(Modules$$Lambda$lambda$loadModule$0$8::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.Modules$$Lambda$lambda$loadModule$0$8")) {
 			return Modules$$Lambda$lambda$loadModule$0$8::load$(name, initialize);
 		}
 	}
-	$loadClass(Modules, name, initialize, &_Modules_ClassInfo_, clinit$Modules, allocate$Modules);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Modules, $assertionsDisabled)},
+		{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Modules, JLA)},
+		{"JLMA", "Ljdk/internal/access/JavaLangModuleAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Modules, JLMA)},
+		{"topLayer", "Ljava/lang/ModuleLayer;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Modules, topLayer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Modules, init$, void)},
+		{"addExports", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addExports, void, $Module*, $String*, $Module*)},
+		{"addExports", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addExports, void, $Module*, $String*)},
+		{"addExportsToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addExportsToAllUnnamed, void, $Module*, $String*)},
+		{"addOpens", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addOpens, void, $Module*, $String*, $Module*)},
+		{"addOpensToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addOpensToAllUnnamed, void, $Module*, $String*)},
+		{"addProvides", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(Modules, addProvides, void, $Module*, $Class*, $Class*)},
+		{"addReads", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addReads, void, $Module*, $Module*)},
+		{"addReadsAllUnnamed", "(Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addReadsAllUnnamed, void, $Module*)},
+		{"addUses", "(Ljava/lang/Module;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(Modules, addUses, void, $Module*, $Class*)},
+		{"defineModule", "(Ljava/lang/ClassLoader;Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;)Ljava/lang/Module;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, defineModule, $Module*, $ClassLoader*, $ModuleDescriptor*, $URI*)},
+		{"findLoadedModule", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/Module;>;", $PUBLIC | $STATIC, $staticMethod(Modules, findLoadedModule, $Optional*, $String*)},
+		{"lambda$loadModule$0", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$0, void, $Map*, $Module*, $ModuleDescriptor$Exports*, $String*)},
+		{"lambda$loadModule$1", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$1, void, $Map*, $Module*, $ModuleDescriptor$Exports*)},
+		{"lambda$loadModule$2", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$2, void, $Map*, $Module*, $ModuleDescriptor$Opens*, $String*)},
+		{"lambda$loadModule$3", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$3, void, $Map*, $Module*, $ModuleDescriptor$Opens*)},
+		{"lambda$loadModule$4", "()Ljava/lang/InternalError;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$4, $InternalError*)},
+		{"loadModule", "(Ljava/lang/String;)Ljava/lang/Module;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Modules, loadModule, $Module*, $String*)},
+		{"newBootLayerConfiguration", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $staticMethod(Modules, newBootLayerConfiguration, $Configuration*, $ModuleFinder*, $Collection*, $PrintStream*)},
+		{"transformedByAgent", "(Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, transformedByAgent, void, $Module*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.module.Modules",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Modules, name, initialize, &classInfo$$, Modules::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules);
+	});
 	return class$;
 }
 

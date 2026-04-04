@@ -1,5 +1,4 @@
 #include <LotsOfCancels$ClientThread.h>
-
 #include <LotsOfCancels.h>
 #include <java/net/SocketAddress.h>
 #include <java/nio/channels/SelectableChannel.h>
@@ -22,48 +21,6 @@ using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
-
-$FieldInfo _LotsOfCancels$ClientThread_FieldInfo_[] = {
-	{"address", "Ljava/net/SocketAddress;", nullptr, $PRIVATE | $FINAL, $field(LotsOfCancels$ClientThread, address)},
-	{"selector", "Ljava/nio/channels/Selector;", nullptr, $PRIVATE | $FINAL, $field(LotsOfCancels$ClientThread, selector)},
-	{"connectionsNeeded", "I", nullptr, $PRIVATE, $field(LotsOfCancels$ClientThread, connectionsNeeded)},
-	{"totalCreated", "I", nullptr, $PRIVATE, $field(LotsOfCancels$ClientThread, totalCreated)},
-	{}
-};
-
-$MethodInfo _LotsOfCancels$ClientThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocketAddress;)V", nullptr, 0, $method(LotsOfCancels$ClientThread, init$, void, $SocketAddress*), "java.lang.Exception"},
-	{"connectClients", "(I)V", nullptr, 0, $virtualMethod(LotsOfCancels$ClientThread, connectClients, void, int32_t), "java.lang.Exception"},
-	{"handleClients", "()V", nullptr, $PRIVATE, $method(LotsOfCancels$ClientThread, handleClients, void), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LotsOfCancels$ClientThread, run, void)},
-	{}
-};
-
-$InnerClassInfo _LotsOfCancels$ClientThread_InnerClassesInfo_[] = {
-	{"LotsOfCancels$ClientThread", "LotsOfCancels", "ClientThread", $STATIC},
-	{}
-};
-
-$ClassInfo _LotsOfCancels$ClientThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"LotsOfCancels$ClientThread",
-	"java.lang.Thread",
-	nullptr,
-	_LotsOfCancels$ClientThread_FieldInfo_,
-	_LotsOfCancels$ClientThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LotsOfCancels$ClientThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LotsOfCancels"
-};
-
-$Object* allocate$LotsOfCancels$ClientThread($Class* clazz) {
-	return $of($alloc(LotsOfCancels$ClientThread));
-}
 
 void LotsOfCancels$ClientThread::init$($SocketAddress* address) {
 	$Thread::init$();
@@ -89,7 +46,7 @@ void LotsOfCancels$ClientThread::run() {
 }
 
 void LotsOfCancels$ClientThread::handleClients() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t selectCount = 0;
 	while (true) {
 		int32_t createdCount = 0;
@@ -120,20 +77,20 @@ void LotsOfCancels$ClientThread::handleClients() {
 			$LotsOfCancels::log($$str({"Exited clientSelector.select(), loop #"_s, $$str(selectCount), ", duration = "_s, $$str(duration), "ms"_s}));
 		}
 		int32_t keyCount = -1;
-		$var($Iterator, keys, $nc($($nc(this->selector)->selectedKeys()))->iterator());
+		$var($Iterator, keys, $$nc($nc(this->selector)->selectedKeys())->iterator());
 		while ($nc(keys)->hasNext()) {
 			$var($SelectionKey, key, $cast($SelectionKey, keys->next()));
 			$synchronized(key) {
 				++keyCount;
 				keys->remove();
-				if (!$nc(key)->isValid()) {
+				if (!key->isValid()) {
 					$LotsOfCancels::log($$str({"Ignoring client key #"_s, $$str(keyCount)}));
 					continue;
 				}
-				int32_t readyOps = $nc(key)->readyOps();
+				int32_t readyOps = key->readyOps();
 				if (readyOps == $SelectionKey::OP_CONNECT) {
 					key->interestOps(0);
-					$nc(($cast($SocketChannel, $(key->channel()))))->finishConnect();
+					$$sure($SocketChannel, key->channel())->finishConnect();
 				} else {
 					$LotsOfCancels::log($$str({"readyOps() on client key #"_s, $$str(keyCount), " returned "_s, $$str(readyOps)}));
 				}
@@ -146,7 +103,42 @@ LotsOfCancels$ClientThread::LotsOfCancels$ClientThread() {
 }
 
 $Class* LotsOfCancels$ClientThread::load$($String* name, bool initialize) {
-	$loadClass(LotsOfCancels$ClientThread, name, initialize, &_LotsOfCancels$ClientThread_ClassInfo_, allocate$LotsOfCancels$ClientThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"address", "Ljava/net/SocketAddress;", nullptr, $PRIVATE | $FINAL, $field(LotsOfCancels$ClientThread, address)},
+		{"selector", "Ljava/nio/channels/Selector;", nullptr, $PRIVATE | $FINAL, $field(LotsOfCancels$ClientThread, selector)},
+		{"connectionsNeeded", "I", nullptr, $PRIVATE, $field(LotsOfCancels$ClientThread, connectionsNeeded)},
+		{"totalCreated", "I", nullptr, $PRIVATE, $field(LotsOfCancels$ClientThread, totalCreated)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/SocketAddress;)V", nullptr, 0, $method(LotsOfCancels$ClientThread, init$, void, $SocketAddress*), "java.lang.Exception"},
+		{"connectClients", "(I)V", nullptr, 0, $virtualMethod(LotsOfCancels$ClientThread, connectClients, void, int32_t), "java.lang.Exception"},
+		{"handleClients", "()V", nullptr, $PRIVATE, $method(LotsOfCancels$ClientThread, handleClients, void), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LotsOfCancels$ClientThread, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LotsOfCancels$ClientThread", "LotsOfCancels", "ClientThread", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LotsOfCancels$ClientThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LotsOfCancels"
+	};
+	$loadClass(LotsOfCancels$ClientThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LotsOfCancels$ClientThread);
+	});
 	return class$;
 }
 

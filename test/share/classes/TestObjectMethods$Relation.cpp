@@ -1,5 +1,4 @@
 #include <TestObjectMethods$Relation.h>
-
 #include <TestObjectMethods.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _TestObjectMethods$Relation_FieldInfo_[] = {
-	{"EQUAL", "LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TestObjectMethods$Relation, EQUAL)},
-	{"POSTFIX", "LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TestObjectMethods$Relation, POSTFIX)},
-	{"STRIPPED", "LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TestObjectMethods$Relation, STRIPPED)},
-	{"ARRAY", "LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TestObjectMethods$Relation, ARRAY)},
-	{"OTHER", "LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TestObjectMethods$Relation, OTHER)},
-	{"$VALUES", "[LTestObjectMethods$Relation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TestObjectMethods$Relation, $VALUES)},
-	{}
-};
-
-$MethodInfo _TestObjectMethods$Relation_MethodInfo_[] = {
-	{"$values", "()[LTestObjectMethods$Relation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestObjectMethods$Relation, $values, $TestObjectMethods$RelationArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TestObjectMethods$Relation, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestObjectMethods$Relation, valueOf, TestObjectMethods$Relation*, $String*)},
-	{"values", "()[LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestObjectMethods$Relation, values, $TestObjectMethods$RelationArray*)},
-	{}
-};
-
-$InnerClassInfo _TestObjectMethods$Relation_InnerClassesInfo_[] = {
-	{"TestObjectMethods$Relation", "TestObjectMethods", "Relation", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TestObjectMethods$Relation_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"TestObjectMethods$Relation",
-	"java.lang.Enum",
-	nullptr,
-	_TestObjectMethods$Relation_FieldInfo_,
-	_TestObjectMethods$Relation_MethodInfo_,
-	"Ljava/lang/Enum<LTestObjectMethods$Relation;>;",
-	nullptr,
-	_TestObjectMethods$Relation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestObjectMethods"
-};
-
-$Object* allocate$TestObjectMethods$Relation($Class* clazz) {
-	return $of($alloc(TestObjectMethods$Relation));
-}
 
 TestObjectMethods$Relation* TestObjectMethods$Relation::EQUAL = nullptr;
 TestObjectMethods$Relation* TestObjectMethods$Relation::POSTFIX = nullptr;
@@ -92,7 +48,7 @@ void TestObjectMethods$Relation::init$($String* $enum$name, int32_t $enum$ordina
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$TestObjectMethods$Relation($Class* class$) {
+void TestObjectMethods$Relation::clinit$($Class* clazz) {
 	$assignStatic(TestObjectMethods$Relation::EQUAL, $new(TestObjectMethods$Relation, "EQUAL"_s, 0));
 	$assignStatic(TestObjectMethods$Relation::POSTFIX, $new(TestObjectMethods$Relation, "POSTFIX"_s, 1));
 	$assignStatic(TestObjectMethods$Relation::STRIPPED, $new(TestObjectMethods$Relation, "STRIPPED"_s, 2));
@@ -105,7 +61,44 @@ TestObjectMethods$Relation::TestObjectMethods$Relation() {
 }
 
 $Class* TestObjectMethods$Relation::load$($String* name, bool initialize) {
-	$loadClass(TestObjectMethods$Relation, name, initialize, &_TestObjectMethods$Relation_ClassInfo_, clinit$TestObjectMethods$Relation, allocate$TestObjectMethods$Relation);
+	$FieldInfo fieldInfos$$[] = {
+		{"EQUAL", "LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TestObjectMethods$Relation, EQUAL)},
+		{"POSTFIX", "LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TestObjectMethods$Relation, POSTFIX)},
+		{"STRIPPED", "LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TestObjectMethods$Relation, STRIPPED)},
+		{"ARRAY", "LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TestObjectMethods$Relation, ARRAY)},
+		{"OTHER", "LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TestObjectMethods$Relation, OTHER)},
+		{"$VALUES", "[LTestObjectMethods$Relation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TestObjectMethods$Relation, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LTestObjectMethods$Relation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestObjectMethods$Relation, $values, $TestObjectMethods$RelationArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TestObjectMethods$Relation, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestObjectMethods$Relation, valueOf, TestObjectMethods$Relation*, $String*)},
+		{"values", "()[LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestObjectMethods$Relation, values, $TestObjectMethods$RelationArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestObjectMethods$Relation", "TestObjectMethods", "Relation", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"TestObjectMethods$Relation",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LTestObjectMethods$Relation;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestObjectMethods"
+	};
+	$loadClass(TestObjectMethods$Relation, name, initialize, &classInfo$$, TestObjectMethods$Relation::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestObjectMethods$Relation));
+	});
 	return class$;
 }
 

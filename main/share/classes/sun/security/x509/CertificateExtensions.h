@@ -50,6 +50,7 @@ class $export CertificateExtensions : public ::sun::security::x509::CertAttrSet 
 	$class(CertificateExtensions, 0, ::sun::security::x509::CertAttrSet)
 public:
 	CertificateExtensions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::security::util::DerInputStream* in);
 	virtual void delete$($String* name) override;

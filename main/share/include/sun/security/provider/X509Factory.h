@@ -61,6 +61,7 @@ class $import X509Factory : public ::java::security::cert::CertificateFactorySpi
 	$class(X509Factory, 0, ::java::security::cert::CertificateFactorySpi)
 public:
 	X509Factory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addToCache(::sun::security::util::Cache* cache, $bytes* encoding, Object$* value);
 	static void checkHeaderFooter($String* header, $String* footer);

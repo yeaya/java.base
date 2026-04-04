@@ -1,5 +1,4 @@
 #include <java/nio/file/ClosedFileSystemException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _ClosedFileSystemException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ClosedFileSystemException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ClosedFileSystemException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedFileSystemException, init$, void)},
-	{}
-};
-
-$ClassInfo _ClosedFileSystemException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.ClosedFileSystemException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_ClosedFileSystemException_FieldInfo_,
-	_ClosedFileSystemException_MethodInfo_
-};
-
-$Object* allocate$ClosedFileSystemException($Class* clazz) {
-	return $of($alloc(ClosedFileSystemException));
-}
 
 void ClosedFileSystemException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void ClosedFileSystemException::throw$() {
 }
 
 $Class* ClosedFileSystemException::load$($String* name, bool initialize) {
-	$loadClass(ClosedFileSystemException, name, initialize, &_ClosedFileSystemException_ClassInfo_, allocate$ClosedFileSystemException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ClosedFileSystemException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedFileSystemException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.ClosedFileSystemException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClosedFileSystemException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClosedFileSystemException);
+	});
 	return class$;
 }
 

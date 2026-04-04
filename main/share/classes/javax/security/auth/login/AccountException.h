@@ -16,10 +16,13 @@ public:
 	AccountException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xE2AD8C08F4CCB2B5;
+	static const int64_t serialVersionUID = (int64_t)0xe2ad8c08f4ccb2b5;
 	AccountException(const AccountException& e);
 	virtual void throw$() override;
-	inline AccountException* operator ->() {
+	inline AccountException* operator ->() const {
+		return (AccountException*)throwing$;
+	}
+	inline operator AccountException*() const {
 		return (AccountException*)throwing$;
 	}
 };

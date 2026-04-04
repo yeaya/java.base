@@ -1,5 +1,4 @@
 #include <java/nio/file/StandardCopyOption.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -16,41 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _StandardCopyOption_FieldInfo_[] = {
-	{"REPLACE_EXISTING", "Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardCopyOption, REPLACE_EXISTING)},
-	{"COPY_ATTRIBUTES", "Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardCopyOption, COPY_ATTRIBUTES)},
-	{"ATOMIC_MOVE", "Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardCopyOption, ATOMIC_MOVE)},
-	{"$VALUES", "[Ljava/nio/file/StandardCopyOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StandardCopyOption, $VALUES)},
-	{}
-};
-
-$MethodInfo _StandardCopyOption_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/StandardCopyOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardCopyOption, $values, $StandardCopyOptionArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardCopyOption, init$, void, $String*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardCopyOption, valueOf, StandardCopyOption*, $String*)},
-	{"values", "()[Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardCopyOption, values, $StandardCopyOptionArray*)},
-	{}
-};
-
-$ClassInfo _StandardCopyOption_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.nio.file.StandardCopyOption",
-	"java.lang.Enum",
-	"java.nio.file.CopyOption",
-	_StandardCopyOption_FieldInfo_,
-	_StandardCopyOption_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/nio/file/StandardCopyOption;>;Ljava/nio/file/CopyOption;"
-};
-
-$Object* allocate$StandardCopyOption($Class* clazz) {
-	return $of($alloc(StandardCopyOption));
-}
 
 $String* StandardCopyOption::toString() {
 	 return this->$Enum::toString();
@@ -100,7 +64,7 @@ void StandardCopyOption::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$StandardCopyOption($Class* class$) {
+void StandardCopyOption::clinit$($Class* clazz) {
 	$assignStatic(StandardCopyOption::REPLACE_EXISTING, $new(StandardCopyOption, "REPLACE_EXISTING"_s, 0));
 	$assignStatic(StandardCopyOption::COPY_ATTRIBUTES, $new(StandardCopyOption, "COPY_ATTRIBUTES"_s, 1));
 	$assignStatic(StandardCopyOption::ATOMIC_MOVE, $new(StandardCopyOption, "ATOMIC_MOVE"_s, 2));
@@ -111,7 +75,37 @@ StandardCopyOption::StandardCopyOption() {
 }
 
 $Class* StandardCopyOption::load$($String* name, bool initialize) {
-	$loadClass(StandardCopyOption, name, initialize, &_StandardCopyOption_ClassInfo_, clinit$StandardCopyOption, allocate$StandardCopyOption);
+	$FieldInfo fieldInfos$$[] = {
+		{"REPLACE_EXISTING", "Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardCopyOption, REPLACE_EXISTING)},
+		{"COPY_ATTRIBUTES", "Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardCopyOption, COPY_ATTRIBUTES)},
+		{"ATOMIC_MOVE", "Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardCopyOption, ATOMIC_MOVE)},
+		{"$VALUES", "[Ljava/nio/file/StandardCopyOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StandardCopyOption, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/nio/file/StandardCopyOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardCopyOption, $values, $StandardCopyOptionArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardCopyOption, init$, void, $String*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardCopyOption, valueOf, StandardCopyOption*, $String*)},
+		{"values", "()[Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardCopyOption, values, $StandardCopyOptionArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.nio.file.StandardCopyOption",
+		"java.lang.Enum",
+		"java.nio.file.CopyOption",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/nio/file/StandardCopyOption;>;Ljava/nio/file/CopyOption;"
+	};
+	$loadClass(StandardCopyOption, name, initialize, &classInfo$$, StandardCopyOption::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StandardCopyOption));
+	});
 	return class$;
 }
 

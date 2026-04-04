@@ -1,6 +1,4 @@
 #include <sun/nio/fs/WindowsPathParser.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/nio/file/InvalidPathException.h>
 #include <sun/nio/fs/WindowsPathParser$Result.h>
 #include <sun/nio/fs/WindowsPathType.h>
@@ -12,7 +10,6 @@
 #undef RELATIVE
 #undef UNC
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -24,49 +21,6 @@ using $WindowsPathType = ::sun::nio::fs::WindowsPathType;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _WindowsPathParser_FieldInfo_[] = {
-	{"reservedChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsPathParser, reservedChars)},
-	{}
-};
-
-$MethodInfo _WindowsPathParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsPathParser, init$, void)},
-	{"isInvalidPathChar", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, isInvalidPathChar, bool, char16_t)},
-	{"isLetter", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, isLetter, bool, char16_t)},
-	{"isSlash", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, isSlash, bool, char16_t)},
-	{"nextNonSlash", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, nextNonSlash, int32_t, $String*, int32_t, int32_t)},
-	{"nextSlash", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, nextSlash, int32_t, $String*, int32_t, int32_t)},
-	{"normalize", "(Ljava/lang/StringBuilder;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPathParser, normalize, $String*, $StringBuilder*, $String*, int32_t)},
-	{"parse", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $STATIC, $staticMethod(WindowsPathParser, parse, $WindowsPathParser$Result*, $String*)},
-	{"parse", "(Ljava/lang/String;Z)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPathParser, parse, $WindowsPathParser$Result*, $String*, bool)},
-	{"parseNormalizedPath", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $STATIC, $staticMethod(WindowsPathParser, parseNormalizedPath, $WindowsPathParser$Result*, $String*)},
-	{}
-};
-
-$InnerClassInfo _WindowsPathParser_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsPathParser$Result", "sun.nio.fs.WindowsPathParser", "Result", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsPathParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsPathParser",
-	"java.lang.Object",
-	nullptr,
-	_WindowsPathParser_FieldInfo_,
-	_WindowsPathParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsPathParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsPathParser$Result"
-};
-
-$Object* allocate$WindowsPathParser($Class* clazz) {
-	return $of($alloc(WindowsPathParser));
-}
 
 $String* WindowsPathParser::reservedChars = nullptr;
 
@@ -85,7 +39,7 @@ $WindowsPathParser$Result* WindowsPathParser::parseNormalizedPath($String* input
 
 $WindowsPathParser$Result* WindowsPathParser::parse($String* input, bool requireToNormalize) {
 	$init(WindowsPathParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, root, ""_s);
 	$WindowsPathType* type = nullptr;
 	int32_t len = $nc(input)->length();
@@ -93,7 +47,7 @@ $WindowsPathParser$Result* WindowsPathParser::parse($String* input, bool require
 	if (len > 1) {
 		char16_t c0 = input->charAt(0);
 		char16_t c1 = input->charAt(1);
-		char16_t c = (char16_t)0;
+		char16_t c = 0;
 		int32_t next = 2;
 		bool var$0 = isSlash(c0);
 		if (var$0 && isSlash(c1)) {
@@ -152,18 +106,18 @@ $WindowsPathParser$Result* WindowsPathParser::parse($String* input, bool require
 
 $String* WindowsPathParser::normalize($StringBuilder* sb, $String* path, int32_t off) {
 	$init(WindowsPathParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(path)->length();
 	off = nextNonSlash(path, off, len);
 	int32_t start = off;
-	char16_t lastC = (char16_t)0;
+	char16_t lastC = 0;
 	while (off < len) {
 		char16_t c = path->charAt(off);
 		if (isSlash(c)) {
 			if (lastC == u' ') {
 				$throwNew($InvalidPathException, path, $$str({"Trailing char <"_s, $$str(lastC), ">"_s}), off - 1);
 			}
-			$nc(sb)->append(static_cast<$CharSequence*>(path), start, off);
+			$nc(sb)->append(path, start, off);
 			off = nextNonSlash(path, off, len);
 			if (off != len) {
 				sb->append(u'\\');
@@ -181,7 +135,7 @@ $String* WindowsPathParser::normalize($StringBuilder* sb, $String* path, int32_t
 		if (lastC == u' ') {
 			$throwNew($InvalidPathException, path, $$str({"Trailing char <"_s, $$str(lastC), ">"_s}), off - 1);
 		}
-		$nc(sb)->append(static_cast<$CharSequence*>(path), start, off);
+		$nc(sb)->append(path, start, off);
 	}
 	return $nc(sb)->toString();
 }
@@ -201,7 +155,7 @@ int32_t WindowsPathParser::nextNonSlash($String* path, int32_t off, int32_t end)
 
 int32_t WindowsPathParser::nextSlash($String* path, int32_t off, int32_t end) {
 	$init(WindowsPathParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	char16_t c = 0;
 	while (off < end && !isSlash(c = $nc(path)->charAt(off))) {
 		if (isInvalidPathChar(c)) {
@@ -219,18 +173,55 @@ bool WindowsPathParser::isLetter(char16_t c) {
 
 bool WindowsPathParser::isInvalidPathChar(char16_t ch) {
 	$init(WindowsPathParser);
-	return ch < u' ' || $nc(WindowsPathParser::reservedChars)->indexOf((int32_t)ch) != -1;
+	return ch < u' ' || WindowsPathParser::reservedChars->indexOf(ch) != -1;
 }
 
 WindowsPathParser::WindowsPathParser() {
 }
 
-void clinit$WindowsPathParser($Class* class$) {
+void WindowsPathParser::clinit$($Class* clazz) {
 	$assignStatic(WindowsPathParser::reservedChars, "<>:\"|?*"_s);
 }
 
 $Class* WindowsPathParser::load$($String* name, bool initialize) {
-	$loadClass(WindowsPathParser, name, initialize, &_WindowsPathParser_ClassInfo_, clinit$WindowsPathParser, allocate$WindowsPathParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"reservedChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsPathParser, reservedChars)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsPathParser, init$, void)},
+		{"isInvalidPathChar", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, isInvalidPathChar, bool, char16_t)},
+		{"isLetter", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, isLetter, bool, char16_t)},
+		{"isSlash", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, isSlash, bool, char16_t)},
+		{"nextNonSlash", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, nextNonSlash, int32_t, $String*, int32_t, int32_t)},
+		{"nextSlash", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, nextSlash, int32_t, $String*, int32_t, int32_t)},
+		{"normalize", "(Ljava/lang/StringBuilder;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPathParser, normalize, $String*, $StringBuilder*, $String*, int32_t)},
+		{"parse", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $STATIC, $staticMethod(WindowsPathParser, parse, $WindowsPathParser$Result*, $String*)},
+		{"parse", "(Ljava/lang/String;Z)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPathParser, parse, $WindowsPathParser$Result*, $String*, bool)},
+		{"parseNormalizedPath", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $STATIC, $staticMethod(WindowsPathParser, parseNormalizedPath, $WindowsPathParser$Result*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsPathParser$Result", "sun.nio.fs.WindowsPathParser", "Result", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsPathParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsPathParser$Result"
+	};
+	$loadClass(WindowsPathParser, name, initialize, &classInfo$$, WindowsPathParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsPathParser);
+	});
 	return class$;
 }
 

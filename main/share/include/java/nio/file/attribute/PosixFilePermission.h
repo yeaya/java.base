@@ -35,6 +35,7 @@ class $import PosixFilePermission : public ::java::lang::Enum {
 public:
 	PosixFilePermission();
 	static $Array<::java::nio::file::attribute::PosixFilePermission>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::nio::file::attribute::PosixFilePermission* valueOf($String* name);
 	static $Array<::java::nio::file::attribute::PosixFilePermission>* values();

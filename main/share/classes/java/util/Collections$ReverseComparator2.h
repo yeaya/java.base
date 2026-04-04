@@ -16,6 +16,7 @@ public:
 	Collections$ReverseComparator2();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Comparator* cmp);
 	virtual int32_t compare(Object$* t1, Object$* t2) override;
 	virtual bool equals(Object$* o) override;
@@ -23,7 +24,7 @@ public:
 	virtual ::java::util::Comparator* reversed() override;
 	virtual $String* toString() override;
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0x000003FA6C354D51;
+	static const int64_t serialVersionUID = (int64_t)0x000003fa6c354d51;
 	::java::util::Comparator* cmp = nullptr;
 };
 

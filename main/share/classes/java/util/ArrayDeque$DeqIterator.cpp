@@ -1,5 +1,4 @@
 #include <java/util/ArrayDeque$DeqIterator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/ConcurrentModificationException.h>
@@ -22,49 +21,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 
-$FieldInfo _ArrayDeque$DeqIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/ArrayDeque;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayDeque$DeqIterator, this$0)},
-	{"cursor", "I", nullptr, 0, $field(ArrayDeque$DeqIterator, cursor)},
-	{"remaining", "I", nullptr, 0, $field(ArrayDeque$DeqIterator, remaining)},
-	{"lastRet", "I", nullptr, 0, $field(ArrayDeque$DeqIterator, lastRet)},
-	{}
-};
-
-$MethodInfo _ArrayDeque$DeqIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayDeque;)V", nullptr, 0, $method(ArrayDeque$DeqIterator, init$, void, $ArrayDeque*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayDeque$DeqIterator, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArrayDeque$DeqIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayDeque$DeqIterator, next, $Object*)},
-	{"postDelete", "(Z)V", nullptr, 0, $virtualMethod(ArrayDeque$DeqIterator, postDelete, void, bool)},
-	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArrayDeque$DeqIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _ArrayDeque$DeqIterator_InnerClassesInfo_[] = {
-	{"java.util.ArrayDeque$DeqIterator", "java.util.ArrayDeque", "DeqIterator", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ArrayDeque$DeqIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ArrayDeque$DeqIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ArrayDeque$DeqIterator_FieldInfo_,
-	_ArrayDeque$DeqIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_ArrayDeque$DeqIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ArrayDeque"
-};
-
-$Object* allocate$ArrayDeque$DeqIterator($Class* clazz) {
-	return $of($alloc(ArrayDeque$DeqIterator));
-}
-
 void ArrayDeque$DeqIterator::init$($ArrayDeque* this$0) {
 	$set(this, this$0, this$0);
 	this->remaining = this->this$0->size();
@@ -77,7 +33,7 @@ bool ArrayDeque$DeqIterator::hasNext() {
 }
 
 $Object* ArrayDeque$DeqIterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->remaining <= 0) {
 		$throwNew($NoSuchElementException);
 	}
@@ -85,7 +41,7 @@ $Object* ArrayDeque$DeqIterator::next() {
 	$var($Object, e, $ArrayDeque::nonNullElementAt(es, this->cursor));
 	this->cursor = $ArrayDeque::inc(this->lastRet = this->cursor, $nc(es)->length);
 	--this->remaining;
-	return $of(e);
+	return e;
 }
 
 void ArrayDeque$DeqIterator::postDelete(bool leftShifted) {
@@ -103,7 +59,7 @@ void ArrayDeque$DeqIterator::remove() {
 }
 
 void ArrayDeque$DeqIterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	int32_t r = 0;
 	if ((r = this->remaining) <= 0) {
@@ -111,24 +67,19 @@ void ArrayDeque$DeqIterator::forEachRemaining($Consumer* action) {
 	}
 	this->remaining = 0;
 	$var($ObjectArray, es, this->this$0->elements);
-	if ($nc(es)->get(this->cursor) == nullptr || $ArrayDeque::sub(this->this$0->tail, this->cursor, $nc(es)->length) != r) {
+	if ($nc(es)->get(this->cursor) == nullptr || $ArrayDeque::sub(this->this$0->tail, this->cursor, es->length) != r) {
 		$throwNew($ConcurrentModificationException);
 	}
-	{
-		int32_t i = this->cursor;
-		int32_t end = this->this$0->tail;
-		int32_t to = (i <= end) ? end : $nc(es)->length;
-		for (;; i = 0, to = end) {
-			for (; i < to; ++i) {
-				action->accept($($ArrayDeque::elementAt(es, i)));
+	for (int32_t i = this->cursor, end = this->this$0->tail, to = (i <= end) ? end : es->length;; i = 0, to = end) {
+		for (; i < to; ++i) {
+			action->accept($($ArrayDeque::elementAt(es, i)));
+		}
+		if (to == end) {
+			if (end != this->this$0->tail) {
+				$throwNew($ConcurrentModificationException);
 			}
-			if (to == end) {
-				if (end != this->this$0->tail) {
-					$throwNew($ConcurrentModificationException);
-				}
-				this->lastRet = $ArrayDeque::dec(end, es->length);
-				break;
-			}
+			this->lastRet = $ArrayDeque::dec(end, es->length);
+			break;
 		}
 	}
 }
@@ -137,7 +88,44 @@ ArrayDeque$DeqIterator::ArrayDeque$DeqIterator() {
 }
 
 $Class* ArrayDeque$DeqIterator::load$($String* name, bool initialize) {
-	$loadClass(ArrayDeque$DeqIterator, name, initialize, &_ArrayDeque$DeqIterator_ClassInfo_, allocate$ArrayDeque$DeqIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/ArrayDeque;", nullptr, $FINAL | $SYNTHETIC, $field(ArrayDeque$DeqIterator, this$0)},
+		{"cursor", "I", nullptr, 0, $field(ArrayDeque$DeqIterator, cursor)},
+		{"remaining", "I", nullptr, 0, $field(ArrayDeque$DeqIterator, remaining)},
+		{"lastRet", "I", nullptr, 0, $field(ArrayDeque$DeqIterator, lastRet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ArrayDeque;)V", nullptr, 0, $method(ArrayDeque$DeqIterator, init$, void, $ArrayDeque*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayDeque$DeqIterator, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArrayDeque$DeqIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayDeque$DeqIterator, next, $Object*)},
+		{"postDelete", "(Z)V", nullptr, 0, $virtualMethod(ArrayDeque$DeqIterator, postDelete, void, bool)},
+		{"remove", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArrayDeque$DeqIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ArrayDeque$DeqIterator", "java.util.ArrayDeque", "DeqIterator", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ArrayDeque$DeqIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ArrayDeque"
+	};
+	$loadClass(ArrayDeque$DeqIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayDeque$DeqIterator);
+	});
 	return class$;
 }
 

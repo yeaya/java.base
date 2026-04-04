@@ -1,5 +1,4 @@
 #include <EnclosingConstructorTests$1.h>
-
 #include <EnclosingConstructorTests.h>
 #include <jcpp.h>
 
@@ -8,42 +7,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _EnclosingConstructorTests$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(EnclosingConstructorTests$1, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _EnclosingConstructorTests$1_EnclosingMethodInfo_ = {
-	"EnclosingConstructorTests",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _EnclosingConstructorTests$1_InnerClassesInfo_[] = {
-	{"EnclosingConstructorTests$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _EnclosingConstructorTests$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"EnclosingConstructorTests$1",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	nullptr,
-	_EnclosingConstructorTests$1_MethodInfo_,
-	nullptr,
-	&_EnclosingConstructorTests$1_EnclosingMethodInfo_,
-	_EnclosingConstructorTests$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"EnclosingConstructorTests"
-};
-
-$Object* allocate$EnclosingConstructorTests$1($Class* clazz) {
-	return $of($alloc(EnclosingConstructorTests$1));
-}
-
 void EnclosingConstructorTests$1::init$() {
 }
 
@@ -51,7 +14,37 @@ EnclosingConstructorTests$1::EnclosingConstructorTests$1() {
 }
 
 $Class* EnclosingConstructorTests$1::load$($String* name, bool initialize) {
-	$loadClass(EnclosingConstructorTests$1, name, initialize, &_EnclosingConstructorTests$1_ClassInfo_, allocate$EnclosingConstructorTests$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(EnclosingConstructorTests$1, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"EnclosingConstructorTests",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"EnclosingConstructorTests$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"EnclosingConstructorTests$1",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"EnclosingConstructorTests"
+	};
+	$loadClass(EnclosingConstructorTests$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnclosingConstructorTests$1);
+	});
 	return class$;
 }
 

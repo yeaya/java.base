@@ -34,6 +34,7 @@ class $export PipelineTest : public ::java::lang::Object {
 	$class(PipelineTest, 0, ::java::lang::Object)
 public:
 	PipelineTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void THROWS($Class* k, $Array<PipelineTest$Fun>* fs);
 	static ::java::util::List* asList($ObjectArray* args);

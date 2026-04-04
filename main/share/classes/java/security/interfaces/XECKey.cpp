@@ -1,5 +1,4 @@
 #include <java/security/interfaces/XECKey.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace security {
 		namespace interfaces {
 
-$MethodInfo _XECKey_MethodInfo_[] = {
-	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XECKey, getParams, $AlgorithmParameterSpec*)},
-	{}
-};
-
-$ClassInfo _XECKey_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.interfaces.XECKey",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XECKey_MethodInfo_
-};
-
-$Object* allocate$XECKey($Class* clazz) {
-	return $of($alloc(XECKey));
-}
-
 $Class* XECKey::load$($String* name, bool initialize) {
-	$loadClass(XECKey, name, initialize, &_XECKey_ClassInfo_, allocate$XECKey);
+	$MethodInfo methodInfos$$[] = {
+		{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XECKey, getParams, $AlgorithmParameterSpec*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.interfaces.XECKey",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XECKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XECKey);
+	});
 	return class$;
 }
 

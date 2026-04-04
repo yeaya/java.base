@@ -1,6 +1,4 @@
 #include <sun/security/ssl/X509KeyManagerImpl$EntryStatus.h>
-
-#include <java/lang/Enum.h>
 #include <java/security/cert/Certificate.h>
 #include <sun/security/ssl/X509KeyManagerImpl$CheckResult.h>
 #include <sun/security/ssl/X509KeyManagerImpl.h>
@@ -8,7 +6,6 @@
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -18,47 +15,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _X509KeyManagerImpl$EntryStatus_FieldInfo_[] = {
-	{"builderIndex", "I", nullptr, $FINAL, $field(X509KeyManagerImpl$EntryStatus, builderIndex)},
-	{"keyIndex", "I", nullptr, $FINAL, $field(X509KeyManagerImpl$EntryStatus, keyIndex)},
-	{"alias", "Ljava/lang/String;", nullptr, $FINAL, $field(X509KeyManagerImpl$EntryStatus, alias)},
-	{"checkResult", "Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", nullptr, $FINAL, $field(X509KeyManagerImpl$EntryStatus, checkResult)},
-	{}
-};
-
-$MethodInfo _X509KeyManagerImpl$EntryStatus_MethodInfo_[] = {
-	{"<init>", "(IILjava/lang/String;[Ljava/security/cert/Certificate;Lsun/security/ssl/X509KeyManagerImpl$CheckResult;)V", nullptr, 0, $method(X509KeyManagerImpl$EntryStatus, init$, void, int32_t, int32_t, $String*, $CertificateArray*, $X509KeyManagerImpl$CheckResult*)},
-	{"compareTo", "(Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;)I", nullptr, $PUBLIC, $virtualMethod(X509KeyManagerImpl$EntryStatus, compareTo, int32_t, X509KeyManagerImpl$EntryStatus*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(X509KeyManagerImpl$EntryStatus, compareTo, int32_t, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509KeyManagerImpl$EntryStatus, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _X509KeyManagerImpl$EntryStatus_InnerClassesInfo_[] = {
-	{"sun.security.ssl.X509KeyManagerImpl$EntryStatus", "sun.security.ssl.X509KeyManagerImpl", "EntryStatus", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _X509KeyManagerImpl$EntryStatus_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.X509KeyManagerImpl$EntryStatus",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_X509KeyManagerImpl$EntryStatus_FieldInfo_,
-	_X509KeyManagerImpl$EntryStatus_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;>;",
-	nullptr,
-	_X509KeyManagerImpl$EntryStatus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.X509KeyManagerImpl"
-};
-
-$Object* allocate$X509KeyManagerImpl$EntryStatus($Class* clazz) {
-	return $of($alloc(X509KeyManagerImpl$EntryStatus));
-}
-
 void X509KeyManagerImpl$EntryStatus::init$(int32_t builderIndex, int32_t keyIndex, $String* alias, $CertificateArray* chain, $X509KeyManagerImpl$CheckResult* checkResult) {
 	this->builderIndex = builderIndex;
 	this->keyIndex = keyIndex;
@@ -67,12 +23,12 @@ void X509KeyManagerImpl$EntryStatus::init$(int32_t builderIndex, int32_t keyInde
 }
 
 int32_t X509KeyManagerImpl$EntryStatus::compareTo(X509KeyManagerImpl$EntryStatus* other) {
-	int32_t result = this->checkResult->compareTo(static_cast<$Enum*>($nc(other)->checkResult));
-	return (result == 0) ? (this->keyIndex - $nc(other)->keyIndex) : result;
+	int32_t result = this->checkResult->compareTo($nc(other)->checkResult);
+	return (result == 0) ? (this->keyIndex - other->keyIndex) : result;
 }
 
 $String* X509KeyManagerImpl$EntryStatus::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $str({this->alias, " (verified: "_s, this->checkResult, ")"_s}));
 	if (this->builderIndex == 0) {
 		return s;
@@ -89,7 +45,42 @@ X509KeyManagerImpl$EntryStatus::X509KeyManagerImpl$EntryStatus() {
 }
 
 $Class* X509KeyManagerImpl$EntryStatus::load$($String* name, bool initialize) {
-	$loadClass(X509KeyManagerImpl$EntryStatus, name, initialize, &_X509KeyManagerImpl$EntryStatus_ClassInfo_, allocate$X509KeyManagerImpl$EntryStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"builderIndex", "I", nullptr, $FINAL, $field(X509KeyManagerImpl$EntryStatus, builderIndex)},
+		{"keyIndex", "I", nullptr, $FINAL, $field(X509KeyManagerImpl$EntryStatus, keyIndex)},
+		{"alias", "Ljava/lang/String;", nullptr, $FINAL, $field(X509KeyManagerImpl$EntryStatus, alias)},
+		{"checkResult", "Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", nullptr, $FINAL, $field(X509KeyManagerImpl$EntryStatus, checkResult)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/lang/String;[Ljava/security/cert/Certificate;Lsun/security/ssl/X509KeyManagerImpl$CheckResult;)V", nullptr, 0, $method(X509KeyManagerImpl$EntryStatus, init$, void, int32_t, int32_t, $String*, $CertificateArray*, $X509KeyManagerImpl$CheckResult*)},
+		{"compareTo", "(Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;)I", nullptr, $PUBLIC, $virtualMethod(X509KeyManagerImpl$EntryStatus, compareTo, int32_t, X509KeyManagerImpl$EntryStatus*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(X509KeyManagerImpl$EntryStatus, compareTo, int32_t, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509KeyManagerImpl$EntryStatus, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.X509KeyManagerImpl$EntryStatus", "sun.security.ssl.X509KeyManagerImpl", "EntryStatus", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.X509KeyManagerImpl$EntryStatus",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.X509KeyManagerImpl"
+	};
+	$loadClass(X509KeyManagerImpl$EntryStatus, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X509KeyManagerImpl$EntryStatus);
+	});
 	return class$;
 }
 

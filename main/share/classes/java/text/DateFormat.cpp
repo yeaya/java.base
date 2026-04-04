@@ -1,5 +1,4 @@
 #include <java/text/DateFormat.h>
-
 #include <java/lang/Number.h>
 #include <java/lang/StringBuffer.h>
 #include <java/text/DontCareFieldPosition.h>
@@ -70,113 +69,24 @@ using $LocaleServiceProviderPool = ::sun::util::locale::provider::LocaleServiceP
 namespace java {
 	namespace text {
 
-$FieldInfo _DateFormat_FieldInfo_[] = {
-	{"calendar", "Ljava/util/Calendar;", nullptr, $PROTECTED, $field(DateFormat, calendar)},
-	{"numberFormat", "Ljava/text/NumberFormat;", nullptr, $PROTECTED, $field(DateFormat, numberFormat)},
-	{"ERA_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, ERA_FIELD)},
-	{"YEAR_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, YEAR_FIELD)},
-	{"MONTH_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, MONTH_FIELD)},
-	{"DATE_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, DATE_FIELD)},
-	{"HOUR_OF_DAY1_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, HOUR_OF_DAY1_FIELD)},
-	{"HOUR_OF_DAY0_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, HOUR_OF_DAY0_FIELD)},
-	{"MINUTE_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, MINUTE_FIELD)},
-	{"SECOND_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, SECOND_FIELD)},
-	{"MILLISECOND_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, MILLISECOND_FIELD)},
-	{"DAY_OF_WEEK_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, DAY_OF_WEEK_FIELD)},
-	{"DAY_OF_YEAR_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, DAY_OF_YEAR_FIELD)},
-	{"DAY_OF_WEEK_IN_MONTH_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, DAY_OF_WEEK_IN_MONTH_FIELD)},
-	{"WEEK_OF_YEAR_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, WEEK_OF_YEAR_FIELD)},
-	{"WEEK_OF_MONTH_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, WEEK_OF_MONTH_FIELD)},
-	{"AM_PM_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, AM_PM_FIELD)},
-	{"HOUR1_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, HOUR1_FIELD)},
-	{"HOUR0_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, HOUR0_FIELD)},
-	{"TIMEZONE_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, TIMEZONE_FIELD)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateFormat, serialVersionUID)},
-	{"FULL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, FULL)},
-	{"LONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, LONG)},
-	{"MEDIUM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, MEDIUM)},
-	{"SHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, SHORT)},
-	{"DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, DEFAULT)},
-	{}
-};
-
-$MethodInfo _DateFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(DateFormat, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateFormat, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DateFormat, equals, bool, Object$*)},
-	{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DateFormat, format, $StringBuffer*, Object$*, $StringBuffer*, $FieldPosition*)},
-	{"format", "(Ljava/util/Date;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DateFormat, format, $StringBuffer*, $Date*, $StringBuffer*, $FieldPosition*)},
-	{"format", "(Ljava/util/Date;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(DateFormat, format, $String*, $Date*)},
-	{"get", "(IIILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PRIVATE | $STATIC, $staticMethod(DateFormat, get, DateFormat*, int32_t, int32_t, int32_t, $Locale*)},
-	{"get", "(Lsun/util/locale/provider/LocaleProviderAdapter;IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PRIVATE | $STATIC, $staticMethod(DateFormat, get, DateFormat*, $LocaleProviderAdapter*, int32_t, int32_t, $Locale*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateFormat, getAvailableLocales, $LocaleArray*)},
-	{"getCalendar", "()Ljava/util/Calendar;", nullptr, $PUBLIC, $virtualMethod(DateFormat, getCalendar, $Calendar*)},
-	{"getDateInstance", "()Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateInstance, DateFormat*)},
-	{"getDateInstance", "(I)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateInstance, DateFormat*, int32_t)},
-	{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateInstance, DateFormat*, int32_t, $Locale*)},
-	{"getDateTimeInstance", "()Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateTimeInstance, DateFormat*)},
-	{"getDateTimeInstance", "(II)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateTimeInstance, DateFormat*, int32_t, int32_t)},
-	{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateTimeInstance, DateFormat*, int32_t, int32_t, $Locale*)},
-	{"getInstance", "()Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getInstance, DateFormat*)},
-	{"getNumberFormat", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(DateFormat, getNumberFormat, $NumberFormat*)},
-	{"getTimeInstance", "()Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getTimeInstance, DateFormat*)},
-	{"getTimeInstance", "(I)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getTimeInstance, DateFormat*, int32_t)},
-	{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getTimeInstance, DateFormat*, int32_t, $Locale*)},
-	{"getTimeZone", "()Ljava/util/TimeZone;", nullptr, $PUBLIC, $virtualMethod(DateFormat, getTimeZone, $TimeZone*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DateFormat, hashCode, int32_t)},
-	{"isLenient", "()Z", nullptr, $PUBLIC, $virtualMethod(DateFormat, isLenient, bool)},
-	{"parse", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(DateFormat, parse, $Date*, $String*), "java.text.ParseException"},
-	{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DateFormat, parse, $Date*, $String*, $ParsePosition*)},
-	{"parseObject", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateFormat, parseObject, $Object*, $String*, $ParsePosition*)},
-	{"setCalendar", "(Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(DateFormat, setCalendar, void, $Calendar*)},
-	{"setLenient", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DateFormat, setLenient, void, bool)},
-	{"setNumberFormat", "(Ljava/text/NumberFormat;)V", nullptr, $PUBLIC, $virtualMethod(DateFormat, setNumberFormat, void, $NumberFormat*)},
-	{"setTimeZone", "(Ljava/util/TimeZone;)V", nullptr, $PUBLIC, $virtualMethod(DateFormat, setTimeZone, void, $TimeZone*)},
-	{}
-};
-
-$InnerClassInfo _DateFormat_InnerClassesInfo_[] = {
-	{"java.text.DateFormat$Field", "java.text.DateFormat", "Field", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DateFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.text.DateFormat",
-	"java.text.Format",
-	nullptr,
-	_DateFormat_FieldInfo_,
-	_DateFormat_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateFormat_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.text.DateFormat$Field"
-};
-
-$Object* allocate$DateFormat($Class* clazz) {
-	return $of($alloc(DateFormat));
-}
-
 $StringBuffer* DateFormat::format(Object$* obj, $StringBuffer* toAppendTo, $FieldPosition* fieldPosition) {
 	if ($instanceOf($Date, obj)) {
 		return format($cast($Date, obj), toAppendTo, fieldPosition);
 	} else if ($instanceOf($Number, obj)) {
-		return format($$new($Date, $nc(($cast($Number, obj)))->longValue()), toAppendTo, fieldPosition);
+		return format($$new($Date, $cast($Number, obj)->longValue()), toAppendTo, fieldPosition);
 	} else {
 		$throwNew($IllegalArgumentException, "Cannot format given Object as a Date"_s);
 	}
 }
 
 $String* DateFormat::format($Date* date) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DontCareFieldPosition);
-	return $nc($(format(date, $$new($StringBuffer), $DontCareFieldPosition::INSTANCE)))->toString();
+	return $$nc(format(date, $$new($StringBuffer), $DontCareFieldPosition::INSTANCE))->toString();
 }
 
 $Date* DateFormat::parse($String* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ParsePosition, pos, $new($ParsePosition, 0));
 	$var($Date, result, parse(source, pos));
 	if (pos->index == 0) {
@@ -289,13 +199,13 @@ int32_t DateFormat::hashCode() {
 }
 
 bool DateFormat::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
 	bool var$0 = obj == nullptr;
 	if (!var$0) {
-		var$0 = $of(this)->getClass() != $nc($of(obj))->getClass();
+		var$0 = $of(this)->getClass() != $of(obj)->getClass();
 	}
 	if (var$0) {
 		return false;
@@ -304,16 +214,16 @@ bool DateFormat::equals(Object$* obj) {
 	int32_t var$5 = $nc(this->calendar)->getFirstDayOfWeek();
 	bool var$4 = var$5 == $nc($nc(other)->calendar)->getFirstDayOfWeek();
 	if (var$4) {
-		int32_t var$6 = $nc(this->calendar)->getMinimalDaysInFirstWeek();
-		var$4 = var$6 == $nc(other->calendar)->getMinimalDaysInFirstWeek();
+		int32_t var$6 = this->calendar->getMinimalDaysInFirstWeek();
+		var$4 = var$6 == other->calendar->getMinimalDaysInFirstWeek();
 	}
 	bool var$3 = var$4;
 	if (var$3) {
-		bool var$7 = $nc(this->calendar)->isLenient();
-		var$3 = var$7 == $nc(other->calendar)->isLenient();
+		bool var$7 = this->calendar->isLenient();
+		var$3 = var$7 == other->calendar->isLenient();
 	}
 	bool var$2 = var$3;
-	bool var$1 = var$2 && $nc($of($($nc(this->calendar)->getTimeZone())))->equals($($nc(other->calendar)->getTimeZone()));
+	bool var$1 = var$2 && $$nc(this->calendar->getTimeZone())->equals($(other->calendar->getTimeZone()));
 	return (var$1 && $nc(this->numberFormat)->equals(other->numberFormat));
 }
 
@@ -326,15 +236,15 @@ $Object* DateFormat::clone() {
 
 DateFormat* DateFormat::get(int32_t timeStyle, int32_t dateStyle, int32_t flags, $Locale* loc) {
 	$init(DateFormat);
-	$useLocalCurrentObjectStackCache();
-	if (((int32_t)(flags & (uint32_t)1)) != 0) {
+	$useLocalObjectStack();
+	if ((flags & 1) != 0) {
 		if (timeStyle < 0 || timeStyle > 3) {
 			$throwNew($IllegalArgumentException, $$str({"Illegal time style "_s, $$str(timeStyle)}));
 		}
 	} else {
 		timeStyle = -1;
 	}
-	if (((int32_t)(flags & (uint32_t)2)) != 0) {
+	if ((flags & 2) != 0) {
 		if (dateStyle < 0 || dateStyle > 3) {
 			$throwNew($IllegalArgumentException, $$str({"Illegal date style "_s, $$str(dateStyle)}));
 		}
@@ -352,7 +262,7 @@ DateFormat* DateFormat::get(int32_t timeStyle, int32_t dateStyle, int32_t flags,
 
 DateFormat* DateFormat::get($LocaleProviderAdapter* adapter, int32_t timeStyle, int32_t dateStyle, $Locale* loc) {
 	$init(DateFormat);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DateFormatProvider, provider, $nc(adapter)->getDateFormatProvider());
 	$var(DateFormat, dateFormat, nullptr);
 	if (timeStyle == -1) {
@@ -373,7 +283,90 @@ DateFormat::DateFormat() {
 }
 
 $Class* DateFormat::load$($String* name, bool initialize) {
-	$loadClass(DateFormat, name, initialize, &_DateFormat_ClassInfo_, allocate$DateFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"calendar", "Ljava/util/Calendar;", nullptr, $PROTECTED, $field(DateFormat, calendar)},
+		{"numberFormat", "Ljava/text/NumberFormat;", nullptr, $PROTECTED, $field(DateFormat, numberFormat)},
+		{"ERA_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, ERA_FIELD)},
+		{"YEAR_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, YEAR_FIELD)},
+		{"MONTH_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, MONTH_FIELD)},
+		{"DATE_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, DATE_FIELD)},
+		{"HOUR_OF_DAY1_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, HOUR_OF_DAY1_FIELD)},
+		{"HOUR_OF_DAY0_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, HOUR_OF_DAY0_FIELD)},
+		{"MINUTE_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, MINUTE_FIELD)},
+		{"SECOND_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, SECOND_FIELD)},
+		{"MILLISECOND_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, MILLISECOND_FIELD)},
+		{"DAY_OF_WEEK_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, DAY_OF_WEEK_FIELD)},
+		{"DAY_OF_YEAR_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, DAY_OF_YEAR_FIELD)},
+		{"DAY_OF_WEEK_IN_MONTH_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, DAY_OF_WEEK_IN_MONTH_FIELD)},
+		{"WEEK_OF_YEAR_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, WEEK_OF_YEAR_FIELD)},
+		{"WEEK_OF_MONTH_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, WEEK_OF_MONTH_FIELD)},
+		{"AM_PM_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, AM_PM_FIELD)},
+		{"HOUR1_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, HOUR1_FIELD)},
+		{"HOUR0_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, HOUR0_FIELD)},
+		{"TIMEZONE_FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, TIMEZONE_FIELD)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateFormat, serialVersionUID)},
+		{"FULL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, FULL)},
+		{"LONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, LONG)},
+		{"MEDIUM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, MEDIUM)},
+		{"SHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, SHORT)},
+		{"DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DateFormat, DEFAULT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(DateFormat, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateFormat, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DateFormat, equals, bool, Object$*)},
+		{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DateFormat, format, $StringBuffer*, Object$*, $StringBuffer*, $FieldPosition*)},
+		{"format", "(Ljava/util/Date;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DateFormat, format, $StringBuffer*, $Date*, $StringBuffer*, $FieldPosition*)},
+		{"format", "(Ljava/util/Date;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(DateFormat, format, $String*, $Date*)},
+		{"get", "(IIILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PRIVATE | $STATIC, $staticMethod(DateFormat, get, DateFormat*, int32_t, int32_t, int32_t, $Locale*)},
+		{"get", "(Lsun/util/locale/provider/LocaleProviderAdapter;IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PRIVATE | $STATIC, $staticMethod(DateFormat, get, DateFormat*, $LocaleProviderAdapter*, int32_t, int32_t, $Locale*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateFormat, getAvailableLocales, $LocaleArray*)},
+		{"getCalendar", "()Ljava/util/Calendar;", nullptr, $PUBLIC, $virtualMethod(DateFormat, getCalendar, $Calendar*)},
+		{"getDateInstance", "()Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateInstance, DateFormat*)},
+		{"getDateInstance", "(I)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateInstance, DateFormat*, int32_t)},
+		{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateInstance, DateFormat*, int32_t, $Locale*)},
+		{"getDateTimeInstance", "()Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateTimeInstance, DateFormat*)},
+		{"getDateTimeInstance", "(II)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateTimeInstance, DateFormat*, int32_t, int32_t)},
+		{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getDateTimeInstance, DateFormat*, int32_t, int32_t, $Locale*)},
+		{"getInstance", "()Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getInstance, DateFormat*)},
+		{"getNumberFormat", "()Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(DateFormat, getNumberFormat, $NumberFormat*)},
+		{"getTimeInstance", "()Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getTimeInstance, DateFormat*)},
+		{"getTimeInstance", "(I)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getTimeInstance, DateFormat*, int32_t)},
+		{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DateFormat, getTimeInstance, DateFormat*, int32_t, $Locale*)},
+		{"getTimeZone", "()Ljava/util/TimeZone;", nullptr, $PUBLIC, $virtualMethod(DateFormat, getTimeZone, $TimeZone*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DateFormat, hashCode, int32_t)},
+		{"isLenient", "()Z", nullptr, $PUBLIC, $virtualMethod(DateFormat, isLenient, bool)},
+		{"parse", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(DateFormat, parse, $Date*, $String*), "java.text.ParseException"},
+		{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DateFormat, parse, $Date*, $String*, $ParsePosition*)},
+		{"parseObject", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateFormat, parseObject, $Object*, $String*, $ParsePosition*)},
+		{"setCalendar", "(Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(DateFormat, setCalendar, void, $Calendar*)},
+		{"setLenient", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DateFormat, setLenient, void, bool)},
+		{"setNumberFormat", "(Ljava/text/NumberFormat;)V", nullptr, $PUBLIC, $virtualMethod(DateFormat, setNumberFormat, void, $NumberFormat*)},
+		{"setTimeZone", "(Ljava/util/TimeZone;)V", nullptr, $PUBLIC, $virtualMethod(DateFormat, setTimeZone, void, $TimeZone*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.DateFormat$Field", "java.text.DateFormat", "Field", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.text.DateFormat",
+		"java.text.Format",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.text.DateFormat$Field"
+	};
+	$loadClass(DateFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DateFormat));
+	});
 	return class$;
 }
 

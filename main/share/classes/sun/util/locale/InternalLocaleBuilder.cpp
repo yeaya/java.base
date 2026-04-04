@@ -1,5 +1,4 @@
 #include <sun/util/locale/InternalLocaleBuilder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
@@ -37,7 +36,6 @@ using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $BaseLocale = ::sun::util::locale::BaseLocale;
 using $Extension = ::sun::util::locale::Extension;
@@ -53,68 +51,6 @@ using $UnicodeLocaleExtension = ::sun::util::locale::UnicodeLocaleExtension;
 namespace sun {
 	namespace util {
 		namespace locale {
-
-$FieldInfo _InternalLocaleBuilder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(InternalLocaleBuilder, $assertionsDisabled)},
-	{"PRIVATEUSE_KEY", "Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveChar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InternalLocaleBuilder, PRIVATEUSE_KEY)},
-	{"language", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InternalLocaleBuilder, language)},
-	{"script", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InternalLocaleBuilder, script)},
-	{"region", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InternalLocaleBuilder, region)},
-	{"variant", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InternalLocaleBuilder, variant)},
-	{"extensions", "Ljava/util/Map;", "Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveChar;Ljava/lang/String;>;", $PRIVATE, $field(InternalLocaleBuilder, extensions)},
-	{"uattributes", "Ljava/util/Set;", "Ljava/util/Set<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;>;", $PRIVATE, $field(InternalLocaleBuilder, uattributes)},
-	{"ukeywords", "Ljava/util/Map;", "Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;Ljava/lang/String;>;", $PRIVATE, $field(InternalLocaleBuilder, ukeywords)},
-	{}
-};
-
-$MethodInfo _InternalLocaleBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InternalLocaleBuilder, init$, void)},
-	{"addUnicodeLocaleAttribute", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, addUnicodeLocaleAttribute, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
-	{"checkVariants", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(InternalLocaleBuilder, checkVariants, int32_t, $String*, $String*)},
-	{"clear", "()Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, clear, InternalLocaleBuilder*)},
-	{"clearExtensions", "()Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, clearExtensions, InternalLocaleBuilder*)},
-	{"getBaseLocale", "()Lsun/util/locale/BaseLocale;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, getBaseLocale, $BaseLocale*)},
-	{"getLocaleExtensions", "()Lsun/util/locale/LocaleExtensions;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, getLocaleExtensions, $LocaleExtensions*)},
-	{"removePrivateuseVariant", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(InternalLocaleBuilder, removePrivateuseVariant, $String*, $String*)},
-	{"removeUnicodeLocaleAttribute", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, removeUnicodeLocaleAttribute, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
-	{"setExtension", "(CLjava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setExtension, InternalLocaleBuilder*, char16_t, $String*), "sun.util.locale.LocaleSyntaxException"},
-	{"setExtensions", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setExtensions, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
-	{"setExtensions", "(Ljava/util/List;Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", $PRIVATE, $method(InternalLocaleBuilder, setExtensions, InternalLocaleBuilder*, $List*, $String*)},
-	{"setLanguage", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setLanguage, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
-	{"setLanguageTag", "(Lsun/util/locale/LanguageTag;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setLanguageTag, InternalLocaleBuilder*, $LanguageTag*)},
-	{"setLocale", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setLocale, InternalLocaleBuilder*, $BaseLocale*, $LocaleExtensions*), "sun.util.locale.LocaleSyntaxException"},
-	{"setRegion", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setRegion, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
-	{"setScript", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setScript, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
-	{"setUnicodeLocaleExtension", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(InternalLocaleBuilder, setUnicodeLocaleExtension, void, $String*)},
-	{"setUnicodeLocaleKeyword", "(Ljava/lang/String;Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setUnicodeLocaleKeyword, InternalLocaleBuilder*, $String*, $String*), "sun.util.locale.LocaleSyntaxException"},
-	{"setVariant", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setVariant, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
-	{}
-};
-
-$InnerClassInfo _InternalLocaleBuilder_InnerClassesInfo_[] = {
-	{"sun.util.locale.InternalLocaleBuilder$CaseInsensitiveChar", "sun.util.locale.InternalLocaleBuilder", "CaseInsensitiveChar", $STATIC | $FINAL},
-	{"sun.util.locale.InternalLocaleBuilder$CaseInsensitiveString", "sun.util.locale.InternalLocaleBuilder", "CaseInsensitiveString", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _InternalLocaleBuilder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.locale.InternalLocaleBuilder",
-	"java.lang.Object",
-	nullptr,
-	_InternalLocaleBuilder_FieldInfo_,
-	_InternalLocaleBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InternalLocaleBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.locale.InternalLocaleBuilder$CaseInsensitiveChar,sun.util.locale.InternalLocaleBuilder$CaseInsensitiveString"
-};
-
-$Object* allocate$InternalLocaleBuilder($Class* clazz) {
-	return $of($alloc(InternalLocaleBuilder));
-}
 
 bool InternalLocaleBuilder::$assertionsDisabled = false;
 $InternalLocaleBuilder$CaseInsensitiveChar* InternalLocaleBuilder::PRIVATEUSE_KEY = nullptr;
@@ -163,7 +99,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setRegion($String* region) {
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setVariant($String* variant) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LocaleUtils::isEmpty(variant)) {
 		$set(this, variant, ""_s);
 	} else {
@@ -180,7 +116,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setVariant($String* variant) {
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::addUnicodeLocaleAttribute($String* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$UnicodeLocaleExtension::isAttribute(attribute)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed Unicode locale attribute: "_s, attribute}));
 	}
@@ -192,28 +128,28 @@ InternalLocaleBuilder* InternalLocaleBuilder::addUnicodeLocaleAttribute($String*
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::removeUnicodeLocaleAttribute($String* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attribute == nullptr || !$UnicodeLocaleExtension::isAttribute(attribute)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed Unicode locale attribute: "_s, attribute}));
 	}
 	if (this->uattributes != nullptr) {
-		$nc(this->uattributes)->remove($$new($InternalLocaleBuilder$CaseInsensitiveString, attribute));
+		this->uattributes->remove($$new($InternalLocaleBuilder$CaseInsensitiveString, attribute));
 	}
 	return this;
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setUnicodeLocaleKeyword($String* key, $String* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$UnicodeLocaleExtension::isKey(key)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed Unicode locale keyword key: "_s, key}));
 	}
 	$var($InternalLocaleBuilder$CaseInsensitiveString, cikey, $new($InternalLocaleBuilder$CaseInsensitiveString, key));
 	if (type == nullptr) {
 		if (this->ukeywords != nullptr) {
-			$nc(this->ukeywords)->remove(cikey);
+			this->ukeywords->remove(cikey);
 		}
 	} else {
-		if ($nc(type)->length() != 0) {
+		if (type->length() != 0) {
 			$init($BaseLocale);
 			$init($LanguageTag);
 			$var($String, tp, type->replaceAll($BaseLocale::SEP, $LanguageTag::SEP));
@@ -235,7 +171,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setUnicodeLocaleKeyword($String* k
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setExtension(char16_t singleton, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isBcpPrivateuse = $LanguageTag::isPrivateusePrefixChar(singleton);
 	if (!isBcpPrivateuse && !$LanguageTag::isExtensionSingletonChar(singleton)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed extension key: "_s, $$str(singleton)}));
@@ -245,13 +181,13 @@ InternalLocaleBuilder* InternalLocaleBuilder::setExtension(char16_t singleton, $
 	if (remove) {
 		if ($UnicodeLocaleExtension::isSingletonChar(key->value())) {
 			if (this->uattributes != nullptr) {
-				$nc(this->uattributes)->clear();
+				this->uattributes->clear();
 			}
 			if (this->ukeywords != nullptr) {
-				$nc(this->ukeywords)->clear();
+				this->ukeywords->clear();
 			}
-		} else if (this->extensions != nullptr && $nc(this->extensions)->containsKey(key)) {
-			$nc(this->extensions)->remove(key);
+		} else if (this->extensions != nullptr && this->extensions->containsKey(key)) {
+			this->extensions->remove(key);
 		}
 	} else {
 		$init($BaseLocale);
@@ -283,7 +219,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setExtension(char16_t singleton, $
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setExtensions($String* subtags$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, subtags, subtags$renamed);
 	if ($LocaleUtils::isEmpty(subtags)) {
 		clearExtensions();
@@ -355,12 +291,12 @@ InternalLocaleBuilder* InternalLocaleBuilder::setExtensions($String* subtags$ren
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setExtensions($List* bcpExtensions, $String* privateuse) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	clearExtensions();
 	if (!$LocaleUtils::isEmpty(bcpExtensions)) {
 		$var($Set, done, $new($HashSet, $nc(bcpExtensions)->size()));
 		{
-			$var($Iterator, i$, $nc(bcpExtensions)->iterator());
+			$var($Iterator, i$, bcpExtensions->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, bcpExt, $cast($String, i$->next()));
 				{
@@ -384,32 +320,32 @@ InternalLocaleBuilder* InternalLocaleBuilder::setExtensions($List* bcpExtensions
 		if (this->extensions == nullptr) {
 			$set(this, extensions, $new($HashMap, 1));
 		}
-		$var($Object, var$0, $of($new($InternalLocaleBuilder$CaseInsensitiveChar, privateuse)));
+		$var($Object, var$0, $new($InternalLocaleBuilder$CaseInsensitiveChar, privateuse));
 		$nc(this->extensions)->put(var$0, $(privateuse->substring(2)));
 	}
 	return this;
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setLanguageTag($LanguageTag* langtag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	clear();
-	if (!$nc($($nc(langtag)->getExtlangs()))->isEmpty()) {
-		$set(this, language, $cast($String, $nc($(langtag->getExtlangs()))->get(0)));
+	if (!$$nc($nc(langtag)->getExtlangs())->isEmpty()) {
+		$set(this, language, $cast($String, $$nc(langtag->getExtlangs())->get(0)));
 	} else {
 		$var($String, lang, langtag->getLanguage());
 		if (!$nc(lang)->equals($LanguageTag::UNDETERMINED)) {
 			$set(this, language, lang);
 		}
 	}
-	$set(this, script, $nc(langtag)->getScript());
+	$set(this, script, langtag->getScript());
 	$set(this, region, langtag->getRegion());
 	$var($List, bcpVariants, langtag->getVariants());
 	if (!$nc(bcpVariants)->isEmpty()) {
-		$var($StringBuilder, var, $new($StringBuilder, $cast($String, $(bcpVariants->get(0)))));
+		$var($StringBuilder, var, $new($StringBuilder, $$cast($String, bcpVariants->get(0))));
 		int32_t size = bcpVariants->size();
 		for (int32_t i = 1; i < size; ++i) {
 			$init($BaseLocale);
-			var->append($BaseLocale::SEP)->append($cast($String, $(bcpVariants->get(i))));
+			var->append($BaseLocale::SEP)->append($$cast($String, bcpVariants->get(i)));
 		}
 		$set(this, variant, var->toString());
 	}
@@ -419,7 +355,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setLanguageTag($LanguageTag* langt
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setLocale($BaseLocale* base, $LocaleExtensions* localeExtensions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, language, $nc(base)->getLanguage());
 	$var($String, script, base->getScript());
 	$var($String, region, base->getRegion());
@@ -432,32 +368,32 @@ InternalLocaleBuilder* InternalLocaleBuilder::setLocale($BaseLocale* base, $Loca
 		}
 		$assign(variant, ""_s);
 	} else {
-		bool var$5 = language->equals("th"_s);
-		bool var$4 = var$5 && region->equals("TH"_s);
-		if (var$4 && variant->equals("TH"_s)) {
+		bool var$3 = language->equals("th"_s);
+		bool var$2 = var$3 && $nc(region)->equals("TH"_s);
+		if (var$2 && $nc(variant)->equals("TH"_s)) {
 			if (!InternalLocaleBuilder::$assertionsDisabled && !("thai"_s->equals($($nc(localeExtensions)->getUnicodeLocaleType("nu"_s))))) {
 				$throwNew($AssertionError);
 			}
 			$assign(variant, ""_s);
 		} else {
-			bool var$9 = language->equals("no"_s);
-			bool var$8 = var$9 && region->equals("NO"_s);
-			if (var$8 && variant->equals("NY"_s)) {
+			bool var$5 = language->equals("no"_s);
+			bool var$4 = var$5 && $nc(region)->equals("NO"_s);
+			if (var$4 && $nc(variant)->equals("NY"_s)) {
 				$assign(language, "nn"_s);
 				$assign(variant, ""_s);
 			}
 		}
 	}
-	bool var$10 = !$nc(language)->isEmpty();
-	if (var$10 && !$LanguageTag::isLanguage(language)) {
+	bool var$6 = !language->isEmpty();
+	if (var$6 && !$LanguageTag::isLanguage(language)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed language: "_s, language}));
 	}
-	bool var$11 = !$nc(script)->isEmpty();
-	if (var$11 && !$LanguageTag::isScript(script)) {
+	bool var$7 = !$nc(script)->isEmpty();
+	if (var$7 && !$LanguageTag::isScript(script)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed script: "_s, script}));
 	}
-	bool var$12 = !$nc(region)->isEmpty();
-	if (var$12 && !$LanguageTag::isRegion(region)) {
+	bool var$8 = !$nc(region)->isEmpty();
+	if (var$8 && !$LanguageTag::isRegion(region)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed region: "_s, region}));
 	}
 	if (!$nc(variant)->isEmpty()) {
@@ -471,48 +407,46 @@ InternalLocaleBuilder* InternalLocaleBuilder::setLocale($BaseLocale* base, $Loca
 	$set(this, region, region);
 	$set(this, variant, variant);
 	clearExtensions();
-	$var($Set, extKeys, (localeExtensions == nullptr) ? ($Set*)nullptr : $nc(localeExtensions)->getKeys());
+	$var($Set, extKeys, (localeExtensions == nullptr) ? ($Set*)nullptr : localeExtensions->getKeys());
 	if (extKeys != nullptr) {
-		{
-			$var($Iterator, i$, extKeys->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Character, key, $cast($Character, i$->next()));
-				{
-					$var($Extension, e, localeExtensions->getExtension(key));
-					if ($instanceOf($UnicodeLocaleExtension, e)) {
-						$var($UnicodeLocaleExtension, ue, $cast($UnicodeLocaleExtension, e));
-						{
-							$var($Iterator, i$, $nc($($nc(ue)->getUnicodeLocaleAttributes()))->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($String, uatr, $cast($String, i$->next()));
-								{
-									if (this->uattributes == nullptr) {
-										$set(this, uattributes, $new($HashSet, 4));
-									}
-									$nc(this->uattributes)->add($$new($InternalLocaleBuilder$CaseInsensitiveString, uatr));
+		$var($Iterator, i$, extKeys->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Character, key, $cast($Character, i$->next()));
+			{
+				$var($Extension, e, $nc(localeExtensions)->getExtension(key));
+				if ($instanceOf($UnicodeLocaleExtension, e)) {
+					$var($UnicodeLocaleExtension, ue, $cast($UnicodeLocaleExtension, e));
+					{
+						$var($Iterator, i$, $$nc(ue->getUnicodeLocaleAttributes())->iterator());
+						for (; $nc(i$)->hasNext();) {
+							$var($String, uatr, $cast($String, i$->next()));
+							{
+								if (this->uattributes == nullptr) {
+									$set(this, uattributes, $new($HashSet, 4));
 								}
+								$nc(this->uattributes)->add($$new($InternalLocaleBuilder$CaseInsensitiveString, uatr));
 							}
 						}
-						{
-							$var($Iterator, i$, $nc($(ue->getUnicodeLocaleKeys()))->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($String, ukey, $cast($String, i$->next()));
-								{
-									if (this->ukeywords == nullptr) {
-										$set(this, ukeywords, $new($HashMap, 4));
-									}
-									$var($Object, var$13, $of($new($InternalLocaleBuilder$CaseInsensitiveString, ukey)));
-									$nc(this->ukeywords)->put(var$13, $(ue->getUnicodeLocaleType(ukey)));
-								}
-							}
-						}
-					} else {
-						if (this->extensions == nullptr) {
-							$set(this, extensions, $new($HashMap, 4));
-						}
-						$var($Object, var$14, $of($new($InternalLocaleBuilder$CaseInsensitiveChar, $nc(key)->charValue())));
-						$nc(this->extensions)->put(var$14, $($nc(e)->getValue()));
 					}
+					{
+						$var($Iterator, i$, $$nc(ue->getUnicodeLocaleKeys())->iterator());
+						for (; $nc(i$)->hasNext();) {
+							$var($String, ukey, $cast($String, i$->next()));
+							{
+								if (this->ukeywords == nullptr) {
+									$set(this, ukeywords, $new($HashMap, 4));
+								}
+								$var($Object, var$9, $new($InternalLocaleBuilder$CaseInsensitiveString, ukey));
+								$nc(this->ukeywords)->put(var$9, $(ue->getUnicodeLocaleType(ukey)));
+							}
+						}
+					}
+				} else {
+					if (this->extensions == nullptr) {
+						$set(this, extensions, $new($HashMap, 4));
+					}
+					$var($Object, var$10, $new($InternalLocaleBuilder$CaseInsensitiveChar, $nc(key)->charValue()));
+					$nc(this->extensions)->put(var$10, $($nc(e)->getValue()));
 				}
 			}
 		}
@@ -531,25 +465,25 @@ InternalLocaleBuilder* InternalLocaleBuilder::clear() {
 
 InternalLocaleBuilder* InternalLocaleBuilder::clearExtensions() {
 	if (this->extensions != nullptr) {
-		$nc(this->extensions)->clear();
+		this->extensions->clear();
 	}
 	if (this->uattributes != nullptr) {
-		$nc(this->uattributes)->clear();
+		this->uattributes->clear();
 	}
 	if (this->ukeywords != nullptr) {
-		$nc(this->ukeywords)->clear();
+		this->ukeywords->clear();
 	}
 	return this;
 }
 
 $BaseLocale* InternalLocaleBuilder::getBaseLocale() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, language, this->language);
 	$var($String, script, this->script);
 	$var($String, region, this->region);
 	$var($String, variant, this->variant);
 	if (this->extensions != nullptr) {
-		$var($String, privuse, $cast($String, $nc(this->extensions)->get(InternalLocaleBuilder::PRIVATEUSE_KEY)));
+		$var($String, privuse, $cast($String, this->extensions->get(InternalLocaleBuilder::PRIVATEUSE_KEY)));
 		if (privuse != nullptr) {
 			$init($LanguageTag);
 			$var($StringTokenIterator, itr, $new($StringTokenIterator, privuse, $LanguageTag::SEP));
@@ -592,7 +526,7 @@ $LocaleExtensions* InternalLocaleBuilder::getLocaleExtensions() {
 
 $String* InternalLocaleBuilder::removePrivateuseVariant($String* privuseVal) {
 	$init(InternalLocaleBuilder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($LanguageTag);
 	$var($StringTokenIterator, itr, $new($StringTokenIterator, privuseVal, $LanguageTag::SEP));
 	int32_t prefixStart = -1;
@@ -617,7 +551,7 @@ $String* InternalLocaleBuilder::removePrivateuseVariant($String* privuseVal) {
 }
 
 int32_t InternalLocaleBuilder::checkVariants($String* variants, $String* sep) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenIterator, itr, $new($StringTokenIterator, variants, sep));
 	while (!itr->isDone()) {
 		$var($String, s, itr->current());
@@ -630,12 +564,12 @@ int32_t InternalLocaleBuilder::checkVariants($String* variants, $String* sep) {
 }
 
 void InternalLocaleBuilder::setUnicodeLocaleExtension($String* subtags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->uattributes != nullptr) {
-		$nc(this->uattributes)->clear();
+		this->uattributes->clear();
 	}
 	if (this->ukeywords != nullptr) {
-		$nc(this->ukeywords)->clear();
+		this->ukeywords->clear();
 	}
 	$init($LanguageTag);
 	$var($StringTokenIterator, itr, $new($StringTokenIterator, subtags, $LanguageTag::SEP));
@@ -675,7 +609,7 @@ void InternalLocaleBuilder::setUnicodeLocaleExtension($String* subtags) {
 			}
 		} else if ($UnicodeLocaleExtension::isKey($(itr->current()))) {
 			$assign(key, $new($InternalLocaleBuilder$CaseInsensitiveString, $(itr->current())));
-			if (this->ukeywords != nullptr && $nc(this->ukeywords)->containsKey(key)) {
+			if (this->ukeywords != nullptr && this->ukeywords->containsKey(key)) {
 				$assign(key, nullptr);
 			}
 		}
@@ -696,7 +630,7 @@ void InternalLocaleBuilder::setUnicodeLocaleExtension($String* subtags) {
 	}
 }
 
-void clinit$InternalLocaleBuilder($Class* class$) {
+void InternalLocaleBuilder::clinit$($Class* clazz) {
 	InternalLocaleBuilder::$assertionsDisabled = !InternalLocaleBuilder::class$->desiredAssertionStatus();
 	$init($LanguageTag);
 	$assignStatic(InternalLocaleBuilder::PRIVATEUSE_KEY, $new($InternalLocaleBuilder$CaseInsensitiveChar, $LanguageTag::PRIVATEUSE));
@@ -706,7 +640,63 @@ InternalLocaleBuilder::InternalLocaleBuilder() {
 }
 
 $Class* InternalLocaleBuilder::load$($String* name, bool initialize) {
-	$loadClass(InternalLocaleBuilder, name, initialize, &_InternalLocaleBuilder_ClassInfo_, clinit$InternalLocaleBuilder, allocate$InternalLocaleBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(InternalLocaleBuilder, $assertionsDisabled)},
+		{"PRIVATEUSE_KEY", "Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveChar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InternalLocaleBuilder, PRIVATEUSE_KEY)},
+		{"language", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InternalLocaleBuilder, language)},
+		{"script", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InternalLocaleBuilder, script)},
+		{"region", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InternalLocaleBuilder, region)},
+		{"variant", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InternalLocaleBuilder, variant)},
+		{"extensions", "Ljava/util/Map;", "Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveChar;Ljava/lang/String;>;", $PRIVATE, $field(InternalLocaleBuilder, extensions)},
+		{"uattributes", "Ljava/util/Set;", "Ljava/util/Set<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;>;", $PRIVATE, $field(InternalLocaleBuilder, uattributes)},
+		{"ukeywords", "Ljava/util/Map;", "Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;Ljava/lang/String;>;", $PRIVATE, $field(InternalLocaleBuilder, ukeywords)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InternalLocaleBuilder, init$, void)},
+		{"addUnicodeLocaleAttribute", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, addUnicodeLocaleAttribute, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
+		{"checkVariants", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(InternalLocaleBuilder, checkVariants, int32_t, $String*, $String*)},
+		{"clear", "()Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, clear, InternalLocaleBuilder*)},
+		{"clearExtensions", "()Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, clearExtensions, InternalLocaleBuilder*)},
+		{"getBaseLocale", "()Lsun/util/locale/BaseLocale;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, getBaseLocale, $BaseLocale*)},
+		{"getLocaleExtensions", "()Lsun/util/locale/LocaleExtensions;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, getLocaleExtensions, $LocaleExtensions*)},
+		{"removePrivateuseVariant", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(InternalLocaleBuilder, removePrivateuseVariant, $String*, $String*)},
+		{"removeUnicodeLocaleAttribute", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, removeUnicodeLocaleAttribute, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
+		{"setExtension", "(CLjava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setExtension, InternalLocaleBuilder*, char16_t, $String*), "sun.util.locale.LocaleSyntaxException"},
+		{"setExtensions", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setExtensions, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
+		{"setExtensions", "(Ljava/util/List;Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", $PRIVATE, $method(InternalLocaleBuilder, setExtensions, InternalLocaleBuilder*, $List*, $String*)},
+		{"setLanguage", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setLanguage, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
+		{"setLanguageTag", "(Lsun/util/locale/LanguageTag;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setLanguageTag, InternalLocaleBuilder*, $LanguageTag*)},
+		{"setLocale", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setLocale, InternalLocaleBuilder*, $BaseLocale*, $LocaleExtensions*), "sun.util.locale.LocaleSyntaxException"},
+		{"setRegion", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setRegion, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
+		{"setScript", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setScript, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
+		{"setUnicodeLocaleExtension", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(InternalLocaleBuilder, setUnicodeLocaleExtension, void, $String*)},
+		{"setUnicodeLocaleKeyword", "(Ljava/lang/String;Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setUnicodeLocaleKeyword, InternalLocaleBuilder*, $String*, $String*), "sun.util.locale.LocaleSyntaxException"},
+		{"setVariant", "(Ljava/lang/String;)Lsun/util/locale/InternalLocaleBuilder;", nullptr, $PUBLIC, $method(InternalLocaleBuilder, setVariant, InternalLocaleBuilder*, $String*), "sun.util.locale.LocaleSyntaxException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.InternalLocaleBuilder$CaseInsensitiveChar", "sun.util.locale.InternalLocaleBuilder", "CaseInsensitiveChar", $STATIC | $FINAL},
+		{"sun.util.locale.InternalLocaleBuilder$CaseInsensitiveString", "sun.util.locale.InternalLocaleBuilder", "CaseInsensitiveString", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.locale.InternalLocaleBuilder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.locale.InternalLocaleBuilder$CaseInsensitiveChar,sun.util.locale.InternalLocaleBuilder$CaseInsensitiveString"
+	};
+	$loadClass(InternalLocaleBuilder, name, initialize, &classInfo$$, InternalLocaleBuilder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalLocaleBuilder);
+	});
 	return class$;
 }
 

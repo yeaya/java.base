@@ -1,5 +1,4 @@
 #include <java/util/concurrent/LinkedBlockingQueue$LBQSpliterator.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
@@ -30,51 +29,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _LinkedBlockingQueue$LBQSpliterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/LinkedBlockingQueue;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedBlockingQueue$LBQSpliterator, this$0)},
-	{"MAX_BATCH", "I", nullptr, $STATIC | $FINAL, $constField(LinkedBlockingQueue$LBQSpliterator, MAX_BATCH)},
-	{"current", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", 0, $field(LinkedBlockingQueue$LBQSpliterator, current)},
-	{"batch", "I", nullptr, 0, $field(LinkedBlockingQueue$LBQSpliterator, batch)},
-	{"exhausted", "Z", nullptr, 0, $field(LinkedBlockingQueue$LBQSpliterator, exhausted)},
-	{"est", "J", nullptr, 0, $field(LinkedBlockingQueue$LBQSpliterator, est)},
-	{}
-};
-
-$MethodInfo _LinkedBlockingQueue$LBQSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/LinkedBlockingQueue;)V", nullptr, 0, $method(LinkedBlockingQueue$LBQSpliterator, init$, void, $LinkedBlockingQueue*)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, forEachRemaining, void, $Consumer*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _LinkedBlockingQueue$LBQSpliterator_InnerClassesInfo_[] = {
-	{"java.util.concurrent.LinkedBlockingQueue$LBQSpliterator", "java.util.concurrent.LinkedBlockingQueue", "LBQSpliterator", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _LinkedBlockingQueue$LBQSpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.LinkedBlockingQueue$LBQSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_LinkedBlockingQueue$LBQSpliterator_FieldInfo_,
-	_LinkedBlockingQueue$LBQSpliterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
-	nullptr,
-	_LinkedBlockingQueue$LBQSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.LinkedBlockingQueue"
-};
-
-$Object* allocate$LinkedBlockingQueue$LBQSpliterator($Class* clazz) {
-	return $of($alloc(LinkedBlockingQueue$LBQSpliterator));
-}
-
 void LinkedBlockingQueue$LBQSpliterator::init$($LinkedBlockingQueue* this$0) {
 	$set(this, this$0, this$0);
 	this->est = this->this$0->size();
@@ -85,12 +39,12 @@ int64_t LinkedBlockingQueue$LBQSpliterator::estimateSize() {
 }
 
 $Spliterator* LinkedBlockingQueue$LBQSpliterator::trySplit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedBlockingQueue$Node, h, nullptr);
 	bool var$1 = !this->exhausted;
 	if (var$1) {
 		bool var$2 = ($assign(h, this->current)) != nullptr;
-		var$1 = (var$2 || ($assign(h, $nc(this->this$0->head)->next)) != nullptr);
+		var$1 = var$2 || ($assign(h, $nc(this->this$0->head)->next)) != nullptr;
 	}
 	bool var$0 = var$1;
 	if (var$0 && $nc(h)->next != nullptr) {
@@ -99,30 +53,28 @@ $Spliterator* LinkedBlockingQueue$LBQSpliterator::trySplit() {
 		int32_t i = 0;
 		$var($LinkedBlockingQueue$Node, p, this->current);
 		this->this$0->fullyLock();
-		{
-			$var($Throwable, var$3, nullptr);
-			try {
-				bool var$4 = p != nullptr;
-				if (var$4 || ($assign(p, $nc(this->this$0->head)->next)) != nullptr) {
-					for (; p != nullptr && i < n; $assign(p, this->this$0->succ(p))) {
-						if ((a->set(i, p->item)) != nullptr) {
-							++i;
-						}
+		$var($Throwable, var$3, nullptr);
+		try {
+			bool var$4 = p != nullptr;
+			if (var$4 || ($assign(p, $nc(this->this$0->head)->next)) != nullptr) {
+				for (; p != nullptr && i < n; $assign(p, this->this$0->succ(p))) {
+					if ((a->set(i, p->item)) != nullptr) {
+						++i;
 					}
 				}
-			} catch ($Throwable& var$5) {
-				$assign(var$3, var$5);
-			} /*finally*/ {
-				this->this$0->fullyUnlock();
 			}
-			if (var$3 != nullptr) {
-				$throw(var$3);
-			}
+		} catch ($Throwable& var$5) {
+			$assign(var$3, var$5);
+		} /*finally*/ {
+			this->this$0->fullyUnlock();
+		}
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
 		if (($set(this, current, p)) == nullptr) {
 			this->est = 0;
 			this->exhausted = true;
-		} else if ((this->est -= i) < (int64_t)0) {
+		} else if ((this->est -= i) < 0) {
 			this->est = 0;
 		}
 		if (i > 0) {
@@ -133,33 +85,31 @@ $Spliterator* LinkedBlockingQueue$LBQSpliterator::trySplit() {
 }
 
 bool LinkedBlockingQueue$LBQSpliterator::tryAdvance($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	if (!this->exhausted) {
 		$var($Object, e, nullptr);
 		this->this$0->fullyLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$var($LinkedBlockingQueue$Node, p, nullptr);
-				bool var$1 = ($assign(p, this->current)) != nullptr;
-				if (var$1 || ($assign(p, $nc(this->this$0->head)->next)) != nullptr) {
-					do {
-						$assign(e, $nc(p)->item);
-						$assign(p, this->this$0->succ(p));
-					} while (e == nullptr && p != nullptr);
-				}
-				if (($set(this, current, p)) == nullptr) {
-					this->exhausted = true;
-				}
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} /*finally*/ {
-				this->this$0->fullyUnlock();
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($LinkedBlockingQueue$Node, p, nullptr);
+			bool var$1 = ($assign(p, this->current)) != nullptr;
+			if (var$1 || ($assign(p, $nc(this->this$0->head)->next)) != nullptr) {
+				do {
+					$assign(e, $nc(p)->item);
+					$assign(p, this->this$0->succ(p));
+				} while (e == nullptr && p != nullptr);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			if (($set(this, current, p)) == nullptr) {
+				this->exhausted = true;
 			}
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} /*finally*/ {
+			this->this$0->fullyUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		if (e != nullptr) {
 			action->accept(e);
@@ -187,7 +137,46 @@ LinkedBlockingQueue$LBQSpliterator::LinkedBlockingQueue$LBQSpliterator() {
 }
 
 $Class* LinkedBlockingQueue$LBQSpliterator::load$($String* name, bool initialize) {
-	$loadClass(LinkedBlockingQueue$LBQSpliterator, name, initialize, &_LinkedBlockingQueue$LBQSpliterator_ClassInfo_, allocate$LinkedBlockingQueue$LBQSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/LinkedBlockingQueue;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedBlockingQueue$LBQSpliterator, this$0)},
+		{"MAX_BATCH", "I", nullptr, $STATIC | $FINAL, $constField(LinkedBlockingQueue$LBQSpliterator, MAX_BATCH)},
+		{"current", "Ljava/util/concurrent/LinkedBlockingQueue$Node;", "Ljava/util/concurrent/LinkedBlockingQueue$Node<TE;>;", 0, $field(LinkedBlockingQueue$LBQSpliterator, current)},
+		{"batch", "I", nullptr, 0, $field(LinkedBlockingQueue$LBQSpliterator, batch)},
+		{"exhausted", "Z", nullptr, 0, $field(LinkedBlockingQueue$LBQSpliterator, exhausted)},
+		{"est", "J", nullptr, 0, $field(LinkedBlockingQueue$LBQSpliterator, est)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/LinkedBlockingQueue;)V", nullptr, 0, $method(LinkedBlockingQueue$LBQSpliterator, init$, void, $LinkedBlockingQueue*)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, forEachRemaining, void, $Consumer*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.LinkedBlockingQueue$LBQSpliterator", "java.util.concurrent.LinkedBlockingQueue", "LBQSpliterator", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.LinkedBlockingQueue$LBQSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.LinkedBlockingQueue"
+	};
+	$loadClass(LinkedBlockingQueue$LBQSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedBlockingQueue$LBQSpliterator);
+	});
 	return class$;
 }
 

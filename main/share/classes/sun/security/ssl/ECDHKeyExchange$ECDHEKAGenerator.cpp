@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECDHKeyExchange$ECDHEKAGenerator.h>
-
 #include <java/security/PrivateKey.h>
 #include <java/security/PublicKey.h>
 #include <java/security/interfaces/ECPublicKey.h>
@@ -24,9 +23,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PublicKey = ::java::security::PublicKey;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Alert = ::sun::security::ssl::Alert;
 using $ECDHKeyExchange$ECDHECredentials = ::sun::security::ssl::ECDHKeyExchange$ECDHECredentials;
 using $ECDHKeyExchange$ECDHEPossession = ::sun::security::ssl::ECDHKeyExchange$ECDHEPossession;
@@ -36,48 +33,16 @@ using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ECDHKeyExchange$ECDHEKAGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHKeyExchange$ECDHEKAGenerator, init$, void)},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHEKAGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ECDHKeyExchange$ECDHEKAGenerator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECDHKeyExchange$ECDHEKAGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHEKAGenerator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ECDHKeyExchange$ECDHEKAGenerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ECDHKeyExchange$ECDHEKAGenerator",
-	"java.lang.Object",
-	"sun.security.ssl.SSLKeyAgreementGenerator",
-	nullptr,
-	_ECDHKeyExchange$ECDHEKAGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECDHKeyExchange$ECDHEKAGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECDHKeyExchange"
-};
-
-$Object* allocate$ECDHKeyExchange$ECDHEKAGenerator($Class* clazz) {
-	return $of($alloc(ECDHKeyExchange$ECDHEKAGenerator));
-}
-
 void ECDHKeyExchange$ECDHEKAGenerator::init$() {
 }
 
 $SSLKeyDerivation* ECDHKeyExchange$ECDHEKAGenerator::createKeyDerivation($HandshakeContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ECDHKeyExchange$ECDHEPossession, ecdhePossession, nullptr);
 	$var($ECDHKeyExchange$ECDHECredentials, ecdheCredentials, nullptr);
 	{
@@ -88,7 +53,7 @@ $SSLKeyDerivation* ECDHKeyExchange$ECDHEKAGenerator::createKeyDerivation($Handsh
 				if (!($instanceOf($ECDHKeyExchange$ECDHEPossession, poss))) {
 					continue;
 				}
-				$NamedGroup* ng = $nc(($cast($ECDHKeyExchange$ECDHEPossession, poss)))->namedGroup;
+				$NamedGroup* ng = $nc($cast($ECDHKeyExchange$ECDHEPossession, poss))->namedGroup;
 				{
 					$var($Iterator, i$, $nc(context->handshakeCredentials)->iterator());
 					for (; $nc(i$)->hasNext();) {
@@ -97,7 +62,7 @@ $SSLKeyDerivation* ECDHKeyExchange$ECDHEKAGenerator::createKeyDerivation($Handsh
 							if (!($instanceOf($ECDHKeyExchange$ECDHECredentials, cred))) {
 								continue;
 							}
-							if ($nc(ng)->equals($nc(($cast($ECDHKeyExchange$ECDHECredentials, cred)))->namedGroup)) {
+							if ($nc(ng)->equals($nc($cast($ECDHKeyExchange$ECDHECredentials, cred))->namedGroup)) {
 								$assign(ecdheCredentials, $cast($ECDHKeyExchange$ECDHECredentials, cred));
 								break;
 							}
@@ -122,7 +87,33 @@ ECDHKeyExchange$ECDHEKAGenerator::ECDHKeyExchange$ECDHEKAGenerator() {
 }
 
 $Class* ECDHKeyExchange$ECDHEKAGenerator::load$($String* name, bool initialize) {
-	$loadClass(ECDHKeyExchange$ECDHEKAGenerator, name, initialize, &_ECDHKeyExchange$ECDHEKAGenerator_ClassInfo_, allocate$ECDHKeyExchange$ECDHEKAGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHKeyExchange$ECDHEKAGenerator, init$, void)},
+		{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHEKAGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECDHKeyExchange$ECDHEKAGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHEKAGenerator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ECDHKeyExchange$ECDHEKAGenerator",
+		"java.lang.Object",
+		"sun.security.ssl.SSLKeyAgreementGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECDHKeyExchange"
+	};
+	$loadClass(ECDHKeyExchange$ECDHEKAGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECDHKeyExchange$ECDHEKAGenerator);
+	});
 	return class$;
 }
 

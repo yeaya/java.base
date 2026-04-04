@@ -35,6 +35,7 @@ class StringConcatHelper : public ::java::lang::Object {
 	$class(StringConcatHelper, $PRELOAD, ::java::lang::Object)
 public:
 	StringConcatHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t checkOverflow(int64_t lengthCoder);
 	static int64_t initialCoder();

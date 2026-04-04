@@ -1,5 +1,4 @@
 #include <javax/crypto/CipherInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -19,7 +18,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $BadPaddingException = ::javax::crypto::BadPaddingException;
 using $Cipher = ::javax::crypto::Cipher;
 using $IllegalBlockSizeException = ::javax::crypto::IllegalBlockSizeException;
@@ -29,49 +27,9 @@ using $ShortBufferException = ::javax::crypto::ShortBufferException;
 namespace javax {
 	namespace crypto {
 
-$FieldInfo _CipherInputStream_FieldInfo_[] = {
-	{"cipher", "Ljavax/crypto/Cipher;", nullptr, $PRIVATE, $field(CipherInputStream, cipher)},
-	{"input", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(CipherInputStream, input)},
-	{"ibuffer", "[B", nullptr, $PRIVATE, $field(CipherInputStream, ibuffer)},
-	{"done", "Z", nullptr, $PRIVATE, $field(CipherInputStream, done)},
-	{"obuffer", "[B", nullptr, $PRIVATE, $field(CipherInputStream, obuffer)},
-	{"ostart", "I", nullptr, $PRIVATE, $field(CipherInputStream, ostart)},
-	{"ofinish", "I", nullptr, $PRIVATE, $field(CipherInputStream, ofinish)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(CipherInputStream, closed)},
-	{}
-};
-
-$MethodInfo _CipherInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljavax/crypto/Cipher;)V", nullptr, $PUBLIC, $method(CipherInputStream, init$, void, $InputStream*, $Cipher*)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED, $method(CipherInputStream, init$, void, $InputStream*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, close, void), "java.io.IOException"},
-	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(CipherInputStream, ensureCapacity, void, int32_t)},
-	{"getMoreData", "()I", nullptr, $PRIVATE, $method(CipherInputStream, getMoreData, int32_t), "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CipherInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.CipherInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_CipherInputStream_FieldInfo_,
-	_CipherInputStream_MethodInfo_
-};
-
-$Object* allocate$CipherInputStream($Class* clazz) {
-	return $of($alloc(CipherInputStream));
-}
-
 void CipherInputStream::ensureCapacity(int32_t inLen) {
 	int32_t minLen = $nc(this->cipher)->getOutputSize(inLen);
-	if (this->obuffer == nullptr || $nc(this->obuffer)->length < minLen) {
+	if (this->obuffer == nullptr || this->obuffer->length < minLen) {
 		$set(this, obuffer, $new($bytes, minLen));
 	}
 	this->ostart = 0;
@@ -89,11 +47,11 @@ int32_t CipherInputStream::getMoreData() {
 		try {
 			this->ofinish = $nc(this->cipher)->doFinal(this->obuffer, 0);
 		} catch ($IllegalBlockSizeException& e) {
-			$throwNew($IOException, static_cast<$Throwable*>(e));
+			$throwNew($IOException, e);
 		} catch ($BadPaddingException& e) {
-			$throwNew($IOException, static_cast<$Throwable*>(e));
+			$throwNew($IOException, e);
 		} catch ($ShortBufferException& e) {
-			$throwNew($IOException, static_cast<$Throwable*>(e));
+			$throwNew($IOException, e);
 		}
 		if (this->ofinish == 0) {
 			return -1;
@@ -107,7 +65,7 @@ int32_t CipherInputStream::getMoreData() {
 	} catch ($IllegalStateException& e) {
 		$throw(e);
 	} catch ($ShortBufferException& e) {
-		$throwNew($IOException, static_cast<$Throwable*>(e));
+		$throwNew($IOException, e);
 	}
 	return this->ofinish;
 }
@@ -146,7 +104,7 @@ int32_t CipherInputStream::read() {
 			return -1;
 		}
 	}
-	return ((int32_t)((int32_t)$nc(this->obuffer)->get(this->ostart++) & (uint32_t)255));
+	return ((int32_t)$nc(this->obuffer)->get(this->ostart++) & 0xff);
 }
 
 int32_t CipherInputStream::read($bytes* b) {
@@ -219,7 +177,42 @@ CipherInputStream::CipherInputStream() {
 }
 
 $Class* CipherInputStream::load$($String* name, bool initialize) {
-	$loadClass(CipherInputStream, name, initialize, &_CipherInputStream_ClassInfo_, allocate$CipherInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"cipher", "Ljavax/crypto/Cipher;", nullptr, $PRIVATE, $field(CipherInputStream, cipher)},
+		{"input", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(CipherInputStream, input)},
+		{"ibuffer", "[B", nullptr, $PRIVATE, $field(CipherInputStream, ibuffer)},
+		{"done", "Z", nullptr, $PRIVATE, $field(CipherInputStream, done)},
+		{"obuffer", "[B", nullptr, $PRIVATE, $field(CipherInputStream, obuffer)},
+		{"ostart", "I", nullptr, $PRIVATE, $field(CipherInputStream, ostart)},
+		{"ofinish", "I", nullptr, $PRIVATE, $field(CipherInputStream, ofinish)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(CipherInputStream, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljavax/crypto/Cipher;)V", nullptr, $PUBLIC, $method(CipherInputStream, init$, void, $InputStream*, $Cipher*)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED, $method(CipherInputStream, init$, void, $InputStream*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, close, void), "java.io.IOException"},
+		{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(CipherInputStream, ensureCapacity, void, int32_t)},
+		{"getMoreData", "()I", nullptr, $PRIVATE, $method(CipherInputStream, getMoreData, int32_t), "java.io.IOException"},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.CipherInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CipherInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CipherInputStream);
+	});
 	return class$;
 }
 

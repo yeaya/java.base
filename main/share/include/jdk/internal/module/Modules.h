@@ -63,6 +63,7 @@ class $import Modules : public ::java::lang::Object {
 	$class(Modules, $PRELOAD, ::java::lang::Object)
 public:
 	Modules();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addExports(::java::lang::Module* m1, $String* pn, ::java::lang::Module* m2);
 	static void addExports(::java::lang::Module* m, $String* pn);

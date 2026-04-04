@@ -1,5 +1,4 @@
 #include <java/util/Scanner.h>
-
 #include <java/io/Closeable.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
@@ -10,7 +9,6 @@
 #include <java/io/Serializable.h>
 #include <java/io/StringReader.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/Readable.h>
@@ -24,7 +22,6 @@
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/CharBuffer.h>
-#include <java/nio/channels/ByteChannel.h>
 #include <java/nio/channels/Channels.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/ReadableByteChannel.h>
@@ -86,7 +83,6 @@ using $StringReader = ::java::io::StringReader;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -108,7 +104,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $BigDecimal = ::java::math::BigDecimal;
 using $BigInteger = ::java::math::BigInteger;
 using $CharBuffer = ::java::nio::CharBuffer;
-using $ByteChannel = ::java::nio::channels::ByteChannel;
 using $Channels = ::java::nio::channels::Channels;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
@@ -131,14 +126,12 @@ using $Objects = ::java::util::Objects;
 using $Scanner$FindSpliterator = ::java::util::Scanner$FindSpliterator;
 using $Scanner$PatternLRUCache = ::java::util::Scanner$PatternLRUCache;
 using $Scanner$TokenSpliterator = ::java::util::Scanner$TokenSpliterator;
-using $Spliterator = ::java::util::Spliterator;
 using $MatchResult = ::java::util::regex::MatchResult;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $Stream = ::java::util::stream::Stream;
 using $StreamSupport = ::java::util::stream::StreamSupport;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
-using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 using $ResourceBundleBasedAdapter = ::sun::util::locale::provider::ResourceBundleBasedAdapter;
 
 namespace java {
@@ -153,229 +146,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->close();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Scanner$$Lambda$close>());
-	}
 	Scanner* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Scanner$$Lambda$close::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Scanner$$Lambda$close, inst$)},
-	{}
-};
-$MethodInfo Scanner$$Lambda$close::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Scanner;)V", nullptr, $PUBLIC, $method(Scanner$$Lambda$close, init$, void, Scanner*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Scanner$$Lambda$close, run, void)},
-	{}
-};
-$ClassInfo Scanner$$Lambda$close::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Scanner$$Lambda$close",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Scanner$$Lambda$close::load$($String* name, bool initialize) {
-	$loadClass(Scanner$$Lambda$close, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Scanner$$Lambda$close, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Scanner;)V", nullptr, $PUBLIC, $method(Scanner$$Lambda$close, init$, void, Scanner*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Scanner$$Lambda$close, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Scanner$$Lambda$close",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Scanner$$Lambda$close, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scanner$$Lambda$close);
+	});
 	return class$;
 }
 $Class* Scanner$$Lambda$close::class$ = nullptr;
-
-$FieldInfo _Scanner_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Scanner, $assertionsDisabled)},
-	{"buf", "Ljava/nio/CharBuffer;", nullptr, $PRIVATE, $field(Scanner, buf)},
-	{"BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Scanner, BUFFER_SIZE)},
-	{"position", "I", nullptr, $PRIVATE, $field(Scanner, position)},
-	{"matcher", "Ljava/util/regex/Matcher;", nullptr, $PRIVATE, $field(Scanner, matcher)},
-	{"delimPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $field(Scanner, delimPattern)},
-	{"hasNextPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $field(Scanner, hasNextPattern)},
-	{"hasNextPosition", "I", nullptr, $PRIVATE, $field(Scanner, hasNextPosition)},
-	{"hasNextResult", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, hasNextResult)},
-	{"source", "Ljava/lang/Readable;", nullptr, $PRIVATE, $field(Scanner, source)},
-	{"sourceClosed", "Z", nullptr, $PRIVATE, $field(Scanner, sourceClosed)},
-	{"needInput", "Z", nullptr, $PRIVATE, $field(Scanner, needInput)},
-	{"skipped", "Z", nullptr, $PRIVATE, $field(Scanner, skipped)},
-	{"savedScannerPosition", "I", nullptr, $PRIVATE, $field(Scanner, savedScannerPosition)},
-	{"typeCache", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Scanner, typeCache)},
-	{"matchValid", "Z", nullptr, $PRIVATE, $field(Scanner, matchValid)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(Scanner, closed)},
-	{"radix", "I", nullptr, $PRIVATE, $field(Scanner, radix$)},
-	{"defaultRadix", "I", nullptr, $PRIVATE, $field(Scanner, defaultRadix)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(Scanner, locale$)},
-	{"patternCache", "Ljava/util/Scanner$PatternLRUCache;", nullptr, $PRIVATE, $field(Scanner, patternCache)},
-	{"lastException", "Ljava/io/IOException;", nullptr, $PRIVATE, $field(Scanner, lastException)},
-	{"modCount", "I", nullptr, 0, $field(Scanner, modCount)},
-	{"WHITESPACE_PATTERN", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticField(Scanner, WHITESPACE_PATTERN)},
-	{"FIND_ANY_PATTERN", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticField(Scanner, FIND_ANY_PATTERN)},
-	{"NON_ASCII_DIGIT", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticField(Scanner, NON_ASCII_DIGIT)},
-	{"groupSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, groupSeparator)},
-	{"decimalSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, decimalSeparator)},
-	{"nanString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, nanString)},
-	{"infinityString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, infinityString)},
-	{"positivePrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, positivePrefix)},
-	{"negativePrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, negativePrefix)},
-	{"positiveSuffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, positiveSuffix)},
-	{"negativeSuffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, negativeSuffix)},
-	{"boolPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Scanner, boolPattern$)},
-	{"BOOLEAN_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Scanner, BOOLEAN_PATTERN)},
-	{"integerPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $field(Scanner, integerPattern$)},
-	{"digits", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, digits)},
-	{"non0Digit", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, non0Digit)},
-	{"SIMPLE_GROUP_INDEX", "I", nullptr, $PRIVATE, $field(Scanner, SIMPLE_GROUP_INDEX)},
-	{"separatorPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Scanner, separatorPattern$)},
-	{"linePattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Scanner, linePattern$)},
-	{"LINE_SEPARATOR_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Scanner, LINE_SEPARATOR_PATTERN)},
-	{"LINE_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Scanner, LINE_PATTERN)},
-	{"floatPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $field(Scanner, floatPattern$)},
-	{"decimalPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $field(Scanner, decimalPattern$)},
-	{}
-};
-
-$MethodInfo _Scanner_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Readable;Ljava/util/regex/Pattern;)V", nullptr, $PRIVATE, $method(Scanner, init$, void, $Readable*, $Pattern*)},
-	{"<init>", "(Ljava/lang/Readable;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $Readable*)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $InputStream*)},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $InputStream*, $String*)},
-	{"<init>", "(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $InputStream*, $Charset*)},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $File*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $File*, $String*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $File*, $Charset*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;Ljava/nio/charset/CharsetDecoder;)V", nullptr, $PRIVATE, $method(Scanner, init$, void, $File*, $CharsetDecoder*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $Path*), "java.io.IOException"},
-	{"<init>", "(Ljava/nio/file/Path;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $Path*, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $Path*, $Charset*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $String*)},
-	{"<init>", "(Ljava/nio/channels/ReadableByteChannel;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $ReadableByteChannel*)},
-	{"<init>", "(Ljava/nio/channels/ReadableByteChannel;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $ReadableByteChannel*, $String*)},
-	{"<init>", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $ReadableByteChannel*, $Charset*)},
-	{"boolPattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, boolPattern, $Pattern*)},
-	{"buildFloatAndDecimalPattern", "()V", nullptr, $PRIVATE, $method(Scanner, buildFloatAndDecimalPattern, void)},
-	{"buildIntegerPatternString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Scanner, buildIntegerPatternString, $String*)},
-	{"cacheResult", "()V", nullptr, $PRIVATE, $method(Scanner, cacheResult, void)},
-	{"cacheResult", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Scanner, cacheResult, void, $String*)},
-	{"clearCaches", "()V", nullptr, $PRIVATE, $method(Scanner, clearCaches, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Scanner, close, void)},
-	{"decimalPattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $method(Scanner, decimalPattern, $Pattern*)},
-	{"delimiter", "()Ljava/util/regex/Pattern;", nullptr, $PUBLIC, $method(Scanner, delimiter, $Pattern*)},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(Scanner, ensureOpen, void)},
-	{"findAll", "(Ljava/util/regex/Pattern;)Ljava/util/stream/Stream;", "(Ljava/util/regex/Pattern;)Ljava/util/stream/Stream<Ljava/util/regex/MatchResult;>;", $PUBLIC, $method(Scanner, findAll, $Stream*, $Pattern*)},
-	{"findAll", "(Ljava/lang/String;)Ljava/util/stream/Stream;", "(Ljava/lang/String;)Ljava/util/stream/Stream<Ljava/util/regex/MatchResult;>;", $PUBLIC, $method(Scanner, findAll, $Stream*, $String*)},
-	{"findInLine", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, findInLine, $String*, $String*)},
-	{"findInLine", "(Ljava/util/regex/Pattern;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, findInLine, $String*, $Pattern*)},
-	{"findPatternInBuffer", "(Ljava/util/regex/Pattern;I)Z", nullptr, $PRIVATE, $method(Scanner, findPatternInBuffer, bool, $Pattern*, int32_t)},
-	{"findWithinHorizon", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, findWithinHorizon, $String*, $String*, int32_t)},
-	{"findWithinHorizon", "(Ljava/util/regex/Pattern;I)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, findWithinHorizon, $String*, $Pattern*, int32_t)},
-	{"floatPattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $method(Scanner, floatPattern, $Pattern*)},
-	{"getCachedResult", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Scanner, getCachedResult, $String*)},
-	{"getCompleteTokenInBuffer", "(Ljava/util/regex/Pattern;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Scanner, getCompleteTokenInBuffer, $String*, $Pattern*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Scanner, hasNext, bool)},
-	{"hasNext", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(Scanner, hasNext, bool, $String*)},
-	{"hasNext", "(Ljava/util/regex/Pattern;)Z", nullptr, $PUBLIC, $method(Scanner, hasNext, bool, $Pattern*)},
-	{"hasNextBigDecimal", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextBigDecimal, bool)},
-	{"hasNextBigInteger", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextBigInteger, bool)},
-	{"hasNextBigInteger", "(I)Z", nullptr, $PUBLIC, $method(Scanner, hasNextBigInteger, bool, int32_t)},
-	{"hasNextBoolean", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextBoolean, bool)},
-	{"hasNextByte", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextByte, bool)},
-	{"hasNextByte", "(I)Z", nullptr, $PUBLIC, $method(Scanner, hasNextByte, bool, int32_t)},
-	{"hasNextDouble", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextDouble, bool)},
-	{"hasNextFloat", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextFloat, bool)},
-	{"hasNextInt", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextInt, bool)},
-	{"hasNextInt", "(I)Z", nullptr, $PUBLIC, $method(Scanner, hasNextInt, bool, int32_t)},
-	{"hasNextLine", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextLine, bool)},
-	{"hasNextLong", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextLong, bool)},
-	{"hasNextLong", "(I)Z", nullptr, $PUBLIC, $method(Scanner, hasNextLong, bool, int32_t)},
-	{"hasNextShort", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextShort, bool)},
-	{"hasNextShort", "(I)Z", nullptr, $PUBLIC, $method(Scanner, hasNextShort, bool, int32_t)},
-	{"hasTokenInBuffer", "()Z", nullptr, $PRIVATE, $method(Scanner, hasTokenInBuffer, bool)},
-	{"integerPattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $method(Scanner, integerPattern, $Pattern*)},
-	{"ioException", "()Ljava/io/IOException;", nullptr, $PUBLIC, $method(Scanner, ioException, $IOException*)},
-	{"linePattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, linePattern, $Pattern*)},
-	{"locale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $method(Scanner, locale, $Locale*)},
-	{"makeReadable", "(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/lang/Readable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, makeReadable, $Readable*, $Path*, $Charset*), "java.io.IOException"},
-	{"makeReadable", "(Ljava/io/InputStream;Ljava/nio/charset/Charset;)Ljava/lang/Readable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, makeReadable, $Readable*, $InputStream*, $Charset*)},
-	{"makeReadable", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;)Ljava/lang/Readable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, makeReadable, $Readable*, $ReadableByteChannel*, $CharsetDecoder*)},
-	{"makeReadable", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/Charset;)Ljava/lang/Readable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, makeReadable, $Readable*, $ReadableByteChannel*, $Charset*)},
-	{"makeReadable", "(Ljava/nio/channels/ReadableByteChannel;)Ljava/lang/Readable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, makeReadable, $Readable*, $ReadableByteChannel*)},
-	{"makeSpace", "()Z", nullptr, $PRIVATE, $method(Scanner, makeSpace, bool)},
-	{"match", "()Ljava/util/regex/MatchResult;", nullptr, $PUBLIC, $method(Scanner, match, $MatchResult*)},
-	{"matchPatternInBuffer", "(Ljava/util/regex/Pattern;)Z", nullptr, $PRIVATE, $method(Scanner, matchPatternInBuffer, bool, $Pattern*)},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Scanner, next, $Object*)},
-	{"next", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, next, $String*, $String*)},
-	{"next", "(Ljava/util/regex/Pattern;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, next, $String*, $Pattern*)},
-	{"nextBigDecimal", "()Ljava/math/BigDecimal;", nullptr, $PUBLIC, $method(Scanner, nextBigDecimal, $BigDecimal*)},
-	{"nextBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(Scanner, nextBigInteger, $BigInteger*)},
-	{"nextBigInteger", "(I)Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(Scanner, nextBigInteger, $BigInteger*, int32_t)},
-	{"nextBoolean", "()Z", nullptr, $PUBLIC, $method(Scanner, nextBoolean, bool)},
-	{"nextByte", "()B", nullptr, $PUBLIC, $method(Scanner, nextByte, int8_t)},
-	{"nextByte", "(I)B", nullptr, $PUBLIC, $method(Scanner, nextByte, int8_t, int32_t)},
-	{"nextDouble", "()D", nullptr, $PUBLIC, $method(Scanner, nextDouble, double)},
-	{"nextFloat", "()F", nullptr, $PUBLIC, $method(Scanner, nextFloat, float)},
-	{"nextInt", "()I", nullptr, $PUBLIC, $method(Scanner, nextInt, int32_t)},
-	{"nextInt", "(I)I", nullptr, $PUBLIC, $method(Scanner, nextInt, int32_t, int32_t)},
-	{"nextLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, nextLine, $String*)},
-	{"nextLong", "()J", nullptr, $PUBLIC, $method(Scanner, nextLong, int64_t)},
-	{"nextLong", "(I)J", nullptr, $PUBLIC, $method(Scanner, nextLong, int64_t, int32_t)},
-	{"nextShort", "()S", nullptr, $PUBLIC, $method(Scanner, nextShort, int16_t)},
-	{"nextShort", "(I)S", nullptr, $PUBLIC, $method(Scanner, nextShort, int16_t, int32_t)},
-	{"processFloatToken", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Scanner, processFloatToken, $String*, $String*)},
-	{"processIntegerToken", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Scanner, processIntegerToken, $String*, $String*)},
-	{"radix", "()I", nullptr, $PUBLIC, $method(Scanner, radix, int32_t)},
-	{"readInput", "()V", nullptr, $PRIVATE, $method(Scanner, readInput, void)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Scanner, remove, void)},
-	{"reset", "()Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, reset, Scanner*)},
-	{"revertState", "()V", nullptr, $PRIVATE, $method(Scanner, revertState, void)},
-	{"revertState", "(Z)Z", nullptr, $PRIVATE, $method(Scanner, revertState, bool, bool)},
-	{"saveState", "()V", nullptr, $PRIVATE, $method(Scanner, saveState, void)},
-	{"separatorPattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, separatorPattern, $Pattern*)},
-	{"setRadix", "(I)V", nullptr, $PRIVATE, $method(Scanner, setRadix, void, int32_t)},
-	{"skip", "(Ljava/util/regex/Pattern;)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, skip, Scanner*, $Pattern*)},
-	{"skip", "(Ljava/lang/String;)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, skip, Scanner*, $String*)},
-	{"throwFor", "()V", nullptr, $PRIVATE, $method(Scanner, throwFor, void)},
-	{"toCharset", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, toCharset, $Charset*, $String*)},
-	{"toDecoder", "(Ljava/lang/String;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, toDecoder, $CharsetDecoder*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Scanner, toString, $String*)},
-	{"tokens", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $method(Scanner, tokens, $Stream*)},
-	{"translateSavedIndexes", "(I)V", nullptr, $PRIVATE, $method(Scanner, translateSavedIndexes, void, int32_t)},
-	{"useDelimiter", "(Ljava/util/regex/Pattern;)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, useDelimiter, Scanner*, $Pattern*)},
-	{"useDelimiter", "(Ljava/lang/String;)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, useDelimiter, Scanner*, $String*)},
-	{"useLocale", "(Ljava/util/Locale;)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, useLocale, Scanner*, $Locale*)},
-	{"useRadix", "(I)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, useRadix, Scanner*, int32_t)},
-	{"useTypeCache", "()V", nullptr, $PRIVATE, $method(Scanner, useTypeCache, void)},
-	{}
-};
-
-$InnerClassInfo _Scanner_InnerClassesInfo_[] = {
-	{"java.util.Scanner$PatternLRUCache", "java.util.Scanner", "PatternLRUCache", $PRIVATE | $STATIC},
-	{"java.util.Scanner$FindSpliterator", "java.util.Scanner", "FindSpliterator", 0},
-	{"java.util.Scanner$TokenSpliterator", "java.util.Scanner", "TokenSpliterator", 0},
-	{}
-};
-
-$ClassInfo _Scanner_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.Scanner",
-	"java.lang.Object",
-	"java.util.Iterator,java.io.Closeable",
-	_Scanner_FieldInfo_,
-	_Scanner_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;Ljava/io/Closeable;",
-	nullptr,
-	_Scanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.Scanner$PatternLRUCache,java.util.Scanner$FindSpliterator,java.util.Scanner$TokenSpliterator"
-};
-
-$Object* allocate$Scanner($Class* clazz) {
-	return $of($alloc(Scanner));
-}
 
 int32_t Scanner::hashCode() {
 	 return this->$Iterator::hashCode();
@@ -408,13 +204,13 @@ $Pattern* Scanner::boolPattern() {
 	$init(Scanner);
 	$var($Pattern, bp, Scanner::boolPattern$);
 	if (bp == nullptr) {
-		$assignStatic(Scanner::boolPattern$, ($assign(bp, $Pattern::compile(Scanner::BOOLEAN_PATTERN, $Pattern::CASE_INSENSITIVE))));
+		$assignStatic(Scanner::boolPattern$, $assign(bp, $Pattern::compile(Scanner::BOOLEAN_PATTERN, $Pattern::CASE_INSENSITIVE)));
 	}
 	return bp;
 }
 
 $String* Scanner::buildIntegerPatternString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, radixDigits, $nc(this->digits)->substring(0, this->radix$));
 	$var($String, digit, $str({"((?i)["_s, radixDigits, "\\p{javaDigit}])"_s}));
 	$var($String, groupedNumeral, $str({"("_s, this->non0Digit, digit, "?"_s, digit, "?("_s, this->groupSeparator, digit, digit, digit, ")+)"_s}));
@@ -436,7 +232,7 @@ $Pattern* Scanner::separatorPattern() {
 	$init(Scanner);
 	$var($Pattern, sp, Scanner::separatorPattern$);
 	if (sp == nullptr) {
-		$assignStatic(Scanner::separatorPattern$, ($assign(sp, $Pattern::compile(Scanner::LINE_SEPARATOR_PATTERN))));
+		$assignStatic(Scanner::separatorPattern$, $assign(sp, $Pattern::compile(Scanner::LINE_SEPARATOR_PATTERN)));
 	}
 	return sp;
 }
@@ -445,13 +241,13 @@ $Pattern* Scanner::linePattern() {
 	$init(Scanner);
 	$var($Pattern, lp, Scanner::linePattern$);
 	if (lp == nullptr) {
-		$assignStatic(Scanner::linePattern$, ($assign(lp, $Pattern::compile(Scanner::LINE_PATTERN))));
+		$assignStatic(Scanner::linePattern$, $assign(lp, $Pattern::compile(Scanner::LINE_PATTERN)));
 	}
 	return lp;
 }
 
 void Scanner::buildFloatAndDecimalPattern() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, digit, "(([0-9\\p{javaDigit}]))"_s);
 	$var($String, exponent, $str({"([eE][+-]?"_s, digit, "+)?"_s}));
 	$var($String, groupedNumeral, $str({"("_s, this->non0Digit, digit, "?"_s, digit, "?("_s, this->groupSeparator, digit, digit, digit, ")+)"_s}));
@@ -524,11 +320,11 @@ void Scanner::init$($Readable* source, $Pattern* pattern) {
 }
 
 void Scanner::init$($Readable* source) {
-	Scanner::init$($cast($Readable, $Objects::requireNonNull($of(source), "source"_s)), Scanner::WHITESPACE_PATTERN);
+	Scanner::init$($cast($Readable, $Objects::requireNonNull(source, "source"_s)), Scanner::WHITESPACE_PATTERN);
 }
 
 void Scanner::init$($InputStream* source) {
-	Scanner::init$(static_cast<$Readable*>($$new($InputStreamReader, source)), Scanner::WHITESPACE_PATTERN);
+	Scanner::init$($$new($InputStreamReader, source), Scanner::WHITESPACE_PATTERN);
 }
 
 void Scanner::init$($InputStream* source, $String* charsetName) {
@@ -536,62 +332,62 @@ void Scanner::init$($InputStream* source, $String* charsetName) {
 }
 
 void Scanner::init$($InputStream* source, $Charset* charset) {
-	Scanner::init$($(makeReadable($cast($InputStream, $Objects::requireNonNull($of(source), "source"_s)), charset)), Scanner::WHITESPACE_PATTERN);
+	Scanner::init$($(makeReadable($cast($InputStream, $Objects::requireNonNull(source, "source"_s)), charset)), Scanner::WHITESPACE_PATTERN);
 }
 
 $Charset* Scanner::toCharset($String* csn) {
 	$init(Scanner);
-	$Objects::requireNonNull($of(csn), "charsetName"_s);
+	$Objects::requireNonNull(csn, "charsetName"_s);
 	try {
 		return $Charset::forName(csn);
 	} catch ($IllegalCharsetNameException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	} catch ($UnsupportedCharsetException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	}
 	$shouldNotReachHere();
 }
 
 $Readable* Scanner::makeReadable($Path* source, $Charset* charset) {
 	$init(Scanner);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(charset), "charset"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(charset, "charset"_s);
 	return makeReadable($($Files::newInputStream(source, $$new($OpenOptionArray, 0))), charset);
 }
 
 $Readable* Scanner::makeReadable($InputStream* source, $Charset* charset) {
 	$init(Scanner);
-	$Objects::requireNonNull($of(charset), "charset"_s);
+	$Objects::requireNonNull(charset, "charset"_s);
 	return $new($InputStreamReader, source, charset);
 }
 
 void Scanner::init$($File* source) {
-	$useLocalCurrentObjectStackCache();
-	Scanner::init$(static_cast<$ReadableByteChannel*>(static_cast<$ByteChannel*>(static_cast<$SeekableByteChannel*>(($($$new($FileInputStream, source)->getChannel()))))));
+	$useLocalObjectStack();
+	Scanner::init$($$cast($ReadableByteChannel, $cast($SeekableByteChannel, ($$new($FileInputStream, source)->getChannel()))));
 }
 
 void Scanner::init$($File* source, $String* charsetName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, var$0, $cast($File, $Objects::requireNonNull(source)));
 	Scanner::init$(var$0, $(toDecoder(charsetName)));
 }
 
 void Scanner::init$($File* source, $Charset* charset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, var$0, $cast($File, $Objects::requireNonNull(source)));
 	Scanner::init$(var$0, $($nc(charset)->newDecoder()));
 }
 
 void Scanner::init$($File* source, $CharsetDecoder* dec) {
-	$useLocalCurrentObjectStackCache();
-	Scanner::init$($(makeReadable(static_cast<$ReadableByteChannel*>(static_cast<$ByteChannel*>(static_cast<$SeekableByteChannel*>(($($$new($FileInputStream, source)->getChannel()))))), dec)));
+	$useLocalObjectStack();
+	Scanner::init$($(makeReadable($$cast($ReadableByteChannel, $cast($SeekableByteChannel, ($$new($FileInputStream, source)->getChannel()))), dec)));
 }
 
 $CharsetDecoder* Scanner::toDecoder($String* charsetName) {
 	$init(Scanner);
-	$Objects::requireNonNull($of(charsetName), "charsetName"_s);
+	$Objects::requireNonNull(charsetName, "charsetName"_s);
 	try {
-		return $nc($($Charset::forName(charsetName)))->newDecoder();
+		return $$nc($Charset::forName(charsetName))->newDecoder();
 	} catch ($IllegalCharsetNameException& unused) {
 		$throwNew($IllegalArgumentException, charsetName);
 	} catch ($UnsupportedCharsetException& unused) {
@@ -607,17 +403,17 @@ $Readable* Scanner::makeReadable($ReadableByteChannel* source, $CharsetDecoder* 
 
 $Readable* Scanner::makeReadable($ReadableByteChannel* source, $Charset* charset) {
 	$init(Scanner);
-	$Objects::requireNonNull($of(charset), "charset"_s);
+	$Objects::requireNonNull(charset, "charset"_s);
 	return $Channels::newReader(source, charset);
 }
 
 void Scanner::init$($Path* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Scanner::init$($($Files::newInputStream(source, $$new($OpenOptionArray, 0))));
 }
 
 void Scanner::init$($Path* source, $String* charsetName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, var$0, $cast($Path, $Objects::requireNonNull(source)));
 	Scanner::init$(var$0, $(toCharset(charsetName)));
 }
@@ -627,27 +423,27 @@ void Scanner::init$($Path* source, $Charset* charset) {
 }
 
 void Scanner::init$($String* source) {
-	Scanner::init$(static_cast<$Readable*>($$new($StringReader, source)), Scanner::WHITESPACE_PATTERN);
+	Scanner::init$($$new($StringReader, source), Scanner::WHITESPACE_PATTERN);
 }
 
 void Scanner::init$($ReadableByteChannel* source) {
-	Scanner::init$($(makeReadable($cast($ReadableByteChannel, $Objects::requireNonNull($of(source), "source"_s)))), Scanner::WHITESPACE_PATTERN);
+	Scanner::init$($(makeReadable($cast($ReadableByteChannel, $Objects::requireNonNull(source, "source"_s)))), Scanner::WHITESPACE_PATTERN);
 }
 
 $Readable* Scanner::makeReadable($ReadableByteChannel* source) {
 	$init(Scanner);
-	$useLocalCurrentObjectStackCache();
-	return makeReadable(source, $($nc($($Charset::defaultCharset()))->newDecoder()));
+	$useLocalObjectStack();
+	return makeReadable(source, $($$nc($Charset::defaultCharset())->newDecoder()));
 }
 
 void Scanner::init$($ReadableByteChannel* source, $String* charsetName) {
-	$useLocalCurrentObjectStackCache();
-	$var($ReadableByteChannel, var$0, $cast($ReadableByteChannel, $Objects::requireNonNull($of(source), "source"_s)));
+	$useLocalObjectStack();
+	$var($ReadableByteChannel, var$0, $cast($ReadableByteChannel, $Objects::requireNonNull(source, "source"_s)));
 	Scanner::init$($(makeReadable(var$0, $(toDecoder(charsetName)))), Scanner::WHITESPACE_PATTERN);
 }
 
 void Scanner::init$($ReadableByteChannel* source, $Charset* charset) {
-	Scanner::init$($(makeReadable($cast($ReadableByteChannel, $Objects::requireNonNull($of(source), "source"_s)), charset)), Scanner::WHITESPACE_PATTERN);
+	Scanner::init$($(makeReadable($cast($ReadableByteChannel, $Objects::requireNonNull(source, "source"_s)), charset)), Scanner::WHITESPACE_PATTERN);
 }
 
 void Scanner::saveState() {
@@ -702,7 +498,7 @@ void Scanner::useTypeCache() {
 
 void Scanner::readInput() {
 	int32_t var$0 = $nc(this->buf)->limit();
-	if (var$0 == $nc(this->buf)->capacity()) {
+	if (var$0 == this->buf->capacity()) {
 		makeSpace();
 	}
 	int32_t p = $nc(this->buf)->position();
@@ -781,7 +577,7 @@ bool Scanner::hasTokenInBuffer() {
 }
 
 $String* Scanner::getCompleteTokenInBuffer($Pattern* pattern$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pattern, pattern, pattern$renamed);
 	this->matchValid = false;
 	$nc(this->matcher)->usePattern(this->delimPattern);
@@ -911,7 +707,7 @@ void Scanner::close() {
 	}
 	if ($instanceOf($Closeable, this->source)) {
 		try {
-			$nc(($cast($Closeable, this->source)))->close();
+			$cast($Closeable, this->source)->close();
 		} catch ($IOException& ioe) {
 			$set(this, lastException, ioe);
 		}
@@ -946,7 +742,7 @@ $Locale* Scanner::locale() {
 }
 
 Scanner* Scanner::useLocale($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(locale)->equals(this->locale$)) {
 		return this;
 	}
@@ -963,13 +759,13 @@ Scanner* Scanner::useLocale($Locale* locale) {
 		if (!($instanceOf($ResourceBundleBasedAdapter, adapter))) {
 			$assign(adapter, $LocaleProviderAdapter::getResourceBundleBased());
 		}
-		$var($StringArray, all, $nc($($nc(adapter)->getLocaleResources(locale)))->getNumberPatterns());
+		$var($StringArray, all, $$nc($nc(adapter)->getLocaleResources(locale))->getNumberPatterns());
 		$assign(df, $new($DecimalFormat, $nc(all)->get(0), dfs));
 	}
 	$set(this, groupSeparator, $str({"\\x{"_s, $($Integer::toHexString($nc(dfs)->getGroupingSeparator())), "}"_s}));
-	$set(this, decimalSeparator, $str({"\\x{"_s, $($Integer::toHexString($nc(dfs)->getDecimalSeparator())), "}"_s}));
-	$set(this, nanString, $Pattern::quote($($nc(dfs)->getNaN())));
-	$set(this, infinityString, $Pattern::quote($($nc(dfs)->getInfinity())));
+	$set(this, decimalSeparator, $str({"\\x{"_s, $($Integer::toHexString(dfs->getDecimalSeparator())), "}"_s}));
+	$set(this, nanString, $Pattern::quote($(dfs->getNaN())));
+	$set(this, infinityString, $Pattern::quote($(dfs->getInfinity())));
 	$set(this, positivePrefix, $nc(df)->getPositivePrefix());
 	if (!$nc(this->positivePrefix)->isEmpty()) {
 		$set(this, positivePrefix, $Pattern::quote(this->positivePrefix));
@@ -996,7 +792,7 @@ int32_t Scanner::radix() {
 }
 
 Scanner* Scanner::useRadix(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((radix < $Character::MIN_RADIX) || (radix > $Character::MAX_RADIX)) {
 		$throwNew($IllegalArgumentException, $$str({"radix:"_s, $$str(radix)}));
 	}
@@ -1010,7 +806,7 @@ Scanner* Scanner::useRadix(int32_t radix) {
 }
 
 void Scanner::setRadix(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((radix < $Character::MIN_RADIX) || (radix > $Character::MAX_RADIX)) {
 		$throwNew($IllegalArgumentException, $$str({"radix:"_s, $$str(radix)}));
 	}
@@ -1028,7 +824,7 @@ $MatchResult* Scanner::match() {
 }
 
 $String* Scanner::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("java.util.Scanner"_s);
 	sb->append($$str({"[delimiters="_s, this->delimPattern, "]"_s}));
@@ -1063,7 +859,7 @@ bool Scanner::hasNext() {
 }
 
 $Object* Scanner::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
 	clearCaches();
 	++this->modCount;
@@ -1117,7 +913,7 @@ bool Scanner::hasNext($Pattern* pattern) {
 }
 
 $String* Scanner::next($Pattern* pattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
 	if (pattern == nullptr) {
 		$throwNew($NullPointerException);
@@ -1143,7 +939,7 @@ $String* Scanner::next($Pattern* pattern) {
 }
 
 bool Scanner::hasNextLine() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	saveState();
 	++this->modCount;
 	$var($String, result, findWithinHorizon($(linePattern()), 0));
@@ -1163,7 +959,7 @@ bool Scanner::hasNextLine() {
 }
 
 $String* Scanner::nextLine() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	++this->modCount;
 	if (this->hasNextPattern == linePattern()) {
 		return getCachedResult();
@@ -1176,7 +972,7 @@ $String* Scanner::nextLine() {
 	$var($MatchResult, mr, this->match());
 	$var($String, lineSep, $nc(mr)->group(1));
 	if (lineSep != nullptr) {
-		int32_t var$0 = result->length();
+		int32_t var$0 = $nc(result)->length();
 		$assign(result, $nc(result)->substring(0, var$0 - lineSep->length()));
 	}
 	if (result == nullptr) {
@@ -1191,7 +987,7 @@ $String* Scanner::findInLine($String* pattern) {
 }
 
 $String* Scanner::findInLine($Pattern* pattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
 	if (pattern == nullptr) {
 		$throwNew($NullPointerException);
@@ -1278,7 +1074,7 @@ bool Scanner::hasNextBoolean() {
 }
 
 bool Scanner::nextBoolean() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	clearCaches();
 	return $Boolean::parseBoolean($(next($(boolPattern()))));
 }
@@ -1288,7 +1084,7 @@ bool Scanner::hasNextByte() {
 }
 
 bool Scanner::hasNextByte(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setRadix(radix);
 	bool result = hasNext($(integerPattern()));
 	if (result) {
@@ -1307,9 +1103,9 @@ int8_t Scanner::nextByte() {
 }
 
 int8_t Scanner::nextByte(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->typeCache != nullptr) && ($instanceOf($Byte, this->typeCache)) && this->radix$ == radix) {
-		int8_t val = $nc(($cast($Byte, this->typeCache)))->byteValue();
+		int8_t val = $cast($Byte, this->typeCache)->byteValue();
 		useTypeCache();
 		return val;
 	}
@@ -1333,7 +1129,7 @@ bool Scanner::hasNextShort() {
 }
 
 bool Scanner::hasNextShort(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setRadix(radix);
 	bool result = hasNext($(integerPattern()));
 	if (result) {
@@ -1352,9 +1148,9 @@ int16_t Scanner::nextShort() {
 }
 
 int16_t Scanner::nextShort(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->typeCache != nullptr) && ($instanceOf($Short, this->typeCache)) && this->radix$ == radix) {
-		int16_t val = $nc(($cast($Short, this->typeCache)))->shortValue();
+		int16_t val = $cast($Short, this->typeCache)->shortValue();
 		useTypeCache();
 		return val;
 	}
@@ -1378,7 +1174,7 @@ bool Scanner::hasNextInt() {
 }
 
 bool Scanner::hasNextInt(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setRadix(radix);
 	bool result = hasNext($(integerPattern()));
 	if (result) {
@@ -1393,7 +1189,7 @@ bool Scanner::hasNextInt(int32_t radix) {
 }
 
 $String* Scanner::processIntegerToken($String* token) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, $nc(token)->replaceAll($$str({""_s, this->groupSeparator}), ""_s));
 	bool isNegative = false;
 	int32_t preLen = $nc(this->negativePrefix)->length();
@@ -1418,9 +1214,9 @@ int32_t Scanner::nextInt() {
 }
 
 int32_t Scanner::nextInt(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->typeCache != nullptr) && ($instanceOf($Integer, this->typeCache)) && this->radix$ == radix) {
-		int32_t val = $nc(($cast($Integer, this->typeCache)))->intValue();
+		int32_t val = $cast($Integer, this->typeCache)->intValue();
 		useTypeCache();
 		return val;
 	}
@@ -1444,7 +1240,7 @@ bool Scanner::hasNextLong() {
 }
 
 bool Scanner::hasNextLong(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setRadix(radix);
 	bool result = hasNext($(integerPattern()));
 	if (result) {
@@ -1463,9 +1259,9 @@ int64_t Scanner::nextLong() {
 }
 
 int64_t Scanner::nextLong(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->typeCache != nullptr) && ($instanceOf($Long, this->typeCache)) && this->radix$ == radix) {
-		int64_t val = $nc(($cast($Long, this->typeCache)))->longValue();
+		int64_t val = $cast($Long, this->typeCache)->longValue();
 		useTypeCache();
 		return val;
 	}
@@ -1485,7 +1281,7 @@ int64_t Scanner::nextLong(int32_t radix) {
 }
 
 $String* Scanner::processFloatToken($String* token) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, $nc(token)->replaceAll(this->groupSeparator, ""_s));
 	if (!$nc(this->decimalSeparator)->equals("\\."_s)) {
 		$assign(result, result->replaceAll(this->decimalSeparator, "."_s));
@@ -1533,7 +1329,7 @@ $String* Scanner::processFloatToken($String* token) {
 }
 
 bool Scanner::hasNextFloat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setRadix(10);
 	bool result = hasNext($(floatPattern()));
 	if (result) {
@@ -1548,9 +1344,9 @@ bool Scanner::hasNextFloat() {
 }
 
 float Scanner::nextFloat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->typeCache != nullptr) && ($instanceOf($Float, this->typeCache))) {
-		float val = $nc(($cast($Float, this->typeCache)))->floatValue();
+		float val = $cast($Float, this->typeCache)->floatValue();
 		useTypeCache();
 		return val;
 	}
@@ -1566,7 +1362,7 @@ float Scanner::nextFloat() {
 }
 
 bool Scanner::hasNextDouble() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setRadix(10);
 	bool result = hasNext($(floatPattern()));
 	if (result) {
@@ -1581,9 +1377,9 @@ bool Scanner::hasNextDouble() {
 }
 
 double Scanner::nextDouble() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->typeCache != nullptr) && ($instanceOf($Double, this->typeCache))) {
-		double val = $nc(($cast($Double, this->typeCache)))->doubleValue();
+		double val = $cast($Double, this->typeCache)->doubleValue();
 		useTypeCache();
 		return val;
 	}
@@ -1603,7 +1399,7 @@ bool Scanner::hasNextBigInteger() {
 }
 
 bool Scanner::hasNextBigInteger(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setRadix(radix);
 	bool result = hasNext($(integerPattern()));
 	if (result) {
@@ -1622,10 +1418,10 @@ $BigInteger* Scanner::nextBigInteger() {
 }
 
 $BigInteger* Scanner::nextBigInteger(int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($BigInteger, val, nullptr);
-		bool var$0 = (this->typeCache != nullptr);
+		bool var$0 = this->typeCache != nullptr;
 		if (var$0) {
 			$var($Object, patt104378$temp, this->typeCache);
 			bool var$1 = $instanceOf($BigInteger, patt104378$temp);
@@ -1633,7 +1429,7 @@ $BigInteger* Scanner::nextBigInteger(int32_t radix) {
 				$assign(val, $cast($BigInteger, patt104378$temp));
 				var$1 = true;
 			}
-			var$0 = (var$1);
+			var$0 = var$1;
 		}
 		if (var$0 && this->radix$ == radix) {
 			useTypeCache();
@@ -1656,7 +1452,7 @@ $BigInteger* Scanner::nextBigInteger(int32_t radix) {
 }
 
 bool Scanner::hasNextBigDecimal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setRadix(10);
 	bool result = hasNext($(decimalPattern()));
 	if (result) {
@@ -1671,10 +1467,10 @@ bool Scanner::hasNextBigDecimal() {
 }
 
 $BigDecimal* Scanner::nextBigDecimal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($BigDecimal, val, nullptr);
-		bool var$0 = (this->typeCache != nullptr);
+		bool var$0 = this->typeCache != nullptr;
 		if (var$0) {
 			$var($Object, patt106878$temp, this->typeCache);
 			bool var$1 = $instanceOf($BigDecimal, patt106878$temp);
@@ -1682,7 +1478,7 @@ $BigDecimal* Scanner::nextBigDecimal() {
 				$assign(val, $cast($BigDecimal, patt106878$temp));
 				var$1 = true;
 			}
-			var$0 = (var$1);
+			var$0 = var$1;
 		}
 		if (var$0) {
 			useTypeCache();
@@ -1712,18 +1508,18 @@ Scanner* Scanner::reset() {
 }
 
 $Stream* Scanner::tokens() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
 	$var($Stream, stream, $StreamSupport::stream($$new($Scanner$TokenSpliterator, this), false));
-	return $cast($Stream, $nc(stream)->onClose(static_cast<$Runnable*>($$new(Scanner$$Lambda$close, this))));
+	return $cast($Stream, $nc(stream)->onClose($$new(Scanner$$Lambda$close, this)));
 }
 
 $Stream* Scanner::findAll($Pattern* pattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(pattern);
 	ensureOpen();
 	$var($Stream, stream, $StreamSupport::stream($$new($Scanner$FindSpliterator, this, pattern), false));
-	return $cast($Stream, $nc(stream)->onClose(static_cast<$Runnable*>($$new(Scanner$$Lambda$close, this))));
+	return $cast($Stream, $nc(stream)->onClose($$new(Scanner$$Lambda$close, this)));
 }
 
 $Stream* Scanner::findAll($String* patString) {
@@ -1732,7 +1528,7 @@ $Stream* Scanner::findAll($String* patString) {
 	return findAll($($nc(this->patternCache)->forName(patString)));
 }
 
-void clinit$Scanner($Class* class$) {
+void Scanner::clinit$($Class* clazz) {
 	$assignStatic(Scanner::BOOLEAN_PATTERN, "true|false"_s);
 	$assignStatic(Scanner::LINE_SEPARATOR_PATTERN, u"\r\n|[\n\r  \u0085]"_s);
 	$assignStatic(Scanner::LINE_PATTERN, $str({".*("_s, Scanner::LINE_SEPARATOR_PATTERN, ")|.+$"_s}));
@@ -1747,11 +1543,198 @@ Scanner::Scanner() {
 
 $Class* Scanner::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Scanner$$Lambda$close::classInfo$.name)) {
+		if (name->equals("java.util.Scanner$$Lambda$close")) {
 			return Scanner$$Lambda$close::load$(name, initialize);
 		}
 	}
-	$loadClass(Scanner, name, initialize, &_Scanner_ClassInfo_, clinit$Scanner, allocate$Scanner);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Scanner, $assertionsDisabled)},
+		{"buf", "Ljava/nio/CharBuffer;", nullptr, $PRIVATE, $field(Scanner, buf)},
+		{"BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Scanner, BUFFER_SIZE)},
+		{"position", "I", nullptr, $PRIVATE, $field(Scanner, position)},
+		{"matcher", "Ljava/util/regex/Matcher;", nullptr, $PRIVATE, $field(Scanner, matcher)},
+		{"delimPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $field(Scanner, delimPattern)},
+		{"hasNextPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $field(Scanner, hasNextPattern)},
+		{"hasNextPosition", "I", nullptr, $PRIVATE, $field(Scanner, hasNextPosition)},
+		{"hasNextResult", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, hasNextResult)},
+		{"source", "Ljava/lang/Readable;", nullptr, $PRIVATE, $field(Scanner, source)},
+		{"sourceClosed", "Z", nullptr, $PRIVATE, $field(Scanner, sourceClosed)},
+		{"needInput", "Z", nullptr, $PRIVATE, $field(Scanner, needInput)},
+		{"skipped", "Z", nullptr, $PRIVATE, $field(Scanner, skipped)},
+		{"savedScannerPosition", "I", nullptr, $PRIVATE, $field(Scanner, savedScannerPosition)},
+		{"typeCache", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Scanner, typeCache)},
+		{"matchValid", "Z", nullptr, $PRIVATE, $field(Scanner, matchValid)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(Scanner, closed)},
+		{"radix", "I", nullptr, $PRIVATE, $field(Scanner, radix$)},
+		{"defaultRadix", "I", nullptr, $PRIVATE, $field(Scanner, defaultRadix)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(Scanner, locale$)},
+		{"patternCache", "Ljava/util/Scanner$PatternLRUCache;", nullptr, $PRIVATE, $field(Scanner, patternCache)},
+		{"lastException", "Ljava/io/IOException;", nullptr, $PRIVATE, $field(Scanner, lastException)},
+		{"modCount", "I", nullptr, 0, $field(Scanner, modCount)},
+		{"WHITESPACE_PATTERN", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticField(Scanner, WHITESPACE_PATTERN)},
+		{"FIND_ANY_PATTERN", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticField(Scanner, FIND_ANY_PATTERN)},
+		{"NON_ASCII_DIGIT", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticField(Scanner, NON_ASCII_DIGIT)},
+		{"groupSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, groupSeparator)},
+		{"decimalSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, decimalSeparator)},
+		{"nanString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, nanString)},
+		{"infinityString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, infinityString)},
+		{"positivePrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, positivePrefix)},
+		{"negativePrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, negativePrefix)},
+		{"positiveSuffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, positiveSuffix)},
+		{"negativeSuffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, negativeSuffix)},
+		{"boolPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Scanner, boolPattern$)},
+		{"BOOLEAN_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Scanner, BOOLEAN_PATTERN)},
+		{"integerPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $field(Scanner, integerPattern$)},
+		{"digits", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, digits)},
+		{"non0Digit", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Scanner, non0Digit)},
+		{"SIMPLE_GROUP_INDEX", "I", nullptr, $PRIVATE, $field(Scanner, SIMPLE_GROUP_INDEX)},
+		{"separatorPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Scanner, separatorPattern$)},
+		{"linePattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Scanner, linePattern$)},
+		{"LINE_SEPARATOR_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Scanner, LINE_SEPARATOR_PATTERN)},
+		{"LINE_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Scanner, LINE_PATTERN)},
+		{"floatPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $field(Scanner, floatPattern$)},
+		{"decimalPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $field(Scanner, decimalPattern$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/Readable;Ljava/util/regex/Pattern;)V", nullptr, $PRIVATE, $method(Scanner, init$, void, $Readable*, $Pattern*)},
+		{"<init>", "(Ljava/lang/Readable;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $Readable*)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $InputStream*)},
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $InputStream*, $String*)},
+		{"<init>", "(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $InputStream*, $Charset*)},
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $File*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $File*, $String*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $File*, $Charset*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/File;Ljava/nio/charset/CharsetDecoder;)V", nullptr, $PRIVATE, $method(Scanner, init$, void, $File*, $CharsetDecoder*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $Path*), "java.io.IOException"},
+		{"<init>", "(Ljava/nio/file/Path;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $Path*, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $Path*, $Charset*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $String*)},
+		{"<init>", "(Ljava/nio/channels/ReadableByteChannel;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $ReadableByteChannel*)},
+		{"<init>", "(Ljava/nio/channels/ReadableByteChannel;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $ReadableByteChannel*, $String*)},
+		{"<init>", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(Scanner, init$, void, $ReadableByteChannel*, $Charset*)},
+		{"boolPattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, boolPattern, $Pattern*)},
+		{"buildFloatAndDecimalPattern", "()V", nullptr, $PRIVATE, $method(Scanner, buildFloatAndDecimalPattern, void)},
+		{"buildIntegerPatternString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Scanner, buildIntegerPatternString, $String*)},
+		{"cacheResult", "()V", nullptr, $PRIVATE, $method(Scanner, cacheResult, void)},
+		{"cacheResult", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Scanner, cacheResult, void, $String*)},
+		{"clearCaches", "()V", nullptr, $PRIVATE, $method(Scanner, clearCaches, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Scanner, close, void)},
+		{"decimalPattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $method(Scanner, decimalPattern, $Pattern*)},
+		{"delimiter", "()Ljava/util/regex/Pattern;", nullptr, $PUBLIC, $method(Scanner, delimiter, $Pattern*)},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(Scanner, ensureOpen, void)},
+		{"findAll", "(Ljava/util/regex/Pattern;)Ljava/util/stream/Stream;", "(Ljava/util/regex/Pattern;)Ljava/util/stream/Stream<Ljava/util/regex/MatchResult;>;", $PUBLIC, $method(Scanner, findAll, $Stream*, $Pattern*)},
+		{"findAll", "(Ljava/lang/String;)Ljava/util/stream/Stream;", "(Ljava/lang/String;)Ljava/util/stream/Stream<Ljava/util/regex/MatchResult;>;", $PUBLIC, $method(Scanner, findAll, $Stream*, $String*)},
+		{"findInLine", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, findInLine, $String*, $String*)},
+		{"findInLine", "(Ljava/util/regex/Pattern;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, findInLine, $String*, $Pattern*)},
+		{"findPatternInBuffer", "(Ljava/util/regex/Pattern;I)Z", nullptr, $PRIVATE, $method(Scanner, findPatternInBuffer, bool, $Pattern*, int32_t)},
+		{"findWithinHorizon", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, findWithinHorizon, $String*, $String*, int32_t)},
+		{"findWithinHorizon", "(Ljava/util/regex/Pattern;I)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, findWithinHorizon, $String*, $Pattern*, int32_t)},
+		{"floatPattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $method(Scanner, floatPattern, $Pattern*)},
+		{"getCachedResult", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Scanner, getCachedResult, $String*)},
+		{"getCompleteTokenInBuffer", "(Ljava/util/regex/Pattern;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Scanner, getCompleteTokenInBuffer, $String*, $Pattern*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Scanner, hasNext, bool)},
+		{"hasNext", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(Scanner, hasNext, bool, $String*)},
+		{"hasNext", "(Ljava/util/regex/Pattern;)Z", nullptr, $PUBLIC, $method(Scanner, hasNext, bool, $Pattern*)},
+		{"hasNextBigDecimal", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextBigDecimal, bool)},
+		{"hasNextBigInteger", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextBigInteger, bool)},
+		{"hasNextBigInteger", "(I)Z", nullptr, $PUBLIC, $method(Scanner, hasNextBigInteger, bool, int32_t)},
+		{"hasNextBoolean", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextBoolean, bool)},
+		{"hasNextByte", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextByte, bool)},
+		{"hasNextByte", "(I)Z", nullptr, $PUBLIC, $method(Scanner, hasNextByte, bool, int32_t)},
+		{"hasNextDouble", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextDouble, bool)},
+		{"hasNextFloat", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextFloat, bool)},
+		{"hasNextInt", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextInt, bool)},
+		{"hasNextInt", "(I)Z", nullptr, $PUBLIC, $method(Scanner, hasNextInt, bool, int32_t)},
+		{"hasNextLine", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextLine, bool)},
+		{"hasNextLong", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextLong, bool)},
+		{"hasNextLong", "(I)Z", nullptr, $PUBLIC, $method(Scanner, hasNextLong, bool, int32_t)},
+		{"hasNextShort", "()Z", nullptr, $PUBLIC, $method(Scanner, hasNextShort, bool)},
+		{"hasNextShort", "(I)Z", nullptr, $PUBLIC, $method(Scanner, hasNextShort, bool, int32_t)},
+		{"hasTokenInBuffer", "()Z", nullptr, $PRIVATE, $method(Scanner, hasTokenInBuffer, bool)},
+		{"integerPattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE, $method(Scanner, integerPattern, $Pattern*)},
+		{"ioException", "()Ljava/io/IOException;", nullptr, $PUBLIC, $method(Scanner, ioException, $IOException*)},
+		{"linePattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, linePattern, $Pattern*)},
+		{"locale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $method(Scanner, locale, $Locale*)},
+		{"makeReadable", "(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/lang/Readable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, makeReadable, $Readable*, $Path*, $Charset*), "java.io.IOException"},
+		{"makeReadable", "(Ljava/io/InputStream;Ljava/nio/charset/Charset;)Ljava/lang/Readable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, makeReadable, $Readable*, $InputStream*, $Charset*)},
+		{"makeReadable", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;)Ljava/lang/Readable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, makeReadable, $Readable*, $ReadableByteChannel*, $CharsetDecoder*)},
+		{"makeReadable", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/Charset;)Ljava/lang/Readable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, makeReadable, $Readable*, $ReadableByteChannel*, $Charset*)},
+		{"makeReadable", "(Ljava/nio/channels/ReadableByteChannel;)Ljava/lang/Readable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, makeReadable, $Readable*, $ReadableByteChannel*)},
+		{"makeSpace", "()Z", nullptr, $PRIVATE, $method(Scanner, makeSpace, bool)},
+		{"match", "()Ljava/util/regex/MatchResult;", nullptr, $PUBLIC, $method(Scanner, match, $MatchResult*)},
+		{"matchPatternInBuffer", "(Ljava/util/regex/Pattern;)Z", nullptr, $PRIVATE, $method(Scanner, matchPatternInBuffer, bool, $Pattern*)},
+		{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Scanner, next, $Object*)},
+		{"next", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, next, $String*, $String*)},
+		{"next", "(Ljava/util/regex/Pattern;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, next, $String*, $Pattern*)},
+		{"nextBigDecimal", "()Ljava/math/BigDecimal;", nullptr, $PUBLIC, $method(Scanner, nextBigDecimal, $BigDecimal*)},
+		{"nextBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(Scanner, nextBigInteger, $BigInteger*)},
+		{"nextBigInteger", "(I)Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(Scanner, nextBigInteger, $BigInteger*, int32_t)},
+		{"nextBoolean", "()Z", nullptr, $PUBLIC, $method(Scanner, nextBoolean, bool)},
+		{"nextByte", "()B", nullptr, $PUBLIC, $method(Scanner, nextByte, int8_t)},
+		{"nextByte", "(I)B", nullptr, $PUBLIC, $method(Scanner, nextByte, int8_t, int32_t)},
+		{"nextDouble", "()D", nullptr, $PUBLIC, $method(Scanner, nextDouble, double)},
+		{"nextFloat", "()F", nullptr, $PUBLIC, $method(Scanner, nextFloat, float)},
+		{"nextInt", "()I", nullptr, $PUBLIC, $method(Scanner, nextInt, int32_t)},
+		{"nextInt", "(I)I", nullptr, $PUBLIC, $method(Scanner, nextInt, int32_t, int32_t)},
+		{"nextLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Scanner, nextLine, $String*)},
+		{"nextLong", "()J", nullptr, $PUBLIC, $method(Scanner, nextLong, int64_t)},
+		{"nextLong", "(I)J", nullptr, $PUBLIC, $method(Scanner, nextLong, int64_t, int32_t)},
+		{"nextShort", "()S", nullptr, $PUBLIC, $method(Scanner, nextShort, int16_t)},
+		{"nextShort", "(I)S", nullptr, $PUBLIC, $method(Scanner, nextShort, int16_t, int32_t)},
+		{"processFloatToken", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Scanner, processFloatToken, $String*, $String*)},
+		{"processIntegerToken", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Scanner, processIntegerToken, $String*, $String*)},
+		{"radix", "()I", nullptr, $PUBLIC, $method(Scanner, radix, int32_t)},
+		{"readInput", "()V", nullptr, $PRIVATE, $method(Scanner, readInput, void)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Scanner, remove, void)},
+		{"reset", "()Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, reset, Scanner*)},
+		{"revertState", "()V", nullptr, $PRIVATE, $method(Scanner, revertState, void)},
+		{"revertState", "(Z)Z", nullptr, $PRIVATE, $method(Scanner, revertState, bool, bool)},
+		{"saveState", "()V", nullptr, $PRIVATE, $method(Scanner, saveState, void)},
+		{"separatorPattern", "()Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, separatorPattern, $Pattern*)},
+		{"setRadix", "(I)V", nullptr, $PRIVATE, $method(Scanner, setRadix, void, int32_t)},
+		{"skip", "(Ljava/util/regex/Pattern;)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, skip, Scanner*, $Pattern*)},
+		{"skip", "(Ljava/lang/String;)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, skip, Scanner*, $String*)},
+		{"throwFor", "()V", nullptr, $PRIVATE, $method(Scanner, throwFor, void)},
+		{"toCharset", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, toCharset, $Charset*, $String*)},
+		{"toDecoder", "(Ljava/lang/String;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE | $STATIC, $staticMethod(Scanner, toDecoder, $CharsetDecoder*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Scanner, toString, $String*)},
+		{"tokens", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $method(Scanner, tokens, $Stream*)},
+		{"translateSavedIndexes", "(I)V", nullptr, $PRIVATE, $method(Scanner, translateSavedIndexes, void, int32_t)},
+		{"useDelimiter", "(Ljava/util/regex/Pattern;)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, useDelimiter, Scanner*, $Pattern*)},
+		{"useDelimiter", "(Ljava/lang/String;)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, useDelimiter, Scanner*, $String*)},
+		{"useLocale", "(Ljava/util/Locale;)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, useLocale, Scanner*, $Locale*)},
+		{"useRadix", "(I)Ljava/util/Scanner;", nullptr, $PUBLIC, $method(Scanner, useRadix, Scanner*, int32_t)},
+		{"useTypeCache", "()V", nullptr, $PRIVATE, $method(Scanner, useTypeCache, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Scanner$PatternLRUCache", "java.util.Scanner", "PatternLRUCache", $PRIVATE | $STATIC},
+		{"java.util.Scanner$FindSpliterator", "java.util.Scanner", "FindSpliterator", 0},
+		{"java.util.Scanner$TokenSpliterator", "java.util.Scanner", "TokenSpliterator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.Scanner",
+		"java.lang.Object",
+		"java.util.Iterator,java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;Ljava/io/Closeable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.Scanner$PatternLRUCache,java.util.Scanner$FindSpliterator,java.util.Scanner$TokenSpliterator"
+	};
+	$loadClass(Scanner, name, initialize, &classInfo$$, Scanner::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Scanner));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/Module$1.h>
-
 #include <java/lang/Module.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
@@ -29,52 +28,6 @@ using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
 namespace java {
 	namespace lang {
 
-$FieldInfo _Module$1_FieldInfo_[] = {
-	{"this$0", "Ljava/lang/Module;", nullptr, $FINAL | $SYNTHETIC, $field(Module$1, this$0)},
-	{"val$cw", "Ljdk/internal/org/objectweb/asm/ClassWriter;", nullptr, $FINAL | $SYNTHETIC, $field(Module$1, val$cw)},
-	{}
-};
-
-$MethodInfo _Module$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Module;ILjdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/ClassWriter;)V", nullptr, 0, $method(Module$1, init$, void, $Module*, int32_t, $ClassVisitor*, $ClassWriter*)},
-	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Module$1, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(Module$1, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(Module$1, visitAttribute, void, $Attribute*)},
-	{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(Module$1, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _Module$1_EnclosingMethodInfo_ = {
-	"java.lang.Module",
-	"loadModuleInfoClass",
-	"(Ljava/io/InputStream;)Ljava/lang/Class;"
-};
-
-$InnerClassInfo _Module$1_InnerClassesInfo_[] = {
-	{"java.lang.Module$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Module$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Module$1",
-	"jdk.internal.org.objectweb.asm.ClassVisitor",
-	nullptr,
-	_Module$1_FieldInfo_,
-	_Module$1_MethodInfo_,
-	nullptr,
-	&_Module$1_EnclosingMethodInfo_,
-	_Module$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Module"
-};
-
-$Object* allocate$Module$1($Class* clazz) {
-	return $of($alloc(Module$1));
-}
-
 void Module$1::init$($Module* this$0, int32_t api, $ClassVisitor* classVisitor, $ClassWriter* val$cw) {
 	$set(this, this$0, this$0);
 	$set(this, val$cw, val$cw);
@@ -100,7 +53,46 @@ Module$1::Module$1() {
 }
 
 $Class* Module$1::load$($String* name, bool initialize) {
-	$loadClass(Module$1, name, initialize, &_Module$1_ClassInfo_, allocate$Module$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/lang/Module;", nullptr, $FINAL | $SYNTHETIC, $field(Module$1, this$0)},
+		{"val$cw", "Ljdk/internal/org/objectweb/asm/ClassWriter;", nullptr, $FINAL | $SYNTHETIC, $field(Module$1, val$cw)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;ILjdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/ClassWriter;)V", nullptr, 0, $method(Module$1, init$, void, $Module*, int32_t, $ClassVisitor*, $ClassWriter*)},
+		{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Module$1, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(Module$1, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(Module$1, visitAttribute, void, $Attribute*)},
+		{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(Module$1, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.Module",
+		"loadModuleInfoClass",
+		"(Ljava/io/InputStream;)Ljava/lang/Class;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Module$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Module$1",
+		"jdk.internal.org.objectweb.asm.ClassVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Module"
+	};
+	$loadClass(Module$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Module$1);
+	});
 	return class$;
 }
 

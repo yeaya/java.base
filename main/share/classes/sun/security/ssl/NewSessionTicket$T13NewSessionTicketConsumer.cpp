@@ -1,5 +1,4 @@
 #include <sun/security/ssl/NewSessionTicket$T13NewSessionTicketConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/SecureRandom.h>
 #include <javax/crypto/SecretKey.h>
@@ -31,68 +30,35 @@ using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $NewSessionTicket = ::sun::security::ssl::NewSessionTicket;
 using $NewSessionTicket$NewSessionTicketMessage = ::sun::security::ssl::NewSessionTicket$NewSessionTicketMessage;
 using $NewSessionTicket$T13NewSessionTicketMessage = ::sun::security::ssl::NewSessionTicket$T13NewSessionTicketMessage;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLSessionContextImpl = ::sun::security::ssl::SSLSessionContextImpl;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $SessionId = ::sun::security::ssl::SessionId;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _NewSessionTicket$T13NewSessionTicketConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(NewSessionTicket$T13NewSessionTicketConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _NewSessionTicket$T13NewSessionTicketConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.NewSessionTicket$T13NewSessionTicketConsumer", "sun.security.ssl.NewSessionTicket", "T13NewSessionTicketConsumer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NewSessionTicket$T13NewSessionTicketConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.NewSessionTicket$T13NewSessionTicketConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLConsumer",
-	nullptr,
-	_NewSessionTicket$T13NewSessionTicketConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NewSessionTicket$T13NewSessionTicketConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.NewSessionTicket"
-};
-
-$Object* allocate$NewSessionTicket$T13NewSessionTicketConsumer($Class* clazz) {
-	return $of($alloc(NewSessionTicket$T13NewSessionTicketConsumer));
-}
-
 void NewSessionTicket$T13NewSessionTicketConsumer::init$() {
 }
 
 void NewSessionTicket$T13NewSessionTicketConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$var($NewSessionTicket$NewSessionTicketMessage, nstm, $new($NewSessionTicket$T13NewSessionTicketMessage, hc, message));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Consuming NewSessionTicket message"_s, $$new($ObjectArray, {$of(nstm)}));
+		$SSLLogger::fine("Consuming NewSessionTicket message"_s, $$new($ObjectArray, {nstm}));
 	}
 	$var($SSLSessionContextImpl, sessionCache, $cast($SSLSessionContextImpl, $nc($nc(hc)->sslContext)->engineGetClientSessionContext()));
-	if (nstm->ticketLifetime <= 0 || nstm->ticketLifetime > 0x00093A80) {
+	if (nstm->ticketLifetime <= 0 || nstm->ticketLifetime > 0x00093a80) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-			$SSLLogger::fine($$str({"Discarding NewSessionTicket with lifetime "_s, $$str(nstm->ticketLifetime)}), $$new($ObjectArray, {$of(nstm)}));
+			$SSLLogger::fine($$str({"Discarding NewSessionTicket with lifetime "_s, $$str(nstm->ticketLifetime)}), $$new($ObjectArray, {nstm}));
 		}
 		$nc(sessionCache)->remove($($nc(hc->handshakeSession)->getSessionId()));
 		return;
 	}
-	if ($nc(sessionCache)->getSessionTimeout() > 0x00093A80) {
+	if ($nc(sessionCache)->getSessionTimeout() > 0x00093a80) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::fine("Session cache lifetime is too long. Discarding ticket."_s, $$new($ObjectArray, 0));
 		}
@@ -107,23 +73,48 @@ void NewSessionTicket$T13NewSessionTicketConsumer::consume($ConnectionContext* c
 		return;
 	}
 	$var($CipherSuite$HashAlg, var$0, $nc($(sessionToSave->getSuite()))->hashAlg);
-	$var($SecretKey, var$1, resumptionMasterSecret);
-	$var($SecretKey, psk, $NewSessionTicket::derivePreSharedKey(var$0, var$1, $(nstm->getTicketNonce())));
-	$var($SessionId, newId, $new($SessionId, true, $($nc(hc->sslContext)->getSecureRandom())));
+	$var($SecretKey, psk, $NewSessionTicket::derivePreSharedKey(var$0, resumptionMasterSecret, $(nstm->getTicketNonce())));
+	$var($SessionId, newId, $new($SessionId, true, $(hc->sslContext->getSecureRandom())));
 	$var($SSLSessionImpl, sessionCopy, $new($SSLSessionImpl, sessionToSave, newId));
 	sessionToSave->addChild(sessionCopy);
 	sessionCopy->setPreSharedKey(psk);
 	sessionCopy->setTicketAgeAdd(nstm->getTicketAgeAdd());
 	sessionCopy->setPskIdentity(nstm->ticket);
-	$nc(sessionCache)->put(sessionCopy);
-	$nc(hc->conContext)->finishPostHandshake();
+	sessionCache->put(sessionCopy);
+	hc->conContext->finishPostHandshake();
 }
 
 NewSessionTicket$T13NewSessionTicketConsumer::NewSessionTicket$T13NewSessionTicketConsumer() {
 }
 
 $Class* NewSessionTicket$T13NewSessionTicketConsumer::load$($String* name, bool initialize) {
-	$loadClass(NewSessionTicket$T13NewSessionTicketConsumer, name, initialize, &_NewSessionTicket$T13NewSessionTicketConsumer_ClassInfo_, allocate$NewSessionTicket$T13NewSessionTicketConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(NewSessionTicket$T13NewSessionTicketConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.NewSessionTicket$T13NewSessionTicketConsumer", "sun.security.ssl.NewSessionTicket", "T13NewSessionTicketConsumer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.NewSessionTicket$T13NewSessionTicketConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.NewSessionTicket"
+	};
+	$loadClass(NewSessionTicket$T13NewSessionTicketConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewSessionTicket$T13NewSessionTicketConsumer);
+	});
 	return class$;
 }
 

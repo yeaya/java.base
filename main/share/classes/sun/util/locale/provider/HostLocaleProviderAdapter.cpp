@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapter.h>
-
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/NoSuchMethodException.h>
@@ -21,7 +20,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
-using $Method = ::java::lang::reflect::Method;
 using $DecimalFormat = ::java::text::DecimalFormat;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
@@ -33,27 +31,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$MethodInfo _HostLocaleProviderAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HostLocaleProviderAdapter, init$, void)},
-	{"findInstalledProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PROTECTED, $virtualMethod(HostLocaleProviderAdapter, findInstalledProvider, $LocaleServiceProvider*, $Class*)},
-	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
-	{"makeIntegerFormatter", "(Ljava/text/DecimalFormat;)Ljava/text/DecimalFormat;", nullptr, $STATIC, $staticMethod(HostLocaleProviderAdapter, makeIntegerFormatter, $DecimalFormat*, $DecimalFormat*)},
-	{}
-};
-
-$ClassInfo _HostLocaleProviderAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.HostLocaleProviderAdapter",
-	"sun.util.locale.provider.AuxLocaleProviderAdapter",
-	nullptr,
-	nullptr,
-	_HostLocaleProviderAdapter_MethodInfo_
-};
-
-$Object* allocate$HostLocaleProviderAdapter($Class* clazz) {
-	return $of($alloc(HostLocaleProviderAdapter));
-}
-
 void HostLocaleProviderAdapter::init$() {
 	$AuxLocaleProviderAdapter::init$();
 }
@@ -64,10 +41,10 @@ $LocaleProviderAdapter$Type* HostLocaleProviderAdapter::getAdapterType() {
 }
 
 $LocaleServiceProvider* HostLocaleProviderAdapter::findInstalledProvider($Class* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		return $cast($LocaleServiceProvider, $nc($($Class::forName("sun.util.locale.provider.HostLocaleProviderAdapterImpl"_s)->getMethod($$str({"get"_s, $($nc(c)->getSimpleName())}), ($ClassArray*)nullptr)))->invoke(nullptr, ($ObjectArray*)nullptr));
+		return $cast($LocaleServiceProvider, $$nc($Class::forName("sun.util.locale.provider.HostLocaleProviderAdapterImpl"_s)->getMethod($$str({"get"_s, $($nc(c)->getSimpleName())}), ($ClassArray*)nullptr))->invoke(nullptr, ($ObjectArray*)nullptr));
 	} catch ($ClassNotFoundException& ex) {
 		return nullptr;
 	} catch ($NoSuchMethodException& ex) {
@@ -94,7 +71,24 @@ HostLocaleProviderAdapter::HostLocaleProviderAdapter() {
 }
 
 $Class* HostLocaleProviderAdapter::load$($String* name, bool initialize) {
-	$loadClass(HostLocaleProviderAdapter, name, initialize, &_HostLocaleProviderAdapter_ClassInfo_, allocate$HostLocaleProviderAdapter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HostLocaleProviderAdapter, init$, void)},
+		{"findInstalledProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PROTECTED, $virtualMethod(HostLocaleProviderAdapter, findInstalledProvider, $LocaleServiceProvider*, $Class*)},
+		{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
+		{"makeIntegerFormatter", "(Ljava/text/DecimalFormat;)Ljava/text/DecimalFormat;", nullptr, $STATIC, $staticMethod(HostLocaleProviderAdapter, makeIntegerFormatter, $DecimalFormat*, $DecimalFormat*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.HostLocaleProviderAdapter",
+		"sun.util.locale.provider.AuxLocaleProviderAdapter",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HostLocaleProviderAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostLocaleProviderAdapter);
+	});
 	return class$;
 }
 

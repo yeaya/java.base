@@ -1,5 +1,4 @@
 #include <sun/security/util/KnownOIDs.h>
-
 #include <java/lang/Enum.h>
 #include <java/util/Locale.h>
 #include <java/util/Objects.h>
@@ -68,336 +67,6 @@ using $KnownOIDs$9 = ::sun::security::util::KnownOIDs$9;
 namespace sun {
 	namespace security {
 		namespace util {
-
-$FieldInfo _KnownOIDs_FieldInfo_[] = {
-	{"CommonName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CommonName)},
-	{"Surname", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Surname)},
-	{"SerialNumber", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SerialNumber)},
-	{"CountryName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CountryName)},
-	{"LocalityName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, LocalityName)},
-	{"StateName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, StateName)},
-	{"StreetAddress", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, StreetAddress)},
-	{"OrgName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OrgName)},
-	{"OrgUnitName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OrgUnitName)},
-	{"Title", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Title)},
-	{"GivenName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, GivenName)},
-	{"Initials", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Initials)},
-	{"GenerationQualifier", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, GenerationQualifier)},
-	{"DNQualifier", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DNQualifier)},
-	{"SubjectDirectoryAttributes", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SubjectDirectoryAttributes)},
-	{"SubjectKeyID", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SubjectKeyID)},
-	{"KeyUsage", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, KeyUsage)},
-	{"PrivateKeyUsage", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PrivateKeyUsage)},
-	{"SubjectAlternativeName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SubjectAlternativeName)},
-	{"IssuerAlternativeName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, IssuerAlternativeName)},
-	{"BasicConstraints", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, BasicConstraints)},
-	{"CRLNumber", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CRLNumber)},
-	{"ReasonCode", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ReasonCode)},
-	{"HoldInstructionCode", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HoldInstructionCode)},
-	{"InvalidityDate", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, InvalidityDate)},
-	{"DeltaCRLIndicator", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DeltaCRLIndicator)},
-	{"IssuingDistributionPoint", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, IssuingDistributionPoint)},
-	{"CertificateIssuer", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CertificateIssuer)},
-	{"NameConstraints", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, NameConstraints)},
-	{"CRLDistributionPoints", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CRLDistributionPoints)},
-	{"CertificatePolicies", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CertificatePolicies)},
-	{"CE_CERT_POLICIES_ANY", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CE_CERT_POLICIES_ANY)},
-	{"PolicyMappings", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PolicyMappings)},
-	{"AuthorityKeyID", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AuthorityKeyID)},
-	{"PolicyConstraints", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PolicyConstraints)},
-	{"extendedKeyUsage", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, extendedKeyUsage)},
-	{"anyExtendedKeyUsage", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, anyExtendedKeyUsage)},
-	{"FreshestCRL", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, FreshestCRL)},
-	{"InhibitAnyPolicy", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, InhibitAnyPolicy)},
-	{"AuthInfoAccess", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AuthInfoAccess)},
-	{"SubjectInfoAccess", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SubjectInfoAccess)},
-	{"serverAuth", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, serverAuth)},
-	{"clientAuth", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, clientAuth)},
-	{"codeSigning", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, codeSigning)},
-	{"emailProtection", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, emailProtection)},
-	{"ipsecEndSystem", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ipsecEndSystem)},
-	{"ipsecTunnel", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ipsecTunnel)},
-	{"ipsecUser", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ipsecUser)},
-	{"KP_TimeStamping", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, KP_TimeStamping)},
-	{"OCSPSigning", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OCSPSigning)},
-	{"OCSP", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OCSP)},
-	{"OCSPBasicResponse", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OCSPBasicResponse)},
-	{"OCSPNonceExt", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OCSPNonceExt)},
-	{"OCSPNoCheck", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OCSPNoCheck)},
-	{"caIssuers", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, caIssuers)},
-	{"AD_TimeStamping", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AD_TimeStamping)},
-	{"caRepository", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, caRepository)},
-	{"AES", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES)},
-	{"AES_128$ECB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$ECB$NoPadding)},
-	{"AES_128$CBC$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$CBC$NoPadding)},
-	{"AES_128$OFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$OFB$NoPadding)},
-	{"AES_128$CFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$CFB$NoPadding)},
-	{"AES_128$KW$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$KW$NoPadding)},
-	{"AES_128$GCM$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$GCM$NoPadding)},
-	{"AES_128$KWP$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$KWP$NoPadding)},
-	{"AES_192$ECB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$ECB$NoPadding)},
-	{"AES_192$CBC$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$CBC$NoPadding)},
-	{"AES_192$OFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$OFB$NoPadding)},
-	{"AES_192$CFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$CFB$NoPadding)},
-	{"AES_192$KW$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$KW$NoPadding)},
-	{"AES_192$GCM$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$GCM$NoPadding)},
-	{"AES_192$KWP$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$KWP$NoPadding)},
-	{"AES_256$ECB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$ECB$NoPadding)},
-	{"AES_256$CBC$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$CBC$NoPadding)},
-	{"AES_256$OFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$OFB$NoPadding)},
-	{"AES_256$CFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$CFB$NoPadding)},
-	{"AES_256$KW$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$KW$NoPadding)},
-	{"AES_256$GCM$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$GCM$NoPadding)},
-	{"AES_256$KWP$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$KWP$NoPadding)},
-	{"SHA_256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_256)},
-	{"SHA_384", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_384)},
-	{"SHA_512", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_512)},
-	{"SHA_224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_224)},
-	{"SHA_512$224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_512$224)},
-	{"SHA_512$256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_512$256)},
-	{"SHA3_224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_224)},
-	{"SHA3_256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_256)},
-	{"SHA3_384", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_384)},
-	{"SHA3_512", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_512)},
-	{"SHAKE128", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHAKE128)},
-	{"SHAKE256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHAKE256)},
-	{"HmacSHA3_224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA3_224)},
-	{"HmacSHA3_256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA3_256)},
-	{"HmacSHA3_384", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA3_384)},
-	{"HmacSHA3_512", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA3_512)},
-	{"SHAKE128_LEN", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHAKE128_LEN)},
-	{"SHAKE256_LEN", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHAKE256_LEN)},
-	{"SHA224withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA224withDSA)},
-	{"SHA256withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA256withDSA)},
-	{"SHA384withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA384withDSA)},
-	{"SHA512withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA512withDSA)},
-	{"SHA3_224withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_224withDSA)},
-	{"SHA3_256withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_256withDSA)},
-	{"SHA3_384withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_384withDSA)},
-	{"SHA3_512withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_512withDSA)},
-	{"SHA3_224withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_224withECDSA)},
-	{"SHA3_256withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_256withECDSA)},
-	{"SHA3_384withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_384withECDSA)},
-	{"SHA3_512withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_512withECDSA)},
-	{"SHA3_224withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_224withRSA)},
-	{"SHA3_256withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_256withRSA)},
-	{"SHA3_384withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_384withRSA)},
-	{"SHA3_512withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_512withRSA)},
-	{"PKCS1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PKCS1)},
-	{"RSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, RSA)},
-	{"MD2withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MD2withRSA)},
-	{"MD5withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MD5withRSA)},
-	{"SHA1withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA1withRSA)},
-	{"OAEP", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OAEP)},
-	{"MGF1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MGF1)},
-	{"PSpecified", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PSpecified)},
-	{"RSASSA_PSS", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, RSASSA_PSS)},
-	{"SHA256withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA256withRSA)},
-	{"SHA384withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA384withRSA)},
-	{"SHA512withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA512withRSA)},
-	{"SHA224withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA224withRSA)},
-	{"SHA512$224withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA512$224withRSA)},
-	{"SHA512$256withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA512$256withRSA)},
-	{"DiffieHellman", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DiffieHellman)},
-	{"PBEWithMD5AndDES", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithMD5AndDES)},
-	{"PBEWithMD5AndRC2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithMD5AndRC2)},
-	{"PBEWithSHA1AndDES", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndDES)},
-	{"PBEWithSHA1AndRC2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndRC2)},
-	{"PBKDF2WithHmacSHA1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBKDF2WithHmacSHA1)},
-	{"PBES2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBES2)},
-	{"PKCS7", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PKCS7)},
-	{"Data", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Data)},
-	{"SignedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SignedData)},
-	{"JDK_OLD_Data", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, JDK_OLD_Data)},
-	{"JDK_OLD_SignedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, JDK_OLD_SignedData)},
-	{"EnvelopedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, EnvelopedData)},
-	{"SignedAndEnvelopedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SignedAndEnvelopedData)},
-	{"DigestedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DigestedData)},
-	{"EncryptedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, EncryptedData)},
-	{"EmailAddress", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, EmailAddress)},
-	{"UnstructuredName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, UnstructuredName)},
-	{"ContentType", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ContentType)},
-	{"MessageDigest", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MessageDigest)},
-	{"SigningTime", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SigningTime)},
-	{"CounterSignature", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CounterSignature)},
-	{"ChallengePassword", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ChallengePassword)},
-	{"UnstructuredAddress", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, UnstructuredAddress)},
-	{"ExtendedCertificateAttributes", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ExtendedCertificateAttributes)},
-	{"IssuerAndSerialNumber", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, IssuerAndSerialNumber)},
-	{"ExtensionRequest", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ExtensionRequest)},
-	{"SMIMECapability", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SMIMECapability)},
-	{"TimeStampTokenInfo", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, TimeStampTokenInfo)},
-	{"SigningCertificate", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SigningCertificate)},
-	{"SignatureTimestampToken", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SignatureTimestampToken)},
-	{"CHACHA20_POLY1305", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CHACHA20_POLY1305)},
-	{"FriendlyName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, FriendlyName)},
-	{"LocalKeyID", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, LocalKeyID)},
-	{"CertTypeX509", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CertTypeX509)},
-	{"CMSAlgorithmProtection", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CMSAlgorithmProtection)},
-	{"PBEWithSHA1AndRC4_128", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndRC4_128)},
-	{"PBEWithSHA1AndRC4_40", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndRC4_40)},
-	{"PBEWithSHA1AndDESede", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndDESede)},
-	{"PBEWithSHA1AndRC2_128", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndRC2_128)},
-	{"PBEWithSHA1AndRC2_40", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndRC2_40)},
-	{"PKCS8ShroudedKeyBag", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PKCS8ShroudedKeyBag)},
-	{"CertBag", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CertBag)},
-	{"SecretBag", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SecretBag)},
-	{"MD2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MD2)},
-	{"MD5", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MD5)},
-	{"HmacSHA1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA1)},
-	{"HmacSHA224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA224)},
-	{"HmacSHA256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA256)},
-	{"HmacSHA384", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA384)},
-	{"HmacSHA512", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA512)},
-	{"HmacSHA512$224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA512$224)},
-	{"HmacSHA512$256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA512$256)},
-	{"RC2$CBC$PKCS5Padding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, RC2$CBC$PKCS5Padding)},
-	{"ARCFOUR", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ARCFOUR)},
-	{"DESede$CBC$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DESede$CBC$NoPadding)},
-	{"RC5$CBC$PKCS5Padding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, RC5$CBC$PKCS5Padding)},
-	{"DSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DSA)},
-	{"SHA1withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA1withDSA)},
-	{"EC", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, EC)},
-	{"c2tnb191v1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb191v1)},
-	{"c2tnb191v2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb191v2)},
-	{"c2tnb191v3", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb191v3)},
-	{"c2tnb239v1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb239v1)},
-	{"c2tnb239v2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb239v2)},
-	{"c2tnb239v3", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb239v3)},
-	{"c2tnb359v1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb359v1)},
-	{"c2tnb431r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb431r1)},
-	{"secp192r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp192r1)},
-	{"prime192v2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, prime192v2)},
-	{"prime192v3", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, prime192v3)},
-	{"prime239v1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, prime239v1)},
-	{"prime239v2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, prime239v2)},
-	{"prime239v3", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, prime239v3)},
-	{"secp256r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp256r1)},
-	{"SHA1withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA1withECDSA)},
-	{"SHA224withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA224withECDSA)},
-	{"SHA256withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA256withECDSA)},
-	{"SHA384withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA384withECDSA)},
-	{"SHA512withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA512withECDSA)},
-	{"SpecifiedSHA2withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SpecifiedSHA2withECDSA)},
-	{"X942_DH", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, X942_DH)},
-	{"brainpoolP160r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP160r1)},
-	{"brainpoolP192r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP192r1)},
-	{"brainpoolP224r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP224r1)},
-	{"brainpoolP256r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP256r1)},
-	{"brainpoolP320r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP320r1)},
-	{"brainpoolP384r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP384r1)},
-	{"brainpoolP512r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP512r1)},
-	{"sect163k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect163k1)},
-	{"sect163r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect163r1)},
-	{"sect239k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect239k1)},
-	{"sect113r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect113r1)},
-	{"sect113r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect113r2)},
-	{"secp112r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp112r1)},
-	{"secp112r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp112r2)},
-	{"secp160r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp160r1)},
-	{"secp160k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp160k1)},
-	{"secp256k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp256k1)},
-	{"sect163r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect163r2)},
-	{"sect283k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect283k1)},
-	{"sect283r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect283r1)},
-	{"sect131r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect131r1)},
-	{"sect131r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect131r2)},
-	{"sect193r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect193r1)},
-	{"sect193r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect193r2)},
-	{"sect233k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect233k1)},
-	{"sect233r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect233r1)},
-	{"secp128r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp128r1)},
-	{"secp128r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp128r2)},
-	{"secp160r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp160r2)},
-	{"secp192k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp192k1)},
-	{"secp224k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp224k1)},
-	{"secp224r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp224r1)},
-	{"secp384r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp384r1)},
-	{"secp521r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp521r1)},
-	{"sect409k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect409k1)},
-	{"sect409r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect409r1)},
-	{"sect571k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect571k1)},
-	{"sect571r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect571r1)},
-	{"ECDH", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ECDH)},
-	{"OIW_DES_CBC", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_DES_CBC)},
-	{"OIW_DSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_DSA)},
-	{"OIW_JDK_SHA1withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_JDK_SHA1withDSA)},
-	{"OIW_SHA1withRSA_Odd", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_SHA1withRSA_Odd)},
-	{"DESede", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DESede)},
-	{"SHA_1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_1)},
-	{"OIW_SHA1withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_SHA1withDSA)},
-	{"OIW_SHA1withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_SHA1withRSA)},
-	{"X25519", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, X25519)},
-	{"X448", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, X448)},
-	{"Ed25519", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Ed25519)},
-	{"Ed448", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Ed448)},
-	{"UCL_UserID", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, UCL_UserID)},
-	{"UCL_DomainComponent", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, UCL_DomainComponent)},
-	{"NETSCAPE_CertType", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, NETSCAPE_CertType)},
-	{"NETSCAPE_CertSequence", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, NETSCAPE_CertSequence)},
-	{"NETSCAPE_ExportApproved", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, NETSCAPE_ExportApproved)},
-	{"ORACLE_TrustedKeyUsage", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ORACLE_TrustedKeyUsage)},
-	{"ITUX509_RSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ITUX509_RSA)},
-	{"SkipIPAddress", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SkipIPAddress)},
-	{"JAVASOFT_JDKKeyProtector", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, JAVASOFT_JDKKeyProtector)},
-	{"JAVASOFT_JCEKeyProtector", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, JAVASOFT_JCEKeyProtector)},
-	{"MICROSOFT_ExportApproved", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MICROSOFT_ExportApproved)},
-	{"$VALUES", "[Lsun/security/util/KnownOIDs;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(KnownOIDs, $VALUES)},
-	{"stdName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KnownOIDs, stdName$)},
-	{"oid", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KnownOIDs, oid)},
-	{"aliases", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(KnownOIDs, aliases$)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KnownOIDs, debug)},
-	{"name2enum", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/security/util/KnownOIDs;>;", $PRIVATE | $STATIC | $FINAL, $staticField(KnownOIDs, name2enum)},
-	{}
-};
-
-$MethodInfo _KnownOIDs_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/util/KnownOIDs;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KnownOIDs, $values, $KnownOIDsArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(KnownOIDs, init$, void, $String*, int32_t, $String*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", $PRIVATE | $TRANSIENT, $method(KnownOIDs, init$, void, $String*, int32_t, $String*, $String*, $StringArray*)},
-	{"aliases", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KnownOIDs, aliases, $StringArray*)},
-	{"findMatch", "(Ljava/lang/String;)Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $staticMethod(KnownOIDs, findMatch, KnownOIDs*, $String*)},
-	{"register", "(Lsun/security/util/KnownOIDs;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KnownOIDs, register$, void, KnownOIDs*)},
-	{"registerNames", "()Z", nullptr, 0, $virtualMethod(KnownOIDs, registerNames, bool)},
-	{"stdName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KnownOIDs, stdName, $String*)},
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KnownOIDs, value, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $staticMethod(KnownOIDs, valueOf, KnownOIDs*, $String*)},
-	{"values", "()[Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $staticMethod(KnownOIDs, values, $KnownOIDsArray*)},
-	{}
-};
-
-$InnerClassInfo _KnownOIDs_InnerClassesInfo_[] = {
-	{"sun.security.util.KnownOIDs$10", nullptr, nullptr, $FINAL | $ENUM},
-	{"sun.security.util.KnownOIDs$9", nullptr, nullptr, $FINAL | $ENUM},
-	{"sun.security.util.KnownOIDs$8", nullptr, nullptr, $FINAL | $ENUM},
-	{"sun.security.util.KnownOIDs$7", nullptr, nullptr, $FINAL | $ENUM},
-	{"sun.security.util.KnownOIDs$6", nullptr, nullptr, $FINAL | $ENUM},
-	{"sun.security.util.KnownOIDs$5", nullptr, nullptr, $FINAL | $ENUM},
-	{"sun.security.util.KnownOIDs$4", nullptr, nullptr, $FINAL | $ENUM},
-	{"sun.security.util.KnownOIDs$3", nullptr, nullptr, $FINAL | $ENUM},
-	{"sun.security.util.KnownOIDs$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"sun.security.util.KnownOIDs$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _KnownOIDs_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ENUM,
-	"sun.security.util.KnownOIDs",
-	"java.lang.Enum",
-	nullptr,
-	_KnownOIDs_FieldInfo_,
-	_KnownOIDs_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/util/KnownOIDs;>;",
-	nullptr,
-	_KnownOIDs_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.KnownOIDs$10,sun.security.util.KnownOIDs$9,sun.security.util.KnownOIDs$8,sun.security.util.KnownOIDs$7,sun.security.util.KnownOIDs$6,sun.security.util.KnownOIDs$5,sun.security.util.KnownOIDs$4,sun.security.util.KnownOIDs$3,sun.security.util.KnownOIDs$2,sun.security.util.KnownOIDs$1"
-};
-
-$Object* allocate$KnownOIDs($Class* clazz) {
-	return $of($alloc(KnownOIDs));
-}
 
 KnownOIDs* KnownOIDs::CommonName = nullptr;
 KnownOIDs* KnownOIDs::Surname = nullptr;
@@ -965,50 +634,46 @@ KnownOIDs* KnownOIDs::valueOf($String* name) {
 
 KnownOIDs* KnownOIDs::findMatch($String* s$renamed) {
 	$init(KnownOIDs);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, s$renamed);
 	$init($Locale);
 	$assign(s, $nc(s)->toUpperCase($Locale::ENGLISH));
-	KnownOIDs* res = $cast(KnownOIDs, $nc(KnownOIDs::name2enum)->get(s));
+	KnownOIDs* res = $cast(KnownOIDs, KnownOIDs::name2enum->get(s));
 	if (res == nullptr && KnownOIDs::debug != nullptr) {
-		$nc(KnownOIDs::debug)->println($$str({"No KnownOIDs enum found for "_s, s}));
+		KnownOIDs::debug->println($$str({"No KnownOIDs enum found for "_s, s}));
 	}
 	return res;
 }
 
 void KnownOIDs::register$(KnownOIDs* o) {
 	$init(KnownOIDs);
-	$useLocalCurrentObjectStackCache();
-	KnownOIDs* ov = $cast(KnownOIDs, $nc(KnownOIDs::name2enum)->put($nc(o)->oid, o));
+	$useLocalObjectStack();
+	KnownOIDs* ov = $cast(KnownOIDs, KnownOIDs::name2enum->put($nc(o)->oid, o));
 	if (ov != nullptr) {
-		$throwNew($RuntimeException, $$str({"ERROR: Duplicate "_s, $nc(o)->oid, " between "_s, o, " and "_s, ov}));
-	} else {
-		if (KnownOIDs::debug != nullptr) {
-			$nc(KnownOIDs::debug)->println($$str({$nc(o)->oid, " => "_s, $(o->name())}));
-		}
+		$throwNew($RuntimeException, $$str({"ERROR: Duplicate "_s, o->oid, " between "_s, o, " and "_s, ov}));
+	} else if (KnownOIDs::debug != nullptr) {
+		KnownOIDs::debug->println($$str({o->oid, " => "_s, $(o->name())}));
 	}
-	if ($nc(o)->registerNames()) {
+	if (o->registerNames()) {
 		$init($Locale);
 		$var($String, stdNameUpper, $nc(o->stdName$)->toUpperCase($Locale::ENGLISH));
-		if ($Objects::nonNull($($nc(KnownOIDs::name2enum)->put(stdNameUpper, o)))) {
+		if ($Objects::nonNull($(KnownOIDs::name2enum->put(stdNameUpper, o)))) {
 			$throwNew($RuntimeException, $$str({"ERROR: Duplicate "_s, stdNameUpper, " exists already"_s}));
 		}
 		if (KnownOIDs::debug != nullptr) {
-			$nc(KnownOIDs::debug)->println($$str({stdNameUpper, " => "_s, $(o->name())}));
+			KnownOIDs::debug->println($$str({stdNameUpper, " => "_s, $(o->name())}));
 		}
 		{
 			$var($StringArray, arr$, o->aliases$);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, a, arr$->get(i$));
 				{
 					$var($String, aliasUpper, $nc(a)->toUpperCase($Locale::ENGLISH));
-					if ($Objects::nonNull($($nc(KnownOIDs::name2enum)->put(aliasUpper, o)))) {
+					if ($Objects::nonNull($(KnownOIDs::name2enum->put(aliasUpper, o)))) {
 						$throwNew($RuntimeException, $$str({"ERROR: Duplicate "_s, aliasUpper, " exists already"_s}));
 					}
 					if (KnownOIDs::debug != nullptr) {
-						$nc(KnownOIDs::debug)->println($$str({aliasUpper, " => "_s, $(o->name())}));
+						KnownOIDs::debug->println($$str({aliasUpper, " => "_s, $(o->name())}));
 					}
 				}
 			}
@@ -1046,8 +711,8 @@ bool KnownOIDs::registerNames() {
 	return true;
 }
 
-void clinit$KnownOIDs($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void KnownOIDs::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(KnownOIDs::CommonName, $new(KnownOIDs, "CommonName"_s, 0, "2.5.4.3"_s));
 	$assignStatic(KnownOIDs::Surname, $new(KnownOIDs, "Surname"_s, 1, "2.5.4.4"_s));
 	$assignStatic(KnownOIDs::SerialNumber, $new(KnownOIDs, "SerialNumber"_s, 2, "2.5.4.5"_s));
@@ -1334,19 +999,18 @@ void clinit$KnownOIDs($Class* class$) {
 	$assignStatic(KnownOIDs::name2enum, $new($ConcurrentHashMap));
 	{
 		if (KnownOIDs::debug != nullptr) {
-			$nc(KnownOIDs::debug)->println("Setting up name2enum:"_s);
+			KnownOIDs::debug->println("Setting up name2enum:"_s);
 		}
 		{
 			$var($KnownOIDsArray, arr$, KnownOIDs::values());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				KnownOIDs* o = arr$->get(i$);
 				{
 					KnownOIDs::register$(o);
 				}
 			}
 		}
+		;
 	}
 }
 
@@ -1354,7 +1018,331 @@ KnownOIDs::KnownOIDs() {
 }
 
 $Class* KnownOIDs::load$($String* name, bool initialize) {
-	$loadClass(KnownOIDs, name, initialize, &_KnownOIDs_ClassInfo_, clinit$KnownOIDs, allocate$KnownOIDs);
+	$FieldInfo fieldInfos$$[] = {
+		{"CommonName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CommonName)},
+		{"Surname", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Surname)},
+		{"SerialNumber", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SerialNumber)},
+		{"CountryName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CountryName)},
+		{"LocalityName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, LocalityName)},
+		{"StateName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, StateName)},
+		{"StreetAddress", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, StreetAddress)},
+		{"OrgName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OrgName)},
+		{"OrgUnitName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OrgUnitName)},
+		{"Title", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Title)},
+		{"GivenName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, GivenName)},
+		{"Initials", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Initials)},
+		{"GenerationQualifier", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, GenerationQualifier)},
+		{"DNQualifier", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DNQualifier)},
+		{"SubjectDirectoryAttributes", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SubjectDirectoryAttributes)},
+		{"SubjectKeyID", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SubjectKeyID)},
+		{"KeyUsage", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, KeyUsage)},
+		{"PrivateKeyUsage", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PrivateKeyUsage)},
+		{"SubjectAlternativeName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SubjectAlternativeName)},
+		{"IssuerAlternativeName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, IssuerAlternativeName)},
+		{"BasicConstraints", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, BasicConstraints)},
+		{"CRLNumber", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CRLNumber)},
+		{"ReasonCode", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ReasonCode)},
+		{"HoldInstructionCode", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HoldInstructionCode)},
+		{"InvalidityDate", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, InvalidityDate)},
+		{"DeltaCRLIndicator", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DeltaCRLIndicator)},
+		{"IssuingDistributionPoint", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, IssuingDistributionPoint)},
+		{"CertificateIssuer", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CertificateIssuer)},
+		{"NameConstraints", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, NameConstraints)},
+		{"CRLDistributionPoints", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CRLDistributionPoints)},
+		{"CertificatePolicies", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CertificatePolicies)},
+		{"CE_CERT_POLICIES_ANY", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CE_CERT_POLICIES_ANY)},
+		{"PolicyMappings", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PolicyMappings)},
+		{"AuthorityKeyID", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AuthorityKeyID)},
+		{"PolicyConstraints", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PolicyConstraints)},
+		{"extendedKeyUsage", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, extendedKeyUsage)},
+		{"anyExtendedKeyUsage", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, anyExtendedKeyUsage)},
+		{"FreshestCRL", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, FreshestCRL)},
+		{"InhibitAnyPolicy", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, InhibitAnyPolicy)},
+		{"AuthInfoAccess", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AuthInfoAccess)},
+		{"SubjectInfoAccess", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SubjectInfoAccess)},
+		{"serverAuth", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, serverAuth)},
+		{"clientAuth", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, clientAuth)},
+		{"codeSigning", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, codeSigning)},
+		{"emailProtection", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, emailProtection)},
+		{"ipsecEndSystem", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ipsecEndSystem)},
+		{"ipsecTunnel", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ipsecTunnel)},
+		{"ipsecUser", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ipsecUser)},
+		{"KP_TimeStamping", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, KP_TimeStamping)},
+		{"OCSPSigning", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OCSPSigning)},
+		{"OCSP", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OCSP)},
+		{"OCSPBasicResponse", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OCSPBasicResponse)},
+		{"OCSPNonceExt", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OCSPNonceExt)},
+		{"OCSPNoCheck", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OCSPNoCheck)},
+		{"caIssuers", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, caIssuers)},
+		{"AD_TimeStamping", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AD_TimeStamping)},
+		{"caRepository", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, caRepository)},
+		{"AES", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES)},
+		{"AES_128$ECB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$ECB$NoPadding)},
+		{"AES_128$CBC$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$CBC$NoPadding)},
+		{"AES_128$OFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$OFB$NoPadding)},
+		{"AES_128$CFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$CFB$NoPadding)},
+		{"AES_128$KW$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$KW$NoPadding)},
+		{"AES_128$GCM$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$GCM$NoPadding)},
+		{"AES_128$KWP$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_128$KWP$NoPadding)},
+		{"AES_192$ECB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$ECB$NoPadding)},
+		{"AES_192$CBC$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$CBC$NoPadding)},
+		{"AES_192$OFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$OFB$NoPadding)},
+		{"AES_192$CFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$CFB$NoPadding)},
+		{"AES_192$KW$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$KW$NoPadding)},
+		{"AES_192$GCM$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$GCM$NoPadding)},
+		{"AES_192$KWP$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_192$KWP$NoPadding)},
+		{"AES_256$ECB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$ECB$NoPadding)},
+		{"AES_256$CBC$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$CBC$NoPadding)},
+		{"AES_256$OFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$OFB$NoPadding)},
+		{"AES_256$CFB$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$CFB$NoPadding)},
+		{"AES_256$KW$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$KW$NoPadding)},
+		{"AES_256$GCM$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$GCM$NoPadding)},
+		{"AES_256$KWP$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, AES_256$KWP$NoPadding)},
+		{"SHA_256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_256)},
+		{"SHA_384", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_384)},
+		{"SHA_512", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_512)},
+		{"SHA_224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_224)},
+		{"SHA_512$224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_512$224)},
+		{"SHA_512$256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_512$256)},
+		{"SHA3_224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_224)},
+		{"SHA3_256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_256)},
+		{"SHA3_384", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_384)},
+		{"SHA3_512", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_512)},
+		{"SHAKE128", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHAKE128)},
+		{"SHAKE256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHAKE256)},
+		{"HmacSHA3_224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA3_224)},
+		{"HmacSHA3_256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA3_256)},
+		{"HmacSHA3_384", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA3_384)},
+		{"HmacSHA3_512", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA3_512)},
+		{"SHAKE128_LEN", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHAKE128_LEN)},
+		{"SHAKE256_LEN", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHAKE256_LEN)},
+		{"SHA224withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA224withDSA)},
+		{"SHA256withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA256withDSA)},
+		{"SHA384withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA384withDSA)},
+		{"SHA512withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA512withDSA)},
+		{"SHA3_224withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_224withDSA)},
+		{"SHA3_256withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_256withDSA)},
+		{"SHA3_384withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_384withDSA)},
+		{"SHA3_512withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_512withDSA)},
+		{"SHA3_224withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_224withECDSA)},
+		{"SHA3_256withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_256withECDSA)},
+		{"SHA3_384withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_384withECDSA)},
+		{"SHA3_512withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_512withECDSA)},
+		{"SHA3_224withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_224withRSA)},
+		{"SHA3_256withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_256withRSA)},
+		{"SHA3_384withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_384withRSA)},
+		{"SHA3_512withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA3_512withRSA)},
+		{"PKCS1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PKCS1)},
+		{"RSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, RSA)},
+		{"MD2withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MD2withRSA)},
+		{"MD5withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MD5withRSA)},
+		{"SHA1withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA1withRSA)},
+		{"OAEP", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OAEP)},
+		{"MGF1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MGF1)},
+		{"PSpecified", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PSpecified)},
+		{"RSASSA_PSS", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, RSASSA_PSS)},
+		{"SHA256withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA256withRSA)},
+		{"SHA384withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA384withRSA)},
+		{"SHA512withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA512withRSA)},
+		{"SHA224withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA224withRSA)},
+		{"SHA512$224withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA512$224withRSA)},
+		{"SHA512$256withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA512$256withRSA)},
+		{"DiffieHellman", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DiffieHellman)},
+		{"PBEWithMD5AndDES", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithMD5AndDES)},
+		{"PBEWithMD5AndRC2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithMD5AndRC2)},
+		{"PBEWithSHA1AndDES", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndDES)},
+		{"PBEWithSHA1AndRC2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndRC2)},
+		{"PBKDF2WithHmacSHA1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBKDF2WithHmacSHA1)},
+		{"PBES2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBES2)},
+		{"PKCS7", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PKCS7)},
+		{"Data", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Data)},
+		{"SignedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SignedData)},
+		{"JDK_OLD_Data", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, JDK_OLD_Data)},
+		{"JDK_OLD_SignedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, JDK_OLD_SignedData)},
+		{"EnvelopedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, EnvelopedData)},
+		{"SignedAndEnvelopedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SignedAndEnvelopedData)},
+		{"DigestedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DigestedData)},
+		{"EncryptedData", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, EncryptedData)},
+		{"EmailAddress", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, EmailAddress)},
+		{"UnstructuredName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, UnstructuredName)},
+		{"ContentType", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ContentType)},
+		{"MessageDigest", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MessageDigest)},
+		{"SigningTime", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SigningTime)},
+		{"CounterSignature", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CounterSignature)},
+		{"ChallengePassword", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ChallengePassword)},
+		{"UnstructuredAddress", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, UnstructuredAddress)},
+		{"ExtendedCertificateAttributes", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ExtendedCertificateAttributes)},
+		{"IssuerAndSerialNumber", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, IssuerAndSerialNumber)},
+		{"ExtensionRequest", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ExtensionRequest)},
+		{"SMIMECapability", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SMIMECapability)},
+		{"TimeStampTokenInfo", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, TimeStampTokenInfo)},
+		{"SigningCertificate", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SigningCertificate)},
+		{"SignatureTimestampToken", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SignatureTimestampToken)},
+		{"CHACHA20_POLY1305", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CHACHA20_POLY1305)},
+		{"FriendlyName", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, FriendlyName)},
+		{"LocalKeyID", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, LocalKeyID)},
+		{"CertTypeX509", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CertTypeX509)},
+		{"CMSAlgorithmProtection", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CMSAlgorithmProtection)},
+		{"PBEWithSHA1AndRC4_128", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndRC4_128)},
+		{"PBEWithSHA1AndRC4_40", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndRC4_40)},
+		{"PBEWithSHA1AndDESede", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndDESede)},
+		{"PBEWithSHA1AndRC2_128", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndRC2_128)},
+		{"PBEWithSHA1AndRC2_40", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PBEWithSHA1AndRC2_40)},
+		{"PKCS8ShroudedKeyBag", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, PKCS8ShroudedKeyBag)},
+		{"CertBag", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, CertBag)},
+		{"SecretBag", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SecretBag)},
+		{"MD2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MD2)},
+		{"MD5", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MD5)},
+		{"HmacSHA1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA1)},
+		{"HmacSHA224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA224)},
+		{"HmacSHA256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA256)},
+		{"HmacSHA384", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA384)},
+		{"HmacSHA512", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA512)},
+		{"HmacSHA512$224", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA512$224)},
+		{"HmacSHA512$256", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, HmacSHA512$256)},
+		{"RC2$CBC$PKCS5Padding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, RC2$CBC$PKCS5Padding)},
+		{"ARCFOUR", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ARCFOUR)},
+		{"DESede$CBC$NoPadding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DESede$CBC$NoPadding)},
+		{"RC5$CBC$PKCS5Padding", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, RC5$CBC$PKCS5Padding)},
+		{"DSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DSA)},
+		{"SHA1withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA1withDSA)},
+		{"EC", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, EC)},
+		{"c2tnb191v1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb191v1)},
+		{"c2tnb191v2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb191v2)},
+		{"c2tnb191v3", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb191v3)},
+		{"c2tnb239v1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb239v1)},
+		{"c2tnb239v2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb239v2)},
+		{"c2tnb239v3", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb239v3)},
+		{"c2tnb359v1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb359v1)},
+		{"c2tnb431r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, c2tnb431r1)},
+		{"secp192r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp192r1)},
+		{"prime192v2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, prime192v2)},
+		{"prime192v3", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, prime192v3)},
+		{"prime239v1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, prime239v1)},
+		{"prime239v2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, prime239v2)},
+		{"prime239v3", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, prime239v3)},
+		{"secp256r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp256r1)},
+		{"SHA1withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA1withECDSA)},
+		{"SHA224withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA224withECDSA)},
+		{"SHA256withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA256withECDSA)},
+		{"SHA384withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA384withECDSA)},
+		{"SHA512withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA512withECDSA)},
+		{"SpecifiedSHA2withECDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SpecifiedSHA2withECDSA)},
+		{"X942_DH", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, X942_DH)},
+		{"brainpoolP160r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP160r1)},
+		{"brainpoolP192r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP192r1)},
+		{"brainpoolP224r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP224r1)},
+		{"brainpoolP256r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP256r1)},
+		{"brainpoolP320r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP320r1)},
+		{"brainpoolP384r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP384r1)},
+		{"brainpoolP512r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, brainpoolP512r1)},
+		{"sect163k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect163k1)},
+		{"sect163r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect163r1)},
+		{"sect239k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect239k1)},
+		{"sect113r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect113r1)},
+		{"sect113r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect113r2)},
+		{"secp112r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp112r1)},
+		{"secp112r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp112r2)},
+		{"secp160r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp160r1)},
+		{"secp160k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp160k1)},
+		{"secp256k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp256k1)},
+		{"sect163r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect163r2)},
+		{"sect283k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect283k1)},
+		{"sect283r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect283r1)},
+		{"sect131r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect131r1)},
+		{"sect131r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect131r2)},
+		{"sect193r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect193r1)},
+		{"sect193r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect193r2)},
+		{"sect233k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect233k1)},
+		{"sect233r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect233r1)},
+		{"secp128r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp128r1)},
+		{"secp128r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp128r2)},
+		{"secp160r2", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp160r2)},
+		{"secp192k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp192k1)},
+		{"secp224k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp224k1)},
+		{"secp224r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp224r1)},
+		{"secp384r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp384r1)},
+		{"secp521r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, secp521r1)},
+		{"sect409k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect409k1)},
+		{"sect409r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect409r1)},
+		{"sect571k1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect571k1)},
+		{"sect571r1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, sect571r1)},
+		{"ECDH", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ECDH)},
+		{"OIW_DES_CBC", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_DES_CBC)},
+		{"OIW_DSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_DSA)},
+		{"OIW_JDK_SHA1withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_JDK_SHA1withDSA)},
+		{"OIW_SHA1withRSA_Odd", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_SHA1withRSA_Odd)},
+		{"DESede", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, DESede)},
+		{"SHA_1", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SHA_1)},
+		{"OIW_SHA1withDSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_SHA1withDSA)},
+		{"OIW_SHA1withRSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, OIW_SHA1withRSA)},
+		{"X25519", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, X25519)},
+		{"X448", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, X448)},
+		{"Ed25519", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Ed25519)},
+		{"Ed448", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, Ed448)},
+		{"UCL_UserID", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, UCL_UserID)},
+		{"UCL_DomainComponent", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, UCL_DomainComponent)},
+		{"NETSCAPE_CertType", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, NETSCAPE_CertType)},
+		{"NETSCAPE_CertSequence", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, NETSCAPE_CertSequence)},
+		{"NETSCAPE_ExportApproved", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, NETSCAPE_ExportApproved)},
+		{"ORACLE_TrustedKeyUsage", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ORACLE_TrustedKeyUsage)},
+		{"ITUX509_RSA", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, ITUX509_RSA)},
+		{"SkipIPAddress", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, SkipIPAddress)},
+		{"JAVASOFT_JDKKeyProtector", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, JAVASOFT_JDKKeyProtector)},
+		{"JAVASOFT_JCEKeyProtector", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, JAVASOFT_JCEKeyProtector)},
+		{"MICROSOFT_ExportApproved", "Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KnownOIDs, MICROSOFT_ExportApproved)},
+		{"$VALUES", "[Lsun/security/util/KnownOIDs;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(KnownOIDs, $VALUES)},
+		{"stdName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KnownOIDs, stdName$)},
+		{"oid", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KnownOIDs, oid)},
+		{"aliases", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(KnownOIDs, aliases$)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KnownOIDs, debug)},
+		{"name2enum", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/security/util/KnownOIDs;>;", $PRIVATE | $STATIC | $FINAL, $staticField(KnownOIDs, name2enum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/util/KnownOIDs;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KnownOIDs, $values, $KnownOIDsArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(KnownOIDs, init$, void, $String*, int32_t, $String*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", $PRIVATE | $TRANSIENT, $method(KnownOIDs, init$, void, $String*, int32_t, $String*, $String*, $StringArray*)},
+		{"aliases", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KnownOIDs, aliases, $StringArray*)},
+		{"findMatch", "(Ljava/lang/String;)Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $staticMethod(KnownOIDs, findMatch, KnownOIDs*, $String*)},
+		{"register", "(Lsun/security/util/KnownOIDs;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KnownOIDs, register$, void, KnownOIDs*)},
+		{"registerNames", "()Z", nullptr, 0, $virtualMethod(KnownOIDs, registerNames, bool)},
+		{"stdName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KnownOIDs, stdName, $String*)},
+		{"value", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KnownOIDs, value, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $staticMethod(KnownOIDs, valueOf, KnownOIDs*, $String*)},
+		{"values", "()[Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $staticMethod(KnownOIDs, values, $KnownOIDsArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.KnownOIDs$10", nullptr, nullptr, $FINAL | $ENUM},
+		{"sun.security.util.KnownOIDs$9", nullptr, nullptr, $FINAL | $ENUM},
+		{"sun.security.util.KnownOIDs$8", nullptr, nullptr, $FINAL | $ENUM},
+		{"sun.security.util.KnownOIDs$7", nullptr, nullptr, $FINAL | $ENUM},
+		{"sun.security.util.KnownOIDs$6", nullptr, nullptr, $FINAL | $ENUM},
+		{"sun.security.util.KnownOIDs$5", nullptr, nullptr, $FINAL | $ENUM},
+		{"sun.security.util.KnownOIDs$4", nullptr, nullptr, $FINAL | $ENUM},
+		{"sun.security.util.KnownOIDs$3", nullptr, nullptr, $FINAL | $ENUM},
+		{"sun.security.util.KnownOIDs$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"sun.security.util.KnownOIDs$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ENUM,
+		"sun.security.util.KnownOIDs",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/util/KnownOIDs;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.KnownOIDs$10,sun.security.util.KnownOIDs$9,sun.security.util.KnownOIDs$8,sun.security.util.KnownOIDs$7,sun.security.util.KnownOIDs$6,sun.security.util.KnownOIDs$5,sun.security.util.KnownOIDs$4,sun.security.util.KnownOIDs$3,sun.security.util.KnownOIDs$2,sun.security.util.KnownOIDs$1"
+	};
+	$loadClass(KnownOIDs, name, initialize, &classInfo$$, KnownOIDs::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KnownOIDs));
+	});
 	return class$;
 }
 

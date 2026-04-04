@@ -1,5 +1,4 @@
 #include <sun/security/pkcs12/PKCS12KeyStore$1.h>
-
 #include <java/security/Security.h>
 #include <sun/security/pkcs12/PKCS12KeyStore.h>
 #include <jcpp.h>
@@ -14,48 +13,11 @@ namespace sun {
 	namespace security {
 		namespace pkcs12 {
 
-$MethodInfo _PKCS12KeyStore$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PKCS12KeyStore$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12KeyStore$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _PKCS12KeyStore$1_EnclosingMethodInfo_ = {
-	"sun.security.pkcs12.PKCS12KeyStore",
-	"defaultKeyProtectionAlgorithm",
-	"()Ljava/lang/String;"
-};
-
-$InnerClassInfo _PKCS12KeyStore$1_InnerClassesInfo_[] = {
-	{"sun.security.pkcs12.PKCS12KeyStore$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PKCS12KeyStore$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.pkcs12.PKCS12KeyStore$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_PKCS12KeyStore$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_PKCS12KeyStore$1_EnclosingMethodInfo_,
-	_PKCS12KeyStore$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.pkcs12.PKCS12KeyStore"
-};
-
-$Object* allocate$PKCS12KeyStore$1($Class* clazz) {
-	return $of($alloc(PKCS12KeyStore$1));
-}
-
 void PKCS12KeyStore$1::init$() {
 }
 
 $Object* PKCS12KeyStore$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, nullptr);
 	$var($String, name1, "keystore.pkcs12.keyProtectionAlgorithm"_s);
 	$var($String, name2, "keystore.PKCS12.keyProtectionAlgorithm"_s);
@@ -78,7 +40,38 @@ PKCS12KeyStore$1::PKCS12KeyStore$1() {
 }
 
 $Class* PKCS12KeyStore$1::load$($String* name, bool initialize) {
-	$loadClass(PKCS12KeyStore$1, name, initialize, &_PKCS12KeyStore$1_ClassInfo_, allocate$PKCS12KeyStore$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PKCS12KeyStore$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12KeyStore$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.pkcs12.PKCS12KeyStore",
+		"defaultKeyProtectionAlgorithm",
+		"()Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.pkcs12.PKCS12KeyStore$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.pkcs12.PKCS12KeyStore$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.pkcs12.PKCS12KeyStore"
+	};
+	$loadClass(PKCS12KeyStore$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PKCS12KeyStore$1);
+	});
 	return class$;
 }
 

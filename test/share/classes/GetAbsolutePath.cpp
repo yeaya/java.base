@@ -1,42 +1,13 @@
 #include <GetAbsolutePath.h>
-
 #include <java/io/File.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _GetAbsolutePath_FieldInfo_[] = {
-	{"ignoreCase", "Z", nullptr, $PRIVATE | $STATIC, $staticField(GetAbsolutePath, ignoreCase)},
-	{}
-};
-
-$MethodInfo _GetAbsolutePath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetAbsolutePath, init$, void)},
-	{"ck", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAbsolutePath, ck, void, $String*, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAbsolutePath, main, void, $StringArray*), "java.lang.Exception"},
-	{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAbsolutePath, testUnix, void), "java.lang.Exception"},
-	{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAbsolutePath, testWin32, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _GetAbsolutePath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetAbsolutePath",
-	"java.lang.Object",
-	nullptr,
-	_GetAbsolutePath_FieldInfo_,
-	_GetAbsolutePath_MethodInfo_
-};
-
-$Object* allocate$GetAbsolutePath($Class* clazz) {
-	return $of($alloc(GetAbsolutePath));
-}
 
 bool GetAbsolutePath::ignoreCase = false;
 
@@ -45,10 +16,10 @@ void GetAbsolutePath::init$() {
 
 void GetAbsolutePath::ck($String* path, $String* ans) {
 	$init(GetAbsolutePath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $new($File, path));
 	$var($String, p, f->getAbsolutePath());
-	bool var$0 = (GetAbsolutePath::ignoreCase && $nc(p)->equalsIgnoreCase(ans));
+	bool var$0 = GetAbsolutePath::ignoreCase && $nc(p)->equalsIgnoreCase(ans);
 	if (var$0 || $nc(p)->equals(ans)) {
 		$nc($System::err)->println($$str({path, " ==> "_s, p}));
 	} else {
@@ -58,10 +29,10 @@ void GetAbsolutePath::ck($String* path, $String* ans) {
 
 void GetAbsolutePath::testWin32() {
 	$init(GetAbsolutePath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, wd, $System::getProperty("user.dir"_s));
 	char16_t d = 0;
-	bool var$1 = ($nc(wd)->length() > 2);
+	bool var$1 = $nc(wd)->length() > 2;
 	bool var$0 = var$1 && (wd->charAt(1) == u':');
 	if (var$0 && (wd->charAt(2) == u'\\')) {
 		d = wd->charAt(0);
@@ -74,7 +45,7 @@ void GetAbsolutePath::testWin32() {
 	ck("c:/foo/bar"_s, "c:\\foo\\bar"_s);
 	ck("\\\\foo\\bar"_s, "\\\\foo\\bar"_s);
 	d = $Character::toLowerCase(d);
-	char16_t z = (char16_t)0;
+	char16_t z = 0;
 	if (d != u'c') {
 		z = u'c';
 	} else if (d != u'd') {
@@ -92,7 +63,7 @@ void GetAbsolutePath::testWin32() {
 
 void GetAbsolutePath::testUnix() {
 	$init(GetAbsolutePath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, wd, $System::getProperty("user.dir"_s));
 	ck("foo"_s, $$str({wd, "/foo"_s}));
 	ck("foo/bar"_s, $$str({wd, "/foo/bar"_s}));
@@ -113,7 +84,7 @@ void GetAbsolutePath::main($StringArray* args) {
 	}
 }
 
-void clinit$GetAbsolutePath($Class* class$) {
+void GetAbsolutePath::clinit$($Class* clazz) {
 	GetAbsolutePath::ignoreCase = false;
 }
 
@@ -121,7 +92,29 @@ GetAbsolutePath::GetAbsolutePath() {
 }
 
 $Class* GetAbsolutePath::load$($String* name, bool initialize) {
-	$loadClass(GetAbsolutePath, name, initialize, &_GetAbsolutePath_ClassInfo_, clinit$GetAbsolutePath, allocate$GetAbsolutePath);
+	$FieldInfo fieldInfos$$[] = {
+		{"ignoreCase", "Z", nullptr, $PRIVATE | $STATIC, $staticField(GetAbsolutePath, ignoreCase)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetAbsolutePath, init$, void)},
+		{"ck", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAbsolutePath, ck, void, $String*, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAbsolutePath, main, void, $StringArray*), "java.lang.Exception"},
+		{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAbsolutePath, testUnix, void), "java.lang.Exception"},
+		{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAbsolutePath, testWin32, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetAbsolutePath",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GetAbsolutePath, name, initialize, &classInfo$$, GetAbsolutePath::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GetAbsolutePath);
+	});
 	return class$;
 }
 

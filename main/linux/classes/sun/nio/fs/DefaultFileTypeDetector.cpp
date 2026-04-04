@@ -1,5 +1,4 @@
 #include <sun/nio/fs/DefaultFileTypeDetector.h>
-
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems.h>
 #include <java/nio/file/spi/FileSystemProvider.h>
@@ -9,7 +8,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $FileTypeDetector = ::java::nio::file::spi::FileTypeDetector;
@@ -19,39 +17,35 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$MethodInfo _DefaultFileTypeDetector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultFileTypeDetector, init$, void)},
-	{"create", "()Ljava/nio/file/spi/FileTypeDetector;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultFileTypeDetector, create, $FileTypeDetector*)},
-	{}
-};
-
-$ClassInfo _DefaultFileTypeDetector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.fs.DefaultFileTypeDetector",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DefaultFileTypeDetector_MethodInfo_
-};
-
-$Object* allocate$DefaultFileTypeDetector($Class* clazz) {
-	return $of($alloc(DefaultFileTypeDetector));
-}
-
 void DefaultFileTypeDetector::init$() {
 }
 
 $FileTypeDetector* DefaultFileTypeDetector::create() {
-	$useLocalCurrentObjectStackCache();
-	$var($FileSystemProvider, provider, $nc($($FileSystems::getDefault()))->provider());
-	return $nc(($cast($UnixFileSystemProvider, provider)))->getFileTypeDetector();
+	$useLocalObjectStack();
+	$var($FileSystemProvider, provider, $$nc($FileSystems::getDefault())->provider());
+	return $nc($cast($UnixFileSystemProvider, provider))->getFileTypeDetector();
 }
 
 DefaultFileTypeDetector::DefaultFileTypeDetector() {
 }
 
 $Class* DefaultFileTypeDetector::load$($String* name, bool initialize) {
-	$loadClass(DefaultFileTypeDetector, name, initialize, &_DefaultFileTypeDetector_ClassInfo_, allocate$DefaultFileTypeDetector);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultFileTypeDetector, init$, void)},
+		{"create", "()Ljava/nio/file/spi/FileTypeDetector;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultFileTypeDetector, create, $FileTypeDetector*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.fs.DefaultFileTypeDetector",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultFileTypeDetector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultFileTypeDetector);
+	});
 	return class$;
 }
 

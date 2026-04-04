@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLPossessionGenerator.h>
-
 #include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/SSLPossession.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLPossessionGenerator_MethodInfo_[] = {
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLPossessionGenerator, createPossession, $SSLPossession*, $HandshakeContext*)},
-	{}
-};
-
-$ClassInfo _SSLPossessionGenerator_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.security.ssl.SSLPossessionGenerator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SSLPossessionGenerator_MethodInfo_
-};
-
-$Object* allocate$SSLPossessionGenerator($Class* clazz) {
-	return $of($alloc(SSLPossessionGenerator));
-}
-
 $Class* SSLPossessionGenerator::load$($String* name, bool initialize) {
-	$loadClass(SSLPossessionGenerator, name, initialize, &_SSLPossessionGenerator_ClassInfo_, allocate$SSLPossessionGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLPossessionGenerator, createPossession, $SSLPossession*, $HandshakeContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.security.ssl.SSLPossessionGenerator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLPossessionGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLPossessionGenerator);
+	});
 	return class$;
 }
 

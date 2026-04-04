@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/IndexedCollectionCertStore.h>
-
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/cert/CRL.h>
 #include <java/security/cert/CRLSelector.h>
@@ -13,7 +12,6 @@
 #include <java/security/cert/X509CertSelector.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -42,7 +40,6 @@ using $X509CRLSelector = ::java::security::cert::X509CRLSelector;
 using $X509CertSelector = ::java::security::cert::X509CertSelector;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
@@ -50,7 +47,6 @@ using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
 
@@ -59,45 +55,12 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _IndexedCollectionCertStore_FieldInfo_[] = {
-	{"certSubjects", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/security/auth/x500/X500Principal;Ljava/lang/Object;>;", $PRIVATE, $field(IndexedCollectionCertStore, certSubjects)},
-	{"crlIssuers", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/security/auth/x500/X500Principal;Ljava/lang/Object;>;", $PRIVATE, $field(IndexedCollectionCertStore, crlIssuers)},
-	{"otherCertificates", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/Certificate;>;", $PRIVATE, $field(IndexedCollectionCertStore, otherCertificates)},
-	{"otherCRLs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/CRL;>;", $PRIVATE, $field(IndexedCollectionCertStore, otherCRLs)},
-	{}
-};
-
-$MethodInfo _IndexedCollectionCertStore_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(IndexedCollectionCertStore, init$, void, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException"},
-	{"buildIndex", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PRIVATE, $method(IndexedCollectionCertStore, buildIndex, void, $Collection*)},
-	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/CRL;>;", $PUBLIC, $virtualMethod(IndexedCollectionCertStore, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
-	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC, $virtualMethod(IndexedCollectionCertStore, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
-	{"indexCRL", "(Ljava/security/cert/X509CRL;)V", nullptr, $PRIVATE, $method(IndexedCollectionCertStore, indexCRL, void, $X509CRL*)},
-	{"indexCertificate", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(IndexedCollectionCertStore, indexCertificate, void, $X509Certificate*)},
-	{"matchX509CRLs", "(Ljava/security/cert/CRLSelector;Ljava/util/Collection;)V", "(Ljava/security/cert/CRLSelector;Ljava/util/Collection<Ljava/security/cert/CRL;>;)V", $PRIVATE, $method(IndexedCollectionCertStore, matchX509CRLs, void, $CRLSelector*, $Collection*)},
-	{"matchX509Certs", "(Ljava/security/cert/CertSelector;Ljava/util/Collection;)V", "(Ljava/security/cert/CertSelector;Ljava/util/Collection<Ljava/security/cert/Certificate;>;)V", $PRIVATE, $method(IndexedCollectionCertStore, matchX509Certs, void, $CertSelector*, $Collection*)},
-	{}
-};
-
-$ClassInfo _IndexedCollectionCertStore_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.certpath.IndexedCollectionCertStore",
-	"java.security.cert.CertStoreSpi",
-	nullptr,
-	_IndexedCollectionCertStore_FieldInfo_,
-	_IndexedCollectionCertStore_MethodInfo_
-};
-
-$Object* allocate$IndexedCollectionCertStore($Class* clazz) {
-	return $of($alloc(IndexedCollectionCertStore));
-}
-
 void IndexedCollectionCertStore::init$($CertStoreParameters* params) {
 	$CertStoreSpi::init$(params);
 	if (!($instanceOf($CollectionCertStoreParameters, params))) {
 		$throwNew($InvalidAlgorithmParameterException, "parameters must be CollectionCertStoreParameters"_s);
 	}
-	$var($Collection, coll, $nc(($cast($CollectionCertStoreParameters, params)))->getCollection());
+	$var($Collection, coll, $nc($cast($CollectionCertStoreParameters, params))->getCollection());
 	if (coll == nullptr) {
 		$throwNew($InvalidAlgorithmParameterException, "Collection must not be null"_s);
 	}
@@ -105,7 +68,7 @@ void IndexedCollectionCertStore::init$($CertStoreParameters* params) {
 }
 
 void IndexedCollectionCertStore::buildIndex($Collection* coll) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, certSubjects, $new($HashMap));
 	$set(this, crlIssuers, $new($HashMap));
 	$set(this, otherCertificates, nullptr);
@@ -114,23 +77,21 @@ void IndexedCollectionCertStore::buildIndex($Collection* coll) {
 		$var($Iterator, i$, $nc(coll)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, obj, i$->next());
-			{
-				if ($instanceOf($X509Certificate, obj)) {
-					indexCertificate($cast($X509Certificate, obj));
-				} else if ($instanceOf($X509CRL, obj)) {
-					indexCRL($cast($X509CRL, obj));
-				} else if ($instanceOf($Certificate, obj)) {
-					if (this->otherCertificates == nullptr) {
-						$set(this, otherCertificates, $new($HashSet));
-					}
-					$nc(this->otherCertificates)->add($cast($Certificate, obj));
-				} else if ($instanceOf($CRL, obj)) {
-					if (this->otherCRLs == nullptr) {
-						$set(this, otherCRLs, $new($HashSet));
-					}
-					$nc(this->otherCRLs)->add($cast($CRL, obj));
-				} else {
+			if ($instanceOf($X509Certificate, obj)) {
+				indexCertificate($cast($X509Certificate, obj));
+			} else if ($instanceOf($X509CRL, obj)) {
+				indexCRL($cast($X509CRL, obj));
+			} else if ($instanceOf($Certificate, obj)) {
+				if (this->otherCertificates == nullptr) {
+					$set(this, otherCertificates, $new($HashSet));
 				}
+				$nc(this->otherCertificates)->add($cast($Certificate, obj));
+			} else if ($instanceOf($CRL, obj)) {
+				if (this->otherCRLs == nullptr) {
+					$set(this, otherCRLs, $new($HashSet));
+				}
+				$nc(this->otherCRLs)->add($cast($CRL, obj));
+			} else {
 			}
 		}
 	}
@@ -143,7 +104,7 @@ void IndexedCollectionCertStore::buildIndex($Collection* coll) {
 }
 
 void IndexedCollectionCertStore::indexCertificate($X509Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X500Principal, subject, $nc(cert)->getSubjectX500Principal());
 	$var($Object, oldEntry, $nc(this->certSubjects)->put(subject, cert));
 	if (oldEntry != nullptr) {
@@ -154,19 +115,19 @@ void IndexedCollectionCertStore::indexCertificate($X509Certificate* cert) {
 			$var($List, list, $new($ArrayList, 2));
 			list->add(cert);
 			list->add($cast($X509Certificate, oldEntry));
-			$nc(this->certSubjects)->put(subject, list);
+			this->certSubjects->put(subject, list);
 		} else {
 			$var($List, list, $cast($List, oldEntry));
 			if (list->contains(cert) == false) {
 				list->add(cert);
 			}
-			$nc(this->certSubjects)->put(subject, list);
+			this->certSubjects->put(subject, list);
 		}
 	}
 }
 
 void IndexedCollectionCertStore::indexCRL($X509CRL* crl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X500Principal, issuer, $nc(crl)->getIssuerX500Principal());
 	$var($Object, oldEntry, $nc(this->crlIssuers)->put(issuer, crl));
 	if (oldEntry != nullptr) {
@@ -177,19 +138,19 @@ void IndexedCollectionCertStore::indexCRL($X509CRL* crl) {
 			$var($List, list, $new($ArrayList, 2));
 			list->add(crl);
 			list->add($cast($X509CRL, oldEntry));
-			$nc(this->crlIssuers)->put(issuer, list);
+			this->crlIssuers->put(issuer, list);
 		} else {
 			$var($List, list, $cast($List, oldEntry));
 			if (list->contains(crl) == false) {
 				list->add(crl);
 			}
-			$nc(this->crlIssuers)->put(issuer, list);
+			this->crlIssuers->put(issuer, list);
 		}
 	}
 }
 
 $Collection* IndexedCollectionCertStore::engineGetCertificates($CertSelector* selector) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (selector == nullptr) {
 		$var($Set, matches, $new($HashSet));
 		matchX509Certs($$new($X509CertSelector), matches);
@@ -203,10 +164,8 @@ $Collection* IndexedCollectionCertStore::engineGetCertificates($CertSelector* se
 			$var($Iterator, i$, $nc(this->otherCertificates)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Certificate, cert, $cast($Certificate, i$->next()));
-				{
-					if ($nc(selector)->match(cert)) {
-						matches->add(cert);
-					}
+				if (selector->match(cert)) {
+					matches->add(cert);
 				}
 			}
 		}
@@ -224,7 +183,7 @@ $Collection* IndexedCollectionCertStore::engineGetCertificates($CertSelector* se
 		$assign(subject, x509Selector->getSubject());
 	}
 	if (subject != nullptr) {
-		$var($Object, entry, $nc(this->certSubjects)->get(subject));
+		$var($Object, entry, this->certSubjects->get(subject));
 		if (entry == nullptr) {
 			return $Collections::emptySet();
 		}
@@ -242,10 +201,8 @@ $Collection* IndexedCollectionCertStore::engineGetCertificates($CertSelector* se
 				$var($Iterator, i$, $nc(list)->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($X509Certificate, cert, $cast($X509Certificate, i$->next()));
-					{
-						if (x509Selector->match(cert)) {
-							matches->add(cert);
-						}
+					if (x509Selector->match(cert)) {
+						matches->add(cert);
 					}
 				}
 			}
@@ -258,29 +215,23 @@ $Collection* IndexedCollectionCertStore::engineGetCertificates($CertSelector* se
 }
 
 void IndexedCollectionCertStore::matchX509Certs($CertSelector* selector, $Collection* matches) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(this->certSubjects)->values()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Object, obj, i$->next());
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(this->certSubjects)->values())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Object, obj, i$->next());
+		if ($instanceOf($X509Certificate, obj)) {
+			$var($X509Certificate, cert, $cast($X509Certificate, obj));
+			if ($nc(selector)->match(cert)) {
+				$nc(matches)->add(cert);
+			}
+		} else {
+			$var($List, list, $cast($List, obj));
 			{
-				if ($instanceOf($X509Certificate, obj)) {
-					$var($X509Certificate, cert, $cast($X509Certificate, obj));
+				$var($Iterator, i$, $nc(list)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($X509Certificate, cert, $cast($X509Certificate, i$->next()));
 					if ($nc(selector)->match(cert)) {
 						$nc(matches)->add(cert);
-					}
-				} else {
-					$var($List, list, $cast($List, obj));
-					{
-						$var($Iterator, i$, $nc(list)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($X509Certificate, cert, $cast($X509Certificate, i$->next()));
-							{
-								if ($nc(selector)->match(cert)) {
-									$nc(matches)->add(cert);
-								}
-							}
-						}
 					}
 				}
 			}
@@ -289,7 +240,7 @@ void IndexedCollectionCertStore::matchX509Certs($CertSelector* selector, $Collec
 }
 
 $Collection* IndexedCollectionCertStore::engineGetCRLs($CRLSelector* selector) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (selector == nullptr) {
 		$var($Set, matches, $new($HashSet));
 		matchX509CRLs($$new($X509CRLSelector), matches);
@@ -303,10 +254,8 @@ $Collection* IndexedCollectionCertStore::engineGetCRLs($CRLSelector* selector) {
 			$var($Iterator, i$, $nc(this->otherCRLs)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($CRL, crl, $cast($CRL, i$->next()));
-				{
-					if ($nc(selector)->match(crl)) {
-						matches->add(crl);
-					}
+				if (selector->match(crl)) {
+					matches->add(crl);
 				}
 			}
 		}
@@ -324,7 +273,7 @@ $Collection* IndexedCollectionCertStore::engineGetCRLs($CRLSelector* selector) {
 			for (; $nc(i$)->hasNext();) {
 				$var($X500Principal, issuer, $cast($X500Principal, i$->next()));
 				{
-					$var($Object, entry, $nc(this->crlIssuers)->get(issuer));
+					$var($Object, entry, this->crlIssuers->get(issuer));
 					if (entry == nullptr) {
 					} else if ($instanceOf($X509CRL, entry)) {
 						$var($X509CRL, crl, $cast($X509CRL, entry));
@@ -334,13 +283,11 @@ $Collection* IndexedCollectionCertStore::engineGetCRLs($CRLSelector* selector) {
 					} else {
 						$var($List, list, $cast($List, entry));
 						{
-							$var($Iterator, i$, $nc(list)->iterator());
+							$var($Iterator, i$, list->iterator());
 							for (; $nc(i$)->hasNext();) {
 								$var($X509CRL, crl, $cast($X509CRL, i$->next()));
-								{
-									if (x509Selector->match(crl)) {
-										matches->add(crl);
-									}
+								if (x509Selector->match(crl)) {
+									matches->add(crl);
 								}
 							}
 						}
@@ -348,7 +295,7 @@ $Collection* IndexedCollectionCertStore::engineGetCRLs($CRLSelector* selector) {
 				}
 			}
 		}
-		return static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(matches)));
+		return $cast($AbstractCollection, matches);
 	}
 	$var($Set, matches, $new($HashSet, 16));
 	matchX509CRLs(x509Selector, matches);
@@ -356,29 +303,23 @@ $Collection* IndexedCollectionCertStore::engineGetCRLs($CRLSelector* selector) {
 }
 
 void IndexedCollectionCertStore::matchX509CRLs($CRLSelector* selector, $Collection* matches) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(this->crlIssuers)->values()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Object, obj, i$->next());
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(this->crlIssuers)->values())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Object, obj, i$->next());
+		if ($instanceOf($X509CRL, obj)) {
+			$var($X509CRL, crl, $cast($X509CRL, obj));
+			if ($nc(selector)->match(crl)) {
+				$nc(matches)->add(crl);
+			}
+		} else {
+			$var($List, list, $cast($List, obj));
 			{
-				if ($instanceOf($X509CRL, obj)) {
-					$var($X509CRL, crl, $cast($X509CRL, obj));
+				$var($Iterator, i$, $nc(list)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($X509CRL, crl, $cast($X509CRL, i$->next()));
 					if ($nc(selector)->match(crl)) {
 						$nc(matches)->add(crl);
-					}
-				} else {
-					$var($List, list, $cast($List, obj));
-					{
-						$var($Iterator, i$, $nc(list)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($X509CRL, crl, $cast($X509CRL, i$->next()));
-							{
-								if ($nc(selector)->match(crl)) {
-									$nc(matches)->add(crl);
-								}
-							}
-						}
 					}
 				}
 			}
@@ -390,7 +331,35 @@ IndexedCollectionCertStore::IndexedCollectionCertStore() {
 }
 
 $Class* IndexedCollectionCertStore::load$($String* name, bool initialize) {
-	$loadClass(IndexedCollectionCertStore, name, initialize, &_IndexedCollectionCertStore_ClassInfo_, allocate$IndexedCollectionCertStore);
+	$FieldInfo fieldInfos$$[] = {
+		{"certSubjects", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/security/auth/x500/X500Principal;Ljava/lang/Object;>;", $PRIVATE, $field(IndexedCollectionCertStore, certSubjects)},
+		{"crlIssuers", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/security/auth/x500/X500Principal;Ljava/lang/Object;>;", $PRIVATE, $field(IndexedCollectionCertStore, crlIssuers)},
+		{"otherCertificates", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/Certificate;>;", $PRIVATE, $field(IndexedCollectionCertStore, otherCertificates)},
+		{"otherCRLs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/CRL;>;", $PRIVATE, $field(IndexedCollectionCertStore, otherCRLs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(IndexedCollectionCertStore, init$, void, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException"},
+		{"buildIndex", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PRIVATE, $method(IndexedCollectionCertStore, buildIndex, void, $Collection*)},
+		{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/CRL;>;", $PUBLIC, $virtualMethod(IndexedCollectionCertStore, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
+		{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC, $virtualMethod(IndexedCollectionCertStore, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
+		{"indexCRL", "(Ljava/security/cert/X509CRL;)V", nullptr, $PRIVATE, $method(IndexedCollectionCertStore, indexCRL, void, $X509CRL*)},
+		{"indexCertificate", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(IndexedCollectionCertStore, indexCertificate, void, $X509Certificate*)},
+		{"matchX509CRLs", "(Ljava/security/cert/CRLSelector;Ljava/util/Collection;)V", "(Ljava/security/cert/CRLSelector;Ljava/util/Collection<Ljava/security/cert/CRL;>;)V", $PRIVATE, $method(IndexedCollectionCertStore, matchX509CRLs, void, $CRLSelector*, $Collection*)},
+		{"matchX509Certs", "(Ljava/security/cert/CertSelector;Ljava/util/Collection;)V", "(Ljava/security/cert/CertSelector;Ljava/util/Collection<Ljava/security/cert/Certificate;>;)V", $PRIVATE, $method(IndexedCollectionCertStore, matchX509Certs, void, $CertSelector*, $Collection*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.certpath.IndexedCollectionCertStore",
+		"java.security.cert.CertStoreSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IndexedCollectionCertStore, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IndexedCollectionCertStore);
+	});
 	return class$;
 }
 

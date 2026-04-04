@@ -1,5 +1,4 @@
 #include <java/util/RegularEnumSet.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Enum.h>
 #include <java/util/AbstractCollection.h>
@@ -26,57 +25,6 @@ using $RegularEnumSet$EnumSetIterator = ::java::util::RegularEnumSet$EnumSetIter
 namespace java {
 	namespace util {
 
-$FieldInfo _RegularEnumSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegularEnumSet, serialVersionUID)},
-	{"elements", "J", nullptr, $PRIVATE, $field(RegularEnumSet, elements)},
-	{}
-};
-
-$MethodInfo _RegularEnumSet_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/Enum;)V", "(Ljava/lang/Class<TE;>;[Ljava/lang/Enum<*>;)V", 0, $method(RegularEnumSet, init$, void, $Class*, $EnumArray*)},
-	{"add", "(Ljava/lang/Enum;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(RegularEnumSet, add, bool, $Enum*)},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RegularEnumSet, add, bool, Object$*)},
-	{"addAll", "()V", nullptr, 0, $virtualMethod(RegularEnumSet, addAll, void)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(RegularEnumSet, addAll, bool, $Collection*)},
-	{"addRange", "(Ljava/lang/Enum;Ljava/lang/Enum;)V", "(TE;TE;)V", 0, $virtualMethod(RegularEnumSet, addRange, void, $Enum*, $Enum*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, clear, void)},
-	{"complement", "()V", nullptr, 0, $virtualMethod(RegularEnumSet, complement, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, contains, bool, Object$*)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(RegularEnumSet, containsAll, bool, $Collection*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, equals, bool, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(RegularEnumSet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(RegularEnumSet, removeAll, bool, $Collection*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(RegularEnumSet, retainAll, bool, $Collection*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _RegularEnumSet_InnerClassesInfo_[] = {
-	{"java.util.RegularEnumSet$EnumSetIterator", "java.util.RegularEnumSet", "EnumSetIterator", $PRIVATE},
-	{}
-};
-
-$ClassInfo _RegularEnumSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.RegularEnumSet",
-	"java.util.EnumSet",
-	nullptr,
-	_RegularEnumSet_FieldInfo_,
-	_RegularEnumSet_MethodInfo_,
-	"<E:Ljava/lang/Enum<TE;>;>Ljava/util/EnumSet<TE;>;",
-	nullptr,
-	_RegularEnumSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.RegularEnumSet$EnumSetIterator"
-};
-
-$Object* allocate$RegularEnumSet($Class* clazz) {
-	return $of($alloc(RegularEnumSet));
-}
-
 void RegularEnumSet::init$($Class* elementType, $EnumArray* universe) {
 	$EnumSet::init$(elementType, universe);
 	this->elements = 0;
@@ -84,20 +32,20 @@ void RegularEnumSet::init$($Class* elementType, $EnumArray* universe) {
 
 void RegularEnumSet::addRange($Enum* from, $Enum* to) {
 	int32_t var$1 = $nc(from)->ordinal();
-	int64_t var$0 = ($usr((int64_t)-1, var$1 - $nc(to)->ordinal() - 1));
+	int64_t var$0 = $usr((int64_t)-1, var$1 - $nc(to)->ordinal() - 1);
 	this->elements = $sl(var$0, from->ordinal());
 }
 
 void RegularEnumSet::addAll() {
 	if ($nc(this->universe)->length != 0) {
-		this->elements = $usr((int64_t)-1, -$nc(this->universe)->length);
+		this->elements = $usr((int64_t)-1, -this->universe->length);
 	}
 }
 
 void RegularEnumSet::complement() {
 	if ($nc(this->universe)->length != 0) {
 		this->elements = ~this->elements;
-		this->elements &= (uint64_t)$usr((int64_t)-1, -$nc(this->universe)->length);
+		this->elements &= (uint64_t)$usr((int64_t)-1, -this->universe->length);
 	}
 }
 
@@ -118,10 +66,10 @@ bool RegularEnumSet::contains(Object$* e) {
 		return false;
 	}
 	$Class* eClass = $nc($of(e))->getClass();
-	if (eClass != this->elementType && $nc(eClass)->getSuperclass() != this->elementType) {
+	if (eClass != this->elementType && eClass->getSuperclass() != this->elementType) {
 		return false;
 	}
-	return ((int64_t)(this->elements & (uint64_t)($sl((int64_t)1, $nc(($cast($Enum, e)))->ordinal())))) != 0;
+	return (this->elements & ($sl((int64_t)1, $cast($Enum, e)->ordinal()))) != 0;
 }
 
 bool RegularEnumSet::add($Enum* e) {
@@ -136,11 +84,11 @@ bool RegularEnumSet::remove(Object$* e) {
 		return false;
 	}
 	$Class* eClass = $nc($of(e))->getClass();
-	if (eClass != this->elementType && $nc(eClass)->getSuperclass() != this->elementType) {
+	if (eClass != this->elementType && eClass->getSuperclass() != this->elementType) {
 		return false;
 	}
 	int64_t oldElements = this->elements;
-	this->elements &= (uint64_t)~($sl((int64_t)1, $nc(($cast($Enum, e)))->ordinal()));
+	this->elements &= (uint64_t)~($sl((int64_t)1, $cast($Enum, e)->ordinal()));
 	return this->elements != oldElements;
 }
 
@@ -157,11 +105,11 @@ bool RegularEnumSet::containsAll($Collection* c) {
 	if ($nc(es)->elementType != this->elementType) {
 		return es->isEmpty();
 	}
-	return ((int64_t)($nc(es)->elements & (uint64_t)~this->elements)) == 0;
+	return (es->elements & ~this->elements) == 0;
 }
 
 bool RegularEnumSet::addAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(RegularEnumSet, es, nullptr);
 	bool var$0 = $instanceOf(RegularEnumSet, c);
 	if (var$0) {
@@ -179,7 +127,7 @@ bool RegularEnumSet::addAll($Collection* c) {
 		}
 	}
 	int64_t oldElements = this->elements;
-	this->elements |= $nc(es)->elements;
+	this->elements |= es->elements;
 	return this->elements != oldElements;
 }
 
@@ -197,7 +145,7 @@ bool RegularEnumSet::removeAll($Collection* c) {
 		return false;
 	}
 	int64_t oldElements = this->elements;
-	this->elements = (int64_t)(this->elements & (uint64_t)~$nc(es)->elements);
+	this->elements = this->elements & ~es->elements;
 	return this->elements != oldElements;
 }
 
@@ -217,7 +165,7 @@ bool RegularEnumSet::retainAll($Collection* c) {
 		return changed;
 	}
 	int64_t oldElements = this->elements;
-	this->elements &= (uint64_t)$nc(es)->elements;
+	this->elements &= (uint64_t)es->elements;
 	return this->elements != oldElements;
 }
 
@@ -238,7 +186,7 @@ bool RegularEnumSet::equals(Object$* o) {
 	if ($nc(es)->elementType != this->elementType) {
 		return this->elements == 0 && es->elements == 0;
 	}
-	return $nc(es)->elements == this->elements;
+	return es->elements == this->elements;
 }
 
 bool RegularEnumSet::add(Object$* e) {
@@ -249,7 +197,52 @@ RegularEnumSet::RegularEnumSet() {
 }
 
 $Class* RegularEnumSet::load$($String* name, bool initialize) {
-	$loadClass(RegularEnumSet, name, initialize, &_RegularEnumSet_ClassInfo_, allocate$RegularEnumSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegularEnumSet, serialVersionUID)},
+		{"elements", "J", nullptr, $PRIVATE, $field(RegularEnumSet, elements)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;[Ljava/lang/Enum;)V", "(Ljava/lang/Class<TE;>;[Ljava/lang/Enum<*>;)V", 0, $method(RegularEnumSet, init$, void, $Class*, $EnumArray*)},
+		{"add", "(Ljava/lang/Enum;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(RegularEnumSet, add, bool, $Enum*)},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RegularEnumSet, add, bool, Object$*)},
+		{"addAll", "()V", nullptr, 0, $virtualMethod(RegularEnumSet, addAll, void)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(RegularEnumSet, addAll, bool, $Collection*)},
+		{"addRange", "(Ljava/lang/Enum;Ljava/lang/Enum;)V", "(TE;TE;)V", 0, $virtualMethod(RegularEnumSet, addRange, void, $Enum*, $Enum*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, clear, void)},
+		{"complement", "()V", nullptr, 0, $virtualMethod(RegularEnumSet, complement, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, contains, bool, Object$*)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(RegularEnumSet, containsAll, bool, $Collection*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, equals, bool, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(RegularEnumSet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(RegularEnumSet, removeAll, bool, $Collection*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(RegularEnumSet, retainAll, bool, $Collection*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.RegularEnumSet$EnumSetIterator", "java.util.RegularEnumSet", "EnumSetIterator", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.RegularEnumSet",
+		"java.util.EnumSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Enum<TE;>;>Ljava/util/EnumSet<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.RegularEnumSet$EnumSetIterator"
+	};
+	$loadClass(RegularEnumSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RegularEnumSet));
+	});
 	return class$;
 }
 

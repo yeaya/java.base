@@ -32,6 +32,7 @@ class FileCleanable : public ::jdk::internal::ref::PhantomCleanable {
 	$class(FileCleanable, 0, ::jdk::internal::ref::PhantomCleanable)
 public:
 	FileCleanable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::FileDescriptor* obj, ::java::lang::ref::Cleaner* cleaner, int32_t fd, int64_t handle);
 	static void cleanupClose0(int32_t fd, int64_t handle);
 	virtual void performCleanup() override;

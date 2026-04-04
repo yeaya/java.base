@@ -16,7 +16,7 @@ public:
 	using ::java::security::Provider::getProperty;
 	void init$($String* name, $String* versionStr, $String* info);
 	using ::java::security::Provider::load;
-	static const int64_t serialVersionUID = (int64_t)0x852CD4F9FDE43F63;
+	static const int64_t serialVersionUID = (int64_t)0x852cd4f9fde43f63;
 };
 
 		} // provider

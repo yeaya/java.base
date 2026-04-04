@@ -1,5 +1,4 @@
 #include <java/time/temporal/IsoFields$Field.h>
-
 #include <java/lang/Enum.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/DayOfWeek.h>
@@ -41,66 +40,6 @@ using $ValueRange = ::java::time::temporal::ValueRange;
 namespace java {
 	namespace time {
 		namespace temporal {
-
-$FieldInfo _IsoFields$Field_FieldInfo_[] = {
-	{"DAY_OF_QUARTER", "Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoFields$Field, DAY_OF_QUARTER)},
-	{"QUARTER_OF_YEAR", "Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoFields$Field, QUARTER_OF_YEAR)},
-	{"WEEK_OF_WEEK_BASED_YEAR", "Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoFields$Field, WEEK_OF_WEEK_BASED_YEAR)},
-	{"WEEK_BASED_YEAR", "Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoFields$Field, WEEK_BASED_YEAR)},
-	{"$VALUES", "[Ljava/time/temporal/IsoFields$Field;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(IsoFields$Field, $VALUES)},
-	{"QUARTER_DAYS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IsoFields$Field, QUARTER_DAYS)},
-	{}
-};
-
-$MethodInfo _IsoFields$Field_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/temporal/IsoFields$Field;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsoFields$Field, $values, $IsoFields$FieldArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(IsoFields$Field, init$, void, $String*, int32_t)},
-	{"ensureIso", "(Ljava/time/temporal/TemporalAccessor;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, ensureIso, void, $TemporalAccessor*)},
-	{"getWeek", "(Ljava/time/LocalDate;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeek, int32_t, $LocalDate*)},
-	{"getWeekBasedYear", "(Ljava/time/LocalDate;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeekBasedYear, int32_t, $LocalDate*)},
-	{"getWeekRange", "(Ljava/time/LocalDate;)Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeekRange, $ValueRange*, $LocalDate*)},
-	{"getWeekRange", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeekRange, int32_t, int32_t)},
-	{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field, isDateBased, bool)},
-	{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field, isTimeBased, bool)},
-	{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoFields$Field, valueOf, IsoFields$Field*, $String*)},
-	{"values", "()[Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoFields$Field, values, $IsoFields$FieldArray*)},
-	{}
-};
-
-$InnerClassInfo _IsoFields$Field_InnerClassesInfo_[] = {
-	{"java.time.temporal.IsoFields$Field", "java.time.temporal.IsoFields", "Field", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
-	{"java.time.temporal.IsoFields$Field$4", nullptr, nullptr, $FINAL | $ENUM},
-	{"java.time.temporal.IsoFields$Field$3", nullptr, nullptr, $FINAL | $ENUM},
-	{"java.time.temporal.IsoFields$Field$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"java.time.temporal.IsoFields$Field$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _IsoFields$Field_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT | $ENUM,
-	"java.time.temporal.IsoFields$Field",
-	"java.lang.Enum",
-	"java.time.temporal.TemporalField",
-	_IsoFields$Field_FieldInfo_,
-	_IsoFields$Field_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/time/temporal/IsoFields$Field;>;Ljava/time/temporal/TemporalField;",
-	nullptr,
-	_IsoFields$Field_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.temporal.IsoFields"
-};
-
-$Object* allocate$IsoFields$Field($Class* clazz) {
-	return $of($alloc(IsoFields$Field));
-}
 
 $String* IsoFields$Field::toString() {
 	 return this->$Enum::toString();
@@ -184,8 +123,8 @@ int32_t IsoFields$Field::getWeekRange(int32_t wby) {
 	$init($DayOfWeek);
 	bool var$0 = $nc(date)->getDayOfWeek() == $DayOfWeek::THURSDAY;
 	if (!var$0) {
-		bool var$1 = $nc(date)->getDayOfWeek() == $DayOfWeek::WEDNESDAY;
-		var$0 = (var$1 && date->isLeapYear());
+		bool var$1 = date->getDayOfWeek() == $DayOfWeek::WEDNESDAY;
+		var$0 = var$1 && date->isLeapYear();
 	}
 	if (var$0) {
 		return 53;
@@ -195,8 +134,8 @@ int32_t IsoFields$Field::getWeekRange(int32_t wby) {
 
 int32_t IsoFields$Field::getWeek($LocalDate* date) {
 	$init(IsoFields$Field);
-	$useLocalCurrentObjectStackCache();
-	int32_t dow0 = $nc($($nc(date)->getDayOfWeek()))->ordinal();
+	$useLocalObjectStack();
+	int32_t dow0 = $$nc($nc(date)->getDayOfWeek())->ordinal();
 	int32_t doy0 = date->getDayOfYear() - 1;
 	int32_t doyThu0 = doy0 + (3 - dow0);
 	int32_t alignedWeek = doyThu0 / 7;
@@ -206,7 +145,7 @@ int32_t IsoFields$Field::getWeek($LocalDate* date) {
 		firstMonDoy0 += 7;
 	}
 	if (doy0 < firstMonDoy0) {
-		return (int32_t)$nc($(getWeekRange($($nc($(date->withDayOfYear(180)))->minusYears(1)))))->getMaximum();
+		return (int32_t)$$nc(getWeekRange($($$nc(date->withDayOfYear(180))->minusYears(1))))->getMaximum();
 	}
 	int32_t week = ((doy0 - firstMonDoy0) / 7) + 1;
 	if (week == 53) {
@@ -219,16 +158,16 @@ int32_t IsoFields$Field::getWeek($LocalDate* date) {
 
 int32_t IsoFields$Field::getWeekBasedYear($LocalDate* date) {
 	$init(IsoFields$Field);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t year = $nc(date)->getYear();
 	int32_t doy = date->getDayOfYear();
 	if (doy <= 3) {
-		int32_t dow = $nc($(date->getDayOfWeek()))->ordinal();
+		int32_t dow = $$nc(date->getDayOfWeek())->ordinal();
 		if (doy - dow < -2) {
 			--year;
 		}
 	} else if (doy >= 363) {
-		int32_t dow = $nc($(date->getDayOfWeek()))->ordinal();
+		int32_t dow = $$nc(date->getDayOfWeek())->ordinal();
 		doy = doy - 363 - (date->isLeapYear() ? 1 : 0);
 		if (doy - dow >= 0) {
 			++year;
@@ -237,7 +176,7 @@ int32_t IsoFields$Field::getWeekBasedYear($LocalDate* date) {
 	return year;
 }
 
-void clinit$IsoFields$Field($Class* class$) {
+void IsoFields$Field::clinit$($Class* clazz) {
 	$assignStatic(IsoFields$Field::DAY_OF_QUARTER, $new($IsoFields$Field$1, "DAY_OF_QUARTER"_s, 0));
 	$assignStatic(IsoFields$Field::QUARTER_OF_YEAR, $new($IsoFields$Field$2, "QUARTER_OF_YEAR"_s, 1));
 	$assignStatic(IsoFields$Field::WEEK_OF_WEEK_BASED_YEAR, $new($IsoFields$Field$3, "WEEK_OF_WEEK_BASED_YEAR"_s, 2));
@@ -259,7 +198,61 @@ IsoFields$Field::IsoFields$Field() {
 }
 
 $Class* IsoFields$Field::load$($String* name, bool initialize) {
-	$loadClass(IsoFields$Field, name, initialize, &_IsoFields$Field_ClassInfo_, clinit$IsoFields$Field, allocate$IsoFields$Field);
+	$FieldInfo fieldInfos$$[] = {
+		{"DAY_OF_QUARTER", "Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoFields$Field, DAY_OF_QUARTER)},
+		{"QUARTER_OF_YEAR", "Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoFields$Field, QUARTER_OF_YEAR)},
+		{"WEEK_OF_WEEK_BASED_YEAR", "Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoFields$Field, WEEK_OF_WEEK_BASED_YEAR)},
+		{"WEEK_BASED_YEAR", "Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(IsoFields$Field, WEEK_BASED_YEAR)},
+		{"$VALUES", "[Ljava/time/temporal/IsoFields$Field;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(IsoFields$Field, $VALUES)},
+		{"QUARTER_DAYS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IsoFields$Field, QUARTER_DAYS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/time/temporal/IsoFields$Field;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsoFields$Field, $values, $IsoFields$FieldArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(IsoFields$Field, init$, void, $String*, int32_t)},
+		{"ensureIso", "(Ljava/time/temporal/TemporalAccessor;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, ensureIso, void, $TemporalAccessor*)},
+		{"getWeek", "(Ljava/time/LocalDate;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeek, int32_t, $LocalDate*)},
+		{"getWeekBasedYear", "(Ljava/time/LocalDate;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeekBasedYear, int32_t, $LocalDate*)},
+		{"getWeekRange", "(Ljava/time/LocalDate;)Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeekRange, $ValueRange*, $LocalDate*)},
+		{"getWeekRange", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeekRange, int32_t, int32_t)},
+		{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field, isDateBased, bool)},
+		{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field, isTimeBased, bool)},
+		{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoFields$Field, valueOf, IsoFields$Field*, $String*)},
+		{"values", "()[Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoFields$Field, values, $IsoFields$FieldArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.temporal.IsoFields$Field", "java.time.temporal.IsoFields", "Field", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
+		{"java.time.temporal.IsoFields$Field$4", nullptr, nullptr, $FINAL | $ENUM},
+		{"java.time.temporal.IsoFields$Field$3", nullptr, nullptr, $FINAL | $ENUM},
+		{"java.time.temporal.IsoFields$Field$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"java.time.temporal.IsoFields$Field$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT | $ENUM,
+		"java.time.temporal.IsoFields$Field",
+		"java.lang.Enum",
+		"java.time.temporal.TemporalField",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/time/temporal/IsoFields$Field;>;Ljava/time/temporal/TemporalField;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.temporal.IsoFields"
+	};
+	$loadClass(IsoFields$Field, name, initialize, &classInfo$$, IsoFields$Field::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IsoFields$Field));
+	});
 	return class$;
 }
 

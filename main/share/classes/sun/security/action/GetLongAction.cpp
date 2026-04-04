@@ -1,5 +1,4 @@
 #include <sun/security/action/GetLongAction.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,34 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace action {
-
-$FieldInfo _GetLongAction_FieldInfo_[] = {
-	{"theProp", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GetLongAction, theProp)},
-	{"defaultVal", "J", nullptr, $PRIVATE, $field(GetLongAction, defaultVal)},
-	{"defaultSet", "Z", nullptr, $PRIVATE, $field(GetLongAction, defaultSet)},
-	{}
-};
-
-$MethodInfo _GetLongAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GetLongAction, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(GetLongAction, init$, void, $String*, int64_t)},
-	{"run", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(GetLongAction, run, $Object*)},
-	{}
-};
-
-$ClassInfo _GetLongAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.action.GetLongAction",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_GetLongAction_FieldInfo_,
-	_GetLongAction_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Long;>;"
-};
-
-$Object* allocate$GetLongAction($Class* clazz) {
-	return $of($alloc(GetLongAction));
-}
 
 void GetLongAction::init$($String* theProp) {
 	this->defaultSet = false;
@@ -63,7 +34,30 @@ GetLongAction::GetLongAction() {
 }
 
 $Class* GetLongAction::load$($String* name, bool initialize) {
-	$loadClass(GetLongAction, name, initialize, &_GetLongAction_ClassInfo_, allocate$GetLongAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"theProp", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GetLongAction, theProp)},
+		{"defaultVal", "J", nullptr, $PRIVATE, $field(GetLongAction, defaultVal)},
+		{"defaultSet", "Z", nullptr, $PRIVATE, $field(GetLongAction, defaultSet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GetLongAction, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(GetLongAction, init$, void, $String*, int64_t)},
+		{"run", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(GetLongAction, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.action.GetLongAction",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Long;>;"
+	};
+	$loadClass(GetLongAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetLongAction);
+	});
 	return class$;
 }
 

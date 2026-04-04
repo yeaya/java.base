@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/ReentrantReadWriteLock$NonfairSync.h>
-
 #include <java/util/concurrent/locks/AbstractQueuedSynchronizer.h>
 #include <java/util/concurrent/locks/ReentrantReadWriteLock$Sync.h>
 #include <java/util/concurrent/locks/ReentrantReadWriteLock.h>
@@ -15,44 +14,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 			namespace locks {
-
-$FieldInfo _ReentrantReadWriteLock$NonfairSync_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReentrantReadWriteLock$NonfairSync, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ReentrantReadWriteLock$NonfairSync_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ReentrantReadWriteLock$NonfairSync, init$, void)},
-	{"readerShouldBlock", "()Z", nullptr, $FINAL, $virtualMethod(ReentrantReadWriteLock$NonfairSync, readerShouldBlock, bool)},
-	{"writerShouldBlock", "()Z", nullptr, $FINAL, $virtualMethod(ReentrantReadWriteLock$NonfairSync, writerShouldBlock, bool)},
-	{}
-};
-
-$InnerClassInfo _ReentrantReadWriteLock$NonfairSync_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync", "java.util.concurrent.locks.ReentrantReadWriteLock", "NonfairSync", $STATIC | $FINAL},
-	{"java.util.concurrent.locks.ReentrantReadWriteLock$Sync", "java.util.concurrent.locks.ReentrantReadWriteLock", "Sync", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ReentrantReadWriteLock$NonfairSync_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync",
-	"java.util.concurrent.locks.ReentrantReadWriteLock$Sync",
-	nullptr,
-	_ReentrantReadWriteLock$NonfairSync_FieldInfo_,
-	_ReentrantReadWriteLock$NonfairSync_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReentrantReadWriteLock$NonfairSync_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.ReentrantReadWriteLock"
-};
-
-$Object* allocate$ReentrantReadWriteLock$NonfairSync($Class* clazz) {
-	return $of($alloc(ReentrantReadWriteLock$NonfairSync));
-}
 
 void ReentrantReadWriteLock$NonfairSync::init$() {
 	$ReentrantReadWriteLock$Sync::init$();
@@ -70,7 +31,39 @@ ReentrantReadWriteLock$NonfairSync::ReentrantReadWriteLock$NonfairSync() {
 }
 
 $Class* ReentrantReadWriteLock$NonfairSync::load$($String* name, bool initialize) {
-	$loadClass(ReentrantReadWriteLock$NonfairSync, name, initialize, &_ReentrantReadWriteLock$NonfairSync_ClassInfo_, allocate$ReentrantReadWriteLock$NonfairSync);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReentrantReadWriteLock$NonfairSync, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ReentrantReadWriteLock$NonfairSync, init$, void)},
+		{"readerShouldBlock", "()Z", nullptr, $FINAL, $virtualMethod(ReentrantReadWriteLock$NonfairSync, readerShouldBlock, bool)},
+		{"writerShouldBlock", "()Z", nullptr, $FINAL, $virtualMethod(ReentrantReadWriteLock$NonfairSync, writerShouldBlock, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync", "java.util.concurrent.locks.ReentrantReadWriteLock", "NonfairSync", $STATIC | $FINAL},
+		{"java.util.concurrent.locks.ReentrantReadWriteLock$Sync", "java.util.concurrent.locks.ReentrantReadWriteLock", "Sync", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync",
+		"java.util.concurrent.locks.ReentrantReadWriteLock$Sync",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.ReentrantReadWriteLock"
+	};
+	$loadClass(ReentrantReadWriteLock$NonfairSync, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReentrantReadWriteLock$NonfairSync);
+	});
 	return class$;
 }
 

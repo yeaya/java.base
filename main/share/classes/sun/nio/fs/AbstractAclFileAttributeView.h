@@ -27,6 +27,7 @@ class AbstractAclFileAttributeView : public ::java::nio::file::attribute::AclFil
 	$class(AbstractAclFileAttributeView, 0, ::java::nio::file::attribute::AclFileAttributeView, ::sun::nio::fs::DynamicFileAttributeView)
 public:
 	AbstractAclFileAttributeView();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

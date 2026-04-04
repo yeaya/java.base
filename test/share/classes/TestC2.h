@@ -9,6 +9,7 @@ class $export TestC2 : public ::java::lang::Object {
 	$class(TestC2, 0, ::java::lang::Object)
 public:
 	TestC2();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void testConstructors();

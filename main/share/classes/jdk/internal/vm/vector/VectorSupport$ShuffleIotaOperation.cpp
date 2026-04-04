@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/vector/VectorSupport$ShuffleIotaOperation.h>
-
 #include <jdk/internal/vm/vector/VectorSupport$VectorShuffle.h>
 #include <jdk/internal/vm/vector/VectorSupport$VectorSpecies.h>
 #include <jdk/internal/vm/vector/VectorSupport.h>
@@ -16,39 +15,34 @@ namespace jdk {
 		namespace vm {
 			namespace vector {
 
-$MethodInfo _VectorSupport$ShuffleIotaOperation_MethodInfo_[] = {
-	{"apply", "(IIILjdk/internal/vm/vector/VectorSupport$VectorSpecies;)Ljdk/internal/vm/vector/VectorSupport$VectorShuffle;", "(IIITS;)Ljdk/internal/vm/vector/VectorSupport$VectorShuffle<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$ShuffleIotaOperation, apply, $VectorSupport$VectorShuffle*, int32_t, int32_t, int32_t, $VectorSupport$VectorSpecies*)},
-	{}
-};
-
-$InnerClassInfo _VectorSupport$ShuffleIotaOperation_InnerClassesInfo_[] = {
-	{"jdk.internal.vm.vector.VectorSupport$ShuffleIotaOperation", "jdk.internal.vm.vector.VectorSupport", "ShuffleIotaOperation", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.vm.vector.VectorSupport$VectorSpecies", "jdk.internal.vm.vector.VectorSupport", "VectorSpecies", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _VectorSupport$ShuffleIotaOperation_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.vm.vector.VectorSupport$ShuffleIotaOperation",
-	nullptr,
-	nullptr,
-	nullptr,
-	_VectorSupport$ShuffleIotaOperation_MethodInfo_,
-	"<E:Ljava/lang/Object;S:Ljdk/internal/vm/vector/VectorSupport$VectorSpecies<TE;>;>Ljava/lang/Object;",
-	nullptr,
-	_VectorSupport$ShuffleIotaOperation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.vm.vector.VectorSupport"
-};
-
-$Object* allocate$VectorSupport$ShuffleIotaOperation($Class* clazz) {
-	return $of($alloc(VectorSupport$ShuffleIotaOperation));
-}
-
 $Class* VectorSupport$ShuffleIotaOperation::load$($String* name, bool initialize) {
-	$loadClass(VectorSupport$ShuffleIotaOperation, name, initialize, &_VectorSupport$ShuffleIotaOperation_ClassInfo_, allocate$VectorSupport$ShuffleIotaOperation);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(IIILjdk/internal/vm/vector/VectorSupport$VectorSpecies;)Ljdk/internal/vm/vector/VectorSupport$VectorShuffle;", "(IIITS;)Ljdk/internal/vm/vector/VectorSupport$VectorShuffle<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$ShuffleIotaOperation, apply, $VectorSupport$VectorShuffle*, int32_t, int32_t, int32_t, $VectorSupport$VectorSpecies*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.vm.vector.VectorSupport$ShuffleIotaOperation", "jdk.internal.vm.vector.VectorSupport", "ShuffleIotaOperation", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.vm.vector.VectorSupport$VectorSpecies", "jdk.internal.vm.vector.VectorSupport", "VectorSpecies", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.vm.vector.VectorSupport$ShuffleIotaOperation",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;S:Ljdk/internal/vm/vector/VectorSupport$VectorSpecies<TE;>;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.vm.vector.VectorSupport"
+	};
+	$loadClass(VectorSupport$ShuffleIotaOperation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VectorSupport$ShuffleIotaOperation);
+	});
 	return class$;
 }
 

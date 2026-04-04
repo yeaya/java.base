@@ -1,5 +1,4 @@
 #include <ThreadId$1.h>
-
 #include <ThreadId.h>
 #include <java/lang/ThreadLocal.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
@@ -12,44 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
-using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-
-$MethodInfo _ThreadId$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ThreadId$1, init$, void)},
-	{"initialValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(ThreadId$1, initialValue, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ThreadId$1_EnclosingMethodInfo_ = {
-	"ThreadId",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ThreadId$1_InnerClassesInfo_[] = {
-	{"ThreadId$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ThreadId$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"ThreadId$1",
-	"java.lang.ThreadLocal",
-	nullptr,
-	nullptr,
-	_ThreadId$1_MethodInfo_,
-	"Ljava/lang/ThreadLocal<Ljava/lang/Integer;>;",
-	&_ThreadId$1_EnclosingMethodInfo_,
-	_ThreadId$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ThreadId"
-};
-
-$Object* allocate$ThreadId$1($Class* clazz) {
-	return $of($alloc(ThreadId$1));
-}
 
 void ThreadId$1::init$() {
 	$ThreadLocal::init$();
@@ -64,7 +25,38 @@ ThreadId$1::ThreadId$1() {
 }
 
 $Class* ThreadId$1::load$($String* name, bool initialize) {
-	$loadClass(ThreadId$1, name, initialize, &_ThreadId$1_ClassInfo_, allocate$ThreadId$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ThreadId$1, init$, void)},
+		{"initialValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(ThreadId$1, initialValue, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"ThreadId",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ThreadId$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ThreadId$1",
+		"java.lang.ThreadLocal",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/ThreadLocal<Ljava/lang/Integer;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ThreadId"
+	};
+	$loadClass(ThreadId$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadId$1);
+	});
 	return class$;
 }
 

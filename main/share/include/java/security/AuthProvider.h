@@ -36,7 +36,7 @@ public:
 	virtual void login(::javax::security::auth::Subject* subject, ::javax::security::auth::callback::CallbackHandler* handler) {}
 	virtual void logout() {}
 	virtual void setCallbackHandler(::javax::security::auth::callback::CallbackHandler* handler) {}
-	static const int64_t serialVersionUID = (int64_t)0x3A41CA914C43159D;
+	static const int64_t serialVersionUID = (int64_t)0x3a41ca914c43159d;
 };
 
 	} // security

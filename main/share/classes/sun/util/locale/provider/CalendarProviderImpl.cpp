@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/CalendarProviderImpl.h>
-
 #include <java/util/Calendar$Builder.h>
 #include <java/util/Calendar.h>
 #include <java/util/Locale.h>
@@ -27,39 +26,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$FieldInfo _CalendarProviderImpl_FieldInfo_[] = {
-	{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(CalendarProviderImpl, type)},
-	{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(CalendarProviderImpl, langtags)},
-	{}
-};
-
-$MethodInfo _CalendarProviderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CalendarProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CalendarProviderImpl, getAvailableLanguageTags, $Set*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CalendarProviderImpl, getAvailableLocales, $LocaleArray*)},
-	{"getInstance", "(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;", nullptr, $PUBLIC, $virtualMethod(CalendarProviderImpl, getInstance, $Calendar*, $TimeZone*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(CalendarProviderImpl, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CalendarProviderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.CalendarProviderImpl",
-	"sun.util.spi.CalendarProvider",
-	"sun.util.locale.provider.AvailableLanguageTags",
-	_CalendarProviderImpl_FieldInfo_,
-	_CalendarProviderImpl_MethodInfo_
-};
-
-$Object* allocate$CalendarProviderImpl($Class* clazz) {
-	return $of($alloc(CalendarProviderImpl));
-}
 
 int32_t CalendarProviderImpl::hashCode() {
 	 return this->$CalendarProvider::hashCode();
@@ -96,8 +62,8 @@ bool CalendarProviderImpl::isSupportedLocale($Locale* locale) {
 }
 
 $Calendar* CalendarProviderImpl::getInstance($TimeZone* zone, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($nc($($$new($Calendar$Builder)->setLocale(locale)))->setTimeZone(zone)))->setInstant($System::currentTimeMillis())))->build();
+	$useLocalObjectStack();
+	return $$nc($$nc($$nc($$new($Calendar$Builder)->setLocale(locale))->setTimeZone(zone))->setInstant($System::currentTimeMillis()))->build();
 }
 
 $Set* CalendarProviderImpl::getAvailableLanguageTags() {
@@ -108,7 +74,35 @@ CalendarProviderImpl::CalendarProviderImpl() {
 }
 
 $Class* CalendarProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(CalendarProviderImpl, name, initialize, &_CalendarProviderImpl_ClassInfo_, allocate$CalendarProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(CalendarProviderImpl, type)},
+		{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(CalendarProviderImpl, langtags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CalendarProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+		{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CalendarProviderImpl, getAvailableLanguageTags, $Set*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CalendarProviderImpl, getAvailableLocales, $LocaleArray*)},
+		{"getInstance", "(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;", nullptr, $PUBLIC, $virtualMethod(CalendarProviderImpl, getInstance, $Calendar*, $TimeZone*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(CalendarProviderImpl, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.CalendarProviderImpl",
+		"sun.util.spi.CalendarProvider",
+		"sun.util.locale.provider.AvailableLanguageTags",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CalendarProviderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CalendarProviderImpl));
+	});
 	return class$;
 }
 

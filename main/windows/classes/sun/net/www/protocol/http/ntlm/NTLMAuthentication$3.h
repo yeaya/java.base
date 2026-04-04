@@ -16,6 +16,7 @@ class NTLMAuthentication$3 : public ::java::lang::Object {
 	$class(NTLMAuthentication$3, 0, ::java::lang::Object)
 public:
 	NTLMAuthentication$3();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$net$www$protocol$http$ntlm$NTLMAuthentication$TransparentAuth;
 };
 

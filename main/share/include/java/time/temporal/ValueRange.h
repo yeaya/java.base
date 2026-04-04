@@ -45,7 +45,7 @@ public:
 	static ::java::time::temporal::ValueRange* of(int64_t minSmallest, int64_t minLargest, int64_t maxSmallest, int64_t maxLargest);
 	void readObject(::java::io::ObjectInputStream* s);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x9A71A956F2CD5AB8;
+	static const int64_t serialVersionUID = (int64_t)0x9a71a956f2cd5ab8;
 	int64_t minSmallest = 0;
 	int64_t minLargest = 0;
 	int64_t maxSmallest = 0;

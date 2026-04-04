@@ -44,6 +44,7 @@ class $export TlsRsaPremasterSecretGenerator : public ::javax::crypto::KeyGenera
 	$class(TlsRsaPremasterSecretGenerator, 0, ::javax::crypto::KeyGeneratorSpi)
 public:
 	TlsRsaPremasterSecretGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::crypto::SecretKey* engineGenerateKey() override;
 	virtual void engineInit(::java::security::SecureRandom* random) override;

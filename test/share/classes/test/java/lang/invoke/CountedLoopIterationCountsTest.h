@@ -22,6 +22,7 @@ class $export CountedLoopIterationCountsTest : public ::java::lang::Object {
 	$class(CountedLoopIterationCountsTest, 0, ::java::lang::Object)
 public:
 	CountedLoopIterationCountsTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void run(int32_t start, int32_t end, int32_t expectedIterations);

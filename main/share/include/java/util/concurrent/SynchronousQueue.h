@@ -60,6 +60,7 @@ public:
 	virtual void finalize() override;
 	virtual void forEach(::java::util::function::Consumer* action) override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool fair);
 	virtual void clear() override;
@@ -92,7 +93,7 @@ public:
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xD345336E1F5C3E9A;
+	static const int64_t serialVersionUID = (int64_t)0xd345336e1f5c3e9a;
 	static const int64_t SPIN_FOR_TIMEOUT_THRESHOLD = (int64_t)1023;
 	$volatile(::java::util::concurrent::SynchronousQueue$Transferer*) transferer = nullptr;
 	::java::util::concurrent::locks::ReentrantLock* qlock = nullptr;

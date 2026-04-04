@@ -1,5 +1,4 @@
 #include <sun/net/www/http/PosterOutputStream.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <jcpp.h>
 
@@ -12,33 +11,6 @@ namespace sun {
 	namespace net {
 		namespace www {
 			namespace http {
-
-$FieldInfo _PosterOutputStream_FieldInfo_[] = {
-	{"closed", "Z", nullptr, $PRIVATE, $field(PosterOutputStream, closed)},
-	{}
-};
-
-$MethodInfo _PosterOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PosterOutputStream, init$, void)},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, close, void), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, reset, void)},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, write, void, int32_t)},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, write, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _PosterOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.http.PosterOutputStream",
-	"java.io.ByteArrayOutputStream",
-	nullptr,
-	_PosterOutputStream_FieldInfo_,
-	_PosterOutputStream_MethodInfo_
-};
-
-$Object* allocate$PosterOutputStream($Class* clazz) {
-	return $of($alloc(PosterOutputStream));
-}
 
 void PosterOutputStream::init$() {
 	$ByteArrayOutputStream::init$(256);
@@ -82,7 +54,29 @@ PosterOutputStream::PosterOutputStream() {
 }
 
 $Class* PosterOutputStream::load$($String* name, bool initialize) {
-	$loadClass(PosterOutputStream, name, initialize, &_PosterOutputStream_ClassInfo_, allocate$PosterOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"closed", "Z", nullptr, $PRIVATE, $field(PosterOutputStream, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PosterOutputStream, init$, void)},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, close, void), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, reset, void)},
+		{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, write, void, int32_t)},
+		{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, write, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.http.PosterOutputStream",
+		"java.io.ByteArrayOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PosterOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PosterOutputStream));
+	});
 	return class$;
 }
 

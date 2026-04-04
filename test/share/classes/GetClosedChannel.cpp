@@ -1,5 +1,4 @@
 #include <GetClosedChannel.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
@@ -18,7 +17,6 @@
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -30,32 +28,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
-$FieldInfo _GetClosedChannel_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GetClosedChannel, $assertionsDisabled)},
-	{"NUM_CHANNELS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GetClosedChannel, NUM_CHANNELS)},
-	{"NUM_EXCEPTIONS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GetClosedChannel, NUM_EXCEPTIONS)},
-	{}
-};
-
-$MethodInfo _GetClosedChannel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetClosedChannel, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetClosedChannel, main, void, $StringArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _GetClosedChannel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetClosedChannel",
-	"java.lang.Object",
-	nullptr,
-	_GetClosedChannel_FieldInfo_,
-	_GetClosedChannel_MethodInfo_
-};
-
-$Object* allocate$GetClosedChannel($Class* clazz) {
-	return $of($alloc(GetClosedChannel));
-}
-
 bool GetClosedChannel::$assertionsDisabled = false;
 
 void GetClosedChannel::init$() {
@@ -63,7 +35,7 @@ void GetClosedChannel::init$() {
 
 void GetClosedChannel::main($StringArray* args) {
 	$init(GetClosedChannel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t exceptions = 0;
 	int32_t openChannels = 0;
 	for (int32_t i = 0; i < GetClosedChannel::NUM_CHANNELS; ++i) {
@@ -72,52 +44,44 @@ void GetClosedChannel::main($StringArray* args) {
 		$var($FileChannel, fc, nullptr);
 		bool shared = false;
 		{
-			$var($FileInputStream, fis, nullptr)
-			$var($FileOutputStream, fos, nullptr)
-			$var($RandomAccessFile, raf, nullptr)
+			$var($FileInputStream, fis, nullptr);
+			$var($FileOutputStream, fos, nullptr);
+			$var($RandomAccessFile, raf, nullptr);
 			switch (i) {
 			case 0:
-				{
-					$nc($System::out)->print("FileInputStream..."_s);
-					$assign(fis, $new($FileInputStream, f));
-					$nc(fis)->close();
-					$assign(fc, $nc(fis)->getChannel());
-					if ($nc(fc)->isOpen()) {
-						$nc($System::err)->println("FileInputStream channel should not be open"_s);
-						++openChannels;
-					}
-					shared = true;
-					break;
+				$nc($System::out)->print("FileInputStream..."_s);
+				$assign(fis, $new($FileInputStream, f));
+				$nc(fis)->close();
+				$assign(fc, fis->getChannel());
+				if ($nc(fc)->isOpen()) {
+					$nc($System::err)->println("FileInputStream channel should not be open"_s);
+					++openChannels;
 				}
+				shared = true;
+				break;
 			case 1:
-				{
-					$nc($System::out)->print("FileOutputStream..."_s);
-					$assign(fos, $new($FileOutputStream, f));
-					$nc(fos)->close();
-					$assign(fc, $nc(fos)->getChannel());
-					if ($nc(fc)->isOpen()) {
-						$nc($System::err)->println("FileOutputStream channel should not be open"_s);
-						++openChannels;
-					}
-					break;
+				$nc($System::out)->print("FileOutputStream..."_s);
+				$assign(fos, $new($FileOutputStream, f));
+				$nc(fos)->close();
+				$assign(fc, fos->getChannel());
+				if ($nc(fc)->isOpen()) {
+					$nc($System::err)->println("FileOutputStream channel should not be open"_s);
+					++openChannels;
 				}
+				break;
 			case 2:
-				{
-					$nc($System::out)->print("RandomAccessFile..."_s);
-					$assign(raf, $new($RandomAccessFile, f, "rw"_s));
-					$nc(raf)->close();
-					$assign(fc, $nc(raf)->getChannel());
-					if ($nc(fc)->isOpen()) {
-						$nc($System::err)->println("RandomAccessFile channel should not be open"_s);
-						++openChannels;
-					}
-					break;
+				$nc($System::out)->print("RandomAccessFile..."_s);
+				$assign(raf, $new($RandomAccessFile, f, "rw"_s));
+				$nc(raf)->close();
+				$assign(fc, raf->getChannel());
+				if ($nc(fc)->isOpen()) {
+					$nc($System::err)->println("RandomAccessFile channel should not be open"_s);
+					++openChannels;
 				}
+				break;
 			default:
-				{
-					if (!GetClosedChannel::$assertionsDisabled) {
-						$throwNew($AssertionError, $of("Should not get here"_s));
-					}
+				if (!GetClosedChannel::$assertionsDisabled) {
+					$throwNew($AssertionError, $of("Should not get here"_s));
 				}
 			}
 		}
@@ -141,7 +105,7 @@ void GetClosedChannel::main($StringArray* args) {
 	}
 }
 
-void clinit$GetClosedChannel($Class* class$) {
+void GetClosedChannel::clinit$($Class* clazz) {
 	GetClosedChannel::$assertionsDisabled = !GetClosedChannel::class$->desiredAssertionStatus();
 }
 
@@ -149,7 +113,28 @@ GetClosedChannel::GetClosedChannel() {
 }
 
 $Class* GetClosedChannel::load$($String* name, bool initialize) {
-	$loadClass(GetClosedChannel, name, initialize, &_GetClosedChannel_ClassInfo_, clinit$GetClosedChannel, allocate$GetClosedChannel);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GetClosedChannel, $assertionsDisabled)},
+		{"NUM_CHANNELS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GetClosedChannel, NUM_CHANNELS)},
+		{"NUM_EXCEPTIONS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GetClosedChannel, NUM_EXCEPTIONS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetClosedChannel, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetClosedChannel, main, void, $StringArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetClosedChannel",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GetClosedChannel, name, initialize, &classInfo$$, GetClosedChannel::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GetClosedChannel);
+	});
 	return class$;
 }
 

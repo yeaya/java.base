@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ServerNameExtension$CHServerNameProducer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -26,58 +25,24 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $SNIServerName = ::javax::net::ssl::SNIServerName;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $Record = ::sun::security::ssl::Record;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $ServerNameExtension$CHServerNamesSpec = ::sun::security::ssl::ServerNameExtension$CHServerNamesSpec;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ServerNameExtension$CHServerNameProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerNameExtension$CHServerNameProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ServerNameExtension$CHServerNameProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ServerNameExtension$CHServerNameProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ServerNameExtension$CHServerNameProducer", "sun.security.ssl.ServerNameExtension", "CHServerNameProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ServerNameExtension$CHServerNameProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ServerNameExtension$CHServerNameProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_ServerNameExtension$CHServerNameProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerNameExtension$CHServerNameProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ServerNameExtension"
-};
-
-$Object* allocate$ServerNameExtension$CHServerNameProducer($Class* clazz) {
-	return $of($alloc(ServerNameExtension$CHServerNameProducer));
-}
-
 void ServerNameExtension$CHServerNameProducer::init$() {
 }
 
 $bytes* ServerNameExtension$CHServerNameProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::CH_SERVER_NAME)) {
@@ -88,10 +53,10 @@ $bytes* ServerNameExtension$CHServerNameProducer::produce($ConnectionContext* co
 		return nullptr;
 	}
 	$var($List, serverNames, nullptr);
-	if ($nc(chc)->isResumption && (chc->resumingSession != nullptr)) {
-		$assign(serverNames, $nc(chc->resumingSession)->getRequestedServerNames());
+	if (chc->isResumption && (chc->resumingSession != nullptr)) {
+		$assign(serverNames, chc->resumingSession->getRequestedServerNames());
 	} else {
-		$assign(serverNames, $nc(chc->sslConfig)->serverNames);
+		$assign(serverNames, chc->sslConfig->serverNames);
 	}
 	if ((serverNames != nullptr) && !serverNames->isEmpty()) {
 		int32_t sniLen = 0;
@@ -114,11 +79,11 @@ $bytes* ServerNameExtension$CHServerNameProducer::produce($ConnectionContext* co
 				$var($SNIServerName, sniName, $cast($SNIServerName, i$->next()));
 				{
 					$Record::putInt8(m, $nc(sniName)->getType());
-					$Record::putBytes16(m, $($nc(sniName)->getEncoded()));
+					$Record::putBytes16(m, $(sniName->getEncoded()));
 				}
 			}
 		}
-		$set($nc(chc), requestedServerNames, serverNames);
+		$set(chc, requestedServerNames, serverNames);
 		$nc(chc->handshakeExtensions)->put($SSLExtension::CH_SERVER_NAME, $$new($ServerNameExtension$CHServerNamesSpec, serverNames));
 		return extData;
 	}
@@ -133,7 +98,33 @@ ServerNameExtension$CHServerNameProducer::ServerNameExtension$CHServerNameProduc
 }
 
 $Class* ServerNameExtension$CHServerNameProducer::load$($String* name, bool initialize) {
-	$loadClass(ServerNameExtension$CHServerNameProducer, name, initialize, &_ServerNameExtension$CHServerNameProducer_ClassInfo_, allocate$ServerNameExtension$CHServerNameProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServerNameExtension$CHServerNameProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ServerNameExtension$CHServerNameProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ServerNameExtension$CHServerNameProducer", "sun.security.ssl.ServerNameExtension", "CHServerNameProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ServerNameExtension$CHServerNameProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ServerNameExtension"
+	};
+	$loadClass(ServerNameExtension$CHServerNameProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerNameExtension$CHServerNameProducer);
+	});
 	return class$;
 }
 

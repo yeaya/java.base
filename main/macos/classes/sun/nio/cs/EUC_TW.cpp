@@ -1,5 +1,4 @@
 #include <sun/nio/cs/EUC_TW.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -25,50 +24,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _EUC_TW_FieldInfo_[] = {
-	{"SS2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EUC_TW, SS2)},
-	{}
-};
-
-$MethodInfo _EUC_TW_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EUC_TW, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(EUC_TW, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EUC_TW, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(EUC_TW, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(EUC_TW, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _EUC_TW_InnerClassesInfo_[] = {
-	{"sun.nio.cs.EUC_TW$Encoder", "sun.nio.cs.EUC_TW", "Encoder", $PUBLIC | $STATIC},
-	{"sun.nio.cs.EUC_TW$Decoder", "sun.nio.cs.EUC_TW", "Decoder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _EUC_TW_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.EUC_TW",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	_EUC_TW_FieldInfo_,
-	_EUC_TW_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EUC_TW_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.EUC_TW$Encoder,sun.nio.cs.EUC_TW$Decoder"
-};
-
-$Object* allocate$EUC_TW($Class* clazz) {
-	return $of($alloc(EUC_TW));
-}
 
 int32_t EUC_TW::hashCode() {
 	 return this->$Charset::hashCode();
@@ -99,7 +54,7 @@ $String* EUC_TW::historicalName() {
 }
 
 bool EUC_TW::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(EUC_TW, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(EUC_TW, cs)));
 }
 
 $CharsetDecoder* EUC_TW::newDecoder() {
@@ -114,7 +69,45 @@ EUC_TW::EUC_TW() {
 }
 
 $Class* EUC_TW::load$($String* name, bool initialize) {
-	$loadClass(EUC_TW, name, initialize, &_EUC_TW_ClassInfo_, allocate$EUC_TW);
+	$FieldInfo fieldInfos$$[] = {
+		{"SS2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EUC_TW, SS2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EUC_TW, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(EUC_TW, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EUC_TW, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(EUC_TW, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(EUC_TW, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.EUC_TW$Encoder", "sun.nio.cs.EUC_TW", "Encoder", $PUBLIC | $STATIC},
+		{"sun.nio.cs.EUC_TW$Decoder", "sun.nio.cs.EUC_TW", "Decoder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.EUC_TW",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.EUC_TW$Encoder,sun.nio.cs.EUC_TW$Decoder"
+	};
+	$loadClass(EUC_TW, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EUC_TW));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/security/auth/callback/TextInputCallback.h>
-
 #include <javax/security/auth/callback/Callback.h>
 #include <jcpp.h>
 
@@ -13,42 +12,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace callback {
-
-$FieldInfo _TextInputCallback_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextInputCallback, serialVersionUID)},
-	{"prompt", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TextInputCallback, prompt)},
-	{"defaultText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TextInputCallback, defaultText)},
-	{"inputText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TextInputCallback, inputText)},
-	{}
-};
-
-$MethodInfo _TextInputCallback_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextInputCallback, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextInputCallback, init$, void, $String*, $String*)},
-	{"getDefaultText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, getDefaultText, $String*)},
-	{"getPrompt", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, getPrompt, $String*)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, getText, $String*)},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, setText, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _TextInputCallback_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.callback.TextInputCallback",
-	"java.lang.Object",
-	"javax.security.auth.callback.Callback,java.io.Serializable",
-	_TextInputCallback_FieldInfo_,
-	_TextInputCallback_MethodInfo_
-};
-
-$Object* allocate$TextInputCallback($Class* clazz) {
-	return $of($alloc(TextInputCallback));
-}
 
 int32_t TextInputCallback::hashCode() {
 	 return this->$Callback::hashCode();
@@ -71,15 +34,15 @@ void TextInputCallback::finalize() {
 }
 
 void TextInputCallback::init$($String* prompt) {
-	if (prompt == nullptr || $nc(prompt)->isEmpty()) {
+	if (prompt == nullptr || prompt->isEmpty()) {
 		$throwNew($IllegalArgumentException);
 	}
 	$set(this, prompt, prompt);
 }
 
 void TextInputCallback::init$($String* prompt, $String* defaultText) {
-	bool var$0 = prompt == nullptr || $nc(prompt)->isEmpty() || defaultText == nullptr;
-	if (var$0 || $nc(defaultText)->isEmpty()) {
+	bool var$0 = prompt == nullptr || prompt->isEmpty() || defaultText == nullptr;
+	if (var$0 || defaultText->isEmpty()) {
 		$throwNew($IllegalArgumentException);
 	}
 	$set(this, prompt, prompt);
@@ -106,7 +69,38 @@ TextInputCallback::TextInputCallback() {
 }
 
 $Class* TextInputCallback::load$($String* name, bool initialize) {
-	$loadClass(TextInputCallback, name, initialize, &_TextInputCallback_ClassInfo_, allocate$TextInputCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextInputCallback, serialVersionUID)},
+		{"prompt", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TextInputCallback, prompt)},
+		{"defaultText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TextInputCallback, defaultText)},
+		{"inputText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TextInputCallback, inputText)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextInputCallback, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextInputCallback, init$, void, $String*, $String*)},
+		{"getDefaultText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, getDefaultText, $String*)},
+		{"getPrompt", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, getPrompt, $String*)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, getText, $String*)},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, setText, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.callback.TextInputCallback",
+		"java.lang.Object",
+		"javax.security.auth.callback.Callback,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextInputCallback, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextInputCallback));
+	});
 	return class$;
 }
 

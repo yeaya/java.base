@@ -1,5 +1,4 @@
 #include <java/util/stream/ReduceOps$4.h>
-
 #include <java/util/function/BiConsumer.h>
 #include <java/util/function/Supplier.h>
 #include <java/util/stream/ReduceOps$4ReducingSink.h>
@@ -25,52 +24,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _ReduceOps$4_FieldInfo_[] = {
-	{"val$seedFactory", "Ljava/util/function/Supplier;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$4, val$seedFactory)},
-	{"val$accumulator", "Ljava/util/function/BiConsumer;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$4, val$accumulator)},
-	{"val$reducer", "Ljava/util/function/BiConsumer;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$4, val$reducer)},
-	{}
-};
-
-$MethodInfo _ReduceOps$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;Ljava/util/function/Supplier;)V", nullptr, 0, $method(ReduceOps$4, init$, void, $StreamShape*, $BiConsumer*, $BiConsumer*, $Supplier*)},
-	{"makeSink", "()Ljava/util/stream/ReduceOps$4ReducingSink;", nullptr, $PUBLIC, $virtualMethod(ReduceOps$4, makeSink, $ReduceOps$AccumulatingSink*)},
-	{}
-};
-
-$EnclosingMethodInfo _ReduceOps$4_EnclosingMethodInfo_ = {
-	"java.util.stream.ReduceOps",
-	"makeRef",
-	"(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)Ljava/util/stream/TerminalOp;"
-};
-
-$InnerClassInfo _ReduceOps$4_InnerClassesInfo_[] = {
-	{"java.util.stream.ReduceOps$4", nullptr, nullptr, 0},
-	{"java.util.stream.ReduceOps$ReduceOp", "java.util.stream.ReduceOps", "ReduceOp", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.ReduceOps$4ReducingSink", nullptr, "ReducingSink", 0},
-	{}
-};
-
-$ClassInfo _ReduceOps$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.ReduceOps$4",
-	"java.util.stream.ReduceOps$ReduceOp",
-	nullptr,
-	_ReduceOps$4_FieldInfo_,
-	_ReduceOps$4_MethodInfo_,
-	"Ljava/util/stream/ReduceOps$ReduceOp<TT;TR;Ljava/util/stream/ReduceOps$4ReducingSink;>;",
-	&_ReduceOps$4_EnclosingMethodInfo_,
-	_ReduceOps$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ReduceOps"
-};
-
-$Object* allocate$ReduceOps$4($Class* clazz) {
-	return $of($alloc(ReduceOps$4));
-}
-
 void ReduceOps$4::init$($StreamShape* shape, $BiConsumer* val$reducer, $BiConsumer* val$accumulator, $Supplier* val$seedFactory) {
 	$set(this, val$reducer, val$reducer);
 	$set(this, val$accumulator, val$accumulator);
@@ -86,7 +39,46 @@ ReduceOps$4::ReduceOps$4() {
 }
 
 $Class* ReduceOps$4::load$($String* name, bool initialize) {
-	$loadClass(ReduceOps$4, name, initialize, &_ReduceOps$4_ClassInfo_, allocate$ReduceOps$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$seedFactory", "Ljava/util/function/Supplier;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$4, val$seedFactory)},
+		{"val$accumulator", "Ljava/util/function/BiConsumer;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$4, val$accumulator)},
+		{"val$reducer", "Ljava/util/function/BiConsumer;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$4, val$reducer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;Ljava/util/function/Supplier;)V", nullptr, 0, $method(ReduceOps$4, init$, void, $StreamShape*, $BiConsumer*, $BiConsumer*, $Supplier*)},
+		{"makeSink", "()Ljava/util/stream/ReduceOps$4ReducingSink;", nullptr, $PUBLIC, $virtualMethod(ReduceOps$4, makeSink, $ReduceOps$AccumulatingSink*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.ReduceOps",
+		"makeRef",
+		"(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)Ljava/util/stream/TerminalOp;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ReduceOps$4", nullptr, nullptr, 0},
+		{"java.util.stream.ReduceOps$ReduceOp", "java.util.stream.ReduceOps", "ReduceOp", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.ReduceOps$4ReducingSink", nullptr, "ReducingSink", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.ReduceOps$4",
+		"java.util.stream.ReduceOps$ReduceOp",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/ReduceOps$ReduceOp<TT;TR;Ljava/util/stream/ReduceOps$4ReducingSink;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ReduceOps"
+	};
+	$loadClass(ReduceOps$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReduceOps$4);
+	});
 	return class$;
 }
 

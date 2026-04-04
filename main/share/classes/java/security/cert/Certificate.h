@@ -32,7 +32,7 @@ public:
 	virtual void verify(::java::security::PublicKey* key, $String* sigProvider) {}
 	virtual void verify(::java::security::PublicKey* key, ::java::security::Provider* sigProvider);
 	virtual $Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0xCE3DF4C4F2080A1B;
+	static const int64_t serialVersionUID = (int64_t)0xce3df4c4f2080a1b;
 	$String* type = nullptr;
 	int32_t hash = 0;
 };

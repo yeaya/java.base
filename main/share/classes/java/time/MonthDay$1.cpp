@@ -1,5 +1,4 @@
 #include <java/time/MonthDay$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/MonthDay.h>
 #include <java/time/temporal/ChronoField.h>
@@ -18,53 +17,17 @@ using $ChronoField = ::java::time::temporal::ChronoField;
 namespace java {
 	namespace time {
 
-$FieldInfo _MonthDay$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MonthDay$1, $SwitchMap$java$time$temporal$ChronoField)},
-	{}
-};
-
-$EnclosingMethodInfo _MonthDay$1_EnclosingMethodInfo_ = {
-	"java.time.MonthDay",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _MonthDay$1_InnerClassesInfo_[] = {
-	{"java.time.MonthDay$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _MonthDay$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.MonthDay$1",
-	"java.lang.Object",
-	nullptr,
-	_MonthDay$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_MonthDay$1_EnclosingMethodInfo_,
-	_MonthDay$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.MonthDay"
-};
-
-$Object* allocate$MonthDay$1($Class* clazz) {
-	return $of($alloc(MonthDay$1));
-}
-
 $ints* MonthDay$1::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
-void clinit$MonthDay$1($Class* class$) {
+void MonthDay$1::clinit$($Class* clazz) {
 	$assignStatic(MonthDay$1::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
-			$nc(MonthDay$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::DAY_OF_MONTH->ordinal(), 1);
+			MonthDay$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::DAY_OF_MONTH->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(MonthDay$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::MONTH_OF_YEAR->ordinal(), 2);
+			MonthDay$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::MONTH_OF_YEAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -74,7 +37,37 @@ MonthDay$1::MonthDay$1() {
 }
 
 $Class* MonthDay$1::load$($String* name, bool initialize) {
-	$loadClass(MonthDay$1, name, initialize, &_MonthDay$1_ClassInfo_, clinit$MonthDay$1, allocate$MonthDay$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MonthDay$1, $SwitchMap$java$time$temporal$ChronoField)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.MonthDay",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.MonthDay$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.MonthDay$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.MonthDay"
+	};
+	$loadClass(MonthDay$1, name, initialize, &classInfo$$, MonthDay$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MonthDay$1);
+	});
 	return class$;
 }
 

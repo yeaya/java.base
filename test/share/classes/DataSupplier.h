@@ -10,6 +10,7 @@ class DataSupplier : public ::java::io::InputStream {
 	$class(DataSupplier, 0, ::java::io::InputStream)
 public:
 	DataSupplier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t read() override;
 	virtual int32_t read($bytes* b) override;

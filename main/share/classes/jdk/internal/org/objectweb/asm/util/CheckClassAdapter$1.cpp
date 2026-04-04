@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckClassAdapter$1.h>
-
 #include <jdk/internal/org/objectweb/asm/ClassVisitor.h>
 #include <jdk/internal/org/objectweb/asm/util/CheckClassAdapter.h>
 #include <jcpp.h>
@@ -18,42 +17,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$MethodInfo _CheckClassAdapter$1_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;Z)V", nullptr, 0, $method(CheckClassAdapter$1, init$, void, int32_t, $ClassVisitor*, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _CheckClassAdapter$1_EnclosingMethodInfo_ = {
-	"jdk.internal.org.objectweb.asm.util.CheckClassAdapter",
-	"verify",
-	"(Ljdk/internal/org/objectweb/asm/ClassReader;Ljava/lang/ClassLoader;ZLjava/io/PrintWriter;)V"
-};
-
-$InnerClassInfo _CheckClassAdapter$1_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.util.CheckClassAdapter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CheckClassAdapter$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.CheckClassAdapter$1",
-	"jdk.internal.org.objectweb.asm.util.CheckClassAdapter",
-	nullptr,
-	nullptr,
-	_CheckClassAdapter$1_MethodInfo_,
-	nullptr,
-	&_CheckClassAdapter$1_EnclosingMethodInfo_,
-	_CheckClassAdapter$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.util.CheckClassAdapter"
-};
-
-$Object* allocate$CheckClassAdapter$1($Class* clazz) {
-	return $of($alloc(CheckClassAdapter$1));
-}
-
 void CheckClassAdapter$1::init$(int32_t api, $ClassVisitor* classVisitor, bool checkDataFlow) {
 	$CheckClassAdapter::init$(api, classVisitor, checkDataFlow);
 }
@@ -62,7 +25,37 @@ CheckClassAdapter$1::CheckClassAdapter$1() {
 }
 
 $Class* CheckClassAdapter$1::load$($String* name, bool initialize) {
-	$loadClass(CheckClassAdapter$1, name, initialize, &_CheckClassAdapter$1_ClassInfo_, allocate$CheckClassAdapter$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;Z)V", nullptr, 0, $method(CheckClassAdapter$1, init$, void, int32_t, $ClassVisitor*, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.org.objectweb.asm.util.CheckClassAdapter",
+		"verify",
+		"(Ljdk/internal/org/objectweb/asm/ClassReader;Ljava/lang/ClassLoader;ZLjava/io/PrintWriter;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.util.CheckClassAdapter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.CheckClassAdapter$1",
+		"jdk.internal.org.objectweb.asm.util.CheckClassAdapter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.util.CheckClassAdapter"
+	};
+	$loadClass(CheckClassAdapter$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckClassAdapter$1);
+	});
 	return class$;
 }
 

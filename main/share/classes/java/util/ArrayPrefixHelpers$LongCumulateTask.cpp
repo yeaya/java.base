@@ -1,5 +1,4 @@
 #include <java/util/ArrayPrefixHelpers$LongCumulateTask.h>
-
 #include <java/util/ArrayPrefixHelpers.h>
 #include <java/util/concurrent/CountedCompleter.h>
 #include <java/util/concurrent/ForkJoinPool.h>
@@ -18,54 +17,6 @@ using $LongBinaryOperator = ::java::util::function::LongBinaryOperator;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _ArrayPrefixHelpers$LongCumulateTask_FieldInfo_[] = {
-	{"array", "[J", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, array)},
-	{"function", "Ljava/util/function/LongBinaryOperator;", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, function)},
-	{"left", "Ljava/util/ArrayPrefixHelpers$LongCumulateTask;", nullptr, 0, $field(ArrayPrefixHelpers$LongCumulateTask, left)},
-	{"right", "Ljava/util/ArrayPrefixHelpers$LongCumulateTask;", nullptr, 0, $field(ArrayPrefixHelpers$LongCumulateTask, right)},
-	{"in", "J", nullptr, 0, $field(ArrayPrefixHelpers$LongCumulateTask, in)},
-	{"out", "J", nullptr, 0, $field(ArrayPrefixHelpers$LongCumulateTask, out)},
-	{"lo", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, lo)},
-	{"hi", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, hi)},
-	{"origin", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, origin)},
-	{"fence", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, fence)},
-	{"threshold", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, threshold)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayPrefixHelpers$LongCumulateTask, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ArrayPrefixHelpers$LongCumulateTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayPrefixHelpers$LongCumulateTask;Ljava/util/function/LongBinaryOperator;[JII)V", nullptr, $PUBLIC, $method(ArrayPrefixHelpers$LongCumulateTask, init$, void, ArrayPrefixHelpers$LongCumulateTask*, $LongBinaryOperator*, $longs*, int32_t, int32_t)},
-	{"<init>", "(Ljava/util/ArrayPrefixHelpers$LongCumulateTask;Ljava/util/function/LongBinaryOperator;[JIIIII)V", nullptr, 0, $method(ArrayPrefixHelpers$LongCumulateTask, init$, void, ArrayPrefixHelpers$LongCumulateTask*, $LongBinaryOperator*, $longs*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArrayPrefixHelpers$LongCumulateTask, compute, void)},
-	{}
-};
-
-$InnerClassInfo _ArrayPrefixHelpers$LongCumulateTask_InnerClassesInfo_[] = {
-	{"java.util.ArrayPrefixHelpers$LongCumulateTask", "java.util.ArrayPrefixHelpers", "LongCumulateTask", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ArrayPrefixHelpers$LongCumulateTask_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.ArrayPrefixHelpers$LongCumulateTask",
-	"java.util.concurrent.CountedCompleter",
-	nullptr,
-	_ArrayPrefixHelpers$LongCumulateTask_FieldInfo_,
-	_ArrayPrefixHelpers$LongCumulateTask_MethodInfo_,
-	"Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;",
-	nullptr,
-	_ArrayPrefixHelpers$LongCumulateTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ArrayPrefixHelpers"
-};
-
-$Object* allocate$ArrayPrefixHelpers$LongCumulateTask($Class* clazz) {
-	return $of($alloc(ArrayPrefixHelpers$LongCumulateTask));
-}
 
 void ArrayPrefixHelpers$LongCumulateTask::init$(ArrayPrefixHelpers$LongCumulateTask* parent, $LongBinaryOperator* function, $longs* array, int32_t lo, int32_t hi) {
 	$CountedCompleter::init$(parent);
@@ -89,7 +40,7 @@ void ArrayPrefixHelpers$LongCumulateTask::init$(ArrayPrefixHelpers$LongCumulateT
 }
 
 void ArrayPrefixHelpers$LongCumulateTask::compute() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LongBinaryOperator, fn, nullptr);
 	$var($longs, a, nullptr);
 	if (($assign(fn, this->function)) == nullptr || ($assign(a, this->array)) == nullptr) {
@@ -109,17 +60,17 @@ void ArrayPrefixHelpers$LongCumulateTask::compute() {
 			$var(ArrayPrefixHelpers$LongCumulateTask, f, nullptr);
 			if (lt == nullptr) {
 				int32_t mid = (int32_t)((uint32_t)(l + h) >> 1);
-				$assign(f, ($assign(rt, ($set(t, right, $new(ArrayPrefixHelpers$LongCumulateTask, t, fn, a, org, fnc, th, mid, h))))));
-				$assign(t, ($assign(lt, ($set(t, left, $new(ArrayPrefixHelpers$LongCumulateTask, t, fn, a, org, fnc, th, l, mid))))));
+				$assign(f, $assign(rt, $set(t, right, $new(ArrayPrefixHelpers$LongCumulateTask, t, fn, a, org, fnc, th, mid, h))));
+				$assign(t, $assign(lt, $set(t, left, $new(ArrayPrefixHelpers$LongCumulateTask, t, fn, a, org, fnc, th, l, mid))));
 			} else {
 				int64_t pin = t->in;
-				$nc(lt)->in = pin;
-				$assign(f, ($assign(t, nullptr)));
+				lt->in = pin;
+				$assign(f, $assign(t, nullptr));
 				if (rt != nullptr) {
 					int64_t lout = lt->out;
 					rt->in = (l == org ? lout : $nc(fn)->applyAsLong(pin, lout));
 					for (int32_t c = 0;;) {
-						if (((int32_t)((c = rt->getPendingCount()) & (uint32_t)1)) != 0) {
+						if (((c = rt->getPendingCount()) & 1) != 0) {
 							break;
 						}
 						if (rt->compareAndSetPendingCount(c, c | 1)) {
@@ -129,7 +80,7 @@ void ArrayPrefixHelpers$LongCumulateTask::compute() {
 					}
 				}
 				for (int32_t c = 0;;) {
-					if (((int32_t)((c = lt->getPendingCount()) & (uint32_t)1)) != 0) {
+					if (((c = lt->getPendingCount()) & 1) != 0) {
 						break;
 					}
 					if (lt->compareAndSetPendingCount(c, c | 1)) {
@@ -150,11 +101,11 @@ void ArrayPrefixHelpers$LongCumulateTask::compute() {
 		} else {
 			int32_t state = 0;
 			for (int32_t b = 0;;) {
-				if (((int32_t)((b = t->getPendingCount()) & (uint32_t)4)) != 0) {
+				if (((b = $nc(t)->getPendingCount()) & 4) != 0) {
 					outer$break = true;
 					break;
 				}
-				state = (((int32_t)(b & (uint32_t)1)) != 0 ? 4 : (l > org) ? 2 : (2 | 4));
+				state = ((b & 1) != 0 ? 4 : (l > org) ? 2 : (2 | 4));
 				if (t->compareAndSetPendingCount(b, b | state)) {
 					break;
 				}
@@ -169,7 +120,7 @@ void ArrayPrefixHelpers$LongCumulateTask::compute() {
 					sum = a->get(org);
 					first = org + 1;
 				} else {
-					sum = t->in;
+					sum = $nc(t)->in;
 					first = l;
 				}
 				for (int32_t i = first; i < h; ++i) {
@@ -181,31 +132,31 @@ void ArrayPrefixHelpers$LongCumulateTask::compute() {
 					sum = $nc(fn)->applyAsLong(sum, a->get(i));
 				}
 			} else {
-				sum = t->in;
+				sum = $nc(t)->in;
 			}
-			t->out = sum;
+			$nc(t)->out = sum;
 			{
 				$var(ArrayPrefixHelpers$LongCumulateTask, par, nullptr);
 				for (;;) {
-					if (($assign(par, $cast(ArrayPrefixHelpers$LongCumulateTask, t->getCompleter()))) == nullptr) {
-						if (((int32_t)(state & (uint32_t)4)) != 0) {
+					if (($assign(par, $cast(ArrayPrefixHelpers$LongCumulateTask, $nc(t)->getCompleter()))) == nullptr) {
+						if ((state & 4) != 0) {
 							t->quietlyComplete();
 						}
 						outer$break = true;
 						break;
 					}
 					int32_t b = $nc(par)->getPendingCount();
-					if (((int32_t)(((int32_t)(b & (uint32_t)state)) & (uint32_t)4)) != 0) {
+					if (((b & state) & 4) != 0) {
 						$assign(t, par);
-					} else if (((int32_t)(((int32_t)(b & (uint32_t)state)) & (uint32_t)2)) != 0) {
+					} else if (((b & state) & 2) != 0) {
 						int32_t nextState = 0;
 						$var(ArrayPrefixHelpers$LongCumulateTask, lt, nullptr);
 						$var(ArrayPrefixHelpers$LongCumulateTask, rt, nullptr);
 						if (($assign(lt, par->left)) != nullptr && ($assign(rt, par->right)) != nullptr) {
 							int64_t lout = $nc(lt)->out;
-							par->out = ($nc(rt)->hi == fnc ? lout : $nc(fn)->applyAsLong(lout, $nc(rt)->out));
+							par->out = ($nc(rt)->hi == fnc ? lout : $nc(fn)->applyAsLong(lout, rt->out));
 						}
-						int32_t refork = ((((int32_t)(b & (uint32_t)1)) == 0 && par->lo == org) ? 1 : 0);
+						int32_t refork = (((b & 1) == 0 && par->lo == org) ? 1 : 0);
 						bool var$0 = (nextState = (b | state) | refork) == b;
 						if (var$0 || par->compareAndSetPendingCount(b, nextState)) {
 							state = 2;
@@ -231,7 +182,49 @@ ArrayPrefixHelpers$LongCumulateTask::ArrayPrefixHelpers$LongCumulateTask() {
 }
 
 $Class* ArrayPrefixHelpers$LongCumulateTask::load$($String* name, bool initialize) {
-	$loadClass(ArrayPrefixHelpers$LongCumulateTask, name, initialize, &_ArrayPrefixHelpers$LongCumulateTask_ClassInfo_, allocate$ArrayPrefixHelpers$LongCumulateTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[J", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, array)},
+		{"function", "Ljava/util/function/LongBinaryOperator;", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, function)},
+		{"left", "Ljava/util/ArrayPrefixHelpers$LongCumulateTask;", nullptr, 0, $field(ArrayPrefixHelpers$LongCumulateTask, left)},
+		{"right", "Ljava/util/ArrayPrefixHelpers$LongCumulateTask;", nullptr, 0, $field(ArrayPrefixHelpers$LongCumulateTask, right)},
+		{"in", "J", nullptr, 0, $field(ArrayPrefixHelpers$LongCumulateTask, in)},
+		{"out", "J", nullptr, 0, $field(ArrayPrefixHelpers$LongCumulateTask, out)},
+		{"lo", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, lo)},
+		{"hi", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, hi)},
+		{"origin", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, origin)},
+		{"fence", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, fence)},
+		{"threshold", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$LongCumulateTask, threshold)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayPrefixHelpers$LongCumulateTask, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ArrayPrefixHelpers$LongCumulateTask;Ljava/util/function/LongBinaryOperator;[JII)V", nullptr, $PUBLIC, $method(ArrayPrefixHelpers$LongCumulateTask, init$, void, ArrayPrefixHelpers$LongCumulateTask*, $LongBinaryOperator*, $longs*, int32_t, int32_t)},
+		{"<init>", "(Ljava/util/ArrayPrefixHelpers$LongCumulateTask;Ljava/util/function/LongBinaryOperator;[JIIIII)V", nullptr, 0, $method(ArrayPrefixHelpers$LongCumulateTask, init$, void, ArrayPrefixHelpers$LongCumulateTask*, $LongBinaryOperator*, $longs*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArrayPrefixHelpers$LongCumulateTask, compute, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ArrayPrefixHelpers$LongCumulateTask", "java.util.ArrayPrefixHelpers", "LongCumulateTask", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.ArrayPrefixHelpers$LongCumulateTask",
+		"java.util.concurrent.CountedCompleter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ArrayPrefixHelpers"
+	};
+	$loadClass(ArrayPrefixHelpers$LongCumulateTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArrayPrefixHelpers$LongCumulateTask));
+	});
 	return class$;
 }
 

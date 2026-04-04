@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixFileAttributes.h>
-
 #include <java/lang/Math.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/FileTime.h>
@@ -75,85 +74,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _UnixFileAttributes_FieldInfo_[] = {
-	{"st_mode", "I", nullptr, $PRIVATE, $field(UnixFileAttributes, st_mode)},
-	{"st_ino", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_ino)},
-	{"st_dev", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_dev)},
-	{"st_rdev", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_rdev)},
-	{"st_nlink", "I", nullptr, $PRIVATE, $field(UnixFileAttributes, st_nlink)},
-	{"st_uid", "I", nullptr, $PRIVATE, $field(UnixFileAttributes, st_uid)},
-	{"st_gid", "I", nullptr, $PRIVATE, $field(UnixFileAttributes, st_gid)},
-	{"st_size", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_size)},
-	{"st_atime_sec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_atime_sec)},
-	{"st_atime_nsec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_atime_nsec)},
-	{"st_mtime_sec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_mtime_sec)},
-	{"st_mtime_nsec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_mtime_nsec)},
-	{"st_ctime_sec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_ctime_sec)},
-	{"st_ctime_nsec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_ctime_nsec)},
-	{"st_birthtime_sec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_birthtime_sec)},
-	{"owner", "Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PRIVATE | $VOLATILE, $field(UnixFileAttributes, owner$)},
-	{"group", "Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PRIVATE | $VOLATILE, $field(UnixFileAttributes, group$)},
-	{"key", "Lsun/nio/fs/UnixFileKey;", nullptr, $PRIVATE | $VOLATILE, $field(UnixFileAttributes, key)},
-	{}
-};
-
-$MethodInfo _UnixFileAttributes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixFileAttributes, init$, void)},
-	{"asBasicFileAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, 0, $virtualMethod(UnixFileAttributes, asBasicFileAttributes, $BasicFileAttributes*)},
-	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, creationTime, $FileTime*)},
-	{"ctime", "()Ljava/nio/file/attribute/FileTime;", nullptr, 0, $virtualMethod(UnixFileAttributes, ctime, $FileTime*)},
-	{"dev", "()J", nullptr, 0, $virtualMethod(UnixFileAttributes, dev, int64_t)},
-	{"fileKey", "()Lsun/nio/fs/UnixFileKey;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, fileKey, $Object*)},
-	{"get", "(Lsun/nio/fs/UnixPath;Z)Lsun/nio/fs/UnixFileAttributes;", nullptr, $STATIC, $staticMethod(UnixFileAttributes, get, UnixFileAttributes*, $UnixPath*, bool), "sun.nio.fs.UnixException"},
-	{"get", "(I)Lsun/nio/fs/UnixFileAttributes;", nullptr, $STATIC, $staticMethod(UnixFileAttributes, get, UnixFileAttributes*, int32_t), "sun.nio.fs.UnixException"},
-	{"get", "(ILsun/nio/fs/UnixPath;Z)Lsun/nio/fs/UnixFileAttributes;", nullptr, $STATIC, $staticMethod(UnixFileAttributes, get, UnixFileAttributes*, int32_t, $UnixPath*, bool), "sun.nio.fs.UnixException"},
-	{"gid", "()I", nullptr, 0, $virtualMethod(UnixFileAttributes, gid, int32_t)},
-	{"group", "()Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, group, $GroupPrincipal*)},
-	{"ino", "()J", nullptr, 0, $virtualMethod(UnixFileAttributes, ino, int64_t)},
-	{"isDevice", "()Z", nullptr, 0, $virtualMethod(UnixFileAttributes, isDevice, bool)},
-	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, isDirectory, bool)},
-	{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, isOther, bool)},
-	{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, isRegularFile, bool)},
-	{"isSameFile", "(Lsun/nio/fs/UnixFileAttributes;)Z", nullptr, 0, $virtualMethod(UnixFileAttributes, isSameFile, bool, UnixFileAttributes*)},
-	{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, isSymbolicLink, bool)},
-	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, lastAccessTime, $FileTime*)},
-	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, lastModifiedTime, $FileTime*)},
-	{"mode", "()I", nullptr, 0, $virtualMethod(UnixFileAttributes, mode, int32_t)},
-	{"nlink", "()I", nullptr, 0, $virtualMethod(UnixFileAttributes, nlink, int32_t)},
-	{"owner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, owner, $UserPrincipal*)},
-	{"permissions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC, $virtualMethod(UnixFileAttributes, permissions, $Set*)},
-	{"rdev", "()J", nullptr, 0, $virtualMethod(UnixFileAttributes, rdev, int64_t)},
-	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, size, int64_t)},
-	{"toFileTime", "(JJ)Ljava/nio/file/attribute/FileTime;", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixFileAttributes, toFileTime, $FileTime*, int64_t, int64_t)},
-	{"toUnixFileAttributes", "(Ljava/nio/file/attribute/BasicFileAttributes;)Lsun/nio/fs/UnixFileAttributes;", nullptr, $STATIC, $staticMethod(UnixFileAttributes, toUnixFileAttributes, UnixFileAttributes*, $BasicFileAttributes*)},
-	{"uid", "()I", nullptr, 0, $virtualMethod(UnixFileAttributes, uid, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UnixFileAttributes_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixFileAttributes$UnixAsBasicFileAttributes", "sun.nio.fs.UnixFileAttributes", "UnixAsBasicFileAttributes", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _UnixFileAttributes_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixFileAttributes",
-	"java.lang.Object",
-	"java.nio.file.attribute.PosixFileAttributes",
-	_UnixFileAttributes_FieldInfo_,
-	_UnixFileAttributes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnixFileAttributes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixFileAttributes$UnixAsBasicFileAttributes"
-};
-
-$Object* allocate$UnixFileAttributes($Class* clazz) {
-	return $of($alloc(UnixFileAttributes));
-}
-
 void UnixFileAttributes::init$() {
 }
 
@@ -177,7 +97,7 @@ UnixFileAttributes* UnixFileAttributes::get(int32_t fd) {
 
 UnixFileAttributes* UnixFileAttributes::get(int32_t dfd, $UnixPath* path, bool followLinks) {
 	$init(UnixFileAttributes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(UnixFileAttributes, attrs, $new(UnixFileAttributes));
 	$init($UnixConstants);
 	int32_t flag = (followLinks) ? 0 : $UnixConstants::AT_SYMLINK_NOFOLLOW;
@@ -242,7 +162,7 @@ $FileTime* UnixFileAttributes::ctime() {
 
 bool UnixFileAttributes::isDevice() {
 	$init($UnixConstants);
-	int32_t type = (int32_t)(this->st_mode & (uint32_t)$UnixConstants::S_IFMT);
+	int32_t type = this->st_mode & $UnixConstants::S_IFMT;
 	return (type == $UnixConstants::S_IFCHR || type == $UnixConstants::S_IFBLK || type == $UnixConstants::S_IFIFO);
 }
 
@@ -265,22 +185,22 @@ $FileTime* UnixFileAttributes::creationTime() {
 
 bool UnixFileAttributes::isRegularFile() {
 	$init($UnixConstants);
-	return (((int32_t)(this->st_mode & (uint32_t)$UnixConstants::S_IFMT)) == $UnixConstants::S_IFREG);
+	return ((this->st_mode & $UnixConstants::S_IFMT) == $UnixConstants::S_IFREG);
 }
 
 bool UnixFileAttributes::isDirectory() {
 	$init($UnixConstants);
-	return (((int32_t)(this->st_mode & (uint32_t)$UnixConstants::S_IFMT)) == $UnixConstants::S_IFDIR);
+	return ((this->st_mode & $UnixConstants::S_IFMT) == $UnixConstants::S_IFDIR);
 }
 
 bool UnixFileAttributes::isSymbolicLink() {
 	$init($UnixConstants);
-	return (((int32_t)(this->st_mode & (uint32_t)$UnixConstants::S_IFMT)) == $UnixConstants::S_IFLNK);
+	return ((this->st_mode & $UnixConstants::S_IFMT) == $UnixConstants::S_IFLNK);
 }
 
 bool UnixFileAttributes::isOther() {
 	$init($UnixConstants);
-	int32_t type = (int32_t)(this->st_mode & (uint32_t)$UnixConstants::S_IFMT);
+	int32_t type = this->st_mode & $UnixConstants::S_IFMT;
 	return (type != $UnixConstants::S_IFREG && type != $UnixConstants::S_IFDIR && type != $UnixConstants::S_IFLNK);
 }
 
@@ -296,7 +216,7 @@ $Object* UnixFileAttributes::fileKey() {
 			}
 		}
 	}
-	return $of(this->key);
+	return this->key;
 }
 
 $UserPrincipal* UnixFileAttributes::owner() {
@@ -323,41 +243,41 @@ $GroupPrincipal* UnixFileAttributes::group() {
 
 $Set* UnixFileAttributes::permissions() {
 	$init($UnixConstants);
-	int32_t bits = ((int32_t)(this->st_mode & (uint32_t)$UnixConstants::S_IAMB));
+	int32_t bits = (this->st_mode & $UnixConstants::S_IAMB);
 	$var($HashSet, perms, $new($HashSet));
-	if (((int32_t)(bits & (uint32_t)$UnixConstants::S_IRUSR)) > 0) {
+	if ((bits & $UnixConstants::S_IRUSR) > 0) {
 		$init($PosixFilePermission);
 		perms->add($PosixFilePermission::OWNER_READ);
 	}
-	if (((int32_t)(bits & (uint32_t)$UnixConstants::S_IWUSR)) > 0) {
+	if ((bits & $UnixConstants::S_IWUSR) > 0) {
 		$init($PosixFilePermission);
 		perms->add($PosixFilePermission::OWNER_WRITE);
 	}
-	if (((int32_t)(bits & (uint32_t)$UnixConstants::S_IXUSR)) > 0) {
+	if ((bits & $UnixConstants::S_IXUSR) > 0) {
 		$init($PosixFilePermission);
 		perms->add($PosixFilePermission::OWNER_EXECUTE);
 	}
-	if (((int32_t)(bits & (uint32_t)$UnixConstants::S_IRGRP)) > 0) {
+	if ((bits & $UnixConstants::S_IRGRP) > 0) {
 		$init($PosixFilePermission);
 		perms->add($PosixFilePermission::GROUP_READ);
 	}
-	if (((int32_t)(bits & (uint32_t)$UnixConstants::S_IWGRP)) > 0) {
+	if ((bits & $UnixConstants::S_IWGRP) > 0) {
 		$init($PosixFilePermission);
 		perms->add($PosixFilePermission::GROUP_WRITE);
 	}
-	if (((int32_t)(bits & (uint32_t)$UnixConstants::S_IXGRP)) > 0) {
+	if ((bits & $UnixConstants::S_IXGRP) > 0) {
 		$init($PosixFilePermission);
 		perms->add($PosixFilePermission::GROUP_EXECUTE);
 	}
-	if (((int32_t)(bits & (uint32_t)$UnixConstants::S_IROTH)) > 0) {
+	if ((bits & $UnixConstants::S_IROTH) > 0) {
 		$init($PosixFilePermission);
 		perms->add($PosixFilePermission::OTHERS_READ);
 	}
-	if (((int32_t)(bits & (uint32_t)$UnixConstants::S_IWOTH)) > 0) {
+	if ((bits & $UnixConstants::S_IWOTH) > 0) {
 		$init($PosixFilePermission);
 		perms->add($PosixFilePermission::OTHERS_WRITE);
 	}
-	if (((int32_t)(bits & (uint32_t)$UnixConstants::S_IXOTH)) > 0) {
+	if ((bits & $UnixConstants::S_IXOTH) > 0) {
 		$init($PosixFilePermission);
 		perms->add($PosixFilePermission::OTHERS_EXECUTE);
 	}
@@ -374,7 +294,7 @@ UnixFileAttributes* UnixFileAttributes::toUnixFileAttributes($BasicFileAttribute
 		return $cast(UnixFileAttributes, attrs);
 	}
 	if ($instanceOf($UnixFileAttributes$UnixAsBasicFileAttributes, attrs)) {
-		return $nc(($cast($UnixFileAttributes$UnixAsBasicFileAttributes, attrs)))->unwrap();
+		return $cast($UnixFileAttributes$UnixAsBasicFileAttributes, attrs)->unwrap();
 	}
 	return nullptr;
 }
@@ -383,7 +303,80 @@ UnixFileAttributes::UnixFileAttributes() {
 }
 
 $Class* UnixFileAttributes::load$($String* name, bool initialize) {
-	$loadClass(UnixFileAttributes, name, initialize, &_UnixFileAttributes_ClassInfo_, allocate$UnixFileAttributes);
+	$FieldInfo fieldInfos$$[] = {
+		{"st_mode", "I", nullptr, $PRIVATE, $field(UnixFileAttributes, st_mode)},
+		{"st_ino", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_ino)},
+		{"st_dev", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_dev)},
+		{"st_rdev", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_rdev)},
+		{"st_nlink", "I", nullptr, $PRIVATE, $field(UnixFileAttributes, st_nlink)},
+		{"st_uid", "I", nullptr, $PRIVATE, $field(UnixFileAttributes, st_uid)},
+		{"st_gid", "I", nullptr, $PRIVATE, $field(UnixFileAttributes, st_gid)},
+		{"st_size", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_size)},
+		{"st_atime_sec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_atime_sec)},
+		{"st_atime_nsec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_atime_nsec)},
+		{"st_mtime_sec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_mtime_sec)},
+		{"st_mtime_nsec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_mtime_nsec)},
+		{"st_ctime_sec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_ctime_sec)},
+		{"st_ctime_nsec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_ctime_nsec)},
+		{"st_birthtime_sec", "J", nullptr, $PRIVATE, $field(UnixFileAttributes, st_birthtime_sec)},
+		{"owner", "Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PRIVATE | $VOLATILE, $field(UnixFileAttributes, owner$)},
+		{"group", "Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PRIVATE | $VOLATILE, $field(UnixFileAttributes, group$)},
+		{"key", "Lsun/nio/fs/UnixFileKey;", nullptr, $PRIVATE | $VOLATILE, $field(UnixFileAttributes, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(UnixFileAttributes, init$, void)},
+		{"asBasicFileAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, 0, $virtualMethod(UnixFileAttributes, asBasicFileAttributes, $BasicFileAttributes*)},
+		{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, creationTime, $FileTime*)},
+		{"ctime", "()Ljava/nio/file/attribute/FileTime;", nullptr, 0, $virtualMethod(UnixFileAttributes, ctime, $FileTime*)},
+		{"dev", "()J", nullptr, 0, $virtualMethod(UnixFileAttributes, dev, int64_t)},
+		{"fileKey", "()Lsun/nio/fs/UnixFileKey;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, fileKey, $Object*)},
+		{"get", "(Lsun/nio/fs/UnixPath;Z)Lsun/nio/fs/UnixFileAttributes;", nullptr, $STATIC, $staticMethod(UnixFileAttributes, get, UnixFileAttributes*, $UnixPath*, bool), "sun.nio.fs.UnixException"},
+		{"get", "(I)Lsun/nio/fs/UnixFileAttributes;", nullptr, $STATIC, $staticMethod(UnixFileAttributes, get, UnixFileAttributes*, int32_t), "sun.nio.fs.UnixException"},
+		{"get", "(ILsun/nio/fs/UnixPath;Z)Lsun/nio/fs/UnixFileAttributes;", nullptr, $STATIC, $staticMethod(UnixFileAttributes, get, UnixFileAttributes*, int32_t, $UnixPath*, bool), "sun.nio.fs.UnixException"},
+		{"gid", "()I", nullptr, 0, $virtualMethod(UnixFileAttributes, gid, int32_t)},
+		{"group", "()Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, group, $GroupPrincipal*)},
+		{"ino", "()J", nullptr, 0, $virtualMethod(UnixFileAttributes, ino, int64_t)},
+		{"isDevice", "()Z", nullptr, 0, $virtualMethod(UnixFileAttributes, isDevice, bool)},
+		{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, isDirectory, bool)},
+		{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, isOther, bool)},
+		{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, isRegularFile, bool)},
+		{"isSameFile", "(Lsun/nio/fs/UnixFileAttributes;)Z", nullptr, 0, $virtualMethod(UnixFileAttributes, isSameFile, bool, UnixFileAttributes*)},
+		{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, isSymbolicLink, bool)},
+		{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, lastAccessTime, $FileTime*)},
+		{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, lastModifiedTime, $FileTime*)},
+		{"mode", "()I", nullptr, 0, $virtualMethod(UnixFileAttributes, mode, int32_t)},
+		{"nlink", "()I", nullptr, 0, $virtualMethod(UnixFileAttributes, nlink, int32_t)},
+		{"owner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, owner, $UserPrincipal*)},
+		{"permissions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC, $virtualMethod(UnixFileAttributes, permissions, $Set*)},
+		{"rdev", "()J", nullptr, 0, $virtualMethod(UnixFileAttributes, rdev, int64_t)},
+		{"size", "()J", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes, size, int64_t)},
+		{"toFileTime", "(JJ)Ljava/nio/file/attribute/FileTime;", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixFileAttributes, toFileTime, $FileTime*, int64_t, int64_t)},
+		{"toUnixFileAttributes", "(Ljava/nio/file/attribute/BasicFileAttributes;)Lsun/nio/fs/UnixFileAttributes;", nullptr, $STATIC, $staticMethod(UnixFileAttributes, toUnixFileAttributes, UnixFileAttributes*, $BasicFileAttributes*)},
+		{"uid", "()I", nullptr, 0, $virtualMethod(UnixFileAttributes, uid, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixFileAttributes$UnixAsBasicFileAttributes", "sun.nio.fs.UnixFileAttributes", "UnixAsBasicFileAttributes", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixFileAttributes",
+		"java.lang.Object",
+		"java.nio.file.attribute.PosixFileAttributes",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixFileAttributes$UnixAsBasicFileAttributes"
+	};
+	$loadClass(UnixFileAttributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixFileAttributes);
+	});
 	return class$;
 }
 

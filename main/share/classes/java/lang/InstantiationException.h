@@ -14,10 +14,13 @@ public:
 	InstantiationException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x8AD83E274DD5858A;
+	static const int64_t serialVersionUID = (int64_t)0x8ad83e274dd5858a;
 	InstantiationException(const InstantiationException& e);
 	virtual void throw$() override;
-	inline InstantiationException* operator ->() {
+	inline InstantiationException* operator ->() const {
+		return (InstantiationException*)throwing$;
+	}
+	inline operator InstantiationException*() const {
 		return (InstantiationException*)throwing$;
 	}
 };

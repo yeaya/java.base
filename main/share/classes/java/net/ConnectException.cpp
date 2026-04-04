@@ -1,5 +1,4 @@
 #include <java/net/ConnectException.h>
-
 #include <java/net/SocketException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $SocketException = ::java::net::SocketException;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _ConnectException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConnectException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ConnectException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ConnectException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ConnectException, init$, void)},
-	{}
-};
-
-$ClassInfo _ConnectException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.ConnectException",
-	"java.net.SocketException",
-	nullptr,
-	_ConnectException_FieldInfo_,
-	_ConnectException_MethodInfo_
-};
-
-$Object* allocate$ConnectException($Class* clazz) {
-	return $of($alloc(ConnectException));
-}
 
 void ConnectException::init$($String* msg) {
 	$SocketException::init$(msg);
@@ -54,7 +29,26 @@ void ConnectException::throw$() {
 }
 
 $Class* ConnectException::load$($String* name, bool initialize) {
-	$loadClass(ConnectException, name, initialize, &_ConnectException_ClassInfo_, allocate$ConnectException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConnectException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ConnectException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ConnectException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.ConnectException",
+		"java.net.SocketException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConnectException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConnectException);
+	});
 	return class$;
 }
 

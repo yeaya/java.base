@@ -59,7 +59,7 @@ public:
 	virtual int64_t until(::java::time::temporal::Temporal* endExclusive, ::java::time::temporal::TemporalUnit* unit) override;
 	virtual ::java::time::chrono::ChronoLocalDate* with(::java::time::temporal::TemporalAdjuster* adjuster) override;
 	virtual ::java::time::chrono::ChronoLocalDate* with(::java::time::temporal::TemporalField* field, int64_t value) override;
-	static const int64_t serialVersionUID = (int64_t)0x572FB054BF61A0B8;
+	static const int64_t serialVersionUID = (int64_t)0x572fb054bf61a0b8;
 };
 
 		} // chrono

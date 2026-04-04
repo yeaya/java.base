@@ -15,6 +15,7 @@ class $export ToString : public ::java::lang::Object {
 	$class(ToString, 0, ::java::lang::Object)
 public:
 	ToString();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::Random* generator;

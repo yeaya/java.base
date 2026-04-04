@@ -26,6 +26,7 @@ class $export PhantomReferentClearing : public ::java::lang::Object {
 	$class(PhantomReferentClearing, 0, ::java::lang::Object)
 public:
 	PhantomReferentClearing();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static const int64_t ENQUEUE_TIMEOUT = 1000;

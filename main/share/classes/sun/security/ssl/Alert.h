@@ -104,6 +104,7 @@ class Alert : public ::java::lang::Enum {
 public:
 	Alert();
 	static $Array<::sun::security::ssl::Alert>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* description, bool handshakeOnly);
 	virtual ::javax::net::ssl::SSLException* createSSLException($String* reason);
 	virtual ::javax::net::ssl::SSLException* createSSLException($String* reason, $Throwable* cause);

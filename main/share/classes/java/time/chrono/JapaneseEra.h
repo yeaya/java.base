@@ -79,6 +79,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t eraValue, ::java::time::LocalDate* since);
 	static ::java::time::chrono::JapaneseEra* from(::java::time::LocalDate* date);
 	$String* getAbbreviation();
@@ -106,7 +107,7 @@ public:
 	static ::java::time::chrono::JapaneseEra* HEISEI;
 	static ::java::time::chrono::JapaneseEra* REIWA;
 	static int32_t N_ERA_CONSTANTS;
-	static const int64_t serialVersionUID = (int64_t)0x145A0D680453ED8A;
+	static const int64_t serialVersionUID = (int64_t)0x145a0d680453ed8a;
 	static $Array<::java::time::chrono::JapaneseEra>* KNOWN_ERAS;
 	int32_t eraValue = 0;
 	::java::time::LocalDate* since = nullptr;

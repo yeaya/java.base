@@ -22,6 +22,7 @@ class ExtendedSocketOption : public ::java::lang::Object {
 	$class(ExtendedSocketOption, 0, ::java::lang::Object)
 public:
 	ExtendedSocketOption();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::net::SocketOption* SO_OOBINLINE;
 };

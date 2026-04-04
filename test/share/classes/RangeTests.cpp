@@ -1,5 +1,4 @@
 #include <RangeTests.h>
-
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/MathContext.h>
@@ -12,7 +11,6 @@
 #undef MIN_VALUE
 #undef UNLIMITED
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
@@ -22,44 +20,19 @@ using $BigDecimal = ::java::math::BigDecimal;
 using $BigInteger = ::java::math::BigInteger;
 using $MathContext = ::java::math::MathContext;
 
-$MethodInfo _RangeTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RangeTests, init$, void)},
-	{"addBoundaryTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, addBoundaryTest, int32_t)},
-	{"addTest", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, addTest, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimal*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RangeTests, main, void, $StringArray*)},
-	{"minLongConstructorTest", "(Ljava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, minLongConstructorTest, int32_t, $MathContext*)},
-	{"minLongConstructorTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, minLongConstructorTest, int32_t)},
-	{"roundingConstructorTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, roundingConstructorTest, int32_t)},
-	{"testRoundingFromBigInteger", "(Ljava/math/BigInteger;ILjava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, testRoundingFromBigInteger, int32_t, $BigInteger*, int32_t, $MathContext*)},
-	{}
-};
-
-$ClassInfo _RangeTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RangeTests",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_RangeTests_MethodInfo_
-};
-
-$Object* allocate$RangeTests($Class* clazz) {
-	return $of($alloc(RangeTests));
-}
-
 void RangeTests::init$() {
 }
 
 int32_t RangeTests::addTest($BigDecimal* arg1, $BigDecimal* arg2, $BigDecimal* expectedResult) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, result, $nc(arg1)->add(arg2));
-	if (!$nc(result)->equals(expectedResult)) {
+	if (!result->equals(expectedResult)) {
 		$nc($System::out)->println($$str({"Sum:"_s, arg1, " + "_s, arg2, " == "_s, result, "; expected  "_s, expectedResult}));
 		++failures;
 	}
 	$assign(result, $nc(arg2)->add(arg1));
-	if (!$nc(result)->equals(expectedResult)) {
+	if (!result->equals(expectedResult)) {
 		$nc($System::out)->println($$str({"Sum:"_s, arg2, " + "_s, arg1, " == "_s, result, "; expected  "_s, expectedResult}));
 		++failures;
 	}
@@ -67,7 +40,7 @@ int32_t RangeTests::addTest($BigDecimal* arg1, $BigDecimal* arg2, $BigDecimal* e
 }
 
 int32_t RangeTests::addBoundaryTest() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, var$0, $new($BigDecimal, "85070591730234615847396907784232501249"_s));
 	$var($BigDecimal, var$1, $BigDecimal::valueOf((int64_t)0));
@@ -106,7 +79,7 @@ int32_t RangeTests::addBoundaryTest() {
 	$var($BigDecimal, var$23, $BigDecimal::valueOf((int64_t)($Integer::MAX_VALUE / 2)));
 	failures += addTest(var$22, var$23, $$new($BigDecimal, "-79228162514264337592470208512"_s));
 	$var($BigDecimal, var$24, $new($BigDecimal, "79228162514264337593543950335"_s));
-	$var($BigDecimal, var$25, $BigDecimal::valueOf((int64_t)(-((int64_t)($Integer::MIN_VALUE / 2)))));
+	$var($BigDecimal, var$25, $BigDecimal::valueOf((int64_t)-((int64_t)($Integer::MIN_VALUE / 2))));
 	failures += addTest(var$24, var$25, $$new($BigDecimal, "79228162514264337594617692159"_s));
 	$var($BigDecimal, var$26, $new($BigDecimal, "79228162514264337593543950335"_s));
 	$var($BigDecimal, var$27, $BigDecimal::valueOf($Long::MAX_VALUE / 2));
@@ -136,7 +109,7 @@ int32_t RangeTests::addBoundaryTest() {
 }
 
 int32_t RangeTests::testRoundingFromBigInteger($BigInteger* bi, int32_t scale, $MathContext* mc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, bd1, $new($BigDecimal, bi, scale, mc));
 	$var($BigDecimal, bd2, ($$new($BigDecimal, bi, scale))->round(mc));
@@ -148,7 +121,7 @@ int32_t RangeTests::testRoundingFromBigInteger($BigInteger* bi, int32_t scale, $
 }
 
 int32_t RangeTests::roundingConstructorTest() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$init($MathContext);
 	failures += testRoundingFromBigInteger($$new($BigInteger, "85070591730234615847396907784232501249"_s), 7, $MathContext::DECIMAL64);
@@ -163,7 +136,7 @@ int32_t RangeTests::roundingConstructorTest() {
 }
 
 int32_t RangeTests::minLongConstructorTest($MathContext* mc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimal, bd1, $new($BigDecimal, $Long::MIN_VALUE, mc));
 	$var($BigDecimal, bd2, $$new($BigDecimal, $Long::MIN_VALUE)->round(mc));
@@ -185,7 +158,7 @@ int32_t RangeTests::minLongConstructorTest() {
 }
 
 void RangeTests::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	failures += addBoundaryTest();
 	failures += roundingConstructorTest();
@@ -199,7 +172,28 @@ RangeTests::RangeTests() {
 }
 
 $Class* RangeTests::load$($String* name, bool initialize) {
-	$loadClass(RangeTests, name, initialize, &_RangeTests_ClassInfo_, allocate$RangeTests);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RangeTests, init$, void)},
+		{"addBoundaryTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, addBoundaryTest, int32_t)},
+		{"addTest", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, addTest, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimal*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RangeTests, main, void, $StringArray*)},
+		{"minLongConstructorTest", "(Ljava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, minLongConstructorTest, int32_t, $MathContext*)},
+		{"minLongConstructorTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, minLongConstructorTest, int32_t)},
+		{"roundingConstructorTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, roundingConstructorTest, int32_t)},
+		{"testRoundingFromBigInteger", "(Ljava/math/BigInteger;ILjava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, testRoundingFromBigInteger, int32_t, $BigInteger*, int32_t, $MathContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RangeTests",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RangeTests, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RangeTests);
+	});
 	return class$;
 }
 

@@ -25,7 +25,7 @@ public:
 	void init$(::java::util::Collection* c);
 	virtual ::java::util::Spliterator* spliterator() override;
 	using ::java::util::HashSet::toArray;
-	static const int64_t serialVersionUID = (int64_t)0xD86CD75A95DD2A1E;
+	static const int64_t serialVersionUID = (int64_t)0xd86cd75a95dd2a1e;
 };
 
 	} // util

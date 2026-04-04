@@ -51,6 +51,7 @@ class $import SecurityProviderConstants : public ::java::lang::Object {
 	$class(SecurityProviderConstants, 0, ::java::lang::Object)
 public:
 	SecurityProviderConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* getAliases($String* o);
 	static int32_t getDefDSASubprimeSize(int32_t primeSize);

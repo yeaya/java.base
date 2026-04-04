@@ -1,5 +1,4 @@
 #include <java/nio/charset/UnmappableCharacterException.h>
-
 #include <java/nio/charset/CharacterCodingException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $CharacterCodingException = ::java::nio::charset::CharacterCodingException
 namespace java {
 	namespace nio {
 		namespace charset {
-
-$FieldInfo _UnmappableCharacterException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnmappableCharacterException, serialVersionUID)},
-	{"inputLength", "I", nullptr, $PRIVATE, $field(UnmappableCharacterException, inputLength)},
-	{}
-};
-
-$MethodInfo _UnmappableCharacterException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(UnmappableCharacterException, init$, void, int32_t)},
-	{"getInputLength", "()I", nullptr, $PUBLIC, $virtualMethod(UnmappableCharacterException, getInputLength, int32_t)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnmappableCharacterException, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _UnmappableCharacterException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.charset.UnmappableCharacterException",
-	"java.nio.charset.CharacterCodingException",
-	nullptr,
-	_UnmappableCharacterException_FieldInfo_,
-	_UnmappableCharacterException_MethodInfo_
-};
-
-$Object* allocate$UnmappableCharacterException($Class* clazz) {
-	return $of($alloc(UnmappableCharacterException));
-}
 
 void UnmappableCharacterException::init$(int32_t inputLength) {
 	$CharacterCodingException::init$();
@@ -62,7 +35,28 @@ void UnmappableCharacterException::throw$() {
 }
 
 $Class* UnmappableCharacterException::load$($String* name, bool initialize) {
-	$loadClass(UnmappableCharacterException, name, initialize, &_UnmappableCharacterException_ClassInfo_, allocate$UnmappableCharacterException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnmappableCharacterException, serialVersionUID)},
+		{"inputLength", "I", nullptr, $PRIVATE, $field(UnmappableCharacterException, inputLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(UnmappableCharacterException, init$, void, int32_t)},
+		{"getInputLength", "()I", nullptr, $PUBLIC, $virtualMethod(UnmappableCharacterException, getInputLength, int32_t)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnmappableCharacterException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.charset.UnmappableCharacterException",
+		"java.nio.charset.CharacterCodingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnmappableCharacterException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnmappableCharacterException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/provider/PolicySpiFile.h>
-
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -18,7 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MalformedURLException = ::java::net::MalformedURLException;
-using $URI = ::java::net::URI;
 using $CodeSource = ::java::security::CodeSource;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
@@ -32,35 +30,8 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _PolicySpiFile_FieldInfo_[] = {
-	{"pf", "Lsun/security/provider/PolicyFile;", nullptr, $PRIVATE, $field(PolicySpiFile, pf)},
-	{}
-};
-
-$MethodInfo _PolicySpiFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Policy$Parameters;)V", nullptr, $PUBLIC, $method(PolicySpiFile, init$, void, $Policy$Parameters*)},
-	{"engineGetPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineGetPermissions, $PermissionCollection*, $CodeSource*)},
-	{"engineGetPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineGetPermissions, $PermissionCollection*, $ProtectionDomain*)},
-	{"engineImplies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineImplies, bool, $ProtectionDomain*, $Permission*)},
-	{"engineRefresh", "()V", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineRefresh, void)},
-	{}
-};
-
-$ClassInfo _PolicySpiFile_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.PolicySpiFile",
-	"java.security.PolicySpi",
-	nullptr,
-	_PolicySpiFile_FieldInfo_,
-	_PolicySpiFile_MethodInfo_
-};
-
-$Object* allocate$PolicySpiFile($Class* clazz) {
-	return $of($alloc(PolicySpiFile));
-}
-
 void PolicySpiFile::init$($Policy$Parameters* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$PolicySpi::init$();
 	if (params == nullptr) {
 		$set(this, pf, $new($PolicyFile));
@@ -70,7 +41,7 @@ void PolicySpiFile::init$($Policy$Parameters* params) {
 		}
 		$var($URIParameter, uriParam, $cast($URIParameter, params));
 		try {
-			$set(this, pf, $new($PolicyFile, $($nc($($nc(uriParam)->getURI()))->toURL())));
+			$set(this, pf, $new($PolicyFile, $($$nc(uriParam->getURI())->toURL())));
 		} catch ($MalformedURLException& mue) {
 			$throwNew($IllegalArgumentException, "Invalid URIParameter"_s, mue);
 		}
@@ -97,7 +68,29 @@ PolicySpiFile::PolicySpiFile() {
 }
 
 $Class* PolicySpiFile::load$($String* name, bool initialize) {
-	$loadClass(PolicySpiFile, name, initialize, &_PolicySpiFile_ClassInfo_, allocate$PolicySpiFile);
+	$FieldInfo fieldInfos$$[] = {
+		{"pf", "Lsun/security/provider/PolicyFile;", nullptr, $PRIVATE, $field(PolicySpiFile, pf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/Policy$Parameters;)V", nullptr, $PUBLIC, $method(PolicySpiFile, init$, void, $Policy$Parameters*)},
+		{"engineGetPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineGetPermissions, $PermissionCollection*, $CodeSource*)},
+		{"engineGetPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineGetPermissions, $PermissionCollection*, $ProtectionDomain*)},
+		{"engineImplies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineImplies, bool, $ProtectionDomain*, $Permission*)},
+		{"engineRefresh", "()V", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineRefresh, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.PolicySpiFile",
+		"java.security.PolicySpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PolicySpiFile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PolicySpiFile);
+	});
 	return class$;
 }
 

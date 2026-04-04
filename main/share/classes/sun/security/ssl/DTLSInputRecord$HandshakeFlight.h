@@ -22,6 +22,7 @@ class DTLSInputRecord$HandshakeFlight : public ::java::lang::Cloneable {
 	$class(DTLSInputRecord$HandshakeFlight, 0, ::java::lang::Cloneable)
 public:
 	DTLSInputRecord$HandshakeFlight();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	bool isRetransmitOf(::sun::security::ssl::DTLSInputRecord$HandshakeFlight* hs);

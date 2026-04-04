@@ -1,5 +1,4 @@
 #include <java/util/Stack.h>
-
 #include <java/util/EmptyStackException.h>
 #include <java/util/Vector.h>
 #include <jcpp.h>
@@ -12,35 +11,6 @@ using $Vector = ::java::util::Vector;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Stack_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Stack, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Stack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Stack, init$, void)},
-	{"empty", "()Z", nullptr, $PUBLIC, $virtualMethod(Stack, empty, bool)},
-	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Stack, peek, $Object*)},
-	{"pop", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Stack, pop, $Object*)},
-	{"push", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(Stack, push, $Object*, Object$*)},
-	{"search", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Stack, search, int32_t, Object$*)},
-	{}
-};
-
-$ClassInfo _Stack_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.Stack",
-	"java.util.Vector",
-	nullptr,
-	_Stack_FieldInfo_,
-	_Stack_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/Vector<TE;>;"
-};
-
-$Object* allocate$Stack($Class* clazz) {
-	return $of($alloc(Stack));
-}
 
 void Stack::init$() {
 	$Vector::init$();
@@ -57,7 +27,7 @@ $Object* Stack::pop() {
 		int32_t len = size();
 		$assign(obj, peek());
 		removeElementAt(len - 1);
-		return $of(obj);
+		return obj;
 	}
 }
 
@@ -67,7 +37,7 @@ $Object* Stack::peek() {
 		if (len == 0) {
 			$throwNew($EmptyStackException);
 		}
-		return $of(elementAt(len - 1));
+		return elementAt(len - 1);
 	}
 }
 
@@ -89,7 +59,31 @@ Stack::Stack() {
 }
 
 $Class* Stack::load$($String* name, bool initialize) {
-	$loadClass(Stack, name, initialize, &_Stack_ClassInfo_, allocate$Stack);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Stack, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Stack, init$, void)},
+		{"empty", "()Z", nullptr, $PUBLIC, $virtualMethod(Stack, empty, bool)},
+		{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Stack, peek, $Object*)},
+		{"pop", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Stack, pop, $Object*)},
+		{"push", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(Stack, push, $Object*, Object$*)},
+		{"search", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Stack, search, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.Stack",
+		"java.util.Vector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/Vector<TE;>;"
+	};
+	$loadClass(Stack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Stack));
+	});
 	return class$;
 }
 

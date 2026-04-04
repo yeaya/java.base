@@ -1,5 +1,4 @@
 #include <java/net/NetPermission.h>
-
 #include <java/security/BasicPermission.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _NetPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NetPermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NetPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetPermission, init$, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _NetPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.net.NetPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_NetPermission_FieldInfo_,
-	_NetPermission_MethodInfo_
-};
-
-$Object* allocate$NetPermission($Class* clazz) {
-	return $of($alloc(NetPermission));
-}
 
 void NetPermission::init$($String* name) {
 	$BasicPermission::init$(name);
@@ -47,7 +22,26 @@ NetPermission::NetPermission() {
 }
 
 $Class* NetPermission::load$($String* name, bool initialize) {
-	$loadClass(NetPermission, name, initialize, &_NetPermission_ClassInfo_, allocate$NetPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NetPermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetPermission, init$, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.net.NetPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NetPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NetPermission));
+	});
 	return class$;
 }
 

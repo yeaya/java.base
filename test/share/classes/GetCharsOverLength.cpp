@@ -1,5 +1,4 @@
 #include <GetCharsOverLength.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
@@ -11,30 +10,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 
-$MethodInfo _GetCharsOverLength_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetCharsOverLength, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetCharsOverLength, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _GetCharsOverLength_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetCharsOverLength",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_GetCharsOverLength_MethodInfo_
-};
-
-$Object* allocate$GetCharsOverLength($Class* clazz) {
-	return $of($alloc(GetCharsOverLength));
-}
-
 void GetCharsOverLength::init$() {
 }
 
 void GetCharsOverLength::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer, "sample string buffer"_s));
 	$var($chars, dst, $new($chars, 30));
 	bool failed = false;
@@ -83,7 +63,22 @@ GetCharsOverLength::GetCharsOverLength() {
 }
 
 $Class* GetCharsOverLength::load$($String* name, bool initialize) {
-	$loadClass(GetCharsOverLength, name, initialize, &_GetCharsOverLength_ClassInfo_, allocate$GetCharsOverLength);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetCharsOverLength, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetCharsOverLength, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetCharsOverLength",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GetCharsOverLength, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetCharsOverLength);
+	});
 	return class$;
 }
 

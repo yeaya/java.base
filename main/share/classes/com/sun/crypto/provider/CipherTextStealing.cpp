@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/CipherTextStealing.h>
-
 #include <com/sun/crypto/provider/CipherBlockChaining.h>
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
@@ -17,27 +16,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _CipherTextStealing_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(CipherTextStealing, init$, void, $SymmetricCipher*)},
-	{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherTextStealing, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
-	{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherTextStealing, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CipherTextStealing, getFeedback, $String*)},
-	{}
-};
-
-$ClassInfo _CipherTextStealing_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.CipherTextStealing",
-	"com.sun.crypto.provider.CipherBlockChaining",
-	nullptr,
-	nullptr,
-	_CipherTextStealing_MethodInfo_
-};
-
-$Object* allocate$CipherTextStealing($Class* clazz) {
-	return $of($alloc(CipherTextStealing));
-}
-
 void CipherTextStealing::init$($SymmetricCipher* embeddedCipher) {
 	$CipherBlockChaining::init$(embeddedCipher);
 }
@@ -47,7 +25,7 @@ $String* CipherTextStealing::getFeedback() {
 }
 
 int32_t CipherTextStealing::encryptFinal($bytes* plain, int32_t plainOffset, int32_t plainLen, $bytes* cipher, int32_t cipherOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (plainLen < this->blockSize) {
 		$throwNew($IllegalBlockSizeException, "input is too short!"_s);
 	} else if (plainLen == this->blockSize) {
@@ -79,14 +57,14 @@ int32_t CipherTextStealing::encryptFinal($bytes* plain, int32_t plainOffset, int
 			for (int32_t i = 0; i < nLeft; ++i) {
 				tmp2->set(i, (int8_t)($nc(plain)->get(plainOffset + this->blockSize + i) ^ tmp2->get(i)));
 			}
-			$nc(this->embeddedCipher)->encryptBlock(tmp2, 0, cipher, cipherOffset);
+			this->embeddedCipher->encryptBlock(tmp2, 0, cipher, cipherOffset);
 		}
 	}
 	return plainLen;
 }
 
 int32_t CipherTextStealing::decryptFinal($bytes* cipher, int32_t cipherOffset, int32_t cipherLen, $bytes* plain, int32_t plainOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cipherLen < this->blockSize) {
 		$throwNew($IllegalBlockSizeException, "input is too short!"_s);
 	} else if (cipherLen == this->blockSize) {
@@ -115,9 +93,9 @@ int32_t CipherTextStealing::decryptFinal($bytes* cipher, int32_t cipherOffset, i
 				$nc(plain)->set(plainOffset + this->blockSize + i, (int8_t)($nc(cipher)->get(cipherOffset + this->blockSize + i) ^ tmp->get(i)));
 			}
 			$System::arraycopy(cipher, cipherOffset + this->blockSize, tmp, 0, nLeft);
-			$nc(this->embeddedCipher)->decryptBlock(tmp, 0, plain, plainOffset);
+			this->embeddedCipher->decryptBlock(tmp, 0, plain, plainOffset);
 			for (int32_t i = 0; i < this->blockSize; ++i) {
-				$nc(plain)->set(plainOffset + i, (int8_t)(plain->get(plainOffset + i) ^ $nc(this->r)->get(i)));
+				$nc(plain)->set(plainOffset + i, (int8_t)($nc(plain)->get(plainOffset + i) ^ $nc(this->r)->get(i)));
 			}
 		}
 	}
@@ -128,7 +106,24 @@ CipherTextStealing::CipherTextStealing() {
 }
 
 $Class* CipherTextStealing::load$($String* name, bool initialize) {
-	$loadClass(CipherTextStealing, name, initialize, &_CipherTextStealing_ClassInfo_, allocate$CipherTextStealing);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(CipherTextStealing, init$, void, $SymmetricCipher*)},
+		{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherTextStealing, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
+		{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherTextStealing, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
+		{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CipherTextStealing, getFeedback, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.CipherTextStealing",
+		"com.sun.crypto.provider.CipherBlockChaining",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CipherTextStealing, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CipherTextStealing);
+	});
 	return class$;
 }
 

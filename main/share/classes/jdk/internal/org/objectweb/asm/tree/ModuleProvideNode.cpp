@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/ModuleProvideNode.h>
-
 #include <java/util/List.h>
 #include <jdk/internal/org/objectweb/asm/ModuleVisitor.h>
 #include <jcpp.h>
@@ -17,46 +16,41 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 
-$FieldInfo _ModuleProvideNode_FieldInfo_[] = {
-	{"service", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleProvideNode, service)},
-	{"providers", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleProvideNode, providers)},
-	{}
-};
-
-$MethodInfo _ModuleProvideNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ModuleProvideNode, init$, void, $String*, $List*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleProvideNode, accept, void, $ModuleVisitor*)},
-	{}
-};
-
-$ClassInfo _ModuleProvideNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.ModuleProvideNode",
-	"java.lang.Object",
-	nullptr,
-	_ModuleProvideNode_FieldInfo_,
-	_ModuleProvideNode_MethodInfo_
-};
-
-$Object* allocate$ModuleProvideNode($Class* clazz) {
-	return $of($alloc(ModuleProvideNode));
-}
-
 void ModuleProvideNode::init$($String* service, $List* providers) {
 	$set(this, service, service);
 	$set(this, providers, providers);
 }
 
 void ModuleProvideNode::accept($ModuleVisitor* moduleVisitor) {
-	$useLocalCurrentObjectStackCache();
-	$nc(moduleVisitor)->visitProvide(this->service, $fcast($StringArray, $($nc(this->providers)->toArray($$new($StringArray, 0)))));
+	$useLocalObjectStack();
+	$nc(moduleVisitor)->visitProvide(this->service, $$cast($StringArray, $nc(this->providers)->toArray($$new($StringArray, 0))));
 }
 
 ModuleProvideNode::ModuleProvideNode() {
 }
 
 $Class* ModuleProvideNode::load$($String* name, bool initialize) {
-	$loadClass(ModuleProvideNode, name, initialize, &_ModuleProvideNode_ClassInfo_, allocate$ModuleProvideNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"service", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleProvideNode, service)},
+		{"providers", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleProvideNode, providers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ModuleProvideNode, init$, void, $String*, $List*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleProvideNode, accept, void, $ModuleVisitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.ModuleProvideNode",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleProvideNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleProvideNode);
+	});
 	return class$;
 }
 

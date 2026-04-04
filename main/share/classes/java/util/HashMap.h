@@ -54,6 +54,7 @@ class $export HashMap : public ::java::util::AbstractMap, public ::java::lang::C
 	$class(HashMap, $PRELOAD, ::java::util::AbstractMap, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	HashMap();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
@@ -112,7 +113,7 @@ public:
 	virtual ::java::util::Collection* values() override;
 	virtual $ObjectArray* valuesToArray($ObjectArray* a);
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x0507DAC1C31660D1;
+	static const int64_t serialVersionUID = (int64_t)0x0507dac1c31660d1;
 	static const int32_t DEFAULT_INITIAL_CAPACITY = 16; // 1 << 4
 	static const int32_t MAXIMUM_CAPACITY = 0x40000000; // 1 << 30
 	static float DEFAULT_LOAD_FACTOR;

@@ -15,6 +15,7 @@ class $export EmptyBuffer : public ::java::lang::Object {
 	$class(EmptyBuffer, 0, ::java::lang::Object)
 public:
 	EmptyBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test();

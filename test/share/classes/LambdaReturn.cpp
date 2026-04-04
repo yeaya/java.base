@@ -1,5 +1,4 @@
 #include <LambdaReturn.h>
-
 #include <LambdaReturn$I.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -22,7 +21,6 @@
 #undef V
 
 using $LambdaReturn$I = ::LambdaReturn$I;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -39,46 +37,6 @@ using $MethodType = ::java::lang::invoke::MethodType;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-
-$FieldInfo _LambdaReturn_FieldInfo_[] = {
-	{"l", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC, $staticField(LambdaReturn, l)},
-	{}
-};
-
-$MethodInfo _LambdaReturn_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaReturn, init$, void)},
-	{"amf", "(Ljava/util/List;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)V", $PRIVATE | $STATIC, $staticMethod(LambdaReturn, amf, void, $List*, $MethodHandle*, $MethodType*, $MethodType*, $MethodType*, bool)},
-	{"hereS", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LambdaReturn, hereS, $String*)},
-	{"hereV", "()V", nullptr, $STATIC, $staticMethod(LambdaReturn, hereV, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaReturn, main, void, $StringArray*), "java.lang.Throwable"},
-	{"mt", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(LambdaReturn, mt, $MethodType*, $Class*)},
-	{"mt", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(LambdaReturn, mt, $MethodType*, $Class*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _LambdaReturn_InnerClassesInfo_[] = {
-	{"LambdaReturn$I", "LambdaReturn", "I", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LambdaReturn_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"LambdaReturn",
-	"java.lang.Object",
-	nullptr,
-	_LambdaReturn_FieldInfo_,
-	_LambdaReturn_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LambdaReturn_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"LambdaReturn$I"
-};
-
-$Object* allocate$LambdaReturn($Class* clazz) {
-	return $of($alloc(LambdaReturn));
-}
 
 $MethodHandles$Lookup* LambdaReturn::l = nullptr;
 
@@ -101,18 +59,18 @@ $MethodType* LambdaReturn::mt($Class* k, $Class* k2) {
 }
 
 void LambdaReturn::amf($List* errs, $MethodHandle* h, $MethodType* mts, $MethodType* mtf, $MethodType* mtb, bool shouldWork) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($LambdaReturn$I);
 	$var($MethodType, mti, mt($LambdaReturn$I::class$));
 	try {
 		$init(LambdaReturn);
 		$LambdaMetafactory::altMetafactory(LambdaReturn::l, "m"_s, mti, $$new($ObjectArray, {
-			$of(mts),
-			$of(h),
-			$of(mtf),
-			$($of($Integer::valueOf($LambdaMetafactory::FLAG_BRIDGES))),
-			$($of($Integer::valueOf(1))),
-			$of(mtb)
+			mts,
+			h,
+			mtf,
+			$($Integer::valueOf($LambdaMetafactory::FLAG_BRIDGES)),
+			$($Integer::valueOf(1)),
+			mtb
 		}));
 	} catch ($LambdaConversionException& e) {
 		if (shouldWork) {
@@ -126,19 +84,17 @@ void LambdaReturn::amf($List* errs, $MethodHandle* h, $MethodType* mts, $MethodT
 }
 
 void LambdaReturn::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(LambdaReturn);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init(LambdaReturn);
 	$assignStatic(LambdaReturn::l, $MethodHandles::lookup());
-	$init($Void);
 	$var($MethodHandle, hV, $nc(LambdaReturn::l)->findStatic(LambdaReturn::class$, "hereV"_s, $(mt($Void::TYPE))));
 	$var($MethodHandle, hS, $nc(LambdaReturn::l)->findStatic(LambdaReturn::class$, "hereS"_s, $(mt($String::class$))));
 	$var($List, errs, $new($ArrayList));
 	$var($MethodType, V, mt($Void::TYPE));
 	$var($MethodType, S, mt($String::class$));
 	$var($MethodType, O, mt($Object::class$));
-	$init($Integer);
 	$var($MethodType, I, mt($Integer::TYPE));
 	amf(errs, hS, S, S, O, true);
 	amf(errs, hS, S, S, V, false);
@@ -164,7 +120,7 @@ void LambdaReturn::main($StringArray* args) {
 				}
 			}
 		}
-		$throwNew($AssertionError, $of($$str({"Errors: "_s, $$str(errs->size())})));
+		$throwNew($AssertionError, $$of($str({"Errors: "_s, $$str(errs->size())})));
 	}
 }
 
@@ -172,7 +128,41 @@ LambdaReturn::LambdaReturn() {
 }
 
 $Class* LambdaReturn::load$($String* name, bool initialize) {
-	$loadClass(LambdaReturn, name, initialize, &_LambdaReturn_ClassInfo_, allocate$LambdaReturn);
+	$FieldInfo fieldInfos$$[] = {
+		{"l", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC, $staticField(LambdaReturn, l)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaReturn, init$, void)},
+		{"amf", "(Ljava/util/List;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)V", $PRIVATE | $STATIC, $staticMethod(LambdaReturn, amf, void, $List*, $MethodHandle*, $MethodType*, $MethodType*, $MethodType*, bool)},
+		{"hereS", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LambdaReturn, hereS, $String*)},
+		{"hereV", "()V", nullptr, $STATIC, $staticMethod(LambdaReturn, hereV, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaReturn, main, void, $StringArray*), "java.lang.Throwable"},
+		{"mt", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(LambdaReturn, mt, $MethodType*, $Class*)},
+		{"mt", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(LambdaReturn, mt, $MethodType*, $Class*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LambdaReturn$I", "LambdaReturn", "I", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"LambdaReturn",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"LambdaReturn$I"
+	};
+	$loadClass(LambdaReturn, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaReturn);
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ class FtpLoginException : public ::java::io::IOException {
 public:
 	FtpLoginException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x1EC87EF4131FD120;
+	static const int64_t serialVersionUID = (int64_t)0x1ec87ef4131fd120;
 	FtpLoginException(const FtpLoginException& e);
 	virtual void throw$() override;
-	inline FtpLoginException* operator ->() {
+	inline FtpLoginException* operator ->() const {
+		return (FtpLoginException*)throwing$;
+	}
+	inline operator FtpLoginException*() const {
 		return (FtpLoginException*)throwing$;
 	}
 };

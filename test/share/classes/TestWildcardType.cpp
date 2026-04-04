@@ -1,5 +1,4 @@
 #include <TestWildcardType.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -9,74 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
 using $List = ::java::util::List;
-
-$NamedAttribute TestWildcardType_Attribute_var$0[] = {
-	{"value", 's', "1"},
-	{}
-};
-
-$NamedAttribute TestWildcardType_Attribute_var$1[] = {
-	{"value", 's', "2"},
-	{}
-};
-
-$TypeAnnotation _TestWildcardType_FieldTypeAnnotations_f1[] = {
-	{"LTypeAnno;", TestWildcardType_Attribute_var$0, "FIELD, location = (TYPE_ARGUMENT(0))"},
-	{"LTypeAnno;", TestWildcardType_Attribute_var$1, "FIELD, location = (TYPE_ARGUMENT(0),WILDCARD)"},
-	{}
-};
-
-$NamedAttribute TestWildcardType_Attribute_var$2[] = {
-	{"value", 's', "3"},
-	{}
-};
-
-$NamedAttribute TestWildcardType_Attribute_var$3[] = {
-	{"value", 's', "4"},
-	{}
-};
-
-$TypeAnnotation _TestWildcardType_FieldTypeAnnotations_f2[] = {
-	{"LTypeAnno;", TestWildcardType_Attribute_var$2, "FIELD, location = (TYPE_ARGUMENT(0))"},
-	{"LTypeAnno;", TestWildcardType_Attribute_var$3, "FIELD, location = (TYPE_ARGUMENT(0),WILDCARD)"},
-	{}
-};
-
-$NamedAttribute TestWildcardType_Attribute_var$4[] = {
-	{"value", 's', "5"},
-	{}
-};
-
-$TypeAnnotation _TestWildcardType_FieldTypeAnnotations_f3[] = {
-	{"LTypeAnno;", TestWildcardType_Attribute_var$4, "FIELD, location = (TYPE_ARGUMENT(0))"},
-	{}
-};
-
-$FieldInfo _TestWildcardType_FieldInfo_[] = {
-	{"f1", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PUBLIC, $field(TestWildcardType, f1), nullptr, _TestWildcardType_FieldTypeAnnotations_f1},
-	{"f2", "Ljava/lang/Class;", "Ljava/lang/Class<-Ljava/lang/annotation/Annotation;>;", $PUBLIC, $field(TestWildcardType, f2), nullptr, _TestWildcardType_FieldTypeAnnotations_f2},
-	{"f3", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PUBLIC, $field(TestWildcardType, f3), nullptr, _TestWildcardType_FieldTypeAnnotations_f3},
-	{}
-};
-
-$MethodInfo _TestWildcardType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TestWildcardType, init$, void)},
-	{"foo", "()Ljava/util/List;", "<T:Ljava/lang/Object;>()Ljava/util/List<-TT;>;", $PUBLIC, $virtualMethod(TestWildcardType, foo, $List*)},
-	{}
-};
-
-$ClassInfo _TestWildcardType_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"TestWildcardType",
-	"java.lang.Object",
-	nullptr,
-	_TestWildcardType_FieldInfo_,
-	_TestWildcardType_MethodInfo_
-};
-
-$Object* allocate$TestWildcardType($Class* clazz) {
-	return $of($alloc(TestWildcardType));
-}
 
 void TestWildcardType::init$() {
 }
@@ -89,7 +20,62 @@ TestWildcardType::TestWildcardType() {
 }
 
 $Class* TestWildcardType::load$($String* name, bool initialize) {
-	$loadClass(TestWildcardType, name, initialize, &_TestWildcardType_ClassInfo_, allocate$TestWildcardType);
+	$NamedAttribute f1fieldTypeAnnotations$$$namedAttribute[] = {
+		{"value", 's', "1"},
+		{}
+	};
+	$NamedAttribute f1fieldTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 's', "2"},
+		{}
+	};
+	$TypeAnnotation f1fieldTypeAnnotations$$[] = {
+		{"LTypeAnno;", f1fieldTypeAnnotations$$$namedAttribute, "FIELD, location = (TYPE_ARGUMENT(0))"},
+		{"LTypeAnno;", f1fieldTypeAnnotations$$$namedAttribute$1, "FIELD, location = (TYPE_ARGUMENT(0),WILDCARD)"},
+		{}
+	};
+	$NamedAttribute f2fieldTypeAnnotations$$$namedAttribute[] = {
+		{"value", 's', "3"},
+		{}
+	};
+	$NamedAttribute f2fieldTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 's', "4"},
+		{}
+	};
+	$TypeAnnotation f2fieldTypeAnnotations$$[] = {
+		{"LTypeAnno;", f2fieldTypeAnnotations$$$namedAttribute, "FIELD, location = (TYPE_ARGUMENT(0))"},
+		{"LTypeAnno;", f2fieldTypeAnnotations$$$namedAttribute$1, "FIELD, location = (TYPE_ARGUMENT(0),WILDCARD)"},
+		{}
+	};
+	$NamedAttribute f3fieldTypeAnnotations$$$namedAttribute[] = {
+		{"value", 's', "5"},
+		{}
+	};
+	$TypeAnnotation f3fieldTypeAnnotations$$[] = {
+		{"LTypeAnno;", f3fieldTypeAnnotations$$$namedAttribute, "FIELD, location = (TYPE_ARGUMENT(0))"},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"f1", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PUBLIC, $field(TestWildcardType, f1), nullptr, f1fieldTypeAnnotations$$},
+		{"f2", "Ljava/lang/Class;", "Ljava/lang/Class<-Ljava/lang/annotation/Annotation;>;", $PUBLIC, $field(TestWildcardType, f2), nullptr, f2fieldTypeAnnotations$$},
+		{"f3", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PUBLIC, $field(TestWildcardType, f3), nullptr, f3fieldTypeAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TestWildcardType, init$, void)},
+		{"foo", "()Ljava/util/List;", "<T:Ljava/lang/Object;>()Ljava/util/List<-TT;>;", $PUBLIC, $virtualMethod(TestWildcardType, foo, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"TestWildcardType",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestWildcardType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestWildcardType);
+	});
 	return class$;
 }
 

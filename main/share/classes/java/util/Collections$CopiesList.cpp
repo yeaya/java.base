@@ -1,5 +1,4 @@
 #include <java/util/Collections$CopiesList.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -46,7 +45,6 @@ using $Spliterator = ::java::util::Spliterator;
 using $IntFunction = ::java::util::function::IntFunction;
 using $IntStream = ::java::util::stream::IntStream;
 using $Stream = ::java::util::stream::Stream;
-using $JavaObjectInputStreamAccess = ::jdk::internal::access::JavaObjectInputStreamAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 
 namespace java {
@@ -61,92 +59,32 @@ public:
 	virtual $Object* apply(int32_t i) override {
 		 return $nc(inst$)->lambda$stream$0(i);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Collections$CopiesList$$Lambda$lambda$stream$0>());
-	}
 	Collections$CopiesList* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Collections$CopiesList$$Lambda$lambda$stream$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Collections$CopiesList$$Lambda$lambda$stream$0, inst$)},
-	{}
-};
-$MethodInfo Collections$CopiesList$$Lambda$lambda$stream$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collections$CopiesList;)V", nullptr, $PUBLIC, $method(Collections$CopiesList$$Lambda$lambda$stream$0, init$, void, Collections$CopiesList*)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList$$Lambda$lambda$stream$0, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo Collections$CopiesList$$Lambda$lambda$stream$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Collections$CopiesList$$Lambda$lambda$stream$0",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Collections$CopiesList$$Lambda$lambda$stream$0::load$($String* name, bool initialize) {
-	$loadClass(Collections$CopiesList$$Lambda$lambda$stream$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Collections$CopiesList$$Lambda$lambda$stream$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collections$CopiesList;)V", nullptr, $PUBLIC, $method(Collections$CopiesList$$Lambda$lambda$stream$0, init$, void, Collections$CopiesList*)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList$$Lambda$lambda$stream$0, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Collections$CopiesList$$Lambda$lambda$stream$0",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Collections$CopiesList$$Lambda$lambda$stream$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$CopiesList$$Lambda$lambda$stream$0);
+	});
 	return class$;
 }
 $Class* Collections$CopiesList$$Lambda$lambda$stream$0::class$ = nullptr;
-
-$FieldInfo _Collections$CopiesList_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Collections$CopiesList, $assertionsDisabled)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CopiesList, serialVersionUID)},
-	{"n", "I", nullptr, $FINAL, $field(Collections$CopiesList, n)},
-	{"element", "Ljava/lang/Object;", "TE;", $FINAL, $field(Collections$CopiesList, element)},
-	{}
-};
-
-$MethodInfo _Collections$CopiesList_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(ILjava/lang/Object;)V", "(ITE;)V", 0, $method(Collections$CopiesList, init$, void, int32_t, Object$*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, contains, bool, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, equals, bool, Object$*)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(Collections$CopiesList, get, $Object*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, hashCode, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, indexOf, int32_t, Object$*)},
-	{"lambda$stream$0", "(I)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Collections$CopiesList, lambda$stream$0, $Object*, int32_t)},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, lastIndexOf, int32_t, Object$*)},
-	{"parallelStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$CopiesList, parallelStream, $Stream*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Collections$CopiesList, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$CopiesList, spliterator, $Spliterator*)},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$CopiesList, stream, $Stream*)},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(Collections$CopiesList, subList, $List*, int32_t, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$CopiesList, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$CopiesList_InnerClassesInfo_[] = {
-	{"java.util.Collections$CopiesList", "java.util.Collections", "CopiesList", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$CopiesList_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$CopiesList",
-	"java.util.AbstractList",
-	"java.util.RandomAccess,java.io.Serializable",
-	_Collections$CopiesList_FieldInfo_,
-	_Collections$CopiesList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;Ljava/util/RandomAccess;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$CopiesList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$CopiesList($Class* clazz) {
-	return $of($alloc(Collections$CopiesList));
-}
 
 $String* Collections$CopiesList::toString() {
 	 return this->$AbstractList::toString();
@@ -188,11 +126,11 @@ int32_t Collections$CopiesList::lastIndexOf(Object$* o) {
 }
 
 $Object* Collections$CopiesList::get(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0 || index >= this->n) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index), ", Size: "_s, $$str(this->n)}));
 	}
-	return $of(this->element);
+	return this->element;
 }
 
 $ObjectArray* Collections$CopiesList::toArray() {
@@ -221,7 +159,7 @@ $ObjectArray* Collections$CopiesList::toArray($ObjectArray* a$renamed) {
 }
 
 $List* Collections$CopiesList::subList(int32_t fromIndex, int32_t toIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fromIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"fromIndex = "_s, $$str(fromIndex)}));
 	}
@@ -248,11 +186,11 @@ int32_t Collections$CopiesList::hashCode() {
 			sum = sum * 31 + 1;
 		}
 	}
-	return pow + sum * (this->element == nullptr ? 0 : $nc($of(this->element))->hashCode());
+	return pow + sum * (this->element == nullptr ? 0 : this->element->hashCode());
 }
 
 bool Collections$CopiesList::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -264,7 +202,7 @@ bool Collections$CopiesList::equals(Object$* o) {
 			var$0 = true;
 		}
 		if (var$0) {
-			return this->n == $nc(other)->n && (this->n == 0 || $Collections::eq(this->element, $nc(other)->element));
+			return this->n == $nc(other)->n && (this->n == 0 || $Collections::eq(this->element, other->element));
 		}
 	}
 	if (!($instanceOf($List, o))) {
@@ -272,7 +210,7 @@ bool Collections$CopiesList::equals(Object$* o) {
 	}
 	int32_t remaining = this->n;
 	$var($Object, e, this->element);
-	$var($Iterator, itr, $nc(($cast($List, o)))->iterator());
+	$var($Iterator, itr, $nc($cast($List, o))->iterator());
 	if (e == nullptr) {
 		while ($nc(itr)->hasNext() && remaining-- > 0) {
 			if (itr->next() != nullptr) {
@@ -281,7 +219,7 @@ bool Collections$CopiesList::equals(Object$* o) {
 		}
 	} else {
 		while ($nc(itr)->hasNext() && remaining-- > 0) {
-			if (!$nc($of(e))->equals($(itr->next()))) {
+			if (!e->equals($(itr->next()))) {
 				return false;
 			}
 		}
@@ -290,30 +228,29 @@ bool Collections$CopiesList::equals(Object$* o) {
 }
 
 $Stream* Collections$CopiesList::stream() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($IntStream::range(0, this->n)))->mapToObj(static_cast<$IntFunction*>($$new(Collections$CopiesList$$Lambda$lambda$stream$0, this)));
+	$useLocalObjectStack();
+	return $$nc($IntStream::range(0, this->n))->mapToObj($$new(Collections$CopiesList$$Lambda$lambda$stream$0, this));
 }
 
 $Stream* Collections$CopiesList::parallelStream() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($IntStream::range(0, this->n)))->parallel()))->mapToObj(static_cast<$IntFunction*>($$new(Collections$CopiesList$$Lambda$lambda$stream$0, this)));
+	$useLocalObjectStack();
+	return $$nc($$nc($IntStream::range(0, this->n))->parallel())->mapToObj($$new(Collections$CopiesList$$Lambda$lambda$stream$0, this));
 }
 
 $Spliterator* Collections$CopiesList::spliterator() {
-	return $nc($(stream()))->spliterator();
+	return $$nc(stream())->spliterator();
 }
 
 void Collections$CopiesList::readObject($ObjectInputStream* ois) {
 	$nc(ois)->defaultReadObject();
-	$load($ObjectArray);
-	$nc($($SharedSecrets::getJavaObjectInputStreamAccess()))->checkArray(ois, $getClass($ObjectArray), this->n);
+	$$nc($SharedSecrets::getJavaObjectInputStreamAccess())->checkArray(ois, $getClass($ObjectArray), this->n);
 }
 
 $Object* Collections$CopiesList::lambda$stream$0(int32_t i) {
-	return $of(this->element);
+	return this->element;
 }
 
-void clinit$Collections$CopiesList($Class* class$) {
+void Collections$CopiesList::clinit$($Class* clazz) {
 	$load($Collections);
 	Collections$CopiesList::$assertionsDisabled = !$Collections::class$->desiredAssertionStatus();
 }
@@ -323,11 +260,61 @@ Collections$CopiesList::Collections$CopiesList() {
 
 $Class* Collections$CopiesList::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Collections$CopiesList$$Lambda$lambda$stream$0::classInfo$.name)) {
+		if (name->equals("java.util.Collections$CopiesList$$Lambda$lambda$stream$0")) {
 			return Collections$CopiesList$$Lambda$lambda$stream$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Collections$CopiesList, name, initialize, &_Collections$CopiesList_ClassInfo_, clinit$Collections$CopiesList, allocate$Collections$CopiesList);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Collections$CopiesList, $assertionsDisabled)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CopiesList, serialVersionUID)},
+		{"n", "I", nullptr, $FINAL, $field(Collections$CopiesList, n)},
+		{"element", "Ljava/lang/Object;", "TE;", $FINAL, $field(Collections$CopiesList, element)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(ILjava/lang/Object;)V", "(ITE;)V", 0, $method(Collections$CopiesList, init$, void, int32_t, Object$*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, contains, bool, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, equals, bool, Object$*)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(Collections$CopiesList, get, $Object*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, hashCode, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, indexOf, int32_t, Object$*)},
+		{"lambda$stream$0", "(I)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Collections$CopiesList, lambda$stream$0, $Object*, int32_t)},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, lastIndexOf, int32_t, Object$*)},
+		{"parallelStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$CopiesList, parallelStream, $Stream*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Collections$CopiesList, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$CopiesList, spliterator, $Spliterator*)},
+		{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$CopiesList, stream, $Stream*)},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(Collections$CopiesList, subList, $List*, int32_t, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$CopiesList, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$CopiesList, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$CopiesList", "java.util.Collections", "CopiesList", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$CopiesList",
+		"java.util.AbstractList",
+		"java.util.RandomAccess,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;Ljava/util/RandomAccess;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$CopiesList, name, initialize, &classInfo$$, Collections$CopiesList::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$CopiesList));
+	});
 	return class$;
 }
 

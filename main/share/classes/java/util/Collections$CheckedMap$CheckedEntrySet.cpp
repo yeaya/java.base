@@ -1,5 +1,4 @@
 #include <java/util/Collections$CheckedMap$CheckedEntrySet.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/AbstractMap$SimpleImmutableEntry.h>
 #include <java/util/Arrays.h>
@@ -31,65 +30,6 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace util {
 
-$FieldInfo _Collections$CheckedMap$CheckedEntrySet_FieldInfo_[] = {
-	{"s", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE | $FINAL, $field(Collections$CheckedMap$CheckedEntrySet, s)},
-	{"valueType", "Ljava/lang/Class;", "Ljava/lang/Class<TV;>;", $PRIVATE | $FINAL, $field(Collections$CheckedMap$CheckedEntrySet, valueType)},
-	{}
-};
-
-$MethodInfo _Collections$CheckedMap$CheckedEntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Ljava/lang/Class;)V", "(Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;Ljava/lang/Class<TV;>;)V", 0, $method(Collections$CheckedMap$CheckedEntrySet, init$, void, $Set*, $Class*)},
-	{"add", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, add, bool, $Map$Entry*)},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, add, bool, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, addAll, bool, $Collection*)},
-	{"batchRemove", "(Ljava/util/Collection;Z)Z", "(Ljava/util/Collection<*>;Z)Z", $PRIVATE, $method(Collections$CheckedMap$CheckedEntrySet, batchRemove, bool, $Collection*, bool)},
-	{"checkedEntry", "(Ljava/util/Map$Entry;Ljava/lang/Class;)Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;T:Ljava/lang/Object;>(Ljava/util/Map$Entry<TK;TV;>;Ljava/lang/Class<TT;>;)Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry<TK;TV;TT;>;", $STATIC, $staticMethod(Collections$CheckedMap$CheckedEntrySet, checkedEntry, $Collections$CheckedMap$CheckedEntrySet$CheckedEntry*, $Map$Entry*, $Class*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, contains, bool, Object$*)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, containsAll, bool, $Collection*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, removeAll, bool, $Collection*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, retainAll, bool, $Collection*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, size, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Collections$CheckedMap$CheckedEntrySet_InnerClassesInfo_[] = {
-	{"java.util.Collections$CheckedMap", "java.util.Collections", "CheckedMap", $PRIVATE | $STATIC},
-	{"java.util.Collections$CheckedMap$CheckedEntrySet", "java.util.Collections$CheckedMap", "CheckedEntrySet", $STATIC},
-	{"java.util.Collections$CheckedMap$CheckedEntrySet$CheckedEntry", "java.util.Collections$CheckedMap$CheckedEntrySet", "CheckedEntry", $PRIVATE | $STATIC},
-	{"java.util.Collections$CheckedMap$CheckedEntrySet$1", nullptr, nullptr, 0},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Collections$CheckedMap$CheckedEntrySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$CheckedMap$CheckedEntrySet",
-	"java.lang.Object",
-	"java.util.Set",
-	_Collections$CheckedMap$CheckedEntrySet_FieldInfo_,
-	_Collections$CheckedMap$CheckedEntrySet_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_Collections$CheckedMap$CheckedEntrySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$CheckedMap$CheckedEntrySet($Class* clazz) {
-	return $of($alloc(Collections$CheckedMap$CheckedEntrySet));
-}
-
 void Collections$CheckedMap$CheckedEntrySet::init$($Set* s, $Class* valueType) {
 	$set(this, s, s);
 	$set(this, valueType, valueType);
@@ -104,7 +44,7 @@ bool Collections$CheckedMap$CheckedEntrySet::isEmpty() {
 }
 
 $String* Collections$CheckedMap$CheckedEntrySet::toString() {
-	return $nc($of(this->s))->toString();
+	return $nc(this->s)->toString();
 }
 
 int32_t Collections$CheckedMap$CheckedEntrySet::hashCode() {
@@ -131,10 +71,9 @@ $Iterator* Collections$CheckedMap$CheckedEntrySet::iterator() {
 }
 
 $ObjectArray* Collections$CheckedMap$CheckedEntrySet::toArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, source, $nc(this->s)->toArray());
-	$load($ObjectArray);
-	$var($ObjectArray, dest, ($nc($of(source))->getClass() == $getClass($ObjectArray)) ? source : $new($ObjectArray, $nc(source)->length));
+	$var($ObjectArray, dest, ($nc(source)->getClass() == $getClass($ObjectArray)) ? source : $new($ObjectArray, source->length));
 	for (int32_t i = 0; i < source->length; ++i) {
 		$nc(dest)->set(i, $(checkedEntry($cast($Map$Entry, source->get(i)), this->valueType)));
 	}
@@ -142,23 +81,23 @@ $ObjectArray* Collections$CheckedMap$CheckedEntrySet::toArray() {
 }
 
 $ObjectArray* Collections$CheckedMap$CheckedEntrySet::toArray($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, arr, $nc(this->s)->toArray($nc(a)->length == 0 ? a : $($Arrays::copyOf(a, 0))));
 	for (int32_t i = 0; i < $nc(arr)->length; ++i) {
-		arr->set(i, $of($(checkedEntry($cast($Map$Entry, arr->get(i)), this->valueType))));
+		arr->set(i, $$of(checkedEntry($cast($Map$Entry, arr->get(i)), this->valueType)));
 	}
-	if ($nc(arr)->length > $nc(a)->length) {
+	if (arr->length > a->length) {
 		return arr;
 	}
-	$System::arraycopy(arr, 0, a, 0, $nc(arr)->length);
-	if ($nc(a)->length > $nc(arr)->length) {
+	$System::arraycopy(arr, 0, a, 0, arr->length);
+	if (a->length > arr->length) {
 		a->set(arr->length, nullptr);
 	}
 	return a;
 }
 
 bool Collections$CheckedMap$CheckedEntrySet::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, e, nullptr);
 	bool var$1 = $instanceOf($Map$Entry, o);
 	if (var$1) {
@@ -166,18 +105,16 @@ bool Collections$CheckedMap$CheckedEntrySet::contains(Object$* o) {
 		var$1 = true;
 	}
 	bool var$0 = var$1;
-	return var$0 && $nc(this->s)->contains(($instanceOf($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, e)) ? $of(e) : $($of(checkedEntry(e, this->valueType))));
+	return var$0 && $nc(this->s)->contains(($instanceOf($Collections$CheckedMap$CheckedEntrySet$CheckedEntry, e)) ? $of(e) : $$of(checkedEntry(e, this->valueType)));
 }
 
 bool Collections$CheckedMap$CheckedEntrySet::containsAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(c)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Object, o, i$->next());
-			if (!contains(o)) {
-				return false;
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(c)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Object, o, i$->next());
+		if (!contains(o)) {
+			return false;
 		}
 	}
 	return true;
@@ -199,7 +136,7 @@ bool Collections$CheckedMap$CheckedEntrySet::retainAll($Collection* c) {
 }
 
 bool Collections$CheckedMap$CheckedEntrySet::batchRemove($Collection* c, bool complement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(c);
 	bool modified = false;
 	$var($Iterator, it, iterator());
@@ -244,7 +181,60 @@ Collections$CheckedMap$CheckedEntrySet::Collections$CheckedMap$CheckedEntrySet()
 }
 
 $Class* Collections$CheckedMap$CheckedEntrySet::load$($String* name, bool initialize) {
-	$loadClass(Collections$CheckedMap$CheckedEntrySet, name, initialize, &_Collections$CheckedMap$CheckedEntrySet_ClassInfo_, allocate$Collections$CheckedMap$CheckedEntrySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE | $FINAL, $field(Collections$CheckedMap$CheckedEntrySet, s)},
+		{"valueType", "Ljava/lang/Class;", "Ljava/lang/Class<TV;>;", $PRIVATE | $FINAL, $field(Collections$CheckedMap$CheckedEntrySet, valueType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;Ljava/lang/Class;)V", "(Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;Ljava/lang/Class<TV;>;)V", 0, $method(Collections$CheckedMap$CheckedEntrySet, init$, void, $Set*, $Class*)},
+		{"add", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, add, bool, $Map$Entry*)},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, add, bool, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, addAll, bool, $Collection*)},
+		{"batchRemove", "(Ljava/util/Collection;Z)Z", "(Ljava/util/Collection<*>;Z)Z", $PRIVATE, $method(Collections$CheckedMap$CheckedEntrySet, batchRemove, bool, $Collection*, bool)},
+		{"checkedEntry", "(Ljava/util/Map$Entry;Ljava/lang/Class;)Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;T:Ljava/lang/Object;>(Ljava/util/Map$Entry<TK;TV;>;Ljava/lang/Class<TT;>;)Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry<TK;TV;TT;>;", $STATIC, $staticMethod(Collections$CheckedMap$CheckedEntrySet, checkedEntry, $Collections$CheckedMap$CheckedEntrySet$CheckedEntry*, $Map$Entry*, $Class*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, contains, bool, Object$*)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, containsAll, bool, $Collection*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, removeAll, bool, $Collection*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, retainAll, bool, $Collection*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, size, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$CheckedMap", "java.util.Collections", "CheckedMap", $PRIVATE | $STATIC},
+		{"java.util.Collections$CheckedMap$CheckedEntrySet", "java.util.Collections$CheckedMap", "CheckedEntrySet", $STATIC},
+		{"java.util.Collections$CheckedMap$CheckedEntrySet$CheckedEntry", "java.util.Collections$CheckedMap$CheckedEntrySet", "CheckedEntry", $PRIVATE | $STATIC},
+		{"java.util.Collections$CheckedMap$CheckedEntrySet$1", nullptr, nullptr, 0},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$CheckedMap$CheckedEntrySet",
+		"java.lang.Object",
+		"java.util.Set",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$CheckedMap$CheckedEntrySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$CheckedMap$CheckedEntrySet);
+	});
 	return class$;
 }
 

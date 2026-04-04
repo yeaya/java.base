@@ -79,6 +79,7 @@ class $export Unsafe : public ::java::lang::Object {
 	$class(Unsafe, $PRELOAD, ::java::lang::Object)
 public:
 	Unsafe();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int32_t addressSize();
 	int64_t alignToHeapWordSize(int64_t bytes);

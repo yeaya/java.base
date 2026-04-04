@@ -1,5 +1,4 @@
 #include <BigReadWrite.h>
-
 #include <java/io/FileOutputStream.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
@@ -12,30 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
-$FieldInfo _BigReadWrite_FieldInfo_[] = {
-	{"testSize", "I", nullptr, $STATIC, $staticField(BigReadWrite, testSize)},
-	{}
-};
-
-$MethodInfo _BigReadWrite_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BigReadWrite, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigReadWrite, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _BigReadWrite_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"BigReadWrite",
-	"java.lang.Object",
-	nullptr,
-	_BigReadWrite_FieldInfo_,
-	_BigReadWrite_MethodInfo_
-};
-
-$Object* allocate$BigReadWrite($Class* clazz) {
-	return $of($alloc(BigReadWrite));
-}
-
 int32_t BigReadWrite::testSize = 0;
 
 void BigReadWrite::init$() {
@@ -43,7 +18,7 @@ void BigReadWrite::init$() {
 
 void BigReadWrite::main($StringArray* args) {
 	$init(BigReadWrite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileOutputStream, fos, $new($FileOutputStream, "/dev/zero"_s));
 	$var($FileChannel, fc, fos->getChannel());
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(900));
@@ -52,7 +27,7 @@ void BigReadWrite::main($StringArray* args) {
 	fc->write(buf);
 	$assign(buf, $ByteBuffer::allocate(975));
 	fc->write(buf);
-	$assign(buf, $ByteBuffer::allocate(0x00436DB8));
+	$assign(buf, $ByteBuffer::allocate(4419000));
 	int64_t iterations = 0;
 	while (iterations < 50) {
 		fc->write(buf);
@@ -62,7 +37,7 @@ void BigReadWrite::main($StringArray* args) {
 	fc->close();
 }
 
-void clinit$BigReadWrite($Class* class$) {
+void BigReadWrite::clinit$($Class* clazz) {
 	BigReadWrite::testSize = 15;
 }
 
@@ -70,7 +45,26 @@ BigReadWrite::BigReadWrite() {
 }
 
 $Class* BigReadWrite::load$($String* name, bool initialize) {
-	$loadClass(BigReadWrite, name, initialize, &_BigReadWrite_ClassInfo_, clinit$BigReadWrite, allocate$BigReadWrite);
+	$FieldInfo fieldInfos$$[] = {
+		{"testSize", "I", nullptr, $STATIC, $staticField(BigReadWrite, testSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BigReadWrite, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigReadWrite, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"BigReadWrite",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BigReadWrite, name, initialize, &classInfo$$, BigReadWrite::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BigReadWrite);
+	});
 	return class$;
 }
 

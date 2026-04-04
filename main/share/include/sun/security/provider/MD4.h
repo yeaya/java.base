@@ -31,6 +31,7 @@ class $import MD4 : public ::sun::security::provider::DigestBase {
 public:
 	MD4();
 	using ::sun::security::provider::DigestBase::engineUpdate;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t FF(int32_t a, int32_t b, int32_t c, int32_t d, int32_t x, int32_t s);
 	static int32_t GG(int32_t a, int32_t b, int32_t c, int32_t d, int32_t x, int32_t s);

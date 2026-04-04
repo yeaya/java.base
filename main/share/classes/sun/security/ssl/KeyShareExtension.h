@@ -24,6 +24,7 @@ class KeyShareExtension : public ::java::lang::Object {
 	$class(KeyShareExtension, 0, ::java::lang::Object)
 public:
 	KeyShareExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::HandshakeProducer* chNetworkProducer;
 	static ::sun::security::ssl::SSLExtension$ExtensionConsumer* chOnLoadConsumer;

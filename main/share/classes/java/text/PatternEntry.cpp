@@ -1,5 +1,4 @@
 #include <java/text/PatternEntry.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/StringBuffer.h>
 #include <java/text/Collator.h>
@@ -23,55 +22,6 @@ using $Collator = ::java::text::Collator;
 
 namespace java {
 	namespace text {
-
-$FieldInfo _PatternEntry_FieldInfo_[] = {
-	{"RESET", "I", nullptr, $STATIC | $FINAL, $constField(PatternEntry, RESET)},
-	{"UNSET", "I", nullptr, $STATIC | $FINAL, $constField(PatternEntry, UNSET)},
-	{"strength", "I", nullptr, 0, $field(PatternEntry, strength)},
-	{"chars", "Ljava/lang/String;", nullptr, 0, $field(PatternEntry, chars)},
-	{"extension", "Ljava/lang/String;", nullptr, 0, $field(PatternEntry, extension)},
-	{}
-};
-
-$MethodInfo _PatternEntry_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/StringBuffer;Ljava/lang/StringBuffer;)V", nullptr, 0, $method(PatternEntry, init$, void, int32_t, $StringBuffer*, $StringBuffer*)},
-	{"addToBuffer", "(Ljava/lang/StringBuffer;ZZLjava/text/PatternEntry;)V", nullptr, 0, $virtualMethod(PatternEntry, addToBuffer, void, $StringBuffer*, bool, bool, PatternEntry*)},
-	{"appendQuoted", "(Ljava/lang/String;Ljava/lang/StringBuffer;)V", nullptr, $STATIC, $staticMethod(PatternEntry, appendQuoted, void, $String*, $StringBuffer*)},
-	{"appendQuotedChars", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(PatternEntry, appendQuotedChars, void, $StringBuffer*)},
-	{"appendQuotedExtension", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(PatternEntry, appendQuotedExtension, void, $StringBuffer*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PatternEntry, equals, bool, Object$*)},
-	{"getChars", "()Ljava/lang/String;", nullptr, $FINAL, $method(PatternEntry, getChars, $String*)},
-	{"getExtension", "()Ljava/lang/String;", nullptr, $FINAL, $method(PatternEntry, getExtension, $String*)},
-	{"getStrength", "()I", nullptr, $FINAL, $method(PatternEntry, getStrength, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PatternEntry, hashCode, int32_t)},
-	{"isSpecialChar", "(C)Z", nullptr, $STATIC, $staticMethod(PatternEntry, isSpecialChar, bool, char16_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternEntry, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _PatternEntry_InnerClassesInfo_[] = {
-	{"java.text.PatternEntry$Parser", "java.text.PatternEntry", "Parser", $STATIC},
-	{}
-};
-
-$ClassInfo _PatternEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.text.PatternEntry",
-	"java.lang.Object",
-	nullptr,
-	_PatternEntry_FieldInfo_,
-	_PatternEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PatternEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.text.PatternEntry$Parser"
-};
-
-$Object* allocate$PatternEntry($Class* clazz) {
-	return $of($alloc(PatternEntry));
-}
 
 void PatternEntry::appendQuotedExtension($StringBuffer* toAddTo) {
 	appendQuoted(this->extension, toAddTo);
@@ -113,7 +63,7 @@ $String* PatternEntry::getChars() {
 }
 
 void PatternEntry::addToBuffer($StringBuffer* toAddTo, bool showExtension, bool showWhiteSpace, PatternEntry* lastEntry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (showWhiteSpace && $nc(toAddTo)->length() > 0) {
 		if (this->strength == $Collator::PRIMARY || lastEntry != nullptr) {
 			toAddTo->append(u'\n');
@@ -132,43 +82,28 @@ void PatternEntry::addToBuffer($StringBuffer* toAddTo, bool showExtension, bool 
 			toAddTo->append(u' ');
 		}
 	}
-
 	char16_t var$0 = 0;
 	switch (this->strength) {
 	case $Collator::IDENTICAL:
-		{
-			var$0 = u'=';
-			break;
-		}
+		var$0 = u'=';
+		break;
 	case $Collator::TERTIARY:
-		{
-			var$0 = u',';
-			break;
-		}
+		var$0 = u',';
+		break;
 	case $Collator::SECONDARY:
-		{
-			var$0 = u';';
-			break;
-		}
+		var$0 = u';';
+		break;
 	case $Collator::PRIMARY:
-		{
-			var$0 = u'<';
-			break;
-		}
+		var$0 = u'<';
+		break;
 	case PatternEntry::RESET:
-		{
-			var$0 = u'&';
-			break;
-		}
+		var$0 = u'&';
+		break;
 	case PatternEntry::UNSET:
-		{
-			var$0 = u'?';
-			break;
-		}
+		var$0 = u'?';
+		break;
 	default:
-		{
-			$throwNew($IllegalStateException, $$str({"Unexpected value: "_s, $$str(this->strength)}));
-		}
+		$throwNew($IllegalStateException, $$str({"Unexpected value: "_s, $$str(this->strength)}));
 	}
 	char16_t c = var$0;
 	$nc(toAddTo)->append(c);
@@ -194,35 +129,24 @@ void PatternEntry::appendQuoted($String* chars, $StringBuffer* toAddTo) {
 	} else {
 		switch (ch) {
 		case 16:
-			{}
 		case u'\f':
-			{}
 		case u'\r':
-			{}
 		case u'\t':
-			{}
 		case u'\n':
-			{}
 		case u'@':
-			{
-				inQuote = true;
-				$nc(toAddTo)->append(u'\'');
-				break;
-			}
+			inQuote = true;
+			$nc(toAddTo)->append(u'\'');
+			break;
 		case u'\'':
-			{
-				inQuote = true;
-				$nc(toAddTo)->append(u'\'');
-				break;
-			}
+			inQuote = true;
+			$nc(toAddTo)->append(u'\'');
+			break;
 		default:
-			{
-				if (inQuote) {
-					inQuote = false;
-					$nc(toAddTo)->append(u'\'');
-				}
-				break;
+			if (inQuote) {
+				inQuote = false;
+				$nc(toAddTo)->append(u'\'');
 			}
+			break;
 		}
 	}
 	$nc(toAddTo)->append(chars);
@@ -237,7 +161,7 @@ void PatternEntry::init$(int32_t strength, $StringBuffer* chars, $StringBuffer* 
 	$set(this, extension, ""_s);
 	this->strength = strength;
 	$set(this, chars, $nc(chars)->toString());
-	$set(this, extension, ($nc(extension)->length() > 0) ? $nc(extension)->toString() : ""_s);
+	$set(this, extension, ($nc(extension)->length() > 0) ? extension->toString() : ""_s);
 }
 
 bool PatternEntry::isSpecialChar(char16_t ch) {
@@ -248,7 +172,50 @@ PatternEntry::PatternEntry() {
 }
 
 $Class* PatternEntry::load$($String* name, bool initialize) {
-	$loadClass(PatternEntry, name, initialize, &_PatternEntry_ClassInfo_, allocate$PatternEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"RESET", "I", nullptr, $STATIC | $FINAL, $constField(PatternEntry, RESET)},
+		{"UNSET", "I", nullptr, $STATIC | $FINAL, $constField(PatternEntry, UNSET)},
+		{"strength", "I", nullptr, 0, $field(PatternEntry, strength)},
+		{"chars", "Ljava/lang/String;", nullptr, 0, $field(PatternEntry, chars)},
+		{"extension", "Ljava/lang/String;", nullptr, 0, $field(PatternEntry, extension)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/StringBuffer;Ljava/lang/StringBuffer;)V", nullptr, 0, $method(PatternEntry, init$, void, int32_t, $StringBuffer*, $StringBuffer*)},
+		{"addToBuffer", "(Ljava/lang/StringBuffer;ZZLjava/text/PatternEntry;)V", nullptr, 0, $virtualMethod(PatternEntry, addToBuffer, void, $StringBuffer*, bool, bool, PatternEntry*)},
+		{"appendQuoted", "(Ljava/lang/String;Ljava/lang/StringBuffer;)V", nullptr, $STATIC, $staticMethod(PatternEntry, appendQuoted, void, $String*, $StringBuffer*)},
+		{"appendQuotedChars", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(PatternEntry, appendQuotedChars, void, $StringBuffer*)},
+		{"appendQuotedExtension", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(PatternEntry, appendQuotedExtension, void, $StringBuffer*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PatternEntry, equals, bool, Object$*)},
+		{"getChars", "()Ljava/lang/String;", nullptr, $FINAL, $method(PatternEntry, getChars, $String*)},
+		{"getExtension", "()Ljava/lang/String;", nullptr, $FINAL, $method(PatternEntry, getExtension, $String*)},
+		{"getStrength", "()I", nullptr, $FINAL, $method(PatternEntry, getStrength, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PatternEntry, hashCode, int32_t)},
+		{"isSpecialChar", "(C)Z", nullptr, $STATIC, $staticMethod(PatternEntry, isSpecialChar, bool, char16_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternEntry, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.PatternEntry$Parser", "java.text.PatternEntry", "Parser", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.text.PatternEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.text.PatternEntry$Parser"
+	};
+	$loadClass(PatternEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PatternEntry);
+	});
 	return class$;
 }
 

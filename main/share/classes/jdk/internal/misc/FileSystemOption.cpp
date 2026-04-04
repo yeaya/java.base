@@ -1,5 +1,4 @@
 #include <jdk/internal/misc/FileSystemOption.h>
-
 #include <java/nio/file/CopyOption.h>
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/WatchEvent$Modifier.h>
@@ -29,43 +28,6 @@ using $ExtendedOptions$InternalOption = ::sun::nio::fs::ExtendedOptions$Internal
 namespace jdk {
 	namespace internal {
 		namespace misc {
-
-$FieldInfo _FileSystemOption_FieldInfo_[] = {
-	{"INTERRUPTIBLE", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, INTERRUPTIBLE)},
-	{"NOSHARE_READ", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, NOSHARE_READ)},
-	{"NOSHARE_WRITE", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, NOSHARE_WRITE)},
-	{"NOSHARE_DELETE", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, NOSHARE_DELETE)},
-	{"FILE_TREE", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, FILE_TREE)},
-	{"DIRECT", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, DIRECT)},
-	{"SENSITIVITY_HIGH", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, SENSITIVITY_HIGH)},
-	{"SENSITIVITY_MEDIUM", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, SENSITIVITY_MEDIUM)},
-	{"SENSITIVITY_LOW", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, SENSITIVITY_LOW)},
-	{"internalOption", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<TT;>;", $PRIVATE | $FINAL, $field(FileSystemOption, internalOption)},
-	{}
-};
-
-$MethodInfo _FileSystemOption_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/ExtendedOptions$InternalOption;)V", "(Lsun/nio/fs/ExtendedOptions$InternalOption<TT;>;)V", $PRIVATE, $method(FileSystemOption, init$, void, $ExtendedOptions$InternalOption*)},
-	{"register", "(Ljava/nio/file/OpenOption;)V", nullptr, $PUBLIC, $method(FileSystemOption, register$, void, $OpenOption*)},
-	{"register", "(Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC, $method(FileSystemOption, register$, void, $CopyOption*)},
-	{"register", "(Ljava/nio/file/WatchEvent$Modifier;)V", nullptr, $PUBLIC, $method(FileSystemOption, register$, void, $WatchEvent$Modifier*)},
-	{"register", "(Ljava/nio/file/WatchEvent$Modifier;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Modifier;TT;)V", $PUBLIC, $method(FileSystemOption, register$, void, $WatchEvent$Modifier*, Object$*)},
-	{}
-};
-
-$ClassInfo _FileSystemOption_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.misc.FileSystemOption",
-	"java.lang.Object",
-	nullptr,
-	_FileSystemOption_FieldInfo_,
-	_FileSystemOption_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$FileSystemOption($Class* clazz) {
-	return $of($alloc(FileSystemOption));
-}
 
 FileSystemOption* FileSystemOption::INTERRUPTIBLE = nullptr;
 FileSystemOption* FileSystemOption::NOSHARE_READ = nullptr;
@@ -97,7 +59,7 @@ void FileSystemOption::register$($WatchEvent$Modifier* option, Object$* param) {
 	$nc(this->internalOption)->register$(option, param);
 }
 
-void clinit$FileSystemOption($Class* class$) {
+void FileSystemOption::clinit$($Class* clazz) {
 	$init($ExtendedOptions);
 	$assignStatic(FileSystemOption::INTERRUPTIBLE, $new(FileSystemOption, $ExtendedOptions::INTERRUPTIBLE));
 	$assignStatic(FileSystemOption::NOSHARE_READ, $new(FileSystemOption, $ExtendedOptions::NOSHARE_READ));
@@ -114,7 +76,39 @@ FileSystemOption::FileSystemOption() {
 }
 
 $Class* FileSystemOption::load$($String* name, bool initialize) {
-	$loadClass(FileSystemOption, name, initialize, &_FileSystemOption_ClassInfo_, clinit$FileSystemOption, allocate$FileSystemOption);
+	$FieldInfo fieldInfos$$[] = {
+		{"INTERRUPTIBLE", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, INTERRUPTIBLE)},
+		{"NOSHARE_READ", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, NOSHARE_READ)},
+		{"NOSHARE_WRITE", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, NOSHARE_WRITE)},
+		{"NOSHARE_DELETE", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, NOSHARE_DELETE)},
+		{"FILE_TREE", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, FILE_TREE)},
+		{"DIRECT", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, DIRECT)},
+		{"SENSITIVITY_HIGH", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, SENSITIVITY_HIGH)},
+		{"SENSITIVITY_MEDIUM", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, SENSITIVITY_MEDIUM)},
+		{"SENSITIVITY_LOW", "Ljdk/internal/misc/FileSystemOption;", "Ljdk/internal/misc/FileSystemOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(FileSystemOption, SENSITIVITY_LOW)},
+		{"internalOption", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<TT;>;", $PRIVATE | $FINAL, $field(FileSystemOption, internalOption)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/ExtendedOptions$InternalOption;)V", "(Lsun/nio/fs/ExtendedOptions$InternalOption<TT;>;)V", $PRIVATE, $method(FileSystemOption, init$, void, $ExtendedOptions$InternalOption*)},
+		{"register", "(Ljava/nio/file/OpenOption;)V", nullptr, $PUBLIC, $method(FileSystemOption, register$, void, $OpenOption*)},
+		{"register", "(Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC, $method(FileSystemOption, register$, void, $CopyOption*)},
+		{"register", "(Ljava/nio/file/WatchEvent$Modifier;)V", nullptr, $PUBLIC, $method(FileSystemOption, register$, void, $WatchEvent$Modifier*)},
+		{"register", "(Ljava/nio/file/WatchEvent$Modifier;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Modifier;TT;)V", $PUBLIC, $method(FileSystemOption, register$, void, $WatchEvent$Modifier*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.misc.FileSystemOption",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(FileSystemOption, name, initialize, &classInfo$$, FileSystemOption::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemOption);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/text/resources/FormatData_en_US.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -12,38 +11,19 @@ namespace sun {
 	namespace text {
 		namespace resources {
 
-$MethodInfo _FormatData_en_US_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_en_US, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_en_US, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_en_US_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.FormatData_en_US",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_en_US_MethodInfo_
-};
-
-$Object* allocate$FormatData_en_US($Class* clazz) {
-	return $of($alloc(FormatData_en_US));
-}
-
 void FormatData_en_US::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_en_US::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("NumberPatterns"_s),
-		$of($$new($StringArray, {
+		"NumberPatterns"_s,
+		$$new($StringArray, {
 			"#,##0.###;-#,##0.###"_s,
 			u"¤#,##0.00;(¤#,##0.00)"_s,
 			"#,##0%"_s
-		}))
+		})
 	})});
 }
 
@@ -51,7 +31,22 @@ FormatData_en_US::FormatData_en_US() {
 }
 
 $Class* FormatData_en_US::load$($String* name, bool initialize) {
-	$loadClass(FormatData_en_US, name, initialize, &_FormatData_en_US_ClassInfo_, allocate$FormatData_en_US);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_en_US, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_en_US, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.FormatData_en_US",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_en_US, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_en_US);
+	});
 	return class$;
 }
 

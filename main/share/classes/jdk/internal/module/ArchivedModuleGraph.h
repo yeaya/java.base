@@ -29,6 +29,7 @@ class ArchivedModuleGraph : public ::java::lang::Object {
 	$class(ArchivedModuleGraph, $PRELOAD, ::java::lang::Object)
 public:
 	ArchivedModuleGraph();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool hasSplitPackages, bool hasIncubatorModules, ::java::lang::module::ModuleFinder* finder, ::java::lang::module::Configuration* configuration, ::java::util::function::Function* classLoaderFunction);
 	static void archive(bool hasSplitPackages, bool hasIncubatorModules, ::java::lang::module::ModuleFinder* finder, ::java::lang::module::Configuration* configuration, ::java::util::function::Function* classLoaderFunction);
 	virtual ::java::util::function::Function* classLoaderFunction();

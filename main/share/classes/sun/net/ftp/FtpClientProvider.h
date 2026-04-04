@@ -21,6 +21,7 @@ class FtpClientProvider : public ::java::lang::Object {
 	$class(FtpClientProvider, 0, ::java::lang::Object)
 public:
 	FtpClientProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::sun::net::ftp::FtpClient* createFtpClient() {return nullptr;}
 	static bool loadProviderAsService();

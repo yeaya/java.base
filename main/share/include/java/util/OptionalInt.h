@@ -37,6 +37,7 @@ class $import OptionalInt : public ::java::lang::Object {
 	$class(OptionalInt, 0, ::java::lang::Object)
 public:
 	OptionalInt();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t value);
 	static ::java::util::OptionalInt* empty();

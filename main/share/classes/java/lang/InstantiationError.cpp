@@ -1,5 +1,4 @@
 #include <java/lang/InstantiationError.h>
-
 #include <java/lang/IncompatibleClassChangeError.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _InstantiationError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstantiationError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InstantiationError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InstantiationError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstantiationError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InstantiationError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.InstantiationError",
-	"java.lang.IncompatibleClassChangeError",
-	nullptr,
-	_InstantiationError_FieldInfo_,
-	_InstantiationError_MethodInfo_
-};
-
-$Object* allocate$InstantiationError($Class* clazz) {
-	return $of($alloc(InstantiationError));
-}
 
 void InstantiationError::init$() {
 	$IncompatibleClassChangeError::init$();
@@ -54,7 +29,26 @@ void InstantiationError::throw$() {
 }
 
 $Class* InstantiationError::load$($String* name, bool initialize) {
-	$loadClass(InstantiationError, name, initialize, &_InstantiationError_ClassInfo_, allocate$InstantiationError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstantiationError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InstantiationError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstantiationError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.InstantiationError",
+		"java.lang.IncompatibleClassChangeError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstantiationError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstantiationError);
+	});
 	return class$;
 }
 

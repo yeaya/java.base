@@ -20,6 +20,7 @@ class Process$CharsetHolder : public ::java::lang::Object {
 	$class(Process$CharsetHolder, 0, ::java::lang::Object)
 public:
 	Process$CharsetHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::charset::Charset* nativeCharset();
 	static ::java::nio::charset::Charset* nativeCharset$;

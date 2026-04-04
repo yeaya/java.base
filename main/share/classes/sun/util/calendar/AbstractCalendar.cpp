@@ -1,5 +1,4 @@
 #include <sun/util/calendar/AbstractCalendar.h>
-
 #include <java/util/TimeZone.h>
 #include <sun/util/calendar/CalendarDate.h>
 #include <sun/util/calendar/CalendarSystem.h>
@@ -31,74 +30,18 @@ namespace sun {
 	namespace util {
 		namespace calendar {
 
-$FieldInfo _AbstractCalendar_FieldInfo_[] = {
-	{"SECOND_IN_MILLIS", "I", nullptr, $STATIC | $FINAL, $constField(AbstractCalendar, SECOND_IN_MILLIS)},
-	{"MINUTE_IN_MILLIS", "I", nullptr, $STATIC | $FINAL, $constField(AbstractCalendar, MINUTE_IN_MILLIS)},
-	{"HOUR_IN_MILLIS", "I", nullptr, $STATIC | $FINAL, $constField(AbstractCalendar, HOUR_IN_MILLIS)},
-	{"DAY_IN_MILLIS", "I", nullptr, $STATIC | $FINAL, $constField(AbstractCalendar, DAY_IN_MILLIS)},
-	{"EPOCH_OFFSET", "I", nullptr, $STATIC | $FINAL, $constField(AbstractCalendar, EPOCH_OFFSET)},
-	{"eras", "[Lsun/util/calendar/Era;", nullptr, $PRIVATE, $field(AbstractCalendar, eras)},
-	{}
-};
-
-$MethodInfo _AbstractCalendar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractCalendar, init$, void)},
-	{"getCalendarDate", "()Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getCalendarDate, $CalendarDate*)},
-	{"getCalendarDate", "(J)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getCalendarDate, $CalendarDate*, int64_t)},
-	{"getCalendarDate", "(JLjava/util/TimeZone;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getCalendarDate, $CalendarDate*, int64_t, $TimeZone*)},
-	{"getCalendarDate", "(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getCalendarDate, $CalendarDate*, int64_t, $CalendarDate*)},
-	{"getCalendarDateFromFixedDate", "(Lsun/util/calendar/CalendarDate;J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractCalendar, getCalendarDateFromFixedDate, void, $CalendarDate*, int64_t)},
-	{"getDayOfWeekDateAfter", "(JI)J", nullptr, $STATIC, $staticMethod(AbstractCalendar, getDayOfWeekDateAfter, int64_t, int64_t, int32_t)},
-	{"getDayOfWeekDateBefore", "(JI)J", nullptr, $STATIC, $staticMethod(AbstractCalendar, getDayOfWeekDateBefore, int64_t, int64_t, int32_t)},
-	{"getDayOfWeekDateOnOrBefore", "(JI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractCalendar, getDayOfWeekDateOnOrBefore, int64_t, int64_t, int32_t)},
-	{"getEra", "(Ljava/lang/String;)Lsun/util/calendar/Era;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getEra, $Era*, $String*)},
-	{"getEras", "()[Lsun/util/calendar/Era;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getEras, $EraArray*)},
-	{"getFixedDate", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractCalendar, getFixedDate, int64_t, $CalendarDate*)},
-	{"getNthDayOfWeek", "(IILsun/util/calendar/CalendarDate;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getNthDayOfWeek, $CalendarDate*, int32_t, int32_t, $CalendarDate*)},
-	{"getTime", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getTime, int64_t, $CalendarDate*)},
-	{"getTimeOfDay", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PROTECTED, $virtualMethod(AbstractCalendar, getTimeOfDay, int64_t, $CalendarDate*)},
-	{"getTimeOfDayValue", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getTimeOfDayValue, int64_t, $CalendarDate*)},
-	{"getWeekLength", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getWeekLength, int32_t)},
-	{"isLeapYear", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractCalendar, isLeapYear, bool, $CalendarDate*)},
-	{"normalizeTime", "(Lsun/util/calendar/CalendarDate;)I", nullptr, 0, $virtualMethod(AbstractCalendar, normalizeTime, int32_t, $CalendarDate*)},
-	{"setEra", "(Lsun/util/calendar/CalendarDate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, setEra, void, $CalendarDate*, $String*)},
-	{"setEras", "([Lsun/util/calendar/Era;)V", nullptr, $PROTECTED, $virtualMethod(AbstractCalendar, setEras, void, $EraArray*)},
-	{"setTimeOfDay", "(Lsun/util/calendar/CalendarDate;I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, setTimeOfDay, $CalendarDate*, $CalendarDate*, int32_t)},
-	{"validateTime", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, validateTime, bool, $CalendarDate*)},
-	{}
-};
-
-$ClassInfo _AbstractCalendar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.util.calendar.AbstractCalendar",
-	"sun.util.calendar.CalendarSystem",
-	nullptr,
-	_AbstractCalendar_FieldInfo_,
-	_AbstractCalendar_MethodInfo_
-};
-
-$Object* allocate$AbstractCalendar($Class* clazz) {
-	return $of($alloc(AbstractCalendar));
-}
-
 void AbstractCalendar::init$() {
 	$CalendarSystem::init$();
 }
 
 $Era* AbstractCalendar::getEra($String* eraName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->eras != nullptr) {
-		{
-			$var($EraArray, arr$, this->eras);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Era, era, arr$->get(i$));
-				{
-					if ($nc($($nc(era)->getName()))->equals(eraName)) {
-						return era;
-					}
-				}
+		$var($EraArray, arr$, this->eras);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Era, era, arr$->get(i$));
+			if ($$nc($nc(era)->getName())->equals(eraName)) {
+				return era;
 			}
 		}
 	}
@@ -108,20 +51,20 @@ $Era* AbstractCalendar::getEra($String* eraName) {
 $EraArray* AbstractCalendar::getEras() {
 	$var($EraArray, e, nullptr);
 	if (this->eras != nullptr) {
-		$assign(e, $new($EraArray, $nc(this->eras)->length));
-		$System::arraycopy(this->eras, 0, e, 0, $nc(this->eras)->length);
+		$assign(e, $new($EraArray, this->eras->length));
+		$System::arraycopy(this->eras, 0, e, 0, this->eras->length);
 	}
 	return e;
 }
 
 void AbstractCalendar::setEra($CalendarDate* date, $String* eraName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->eras == nullptr) {
 		return;
 	}
 	for (int32_t i = 0; i < $nc(this->eras)->length; ++i) {
-		$var($Era, e, $nc(this->eras)->get(i));
-		if (e != nullptr && $nc($(e->getName()))->equals(eraName)) {
+		$var($Era, e, this->eras->get(i));
+		if (e != nullptr && $$nc(e->getName())->equals(eraName)) {
 			$nc(date)->setEra(e);
 			return;
 		}
@@ -148,7 +91,7 @@ $CalendarDate* AbstractCalendar::getCalendarDate(int64_t millis, $TimeZone* zone
 }
 
 $CalendarDate* AbstractCalendar::getCalendarDate(int64_t millis, $CalendarDate* date) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ms = 0;
 	int32_t zoneOffset = 0;
 	int32_t saving = 0;
@@ -157,7 +100,7 @@ $CalendarDate* AbstractCalendar::getCalendarDate(int64_t millis, $CalendarDate* 
 	if (zi != nullptr) {
 		$var($ints, offsets, $new($ints, 2));
 		if ($instanceOf($ZoneInfo, zi)) {
-			zoneOffset = $nc(($cast($ZoneInfo, zi)))->getOffsets(millis, offsets);
+			zoneOffset = $cast($ZoneInfo, zi)->getOffsets(millis, offsets);
 		} else {
 			zoneOffset = zi->getOffset(millis);
 			offsets->set(0, zi->getRawOffset());
@@ -189,7 +132,7 @@ $CalendarDate* AbstractCalendar::getCalendarDate(int64_t millis, $CalendarDate* 
 }
 
 int64_t AbstractCalendar::getTime($CalendarDate* date) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t gd = getFixedDate(date);
 	int64_t ms = (gd - AbstractCalendar::EPOCH_OFFSET) * AbstractCalendar::DAY_IN_MILLIS + getTimeOfDay(date);
 	int32_t zoneOffset = 0;
@@ -201,13 +144,13 @@ int64_t AbstractCalendar::getTime($CalendarDate* date) {
 		$var($ints, offsets, $new($ints, 2));
 		if (date->isStandardTime()) {
 			if ($instanceOf($ZoneInfo, zi)) {
-				$nc(($cast($ZoneInfo, zi)))->getOffsetsByStandard(ms, offsets);
+				$cast($ZoneInfo, zi)->getOffsetsByStandard(ms, offsets);
 				zoneOffset = offsets->get(0);
 			} else {
 				zoneOffset = zi->getOffset(ms - zi->getRawOffset());
 			}
 		} else if ($instanceOf($ZoneInfo, zi)) {
-			zoneOffset = $nc(($cast($ZoneInfo, zi)))->getOffsetsByWall(ms, offsets);
+			zoneOffset = $cast($ZoneInfo, zi)->getOffsetsByWall(ms, offsets);
 		} else {
 			zoneOffset = zi->getOffset(ms - zi->getRawOffset());
 		}
@@ -346,7 +289,52 @@ AbstractCalendar::AbstractCalendar() {
 }
 
 $Class* AbstractCalendar::load$($String* name, bool initialize) {
-	$loadClass(AbstractCalendar, name, initialize, &_AbstractCalendar_ClassInfo_, allocate$AbstractCalendar);
+	$FieldInfo fieldInfos$$[] = {
+		{"SECOND_IN_MILLIS", "I", nullptr, $STATIC | $FINAL, $constField(AbstractCalendar, SECOND_IN_MILLIS)},
+		{"MINUTE_IN_MILLIS", "I", nullptr, $STATIC | $FINAL, $constField(AbstractCalendar, MINUTE_IN_MILLIS)},
+		{"HOUR_IN_MILLIS", "I", nullptr, $STATIC | $FINAL, $constField(AbstractCalendar, HOUR_IN_MILLIS)},
+		{"DAY_IN_MILLIS", "I", nullptr, $STATIC | $FINAL, $constField(AbstractCalendar, DAY_IN_MILLIS)},
+		{"EPOCH_OFFSET", "I", nullptr, $STATIC | $FINAL, $constField(AbstractCalendar, EPOCH_OFFSET)},
+		{"eras", "[Lsun/util/calendar/Era;", nullptr, $PRIVATE, $field(AbstractCalendar, eras)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractCalendar, init$, void)},
+		{"getCalendarDate", "()Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getCalendarDate, $CalendarDate*)},
+		{"getCalendarDate", "(J)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getCalendarDate, $CalendarDate*, int64_t)},
+		{"getCalendarDate", "(JLjava/util/TimeZone;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getCalendarDate, $CalendarDate*, int64_t, $TimeZone*)},
+		{"getCalendarDate", "(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getCalendarDate, $CalendarDate*, int64_t, $CalendarDate*)},
+		{"getCalendarDateFromFixedDate", "(Lsun/util/calendar/CalendarDate;J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractCalendar, getCalendarDateFromFixedDate, void, $CalendarDate*, int64_t)},
+		{"getDayOfWeekDateAfter", "(JI)J", nullptr, $STATIC, $staticMethod(AbstractCalendar, getDayOfWeekDateAfter, int64_t, int64_t, int32_t)},
+		{"getDayOfWeekDateBefore", "(JI)J", nullptr, $STATIC, $staticMethod(AbstractCalendar, getDayOfWeekDateBefore, int64_t, int64_t, int32_t)},
+		{"getDayOfWeekDateOnOrBefore", "(JI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractCalendar, getDayOfWeekDateOnOrBefore, int64_t, int64_t, int32_t)},
+		{"getEra", "(Ljava/lang/String;)Lsun/util/calendar/Era;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getEra, $Era*, $String*)},
+		{"getEras", "()[Lsun/util/calendar/Era;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getEras, $EraArray*)},
+		{"getFixedDate", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractCalendar, getFixedDate, int64_t, $CalendarDate*)},
+		{"getNthDayOfWeek", "(IILsun/util/calendar/CalendarDate;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getNthDayOfWeek, $CalendarDate*, int32_t, int32_t, $CalendarDate*)},
+		{"getTime", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getTime, int64_t, $CalendarDate*)},
+		{"getTimeOfDay", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PROTECTED, $virtualMethod(AbstractCalendar, getTimeOfDay, int64_t, $CalendarDate*)},
+		{"getTimeOfDayValue", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getTimeOfDayValue, int64_t, $CalendarDate*)},
+		{"getWeekLength", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, getWeekLength, int32_t)},
+		{"isLeapYear", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractCalendar, isLeapYear, bool, $CalendarDate*)},
+		{"normalizeTime", "(Lsun/util/calendar/CalendarDate;)I", nullptr, 0, $virtualMethod(AbstractCalendar, normalizeTime, int32_t, $CalendarDate*)},
+		{"setEra", "(Lsun/util/calendar/CalendarDate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, setEra, void, $CalendarDate*, $String*)},
+		{"setEras", "([Lsun/util/calendar/Era;)V", nullptr, $PROTECTED, $virtualMethod(AbstractCalendar, setEras, void, $EraArray*)},
+		{"setTimeOfDay", "(Lsun/util/calendar/CalendarDate;I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, setTimeOfDay, $CalendarDate*, $CalendarDate*, int32_t)},
+		{"validateTime", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractCalendar, validateTime, bool, $CalendarDate*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.util.calendar.AbstractCalendar",
+		"sun.util.calendar.CalendarSystem",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractCalendar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractCalendar);
+	});
 	return class$;
 }
 

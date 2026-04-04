@@ -1,5 +1,4 @@
 #include <java/util/Scanner$FindSpliterator.h>
-
 #include <java/nio/Buffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/util/ConcurrentModificationException.h>
@@ -22,58 +21,15 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CharBuffer = ::java::nio::CharBuffer;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
 using $Scanner = ::java::util::Scanner;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterators$AbstractSpliterator = ::java::util::Spliterators$AbstractSpliterator;
 using $Consumer = ::java::util::function::Consumer;
-using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Scanner$FindSpliterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/Scanner;", nullptr, $FINAL | $SYNTHETIC, $field(Scanner$FindSpliterator, this$0)},
-	{"pattern", "Ljava/util/regex/Pattern;", nullptr, $FINAL, $field(Scanner$FindSpliterator, pattern)},
-	{"expectedCount", "I", nullptr, 0, $field(Scanner$FindSpliterator, expectedCount)},
-	{"advance", "Z", nullptr, $PRIVATE, $field(Scanner$FindSpliterator, advance)},
-	{}
-};
-
-$MethodInfo _Scanner$FindSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Scanner;Ljava/util/regex/Pattern;)V", nullptr, 0, $method(Scanner$FindSpliterator, init$, void, $Scanner*, $Pattern*)},
-	{"nextInBuffer", "()Z", nullptr, $PRIVATE, $method(Scanner$FindSpliterator, nextInBuffer, bool)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/regex/MatchResult;>;)Z", $PUBLIC, $virtualMethod(Scanner$FindSpliterator, tryAdvance, bool, $Consumer*)},
-	{}
-};
-
-$InnerClassInfo _Scanner$FindSpliterator_InnerClassesInfo_[] = {
-	{"java.util.Scanner$FindSpliterator", "java.util.Scanner", "FindSpliterator", 0},
-	{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Scanner$FindSpliterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Scanner$FindSpliterator",
-	"java.util.Spliterators$AbstractSpliterator",
-	nullptr,
-	_Scanner$FindSpliterator_FieldInfo_,
-	_Scanner$FindSpliterator_MethodInfo_,
-	"Ljava/util/Spliterators$AbstractSpliterator<Ljava/util/regex/MatchResult;>;",
-	nullptr,
-	_Scanner$FindSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Scanner"
-};
-
-$Object* allocate$Scanner$FindSpliterator($Class* clazz) {
-	return $of($alloc(Scanner$FindSpliterator));
-}
 
 void Scanner$FindSpliterator::init$($Scanner* this$0, $Pattern* pattern) {
 	$set(this, this$0, this$0);
@@ -84,7 +40,7 @@ void Scanner$FindSpliterator::init$($Scanner* this$0, $Pattern* pattern) {
 }
 
 bool Scanner$FindSpliterator::tryAdvance($Consumer* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->ensureOpen();
 	if (this->expectedCount >= 0) {
 		if (this->expectedCount != this->this$0->modCount) {
@@ -124,7 +80,7 @@ bool Scanner$FindSpliterator::nextInBuffer() {
 	}
 	$nc(this->this$0->matcher)->region(this->this$0->position, $nc(this->this$0->buf)->limit());
 	bool var$0 = $nc(this->this$0->matcher)->find();
-	if (var$0 && (!$nc(this->this$0->matcher)->hitEnd() || this->this$0->sourceClosed)) {
+	if (var$0 && (!this->this$0->matcher->hitEnd() || this->this$0->sourceClosed)) {
 		this->this$0->position = $nc(this->this$0->matcher)->end();
 		this->advance = $nc(this->this$0->matcher)->start() == this->this$0->position;
 		return true;
@@ -139,7 +95,42 @@ Scanner$FindSpliterator::Scanner$FindSpliterator() {
 }
 
 $Class* Scanner$FindSpliterator::load$($String* name, bool initialize) {
-	$loadClass(Scanner$FindSpliterator, name, initialize, &_Scanner$FindSpliterator_ClassInfo_, allocate$Scanner$FindSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/Scanner;", nullptr, $FINAL | $SYNTHETIC, $field(Scanner$FindSpliterator, this$0)},
+		{"pattern", "Ljava/util/regex/Pattern;", nullptr, $FINAL, $field(Scanner$FindSpliterator, pattern)},
+		{"expectedCount", "I", nullptr, 0, $field(Scanner$FindSpliterator, expectedCount)},
+		{"advance", "Z", nullptr, $PRIVATE, $field(Scanner$FindSpliterator, advance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Scanner;Ljava/util/regex/Pattern;)V", nullptr, 0, $method(Scanner$FindSpliterator, init$, void, $Scanner*, $Pattern*)},
+		{"nextInBuffer", "()Z", nullptr, $PRIVATE, $method(Scanner$FindSpliterator, nextInBuffer, bool)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/regex/MatchResult;>;)Z", $PUBLIC, $virtualMethod(Scanner$FindSpliterator, tryAdvance, bool, $Consumer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Scanner$FindSpliterator", "java.util.Scanner", "FindSpliterator", 0},
+		{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Scanner$FindSpliterator",
+		"java.util.Spliterators$AbstractSpliterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/Spliterators$AbstractSpliterator<Ljava/util/regex/MatchResult;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Scanner"
+	};
+	$loadClass(Scanner$FindSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scanner$FindSpliterator);
+	});
 	return class$;
 }
 

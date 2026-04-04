@@ -1,5 +1,4 @@
 #include <GenerifyStackTraces$DumpThread.h>
-
 #include <GenerifyStackTraces.h>
 #include <jcpp.h>
 
@@ -9,43 +8,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _GenerifyStackTraces$DumpThread_FieldInfo_[] = {
-	{"finished", "Z", nullptr, $PRIVATE | $VOLATILE, $field(GenerifyStackTraces$DumpThread, finished)},
-	{}
-};
-
-$MethodInfo _GenerifyStackTraces$DumpThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GenerifyStackTraces$DumpThread, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GenerifyStackTraces$DumpThread, run, void)},
-	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(GenerifyStackTraces$DumpThread, shutdown, void), "java.lang.InterruptedException"},
-	{}
-};
-
-$InnerClassInfo _GenerifyStackTraces$DumpThread_InnerClassesInfo_[] = {
-	{"GenerifyStackTraces$DumpThread", "GenerifyStackTraces", "DumpThread", $STATIC},
-	{}
-};
-
-$ClassInfo _GenerifyStackTraces$DumpThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"GenerifyStackTraces$DumpThread",
-	"java.lang.Thread",
-	nullptr,
-	_GenerifyStackTraces$DumpThread_FieldInfo_,
-	_GenerifyStackTraces$DumpThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GenerifyStackTraces$DumpThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GenerifyStackTraces"
-};
-
-$Object* allocate$GenerifyStackTraces$DumpThread($Class* clazz) {
-	return $of($alloc(GenerifyStackTraces$DumpThread));
-}
 
 void GenerifyStackTraces$DumpThread::init$() {
 	$Thread::init$();
@@ -77,7 +39,38 @@ GenerifyStackTraces$DumpThread::GenerifyStackTraces$DumpThread() {
 }
 
 $Class* GenerifyStackTraces$DumpThread::load$($String* name, bool initialize) {
-	$loadClass(GenerifyStackTraces$DumpThread, name, initialize, &_GenerifyStackTraces$DumpThread_ClassInfo_, allocate$GenerifyStackTraces$DumpThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"finished", "Z", nullptr, $PRIVATE | $VOLATILE, $field(GenerifyStackTraces$DumpThread, finished)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GenerifyStackTraces$DumpThread, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GenerifyStackTraces$DumpThread, run, void)},
+		{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(GenerifyStackTraces$DumpThread, shutdown, void), "java.lang.InterruptedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GenerifyStackTraces$DumpThread", "GenerifyStackTraces", "DumpThread", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GenerifyStackTraces$DumpThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GenerifyStackTraces"
+	};
+	$loadClass(GenerifyStackTraces$DumpThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GenerifyStackTraces$DumpThread);
+	});
 	return class$;
 }
 

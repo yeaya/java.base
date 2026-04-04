@@ -1,5 +1,4 @@
 #include <java/util/KeyValueHolder.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Map$Entry.h>
 #include <java/util/Objects.h>
@@ -17,71 +16,17 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace util {
 
-$CompoundAttribute _KeyValueHolder_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$CompoundAttribute _KeyValueHolder_FieldAnnotations_key[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _KeyValueHolder_FieldAnnotations_value[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$FieldInfo _KeyValueHolder_FieldInfo_[] = {
-	{"key", "Ljava/lang/Object;", "TK;", $FINAL, $field(KeyValueHolder, key), _KeyValueHolder_FieldAnnotations_key},
-	{"value", "Ljava/lang/Object;", "TV;", $FINAL, $field(KeyValueHolder, value), _KeyValueHolder_FieldAnnotations_value},
-	{}
-};
-
-$MethodInfo _KeyValueHolder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", 0, $method(KeyValueHolder, init$, void, Object$*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeyValueHolder, equals, bool, Object$*)},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(KeyValueHolder, getKey, $Object*)},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(KeyValueHolder, getValue, $Object*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeyValueHolder, hashCode, int32_t)},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(KeyValueHolder, setValue, $Object*, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyValueHolder, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _KeyValueHolder_InnerClassesInfo_[] = {
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeyValueHolder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.KeyValueHolder",
-	"java.lang.Object",
-	"java.util.Map$Entry",
-	_KeyValueHolder_FieldInfo_,
-	_KeyValueHolder_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Map$Entry<TK;TV;>;",
-	nullptr,
-	_KeyValueHolder_InnerClassesInfo_,
-	_KeyValueHolder_Annotations_
-};
-
-$Object* allocate$KeyValueHolder($Class* clazz) {
-	return $of($alloc(KeyValueHolder));
-}
-
 void KeyValueHolder::init$(Object$* k, Object$* v) {
 	$set(this, key, $Objects::requireNonNull(k));
 	$set(this, value, $Objects::requireNonNull(v));
 }
 
 $Object* KeyValueHolder::getKey() {
-	return $of(this->key);
+	return this->key;
 }
 
 $Object* KeyValueHolder::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 $Object* KeyValueHolder::setValue(Object$* value) {
@@ -90,7 +35,7 @@ $Object* KeyValueHolder::setValue(Object$* value) {
 }
 
 bool KeyValueHolder::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, e, nullptr);
 	bool var$2 = $instanceOf($Map$Entry, o);
 	if (var$2) {
@@ -98,13 +43,13 @@ bool KeyValueHolder::equals(Object$* o) {
 		var$2 = true;
 	}
 	bool var$1 = var$2;
-	bool var$0 = var$1 && $nc($of(this->key))->equals($($nc(e)->getKey()));
-	return var$0 && $nc($of(this->value))->equals($($nc(e)->getValue()));
+	bool var$0 = var$1 && $nc(this->key)->equals($($nc(e)->getKey()));
+	return var$0 && $nc(this->value)->equals($(e->getValue()));
 }
 
 int32_t KeyValueHolder::hashCode() {
-	int32_t var$0 = $nc($of(this->key))->hashCode();
-	return var$0 ^ $nc($of(this->value))->hashCode();
+	int32_t var$0 = $nc(this->key)->hashCode();
+	return var$0 ^ $nc(this->value)->hashCode();
 }
 
 $String* KeyValueHolder::toString() {
@@ -115,7 +60,52 @@ KeyValueHolder::KeyValueHolder() {
 }
 
 $Class* KeyValueHolder::load$($String* name, bool initialize) {
-	$loadClass(KeyValueHolder, name, initialize, &_KeyValueHolder_ClassInfo_, allocate$KeyValueHolder);
+	$CompoundAttribute keyfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute valuefieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/lang/Object;", "TK;", $FINAL, $field(KeyValueHolder, key), keyfieldAnnotations$$},
+		{"value", "Ljava/lang/Object;", "TV;", $FINAL, $field(KeyValueHolder, value), valuefieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", 0, $method(KeyValueHolder, init$, void, Object$*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeyValueHolder, equals, bool, Object$*)},
+		{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(KeyValueHolder, getKey, $Object*)},
+		{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(KeyValueHolder, getValue, $Object*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeyValueHolder, hashCode, int32_t)},
+		{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(KeyValueHolder, setValue, $Object*, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyValueHolder, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.KeyValueHolder",
+		"java.lang.Object",
+		"java.util.Map$Entry",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Map$Entry<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$
+	};
+	$loadClass(KeyValueHolder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyValueHolder);
+	});
 	return class$;
 }
 

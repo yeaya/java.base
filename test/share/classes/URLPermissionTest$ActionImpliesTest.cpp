@@ -1,9 +1,7 @@
 #include <URLPermissionTest$ActionImpliesTest.h>
-
 #include <URLPermissionTest$Test.h>
 #include <URLPermissionTest.h>
 #include <java/net/URLPermission.h>
-#include <java/security/Permission.h>
 #include <jcpp.h>
 
 using $URLPermissionTest$Test = ::URLPermissionTest$Test;
@@ -12,48 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URLPermission = ::java::net::URLPermission;
-using $Permission = ::java::security::Permission;
-
-$FieldInfo _URLPermissionTest$ActionImpliesTest_FieldInfo_[] = {
-	{"arg1", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$ActionImpliesTest, arg1)},
-	{"arg2", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$ActionImpliesTest, arg2)},
-	{"url1", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$ActionImpliesTest, url1)},
-	{"url2", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$ActionImpliesTest, url2)},
-	{}
-};
-
-$MethodInfo _URLPermissionTest$ActionImpliesTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(URLPermissionTest$ActionImpliesTest, init$, void, $String*, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(URLPermissionTest$ActionImpliesTest, init$, void, $String*, $String*, $String*, $String*, bool)},
-	{"execute", "()Z", nullptr, 0, $virtualMethod(URLPermissionTest$ActionImpliesTest, execute, bool)},
-	{}
-};
-
-$InnerClassInfo _URLPermissionTest$ActionImpliesTest_InnerClassesInfo_[] = {
-	{"URLPermissionTest$ActionImpliesTest", "URLPermissionTest", "ActionImpliesTest", $STATIC},
-	{"URLPermissionTest$Test", "URLPermissionTest", "Test", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _URLPermissionTest$ActionImpliesTest_ClassInfo_ = {
-	$ACC_SUPER,
-	"URLPermissionTest$ActionImpliesTest",
-	"URLPermissionTest$Test",
-	nullptr,
-	_URLPermissionTest$ActionImpliesTest_FieldInfo_,
-	_URLPermissionTest$ActionImpliesTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URLPermissionTest$ActionImpliesTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"URLPermissionTest"
-};
-
-$Object* allocate$URLPermissionTest$ActionImpliesTest($Class* clazz) {
-	return $of($alloc(URLPermissionTest$ActionImpliesTest));
-}
 
 void URLPermissionTest$ActionImpliesTest::init$($String* arg1, $String* arg2, bool expected) {
 	$URLPermissionTest$Test::init$();
@@ -76,7 +32,7 @@ void URLPermissionTest$ActionImpliesTest::init$($String* ur11, $String* url2, $S
 }
 
 bool URLPermissionTest$ActionImpliesTest::execute() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URLPermission, p1, $new($URLPermission, this->url1, this->arg1));
 	$var($URLPermission, p2, $new($URLPermission, this->url2, this->arg2));
 	bool result = p1->implies(p2);
@@ -87,7 +43,42 @@ URLPermissionTest$ActionImpliesTest::URLPermissionTest$ActionImpliesTest() {
 }
 
 $Class* URLPermissionTest$ActionImpliesTest::load$($String* name, bool initialize) {
-	$loadClass(URLPermissionTest$ActionImpliesTest, name, initialize, &_URLPermissionTest$ActionImpliesTest_ClassInfo_, allocate$URLPermissionTest$ActionImpliesTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"arg1", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$ActionImpliesTest, arg1)},
+		{"arg2", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$ActionImpliesTest, arg2)},
+		{"url1", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$ActionImpliesTest, url1)},
+		{"url2", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$ActionImpliesTest, url2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(URLPermissionTest$ActionImpliesTest, init$, void, $String*, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(URLPermissionTest$ActionImpliesTest, init$, void, $String*, $String*, $String*, $String*, bool)},
+		{"execute", "()Z", nullptr, 0, $virtualMethod(URLPermissionTest$ActionImpliesTest, execute, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"URLPermissionTest$ActionImpliesTest", "URLPermissionTest", "ActionImpliesTest", $STATIC},
+		{"URLPermissionTest$Test", "URLPermissionTest", "Test", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"URLPermissionTest$ActionImpliesTest",
+		"URLPermissionTest$Test",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"URLPermissionTest"
+	};
+	$loadClass(URLPermissionTest$ActionImpliesTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLPermissionTest$ActionImpliesTest);
+	});
 	return class$;
 }
 

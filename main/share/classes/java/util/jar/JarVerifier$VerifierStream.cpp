@@ -1,5 +1,4 @@
 #include <java/util/jar/JarVerifier$VerifierStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/util/Objects.h>
@@ -24,49 +23,6 @@ using $ManifestEntryVerifier = ::sun::security::util::ManifestEntryVerifier;
 namespace java {
 	namespace util {
 		namespace jar {
-
-$FieldInfo _JarVerifier$VerifierStream_FieldInfo_[] = {
-	{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(JarVerifier$VerifierStream, is)},
-	{"jv", "Ljava/util/jar/JarVerifier;", nullptr, $PRIVATE, $field(JarVerifier$VerifierStream, jv)},
-	{"mev", "Lsun/security/util/ManifestEntryVerifier;", nullptr, $PRIVATE, $field(JarVerifier$VerifierStream, mev)},
-	{"numLeft", "J", nullptr, $PRIVATE, $field(JarVerifier$VerifierStream, numLeft)},
-	{}
-};
-
-$MethodInfo _JarVerifier$VerifierStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/jar/Manifest;Ljava/util/jar/JarEntry;Ljava/io/InputStream;Ljava/util/jar/JarVerifier;)V", nullptr, 0, $method(JarVerifier$VerifierStream, init$, void, $Manifest*, $JarEntry*, $InputStream*, $JarVerifier*), "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, close, void), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(JarVerifier$VerifierStream, ensureOpen, void), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JarVerifier$VerifierStream_InnerClassesInfo_[] = {
-	{"java.util.jar.JarVerifier$VerifierStream", "java.util.jar.JarVerifier", "VerifierStream", $STATIC},
-	{}
-};
-
-$ClassInfo _JarVerifier$VerifierStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.jar.JarVerifier$VerifierStream",
-	"java.io.InputStream",
-	nullptr,
-	_JarVerifier$VerifierStream_FieldInfo_,
-	_JarVerifier$VerifierStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JarVerifier$VerifierStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.jar.JarVerifier"
-};
-
-$Object* allocate$JarVerifier$VerifierStream($Class* clazz) {
-	return $of($alloc(JarVerifier$VerifierStream));
-}
 
 void JarVerifier$VerifierStream::init$($Manifest* man, $JarEntry* je, $InputStream* is, $JarVerifier* jv) {
 	$InputStream::init$();
@@ -115,7 +71,7 @@ int32_t JarVerifier$VerifierStream::read($bytes* b, int32_t off, int32_t len) {
 
 void JarVerifier$VerifierStream::close() {
 	if (this->is != nullptr) {
-		$nc(this->is)->close();
+		this->is->close();
 	}
 	$set(this, is, nullptr);
 	$set(this, mev, nullptr);
@@ -137,7 +93,44 @@ JarVerifier$VerifierStream::JarVerifier$VerifierStream() {
 }
 
 $Class* JarVerifier$VerifierStream::load$($String* name, bool initialize) {
-	$loadClass(JarVerifier$VerifierStream, name, initialize, &_JarVerifier$VerifierStream_ClassInfo_, allocate$JarVerifier$VerifierStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(JarVerifier$VerifierStream, is)},
+		{"jv", "Ljava/util/jar/JarVerifier;", nullptr, $PRIVATE, $field(JarVerifier$VerifierStream, jv)},
+		{"mev", "Lsun/security/util/ManifestEntryVerifier;", nullptr, $PRIVATE, $field(JarVerifier$VerifierStream, mev)},
+		{"numLeft", "J", nullptr, $PRIVATE, $field(JarVerifier$VerifierStream, numLeft)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/jar/Manifest;Ljava/util/jar/JarEntry;Ljava/io/InputStream;Ljava/util/jar/JarVerifier;)V", nullptr, 0, $method(JarVerifier$VerifierStream, init$, void, $Manifest*, $JarEntry*, $InputStream*, $JarVerifier*), "java.io.IOException"},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, close, void), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(JarVerifier$VerifierStream, ensureOpen, void), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.jar.JarVerifier$VerifierStream", "java.util.jar.JarVerifier", "VerifierStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.jar.JarVerifier$VerifierStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.jar.JarVerifier"
+	};
+	$loadClass(JarVerifier$VerifierStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarVerifier$VerifierStream);
+	});
 	return class$;
 }
 

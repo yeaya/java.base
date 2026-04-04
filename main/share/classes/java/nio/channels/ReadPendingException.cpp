@@ -1,5 +1,4 @@
 #include <java/nio/channels/ReadPendingException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _ReadPendingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReadPendingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ReadPendingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadPendingException, init$, void)},
-	{}
-};
-
-$ClassInfo _ReadPendingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.ReadPendingException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_ReadPendingException_FieldInfo_,
-	_ReadPendingException_MethodInfo_
-};
-
-$Object* allocate$ReadPendingException($Class* clazz) {
-	return $of($alloc(ReadPendingException));
-}
 
 void ReadPendingException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void ReadPendingException::throw$() {
 }
 
 $Class* ReadPendingException::load$($String* name, bool initialize) {
-	$loadClass(ReadPendingException, name, initialize, &_ReadPendingException_ClassInfo_, allocate$ReadPendingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReadPendingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReadPendingException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.ReadPendingException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReadPendingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReadPendingException);
+	});
 	return class$;
 }
 

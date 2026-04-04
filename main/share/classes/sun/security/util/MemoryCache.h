@@ -39,6 +39,7 @@ class MemoryCache : public ::sun::security::util::Cache {
 	$class(MemoryCache, 0, ::sun::security::util::Cache)
 public:
 	MemoryCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool soft, int32_t maxSize);
 	void init$(bool soft, int32_t maxSize, int32_t lifetime);
 	virtual void accept(::sun::security::util::Cache$CacheVisitor* visitor) override;

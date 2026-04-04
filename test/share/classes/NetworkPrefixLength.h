@@ -15,6 +15,7 @@ class $export NetworkPrefixLength : public ::java::lang::Object {
 	$class(NetworkPrefixLength, 0, ::java::lang::Object)
 public:
 	NetworkPrefixLength();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool checkIPv4PrefixLength(int32_t prefix);
 	static bool checkIPv6PrefixLength(int32_t prefix);

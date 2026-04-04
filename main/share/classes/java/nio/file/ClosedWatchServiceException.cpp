@@ -1,5 +1,4 @@
 #include <java/nio/file/ClosedWatchServiceException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _ClosedWatchServiceException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ClosedWatchServiceException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ClosedWatchServiceException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedWatchServiceException, init$, void)},
-	{}
-};
-
-$ClassInfo _ClosedWatchServiceException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.ClosedWatchServiceException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_ClosedWatchServiceException_FieldInfo_,
-	_ClosedWatchServiceException_MethodInfo_
-};
-
-$Object* allocate$ClosedWatchServiceException($Class* clazz) {
-	return $of($alloc(ClosedWatchServiceException));
-}
 
 void ClosedWatchServiceException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void ClosedWatchServiceException::throw$() {
 }
 
 $Class* ClosedWatchServiceException::load$($String* name, bool initialize) {
-	$loadClass(ClosedWatchServiceException, name, initialize, &_ClosedWatchServiceException_ClassInfo_, allocate$ClosedWatchServiceException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ClosedWatchServiceException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedWatchServiceException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.ClosedWatchServiceException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClosedWatchServiceException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClosedWatchServiceException);
+	});
 	return class$;
 }
 

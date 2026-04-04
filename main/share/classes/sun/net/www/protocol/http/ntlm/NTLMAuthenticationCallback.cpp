@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback.h>
-
 #include <java/net/URL.h>
 #include <jcpp.h>
 
@@ -14,32 +13,6 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 					namespace ntlm {
-
-$FieldInfo _NTLMAuthenticationCallback_FieldInfo_[] = {
-	{"callback", "Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(NTLMAuthenticationCallback, callback)},
-	{}
-};
-
-$MethodInfo _NTLMAuthenticationCallback_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NTLMAuthenticationCallback, init$, void)},
-	{"getNTLMAuthenticationCallback", "()Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthenticationCallback, getNTLMAuthenticationCallback, NTLMAuthenticationCallback*)},
-	{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NTLMAuthenticationCallback, isTrustedSite, bool, $URL*)},
-	{"setNTLMAuthenticationCallback", "(Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthenticationCallback, setNTLMAuthenticationCallback, void, NTLMAuthenticationCallback*)},
-	{}
-};
-
-$ClassInfo _NTLMAuthenticationCallback_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.net.www.protocol.http.ntlm.NTLMAuthenticationCallback",
-	"java.lang.Object",
-	nullptr,
-	_NTLMAuthenticationCallback_FieldInfo_,
-	_NTLMAuthenticationCallback_MethodInfo_
-};
-
-$Object* allocate$NTLMAuthenticationCallback($Class* clazz) {
-	return $of($alloc(NTLMAuthenticationCallback));
-}
 
 $volatile(NTLMAuthenticationCallback*) NTLMAuthenticationCallback::callback = nullptr;
 
@@ -60,7 +33,28 @@ NTLMAuthenticationCallback::NTLMAuthenticationCallback() {
 }
 
 $Class* NTLMAuthenticationCallback::load$($String* name, bool initialize) {
-	$loadClass(NTLMAuthenticationCallback, name, initialize, &_NTLMAuthenticationCallback_ClassInfo_, allocate$NTLMAuthenticationCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"callback", "Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(NTLMAuthenticationCallback, callback)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NTLMAuthenticationCallback, init$, void)},
+		{"getNTLMAuthenticationCallback", "()Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthenticationCallback, getNTLMAuthenticationCallback, NTLMAuthenticationCallback*)},
+		{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NTLMAuthenticationCallback, isTrustedSite, bool, $URL*)},
+		{"setNTLMAuthenticationCallback", "(Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthenticationCallback, setNTLMAuthenticationCallback, void, NTLMAuthenticationCallback*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.net.www.protocol.http.ntlm.NTLMAuthenticationCallback",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NTLMAuthenticationCallback, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NTLMAuthenticationCallback);
+	});
 	return class$;
 }
 

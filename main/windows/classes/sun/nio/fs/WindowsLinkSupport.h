@@ -28,6 +28,7 @@ class WindowsLinkSupport : public ::java::lang::Object {
 	$class(WindowsLinkSupport, 0, ::java::lang::Object)
 public:
 	WindowsLinkSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getFinalPath(::sun::nio::fs::WindowsPath* input);
 	static $String* getFinalPath(::sun::nio::fs::WindowsPath* input, bool followLinks);

@@ -1,5 +1,4 @@
 #include <Latin1Digit.h>
-
 #include <jcpp.h>
 
 #undef MAX_RADIX
@@ -12,27 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _Latin1Digit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Latin1Digit, init$, void)},
-	{"canonicalDigit", "(II)I", nullptr, $STATIC, $staticMethod(Latin1Digit, canonicalDigit, int32_t, int32_t, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Latin1Digit, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(II)V", nullptr, $STATIC, $staticMethod(Latin1Digit, test, void, int32_t, int32_t), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Latin1Digit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Latin1Digit",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Latin1Digit_MethodInfo_
-};
-
-$Object* allocate$Latin1Digit($Class* clazz) {
-	return $of($alloc(Latin1Digit));
-}
 
 void Latin1Digit::init$() {
 }
@@ -48,7 +26,7 @@ void Latin1Digit::main($StringArray* args) {
 }
 
 void Latin1Digit::test(int32_t ch, int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t d1 = $Character::digit(ch, radix);
 	int32_t d2 = canonicalDigit(ch, radix);
 	if (d1 != d2) {
@@ -76,7 +54,24 @@ Latin1Digit::Latin1Digit() {
 }
 
 $Class* Latin1Digit::load$($String* name, bool initialize) {
-	$loadClass(Latin1Digit, name, initialize, &_Latin1Digit_ClassInfo_, allocate$Latin1Digit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Latin1Digit, init$, void)},
+		{"canonicalDigit", "(II)I", nullptr, $STATIC, $staticMethod(Latin1Digit, canonicalDigit, int32_t, int32_t, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Latin1Digit, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(II)V", nullptr, $STATIC, $staticMethod(Latin1Digit, test, void, int32_t, int32_t), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Latin1Digit",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Latin1Digit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Latin1Digit);
+	});
 	return class$;
 }
 

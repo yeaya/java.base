@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalAccessException.h>
@@ -87,11 +86,9 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $BoundMethodHandle = ::java::lang::invoke::BoundMethodHandle;
 using $DirectMethodHandle = ::java::lang::invoke::DirectMethodHandle;
 using $InfoFromMemberName = ::java::lang::invoke::InfoFromMemberName;
 using $MemberName = ::java::lang::invoke::MemberName;
-using $MemberName$Factory = ::java::lang::invoke::MemberName$Factory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
 using $MethodHandleInfo = ::java::lang::invoke::MethodHandleInfo;
@@ -109,12 +106,10 @@ using $Constructor = ::java::lang::reflect::Constructor;
 using $Field = ::java::lang::reflect::Field;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
-using $Permission = ::java::security::Permission;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
-using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $VM = ::jdk::internal::misc::VM;
@@ -126,156 +121,6 @@ using $SecurityConstants = ::sun::security::util::SecurityConstants;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$NamedAttribute MethodHandles$Lookup_Attribute_var$0[] = {
-	{"since", 's', "14"},
-	{}
-};
-
-$CompoundAttribute _MethodHandles$Lookup_MethodAnnotations_hasPrivateAccess51[] = {
-	{"Ljava/lang/Deprecated;", MethodHandles$Lookup_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _MethodHandles$Lookup_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandles$Lookup, $assertionsDisabled)},
-	{"lookupClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodHandles$Lookup, lookupClass$)},
-	{"prevLookupClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodHandles$Lookup, prevLookupClass)},
-	{"allowedModes", "I", nullptr, $PRIVATE | $FINAL, $field(MethodHandles$Lookup, allowedModes)},
-	{"PUBLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, PUBLIC)},
-	{"PRIVATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, PRIVATE)},
-	{"PROTECTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, PROTECTED)},
-	{"PACKAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, PACKAGE)},
-	{"MODULE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, MODULE)},
-	{"UNCONDITIONAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, UNCONDITIONAL)},
-	{"ORIGINAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, ORIGINAL)},
-	{"ALL_MODES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodHandles$Lookup, ALL_MODES)},
-	{"FULL_POWER_MODES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodHandles$Lookup, FULL_POWER_MODES)},
-	{"TRUSTED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodHandles$Lookup, TRUSTED)},
-	{"cachedProtectionDomain", "Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $VOLATILE, $field(MethodHandles$Lookup, cachedProtectionDomain)},
-	{"IMPL_LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC | $FINAL, $staticField(MethodHandles$Lookup, IMPL_LOOKUP)},
-	{"PUBLIC_LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC | $FINAL, $staticField(MethodHandles$Lookup, PUBLIC_LOOKUP)},
-	{"LOOKASIDE_TABLE", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/invoke/MemberName;Ljava/lang/invoke/DirectMethodHandle;>;", $STATIC, $staticField(MethodHandles$Lookup, LOOKASIDE_TABLE)},
-	{}
-};
-
-$MethodInfo _MethodHandles$Lookup_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MethodHandles$Lookup, init$, void, $Class*)},
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)V", $PRIVATE, $method(MethodHandles$Lookup, init$, void, $Class*, $Class*, int32_t)},
-	{"accessClass", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, accessClass, $Class*, $Class*), "java.lang.IllegalAccessException"},
-	{"accessFailedMessage", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/String;", 0, $method(MethodHandles$Lookup, accessFailedMessage, $String*, $Class*, $MemberName*)},
-	{"bind", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, bind, $MethodHandle*, Object$*, $String*, $MethodType*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
-	{"canBeCached", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)Z", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Z", $PRIVATE, $method(MethodHandles$Lookup, canBeCached, bool, int8_t, $Class*, $MemberName*)},
-	{"checkAccess", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)V", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)V", 0, $method(MethodHandles$Lookup, checkAccess, void, int8_t, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
-	{"checkField", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)V", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)V", 0, $method(MethodHandles$Lookup, checkField, void, int8_t, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
-	{"checkMethod", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)V", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)V", 0, $method(MethodHandles$Lookup, checkMethod, void, int8_t, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
-	{"checkMethodName", "(BLjava/lang/String;)V", nullptr, 0, $method(MethodHandles$Lookup, checkMethodName, void, int8_t, $String*), "java.lang.NoSuchMethodException"},
-	{"checkSecurityManager", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MethodHandles$Lookup, checkSecurityManager, void, $Class*)},
-	{"checkSecurityManager", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)V", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)V", 0, $method(MethodHandles$Lookup, checkSecurityManager, void, $Class*, $MemberName*)},
-	{"checkSpecialCaller", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE, $method(MethodHandles$Lookup, checkSpecialCaller, void, $Class*, $Class*), "java.lang.IllegalAccessException"},
-	{"checkSymbolicClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MethodHandles$Lookup, checkSymbolicClass, void, $Class*), "java.lang.IllegalAccessException"},
-	{"checkUnprivilegedlookupClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(MethodHandles$Lookup, checkUnprivilegedlookupClass, void, $Class*)},
-	{"defineClass", "([B)Ljava/lang/Class;", "([B)Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, defineClass, $Class*, $bytes*), "java.lang.IllegalAccessException"},
-	{"defineHiddenClass", "([BZ[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $TRANSIENT, $method(MethodHandles$Lookup, defineHiddenClass, MethodHandles$Lookup*, $bytes*, bool, $MethodHandles$Lookup$ClassOptionArray*), "java.lang.IllegalAccessException"},
-	{"defineHiddenClassWithClassData", "([BLjava/lang/Object;Z[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $TRANSIENT, $method(MethodHandles$Lookup, defineHiddenClassWithClassData, MethodHandles$Lookup*, $bytes*, Object$*, bool, $MethodHandles$Lookup$ClassOptionArray*), "java.lang.IllegalAccessException"},
-	{"dropLookupMode", "(I)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, dropLookupMode, MethodHandles$Lookup*, int32_t)},
-	{"ensureDefineClassPermission", "()V", nullptr, $PRIVATE, $method(MethodHandles$Lookup, ensureDefineClassPermission, void)},
-	{"ensureInitialized", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, ensureInitialized, $Class*, $Class*), "java.lang.IllegalAccessException"},
-	{"findBoundCallerLookup", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, 0, $method(MethodHandles$Lookup, findBoundCallerLookup, MethodHandles$Lookup*, $MemberName*), "java.lang.IllegalAccessException"},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, findClass, $Class*, $String*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException"},
-	{"findConstructor", "(Ljava/lang/Class;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findConstructor, $MethodHandle*, $Class*, $MethodType*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
-	{"findGetter", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findGetter, $MethodHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
-	{"findSetter", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findSetter, $MethodHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
-	{"findSpecial", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findSpecial, $MethodHandle*, $Class*, $String*, $MethodType*, $Class*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
-	{"findStatic", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findStatic, $MethodHandle*, $Class*, $String*, $MethodType*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
-	{"findStaticGetter", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findStaticGetter, $MethodHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
-	{"findStaticSetter", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findStaticSetter, $MethodHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
-	{"findStaticVarHandle", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC, $method(MethodHandles$Lookup, findStaticVarHandle, $VarHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
-	{"findVarHandle", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC, $method(MethodHandles$Lookup, findVarHandle, $VarHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
-	{"findVirtual", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findVirtual, $MethodHandle*, $Class*, $String*, $MethodType*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
-	{"findVirtualForMH", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, findVirtualForMH, $MethodHandle*, $String*, $MethodType*)},
-	{"findVirtualForVH", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, findVirtualForVH, $MethodHandle*, $String*, $MethodType*)},
-	{"fixmods", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles$Lookup, fixmods, int32_t, int32_t)},
-	{"getDirectConstructor", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectConstructor, $MethodHandle*, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
-	{"getDirectConstructorCommon", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectConstructorCommon, $MethodHandle*, $Class*, $MemberName*, bool), "java.lang.IllegalAccessException"},
-	{"getDirectConstructorNoSecurityManager", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectConstructorNoSecurityManager, $MethodHandle*, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
-	{"getDirectField", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectField, $MethodHandle*, int8_t, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
-	{"getDirectFieldCommon", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectFieldCommon, $MethodHandle*, int8_t, $Class*, $MemberName*, bool), "java.lang.IllegalAccessException"},
-	{"getDirectFieldNoSecurityManager", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectFieldNoSecurityManager, $MethodHandle*, int8_t, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
-	{"getDirectMethod", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectMethod, $MethodHandle*, int8_t, $Class*, $MemberName*, MethodHandles$Lookup*), "java.lang.IllegalAccessException"},
-	{"getDirectMethodCommon", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;ZZLjava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;ZZLjava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectMethodCommon, $MethodHandle*, int8_t, $Class*, $MemberName*, bool, bool, MethodHandles$Lookup*), "java.lang.IllegalAccessException"},
-	{"getDirectMethodForConstant", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectMethodForConstant, $MethodHandle*, int8_t, $Class*, $MemberName*), "java.lang.ReflectiveOperationException"},
-	{"getDirectMethodNoRestrictInvokeSpecial", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectMethodNoRestrictInvokeSpecial, $MethodHandle*, $Class*, $MemberName*, MethodHandles$Lookup*), "java.lang.IllegalAccessException"},
-	{"getDirectMethodNoSecurityManager", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectMethodNoSecurityManager, $MethodHandle*, int8_t, $Class*, $MemberName*, MethodHandles$Lookup*), "java.lang.IllegalAccessException"},
-	{"getFieldVarHandle", "(BBLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/VarHandle;", "(BBLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/VarHandle;", $PRIVATE, $method(MethodHandles$Lookup, getFieldVarHandle, $VarHandle*, int8_t, int8_t, $Class*, $MemberName*, $MemberName*), "java.lang.IllegalAccessException"},
-	{"getFieldVarHandleCommon", "(BBLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/VarHandle;", "(BBLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/VarHandle;", $PRIVATE, $method(MethodHandles$Lookup, getFieldVarHandleCommon, $VarHandle*, int8_t, int8_t, $Class*, $MemberName*, $MemberName*, bool), "java.lang.IllegalAccessException"},
-	{"getFieldVarHandleNoSecurityManager", "(BBLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/VarHandle;", "(BBLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/VarHandle;", $PRIVATE, $method(MethodHandles$Lookup, getFieldVarHandleNoSecurityManager, $VarHandle*, int8_t, int8_t, $Class*, $MemberName*, $MemberName*), "java.lang.IllegalAccessException"},
-	{"hasFullPrivilegeAccess", "()Z", nullptr, $PUBLIC, $method(MethodHandles$Lookup, hasFullPrivilegeAccess, bool)},
-	{"hasPrivateAccess", "()Z", nullptr, $PUBLIC | $DEPRECATED, $method(MethodHandles$Lookup, hasPrivateAccess, bool), nullptr, nullptr, _MethodHandles$Lookup_MethodAnnotations_hasPrivateAccess51},
-	{"in", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandles$Lookup;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandles$Lookup;", $PUBLIC, $method(MethodHandles$Lookup, in, MethodHandles$Lookup*, $Class*)},
-	{"isClassAccessible", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", 0, $method(MethodHandles$Lookup, isClassAccessible, bool, $Class*)},
-	{"linkMethodHandleConstant", "(BLjava/lang/Class;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", 0, $method(MethodHandles$Lookup, linkMethodHandleConstant, $MethodHandle*, int8_t, $Class*, $String*, Object$*), "java.lang.ReflectiveOperationException"},
-	{"lookupClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, lookupClass, $Class*)},
-	{"lookupClassOrNull", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(MethodHandles$Lookup, lookupClassOrNull, $Class*)},
-	{"lookupClassProtectionDomain", "()Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, lookupClassProtectionDomain, $ProtectionDomain*)},
-	{"lookupModes", "()I", nullptr, $PUBLIC, $method(MethodHandles$Lookup, lookupModes, int32_t)},
-	{"makeAccessException", "(Ljava/lang/Class;)Ljava/lang/IllegalAccessException;", "(Ljava/lang/Class<*>;)Ljava/lang/IllegalAccessException;", $PRIVATE, $method(MethodHandles$Lookup, makeAccessException, $IllegalAccessException*, $Class*)},
-	{"makeClassDefiner", "([B)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, makeClassDefiner, $MethodHandles$Lookup$ClassDefiner*, $bytes*)},
-	{"makeHiddenClassDefiner", "([B)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", nullptr, 0, $method(MethodHandles$Lookup, makeHiddenClassDefiner, $MethodHandles$Lookup$ClassDefiner*, $bytes*)},
-	{"makeHiddenClassDefiner", "([BLjava/util/Set;Z)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", "([BLjava/util/Set<Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;>;Z)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", 0, $method(MethodHandles$Lookup, makeHiddenClassDefiner, $MethodHandles$Lookup$ClassDefiner*, $bytes*, $Set*, bool)},
-	{"makeHiddenClassDefiner", "(Ljava/lang/String;[B)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", nullptr, 0, $method(MethodHandles$Lookup, makeHiddenClassDefiner, $MethodHandles$Lookup$ClassDefiner*, $String*, $bytes*)},
-	{"makeHiddenClassDefiner", "(Ljava/lang/invoke/MethodHandles$Lookup$ClassFile;Ljava/util/Set;Z)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", "(Ljava/lang/invoke/MethodHandles$Lookup$ClassFile;Ljava/util/Set<Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;>;Z)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", $PRIVATE, $method(MethodHandles$Lookup, makeHiddenClassDefiner, $MethodHandles$Lookup$ClassDefiner*, $MethodHandles$Lookup$ClassFile*, $Set*, bool)},
-	{"maybeBindCaller", "(Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, maybeBindCaller, $MethodHandle*, $MemberName*, $MethodHandle*, MethodHandles$Lookup*), "java.lang.IllegalAccessException"},
-	{"newLookup", "(Ljava/lang/Class;Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandles$Lookup;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandles$Lookup;", $PRIVATE | $STATIC, $staticMethod(MethodHandles$Lookup, newLookup, MethodHandles$Lookup*, $Class*, $Class*, int32_t)},
-	{"previousLookupClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, previousLookupClass, $Class*)},
-	{"resolveOrFail", "(BLjava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MemberName;", "(BLjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MemberName;", 0, $method(MethodHandles$Lookup, resolveOrFail, $MemberName*, int8_t, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
-	{"resolveOrFail", "(BLjava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", "(BLjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", 0, $method(MethodHandles$Lookup, resolveOrFail, $MemberName*, int8_t, $Class*, $String*, $MethodType*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
-	{"resolveOrFail", "(BLjava/lang/invoke/MemberName;)Ljava/lang/invoke/MemberName;", nullptr, 0, $method(MethodHandles$Lookup, resolveOrFail, $MemberName*, int8_t, $MemberName*), "java.lang.ReflectiveOperationException"},
-	{"resolveOrNull", "(BLjava/lang/invoke/MemberName;)Ljava/lang/invoke/MemberName;", nullptr, 0, $method(MethodHandles$Lookup, resolveOrNull, $MemberName*, int8_t, $MemberName*)},
-	{"resolveOrNull", "(BLjava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", "(BLjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", 0, $method(MethodHandles$Lookup, resolveOrNull, $MemberName*, int8_t, $Class*, $String*, $MethodType*)},
-	{"restrictProtectedReceiver", "(Ljava/lang/invoke/MemberName;)Z", nullptr, $PRIVATE, $method(MethodHandles$Lookup, restrictProtectedReceiver, bool, $MemberName*)},
-	{"restrictReceiver", "(Ljava/lang/invoke/MemberName;Ljava/lang/invoke/DirectMethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MemberName;Ljava/lang/invoke/DirectMethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, restrictReceiver, $MethodHandle*, $MemberName*, $DirectMethodHandle*, $Class*), "java.lang.IllegalAccessException"},
-	{"revealDirect", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandleInfo;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, revealDirect, $MethodHandleInfo*, $MethodHandle*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodHandles$Lookup, toString, $String*)},
-	{"unreflect", "(Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, unreflect, $MethodHandle*, $Method*), "java.lang.IllegalAccessException"},
-	{"unreflectConstructor", "(Ljava/lang/reflect/Constructor;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/reflect/Constructor<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, unreflectConstructor, $MethodHandle*, $Constructor*), "java.lang.IllegalAccessException"},
-	{"unreflectField", "(Ljava/lang/reflect/Field;Z)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, unreflectField, $MethodHandle*, $Field*, bool), "java.lang.IllegalAccessException"},
-	{"unreflectForMH", "(Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, unreflectForMH, $MethodHandle*, $Method*)},
-	{"unreflectForVH", "(Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, unreflectForVH, $MethodHandle*, $Method*)},
-	{"unreflectGetter", "(Ljava/lang/reflect/Field;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, unreflectGetter, $MethodHandle*, $Field*), "java.lang.IllegalAccessException"},
-	{"unreflectSetter", "(Ljava/lang/reflect/Field;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, unreflectSetter, $MethodHandle*, $Field*), "java.lang.IllegalAccessException"},
-	{"unreflectSpecial", "(Ljava/lang/reflect/Method;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/reflect/Method;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, unreflectSpecial, $MethodHandle*, $Method*, $Class*), "java.lang.IllegalAccessException"},
-	{"unreflectVarHandle", "(Ljava/lang/reflect/Field;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, unreflectVarHandle, $VarHandle*, $Field*), "java.lang.IllegalAccessException"},
-	{}
-};
-
-$InnerClassInfo _MethodHandles$Lookup_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodHandles$Lookup", "java.lang.invoke.MethodHandles", "Lookup", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.invoke.MethodHandles$Lookup$ClassDefiner", "java.lang.invoke.MethodHandles$Lookup", "ClassDefiner", $STATIC},
-	{"java.lang.invoke.MethodHandles$Lookup$ClassFile", "java.lang.invoke.MethodHandles$Lookup", "ClassFile", $STATIC},
-	{"java.lang.invoke.MethodHandles$Lookup$ClassOption", "java.lang.invoke.MethodHandles$Lookup", "ClassOption", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MethodHandles$Lookup_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.invoke.MethodHandles$Lookup",
-	"java.lang.Object",
-	nullptr,
-	_MethodHandles$Lookup_FieldInfo_,
-	_MethodHandles$Lookup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodHandles$Lookup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodHandles"
-};
-
-$Object* allocate$MethodHandles$Lookup($Class* clazz) {
-	return $of($alloc(MethodHandles$Lookup));
-}
 
 bool MethodHandles$Lookup::$assertionsDisabled = false;
 MethodHandles$Lookup* MethodHandles$Lookup::IMPL_LOOKUP = nullptr;
@@ -304,7 +149,7 @@ $Class* MethodHandles$Lookup::lookupClassOrNull() {
 }
 
 int32_t MethodHandles$Lookup::lookupModes() {
-	return (int32_t)(this->allowedModes & (uint32_t)MethodHandles$Lookup::ALL_MODES);
+	return this->allowedModes & MethodHandles$Lookup::ALL_MODES;
 }
 
 void MethodHandles$Lookup::init$($Class* lookupClass) {
@@ -316,11 +161,11 @@ void MethodHandles$Lookup::init$($Class* lookupClass, $Class* prevLookupClass, i
 	if (var$0) {
 		bool var$1 = prevLookupClass == nullptr;
 		if (!var$1) {
-			bool var$2 = ((int32_t)(allowedModes & (uint32_t)MethodHandles$Lookup::MODULE)) == 0;
+			bool var$2 = (allowedModes & MethodHandles$Lookup::MODULE) == 0;
 			if (var$2) {
-				var$2 = $nc(prevLookupClass)->getModule() != $nc(lookupClass)->getModule();
+				var$2 = prevLookupClass->getModule() != $nc(lookupClass)->getModule();
 			}
-			var$1 = (var$2);
+			var$1 = var$2;
 		}
 		var$0 = !var$1;
 	}
@@ -347,7 +192,7 @@ MethodHandles$Lookup* MethodHandles$Lookup::newLookup($Class* lookupClass, $Clas
 }
 
 MethodHandles$Lookup* MethodHandles$Lookup::in($Class* requestedLookupClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(requestedLookupClass);
 	if (requestedLookupClass->isPrimitive()) {
 		$throwNew($IllegalArgumentException, $$str({requestedLookupClass, " is a primitive class"_s}));
@@ -361,11 +206,11 @@ MethodHandles$Lookup* MethodHandles$Lookup::in($Class* requestedLookupClass) {
 	if (requestedLookupClass == this->lookupClass$) {
 		return this;
 	}
-	int32_t newModes = (int32_t)(((int32_t)(this->allowedModes & (uint32_t)MethodHandles$Lookup::FULL_POWER_MODES)) & (uint32_t)~MethodHandles$Lookup::ORIGINAL);
+	int32_t newModes = (this->allowedModes & MethodHandles$Lookup::FULL_POWER_MODES) & ~MethodHandles$Lookup::ORIGINAL;
 	$var($Module, fromModule, $nc(this->lookupClass$)->getModule());
 	$var($Module, targetModule, requestedLookupClass->getModule());
 	$Class* plc = this->previousLookupClass();
-	if (((int32_t)(this->allowedModes & (uint32_t)MethodHandles$Lookup::UNCONDITIONAL)) != 0) {
+	if ((this->allowedModes & MethodHandles$Lookup::UNCONDITIONAL) != 0) {
 		if (!MethodHandles$Lookup::$assertionsDisabled && !(plc == nullptr)) {
 			$throwNew($AssertionError);
 		}
@@ -377,52 +222,39 @@ MethodHandles$Lookup* MethodHandles$Lookup::in($Class* requestedLookupClass) {
 		newModes &= (uint32_t)~(((MethodHandles$Lookup::MODULE | MethodHandles$Lookup::PACKAGE) | MethodHandles$Lookup::PRIVATE) | MethodHandles$Lookup::PROTECTED);
 		plc = this->lookupClass$;
 	}
-	if (((int32_t)(newModes & (uint32_t)MethodHandles$Lookup::PACKAGE)) != 0 && !$VerifyAccess::isSamePackage(this->lookupClass$, requestedLookupClass)) {
+	if ((newModes & MethodHandles$Lookup::PACKAGE) != 0 && !$VerifyAccess::isSamePackage(this->lookupClass$, requestedLookupClass)) {
 		newModes &= (uint32_t)~((MethodHandles$Lookup::PACKAGE | MethodHandles$Lookup::PRIVATE) | MethodHandles$Lookup::PROTECTED);
 	}
-	if (((int32_t)(newModes & (uint32_t)MethodHandles$Lookup::PRIVATE)) != 0 && !$VerifyAccess::isSamePackageMember(this->lookupClass$, requestedLookupClass)) {
+	if ((newModes & MethodHandles$Lookup::PRIVATE) != 0 && !$VerifyAccess::isSamePackageMember(this->lookupClass$, requestedLookupClass)) {
 		newModes &= (uint32_t)~(MethodHandles$Lookup::PRIVATE | MethodHandles$Lookup::PROTECTED);
 	}
-	if (((int32_t)(newModes & (uint32_t)(MethodHandles$Lookup::PUBLIC | MethodHandles$Lookup::UNCONDITIONAL))) != 0 && !$VerifyAccess::isClassAccessible(requestedLookupClass, this->lookupClass$, this->prevLookupClass, this->allowedModes)) {
+	if ((newModes & (MethodHandles$Lookup::PUBLIC | MethodHandles$Lookup::UNCONDITIONAL)) != 0 && !$VerifyAccess::isClassAccessible(requestedLookupClass, this->lookupClass$, this->prevLookupClass, this->allowedModes)) {
 		newModes = 0;
 	}
 	return newLookup(requestedLookupClass, plc, newModes);
 }
 
 MethodHandles$Lookup* MethodHandles$Lookup::dropLookupMode(int32_t modeToDrop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldModes = lookupModes();
-	int32_t newModes = (int32_t)(oldModes & (uint32_t)~((modeToDrop | MethodHandles$Lookup::PROTECTED) | MethodHandles$Lookup::ORIGINAL));
+	int32_t newModes = oldModes & ~((modeToDrop | MethodHandles$Lookup::PROTECTED) | MethodHandles$Lookup::ORIGINAL);
 	switch (modeToDrop) {
 	case MethodHandles$Lookup::PUBLIC:
-		{
-			newModes &= (uint32_t)~(MethodHandles$Lookup::FULL_POWER_MODES);
-			break;
-		}
+		newModes &= (uint32_t)~(MethodHandles$Lookup::FULL_POWER_MODES);
+		break;
 	case MethodHandles$Lookup::MODULE:
-		{
-			newModes &= (uint32_t)~(MethodHandles$Lookup::PACKAGE | MethodHandles$Lookup::PRIVATE);
-			break;
-		}
+		newModes &= (uint32_t)~(MethodHandles$Lookup::PACKAGE | MethodHandles$Lookup::PRIVATE);
+		break;
 	case MethodHandles$Lookup::PACKAGE:
-		{
-			newModes &= (uint32_t)~(MethodHandles$Lookup::PRIVATE);
-			break;
-		}
+		newModes &= (uint32_t)~(MethodHandles$Lookup::PRIVATE);
+		break;
 	case MethodHandles$Lookup::PROTECTED:
-		{}
 	case MethodHandles$Lookup::PRIVATE:
-		{}
 	case MethodHandles$Lookup::ORIGINAL:
-		{}
 	case MethodHandles$Lookup::UNCONDITIONAL:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({$$str(modeToDrop), " is not a valid mode to drop"_s}));
-		}
+		$throwNew($IllegalArgumentException, $$str({$$str(modeToDrop), " is not a valid mode to drop"_s}));
 	}
 	if (newModes == oldModes) {
 		return this;
@@ -432,16 +264,16 @@ MethodHandles$Lookup* MethodHandles$Lookup::dropLookupMode(int32_t modeToDrop) {
 }
 
 $Class* MethodHandles$Lookup::defineClass($bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureDefineClassPermission();
-	if (((int32_t)(lookupModes() & (uint32_t)MethodHandles$Lookup::PACKAGE)) == 0) {
+	if ((lookupModes() & MethodHandles$Lookup::PACKAGE) == 0) {
 		$throwNew($IllegalAccessException, "Lookup does not have PACKAGE access"_s);
 	}
-	return $nc($(makeClassDefiner($cast($bytes, $($nc(bytes)->clone())))))->defineClass(false);
+	return $$nc(makeClassDefiner($$cast($bytes, $nc(bytes)->clone())))->defineClass(false);
 }
 
 void MethodHandles$Lookup::ensureDefineClassPermission() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->allowedModes == MethodHandles$Lookup::TRUSTED) {
 		return;
 	}
@@ -454,7 +286,7 @@ void MethodHandles$Lookup::ensureDefineClassPermission() {
 }
 
 MethodHandles$Lookup* MethodHandles$Lookup::defineHiddenClass($bytes* bytes, bool initialize, $MethodHandles$Lookup$ClassOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(bytes);
 	$Objects::requireNonNull(options);
 	ensureDefineClassPermission();
@@ -462,11 +294,11 @@ MethodHandles$Lookup* MethodHandles$Lookup::defineHiddenClass($bytes* bytes, boo
 		$throwNew($IllegalAccessException, $$str({this, " does not have full privilege access"_s}));
 	}
 	$var($bytes, var$0, $cast($bytes, bytes->clone()));
-	return $nc($(makeHiddenClassDefiner(var$0, $($Set::of(options)), false)))->defineClassAsLookup(initialize);
+	return $$nc(makeHiddenClassDefiner(var$0, $($Set::of(options)), false))->defineClassAsLookup(initialize);
 }
 
 MethodHandles$Lookup* MethodHandles$Lookup::defineHiddenClassWithClassData($bytes* bytes, Object$* classData, bool initialize, $MethodHandles$Lookup$ClassOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(bytes);
 	$Objects::requireNonNull(classData);
 	$Objects::requireNonNull(options);
@@ -475,29 +307,29 @@ MethodHandles$Lookup* MethodHandles$Lookup::defineHiddenClassWithClassData($byte
 		$throwNew($IllegalAccessException, $$str({this, " does not have full privilege access"_s}));
 	}
 	$var($bytes, var$0, $cast($bytes, bytes->clone()));
-	return $nc($(makeHiddenClassDefiner(var$0, $($Set::of(options)), false)))->defineClassAsLookup(initialize, classData);
+	return $$nc(makeHiddenClassDefiner(var$0, $($Set::of(options)), false))->defineClassAsLookup(initialize, classData);
 }
 
 $MethodHandles$Lookup$ClassDefiner* MethodHandles$Lookup::makeClassDefiner($bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandles$Lookup$ClassFile, cf, $MethodHandles$Lookup$ClassFile::newInstance(bytes, $($nc(lookupClass())->getPackageName())));
 	return $new($MethodHandles$Lookup$ClassDefiner, this, cf, 4);
 }
 
 $MethodHandles$Lookup$ClassDefiner* MethodHandles$Lookup::makeHiddenClassDefiner($bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandles$Lookup$ClassFile, cf, $MethodHandles$Lookup$ClassFile::newInstance(bytes, $($nc(lookupClass())->getPackageName())));
 	return makeHiddenClassDefiner(cf, $($Set::of()), false);
 }
 
 $MethodHandles$Lookup$ClassDefiner* MethodHandles$Lookup::makeHiddenClassDefiner($bytes* bytes, $Set* options, bool accessVmAnnotations) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandles$Lookup$ClassFile, cf, $MethodHandles$Lookup$ClassFile::newInstance(bytes, $($nc(lookupClass())->getPackageName())));
 	return makeHiddenClassDefiner(cf, options, accessVmAnnotations);
 }
 
 $MethodHandles$Lookup$ClassDefiner* MethodHandles$Lookup::makeHiddenClassDefiner($String* name, $bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandles$Lookup$ClassFile, var$0, $MethodHandles$Lookup$ClassFile::newInstanceNoCheck(name, bytes));
 	return makeHiddenClassDefiner(var$0, $($Set::of()), false);
 }
@@ -512,17 +344,17 @@ $MethodHandles$Lookup$ClassDefiner* MethodHandles$Lookup::makeHiddenClassDefiner
 }
 
 $ProtectionDomain* MethodHandles$Lookup::lookupClassProtectionDomain() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProtectionDomain, pd, this->cachedProtectionDomain);
 	if (pd == nullptr) {
-		$set(this, cachedProtectionDomain, ($assign(pd, $nc($($SharedSecrets::getJavaLangAccess()))->protectionDomain(this->lookupClass$))));
+		$set(this, cachedProtectionDomain, $assign(pd, $$nc($SharedSecrets::getJavaLangAccess())->protectionDomain(this->lookupClass$)));
 	}
 	return pd;
 }
 
 void MethodHandles$Lookup::checkUnprivilegedlookupClass($Class* lookupClass) {
 	$init(MethodHandles$Lookup);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(lookupClass)->getName());
 	if ($nc(name)->startsWith("java.lang.invoke."_s)) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"illegal lookupClass: "_s, lookupClass}))));
@@ -530,10 +362,10 @@ void MethodHandles$Lookup::checkUnprivilegedlookupClass($Class* lookupClass) {
 }
 
 $String* MethodHandles$Lookup::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, cname, $nc(this->lookupClass$)->getName());
 	if (this->prevLookupClass != nullptr) {
-		$plusAssign(cname, $$str({"/"_s, $($nc(this->prevLookupClass)->getName())}));
+		$plusAssign(cname, $$str({"/"_s, $(this->prevLookupClass->getName())}));
 	}
 	do {
 		if (this->allowedModes == 0) {
@@ -575,80 +407,54 @@ $String* MethodHandles$Lookup::toString() {
 		goto case$12;
 case$0:
 		// 0
-		{
-			return $str({cname, "/noaccess"_s});
-		}
+		return $str({cname, "/noaccess"_s});
 case$1:
 		// UNCONDITIONAL
-		{
-			return $str({cname, "/publicLookup"_s});
-		}
+		return $str({cname, "/publicLookup"_s});
 case$2:
 		// PUBLIC
-		{
-			return $str({cname, "/public"_s});
-		}
+		return $str({cname, "/public"_s});
 case$3:
 		// PUBLIC | MODULE
-		{
-			return $str({cname, "/module"_s});
-		}
+		return $str({cname, "/module"_s});
 case$4:
 		// PUBLIC | PACKAGE
-		{
-		}
 case$5:
 		// PUBLIC | MODULE | PACKAGE
-		{
-			return $str({cname, "/package"_s});
-		}
+		return $str({cname, "/package"_s});
 case$6:
 		// PUBLIC | PACKAGE | PRIVATE
-		{
-		}
 case$7:
 		// PUBLIC | MODULE | PACKAGE | PRIVATE
-		{
-			return $str({cname, "/private"_s});
-		}
+		return $str({cname, "/private"_s});
 case$8:
 		// PUBLIC | PACKAGE | PRIVATE | PROTECTED
-		{
-		}
 case$9:
 		// PUBLIC | MODULE | PACKAGE | PRIVATE | PROTECTED
-		{
-		}
 case$10:
 		// FULL_POWER_MODES
-		{
-			return cname;
-		}
+		return cname;
 case$11:
 		// TRUSTED
-		{
-			return "/trusted"_s;
-		}
+		return "/trusted"_s;
 case$12:
 		// default
-		{
-			$assign(cname, $str({cname, "/"_s, $($Integer::toHexString(this->allowedModes))}));
-			if (!MethodHandles$Lookup::$assertionsDisabled) {
-				$throwNew($AssertionError, $of(cname));
-			}
-			return cname;
+		$assign(cname, $str({cname, "/"_s, $($Integer::toHexString(this->allowedModes))}));
+		if (!MethodHandles$Lookup::$assertionsDisabled) {
+			$throwNew($AssertionError, $of(cname));
 		}
+		return cname;
 	} while (false);
 }
 
 $MethodHandle* MethodHandles$Lookup::findStatic($Class* refc, $String* name, $MethodType* type) {
-	$useLocalCurrentObjectStackCache();
-	$var($MemberName, method, resolveOrFail((int8_t)6, refc, name, type));
-	return getDirectMethod((int8_t)6, refc, method, $(findBoundCallerLookup(method)));
+	$useLocalObjectStack();
+	$var($MemberName, method, resolveOrFail(6, refc, name, type));
+	return getDirectMethod(6, refc, method, $(findBoundCallerLookup(method)));
 }
 
 $MethodHandle* MethodHandles$Lookup::findVirtual($Class* refc, $String* name, $MethodType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($MethodHandle);
 	if (refc == $MethodHandle::class$) {
 		$var($MethodHandle, mh, findVirtualForMH(name, type));
@@ -664,7 +470,7 @@ $MethodHandle* MethodHandles$Lookup::findVirtual($Class* refc, $String* name, $M
 			}
 		}
 	}
-	int8_t refKind = ($nc(refc)->isInterface() ? (int8_t)9 : (int8_t)5);
+	int8_t refKind = ($nc(refc)->isInterface() ? 9 : 5);
 	$var($MemberName, method, resolveOrFail(refKind, refc, name, type));
 	return getDirectMethod(refKind, refc, method, $(findBoundCallerLookup(method)));
 }
@@ -692,12 +498,12 @@ $MethodHandle* MethodHandles$Lookup::findVirtualForVH($String* name, $MethodType
 }
 
 $MethodHandle* MethodHandles$Lookup::findConstructor($Class* refc, $MethodType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(refc)->isArray()) {
 		$throwNew($NoSuchMethodException, $$str({"no constructor for array class: "_s, $(refc->getName())}));
 	}
 	$var($String, name, "<init>"_s);
-	$var($MemberName, ctor, resolveOrFail((int8_t)8, refc, name, type));
+	$var($MemberName, ctor, resolveOrFail(8, refc, name, type));
 	return getDirectConstructor(refc, ctor);
 }
 
@@ -708,23 +514,23 @@ $Class* MethodHandles$Lookup::findClass($String* targetName) {
 }
 
 $Class* MethodHandles$Lookup::ensureInitialized($Class* targetClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(targetClass)->isPrimitive()) {
 		$throwNew($IllegalArgumentException, $$str({targetClass, " is a primitive class"_s}));
 	}
-	if ($nc(targetClass)->isArray()) {
+	if (targetClass->isArray()) {
 		$throwNew($IllegalArgumentException, $$str({targetClass, " is an array class"_s}));
 	}
 	if (!$VerifyAccess::isClassAccessible(targetClass, this->lookupClass$, this->prevLookupClass, this->allowedModes)) {
 		$throw($(makeAccessException(targetClass)));
 	}
 	checkSecurityManager(targetClass);
-	$nc($($Unsafe::getUnsafe()))->ensureClassInitialized(targetClass);
+	$$nc($Unsafe::getUnsafe())->ensureClassInitialized(targetClass);
 	return targetClass;
 }
 
 $IllegalAccessException* MethodHandles$Lookup::makeAccessException($Class* targetClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, message, $str({"access violation: "_s, targetClass}));
 	if (this == $MethodHandles::publicLookup()) {
 		$plusAssign(message, ", from public Lookup"_s);
@@ -732,9 +538,13 @@ $IllegalAccessException* MethodHandles$Lookup::makeAccessException($Class* targe
 		$var($Module, m, $nc(lookupClass())->getModule());
 		$plusAssign(message, $$str({", from "_s, lookupClass(), " ("_s, m, ")"_s}));
 		if (this->prevLookupClass != nullptr) {
-			$var($String, var$1, $$str({", previous lookup "_s, $($nc(this->prevLookupClass)->getName()), " ("_s}));
-			$var($String, var$0, $$concat(var$1, $($nc(this->prevLookupClass)->getModule())));
-			$plusAssign(message, $$concat(var$0, ")"_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append(", previous lookup "_s);
+			var$0->append($(this->prevLookupClass->getName()));
+			var$0->append(" ("_s);
+			var$0->append($(this->prevLookupClass->getModule()));
+			var$0->append(")"_s);
+			$plusAssign(message, $$str(var$0));
 		}
 	}
 	return $new($IllegalAccessException, message);
@@ -749,61 +559,65 @@ $Class* MethodHandles$Lookup::accessClass($Class* targetClass) {
 }
 
 $MethodHandle* MethodHandles$Lookup::findSpecial($Class* refc, $String* name, $MethodType* type, $Class* specialCaller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkSpecialCaller(specialCaller, refc);
 	$var(MethodHandles$Lookup, specialLookup, this->in(specialCaller));
-	$var($MemberName, method, $nc(specialLookup)->resolveOrFail((int8_t)7, refc, name, type));
-	return specialLookup->getDirectMethod((int8_t)7, refc, method, $(findBoundCallerLookup(method)));
+	$var($MemberName, method, $nc(specialLookup)->resolveOrFail(7, refc, name, type));
+	return specialLookup->getDirectMethod(7, refc, method, $(findBoundCallerLookup(method)));
 }
 
 $MethodHandle* MethodHandles$Lookup::findGetter($Class* refc, $String* name, $Class* type) {
-	$var($MemberName, field, resolveOrFail((int8_t)1, refc, name, type));
-	return getDirectField((int8_t)1, refc, field);
+	$var($MemberName, field, resolveOrFail(1, refc, name, type));
+	return getDirectField(1, refc, field);
 }
 
 $MethodHandle* MethodHandles$Lookup::findSetter($Class* refc, $String* name, $Class* type) {
-	$var($MemberName, field, resolveOrFail((int8_t)3, refc, name, type));
-	return getDirectField((int8_t)3, refc, field);
+	$var($MemberName, field, resolveOrFail(3, refc, name, type));
+	return getDirectField(3, refc, field);
 }
 
 $VarHandle* MethodHandles$Lookup::findVarHandle($Class* recv, $String* name, $Class* type) {
-	$useLocalCurrentObjectStackCache();
-	$var($MemberName, getField, resolveOrFail((int8_t)1, recv, name, type));
-	$var($MemberName, putField, resolveOrFail((int8_t)3, recv, name, type));
-	return getFieldVarHandle((int8_t)1, (int8_t)3, recv, getField, putField);
+	$useLocalObjectStack();
+	$var($MemberName, getField, resolveOrFail(1, recv, name, type));
+	$var($MemberName, putField, resolveOrFail(3, recv, name, type));
+	return getFieldVarHandle(1, 3, recv, getField, putField);
 }
 
 $MethodHandle* MethodHandles$Lookup::findStaticGetter($Class* refc, $String* name, $Class* type) {
-	$var($MemberName, field, resolveOrFail((int8_t)2, refc, name, type));
-	return getDirectField((int8_t)2, refc, field);
+	$var($MemberName, field, resolveOrFail(2, refc, name, type));
+	return getDirectField(2, refc, field);
 }
 
 $MethodHandle* MethodHandles$Lookup::findStaticSetter($Class* refc, $String* name, $Class* type) {
-	$var($MemberName, field, resolveOrFail((int8_t)4, refc, name, type));
-	return getDirectField((int8_t)4, refc, field);
+	$var($MemberName, field, resolveOrFail(4, refc, name, type));
+	return getDirectField(4, refc, field);
 }
 
 $VarHandle* MethodHandles$Lookup::findStaticVarHandle($Class* decl, $String* name, $Class* type) {
-	$useLocalCurrentObjectStackCache();
-	$var($MemberName, getField, resolveOrFail((int8_t)2, decl, name, type));
-	$var($MemberName, putField, resolveOrFail((int8_t)4, decl, name, type));
-	return getFieldVarHandle((int8_t)2, (int8_t)4, decl, getField, putField);
+	$useLocalObjectStack();
+	$var($MemberName, getField, resolveOrFail(2, decl, name, type));
+	$var($MemberName, putField, resolveOrFail(4, decl, name, type));
+	return getFieldVarHandle(2, 4, decl, getField, putField);
 }
 
 $MethodHandle* MethodHandles$Lookup::bind(Object$* receiver, $String* name, $MethodType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* refc = $nc($of(receiver))->getClass();
-	$var($MemberName, method, resolveOrFail((int8_t)7, refc, name, type));
+	$var($MemberName, method, resolveOrFail(7, refc, name, type));
 	$var($MethodHandle, mh, getDirectMethodNoRestrictInvokeSpecial(refc, method, $(findBoundCallerLookup(method))));
-	if (!$nc($nc($($nc(mh)->type()))->leadingReferenceParameter())->isAssignableFrom($of(receiver)->getClass())) {
-		$var($String, var$0, $$str({"The restricted defining class "_s, $($nc($nc($(mh->type()))->leadingReferenceParameter())->getName()), " is not assignable from receiver class "_s}));
-		$throwNew($IllegalAccessException, $$concat(var$0, $($of(receiver)->getClass()->getName())));
+	if (!$nc($$nc($nc(mh)->type())->leadingReferenceParameter())->isAssignableFrom($of(receiver)->getClass())) {
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("The restricted defining class "_s);
+		var$0->append($($nc($$nc(mh->type())->leadingReferenceParameter())->getName()));
+		var$0->append(" is not assignable from receiver class "_s);
+		var$0->append($($of(receiver)->getClass()->getName()));
+		$throwNew($IllegalAccessException, $$str(var$0));
 	}
-	return $nc($($nc(mh)->bindArgumentL(0, receiver)))->setVarargs(method);
+	return $$nc(mh->bindArgumentL(0, receiver))->setVarargs(method);
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflect($Method* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($MethodHandle);
 	if ($nc(m)->getDeclaringClass() == $MethodHandle::class$) {
 		$var($MethodHandle, mh, unreflectForMH(m));
@@ -812,7 +626,7 @@ $MethodHandle* MethodHandles$Lookup::unreflect($Method* m) {
 		}
 	}
 	$load($VarHandle);
-	if ($nc(m)->getDeclaringClass() == $VarHandle::class$) {
+	if (m->getDeclaringClass() == $VarHandle::class$) {
 		$var($MethodHandle, mh, unreflectForVH(m));
 		if (mh != nullptr) {
 			return mh;
@@ -820,21 +634,19 @@ $MethodHandle* MethodHandles$Lookup::unreflect($Method* m) {
 	}
 	$var($MemberName, method, $new($MemberName, m));
 	int8_t refKind = method->getReferenceKind();
-	if (refKind == (int8_t)7) {
-		refKind = (int8_t)5;
+	if (refKind == 7) {
+		refKind = 5;
 	}
 	if (!MethodHandles$Lookup::$assertionsDisabled && !(method->isMethod())) {
 		$throwNew($AssertionError);
 	}
-	$var(MethodHandles$Lookup, lookup, $nc(m)->isAccessible() ? MethodHandles$Lookup::IMPL_LOOKUP : this);
-	int8_t var$0 = refKind;
-	$Class* var$1 = method->getDeclaringClass();
-	$var($MemberName, var$2, method);
-	return $nc(lookup)->getDirectMethodNoSecurityManager(var$0, var$1, var$2, $(findBoundCallerLookup(method)));
+	$var(MethodHandles$Lookup, lookup, m->isAccessible() ? MethodHandles$Lookup::IMPL_LOOKUP : this);
+	$Class* var$0 = method->getDeclaringClass();
+	return $nc(lookup)->getDirectMethodNoSecurityManager(refKind, var$0, method, $(findBoundCallerLookup(method)));
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflectForMH($Method* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($MemberName::isMethodHandleInvokeName($($nc(m)->getName()))) {
 		return $MethodHandleImpl::fakeMethodHandleInvoke($$new($MemberName, m));
 	}
@@ -842,7 +654,7 @@ $MethodHandle* MethodHandles$Lookup::unreflectForMH($Method* m) {
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflectForVH($Method* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($MemberName::isVarHandleMethodInvokeName($($nc(m)->getName()))) {
 		return $MethodHandleImpl::fakeVarHandleInvoke($$new($MemberName, m));
 	}
@@ -850,7 +662,7 @@ $MethodHandle* MethodHandles$Lookup::unreflectForVH($Method* m) {
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflectSpecial($Method* m, $Class* specialCaller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkSpecialCaller(specialCaller, $nc(m)->getDeclaringClass());
 	$var(MethodHandles$Lookup, specialLookup, this->in(specialCaller));
 	$var($MemberName, method, $new($MemberName, m, true));
@@ -858,12 +670,11 @@ $MethodHandle* MethodHandles$Lookup::unreflectSpecial($Method* m, $Class* specia
 		$throwNew($AssertionError);
 	}
 	$Class* var$0 = method->getDeclaringClass();
-	$var($MemberName, var$1, method);
-	return $nc(specialLookup)->getDirectMethodNoSecurityManager((int8_t)7, var$0, var$1, $(findBoundCallerLookup(method)));
+	return $nc(specialLookup)->getDirectMethodNoSecurityManager(7, var$0, method, $(findBoundCallerLookup(method)));
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflectConstructor($Constructor* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemberName, ctor, $new($MemberName, c));
 	if (!MethodHandles$Lookup::$assertionsDisabled && !(ctor->isConstructor())) {
 		$throwNew($AssertionError);
@@ -881,7 +692,7 @@ $MethodHandle* MethodHandles$Lookup::unreflectSetter($Field* f) {
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflectField($Field* f, bool isSetter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemberName, field, $new($MemberName, f, isSetter));
 	if (isSetter && field->isFinal()) {
 		if (field->isTrustedFinalField()) {
@@ -894,11 +705,11 @@ $MethodHandle* MethodHandles$Lookup::unreflectField($Field* f, bool isSetter) {
 	}
 	$var(MethodHandles$Lookup, lookup, $nc(f)->isAccessible() ? MethodHandles$Lookup::IMPL_LOOKUP : this);
 	int8_t var$0 = field->getReferenceKind();
-	return $nc(lookup)->getDirectFieldNoSecurityManager(var$0, $nc(f)->getDeclaringClass(), field);
+	return $nc(lookup)->getDirectFieldNoSecurityManager(var$0, f->getDeclaringClass(), field);
 }
 
 $VarHandle* MethodHandles$Lookup::unreflectVarHandle($Field* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemberName, getField, $new($MemberName, f, false));
 	$var($MemberName, putField, $new($MemberName, f, true));
 	int8_t var$0 = getField->getReferenceKind();
@@ -907,31 +718,31 @@ $VarHandle* MethodHandles$Lookup::unreflectVarHandle($Field* f) {
 }
 
 $MethodHandleInfo* MethodHandles$Lookup::revealDirect($MethodHandle* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(target)->isCrackable()) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("not a direct method handle"_s)));
 	}
-	$var($MemberName, member, $nc(target)->internalMemberName());
+	$var($MemberName, member, target->internalMemberName());
 	$Class* defc = $nc(member)->getDeclaringClass();
 	int8_t refKind = member->getReferenceKind();
 	if (!MethodHandles$Lookup::$assertionsDisabled && !($MethodHandleNatives::refKindIsValid(refKind))) {
 		$throwNew($AssertionError);
 	}
-	if (refKind == (int8_t)7 && !target->isInvokeSpecial()) {
-		refKind = (int8_t)5;
+	if (refKind == 7 && !target->isInvokeSpecial()) {
+		refKind = 5;
 	}
-	if (refKind == (int8_t)5 && $nc(defc)->isInterface()) {
-		refKind = (int8_t)9;
+	if (refKind == 5 && $nc(defc)->isInterface()) {
+		refKind = 9;
 	}
 	try {
 		checkAccess(refKind, defc, member);
 		checkSecurityManager(defc, member);
 	} catch ($IllegalAccessException& ex) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(ex));
+		$throwNew($IllegalArgumentException, ex);
 	}
 	if (this->allowedModes != MethodHandles$Lookup::TRUSTED && member->isCallerSensitive()) {
 		$Class* callerClass = target->internalCallerClass();
-		bool var$0 = ((int32_t)(lookupModes() & (uint32_t)MethodHandles$Lookup::ORIGINAL)) == 0;
+		bool var$0 = (lookupModes() & MethodHandles$Lookup::ORIGINAL) == 0;
 		if (var$0 || callerClass != lookupClass()) {
 			$throwNew($IllegalArgumentException, $$str({"method handle is caller sensitive: "_s, callerClass}));
 		}
@@ -944,10 +755,9 @@ $MemberName* MethodHandles$Lookup::resolveOrFail(int8_t refKind, $Class* refc, $
 	$Objects::requireNonNull(name);
 	$Objects::requireNonNull(type);
 	$init($MethodHandles);
-	int8_t var$0 = refKind;
-	$var($MemberName, var$1, $new($MemberName, refc, name, type, refKind));
+	$var($MemberName, var$0, $new($MemberName, refc, name, type, refKind));
 	$load($NoSuchFieldException);
-	return $nc($MethodHandles::IMPL_NAMES)->resolveOrFail(var$0, var$1, lookupClassOrNull(), this->allowedModes, $NoSuchFieldException::class$);
+	return $nc($MethodHandles::IMPL_NAMES)->resolveOrFail(refKind, var$0, lookupClassOrNull(), this->allowedModes, $NoSuchFieldException::class$);
 }
 
 $MemberName* MethodHandles$Lookup::resolveOrFail(int8_t refKind, $Class* refc, $String* name, $MethodType* type) {
@@ -955,29 +765,28 @@ $MemberName* MethodHandles$Lookup::resolveOrFail(int8_t refKind, $Class* refc, $
 	$Objects::requireNonNull(type);
 	checkMethodName(refKind, name);
 	$init($MethodHandles);
-	int8_t var$0 = refKind;
-	$var($MemberName, var$1, $new($MemberName, refc, name, type, refKind));
+	$var($MemberName, var$0, $new($MemberName, refc, name, type, refKind));
 	$load($NoSuchMethodException);
-	return $nc($MethodHandles::IMPL_NAMES)->resolveOrFail(var$0, var$1, lookupClassOrNull(), this->allowedModes, $NoSuchMethodException::class$);
+	return $nc($MethodHandles::IMPL_NAMES)->resolveOrFail(refKind, var$0, lookupClassOrNull(), this->allowedModes, $NoSuchMethodException::class$);
 }
 
 $MemberName* MethodHandles$Lookup::resolveOrFail(int8_t refKind, $MemberName* member) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkSymbolicClass($nc(member)->getDeclaringClass());
-	$Objects::requireNonNull($($nc(member)->getName()));
-	$Objects::requireNonNull($($nc(member)->getType()));
+	$Objects::requireNonNull($(member->getName()));
+	$Objects::requireNonNull($(member->getType()));
 	$init($MethodHandles);
 	$load($ReflectiveOperationException);
 	return $nc($MethodHandles::IMPL_NAMES)->resolveOrFail(refKind, member, lookupClassOrNull(), this->allowedModes, $ReflectiveOperationException::class$);
 }
 
 $MemberName* MethodHandles$Lookup::resolveOrNull(int8_t refKind, $MemberName* member) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isClassAccessible($nc(member)->getDeclaringClass())) {
 		return nullptr;
 	}
-	$Objects::requireNonNull($($nc(member)->getName()));
-	$Objects::requireNonNull($($nc(member)->getType()));
+	$Objects::requireNonNull($(member->getName()));
+	$Objects::requireNonNull($(member->getType()));
 	$init($MethodHandles);
 	return $nc($MethodHandles::IMPL_NAMES)->resolveOrNull(refKind, member, lookupClassOrNull(), this->allowedModes);
 }
@@ -987,17 +796,16 @@ $MemberName* MethodHandles$Lookup::resolveOrNull(int8_t refKind, $Class* refc, $
 		return nullptr;
 	}
 	$Objects::requireNonNull(type);
-	if ($nc(name)->startsWith("<"_s) && refKind != (int8_t)8) {
+	if ($nc(name)->startsWith("<"_s) && refKind != 8) {
 		return nullptr;
 	}
 	$init($MethodHandles);
-	int8_t var$0 = refKind;
-	$var($MemberName, var$1, $new($MemberName, refc, name, type, refKind));
-	return $nc($MethodHandles::IMPL_NAMES)->resolveOrNull(var$0, var$1, lookupClassOrNull(), this->allowedModes);
+	$var($MemberName, var$0, $new($MemberName, refc, name, type, refKind));
+	return $nc($MethodHandles::IMPL_NAMES)->resolveOrNull(refKind, var$0, lookupClassOrNull(), this->allowedModes);
 }
 
 void MethodHandles$Lookup::checkSymbolicClass($Class* refc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isClassAccessible(refc)) {
 		$throw($($$new($MemberName, refc)->makeAccessException("symbolic reference class is not accessible"_s, this)));
 	}
@@ -1014,14 +822,14 @@ bool MethodHandles$Lookup::isClassAccessible($Class* refc) {
 }
 
 void MethodHandles$Lookup::checkMethodName(int8_t refKind, $String* name) {
-	if ($nc(name)->startsWith("<"_s) && refKind != (int8_t)8) {
+	if ($nc(name)->startsWith("<"_s) && refKind != 8) {
 		$throwNew($NoSuchMethodException, $$str({"illegal method name: "_s, name}));
 	}
 }
 
 MethodHandles$Lookup* MethodHandles$Lookup::findBoundCallerLookup($MemberName* m) {
 	bool var$0 = $MethodHandleNatives::isCallerSensitive(m);
-	if (var$0 && ((int32_t)(lookupModes() & (uint32_t)MethodHandles$Lookup::ORIGINAL)) == 0) {
+	if (var$0 && (lookupModes() & MethodHandles$Lookup::ORIGINAL) == 0) {
 		$throwNew($IllegalAccessException, "Attempt to lookup caller-sensitive method using restricted lookup object"_s);
 	}
 	return this;
@@ -1032,7 +840,7 @@ bool MethodHandles$Lookup::hasPrivateAccess() {
 }
 
 bool MethodHandles$Lookup::hasFullPrivilegeAccess() {
-	return ((int32_t)(this->allowedModes & (uint32_t)(MethodHandles$Lookup::PRIVATE | MethodHandles$Lookup::MODULE))) == (MethodHandles$Lookup::PRIVATE | MethodHandles$Lookup::MODULE);
+	return (this->allowedModes & (MethodHandles$Lookup::PRIVATE | MethodHandles$Lookup::MODULE)) == (MethodHandles$Lookup::PRIVATE | MethodHandles$Lookup::MODULE);
 }
 
 void MethodHandles$Lookup::checkSecurityManager($Class* refc) {
@@ -1081,8 +889,8 @@ void MethodHandles$Lookup::checkSecurityManager($Class* refc, $MemberName* m) {
 }
 
 void MethodHandles$Lookup::checkMethod(int8_t refKind, $Class* refc, $MemberName* m) {
-	$useLocalCurrentObjectStackCache();
-	bool wantStatic = (refKind == (int8_t)6);
+	$useLocalObjectStack();
+	bool wantStatic = (refKind == 6);
 	$var($String, message, nullptr);
 	if ($nc(m)->isConstructor()) {
 		$assign(message, "expected a method, not a constructor"_s);
@@ -1094,11 +902,11 @@ void MethodHandles$Lookup::checkMethod(int8_t refKind, $Class* refc, $MemberName
 		checkAccess(refKind, refc, m);
 		return;
 	}
-	$throw($($nc(m)->makeAccessException(message, this)));
+	$throw($(m->makeAccessException(message, this)));
 }
 
 void MethodHandles$Lookup::checkField(int8_t refKind, $Class* refc, $MemberName* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool wantStatic = !$MethodHandleNatives::refKindHasReceiver(refKind);
 	$var($String, message, nullptr);
 	if (wantStatic != $nc(m)->isStatic()) {
@@ -1107,18 +915,18 @@ void MethodHandles$Lookup::checkField(int8_t refKind, $Class* refc, $MemberName*
 		checkAccess(refKind, refc, m);
 		return;
 	}
-	$throw($($nc(m)->makeAccessException(message, this)));
+	$throw($(m->makeAccessException(message, this)));
 }
 
 void MethodHandles$Lookup::checkAccess(int8_t refKind, $Class* refc, $MemberName* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !MethodHandles$Lookup::$assertionsDisabled;
 	if (var$0) {
 		bool var$2 = $nc(m)->referenceKindIsConsistentWith(refKind);
 		bool var$1 = var$2 && $MethodHandleNatives::refKindIsValid(refKind);
 		if (var$1) {
 			bool var$3 = $MethodHandleNatives::refKindIsField(refKind);
-			var$1 = (var$3 == m->isField());
+			var$1 = var$3 == m->isField();
 		}
 		var$0 = !(var$1);
 	}
@@ -1130,13 +938,13 @@ void MethodHandles$Lookup::checkAccess(int8_t refKind, $Class* refc, $MemberName
 		return;
 	}
 	int32_t mods = $nc(m)->getModifiers();
-	bool var$6 = $Modifier::isProtected(mods) && refKind == (int8_t)5;
+	bool var$6 = $Modifier::isProtected(mods) && refKind == 5;
 	bool var$5 = var$6 && m->getDeclaringClass() == $Object::class$;
-	bool var$4 = var$5 && $nc($(m->getName()))->equals("clone"_s);
+	bool var$4 = var$5 && $$nc(m->getName())->equals("clone"_s);
 	if (var$4 && $nc(refc)->isArray()) {
 		mods ^= $Modifier::PROTECTED | $Modifier::PUBLIC;
 	}
-	if ($Modifier::isProtected(mods) && refKind == (int8_t)8) {
+	if ($Modifier::isProtected(mods) && refKind == 8) {
 		mods ^= $Modifier::PROTECTED;
 	}
 	bool var$7 = $Modifier::isFinal(mods);
@@ -1144,21 +952,19 @@ void MethodHandles$Lookup::checkAccess(int8_t refKind, $Class* refc, $MemberName
 		$throw($(m->makeAccessException("unexpected set of a final field"_s, this)));
 	}
 	int32_t requestedModes = fixmods(mods);
-	if (((int32_t)(requestedModes & (uint32_t)allowedModes)) != 0) {
-		$Class* var$8 = refc;
-		$Class* var$9 = m->getDeclaringClass();
-		int32_t var$10 = mods;
-		$Class* var$11 = lookupClass();
-		if ($VerifyAccess::isMemberAccessible(var$8, var$9, var$10, var$11, previousLookupClass(), allowedModes)) {
+	if ((requestedModes & allowedModes) != 0) {
+		$Class* var$8 = m->getDeclaringClass();
+		$Class* var$9 = lookupClass();
+		if ($VerifyAccess::isMemberAccessible(refc, var$8, mods, var$9, previousLookupClass(), allowedModes)) {
 			return;
 		}
 	} else {
-		bool var$14 = ((int32_t)(requestedModes & (uint32_t)MethodHandles$Lookup::PROTECTED)) != 0 && ((int32_t)(allowedModes & (uint32_t)MethodHandles$Lookup::PACKAGE)) != 0;
-		if (var$14) {
-			$Class* var$15 = m->getDeclaringClass();
-			var$14 = $VerifyAccess::isSamePackage(var$15, lookupClass());
+		bool var$10 = (requestedModes & MethodHandles$Lookup::PROTECTED) != 0 && (allowedModes & MethodHandles$Lookup::PACKAGE) != 0;
+		if (var$10) {
+			$Class* var$11 = m->getDeclaringClass();
+			var$10 = $VerifyAccess::isSamePackage(var$11, lookupClass());
 		}
-		if (var$14) {
+		if (var$10) {
 			return;
 		}
 	}
@@ -1170,7 +976,7 @@ $String* MethodHandles$Lookup::accessFailedMessage($Class* refc, $MemberName* m)
 	int32_t mods = m->getModifiers();
 	bool var$0 = $Modifier::isPublic($nc(defc)->getModifiers());
 	bool classOK = (var$0 && (defc == refc || $Modifier::isPublic($nc(refc)->getModifiers())));
-	if (!classOK && ((int32_t)(this->allowedModes & (uint32_t)MethodHandles$Lookup::PACKAGE)) != 0) {
+	if (!classOK && (this->allowedModes & MethodHandles$Lookup::PACKAGE) != 0) {
 		bool var$1 = $VerifyAccess::isClassAccessible(defc, lookupClass(), nullptr, MethodHandles$Lookup::FULL_POWER_MODES);
 		classOK = (var$1 && (defc == refc || $VerifyAccess::isClassAccessible(refc, lookupClass(), nullptr, MethodHandles$Lookup::FULL_POWER_MODES)));
 	}
@@ -1190,19 +996,19 @@ $String* MethodHandles$Lookup::accessFailedMessage($Class* refc, $MemberName* m)
 }
 
 void MethodHandles$Lookup::checkSpecialCaller($Class* specialCaller, $Class* refc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t allowedModes = this->allowedModes;
 	if (allowedModes == MethodHandles$Lookup::TRUSTED) {
 		return;
 	}
-	bool var$0 = ((int32_t)(lookupModes() & (uint32_t)MethodHandles$Lookup::PRIVATE)) == 0;
+	bool var$0 = (lookupModes() & MethodHandles$Lookup::PRIVATE) == 0;
 	if (!var$0) {
 		bool var$1 = specialCaller != lookupClass();
 		if (var$1) {
 			bool var$2 = refc != nullptr && refc->isInterface();
 			var$1 = !(var$2 && refc->isAssignableFrom(specialCaller));
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		$throw($($$new($MemberName, specialCaller)->makeAccessException("no private access for invokespecial"_s, this)));
@@ -1211,13 +1017,13 @@ void MethodHandles$Lookup::checkSpecialCaller($Class* specialCaller, $Class* ref
 
 bool MethodHandles$Lookup::restrictProtectedReceiver($MemberName* method) {
 	bool var$2 = !$nc(method)->isProtected();
-	bool var$1 = var$2 || $nc(method)->isStatic() || this->allowedModes == MethodHandles$Lookup::TRUSTED;
+	bool var$1 = var$2 || method->isStatic() || this->allowedModes == MethodHandles$Lookup::TRUSTED;
 	if (!var$1) {
-		var$1 = $nc(method)->getDeclaringClass() == lookupClass();
+		var$1 = method->getDeclaringClass() == lookupClass();
 	}
 	bool var$0 = var$1;
 	if (!var$0) {
-		$Class* var$3 = $nc(method)->getDeclaringClass();
+		$Class* var$3 = method->getDeclaringClass();
 		var$0 = $VerifyAccess::isSamePackage(var$3, lookupClass());
 	}
 	if (var$0) {
@@ -1227,7 +1033,7 @@ bool MethodHandles$Lookup::restrictProtectedReceiver($MemberName* method) {
 }
 
 $MethodHandle* MethodHandles$Lookup::restrictReceiver($MemberName* method, $DirectMethodHandle* mh, $Class* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!MethodHandles$Lookup::$assertionsDisabled && !(!$nc(method)->isStatic())) {
 		$throwNew($AssertionError);
 	}
@@ -1235,10 +1041,10 @@ $MethodHandle* MethodHandles$Lookup::restrictReceiver($MemberName* method, $Dire
 		$throw($(method->makeAccessException("caller class must be a subclass below the method"_s, caller)));
 	}
 	$var($MethodType, rawType, $nc(mh)->type());
-	if ($nc(caller)->isAssignableFrom($($cast($Class, $nc(rawType)->parameterType(0))))) {
+	if ($nc(caller)->isAssignableFrom($$cast($Class, $nc(rawType)->parameterType(0)))) {
 		return mh;
 	}
-	$var($MethodType, narrowType, $nc(rawType)->changeParameterType(0, caller));
+	$var($MethodType, narrowType, rawType->changeParameterType(0, caller));
 	if (!MethodHandles$Lookup::$assertionsDisabled && !(!mh->isVarargsCollector())) {
 		$throwNew($AssertionError);
 	}
@@ -1257,7 +1063,7 @@ $MethodHandle* MethodHandles$Lookup::getDirectMethod(int8_t refKind, $Class* ref
 $MethodHandle* MethodHandles$Lookup::getDirectMethodNoRestrictInvokeSpecial($Class* refc, $MemberName* method, MethodHandles$Lookup* callerLookup) {
 	bool doRestrict = false;
 	bool checkSecurity = true;
-	return getDirectMethodCommon((int8_t)7, refc, method, checkSecurity, doRestrict, callerLookup);
+	return getDirectMethodCommon(7, refc, method, checkSecurity, doRestrict, callerLookup);
 }
 
 $MethodHandle* MethodHandles$Lookup::getDirectMethodNoSecurityManager(int8_t refKind, $Class* refc, $MemberName* method, MethodHandles$Lookup* callerLookup) {
@@ -1267,7 +1073,7 @@ $MethodHandle* MethodHandles$Lookup::getDirectMethodNoSecurityManager(int8_t ref
 }
 
 $MethodHandle* MethodHandles$Lookup::getDirectMethodCommon(int8_t refKind, $Class* refc, $MemberName* method$renamed, bool checkSecurity, bool doRestrict, MethodHandles$Lookup* boundCaller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemberName, method, method$renamed);
 	checkMethod(refKind, refc, method);
 	if (checkSecurity) {
@@ -1276,20 +1082,19 @@ $MethodHandle* MethodHandles$Lookup::getDirectMethodCommon(int8_t refKind, $Clas
 	if (!MethodHandles$Lookup::$assertionsDisabled && !(!$nc(method)->isMethodHandleInvoke())) {
 		$throwNew($AssertionError);
 	}
-	bool var$2 = refKind == (int8_t)7 && refc != lookupClass();
+	bool var$2 = refKind == 7 && refc != lookupClass();
 	bool var$1 = var$2 && !$nc(refc)->isInterface();
 	bool var$0 = var$1 && refc != $nc(lookupClass())->getSuperclass();
 	if (var$0 && refc->isAssignableFrom(lookupClass())) {
-		if (!MethodHandles$Lookup::$assertionsDisabled && !(!$nc($($nc(method)->getName()))->equals("<init>"_s))) {
+		if (!MethodHandles$Lookup::$assertionsDisabled && !(!$$nc($nc(method)->getName())->equals("<init>"_s))) {
 			$throwNew($AssertionError);
 		}
 		$Class* refcAsSuper = lookupClass();
 		$var($MemberName, m2, nullptr);
 		do {
 			refcAsSuper = $nc(refcAsSuper)->getSuperclass();
-			$Class* var$3 = refcAsSuper;
-			$var($String, var$4, $nc(method)->getName());
-			$assign(m2, $new($MemberName, var$3, var$4, $(method->getMethodType()), (int8_t)7));
+			$var($String, var$3, $nc(method)->getName());
+			$assign(m2, $new($MemberName, refcAsSuper, var$3, $(method->getMethodType()), 7));
 			$init($MethodHandles);
 			$assign(m2, $nc($MethodHandles::IMPL_NAMES)->resolveOrNull(refKind, m2, lookupClassOrNull(), this->allowedModes));
 		} while (m2 == nullptr && refc != refcAsSuper);
@@ -1302,12 +1107,12 @@ $MethodHandle* MethodHandles$Lookup::getDirectMethodCommon(int8_t refKind, $Clas
 	}
 	$var($DirectMethodHandle, dmh, $DirectMethodHandle::make(refKind, refc, method, lookupClass()));
 	$var($MethodHandle, mh, dmh);
-	bool var$5 = (doRestrict && refKind == (int8_t)7);
-	if (!var$5) {
-		bool var$6 = $MethodHandleNatives::refKindHasReceiver(refKind);
-		var$5 = (var$6 && restrictProtectedReceiver(method));
+	bool var$4 = doRestrict && refKind == 7;
+	if (!var$4) {
+		bool var$5 = $MethodHandleNatives::refKindHasReceiver(refKind);
+		var$4 = var$5 && restrictProtectedReceiver(method);
 	}
-	if (var$5) {
+	if (var$4) {
 		$assign(mh, restrictReceiver(method, dmh, lookupClass()));
 	}
 	$assign(mh, maybeBindCaller(method, mh, boundCaller));
@@ -1319,13 +1124,13 @@ $MethodHandle* MethodHandles$Lookup::maybeBindCaller($MemberName* method, $Metho
 	if ($nc(boundCaller)->allowedModes == MethodHandles$Lookup::TRUSTED || !$MethodHandleNatives::isCallerSensitive(method)) {
 		return mh;
 	}
-	if (((int32_t)($nc(boundCaller)->lookupModes() & (uint32_t)MethodHandles$Lookup::ORIGINAL)) == 0) {
+	if ((boundCaller->lookupModes() & MethodHandles$Lookup::ORIGINAL) == 0) {
 		$throwNew($IllegalAccessException, "Attempt to lookup caller-sensitive method using restricted lookup object"_s);
 	}
-	if (!MethodHandles$Lookup::$assertionsDisabled && !$nc(boundCaller)->hasFullPrivilegeAccess()) {
+	if (!MethodHandles$Lookup::$assertionsDisabled && !boundCaller->hasFullPrivilegeAccess()) {
 		$throwNew($AssertionError);
 	}
-	$var($MethodHandle, cbmh, $MethodHandleImpl::bindCaller(mh, $nc(boundCaller)->lookupClass$));
+	$var($MethodHandle, cbmh, $MethodHandleImpl::bindCaller(mh, boundCaller->lookupClass$));
 	return cbmh;
 }
 
@@ -1364,7 +1169,6 @@ $VarHandle* MethodHandles$Lookup::getFieldVarHandleNoSecurityManager(int8_t getR
 }
 
 $VarHandle* MethodHandles$Lookup::getFieldVarHandleCommon(int8_t getRefKind, int8_t putRefKind, $Class* refc, $MemberName* getField, $MemberName* putField, bool checkSecurity) {
-	$useLocalCurrentObjectStackCache();
 	bool var$0 = !MethodHandles$Lookup::$assertionsDisabled;
 	if (var$0) {
 		bool var$1 = $nc(getField)->isStatic();
@@ -1418,10 +1222,8 @@ $VarHandle* MethodHandles$Lookup::getFieldVarHandleCommon(int8_t getRefKind, int
 		}
 		refc = lookupClass();
 	}
-	$var($MemberName, var$9, getField);
-	$Class* var$10 = refc;
-	$Class* var$11 = $nc(getField)->getFieldType();
-	return $VarHandles::makeFieldHandle(var$9, var$10, var$11, this->allowedModes == MethodHandles$Lookup::TRUSTED && !getField->isTrustedFinalField());
+	$Class* var$9 = $nc(getField)->getFieldType();
+	return $VarHandles::makeFieldHandle(getField, refc, var$9, this->allowedModes == MethodHandles$Lookup::TRUSTED && !getField->isTrustedFinalField());
 }
 
 $MethodHandle* MethodHandles$Lookup::getDirectConstructor($Class* refc, $MemberName* ctor) {
@@ -1438,18 +1240,18 @@ $MethodHandle* MethodHandles$Lookup::getDirectConstructorCommon($Class* refc, $M
 	if (!MethodHandles$Lookup::$assertionsDisabled && !($nc(ctor)->isConstructor())) {
 		$throwNew($AssertionError);
 	}
-	checkAccess((int8_t)8, refc, ctor);
+	checkAccess(8, refc, ctor);
 	if (checkSecurity) {
 		checkSecurityManager(refc, ctor);
 	}
 	if (!MethodHandles$Lookup::$assertionsDisabled && !(!$MethodHandleNatives::isCallerSensitive(ctor))) {
 		$throwNew($AssertionError);
 	}
-	return $nc($($DirectMethodHandle::make(ctor)))->setVarargs(ctor);
+	return $$nc($DirectMethodHandle::make(ctor))->setVarargs(ctor);
 }
 
 $MethodHandle* MethodHandles$Lookup::linkMethodHandleConstant(int8_t refKind, $Class* defc, $String* name, Object$* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Class, type) || $instanceOf($MethodType, type))) {
 		$throwNew($InternalError, "unresolved MemberName"_s);
 	}
@@ -1460,7 +1262,7 @@ $MethodHandle* MethodHandles$Lookup::linkMethodHandleConstant(int8_t refKind, $C
 		return mh;
 	}
 	$load($MethodHandle);
-	if (defc == $MethodHandle::class$ && refKind == (int8_t)5) {
+	if (defc == $MethodHandle::class$ && refKind == 5) {
 		$var($String, var$0, member->getName());
 		$assign(mh, findVirtualForMH(var$0, $(member->getMethodType())));
 		if (mh != nullptr) {
@@ -1468,7 +1270,7 @@ $MethodHandle* MethodHandles$Lookup::linkMethodHandleConstant(int8_t refKind, $C
 		}
 	} else {
 		$load($VarHandle);
-		if (defc == $VarHandle::class$ && refKind == (int8_t)5) {
+		if (defc == $VarHandle::class$ && refKind == 5) {
 			$var($String, var$1, member->getName());
 			$assign(mh, findVirtualForVH(var$1, $(member->getMethodType())));
 			if (mh != nullptr) {
@@ -1479,7 +1281,7 @@ $MethodHandle* MethodHandles$Lookup::linkMethodHandleConstant(int8_t refKind, $C
 	$var($MemberName, resolved, resolveOrFail(refKind, member));
 	$assign(mh, getDirectMethodForConstant(refKind, defc, resolved));
 	if ($instanceOf($DirectMethodHandle, mh) && canBeCached(refKind, defc, resolved)) {
-		$var($MemberName, key, $nc(mh)->internalMemberName());
+		$var($MemberName, key, mh->internalMemberName());
 		if (key != nullptr) {
 			$assign(key, key->asNormalOriginal());
 		}
@@ -1491,9 +1293,9 @@ $MethodHandle* MethodHandles$Lookup::linkMethodHandleConstant(int8_t refKind, $C
 }
 
 bool MethodHandles$Lookup::canBeCached(int8_t refKind, $Class* defc, $MemberName* member) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	if (refKind == (int8_t)7) {
+	if (refKind == 7) {
 		return false;
 	}
 	bool var$2 = !$Modifier::isPublic($nc(defc)->getModifiers());
@@ -1502,7 +1304,7 @@ bool MethodHandles$Lookup::canBeCached(int8_t refKind, $Class* defc, $MemberName
 	if (var$0 || $nc(member)->isCallerSensitive()) {
 		return false;
 	}
-	$var($ClassLoader, loader, $nc(defc)->getClassLoader());
+	$var($ClassLoader, loader, defc->getClassLoader());
 	if (loader != nullptr) {
 		$var($ClassLoader, sysl, $ClassLoader::getSystemClassLoader());
 		bool found = false;
@@ -1518,10 +1320,8 @@ bool MethodHandles$Lookup::canBeCached(int8_t refKind, $Class* defc, $MemberName
 		}
 	}
 	try {
-		int8_t var$3 = refKind;
-		$Class* var$4 = defc;
-		$var($String, var$5, $nc(member)->getName());
-		$var($MemberName, resolved2, $nc($($MethodHandles::publicLookup()))->resolveOrNull(refKind, $$new($MemberName, var$3, var$4, var$5, $(member->getType()))));
+		$var($String, var$3, $nc(member)->getName());
+		$var($MemberName, resolved2, $$nc($MethodHandles::publicLookup())->resolveOrNull(refKind, $$new($MemberName, refKind, defc, var$3, $(member->getType()))));
 		if (resolved2 == nullptr) {
 			return false;
 		}
@@ -1533,18 +1333,18 @@ bool MethodHandles$Lookup::canBeCached(int8_t refKind, $Class* defc, $MemberName
 }
 
 $MethodHandle* MethodHandles$Lookup::getDirectMethodForConstant(int8_t refKind, $Class* defc, $MemberName* member) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($MethodHandleNatives::refKindIsField(refKind)) {
 		return getDirectFieldNoSecurityManager(refKind, defc, member);
 	} else if ($MethodHandleNatives::refKindIsMethod(refKind)) {
 		return getDirectMethodNoSecurityManager(refKind, defc, member, $(findBoundCallerLookup(member)));
-	} else if (refKind == (int8_t)8) {
+	} else if (refKind == 8) {
 		return getDirectConstructorNoSecurityManager(defc, member);
 	}
 	$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"bad MethodHandle constant #"_s, member}))));
 }
 
-void clinit$MethodHandles$Lookup($Class* class$) {
+void MethodHandles$Lookup::clinit$($Class* clazz) {
 	$load($MethodHandles);
 	MethodHandles$Lookup::$assertionsDisabled = !$MethodHandles::class$->desiredAssertionStatus();
 	{
@@ -1552,7 +1352,7 @@ void clinit$MethodHandles$Lookup($Class* class$) {
 	}
 	{
 		$init($MethodHandles);
-		$nc($of($MethodHandles::IMPL_NAMES))->getClass();
+		$nc($MethodHandles::IMPL_NAMES)->getClass();
 	}
 	$assignStatic(MethodHandles$Lookup::IMPL_LOOKUP, $new(MethodHandles$Lookup, $Object::class$, nullptr, MethodHandles$Lookup::TRUSTED));
 	$assignStatic(MethodHandles$Lookup::PUBLIC_LOOKUP, $new(MethodHandles$Lookup, $Object::class$, nullptr, MethodHandles$Lookup::UNCONDITIONAL));
@@ -1563,7 +1363,149 @@ MethodHandles$Lookup::MethodHandles$Lookup() {
 }
 
 $Class* MethodHandles$Lookup::load$($String* name, bool initialize) {
-	$loadClass(MethodHandles$Lookup, name, initialize, &_MethodHandles$Lookup_ClassInfo_, clinit$MethodHandles$Lookup, allocate$MethodHandles$Lookup);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandles$Lookup, $assertionsDisabled)},
+		{"lookupClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodHandles$Lookup, lookupClass$)},
+		{"prevLookupClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodHandles$Lookup, prevLookupClass)},
+		{"allowedModes", "I", nullptr, $PRIVATE | $FINAL, $field(MethodHandles$Lookup, allowedModes)},
+		{"PUBLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, PUBLIC)},
+		{"PRIVATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, PRIVATE)},
+		{"PROTECTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, PROTECTED)},
+		{"PACKAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, PACKAGE)},
+		{"MODULE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, MODULE)},
+		{"UNCONDITIONAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, UNCONDITIONAL)},
+		{"ORIGINAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MethodHandles$Lookup, ORIGINAL)},
+		{"ALL_MODES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodHandles$Lookup, ALL_MODES)},
+		{"FULL_POWER_MODES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodHandles$Lookup, FULL_POWER_MODES)},
+		{"TRUSTED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodHandles$Lookup, TRUSTED)},
+		{"cachedProtectionDomain", "Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $VOLATILE, $field(MethodHandles$Lookup, cachedProtectionDomain)},
+		{"IMPL_LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC | $FINAL, $staticField(MethodHandles$Lookup, IMPL_LOOKUP)},
+		{"PUBLIC_LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $STATIC | $FINAL, $staticField(MethodHandles$Lookup, PUBLIC_LOOKUP)},
+		{"LOOKASIDE_TABLE", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/invoke/MemberName;Ljava/lang/invoke/DirectMethodHandle;>;", $STATIC, $staticField(MethodHandles$Lookup, LOOKASIDE_TABLE)},
+		{}
+	};
+	$NamedAttribute hasPrivateAccessmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "14"},
+		{}
+	};
+	$CompoundAttribute hasPrivateAccessmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", hasPrivateAccessmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MethodHandles$Lookup, init$, void, $Class*)},
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)V", $PRIVATE, $method(MethodHandles$Lookup, init$, void, $Class*, $Class*, int32_t)},
+		{"accessClass", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, accessClass, $Class*, $Class*), "java.lang.IllegalAccessException"},
+		{"accessFailedMessage", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/String;", 0, $method(MethodHandles$Lookup, accessFailedMessage, $String*, $Class*, $MemberName*)},
+		{"bind", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, bind, $MethodHandle*, Object$*, $String*, $MethodType*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
+		{"canBeCached", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)Z", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Z", $PRIVATE, $method(MethodHandles$Lookup, canBeCached, bool, int8_t, $Class*, $MemberName*)},
+		{"checkAccess", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)V", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)V", 0, $method(MethodHandles$Lookup, checkAccess, void, int8_t, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
+		{"checkField", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)V", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)V", 0, $method(MethodHandles$Lookup, checkField, void, int8_t, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
+		{"checkMethod", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)V", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)V", 0, $method(MethodHandles$Lookup, checkMethod, void, int8_t, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
+		{"checkMethodName", "(BLjava/lang/String;)V", nullptr, 0, $method(MethodHandles$Lookup, checkMethodName, void, int8_t, $String*), "java.lang.NoSuchMethodException"},
+		{"checkSecurityManager", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MethodHandles$Lookup, checkSecurityManager, void, $Class*)},
+		{"checkSecurityManager", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)V", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)V", 0, $method(MethodHandles$Lookup, checkSecurityManager, void, $Class*, $MemberName*)},
+		{"checkSpecialCaller", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE, $method(MethodHandles$Lookup, checkSpecialCaller, void, $Class*, $Class*), "java.lang.IllegalAccessException"},
+		{"checkSymbolicClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MethodHandles$Lookup, checkSymbolicClass, void, $Class*), "java.lang.IllegalAccessException"},
+		{"checkUnprivilegedlookupClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(MethodHandles$Lookup, checkUnprivilegedlookupClass, void, $Class*)},
+		{"defineClass", "([B)Ljava/lang/Class;", "([B)Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, defineClass, $Class*, $bytes*), "java.lang.IllegalAccessException"},
+		{"defineHiddenClass", "([BZ[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $TRANSIENT, $method(MethodHandles$Lookup, defineHiddenClass, MethodHandles$Lookup*, $bytes*, bool, $MethodHandles$Lookup$ClassOptionArray*), "java.lang.IllegalAccessException"},
+		{"defineHiddenClassWithClassData", "([BLjava/lang/Object;Z[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $TRANSIENT, $method(MethodHandles$Lookup, defineHiddenClassWithClassData, MethodHandles$Lookup*, $bytes*, Object$*, bool, $MethodHandles$Lookup$ClassOptionArray*), "java.lang.IllegalAccessException"},
+		{"dropLookupMode", "(I)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, dropLookupMode, MethodHandles$Lookup*, int32_t)},
+		{"ensureDefineClassPermission", "()V", nullptr, $PRIVATE, $method(MethodHandles$Lookup, ensureDefineClassPermission, void)},
+		{"ensureInitialized", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, ensureInitialized, $Class*, $Class*), "java.lang.IllegalAccessException"},
+		{"findBoundCallerLookup", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, 0, $method(MethodHandles$Lookup, findBoundCallerLookup, MethodHandles$Lookup*, $MemberName*), "java.lang.IllegalAccessException"},
+		{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, findClass, $Class*, $String*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException"},
+		{"findConstructor", "(Ljava/lang/Class;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findConstructor, $MethodHandle*, $Class*, $MethodType*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
+		{"findGetter", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findGetter, $MethodHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
+		{"findSetter", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findSetter, $MethodHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
+		{"findSpecial", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findSpecial, $MethodHandle*, $Class*, $String*, $MethodType*, $Class*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
+		{"findStatic", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findStatic, $MethodHandle*, $Class*, $String*, $MethodType*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
+		{"findStaticGetter", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findStaticGetter, $MethodHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
+		{"findStaticSetter", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findStaticSetter, $MethodHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
+		{"findStaticVarHandle", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC, $method(MethodHandles$Lookup, findStaticVarHandle, $VarHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
+		{"findVarHandle", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC, $method(MethodHandles$Lookup, findVarHandle, $VarHandle*, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
+		{"findVirtual", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, findVirtual, $MethodHandle*, $Class*, $String*, $MethodType*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
+		{"findVirtualForMH", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, findVirtualForMH, $MethodHandle*, $String*, $MethodType*)},
+		{"findVirtualForVH", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, findVirtualForVH, $MethodHandle*, $String*, $MethodType*)},
+		{"fixmods", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles$Lookup, fixmods, int32_t, int32_t)},
+		{"getDirectConstructor", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectConstructor, $MethodHandle*, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
+		{"getDirectConstructorCommon", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectConstructorCommon, $MethodHandle*, $Class*, $MemberName*, bool), "java.lang.IllegalAccessException"},
+		{"getDirectConstructorNoSecurityManager", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectConstructorNoSecurityManager, $MethodHandle*, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
+		{"getDirectField", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectField, $MethodHandle*, int8_t, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
+		{"getDirectFieldCommon", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectFieldCommon, $MethodHandle*, int8_t, $Class*, $MemberName*, bool), "java.lang.IllegalAccessException"},
+		{"getDirectFieldNoSecurityManager", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectFieldNoSecurityManager, $MethodHandle*, int8_t, $Class*, $MemberName*), "java.lang.IllegalAccessException"},
+		{"getDirectMethod", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectMethod, $MethodHandle*, int8_t, $Class*, $MemberName*, MethodHandles$Lookup*), "java.lang.IllegalAccessException"},
+		{"getDirectMethodCommon", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;ZZLjava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;ZZLjava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectMethodCommon, $MethodHandle*, int8_t, $Class*, $MemberName*, bool, bool, MethodHandles$Lookup*), "java.lang.IllegalAccessException"},
+		{"getDirectMethodForConstant", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectMethodForConstant, $MethodHandle*, int8_t, $Class*, $MemberName*), "java.lang.ReflectiveOperationException"},
+		{"getDirectMethodNoRestrictInvokeSpecial", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectMethodNoRestrictInvokeSpecial, $MethodHandle*, $Class*, $MemberName*, MethodHandles$Lookup*), "java.lang.IllegalAccessException"},
+		{"getDirectMethodNoSecurityManager", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, getDirectMethodNoSecurityManager, $MethodHandle*, int8_t, $Class*, $MemberName*, MethodHandles$Lookup*), "java.lang.IllegalAccessException"},
+		{"getFieldVarHandle", "(BBLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/VarHandle;", "(BBLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/VarHandle;", $PRIVATE, $method(MethodHandles$Lookup, getFieldVarHandle, $VarHandle*, int8_t, int8_t, $Class*, $MemberName*, $MemberName*), "java.lang.IllegalAccessException"},
+		{"getFieldVarHandleCommon", "(BBLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/VarHandle;", "(BBLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/VarHandle;", $PRIVATE, $method(MethodHandles$Lookup, getFieldVarHandleCommon, $VarHandle*, int8_t, int8_t, $Class*, $MemberName*, $MemberName*, bool), "java.lang.IllegalAccessException"},
+		{"getFieldVarHandleNoSecurityManager", "(BBLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/VarHandle;", "(BBLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/VarHandle;", $PRIVATE, $method(MethodHandles$Lookup, getFieldVarHandleNoSecurityManager, $VarHandle*, int8_t, int8_t, $Class*, $MemberName*, $MemberName*), "java.lang.IllegalAccessException"},
+		{"hasFullPrivilegeAccess", "()Z", nullptr, $PUBLIC, $method(MethodHandles$Lookup, hasFullPrivilegeAccess, bool)},
+		{"hasPrivateAccess", "()Z", nullptr, $PUBLIC | $DEPRECATED, $method(MethodHandles$Lookup, hasPrivateAccess, bool), nullptr, nullptr, hasPrivateAccessmethodAnnotations$$},
+		{"in", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandles$Lookup;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandles$Lookup;", $PUBLIC, $method(MethodHandles$Lookup, in, MethodHandles$Lookup*, $Class*)},
+		{"isClassAccessible", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", 0, $method(MethodHandles$Lookup, isClassAccessible, bool, $Class*)},
+		{"linkMethodHandleConstant", "(BLjava/lang/Class;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", 0, $method(MethodHandles$Lookup, linkMethodHandleConstant, $MethodHandle*, int8_t, $Class*, $String*, Object$*), "java.lang.ReflectiveOperationException"},
+		{"lookupClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, lookupClass, $Class*)},
+		{"lookupClassOrNull", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(MethodHandles$Lookup, lookupClassOrNull, $Class*)},
+		{"lookupClassProtectionDomain", "()Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, lookupClassProtectionDomain, $ProtectionDomain*)},
+		{"lookupModes", "()I", nullptr, $PUBLIC, $method(MethodHandles$Lookup, lookupModes, int32_t)},
+		{"makeAccessException", "(Ljava/lang/Class;)Ljava/lang/IllegalAccessException;", "(Ljava/lang/Class<*>;)Ljava/lang/IllegalAccessException;", $PRIVATE, $method(MethodHandles$Lookup, makeAccessException, $IllegalAccessException*, $Class*)},
+		{"makeClassDefiner", "([B)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, makeClassDefiner, $MethodHandles$Lookup$ClassDefiner*, $bytes*)},
+		{"makeHiddenClassDefiner", "([B)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", nullptr, 0, $method(MethodHandles$Lookup, makeHiddenClassDefiner, $MethodHandles$Lookup$ClassDefiner*, $bytes*)},
+		{"makeHiddenClassDefiner", "([BLjava/util/Set;Z)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", "([BLjava/util/Set<Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;>;Z)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", 0, $method(MethodHandles$Lookup, makeHiddenClassDefiner, $MethodHandles$Lookup$ClassDefiner*, $bytes*, $Set*, bool)},
+		{"makeHiddenClassDefiner", "(Ljava/lang/String;[B)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", nullptr, 0, $method(MethodHandles$Lookup, makeHiddenClassDefiner, $MethodHandles$Lookup$ClassDefiner*, $String*, $bytes*)},
+		{"makeHiddenClassDefiner", "(Ljava/lang/invoke/MethodHandles$Lookup$ClassFile;Ljava/util/Set;Z)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", "(Ljava/lang/invoke/MethodHandles$Lookup$ClassFile;Ljava/util/Set<Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;>;Z)Ljava/lang/invoke/MethodHandles$Lookup$ClassDefiner;", $PRIVATE, $method(MethodHandles$Lookup, makeHiddenClassDefiner, $MethodHandles$Lookup$ClassDefiner*, $MethodHandles$Lookup$ClassFile*, $Set*, bool)},
+		{"maybeBindCaller", "(Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, maybeBindCaller, $MethodHandle*, $MemberName*, $MethodHandle*, MethodHandles$Lookup*), "java.lang.IllegalAccessException"},
+		{"newLookup", "(Ljava/lang/Class;Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandles$Lookup;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandles$Lookup;", $PRIVATE | $STATIC, $staticMethod(MethodHandles$Lookup, newLookup, MethodHandles$Lookup*, $Class*, $Class*, int32_t)},
+		{"previousLookupClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(MethodHandles$Lookup, previousLookupClass, $Class*)},
+		{"resolveOrFail", "(BLjava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/invoke/MemberName;", "(BLjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/invoke/MemberName;", 0, $method(MethodHandles$Lookup, resolveOrFail, $MemberName*, int8_t, $Class*, $String*, $Class*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
+		{"resolveOrFail", "(BLjava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", "(BLjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", 0, $method(MethodHandles$Lookup, resolveOrFail, $MemberName*, int8_t, $Class*, $String*, $MethodType*), "java.lang.NoSuchMethodException,java.lang.IllegalAccessException"},
+		{"resolveOrFail", "(BLjava/lang/invoke/MemberName;)Ljava/lang/invoke/MemberName;", nullptr, 0, $method(MethodHandles$Lookup, resolveOrFail, $MemberName*, int8_t, $MemberName*), "java.lang.ReflectiveOperationException"},
+		{"resolveOrNull", "(BLjava/lang/invoke/MemberName;)Ljava/lang/invoke/MemberName;", nullptr, 0, $method(MethodHandles$Lookup, resolveOrNull, $MemberName*, int8_t, $MemberName*)},
+		{"resolveOrNull", "(BLjava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", "(BLjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", 0, $method(MethodHandles$Lookup, resolveOrNull, $MemberName*, int8_t, $Class*, $String*, $MethodType*)},
+		{"restrictProtectedReceiver", "(Ljava/lang/invoke/MemberName;)Z", nullptr, $PRIVATE, $method(MethodHandles$Lookup, restrictProtectedReceiver, bool, $MemberName*)},
+		{"restrictReceiver", "(Ljava/lang/invoke/MemberName;Ljava/lang/invoke/DirectMethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MemberName;Ljava/lang/invoke/DirectMethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE, $method(MethodHandles$Lookup, restrictReceiver, $MethodHandle*, $MemberName*, $DirectMethodHandle*, $Class*), "java.lang.IllegalAccessException"},
+		{"revealDirect", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandleInfo;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, revealDirect, $MethodHandleInfo*, $MethodHandle*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodHandles$Lookup, toString, $String*)},
+		{"unreflect", "(Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, unreflect, $MethodHandle*, $Method*), "java.lang.IllegalAccessException"},
+		{"unreflectConstructor", "(Ljava/lang/reflect/Constructor;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/reflect/Constructor<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, unreflectConstructor, $MethodHandle*, $Constructor*), "java.lang.IllegalAccessException"},
+		{"unreflectField", "(Ljava/lang/reflect/Field;Z)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, unreflectField, $MethodHandle*, $Field*, bool), "java.lang.IllegalAccessException"},
+		{"unreflectForMH", "(Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, unreflectForMH, $MethodHandle*, $Method*)},
+		{"unreflectForVH", "(Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandles$Lookup, unreflectForVH, $MethodHandle*, $Method*)},
+		{"unreflectGetter", "(Ljava/lang/reflect/Field;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, unreflectGetter, $MethodHandle*, $Field*), "java.lang.IllegalAccessException"},
+		{"unreflectSetter", "(Ljava/lang/reflect/Field;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, unreflectSetter, $MethodHandle*, $Field*), "java.lang.IllegalAccessException"},
+		{"unreflectSpecial", "(Ljava/lang/reflect/Method;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/reflect/Method;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $method(MethodHandles$Lookup, unreflectSpecial, $MethodHandle*, $Method*, $Class*), "java.lang.IllegalAccessException"},
+		{"unreflectVarHandle", "(Ljava/lang/reflect/Field;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $method(MethodHandles$Lookup, unreflectVarHandle, $VarHandle*, $Field*), "java.lang.IllegalAccessException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodHandles$Lookup", "java.lang.invoke.MethodHandles", "Lookup", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.invoke.MethodHandles$Lookup$ClassDefiner", "java.lang.invoke.MethodHandles$Lookup", "ClassDefiner", $STATIC},
+		{"java.lang.invoke.MethodHandles$Lookup$ClassFile", "java.lang.invoke.MethodHandles$Lookup", "ClassFile", $STATIC},
+		{"java.lang.invoke.MethodHandles$Lookup$ClassOption", "java.lang.invoke.MethodHandles$Lookup", "ClassOption", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.invoke.MethodHandles$Lookup",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodHandles"
+	};
+	$loadClass(MethodHandles$Lookup, name, initialize, &classInfo$$, MethodHandles$Lookup::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodHandles$Lookup);
+	});
 	return class$;
 }
 

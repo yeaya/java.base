@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/NativeLibraries$NativeLibraryImpl.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Runnable.h>
@@ -20,51 +19,6 @@ using $NativeLibraries$Unloader = ::jdk::internal::loader::NativeLibraries$Unloa
 namespace jdk {
 	namespace internal {
 		namespace loader {
-
-$FieldInfo _NativeLibraries$NativeLibraryImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeLibraries$NativeLibraryImpl, $assertionsDisabled)},
-	{"fromClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(NativeLibraries$NativeLibraryImpl, fromClass)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(NativeLibraries$NativeLibraryImpl, name$)},
-	{"isBuiltin", "Z", nullptr, $FINAL, $field(NativeLibraries$NativeLibraryImpl, isBuiltin)},
-	{"isJNI", "Z", nullptr, $FINAL, $field(NativeLibraries$NativeLibraryImpl, isJNI)},
-	{"handle", "J", nullptr, 0, $field(NativeLibraries$NativeLibraryImpl, handle)},
-	{"jniVersion", "I", nullptr, 0, $field(NativeLibraries$NativeLibraryImpl, jniVersion)},
-	{}
-};
-
-$MethodInfo _NativeLibraries$NativeLibraryImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;ZZ)V", "(Ljava/lang/Class<*>;Ljava/lang/String;ZZ)V", 0, $method(NativeLibraries$NativeLibraryImpl, init$, void, $Class*, $String*, bool, bool)},
-	{"find", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(NativeLibraries$NativeLibraryImpl, find, int64_t, $String*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NativeLibraries$NativeLibraryImpl, name, $String*)},
-	{"open", "()Z", nullptr, 0, $virtualMethod(NativeLibraries$NativeLibraryImpl, open, bool)},
-	{"unloader", "()Ljava/lang/Runnable;", nullptr, 0, $virtualMethod(NativeLibraries$NativeLibraryImpl, unloader, $Runnable*)},
-	{}
-};
-
-$InnerClassInfo _NativeLibraries$NativeLibraryImpl_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.NativeLibraries$NativeLibraryImpl", "jdk.internal.loader.NativeLibraries", "NativeLibraryImpl", $STATIC},
-	{}
-};
-
-$ClassInfo _NativeLibraries$NativeLibraryImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.NativeLibraries$NativeLibraryImpl",
-	"java.lang.Object",
-	"jdk.internal.loader.NativeLibrary",
-	_NativeLibraries$NativeLibraryImpl_FieldInfo_,
-	_NativeLibraries$NativeLibraryImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativeLibraries$NativeLibraryImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.NativeLibraries"
-};
-
-$Object* allocate$NativeLibraries$NativeLibraryImpl($Class* clazz) {
-	return $of($alloc(NativeLibraries$NativeLibraryImpl));
-}
 
 bool NativeLibraries$NativeLibraryImpl::$assertionsDisabled = false;
 
@@ -97,7 +51,7 @@ bool NativeLibraries$NativeLibraryImpl::open() {
 	return $NativeLibraries::load(this, this->name$, this->isBuiltin, this->isJNI);
 }
 
-void clinit$NativeLibraries$NativeLibraryImpl($Class* class$) {
+void NativeLibraries$NativeLibraryImpl::clinit$($Class* clazz) {
 	$load($NativeLibraries);
 	NativeLibraries$NativeLibraryImpl::$assertionsDisabled = !$NativeLibraries::class$->desiredAssertionStatus();
 }
@@ -106,7 +60,46 @@ NativeLibraries$NativeLibraryImpl::NativeLibraries$NativeLibraryImpl() {
 }
 
 $Class* NativeLibraries$NativeLibraryImpl::load$($String* name, bool initialize) {
-	$loadClass(NativeLibraries$NativeLibraryImpl, name, initialize, &_NativeLibraries$NativeLibraryImpl_ClassInfo_, clinit$NativeLibraries$NativeLibraryImpl, allocate$NativeLibraries$NativeLibraryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeLibraries$NativeLibraryImpl, $assertionsDisabled)},
+		{"fromClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(NativeLibraries$NativeLibraryImpl, fromClass)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(NativeLibraries$NativeLibraryImpl, name$)},
+		{"isBuiltin", "Z", nullptr, $FINAL, $field(NativeLibraries$NativeLibraryImpl, isBuiltin)},
+		{"isJNI", "Z", nullptr, $FINAL, $field(NativeLibraries$NativeLibraryImpl, isJNI)},
+		{"handle", "J", nullptr, 0, $field(NativeLibraries$NativeLibraryImpl, handle)},
+		{"jniVersion", "I", nullptr, 0, $field(NativeLibraries$NativeLibraryImpl, jniVersion)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;ZZ)V", "(Ljava/lang/Class<*>;Ljava/lang/String;ZZ)V", 0, $method(NativeLibraries$NativeLibraryImpl, init$, void, $Class*, $String*, bool, bool)},
+		{"find", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(NativeLibraries$NativeLibraryImpl, find, int64_t, $String*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NativeLibraries$NativeLibraryImpl, name, $String*)},
+		{"open", "()Z", nullptr, 0, $virtualMethod(NativeLibraries$NativeLibraryImpl, open, bool)},
+		{"unloader", "()Ljava/lang/Runnable;", nullptr, 0, $virtualMethod(NativeLibraries$NativeLibraryImpl, unloader, $Runnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.NativeLibraries$NativeLibraryImpl", "jdk.internal.loader.NativeLibraries", "NativeLibraryImpl", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.NativeLibraries$NativeLibraryImpl",
+		"java.lang.Object",
+		"jdk.internal.loader.NativeLibrary",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.NativeLibraries"
+	};
+	$loadClass(NativeLibraries$NativeLibraryImpl, name, initialize, &classInfo$$, NativeLibraries$NativeLibraryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeLibraries$NativeLibraryImpl);
+	});
 	return class$;
 }
 

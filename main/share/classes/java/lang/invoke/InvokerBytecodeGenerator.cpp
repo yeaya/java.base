@@ -1,5 +1,4 @@
 #include <java/lang/invoke/InvokerBytecodeGenerator.h>
-
 #include <java/io/File.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -45,7 +44,6 @@
 #include <java/lang/invoke/TypeDescriptor$OfMethod.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
@@ -197,7 +195,6 @@ using $LambdaForm$NamedFunctionArray = $Array<::java::lang::invoke::LambdaForm$N
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
@@ -222,7 +219,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
 using $Void = ::java::lang::Void;
 using $BoundMethodHandle = ::java::lang::invoke::BoundMethodHandle;
-using $BoundMethodHandle$SpeciesData = ::java::lang::invoke::BoundMethodHandle$SpeciesData;
 using $DelegatingMethodHandle$Holder = ::java::lang::invoke::DelegatingMethodHandle$Holder;
 using $DirectMethodHandle$Holder = ::java::lang::invoke::DirectMethodHandle$Holder;
 using $InvokerBytecodeGenerator$1 = ::java::lang::invoke::InvokerBytecodeGenerator$1;
@@ -233,7 +229,6 @@ using $Invokers$Holder = ::java::lang::invoke::Invokers$Holder;
 using $LambdaForm = ::java::lang::invoke::LambdaForm;
 using $LambdaForm$BasicType = ::java::lang::invoke::LambdaForm$BasicType;
 using $LambdaForm$Holder = ::java::lang::invoke::LambdaForm$Holder;
-using $LambdaForm$Kind = ::java::lang::invoke::LambdaForm$Kind;
 using $LambdaForm$Name = ::java::lang::invoke::LambdaForm$Name;
 using $LambdaForm$NamedFunction = ::java::lang::invoke::LambdaForm$NamedFunction;
 using $MemberName = ::java::lang::invoke::MemberName;
@@ -245,12 +240,10 @@ using $MethodHandleImpl$LoopClauses = ::java::lang::invoke::MethodHandleImpl$Loo
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodHandles$Lookup$ClassDefiner = ::java::lang::invoke::MethodHandles$Lookup$ClassDefiner;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $MethodTypeForm = ::java::lang::invoke::MethodTypeForm;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
@@ -283,27 +276,24 @@ public:
 	virtual bool test(Object$* bt) override {
 		 return InvokerBytecodeGenerator::lambda$emitLoop$0($cast($LambdaForm$BasicType, bt));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.invoke.InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0::load$($String* name, bool initialize) {
-	$loadClass(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.invoke.InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0);
+	});
 	return class$;
 }
 $Class* InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0::class$ = nullptr;
@@ -316,27 +306,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($LambdaForm$BasicType, inst$)->basicTypeClass());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InvokerBytecodeGenerator$$Lambda$basicTypeClass$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo InvokerBytecodeGenerator$$Lambda$basicTypeClass$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvokerBytecodeGenerator$$Lambda$basicTypeClass$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$$Lambda$basicTypeClass$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo InvokerBytecodeGenerator$$Lambda$basicTypeClass$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.invoke.InvokerBytecodeGenerator$$Lambda$basicTypeClass$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* InvokerBytecodeGenerator$$Lambda$basicTypeClass$1::load$($String* name, bool initialize) {
-	$loadClass(InvokerBytecodeGenerator$$Lambda$basicTypeClass$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvokerBytecodeGenerator$$Lambda$basicTypeClass$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$$Lambda$basicTypeClass$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.invoke.InvokerBytecodeGenerator$$Lambda$basicTypeClass$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InvokerBytecodeGenerator$$Lambda$basicTypeClass$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvokerBytecodeGenerator$$Lambda$basicTypeClass$1);
+	});
 	return class$;
 }
 $Class* InvokerBytecodeGenerator$$Lambda$basicTypeClass$1::class$ = nullptr;
@@ -347,192 +334,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(InvokerBytecodeGenerator::lambda$emitLoop$1(x$0));
+		 return InvokerBytecodeGenerator::lambda$emitLoop$1(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.invoke.InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2::load$($String* name, bool initialize) {
-	$loadClass(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.invoke.InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2);
+	});
 	return class$;
 }
 $Class* InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2::class$ = nullptr;
-
-$FieldInfo _InvokerBytecodeGenerator_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(InvokerBytecodeGenerator, $assertionsDisabled)},
-	{"MH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, MH)},
-	{"MHI", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, MHI)},
-	{"LF", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LF)},
-	{"LFN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LFN)},
-	{"CLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, CLS)},
-	{"OBJ", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, OBJ)},
-	{"OBJARY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, OBJARY)},
-	{"LOOP_CLAUSES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LOOP_CLAUSES)},
-	{"MHARY2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, MHARY2)},
-	{"MH_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, MH_SIG)},
-	{"LF_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LF_SIG)},
-	{"LFN_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LFN_SIG)},
-	{"LL_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LL_SIG)},
-	{"LLV_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LLV_SIG)},
-	{"CLASS_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, CLASS_PREFIX)},
-	{"SOURCE_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, SOURCE_PREFIX)},
-	{"INVOKER_SUPER_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, INVOKER_SUPER_NAME)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, name)},
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, className$)},
-	{"lambdaForm", "Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, lambdaForm)},
-	{"invokerName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, invokerName)},
-	{"invokerType", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, invokerType)},
-	{"localsMap", "[I", nullptr, $PRIVATE, $field(InvokerBytecodeGenerator, localsMap)},
-	{"localClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(InvokerBytecodeGenerator, localClasses)},
-	{"cw", "Ljdk/internal/org/objectweb/asm/ClassWriter;", nullptr, $PRIVATE, $field(InvokerBytecodeGenerator, cw)},
-	{"mv", "Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PRIVATE, $field(InvokerBytecodeGenerator, mv)},
-	{"classData", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/invoke/InvokerBytecodeGenerator$ClassData;>;", $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, classData$)},
-	{"lastClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(InvokerBytecodeGenerator, lastClass)},
-	{"lastInternalName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InvokerBytecodeGenerator, lastInternalName)},
-	{"MEMBERNAME_FACTORY", "Ljava/lang/invoke/MemberName$Factory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, MEMBERNAME_FACTORY)},
-	{"HOST_CLASS", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, HOST_CLASS)},
-	{"LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LOOKUP)},
-	{"DUMP_CLASS_FILES_COUNTERS", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, DUMP_CLASS_FILES_COUNTERS)},
-	{"DUMP_CLASS_FILES_DIR", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, DUMP_CLASS_FILES_DIR)},
-	{"DONTINLINE_SIG", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, DONTINLINE_SIG)},
-	{"FORCEINLINE_SIG", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, FORCEINLINE_SIG)},
-	{"HIDDEN_SIG", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, HIDDEN_SIG)},
-	{"INJECTEDPROFILE_SIG", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, INJECTEDPROFILE_SIG)},
-	{"LF_COMPILED_SIG", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LF_COMPILED_SIG)},
-	{"STATICALLY_INVOCABLE_PACKAGES", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, STATICALLY_INVOCABLE_PACKAGES)},
-	{}
-};
-
-$MethodInfo _InvokerBytecodeGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/LambdaForm;ILjava/lang/String;Ljava/lang/String;Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, init$, void, $LambdaForm*, int32_t, $String*, $String*, $MethodType*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, init$, void, $String*, $String*, $MethodType*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, init$, void, $String*, $LambdaForm*, $MethodType*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodType;)V", nullptr, 0, $method(InvokerBytecodeGenerator, init$, void, $String*, $String*, $LambdaForm*, $MethodType*)},
-	{"addMethod", "()V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, addMethod, void)},
-	{"arrayInsnOpcode", "(BI)I", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, arrayInsnOpcode, int32_t, int8_t, int32_t), "java.lang.InternalError"},
-	{"arrayTypeCode", "(Lsun/invoke/util/Wrapper;)B", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, arrayTypeCode, int8_t, $Wrapper*)},
-	{"assertStaticType", "(Ljava/lang/Class;Ljava/lang/invoke/LambdaForm$Name;)Z", "(Ljava/lang/Class<*>;Ljava/lang/invoke/LambdaForm$Name;)Z", $PRIVATE, $method(InvokerBytecodeGenerator, assertStaticType, bool, $Class*, $LambdaForm$Name*)},
-	{"bogusMethod", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, bogusMethod, void, Object$*)},
-	{"checkActualReceiver", "()Z", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, checkActualReceiver, bool)},
-	{"checkClassName", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, checkClassName, bool, $String*)},
-	{"classData", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, classData, $String*, Object$*)},
-	{"classDataValues", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", 0, $virtualMethod(InvokerBytecodeGenerator, classDataValues, $List*)},
-	{"classFilePrologue", "()Ljdk/internal/org/objectweb/asm/ClassWriter;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, classFilePrologue, $ClassWriter*)},
-	{"className", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, className, $String*, $String*)},
-	{"clinit", "(Ljdk/internal/org/objectweb/asm/ClassWriter;Ljava/lang/String;Ljava/util/List;)V", "(Ljdk/internal/org/objectweb/asm/ClassWriter;Ljava/lang/String;Ljava/util/List<Ljava/lang/invoke/InvokerBytecodeGenerator$ClassData;>;)V", $STATIC, $staticMethod(InvokerBytecodeGenerator, clinit, void, $ClassWriter*, $String*, $List*)},
-	{"debugString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, debugString, $String*, Object$*)},
-	{"emitAloadInsn", "(I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitAloadInsn, void, int32_t)},
-	{"emitArrayLength", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitArrayLength, void, $LambdaForm$Name*)},
-	{"emitArrayLoad", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitArrayLoad, void, $LambdaForm$Name*)},
-	{"emitArrayOp", "(Ljava/lang/invoke/LambdaForm$Name;I)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitArrayOp, void, $LambdaForm$Name*, int32_t)},
-	{"emitArrayStore", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitArrayStore, void, $LambdaForm$Name*)},
-	{"emitAstoreInsn", "(I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitAstoreInsn, void, int32_t)},
-	{"emitBoxing", "(Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitBoxing, void, $Wrapper*)},
-	{"emitConst", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitConst, void, Object$*)},
-	{"emitGuardWithCatch", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitGuardWithCatch, $LambdaForm$Name*, int32_t)},
-	{"emitI2X", "(Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitI2X, void, $Wrapper*)},
-	{"emitIconstInsn", "(I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitIconstInsn, void, int32_t)},
-	{"emitIconstInsn", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, emitIconstInsn, void, $MethodVisitor*, int32_t)},
-	{"emitImplicitConversion", "(Ljava/lang/invoke/LambdaForm$BasicType;Ljava/lang/Class;Ljava/lang/Object;)V", "(Ljava/lang/invoke/LambdaForm$BasicType;Ljava/lang/Class<*>;Ljava/lang/Object;)V", $PRIVATE, $method(InvokerBytecodeGenerator, emitImplicitConversion, void, $LambdaForm$BasicType*, $Class*, Object$*)},
-	{"emitInvoke", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitInvoke, void, $LambdaForm$Name*)},
-	{"emitLoadInsn", "(Ljava/lang/invoke/LambdaForm$BasicType;I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitLoadInsn, void, $LambdaForm$BasicType*, int32_t)},
-	{"emitLoop", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitLoop, $LambdaForm$Name*, int32_t)},
-	{"emitLoopHandleInvoke", "(Ljava/lang/invoke/LambdaForm$Name;IILjava/lang/invoke/LambdaForm$Name;ZLjava/lang/invoke/MethodType;[Ljava/lang/Class;II)V", "(Ljava/lang/invoke/LambdaForm$Name;IILjava/lang/invoke/LambdaForm$Name;ZLjava/lang/invoke/MethodType;[Ljava/lang/Class<*>;II)V", $PRIVATE, $method(InvokerBytecodeGenerator, emitLoopHandleInvoke, void, $LambdaForm$Name*, int32_t, int32_t, $LambdaForm$Name*, bool, $MethodType*, $ClassArray*, int32_t, int32_t)},
-	{"emitPopInsn", "(Ljava/lang/invoke/LambdaForm$BasicType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitPopInsn, void, $LambdaForm$BasicType*)},
-	{"emitPrimCast", "(Lsun/invoke/util/Wrapper;Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitPrimCast, void, $Wrapper*, $Wrapper*)},
-	{"emitPushArgument", "(Ljava/lang/invoke/LambdaForm$Name;I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitPushArgument, void, $LambdaForm$Name*, int32_t)},
-	{"emitPushArgument", "(Ljava/lang/Class;Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;)V", $PRIVATE, $method(InvokerBytecodeGenerator, emitPushArgument, void, $Class*, Object$*)},
-	{"emitPushArguments", "(Ljava/lang/invoke/LambdaForm$Name;I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitPushArguments, void, $LambdaForm$Name*, int32_t)},
-	{"emitPushClauseArray", "(II)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitPushClauseArray, void, int32_t, int32_t)},
-	{"emitReferenceCast", "(Ljava/lang/Class;Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;)V", $PRIVATE, $method(InvokerBytecodeGenerator, emitReferenceCast, void, $Class*, Object$*)},
-	{"emitReturn", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitReturn, void, $LambdaForm$Name*)},
-	{"emitReturnInsn", "(Ljava/lang/invoke/LambdaForm$BasicType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitReturnInsn, void, $LambdaForm$BasicType*)},
-	{"emitSelectAlternative", "(Ljava/lang/invoke/LambdaForm$Name;Ljava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitSelectAlternative, $LambdaForm$Name*, $LambdaForm$Name*, $LambdaForm$Name*)},
-	{"emitStaticInvoke", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitStaticInvoke, void, $LambdaForm$Name*)},
-	{"emitStaticInvoke", "(Ljava/lang/invoke/MemberName;Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitStaticInvoke, void, $MemberName*, $LambdaForm$Name*)},
-	{"emitStoreInsn", "(Ljava/lang/invoke/LambdaForm$BasicType;I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitStoreInsn, void, $LambdaForm$BasicType*, int32_t)},
-	{"emitStoreResult", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitStoreResult, void, $LambdaForm$Name*)},
-	{"emitTableSwitch", "(II)Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitTableSwitch, $LambdaForm$Name*, int32_t, int32_t)},
-	{"emitTryFinally", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitTryFinally, $LambdaForm$Name*, int32_t)},
-	{"emitUnboxing", "(Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitUnboxing, void, $Wrapper*)},
-	{"emitX2I", "(Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitX2I, void, $Wrapper*)},
-	{"emitZero", "(Ljava/lang/invoke/LambdaForm$BasicType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitZero, void, $LambdaForm$BasicType*)},
-	{"extendLocalsMap", "([Ljava/lang/Class;)I", "([Ljava/lang/Class<*>;)I", $PRIVATE, $method(InvokerBytecodeGenerator, extendLocalsMap, int32_t, $ClassArray*)},
-	{"generateCustomizedCode", "(Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, generateCustomizedCode, $MemberName*, $LambdaForm*, $MethodType*)},
-	{"generateCustomizedCodeBytes", "()[B", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, generateCustomizedCodeBytes, $bytes*)},
-	{"generateLambdaFormInterpreterEntryPoint", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, generateLambdaFormInterpreterEntryPoint, $MemberName*, $MethodType*)},
-	{"generateLambdaFormInterpreterEntryPointBytes", "()[B", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, generateLambdaFormInterpreterEntryPointBytes, $bytes*)},
-	{"generateNamedFunctionInvoker", "(Ljava/lang/invoke/MethodTypeForm;)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, generateNamedFunctionInvoker, $MemberName*, $MethodTypeForm*)},
-	{"generateNamedFunctionInvokerImpl", "(Ljava/lang/invoke/MethodTypeForm;)[B", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, generateNamedFunctionInvokerImpl, $bytes*, $MethodTypeForm*)},
-	{"getInternalName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE, $method(InvokerBytecodeGenerator, getInternalName, $String*, $Class*)},
-	{"isStaticallyInvocable", "([Ljava/lang/invoke/LambdaForm$NamedFunction;)Z", nullptr, $STATIC | $TRANSIENT, $staticMethod(InvokerBytecodeGenerator, isStaticallyInvocable, bool, $LambdaForm$NamedFunctionArray*)},
-	{"isStaticallyInvocable", "(Ljava/lang/invoke/LambdaForm$Name;)Z", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, isStaticallyInvocable, bool, $LambdaForm$Name*)},
-	{"isStaticallyInvocable", "(Ljava/lang/invoke/MemberName;)Z", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, isStaticallyInvocable, bool, $MemberName*)},
-	{"isStaticallyInvocableType", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, isStaticallyInvocableType, bool, $MethodType*)},
-	{"isStaticallyNameable", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(InvokerBytecodeGenerator, isStaticallyNameable, bool, $Class*)},
-	{"lambda$emitLoop$0", "(Ljava/lang/invoke/LambdaForm$BasicType;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InvokerBytecodeGenerator, lambda$emitLoop$0, bool, $LambdaForm$BasicType*)},
-	{"lambda$emitLoop$1", "(I)[Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InvokerBytecodeGenerator, lambda$emitLoop$1, $ClassArray*, int32_t)},
-	{"loadInsnOpcode", "(Ljava/lang/invoke/LambdaForm$BasicType;)I", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, loadInsnOpcode, int32_t, $LambdaForm$BasicType*), "java.lang.InternalError"},
-	{"loadMethod", "([B)Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, loadMethod, $MemberName*, $bytes*)},
-	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, lookup, $MethodHandles$Lookup*)},
-	{"lookupPregenerated", "(Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, lookupPregenerated, $MemberName*, $LambdaForm*, $MethodType*)},
-	{"makeDumpableClassName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, makeDumpableClassName, $String*, $String*)},
-	{"maybeDump", "([B)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, maybeDump, void, $bytes*)},
-	{"maybeDump", "(Ljava/lang/String;[B)V", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, maybeDump, void, $String*, $bytes*)},
-	{"methodEpilogue", "()V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, methodEpilogue, void)},
-	{"methodPrologue", "()V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, methodPrologue, void)},
-	{"popInsnOpcode", "(Ljava/lang/invoke/LambdaForm$BasicType;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, popInsnOpcode, int32_t, $LambdaForm$BasicType*)},
-	{"refKindOpcode", "(B)I", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, refKindOpcode, int32_t, int8_t)},
-	{"resolveFrom", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Ljava/lang/invoke/MemberName;", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Ljava/lang/invoke/MemberName;", $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, resolveFrom, $MemberName*, $String*, $MethodType*, $Class*)},
-	{"resolveInvokerMember", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, resolveInvokerMember, $MemberName*, $Class*, $String*, $MethodType*)},
-	{"setClassWriter", "(Ljdk/internal/org/objectweb/asm/ClassWriter;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, setClassWriter, void, $ClassWriter*)},
-	{"storeInsnOpcode", "(Ljava/lang/invoke/LambdaForm$BasicType;)I", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, storeInsnOpcode, int32_t, $LambdaForm$BasicType*), "java.lang.InternalError"},
-	{"toByteArray", "()[B", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, toByteArray, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _InvokerBytecodeGenerator_InnerClassesInfo_[] = {
-	{"java.lang.invoke.InvokerBytecodeGenerator$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.lang.invoke.InvokerBytecodeGenerator$BytecodeGenerationException", "java.lang.invoke.InvokerBytecodeGenerator", "BytecodeGenerationException", $STATIC | $FINAL},
-	{"java.lang.invoke.InvokerBytecodeGenerator$ClassData", "java.lang.invoke.InvokerBytecodeGenerator", "ClassData", $STATIC},
-	{"java.lang.invoke.InvokerBytecodeGenerator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InvokerBytecodeGenerator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.InvokerBytecodeGenerator",
-	"java.lang.Object",
-	nullptr,
-	_InvokerBytecodeGenerator_FieldInfo_,
-	_InvokerBytecodeGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InvokerBytecodeGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.InvokerBytecodeGenerator$2,java.lang.invoke.InvokerBytecodeGenerator$BytecodeGenerationException,java.lang.invoke.InvokerBytecodeGenerator$ClassData,java.lang.invoke.InvokerBytecodeGenerator$1"
-};
-
-$Object* allocate$InvokerBytecodeGenerator($Class* clazz) {
-	return $of($alloc(InvokerBytecodeGenerator));
-}
 
 bool InvokerBytecodeGenerator::$assertionsDisabled = false;
 $String* InvokerBytecodeGenerator::MH = nullptr;
@@ -570,17 +394,17 @@ $MethodHandles$Lookup* InvokerBytecodeGenerator::lookup() {
 		$init($MethodHandles$Lookup);
 		return $MethodHandles::privateLookupIn(InvokerBytecodeGenerator::HOST_CLASS, $MethodHandles$Lookup::IMPL_LOOKUP);
 	} catch ($IllegalAccessException& e) {
-		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(e))));
+		$throw($($MethodHandleStatics::newInternalError(e)));
 	}
 	$shouldNotReachHere();
 }
 
 void InvokerBytecodeGenerator::init$($LambdaForm* lambdaForm, int32_t localsMapSize, $String* name$renamed, $String* invokerName$renamed, $MethodType* invokerType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$var($String, invokerName, invokerName$renamed);
 	$set(this, classData$, $new($ArrayList));
-	int32_t p = $nc(invokerName)->indexOf((int32_t)u'.');
+	int32_t p = $nc(invokerName)->indexOf(u'.');
 	if (p > -1) {
 		$assign(name, invokerName->substring(0, p));
 		$assign(invokerName, invokerName->substring(p + 1));
@@ -599,18 +423,14 @@ void InvokerBytecodeGenerator::init$($LambdaForm* lambdaForm, int32_t localsMapS
 }
 
 void InvokerBytecodeGenerator::init$($String* name, $String* invokerName, $MethodType* invokerType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	InvokerBytecodeGenerator::init$(nullptr, $nc(invokerType)->parameterCount(), name, invokerName, invokerType);
-	$var($MethodType, mt, $nc(invokerType)->erase());
+	$var($MethodType, mt, invokerType->erase());
 	$nc(this->localsMap)->set(0, 0);
-	{
-		int32_t i = 1;
-		int32_t index = 0;
-		for (; i < $nc(this->localsMap)->length; ++i) {
-			$Wrapper* w = $Wrapper::forBasicType($($cast($Class, $nc(mt)->parameterType(i - 1))));
-			index += $nc(w)->stackSlots();
-			$nc(this->localsMap)->set(i, index);
-		}
+	for (int32_t i = 1, index = 0; i < this->localsMap->length; ++i) {
+		$Wrapper* w = $Wrapper::forBasicType($$cast($Class, $nc(mt)->parameterType(i - 1)));
+		index += $nc(w)->stackSlots();
+		this->localsMap->set(i, index);
 	}
 }
 
@@ -620,16 +440,12 @@ void InvokerBytecodeGenerator::init$($String* name, $LambdaForm* form, $MethodTy
 
 void InvokerBytecodeGenerator::init$($String* name, $String* invokerName, $LambdaForm* form, $MethodType* invokerType) {
 	InvokerBytecodeGenerator::init$(form, $nc($nc(form)->names)->length, name, invokerName, invokerType);
-	$var($LambdaForm$NameArray, names, $nc(form)->names);
-	{
-		int32_t i = 0;
-		int32_t index = 0;
-		for (; i < $nc(this->localsMap)->length; ++i) {
-			$nc(this->localsMap)->set(i, index);
-			if (i < $nc(names)->length) {
-				$LambdaForm$BasicType* type = $nc(names->get(i))->type();
-				index += $nc(type)->basicTypeSlots();
-			}
+	$var($LambdaForm$NameArray, names, form->names);
+	for (int32_t i = 0, index = 0; i < $nc(this->localsMap)->length; ++i) {
+		this->localsMap->set(i, index);
+		if (i < $nc(names)->length) {
+			$LambdaForm$BasicType* type = $nc(names->get(i))->type();
+			index += $nc(type)->basicTypeSlots();
 		}
 	}
 }
@@ -646,24 +462,24 @@ void InvokerBytecodeGenerator::maybeDump($String* className, $bytes* classFile) 
 	$beforeCallerSensitive();
 	$init($MethodHandleStatics);
 	if ($MethodHandleStatics::DUMP_CLASS_FILES) {
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($InvokerBytecodeGenerator$1, className, classFile)));
+		$AccessController::doPrivileged($$new($InvokerBytecodeGenerator$1, className, classFile));
 	}
 }
 
 $String* InvokerBytecodeGenerator::makeDumpableClassName($String* className$renamed) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, className, className$renamed);
 	$var($Integer, ctr, nullptr);
 	$synchronized(InvokerBytecodeGenerator::DUMP_CLASS_FILES_COUNTERS) {
-		$assign(ctr, $cast($Integer, $nc(InvokerBytecodeGenerator::DUMP_CLASS_FILES_COUNTERS)->get(className)));
+		$assign(ctr, $cast($Integer, InvokerBytecodeGenerator::DUMP_CLASS_FILES_COUNTERS->get(className)));
 		if (ctr == nullptr) {
 			$assign(ctr, $Integer::valueOf(0));
 		}
-		$nc(InvokerBytecodeGenerator::DUMP_CLASS_FILES_COUNTERS)->put(className, $($Integer::valueOf($nc(ctr)->intValue() + 1)));
+		InvokerBytecodeGenerator::DUMP_CLASS_FILES_COUNTERS->put(className, $($Integer::valueOf($nc(ctr)->intValue() + 1)));
 	}
-	$var($String, sfx, $nc(ctr)->toString());
-	while ($nc(sfx)->length() < 3) {
+	$var($String, sfx, ctr->toString());
+	while (sfx->length() < 3) {
 		$assign(sfx, $str({"0"_s, sfx}));
 	}
 	$plusAssign(className, sfx);
@@ -671,7 +487,7 @@ $String* InvokerBytecodeGenerator::makeDumpableClassName($String* className$rena
 }
 
 $String* InvokerBytecodeGenerator::classData(Object$* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, desc, nullptr);
 	if ($instanceOf($Class, arg)) {
 		$assign(desc, "Ljava/lang/Class;"_s);
@@ -689,8 +505,12 @@ $String* InvokerBytecodeGenerator::classData(Object$* arg) {
 		while ($nc(c)->isArray()) {
 			c = c->getComponentType();
 		}
-		$var($String, var$0, $$str({"_DATA_"_s, $($nc(c)->getSimpleName()), "_"_s}));
-		$assign(name, $concat(var$0, $$str($nc(this->classData$)->size())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("_DATA_"_s);
+		var$0->append($($nc(c)->getSimpleName()));
+		var$0->append("_"_s);
+		var$0->append($nc(this->classData$)->size());
+		$assign(name, $str(var$0));
 	} else {
 		$assign(name, $str({"_D_"_s, $$str($nc(this->classData$)->size())}));
 	}
@@ -700,52 +520,45 @@ $String* InvokerBytecodeGenerator::classData(Object$* arg) {
 }
 
 $List* InvokerBytecodeGenerator::classDataValues() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, cd, this->classData$);
-
-	$var($List, var$0, nullptr)
+	$var($List, var$0, nullptr);
 	switch ($nc(cd)->size()) {
 	case 0:
-		{
-			$assign(var$0, $List::of());
-			break;
-		}
+		$assign(var$0, $List::of());
+		break;
 	case 1:
-		{
-			$assign(var$0, $List::of($nc(($cast($InvokerBytecodeGenerator$ClassData, $(cd->get(0)))))->value));
-			break;
-		}
+		$assign(var$0, $List::of($nc(($$cast($InvokerBytecodeGenerator$ClassData, cd->get(0))))->value));
+		break;
 	case 2:
 		{
-			$var($Object, var$1, $nc(($cast($InvokerBytecodeGenerator$ClassData, $(cd->get(0)))))->value);
-			$assign(var$0, $List::of(var$1, $nc(($cast($InvokerBytecodeGenerator$ClassData, $(cd->get(1)))))->value));
+			$var($Object, var$1, $nc(($$cast($InvokerBytecodeGenerator$ClassData, cd->get(0))))->value);
+			$assign(var$0, $List::of(var$1, $nc(($$cast($InvokerBytecodeGenerator$ClassData, cd->get(1))))->value));
 			break;
 		}
 	case 3:
 		{
-			$var($Object, var$2, $nc(($cast($InvokerBytecodeGenerator$ClassData, $(cd->get(0)))))->value);
-			$var($Object, var$3, $nc(($cast($InvokerBytecodeGenerator$ClassData, $(cd->get(1)))))->value);
-			$assign(var$0, $List::of(var$2, var$3, $nc(($cast($InvokerBytecodeGenerator$ClassData, $(cd->get(2)))))->value));
+			$var($Object, var$2, $nc(($$cast($InvokerBytecodeGenerator$ClassData, cd->get(0))))->value);
+			$var($Object, var$3, $nc(($$cast($InvokerBytecodeGenerator$ClassData, cd->get(1))))->value);
+			$assign(var$0, $List::of(var$2, var$3, $nc(($$cast($InvokerBytecodeGenerator$ClassData, cd->get(2))))->value));
 			break;
 		}
 	case 4:
 		{
-			$var($Object, var$4, $nc(($cast($InvokerBytecodeGenerator$ClassData, $(cd->get(0)))))->value);
-			$var($Object, var$5, $nc(($cast($InvokerBytecodeGenerator$ClassData, $(cd->get(1)))))->value);
-			$var($Object, var$6, $nc(($cast($InvokerBytecodeGenerator$ClassData, $(cd->get(2)))))->value);
-			$assign(var$0, $List::of(var$4, var$5, var$6, $nc(($cast($InvokerBytecodeGenerator$ClassData, $(cd->get(3)))))->value));
+			$var($Object, var$4, $nc(($$cast($InvokerBytecodeGenerator$ClassData, cd->get(0))))->value);
+			$var($Object, var$5, $nc(($$cast($InvokerBytecodeGenerator$ClassData, cd->get(1))))->value);
+			$var($Object, var$6, $nc(($$cast($InvokerBytecodeGenerator$ClassData, cd->get(2))))->value);
+			$assign(var$0, $List::of(var$4, var$5, var$6, $nc(($$cast($InvokerBytecodeGenerator$ClassData, cd->get(3))))->value));
 			break;
 		}
 	default:
 		{
-			{
-				$var($ObjectArray, data, $new($ObjectArray, $nc(this->classData$)->size()));
-				for (int32_t i = 0; i < $nc(this->classData$)->size(); ++i) {
-					data->set(i, $nc(($cast($InvokerBytecodeGenerator$ClassData, $($nc(this->classData$)->get(i)))))->value);
-				}
-				$assign(var$0, $List::of(data));
-				break;
+			$var($ObjectArray, data, $new($ObjectArray, $nc(this->classData$)->size()));
+			for (int32_t i = 0; i < this->classData$->size(); ++i) {
+				data->set(i, $nc(($$cast($InvokerBytecodeGenerator$ClassData, this->classData$->get(i))))->value);
 			}
+			$assign(var$0, $List::of(data));
+			break;
 		}
 	}
 	return var$0;
@@ -753,7 +566,7 @@ $List* InvokerBytecodeGenerator::classDataValues() {
 
 $String* InvokerBytecodeGenerator::debugString(Object$* arg) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($MethodHandle, mh, nullptr);
 		bool var$0 = $instanceOf($MethodHandle, arg);
@@ -773,26 +586,26 @@ $String* InvokerBytecodeGenerator::debugString(Object$* arg) {
 }
 
 $MemberName* InvokerBytecodeGenerator::loadMethod($bytes* classFile) {
-	$useLocalCurrentObjectStackCache();
-	$Class* invokerClass = $nc($($nc(InvokerBytecodeGenerator::LOOKUP)->makeHiddenClassDefiner(this->className$, classFile)))->defineClass(true, $(classDataValues()));
+	$useLocalObjectStack();
+	$Class* invokerClass = $$nc($nc(InvokerBytecodeGenerator::LOOKUP)->makeHiddenClassDefiner(this->className$, classFile))->defineClass(true, $(classDataValues()));
 	return resolveInvokerMember(invokerClass, this->invokerName, this->invokerType);
 }
 
 $MemberName* InvokerBytecodeGenerator::resolveInvokerMember($Class* invokerClass, $String* name, $MethodType* type) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
-	$var($MemberName, member, $new($MemberName, invokerClass, name, type, (int8_t)6));
+	$useLocalObjectStack();
+	$var($MemberName, member, $new($MemberName, invokerClass, name, type, 6));
 	try {
 		$load($ReflectiveOperationException);
-		$assign(member, $nc(InvokerBytecodeGenerator::MEMBERNAME_FACTORY)->resolveOrFail((int8_t)6, member, InvokerBytecodeGenerator::HOST_CLASS, -1, $ReflectiveOperationException::class$));
+		$assign(member, $nc(InvokerBytecodeGenerator::MEMBERNAME_FACTORY)->resolveOrFail(6, member, InvokerBytecodeGenerator::HOST_CLASS, -1, $ReflectiveOperationException::class$));
 	} catch ($ReflectiveOperationException& e) {
-		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(e))));
+		$throw($($MethodHandleStatics::newInternalError(e)));
 	}
 	return member;
 }
 
 $ClassWriter* InvokerBytecodeGenerator::classFilePrologue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t NOT_ACC_PUBLIC = 0;
 	$var($ClassWriter, cw, $new($ClassWriter, $ClassWriter::COMPUTE_MAXS + $ClassWriter::COMPUTE_FRAMES));
 	setClassWriter(cw);
@@ -808,21 +621,21 @@ void InvokerBytecodeGenerator::methodPrologue() {
 
 void InvokerBytecodeGenerator::methodEpilogue() {
 	$nc(this->mv)->visitMaxs(0, 0);
-	$nc(this->mv)->visitEnd();
+	this->mv->visitEnd();
 }
 
 void InvokerBytecodeGenerator::clinit($ClassWriter* cw, $String* className, $List* classData) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(classData)->isEmpty()) {
 		return;
 	}
 	{
-		$var($Iterator, i$, $nc(classData)->iterator());
+		$var($Iterator, i$, classData->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($InvokerBytecodeGenerator$ClassData, p, $cast($InvokerBytecodeGenerator$ClassData, i$->next()));
 			{
-				$var($FieldVisitor, fv, $nc(cw)->visitField($Opcodes::ACC_STATIC | $Opcodes::ACC_FINAL, $nc(p)->name$, p->desc, nullptr, nullptr));
+				$var($FieldVisitor, fv, $nc(cw)->visitField($Opcodes::ACC_STATIC | $Opcodes::ACC_FINAL, $nc(p)->name$, $nc(p)->desc, nullptr, nullptr));
 				$nc(fv)->visitEnd();
 			}
 		}
@@ -842,8 +655,8 @@ void InvokerBytecodeGenerator::clinit($ClassWriter* cw, $String* className, $Lis
 				mv->visitVarInsn($Opcodes::ALOAD, 0);
 				emitIconstInsn(mv, index++);
 				mv->visitMethodInsn($Opcodes::INVOKEINTERFACE, "java/util/List"_s, "get"_s, "(I)Ljava/lang/Object;"_s, true);
-				mv->visitTypeInsn($Opcodes::CHECKCAST, $($nc($nc(p)->desc)->substring(1, $nc(p->desc)->length() - 1)));
-				mv->visitFieldInsn($Opcodes::PUTSTATIC, className, $nc(p)->name$, p->desc);
+				mv->visitTypeInsn($Opcodes::CHECKCAST, $($nc($nc(p)->desc)->substring(1, $nc($nc(p)->desc)->length() - 1)));
+				mv->visitFieldInsn($Opcodes::PUTSTATIC, className, p->name$, p->desc);
 			}
 		}
 	}
@@ -858,23 +671,23 @@ void InvokerBytecodeGenerator::emitConst(Object$* con) {
 		return;
 	}
 	if ($instanceOf($Integer, con)) {
-		emitIconstInsn($nc(($cast($Integer, con)))->intValue());
+		emitIconstInsn($cast($Integer, con)->intValue());
 		return;
 	}
 	if ($instanceOf($Byte, con)) {
-		emitIconstInsn($nc(($cast($Byte, con)))->byteValue());
+		emitIconstInsn($cast($Byte, con)->byteValue());
 		return;
 	}
 	if ($instanceOf($Short, con)) {
-		emitIconstInsn($nc(($cast($Short, con)))->shortValue());
+		emitIconstInsn($cast($Short, con)->shortValue());
 		return;
 	}
 	if ($instanceOf($Character, con)) {
-		emitIconstInsn($nc(($cast($Character, con)))->charValue());
+		emitIconstInsn($cast($Character, con)->charValue());
 		return;
 	}
 	if ($instanceOf($Long, con)) {
-		int64_t x = $nc(($cast($Long, con)))->longValue();
+		int64_t x = $cast($Long, con)->longValue();
 		int16_t sx = (int16_t)x;
 		if (x == sx) {
 			if (sx >= 0 && sx <= 1) {
@@ -887,7 +700,7 @@ void InvokerBytecodeGenerator::emitConst(Object$* con) {
 		}
 	}
 	if ($instanceOf($Float, con)) {
-		float x = $nc(($cast($Float, con)))->floatValue();
+		float x = $cast($Float, con)->floatValue();
 		int16_t sx = $cast(int16_t, x);
 		if (x == sx) {
 			if (sx >= 0 && sx <= 2) {
@@ -900,7 +713,7 @@ void InvokerBytecodeGenerator::emitConst(Object$* con) {
 		}
 	}
 	if ($instanceOf($Double, con)) {
-		double x = $nc(($cast($Double, con)))->doubleValue();
+		double x = $cast($Double, con)->doubleValue();
 		int16_t sx = $cast(int16_t, x);
 		if (x == sx) {
 			if (sx >= 0 && sx <= 1) {
@@ -913,7 +726,7 @@ void InvokerBytecodeGenerator::emitConst(Object$* con) {
 		}
 	}
 	if ($instanceOf($Boolean, con)) {
-		emitIconstInsn($nc(($cast($Boolean, con)))->booleanValue() ? 1 : 0);
+		emitIconstInsn($cast($Boolean, con)->booleanValue() ? 1 : 0);
 		return;
 	}
 	$nc(this->mv)->visitLdcInsn(con);
@@ -943,38 +756,25 @@ void InvokerBytecodeGenerator::emitLoadInsn($LambdaForm$BasicType* type, int32_t
 
 int32_t InvokerBytecodeGenerator::loadInsnOpcode($LambdaForm$BasicType* type) {
 	$init($InvokerBytecodeGenerator$2);
-
 	int32_t var$0 = 0;
 	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get($nc((type))->ordinal())) {
 	case 1:
-		{
-			var$0 = $Opcodes::ILOAD;
-			break;
-		}
+		var$0 = $Opcodes::ILOAD;
+		break;
 	case 2:
-		{
-			var$0 = $Opcodes::LLOAD;
-			break;
-		}
+		var$0 = $Opcodes::LLOAD;
+		break;
 	case 3:
-		{
-			var$0 = $Opcodes::FLOAD;
-			break;
-		}
+		var$0 = $Opcodes::FLOAD;
+		break;
 	case 4:
-		{
-			var$0 = $Opcodes::DLOAD;
-			break;
-		}
+		var$0 = $Opcodes::DLOAD;
+		break;
 	case 5:
-		{
-			var$0 = $Opcodes::ALOAD;
-			break;
-		}
+		var$0 = $Opcodes::ALOAD;
+		break;
 	default:
-		{
-			$throwNew($InternalError, $$str({"unknown type: "_s, type}));
-		}
+		$throwNew($InternalError, $$str({"unknown type: "_s, type}));
 	}
 	return var$0;
 }
@@ -991,38 +791,25 @@ void InvokerBytecodeGenerator::emitStoreInsn($LambdaForm$BasicType* type, int32_
 
 int32_t InvokerBytecodeGenerator::storeInsnOpcode($LambdaForm$BasicType* type) {
 	$init($InvokerBytecodeGenerator$2);
-
 	int32_t var$0 = 0;
 	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get($nc((type))->ordinal())) {
 	case 1:
-		{
-			var$0 = $Opcodes::ISTORE;
-			break;
-		}
+		var$0 = $Opcodes::ISTORE;
+		break;
 	case 2:
-		{
-			var$0 = $Opcodes::LSTORE;
-			break;
-		}
+		var$0 = $Opcodes::LSTORE;
+		break;
 	case 3:
-		{
-			var$0 = $Opcodes::FSTORE;
-			break;
-		}
+		var$0 = $Opcodes::FSTORE;
+		break;
 	case 4:
-		{
-			var$0 = $Opcodes::DSTORE;
-			break;
-		}
+		var$0 = $Opcodes::DSTORE;
+		break;
 	case 5:
-		{
-			var$0 = $Opcodes::ASTORE;
-			break;
-		}
+		var$0 = $Opcodes::ASTORE;
+		break;
 	default:
-		{
-			$throwNew($InternalError, $$str({"unknown type: "_s, type}));
-		}
+		$throwNew($InternalError, $$str({"unknown type: "_s, type}));
 	}
 	return var$0;
 }
@@ -1034,58 +821,37 @@ void InvokerBytecodeGenerator::emitAstoreInsn(int32_t index) {
 
 int8_t InvokerBytecodeGenerator::arrayTypeCode($Wrapper* elementType) {
 	$init($InvokerBytecodeGenerator$2);
-
 	int32_t var$0 = 0;
 	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper)->get($nc((elementType))->ordinal())) {
 	case 1:
-		{
-			var$0 = $Opcodes::T_BOOLEAN;
-			break;
-		}
+		var$0 = $Opcodes::T_BOOLEAN;
+		break;
 	case 2:
-		{
-			var$0 = $Opcodes::T_BYTE;
-			break;
-		}
+		var$0 = $Opcodes::T_BYTE;
+		break;
 	case 3:
-		{
-			var$0 = $Opcodes::T_CHAR;
-			break;
-		}
+		var$0 = $Opcodes::T_CHAR;
+		break;
 	case 4:
-		{
-			var$0 = $Opcodes::T_SHORT;
-			break;
-		}
+		var$0 = $Opcodes::T_SHORT;
+		break;
 	case 5:
-		{
-			var$0 = $Opcodes::T_INT;
-			break;
-		}
+		var$0 = $Opcodes::T_INT;
+		break;
 	case 6:
-		{
-			var$0 = $Opcodes::T_LONG;
-			break;
-		}
+		var$0 = $Opcodes::T_LONG;
+		break;
 	case 7:
-		{
-			var$0 = $Opcodes::T_FLOAT;
-			break;
-		}
+		var$0 = $Opcodes::T_FLOAT;
+		break;
 	case 8:
-		{
-			var$0 = $Opcodes::T_DOUBLE;
-			break;
-		}
+		var$0 = $Opcodes::T_DOUBLE;
+		break;
 	case 9:
-		{
-			var$0 = 0;
-			break;
-		}
+		var$0 = 0;
+		break;
 	default:
-		{
-			$throwNew($InternalError);
-		}
+		$throwNew($InternalError);
 	}
 	return (int8_t)var$0;
 }
@@ -1094,65 +860,44 @@ int32_t InvokerBytecodeGenerator::arrayInsnOpcode(int8_t tcode, int32_t aaop) {
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !(aaop == $Opcodes::AASTORE || aaop == $Opcodes::AALOAD)) {
 		$throwNew($AssertionError);
 	}
-
 	int32_t var$0 = 0;
 	switch (tcode) {
 	case $Opcodes::T_BOOLEAN:
-		{
-			var$0 = $Opcodes::BASTORE;
-			break;
-		}
+		var$0 = $Opcodes::BASTORE;
+		break;
 	case $Opcodes::T_BYTE:
-		{
-			var$0 = $Opcodes::BASTORE;
-			break;
-		}
+		var$0 = $Opcodes::BASTORE;
+		break;
 	case $Opcodes::T_CHAR:
-		{
-			var$0 = $Opcodes::CASTORE;
-			break;
-		}
+		var$0 = $Opcodes::CASTORE;
+		break;
 	case $Opcodes::T_SHORT:
-		{
-			var$0 = $Opcodes::SASTORE;
-			break;
-		}
+		var$0 = $Opcodes::SASTORE;
+		break;
 	case $Opcodes::T_INT:
-		{
-			var$0 = $Opcodes::IASTORE;
-			break;
-		}
+		var$0 = $Opcodes::IASTORE;
+		break;
 	case $Opcodes::T_LONG:
-		{
-			var$0 = $Opcodes::LASTORE;
-			break;
-		}
+		var$0 = $Opcodes::LASTORE;
+		break;
 	case $Opcodes::T_FLOAT:
-		{
-			var$0 = $Opcodes::FASTORE;
-			break;
-		}
+		var$0 = $Opcodes::FASTORE;
+		break;
 	case $Opcodes::T_DOUBLE:
-		{
-			var$0 = $Opcodes::DASTORE;
-			break;
-		}
+		var$0 = $Opcodes::DASTORE;
+		break;
 	case 0:
-		{
-			var$0 = $Opcodes::AASTORE;
-			break;
-		}
+		var$0 = $Opcodes::AASTORE;
+		break;
 	default:
-		{
-			$throwNew($InternalError);
-		}
+		$throwNew($InternalError);
 	}
 	int32_t xas = var$0;
 	return xas - $Opcodes::AASTORE + aaop;
 }
 
 void InvokerBytecodeGenerator::emitBoxing($Wrapper* wrapper) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, owner, $str({"java/lang/"_s, $($nc($nc(wrapper)->wrapperType())->getSimpleName())}));
 	$var($String, name, "valueOf"_s);
 	$var($String, desc, $str({"("_s, $$str(wrapper->basicTypeChar()), ")L"_s, owner, ";"_s}));
@@ -1160,7 +905,7 @@ void InvokerBytecodeGenerator::emitBoxing($Wrapper* wrapper) {
 }
 
 void InvokerBytecodeGenerator::emitUnboxing($Wrapper* wrapper) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, owner, $str({"java/lang/"_s, $($nc($nc(wrapper)->wrapperType())->getSimpleName())}));
 	$var($String, name, $str({$(wrapper->primitiveSimpleName()), "Value"_s}));
 	$var($String, desc, $str({"()"_s, $$str(wrapper->basicTypeChar())}));
@@ -1169,7 +914,7 @@ void InvokerBytecodeGenerator::emitUnboxing($Wrapper* wrapper) {
 }
 
 void InvokerBytecodeGenerator::emitImplicitConversion($LambdaForm$BasicType* ptype, $Class* pclass, Object$* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !($LambdaForm$BasicType::basicType(pclass) == ptype)) {
 		$throwNew($AssertionError);
 	}
@@ -1177,28 +922,23 @@ void InvokerBytecodeGenerator::emitImplicitConversion($LambdaForm$BasicType* pty
 		return;
 	}
 	$init($InvokerBytecodeGenerator$2);
-	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get($nc((ptype))->ordinal())) {
+	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get((ptype)->ordinal())) {
 	case 5:
-		{
-			if ($VerifyType::isNullConversion($Object::class$, pclass, false)) {
-				$init($MethodHandleStatics);
-				if ($MethodHandleStatics::PROFILE_LEVEL > 0) {
-					emitReferenceCast($Object::class$, arg);
-				}
-				return;
+		if ($VerifyType::isNullConversion($Object::class$, pclass, false)) {
+			$init($MethodHandleStatics);
+			if ($MethodHandleStatics::PROFILE_LEVEL > 0) {
+				emitReferenceCast($Object::class$, arg);
 			}
-			emitReferenceCast(pclass, arg);
 			return;
 		}
+		emitReferenceCast(pclass, arg);
+		return;
 	case 1:
-		{
-			$init($Integer);
-			if (!$VerifyType::isNullConversion($Integer::TYPE, pclass, false)) {
-				$var($Wrapper, var$0, ptype->basicTypeWrapper());
-				emitPrimCast(var$0, $($Wrapper::forPrimitiveType(pclass)));
-			}
-			return;
+		if (!$VerifyType::isNullConversion($Integer::TYPE, pclass, false)) {
+			$var($Wrapper, var$0, ptype->basicTypeWrapper());
+			emitPrimCast(var$0, $($Wrapper::forPrimitiveType(pclass)));
 		}
+		return;
 	}
 	$throw($($MethodHandleStatics::newInternalError($$str({"bad implicit conversion: tc="_s, ptype, ": "_s, pclass}))));
 }
@@ -1208,14 +948,14 @@ bool InvokerBytecodeGenerator::assertStaticType($Class* cls, $LambdaForm$Name* n
 	$Class* aclass = $nc(this->localClasses)->get(local);
 	if (aclass != nullptr && (aclass == cls || $nc(cls)->isAssignableFrom(aclass))) {
 		return true;
-	} else if (aclass == nullptr || $nc(aclass)->isAssignableFrom(cls)) {
-		$nc(this->localClasses)->set(local, cls);
+	} else if (aclass == nullptr || aclass->isAssignableFrom(cls)) {
+		this->localClasses->set(local, cls);
 	}
 	return false;
 }
 
 void InvokerBytecodeGenerator::emitReferenceCast($Class* cls, Object$* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaForm$Name, writeBack, nullptr);
 	{
 		$var($LambdaForm$Name, n, nullptr);
@@ -1238,15 +978,14 @@ void InvokerBytecodeGenerator::emitReferenceCast($Class* cls, Object$* arg) {
 		$nc(this->mv)->visitTypeInsn($Opcodes::CHECKCAST, sig);
 	} else {
 		$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, this->className$, $(classData(cls)), "Ljava/lang/Class;"_s);
-		$nc(this->mv)->visitInsn($Opcodes::SWAP);
-		$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::CLS, "cast"_s, InvokerBytecodeGenerator::LL_SIG, false);
-		$load($ObjectArray);
+		this->mv->visitInsn($Opcodes::SWAP);
+		this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::CLS, "cast"_s, InvokerBytecodeGenerator::LL_SIG, false);
 		if ($getClass($ObjectArray)->isAssignableFrom(cls)) {
-			$nc(this->mv)->visitTypeInsn($Opcodes::CHECKCAST, InvokerBytecodeGenerator::OBJARY);
+			this->mv->visitTypeInsn($Opcodes::CHECKCAST, InvokerBytecodeGenerator::OBJARY);
 		} else {
 			$init($MethodHandleStatics);
 			if ($MethodHandleStatics::PROFILE_LEVEL > 0) {
-				$nc(this->mv)->visitTypeInsn($Opcodes::CHECKCAST, InvokerBytecodeGenerator::OBJ);
+				this->mv->visitTypeInsn($Opcodes::CHECKCAST, InvokerBytecodeGenerator::OBJ);
 			}
 		}
 	}
@@ -1258,191 +997,133 @@ void InvokerBytecodeGenerator::emitReferenceCast($Class* cls, Object$* arg) {
 
 void InvokerBytecodeGenerator::emitReturnInsn($LambdaForm$BasicType* type) {
 	$init($InvokerBytecodeGenerator$2);
-
 	int32_t var$0 = 0;
 	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get($nc((type))->ordinal())) {
 	case 1:
-		{
-			var$0 = $Opcodes::IRETURN;
-			break;
-		}
+		var$0 = $Opcodes::IRETURN;
+		break;
 	case 2:
-		{
-			var$0 = $Opcodes::LRETURN;
-			break;
-		}
+		var$0 = $Opcodes::LRETURN;
+		break;
 	case 3:
-		{
-			var$0 = $Opcodes::FRETURN;
-			break;
-		}
+		var$0 = $Opcodes::FRETURN;
+		break;
 	case 4:
-		{
-			var$0 = $Opcodes::DRETURN;
-			break;
-		}
+		var$0 = $Opcodes::DRETURN;
+		break;
 	case 5:
-		{
-			var$0 = $Opcodes::ARETURN;
-			break;
-		}
+		var$0 = $Opcodes::ARETURN;
+		break;
 	case 6:
-		{
-			var$0 = $Opcodes::RETURN;
-			break;
-		}
+		var$0 = $Opcodes::RETURN;
+		break;
 	default:
-		{
-			$throwNew($InternalError, $$str({"unknown return type: "_s, type}));
-		}
+		$throwNew($InternalError, $$str({"unknown return type: "_s, type}));
 	}
 	int32_t opcode = var$0;
 	$nc(this->mv)->visitInsn(opcode);
 }
 
 $String* InvokerBytecodeGenerator::getInternalName($Class* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == $Object::class$) {
 		return InvokerBytecodeGenerator::OBJ;
+	} else if (c == $getClass($ObjectArray)) {
+		return InvokerBytecodeGenerator::OBJARY;
+	} else if (c == $Class::class$) {
+		return InvokerBytecodeGenerator::CLS;
 	} else {
-		$load($ObjectArray);
-		if (c == $getClass($ObjectArray)) {
-			return InvokerBytecodeGenerator::OBJARY;
-		} else if (c == $Class::class$) {
-			return InvokerBytecodeGenerator::CLS;
-		} else {
-			$load($MethodHandle);
-			if (c == $MethodHandle::class$) {
-				return InvokerBytecodeGenerator::MH;
-			}
+		$load($MethodHandle);
+		if (c == $MethodHandle::class$) {
+			return InvokerBytecodeGenerator::MH;
 		}
 	}
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !($VerifyAccess::isTypeVisible(c, $Object::class$))) {
-		$throwNew($AssertionError, $($of($nc(c)->getName())));
+		$throwNew($AssertionError, $$of($nc(c)->getName()));
 	}
 	if (c == this->lastClass) {
 		return this->lastInternalName;
 	}
 	$set(this, lastClass, c);
-	return $set(this, lastInternalName, $nc($($nc(c)->getName()))->replace(u'.', u'/'));
+	return $set(this, lastInternalName, $$nc($nc(c)->getName())->replace(u'.', u'/'));
 }
 
 $MemberName* InvokerBytecodeGenerator::resolveFrom($String* name, $MethodType* type, $Class* holder) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
-	$var($MemberName, member, $new($MemberName, holder, name, type, (int8_t)6));
-	$var($MemberName, resolvedMember, $nc($($MemberName::getFactory()))->resolveOrNull((int8_t)6, member, holder, -1));
+	$useLocalObjectStack();
+	$var($MemberName, member, $new($MemberName, holder, name, type, 6));
+	$var($MemberName, resolvedMember, $$nc($MemberName::getFactory())->resolveOrNull(6, member, holder, -1));
 	$MethodHandleStatics::traceLambdaForm(name, type, holder, resolvedMember);
 	return resolvedMember;
 }
 
 $MemberName* InvokerBytecodeGenerator::lookupPregenerated($LambdaForm* form, $MethodType* invokerType) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(form)->customized != nullptr) {
 		return nullptr;
 	}
-	$var($String, name, $nc(form)->kind->methodName);
+	$var($String, name, form->kind->methodName);
 	$init($InvokerBytecodeGenerator$2);
 	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$LambdaForm$Kind)->get((form->kind)->ordinal())) {
 	case 1:
 		{
-			{
-				$assign(name, $str({name, "_"_s, $cast($String, $($nc($($BoundMethodHandle::speciesDataFor(form)))->key()))}));
-				$load($DelegatingMethodHandle$Holder);
-				return resolveFrom(name, invokerType, $DelegatingMethodHandle$Holder::class$);
-			}
-		}
-	case 2:
-		{
+			$assign(name, $str({name, "_"_s, $$cast($String, $$nc($BoundMethodHandle::speciesDataFor(form))->key())}));
 			$load($DelegatingMethodHandle$Holder);
 			return resolveFrom(name, invokerType, $DelegatingMethodHandle$Holder::class$);
 		}
+	case 2:
+		$load($DelegatingMethodHandle$Holder);
+		return resolveFrom(name, invokerType, $DelegatingMethodHandle$Holder::class$);
 	case 3:
-		{}
 	case 4:
 		{
-			{
-				$assign(name, $str({name, "_"_s, $$str($nc($(form->returnType()))->basicTypeChar())}));
-				$load($LambdaForm$Holder);
-				return resolveFrom(name, invokerType, $LambdaForm$Holder::class$);
-			}
+			$assign(name, $str({name, "_"_s, $$str($$nc(form->returnType())->basicTypeChar())}));
+			$load($LambdaForm$Holder);
+			return resolveFrom(name, invokerType, $LambdaForm$Holder::class$);
 		}
 	case 5:
-		{}
 	case 6:
-		{}
 	case 7:
-		{}
 	case 8:
-		{}
 	case 9:
-		{}
 	case 10:
-		{
-			$load($Invokers$Holder);
-			return resolveFrom(name, invokerType, $Invokers$Holder::class$);
-		}
+		$load($Invokers$Holder);
+		return resolveFrom(name, invokerType, $Invokers$Holder::class$);
 	case 11:
-		{}
 	case 12:
-		{}
 	case 13:
-		{}
 	case 14:
-		{}
 	case 15:
-		{}
 	case 16:
-		{}
 	case 17:
-		{}
 	case 18:
-		{}
 	case 19:
-		{}
 	case 20:
-		{}
 	case 21:
-		{}
 	case 22:
-		{}
 	case 23:
-		{}
 	case 24:
-		{}
 	case 25:
-		{}
 	case 26:
-		{}
 	case 27:
-		{}
 	case 28:
-		{}
 	case 29:
-		{}
 	case 30:
-		{}
 	case 31:
-		{}
 	case 32:
-		{}
 	case 33:
-		{}
 	case 34:
-		{}
 	case 35:
-		{
-			$load($DirectMethodHandle$Holder);
-			return resolveFrom(name, invokerType, $DirectMethodHandle$Holder::class$);
-		}
+		$load($DirectMethodHandle$Holder);
+		return resolveFrom(name, invokerType, $DirectMethodHandle$Holder::class$);
 	}
 	return nullptr;
 }
 
 $MemberName* InvokerBytecodeGenerator::generateCustomizedCode($LambdaForm* form, $MethodType* invokerType) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemberName, pregenerated, lookupPregenerated(form, invokerType));
 	if (pregenerated != nullptr) {
 		return pregenerated;
@@ -1453,29 +1134,29 @@ $MemberName* InvokerBytecodeGenerator::generateCustomizedCode($LambdaForm* form,
 
 bool InvokerBytecodeGenerator::checkActualReceiver() {
 	$nc(this->mv)->visitInsn($Opcodes::DUP);
-	$nc(this->mv)->visitVarInsn($Opcodes::ALOAD, $nc(this->localsMap)->get(0));
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKESTATIC, InvokerBytecodeGenerator::MHI, "assertSame"_s, InvokerBytecodeGenerator::LLV_SIG, false);
+	this->mv->visitVarInsn($Opcodes::ALOAD, $nc(this->localsMap)->get(0));
+	this->mv->visitMethodInsn($Opcodes::INVOKESTATIC, InvokerBytecodeGenerator::MHI, "assertSame"_s, InvokerBytecodeGenerator::LLV_SIG, false);
 	return true;
 }
 
 $String* InvokerBytecodeGenerator::className($String* cn) {
 	$init(InvokerBytecodeGenerator);
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !checkClassName(cn)) {
-		$throwNew($AssertionError, $of($$str({"Class not found: "_s, cn})));
+		$throwNew($AssertionError, $$of($str({"Class not found: "_s, cn})));
 	}
 	return cn;
 }
 
 bool InvokerBytecodeGenerator::checkClassName($String* cn) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Type, tp, $Type::getType(cn));
 	if ($nc(tp)->getSort() != $Type::OBJECT) {
 		return false;
 	}
 	try {
-		$Class* c = $Class::forName($($nc(tp)->getClassName()), false, nullptr);
+		$Class* c = $Class::forName($(tp->getClassName()), false, nullptr);
 		return true;
 	} catch ($ClassNotFoundException& e) {
 		return false;
@@ -1498,130 +1179,106 @@ void InvokerBytecodeGenerator::setClassWriter($ClassWriter* cw) {
 }
 
 void InvokerBytecodeGenerator::addMethod() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	methodPrologue();
 	$nc(this->mv)->visitAnnotation(InvokerBytecodeGenerator::HIDDEN_SIG, true);
-	$nc(this->mv)->visitAnnotation(InvokerBytecodeGenerator::LF_COMPILED_SIG, true);
+	this->mv->visitAnnotation(InvokerBytecodeGenerator::LF_COMPILED_SIG, true);
 	if ($nc(this->lambdaForm)->forceInline) {
-		$nc(this->mv)->visitAnnotation(InvokerBytecodeGenerator::FORCEINLINE_SIG, true);
+		this->mv->visitAnnotation(InvokerBytecodeGenerator::FORCEINLINE_SIG, true);
 	} else {
-		$nc(this->mv)->visitAnnotation(InvokerBytecodeGenerator::DONTINLINE_SIG, true);
+		this->mv->visitAnnotation(InvokerBytecodeGenerator::DONTINLINE_SIG, true);
 	}
 	classData(this->lambdaForm);
-	if ($nc(this->lambdaForm)->customized != nullptr) {
-		$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, this->className$, $(classData($nc(this->lambdaForm)->customized)), InvokerBytecodeGenerator::MH_SIG);
-		$nc(this->mv)->visitTypeInsn($Opcodes::CHECKCAST, InvokerBytecodeGenerator::MH);
+	if (this->lambdaForm->customized != nullptr) {
+		this->mv->visitFieldInsn($Opcodes::GETSTATIC, this->className$, $(classData(this->lambdaForm->customized)), InvokerBytecodeGenerator::MH_SIG);
+		this->mv->visitTypeInsn($Opcodes::CHECKCAST, InvokerBytecodeGenerator::MH);
 		if (!InvokerBytecodeGenerator::$assertionsDisabled && !(checkActualReceiver())) {
 			$throwNew($AssertionError);
 		}
-		$nc(this->mv)->visitVarInsn($Opcodes::ASTORE, $nc(this->localsMap)->get(0));
+		this->mv->visitVarInsn($Opcodes::ASTORE, $nc(this->localsMap)->get(0));
 	}
 	$var($LambdaForm$Name, onStack, nullptr);
-	for (int32_t i = $nc(this->lambdaForm)->arity$; i < $nc($nc(this->lambdaForm)->names)->length; ++i) {
-		$var($LambdaForm$Name, name, $nc($nc(this->lambdaForm)->names)->get(i));
+	for (int32_t i = this->lambdaForm->arity$; i < $nc(this->lambdaForm->names)->length; ++i) {
+		$var($LambdaForm$Name, name, this->lambdaForm->names->get(i));
 		emitStoreResult(onStack);
 		$assign(onStack, name);
 		$MethodHandleImpl$Intrinsic* intr = $nc($nc(name)->function)->intrinsicName();
-		$init($InvokerBytecodeGenerator$2);
 		{
+			$init($InvokerBytecodeGenerator$2);
 			int32_t numCases = 0;
 			switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$MethodHandleImpl$Intrinsic)->get($nc((intr))->ordinal())) {
 			case 1:
-				{
-					if (!InvokerBytecodeGenerator::$assertionsDisabled && !$nc(this->lambdaForm)->isSelectAlternative(i)) {
+				if (!InvokerBytecodeGenerator::$assertionsDisabled && !this->lambdaForm->isSelectAlternative(i)) {
+					$throwNew($AssertionError);
+				}
+				$init($MethodHandleStatics);
+				if ($MethodHandleStatics::PROFILE_GWT) {
+					$load($MethodHandleImpl);
+					if (!InvokerBytecodeGenerator::$assertionsDisabled && !($instanceOf($LambdaForm$Name, $nc(name->arguments)->get(0)) && $nc($cast($LambdaForm$Name, name->arguments->get(0)))->refersTo($MethodHandleImpl::class$, "profileBoolean"_s))) {
 						$throwNew($AssertionError);
 					}
-					$init($MethodHandleStatics);
-					if ($MethodHandleStatics::PROFILE_GWT) {
-						$load($MethodHandleImpl);
-						if (!InvokerBytecodeGenerator::$assertionsDisabled && !($instanceOf($LambdaForm$Name, $nc(name->arguments)->get(0)) && $nc(($cast($LambdaForm$Name, $nc(name->arguments)->get(0))))->refersTo($MethodHandleImpl::class$, "profileBoolean"_s))) {
-							$throwNew($AssertionError);
-						}
-						$nc(this->mv)->visitAnnotation(InvokerBytecodeGenerator::INJECTEDPROFILE_SIG, true);
-					}
-					$assign(onStack, emitSelectAlternative(name, $nc($nc(this->lambdaForm)->names)->get(i + 1)));
-					++i;
-					continue;
+					this->mv->visitAnnotation(InvokerBytecodeGenerator::INJECTEDPROFILE_SIG, true);
 				}
+				$assign(onStack, emitSelectAlternative(name, this->lambdaForm->names->get(i + 1)));
+				++i;
+				continue;
 			case 2:
-				{
-					if (!InvokerBytecodeGenerator::$assertionsDisabled && !$nc(this->lambdaForm)->isGuardWithCatch(i)) {
-						$throwNew($AssertionError);
-					}
-					$assign(onStack, emitGuardWithCatch(i));
-					i += 2;
-					continue;
+				if (!InvokerBytecodeGenerator::$assertionsDisabled && !this->lambdaForm->isGuardWithCatch(i)) {
+					$throwNew($AssertionError);
 				}
+				$assign(onStack, emitGuardWithCatch(i));
+				i += 2;
+				continue;
 			case 3:
-				{
-					if (!InvokerBytecodeGenerator::$assertionsDisabled && !$nc(this->lambdaForm)->isTryFinally(i)) {
-						$throwNew($AssertionError);
-					}
-					$assign(onStack, emitTryFinally(i));
-					i += 2;
-					continue;
+				if (!InvokerBytecodeGenerator::$assertionsDisabled && !this->lambdaForm->isTryFinally(i)) {
+					$throwNew($AssertionError);
 				}
+				$assign(onStack, emitTryFinally(i));
+				i += 2;
+				continue;
 			case 4:
-				{
-					if (!InvokerBytecodeGenerator::$assertionsDisabled && !$nc(this->lambdaForm)->isTableSwitch(i)) {
-						$throwNew($AssertionError);
-					}
-					numCases = $nc(($cast($Integer, $($nc(name->function)->intrinsicData()))))->intValue();
-					$assign(onStack, emitTableSwitch(i, numCases));
-					i += 2;
-					continue;
+				if (!InvokerBytecodeGenerator::$assertionsDisabled && !this->lambdaForm->isTableSwitch(i)) {
+					$throwNew($AssertionError);
 				}
+				numCases = $$sure($Integer, name->function->intrinsicData())->intValue();
+				$assign(onStack, emitTableSwitch(i, numCases));
+				i += 2;
+				continue;
 			case 5:
-				{
-					if (!InvokerBytecodeGenerator::$assertionsDisabled && !$nc(this->lambdaForm)->isLoop(i)) {
-						$throwNew($AssertionError);
-					}
-					$assign(onStack, emitLoop(i));
-					i += 2;
-					continue;
+				if (!InvokerBytecodeGenerator::$assertionsDisabled && !this->lambdaForm->isLoop(i)) {
+					$throwNew($AssertionError);
 				}
+				$assign(onStack, emitLoop(i));
+				i += 2;
+				continue;
 			case 6:
-				{
-					emitArrayLoad(name);
-					continue;
-				}
+				emitArrayLoad(name);
+				continue;
 			case 7:
-				{
-					emitArrayStore(name);
-					continue;
-				}
+				emitArrayStore(name);
+				continue;
 			case 8:
-				{
-					emitArrayLength(name);
-					continue;
-				}
+				emitArrayLength(name);
+				continue;
 			case 9:
-				{
-					if (!InvokerBytecodeGenerator::$assertionsDisabled && !($nc(name->arguments)->length == 1)) {
-						$throwNew($AssertionError);
-					}
-					emitPushArguments(name, 0);
-					continue;
+				if (!InvokerBytecodeGenerator::$assertionsDisabled && !($nc(name->arguments)->length == 1)) {
+					$throwNew($AssertionError);
 				}
+				emitPushArguments(name, 0);
+				continue;
 			case 10:
-				{
-					if (!InvokerBytecodeGenerator::$assertionsDisabled && !($nc(name->arguments)->length == 0)) {
-						$throwNew($AssertionError);
-					}
-					emitConst($($nc($(name->type$->basicTypeWrapper()))->zero()));
-					continue;
+				if (!InvokerBytecodeGenerator::$assertionsDisabled && !($nc(name->arguments)->length == 0)) {
+					$throwNew($AssertionError);
 				}
+				emitConst($($$nc(name->type$->basicTypeWrapper())->zero()));
+				continue;
 			case 11:
-				{
-					break;
-				}
+				break;
 			default:
-				{
-					$throw($($MethodHandleStatics::newInternalError($$str({"Unknown intrinsic: "_s, intr}))));
-				}
+				$throw($($MethodHandleStatics::newInternalError($$str({"Unknown intrinsic: "_s, intr}))));
 			}
 		}
-		$var($MemberName, member, $nc(name->function)->member());
+		$var($MemberName, member, name->function->member());
 		if (isStaticallyInvocable(member)) {
 			emitStaticInvoke(member, name);
 		} else {
@@ -1654,11 +1311,11 @@ void InvokerBytecodeGenerator::emitArrayLength($LambdaForm$Name* name) {
 }
 
 void InvokerBytecodeGenerator::emitArrayOp($LambdaForm$Name* name, int32_t arrayOpcode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !(arrayOpcode == $Opcodes::AALOAD || arrayOpcode == $Opcodes::AASTORE || arrayOpcode == $Opcodes::ARRAYLENGTH)) {
 		$throwNew($AssertionError);
 	}
-	$Class* elementType = $nc($($cast($Class, $nc($($nc($nc(name)->function)->methodType()))->parameterType(0))))->getComponentType();
+	$Class* elementType = $$sure($Class, $$nc($nc($nc(name)->function)->methodType())->parameterType(0))->getComponentType();
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !(elementType != nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -1671,38 +1328,32 @@ void InvokerBytecodeGenerator::emitArrayOp($LambdaForm$Name* name, int32_t array
 }
 
 void InvokerBytecodeGenerator::emitInvoke($LambdaForm$Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !(!$nc(name)->isLinkerMethodInvoke())) {
 		$throwNew($AssertionError);
 	}
 	{
 		$var($MethodHandle, target, $nc($nc(name)->function)->resolvedHandle());
 		if (!InvokerBytecodeGenerator::$assertionsDisabled && !(target != nullptr)) {
-			$throwNew($AssertionError, $($of(name->exprString())));
+			$throwNew($AssertionError, $$of(name->exprString()));
 		}
 		$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, this->className$, $(classData(target)), InvokerBytecodeGenerator::MH_SIG);
 		$load($MethodHandle);
 		emitReferenceCast($MethodHandle::class$, target);
 	}
 	emitPushArguments(name, 0);
-	$var($MethodType, type, $nc($nc(name)->function)->methodType());
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, $($nc($($nc(type)->basicType()))->toMethodDescriptorString()), false);
+	$var($MethodType, type, name->function->methodType());
+	this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, $($$nc($nc(type)->basicType())->toMethodDescriptorString()), false);
 }
 
 bool InvokerBytecodeGenerator::isStaticallyInvocable($LambdaForm$NamedFunctionArray* functions) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($LambdaForm$NamedFunctionArray, arr$, functions);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($LambdaForm$NamedFunction, nf, arr$->get(i$));
-			{
-				if (!isStaticallyInvocable($($nc(nf)->member()))) {
-					return false;
-				}
-			}
+	$useLocalObjectStack();
+	$var($LambdaForm$NamedFunctionArray, arr$, functions);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($LambdaForm$NamedFunction, nf, arr$->get(i$));
+		if (!isStaticallyInvocable($($nc(nf)->member()))) {
+			return false;
 		}
 	}
 	return true;
@@ -1715,7 +1366,7 @@ bool InvokerBytecodeGenerator::isStaticallyInvocable($LambdaForm$Name* name) {
 
 bool InvokerBytecodeGenerator::isStaticallyInvocable($MemberName* member) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (member == nullptr) {
 		return false;
@@ -1723,7 +1374,7 @@ bool InvokerBytecodeGenerator::isStaticallyInvocable($MemberName* member) {
 	if ($nc(member)->isConstructor()) {
 		return false;
 	}
-	$Class* cls = $nc(member)->getDeclaringClass();
+	$Class* cls = member->getDeclaringClass();
 	$load($MethodHandle);
 	bool var$0 = $MethodHandle::class$->isAssignableFrom(cls);
 	if (var$0 && !member->isPrivate()) {
@@ -1733,17 +1384,17 @@ bool InvokerBytecodeGenerator::isStaticallyInvocable($MemberName* member) {
 		return true;
 	}
 	bool var$1 = $nc(cls)->isArray();
-	if (var$1 || $nc(cls)->isPrimitive()) {
+	if (var$1 || cls->isPrimitive()) {
 		return false;
 	}
-	bool var$2 = $nc(cls)->isAnonymousClass();
-	if (var$2 || $nc(cls)->isLocalClass()) {
+	bool var$2 = cls->isAnonymousClass();
+	if (var$2 || cls->isLocalClass()) {
 		return false;
 	}
-	if ($nc(cls)->getClassLoader() != $MethodHandle::class$->getClassLoader()) {
+	if (cls->getClassLoader() != $MethodHandle::class$->getClassLoader()) {
 		return false;
 	}
-	if ($nc(cls)->isHidden()) {
+	if (cls->isHidden()) {
 		return false;
 	}
 	if (!isStaticallyInvocableType($(member->getMethodOrFieldType()))) {
@@ -1762,15 +1413,13 @@ bool InvokerBytecodeGenerator::isStaticallyInvocable($MemberName* member) {
 
 bool InvokerBytecodeGenerator::isStaticallyInvocableType($MethodType* mtype) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
-	if (!isStaticallyNameable($($cast($Class, $nc(mtype)->returnType())))) {
+	$useLocalObjectStack();
+	if (!isStaticallyNameable($$cast($Class, $nc(mtype)->returnType()))) {
 		return false;
 	}
 	{
-		$var($ClassArray, arr$, $fcast($ClassArray, $nc(mtype)->parameterArray()));
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($ClassArray, arr$, $cast($ClassArray, mtype->parameterArray()));
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* ptype = arr$->get(i$);
 			if (!isStaticallyNameable(ptype)) {
 				return false;
@@ -1799,28 +1448,24 @@ bool InvokerBytecodeGenerator::isStaticallyNameable($Class* cls) {
 	if ($nc(cls)->isPrimitive()) {
 		return true;
 	}
-	if ($nc(cls)->isHidden()) {
+	if (cls->isHidden()) {
 		return false;
 	}
-	if ($nc(cls)->getClassLoader() != $Object::class$->getClassLoader()) {
+	if (cls->getClassLoader() != $Object::class$->getClassLoader()) {
 		return false;
 	}
 	if ($VerifyAccess::isSamePackage($MethodHandle::class$, cls)) {
 		return true;
 	}
-	if (!$Modifier::isPublic($nc(cls)->getModifiers())) {
+	if (!$Modifier::isPublic(cls->getModifiers())) {
 		return false;
 	}
 	{
 		$var($ClassArray, arr$, InvokerBytecodeGenerator::STATICALLY_INVOCABLE_PACKAGES);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* pkgcls = arr$->get(i$);
-			{
-				if ($VerifyAccess::isSamePackage(pkgcls, cls)) {
-					return true;
-				}
+			if ($VerifyAccess::isSamePackage(pkgcls, cls)) {
+				return true;
 			}
 		}
 	}
@@ -1832,7 +1477,7 @@ void InvokerBytecodeGenerator::emitStaticInvoke($LambdaForm$Name* name) {
 }
 
 void InvokerBytecodeGenerator::emitStaticInvoke($MemberName* member, $LambdaForm$Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !($nc(member)->equals($($nc($nc(name)->function)->member())))) {
 		$throwNew($AssertionError);
 	}
@@ -1841,30 +1486,27 @@ void InvokerBytecodeGenerator::emitStaticInvoke($MemberName* member, $LambdaForm
 	$var($String, mname, member->getName());
 	$var($String, mtype, nullptr);
 	int8_t refKind = member->getReferenceKind();
-	if (refKind == (int8_t)7) {
+	if (refKind == 7) {
 		if (!InvokerBytecodeGenerator::$assertionsDisabled && !(member->canBeStaticallyBound())) {
-			$throwNew($AssertionError, $of(member));
+			$throwNew($AssertionError, member);
 		}
-		refKind = (int8_t)5;
+		refKind = 5;
 	}
-	if (!InvokerBytecodeGenerator::$assertionsDisabled && !(!($nc(member->getDeclaringClass())->isInterface() && refKind == (int8_t)5))) {
+	if (!InvokerBytecodeGenerator::$assertionsDisabled && !(!($nc(member->getDeclaringClass())->isInterface() && refKind == 5))) {
 		$throwNew($AssertionError);
 	}
 	emitPushArguments(name, 0);
 	if (member->isMethod()) {
-		$assign(mtype, $nc($(member->getMethodType()))->toMethodDescriptorString());
+		$assign(mtype, $$nc(member->getMethodType())->toMethodDescriptorString());
 		int32_t var$0 = refKindOpcode(refKind);
-		$var($String, var$1, cname);
-		$var($String, var$2, mname);
-		$var($String, var$3, mtype);
-		$nc(this->mv)->visitMethodInsn(var$0, var$1, var$2, var$3, $nc(member->getDeclaringClass())->isInterface());
+		$nc(this->mv)->visitMethodInsn(var$0, cname, mname, mtype, $nc(member->getDeclaringClass())->isInterface());
 	} else {
 		$assign(mtype, $MethodType::toFieldDescriptorString(member->getFieldType()));
 		$nc(this->mv)->visitFieldInsn(refKindOpcode(refKind), cname, mname, mtype);
 	}
 	$init($LambdaForm$BasicType);
 	if ($nc(name)->type$ == $LambdaForm$BasicType::L_TYPE) {
-		$Class* rtype = $cast($Class, $nc($(member->getInvocationType()))->returnType());
+		$Class* rtype = $cast($Class, $$nc(member->getInvocationType())->returnType());
 		if (!InvokerBytecodeGenerator::$assertionsDisabled && !(!$nc(rtype)->isPrimitive())) {
 			$throwNew($AssertionError);
 		}
@@ -1875,46 +1517,30 @@ void InvokerBytecodeGenerator::emitStaticInvoke($MemberName* member, $LambdaForm
 }
 
 int32_t InvokerBytecodeGenerator::refKindOpcode(int8_t refKind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (refKind) {
 	case 5:
-		{
-			return $Opcodes::INVOKEVIRTUAL;
-		}
+		return $Opcodes::INVOKEVIRTUAL;
 	case 6:
-		{
-			return $Opcodes::INVOKESTATIC;
-		}
+		return $Opcodes::INVOKESTATIC;
 	case 7:
-		{
-			return $Opcodes::INVOKESPECIAL;
-		}
+		return $Opcodes::INVOKESPECIAL;
 	case 9:
-		{
-			return $Opcodes::INVOKEINTERFACE;
-		}
+		return $Opcodes::INVOKEINTERFACE;
 	case 1:
-		{
-			return $Opcodes::GETFIELD;
-		}
+		return $Opcodes::GETFIELD;
 	case 3:
-		{
-			return $Opcodes::PUTFIELD;
-		}
+		return $Opcodes::PUTFIELD;
 	case 2:
-		{
-			return $Opcodes::GETSTATIC;
-		}
+		return $Opcodes::GETSTATIC;
 	case 4:
-		{
-			return $Opcodes::PUTSTATIC;
-		}
+		return $Opcodes::PUTSTATIC;
 	}
 	$throwNew($InternalError, $$str({"refKind="_s, $$str(refKind)}));
 }
 
 $LambdaForm$Name* InvokerBytecodeGenerator::emitSelectAlternative($LambdaForm$Name* selectAlternativeName, $LambdaForm$Name* invokeBasicName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !isStaticallyInvocable(invokeBasicName)) {
 		$throwNew($AssertionError);
 	}
@@ -1927,105 +1553,104 @@ $LambdaForm$Name* InvokerBytecodeGenerator::emitSelectAlternative($LambdaForm$Na
 	emitPushArgument(selectAlternativeName, 1);
 	emitAstoreInsn($nc(receiver)->index());
 	emitStaticInvoke(invokeBasicName);
-	$nc(this->mv)->visitJumpInsn($Opcodes::GOTO, L_done);
-	$nc(this->mv)->visitLabel(L_fallback);
+	this->mv->visitJumpInsn($Opcodes::GOTO, L_done);
+	this->mv->visitLabel(L_fallback);
 	$System::arraycopy(preForkClasses, 0, this->localClasses, 0, preForkClasses->length);
 	emitPushArgument(selectAlternativeName, 2);
-	emitAstoreInsn($nc(receiver)->index());
+	emitAstoreInsn(receiver->index());
 	emitStaticInvoke(invokeBasicName);
-	$nc(this->mv)->visitLabel(L_done);
+	this->mv->visitLabel(L_done);
 	$System::arraycopy(preForkClasses, 0, this->localClasses, 0, preForkClasses->length);
 	return invokeBasicName;
 }
 
 $LambdaForm$Name* InvokerBytecodeGenerator::emitGuardWithCatch(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaForm$Name, args, $nc($nc(this->lambdaForm)->names)->get(pos));
-	$var($LambdaForm$Name, invoker, $nc($nc(this->lambdaForm)->names)->get(pos + 1));
-	$var($LambdaForm$Name, result, $nc($nc(this->lambdaForm)->names)->get(pos + 2));
+	$var($LambdaForm$Name, invoker, this->lambdaForm->names->get(pos + 1));
+	$var($LambdaForm$Name, result, this->lambdaForm->names->get(pos + 2));
 	$var($Label, L_startBlock, $new($Label));
 	$var($Label, L_endBlock, $new($Label));
 	$var($Label, L_handler, $new($Label));
 	$var($Label, L_done, $new($Label));
-	$Class* returnType = $cast($Class, $nc($($nc($($nc($nc(result)->function)->resolvedHandle()))->type()))->returnType());
-	$var($MethodType, type, $nc($($cast($MethodType, $nc($($nc($($nc($nc(args)->function)->resolvedHandle()))->type()))->dropParameterTypes(0, 1))))->changeReturnType(returnType));
+	$Class* returnType = $cast($Class, $$nc($$nc($nc($nc(result)->function)->resolvedHandle())->type())->returnType());
+	$var($MethodType, type, $$sure($MethodType, $$nc($$nc($nc($nc(args)->function)->resolvedHandle())->type())->dropParameterTypes(0, 1))->changeReturnType(returnType));
 	$nc(this->mv)->visitTryCatchBlock(L_startBlock, L_endBlock, L_handler, "java/lang/Throwable"_s);
-	$nc(this->mv)->visitLabel(L_startBlock);
+	this->mv->visitLabel(L_startBlock);
 	emitPushArgument(invoker, 0);
 	emitPushArguments(args, 1);
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, $($nc($($nc(type)->basicType()))->toMethodDescriptorString()), false);
-	$nc(this->mv)->visitLabel(L_endBlock);
-	$nc(this->mv)->visitJumpInsn($Opcodes::GOTO, L_done);
-	$nc(this->mv)->visitLabel(L_handler);
-	$nc(this->mv)->visitInsn($Opcodes::DUP);
+	this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, $($$nc($nc(type)->basicType())->toMethodDescriptorString()), false);
+	this->mv->visitLabel(L_endBlock);
+	this->mv->visitJumpInsn($Opcodes::GOTO, L_done);
+	this->mv->visitLabel(L_handler);
+	this->mv->visitInsn($Opcodes::DUP);
 	emitPushArgument(invoker, 1);
-	$nc(this->mv)->visitInsn($Opcodes::SWAP);
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, "java/lang/Class"_s, "isInstance"_s, "(Ljava/lang/Object;)Z"_s, false);
+	this->mv->visitInsn($Opcodes::SWAP);
+	this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, "java/lang/Class"_s, "isInstance"_s, "(Ljava/lang/Object;)Z"_s, false);
 	$var($Label, L_rethrow, $new($Label));
-	$nc(this->mv)->visitJumpInsn($Opcodes::IFEQ, L_rethrow);
+	this->mv->visitJumpInsn($Opcodes::IFEQ, L_rethrow);
 	emitPushArgument(invoker, 2);
-	$nc(this->mv)->visitInsn($Opcodes::SWAP);
+	this->mv->visitInsn($Opcodes::SWAP);
 	emitPushArguments(args, 1);
-	$var($MethodType, catcherType, $nc(type)->insertParameterTypes(0, $$new($ClassArray, {$Throwable::class$})));
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, $($nc($($nc(catcherType)->basicType()))->toMethodDescriptorString()), false);
-	$nc(this->mv)->visitJumpInsn($Opcodes::GOTO, L_done);
-	$nc(this->mv)->visitLabel(L_rethrow);
-	$nc(this->mv)->visitInsn($Opcodes::ATHROW);
-	$nc(this->mv)->visitLabel(L_done);
+	$var($MethodType, catcherType, type->insertParameterTypes(0, $$new($ClassArray, {$Throwable::class$})));
+	this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, $($$nc($nc(catcherType)->basicType())->toMethodDescriptorString()), false);
+	this->mv->visitJumpInsn($Opcodes::GOTO, L_done);
+	this->mv->visitLabel(L_rethrow);
+	this->mv->visitInsn($Opcodes::ATHROW);
+	this->mv->visitLabel(L_done);
 	return result;
 }
 
 $LambdaForm$Name* InvokerBytecodeGenerator::emitTryFinally(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaForm$Name, args, $nc($nc(this->lambdaForm)->names)->get(pos));
-	$var($LambdaForm$Name, invoker, $nc($nc(this->lambdaForm)->names)->get(pos + 1));
-	$var($LambdaForm$Name, result, $nc($nc(this->lambdaForm)->names)->get(pos + 2));
+	$var($LambdaForm$Name, invoker, this->lambdaForm->names->get(pos + 1));
+	$var($LambdaForm$Name, result, this->lambdaForm->names->get(pos + 2));
 	$var($Label, lFrom, $new($Label));
 	$var($Label, lTo, $new($Label));
 	$var($Label, lCatch, $new($Label));
 	$var($Label, lDone, $new($Label));
-	$Class* returnType = $cast($Class, $nc($($nc($($nc($nc(result)->function)->resolvedHandle()))->type()))->returnType());
+	$Class* returnType = $cast($Class, $$nc($$nc($nc($nc(result)->function)->resolvedHandle())->type())->returnType());
 	$LambdaForm$BasicType* basicReturnType = $LambdaForm$BasicType::basicType(returnType);
-	$init($Void);
 	bool isNonVoid = returnType != $Void::TYPE;
-	$var($MethodType, type, $nc($($cast($MethodType, $nc($($nc($($nc($nc(args)->function)->resolvedHandle()))->type()))->dropParameterTypes(0, 1))))->changeReturnType(returnType));
+	$var($MethodType, type, $$sure($MethodType, $$nc($$nc($nc($nc(args)->function)->resolvedHandle())->type())->dropParameterTypes(0, 1))->changeReturnType(returnType));
 	$var($MethodType, cleanupType, $nc(type)->insertParameterTypes(0, $$new($ClassArray, {$Throwable::class$})));
 	if (isNonVoid) {
 		$assign(cleanupType, $nc(cleanupType)->insertParameterTypes(1, $$new($ClassArray, {returnType})));
 	}
-	$var($String, cleanupDesc, $nc($($nc(cleanupType)->basicType()))->toMethodDescriptorString());
+	$var($String, cleanupDesc, $$nc($nc(cleanupType)->basicType())->toMethodDescriptorString());
 	$nc(this->mv)->visitTryCatchBlock(lFrom, lTo, lCatch, "java/lang/Throwable"_s);
-	$nc(this->mv)->visitLabel(lFrom);
+	this->mv->visitLabel(lFrom);
 	emitPushArgument(invoker, 0);
 	emitPushArguments(args, 1);
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, $($nc($(type->basicType()))->toMethodDescriptorString()), false);
-	$nc(this->mv)->visitLabel(lTo);
+	this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, $($$nc(type->basicType())->toMethodDescriptorString()), false);
+	this->mv->visitLabel(lTo);
 	int32_t index = extendLocalsMap($$new($ClassArray, {returnType}));
 	if (isNonVoid) {
 		emitStoreInsn(basicReturnType, index);
 	}
 	emitPushArgument(invoker, 1);
-	$nc(this->mv)->visitInsn($Opcodes::ACONST_NULL);
+	this->mv->visitInsn($Opcodes::ACONST_NULL);
 	if (isNonVoid) {
 		emitLoadInsn(basicReturnType, index);
 	}
 	emitPushArguments(args, 1);
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, cleanupDesc, false);
-	$nc(this->mv)->visitJumpInsn($Opcodes::GOTO, lDone);
-	$nc(this->mv)->visitLabel(lCatch);
-	$nc(this->mv)->visitInsn($Opcodes::DUP);
+	this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, cleanupDesc, false);
+	this->mv->visitJumpInsn($Opcodes::GOTO, lDone);
+	this->mv->visitLabel(lCatch);
+	this->mv->visitInsn($Opcodes::DUP);
 	emitPushArgument(invoker, 1);
-	$nc(this->mv)->visitInsn($Opcodes::SWAP);
+	this->mv->visitInsn($Opcodes::SWAP);
 	if (isNonVoid) {
 		emitZero($($LambdaForm$BasicType::basicType(returnType)));
 	}
 	emitPushArguments(args, 1);
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, cleanupDesc, false);
+	this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, cleanupDesc, false);
 	if (isNonVoid) {
 		emitPopInsn(basicReturnType);
 	}
-	$nc(this->mv)->visitInsn($Opcodes::ATHROW);
-	$nc(this->mv)->visitLabel(lDone);
+	this->mv->visitInsn($Opcodes::ATHROW);
+	this->mv->visitLabel(lDone);
 	return result;
 }
 
@@ -2036,44 +1661,33 @@ void InvokerBytecodeGenerator::emitPopInsn($LambdaForm$BasicType* type) {
 int32_t InvokerBytecodeGenerator::popInsnOpcode($LambdaForm$BasicType* type) {
 	$init(InvokerBytecodeGenerator);
 	$init($InvokerBytecodeGenerator$2);
-
 	int32_t var$0 = 0;
 	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get($nc((type))->ordinal())) {
 	case 1:
-		{}
 	case 3:
-		{}
 	case 5:
-		{
-			var$0 = $Opcodes::POP;
-			break;
-		}
+		var$0 = $Opcodes::POP;
+		break;
 	case 2:
-		{}
 	case 4:
-		{
-			var$0 = $Opcodes::POP2;
-			break;
-		}
+		var$0 = $Opcodes::POP2;
+		break;
 	default:
-		{
-			$throwNew($InternalError, $$str({"unknown type: "_s, type}));
-		}
+		$throwNew($InternalError, $$str({"unknown type: "_s, type}));
 	}
 	return var$0;
 }
 
 $LambdaForm$Name* InvokerBytecodeGenerator::emitTableSwitch(int32_t pos, int32_t numCases) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaForm$Name, args, $nc($nc(this->lambdaForm)->names)->get(pos));
-	$var($LambdaForm$Name, invoker, $nc($nc(this->lambdaForm)->names)->get(pos + 1));
-	$var($LambdaForm$Name, result, $nc($nc(this->lambdaForm)->names)->get(pos + 2));
-	$Class* returnType = $cast($Class, $nc($($nc($($nc($nc(result)->function)->resolvedHandle()))->type()))->returnType());
-	$var($MethodType, caseType, $nc($($cast($MethodType, $nc($($nc($($nc($nc(args)->function)->resolvedHandle()))->type()))->dropParameterTypes(0, 1))))->changeReturnType(returnType));
-	$var($String, caseDescriptor, $nc($($nc(caseType)->basicType()))->toMethodDescriptorString());
+	$var($LambdaForm$Name, invoker, this->lambdaForm->names->get(pos + 1));
+	$var($LambdaForm$Name, result, this->lambdaForm->names->get(pos + 2));
+	$Class* returnType = $cast($Class, $$nc($$nc($nc($nc(result)->function)->resolvedHandle())->type())->returnType());
+	$var($MethodType, caseType, $$sure($MethodType, $$nc($$nc($nc($nc(args)->function)->resolvedHandle())->type())->dropParameterTypes(0, 1))->changeReturnType(returnType));
+	$var($String, caseDescriptor, $$nc($nc(caseType)->basicType())->toMethodDescriptorString());
 	emitPushArgument(invoker, 2);
 	$nc(this->mv)->visitFieldInsn($Opcodes::GETFIELD, "java/lang/invoke/MethodHandleImpl$CasesHolder"_s, "cases"_s, "[Ljava/lang/invoke/MethodHandle;"_s);
-	$load($MethodHandleArray);
 	int32_t casesLocal = extendLocalsMap($$new($ClassArray, {$getClass($MethodHandleArray)}));
 	$init($LambdaForm$BasicType);
 	emitStoreInsn($LambdaForm$BasicType::L_TYPE, casesLocal);
@@ -2084,42 +1698,41 @@ $LambdaForm$Name* InvokerBytecodeGenerator::emitTableSwitch(int32_t pos, int32_t
 		caseLabels->set(i, $$new($Label));
 	}
 	emitPushArgument(invoker, 0);
-	$nc(this->mv)->visitTableSwitchInsn(0, numCases - 1, defaultLabel, caseLabels);
-	$nc(this->mv)->visitLabel(defaultLabel);
+	this->mv->visitTableSwitchInsn(0, numCases - 1, defaultLabel, caseLabels);
+	this->mv->visitLabel(defaultLabel);
 	emitPushArgument(invoker, 1);
 	emitPushArguments(args, 1);
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, caseDescriptor, false);
-	$nc(this->mv)->visitJumpInsn($Opcodes::GOTO, endLabel);
+	this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, caseDescriptor, false);
+	this->mv->visitJumpInsn($Opcodes::GOTO, endLabel);
 	for (int32_t i = 0; i < numCases; ++i) {
-		$nc(this->mv)->visitLabel(caseLabels->get(i));
+		this->mv->visitLabel(caseLabels->get(i));
 		emitLoadInsn($LambdaForm$BasicType::L_TYPE, casesLocal);
 		emitIconstInsn(i);
-		$nc(this->mv)->visitInsn($Opcodes::AALOAD);
+		this->mv->visitInsn($Opcodes::AALOAD);
 		emitPushArguments(args, 1);
-		$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, caseDescriptor, false);
-		$nc(this->mv)->visitJumpInsn($Opcodes::GOTO, endLabel);
+		this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, caseDescriptor, false);
+		this->mv->visitJumpInsn($Opcodes::GOTO, endLabel);
 	}
-	$nc(this->mv)->visitLabel(endLabel);
+	this->mv->visitLabel(endLabel);
 	return result;
 }
 
 $LambdaForm$Name* InvokerBytecodeGenerator::emitLoop(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaForm$Name, args, $nc($nc(this->lambdaForm)->names)->get(pos));
-	$var($LambdaForm$Name, invoker, $nc($nc(this->lambdaForm)->names)->get(pos + 1));
-	$var($LambdaForm$Name, result, $nc($nc(this->lambdaForm)->names)->get(pos + 2));
+	$var($LambdaForm$Name, invoker, this->lambdaForm->names->get(pos + 1));
+	$var($LambdaForm$Name, result, this->lambdaForm->names->get(pos + 2));
 	$var($LambdaForm$BasicTypeArray, loopClauseTypes, $cast($LambdaForm$BasicTypeArray, $nc($nc(invoker)->arguments)->get(0)));
-	$var($ClassArray, loopLocalStateTypes, $fcast($ClassArray, $nc($($nc($($nc($($Stream::of(loopClauseTypes)))->filter(static_cast<$Predicate*>($$new(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0)))))->map(static_cast<$Function*>($$new(InvokerBytecodeGenerator$$Lambda$basicTypeClass$1)))))->toArray(static_cast<$IntFunction*>($$new(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2)))));
+	$var($ClassArray, loopLocalStateTypes, $cast($ClassArray, $$nc($$nc($$nc($Stream::of(loopClauseTypes))->filter($$new(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0)))->map($$new(InvokerBytecodeGenerator$$Lambda$basicTypeClass$1)))->toArray($$new(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2))));
 	$var($ClassArray, localTypes, $new($ClassArray, $nc(loopLocalStateTypes)->length + 1));
 	$load($MethodHandleImpl$LoopClauses);
 	localTypes->set(0, $MethodHandleImpl$LoopClauses::class$);
 	$System::arraycopy(loopLocalStateTypes, 0, localTypes, 1, loopLocalStateTypes->length);
 	int32_t clauseDataIndex = extendLocalsMap(localTypes);
 	int32_t firstLoopStateIndex = clauseDataIndex + 1;
-	$Class* returnType = $cast($Class, $nc($($nc($($nc($nc(result)->function)->resolvedHandle()))->type()))->returnType());
-	$var($MethodType, loopType, $nc($($cast($MethodType, $nc($($nc($($nc($nc(args)->function)->resolvedHandle()))->type()))->dropParameterTypes(0, 1))))->changeReturnType(returnType));
+	$Class* returnType = $cast($Class, $$nc($$nc($nc($nc(result)->function)->resolvedHandle())->type())->returnType());
+	$var($MethodType, loopType, $$sure($MethodType, $$nc($$nc($nc($nc(args)->function)->resolvedHandle())->type())->dropParameterTypes(0, 1))->changeReturnType(returnType));
 	$var($MethodType, loopHandleType, $nc(loopType)->insertParameterTypes(0, loopLocalStateTypes));
-	$init($Boolean);
 	$var($MethodType, predType, $nc(loopHandleType)->changeReturnType($Boolean::TYPE));
 	$var($MethodType, finiType, loopHandleType);
 	int32_t nClauses = $nc(loopClauseTypes)->length;
@@ -2130,67 +1743,57 @@ $LambdaForm$Name* InvokerBytecodeGenerator::emitLoop(int32_t pos) {
 	$var($Label, lLoop, $new($Label));
 	$var($Label, lDone, $new($Label));
 	$var($Label, lNext, nullptr);
-	emitPushArgument($MethodHandleImpl$LoopClauses::class$, $nc(invoker->arguments)->get(1));
+	emitPushArgument($MethodHandleImpl$LoopClauses::class$, invoker->arguments->get(1));
 	$nc(this->mv)->visitFieldInsn($Opcodes::GETFIELD, InvokerBytecodeGenerator::LOOP_CLAUSES, "clauses"_s, InvokerBytecodeGenerator::MHARY2);
 	emitAstoreInsn(clauseDataIndex);
-	{
-		int32_t c = 0;
-		int32_t state = 0;
-		for (; c < nClauses; ++c) {
-			$var($MethodType, cInitType, loopType->changeReturnType($nc(loopClauseTypes->get(c))->basicTypeClass()));
-			emitLoopHandleInvoke(invoker, inits, c, args, false, cInitType, loopLocalStateTypes, clauseDataIndex, firstLoopStateIndex);
-			$init($Void);
-			if ($cast($Class, $nc(cInitType)->returnType()) != $Void::TYPE) {
-				emitStoreInsn($($LambdaForm$BasicType::basicType($($cast($Class, cInitType->returnType())))), firstLoopStateIndex + state);
-				++state;
-			}
+	for (int32_t c = 0, state = 0; c < nClauses; ++c) {
+		$var($MethodType, cInitType, loopType->changeReturnType($nc(loopClauseTypes->get(c))->basicTypeClass()));
+		emitLoopHandleInvoke(invoker, inits, c, args, false, cInitType, loopLocalStateTypes, clauseDataIndex, firstLoopStateIndex);
+		if ($cast($Class, $nc(cInitType)->returnType()) != $Void::TYPE) {
+			emitStoreInsn($($LambdaForm$BasicType::basicType($$cast($Class, cInitType->returnType()))), firstLoopStateIndex + state);
+			++state;
 		}
 	}
-	$nc(this->mv)->visitLabel(lLoop);
-	{
-		int32_t c = 0;
-		int32_t state = 0;
-		for (; c < nClauses; ++c) {
-			$assign(lNext, $new($Label));
-			$var($MethodType, stepType, loopHandleType->changeReturnType($nc(loopClauseTypes->get(c))->basicTypeClass()));
-			$init($Void);
-			bool isVoid = $cast($Class, $nc(stepType)->returnType()) == $Void::TYPE;
-			emitLoopHandleInvoke(invoker, steps, c, args, true, stepType, loopLocalStateTypes, clauseDataIndex, firstLoopStateIndex);
-			if (!isVoid) {
-				emitStoreInsn($($LambdaForm$BasicType::basicType($($cast($Class, stepType->returnType())))), firstLoopStateIndex + state);
-				++state;
-			}
-			emitLoopHandleInvoke(invoker, preds, c, args, true, predType, loopLocalStateTypes, clauseDataIndex, firstLoopStateIndex);
-			$nc(this->mv)->visitJumpInsn($Opcodes::IFNE, lNext);
-			emitLoopHandleInvoke(invoker, finis, c, args, true, finiType, loopLocalStateTypes, clauseDataIndex, firstLoopStateIndex);
-			$nc(this->mv)->visitJumpInsn($Opcodes::GOTO, lDone);
-			$nc(this->mv)->visitLabel(lNext);
+	this->mv->visitLabel(lLoop);
+	for (int32_t c = 0, state = 0; c < nClauses; ++c) {
+		$assign(lNext, $new($Label));
+		$var($MethodType, stepType, loopHandleType->changeReturnType($nc(loopClauseTypes->get(c))->basicTypeClass()));
+		bool isVoid = $cast($Class, $nc(stepType)->returnType()) == $Void::TYPE;
+		emitLoopHandleInvoke(invoker, steps, c, args, true, stepType, loopLocalStateTypes, clauseDataIndex, firstLoopStateIndex);
+		if (!isVoid) {
+			emitStoreInsn($($LambdaForm$BasicType::basicType($$cast($Class, stepType->returnType()))), firstLoopStateIndex + state);
+			++state;
 		}
+		emitLoopHandleInvoke(invoker, preds, c, args, true, predType, loopLocalStateTypes, clauseDataIndex, firstLoopStateIndex);
+		this->mv->visitJumpInsn($Opcodes::IFNE, lNext);
+		emitLoopHandleInvoke(invoker, finis, c, args, true, finiType, loopLocalStateTypes, clauseDataIndex, firstLoopStateIndex);
+		this->mv->visitJumpInsn($Opcodes::GOTO, lDone);
+		this->mv->visitLabel(lNext);
 	}
-	$nc(this->mv)->visitJumpInsn($Opcodes::GOTO, lLoop);
-	$nc(this->mv)->visitLabel(lDone);
+	this->mv->visitJumpInsn($Opcodes::GOTO, lLoop);
+	this->mv->visitLabel(lDone);
 	return result;
 }
 
 int32_t InvokerBytecodeGenerator::extendLocalsMap($ClassArray* types) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t firstSlot = $nc(this->localsMap)->length - 1;
-	$set(this, localsMap, $Arrays::copyOf(this->localsMap, $nc(this->localsMap)->length + $nc(types)->length));
-	$set(this, localClasses, $fcast($ClassArray, $Arrays::copyOf(this->localClasses, $nc(this->localClasses)->length + $nc(types)->length)));
-	$System::arraycopy(types, 0, this->localClasses, firstSlot, $nc(types)->length);
-	int32_t index = $nc(this->localsMap)->get(firstSlot - 1) + 1;
+	$set(this, localsMap, $Arrays::copyOf(this->localsMap, this->localsMap->length + $nc(types)->length));
+	$set(this, localClasses, $cast($ClassArray, $Arrays::copyOf(this->localClasses, $nc(this->localClasses)->length + types->length)));
+	$System::arraycopy(types, 0, this->localClasses, firstSlot, types->length);
+	int32_t index = this->localsMap->get(firstSlot - 1) + 1;
 	int32_t lastSlots = 0;
-	for (int32_t i = 0; i < $nc(types)->length; ++i) {
-		$nc(this->localsMap)->set(firstSlot + i, index);
-		lastSlots = $nc($($LambdaForm$BasicType::basicType($nc(this->localClasses)->get(firstSlot + i))))->basicTypeSlots();
+	for (int32_t i = 0; i < types->length; ++i) {
+		this->localsMap->set(firstSlot + i, index);
+		lastSlots = $$nc($LambdaForm$BasicType::basicType(this->localClasses->get(firstSlot + i)))->basicTypeSlots();
 		index += lastSlots;
 	}
-	$nc(this->localsMap)->set($nc(this->localsMap)->length - 1, index - lastSlots);
+	this->localsMap->set(this->localsMap->length - 1, index - lastSlots);
 	return firstSlot;
 }
 
 void InvokerBytecodeGenerator::emitLoopHandleInvoke($LambdaForm$Name* holder, int32_t handles, int32_t clause, $LambdaForm$Name* args, bool pushLocalState, $MethodType* type, $ClassArray* loopLocalStateTypes, int32_t clauseDataSlot, int32_t firstLoopStateSlot) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	emitPushClauseArray(clauseDataSlot, handles);
 	emitIconstInsn(clause);
 	$nc(this->mv)->visitInsn($Opcodes::AALOAD);
@@ -2200,7 +1803,7 @@ void InvokerBytecodeGenerator::emitLoopHandleInvoke($LambdaForm$Name* holder, in
 		}
 	}
 	emitPushArguments(args, 1);
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, $($nc(type)->toMethodDescriptorString()), false);
+	this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, $($nc(type)->toMethodDescriptorString()), false);
 }
 
 void InvokerBytecodeGenerator::emitPushClauseArray(int32_t clauseDataSlot, int32_t which) {
@@ -2211,59 +1814,46 @@ void InvokerBytecodeGenerator::emitPushClauseArray(int32_t clauseDataSlot, int32
 
 void InvokerBytecodeGenerator::emitZero($LambdaForm$BasicType* type) {
 	$init($InvokerBytecodeGenerator$2);
-
 	int32_t var$0 = 0;
 	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get($nc((type))->ordinal())) {
 	case 1:
-		{
-			var$0 = $Opcodes::ICONST_0;
-			break;
-		}
+		var$0 = $Opcodes::ICONST_0;
+		break;
 	case 2:
-		{
-			var$0 = $Opcodes::LCONST_0;
-			break;
-		}
+		var$0 = $Opcodes::LCONST_0;
+		break;
 	case 3:
-		{
-			var$0 = $Opcodes::FCONST_0;
-			break;
-		}
+		var$0 = $Opcodes::FCONST_0;
+		break;
 	case 4:
-		{
-			var$0 = $Opcodes::DCONST_0;
-			break;
-		}
+		var$0 = $Opcodes::DCONST_0;
+		break;
 	case 5:
-		{
-			var$0 = $Opcodes::ACONST_NULL;
-			break;
-		}
+		var$0 = $Opcodes::ACONST_NULL;
+		break;
 	default:
-		{
-			$throwNew($InternalError, $$str({"unknown type: "_s, type}));
-		}
+		$throwNew($InternalError, $$str({"unknown type: "_s, type}));
 	}
 	$nc(this->mv)->visitInsn(var$0);
 }
 
 void InvokerBytecodeGenerator::emitPushArguments($LambdaForm$Name* args, int32_t start) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodType, type, $nc($nc(args)->function)->methodType());
 	for (int32_t i = start; i < $nc(args->arguments)->length; ++i) {
-		emitPushArgument($($cast($Class, $nc(type)->parameterType(i))), $nc(args->arguments)->get(i));
+		emitPushArgument($$cast($Class, $nc(type)->parameterType(i)), args->arguments->get(i));
 	}
 }
 
 void InvokerBytecodeGenerator::emitPushArgument($LambdaForm$Name* name, int32_t paramIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object0, arg, $nc($nc(name)->arguments)->get(paramIndex));
-	$Class* ptype = $cast($Class, $nc($($nc(name->function)->methodType()))->parameterType(paramIndex));
+	$Class* ptype = $cast($Class, $$nc($nc(name->function)->methodType())->parameterType(paramIndex));
 	emitPushArgument(ptype, arg);
 }
 
 void InvokerBytecodeGenerator::emitPushArgument($Class* ptype, Object$* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LambdaForm$BasicType* bptype = $LambdaForm$BasicType::basicType(ptype);
 	{
 		$var($LambdaForm$Name, n, nullptr);
@@ -2273,23 +1863,17 @@ void InvokerBytecodeGenerator::emitPushArgument($Class* ptype, Object$* arg) {
 			var$0 = true;
 		}
 		if (var$0) {
-			emitLoadInsn($nc(n)->type$, n->index());
-			emitImplicitConversion($nc(n)->type$, ptype, n);
+			emitLoadInsn($nc(n)->type$, $nc(n)->index());
+			emitImplicitConversion(n->type$, ptype, n);
+		} else if (arg == nullptr && bptype == $LambdaForm$BasicType::L_TYPE) {
+			$nc(this->mv)->visitInsn($Opcodes::ACONST_NULL);
+		} else if ($instanceOf($String, arg) && bptype == $LambdaForm$BasicType::L_TYPE) {
+			$nc(this->mv)->visitLdcInsn(arg);
+		} else if ($Wrapper::isWrapperType($nc($of(arg))->getClass()) && bptype != $LambdaForm$BasicType::L_TYPE) {
+			emitConst(arg);
 		} else {
-			if (arg == nullptr && bptype == $LambdaForm$BasicType::L_TYPE) {
-				$nc(this->mv)->visitInsn($Opcodes::ACONST_NULL);
-			} else {
-				if ($instanceOf($String, arg) && bptype == $LambdaForm$BasicType::L_TYPE) {
-					$nc(this->mv)->visitLdcInsn(arg);
-				} else {
-					if ($Wrapper::isWrapperType($nc($of(arg))->getClass()) && bptype != $LambdaForm$BasicType::L_TYPE) {
-						emitConst(arg);
-					} else {
-						$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, this->className$, $(classData(arg)), "Ljava/lang/Object;"_s);
-						emitImplicitConversion($LambdaForm$BasicType::L_TYPE, ptype, arg);
-					}
-				}
-			}
+			$nc(this->mv)->visitFieldInsn($Opcodes::GETSTATIC, this->className$, $(classData(arg)), "Ljava/lang/Object;"_s);
+			emitImplicitConversion($LambdaForm$BasicType::L_TYPE, ptype, arg);
 		}
 	}
 }
@@ -2307,12 +1891,13 @@ void InvokerBytecodeGenerator::emitReturn($LambdaForm$Name* onStack) {
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !(rtype == $LambdaForm$BasicType::basicType(rclass))) {
 		$throwNew($AssertionError);
 	}
+	$init($LambdaForm$BasicType);
 	if (rtype == $LambdaForm$BasicType::V_TYPE) {
 		$nc(this->mv)->visitInsn($Opcodes::RETURN);
 	} else {
-		$var($LambdaForm$Name, rn, $nc($nc(this->lambdaForm)->names)->get($nc(this->lambdaForm)->result));
+		$var($LambdaForm$Name, rn, $nc(this->lambdaForm->names)->get(this->lambdaForm->result));
 		if (rn != onStack) {
-			emitLoadInsn(rtype, $nc(this->lambdaForm)->result);
+			emitLoadInsn(rtype, this->lambdaForm->result);
 		}
 		emitImplicitConversion(rtype, rclass, rn);
 		emitReturnInsn(rtype);
@@ -2336,78 +1921,52 @@ void InvokerBytecodeGenerator::emitPrimCast($Wrapper* from, $Wrapper* to) {
 		switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper)->get((from)->ordinal())) {
 		case 6:
 			{
-				{
-					switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper)->get((to)->ordinal())) {
-					case 7:
-						{
-							$nc(this->mv)->visitInsn($Opcodes::L2F);
-							break;
-						}
-					case 8:
-						{
-							$nc(this->mv)->visitInsn($Opcodes::L2D);
-							break;
-						}
-					default:
-						{
-							error = true;
-							break;
-						}
-					}
+				switch ($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper->get((to)->ordinal())) {
+				case 7:
+					$nc(this->mv)->visitInsn($Opcodes::L2F);
+					break;
+				case 8:
+					$nc(this->mv)->visitInsn($Opcodes::L2D);
+					break;
+				default:
+					error = true;
+					break;
 				}
-				break;
 			}
+			break;
 		case 7:
 			{
-				{
-					switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper)->get((to)->ordinal())) {
-					case 6:
-						{
-							$nc(this->mv)->visitInsn($Opcodes::F2L);
-							break;
-						}
-					case 8:
-						{
-							$nc(this->mv)->visitInsn($Opcodes::F2D);
-							break;
-						}
-					default:
-						{
-							error = true;
-							break;
-						}
-					}
+				switch ($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper->get((to)->ordinal())) {
+				case 6:
+					$nc(this->mv)->visitInsn($Opcodes::F2L);
+					break;
+				case 8:
+					$nc(this->mv)->visitInsn($Opcodes::F2D);
+					break;
+				default:
+					error = true;
+					break;
 				}
-				break;
 			}
+			break;
 		case 8:
 			{
-				{
-					switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper)->get((to)->ordinal())) {
-					case 6:
-						{
-							$nc(this->mv)->visitInsn($Opcodes::D2L);
-							break;
-						}
-					case 7:
-						{
-							$nc(this->mv)->visitInsn($Opcodes::D2F);
-							break;
-						}
-					default:
-						{
-							error = true;
-							break;
-						}
-					}
+				switch ($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper->get((to)->ordinal())) {
+				case 6:
+					$nc(this->mv)->visitInsn($Opcodes::D2L);
+					break;
+				case 7:
+					$nc(this->mv)->visitInsn($Opcodes::D2F);
+					break;
+				default:
+					error = true;
+					break;
 				}
-				break;
 			}
+			break;
 		default:
-			{
-				error = true;
-				break;
-			}
+			error = true;
+			break;
 		}
 		if (error) {
 			$throwNew($IllegalStateException, $$str({"unhandled prim cast: "_s, from, "2"_s, to}));
@@ -2419,49 +1978,31 @@ void InvokerBytecodeGenerator::emitI2X($Wrapper* type) {
 	$init($InvokerBytecodeGenerator$2);
 	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper)->get($nc((type))->ordinal())) {
 	case 2:
-		{
-			$nc(this->mv)->visitInsn($Opcodes::I2B);
-			break;
-		}
+		$nc(this->mv)->visitInsn($Opcodes::I2B);
+		break;
 	case 4:
-		{
-			$nc(this->mv)->visitInsn($Opcodes::I2S);
-			break;
-		}
+		$nc(this->mv)->visitInsn($Opcodes::I2S);
+		break;
 	case 3:
-		{
-			$nc(this->mv)->visitInsn($Opcodes::I2C);
-			break;
-		}
+		$nc(this->mv)->visitInsn($Opcodes::I2C);
+		break;
 	case 5:
-		{
-			break;
-		}
+		break;
 	case 6:
-		{
-			$nc(this->mv)->visitInsn($Opcodes::I2L);
-			break;
-		}
+		$nc(this->mv)->visitInsn($Opcodes::I2L);
+		break;
 	case 7:
-		{
-			$nc(this->mv)->visitInsn($Opcodes::I2F);
-			break;
-		}
+		$nc(this->mv)->visitInsn($Opcodes::I2F);
+		break;
 	case 8:
-		{
-			$nc(this->mv)->visitInsn($Opcodes::I2D);
-			break;
-		}
+		$nc(this->mv)->visitInsn($Opcodes::I2D);
+		break;
 	case 1:
-		{
-			$nc(this->mv)->visitInsn($Opcodes::ICONST_1);
-			$nc(this->mv)->visitInsn($Opcodes::IAND);
-			break;
-		}
+		$nc(this->mv)->visitInsn($Opcodes::ICONST_1);
+		this->mv->visitInsn($Opcodes::IAND);
+		break;
 	default:
-		{
-			$throwNew($InternalError, $$str({"unknown type: "_s, type}));
-		}
+		$throwNew($InternalError, $$str({"unknown type: "_s, type}));
 	}
 }
 
@@ -2469,65 +2010,56 @@ void InvokerBytecodeGenerator::emitX2I($Wrapper* type) {
 	$init($InvokerBytecodeGenerator$2);
 	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper)->get($nc((type))->ordinal())) {
 	case 6:
-		{
-			$nc(this->mv)->visitInsn($Opcodes::L2I);
-			break;
-		}
+		$nc(this->mv)->visitInsn($Opcodes::L2I);
+		break;
 	case 7:
-		{
-			$nc(this->mv)->visitInsn($Opcodes::F2I);
-			break;
-		}
+		$nc(this->mv)->visitInsn($Opcodes::F2I);
+		break;
 	case 8:
-		{
-			$nc(this->mv)->visitInsn($Opcodes::D2I);
-			break;
-		}
+		$nc(this->mv)->visitInsn($Opcodes::D2I);
+		break;
 	default:
-		{
-			$throwNew($InternalError, $$str({"unknown type: "_s, type}));
-		}
+		$throwNew($InternalError, $$str({"unknown type: "_s, type}));
 	}
 }
 
 $MemberName* InvokerBytecodeGenerator::generateLambdaFormInterpreterEntryPoint($MethodType* mt) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !($LambdaForm::isValidSignature($($LambdaForm::basicTypeSignature(mt))))) {
 		$throwNew($AssertionError);
 	}
-	$var($String, name, $str({"interpret_"_s, $$str($LambdaForm$BasicType::basicTypeChar($($cast($Class, $nc(mt)->returnType()))))}));
+	$var($String, name, $str({"interpret_"_s, $$str($LambdaForm$BasicType::basicTypeChar($$cast($Class, $nc(mt)->returnType())))}));
 	$var($MethodType, type, mt);
 	$load($MethodHandle);
-	$assign(type, $nc(type)->changeParameterType(0, $MethodHandle::class$));
+	$assign(type, type->changeParameterType(0, $MethodHandle::class$));
 	$var(InvokerBytecodeGenerator, g, $new(InvokerBytecodeGenerator, "LFI"_s, name, type));
 	return g->loadMethod($(g->generateLambdaFormInterpreterEntryPointBytes()));
 }
 
 $bytes* InvokerBytecodeGenerator::generateLambdaFormInterpreterEntryPointBytes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	classFilePrologue();
 	methodPrologue();
 	$nc(this->mv)->visitAnnotation(InvokerBytecodeGenerator::HIDDEN_SIG, true);
-	$nc(this->mv)->visitAnnotation(InvokerBytecodeGenerator::DONTINLINE_SIG, true);
+	this->mv->visitAnnotation(InvokerBytecodeGenerator::DONTINLINE_SIG, true);
 	emitIconstInsn($nc(this->invokerType)->parameterCount());
-	$nc(this->mv)->visitTypeInsn($Opcodes::ANEWARRAY, "java/lang/Object"_s);
-	for (int32_t i = 0; i < $nc(this->invokerType)->parameterCount(); ++i) {
-		$Class* ptype = $cast($Class, $nc(this->invokerType)->parameterType(i));
-		$nc(this->mv)->visitInsn($Opcodes::DUP);
+	this->mv->visitTypeInsn($Opcodes::ANEWARRAY, "java/lang/Object"_s);
+	for (int32_t i = 0; i < this->invokerType->parameterCount(); ++i) {
+		$Class* ptype = $cast($Class, this->invokerType->parameterType(i));
+		this->mv->visitInsn($Opcodes::DUP);
 		emitIconstInsn(i);
 		emitLoadInsn($($LambdaForm$BasicType::basicType(ptype)), i);
 		if ($nc(ptype)->isPrimitive()) {
 			emitBoxing($($Wrapper::forPrimitiveType(ptype)));
 		}
-		$nc(this->mv)->visitInsn($Opcodes::AASTORE);
+		this->mv->visitInsn($Opcodes::AASTORE);
 	}
 	emitAloadInsn(0);
-	$nc(this->mv)->visitFieldInsn($Opcodes::GETFIELD, InvokerBytecodeGenerator::MH, "form"_s, "Ljava/lang/invoke/LambdaForm;"_s);
-	$nc(this->mv)->visitInsn($Opcodes::SWAP);
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::LF, "interpretWithArguments"_s, "([Ljava/lang/Object;)Ljava/lang/Object;"_s, false);
-	$Class* rtype = $cast($Class, $nc(this->invokerType)->returnType());
-	$init($Void);
+	this->mv->visitFieldInsn($Opcodes::GETFIELD, InvokerBytecodeGenerator::MH, "form"_s, "Ljava/lang/invoke/LambdaForm;"_s);
+	this->mv->visitInsn($Opcodes::SWAP);
+	this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::LF, "interpretWithArguments"_s, "([Ljava/lang/Object;)Ljava/lang/Object;"_s, false);
+	$Class* rtype = $cast($Class, this->invokerType->returnType());
 	if ($nc(rtype)->isPrimitive() && rtype != $Void::TYPE) {
 		emitUnboxing($($Wrapper::forPrimitiveType(rtype)));
 	}
@@ -2542,7 +2074,7 @@ $bytes* InvokerBytecodeGenerator::generateLambdaFormInterpreterEntryPointBytes()
 
 $MemberName* InvokerBytecodeGenerator::generateNamedFunctionInvoker($MethodTypeForm* typeForm) {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($LambdaForm$NamedFunction);
 	$var($MethodType, invokerType, $LambdaForm$NamedFunction::INVOKER_METHOD_TYPE);
 	$var($String, invokerName, $str({"invoke_"_s, $($LambdaForm::shortenSignature($($LambdaForm::basicTypeSignature($($nc(typeForm)->erasedType())))))}));
@@ -2551,17 +2083,17 @@ $MemberName* InvokerBytecodeGenerator::generateNamedFunctionInvoker($MethodTypeF
 }
 
 $bytes* InvokerBytecodeGenerator::generateNamedFunctionInvokerImpl($MethodTypeForm* typeForm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodType, dstType, $nc(typeForm)->erasedType());
 	classFilePrologue();
 	methodPrologue();
 	$nc(this->mv)->visitAnnotation(InvokerBytecodeGenerator::HIDDEN_SIG, true);
-	$nc(this->mv)->visitAnnotation(InvokerBytecodeGenerator::FORCEINLINE_SIG, true);
+	this->mv->visitAnnotation(InvokerBytecodeGenerator::FORCEINLINE_SIG, true);
 	emitAloadInsn(0);
 	for (int32_t i = 0; i < $nc(dstType)->parameterCount(); ++i) {
 		emitAloadInsn(1);
 		emitIconstInsn(i);
-		$nc(this->mv)->visitInsn($Opcodes::AALOAD);
+		this->mv->visitInsn($Opcodes::AALOAD);
 		$Class* dptype = $cast($Class, dstType->parameterType(i));
 		if ($nc(dptype)->isPrimitive()) {
 			$Wrapper* dstWrapper = $Wrapper::forBasicType(dptype);
@@ -2570,10 +2102,9 @@ $bytes* InvokerBytecodeGenerator::generateNamedFunctionInvokerImpl($MethodTypeFo
 			emitPrimCast(srcWrapper, dstWrapper);
 		}
 	}
-	$var($String, targetDesc, $nc($($nc(dstType)->basicType()))->toMethodDescriptorString());
-	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, targetDesc, false);
+	$var($String, targetDesc, $$nc(dstType->basicType())->toMethodDescriptorString());
+	this->mv->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, targetDesc, false);
 	$Class* rtype = $cast($Class, dstType->returnType());
-	$init($Void);
 	if (rtype != $Void::TYPE && $nc(rtype)->isPrimitive()) {
 		$Wrapper* srcWrapper = $Wrapper::forBasicType(rtype);
 		$Wrapper* dstWrapper = $nc(srcWrapper)->isSubwordOrInt() ? $Wrapper::INT : srcWrapper;
@@ -2581,7 +2112,7 @@ $bytes* InvokerBytecodeGenerator::generateNamedFunctionInvokerImpl($MethodTypeFo
 		emitBoxing(dstWrapper);
 	}
 	if (rtype == $Void::TYPE) {
-		$nc(this->mv)->visitInsn($Opcodes::ACONST_NULL);
+		this->mv->visitInsn($Opcodes::ACONST_NULL);
 	}
 	$init($LambdaForm$BasicType);
 	emitReturnInsn($LambdaForm$BasicType::L_TYPE);
@@ -2598,10 +2129,10 @@ void InvokerBytecodeGenerator::bogusMethod(Object$* os) {
 	if ($MethodHandleStatics::DUMP_CLASS_FILES) {
 		$set(this, mv, $nc(this->cw)->visitMethod($Opcodes::ACC_STATIC, "dummy"_s, "()V"_s, nullptr, nullptr));
 		$nc(this->mv)->visitLdcInsn($($nc($of(os))->toString()));
-		$nc(this->mv)->visitInsn($Opcodes::POP);
-		$nc(this->mv)->visitInsn($Opcodes::RETURN);
-		$nc(this->mv)->visitMaxs(0, 0);
-		$nc(this->mv)->visitEnd();
+		this->mv->visitInsn($Opcodes::POP);
+		this->mv->visitInsn($Opcodes::RETURN);
+		this->mv->visitMaxs(0, 0);
+		this->mv->visitEnd();
 	}
 }
 
@@ -2616,8 +2147,8 @@ bool InvokerBytecodeGenerator::lambda$emitLoop$0($LambdaForm$BasicType* bt) {
 	return bt != $LambdaForm$BasicType::V_TYPE;
 }
 
-void clinit$InvokerBytecodeGenerator($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void InvokerBytecodeGenerator::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(InvokerBytecodeGenerator::MH, "java/lang/invoke/MethodHandle"_s);
 	$assignStatic(InvokerBytecodeGenerator::MHI, "java/lang/invoke/MethodHandleImpl"_s);
 	$assignStatic(InvokerBytecodeGenerator::LF, "java/lang/invoke/LambdaForm"_s);
@@ -2652,7 +2183,7 @@ void clinit$InvokerBytecodeGenerator($Class* class$) {
 				$assignStatic(InvokerBytecodeGenerator::DUMP_CLASS_FILES_DIR, dumpDir);
 				$nc($System::out)->println($$str({"Dumping class files to "_s, InvokerBytecodeGenerator::DUMP_CLASS_FILES_DIR, "/..."_s}));
 			} catch ($Exception& e) {
-				$throw($($MethodHandleStatics::newInternalError($cast($Exception, e))));
+				$throw($($MethodHandleStatics::newInternalError(e)));
 			}
 		} else {
 			$assignStatic(InvokerBytecodeGenerator::DUMP_CLASS_FILES_COUNTERS, nullptr);
@@ -2678,17 +2209,171 @@ InvokerBytecodeGenerator::InvokerBytecodeGenerator() {
 
 $Class* InvokerBytecodeGenerator::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0::classInfo$.name)) {
+		if (name->equals("java.lang.invoke.InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0")) {
 			return InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0::load$(name, initialize);
 		}
-		if (name->equals(InvokerBytecodeGenerator$$Lambda$basicTypeClass$1::classInfo$.name)) {
+		if (name->equals("java.lang.invoke.InvokerBytecodeGenerator$$Lambda$basicTypeClass$1")) {
 			return InvokerBytecodeGenerator$$Lambda$basicTypeClass$1::load$(name, initialize);
 		}
-		if (name->equals(InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2::classInfo$.name)) {
+		if (name->equals("java.lang.invoke.InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2")) {
 			return InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(InvokerBytecodeGenerator, name, initialize, &_InvokerBytecodeGenerator_ClassInfo_, clinit$InvokerBytecodeGenerator, allocate$InvokerBytecodeGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(InvokerBytecodeGenerator, $assertionsDisabled)},
+		{"MH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, MH)},
+		{"MHI", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, MHI)},
+		{"LF", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LF)},
+		{"LFN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LFN)},
+		{"CLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, CLS)},
+		{"OBJ", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, OBJ)},
+		{"OBJARY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, OBJARY)},
+		{"LOOP_CLAUSES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LOOP_CLAUSES)},
+		{"MHARY2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, MHARY2)},
+		{"MH_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, MH_SIG)},
+		{"LF_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LF_SIG)},
+		{"LFN_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LFN_SIG)},
+		{"LL_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LL_SIG)},
+		{"LLV_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LLV_SIG)},
+		{"CLASS_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, CLASS_PREFIX)},
+		{"SOURCE_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, SOURCE_PREFIX)},
+		{"INVOKER_SUPER_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, INVOKER_SUPER_NAME)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, name)},
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, className$)},
+		{"lambdaForm", "Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, lambdaForm)},
+		{"invokerName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, invokerName)},
+		{"invokerType", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, invokerType)},
+		{"localsMap", "[I", nullptr, $PRIVATE, $field(InvokerBytecodeGenerator, localsMap)},
+		{"localClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(InvokerBytecodeGenerator, localClasses)},
+		{"cw", "Ljdk/internal/org/objectweb/asm/ClassWriter;", nullptr, $PRIVATE, $field(InvokerBytecodeGenerator, cw)},
+		{"mv", "Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PRIVATE, $field(InvokerBytecodeGenerator, mv)},
+		{"classData", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/invoke/InvokerBytecodeGenerator$ClassData;>;", $PRIVATE | $FINAL, $field(InvokerBytecodeGenerator, classData$)},
+		{"lastClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(InvokerBytecodeGenerator, lastClass)},
+		{"lastInternalName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InvokerBytecodeGenerator, lastInternalName)},
+		{"MEMBERNAME_FACTORY", "Ljava/lang/invoke/MemberName$Factory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, MEMBERNAME_FACTORY)},
+		{"HOST_CLASS", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, HOST_CLASS)},
+		{"LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LOOKUP)},
+		{"DUMP_CLASS_FILES_COUNTERS", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, DUMP_CLASS_FILES_COUNTERS)},
+		{"DUMP_CLASS_FILES_DIR", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, DUMP_CLASS_FILES_DIR)},
+		{"DONTINLINE_SIG", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, DONTINLINE_SIG)},
+		{"FORCEINLINE_SIG", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, FORCEINLINE_SIG)},
+		{"HIDDEN_SIG", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, HIDDEN_SIG)},
+		{"INJECTEDPROFILE_SIG", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, INJECTEDPROFILE_SIG)},
+		{"LF_COMPILED_SIG", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, LF_COMPILED_SIG)},
+		{"STATICALLY_INVOCABLE_PACKAGES", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(InvokerBytecodeGenerator, STATICALLY_INVOCABLE_PACKAGES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/LambdaForm;ILjava/lang/String;Ljava/lang/String;Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, init$, void, $LambdaForm*, int32_t, $String*, $String*, $MethodType*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, init$, void, $String*, $String*, $MethodType*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, init$, void, $String*, $LambdaForm*, $MethodType*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodType;)V", nullptr, 0, $method(InvokerBytecodeGenerator, init$, void, $String*, $String*, $LambdaForm*, $MethodType*)},
+		{"addMethod", "()V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, addMethod, void)},
+		{"arrayInsnOpcode", "(BI)I", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, arrayInsnOpcode, int32_t, int8_t, int32_t), "java.lang.InternalError"},
+		{"arrayTypeCode", "(Lsun/invoke/util/Wrapper;)B", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, arrayTypeCode, int8_t, $Wrapper*)},
+		{"assertStaticType", "(Ljava/lang/Class;Ljava/lang/invoke/LambdaForm$Name;)Z", "(Ljava/lang/Class<*>;Ljava/lang/invoke/LambdaForm$Name;)Z", $PRIVATE, $method(InvokerBytecodeGenerator, assertStaticType, bool, $Class*, $LambdaForm$Name*)},
+		{"bogusMethod", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, bogusMethod, void, Object$*)},
+		{"checkActualReceiver", "()Z", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, checkActualReceiver, bool)},
+		{"checkClassName", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, checkClassName, bool, $String*)},
+		{"classData", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, classData, $String*, Object$*)},
+		{"classDataValues", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", 0, $virtualMethod(InvokerBytecodeGenerator, classDataValues, $List*)},
+		{"classFilePrologue", "()Ljdk/internal/org/objectweb/asm/ClassWriter;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, classFilePrologue, $ClassWriter*)},
+		{"className", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, className, $String*, $String*)},
+		{"clinit", "(Ljdk/internal/org/objectweb/asm/ClassWriter;Ljava/lang/String;Ljava/util/List;)V", "(Ljdk/internal/org/objectweb/asm/ClassWriter;Ljava/lang/String;Ljava/util/List<Ljava/lang/invoke/InvokerBytecodeGenerator$ClassData;>;)V", $STATIC, $staticMethod(InvokerBytecodeGenerator, clinit, void, $ClassWriter*, $String*, $List*)},
+		{"debugString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, debugString, $String*, Object$*)},
+		{"emitAloadInsn", "(I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitAloadInsn, void, int32_t)},
+		{"emitArrayLength", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitArrayLength, void, $LambdaForm$Name*)},
+		{"emitArrayLoad", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitArrayLoad, void, $LambdaForm$Name*)},
+		{"emitArrayOp", "(Ljava/lang/invoke/LambdaForm$Name;I)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitArrayOp, void, $LambdaForm$Name*, int32_t)},
+		{"emitArrayStore", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitArrayStore, void, $LambdaForm$Name*)},
+		{"emitAstoreInsn", "(I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitAstoreInsn, void, int32_t)},
+		{"emitBoxing", "(Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitBoxing, void, $Wrapper*)},
+		{"emitConst", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitConst, void, Object$*)},
+		{"emitGuardWithCatch", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitGuardWithCatch, $LambdaForm$Name*, int32_t)},
+		{"emitI2X", "(Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitI2X, void, $Wrapper*)},
+		{"emitIconstInsn", "(I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitIconstInsn, void, int32_t)},
+		{"emitIconstInsn", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, emitIconstInsn, void, $MethodVisitor*, int32_t)},
+		{"emitImplicitConversion", "(Ljava/lang/invoke/LambdaForm$BasicType;Ljava/lang/Class;Ljava/lang/Object;)V", "(Ljava/lang/invoke/LambdaForm$BasicType;Ljava/lang/Class<*>;Ljava/lang/Object;)V", $PRIVATE, $method(InvokerBytecodeGenerator, emitImplicitConversion, void, $LambdaForm$BasicType*, $Class*, Object$*)},
+		{"emitInvoke", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitInvoke, void, $LambdaForm$Name*)},
+		{"emitLoadInsn", "(Ljava/lang/invoke/LambdaForm$BasicType;I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitLoadInsn, void, $LambdaForm$BasicType*, int32_t)},
+		{"emitLoop", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitLoop, $LambdaForm$Name*, int32_t)},
+		{"emitLoopHandleInvoke", "(Ljava/lang/invoke/LambdaForm$Name;IILjava/lang/invoke/LambdaForm$Name;ZLjava/lang/invoke/MethodType;[Ljava/lang/Class;II)V", "(Ljava/lang/invoke/LambdaForm$Name;IILjava/lang/invoke/LambdaForm$Name;ZLjava/lang/invoke/MethodType;[Ljava/lang/Class<*>;II)V", $PRIVATE, $method(InvokerBytecodeGenerator, emitLoopHandleInvoke, void, $LambdaForm$Name*, int32_t, int32_t, $LambdaForm$Name*, bool, $MethodType*, $ClassArray*, int32_t, int32_t)},
+		{"emitPopInsn", "(Ljava/lang/invoke/LambdaForm$BasicType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitPopInsn, void, $LambdaForm$BasicType*)},
+		{"emitPrimCast", "(Lsun/invoke/util/Wrapper;Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitPrimCast, void, $Wrapper*, $Wrapper*)},
+		{"emitPushArgument", "(Ljava/lang/invoke/LambdaForm$Name;I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitPushArgument, void, $LambdaForm$Name*, int32_t)},
+		{"emitPushArgument", "(Ljava/lang/Class;Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;)V", $PRIVATE, $method(InvokerBytecodeGenerator, emitPushArgument, void, $Class*, Object$*)},
+		{"emitPushArguments", "(Ljava/lang/invoke/LambdaForm$Name;I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitPushArguments, void, $LambdaForm$Name*, int32_t)},
+		{"emitPushClauseArray", "(II)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitPushClauseArray, void, int32_t, int32_t)},
+		{"emitReferenceCast", "(Ljava/lang/Class;Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;)V", $PRIVATE, $method(InvokerBytecodeGenerator, emitReferenceCast, void, $Class*, Object$*)},
+		{"emitReturn", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitReturn, void, $LambdaForm$Name*)},
+		{"emitReturnInsn", "(Ljava/lang/invoke/LambdaForm$BasicType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitReturnInsn, void, $LambdaForm$BasicType*)},
+		{"emitSelectAlternative", "(Ljava/lang/invoke/LambdaForm$Name;Ljava/lang/invoke/LambdaForm$Name;)Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitSelectAlternative, $LambdaForm$Name*, $LambdaForm$Name*, $LambdaForm$Name*)},
+		{"emitStaticInvoke", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitStaticInvoke, void, $LambdaForm$Name*)},
+		{"emitStaticInvoke", "(Ljava/lang/invoke/MemberName;Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, emitStaticInvoke, void, $MemberName*, $LambdaForm$Name*)},
+		{"emitStoreInsn", "(Ljava/lang/invoke/LambdaForm$BasicType;I)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitStoreInsn, void, $LambdaForm$BasicType*, int32_t)},
+		{"emitStoreResult", "(Ljava/lang/invoke/LambdaForm$Name;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitStoreResult, void, $LambdaForm$Name*)},
+		{"emitTableSwitch", "(II)Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitTableSwitch, $LambdaForm$Name*, int32_t, int32_t)},
+		{"emitTryFinally", "(I)Ljava/lang/invoke/LambdaForm$Name;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitTryFinally, $LambdaForm$Name*, int32_t)},
+		{"emitUnboxing", "(Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitUnboxing, void, $Wrapper*)},
+		{"emitX2I", "(Lsun/invoke/util/Wrapper;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitX2I, void, $Wrapper*)},
+		{"emitZero", "(Ljava/lang/invoke/LambdaForm$BasicType;)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, emitZero, void, $LambdaForm$BasicType*)},
+		{"extendLocalsMap", "([Ljava/lang/Class;)I", "([Ljava/lang/Class<*>;)I", $PRIVATE, $method(InvokerBytecodeGenerator, extendLocalsMap, int32_t, $ClassArray*)},
+		{"generateCustomizedCode", "(Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, generateCustomizedCode, $MemberName*, $LambdaForm*, $MethodType*)},
+		{"generateCustomizedCodeBytes", "()[B", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, generateCustomizedCodeBytes, $bytes*)},
+		{"generateLambdaFormInterpreterEntryPoint", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, generateLambdaFormInterpreterEntryPoint, $MemberName*, $MethodType*)},
+		{"generateLambdaFormInterpreterEntryPointBytes", "()[B", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, generateLambdaFormInterpreterEntryPointBytes, $bytes*)},
+		{"generateNamedFunctionInvoker", "(Ljava/lang/invoke/MethodTypeForm;)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, generateNamedFunctionInvoker, $MemberName*, $MethodTypeForm*)},
+		{"generateNamedFunctionInvokerImpl", "(Ljava/lang/invoke/MethodTypeForm;)[B", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, generateNamedFunctionInvokerImpl, $bytes*, $MethodTypeForm*)},
+		{"getInternalName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE, $method(InvokerBytecodeGenerator, getInternalName, $String*, $Class*)},
+		{"isStaticallyInvocable", "([Ljava/lang/invoke/LambdaForm$NamedFunction;)Z", nullptr, $STATIC | $TRANSIENT, $staticMethod(InvokerBytecodeGenerator, isStaticallyInvocable, bool, $LambdaForm$NamedFunctionArray*)},
+		{"isStaticallyInvocable", "(Ljava/lang/invoke/LambdaForm$Name;)Z", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, isStaticallyInvocable, bool, $LambdaForm$Name*)},
+		{"isStaticallyInvocable", "(Ljava/lang/invoke/MemberName;)Z", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, isStaticallyInvocable, bool, $MemberName*)},
+		{"isStaticallyInvocableType", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, isStaticallyInvocableType, bool, $MethodType*)},
+		{"isStaticallyNameable", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(InvokerBytecodeGenerator, isStaticallyNameable, bool, $Class*)},
+		{"lambda$emitLoop$0", "(Ljava/lang/invoke/LambdaForm$BasicType;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InvokerBytecodeGenerator, lambda$emitLoop$0, bool, $LambdaForm$BasicType*)},
+		{"lambda$emitLoop$1", "(I)[Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InvokerBytecodeGenerator, lambda$emitLoop$1, $ClassArray*, int32_t)},
+		{"loadInsnOpcode", "(Ljava/lang/invoke/LambdaForm$BasicType;)I", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, loadInsnOpcode, int32_t, $LambdaForm$BasicType*), "java.lang.InternalError"},
+		{"loadMethod", "([B)Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, loadMethod, $MemberName*, $bytes*)},
+		{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, lookup, $MethodHandles$Lookup*)},
+		{"lookupPregenerated", "(Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, lookupPregenerated, $MemberName*, $LambdaForm*, $MethodType*)},
+		{"makeDumpableClassName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, makeDumpableClassName, $String*, $String*)},
+		{"maybeDump", "([B)V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, maybeDump, void, $bytes*)},
+		{"maybeDump", "(Ljava/lang/String;[B)V", nullptr, $STATIC, $staticMethod(InvokerBytecodeGenerator, maybeDump, void, $String*, $bytes*)},
+		{"methodEpilogue", "()V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, methodEpilogue, void)},
+		{"methodPrologue", "()V", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, methodPrologue, void)},
+		{"popInsnOpcode", "(Ljava/lang/invoke/LambdaForm$BasicType;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, popInsnOpcode, int32_t, $LambdaForm$BasicType*)},
+		{"refKindOpcode", "(B)I", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, refKindOpcode, int32_t, int8_t)},
+		{"resolveFrom", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Ljava/lang/invoke/MemberName;", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Ljava/lang/invoke/MemberName;", $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, resolveFrom, $MemberName*, $String*, $MethodType*, $Class*)},
+		{"resolveInvokerMember", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", $PRIVATE | $STATIC, $staticMethod(InvokerBytecodeGenerator, resolveInvokerMember, $MemberName*, $Class*, $String*, $MethodType*)},
+		{"setClassWriter", "(Ljdk/internal/org/objectweb/asm/ClassWriter;)V", nullptr, 0, $virtualMethod(InvokerBytecodeGenerator, setClassWriter, void, $ClassWriter*)},
+		{"storeInsnOpcode", "(Ljava/lang/invoke/LambdaForm$BasicType;)I", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, storeInsnOpcode, int32_t, $LambdaForm$BasicType*), "java.lang.InternalError"},
+		{"toByteArray", "()[B", nullptr, $PRIVATE, $method(InvokerBytecodeGenerator, toByteArray, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.InvokerBytecodeGenerator$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.lang.invoke.InvokerBytecodeGenerator$BytecodeGenerationException", "java.lang.invoke.InvokerBytecodeGenerator", "BytecodeGenerationException", $STATIC | $FINAL},
+		{"java.lang.invoke.InvokerBytecodeGenerator$ClassData", "java.lang.invoke.InvokerBytecodeGenerator", "ClassData", $STATIC},
+		{"java.lang.invoke.InvokerBytecodeGenerator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.InvokerBytecodeGenerator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.InvokerBytecodeGenerator$2,java.lang.invoke.InvokerBytecodeGenerator$BytecodeGenerationException,java.lang.invoke.InvokerBytecodeGenerator$ClassData,java.lang.invoke.InvokerBytecodeGenerator$1"
+	};
+	$loadClass(InvokerBytecodeGenerator, name, initialize, &classInfo$$, InvokerBytecodeGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InvokerBytecodeGenerator);
+	});
 	return class$;
 }
 

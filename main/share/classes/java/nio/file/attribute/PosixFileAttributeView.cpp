@@ -1,5 +1,4 @@
 #include <java/nio/file/attribute/PosixFileAttributeView.h>
-
 #include <java/nio/file/attribute/BasicFileAttributeView.h>
 #include <java/nio/file/attribute/GroupPrincipal.h>
 #include <java/util/Set.h>
@@ -15,32 +14,6 @@ namespace java {
 	namespace nio {
 		namespace file {
 			namespace attribute {
-
-$MethodInfo _PosixFileAttributeView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"readAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setGroup", "(Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PosixFileAttributeView, setGroup, void, $GroupPrincipal*), "java.io.IOException"},
-	{"setPermissions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(PosixFileAttributeView, setPermissions, void, $Set*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PosixFileAttributeView_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.file.attribute.PosixFileAttributeView",
-	nullptr,
-	"java.nio.file.attribute.BasicFileAttributeView,java.nio.file.attribute.FileOwnerAttributeView",
-	nullptr,
-	_PosixFileAttributeView_MethodInfo_
-};
-
-$Object* allocate$PosixFileAttributeView($Class* clazz) {
-	return $of($alloc(PosixFileAttributeView));
-}
 
 int32_t PosixFileAttributeView::hashCode() {
 	 return this->$BasicFileAttributeView::hashCode();
@@ -63,7 +36,29 @@ void PosixFileAttributeView::finalize() {
 }
 
 $Class* PosixFileAttributeView::load$($String* name, bool initialize) {
-	$loadClass(PosixFileAttributeView, name, initialize, &_PosixFileAttributeView_ClassInfo_, allocate$PosixFileAttributeView);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"readAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC | $ABSTRACT},
+		{"setGroup", "(Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PosixFileAttributeView, setGroup, void, $GroupPrincipal*), "java.io.IOException"},
+		{"setPermissions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(PosixFileAttributeView, setPermissions, void, $Set*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.file.attribute.PosixFileAttributeView",
+		nullptr,
+		"java.nio.file.attribute.BasicFileAttributeView,java.nio.file.attribute.FileOwnerAttributeView",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PosixFileAttributeView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PosixFileAttributeView));
+	});
 	return class$;
 }
 

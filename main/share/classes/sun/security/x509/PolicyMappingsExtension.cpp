@@ -1,5 +1,4 @@
 #include <sun/security/x509/PolicyMappingsExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/ArrayList.h>
@@ -32,7 +31,6 @@ using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
@@ -43,47 +41,6 @@ using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _PolicyMappingsExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyMappingsExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyMappingsExtension, NAME)},
-	{"MAP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyMappingsExtension, MAP)},
-	{"maps", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/CertificatePolicyMap;>;", $PRIVATE, $field(PolicyMappingsExtension, maps)},
-	{}
-};
-
-$MethodInfo _PolicyMappingsExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/x509/CertificatePolicyMap;>;)V", $PUBLIC, $method(PolicyMappingsExtension, init$, void, $List*), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyMappingsExtension, init$, void)},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PolicyMappingsExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyMappingsExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PolicyMappingsExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(PolicyMappingsExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/security/x509/CertificatePolicyMap;>;", $PUBLIC, $virtualMethod(PolicyMappingsExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PolicyMappingsExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyMappingsExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PolicyMappingsExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyMappingsExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PolicyMappingsExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.PolicyMappingsExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_PolicyMappingsExtension_FieldInfo_,
-	_PolicyMappingsExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$PolicyMappingsExtension($Class* clazz) {
-	return $of($alloc(PolicyMappingsExtension));
-}
 
 int32_t PolicyMappingsExtension::hashCode() {
 	 return this->$Extension::hashCode();
@@ -106,8 +63,8 @@ $String* PolicyMappingsExtension::NAME = nullptr;
 $String* PolicyMappingsExtension::MAP = nullptr;
 
 void PolicyMappingsExtension::encodeThis() {
-	$useLocalCurrentObjectStackCache();
-	if (this->maps == nullptr || $nc(this->maps)->isEmpty()) {
+	$useLocalObjectStack();
+	if (this->maps == nullptr || this->maps->isEmpty()) {
 		$set(this, extensionValue, nullptr);
 		return;
 	}
@@ -144,7 +101,7 @@ void PolicyMappingsExtension::init$() {
 }
 
 void PolicyMappingsExtension::init$($Boolean* critical, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$();
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::PolicyMappings_Id);
@@ -156,25 +113,28 @@ void PolicyMappingsExtension::init$($Boolean* critical, Object$* value) {
 	}
 	$set(this, maps, $new($ArrayList));
 	while ($nc(val->data$)->available() != 0) {
-		$var($DerValue, seq, $nc(val->data$)->getDerValue());
+		$var($DerValue, seq, val->data$->getDerValue());
 		$var($CertificatePolicyMap, map, $new($CertificatePolicyMap, seq));
-		$nc(this->maps)->add(map);
+		this->maps->add(map);
 	}
 }
 
 $String* PolicyMappingsExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->maps == nullptr) {
 		return ""_s;
 	}
-	$var($String, var$1, $$str({$($Extension::toString()), "PolicyMappings [\n"_s}));
-	$var($String, var$0, $$concat(var$1, $($nc($of(this->maps))->toString())));
-	$var($String, s, $concat(var$0, "]\n"_s));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Extension::toString()));
+	var$0->append("PolicyMappings [\n"_s);
+	var$0->append($($nc(this->maps)->toString()));
+	var$0->append("]\n"_s);
+	$var($String, s, $str(var$0));
 	return (s);
 }
 
 void PolicyMappingsExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -200,7 +160,7 @@ void PolicyMappingsExtension::set($String* name, Object$* obj) {
 
 $Object* PolicyMappingsExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(PolicyMappingsExtension::MAP)) {
-		return $of((this->maps));
+		return (this->maps);
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:PolicyMappingsExtension."_s);
 	}
@@ -228,14 +188,50 @@ $String* PolicyMappingsExtension::getName() {
 PolicyMappingsExtension::PolicyMappingsExtension() {
 }
 
-void clinit$PolicyMappingsExtension($Class* class$) {
+void PolicyMappingsExtension::clinit$($Class* clazz) {
 	$assignStatic(PolicyMappingsExtension::IDENT, "x509.info.extensions.PolicyMappings"_s);
 	$assignStatic(PolicyMappingsExtension::NAME, "PolicyMappings"_s);
 	$assignStatic(PolicyMappingsExtension::MAP, "map"_s);
 }
 
 $Class* PolicyMappingsExtension::load$($String* name, bool initialize) {
-	$loadClass(PolicyMappingsExtension, name, initialize, &_PolicyMappingsExtension_ClassInfo_, clinit$PolicyMappingsExtension, allocate$PolicyMappingsExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyMappingsExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyMappingsExtension, NAME)},
+		{"MAP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyMappingsExtension, MAP)},
+		{"maps", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/CertificatePolicyMap;>;", $PRIVATE, $field(PolicyMappingsExtension, maps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/x509/CertificatePolicyMap;>;)V", $PUBLIC, $method(PolicyMappingsExtension, init$, void, $List*), "java.io.IOException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyMappingsExtension, init$, void)},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PolicyMappingsExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyMappingsExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PolicyMappingsExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(PolicyMappingsExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/security/x509/CertificatePolicyMap;>;", $PUBLIC, $virtualMethod(PolicyMappingsExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PolicyMappingsExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyMappingsExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PolicyMappingsExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyMappingsExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.PolicyMappingsExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(PolicyMappingsExtension, name, initialize, &classInfo$$, PolicyMappingsExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PolicyMappingsExtension));
+	});
 	return class$;
 }
 

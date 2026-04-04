@@ -21,6 +21,7 @@ class $export Math : public ::java::lang::Object {
 	$class(Math, $PRELOAD, ::java::lang::Object)
 public:
 	Math();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static double IEEEremainder(double f1, double f2);
 	static int32_t abs(int32_t a);

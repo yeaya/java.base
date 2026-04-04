@@ -16,11 +16,14 @@ public:
 	UserPrincipalNotFoundException();
 	void init$($String* name);
 	virtual $String* getName();
-	static const int64_t serialVersionUID = (int64_t)0xB57C78C02731FAC0;
+	static const int64_t serialVersionUID = (int64_t)0xb57c78c02731fac0;
 	$String* name = nullptr;
 	UserPrincipalNotFoundException(const UserPrincipalNotFoundException& e);
 	virtual void throw$() override;
-	inline UserPrincipalNotFoundException* operator ->() {
+	inline UserPrincipalNotFoundException* operator ->() const {
+		return (UserPrincipalNotFoundException*)throwing$;
+	}
+	inline operator UserPrincipalNotFoundException*() const {
 		return (UserPrincipalNotFoundException*)throwing$;
 	}
 };

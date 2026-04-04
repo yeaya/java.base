@@ -45,6 +45,7 @@ class UnixFileAttributeViews$Unix : public ::sun::nio::fs::UnixFileAttributeView
 	$class(UnixFileAttributeViews$Unix, 0, ::sun::nio::fs::UnixFileAttributeViews$Posix)
 public:
 	UnixFileAttributeViews$Unix();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::UnixPath* file, bool followLinks);
 	virtual $String* name() override;
 	using ::sun::nio::fs::UnixFileAttributeViews$Posix::readAttributes;

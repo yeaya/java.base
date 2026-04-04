@@ -44,6 +44,7 @@ class $export FileExtensionAndMap : public ::java::lang::Object {
 	$class(FileExtensionAndMap, 0, ::java::lang::Object)
 public:
 	FileExtensionAndMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0($String* targetFolder, int32_t index);
 	static void lambda$main$1($String* targetFolder);

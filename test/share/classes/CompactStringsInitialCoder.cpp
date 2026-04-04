@@ -1,5 +1,4 @@
 #include <CompactStringsInitialCoder.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -7,35 +6,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _CompactStringsInitialCoder_FieldInfo_[] = {
-	{"strEmpty", "Ljava/lang/String;", nullptr, $STATIC, $staticField(CompactStringsInitialCoder, strEmpty)},
-	{"strLatin1", "Ljava/lang/String;", nullptr, $STATIC, $staticField(CompactStringsInitialCoder, strLatin1)},
-	{"strUTF16", "Ljava/lang/String;", nullptr, $STATIC, $staticField(CompactStringsInitialCoder, strUTF16)},
-	{"charLatin1", "C", nullptr, $STATIC, $staticField(CompactStringsInitialCoder, charLatin1)},
-	{"charUTF16", "C", nullptr, $STATIC, $staticField(CompactStringsInitialCoder, charUTF16)},
-	{}
-};
-
-$MethodInfo _CompactStringsInitialCoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompactStringsInitialCoder, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompactStringsInitialCoder, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompactStringsInitialCoder, test, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _CompactStringsInitialCoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CompactStringsInitialCoder",
-	"java.lang.Object",
-	nullptr,
-	_CompactStringsInitialCoder_FieldInfo_,
-	_CompactStringsInitialCoder_MethodInfo_
-};
-
-$Object* allocate$CompactStringsInitialCoder($Class* clazz) {
-	return $of($alloc(CompactStringsInitialCoder));
-}
 
 $String* CompactStringsInitialCoder::strEmpty = nullptr;
 $String* CompactStringsInitialCoder::strLatin1 = nullptr;
@@ -48,7 +18,7 @@ void CompactStringsInitialCoder::init$() {
 
 void CompactStringsInitialCoder::main($StringArray* args) {
 	$init(CompactStringsInitialCoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("B"_s, $$str({""_s, $$str(u'B')}));
 	test(u"䉂"_s, $$str({""_s, $$str(u'䉂')}));
 	test("B"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charLatin1)}));
@@ -71,7 +41,7 @@ void CompactStringsInitialCoder::main($StringArray* args) {
 
 void CompactStringsInitialCoder::test($String* expected, $String* actual) {
 	$init(CompactStringsInitialCoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(expected)->equals(actual)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("Expected = "_s);
@@ -82,7 +52,7 @@ void CompactStringsInitialCoder::test($String* expected, $String* actual) {
 	}
 }
 
-void clinit$CompactStringsInitialCoder($Class* class$) {
+void CompactStringsInitialCoder::clinit$($Class* clazz) {
 	$assignStatic(CompactStringsInitialCoder::strEmpty, ""_s);
 	$assignStatic(CompactStringsInitialCoder::strLatin1, "B"_s);
 	$assignStatic(CompactStringsInitialCoder::strUTF16, u"䉂"_s);
@@ -94,7 +64,31 @@ CompactStringsInitialCoder::CompactStringsInitialCoder() {
 }
 
 $Class* CompactStringsInitialCoder::load$($String* name, bool initialize) {
-	$loadClass(CompactStringsInitialCoder, name, initialize, &_CompactStringsInitialCoder_ClassInfo_, clinit$CompactStringsInitialCoder, allocate$CompactStringsInitialCoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"strEmpty", "Ljava/lang/String;", nullptr, $STATIC, $staticField(CompactStringsInitialCoder, strEmpty)},
+		{"strLatin1", "Ljava/lang/String;", nullptr, $STATIC, $staticField(CompactStringsInitialCoder, strLatin1)},
+		{"strUTF16", "Ljava/lang/String;", nullptr, $STATIC, $staticField(CompactStringsInitialCoder, strUTF16)},
+		{"charLatin1", "C", nullptr, $STATIC, $staticField(CompactStringsInitialCoder, charLatin1)},
+		{"charUTF16", "C", nullptr, $STATIC, $staticField(CompactStringsInitialCoder, charUTF16)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompactStringsInitialCoder, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompactStringsInitialCoder, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompactStringsInitialCoder, test, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CompactStringsInitialCoder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompactStringsInitialCoder, name, initialize, &classInfo$$, CompactStringsInitialCoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CompactStringsInitialCoder);
+	});
 	return class$;
 }
 

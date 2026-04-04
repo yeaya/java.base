@@ -1,6 +1,4 @@
 #include <java/io/FileInputStream.h>
-
-#include <java/io/Closeable.h>
 #include <java/io/File.h>
 #include <java/io/FileCleanable.h>
 #include <java/io/FileDescriptor.h>
@@ -21,7 +19,6 @@
 #undef DEFAULT_BUFFER_SIZE
 #undef MAX_VALUE
 
-using $Closeable = ::java::io::Closeable;
 using $File = ::java::io::File;
 using $FileCleanable = ::java::io::FileCleanable;
 using $FileDescriptor = ::java::io::FileDescriptor;
@@ -49,86 +46,15 @@ using $FileChannelImpl = ::sun::nio::ch::FileChannelImpl;
 namespace java {
 	namespace io {
 
-$FieldInfo _FileInputStream_FieldInfo_[] = {
-	{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileInputStream, DEFAULT_BUFFER_SIZE)},
-	{"fd", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $FINAL, $field(FileInputStream, fd)},
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FileInputStream, path)},
-	{"channel", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $VOLATILE, $field(FileInputStream, channel)},
-	{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FileInputStream, closeLock)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(FileInputStream, closed)},
-	{}
-};
-
-$MethodInfo _FileInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileInputStream, init$, void, $String*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileInputStream, init$, void, $File*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(FileInputStream, init$, void, $FileDescriptor*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(FileInputStream, available, int32_t), "java.io.IOException"},
-	{"available0", "()I", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, available0, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileInputStream, close, void), "java.io.IOException"},
-	{"getChannel", "()Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC, $virtualMethod(FileInputStream, getChannel, $FileChannel*)},
-	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $FINAL, $method(FileInputStream, getFD, $FileDescriptor*), "java.io.IOException"},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileInputStream, initIDs, void)},
-	{"length", "()J", nullptr, $PRIVATE, $method(FileInputStream, length, int64_t), "java.io.IOException"},
-	{"length0", "()J", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, length0, int64_t), "java.io.IOException"},
-	{"open", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FileInputStream, open, void, $String*), "java.io.FileNotFoundException"},
-	{"open0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, open0, void, $String*), "java.io.FileNotFoundException"},
-	{"position", "()J", nullptr, $PRIVATE, $method(FileInputStream, position, int64_t), "java.io.IOException"},
-	{"position0", "()J", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, position0, int64_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(FileInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(FileInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(FileInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"read0", "()I", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, read0, int32_t), "java.io.IOException"},
-	{"readAllBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(FileInputStream, readAllBytes, $bytes*), "java.io.IOException"},
-	{"readBytes", "([BII)I", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, readBytes, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readNBytes", "(I)[B", nullptr, $PUBLIC, $virtualMethod(FileInputStream, readNBytes, $bytes*, int32_t), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(FileInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{"skip0", "(J)J", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, skip0, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_available0 4
-#define _METHOD_INDEX_initIDs 8
-#define _METHOD_INDEX_length0 10
-#define _METHOD_INDEX_open0 12
-#define _METHOD_INDEX_position0 14
-#define _METHOD_INDEX_read0 18
-#define _METHOD_INDEX_readBytes 20
-#define _METHOD_INDEX_skip0 23
-
-$InnerClassInfo _FileInputStream_InnerClassesInfo_[] = {
-	{"java.io.FileInputStream$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.FileInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_FileInputStream_FieldInfo_,
-	_FileInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.io.FileInputStream$1"
-};
-
-$Object* allocate$FileInputStream($Class* clazz) {
-	return $of($alloc(FileInputStream));
-}
-
 void FileInputStream::init$($String* name) {
 	FileInputStream::init$(name != nullptr ? $$new($File, name) : ($File*)nullptr);
 }
 
 void FileInputStream::init$($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$InputStream::init$();
 	$set(this, closeLock, $new($Object));
-	$var($String, name, file != nullptr ? $nc(file)->getPath() : ($String*)nullptr);
+	$var($String, name, file != nullptr ? file->getPath() : ($String*)nullptr);
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkRead(name);
@@ -136,11 +62,11 @@ void FileInputStream::init$($File* file) {
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	if (file->isInvalid()) {
+	if ($nc(file)->isInvalid()) {
 		$throwNew($FileNotFoundException, "Invalid file path"_s);
 	}
 	$set(this, fd, $new($FileDescriptor));
-	$nc(this->fd)->attach(this);
+	this->fd->attach(this);
 	$set(this, path, name);
 	open(name);
 	$FileCleanable::register$(this->fd);
@@ -162,7 +88,7 @@ void FileInputStream::init$($FileDescriptor* fdObj) {
 }
 
 void FileInputStream::open0($String* name) {
-	$prepareNative(FileInputStream, open0, void, $String* name);
+	$prepareNative(open0, void, $String* name);
 	$invokeNative(name);
 	$finishNative();
 }
@@ -176,17 +102,15 @@ int32_t FileInputStream::read() {
 }
 
 int32_t FileInputStream::read0() {
-	int32_t $ret = 0;
-	$prepareNative(FileInputStream, read0, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(read0, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 int32_t FileInputStream::readBytes($bytes* b, int32_t off, int32_t len) {
-	int32_t $ret = 0;
-	$prepareNative(FileInputStream, readBytes, int32_t, $bytes* b, int32_t off, int32_t len);
-	$ret = $invokeNative(b, off, len);
+	$prepareNative(readBytes, int32_t, $bytes* b, int32_t off, int32_t len);
+	int32_t $ret = $invokeNative(b, off, len);
 	$finishNative();
 	return $ret;
 }
@@ -200,7 +124,7 @@ int32_t FileInputStream::read($bytes* b, int32_t off, int32_t len) {
 }
 
 $bytes* FileInputStream::readAllBytes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t length = this->length();
 	int64_t position = this->position();
 	int64_t size = length - position;
@@ -209,10 +133,10 @@ $bytes* FileInputStream::readAllBytes() {
 	}
 	if (size > (int64_t)$Integer::MAX_VALUE) {
 		$var($String, msg, $String::format("Required array size too large for %s: %d = %d - %d"_s, $$new($ObjectArray, {
-			$of(this->path),
-			$($of($Long::valueOf(size))),
-			$($of($Long::valueOf(length))),
-			$($of($Long::valueOf(position)))
+			this->path,
+			$($Long::valueOf(size)),
+			$($Long::valueOf(length)),
+			$($Long::valueOf(position))
 		})));
 		$throwNew($OutOfMemoryError, msg);
 	}
@@ -274,9 +198,8 @@ int64_t FileInputStream::length() {
 }
 
 int64_t FileInputStream::length0() {
-	int64_t $ret = 0;
-	$prepareNative(FileInputStream, length0, int64_t);
-	$ret = $invokeNative();
+	$prepareNative(length0, int64_t);
+	int64_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -286,9 +209,8 @@ int64_t FileInputStream::position() {
 }
 
 int64_t FileInputStream::position0() {
-	int64_t $ret = 0;
-	$prepareNative(FileInputStream, position0, int64_t);
-	$ret = $invokeNative();
+	$prepareNative(position0, int64_t);
+	int64_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -298,9 +220,8 @@ int64_t FileInputStream::skip(int64_t n) {
 }
 
 int64_t FileInputStream::skip0(int64_t n) {
-	int64_t $ret = 0;
-	$prepareNative(FileInputStream, skip0, int64_t, int64_t n);
-	$ret = $invokeNative(n);
+	$prepareNative(skip0, int64_t, int64_t n);
+	int64_t $ret = $invokeNative(n);
 	$finishNative();
 	return $ret;
 }
@@ -310,15 +231,14 @@ int32_t FileInputStream::available() {
 }
 
 int32_t FileInputStream::available0() {
-	int32_t $ret = 0;
-	$prepareNative(FileInputStream, available0, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(available0, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void FileInputStream::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closed) {
 		return;
 	}
@@ -348,12 +268,12 @@ $FileChannel* FileInputStream::getChannel() {
 		$synchronized(this) {
 			$assign(fc, this->channel);
 			if (fc == nullptr) {
-				$set(this, channel, ($assign(fc, $FileChannelImpl::open(this->fd, this->path, true, false, false, this))));
+				$set(this, channel, $assign(fc, $FileChannelImpl::open(this->fd, this->path, true, false, false, this)));
 				if (this->closed) {
 					try {
 						$nc(fc)->close();
 					} catch ($IOException& ioe) {
-						$throwNew($InternalError, static_cast<$Throwable*>(ioe));
+						$throwNew($InternalError, ioe);
 					}
 				}
 			}
@@ -364,12 +284,12 @@ $FileChannel* FileInputStream::getChannel() {
 
 void FileInputStream::initIDs() {
 	$init(FileInputStream);
-	$prepareNativeStatic(FileInputStream, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$FileInputStream($Class* class$) {
+void FileInputStream::clinit$($Class* clazz) {
 	{
 		FileInputStream::initIDs();
 	}
@@ -379,7 +299,63 @@ FileInputStream::FileInputStream() {
 }
 
 $Class* FileInputStream::load$($String* name, bool initialize) {
-	$loadClass(FileInputStream, name, initialize, &_FileInputStream_ClassInfo_, clinit$FileInputStream, allocate$FileInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileInputStream, DEFAULT_BUFFER_SIZE)},
+		{"fd", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $FINAL, $field(FileInputStream, fd)},
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FileInputStream, path)},
+		{"channel", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $VOLATILE, $field(FileInputStream, channel)},
+		{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FileInputStream, closeLock)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(FileInputStream, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileInputStream, init$, void, $String*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileInputStream, init$, void, $File*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(FileInputStream, init$, void, $FileDescriptor*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(FileInputStream, available, int32_t), "java.io.IOException"},
+		{"available0", "()I", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, available0, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileInputStream, close, void), "java.io.IOException"},
+		{"getChannel", "()Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC, $virtualMethod(FileInputStream, getChannel, $FileChannel*)},
+		{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $FINAL, $method(FileInputStream, getFD, $FileDescriptor*), "java.io.IOException"},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileInputStream, initIDs, void)},
+		{"length", "()J", nullptr, $PRIVATE, $method(FileInputStream, length, int64_t), "java.io.IOException"},
+		{"length0", "()J", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, length0, int64_t), "java.io.IOException"},
+		{"open", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FileInputStream, open, void, $String*), "java.io.FileNotFoundException"},
+		{"open0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, open0, void, $String*), "java.io.FileNotFoundException"},
+		{"position", "()J", nullptr, $PRIVATE, $method(FileInputStream, position, int64_t), "java.io.IOException"},
+		{"position0", "()J", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, position0, int64_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(FileInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(FileInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(FileInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"read0", "()I", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, read0, int32_t), "java.io.IOException"},
+		{"readAllBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(FileInputStream, readAllBytes, $bytes*), "java.io.IOException"},
+		{"readBytes", "([BII)I", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, readBytes, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readNBytes", "(I)[B", nullptr, $PUBLIC, $virtualMethod(FileInputStream, readNBytes, $bytes*, int32_t), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(FileInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{"skip0", "(J)J", nullptr, $PRIVATE | $NATIVE, $method(FileInputStream, skip0, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.FileInputStream$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.FileInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.io.FileInputStream$1"
+	};
+	$loadClass(FileInputStream, name, initialize, &classInfo$$, FileInputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileInputStream);
+	});
 	return class$;
 }
 

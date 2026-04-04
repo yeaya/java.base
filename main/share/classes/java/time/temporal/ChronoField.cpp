@@ -1,11 +1,9 @@
 #include <java/time/temporal/ChronoField.h>
-
 #include <java/lang/Enum.h>
 #include <java/time/Year.h>
 #include <java/time/temporal/ChronoUnit.h>
 #include <java/time/temporal/Temporal.h>
 #include <java/time/temporal/TemporalAccessor.h>
-#include <java/time/temporal/TemporalField.h>
 #include <java/time/temporal/TemporalUnit.h>
 #include <java/time/temporal/ValueRange.h>
 #include <java/util/Locale.h>
@@ -72,7 +70,6 @@ using $Year = ::java::time::Year;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
-using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $ValueRange = ::java::time::temporal::ValueRange;
 using $Locale = ::java::util::Locale;
@@ -85,86 +82,6 @@ using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 namespace java {
 	namespace time {
 		namespace temporal {
-
-$FieldInfo _ChronoField_FieldInfo_[] = {
-	{"NANO_OF_SECOND", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, NANO_OF_SECOND)},
-	{"NANO_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, NANO_OF_DAY)},
-	{"MICRO_OF_SECOND", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MICRO_OF_SECOND)},
-	{"MICRO_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MICRO_OF_DAY)},
-	{"MILLI_OF_SECOND", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MILLI_OF_SECOND)},
-	{"MILLI_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MILLI_OF_DAY)},
-	{"SECOND_OF_MINUTE", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, SECOND_OF_MINUTE)},
-	{"SECOND_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, SECOND_OF_DAY)},
-	{"MINUTE_OF_HOUR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MINUTE_OF_HOUR)},
-	{"MINUTE_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MINUTE_OF_DAY)},
-	{"HOUR_OF_AMPM", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, HOUR_OF_AMPM)},
-	{"CLOCK_HOUR_OF_AMPM", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, CLOCK_HOUR_OF_AMPM)},
-	{"HOUR_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, HOUR_OF_DAY)},
-	{"CLOCK_HOUR_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, CLOCK_HOUR_OF_DAY)},
-	{"AMPM_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, AMPM_OF_DAY)},
-	{"DAY_OF_WEEK", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, DAY_OF_WEEK)},
-	{"ALIGNED_DAY_OF_WEEK_IN_MONTH", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, ALIGNED_DAY_OF_WEEK_IN_MONTH)},
-	{"ALIGNED_DAY_OF_WEEK_IN_YEAR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, ALIGNED_DAY_OF_WEEK_IN_YEAR)},
-	{"DAY_OF_MONTH", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, DAY_OF_MONTH)},
-	{"DAY_OF_YEAR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, DAY_OF_YEAR)},
-	{"EPOCH_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, EPOCH_DAY)},
-	{"ALIGNED_WEEK_OF_MONTH", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, ALIGNED_WEEK_OF_MONTH)},
-	{"ALIGNED_WEEK_OF_YEAR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, ALIGNED_WEEK_OF_YEAR)},
-	{"MONTH_OF_YEAR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MONTH_OF_YEAR)},
-	{"PROLEPTIC_MONTH", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, PROLEPTIC_MONTH)},
-	{"YEAR_OF_ERA", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, YEAR_OF_ERA)},
-	{"YEAR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, YEAR)},
-	{"ERA", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, ERA)},
-	{"INSTANT_SECONDS", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, INSTANT_SECONDS)},
-	{"OFFSET_SECONDS", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, OFFSET_SECONDS)},
-	{"$VALUES", "[Ljava/time/temporal/ChronoField;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ChronoField, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ChronoField, name$)},
-	{"baseUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL, $field(ChronoField, baseUnit)},
-	{"rangeUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL, $field(ChronoField, rangeUnit)},
-	{"range", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $FINAL, $field(ChronoField, range$)},
-	{"displayNameKey", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ChronoField, displayNameKey)},
-	{}
-};
-
-$MethodInfo _ChronoField_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/temporal/ChronoField;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ChronoField, $values, $ChronoFieldArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/ValueRange;)V", "(Ljava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/ValueRange;)V", $PRIVATE, $method(ChronoField, init$, void, $String*, int32_t, $String*, $TemporalUnit*, $TemporalUnit*, $ValueRange*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/ValueRange;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/ValueRange;Ljava/lang/String;)V", $PRIVATE, $method(ChronoField, init$, void, $String*, int32_t, $String*, $TemporalUnit*, $TemporalUnit*, $ValueRange*, $String*)},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC, $virtualMethod(ChronoField, adjustInto, $Temporal*, $Temporal*, int64_t)},
-	{"checkValidIntValue", "(J)I", nullptr, $PUBLIC, $method(ChronoField, checkValidIntValue, int32_t, int64_t)},
-	{"checkValidValue", "(J)J", nullptr, $PUBLIC, $method(ChronoField, checkValidValue, int64_t, int64_t)},
-	{"getBaseUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(ChronoField, getBaseUnit, $TemporalUnit*)},
-	{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChronoField, getDisplayName, $String*, $Locale*)},
-	{"getFrom", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PUBLIC, $virtualMethod(ChronoField, getFrom, int64_t, $TemporalAccessor*)},
-	{"getRangeUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(ChronoField, getRangeUnit, $TemporalUnit*)},
-	{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoField, isDateBased, bool)},
-	{"isSupportedBy", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $PUBLIC, $virtualMethod(ChronoField, isSupportedBy, bool, $TemporalAccessor*)},
-	{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoField, isTimeBased, bool)},
-	{"range", "()Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(ChronoField, range, $ValueRange*)},
-	{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(ChronoField, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChronoField, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC, $staticMethod(ChronoField, valueOf, ChronoField*, $String*)},
-	{"values", "()[Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC, $staticMethod(ChronoField, values, $ChronoFieldArray*)},
-	{}
-};
-
-$ClassInfo _ChronoField_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.time.temporal.ChronoField",
-	"java.lang.Enum",
-	"java.time.temporal.TemporalField",
-	_ChronoField_FieldInfo_,
-	_ChronoField_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/time/temporal/ChronoField;>;Ljava/time/temporal/TemporalField;"
-};
-
-$Object* allocate$ChronoField($Class* clazz) {
-	return $of($alloc(ChronoField));
-}
 
 bool ChronoField::equals(Object$* other) {
 	 return this->$Enum::equals(other);
@@ -279,15 +196,15 @@ void ChronoField::init$($String* $enum$name, int32_t $enum$ordinal, $String* nam
 }
 
 $String* ChronoField::getDisplayName($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(locale), "locale"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(locale, "locale"_s);
 	if (this->displayNameKey == nullptr) {
 		return this->name$;
 	}
-	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources($($CalendarDataUtility::findRegionOverride(locale))));
+	$var($LocaleResources, lr, $$nc($LocaleProviderAdapter::getResourceBundleBased())->getLocaleResources($($CalendarDataUtility::findRegionOverride(locale))));
 	$var($ResourceBundle, rb, $nc(lr)->getJavaTimeFormatData());
 	$var($String, key, $str({"field."_s, this->displayNameKey}));
-	return $nc(rb)->containsKey(key) ? $nc(rb)->getString(key) : this->name$;
+	return $nc(rb)->containsKey(key) ? rb->getString(key) : this->name$;
 }
 
 $TemporalUnit* ChronoField::getBaseUnit() {
@@ -318,11 +235,11 @@ bool ChronoField::isTimeBased() {
 }
 
 int64_t ChronoField::checkValidValue(int64_t value) {
-	return $nc($(range()))->checkValidValue(value, this);
+	return $$nc(range())->checkValidValue(value, this);
 }
 
 int32_t ChronoField::checkValidIntValue(int64_t value) {
-	return $nc($(range()))->checkValidIntValue(value, this);
+	return $$nc(range())->checkValidIntValue(value, this);
 }
 
 bool ChronoField::isSupportedBy($TemporalAccessor* temporal) {
@@ -345,12 +262,12 @@ $String* ChronoField::toString() {
 	return this->name$;
 }
 
-void clinit$ChronoField($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ChronoField::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($ChronoUnit);
-	$assignStatic(ChronoField::NANO_OF_SECOND, $new(ChronoField, "NANO_OF_SECOND"_s, 0, "NanoOfSecond"_s, $ChronoUnit::NANOS, $ChronoUnit::SECONDS, $($ValueRange::of(0, 0x3B9AC9FF))));
+	$assignStatic(ChronoField::NANO_OF_SECOND, $new(ChronoField, "NANO_OF_SECOND"_s, 0, "NanoOfSecond"_s, $ChronoUnit::NANOS, $ChronoUnit::SECONDS, $($ValueRange::of(0, 999999999))));
 	$assignStatic(ChronoField::NANO_OF_DAY, $new(ChronoField, "NANO_OF_DAY"_s, 1, "NanoOfDay"_s, $ChronoUnit::NANOS, $ChronoUnit::DAYS, $($ValueRange::of(0, (int64_t)86400 * (int64_t)1000000000 - 1))));
-	$assignStatic(ChronoField::MICRO_OF_SECOND, $new(ChronoField, "MICRO_OF_SECOND"_s, 2, "MicroOfSecond"_s, $ChronoUnit::MICROS, $ChronoUnit::SECONDS, $($ValueRange::of(0, 0x000F423F))));
+	$assignStatic(ChronoField::MICRO_OF_SECOND, $new(ChronoField, "MICRO_OF_SECOND"_s, 2, "MicroOfSecond"_s, $ChronoUnit::MICROS, $ChronoUnit::SECONDS, $($ValueRange::of(0, 999999))));
 	$assignStatic(ChronoField::MICRO_OF_DAY, $new(ChronoField, "MICRO_OF_DAY"_s, 3, "MicroOfDay"_s, $ChronoUnit::MICROS, $ChronoUnit::DAYS, $($ValueRange::of(0, (int64_t)86400 * (int64_t)1000000 - 1))));
 	$assignStatic(ChronoField::MILLI_OF_SECOND, $new(ChronoField, "MILLI_OF_SECOND"_s, 4, "MilliOfSecond"_s, $ChronoUnit::MILLIS, $ChronoUnit::SECONDS, $($ValueRange::of(0, 999))));
 	$assignStatic(ChronoField::MILLI_OF_DAY, $new(ChronoField, "MILLI_OF_DAY"_s, 5, "MilliOfDay"_s, $ChronoUnit::MILLIS, $ChronoUnit::DAYS, $($ValueRange::of(0, (int64_t)86400 * (int64_t)1000 - 1))));
@@ -368,7 +285,7 @@ void clinit$ChronoField($Class* class$) {
 	$assignStatic(ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR, $new(ChronoField, "ALIGNED_DAY_OF_WEEK_IN_YEAR"_s, 17, "AlignedDayOfWeekInYear"_s, $ChronoUnit::DAYS, $ChronoUnit::WEEKS, $($ValueRange::of(1, 7))));
 	$assignStatic(ChronoField::DAY_OF_MONTH, $new(ChronoField, "DAY_OF_MONTH"_s, 18, "DayOfMonth"_s, $ChronoUnit::DAYS, $ChronoUnit::MONTHS, $($ValueRange::of(1, 28, 31)), "day"_s));
 	$assignStatic(ChronoField::DAY_OF_YEAR, $new(ChronoField, "DAY_OF_YEAR"_s, 19, "DayOfYear"_s, $ChronoUnit::DAYS, $ChronoUnit::YEARS, $($ValueRange::of(1, 365, 366))));
-	$assignStatic(ChronoField::EPOCH_DAY, $new(ChronoField, "EPOCH_DAY"_s, 20, "EpochDay"_s, $ChronoUnit::DAYS, $ChronoUnit::FOREVER, $($ValueRange::of(0xFFFFFFAAF5CEC326, 0x000000550A1B48F7))));
+	$assignStatic(ChronoField::EPOCH_DAY, $new(ChronoField, "EPOCH_DAY"_s, 20, "EpochDay"_s, $ChronoUnit::DAYS, $ChronoUnit::FOREVER, $($ValueRange::of((int64_t)0xffffffaaf5cec326, (int64_t)0x000000550a1b48f7))));
 	$assignStatic(ChronoField::ALIGNED_WEEK_OF_MONTH, $new(ChronoField, "ALIGNED_WEEK_OF_MONTH"_s, 21, "AlignedWeekOfMonth"_s, $ChronoUnit::WEEKS, $ChronoUnit::MONTHS, $($ValueRange::of(1, 4, 5))));
 	$assignStatic(ChronoField::ALIGNED_WEEK_OF_YEAR, $new(ChronoField, "ALIGNED_WEEK_OF_YEAR"_s, 22, "AlignedWeekOfYear"_s, $ChronoUnit::WEEKS, $ChronoUnit::YEARS, $($ValueRange::of(1, 53))));
 	$assignStatic(ChronoField::MONTH_OF_YEAR, $new(ChronoField, "MONTH_OF_YEAR"_s, 23, "MonthOfYear"_s, $ChronoUnit::MONTHS, $ChronoUnit::YEARS, $($ValueRange::of(1, 12)), "month"_s));
@@ -385,7 +302,82 @@ ChronoField::ChronoField() {
 }
 
 $Class* ChronoField::load$($String* name, bool initialize) {
-	$loadClass(ChronoField, name, initialize, &_ChronoField_ClassInfo_, clinit$ChronoField, allocate$ChronoField);
+	$FieldInfo fieldInfos$$[] = {
+		{"NANO_OF_SECOND", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, NANO_OF_SECOND)},
+		{"NANO_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, NANO_OF_DAY)},
+		{"MICRO_OF_SECOND", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MICRO_OF_SECOND)},
+		{"MICRO_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MICRO_OF_DAY)},
+		{"MILLI_OF_SECOND", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MILLI_OF_SECOND)},
+		{"MILLI_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MILLI_OF_DAY)},
+		{"SECOND_OF_MINUTE", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, SECOND_OF_MINUTE)},
+		{"SECOND_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, SECOND_OF_DAY)},
+		{"MINUTE_OF_HOUR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MINUTE_OF_HOUR)},
+		{"MINUTE_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MINUTE_OF_DAY)},
+		{"HOUR_OF_AMPM", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, HOUR_OF_AMPM)},
+		{"CLOCK_HOUR_OF_AMPM", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, CLOCK_HOUR_OF_AMPM)},
+		{"HOUR_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, HOUR_OF_DAY)},
+		{"CLOCK_HOUR_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, CLOCK_HOUR_OF_DAY)},
+		{"AMPM_OF_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, AMPM_OF_DAY)},
+		{"DAY_OF_WEEK", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, DAY_OF_WEEK)},
+		{"ALIGNED_DAY_OF_WEEK_IN_MONTH", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, ALIGNED_DAY_OF_WEEK_IN_MONTH)},
+		{"ALIGNED_DAY_OF_WEEK_IN_YEAR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, ALIGNED_DAY_OF_WEEK_IN_YEAR)},
+		{"DAY_OF_MONTH", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, DAY_OF_MONTH)},
+		{"DAY_OF_YEAR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, DAY_OF_YEAR)},
+		{"EPOCH_DAY", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, EPOCH_DAY)},
+		{"ALIGNED_WEEK_OF_MONTH", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, ALIGNED_WEEK_OF_MONTH)},
+		{"ALIGNED_WEEK_OF_YEAR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, ALIGNED_WEEK_OF_YEAR)},
+		{"MONTH_OF_YEAR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, MONTH_OF_YEAR)},
+		{"PROLEPTIC_MONTH", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, PROLEPTIC_MONTH)},
+		{"YEAR_OF_ERA", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, YEAR_OF_ERA)},
+		{"YEAR", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, YEAR)},
+		{"ERA", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, ERA)},
+		{"INSTANT_SECONDS", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, INSTANT_SECONDS)},
+		{"OFFSET_SECONDS", "Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ChronoField, OFFSET_SECONDS)},
+		{"$VALUES", "[Ljava/time/temporal/ChronoField;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ChronoField, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ChronoField, name$)},
+		{"baseUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL, $field(ChronoField, baseUnit)},
+		{"rangeUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL, $field(ChronoField, rangeUnit)},
+		{"range", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $FINAL, $field(ChronoField, range$)},
+		{"displayNameKey", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ChronoField, displayNameKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/time/temporal/ChronoField;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ChronoField, $values, $ChronoFieldArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/ValueRange;)V", "(Ljava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/ValueRange;)V", $PRIVATE, $method(ChronoField, init$, void, $String*, int32_t, $String*, $TemporalUnit*, $TemporalUnit*, $ValueRange*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/ValueRange;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/ValueRange;Ljava/lang/String;)V", $PRIVATE, $method(ChronoField, init$, void, $String*, int32_t, $String*, $TemporalUnit*, $TemporalUnit*, $ValueRange*, $String*)},
+		{"adjustInto", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC, $virtualMethod(ChronoField, adjustInto, $Temporal*, $Temporal*, int64_t)},
+		{"checkValidIntValue", "(J)I", nullptr, $PUBLIC, $method(ChronoField, checkValidIntValue, int32_t, int64_t)},
+		{"checkValidValue", "(J)J", nullptr, $PUBLIC, $method(ChronoField, checkValidValue, int64_t, int64_t)},
+		{"getBaseUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(ChronoField, getBaseUnit, $TemporalUnit*)},
+		{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChronoField, getDisplayName, $String*, $Locale*)},
+		{"getFrom", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PUBLIC, $virtualMethod(ChronoField, getFrom, int64_t, $TemporalAccessor*)},
+		{"getRangeUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(ChronoField, getRangeUnit, $TemporalUnit*)},
+		{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoField, isDateBased, bool)},
+		{"isSupportedBy", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $PUBLIC, $virtualMethod(ChronoField, isSupportedBy, bool, $TemporalAccessor*)},
+		{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoField, isTimeBased, bool)},
+		{"range", "()Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(ChronoField, range, $ValueRange*)},
+		{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(ChronoField, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChronoField, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC, $staticMethod(ChronoField, valueOf, ChronoField*, $String*)},
+		{"values", "()[Ljava/time/temporal/ChronoField;", nullptr, $PUBLIC | $STATIC, $staticMethod(ChronoField, values, $ChronoFieldArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.time.temporal.ChronoField",
+		"java.lang.Enum",
+		"java.time.temporal.TemporalField",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/time/temporal/ChronoField;>;Ljava/time/temporal/TemporalField;"
+	};
+	$loadClass(ChronoField, name, initialize, &classInfo$$, ChronoField::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ChronoField));
+	});
 	return class$;
 }
 

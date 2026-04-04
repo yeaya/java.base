@@ -11,7 +11,7 @@ namespace java {
 class $export PublicKey : public ::java::security::Key {
 	$interface(PublicKey, $NO_CLASS_INIT, ::java::security::Key)
 public:
-	static const int64_t serialVersionUID = (int64_t)0x63BEBF5F40C219E0;
+	static const int64_t serialVersionUID = (int64_t)0x63bebf5f40c219e0;
 };
 
 	} // security

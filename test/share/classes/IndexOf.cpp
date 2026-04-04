@@ -1,47 +1,14 @@
 #include <IndexOf.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Random = ::java::util::Random;
-
-$FieldInfo _IndexOf_FieldInfo_[] = {
-	{"generator", "Ljava/util/Random;", nullptr, $STATIC, $staticField(IndexOf, generator)},
-	{"failure", "Z", nullptr, $PRIVATE | $STATIC, $staticField(IndexOf, failure)},
-	{}
-};
-
-$MethodInfo _IndexOf_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IndexOf, init$, void)},
-	{"compareIndexOfLastIndexOf", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, compareIndexOfLastIndexOf, void)},
-	{"compareStringStringBuffer", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, compareStringStringBuffer, void)},
-	{"generateTestString", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, generateTestString, $String*, int32_t, int32_t)},
-	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, getRandomIndex, int32_t, int32_t, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IndexOf, main, void, $StringArray*), "java.lang.Exception"},
-	{"report", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, report, void, $String*, int32_t)},
-	{"simpleTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, simpleTest, void)},
-	{}
-};
-
-$ClassInfo _IndexOf_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IndexOf",
-	"java.lang.Object",
-	nullptr,
-	_IndexOf_FieldInfo_,
-	_IndexOf_MethodInfo_
-};
-
-$Object* allocate$IndexOf($Class* clazz) {
-	return $of($alloc(IndexOf));
-}
 
 $Random* IndexOf::generator = nullptr;
 bool IndexOf::failure = false;
@@ -61,7 +28,7 @@ void IndexOf::main($StringArray* args) {
 
 void IndexOf::report($String* testName, int32_t failCount) {
 	$init(IndexOf);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->println($$str({testName, ": "_s, (failCount == 0 ? "Passed"_s : $$str({"Failed("_s, $$str(failCount), ")"_s}))}));
 	if (failCount > 0) {
 		IndexOf::failure = true;
@@ -89,7 +56,7 @@ int32_t IndexOf::getRandomIndex(int32_t constraint1, int32_t constraint2) {
 
 void IndexOf::simpleTest() {
 	$init(IndexOf);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failCount = 0;
 	$var($String, sourceString, nullptr);
 	$var($StringBuffer, sourceBuffer, nullptr);
@@ -117,7 +84,7 @@ void IndexOf::simpleTest() {
 
 void IndexOf::compareIndexOfLastIndexOf() {
 	$init(IndexOf);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failCount = 0;
 	$var($String, sourceString, nullptr);
 	$var($StringBuffer, sourceBuffer, nullptr);
@@ -153,7 +120,7 @@ void IndexOf::compareIndexOfLastIndexOf() {
 
 void IndexOf::compareStringStringBuffer() {
 	$init(IndexOf);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failCount = 0;
 	for (int32_t x = 0; x < 10000; ++x) {
 		$var($String, testString, generateTestString(1, 100));
@@ -167,7 +134,7 @@ void IndexOf::compareStringStringBuffer() {
 		int32_t x2 = 1000;
 		while (x2 > testString->length()) {
 			x1 = $nc(IndexOf::generator)->nextInt(len);
-			x2 = $nc(IndexOf::generator)->nextInt(100);
+			x2 = IndexOf::generator->nextInt(100);
 			x2 = x1 + x2;
 		}
 		$var($String, fragment, testString->substring(x1, x2));
@@ -197,7 +164,7 @@ void IndexOf::compareStringStringBuffer() {
 	report("String vs StringBuffer       "_s, failCount);
 }
 
-void clinit$IndexOf($Class* class$) {
+void IndexOf::clinit$($Class* clazz) {
 	$assignStatic(IndexOf::generator, $new($Random));
 	IndexOf::failure = false;
 }
@@ -206,7 +173,33 @@ IndexOf::IndexOf() {
 }
 
 $Class* IndexOf::load$($String* name, bool initialize) {
-	$loadClass(IndexOf, name, initialize, &_IndexOf_ClassInfo_, clinit$IndexOf, allocate$IndexOf);
+	$FieldInfo fieldInfos$$[] = {
+		{"generator", "Ljava/util/Random;", nullptr, $STATIC, $staticField(IndexOf, generator)},
+		{"failure", "Z", nullptr, $PRIVATE | $STATIC, $staticField(IndexOf, failure)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IndexOf, init$, void)},
+		{"compareIndexOfLastIndexOf", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, compareIndexOfLastIndexOf, void)},
+		{"compareStringStringBuffer", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, compareStringStringBuffer, void)},
+		{"generateTestString", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, generateTestString, $String*, int32_t, int32_t)},
+		{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, getRandomIndex, int32_t, int32_t, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IndexOf, main, void, $StringArray*), "java.lang.Exception"},
+		{"report", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, report, void, $String*, int32_t)},
+		{"simpleTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, simpleTest, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IndexOf",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IndexOf, name, initialize, &classInfo$$, IndexOf::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IndexOf);
+	});
 	return class$;
 }
 

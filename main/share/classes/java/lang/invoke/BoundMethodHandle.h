@@ -34,6 +34,7 @@ class BoundMethodHandle : public ::java::lang::invoke::MethodHandle {
 public:
 	BoundMethodHandle();
 	virtual ::java::lang::invoke::BoundMethodHandle* copyWith(::java::lang::invoke::MethodType* mt, ::java::lang::invoke::LambdaForm* lf) override {return nullptr;}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodType* type, ::java::lang::invoke::LambdaForm* form);
 	$Object* arg(int32_t i);
 	virtual ::java::lang::invoke::BoundMethodHandle* bindArgumentD(int32_t pos, double value);

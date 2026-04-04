@@ -16,6 +16,7 @@ class $import MGF1ParameterSpec : public ::java::security::spec::AlgorithmParame
 	$class(MGF1ParameterSpec, 0, ::java::security::spec::AlgorithmParameterSpec)
 public:
 	MGF1ParameterSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* mdName);
 	virtual $String* getDigestAlgorithm();
 	virtual $String* toString() override;

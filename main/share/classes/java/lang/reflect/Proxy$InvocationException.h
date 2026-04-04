@@ -33,7 +33,10 @@ public:
 	static ::java::lang::invoke::MethodHandle* wrapMethodHandle;
 	Proxy$InvocationException(const Proxy$InvocationException& e);
 	virtual void throw$() override;
-	inline Proxy$InvocationException* operator ->() {
+	inline Proxy$InvocationException* operator ->() const {
+		return (Proxy$InvocationException*)throwing$;
+	}
+	inline operator Proxy$InvocationException*() const {
 		return (Proxy$InvocationException*)throwing$;
 	}
 };

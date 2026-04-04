@@ -1,5 +1,4 @@
 #include <ReferenceClone$SoftRef.h>
-
 #include <ReferenceClone.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -14,47 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SoftReference = ::java::lang::ref::SoftReference;
-
-$FieldInfo _ReferenceClone$SoftRef_FieldInfo_[] = {
-	{"this$0", "LReferenceClone;", nullptr, $FINAL | $SYNTHETIC, $field(ReferenceClone$SoftRef, this$0)},
-	{}
-};
-
-$MethodInfo _ReferenceClone$SoftRef_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(LReferenceClone;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferenceClone$SoftRef, init$, void, $ReferenceClone*, Object$*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReferenceClone$SoftRef, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ReferenceClone$SoftRef_InnerClassesInfo_[] = {
-	{"ReferenceClone$SoftRef", "ReferenceClone", "SoftRef", 0},
-	{"ReferenceClone$CloneableRef", "ReferenceClone", "CloneableRef", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ReferenceClone$SoftRef_ClassInfo_ = {
-	$ACC_SUPER,
-	"ReferenceClone$SoftRef",
-	"java.lang.ref.SoftReference",
-	"ReferenceClone$CloneableRef",
-	_ReferenceClone$SoftRef_FieldInfo_,
-	_ReferenceClone$SoftRef_MethodInfo_,
-	"Ljava/lang/ref/SoftReference<Ljava/lang/Object;>;LReferenceClone$CloneableRef;",
-	nullptr,
-	_ReferenceClone$SoftRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ReferenceClone"
-};
-
-$Object* allocate$ReferenceClone$SoftRef($Class* clazz) {
-	return $of($alloc(ReferenceClone$SoftRef));
-}
 
 int32_t ReferenceClone$SoftRef::hashCode() {
 	 return this->$SoftReference::hashCode();
@@ -79,14 +37,49 @@ void ReferenceClone$SoftRef::init$($ReferenceClone* this$0, Object$* referent) {
 }
 
 $Object* ReferenceClone$SoftRef::clone() {
-	return $of($SoftReference::clone());
+	return $SoftReference::clone();
 }
 
 ReferenceClone$SoftRef::ReferenceClone$SoftRef() {
 }
 
 $Class* ReferenceClone$SoftRef::load$($String* name, bool initialize) {
-	$loadClass(ReferenceClone$SoftRef, name, initialize, &_ReferenceClone$SoftRef_ClassInfo_, allocate$ReferenceClone$SoftRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LReferenceClone;", nullptr, $FINAL | $SYNTHETIC, $field(ReferenceClone$SoftRef, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(LReferenceClone;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferenceClone$SoftRef, init$, void, $ReferenceClone*, Object$*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReferenceClone$SoftRef, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ReferenceClone$SoftRef", "ReferenceClone", "SoftRef", 0},
+		{"ReferenceClone$CloneableRef", "ReferenceClone", "CloneableRef", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ReferenceClone$SoftRef",
+		"java.lang.ref.SoftReference",
+		"ReferenceClone$CloneableRef",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/SoftReference<Ljava/lang/Object;>;LReferenceClone$CloneableRef;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ReferenceClone"
+	};
+	$loadClass(ReferenceClone$SoftRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReferenceClone$SoftRef));
+	});
 	return class$;
 }
 

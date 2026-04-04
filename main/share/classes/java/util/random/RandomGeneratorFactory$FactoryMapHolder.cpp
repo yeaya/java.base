@@ -1,5 +1,4 @@
 #include <java/util/random/RandomGeneratorFactory$FactoryMapHolder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -33,7 +32,6 @@ using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $RandomGenerator = ::java::util::random::RandomGenerator;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
@@ -47,27 +45,24 @@ public:
 	virtual bool test(Object$* p) override {
 		 return RandomGeneratorFactory$FactoryMapHolder::lambda$createFactoryMap$0($cast($ServiceLoader$Provider, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.random.RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0::load$($String* name, bool initialize) {
-	$loadClass(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.random.RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0);
+	});
 	return class$;
 }
 $Class* RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0::class$ = nullptr;
@@ -80,68 +75,27 @@ public:
 	virtual $Object* apply(Object$* p) override {
 		 return $of(RandomGeneratorFactory$FactoryMapHolder::lambda$createFactoryMap$1($cast($ServiceLoader$Provider, p)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.random.RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1::load$($String* name, bool initialize) {
-	$loadClass(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.random.RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1);
+	});
 	return class$;
 }
 $Class* RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1::class$ = nullptr;
-
-$FieldInfo _RandomGeneratorFactory$FactoryMapHolder_FieldInfo_[] = {
-	{"FACTORY_MAP", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;>;", $STATIC | $FINAL, $staticField(RandomGeneratorFactory$FactoryMapHolder, FACTORY_MAP)},
-	{}
-};
-
-$MethodInfo _RandomGeneratorFactory$FactoryMapHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(RandomGeneratorFactory$FactoryMapHolder, init$, void)},
-	{"createFactoryMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;>;", $PRIVATE | $STATIC, $staticMethod(RandomGeneratorFactory$FactoryMapHolder, createFactoryMap, $Map*)},
-	{"lambda$createFactoryMap$0", "(Ljava/util/ServiceLoader$Provider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RandomGeneratorFactory$FactoryMapHolder, lambda$createFactoryMap$0, bool, $ServiceLoader$Provider*)},
-	{"lambda$createFactoryMap$1", "(Ljava/util/ServiceLoader$Provider;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RandomGeneratorFactory$FactoryMapHolder, lambda$createFactoryMap$1, $String*, $ServiceLoader$Provider*)},
-	{}
-};
-
-$InnerClassInfo _RandomGeneratorFactory$FactoryMapHolder_InnerClassesInfo_[] = {
-	{"java.util.random.RandomGeneratorFactory$FactoryMapHolder", "java.util.random.RandomGeneratorFactory", "FactoryMapHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _RandomGeneratorFactory$FactoryMapHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.random.RandomGeneratorFactory$FactoryMapHolder",
-	"java.lang.Object",
-	nullptr,
-	_RandomGeneratorFactory$FactoryMapHolder_FieldInfo_,
-	_RandomGeneratorFactory$FactoryMapHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RandomGeneratorFactory$FactoryMapHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.random.RandomGeneratorFactory"
-};
-
-$Object* allocate$RandomGeneratorFactory$FactoryMapHolder($Class* clazz) {
-	return $of($alloc(RandomGeneratorFactory$FactoryMapHolder));
-}
 
 $Map* RandomGeneratorFactory$FactoryMapHolder::FACTORY_MAP = nullptr;
 
@@ -150,11 +104,11 @@ void RandomGeneratorFactory$FactoryMapHolder::init$() {
 
 $Map* RandomGeneratorFactory$FactoryMapHolder::createFactoryMap() {
 	$init(RandomGeneratorFactory$FactoryMapHolder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($RandomGenerator);
-	$var($Function, var$0, static_cast<$Function*>($new(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1)));
-	return $cast($Map, $nc($($nc($($nc($($ServiceLoader::load($RandomGenerator::class$)))->stream()))->filter(static_cast<$Predicate*>($$new(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0)))))->collect($($Collectors::toMap(var$0, $($Function::identity())))));
+	$var($Function, var$0, $new(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1));
+	return $cast($Map, $$nc($$nc($$nc($ServiceLoader::load($RandomGenerator::class$))->stream())->filter($$new(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0)))->collect($($Collectors::toMap(var$0, $($Function::identity())))));
 }
 
 $String* RandomGeneratorFactory$FactoryMapHolder::lambda$createFactoryMap$1($ServiceLoader$Provider* p) {
@@ -167,7 +121,7 @@ bool RandomGeneratorFactory$FactoryMapHolder::lambda$createFactoryMap$0($Service
 	return !$nc($nc(p)->type())->isInterface();
 }
 
-void clinit$RandomGeneratorFactory$FactoryMapHolder($Class* class$) {
+void RandomGeneratorFactory$FactoryMapHolder::clinit$($Class* clazz) {
 	$assignStatic(RandomGeneratorFactory$FactoryMapHolder::FACTORY_MAP, RandomGeneratorFactory$FactoryMapHolder::createFactoryMap());
 }
 
@@ -176,14 +130,46 @@ RandomGeneratorFactory$FactoryMapHolder::RandomGeneratorFactory$FactoryMapHolder
 
 $Class* RandomGeneratorFactory$FactoryMapHolder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0::classInfo$.name)) {
+		if (name->equals("java.util.random.RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0")) {
 			return RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0::load$(name, initialize);
 		}
-		if (name->equals(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1::classInfo$.name)) {
+		if (name->equals("java.util.random.RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1")) {
 			return RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(RandomGeneratorFactory$FactoryMapHolder, name, initialize, &_RandomGeneratorFactory$FactoryMapHolder_ClassInfo_, clinit$RandomGeneratorFactory$FactoryMapHolder, allocate$RandomGeneratorFactory$FactoryMapHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"FACTORY_MAP", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;>;", $STATIC | $FINAL, $staticField(RandomGeneratorFactory$FactoryMapHolder, FACTORY_MAP)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(RandomGeneratorFactory$FactoryMapHolder, init$, void)},
+		{"createFactoryMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;>;", $PRIVATE | $STATIC, $staticMethod(RandomGeneratorFactory$FactoryMapHolder, createFactoryMap, $Map*)},
+		{"lambda$createFactoryMap$0", "(Ljava/util/ServiceLoader$Provider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RandomGeneratorFactory$FactoryMapHolder, lambda$createFactoryMap$0, bool, $ServiceLoader$Provider*)},
+		{"lambda$createFactoryMap$1", "(Ljava/util/ServiceLoader$Provider;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RandomGeneratorFactory$FactoryMapHolder, lambda$createFactoryMap$1, $String*, $ServiceLoader$Provider*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.random.RandomGeneratorFactory$FactoryMapHolder", "java.util.random.RandomGeneratorFactory", "FactoryMapHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.random.RandomGeneratorFactory$FactoryMapHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.random.RandomGeneratorFactory"
+	};
+	$loadClass(RandomGeneratorFactory$FactoryMapHolder, name, initialize, &classInfo$$, RandomGeneratorFactory$FactoryMapHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGeneratorFactory$FactoryMapHolder);
+	});
 	return class$;
 }
 

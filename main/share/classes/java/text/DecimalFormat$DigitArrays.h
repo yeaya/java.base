@@ -12,6 +12,7 @@ class DecimalFormat$DigitArrays : public ::java::lang::Object {
 	$class(DecimalFormat$DigitArrays, 0, ::java::lang::Object)
 public:
 	DecimalFormat$DigitArrays();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* DigitOnes1000;
 	static $chars* DigitTens1000;

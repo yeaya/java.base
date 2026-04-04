@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/AccountNotFoundException.h>
-
 #include <javax/security/auth/login/AccountException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace login {
-
-$FieldInfo _AccountNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AccountNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AccountNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AccountNotFoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccountNotFoundException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _AccountNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.login.AccountNotFoundException",
-	"javax.security.auth.login.AccountException",
-	nullptr,
-	_AccountNotFoundException_FieldInfo_,
-	_AccountNotFoundException_MethodInfo_
-};
-
-$Object* allocate$AccountNotFoundException($Class* clazz) {
-	return $of($alloc(AccountNotFoundException));
-}
 
 void AccountNotFoundException::init$() {
 	$AccountException::init$();
@@ -56,7 +31,26 @@ void AccountNotFoundException::throw$() {
 }
 
 $Class* AccountNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(AccountNotFoundException, name, initialize, &_AccountNotFoundException_ClassInfo_, allocate$AccountNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AccountNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AccountNotFoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccountNotFoundException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.login.AccountNotFoundException",
+		"javax.security.auth.login.AccountException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AccountNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccountNotFoundException);
+	});
 	return class$;
 }
 

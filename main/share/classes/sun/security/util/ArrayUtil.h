@@ -24,6 +24,7 @@ class $export ArrayUtil : public ::java::lang::Object {
 	$class(ArrayUtil, 0, ::java::lang::Object)
 public:
 	ArrayUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void blockSizeCheck(int32_t len, int32_t blockSize);
 	static void nullAndBoundsCheck($bytes* array, int32_t offset, int32_t len);

@@ -1,5 +1,4 @@
 #include <java/nio/HeapDoubleBufferR.h>
-
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/DoubleBuffer.h>
@@ -24,49 +23,9 @@ using $HeapDoubleBuffer = ::java::nio::HeapDoubleBuffer;
 using $ReadOnlyBufferException = ::java::nio::ReadOnlyBufferException;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _HeapDoubleBufferR_FieldInfo_[] = {
-	{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapDoubleBufferR, ARRAY_BASE_OFFSET)},
-	{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapDoubleBufferR, ARRAY_INDEX_SCALE)},
-	{}
-};
-
-$MethodInfo _HeapDoubleBufferR_MethodInfo_[] = {
-	{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapDoubleBufferR, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([DIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapDoubleBufferR, init$, void, $doubles*, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([DIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapDoubleBufferR, init$, void, $doubles*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, asReadOnlyBuffer, $DoubleBuffer*)},
-	{"compact", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, compact, $DoubleBuffer*)},
-	{"duplicate", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, duplicate, $DoubleBuffer*)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, order, $ByteOrder*)},
-	{"put", "(D)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, double)},
-	{"put", "(ID)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, int32_t, double)},
-	{"put", "([DII)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, $doubles*, int32_t, int32_t)},
-	{"put", "(Ljava/nio/DoubleBuffer;)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, $DoubleBuffer*)},
-	{"put", "(ILjava/nio/DoubleBuffer;II)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, int32_t, $DoubleBuffer*, int32_t, int32_t)},
-	{"put", "(I[DII)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, int32_t, $doubles*, int32_t, int32_t)},
-	{"slice", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, slice, $DoubleBuffer*)},
-	{"slice", "(II)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, slice, $DoubleBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _HeapDoubleBufferR_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.HeapDoubleBufferR",
-	"java.nio.HeapDoubleBuffer",
-	nullptr,
-	_HeapDoubleBufferR_FieldInfo_,
-	_HeapDoubleBufferR_MethodInfo_
-};
-
-$Object* allocate$HeapDoubleBufferR($Class* clazz) {
-	return $of($alloc(HeapDoubleBufferR));
-}
 
 int64_t HeapDoubleBufferR::ARRAY_BASE_OFFSET = 0;
 int64_t HeapDoubleBufferR::ARRAY_INDEX_SCALE = 0;
@@ -153,18 +112,51 @@ $ByteOrder* HeapDoubleBufferR::order() {
 	return $ByteOrder::nativeOrder();
 }
 
-void clinit$HeapDoubleBufferR($Class* class$) {
+void HeapDoubleBufferR::clinit$($Class* clazz) {
 	$init($Buffer);
-	$load($doubles);
 	HeapDoubleBufferR::ARRAY_BASE_OFFSET = $nc($Buffer::UNSAFE)->arrayBaseOffset($getClass($doubles));
-	HeapDoubleBufferR::ARRAY_INDEX_SCALE = $nc($Buffer::UNSAFE)->arrayIndexScale($getClass($doubles));
+	HeapDoubleBufferR::ARRAY_INDEX_SCALE = $Buffer::UNSAFE->arrayIndexScale($getClass($doubles));
 }
 
 HeapDoubleBufferR::HeapDoubleBufferR() {
 }
 
 $Class* HeapDoubleBufferR::load$($String* name, bool initialize) {
-	$loadClass(HeapDoubleBufferR, name, initialize, &_HeapDoubleBufferR_ClassInfo_, clinit$HeapDoubleBufferR, allocate$HeapDoubleBufferR);
+	$FieldInfo fieldInfos$$[] = {
+		{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapDoubleBufferR, ARRAY_BASE_OFFSET)},
+		{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapDoubleBufferR, ARRAY_INDEX_SCALE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapDoubleBufferR, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([DIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapDoubleBufferR, init$, void, $doubles*, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([DIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapDoubleBufferR, init$, void, $doubles*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, asReadOnlyBuffer, $DoubleBuffer*)},
+		{"compact", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, compact, $DoubleBuffer*)},
+		{"duplicate", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, duplicate, $DoubleBuffer*)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, order, $ByteOrder*)},
+		{"put", "(D)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, double)},
+		{"put", "(ID)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, int32_t, double)},
+		{"put", "([DII)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, $doubles*, int32_t, int32_t)},
+		{"put", "(Ljava/nio/DoubleBuffer;)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, $DoubleBuffer*)},
+		{"put", "(ILjava/nio/DoubleBuffer;II)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, int32_t, $DoubleBuffer*, int32_t, int32_t)},
+		{"put", "(I[DII)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, put, $DoubleBuffer*, int32_t, $doubles*, int32_t, int32_t)},
+		{"slice", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, slice, $DoubleBuffer*)},
+		{"slice", "(II)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapDoubleBufferR, slice, $DoubleBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.HeapDoubleBufferR",
+		"java.nio.HeapDoubleBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HeapDoubleBufferR, name, initialize, &classInfo$$, HeapDoubleBufferR::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeapDoubleBufferR));
+	});
 	return class$;
 }
 

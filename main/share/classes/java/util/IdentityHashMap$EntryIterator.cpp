@@ -1,5 +1,4 @@
 #include <java/util/IdentityHashMap$EntryIterator.h>
-
 #include <java/util/IdentityHashMap$EntryIterator$Entry.h>
 #include <java/util/IdentityHashMap$IdentityHashMapIterator.h>
 #include <java/util/IdentityHashMap.h>
@@ -16,47 +15,6 @@ using $IdentityHashMap$IdentityHashMapIterator = ::java::util::IdentityHashMap$I
 namespace java {
 	namespace util {
 
-$FieldInfo _IdentityHashMap$EntryIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/IdentityHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(IdentityHashMap$EntryIterator, this$0)},
-	{"lastReturnedEntry", "Ljava/util/IdentityHashMap$EntryIterator$Entry;", "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator.Entry;", $PRIVATE, $field(IdentityHashMap$EntryIterator, lastReturnedEntry)},
-	{}
-};
-
-$MethodInfo _IdentityHashMap$EntryIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(IdentityHashMap$EntryIterator, init$, void, $IdentityHashMap*)},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _IdentityHashMap$EntryIterator_InnerClassesInfo_[] = {
-	{"java.util.IdentityHashMap$EntryIterator", "java.util.IdentityHashMap", "EntryIterator", $PRIVATE},
-	{"java.util.IdentityHashMap$IdentityHashMapIterator", "java.util.IdentityHashMap", "IdentityHashMapIterator", $PRIVATE | $ABSTRACT},
-	{"java.util.IdentityHashMap$EntryIterator$Entry", "java.util.IdentityHashMap$EntryIterator", "Entry", $PRIVATE},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _IdentityHashMap$EntryIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.IdentityHashMap$EntryIterator",
-	"java.util.IdentityHashMap$IdentityHashMapIterator",
-	nullptr,
-	_IdentityHashMap$EntryIterator_FieldInfo_,
-	_IdentityHashMap$EntryIterator_MethodInfo_,
-	"Ljava/util/IdentityHashMap<TK;TV;>.IdentityHashMapIterator<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_IdentityHashMap$EntryIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.IdentityHashMap"
-};
-
-$Object* allocate$IdentityHashMap$EntryIterator($Class* clazz) {
-	return $of($alloc(IdentityHashMap$EntryIterator));
-}
-
 void IdentityHashMap$EntryIterator::init$($IdentityHashMap* this$0) {
 	$set(this, this$0, this$0);
 	$IdentityHashMap$IdentityHashMapIterator::init$(this$0);
@@ -64,11 +22,11 @@ void IdentityHashMap$EntryIterator::init$($IdentityHashMap* this$0) {
 
 $Object* IdentityHashMap$EntryIterator::next() {
 	$set(this, lastReturnedEntry, $new($IdentityHashMap$EntryIterator$Entry, this, nextIndex()));
-	return $of(this->lastReturnedEntry);
+	return this->lastReturnedEntry;
 }
 
 void IdentityHashMap$EntryIterator::remove() {
-	this->lastReturnedIndex = ((nullptr == this->lastReturnedEntry) ? -1 : $nc(this->lastReturnedEntry)->index);
+	this->lastReturnedIndex = ((nullptr == this->lastReturnedEntry) ? -1 : this->lastReturnedEntry->index);
 	$IdentityHashMap$IdentityHashMapIterator::remove();
 	$nc(this->lastReturnedEntry)->index = this->lastReturnedIndex;
 	$set(this, lastReturnedEntry, nullptr);
@@ -78,7 +36,42 @@ IdentityHashMap$EntryIterator::IdentityHashMap$EntryIterator() {
 }
 
 $Class* IdentityHashMap$EntryIterator::load$($String* name, bool initialize) {
-	$loadClass(IdentityHashMap$EntryIterator, name, initialize, &_IdentityHashMap$EntryIterator_ClassInfo_, allocate$IdentityHashMap$EntryIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/IdentityHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(IdentityHashMap$EntryIterator, this$0)},
+		{"lastReturnedEntry", "Ljava/util/IdentityHashMap$EntryIterator$Entry;", "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator.Entry;", $PRIVATE, $field(IdentityHashMap$EntryIterator, lastReturnedEntry)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(IdentityHashMap$EntryIterator, init$, void, $IdentityHashMap*)},
+		{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.IdentityHashMap$EntryIterator", "java.util.IdentityHashMap", "EntryIterator", $PRIVATE},
+		{"java.util.IdentityHashMap$IdentityHashMapIterator", "java.util.IdentityHashMap", "IdentityHashMapIterator", $PRIVATE | $ABSTRACT},
+		{"java.util.IdentityHashMap$EntryIterator$Entry", "java.util.IdentityHashMap$EntryIterator", "Entry", $PRIVATE},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.IdentityHashMap$EntryIterator",
+		"java.util.IdentityHashMap$IdentityHashMapIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/IdentityHashMap<TK;TV;>.IdentityHashMapIterator<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.IdentityHashMap"
+	};
+	$loadClass(IdentityHashMap$EntryIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IdentityHashMap$EntryIterator);
+	});
 	return class$;
 }
 

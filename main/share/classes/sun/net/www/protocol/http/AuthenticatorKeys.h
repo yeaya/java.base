@@ -46,6 +46,7 @@ class $export AuthenticatorKeys : public ::java::lang::Object {
 	$class(AuthenticatorKeys, 0, ::java::lang::Object)
 public:
 	AuthenticatorKeys();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* computeKey(::java::net::Authenticator* a);
 	static $String* getKey(::java::net::Authenticator* authenticator);

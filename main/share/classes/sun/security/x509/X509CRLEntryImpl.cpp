@@ -1,5 +1,4 @@
 #include <sun/security/x509/X509CRLEntryImpl.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/math/BigInteger.h>
@@ -40,7 +39,6 @@
 
 using $ExtensionArray = $Array<::sun::security::x509::Extension>;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -82,65 +80,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _X509CRLEntryImpl_FieldInfo_[] = {
-	{"serialNumber", "Lsun/security/x509/SerialNumber;", nullptr, $PRIVATE, $field(X509CRLEntryImpl, serialNumber)},
-	{"revocationDate", "Ljava/util/Date;", nullptr, $PRIVATE, $field(X509CRLEntryImpl, revocationDate)},
-	{"extensions", "Lsun/security/x509/CRLExtensions;", nullptr, $PRIVATE, $field(X509CRLEntryImpl, extensions)},
-	{"revokedCert", "[B", nullptr, $PRIVATE, $field(X509CRLEntryImpl, revokedCert)},
-	{"certIssuer", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE, $field(X509CRLEntryImpl, certIssuer)},
-	{"isExplicit", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509CRLEntryImpl, isExplicit)},
-	{}
-};
-
-$MethodInfo _X509CRLEntryImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(X509CRLEntryImpl, init$, void, $BigInteger*, $Date*)},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/util/Date;Lsun/security/x509/CRLExtensions;)V", nullptr, $PUBLIC, $method(X509CRLEntryImpl, init$, void, $BigInteger*, $Date*, $CRLExtensions*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(X509CRLEntryImpl, init$, void, $bytes*), "java.security.cert.CRLException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(X509CRLEntryImpl, init$, void, $DerValue*), "java.security.cert.CRLException"},
-	{"compareTo", "(Lsun/security/x509/X509CRLEntryImpl;)I", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, compareTo, int32_t, X509CRLEntryImpl*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(X509CRLEntryImpl, compareTo, int32_t, Object$*)},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, encode, void, $DerOutputStream*), "java.security.cert.CRLException"},
-	{"getCertificateIssuer", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getCertificateIssuer, $X500Principal*)},
-	{"getCertificateIssuerExtension", "()Lsun/security/x509/CertificateIssuerExtension;", nullptr, 0, $virtualMethod(X509CRLEntryImpl, getCertificateIssuerExtension, $CertificateIssuerExtension*)},
-	{"getCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509CRLEntryImpl, getCriticalExtensionOIDs, $Set*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getEncoded, $bytes*), "java.security.cert.CRLException"},
-	{"getEncoded0", "()[B", nullptr, $PRIVATE, $method(X509CRLEntryImpl, getEncoded0, $bytes*), "java.security.cert.CRLException"},
-	{"getExtension", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/x509/Extension;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getExtension, $Extension*, $ObjectIdentifier*)},
-	{"getExtensionValue", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getExtensionValue, $bytes*, $String*)},
-	{"getExtensions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;", $PUBLIC, $virtualMethod(X509CRLEntryImpl, getExtensions, $Map*)},
-	{"getNonCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509CRLEntryImpl, getNonCriticalExtensionOIDs, $Set*)},
-	{"getReasonCode", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getReasonCode, $Integer*), "java.io.IOException"},
-	{"getRevocationDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getRevocationDate, $Date*)},
-	{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getRevocationReason, $CRLReason*)},
-	{"getRevocationReason", "(Ljava/security/cert/X509CRLEntry;)Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CRLEntryImpl, getRevocationReason, $CRLReason*, $X509CRLEntry*)},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getSerialNumber, $BigInteger*)},
-	{"hasExtensions", "()Z", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, hasExtensions, bool)},
-	{"hasUnsupportedCriticalExtension", "()Z", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, hasUnsupportedCriticalExtension, bool)},
-	{"parse", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(X509CRLEntryImpl, parse, void, $DerValue*), "java.security.cert.CRLException,java.io.IOException"},
-	{"setCertificateIssuer", "(Ljavax/security/auth/x500/X500Principal;Ljavax/security/auth/x500/X500Principal;)V", nullptr, 0, $virtualMethod(X509CRLEntryImpl, setCertificateIssuer, void, $X500Principal*, $X500Principal*)},
-	{"toImpl", "(Ljava/security/cert/X509CRLEntry;)Lsun/security/x509/X509CRLEntryImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CRLEntryImpl, toImpl, X509CRLEntryImpl*, $X509CRLEntry*), "java.security.cert.CRLException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, toString, $String*)},
-	{}
-};
-
-$ClassInfo _X509CRLEntryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.X509CRLEntryImpl",
-	"java.security.cert.X509CRLEntry",
-	"java.lang.Comparable",
-	_X509CRLEntryImpl_FieldInfo_,
-	_X509CRLEntryImpl_MethodInfo_,
-	"Ljava/security/cert/X509CRLEntry;Ljava/lang/Comparable<Lsun/security/x509/X509CRLEntryImpl;>;"
-};
-
-$Object* allocate$X509CRLEntryImpl($Class* clazz) {
-	return $of($alloc(X509CRLEntryImpl));
-}
-
 bool X509CRLEntryImpl::equals(Object$* other) {
 	 return this->$X509CRLEntry::equals(other);
 }
@@ -179,7 +118,7 @@ void X509CRLEntryImpl::init$($BigInteger* num, $Date* date, $CRLExtensions* crlE
 }
 
 void X509CRLEntryImpl::init$($bytes* revokedCert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$X509CRLEntry::init$();
 	$set(this, serialNumber, nullptr);
 	$set(this, revocationDate, nullptr);
@@ -194,7 +133,7 @@ void X509CRLEntryImpl::init$($bytes* revokedCert) {
 }
 
 void X509CRLEntryImpl::init$($DerValue* derValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$X509CRLEntry::init$();
 	$set(this, serialNumber, nullptr);
 	$set(this, revocationDate, nullptr);
@@ -213,7 +152,7 @@ bool X509CRLEntryImpl::hasExtensions() {
 }
 
 void X509CRLEntryImpl::encode($DerOutputStream* outStrm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (this->revokedCert == nullptr) {
 			$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -224,7 +163,7 @@ void X509CRLEntryImpl::encode($DerOutputStream* outStrm) {
 				tmp->putGeneralizedTime(this->revocationDate);
 			}
 			if (this->extensions != nullptr) {
-				$nc(this->extensions)->encode(tmp, X509CRLEntryImpl::isExplicit);
+				this->extensions->encode(tmp, X509CRLEntryImpl::isExplicit);
 			}
 			$var($DerOutputStream, seq, $new($DerOutputStream));
 			seq->write($DerValue::tag_Sequence, tmp);
@@ -237,7 +176,7 @@ void X509CRLEntryImpl::encode($DerOutputStream* outStrm) {
 }
 
 $bytes* X509CRLEntryImpl::getEncoded() {
-	return $cast($bytes, $nc($(getEncoded0()))->clone());
+	return $cast($bytes, $$nc(getEncoded0())->clone());
 }
 
 $bytes* X509CRLEntryImpl::getEncoded0() {
@@ -268,7 +207,7 @@ $Date* X509CRLEntryImpl::getRevocationDate() {
 }
 
 $CRLReason* X509CRLEntryImpl::getRevocationReason() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PKIXExtensions);
 	$var($Extension, ext, getExtension($PKIXExtensions::ReasonCode_Id));
 	if (ext == nullptr) {
@@ -280,7 +219,7 @@ $CRLReason* X509CRLEntryImpl::getRevocationReason() {
 
 $CRLReason* X509CRLEntryImpl::getRevocationReason($X509CRLEntry* crlEntry) {
 	$init(X509CRLEntryImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($KnownOIDs);
 		$var($bytes, ext, $nc(crlEntry)->getExtensionValue($($KnownOIDs::ReasonCode->value())));
@@ -289,8 +228,7 @@ $CRLReason* X509CRLEntryImpl::getRevocationReason($X509CRLEntry* crlEntry) {
 		}
 		$var($DerValue, val, $new($DerValue, ext));
 		$var($bytes, data, val->getOctetString());
-		$init($Boolean);
-		$var($CRLReasonCodeExtension, rcExt, $new($CRLReasonCodeExtension, $Boolean::FALSE, $of(data)));
+		$var($CRLReasonCodeExtension, rcExt, $new($CRLReasonCodeExtension, $Boolean::FALSE, data));
 		return rcExt->getReasonCode();
 	} catch ($IOException& ioe) {
 		return nullptr;
@@ -299,7 +237,7 @@ $CRLReason* X509CRLEntryImpl::getRevocationReason($X509CRLEntry* crlEntry) {
 }
 
 $Integer* X509CRLEntryImpl::getReasonCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PKIXExtensions);
 	$var($Object, obj, getExtension($PKIXExtensions::ReasonCode_Id));
 	if (obj == nullptr) {
@@ -311,23 +249,23 @@ $Integer* X509CRLEntryImpl::getReasonCode() {
 }
 
 $String* X509CRLEntryImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
-	sb->append($of(this->serialNumber))->append("  On: "_s)->append($of(this->revocationDate));
+	sb->append(this->serialNumber)->append("  On: "_s)->append(this->revocationDate);
 	if (this->certIssuer != nullptr) {
-		sb->append("\n    Certificate issuer: "_s)->append($of(this->certIssuer));
+		sb->append("\n    Certificate issuer: "_s)->append(this->certIssuer);
 	}
 	if (this->extensions != nullptr) {
-		$var($Collection, allEntryExts, $nc(this->extensions)->getAllExtensions());
-		$var($ExtensionArray, exts, $fcast($ExtensionArray, $nc(allEntryExts)->toArray($$new($ExtensionArray, 0))));
+		$var($Collection, allEntryExts, this->extensions->getAllExtensions());
+		$var($ExtensionArray, exts, $cast($ExtensionArray, $nc(allEntryExts)->toArray($$new($ExtensionArray, 0))));
 		sb->append("\n    CRL Entry Extensions: "_s)->append($nc(exts)->length);
-		for (int32_t i = 0; i < $nc(exts)->length; ++i) {
+		for (int32_t i = 0; i < exts->length; ++i) {
 			sb->append("\n    ["_s)->append(i + 1)->append("]: "_s);
 			$var($Extension, ext, exts->get(i));
 			try {
 				if ($OIDMap::getClass($($nc(ext)->getExtensionId())) == nullptr) {
-					sb->append($of(ext));
-					$var($bytes, extValue, $nc(ext)->getExtensionValue());
+					sb->append(ext);
+					$var($bytes, extValue, ext->getExtensionValue());
 					if (extValue != nullptr) {
 						$var($DerOutputStream, out, $new($DerOutputStream));
 						out->putOctetString(extValue);
@@ -336,7 +274,7 @@ $String* X509CRLEntryImpl::toString() {
 						sb->append("Extension unknown: "_s)->append("DER encoded OCTET string =\n"_s)->append($(enc->encodeBuffer(extValue)))->append(u'\n');
 					}
 				} else {
-					sb->append($of(ext));
+					sb->append(ext);
 				}
 			} catch ($Exception& e) {
 				sb->append(", Error parsing this extension"_s);
@@ -355,19 +293,17 @@ bool X509CRLEntryImpl::hasUnsupportedCriticalExtension() {
 }
 
 $Set* X509CRLEntryImpl::getCriticalExtensionOIDs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->extensions == nullptr) {
 		return nullptr;
 	}
-	$var($Set, extSet, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet))));
+	$var($Set, extSet, $cast($AbstractSet, $new($TreeSet)));
 	{
-		$var($Iterator, i$, $nc($($nc(this->extensions)->getAllExtensions()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->extensions)->getAllExtensions())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Extension, ex, $cast($Extension, i$->next()));
-			{
-				if ($nc(ex)->isCritical()) {
-					extSet->add($($nc($(ex->getExtensionId()))->toString()));
-				}
+			if ($nc(ex)->isCritical()) {
+				extSet->add($($$nc(ex->getExtensionId())->toString()));
 			}
 		}
 	}
@@ -375,19 +311,17 @@ $Set* X509CRLEntryImpl::getCriticalExtensionOIDs() {
 }
 
 $Set* X509CRLEntryImpl::getNonCriticalExtensionOIDs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->extensions == nullptr) {
 		return nullptr;
 	}
-	$var($Set, extSet, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet))));
+	$var($Set, extSet, $cast($AbstractSet, $new($TreeSet)));
 	{
-		$var($Iterator, i$, $nc($($nc(this->extensions)->getAllExtensions()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->extensions)->getAllExtensions())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Extension, ex, $cast($Extension, i$->next()));
-			{
-				if (!$nc(ex)->isCritical()) {
-					extSet->add($($nc($(ex->getExtensionId()))->toString()));
-				}
+			if (!$nc(ex)->isCritical()) {
+				extSet->add($($$nc(ex->getExtensionId())->toString()));
 			}
 		}
 	}
@@ -395,7 +329,7 @@ $Set* X509CRLEntryImpl::getNonCriticalExtensionOIDs() {
 }
 
 $bytes* X509CRLEntryImpl::getExtensionValue($String* oid) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->extensions == nullptr) {
 		return nullptr;
 	}
@@ -444,26 +378,26 @@ $Extension* X509CRLEntryImpl::getExtension($ObjectIdentifier* oid) {
 }
 
 void X509CRLEntryImpl::parse($DerValue* derVal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(derVal)->tag != $DerValue::tag_Sequence) {
 		$throwNew($CRLException, "Invalid encoded RevokedCertificate, starting sequence tag missing."_s);
 	}
-	if ($nc($nc(derVal)->data$)->available() == 0) {
+	if ($nc(derVal->data$)->available() == 0) {
 		$throwNew($CRLException, "No data encoded for RevokedCertificates"_s);
 	}
-	$set(this, revokedCert, $nc(derVal)->toByteArray());
+	$set(this, revokedCert, derVal->toByteArray());
 	$var($DerInputStream, in, derVal->toDerInputStream());
 	$var($DerValue, val, $nc(in)->getDerValue());
 	$set(this, serialNumber, $new($SerialNumber, val));
-	int32_t nextByte = $nc(derVal->data$)->peekByte();
+	int32_t nextByte = derVal->data$->peekByte();
 	if ((int8_t)nextByte == $DerValue::tag_UtcTime) {
-		$set(this, revocationDate, $nc(derVal->data$)->getUTCTime());
+		$set(this, revocationDate, derVal->data$->getUTCTime());
 	} else if ((int8_t)nextByte == $DerValue::tag_GeneralizedTime) {
-		$set(this, revocationDate, $nc(derVal->data$)->getGeneralizedTime());
+		$set(this, revocationDate, derVal->data$->getGeneralizedTime());
 	} else {
 		$throwNew($CRLException, "Invalid encoding for revocation date"_s);
 	}
-	if ($nc(derVal->data$)->available() == 0) {
+	if (derVal->data$->available() == 0) {
 		return;
 	}
 	$set(this, extensions, $new($CRLExtensions, $(derVal->toDerInputStream())));
@@ -484,12 +418,12 @@ $CertificateIssuerExtension* X509CRLEntryImpl::getCertificateIssuerExtension() {
 }
 
 $Map* X509CRLEntryImpl::getExtensions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->extensions == nullptr) {
 		return $Collections::emptyMap();
 	}
 	$var($Collection, exts, $nc(this->extensions)->getAllExtensions());
-	$var($Map, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap))));
+	$var($Map, map, $cast($AbstractMap, $new($TreeMap)));
 	{
 		$var($Iterator, i$, $nc(exts)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -503,22 +437,22 @@ $Map* X509CRLEntryImpl::getExtensions() {
 }
 
 int32_t X509CRLEntryImpl::compareTo(X509CRLEntryImpl* that) {
-	$useLocalCurrentObjectStackCache();
-	int32_t compSerial = $nc($(getSerialNumber()))->compareTo($($nc(that)->getSerialNumber()));
+	$useLocalObjectStack();
+	int32_t compSerial = $$nc(getSerialNumber())->compareTo($($nc(that)->getSerialNumber()));
 	if (compSerial != 0) {
 		return compSerial;
 	}
 	try {
 		$var($bytes, thisEncoded, this->getEncoded0());
-		$var($bytes, thatEncoded, $nc(that)->getEncoded0());
+		$var($bytes, thatEncoded, that->getEncoded0());
 		for (int32_t i = 0; i < $nc(thisEncoded)->length && i < $nc(thatEncoded)->length; ++i) {
-			int32_t a = (int32_t)(thisEncoded->get(i) & (uint32_t)255);
-			int32_t b = (int32_t)(thatEncoded->get(i) & (uint32_t)255);
+			int32_t a = thisEncoded->get(i) & 0xff;
+			int32_t b = thatEncoded->get(i) & 0xff;
 			if (a != b) {
 				return a - b;
 			}
 		}
-		return $nc(thisEncoded)->length - $nc(thatEncoded)->length;
+		return thisEncoded->length - $nc(thatEncoded)->length;
 	} catch ($CRLException& ce) {
 		return -1;
 	}
@@ -533,7 +467,61 @@ X509CRLEntryImpl::X509CRLEntryImpl() {
 }
 
 $Class* X509CRLEntryImpl::load$($String* name, bool initialize) {
-	$loadClass(X509CRLEntryImpl, name, initialize, &_X509CRLEntryImpl_ClassInfo_, allocate$X509CRLEntryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialNumber", "Lsun/security/x509/SerialNumber;", nullptr, $PRIVATE, $field(X509CRLEntryImpl, serialNumber)},
+		{"revocationDate", "Ljava/util/Date;", nullptr, $PRIVATE, $field(X509CRLEntryImpl, revocationDate)},
+		{"extensions", "Lsun/security/x509/CRLExtensions;", nullptr, $PRIVATE, $field(X509CRLEntryImpl, extensions)},
+		{"revokedCert", "[B", nullptr, $PRIVATE, $field(X509CRLEntryImpl, revokedCert)},
+		{"certIssuer", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE, $field(X509CRLEntryImpl, certIssuer)},
+		{"isExplicit", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509CRLEntryImpl, isExplicit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(X509CRLEntryImpl, init$, void, $BigInteger*, $Date*)},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/util/Date;Lsun/security/x509/CRLExtensions;)V", nullptr, $PUBLIC, $method(X509CRLEntryImpl, init$, void, $BigInteger*, $Date*, $CRLExtensions*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(X509CRLEntryImpl, init$, void, $bytes*), "java.security.cert.CRLException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(X509CRLEntryImpl, init$, void, $DerValue*), "java.security.cert.CRLException"},
+		{"compareTo", "(Lsun/security/x509/X509CRLEntryImpl;)I", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, compareTo, int32_t, X509CRLEntryImpl*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(X509CRLEntryImpl, compareTo, int32_t, Object$*)},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, encode, void, $DerOutputStream*), "java.security.cert.CRLException"},
+		{"getCertificateIssuer", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getCertificateIssuer, $X500Principal*)},
+		{"getCertificateIssuerExtension", "()Lsun/security/x509/CertificateIssuerExtension;", nullptr, 0, $virtualMethod(X509CRLEntryImpl, getCertificateIssuerExtension, $CertificateIssuerExtension*)},
+		{"getCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509CRLEntryImpl, getCriticalExtensionOIDs, $Set*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getEncoded, $bytes*), "java.security.cert.CRLException"},
+		{"getEncoded0", "()[B", nullptr, $PRIVATE, $method(X509CRLEntryImpl, getEncoded0, $bytes*), "java.security.cert.CRLException"},
+		{"getExtension", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/x509/Extension;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getExtension, $Extension*, $ObjectIdentifier*)},
+		{"getExtensionValue", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getExtensionValue, $bytes*, $String*)},
+		{"getExtensions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;", $PUBLIC, $virtualMethod(X509CRLEntryImpl, getExtensions, $Map*)},
+		{"getNonCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509CRLEntryImpl, getNonCriticalExtensionOIDs, $Set*)},
+		{"getReasonCode", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getReasonCode, $Integer*), "java.io.IOException"},
+		{"getRevocationDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getRevocationDate, $Date*)},
+		{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getRevocationReason, $CRLReason*)},
+		{"getRevocationReason", "(Ljava/security/cert/X509CRLEntry;)Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CRLEntryImpl, getRevocationReason, $CRLReason*, $X509CRLEntry*)},
+		{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, getSerialNumber, $BigInteger*)},
+		{"hasExtensions", "()Z", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, hasExtensions, bool)},
+		{"hasUnsupportedCriticalExtension", "()Z", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, hasUnsupportedCriticalExtension, bool)},
+		{"parse", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(X509CRLEntryImpl, parse, void, $DerValue*), "java.security.cert.CRLException,java.io.IOException"},
+		{"setCertificateIssuer", "(Ljavax/security/auth/x500/X500Principal;Ljavax/security/auth/x500/X500Principal;)V", nullptr, 0, $virtualMethod(X509CRLEntryImpl, setCertificateIssuer, void, $X500Principal*, $X500Principal*)},
+		{"toImpl", "(Ljava/security/cert/X509CRLEntry;)Lsun/security/x509/X509CRLEntryImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509CRLEntryImpl, toImpl, X509CRLEntryImpl*, $X509CRLEntry*), "java.security.cert.CRLException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntryImpl, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.X509CRLEntryImpl",
+		"java.security.cert.X509CRLEntry",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/security/cert/X509CRLEntry;Ljava/lang/Comparable<Lsun/security/x509/X509CRLEntryImpl;>;"
+	};
+	$loadClass(X509CRLEntryImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X509CRLEntryImpl));
+	});
 	return class$;
 }
 

@@ -26,6 +26,7 @@ class ByteArrayAccess$LE : public ::java::lang::Object {
 	$class(ByteArrayAccess$LE, 0, ::java::lang::Object)
 public:
 	ByteArrayAccess$LE();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::VarHandle* INT_ARRAY;
 	static ::java::lang::invoke::VarHandle* LONG_ARRAY;

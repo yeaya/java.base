@@ -65,7 +65,7 @@ public:
 	virtual ::java::util::concurrent::locks::Lock* readLock() override;
 	virtual $String* toString() override;
 	virtual ::java::util::concurrent::locks::Lock* writeLock() override;
-	static const int64_t serialVersionUID = (int64_t)0x9EF5D500F0B5684C;
+	static const int64_t serialVersionUID = (int64_t)0x9ef5d500f0b5684c;
 	::java::util::concurrent::locks::ReentrantReadWriteLock$ReadLock* readerLock = nullptr;
 	::java::util::concurrent::locks::ReentrantReadWriteLock$WriteLock* writerLock = nullptr;
 	::java::util::concurrent::locks::ReentrantReadWriteLock$Sync* sync = nullptr;

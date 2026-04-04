@@ -26,6 +26,7 @@ class $export PropertyResourceBundle : public ::java::util::ResourceBundle {
 	$class(PropertyResourceBundle, 0, ::java::util::ResourceBundle)
 public:
 	PropertyResourceBundle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::InputStream* stream);
 	void init$(::java::io::Reader* reader);
 	virtual ::java::util::Enumeration* getKeys() override;

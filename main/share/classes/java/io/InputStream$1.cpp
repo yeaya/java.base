@@ -1,5 +1,4 @@
 #include <java/io/InputStream$1.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -21,58 +20,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _InputStream$1_FieldInfo_[] = {
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(InputStream$1, closed)},
-	{}
-};
-
-$MethodInfo _InputStream$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InputStream$1, init$, void)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(InputStream$1, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InputStream$1, close, void), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(InputStream$1, ensureOpen, void), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(InputStream$1, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InputStream$1, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readAllBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(InputStream$1, readAllBytes, $bytes*), "java.io.IOException"},
-	{"readNBytes", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InputStream$1, readNBytes, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readNBytes", "(I)[B", nullptr, $PUBLIC, $virtualMethod(InputStream$1, readNBytes, $bytes*, int32_t), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(InputStream$1, skip, int64_t, int64_t), "java.io.IOException"},
-	{"skipNBytes", "(J)V", nullptr, $PUBLIC, $virtualMethod(InputStream$1, skipNBytes, void, int64_t), "java.io.IOException"},
-	{"transferTo", "(Ljava/io/OutputStream;)J", nullptr, $PUBLIC, $virtualMethod(InputStream$1, transferTo, int64_t, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _InputStream$1_EnclosingMethodInfo_ = {
-	"java.io.InputStream",
-	"nullInputStream",
-	"()Ljava/io/InputStream;"
-};
-
-$InnerClassInfo _InputStream$1_InnerClassesInfo_[] = {
-	{"java.io.InputStream$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InputStream$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.InputStream$1",
-	"java.io.InputStream",
-	nullptr,
-	_InputStream$1_FieldInfo_,
-	_InputStream$1_MethodInfo_,
-	nullptr,
-	&_InputStream$1_EnclosingMethodInfo_,
-	_InputStream$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.InputStream"
-};
-
-$Object* allocate$InputStream$1($Class* clazz) {
-	return $of($alloc(InputStream$1));
-}
 
 void InputStream$1::init$() {
 	$InputStream::init$();
@@ -148,7 +95,52 @@ InputStream$1::InputStream$1() {
 }
 
 $Class* InputStream$1::load$($String* name, bool initialize) {
-	$loadClass(InputStream$1, name, initialize, &_InputStream$1_ClassInfo_, allocate$InputStream$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(InputStream$1, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InputStream$1, init$, void)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(InputStream$1, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InputStream$1, close, void), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(InputStream$1, ensureOpen, void), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(InputStream$1, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InputStream$1, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readAllBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(InputStream$1, readAllBytes, $bytes*), "java.io.IOException"},
+		{"readNBytes", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InputStream$1, readNBytes, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readNBytes", "(I)[B", nullptr, $PUBLIC, $virtualMethod(InputStream$1, readNBytes, $bytes*, int32_t), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(InputStream$1, skip, int64_t, int64_t), "java.io.IOException"},
+		{"skipNBytes", "(J)V", nullptr, $PUBLIC, $virtualMethod(InputStream$1, skipNBytes, void, int64_t), "java.io.IOException"},
+		{"transferTo", "(Ljava/io/OutputStream;)J", nullptr, $PUBLIC, $virtualMethod(InputStream$1, transferTo, int64_t, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.io.InputStream",
+		"nullInputStream",
+		"()Ljava/io/InputStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.InputStream$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.InputStream$1",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.InputStream"
+	};
+	$loadClass(InputStream$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputStream$1);
+	});
 	return class$;
 }
 

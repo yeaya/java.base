@@ -1,11 +1,9 @@
 #include <jcpp/test/TestAS.h>
-
 #include <java/lang/CharSequence.h>
 #include <jcpp/test/TestASBase.h>
 #include <jcpp/test/TestASIF2.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -14,34 +12,6 @@ using $TestASIF2 = ::jcpp::test::TestASIF2;
 
 namespace jcpp {
 	namespace test {
-
-$MethodInfo _TestAS_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestAS, init$, void)},
-	{"get", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestAS, get, $CharSequence*)},
-	{"get2", "()Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(TestAS, get2, $CharSequence*)},
-	{"get3", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestAS, get3, $String*)},
-	{"get4", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestAS, get4, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestAS, main, void, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _TestAS_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jcpp.test.TestAS",
-	"jcpp.test.TestASBase",
-	"jcpp.test.TestASIF2",
-	nullptr,
-	_TestAS_MethodInfo_
-};
-
-$Object* allocate$TestAS($Class* clazz) {
-	return $of($alloc(TestAS));
-}
 
 int32_t TestAS::hashCode() {
 	 return this->$TestASBase::hashCode();
@@ -109,7 +79,7 @@ void TestAS::init$() {
 
 void TestAS::main($StringArray* args) {
 	$init(TestAS);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("hello"_s);
 	$var(TestAS, tas, $new(TestAS));
 	tas->get();
@@ -137,7 +107,31 @@ TestAS::TestAS() {
 }
 
 $Class* TestAS::load$($String* name, bool initialize) {
-	$loadClass(TestAS, name, initialize, &_TestAS_ClassInfo_, allocate$TestAS);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestAS, init$, void)},
+		{"get", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestAS, get, $CharSequence*)},
+		{"get2", "()Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(TestAS, get2, $CharSequence*)},
+		{"get3", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestAS, get3, $String*)},
+		{"get4", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestAS, get4, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestAS, main, void, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jcpp.test.TestAS",
+		"jcpp.test.TestASBase",
+		"jcpp.test.TestASIF2",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestAS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestAS));
+	});
 	return class$;
 }
 

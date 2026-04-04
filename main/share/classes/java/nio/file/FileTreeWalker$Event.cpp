@@ -1,5 +1,4 @@
 #include <java/nio/file/FileTreeWalker$Event.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/file/FileTreeWalker$EventType.h>
 #include <java/nio/file/FileTreeWalker.h>
@@ -19,50 +18,6 @@ using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _FileTreeWalker$Event_FieldInfo_[] = {
-	{"type", "Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$Event, type$)},
-	{"file", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$Event, file$)},
-	{"attrs", "Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$Event, attrs)},
-	{"ioe", "Ljava/io/IOException;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$Event, ioe)},
-	{}
-};
-
-$MethodInfo _FileTreeWalker$Event_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/FileTreeWalker$EventType;Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;Ljava/io/IOException;)V", nullptr, $PRIVATE, $method(FileTreeWalker$Event, init$, void, $FileTreeWalker$EventType*, $Path*, $BasicFileAttributes*, $IOException*)},
-	{"<init>", "(Ljava/nio/file/FileTreeWalker$EventType;Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, 0, $method(FileTreeWalker$Event, init$, void, $FileTreeWalker$EventType*, $Path*, $BasicFileAttributes*)},
-	{"<init>", "(Ljava/nio/file/FileTreeWalker$EventType;Ljava/nio/file/Path;Ljava/io/IOException;)V", nullptr, 0, $method(FileTreeWalker$Event, init$, void, $FileTreeWalker$EventType*, $Path*, $IOException*)},
-	{"attributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, 0, $virtualMethod(FileTreeWalker$Event, attributes, $BasicFileAttributes*)},
-	{"file", "()Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(FileTreeWalker$Event, file, $Path*)},
-	{"ioeException", "()Ljava/io/IOException;", nullptr, 0, $virtualMethod(FileTreeWalker$Event, ioeException, $IOException*)},
-	{"type", "()Ljava/nio/file/FileTreeWalker$EventType;", nullptr, 0, $virtualMethod(FileTreeWalker$Event, type, $FileTreeWalker$EventType*)},
-	{}
-};
-
-$InnerClassInfo _FileTreeWalker$Event_InnerClassesInfo_[] = {
-	{"java.nio.file.FileTreeWalker$Event", "java.nio.file.FileTreeWalker", "Event", $STATIC},
-	{}
-};
-
-$ClassInfo _FileTreeWalker$Event_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.FileTreeWalker$Event",
-	"java.lang.Object",
-	nullptr,
-	_FileTreeWalker$Event_FieldInfo_,
-	_FileTreeWalker$Event_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileTreeWalker$Event_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.FileTreeWalker"
-};
-
-$Object* allocate$FileTreeWalker$Event($Class* clazz) {
-	return $of($alloc(FileTreeWalker$Event));
-}
 
 void FileTreeWalker$Event::init$($FileTreeWalker$EventType* type, $Path* file, $BasicFileAttributes* attrs, $IOException* ioe) {
 	$set(this, type$, type);
@@ -99,7 +54,45 @@ FileTreeWalker$Event::FileTreeWalker$Event() {
 }
 
 $Class* FileTreeWalker$Event::load$($String* name, bool initialize) {
-	$loadClass(FileTreeWalker$Event, name, initialize, &_FileTreeWalker$Event_ClassInfo_, allocate$FileTreeWalker$Event);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$Event, type$)},
+		{"file", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$Event, file$)},
+		{"attrs", "Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$Event, attrs)},
+		{"ioe", "Ljava/io/IOException;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$Event, ioe)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/FileTreeWalker$EventType;Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;Ljava/io/IOException;)V", nullptr, $PRIVATE, $method(FileTreeWalker$Event, init$, void, $FileTreeWalker$EventType*, $Path*, $BasicFileAttributes*, $IOException*)},
+		{"<init>", "(Ljava/nio/file/FileTreeWalker$EventType;Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, 0, $method(FileTreeWalker$Event, init$, void, $FileTreeWalker$EventType*, $Path*, $BasicFileAttributes*)},
+		{"<init>", "(Ljava/nio/file/FileTreeWalker$EventType;Ljava/nio/file/Path;Ljava/io/IOException;)V", nullptr, 0, $method(FileTreeWalker$Event, init$, void, $FileTreeWalker$EventType*, $Path*, $IOException*)},
+		{"attributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, 0, $virtualMethod(FileTreeWalker$Event, attributes, $BasicFileAttributes*)},
+		{"file", "()Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(FileTreeWalker$Event, file, $Path*)},
+		{"ioeException", "()Ljava/io/IOException;", nullptr, 0, $virtualMethod(FileTreeWalker$Event, ioeException, $IOException*)},
+		{"type", "()Ljava/nio/file/FileTreeWalker$EventType;", nullptr, 0, $virtualMethod(FileTreeWalker$Event, type, $FileTreeWalker$EventType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.FileTreeWalker$Event", "java.nio.file.FileTreeWalker", "Event", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.FileTreeWalker$Event",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.FileTreeWalker"
+	};
+	$loadClass(FileTreeWalker$Event, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileTreeWalker$Event);
+	});
 	return class$;
 }
 

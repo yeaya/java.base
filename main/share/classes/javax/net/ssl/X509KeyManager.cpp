@@ -1,5 +1,4 @@
 #include <javax/net/ssl/X509KeyManager.h>
-
 #include <java/net/Socket.h>
 #include <java/security/Principal.h>
 #include <java/security/PrivateKey.h>
@@ -17,31 +16,27 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$MethodInfo _X509KeyManager_MethodInfo_[] = {
-	{"chooseClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, chooseClientAlias, $String*, $StringArray*, $PrincipalArray*, $Socket*)},
-	{"chooseServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, chooseServerAlias, $String*, $String*, $PrincipalArray*, $Socket*)},
-	{"getCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, getCertificateChain, $X509CertificateArray*, $String*)},
-	{"getClientAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, getClientAliases, $StringArray*, $String*, $PrincipalArray*)},
-	{"getPrivateKey", "(Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, getPrivateKey, $PrivateKey*, $String*)},
-	{"getServerAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, getServerAliases, $StringArray*, $String*, $PrincipalArray*)},
-	{}
-};
-
-$ClassInfo _X509KeyManager_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.net.ssl.X509KeyManager",
-	nullptr,
-	"javax.net.ssl.KeyManager",
-	nullptr,
-	_X509KeyManager_MethodInfo_
-};
-
-$Object* allocate$X509KeyManager($Class* clazz) {
-	return $of($alloc(X509KeyManager));
-}
-
 $Class* X509KeyManager::load$($String* name, bool initialize) {
-	$loadClass(X509KeyManager, name, initialize, &_X509KeyManager_ClassInfo_, allocate$X509KeyManager);
+	$MethodInfo methodInfos$$[] = {
+		{"chooseClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, chooseClientAlias, $String*, $StringArray*, $PrincipalArray*, $Socket*)},
+		{"chooseServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, chooseServerAlias, $String*, $String*, $PrincipalArray*, $Socket*)},
+		{"getCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, getCertificateChain, $X509CertificateArray*, $String*)},
+		{"getClientAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, getClientAliases, $StringArray*, $String*, $PrincipalArray*)},
+		{"getPrivateKey", "(Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, getPrivateKey, $PrivateKey*, $String*)},
+		{"getServerAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509KeyManager, getServerAliases, $StringArray*, $String*, $PrincipalArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.net.ssl.X509KeyManager",
+		nullptr,
+		"javax.net.ssl.KeyManager",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(X509KeyManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X509KeyManager);
+	});
 	return class$;
 }
 

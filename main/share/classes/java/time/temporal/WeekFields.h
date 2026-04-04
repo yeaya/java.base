@@ -53,6 +53,7 @@ class $export WeekFields : public ::java::io::Serializable {
 	$class(WeekFields, 0, ::java::io::Serializable)
 public:
 	WeekFields();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::DayOfWeek* firstDayOfWeek, int32_t minimalDaysInFirstWeek);
 	::java::time::temporal::TemporalField* dayOfWeek();
 	virtual bool equals(Object$* object) override;
@@ -72,7 +73,7 @@ public:
 	static ::java::time::temporal::WeekFields* ISO;
 	static ::java::time::temporal::WeekFields* SUNDAY_START;
 	static ::java::time::temporal::TemporalUnit* WEEK_BASED_YEARS;
-	static const int64_t serialVersionUID = (int64_t)0xEFA92C928B0F09C7;
+	static const int64_t serialVersionUID = (int64_t)0xefa92c928b0f09c7;
 	::java::time::DayOfWeek* firstDayOfWeek = nullptr;
 	int32_t minimalDays = 0;
 	::java::time::temporal::TemporalField* dayOfWeek$ = nullptr;

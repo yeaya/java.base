@@ -46,7 +46,7 @@ public:
 	void writeShort(int32_t s, $bytes* buf, int32_t offset);
 	void writeTrailer($bytes* buf, int32_t offset);
 	::java::util::zip::CRC32* crc = nullptr;
-	static const int32_t GZIP_MAGIC = 0x00008B1F;
+	static const int32_t GZIP_MAGIC = 0x00008b1f;
 	static const int32_t TRAILER_SIZE = 8;
 	static const int8_t OS_UNKNOWN = (int8_t)255;
 };

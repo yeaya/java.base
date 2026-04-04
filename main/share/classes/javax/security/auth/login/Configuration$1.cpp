@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/Configuration$1.h>
-
 #include <java/security/Security.h>
 #include <javax/security/auth/login/Configuration.h>
 #include <jcpp.h>
@@ -15,43 +14,6 @@ namespace javax {
 		namespace auth {
 			namespace login {
 
-$MethodInfo _Configuration$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Configuration$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Configuration$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Configuration$1_EnclosingMethodInfo_ = {
-	"javax.security.auth.login.Configuration",
-	"getConfiguration",
-	"()Ljavax/security/auth/login/Configuration;"
-};
-
-$InnerClassInfo _Configuration$1_InnerClassesInfo_[] = {
-	{"javax.security.auth.login.Configuration$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Configuration$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.security.auth.login.Configuration$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_Configuration$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_Configuration$1_EnclosingMethodInfo_,
-	_Configuration$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.security.auth.login.Configuration"
-};
-
-$Object* allocate$Configuration$1($Class* clazz) {
-	return $of($alloc(Configuration$1));
-}
-
 void Configuration$1::init$() {
 }
 
@@ -63,7 +25,38 @@ Configuration$1::Configuration$1() {
 }
 
 $Class* Configuration$1::load$($String* name, bool initialize) {
-	$loadClass(Configuration$1, name, initialize, &_Configuration$1_ClassInfo_, allocate$Configuration$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Configuration$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Configuration$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.security.auth.login.Configuration",
+		"getConfiguration",
+		"()Ljavax/security/auth/login/Configuration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.security.auth.login.Configuration$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.security.auth.login.Configuration$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.security.auth.login.Configuration"
+	};
+	$loadClass(Configuration$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Configuration$1);
+	});
 	return class$;
 }
 

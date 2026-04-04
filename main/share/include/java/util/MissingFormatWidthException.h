@@ -19,7 +19,10 @@ public:
 	$String* s = nullptr;
 	MissingFormatWidthException(const MissingFormatWidthException& e);
 	virtual void throw$() override;
-	inline MissingFormatWidthException* operator ->() {
+	inline MissingFormatWidthException* operator ->() const {
+		return (MissingFormatWidthException*)throwing$;
+	}
+	inline operator MissingFormatWidthException*() const {
 		return (MissingFormatWidthException*)throwing$;
 	}
 };

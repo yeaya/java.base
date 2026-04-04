@@ -22,7 +22,7 @@ public:
 	void init$($Class* enumType, $String* constName);
 	virtual ::java::lang::RuntimeException* generateException() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xF79BCF05C2AEA87E;
+	static const int64_t serialVersionUID = (int64_t)0xf79bcf05c2aea87e;
 	$Class* enumType = nullptr;
 	$String* constName = nullptr;
 };

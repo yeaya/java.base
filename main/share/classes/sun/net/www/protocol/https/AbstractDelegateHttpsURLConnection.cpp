@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/https/AbstractDelegateHttpsURLConnection.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/net/CacheResponse.h>
 #include <java/net/Proxy.h>
@@ -43,43 +42,6 @@ namespace sun {
 			namespace protocol {
 				namespace https {
 
-$MethodInfo _AbstractDelegateHttpsURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Lsun/net/www/protocol/http/Handler;)V", nullptr, $PROTECTED, $method(AbstractDelegateHttpsURLConnection, init$, void, $URL*, $Handler*), "java.io.IOException"},
-	{"<init>", "(Ljava/net/URL;Ljava/net/Proxy;Lsun/net/www/protocol/http/Handler;)V", nullptr, $PROTECTED, $method(AbstractDelegateHttpsURLConnection, init$, void, $URL*, $Proxy*, $Handler*), "java.io.IOException"},
-	{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, connect, void), "java.io.IOException"},
-	{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, getCipherSuite, $String*)},
-	{"getHostnameVerifier", "()Ljavax/net/ssl/HostnameVerifier;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDelegateHttpsURLConnection, getHostnameVerifier, $HostnameVerifier*)},
-	{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, getLocalCertificates, $CertificateArray*)},
-	{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, 0, $virtualMethod(AbstractDelegateHttpsURLConnection, getLocalPrincipal, $Principal*)},
-	{"getNewHttpClient", "(Ljava/net/URL;Ljava/net/Proxy;I)Lsun/net/www/http/HttpClient;", nullptr, $PROTECTED, $virtualMethod(AbstractDelegateHttpsURLConnection, getNewHttpClient, $HttpClient*, $URL*, $Proxy*, int32_t), "java.io.IOException"},
-	{"getNewHttpClient", "(Ljava/net/URL;Ljava/net/Proxy;IZ)Lsun/net/www/http/HttpClient;", nullptr, $PROTECTED, $virtualMethod(AbstractDelegateHttpsURLConnection, getNewHttpClient, $HttpClient*, $URL*, $Proxy*, int32_t, bool), "java.io.IOException"},
-	{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, 0, $virtualMethod(AbstractDelegateHttpsURLConnection, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, 0, $virtualMethod(AbstractDelegateHttpsURLConnection, getSSLSession, $SSLSession*)},
-	{"getSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDelegateHttpsURLConnection, getSSLSocketFactory, $SSLSocketFactory*)},
-	{"getServerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, getServerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"isConnected", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, isConnected, bool)},
-	{"proxiedConnect", "(Ljava/net/URL;Ljava/lang/String;IZ)V", nullptr, $PROTECTED, $virtualMethod(AbstractDelegateHttpsURLConnection, proxiedConnect, void, $URL*, $String*, int32_t, bool), "java.io.IOException"},
-	{"setConnected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, setConnected, void, bool)},
-	{"setNewClient", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, setNewClient, void, $URL*), "java.io.IOException"},
-	{"setNewClient", "(Ljava/net/URL;Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, setNewClient, void, $URL*, bool), "java.io.IOException"},
-	{"setProxiedClient", "(Ljava/net/URL;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, setProxiedClient, void, $URL*, $String*, int32_t), "java.io.IOException"},
-	{"setProxiedClient", "(Ljava/net/URL;Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, setProxiedClient, void, $URL*, $String*, int32_t, bool), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AbstractDelegateHttpsURLConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection",
-	"sun.net.www.protocol.http.HttpURLConnection",
-	nullptr,
-	nullptr,
-	_AbstractDelegateHttpsURLConnection_MethodInfo_
-};
-
-$Object* allocate$AbstractDelegateHttpsURLConnection($Class* clazz) {
-	return $of($alloc(AbstractDelegateHttpsURLConnection));
-}
-
 void AbstractDelegateHttpsURLConnection::init$($URL* url, $Handler* handler) {
 	AbstractDelegateHttpsURLConnection::init$(url, nullptr, handler);
 }
@@ -93,15 +55,13 @@ void AbstractDelegateHttpsURLConnection::setNewClient($URL* url) {
 }
 
 void AbstractDelegateHttpsURLConnection::setNewClient($URL* url, bool useCache) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t readTimeout = getReadTimeout();
 	$var($SSLSocketFactory, var$0, getSSLSocketFactory());
-	$var($URL, var$1, url);
-	$var($HostnameVerifier, var$2, getHostnameVerifier());
-	bool var$3 = useCache;
-	$set(this, http, $HttpsClient::New(var$0, var$1, var$2, nullptr, -1, var$3, getConnectTimeout(), this));
+	$var($HostnameVerifier, var$1, getHostnameVerifier());
+	$set(this, http, $HttpsClient::New(var$0, url, var$1, nullptr, -1, useCache, getConnectTimeout(), this));
 	$nc(this->http)->setReadTimeout(readTimeout);
-	$nc(($cast($HttpsClient, this->http)))->afterConnect();
+	$cast($HttpsClient, this->http)->afterConnect();
 }
 
 void AbstractDelegateHttpsURLConnection::setProxiedClient($URL* url, $String* proxyHost, int32_t proxyPort) {
@@ -113,22 +73,18 @@ void AbstractDelegateHttpsURLConnection::setProxiedClient($URL* url, $String* pr
 	if (!$nc(this->http)->isCachedConnection()) {
 		doTunneling();
 	}
-	$nc(($cast($HttpsClient, this->http)))->afterConnect();
+	$cast($HttpsClient, this->http)->afterConnect();
 }
 
 void AbstractDelegateHttpsURLConnection::proxiedConnect($URL* url, $String* proxyHost, int32_t proxyPort, bool useCache) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->connected) {
 		return;
 	}
 	int32_t readTimeout = getReadTimeout();
 	$var($SSLSocketFactory, var$0, getSSLSocketFactory());
-	$var($URL, var$1, url);
-	$var($HostnameVerifier, var$2, getHostnameVerifier());
-	$var($String, var$3, proxyHost);
-	int32_t var$4 = proxyPort;
-	bool var$5 = useCache;
-	$set(this, http, $HttpsClient::New(var$0, var$1, var$2, var$3, var$4, var$5, getConnectTimeout(), this));
+	$var($HostnameVerifier, var$1, getHostnameVerifier());
+	$set(this, http, $HttpsClient::New(var$0, url, var$1, proxyHost, proxyPort, useCache, getConnectTimeout(), this));
 	$nc(this->http)->setReadTimeout(readTimeout);
 	this->connected = true;
 }
@@ -150,96 +106,94 @@ void AbstractDelegateHttpsURLConnection::connect() {
 		return;
 	}
 	bool var$0 = !$nc(this->http)->isCachedConnection();
-	if (var$0 && $nc(this->http)->needsTunneling()) {
+	if (var$0 && this->http->needsTunneling()) {
 		doTunneling();
 	}
-	$nc(($cast($HttpsClient, this->http)))->afterConnect();
+	$cast($HttpsClient, this->http)->afterConnect();
 }
 
 $HttpClient* AbstractDelegateHttpsURLConnection::getNewHttpClient($URL* url, $Proxy* p, int32_t connectTimeout) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLSocketFactory, var$0, getSSLSocketFactory());
-	$var($URL, var$1, url);
-	return $HttpsClient::New(var$0, var$1, $(getHostnameVerifier()), p, true, connectTimeout, static_cast<$HttpURLConnection*>(this));
+	return $HttpsClient::New(var$0, url, $(getHostnameVerifier()), p, true, connectTimeout, this);
 }
 
 $HttpClient* AbstractDelegateHttpsURLConnection::getNewHttpClient($URL* url, $Proxy* p, int32_t connectTimeout, bool useCache) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLSocketFactory, var$0, getSSLSocketFactory());
-	$var($URL, var$1, url);
-	return $HttpsClient::New(var$0, var$1, $(getHostnameVerifier()), p, useCache, connectTimeout, static_cast<$HttpURLConnection*>(this));
+	return $HttpsClient::New(var$0, url, $(getHostnameVerifier()), p, useCache, connectTimeout, this);
 }
 
 $String* AbstractDelegateHttpsURLConnection::getCipherSuite() {
 	if (this->cachedResponse != nullptr) {
-		return $nc(($cast($SecureCacheResponse, this->cachedResponse)))->getCipherSuite();
+		return $cast($SecureCacheResponse, this->cachedResponse)->getCipherSuite();
 	}
 	if (this->http == nullptr) {
 		$throwNew($IllegalStateException, "connection not yet open"_s);
 	} else {
-		return $nc(($cast($HttpsClient, this->http)))->getCipherSuite();
+		return $cast($HttpsClient, this->http)->getCipherSuite();
 	}
 }
 
 $CertificateArray* AbstractDelegateHttpsURLConnection::getLocalCertificates() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cachedResponse != nullptr) {
-		$var($List, l, $nc(($cast($SecureCacheResponse, this->cachedResponse)))->getLocalCertificateChain());
+		$var($List, l, $cast($SecureCacheResponse, this->cachedResponse)->getLocalCertificateChain());
 		if (l == nullptr) {
 			return nullptr;
 		} else {
-			return $fcast($CertificateArray, $nc(l)->toArray($$new($CertificateArray, 0)));
+			return $cast($CertificateArray, l->toArray($$new($CertificateArray, 0)));
 		}
 	}
 	if (this->http == nullptr) {
 		$throwNew($IllegalStateException, "connection not yet open"_s);
 	} else {
-		return ($nc(($cast($HttpsClient, this->http)))->getLocalCertificates());
+		return ($cast($HttpsClient, this->http)->getLocalCertificates());
 	}
 }
 
 $CertificateArray* AbstractDelegateHttpsURLConnection::getServerCertificates() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cachedResponse != nullptr) {
-		$var($List, l, $nc(($cast($SecureCacheResponse, this->cachedResponse)))->getServerCertificateChain());
+		$var($List, l, $cast($SecureCacheResponse, this->cachedResponse)->getServerCertificateChain());
 		if (l == nullptr) {
 			return nullptr;
 		} else {
-			return $fcast($CertificateArray, $nc(l)->toArray($$new($CertificateArray, 0)));
+			return $cast($CertificateArray, l->toArray($$new($CertificateArray, 0)));
 		}
 	}
 	if (this->http == nullptr) {
 		$throwNew($IllegalStateException, "connection not yet open"_s);
 	} else {
-		return ($nc(($cast($HttpsClient, this->http)))->getServerCertificates());
+		return ($cast($HttpsClient, this->http)->getServerCertificates());
 	}
 }
 
 $Principal* AbstractDelegateHttpsURLConnection::getPeerPrincipal() {
 	if (this->cachedResponse != nullptr) {
-		return $nc(($cast($SecureCacheResponse, this->cachedResponse)))->getPeerPrincipal();
+		return $cast($SecureCacheResponse, this->cachedResponse)->getPeerPrincipal();
 	}
 	if (this->http == nullptr) {
 		$throwNew($IllegalStateException, "connection not yet open"_s);
 	} else {
-		return ($nc(($cast($HttpsClient, this->http)))->getPeerPrincipal());
+		return ($cast($HttpsClient, this->http)->getPeerPrincipal());
 	}
 }
 
 $Principal* AbstractDelegateHttpsURLConnection::getLocalPrincipal() {
 	if (this->cachedResponse != nullptr) {
-		return $nc(($cast($SecureCacheResponse, this->cachedResponse)))->getLocalPrincipal();
+		return $cast($SecureCacheResponse, this->cachedResponse)->getLocalPrincipal();
 	}
 	if (this->http == nullptr) {
 		$throwNew($IllegalStateException, "connection not yet open"_s);
 	} else {
-		return ($nc(($cast($HttpsClient, this->http)))->getLocalPrincipal());
+		return ($cast($HttpsClient, this->http)->getLocalPrincipal());
 	}
 }
 
 $SSLSession* AbstractDelegateHttpsURLConnection::getSSLSession() {
 	if (this->cachedResponse != nullptr) {
-		$var($Optional, option, $nc(($cast($SecureCacheResponse, this->cachedResponse)))->getSSLSession());
+		$var($Optional, option, $cast($SecureCacheResponse, this->cachedResponse)->getSSLSession());
 		if ($nc(option)->isPresent()) {
 			return $cast($SSLSession, option->orElseThrow());
 		}
@@ -247,14 +201,47 @@ $SSLSession* AbstractDelegateHttpsURLConnection::getSSLSession() {
 	if (this->http == nullptr) {
 		$throwNew($IllegalStateException, "connection not yet open"_s);
 	}
-	return $nc(($cast($HttpsClient, this->http)))->getSSLSession();
+	return $nc($cast($HttpsClient, this->http))->getSSLSession();
 }
 
 AbstractDelegateHttpsURLConnection::AbstractDelegateHttpsURLConnection() {
 }
 
 $Class* AbstractDelegateHttpsURLConnection::load$($String* name, bool initialize) {
-	$loadClass(AbstractDelegateHttpsURLConnection, name, initialize, &_AbstractDelegateHttpsURLConnection_ClassInfo_, allocate$AbstractDelegateHttpsURLConnection);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;Lsun/net/www/protocol/http/Handler;)V", nullptr, $PROTECTED, $method(AbstractDelegateHttpsURLConnection, init$, void, $URL*, $Handler*), "java.io.IOException"},
+		{"<init>", "(Ljava/net/URL;Ljava/net/Proxy;Lsun/net/www/protocol/http/Handler;)V", nullptr, $PROTECTED, $method(AbstractDelegateHttpsURLConnection, init$, void, $URL*, $Proxy*, $Handler*), "java.io.IOException"},
+		{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, connect, void), "java.io.IOException"},
+		{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, getCipherSuite, $String*)},
+		{"getHostnameVerifier", "()Ljavax/net/ssl/HostnameVerifier;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDelegateHttpsURLConnection, getHostnameVerifier, $HostnameVerifier*)},
+		{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, getLocalCertificates, $CertificateArray*)},
+		{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, 0, $virtualMethod(AbstractDelegateHttpsURLConnection, getLocalPrincipal, $Principal*)},
+		{"getNewHttpClient", "(Ljava/net/URL;Ljava/net/Proxy;I)Lsun/net/www/http/HttpClient;", nullptr, $PROTECTED, $virtualMethod(AbstractDelegateHttpsURLConnection, getNewHttpClient, $HttpClient*, $URL*, $Proxy*, int32_t), "java.io.IOException"},
+		{"getNewHttpClient", "(Ljava/net/URL;Ljava/net/Proxy;IZ)Lsun/net/www/http/HttpClient;", nullptr, $PROTECTED, $virtualMethod(AbstractDelegateHttpsURLConnection, getNewHttpClient, $HttpClient*, $URL*, $Proxy*, int32_t, bool), "java.io.IOException"},
+		{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, 0, $virtualMethod(AbstractDelegateHttpsURLConnection, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, 0, $virtualMethod(AbstractDelegateHttpsURLConnection, getSSLSession, $SSLSession*)},
+		{"getSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDelegateHttpsURLConnection, getSSLSocketFactory, $SSLSocketFactory*)},
+		{"getServerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, getServerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"isConnected", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, isConnected, bool)},
+		{"proxiedConnect", "(Ljava/net/URL;Ljava/lang/String;IZ)V", nullptr, $PROTECTED, $virtualMethod(AbstractDelegateHttpsURLConnection, proxiedConnect, void, $URL*, $String*, int32_t, bool), "java.io.IOException"},
+		{"setConnected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, setConnected, void, bool)},
+		{"setNewClient", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, setNewClient, void, $URL*), "java.io.IOException"},
+		{"setNewClient", "(Ljava/net/URL;Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, setNewClient, void, $URL*, bool), "java.io.IOException"},
+		{"setProxiedClient", "(Ljava/net/URL;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, setProxiedClient, void, $URL*, $String*, int32_t), "java.io.IOException"},
+		{"setProxiedClient", "(Ljava/net/URL;Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $virtualMethod(AbstractDelegateHttpsURLConnection, setProxiedClient, void, $URL*, $String*, int32_t, bool), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection",
+		"sun.net.www.protocol.http.HttpURLConnection",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AbstractDelegateHttpsURLConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDelegateHttpsURLConnection);
+	});
 	return class$;
 }
 

@@ -21,6 +21,7 @@ class $export ReferenceClone : public ::java::lang::Object {
 	$class(ReferenceClone, 0, ::java::lang::Object)
 public:
 	ReferenceClone();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void assertCloneNotSupported(::ReferenceClone$CloneableRef* ref);
 	static void main($StringArray* args);

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/DelayQueue.h>
-
 #include <java/util/AbstractQueue.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -35,7 +34,6 @@ using $Spliterator = ::java::util::Spliterator;
 using $DelayQueue$Itr = ::java::util::concurrent::DelayQueue$Itr;
 using $Delayed = ::java::util::concurrent::Delayed;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $Condition = ::java::util::concurrent::locks::Condition;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
@@ -45,85 +43,6 @@ using $Stream = ::java::util::stream::Stream;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _DelayQueue_FieldInfo_[] = {
-	{"lock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(DelayQueue, lock)},
-	{"q", "Ljava/util/PriorityQueue;", "Ljava/util/PriorityQueue<TE;>;", $PRIVATE | $FINAL, $field(DelayQueue, q)},
-	{"leader", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(DelayQueue, leader)},
-	{"available", "Ljava/util/concurrent/locks/Condition;", nullptr, $PRIVATE | $FINAL, $field(DelayQueue, available)},
-	{}
-};
-
-$MethodInfo _DelayQueue_MethodInfo_[] = {
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*element", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DelayQueue, init$, void)},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(DelayQueue, init$, void, $Collection*)},
-	{"add", "(Ljava/util/concurrent/Delayed;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(DelayQueue, add, bool, $Delayed*)},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DelayQueue, add, bool, Object$*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(DelayQueue, clear, void)},
-	{"drainTo", "(Ljava/util/Collection;)I", "(Ljava/util/Collection<-TE;>;)I", $PUBLIC, $virtualMethod(DelayQueue, drainTo, int32_t, $Collection*)},
-	{"drainTo", "(Ljava/util/Collection;I)I", "(Ljava/util/Collection<-TE;>;I)I", $PUBLIC, $virtualMethod(DelayQueue, drainTo, int32_t, $Collection*, int32_t)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(DelayQueue, iterator, $Iterator*)},
-	{"offer", "(Ljava/util/concurrent/Delayed;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(DelayQueue, offer, bool, $Delayed*)},
-	{"offer", "(Ljava/util/concurrent/Delayed;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC, $virtualMethod(DelayQueue, offer, bool, $Delayed*, int64_t, $TimeUnit*)},
-	{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DelayQueue, offer, bool, Object$*)},
-	{"offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DelayQueue, offer, bool, Object$*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"peek", "()Ljava/util/concurrent/Delayed;", "()TE;", $PUBLIC, $virtualMethod(DelayQueue, peek, $Object*)},
-	{"poll", "()Ljava/util/concurrent/Delayed;", "()TE;", $PUBLIC, $virtualMethod(DelayQueue, poll, $Object*)},
-	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Delayed;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC, $virtualMethod(DelayQueue, poll, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"put", "(Ljava/util/concurrent/Delayed;)V", "(TE;)V", $PUBLIC, $virtualMethod(DelayQueue, put, void, $Delayed*)},
-	{"put", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DelayQueue, put, void, Object$*), "java.lang.InterruptedException"},
-	{"remainingCapacity", "()I", nullptr, $PUBLIC, $virtualMethod(DelayQueue, remainingCapacity, int32_t)},
-	{"*remove", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DelayQueue, remove, bool, Object$*)},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"removeEQ", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(DelayQueue, removeEQ, void, Object$*)},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(DelayQueue, size, int32_t)},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"take", "()Ljava/util/concurrent/Delayed;", "()TE;", $PUBLIC, $virtualMethod(DelayQueue, take, $Object*), "java.lang.InterruptedException"},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DelayQueue, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(DelayQueue, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DelayQueue_InnerClassesInfo_[] = {
-	{"java.util.concurrent.DelayQueue$Itr", "java.util.concurrent.DelayQueue", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DelayQueue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.DelayQueue",
-	"java.util.AbstractQueue",
-	"java.util.concurrent.BlockingQueue",
-	_DelayQueue_FieldInfo_,
-	_DelayQueue_MethodInfo_,
-	"<E::Ljava/util/concurrent/Delayed;>Ljava/util/AbstractQueue<TE;>;Ljava/util/concurrent/BlockingQueue<TE;>;",
-	nullptr,
-	_DelayQueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.DelayQueue$Itr"
-};
-
-$Object* allocate$DelayQueue($Class* clazz) {
-	return $of($alloc(DelayQueue));
-}
 
 $Object* DelayQueue::remove() {
 	 return this->$AbstractQueue::remove();
@@ -205,14 +124,14 @@ void DelayQueue::init$() {
 	$AbstractQueue::init$();
 	$set(this, lock, $new($ReentrantLock));
 	$set(this, q, $new($PriorityQueue));
-	$set(this, available, $nc(this->lock)->newCondition());
+	$set(this, available, this->lock->newCondition());
 }
 
 void DelayQueue::init$($Collection* c) {
 	$AbstractQueue::init$();
 	$set(this, lock, $new($ReentrantLock));
 	$set(this, q, $new($PriorityQueue));
-	$set(this, available, $nc(this->lock)->newCondition());
+	$set(this, available, this->lock->newCondition());
 	this->addAll(c);
 }
 
@@ -221,33 +140,31 @@ bool DelayQueue::add($Delayed* e) {
 }
 
 bool DelayQueue::offer($Delayed* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			$nc(this->q)->offer(e);
-			if ($equals($nc(this->q)->peek(), e)) {
-				$set(this, leader, nullptr);
-				$nc(this->available)->signal();
-			}
-			var$2 = true;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$nc(this->q)->offer(e);
+		if ($equals(this->q->peek(), e)) {
+			$set(this, leader, nullptr);
+			$nc(this->available)->signal();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = true;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -261,222 +178,208 @@ bool DelayQueue::offer($Delayed* e, int64_t timeout, $TimeUnit* unit) {
 }
 
 $Object* DelayQueue::poll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($Delayed, first, $cast($Delayed, $nc(this->q)->peek()));
-			$init($TimeUnit);
-			$assign(var$2, (first == nullptr || $nc(first)->getDelay($TimeUnit::NANOSECONDS) > 0) ? ($Delayed*)nullptr : $cast($Delayed, $nc(this->q)->poll()));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($Delayed, first, $cast($Delayed, $nc(this->q)->peek()));
+		$init($TimeUnit);
+		$assign(var$2, (first == nullptr || first->getDelay($TimeUnit::NANOSECONDS) > 0) ? ($Delayed*)nullptr : $cast($Delayed, this->q->poll()));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Object* DelayQueue::take() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			for (;;) {
-				$var($Delayed, first, $cast($Delayed, $nc(this->q)->peek()));
-				if (first == nullptr) {
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		for (;;) {
+			$var($Delayed, first, $cast($Delayed, $nc(this->q)->peek()));
+			if (first == nullptr) {
+				$nc(this->available)->await();
+			} else {
+				$init($TimeUnit);
+				int64_t delay = first->getDelay($TimeUnit::NANOSECONDS);
+				if (delay <= 0) {
+					$assign(var$2, $cast($Delayed, this->q->poll()));
+					return$1 = true;
+					goto $finally;
+				}
+				$assign(first, nullptr);
+				if (this->leader != nullptr) {
 					$nc(this->available)->await();
 				} else {
-					$init($TimeUnit);
-					int64_t delay = $nc(first)->getDelay($TimeUnit::NANOSECONDS);
-					if (delay <= (int64_t)0) {
-						$assign(var$2, $cast($Delayed, $nc(this->q)->poll()));
-						return$1 = true;
-						goto $finally;
-					}
-					$assign(first, nullptr);
-					if (this->leader != nullptr) {
-						$nc(this->available)->await();
-					} else {
-						$var($Thread, thisThread, $Thread::currentThread());
-						$set(this, leader, thisThread);
-						{
-							$var($Throwable, var$3, nullptr);
-							try {
-								$nc(this->available)->awaitNanos(delay);
-							} catch ($Throwable& var$4) {
-								$assign(var$3, var$4);
-							} /*finally*/ {
-								if (this->leader == thisThread) {
-									$set(this, leader, nullptr);
-								}
-							}
-							if (var$3 != nullptr) {
-								$throw(var$3);
-							}
+					$var($Thread, thisThread, $Thread::currentThread());
+					$set(this, leader, thisThread);
+					$var($Throwable, var$3, nullptr);
+					try {
+						$nc(this->available)->awaitNanos(delay);
+					} catch ($Throwable& var$4) {
+						$assign(var$3, var$4);
+					} /*finally*/ {
+						if (this->leader == thisThread) {
+							$set(this, leader, nullptr);
 						}
+					}
+					if (var$3 != nullptr) {
+						$throw(var$3);
 					}
 				}
 			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} $finally: {
-			if (this->leader == nullptr && $nc(this->q)->peek() != nullptr) {
-				$nc(this->available)->signal();
-			}
-			lock->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		if (this->leader == nullptr && $nc(this->q)->peek() != nullptr) {
+			$nc(this->available)->signal();
 		}
-		if (return$1) {
-			return var$2;
-		}
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Object* DelayQueue::poll(int64_t timeout, $TimeUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			for (;;) {
-				$var($Delayed, first, $cast($Delayed, $nc(this->q)->peek()));
-				if (first == nullptr) {
-					if (nanos <= (int64_t)0) {
-						$assign(var$2, nullptr);
-						return$1 = true;
-						goto $finally;
-					} else {
-						nanos = $nc(this->available)->awaitNanos(nanos);
-					}
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		for (;;) {
+			$var($Delayed, first, $cast($Delayed, $nc(this->q)->peek()));
+			if (first == nullptr) {
+				if (nanos <= 0) {
+					$assign(var$2, nullptr);
+					return$1 = true;
+					goto $finally;
 				} else {
-					int64_t delay = $nc(first)->getDelay($TimeUnit::NANOSECONDS);
-					if (delay <= (int64_t)0) {
-						$assign(var$2, $cast($Delayed, $nc(this->q)->poll()));
-						return$1 = true;
-						goto $finally;
-					}
-					if (nanos <= (int64_t)0) {
-						$assign(var$2, nullptr);
-						return$1 = true;
-						goto $finally;
-					}
-					$assign(first, nullptr);
-					if (nanos < delay || this->leader != nullptr) {
-						nanos = $nc(this->available)->awaitNanos(nanos);
-					} else {
-						$var($Thread, thisThread, $Thread::currentThread());
-						$set(this, leader, thisThread);
-						{
-							$var($Throwable, var$3, nullptr);
-							try {
-								int64_t timeLeft = $nc(this->available)->awaitNanos(delay);
-								nanos -= delay - timeLeft;
-							} catch ($Throwable& var$4) {
-								$assign(var$3, var$4);
-							} /*finally*/ {
-								if (this->leader == thisThread) {
-									$set(this, leader, nullptr);
-								}
-							}
-							if (var$3 != nullptr) {
-								$throw(var$3);
-							}
+					nanos = $nc(this->available)->awaitNanos(nanos);
+				}
+			} else {
+				int64_t delay = first->getDelay($TimeUnit::NANOSECONDS);
+				if (delay <= 0) {
+					$assign(var$2, $cast($Delayed, this->q->poll()));
+					return$1 = true;
+					goto $finally;
+				}
+				if (nanos <= 0) {
+					$assign(var$2, nullptr);
+					return$1 = true;
+					goto $finally;
+				}
+				$assign(first, nullptr);
+				if (nanos < delay || this->leader != nullptr) {
+					nanos = $nc(this->available)->awaitNanos(nanos);
+				} else {
+					$var($Thread, thisThread, $Thread::currentThread());
+					$set(this, leader, thisThread);
+					$var($Throwable, var$3, nullptr);
+					try {
+						int64_t timeLeft = $nc(this->available)->awaitNanos(delay);
+						nanos -= delay - timeLeft;
+					} catch ($Throwable& var$4) {
+						$assign(var$3, var$4);
+					} /*finally*/ {
+						if (this->leader == thisThread) {
+							$set(this, leader, nullptr);
 						}
+					}
+					if (var$3 != nullptr) {
+						$throw(var$3);
 					}
 				}
 			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} $finally: {
-			if (this->leader == nullptr && $nc(this->q)->peek() != nullptr) {
-				$nc(this->available)->signal();
-			}
-			lock->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		if (this->leader == nullptr && $nc(this->q)->peek() != nullptr) {
+			$nc(this->available)->signal();
 		}
-		if (return$1) {
-			return var$2;
-		}
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Object* DelayQueue::peek() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $cast($Delayed, $nc(this->q)->peek()));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $cast($Delayed, $nc(this->q)->peek()));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t DelayQueue::size() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			var$2 = $nc(this->q)->size();
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		var$2 = $nc(this->q)->size();
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -486,7 +389,7 @@ int32_t DelayQueue::drainTo($Collection* c) {
 }
 
 int32_t DelayQueue::drainTo($Collection* c, int32_t maxElements) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(c);
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
@@ -496,61 +399,57 @@ int32_t DelayQueue::drainTo($Collection* c, int32_t maxElements) {
 	}
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int32_t n = 0;
-			{
-				$var($Delayed, first, nullptr);
-				for (;;) {
-					bool var$3 = n < maxElements && ($assign(first, $cast($Delayed, $nc(this->q)->peek()))) != nullptr;
-					$init($TimeUnit);
-					if (!(var$3 && $nc(first)->getDelay($TimeUnit::NANOSECONDS) <= 0)) {
-						break;
-					}
-					{
-						c->add(first);
-						$nc(this->q)->poll();
-						++n;
-					}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int32_t n = 0;
+		{
+			$var($Delayed, first, nullptr);
+			for (;;) {
+				bool var$3 = n < maxElements && ($assign(first, $cast($Delayed, $nc(this->q)->peek()))) != nullptr;
+				$init($TimeUnit);
+				if (!(var$3 && $nc(first)->getDelay($TimeUnit::NANOSECONDS) <= 0)) {
+					break;
+				}
+				{
+					c->add(first);
+					this->q->poll();
+					++n;
 				}
 			}
-			var$2 = n;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			lock->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = n;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void DelayQueue::clear() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->q)->clear();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->q)->clear();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -559,110 +458,100 @@ int32_t DelayQueue::remainingCapacity() {
 }
 
 $ObjectArray* DelayQueue::toArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($ObjectArray, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $nc(this->q)->toArray());
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($ObjectArray, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(this->q)->toArray());
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $ObjectArray* DelayQueue::toArray($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($ObjectArray, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $nc(this->q)->toArray(a));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($ObjectArray, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(this->q)->toArray(a));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool DelayQueue::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = $nc(this->q)->remove(o);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			lock->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = $nc(this->q)->remove(o);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void DelayQueue::removeEQ(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			{
-				$var($Iterator, it, $nc(this->q)->iterator());
-				for (; $nc(it)->hasNext();) {
-					if ($equals(o, it->next())) {
-						it->remove();
-						break;
-					}
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Iterator, it, $nc(this->q)->iterator());
+		for (; $nc(it)->hasNext();) {
+			if ($equals(o, it->next())) {
+				it->remove();
+				break;
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lock->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -690,7 +579,80 @@ DelayQueue::DelayQueue() {
 }
 
 $Class* DelayQueue::load$($String* name, bool initialize) {
-	$loadClass(DelayQueue, name, initialize, &_DelayQueue_ClassInfo_, allocate$DelayQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"lock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(DelayQueue, lock)},
+		{"q", "Ljava/util/PriorityQueue;", "Ljava/util/PriorityQueue<TE;>;", $PRIVATE | $FINAL, $field(DelayQueue, q)},
+		{"leader", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(DelayQueue, leader)},
+		{"available", "Ljava/util/concurrent/locks/Condition;", nullptr, $PRIVATE | $FINAL, $field(DelayQueue, available)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*element", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DelayQueue, init$, void)},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(DelayQueue, init$, void, $Collection*)},
+		{"add", "(Ljava/util/concurrent/Delayed;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(DelayQueue, add, bool, $Delayed*)},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DelayQueue, add, bool, Object$*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(DelayQueue, clear, void)},
+		{"drainTo", "(Ljava/util/Collection;)I", "(Ljava/util/Collection<-TE;>;)I", $PUBLIC, $virtualMethod(DelayQueue, drainTo, int32_t, $Collection*)},
+		{"drainTo", "(Ljava/util/Collection;I)I", "(Ljava/util/Collection<-TE;>;I)I", $PUBLIC, $virtualMethod(DelayQueue, drainTo, int32_t, $Collection*, int32_t)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(DelayQueue, iterator, $Iterator*)},
+		{"offer", "(Ljava/util/concurrent/Delayed;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(DelayQueue, offer, bool, $Delayed*)},
+		{"offer", "(Ljava/util/concurrent/Delayed;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC, $virtualMethod(DelayQueue, offer, bool, $Delayed*, int64_t, $TimeUnit*)},
+		{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DelayQueue, offer, bool, Object$*)},
+		{"offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DelayQueue, offer, bool, Object$*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"peek", "()Ljava/util/concurrent/Delayed;", "()TE;", $PUBLIC, $virtualMethod(DelayQueue, peek, $Object*)},
+		{"poll", "()Ljava/util/concurrent/Delayed;", "()TE;", $PUBLIC, $virtualMethod(DelayQueue, poll, $Object*)},
+		{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Delayed;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC, $virtualMethod(DelayQueue, poll, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"put", "(Ljava/util/concurrent/Delayed;)V", "(TE;)V", $PUBLIC, $virtualMethod(DelayQueue, put, void, $Delayed*)},
+		{"put", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DelayQueue, put, void, Object$*), "java.lang.InterruptedException"},
+		{"remainingCapacity", "()I", nullptr, $PUBLIC, $virtualMethod(DelayQueue, remainingCapacity, int32_t)},
+		{"*remove", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DelayQueue, remove, bool, Object$*)},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"removeEQ", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(DelayQueue, removeEQ, void, Object$*)},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(DelayQueue, size, int32_t)},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"take", "()Ljava/util/concurrent/Delayed;", "()TE;", $PUBLIC, $virtualMethod(DelayQueue, take, $Object*), "java.lang.InterruptedException"},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DelayQueue, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(DelayQueue, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.DelayQueue$Itr", "java.util.concurrent.DelayQueue", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.DelayQueue",
+		"java.util.AbstractQueue",
+		"java.util.concurrent.BlockingQueue",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E::Ljava/util/concurrent/Delayed;>Ljava/util/AbstractQueue<TE;>;Ljava/util/concurrent/BlockingQueue<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.DelayQueue$Itr"
+	};
+	$loadClass(DelayQueue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DelayQueue));
+	});
 	return class$;
 }
 

@@ -31,6 +31,7 @@ class SocketOutputStream : public ::java::io::FileOutputStream {
 	$class(SocketOutputStream, 0, ::java::io::FileOutputStream)
 public:
 	SocketOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::AbstractPlainSocketImpl* impl);
 	virtual void close() override;
 	virtual ::java::nio::channels::FileChannel* getChannel() override;

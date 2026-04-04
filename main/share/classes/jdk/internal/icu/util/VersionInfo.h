@@ -27,6 +27,7 @@ class VersionInfo : public ::java::lang::Object {
 	$class(VersionInfo, 0, ::java::lang::Object)
 public:
 	VersionInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t compactversion);
 	int32_t compareTo(::jdk::internal::icu::util::VersionInfo* other);
 	static ::jdk::internal::icu::util::VersionInfo* getInstance($String* version);

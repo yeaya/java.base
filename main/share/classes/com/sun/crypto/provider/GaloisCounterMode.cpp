@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/GaloisCounterMode.h>
-
 #include <com/sun/crypto/provider/AESCrypt.h>
 #include <com/sun/crypto/provider/ConstructKeys.h>
 #include <com/sun/crypto/provider/GHASH.h>
@@ -22,7 +21,6 @@
 #include <java/security/Key.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
-#include <java/security/Provider.h>
 #include <java/security/ProviderException.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -55,7 +53,6 @@ using $ConstructKeys = ::com::sun::crypto::provider::ConstructKeys;
 using $GHASH = ::com::sun::crypto::provider::GHASH;
 using $GaloisCounterMode$GCMDecrypt = ::com::sun::crypto::provider::GaloisCounterMode$GCMDecrypt;
 using $GaloisCounterMode$GCMEncrypt = ::com::sun::crypto::provider::GaloisCounterMode$GCMEncrypt;
-using $GaloisCounterMode$GCMEngine = ::com::sun::crypto::provider::GaloisCounterMode$GCMEngine;
 using $SunJCE = ::com::sun::crypto::provider::SunJCE;
 using $SymmetricCipher = ::com::sun::crypto::provider::SymmetricCipher;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
@@ -71,13 +68,11 @@ using $VarHandle = ::java::lang::invoke::VarHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $Provider = ::java::security::Provider;
 using $ProviderException = ::java::security::ProviderException;
 using $SecureRandom = ::java::security::SecureRandom;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
@@ -97,93 +92,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _GaloisCounterMode_FieldInfo_[] = {
-	{"DEFAULT_IV_LEN", "I", nullptr, $STATIC, $staticField(GaloisCounterMode, DEFAULT_IV_LEN)},
-	{"DEFAULT_TAG_LEN", "I", nullptr, $STATIC, $staticField(GaloisCounterMode, DEFAULT_TAG_LEN)},
-	{"MAX_BUF_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GaloisCounterMode, MAX_BUF_SIZE)},
-	{"TRIGGERLEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GaloisCounterMode, TRIGGERLEN)},
-	{"EMPTY_BUF", "[B", nullptr, $STATIC | $FINAL, $staticField(GaloisCounterMode, EMPTY_BUF)},
-	{"initialized", "Z", nullptr, $PRIVATE, $field(GaloisCounterMode, initialized)},
-	{"blockCipher", "Lcom/sun/crypto/provider/SymmetricCipher;", nullptr, 0, $field(GaloisCounterMode, blockCipher)},
-	{"engine", "Lcom/sun/crypto/provider/GaloisCounterMode$GCMEngine;", nullptr, $PRIVATE, $field(GaloisCounterMode, engine)},
-	{"encryption", "Z", nullptr, $PRIVATE, $field(GaloisCounterMode, encryption)},
-	{"tagLenBytes", "I", nullptr, 0, $field(GaloisCounterMode, tagLenBytes)},
-	{"keySize", "I", nullptr, 0, $field(GaloisCounterMode, keySize)},
-	{"reInit", "Z", nullptr, 0, $field(GaloisCounterMode, reInit)},
-	{"lastKey", "[B", nullptr, 0, $field(GaloisCounterMode, lastKey)},
-	{"lastIv", "[B", nullptr, 0, $field(GaloisCounterMode, lastIv)},
-	{"iv", "[B", nullptr, 0, $field(GaloisCounterMode, iv)},
-	{"random", "Ljava/security/SecureRandom;", nullptr, 0, $field(GaloisCounterMode, random)},
-	{"wrapToByteArray", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GaloisCounterMode, wrapToByteArray)},
-	{}
-};
-
-$MethodInfo _GaloisCounterMode_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(GaloisCounterMode, init$, void, int32_t, $SymmetricCipher*)},
-	{"checkDataLength", "([I)V", nullptr, $PRIVATE | $TRANSIENT, $method(GaloisCounterMode, checkDataLength, void, $ints*)},
-	{"checkInit", "()V", nullptr, 0, $virtualMethod(GaloisCounterMode, checkInit, void)},
-	{"checkReInit", "()V", nullptr, 0, $virtualMethod(GaloisCounterMode, checkReInit, void)},
-	{"createIv", "(Ljava/security/SecureRandom;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GaloisCounterMode, createIv, $bytes*, $SecureRandom*)},
-	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineDoFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineDoFinal, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineGetBlockSize, int32_t)},
-	{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineGetIV, $bytes*)},
-	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineGetOutputSize, int32_t, int32_t)},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
-	{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUpdate, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException"},
-	{"engineUpdateAAD", "([BII)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUpdateAAD, void, $bytes*, int32_t, int32_t)},
-	{"engineUpdateAAD", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUpdateAAD, void, $ByteBuffer*)},
-	{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
-	{"expandToOneBlock", "([BIII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GaloisCounterMode, expandToOneBlock, $bytes*, $bytes*, int32_t, int32_t, int32_t)},
-	{"getJ0", "([B[BI)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GaloisCounterMode, getJ0, $bytes*, $bytes*, $bytes*, int32_t)},
-	{"getLengthBlock", "(I)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GaloisCounterMode, getLengthBlock, $bytes*, int32_t)},
-	{"getLengthBlock", "(II)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GaloisCounterMode, getLengthBlock, $bytes*, int32_t, int32_t)},
-	{"increment32", "([B)V", nullptr, $STATIC, $staticMethod(GaloisCounterMode, increment32, void, $bytes*)},
-	{"init", "(ILjava/security/Key;Ljavax/crypto/spec/GCMParameterSpec;)V", nullptr, 0, $virtualMethod(GaloisCounterMode, init, void, int32_t, $Key*, $GCMParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$InnerClassInfo _GaloisCounterMode_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.GaloisCounterMode$GCTRGHASH", "com.sun.crypto.provider.GaloisCounterMode", "GCTRGHASH", $STATIC | $FINAL},
-	{"com.sun.crypto.provider.GaloisCounterMode$AES256", "com.sun.crypto.provider.GaloisCounterMode", "AES256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.GaloisCounterMode$AES192", "com.sun.crypto.provider.GaloisCounterMode", "AES192", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.GaloisCounterMode$AES128", "com.sun.crypto.provider.GaloisCounterMode", "AES128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.GaloisCounterMode$AESGCM", "com.sun.crypto.provider.GaloisCounterMode", "AESGCM", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.GaloisCounterMode$GCMDecrypt", "com.sun.crypto.provider.GaloisCounterMode", "GCMDecrypt", 0},
-	{"com.sun.crypto.provider.GaloisCounterMode$GCMEncrypt", "com.sun.crypto.provider.GaloisCounterMode", "GCMEncrypt", 0},
-	{"com.sun.crypto.provider.GaloisCounterMode$GCMEngine", "com.sun.crypto.provider.GaloisCounterMode", "GCMEngine", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GaloisCounterMode_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.crypto.provider.GaloisCounterMode",
-	"javax.crypto.CipherSpi",
-	nullptr,
-	_GaloisCounterMode_FieldInfo_,
-	_GaloisCounterMode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GaloisCounterMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.GaloisCounterMode$GCTRGHASH,com.sun.crypto.provider.GaloisCounterMode$AES256,com.sun.crypto.provider.GaloisCounterMode$AES192,com.sun.crypto.provider.GaloisCounterMode$AES128,com.sun.crypto.provider.GaloisCounterMode$AESGCM,com.sun.crypto.provider.GaloisCounterMode$GCMDecrypt,com.sun.crypto.provider.GaloisCounterMode$GCMEncrypt,com.sun.crypto.provider.GaloisCounterMode$GCMEngine"
-};
-
-$Object* allocate$GaloisCounterMode($Class* clazz) {
-	return $of($alloc(GaloisCounterMode));
-}
 
 int32_t GaloisCounterMode::DEFAULT_IV_LEN = 0;
 int32_t GaloisCounterMode::DEFAULT_TAG_LEN = 0;
@@ -205,10 +113,10 @@ void GaloisCounterMode::init$(int32_t keySize, $SymmetricCipher* embeddedCipher)
 }
 
 void GaloisCounterMode::init(int32_t opmode, $Key* key, $GCMParameterSpec* spec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->encryption = (opmode == $Cipher::ENCRYPT_MODE) || (opmode == $Cipher::WRAP_MODE);
 	int32_t tagLen = $nc(spec)->getTLen();
-	if (tagLen < 96 || tagLen > 128 || (((int32_t)(tagLen & (uint32_t)7)) != 0)) {
+	if (tagLen < 96 || tagLen > 128 || ((tagLen & 7) != 0)) {
 		$throwNew($InvalidAlgorithmParameterException, "Unsupported TLen value.  Must be one of {128, 120, 112, 104, 96}"_s);
 	}
 	this->tagLenBytes = tagLen >> 3;
@@ -218,7 +126,7 @@ void GaloisCounterMode::init(int32_t opmode, $Key* key, $GCMParameterSpec* spec)
 	$var($bytes, keyValue, $nc(key)->getEncoded());
 	if (keyValue == nullptr) {
 		$throwNew($InvalidKeyException, "Key encoding must not be null"_s);
-	} else if (this->keySize != -1 && $nc(keyValue)->length != this->keySize) {
+	} else if (this->keySize != -1 && keyValue->length != this->keySize) {
 		$Arrays::fill(keyValue, (int8_t)0);
 		$throwNew($InvalidKeyException, $$str({"The key must be "_s, $$str(this->keySize), " bytes"_s}));
 	}
@@ -235,20 +143,18 @@ void GaloisCounterMode::init(int32_t opmode, $Key* key, $GCMParameterSpec* spec)
 		$set(this, lastIv, this->iv);
 	}
 	this->reInit = false;
-	{
-		$var($Throwable, var$1, nullptr);
-		try {
-			$nc(this->blockCipher)->init(false, $(key->getAlgorithm()), keyValue);
-		} catch ($Throwable& var$2) {
-			$assign(var$1, var$2);
-		} /*finally*/ {
-			if (!this->encryption) {
-				$Arrays::fill(keyValue, (int8_t)0);
-			}
+	$var($Throwable, var$1, nullptr);
+	try {
+		$nc(this->blockCipher)->init(false, $(key->getAlgorithm()), keyValue);
+	} catch ($Throwable& var$2) {
+		$assign(var$1, var$2);
+	} /*finally*/ {
+		if (!this->encryption) {
+			$Arrays::fill(keyValue, (int8_t)0);
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
-		}
+	}
+	if (var$1 != nullptr) {
+		$throw(var$1);
 	}
 }
 
@@ -274,13 +180,13 @@ int32_t GaloisCounterMode::engineGetOutputSize(int32_t inputLen) {
 }
 
 int32_t GaloisCounterMode::engineGetKeySize($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, $nc(key)->getEncoded());
 	$Arrays::fill(encoded, (int8_t)0);
 	if (!$AESCrypt::isKeySizeValid($nc(encoded)->length)) {
-		$throwNew($InvalidKeyException, $$str({"Invalid key length: "_s, $$str($nc(encoded)->length), " bytes"_s}));
+		$throwNew($InvalidKeyException, $$str({"Invalid key length: "_s, $$str(encoded->length), " bytes"_s}));
 	}
-	return $Math::multiplyExact($nc(encoded)->length, 8);
+	return $Math::multiplyExact(encoded->length, 8);
 }
 
 $bytes* GaloisCounterMode::engineGetIV() {
@@ -292,7 +198,7 @@ $bytes* GaloisCounterMode::engineGetIV() {
 
 $bytes* GaloisCounterMode::createIv($SecureRandom* rand$renamed) {
 	$init(GaloisCounterMode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecureRandom, rand, rand$renamed);
 	$var($bytes, iv, $new($bytes, GaloisCounterMode::DEFAULT_IV_LEN));
 	if (rand == nullptr) {
@@ -303,17 +209,17 @@ $bytes* GaloisCounterMode::createIv($SecureRandom* rand$renamed) {
 }
 
 $AlgorithmParameters* GaloisCounterMode::engineGetParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GCMParameterSpec, spec, nullptr);
-	$assign(spec, $new($GCMParameterSpec, this->tagLenBytes * 8, this->iv == nullptr ? $(createIv(this->random)) : $cast($bytes, $($nc(this->iv)->clone()))));
+	$assign(spec, $new($GCMParameterSpec, this->tagLenBytes * 8, this->iv == nullptr ? $(createIv(this->random)) : $$cast($bytes, this->iv->clone())));
 	try {
-		$var($AlgorithmParameters, params, $AlgorithmParameters::getInstance("GCM"_s, $(static_cast<$Provider*>($SunJCE::getInstance()))));
-		$nc(params)->init(static_cast<$AlgorithmParameterSpec*>(spec));
+		$var($AlgorithmParameters, params, $AlgorithmParameters::getInstance("GCM"_s, $($SunJCE::getInstance())));
+		$nc(params)->init(spec);
 		return params;
 	} catch ($NoSuchAlgorithmException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($InvalidParameterSpecException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -341,7 +247,7 @@ void GaloisCounterMode::engineInit(int32_t opmode, $Key* key, $AlgorithmParamete
 			$throwNew($InvalidAlgorithmParameterException, "AlgorithmParameterSpec not of GCMParameterSpec"_s);
 		}
 		$assign(spec, $cast($GCMParameterSpec, params));
-		$set(this, iv, $nc(spec)->getIV());
+		$set(this, iv, spec->getIV());
 		if (this->iv == nullptr) {
 			$throwNew($InvalidAlgorithmParameterException, "IV is null"_s);
 		}
@@ -361,10 +267,10 @@ void GaloisCounterMode::engineInit(int32_t opmode, $Key* key, $AlgorithmParamete
 			$load($GCMParameterSpec);
 			$assign(spec, $cast($GCMParameterSpec, params->getParameterSpec($GCMParameterSpec::class$)));
 		} catch ($InvalidParameterSpecException& e) {
-			$throwNew($InvalidAlgorithmParameterException, static_cast<$Throwable*>(e));
+			$throwNew($InvalidAlgorithmParameterException, e);
 		}
 	}
-	engineInit(opmode, key, static_cast<$AlgorithmParameterSpec*>(spec), random);
+	engineInit(opmode, key, spec, random);
 }
 
 void GaloisCounterMode::checkInit() {
@@ -393,19 +299,19 @@ $bytes* GaloisCounterMode::engineUpdate($bytes* input, int32_t inputOffset, int3
 }
 
 int32_t GaloisCounterMode::engineUpdate($bytes* input, int32_t inputOffset, int32_t inputLen, $bytes* output, int32_t outputOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkInit();
 	$ArrayUtil::nullAndBoundsCheck(input, inputOffset, inputLen);
 	$ArrayUtil::nullAndBoundsCheck(output, outputOffset, $nc(output)->length - outputOffset);
 	int32_t len = $nc(this->engine)->getOutputSize(inputLen, false);
-	if (len > $nc(output)->length - outputOffset) {
+	if (len > output->length - outputOffset) {
 		$throwNew($ShortBufferException, $$str({"Output buffer too small, must be at least "_s, $$str(len), " bytes long"_s}));
 	}
-	return $nc(this->engine)->doUpdate(input, inputOffset, inputLen, output, outputOffset);
+	return this->engine->doUpdate(input, inputOffset, inputLen, output, outputOffset);
 }
 
 int32_t GaloisCounterMode::engineUpdate($ByteBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkInit();
 	int32_t len = $nc(this->engine)->getOutputSize($nc(src)->remaining(), false);
 	if (len > $nc(dst)->remaining()) {
@@ -420,7 +326,7 @@ void GaloisCounterMode::engineUpdateAAD($bytes* src, int32_t offset, int32_t len
 }
 
 void GaloisCounterMode::engineUpdateAAD($ByteBuffer* src) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkInit();
 	if ($nc(src)->hasArray()) {
 		int32_t pos = src->position();
@@ -436,7 +342,7 @@ void GaloisCounterMode::engineUpdateAAD($ByteBuffer* src) {
 }
 
 $bytes* GaloisCounterMode::engineDoFinal($bytes* input$renamed, int32_t inputOffset, int32_t inputLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, input, input$renamed);
 	if (input == nullptr) {
 		$assign(input, GaloisCounterMode::EMPTY_BUF);
@@ -448,22 +354,20 @@ $bytes* GaloisCounterMode::engineDoFinal($bytes* input$renamed, int32_t inputOff
 	}
 	checkInit();
 	$var($bytes, output, $new($bytes, $nc(this->engine)->getOutputSize(inputLen, true)));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(this->engine)->doFinal(input, inputOffset, inputLen, output, 0);
-			} catch ($ShortBufferException& e) {
-				$throwNew($ProviderException, static_cast<$Throwable*>(e));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, engine, nullptr);
+			this->engine->doFinal(input, inputOffset, inputLen, output, 0);
+		} catch ($ShortBufferException& e) {
+			$throwNew($ProviderException, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, engine, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return output;
 }
@@ -493,44 +397,42 @@ int32_t GaloisCounterMode::engineDoFinal($ByteBuffer* src, $ByteBuffer* dst) {
 }
 
 $bytes* GaloisCounterMode::engineWrap($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encodedKey, nullptr);
 	checkInit();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$assign(encodedKey, $nc(key)->getEncoded());
-				if ((encodedKey == nullptr) || ($nc(encodedKey)->length == 0)) {
-					$throwNew($InvalidKeyException, "Cannot get an encoding of the key to be wrapped"_s);
-				}
-				$assign(var$2, engineDoFinal(encodedKey, 0, $nc(encodedKey)->length));
-				return$1 = true;
-				goto $finally;
-			} catch ($BadPaddingException& e) {
+			$assign(encodedKey, $nc(key)->getEncoded());
+			if ((encodedKey == nullptr) || (encodedKey->length == 0)) {
+				$throwNew($InvalidKeyException, "Cannot get an encoding of the key to be wrapped"_s);
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$set(this, engine, nullptr);
-			if (encodedKey != nullptr) {
-				$Arrays::fill(encodedKey, (int8_t)0);
-			}
+			$assign(var$2, engineDoFinal(encodedKey, 0, $nc(encodedKey)->length));
+			return$1 = true;
+			goto $finally;
+		} catch ($BadPaddingException& e) {
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$set(this, engine, nullptr);
+		if (encodedKey != nullptr) {
+			$Arrays::fill(encodedKey, (int8_t)0);
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	return nullptr;
 }
 
 $Key* GaloisCounterMode::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_t wrappedKeyType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkInit();
 	$var($bytes, encodedKey, nullptr);
 	try {
@@ -540,25 +442,23 @@ $Key* GaloisCounterMode::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlg
 	} catch ($IllegalBlockSizeException& eBlockSize) {
 		$throwNew($InvalidKeyException, "The wrapped key does not have the correct length"_s);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Key, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $ConstructKeys::constructKey(encodedKey, wrappedKeyAlgorithm, wrappedKeyType));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(encodedKey, (int8_t)0);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Key, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $ConstructKeys::constructKey(encodedKey, wrappedKeyAlgorithm, wrappedKeyType));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(encodedKey, (int8_t)0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -567,7 +467,7 @@ void GaloisCounterMode::increment32($bytes* value) {
 	$init(GaloisCounterMode);
 	int32_t n = $nc(value)->length - 1;
 	while (true) {
-		bool var$0 = (n >= value->length - 4);
+		bool var$0 = n >= value->length - 4;
 		if (!(var$0 && (++(*value)[n] == 0))) {
 			break;
 		}
@@ -579,24 +479,24 @@ void GaloisCounterMode::increment32($bytes* value) {
 
 $bytes* GaloisCounterMode::getLengthBlock(int32_t ivLenInBytes) {
 	$init(GaloisCounterMode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, out, $new($bytes, 16));
-	$nc(GaloisCounterMode::wrapToByteArray)->set($$new($ObjectArray, {$of(out), $$of(8), $$of((((int64_t)((int64_t)ivLenInBytes & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 3))}));
+	$nc(GaloisCounterMode::wrapToByteArray)->set($$new($ObjectArray, {out, $$of(8), $$of(((int64_t)ivLenInBytes & (int64_t)0xffffffff) << 3)}));
 	return out;
 }
 
 $bytes* GaloisCounterMode::getLengthBlock(int32_t aLenInBytes, int32_t cLenInBytes) {
 	$init(GaloisCounterMode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, out, $new($bytes, 16));
-	$nc(GaloisCounterMode::wrapToByteArray)->set($$new($ObjectArray, {$of(out), $$of(0), $$of((((int64_t)((int64_t)aLenInBytes & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 3))}));
-	$nc(GaloisCounterMode::wrapToByteArray)->set($$new($ObjectArray, {$of(out), $$of(8), $$of((((int64_t)((int64_t)cLenInBytes & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 3))}));
+	$nc(GaloisCounterMode::wrapToByteArray)->set($$new($ObjectArray, {out, $$of(0), $$of(((int64_t)aLenInBytes & (int64_t)0xffffffff) << 3)}));
+	GaloisCounterMode::wrapToByteArray->set($$new($ObjectArray, {out, $$of(8), $$of(((int64_t)cLenInBytes & (int64_t)0xffffffff) << 3)}));
 	return out;
 }
 
 $bytes* GaloisCounterMode::expandToOneBlock($bytes* in, int32_t inOfs, int32_t len, int32_t blockSize) {
 	$init(GaloisCounterMode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len > blockSize) {
 		$throwNew($ProviderException, $$str({"input "_s, $$str(len), " too long"_s}));
 	}
@@ -611,11 +511,11 @@ $bytes* GaloisCounterMode::expandToOneBlock($bytes* in, int32_t inOfs, int32_t l
 
 $bytes* GaloisCounterMode::getJ0($bytes* iv, $bytes* subkeyH, int32_t blockSize) {
 	$init(GaloisCounterMode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, j0, nullptr);
 	if ($nc(iv)->length == 12) {
 		$assign(j0, expandToOneBlock(iv, 0, iv->length, blockSize));
-		$nc(j0)->set(blockSize - 1, (int8_t)1);
+		$nc(j0)->set(blockSize - 1, 1);
 	} else {
 		$var($GHASH, g, $new($GHASH, subkeyH));
 		int32_t lastLen = $mod(iv->length, blockSize);
@@ -633,13 +533,11 @@ $bytes* GaloisCounterMode::getJ0($bytes* iv, $bytes* subkeyH, int32_t blockSize)
 }
 
 void GaloisCounterMode::checkDataLength($ints* lengths) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t max = GaloisCounterMode::MAX_BUF_SIZE;
 	{
 		$var($ints, arr$, lengths);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t len = arr$->get(i$);
 			{
 				max = $Math::subtractExact(max, len);
@@ -651,11 +549,10 @@ void GaloisCounterMode::checkDataLength($ints* lengths) {
 	}
 }
 
-void clinit$GaloisCounterMode($Class* class$) {
+void GaloisCounterMode::clinit$($Class* clazz) {
 	GaloisCounterMode::DEFAULT_IV_LEN = 12;
 	GaloisCounterMode::DEFAULT_TAG_LEN = 16;
 	$assignStatic(GaloisCounterMode::EMPTY_BUF, $new($bytes, 0));
-	$load($longs);
 	$init($ByteOrder);
 	$assignStatic(GaloisCounterMode::wrapToByteArray, $MethodHandles::byteArrayViewVarHandle($getClass($longs), $ByteOrder::BIG_ENDIAN));
 }
@@ -664,7 +561,88 @@ GaloisCounterMode::GaloisCounterMode() {
 }
 
 $Class* GaloisCounterMode::load$($String* name, bool initialize) {
-	$loadClass(GaloisCounterMode, name, initialize, &_GaloisCounterMode_ClassInfo_, clinit$GaloisCounterMode, allocate$GaloisCounterMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_IV_LEN", "I", nullptr, $STATIC, $staticField(GaloisCounterMode, DEFAULT_IV_LEN)},
+		{"DEFAULT_TAG_LEN", "I", nullptr, $STATIC, $staticField(GaloisCounterMode, DEFAULT_TAG_LEN)},
+		{"MAX_BUF_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GaloisCounterMode, MAX_BUF_SIZE)},
+		{"TRIGGERLEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GaloisCounterMode, TRIGGERLEN)},
+		{"EMPTY_BUF", "[B", nullptr, $STATIC | $FINAL, $staticField(GaloisCounterMode, EMPTY_BUF)},
+		{"initialized", "Z", nullptr, $PRIVATE, $field(GaloisCounterMode, initialized)},
+		{"blockCipher", "Lcom/sun/crypto/provider/SymmetricCipher;", nullptr, 0, $field(GaloisCounterMode, blockCipher)},
+		{"engine", "Lcom/sun/crypto/provider/GaloisCounterMode$GCMEngine;", nullptr, $PRIVATE, $field(GaloisCounterMode, engine)},
+		{"encryption", "Z", nullptr, $PRIVATE, $field(GaloisCounterMode, encryption)},
+		{"tagLenBytes", "I", nullptr, 0, $field(GaloisCounterMode, tagLenBytes)},
+		{"keySize", "I", nullptr, 0, $field(GaloisCounterMode, keySize)},
+		{"reInit", "Z", nullptr, 0, $field(GaloisCounterMode, reInit)},
+		{"lastKey", "[B", nullptr, 0, $field(GaloisCounterMode, lastKey)},
+		{"lastIv", "[B", nullptr, 0, $field(GaloisCounterMode, lastIv)},
+		{"iv", "[B", nullptr, 0, $field(GaloisCounterMode, iv)},
+		{"random", "Ljava/security/SecureRandom;", nullptr, 0, $field(GaloisCounterMode, random)},
+		{"wrapToByteArray", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GaloisCounterMode, wrapToByteArray)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(GaloisCounterMode, init$, void, int32_t, $SymmetricCipher*)},
+		{"checkDataLength", "([I)V", nullptr, $PRIVATE | $TRANSIENT, $method(GaloisCounterMode, checkDataLength, void, $ints*)},
+		{"checkInit", "()V", nullptr, 0, $virtualMethod(GaloisCounterMode, checkInit, void)},
+		{"checkReInit", "()V", nullptr, 0, $virtualMethod(GaloisCounterMode, checkReInit, void)},
+		{"createIv", "(Ljava/security/SecureRandom;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GaloisCounterMode, createIv, $bytes*, $SecureRandom*)},
+		{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"engineDoFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineDoFinal, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineGetBlockSize, int32_t)},
+		{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineGetIV, $bytes*)},
+		{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
+		{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineGetOutputSize, int32_t, int32_t)},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
+		{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+		{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"engineUpdate", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUpdate, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException"},
+		{"engineUpdateAAD", "([BII)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUpdateAAD, void, $bytes*, int32_t, int32_t)},
+		{"engineUpdateAAD", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineUpdateAAD, void, $ByteBuffer*)},
+		{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(GaloisCounterMode, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
+		{"expandToOneBlock", "([BIII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GaloisCounterMode, expandToOneBlock, $bytes*, $bytes*, int32_t, int32_t, int32_t)},
+		{"getJ0", "([B[BI)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GaloisCounterMode, getJ0, $bytes*, $bytes*, $bytes*, int32_t)},
+		{"getLengthBlock", "(I)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GaloisCounterMode, getLengthBlock, $bytes*, int32_t)},
+		{"getLengthBlock", "(II)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GaloisCounterMode, getLengthBlock, $bytes*, int32_t, int32_t)},
+		{"increment32", "([B)V", nullptr, $STATIC, $staticMethod(GaloisCounterMode, increment32, void, $bytes*)},
+		{"init", "(ILjava/security/Key;Ljavax/crypto/spec/GCMParameterSpec;)V", nullptr, 0, $virtualMethod(GaloisCounterMode, init, void, int32_t, $Key*, $GCMParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.GaloisCounterMode$GCTRGHASH", "com.sun.crypto.provider.GaloisCounterMode", "GCTRGHASH", $STATIC | $FINAL},
+		{"com.sun.crypto.provider.GaloisCounterMode$AES256", "com.sun.crypto.provider.GaloisCounterMode", "AES256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.GaloisCounterMode$AES192", "com.sun.crypto.provider.GaloisCounterMode", "AES192", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.GaloisCounterMode$AES128", "com.sun.crypto.provider.GaloisCounterMode", "AES128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.GaloisCounterMode$AESGCM", "com.sun.crypto.provider.GaloisCounterMode", "AESGCM", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.GaloisCounterMode$GCMDecrypt", "com.sun.crypto.provider.GaloisCounterMode", "GCMDecrypt", 0},
+		{"com.sun.crypto.provider.GaloisCounterMode$GCMEncrypt", "com.sun.crypto.provider.GaloisCounterMode", "GCMEncrypt", 0},
+		{"com.sun.crypto.provider.GaloisCounterMode$GCMEngine", "com.sun.crypto.provider.GaloisCounterMode", "GCMEngine", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.crypto.provider.GaloisCounterMode",
+		"javax.crypto.CipherSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.GaloisCounterMode$GCTRGHASH,com.sun.crypto.provider.GaloisCounterMode$AES256,com.sun.crypto.provider.GaloisCounterMode$AES192,com.sun.crypto.provider.GaloisCounterMode$AES128,com.sun.crypto.provider.GaloisCounterMode$AESGCM,com.sun.crypto.provider.GaloisCounterMode$GCMDecrypt,com.sun.crypto.provider.GaloisCounterMode$GCMEncrypt,com.sun.crypto.provider.GaloisCounterMode$GCMEngine"
+	};
+	$loadClass(GaloisCounterMode, name, initialize, &classInfo$$, GaloisCounterMode::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GaloisCounterMode);
+	});
 	return class$;
 }
 

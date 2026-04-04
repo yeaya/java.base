@@ -1,5 +1,4 @@
 #include <java/util/stream/SpinedBuffer$OfPrimitive.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/Arrays.h>
 #include <java/util/function/Consumer.h>
@@ -27,65 +26,6 @@ using $Nodes = ::java::util::stream::Nodes;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _SpinedBuffer$OfPrimitive_FieldInfo_[] = {
-	{"curChunk", "Ljava/lang/Object;", "TT_ARR;", 0, $field(SpinedBuffer$OfPrimitive, curChunk)},
-	{"spine", "[Ljava/lang/Object;", "[TT_ARR;", 0, $field(SpinedBuffer$OfPrimitive, spine)},
-	{}
-};
-
-$MethodInfo _SpinedBuffer$OfPrimitive_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, 0, $method(SpinedBuffer$OfPrimitive, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, 0, $method(SpinedBuffer$OfPrimitive, init$, void)},
-	{"arrayForEach", "(Ljava/lang/Object;IILjava/lang/Object;)V", "(TT_ARR;IITT_CONS;)V", $PROTECTED | $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive, arrayForEach, void, Object$*, int32_t, int32_t, Object$*)},
-	{"arrayLength", "(Ljava/lang/Object;)I", "(TT_ARR;)I", $PROTECTED | $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive, arrayLength, int32_t, Object$*)},
-	{"asPrimitiveArray", "()Ljava/lang/Object;", "()TT_ARR;", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive, asPrimitiveArray, $Object*)},
-	{"capacity", "()J", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfPrimitive, capacity, int64_t)},
-	{"chunkFor", "(J)I", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfPrimitive, chunkFor, int32_t, int64_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive, clear, void)},
-	{"copyInto", "(Ljava/lang/Object;I)V", "(TT_ARR;I)V", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive, copyInto, void, Object$*, int32_t)},
-	{"ensureCapacity", "(J)V", nullptr, $PROTECTED | $FINAL, $method(SpinedBuffer$OfPrimitive, ensureCapacity, void, int64_t)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive, forEach, void, $Consumer*)},
-	{"forEach", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive, forEach, void, Object$*)},
-	{"increaseCapacity", "()V", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfPrimitive, increaseCapacity, void)},
-	{"inflateSpine", "()V", nullptr, $PRIVATE, $method(SpinedBuffer$OfPrimitive, inflateSpine, void)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"newArray", "(I)Ljava/lang/Object;", "(I)TT_ARR;", $PUBLIC | $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive, newArray, $Object*, int32_t)},
-	{"newArrayArray", "(I)[Ljava/lang/Object;", "(I)[TT_ARR;", $PROTECTED | $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive, newArrayArray, $ObjectArray*, int32_t)},
-	{"preAccept", "()V", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfPrimitive, preAccept, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SpinedBuffer$OfPrimitive_InnerClassesInfo_[] = {
-	{"java.util.stream.SpinedBuffer$OfPrimitive", "java.util.stream.SpinedBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
-	{"java.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator", "java.util.stream.SpinedBuffer$OfPrimitive", "BaseSpliterator", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SpinedBuffer$OfPrimitive_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.SpinedBuffer$OfPrimitive",
-	"java.util.stream.AbstractSpinedBuffer",
-	"java.lang.Iterable",
-	_SpinedBuffer$OfPrimitive_FieldInfo_,
-	_SpinedBuffer$OfPrimitive_MethodInfo_,
-	"<E:Ljava/lang/Object;T_ARR:Ljava/lang/Object;T_CONS:Ljava/lang/Object;>Ljava/util/stream/AbstractSpinedBuffer;Ljava/lang/Iterable<TE;>;",
-	nullptr,
-	_SpinedBuffer$OfPrimitive_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SpinedBuffer"
-};
-
-$Object* allocate$SpinedBuffer$OfPrimitive($Class* clazz) {
-	return $of($alloc(SpinedBuffer$OfPrimitive));
-}
 
 int32_t SpinedBuffer$OfPrimitive::hashCode() {
 	 return this->$AbstractSpinedBuffer::hashCode();
@@ -118,7 +58,7 @@ void SpinedBuffer$OfPrimitive::init$() {
 }
 
 int64_t SpinedBuffer$OfPrimitive::capacity() {
-	return (this->spineIndex == 0) ? (int64_t)arrayLength(this->curChunk) : $nc(this->priorElementCount)->get(this->spineIndex) + arrayLength($nc(this->spine)->get(this->spineIndex));
+	return (this->spineIndex == 0) ? arrayLength(this->curChunk) : $nc(this->priorElementCount)->get(this->spineIndex) + arrayLength($nc(this->spine)->get(this->spineIndex));
 }
 
 void SpinedBuffer$OfPrimitive::inflateSpine() {
@@ -130,13 +70,13 @@ void SpinedBuffer$OfPrimitive::inflateSpine() {
 }
 
 void SpinedBuffer$OfPrimitive::ensureCapacity(int64_t targetSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t capacity = this->capacity();
 	if (targetSize > capacity) {
 		inflateSpine();
 		for (int32_t i = this->spineIndex + 1; targetSize > capacity; ++i) {
 			if (i >= $nc(this->spine)->length) {
-				int32_t newSpineSize = $nc(this->spine)->length * 2;
+				int32_t newSpineSize = this->spine->length * 2;
 				$set(this, spine, $Arrays::copyOf(this->spine, newSpineSize));
 				$set(this, priorElementCount, $Arrays::copyOf(this->priorElementCount, newSpineSize));
 			}
@@ -153,7 +93,7 @@ void SpinedBuffer$OfPrimitive::increaseCapacity() {
 }
 
 int32_t SpinedBuffer$OfPrimitive::chunkFor(int64_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->spineIndex == 0) {
 		if (index < this->elementIndex) {
 			return 0;
@@ -198,13 +138,13 @@ $Object* SpinedBuffer$OfPrimitive::asPrimitiveArray() {
 	}
 	$var($Object, result, newArray((int32_t)size));
 	copyInto(result, 0);
-	return $of(result);
+	return result;
 }
 
 void SpinedBuffer$OfPrimitive::preAccept() {
 	if (this->elementIndex == arrayLength(this->curChunk)) {
 		inflateSpine();
-		if (this->spineIndex + 1 >= $nc(this->spine)->length || $nc(this->spine)->get(this->spineIndex + 1) == nullptr) {
+		if (this->spineIndex + 1 >= $nc(this->spine)->length || this->spine->get(this->spineIndex + 1) == nullptr) {
 			increaseCapacity();
 		}
 		this->elementIndex = 0;
@@ -215,7 +155,7 @@ void SpinedBuffer$OfPrimitive::preAccept() {
 
 void SpinedBuffer$OfPrimitive::clear() {
 	if (this->spine != nullptr) {
-		$set(this, curChunk, $nc(this->spine)->get(0));
+		$set(this, curChunk, this->spine->get(0));
 		$set(this, spine, nullptr);
 		$set(this, priorElementCount, nullptr);
 	}
@@ -234,7 +174,60 @@ SpinedBuffer$OfPrimitive::SpinedBuffer$OfPrimitive() {
 }
 
 $Class* SpinedBuffer$OfPrimitive::load$($String* name, bool initialize) {
-	$loadClass(SpinedBuffer$OfPrimitive, name, initialize, &_SpinedBuffer$OfPrimitive_ClassInfo_, allocate$SpinedBuffer$OfPrimitive);
+	$FieldInfo fieldInfos$$[] = {
+		{"curChunk", "Ljava/lang/Object;", "TT_ARR;", 0, $field(SpinedBuffer$OfPrimitive, curChunk)},
+		{"spine", "[Ljava/lang/Object;", "[TT_ARR;", 0, $field(SpinedBuffer$OfPrimitive, spine)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(I)V", nullptr, 0, $method(SpinedBuffer$OfPrimitive, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, 0, $method(SpinedBuffer$OfPrimitive, init$, void)},
+		{"arrayForEach", "(Ljava/lang/Object;IILjava/lang/Object;)V", "(TT_ARR;IITT_CONS;)V", $PROTECTED | $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive, arrayForEach, void, Object$*, int32_t, int32_t, Object$*)},
+		{"arrayLength", "(Ljava/lang/Object;)I", "(TT_ARR;)I", $PROTECTED | $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive, arrayLength, int32_t, Object$*)},
+		{"asPrimitiveArray", "()Ljava/lang/Object;", "()TT_ARR;", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive, asPrimitiveArray, $Object*)},
+		{"capacity", "()J", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfPrimitive, capacity, int64_t)},
+		{"chunkFor", "(J)I", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfPrimitive, chunkFor, int32_t, int64_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive, clear, void)},
+		{"copyInto", "(Ljava/lang/Object;I)V", "(TT_ARR;I)V", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive, copyInto, void, Object$*, int32_t)},
+		{"ensureCapacity", "(J)V", nullptr, $PROTECTED | $FINAL, $method(SpinedBuffer$OfPrimitive, ensureCapacity, void, int64_t)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive, forEach, void, $Consumer*)},
+		{"forEach", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive, forEach, void, Object$*)},
+		{"increaseCapacity", "()V", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfPrimitive, increaseCapacity, void)},
+		{"inflateSpine", "()V", nullptr, $PRIVATE, $method(SpinedBuffer$OfPrimitive, inflateSpine, void)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"newArray", "(I)Ljava/lang/Object;", "(I)TT_ARR;", $PUBLIC | $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive, newArray, $Object*, int32_t)},
+		{"newArrayArray", "(I)[Ljava/lang/Object;", "(I)[TT_ARR;", $PROTECTED | $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive, newArrayArray, $ObjectArray*, int32_t)},
+		{"preAccept", "()V", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfPrimitive, preAccept, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SpinedBuffer$OfPrimitive", "java.util.stream.SpinedBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
+		{"java.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator", "java.util.stream.SpinedBuffer$OfPrimitive", "BaseSpliterator", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.SpinedBuffer$OfPrimitive",
+		"java.util.stream.AbstractSpinedBuffer",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;T_ARR:Ljava/lang/Object;T_CONS:Ljava/lang/Object;>Ljava/util/stream/AbstractSpinedBuffer;Ljava/lang/Iterable<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SpinedBuffer"
+	};
+	$loadClass(SpinedBuffer$OfPrimitive, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SpinedBuffer$OfPrimitive));
+	});
 	return class$;
 }
 

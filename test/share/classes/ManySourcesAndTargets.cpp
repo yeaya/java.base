@@ -1,11 +1,8 @@
 #include <ManySourcesAndTargets.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -35,17 +32,13 @@
 using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
@@ -67,29 +60,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* ia) override {
-		 return $of(ManySourcesAndTargets::networkInterface($cast($InetAddress, ia)));
+		 return ManySourcesAndTargets::networkInterface($cast($InetAddress, ia));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ManySourcesAndTargets$$Lambda$networkInterface>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ManySourcesAndTargets$$Lambda$networkInterface::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$networkInterface, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$networkInterface, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ManySourcesAndTargets$$Lambda$networkInterface::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ManySourcesAndTargets$$Lambda$networkInterface",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ManySourcesAndTargets$$Lambda$networkInterface::load$($String* name, bool initialize) {
-	$loadClass(ManySourcesAndTargets$$Lambda$networkInterface, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$networkInterface, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$networkInterface, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ManySourcesAndTargets$$Lambda$networkInterface",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ManySourcesAndTargets$$Lambda$networkInterface, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ManySourcesAndTargets$$Lambda$networkInterface);
+	});
 	return class$;
 }
 $Class* ManySourcesAndTargets$$Lambda$networkInterface::class$ = nullptr;
@@ -100,29 +90,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Optional, inst$)->stream());
+		 return $sure($Optional, inst$)->stream();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ManySourcesAndTargets$$Lambda$stream$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ManySourcesAndTargets$$Lambda$stream$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$stream$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$stream$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ManySourcesAndTargets$$Lambda$stream$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ManySourcesAndTargets$$Lambda$stream$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ManySourcesAndTargets$$Lambda$stream$1::load$($String* name, bool initialize) {
-	$loadClass(ManySourcesAndTargets$$Lambda$stream$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$stream$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$stream$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ManySourcesAndTargets$$Lambda$stream$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ManySourcesAndTargets$$Lambda$stream$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ManySourcesAndTargets$$Lambda$stream$1);
+	});
 	return class$;
 }
 $Class* ManySourcesAndTargets$$Lambda$stream$1::class$ = nullptr;
@@ -133,29 +120,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($NetworkInterface, inst$)->inetAddresses());
+		 return $sure($NetworkInterface, inst$)->inetAddresses();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ManySourcesAndTargets$$Lambda$inetAddresses$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ManySourcesAndTargets$$Lambda$inetAddresses$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$inetAddresses$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$inetAddresses$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ManySourcesAndTargets$$Lambda$inetAddresses$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ManySourcesAndTargets$$Lambda$inetAddresses$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ManySourcesAndTargets$$Lambda$inetAddresses$2::load$($String* name, bool initialize) {
-	$loadClass(ManySourcesAndTargets$$Lambda$inetAddresses$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$inetAddresses$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$inetAddresses$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ManySourcesAndTargets$$Lambda$inetAddresses$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ManySourcesAndTargets$$Lambda$inetAddresses$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ManySourcesAndTargets$$Lambda$inetAddresses$2);
+	});
 	return class$;
 }
 $Class* ManySourcesAndTargets$$Lambda$inetAddresses$2::class$ = nullptr;
@@ -168,254 +152,218 @@ public:
 	virtual bool test(Object$* ia) override {
 		 return ManySourcesAndTargets::lambda$main$0($cast($InetAddress, ia));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ManySourcesAndTargets$$Lambda$lambda$main$0$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ManySourcesAndTargets$$Lambda$lambda$main$0$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$lambda$main$0$3, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$lambda$main$0$3, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ManySourcesAndTargets$$Lambda$lambda$main$0$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ManySourcesAndTargets$$Lambda$lambda$main$0$3",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* ManySourcesAndTargets$$Lambda$lambda$main$0$3::load$($String* name, bool initialize) {
-	$loadClass(ManySourcesAndTargets$$Lambda$lambda$main$0$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$lambda$main$0$3, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$lambda$main$0$3, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ManySourcesAndTargets$$Lambda$lambda$main$0$3",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ManySourcesAndTargets$$Lambda$lambda$main$0$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ManySourcesAndTargets$$Lambda$lambda$main$0$3);
+	});
 	return class$;
 }
 $Class* ManySourcesAndTargets$$Lambda$lambda$main$0$3::class$ = nullptr;
-
-$MethodInfo _ManySourcesAndTargets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets, init$, void)},
-	{"deserialize", "([B)Ljava/net/SocketAddress;", nullptr, $PRIVATE | $STATIC, $staticMethod(ManySourcesAndTargets, deserialize, $SocketAddress*, $bytes*), "java.lang.Exception"},
-	{"lambda$main$0", "(Ljava/net/InetAddress;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManySourcesAndTargets, lambda$main$0, bool, $InetAddress*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ManySourcesAndTargets, main, void, $StringArray*), "java.lang.Exception"},
-	{"networkInterface", "(Ljava/net/InetAddress;)Ljava/util/Optional;", "(Ljava/net/InetAddress;)Ljava/util/Optional<Ljava/net/NetworkInterface;>;", $PRIVATE | $STATIC, $staticMethod(ManySourcesAndTargets, networkInterface, $Optional*, $InetAddress*)},
-	{"serialize", "(Ljava/net/SocketAddress;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ManySourcesAndTargets, serialize, $bytes*, $SocketAddress*), "java.lang.Exception"},
-	{"testReceive", "(ILjava/nio/channels/DatagramChannel;Ljava/net/InetAddress;)V", nullptr, $STATIC, $staticMethod(ManySourcesAndTargets, testReceive, void, int32_t, $DatagramChannel*, $InetAddress*), "java.lang.Exception"},
-	{"testSend", "(ILjava/net/InetAddress;Ljava/nio/channels/DatagramChannel;)V", nullptr, $STATIC, $staticMethod(ManySourcesAndTargets, testSend, void, int32_t, $InetAddress*, $DatagramChannel*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ManySourcesAndTargets_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ManySourcesAndTargets",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ManySourcesAndTargets_MethodInfo_
-};
-
-$Object* allocate$ManySourcesAndTargets($Class* clazz) {
-	return $of($alloc(ManySourcesAndTargets));
-}
 
 void ManySourcesAndTargets::init$() {
 }
 
 void ManySourcesAndTargets::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, lh, $InetAddress::getLocalHost());
 	$var($InetAddress, lb, $InetAddress::getLoopbackAddress());
-	$var($List, addresses, $cast($List, $nc($($nc($($nc($($nc($($nc($($nc($($Stream::of($$new($InetAddressArray, {
+	$var($List, addresses, $cast($List, $$nc($$nc($$nc($$nc($$nc($$nc($Stream::of($$new($InetAddressArray, {
 		lh,
 		lb
-	}))))->map(static_cast<$Function*>($$new(ManySourcesAndTargets$$Lambda$networkInterface)))))->flatMap(static_cast<$Function*>($$new(ManySourcesAndTargets$$Lambda$stream$1)))))->flatMap(static_cast<$Function*>($$new(ManySourcesAndTargets$$Lambda$inetAddresses$2)))))->filter(static_cast<$Predicate*>($$new(ManySourcesAndTargets$$Lambda$lambda$main$0$3)))))->distinct()))->collect($($Collectors::toList()))));
+	})))->map($$new(ManySourcesAndTargets$$Lambda$networkInterface)))->flatMap($$new(ManySourcesAndTargets$$Lambda$stream$1)))->flatMap($$new(ManySourcesAndTargets$$Lambda$inetAddresses$2)))->filter($$new(ManySourcesAndTargets$$Lambda$lambda$main$0$3)))->distinct())->collect($($Collectors::toList()))));
 	{
 		$var($DatagramChannel, reader, $DatagramChannel::open());
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(reader)->bind($$new($InetSocketAddress, 0));
-					{
-						$var($Iterator, i$, $nc(addresses)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($InetAddress, address, $cast($InetAddress, i$->next()));
-							{
-								$nc($System::out)->format("%n-- %s --%n"_s, $$new($ObjectArray, {$($of($nc(address)->getHostAddress()))}));
-								testSend(3, address, reader);
-							}
+				$nc(reader)->bind($$new($InetSocketAddress, 0));
+				{
+					$var($Iterator, i$, $nc(addresses)->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($InetAddress, address, $cast($InetAddress, i$->next()));
+						{
+							$nc($System::out)->format("%n-- %s --%n"_s, $$new($ObjectArray, {$($nc(address)->getHostAddress())}));
+							testSend(3, address, reader);
 						}
 					}
-				} catch ($Throwable& t$) {
-					if (reader != nullptr) {
-						try {
-							reader->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+			} catch ($Throwable& t$) {
 				if (reader != nullptr) {
-					reader->close();
+					try {
+						reader->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (reader != nullptr) {
+				reader->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	{
 		$var($DatagramChannel, sender, $DatagramChannel::open());
-		{
-			$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$2, nullptr);
+		try {
 			try {
-				try {
-					$nc(sender)->bind($$new($InetSocketAddress, 0));
-					{
-						$var($Iterator, i$, $nc(addresses)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($InetAddress, address, $cast($InetAddress, i$->next()));
-							{
-								$nc($System::out)->format("%n-- %s --%n"_s, $$new($ObjectArray, {$($of($nc(address)->getHostAddress()))}));
-								testReceive(3, sender, address);
-							}
+				$nc(sender)->bind($$new($InetSocketAddress, 0));
+				{
+					$var($Iterator, i$, $nc(addresses)->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($InetAddress, address, $cast($InetAddress, i$->next()));
+						{
+							$nc($System::out)->format("%n-- %s --%n"_s, $$new($ObjectArray, {$($nc(address)->getHostAddress())}));
+							testReceive(3, sender, address);
 						}
 					}
-				} catch ($Throwable& t$) {
-					if (sender != nullptr) {
-						try {
-							sender->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
+			} catch ($Throwable& t$) {
 				if (sender != nullptr) {
-					sender->close();
+					try {
+						sender->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			if (sender != nullptr) {
+				sender->close();
 			}
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
 
 void ManySourcesAndTargets::testSend(int32_t count, $InetAddress* address, $DatagramChannel* reader) {
-	$useLocalCurrentObjectStackCache();
-	int32_t remotePort = $nc($($nc(reader)->socket()))->getLocalPort();
+	$useLocalObjectStack();
+	int32_t remotePort = $$nc($nc(reader)->socket())->getLocalPort();
 	$var($InetSocketAddress, remote, $new($InetSocketAddress, address, remotePort));
 	{
 		$var($DatagramChannel, sender, $DatagramChannel::open());
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(sender)->bind($$new($InetSocketAddress, address, 0));
-					$var($SocketAddress, local, sender->getLocalAddress());
-					$var($bytes, bytes, serialize(local));
-					$var($SocketAddress, previousSource, nullptr);
-					for (int32_t i = 0; i < count; ++i) {
-						$nc($System::out)->format("send %s -> %s%n"_s, $$new($ObjectArray, {
-							$of(local),
-							$of(remote)
-						}));
-						sender->send($($ByteBuffer::wrap(bytes)), remote);
-						$var($ByteBuffer, bb, $ByteBuffer::allocate(1000));
-						$var($SocketAddress, source, reader->receive(bb));
-						$nc($System::out)->format("received datagram from %s%n"_s, $$new($ObjectArray, {$of(source)}));
-						$var($SocketAddress, payload, deserialize($($cast($bytes, $nc(bb)->array()))));
-						if (!$nc($of(source))->equals(local)) {
-							$throwNew($RuntimeException, $$str({"source="_s, source, ", expected="_s, local}));
-						}
-						if (!$nc($of(payload))->equals(local)) {
-							$throwNew($RuntimeException, $$str({"payload="_s, payload, ", expected="_s, local}));
-						}
-						if (previousSource == nullptr) {
-							$assign(previousSource, source);
-						} else if (source != previousSource) {
-							$throwNew($RuntimeException, "Cached SocketAddress not returned"_s);
-						}
+				$nc(sender)->bind($$new($InetSocketAddress, address, 0));
+				$var($SocketAddress, local, sender->getLocalAddress());
+				$var($bytes, bytes, serialize(local));
+				$var($SocketAddress, previousSource, nullptr);
+				for (int32_t i = 0; i < count; ++i) {
+					$nc($System::out)->format("send %s -> %s%n"_s, $$new($ObjectArray, {
+						local,
+						remote
+					}));
+					sender->send($($ByteBuffer::wrap(bytes)), remote);
+					$var($ByteBuffer, bb, $ByteBuffer::allocate(1000));
+					$var($SocketAddress, source, reader->receive(bb));
+					$System::out->format("received datagram from %s%n"_s, $$new($ObjectArray, {source}));
+					$var($SocketAddress, payload, deserialize($$cast($bytes, $nc(bb)->array())));
+					if (!$nc(source)->equals(local)) {
+						$throwNew($RuntimeException, $$str({"source="_s, source, ", expected="_s, local}));
 					}
-				} catch ($Throwable& t$) {
-					if (sender != nullptr) {
-						try {
-							sender->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
+					if (!$nc(payload)->equals(local)) {
+						$throwNew($RuntimeException, $$str({"payload="_s, payload, ", expected="_s, local}));
 					}
-					$throw(t$);
+					if (previousSource == nullptr) {
+						$assign(previousSource, source);
+					} else if (source != previousSource) {
+						$throwNew($RuntimeException, "Cached SocketAddress not returned"_s);
+					}
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+			} catch ($Throwable& t$) {
 				if (sender != nullptr) {
-					sender->close();
+					try {
+						sender->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (sender != nullptr) {
+				sender->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void ManySourcesAndTargets::testReceive(int32_t count, $DatagramChannel* sender, $InetAddress* address) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SocketAddress, local, $nc(sender)->getLocalAddress());
 	{
 		$var($DatagramChannel, reader, $DatagramChannel::open());
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(reader)->bind($$new($InetSocketAddress, address, 0));
-					$var($SocketAddress, remote, reader->getLocalAddress());
-					for (int32_t i = 0; i < count; ++i) {
-						$nc($System::out)->format("send %s -> %s%n"_s, $$new($ObjectArray, {
-							$of(local),
-							$of(remote)
-						}));
-						reader->send($($ByteBuffer::allocate(32)), remote);
-						$var($ByteBuffer, bb, $ByteBuffer::allocate(1000));
-						$var($SocketAddress, source, reader->receive(bb));
-						$nc($System::out)->format("received datagram from %s%n"_s, $$new($ObjectArray, {$of(source)}));
-					}
-				} catch ($Throwable& t$) {
-					if (reader != nullptr) {
-						try {
-							reader->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
+				$nc(reader)->bind($$new($InetSocketAddress, address, 0));
+				$var($SocketAddress, remote, reader->getLocalAddress());
+				for (int32_t i = 0; i < count; ++i) {
+					$nc($System::out)->format("send %s -> %s%n"_s, $$new($ObjectArray, {
+						local,
+						remote
+					}));
+					reader->send($($ByteBuffer::allocate(32)), remote);
+					$var($ByteBuffer, bb, $ByteBuffer::allocate(1000));
+					$var($SocketAddress, source, reader->receive(bb));
+					$System::out->format("received datagram from %s%n"_s, $$new($ObjectArray, {source}));
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+			} catch ($Throwable& t$) {
 				if (reader != nullptr) {
-					reader->close();
+					try {
+						reader->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (reader != nullptr) {
+				reader->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 $bytes* ManySourcesAndTargets::serialize($SocketAddress* address) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, oos, $new($ObjectOutputStream, baos));
 	oos->writeObject(address);
@@ -424,7 +372,7 @@ $bytes* ManySourcesAndTargets::serialize($SocketAddress* address) {
 }
 
 $SocketAddress* ManySourcesAndTargets::deserialize($bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
 	$var($ObjectInputStream, ois, $new($ObjectInputStream, bais));
 	return $cast($SocketAddress, ois->readObject());
@@ -448,20 +396,41 @@ ManySourcesAndTargets::ManySourcesAndTargets() {
 
 $Class* ManySourcesAndTargets::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ManySourcesAndTargets$$Lambda$networkInterface::classInfo$.name)) {
+		if (name->equals("ManySourcesAndTargets$$Lambda$networkInterface")) {
 			return ManySourcesAndTargets$$Lambda$networkInterface::load$(name, initialize);
 		}
-		if (name->equals(ManySourcesAndTargets$$Lambda$stream$1::classInfo$.name)) {
+		if (name->equals("ManySourcesAndTargets$$Lambda$stream$1")) {
 			return ManySourcesAndTargets$$Lambda$stream$1::load$(name, initialize);
 		}
-		if (name->equals(ManySourcesAndTargets$$Lambda$inetAddresses$2::classInfo$.name)) {
+		if (name->equals("ManySourcesAndTargets$$Lambda$inetAddresses$2")) {
 			return ManySourcesAndTargets$$Lambda$inetAddresses$2::load$(name, initialize);
 		}
-		if (name->equals(ManySourcesAndTargets$$Lambda$lambda$main$0$3::classInfo$.name)) {
+		if (name->equals("ManySourcesAndTargets$$Lambda$lambda$main$0$3")) {
 			return ManySourcesAndTargets$$Lambda$lambda$main$0$3::load$(name, initialize);
 		}
 	}
-	$loadClass(ManySourcesAndTargets, name, initialize, &_ManySourcesAndTargets_ClassInfo_, allocate$ManySourcesAndTargets);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets, init$, void)},
+		{"deserialize", "([B)Ljava/net/SocketAddress;", nullptr, $PRIVATE | $STATIC, $staticMethod(ManySourcesAndTargets, deserialize, $SocketAddress*, $bytes*), "java.lang.Exception"},
+		{"lambda$main$0", "(Ljava/net/InetAddress;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManySourcesAndTargets, lambda$main$0, bool, $InetAddress*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ManySourcesAndTargets, main, void, $StringArray*), "java.lang.Exception"},
+		{"networkInterface", "(Ljava/net/InetAddress;)Ljava/util/Optional;", "(Ljava/net/InetAddress;)Ljava/util/Optional<Ljava/net/NetworkInterface;>;", $PRIVATE | $STATIC, $staticMethod(ManySourcesAndTargets, networkInterface, $Optional*, $InetAddress*)},
+		{"serialize", "(Ljava/net/SocketAddress;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ManySourcesAndTargets, serialize, $bytes*, $SocketAddress*), "java.lang.Exception"},
+		{"testReceive", "(ILjava/nio/channels/DatagramChannel;Ljava/net/InetAddress;)V", nullptr, $STATIC, $staticMethod(ManySourcesAndTargets, testReceive, void, int32_t, $DatagramChannel*, $InetAddress*), "java.lang.Exception"},
+		{"testSend", "(ILjava/net/InetAddress;Ljava/nio/channels/DatagramChannel;)V", nullptr, $STATIC, $staticMethod(ManySourcesAndTargets, testSend, void, int32_t, $InetAddress*, $DatagramChannel*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ManySourcesAndTargets",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ManySourcesAndTargets, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ManySourcesAndTargets);
+	});
 	return class$;
 }
 

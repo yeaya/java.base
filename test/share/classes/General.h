@@ -15,6 +15,7 @@ class $export General : public ::java::lang::Object {
 	$class(General, 0, ::java::lang::Object)
 public:
 	General();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check($String* answer, $String* path);
 	static void checkNames(int32_t depth, bool create, $String* ans, $String* ask);

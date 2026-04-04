@@ -100,7 +100,7 @@ public:
 	::java::time::chrono::HijrahDate* withVariant(::java::time::chrono::HijrahChronology* chronology);
 	void writeExternal(::java::io::ObjectOutput* out);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0xB7B9FCCB9E5A1B1C;
+	static const int64_t serialVersionUID = (int64_t)0xb7b9fccb9e5a1b1c;
 	::java::time::chrono::HijrahChronology* chrono = nullptr;
 	int32_t prolepticYear = 0;
 	int32_t monthOfYear = 0;

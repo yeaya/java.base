@@ -1,5 +1,4 @@
 #include <java/util/zip/ZipOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -64,81 +63,6 @@ namespace java {
 	namespace util {
 		namespace zip {
 
-$FieldInfo _ZipOutputStream_FieldInfo_[] = {
-	{"inhibitZip64", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZipOutputStream, inhibitZip64)},
-	{"current", "Ljava/util/zip/ZipOutputStream$XEntry;", nullptr, $PRIVATE, $field(ZipOutputStream, current)},
-	{"xentries", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/util/zip/ZipOutputStream$XEntry;>;", $PRIVATE, $field(ZipOutputStream, xentries)},
-	{"names", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE, $field(ZipOutputStream, names)},
-	{"crc", "Ljava/util/zip/CRC32;", nullptr, $PRIVATE, $field(ZipOutputStream, crc)},
-	{"written", "J", nullptr, $PRIVATE, $field(ZipOutputStream, written)},
-	{"locoff", "J", nullptr, $PRIVATE, $field(ZipOutputStream, locoff)},
-	{"comment", "[B", nullptr, $PRIVATE, $field(ZipOutputStream, comment)},
-	{"method", "I", nullptr, $PRIVATE, $field(ZipOutputStream, method)},
-	{"finished", "Z", nullptr, $PRIVATE, $field(ZipOutputStream, finished)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(ZipOutputStream, closed)},
-	{"zc", "Ljava/util/zip/ZipCoder;", nullptr, $PRIVATE | $FINAL, $field(ZipOutputStream, zc)},
-	{"STORED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ZipOutputStream, STORED)},
-	{"DEFLATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ZipOutputStream, DEFLATED)},
-	{}
-};
-
-$MethodInfo _ZipOutputStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(ZipOutputStream, init$, void, $OutputStream*)},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ZipOutputStream, init$, void, $OutputStream*, $Charset*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, close, void), "java.io.IOException"},
-	{"closeEntry", "()V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, closeEntry, void), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ZipOutputStream, ensureOpen, void), "java.io.IOException"},
-	{"finish", "()V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, finish, void), "java.io.IOException"},
-	{"getExtraLen", "([B)I", nullptr, $PRIVATE, $method(ZipOutputStream, getExtraLen, int32_t, $bytes*)},
-	{"putNextEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, putNextEntry, void, $ZipEntry*), "java.io.IOException"},
-	{"setComment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, setComment, void, $String*)},
-	{"setLevel", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, setLevel, void, int32_t)},
-	{"setMethod", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, setMethod, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"version", "(Ljava/util/zip/ZipEntry;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipOutputStream, version, int32_t, $ZipEntry*), "java.util.zip.ZipException"},
-	{"versionMadeBy", "(Ljava/util/zip/ZipEntry;I)I", nullptr, $PRIVATE, $method(ZipOutputStream, versionMadeBy, int32_t, $ZipEntry*, int32_t)},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"writeByte", "(I)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeByte, void, int32_t), "java.io.IOException"},
-	{"writeBytes", "([BII)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeBytes, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"writeCEN", "(Ljava/util/zip/ZipOutputStream$XEntry;)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeCEN, void, $ZipOutputStream$XEntry*), "java.io.IOException"},
-	{"writeEND", "(JJ)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeEND, void, int64_t, int64_t), "java.io.IOException"},
-	{"writeEXT", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeEXT, void, $ZipEntry*), "java.io.IOException"},
-	{"writeExtra", "([B)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeExtra, void, $bytes*), "java.io.IOException"},
-	{"writeInt", "(J)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeInt, void, int64_t), "java.io.IOException"},
-	{"writeLOC", "(Ljava/util/zip/ZipOutputStream$XEntry;)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeLOC, void, $ZipOutputStream$XEntry*), "java.io.IOException"},
-	{"writeLong", "(J)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeLong, void, int64_t), "java.io.IOException"},
-	{"writeShort", "(I)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeShort, void, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ZipOutputStream_InnerClassesInfo_[] = {
-	{"java.util.zip.ZipOutputStream$XEntry", "java.util.zip.ZipOutputStream", "XEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ZipOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.ZipOutputStream",
-	"java.util.zip.DeflaterOutputStream",
-	"java.util.zip.ZipConstants",
-	_ZipOutputStream_FieldInfo_,
-	_ZipOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.zip.ZipOutputStream$XEntry"
-};
-
-$Object* allocate$ZipOutputStream($Class* clazz) {
-	return $of($alloc(ZipOutputStream));
-}
-
 int32_t ZipOutputStream::hashCode() {
 	 return this->$DeflaterOutputStream::hashCode();
 }
@@ -163,23 +87,16 @@ bool ZipOutputStream::inhibitZip64 = false;
 
 int32_t ZipOutputStream::version($ZipEntry* e) {
 	$init(ZipOutputStream);
-
 	int32_t var$0 = 0;
 	switch ($nc(e)->method) {
 	case ZipOutputStream::DEFLATED:
-		{
-			var$0 = 20;
-			break;
-		}
+		var$0 = 20;
+		break;
 	case ZipOutputStream::STORED:
-		{
-			var$0 = 10;
-			break;
-		}
+		var$0 = 10;
+		break;
 	default:
-		{
-			$throwNew($ZipException, "unsupported compression method"_s);
-		}
+		$throwNew($ZipException, "unsupported compression method"_s);
 	}
 	return var$0;
 }
@@ -214,7 +131,7 @@ void ZipOutputStream::init$($OutputStream* out, $Charset* charset) {
 void ZipOutputStream::setComment($String* comment) {
 	if (comment != nullptr) {
 		$set(this, comment, $nc(this->zc)->getBytes(comment));
-		if ($nc(this->comment)->length > 0x0000FFFF) {
+		if ($nc(this->comment)->length > 0x0000ffff) {
 			$throwNew($IllegalArgumentException, "ZIP file comment too long."_s);
 		}
 	}
@@ -239,36 +156,30 @@ void ZipOutputStream::putNextEntry($ZipEntry* e) {
 	if ($nc(e)->xdostime == -1) {
 		e->setTime($System::currentTimeMillis());
 	}
-	if ($nc(e)->method == -1) {
+	if (e->method == -1) {
 		e->method = this->method;
 	}
-	$nc(e)->flag = 0;
+	e->flag = 0;
 	switch (e->method) {
 	case ZipOutputStream::DEFLATED:
-		{
-			if (e->size == -1 || e->csize == -1 || e->crc == -1 || !e->csizeSet) {
-				e->flag = 8;
-			}
-			break;
+		if (e->size == -1 || e->csize == -1 || e->crc == -1 || !e->csizeSet) {
+			e->flag = 8;
 		}
+		break;
 	case ZipOutputStream::STORED:
-		{
-			if (e->size == -1) {
-				e->size = e->csize;
-			} else if (e->csize == -1) {
-				e->csize = e->size;
-			} else if (e->size != e->csize) {
-				$throwNew($ZipException, "STORED entry where compressed != uncompressed size"_s);
-			}
-			if (e->size == -1 || e->crc == -1) {
-				$throwNew($ZipException, "STORED entry missing size, compressed size, or crc-32"_s);
-			}
-			break;
+		if (e->size == -1) {
+			e->size = e->csize;
+		} else if (e->csize == -1) {
+			e->csize = e->size;
+		} else if (e->size != e->csize) {
+			$throwNew($ZipException, "STORED entry where compressed != uncompressed size"_s);
 		}
+		if (e->size == -1 || e->crc == -1) {
+			$throwNew($ZipException, "STORED entry missing size, compressed size, or crc-32"_s);
+		}
+		break;
 	default:
-		{
-			$throwNew($ZipException, "unsupported compression method"_s);
-		}
+		$throwNew($ZipException, "unsupported compression method"_s);
 	}
 	if (!$nc(this->names)->add(e->name)) {
 		$throwNew($ZipException, $$str({"duplicate entry: "_s, e->name}));
@@ -282,59 +193,61 @@ void ZipOutputStream::putNextEntry($ZipEntry* e) {
 }
 
 void ZipOutputStream::closeEntry() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
 	if (this->current != nullptr) {
-		$var($ZipEntry, e, $nc(this->current)->entry);
+		$var($ZipEntry, e, this->current->entry);
 		switch ($nc(e)->method) {
 		case ZipOutputStream::DEFLATED:
 			{
-				{
-					$nc(this->def)->finish();
-					while (!$nc(this->def)->finished()) {
-						deflate();
-					}
-					if (((int32_t)(e->flag & (uint32_t)8)) == 0) {
-						if (e->size != $nc(this->def)->getBytesRead()) {
-							$throwNew($ZipException, $$str({"invalid entry size (expected "_s, $$str(e->size), " but got "_s, $$str($nc(this->def)->getBytesRead()), " bytes)"_s}));
-						}
-						if (e->csize != $nc(this->def)->getBytesWritten()) {
-							$throwNew($ZipException, $$str({"invalid entry compressed size (expected "_s, $$str(e->csize), " but got "_s, $$str($nc(this->def)->getBytesWritten()), " bytes)"_s}));
-						}
-						if (e->crc != $nc(this->crc)->getValue()) {
-							$var($String, var$1, $$str({"invalid entry CRC-32 (expected 0x"_s, $($Long::toHexString(e->crc)), " but got 0x"_s}));
-							$var($String, var$0, $$concat(var$1, $($Long::toHexString($nc(this->crc)->getValue()))));
-							$throwNew($ZipException, $$concat(var$0, ")"_s));
-						}
-					} else {
-						e->size = $nc(this->def)->getBytesRead();
-						e->csize = $nc(this->def)->getBytesWritten();
-						e->crc = $nc(this->crc)->getValue();
-						writeEXT(e);
-					}
-					$nc(this->def)->reset();
-					this->written += e->csize;
+				$nc(this->def)->finish();
+				while (!$nc(this->def)->finished()) {
+					deflate();
 				}
-				break;
-			}
-		case ZipOutputStream::STORED:
-			{
-				{
-					if (e->size != this->written - this->locoff) {
-						$throwNew($ZipException, $$str({"invalid entry size (expected "_s, $$str(e->size), " but got "_s, $$str((this->written - this->locoff)), " bytes)"_s}));
+				if ((e->flag & 8) == 0) {
+					if (e->size != $nc(this->def)->getBytesRead()) {
+						$throwNew($ZipException, $$str({"invalid entry size (expected "_s, $$str(e->size), " but got "_s, $$str($nc(this->def)->getBytesRead()), " bytes)"_s}));
+					}
+					if (e->csize != $nc(this->def)->getBytesWritten()) {
+						$throwNew($ZipException, $$str({"invalid entry compressed size (expected "_s, $$str(e->csize), " but got "_s, $$str($nc(this->def)->getBytesWritten()), " bytes)"_s}));
 					}
 					if (e->crc != $nc(this->crc)->getValue()) {
-						$var($String, var$3, $$str({"invalid entry crc-32 (expected 0x"_s, $($Long::toHexString(e->crc)), " but got 0x"_s}));
-						$var($String, var$2, $$concat(var$3, $($Long::toHexString($nc(this->crc)->getValue()))));
-						$throwNew($ZipException, $$concat(var$2, ")"_s));
+						$var($StringBuilder, var$0, $new($StringBuilder));
+						var$0->append("invalid entry CRC-32 (expected 0x"_s);
+						var$0->append($($Long::toHexString(e->crc)));
+						var$0->append(" but got 0x"_s);
+						var$0->append($($Long::toHexString($nc(this->crc)->getValue())));
+						var$0->append(")"_s);
+						$throwNew($ZipException, $$str(var$0));
 					}
+				} else {
+					e->size = $nc(this->def)->getBytesRead();
+					e->csize = $nc(this->def)->getBytesWritten();
+					e->crc = $nc(this->crc)->getValue();
+					writeEXT(e);
 				}
-				break;
+				$nc(this->def)->reset();
+				this->written += e->csize;
 			}
-		default:
+			break;
+		case ZipOutputStream::STORED:
 			{
-				$throwNew($ZipException, "invalid compression method"_s);
+				if (e->size != this->written - this->locoff) {
+					$throwNew($ZipException, $$str({"invalid entry size (expected "_s, $$str(e->size), " but got "_s, $$str((this->written - this->locoff)), " bytes)"_s}));
+				}
+				if (e->crc != $nc(this->crc)->getValue()) {
+					$var($StringBuilder, var$1, $new($StringBuilder));
+					var$1->append("invalid entry crc-32 (expected 0x"_s);
+					var$1->append($($Long::toHexString(e->crc)));
+					var$1->append(" but got 0x"_s);
+					var$1->append($($Long::toHexString($nc(this->crc)->getValue())));
+					var$1->append(")"_s);
+					$throwNew($ZipException, $$str(var$1));
+				}
 			}
+			break;
+		default:
+			$throwNew($ZipException, "invalid compression method"_s);
 		}
 		$nc(this->crc)->reset();
 		$set(this, current, nullptr);
@@ -355,32 +268,26 @@ void ZipOutputStream::write($bytes* b, int32_t off, int32_t len) {
 		$var($ZipEntry, entry, $nc(this->current)->entry);
 		switch ($nc(entry)->method) {
 		case ZipOutputStream::DEFLATED:
-			{
-				$DeflaterOutputStream::write(b, off, len);
-				break;
-			}
+			$DeflaterOutputStream::write(b, off, len);
+			break;
 		case ZipOutputStream::STORED:
 			{
-				{
-					this->written += len;
-					if (this->written - this->locoff > entry->size) {
-						$throwNew($ZipException, "attempt to write past end of STORED entry"_s);
-					}
-					$nc(this->out)->write(b, off, len);
+				this->written += len;
+				if (this->written - this->locoff > entry->size) {
+					$throwNew($ZipException, "attempt to write past end of STORED entry"_s);
 				}
-				break;
+				$nc(this->out)->write(b, off, len);
 			}
+			break;
 		default:
-			{
-				$throwNew($ZipException, "invalid compression method"_s);
-			}
+			$throwNew($ZipException, "invalid compression method"_s);
 		}
 		$nc(this->crc)->update(b, off, len);
 	}
 }
 
 void ZipOutputStream::finish() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
 	if (this->finished) {
 		return;
@@ -408,13 +315,13 @@ void ZipOutputStream::close() {
 }
 
 void ZipOutputStream::writeLOC($ZipOutputStream$XEntry* xentry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ZipEntry, e, $nc(xentry)->entry);
 	int32_t flag = $nc(e)->flag;
 	bool hasZip64 = false;
 	int32_t elen = getExtraLen(e->extra);
 	writeInt($ZipConstants::LOCSIG);
-	if (((int32_t)(flag & (uint32_t)8)) == 8) {
+	if ((flag & 8) == 8) {
 		writeShort(version(e));
 		writeShort(flag);
 		writeShort(e->method);
@@ -423,7 +330,7 @@ void ZipOutputStream::writeLOC($ZipOutputStream$XEntry* xentry) {
 		writeInt(0);
 		writeInt(0);
 	} else {
-		if (e->csize >= (int64_t)0x00000000FFFFFFFF || e->size >= (int64_t)0x00000000FFFFFFFF) {
+		if (e->csize >= (int64_t)0x00000000ffffffff || e->size >= (int64_t)0x00000000ffffffff) {
 			hasZip64 = true;
 			writeShort(45);
 		} else {
@@ -434,8 +341,8 @@ void ZipOutputStream::writeLOC($ZipOutputStream$XEntry* xentry) {
 		writeInt(e->xdostime);
 		writeInt(e->crc);
 		if (hasZip64) {
-			writeInt(0x00000000FFFFFFFF);
-			writeInt(0x00000000FFFFFFFF);
+			writeInt((int64_t)0x00000000ffffffff);
+			writeInt((int64_t)0x00000000ffffffff);
 			elen += 20;
 		} else {
 			writeInt(e->csize);
@@ -465,14 +372,14 @@ void ZipOutputStream::writeLOC($ZipOutputStream$XEntry* xentry) {
 		uctime = $ZipUtils::fileTimeToUnixTime(e->ctime);
 	}
 	if (flagEXTT != 0) {
-		if (umtime > (int64_t)2147483647 || uatime > (int64_t)2147483647 || uctime > (int64_t)2147483647) {
+		if (umtime > 2147483647 || uatime > 2147483647 || uctime > 2147483647) {
 			elen += 36;
 		} else {
 			elen += (elenEXTT + 5);
 		}
 	}
 	writeShort(elen);
-	writeBytes(nameBytes, 0, $nc(nameBytes)->length);
+	writeBytes(nameBytes, 0, nameBytes->length);
 	if (hasZip64) {
 		writeShort(1);
 		writeShort(16);
@@ -480,7 +387,7 @@ void ZipOutputStream::writeLOC($ZipOutputStream$XEntry* xentry) {
 		writeLong(e->csize);
 	}
 	if (flagEXTT != 0) {
-		if (umtime > (int64_t)2147483647 || uatime > (int64_t)2147483647 || uctime > (int64_t)2147483647) {
+		if (umtime > 2147483647 || uatime > 2147483647 || uctime > 2147483647) {
 			writeShort(10);
 			writeShort(32);
 			writeInt(0);
@@ -511,7 +418,7 @@ void ZipOutputStream::writeLOC($ZipOutputStream$XEntry* xentry) {
 void ZipOutputStream::writeEXT($ZipEntry* e) {
 	writeInt($ZipConstants::EXTSIG);
 	writeInt($nc(e)->crc);
-	if ($nc(e)->csize >= (int64_t)0x00000000FFFFFFFF || $nc(e)->size >= (int64_t)0x00000000FFFFFFFF) {
+	if (e->csize >= (int64_t)0x00000000ffffffff || e->size >= (int64_t)0x00000000ffffffff) {
 		writeLong(e->csize);
 		writeLong(e->size);
 	} else {
@@ -521,11 +428,11 @@ void ZipOutputStream::writeEXT($ZipEntry* e) {
 }
 
 int32_t ZipOutputStream::versionMadeBy($ZipEntry* e, int32_t version) {
-	return ($nc(e)->extraAttributes < 0) ? version : 768 | ((int32_t)(version & (uint32_t)255));
+	return ($nc(e)->extraAttributes < 0) ? version : 0x0300 | (version & 0xff);
 }
 
 void ZipOutputStream::writeCEN($ZipOutputStream$XEntry* xentry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ZipEntry, e, $nc(xentry)->entry);
 	int32_t flag = $nc(e)->flag;
 	int32_t version = ZipOutputStream::version(e);
@@ -534,18 +441,18 @@ void ZipOutputStream::writeCEN($ZipOutputStream$XEntry* xentry) {
 	int64_t offset = xentry->offset;
 	int32_t elenZIP64 = 0;
 	bool hasZip64 = false;
-	if (e->csize >= (int64_t)0x00000000FFFFFFFF) {
-		csize = 0x00000000FFFFFFFF;
+	if (e->csize >= (int64_t)0x00000000ffffffff) {
+		csize = (int64_t)0x00000000ffffffff;
 		elenZIP64 += 8;
 		hasZip64 = true;
 	}
-	if (e->size >= (int64_t)0x00000000FFFFFFFF) {
-		size = 0x00000000FFFFFFFF;
+	if (e->size >= (int64_t)0x00000000ffffffff) {
+		size = (int64_t)0x00000000ffffffff;
 		elenZIP64 += 8;
 		hasZip64 = true;
 	}
-	if (xentry->offset >= (int64_t)0x00000000FFFFFFFF) {
-		offset = 0x00000000FFFFFFFF;
+	if (xentry->offset >= (int64_t)0x00000000ffffffff) {
+		offset = (int64_t)0x00000000ffffffff;
 		elenZIP64 += 8;
 		hasZip64 = true;
 	}
@@ -586,7 +493,7 @@ void ZipOutputStream::writeCEN($ZipOutputStream$XEntry* xentry) {
 		uctime = $ZipUtils::fileTimeToUnixTime(e->ctime);
 	}
 	if (flagEXTT != 0) {
-		if (umtime > (int64_t)2147483647 || uatime > (int64_t)2147483647 || uctime > (int64_t)2147483647) {
+		if (umtime > 2147483647 || uatime > 2147483647 || uctime > 2147483647) {
 			elen += 36;
 		} else {
 			elen += 5;
@@ -598,8 +505,8 @@ void ZipOutputStream::writeCEN($ZipOutputStream$XEntry* xentry) {
 	writeShort(elen);
 	$var($bytes, commentBytes, nullptr);
 	if (e->comment != nullptr) {
-		$assign(commentBytes, $nc(this->zc)->getBytes(e->comment));
-		writeShort($Math::min($nc(commentBytes)->length, 0x0000FFFF));
+		$assign(commentBytes, this->zc->getBytes(e->comment));
+		writeShort($Math::min($nc(commentBytes)->length, 0x0000ffff));
 	} else {
 		$assign(commentBytes, nullptr);
 		writeShort(0);
@@ -608,22 +515,22 @@ void ZipOutputStream::writeCEN($ZipOutputStream$XEntry* xentry) {
 	writeShort(0);
 	writeInt(e->extraAttributes > 0 ? e->extraAttributes << 16 : 0);
 	writeInt(offset);
-	writeBytes(nameBytes, 0, $nc(nameBytes)->length);
+	writeBytes(nameBytes, 0, nameBytes->length);
 	if (hasZip64) {
 		writeShort(1);
 		writeShort(elenZIP64);
-		if (size == (int64_t)0x00000000FFFFFFFF) {
+		if (size == (int64_t)0x00000000ffffffff) {
 			writeLong(e->size);
 		}
-		if (csize == (int64_t)0x00000000FFFFFFFF) {
+		if (csize == (int64_t)0x00000000ffffffff) {
 			writeLong(e->csize);
 		}
-		if (offset == (int64_t)0x00000000FFFFFFFF) {
+		if (offset == (int64_t)0x00000000ffffffff) {
 			writeLong(xentry->offset);
 		}
 	}
 	if (flagEXTT != 0) {
-		if (umtime > (int64_t)2147483647 || uatime > (int64_t)2147483647 || uctime > (int64_t)2147483647) {
+		if (umtime > 2147483647 || uatime > 2147483647 || uctime > 2147483647) {
 			writeShort(10);
 			writeShort(32);
 			writeInt(0);
@@ -646,7 +553,7 @@ void ZipOutputStream::writeCEN($ZipOutputStream$XEntry* xentry) {
 	}
 	writeExtra(e->extra);
 	if (commentBytes != nullptr) {
-		writeBytes(commentBytes, 0, $Math::min(commentBytes->length, 0x0000FFFF));
+		writeBytes(commentBytes, 0, $Math::min(commentBytes->length, 0x0000ffff));
 	}
 }
 
@@ -654,19 +561,19 @@ void ZipOutputStream::writeEND(int64_t off, int64_t len) {
 	bool hasZip64 = false;
 	int64_t xlen = len;
 	int64_t xoff = off;
-	if (xlen >= (int64_t)0x00000000FFFFFFFF) {
-		xlen = 0x00000000FFFFFFFF;
+	if (xlen >= (int64_t)0x00000000ffffffff) {
+		xlen = (int64_t)0x00000000ffffffff;
 		hasZip64 = true;
 	}
-	if (xoff >= (int64_t)0x00000000FFFFFFFF) {
-		xoff = 0x00000000FFFFFFFF;
+	if (xoff >= (int64_t)0x00000000ffffffff) {
+		xoff = (int64_t)0x00000000ffffffff;
 		hasZip64 = true;
 	}
 	int32_t count = $nc(this->xentries)->size();
-	if (count >= 0x0000FFFF) {
+	if (count >= 0x0000ffff) {
 		hasZip64 |= !ZipOutputStream::inhibitZip64;
 		if (hasZip64) {
-			count = 0x0000FFFF;
+			count = 0x0000ffff;
 		}
 	}
 	if (hasZip64) {
@@ -694,7 +601,7 @@ void ZipOutputStream::writeEND(int64_t off, int64_t len) {
 	writeInt(xlen);
 	writeInt(xoff);
 	if (this->comment != nullptr) {
-		writeShort($nc(this->comment)->length);
+		writeShort(this->comment->length);
 		writeBytes(this->comment, 0, $nc(this->comment)->length);
 	} else {
 		writeShort(0);
@@ -746,36 +653,36 @@ void ZipOutputStream::writeExtra($bytes* extra) {
 
 void ZipOutputStream::writeByte(int32_t v) {
 	$var($OutputStream, out, this->out);
-	$nc(out)->write((int32_t)(v & (uint32_t)255));
+	$nc(out)->write(v & 0xff);
 	this->written += 1;
 }
 
 void ZipOutputStream::writeShort(int32_t v) {
 	$var($OutputStream, out, this->out);
-	$nc(out)->write((int32_t)(((int32_t)((uint32_t)v >> 0)) & (uint32_t)255));
-	out->write((int32_t)(((int32_t)((uint32_t)v >> 8)) & (uint32_t)255));
+	$nc(out)->write(((int32_t)((uint32_t)v >> 0)) & 0xff);
+	out->write(((int32_t)((uint32_t)v >> 8)) & 0xff);
 	this->written += 2;
 }
 
 void ZipOutputStream::writeInt(int64_t v) {
 	$var($OutputStream, out, this->out);
-	$nc(out)->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 0)) & (uint64_t)(int64_t)255)));
-	out->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 8)) & (uint64_t)(int64_t)255)));
-	out->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 16)) & (uint64_t)(int64_t)255)));
-	out->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 24)) & (uint64_t)(int64_t)255)));
+	$nc(out)->write((int32_t)(((int64_t)((uint64_t)v >> 0)) & 0xff));
+	out->write((int32_t)(((int64_t)((uint64_t)v >> 8)) & 0xff));
+	out->write((int32_t)(((int64_t)((uint64_t)v >> 16)) & 0xff));
+	out->write((int32_t)(((int64_t)((uint64_t)v >> 24)) & 0xff));
 	this->written += 4;
 }
 
 void ZipOutputStream::writeLong(int64_t v) {
 	$var($OutputStream, out, this->out);
-	$nc(out)->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 0)) & (uint64_t)(int64_t)255)));
-	out->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 8)) & (uint64_t)(int64_t)255)));
-	out->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 16)) & (uint64_t)(int64_t)255)));
-	out->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 24)) & (uint64_t)(int64_t)255)));
-	out->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 32)) & (uint64_t)(int64_t)255)));
-	out->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 40)) & (uint64_t)(int64_t)255)));
-	out->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 48)) & (uint64_t)(int64_t)255)));
-	out->write((int32_t)((int64_t)(((int64_t)((uint64_t)v >> 56)) & (uint64_t)(int64_t)255)));
+	$nc(out)->write((int32_t)(((int64_t)((uint64_t)v >> 0)) & 0xff));
+	out->write((int32_t)(((int64_t)((uint64_t)v >> 8)) & 0xff));
+	out->write((int32_t)(((int64_t)((uint64_t)v >> 16)) & 0xff));
+	out->write((int32_t)(((int64_t)((uint64_t)v >> 24)) & 0xff));
+	out->write((int32_t)(((int64_t)((uint64_t)v >> 32)) & 0xff));
+	out->write((int32_t)(((int64_t)((uint64_t)v >> 40)) & 0xff));
+	out->write((int32_t)(((int64_t)((uint64_t)v >> 48)) & 0xff));
+	out->write((int32_t)(((int64_t)((uint64_t)v >> 56)) & 0xff));
 	this->written += 8;
 }
 
@@ -784,7 +691,7 @@ void ZipOutputStream::writeBytes($bytes* b, int32_t off, int32_t len) {
 	this->written += len;
 }
 
-void clinit$ZipOutputStream($Class* class$) {
+void ZipOutputStream::clinit$($Class* clazz) {
 	ZipOutputStream::inhibitZip64 = $Boolean::parseBoolean($($GetPropertyAction::privilegedGetProperty("jdk.util.zip.inhibitZip64"_s)));
 }
 
@@ -792,7 +699,76 @@ ZipOutputStream::ZipOutputStream() {
 }
 
 $Class* ZipOutputStream::load$($String* name, bool initialize) {
-	$loadClass(ZipOutputStream, name, initialize, &_ZipOutputStream_ClassInfo_, clinit$ZipOutputStream, allocate$ZipOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"inhibitZip64", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZipOutputStream, inhibitZip64)},
+		{"current", "Ljava/util/zip/ZipOutputStream$XEntry;", nullptr, $PRIVATE, $field(ZipOutputStream, current)},
+		{"xentries", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/util/zip/ZipOutputStream$XEntry;>;", $PRIVATE, $field(ZipOutputStream, xentries)},
+		{"names", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE, $field(ZipOutputStream, names)},
+		{"crc", "Ljava/util/zip/CRC32;", nullptr, $PRIVATE, $field(ZipOutputStream, crc)},
+		{"written", "J", nullptr, $PRIVATE, $field(ZipOutputStream, written)},
+		{"locoff", "J", nullptr, $PRIVATE, $field(ZipOutputStream, locoff)},
+		{"comment", "[B", nullptr, $PRIVATE, $field(ZipOutputStream, comment)},
+		{"method", "I", nullptr, $PRIVATE, $field(ZipOutputStream, method)},
+		{"finished", "Z", nullptr, $PRIVATE, $field(ZipOutputStream, finished)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(ZipOutputStream, closed)},
+		{"zc", "Ljava/util/zip/ZipCoder;", nullptr, $PRIVATE | $FINAL, $field(ZipOutputStream, zc)},
+		{"STORED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ZipOutputStream, STORED)},
+		{"DEFLATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ZipOutputStream, DEFLATED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(ZipOutputStream, init$, void, $OutputStream*)},
+		{"<init>", "(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ZipOutputStream, init$, void, $OutputStream*, $Charset*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, close, void), "java.io.IOException"},
+		{"closeEntry", "()V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, closeEntry, void), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ZipOutputStream, ensureOpen, void), "java.io.IOException"},
+		{"finish", "()V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, finish, void), "java.io.IOException"},
+		{"getExtraLen", "([B)I", nullptr, $PRIVATE, $method(ZipOutputStream, getExtraLen, int32_t, $bytes*)},
+		{"putNextEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, putNextEntry, void, $ZipEntry*), "java.io.IOException"},
+		{"setComment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, setComment, void, $String*)},
+		{"setLevel", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, setLevel, void, int32_t)},
+		{"setMethod", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZipOutputStream, setMethod, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"version", "(Ljava/util/zip/ZipEntry;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipOutputStream, version, int32_t, $ZipEntry*), "java.util.zip.ZipException"},
+		{"versionMadeBy", "(Ljava/util/zip/ZipEntry;I)I", nullptr, $PRIVATE, $method(ZipOutputStream, versionMadeBy, int32_t, $ZipEntry*, int32_t)},
+		{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"writeByte", "(I)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeByte, void, int32_t), "java.io.IOException"},
+		{"writeBytes", "([BII)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeBytes, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"writeCEN", "(Ljava/util/zip/ZipOutputStream$XEntry;)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeCEN, void, $ZipOutputStream$XEntry*), "java.io.IOException"},
+		{"writeEND", "(JJ)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeEND, void, int64_t, int64_t), "java.io.IOException"},
+		{"writeEXT", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeEXT, void, $ZipEntry*), "java.io.IOException"},
+		{"writeExtra", "([B)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeExtra, void, $bytes*), "java.io.IOException"},
+		{"writeInt", "(J)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeInt, void, int64_t), "java.io.IOException"},
+		{"writeLOC", "(Ljava/util/zip/ZipOutputStream$XEntry;)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeLOC, void, $ZipOutputStream$XEntry*), "java.io.IOException"},
+		{"writeLong", "(J)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeLong, void, int64_t), "java.io.IOException"},
+		{"writeShort", "(I)V", nullptr, $PRIVATE, $method(ZipOutputStream, writeShort, void, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.zip.ZipOutputStream$XEntry", "java.util.zip.ZipOutputStream", "XEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.ZipOutputStream",
+		"java.util.zip.DeflaterOutputStream",
+		"java.util.zip.ZipConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.zip.ZipOutputStream$XEntry"
+	};
+	$loadClass(ZipOutputStream, name, initialize, &classInfo$$, ZipOutputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZipOutputStream));
+	});
 	return class$;
 }
 

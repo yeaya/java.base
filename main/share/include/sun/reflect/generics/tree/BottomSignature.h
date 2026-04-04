@@ -24,6 +24,7 @@ class $import BottomSignature : public ::sun::reflect::generics::tree::FieldType
 	$class(BottomSignature, 0, ::sun::reflect::generics::tree::FieldTypeSignature)
 public:
 	BottomSignature();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void accept(::sun::reflect::generics::visitor::TypeTreeVisitor* v) override;
 	static ::sun::reflect::generics::tree::BottomSignature* make();

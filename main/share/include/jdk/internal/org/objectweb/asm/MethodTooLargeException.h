@@ -20,14 +20,17 @@ public:
 	int32_t getCodeSize();
 	$String* getDescriptor();
 	$String* getMethodName();
-	static const int64_t serialVersionUID = (int64_t)0x5E78AC6C04EF3F4A;
+	static const int64_t serialVersionUID = (int64_t)0x5e78ac6c04ef3f4a;
 	$String* className = nullptr;
 	$String* methodName = nullptr;
 	$String* descriptor = nullptr;
 	int32_t codeSize = 0;
 	MethodTooLargeException(const MethodTooLargeException& e);
 	virtual void throw$() override;
-	inline MethodTooLargeException* operator ->() {
+	inline MethodTooLargeException* operator ->() const {
+		return (MethodTooLargeException*)throwing$;
+	}
+	inline operator MethodTooLargeException*() const {
 		return (MethodTooLargeException*)throwing$;
 	}
 };

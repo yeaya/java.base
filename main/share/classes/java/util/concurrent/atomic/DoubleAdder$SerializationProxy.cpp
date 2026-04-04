@@ -1,5 +1,4 @@
 #include <java/util/concurrent/atomic/DoubleAdder$SerializationProxy.h>
-
 #include <java/util/concurrent/atomic/DoubleAdder.h>
 #include <jcpp.h>
 
@@ -15,43 +14,6 @@ namespace java {
 		namespace concurrent {
 			namespace atomic {
 
-$FieldInfo _DoubleAdder$SerializationProxy_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DoubleAdder$SerializationProxy, serialVersionUID)},
-	{"value", "D", nullptr, $PRIVATE | $FINAL, $field(DoubleAdder$SerializationProxy, value)},
-	{}
-};
-
-$MethodInfo _DoubleAdder$SerializationProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/DoubleAdder;)V", nullptr, 0, $method(DoubleAdder$SerializationProxy, init$, void, $DoubleAdder*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DoubleAdder$SerializationProxy, readResolve, $Object*)},
-	{}
-};
-
-$InnerClassInfo _DoubleAdder$SerializationProxy_InnerClassesInfo_[] = {
-	{"java.util.concurrent.atomic.DoubleAdder$SerializationProxy", "java.util.concurrent.atomic.DoubleAdder", "SerializationProxy", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DoubleAdder$SerializationProxy_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.atomic.DoubleAdder$SerializationProxy",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_DoubleAdder$SerializationProxy_FieldInfo_,
-	_DoubleAdder$SerializationProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DoubleAdder$SerializationProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.atomic.DoubleAdder"
-};
-
-$Object* allocate$DoubleAdder$SerializationProxy($Class* clazz) {
-	return $of($alloc(DoubleAdder$SerializationProxy));
-}
-
 void DoubleAdder$SerializationProxy::init$($DoubleAdder* a) {
 	this->value = $nc(a)->sum();
 }
@@ -59,14 +21,45 @@ void DoubleAdder$SerializationProxy::init$($DoubleAdder* a) {
 $Object* DoubleAdder$SerializationProxy::readResolve() {
 	$var($DoubleAdder, a, $new($DoubleAdder));
 	a->base = $Double::doubleToRawLongBits(this->value);
-	return $of(a);
+	return a;
 }
 
 DoubleAdder$SerializationProxy::DoubleAdder$SerializationProxy() {
 }
 
 $Class* DoubleAdder$SerializationProxy::load$($String* name, bool initialize) {
-	$loadClass(DoubleAdder$SerializationProxy, name, initialize, &_DoubleAdder$SerializationProxy_ClassInfo_, allocate$DoubleAdder$SerializationProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DoubleAdder$SerializationProxy, serialVersionUID)},
+		{"value", "D", nullptr, $PRIVATE | $FINAL, $field(DoubleAdder$SerializationProxy, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/atomic/DoubleAdder;)V", nullptr, 0, $method(DoubleAdder$SerializationProxy, init$, void, $DoubleAdder*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DoubleAdder$SerializationProxy, readResolve, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.atomic.DoubleAdder$SerializationProxy", "java.util.concurrent.atomic.DoubleAdder", "SerializationProxy", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.atomic.DoubleAdder$SerializationProxy",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.atomic.DoubleAdder"
+	};
+	$loadClass(DoubleAdder$SerializationProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleAdder$SerializationProxy);
+	});
 	return class$;
 }
 

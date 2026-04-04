@@ -43,6 +43,7 @@ class $import Inet6Address : public ::java::net::InetAddress {
 	$class(Inet6Address, 0, ::java::net::InetAddress)
 public:
 	Inet6Address();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* hostName, $bytes* addr, int32_t scope_id);
 	void init$($String* hostName, $bytes* addr);
@@ -81,7 +82,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* s);
 	static const int32_t INADDRSZ = 16;
 	::java::net::Inet6Address$Inet6AddressHolder* holder6 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x5F7C2081522C8021;
+	static const int64_t serialVersionUID = (int64_t)0x5f7c2081522c8021;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	static ::jdk::internal::misc::Unsafe* UNSAFE;
 	static int64_t FIELDS_OFFSET;

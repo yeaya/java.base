@@ -17,10 +17,13 @@ class $import UnsupportedClassVersionException : public ::java::lang::RuntimeExc
 public:
 	UnsupportedClassVersionException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xCF6529435E22CD79;
+	static const int64_t serialVersionUID = (int64_t)0xcf6529435e22cd79;
 	UnsupportedClassVersionException(const UnsupportedClassVersionException& e);
 	virtual void throw$() override;
-	inline UnsupportedClassVersionException* operator ->() {
+	inline UnsupportedClassVersionException* operator ->() const {
+		return (UnsupportedClassVersionException*)throwing$;
+	}
+	inline operator UnsupportedClassVersionException*() const {
 		return (UnsupportedClassVersionException*)throwing$;
 	}
 };

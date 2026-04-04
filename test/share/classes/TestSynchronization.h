@@ -49,6 +49,7 @@ class $export TestSynchronization : public ::java::lang::Object {
 	$class(TestSynchronization, 0, ::java::lang::Object)
 public:
 	TestSynchronization();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void invokeMethod($Class* aClass, ::java::lang::reflect::Method* m, $ObjectArray* args);
 	static bool isSynchronized(::java::lang::reflect::Method* m, Object$* target, $ObjectArray* args);

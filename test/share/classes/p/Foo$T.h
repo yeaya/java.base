@@ -16,6 +16,7 @@ class $export Foo$T : public ::java::lang::Enum {
 public:
 	Foo$T();
 	static $Array<::p::Foo$T>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::p::Foo$T* valueOf($String* name);
 	static $Array<::p::Foo$T>* values();

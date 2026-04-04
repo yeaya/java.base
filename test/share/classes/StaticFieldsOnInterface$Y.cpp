@@ -1,5 +1,4 @@
 #include <StaticFieldsOnInterface$Y.h>
-
 #include <StaticFieldsOnInterface$X.h>
 #include <StaticFieldsOnInterface.h>
 #include <jcpp.h>
@@ -9,37 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _StaticFieldsOnInterface$Y_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StaticFieldsOnInterface$Y, init$, void)},
-	{}
-};
-
-$InnerClassInfo _StaticFieldsOnInterface$Y_InnerClassesInfo_[] = {
-	{"StaticFieldsOnInterface$Y", "StaticFieldsOnInterface", "Y", $STATIC},
-	{"StaticFieldsOnInterface$X", "StaticFieldsOnInterface", "X", $STATIC},
-	{}
-};
-
-$ClassInfo _StaticFieldsOnInterface$Y_ClassInfo_ = {
-	$ACC_SUPER,
-	"StaticFieldsOnInterface$Y",
-	"StaticFieldsOnInterface$X",
-	nullptr,
-	nullptr,
-	_StaticFieldsOnInterface$Y_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StaticFieldsOnInterface$Y_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"StaticFieldsOnInterface"
-};
-
-$Object* allocate$StaticFieldsOnInterface$Y($Class* clazz) {
-	return $of($alloc(StaticFieldsOnInterface$Y));
-}
-
 void StaticFieldsOnInterface$Y::init$() {
 	$StaticFieldsOnInterface$X::init$();
 }
@@ -48,7 +16,33 @@ StaticFieldsOnInterface$Y::StaticFieldsOnInterface$Y() {
 }
 
 $Class* StaticFieldsOnInterface$Y::load$($String* name, bool initialize) {
-	$loadClass(StaticFieldsOnInterface$Y, name, initialize, &_StaticFieldsOnInterface$Y_ClassInfo_, allocate$StaticFieldsOnInterface$Y);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StaticFieldsOnInterface$Y, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StaticFieldsOnInterface$Y", "StaticFieldsOnInterface", "Y", $STATIC},
+		{"StaticFieldsOnInterface$X", "StaticFieldsOnInterface", "X", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"StaticFieldsOnInterface$Y",
+		"StaticFieldsOnInterface$X",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"StaticFieldsOnInterface"
+	};
+	$loadClass(StaticFieldsOnInterface$Y, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StaticFieldsOnInterface$Y);
+	});
 	return class$;
 }
 

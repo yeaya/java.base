@@ -1,5 +1,4 @@
 #include <java/lang/reflect/MalformedParameterizedTypeException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace lang {
 		namespace reflect {
-
-$FieldInfo _MalformedParameterizedTypeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MalformedParameterizedTypeException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MalformedParameterizedTypeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedParameterizedTypeException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedParameterizedTypeException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _MalformedParameterizedTypeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.reflect.MalformedParameterizedTypeException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_MalformedParameterizedTypeException_FieldInfo_,
-	_MalformedParameterizedTypeException_MethodInfo_
-};
-
-$Object* allocate$MalformedParameterizedTypeException($Class* clazz) {
-	return $of($alloc(MalformedParameterizedTypeException));
-}
 
 void MalformedParameterizedTypeException::init$() {
 	$RuntimeException::init$();
@@ -54,7 +29,26 @@ void MalformedParameterizedTypeException::throw$() {
 }
 
 $Class* MalformedParameterizedTypeException::load$($String* name, bool initialize) {
-	$loadClass(MalformedParameterizedTypeException, name, initialize, &_MalformedParameterizedTypeException_ClassInfo_, allocate$MalformedParameterizedTypeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MalformedParameterizedTypeException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedParameterizedTypeException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedParameterizedTypeException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.reflect.MalformedParameterizedTypeException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MalformedParameterizedTypeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MalformedParameterizedTypeException);
+	});
 	return class$;
 }
 

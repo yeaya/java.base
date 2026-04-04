@@ -1,5 +1,4 @@
 #include <Chars.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/Random.h>
 #include <java/util/stream/IntStream.h>
@@ -11,34 +10,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Arrays = ::java::util::Arrays;
 using $Random = ::java::util::Random;
-using $IntStream = ::java::util::stream::IntStream;
-
-$MethodInfo _Chars_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Chars, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Chars, main, void, $StringArray*)},
-	{"testCPs", "([C[I)V", nullptr, $STATIC, $staticMethod(Chars, testCPs, void, $chars*, $ints*)},
-	{"testChars", "([C[I)V", nullptr, $STATIC, $staticMethod(Chars, testChars, void, $chars*, $ints*)},
-	{}
-};
-
-$ClassInfo _Chars_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Chars",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Chars_MethodInfo_
-};
-
-$Object* allocate$Chars($Class* clazz) {
-	return $of($alloc(Chars));
-}
 
 void Chars::init$() {
 }
 
 void Chars::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Random, r, $new($Random));
 	for (int32_t i = 0; i < 10; ++i) {
 		int32_t n = 100 + r->nextInt(100);
@@ -51,7 +28,7 @@ void Chars::main($StringArray* args) {
 		testChars(cc, ccExp);
 		testCPs(cc, cpExp);
 		for (int32_t j = 0; j < n; ++j) {
-			cc->set(j, (char16_t)(ccExp->set(j, cpExp->set(j, r->nextInt(32768)))));
+			cc->set(j, (char16_t)(ccExp->set(j, cpExp->set(j, r->nextInt(0x00008000)))));
 		}
 		testChars(cc, ccExp);
 		testCPs(cc, cpExp);
@@ -65,7 +42,7 @@ void Chars::main($StringArray* args) {
 				ccExp->set(j + 1, cc->get(j + 1));
 				++j;
 			} else {
-				cc->set(j, (char16_t)(ccExp->set(j, cpExp->set(k++, r->nextInt(32768)))));
+				cc->set(j, (char16_t)(ccExp->set(j, cpExp->set(k++, r->nextInt(0x00008000)))));
 			}
 		}
 		$assign(cpExp, $Arrays::copyOf(cpExp, k));
@@ -75,7 +52,7 @@ void Chars::main($StringArray* args) {
 }
 
 void Chars::testChars($chars* cc, $ints* expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $new($String, cc));
 	if (!$Arrays::equals(expected, $($(str->chars())->toArray()))) {
 		$throwNew($RuntimeException, "chars/codePoints() failed!"_s);
@@ -83,7 +60,7 @@ void Chars::testChars($chars* cc, $ints* expected) {
 }
 
 void Chars::testCPs($chars* cc, $ints* expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $new($String, cc));
 	if (!$Arrays::equals(expected, $($(str->codePoints())->toArray()))) {
 		$throwNew($RuntimeException, "chars/codePoints() failed!"_s);
@@ -94,7 +71,24 @@ Chars::Chars() {
 }
 
 $Class* Chars::load$($String* name, bool initialize) {
-	$loadClass(Chars, name, initialize, &_Chars_ClassInfo_, allocate$Chars);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Chars, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Chars, main, void, $StringArray*)},
+		{"testCPs", "([C[I)V", nullptr, $STATIC, $staticMethod(Chars, testCPs, void, $chars*, $ints*)},
+		{"testChars", "([C[I)V", nullptr, $STATIC, $staticMethod(Chars, testChars, void, $chars*, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Chars",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Chars, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Chars);
+	});
 	return class$;
 }
 

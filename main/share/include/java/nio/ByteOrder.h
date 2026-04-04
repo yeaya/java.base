@@ -19,6 +19,7 @@ class $import ByteOrder : public ::java::lang::Object {
 	$class(ByteOrder, $PRELOAD, ::java::lang::Object)
 public:
 	ByteOrder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	static ::java::nio::ByteOrder* nativeOrder();
 	virtual $String* toString() override;

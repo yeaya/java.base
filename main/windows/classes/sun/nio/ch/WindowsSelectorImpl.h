@@ -74,6 +74,7 @@ public:
 	using ::sun::nio::ch::SelectorImpl::begin;
 	using ::sun::nio::ch::SelectorImpl::end;
 	using ::sun::nio::ch::SelectorImpl::cancel;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::SelectorProvider* sp);
 	void adjustThreadsCount();
 	static int32_t dependsArch(int32_t value32, int32_t value64);

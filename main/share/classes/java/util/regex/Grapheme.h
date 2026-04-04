@@ -66,6 +66,7 @@ class Grapheme : public ::java::lang::Object {
 	$class(Grapheme, 0, ::java::lang::Object)
 public:
 	Grapheme();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getType(int32_t cp);
 	static bool isExcludedSpacingMark(int32_t cp);
@@ -88,7 +89,7 @@ public:
 	static const int32_t FIRST_TYPE = 0;
 	static const int32_t LAST_TYPE = 14;
 	static $Array<bool, 2>* rules;
-	static const int32_t SYLLABLE_BASE = 0x0000AC00;
+	static const int32_t SYLLABLE_BASE = 0x0000ac00;
 	static const int32_t LCOUNT = 19;
 	static const int32_t VCOUNT = 21;
 	static const int32_t TCOUNT = 28;

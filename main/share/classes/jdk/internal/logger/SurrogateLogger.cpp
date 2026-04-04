@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/SurrogateLogger.h>
-
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/util/function/Function.h>
 #include <jdk/internal/logger/SimpleConsoleLogger$Formatting.h>
@@ -23,35 +22,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace jdk {
 	namespace internal {
 		namespace logger {
-
-$FieldInfo _SurrogateLogger_FieldInfo_[] = {
-	{"JUL_DEFAULT_LEVEL", "Lsun/util/logging/PlatformLogger$Level;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SurrogateLogger, JUL_DEFAULT_LEVEL)},
-	{"simpleFormatString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(SurrogateLogger, simpleFormatString)},
-	{}
-};
-
-$MethodInfo _SurrogateLogger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SurrogateLogger, init$, void, $String*)},
-	{"defaultPlatformLevel", "()Lsun/util/logging/PlatformLogger$Level;", nullptr, 0, $virtualMethod(SurrogateLogger, defaultPlatformLevel, $PlatformLogger$Level*)},
-	{"getSimpleFormat", "(Ljava/util/function/Function;)Ljava/lang/String;", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(SurrogateLogger, getSimpleFormat, $String*, $Function*)},
-	{"getSimpleFormatString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(SurrogateLogger, getSimpleFormatString, $String*)},
-	{"isFilteredFrame", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SurrogateLogger, isFilteredFrame, bool, $StackWalker$StackFrame*)},
-	{"makeSurrogateLogger", "(Ljava/lang/String;)Ljdk/internal/logger/SurrogateLogger;", nullptr, $PUBLIC | $STATIC, $staticMethod(SurrogateLogger, makeSurrogateLogger, SurrogateLogger*, $String*)},
-	{}
-};
-
-$ClassInfo _SurrogateLogger_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.logger.SurrogateLogger",
-	"jdk.internal.logger.SimpleConsoleLogger",
-	nullptr,
-	_SurrogateLogger_FieldInfo_,
-	_SurrogateLogger_MethodInfo_
-};
-
-$Object* allocate$SurrogateLogger($Class* clazz) {
-	return $of($alloc(SurrogateLogger));
-}
 
 $PlatformLogger$Level* SurrogateLogger::JUL_DEFAULT_LEVEL = nullptr;
 $volatile($String*) SurrogateLogger::simpleFormatString = nullptr;
@@ -87,7 +57,7 @@ bool SurrogateLogger::isFilteredFrame($StackWalker$StackFrame* st) {
 	return $SimpleConsoleLogger$Formatting::isFilteredFrame(st);
 }
 
-void clinit$SurrogateLogger($Class* class$) {
+void SurrogateLogger::clinit$($Class* clazz) {
 	$init($PlatformLogger$Level);
 	$assignStatic(SurrogateLogger::JUL_DEFAULT_LEVEL, $PlatformLogger$Level::INFO);
 }
@@ -96,7 +66,31 @@ SurrogateLogger::SurrogateLogger() {
 }
 
 $Class* SurrogateLogger::load$($String* name, bool initialize) {
-	$loadClass(SurrogateLogger, name, initialize, &_SurrogateLogger_ClassInfo_, clinit$SurrogateLogger, allocate$SurrogateLogger);
+	$FieldInfo fieldInfos$$[] = {
+		{"JUL_DEFAULT_LEVEL", "Lsun/util/logging/PlatformLogger$Level;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SurrogateLogger, JUL_DEFAULT_LEVEL)},
+		{"simpleFormatString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(SurrogateLogger, simpleFormatString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SurrogateLogger, init$, void, $String*)},
+		{"defaultPlatformLevel", "()Lsun/util/logging/PlatformLogger$Level;", nullptr, 0, $virtualMethod(SurrogateLogger, defaultPlatformLevel, $PlatformLogger$Level*)},
+		{"getSimpleFormat", "(Ljava/util/function/Function;)Ljava/lang/String;", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(SurrogateLogger, getSimpleFormat, $String*, $Function*)},
+		{"getSimpleFormatString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(SurrogateLogger, getSimpleFormatString, $String*)},
+		{"isFilteredFrame", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SurrogateLogger, isFilteredFrame, bool, $StackWalker$StackFrame*)},
+		{"makeSurrogateLogger", "(Ljava/lang/String;)Ljdk/internal/logger/SurrogateLogger;", nullptr, $PUBLIC | $STATIC, $staticMethod(SurrogateLogger, makeSurrogateLogger, SurrogateLogger*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.logger.SurrogateLogger",
+		"jdk.internal.logger.SimpleConsoleLogger",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SurrogateLogger, name, initialize, &classInfo$$, SurrogateLogger::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SurrogateLogger));
+	});
 	return class$;
 }
 

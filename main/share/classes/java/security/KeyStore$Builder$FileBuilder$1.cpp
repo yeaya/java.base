@@ -1,5 +1,4 @@
 #include <java/security/KeyStore$Builder$FileBuilder$1.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/IOException.h>
@@ -18,7 +17,6 @@
 #include <jcpp.h>
 
 using $CallbackArray = $Array<::javax::security::auth::callback::Callback>;
-using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
@@ -31,75 +29,28 @@ using $KeyStore = ::java::security::KeyStore;
 using $KeyStore$Builder$FileBuilder = ::java::security::KeyStore$Builder$FileBuilder;
 using $KeyStore$CallbackHandlerProtection = ::java::security::KeyStore$CallbackHandlerProtection;
 using $KeyStore$PasswordProtection = ::java::security::KeyStore$PasswordProtection;
-using $KeyStore$ProtectionParameter = ::java::security::KeyStore$ProtectionParameter;
 using $KeyStoreException = ::java::security::KeyStoreException;
 using $UnrecoverableKeyException = ::java::security::UnrecoverableKeyException;
-using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
 
 namespace java {
 	namespace security {
 
-$FieldInfo _KeyStore$Builder$FileBuilder$1_FieldInfo_[] = {
-	{"this$0", "Ljava/security/KeyStore$Builder$FileBuilder;", nullptr, $FINAL | $SYNTHETIC, $field(KeyStore$Builder$FileBuilder$1, this$0)},
-	{}
-};
-
-$MethodInfo _KeyStore$Builder$FileBuilder$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore$Builder$FileBuilder;)V", nullptr, 0, $method(KeyStore$Builder$FileBuilder$1, init$, void, $KeyStore$Builder$FileBuilder*)},
-	{"run", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$FileBuilder$1, run, $Object*), "java.lang.Exception"},
-	{"run0", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$FileBuilder$1, run0, $KeyStore*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _KeyStore$Builder$FileBuilder$1_EnclosingMethodInfo_ = {
-	"java.security.KeyStore$Builder$FileBuilder",
-	"getKeyStore",
-	"()Ljava/security/KeyStore;"
-};
-
-$InnerClassInfo _KeyStore$Builder$FileBuilder$1_InnerClassesInfo_[] = {
-	{"java.security.KeyStore$Builder", "java.security.KeyStore", "Builder", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.security.KeyStore$Builder$FileBuilder", "java.security.KeyStore$Builder", "FileBuilder", $PRIVATE | $STATIC | $FINAL},
-	{"java.security.KeyStore$Builder$FileBuilder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KeyStore$Builder$FileBuilder$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.KeyStore$Builder$FileBuilder$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_KeyStore$Builder$FileBuilder$1_FieldInfo_,
-	_KeyStore$Builder$FileBuilder$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/security/KeyStore;>;",
-	&_KeyStore$Builder$FileBuilder$1_EnclosingMethodInfo_,
-	_KeyStore$Builder$FileBuilder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.KeyStore"
-};
-
-$Object* allocate$KeyStore$Builder$FileBuilder$1($Class* clazz) {
-	return $of($alloc(KeyStore$Builder$FileBuilder$1));
-}
-
 void KeyStore$Builder$FileBuilder$1::init$($KeyStore$Builder$FileBuilder* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* KeyStore$Builder$FileBuilder$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($KeyStore$CallbackHandlerProtection, this->this$0->protection))) {
-		return $of(run0());
+		return run0();
 	}
 	int32_t tries = 0;
 	while (true) {
 		++tries;
 		try {
-			return $of(run0());
+			return run0();
 		} catch ($IOException& e) {
 			if ((tries < 3) && ($instanceOf($UnrecoverableKeyException, $(e->getCause())))) {
 				continue;
@@ -111,16 +62,16 @@ $Object* KeyStore$Builder$FileBuilder$1::run() {
 }
 
 $KeyStore* KeyStore$Builder$FileBuilder$1::run0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyStore, ks, nullptr);
 	$var($chars, password, nullptr);
 	if ($instanceOf($KeyStore$PasswordProtection, this->this$0->protection)) {
-		$assign(password, $nc(($cast($KeyStore$PasswordProtection, this->this$0->protection)))->getPassword());
+		$assign(password, $cast($KeyStore$PasswordProtection, this->this$0->protection)->getPassword());
 		$set(this->this$0, keyProtection, this->this$0->protection);
 	} else {
-		$var($CallbackHandler, handler, $nc(($cast($KeyStore$CallbackHandlerProtection, this->this$0->protection)))->getCallbackHandler());
+		$var($CallbackHandler, handler, $nc($cast($KeyStore$CallbackHandlerProtection, this->this$0->protection))->getCallbackHandler());
 		$var($PasswordCallback, callback, $new($PasswordCallback, $$str({"Password for keystore "_s, $($nc(this->this$0->file)->getName())}), false));
-		$nc(handler)->handle($$new($CallbackArray, {static_cast<$Callback*>(callback)}));
+		$nc(handler)->handle($$new($CallbackArray, {callback}));
 		$assign(password, callback->getPassword());
 		if (password == nullptr) {
 			$throwNew($KeyStoreException, "No password provided"_s);
@@ -138,27 +89,25 @@ $KeyStore* KeyStore$Builder$FileBuilder$1::run0() {
 		}
 		{
 			$var($InputStream, in, $new($FileInputStream, this->this$0->file));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
+					$nc(ks)->load(in, password);
+				} catch ($Throwable& t$) {
 					try {
-						$nc(ks)->load(in, password);
-					} catch ($Throwable& t$) {
-						try {
-							in->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
+						in->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					in->close();
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				in->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
@@ -169,7 +118,45 @@ KeyStore$Builder$FileBuilder$1::KeyStore$Builder$FileBuilder$1() {
 }
 
 $Class* KeyStore$Builder$FileBuilder$1::load$($String* name, bool initialize) {
-	$loadClass(KeyStore$Builder$FileBuilder$1, name, initialize, &_KeyStore$Builder$FileBuilder$1_ClassInfo_, allocate$KeyStore$Builder$FileBuilder$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/security/KeyStore$Builder$FileBuilder;", nullptr, $FINAL | $SYNTHETIC, $field(KeyStore$Builder$FileBuilder$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/KeyStore$Builder$FileBuilder;)V", nullptr, 0, $method(KeyStore$Builder$FileBuilder$1, init$, void, $KeyStore$Builder$FileBuilder*)},
+		{"run", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$FileBuilder$1, run, $Object*), "java.lang.Exception"},
+		{"run0", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$FileBuilder$1, run0, $KeyStore*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.security.KeyStore$Builder$FileBuilder",
+		"getKeyStore",
+		"()Ljava/security/KeyStore;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyStore$Builder", "java.security.KeyStore", "Builder", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.security.KeyStore$Builder$FileBuilder", "java.security.KeyStore$Builder", "FileBuilder", $PRIVATE | $STATIC | $FINAL},
+		{"java.security.KeyStore$Builder$FileBuilder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.KeyStore$Builder$FileBuilder$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/security/KeyStore;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.KeyStore"
+	};
+	$loadClass(KeyStore$Builder$FileBuilder$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStore$Builder$FileBuilder$1);
+	});
 	return class$;
 }
 

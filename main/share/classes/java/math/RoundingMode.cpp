@@ -1,5 +1,4 @@
 #include <java/math/RoundingMode.h>
-
 #include <java/lang/Enum.h>
 #include <java/math/BigDecimal.h>
 #include <jcpp.h>
@@ -31,43 +30,6 @@ using $BigDecimal = ::java::math::BigDecimal;
 
 namespace java {
 	namespace math {
-
-$FieldInfo _RoundingMode_FieldInfo_[] = {
-	{"UP", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, UP)},
-	{"DOWN", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, DOWN)},
-	{"CEILING", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, CEILING)},
-	{"FLOOR", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, FLOOR)},
-	{"HALF_UP", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, HALF_UP)},
-	{"HALF_DOWN", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, HALF_DOWN)},
-	{"HALF_EVEN", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, HALF_EVEN)},
-	{"UNNECESSARY", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, UNNECESSARY)},
-	{"$VALUES", "[Ljava/math/RoundingMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RoundingMode, $VALUES)},
-	{"oldMode", "I", nullptr, $FINAL, $field(RoundingMode, oldMode)},
-	{}
-};
-
-$MethodInfo _RoundingMode_MethodInfo_[] = {
-	{"$values", "()[Ljava/math/RoundingMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RoundingMode, $values, $RoundingModeArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(RoundingMode, init$, void, $String*, int32_t, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingMode, valueOf, RoundingMode*, $String*)},
-	{"valueOf", "(I)Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingMode, valueOf, RoundingMode*, int32_t)},
-	{"values", "()[Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingMode, values, $RoundingModeArray*)},
-	{}
-};
-
-$ClassInfo _RoundingMode_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.math.RoundingMode",
-	"java.lang.Enum",
-	nullptr,
-	_RoundingMode_FieldInfo_,
-	_RoundingMode_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/math/RoundingMode;>;"
-};
-
-$Object* allocate$RoundingMode($Class* clazz) {
-	return $of($alloc(RoundingMode));
-}
 
 RoundingMode* RoundingMode::UP = nullptr;
 RoundingMode* RoundingMode::DOWN = nullptr;
@@ -110,58 +72,39 @@ void RoundingMode::init$($String* $enum$name, int32_t $enum$ordinal, int32_t old
 
 RoundingMode* RoundingMode::valueOf(int32_t rm) {
 	$init(RoundingMode);
-
-	$var(RoundingMode, var$0, nullptr)
+	$var(RoundingMode, var$0, nullptr);
 	switch (rm) {
 	case $BigDecimal::ROUND_UP:
-		{
-			$assign(var$0, RoundingMode::UP);
-			break;
-		}
+		$assign(var$0, RoundingMode::UP);
+		break;
 	case $BigDecimal::ROUND_DOWN:
-		{
-			$assign(var$0, RoundingMode::DOWN);
-			break;
-		}
+		$assign(var$0, RoundingMode::DOWN);
+		break;
 	case $BigDecimal::ROUND_CEILING:
-		{
-			$assign(var$0, RoundingMode::CEILING);
-			break;
-		}
+		$assign(var$0, RoundingMode::CEILING);
+		break;
 	case $BigDecimal::ROUND_FLOOR:
-		{
-			$assign(var$0, RoundingMode::FLOOR);
-			break;
-		}
+		$assign(var$0, RoundingMode::FLOOR);
+		break;
 	case $BigDecimal::ROUND_HALF_UP:
-		{
-			$assign(var$0, RoundingMode::HALF_UP);
-			break;
-		}
+		$assign(var$0, RoundingMode::HALF_UP);
+		break;
 	case $BigDecimal::ROUND_HALF_DOWN:
-		{
-			$assign(var$0, RoundingMode::HALF_DOWN);
-			break;
-		}
+		$assign(var$0, RoundingMode::HALF_DOWN);
+		break;
 	case $BigDecimal::ROUND_HALF_EVEN:
-		{
-			$assign(var$0, RoundingMode::HALF_EVEN);
-			break;
-		}
+		$assign(var$0, RoundingMode::HALF_EVEN);
+		break;
 	case $BigDecimal::ROUND_UNNECESSARY:
-		{
-			$assign(var$0, RoundingMode::UNNECESSARY);
-			break;
-		}
+		$assign(var$0, RoundingMode::UNNECESSARY);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "argument out of range"_s);
-		}
+		$throwNew($IllegalArgumentException, "argument out of range"_s);
 	}
 	return var$0;
 }
 
-void clinit$RoundingMode($Class* class$) {
+void RoundingMode::clinit$($Class* clazz) {
 	$assignStatic(RoundingMode::UP, $new(RoundingMode, "UP"_s, 0, $BigDecimal::ROUND_UP));
 	$assignStatic(RoundingMode::DOWN, $new(RoundingMode, "DOWN"_s, 1, $BigDecimal::ROUND_DOWN));
 	$assignStatic(RoundingMode::CEILING, $new(RoundingMode, "CEILING"_s, 2, $BigDecimal::ROUND_CEILING));
@@ -177,7 +120,39 @@ RoundingMode::RoundingMode() {
 }
 
 $Class* RoundingMode::load$($String* name, bool initialize) {
-	$loadClass(RoundingMode, name, initialize, &_RoundingMode_ClassInfo_, clinit$RoundingMode, allocate$RoundingMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"UP", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, UP)},
+		{"DOWN", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, DOWN)},
+		{"CEILING", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, CEILING)},
+		{"FLOOR", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, FLOOR)},
+		{"HALF_UP", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, HALF_UP)},
+		{"HALF_DOWN", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, HALF_DOWN)},
+		{"HALF_EVEN", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, HALF_EVEN)},
+		{"UNNECESSARY", "Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RoundingMode, UNNECESSARY)},
+		{"$VALUES", "[Ljava/math/RoundingMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RoundingMode, $VALUES)},
+		{"oldMode", "I", nullptr, $FINAL, $field(RoundingMode, oldMode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/math/RoundingMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RoundingMode, $values, $RoundingModeArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(RoundingMode, init$, void, $String*, int32_t, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingMode, valueOf, RoundingMode*, $String*)},
+		{"valueOf", "(I)Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingMode, valueOf, RoundingMode*, int32_t)},
+		{"values", "()[Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingMode, values, $RoundingModeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.math.RoundingMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/math/RoundingMode;>;"
+	};
+	$loadClass(RoundingMode, name, initialize, &classInfo$$, RoundingMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RoundingMode));
+	});
 	return class$;
 }
 

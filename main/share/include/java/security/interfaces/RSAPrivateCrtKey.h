@@ -24,7 +24,7 @@ public:
 	virtual ::java::math::BigInteger* getPrimeP() {return nullptr;}
 	virtual ::java::math::BigInteger* getPrimeQ() {return nullptr;}
 	virtual ::java::math::BigInteger* getPublicExponent() {return nullptr;}
-	static const int64_t serialVersionUID = (int64_t)0xB124B83DF8D1EC70;
+	static const int64_t serialVersionUID = (int64_t)0xb124b83df8d1ec70;
 };
 
 		} // interfaces

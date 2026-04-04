@@ -18,6 +18,7 @@ class DefaultDatagramSocketImplFactory : public ::java::lang::Object {
 	$class(DefaultDatagramSocketImplFactory, 0, ::java::lang::Object)
 public:
 	DefaultDatagramSocketImplFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::net::DatagramSocketImpl* createDatagramSocketImpl(bool isMulticast);
 	static $Class* prefixImplClass;

@@ -1,7 +1,5 @@
 #include <java/util/stream/ReferencePipeline$7$1.h>
-
 #include <java/util/Spliterator.h>
-#include <java/util/function/Consumer.h>
 #include <java/util/function/Function.h>
 #include <java/util/stream/BaseStream.h>
 #include <java/util/stream/ReferencePipeline$7.h>
@@ -16,8 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
-using $Consumer = ::java::util::function::Consumer;
-using $Function = ::java::util::function::Function;
 using $ReferencePipeline$7 = ::java::util::stream::ReferencePipeline$7;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedReference = ::java::util::stream::Sink$ChainedReference;
@@ -26,53 +22,6 @@ using $Stream = ::java::util::stream::Stream;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _ReferencePipeline$7$1_FieldInfo_[] = {
-	{"this$1", "Ljava/util/stream/ReferencePipeline$7;", nullptr, $FINAL | $SYNTHETIC, $field(ReferencePipeline$7$1, this$1)},
-	{"cancellationRequestedCalled", "Z", nullptr, 0, $field(ReferencePipeline$7$1, cancellationRequestedCalled)},
-	{}
-};
-
-$MethodInfo _ReferencePipeline$7$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/ReferencePipeline$7;Ljava/util/stream/Sink;)V", nullptr, 0, $method(ReferencePipeline$7$1, init$, void, $ReferencePipeline$7*, $Sink*)},
-	{"accept", "(Ljava/lang/Object;)V", "(TP_OUT;)V", $PUBLIC, $virtualMethod(ReferencePipeline$7$1, accept, void, Object$*)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(ReferencePipeline$7$1, begin, void, int64_t)},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(ReferencePipeline$7$1, cancellationRequested, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _ReferencePipeline$7$1_EnclosingMethodInfo_ = {
-	"java.util.stream.ReferencePipeline$7",
-	"opWrapSink",
-	"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
-};
-
-$InnerClassInfo _ReferencePipeline$7$1_InnerClassesInfo_[] = {
-	{"java.util.stream.ReferencePipeline$7", nullptr, nullptr, 0},
-	{"java.util.stream.ReferencePipeline$7$1", nullptr, nullptr, 0},
-	{"java.util.stream.Sink$ChainedReference", "java.util.stream.Sink", "ChainedReference", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ReferencePipeline$7$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.ReferencePipeline$7$1",
-	"java.util.stream.Sink$ChainedReference",
-	nullptr,
-	_ReferencePipeline$7$1_FieldInfo_,
-	_ReferencePipeline$7$1_MethodInfo_,
-	"Ljava/util/stream/Sink$ChainedReference<TP_OUT;TR;>;",
-	&_ReferencePipeline$7$1_EnclosingMethodInfo_,
-	_ReferencePipeline$7$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ReferencePipeline"
-};
-
-$Object* allocate$ReferencePipeline$7$1($Class* clazz) {
-	return $of($alloc(ReferencePipeline$7$1));
-}
 
 void ReferencePipeline$7$1::init$($ReferencePipeline$7* this$1, $Sink* downstream) {
 	$set(this, this$1, this$1);
@@ -84,44 +33,42 @@ void ReferencePipeline$7$1::begin(int64_t size) {
 }
 
 void ReferencePipeline$7$1::accept(Object$* u) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Stream, result, $cast($Stream, $nc(this->this$1->val$mapper)->apply(u)));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					if (result != nullptr) {
-						if (!this->cancellationRequestedCalled) {
-							$nc(($cast($Stream, $(result->sequential()))))->forEach(this->downstream);
-						} else {
-							$var($Spliterator, s, $nc(($cast($Stream, $(result->sequential()))))->spliterator());
-							bool var$1 = false;
-							do {
-								var$1 = !$nc(this->downstream)->cancellationRequested();
-							} while (var$1 && $nc(s)->tryAdvance(this->downstream));
-						}
-					}
-				} catch ($Throwable& t$) {
-					if (result != nullptr) {
-						try {
-							result->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} /*finally*/ {
 				if (result != nullptr) {
-					result->close();
+					if (!this->cancellationRequestedCalled) {
+						$$sure($Stream, result->sequential())->forEach(this->downstream);
+					} else {
+						$var($Spliterator, s, $$sure($Stream, result->sequential())->spliterator());
+						bool var$1 = false;
+						do {
+							var$1 = !$nc(this->downstream)->cancellationRequested();
+						} while (var$1 && $nc(s)->tryAdvance(this->downstream));
+					}
 				}
+			} catch ($Throwable& t$) {
+				if (result != nullptr) {
+					try {
+						result->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} /*finally*/ {
+			if (result != nullptr) {
+				result->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -135,7 +82,47 @@ ReferencePipeline$7$1::ReferencePipeline$7$1() {
 }
 
 $Class* ReferencePipeline$7$1::load$($String* name, bool initialize) {
-	$loadClass(ReferencePipeline$7$1, name, initialize, &_ReferencePipeline$7$1_ClassInfo_, allocate$ReferencePipeline$7$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljava/util/stream/ReferencePipeline$7;", nullptr, $FINAL | $SYNTHETIC, $field(ReferencePipeline$7$1, this$1)},
+		{"cancellationRequestedCalled", "Z", nullptr, 0, $field(ReferencePipeline$7$1, cancellationRequestedCalled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/ReferencePipeline$7;Ljava/util/stream/Sink;)V", nullptr, 0, $method(ReferencePipeline$7$1, init$, void, $ReferencePipeline$7*, $Sink*)},
+		{"accept", "(Ljava/lang/Object;)V", "(TP_OUT;)V", $PUBLIC, $virtualMethod(ReferencePipeline$7$1, accept, void, Object$*)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(ReferencePipeline$7$1, begin, void, int64_t)},
+		{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(ReferencePipeline$7$1, cancellationRequested, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.ReferencePipeline$7",
+		"opWrapSink",
+		"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ReferencePipeline$7", nullptr, nullptr, 0},
+		{"java.util.stream.ReferencePipeline$7$1", nullptr, nullptr, 0},
+		{"java.util.stream.Sink$ChainedReference", "java.util.stream.Sink", "ChainedReference", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.ReferencePipeline$7$1",
+		"java.util.stream.Sink$ChainedReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/Sink$ChainedReference<TP_OUT;TR;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ReferencePipeline"
+	};
+	$loadClass(ReferencePipeline$7$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferencePipeline$7$1);
+	});
 	return class$;
 }
 

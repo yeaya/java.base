@@ -32,7 +32,7 @@ public:
 	virtual bool exec() override;
 	virtual $Object* getRawResult() override;
 	virtual void setRawResult(Object$* v) override;
-	static const int64_t serialVersionUID = (int64_t)0x2763FE86DCB18E30;
+	static const int64_t serialVersionUID = (int64_t)0x2763fe86dcb18e30;
 	::java::util::concurrent::ForkJoinPool$InvokeAnyRoot* root = nullptr;
 	::java::util::concurrent::Callable* callable = nullptr;
 	$volatile($Thread*) runner = nullptr;

@@ -36,7 +36,7 @@ public:
 	virtual $Object* getRawResult() override;
 	virtual void setRawResult(Object$* v) override;
 	void tryComplete(::java::util::concurrent::Callable* c);
-	static const int64_t serialVersionUID = (int64_t)0x2763FE86DCB18E30;
+	static const int64_t serialVersionUID = (int64_t)0x2763fe86dcb18e30;
 	$volatile($Object*) result = nullptr;
 	::java::util::concurrent::atomic::AtomicInteger* count = nullptr;
 	::java::util::concurrent::ForkJoinPool* pool = nullptr;

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/RSAKeyExchange$EphemeralRSAPossessionGenerator.h>
-
 #include <java/security/KeyPair.h>
 #include <java/security/PrivateKey.h>
 #include <java/security/PublicKey.h>
@@ -23,55 +22,23 @@ using $RSAPublicKey = ::java::security::interfaces::RSAPublicKey;
 using $EphemeralKeyManager = ::sun::security::ssl::EphemeralKeyManager;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $RSAKeyExchange$EphemeralRSAPossession = ::sun::security::ssl::RSAKeyExchange$EphemeralRSAPossession;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _RSAKeyExchange$EphemeralRSAPossessionGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(RSAKeyExchange$EphemeralRSAPossessionGenerator, init$, void)},
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(RSAKeyExchange$EphemeralRSAPossessionGenerator, createPossession, $SSLPossession*, $HandshakeContext*)},
-	{}
-};
-
-$InnerClassInfo _RSAKeyExchange$EphemeralRSAPossessionGenerator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.RSAKeyExchange$EphemeralRSAPossessionGenerator", "sun.security.ssl.RSAKeyExchange", "EphemeralRSAPossessionGenerator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RSAKeyExchange$EphemeralRSAPossessionGenerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.RSAKeyExchange$EphemeralRSAPossessionGenerator",
-	"java.lang.Object",
-	"sun.security.ssl.SSLPossessionGenerator",
-	nullptr,
-	_RSAKeyExchange$EphemeralRSAPossessionGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RSAKeyExchange$EphemeralRSAPossessionGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.RSAKeyExchange"
-};
-
-$Object* allocate$RSAKeyExchange$EphemeralRSAPossessionGenerator($Class* clazz) {
-	return $of($alloc(RSAKeyExchange$EphemeralRSAPossessionGenerator));
-}
-
 void RSAKeyExchange$EphemeralRSAPossessionGenerator::init$() {
 }
 
 $SSLPossession* RSAKeyExchange$EphemeralRSAPossessionGenerator::createPossession($HandshakeContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($EphemeralKeyManager, ekm, $nc($nc(context)->sslContext)->getEphemeralKeyManager());
-		$var($KeyPair, kp, $nc(ekm)->getRSAKeyPair(true, $($nc(context->sslContext)->getSecureRandom())));
+		$var($KeyPair, kp, $nc(ekm)->getRSAKeyPair(true, $(context->sslContext->getSecureRandom())));
 		if (kp != nullptr) {
 			$var($PrivateKey, var$0, kp->getPrivate());
-			return $new($RSAKeyExchange$EphemeralRSAPossession, var$0, $cast($RSAPublicKey, $(kp->getPublic())));
+			return $new($RSAKeyExchange$EphemeralRSAPossession, var$0, $$cast($RSAPublicKey, kp->getPublic()));
 		} else {
 			return nullptr;
 		}
@@ -85,7 +52,33 @@ RSAKeyExchange$EphemeralRSAPossessionGenerator::RSAKeyExchange$EphemeralRSAPosse
 }
 
 $Class* RSAKeyExchange$EphemeralRSAPossessionGenerator::load$($String* name, bool initialize) {
-	$loadClass(RSAKeyExchange$EphemeralRSAPossessionGenerator, name, initialize, &_RSAKeyExchange$EphemeralRSAPossessionGenerator_ClassInfo_, allocate$RSAKeyExchange$EphemeralRSAPossessionGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(RSAKeyExchange$EphemeralRSAPossessionGenerator, init$, void)},
+		{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(RSAKeyExchange$EphemeralRSAPossessionGenerator, createPossession, $SSLPossession*, $HandshakeContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.RSAKeyExchange$EphemeralRSAPossessionGenerator", "sun.security.ssl.RSAKeyExchange", "EphemeralRSAPossessionGenerator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.RSAKeyExchange$EphemeralRSAPossessionGenerator",
+		"java.lang.Object",
+		"sun.security.ssl.SSLPossessionGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.RSAKeyExchange"
+	};
+	$loadClass(RSAKeyExchange$EphemeralRSAPossessionGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAKeyExchange$EphemeralRSAPossessionGenerator);
+	});
 	return class$;
 }
 

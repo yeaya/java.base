@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/ModuleHashesAttribute.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
@@ -27,34 +26,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$FieldInfo _ModuleHashesAttribute_FieldInfo_[] = {
-	{"algorithm", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleHashesAttribute, algorithm)},
-	{"modules", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleHashesAttribute, modules)},
-	{"hashes", "Ljava/util/List;", "Ljava/util/List<[B>;", $PUBLIC, $field(ModuleHashesAttribute, hashes)},
-	{}
-};
-
-$MethodInfo _ModuleHashesAttribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<[B>;)V", $PUBLIC, $method(ModuleHashesAttribute, init$, void, $String*, $List*, $List*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleHashesAttribute, init$, void)},
-	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(ModuleHashesAttribute, read, $Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
-	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(ModuleHashesAttribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ModuleHashesAttribute_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.ModuleHashesAttribute",
-	"jdk.internal.org.objectweb.asm.Attribute",
-	nullptr,
-	_ModuleHashesAttribute_FieldInfo_,
-	_ModuleHashesAttribute_MethodInfo_
-};
-
-$Object* allocate$ModuleHashesAttribute($Class* clazz) {
-	return $of($alloc(ModuleHashesAttribute));
-}
-
 void ModuleHashesAttribute::init$($String* algorithm, $List* modules, $List* hashes) {
 	$Attribute::init$("ModuleHashes"_s);
 	$set(this, algorithm, algorithm);
@@ -67,7 +38,7 @@ void ModuleHashesAttribute::init$() {
 }
 
 $Attribute* ModuleHashesAttribute::read($ClassReader* classReader, int32_t offset, int32_t length, $chars* charBuffer, int32_t codeAttributeOffset, $LabelArray* labels) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentOffset = offset;
 	$var($String, hashAlgorithm, $nc(classReader)->readUTF8(currentOffset, charBuffer));
 	currentOffset += 2;
@@ -83,7 +54,7 @@ $Attribute* ModuleHashesAttribute::read($ClassReader* classReader, int32_t offse
 		currentOffset += 2;
 		$var($bytes, hash, $new($bytes, hashLength));
 		for (int32_t j = 0; j < hashLength; ++j) {
-			hash->set(j, (int8_t)((int32_t)(classReader->readByte(currentOffset) & (uint32_t)255)));
+			hash->set(j, (int8_t)(classReader->readByte(currentOffset) & 0xff));
 			currentOffset += 1;
 		}
 		hashList->add(hash);
@@ -92,18 +63,18 @@ $Attribute* ModuleHashesAttribute::read($ClassReader* classReader, int32_t offse
 }
 
 $ByteVector* ModuleHashesAttribute::write($ClassWriter* classWriter, $bytes* code, int32_t codeLength, int32_t maxStack, int32_t maxLocals) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteVector, byteVector, $new($ByteVector));
 	byteVector->putShort($nc(classWriter)->newUTF8(this->algorithm));
 	if (this->modules == nullptr) {
 		byteVector->putShort(0);
 	} else {
-		int32_t numModules = $nc(this->modules)->size();
+		int32_t numModules = this->modules->size();
 		byteVector->putShort(numModules);
 		for (int32_t i = 0; i < numModules; ++i) {
-			$var($String, module, $cast($String, $nc(this->modules)->get(i)));
+			$var($String, module, $cast($String, this->modules->get(i)));
 			$var($bytes, hash, $cast($bytes, $nc(this->hashes)->get(i)));
-			$nc($($nc($(byteVector->putShort($nc(classWriter)->newModule(module))))->putShort($nc(hash)->length)))->putByteArray(hash, 0, $nc(hash)->length);
+			$$nc($$nc(byteVector->putShort(classWriter->newModule(module)))->putShort($nc(hash)->length))->putByteArray(hash, 0, $nc(hash)->length);
 		}
 	}
 	return byteVector;
@@ -113,7 +84,30 @@ ModuleHashesAttribute::ModuleHashesAttribute() {
 }
 
 $Class* ModuleHashesAttribute::load$($String* name, bool initialize) {
-	$loadClass(ModuleHashesAttribute, name, initialize, &_ModuleHashesAttribute_ClassInfo_, allocate$ModuleHashesAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"algorithm", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleHashesAttribute, algorithm)},
+		{"modules", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(ModuleHashesAttribute, modules)},
+		{"hashes", "Ljava/util/List;", "Ljava/util/List<[B>;", $PUBLIC, $field(ModuleHashesAttribute, hashes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<[B>;)V", $PUBLIC, $method(ModuleHashesAttribute, init$, void, $String*, $List*, $List*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleHashesAttribute, init$, void)},
+		{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(ModuleHashesAttribute, read, $Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
+		{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(ModuleHashesAttribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.ModuleHashesAttribute",
+		"jdk.internal.org.objectweb.asm.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleHashesAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleHashesAttribute);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/LabelNode.h>
-
 #include <java/util/Map.h>
 #include <jdk/internal/org/objectweb/asm/Label.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
@@ -22,35 +21,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace tree {
-
-$FieldInfo _LabelNode_FieldInfo_[] = {
-	{"value", "Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PRIVATE, $field(LabelNode, value)},
-	{}
-};
-
-$MethodInfo _LabelNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LabelNode, init$, void)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $method(LabelNode, init$, void, $Label*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(LabelNode, accept, void, $MethodVisitor*)},
-	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(LabelNode, clone, $AbstractInsnNode*, $Map*)},
-	{"getLabel", "()Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PUBLIC, $virtualMethod(LabelNode, getLabel, $Label*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(LabelNode, getType, int32_t)},
-	{"resetLabel", "()V", nullptr, $PUBLIC, $virtualMethod(LabelNode, resetLabel, void)},
-	{}
-};
-
-$ClassInfo _LabelNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.LabelNode",
-	"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
-	nullptr,
-	_LabelNode_FieldInfo_,
-	_LabelNode_MethodInfo_
-};
-
-$Object* allocate$LabelNode($Class* clazz) {
-	return $of($alloc(LabelNode));
-}
 
 void LabelNode::init$() {
 	$AbstractInsnNode::init$(-1);
@@ -88,7 +58,31 @@ LabelNode::LabelNode() {
 }
 
 $Class* LabelNode::load$($String* name, bool initialize) {
-	$loadClass(LabelNode, name, initialize, &_LabelNode_ClassInfo_, allocate$LabelNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PRIVATE, $field(LabelNode, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LabelNode, init$, void)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $method(LabelNode, init$, void, $Label*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(LabelNode, accept, void, $MethodVisitor*)},
+		{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(LabelNode, clone, $AbstractInsnNode*, $Map*)},
+		{"getLabel", "()Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PUBLIC, $virtualMethod(LabelNode, getLabel, $Label*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(LabelNode, getType, int32_t)},
+		{"resetLabel", "()V", nullptr, $PUBLIC, $virtualMethod(LabelNode, resetLabel, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.LabelNode",
+		"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LabelNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LabelNode);
+	});
 	return class$;
 }
 

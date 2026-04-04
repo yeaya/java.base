@@ -1,5 +1,4 @@
 #include <Missing.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -7,40 +6,34 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute Missing_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _Missing_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", Missing_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _Missing_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Missing, value, int32_t)},
-	{}
-};
-
-$ClassInfo _Missing_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"Missing",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_Missing_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Missing_Annotations_
-};
-
-$Object* allocate$Missing($Class* clazz) {
-	return $of($alloc(Missing));
-}
-
 $Class* Missing::load$($String* name, bool initialize) {
-	$loadClass(Missing, name, initialize, &_Missing_ClassInfo_, allocate$Missing);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Missing, value, int32_t)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"Missing",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Missing, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Missing);
+	});
 	return class$;
 }
 

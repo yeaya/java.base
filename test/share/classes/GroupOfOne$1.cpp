@@ -1,9 +1,7 @@
 #include <GroupOfOne$1.h>
-
 #include <GroupOfOne.h>
 #include <java/nio/channels/AsynchronousServerSocketChannel.h>
 #include <java/nio/channels/AsynchronousSocketChannel.h>
-#include <java/nio/channels/CompletionHandler.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -15,54 +13,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $AsynchronousServerSocketChannel = ::java::nio::channels::AsynchronousServerSocketChannel;
 using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
-using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $List = ::java::util::List;
-
-$FieldInfo _GroupOfOne$1_FieldInfo_[] = {
-	{"val$listener", "Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $FINAL | $SYNTHETIC, $field(GroupOfOne$1, val$listener)},
-	{"val$accepted", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(GroupOfOne$1, val$accepted)},
-	{}
-};
-
-$MethodInfo _GroupOfOne$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/nio/channels/AsynchronousServerSocketChannel;)V", "()V", 0, $method(GroupOfOne$1, init$, void, $List*, $AsynchronousServerSocketChannel*)},
-	{"completed", "(Ljava/nio/channels/AsynchronousSocketChannel;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(GroupOfOne$1, completed, void, $AsynchronousSocketChannel*, $Void*)},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GroupOfOne$1, completed, void, Object$*, Object$*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(GroupOfOne$1, failed, void, $Throwable*, $Void*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GroupOfOne$1, failed, void, $Throwable*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _GroupOfOne$1_EnclosingMethodInfo_ = {
-	"GroupOfOne",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _GroupOfOne$1_InnerClassesInfo_[] = {
-	{"GroupOfOne$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GroupOfOne$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"GroupOfOne$1",
-	"java.lang.Object",
-	"java.nio.channels.CompletionHandler",
-	_GroupOfOne$1_FieldInfo_,
-	_GroupOfOne$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/nio/channels/AsynchronousSocketChannel;Ljava/lang/Void;>;",
-	&_GroupOfOne$1_EnclosingMethodInfo_,
-	_GroupOfOne$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GroupOfOne"
-};
-
-$Object* allocate$GroupOfOne$1($Class* clazz) {
-	return $of($alloc(GroupOfOne$1));
-}
 
 void GroupOfOne$1::init$($List* val$accepted, $AsynchronousServerSocketChannel* val$listener) {
 	$set(this, val$accepted, val$accepted);
@@ -71,7 +22,7 @@ void GroupOfOne$1::init$($List* val$accepted, $AsynchronousServerSocketChannel* 
 
 void GroupOfOne$1::completed($AsynchronousSocketChannel* ch, $Void* att) {
 	$synchronized(this->val$accepted) {
-		$nc(this->val$accepted)->add(ch);
+		this->val$accepted->add(ch);
 	}
 	$nc(this->val$listener)->accept(($Void*)nullptr, this);
 }
@@ -91,7 +42,46 @@ GroupOfOne$1::GroupOfOne$1() {
 }
 
 $Class* GroupOfOne$1::load$($String* name, bool initialize) {
-	$loadClass(GroupOfOne$1, name, initialize, &_GroupOfOne$1_ClassInfo_, allocate$GroupOfOne$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$listener", "Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $FINAL | $SYNTHETIC, $field(GroupOfOne$1, val$listener)},
+		{"val$accepted", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(GroupOfOne$1, val$accepted)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/nio/channels/AsynchronousServerSocketChannel;)V", "()V", 0, $method(GroupOfOne$1, init$, void, $List*, $AsynchronousServerSocketChannel*)},
+		{"completed", "(Ljava/nio/channels/AsynchronousSocketChannel;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(GroupOfOne$1, completed, void, $AsynchronousSocketChannel*, $Void*)},
+		{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GroupOfOne$1, completed, void, Object$*, Object$*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(GroupOfOne$1, failed, void, $Throwable*, $Void*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GroupOfOne$1, failed, void, $Throwable*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"GroupOfOne",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GroupOfOne$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GroupOfOne$1",
+		"java.lang.Object",
+		"java.nio.channels.CompletionHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/nio/channels/AsynchronousSocketChannel;Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GroupOfOne"
+	};
+	$loadClass(GroupOfOne$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GroupOfOne$1);
+	});
 	return class$;
 }
 

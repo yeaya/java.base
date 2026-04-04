@@ -36,6 +36,7 @@ class $import VarHandle$AccessType : public ::java::lang::Enum {
 public:
 	VarHandle$AccessType();
 	static $Array<::java::lang::invoke::VarHandle$AccessType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $Class* returnType);
 	virtual ::java::lang::invoke::MethodType* accessModeType($Class* receiver, $Class* value, $ClassArray* intermediate);
 	static $ClassArray* allocateParameters(int32_t values, $Class* receiver, $ClassArray* intermediate);

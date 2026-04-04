@@ -1,6 +1,4 @@
 #include <sun/nio/fs/NativeBuffer.h>
-
-#include <java/lang/Runnable.h>
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -13,9 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $Cleaner = ::java::lang::ref::Cleaner;
-using $Cleaner$Cleanable = ::java::lang::ref::Cleaner$Cleanable;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $CleanerFactory = ::jdk::internal::ref::CleanerFactory;
 using $NativeBuffer$Deallocator = ::sun::nio::fs::NativeBuffer$Deallocator;
@@ -25,58 +20,13 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _NativeBuffer_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeBuffer, unsafe)},
-	{"address", "J", nullptr, $PRIVATE | $FINAL, $field(NativeBuffer, address$)},
-	{"size", "I", nullptr, $PRIVATE | $FINAL, $field(NativeBuffer, size$)},
-	{"cleanable", "Ljava/lang/ref/Cleaner$Cleanable;", nullptr, $PRIVATE | $FINAL, $field(NativeBuffer, cleanable)},
-	{"owner", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(NativeBuffer, owner$)},
-	{}
-};
-
-$MethodInfo _NativeBuffer_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(NativeBuffer, init$, void, int32_t)},
-	{"address", "()J", nullptr, 0, $virtualMethod(NativeBuffer, address, int64_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(NativeBuffer, close, void)},
-	{"free", "()V", nullptr, 0, $virtualMethod(NativeBuffer, free, void)},
-	{"owner", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(NativeBuffer, owner, $Object*)},
-	{"release", "()V", nullptr, 0, $virtualMethod(NativeBuffer, release, void)},
-	{"setOwner", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(NativeBuffer, setOwner, void, Object$*)},
-	{"size", "()I", nullptr, 0, $virtualMethod(NativeBuffer, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _NativeBuffer_InnerClassesInfo_[] = {
-	{"sun.nio.fs.NativeBuffer$Deallocator", "sun.nio.fs.NativeBuffer", "Deallocator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _NativeBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.NativeBuffer",
-	"java.lang.Object",
-	"java.lang.AutoCloseable",
-	_NativeBuffer_FieldInfo_,
-	_NativeBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativeBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.NativeBuffer$Deallocator"
-};
-
-$Object* allocate$NativeBuffer($Class* clazz) {
-	return $of($alloc(NativeBuffer));
-}
-
 $Unsafe* NativeBuffer::unsafe = nullptr;
 
 void NativeBuffer::init$(int32_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->address$ = $nc(NativeBuffer::unsafe)->allocateMemory(size);
 	this->size$ = size;
-	$set(this, cleanable, $nc($($CleanerFactory::cleaner()))->register$(this, $$new($NativeBuffer$Deallocator, this->address$)));
+	$set(this, cleanable, $$nc($CleanerFactory::cleaner())->register$(this, $$new($NativeBuffer$Deallocator, this->address$)));
 }
 
 void NativeBuffer::close() {
@@ -104,10 +54,10 @@ void NativeBuffer::setOwner(Object$* owner) {
 }
 
 $Object* NativeBuffer::owner() {
-	return $of(this->owner$);
+	return this->owner$;
 }
 
-void clinit$NativeBuffer($Class* class$) {
+void NativeBuffer::clinit$($Class* clazz) {
 	$assignStatic(NativeBuffer::unsafe, $Unsafe::getUnsafe());
 }
 
@@ -115,7 +65,46 @@ NativeBuffer::NativeBuffer() {
 }
 
 $Class* NativeBuffer::load$($String* name, bool initialize) {
-	$loadClass(NativeBuffer, name, initialize, &_NativeBuffer_ClassInfo_, clinit$NativeBuffer, allocate$NativeBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativeBuffer, unsafe)},
+		{"address", "J", nullptr, $PRIVATE | $FINAL, $field(NativeBuffer, address$)},
+		{"size", "I", nullptr, $PRIVATE | $FINAL, $field(NativeBuffer, size$)},
+		{"cleanable", "Ljava/lang/ref/Cleaner$Cleanable;", nullptr, $PRIVATE | $FINAL, $field(NativeBuffer, cleanable)},
+		{"owner", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(NativeBuffer, owner$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(NativeBuffer, init$, void, int32_t)},
+		{"address", "()J", nullptr, 0, $virtualMethod(NativeBuffer, address, int64_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(NativeBuffer, close, void)},
+		{"free", "()V", nullptr, 0, $virtualMethod(NativeBuffer, free, void)},
+		{"owner", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(NativeBuffer, owner, $Object*)},
+		{"release", "()V", nullptr, 0, $virtualMethod(NativeBuffer, release, void)},
+		{"setOwner", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(NativeBuffer, setOwner, void, Object$*)},
+		{"size", "()I", nullptr, 0, $virtualMethod(NativeBuffer, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.NativeBuffer$Deallocator", "sun.nio.fs.NativeBuffer", "Deallocator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.NativeBuffer",
+		"java.lang.Object",
+		"java.lang.AutoCloseable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.NativeBuffer$Deallocator"
+	};
+	$loadClass(NativeBuffer, name, initialize, &classInfo$$, NativeBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeBuffer);
+	});
 	return class$;
 }
 

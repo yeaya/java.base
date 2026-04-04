@@ -21,7 +21,7 @@ public:
 	virtual $String* getFormat() override;
 	virtual int32_t getMajorVersion() override;
 	virtual int32_t getMinorVersion() override;
-	static const int64_t serialVersionUID = (int64_t)0x0E263F0A97D26CB0;
+	static const int64_t serialVersionUID = (int64_t)0x0e263f0a97d26cb0;
 	$bytes* key = nullptr;
 	int32_t majorVersion = 0;
 	int32_t minorVersion = 0;

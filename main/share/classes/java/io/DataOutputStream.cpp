@@ -1,5 +1,4 @@
 #include <java/io/DataOutputStream.h>
-
 #include <java/io/DataOutput.h>
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
@@ -21,55 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _DataOutputStream_FieldInfo_[] = {
-	{"written", "I", nullptr, $PROTECTED, $field(DataOutputStream, written)},
-	{"bytearr", "[B", nullptr, $PRIVATE, $field(DataOutputStream, bytearr)},
-	{"writeBuffer", "[B", nullptr, $PRIVATE | $FINAL, $field(DataOutputStream, writeBuffer)},
-	{}
-};
-
-$MethodInfo _DataOutputStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(DataOutputStream, init$, void, $OutputStream*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(DataOutputStream, flush, void), "java.io.IOException"},
-	{"incCount", "(I)V", nullptr, $PRIVATE, $method(DataOutputStream, incCount, void, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(DataOutputStream, size, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tooLongMsg", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DataOutputStream, tooLongMsg, $String*, $String*, int32_t)},
-	{"*write", "([B)V", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DataOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DataOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"writeBoolean", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeBoolean, void, bool), "java.io.IOException"},
-	{"writeByte", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeByte, void, int32_t), "java.io.IOException"},
-	{"writeBytes", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeBytes, void, $String*), "java.io.IOException"},
-	{"writeChar", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeChar, void, int32_t), "java.io.IOException"},
-	{"writeChars", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeChars, void, $String*), "java.io.IOException"},
-	{"writeDouble", "(D)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeDouble, void, double), "java.io.IOException"},
-	{"writeFloat", "(F)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeFloat, void, float), "java.io.IOException"},
-	{"writeInt", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeInt, void, int32_t), "java.io.IOException"},
-	{"writeLong", "(J)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeLong, void, int64_t), "java.io.IOException"},
-	{"writeShort", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeShort, void, int32_t), "java.io.IOException"},
-	{"writeUTF", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeUTF, void, $String*), "java.io.IOException"},
-	{"writeUTF", "(Ljava/lang/String;Ljava/io/DataOutput;)I", nullptr, $STATIC, $staticMethod(DataOutputStream, writeUTF, int32_t, $String*, $DataOutput*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DataOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.DataOutputStream",
-	"java.io.FilterOutputStream",
-	"java.io.DataOutput",
-	_DataOutputStream_FieldInfo_,
-	_DataOutputStream_MethodInfo_
-};
-
-$Object* allocate$DataOutputStream($Class* clazz) {
-	return $of($alloc(DataOutputStream));
-}
 
 void DataOutputStream::write($bytes* b) {
 	this->$FilterOutputStream::write(b);
@@ -138,37 +88,37 @@ void DataOutputStream::writeByte(int32_t v) {
 }
 
 void DataOutputStream::writeShort(int32_t v) {
-	$nc(this->writeBuffer)->set(0, (int8_t)((int32_t)((uint32_t)v >> 8)));
-	$nc(this->writeBuffer)->set(1, (int8_t)((int32_t)((uint32_t)v >> 0)));
+	this->writeBuffer->set(0, (int8_t)((int32_t)((uint32_t)v >> 8)));
+	this->writeBuffer->set(1, (int8_t)((int32_t)((uint32_t)v >> 0)));
 	$nc(this->out)->write(this->writeBuffer, 0, 2);
 	incCount(2);
 }
 
 void DataOutputStream::writeChar(int32_t v) {
-	$nc(this->writeBuffer)->set(0, (int8_t)((int32_t)((uint32_t)v >> 8)));
-	$nc(this->writeBuffer)->set(1, (int8_t)((int32_t)((uint32_t)v >> 0)));
+	this->writeBuffer->set(0, (int8_t)((int32_t)((uint32_t)v >> 8)));
+	this->writeBuffer->set(1, (int8_t)((int32_t)((uint32_t)v >> 0)));
 	$nc(this->out)->write(this->writeBuffer, 0, 2);
 	incCount(2);
 }
 
 void DataOutputStream::writeInt(int32_t v) {
-	$nc(this->writeBuffer)->set(0, (int8_t)((int32_t)((uint32_t)v >> 24)));
-	$nc(this->writeBuffer)->set(1, (int8_t)((int32_t)((uint32_t)v >> 16)));
-	$nc(this->writeBuffer)->set(2, (int8_t)((int32_t)((uint32_t)v >> 8)));
-	$nc(this->writeBuffer)->set(3, (int8_t)((int32_t)((uint32_t)v >> 0)));
+	this->writeBuffer->set(0, (int8_t)((int32_t)((uint32_t)v >> 24)));
+	this->writeBuffer->set(1, (int8_t)((int32_t)((uint32_t)v >> 16)));
+	this->writeBuffer->set(2, (int8_t)((int32_t)((uint32_t)v >> 8)));
+	this->writeBuffer->set(3, (int8_t)((int32_t)((uint32_t)v >> 0)));
 	$nc(this->out)->write(this->writeBuffer, 0, 4);
 	incCount(4);
 }
 
 void DataOutputStream::writeLong(int64_t v) {
-	$nc(this->writeBuffer)->set(0, (int8_t)((int64_t)((uint64_t)v >> 56)));
-	$nc(this->writeBuffer)->set(1, (int8_t)((int64_t)((uint64_t)v >> 48)));
-	$nc(this->writeBuffer)->set(2, (int8_t)((int64_t)((uint64_t)v >> 40)));
-	$nc(this->writeBuffer)->set(3, (int8_t)((int64_t)((uint64_t)v >> 32)));
-	$nc(this->writeBuffer)->set(4, (int8_t)((int64_t)((uint64_t)v >> 24)));
-	$nc(this->writeBuffer)->set(5, (int8_t)((int64_t)((uint64_t)v >> 16)));
-	$nc(this->writeBuffer)->set(6, (int8_t)((int64_t)((uint64_t)v >> 8)));
-	$nc(this->writeBuffer)->set(7, (int8_t)((int64_t)((uint64_t)v >> 0)));
+	this->writeBuffer->set(0, (int8_t)((int64_t)((uint64_t)v >> 56)));
+	this->writeBuffer->set(1, (int8_t)((int64_t)((uint64_t)v >> 48)));
+	this->writeBuffer->set(2, (int8_t)((int64_t)((uint64_t)v >> 40)));
+	this->writeBuffer->set(3, (int8_t)((int64_t)((uint64_t)v >> 32)));
+	this->writeBuffer->set(4, (int8_t)((int64_t)((uint64_t)v >> 24)));
+	this->writeBuffer->set(5, (int8_t)((int64_t)((uint64_t)v >> 16)));
+	this->writeBuffer->set(6, (int8_t)((int64_t)((uint64_t)v >> 8)));
+	this->writeBuffer->set(7, (int8_t)((int64_t)((uint64_t)v >> 0)));
 	$nc(this->out)->write(this->writeBuffer, 0, 8);
 	incCount(8);
 }
@@ -184,7 +134,7 @@ void DataOutputStream::writeDouble(double v) {
 void DataOutputStream::writeBytes($String* s) {
 	int32_t len = $nc(s)->length();
 	for (int32_t i = 0; i < len; ++i) {
-		$nc(this->out)->write((int32_t)(int8_t)s->charAt(i));
+		$nc(this->out)->write((int8_t)s->charAt(i));
 	}
 	incCount(len);
 }
@@ -193,8 +143,8 @@ void DataOutputStream::writeChars($String* s) {
 	int32_t len = $nc(s)->length();
 	for (int32_t i = 0; i < len; ++i) {
 		int32_t v = s->charAt(i);
-		$nc(this->writeBuffer)->set(0, (int8_t)((int32_t)((uint32_t)v >> 8)));
-		$nc(this->writeBuffer)->set(1, (int8_t)((int32_t)((uint32_t)v >> 0)));
+		this->writeBuffer->set(0, (int8_t)((int32_t)((uint32_t)v >> 8)));
+		this->writeBuffer->set(1, (int8_t)((int32_t)((uint32_t)v >> 0)));
 		$nc(this->out)->write(this->writeBuffer, 0, 2);
 	}
 	incCount(len * 2);
@@ -206,7 +156,7 @@ void DataOutputStream::writeUTF($String* str) {
 
 int32_t DataOutputStream::writeUTF($String* str, $DataOutput* out) {
 	$init(DataOutputStream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t strlen = $nc(str)->length();
 	int32_t utflen = strlen;
 	for (int32_t i = 0; i < strlen; ++i) {
@@ -215,7 +165,7 @@ int32_t DataOutputStream::writeUTF($String* str, $DataOutput* out) {
 			utflen += (c >= 2048) ? 2 : 1;
 		}
 	}
-	if (utflen > 0x0000FFFF || utflen < strlen) {
+	if (utflen > 0x0000ffff || utflen < strlen) {
 		$throwNew($UTFDataFormatException, $(tooLongMsg(str, utflen)));
 	}
 	$var($bytes, bytearr, nullptr);
@@ -227,17 +177,17 @@ int32_t DataOutputStream::writeUTF($String* str, $DataOutput* out) {
 			var$0 = true;
 		}
 		if (var$0) {
-			if ($nc(dos)->bytearr == nullptr || ($nc($nc(dos)->bytearr)->length < (utflen + 2))) {
+			if ($nc(dos)->bytearr == nullptr || (dos->bytearr->length < (utflen + 2))) {
 				$set(dos, bytearr, $new($bytes, (utflen * 2) + 2));
 			}
-			$assign(bytearr, $nc(dos)->bytearr);
+			$assign(bytearr, dos->bytearr);
 		} else {
 			$assign(bytearr, $new($bytes, utflen + 2));
 		}
 	}
 	int32_t count = 0;
-	$nc(bytearr)->set(count++, (int8_t)((int32_t)(((int32_t)((uint32_t)utflen >> 8)) & (uint32_t)255)));
-	bytearr->set(count++, (int8_t)((int32_t)(((int32_t)((uint32_t)utflen >> 0)) & (uint32_t)255)));
+	$nc(bytearr)->set(count++, (int8_t)(((int32_t)((uint32_t)utflen >> 8)) & 0xff));
+	bytearr->set(count++, (int8_t)(((int32_t)((uint32_t)utflen >> 0)) & 0xff));
 	int32_t i = 0;
 	for (i = 0; i < strlen; ++i) {
 		int32_t c = str->charAt(i);
@@ -251,12 +201,12 @@ int32_t DataOutputStream::writeUTF($String* str, $DataOutput* out) {
 		if (c < 128 && c != 0) {
 			bytearr->set(count++, (int8_t)c);
 		} else if (c >= 2048) {
-			bytearr->set(count++, (int8_t)(224 | ((int32_t)((c >> 12) & (uint32_t)15))));
-			bytearr->set(count++, (int8_t)(128 | ((int32_t)((c >> 6) & (uint32_t)63))));
-			bytearr->set(count++, (int8_t)(128 | ((int32_t)((c >> 0) & (uint32_t)63))));
+			bytearr->set(count++, (int8_t)(0xe0 | ((c >> 12) & 0x0f)));
+			bytearr->set(count++, (int8_t)(0x80 | ((c >> 6) & 0x3f)));
+			bytearr->set(count++, (int8_t)(0x80 | ((c >> 0) & 0x3f)));
 		} else {
-			bytearr->set(count++, (int8_t)(192 | ((int32_t)((c >> 6) & (uint32_t)31))));
-			bytearr->set(count++, (int8_t)(128 | ((int32_t)((c >> 0) & (uint32_t)63))));
+			bytearr->set(count++, (int8_t)(0xc0 | ((c >> 6) & 0x1f)));
+			bytearr->set(count++, (int8_t)(0x80 | ((c >> 0) & 0x3f)));
 		}
 	}
 	$nc(out)->write(bytearr, 0, utflen + 2);
@@ -265,7 +215,7 @@ int32_t DataOutputStream::writeUTF($String* str, $DataOutput* out) {
 
 $String* DataOutputStream::tooLongMsg($String* s, int32_t bits32) {
 	$init(DataOutputStream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t slen = $nc(s)->length();
 	$var($String, head, s->substring(0, 8));
 	$var($String, tail, s->substring(slen - 8, slen));
@@ -281,7 +231,51 @@ DataOutputStream::DataOutputStream() {
 }
 
 $Class* DataOutputStream::load$($String* name, bool initialize) {
-	$loadClass(DataOutputStream, name, initialize, &_DataOutputStream_ClassInfo_, allocate$DataOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"written", "I", nullptr, $PROTECTED, $field(DataOutputStream, written)},
+		{"bytearr", "[B", nullptr, $PRIVATE, $field(DataOutputStream, bytearr)},
+		{"writeBuffer", "[B", nullptr, $PRIVATE | $FINAL, $field(DataOutputStream, writeBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(DataOutputStream, init$, void, $OutputStream*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(DataOutputStream, flush, void), "java.io.IOException"},
+		{"incCount", "(I)V", nullptr, $PRIVATE, $method(DataOutputStream, incCount, void, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(DataOutputStream, size, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tooLongMsg", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DataOutputStream, tooLongMsg, $String*, $String*, int32_t)},
+		{"*write", "([B)V", nullptr, $PUBLIC},
+		{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DataOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DataOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"writeBoolean", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeBoolean, void, bool), "java.io.IOException"},
+		{"writeByte", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeByte, void, int32_t), "java.io.IOException"},
+		{"writeBytes", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeBytes, void, $String*), "java.io.IOException"},
+		{"writeChar", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeChar, void, int32_t), "java.io.IOException"},
+		{"writeChars", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeChars, void, $String*), "java.io.IOException"},
+		{"writeDouble", "(D)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeDouble, void, double), "java.io.IOException"},
+		{"writeFloat", "(F)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeFloat, void, float), "java.io.IOException"},
+		{"writeInt", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeInt, void, int32_t), "java.io.IOException"},
+		{"writeLong", "(J)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeLong, void, int64_t), "java.io.IOException"},
+		{"writeShort", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeShort, void, int32_t), "java.io.IOException"},
+		{"writeUTF", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DataOutputStream, writeUTF, void, $String*), "java.io.IOException"},
+		{"writeUTF", "(Ljava/lang/String;Ljava/io/DataOutput;)I", nullptr, $STATIC, $staticMethod(DataOutputStream, writeUTF, int32_t, $String*, $DataOutput*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.DataOutputStream",
+		"java.io.FilterOutputStream",
+		"java.io.DataOutput",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DataOutputStream));
+	});
 	return class$;
 }
 

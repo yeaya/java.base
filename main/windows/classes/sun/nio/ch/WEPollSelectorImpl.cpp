@@ -1,5 +1,4 @@
 #include <sun/nio/ch/WEPollSelectorImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
@@ -52,9 +51,7 @@ using $ClosedSelectorException = ::java::nio::channels::ClosedSelectorException;
 using $Selector = ::java::nio::channels::Selector;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $ArrayDeque = ::java::util::ArrayDeque;
-using $Deque = ::java::util::Deque;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 using $Consumer = ::java::util::function::Consumer;
 using $IOUtil = ::sun::nio::ch::IOUtil;
 using $Net = ::sun::nio::ch::Net;
@@ -69,55 +66,10 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _WEPollSelectorImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WEPollSelectorImpl, $assertionsDisabled)},
-	{"NUM_EPOLLEVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WEPollSelectorImpl, NUM_EPOLLEVENTS)},
-	{"eph", "J", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, eph)},
-	{"pollArrayAddress", "J", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, pollArrayAddress)},
-	{"fdToKey", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/nio/ch/SelectionKeyImpl;>;", $PRIVATE | $FINAL, $field(WEPollSelectorImpl, fdToKey)},
-	{"updateLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, updateLock)},
-	{"updateKeys", "Ljava/util/Deque;", "Ljava/util/Deque<Lsun/nio/ch/SelectionKeyImpl;>;", $PRIVATE | $FINAL, $field(WEPollSelectorImpl, updateKeys)},
-	{"interruptLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, interruptLock)},
-	{"interruptTriggered", "Z", nullptr, $PRIVATE, $field(WEPollSelectorImpl, interruptTriggered)},
-	{"pipe", "Lsun/nio/ch/PipeImpl;", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, pipe)},
-	{"fd0Val", "I", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, fd0Val)},
-	{"fd1Val", "I", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, fd1Val)},
-	{}
-};
-
-$MethodInfo _WEPollSelectorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(WEPollSelectorImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
-	{"clearInterrupt", "()V", nullptr, $PRIVATE, $method(WEPollSelectorImpl, clearInterrupt, void), "java.io.IOException"},
-	{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PROTECTED, $virtualMethod(WEPollSelectorImpl, doSelect, int32_t, $Consumer*, int64_t), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(WEPollSelectorImpl, ensureOpen, void)},
-	{"implClose", "()V", nullptr, $PROTECTED, $virtualMethod(WEPollSelectorImpl, implClose, void), "java.io.IOException"},
-	{"implDereg", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PROTECTED, $virtualMethod(WEPollSelectorImpl, implDereg, void, $SelectionKeyImpl*), "java.io.IOException"},
-	{"processEvents", "(ILjava/util/function/Consumer;)I", "(ILjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(WEPollSelectorImpl, processEvents, int32_t, int32_t, $Consumer*), "java.io.IOException"},
-	{"processUpdateQueue", "()V", nullptr, $PRIVATE, $method(WEPollSelectorImpl, processUpdateQueue, void)},
-	{"setEventOps", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PUBLIC, $virtualMethod(WEPollSelectorImpl, setEventOps, void, $SelectionKeyImpl*)},
-	{"toEPollEvents", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WEPollSelectorImpl, toEPollEvents, int32_t, int32_t)},
-	{"toReadyOps", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WEPollSelectorImpl, toReadyOps, int32_t, int32_t)},
-	{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC, $virtualMethod(WEPollSelectorImpl, wakeup, $Selector*)},
-	{}
-};
-
-$ClassInfo _WEPollSelectorImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.WEPollSelectorImpl",
-	"sun.nio.ch.SelectorImpl",
-	nullptr,
-	_WEPollSelectorImpl_FieldInfo_,
-	_WEPollSelectorImpl_MethodInfo_
-};
-
-$Object* allocate$WEPollSelectorImpl($Class* clazz) {
-	return $of($alloc(WEPollSelectorImpl));
-}
-
 bool WEPollSelectorImpl::$assertionsDisabled = false;
 
 void WEPollSelectorImpl::init$($SelectorProvider* sp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SelectorImpl::init$(sp);
 	$set(this, fdToKey, $new($HashMap));
 	$set(this, updateLock, $new($Object));
@@ -132,8 +84,8 @@ void WEPollSelectorImpl::init$($SelectorProvider* sp) {
 		$WEPoll::close(this->eph);
 		$throw(ioe);
 	}
-	this->fd0Val = $nc($($cast($SourceChannelImpl, $nc(this->pipe)->source())))->getFDVal();
-	this->fd1Val = $nc($($cast($SinkChannelImpl, $nc(this->pipe)->sink())))->getFDVal();
+	this->fd0Val = $$sure($SourceChannelImpl, $nc(this->pipe)->source())->getFDVal();
+	this->fd1Val = $$sure($SinkChannelImpl, this->pipe->sink())->getFDVal();
 	$WEPoll::ctl(this->eph, 1, this->fd0Val, $WEPoll::EPOLLIN);
 }
 
@@ -152,35 +104,33 @@ int32_t WEPollSelectorImpl::doSelect($Consumer* action, int64_t timeout) {
 	int32_t numEntries = 0;
 	processUpdateQueue();
 	processDeregisterQueue();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			begin(blocking);
-			numEntries = $WEPoll::wait(this->eph, this->pollArrayAddress, WEPollSelectorImpl::NUM_EPOLLEVENTS, to);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			end(blocking);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		begin(blocking);
+		numEntries = $WEPoll::wait(this->eph, this->pollArrayAddress, WEPollSelectorImpl::NUM_EPOLLEVENTS, to);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		end(blocking);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	processDeregisterQueue();
 	return processEvents(numEntries, action);
 }
 
 void WEPollSelectorImpl::processUpdateQueue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!WEPollSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
 	$synchronized(this->updateLock) {
 		$var($SelectionKeyImpl, ski, nullptr);
-		while (($assign(ski, $cast($SelectionKeyImpl, $nc(this->updateKeys)->pollFirst()))) != nullptr) {
+		while (($assign(ski, $cast($SelectionKeyImpl, this->updateKeys->pollFirst()))) != nullptr) {
 			if ($nc(ski)->isValid()) {
 				int32_t fd = ski->getFDVal();
-				$var($SelectionKeyImpl, previous, $cast($SelectionKeyImpl, $nc(this->fdToKey)->putIfAbsent($($Integer::valueOf(fd)), ski)));
+				$var($SelectionKeyImpl, previous, $cast($SelectionKeyImpl, this->fdToKey->putIfAbsent($($Integer::valueOf(fd)), ski)));
 				if (!WEPollSelectorImpl::$assertionsDisabled && !((previous == nullptr) || (previous == ski))) {
 					$throwNew($AssertionError);
 				}
@@ -205,7 +155,7 @@ void WEPollSelectorImpl::processUpdateQueue() {
 }
 
 int32_t WEPollSelectorImpl::processEvents(int32_t numEntries, $Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!WEPollSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -217,10 +167,10 @@ int32_t WEPollSelectorImpl::processEvents(int32_t numEntries, $Consumer* action)
 		if (fd == this->fd0Val) {
 			interrupted = true;
 		} else {
-			$var($SelectionKeyImpl, ski, $cast($SelectionKeyImpl, $nc(this->fdToKey)->get($($Integer::valueOf(fd)))));
+			$var($SelectionKeyImpl, ski, $cast($SelectionKeyImpl, this->fdToKey->get($($Integer::valueOf(fd)))));
 			if (ski != nullptr) {
 				int32_t events = $WEPoll::getEvents(event);
-				if (((int32_t)(events & (uint32_t)$WEPoll::EPOLLPRI)) != 0) {
+				if ((events & $WEPoll::EPOLLPRI) != 0) {
 					$Net::discardOOB($(ski->getFD()));
 				}
 				int32_t rOps = toReadyOps(events);
@@ -235,7 +185,7 @@ int32_t WEPollSelectorImpl::processEvents(int32_t numEntries, $Consumer* action)
 }
 
 void WEPollSelectorImpl::implClose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !WEPollSelectorImpl::$assertionsDisabled;
 	if (var$0) {
 		bool var$1 = !isOpen();
@@ -249,8 +199,8 @@ void WEPollSelectorImpl::implClose() {
 	}
 	$WEPoll::close(this->eph);
 	$WEPoll::freePollArray(this->pollArrayAddress);
-	$nc($($cast($SinkChannelImpl, $nc(this->pipe)->sink())))->close();
-	$nc($($cast($SourceChannelImpl, $nc(this->pipe)->source())))->close();
+	$$sure($SinkChannelImpl, $nc(this->pipe)->sink())->close();
+	$$sure($SourceChannelImpl, this->pipe->source())->close();
 }
 
 void WEPollSelectorImpl::implDereg($SelectionKeyImpl* ski) {
@@ -263,7 +213,7 @@ void WEPollSelectorImpl::implDereg($SelectionKeyImpl* ski) {
 		$throwNew($AssertionError);
 	}
 	int32_t fd = $nc(ski)->getFDVal();
-	if ($nc(this->fdToKey)->remove($($Integer::valueOf(fd))) != nullptr) {
+	if (this->fdToKey->remove($($Integer::valueOf(fd))) != nullptr) {
 		if (ski->registeredEvents() != 0) {
 			$WEPoll::ctl(this->eph, 3, fd, 0);
 			ski->registeredEvents(0);
@@ -276,7 +226,7 @@ void WEPollSelectorImpl::implDereg($SelectionKeyImpl* ski) {
 void WEPollSelectorImpl::setEventOps($SelectionKeyImpl* ski) {
 	ensureOpen();
 	$synchronized(this->updateLock) {
-		$nc(this->updateKeys)->addLast(ski);
+		this->updateKeys->addLast(ski);
 	}
 }
 
@@ -286,7 +236,7 @@ $Selector* WEPollSelectorImpl::wakeup() {
 			try {
 				$IOUtil::write1(this->fd1Val, (int8_t)0);
 			} catch ($IOException& ioe) {
-				$throwNew($InternalError, static_cast<$Throwable*>(ioe));
+				$throwNew($InternalError, ioe);
 			}
 			this->interruptTriggered = true;
 		}
@@ -305,10 +255,10 @@ int32_t WEPollSelectorImpl::toEPollEvents(int32_t ops) {
 	$init(WEPollSelectorImpl);
 	int32_t events = 2;
 	$init($Net);
-	if (((int32_t)(ops & (uint32_t)(int32_t)$Net::POLLIN)) != 0) {
+	if ((ops & $Net::POLLIN) != 0) {
 		events |= 1;
 	}
-	if (((int32_t)(ops & (uint32_t)($Net::POLLOUT | $Net::POLLCONN))) != 0) {
+	if ((ops & ($Net::POLLOUT | $Net::POLLCONN)) != 0) {
 		events |= 4;
 	}
 	return events;
@@ -317,26 +267,26 @@ int32_t WEPollSelectorImpl::toEPollEvents(int32_t ops) {
 int32_t WEPollSelectorImpl::toReadyOps(int32_t events) {
 	$init(WEPollSelectorImpl);
 	int32_t ops = 0;
-	if (((int32_t)(events & (uint32_t)$WEPoll::EPOLLIN)) != 0) {
+	if ((events & $WEPoll::EPOLLIN) != 0) {
 		$init($Net);
 		ops |= $Net::POLLIN;
 	}
-	if (((int32_t)(events & (uint32_t)$WEPoll::EPOLLOUT)) != 0) {
+	if ((events & $WEPoll::EPOLLOUT) != 0) {
 		$init($Net);
 		ops |= ($Net::POLLOUT | $Net::POLLCONN);
 	}
-	if (((int32_t)(events & (uint32_t)$WEPoll::EPOLLHUP)) != 0) {
+	if ((events & $WEPoll::EPOLLHUP) != 0) {
 		$init($Net);
 		ops |= $Net::POLLHUP;
 	}
-	if (((int32_t)(events & (uint32_t)$WEPoll::EPOLLERR)) != 0) {
+	if ((events & $WEPoll::EPOLLERR) != 0) {
 		$init($Net);
 		ops |= $Net::POLLERR;
 	}
 	return ops;
 }
 
-void clinit$WEPollSelectorImpl($Class* class$) {
+void WEPollSelectorImpl::clinit$($Class* clazz) {
 	WEPollSelectorImpl::$assertionsDisabled = !WEPollSelectorImpl::class$->desiredAssertionStatus();
 }
 
@@ -344,7 +294,47 @@ WEPollSelectorImpl::WEPollSelectorImpl() {
 }
 
 $Class* WEPollSelectorImpl::load$($String* name, bool initialize) {
-	$loadClass(WEPollSelectorImpl, name, initialize, &_WEPollSelectorImpl_ClassInfo_, clinit$WEPollSelectorImpl, allocate$WEPollSelectorImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WEPollSelectorImpl, $assertionsDisabled)},
+		{"NUM_EPOLLEVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WEPollSelectorImpl, NUM_EPOLLEVENTS)},
+		{"eph", "J", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, eph)},
+		{"pollArrayAddress", "J", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, pollArrayAddress)},
+		{"fdToKey", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/nio/ch/SelectionKeyImpl;>;", $PRIVATE | $FINAL, $field(WEPollSelectorImpl, fdToKey)},
+		{"updateLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, updateLock)},
+		{"updateKeys", "Ljava/util/Deque;", "Ljava/util/Deque<Lsun/nio/ch/SelectionKeyImpl;>;", $PRIVATE | $FINAL, $field(WEPollSelectorImpl, updateKeys)},
+		{"interruptLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, interruptLock)},
+		{"interruptTriggered", "Z", nullptr, $PRIVATE, $field(WEPollSelectorImpl, interruptTriggered)},
+		{"pipe", "Lsun/nio/ch/PipeImpl;", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, pipe)},
+		{"fd0Val", "I", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, fd0Val)},
+		{"fd1Val", "I", nullptr, $PRIVATE | $FINAL, $field(WEPollSelectorImpl, fd1Val)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(WEPollSelectorImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
+		{"clearInterrupt", "()V", nullptr, $PRIVATE, $method(WEPollSelectorImpl, clearInterrupt, void), "java.io.IOException"},
+		{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PROTECTED, $virtualMethod(WEPollSelectorImpl, doSelect, int32_t, $Consumer*, int64_t), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(WEPollSelectorImpl, ensureOpen, void)},
+		{"implClose", "()V", nullptr, $PROTECTED, $virtualMethod(WEPollSelectorImpl, implClose, void), "java.io.IOException"},
+		{"implDereg", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PROTECTED, $virtualMethod(WEPollSelectorImpl, implDereg, void, $SelectionKeyImpl*), "java.io.IOException"},
+		{"processEvents", "(ILjava/util/function/Consumer;)I", "(ILjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(WEPollSelectorImpl, processEvents, int32_t, int32_t, $Consumer*), "java.io.IOException"},
+		{"processUpdateQueue", "()V", nullptr, $PRIVATE, $method(WEPollSelectorImpl, processUpdateQueue, void)},
+		{"setEventOps", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PUBLIC, $virtualMethod(WEPollSelectorImpl, setEventOps, void, $SelectionKeyImpl*)},
+		{"toEPollEvents", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WEPollSelectorImpl, toEPollEvents, int32_t, int32_t)},
+		{"toReadyOps", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WEPollSelectorImpl, toReadyOps, int32_t, int32_t)},
+		{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC, $virtualMethod(WEPollSelectorImpl, wakeup, $Selector*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.WEPollSelectorImpl",
+		"sun.nio.ch.SelectorImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WEPollSelectorImpl, name, initialize, &classInfo$$, WEPollSelectorImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WEPollSelectorImpl);
+	});
 	return class$;
 }
 

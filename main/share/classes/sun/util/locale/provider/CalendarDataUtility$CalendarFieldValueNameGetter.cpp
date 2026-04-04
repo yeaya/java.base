@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/CalendarDataUtility$CalendarFieldValueNameGetter.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/Locale.h>
 #include <java/util/spi/CalendarNameProvider.h>
@@ -28,45 +27,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _CalendarDataUtility$CalendarFieldValueNameGetter_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CalendarDataUtility$CalendarFieldValueNameGetter, $assertionsDisabled)},
-	{"INSTANCE", "Lsun/util/locale/provider/CalendarDataUtility$CalendarFieldValueNameGetter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CalendarDataUtility$CalendarFieldValueNameGetter, INSTANCE)},
-	{}
-};
-
-$MethodInfo _CalendarDataUtility$CalendarFieldValueNameGetter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CalendarDataUtility$CalendarFieldValueNameGetter, init$, void)},
-	{"getObject", "(Ljava/util/spi/CalendarNameProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CalendarDataUtility$CalendarFieldValueNameGetter, getObject, $String*, $CalendarNameProvider*, $Locale*, $String*, $ObjectArray*)},
-	{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CalendarDataUtility$CalendarFieldValueNameGetter, getObject, $Object*, $LocaleServiceProvider*, $Locale*, $String*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _CalendarDataUtility$CalendarFieldValueNameGetter_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.CalendarDataUtility$CalendarFieldValueNameGetter", "sun.util.locale.provider.CalendarDataUtility", "CalendarFieldValueNameGetter", $PRIVATE | $STATIC},
-	{"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter", "sun.util.locale.provider.LocaleServiceProviderPool", "LocalizedObjectGetter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CalendarDataUtility$CalendarFieldValueNameGetter_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.CalendarDataUtility$CalendarFieldValueNameGetter",
-	"java.lang.Object",
-	"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter",
-	_CalendarDataUtility$CalendarFieldValueNameGetter_FieldInfo_,
-	_CalendarDataUtility$CalendarFieldValueNameGetter_MethodInfo_,
-	"Ljava/lang/Object;Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<Ljava/util/spi/CalendarNameProvider;Ljava/lang/String;>;",
-	nullptr,
-	_CalendarDataUtility$CalendarFieldValueNameGetter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.CalendarDataUtility"
-};
-
-$Object* allocate$CalendarDataUtility$CalendarFieldValueNameGetter($Class* clazz) {
-	return $of($alloc(CalendarDataUtility$CalendarFieldValueNameGetter));
-}
-
 bool CalendarDataUtility$CalendarFieldValueNameGetter::$assertionsDisabled = false;
 CalendarDataUtility$CalendarFieldValueNameGetter* CalendarDataUtility$CalendarFieldValueNameGetter::INSTANCE = nullptr;
 
@@ -77,13 +37,13 @@ $String* CalendarDataUtility$CalendarFieldValueNameGetter::getObject($CalendarNa
 	if (!CalendarDataUtility$CalendarFieldValueNameGetter::$assertionsDisabled && !($nc(params)->length == 4)) {
 		$throwNew($AssertionError);
 	}
-	int32_t field = $nc(($cast($Integer, $nc(params)->get(0))))->intValue();
-	int32_t value = $nc(($cast($Integer, params->get(1))))->intValue();
-	int32_t style = $nc(($cast($Integer, params->get(2))))->intValue();
-	bool javatime = $nc(($cast($Boolean, params->get(3))))->booleanValue();
+	int32_t field = $nc($cast($Integer, $nc(params)->get(0)))->intValue();
+	int32_t value = $nc($cast($Integer, params->get(1)))->intValue();
+	int32_t style = $nc($cast($Integer, params->get(2)))->intValue();
+	bool javatime = $nc($cast($Boolean, params->get(3)))->booleanValue();
 	if (javatime && $instanceOf($CalendarNameProviderImpl, calendarNameProvider)) {
 		$var($String, name, nullptr);
-		$assign(name, $nc(($cast($CalendarNameProviderImpl, calendarNameProvider)))->getJavaTimeDisplayName(requestID, field, value, style, locale));
+		$assign(name, $cast($CalendarNameProviderImpl, calendarNameProvider)->getJavaTimeDisplayName(requestID, field, value, style, locale));
 		return name;
 	}
 	return $nc(calendarNameProvider)->getDisplayName(requestID, field, value, style, locale);
@@ -93,7 +53,7 @@ $Object* CalendarDataUtility$CalendarFieldValueNameGetter::getObject($LocaleServ
 	return $of(this->getObject($cast($CalendarNameProvider, calendarNameProvider), locale, requestID, params));
 }
 
-void clinit$CalendarDataUtility$CalendarFieldValueNameGetter($Class* class$) {
+void CalendarDataUtility$CalendarFieldValueNameGetter::clinit$($Class* clazz) {
 	$load($CalendarDataUtility);
 	CalendarDataUtility$CalendarFieldValueNameGetter::$assertionsDisabled = !$CalendarDataUtility::class$->desiredAssertionStatus();
 	$assignStatic(CalendarDataUtility$CalendarFieldValueNameGetter::INSTANCE, $new(CalendarDataUtility$CalendarFieldValueNameGetter));
@@ -103,7 +63,40 @@ CalendarDataUtility$CalendarFieldValueNameGetter::CalendarDataUtility$CalendarFi
 }
 
 $Class* CalendarDataUtility$CalendarFieldValueNameGetter::load$($String* name, bool initialize) {
-	$loadClass(CalendarDataUtility$CalendarFieldValueNameGetter, name, initialize, &_CalendarDataUtility$CalendarFieldValueNameGetter_ClassInfo_, clinit$CalendarDataUtility$CalendarFieldValueNameGetter, allocate$CalendarDataUtility$CalendarFieldValueNameGetter);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CalendarDataUtility$CalendarFieldValueNameGetter, $assertionsDisabled)},
+		{"INSTANCE", "Lsun/util/locale/provider/CalendarDataUtility$CalendarFieldValueNameGetter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CalendarDataUtility$CalendarFieldValueNameGetter, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CalendarDataUtility$CalendarFieldValueNameGetter, init$, void)},
+		{"getObject", "(Ljava/util/spi/CalendarNameProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CalendarDataUtility$CalendarFieldValueNameGetter, getObject, $String*, $CalendarNameProvider*, $Locale*, $String*, $ObjectArray*)},
+		{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CalendarDataUtility$CalendarFieldValueNameGetter, getObject, $Object*, $LocaleServiceProvider*, $Locale*, $String*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.CalendarDataUtility$CalendarFieldValueNameGetter", "sun.util.locale.provider.CalendarDataUtility", "CalendarFieldValueNameGetter", $PRIVATE | $STATIC},
+		{"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter", "sun.util.locale.provider.LocaleServiceProviderPool", "LocalizedObjectGetter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.CalendarDataUtility$CalendarFieldValueNameGetter",
+		"java.lang.Object",
+		"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<Ljava/util/spi/CalendarNameProvider;Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.CalendarDataUtility"
+	};
+	$loadClass(CalendarDataUtility$CalendarFieldValueNameGetter, name, initialize, &classInfo$$, CalendarDataUtility$CalendarFieldValueNameGetter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CalendarDataUtility$CalendarFieldValueNameGetter);
+	});
 	return class$;
 }
 

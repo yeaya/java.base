@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletionService.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/Future.h>
@@ -17,31 +16,27 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$MethodInfo _CompletionService_MethodInfo_[] = {
-	{"poll", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionService, poll, $Future*)},
-	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future;", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionService, poll, $Future*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", "(Ljava/util/concurrent/Callable<TV;>;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionService, submit, $Future*, $Callable*)},
-	{"submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", "(Ljava/lang/Runnable;TV;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionService, submit, $Future*, $Runnable*, Object$*)},
-	{"take", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionService, take, $Future*), "java.lang.InterruptedException"},
-	{}
-};
-
-$ClassInfo _CompletionService_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.concurrent.CompletionService",
-	nullptr,
-	nullptr,
-	nullptr,
-	_CompletionService_MethodInfo_,
-	"<V:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$CompletionService($Class* clazz) {
-	return $of($alloc(CompletionService));
-}
-
 $Class* CompletionService::load$($String* name, bool initialize) {
-	$loadClass(CompletionService, name, initialize, &_CompletionService_ClassInfo_, allocate$CompletionService);
+	$MethodInfo methodInfos$$[] = {
+		{"poll", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionService, poll, $Future*)},
+		{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future;", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionService, poll, $Future*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", "(Ljava/util/concurrent/Callable<TV;>;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionService, submit, $Future*, $Callable*)},
+		{"submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", "(Ljava/lang/Runnable;TV;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionService, submit, $Future*, $Runnable*, Object$*)},
+		{"take", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionService, take, $Future*), "java.lang.InterruptedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.concurrent.CompletionService",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(CompletionService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompletionService);
+	});
 	return class$;
 }
 

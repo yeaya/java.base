@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLEngineResult$HandshakeStatus.h>
-
 #include <java/lang/Enum.h>
 #include <javax/net/ssl/SSLEngineResult.h>
 #include <jcpp.h>
@@ -21,50 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace net {
 		namespace ssl {
-
-$FieldInfo _SSLEngineResult$HandshakeStatus_FieldInfo_[] = {
-	{"NOT_HANDSHAKING", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, NOT_HANDSHAKING)},
-	{"FINISHED", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, FINISHED)},
-	{"NEED_TASK", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, NEED_TASK)},
-	{"NEED_WRAP", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, NEED_WRAP)},
-	{"NEED_UNWRAP", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, NEED_UNWRAP)},
-	{"NEED_UNWRAP_AGAIN", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, NEED_UNWRAP_AGAIN)},
-	{"$VALUES", "[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLEngineResult$HandshakeStatus, $VALUES)},
-	{}
-};
-
-$MethodInfo _SSLEngineResult$HandshakeStatus_MethodInfo_[] = {
-	{"$values", "()[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLEngineResult$HandshakeStatus, $values, $SSLEngineResult$HandshakeStatusArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SSLEngineResult$HandshakeStatus, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$HandshakeStatus, valueOf, SSLEngineResult$HandshakeStatus*, $String*)},
-	{"values", "()[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$HandshakeStatus, values, $SSLEngineResult$HandshakeStatusArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLEngineResult$HandshakeStatus_InnerClassesInfo_[] = {
-	{"javax.net.ssl.SSLEngineResult$HandshakeStatus", "javax.net.ssl.SSLEngineResult", "HandshakeStatus", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SSLEngineResult$HandshakeStatus_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.net.ssl.SSLEngineResult$HandshakeStatus",
-	"java.lang.Enum",
-	nullptr,
-	_SSLEngineResult$HandshakeStatus_FieldInfo_,
-	_SSLEngineResult$HandshakeStatus_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;>;",
-	nullptr,
-	_SSLEngineResult$HandshakeStatus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.net.ssl.SSLEngineResult"
-};
-
-$Object* allocate$SSLEngineResult$HandshakeStatus($Class* clazz) {
-	return $of($alloc(SSLEngineResult$HandshakeStatus));
-}
 
 SSLEngineResult$HandshakeStatus* SSLEngineResult$HandshakeStatus::NOT_HANDSHAKING = nullptr;
 SSLEngineResult$HandshakeStatus* SSLEngineResult$HandshakeStatus::FINISHED = nullptr;
@@ -100,7 +55,7 @@ void SSLEngineResult$HandshakeStatus::init$($String* $enum$name, int32_t $enum$o
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$SSLEngineResult$HandshakeStatus($Class* class$) {
+void SSLEngineResult$HandshakeStatus::clinit$($Class* clazz) {
 	$assignStatic(SSLEngineResult$HandshakeStatus::NOT_HANDSHAKING, $new(SSLEngineResult$HandshakeStatus, "NOT_HANDSHAKING"_s, 0));
 	$assignStatic(SSLEngineResult$HandshakeStatus::FINISHED, $new(SSLEngineResult$HandshakeStatus, "FINISHED"_s, 1));
 	$assignStatic(SSLEngineResult$HandshakeStatus::NEED_TASK, $new(SSLEngineResult$HandshakeStatus, "NEED_TASK"_s, 2));
@@ -114,7 +69,45 @@ SSLEngineResult$HandshakeStatus::SSLEngineResult$HandshakeStatus() {
 }
 
 $Class* SSLEngineResult$HandshakeStatus::load$($String* name, bool initialize) {
-	$loadClass(SSLEngineResult$HandshakeStatus, name, initialize, &_SSLEngineResult$HandshakeStatus_ClassInfo_, clinit$SSLEngineResult$HandshakeStatus, allocate$SSLEngineResult$HandshakeStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"NOT_HANDSHAKING", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, NOT_HANDSHAKING)},
+		{"FINISHED", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, FINISHED)},
+		{"NEED_TASK", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, NEED_TASK)},
+		{"NEED_WRAP", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, NEED_WRAP)},
+		{"NEED_UNWRAP", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, NEED_UNWRAP)},
+		{"NEED_UNWRAP_AGAIN", "Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$HandshakeStatus, NEED_UNWRAP_AGAIN)},
+		{"$VALUES", "[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLEngineResult$HandshakeStatus, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLEngineResult$HandshakeStatus, $values, $SSLEngineResult$HandshakeStatusArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SSLEngineResult$HandshakeStatus, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$HandshakeStatus, valueOf, SSLEngineResult$HandshakeStatus*, $String*)},
+		{"values", "()[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$HandshakeStatus, values, $SSLEngineResult$HandshakeStatusArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.net.ssl.SSLEngineResult$HandshakeStatus", "javax.net.ssl.SSLEngineResult", "HandshakeStatus", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.net.ssl.SSLEngineResult$HandshakeStatus",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.net.ssl.SSLEngineResult"
+	};
+	$loadClass(SSLEngineResult$HandshakeStatus, name, initialize, &classInfo$$, SSLEngineResult$HandshakeStatus::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLEngineResult$HandshakeStatus));
+	});
 	return class$;
 }
 

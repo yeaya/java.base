@@ -12,7 +12,10 @@ public:
 	void init$(bool enableSuppression);
 	SuppressedExceptions$NoSuppression(const SuppressedExceptions$NoSuppression& e);
 	virtual void throw$() override;
-	inline SuppressedExceptions$NoSuppression* operator ->() {
+	inline SuppressedExceptions$NoSuppression* operator ->() const {
+		return (SuppressedExceptions$NoSuppression*)throwing$;
+	}
+	inline operator SuppressedExceptions$NoSuppression*() const {
 		return (SuppressedExceptions$NoSuppression*)throwing$;
 	}
 };

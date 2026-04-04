@@ -15,6 +15,7 @@ class MaxFragExtension$MaxFragLenEnum : public ::java::lang::Enum {
 public:
 	MaxFragExtension$MaxFragLenEnum();
 	static $Array<::sun::security::ssl::MaxFragExtension$MaxFragLenEnum>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, int32_t fragmentSize, $String* description);
 	static $String* nameOf(int8_t id);
 	static ::sun::security::ssl::MaxFragExtension$MaxFragLenEnum* valueOf($String* name);

@@ -18,6 +18,7 @@ class $export NativeLibraries$LibraryPaths : public ::java::lang::Object {
 	$class(NativeLibraries$LibraryPaths, 0, ::java::lang::Object)
 public:
 	NativeLibraries$LibraryPaths();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* SYS_PATHS;
 	static $StringArray* USER_PATHS;

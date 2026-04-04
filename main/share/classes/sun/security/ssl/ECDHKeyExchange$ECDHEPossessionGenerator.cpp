@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECDHKeyExchange$ECDHEPossessionGenerator.h>
-
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/SecureRandom.h>
 #include <java/util/List.h>
@@ -20,11 +19,9 @@ using $NamedGroup$NamedGroupSpecArray = $Array<::sun::security::ssl::NamedGroup$
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$NamedGroupSpec = ::sun::security::ssl::NamedGroup$NamedGroupSpec;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $SupportedGroupsExtension$SupportedGroups = ::sun::security::ssl::SupportedGroupsExtension$SupportedGroups;
 
@@ -32,44 +29,13 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ECDHKeyExchange$ECDHEPossessionGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHKeyExchange$ECDHEPossessionGenerator, init$, void)},
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHEPossessionGenerator, createPossession, $SSLPossession*, $HandshakeContext*)},
-	{}
-};
-
-$InnerClassInfo _ECDHKeyExchange$ECDHEPossessionGenerator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECDHKeyExchange$ECDHEPossessionGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHEPossessionGenerator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ECDHKeyExchange$ECDHEPossessionGenerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ECDHKeyExchange$ECDHEPossessionGenerator",
-	"java.lang.Object",
-	"sun.security.ssl.SSLPossessionGenerator",
-	nullptr,
-	_ECDHKeyExchange$ECDHEPossessionGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECDHKeyExchange$ECDHEPossessionGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECDHKeyExchange"
-};
-
-$Object* allocate$ECDHKeyExchange$ECDHEPossessionGenerator($Class* clazz) {
-	return $of($alloc(ECDHKeyExchange$ECDHEPossessionGenerator));
-}
-
 void ECDHKeyExchange$ECDHEPossessionGenerator::init$() {
 }
 
 $SSLPossession* ECDHKeyExchange$ECDHEPossessionGenerator::createPossession($HandshakeContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$NamedGroup* preferableNamedGroup = nullptr;
-	if (($nc(context)->clientRequestedNamedGroups != nullptr) && (!$nc(context->clientRequestedNamedGroups)->isEmpty())) {
+	if (($nc(context)->clientRequestedNamedGroups != nullptr) && (!context->clientRequestedNamedGroups->isEmpty())) {
 		$init($NamedGroup$NamedGroupSpec);
 		preferableNamedGroup = $SupportedGroupsExtension$SupportedGroups::getPreferredGroup(context->negotiatedProtocol, context->algorithmConstraints, $$new($NamedGroup$NamedGroupSpecArray, {
 			$NamedGroup$NamedGroupSpec::NAMED_GROUP_ECDHE,
@@ -83,7 +49,7 @@ $SSLPossession* ECDHKeyExchange$ECDHEPossessionGenerator::createPossession($Hand
 		}));
 	}
 	if (preferableNamedGroup != nullptr) {
-		return preferableNamedGroup->createPossession($($nc($nc(context)->sslContext)->getSecureRandom()));
+		return preferableNamedGroup->createPossession($($nc(context->sslContext)->getSecureRandom()));
 	}
 	return nullptr;
 }
@@ -92,7 +58,33 @@ ECDHKeyExchange$ECDHEPossessionGenerator::ECDHKeyExchange$ECDHEPossessionGenerat
 }
 
 $Class* ECDHKeyExchange$ECDHEPossessionGenerator::load$($String* name, bool initialize) {
-	$loadClass(ECDHKeyExchange$ECDHEPossessionGenerator, name, initialize, &_ECDHKeyExchange$ECDHEPossessionGenerator_ClassInfo_, allocate$ECDHKeyExchange$ECDHEPossessionGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHKeyExchange$ECDHEPossessionGenerator, init$, void)},
+		{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHEPossessionGenerator, createPossession, $SSLPossession*, $HandshakeContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECDHKeyExchange$ECDHEPossessionGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHEPossessionGenerator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ECDHKeyExchange$ECDHEPossessionGenerator",
+		"java.lang.Object",
+		"sun.security.ssl.SSLPossessionGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECDHKeyExchange"
+	};
+	$loadClass(ECDHKeyExchange$ECDHEPossessionGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECDHKeyExchange$ECDHEPossessionGenerator);
+	});
 	return class$;
 }
 

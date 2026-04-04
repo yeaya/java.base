@@ -37,6 +37,7 @@ public:
 	virtual int32_t dataAvailable() override;
 	virtual int8_t getTTL() override {return 0;}
 	virtual int32_t getTimeToLive() override {return 0;}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool isMulticast);
 	virtual void bind(int32_t lport, ::java::net::InetAddress* laddr) override;
 	virtual void bind0(int32_t lport, ::java::net::InetAddress* laddr) {}

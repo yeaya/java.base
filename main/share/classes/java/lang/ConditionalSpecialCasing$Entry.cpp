@@ -1,5 +1,4 @@
 #include <java/lang/ConditionalSpecialCasing$Entry.h>
-
 #include <java/lang/ConditionalSpecialCasing.h>
 #include <jcpp.h>
 
@@ -10,50 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ConditionalSpecialCasing$Entry_FieldInfo_[] = {
-	{"ch", "I", nullptr, 0, $field(ConditionalSpecialCasing$Entry, ch)},
-	{"lower", "[C", nullptr, 0, $field(ConditionalSpecialCasing$Entry, lower)},
-	{"upper", "[C", nullptr, 0, $field(ConditionalSpecialCasing$Entry, upper)},
-	{"lang", "Ljava/lang/String;", nullptr, 0, $field(ConditionalSpecialCasing$Entry, lang)},
-	{"condition", "I", nullptr, 0, $field(ConditionalSpecialCasing$Entry, condition)},
-	{}
-};
-
-$MethodInfo _ConditionalSpecialCasing$Entry_MethodInfo_[] = {
-	{"<init>", "(I[C[CLjava/lang/String;I)V", nullptr, 0, $method(ConditionalSpecialCasing$Entry, init$, void, int32_t, $chars*, $chars*, $String*, int32_t)},
-	{"getCodePoint", "()I", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getCodePoint, int32_t)},
-	{"getCondition", "()I", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getCondition, int32_t)},
-	{"getLanguage", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getLanguage, $String*)},
-	{"getLowerCase", "()[C", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getLowerCase, $chars*)},
-	{"getUpperCase", "()[C", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getUpperCase, $chars*)},
-	{}
-};
-
-$InnerClassInfo _ConditionalSpecialCasing$Entry_InnerClassesInfo_[] = {
-	{"java.lang.ConditionalSpecialCasing$Entry", "java.lang.ConditionalSpecialCasing", "Entry", $STATIC},
-	{}
-};
-
-$ClassInfo _ConditionalSpecialCasing$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ConditionalSpecialCasing$Entry",
-	"java.lang.Object",
-	nullptr,
-	_ConditionalSpecialCasing$Entry_FieldInfo_,
-	_ConditionalSpecialCasing$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConditionalSpecialCasing$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ConditionalSpecialCasing"
-};
-
-$Object* allocate$ConditionalSpecialCasing$Entry($Class* clazz) {
-	return $of($alloc(ConditionalSpecialCasing$Entry));
-}
 
 void ConditionalSpecialCasing$Entry::init$(int32_t ch, $chars* lower, $chars* upper, $String* lang, int32_t condition) {
 	this->ch = ch;
@@ -87,7 +42,45 @@ ConditionalSpecialCasing$Entry::ConditionalSpecialCasing$Entry() {
 }
 
 $Class* ConditionalSpecialCasing$Entry::load$($String* name, bool initialize) {
-	$loadClass(ConditionalSpecialCasing$Entry, name, initialize, &_ConditionalSpecialCasing$Entry_ClassInfo_, allocate$ConditionalSpecialCasing$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"ch", "I", nullptr, 0, $field(ConditionalSpecialCasing$Entry, ch)},
+		{"lower", "[C", nullptr, 0, $field(ConditionalSpecialCasing$Entry, lower)},
+		{"upper", "[C", nullptr, 0, $field(ConditionalSpecialCasing$Entry, upper)},
+		{"lang", "Ljava/lang/String;", nullptr, 0, $field(ConditionalSpecialCasing$Entry, lang)},
+		{"condition", "I", nullptr, 0, $field(ConditionalSpecialCasing$Entry, condition)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[C[CLjava/lang/String;I)V", nullptr, 0, $method(ConditionalSpecialCasing$Entry, init$, void, int32_t, $chars*, $chars*, $String*, int32_t)},
+		{"getCodePoint", "()I", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getCodePoint, int32_t)},
+		{"getCondition", "()I", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getCondition, int32_t)},
+		{"getLanguage", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getLanguage, $String*)},
+		{"getLowerCase", "()[C", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getLowerCase, $chars*)},
+		{"getUpperCase", "()[C", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getUpperCase, $chars*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ConditionalSpecialCasing$Entry", "java.lang.ConditionalSpecialCasing", "Entry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ConditionalSpecialCasing$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ConditionalSpecialCasing"
+	};
+	$loadClass(ConditionalSpecialCasing$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConditionalSpecialCasing$Entry);
+	});
 	return class$;
 }
 

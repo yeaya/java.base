@@ -1,5 +1,4 @@
 #include <sun/nio/fs/AbstractBasicFileAttributeView.h>
-
 #include <java/nio/file/attribute/BasicFileAttributeView.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/FileTime.h>
@@ -37,58 +36,6 @@ using $Util = ::sun::nio::fs::Util;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _AbstractBasicFileAttributeView_FieldInfo_[] = {
-	{"SIZE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, SIZE_NAME)},
-	{"CREATION_TIME_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, CREATION_TIME_NAME)},
-	{"LAST_ACCESS_TIME_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, LAST_ACCESS_TIME_NAME)},
-	{"LAST_MODIFIED_TIME_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, LAST_MODIFIED_TIME_NAME)},
-	{"FILE_KEY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, FILE_KEY_NAME)},
-	{"IS_DIRECTORY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, IS_DIRECTORY_NAME)},
-	{"IS_REGULAR_FILE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, IS_REGULAR_FILE_NAME)},
-	{"IS_SYMBOLIC_LINK_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, IS_SYMBOLIC_LINK_NAME)},
-	{"IS_OTHER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, IS_OTHER_NAME)},
-	{"basicAttributeNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, basicAttributeNames)},
-	{}
-};
-
-$MethodInfo _AbstractBasicFileAttributeView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractBasicFileAttributeView, init$, void)},
-	{"addRequestedBasicAttributes", "(Ljava/nio/file/attribute/BasicFileAttributes;Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;)V", nullptr, $FINAL, $method(AbstractBasicFileAttributeView, addRequestedBasicAttributes, void, $BasicFileAttributes*, $AbstractBasicFileAttributeView$AttributesBuilder*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractBasicFileAttributeView, name, $String*)},
-	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractBasicFileAttributeView, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractBasicFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AbstractBasicFileAttributeView_InnerClassesInfo_[] = {
-	{"sun.nio.fs.AbstractBasicFileAttributeView$AttributesBuilder", "sun.nio.fs.AbstractBasicFileAttributeView", "AttributesBuilder", $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractBasicFileAttributeView_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.nio.fs.AbstractBasicFileAttributeView",
-	"java.lang.Object",
-	"java.nio.file.attribute.BasicFileAttributeView,sun.nio.fs.DynamicFileAttributeView",
-	_AbstractBasicFileAttributeView_FieldInfo_,
-	_AbstractBasicFileAttributeView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractBasicFileAttributeView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.AbstractBasicFileAttributeView$AttributesBuilder"
-};
-
-$Object* allocate$AbstractBasicFileAttributeView($Class* clazz) {
-	return $of($alloc(AbstractBasicFileAttributeView));
-}
 
 int32_t AbstractBasicFileAttributeView::hashCode() {
 	 return this->$BasicFileAttributeView::hashCode();
@@ -129,16 +76,16 @@ $String* AbstractBasicFileAttributeView::name() {
 }
 
 void AbstractBasicFileAttributeView::setAttribute($String* attribute, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(attribute)->equals(AbstractBasicFileAttributeView::LAST_MODIFIED_TIME_NAME)) {
 		setTimes($cast($FileTime, value), nullptr, nullptr);
 		return;
 	}
-	if ($nc(attribute)->equals(AbstractBasicFileAttributeView::LAST_ACCESS_TIME_NAME)) {
+	if (attribute->equals(AbstractBasicFileAttributeView::LAST_ACCESS_TIME_NAME)) {
 		setTimes(nullptr, $cast($FileTime, value), nullptr);
 		return;
 	}
-	if ($nc(attribute)->equals(AbstractBasicFileAttributeView::CREATION_TIME_NAME)) {
+	if (attribute->equals(AbstractBasicFileAttributeView::CREATION_TIME_NAME)) {
 		setTimes(nullptr, nullptr, $cast($FileTime, value));
 		return;
 	}
@@ -146,44 +93,44 @@ void AbstractBasicFileAttributeView::setAttribute($String* attribute, Object$* v
 }
 
 void AbstractBasicFileAttributeView::addRequestedBasicAttributes($BasicFileAttributes* attrs, $AbstractBasicFileAttributeView$AttributesBuilder* builder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(builder)->match(AbstractBasicFileAttributeView::SIZE_NAME)) {
 		builder->add(AbstractBasicFileAttributeView::SIZE_NAME, $($Long::valueOf($nc(attrs)->size())));
 	}
-	if ($nc(builder)->match(AbstractBasicFileAttributeView::CREATION_TIME_NAME)) {
+	if (builder->match(AbstractBasicFileAttributeView::CREATION_TIME_NAME)) {
 		builder->add(AbstractBasicFileAttributeView::CREATION_TIME_NAME, $($nc(attrs)->creationTime()));
 	}
-	if ($nc(builder)->match(AbstractBasicFileAttributeView::LAST_ACCESS_TIME_NAME)) {
+	if (builder->match(AbstractBasicFileAttributeView::LAST_ACCESS_TIME_NAME)) {
 		builder->add(AbstractBasicFileAttributeView::LAST_ACCESS_TIME_NAME, $($nc(attrs)->lastAccessTime()));
 	}
-	if ($nc(builder)->match(AbstractBasicFileAttributeView::LAST_MODIFIED_TIME_NAME)) {
+	if (builder->match(AbstractBasicFileAttributeView::LAST_MODIFIED_TIME_NAME)) {
 		builder->add(AbstractBasicFileAttributeView::LAST_MODIFIED_TIME_NAME, $($nc(attrs)->lastModifiedTime()));
 	}
-	if ($nc(builder)->match(AbstractBasicFileAttributeView::FILE_KEY_NAME)) {
+	if (builder->match(AbstractBasicFileAttributeView::FILE_KEY_NAME)) {
 		builder->add(AbstractBasicFileAttributeView::FILE_KEY_NAME, $($nc(attrs)->fileKey()));
 	}
-	if ($nc(builder)->match(AbstractBasicFileAttributeView::IS_DIRECTORY_NAME)) {
+	if (builder->match(AbstractBasicFileAttributeView::IS_DIRECTORY_NAME)) {
 		builder->add(AbstractBasicFileAttributeView::IS_DIRECTORY_NAME, $($Boolean::valueOf($nc(attrs)->isDirectory())));
 	}
-	if ($nc(builder)->match(AbstractBasicFileAttributeView::IS_REGULAR_FILE_NAME)) {
+	if (builder->match(AbstractBasicFileAttributeView::IS_REGULAR_FILE_NAME)) {
 		builder->add(AbstractBasicFileAttributeView::IS_REGULAR_FILE_NAME, $($Boolean::valueOf($nc(attrs)->isRegularFile())));
 	}
-	if ($nc(builder)->match(AbstractBasicFileAttributeView::IS_SYMBOLIC_LINK_NAME)) {
+	if (builder->match(AbstractBasicFileAttributeView::IS_SYMBOLIC_LINK_NAME)) {
 		builder->add(AbstractBasicFileAttributeView::IS_SYMBOLIC_LINK_NAME, $($Boolean::valueOf($nc(attrs)->isSymbolicLink())));
 	}
-	if ($nc(builder)->match(AbstractBasicFileAttributeView::IS_OTHER_NAME)) {
+	if (builder->match(AbstractBasicFileAttributeView::IS_OTHER_NAME)) {
 		builder->add(AbstractBasicFileAttributeView::IS_OTHER_NAME, $($Boolean::valueOf($nc(attrs)->isOther())));
 	}
 }
 
 $Map* AbstractBasicFileAttributeView::readAttributes($StringArray* requested) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractBasicFileAttributeView$AttributesBuilder, builder, $AbstractBasicFileAttributeView$AttributesBuilder::create(AbstractBasicFileAttributeView::basicAttributeNames, requested));
 	addRequestedBasicAttributes($(readAttributes()), builder);
 	return $nc(builder)->unmodifiableMap();
 }
 
-void clinit$AbstractBasicFileAttributeView($Class* class$) {
+void AbstractBasicFileAttributeView::clinit$($Class* clazz) {
 	$assignStatic(AbstractBasicFileAttributeView::SIZE_NAME, "size"_s);
 	$assignStatic(AbstractBasicFileAttributeView::CREATION_TIME_NAME, "creationTime"_s);
 	$assignStatic(AbstractBasicFileAttributeView::LAST_ACCESS_TIME_NAME, "lastAccessTime"_s);
@@ -210,7 +157,53 @@ AbstractBasicFileAttributeView::AbstractBasicFileAttributeView() {
 }
 
 $Class* AbstractBasicFileAttributeView::load$($String* name, bool initialize) {
-	$loadClass(AbstractBasicFileAttributeView, name, initialize, &_AbstractBasicFileAttributeView_ClassInfo_, clinit$AbstractBasicFileAttributeView, allocate$AbstractBasicFileAttributeView);
+	$FieldInfo fieldInfos$$[] = {
+		{"SIZE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, SIZE_NAME)},
+		{"CREATION_TIME_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, CREATION_TIME_NAME)},
+		{"LAST_ACCESS_TIME_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, LAST_ACCESS_TIME_NAME)},
+		{"LAST_MODIFIED_TIME_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, LAST_MODIFIED_TIME_NAME)},
+		{"FILE_KEY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, FILE_KEY_NAME)},
+		{"IS_DIRECTORY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, IS_DIRECTORY_NAME)},
+		{"IS_REGULAR_FILE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, IS_REGULAR_FILE_NAME)},
+		{"IS_SYMBOLIC_LINK_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, IS_SYMBOLIC_LINK_NAME)},
+		{"IS_OTHER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, IS_OTHER_NAME)},
+		{"basicAttributeNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(AbstractBasicFileAttributeView, basicAttributeNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractBasicFileAttributeView, init$, void)},
+		{"addRequestedBasicAttributes", "(Ljava/nio/file/attribute/BasicFileAttributes;Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;)V", nullptr, $FINAL, $method(AbstractBasicFileAttributeView, addRequestedBasicAttributes, void, $BasicFileAttributes*, $AbstractBasicFileAttributeView$AttributesBuilder*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractBasicFileAttributeView, name, $String*)},
+		{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractBasicFileAttributeView, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractBasicFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.AbstractBasicFileAttributeView$AttributesBuilder", "sun.nio.fs.AbstractBasicFileAttributeView", "AttributesBuilder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.nio.fs.AbstractBasicFileAttributeView",
+		"java.lang.Object",
+		"java.nio.file.attribute.BasicFileAttributeView,sun.nio.fs.DynamicFileAttributeView",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.AbstractBasicFileAttributeView$AttributesBuilder"
+	};
+	$loadClass(AbstractBasicFileAttributeView, name, initialize, &classInfo$$, AbstractBasicFileAttributeView::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractBasicFileAttributeView));
+	});
 	return class$;
 }
 

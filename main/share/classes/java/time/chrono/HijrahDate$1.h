@@ -13,6 +13,7 @@ class HijrahDate$1 : public ::java::lang::Object {
 	$class(HijrahDate$1, 0, ::java::lang::Object)
 public:
 	HijrahDate$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$time$temporal$ChronoField;
 };
 

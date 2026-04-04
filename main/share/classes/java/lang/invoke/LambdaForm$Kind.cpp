@@ -1,5 +1,4 @@
 #include <java/lang/invoke/LambdaForm$Kind.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/invoke/LambdaForm.h>
 #include <jcpp.h>
@@ -83,115 +82,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _LambdaForm$Kind_FieldInfo_[] = {
-	{"GENERIC", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GENERIC)},
-	{"ZERO", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, ZERO)},
-	{"IDENTITY", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, IDENTITY)},
-	{"BOUND_REINVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, BOUND_REINVOKER)},
-	{"REINVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, REINVOKER)},
-	{"DELEGATE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DELEGATE)},
-	{"EXACT_LINKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, EXACT_LINKER)},
-	{"EXACT_INVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, EXACT_INVOKER)},
-	{"GENERIC_LINKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GENERIC_LINKER)},
-	{"GENERIC_INVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GENERIC_INVOKER)},
-	{"LINK_TO_TARGET_METHOD", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, LINK_TO_TARGET_METHOD)},
-	{"LINK_TO_CALL_SITE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, LINK_TO_CALL_SITE)},
-	{"DIRECT_INVOKE_VIRTUAL", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_VIRTUAL)},
-	{"DIRECT_INVOKE_SPECIAL", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_SPECIAL)},
-	{"DIRECT_INVOKE_SPECIAL_IFC", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_SPECIAL_IFC)},
-	{"DIRECT_INVOKE_STATIC", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_STATIC)},
-	{"DIRECT_NEW_INVOKE_SPECIAL", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_NEW_INVOKE_SPECIAL)},
-	{"DIRECT_INVOKE_INTERFACE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_INTERFACE)},
-	{"DIRECT_INVOKE_STATIC_INIT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_STATIC_INIT)},
-	{"GET_REFERENCE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_REFERENCE)},
-	{"PUT_REFERENCE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_REFERENCE)},
-	{"GET_REFERENCE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_REFERENCE_VOLATILE)},
-	{"PUT_REFERENCE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_REFERENCE_VOLATILE)},
-	{"GET_INT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_INT)},
-	{"PUT_INT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_INT)},
-	{"GET_INT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_INT_VOLATILE)},
-	{"PUT_INT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_INT_VOLATILE)},
-	{"GET_BOOLEAN", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_BOOLEAN)},
-	{"PUT_BOOLEAN", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_BOOLEAN)},
-	{"GET_BOOLEAN_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_BOOLEAN_VOLATILE)},
-	{"PUT_BOOLEAN_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_BOOLEAN_VOLATILE)},
-	{"GET_BYTE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_BYTE)},
-	{"PUT_BYTE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_BYTE)},
-	{"GET_BYTE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_BYTE_VOLATILE)},
-	{"PUT_BYTE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_BYTE_VOLATILE)},
-	{"GET_CHAR", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_CHAR)},
-	{"PUT_CHAR", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_CHAR)},
-	{"GET_CHAR_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_CHAR_VOLATILE)},
-	{"PUT_CHAR_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_CHAR_VOLATILE)},
-	{"GET_SHORT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_SHORT)},
-	{"PUT_SHORT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_SHORT)},
-	{"GET_SHORT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_SHORT_VOLATILE)},
-	{"PUT_SHORT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_SHORT_VOLATILE)},
-	{"GET_LONG", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_LONG)},
-	{"PUT_LONG", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_LONG)},
-	{"GET_LONG_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_LONG_VOLATILE)},
-	{"PUT_LONG_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_LONG_VOLATILE)},
-	{"GET_FLOAT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_FLOAT)},
-	{"PUT_FLOAT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_FLOAT)},
-	{"GET_FLOAT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_FLOAT_VOLATILE)},
-	{"PUT_FLOAT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_FLOAT_VOLATILE)},
-	{"GET_DOUBLE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_DOUBLE)},
-	{"PUT_DOUBLE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_DOUBLE)},
-	{"GET_DOUBLE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_DOUBLE_VOLATILE)},
-	{"PUT_DOUBLE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_DOUBLE_VOLATILE)},
-	{"TRY_FINALLY", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, TRY_FINALLY)},
-	{"TABLE_SWITCH", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, TABLE_SWITCH)},
-	{"COLLECT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, COLLECT)},
-	{"COLLECTOR", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, COLLECTOR)},
-	{"CONVERT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, CONVERT)},
-	{"SPREAD", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, SPREAD)},
-	{"LOOP", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, LOOP)},
-	{"FIELD", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, FIELD)},
-	{"GUARD", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GUARD)},
-	{"GUARD_WITH_CATCH", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GUARD_WITH_CATCH)},
-	{"VARHANDLE_EXACT_INVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, VARHANDLE_EXACT_INVOKER)},
-	{"VARHANDLE_INVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, VARHANDLE_INVOKER)},
-	{"VARHANDLE_LINKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, VARHANDLE_LINKER)},
-	{"$VALUES", "[Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaForm$Kind, $VALUES)},
-	{"defaultLambdaName", "Ljava/lang/String;", nullptr, $FINAL, $field(LambdaForm$Kind, defaultLambdaName)},
-	{"methodName", "Ljava/lang/String;", nullptr, $FINAL, $field(LambdaForm$Kind, methodName)},
-	{}
-};
-
-$MethodInfo _LambdaForm$Kind_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaForm$Kind, $values, $LambdaForm$KindArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(LambdaForm$Kind, init$, void, $String*, int32_t, $String*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(LambdaForm$Kind, init$, void, $String*, int32_t, $String*, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaForm$Kind, valueOf, LambdaForm$Kind*, $String*)},
-	{"values", "()[Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaForm$Kind, values, $LambdaForm$KindArray*)},
-	{}
-};
-
-$InnerClassInfo _LambdaForm$Kind_InnerClassesInfo_[] = {
-	{"java.lang.invoke.LambdaForm$Kind", "java.lang.invoke.LambdaForm", "Kind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LambdaForm$Kind_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.invoke.LambdaForm$Kind",
-	"java.lang.Enum",
-	nullptr,
-	_LambdaForm$Kind_FieldInfo_,
-	_LambdaForm$Kind_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/invoke/LambdaForm$Kind;>;",
-	nullptr,
-	_LambdaForm$Kind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.LambdaForm"
-};
-
-$Object* allocate$LambdaForm$Kind($Class* clazz) {
-	return $of($alloc(LambdaForm$Kind));
-}
 
 LambdaForm$Kind* LambdaForm$Kind::GENERIC = nullptr;
 LambdaForm$Kind* LambdaForm$Kind::ZERO = nullptr;
@@ -357,7 +247,7 @@ void LambdaForm$Kind::init$($String* $enum$name, int32_t $enum$ordinal, $String*
 	$set(this, methodName, methodName);
 }
 
-void clinit$LambdaForm$Kind($Class* class$) {
+void LambdaForm$Kind::clinit$($Class* clazz) {
 	$assignStatic(LambdaForm$Kind::GENERIC, $new(LambdaForm$Kind, "GENERIC"_s, 0, "invoke"_s));
 	$assignStatic(LambdaForm$Kind::ZERO, $new(LambdaForm$Kind, "ZERO"_s, 1, "zero"_s));
 	$assignStatic(LambdaForm$Kind::IDENTITY, $new(LambdaForm$Kind, "IDENTITY"_s, 2, "identity"_s));
@@ -433,7 +323,110 @@ LambdaForm$Kind::LambdaForm$Kind() {
 }
 
 $Class* LambdaForm$Kind::load$($String* name, bool initialize) {
-	$loadClass(LambdaForm$Kind, name, initialize, &_LambdaForm$Kind_ClassInfo_, clinit$LambdaForm$Kind, allocate$LambdaForm$Kind);
+	$FieldInfo fieldInfos$$[] = {
+		{"GENERIC", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GENERIC)},
+		{"ZERO", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, ZERO)},
+		{"IDENTITY", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, IDENTITY)},
+		{"BOUND_REINVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, BOUND_REINVOKER)},
+		{"REINVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, REINVOKER)},
+		{"DELEGATE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DELEGATE)},
+		{"EXACT_LINKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, EXACT_LINKER)},
+		{"EXACT_INVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, EXACT_INVOKER)},
+		{"GENERIC_LINKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GENERIC_LINKER)},
+		{"GENERIC_INVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GENERIC_INVOKER)},
+		{"LINK_TO_TARGET_METHOD", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, LINK_TO_TARGET_METHOD)},
+		{"LINK_TO_CALL_SITE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, LINK_TO_CALL_SITE)},
+		{"DIRECT_INVOKE_VIRTUAL", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_VIRTUAL)},
+		{"DIRECT_INVOKE_SPECIAL", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_SPECIAL)},
+		{"DIRECT_INVOKE_SPECIAL_IFC", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_SPECIAL_IFC)},
+		{"DIRECT_INVOKE_STATIC", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_STATIC)},
+		{"DIRECT_NEW_INVOKE_SPECIAL", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_NEW_INVOKE_SPECIAL)},
+		{"DIRECT_INVOKE_INTERFACE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_INTERFACE)},
+		{"DIRECT_INVOKE_STATIC_INIT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, DIRECT_INVOKE_STATIC_INIT)},
+		{"GET_REFERENCE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_REFERENCE)},
+		{"PUT_REFERENCE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_REFERENCE)},
+		{"GET_REFERENCE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_REFERENCE_VOLATILE)},
+		{"PUT_REFERENCE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_REFERENCE_VOLATILE)},
+		{"GET_INT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_INT)},
+		{"PUT_INT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_INT)},
+		{"GET_INT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_INT_VOLATILE)},
+		{"PUT_INT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_INT_VOLATILE)},
+		{"GET_BOOLEAN", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_BOOLEAN)},
+		{"PUT_BOOLEAN", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_BOOLEAN)},
+		{"GET_BOOLEAN_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_BOOLEAN_VOLATILE)},
+		{"PUT_BOOLEAN_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_BOOLEAN_VOLATILE)},
+		{"GET_BYTE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_BYTE)},
+		{"PUT_BYTE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_BYTE)},
+		{"GET_BYTE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_BYTE_VOLATILE)},
+		{"PUT_BYTE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_BYTE_VOLATILE)},
+		{"GET_CHAR", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_CHAR)},
+		{"PUT_CHAR", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_CHAR)},
+		{"GET_CHAR_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_CHAR_VOLATILE)},
+		{"PUT_CHAR_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_CHAR_VOLATILE)},
+		{"GET_SHORT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_SHORT)},
+		{"PUT_SHORT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_SHORT)},
+		{"GET_SHORT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_SHORT_VOLATILE)},
+		{"PUT_SHORT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_SHORT_VOLATILE)},
+		{"GET_LONG", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_LONG)},
+		{"PUT_LONG", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_LONG)},
+		{"GET_LONG_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_LONG_VOLATILE)},
+		{"PUT_LONG_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_LONG_VOLATILE)},
+		{"GET_FLOAT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_FLOAT)},
+		{"PUT_FLOAT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_FLOAT)},
+		{"GET_FLOAT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_FLOAT_VOLATILE)},
+		{"PUT_FLOAT_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_FLOAT_VOLATILE)},
+		{"GET_DOUBLE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_DOUBLE)},
+		{"PUT_DOUBLE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_DOUBLE)},
+		{"GET_DOUBLE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GET_DOUBLE_VOLATILE)},
+		{"PUT_DOUBLE_VOLATILE", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, PUT_DOUBLE_VOLATILE)},
+		{"TRY_FINALLY", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, TRY_FINALLY)},
+		{"TABLE_SWITCH", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, TABLE_SWITCH)},
+		{"COLLECT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, COLLECT)},
+		{"COLLECTOR", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, COLLECTOR)},
+		{"CONVERT", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, CONVERT)},
+		{"SPREAD", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, SPREAD)},
+		{"LOOP", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, LOOP)},
+		{"FIELD", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, FIELD)},
+		{"GUARD", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GUARD)},
+		{"GUARD_WITH_CATCH", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, GUARD_WITH_CATCH)},
+		{"VARHANDLE_EXACT_INVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, VARHANDLE_EXACT_INVOKER)},
+		{"VARHANDLE_INVOKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, VARHANDLE_INVOKER)},
+		{"VARHANDLE_LINKER", "Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaForm$Kind, VARHANDLE_LINKER)},
+		{"$VALUES", "[Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaForm$Kind, $VALUES)},
+		{"defaultLambdaName", "Ljava/lang/String;", nullptr, $FINAL, $field(LambdaForm$Kind, defaultLambdaName)},
+		{"methodName", "Ljava/lang/String;", nullptr, $FINAL, $field(LambdaForm$Kind, methodName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaForm$Kind, $values, $LambdaForm$KindArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(LambdaForm$Kind, init$, void, $String*, int32_t, $String*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(LambdaForm$Kind, init$, void, $String*, int32_t, $String*, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaForm$Kind, valueOf, LambdaForm$Kind*, $String*)},
+		{"values", "()[Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaForm$Kind, values, $LambdaForm$KindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.LambdaForm$Kind", "java.lang.invoke.LambdaForm", "Kind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.invoke.LambdaForm$Kind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/invoke/LambdaForm$Kind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.LambdaForm"
+	};
+	$loadClass(LambdaForm$Kind, name, initialize, &classInfo$$, LambdaForm$Kind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LambdaForm$Kind));
+	});
 	return class$;
 }
 

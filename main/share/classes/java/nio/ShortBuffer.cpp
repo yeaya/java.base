@@ -1,5 +1,4 @@
 #include <java/nio/ShortBuffer.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
@@ -49,89 +48,10 @@ using $HeapShortBuffer = ::java::nio::HeapShortBuffer;
 using $ReadOnlyBufferException = ::java::nio::ReadOnlyBufferException;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _ShortBuffer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ShortBuffer, $assertionsDisabled)},
-	{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ShortBuffer, ARRAY_BASE_OFFSET)},
-	{"hb", "[S", nullptr, $FINAL, $field(ShortBuffer, hb)},
-	{"offset", "I", nullptr, $FINAL, $field(ShortBuffer, offset)},
-	{"isReadOnly", "Z", nullptr, 0, $field(ShortBuffer, isReadOnly$)},
-	{}
-};
-
-$MethodInfo _ShortBuffer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"duplicate", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(IIII[SILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ShortBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $shorts*, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "(IIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ShortBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([SJILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ShortBuffer, init$, void, $shorts*, int64_t, int32_t, $MemorySegmentProxy*)},
-	{"allocate", "(I)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortBuffer, allocate, ShortBuffer*, int32_t)},
-	{"array", "()[S", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, array, $Object*)},
-	{"arrayOffset", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, arrayOffset, int32_t)},
-	{"asReadOnlyBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, asReadOnlyBuffer, ShortBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ShortBuffer, base, $Object*)},
-	{"clear", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, clear, ShortBuffer*)},
-	{"compact", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, compact, ShortBuffer*)},
-	{"compare", "(SS)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ShortBuffer, compare, int32_t, int16_t, int16_t)},
-	{"compareTo", "(Ljava/nio/ShortBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, compareTo, int32_t, ShortBuffer*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ShortBuffer, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, equals, bool, Object$*)},
-	{"flip", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, flip, ShortBuffer*)},
-	{"get", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, get, int16_t)},
-	{"get", "(I)S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, get, int16_t, int32_t)},
-	{"get", "([SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, get, ShortBuffer*, $shorts*, int32_t, int32_t)},
-	{"get", "([S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, get, ShortBuffer*, $shorts*)},
-	{"get", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, get, ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
-	{"get", "(I[S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, get, ShortBuffer*, int32_t, $shorts*)},
-	{"getArray", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PRIVATE, $method(ShortBuffer, getArray, ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
-	{"hasArray", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, hasArray, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, hashCode, int32_t)},
-	{"isDirect", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"limit", "(I)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, limit, ShortBuffer*, int32_t)},
-	{"mark", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, mark, ShortBuffer*)},
-	{"mismatch", "(Ljava/nio/ShortBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, mismatch, int32_t, ShortBuffer*)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, order, $ByteOrder*)},
-	{"position", "(I)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, position, ShortBuffer*, int32_t)},
-	{"put", "(S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, put, ShortBuffer*, int16_t)},
-	{"put", "(IS)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, put, ShortBuffer*, int32_t, int16_t)},
-	{"put", "(Ljava/nio/ShortBuffer;)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, put, ShortBuffer*, ShortBuffer*)},
-	{"put", "(ILjava/nio/ShortBuffer;II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, put, ShortBuffer*, int32_t, ShortBuffer*, int32_t, int32_t)},
-	{"put", "([SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, put, ShortBuffer*, $shorts*, int32_t, int32_t)},
-	{"put", "([S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $method(ShortBuffer, put, ShortBuffer*, $shorts*)},
-	{"put", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, put, ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
-	{"put", "(I[S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, put, ShortBuffer*, int32_t, $shorts*)},
-	{"putArray", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PRIVATE, $method(ShortBuffer, putArray, ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
-	{"putBuffer", "(ILjava/nio/ShortBuffer;II)V", nullptr, 0, $virtualMethod(ShortBuffer, putBuffer, void, int32_t, ShortBuffer*, int32_t, int32_t)},
-	{"reset", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, reset, ShortBuffer*)},
-	{"rewind", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, rewind, ShortBuffer*)},
-	{"slice", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"slice", "(II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, toString, $String*)},
-	{"wrap", "([SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortBuffer, wrap, ShortBuffer*, $shorts*, int32_t, int32_t)},
-	{"wrap", "([S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortBuffer, wrap, ShortBuffer*, $shorts*)},
-	{}
-};
-
-$ClassInfo _ShortBuffer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.nio.ShortBuffer",
-	"java.nio.Buffer",
-	"java.lang.Comparable",
-	_ShortBuffer_FieldInfo_,
-	_ShortBuffer_MethodInfo_,
-	"Ljava/nio/Buffer;Ljava/lang/Comparable<Ljava/nio/ShortBuffer;>;"
-};
-
-$Object* allocate$ShortBuffer($Class* clazz) {
-	return $of($alloc(ShortBuffer));
-}
 
 $Object* ShortBuffer::clone() {
 	 return this->$Buffer::clone();
@@ -161,7 +81,7 @@ void ShortBuffer::init$($shorts* hb, int64_t addr, int32_t cap, $MemorySegmentPr
 }
 
 $Object* ShortBuffer::base() {
-	return $of(this->hb);
+	return this->hb;
 }
 
 ShortBuffer* ShortBuffer::allocate(int32_t capacity) {
@@ -214,40 +134,34 @@ ShortBuffer* ShortBuffer::get(int32_t index, $shorts* dst) {
 }
 
 ShortBuffer* ShortBuffer::getArray(int32_t index, $shorts* dst, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (((int64_t)length << 1) > $Bits::JNI_COPY_TO_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 1);
 		int64_t dstOffset = ShortBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 1);
 		int64_t len = (int64_t)length << 1;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (order() != $ByteOrder::nativeOrder()) {
-					$init($Buffer);
-					$var($ScopedMemoryAccess$Scope, var$1, scope());
-					$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(var$1, nullptr, $(base()), bufAddr, dst, dstOffset, len, $Short::BYTES);
-				} else {
-					$init($Buffer);
-					$var($ScopedMemoryAccess$Scope, var$2, scope());
-					$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$2, nullptr, $(base()), bufAddr, dst, dstOffset, len);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				$Reference::reachabilityFence(this);
+		$var($Throwable, var$0, nullptr);
+		try {
+			if (order() != $ByteOrder::nativeOrder()) {
+				$init($Buffer);
+				$var($ScopedMemoryAccess$Scope, var$1, scope());
+				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(var$1, nullptr, $(base()), bufAddr, dst, dstOffset, len, $Short::BYTES);
+			} else {
+				$init($Buffer);
+				$var($ScopedMemoryAccess$Scope, var$2, scope());
+				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$2, nullptr, $(base()), bufAddr, dst, dstOffset, len);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			$Reference::reachabilityFence(this);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		int32_t end = offset + length;
-		{
-			int32_t i = offset;
-			int32_t j = index;
-			for (; i < end; ++i, ++j) {
-				$nc(dst)->set(i, get(j));
-			}
+		for (int32_t i = offset, j = index; i < end; ++i, ++j) {
+			$nc(dst)->set(i, get(j));
 		}
 	}
 	return this;
@@ -286,7 +200,7 @@ ShortBuffer* ShortBuffer::put(int32_t index, ShortBuffer* src, int32_t offset, i
 }
 
 void ShortBuffer::putBuffer(int32_t pos, ShortBuffer* src, int32_t srcPos, int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, srcBase, $nc(src)->base());
 	if (!ShortBuffer::$assertionsDisabled && !(srcBase != nullptr || src->isDirect())) {
 		$throwNew($AssertionError);
@@ -298,27 +212,25 @@ void ShortBuffer::putBuffer(int32_t pos, ShortBuffer* src, int32_t srcPos, int32
 	int64_t srcAddr = src->address + ((int64_t)srcPos << 1);
 	int64_t addr = this->address + ((int64_t)pos << 1);
 	int64_t len = (int64_t)n << 1;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (this->order() != src->order()) {
-				$init($Buffer);
-				$var($ScopedMemoryAccess$Scope, var$1, src->scope());
-				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(var$1, $(scope()), srcBase, srcAddr, base, addr, len, $Short::BYTES);
-			} else {
-				$init($Buffer);
-				$var($ScopedMemoryAccess$Scope, var$2, src->scope());
-				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$2, $(scope()), srcBase, srcAddr, base, addr, len);
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$Reference::reachabilityFence(src);
-			$Reference::reachabilityFence(this);
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (this->order() != src->order()) {
+			$init($Buffer);
+			$var($ScopedMemoryAccess$Scope, var$1, src->scope());
+			$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(var$1, $(scope()), srcBase, srcAddr, base, addr, len, $Short::BYTES);
+		} else {
+			$init($Buffer);
+			$var($ScopedMemoryAccess$Scope, var$2, src->scope());
+			$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$2, $(scope()), srcBase, srcAddr, base, addr, len);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$Reference::reachabilityFence(src);
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -355,44 +267,34 @@ ShortBuffer* ShortBuffer::put(int32_t index, $shorts* src) {
 }
 
 ShortBuffer* ShortBuffer::putArray(int32_t index, $shorts* src, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (((int64_t)length << 1) > $Bits::JNI_COPY_FROM_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 1);
 		int64_t srcOffset = ShortBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 1);
 		int64_t len = (int64_t)length << 1;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (order() != $ByteOrder::nativeOrder()) {
-					$init($Buffer);
-					$var($ScopedMemoryAccess$Scope, var$1, scope());
-					$var($Object, var$2, $of(src));
-					int64_t var$3 = srcOffset;
-					$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(nullptr, var$1, var$2, var$3, $(base()), bufAddr, len, $Short::BYTES);
-				} else {
-					$init($Buffer);
-					$var($ScopedMemoryAccess$Scope, var$4, scope());
-					$var($Object, var$5, $of(src));
-					int64_t var$6 = srcOffset;
-					$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(nullptr, var$4, var$5, var$6, $(base()), bufAddr, len);
-				}
-			} catch ($Throwable& var$7) {
-				$assign(var$0, var$7);
-			} /*finally*/ {
-				$Reference::reachabilityFence(this);
+		$var($Throwable, var$0, nullptr);
+		try {
+			if (order() != $ByteOrder::nativeOrder()) {
+				$init($Buffer);
+				$var($ScopedMemoryAccess$Scope, var$1, scope());
+				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(nullptr, var$1, src, srcOffset, $(base()), bufAddr, len, $Short::BYTES);
+			} else {
+				$init($Buffer);
+				$var($ScopedMemoryAccess$Scope, var$2, scope());
+				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(nullptr, var$2, src, srcOffset, $(base()), bufAddr, len);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			$Reference::reachabilityFence(this);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		int32_t end = offset + length;
-		{
-			int32_t i = offset;
-			int32_t j = index;
-			for (; i < end; ++i, ++j) {
-				this->put(j, $nc(src)->get(i));
-			}
+		for (int32_t i = offset, j = index; i < end; ++i, ++j) {
+			this->put(j, $nc(src)->get(i));
 		}
 	}
 	return this;
@@ -409,7 +311,7 @@ $Object* ShortBuffer::array() {
 	if (this->isReadOnly$) {
 		$throwNew($ReadOnlyBufferException);
 	}
-	return $of(this->hb);
+	return this->hb;
 }
 
 int32_t ShortBuffer::arrayOffset() {
@@ -458,7 +360,7 @@ ShortBuffer* ShortBuffer::rewind() {
 }
 
 $String* ShortBuffer::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->append($($of(this)->getClass()->getName()));
 	sb->append("[pos="_s);
@@ -537,10 +439,9 @@ int32_t ShortBuffer::compareTo(Object$* that) {
 	return this->compareTo($cast(ShortBuffer, that));
 }
 
-void clinit$ShortBuffer($Class* class$) {
+void ShortBuffer::clinit$($Class* clazz) {
 	ShortBuffer::$assertionsDisabled = !ShortBuffer::class$->desiredAssertionStatus();
 	$init($Buffer);
-	$load($shorts);
 	ShortBuffer::ARRAY_BASE_OFFSET = $nc($Buffer::UNSAFE)->arrayBaseOffset($getClass($shorts));
 }
 
@@ -548,7 +449,79 @@ ShortBuffer::ShortBuffer() {
 }
 
 $Class* ShortBuffer::load$($String* name, bool initialize) {
-	$loadClass(ShortBuffer, name, initialize, &_ShortBuffer_ClassInfo_, clinit$ShortBuffer, allocate$ShortBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ShortBuffer, $assertionsDisabled)},
+		{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ShortBuffer, ARRAY_BASE_OFFSET)},
+		{"hb", "[S", nullptr, $FINAL, $field(ShortBuffer, hb)},
+		{"offset", "I", nullptr, $FINAL, $field(ShortBuffer, offset)},
+		{"isReadOnly", "Z", nullptr, 0, $field(ShortBuffer, isReadOnly$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"duplicate", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(IIII[SILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ShortBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $shorts*, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "(IIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ShortBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([SJILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ShortBuffer, init$, void, $shorts*, int64_t, int32_t, $MemorySegmentProxy*)},
+		{"allocate", "(I)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortBuffer, allocate, ShortBuffer*, int32_t)},
+		{"array", "()[S", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, array, $Object*)},
+		{"arrayOffset", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, arrayOffset, int32_t)},
+		{"asReadOnlyBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, asReadOnlyBuffer, ShortBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ShortBuffer, base, $Object*)},
+		{"clear", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, clear, ShortBuffer*)},
+		{"compact", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, compact, ShortBuffer*)},
+		{"compare", "(SS)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ShortBuffer, compare, int32_t, int16_t, int16_t)},
+		{"compareTo", "(Ljava/nio/ShortBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, compareTo, int32_t, ShortBuffer*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ShortBuffer, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, equals, bool, Object$*)},
+		{"flip", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, flip, ShortBuffer*)},
+		{"get", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, get, int16_t)},
+		{"get", "(I)S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, get, int16_t, int32_t)},
+		{"get", "([SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, get, ShortBuffer*, $shorts*, int32_t, int32_t)},
+		{"get", "([S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, get, ShortBuffer*, $shorts*)},
+		{"get", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, get, ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
+		{"get", "(I[S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, get, ShortBuffer*, int32_t, $shorts*)},
+		{"getArray", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PRIVATE, $method(ShortBuffer, getArray, ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
+		{"hasArray", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, hasArray, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, hashCode, int32_t)},
+		{"isDirect", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"limit", "(I)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, limit, ShortBuffer*, int32_t)},
+		{"mark", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, mark, ShortBuffer*)},
+		{"mismatch", "(Ljava/nio/ShortBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, mismatch, int32_t, ShortBuffer*)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, order, $ByteOrder*)},
+		{"position", "(I)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, position, ShortBuffer*, int32_t)},
+		{"put", "(S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, put, ShortBuffer*, int16_t)},
+		{"put", "(IS)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortBuffer, put, ShortBuffer*, int32_t, int16_t)},
+		{"put", "(Ljava/nio/ShortBuffer;)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, put, ShortBuffer*, ShortBuffer*)},
+		{"put", "(ILjava/nio/ShortBuffer;II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, put, ShortBuffer*, int32_t, ShortBuffer*, int32_t, int32_t)},
+		{"put", "([SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, put, ShortBuffer*, $shorts*, int32_t, int32_t)},
+		{"put", "([S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $method(ShortBuffer, put, ShortBuffer*, $shorts*)},
+		{"put", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, put, ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
+		{"put", "(I[S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, put, ShortBuffer*, int32_t, $shorts*)},
+		{"putArray", "(I[SII)Ljava/nio/ShortBuffer;", nullptr, $PRIVATE, $method(ShortBuffer, putArray, ShortBuffer*, int32_t, $shorts*, int32_t, int32_t)},
+		{"putBuffer", "(ILjava/nio/ShortBuffer;II)V", nullptr, 0, $virtualMethod(ShortBuffer, putBuffer, void, int32_t, ShortBuffer*, int32_t, int32_t)},
+		{"reset", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, reset, ShortBuffer*)},
+		{"rewind", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ShortBuffer, rewind, ShortBuffer*)},
+		{"slice", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"slice", "(II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShortBuffer, toString, $String*)},
+		{"wrap", "([SII)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortBuffer, wrap, ShortBuffer*, $shorts*, int32_t, int32_t)},
+		{"wrap", "([S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortBuffer, wrap, ShortBuffer*, $shorts*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.nio.ShortBuffer",
+		"java.nio.Buffer",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/nio/Buffer;Ljava/lang/Comparable<Ljava/nio/ShortBuffer;>;"
+	};
+	$loadClass(ShortBuffer, name, initialize, &classInfo$$, ShortBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ShortBuffer));
+	});
 	return class$;
 }
 

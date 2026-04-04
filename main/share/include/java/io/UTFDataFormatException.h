@@ -14,10 +14,13 @@ public:
 	UTFDataFormatException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x05D6C7F018D30324;
+	static const int64_t serialVersionUID = (int64_t)0x05d6c7f018d30324;
 	UTFDataFormatException(const UTFDataFormatException& e);
 	virtual void throw$() override;
-	inline UTFDataFormatException* operator ->() {
+	inline UTFDataFormatException* operator ->() const {
+		return (UTFDataFormatException*)throwing$;
+	}
+	inline operator UTFDataFormatException*() const {
 		return (UTFDataFormatException*)throwing$;
 	}
 };

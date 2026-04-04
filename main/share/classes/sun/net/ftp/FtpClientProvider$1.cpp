@@ -1,5 +1,4 @@
 #include <sun/net/ftp/FtpClientProvider$1.h>
-
 #include <sun/net/ftp/FtpClientProvider.h>
 #include <sun/net/ftp/impl/DefaultFtpClientProvider.h>
 #include <jcpp.h>
@@ -15,63 +14,56 @@ namespace sun {
 	namespace net {
 		namespace ftp {
 
-$MethodInfo _FtpClientProvider$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FtpClientProvider$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FtpClientProvider$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _FtpClientProvider$1_EnclosingMethodInfo_ = {
-	"sun.net.ftp.FtpClientProvider",
-	"provider",
-	"()Lsun/net/ftp/FtpClientProvider;"
-};
-
-$InnerClassInfo _FtpClientProvider$1_InnerClassesInfo_[] = {
-	{"sun.net.ftp.FtpClientProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FtpClientProvider$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.ftp.FtpClientProvider$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_FtpClientProvider$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_FtpClientProvider$1_EnclosingMethodInfo_,
-	_FtpClientProvider$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.ftp.FtpClientProvider"
-};
-
-$Object* allocate$FtpClientProvider$1($Class* clazz) {
-	return $of($alloc(FtpClientProvider$1));
-}
-
 void FtpClientProvider$1::init$() {
 }
 
 $Object* FtpClientProvider$1::run() {
 	if ($FtpClientProvider::loadProviderFromProperty()) {
-		$init($FtpClientProvider);
-		return $of($FtpClientProvider::provider$);
+		return $FtpClientProvider::provider$;
 	}
 	if ($FtpClientProvider::loadProviderAsService()) {
-		return $of($FtpClientProvider::provider$);
+		return $FtpClientProvider::provider$;
 	}
 	$assignStatic($FtpClientProvider::provider$, $new($DefaultFtpClientProvider));
-	return $of($FtpClientProvider::provider$);
+	return $FtpClientProvider::provider$;
 }
 
 FtpClientProvider$1::FtpClientProvider$1() {
 }
 
 $Class* FtpClientProvider$1::load$($String* name, bool initialize) {
-	$loadClass(FtpClientProvider$1, name, initialize, &_FtpClientProvider$1_ClassInfo_, allocate$FtpClientProvider$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FtpClientProvider$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FtpClientProvider$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.ftp.FtpClientProvider",
+		"provider",
+		"()Lsun/net/ftp/FtpClientProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.ftp.FtpClientProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.ftp.FtpClientProvider$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.ftp.FtpClientProvider"
+	};
+	$loadClass(FtpClientProvider$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FtpClientProvider$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/SortedOps$OfDouble.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
@@ -47,39 +46,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$MethodInfo _SortedOps$OfDouble_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;)V", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;)V", 0, $method(SortedOps$OfDouble, init$, void, $AbstractPipeline*)},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node<Ljava/lang/Double;>;", $PUBLIC, $virtualMethod(SortedOps$OfDouble, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/stream/Sink<Ljava/lang/Double;>;", $PUBLIC, $virtualMethod(SortedOps$OfDouble, opWrapSink, $Sink*, int32_t, $Sink*)},
-	{}
-};
-
-$InnerClassInfo _SortedOps$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.stream.SortedOps$OfDouble", "java.util.stream.SortedOps", "OfDouble", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.DoublePipeline$StatefulOp", "java.util.stream.DoublePipeline", "StatefulOp", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SortedOps$OfDouble_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.SortedOps$OfDouble",
-	"java.util.stream.DoublePipeline$StatefulOp",
-	nullptr,
-	nullptr,
-	_SortedOps$OfDouble_MethodInfo_,
-	"Ljava/util/stream/DoublePipeline$StatefulOp<Ljava/lang/Double;>;",
-	nullptr,
-	_SortedOps$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SortedOps"
-};
-
-$Object* allocate$SortedOps$OfDouble($Class* clazz) {
-	return $of($alloc(SortedOps$OfDouble));
-}
-
 void SortedOps$OfDouble::init$($AbstractPipeline* upstream) {
 	$init($StreamShape);
 	$init($StreamOpFlag);
@@ -91,22 +57,20 @@ $Sink* SortedOps$OfDouble::opWrapSink(int32_t flags, $Sink* sink) {
 	$init($StreamOpFlag);
 	if ($StreamOpFlag::SORTED->isKnown(flags)) {
 		return sink;
+	} else if ($StreamOpFlag::SIZED->isKnown(flags)) {
+		return $new($SortedOps$SizedDoubleSortingSink, sink);
 	} else {
-		if ($StreamOpFlag::SIZED->isKnown(flags)) {
-			return $new($SortedOps$SizedDoubleSortingSink, sink);
-		} else {
-			return $new($SortedOps$DoubleSortingSink, sink);
-		}
+		return $new($SortedOps$DoubleSortingSink, sink);
 	}
 }
 
 $Node* SortedOps$OfDouble::opEvaluateParallel($PipelineHelper* helper, $Spliterator* spliterator, $IntFunction* generator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StreamOpFlag);
 	if ($StreamOpFlag::SORTED->isKnown($nc(helper)->getStreamAndOpFlags())) {
-		return $nc(helper)->evaluate(spliterator, false, generator);
+		return helper->evaluate(spliterator, false, generator);
 	} else {
-		$var($Node$OfDouble, n, $cast($Node$OfDouble, $nc(helper)->evaluate(spliterator, true, generator)));
+		$var($Node$OfDouble, n, $cast($Node$OfDouble, helper->evaluate(spliterator, true, generator)));
 		$var($doubles, content, $cast($doubles, $nc(n)->asPrimitiveArray()));
 		$Arrays::parallelSort(content);
 		return $Nodes::node(content);
@@ -117,7 +81,35 @@ SortedOps$OfDouble::SortedOps$OfDouble() {
 }
 
 $Class* SortedOps$OfDouble::load$($String* name, bool initialize) {
-	$loadClass(SortedOps$OfDouble, name, initialize, &_SortedOps$OfDouble_ClassInfo_, allocate$SortedOps$OfDouble);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/AbstractPipeline;)V", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;)V", 0, $method(SortedOps$OfDouble, init$, void, $AbstractPipeline*)},
+		{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node<Ljava/lang/Double;>;", $PUBLIC, $virtualMethod(SortedOps$OfDouble, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+		{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/stream/Sink<Ljava/lang/Double;>;", $PUBLIC, $virtualMethod(SortedOps$OfDouble, opWrapSink, $Sink*, int32_t, $Sink*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SortedOps$OfDouble", "java.util.stream.SortedOps", "OfDouble", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.DoublePipeline$StatefulOp", "java.util.stream.DoublePipeline", "StatefulOp", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.SortedOps$OfDouble",
+		"java.util.stream.DoublePipeline$StatefulOp",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/stream/DoublePipeline$StatefulOp<Ljava/lang/Double;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SortedOps"
+	};
+	$loadClass(SortedOps$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SortedOps$OfDouble));
+	});
 	return class$;
 }
 

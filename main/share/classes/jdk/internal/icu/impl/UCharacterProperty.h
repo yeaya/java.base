@@ -182,6 +182,7 @@ class UCharacterProperty : public ::java::lang::Object {
 	$class(UCharacterProperty, 0, ::java::lang::Object)
 public:
 	UCharacterProperty();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int32_t digit(int32_t c);
 	int32_t getAdditional(int32_t codepoint, int32_t column);
@@ -216,19 +217,19 @@ public:
 	$chars* m_scriptExtensions_ = nullptr;
 	static $String* DATA_FILE_NAME_;
 	static const int32_t LEAD_SURROGATE_SHIFT_ = 10;
-	static const int32_t SURROGATE_OFFSET_ = 0xFCA02400; // UTF16.SUPPLEMENTARY_MIN_VALUE - (UTF16.SURROGATE_MIN_VALUE << LEAD_SURROGATE_SHIFT_) - UTF16.TRAIL_SURROGATE_MIN_VALUE
+	static const int32_t SURROGATE_OFFSET_ = 0xfca02400; // UTF16.SUPPLEMENTARY_MIN_VALUE - (UTF16.SURROGATE_MIN_VALUE << LEAD_SURROGATE_SHIFT_) - UTF16.TRAIL_SURROGATE_MIN_VALUE
 	static const int32_t NUMERIC_TYPE_VALUE_SHIFT_ = 6;
 	static const int32_t NTV_NONE_ = 0;
 	static const int32_t NTV_DECIMAL_START_ = 1;
 	static const int32_t NTV_DIGIT_START_ = 11;
 	static const int32_t NTV_NUMERIC_START_ = 21;
-	static const int32_t SCRIPT_X_MASK = 0x00F000FF;
+	static const int32_t SCRIPT_X_MASK = 0x00f000ff;
 	static const int32_t SCRIPT_HIGH_MASK = 0x00300000;
 	static const int32_t SCRIPT_HIGH_SHIFT = 12;
 	static const int32_t MAX_SCRIPT = 1023;
-	static const int32_t EAST_ASIAN_MASK_ = 0x000E0000;
+	static const int32_t EAST_ASIAN_MASK_ = 0x000e0000;
 	static const int32_t EAST_ASIAN_SHIFT_ = 17;
-	static const int32_t BLOCK_MASK_ = 0x0001FF00;
+	static const int32_t BLOCK_MASK_ = 0x0001ff00;
 	static const int32_t BLOCK_SHIFT_ = 8;
 	static const int32_t SCRIPT_LOW_MASK = 255;
 	static const int32_t WHITE_SPACE_PROPERTY_ = 0;
@@ -262,9 +263,9 @@ public:
 	static const int32_t VARIATION_SELECTOR_PROPERTY_ = 28;
 	static const int32_t PATTERN_SYNTAX = 29;
 	static const int32_t PATTERN_WHITE_SPACE = 30;
-	static const int32_t LB_MASK = 0x03F00000;
+	static const int32_t LB_MASK = 0x03f00000;
 	static const int32_t LB_SHIFT = 20;
-	static const int32_t SB_MASK = 0x000F8000;
+	static const int32_t SB_MASK = 0x000f8000;
 	static const int32_t SB_SHIFT = 15;
 	static const int32_t WB_MASK = 31744;
 	static const int32_t WB_SHIFT = 10;
@@ -274,7 +275,7 @@ public:
 	static const int32_t FIRST_NIBBLE_SHIFT_ = 4;
 	static const int32_t LAST_NIBBLE_MASK_ = 15;
 	static const int32_t AGE_SHIFT_ = 24;
-	static const int32_t DATA_FORMAT = 0x5550726F;
+	static const int32_t DATA_FORMAT = 0x5550726f;
 	static const int32_t BIDI_PAIRED_BRACKET_TYPE = 4117;
 };
 

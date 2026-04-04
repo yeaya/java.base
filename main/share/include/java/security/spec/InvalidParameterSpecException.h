@@ -15,10 +15,13 @@ public:
 	InvalidParameterSpecException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xF28833CBBAC667D2;
+	static const int64_t serialVersionUID = (int64_t)0xf28833cbbac667d2;
 	InvalidParameterSpecException(const InvalidParameterSpecException& e);
 	virtual void throw$() override;
-	inline InvalidParameterSpecException* operator ->() {
+	inline InvalidParameterSpecException* operator ->() const {
+		return (InvalidParameterSpecException*)throwing$;
+	}
+	inline operator InvalidParameterSpecException*() const {
 		return (InvalidParameterSpecException*)throwing$;
 	}
 };

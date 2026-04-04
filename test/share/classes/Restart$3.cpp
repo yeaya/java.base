@@ -1,5 +1,4 @@
 #include <Restart$3.h>
-
 #include <Restart.h>
 #include <java/io/IOException.h>
 #include <java/lang/Error.h>
@@ -20,53 +19,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;
 using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
-using $Random = ::java::util::Random;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-
-$FieldInfo _Restart$3_FieldInfo_[] = {
-	{"val$latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $FINAL | $SYNTHETIC, $field(Restart$3, val$latch)},
-	{}
-};
-
-$MethodInfo _Restart$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(Restart$3, init$, void, $CountDownLatch*)},
-	{"completed", "(Ljava/nio/channels/AsynchronousSocketChannel;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Restart$3, completed, void, $AsynchronousSocketChannel*, $Void*)},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Restart$3, completed, void, Object$*, Object$*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Restart$3, failed, void, $Throwable*, $Void*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Restart$3, failed, void, $Throwable*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Restart$3_EnclosingMethodInfo_ = {
-	"Restart",
-	"testRestart",
-	"(Ljava/nio/channels/AsynchronousChannelGroup;I)V"
-};
-
-$InnerClassInfo _Restart$3_InnerClassesInfo_[] = {
-	{"Restart$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Restart$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"Restart$3",
-	"java.lang.Object",
-	"java.nio.channels.CompletionHandler",
-	_Restart$3_FieldInfo_,
-	_Restart$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/nio/channels/AsynchronousSocketChannel;Ljava/lang/Void;>;",
-	&_Restart$3_EnclosingMethodInfo_,
-	_Restart$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Restart"
-};
-
-$Object* allocate$Restart$3($Class* clazz) {
-	return $of($alloc(Restart$3));
-}
 
 void Restart$3::init$($CountDownLatch* val$latch) {
 	$set(this, val$latch, val$latch);
@@ -101,7 +54,45 @@ Restart$3::Restart$3() {
 }
 
 $Class* Restart$3::load$($String* name, bool initialize) {
-	$loadClass(Restart$3, name, initialize, &_Restart$3_ClassInfo_, allocate$Restart$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $FINAL | $SYNTHETIC, $field(Restart$3, val$latch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(Restart$3, init$, void, $CountDownLatch*)},
+		{"completed", "(Ljava/nio/channels/AsynchronousSocketChannel;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Restart$3, completed, void, $AsynchronousSocketChannel*, $Void*)},
+		{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Restart$3, completed, void, Object$*, Object$*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Restart$3, failed, void, $Throwable*, $Void*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Restart$3, failed, void, $Throwable*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Restart",
+		"testRestart",
+		"(Ljava/nio/channels/AsynchronousChannelGroup;I)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Restart$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Restart$3",
+		"java.lang.Object",
+		"java.nio.channels.CompletionHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/nio/channels/AsynchronousSocketChannel;Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Restart"
+	};
+	$loadClass(Restart$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Restart$3);
+	});
 	return class$;
 }
 

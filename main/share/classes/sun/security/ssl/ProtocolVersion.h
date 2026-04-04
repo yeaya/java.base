@@ -68,6 +68,7 @@ class ProtocolVersion : public ::java::lang::Enum {
 public:
 	ProtocolVersion();
 	static $Array<::sun::security::ssl::ProtocolVersion>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $String* name, bool isDTLS);
 	virtual int32_t compare(::sun::security::ssl::ProtocolVersion* that);
 	static bool isNegotiable(int8_t major, int8_t minor, bool isDTLS, bool allowSSL20Hello);
@@ -105,7 +106,7 @@ public:
 	int8_t major = 0;
 	int8_t minor = 0;
 	bool isAvailable = false;
-	static const int32_t LIMIT_MAX_VALUE = 0x0000FFFF;
+	static const int32_t LIMIT_MAX_VALUE = 0x0000ffff;
 	static const int32_t LIMIT_MIN_VALUE = 0;
 	static $Array<::sun::security::ssl::ProtocolVersion>* PROTOCOLS_TO_10;
 	static $Array<::sun::security::ssl::ProtocolVersion>* PROTOCOLS_TO_11;

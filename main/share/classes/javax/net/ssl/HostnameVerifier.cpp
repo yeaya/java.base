@@ -1,5 +1,4 @@
 #include <javax/net/ssl/HostnameVerifier.h>
-
 #include <javax/net/ssl/SSLSession.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$MethodInfo _HostnameVerifier_MethodInfo_[] = {
-	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HostnameVerifier, verify, bool, $String*, $SSLSession*)},
-	{}
-};
-
-$ClassInfo _HostnameVerifier_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.net.ssl.HostnameVerifier",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HostnameVerifier_MethodInfo_
-};
-
-$Object* allocate$HostnameVerifier($Class* clazz) {
-	return $of($alloc(HostnameVerifier));
-}
-
 $Class* HostnameVerifier::load$($String* name, bool initialize) {
-	$loadClass(HostnameVerifier, name, initialize, &_HostnameVerifier_ClassInfo_, allocate$HostnameVerifier);
+	$MethodInfo methodInfos$$[] = {
+		{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HostnameVerifier, verify, bool, $String*, $SSLSession*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.net.ssl.HostnameVerifier",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HostnameVerifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostnameVerifier);
+	});
 	return class$;
 }
 

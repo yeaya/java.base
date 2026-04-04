@@ -31,6 +31,7 @@ class PBES2Parameters : public ::java::security::AlgorithmParametersSpi {
 	$class(PBES2Parameters, 0, ::java::security::AlgorithmParametersSpi)
 public:
 	PBES2Parameters();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* pbes2AlgorithmName);
 	virtual $bytes* engineGetEncoded() override;

@@ -35,6 +35,7 @@ class $import LambdaMetafactory : public ::java::lang::Object {
 	$class(LambdaMetafactory, 0, ::java::lang::Object)
 public:
 	LambdaMetafactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::CallSite* altMetafactory(::java::lang::invoke::MethodHandles$Lookup* caller, $String* interfaceMethodName, ::java::lang::invoke::MethodType* factoryType, $ObjectArray* args);
 	static $Object* extractArg($ObjectArray* args, int32_t index, $Class* type);

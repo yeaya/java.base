@@ -18,6 +18,7 @@ class EUC_TWMapping : public ::java::lang::Object {
 	$class(EUC_TWMapping, 0, ::java::lang::Object)
 public:
 	EUC_TWMapping();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int32_t b1Min = 161;
 	static const int32_t b1Max = 254;
@@ -26,7 +27,7 @@ public:
 	static $StringArray* b2c;
 	static const int32_t C2BSIZE = 31744;
 	static $chars* c2bIndex;
-	static const int32_t C2BSUPPSIZE = 0x0000AA00;
+	static const int32_t C2BSUPPSIZE = 0x0000aa00;
 	static $chars* c2bSuppIndex;
 	static $String* b2cIsSuppStr;
 };

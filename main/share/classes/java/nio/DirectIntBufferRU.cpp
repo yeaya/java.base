@@ -1,5 +1,4 @@
 #include <java/nio/DirectIntBufferRU.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/DirectIntBufferU.h>
@@ -28,40 +27,6 @@ using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 namespace java {
 	namespace nio {
 
-$FieldInfo _DirectIntBufferRU_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectIntBufferRU, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _DirectIntBufferRU_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectIntBufferRU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, asReadOnlyBuffer, $IntBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectIntBufferRU, base, $Object*)},
-	{"compact", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, compact, $IntBuffer*)},
-	{"duplicate", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, duplicate, $IntBuffer*)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, order, $ByteOrder*)},
-	{"put", "(I)Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, put, $IntBuffer*, int32_t)},
-	{"put", "(II)Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, put, $IntBuffer*, int32_t, int32_t)},
-	{"slice", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, slice, $IntBuffer*)},
-	{"slice", "(II)Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, slice, $IntBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DirectIntBufferRU_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.DirectIntBufferRU",
-	"java.nio.DirectIntBufferU",
-	nullptr,
-	_DirectIntBufferRU_FieldInfo_,
-	_DirectIntBufferRU_MethodInfo_
-};
-
-$Object* allocate$DirectIntBufferRU($Class* clazz) {
-	return $of($alloc(DirectIntBufferRU));
-}
-
 bool DirectIntBufferRU::$assertionsDisabled = false;
 
 void DirectIntBufferRU::init$($DirectBuffer* db, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int32_t off, $MemorySegmentProxy* segment) {
@@ -70,7 +35,7 @@ void DirectIntBufferRU::init$($DirectBuffer* db, int32_t mark, int32_t pos, int3
 }
 
 $Object* DirectIntBufferRU::base() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $IntBuffer* DirectIntBufferRU::slice() {
@@ -128,7 +93,7 @@ $ByteOrder* DirectIntBufferRU::order() {
 	return (($ByteOrder::nativeOrder() != $ByteOrder::BIG_ENDIAN) ? $ByteOrder::LITTLE_ENDIAN : $ByteOrder::BIG_ENDIAN);
 }
 
-void clinit$DirectIntBufferRU($Class* class$) {
+void DirectIntBufferRU::clinit$($Class* clazz) {
 	DirectIntBufferRU::$assertionsDisabled = !DirectIntBufferRU::class$->desiredAssertionStatus();
 }
 
@@ -136,7 +101,36 @@ DirectIntBufferRU::DirectIntBufferRU() {
 }
 
 $Class* DirectIntBufferRU::load$($String* name, bool initialize) {
-	$loadClass(DirectIntBufferRU, name, initialize, &_DirectIntBufferRU_ClassInfo_, clinit$DirectIntBufferRU, allocate$DirectIntBufferRU);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectIntBufferRU, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectIntBufferRU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, asReadOnlyBuffer, $IntBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectIntBufferRU, base, $Object*)},
+		{"compact", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, compact, $IntBuffer*)},
+		{"duplicate", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, duplicate, $IntBuffer*)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, order, $ByteOrder*)},
+		{"put", "(I)Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, put, $IntBuffer*, int32_t)},
+		{"put", "(II)Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, put, $IntBuffer*, int32_t, int32_t)},
+		{"slice", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, slice, $IntBuffer*)},
+		{"slice", "(II)Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectIntBufferRU, slice, $IntBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.DirectIntBufferRU",
+		"java.nio.DirectIntBufferU",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DirectIntBufferRU, name, initialize, &classInfo$$, DirectIntBufferRU::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectIntBufferRU));
+	});
 	return class$;
 }
 

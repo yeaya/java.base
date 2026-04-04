@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$BackRef.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$Node.h>
@@ -20,44 +19,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$BackRef_FieldInfo_[] = {
-	{"groupIndex", "I", nullptr, 0, $field(Pattern$BackRef, groupIndex)},
-	{}
-};
-
-$MethodInfo _Pattern$BackRef_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(Pattern$BackRef, init$, void, int32_t)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$BackRef, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$BackRef, study, bool, $Pattern$TreeInfo*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$BackRef_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$BackRef", "java.util.regex.Pattern", "BackRef", $STATIC},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$BackRef_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Pattern$BackRef",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$BackRef_FieldInfo_,
-	_Pattern$BackRef_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$BackRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$BackRef($Class* clazz) {
-	return $of($alloc(Pattern$BackRef));
-}
-
 void Pattern$BackRef::init$(int32_t groupCount) {
 	$Pattern$Node::init$();
 	this->groupIndex = groupCount + groupCount;
@@ -65,7 +26,7 @@ void Pattern$BackRef::init$(int32_t groupCount) {
 
 bool Pattern$BackRef::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 	int32_t j = $nc($nc(matcher)->groups)->get(this->groupIndex);
-	int32_t k = $nc(matcher->groups)->get(this->groupIndex + 1);
+	int32_t k = matcher->groups->get(this->groupIndex + 1);
 	int32_t groupSize = k - j;
 	if (j < 0) {
 		return false;
@@ -92,7 +53,39 @@ Pattern$BackRef::Pattern$BackRef() {
 }
 
 $Class* Pattern$BackRef::load$($String* name, bool initialize) {
-	$loadClass(Pattern$BackRef, name, initialize, &_Pattern$BackRef_ClassInfo_, allocate$Pattern$BackRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"groupIndex", "I", nullptr, 0, $field(Pattern$BackRef, groupIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(Pattern$BackRef, init$, void, int32_t)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$BackRef, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$BackRef, study, bool, $Pattern$TreeInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$BackRef", "java.util.regex.Pattern", "BackRef", $STATIC},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Pattern$BackRef",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$BackRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$BackRef);
+	});
 	return class$;
 }
 

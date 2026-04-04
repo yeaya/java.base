@@ -15,10 +15,13 @@ public:
 	RefreshFailedException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x4633347628F715B0;
+	static const int64_t serialVersionUID = (int64_t)0x4633347628f715b0;
 	RefreshFailedException(const RefreshFailedException& e);
 	virtual void throw$() override;
-	inline RefreshFailedException* operator ->() {
+	inline RefreshFailedException* operator ->() const {
+		return (RefreshFailedException*)throwing$;
+	}
+	inline operator RefreshFailedException*() const {
 		return (RefreshFailedException*)throwing$;
 	}
 };

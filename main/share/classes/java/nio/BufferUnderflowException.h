@@ -13,10 +13,13 @@ class $export BufferUnderflowException : public ::java::lang::RuntimeException {
 public:
 	BufferUnderflowException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xE839164E10DC6AC2;
+	static const int64_t serialVersionUID = (int64_t)0xe839164e10dc6ac2;
 	BufferUnderflowException(const BufferUnderflowException& e);
 	virtual void throw$() override;
-	inline BufferUnderflowException* operator ->() {
+	inline BufferUnderflowException* operator ->() const {
+		return (BufferUnderflowException*)throwing$;
+	}
+	inline operator BufferUnderflowException*() const {
 		return (BufferUnderflowException*)throwing$;
 	}
 };

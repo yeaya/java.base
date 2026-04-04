@@ -1,7 +1,5 @@
 #include <jdk/internal/module/Resources.h>
-
 #include <java/io/File.h>
-#include <java/lang/CharSequence.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/LinkOption.h>
@@ -13,7 +11,6 @@
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $File = ::java::io::File;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FileSystem = ::java::nio::file::FileSystem;
@@ -26,30 +23,6 @@ using $Checks = ::jdk::internal::module::Checks;
 namespace jdk {
 	namespace internal {
 		namespace module {
-
-$MethodInfo _Resources_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Resources, init$, void)},
-	{"canEncapsulate", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, canEncapsulate, bool, $String*)},
-	{"mayTranslate", "(Ljava/lang/String;II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Resources, mayTranslate, bool, $String*, int32_t, int32_t)},
-	{"toFilePath", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, toFilePath, $Path*, $Path*, $String*), "java.io.IOException"},
-	{"toPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, toPackageName, $String*, $String*)},
-	{"toResourceName", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, toResourceName, $String*, $Path*, $Path*)},
-	{"toSafeFilePath", "(Ljava/nio/file/FileSystem;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $staticMethod(Resources, toSafeFilePath, $Path*, $FileSystem*, $String*)},
-	{}
-};
-
-$ClassInfo _Resources_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.module.Resources",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Resources_MethodInfo_
-};
-
-$Object* allocate$Resources($Class* clazz) {
-	return $of($alloc(Resources));
-}
 
 void Resources::init$() {
 }
@@ -64,7 +37,7 @@ bool Resources::canEncapsulate($String* name) {
 }
 
 $String* Resources::toPackageName($String* name) {
-	int32_t index = $nc(name)->lastIndexOf((int32_t)u'/');
+	int32_t index = $nc(name)->lastIndexOf(u'/');
 	if (index == -1 || index == name->length() - 1) {
 		return ""_s;
 	} else {
@@ -73,9 +46,9 @@ $String* Resources::toPackageName($String* name) {
 }
 
 $String* Resources::toResourceName($Path* dir, $Path* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
-	$var($String, s, $nc($($nc($($nc(dir)->relativize(file)))->toString()))->replace($File::separatorChar, u'/'));
+	$var($String, s, $$nc($$nc($nc(dir)->relativize(file))->toString())->replace($File::separatorChar, u'/'));
 	bool var$0 = !s->isEmpty();
 	if (var$0 && $Files::isDirectory(file, $$new($LinkOptionArray, 0))) {
 		$plusAssign(s, "/"_s);
@@ -84,7 +57,7 @@ $String* Resources::toResourceName($Path* dir, $Path* file) {
 }
 
 $Path* Resources::toFilePath($Path* dir, $String* name$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	bool expectDirectory = $nc(name)->endsWith("/"_s);
 	if (expectDirectory) {
@@ -92,13 +65,13 @@ $Path* Resources::toFilePath($Path* dir, $String* name$renamed) {
 	}
 	$var($Path, path, toSafeFilePath($($nc(dir)->getFileSystem()), name));
 	if (path != nullptr) {
-		$var($Path, file, $nc(dir)->resolve(path));
+		$var($Path, file, dir->resolve(path));
 		try {
 			$var($BasicFileAttributes, attrs, nullptr);
 			$load($BasicFileAttributes);
 			$assign(attrs, $Files::readAttributes(file, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0)));
 			bool var$0 = $nc(attrs)->isDirectory();
-			if (var$0 || (!$nc(attrs)->isDirectory() && !expectDirectory)) {
+			if (var$0 || (!attrs->isDirectory() && !expectDirectory)) {
 				return file;
 			}
 		} catch ($NoSuchFileException& ignore) {
@@ -108,17 +81,17 @@ $Path* Resources::toFilePath($Path* dir, $String* name$renamed) {
 }
 
 $Path* Resources::toSafeFilePath($FileSystem* fs, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t next = 0;
 	int32_t off = 0;
-	while ((next = $nc(name)->indexOf((int32_t)u'/', off)) != -1) {
+	while ((next = $nc(name)->indexOf(u'/', off)) != -1) {
 		int32_t len = next - off;
 		if (!mayTranslate(name, off, len)) {
 			return nullptr;
 		}
 		off = next + 1;
 	}
-	int32_t rem = $nc(name)->length() - off;
+	int32_t rem = name->length() - off;
 	if (!mayTranslate(name, off, rem)) {
 		return nullptr;
 	}
@@ -155,7 +128,27 @@ Resources::Resources() {
 }
 
 $Class* Resources::load$($String* name, bool initialize) {
-	$loadClass(Resources, name, initialize, &_Resources_ClassInfo_, allocate$Resources);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Resources, init$, void)},
+		{"canEncapsulate", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, canEncapsulate, bool, $String*)},
+		{"mayTranslate", "(Ljava/lang/String;II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Resources, mayTranslate, bool, $String*, int32_t, int32_t)},
+		{"toFilePath", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, toFilePath, $Path*, $Path*, $String*), "java.io.IOException"},
+		{"toPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, toPackageName, $String*, $String*)},
+		{"toResourceName", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, toResourceName, $String*, $Path*, $Path*)},
+		{"toSafeFilePath", "(Ljava/nio/file/FileSystem;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $staticMethod(Resources, toSafeFilePath, $Path*, $FileSystem*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.module.Resources",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Resources, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resources);
+	});
 	return class$;
 }
 

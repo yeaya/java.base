@@ -36,6 +36,7 @@ class $export CallStaticInitOrder : public ::java::lang::Object {
 	$class(CallStaticInitOrder, 0, ::java::lang::Object)
 public:
 	CallStaticInitOrder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandle* INDY_bang();
 	static ::java::lang::invoke::MethodHandle* INDY_bar();

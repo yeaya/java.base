@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/OutputFeedback.h>
-
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/security/InvalidKeyException.h>
@@ -19,41 +18,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _OutputFeedback_FieldInfo_[] = {
-	{"k", "[B", nullptr, $PRIVATE, $field(OutputFeedback, k)},
-	{"register", "[B", nullptr, $PRIVATE, $field(OutputFeedback, register$)},
-	{"numBytes", "I", nullptr, $PRIVATE, $field(OutputFeedback, numBytes)},
-	{"registerSave", "[B", nullptr, $PRIVATE, $field(OutputFeedback, registerSave)},
-	{}
-};
-
-$MethodInfo _OutputFeedback_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;I)V", nullptr, 0, $method(OutputFeedback, init$, void, $SymmetricCipher*, int32_t)},
-	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(OutputFeedback, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(OutputFeedback, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(OutputFeedback, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(OutputFeedback, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(OutputFeedback, getFeedback, $String*)},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(OutputFeedback, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
-	{"reset", "()V", nullptr, 0, $virtualMethod(OutputFeedback, reset, void)},
-	{"restore", "()V", nullptr, 0, $virtualMethod(OutputFeedback, restore, void)},
-	{"save", "()V", nullptr, 0, $virtualMethod(OutputFeedback, save, void)},
-	{}
-};
-
-$ClassInfo _OutputFeedback_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.OutputFeedback",
-	"com.sun.crypto.provider.FeedbackCipher",
-	nullptr,
-	_OutputFeedback_FieldInfo_,
-	_OutputFeedback_MethodInfo_
-};
-
-$Object* allocate$OutputFeedback($Class* clazz) {
-	return $of($alloc(OutputFeedback));
-}
-
 void OutputFeedback::init$($SymmetricCipher* embeddedCipher, int32_t numBytes) {
 	$FeedbackCipher::init$(embeddedCipher);
 	$set(this, k, nullptr);
@@ -72,7 +36,7 @@ $String* OutputFeedback::getFeedback() {
 }
 
 void OutputFeedback::init(bool decrypting, $String* algorithm, $bytes* key, $bytes* iv) {
-	if ((key == nullptr) || (iv == nullptr) || ($nc(iv)->length != this->blockSize)) {
+	if ((key == nullptr) || (iv == nullptr) || (iv->length != this->blockSize)) {
 		$throwNew($InvalidKeyException, "Internal error"_s);
 	}
 	$set(this, iv, iv);
@@ -142,7 +106,37 @@ OutputFeedback::OutputFeedback() {
 }
 
 $Class* OutputFeedback::load$($String* name, bool initialize) {
-	$loadClass(OutputFeedback, name, initialize, &_OutputFeedback_ClassInfo_, allocate$OutputFeedback);
+	$FieldInfo fieldInfos$$[] = {
+		{"k", "[B", nullptr, $PRIVATE, $field(OutputFeedback, k)},
+		{"register", "[B", nullptr, $PRIVATE, $field(OutputFeedback, register$)},
+		{"numBytes", "I", nullptr, $PRIVATE, $field(OutputFeedback, numBytes)},
+		{"registerSave", "[B", nullptr, $PRIVATE, $field(OutputFeedback, registerSave)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;I)V", nullptr, 0, $method(OutputFeedback, init$, void, $SymmetricCipher*, int32_t)},
+		{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(OutputFeedback, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(OutputFeedback, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(OutputFeedback, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(OutputFeedback, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(OutputFeedback, getFeedback, $String*)},
+		{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(OutputFeedback, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
+		{"reset", "()V", nullptr, 0, $virtualMethod(OutputFeedback, reset, void)},
+		{"restore", "()V", nullptr, 0, $virtualMethod(OutputFeedback, restore, void)},
+		{"save", "()V", nullptr, 0, $virtualMethod(OutputFeedback, save, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.OutputFeedback",
+		"com.sun.crypto.provider.FeedbackCipher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OutputFeedback, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OutputFeedback);
+	});
 	return class$;
 }
 

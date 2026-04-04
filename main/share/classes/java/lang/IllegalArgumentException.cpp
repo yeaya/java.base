@@ -1,5 +1,4 @@
 #include <java/lang/IllegalArgumentException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,32 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _IllegalArgumentException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalArgumentException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IllegalArgumentException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _IllegalArgumentException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.IllegalArgumentException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_IllegalArgumentException_FieldInfo_,
-	_IllegalArgumentException_MethodInfo_
-};
-
-$Object* allocate$IllegalArgumentException($Class* clazz) {
-	return $of($alloc(IllegalArgumentException));
-}
 
 void IllegalArgumentException::init$() {
 	$RuntimeException::init$();
@@ -63,7 +36,28 @@ void IllegalArgumentException::throw$() {
 }
 
 $Class* IllegalArgumentException::load$($String* name, bool initialize) {
-	$loadClass(IllegalArgumentException, name, initialize, &_IllegalArgumentException_ClassInfo_, allocate$IllegalArgumentException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalArgumentException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.IllegalArgumentException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalArgumentException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalArgumentException);
+	});
 	return class$;
 }
 

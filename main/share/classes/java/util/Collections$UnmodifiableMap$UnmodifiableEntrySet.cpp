@@ -1,5 +1,4 @@
 #include <java/util/Collections$UnmodifiableMap$UnmodifiableEntrySet.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -57,89 +56,32 @@ public:
 	virtual void accept(Object$* e) override {
 		Collections$UnmodifiableMap$UnmodifiableEntrySet::lambda$entryConsumer$0(action, $cast($Map$Entry, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0>());
-	}
 	$Consumer* action = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0::fieldInfos[2] = {
-	{"action", "Ljava/util/function/Consumer;", nullptr, $PUBLIC, $field(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0, action)},
-	{}
-};
-$MethodInfo Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0, init$, void, $Consumer*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0::load$($String* name, bool initialize) {
-	$loadClass(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"action", "Ljava/util/function/Consumer;", nullptr, $PUBLIC, $field(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0, action)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0, init$, void, $Consumer*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0);
+	});
 	return class$;
 }
 $Class* Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0::class$ = nullptr;
-
-$FieldInfo _Collections$UnmodifiableMap$UnmodifiableEntrySet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableMap$UnmodifiableEntrySet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Collections$UnmodifiableMap$UnmodifiableEntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<+Ljava/util/Map$Entry<+TK;+TV;>;>;)V", 0, $method(Collections$UnmodifiableMap$UnmodifiableEntrySet, init$, void, $Set*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, contains, bool, Object$*)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, containsAll, bool, $Collection*)},
-	{"entryConsumer", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Ljava/util/function/Consumer<Ljava/util/Map$Entry<+TK;+TV;>;>;", $STATIC, $staticMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, entryConsumer, $Consumer*, $Consumer*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, equals, bool, Object$*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, forEach, void, $Consumer*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, iterator, $Iterator*)},
-	{"lambda$entryConsumer$0", "(Ljava/util/function/Consumer;Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, lambda$entryConsumer$0, void, $Consumer*, $Map$Entry*)},
-	{"parallelStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, parallelStream, $Stream*)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, spliterator, $Spliterator*)},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, stream, $Stream*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, toArray, $ObjectArray*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _Collections$UnmodifiableMap$UnmodifiableEntrySet_InnerClassesInfo_[] = {
-	{"java.util.Collections$UnmodifiableMap", "java.util.Collections", "UnmodifiableMap", $PRIVATE | $STATIC},
-	{"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet", "java.util.Collections$UnmodifiableMap", "UnmodifiableEntrySet", $STATIC},
-	{"java.util.Collections$UnmodifiableSet", "java.util.Collections", "UnmodifiableSet", $STATIC},
-	{"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry", "java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet", "UnmodifiableEntry", $PRIVATE | $STATIC},
-	{"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator", "java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet", "UnmodifiableEntrySetSpliterator", $STATIC | $FINAL},
-	{"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$1", nullptr, nullptr, 0},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Collections$UnmodifiableMap$UnmodifiableEntrySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet",
-	"java.util.Collections$UnmodifiableSet",
-	nullptr,
-	_Collections$UnmodifiableMap$UnmodifiableEntrySet_FieldInfo_,
-	_Collections$UnmodifiableMap$UnmodifiableEntrySet_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableSet<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_Collections$UnmodifiableMap$UnmodifiableEntrySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$UnmodifiableMap$UnmodifiableEntrySet($Class* clazz) {
-	return $of($alloc(Collections$UnmodifiableMap$UnmodifiableEntrySet));
-}
 
 void Collections$UnmodifiableMap$UnmodifiableEntrySet::init$($Set* s) {
 	$Collections$UnmodifiableSet::init$(s);
@@ -147,7 +89,7 @@ void Collections$UnmodifiableMap$UnmodifiableEntrySet::init$($Set* s) {
 
 $Consumer* Collections$UnmodifiableMap$UnmodifiableEntrySet::entryConsumer($Consumer* action) {
 	$init(Collections$UnmodifiableMap$UnmodifiableEntrySet);
-	return static_cast<$Consumer*>($new(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0, action));
+	return $new(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0, action);
 }
 
 void Collections$UnmodifiableMap$UnmodifiableEntrySet::forEach($Consumer* action) {
@@ -172,7 +114,7 @@ $Iterator* Collections$UnmodifiableMap$UnmodifiableEntrySet::iterator() {
 }
 
 $ObjectArray* Collections$UnmodifiableMap$UnmodifiableEntrySet::toArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, a, $nc(this->c)->toArray());
 	for (int32_t i = 0; i < $nc(a)->length; ++i) {
 		a->set(i, $$new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, $cast($Map$Entry, a->get(i))));
@@ -181,16 +123,16 @@ $ObjectArray* Collections$UnmodifiableMap$UnmodifiableEntrySet::toArray() {
 }
 
 $ObjectArray* Collections$UnmodifiableMap$UnmodifiableEntrySet::toArray($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, arr, $nc(this->c)->toArray($nc(a)->length == 0 ? a : $($Arrays::copyOf(a, 0))));
 	for (int32_t i = 0; i < $nc(arr)->length; ++i) {
 		arr->set(i, $$new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, $cast($Map$Entry, arr->get(i))));
 	}
-	if ($nc(arr)->length > $nc(a)->length) {
+	if (arr->length > a->length) {
 		return arr;
 	}
-	$System::arraycopy(arr, 0, a, 0, $nc(arr)->length);
-	if ($nc(a)->length > $nc(arr)->length) {
+	$System::arraycopy(arr, 0, a, 0, arr->length);
+	if (a->length > arr->length) {
 		a->set(arr->length, nullptr);
 	}
 	return a;
@@ -204,16 +146,12 @@ bool Collections$UnmodifiableMap$UnmodifiableEntrySet::contains(Object$* o) {
 }
 
 bool Collections$UnmodifiableMap$UnmodifiableEntrySet::containsAll($Collection* coll) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(coll)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Object, e, i$->next());
-			{
-				if (!contains(e)) {
-					return false;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(coll)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Object, e, i$->next());
+		if (!contains(e)) {
+			return false;
 		}
 	}
 	return true;
@@ -248,11 +186,58 @@ Collections$UnmodifiableMap$UnmodifiableEntrySet::Collections$UnmodifiableMap$Un
 
 $Class* Collections$UnmodifiableMap$UnmodifiableEntrySet::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0::classInfo$.name)) {
+		if (name->equals("java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0")) {
 			return Collections$UnmodifiableMap$UnmodifiableEntrySet$$Lambda$lambda$entryConsumer$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Collections$UnmodifiableMap$UnmodifiableEntrySet, name, initialize, &_Collections$UnmodifiableMap$UnmodifiableEntrySet_ClassInfo_, allocate$Collections$UnmodifiableMap$UnmodifiableEntrySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableMap$UnmodifiableEntrySet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<+Ljava/util/Map$Entry<+TK;+TV;>;>;)V", 0, $method(Collections$UnmodifiableMap$UnmodifiableEntrySet, init$, void, $Set*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, contains, bool, Object$*)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, containsAll, bool, $Collection*)},
+		{"entryConsumer", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Ljava/util/function/Consumer<Ljava/util/Map$Entry<+TK;+TV;>;>;", $STATIC, $staticMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, entryConsumer, $Consumer*, $Consumer*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, equals, bool, Object$*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, forEach, void, $Consumer*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, iterator, $Iterator*)},
+		{"lambda$entryConsumer$0", "(Ljava/util/function/Consumer;Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, lambda$entryConsumer$0, void, $Consumer*, $Map$Entry*)},
+		{"parallelStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, parallelStream, $Stream*)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, spliterator, $Spliterator*)},
+		{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, stream, $Stream*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet, toArray, $ObjectArray*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$UnmodifiableMap", "java.util.Collections", "UnmodifiableMap", $PRIVATE | $STATIC},
+		{"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet", "java.util.Collections$UnmodifiableMap", "UnmodifiableEntrySet", $STATIC},
+		{"java.util.Collections$UnmodifiableSet", "java.util.Collections", "UnmodifiableSet", $STATIC},
+		{"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry", "java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet", "UnmodifiableEntry", $PRIVATE | $STATIC},
+		{"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator", "java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet", "UnmodifiableEntrySetSpliterator", $STATIC | $FINAL},
+		{"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$1", nullptr, nullptr, 0},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet",
+		"java.util.Collections$UnmodifiableSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableSet<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$UnmodifiableMap$UnmodifiableEntrySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$UnmodifiableMap$UnmodifiableEntrySet));
+	});
 	return class$;
 }
 

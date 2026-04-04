@@ -34,6 +34,7 @@ class ContentType : public ::java::lang::Enum {
 public:
 	ContentType();
 	static $Array<::sun::security::ssl::ContentType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name, $Array<::sun::security::ssl::ProtocolVersion>* supportedProtocols);
 	static $String* nameOf(int8_t id);
 	static ::sun::security::ssl::ContentType* valueOf($String* name);

@@ -16,6 +16,7 @@ class $export SupplementaryCharacterData : public ::java::lang::Cloneable {
 	$class(SupplementaryCharacterData, 0, ::java::lang::Cloneable)
 public:
 	SupplementaryCharacterData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($ints* table);
 	$ints* getArray();
 	int32_t getValue(int32_t index);

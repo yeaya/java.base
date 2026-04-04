@@ -101,9 +101,8 @@ public:
 		signature(signature),
 		modifiers(modifiers),
 		annotations(annotations),
-		typeAnnotations(typeAnnotations),
-		constValue(constValue) {
-			this->offset = (int64_t)&this->constValue;
+		typeAnnotations(typeAnnotations) {
+			setConstValue(constValue);
 	}
 	const char* name;
 	const char* descriptor;
@@ -122,6 +121,15 @@ public:
 	bool isEnd();
 	void encode(::java::io::DataOutputStream* os, ::jdk::internal::reflect::ConstantPool* constantPool);
 	void visit(::jdk::internal::reflect::ConstantPool* constantPool);
+	inline void setConstValue(int64_t constValue) {
+		this->constValue = constValue;
+		this->offset = (int64_t)&this->constValue;
+	}
+	inline bool hasConstValue() {
+		return (this->offset == (int64_t)&this->constValue);
+	}
+	void cloneSelf();
+	static FieldInfo* cloneArray(FieldInfo* array);
 };
 
     } // lang

@@ -1,5 +1,4 @@
 #include <sun/security/provider/SeedGenerator$ThreadedSeedGenerator$BogusThread.h>
-
 #include <sun/security/provider/SeedGenerator$ThreadedSeedGenerator.h>
 #include <jcpp.h>
 
@@ -11,38 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$MethodInfo _SeedGenerator$ThreadedSeedGenerator$BogusThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SeedGenerator$ThreadedSeedGenerator$BogusThread, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SeedGenerator$ThreadedSeedGenerator$BogusThread, run, void)},
-	{}
-};
-
-$InnerClassInfo _SeedGenerator$ThreadedSeedGenerator$BogusThread_InnerClassesInfo_[] = {
-	{"sun.security.provider.SeedGenerator$ThreadedSeedGenerator", "sun.security.provider.SeedGenerator", "ThreadedSeedGenerator", $PRIVATE | $STATIC},
-	{"sun.security.provider.SeedGenerator$ThreadedSeedGenerator$BogusThread", "sun.security.provider.SeedGenerator$ThreadedSeedGenerator", "BogusThread", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SeedGenerator$ThreadedSeedGenerator$BogusThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.SeedGenerator$ThreadedSeedGenerator$BogusThread",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_SeedGenerator$ThreadedSeedGenerator$BogusThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SeedGenerator$ThreadedSeedGenerator$BogusThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.SeedGenerator"
-};
-
-$Object* allocate$SeedGenerator$ThreadedSeedGenerator$BogusThread($Class* clazz) {
-	return $of($alloc(SeedGenerator$ThreadedSeedGenerator$BogusThread));
-}
 
 void SeedGenerator$ThreadedSeedGenerator$BogusThread::init$() {
 }
@@ -60,7 +27,34 @@ SeedGenerator$ThreadedSeedGenerator$BogusThread::SeedGenerator$ThreadedSeedGener
 }
 
 $Class* SeedGenerator$ThreadedSeedGenerator$BogusThread::load$($String* name, bool initialize) {
-	$loadClass(SeedGenerator$ThreadedSeedGenerator$BogusThread, name, initialize, &_SeedGenerator$ThreadedSeedGenerator$BogusThread_ClassInfo_, allocate$SeedGenerator$ThreadedSeedGenerator$BogusThread);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SeedGenerator$ThreadedSeedGenerator$BogusThread, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SeedGenerator$ThreadedSeedGenerator$BogusThread, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.SeedGenerator$ThreadedSeedGenerator", "sun.security.provider.SeedGenerator", "ThreadedSeedGenerator", $PRIVATE | $STATIC},
+		{"sun.security.provider.SeedGenerator$ThreadedSeedGenerator$BogusThread", "sun.security.provider.SeedGenerator$ThreadedSeedGenerator", "BogusThread", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.SeedGenerator$ThreadedSeedGenerator$BogusThread",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.SeedGenerator"
+	};
+	$loadClass(SeedGenerator$ThreadedSeedGenerator$BogusThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SeedGenerator$ThreadedSeedGenerator$BogusThread);
+	});
 	return class$;
 }
 

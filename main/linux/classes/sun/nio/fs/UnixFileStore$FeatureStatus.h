@@ -22,6 +22,7 @@ class UnixFileStore$FeatureStatus : public ::java::lang::Enum {
 public:
 	UnixFileStore$FeatureStatus();
 	static $Array<::sun::nio::fs::UnixFileStore$FeatureStatus>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::nio::fs::UnixFileStore$FeatureStatus* valueOf($String* name);
 	static $Array<::sun::nio::fs::UnixFileStore$FeatureStatus>* values();

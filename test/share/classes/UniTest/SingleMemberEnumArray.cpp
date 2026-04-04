@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberEnumArray.h>
-
 #include <UniTest/Stooge.h>
 #include <jcpp.h>
 
@@ -11,40 +10,34 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberEnumArray_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberEnumArray_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberEnumArray_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberEnumArray_MethodInfo_[] = {
-	{"value", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberEnumArray, value, $StoogeArray*)},
-	{}
-};
-
-$ClassInfo _SingleMemberEnumArray_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberEnumArray",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberEnumArray_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberEnumArray_Annotations_
-};
-
-$Object* allocate$SingleMemberEnumArray($Class* clazz) {
-	return $of($alloc(SingleMemberEnumArray));
-}
-
 $Class* SingleMemberEnumArray::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberEnumArray, name, initialize, &_SingleMemberEnumArray_ClassInfo_, allocate$SingleMemberEnumArray);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberEnumArray, value, $StoogeArray*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberEnumArray",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberEnumArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberEnumArray);
+	});
 	return class$;
 }
 

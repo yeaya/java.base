@@ -31,6 +31,7 @@ class $export ResourceDecompressorRepository : public ::java::lang::Object {
 	$class(ResourceDecompressorRepository, 0, ::java::lang::Object)
 public:
 	ResourceDecompressorRepository();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::jimage::decompressor::ResourceDecompressor* newResourceDecompressor(::java::util::Properties* properties, $String* name);
 	static void registerReaderProvider(::jdk::internal::jimage::decompressor::ResourceDecompressorFactory* factory);

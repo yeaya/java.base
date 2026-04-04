@@ -87,6 +87,7 @@ class StreamOpFlag : public ::java::lang::Enum {
 public:
 	StreamOpFlag();
 	static $Array<::java::util::stream::StreamOpFlag>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t position, ::java::util::stream::StreamOpFlag$MaskBuilder* maskBuilder);
 	virtual bool canSet(::java::util::stream::StreamOpFlag$Type* t);
 	virtual int32_t clear();

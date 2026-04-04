@@ -1,10 +1,8 @@
 #include <ExecWithLotsOfArgs.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
 #include <jcpp.h>
@@ -12,8 +10,6 @@
 using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -22,42 +18,11 @@ using $Process = ::java::lang::Process;
 using $Runtime = ::java::lang::Runtime;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _ExecWithLotsOfArgs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExecWithLotsOfArgs, init$, void)},
-	{"failed", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExecWithLotsOfArgs, failed, void, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExecWithLotsOfArgs, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ExecWithLotsOfArgs_InnerClassesInfo_[] = {
-	{"ExecWithLotsOfArgs$EchoingHelper", "ExecWithLotsOfArgs", "EchoingHelper", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ExecWithLotsOfArgs_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ExecWithLotsOfArgs",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ExecWithLotsOfArgs_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExecWithLotsOfArgs_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ExecWithLotsOfArgs$EchoingHelper"
-};
-
-$Object* allocate$ExecWithLotsOfArgs($Class* clazz) {
-	return $of($alloc(ExecWithLotsOfArgs));
-}
-
 void ExecWithLotsOfArgs::init$() {
 }
 
 void ExecWithLotsOfArgs::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, command, $new($StringArray, 300));
 	int32_t n = 0;
 	$init($File);
@@ -71,7 +36,7 @@ void ExecWithLotsOfArgs::main($StringArray* args) {
 		command->set(i, $$new($String, $($$new($Integer, i)->toString())));
 	}
 	$var($Process, p, nullptr);
-	$assign(p, $nc($($Runtime::getRuntime()))->exec(command));
+	$assign(p, $$nc($Runtime::getRuntime())->exec(command));
 	$var($BufferedReader, in, $new($BufferedReader, $$new($InputStreamReader, $($nc(p)->getInputStream()))));
 	$var($String, s, nullptr);
 	int32_t count = n;
@@ -85,7 +50,7 @@ void ExecWithLotsOfArgs::main($StringArray* args) {
 		++count;
 	}
 	if (count == n) {
-		$assign(in, $new($BufferedReader, $$new($InputStreamReader, $($nc(p)->getErrorStream()))));
+		$assign(in, $new($BufferedReader, $$new($InputStreamReader, $(p->getErrorStream()))));
 		while (($assign(s, in->readLine())) != nullptr) {
 			$nc($System::err)->println($$str({"Error output: "_s, s}));
 		}
@@ -101,7 +66,33 @@ ExecWithLotsOfArgs::ExecWithLotsOfArgs() {
 }
 
 $Class* ExecWithLotsOfArgs::load$($String* name, bool initialize) {
-	$loadClass(ExecWithLotsOfArgs, name, initialize, &_ExecWithLotsOfArgs_ClassInfo_, allocate$ExecWithLotsOfArgs);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExecWithLotsOfArgs, init$, void)},
+		{"failed", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExecWithLotsOfArgs, failed, void, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExecWithLotsOfArgs, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ExecWithLotsOfArgs$EchoingHelper", "ExecWithLotsOfArgs", "EchoingHelper", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ExecWithLotsOfArgs",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ExecWithLotsOfArgs$EchoingHelper"
+	};
+	$loadClass(ExecWithLotsOfArgs, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExecWithLotsOfArgs);
+	});
 	return class$;
 }
 

@@ -24,12 +24,15 @@ public:
 	void init$($String* message, ::java::lang::CharSequence* parsedData, int32_t errorIndex, $Throwable* cause);
 	virtual int32_t getErrorIndex();
 	virtual $String* getParsedString();
-	static const int64_t serialVersionUID = (int64_t)0x3BBD215CE3915525;
+	static const int64_t serialVersionUID = (int64_t)0x3bbd215ce3915525;
 	$String* parsedString = nullptr;
 	int32_t errorIndex = 0;
 	DateTimeParseException(const DateTimeParseException& e);
 	virtual void throw$() override;
-	inline DateTimeParseException* operator ->() {
+	inline DateTimeParseException* operator ->() const {
+		return (DateTimeParseException*)throwing$;
+	}
+	inline operator DateTimeParseException*() const {
 		return (DateTimeParseException*)throwing$;
 	}
 };

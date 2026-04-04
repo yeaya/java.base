@@ -1,28 +1,8 @@
 #include <Foo.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _Foo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Foo, init$, void)},
-	{"privateMethod", "()V", nullptr, $PRIVATE, $method(Foo, privateMethod, void)},
-	{}
-};
-
-$ClassInfo _Foo_ClassInfo_ = {
-	$ACC_SUPER,
-	"Foo",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Foo_MethodInfo_
-};
-
-$Object* allocate$Foo($Class* clazz) {
-	return $of($alloc(Foo));
-}
 
 void Foo::init$() {
 }
@@ -34,7 +14,22 @@ Foo::Foo() {
 }
 
 $Class* Foo::load$($String* name, bool initialize) {
-	$loadClass(Foo, name, initialize, &_Foo_ClassInfo_, allocate$Foo);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Foo, init$, void)},
+		{"privateMethod", "()V", nullptr, $PRIVATE, $method(Foo, privateMethod, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Foo",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Foo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Foo);
+	});
 	return class$;
 }
 

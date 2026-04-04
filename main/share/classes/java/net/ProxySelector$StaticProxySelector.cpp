@@ -1,5 +1,4 @@
 #include <java/net/ProxySelector$StaticProxySelector.h>
-
 #include <java/io/IOException.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Proxy$Type.h>
@@ -30,44 +29,6 @@ using $List = ::java::util::List;
 namespace java {
 	namespace net {
 
-$FieldInfo _ProxySelector$StaticProxySelector_FieldInfo_[] = {
-	{"NO_PROXY_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/net/Proxy;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ProxySelector$StaticProxySelector, NO_PROXY_LIST)},
-	{"list", "Ljava/util/List;", "Ljava/util/List<Ljava/net/Proxy;>;", $FINAL, $field(ProxySelector$StaticProxySelector, list)},
-	{}
-};
-
-$MethodInfo _ProxySelector$StaticProxySelector_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(ProxySelector$StaticProxySelector, init$, void, $InetSocketAddress*)},
-	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(ProxySelector$StaticProxySelector, connectFailed, void, $URI*, $SocketAddress*, $IOException*)},
-	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProxySelector$StaticProxySelector, select, $List*, $URI*)},
-	{}
-};
-
-$InnerClassInfo _ProxySelector$StaticProxySelector_InnerClassesInfo_[] = {
-	{"java.net.ProxySelector$StaticProxySelector", "java.net.ProxySelector", "StaticProxySelector", $STATIC},
-	{}
-};
-
-$ClassInfo _ProxySelector$StaticProxySelector_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.ProxySelector$StaticProxySelector",
-	"java.net.ProxySelector",
-	nullptr,
-	_ProxySelector$StaticProxySelector_FieldInfo_,
-	_ProxySelector$StaticProxySelector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProxySelector$StaticProxySelector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.ProxySelector"
-};
-
-$Object* allocate$ProxySelector$StaticProxySelector($Class* clazz) {
-	return $of($alloc(ProxySelector$StaticProxySelector));
-}
-
 $List* ProxySelector$StaticProxySelector::NO_PROXY_LIST = nullptr;
 
 void ProxySelector$StaticProxySelector::init$($InetSocketAddress* address) {
@@ -80,7 +41,7 @@ void ProxySelector$StaticProxySelector::init$($InetSocketAddress* address) {
 		$init($Proxy$Type);
 		$assign(p, $new($Proxy, $Proxy$Type::HTTP, address));
 	}
-	$set(this, list, $List::of($of(p)));
+	$set(this, list, $List::of(p));
 }
 
 void ProxySelector$StaticProxySelector::connectFailed($URI* uri, $SocketAddress* sa, $IOException* e) {
@@ -88,8 +49,8 @@ void ProxySelector$StaticProxySelector::connectFailed($URI* uri, $SocketAddress*
 
 $List* ProxySelector$StaticProxySelector::select($URI* uri) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($String, scheme, $nc($($nc(uri)->getScheme()))->toLowerCase());
+		$useLocalObjectStack();
+		$var($String, scheme, $$nc($nc(uri)->getScheme())->toLowerCase());
 		bool var$0 = scheme->equals("http"_s);
 		if (var$0 || scheme->equals("https"_s)) {
 			return this->list;
@@ -99,16 +60,48 @@ $List* ProxySelector$StaticProxySelector::select($URI* uri) {
 	}
 }
 
-void clinit$ProxySelector$StaticProxySelector($Class* class$) {
+void ProxySelector$StaticProxySelector::clinit$($Class* clazz) {
 	$init($Proxy);
-	$assignStatic(ProxySelector$StaticProxySelector::NO_PROXY_LIST, $List::of($of($Proxy::NO_PROXY)));
+	$assignStatic(ProxySelector$StaticProxySelector::NO_PROXY_LIST, $List::of($Proxy::NO_PROXY));
 }
 
 ProxySelector$StaticProxySelector::ProxySelector$StaticProxySelector() {
 }
 
 $Class* ProxySelector$StaticProxySelector::load$($String* name, bool initialize) {
-	$loadClass(ProxySelector$StaticProxySelector, name, initialize, &_ProxySelector$StaticProxySelector_ClassInfo_, clinit$ProxySelector$StaticProxySelector, allocate$ProxySelector$StaticProxySelector);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_PROXY_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/net/Proxy;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ProxySelector$StaticProxySelector, NO_PROXY_LIST)},
+		{"list", "Ljava/util/List;", "Ljava/util/List<Ljava/net/Proxy;>;", $FINAL, $field(ProxySelector$StaticProxySelector, list)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(ProxySelector$StaticProxySelector, init$, void, $InetSocketAddress*)},
+		{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(ProxySelector$StaticProxySelector, connectFailed, void, $URI*, $SocketAddress*, $IOException*)},
+		{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProxySelector$StaticProxySelector, select, $List*, $URI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.ProxySelector$StaticProxySelector", "java.net.ProxySelector", "StaticProxySelector", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.ProxySelector$StaticProxySelector",
+		"java.net.ProxySelector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.ProxySelector"
+	};
+	$loadClass(ProxySelector$StaticProxySelector, name, initialize, &classInfo$$, ProxySelector$StaticProxySelector::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxySelector$StaticProxySelector);
+	});
 	return class$;
 }
 

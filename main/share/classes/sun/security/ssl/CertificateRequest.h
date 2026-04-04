@@ -22,6 +22,7 @@ class CertificateRequest : public ::java::lang::Object {
 	$class(CertificateRequest, 0, ::java::lang::Object)
 public:
 	CertificateRequest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLConsumer* t10HandshakeConsumer;
 	static ::sun::security::ssl::HandshakeProducer* t10HandshakeProducer;

@@ -1,5 +1,4 @@
 #include <sun/security/jca/ProviderConfig$ProviderLoader.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ExceptionInInitializerError.h>
 #include <java/lang/LinkageError.h>
@@ -8,7 +7,6 @@
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/security/AccessController.h>
 #include <java/security/InvalidParameterException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/Provider.h>
 #include <java/security/ProviderException.h>
 #include <java/util/Iterator.h>
@@ -27,14 +25,12 @@ using $Exception = ::java::lang::Exception;
 using $ExceptionInInitializerError = ::java::lang::ExceptionInInitializerError;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $LinkageError = ::java::lang::LinkageError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoClassDefFoundError = ::java::lang::NoClassDefFoundError;
 using $SecurityException = ::java::lang::SecurityException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AccessController = ::java::security::AccessController;
 using $InvalidParameterException = ::java::security::InvalidParameterException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Provider = ::java::security::Provider;
 using $ProviderException = ::java::security::ProviderException;
 using $Iterator = ::java::util::Iterator;
@@ -42,50 +38,10 @@ using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $ProviderConfig = ::sun::security::jca::ProviderConfig;
 using $ProviderConfig$ProviderLoader$1 = ::sun::security::jca::ProviderConfig$ProviderLoader$1;
-using $Debug = ::sun::security::util::Debug;
 
 namespace sun {
 	namespace security {
 		namespace jca {
-
-$FieldInfo _ProviderConfig$ProviderLoader_FieldInfo_[] = {
-	{"INSTANCE", "Lsun/security/jca/ProviderConfig$ProviderLoader;", nullptr, $STATIC | $FINAL, $staticField(ProviderConfig$ProviderLoader, INSTANCE)},
-	{"services", "Ljava/util/ServiceLoader;", "Ljava/util/ServiceLoader<Ljava/security/Provider;>;", $PRIVATE | $FINAL, $field(ProviderConfig$ProviderLoader, services)},
-	{}
-};
-
-$MethodInfo _ProviderConfig$ProviderLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ProviderConfig$ProviderLoader, init$, void)},
-	{"legacyLoad", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PRIVATE, $method(ProviderConfig$ProviderLoader, legacyLoad, $Provider*, $String*)},
-	{"load", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PUBLIC, $method(ProviderConfig$ProviderLoader, load, $Provider*, $String*)},
-	{}
-};
-
-$InnerClassInfo _ProviderConfig$ProviderLoader_InnerClassesInfo_[] = {
-	{"sun.security.jca.ProviderConfig$ProviderLoader", "sun.security.jca.ProviderConfig", "ProviderLoader", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.jca.ProviderConfig$ProviderLoader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProviderConfig$ProviderLoader_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.jca.ProviderConfig$ProviderLoader",
-	"java.lang.Object",
-	nullptr,
-	_ProviderConfig$ProviderLoader_FieldInfo_,
-	_ProviderConfig$ProviderLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProviderConfig$ProviderLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jca.ProviderConfig"
-};
-
-$Object* allocate$ProviderConfig$ProviderLoader($Class* clazz) {
-	return $of($alloc(ProviderConfig$ProviderLoader));
-}
 
 ProviderConfig$ProviderLoader* ProviderConfig$ProviderLoader::INSTANCE = nullptr;
 
@@ -96,10 +52,10 @@ void ProviderConfig$ProviderLoader::init$() {
 }
 
 $Provider* ProviderConfig$ProviderLoader::load($String* pn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ProviderConfig);
 	if ($ProviderConfig::debug != nullptr) {
-		$nc($ProviderConfig::debug)->println($$str({"Attempt to load "_s, pn, " using SL"_s}));
+		$ProviderConfig::debug->println($$str({"Attempt to load "_s, pn, " using SL"_s}));
 	}
 	$var($Iterator, iter, $nc(this->services)->iterator());
 	while ($nc(iter)->hasNext()) {
@@ -107,24 +63,24 @@ $Provider* ProviderConfig$ProviderLoader::load($String* pn) {
 			$var($Provider, p, $cast($Provider, iter->next()));
 			$var($String, pName, $nc(p)->getName());
 			if ($ProviderConfig::debug != nullptr) {
-				$nc($ProviderConfig::debug)->println($$str({"Found SL Provider named "_s, pName}));
+				$ProviderConfig::debug->println($$str({"Found SL Provider named "_s, pName}));
 			}
 			if ($nc(pName)->equals(pn)) {
 				return p;
 			}
 		} catch ($SecurityException& ex) {
 			if ($ProviderConfig::debug != nullptr) {
-				$nc($ProviderConfig::debug)->println($$str({"Encountered "_s, ex, " while iterating through SL, ignore and move on"_s}));
+				$ProviderConfig::debug->println($$str({"Encountered "_s, ex, " while iterating through SL, ignore and move on"_s}));
 				ex->printStackTrace();
 			}
 		} catch ($ServiceConfigurationError& ex) {
 			if ($ProviderConfig::debug != nullptr) {
-				$nc($ProviderConfig::debug)->println($$str({"Encountered "_s, ex, " while iterating through SL, ignore and move on"_s}));
+				$ProviderConfig::debug->println($$str({"Encountered "_s, ex, " while iterating through SL, ignore and move on"_s}));
 				ex->printStackTrace();
 			}
 		} catch ($InvalidParameterException& ex) {
 			if ($ProviderConfig::debug != nullptr) {
-				$nc($ProviderConfig::debug)->println($$str({"Encountered "_s, ex, " while iterating through SL, ignore and move on"_s}));
+				$ProviderConfig::debug->println($$str({"Encountered "_s, ex, " while iterating through SL, ignore and move on"_s}));
 				ex->printStackTrace();
 			}
 		}
@@ -135,7 +91,7 @@ $Provider* ProviderConfig$ProviderLoader::load($String* pn) {
 		$throw(pe);
 	} catch ($Exception& ex) {
 		if ($ProviderConfig::debug != nullptr) {
-			$nc($ProviderConfig::debug)->println($$str({"Encountered "_s, ex, " during legacy load of "_s, pn}));
+			$ProviderConfig::debug->println($$str({"Encountered "_s, ex, " during legacy load of "_s, pn}));
 			ex->printStackTrace();
 		}
 		return nullptr;
@@ -144,32 +100,32 @@ $Provider* ProviderConfig$ProviderLoader::load($String* pn) {
 }
 
 $Provider* ProviderConfig$ProviderLoader::legacyLoad($String* classname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($ProviderConfig);
 	if ($ProviderConfig::debug != nullptr) {
-		$nc($ProviderConfig::debug)->println($$str({"Loading legacy provider: "_s, classname}));
+		$ProviderConfig::debug->println($$str({"Loading legacy provider: "_s, classname}));
 	}
 	try {
-		$Class* provClass = $nc($($ClassLoader::getSystemClassLoader()))->loadClass(classname);
+		$Class* provClass = $$nc($ClassLoader::getSystemClassLoader())->loadClass(classname);
 		$load($Provider);
 		if (!$Provider::class$->isAssignableFrom(provClass)) {
 			if ($ProviderConfig::debug != nullptr) {
-				$nc($ProviderConfig::debug)->println($$str({classname, " is not a provider"_s}));
+				$ProviderConfig::debug->println($$str({classname, " is not a provider"_s}));
 			}
 			return nullptr;
 		}
-		$var($Provider, p, $cast($Provider, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($ProviderConfig$ProviderLoader$1, this, provClass)))));
+		$var($Provider, p, $cast($Provider, $AccessController::doPrivileged($$new($ProviderConfig$ProviderLoader$1, this, provClass))));
 		return p;
 	} catch ($Exception& e) {
 		$var($Throwable, t, nullptr);
 		if ($instanceOf($InvocationTargetException, e)) {
-			$assign(t, $nc(($cast($InvocationTargetException, e)))->getCause());
+			$assign(t, $cast($InvocationTargetException, e)->getCause());
 		} else {
 			$assign(t, e);
 		}
 		if ($ProviderConfig::debug != nullptr) {
-			$nc($ProviderConfig::debug)->println($$str({"Error loading legacy provider "_s, classname}));
+			$ProviderConfig::debug->println($$str({"Error loading legacy provider "_s, classname}));
 			$nc(t)->printStackTrace();
 		}
 		if ($instanceOf($ProviderException, t)) {
@@ -178,13 +134,13 @@ $Provider* ProviderConfig$ProviderLoader::legacyLoad($String* classname) {
 		return nullptr;
 	} catch ($ExceptionInInitializerError& err) {
 		if ($ProviderConfig::debug != nullptr) {
-			$nc($ProviderConfig::debug)->println($$str({"Error loading legacy provider "_s, classname}));
+			$ProviderConfig::debug->println($$str({"Error loading legacy provider "_s, classname}));
 			err->printStackTrace();
 		}
 		return nullptr;
 	} catch ($NoClassDefFoundError& err) {
 		if ($ProviderConfig::debug != nullptr) {
-			$nc($ProviderConfig::debug)->println($$str({"Error loading legacy provider "_s, classname}));
+			$ProviderConfig::debug->println($$str({"Error loading legacy provider "_s, classname}));
 			err->printStackTrace();
 		}
 		return nullptr;
@@ -192,7 +148,7 @@ $Provider* ProviderConfig$ProviderLoader::legacyLoad($String* classname) {
 	$shouldNotReachHere();
 }
 
-void clinit$ProviderConfig$ProviderLoader($Class* class$) {
+void ProviderConfig$ProviderLoader::clinit$($Class* clazz) {
 	$assignStatic(ProviderConfig$ProviderLoader::INSTANCE, $new(ProviderConfig$ProviderLoader));
 }
 
@@ -200,7 +156,40 @@ ProviderConfig$ProviderLoader::ProviderConfig$ProviderLoader() {
 }
 
 $Class* ProviderConfig$ProviderLoader::load$($String* name, bool initialize) {
-	$loadClass(ProviderConfig$ProviderLoader, name, initialize, &_ProviderConfig$ProviderLoader_ClassInfo_, clinit$ProviderConfig$ProviderLoader, allocate$ProviderConfig$ProviderLoader);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lsun/security/jca/ProviderConfig$ProviderLoader;", nullptr, $STATIC | $FINAL, $staticField(ProviderConfig$ProviderLoader, INSTANCE)},
+		{"services", "Ljava/util/ServiceLoader;", "Ljava/util/ServiceLoader<Ljava/security/Provider;>;", $PRIVATE | $FINAL, $field(ProviderConfig$ProviderLoader, services)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ProviderConfig$ProviderLoader, init$, void)},
+		{"legacyLoad", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PRIVATE, $method(ProviderConfig$ProviderLoader, legacyLoad, $Provider*, $String*)},
+		{"load", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PUBLIC, $method(ProviderConfig$ProviderLoader, load, $Provider*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jca.ProviderConfig$ProviderLoader", "sun.security.jca.ProviderConfig", "ProviderLoader", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.jca.ProviderConfig$ProviderLoader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.jca.ProviderConfig$ProviderLoader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jca.ProviderConfig"
+	};
+	$loadClass(ProviderConfig$ProviderLoader, name, initialize, &classInfo$$, ProviderConfig$ProviderLoader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ProviderConfig$ProviderLoader);
+	});
 	return class$;
 }
 

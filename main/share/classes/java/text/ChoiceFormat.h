@@ -53,7 +53,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	virtual void setChoices($doubles* limits, $StringArray* formats);
 	virtual $String* toPattern();
-	static const int64_t serialVersionUID = (int64_t)0x18E9C6BEE365B604;
+	static const int64_t serialVersionUID = (int64_t)0x18e9c6bee365b604;
 	$doubles* choiceLimits = nullptr;
 	$StringArray* choiceFormats = nullptr;
 };

@@ -1,5 +1,4 @@
 #include <sun/nio/ch/DatagramSocketAdaptor.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
@@ -93,11 +92,9 @@ using $MembershipKey = ::java::nio::channels::MembershipKey;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Objects = ::java::util::Objects;
-using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
-using $Stream = ::java::util::stream::Stream;
 using $DatagramChannelImpl = ::sun::nio::ch::DatagramChannelImpl;
 using $DatagramSocketAdaptor$DatagramPackets = ::sun::nio::ch::DatagramSocketAdaptor$DatagramPackets;
 using $DatagramSocketAdaptor$DatagramSockets = ::sun::nio::ch::DatagramSocketAdaptor$DatagramSockets;
@@ -116,183 +113,34 @@ public:
 		$set(this, ni, ni);
 	}
 	virtual $Object* run() override {
-		 return $of(DatagramSocketAdaptor::lambda$getInterface$0(ni));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DatagramSocketAdaptor$$Lambda$lambda$getInterface$0>());
+		 return DatagramSocketAdaptor::lambda$getInterface$0(ni);
 	}
 	$NetworkInterface* ni = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DatagramSocketAdaptor$$Lambda$lambda$getInterface$0::fieldInfos[2] = {
-	{"ni", "Ljava/net/NetworkInterface;", nullptr, $PUBLIC, $field(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0, ni)},
-	{}
-};
-$MethodInfo DatagramSocketAdaptor$$Lambda$lambda$getInterface$0::methodInfos[3] = {
-	{"<init>", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $method(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0, init$, void, $NetworkInterface*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0, run, $Object*)},
-	{}
-};
-$ClassInfo DatagramSocketAdaptor$$Lambda$lambda$getInterface$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.ch.DatagramSocketAdaptor$$Lambda$lambda$getInterface$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* DatagramSocketAdaptor$$Lambda$lambda$getInterface$0::load$($String* name, bool initialize) {
-	$loadClass(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"ni", "Ljava/net/NetworkInterface;", nullptr, $PUBLIC, $field(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0, ni)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $method(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0, init$, void, $NetworkInterface*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.ch.DatagramSocketAdaptor$$Lambda$lambda$getInterface$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0);
+	});
 	return class$;
 }
 $Class* DatagramSocketAdaptor$$Lambda$lambda$getInterface$0::class$ = nullptr;
-
-$CompoundAttribute _DatagramSocketAdaptor_MethodAnnotations_getInterface17[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DatagramSocketAdaptor_MethodAnnotations_getLoopbackMode21[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DatagramSocketAdaptor_MethodAnnotations_getTTL30[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DatagramSocketAdaptor_MethodAnnotations_joinGroup36[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DatagramSocketAdaptor_MethodAnnotations_leaveGroup39[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DatagramSocketAdaptor_MethodAnnotations_send44[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DatagramSocketAdaptor_MethodAnnotations_setInterface48[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DatagramSocketAdaptor_MethodAnnotations_setLoopbackMode49[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DatagramSocketAdaptor_MethodAnnotations_setTTL56[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _DatagramSocketAdaptor_FieldInfo_[] = {
-	{"dc", "Lsun/nio/ch/DatagramChannelImpl;", nullptr, $PRIVATE | $FINAL, $field(DatagramSocketAdaptor, dc)},
-	{"timeout", "I", nullptr, $PRIVATE | $VOLATILE, $field(DatagramSocketAdaptor, timeout)},
-	{"sendLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(DatagramSocketAdaptor, sendLock)},
-	{"outgoingInterfaceLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(DatagramSocketAdaptor, outgoingInterfaceLock)},
-	{"outgoingNetworkInterface", "Ljava/net/NetworkInterface;", nullptr, $PRIVATE, $field(DatagramSocketAdaptor, outgoingNetworkInterface$)},
-	{"outgoingInetAddress", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(DatagramSocketAdaptor, outgoingInetAddress)},
-	{}
-};
-
-$MethodInfo _DatagramSocketAdaptor_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/DatagramChannelImpl;)V", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, init$, void, $DatagramChannelImpl*), "java.io.IOException"},
-	{"anyInetAddress", "()Ljava/net/InetAddress;", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, anyInetAddress, $InetAddress*)},
-	{"anyNetworkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, anyNetworkInterface, $NetworkInterface*)},
-	{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, bind, void, $SocketAddress*), "java.net.SocketException"},
-	{"checkGroup", "(Ljava/net/SocketAddress;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC, $staticMethod(DatagramSocketAdaptor, checkGroup, $InetAddress*, $SocketAddress*), "java.net.SocketException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, close, void)},
-	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, connect, void, $InetAddress*, int32_t)},
-	{"connect", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, connect, void, $SocketAddress*), "java.net.SocketException"},
-	{"connectInternal", "(Ljava/net/SocketAddress;)V", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, connectInternal, void, $SocketAddress*), "java.net.SocketException"},
-	{"create", "(Lsun/nio/ch/DatagramChannelImpl;)Ljava/net/DatagramSocket;", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor, create, $DatagramSocket*, $DatagramChannelImpl*)},
-	{"defaultNetworkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, defaultNetworkInterface, $NetworkInterface*), "java.net.SocketException"},
-	{"disconnect", "()V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, disconnect, void)},
-	{"getBooleanOption", "(Ljava/net/SocketOption;)Z", "(Ljava/net/SocketOption<Ljava/lang/Boolean;>;)Z", $PRIVATE, $method(DatagramSocketAdaptor, getBooleanOption, bool, $SocketOption*), "java.net.SocketException"},
-	{"getBroadcast", "()Z", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getBroadcast, bool), "java.net.SocketException"},
-	{"getChannel", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getChannel, $DatagramChannel*)},
-	{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getInetAddress, $InetAddress*)},
-	{"getIntOption", "(Ljava/net/SocketOption;)I", "(Ljava/net/SocketOption<Ljava/lang/Integer;>;)I", $PRIVATE, $method(DatagramSocketAdaptor, getIntOption, int32_t, $SocketOption*), "java.net.SocketException"},
-	{"getInterface", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, getInterface, $InetAddress*), "java.net.SocketException", nullptr, _DatagramSocketAdaptor_MethodAnnotations_getInterface17},
-	{"getLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getLocalAddress, $InetAddress*)},
-	{"getLocalPort", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getLocalPort, int32_t)},
-	{"getLocalSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getLocalSocketAddress, $SocketAddress*)},
-	{"getLoopbackMode", "()Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, getLoopbackMode, bool), "java.net.SocketException", nullptr, _DatagramSocketAdaptor_MethodAnnotations_getLoopbackMode21},
-	{"getNetworkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getNetworkInterface, $NetworkInterface*), "java.net.SocketException"},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getOption, $Object*, $SocketOption*), "java.io.IOException"},
-	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getPort, int32_t)},
-	{"getReceiveBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getReceiveBufferSize, int32_t), "java.net.SocketException"},
-	{"getRemoteSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getRemoteSocketAddress, $SocketAddress*)},
-	{"getReuseAddress", "()Z", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getReuseAddress, bool), "java.net.SocketException"},
-	{"getSendBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getSendBufferSize, int32_t), "java.net.SocketException"},
-	{"getSoTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getSoTimeout, int32_t), "java.net.SocketException"},
-	{"getTTL", "()B", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, getTTL, int8_t), "java.io.IOException", nullptr, _DatagramSocketAdaptor_MethodAnnotations_getTTL30},
-	{"getTimeToLive", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getTimeToLive, int32_t), "java.io.IOException"},
-	{"getTrafficClass", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getTrafficClass, int32_t), "java.net.SocketException"},
-	{"isBound", "()Z", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, isBound, bool)},
-	{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, isClosed, bool)},
-	{"isConnected", "()Z", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, isConnected, bool)},
-	{"joinGroup", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, joinGroup, void, $InetAddress*), "java.io.IOException", nullptr, _DatagramSocketAdaptor_MethodAnnotations_joinGroup36},
-	{"joinGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, joinGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"lambda$getInterface$0", "(Ljava/net/NetworkInterface;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramSocketAdaptor, lambda$getInterface$0, $InetAddress*, $NetworkInterface*)},
-	{"leaveGroup", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, leaveGroup, void, $InetAddress*), "java.io.IOException", nullptr, _DatagramSocketAdaptor_MethodAnnotations_leaveGroup39},
-	{"leaveGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, leaveGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"outgoingNetworkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, outgoingNetworkInterface, $NetworkInterface*), "java.net.SocketException"},
-	{"receive", "(Ljava/net/DatagramPacket;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, receive, void, $DatagramPacket*), "java.io.IOException"},
-	{"send", "(Ljava/net/DatagramPacket;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, send, void, $DatagramPacket*), "java.io.IOException"},
-	{"send", "(Ljava/net/DatagramPacket;B)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, send, void, $DatagramPacket*, int8_t), "java.io.IOException", nullptr, _DatagramSocketAdaptor_MethodAnnotations_send44},
-	{"setBooleanOption", "(Ljava/net/SocketOption;Z)V", "(Ljava/net/SocketOption<Ljava/lang/Boolean;>;Z)V", $PRIVATE, $method(DatagramSocketAdaptor, setBooleanOption, void, $SocketOption*, bool), "java.net.SocketException"},
-	{"setBroadcast", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setBroadcast, void, bool), "java.net.SocketException"},
-	{"setIntOption", "(Ljava/net/SocketOption;I)V", "(Ljava/net/SocketOption<Ljava/lang/Integer;>;I)V", $PRIVATE, $method(DatagramSocketAdaptor, setIntOption, void, $SocketOption*, int32_t), "java.net.SocketException"},
-	{"setInterface", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, setInterface, void, $InetAddress*), "java.net.SocketException", nullptr, _DatagramSocketAdaptor_MethodAnnotations_setInterface48},
-	{"setLoopbackMode", "(Z)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, setLoopbackMode, void, bool), "java.net.SocketException", nullptr, _DatagramSocketAdaptor_MethodAnnotations_setLoopbackMode49},
-	{"setNetworkInterface", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setNetworkInterface, void, $NetworkInterface*), "java.net.SocketException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/net/DatagramSocket;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/net/DatagramSocket;", $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setOption, $DatagramSocket*, $SocketOption*, Object$*), "java.io.IOException"},
-	{"setReceiveBufferSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setReceiveBufferSize, void, int32_t), "java.net.SocketException"},
-	{"setReuseAddress", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setReuseAddress, void, bool), "java.net.SocketException"},
-	{"setSendBufferSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setSendBufferSize, void, int32_t), "java.net.SocketException"},
-	{"setSoTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setSoTimeout, void, int32_t), "java.net.SocketException"},
-	{"setTTL", "(B)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, setTTL, void, int8_t), "java.io.IOException", nullptr, _DatagramSocketAdaptor_MethodAnnotations_setTTL56},
-	{"setTimeToLive", "(I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setTimeToLive, void, int32_t), "java.io.IOException"},
-	{"setTrafficClass", "(I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setTrafficClass, void, int32_t), "java.net.SocketException"},
-	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC, $virtualMethod(DatagramSocketAdaptor, supportedOptions, $Set*)},
-	{}
-};
-
-$InnerClassInfo _DatagramSocketAdaptor_InnerClassesInfo_[] = {
-	{"sun.nio.ch.DatagramSocketAdaptor$DatagramSockets", "sun.nio.ch.DatagramSocketAdaptor", "DatagramSockets", $PRIVATE | $STATIC},
-	{"sun.nio.ch.DatagramSocketAdaptor$NetworkInterfaces", "sun.nio.ch.DatagramSocketAdaptor", "NetworkInterfaces", $PRIVATE | $STATIC},
-	{"sun.nio.ch.DatagramSocketAdaptor$DatagramPackets", "sun.nio.ch.DatagramSocketAdaptor", "DatagramPackets", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DatagramSocketAdaptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.DatagramSocketAdaptor",
-	"java.net.MulticastSocket",
-	nullptr,
-	_DatagramSocketAdaptor_FieldInfo_,
-	_DatagramSocketAdaptor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DatagramSocketAdaptor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.DatagramSocketAdaptor$DatagramSockets,sun.nio.ch.DatagramSocketAdaptor$NetworkInterfaces,sun.nio.ch.DatagramSocketAdaptor$DatagramPackets"
-};
-
-$Object* allocate$DatagramSocketAdaptor($Class* clazz) {
-	return $of($alloc(DatagramSocketAdaptor));
-}
 
 void DatagramSocketAdaptor::init$($DatagramChannelImpl* dc) {
 	$init($DatagramSocketAdaptor$DatagramSockets);
@@ -307,7 +155,7 @@ $DatagramSocket* DatagramSocketAdaptor::create($DatagramChannelImpl* dc) {
 	try {
 		return $new(DatagramSocketAdaptor, dc);
 	} catch ($IOException& e) {
-		$throwNew($Error, static_cast<$Throwable*>(e));
+		$throwNew($Error, e);
 	}
 	$shouldNotReachHere();
 }
@@ -371,12 +219,12 @@ bool DatagramSocketAdaptor::isConnected() {
 
 $InetAddress* DatagramSocketAdaptor::getInetAddress() {
 	$var($InetSocketAddress, remote, $nc(this->dc)->remoteAddress());
-	return (remote != nullptr) ? $nc(remote)->getAddress() : ($InetAddress*)nullptr;
+	return (remote != nullptr) ? remote->getAddress() : ($InetAddress*)nullptr;
 }
 
 int32_t DatagramSocketAdaptor::getPort() {
 	$var($InetSocketAddress, remote, $nc(this->dc)->remoteAddress());
-	return (remote != nullptr) ? $nc(remote)->getPort() : -1;
+	return (remote != nullptr) ? remote->getPort() : -1;
 }
 
 $SocketAddress* DatagramSocketAdaptor::getRemoteSocketAddress() {
@@ -384,7 +232,7 @@ $SocketAddress* DatagramSocketAdaptor::getRemoteSocketAddress() {
 }
 
 $SocketAddress* DatagramSocketAdaptor::getLocalSocketAddress() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetSocketAddress, local, $nc(this->dc)->localAddress());
 	if (local == nullptr || isClosed()) {
 		return nullptr;
@@ -396,7 +244,7 @@ $SocketAddress* DatagramSocketAdaptor::getLocalSocketAddress() {
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		try {
-			sm->checkConnect($($nc(addr)->getHostAddress()), -1);
+			sm->checkConnect($(addr->getHostAddress()), -1);
 		} catch ($SecurityException& x) {
 			return $new($InetSocketAddress, local->getPort());
 		}
@@ -405,90 +253,86 @@ $SocketAddress* DatagramSocketAdaptor::getLocalSocketAddress() {
 }
 
 void DatagramSocketAdaptor::send($DatagramPacket* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, bb, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($InetSocketAddress, target, nullptr);
-			$synchronized(p) {
-				int32_t len = $nc(p)->getLength();
-				$assign(bb, $Util::getTemporaryDirectBuffer(len));
-				$var($bytes, var$1, p->getData());
-				$nc(bb)->put(var$1, p->getOffset(), len);
-				bb->flip();
-				if (p->getAddress() == nullptr) {
-					$var($InetSocketAddress, remote, $nc(this->dc)->remoteAddress());
-					if (remote == nullptr) {
-						$throwNew($IllegalArgumentException, "Address not set"_s);
-					}
-					p->setAddress($($nc(remote)->getAddress()));
-					p->setPort($nc(remote)->getPort());
-					$assign(target, remote);
-				} else {
-					$assign(target, $cast($InetSocketAddress, p->getSocketAddress()));
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($InetSocketAddress, target, nullptr);
+		$synchronized(p) {
+			int32_t len = p->getLength();
+			$assign(bb, $Util::getTemporaryDirectBuffer(len));
+			$var($bytes, var$1, p->getData());
+			$nc(bb)->put(var$1, p->getOffset(), len);
+			$nc(bb)->flip();
+			if (p->getAddress() == nullptr) {
+				$var($InetSocketAddress, remote, $nc(this->dc)->remoteAddress());
+				if (remote == nullptr) {
+					$throwNew($IllegalArgumentException, "Address not set"_s);
 				}
-			}
-			try {
-				$nc(this->dc)->blockingSend(bb, target);
-			} catch ($AlreadyConnectedException& e) {
-				$throwNew($IllegalArgumentException, "Connected and packet address differ"_s);
-			} catch ($ClosedChannelException& e) {
-				$var($SocketException, exc, $new($SocketException, "Socket closed"_s));
-				exc->initCause(e);
-				$throw(exc);
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			if (bb != nullptr) {
-				$Util::offerFirstTemporaryDirectBuffer(bb);
+				p->setAddress($($nc(remote)->getAddress()));
+				p->setPort(remote->getPort());
+				$assign(target, remote);
+			} else {
+				$assign(target, $cast($InetSocketAddress, p->getSocketAddress()));
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		try {
+			$nc(this->dc)->blockingSend(bb, target);
+		} catch ($AlreadyConnectedException& e) {
+			$throwNew($IllegalArgumentException, "Connected and packet address differ"_s);
+		} catch ($ClosedChannelException& e) {
+			$var($SocketException, exc, $new($SocketException, "Socket closed"_s));
+			exc->initCause(e);
+			$throw(exc);
 		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		if (bb != nullptr) {
+			$Util::offerFirstTemporaryDirectBuffer(bb);
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void DatagramSocketAdaptor::receive($DatagramPacket* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t bufLength = $DatagramSocketAdaptor$DatagramPackets::getBufLength(p);
 	$var($ByteBuffer, bb, $Util::getTemporaryDirectBuffer(bufLength));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$init($TimeUnit);
-				int64_t nanos = $TimeUnit::MILLISECONDS->toNanos(this->timeout);
-				$var($SocketAddress, sender, $nc(this->dc)->blockingReceive(bb, nanos));
-				$nc(bb)->flip();
-				$synchronized(p) {
-					int32_t var$1 = bb->limit();
-					int32_t len = $Math::min(var$1, $DatagramSocketAdaptor$DatagramPackets::getBufLength(p));
-					$var($bytes, var$2, $nc(p)->getData());
-					bb->get(var$2, p->getOffset(), len);
-					$DatagramSocketAdaptor$DatagramPackets::setLength(p, len);
-					$nc(p)->setSocketAddress(sender);
-				}
-			} catch ($ClosedChannelException& e) {
-				$var($SocketException, exc, $new($SocketException, "Socket closed"_s));
-				exc->initCause(e);
-				$throw(exc);
+			$init($TimeUnit);
+			int64_t nanos = $TimeUnit::MILLISECONDS->toNanos(this->timeout);
+			$var($SocketAddress, sender, $nc(this->dc)->blockingReceive(bb, nanos));
+			$nc(bb)->flip();
+			$synchronized(p) {
+				int32_t var$1 = bb->limit();
+				int32_t len = $Math::min(var$1, $DatagramSocketAdaptor$DatagramPackets::getBufLength(p));
+				$var($bytes, var$2, p->getData());
+				bb->get(var$2, p->getOffset(), len);
+				$DatagramSocketAdaptor$DatagramPackets::setLength(p, len);
+				p->setSocketAddress(sender);
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$Util::offerFirstTemporaryDirectBuffer(bb);
+		} catch ($ClosedChannelException& e) {
+			$var($SocketException, exc, $new($SocketException, "Socket closed"_s));
+			exc->initCause(e);
+			$throw(exc);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$Util::offerFirstTemporaryDirectBuffer(bb);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $InetAddress* DatagramSocketAdaptor::getLocalAddress() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		return nullptr;
 	}
@@ -554,7 +398,7 @@ void DatagramSocketAdaptor::setIntOption($SocketOption* name, int32_t value) {
 
 bool DatagramSocketAdaptor::getBooleanOption($SocketOption* name) {
 	try {
-		return $nc(($cast($Boolean, $($nc(this->dc)->getOption(name)))))->booleanValue();
+		return $$sure($Boolean, $nc(this->dc)->getOption(name))->booleanValue();
 	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 		return false;
@@ -564,7 +408,7 @@ bool DatagramSocketAdaptor::getBooleanOption($SocketOption* name) {
 
 int32_t DatagramSocketAdaptor::getIntOption($SocketOption* name) {
 	try {
-		return $nc(($cast($Integer, $($nc(this->dc)->getOption(name)))))->intValue();
+		return $$sure($Integer, $nc(this->dc)->getOption(name))->intValue();
 	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 		return -1;
@@ -632,7 +476,7 @@ void DatagramSocketAdaptor::close() {
 	try {
 		$nc(this->dc)->close();
 	} catch ($IOException& x) {
-		$throwNew($Error, static_cast<$Throwable*>(x));
+		$throwNew($Error, x);
 	}
 }
 
@@ -650,7 +494,7 @@ $DatagramSocket* DatagramSocketAdaptor::setOption($SocketOption* name, Object$* 
 }
 
 $Object* DatagramSocketAdaptor::getOption($SocketOption* name) {
-	return $of($nc(this->dc)->getOption(name));
+	return $nc(this->dc)->getOption(name);
 }
 
 $Set* DatagramSocketAdaptor::supportedOptions() {
@@ -662,20 +506,18 @@ void DatagramSocketAdaptor::setTTL(int8_t ttl) {
 }
 
 void DatagramSocketAdaptor::setTimeToLive(int32_t ttl) {
-	$nc(this->sendLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($StandardSocketOptions);
-			setIntOption($StandardSocketOptions::IP_MULTICAST_TTL, ttl);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->sendLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	this->sendLock->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($StandardSocketOptions);
+		setIntOption($StandardSocketOptions::IP_MULTICAST_TTL, ttl);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->sendLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -684,54 +526,52 @@ int8_t DatagramSocketAdaptor::getTTL() {
 }
 
 int32_t DatagramSocketAdaptor::getTimeToLive() {
-	$nc(this->sendLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			$init($StandardSocketOptions);
-			var$2 = getIntOption($StandardSocketOptions::IP_MULTICAST_TTL);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->sendLock)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	this->sendLock->lock();
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		$init($StandardSocketOptions);
+		var$2 = getIntOption($StandardSocketOptions::IP_MULTICAST_TTL);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->sendLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void DatagramSocketAdaptor::joinGroup($InetAddress* group) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(group);
 	try {
 		joinGroup($$new($InetSocketAddress, group, 0), nullptr);
 	} catch ($IllegalArgumentException& iae) {
-		$throw($cast($SocketException, $($$new($SocketException, "joinGroup failed"_s)->initCause(iae))));
+		$throw($$cast($SocketException, $$new($SocketException, "joinGroup failed"_s)->initCause(iae)));
 	}
 }
 
 void DatagramSocketAdaptor::leaveGroup($InetAddress* group) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(group);
 	try {
 		leaveGroup($$new($InetSocketAddress, group, 0), nullptr);
 	} catch ($IllegalArgumentException& iae) {
-		$throw($cast($SocketException, $($$new($SocketException, "leaveGroup failed"_s)->initCause(iae))));
+		$throw($$cast($SocketException, $$new($SocketException, "leaveGroup failed"_s)->initCause(iae)));
 	}
 }
 
 $InetAddress* DatagramSocketAdaptor::checkGroup($SocketAddress* mcastaddr) {
 	$init(DatagramSocketAdaptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetSocketAddress, addr, nullptr);
 	bool var$0 = $instanceOf($InetSocketAddress, mcastaddr);
 	if (var$0) {
@@ -752,7 +592,7 @@ $InetAddress* DatagramSocketAdaptor::checkGroup($SocketAddress* mcastaddr) {
 }
 
 void DatagramSocketAdaptor::joinGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, group, checkGroup(mcastaddr));
 	$var($NetworkInterface, ni, (netIf != nullptr) ? netIf : defaultNetworkInterface());
 	if (isClosed()) {
@@ -767,12 +607,12 @@ void DatagramSocketAdaptor::joinGroup($SocketAddress* mcastaddr, $NetworkInterfa
 			}
 			$throwNew($SocketException, "Already a member of group"_s);
 		}
-		$nc(this->dc)->join(group, ni);
+		this->dc->join(group, ni);
 	}
 }
 
 void DatagramSocketAdaptor::leaveGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, group, checkGroup(mcastaddr));
 	$var($NetworkInterface, ni, (netIf != nullptr) ? netIf : defaultNetworkInterface());
 	if (isClosed()) {
@@ -792,7 +632,7 @@ void DatagramSocketAdaptor::leaveGroup($SocketAddress* mcastaddr, $NetworkInterf
 }
 
 void DatagramSocketAdaptor::setInterface($InetAddress* inf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inf == nullptr) {
 		$throwNew($SocketException, "Invalid value \'null\'"_s);
 	}
@@ -809,7 +649,7 @@ void DatagramSocketAdaptor::setInterface($InetAddress* inf) {
 }
 
 $InetAddress* DatagramSocketAdaptor::getInterface() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$synchronized(this->outgoingInterfaceLock) {
 		$var($NetworkInterface, ni, outgoingNetworkInterface());
@@ -818,7 +658,7 @@ $InetAddress* DatagramSocketAdaptor::getInterface() {
 				return this->outgoingInetAddress;
 			} else {
 				$var($PrivilegedAction, pa, nullptr);
-				$assign(pa, static_cast<$PrivilegedAction*>($new(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0, ni)));
+				$assign(pa, $new(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0, ni));
 				$var($InetAddress, ia, $cast($InetAddress, $AccessController::doPrivileged(pa)));
 				if (ia == nullptr) {
 					$throwNew($SocketException, "Network interface has no IP address"_s);
@@ -862,34 +702,30 @@ bool DatagramSocketAdaptor::getLoopbackMode() {
 }
 
 void DatagramSocketAdaptor::send($DatagramPacket* p, int8_t ttl) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->sendLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	this->sendLock->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		int32_t oldValue = getTimeToLive();
+		$var($Throwable, var$1, nullptr);
 		try {
-			int32_t oldValue = getTimeToLive();
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					setTTL(ttl);
-					send(p);
-				} catch ($Throwable& var$2) {
-					$assign(var$1, var$2);
-				} /*finally*/ {
-					setTimeToLive(oldValue);
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
+			setTTL(ttl);
+			send(p);
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
-			$nc(this->sendLock)->unlock();
+			setTimeToLive(oldValue);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		this->sendLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -916,7 +752,7 @@ $NetworkInterface* DatagramSocketAdaptor::defaultNetworkInterface() {
 }
 
 $NetworkInterface* DatagramSocketAdaptor::anyNetworkInterface() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddressArray, addrs, $new($InetAddressArray, 1));
 	addrs->set(0, $(anyInetAddress()));
 	return $DatagramSocketAdaptor$NetworkInterfaces::newNetworkInterface($($nc(addrs->get(0))->getHostName()), 0, addrs);
@@ -928,8 +764,8 @@ $InetAddress* DatagramSocketAdaptor::anyInetAddress() {
 
 $InetAddress* DatagramSocketAdaptor::lambda$getInterface$0($NetworkInterface* ni) {
 	$init(DatagramSocketAdaptor);
-	$useLocalCurrentObjectStackCache();
-	return $cast($InetAddress, $nc($($nc($($nc(ni)->inetAddresses()))->findFirst()))->orElse(nullptr));
+	$useLocalObjectStack();
+	return $cast($InetAddress, $$nc($$nc($nc(ni)->inetAddresses())->findFirst())->orElse(nullptr));
 }
 
 DatagramSocketAdaptor::DatagramSocketAdaptor() {
@@ -937,11 +773,141 @@ DatagramSocketAdaptor::DatagramSocketAdaptor() {
 
 $Class* DatagramSocketAdaptor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DatagramSocketAdaptor$$Lambda$lambda$getInterface$0::classInfo$.name)) {
+		if (name->equals("sun.nio.ch.DatagramSocketAdaptor$$Lambda$lambda$getInterface$0")) {
 			return DatagramSocketAdaptor$$Lambda$lambda$getInterface$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DatagramSocketAdaptor, name, initialize, &_DatagramSocketAdaptor_ClassInfo_, allocate$DatagramSocketAdaptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"dc", "Lsun/nio/ch/DatagramChannelImpl;", nullptr, $PRIVATE | $FINAL, $field(DatagramSocketAdaptor, dc)},
+		{"timeout", "I", nullptr, $PRIVATE | $VOLATILE, $field(DatagramSocketAdaptor, timeout)},
+		{"sendLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(DatagramSocketAdaptor, sendLock)},
+		{"outgoingInterfaceLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(DatagramSocketAdaptor, outgoingInterfaceLock)},
+		{"outgoingNetworkInterface", "Ljava/net/NetworkInterface;", nullptr, $PRIVATE, $field(DatagramSocketAdaptor, outgoingNetworkInterface$)},
+		{"outgoingInetAddress", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(DatagramSocketAdaptor, outgoingInetAddress)},
+		{}
+	};
+	$CompoundAttribute getInterfacemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLoopbackModemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getTTLmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute joinGroupmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute leaveGroupmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute sendmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setInterfacemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setLoopbackModemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setTTLmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/DatagramChannelImpl;)V", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, init$, void, $DatagramChannelImpl*), "java.io.IOException"},
+		{"anyInetAddress", "()Ljava/net/InetAddress;", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, anyInetAddress, $InetAddress*)},
+		{"anyNetworkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, anyNetworkInterface, $NetworkInterface*)},
+		{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, bind, void, $SocketAddress*), "java.net.SocketException"},
+		{"checkGroup", "(Ljava/net/SocketAddress;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC, $staticMethod(DatagramSocketAdaptor, checkGroup, $InetAddress*, $SocketAddress*), "java.net.SocketException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, close, void)},
+		{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, connect, void, $InetAddress*, int32_t)},
+		{"connect", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, connect, void, $SocketAddress*), "java.net.SocketException"},
+		{"connectInternal", "(Ljava/net/SocketAddress;)V", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, connectInternal, void, $SocketAddress*), "java.net.SocketException"},
+		{"create", "(Lsun/nio/ch/DatagramChannelImpl;)Ljava/net/DatagramSocket;", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor, create, $DatagramSocket*, $DatagramChannelImpl*)},
+		{"defaultNetworkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, defaultNetworkInterface, $NetworkInterface*), "java.net.SocketException"},
+		{"disconnect", "()V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, disconnect, void)},
+		{"getBooleanOption", "(Ljava/net/SocketOption;)Z", "(Ljava/net/SocketOption<Ljava/lang/Boolean;>;)Z", $PRIVATE, $method(DatagramSocketAdaptor, getBooleanOption, bool, $SocketOption*), "java.net.SocketException"},
+		{"getBroadcast", "()Z", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getBroadcast, bool), "java.net.SocketException"},
+		{"getChannel", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getChannel, $DatagramChannel*)},
+		{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getInetAddress, $InetAddress*)},
+		{"getIntOption", "(Ljava/net/SocketOption;)I", "(Ljava/net/SocketOption<Ljava/lang/Integer;>;)I", $PRIVATE, $method(DatagramSocketAdaptor, getIntOption, int32_t, $SocketOption*), "java.net.SocketException"},
+		{"getInterface", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, getInterface, $InetAddress*), "java.net.SocketException", nullptr, getInterfacemethodAnnotations$$},
+		{"getLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getLocalAddress, $InetAddress*)},
+		{"getLocalPort", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getLocalPort, int32_t)},
+		{"getLocalSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getLocalSocketAddress, $SocketAddress*)},
+		{"getLoopbackMode", "()Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, getLoopbackMode, bool), "java.net.SocketException", nullptr, getLoopbackModemethodAnnotations$$},
+		{"getNetworkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getNetworkInterface, $NetworkInterface*), "java.net.SocketException"},
+		{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+		{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getPort, int32_t)},
+		{"getReceiveBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getReceiveBufferSize, int32_t), "java.net.SocketException"},
+		{"getRemoteSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getRemoteSocketAddress, $SocketAddress*)},
+		{"getReuseAddress", "()Z", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getReuseAddress, bool), "java.net.SocketException"},
+		{"getSendBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getSendBufferSize, int32_t), "java.net.SocketException"},
+		{"getSoTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getSoTimeout, int32_t), "java.net.SocketException"},
+		{"getTTL", "()B", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, getTTL, int8_t), "java.io.IOException", nullptr, getTTLmethodAnnotations$$},
+		{"getTimeToLive", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getTimeToLive, int32_t), "java.io.IOException"},
+		{"getTrafficClass", "()I", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, getTrafficClass, int32_t), "java.net.SocketException"},
+		{"isBound", "()Z", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, isBound, bool)},
+		{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, isClosed, bool)},
+		{"isConnected", "()Z", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, isConnected, bool)},
+		{"joinGroup", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, joinGroup, void, $InetAddress*), "java.io.IOException", nullptr, joinGroupmethodAnnotations$$},
+		{"joinGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, joinGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"lambda$getInterface$0", "(Ljava/net/NetworkInterface;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramSocketAdaptor, lambda$getInterface$0, $InetAddress*, $NetworkInterface*)},
+		{"leaveGroup", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, leaveGroup, void, $InetAddress*), "java.io.IOException", nullptr, leaveGroupmethodAnnotations$$},
+		{"leaveGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, leaveGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"outgoingNetworkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PRIVATE, $method(DatagramSocketAdaptor, outgoingNetworkInterface, $NetworkInterface*), "java.net.SocketException"},
+		{"receive", "(Ljava/net/DatagramPacket;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, receive, void, $DatagramPacket*), "java.io.IOException"},
+		{"send", "(Ljava/net/DatagramPacket;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, send, void, $DatagramPacket*), "java.io.IOException"},
+		{"send", "(Ljava/net/DatagramPacket;B)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, send, void, $DatagramPacket*, int8_t), "java.io.IOException", nullptr, sendmethodAnnotations$$$1},
+		{"setBooleanOption", "(Ljava/net/SocketOption;Z)V", "(Ljava/net/SocketOption<Ljava/lang/Boolean;>;Z)V", $PRIVATE, $method(DatagramSocketAdaptor, setBooleanOption, void, $SocketOption*, bool), "java.net.SocketException"},
+		{"setBroadcast", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setBroadcast, void, bool), "java.net.SocketException"},
+		{"setIntOption", "(Ljava/net/SocketOption;I)V", "(Ljava/net/SocketOption<Ljava/lang/Integer;>;I)V", $PRIVATE, $method(DatagramSocketAdaptor, setIntOption, void, $SocketOption*, int32_t), "java.net.SocketException"},
+		{"setInterface", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, setInterface, void, $InetAddress*), "java.net.SocketException", nullptr, setInterfacemethodAnnotations$$},
+		{"setLoopbackMode", "(Z)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, setLoopbackMode, void, bool), "java.net.SocketException", nullptr, setLoopbackModemethodAnnotations$$},
+		{"setNetworkInterface", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setNetworkInterface, void, $NetworkInterface*), "java.net.SocketException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/net/DatagramSocket;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/net/DatagramSocket;", $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setOption, $DatagramSocket*, $SocketOption*, Object$*), "java.io.IOException"},
+		{"setReceiveBufferSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setReceiveBufferSize, void, int32_t), "java.net.SocketException"},
+		{"setReuseAddress", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setReuseAddress, void, bool), "java.net.SocketException"},
+		{"setSendBufferSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setSendBufferSize, void, int32_t), "java.net.SocketException"},
+		{"setSoTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setSoTimeout, void, int32_t), "java.net.SocketException"},
+		{"setTTL", "(B)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DatagramSocketAdaptor, setTTL, void, int8_t), "java.io.IOException", nullptr, setTTLmethodAnnotations$$},
+		{"setTimeToLive", "(I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setTimeToLive, void, int32_t), "java.io.IOException"},
+		{"setTrafficClass", "(I)V", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor, setTrafficClass, void, int32_t), "java.net.SocketException"},
+		{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC, $virtualMethod(DatagramSocketAdaptor, supportedOptions, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.DatagramSocketAdaptor$DatagramSockets", "sun.nio.ch.DatagramSocketAdaptor", "DatagramSockets", $PRIVATE | $STATIC},
+		{"sun.nio.ch.DatagramSocketAdaptor$NetworkInterfaces", "sun.nio.ch.DatagramSocketAdaptor", "NetworkInterfaces", $PRIVATE | $STATIC},
+		{"sun.nio.ch.DatagramSocketAdaptor$DatagramPackets", "sun.nio.ch.DatagramSocketAdaptor", "DatagramPackets", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.DatagramSocketAdaptor",
+		"java.net.MulticastSocket",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.DatagramSocketAdaptor$DatagramSockets,sun.nio.ch.DatagramSocketAdaptor$NetworkInterfaces,sun.nio.ch.DatagramSocketAdaptor$DatagramPackets"
+	};
+	$loadClass(DatagramSocketAdaptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DatagramSocketAdaptor);
+	});
 	return class$;
 }
 

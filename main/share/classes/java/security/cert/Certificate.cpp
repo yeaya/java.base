@@ -1,5 +1,4 @@
 #include <java/security/cert/Certificate.h>
-
 #include <java/io/NotSerializableException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -29,52 +28,6 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$FieldInfo _Certificate_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Certificate, serialVersionUID)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Certificate, type)},
-	{"hash", "I", nullptr, $PRIVATE, $field(Certificate, hash)},
-	{}
-};
-
-$MethodInfo _Certificate_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Certificate, init$, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Certificate, equals, bool, Object$*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getEncoded, $bytes*), "java.security.cert.CertificateEncodingException"},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getPublicKey, $PublicKey*)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Certificate, getType, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Certificate, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"verify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, verify, void, $PublicKey*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{"verify", "(Ljava/security/PublicKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, verify, void, $PublicKey*, $String*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{"verify", "(Ljava/security/PublicKey;Ljava/security/Provider;)V", nullptr, $PUBLIC, $virtualMethod(Certificate, verify, void, $PublicKey*, $Provider*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.SignatureException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Certificate, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$InnerClassInfo _Certificate_InnerClassesInfo_[] = {
-	{"java.security.cert.Certificate$CertificateRep", "java.security.cert.Certificate", "CertificateRep", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _Certificate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.cert.Certificate",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Certificate_FieldInfo_,
-	_Certificate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Certificate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.security.cert.Certificate$CertificateRep"
-};
-
-$Object* allocate$Certificate($Class* clazz) {
-	return $of($alloc(Certificate));
-}
-
 $String* Certificate::toString() {
 	 return this->$Serializable::toString();
 }
@@ -89,7 +42,7 @@ $String* Certificate::getType() {
 }
 
 bool Certificate::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -124,9 +77,9 @@ void Certificate::verify($PublicKey* key, $Provider* sigProvider) {
 }
 
 $Object* Certificate::writeReplace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		return $of($new($Certificate$CertificateRep, this->type, $(getEncoded())));
+		return $new($Certificate$CertificateRep, this->type, $(getEncoded()));
 	} catch ($CertificateException& e) {
 		$throwNew($NotSerializableException, $$str({"java.security.cert.Certificate: "_s, this->type, ": "_s, $(e->getMessage())}));
 	}
@@ -137,7 +90,47 @@ Certificate::Certificate() {
 }
 
 $Class* Certificate::load$($String* name, bool initialize) {
-	$loadClass(Certificate, name, initialize, &_Certificate_ClassInfo_, allocate$Certificate);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Certificate, serialVersionUID)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Certificate, type)},
+		{"hash", "I", nullptr, $PRIVATE, $field(Certificate, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Certificate, init$, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Certificate, equals, bool, Object$*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getEncoded, $bytes*), "java.security.cert.CertificateEncodingException"},
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getPublicKey, $PublicKey*)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Certificate, getType, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Certificate, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"verify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, verify, void, $PublicKey*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+		{"verify", "(Ljava/security/PublicKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, verify, void, $PublicKey*, $String*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+		{"verify", "(Ljava/security/PublicKey;Ljava/security/Provider;)V", nullptr, $PUBLIC, $virtualMethod(Certificate, verify, void, $PublicKey*, $Provider*), "java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.SignatureException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Certificate, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.cert.Certificate$CertificateRep", "java.security.cert.Certificate", "CertificateRep", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.cert.Certificate",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.security.cert.Certificate$CertificateRep"
+	};
+	$loadClass(Certificate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Certificate);
+	});
 	return class$;
 }
 

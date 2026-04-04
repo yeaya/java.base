@@ -19,6 +19,7 @@ class $export MetafactoryArityTest : public ::java::lang::Object {
 	$class(MetafactoryArityTest, 0, ::java::lang::Object)
 public:
 	MetafactoryArityTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test(bool correct, ::java::lang::invoke::MethodHandle* mh, ::java::lang::invoke::MethodType* instMT, ::java::lang::invoke::MethodType* samMT);

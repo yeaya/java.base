@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/IntInsnNode.h>
-
 #include <java/util/Map.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
 #include <jdk/internal/org/objectweb/asm/tree/AbstractInsnNode.h>
@@ -20,33 +19,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace tree {
-
-$FieldInfo _IntInsnNode_FieldInfo_[] = {
-	{"operand", "I", nullptr, $PUBLIC, $field(IntInsnNode, operand)},
-	{}
-};
-
-$MethodInfo _IntInsnNode_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(IntInsnNode, init$, void, int32_t, int32_t)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(IntInsnNode, accept, void, $MethodVisitor*)},
-	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(IntInsnNode, clone, $AbstractInsnNode*, $Map*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(IntInsnNode, getType, int32_t)},
-	{"setOpcode", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntInsnNode, setOpcode, void, int32_t)},
-	{}
-};
-
-$ClassInfo _IntInsnNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.IntInsnNode",
-	"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
-	nullptr,
-	_IntInsnNode_FieldInfo_,
-	_IntInsnNode_MethodInfo_
-};
-
-$Object* allocate$IntInsnNode($Class* clazz) {
-	return $of($alloc(IntInsnNode));
-}
 
 void IntInsnNode::init$(int32_t opcode, int32_t operand) {
 	$AbstractInsnNode::init$(opcode);
@@ -74,7 +46,29 @@ IntInsnNode::IntInsnNode() {
 }
 
 $Class* IntInsnNode::load$($String* name, bool initialize) {
-	$loadClass(IntInsnNode, name, initialize, &_IntInsnNode_ClassInfo_, allocate$IntInsnNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"operand", "I", nullptr, $PUBLIC, $field(IntInsnNode, operand)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(IntInsnNode, init$, void, int32_t, int32_t)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(IntInsnNode, accept, void, $MethodVisitor*)},
+		{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(IntInsnNode, clone, $AbstractInsnNode*, $Map*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(IntInsnNode, getType, int32_t)},
+		{"setOpcode", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntInsnNode, setOpcode, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.IntInsnNode",
+		"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntInsnNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntInsnNode);
+	});
 	return class$;
 }
 

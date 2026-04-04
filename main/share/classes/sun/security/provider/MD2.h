@@ -26,6 +26,7 @@ class $export MD2 : public ::sun::security::provider::DigestBase {
 public:
 	MD2();
 	using ::sun::security::provider::DigestBase::engineUpdate;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	virtual void implCompress($bytes* b, int32_t ofs) override;

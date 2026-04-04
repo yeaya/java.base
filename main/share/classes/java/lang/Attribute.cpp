@@ -23,6 +23,7 @@
 #include <java/io/DataOutputStream.h>
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
+#include <string.h>
 
 using namespace ::java::lang;
 using namespace ::java::io;
@@ -40,6 +41,7 @@ bool Attribute::isEnd() {
 }
 
 void Attribute::encode(::java::io::DataOutputStream* os, ::jdk::internal::reflect::ConstantPool* cp) {
+	$nc(value);
 	os->writeByte(typeTag);
 	switch (typeTag) {
 	case u'e':
@@ -154,6 +156,55 @@ void Attribute::encode(::java::io::DataOutputStream* os, ::jdk::internal::reflec
 
 void Attribute::visit(::jdk::internal::reflect::ConstantPool* cp) {
 
+}
+
+Attribute* Attribute::clone() {
+	Attribute* newAttribute = $allocRawStatic(Attribute);
+	memcpy(newAttribute, this, sizeof(Attribute));
+	newAttribute->cloneSelf();
+	return newAttribute;
+}
+
+void Attribute::cloneSelf() {
+	switch (typeTag) {
+	case u'@':
+	{
+		CompoundAttribute* compoundAttribute = (CompoundAttribute*)this->value;
+		this->value = compoundAttribute->clone();
+		break;
+	}
+	case u'[':
+	{
+		Attribute* values = (Attribute*)this->value;
+		this->value = Attribute::cloneArray(values);
+		break;
+	}
+	}
+}
+
+Attribute* Attribute::cloneArray(Attribute * array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	Attribute* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	Attribute* newArray = $allocRawStatic(Attribute, count);
+	memcpy(newArray, array, sizeof(Attribute) * count);
+	it = newArray;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		it->cloneSelf();
+	}
+	return newArray;
 }
 
 	} // lang

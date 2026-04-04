@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/GaloisCounterMode$GCTRGHASH.h>
-
 #include <com/sun/crypto/provider/GCTR.h>
 #include <com/sun/crypto/provider/GHASH.h>
 #include <com/sun/crypto/provider/GaloisCounterMode.h>
@@ -18,47 +17,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _GaloisCounterMode$GCTRGHASH_FieldInfo_[] = {
-	{"gctr", "Lcom/sun/crypto/provider/GCTR;", nullptr, 0, $field(GaloisCounterMode$GCTRGHASH, gctr)},
-	{"ghash", "Lcom/sun/crypto/provider/GHASH;", nullptr, 0, $field(GaloisCounterMode$GCTRGHASH, ghash)},
-	{}
-};
-
-$MethodInfo _GaloisCounterMode$GCTRGHASH_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/GCTR;Lcom/sun/crypto/provider/GHASH;)V", nullptr, 0, $method(GaloisCounterMode$GCTRGHASH, init$, void, $GCTR*, $GHASH*)},
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*)},
-	{"update", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, update, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"update", "([BIILjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, update, int32_t, $bytes*, int32_t, int32_t, $ByteBuffer*)},
-	{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, update, int32_t, $ByteBuffer*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _GaloisCounterMode$GCTRGHASH_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.GaloisCounterMode$GCTRGHASH", "com.sun.crypto.provider.GaloisCounterMode", "GCTRGHASH", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _GaloisCounterMode$GCTRGHASH_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.GaloisCounterMode$GCTRGHASH",
-	"java.lang.Object",
-	"com.sun.crypto.provider.GCM",
-	_GaloisCounterMode$GCTRGHASH_FieldInfo_,
-	_GaloisCounterMode$GCTRGHASH_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GaloisCounterMode$GCTRGHASH_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.GaloisCounterMode"
-};
-
-$Object* allocate$GaloisCounterMode$GCTRGHASH($Class* clazz) {
-	return $of($alloc(GaloisCounterMode$GCTRGHASH));
-}
 
 void GaloisCounterMode$GCTRGHASH::init$($GCTR* c, $GHASH* g) {
 	$set(this, gctr, c);
@@ -105,7 +63,42 @@ GaloisCounterMode$GCTRGHASH::GaloisCounterMode$GCTRGHASH() {
 }
 
 $Class* GaloisCounterMode$GCTRGHASH::load$($String* name, bool initialize) {
-	$loadClass(GaloisCounterMode$GCTRGHASH, name, initialize, &_GaloisCounterMode$GCTRGHASH_ClassInfo_, allocate$GaloisCounterMode$GCTRGHASH);
+	$FieldInfo fieldInfos$$[] = {
+		{"gctr", "Lcom/sun/crypto/provider/GCTR;", nullptr, 0, $field(GaloisCounterMode$GCTRGHASH, gctr)},
+		{"ghash", "Lcom/sun/crypto/provider/GHASH;", nullptr, 0, $field(GaloisCounterMode$GCTRGHASH, ghash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/crypto/provider/GCTR;Lcom/sun/crypto/provider/GHASH;)V", nullptr, 0, $method(GaloisCounterMode$GCTRGHASH, init$, void, $GCTR*, $GHASH*)},
+		{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*)},
+		{"update", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, update, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"update", "([BIILjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, update, int32_t, $bytes*, int32_t, int32_t, $ByteBuffer*)},
+		{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, update, int32_t, $ByteBuffer*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.GaloisCounterMode$GCTRGHASH", "com.sun.crypto.provider.GaloisCounterMode", "GCTRGHASH", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.GaloisCounterMode$GCTRGHASH",
+		"java.lang.Object",
+		"com.sun.crypto.provider.GCM",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.GaloisCounterMode"
+	};
+	$loadClass(GaloisCounterMode$GCTRGHASH, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GaloisCounterMode$GCTRGHASH);
+	});
 	return class$;
 }
 

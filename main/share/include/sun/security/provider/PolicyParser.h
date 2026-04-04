@@ -46,6 +46,7 @@ class $import PolicyParser : public ::java::lang::Object {
 	$class(PolicyParser, 0, ::java::lang::Object)
 public:
 	PolicyParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool expandProp);
 	virtual void add(::sun::security::provider::PolicyParser$GrantEntry* ge);

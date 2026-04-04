@@ -51,6 +51,7 @@ class $import ArrayList : public ::java::util::AbstractList, public ::java::util
 public:
 	ArrayList();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t initialCapacity);
 	void init$();
 	void init$(::java::util::Collection* c);
@@ -114,7 +115,7 @@ public:
 	virtual $String* toString() override;
 	virtual void trimToSize();
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x7881D21D99C7619D;
+	static const int64_t serialVersionUID = (int64_t)0x7881d21d99c7619d;
 	static const int32_t DEFAULT_CAPACITY = 10;
 	static $ObjectArray* EMPTY_ELEMENTDATA;
 	static $ObjectArray* DEFAULTCAPACITY_EMPTY_ELEMENTDATA;

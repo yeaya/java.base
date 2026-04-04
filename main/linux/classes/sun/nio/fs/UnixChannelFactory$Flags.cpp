@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixChannelFactory$Flags.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/OpenOption.h>
@@ -29,7 +28,6 @@ using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 using $ExtendedOptions = ::sun::nio::fs::ExtendedOptions;
-using $ExtendedOptions$InternalOption = ::sun::nio::fs::ExtendedOptions$InternalOption;
 using $UnixChannelFactory$1 = ::sun::nio::fs::UnixChannelFactory$1;
 using $UnixConstants = ::sun::nio::fs::UnixConstants;
 
@@ -37,57 +35,11 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _UnixChannelFactory$Flags_FieldInfo_[] = {
-	{"read", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, read)},
-	{"write", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, write)},
-	{"append", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, append)},
-	{"truncateExisting", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, truncateExisting)},
-	{"noFollowLinks", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, noFollowLinks)},
-	{"create", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, create)},
-	{"createNew", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, createNew)},
-	{"deleteOnClose", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, deleteOnClose)},
-	{"sync", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, sync)},
-	{"dsync", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, dsync)},
-	{"direct", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, direct)},
-	{}
-};
-
-$MethodInfo _UnixChannelFactory$Flags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(UnixChannelFactory$Flags, init$, void)},
-	{"toFlags", "(Ljava/util/Set;)Lsun/nio/fs/UnixChannelFactory$Flags;", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;)Lsun/nio/fs/UnixChannelFactory$Flags;", $STATIC, $staticMethod(UnixChannelFactory$Flags, toFlags, UnixChannelFactory$Flags*, $Set*)},
-	{}
-};
-
-$InnerClassInfo _UnixChannelFactory$Flags_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixChannelFactory$Flags", "sun.nio.fs.UnixChannelFactory", "Flags", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _UnixChannelFactory$Flags_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.fs.UnixChannelFactory$Flags",
-	"java.lang.Object",
-	nullptr,
-	_UnixChannelFactory$Flags_FieldInfo_,
-	_UnixChannelFactory$Flags_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnixChannelFactory$Flags_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixChannelFactory"
-};
-
-$Object* allocate$UnixChannelFactory$Flags($Class* clazz) {
-	return $of($alloc(UnixChannelFactory$Flags));
-}
-
 void UnixChannelFactory$Flags::init$() {
 }
 
 UnixChannelFactory$Flags* UnixChannelFactory$Flags::toFlags($Set* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(UnixChannelFactory$Flags, flags, $new(UnixChannelFactory$Flags));
 	{
 		$var($Iterator, i$, $nc(options)->iterator());
@@ -96,60 +48,38 @@ UnixChannelFactory$Flags* UnixChannelFactory$Flags::toFlags($Set* options) {
 			{
 				if ($instanceOf($StandardOpenOption, option)) {
 					$init($UnixChannelFactory$1);
-					switch ($nc($UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->get($nc(($cast($StandardOpenOption, option)))->ordinal())) {
+					switch ($nc($UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->get($cast($StandardOpenOption, option)->ordinal())) {
 					case 1:
-						{
-							flags->read = true;
-							break;
-						}
+						flags->read = true;
+						break;
 					case 2:
-						{
-							flags->write = true;
-							break;
-						}
+						flags->write = true;
+						break;
 					case 3:
-						{
-							flags->append = true;
-							break;
-						}
+						flags->append = true;
+						break;
 					case 4:
-						{
-							flags->truncateExisting = true;
-							break;
-						}
+						flags->truncateExisting = true;
+						break;
 					case 5:
-						{
-							flags->create = true;
-							break;
-						}
+						flags->create = true;
+						break;
 					case 6:
-						{
-							flags->createNew = true;
-							break;
-						}
+						flags->createNew = true;
+						break;
 					case 7:
-						{
-							flags->deleteOnClose = true;
-							break;
-						}
+						flags->deleteOnClose = true;
+						break;
 					case 8:
-						{
-							break;
-						}
+						break;
 					case 9:
-						{
-							flags->sync = true;
-							break;
-						}
+						flags->sync = true;
+						break;
 					case 10:
-						{
-							flags->dsync = true;
-							break;
-						}
+						flags->dsync = true;
+						break;
 					default:
-						{
-							$throwNew($UnsupportedOperationException);
-						}
+						$throwNew($UnsupportedOperationException);
 					}
 					continue;
 				}
@@ -178,7 +108,47 @@ UnixChannelFactory$Flags::UnixChannelFactory$Flags() {
 }
 
 $Class* UnixChannelFactory$Flags::load$($String* name, bool initialize) {
-	$loadClass(UnixChannelFactory$Flags, name, initialize, &_UnixChannelFactory$Flags_ClassInfo_, allocate$UnixChannelFactory$Flags);
+	$FieldInfo fieldInfos$$[] = {
+		{"read", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, read)},
+		{"write", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, write)},
+		{"append", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, append)},
+		{"truncateExisting", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, truncateExisting)},
+		{"noFollowLinks", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, noFollowLinks)},
+		{"create", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, create)},
+		{"createNew", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, createNew)},
+		{"deleteOnClose", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, deleteOnClose)},
+		{"sync", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, sync)},
+		{"dsync", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, dsync)},
+		{"direct", "Z", nullptr, 0, $field(UnixChannelFactory$Flags, direct)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(UnixChannelFactory$Flags, init$, void)},
+		{"toFlags", "(Ljava/util/Set;)Lsun/nio/fs/UnixChannelFactory$Flags;", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;)Lsun/nio/fs/UnixChannelFactory$Flags;", $STATIC, $staticMethod(UnixChannelFactory$Flags, toFlags, UnixChannelFactory$Flags*, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixChannelFactory$Flags", "sun.nio.fs.UnixChannelFactory", "Flags", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.fs.UnixChannelFactory$Flags",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixChannelFactory"
+	};
+	$loadClass(UnixChannelFactory$Flags, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixChannelFactory$Flags);
+	});
 	return class$;
 }
 

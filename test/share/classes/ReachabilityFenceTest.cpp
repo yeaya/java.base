@@ -1,5 +1,4 @@
 #include <ReachabilityFenceTest.h>
-
 #include <ReachabilityFenceTest$MyFinalizeable.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/ref/Reference.h>
@@ -21,46 +20,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Reference = ::java::lang::ref::Reference;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
-
-$FieldInfo _ReachabilityFenceTest_FieldInfo_[] = {
-	{"LOOP_ITERS", "I", nullptr, $STATIC | $FINAL, $staticField(ReachabilityFenceTest, LOOP_ITERS)},
-	{"WARMUP_LOOP_ITERS", "I", nullptr, $STATIC | $FINAL, $staticField(ReachabilityFenceTest, WARMUP_LOOP_ITERS)},
-	{"MAIN_ITERS", "I", nullptr, $STATIC | $FINAL, $constField(ReachabilityFenceTest, MAIN_ITERS)},
-	{"PREMATURE_FINALIZATION", "Z", nullptr, $STATIC | $FINAL, $staticField(ReachabilityFenceTest, PREMATURE_FINALIZATION)},
-	{}
-};
-
-$MethodInfo _ReachabilityFenceTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReachabilityFenceTest, init$, void)},
-	{"fenced", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ReachabilityFenceTest, fenced, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ReachabilityFenceTest, main, void, $StringArray*)},
-	{"nonFenced", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ReachabilityFenceTest, nonFenced, bool)},
-	{}
-};
-
-$InnerClassInfo _ReachabilityFenceTest_InnerClassesInfo_[] = {
-	{"ReachabilityFenceTest$MyFinalizeable", "ReachabilityFenceTest", "MyFinalizeable", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ReachabilityFenceTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ReachabilityFenceTest",
-	"java.lang.Object",
-	nullptr,
-	_ReachabilityFenceTest_FieldInfo_,
-	_ReachabilityFenceTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReachabilityFenceTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ReachabilityFenceTest$MyFinalizeable"
-};
-
-$Object* allocate$ReachabilityFenceTest($Class* clazz) {
-	return $of($alloc(ReachabilityFenceTest));
-}
 
 int32_t ReachabilityFenceTest::LOOP_ITERS = 0;
 int32_t ReachabilityFenceTest::WARMUP_LOOP_ITERS = 0;
@@ -94,7 +53,7 @@ void ReachabilityFenceTest::main($StringArray* args) {
 
 bool ReachabilityFenceTest::nonFenced() {
 	$init(ReachabilityFenceTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AtomicBoolean, finalized, $new($AtomicBoolean));
 	$var($ReachabilityFenceTest$MyFinalizeable, o, $new($ReachabilityFenceTest$MyFinalizeable, finalized));
 	for (int32_t i = 0; i < ReachabilityFenceTest::LOOP_ITERS; ++i) {
@@ -111,7 +70,7 @@ bool ReachabilityFenceTest::nonFenced() {
 
 bool ReachabilityFenceTest::fenced() {
 	$init(ReachabilityFenceTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AtomicBoolean, finalized, $new($AtomicBoolean));
 	$var($ReachabilityFenceTest$MyFinalizeable, o, $new($ReachabilityFenceTest$MyFinalizeable, finalized));
 	for (int32_t i = 0; i < ReachabilityFenceTest::LOOP_ITERS; ++i) {
@@ -123,33 +82,31 @@ bool ReachabilityFenceTest::fenced() {
 			$System::runFinalization();
 		}
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = finalized->get();
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Reference::reachabilityFence(o);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = finalized->get();
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Reference::reachabilityFence(o);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$ReachabilityFenceTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	ReachabilityFenceTest::LOOP_ITERS = $nc($($Integer::getInteger("LOOP_ITERS"_s, 0x0000C350)))->intValue();
-	ReachabilityFenceTest::WARMUP_LOOP_ITERS = ReachabilityFenceTest::LOOP_ITERS - $nc($($Integer::getInteger("GC_ITERS"_s, 100)))->intValue();
+void ReachabilityFenceTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	ReachabilityFenceTest::LOOP_ITERS = $$nc($Integer::getInteger("LOOP_ITERS"_s, 50000))->intValue();
+	ReachabilityFenceTest::WARMUP_LOOP_ITERS = ReachabilityFenceTest::LOOP_ITERS - $$nc($Integer::getInteger("GC_ITERS"_s, 100))->intValue();
 	ReachabilityFenceTest::PREMATURE_FINALIZATION = $Boolean::getBoolean("premature"_s);
 }
 
@@ -157,7 +114,41 @@ ReachabilityFenceTest::ReachabilityFenceTest() {
 }
 
 $Class* ReachabilityFenceTest::load$($String* name, bool initialize) {
-	$loadClass(ReachabilityFenceTest, name, initialize, &_ReachabilityFenceTest_ClassInfo_, clinit$ReachabilityFenceTest, allocate$ReachabilityFenceTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOOP_ITERS", "I", nullptr, $STATIC | $FINAL, $staticField(ReachabilityFenceTest, LOOP_ITERS)},
+		{"WARMUP_LOOP_ITERS", "I", nullptr, $STATIC | $FINAL, $staticField(ReachabilityFenceTest, WARMUP_LOOP_ITERS)},
+		{"MAIN_ITERS", "I", nullptr, $STATIC | $FINAL, $constField(ReachabilityFenceTest, MAIN_ITERS)},
+		{"PREMATURE_FINALIZATION", "Z", nullptr, $STATIC | $FINAL, $staticField(ReachabilityFenceTest, PREMATURE_FINALIZATION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReachabilityFenceTest, init$, void)},
+		{"fenced", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ReachabilityFenceTest, fenced, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ReachabilityFenceTest, main, void, $StringArray*)},
+		{"nonFenced", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ReachabilityFenceTest, nonFenced, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ReachabilityFenceTest$MyFinalizeable", "ReachabilityFenceTest", "MyFinalizeable", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ReachabilityFenceTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ReachabilityFenceTest$MyFinalizeable"
+	};
+	$loadClass(ReachabilityFenceTest, name, initialize, &classInfo$$, ReachabilityFenceTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ReachabilityFenceTest);
+	});
 	return class$;
 }
 

@@ -1,32 +1,10 @@
 #include <ParseBoolean.h>
-
 #include <jcpp.h>
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$MethodInfo _ParseBoolean_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ParseBoolean, init$, void)},
-	{"checkFalse", "(Z)V", nullptr, $STATIC, $staticMethod(ParseBoolean, checkFalse, void, bool)},
-	{"checkTrue", "(Z)V", nullptr, $STATIC, $staticMethod(ParseBoolean, checkTrue, void, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseBoolean, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _ParseBoolean_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ParseBoolean",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ParseBoolean_MethodInfo_
-};
-
-$Object* allocate$ParseBoolean($Class* clazz) {
-	return $of($alloc(ParseBoolean));
-}
 
 void ParseBoolean::init$() {
 }
@@ -59,7 +37,24 @@ ParseBoolean::ParseBoolean() {
 }
 
 $Class* ParseBoolean::load$($String* name, bool initialize) {
-	$loadClass(ParseBoolean, name, initialize, &_ParseBoolean_ClassInfo_, allocate$ParseBoolean);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ParseBoolean, init$, void)},
+		{"checkFalse", "(Z)V", nullptr, $STATIC, $staticMethod(ParseBoolean, checkFalse, void, bool)},
+		{"checkTrue", "(Z)V", nullptr, $STATIC, $staticMethod(ParseBoolean, checkTrue, void, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseBoolean, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ParseBoolean",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ParseBoolean, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParseBoolean);
+	});
 	return class$;
 }
 

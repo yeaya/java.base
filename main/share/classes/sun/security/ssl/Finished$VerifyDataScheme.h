@@ -34,6 +34,7 @@ class Finished$VerifyDataScheme : public ::java::lang::Enum {
 public:
 	Finished$VerifyDataScheme();
 	static $Array<::sun::security::ssl::Finished$VerifyDataScheme>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, ::sun::security::ssl::Finished$VerifyDataGenerator* verifyDataGenerator);
 	virtual $bytes* createVerifyData(::sun::security::ssl::HandshakeContext* context, bool isValidation);
 	static ::sun::security::ssl::Finished$VerifyDataScheme* valueOf($String* name);

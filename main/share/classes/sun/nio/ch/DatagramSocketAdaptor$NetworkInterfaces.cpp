@@ -1,5 +1,4 @@
 #include <sun/nio/ch/DatagramSocketAdaptor$NetworkInterfaces.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ExceptionInInitializerError.h>
 #include <java/lang/InternalError.h>
@@ -35,6 +34,7 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
+using $InetAddress = ::java::net::InetAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
@@ -49,71 +49,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DatagramSocketAdaptor$NetworkInterfaces::lambda$static$0());
+		 return DatagramSocketAdaptor$NetworkInterfaces::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.ch.DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	nullptr,
-	methodInfos
 };
 $Class* DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.ch.DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _DatagramSocketAdaptor$NetworkInterfaces_FieldInfo_[] = {
-	{"GET_DEFAULT", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(DatagramSocketAdaptor$NetworkInterfaces, GET_DEFAULT)},
-	{"CONSTRUCTOR", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(DatagramSocketAdaptor$NetworkInterfaces, CONSTRUCTOR)},
-	{}
-};
-
-$MethodInfo _DatagramSocketAdaptor$NetworkInterfaces_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramSocketAdaptor$NetworkInterfaces, init$, void)},
-	{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$NetworkInterfaces, getDefault, $NetworkInterface*)},
-	{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramSocketAdaptor$NetworkInterfaces, lambda$static$0, $MethodHandles$Lookup*), "java.lang.Exception"},
-	{"newNetworkInterface", "(Ljava/lang/String;I[Ljava/net/InetAddress;)Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$NetworkInterfaces, newNetworkInterface, $NetworkInterface*, $String*, int32_t, $InetAddressArray*)},
-	{}
-};
-
-$InnerClassInfo _DatagramSocketAdaptor$NetworkInterfaces_InnerClassesInfo_[] = {
-	{"sun.nio.ch.DatagramSocketAdaptor$NetworkInterfaces", "sun.nio.ch.DatagramSocketAdaptor", "NetworkInterfaces", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DatagramSocketAdaptor$NetworkInterfaces_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.DatagramSocketAdaptor$NetworkInterfaces",
-	"java.lang.Object",
-	nullptr,
-	_DatagramSocketAdaptor$NetworkInterfaces_FieldInfo_,
-	_DatagramSocketAdaptor$NetworkInterfaces_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DatagramSocketAdaptor$NetworkInterfaces_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.DatagramSocketAdaptor"
-};
-
-$Object* allocate$DatagramSocketAdaptor$NetworkInterfaces($Class* clazz) {
-	return $of($alloc(DatagramSocketAdaptor$NetworkInterfaces));
-}
 
 $MethodHandle* DatagramSocketAdaptor$NetworkInterfaces::GET_DEFAULT = nullptr;
 $MethodHandle* DatagramSocketAdaptor$NetworkInterfaces::CONSTRUCTOR = nullptr;
@@ -126,7 +84,7 @@ $NetworkInterface* DatagramSocketAdaptor$NetworkInterfaces::getDefault() {
 	try {
 		return $cast($NetworkInterface, $nc(DatagramSocketAdaptor$NetworkInterfaces::GET_DEFAULT)->invokeExact($$new($ObjectArray, 0)));
 	} catch ($Throwable& e) {
-		$throwNew($InternalError, $cast($Throwable, e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -134,9 +92,9 @@ $NetworkInterface* DatagramSocketAdaptor$NetworkInterfaces::getDefault() {
 $NetworkInterface* DatagramSocketAdaptor$NetworkInterfaces::newNetworkInterface($String* name, int32_t index, $InetAddressArray* addrs) {
 	$init(DatagramSocketAdaptor$NetworkInterfaces);
 	try {
-		return $cast($NetworkInterface, $nc(DatagramSocketAdaptor$NetworkInterfaces::CONSTRUCTOR)->invoke($$new($ObjectArray, {$of(name), $$of(index), $of(addrs)})));
+		return $cast($NetworkInterface, $nc(DatagramSocketAdaptor$NetworkInterfaces::CONSTRUCTOR)->invoke($$new($ObjectArray, {name, $$of(index), addrs})));
 	} catch ($Throwable& e) {
-		$throwNew($InternalError, $cast($Throwable, e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -148,26 +106,24 @@ $MethodHandles$Lookup* DatagramSocketAdaptor$NetworkInterfaces::lambda$static$0(
 	return $MethodHandles::privateLookupIn($NetworkInterface::class$, $($MethodHandles::lookup()));
 }
 
-void clinit$DatagramSocketAdaptor$NetworkInterfaces($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DatagramSocketAdaptor$NetworkInterfaces::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		try {
-			$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0)));
+			$var($PrivilegedExceptionAction, pa, $new(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0));
 			$var($MethodHandles$Lookup, l, $cast($MethodHandles$Lookup, $AccessController::doPrivileged(pa)));
 			$load($NetworkInterface);
 			$var($MethodType, methodType, $MethodType::methodType($NetworkInterface::class$));
 			$assignStatic(DatagramSocketAdaptor$NetworkInterfaces::GET_DEFAULT, $nc(l)->findStatic($NetworkInterface::class$, "getDefault"_s, methodType));
-			$init($Void);
-			$init($Integer);
-			$load($InetAddressArray);
+			$load($InetAddress);
 			$assign(methodType, $MethodType::methodType($Void::TYPE, $String::class$, $$new($ClassArray, {
 				$Integer::TYPE,
 				$getClass($InetAddressArray)
 			})));
 			$assignStatic(DatagramSocketAdaptor$NetworkInterfaces::CONSTRUCTOR, l->findConstructor($NetworkInterface::class$, methodType));
 		} catch ($Exception& e) {
-			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
+			$throwNew($ExceptionInInitializerError, e);
 		}
 	}
 }
@@ -177,11 +133,44 @@ DatagramSocketAdaptor$NetworkInterfaces::DatagramSocketAdaptor$NetworkInterfaces
 
 $Class* DatagramSocketAdaptor$NetworkInterfaces::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.nio.ch.DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0")) {
 			return DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DatagramSocketAdaptor$NetworkInterfaces, name, initialize, &_DatagramSocketAdaptor$NetworkInterfaces_ClassInfo_, clinit$DatagramSocketAdaptor$NetworkInterfaces, allocate$DatagramSocketAdaptor$NetworkInterfaces);
+	$FieldInfo fieldInfos$$[] = {
+		{"GET_DEFAULT", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(DatagramSocketAdaptor$NetworkInterfaces, GET_DEFAULT)},
+		{"CONSTRUCTOR", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(DatagramSocketAdaptor$NetworkInterfaces, CONSTRUCTOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramSocketAdaptor$NetworkInterfaces, init$, void)},
+		{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$NetworkInterfaces, getDefault, $NetworkInterface*)},
+		{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramSocketAdaptor$NetworkInterfaces, lambda$static$0, $MethodHandles$Lookup*), "java.lang.Exception"},
+		{"newNetworkInterface", "(Ljava/lang/String;I[Ljava/net/InetAddress;)Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$NetworkInterfaces, newNetworkInterface, $NetworkInterface*, $String*, int32_t, $InetAddressArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.DatagramSocketAdaptor$NetworkInterfaces", "sun.nio.ch.DatagramSocketAdaptor", "NetworkInterfaces", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.DatagramSocketAdaptor$NetworkInterfaces",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.DatagramSocketAdaptor"
+	};
+	$loadClass(DatagramSocketAdaptor$NetworkInterfaces, name, initialize, &classInfo$$, DatagramSocketAdaptor$NetworkInterfaces::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DatagramSocketAdaptor$NetworkInterfaces);
+	});
 	return class$;
 }
 

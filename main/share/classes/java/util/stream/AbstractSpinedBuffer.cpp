@@ -1,5 +1,4 @@
 #include <java/util/stream/AbstractSpinedBuffer.h>
-
 #include <java/lang/Math.h>
 #include <jcpp.h>
 
@@ -20,47 +19,12 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _AbstractSpinedBuffer_FieldInfo_[] = {
-	{"MIN_CHUNK_POWER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractSpinedBuffer, MIN_CHUNK_POWER)},
-	{"MIN_CHUNK_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractSpinedBuffer, MIN_CHUNK_SIZE)},
-	{"MAX_CHUNK_POWER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractSpinedBuffer, MAX_CHUNK_POWER)},
-	{"MIN_SPINE_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractSpinedBuffer, MIN_SPINE_SIZE)},
-	{"initialChunkPower", "I", nullptr, $PROTECTED | $FINAL, $field(AbstractSpinedBuffer, initialChunkPower)},
-	{"elementIndex", "I", nullptr, $PROTECTED, $field(AbstractSpinedBuffer, elementIndex)},
-	{"spineIndex", "I", nullptr, $PROTECTED, $field(AbstractSpinedBuffer, spineIndex)},
-	{"priorElementCount", "[J", nullptr, $PROTECTED, $field(AbstractSpinedBuffer, priorElementCount)},
-	{}
-};
-
-$MethodInfo _AbstractSpinedBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSpinedBuffer, init$, void)},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(AbstractSpinedBuffer, init$, void, int32_t)},
-	{"chunkSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(AbstractSpinedBuffer, chunkSize, int32_t, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractSpinedBuffer, clear, void)},
-	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(AbstractSpinedBuffer, count, int64_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractSpinedBuffer, isEmpty, bool)},
-	{}
-};
-
-$ClassInfo _AbstractSpinedBuffer_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.AbstractSpinedBuffer",
-	"java.lang.Object",
-	nullptr,
-	_AbstractSpinedBuffer_FieldInfo_,
-	_AbstractSpinedBuffer_MethodInfo_
-};
-
-$Object* allocate$AbstractSpinedBuffer($Class* clazz) {
-	return $of($alloc(AbstractSpinedBuffer));
-}
-
 void AbstractSpinedBuffer::init$() {
 	this->initialChunkPower = AbstractSpinedBuffer::MIN_CHUNK_POWER;
 }
 
 void AbstractSpinedBuffer::init$(int32_t initialCapacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (initialCapacity < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal Capacity: "_s, $$str(initialCapacity)}));
 	}
@@ -72,7 +36,7 @@ bool AbstractSpinedBuffer::isEmpty() {
 }
 
 int64_t AbstractSpinedBuffer::count() {
-	return (this->spineIndex == 0) ? (int64_t)this->elementIndex : $nc(this->priorElementCount)->get(this->spineIndex) + this->elementIndex;
+	return (this->spineIndex == 0) ? this->elementIndex : $nc(this->priorElementCount)->get(this->spineIndex) + this->elementIndex;
 }
 
 int32_t AbstractSpinedBuffer::chunkSize(int32_t n) {
@@ -84,7 +48,37 @@ AbstractSpinedBuffer::AbstractSpinedBuffer() {
 }
 
 $Class* AbstractSpinedBuffer::load$($String* name, bool initialize) {
-	$loadClass(AbstractSpinedBuffer, name, initialize, &_AbstractSpinedBuffer_ClassInfo_, allocate$AbstractSpinedBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"MIN_CHUNK_POWER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractSpinedBuffer, MIN_CHUNK_POWER)},
+		{"MIN_CHUNK_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractSpinedBuffer, MIN_CHUNK_SIZE)},
+		{"MAX_CHUNK_POWER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractSpinedBuffer, MAX_CHUNK_POWER)},
+		{"MIN_SPINE_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractSpinedBuffer, MIN_SPINE_SIZE)},
+		{"initialChunkPower", "I", nullptr, $PROTECTED | $FINAL, $field(AbstractSpinedBuffer, initialChunkPower)},
+		{"elementIndex", "I", nullptr, $PROTECTED, $field(AbstractSpinedBuffer, elementIndex)},
+		{"spineIndex", "I", nullptr, $PROTECTED, $field(AbstractSpinedBuffer, spineIndex)},
+		{"priorElementCount", "[J", nullptr, $PROTECTED, $field(AbstractSpinedBuffer, priorElementCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSpinedBuffer, init$, void)},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(AbstractSpinedBuffer, init$, void, int32_t)},
+		{"chunkSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(AbstractSpinedBuffer, chunkSize, int32_t, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractSpinedBuffer, clear, void)},
+		{"count", "()J", nullptr, $PUBLIC, $virtualMethod(AbstractSpinedBuffer, count, int64_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractSpinedBuffer, isEmpty, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.AbstractSpinedBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractSpinedBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractSpinedBuffer);
+	});
 	return class$;
 }
 

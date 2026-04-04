@@ -16,10 +16,13 @@ public:
 	AccountLockedException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x72E9B269047E569E;
+	static const int64_t serialVersionUID = (int64_t)0x72e9b269047e569e;
 	AccountLockedException(const AccountLockedException& e);
 	virtual void throw$() override;
-	inline AccountLockedException* operator ->() {
+	inline AccountLockedException* operator ->() const {
+		return (AccountLockedException*)throwing$;
+	}
+	inline operator AccountLockedException*() const {
 		return (AccountLockedException*)throwing$;
 	}
 };

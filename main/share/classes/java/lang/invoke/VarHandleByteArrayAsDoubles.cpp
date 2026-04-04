@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandleByteArrayAsDoubles.h>
-
 #include <java/lang/invoke/VarHandleByteArrayBase.h>
 #include <jdk/internal/access/JavaNioAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
@@ -27,56 +26,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$CompoundAttribute _VarHandleByteArrayAsDoubles_MethodAnnotations_convEndian1[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles_MethodAnnotations_convEndian2[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _VarHandleByteArrayAsDoubles_FieldInfo_[] = {
-	{"NIO_ACCESS", "Ljdk/internal/access/JavaNioAccess;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsDoubles, NIO_ACCESS)},
-	{"ALIGN", "I", nullptr, $STATIC | $FINAL, $constField(VarHandleByteArrayAsDoubles, ALIGN)},
-	{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsDoubles, SCOPED_MEMORY_ACCESS)},
-	{}
-};
-
-$MethodInfo _VarHandleByteArrayAsDoubles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(VarHandleByteArrayAsDoubles, init$, void)},
-	{"convEndian", "(ZD)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles, convEndian, int64_t, bool, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles_MethodAnnotations_convEndian1},
-	{"convEndian", "(ZJ)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles, convEndian, double, bool, int64_t), nullptr, nullptr, _VarHandleByteArrayAsDoubles_MethodAnnotations_convEndian2},
-	{}
-};
-
-$InnerClassInfo _VarHandleByteArrayAsDoubles_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteBufferHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ByteBufferHandle", $STATIC | $FINAL},
-	{"java.lang.invoke.VarHandleByteArrayAsDoubles$ArrayHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ArrayHandle", $STATIC | $FINAL},
-	{"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VarHandleByteArrayAsDoubles_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.VarHandleByteArrayAsDoubles",
-	"java.lang.invoke.VarHandleByteArrayBase",
-	nullptr,
-	_VarHandleByteArrayAsDoubles_FieldInfo_,
-	_VarHandleByteArrayAsDoubles_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VarHandleByteArrayAsDoubles_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteBufferHandle,java.lang.invoke.VarHandleByteArrayAsDoubles$ArrayHandle,java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle"
-};
-
-$Object* allocate$VarHandleByteArrayAsDoubles($Class* clazz) {
-	return $of($alloc(VarHandleByteArrayAsDoubles));
-}
-
 $JavaNioAccess* VarHandleByteArrayAsDoubles::NIO_ACCESS = nullptr;
 $ScopedMemoryAccess* VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS = nullptr;
 
@@ -98,7 +47,7 @@ double VarHandleByteArrayAsDoubles::convEndian(bool big, int64_t rv) {
 	return $Double::longBitsToDouble(rv);
 }
 
-void clinit$VarHandleByteArrayAsDoubles($Class* class$) {
+void VarHandleByteArrayAsDoubles::clinit$($Class* clazz) {
 	$assignStatic(VarHandleByteArrayAsDoubles::NIO_ACCESS, $SharedSecrets::getJavaNioAccess());
 	$assignStatic(VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS, $ScopedMemoryAccess::getScopedMemoryAccess());
 }
@@ -107,7 +56,49 @@ VarHandleByteArrayAsDoubles::VarHandleByteArrayAsDoubles() {
 }
 
 $Class* VarHandleByteArrayAsDoubles::load$($String* name, bool initialize) {
-	$loadClass(VarHandleByteArrayAsDoubles, name, initialize, &_VarHandleByteArrayAsDoubles_ClassInfo_, clinit$VarHandleByteArrayAsDoubles, allocate$VarHandleByteArrayAsDoubles);
+	$FieldInfo fieldInfos$$[] = {
+		{"NIO_ACCESS", "Ljdk/internal/access/JavaNioAccess;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsDoubles, NIO_ACCESS)},
+		{"ALIGN", "I", nullptr, $STATIC | $FINAL, $constField(VarHandleByteArrayAsDoubles, ALIGN)},
+		{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsDoubles, SCOPED_MEMORY_ACCESS)},
+		{}
+	};
+	$CompoundAttribute convEndianmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute convEndianmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(VarHandleByteArrayAsDoubles, init$, void)},
+		{"convEndian", "(ZD)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles, convEndian, int64_t, bool, double), nullptr, nullptr, convEndianmethodAnnotations$$},
+		{"convEndian", "(ZJ)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles, convEndian, double, bool, int64_t), nullptr, nullptr, convEndianmethodAnnotations$$$1},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteBufferHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ByteBufferHandle", $STATIC | $FINAL},
+		{"java.lang.invoke.VarHandleByteArrayAsDoubles$ArrayHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ArrayHandle", $STATIC | $FINAL},
+		{"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.VarHandleByteArrayAsDoubles",
+		"java.lang.invoke.VarHandleByteArrayBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteBufferHandle,java.lang.invoke.VarHandleByteArrayAsDoubles$ArrayHandle,java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle"
+	};
+	$loadClass(VarHandleByteArrayAsDoubles, name, initialize, &classInfo$$, VarHandleByteArrayAsDoubles::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandleByteArrayAsDoubles);
+	});
 	return class$;
 }
 

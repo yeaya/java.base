@@ -1,5 +1,4 @@
 #include <FloatDoubleValueTests.h>
-
 #include <java/math/BigDecimal.h>
 #include <jcpp.h>
 
@@ -16,96 +15,60 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 
-$FieldInfo _FloatDoubleValueTests_FieldInfo_[] = {
-	{"two2the24", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FloatDoubleValueTests, two2the24)},
-	{"two2the53", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FloatDoubleValueTests, two2the53)},
-	{"maxFltLong", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FloatDoubleValueTests, maxFltLong)},
-	{"maxDblLong", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FloatDoubleValueTests, maxDblLong)},
-	{}
-};
-
-$MethodInfo _FloatDoubleValueTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FloatDoubleValueTests, init$, void)},
-	{"checkDouble", "(Ljava/math/BigDecimal;D)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, checkDouble, void, $BigDecimal*, double)},
-	{"checkFloat", "(Ljava/math/BigDecimal;F)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, checkFloat, void, $BigDecimal*, float)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatDoubleValueTests, main, void, $StringArray*), "java.lang.Exception"},
-	{"testDoubleValue", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testDoubleValue, void)},
-	{"testDoubleValue0", "(JLjava/math/BigDecimal;)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testDoubleValue0, void, int64_t, $BigDecimal*)},
-	{"testDoubleValue1", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testDoubleValue1, void)},
-	{"testFloatDoubleValue", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatDoubleValue, void)},
-	{"testFloatValue", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatValue, void)},
-	{"testFloatValue0", "(JLjava/math/BigDecimal;)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatValue0, void, int64_t, $BigDecimal*)},
-	{"testFloatValue1", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatValue1, void)},
-	{}
-};
-
-$ClassInfo _FloatDoubleValueTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FloatDoubleValueTests",
-	"java.lang.Object",
-	nullptr,
-	_FloatDoubleValueTests_FieldInfo_,
-	_FloatDoubleValueTests_MethodInfo_
-};
-
-$Object* allocate$FloatDoubleValueTests($Class* clazz) {
-	return $of($alloc(FloatDoubleValueTests));
-}
-
 void FloatDoubleValueTests::init$() {
 }
 
 void FloatDoubleValueTests::testDoubleValue0(int64_t i, $BigDecimal* bd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(bd)->doubleValue() != i;
-	if (var$0 || $nc(bd)->longValue() != i) {
+	if (var$0 || bd->longValue() != i) {
 		$throwNew($RuntimeException, $$str({"Unexpected equality failure for "_s, $$str(i), "\t"_s, bd}));
 	}
 }
 
 void FloatDoubleValueTests::testFloatValue0(int64_t i, $BigDecimal* bd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(bd)->floatValue() != i;
-	if (var$0 || $nc(bd)->longValue() != i) {
+	if (var$0 || bd->longValue() != i) {
 		$throwNew($RuntimeException, $$str({"Unexpected equality failure for "_s, $$str(i), "\t"_s, bd}));
 	}
 }
 
 void FloatDoubleValueTests::checkFloat($BigDecimal* bd, float f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float fbd = $nc(bd)->floatValue();
 	if (f != fbd) {
 		$var($String, message, $String::format("Bad conversion:got %g (%a)\texpected %g (%a)"_s, $$new($ObjectArray, {
-			$($of($Float::valueOf(f))),
-			$($of($Float::valueOf(f))),
-			$($of($Float::valueOf(fbd))),
-			$($of($Float::valueOf(fbd)))
+			$($Float::valueOf(f)),
+			$($Float::valueOf(f)),
+			$($Float::valueOf(fbd)),
+			$($Float::valueOf(fbd))
 		})));
 		$throwNew($RuntimeException, message);
 	}
 }
 
 void FloatDoubleValueTests::checkDouble($BigDecimal* bd, double d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double dbd = $nc(bd)->doubleValue();
 	if (d != dbd) {
 		$var($String, message, $String::format("Bad conversion:got %g (%a)\texpected %g (%a)"_s, $$new($ObjectArray, {
-			$($of($Double::valueOf(d))),
-			$($of($Double::valueOf(d))),
-			$($of($Double::valueOf(dbd))),
-			$($of($Double::valueOf(dbd)))
+			$($Double::valueOf(d)),
+			$($Double::valueOf(d)),
+			$($Double::valueOf(dbd)),
+			$($Double::valueOf(dbd))
 		})));
 		$throwNew($RuntimeException, message);
 	}
 }
 
 void FloatDoubleValueTests::testFloatDoubleValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, longValues, $new($longs, {
 		$Long::MIN_VALUE,
-		(int64_t)0,
-		(int64_t)1,
-		(int64_t)2,
+		0,
+		1,
+		2,
 		FloatDoubleValueTests::two2the24 - 1,
 		FloatDoubleValueTests::two2the24,
 		FloatDoubleValueTests::two2the24 + 1,
@@ -115,9 +78,7 @@ void FloatDoubleValueTests::testFloatDoubleValue() {
 	}));
 	{
 		$var($longs, arr$, longValues);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			int64_t i = arr$->get(i$);
 			{
 				$var($BigDecimal, bd1, $new($BigDecimal, i));
@@ -132,10 +93,10 @@ void FloatDoubleValueTests::testFloatDoubleValue() {
 }
 
 void FloatDoubleValueTests::testDoubleValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, longValues, $new($longs, {
-		(int64_t)($Integer::MAX_VALUE - 1),
-		(int64_t)$Integer::MAX_VALUE,
+		$Integer::MAX_VALUE - 1,
+		$Integer::MAX_VALUE,
 		(int64_t)$Integer::MAX_VALUE + 1,
 		FloatDoubleValueTests::two2the53 - 1,
 		FloatDoubleValueTests::two2the53,
@@ -144,9 +105,7 @@ void FloatDoubleValueTests::testDoubleValue() {
 	}));
 	{
 		$var($longs, arr$, longValues);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			int64_t i = arr$->get(i$);
 			{
 				$var($BigDecimal, bd1, $new($BigDecimal, i));
@@ -171,7 +130,7 @@ void FloatDoubleValueTests::testDoubleValue() {
 }
 
 void FloatDoubleValueTests::testFloatValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int64_t i = FloatDoubleValueTests::maxFltLong; i <= $Integer::MAX_VALUE; ++i) {
 		$var($BigDecimal, bd1, $new($BigDecimal, i));
 		$var($BigDecimal, bd2, $new($BigDecimal, -i));
@@ -183,7 +142,7 @@ void FloatDoubleValueTests::testFloatValue() {
 }
 
 void FloatDoubleValueTests::testFloatValue1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkFloat($$new($BigDecimal, "85070591730234615847396907784232501249"_s), 8.507059E37f);
 	checkFloat($$new($BigDecimal, "7784232501249e12"_s), 7.7842326E24f);
 	checkFloat($$new($BigDecimal, "907784232501249e-12"_s), 907.78424f);
@@ -192,7 +151,7 @@ void FloatDoubleValueTests::testFloatValue1() {
 }
 
 void FloatDoubleValueTests::testDoubleValue1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkDouble($$new($BigDecimal, "85070591730234615847396907784232501249"_s), 8.507059173023462E37);
 	checkDouble($$new($BigDecimal, "7784232501249e12"_s), 7.784232501249E24);
 	checkDouble($$new($BigDecimal, "907784232501249e-12"_s), 907.784232501249);
@@ -212,7 +171,38 @@ FloatDoubleValueTests::FloatDoubleValueTests() {
 }
 
 $Class* FloatDoubleValueTests::load$($String* name, bool initialize) {
-	$loadClass(FloatDoubleValueTests, name, initialize, &_FloatDoubleValueTests_ClassInfo_, allocate$FloatDoubleValueTests);
+	$FieldInfo fieldInfos$$[] = {
+		{"two2the24", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FloatDoubleValueTests, two2the24)},
+		{"two2the53", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FloatDoubleValueTests, two2the53)},
+		{"maxFltLong", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FloatDoubleValueTests, maxFltLong)},
+		{"maxDblLong", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FloatDoubleValueTests, maxDblLong)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FloatDoubleValueTests, init$, void)},
+		{"checkDouble", "(Ljava/math/BigDecimal;D)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, checkDouble, void, $BigDecimal*, double)},
+		{"checkFloat", "(Ljava/math/BigDecimal;F)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, checkFloat, void, $BigDecimal*, float)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatDoubleValueTests, main, void, $StringArray*), "java.lang.Exception"},
+		{"testDoubleValue", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testDoubleValue, void)},
+		{"testDoubleValue0", "(JLjava/math/BigDecimal;)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testDoubleValue0, void, int64_t, $BigDecimal*)},
+		{"testDoubleValue1", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testDoubleValue1, void)},
+		{"testFloatDoubleValue", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatDoubleValue, void)},
+		{"testFloatValue", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatValue, void)},
+		{"testFloatValue0", "(JLjava/math/BigDecimal;)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatValue0, void, int64_t, $BigDecimal*)},
+		{"testFloatValue1", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatValue1, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FloatDoubleValueTests",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FloatDoubleValueTests, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FloatDoubleValueTests);
+	});
 	return class$;
 }
 

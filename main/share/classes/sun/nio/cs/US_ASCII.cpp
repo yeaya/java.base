@@ -1,5 +1,4 @@
 #include <sun/nio/cs/US_ASCII.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -25,50 +24,6 @@ using $US_ASCII$Encoder = ::sun::nio::cs::US_ASCII$Encoder;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _US_ASCII_FieldInfo_[] = {
-	{"INSTANCE", "Lsun/nio/cs/US_ASCII;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(US_ASCII, INSTANCE)},
-	{}
-};
-
-$MethodInfo _US_ASCII_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(US_ASCII, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(US_ASCII, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(US_ASCII, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(US_ASCII, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(US_ASCII, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _US_ASCII_InnerClassesInfo_[] = {
-	{"sun.nio.cs.US_ASCII$Encoder", "sun.nio.cs.US_ASCII", "Encoder", $PRIVATE | $STATIC},
-	{"sun.nio.cs.US_ASCII$Decoder", "sun.nio.cs.US_ASCII", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _US_ASCII_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.US_ASCII",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	_US_ASCII_FieldInfo_,
-	_US_ASCII_MethodInfo_,
-	nullptr,
-	nullptr,
-	_US_ASCII_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.US_ASCII$Encoder,sun.nio.cs.US_ASCII$Decoder"
-};
-
-$Object* allocate$US_ASCII($Class* clazz) {
-	return $of($alloc(US_ASCII));
-}
 
 int32_t US_ASCII::hashCode() {
 	 return this->$Charset::hashCode();
@@ -112,7 +67,7 @@ $CharsetEncoder* US_ASCII::newEncoder() {
 	return $new($US_ASCII$Encoder, this);
 }
 
-void clinit$US_ASCII($Class* class$) {
+void US_ASCII::clinit$($Class* clazz) {
 	$assignStatic(US_ASCII::INSTANCE, $new(US_ASCII));
 }
 
@@ -120,7 +75,45 @@ US_ASCII::US_ASCII() {
 }
 
 $Class* US_ASCII::load$($String* name, bool initialize) {
-	$loadClass(US_ASCII, name, initialize, &_US_ASCII_ClassInfo_, clinit$US_ASCII, allocate$US_ASCII);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lsun/nio/cs/US_ASCII;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(US_ASCII, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(US_ASCII, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(US_ASCII, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(US_ASCII, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(US_ASCII, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(US_ASCII, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.US_ASCII$Encoder", "sun.nio.cs.US_ASCII", "Encoder", $PRIVATE | $STATIC},
+		{"sun.nio.cs.US_ASCII$Decoder", "sun.nio.cs.US_ASCII", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.US_ASCII",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.US_ASCII$Encoder,sun.nio.cs.US_ASCII$Decoder"
+	};
+	$loadClass(US_ASCII, name, initialize, &classInfo$$, US_ASCII::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(US_ASCII));
+	});
 	return class$;
 }
 

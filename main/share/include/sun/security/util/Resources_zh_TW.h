@@ -14,6 +14,7 @@ class $import Resources_zh_TW : public ::java::util::ListResourceBundle {
 	$class(Resources_zh_TW, 0, ::java::util::ListResourceBundle)
 public:
 	Resources_zh_TW();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $Array<::java::lang::Object, 2>* contents;

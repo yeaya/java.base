@@ -22,6 +22,7 @@ class $export StressLoopback : public ::java::lang::Object {
 	$class(StressLoopback, 0, ::java::lang::Object)
 public:
 	StressLoopback();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void closeUnchecked(::java::nio::channels::Channel* c);
 	static void main($StringArray* args);

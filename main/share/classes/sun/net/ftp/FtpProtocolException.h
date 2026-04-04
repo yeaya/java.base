@@ -24,11 +24,14 @@ public:
 	void init$($String* detail);
 	void init$($String* detail, ::sun::net::ftp::FtpReplyCode* code);
 	virtual ::sun::net::ftp::FtpReplyCode* getReplyCode();
-	static const int64_t serialVersionUID = (int64_t)0x52F6656C15BDCA1E;
+	static const int64_t serialVersionUID = (int64_t)0x52f6656c15bdca1e;
 	::sun::net::ftp::FtpReplyCode* code = nullptr;
 	FtpProtocolException(const FtpProtocolException& e);
 	virtual void throw$() override;
-	inline FtpProtocolException* operator ->() {
+	inline FtpProtocolException* operator ->() const {
+		return (FtpProtocolException*)throwing$;
+	}
+	inline operator FtpProtocolException*() const {
 		return (FtpProtocolException*)throwing$;
 	}
 };

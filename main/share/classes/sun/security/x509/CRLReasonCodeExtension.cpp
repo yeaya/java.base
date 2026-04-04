@@ -1,5 +1,4 @@
 #include <sun/security/x509/CRLReasonCodeExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/security/cert/CRLReason.h>
@@ -35,48 +34,6 @@ using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _CRLReasonCodeExtension_FieldInfo_[] = {
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CRLReasonCodeExtension, NAME)},
-	{"REASON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CRLReasonCodeExtension, REASON)},
-	{"values", "[Ljava/security/cert/CRLReason;", nullptr, $PRIVATE | $STATIC, $staticField(CRLReasonCodeExtension, values)},
-	{"reasonCode", "I", nullptr, $PRIVATE, $field(CRLReasonCodeExtension, reasonCode)},
-	{}
-};
-
-$MethodInfo _CRLReasonCodeExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CRLReasonCodeExtension, init$, void, int32_t), "java.io.IOException"},
-	{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(CRLReasonCodeExtension, init$, void, bool, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CRLReasonCodeExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(CRLReasonCodeExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CRLReasonCodeExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, getName, $String*)},
-	{"getReasonCode", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, getReasonCode, $CRLReason*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CRLReasonCodeExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.CRLReasonCodeExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_CRLReasonCodeExtension_FieldInfo_,
-	_CRLReasonCodeExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$CRLReasonCodeExtension($Class* clazz) {
-	return $of($alloc(CRLReasonCodeExtension));
-}
 
 int32_t CRLReasonCodeExtension::hashCode() {
 	 return this->$Extension::hashCode();
@@ -138,7 +95,7 @@ void CRLReasonCodeExtension::set($String* name, Object$* obj) {
 		$throwNew($IOException, "Attribute must be of type Integer."_s);
 	}
 	if ($nc(name)->equalsIgnoreCase(CRLReasonCodeExtension::REASON)) {
-		this->reasonCode = $nc(($cast($Integer, obj)))->intValue();
+		this->reasonCode = $nc($cast($Integer, obj))->intValue();
 	} else {
 		$throwNew($IOException, "Name not supported by CRLReasonCodeExtension"_s);
 	}
@@ -163,13 +120,16 @@ void CRLReasonCodeExtension::delete$($String* name) {
 }
 
 $String* CRLReasonCodeExtension::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($Extension::toString()), "    Reason Code: "_s}));
-	return $concat(var$0, $(getReasonCode()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Extension::toString()));
+	var$0->append("    Reason Code: "_s);
+	var$0->append($(getReasonCode()));
+	return $str(var$0);
 }
 
 void CRLReasonCodeExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -193,14 +153,14 @@ $String* CRLReasonCodeExtension::getName() {
 
 $CRLReason* CRLReasonCodeExtension::getReasonCode() {
 	if (this->reasonCode > 0 && this->reasonCode < $nc(CRLReasonCodeExtension::values)->length) {
-		return $nc(CRLReasonCodeExtension::values)->get(this->reasonCode);
+		return CRLReasonCodeExtension::values->get(this->reasonCode);
 	} else {
 		$init($CRLReason);
 		return $CRLReason::UNSPECIFIED;
 	}
 }
 
-void clinit$CRLReasonCodeExtension($Class* class$) {
+void CRLReasonCodeExtension::clinit$($Class* clazz) {
 	$assignStatic(CRLReasonCodeExtension::NAME, "CRLReasonCode"_s);
 	$assignStatic(CRLReasonCodeExtension::REASON, "reason"_s);
 	$assignStatic(CRLReasonCodeExtension::values, $CRLReason::values());
@@ -210,7 +170,44 @@ CRLReasonCodeExtension::CRLReasonCodeExtension() {
 }
 
 $Class* CRLReasonCodeExtension::load$($String* name, bool initialize) {
-	$loadClass(CRLReasonCodeExtension, name, initialize, &_CRLReasonCodeExtension_ClassInfo_, clinit$CRLReasonCodeExtension, allocate$CRLReasonCodeExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CRLReasonCodeExtension, NAME)},
+		{"REASON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CRLReasonCodeExtension, REASON)},
+		{"values", "[Ljava/security/cert/CRLReason;", nullptr, $PRIVATE | $STATIC, $staticField(CRLReasonCodeExtension, values)},
+		{"reasonCode", "I", nullptr, $PRIVATE, $field(CRLReasonCodeExtension, reasonCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(CRLReasonCodeExtension, init$, void, int32_t), "java.io.IOException"},
+		{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(CRLReasonCodeExtension, init$, void, bool, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CRLReasonCodeExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(CRLReasonCodeExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CRLReasonCodeExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, getName, $String*)},
+		{"getReasonCode", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, getReasonCode, $CRLReason*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CRLReasonCodeExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.CRLReasonCodeExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(CRLReasonCodeExtension, name, initialize, &classInfo$$, CRLReasonCodeExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CRLReasonCodeExtension));
+	});
 	return class$;
 }
 

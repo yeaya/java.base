@@ -49,6 +49,7 @@ class $export FileSystemOption : public ::java::lang::Object {
 	$class(FileSystemOption, 0, ::java::lang::Object)
 public:
 	FileSystemOption();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::ExtendedOptions$InternalOption* option);
 	void register$(::java::nio::file::OpenOption* option);
 	void register$(::java::nio::file::CopyOption* option);

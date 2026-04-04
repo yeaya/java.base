@@ -1,5 +1,4 @@
 #include <StringContentEqualsBug$Tester.h>
-
 #include <StringContentEqualsBug$Task.h>
 #include <StringContentEqualsBug.h>
 #include <java/lang/StringBuffer.h>
@@ -10,38 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-
-$MethodInfo _StringContentEqualsBug$Tester_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, 0, $method(StringContentEqualsBug$Tester, init$, void, $StringBuffer*)},
-	{"doWith", "(Ljava/lang/StringBuffer;)V", nullptr, $PROTECTED, $virtualMethod(StringContentEqualsBug$Tester, doWith, void, $StringBuffer*)},
-	{}
-};
-
-$InnerClassInfo _StringContentEqualsBug$Tester_InnerClassesInfo_[] = {
-	{"StringContentEqualsBug$Tester", "StringContentEqualsBug", "Tester", $STATIC},
-	{"StringContentEqualsBug$Task", "StringContentEqualsBug", "Task", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StringContentEqualsBug$Tester_ClassInfo_ = {
-	$ACC_SUPER,
-	"StringContentEqualsBug$Tester",
-	"StringContentEqualsBug$Task",
-	nullptr,
-	nullptr,
-	_StringContentEqualsBug$Tester_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringContentEqualsBug$Tester_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"StringContentEqualsBug"
-};
-
-$Object* allocate$StringContentEqualsBug$Tester($Class* clazz) {
-	return $of($alloc(StringContentEqualsBug$Tester));
-}
 
 void StringContentEqualsBug$Tester::init$($StringBuffer* sb) {
 	$StringContentEqualsBug$Task::init$(sb);
@@ -55,7 +22,34 @@ StringContentEqualsBug$Tester::StringContentEqualsBug$Tester() {
 }
 
 $Class* StringContentEqualsBug$Tester::load$($String* name, bool initialize) {
-	$loadClass(StringContentEqualsBug$Tester, name, initialize, &_StringContentEqualsBug$Tester_ClassInfo_, allocate$StringContentEqualsBug$Tester);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, 0, $method(StringContentEqualsBug$Tester, init$, void, $StringBuffer*)},
+		{"doWith", "(Ljava/lang/StringBuffer;)V", nullptr, $PROTECTED, $virtualMethod(StringContentEqualsBug$Tester, doWith, void, $StringBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StringContentEqualsBug$Tester", "StringContentEqualsBug", "Tester", $STATIC},
+		{"StringContentEqualsBug$Task", "StringContentEqualsBug", "Task", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"StringContentEqualsBug$Tester",
+		"StringContentEqualsBug$Task",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"StringContentEqualsBug"
+	};
+	$loadClass(StringContentEqualsBug$Tester, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringContentEqualsBug$Tester);
+	});
 	return class$;
 }
 

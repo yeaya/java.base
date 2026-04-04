@@ -1,5 +1,4 @@
 #include <sun/security/jca/ProviderConfig$3.h>
-
 #include <java/lang/ExceptionInInitializerError.h>
 #include <java/security/Provider.h>
 #include <java/security/ProviderException.h>
@@ -21,63 +20,20 @@ using $Provider = ::java::security::Provider;
 using $ProviderException = ::java::security::ProviderException;
 using $ProviderConfig = ::sun::security::jca::ProviderConfig;
 using $ProviderConfig$ProviderLoader = ::sun::security::jca::ProviderConfig$ProviderLoader;
-using $Debug = ::sun::security::util::Debug;
 
 namespace sun {
 	namespace security {
 		namespace jca {
-
-$FieldInfo _ProviderConfig$3_FieldInfo_[] = {
-	{"this$0", "Lsun/security/jca/ProviderConfig;", nullptr, $FINAL | $SYNTHETIC, $field(ProviderConfig$3, this$0)},
-	{}
-};
-
-$MethodInfo _ProviderConfig$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jca/ProviderConfig;)V", nullptr, 0, $method(ProviderConfig$3, init$, void, $ProviderConfig*)},
-	{"run", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(ProviderConfig$3, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ProviderConfig$3_EnclosingMethodInfo_ = {
-	"sun.security.jca.ProviderConfig",
-	"doLoadProvider",
-	"()Ljava/security/Provider;"
-};
-
-$InnerClassInfo _ProviderConfig$3_InnerClassesInfo_[] = {
-	{"sun.security.jca.ProviderConfig$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProviderConfig$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jca.ProviderConfig$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ProviderConfig$3_FieldInfo_,
-	_ProviderConfig$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/security/Provider;>;",
-	&_ProviderConfig$3_EnclosingMethodInfo_,
-	_ProviderConfig$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jca.ProviderConfig"
-};
-
-$Object* allocate$ProviderConfig$3($Class* clazz) {
-	return $of($alloc(ProviderConfig$3));
-}
 
 void ProviderConfig$3::init$($ProviderConfig* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* ProviderConfig$3::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ProviderConfig);
 	if ($ProviderConfig::debug != nullptr) {
-		$nc($ProviderConfig::debug)->println($$str({"Loading provider "_s, this->this$0}));
+		$ProviderConfig::debug->println($$str({"Loading provider "_s, this->this$0}));
 	}
 	try {
 		$init($ProviderConfig$ProviderLoader);
@@ -87,11 +43,11 @@ $Object* ProviderConfig$3::run() {
 				$assign(p, p->configure(this->this$0->argument));
 			}
 			if ($ProviderConfig::debug != nullptr) {
-				$nc($ProviderConfig::debug)->println($$str({"Loaded provider "_s, $(p->getName())}));
+				$ProviderConfig::debug->println($$str({"Loaded provider "_s, $($nc(p)->getName())}));
 			}
 		} else {
 			if ($ProviderConfig::debug != nullptr) {
-				$nc($ProviderConfig::debug)->println($$str({"Error loading provider "_s, this->this$0}));
+				$ProviderConfig::debug->println($$str({"Error loading provider "_s, this->this$0}));
 			}
 			this->this$0->disableLoad();
 		}
@@ -101,19 +57,19 @@ $Object* ProviderConfig$3::run() {
 			$throw(e);
 		} else {
 			if ($ProviderConfig::debug != nullptr) {
-				$nc($ProviderConfig::debug)->println($$str({"Error loading provider "_s, this->this$0}));
+				$ProviderConfig::debug->println($$str({"Error loading provider "_s, this->this$0}));
 				e->printStackTrace();
 			}
 			this->this$0->disableLoad();
-			return $of(nullptr);
+			return nullptr;
 		}
 	} catch ($ExceptionInInitializerError& err) {
 		if ($ProviderConfig::debug != nullptr) {
-			$nc($ProviderConfig::debug)->println($$str({"Error loading provider "_s, this->this$0}));
+			$ProviderConfig::debug->println($$str({"Error loading provider "_s, this->this$0}));
 			err->printStackTrace();
 		}
 		this->this$0->disableLoad();
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
@@ -122,7 +78,42 @@ ProviderConfig$3::ProviderConfig$3() {
 }
 
 $Class* ProviderConfig$3::load$($String* name, bool initialize) {
-	$loadClass(ProviderConfig$3, name, initialize, &_ProviderConfig$3_ClassInfo_, allocate$ProviderConfig$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/jca/ProviderConfig;", nullptr, $FINAL | $SYNTHETIC, $field(ProviderConfig$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jca/ProviderConfig;)V", nullptr, 0, $method(ProviderConfig$3, init$, void, $ProviderConfig*)},
+		{"run", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(ProviderConfig$3, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.jca.ProviderConfig",
+		"doLoadProvider",
+		"()Ljava/security/Provider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jca.ProviderConfig$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jca.ProviderConfig$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/security/Provider;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jca.ProviderConfig"
+	};
+	$loadClass(ProviderConfig$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProviderConfig$3);
+	});
 	return class$;
 }
 

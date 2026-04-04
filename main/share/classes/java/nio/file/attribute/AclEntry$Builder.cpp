@@ -1,5 +1,4 @@
 #include <java/nio/file/attribute/AclEntry$Builder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/nio/file/attribute/AclEntry.h>
@@ -7,7 +6,6 @@
 #include <java/nio/file/attribute/AclEntryPermission.h>
 #include <java/nio/file/attribute/AclEntryType.h>
 #include <java/nio/file/attribute/UserPrincipal.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Iterator.h>
@@ -28,7 +26,6 @@ using $AclEntryFlag = ::java::nio::file::attribute::AclEntryFlag;
 using $AclEntryPermission = ::java::nio::file::attribute::AclEntryPermission;
 using $AclEntryType = ::java::nio::file::attribute::AclEntryType;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
@@ -38,53 +35,6 @@ namespace java {
 	namespace nio {
 		namespace file {
 			namespace attribute {
-
-$FieldInfo _AclEntry$Builder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AclEntry$Builder, $assertionsDisabled)},
-	{"type", "Ljava/nio/file/attribute/AclEntryType;", nullptr, $PRIVATE, $field(AclEntry$Builder, type)},
-	{"who", "Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PRIVATE, $field(AclEntry$Builder, who)},
-	{"perms", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;", $PRIVATE, $field(AclEntry$Builder, perms)},
-	{"flags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;", $PRIVATE, $field(AclEntry$Builder, flags)},
-	{}
-};
-
-$MethodInfo _AclEntry$Builder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;)V", $PRIVATE, $method(AclEntry$Builder, init$, void, $AclEntryType*, $UserPrincipal*, $Set*, $Set*)},
-	{"build", "()Ljava/nio/file/attribute/AclEntry;", nullptr, $PUBLIC, $method(AclEntry$Builder, build, $AclEntry*)},
-	{"checkSet", "(Ljava/util/Set;Ljava/lang/Class;)V", "(Ljava/util/Set<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(AclEntry$Builder, checkSet, void, $Set*, $Class*)},
-	{"setFlags", "(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry$Builder;", "(Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;)Ljava/nio/file/attribute/AclEntry$Builder;", $PUBLIC, $method(AclEntry$Builder, setFlags, AclEntry$Builder*, $Set*)},
-	{"setFlags", "([Ljava/nio/file/attribute/AclEntryFlag;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $TRANSIENT, $method(AclEntry$Builder, setFlags, AclEntry$Builder*, $AclEntryFlagArray*)},
-	{"setPermissions", "(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry$Builder;", "(Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;)Ljava/nio/file/attribute/AclEntry$Builder;", $PUBLIC, $method(AclEntry$Builder, setPermissions, AclEntry$Builder*, $Set*)},
-	{"setPermissions", "([Ljava/nio/file/attribute/AclEntryPermission;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $TRANSIENT, $method(AclEntry$Builder, setPermissions, AclEntry$Builder*, $AclEntryPermissionArray*)},
-	{"setPrincipal", "(Ljava/nio/file/attribute/UserPrincipal;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC, $method(AclEntry$Builder, setPrincipal, AclEntry$Builder*, $UserPrincipal*)},
-	{"setType", "(Ljava/nio/file/attribute/AclEntryType;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC, $method(AclEntry$Builder, setType, AclEntry$Builder*, $AclEntryType*)},
-	{}
-};
-
-$InnerClassInfo _AclEntry$Builder_InnerClassesInfo_[] = {
-	{"java.nio.file.attribute.AclEntry$Builder", "java.nio.file.attribute.AclEntry", "Builder", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AclEntry$Builder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.nio.file.attribute.AclEntry$Builder",
-	"java.lang.Object",
-	nullptr,
-	_AclEntry$Builder_FieldInfo_,
-	_AclEntry$Builder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AclEntry$Builder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.attribute.AclEntry"
-};
-
-$Object* allocate$AclEntry$Builder($Class* clazz) {
-	return $of($alloc(AclEntry$Builder));
-}
 
 bool AclEntry$Builder::$assertionsDisabled = false;
 
@@ -126,17 +76,15 @@ AclEntry$Builder* AclEntry$Builder::setPrincipal($UserPrincipal* who) {
 
 void AclEntry$Builder::checkSet($Set* set, $Class* type) {
 	$init(AclEntry$Builder);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(set)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Object, e, i$->next());
-			{
-				if (e == nullptr) {
-					$throwNew($NullPointerException);
-				}
-				$nc(type)->cast(e);
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(set)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Object, e, i$->next());
+		{
+			if (e == nullptr) {
+				$throwNew($NullPointerException);
 			}
+			$nc(type)->cast(e);
 		}
 	}
 }
@@ -146,7 +94,7 @@ AclEntry$Builder* AclEntry$Builder::setPermissions($Set* perms$renamed) {
 	if ($nc(perms)->isEmpty()) {
 		$assign(perms, $Collections::emptySet());
 	} else {
-		$assign(perms, $EnumSet::copyOf(static_cast<$Collection*>(perms)));
+		$assign(perms, $EnumSet::copyOf(perms));
 		$load($AclEntryPermission);
 		checkSet(perms, $AclEntryPermission::class$);
 	}
@@ -155,14 +103,12 @@ AclEntry$Builder* AclEntry$Builder::setPermissions($Set* perms$renamed) {
 }
 
 AclEntry$Builder* AclEntry$Builder::setPermissions($AclEntryPermissionArray* perms) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($AclEntryPermission);
 	$var($Set, set, $EnumSet::noneOf($AclEntryPermission::class$));
 	{
 		$var($AclEntryPermissionArray, arr$, perms);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$AclEntryPermission* p = arr$->get(i$);
 			{
 				if (p == nullptr) {
@@ -181,7 +127,7 @@ AclEntry$Builder* AclEntry$Builder::setFlags($Set* flags$renamed) {
 	if ($nc(flags)->isEmpty()) {
 		$assign(flags, $Collections::emptySet());
 	} else {
-		$assign(flags, $EnumSet::copyOf(static_cast<$Collection*>(flags)));
+		$assign(flags, $EnumSet::copyOf(flags));
 		$load($AclEntryFlag);
 		checkSet(flags, $AclEntryFlag::class$);
 	}
@@ -190,14 +136,12 @@ AclEntry$Builder* AclEntry$Builder::setFlags($Set* flags$renamed) {
 }
 
 AclEntry$Builder* AclEntry$Builder::setFlags($AclEntryFlagArray* flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($AclEntryFlag);
 	$var($Set, set, $EnumSet::noneOf($AclEntryFlag::class$));
 	{
 		$var($AclEntryFlagArray, arr$, flags);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$AclEntryFlag* f = arr$->get(i$);
 			{
 				if (f == nullptr) {
@@ -211,7 +155,7 @@ AclEntry$Builder* AclEntry$Builder::setFlags($AclEntryFlagArray* flags) {
 	return this;
 }
 
-void clinit$AclEntry$Builder($Class* class$) {
+void AclEntry$Builder::clinit$($Class* clazz) {
 	$load($AclEntry);
 	AclEntry$Builder::$assertionsDisabled = !$AclEntry::class$->desiredAssertionStatus();
 }
@@ -220,7 +164,48 @@ AclEntry$Builder::AclEntry$Builder() {
 }
 
 $Class* AclEntry$Builder::load$($String* name, bool initialize) {
-	$loadClass(AclEntry$Builder, name, initialize, &_AclEntry$Builder_ClassInfo_, clinit$AclEntry$Builder, allocate$AclEntry$Builder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AclEntry$Builder, $assertionsDisabled)},
+		{"type", "Ljava/nio/file/attribute/AclEntryType;", nullptr, $PRIVATE, $field(AclEntry$Builder, type)},
+		{"who", "Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PRIVATE, $field(AclEntry$Builder, who)},
+		{"perms", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;", $PRIVATE, $field(AclEntry$Builder, perms)},
+		{"flags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;", $PRIVATE, $field(AclEntry$Builder, flags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;)V", $PRIVATE, $method(AclEntry$Builder, init$, void, $AclEntryType*, $UserPrincipal*, $Set*, $Set*)},
+		{"build", "()Ljava/nio/file/attribute/AclEntry;", nullptr, $PUBLIC, $method(AclEntry$Builder, build, $AclEntry*)},
+		{"checkSet", "(Ljava/util/Set;Ljava/lang/Class;)V", "(Ljava/util/Set<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(AclEntry$Builder, checkSet, void, $Set*, $Class*)},
+		{"setFlags", "(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry$Builder;", "(Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;)Ljava/nio/file/attribute/AclEntry$Builder;", $PUBLIC, $method(AclEntry$Builder, setFlags, AclEntry$Builder*, $Set*)},
+		{"setFlags", "([Ljava/nio/file/attribute/AclEntryFlag;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $TRANSIENT, $method(AclEntry$Builder, setFlags, AclEntry$Builder*, $AclEntryFlagArray*)},
+		{"setPermissions", "(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry$Builder;", "(Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;)Ljava/nio/file/attribute/AclEntry$Builder;", $PUBLIC, $method(AclEntry$Builder, setPermissions, AclEntry$Builder*, $Set*)},
+		{"setPermissions", "([Ljava/nio/file/attribute/AclEntryPermission;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $TRANSIENT, $method(AclEntry$Builder, setPermissions, AclEntry$Builder*, $AclEntryPermissionArray*)},
+		{"setPrincipal", "(Ljava/nio/file/attribute/UserPrincipal;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC, $method(AclEntry$Builder, setPrincipal, AclEntry$Builder*, $UserPrincipal*)},
+		{"setType", "(Ljava/nio/file/attribute/AclEntryType;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC, $method(AclEntry$Builder, setType, AclEntry$Builder*, $AclEntryType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.attribute.AclEntry$Builder", "java.nio.file.attribute.AclEntry", "Builder", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.nio.file.attribute.AclEntry$Builder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.attribute.AclEntry"
+	};
+	$loadClass(AclEntry$Builder, name, initialize, &classInfo$$, AclEntry$Builder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AclEntry$Builder);
+	});
 	return class$;
 }
 

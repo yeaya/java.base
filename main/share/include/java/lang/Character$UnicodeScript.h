@@ -335,6 +335,7 @@ class $import Character$UnicodeScript : public ::java::lang::Enum {
 public:
 	Character$UnicodeScript();
 	static $Array<::java::lang::Character$UnicodeScript>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::lang::Character$UnicodeScript* forName($String* scriptName);
 	static ::java::lang::Character$UnicodeScript* of(int32_t codePoint);

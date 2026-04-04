@@ -15,6 +15,7 @@ class $export TieRoundingTest : public ::java::lang::Object {
 	$class(TieRoundingTest, 0, ::java::lang::Object)
 public:
 	TieRoundingTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void formatOutputTestDouble(::java::text::NumberFormat* nf, double doubleToTest, $String* tiePosition, $String* inputDigits, $String* expectedOutput);
 	static void formatOutputTestLong(::java::text::NumberFormat* nf, int64_t longToTest, $String* tiePosition, $String* inputDigits, $String* expectedOutput);

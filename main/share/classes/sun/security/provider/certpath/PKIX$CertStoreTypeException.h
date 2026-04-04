@@ -16,11 +16,14 @@ public:
 	PKIX$CertStoreTypeException();
 	void init$($String* type, ::java::security::cert::CertStoreException* cse);
 	virtual $String* getType();
-	static const int64_t serialVersionUID = (int64_t)0x679327AECF46397C;
+	static const int64_t serialVersionUID = (int64_t)0x679327aecf46397c;
 	$String* type = nullptr;
 	PKIX$CertStoreTypeException(const PKIX$CertStoreTypeException& e);
 	virtual void throw$() override;
-	inline PKIX$CertStoreTypeException* operator ->() {
+	inline PKIX$CertStoreTypeException* operator ->() const {
+		return (PKIX$CertStoreTypeException*)throwing$;
+	}
+	inline operator PKIX$CertStoreTypeException*() const {
 		return (PKIX$CertStoreTypeException*)throwing$;
 	}
 };

@@ -18,6 +18,7 @@ class SiblingIOEHandle$APP : public ::java::lang::Enum {
 public:
 	SiblingIOEHandle$APP();
 	static $Array<SiblingIOEHandle$APP>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::SiblingIOEHandle$APP* valueOf($String* name);
 	static $Array<SiblingIOEHandle$APP>* values();

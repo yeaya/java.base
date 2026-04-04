@@ -1,5 +1,4 @@
 #include <jdk/internal/util/xml/impl/SAXParserImpl.h>
-
 #include <java/io/InputStream.h>
 #include <jdk/internal/org/xml/sax/InputSource.h>
 #include <jdk/internal/org/xml/sax/XMLReader.h>
@@ -23,34 +22,6 @@ namespace jdk {
 		namespace util {
 			namespace xml {
 				namespace impl {
-
-$FieldInfo _SAXParserImpl_FieldInfo_[] = {
-	{"parser", "Ljdk/internal/util/xml/impl/ParserSAX;", nullptr, $PRIVATE, $field(SAXParserImpl, parser)},
-	{}
-};
-
-$MethodInfo _SAXParserImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SAXParserImpl, init$, void)},
-	{"getXMLReader", "()Ljdk/internal/org/xml/sax/XMLReader;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getXMLReader, $XMLReader*), "jdk.internal.org.xml.sax.SAXException"},
-	{"isNamespaceAware", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, isNamespaceAware, bool)},
-	{"isValidating", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, isValidating, bool)},
-	{"parse", "(Ljava/io/InputStream;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, parse, void, $InputStream*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
-	{"parse", "(Ljdk/internal/org/xml/sax/InputSource;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, parse, void, $InputSource*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SAXParserImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.util.xml.impl.SAXParserImpl",
-	"jdk.internal.util.xml.SAXParser",
-	nullptr,
-	_SAXParserImpl_FieldInfo_,
-	_SAXParserImpl_MethodInfo_
-};
-
-$Object* allocate$SAXParserImpl($Class* clazz) {
-	return $of($alloc(SAXParserImpl));
-}
 
 void SAXParserImpl::init$() {
 	$SAXParser::init$();
@@ -81,7 +52,30 @@ SAXParserImpl::SAXParserImpl() {
 }
 
 $Class* SAXParserImpl::load$($String* name, bool initialize) {
-	$loadClass(SAXParserImpl, name, initialize, &_SAXParserImpl_ClassInfo_, allocate$SAXParserImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"parser", "Ljdk/internal/util/xml/impl/ParserSAX;", nullptr, $PRIVATE, $field(SAXParserImpl, parser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SAXParserImpl, init$, void)},
+		{"getXMLReader", "()Ljdk/internal/org/xml/sax/XMLReader;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getXMLReader, $XMLReader*), "jdk.internal.org.xml.sax.SAXException"},
+		{"isNamespaceAware", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, isNamespaceAware, bool)},
+		{"isValidating", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, isValidating, bool)},
+		{"parse", "(Ljava/io/InputStream;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, parse, void, $InputStream*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+		{"parse", "(Ljdk/internal/org/xml/sax/InputSource;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, parse, void, $InputSource*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.util.xml.impl.SAXParserImpl",
+		"jdk.internal.util.xml.SAXParser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SAXParserImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAXParserImpl);
+	});
 	return class$;
 }
 

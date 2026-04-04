@@ -1,5 +1,4 @@
 #include <java/util/TreeMap$NavigableSubMap$DescendingSubMapKeyIterator.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/TreeMap$Entry.h>
 #include <java/util/TreeMap$NavigableSubMap$SubMapIterator.h>
@@ -24,55 +23,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _TreeMap$NavigableSubMap$DescendingSubMapKeyIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/TreeMap$NavigableSubMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, this$0)},
-	{}
-};
-
-$MethodInfo _TreeMap$NavigableSubMap$DescendingSubMapKeyIterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/TreeMap$NavigableSubMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, init$, void, $TreeMap$NavigableSubMap*, $TreeMap$Entry*, $TreeMap$Entry*)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TK;>;)V", $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, forEachRemaining, void, $Consumer*)},
-	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, remove, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TK;>;)Z", $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TK;>;", $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _TreeMap$NavigableSubMap$DescendingSubMapKeyIterator_InnerClassesInfo_[] = {
-	{"java.util.TreeMap$NavigableSubMap", "java.util.TreeMap", "NavigableSubMap", $STATIC | $ABSTRACT},
-	{"java.util.TreeMap$NavigableSubMap$DescendingSubMapKeyIterator", "java.util.TreeMap$NavigableSubMap", "DescendingSubMapKeyIterator", $FINAL},
-	{"java.util.TreeMap$NavigableSubMap$SubMapIterator", "java.util.TreeMap$NavigableSubMap", "SubMapIterator", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TreeMap$NavigableSubMap$DescendingSubMapKeyIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.TreeMap$NavigableSubMap$DescendingSubMapKeyIterator",
-	"java.util.TreeMap$NavigableSubMap$SubMapIterator",
-	"java.util.Spliterator",
-	_TreeMap$NavigableSubMap$DescendingSubMapKeyIterator_FieldInfo_,
-	_TreeMap$NavigableSubMap$DescendingSubMapKeyIterator_MethodInfo_,
-	"Ljava/util/TreeMap$NavigableSubMap<TK;TV;>.SubMapIterator<TK;>;Ljava/util/Spliterator<TK;>;",
-	nullptr,
-	_TreeMap$NavigableSubMap$DescendingSubMapKeyIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.TreeMap"
-};
-
-$Object* allocate$TreeMap$NavigableSubMap$DescendingSubMapKeyIterator($Class* clazz) {
-	return $of($alloc(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator));
-}
 
 int32_t TreeMap$NavigableSubMap$DescendingSubMapKeyIterator::hashCode() {
 	 return this->$TreeMap$NavigableSubMap$SubMapIterator::hashCode();
@@ -100,7 +50,7 @@ void TreeMap$NavigableSubMap$DescendingSubMapKeyIterator::init$($TreeMap$Navigab
 }
 
 $Object* TreeMap$NavigableSubMap$DescendingSubMapKeyIterator::next() {
-	return $of($nc($(prevEntry()))->key);
+	return $nc($(prevEntry()))->key;
 }
 
 void TreeMap$NavigableSubMap$DescendingSubMapKeyIterator::remove() {
@@ -112,7 +62,7 @@ $Spliterator* TreeMap$NavigableSubMap$DescendingSubMapKeyIterator::trySplit() {
 }
 
 void TreeMap$NavigableSubMap$DescendingSubMapKeyIterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (hasNext()) {
 		$nc(action)->accept($(next()));
 	}
@@ -138,7 +88,50 @@ TreeMap$NavigableSubMap$DescendingSubMapKeyIterator::TreeMap$NavigableSubMap$Des
 }
 
 $Class* TreeMap$NavigableSubMap$DescendingSubMapKeyIterator::load$($String* name, bool initialize) {
-	$loadClass(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, name, initialize, &_TreeMap$NavigableSubMap$DescendingSubMapKeyIterator_ClassInfo_, allocate$TreeMap$NavigableSubMap$DescendingSubMapKeyIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/TreeMap$NavigableSubMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/TreeMap$NavigableSubMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, init$, void, $TreeMap$NavigableSubMap*, $TreeMap$Entry*, $TreeMap$Entry*)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TK;>;)V", $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, forEachRemaining, void, $Consumer*)},
+		{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, remove, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TK;>;)Z", $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TK;>;", $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.TreeMap$NavigableSubMap", "java.util.TreeMap", "NavigableSubMap", $STATIC | $ABSTRACT},
+		{"java.util.TreeMap$NavigableSubMap$DescendingSubMapKeyIterator", "java.util.TreeMap$NavigableSubMap", "DescendingSubMapKeyIterator", $FINAL},
+		{"java.util.TreeMap$NavigableSubMap$SubMapIterator", "java.util.TreeMap$NavigableSubMap", "SubMapIterator", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.TreeMap$NavigableSubMap$DescendingSubMapKeyIterator",
+		"java.util.TreeMap$NavigableSubMap$SubMapIterator",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/TreeMap$NavigableSubMap<TK;TV;>.SubMapIterator<TK;>;Ljava/util/Spliterator<TK;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.TreeMap"
+	};
+	$loadClass(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TreeMap$NavigableSubMap$DescendingSubMapKeyIterator));
+	});
 	return class$;
 }
 

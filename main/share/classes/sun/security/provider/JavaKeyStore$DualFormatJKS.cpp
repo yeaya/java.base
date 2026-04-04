@@ -1,5 +1,4 @@
 #include <sun/security/provider/JavaKeyStore$DualFormatJKS.h>
-
 #include <java/io/DataInputStream.h>
 #include <java/io/InputStream.h>
 #include <sun/security/pkcs12/PKCS12KeyStore.h>
@@ -20,37 +19,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$MethodInfo _JavaKeyStore$DualFormatJKS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaKeyStore$DualFormatJKS, init$, void)},
-	{"engineProbe", "(Ljava/io/InputStream;)Z", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore$DualFormatJKS, engineProbe, bool, $InputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JavaKeyStore$DualFormatJKS_InnerClassesInfo_[] = {
-	{"sun.security.provider.JavaKeyStore$DualFormatJKS", "sun.security.provider.JavaKeyStore", "DualFormatJKS", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JavaKeyStore$DualFormatJKS_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.JavaKeyStore$DualFormatJKS",
-	"sun.security.util.KeyStoreDelegator",
-	nullptr,
-	nullptr,
-	_JavaKeyStore$DualFormatJKS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavaKeyStore$DualFormatJKS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.JavaKeyStore"
-};
-
-$Object* allocate$JavaKeyStore$DualFormatJKS($Class* clazz) {
-	return $of($alloc(JavaKeyStore$DualFormatJKS));
-}
-
 void JavaKeyStore$DualFormatJKS::init$() {
 	$load($JavaKeyStore$JKS);
 	$load($PKCS12KeyStore);
@@ -64,14 +32,40 @@ bool JavaKeyStore$DualFormatJKS::engineProbe($InputStream* stream) {
 	} else {
 		$assign(dataStream, $new($DataInputStream, stream));
 	}
-	return (int32_t)0xFEEDFEED == $nc(dataStream)->readInt();
+	return (int32_t)0xfeedfeed == $nc(dataStream)->readInt();
 }
 
 JavaKeyStore$DualFormatJKS::JavaKeyStore$DualFormatJKS() {
 }
 
 $Class* JavaKeyStore$DualFormatJKS::load$($String* name, bool initialize) {
-	$loadClass(JavaKeyStore$DualFormatJKS, name, initialize, &_JavaKeyStore$DualFormatJKS_ClassInfo_, allocate$JavaKeyStore$DualFormatJKS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavaKeyStore$DualFormatJKS, init$, void)},
+		{"engineProbe", "(Ljava/io/InputStream;)Z", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore$DualFormatJKS, engineProbe, bool, $InputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.JavaKeyStore$DualFormatJKS", "sun.security.provider.JavaKeyStore", "DualFormatJKS", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.JavaKeyStore$DualFormatJKS",
+		"sun.security.util.KeyStoreDelegator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.JavaKeyStore"
+	};
+	$loadClass(JavaKeyStore$DualFormatJKS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaKeyStore$DualFormatJKS);
+	});
 	return class$;
 }
 

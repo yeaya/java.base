@@ -1,5 +1,4 @@
 #include <java/text/DontCareFieldPosition.h>
-
 #include <java/text/DontCareFieldPosition$1.h>
 #include <java/text/FieldPosition.h>
 #include <java/text/Format$FieldDelegate.h>
@@ -18,42 +17,6 @@ using $Format$FieldDelegate = ::java::text::Format$FieldDelegate;
 namespace java {
 	namespace text {
 
-$FieldInfo _DontCareFieldPosition_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/text/FieldPosition;", nullptr, $STATIC | $FINAL, $staticField(DontCareFieldPosition, INSTANCE)},
-	{"noDelegate", "Ljava/text/Format$FieldDelegate;", nullptr, $PRIVATE | $FINAL, $field(DontCareFieldPosition, noDelegate)},
-	{}
-};
-
-$MethodInfo _DontCareFieldPosition_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DontCareFieldPosition, init$, void)},
-	{"getFieldDelegate", "()Ljava/text/Format$FieldDelegate;", nullptr, 0, $virtualMethod(DontCareFieldPosition, getFieldDelegate, $Format$FieldDelegate*)},
-	{}
-};
-
-$InnerClassInfo _DontCareFieldPosition_InnerClassesInfo_[] = {
-	{"java.text.DontCareFieldPosition$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DontCareFieldPosition_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.text.DontCareFieldPosition",
-	"java.text.FieldPosition",
-	nullptr,
-	_DontCareFieldPosition_FieldInfo_,
-	_DontCareFieldPosition_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DontCareFieldPosition_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.text.DontCareFieldPosition$1"
-};
-
-$Object* allocate$DontCareFieldPosition($Class* clazz) {
-	return $of($alloc(DontCareFieldPosition));
-}
-
 $FieldPosition* DontCareFieldPosition::INSTANCE = nullptr;
 
 void DontCareFieldPosition::init$() {
@@ -65,7 +28,7 @@ $Format$FieldDelegate* DontCareFieldPosition::getFieldDelegate() {
 	return this->noDelegate;
 }
 
-void clinit$DontCareFieldPosition($Class* class$) {
+void DontCareFieldPosition::clinit$($Class* clazz) {
 	$assignStatic(DontCareFieldPosition::INSTANCE, $new(DontCareFieldPosition));
 }
 
@@ -73,7 +36,37 @@ DontCareFieldPosition::DontCareFieldPosition() {
 }
 
 $Class* DontCareFieldPosition::load$($String* name, bool initialize) {
-	$loadClass(DontCareFieldPosition, name, initialize, &_DontCareFieldPosition_ClassInfo_, clinit$DontCareFieldPosition, allocate$DontCareFieldPosition);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/text/FieldPosition;", nullptr, $STATIC | $FINAL, $staticField(DontCareFieldPosition, INSTANCE)},
+		{"noDelegate", "Ljava/text/Format$FieldDelegate;", nullptr, $PRIVATE | $FINAL, $field(DontCareFieldPosition, noDelegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DontCareFieldPosition, init$, void)},
+		{"getFieldDelegate", "()Ljava/text/Format$FieldDelegate;", nullptr, 0, $virtualMethod(DontCareFieldPosition, getFieldDelegate, $Format$FieldDelegate*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.DontCareFieldPosition$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.text.DontCareFieldPosition",
+		"java.text.FieldPosition",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.text.DontCareFieldPosition$1"
+	};
+	$loadClass(DontCareFieldPosition, name, initialize, &classInfo$$, DontCareFieldPosition::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DontCareFieldPosition);
+	});
 	return class$;
 }
 

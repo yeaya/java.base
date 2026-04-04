@@ -22,6 +22,7 @@ class CertificateVerify : public ::java::lang::Object {
 	$class(CertificateVerify, 0, ::java::lang::Object)
 public:
 	CertificateVerify();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLConsumer* s30HandshakeConsumer;
 	static ::sun::security::ssl::HandshakeProducer* s30HandshakeProducer;

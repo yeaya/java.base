@@ -1,5 +1,4 @@
 #include <sun/util/resources/TimeZoneNamesProvider.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,19 +7,16 @@ namespace sun {
 	namespace util {
 		namespace resources {
 
-$ClassInfo _TimeZoneNamesProvider_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.util.resources.TimeZoneNamesProvider",
-	nullptr,
-	"java.util.spi.ResourceBundleProvider"
-};
-
-$Object* allocate$TimeZoneNamesProvider($Class* clazz) {
-	return $of($alloc(TimeZoneNamesProvider));
-}
-
 $Class* TimeZoneNamesProvider::load$($String* name, bool initialize) {
-	$loadClass(TimeZoneNamesProvider, name, initialize, &_TimeZoneNamesProvider_ClassInfo_, allocate$TimeZoneNamesProvider);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.util.resources.TimeZoneNamesProvider",
+		nullptr,
+		"java.util.spi.ResourceBundleProvider"
+	};
+	$loadClass(TimeZoneNamesProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeZoneNamesProvider);
+	});
 	return class$;
 }
 

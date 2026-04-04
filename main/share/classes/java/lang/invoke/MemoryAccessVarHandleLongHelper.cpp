@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MemoryAccessVarHandleLongHelper.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/invoke/MemoryAccessVarHandleBase.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
@@ -36,274 +35,10 @@ using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
 using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_checkAddress2[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_compareAndExchange3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_compareAndExchangeAcquire4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_compareAndExchangeRelease5[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_compareAndSet6[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_convEndian7[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_get8[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAcquire9[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndAdd10[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndAddAcquire11[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndAddConvEndianWithCAS12[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndAddRelease13[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseAnd14[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseAndAcquire15[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseAndConvEndianWithCAS16[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseAndRelease17[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseOr18[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseOrAcquire19[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseOrConvEndianWithCAS20[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseOrRelease21[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseXor22[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseXorAcquire23[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseXorConvEndianWithCAS24[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseXorRelease25[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndSet26[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndSetAcquire27[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndSetRelease28[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getOpaque29[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_getVolatile30[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_offset31[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_offsetNoVMAlignCheck32[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_set33[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_setOpaque34[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_setRelease35[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_setVolatile36[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_weakCompareAndSet37[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_weakCompareAndSetAcquire38[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_weakCompareAndSetPlain39[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MemoryAccessVarHandleLongHelper_MethodAnnotations_weakCompareAndSetRelease40[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _MemoryAccessVarHandleLongHelper_FieldInfo_[] = {
-	{"BE", "Z", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleLongHelper, BE)},
-	{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleLongHelper, SCOPED_MEMORY_ACCESS)},
-	{"VM_ALIGN", "I", nullptr, $STATIC | $FINAL, $constField(MemoryAccessVarHandleLongHelper, VM_ALIGN)},
-	{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleLongHelper, FORM)},
-	{}
-};
-
-$MethodInfo _MemoryAccessVarHandleLongHelper_MethodInfo_[] = {
-	{"<init>", "(ZZJJZ)V", nullptr, 0, $method(MemoryAccessVarHandleLongHelper, init$, void, bool, bool, int64_t, int64_t, bool)},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(MemoryAccessVarHandleLongHelper, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
-	{"checkAddress", "(Ljava/lang/Object;JJZ)Ljdk/internal/access/foreign/MemorySegmentProxy;", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, checkAddress, $MemorySegmentProxy*, Object$*, int64_t, int64_t, bool), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_checkAddress2},
-	{"compareAndExchange", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, compareAndExchange, int64_t, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_compareAndExchange3},
-	{"compareAndExchangeAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, compareAndExchangeAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_compareAndExchangeAcquire4},
-	{"compareAndExchangeRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, compareAndExchangeRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_compareAndExchangeRelease5},
-	{"compareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)Z", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, compareAndSet, bool, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_compareAndSet6},
-	{"convEndian", "(ZJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, convEndian, int64_t, bool, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_convEndian7},
-	{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, get, int64_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_get8},
-	{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAcquire, int64_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAcquire9},
-	{"getAndAdd", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndAdd, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndAdd10},
-	{"getAndAddAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndAddAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndAddAcquire11},
-	{"getAndAddConvEndianWithCAS", "(Ljdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndAddConvEndianWithCAS, int64_t, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndAddConvEndianWithCAS12},
-	{"getAndAddRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndAddRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndAddRelease13},
-	{"getAndBitwiseAnd", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseAnd, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseAnd14},
-	{"getAndBitwiseAndAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseAndAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseAndAcquire15},
-	{"getAndBitwiseAndConvEndianWithCAS", "(Ljdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseAndConvEndianWithCAS, int64_t, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseAndConvEndianWithCAS16},
-	{"getAndBitwiseAndRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseAndRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseAndRelease17},
-	{"getAndBitwiseOr", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseOr, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseOr18},
-	{"getAndBitwiseOrAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseOrAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseOrAcquire19},
-	{"getAndBitwiseOrConvEndianWithCAS", "(Ljdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseOrConvEndianWithCAS, int64_t, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseOrConvEndianWithCAS20},
-	{"getAndBitwiseOrRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseOrRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseOrRelease21},
-	{"getAndBitwiseXor", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseXor, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseXor22},
-	{"getAndBitwiseXorAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseXorAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseXorAcquire23},
-	{"getAndBitwiseXorConvEndianWithCAS", "(Ljdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseXorConvEndianWithCAS, int64_t, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseXorConvEndianWithCAS24},
-	{"getAndBitwiseXorRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseXorRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndBitwiseXorRelease25},
-	{"getAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndSet, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndSet26},
-	{"getAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndSetAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndSetAcquire27},
-	{"getAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndSetRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getAndSetRelease28},
-	{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getOpaque, int64_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getOpaque29},
-	{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getVolatile, int64_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_getVolatile30},
-	{"offset", "(ZLjdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, offset, int64_t, bool, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_offset31},
-	{"offsetNoVMAlignCheck", "(ZLjdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, offsetNoVMAlignCheck, int64_t, bool, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_offsetNoVMAlignCheck32},
-	{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, set, void, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_set33},
-	{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, setOpaque, void, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_setOpaque34},
-	{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, setRelease, void, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_setRelease35},
-	{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, setVolatile, void, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_setVolatile36},
-	{"weakCompareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)Z", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, weakCompareAndSet, bool, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_weakCompareAndSet37},
-	{"weakCompareAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)Z", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, weakCompareAndSetAcquire, bool, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_weakCompareAndSetAcquire38},
-	{"weakCompareAndSetPlain", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)Z", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, weakCompareAndSetPlain, bool, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_weakCompareAndSetPlain39},
-	{"weakCompareAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)Z", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, weakCompareAndSetRelease, bool, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, _MemoryAccessVarHandleLongHelper_MethodAnnotations_weakCompareAndSetRelease40},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/MemoryAccessVarHandleLongHelper;", nullptr, $PUBLIC, $virtualMethod(MemoryAccessVarHandleLongHelper, withInvokeBehavior, MemoryAccessVarHandleLongHelper*)},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/MemoryAccessVarHandleLongHelper;", nullptr, $PUBLIC, $virtualMethod(MemoryAccessVarHandleLongHelper, withInvokeExactBehavior, MemoryAccessVarHandleLongHelper*)},
-	{}
-};
-
-$ClassInfo _MemoryAccessVarHandleLongHelper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.MemoryAccessVarHandleLongHelper",
-	"java.lang.invoke.MemoryAccessVarHandleBase",
-	nullptr,
-	_MemoryAccessVarHandleLongHelper_FieldInfo_,
-	_MemoryAccessVarHandleLongHelper_MethodInfo_
-};
-
-$Object* allocate$MemoryAccessVarHandleLongHelper($Class* clazz) {
-	return $of($alloc(MemoryAccessVarHandleLongHelper));
-}
 
 bool MemoryAccessVarHandleLongHelper::BE = false;
 $ScopedMemoryAccess* MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS = nullptr;
@@ -315,7 +50,6 @@ void MemoryAccessVarHandleLongHelper::init$(bool skipAlignmentMaskCheck, bool be
 
 $MethodType* MemoryAccessVarHandleLongHelper::accessModeTypeUncached($VarHandle$AccessType* accessType) {
 	$load($MemorySegmentProxy);
-	$init($Long);
 	return $nc(accessType)->accessModeType($MemorySegmentProxy::class$, $Long::TYPE, $$new($ClassArray, {$Long::TYPE}));
 }
 
@@ -342,7 +76,7 @@ $MemorySegmentProxy* MemoryAccessVarHandleLongHelper::checkAddress(Object$* obb,
 int64_t MemoryAccessVarHandleLongHelper::offset(bool skipAlignmentMaskCheck, $MemorySegmentProxy* bb, int64_t offset, int64_t alignmentMask) {
 	$init(MemoryAccessVarHandleLongHelper);
 	int64_t address = offsetNoVMAlignCheck(skipAlignmentMaskCheck, bb, offset, alignmentMask);
-	if (((int64_t)(address & (uint64_t)(int64_t)MemoryAccessVarHandleLongHelper::VM_ALIGN)) != 0) {
+	if ((address & MemoryAccessVarHandleLongHelper::VM_ALIGN) != 0) {
 		$throw($($MemoryAccessVarHandleBase::newIllegalStateExceptionForMisalignedAccess(address)));
 	}
 	return address;
@@ -350,14 +84,14 @@ int64_t MemoryAccessVarHandleLongHelper::offset(bool skipAlignmentMaskCheck, $Me
 
 int64_t MemoryAccessVarHandleLongHelper::offsetNoVMAlignCheck(bool skipAlignmentMaskCheck, $MemorySegmentProxy* bb, int64_t offset, int64_t alignmentMask) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t base = $nc(bb)->unsafeGetOffset();
 	int64_t address = base + offset;
 	if (skipAlignmentMaskCheck) {
-		if (((int64_t)(base & (uint64_t)alignmentMask)) != 0) {
+		if ((base & alignmentMask) != 0) {
 			$throw($($MemoryAccessVarHandleBase::newIllegalStateExceptionForMisalignedAccess(address)));
 		}
-	} else if (((int64_t)(address & (uint64_t)alignmentMask)) != 0) {
+	} else if ((address & alignmentMask) != 0) {
 		$throw($($MemoryAccessVarHandleBase::newIllegalStateExceptionForMisalignedAccess(address)));
 	}
 	return address;
@@ -365,222 +99,222 @@ int64_t MemoryAccessVarHandleLongHelper::offsetNoVMAlignCheck(bool skipAlignment
 
 int64_t MemoryAccessVarHandleLongHelper::get($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongUnaligned(var$0, var$1, offsetNoVMAlignCheck($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), $nc(handle)->be);
+	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongUnaligned(var$0, var$1, offsetNoVMAlignCheck(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), handle->be);
 }
 
 void MemoryAccessVarHandleLongHelper::set($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->putLongUnaligned(var$0, var$1, offsetNoVMAlignCheck($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value, $nc(handle)->be);
+	$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->putLongUnaligned(var$0, var$1, offsetNoVMAlignCheck(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value, handle->be);
 }
 
 int64_t MemoryAccessVarHandleLongHelper::getVolatile($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongVolatile(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongVolatile(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
 }
 
 void MemoryAccessVarHandleLongHelper::setVolatile($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	int64_t var$2 = offset($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->putLongVolatile(var$0, var$1, var$2, convEndian($nc(handle)->be, value));
+	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
+	$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->putLongVolatile(var$0, var$1, var$2, convEndian(handle->be, value));
 }
 
 int64_t MemoryAccessVarHandleLongHelper::getAcquire($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongAcquire(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongAcquire(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
 }
 
 void MemoryAccessVarHandleLongHelper::setRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	int64_t var$2 = offset($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->putLongRelease(var$0, var$1, var$2, convEndian($nc(handle)->be, value));
+	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
+	$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->putLongRelease(var$0, var$1, var$2, convEndian(handle->be, value));
 }
 
 int64_t MemoryAccessVarHandleLongHelper::getOpaque($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongOpaque(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongOpaque(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask)));
 }
 
 void MemoryAccessVarHandleLongHelper::setOpaque($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	int64_t var$2 = offset($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->putLongOpaque(var$0, var$1, var$2, convEndian($nc(handle)->be, value));
+	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
+	$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->putLongOpaque(var$0, var$1, var$2, convEndian(handle->be, value));
 }
 
 bool MemoryAccessVarHandleLongHelper::compareAndSet($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	int64_t var$2 = offset($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	int64_t var$3 = convEndian($nc(handle)->be, expected);
-	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->compareAndSetLong(var$0, var$1, var$2, var$3, convEndian($nc(handle)->be, value));
+	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
+	int64_t var$3 = convEndian(handle->be, expected);
+	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->compareAndSetLong(var$0, var$1, var$2, var$3, convEndian(handle->be, value));
 }
 
 int64_t MemoryAccessVarHandleLongHelper::compareAndExchange($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
 	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
 	int64_t var$3 = convEndian(handle->be, expected);
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->compareAndExchangeLong(var$0, var$1, var$2, var$3, convEndian(handle->be, value)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->compareAndExchangeLong(var$0, var$1, var$2, var$3, convEndian(handle->be, value)));
 }
 
 int64_t MemoryAccessVarHandleLongHelper::compareAndExchangeAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
 	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
 	int64_t var$3 = convEndian(handle->be, expected);
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->compareAndExchangeLongAcquire(var$0, var$1, var$2, var$3, convEndian(handle->be, value)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->compareAndExchangeLongAcquire(var$0, var$1, var$2, var$3, convEndian(handle->be, value)));
 }
 
 int64_t MemoryAccessVarHandleLongHelper::compareAndExchangeRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
 	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
 	int64_t var$3 = convEndian(handle->be, expected);
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->compareAndExchangeLongRelease(var$0, var$1, var$2, var$3, convEndian(handle->be, value)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->compareAndExchangeLongRelease(var$0, var$1, var$2, var$3, convEndian(handle->be, value)));
 }
 
 bool MemoryAccessVarHandleLongHelper::weakCompareAndSetPlain($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	int64_t var$2 = offset($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	int64_t var$3 = convEndian($nc(handle)->be, expected);
-	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongPlain(var$0, var$1, var$2, var$3, convEndian($nc(handle)->be, value));
+	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
+	int64_t var$3 = convEndian(handle->be, expected);
+	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongPlain(var$0, var$1, var$2, var$3, convEndian(handle->be, value));
 }
 
 bool MemoryAccessVarHandleLongHelper::weakCompareAndSet($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	int64_t var$2 = offset($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	int64_t var$3 = convEndian($nc(handle)->be, expected);
-	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, var$1, var$2, var$3, convEndian($nc(handle)->be, value));
+	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
+	int64_t var$3 = convEndian(handle->be, expected);
+	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, var$1, var$2, var$3, convEndian(handle->be, value));
 }
 
 bool MemoryAccessVarHandleLongHelper::weakCompareAndSetAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	int64_t var$2 = offset($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	int64_t var$3 = convEndian($nc(handle)->be, expected);
-	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongAcquire(var$0, var$1, var$2, var$3, convEndian($nc(handle)->be, value));
+	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
+	int64_t var$3 = convEndian(handle->be, expected);
+	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongAcquire(var$0, var$1, var$2, var$3, convEndian(handle->be, value));
 }
 
 bool MemoryAccessVarHandleLongHelper::weakCompareAndSetRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
-	int64_t var$2 = offset($nc(handle)->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	int64_t var$3 = convEndian($nc(handle)->be, expected);
-	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongRelease(var$0, var$1, var$2, var$3, convEndian($nc(handle)->be, value));
+	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
+	int64_t var$3 = convEndian(handle->be, expected);
+	return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongRelease(var$0, var$1, var$2, var$3, convEndian(handle->be, value));
 }
 
 int64_t MemoryAccessVarHandleLongHelper::getAndSet($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
 	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndSetLong(var$0, var$1, var$2, convEndian(handle->be, value)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndSetLong(var$0, var$1, var$2, convEndian(handle->be, value)));
 }
 
 int64_t MemoryAccessVarHandleLongHelper::getAndSetAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
 	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndSetLongAcquire(var$0, var$1, var$2, convEndian(handle->be, value)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndSetLongAcquire(var$0, var$1, var$2, convEndian(handle->be, value)));
 }
 
 int64_t MemoryAccessVarHandleLongHelper::getAndSetRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 	$var($Object, var$1, bb->unsafeGetBase());
 	int64_t var$2 = offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask);
-	return convEndian($nc(handle)->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndSetLongRelease(var$0, var$1, var$2, convEndian(handle->be, value)));
+	return convEndian(handle->be, $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndSetLongRelease(var$0, var$1, var$2, convEndian(handle->be, value)));
 }
 
 int64_t MemoryAccessVarHandleLongHelper::getAndAdd($VarHandle* ob, Object$* obb, int64_t base, int64_t delta) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndAddLong(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), delta);
@@ -591,10 +325,10 @@ int64_t MemoryAccessVarHandleLongHelper::getAndAdd($VarHandle* ob, Object$* obb,
 
 int64_t MemoryAccessVarHandleLongHelper::getAndAddAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t delta) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndAddLongAcquire(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), delta);
@@ -605,10 +339,10 @@ int64_t MemoryAccessVarHandleLongHelper::getAndAddAcquire($VarHandle* ob, Object
 
 int64_t MemoryAccessVarHandleLongHelper::getAndAddRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t delta) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndAddLongRelease(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), delta);
@@ -619,31 +353,25 @@ int64_t MemoryAccessVarHandleLongHelper::getAndAddRelease($VarHandle* ob, Object
 
 int64_t MemoryAccessVarHandleLongHelper::getAndAddConvEndianWithCAS($MemorySegmentProxy* bb, int64_t offset, int64_t delta) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	$var($Object, base, $nc(bb)->unsafeGetBase());
 	$var($ScopedMemoryAccess$Scope, var$0, nullptr);
-	$var($Object, var$1, nullptr);
-	int64_t var$2 = 0;
-	int64_t var$3 = 0;
 	do {
 		nativeExpectedValue = $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongVolatile($(bb->scope()), base, offset);
 		expectedValue = $Long::reverseBytes(nativeExpectedValue);
 		$assign(var$0, bb->scope());
-		$assign(var$1, base);
-		var$2 = offset;
-		var$3 = nativeExpectedValue;
-	} while (!$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, var$1, var$2, var$3, $Long::reverseBytes(expectedValue + delta)));
+	} while (!$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, base, offset, nativeExpectedValue, $Long::reverseBytes(expectedValue + delta)));
 	return expectedValue;
 }
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOr($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndBitwiseOrLong(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value);
@@ -654,10 +382,10 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOr($VarHandle* ob, Object$
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOrRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndBitwiseOrLongRelease(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value);
@@ -668,10 +396,10 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOrRelease($VarHandle* ob, 
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOrAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndBitwiseOrLongAcquire(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value);
@@ -682,31 +410,25 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOrAcquire($VarHandle* ob, 
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOrConvEndianWithCAS($MemorySegmentProxy* bb, int64_t offset, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	$var($Object, base, $nc(bb)->unsafeGetBase());
 	$var($ScopedMemoryAccess$Scope, var$0, nullptr);
-	$var($Object, var$1, nullptr);
-	int64_t var$2 = 0;
-	int64_t var$3 = 0;
 	do {
 		nativeExpectedValue = $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongVolatile($(bb->scope()), base, offset);
 		expectedValue = $Long::reverseBytes(nativeExpectedValue);
 		$assign(var$0, bb->scope());
-		$assign(var$1, base);
-		var$2 = offset;
-		var$3 = nativeExpectedValue;
-	} while (!$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, var$1, var$2, var$3, $Long::reverseBytes(expectedValue | value)));
+	} while (!$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, base, offset, nativeExpectedValue, $Long::reverseBytes(expectedValue | value)));
 	return expectedValue;
 }
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAnd($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndBitwiseAndLong(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value);
@@ -717,10 +439,10 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAnd($VarHandle* ob, Object
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAndRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndBitwiseAndLongRelease(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value);
@@ -731,10 +453,10 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAndRelease($VarHandle* ob,
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAndAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndBitwiseAndLongAcquire(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value);
@@ -745,31 +467,25 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAndAcquire($VarHandle* ob,
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAndConvEndianWithCAS($MemorySegmentProxy* bb, int64_t offset, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	$var($Object, base, $nc(bb)->unsafeGetBase());
 	$var($ScopedMemoryAccess$Scope, var$0, nullptr);
-	$var($Object, var$1, nullptr);
-	int64_t var$2 = 0;
-	int64_t var$3 = 0;
 	do {
 		nativeExpectedValue = $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongVolatile($(bb->scope()), base, offset);
 		expectedValue = $Long::reverseBytes(nativeExpectedValue);
 		$assign(var$0, bb->scope());
-		$assign(var$1, base);
-		var$2 = offset;
-		var$3 = nativeExpectedValue;
-	} while (!$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, var$1, var$2, var$3, $Long::reverseBytes((int64_t)(expectedValue & (uint64_t)value))));
+	} while (!$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, base, offset, nativeExpectedValue, $Long::reverseBytes(expectedValue & value)));
 	return expectedValue;
 }
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXor($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndBitwiseXorLong(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value);
@@ -780,10 +496,10 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXor($VarHandle* ob, Object
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXorRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndBitwiseXorLongRelease(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value);
@@ -794,10 +510,10 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXorRelease($VarHandle* ob,
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXorAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
-	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
+	if (handle->be == MemoryAccessVarHandleLongHelper::BE) {
 		$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
 		$var($Object, var$1, bb->unsafeGetBase());
 		return $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getAndBitwiseXorLongAcquire(var$0, var$1, offset(handle->skipAlignmentMaskCheck, bb, base, handle->alignmentMask), value);
@@ -808,31 +524,24 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXorAcquire($VarHandle* ob,
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXorConvEndianWithCAS($MemorySegmentProxy* bb, int64_t offset, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	$var($Object, base, $nc(bb)->unsafeGetBase());
 	$var($ScopedMemoryAccess$Scope, var$0, nullptr);
-	$var($Object, var$1, nullptr);
-	int64_t var$2 = 0;
-	int64_t var$3 = 0;
 	do {
 		nativeExpectedValue = $nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->getLongVolatile($(bb->scope()), base, offset);
 		expectedValue = $Long::reverseBytes(nativeExpectedValue);
 		$assign(var$0, bb->scope());
-		$assign(var$1, base);
-		var$2 = offset;
-		var$3 = nativeExpectedValue;
-	} while (!$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, var$1, var$2, var$3, $Long::reverseBytes(expectedValue ^ value)));
+	} while (!$nc(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, base, offset, nativeExpectedValue, $Long::reverseBytes(expectedValue ^ value)));
 	return expectedValue;
 }
 
-void clinit$MemoryAccessVarHandleLongHelper($Class* class$) {
+void MemoryAccessVarHandleLongHelper::clinit$($Class* clazz) {
 	$init($MethodHandleStatics);
 	MemoryAccessVarHandleLongHelper::BE = $nc($MethodHandleStatics::UNSAFE)->isBigEndian();
 	$assignStatic(MemoryAccessVarHandleLongHelper::SCOPED_MEMORY_ACCESS, $ScopedMemoryAccess::getScopedMemoryAccess());
 	$load($MemorySegmentProxy);
-	$init($Long);
 	$assignStatic(MemoryAccessVarHandleLongHelper::FORM, $new($VarForm, MemoryAccessVarHandleLongHelper::class$, $MemorySegmentProxy::class$, $Long::TYPE, $$new($ClassArray, {$Long::TYPE})));
 }
 
@@ -840,7 +549,226 @@ MemoryAccessVarHandleLongHelper::MemoryAccessVarHandleLongHelper() {
 }
 
 $Class* MemoryAccessVarHandleLongHelper::load$($String* name, bool initialize) {
-	$loadClass(MemoryAccessVarHandleLongHelper, name, initialize, &_MemoryAccessVarHandleLongHelper_ClassInfo_, clinit$MemoryAccessVarHandleLongHelper, allocate$MemoryAccessVarHandleLongHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"BE", "Z", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleLongHelper, BE)},
+		{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleLongHelper, SCOPED_MEMORY_ACCESS)},
+		{"VM_ALIGN", "I", nullptr, $STATIC | $FINAL, $constField(MemoryAccessVarHandleLongHelper, VM_ALIGN)},
+		{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(MemoryAccessVarHandleLongHelper, FORM)},
+		{}
+	};
+	$CompoundAttribute checkAddressmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangeAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangeReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute convEndianmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddConvEndianWithCASmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseAndmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseAndAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseAndConvEndianWithCASmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseAndReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseOrmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseOrAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseOrConvEndianWithCASmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseOrReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseXormethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseXorAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseXorConvEndianWithCASmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseXorReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute offsetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute offsetNoVMAlignCheckmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetPlainmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZZJJZ)V", nullptr, 0, $method(MemoryAccessVarHandleLongHelper, init$, void, bool, bool, int64_t, int64_t, bool)},
+		{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(MemoryAccessVarHandleLongHelper, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+		{"checkAddress", "(Ljava/lang/Object;JJZ)Ljdk/internal/access/foreign/MemorySegmentProxy;", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, checkAddress, $MemorySegmentProxy*, Object$*, int64_t, int64_t, bool), nullptr, nullptr, checkAddressmethodAnnotations$$},
+		{"compareAndExchange", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, compareAndExchange, int64_t, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, compareAndExchangemethodAnnotations$$},
+		{"compareAndExchangeAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, compareAndExchangeAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, compareAndExchangeAcquiremethodAnnotations$$},
+		{"compareAndExchangeRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, compareAndExchangeRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, compareAndExchangeReleasemethodAnnotations$$},
+		{"compareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)Z", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, compareAndSet, bool, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, compareAndSetmethodAnnotations$$},
+		{"convEndian", "(ZJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, convEndian, int64_t, bool, int64_t), nullptr, nullptr, convEndianmethodAnnotations$$},
+		{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, get, int64_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, getmethodAnnotations$$},
+		{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAcquire, int64_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, getAcquiremethodAnnotations$$},
+		{"getAndAdd", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndAdd, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndAddmethodAnnotations$$},
+		{"getAndAddAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndAddAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndAddAcquiremethodAnnotations$$},
+		{"getAndAddConvEndianWithCAS", "(Ljdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndAddConvEndianWithCAS, int64_t, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, getAndAddConvEndianWithCASmethodAnnotations$$},
+		{"getAndAddRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndAddRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndAddReleasemethodAnnotations$$},
+		{"getAndBitwiseAnd", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseAnd, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseAndmethodAnnotations$$},
+		{"getAndBitwiseAndAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseAndAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseAndAcquiremethodAnnotations$$},
+		{"getAndBitwiseAndConvEndianWithCAS", "(Ljdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseAndConvEndianWithCAS, int64_t, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseAndConvEndianWithCASmethodAnnotations$$},
+		{"getAndBitwiseAndRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseAndRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseAndReleasemethodAnnotations$$},
+		{"getAndBitwiseOr", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseOr, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseOrmethodAnnotations$$},
+		{"getAndBitwiseOrAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseOrAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseOrAcquiremethodAnnotations$$},
+		{"getAndBitwiseOrConvEndianWithCAS", "(Ljdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseOrConvEndianWithCAS, int64_t, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseOrConvEndianWithCASmethodAnnotations$$},
+		{"getAndBitwiseOrRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseOrRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseOrReleasemethodAnnotations$$},
+		{"getAndBitwiseXor", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseXor, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseXormethodAnnotations$$},
+		{"getAndBitwiseXorAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseXorAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseXorAcquiremethodAnnotations$$},
+		{"getAndBitwiseXorConvEndianWithCAS", "(Ljdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseXorConvEndianWithCAS, int64_t, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseXorConvEndianWithCASmethodAnnotations$$},
+		{"getAndBitwiseXorRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndBitwiseXorRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndBitwiseXorReleasemethodAnnotations$$},
+		{"getAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndSet, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndSetmethodAnnotations$$},
+		{"getAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndSetAcquire, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndSetAcquiremethodAnnotations$$},
+		{"getAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getAndSetRelease, int64_t, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, getAndSetReleasemethodAnnotations$$},
+		{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getOpaque, int64_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, getOpaquemethodAnnotations$$},
+		{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;J)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, getVolatile, int64_t, $VarHandle*, Object$*, int64_t), nullptr, nullptr, getVolatilemethodAnnotations$$},
+		{"offset", "(ZLjdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, offset, int64_t, bool, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, offsetmethodAnnotations$$},
+		{"offsetNoVMAlignCheck", "(ZLjdk/internal/access/foreign/MemorySegmentProxy;JJ)J", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, offsetNoVMAlignCheck, int64_t, bool, $MemorySegmentProxy*, int64_t, int64_t), nullptr, nullptr, offsetNoVMAlignCheckmethodAnnotations$$},
+		{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, set, void, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, setmethodAnnotations$$},
+		{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, setOpaque, void, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, setOpaquemethodAnnotations$$},
+		{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, setRelease, void, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, setReleasemethodAnnotations$$},
+		{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJ)V", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, setVolatile, void, $VarHandle*, Object$*, int64_t, int64_t), nullptr, nullptr, setVolatilemethodAnnotations$$},
+		{"weakCompareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)Z", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, weakCompareAndSet, bool, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, weakCompareAndSetmethodAnnotations$$},
+		{"weakCompareAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)Z", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, weakCompareAndSetAcquire, bool, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, weakCompareAndSetAcquiremethodAnnotations$$},
+		{"weakCompareAndSetPlain", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)Z", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, weakCompareAndSetPlain, bool, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, weakCompareAndSetPlainmethodAnnotations$$},
+		{"weakCompareAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;JJJ)Z", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleLongHelper, weakCompareAndSetRelease, bool, $VarHandle*, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, weakCompareAndSetReleasemethodAnnotations$$},
+		{"withInvokeBehavior", "()Ljava/lang/invoke/MemoryAccessVarHandleLongHelper;", nullptr, $PUBLIC, $virtualMethod(MemoryAccessVarHandleLongHelper, withInvokeBehavior, MemoryAccessVarHandleLongHelper*)},
+		{"withInvokeExactBehavior", "()Ljava/lang/invoke/MemoryAccessVarHandleLongHelper;", nullptr, $PUBLIC, $virtualMethod(MemoryAccessVarHandleLongHelper, withInvokeExactBehavior, MemoryAccessVarHandleLongHelper*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.MemoryAccessVarHandleLongHelper",
+		"java.lang.invoke.MemoryAccessVarHandleBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MemoryAccessVarHandleLongHelper, name, initialize, &classInfo$$, MemoryAccessVarHandleLongHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryAccessVarHandleLongHelper);
+	});
 	return class$;
 }
 

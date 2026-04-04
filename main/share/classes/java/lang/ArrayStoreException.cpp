@@ -1,5 +1,4 @@
 #include <java/lang/ArrayStoreException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ArrayStoreException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayStoreException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ArrayStoreException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayStoreException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ArrayStoreException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ArrayStoreException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.ArrayStoreException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ArrayStoreException_FieldInfo_,
-	_ArrayStoreException_MethodInfo_
-};
-
-$Object* allocate$ArrayStoreException($Class* clazz) {
-	return $of($alloc(ArrayStoreException));
-}
 
 void ArrayStoreException::init$() {
 	$RuntimeException::init$();
@@ -53,7 +28,26 @@ void ArrayStoreException::throw$() {
 }
 
 $Class* ArrayStoreException::load$($String* name, bool initialize) {
-	$loadClass(ArrayStoreException, name, initialize, &_ArrayStoreException_ClassInfo_, allocate$ArrayStoreException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayStoreException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayStoreException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ArrayStoreException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.ArrayStoreException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArrayStoreException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayStoreException);
+	});
 	return class$;
 }
 

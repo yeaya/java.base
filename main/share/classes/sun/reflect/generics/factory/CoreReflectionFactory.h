@@ -50,6 +50,7 @@ class CoreReflectionFactory : public ::sun::reflect::generics::factory::Generics
 	$class(CoreReflectionFactory, 0, ::sun::reflect::generics::factory::GenericsFactory)
 public:
 	CoreReflectionFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::GenericDeclaration* d, ::sun::reflect::generics::scope::Scope* s);
 	virtual ::java::lang::reflect::TypeVariable* findTypeVariable($String* name) override;
 	::java::lang::reflect::GenericDeclaration* getDecl();

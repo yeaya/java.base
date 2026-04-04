@@ -1,5 +1,4 @@
 #include <sun/util/PropertyResourceBundleCharset$PropertiesFileDecoder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -35,54 +34,15 @@ using $PropertyResourceBundleCharset = ::sun::util::PropertyResourceBundleCharse
 namespace sun {
 	namespace util {
 
-$FieldInfo _PropertyResourceBundleCharset$PropertiesFileDecoder_FieldInfo_[] = {
-	{"this$0", "Lsun/util/PropertyResourceBundleCharset;", nullptr, $FINAL | $SYNTHETIC, $field(PropertyResourceBundleCharset$PropertiesFileDecoder, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PropertyResourceBundleCharset$PropertiesFileDecoder, $assertionsDisabled)},
-	{"cdUTF_8", "Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE, $field(PropertyResourceBundleCharset$PropertiesFileDecoder, cdUTF_8)},
-	{"cdISO_8859_1", "Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE, $field(PropertyResourceBundleCharset$PropertiesFileDecoder, cdISO_8859_1)},
-	{}
-};
-
-$MethodInfo _PropertyResourceBundleCharset$PropertiesFileDecoder_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/PropertyResourceBundleCharset;Ljava/nio/charset/Charset;FF)V", nullptr, $PROTECTED, $method(PropertyResourceBundleCharset$PropertiesFileDecoder, init$, void, $PropertyResourceBundleCharset*, $Charset*, float, float)},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(PropertyResourceBundleCharset$PropertiesFileDecoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{}
-};
-
-$InnerClassInfo _PropertyResourceBundleCharset$PropertiesFileDecoder_InnerClassesInfo_[] = {
-	{"sun.util.PropertyResourceBundleCharset$PropertiesFileDecoder", "sun.util.PropertyResourceBundleCharset", "PropertiesFileDecoder", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _PropertyResourceBundleCharset$PropertiesFileDecoder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.util.PropertyResourceBundleCharset$PropertiesFileDecoder",
-	"java.nio.charset.CharsetDecoder",
-	nullptr,
-	_PropertyResourceBundleCharset$PropertiesFileDecoder_FieldInfo_,
-	_PropertyResourceBundleCharset$PropertiesFileDecoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PropertyResourceBundleCharset$PropertiesFileDecoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.PropertyResourceBundleCharset"
-};
-
-$Object* allocate$PropertyResourceBundleCharset$PropertiesFileDecoder($Class* clazz) {
-	return $of($alloc(PropertyResourceBundleCharset$PropertiesFileDecoder));
-}
-
 bool PropertyResourceBundleCharset$PropertiesFileDecoder::$assertionsDisabled = false;
 
 void PropertyResourceBundleCharset$PropertiesFileDecoder::init$($PropertyResourceBundleCharset* this$0, $Charset* cs, float averageCharsPerByte, float maxCharsPerByte) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$CharsetDecoder::init$(cs, averageCharsPerByte, maxCharsPerByte);
 	$init($UTF_8);
 	$init($CodingErrorAction);
-	$set(this, cdUTF_8, $nc($($nc($($nc($UTF_8::INSTANCE)->newDecoder()))->onMalformedInput($CodingErrorAction::REPORT)))->onUnmappableCharacter($CodingErrorAction::REPORT));
+	$set(this, cdUTF_8, $$nc($$nc($nc($UTF_8::INSTANCE)->newDecoder())->onMalformedInput($CodingErrorAction::REPORT))->onUnmappableCharacter($CodingErrorAction::REPORT));
 	$set(this, cdISO_8859_1, nullptr);
 }
 
@@ -94,13 +54,13 @@ $CoderResult* PropertyResourceBundleCharset$PropertiesFileDecoder::decodeLoop($B
 	$nc(out)->mark();
 	$var($CoderResult, cr, $nc(this->cdUTF_8)->decode(in, out, false));
 	bool var$0 = $nc(cr)->isUnderflow();
-	if (var$0 || $nc(cr)->isOverflow() || this->this$0->strictUTF8) {
+	if (var$0 || cr->isOverflow() || this->this$0->strictUTF8) {
 		return cr;
 	}
 	bool var$1 = !PropertyResourceBundleCharset$PropertiesFileDecoder::$assertionsDisabled;
 	if (var$1) {
-		bool var$2 = $nc(cr)->isMalformed();
-		var$1 = !(var$2 || $nc(cr)->isUnmappable());
+		bool var$2 = cr->isMalformed();
+		var$1 = !(var$2 || cr->isUnmappable());
 	}
 	if (var$1) {
 		$throwNew($AssertionError);
@@ -112,7 +72,7 @@ $CoderResult* PropertyResourceBundleCharset$PropertiesFileDecoder::decodeLoop($B
 	return $nc(this->cdISO_8859_1)->decode(in, out, false);
 }
 
-void clinit$PropertyResourceBundleCharset$PropertiesFileDecoder($Class* class$) {
+void PropertyResourceBundleCharset$PropertiesFileDecoder::clinit$($Class* clazz) {
 	$load($PropertyResourceBundleCharset);
 	PropertyResourceBundleCharset$PropertiesFileDecoder::$assertionsDisabled = !$PropertyResourceBundleCharset::class$->desiredAssertionStatus();
 }
@@ -121,7 +81,40 @@ PropertyResourceBundleCharset$PropertiesFileDecoder::PropertyResourceBundleChars
 }
 
 $Class* PropertyResourceBundleCharset$PropertiesFileDecoder::load$($String* name, bool initialize) {
-	$loadClass(PropertyResourceBundleCharset$PropertiesFileDecoder, name, initialize, &_PropertyResourceBundleCharset$PropertiesFileDecoder_ClassInfo_, clinit$PropertyResourceBundleCharset$PropertiesFileDecoder, allocate$PropertyResourceBundleCharset$PropertiesFileDecoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/util/PropertyResourceBundleCharset;", nullptr, $FINAL | $SYNTHETIC, $field(PropertyResourceBundleCharset$PropertiesFileDecoder, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PropertyResourceBundleCharset$PropertiesFileDecoder, $assertionsDisabled)},
+		{"cdUTF_8", "Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE, $field(PropertyResourceBundleCharset$PropertiesFileDecoder, cdUTF_8)},
+		{"cdISO_8859_1", "Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE, $field(PropertyResourceBundleCharset$PropertiesFileDecoder, cdISO_8859_1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/util/PropertyResourceBundleCharset;Ljava/nio/charset/Charset;FF)V", nullptr, $PROTECTED, $method(PropertyResourceBundleCharset$PropertiesFileDecoder, init$, void, $PropertyResourceBundleCharset*, $Charset*, float, float)},
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(PropertyResourceBundleCharset$PropertiesFileDecoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.PropertyResourceBundleCharset$PropertiesFileDecoder", "sun.util.PropertyResourceBundleCharset", "PropertiesFileDecoder", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.util.PropertyResourceBundleCharset$PropertiesFileDecoder",
+		"java.nio.charset.CharsetDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.PropertyResourceBundleCharset"
+	};
+	$loadClass(PropertyResourceBundleCharset$PropertiesFileDecoder, name, initialize, &classInfo$$, PropertyResourceBundleCharset$PropertiesFileDecoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyResourceBundleCharset$PropertiesFileDecoder);
+	});
 	return class$;
 }
 

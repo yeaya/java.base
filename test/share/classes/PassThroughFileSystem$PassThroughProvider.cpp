@@ -1,5 +1,4 @@
 #include <PassThroughFileSystem$PassThroughProvider.h>
-
 #include <PassThroughFileSystem$PassThroughPath.h>
 #include <PassThroughFileSystem$PassThroughProvider$1.h>
 #include <PassThroughFileSystem.h>
@@ -59,67 +58,6 @@ using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 
-$FieldInfo _PassThroughFileSystem$PassThroughProvider_FieldInfo_[] = {
-	{"SCHEME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PassThroughFileSystem$PassThroughProvider, SCHEME)},
-	{"delegate", "LPassThroughFileSystem;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(PassThroughFileSystem$PassThroughProvider, delegate)},
-	{}
-};
-
-$MethodInfo _PassThroughFileSystem$PassThroughProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PassThroughFileSystem$PassThroughProvider, init$, void)},
-	{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
-	{"checkScheme", "(Ljava/net/URI;)V", nullptr, $PRIVATE, $method(PassThroughFileSystem$PassThroughProvider, checkScheme, void, $URI*)},
-	{"checkUri", "(Ljava/net/URI;)V", nullptr, $PRIVATE, $method(PassThroughFileSystem$PassThroughProvider, checkUri, void, $URI*)},
-	{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
-	{"createLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, createLink, void, $Path*, $Path*), "java.io.IOException"},
-	{"createSymbolicLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, createSymbolicLink, void, $Path*, $Path*, $FileAttributeArray*), "java.io.IOException"},
-	{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, delete$, void, $Path*), "java.io.IOException"},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
-	{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
-	{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, getFileSystem, $FileSystem*, $URI*)},
-	{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, getPath, $Path*, $URI*)},
-	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, getScheme, $String*)},
-	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, isHidden, bool, $Path*), "java.io.IOException"},
-	{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
-	{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
-	{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, newFileSystem, $FileSystem*, $URI*, $Map*), "java.io.IOException"},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, readAttributes, $Map*, $Path*, $String*, $LinkOptionArray*), "java.io.IOException"},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
-	{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, readSymbolicLink, $Path*, $Path*), "java.io.IOException"},
-	{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, setAttribute, void, $Path*, $String*, Object$*, $LinkOptionArray*), "java.io.IOException"},
-	{"wrap", "(Ljava/nio/file/DirectoryStream;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PRIVATE, $method(PassThroughFileSystem$PassThroughProvider, wrap, $DirectoryStream*, $DirectoryStream*)},
-	{}
-};
-
-$InnerClassInfo _PassThroughFileSystem$PassThroughProvider_InnerClassesInfo_[] = {
-	{"PassThroughFileSystem$PassThroughProvider", "PassThroughFileSystem", "PassThroughProvider", $STATIC},
-	{"PassThroughFileSystem$PassThroughProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PassThroughFileSystem$PassThroughProvider_ClassInfo_ = {
-	$ACC_SUPER,
-	"PassThroughFileSystem$PassThroughProvider",
-	"java.nio.file.spi.FileSystemProvider",
-	nullptr,
-	_PassThroughFileSystem$PassThroughProvider_FieldInfo_,
-	_PassThroughFileSystem$PassThroughProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PassThroughFileSystem$PassThroughProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"PassThroughFileSystem"
-};
-
-$Object* allocate$PassThroughFileSystem$PassThroughProvider($Class* clazz) {
-	return $of($alloc(PassThroughFileSystem$PassThroughProvider));
-}
-
 $String* PassThroughFileSystem$PassThroughProvider::SCHEME = nullptr;
 $volatile($PassThroughFileSystem*) PassThroughFileSystem$PassThroughProvider::delegate = nullptr;
 
@@ -132,20 +70,20 @@ $String* PassThroughFileSystem$PassThroughProvider::getScheme() {
 }
 
 void PassThroughFileSystem$PassThroughProvider::checkScheme($URI* uri) {
-	if (!$nc($($nc(uri)->getScheme()))->equalsIgnoreCase(PassThroughFileSystem$PassThroughProvider::SCHEME)) {
+	if (!$$nc($nc(uri)->getScheme())->equalsIgnoreCase(PassThroughFileSystem$PassThroughProvider::SCHEME)) {
 		$throwNew($IllegalArgumentException);
 	}
 }
 
 void PassThroughFileSystem$PassThroughProvider::checkUri($URI* uri) {
 	checkScheme(uri);
-	if (!$nc($($nc(uri)->getSchemeSpecificPart()))->equals("///"_s)) {
+	if (!$$nc($nc(uri)->getSchemeSpecificPart())->equals("///"_s)) {
 		$throwNew($IllegalArgumentException);
 	}
 }
 
 $FileSystem* PassThroughFileSystem$PassThroughProvider::newFileSystem($URI* uri, $Map* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkUri(uri);
 	$synchronized(PassThroughFileSystem$PassThroughProvider::class$) {
 		if (PassThroughFileSystem$PassThroughProvider::delegate != nullptr) {
@@ -167,15 +105,18 @@ $FileSystem* PassThroughFileSystem$PassThroughProvider::getFileSystem($URI* uri)
 }
 
 $Path* PassThroughFileSystem$PassThroughProvider::getPath($URI* uri$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URI, uri, uri$renamed);
 	checkScheme(uri);
 	if (PassThroughFileSystem$PassThroughProvider::delegate == nullptr) {
 		$throwNew($FileSystemNotFoundException);
 	}
-	$var($String, var$0, $$str({$($nc($($nc(PassThroughFileSystem$PassThroughProvider::delegate)->provider()))->getScheme()), ":"_s}));
-	$assign(uri, $URI::create($$concat(var$0, $($nc(uri)->getSchemeSpecificPart()))));
-	return $new($PassThroughFileSystem$PassThroughPath, PassThroughFileSystem$PassThroughProvider::delegate, $($nc($($nc(PassThroughFileSystem$PassThroughProvider::delegate)->provider()))->getPath(uri)));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($$nc($nc(PassThroughFileSystem$PassThroughProvider::delegate)->provider())->getScheme()));
+	var$0->append(":"_s);
+	var$0->append($($nc(uri)->getSchemeSpecificPart()));
+	$assign(uri, $URI::create($$str(var$0)));
+	return $new($PassThroughFileSystem$PassThroughPath, PassThroughFileSystem$PassThroughProvider::delegate, $($$nc($nc(PassThroughFileSystem$PassThroughProvider::delegate)->provider())->getPath(uri)));
 }
 
 void PassThroughFileSystem$PassThroughProvider::setAttribute($Path* file, $String* attribute, Object$* value, $LinkOptionArray* options) {
@@ -199,31 +140,31 @@ void PassThroughFileSystem$PassThroughProvider::delete$($Path* file) {
 }
 
 void PassThroughFileSystem$PassThroughProvider::createSymbolicLink($Path* link, $Path* target, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, var$0, $PassThroughFileSystem::unwrap(link));
 	$Files::createSymbolicLink(var$0, $($PassThroughFileSystem::unwrap(target)), attrs);
 }
 
 void PassThroughFileSystem$PassThroughProvider::createLink($Path* link, $Path* existing) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, var$0, $PassThroughFileSystem::unwrap(link));
 	$Files::createLink(var$0, $($PassThroughFileSystem::unwrap(existing)));
 }
 
 $Path* PassThroughFileSystem$PassThroughProvider::readSymbolicLink($Path* link) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, target, $Files::readSymbolicLink($($PassThroughFileSystem::unwrap(link))));
 	return $new($PassThroughFileSystem$PassThroughPath, PassThroughFileSystem$PassThroughProvider::delegate, target);
 }
 
 void PassThroughFileSystem$PassThroughProvider::copy($Path* source, $Path* target, $CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, var$0, $PassThroughFileSystem::unwrap(source));
 	$Files::copy(var$0, $($PassThroughFileSystem::unwrap(target)), options);
 }
 
 void PassThroughFileSystem$PassThroughProvider::move($Path* source, $Path* target, $CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, var$0, $PassThroughFileSystem::unwrap(source));
 	$Files::move(var$0, $($PassThroughFileSystem::unwrap(target)), options);
 }
@@ -233,7 +174,7 @@ $DirectoryStream* PassThroughFileSystem$PassThroughProvider::wrap($DirectoryStre
 }
 
 $DirectoryStream* PassThroughFileSystem$PassThroughProvider::newDirectoryStream($Path* dir, $DirectoryStream$Filter* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return wrap($($Files::newDirectoryStream($($PassThroughFileSystem::unwrap(dir)), filter)));
 }
 
@@ -254,13 +195,13 @@ $FileStore* PassThroughFileSystem$PassThroughProvider::getFileStore($Path* file)
 }
 
 bool PassThroughFileSystem$PassThroughProvider::isSameFile($Path* file, $Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, var$0, $PassThroughFileSystem::unwrap(file));
 	return $Files::isSameFile(var$0, $($PassThroughFileSystem::unwrap(other)));
 }
 
 void PassThroughFileSystem$PassThroughProvider::checkAccess($Path* file, $AccessModeArray* modes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(modes)->length == 0) {
 		if ($Files::exists($($PassThroughFileSystem::unwrap(file)), $$new($LinkOptionArray, 0))) {
 			return;
@@ -274,12 +215,67 @@ void PassThroughFileSystem$PassThroughProvider::checkAccess($Path* file, $Access
 PassThroughFileSystem$PassThroughProvider::PassThroughFileSystem$PassThroughProvider() {
 }
 
-void clinit$PassThroughFileSystem$PassThroughProvider($Class* class$) {
+void PassThroughFileSystem$PassThroughProvider::clinit$($Class* clazz) {
 	$assignStatic(PassThroughFileSystem$PassThroughProvider::SCHEME, "pass"_s);
 }
 
 $Class* PassThroughFileSystem$PassThroughProvider::load$($String* name, bool initialize) {
-	$loadClass(PassThroughFileSystem$PassThroughProvider, name, initialize, &_PassThroughFileSystem$PassThroughProvider_ClassInfo_, clinit$PassThroughFileSystem$PassThroughProvider, allocate$PassThroughFileSystem$PassThroughProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"SCHEME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PassThroughFileSystem$PassThroughProvider, SCHEME)},
+		{"delegate", "LPassThroughFileSystem;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(PassThroughFileSystem$PassThroughProvider, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PassThroughFileSystem$PassThroughProvider, init$, void)},
+		{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
+		{"checkScheme", "(Ljava/net/URI;)V", nullptr, $PRIVATE, $method(PassThroughFileSystem$PassThroughProvider, checkScheme, void, $URI*)},
+		{"checkUri", "(Ljava/net/URI;)V", nullptr, $PRIVATE, $method(PassThroughFileSystem$PassThroughProvider, checkUri, void, $URI*)},
+		{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
+		{"createLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, createLink, void, $Path*, $Path*), "java.io.IOException"},
+		{"createSymbolicLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, createSymbolicLink, void, $Path*, $Path*, $FileAttributeArray*), "java.io.IOException"},
+		{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, delete$, void, $Path*), "java.io.IOException"},
+		{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
+		{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
+		{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, getFileSystem, $FileSystem*, $URI*)},
+		{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, getPath, $Path*, $URI*)},
+		{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, getScheme, $String*)},
+		{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, isHidden, bool, $Path*), "java.io.IOException"},
+		{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
+		{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+		{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*), "java.io.IOException"},
+		{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, newFileSystem, $FileSystem*, $URI*, $Map*), "java.io.IOException"},
+		{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, readAttributes, $Map*, $Path*, $String*, $LinkOptionArray*), "java.io.IOException"},
+		{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
+		{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider, readSymbolicLink, $Path*, $Path*), "java.io.IOException"},
+		{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem$PassThroughProvider, setAttribute, void, $Path*, $String*, Object$*, $LinkOptionArray*), "java.io.IOException"},
+		{"wrap", "(Ljava/nio/file/DirectoryStream;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PRIVATE, $method(PassThroughFileSystem$PassThroughProvider, wrap, $DirectoryStream*, $DirectoryStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"PassThroughFileSystem$PassThroughProvider", "PassThroughFileSystem", "PassThroughProvider", $STATIC},
+		{"PassThroughFileSystem$PassThroughProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"PassThroughFileSystem$PassThroughProvider",
+		"java.nio.file.spi.FileSystemProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"PassThroughFileSystem"
+	};
+	$loadClass(PassThroughFileSystem$PassThroughProvider, name, initialize, &classInfo$$, PassThroughFileSystem$PassThroughProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PassThroughFileSystem$PassThroughProvider);
+	});
 	return class$;
 }
 

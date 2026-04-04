@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterator$OfPrimitive.h>
 #include <java/util/Spliterator.h>
@@ -24,53 +23,6 @@ using $StreamSpliterators$UnorderedSliceSpliterator$PermitStatus = ::java::util:
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator$OfPrimitive;JJ)V", "(TT_SPLITR;JJ)V", 0, $method(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, init$, void, $Spliterator$OfPrimitive*, int64_t, int64_t)},
-	{"<init>", "(Ljava/util/Spliterator$OfPrimitive;Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;)V", "(TT_SPLITR;Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive<TT;TT_CONS;TT_BUFF;TT_SPLITR;>;)V", 0, $method(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, init$, void, $Spliterator$OfPrimitive*, StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive*)},
-	{"acceptConsumed", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PROTECTED | $ABSTRACT, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, acceptConsumed, void, Object$*)},
-	{"bufferCreate", "(I)Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive;", "(I)TT_BUFF;", $PROTECTED | $ABSTRACT, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, bufferCreate, $StreamSpliterators$ArrayBuffer$OfPrimitive*, int32_t)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, forEachRemaining, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "java.util.stream.StreamSpliterators", "UnorderedSliceSpliterator", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfPrimitive", $STATIC | $ABSTRACT},
-	{"java.util.Spliterator$OfPrimitive", "java.util.Spliterator", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$ArrayBuffer", "java.util.stream.StreamSpliterators", "ArrayBuffer", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$ArrayBuffer$OfPrimitive", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive",
-	"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator",
-	"java.util.Spliterator$OfPrimitive",
-	nullptr,
-	_StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive_MethodInfo_,
-	"<T:Ljava/lang/Object;T_CONS:Ljava/lang/Object;T_BUFF:Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive<TT_CONS;>;T_SPLITR::Ljava/util/Spliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;>Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>;Ljava/util/Spliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;",
-	nullptr,
-	_StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamSpliterators"
-};
-
-$Object* allocate$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive($Class* clazz) {
-	return $of($alloc(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive));
-}
 
 int64_t StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::estimateSize() {
 	 return this->$StreamSpliterators$UnorderedSliceSpliterator::estimateSize();
@@ -113,7 +65,7 @@ bool StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::tryAdvance(Object
 	$var($Object, consumer, $of(this));
 	$init($StreamSpliterators$UnorderedSliceSpliterator$PermitStatus);
 	while (permitStatus() != $StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::NO_MORE) {
-		if (!$nc(($cast($Spliterator$OfPrimitive, this->s)))->tryAdvance(consumer)) {
+		if (!$nc($cast($Spliterator$OfPrimitive, this->s))->tryAdvance(consumer)) {
 			return false;
 		} else if (acquirePermits(1) == 1) {
 			acceptConsumed(action);
@@ -124,7 +76,7 @@ bool StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::tryAdvance(Object
 }
 
 void StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::forEachRemaining(Object$* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	$var($StreamSpliterators$ArrayBuffer$OfPrimitive, sb, nullptr);
 	$StreamSpliterators$UnorderedSliceSpliterator$PermitStatus* permitStatus = nullptr;
@@ -134,18 +86,18 @@ void StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::forEachRemaining(
 			if (sb == nullptr) {
 				$assign(sb, bufferCreate(this->chunkSize));
 			} else {
-				$nc(sb)->reset();
+				sb->reset();
 			}
 			$var($Object, sbc, $of(sb));
 			int64_t permitsRequested = 0;
 			do {
-			} while ($nc(($cast($Spliterator$OfPrimitive, this->s)))->tryAdvance(sbc) && ++permitsRequested < this->chunkSize);
+			} while ($nc($cast($Spliterator$OfPrimitive, this->s))->tryAdvance(sbc) && ++permitsRequested < this->chunkSize);
 			if (permitsRequested == 0) {
 				return;
 			}
 			$nc(sb)->forEach(action, acquirePermits(permitsRequested));
 		} else {
-			$nc(($cast($Spliterator$OfPrimitive, this->s)))->forEachRemaining(action);
+			$nc($cast($Spliterator$OfPrimitive, this->s))->forEachRemaining(action);
 			return;
 		}
 	}
@@ -159,7 +111,49 @@ StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::StreamSpliterators$Uno
 }
 
 $Class* StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::load$($String* name, bool initialize) {
-	$loadClass(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, name, initialize, &_StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive_ClassInfo_, allocate$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive);
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/Spliterator$OfPrimitive;JJ)V", "(TT_SPLITR;JJ)V", 0, $method(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, init$, void, $Spliterator$OfPrimitive*, int64_t, int64_t)},
+		{"<init>", "(Ljava/util/Spliterator$OfPrimitive;Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;)V", "(TT_SPLITR;Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive<TT;TT_CONS;TT_BUFF;TT_SPLITR;>;)V", 0, $method(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, init$, void, $Spliterator$OfPrimitive*, StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive*)},
+		{"acceptConsumed", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PROTECTED | $ABSTRACT, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, acceptConsumed, void, Object$*)},
+		{"bufferCreate", "(I)Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive;", "(I)TT_BUFF;", $PROTECTED | $ABSTRACT, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, bufferCreate, $StreamSpliterators$ArrayBuffer$OfPrimitive*, int32_t)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, forEachRemaining, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "java.util.stream.StreamSpliterators", "UnorderedSliceSpliterator", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "OfPrimitive", $STATIC | $ABSTRACT},
+		{"java.util.Spliterator$OfPrimitive", "java.util.Spliterator", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$ArrayBuffer", "java.util.stream.StreamSpliterators", "ArrayBuffer", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$ArrayBuffer$OfPrimitive", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive",
+		"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator",
+		"java.util.Spliterator$OfPrimitive",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;T_CONS:Ljava/lang/Object;T_BUFF:Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive<TT_CONS;>;T_SPLITR::Ljava/util/Spliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;>Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>;Ljava/util/Spliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamSpliterators"
+	};
+	$loadClass(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive));
+	});
 	return class$;
 }
 

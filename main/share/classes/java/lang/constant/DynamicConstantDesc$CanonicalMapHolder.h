@@ -22,6 +22,7 @@ class DynamicConstantDesc$CanonicalMapHolder : public ::java::lang::Object {
 	$class(DynamicConstantDesc$CanonicalMapHolder, 0, ::java::lang::Object)
 public:
 	DynamicConstantDesc$CanonicalMapHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Map* CANONICAL_MAP;
 };

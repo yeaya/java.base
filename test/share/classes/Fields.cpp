@@ -1,5 +1,4 @@
 #include <Fields.h>
-
 #include <jcpp.h>
 
 #undef FINAL
@@ -11,33 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _Fields_FieldInfo_[] = {
-	{"STATIC_FINAL", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Fields, STATIC_FINAL)},
-	{"STATIC_NON_FINAL", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(Fields, STATIC_NON_FINAL)},
-	{"FINAL", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Fields, FINAL)},
-	{"NON_FINAL", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Fields, NON_FINAL)},
-	{}
-};
-
-$MethodInfo _Fields_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Fields, init$, void)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Fields, name, $String*)},
-	{}
-};
-
-$ClassInfo _Fields_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Fields",
-	"java.lang.Object",
-	nullptr,
-	_Fields_FieldInfo_,
-	_Fields_MethodInfo_
-};
-
-$Object* allocate$Fields($Class* clazz) {
-	return $of($alloc(Fields));
-}
-
 $Object* Fields::STATIC_FINAL = nullptr;
 $Object* Fields::STATIC_NON_FINAL = nullptr;
 
@@ -47,10 +19,10 @@ void Fields::init$() {
 }
 
 $String* Fields::name() {
-	return $of(this)->getClass()->getName();
+	return this->getClass()->getName();
 }
 
-void clinit$Fields($Class* class$) {
+void Fields::clinit$($Class* clazz) {
 	$assignStatic(Fields::STATIC_FINAL, $new($Object));
 	$assignStatic(Fields::STATIC_NON_FINAL, $new($Object));
 }
@@ -59,7 +31,29 @@ Fields::Fields() {
 }
 
 $Class* Fields::load$($String* name, bool initialize) {
-	$loadClass(Fields, name, initialize, &_Fields_ClassInfo_, clinit$Fields, allocate$Fields);
+	$FieldInfo fieldInfos$$[] = {
+		{"STATIC_FINAL", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Fields, STATIC_FINAL)},
+		{"STATIC_NON_FINAL", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(Fields, STATIC_NON_FINAL)},
+		{"FINAL", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Fields, FINAL)},
+		{"NON_FINAL", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Fields, NON_FINAL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Fields, init$, void)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Fields, name, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Fields",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Fields, name, initialize, &classInfo$$, Fields::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Fields);
+	});
 	return class$;
 }
 

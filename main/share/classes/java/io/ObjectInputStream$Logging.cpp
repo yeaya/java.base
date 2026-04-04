@@ -1,5 +1,4 @@
 #include <java/io/ObjectInputStream$Logging.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
@@ -18,53 +17,18 @@ using $System$Logger$Level = ::java::lang::System$Logger$Level;
 namespace java {
 	namespace io {
 
-$FieldInfo _ObjectInputStream$Logging_FieldInfo_[] = {
-	{"filterLogger", "Ljava/lang/System$Logger;", nullptr, $STATIC | $FINAL, $staticField(ObjectInputStream$Logging, filterLogger)},
-	{}
-};
-
-$MethodInfo _ObjectInputStream$Logging_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectInputStream$Logging, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ObjectInputStream$Logging_InnerClassesInfo_[] = {
-	{"java.io.ObjectInputStream$Logging", "java.io.ObjectInputStream", "Logging", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectInputStream$Logging_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectInputStream$Logging",
-	"java.lang.Object",
-	nullptr,
-	_ObjectInputStream$Logging_FieldInfo_,
-	_ObjectInputStream$Logging_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectInputStream$Logging_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectInputStream"
-};
-
-$Object* allocate$ObjectInputStream$Logging($Class* clazz) {
-	return $of($alloc(ObjectInputStream$Logging));
-}
-
 $System$Logger* ObjectInputStream$Logging::filterLogger = nullptr;
 
 void ObjectInputStream$Logging::init$() {
 }
 
-void clinit$ObjectInputStream$Logging($Class* class$) {
+void ObjectInputStream$Logging::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		$var($System$Logger, filterLog, $System::getLogger("java.io.serialization"_s));
 		$init($System$Logger$Level);
 		bool var$0 = $nc(filterLog)->isLoggable($System$Logger$Level::DEBUG);
-		$assignStatic(ObjectInputStream$Logging::filterLogger, (var$0 || $nc(filterLog)->isLoggable($System$Logger$Level::TRACE)) ? filterLog : ($System$Logger*)nullptr);
+		$assignStatic(ObjectInputStream$Logging::filterLogger, (var$0 || filterLog->isLoggable($System$Logger$Level::TRACE)) ? filterLog : ($System$Logger*)nullptr);
 	}
 }
 
@@ -72,7 +36,36 @@ ObjectInputStream$Logging::ObjectInputStream$Logging() {
 }
 
 $Class* ObjectInputStream$Logging::load$($String* name, bool initialize) {
-	$loadClass(ObjectInputStream$Logging, name, initialize, &_ObjectInputStream$Logging_ClassInfo_, clinit$ObjectInputStream$Logging, allocate$ObjectInputStream$Logging);
+	$FieldInfo fieldInfos$$[] = {
+		{"filterLogger", "Ljava/lang/System$Logger;", nullptr, $STATIC | $FINAL, $staticField(ObjectInputStream$Logging, filterLogger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectInputStream$Logging, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectInputStream$Logging", "java.io.ObjectInputStream", "Logging", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectInputStream$Logging",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectInputStream"
+	};
+	$loadClass(ObjectInputStream$Logging, name, initialize, &classInfo$$, ObjectInputStream$Logging::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectInputStream$Logging);
+	});
 	return class$;
 }
 

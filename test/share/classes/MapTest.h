@@ -32,6 +32,7 @@ class $export MapTest : public ::java::lang::Object {
 	$class(MapTest, 0, ::java::lang::Object)
 public:
 	MapTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkException(::java::nio::channels::FileChannel* fc, ::java::nio::channels::FileChannel$MapMode* mode, int64_t position, int64_t size, $ClassArray* expected);
 	static void initTestFile(::java::io::File* blah);

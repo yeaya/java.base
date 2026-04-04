@@ -85,6 +85,7 @@ public:
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name, $Array<::java::util::Map$Entry>* handshakeConsumers, $Array<::java::util::Map$Entry>* handshakeProducers);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name, $Array<::java::util::Map$Entry>* handshakeConsumers, $Array<::java::util::Map$Entry>* handshakeProducers, $Array<::java::util::Map$Entry>* handshakeAbsence);

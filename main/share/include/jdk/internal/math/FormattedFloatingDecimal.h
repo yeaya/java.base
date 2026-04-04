@@ -27,6 +27,7 @@ class $import FormattedFloatingDecimal : public ::java::lang::Object {
 	$class(FormattedFloatingDecimal, 0, ::java::lang::Object)
 public:
 	FormattedFloatingDecimal();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t precision, ::jdk::internal::math::FormattedFloatingDecimal$Form* form, ::jdk::internal::math::FloatingDecimal$BinaryToASCIIConverter* fdConverter);
 	static int32_t applyPrecision(int32_t decExp, $chars* digits, int32_t nDigits, int32_t prec);
 	static $chars* create(bool isNegative, int32_t size);

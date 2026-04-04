@@ -27,16 +27,20 @@ class $import UndeclaredThrowableException : public ::java::lang::RuntimeExcepti
 	$class(UndeclaredThrowableException, 0, ::java::lang::RuntimeException)
 public:
 	UndeclaredThrowableException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Throwable* undeclaredThrowable);
 	void init$($Throwable* undeclaredThrowable, $String* s);
 	virtual $Throwable* getUndeclaredThrowable();
 	void readObject(::java::io::ObjectInputStream* s);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x0494D8DC73F9FCFF;
+	static const int64_t serialVersionUID = (int64_t)0x0494d8dc73f9fcff;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	UndeclaredThrowableException(const UndeclaredThrowableException& e);
 	virtual void throw$() override;
-	inline UndeclaredThrowableException* operator ->() {
+	inline UndeclaredThrowableException* operator ->() const {
+		return (UndeclaredThrowableException*)throwing$;
+	}
+	inline operator UndeclaredThrowableException*() const {
 		return (UndeclaredThrowableException*)throwing$;
 	}
 };

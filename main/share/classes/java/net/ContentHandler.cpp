@@ -1,5 +1,4 @@
 #include <java/net/ContentHandler.h>
-
 #include <java/net/URLConnection.h>
 #include <jcpp.h>
 
@@ -10,53 +9,45 @@ using $URLConnection = ::java::net::URLConnection;
 namespace java {
 	namespace net {
 
-$MethodInfo _ContentHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContentHandler, init$, void)},
-	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ContentHandler, getContent, $Object*, $URLConnection*), "java.io.IOException"},
-	{"getContent", "(Ljava/net/URLConnection;[Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ContentHandler, getContent, $Object*, $URLConnection*, $ClassArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ContentHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.net.ContentHandler",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ContentHandler_MethodInfo_
-};
-
-$Object* allocate$ContentHandler($Class* clazz) {
-	return $of($alloc(ContentHandler));
-}
-
 void ContentHandler::init$() {
 }
 
 $Object* ContentHandler::getContent($URLConnection* urlc, $ClassArray* classes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, obj, getContent(urlc));
 	{
 		$var($ClassArray, arr$, classes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* c = arr$->get(i$);
-			{
-				if ($nc(c)->isInstance(obj)) {
-					return $of(obj);
-				}
+			if ($nc(c)->isInstance(obj)) {
+				return obj;
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 ContentHandler::ContentHandler() {
 }
 
 $Class* ContentHandler::load$($String* name, bool initialize) {
-	$loadClass(ContentHandler, name, initialize, &_ContentHandler_ClassInfo_, allocate$ContentHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContentHandler, init$, void)},
+		{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ContentHandler, getContent, $Object*, $URLConnection*), "java.io.IOException"},
+		{"getContent", "(Ljava/net/URLConnection;[Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ContentHandler, getContent, $Object*, $URLConnection*, $ClassArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.net.ContentHandler",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ContentHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContentHandler);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/SortedOps$SizedDoubleSortingSink.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/stream/Nodes.h>
 #include <java/util/stream/Sink$ChainedDouble.h>
@@ -25,46 +24,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _SortedOps$SizedDoubleSortingSink_FieldInfo_[] = {
-	{"array", "[D", nullptr, $PRIVATE, $field(SortedOps$SizedDoubleSortingSink, array)},
-	{"offset", "I", nullptr, $PRIVATE, $field(SortedOps$SizedDoubleSortingSink, offset)},
-	{}
-};
-
-$MethodInfo _SortedOps$SizedDoubleSortingSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Double;>;)V", 0, $method(SortedOps$SizedDoubleSortingSink, init$, void, $Sink*)},
-	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$SizedDoubleSortingSink, accept, void, double)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$SizedDoubleSortingSink, begin, void, int64_t)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(SortedOps$SizedDoubleSortingSink, end, void)},
-	{}
-};
-
-$InnerClassInfo _SortedOps$SizedDoubleSortingSink_InnerClassesInfo_[] = {
-	{"java.util.stream.SortedOps$SizedDoubleSortingSink", "java.util.stream.SortedOps", "SizedDoubleSortingSink", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.SortedOps$AbstractDoubleSortingSink", "java.util.stream.SortedOps", "AbstractDoubleSortingSink", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SortedOps$SizedDoubleSortingSink_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.SortedOps$SizedDoubleSortingSink",
-	"java.util.stream.SortedOps$AbstractDoubleSortingSink",
-	nullptr,
-	_SortedOps$SizedDoubleSortingSink_FieldInfo_,
-	_SortedOps$SizedDoubleSortingSink_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SortedOps$SizedDoubleSortingSink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SortedOps"
-};
-
-$Object* allocate$SortedOps$SizedDoubleSortingSink($Class* clazz) {
-	return $of($alloc(SortedOps$SizedDoubleSortingSink));
-}
-
 void SortedOps$SizedDoubleSortingSink::init$($Sink* downstream) {
 	$SortedOps$AbstractDoubleSortingSink::init$(downstream);
 }
@@ -82,14 +41,14 @@ void SortedOps$SizedDoubleSortingSink::end() {
 	$nc(this->downstream)->begin(this->offset);
 	if (!this->cancellationRequestedCalled) {
 		for (int32_t i = 0; i < this->offset; ++i) {
-			$nc(this->downstream)->accept($nc(this->array)->get(i));
+			this->downstream->accept($nc(this->array)->get(i));
 		}
 	} else {
-		for (int32_t i = 0; i < this->offset && !$nc(this->downstream)->cancellationRequested(); ++i) {
-			$nc(this->downstream)->accept($nc(this->array)->get(i));
+		for (int32_t i = 0; i < this->offset && !this->downstream->cancellationRequested(); ++i) {
+			this->downstream->accept($nc(this->array)->get(i));
 		}
 	}
-	$nc(this->downstream)->end();
+	this->downstream->end();
 	$set(this, array, nullptr);
 }
 
@@ -101,7 +60,41 @@ SortedOps$SizedDoubleSortingSink::SortedOps$SizedDoubleSortingSink() {
 }
 
 $Class* SortedOps$SizedDoubleSortingSink::load$($String* name, bool initialize) {
-	$loadClass(SortedOps$SizedDoubleSortingSink, name, initialize, &_SortedOps$SizedDoubleSortingSink_ClassInfo_, allocate$SortedOps$SizedDoubleSortingSink);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[D", nullptr, $PRIVATE, $field(SortedOps$SizedDoubleSortingSink, array)},
+		{"offset", "I", nullptr, $PRIVATE, $field(SortedOps$SizedDoubleSortingSink, offset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Double;>;)V", 0, $method(SortedOps$SizedDoubleSortingSink, init$, void, $Sink*)},
+		{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$SizedDoubleSortingSink, accept, void, double)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$SizedDoubleSortingSink, begin, void, int64_t)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(SortedOps$SizedDoubleSortingSink, end, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SortedOps$SizedDoubleSortingSink", "java.util.stream.SortedOps", "SizedDoubleSortingSink", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.SortedOps$AbstractDoubleSortingSink", "java.util.stream.SortedOps", "AbstractDoubleSortingSink", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.SortedOps$SizedDoubleSortingSink",
+		"java.util.stream.SortedOps$AbstractDoubleSortingSink",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SortedOps"
+	};
+	$loadClass(SortedOps$SizedDoubleSortingSink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SortedOps$SizedDoubleSortingSink));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl$1.h>
-
 #include <java/lang/ref/SoftReference.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -16,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $Locale = ::java::util::Locale;
-using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $AtomicReferenceArray = ::java::util::concurrent::atomic::AtomicReferenceArray;
 using $JavaTimeDateTimePatternProvider = ::sun::text::spi::JavaTimeDateTimePatternProvider;
 using $HostLocaleProviderAdapterImpl = ::sun::util::locale::provider::HostLocaleProviderAdapterImpl;
@@ -25,49 +23,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$MethodInfo _HostLocaleProviderAdapterImpl$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$1, init$, void)},
-	{"appendN", "(CILjava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$1, appendN, void, char16_t, int32_t, $StringBuilder*)},
-	{"convert", "(Ljava/lang/String;CILjava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$1, convert, void, $String*, char16_t, int32_t, $StringBuilder*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$1, getAvailableLocales, $LocaleArray*)},
-	{"getDateTimePattern", "(IILjava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$1, getDateTimePattern, $String*, int32_t, int32_t, $Locale*)},
-	{"getJavaTimeDateTimePattern", "(IILjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$1, getJavaTimeDateTimePattern, $String*, int32_t, int32_t, $String*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$1, isSupportedLocale, bool, $Locale*)},
-	{"toJavaTimeDateTimePattern", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$1, toJavaTimeDateTimePattern, $String*, $String*, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _HostLocaleProviderAdapterImpl$1_EnclosingMethodInfo_ = {
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
-	"getJavaTimeDateTimePatternProvider",
-	"()Lsun/text/spi/JavaTimeDateTimePatternProvider;"
-};
-
-$InnerClassInfo _HostLocaleProviderAdapterImpl$1_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HostLocaleProviderAdapterImpl$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl$1",
-	"sun.text.spi.JavaTimeDateTimePatternProvider",
-	nullptr,
-	nullptr,
-	_HostLocaleProviderAdapterImpl$1_MethodInfo_,
-	nullptr,
-	&_HostLocaleProviderAdapterImpl$1_EnclosingMethodInfo_,
-	_HostLocaleProviderAdapterImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
-};
-
-$Object* allocate$HostLocaleProviderAdapterImpl$1($Class* clazz) {
-	return $of($alloc(HostLocaleProviderAdapterImpl$1));
-}
 
 void HostLocaleProviderAdapterImpl$1::init$() {
 	$JavaTimeDateTimePatternProvider::init$();
@@ -86,14 +41,14 @@ $String* HostLocaleProviderAdapterImpl$1::getJavaTimeDateTimePattern(int32_t tim
 }
 
 $String* HostLocaleProviderAdapterImpl$1::getDateTimePattern(int32_t dateStyle, int32_t timeStyle, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AtomicReferenceArray, dateFormatPatterns, nullptr);
 	$init($HostLocaleProviderAdapterImpl);
 	$var($SoftReference, ref, $cast($SoftReference, $nc($HostLocaleProviderAdapterImpl::dateFormatPatternsMap)->get(locale)));
-	if (ref == nullptr || ($assign(dateFormatPatterns, $cast($AtomicReferenceArray, $nc(ref)->get()))) == nullptr) {
+	if (ref == nullptr || ($assign(dateFormatPatterns, $cast($AtomicReferenceArray, ref->get()))) == nullptr) {
 		$assign(dateFormatPatterns, $new($AtomicReferenceArray, 5 * 5));
 		$assign(ref, $new($SoftReference, dateFormatPatterns));
-		$nc($HostLocaleProviderAdapterImpl::dateFormatPatternsMap)->put(locale, ref);
+		$HostLocaleProviderAdapterImpl::dateFormatPatternsMap->put(locale, ref);
 	}
 	int32_t index = (dateStyle + 1) * 5 + timeStyle + 1;
 	$var($String, pattern, $cast($String, $nc(dateFormatPatterns)->get(index)));
@@ -113,7 +68,7 @@ $String* HostLocaleProviderAdapterImpl$1::toJavaTimeDateTimePattern($String* cal
 	$var($StringBuilder, sb, $new($StringBuilder, length));
 	bool inQuote = false;
 	int32_t count = 0;
-	char16_t lastLetter = (char16_t)0;
+	char16_t lastLetter = 0;
 	for (int32_t i = 0; i < length; ++i) {
 		char16_t c = jrePattern->charAt(i);
 		if (c == u'\'') {
@@ -123,7 +78,7 @@ $String* HostLocaleProviderAdapterImpl$1::toJavaTimeDateTimePattern($String* cal
 					++i;
 					if (count != 0) {
 						convert(calendarType, lastLetter, count, sb);
-						lastLetter = (char16_t)0;
+						lastLetter = 0;
 						count = 0;
 					}
 					sb->append("\'\'"_s);
@@ -133,7 +88,7 @@ $String* HostLocaleProviderAdapterImpl$1::toJavaTimeDateTimePattern($String* cal
 			if (!inQuote) {
 				if (count != 0) {
 					convert(calendarType, lastLetter, count, sb);
-					lastLetter = (char16_t)0;
+					lastLetter = 0;
 					count = 0;
 				}
 				inQuote = true;
@@ -150,7 +105,7 @@ $String* HostLocaleProviderAdapterImpl$1::toJavaTimeDateTimePattern($String* cal
 		if (!(c >= u'a' && c <= u'z' || c >= u'A' && c <= u'Z')) {
 			if (count != 0) {
 				convert(calendarType, lastLetter, count, sb);
-				lastLetter = (char16_t)0;
+				lastLetter = 0;
 				count = 0;
 			}
 			sb->append(c);
@@ -177,36 +132,30 @@ $String* HostLocaleProviderAdapterImpl$1::toJavaTimeDateTimePattern($String* cal
 void HostLocaleProviderAdapterImpl$1::convert($String* calendarType, char16_t letter, int32_t count, $StringBuilder* sb) {
 	switch (letter) {
 	case u'G':
-		{
-			if ($nc(calendarType)->equals("japanese"_s)) {
-				if (count >= 4) {
-					count = 1;
-				} else {
-					count = 5;
-				}
-			} else if (!calendarType->equals("iso8601"_s)) {
-				if (count >= 4) {
-					count = 4;
-				} else {
-					count = 1;
-				}
+		if ($nc(calendarType)->equals("japanese"_s)) {
+			if (count >= 4) {
+				count = 1;
+			} else {
+				count = 5;
 			}
-			break;
-		}
-	case u'y':
-		{
-			if ($nc(calendarType)->equals("japanese"_s) && count >= 4) {
+		} else if (!calendarType->equals("iso8601"_s)) {
+			if (count >= 4) {
+				count = 4;
+			} else {
 				count = 1;
 			}
-			break;
 		}
+		break;
+	case u'y':
+		if ($nc(calendarType)->equals("japanese"_s) && count >= 4) {
+			count = 1;
+		}
+		break;
 	default:
-		{
-			if (count > 4) {
-				count = 4;
-			}
-			break;
+		if (count > 4) {
+			count = 4;
 		}
+		break;
 	}
 	appendN(letter, count, sb);
 }
@@ -221,7 +170,44 @@ HostLocaleProviderAdapterImpl$1::HostLocaleProviderAdapterImpl$1() {
 }
 
 $Class* HostLocaleProviderAdapterImpl$1::load$($String* name, bool initialize) {
-	$loadClass(HostLocaleProviderAdapterImpl$1, name, initialize, &_HostLocaleProviderAdapterImpl$1_ClassInfo_, allocate$HostLocaleProviderAdapterImpl$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$1, init$, void)},
+		{"appendN", "(CILjava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$1, appendN, void, char16_t, int32_t, $StringBuilder*)},
+		{"convert", "(Ljava/lang/String;CILjava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$1, convert, void, $String*, char16_t, int32_t, $StringBuilder*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$1, getAvailableLocales, $LocaleArray*)},
+		{"getDateTimePattern", "(IILjava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$1, getDateTimePattern, $String*, int32_t, int32_t, $Locale*)},
+		{"getJavaTimeDateTimePattern", "(IILjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$1, getJavaTimeDateTimePattern, $String*, int32_t, int32_t, $String*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$1, isSupportedLocale, bool, $Locale*)},
+		{"toJavaTimeDateTimePattern", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$1, toJavaTimeDateTimePattern, $String*, $String*, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
+		"getJavaTimeDateTimePatternProvider",
+		"()Lsun/text/spi/JavaTimeDateTimePatternProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl$1",
+		"sun.text.spi.JavaTimeDateTimePatternProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
+	};
+	$loadClass(HostLocaleProviderAdapterImpl$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostLocaleProviderAdapterImpl$1);
+	});
 	return class$;
 }
 

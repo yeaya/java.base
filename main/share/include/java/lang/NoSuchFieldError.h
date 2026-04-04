@@ -14,10 +14,13 @@ public:
 	NoSuchFieldError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xD0084B0CBF460075;
+	static const int64_t serialVersionUID = (int64_t)0xd0084b0cbf460075;
 	NoSuchFieldError(const NoSuchFieldError& e);
 	virtual void throw$() override;
-	inline NoSuchFieldError* operator ->() {
+	inline NoSuchFieldError* operator ->() const {
+		return (NoSuchFieldError*)throwing$;
+	}
+	inline operator NoSuchFieldError*() const {
 		return (NoSuchFieldError*)throwing$;
 	}
 };

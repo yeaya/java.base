@@ -27,11 +27,14 @@ public:
 	void init$(::javax::security::auth::callback::Callback* callback);
 	void init$(::javax::security::auth::callback::Callback* callback, $String* msg);
 	virtual ::javax::security::auth::callback::Callback* getCallback();
-	static const int64_t serialVersionUID = (int64_t)0xA09C38F00A720B69;
+	static const int64_t serialVersionUID = (int64_t)0xa09c38f00a720b69;
 	::javax::security::auth::callback::Callback* callback = nullptr;
 	UnsupportedCallbackException(const UnsupportedCallbackException& e);
 	virtual void throw$() override;
-	inline UnsupportedCallbackException* operator ->() {
+	inline UnsupportedCallbackException* operator ->() const {
+		return (UnsupportedCallbackException*)throwing$;
+	}
+	inline operator UnsupportedCallbackException*() const {
 		return (UnsupportedCallbackException*)throwing$;
 	}
 };

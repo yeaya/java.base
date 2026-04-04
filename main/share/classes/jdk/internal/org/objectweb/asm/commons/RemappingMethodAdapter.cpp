@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/RemappingMethodAdapter.h>
-
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Handle.h>
 #include <jdk/internal/org/objectweb/asm/Label.h>
@@ -37,63 +36,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$CompoundAttribute _RemappingMethodAdapter_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _RemappingMethodAdapter_MethodAnnotations_visitMethodInsn13[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _RemappingMethodAdapter_FieldInfo_[] = {
-	{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PROTECTED | $FINAL, $field(RemappingMethodAdapter, remapper)},
-	{}
-};
-
-$MethodInfo _RemappingMethodAdapter_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(RemappingMethodAdapter, init$, void, int32_t, $String*, $MethodVisitor*, $Remapper*)},
-	{"<init>", "(IILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(RemappingMethodAdapter, init$, void, int32_t, int32_t, $String*, $MethodVisitor*, $Remapper*)},
-	{"doVisitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(RemappingMethodAdapter, doVisitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
-	{"remapEntries", "(I[Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(RemappingMethodAdapter, remapEntries, $ObjectArray*, int32_t, $ObjectArray*)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAnnotationDefault", "()Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitAnnotationDefault, $AnnotationVisitor*)},
-	{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
-	{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
-	{"visitInsnAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitInsnAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(RemappingMethodAdapter, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitLdcInsn, void, Object$*)},
-	{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
-	{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitLocalVariableAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $LabelArray*, $LabelArray*, $ints*, $String*, bool)},
-	{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(RemappingMethodAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*), nullptr, nullptr, _RemappingMethodAdapter_MethodAnnotations_visitMethodInsn13},
-	{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
-	{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitMultiANewArrayInsn, void, $String*, int32_t)},
-	{"visitParameterAnnotation", "(ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitParameterAnnotation, $AnnotationVisitor*, int32_t, $String*, bool)},
-	{"visitTryCatchAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitTryCatchAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{"visitTryCatchBlock", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitTryCatchBlock, void, $Label*, $Label*, $Label*, $String*)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitTypeInsn, void, int32_t, $String*)},
-	{}
-};
-
-$ClassInfo _RemappingMethodAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.RemappingMethodAdapter",
-	"jdk.internal.org.objectweb.asm.commons.LocalVariablesSorter",
-	nullptr,
-	_RemappingMethodAdapter_FieldInfo_,
-	_RemappingMethodAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_RemappingMethodAdapter_Annotations_
-};
-
-$Object* allocate$RemappingMethodAdapter($Class* clazz) {
-	return $of($alloc(RemappingMethodAdapter));
-}
-
 void RemappingMethodAdapter::init$(int32_t access, $String* descriptor, $MethodVisitor* methodVisitor, $Remapper* remapper) {
 	RemappingMethodAdapter::init$($Opcodes::ASM6, access, descriptor, methodVisitor, remapper);
 }
@@ -105,38 +47,35 @@ void RemappingMethodAdapter::init$(int32_t api, int32_t access, $String* descrip
 
 $AnnotationVisitor* RemappingMethodAdapter::visitAnnotationDefault() {
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitAnnotationDefault());
-	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
+	return annotationVisitor == nullptr ? annotationVisitor : $cast($AnnotationVisitor, $new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitAnnotation($String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitAnnotation($($nc(this->remapper)->mapDesc(descriptor)), visible));
-	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
+	return annotationVisitor == nullptr ? annotationVisitor : $cast($AnnotationVisitor, $new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitTypeAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
-	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
+	return annotationVisitor == nullptr ? annotationVisitor : $cast($AnnotationVisitor, $new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitParameterAnnotation(int32_t parameter, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitParameterAnnotation(parameter, $($nc(this->remapper)->mapDesc(descriptor)), visible));
-	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
+	return annotationVisitor == nullptr ? annotationVisitor : $cast($AnnotationVisitor, $new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 void RemappingMethodAdapter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* local, int32_t numStack, $ObjectArray* stack) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = type;
-	int32_t var$1 = numLocal;
-	$var($ObjectArray, var$2, remapEntries(numLocal, local));
-	int32_t var$3 = numStack;
-	$LocalVariablesSorter::visitFrame(var$0, var$1, var$2, var$3, $(remapEntries(numStack, stack)));
+	$useLocalObjectStack();
+	$var($ObjectArray, var$0, remapEntries(numLocal, local));
+	$LocalVariablesSorter::visitFrame(type, numLocal, var$0, numStack, $(remapEntries(numStack, stack)));
 }
 
 $ObjectArray* RemappingMethodAdapter::remapEntries(int32_t numTypes, $ObjectArray* entries) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (entries == nullptr) {
 		return entries;
 	}
@@ -154,11 +93,10 @@ $ObjectArray* RemappingMethodAdapter::remapEntries(int32_t numTypes, $ObjectArra
 }
 
 void RemappingMethodAdapter::visitFieldInsn(int32_t opcode, $String* owner, $String* name, $String* descriptor) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = opcode;
-	$var($String, var$1, $nc(this->remapper)->mapType(owner));
-	$var($String, var$2, $nc(this->remapper)->mapFieldName(owner, name, descriptor));
-	$LocalVariablesSorter::visitFieldInsn(var$0, var$1, var$2, $($nc(this->remapper)->mapDesc(descriptor)));
+	$useLocalObjectStack();
+	$var($String, var$0, $nc(this->remapper)->mapType(owner));
+	$var($String, var$1, this->remapper->mapFieldName(owner, name, descriptor));
+	$LocalVariablesSorter::visitFieldInsn(opcode, var$0, var$1, $(this->remapper->mapDesc(descriptor)));
 }
 
 void RemappingMethodAdapter::visitMethodInsn(int32_t opcode, $String* owner, $String* name, $String* descriptor) {
@@ -178,23 +116,22 @@ void RemappingMethodAdapter::visitMethodInsn(int32_t opcode, $String* owner, $St
 }
 
 void RemappingMethodAdapter::doVisitMethodInsn(int32_t opcode, $String* owner, $String* name, $String* descriptor, bool isInterface) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mv != nullptr) {
-		int32_t var$0 = opcode;
-		$var($String, var$1, $nc(this->remapper)->mapType(owner));
-		$var($String, var$2, $nc(this->remapper)->mapMethodName(owner, name, descriptor));
-		$nc(this->mv)->visitMethodInsn(var$0, var$1, var$2, $($nc(this->remapper)->mapMethodDesc(descriptor)), isInterface);
+		$var($String, var$0, $nc(this->remapper)->mapType(owner));
+		$var($String, var$1, this->remapper->mapMethodName(owner, name, descriptor));
+		this->mv->visitMethodInsn(opcode, var$0, var$1, $(this->remapper->mapMethodDesc(descriptor)), isInterface);
 	}
 }
 
 void RemappingMethodAdapter::visitInvokeDynamicInsn($String* name, $String* descriptor, $Handle* bootstrapMethodHandle, $ObjectArray* bootstrapMethodArguments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(bootstrapMethodArguments)->length; ++i) {
 		bootstrapMethodArguments->set(i, $($nc(this->remapper)->mapValue(bootstrapMethodArguments->get(i))));
 	}
 	$var($String, var$0, $nc(this->remapper)->mapInvokeDynamicMethodName(name, descriptor));
-	$var($String, var$1, $nc(this->remapper)->mapMethodDesc(descriptor));
-	$LocalVariablesSorter::visitInvokeDynamicInsn(var$0, var$1, $cast($Handle, $($nc(this->remapper)->mapValue(bootstrapMethodHandle))), bootstrapMethodArguments);
+	$var($String, var$1, this->remapper->mapMethodDesc(descriptor));
+	$LocalVariablesSorter::visitInvokeDynamicInsn(var$0, var$1, $$cast($Handle, this->remapper->mapValue(bootstrapMethodHandle)), bootstrapMethodArguments);
 }
 
 void RemappingMethodAdapter::visitTypeInsn(int32_t opcode, $String* type) {
@@ -210,9 +147,9 @@ void RemappingMethodAdapter::visitMultiANewArrayInsn($String* descriptor, int32_
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitInsnAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitInsnAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
-	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
+	return annotationVisitor == nullptr ? annotationVisitor : $cast($AnnotationVisitor, $new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 void RemappingMethodAdapter::visitTryCatchBlock($Label* start, $Label* end, $Label* handler, $String* type) {
@@ -220,29 +157,78 @@ void RemappingMethodAdapter::visitTryCatchBlock($Label* start, $Label* end, $Lab
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitTryCatchAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitTryCatchAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
-	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
+	return annotationVisitor == nullptr ? annotationVisitor : $cast($AnnotationVisitor, $new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 void RemappingMethodAdapter::visitLocalVariable($String* name, $String* descriptor, $String* signature, $Label* start, $Label* end, int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, name);
-	$var($String, var$1, $nc(this->remapper)->mapDesc(descriptor));
-	$LocalVariablesSorter::visitLocalVariable(var$0, var$1, $($nc(this->remapper)->mapSignature(signature, true)), start, end, index);
+	$useLocalObjectStack();
+	$var($String, var$0, $nc(this->remapper)->mapDesc(descriptor));
+	$LocalVariablesSorter::visitLocalVariable(name, var$0, $(this->remapper->mapSignature(signature, true)), start, end, index);
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitLocalVariableAnnotation(typeRef, typePath, start, end, index, $($nc(this->remapper)->mapDesc(descriptor)), visible));
-	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
+	return annotationVisitor == nullptr ? annotationVisitor : $cast($AnnotationVisitor, $new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 RemappingMethodAdapter::RemappingMethodAdapter() {
 }
 
 $Class* RemappingMethodAdapter::load$($String* name, bool initialize) {
-	$loadClass(RemappingMethodAdapter, name, initialize, &_RemappingMethodAdapter_ClassInfo_, allocate$RemappingMethodAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PROTECTED | $FINAL, $field(RemappingMethodAdapter, remapper)},
+		{}
+	};
+	$CompoundAttribute visitMethodInsnmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(RemappingMethodAdapter, init$, void, int32_t, $String*, $MethodVisitor*, $Remapper*)},
+		{"<init>", "(IILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(RemappingMethodAdapter, init$, void, int32_t, int32_t, $String*, $MethodVisitor*, $Remapper*)},
+		{"doVisitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(RemappingMethodAdapter, doVisitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
+		{"remapEntries", "(I[Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(RemappingMethodAdapter, remapEntries, $ObjectArray*, int32_t, $ObjectArray*)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAnnotationDefault", "()Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitAnnotationDefault, $AnnotationVisitor*)},
+		{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
+		{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
+		{"visitInsnAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitInsnAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(RemappingMethodAdapter, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitLdcInsn, void, Object$*)},
+		{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
+		{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitLocalVariableAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $LabelArray*, $LabelArray*, $ints*, $String*, bool)},
+		{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(RemappingMethodAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*), nullptr, nullptr, visitMethodInsnmethodAnnotations$$},
+		{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
+		{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitMultiANewArrayInsn, void, $String*, int32_t)},
+		{"visitParameterAnnotation", "(ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitParameterAnnotation, $AnnotationVisitor*, int32_t, $String*, bool)},
+		{"visitTryCatchAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitTryCatchAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{"visitTryCatchBlock", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitTryCatchBlock, void, $Label*, $Label*, $Label*, $String*)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingMethodAdapter, visitTypeInsn, void, int32_t, $String*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.RemappingMethodAdapter",
+		"jdk.internal.org.objectweb.asm.commons.LocalVariablesSorter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(RemappingMethodAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RemappingMethodAdapter);
+	});
 	return class$;
 }
 

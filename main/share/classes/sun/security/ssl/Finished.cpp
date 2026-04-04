@@ -1,5 +1,4 @@
 #include <sun/security/ssl/Finished.h>
-
 #include <java/security/cert/X509Certificate.h>
 #include <java/time/Instant.h>
 #include <javax/net/ssl/SSLPeerUnverifiedException.h>
@@ -18,7 +17,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Instant = ::java::time::Instant;
 using $SSLPeerUnverifiedException = ::javax::net::ssl::SSLPeerUnverifiedException;
 using $EventHelper = ::jdk::internal::event::EventHelper;
@@ -35,55 +33,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _Finished_FieldInfo_[] = {
-	{"t12HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(Finished, t12HandshakeConsumer)},
-	{"t12HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(Finished, t12HandshakeProducer)},
-	{"t13HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(Finished, t13HandshakeConsumer)},
-	{"t13HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(Finished, t13HandshakeProducer)},
-	{}
-};
-
-$MethodInfo _Finished_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Finished, init$, void)},
-	{"recordEvent", "(Lsun/security/ssl/SSLSessionImpl;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Finished, recordEvent, void, $SSLSessionImpl*)},
-	{}
-};
-
-$InnerClassInfo _Finished_InnerClassesInfo_[] = {
-	{"sun.security.ssl.Finished$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.security.ssl.Finished$T13FinishedConsumer", "sun.security.ssl.Finished", "T13FinishedConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Finished$T13FinishedProducer", "sun.security.ssl.Finished", "T13FinishedProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Finished$T12FinishedConsumer", "sun.security.ssl.Finished", "T12FinishedConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Finished$T12FinishedProducer", "sun.security.ssl.Finished", "T12FinishedProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Finished$T13VerifyDataGenerator", "sun.security.ssl.Finished", "T13VerifyDataGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Finished$T12VerifyDataGenerator", "sun.security.ssl.Finished", "T12VerifyDataGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Finished$T10VerifyDataGenerator", "sun.security.ssl.Finished", "T10VerifyDataGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Finished$S30VerifyDataGenerator", "sun.security.ssl.Finished", "S30VerifyDataGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.Finished$VerifyDataScheme", "sun.security.ssl.Finished", "VerifyDataScheme", $STATIC | $FINAL | $ENUM},
-	{"sun.security.ssl.Finished$VerifyDataGenerator", "sun.security.ssl.Finished", "VerifyDataGenerator", $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.security.ssl.Finished$FinishedMessage", "sun.security.ssl.Finished", "FinishedMessage", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Finished_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.Finished",
-	"java.lang.Object",
-	nullptr,
-	_Finished_FieldInfo_,
-	_Finished_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Finished_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.Finished$1,sun.security.ssl.Finished$T13FinishedConsumer,sun.security.ssl.Finished$T13FinishedProducer,sun.security.ssl.Finished$T12FinishedConsumer,sun.security.ssl.Finished$T12FinishedProducer,sun.security.ssl.Finished$T13VerifyDataGenerator,sun.security.ssl.Finished$T12VerifyDataGenerator,sun.security.ssl.Finished$T10VerifyDataGenerator,sun.security.ssl.Finished$S30VerifyDataGenerator,sun.security.ssl.Finished$VerifyDataScheme,sun.security.ssl.Finished$VerifyDataGenerator,sun.security.ssl.Finished$FinishedMessage"
-};
-
-$Object* allocate$Finished($Class* clazz) {
-	return $of($alloc(Finished));
-}
-
 $SSLConsumer* Finished::t12HandshakeConsumer = nullptr;
 $HandshakeProducer* Finished::t12HandshakeProducer = nullptr;
 $SSLConsumer* Finished::t13HandshakeConsumer = nullptr;
@@ -94,7 +43,7 @@ void Finished::init$() {
 
 void Finished::recordEvent($SSLSessionImpl* session) {
 	$init(Finished);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TLSHandshakeEvent, event, $new($TLSHandshakeEvent));
 	bool var$0 = event->shouldCommit();
 	if (var$0 || $EventHelper::isLoggingSecurity()) {
@@ -120,7 +69,7 @@ void Finished::recordEvent($SSLSessionImpl* session) {
 	}
 }
 
-void clinit$Finished($Class* class$) {
+void Finished::clinit$($Class* clazz) {
 	$assignStatic(Finished::t12HandshakeConsumer, $new($Finished$T12FinishedConsumer));
 	$assignStatic(Finished::t12HandshakeProducer, $new($Finished$T12FinishedProducer));
 	$assignStatic(Finished::t13HandshakeConsumer, $new($Finished$T13FinishedConsumer));
@@ -131,7 +80,50 @@ Finished::Finished() {
 }
 
 $Class* Finished::load$($String* name, bool initialize) {
-	$loadClass(Finished, name, initialize, &_Finished_ClassInfo_, clinit$Finished, allocate$Finished);
+	$FieldInfo fieldInfos$$[] = {
+		{"t12HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(Finished, t12HandshakeConsumer)},
+		{"t12HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(Finished, t12HandshakeProducer)},
+		{"t13HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(Finished, t13HandshakeConsumer)},
+		{"t13HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(Finished, t13HandshakeProducer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Finished, init$, void)},
+		{"recordEvent", "(Lsun/security/ssl/SSLSessionImpl;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Finished, recordEvent, void, $SSLSessionImpl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.Finished$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.security.ssl.Finished$T13FinishedConsumer", "sun.security.ssl.Finished", "T13FinishedConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Finished$T13FinishedProducer", "sun.security.ssl.Finished", "T13FinishedProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Finished$T12FinishedConsumer", "sun.security.ssl.Finished", "T12FinishedConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Finished$T12FinishedProducer", "sun.security.ssl.Finished", "T12FinishedProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Finished$T13VerifyDataGenerator", "sun.security.ssl.Finished", "T13VerifyDataGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Finished$T12VerifyDataGenerator", "sun.security.ssl.Finished", "T12VerifyDataGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Finished$T10VerifyDataGenerator", "sun.security.ssl.Finished", "T10VerifyDataGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Finished$S30VerifyDataGenerator", "sun.security.ssl.Finished", "S30VerifyDataGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.Finished$VerifyDataScheme", "sun.security.ssl.Finished", "VerifyDataScheme", $STATIC | $FINAL | $ENUM},
+		{"sun.security.ssl.Finished$VerifyDataGenerator", "sun.security.ssl.Finished", "VerifyDataGenerator", $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.security.ssl.Finished$FinishedMessage", "sun.security.ssl.Finished", "FinishedMessage", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.Finished",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.Finished$1,sun.security.ssl.Finished$T13FinishedConsumer,sun.security.ssl.Finished$T13FinishedProducer,sun.security.ssl.Finished$T12FinishedConsumer,sun.security.ssl.Finished$T12FinishedProducer,sun.security.ssl.Finished$T13VerifyDataGenerator,sun.security.ssl.Finished$T12VerifyDataGenerator,sun.security.ssl.Finished$T10VerifyDataGenerator,sun.security.ssl.Finished$S30VerifyDataGenerator,sun.security.ssl.Finished$VerifyDataScheme,sun.security.ssl.Finished$VerifyDataGenerator,sun.security.ssl.Finished$FinishedMessage"
+	};
+	$loadClass(Finished, name, initialize, &classInfo$$, Finished::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Finished);
+	});
 	return class$;
 }
 

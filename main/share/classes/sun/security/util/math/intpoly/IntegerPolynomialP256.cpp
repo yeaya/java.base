@@ -1,5 +1,4 @@
 #include <sun/security/util/math/intpoly/IntegerPolynomialP256.h>
-
 #include <java/math/BigInteger.h>
 #include <sun/security/util/math/intpoly/IntegerPolynomial.h>
 #include <jcpp.h>
@@ -23,43 +22,6 @@ namespace sun {
 			namespace math {
 				namespace intpoly {
 
-$FieldInfo _IntegerPolynomialP256_FieldInfo_[] = {
-	{"BITS_PER_LIMB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomialP256, BITS_PER_LIMB)},
-	{"NUM_LIMBS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomialP256, NUM_LIMBS)},
-	{"MAX_ADDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomialP256, MAX_ADDS)},
-	{"MODULUS", "Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IntegerPolynomialP256, MODULUS)},
-	{"CARRY_ADD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomialP256, CARRY_ADD)},
-	{"LIMB_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomialP256, LIMB_MASK)},
-	{}
-};
-
-$MethodInfo _IntegerPolynomialP256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerPolynomialP256, init$, void)},
-	{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomialP256, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce", "([JJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomialP256, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce0", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(IntegerPolynomialP256, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerPolynomialP256, evaluateModulus, $BigInteger*)},
-	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, finalCarryReduceLast, void, $longs*)},
-	{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, mult, void, $longs*, $longs*, $longs*)},
-	{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, reduce, void, $longs*)},
-	{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, reduceIn, void, $longs*, int64_t, int32_t)},
-	{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, square, void, $longs*, $longs*)},
-	{}
-};
-
-$ClassInfo _IntegerPolynomialP256_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.math.intpoly.IntegerPolynomialP256",
-	"sun.security.util.math.intpoly.IntegerPolynomial",
-	nullptr,
-	_IntegerPolynomialP256_FieldInfo_,
-	_IntegerPolynomialP256_MethodInfo_
-};
-
-$Object* allocate$IntegerPolynomialP256($Class* clazz) {
-	return $of($alloc(IntegerPolynomialP256));
-}
-
 $BigInteger* IntegerPolynomialP256::MODULUS = nullptr;
 
 void IntegerPolynomialP256::init$() {
@@ -68,111 +30,111 @@ void IntegerPolynomialP256::init$() {
 
 $BigInteger* IntegerPolynomialP256::evaluateModulus() {
 	$init(IntegerPolynomialP256);
-	$useLocalCurrentObjectStackCache();
-	$var($BigInteger, result, $nc($($BigInteger::valueOf((int64_t)2)))->pow(256));
-	$assign(result, $nc(result)->subtract($($nc($($BigInteger::valueOf((int64_t)2)))->pow(224))));
-	$assign(result, result->add($($nc($($BigInteger::valueOf((int64_t)2)))->pow(192))));
-	$assign(result, result->add($($nc($($BigInteger::valueOf((int64_t)2)))->pow(96))));
-	$assign(result, result->subtract($($BigInteger::valueOf((int64_t)1))));
+	$useLocalObjectStack();
+	$var($BigInteger, result, $($BigInteger::valueOf(2))->pow(256));
+	$assign(result, result->subtract($($($BigInteger::valueOf(2))->pow(224))));
+	$assign(result, result->add($($($BigInteger::valueOf(2))->pow(192))));
+	$assign(result, result->add($($($BigInteger::valueOf(2))->pow(96))));
+	$assign(result, result->subtract($($BigInteger::valueOf(1))));
 	return result;
 }
 
 void IntegerPolynomialP256::reduceIn($longs* limbs, int64_t v, int32_t i) {
-	(*$nc(limbs))[i - 2] += (int64_t)((v << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	(*$nc(limbs))[i - 2] += (v << 20) & IntegerPolynomialP256::LIMB_MASK;
 	(*limbs)[i - 1] += v >> 6;
-	(*limbs)[i - 3] -= (int64_t)((v << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	(*limbs)[i - 3] -= (v << 14) & IntegerPolynomialP256::LIMB_MASK;
 	(*limbs)[i - 2] -= v >> 12;
-	(*limbs)[i - 7] -= (int64_t)((v << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	(*limbs)[i - 7] -= (v << 22) & IntegerPolynomialP256::LIMB_MASK;
 	(*limbs)[i - 6] -= v >> 4;
-	(*limbs)[i - 10] += (int64_t)((v << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	(*limbs)[i - 10] += (v << 4) & IntegerPolynomialP256::LIMB_MASK;
 	(*limbs)[i - 9] += v >> 22;
 }
 
 void IntegerPolynomialP256::finalCarryReduceLast($longs* limbs) {
 	int64_t c = $nc(limbs)->get(9) >> 22;
 	(*limbs)[9] -= c << 22;
-	(*limbs)[8] += (int64_t)((c << 16) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	(*limbs)[8] += (c << 16) & IntegerPolynomialP256::LIMB_MASK;
 	(*limbs)[9] += c >> 10;
-	(*limbs)[7] -= (int64_t)((c << 10) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	(*limbs)[7] -= (c << 10) & IntegerPolynomialP256::LIMB_MASK;
 	(*limbs)[8] -= c >> 16;
-	(*limbs)[3] -= (int64_t)((c << 18) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	(*limbs)[3] -= (c << 18) & IntegerPolynomialP256::LIMB_MASK;
 	(*limbs)[4] -= c >> 8;
 	(*limbs)[0] += c;
 }
 
 void IntegerPolynomialP256::carryReduce($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13, int64_t c14, int64_t c15, int64_t c16, int64_t c17, int64_t c18) {
 	int64_t c19 = 0;
-	c16 += (int64_t)((c18 << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c16 += (c18 << 20) & IntegerPolynomialP256::LIMB_MASK;
 	c17 += c18 >> 6;
-	c15 -= (int64_t)((c18 << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c15 -= (c18 << 14) & IntegerPolynomialP256::LIMB_MASK;
 	c16 -= c18 >> 12;
-	c11 -= (int64_t)((c18 << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c11 -= (c18 << 22) & IntegerPolynomialP256::LIMB_MASK;
 	c12 -= c18 >> 4;
-	c8 += (int64_t)((c18 << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c8 += (c18 << 4) & IntegerPolynomialP256::LIMB_MASK;
 	c9 += c18 >> 22;
-	c15 += (int64_t)((c17 << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c15 += (c17 << 20) & IntegerPolynomialP256::LIMB_MASK;
 	c16 += c17 >> 6;
-	c14 -= (int64_t)((c17 << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c14 -= (c17 << 14) & IntegerPolynomialP256::LIMB_MASK;
 	c15 -= c17 >> 12;
-	c10 -= (int64_t)((c17 << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c10 -= (c17 << 22) & IntegerPolynomialP256::LIMB_MASK;
 	c11 -= c17 >> 4;
-	c7 += (int64_t)((c17 << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c7 += (c17 << 4) & IntegerPolynomialP256::LIMB_MASK;
 	c8 += c17 >> 22;
-	c14 += (int64_t)((c16 << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c14 += (c16 << 20) & IntegerPolynomialP256::LIMB_MASK;
 	c15 += c16 >> 6;
-	c13 -= (int64_t)((c16 << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c13 -= (c16 << 14) & IntegerPolynomialP256::LIMB_MASK;
 	c14 -= c16 >> 12;
-	c9 -= (int64_t)((c16 << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c9 -= (c16 << 22) & IntegerPolynomialP256::LIMB_MASK;
 	c10 -= c16 >> 4;
-	c6 += (int64_t)((c16 << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c6 += (c16 << 4) & IntegerPolynomialP256::LIMB_MASK;
 	c7 += c16 >> 22;
-	c13 += (int64_t)((c15 << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c13 += (c15 << 20) & IntegerPolynomialP256::LIMB_MASK;
 	c14 += c15 >> 6;
-	c12 -= (int64_t)((c15 << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c12 -= (c15 << 14) & IntegerPolynomialP256::LIMB_MASK;
 	c13 -= c15 >> 12;
-	c8 -= (int64_t)((c15 << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c8 -= (c15 << 22) & IntegerPolynomialP256::LIMB_MASK;
 	c9 -= c15 >> 4;
-	c5 += (int64_t)((c15 << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c5 += (c15 << 4) & IntegerPolynomialP256::LIMB_MASK;
 	c6 += c15 >> 22;
-	c12 += (int64_t)((c14 << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c12 += (c14 << 20) & IntegerPolynomialP256::LIMB_MASK;
 	c13 += c14 >> 6;
-	c11 -= (int64_t)((c14 << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c11 -= (c14 << 14) & IntegerPolynomialP256::LIMB_MASK;
 	c12 -= c14 >> 12;
-	c7 -= (int64_t)((c14 << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c7 -= (c14 << 22) & IntegerPolynomialP256::LIMB_MASK;
 	c8 -= c14 >> 4;
-	c4 += (int64_t)((c14 << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c4 += (c14 << 4) & IntegerPolynomialP256::LIMB_MASK;
 	c5 += c14 >> 22;
-	c11 += (int64_t)((c13 << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c11 += (c13 << 20) & IntegerPolynomialP256::LIMB_MASK;
 	c12 += c13 >> 6;
-	c10 -= (int64_t)((c13 << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c10 -= (c13 << 14) & IntegerPolynomialP256::LIMB_MASK;
 	c11 -= c13 >> 12;
-	c6 -= (int64_t)((c13 << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c6 -= (c13 << 22) & IntegerPolynomialP256::LIMB_MASK;
 	c7 -= c13 >> 4;
-	c3 += (int64_t)((c13 << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c3 += (c13 << 4) & IntegerPolynomialP256::LIMB_MASK;
 	c4 += c13 >> 22;
-	c10 += (int64_t)((c12 << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c10 += (c12 << 20) & IntegerPolynomialP256::LIMB_MASK;
 	c11 += c12 >> 6;
-	c9 -= (int64_t)((c12 << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c9 -= (c12 << 14) & IntegerPolynomialP256::LIMB_MASK;
 	c10 -= c12 >> 12;
-	c5 -= (int64_t)((c12 << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c5 -= (c12 << 22) & IntegerPolynomialP256::LIMB_MASK;
 	c6 -= c12 >> 4;
-	c2 += (int64_t)((c12 << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c2 += (c12 << 4) & IntegerPolynomialP256::LIMB_MASK;
 	c3 += c12 >> 22;
-	c9 += (int64_t)((c11 << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c9 += (c11 << 20) & IntegerPolynomialP256::LIMB_MASK;
 	c10 += c11 >> 6;
-	c8 -= (int64_t)((c11 << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c8 -= (c11 << 14) & IntegerPolynomialP256::LIMB_MASK;
 	c9 -= c11 >> 12;
-	c4 -= (int64_t)((c11 << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c4 -= (c11 << 22) & IntegerPolynomialP256::LIMB_MASK;
 	c5 -= c11 >> 4;
-	c1 += (int64_t)((c11 << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c1 += (c11 << 4) & IntegerPolynomialP256::LIMB_MASK;
 	c2 += c11 >> 22;
-	c8 += (int64_t)((c10 << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c8 += (c10 << 20) & IntegerPolynomialP256::LIMB_MASK;
 	c9 += c10 >> 6;
-	c7 -= (int64_t)((c10 << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c7 -= (c10 << 14) & IntegerPolynomialP256::LIMB_MASK;
 	c8 -= c10 >> 12;
-	c3 -= (int64_t)((c10 << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c3 -= (c10 << 22) & IntegerPolynomialP256::LIMB_MASK;
 	c4 -= c10 >> 4;
-	c0 += (int64_t)((c10 << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c0 += (c10 << 4) & IntegerPolynomialP256::LIMB_MASK;
 	c1 += c10 >> 22;
 	c10 = 0;
 	carryReduce0(r, c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19);
@@ -185,13 +147,13 @@ void IntegerPolynomialP256::carryReduce0($longs* r, int64_t c0, int64_t c1, int6
 	t0 = (c9 + IntegerPolynomialP256::CARRY_ADD) >> 26;
 	c9 -= (t0 << 26);
 	c10 += t0;
-	c8 += (int64_t)((c10 << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c8 += (c10 << 20) & IntegerPolynomialP256::LIMB_MASK;
 	c9 += c10 >> 6;
-	c7 -= (int64_t)((c10 << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c7 -= (c10 << 14) & IntegerPolynomialP256::LIMB_MASK;
 	c8 -= c10 >> 12;
-	c3 -= (int64_t)((c10 << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c3 -= (c10 << 22) & IntegerPolynomialP256::LIMB_MASK;
 	c4 -= c10 >> 4;
-	c0 += (int64_t)((c10 << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c0 += (c10 << 4) & IntegerPolynomialP256::LIMB_MASK;
 	c1 += c10 >> 22;
 	t0 = (c0 + IntegerPolynomialP256::CARRY_ADD) >> 26;
 	c0 -= (t0 << 26);
@@ -240,13 +202,13 @@ void IntegerPolynomialP256::carryReduce($longs* r, int64_t c0, int64_t c1, int64
 	t0 = (c9 + IntegerPolynomialP256::CARRY_ADD) >> 26;
 	c9 -= (t0 << 26);
 	c10 += t0;
-	c8 += (int64_t)((c10 << 20) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c8 += (c10 << 20) & IntegerPolynomialP256::LIMB_MASK;
 	c9 += c10 >> 6;
-	c7 -= (int64_t)((c10 << 14) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c7 -= (c10 << 14) & IntegerPolynomialP256::LIMB_MASK;
 	c8 -= c10 >> 12;
-	c3 -= (int64_t)((c10 << 22) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c3 -= (c10 << 22) & IntegerPolynomialP256::LIMB_MASK;
 	c4 -= c10 >> 4;
-	c0 += (int64_t)((c10 << 4) & (uint64_t)(int64_t)IntegerPolynomialP256::LIMB_MASK);
+	c0 += (c10 << 4) & IntegerPolynomialP256::LIMB_MASK;
 	c1 += c10 >> 22;
 	t0 = (c0 + IntegerPolynomialP256::CARRY_ADD) >> 26;
 	c0 -= (t0 << 26);
@@ -311,11 +273,11 @@ void IntegerPolynomialP256::mult($longs* a, $longs* b, $longs* r) {
 }
 
 void IntegerPolynomialP256::reduce($longs* a) {
-	carryReduce(a, $nc(a)->get(0), a->get(1), a->get(2), a->get(3), a->get(4), a->get(5), a->get(6), a->get(7), a->get(8), a->get(9));
+	carryReduce(a, $nc(a)->get(0), $nc(a)->get(1), $nc(a)->get(2), $nc(a)->get(3), $nc(a)->get(4), $nc(a)->get(5), $nc(a)->get(6), $nc(a)->get(7), $nc(a)->get(8), $nc(a)->get(9));
 }
 
 void IntegerPolynomialP256::square($longs* a, $longs* r) {
-	int64_t c0 = ($nc(a)->get(0) * a->get(0));
+	int64_t c0 = ($nc(a)->get(0) * $nc(a)->get(0));
 	int64_t c1 = 2 * (a->get(0) * a->get(1));
 	int64_t c2 = 2 * (a->get(0) * a->get(2)) + (a->get(1) * a->get(1));
 	int64_t c3 = 2 * ((a->get(0) * a->get(3)) + (a->get(1) * a->get(2)));
@@ -337,7 +299,7 @@ void IntegerPolynomialP256::square($longs* a, $longs* r) {
 	carryReduce(r, c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18);
 }
 
-void clinit$IntegerPolynomialP256($Class* class$) {
+void IntegerPolynomialP256::clinit$($Class* clazz) {
 	$assignStatic(IntegerPolynomialP256::MODULUS, IntegerPolynomialP256::evaluateModulus());
 }
 
@@ -345,7 +307,39 @@ IntegerPolynomialP256::IntegerPolynomialP256() {
 }
 
 $Class* IntegerPolynomialP256::load$($String* name, bool initialize) {
-	$loadClass(IntegerPolynomialP256, name, initialize, &_IntegerPolynomialP256_ClassInfo_, clinit$IntegerPolynomialP256, allocate$IntegerPolynomialP256);
+	$FieldInfo fieldInfos$$[] = {
+		{"BITS_PER_LIMB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomialP256, BITS_PER_LIMB)},
+		{"NUM_LIMBS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomialP256, NUM_LIMBS)},
+		{"MAX_ADDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomialP256, MAX_ADDS)},
+		{"MODULUS", "Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IntegerPolynomialP256, MODULUS)},
+		{"CARRY_ADD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomialP256, CARRY_ADD)},
+		{"LIMB_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomialP256, LIMB_MASK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerPolynomialP256, init$, void)},
+		{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomialP256, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce", "([JJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomialP256, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce0", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(IntegerPolynomialP256, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerPolynomialP256, evaluateModulus, $BigInteger*)},
+		{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, finalCarryReduceLast, void, $longs*)},
+		{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, mult, void, $longs*, $longs*, $longs*)},
+		{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, reduce, void, $longs*)},
+		{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, reduceIn, void, $longs*, int64_t, int32_t)},
+		{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, square, void, $longs*, $longs*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.math.intpoly.IntegerPolynomialP256",
+		"sun.security.util.math.intpoly.IntegerPolynomial",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntegerPolynomialP256, name, initialize, &classInfo$$, IntegerPolynomialP256::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerPolynomialP256);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/reflect/annotation/AnnotatedTypeFactory$AnnotatedWildcardTypeImpl.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/annotation/Annotation.h>
@@ -70,87 +69,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($of($nc(inst$))->toString());
+		 return $of($ofnc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString::class$ = nullptr;
-
-$FieldInfo _AnnotatedTypeFactory$AnnotatedWildcardTypeImpl_FieldInfo_[] = {
-	{"hasUpperBounds", "Z", nullptr, $PRIVATE | $FINAL, $field(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, hasUpperBounds$)},
-	{}
-};
-
-$MethodInfo _AnnotatedTypeFactory$AnnotatedWildcardTypeImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/reflect/WildcardType;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", nullptr, 0, $method(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, init$, void, $WildcardType*, $TypeAnnotation$LocationInfo*, $TypeAnnotationArray*, $TypeAnnotationArray*, $AnnotatedElement*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, equals, bool, Object$*)},
-	{"getAnnotatedBounds", "([Ljava/lang/reflect/Type;)[Ljava/lang/reflect/AnnotatedType;", nullptr, $PRIVATE, $method(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, getAnnotatedBounds, $AnnotatedTypeArray*, $TypeArray*)},
-	{"getAnnotatedLowerBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, getAnnotatedLowerBounds, $AnnotatedTypeArray*)},
-	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, getAnnotatedOwnerType, $AnnotatedType*)},
-	{"getAnnotatedUpperBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, getAnnotatedUpperBounds, $AnnotatedTypeArray*)},
-	{"getWildcardType", "()Ljava/lang/reflect/WildcardType;", nullptr, $PRIVATE, $method(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, getWildcardType, $WildcardType*)},
-	{"hasUpperBounds", "()Z", nullptr, $PRIVATE, $method(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, hasUpperBounds, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, hashCode, int32_t)},
-	{"*isAnnotationPresent", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AnnotatedTypeFactory$AnnotatedWildcardTypeImpl_InnerClassesInfo_[] = {
-	{"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedWildcardTypeImpl", "sun.reflect.annotation.AnnotatedTypeFactory", "AnnotatedWildcardTypeImpl", $PRIVATE | $STATIC | $FINAL},
-	{"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeBaseImpl", "sun.reflect.annotation.AnnotatedTypeFactory", "AnnotatedTypeBaseImpl", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AnnotatedTypeFactory$AnnotatedWildcardTypeImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedWildcardTypeImpl",
-	"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeBaseImpl",
-	"java.lang.reflect.AnnotatedWildcardType",
-	_AnnotatedTypeFactory$AnnotatedWildcardTypeImpl_FieldInfo_,
-	_AnnotatedTypeFactory$AnnotatedWildcardTypeImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnnotatedTypeFactory$AnnotatedWildcardTypeImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.reflect.annotation.AnnotatedTypeFactory"
-};
-
-$Object* allocate$AnnotatedTypeFactory$AnnotatedWildcardTypeImpl($Class* clazz) {
-	return $of($alloc(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl));
-}
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotations() {
 	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotations();
@@ -198,21 +139,21 @@ void AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::init$($WildcardType* type, 
 }
 
 $AnnotatedTypeArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotatedUpperBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!hasUpperBounds()) {
 		$init($TypeAnnotation$LocationInfo);
 		$init($AnnotatedTypeFactory);
 		return $new($AnnotatedTypeArray, {$($AnnotatedTypeFactory::buildAnnotatedType($Object::class$, $TypeAnnotation$LocationInfo::BASE_LOCATION, $AnnotatedTypeFactory::EMPTY_TYPE_ANNOTATION_ARRAY, $AnnotatedTypeFactory::EMPTY_TYPE_ANNOTATION_ARRAY, nullptr))});
 	}
-	return getAnnotatedBounds($($nc($(getWildcardType()))->getUpperBounds()));
+	return getAnnotatedBounds($($$nc(getWildcardType())->getUpperBounds()));
 }
 
 $AnnotatedTypeArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotatedLowerBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->hasUpperBounds$) {
 		return $new($AnnotatedTypeArray, 0);
 	}
-	return getAnnotatedBounds($($nc($(getWildcardType()))->getLowerBounds()));
+	return getAnnotatedBounds($($$nc(getWildcardType())->getLowerBounds()));
 }
 
 $AnnotatedType* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotatedOwnerType() {
@@ -220,30 +161,27 @@ $AnnotatedType* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotatedOwne
 }
 
 $AnnotatedTypeArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotatedBounds($TypeArray* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotatedTypeArray, res, $new($AnnotatedTypeArray, $nc(bounds)->length));
 	$init($AnnotatedTypeFactory);
-	$Arrays::fill(res, $of($AnnotatedTypeFactory::EMPTY_ANNOTATED_TYPE));
+	$Arrays::fill(res, $AnnotatedTypeFactory::EMPTY_ANNOTATED_TYPE);
 	int32_t initialCapacity = $nc($(getTypeAnnotations()))->length;
 	for (int32_t i = 0; i < res->length; ++i) {
-		$var($TypeAnnotation$LocationInfo, newLoc, $AnnotatedTypeFactory::nestingForType(bounds->get(i), $($nc($(getLocation()))->pushWildcard())));
+		$var($TypeAnnotation$LocationInfo, newLoc, $AnnotatedTypeFactory::nestingForType(bounds->get(i), $($$nc(getLocation())->pushWildcard())));
 		$var($List, l, $new($ArrayList, initialCapacity));
 		{
 			$var($TypeAnnotationArray, arr$, getTypeAnnotations());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($TypeAnnotation, t, arr$->get(i$));
-				if ($nc($($nc(t)->getLocationInfo()))->isSameLocationInfo(newLoc)) {
+				if ($$nc($nc(t)->getLocationInfo())->isSameLocationInfo(newLoc)) {
 					l->add(t);
 				}
 			}
 		}
 		$var($Type, var$0, bounds->get(i));
-		$var($TypeAnnotation$LocationInfo, var$1, newLoc);
-		$var($TypeAnnotationArray, var$2, $fcast($TypeAnnotationArray, l->toArray($AnnotatedTypeFactory::EMPTY_TYPE_ANNOTATION_ARRAY)));
-		$var($TypeAnnotationArray, var$3, getTypeAnnotations());
-		res->set(i, $($AnnotatedTypeFactory::buildAnnotatedType(var$0, var$1, var$2, var$3, $(getDecl()))));
+		$var($TypeAnnotationArray, var$1, $cast($TypeAnnotationArray, l->toArray($AnnotatedTypeFactory::EMPTY_TYPE_ANNOTATION_ARRAY)));
+		$var($TypeAnnotationArray, var$2, getTypeAnnotations());
+		res->set(i, $($AnnotatedTypeFactory::buildAnnotatedType(var$0, newLoc, var$1, var$2, $(getDecl()))));
 	}
 	return res;
 }
@@ -257,7 +195,7 @@ bool AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::hasUpperBounds() {
 }
 
 $String* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($(annotationsToString($(getAnnotations()), false)));
 	sb->append("?"_s);
@@ -269,7 +207,7 @@ $String* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::toString() {
 		if ($nc(bounds)->length > 0) {
 			if (bounds->length == 1) {
 				$var($AnnotatedType, bound, bounds->get(0));
-				bool var$0 = $nc($of($($nc(bound)->getType())))->equals($Object::class$);
+				bool var$0 = $$nc($nc(bound)->getType())->equals($Object::class$);
 				if (var$0 && $nc($(bound->getAnnotations()))->length == 0) {
 					return sb->toString();
 				}
@@ -277,23 +215,23 @@ $String* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::toString() {
 			sb->append(" extends "_s);
 		}
 	}
-	sb->append($cast($String, $($nc($($nc($($Stream::of(bounds)))->map(static_cast<$Function*>($$new(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString)))))->collect($($Collectors::joining(" & "_s))))));
+	sb->append($$cast($String, $$nc($$nc($Stream::of(bounds))->map($$new(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString)))->collect($($Collectors::joining(" & "_s)))));
 	return sb->toString();
 }
 
 bool AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($AnnotatedWildcardType, o)) {
 		$var($AnnotatedWildcardType, that, $cast($AnnotatedWildcardType, o));
 		bool var$1 = equalsTypeAndAnnotations(that);
 		if (var$1) {
 			$var($ObjectArray, var$2, getAnnotatedLowerBounds());
-			var$1 = $Arrays::equals(var$2, $($nc(that)->getAnnotatedLowerBounds()));
+			var$1 = $Arrays::equals(var$2, $(that->getAnnotatedLowerBounds()));
 		}
 		bool var$0 = var$1;
 		if (var$0) {
 			$var($ObjectArray, var$3, getAnnotatedUpperBounds());
-			var$0 = $Arrays::equals(var$3, $($nc(that)->getAnnotatedUpperBounds()));
+			var$0 = $Arrays::equals(var$3, $(that->getAnnotatedUpperBounds()));
 		}
 		return var$0;
 	} else {
@@ -302,10 +240,10 @@ bool AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::equals(Object$* o) {
 }
 
 int32_t AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$1 = baseHashCode();
-	int32_t var$0 = var$1 ^ $Objects::hash($(getAnnotatedLowerBounds()));
-	return var$0 ^ $Objects::hash($(getAnnotatedUpperBounds()));
+	int32_t var$0 = var$1 ^ $Objects::hash($$cast($ObjectArray, getAnnotatedLowerBounds()));
+	return var$0 ^ $Objects::hash($$cast($ObjectArray, getAnnotatedUpperBounds()));
 }
 
 AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::AnnotatedTypeFactory$AnnotatedWildcardTypeImpl() {
@@ -313,11 +251,60 @@ AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::AnnotatedTypeFactory$AnnotatedWi
 
 $Class* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString")) {
 			return AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString::load$(name, initialize);
 		}
 	}
-	$loadClass(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, name, initialize, &_AnnotatedTypeFactory$AnnotatedWildcardTypeImpl_ClassInfo_, allocate$AnnotatedTypeFactory$AnnotatedWildcardTypeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"hasUpperBounds", "Z", nullptr, $PRIVATE | $FINAL, $field(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, hasUpperBounds$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/reflect/WildcardType;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", nullptr, 0, $method(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, init$, void, $WildcardType*, $TypeAnnotation$LocationInfo*, $TypeAnnotationArray*, $TypeAnnotationArray*, $AnnotatedElement*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, equals, bool, Object$*)},
+		{"getAnnotatedBounds", "([Ljava/lang/reflect/Type;)[Ljava/lang/reflect/AnnotatedType;", nullptr, $PRIVATE, $method(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, getAnnotatedBounds, $AnnotatedTypeArray*, $TypeArray*)},
+		{"getAnnotatedLowerBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, getAnnotatedLowerBounds, $AnnotatedTypeArray*)},
+		{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, getAnnotatedOwnerType, $AnnotatedType*)},
+		{"getAnnotatedUpperBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, getAnnotatedUpperBounds, $AnnotatedTypeArray*)},
+		{"getWildcardType", "()Ljava/lang/reflect/WildcardType;", nullptr, $PRIVATE, $method(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, getWildcardType, $WildcardType*)},
+		{"hasUpperBounds", "()Z", nullptr, $PRIVATE, $method(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, hasUpperBounds, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, hashCode, int32_t)},
+		{"*isAnnotationPresent", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedWildcardTypeImpl", "sun.reflect.annotation.AnnotatedTypeFactory", "AnnotatedWildcardTypeImpl", $PRIVATE | $STATIC | $FINAL},
+		{"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeBaseImpl", "sun.reflect.annotation.AnnotatedTypeFactory", "AnnotatedTypeBaseImpl", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedWildcardTypeImpl",
+		"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeBaseImpl",
+		"java.lang.reflect.AnnotatedWildcardType",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.reflect.annotation.AnnotatedTypeFactory"
+	};
+	$loadClass(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl));
+	});
 	return class$;
 }
 

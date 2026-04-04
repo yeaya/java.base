@@ -1,5 +1,4 @@
 #include <java/time/temporal/IsoFields$Field$1.h>
-
 #include <java/lang/Math.h>
 #include <java/time/LocalDate.h>
 #include <java/time/chrono/IsoChronology.h>
@@ -10,7 +9,6 @@
 #include <java/time/temporal/IsoFields.h>
 #include <java/time/temporal/Temporal.h>
 #include <java/time/temporal/TemporalAccessor.h>
-#include <java/time/temporal/TemporalField.h>
 #include <java/time/temporal/TemporalUnit.h>
 #include <java/time/temporal/UnsupportedTemporalTypeException.h>
 #include <java/time/temporal/ValueRange.h>
@@ -44,7 +42,6 @@ using $IsoFields = ::java::time::temporal::IsoFields;
 using $IsoFields$Field = ::java::time::temporal::IsoFields$Field;
 using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
-using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $UnsupportedTemporalTypeException = ::java::time::temporal::UnsupportedTemporalTypeException;
 using $ValueRange = ::java::time::temporal::ValueRange;
@@ -53,52 +50,6 @@ using $Map = ::java::util::Map;
 namespace java {
 	namespace time {
 		namespace temporal {
-
-$MethodInfo _IsoFields$Field$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(IsoFields$Field$1, init$, void, $String*, int32_t)},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC, $virtualMethod(IsoFields$Field$1, adjustInto, $Temporal*, $Temporal*, int64_t)},
-	{"getBaseUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, getBaseUnit, $TemporalUnit*)},
-	{"getFrom", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, getFrom, int64_t, $TemporalAccessor*)},
-	{"getRangeUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, getRangeUnit, $TemporalUnit*)},
-	{"isSupportedBy", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, isSupportedBy, bool, $TemporalAccessor*)},
-	{"range", "()Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, range, $ValueRange*)},
-	{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
-	{"resolve", "(Ljava/util/Map;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PUBLIC, $virtualMethod(IsoFields$Field$1, resolve, $TemporalAccessor*, $Map*, $TemporalAccessor*, $ResolverStyle*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _IsoFields$Field$1_EnclosingMethodInfo_ = {
-	"java.time.temporal.IsoFields$Field",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _IsoFields$Field$1_InnerClassesInfo_[] = {
-	{"java.time.temporal.IsoFields$Field", "java.time.temporal.IsoFields", "Field", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
-	{"java.time.temporal.IsoFields$Field$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _IsoFields$Field$1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.time.temporal.IsoFields$Field$1",
-	"java.time.temporal.IsoFields$Field",
-	nullptr,
-	nullptr,
-	_IsoFields$Field$1_MethodInfo_,
-	nullptr,
-	&_IsoFields$Field$1_EnclosingMethodInfo_,
-	_IsoFields$Field$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.temporal.IsoFields"
-};
-
-$Object* allocate$IsoFields$Field$1($Class* clazz) {
-	return $of($alloc(IsoFields$Field$1));
-}
 
 void IsoFields$Field$1::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$IsoFields$Field::init$($enum$name, $enum$ordinal);
@@ -160,13 +111,13 @@ int64_t IsoFields$Field$1::getFrom($TemporalAccessor* temporal) {
 
 $Temporal* IsoFields$Field$1::adjustInto($Temporal* temporal, int64_t newValue) {
 	int64_t curValue = getFrom(temporal);
-	$nc($(range()))->checkValidValue(newValue, this);
+	$$nc(range())->checkValidValue(newValue, this);
 	$init($ChronoField);
-	return $nc(temporal)->with($ChronoField::DAY_OF_YEAR, temporal->getLong($ChronoField::DAY_OF_YEAR) + (newValue - curValue));
+	return $nc(temporal)->with($ChronoField::DAY_OF_YEAR, $nc(temporal)->getLong($ChronoField::DAY_OF_YEAR) + (newValue - curValue));
 }
 
 $TemporalAccessor* IsoFields$Field$1::resolve($Map* fieldValues, $TemporalAccessor* partialTemporal, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
 	$var($Long, yearLong, $cast($Long, $nc(fieldValues)->get($ChronoField::YEAR)));
 	$init($IsoFields$Field);
@@ -175,21 +126,21 @@ $TemporalAccessor* IsoFields$Field$1::resolve($Map* fieldValues, $TemporalAccess
 		return nullptr;
 	}
 	int32_t y = $ChronoField::YEAR->checkValidIntValue($nc(yearLong)->longValue());
-	int64_t doq = $nc(($cast($Long, $(fieldValues->get($IsoFields$Field::DAY_OF_QUARTER)))))->longValue();
+	int64_t doq = $$sure($Long, fieldValues->get($IsoFields$Field::DAY_OF_QUARTER))->longValue();
 	$IsoFields$Field::ensureIso(partialTemporal);
 	$var($LocalDate, date, nullptr);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		$assign(date, $nc($($LocalDate::of(y, 1, 1)))->plusMonths($Math::multiplyExact($Math::subtractExact($nc(qoyLong)->longValue(), (int64_t)1), 3)));
+		$assign(date, $$nc($LocalDate::of(y, 1, 1))->plusMonths($Math::multiplyExact($Math::subtractExact($nc(qoyLong)->longValue(), (int64_t)1), 3)));
 		doq = $Math::subtractExact(doq, (int64_t)1);
 	} else {
-		int32_t qoy = $nc($($IsoFields$Field::QUARTER_OF_YEAR->range()))->checkValidIntValue($nc(qoyLong)->longValue(), $IsoFields$Field::QUARTER_OF_YEAR);
+		int32_t qoy = $$nc($IsoFields$Field::QUARTER_OF_YEAR->range())->checkValidIntValue($nc(qoyLong)->longValue(), $IsoFields$Field::QUARTER_OF_YEAR);
 		$assign(date, $LocalDate::of(y, ((qoy - 1) * 3) + 1, 1));
 		if (doq < 1 || doq > 90) {
 			if (resolverStyle == $ResolverStyle::STRICT) {
-				$nc($(rangeRefinedBy(date)))->checkValidValue(doq, this);
+				$$nc(rangeRefinedBy(date))->checkValidValue(doq, this);
 			} else {
-				$nc($(range()))->checkValidValue(doq, this);
+				$$nc(range())->checkValidValue(doq, this);
 			}
 		}
 		--doq;
@@ -208,7 +159,47 @@ IsoFields$Field$1::IsoFields$Field$1() {
 }
 
 $Class* IsoFields$Field$1::load$($String* name, bool initialize) {
-	$loadClass(IsoFields$Field$1, name, initialize, &_IsoFields$Field$1_ClassInfo_, allocate$IsoFields$Field$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(IsoFields$Field$1, init$, void, $String*, int32_t)},
+		{"adjustInto", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC, $virtualMethod(IsoFields$Field$1, adjustInto, $Temporal*, $Temporal*, int64_t)},
+		{"getBaseUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, getBaseUnit, $TemporalUnit*)},
+		{"getFrom", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, getFrom, int64_t, $TemporalAccessor*)},
+		{"getRangeUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, getRangeUnit, $TemporalUnit*)},
+		{"isSupportedBy", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, isSupportedBy, bool, $TemporalAccessor*)},
+		{"range", "()Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, range, $ValueRange*)},
+		{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
+		{"resolve", "(Ljava/util/Map;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PUBLIC, $virtualMethod(IsoFields$Field$1, resolve, $TemporalAccessor*, $Map*, $TemporalAccessor*, $ResolverStyle*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field$1, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.temporal.IsoFields$Field",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.temporal.IsoFields$Field", "java.time.temporal.IsoFields", "Field", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
+		{"java.time.temporal.IsoFields$Field$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.time.temporal.IsoFields$Field$1",
+		"java.time.temporal.IsoFields$Field",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.temporal.IsoFields"
+	};
+	$loadClass(IsoFields$Field$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IsoFields$Field$1));
+	});
 	return class$;
 }
 

@@ -20,6 +20,7 @@ class $export InheritIOEHandle : public ::java::lang::Object {
 	$class(InheritIOEHandle, 0, ::java::lang::Object)
 public:
 	InheritIOEHandle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* getCommandArray($String* processName);
 	static void main($StringArray* args);

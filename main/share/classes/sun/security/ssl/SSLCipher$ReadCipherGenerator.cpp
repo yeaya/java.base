@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLCipher$ReadCipherGenerator.h>
-
 #include <java/security/Key.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -24,38 +23,33 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLCipher$ReadCipherGenerator_MethodInfo_[] = {
-	{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLCipher$ReadCipherGenerator, createCipher, $SSLCipher$SSLReadCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
-	{}
-};
-
-$InnerClassInfo _SSLCipher$ReadCipherGenerator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLCipher$ReadCipherGenerator", "sun.security.ssl.SSLCipher", "ReadCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLCipher$ReadCipherGenerator_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.security.ssl.SSLCipher$ReadCipherGenerator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SSLCipher$ReadCipherGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLCipher$ReadCipherGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLCipher"
-};
-
-$Object* allocate$SSLCipher$ReadCipherGenerator($Class* clazz) {
-	return $of($alloc(SSLCipher$ReadCipherGenerator));
-}
-
 $Class* SSLCipher$ReadCipherGenerator::load$($String* name, bool initialize) {
-	$loadClass(SSLCipher$ReadCipherGenerator, name, initialize, &_SSLCipher$ReadCipherGenerator_ClassInfo_, allocate$SSLCipher$ReadCipherGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLCipher$ReadCipherGenerator, createCipher, $SSLCipher$SSLReadCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLCipher$ReadCipherGenerator", "sun.security.ssl.SSLCipher", "ReadCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.security.ssl.SSLCipher$ReadCipherGenerator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLCipher"
+	};
+	$loadClass(SSLCipher$ReadCipherGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLCipher$ReadCipherGenerator);
+	});
 	return class$;
 }
 

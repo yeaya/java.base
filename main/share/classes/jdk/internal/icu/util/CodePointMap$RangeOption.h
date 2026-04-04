@@ -23,6 +23,7 @@ class CodePointMap$RangeOption : public ::java::lang::Enum {
 public:
 	CodePointMap$RangeOption();
 	static $Array<::jdk::internal::icu::util::CodePointMap$RangeOption>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::icu::util::CodePointMap$RangeOption* valueOf($String* name);
 	static $Array<::jdk::internal::icu::util::CodePointMap$RangeOption>* values();

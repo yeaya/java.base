@@ -19,6 +19,7 @@ class NativeImageBuffer : public ::java::lang::Object {
 	$class(NativeImageBuffer, 0, ::java::lang::Object)
 public:
 	NativeImageBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::ByteBuffer* getNativeMap($String* imagePath);
 };

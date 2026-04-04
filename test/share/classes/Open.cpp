@@ -1,5 +1,4 @@
 #include <Open.h>
-
 #include <java/net/SocketException.h>
 #include <java/nio/channels/DatagramChannel.h>
 #include <java/nio/channels/Pipe.h>
@@ -18,34 +17,11 @@ using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 
-$MethodInfo _Open_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Open, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Open, main, void, $StringArray*), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $STATIC, $staticMethod(Open, test1, void)},
-	{"test2", "()V", nullptr, $STATIC, $staticMethod(Open, test2, void)},
-	{"test3", "()V", nullptr, $STATIC, $staticMethod(Open, test3, void)},
-	{"test4", "()V", nullptr, $STATIC, $staticMethod(Open, test4, void)},
-	{}
-};
-
-$ClassInfo _Open_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Open",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Open_MethodInfo_
-};
-
-$Object* allocate$Open($Class* clazz) {
-	return $of($alloc(Open));
-}
-
 void Open::init$() {
 }
 
 void Open::test1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < 11000; ++i) {
 		try {
 			$var($SocketChannel, sc, $SocketChannel::open());
@@ -55,7 +31,7 @@ void Open::test1() {
 }
 
 void Open::test2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < 11000; ++i) {
 		try {
 			$var($DatagramChannel, sc, $DatagramChannel::open());
@@ -65,7 +41,7 @@ void Open::test2() {
 }
 
 void Open::test3() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SelectorProvider, sp, $SelectorProvider::provider());
 	for (int32_t i = 0; i < 11000; ++i) {
 		try {
@@ -76,7 +52,7 @@ void Open::test3() {
 }
 
 void Open::test4() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < 11000; ++i) {
 		try {
 			$var($ServerSocketChannel, sc, $ServerSocketChannel::open());
@@ -86,7 +62,7 @@ void Open::test4() {
 }
 
 void Open::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DatagramChannel, dc, $DatagramChannel::open());
 	$var($Exception, se, $new($SocketException));
 	$var($SelectorProvider, sp, $SelectorProvider::provider());
@@ -102,7 +78,26 @@ Open::Open() {
 }
 
 $Class* Open::load$($String* name, bool initialize) {
-	$loadClass(Open, name, initialize, &_Open_ClassInfo_, allocate$Open);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Open, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Open, main, void, $StringArray*), "java.lang.Exception"},
+		{"test1", "()V", nullptr, $STATIC, $staticMethod(Open, test1, void)},
+		{"test2", "()V", nullptr, $STATIC, $staticMethod(Open, test2, void)},
+		{"test3", "()V", nullptr, $STATIC, $staticMethod(Open, test3, void)},
+		{"test4", "()V", nullptr, $STATIC, $staticMethod(Open, test4, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Open",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Open, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Open);
+	});
 	return class$;
 }
 

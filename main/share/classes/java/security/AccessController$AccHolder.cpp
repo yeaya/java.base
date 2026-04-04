@@ -1,5 +1,4 @@
 #include <java/security/AccessController$AccHolder.h>
-
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/CodeSource.h>
@@ -20,48 +19,13 @@ using $ProtectionDomain = ::java::security::ProtectionDomain;
 namespace java {
 	namespace security {
 
-$FieldInfo _AccessController$AccHolder_FieldInfo_[] = {
-	{"innocuousAcc", "Ljava/security/AccessControlContext;", nullptr, $STATIC | $FINAL, $staticField(AccessController$AccHolder, innocuousAcc)},
-	{}
-};
-
-$MethodInfo _AccessController$AccHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AccessController$AccHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _AccessController$AccHolder_InnerClassesInfo_[] = {
-	{"java.security.AccessController$AccHolder", "java.security.AccessController", "AccHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AccessController$AccHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.AccessController$AccHolder",
-	"java.lang.Object",
-	nullptr,
-	_AccessController$AccHolder_FieldInfo_,
-	_AccessController$AccHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessController$AccHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.AccessController"
-};
-
-$Object* allocate$AccessController$AccHolder($Class* clazz) {
-	return $of($alloc(AccessController$AccHolder));
-}
-
 $AccessControlContext* AccessController$AccHolder::innocuousAcc = nullptr;
 
 void AccessController$AccHolder::init$() {
 }
 
-void clinit$AccessController$AccHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AccessController$AccHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(AccessController$AccHolder::innocuousAcc, $new($AccessControlContext, $$new($ProtectionDomainArray, {$$new($ProtectionDomain, nullptr, nullptr)})));
 }
 
@@ -69,7 +33,36 @@ AccessController$AccHolder::AccessController$AccHolder() {
 }
 
 $Class* AccessController$AccHolder::load$($String* name, bool initialize) {
-	$loadClass(AccessController$AccHolder, name, initialize, &_AccessController$AccHolder_ClassInfo_, clinit$AccessController$AccHolder, allocate$AccessController$AccHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"innocuousAcc", "Ljava/security/AccessControlContext;", nullptr, $STATIC | $FINAL, $staticField(AccessController$AccHolder, innocuousAcc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AccessController$AccHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.AccessController$AccHolder", "java.security.AccessController", "AccHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.AccessController$AccHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.AccessController"
+	};
+	$loadClass(AccessController$AccHolder, name, initialize, &classInfo$$, AccessController$AccHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessController$AccHolder);
+	});
 	return class$;
 }
 

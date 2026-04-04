@@ -72,6 +72,7 @@ class $export ASMifier : public ::jdk::internal::org::objectweb::asm$::util::Pri
 	$class(ASMifier, 0, ::jdk::internal::org::objectweb::asm$::util::Printer)
 public:
 	ASMifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t api, $String* visitorVariableName, int32_t annotationVisitorId);
 	void appendAccessFlags(int32_t accessFlags);

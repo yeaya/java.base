@@ -1,5 +1,4 @@
 #include <ImplicitStringConcatShapes.h>
-
 #include <ImplicitStringConcatShapes$MyClass.h>
 #include <ImplicitStringConcatShapes$MyClassNullToString.h>
 #include <java/lang/IllegalStateException.h>
@@ -15,136 +14,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _ImplicitStringConcatShapes_FieldInfo_[] = {
-	{"sf_bl", "Z", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_bl)},
-	{"sf_b", "B", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_b)},
-	{"sf_bM", "B", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_bM)},
-	{"sf_c", "C", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_c)},
-	{"sf_s", "S", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_s)},
-	{"sf_sM", "S", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_sM)},
-	{"sf_i", "I", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_i)},
-	{"sf_iM", "I", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_iM)},
-	{"sf_I", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_I)},
-	{"sf_IN", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_IN)},
-	{"sf_f", "F", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_f)},
-	{"sf_fM", "F", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_fM)},
-	{"sf_l", "J", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_l)},
-	{"sf_lM", "J", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_lM)},
-	{"sf_d", "D", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_d)},
-	{"sf_dM", "D", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_dM)},
-	{"sf_o", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_o)},
-	{"sf_oN", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_oN)},
-	{"sf_oNtS", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_oNtS)},
-	{"sf_str", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_str)},
-	{"sf_strU", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_strU)},
-	{"sf_strU1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_strU1)},
-	{"sf_strU2", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_strU2)},
-	{"sf_iAN", "[I", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_iAN)},
-	{"sf_oAN", "[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_oAN)},
-	{"s_bl", "Z", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_bl)},
-	{"s_b", "B", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_b)},
-	{"s_bM", "B", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_bM)},
-	{"s_c", "C", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_c)},
-	{"s_s", "S", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_s)},
-	{"s_sM", "S", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_sM)},
-	{"s_i", "I", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_i)},
-	{"s_iM", "I", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_iM)},
-	{"s_I", "Ljava/lang/Integer;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_I)},
-	{"s_IN", "Ljava/lang/Integer;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_IN)},
-	{"s_f", "F", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_f)},
-	{"s_fM", "F", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_fM)},
-	{"s_l", "J", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_l)},
-	{"s_lM", "J", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_lM)},
-	{"s_d", "D", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_d)},
-	{"s_dM", "D", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_dM)},
-	{"s_o", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_o)},
-	{"s_oN", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_oN)},
-	{"s_oNtS", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_oNtS)},
-	{"s_str", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_str)},
-	{"s_strU", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_strU)},
-	{"s_strU1", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_strU1)},
-	{"s_strU2", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_strU2)},
-	{"s_iAN", "[I", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_iAN)},
-	{"s_oAN", "[Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_oAN)},
-	{"f_bl", "Z", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_bl)},
-	{"f_b", "B", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_b)},
-	{"f_bM", "B", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_bM)},
-	{"f_c", "C", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_c)},
-	{"f_s", "S", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_s)},
-	{"f_sM", "S", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_sM)},
-	{"f_i", "I", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_i)},
-	{"f_iM", "I", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_iM)},
-	{"f_I", "Ljava/lang/Integer;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_I)},
-	{"f_IN", "Ljava/lang/Integer;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_IN)},
-	{"f_f", "F", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_f)},
-	{"f_fM", "F", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_fM)},
-	{"f_l", "J", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_l)},
-	{"f_lM", "J", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_lM)},
-	{"f_d", "D", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_d)},
-	{"f_dM", "D", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_dM)},
-	{"f_o", "Ljava/lang/Object;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_o)},
-	{"f_oN", "Ljava/lang/Object;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_oN)},
-	{"f_oNtS", "Ljava/lang/Object;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_oNtS)},
-	{"f_str", "Ljava/lang/String;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_str)},
-	{"f_strU", "Ljava/lang/String;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_strU)},
-	{"f_strU1", "Ljava/lang/String;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_strU1)},
-	{"f_strU2", "Ljava/lang/String;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_strU2)},
-	{"f_iAN", "[I", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_iAN)},
-	{"f_oAN", "[Ljava/lang/Object;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_oAN)},
-	{}
-};
-
-$MethodInfo _ImplicitStringConcatShapes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatShapes, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatShapes, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run, void)},
-	{"run0", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run0, void)},
-	{"run1", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run1, void)},
-	{"run10", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run10, void)},
-	{"run11", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run11, void)},
-	{"run12", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run12, void)},
-	{"run13", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run13, void)},
-	{"run14", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run14, void)},
-	{"run15", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run15, void)},
-	{"run16", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run16, void)},
-	{"run17", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run17, void)},
-	{"run2", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run2, void)},
-	{"run3", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run3, void)},
-	{"run4", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run4, void)},
-	{"run5", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run5, void)},
-	{"run6", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run6, void)},
-	{"run7", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run7, void)},
-	{"run8", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run8, void)},
-	{"run9", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run9, void)},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatShapes, test, void, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _ImplicitStringConcatShapes_InnerClassesInfo_[] = {
-	{"ImplicitStringConcatShapes$MyClassNullToString", "ImplicitStringConcatShapes", "MyClassNullToString", $STATIC},
-	{"ImplicitStringConcatShapes$MyClass", "ImplicitStringConcatShapes", "MyClass", $STATIC},
-	{}
-};
-
-$ClassInfo _ImplicitStringConcatShapes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ImplicitStringConcatShapes",
-	"java.lang.Object",
-	nullptr,
-	_ImplicitStringConcatShapes_FieldInfo_,
-	_ImplicitStringConcatShapes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImplicitStringConcatShapes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ImplicitStringConcatShapes$MyClassNullToString,ImplicitStringConcatShapes$MyClass"
-};
-
-$Object* allocate$ImplicitStringConcatShapes($Class* clazz) {
-	return $of($alloc(ImplicitStringConcatShapes));
-}
 
 $Integer* ImplicitStringConcatShapes::sf_I = nullptr;
 $Integer* ImplicitStringConcatShapes::sf_IN = nullptr;
@@ -188,7 +57,7 @@ $ints* ImplicitStringConcatShapes::s_iAN = nullptr;
 $ObjectArray* ImplicitStringConcatShapes::s_oAN = nullptr;
 
 void ImplicitStringConcatShapes::init$() {
-	$set(this, f_I, $Integer::valueOf(0x059A5380));
+	$set(this, f_I, $Integer::valueOf(94000000));
 	$set(this, f_IN, nullptr);
 	this->f_f = 94.0f;
 	this->f_fM = -87.0f;
@@ -207,7 +76,7 @@ void ImplicitStringConcatShapes::init$() {
 
 void ImplicitStringConcatShapes::test($String* expected, $String* actual) {
 	$init(ImplicitStringConcatShapes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(expected)->equals(actual)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("Expected = "_s);
@@ -245,7 +114,7 @@ void ImplicitStringConcatShapes::run() {
 }
 
 void ImplicitStringConcatShapes::run0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("-96.0"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_dM)}));
 	test("prefix-96.0"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::s_dM)}));
 	test("-96.0suffix"_s, $$str({$$str(ImplicitStringConcatShapes::s_dM), "suffix"_s}));
@@ -1249,7 +1118,7 @@ void ImplicitStringConcatShapes::run0() {
 }
 
 void ImplicitStringConcatShapes::run1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("\u000292nullsuffix"_s, $$str({""_s, ImplicitStringConcatShapes::sf_strU2, ImplicitStringConcatShapes::s_oAN, "suffix"_s}));
 	test("prefix\u000292suffix1nullsuffix2"_s, $$str({"prefix"_s, ImplicitStringConcatShapes::sf_strU2, "suffix1"_s, ImplicitStringConcatShapes::s_oAN, "suffix2"_s}));
 	test("\u00029219"_s, $$str({""_s, ImplicitStringConcatShapes::sf_strU2, this->f_str}));
@@ -2253,7 +2122,7 @@ void ImplicitStringConcatShapes::run1() {
 }
 
 void ImplicitStringConcatShapes::run2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test(u"prefix-87.0suffix1ё80suffix2"_s, $$str({"prefix"_s, $$str(this->f_fM), "suffix1"_s, ImplicitStringConcatShapes::s_strU, "suffix2"_s}));
 	test("-87.0C"_s, $$str({""_s, $$str(this->f_fM), $$str(ImplicitStringConcatShapes::sf_c)}));
 	test("-87.0Csuffix"_s, $$str({""_s, $$str(this->f_fM), $$str(ImplicitStringConcatShapes::sf_c), "suffix"_s}));
@@ -3257,7 +3126,7 @@ void ImplicitStringConcatShapes::run2() {
 }
 
 void ImplicitStringConcatShapes::run3() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("T-96.0"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_c), $$str(ImplicitStringConcatShapes::s_dM)}));
 	test("T-96.0suffix"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_c), $$str(ImplicitStringConcatShapes::s_dM), "suffix"_s}));
 	test("prefixTsuffix1-96.0suffix2"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::s_c), "suffix1"_s, $$str(ImplicitStringConcatShapes::s_dM), "suffix2"_s}));
@@ -4261,7 +4130,7 @@ void ImplicitStringConcatShapes::run3() {
 }
 
 void ImplicitStringConcatShapes::run4() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("-1410065408-194313216suffix"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_lM), $$str(ImplicitStringConcatShapes::sf_l), "suffix"_s}));
 	test("prefix-1410065408suffix1-194313216suffix2"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::s_lM), "suffix1"_s, $$str(ImplicitStringConcatShapes::sf_l), "suffix2"_s}));
 	test("-1410065408\u000112"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_lM), ImplicitStringConcatShapes::s_strU1}));
@@ -5265,7 +5134,7 @@ void ImplicitStringConcatShapes::run4() {
 }
 
 void ImplicitStringConcatShapes::run5() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("prefix-9900suffix1-1000000suffix2"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::f_sM), "suffix1"_s, $$str(ImplicitStringConcatShapes::s_iM), "suffix2"_s}));
 	test("-99001000000"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::f_sM), ImplicitStringConcatShapes::sf_I}));
 	test("-99001000000suffix"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::f_sM), ImplicitStringConcatShapes::sf_I, "suffix"_s}));
@@ -6269,7 +6138,7 @@ void ImplicitStringConcatShapes::run5() {
 }
 
 void ImplicitStringConcatShapes::run6() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("truetrue"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_bl), $$str(ImplicitStringConcatShapes::s_bl)}));
 	test("truetruesuffix"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_bl), $$str(ImplicitStringConcatShapes::s_bl), "suffix"_s}));
 	test("prefixtruesuffix1truesuffix2"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::s_bl), "suffix1"_s, $$str(ImplicitStringConcatShapes::s_bl), "suffix2"_s}));
@@ -7273,7 +7142,7 @@ void ImplicitStringConcatShapes::run6() {
 }
 
 void ImplicitStringConcatShapes::run7() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("null-84.0suffix"_s, $$str({""_s, this->f_IN, $$str(ImplicitStringConcatShapes::sf_dM), "suffix"_s}));
 	test("prefixnullsuffix1-84.0suffix2"_s, $$str({"prefix"_s, this->f_IN, "suffix1"_s, $$str(ImplicitStringConcatShapes::sf_dM), "suffix2"_s}));
 	test("null58000000"_s, $$str({""_s, this->f_IN, $$str(ImplicitStringConcatShapes::f_i)}));
@@ -8277,7 +8146,7 @@ void ImplicitStringConcatShapes::run7() {
 }
 
 void ImplicitStringConcatShapes::run8() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("prefix\u000112suffix1-1410065408suffix2"_s, $$str({"prefix"_s, ImplicitStringConcatShapes::s_strU1, "suffix1"_s, $$str(ImplicitStringConcatShapes::s_lM), "suffix2"_s}));
 	test("\u0001128.0"_s, $$str({""_s, ImplicitStringConcatShapes::s_strU1, $$str(ImplicitStringConcatShapes::s_d)}));
 	test("\u0001128.0suffix"_s, $$str({""_s, ImplicitStringConcatShapes::s_strU1, $$str(ImplicitStringConcatShapes::s_d), "suffix"_s}));
@@ -9281,7 +9150,7 @@ void ImplicitStringConcatShapes::run8() {
 }
 
 void ImplicitStringConcatShapes::run9() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("\u000218-1705032704"_s, $$str({""_s, this->f_strU2, $$str(ImplicitStringConcatShapes::sf_lM)}));
 	test("\u000218-1705032704suffix"_s, $$str({""_s, this->f_strU2, $$str(ImplicitStringConcatShapes::sf_lM), "suffix"_s}));
 	test("prefix\u000218suffix1-1705032704suffix2"_s, $$str({"prefix"_s, this->f_strU2, "suffix1"_s, $$str(ImplicitStringConcatShapes::sf_lM), "suffix2"_s}));
@@ -10285,7 +10154,7 @@ void ImplicitStringConcatShapes::run9() {
 }
 
 void ImplicitStringConcatShapes::run10() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("75nullsuffix"_s, $$str({""_s, ImplicitStringConcatShapes::sf_str, ImplicitStringConcatShapes::s_oAN, "suffix"_s}));
 	test("prefix75suffix1nullsuffix2"_s, $$str({"prefix"_s, ImplicitStringConcatShapes::sf_str, "suffix1"_s, ImplicitStringConcatShapes::s_oAN, "suffix2"_s}));
 	test("7519"_s, $$str({""_s, ImplicitStringConcatShapes::sf_str, this->f_str}));
@@ -11289,7 +11158,7 @@ void ImplicitStringConcatShapes::run10() {
 }
 
 void ImplicitStringConcatShapes::run11() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test(u"prefix-52.0suffix1ё80suffix2"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::s_fM), "suffix1"_s, ImplicitStringConcatShapes::s_strU, "suffix2"_s}));
 	test("-52.0C"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_fM), $$str(ImplicitStringConcatShapes::sf_c)}));
 	test("-52.0Csuffix"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_fM), $$str(ImplicitStringConcatShapes::sf_c), "suffix"_s}));
@@ -12293,7 +12162,7 @@ void ImplicitStringConcatShapes::run11() {
 }
 
 void ImplicitStringConcatShapes::run12() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("83.0-96.0"_s, $$str({""_s, $$str(this->f_d), $$str(ImplicitStringConcatShapes::s_dM)}));
 	test("83.0-96.0suffix"_s, $$str({""_s, $$str(this->f_d), $$str(ImplicitStringConcatShapes::s_dM), "suffix"_s}));
 	test("prefix83.0suffix1-96.0suffix2"_s, $$str({"prefix"_s, $$str(this->f_d), "suffix1"_s, $$str(ImplicitStringConcatShapes::s_dM), "suffix2"_s}));
@@ -13297,7 +13166,7 @@ void ImplicitStringConcatShapes::run12() {
 }
 
 void ImplicitStringConcatShapes::run13() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("-99.0-194313216suffix"_s, $$str({""_s, $$str(this->f_dM), $$str(ImplicitStringConcatShapes::sf_l), "suffix"_s}));
 	test("prefix-99.0suffix1-194313216suffix2"_s, $$str({"prefix"_s, $$str(this->f_dM), "suffix1"_s, $$str(ImplicitStringConcatShapes::sf_l), "suffix2"_s}));
 	test("-99.0\u000112"_s, $$str({""_s, $$str(this->f_dM), ImplicitStringConcatShapes::s_strU1}));
@@ -14301,7 +14170,7 @@ void ImplicitStringConcatShapes::run13() {
 }
 
 void ImplicitStringConcatShapes::run14() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("prefix-55000000suffix1-1000000suffix2"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::f_iM), "suffix1"_s, $$str(ImplicitStringConcatShapes::s_iM), "suffix2"_s}));
 	test("-550000001000000"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::f_iM), ImplicitStringConcatShapes::sf_I}));
 	test("-550000001000000suffix"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::f_iM), ImplicitStringConcatShapes::sf_I, "suffix"_s}));
@@ -15305,7 +15174,7 @@ void ImplicitStringConcatShapes::run14() {
 }
 
 void ImplicitStringConcatShapes::run15() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("18true"_s, $$str({""_s, ImplicitStringConcatShapes::s_str, $$str(ImplicitStringConcatShapes::s_bl)}));
 	test("18truesuffix"_s, $$str({""_s, ImplicitStringConcatShapes::s_str, $$str(ImplicitStringConcatShapes::s_bl), "suffix"_s}));
 	test("prefix18suffix1truesuffix2"_s, $$str({"prefix"_s, ImplicitStringConcatShapes::s_str, "suffix1"_s, $$str(ImplicitStringConcatShapes::s_bl), "suffix2"_s}));
@@ -16309,7 +16178,7 @@ void ImplicitStringConcatShapes::run15() {
 }
 
 void ImplicitStringConcatShapes::run16() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("false-84.0suffix"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::f_bl), $$str(ImplicitStringConcatShapes::sf_dM), "suffix"_s}));
 	test("prefixfalsesuffix1-84.0suffix2"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::f_bl), "suffix1"_s, $$str(ImplicitStringConcatShapes::sf_dM), "suffix2"_s}));
 	test("false58000000"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::f_bl), $$str(ImplicitStringConcatShapes::f_i)}));
@@ -17313,7 +17182,7 @@ void ImplicitStringConcatShapes::run16() {
 }
 
 void ImplicitStringConcatShapes::run17() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("prefix25000000suffix1-1410065408suffix2"_s, $$str({"prefix"_s, ImplicitStringConcatShapes::s_I, "suffix1"_s, $$str(ImplicitStringConcatShapes::s_lM), "suffix2"_s}));
 	test("250000008.0"_s, $$str({""_s, ImplicitStringConcatShapes::s_I, $$str(ImplicitStringConcatShapes::s_d)}));
 	test("250000008.0suffix"_s, $$str({""_s, ImplicitStringConcatShapes::s_I, $$str(ImplicitStringConcatShapes::s_d), "suffix"_s}));
@@ -17491,7 +17360,7 @@ void ImplicitStringConcatShapes::run17() {
 	test("prefix25000000suffix125000000suffix2"_s, $$str({"prefix"_s, ImplicitStringConcatShapes::s_I, "suffix1"_s, ImplicitStringConcatShapes::s_I, "suffix2"_s}));
 }
 
-void clinit$ImplicitStringConcatShapes($Class* class$) {
+void ImplicitStringConcatShapes::clinit$($Class* clazz) {
 	ImplicitStringConcatShapes::sf_f = 17.0f;
 	ImplicitStringConcatShapes::sf_fM = -42.0f;
 	ImplicitStringConcatShapes::sf_d = 12.0;
@@ -17500,7 +17369,7 @@ void clinit$ImplicitStringConcatShapes($Class* class$) {
 	$assignStatic(ImplicitStringConcatShapes::sf_strU, u"ё1"_s);
 	$assignStatic(ImplicitStringConcatShapes::sf_strU1, "\u000151"_s);
 	$assignStatic(ImplicitStringConcatShapes::sf_strU2, "\u000292"_s);
-	$assignStatic(ImplicitStringConcatShapes::sf_I, $Integer::valueOf(0x000F4240));
+	$assignStatic(ImplicitStringConcatShapes::sf_I, $Integer::valueOf(1000000));
 	$assignStatic(ImplicitStringConcatShapes::sf_IN, nullptr);
 	$assignStatic(ImplicitStringConcatShapes::sf_o, $new($ImplicitStringConcatShapes$MyClass, 87));
 	$assignStatic(ImplicitStringConcatShapes::sf_oN, nullptr);
@@ -17508,14 +17377,14 @@ void clinit$ImplicitStringConcatShapes($Class* class$) {
 	$assignStatic(ImplicitStringConcatShapes::sf_iAN, nullptr);
 	$assignStatic(ImplicitStringConcatShapes::sf_oAN, nullptr);
 	ImplicitStringConcatShapes::s_bl = true;
-	ImplicitStringConcatShapes::s_b = (int8_t)25;
-	ImplicitStringConcatShapes::s_bM = (int8_t)-43;
+	ImplicitStringConcatShapes::s_b = 25;
+	ImplicitStringConcatShapes::s_bM = -43;
 	ImplicitStringConcatShapes::s_c = u'T';
-	ImplicitStringConcatShapes::s_s = (int16_t)3900;
-	ImplicitStringConcatShapes::s_sM = (int16_t)-2900;
-	ImplicitStringConcatShapes::s_i = 0x05C81A40;
-	ImplicitStringConcatShapes::s_iM = (int32_t)0xFFF0BDC0;
-	$assignStatic(ImplicitStringConcatShapes::s_I, $Integer::valueOf(0x017D7840));
+	ImplicitStringConcatShapes::s_s = 3900;
+	ImplicitStringConcatShapes::s_sM = -2900;
+	ImplicitStringConcatShapes::s_i = 97000000;
+	ImplicitStringConcatShapes::s_iM = -1000000;
+	$assignStatic(ImplicitStringConcatShapes::s_I, $Integer::valueOf(25000000));
 	$assignStatic(ImplicitStringConcatShapes::s_IN, nullptr);
 	ImplicitStringConcatShapes::s_f = 55.0f;
 	ImplicitStringConcatShapes::s_fM = -52.0f;
@@ -17538,7 +17407,131 @@ ImplicitStringConcatShapes::ImplicitStringConcatShapes() {
 }
 
 $Class* ImplicitStringConcatShapes::load$($String* name, bool initialize) {
-	$loadClass(ImplicitStringConcatShapes, name, initialize, &_ImplicitStringConcatShapes_ClassInfo_, clinit$ImplicitStringConcatShapes, allocate$ImplicitStringConcatShapes);
+	$FieldInfo fieldInfos$$[] = {
+		{"sf_bl", "Z", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_bl)},
+		{"sf_b", "B", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_b)},
+		{"sf_bM", "B", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_bM)},
+		{"sf_c", "C", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_c)},
+		{"sf_s", "S", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_s)},
+		{"sf_sM", "S", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_sM)},
+		{"sf_i", "I", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_i)},
+		{"sf_iM", "I", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_iM)},
+		{"sf_I", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_I)},
+		{"sf_IN", "Ljava/lang/Integer;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_IN)},
+		{"sf_f", "F", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_f)},
+		{"sf_fM", "F", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_fM)},
+		{"sf_l", "J", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_l)},
+		{"sf_lM", "J", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, sf_lM)},
+		{"sf_d", "D", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_d)},
+		{"sf_dM", "D", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_dM)},
+		{"sf_o", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_o)},
+		{"sf_oN", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_oN)},
+		{"sf_oNtS", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_oNtS)},
+		{"sf_str", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_str)},
+		{"sf_strU", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_strU)},
+		{"sf_strU1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_strU1)},
+		{"sf_strU2", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_strU2)},
+		{"sf_iAN", "[I", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_iAN)},
+		{"sf_oAN", "[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcatShapes, sf_oAN)},
+		{"s_bl", "Z", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_bl)},
+		{"s_b", "B", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_b)},
+		{"s_bM", "B", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_bM)},
+		{"s_c", "C", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_c)},
+		{"s_s", "S", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_s)},
+		{"s_sM", "S", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_sM)},
+		{"s_i", "I", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_i)},
+		{"s_iM", "I", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_iM)},
+		{"s_I", "Ljava/lang/Integer;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_I)},
+		{"s_IN", "Ljava/lang/Integer;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_IN)},
+		{"s_f", "F", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_f)},
+		{"s_fM", "F", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_fM)},
+		{"s_l", "J", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_l)},
+		{"s_lM", "J", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_lM)},
+		{"s_d", "D", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_d)},
+		{"s_dM", "D", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_dM)},
+		{"s_o", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_o)},
+		{"s_oN", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_oN)},
+		{"s_oNtS", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_oNtS)},
+		{"s_str", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_str)},
+		{"s_strU", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_strU)},
+		{"s_strU1", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_strU1)},
+		{"s_strU2", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_strU2)},
+		{"s_iAN", "[I", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_iAN)},
+		{"s_oAN", "[Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcatShapes, s_oAN)},
+		{"f_bl", "Z", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_bl)},
+		{"f_b", "B", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_b)},
+		{"f_bM", "B", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_bM)},
+		{"f_c", "C", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_c)},
+		{"f_s", "S", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_s)},
+		{"f_sM", "S", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_sM)},
+		{"f_i", "I", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_i)},
+		{"f_iM", "I", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_iM)},
+		{"f_I", "Ljava/lang/Integer;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_I)},
+		{"f_IN", "Ljava/lang/Integer;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_IN)},
+		{"f_f", "F", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_f)},
+		{"f_fM", "F", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_fM)},
+		{"f_l", "J", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_l)},
+		{"f_lM", "J", nullptr, $STATIC | $FINAL, $constField(ImplicitStringConcatShapes, f_lM)},
+		{"f_d", "D", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_d)},
+		{"f_dM", "D", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_dM)},
+		{"f_o", "Ljava/lang/Object;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_o)},
+		{"f_oN", "Ljava/lang/Object;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_oN)},
+		{"f_oNtS", "Ljava/lang/Object;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_oNtS)},
+		{"f_str", "Ljava/lang/String;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_str)},
+		{"f_strU", "Ljava/lang/String;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_strU)},
+		{"f_strU1", "Ljava/lang/String;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_strU1)},
+		{"f_strU2", "Ljava/lang/String;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_strU2)},
+		{"f_iAN", "[I", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_iAN)},
+		{"f_oAN", "[Ljava/lang/Object;", nullptr, $FINAL, $field(ImplicitStringConcatShapes, f_oAN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatShapes, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatShapes, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run, void)},
+		{"run0", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run0, void)},
+		{"run1", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run1, void)},
+		{"run10", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run10, void)},
+		{"run11", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run11, void)},
+		{"run12", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run12, void)},
+		{"run13", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run13, void)},
+		{"run14", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run14, void)},
+		{"run15", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run15, void)},
+		{"run16", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run16, void)},
+		{"run17", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run17, void)},
+		{"run2", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run2, void)},
+		{"run3", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run3, void)},
+		{"run4", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run4, void)},
+		{"run5", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run5, void)},
+		{"run6", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run6, void)},
+		{"run7", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run7, void)},
+		{"run8", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run8, void)},
+		{"run9", "()V", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes, run9, void)},
+		{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatShapes, test, void, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ImplicitStringConcatShapes$MyClassNullToString", "ImplicitStringConcatShapes", "MyClassNullToString", $STATIC},
+		{"ImplicitStringConcatShapes$MyClass", "ImplicitStringConcatShapes", "MyClass", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ImplicitStringConcatShapes",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ImplicitStringConcatShapes$MyClassNullToString,ImplicitStringConcatShapes$MyClass"
+	};
+	$loadClass(ImplicitStringConcatShapes, name, initialize, &classInfo$$, ImplicitStringConcatShapes::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ImplicitStringConcatShapes);
+	});
 	return class$;
 }
 

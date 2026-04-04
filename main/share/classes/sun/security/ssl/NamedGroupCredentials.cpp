@@ -1,5 +1,4 @@
 #include <sun/security/ssl/NamedGroupCredentials.h>
-
 #include <java/security/PublicKey.h>
 #include <sun/security/ssl/NamedGroup.h>
 #include <jcpp.h>
@@ -13,27 +12,23 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _NamedGroupCredentials_MethodInfo_[] = {
-	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroupCredentials, getNamedGroup, $NamedGroup*)},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroupCredentials, getPublicKey, $PublicKey*)},
-	{}
-};
-
-$ClassInfo _NamedGroupCredentials_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.security.ssl.NamedGroupCredentials",
-	nullptr,
-	"sun.security.ssl.SSLCredentials",
-	nullptr,
-	_NamedGroupCredentials_MethodInfo_
-};
-
-$Object* allocate$NamedGroupCredentials($Class* clazz) {
-	return $of($alloc(NamedGroupCredentials));
-}
-
 $Class* NamedGroupCredentials::load$($String* name, bool initialize) {
-	$loadClass(NamedGroupCredentials, name, initialize, &_NamedGroupCredentials_ClassInfo_, allocate$NamedGroupCredentials);
+	$MethodInfo methodInfos$$[] = {
+		{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroupCredentials, getNamedGroup, $NamedGroup*)},
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroupCredentials, getPublicKey, $PublicKey*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.security.ssl.NamedGroupCredentials",
+		nullptr,
+		"sun.security.ssl.SSLCredentials",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NamedGroupCredentials, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamedGroupCredentials);
+	});
 	return class$;
 }
 

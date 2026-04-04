@@ -1,9 +1,6 @@
 #include <sun/security/ssl/PredefinedDHParameterSpecs.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -19,7 +16,6 @@
 #undef TWO
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -27,7 +23,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
@@ -40,57 +35,6 @@ using $SSLLogger = ::sun::security::ssl::SSLLogger;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _PredefinedDHParameterSpecs_FieldInfo_[] = {
-	{"p512", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p512)},
-	{"p768", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p768)},
-	{"p1024", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p1024)},
-	{"p1536", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p1536)},
-	{"p2048", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p2048)},
-	{"p3072", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p3072)},
-	{"p4096", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p4096)},
-	{"p6144", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p6144)},
-	{"p8192", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p8192)},
-	{"supportedPrimes", "[Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, supportedPrimes)},
-	{"ffdhePrimes", "[Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, ffdhePrimes)},
-	{"PRIME_CERTAINTY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PredefinedDHParameterSpecs, PRIME_CERTAINTY)},
-	{"PROPERTY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, PROPERTY_NAME)},
-	{"spacesPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, spacesPattern)},
-	{"syntaxPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, syntaxPattern)},
-	{"paramsPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, paramsPattern)},
-	{"definedParams", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljavax/crypto/spec/DHParameterSpec;>;", $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, definedParams)},
-	{"ffdheParams", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljavax/crypto/spec/DHParameterSpec;>;", $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, ffdheParams)},
-	{}
-};
-
-$MethodInfo _PredefinedDHParameterSpecs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PredefinedDHParameterSpecs, init$, void)},
-	{}
-};
-
-$InnerClassInfo _PredefinedDHParameterSpecs_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PredefinedDHParameterSpecs$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PredefinedDHParameterSpecs_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PredefinedDHParameterSpecs",
-	"java.lang.Object",
-	nullptr,
-	_PredefinedDHParameterSpecs_FieldInfo_,
-	_PredefinedDHParameterSpecs_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PredefinedDHParameterSpecs_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PredefinedDHParameterSpecs$1"
-};
-
-$Object* allocate$PredefinedDHParameterSpecs($Class* clazz) {
-	return $of($alloc(PredefinedDHParameterSpecs));
-}
 
 $BigInteger* PredefinedDHParameterSpecs::p512 = nullptr;
 $BigInteger* PredefinedDHParameterSpecs::p768 = nullptr;
@@ -113,8 +57,8 @@ $Map* PredefinedDHParameterSpecs::ffdheParams = nullptr;
 void PredefinedDHParameterSpecs::init$() {
 }
 
-void clinit$PredefinedDHParameterSpecs($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void PredefinedDHParameterSpecs::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(PredefinedDHParameterSpecs::PROPERTY_NAME, "jdk.tls.server.defaultDHEParameters"_s);
 	$beforeCallerSensitive();
 	$assignStatic(PredefinedDHParameterSpecs::p512, $new($BigInteger, "D87780E15FF50B4ABBE89870188B049406B5BEA98AB23A0241D88EA75B7755E669C08093D3F0CA7FC3A5A25CF067DCB9A43DD89D1D90921C6328884461E0B6D3"_s, 16));
@@ -150,7 +94,7 @@ void clinit$PredefinedDHParameterSpecs($Class* class$) {
 	$assignStatic(PredefinedDHParameterSpecs::syntaxPattern, $Pattern::compile("(\\{[0-9A-Fa-f]+,[0-9A-Fa-f]+\\})(,\\{[0-9A-Fa-f]+,[0-9A-Fa-f]+\\})*"_s));
 	$assignStatic(PredefinedDHParameterSpecs::paramsPattern, $Pattern::compile("\\{([0-9A-Fa-f]+),([0-9A-Fa-f]+)\\}"_s));
 	{
-		$var($String, property, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PredefinedDHParameterSpecs$1)))));
+		$var($String, property, $cast($String, $AccessController::doPrivileged($$new($PredefinedDHParameterSpecs$1))));
 		if (property != nullptr && !property->isEmpty()) {
 			bool var$1 = property->length() >= 2;
 			bool var$0 = var$1 && property->charAt(0) == u'\"';
@@ -198,9 +142,7 @@ void clinit$PredefinedDHParameterSpecs($Class* class$) {
 		$var($Map, tempFFDHEs, $new($HashMap));
 		{
 			$var($BigIntegerArray, arr$, PredefinedDHParameterSpecs::ffdhePrimes);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($BigInteger, p, arr$->get(i$));
 				{
 					int32_t primeLen = $nc(p)->bitLength();
@@ -212,14 +154,12 @@ void clinit$PredefinedDHParameterSpecs($Class* class$) {
 		}
 		{
 			$var($BigIntegerArray, arr$, PredefinedDHParameterSpecs::supportedPrimes);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($BigInteger, p, arr$->get(i$));
 				{
 					int32_t primeLen = $nc(p)->bitLength();
 					if (defaultParams->get($($Integer::valueOf(primeLen))) == nullptr) {
-						$var($Object, var$2, $of($Integer::valueOf(primeLen)));
+						$var($Object, var$2, $Integer::valueOf(primeLen));
 						defaultParams->put(var$2, $$new($DHParameterSpec, p, $BigInteger::TWO));
 					}
 				}
@@ -234,7 +174,52 @@ PredefinedDHParameterSpecs::PredefinedDHParameterSpecs() {
 }
 
 $Class* PredefinedDHParameterSpecs::load$($String* name, bool initialize) {
-	$loadClass(PredefinedDHParameterSpecs, name, initialize, &_PredefinedDHParameterSpecs_ClassInfo_, clinit$PredefinedDHParameterSpecs, allocate$PredefinedDHParameterSpecs);
+	$FieldInfo fieldInfos$$[] = {
+		{"p512", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p512)},
+		{"p768", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p768)},
+		{"p1024", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p1024)},
+		{"p1536", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p1536)},
+		{"p2048", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p2048)},
+		{"p3072", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p3072)},
+		{"p4096", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p4096)},
+		{"p6144", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p6144)},
+		{"p8192", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, p8192)},
+		{"supportedPrimes", "[Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, supportedPrimes)},
+		{"ffdhePrimes", "[Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, ffdhePrimes)},
+		{"PRIME_CERTAINTY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PredefinedDHParameterSpecs, PRIME_CERTAINTY)},
+		{"PROPERTY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, PROPERTY_NAME)},
+		{"spacesPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, spacesPattern)},
+		{"syntaxPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, syntaxPattern)},
+		{"paramsPattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, paramsPattern)},
+		{"definedParams", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljavax/crypto/spec/DHParameterSpec;>;", $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, definedParams)},
+		{"ffdheParams", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljavax/crypto/spec/DHParameterSpec;>;", $STATIC | $FINAL, $staticField(PredefinedDHParameterSpecs, ffdheParams)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PredefinedDHParameterSpecs, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PredefinedDHParameterSpecs$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PredefinedDHParameterSpecs",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PredefinedDHParameterSpecs$1"
+	};
+	$loadClass(PredefinedDHParameterSpecs, name, initialize, &classInfo$$, PredefinedDHParameterSpecs::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PredefinedDHParameterSpecs);
+	});
 	return class$;
 }
 

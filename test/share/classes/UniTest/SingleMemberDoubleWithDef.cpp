@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberDoubleWithDef.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,44 +9,38 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberDoubleWithDef_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberDoubleWithDef_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberDoubleWithDef_Attribute_var$0},
-	{}
-};
-
-$Attribute _SingleMemberDoubleWithDef_DefaultValue_value0 = {
-	'D', "17.0"
-};
-
-$MethodInfo _SingleMemberDoubleWithDef_MethodInfo_[] = {
-	{"value", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberDoubleWithDef, value, double), nullptr, &_SingleMemberDoubleWithDef_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _SingleMemberDoubleWithDef_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberDoubleWithDef",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberDoubleWithDef_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberDoubleWithDef_Annotations_
-};
-
-$Object* allocate$SingleMemberDoubleWithDef($Class* clazz) {
-	return $of($alloc(SingleMemberDoubleWithDef));
-}
-
 $Class* SingleMemberDoubleWithDef::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberDoubleWithDef, name, initialize, &_SingleMemberDoubleWithDef_ClassInfo_, allocate$SingleMemberDoubleWithDef);
+
+	$Attribute valuedefaultValue$$ = {
+		'D', "17.0"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberDoubleWithDef, value, double), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberDoubleWithDef",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberDoubleWithDef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberDoubleWithDef);
+	});
 	return class$;
 }
 

@@ -50,6 +50,7 @@ class $import SignatureParser : public ::java::lang::Object {
 	$class(SignatureParser, 0, ::java::lang::Object)
 public:
 	SignatureParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void advance();
 	char16_t current();

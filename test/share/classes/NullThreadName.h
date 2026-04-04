@@ -17,6 +17,7 @@ class $export NullThreadName : public ::java::lang::Object {
 	$class(NullThreadName, 0, ::java::lang::Object)
 public:
 	NullThreadName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::concurrent::CountDownLatch* done;

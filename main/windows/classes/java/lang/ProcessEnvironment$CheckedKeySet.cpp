@@ -1,5 +1,4 @@
 #include <java/lang/ProcessEnvironment$CheckedKeySet.h>
-
 #include <java/lang/ProcessEnvironment.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Iterator.h>
@@ -17,47 +16,6 @@ using $Set = ::java::util::Set;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ProcessEnvironment$CheckedKeySet_FieldInfo_[] = {
-	{"s", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ProcessEnvironment$CheckedKeySet, s)},
-	{}
-};
-
-$MethodInfo _ProcessEnvironment$CheckedKeySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(ProcessEnvironment$CheckedKeySet, init$, void, $Set*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, contains, bool, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ProcessEnvironment$CheckedKeySet_InnerClassesInfo_[] = {
-	{"java.lang.ProcessEnvironment$CheckedKeySet", "java.lang.ProcessEnvironment", "CheckedKeySet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ProcessEnvironment$CheckedKeySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ProcessEnvironment$CheckedKeySet",
-	"java.util.AbstractSet",
-	nullptr,
-	_ProcessEnvironment$CheckedKeySet_FieldInfo_,
-	_ProcessEnvironment$CheckedKeySet_MethodInfo_,
-	"Ljava/util/AbstractSet<Ljava/lang/String;>;",
-	nullptr,
-	_ProcessEnvironment$CheckedKeySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessEnvironment"
-};
-
-$Object* allocate$ProcessEnvironment$CheckedKeySet($Class* clazz) {
-	return $of($alloc(ProcessEnvironment$CheckedKeySet));
-}
 
 void ProcessEnvironment$CheckedKeySet::init$($Set* s) {
 	$AbstractSet::init$();
@@ -92,7 +50,42 @@ ProcessEnvironment$CheckedKeySet::ProcessEnvironment$CheckedKeySet() {
 }
 
 $Class* ProcessEnvironment$CheckedKeySet::load$($String* name, bool initialize) {
-	$loadClass(ProcessEnvironment$CheckedKeySet, name, initialize, &_ProcessEnvironment$CheckedKeySet_ClassInfo_, allocate$ProcessEnvironment$CheckedKeySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ProcessEnvironment$CheckedKeySet, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(ProcessEnvironment$CheckedKeySet, init$, void, $Set*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, contains, bool, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedKeySet, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessEnvironment$CheckedKeySet", "java.lang.ProcessEnvironment", "CheckedKeySet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ProcessEnvironment$CheckedKeySet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessEnvironment"
+	};
+	$loadClass(ProcessEnvironment$CheckedKeySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProcessEnvironment$CheckedKeySet));
+	});
 	return class$;
 }
 

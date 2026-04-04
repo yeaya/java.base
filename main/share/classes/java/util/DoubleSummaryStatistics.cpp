@@ -1,5 +1,4 @@
 #include <java/util/DoubleSummaryStatistics.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Math.h>
 #include <java/lang/invoke/CallSite.h>
@@ -37,91 +36,48 @@ public:
 	virtual bool test(double v) override {
 		 return $Double::isNaN(v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DoubleSummaryStatistics$$Lambda$isNaN>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DoubleSummaryStatistics$$Lambda$isNaN::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleSummaryStatistics$$Lambda$isNaN, init$, void)},
-	{"test", "(D)Z", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics$$Lambda$isNaN, test, bool, double)},
-	{}
-};
-$ClassInfo DoubleSummaryStatistics$$Lambda$isNaN::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.DoubleSummaryStatistics$$Lambda$isNaN",
-	"java.lang.Object",
-	"java.util.function.DoublePredicate",
-	nullptr,
-	methodInfos
 };
 $Class* DoubleSummaryStatistics$$Lambda$isNaN::load$($String* name, bool initialize) {
-	$loadClass(DoubleSummaryStatistics$$Lambda$isNaN, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleSummaryStatistics$$Lambda$isNaN, init$, void)},
+		{"test", "(D)Z", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics$$Lambda$isNaN, test, bool, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.DoubleSummaryStatistics$$Lambda$isNaN",
+		"java.lang.Object",
+		"java.util.function.DoublePredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DoubleSummaryStatistics$$Lambda$isNaN, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleSummaryStatistics$$Lambda$isNaN);
+	});
 	return class$;
 }
 $Class* DoubleSummaryStatistics$$Lambda$isNaN::class$ = nullptr;
 
-$FieldInfo _DoubleSummaryStatistics_FieldInfo_[] = {
-	{"count", "J", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, count)},
-	{"sum", "D", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, sum)},
-	{"sumCompensation", "D", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, sumCompensation)},
-	{"simpleSum", "D", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, simpleSum)},
-	{"min", "D", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, min)},
-	{"max", "D", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, max)},
-	{}
-};
-
-$MethodInfo _DoubleSummaryStatistics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleSummaryStatistics, init$, void)},
-	{"<init>", "(JDDD)V", nullptr, $PUBLIC, $method(DoubleSummaryStatistics, init$, void, int64_t, double, double, double), "java.lang.IllegalArgumentException"},
-	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics, accept, void, double)},
-	{"combine", "(Ljava/util/DoubleSummaryStatistics;)V", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics, combine, void, DoubleSummaryStatistics*)},
-	{"getAverage", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getAverage, double)},
-	{"getCount", "()J", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getCount, int64_t)},
-	{"getMax", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getMax, double)},
-	{"getMin", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getMin, double)},
-	{"getSum", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getSum, double)},
-	{"sumWithCompensation", "(D)V", nullptr, $PRIVATE, $method(DoubleSummaryStatistics, sumWithCompensation, void, double)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics, toString, $String*)},
-	{}
-};
-
-$ClassInfo _DoubleSummaryStatistics_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.DoubleSummaryStatistics",
-	"java.lang.Object",
-	"java.util.function.DoubleConsumer",
-	_DoubleSummaryStatistics_FieldInfo_,
-	_DoubleSummaryStatistics_MethodInfo_
-};
-
-$Object* allocate$DoubleSummaryStatistics($Class* clazz) {
-	return $of($alloc(DoubleSummaryStatistics));
-}
-
 void DoubleSummaryStatistics::init$() {
-	$init($Double);
 	this->min = $Double::POSITIVE_INFINITY;
 	this->max = $Double::NEGATIVE_INFINITY;
 }
 
 void DoubleSummaryStatistics::init$(int64_t count, double min, double max, double sum) {
-	$useLocalCurrentObjectStackCache();
-	$init($Double);
+	$useLocalObjectStack();
 	this->min = $Double::POSITIVE_INFINITY;
 	this->max = $Double::NEGATIVE_INFINITY;
-	if (count < (int64_t)0) {
+	if (count < 0) {
 		$throwNew($IllegalArgumentException, "Negative count value"_s);
-	} else if (count > (int64_t)0) {
+	} else if (count > 0) {
 		if (min > max) {
 			$throwNew($IllegalArgumentException, "Minimum greater than maximum"_s);
 		}
-		int64_t ncount = $nc($($nc($($DoubleStream::of($$new($doubles, {
+		int64_t ncount = $$nc($$nc($DoubleStream::of($$new($doubles, {
 			min,
 			max,
 			sum
-		}))))->filter(static_cast<$DoublePredicate*>($$new(DoubleSummaryStatistics$$Lambda$isNaN)))))->count();
+		})))->filter($$new(DoubleSummaryStatistics$$Lambda$isNaN)))->count();
 		if (ncount > 0 && ncount < 3) {
 			$throwNew($IllegalArgumentException, "Some, not all, of the minimum, maximum, or sum is NaN"_s);
 		}
@@ -192,14 +148,14 @@ double DoubleSummaryStatistics::getAverage() {
 }
 
 $String* DoubleSummaryStatistics::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s{count=%d, sum=%f, min=%f, average=%f, max=%f}"_s, $$new($ObjectArray, {
-		$($of($of(this)->getClass()->getSimpleName())),
-		$($of($Long::valueOf(getCount()))),
-		$($of($Double::valueOf(getSum()))),
-		$($of($Double::valueOf(getMin()))),
-		$($of($Double::valueOf(getAverage()))),
-		$($of($Double::valueOf(getMax())))
+		$(this->getClass()->getSimpleName()),
+		$($Long::valueOf(getCount())),
+		$($Double::valueOf(getSum())),
+		$($Double::valueOf(getMin())),
+		$($Double::valueOf(getAverage())),
+		$($Double::valueOf(getMax()))
 	}));
 }
 
@@ -208,11 +164,44 @@ DoubleSummaryStatistics::DoubleSummaryStatistics() {
 
 $Class* DoubleSummaryStatistics::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DoubleSummaryStatistics$$Lambda$isNaN::classInfo$.name)) {
+		if (name->equals("java.util.DoubleSummaryStatistics$$Lambda$isNaN")) {
 			return DoubleSummaryStatistics$$Lambda$isNaN::load$(name, initialize);
 		}
 	}
-	$loadClass(DoubleSummaryStatistics, name, initialize, &_DoubleSummaryStatistics_ClassInfo_, allocate$DoubleSummaryStatistics);
+	$FieldInfo fieldInfos$$[] = {
+		{"count", "J", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, count)},
+		{"sum", "D", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, sum)},
+		{"sumCompensation", "D", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, sumCompensation)},
+		{"simpleSum", "D", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, simpleSum)},
+		{"min", "D", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, min)},
+		{"max", "D", nullptr, $PRIVATE, $field(DoubleSummaryStatistics, max)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleSummaryStatistics, init$, void)},
+		{"<init>", "(JDDD)V", nullptr, $PUBLIC, $method(DoubleSummaryStatistics, init$, void, int64_t, double, double, double), "java.lang.IllegalArgumentException"},
+		{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics, accept, void, double)},
+		{"combine", "(Ljava/util/DoubleSummaryStatistics;)V", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics, combine, void, DoubleSummaryStatistics*)},
+		{"getAverage", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getAverage, double)},
+		{"getCount", "()J", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getCount, int64_t)},
+		{"getMax", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getMax, double)},
+		{"getMin", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getMin, double)},
+		{"getSum", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getSum, double)},
+		{"sumWithCompensation", "(D)V", nullptr, $PRIVATE, $method(DoubleSummaryStatistics, sumWithCompensation, void, double)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.DoubleSummaryStatistics",
+		"java.lang.Object",
+		"java.util.function.DoubleConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DoubleSummaryStatistics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleSummaryStatistics);
+	});
 	return class$;
 }
 

@@ -38,6 +38,7 @@ class LocaleExtensions : public ::java::lang::Object {
 	$class(LocaleExtensions, 0, ::java::lang::Object)
 public:
 	LocaleExtensions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* id, ::java::lang::Character* key, ::sun::util::locale::Extension* value);
 	void init$(::java::util::Map* extensions, ::java::util::Set* uattributes, ::java::util::Map* ukeywords);
 	virtual bool equals(Object$* other) override;

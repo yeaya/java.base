@@ -14,10 +14,13 @@ class CertParseError : public ::sun::security::x509::CertException {
 public:
 	CertParseError();
 	void init$($String* where);
-	static const int64_t serialVersionUID = (int64_t)0xC0B8E28EF949FE34;
+	static const int64_t serialVersionUID = (int64_t)0xc0b8e28ef949fe34;
 	CertParseError(const CertParseError& e);
 	virtual void throw$() override;
-	inline CertParseError* operator ->() {
+	inline CertParseError* operator ->() const {
+		return (CertParseError*)throwing$;
+	}
+	inline operator CertParseError*() const {
 		return (CertParseError*)throwing$;
 	}
 };

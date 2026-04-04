@@ -40,6 +40,7 @@ class $import Reflection : public ::java::lang::Object {
 	$class(Reflection, $PRELOAD, ::java::lang::Object)
 public:
 	Reflection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool areNestMates($Class* currentClass, $Class* memberClass);
 	static void ensureMemberAccess($Class* currentClass, $Class* memberClass, $Class* targetClass, int32_t modifiers);

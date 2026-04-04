@@ -1,5 +1,4 @@
 #include <MapReadOnly.h>
-
 #include <java/io/File.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/nio/ByteBuffer.h>
@@ -21,36 +20,17 @@ using $ReadOnlyBufferException = ::java::nio::ReadOnlyBufferException;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 
-$MethodInfo _MapReadOnly_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MapReadOnly, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MapReadOnly, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _MapReadOnly_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MapReadOnly",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MapReadOnly_MethodInfo_
-};
-
-$Object* allocate$MapReadOnly($Class* clazz) {
-	return $of($alloc(MapReadOnly));
-}
-
 void MapReadOnly::init$() {
 }
 
 void MapReadOnly::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, testFile, $File::createTempFile("test2"_s, nullptr));
 	$nc(testFile)->deleteOnExit();
 	$var($RandomAccessFile, raf, $new($RandomAccessFile, testFile, "rw"_s));
 	$var($FileChannel, fc, raf->getChannel());
 	$init($FileChannel$MapMode);
-	$var($MappedByteBuffer, mbb, $nc(fc)->map($FileChannel$MapMode::READ_ONLY, 0, (int32_t)fc->size()));
+	$var($MappedByteBuffer, mbb, $nc(fc)->map($FileChannel$MapMode::READ_ONLY, 0, (int32_t)$nc(fc)->size()));
 	$nc(mbb)->load();
 	try {
 		mbb->put((int8_t)3);
@@ -65,7 +45,22 @@ MapReadOnly::MapReadOnly() {
 }
 
 $Class* MapReadOnly::load$($String* name, bool initialize) {
-	$loadClass(MapReadOnly, name, initialize, &_MapReadOnly_ClassInfo_, allocate$MapReadOnly);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MapReadOnly, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MapReadOnly, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MapReadOnly",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MapReadOnly, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MapReadOnly);
+	});
 	return class$;
 }
 

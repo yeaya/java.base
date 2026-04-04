@@ -1,5 +1,4 @@
 #include <java/util/TreeMap$EntrySet.h>
-
 #include <java/util/AbstractSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
@@ -26,48 +25,6 @@ using $TreeMap$EntrySpliterator = ::java::util::TreeMap$EntrySpliterator;
 namespace java {
 	namespace util {
 
-$FieldInfo _TreeMap$EntrySet_FieldInfo_[] = {
-	{"this$0", "Ljava/util/TreeMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$EntrySet, this$0)},
-	{}
-};
-
-$MethodInfo _TreeMap$EntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap;)V", nullptr, 0, $method(TreeMap$EntrySet, init$, void, $TreeMap*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, contains, bool, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$EntrySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$EntrySet, spliterator, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _TreeMap$EntrySet_InnerClassesInfo_[] = {
-	{"java.util.TreeMap$EntrySet", "java.util.TreeMap", "EntrySet", 0},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TreeMap$EntrySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.TreeMap$EntrySet",
-	"java.util.AbstractSet",
-	nullptr,
-	_TreeMap$EntrySet_FieldInfo_,
-	_TreeMap$EntrySet_MethodInfo_,
-	"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_TreeMap$EntrySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.TreeMap"
-};
-
-$Object* allocate$TreeMap$EntrySet($Class* clazz) {
-	return $of($alloc(TreeMap$EntrySet));
-}
-
 void TreeMap$EntrySet::init$($TreeMap* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractSet::init$();
@@ -78,7 +35,7 @@ $Iterator* TreeMap$EntrySet::iterator() {
 }
 
 bool TreeMap$EntrySet::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -94,7 +51,7 @@ bool TreeMap$EntrySet::contains(Object$* o) {
 }
 
 bool TreeMap$EntrySet::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -129,7 +86,43 @@ TreeMap$EntrySet::TreeMap$EntrySet() {
 }
 
 $Class* TreeMap$EntrySet::load$($String* name, bool initialize) {
-	$loadClass(TreeMap$EntrySet, name, initialize, &_TreeMap$EntrySet_ClassInfo_, allocate$TreeMap$EntrySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/TreeMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$EntrySet, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/TreeMap;)V", nullptr, 0, $method(TreeMap$EntrySet, init$, void, $TreeMap*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, contains, bool, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$EntrySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$EntrySet, spliterator, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.TreeMap$EntrySet", "java.util.TreeMap", "EntrySet", 0},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.TreeMap$EntrySet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.TreeMap"
+	};
+	$loadClass(TreeMap$EntrySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TreeMap$EntrySet));
+	});
 	return class$;
 }
 

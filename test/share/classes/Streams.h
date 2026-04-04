@@ -25,6 +25,7 @@ class $export Streams : public ::java::lang::Object {
 	$class(Streams, 0, ::java::lang::Object)
 public:
 	Streams();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void runTest($Class* klass, ::java::net::ServerSocket* ss);

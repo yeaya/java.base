@@ -62,6 +62,7 @@ class SSLContextImpl : public ::javax::net::ssl::SSLContextSpi {
 	$class(SSLContextImpl, 0, ::javax::net::ssl::SSLContextSpi)
 public:
 	SSLContextImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::javax::net::ssl::X509ExtendedKeyManager* chooseKeyManager($Array<::javax::net::ssl::KeyManager>* kms);
 	::javax::net::ssl::X509TrustManager* chooseTrustManager($Array<::javax::net::ssl::TrustManager>* tm);

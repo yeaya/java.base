@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/AESCrypt.h>
-
 #include <com/sun/crypto/provider/AESConstants.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/security/InvalidKeyException.h>
@@ -40,78 +39,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$CompoundAttribute _AESCrypt_MethodAnnotations_implDecryptBlock6[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _AESCrypt_MethodAnnotations_implEncryptBlock7[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _AESCrypt_FieldInfo_[] = {
-	{"ROUNDS_12", "Z", nullptr, $PRIVATE, $field(AESCrypt, ROUNDS_12)},
-	{"ROUNDS_14", "Z", nullptr, $PRIVATE, $field(AESCrypt, ROUNDS_14)},
-	{"sessionK", "[[I", nullptr, $PRIVATE, $field(AESCrypt, sessionK)},
-	{"K", "[I", nullptr, $PRIVATE, $field(AESCrypt, K)},
-	{"lastKey", "[B", nullptr, $PRIVATE, $field(AESCrypt, lastKey)},
-	{"limit", "I", nullptr, $PRIVATE, $field(AESCrypt, limit)},
-	{"alog", "[I", nullptr, $PRIVATE | $STATIC, $staticField(AESCrypt, alog)},
-	{"log", "[I", nullptr, $PRIVATE | $STATIC, $staticField(AESCrypt, log)},
-	{"S", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, S)},
-	{"Si", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, Si)},
-	{"T1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T1)},
-	{"T2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T2)},
-	{"T3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T3)},
-	{"T4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T4)},
-	{"T5", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T5)},
-	{"T6", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T6)},
-	{"T7", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T7)},
-	{"T8", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T8)},
-	{"U1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, U1)},
-	{"U2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, U2)},
-	{"U3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, U3)},
-	{"U4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, U4)},
-	{"rcon", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, rcon)},
-	{}
-};
-
-$MethodInfo _AESCrypt_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(AESCrypt, init$, void)},
-	{"decryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(AESCrypt, decryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
-	{"encryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(AESCrypt, encryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
-	{"expandToSubKey", "([[IZ)[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AESCrypt, expandToSubKey, $ints*, $intArray2*, bool)},
-	{"getBlockSize", "()I", nullptr, 0, $virtualMethod(AESCrypt, getBlockSize, int32_t)},
-	{"getRounds", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AESCrypt, getRounds, int32_t, int32_t)},
-	{"implDecryptBlock", "([BI[BI)V", nullptr, $PRIVATE, $method(AESCrypt, implDecryptBlock, void, $bytes*, int32_t, $bytes*, int32_t), nullptr, nullptr, _AESCrypt_MethodAnnotations_implDecryptBlock6},
-	{"implEncryptBlock", "([BI[BI)V", nullptr, $PRIVATE, $method(AESCrypt, implEncryptBlock, void, $bytes*, int32_t, $bytes*, int32_t), nullptr, nullptr, _AESCrypt_MethodAnnotations_implEncryptBlock7},
-	{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, $virtualMethod(AESCrypt, init, void, bool, $String*, $bytes*), "java.security.InvalidKeyException"},
-	{"isKeySizeValid", "(I)Z", nullptr, $STATIC | $FINAL, $staticMethod(AESCrypt, isKeySizeValid, bool, int32_t)},
-	{"makeSessionKey", "([B)V", nullptr, $PRIVATE, $method(AESCrypt, makeSessionKey, void, $bytes*), "java.security.InvalidKeyException"},
-	{"mul", "(II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AESCrypt, mul, int32_t, int32_t, int32_t)},
-	{"mul4", "(I[B)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AESCrypt, mul4, int32_t, int32_t, $bytes*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AESCrypt_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.AESCrypt",
-	"com.sun.crypto.provider.SymmetricCipher",
-	"com.sun.crypto.provider.AESConstants",
-	_AESCrypt_FieldInfo_,
-	_AESCrypt_MethodInfo_
-};
-
-$Object* allocate$AESCrypt($Class* clazz) {
-	return $of($alloc(AESCrypt));
-}
 
 int32_t AESCrypt::hashCode() {
 	 return this->$SymmetricCipher::hashCode();
@@ -166,20 +93,20 @@ int32_t AESCrypt::getBlockSize() {
 }
 
 void AESCrypt::init(bool decrypting, $String* algorithm, $bytes* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$nc(algorithm)->equalsIgnoreCase("AES"_s);
 	if (var$0 && !algorithm->equalsIgnoreCase("Rijndael"_s)) {
 		$throwNew($InvalidKeyException, "Wrong algorithm: AES or Rijndael required"_s);
 	}
 	if (!isKeySizeValid($nc(key)->length)) {
-		$throwNew($InvalidKeyException, $$str({"Invalid AES key length: "_s, $$str($nc(key)->length), " bytes"_s}));
+		$throwNew($InvalidKeyException, $$str({"Invalid AES key length: "_s, $$str(key->length), " bytes"_s}));
 	}
 	if (!$MessageDigest::isEqual(key, this->lastKey)) {
 		makeSessionKey(key);
 		if (this->lastKey != nullptr) {
 			$Arrays::fill(this->lastKey, (int8_t)0);
 		}
-		$set(this, lastKey, $cast($bytes, $nc(key)->clone()));
+		$set(this, lastKey, $cast($bytes, key->clone()));
 	}
 	$set(this, K, $nc(this->sessionK)->get(decrypting ? 1 : 0));
 }
@@ -209,7 +136,7 @@ $ints* AESCrypt::expandToSubKey($intArray2* kr, bool decrypting) {
 
 int32_t AESCrypt::mul(int32_t a, int32_t b) {
 	$init(AESCrypt);
-	return (a != 0 && b != 0) ? $nc(AESCrypt::alog)->get(($nc(AESCrypt::log)->get((int32_t)(a & (uint32_t)255)) + $nc(AESCrypt::log)->get((int32_t)(b & (uint32_t)255))) % 255) : 0;
+	return (a != 0 && b != 0) ? $nc(AESCrypt::alog)->get(($nc(AESCrypt::log)->get(a & 0xff) + $nc(AESCrypt::log)->get(b & 0xff)) % 255) : 0;
 }
 
 int32_t AESCrypt::mul4(int32_t a, $bytes* b) {
@@ -217,11 +144,11 @@ int32_t AESCrypt::mul4(int32_t a, $bytes* b) {
 	if (a == 0) {
 		return 0;
 	}
-	a = $nc(AESCrypt::log)->get((int32_t)(a & (uint32_t)255));
-	int32_t a0 = ($nc(b)->get(0) != 0) ? (int32_t)($nc(AESCrypt::alog)->get((a + $nc(AESCrypt::log)->get((int32_t)($nc(b)->get(0) & (uint32_t)255))) % 255) & (uint32_t)255) : 0;
-	int32_t a1 = (b->get(1) != 0) ? (int32_t)($nc(AESCrypt::alog)->get((a + $nc(AESCrypt::log)->get((int32_t)(b->get(1) & (uint32_t)255))) % 255) & (uint32_t)255) : 0;
-	int32_t a2 = (b->get(2) != 0) ? (int32_t)($nc(AESCrypt::alog)->get((a + $nc(AESCrypt::log)->get((int32_t)(b->get(2) & (uint32_t)255))) % 255) & (uint32_t)255) : 0;
-	int32_t a3 = (b->get(3) != 0) ? (int32_t)($nc(AESCrypt::alog)->get((a + $nc(AESCrypt::log)->get((int32_t)(b->get(3) & (uint32_t)255))) % 255) & (uint32_t)255) : 0;
+	a = $nc(AESCrypt::log)->get(a & 0xff);
+	int32_t a0 = ($nc(b)->get(0) != 0) ? $nc(AESCrypt::alog)->get((a + AESCrypt::log->get(b->get(0) & 0xff)) % 255) & 0xff : 0;
+	int32_t a1 = (b->get(1) != 0) ? $nc(AESCrypt::alog)->get((a + AESCrypt::log->get(b->get(1) & 0xff)) % 255) & 0xff : 0;
+	int32_t a2 = (b->get(2) != 0) ? $nc(AESCrypt::alog)->get((a + AESCrypt::log->get(b->get(2) & 0xff)) % 255) & 0xff : 0;
+	int32_t a3 = (b->get(3) != 0) ? $nc(AESCrypt::alog)->get((a + AESCrypt::log->get(b->get(3) & 0xff)) % 255) & 0xff : 0;
 	return (((a0 << 24) | (a1 << 16)) | (a2 << 8)) | a3;
 }
 
@@ -229,7 +156,7 @@ bool AESCrypt::isKeySizeValid(int32_t len) {
 	$init(AESCrypt);
 	$init($AESConstants);
 	for (int32_t i = 0; i < $nc($AESConstants::AES_KEYSIZES)->length; ++i) {
-		if (len == $nc($AESConstants::AES_KEYSIZES)->get(i)) {
+		if (len == $AESConstants::AES_KEYSIZES->get(i)) {
 			return true;
 		}
 	}
@@ -243,53 +170,53 @@ void AESCrypt::encryptBlock($bytes* in, int32_t inOffset, $bytes* out, int32_t o
 void AESCrypt::implEncryptBlock($bytes* in, int32_t inOffset, $bytes* out, int32_t outOffset) {
 	int32_t keyOffset = 0;
 	int32_t var$2 = ($nc(in)->get(inOffset++)) << 24;
-	int32_t var$1 = var$2 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 16);
-	int32_t var$0 = var$1 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 8);
-	int32_t t0 = (var$0 | ((int32_t)(in->get(inOffset++) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
+	int32_t var$1 = var$2 | ((in->get(inOffset++) & 0xff) << 16);
+	int32_t var$0 = var$1 | ((in->get(inOffset++) & 0xff) << 8);
+	int32_t t0 = (var$0 | (in->get(inOffset++) & 0xff)) ^ $nc(this->K)->get(keyOffset++);
 	int32_t var$5 = (in->get(inOffset++)) << 24;
-	int32_t var$4 = var$5 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 16);
-	int32_t var$3 = var$4 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 8);
-	int32_t t1 = (var$3 | ((int32_t)(in->get(inOffset++) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
+	int32_t var$4 = var$5 | ((in->get(inOffset++) & 0xff) << 16);
+	int32_t var$3 = var$4 | ((in->get(inOffset++) & 0xff) << 8);
+	int32_t t1 = (var$3 | (in->get(inOffset++) & 0xff)) ^ this->K->get(keyOffset++);
 	int32_t var$8 = (in->get(inOffset++)) << 24;
-	int32_t var$7 = var$8 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 16);
-	int32_t var$6 = var$7 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 8);
-	int32_t t2 = (var$6 | ((int32_t)(in->get(inOffset++) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
+	int32_t var$7 = var$8 | ((in->get(inOffset++) & 0xff) << 16);
+	int32_t var$6 = var$7 | ((in->get(inOffset++) & 0xff) << 8);
+	int32_t t2 = (var$6 | (in->get(inOffset++) & 0xff)) ^ this->K->get(keyOffset++);
 	int32_t var$11 = (in->get(inOffset++)) << 24;
-	int32_t var$10 = var$11 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 16);
-	int32_t var$9 = var$10 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 8);
-	int32_t t3 = (var$9 | ((int32_t)(in->get(inOffset++) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
+	int32_t var$10 = var$11 | ((in->get(inOffset++) & 0xff) << 16);
+	int32_t var$9 = var$10 | ((in->get(inOffset++) & 0xff) << 8);
+	int32_t t3 = (var$9 | (in->get(inOffset++) & 0xff)) ^ this->K->get(keyOffset++);
 	while (keyOffset < this->limit) {
 		int32_t a0 = 0;
 		int32_t a1 = 0;
 		int32_t a2 = 0;
-		a0 = ((($nc(AESCrypt::T1)->get((int32_t)((uint32_t)t0 >> 24)) ^ $nc(AESCrypt::T2)->get((int32_t)(((int32_t)((uint32_t)t1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T3)->get((int32_t)(((int32_t)((uint32_t)t2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T4)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-		a1 = ((($nc(AESCrypt::T1)->get((int32_t)((uint32_t)t1 >> 24)) ^ $nc(AESCrypt::T2)->get((int32_t)(((int32_t)((uint32_t)t2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T3)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T4)->get((int32_t)((t0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-		a2 = ((($nc(AESCrypt::T1)->get((int32_t)((uint32_t)t2 >> 24)) ^ $nc(AESCrypt::T2)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T3)->get((int32_t)(((int32_t)((uint32_t)t0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T4)->get((int32_t)((t1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-		t3 = ((($nc(AESCrypt::T1)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T2)->get((int32_t)(((int32_t)((uint32_t)t0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T3)->get((int32_t)(((int32_t)((uint32_t)t1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T4)->get((int32_t)((t2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
+		a0 = (((AESCrypt::T1->get((int32_t)((uint32_t)t0 >> 24)) ^ AESCrypt::T2->get(((int32_t)((uint32_t)t1 >> 16)) & 0xff)) ^ AESCrypt::T3->get(((int32_t)((uint32_t)t2 >> 8)) & 0xff)) ^ AESCrypt::T4->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+		a1 = (((AESCrypt::T1->get((int32_t)((uint32_t)t1 >> 24)) ^ AESCrypt::T2->get(((int32_t)((uint32_t)t2 >> 16)) & 0xff)) ^ AESCrypt::T3->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T4->get((t0) & 0xff)) ^ this->K->get(keyOffset++);
+		a2 = (((AESCrypt::T1->get((int32_t)((uint32_t)t2 >> 24)) ^ AESCrypt::T2->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T3->get(((int32_t)((uint32_t)t0 >> 8)) & 0xff)) ^ AESCrypt::T4->get((t1) & 0xff)) ^ this->K->get(keyOffset++);
+		t3 = (((AESCrypt::T1->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T2->get(((int32_t)((uint32_t)t0 >> 16)) & 0xff)) ^ AESCrypt::T3->get(((int32_t)((uint32_t)t1 >> 8)) & 0xff)) ^ AESCrypt::T4->get((t2) & 0xff)) ^ this->K->get(keyOffset++);
 		t0 = a0;
 		t1 = a1;
 		t2 = a2;
 	}
-	int32_t tt = $nc(this->K)->get(keyOffset++);
-	$nc(out)->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)((uint32_t)t0 >> 24)) ^ ((int32_t)((uint32_t)tt >> 24))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)t1 >> 16)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)tt >> 16))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)t2 >> 8)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)tt >> 8))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)((t3) & (uint32_t)255)) ^ (tt)));
-	tt = $nc(this->K)->get(keyOffset++);
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)((uint32_t)t1 >> 24)) ^ ((int32_t)((uint32_t)tt >> 24))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)t2 >> 16)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)tt >> 16))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)tt >> 8))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)((t0) & (uint32_t)255)) ^ (tt)));
-	tt = $nc(this->K)->get(keyOffset++);
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)((uint32_t)t2 >> 24)) ^ ((int32_t)((uint32_t)tt >> 24))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)tt >> 16))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)t0 >> 8)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)tt >> 8))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)((t1) & (uint32_t)255)) ^ (tt)));
-	tt = $nc(this->K)->get(keyOffset++);
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)((uint32_t)t3 >> 24)) ^ ((int32_t)((uint32_t)tt >> 24))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)t0 >> 16)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)tt >> 16))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)t1 >> 8)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)tt >> 8))));
-	out->set(outOffset, (int8_t)($nc(AESCrypt::S)->get((int32_t)((t2) & (uint32_t)255)) ^ (tt)));
+	int32_t tt = this->K->get(keyOffset++);
+	$nc(out)->set(outOffset++, (int8_t)(AESCrypt::S->get((int32_t)((uint32_t)t0 >> 24)) ^ ((int32_t)((uint32_t)tt >> 24))));
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get(((int32_t)((uint32_t)t1 >> 16)) & 0xff) ^ ((int32_t)((uint32_t)tt >> 16))));
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get(((int32_t)((uint32_t)t2 >> 8)) & 0xff) ^ ((int32_t)((uint32_t)tt >> 8))));
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get((t3) & 0xff) ^ (tt)));
+	tt = this->K->get(keyOffset++);
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get((int32_t)((uint32_t)t1 >> 24)) ^ ((int32_t)((uint32_t)tt >> 24))));
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get(((int32_t)((uint32_t)t2 >> 16)) & 0xff) ^ ((int32_t)((uint32_t)tt >> 16))));
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff) ^ ((int32_t)((uint32_t)tt >> 8))));
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get((t0) & 0xff) ^ (tt)));
+	tt = this->K->get(keyOffset++);
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get((int32_t)((uint32_t)t2 >> 24)) ^ ((int32_t)((uint32_t)tt >> 24))));
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff) ^ ((int32_t)((uint32_t)tt >> 16))));
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get(((int32_t)((uint32_t)t0 >> 8)) & 0xff) ^ ((int32_t)((uint32_t)tt >> 8))));
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get((t1) & 0xff) ^ (tt)));
+	tt = this->K->get(keyOffset++);
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get((int32_t)((uint32_t)t3 >> 24)) ^ ((int32_t)((uint32_t)tt >> 24))));
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get(((int32_t)((uint32_t)t0 >> 16)) & 0xff) ^ ((int32_t)((uint32_t)tt >> 16))));
+	out->set(outOffset++, (int8_t)(AESCrypt::S->get(((int32_t)((uint32_t)t1 >> 8)) & 0xff) ^ ((int32_t)((uint32_t)tt >> 8))));
+	out->set(outOffset, (int8_t)(AESCrypt::S->get((t2) & 0xff) ^ (tt)));
 }
 
 void AESCrypt::decryptBlock($bytes* in, int32_t inOffset, $bytes* out, int32_t outOffset) {
@@ -299,121 +226,121 @@ void AESCrypt::decryptBlock($bytes* in, int32_t inOffset, $bytes* out, int32_t o
 void AESCrypt::implDecryptBlock($bytes* in, int32_t inOffset, $bytes* out, int32_t outOffset) {
 	int32_t keyOffset = 4;
 	int32_t var$2 = ($nc(in)->get(inOffset++)) << 24;
-	int32_t var$1 = var$2 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 16);
-	int32_t var$0 = var$1 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 8);
-	int32_t t0 = (var$0 | ((int32_t)(in->get(inOffset++) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
+	int32_t var$1 = var$2 | ((in->get(inOffset++) & 0xff) << 16);
+	int32_t var$0 = var$1 | ((in->get(inOffset++) & 0xff) << 8);
+	int32_t t0 = (var$0 | (in->get(inOffset++) & 0xff)) ^ $nc(this->K)->get(keyOffset++);
 	int32_t var$5 = (in->get(inOffset++)) << 24;
-	int32_t var$4 = var$5 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 16);
-	int32_t var$3 = var$4 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 8);
-	int32_t t1 = (var$3 | ((int32_t)(in->get(inOffset++) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
+	int32_t var$4 = var$5 | ((in->get(inOffset++) & 0xff) << 16);
+	int32_t var$3 = var$4 | ((in->get(inOffset++) & 0xff) << 8);
+	int32_t t1 = (var$3 | (in->get(inOffset++) & 0xff)) ^ this->K->get(keyOffset++);
 	int32_t var$8 = (in->get(inOffset++)) << 24;
-	int32_t var$7 = var$8 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 16);
-	int32_t var$6 = var$7 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 8);
-	int32_t t2 = (var$6 | ((int32_t)(in->get(inOffset++) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
+	int32_t var$7 = var$8 | ((in->get(inOffset++) & 0xff) << 16);
+	int32_t var$6 = var$7 | ((in->get(inOffset++) & 0xff) << 8);
+	int32_t t2 = (var$6 | (in->get(inOffset++) & 0xff)) ^ this->K->get(keyOffset++);
 	int32_t var$11 = (in->get(inOffset++)) << 24;
-	int32_t var$10 = var$11 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 16);
-	int32_t var$9 = var$10 | (((int32_t)(in->get(inOffset++) & (uint32_t)255)) << 8);
-	int32_t t3 = (var$9 | ((int32_t)(in->get(inOffset) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
+	int32_t var$10 = var$11 | ((in->get(inOffset++) & 0xff) << 16);
+	int32_t var$9 = var$10 | ((in->get(inOffset++) & 0xff) << 8);
+	int32_t t3 = (var$9 | (in->get(inOffset) & 0xff)) ^ this->K->get(keyOffset++);
 	int32_t a0 = 0;
 	int32_t a1 = 0;
 	int32_t a2 = 0;
 	if (this->ROUNDS_12) {
-		a0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-		a1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-		a2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-		t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-		t0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-		t1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-		t2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-		t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
+		a0 = (((AESCrypt::T5->get((int32_t)((uint32_t)t0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t1) & 0xff)) ^ this->K->get(keyOffset++);
+		a1 = (((AESCrypt::T5->get((int32_t)((uint32_t)t1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t2) & 0xff)) ^ this->K->get(keyOffset++);
+		a2 = (((AESCrypt::T5->get((int32_t)((uint32_t)t2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+		t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t0) & 0xff)) ^ this->K->get(keyOffset++);
+		t0 = (((AESCrypt::T5->get((int32_t)((uint32_t)a0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a1) & 0xff)) ^ this->K->get(keyOffset++);
+		t1 = (((AESCrypt::T5->get((int32_t)((uint32_t)a1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a2) & 0xff)) ^ this->K->get(keyOffset++);
+		t2 = (((AESCrypt::T5->get((int32_t)((uint32_t)a2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+		t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a0) & 0xff)) ^ this->K->get(keyOffset++);
 		if (this->ROUNDS_14) {
-			a0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-			a1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-			a2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-			t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-			t0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-			t1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-			t2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-			t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
+			a0 = (((AESCrypt::T5->get((int32_t)((uint32_t)t0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t1) & 0xff)) ^ this->K->get(keyOffset++);
+			a1 = (((AESCrypt::T5->get((int32_t)((uint32_t)t1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t2) & 0xff)) ^ this->K->get(keyOffset++);
+			a2 = (((AESCrypt::T5->get((int32_t)((uint32_t)t2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+			t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t0) & 0xff)) ^ this->K->get(keyOffset++);
+			t0 = (((AESCrypt::T5->get((int32_t)((uint32_t)a0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a1) & 0xff)) ^ this->K->get(keyOffset++);
+			t1 = (((AESCrypt::T5->get((int32_t)((uint32_t)a1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a2) & 0xff)) ^ this->K->get(keyOffset++);
+			t2 = (((AESCrypt::T5->get((int32_t)((uint32_t)a2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+			t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a0) & 0xff)) ^ this->K->get(keyOffset++);
 		}
 	}
-	a0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)a2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)a2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)a1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((a0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a0 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t0 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t2 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t1) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a1 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t1 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t0 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t2) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	a2 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t2 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t1 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t0 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t3) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t3 = ((($nc(AESCrypt::T5)->get((int32_t)((uint32_t)t3 >> 24)) ^ $nc(AESCrypt::T6)->get((int32_t)(((int32_t)((uint32_t)t2 >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::T7)->get((int32_t)(((int32_t)((uint32_t)t1 >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::T8)->get((int32_t)((t0) & (uint32_t)255))) ^ $nc(this->K)->get(keyOffset++);
-	t1 = $nc(this->K)->get(0);
-	$nc(out)->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)((uint32_t)a0 >> 24)) ^ ((int32_t)((uint32_t)t1 >> 24))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)(((int32_t)((uint32_t)t3 >> 16)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)t1 >> 16))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)(((int32_t)((uint32_t)a2 >> 8)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)t1 >> 8))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)((a1) & (uint32_t)255)) ^ (t1)));
-	t1 = $nc(this->K)->get(1);
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)((uint32_t)a1 >> 24)) ^ ((int32_t)((uint32_t)t1 >> 24))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)(((int32_t)((uint32_t)a0 >> 16)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)t1 >> 16))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)(((int32_t)((uint32_t)t3 >> 8)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)t1 >> 8))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)((a2) & (uint32_t)255)) ^ (t1)));
-	t1 = $nc(this->K)->get(2);
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)((uint32_t)a2 >> 24)) ^ ((int32_t)((uint32_t)t1 >> 24))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)(((int32_t)((uint32_t)a1 >> 16)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)t1 >> 16))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)(((int32_t)((uint32_t)a0 >> 8)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)t1 >> 8))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)((t3) & (uint32_t)255)) ^ (t1)));
-	t1 = $nc(this->K)->get(3);
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)((uint32_t)t3 >> 24)) ^ ((int32_t)((uint32_t)t1 >> 24))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)(((int32_t)((uint32_t)a2 >> 16)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)t1 >> 16))));
-	out->set(outOffset++, (int8_t)($nc(AESCrypt::Si)->get((int32_t)(((int32_t)((uint32_t)a1 >> 8)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)t1 >> 8))));
-	out->set(outOffset, (int8_t)($nc(AESCrypt::Si)->get((int32_t)((a0) & (uint32_t)255)) ^ (t1)));
+	a0 = (((AESCrypt::T5->get((int32_t)((uint32_t)t0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t1) & 0xff)) ^ this->K->get(keyOffset++);
+	a1 = (((AESCrypt::T5->get((int32_t)((uint32_t)t1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t2) & 0xff)) ^ this->K->get(keyOffset++);
+	a2 = (((AESCrypt::T5->get((int32_t)((uint32_t)t2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+	t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t0) & 0xff)) ^ this->K->get(keyOffset++);
+	t0 = (((AESCrypt::T5->get((int32_t)((uint32_t)a0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a1) & 0xff)) ^ this->K->get(keyOffset++);
+	t1 = (((AESCrypt::T5->get((int32_t)((uint32_t)a1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a2) & 0xff)) ^ this->K->get(keyOffset++);
+	t2 = (((AESCrypt::T5->get((int32_t)((uint32_t)a2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+	t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a0) & 0xff)) ^ this->K->get(keyOffset++);
+	a0 = (((AESCrypt::T5->get((int32_t)((uint32_t)t0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t1) & 0xff)) ^ this->K->get(keyOffset++);
+	a1 = (((AESCrypt::T5->get((int32_t)((uint32_t)t1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t2) & 0xff)) ^ this->K->get(keyOffset++);
+	a2 = (((AESCrypt::T5->get((int32_t)((uint32_t)t2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+	t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t0) & 0xff)) ^ this->K->get(keyOffset++);
+	t0 = (((AESCrypt::T5->get((int32_t)((uint32_t)a0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a1) & 0xff)) ^ this->K->get(keyOffset++);
+	t1 = (((AESCrypt::T5->get((int32_t)((uint32_t)a1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a2) & 0xff)) ^ this->K->get(keyOffset++);
+	t2 = (((AESCrypt::T5->get((int32_t)((uint32_t)a2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+	t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a0) & 0xff)) ^ this->K->get(keyOffset++);
+	a0 = (((AESCrypt::T5->get((int32_t)((uint32_t)t0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t1) & 0xff)) ^ this->K->get(keyOffset++);
+	a1 = (((AESCrypt::T5->get((int32_t)((uint32_t)t1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t2) & 0xff)) ^ this->K->get(keyOffset++);
+	a2 = (((AESCrypt::T5->get((int32_t)((uint32_t)t2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+	t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t0) & 0xff)) ^ this->K->get(keyOffset++);
+	t0 = (((AESCrypt::T5->get((int32_t)((uint32_t)a0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a1) & 0xff)) ^ this->K->get(keyOffset++);
+	t1 = (((AESCrypt::T5->get((int32_t)((uint32_t)a1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a2) & 0xff)) ^ this->K->get(keyOffset++);
+	t2 = (((AESCrypt::T5->get((int32_t)((uint32_t)a2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+	t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a0) & 0xff)) ^ this->K->get(keyOffset++);
+	a0 = (((AESCrypt::T5->get((int32_t)((uint32_t)t0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t1) & 0xff)) ^ this->K->get(keyOffset++);
+	a1 = (((AESCrypt::T5->get((int32_t)((uint32_t)t1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t2) & 0xff)) ^ this->K->get(keyOffset++);
+	a2 = (((AESCrypt::T5->get((int32_t)((uint32_t)t2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+	t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t0) & 0xff)) ^ this->K->get(keyOffset++);
+	t0 = (((AESCrypt::T5->get((int32_t)((uint32_t)a0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a1) & 0xff)) ^ this->K->get(keyOffset++);
+	t1 = (((AESCrypt::T5->get((int32_t)((uint32_t)a1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a2) & 0xff)) ^ this->K->get(keyOffset++);
+	t2 = (((AESCrypt::T5->get((int32_t)((uint32_t)a2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+	t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)a2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)a1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((a0) & 0xff)) ^ this->K->get(keyOffset++);
+	a0 = (((AESCrypt::T5->get((int32_t)((uint32_t)t0 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t2 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t1) & 0xff)) ^ this->K->get(keyOffset++);
+	a1 = (((AESCrypt::T5->get((int32_t)((uint32_t)t1 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t0 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t2) & 0xff)) ^ this->K->get(keyOffset++);
+	a2 = (((AESCrypt::T5->get((int32_t)((uint32_t)t2 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t1 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t0 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t3) & 0xff)) ^ this->K->get(keyOffset++);
+	t3 = (((AESCrypt::T5->get((int32_t)((uint32_t)t3 >> 24)) ^ AESCrypt::T6->get(((int32_t)((uint32_t)t2 >> 16)) & 0xff)) ^ AESCrypt::T7->get(((int32_t)((uint32_t)t1 >> 8)) & 0xff)) ^ AESCrypt::T8->get((t0) & 0xff)) ^ this->K->get(keyOffset++);
+	t1 = this->K->get(0);
+	$nc(out)->set(outOffset++, (int8_t)(AESCrypt::Si->get((int32_t)((uint32_t)a0 >> 24)) ^ ((int32_t)((uint32_t)t1 >> 24))));
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get(((int32_t)((uint32_t)t3 >> 16)) & 0xff) ^ ((int32_t)((uint32_t)t1 >> 16))));
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get(((int32_t)((uint32_t)a2 >> 8)) & 0xff) ^ ((int32_t)((uint32_t)t1 >> 8))));
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get((a1) & 0xff) ^ (t1)));
+	t1 = this->K->get(1);
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get((int32_t)((uint32_t)a1 >> 24)) ^ ((int32_t)((uint32_t)t1 >> 24))));
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get(((int32_t)((uint32_t)a0 >> 16)) & 0xff) ^ ((int32_t)((uint32_t)t1 >> 16))));
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get(((int32_t)((uint32_t)t3 >> 8)) & 0xff) ^ ((int32_t)((uint32_t)t1 >> 8))));
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get((a2) & 0xff) ^ (t1)));
+	t1 = this->K->get(2);
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get((int32_t)((uint32_t)a2 >> 24)) ^ ((int32_t)((uint32_t)t1 >> 24))));
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get(((int32_t)((uint32_t)a1 >> 16)) & 0xff) ^ ((int32_t)((uint32_t)t1 >> 16))));
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get(((int32_t)((uint32_t)a0 >> 8)) & 0xff) ^ ((int32_t)((uint32_t)t1 >> 8))));
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get((t3) & 0xff) ^ (t1)));
+	t1 = this->K->get(3);
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get((int32_t)((uint32_t)t3 >> 24)) ^ ((int32_t)((uint32_t)t1 >> 24))));
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get(((int32_t)((uint32_t)a2 >> 16)) & 0xff) ^ ((int32_t)((uint32_t)t1 >> 16))));
+	out->set(outOffset++, (int8_t)(AESCrypt::Si->get(((int32_t)((uint32_t)a1 >> 8)) & 0xff) ^ ((int32_t)((uint32_t)t1 >> 8))));
+	out->set(outOffset, (int8_t)(AESCrypt::Si->get((a0) & 0xff) ^ (t1)));
 }
 
 void AESCrypt::makeSessionKey($bytes* k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (k == nullptr) {
 		$throwNew($InvalidKeyException, "Empty key"_s);
 	}
 	if (!isKeySizeValid($nc(k)->length)) {
-		$throwNew($InvalidKeyException, $$str({"Invalid AES key length: "_s, $$str($nc(k)->length), " bytes"_s}));
+		$throwNew($InvalidKeyException, $$str({"Invalid AES key length: "_s, $$str(k->length), " bytes"_s}));
 	}
-	int32_t ROUNDS = getRounds($nc(k)->length);
+	int32_t ROUNDS = getRounds(k->length);
 	int32_t ROUND_KEY_COUNT = (ROUNDS + 1) * 4;
 	int32_t BC = 4;
 	$var($intArray2, Ke, $new($intArray2, ROUNDS + 1, 4));
 	$var($intArray2, Kd, $new($intArray2, ROUNDS + 1, 4));
-	int32_t KC = $nc(k)->length / 4;
+	int32_t KC = k->length / 4;
 	$var($ints, tk, $new($ints, KC));
 	int32_t i = 0;
 	int32_t j = 0;
 	for (i = 0, j = 0; i < KC; ++i, j += 4) {
-		tk->set(i, ((((k->get(j)) << 24) | (((int32_t)(k->get(j + 1) & (uint32_t)255)) << 16)) | (((int32_t)(k->get(j + 2) & (uint32_t)255)) << 8)) | ((int32_t)(k->get(j + 3) & (uint32_t)255)));
+		tk->set(i, ((((k->get(j)) << 24) | ((k->get(j + 1) & 0xff) << 16)) | ((k->get(j + 2) & 0xff) << 8)) | (k->get(j + 3) & 0xff));
 	}
 	int32_t t = 0;
 	for (j = 0; (j < KC) && (t < ROUND_KEY_COUNT); ++j, ++t) {
@@ -424,7 +351,7 @@ void AESCrypt::makeSessionKey($bytes* k) {
 	int32_t rconpointer = 0;
 	while (t < ROUND_KEY_COUNT) {
 		tt = tk->get(KC - 1);
-		(*tk)[0] ^= ((((($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)tt >> 16)) & (uint32_t)255))) << 24) ^ (((int32_t)($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)tt >> 8)) & (uint32_t)255)) & (uint32_t)255)) << 16)) ^ (((int32_t)($nc(AESCrypt::S)->get((int32_t)((tt) & (uint32_t)255)) & (uint32_t)255)) << 8)) ^ ((int32_t)($nc(AESCrypt::S)->get((int32_t)((uint32_t)tt >> 24)) & (uint32_t)255))) ^ (($nc(AESCrypt::rcon)->get(rconpointer++)) << 24);
+		(*tk)[0] ^= (((((AESCrypt::S->get(((int32_t)((uint32_t)tt >> 16)) & 0xff)) << 24) ^ ((AESCrypt::S->get(((int32_t)((uint32_t)tt >> 8)) & 0xff) & 0xff) << 16)) ^ ((AESCrypt::S->get((tt) & 0xff) & 0xff) << 8)) ^ (AESCrypt::S->get((int32_t)((uint32_t)tt >> 24)) & 0xff)) ^ ((AESCrypt::rcon->get(rconpointer++)) << 24);
 		if (KC != 8) {
 			for (i = 1, j = 0; i < KC; ++i, ++j) {
 				(*tk)[i] ^= tk->get(j);
@@ -434,7 +361,7 @@ void AESCrypt::makeSessionKey($bytes* k) {
 				(*tk)[i] ^= tk->get(j);
 			}
 			tt = tk->get(KC / 2 - 1);
-			(*tk)[KC / 2] ^= ((((int32_t)($nc(AESCrypt::S)->get((int32_t)((tt) & (uint32_t)255)) & (uint32_t)255)) ^ (((int32_t)($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)tt >> 8)) & (uint32_t)255)) & (uint32_t)255)) << 8)) ^ (((int32_t)($nc(AESCrypt::S)->get((int32_t)(((int32_t)((uint32_t)tt >> 16)) & (uint32_t)255)) & (uint32_t)255)) << 16)) ^ (($nc(AESCrypt::S)->get((int32_t)((uint32_t)tt >> 24))) << 24);
+			(*tk)[KC / 2] ^= (((AESCrypt::S->get((tt) & 0xff) & 0xff) ^ ((AESCrypt::S->get(((int32_t)((uint32_t)tt >> 8)) & 0xff) & 0xff) << 8)) ^ ((AESCrypt::S->get(((int32_t)((uint32_t)tt >> 16)) & 0xff) & 0xff) << 16)) ^ ((AESCrypt::S->get((int32_t)((uint32_t)tt >> 24))) << 24);
 			for (j = KC / 2, i = j + 1; i < KC; ++i, ++j) {
 				(*tk)[i] ^= tk->get(j);
 			}
@@ -447,7 +374,7 @@ void AESCrypt::makeSessionKey($bytes* k) {
 	for (int32_t r = 1; r < ROUNDS; ++r) {
 		for (j = 0; j < BC; ++j) {
 			tt = $nc(Kd->get(r))->get(j);
-			$nc(Kd->get(r))->set(j, (($nc(AESCrypt::U1)->get((int32_t)(((int32_t)((uint32_t)tt >> 24)) & (uint32_t)255)) ^ $nc(AESCrypt::U2)->get((int32_t)(((int32_t)((uint32_t)tt >> 16)) & (uint32_t)255))) ^ $nc(AESCrypt::U3)->get((int32_t)(((int32_t)((uint32_t)tt >> 8)) & (uint32_t)255))) ^ $nc(AESCrypt::U4)->get((int32_t)(tt & (uint32_t)255)));
+			$nc(Kd->get(r))->set(j, ((AESCrypt::U1->get(((int32_t)((uint32_t)tt >> 24)) & 0xff) ^ AESCrypt::U2->get(((int32_t)((uint32_t)tt >> 16)) & 0xff)) ^ AESCrypt::U3->get(((int32_t)((uint32_t)tt >> 8)) & 0xff)) ^ AESCrypt::U4->get(tt & 0xff));
 		}
 	}
 	$var($ints, expandedKe, expandToSubKey(Ke, false));
@@ -455,9 +382,7 @@ void AESCrypt::makeSessionKey($bytes* k) {
 	$Arrays::fill(tk, 0);
 	{
 		$var($intArray2, arr$, Ke);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ints, ia, arr$->get(i$));
 			{
 				$Arrays::fill(ia, 0);
@@ -466,9 +391,7 @@ void AESCrypt::makeSessionKey($bytes* k) {
 	}
 	{
 		$var($intArray2, arr$, Kd);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ints, ia, arr$->get(i$));
 			{
 				$Arrays::fill(ia, 0);
@@ -479,8 +402,8 @@ void AESCrypt::makeSessionKey($bytes* k) {
 	this->ROUNDS_14 = (ROUNDS == 14);
 	this->limit = ROUNDS * 4;
 	if (this->sessionK != nullptr) {
-		$Arrays::fill($nc(this->sessionK)->get(0), 0);
-		$Arrays::fill($nc(this->sessionK)->get(1), 0);
+		$Arrays::fill(this->sessionK->get(0), 0);
+		$Arrays::fill(this->sessionK->get(1), 0);
 	}
 	$set(this, sessionK, $new($intArray2, {
 		expandedKe,
@@ -493,8 +416,8 @@ int32_t AESCrypt::getRounds(int32_t keySize) {
 	return (keySize >> 2) + 6;
 }
 
-void clinit$AESCrypt($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AESCrypt::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(AESCrypt::alog, $new($ints, 256));
 	$assignStatic(AESCrypt::log, $new($ints, 256));
 	$assignStatic(AESCrypt::S, $new($bytes, 256));
@@ -516,116 +439,116 @@ void clinit$AESCrypt($Class* class$) {
 		int32_t ROOT = 283;
 		int32_t i = 0;
 		int32_t j = 0;
-		$nc(AESCrypt::alog)->set(0, 1);
+		AESCrypt::alog->set(0, 1);
 		for (i = 1; i < 256; ++i) {
-			j = ($nc(AESCrypt::alog)->get(i - 1) << 1) ^ $nc(AESCrypt::alog)->get(i - 1);
-			if (((int32_t)(j & (uint32_t)256)) != 0) {
+			j = (AESCrypt::alog->get(i - 1) << 1) ^ AESCrypt::alog->get(i - 1);
+			if ((j & 0x0100) != 0) {
 				j ^= ROOT;
 			}
-			$nc(AESCrypt::alog)->set(i, j);
+			AESCrypt::alog->set(i, j);
 		}
 		for (i = 1; i < 255; ++i) {
-			$nc(AESCrypt::log)->set($nc(AESCrypt::alog)->get(i), i);
+			AESCrypt::log->set(AESCrypt::alog->get(i), i);
 		}
 		$var($byteArray2, A, $new($byteArray2, {
 			$$new($bytes, {
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0
+				1,
+				1,
+				1,
+				1,
+				1,
+				0,
+				0,
+				0
 			}),
 			$$new($bytes, {
-				(int8_t)0,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)0,
-				(int8_t)0
+				0,
+				1,
+				1,
+				1,
+				1,
+				1,
+				0,
+				0
 			}),
 			$$new($bytes, {
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)0
+				0,
+				0,
+				1,
+				1,
+				1,
+				1,
+				1,
+				0
 			}),
 			$$new($bytes, {
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1
+				0,
+				0,
+				0,
+				1,
+				1,
+				1,
+				1,
+				1
 			}),
 			$$new($bytes, {
-				(int8_t)1,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1
+				1,
+				0,
+				0,
+				0,
+				1,
+				1,
+				1,
+				1
 			}),
 			$$new($bytes, {
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1
+				1,
+				1,
+				0,
+				0,
+				0,
+				1,
+				1,
+				1
 			}),
 			$$new($bytes, {
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)1,
-				(int8_t)1
+				1,
+				1,
+				1,
+				0,
+				0,
+				0,
+				1,
+				1
 			}),
 			$$new($bytes, {
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)1
+				1,
+				1,
+				1,
+				1,
+				0,
+				0,
+				0,
+				1
 			})
 		}));
 		$var($bytes, B, $new($bytes, {
-			(int8_t)0,
-			(int8_t)1,
-			(int8_t)1,
-			(int8_t)0,
-			(int8_t)0,
-			(int8_t)0,
-			(int8_t)1,
-			(int8_t)1
+			0,
+			1,
+			1,
+			0,
+			0,
+			0,
+			1,
+			1
 		}));
 		int32_t t = 0;
 		$var($byteArray2, box, $new($byteArray2, 256, 8));
-		$nc(box->get(1))->set(7, (int8_t)1);
+		$nc(box->get(1))->set(7, 1);
 		for (i = 2; i < 256; ++i) {
-			j = $nc(AESCrypt::alog)->get(255 - $nc(AESCrypt::log)->get(i));
+			j = AESCrypt::alog->get(255 - AESCrypt::log->get(i));
 			for (t = 0; t < 8; ++t) {
-				$nc(box->get(i))->set(t, (int8_t)((int32_t)(($usr(j, 7 - t)) & (uint32_t)1)));
+				$nc(box->get(i))->set(t, (int8_t)(($usr(j, 7 - t)) & 1));
 			}
 		}
 		$var($byteArray2, cox, $new($byteArray2, 256, 8));
@@ -638,36 +561,36 @@ void clinit$AESCrypt($Class* class$) {
 			}
 		}
 		for (i = 0; i < 256; ++i) {
-			$nc(AESCrypt::S)->set(i, (int8_t)($nc(cox->get(i))->get(0) << 7));
+			AESCrypt::S->set(i, (int8_t)($nc(cox->get(i))->get(0) << 7));
 			for (t = 1; t < 8; ++t) {
-				(*$nc(AESCrypt::S))[i] ^= $sl((int32_t)$nc(cox->get(i))->get(t), 7 - t);
+				(*AESCrypt::S)[i] ^= $sl($nc(cox->get(i))->get(t), 7 - t);
 			}
-			$nc(AESCrypt::Si)->set((int32_t)($nc(AESCrypt::S)->get(i) & (uint32_t)255), (int8_t)i);
+			AESCrypt::Si->set(AESCrypt::S->get(i) & 0xff, (int8_t)i);
 		}
 		$var($byteArray2, G, $new($byteArray2, {
 			$$new($bytes, {
-				(int8_t)2,
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)3
+				2,
+				1,
+				1,
+				3
 			}),
 			$$new($bytes, {
-				(int8_t)3,
-				(int8_t)2,
-				(int8_t)1,
-				(int8_t)1
+				3,
+				2,
+				1,
+				1
 			}),
 			$$new($bytes, {
-				(int8_t)1,
-				(int8_t)3,
-				(int8_t)2,
-				(int8_t)1
+				1,
+				3,
+				2,
+				1
 			}),
 			$$new($bytes, {
-				(int8_t)1,
-				(int8_t)1,
-				(int8_t)3,
-				(int8_t)2
+				1,
+				1,
+				3,
+				2
 			})
 		}));
 		$var($byteArray2, AA, $new($byteArray2, 4, 8));
@@ -675,7 +598,7 @@ void clinit$AESCrypt($Class* class$) {
 			for (j = 0; j < 4; ++j) {
 				$nc(AA->get(i))->set(j, $nc(G->get(i))->get(j));
 			}
-			$nc(AA->get(i))->set(i + 4, (int8_t)1);
+			$nc(AA->get(i))->set(i + 4, 1);
 		}
 		int8_t pivot = 0;
 		int8_t tmp = 0;
@@ -700,7 +623,7 @@ void clinit$AESCrypt($Class* class$) {
 			}
 			for (j = 0; j < 8; ++j) {
 				if ($nc(AA->get(i))->get(j) != 0) {
-					$nc(AA->get(i))->set(j, (int8_t)$nc(AESCrypt::alog)->get((255 + $nc(AESCrypt::log)->get((int32_t)($nc(AA->get(i))->get(j) & (uint32_t)255)) - $nc(AESCrypt::log)->get((int32_t)(pivot & (uint32_t)255))) % 255));
+					$nc(AA->get(i))->set(j, (int8_t)AESCrypt::alog->get((255 + AESCrypt::log->get($nc(AA->get(i))->get(j) & 0xff) - AESCrypt::log->get(pivot & 0xff)) % 255));
 				}
 			}
 			for (t = 0; t < 4; ++t) {
@@ -708,7 +631,7 @@ void clinit$AESCrypt($Class* class$) {
 					for (j = i + 1; j < 8; ++j) {
 						(*$nc(AA->get(t)))[j] ^= AESCrypt::mul($nc(AA->get(i))->get(j), $nc(AA->get(t))->get(i));
 					}
-					$nc(AA->get(t))->set(i, (int8_t)0);
+					$nc(AA->get(t))->set(i, 0);
 				}
 			}
 		}
@@ -719,26 +642,26 @@ void clinit$AESCrypt($Class* class$) {
 		}
 		int32_t s = 0;
 		for (t = 0; t < 256; ++t) {
-			s = $nc(AESCrypt::S)->get(t);
-			$nc(AESCrypt::T1)->set(t, AESCrypt::mul4(s, G->get(0)));
-			$nc(AESCrypt::T2)->set(t, AESCrypt::mul4(s, G->get(1)));
-			$nc(AESCrypt::T3)->set(t, AESCrypt::mul4(s, G->get(2)));
-			$nc(AESCrypt::T4)->set(t, AESCrypt::mul4(s, G->get(3)));
-			s = $nc(AESCrypt::Si)->get(t);
-			$nc(AESCrypt::T5)->set(t, AESCrypt::mul4(s, iG->get(0)));
-			$nc(AESCrypt::T6)->set(t, AESCrypt::mul4(s, iG->get(1)));
-			$nc(AESCrypt::T7)->set(t, AESCrypt::mul4(s, iG->get(2)));
-			$nc(AESCrypt::T8)->set(t, AESCrypt::mul4(s, iG->get(3)));
-			$nc(AESCrypt::U1)->set(t, AESCrypt::mul4(t, iG->get(0)));
-			$nc(AESCrypt::U2)->set(t, AESCrypt::mul4(t, iG->get(1)));
-			$nc(AESCrypt::U3)->set(t, AESCrypt::mul4(t, iG->get(2)));
-			$nc(AESCrypt::U4)->set(t, AESCrypt::mul4(t, iG->get(3)));
+			s = AESCrypt::S->get(t);
+			AESCrypt::T1->set(t, AESCrypt::mul4(s, G->get(0)));
+			AESCrypt::T2->set(t, AESCrypt::mul4(s, G->get(1)));
+			AESCrypt::T3->set(t, AESCrypt::mul4(s, G->get(2)));
+			AESCrypt::T4->set(t, AESCrypt::mul4(s, G->get(3)));
+			s = AESCrypt::Si->get(t);
+			AESCrypt::T5->set(t, AESCrypt::mul4(s, iG->get(0)));
+			AESCrypt::T6->set(t, AESCrypt::mul4(s, iG->get(1)));
+			AESCrypt::T7->set(t, AESCrypt::mul4(s, iG->get(2)));
+			AESCrypt::T8->set(t, AESCrypt::mul4(s, iG->get(3)));
+			AESCrypt::U1->set(t, AESCrypt::mul4(t, iG->get(0)));
+			AESCrypt::U2->set(t, AESCrypt::mul4(t, iG->get(1)));
+			AESCrypt::U3->set(t, AESCrypt::mul4(t, iG->get(2)));
+			AESCrypt::U4->set(t, AESCrypt::mul4(t, iG->get(3)));
 		}
-		$nc(AESCrypt::rcon)->set(0, (int8_t)1);
+		AESCrypt::rcon->set(0, 1);
 		int32_t r = 1;
 		for (t = 1; t < 30; ++t) {
 			r = AESCrypt::mul(2, r);
-			$nc(AESCrypt::rcon)->set(t, (int8_t)r);
+			AESCrypt::rcon->set(t, (int8_t)r);
 		}
 		$assignStatic(AESCrypt::log, nullptr);
 		$assignStatic(AESCrypt::alog, nullptr);
@@ -749,7 +672,72 @@ AESCrypt::AESCrypt() {
 }
 
 $Class* AESCrypt::load$($String* name, bool initialize) {
-	$loadClass(AESCrypt, name, initialize, &_AESCrypt_ClassInfo_, clinit$AESCrypt, allocate$AESCrypt);
+	$FieldInfo fieldInfos$$[] = {
+		{"ROUNDS_12", "Z", nullptr, $PRIVATE, $field(AESCrypt, ROUNDS_12)},
+		{"ROUNDS_14", "Z", nullptr, $PRIVATE, $field(AESCrypt, ROUNDS_14)},
+		{"sessionK", "[[I", nullptr, $PRIVATE, $field(AESCrypt, sessionK)},
+		{"K", "[I", nullptr, $PRIVATE, $field(AESCrypt, K)},
+		{"lastKey", "[B", nullptr, $PRIVATE, $field(AESCrypt, lastKey)},
+		{"limit", "I", nullptr, $PRIVATE, $field(AESCrypt, limit)},
+		{"alog", "[I", nullptr, $PRIVATE | $STATIC, $staticField(AESCrypt, alog)},
+		{"log", "[I", nullptr, $PRIVATE | $STATIC, $staticField(AESCrypt, log)},
+		{"S", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, S)},
+		{"Si", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, Si)},
+		{"T1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T1)},
+		{"T2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T2)},
+		{"T3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T3)},
+		{"T4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T4)},
+		{"T5", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T5)},
+		{"T6", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T6)},
+		{"T7", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T7)},
+		{"T8", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, T8)},
+		{"U1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, U1)},
+		{"U2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, U2)},
+		{"U3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, U3)},
+		{"U4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, U4)},
+		{"rcon", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AESCrypt, rcon)},
+		{}
+	};
+	$CompoundAttribute implDecryptBlockmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute implEncryptBlockmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(AESCrypt, init$, void)},
+		{"decryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(AESCrypt, decryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+		{"encryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(AESCrypt, encryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+		{"expandToSubKey", "([[IZ)[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AESCrypt, expandToSubKey, $ints*, $intArray2*, bool)},
+		{"getBlockSize", "()I", nullptr, 0, $virtualMethod(AESCrypt, getBlockSize, int32_t)},
+		{"getRounds", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AESCrypt, getRounds, int32_t, int32_t)},
+		{"implDecryptBlock", "([BI[BI)V", nullptr, $PRIVATE, $method(AESCrypt, implDecryptBlock, void, $bytes*, int32_t, $bytes*, int32_t), nullptr, nullptr, implDecryptBlockmethodAnnotations$$},
+		{"implEncryptBlock", "([BI[BI)V", nullptr, $PRIVATE, $method(AESCrypt, implEncryptBlock, void, $bytes*, int32_t, $bytes*, int32_t), nullptr, nullptr, implEncryptBlockmethodAnnotations$$},
+		{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, $virtualMethod(AESCrypt, init, void, bool, $String*, $bytes*), "java.security.InvalidKeyException"},
+		{"isKeySizeValid", "(I)Z", nullptr, $STATIC | $FINAL, $staticMethod(AESCrypt, isKeySizeValid, bool, int32_t)},
+		{"makeSessionKey", "([B)V", nullptr, $PRIVATE, $method(AESCrypt, makeSessionKey, void, $bytes*), "java.security.InvalidKeyException"},
+		{"mul", "(II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AESCrypt, mul, int32_t, int32_t, int32_t)},
+		{"mul4", "(I[B)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AESCrypt, mul4, int32_t, int32_t, $bytes*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.AESCrypt",
+		"com.sun.crypto.provider.SymmetricCipher",
+		"com.sun.crypto.provider.AESConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AESCrypt, name, initialize, &classInfo$$, AESCrypt::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AESCrypt));
+	});
 	return class$;
 }
 

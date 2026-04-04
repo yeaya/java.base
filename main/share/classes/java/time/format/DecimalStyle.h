@@ -32,6 +32,7 @@ class $export DecimalStyle : public ::java::lang::Object {
 	$class(DecimalStyle, 0, ::java::lang::Object)
 public:
 	DecimalStyle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(char16_t zeroChar, char16_t positiveSignChar, char16_t negativeSignChar, char16_t decimalPointChar);
 	$String* convertNumberToI18N($String* numericText);
 	int32_t convertToDigit(char16_t ch);

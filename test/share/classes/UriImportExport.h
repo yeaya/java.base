@@ -15,6 +15,7 @@ class $export UriImportExport : public ::java::lang::Object {
 	$class(UriImportExport, 0, ::java::lang::Object)
 public:
 	UriImportExport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void testBadUri($String* s);

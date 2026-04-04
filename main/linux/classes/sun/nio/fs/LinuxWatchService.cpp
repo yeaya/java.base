@@ -1,5 +1,4 @@
 #include <sun/nio/fs/LinuxWatchService.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/WatchEvent$Kind.h>
@@ -39,65 +38,10 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _LinuxWatchService_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxWatchService, unsafe)},
-	{"poller", "Lsun/nio/fs/LinuxWatchService$Poller;", nullptr, $PRIVATE | $FINAL, $field(LinuxWatchService, poller)},
-	{}
-};
-
-$MethodInfo _LinuxWatchService_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;)V", nullptr, 0, $method(LinuxWatchService, init$, void, $UnixFileSystem*), "java.io.IOException"},
-	{"configureBlocking", "(IZ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, configureBlocking, void, int32_t, bool), "sun.nio.fs.UnixException"},
-	{"eventOffsets", "()[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, eventOffsets, $ints*)},
-	{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, eventSize, int32_t)},
-	{"implClose", "()V", nullptr, 0, $virtualMethod(LinuxWatchService, implClose, void), "java.io.IOException"},
-	{"inotifyAddWatch", "(IJI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, inotifyAddWatch, int32_t, int32_t, int64_t, int32_t), "sun.nio.fs.UnixException"},
-	{"inotifyInit", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, inotifyInit, int32_t), "sun.nio.fs.UnixException"},
-	{"inotifyRmWatch", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, inotifyRmWatch, void, int32_t, int32_t), "sun.nio.fs.UnixException"},
-	{"poll", "(II)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, poll, int32_t, int32_t, int32_t), "sun.nio.fs.UnixException"},
-	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT, $virtualMethod(LinuxWatchService, register$, $WatchKey*, $Path*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
-	{"socketpair", "([I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, socketpair, void, $ints*), "sun.nio.fs.UnixException"},
-	{}
-};
-
-#define _METHOD_INDEX_configureBlocking 1
-#define _METHOD_INDEX_eventOffsets 2
-#define _METHOD_INDEX_eventSize 3
-#define _METHOD_INDEX_inotifyAddWatch 5
-#define _METHOD_INDEX_inotifyInit 6
-#define _METHOD_INDEX_inotifyRmWatch 7
-#define _METHOD_INDEX_poll 8
-#define _METHOD_INDEX_socketpair 10
-
-$InnerClassInfo _LinuxWatchService_InnerClassesInfo_[] = {
-	{"sun.nio.fs.LinuxWatchService$Poller", "sun.nio.fs.LinuxWatchService", "Poller", $PRIVATE | $STATIC},
-	{"sun.nio.fs.LinuxWatchService$LinuxWatchKey", "sun.nio.fs.LinuxWatchService", "LinuxWatchKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LinuxWatchService_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.LinuxWatchService",
-	"sun.nio.fs.AbstractWatchService",
-	nullptr,
-	_LinuxWatchService_FieldInfo_,
-	_LinuxWatchService_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LinuxWatchService_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.LinuxWatchService$Poller,sun.nio.fs.LinuxWatchService$LinuxWatchKey"
-};
-
-$Object* allocate$LinuxWatchService($Class* clazz) {
-	return $of($alloc(LinuxWatchService));
-}
-
 $Unsafe* LinuxWatchService::unsafe = nullptr;
 
 void LinuxWatchService::init$($UnixFileSystem* fs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractWatchService::init$();
 	int32_t ifd = -1;
 	try {
@@ -117,7 +61,7 @@ void LinuxWatchService::init$($UnixFileSystem* fs) {
 		$throwNew($IOException, $(x->errorString()));
 	}
 	$set(this, poller, $new($LinuxWatchService$Poller, fs, this, ifd, sp));
-	$nc(this->poller)->start();
+	this->poller->start();
 }
 
 $WatchKey* LinuxWatchService::register$($Path* dir, $WatchEvent$KindArray* events, $WatchEvent$ModifierArray* modifiers) {
@@ -130,71 +74,66 @@ void LinuxWatchService::implClose() {
 
 int32_t LinuxWatchService::eventSize() {
 	$init(LinuxWatchService);
-	int32_t $ret = 0;
-	$prepareNativeStatic(LinuxWatchService, eventSize, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(eventSize, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 $ints* LinuxWatchService::eventOffsets() {
 	$init(LinuxWatchService);
-	$var($ints, $ret, nullptr);
-	$prepareNativeStatic(LinuxWatchService, eventOffsets, $ints*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(eventOffsets, $ints*);
+	$var($ints, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t LinuxWatchService::inotifyInit() {
 	$init(LinuxWatchService);
-	int32_t $ret = 0;
-	$prepareNativeStatic(LinuxWatchService, inotifyInit, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(inotifyInit, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t LinuxWatchService::inotifyAddWatch(int32_t fd, int64_t pathAddress, int32_t mask) {
 	$init(LinuxWatchService);
-	int32_t $ret = 0;
-	$prepareNativeStatic(LinuxWatchService, inotifyAddWatch, int32_t, int32_t fd, int64_t pathAddress, int32_t mask);
-	$ret = $invokeNativeStatic(fd, pathAddress, mask);
+	$prepareNativeStatic(inotifyAddWatch, int32_t, int32_t fd, int64_t pathAddress, int32_t mask);
+	int32_t $ret = $invokeNativeStatic(fd, pathAddress, mask);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void LinuxWatchService::inotifyRmWatch(int32_t fd, int32_t wd) {
 	$init(LinuxWatchService);
-	$prepareNativeStatic(LinuxWatchService, inotifyRmWatch, void, int32_t fd, int32_t wd);
+	$prepareNativeStatic(inotifyRmWatch, void, int32_t fd, int32_t wd);
 	$invokeNativeStatic(fd, wd);
 	$finishNativeStatic();
 }
 
 void LinuxWatchService::configureBlocking(int32_t fd, bool blocking) {
 	$init(LinuxWatchService);
-	$prepareNativeStatic(LinuxWatchService, configureBlocking, void, int32_t fd, bool blocking);
+	$prepareNativeStatic(configureBlocking, void, int32_t fd, bool blocking);
 	$invokeNativeStatic(fd, blocking);
 	$finishNativeStatic();
 }
 
 void LinuxWatchService::socketpair($ints* sv) {
 	$init(LinuxWatchService);
-	$prepareNativeStatic(LinuxWatchService, socketpair, void, $ints* sv);
+	$prepareNativeStatic(socketpair, void, $ints* sv);
 	$invokeNativeStatic(sv);
 	$finishNativeStatic();
 }
 
 int32_t LinuxWatchService::poll(int32_t fd1, int32_t fd2) {
 	$init(LinuxWatchService);
-	int32_t $ret = 0;
-	$prepareNativeStatic(LinuxWatchService, poll, int32_t, int32_t fd1, int32_t fd2);
-	$ret = $invokeNativeStatic(fd1, fd2);
+	$prepareNativeStatic(poll, int32_t, int32_t fd1, int32_t fd2);
+	int32_t $ret = $invokeNativeStatic(fd1, fd2);
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$LinuxWatchService($Class* class$) {
+void LinuxWatchService::clinit$($Class* clazz) {
 	$assignStatic(LinuxWatchService::unsafe, $Unsafe::getUnsafe());
 	{
 		$BootLoader::loadLibrary("nio"_s);
@@ -205,7 +144,47 @@ LinuxWatchService::LinuxWatchService() {
 }
 
 $Class* LinuxWatchService::load$($String* name, bool initialize) {
-	$loadClass(LinuxWatchService, name, initialize, &_LinuxWatchService_ClassInfo_, clinit$LinuxWatchService, allocate$LinuxWatchService);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxWatchService, unsafe)},
+		{"poller", "Lsun/nio/fs/LinuxWatchService$Poller;", nullptr, $PRIVATE | $FINAL, $field(LinuxWatchService, poller)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/UnixFileSystem;)V", nullptr, 0, $method(LinuxWatchService, init$, void, $UnixFileSystem*), "java.io.IOException"},
+		{"configureBlocking", "(IZ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, configureBlocking, void, int32_t, bool), "sun.nio.fs.UnixException"},
+		{"eventOffsets", "()[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, eventOffsets, $ints*)},
+		{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, eventSize, int32_t)},
+		{"implClose", "()V", nullptr, 0, $virtualMethod(LinuxWatchService, implClose, void), "java.io.IOException"},
+		{"inotifyAddWatch", "(IJI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, inotifyAddWatch, int32_t, int32_t, int64_t, int32_t), "sun.nio.fs.UnixException"},
+		{"inotifyInit", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, inotifyInit, int32_t), "sun.nio.fs.UnixException"},
+		{"inotifyRmWatch", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, inotifyRmWatch, void, int32_t, int32_t), "sun.nio.fs.UnixException"},
+		{"poll", "(II)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, poll, int32_t, int32_t, int32_t), "sun.nio.fs.UnixException"},
+		{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT, $virtualMethod(LinuxWatchService, register$, $WatchKey*, $Path*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
+		{"socketpair", "([I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, socketpair, void, $ints*), "sun.nio.fs.UnixException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.LinuxWatchService$Poller", "sun.nio.fs.LinuxWatchService", "Poller", $PRIVATE | $STATIC},
+		{"sun.nio.fs.LinuxWatchService$LinuxWatchKey", "sun.nio.fs.LinuxWatchService", "LinuxWatchKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.LinuxWatchService",
+		"sun.nio.fs.AbstractWatchService",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.LinuxWatchService$Poller,sun.nio.fs.LinuxWatchService$LinuxWatchKey"
+	};
+	$loadClass(LinuxWatchService, name, initialize, &classInfo$$, LinuxWatchService::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LinuxWatchService);
+	});
 	return class$;
 }
 

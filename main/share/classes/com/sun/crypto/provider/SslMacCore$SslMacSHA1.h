@@ -42,6 +42,7 @@ class SslMacCore$SslMacSHA1 : public ::javax::crypto::MacSpi {
 	$class(SslMacCore$SslMacSHA1, 0, ::javax::crypto::MacSpi)
 public:
 	SslMacCore$SslMacSHA1();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $bytes* engineDoFinal() override;
 	virtual int32_t engineGetMacLength() override;

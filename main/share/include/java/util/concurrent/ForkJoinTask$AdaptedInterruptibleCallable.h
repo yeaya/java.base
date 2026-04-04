@@ -46,7 +46,7 @@ public:
 	::java::util::concurrent::Callable* callable = nullptr;
 	$volatile($Thread*) runner = nullptr;
 	$Object* result = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x2763FE86DCB18E30;
+	static const int64_t serialVersionUID = (int64_t)0x2763fe86dcb18e30;
 };
 
 		} // concurrent

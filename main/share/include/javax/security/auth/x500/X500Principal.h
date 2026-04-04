@@ -40,6 +40,7 @@ class $import X500Principal : public ::java::security::Principal, public ::java:
 	$class(X500Principal, 0, ::java::security::Principal, ::java::io::Serializable)
 public:
 	X500Principal();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::sun::security::x509::X500Name* x500Name);
@@ -56,7 +57,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* s);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xF90DFF3C88B877C7;
+	static const int64_t serialVersionUID = (int64_t)0xf90dff3c88b877c7;
 	static $String* RFC1779;
 	static $String* RFC2253;
 	static $String* CANONICAL;

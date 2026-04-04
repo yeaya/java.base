@@ -1,5 +1,4 @@
 #include <sun/nio/cs/HistoricallyNamedCharset.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,26 +8,22 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$MethodInfo _HistoricallyNamedCharset_MethodInfo_[] = {
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HistoricallyNamedCharset, historicalName, $String*)},
-	{}
-};
-
-$ClassInfo _HistoricallyNamedCharset_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HistoricallyNamedCharset_MethodInfo_
-};
-
-$Object* allocate$HistoricallyNamedCharset($Class* clazz) {
-	return $of($alloc(HistoricallyNamedCharset));
-}
-
 $Class* HistoricallyNamedCharset::load$($String* name, bool initialize) {
-	$loadClass(HistoricallyNamedCharset, name, initialize, &_HistoricallyNamedCharset_ClassInfo_, allocate$HistoricallyNamedCharset);
+	$MethodInfo methodInfos$$[] = {
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HistoricallyNamedCharset, historicalName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HistoricallyNamedCharset, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HistoricallyNamedCharset);
+	});
 	return class$;
 }
 

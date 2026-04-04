@@ -11,6 +11,7 @@ class $export ImplicitStringConcatOrder : public ::java::lang::Object {
 	$class(ImplicitStringConcatOrder, 0, ::java::lang::Object)
 public:
 	ImplicitStringConcatOrder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test($String* expected, $String* actual);

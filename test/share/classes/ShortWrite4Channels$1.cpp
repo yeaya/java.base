@@ -1,5 +1,4 @@
 #include <ShortWrite4Channels$1.h>
-
 #include <ShortWrite4Channels.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Random.h>
@@ -12,46 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Random = ::java::util::Random;
-
-$MethodInfo _ShortWrite4Channels$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ShortWrite4Channels$1, init$, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ShortWrite4Channels$1, close, void), "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(ShortWrite4Channels$1, isOpen, bool)},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ShortWrite4Channels$1, write, int32_t, $ByteBuffer*)},
-	{}
-};
-
-$EnclosingMethodInfo _ShortWrite4Channels$1_EnclosingMethodInfo_ = {
-	"ShortWrite4Channels",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _ShortWrite4Channels$1_InnerClassesInfo_[] = {
-	{"ShortWrite4Channels$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ShortWrite4Channels$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"ShortWrite4Channels$1",
-	"java.lang.Object",
-	"java.nio.channels.WritableByteChannel",
-	nullptr,
-	_ShortWrite4Channels$1_MethodInfo_,
-	nullptr,
-	&_ShortWrite4Channels$1_EnclosingMethodInfo_,
-	_ShortWrite4Channels$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ShortWrite4Channels"
-};
-
-$Object* allocate$ShortWrite4Channels$1($Class* clazz) {
-	return $of($alloc(ShortWrite4Channels$1));
-}
 
 void ShortWrite4Channels$1::init$() {
 }
@@ -82,7 +41,40 @@ ShortWrite4Channels$1::ShortWrite4Channels$1() {
 }
 
 $Class* ShortWrite4Channels$1::load$($String* name, bool initialize) {
-	$loadClass(ShortWrite4Channels$1, name, initialize, &_ShortWrite4Channels$1_ClassInfo_, allocate$ShortWrite4Channels$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ShortWrite4Channels$1, init$, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ShortWrite4Channels$1, close, void), "java.io.IOException"},
+		{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(ShortWrite4Channels$1, isOpen, bool)},
+		{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ShortWrite4Channels$1, write, int32_t, $ByteBuffer*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"ShortWrite4Channels",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ShortWrite4Channels$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ShortWrite4Channels$1",
+		"java.lang.Object",
+		"java.nio.channels.WritableByteChannel",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ShortWrite4Channels"
+	};
+	$loadClass(ShortWrite4Channels$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortWrite4Channels$1);
+	});
 	return class$;
 }
 

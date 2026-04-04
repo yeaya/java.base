@@ -1,5 +1,4 @@
 #include <java/util/concurrent/LinkedTransferQueue.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
@@ -19,7 +18,6 @@
 #include <java/util/Iterator.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
-#include <java/util/concurrent/ForkJoinPool$ManagedBlocker.h>
 #include <java/util/concurrent/ForkJoinPool.h>
 #include <java/util/concurrent/Helpers.h>
 #include <java/util/concurrent/LinkedTransferQueue$Itr.h>
@@ -71,7 +69,6 @@ using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;
 using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
-using $ForkJoinPool$ManagedBlocker = ::java::util::concurrent::ForkJoinPool$ManagedBlocker;
 using $Helpers = ::java::util::concurrent::Helpers;
 using $LinkedTransferQueue$Itr = ::java::util::concurrent::LinkedTransferQueue$Itr;
 using $LinkedTransferQueue$LTQSpliterator = ::java::util::concurrent::LinkedTransferQueue$LTQSpliterator;
@@ -96,33 +93,29 @@ public:
 	virtual bool test(Object$* e) override {
 		 return LinkedTransferQueue::lambda$removeAll$0(c, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LinkedTransferQueue$$Lambda$lambda$removeAll$0>());
-	}
 	$Collection* c = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LinkedTransferQueue$$Lambda$lambda$removeAll$0::fieldInfos[2] = {
-	{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(LinkedTransferQueue$$Lambda$lambda$removeAll$0, c)},
-	{}
-};
-$MethodInfo LinkedTransferQueue$$Lambda$lambda$removeAll$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(LinkedTransferQueue$$Lambda$lambda$removeAll$0, init$, void, $Collection*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$$Lambda$lambda$removeAll$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo LinkedTransferQueue$$Lambda$lambda$removeAll$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.concurrent.LinkedTransferQueue$$Lambda$lambda$removeAll$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* LinkedTransferQueue$$Lambda$lambda$removeAll$0::load$($String* name, bool initialize) {
-	$loadClass(LinkedTransferQueue$$Lambda$lambda$removeAll$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(LinkedTransferQueue$$Lambda$lambda$removeAll$0, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(LinkedTransferQueue$$Lambda$lambda$removeAll$0, init$, void, $Collection*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$$Lambda$lambda$removeAll$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.concurrent.LinkedTransferQueue$$Lambda$lambda$removeAll$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LinkedTransferQueue$$Lambda$lambda$removeAll$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedTransferQueue$$Lambda$lambda$removeAll$0);
+	});
 	return class$;
 }
 $Class* LinkedTransferQueue$$Lambda$lambda$removeAll$0::class$ = nullptr;
@@ -136,33 +129,29 @@ public:
 	virtual bool test(Object$* e) override {
 		 return LinkedTransferQueue::lambda$retainAll$1(c, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LinkedTransferQueue$$Lambda$lambda$retainAll$1$1>());
-	}
 	$Collection* c = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LinkedTransferQueue$$Lambda$lambda$retainAll$1$1::fieldInfos[2] = {
-	{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1, c)},
-	{}
-};
-$MethodInfo LinkedTransferQueue$$Lambda$lambda$retainAll$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1, init$, void, $Collection*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo LinkedTransferQueue$$Lambda$lambda$retainAll$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.concurrent.LinkedTransferQueue$$Lambda$lambda$retainAll$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* LinkedTransferQueue$$Lambda$lambda$retainAll$1$1::load$($String* name, bool initialize) {
-	$loadClass(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1, init$, void, $Collection*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.concurrent.LinkedTransferQueue$$Lambda$lambda$retainAll$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1);
+	});
 	return class$;
 }
 $Class* LinkedTransferQueue$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
@@ -175,142 +164,27 @@ public:
 	virtual bool test(Object$* e) override {
 		 return LinkedTransferQueue::lambda$clear$2(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LinkedTransferQueue$$Lambda$lambda$clear$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LinkedTransferQueue$$Lambda$lambda$clear$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LinkedTransferQueue$$Lambda$lambda$clear$2$2, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$$Lambda$lambda$clear$2$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo LinkedTransferQueue$$Lambda$lambda$clear$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.concurrent.LinkedTransferQueue$$Lambda$lambda$clear$2$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* LinkedTransferQueue$$Lambda$lambda$clear$2$2::load$($String* name, bool initialize) {
-	$loadClass(LinkedTransferQueue$$Lambda$lambda$clear$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LinkedTransferQueue$$Lambda$lambda$clear$2$2, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$$Lambda$lambda$clear$2$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.concurrent.LinkedTransferQueue$$Lambda$lambda$clear$2$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LinkedTransferQueue$$Lambda$lambda$clear$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedTransferQueue$$Lambda$lambda$clear$2$2);
+	});
 	return class$;
 }
 $Class* LinkedTransferQueue$$Lambda$lambda$clear$2$2::class$ = nullptr;
-
-$FieldInfo _LinkedTransferQueue_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, serialVersionUID)},
-	{"SPIN_FOR_TIMEOUT_THRESHOLD", "J", nullptr, $STATIC | $FINAL, $constField(LinkedTransferQueue, SPIN_FOR_TIMEOUT_THRESHOLD)},
-	{"SWEEP_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(LinkedTransferQueue, SWEEP_THRESHOLD)},
-	{"head", "Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $VOLATILE | $TRANSIENT, $field(LinkedTransferQueue, head)},
-	{"tail", "Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(LinkedTransferQueue, tail)},
-	{"needSweep", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(LinkedTransferQueue, needSweep)},
-	{"NOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, NOW)},
-	{"ASYNC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, ASYNC)},
-	{"SYNC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, SYNC)},
-	{"TIMED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, TIMED)},
-	{"MAX_HOPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, MAX_HOPS)},
-	{"HEAD", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinkedTransferQueue, HEAD)},
-	{"TAIL", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinkedTransferQueue, TAIL)},
-	{"ITEM", "Ljava/lang/invoke/VarHandle;", nullptr, $STATIC | $FINAL, $staticField(LinkedTransferQueue, ITEM)},
-	{"NEXT", "Ljava/lang/invoke/VarHandle;", nullptr, $STATIC | $FINAL, $staticField(LinkedTransferQueue, NEXT)},
-	{"WAITER", "Ljava/lang/invoke/VarHandle;", nullptr, $STATIC | $FINAL, $staticField(LinkedTransferQueue, WAITER)},
-	{}
-};
-
-$MethodInfo _LinkedTransferQueue_MethodInfo_[] = {
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*element", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LinkedTransferQueue, init$, void)},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(LinkedTransferQueue, init$, void, $Collection*)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, add, bool, Object$*)},
-	{"awaitMatch", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/lang/Object;ZJ)Ljava/lang/Object;", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;TE;ZJ)TE;", $PRIVATE, $method(LinkedTransferQueue, awaitMatch, $Object*, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*, Object$*, bool, int64_t)},
-	{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(LinkedTransferQueue, bulkRemove, bool, $Predicate*)},
-	{"casHead", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)Z", nullptr, $PRIVATE, $method(LinkedTransferQueue, casHead, bool, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
-	{"casTail", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)Z", nullptr, $PRIVATE, $method(LinkedTransferQueue, casTail, bool, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, contains, bool, Object$*)},
-	{"countOfMode", "(Z)I", nullptr, $PRIVATE, $method(LinkedTransferQueue, countOfMode, int32_t, bool)},
-	{"drainTo", "(Ljava/util/Collection;)I", "(Ljava/util/Collection<-TE;>;)I", $PUBLIC, $virtualMethod(LinkedTransferQueue, drainTo, int32_t, $Collection*)},
-	{"drainTo", "(Ljava/util/Collection;I)I", "(Ljava/util/Collection<-TE;>;I)I", $PUBLIC, $virtualMethod(LinkedTransferQueue, drainTo, int32_t, $Collection*, int32_t)},
-	{"firstDataNode", "()Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $FINAL, $method(LinkedTransferQueue, firstDataNode, $LinkedTransferQueue$Node*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedTransferQueue, forEach, void, $Consumer*)},
-	{"forEachFrom", "(Ljava/util/function/Consumer;Ljava/util/concurrent/LinkedTransferQueue$Node;)V", "(Ljava/util/function/Consumer<-TE;>;Ljava/util/concurrent/LinkedTransferQueue$Node;)V", 0, $virtualMethod(LinkedTransferQueue, forEachFrom, void, $Consumer*, $LinkedTransferQueue$Node*)},
-	{"getWaitingConsumerCount", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, getWaitingConsumerCount, int32_t)},
-	{"hasWaitingConsumer", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, hasWaitingConsumer, bool)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(LinkedTransferQueue, iterator, $Iterator*)},
-	{"lambda$clear$2", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkedTransferQueue, lambda$clear$2, bool, Object$*)},
-	{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkedTransferQueue, lambda$removeAll$0, bool, $Collection*, Object$*)},
-	{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkedTransferQueue, lambda$retainAll$1, bool, $Collection*, Object$*)},
-	{"offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, offer, bool, Object$*, int64_t, $TimeUnit*)},
-	{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, offer, bool, Object$*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedTransferQueue, peek, $Object*)},
-	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC, $virtualMethod(LinkedTransferQueue, poll, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedTransferQueue, poll, $Object*)},
-	{"put", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedTransferQueue, put, void, Object$*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LinkedTransferQueue, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remainingCapacity", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, remainingCapacity, int32_t)},
-	{"*remove", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, removeAll, bool, $Collection*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, removeIf, bool, $Predicate*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, retainAll, bool, $Collection*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, size, int32_t)},
-	{"skipDeadNodes", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $PRIVATE, $method(LinkedTransferQueue, skipDeadNodes, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
-	{"skipDeadNodesNearHead", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $PRIVATE, $method(LinkedTransferQueue, skipDeadNodesNearHead, void, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedTransferQueue, spliterator, $Spliterator*)},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"sweep", "()V", nullptr, $PRIVATE, $method(LinkedTransferQueue, sweep, void)},
-	{"take", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedTransferQueue, take, $Object*), "java.lang.InterruptedException"},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(LinkedTransferQueue, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toArrayInternal", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(LinkedTransferQueue, toArrayInternal, $ObjectArray*, $ObjectArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, toString, $String*)},
-	{"transfer", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedTransferQueue, transfer, void, Object$*), "java.lang.InterruptedException"},
-	{"tryCasSuccessor", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)Z", nullptr, $PRIVATE, $method(LinkedTransferQueue, tryCasSuccessor, bool, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
-	{"tryTransfer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, tryTransfer, bool, Object$*)},
-	{"tryTransfer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, tryTransfer, bool, Object$*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"unsplice", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $FINAL, $method(LinkedTransferQueue, unsplice, void, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LinkedTransferQueue, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{"xfer", "(Ljava/lang/Object;ZIJ)Ljava/lang/Object;", "(TE;ZIJ)TE;", $PRIVATE, $method(LinkedTransferQueue, xfer, $Object*, Object$*, bool, int32_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _LinkedTransferQueue_InnerClassesInfo_[] = {
-	{"java.util.concurrent.LinkedTransferQueue$LTQSpliterator", "java.util.concurrent.LinkedTransferQueue", "LTQSpliterator", $FINAL},
-	{"java.util.concurrent.LinkedTransferQueue$Itr", "java.util.concurrent.LinkedTransferQueue", "Itr", $FINAL},
-	{"java.util.concurrent.LinkedTransferQueue$Node", "java.util.concurrent.LinkedTransferQueue", "Node", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LinkedTransferQueue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.LinkedTransferQueue",
-	"java.util.AbstractQueue",
-	"java.util.concurrent.TransferQueue,java.io.Serializable",
-	_LinkedTransferQueue_FieldInfo_,
-	_LinkedTransferQueue_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractQueue<TE;>;Ljava/util/concurrent/TransferQueue<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_LinkedTransferQueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.LinkedTransferQueue$LTQSpliterator,java.util.concurrent.LinkedTransferQueue$Itr,java.util.concurrent.LinkedTransferQueue$Node"
-};
-
-$Object* allocate$LinkedTransferQueue($Class* clazz) {
-	return $of($alloc(LinkedTransferQueue));
-}
 
 $Object* LinkedTransferQueue::remove() {
 	 return this->$AbstractQueue::remove();
@@ -363,11 +237,11 @@ $VarHandle* LinkedTransferQueue::NEXT = nullptr;
 $VarHandle* LinkedTransferQueue::WAITER = nullptr;
 
 bool LinkedTransferQueue::casTail($LinkedTransferQueue$Node* cmp, $LinkedTransferQueue$Node* val) {
-	return $nc(LinkedTransferQueue::TAIL)->compareAndSet($$new($ObjectArray, {$of(this), $of(cmp), $of(val)}));
+	return $nc(LinkedTransferQueue::TAIL)->compareAndSet($$new($ObjectArray, {this, cmp, val}));
 }
 
 bool LinkedTransferQueue::casHead($LinkedTransferQueue$Node* cmp, $LinkedTransferQueue$Node* val) {
-	return $nc(LinkedTransferQueue::HEAD)->compareAndSet($$new($ObjectArray, {$of(this), $of(cmp), $of(val)}));
+	return $nc(LinkedTransferQueue::HEAD)->compareAndSet($$new($ObjectArray, {this, cmp, val}));
 }
 
 bool LinkedTransferQueue::tryCasSuccessor($LinkedTransferQueue$Node* pred, $LinkedTransferQueue$Node* c, $LinkedTransferQueue$Node* p) {
@@ -390,11 +264,11 @@ $LinkedTransferQueue$Node* LinkedTransferQueue::skipDeadNodes($LinkedTransferQue
 		$assign(q, p);
 	}
 	bool var$0 = tryCasSuccessor(pred, c, q);
-	return (var$0 && (pred == nullptr || !$nc(pred)->isMatched())) ? pred : p;
+	return (var$0 && (pred == nullptr || !pred->isMatched())) ? pred : p;
 }
 
 void LinkedTransferQueue::skipDeadNodesNearHead($LinkedTransferQueue$Node* h, $LinkedTransferQueue$Node* p$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedTransferQueue$Node, p, p$renamed);
 	for (;;) {
 		$var($LinkedTransferQueue$Node, q, nullptr);
@@ -404,8 +278,8 @@ void LinkedTransferQueue::skipDeadNodesNearHead($LinkedTransferQueue$Node* h, $L
 			$assign(p, q);
 			break;
 		} else {
-			$var($LinkedTransferQueue$Node, var$1, p);
-			if (var$1 == ($assign(p, q))) {
+			$var($LinkedTransferQueue$Node, var$0, p);
+			if (var$0 == ($assign(p, q))) {
 				return;
 			}
 		}
@@ -416,78 +290,74 @@ void LinkedTransferQueue::skipDeadNodesNearHead($LinkedTransferQueue$Node* h, $L
 }
 
 $Object* LinkedTransferQueue::xfer(Object$* e, bool haveData, int32_t how, int64_t nanos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (haveData && (e == nullptr)) {
 		$throwNew($NullPointerException);
 	}
 	bool restart$continue = false;
-	{
-		$var($LinkedTransferQueue$Node, s, nullptr);
-		$var($LinkedTransferQueue$Node, t, nullptr);
-		$var($LinkedTransferQueue$Node, h, nullptr);
+	$var($LinkedTransferQueue$Node, s, nullptr);
+	$var($LinkedTransferQueue$Node, t, nullptr);
+	$var($LinkedTransferQueue$Node, h, nullptr);
+	for (;;) {
+		$var($LinkedTransferQueue$Node, var$1, t);
+		bool var$0 = var$1 != ($assign(t, this->tail));
+		$var($LinkedTransferQueue$Node, p, (var$0 && $nc(t)->isData == haveData) ? t : ($assign(h, this->head)));
 		for (;;) {
-			{
-				$var($LinkedTransferQueue$Node, var$1, t);
-				bool var$0 = var$1 != ($assign(t, this->tail));
-				$var($LinkedTransferQueue$Node, p, (var$0 && $nc(t)->isData == haveData) ? t : ($assign(h, this->head)));
-				for (;;) {
-					$var($LinkedTransferQueue$Node, q, nullptr);
-					$var($Object, item, nullptr);
-					if ($nc(p)->isData != haveData && haveData == (($assign(item, p->item)) == nullptr)) {
-						if (h == nullptr) {
-							$assign(h, this->head);
-						}
-						if (p->tryMatch(item, e)) {
-							if (h != p) {
-								skipDeadNodesNearHead(h, p);
-							}
-							return $of(item);
-						}
-					}
-					if (($assign(q, $nc(p)->next)) == nullptr) {
-						if (how == LinkedTransferQueue::NOW) {
-							return $of(e);
-						}
-						if (s == nullptr) {
-							$assign(s, $new($LinkedTransferQueue$Node, e));
-						}
-						if (!p->casNext(nullptr, s)) {
-							continue;
-						}
-						if (p != t) {
-							casTail(t, s);
-						}
-						if (how == LinkedTransferQueue::ASYNC) {
-							return $of(e);
-						}
-						return $of(awaitMatch(s, p, e, (how == LinkedTransferQueue::TIMED), nanos));
-					}
-					$var($LinkedTransferQueue$Node, var$2, p);
-					if (var$2 == ($assign(p, q))) {
-						restart$continue = true;
-						break;
-					}
+			$var($LinkedTransferQueue$Node, q, nullptr);
+			$var($Object, item, nullptr);
+			if ($nc(p)->isData != haveData && haveData == (($assign(item, p->item)) == nullptr)) {
+				if (h == nullptr) {
+					$assign(h, this->head);
 				}
-				if (restart$continue) {
-					restart$continue = false;
-					continue;
+				if (p->tryMatch(item, e)) {
+					if (h != p) {
+						skipDeadNodesNearHead(h, p);
+					}
+					return item;
 				}
 			}
+			if (($assign(q, p->next)) == nullptr) {
+				if (how == LinkedTransferQueue::NOW) {
+					return $of(e);
+				}
+				if (s == nullptr) {
+					$assign(s, $new($LinkedTransferQueue$Node, e));
+				}
+				if (!p->casNext(nullptr, s)) {
+					continue;
+				}
+				if (p != t) {
+					casTail(t, s);
+				}
+				if (how == LinkedTransferQueue::ASYNC) {
+					return $of(e);
+				}
+				return awaitMatch(s, p, e, (how == LinkedTransferQueue::TIMED), nanos);
+			}
+			$var($LinkedTransferQueue$Node, var$2, p);
+			if (var$2 == ($assign(p, q))) {
+				restart$continue = true;
+				break;
+			}
+		}
+		if (restart$continue) {
+			restart$continue = false;
+			continue;
 		}
 	}
 }
 
 $Object* LinkedTransferQueue::awaitMatch($LinkedTransferQueue$Node* s, $LinkedTransferQueue$Node* pred, Object$* e, bool timed, int64_t nanos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isData = $nc(s)->isData;
-	int64_t deadline = timed ? $System::nanoTime() + nanos : (int64_t)0;
+	int64_t deadline = timed ? $System::nanoTime() + nanos : 0;
 	$var($Thread, w, $Thread::currentThread());
 	int32_t stat = -1;
 	$var($Object, item, nullptr);
 	while ($equals($assign(item, s->item), e)) {
 		if (this->needSweep) {
 			sweep();
-		} else if ((timed && nanos <= (int64_t)0) || w->isInterrupted()) {
+		} else if ((timed && nanos <= 0) || w->isInterrupted()) {
 			if (s->casItem(e, (e == nullptr) ? $of(s) : ($Object*)nullptr)) {
 				unsplice(pred, s);
 				return $of(e);
@@ -519,16 +389,16 @@ $Object* LinkedTransferQueue::awaitMatch($LinkedTransferQueue$Node* s, $LinkedTr
 		}
 	}
 	if (stat == 1) {
-		$nc(LinkedTransferQueue::WAITER)->set($$new($ObjectArray, {$of(s), ($Object*)nullptr}));
+		$nc(LinkedTransferQueue::WAITER)->set($$new($ObjectArray, {s, nullptr}));
 	}
 	if (!isData) {
-		$nc(LinkedTransferQueue::ITEM)->set($$new($ObjectArray, {$of(s), $of(s)}));
+		$nc(LinkedTransferQueue::ITEM)->set($$new($ObjectArray, {s, s}));
 	}
-	return $of(item);
+	return item;
 }
 
 $LinkedTransferQueue$Node* LinkedTransferQueue::firstDataNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedTransferQueue$Node, first, nullptr);
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -565,7 +435,7 @@ $LinkedTransferQueue$Node* LinkedTransferQueue::firstDataNode() {
 }
 
 int32_t LinkedTransferQueue::countOfMode(bool data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool restartFromHead$continue = false;
 	for (;;) {
 		int32_t count = 0;
@@ -596,7 +466,7 @@ int32_t LinkedTransferQueue::countOfMode(bool data) {
 }
 
 $String* LinkedTransferQueue::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, a, nullptr);
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -610,10 +480,10 @@ $String* LinkedTransferQueue::toString() {
 					if (item != nullptr) {
 						if (a == nullptr) {
 							$assign(a, $new($StringArray, 4));
-						} else if (size == $nc(a)->length) {
-							$assign(a, $fcast($StringArray, $Arrays::copyOf(a, 2 * size)));
+						} else if (size == a->length) {
+							$assign(a, $cast($StringArray, $Arrays::copyOf(a, 2 * size)));
 						}
-						$var($String, s, $of(item)->toString());
+						$var($String, s, item->toString());
 						$nc(a)->set(size++, s);
 						charLength += $nc(s)->length();
 					}
@@ -639,7 +509,7 @@ $String* LinkedTransferQueue::toString() {
 }
 
 $ObjectArray* LinkedTransferQueue::toArrayInternal($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, x, a);
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -652,7 +522,7 @@ $ObjectArray* LinkedTransferQueue::toArrayInternal($ObjectArray* a) {
 					if (item != nullptr) {
 						if (x == nullptr) {
 							$assign(x, $new($ObjectArray, 4));
-						} else if (size == $nc(x)->length) {
+						} else if (size == x->length) {
 							$assign(x, $Arrays::copyOf(x, 2 * (size + 4)));
 						}
 						$nc(x)->set(size++, item);
@@ -700,14 +570,14 @@ $Spliterator* LinkedTransferQueue::spliterator() {
 }
 
 void LinkedTransferQueue::unsplice($LinkedTransferQueue$Node* pred, $LinkedTransferQueue$Node* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set($nc(s), waiter, nullptr);
 	if (pred != nullptr && pred->next == s) {
 		$var($LinkedTransferQueue$Node, n, s->next);
 		bool var$0 = n == nullptr;
 		if (!var$0) {
 			bool var$1 = n != s && pred->casNext(s, n);
-			var$0 = (var$1 && pred->isMatched());
+			var$0 = var$1 && pred->isMatched();
 		}
 		if (var$0) {
 			for (;;) {
@@ -718,7 +588,7 @@ void LinkedTransferQueue::unsplice($LinkedTransferQueue$Node* pred, $LinkedTrans
 				if (!$nc(h)->isMatched()) {
 					break;
 				}
-				$var($LinkedTransferQueue$Node, hn, $nc(h)->next);
+				$var($LinkedTransferQueue$Node, hn, h->next);
 				if (hn == nullptr) {
 					return;
 				}
@@ -734,7 +604,7 @@ void LinkedTransferQueue::unsplice($LinkedTransferQueue$Node* pred, $LinkedTrans
 }
 
 void LinkedTransferQueue::sweep() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->needSweep = false;
 	{
 		$var($LinkedTransferQueue$Node, p, this->head);
@@ -756,11 +626,11 @@ void LinkedTransferQueue::sweep() {
 
 void LinkedTransferQueue::init$() {
 	$AbstractQueue::init$();
-	$set(this, head, ($set(this, tail, $new($LinkedTransferQueue$Node))));
+	$set(this, head, $set(this, tail, $new($LinkedTransferQueue$Node)));
 }
 
 void LinkedTransferQueue::init$($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractQueue::init$();
 	$var($LinkedTransferQueue$Node, h, nullptr);
 	$var($LinkedTransferQueue$Node, t, nullptr);
@@ -771,7 +641,7 @@ void LinkedTransferQueue::init$($Collection* c) {
 			{
 				$var($LinkedTransferQueue$Node, newNode, $new($LinkedTransferQueue$Node, $Objects::requireNonNull(e)));
 				if (h == nullptr) {
-					$assign(h, ($assign(t, newNode)));
+					$assign(h, $assign(t, newNode));
 				} else {
 					$nc(t)->appendRelaxed($assign(t, newNode));
 				}
@@ -779,7 +649,7 @@ void LinkedTransferQueue::init$($Collection* c) {
 		}
 	}
 	if (h == nullptr) {
-		$assign(h, ($assign(t, $new($LinkedTransferQueue$Node))));
+		$assign(h, $assign(t, $new($LinkedTransferQueue$Node)));
 	}
 	$set(this, head, h);
 	$set(this, tail, t);
@@ -828,7 +698,7 @@ bool LinkedTransferQueue::tryTransfer(Object$* e, int64_t timeout, $TimeUnit* un
 $Object* LinkedTransferQueue::take() {
 	$var($Object, e, xfer(nullptr, false, LinkedTransferQueue::SYNC, 0));
 	if (e != nullptr) {
-		return $of(e);
+		return e;
 	}
 	$Thread::interrupted();
 	$throwNew($InterruptedException);
@@ -837,13 +707,13 @@ $Object* LinkedTransferQueue::take() {
 $Object* LinkedTransferQueue::poll(int64_t timeout, $TimeUnit* unit) {
 	$var($Object, e, xfer(nullptr, false, LinkedTransferQueue::TIMED, $nc(unit)->toNanos(timeout)));
 	if (e != nullptr || !$Thread::interrupted()) {
-		return $of(e);
+		return e;
 	}
 	$throwNew($InterruptedException);
 }
 
 $Object* LinkedTransferQueue::poll() {
-	return $of(xfer(nullptr, false, LinkedTransferQueue::NOW, 0));
+	return xfer(nullptr, false, LinkedTransferQueue::NOW, 0);
 }
 
 int32_t LinkedTransferQueue::drainTo($Collection* c) {
@@ -881,33 +751,31 @@ $Iterator* LinkedTransferQueue::iterator() {
 }
 
 $Object* LinkedTransferQueue::peek() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool restartFromHead$continue = false;
 	for (;;) {
-		{
-			$var($LinkedTransferQueue$Node, p, this->head);
-			for (; p != nullptr;) {
-				$var($Object, item, p->item);
-				if (p->isData) {
-					if (item != nullptr) {
-						$var($Object, e, item);
-						return $of(e);
-					}
-				} else if (item == nullptr) {
-					break;
+		$var($LinkedTransferQueue$Node, p, this->head);
+		for (; p != nullptr;) {
+			$var($Object, item, p->item);
+			if (p->isData) {
+				if (item != nullptr) {
+					$var($Object, e, item);
+					return e;
 				}
-				$var($LinkedTransferQueue$Node, var$0, p);
-				if (var$0 == ($assign(p, p->next))) {
-					restartFromHead$continue = true;
-					break;
-				}
+			} else if (item == nullptr) {
+				break;
 			}
-			if (restartFromHead$continue) {
-				restartFromHead$continue = false;
-				continue;
+			$var($LinkedTransferQueue$Node, var$0, p);
+			if (var$0 == ($assign(p, p->next))) {
+				restartFromHead$continue = true;
+				break;
 			}
 		}
-		return $of(nullptr);
+		if (restartFromHead$continue) {
+			restartFromHead$continue = false;
+			continue;
+		}
+		return nullptr;
 	}
 }
 
@@ -916,30 +784,28 @@ bool LinkedTransferQueue::isEmpty() {
 }
 
 bool LinkedTransferQueue::hasWaitingConsumer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool restartFromHead$continue = false;
 	for (;;) {
-		{
-			$var($LinkedTransferQueue$Node, p, this->head);
-			for (; p != nullptr;) {
-				$var($Object, item, p->item);
-				if (p->isData) {
-					if (item != nullptr) {
-						break;
-					}
-				} else if (item == nullptr) {
-					return true;
-				}
-				$var($LinkedTransferQueue$Node, var$0, p);
-				if (var$0 == ($assign(p, p->next))) {
-					restartFromHead$continue = true;
+		$var($LinkedTransferQueue$Node, p, this->head);
+		for (; p != nullptr;) {
+			$var($Object, item, p->item);
+			if (p->isData) {
+				if (item != nullptr) {
 					break;
 				}
+			} else if (item == nullptr) {
+				return true;
 			}
-			if (restartFromHead$continue) {
-				restartFromHead$continue = false;
-				continue;
+			$var($LinkedTransferQueue$Node, var$0, p);
+			if (var$0 == ($assign(p, p->next))) {
+				restartFromHead$continue = true;
+				break;
 			}
+		}
+		if (restartFromHead$continue) {
+			restartFromHead$continue = false;
+			continue;
 		}
 		return false;
 	}
@@ -954,108 +820,104 @@ int32_t LinkedTransferQueue::getWaitingConsumerCount() {
 }
 
 bool LinkedTransferQueue::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (o == nullptr) {
 		return false;
 	}
 	bool restartFromHead$continue = false;
 	for (;;) {
-		{
-			$var($LinkedTransferQueue$Node, p, this->head);
-			$var($LinkedTransferQueue$Node, pred, nullptr);
-			for (; p != nullptr;) {
-				$var($LinkedTransferQueue$Node, q, p->next);
-				$var($Object, item, nullptr);
-				if (($assign(item, p->item)) != nullptr) {
-					if (p->isData) {
-						bool var$0 = $nc($of(o))->equals(item);
-						if (var$0 && p->tryMatch(item, nullptr)) {
-							skipDeadNodes(pred, p, p, q);
-							return true;
-						}
-						$assign(pred, p);
-						$assign(p, q);
-						continue;
+		$var($LinkedTransferQueue$Node, p, this->head);
+		$var($LinkedTransferQueue$Node, pred, nullptr);
+		for (; p != nullptr;) {
+			$var($LinkedTransferQueue$Node, q, p->next);
+			$var($Object, item, nullptr);
+			if (($assign(item, p->item)) != nullptr) {
+				if (p->isData) {
+					bool var$0 = $nc($of(o))->equals(item);
+					if (var$0 && p->tryMatch(item, nullptr)) {
+						skipDeadNodes(pred, p, p, q);
+						return true;
 					}
-				} else if (!p->isData) {
-					break;
+					$assign(pred, p);
+					$assign(p, q);
+					continue;
 				}
-				{
-					$var($LinkedTransferQueue$Node, c, p);
-					for (;; $assign(q, p->next)) {
-						if (q == nullptr || !$nc(q)->isMatched()) {
-							$assign(pred, skipDeadNodes(pred, c, p, q));
-							$assign(p, q);
-							break;
-						}
-						$var($LinkedTransferQueue$Node, var$1, p);
-						if (var$1 == ($assign(p, q))) {
-							restartFromHead$continue = true;
-							break;
-						}
+			} else if (!p->isData) {
+				break;
+			}
+			{
+				$var($LinkedTransferQueue$Node, c, p);
+				for (;; $assign(q, $nc(p)->next)) {
+					if (q == nullptr || !q->isMatched()) {
+						$assign(pred, skipDeadNodes(pred, c, p, q));
+						$assign(p, q);
+						break;
 					}
-					if (restartFromHead$continue) {
+					$var($LinkedTransferQueue$Node, var$1, p);
+					if (var$1 == ($assign(p, q))) {
+						restartFromHead$continue = true;
 						break;
 					}
 				}
+				if (restartFromHead$continue) {
+					break;
+				}
 			}
-			if (restartFromHead$continue) {
-				restartFromHead$continue = false;
-				continue;
-			}
+		}
+		if (restartFromHead$continue) {
+			restartFromHead$continue = false;
+			continue;
 		}
 		return false;
 	}
 }
 
 bool LinkedTransferQueue::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (o == nullptr) {
 		return false;
 	}
 	bool restartFromHead$continue = false;
 	for (;;) {
-		{
-			$var($LinkedTransferQueue$Node, p, this->head);
-			$var($LinkedTransferQueue$Node, pred, nullptr);
-			for (; p != nullptr;) {
-				$var($LinkedTransferQueue$Node, q, p->next);
-				$var($Object, item, nullptr);
-				if (($assign(item, p->item)) != nullptr) {
-					if (p->isData) {
-						if ($nc($of(o))->equals(item)) {
-							return true;
-						}
-						$assign(pred, p);
-						$assign(p, q);
-						continue;
+		$var($LinkedTransferQueue$Node, p, this->head);
+		$var($LinkedTransferQueue$Node, pred, nullptr);
+		for (; p != nullptr;) {
+			$var($LinkedTransferQueue$Node, q, p->next);
+			$var($Object, item, nullptr);
+			if (($assign(item, p->item)) != nullptr) {
+				if (p->isData) {
+					if ($nc($of(o))->equals(item)) {
+						return true;
 					}
-				} else if (!p->isData) {
-					break;
+					$assign(pred, p);
+					$assign(p, q);
+					continue;
 				}
-				{
-					$var($LinkedTransferQueue$Node, c, p);
-					for (;; $assign(q, p->next)) {
-						if (q == nullptr || !$nc(q)->isMatched()) {
-							$assign(pred, skipDeadNodes(pred, c, p, q));
-							$assign(p, q);
-							break;
-						}
-						$var($LinkedTransferQueue$Node, var$0, p);
-						if (var$0 == ($assign(p, q))) {
-							restartFromHead$continue = true;
-							break;
-						}
+			} else if (!p->isData) {
+				break;
+			}
+			{
+				$var($LinkedTransferQueue$Node, c, p);
+				for (;; $assign(q, $nc(p)->next)) {
+					if (q == nullptr || !q->isMatched()) {
+						$assign(pred, skipDeadNodes(pred, c, p, q));
+						$assign(p, q);
+						break;
 					}
-					if (restartFromHead$continue) {
+					$var($LinkedTransferQueue$Node, var$0, p);
+					if (var$0 == ($assign(p, q))) {
+						restartFromHead$continue = true;
 						break;
 					}
 				}
+				if (restartFromHead$continue) {
+					break;
+				}
 			}
-			if (restartFromHead$continue) {
-				restartFromHead$continue = false;
-				continue;
-			}
+		}
+		if (restartFromHead$continue) {
+			restartFromHead$continue = false;
+			continue;
 		}
 		return false;
 	}
@@ -1066,7 +928,7 @@ int32_t LinkedTransferQueue::remainingCapacity() {
 }
 
 void LinkedTransferQueue::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultWriteObject();
 	{
 		$var($Iterator, i$, this->iterator());
@@ -1079,7 +941,7 @@ void LinkedTransferQueue::writeObject($ObjectOutputStream* s) {
 }
 
 void LinkedTransferQueue::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedTransferQueue$Node, h, nullptr);
 	$var($LinkedTransferQueue$Node, t, nullptr);
 	{
@@ -1087,14 +949,14 @@ void LinkedTransferQueue::readObject($ObjectInputStream* s) {
 		for (; ($assign(item, $nc(s)->readObject())) != nullptr;) {
 			$var($LinkedTransferQueue$Node, newNode, $new($LinkedTransferQueue$Node, item));
 			if (h == nullptr) {
-				$assign(h, ($assign(t, newNode)));
+				$assign(h, $assign(t, newNode));
 			} else {
 				$nc(t)->appendRelaxed($assign(t, newNode));
 			}
 		}
 	}
 	if (h == nullptr) {
-		$assign(h, ($assign(t, $new($LinkedTransferQueue$Node))));
+		$assign(h, $assign(t, $new($LinkedTransferQueue$Node)));
 	}
 	$set(this, head, h);
 	$set(this, tail, t);
@@ -1107,20 +969,20 @@ bool LinkedTransferQueue::removeIf($Predicate* filter) {
 
 bool LinkedTransferQueue::removeAll($Collection* c) {
 	$Objects::requireNonNull(c);
-	return bulkRemove(static_cast<$Predicate*>($$new(LinkedTransferQueue$$Lambda$lambda$removeAll$0, c)));
+	return bulkRemove($$new(LinkedTransferQueue$$Lambda$lambda$removeAll$0, c));
 }
 
 bool LinkedTransferQueue::retainAll($Collection* c) {
 	$Objects::requireNonNull(c);
-	return bulkRemove(static_cast<$Predicate*>($$new(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1, c)));
+	return bulkRemove($$new(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1, c));
 }
 
 void LinkedTransferQueue::clear() {
-	bulkRemove(static_cast<$Predicate*>($$new(LinkedTransferQueue$$Lambda$lambda$clear$2$2)));
+	bulkRemove($$new(LinkedTransferQueue$$Lambda$lambda$clear$2$2));
 }
 
 bool LinkedTransferQueue::bulkRemove($Predicate* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool removed = false;
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -1131,7 +993,7 @@ bool LinkedTransferQueue::bulkRemove($Predicate* filter) {
 			$var($LinkedTransferQueue$Node, pred, nullptr);
 			$var($LinkedTransferQueue$Node, q, nullptr);
 			for (; p != nullptr; $assign(p, q)) {
-				$assign(q, $nc(p)->next);
+				$assign(q, p->next);
 				$var($Object, item, nullptr);
 				bool pAlive = false;
 				if (pAlive = (($assign(item, p->item)) != nullptr && p->isData)) {
@@ -1147,9 +1009,8 @@ bool LinkedTransferQueue::bulkRemove($Predicate* filter) {
 				if (pAlive || q == nullptr || --hops == 0) {
 					bool var$0 = c != p;
 					if (var$0) {
-						$var($LinkedTransferQueue$Node, var$1, pred);
-						$var($LinkedTransferQueue$Node, var$2, c);
-						var$0 = !tryCasSuccessor(var$1, var$2, $assign(c, p));
+						$var($LinkedTransferQueue$Node, var$1, c);
+						var$0 = !tryCasSuccessor(pred, var$1, $assign(c, p));
 					}
 					if ((var$0) || pAlive) {
 						hops = LinkedTransferQueue::MAX_HOPS;
@@ -1171,37 +1032,35 @@ bool LinkedTransferQueue::bulkRemove($Predicate* filter) {
 }
 
 void LinkedTransferQueue::forEachFrom($Consumer* action, $LinkedTransferQueue$Node* p$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedTransferQueue$Node, p, p$renamed);
-	{
-		$var($LinkedTransferQueue$Node, pred, nullptr);
-		for (; p != nullptr;) {
-			$var($LinkedTransferQueue$Node, q, p->next);
-			$var($Object, item, nullptr);
-			if (($assign(item, p->item)) != nullptr) {
-				if (p->isData) {
-					$nc(action)->accept(item);
-					$assign(pred, p);
-					$assign(p, q);
-					continue;
-				}
-			} else if (!p->isData) {
-				break;
+	$var($LinkedTransferQueue$Node, pred, nullptr);
+	for (; p != nullptr;) {
+		$var($LinkedTransferQueue$Node, q, p->next);
+		$var($Object, item, nullptr);
+		if (($assign(item, p->item)) != nullptr) {
+			if (p->isData) {
+				$nc(action)->accept(item);
+				$assign(pred, p);
+				$assign(p, q);
+				continue;
 			}
-			{
-				$var($LinkedTransferQueue$Node, c, p);
-				for (;; $assign(q, p->next)) {
-					if (q == nullptr || !$nc(q)->isMatched()) {
-						$assign(pred, skipDeadNodes(pred, c, p, q));
-						$assign(p, q);
-						break;
-					}
-					$var($LinkedTransferQueue$Node, var$0, p);
-					if (var$0 == ($assign(p, q))) {
-						$assign(pred, nullptr);
-						$assign(p, this->head);
-						break;
-					}
+		} else if (!p->isData) {
+			break;
+		}
+		{
+			$var($LinkedTransferQueue$Node, c, p);
+			for (;; $assign(q, $nc(p)->next)) {
+				if (q == nullptr || !q->isMatched()) {
+					$assign(pred, skipDeadNodes(pred, c, p, q));
+					$assign(p, q);
+					break;
+				}
+				$var($LinkedTransferQueue$Node, var$0, p);
+				if (var$0 == ($assign(p, q))) {
+					$assign(pred, nullptr);
+					$assign(p, this->head);
+					break;
 				}
 			}
 		}
@@ -1228,7 +1087,7 @@ bool LinkedTransferQueue::lambda$removeAll$0($Collection* c, Object$* e) {
 	return $nc(c)->contains(e);
 }
 
-void clinit$LinkedTransferQueue($Class* class$) {
+void LinkedTransferQueue::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		try {
@@ -1240,7 +1099,7 @@ void clinit$LinkedTransferQueue($Class* class$) {
 			$assignStatic(LinkedTransferQueue::NEXT, l->findVarHandle($LinkedTransferQueue$Node::class$, "next"_s, $LinkedTransferQueue$Node::class$));
 			$assignStatic(LinkedTransferQueue::WAITER, l->findVarHandle($LinkedTransferQueue$Node::class$, "waiter"_s, $Thread::class$));
 		} catch ($ReflectiveOperationException& e) {
-			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
+			$throwNew($ExceptionInInitializerError, e);
 		}
 		$load($LockSupport);
 		$Class* ensureLoaded = $LockSupport::class$;
@@ -1252,17 +1111,123 @@ LinkedTransferQueue::LinkedTransferQueue() {
 
 $Class* LinkedTransferQueue::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LinkedTransferQueue$$Lambda$lambda$removeAll$0::classInfo$.name)) {
+		if (name->equals("java.util.concurrent.LinkedTransferQueue$$Lambda$lambda$removeAll$0")) {
 			return LinkedTransferQueue$$Lambda$lambda$removeAll$0::load$(name, initialize);
 		}
-		if (name->equals(LinkedTransferQueue$$Lambda$lambda$retainAll$1$1::classInfo$.name)) {
+		if (name->equals("java.util.concurrent.LinkedTransferQueue$$Lambda$lambda$retainAll$1$1")) {
 			return LinkedTransferQueue$$Lambda$lambda$retainAll$1$1::load$(name, initialize);
 		}
-		if (name->equals(LinkedTransferQueue$$Lambda$lambda$clear$2$2::classInfo$.name)) {
+		if (name->equals("java.util.concurrent.LinkedTransferQueue$$Lambda$lambda$clear$2$2")) {
 			return LinkedTransferQueue$$Lambda$lambda$clear$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(LinkedTransferQueue, name, initialize, &_LinkedTransferQueue_ClassInfo_, clinit$LinkedTransferQueue, allocate$LinkedTransferQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, serialVersionUID)},
+		{"SPIN_FOR_TIMEOUT_THRESHOLD", "J", nullptr, $STATIC | $FINAL, $constField(LinkedTransferQueue, SPIN_FOR_TIMEOUT_THRESHOLD)},
+		{"SWEEP_THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(LinkedTransferQueue, SWEEP_THRESHOLD)},
+		{"head", "Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $VOLATILE | $TRANSIENT, $field(LinkedTransferQueue, head)},
+		{"tail", "Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(LinkedTransferQueue, tail)},
+		{"needSweep", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(LinkedTransferQueue, needSweep)},
+		{"NOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, NOW)},
+		{"ASYNC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, ASYNC)},
+		{"SYNC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, SYNC)},
+		{"TIMED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, TIMED)},
+		{"MAX_HOPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedTransferQueue, MAX_HOPS)},
+		{"HEAD", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinkedTransferQueue, HEAD)},
+		{"TAIL", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinkedTransferQueue, TAIL)},
+		{"ITEM", "Ljava/lang/invoke/VarHandle;", nullptr, $STATIC | $FINAL, $staticField(LinkedTransferQueue, ITEM)},
+		{"NEXT", "Ljava/lang/invoke/VarHandle;", nullptr, $STATIC | $FINAL, $staticField(LinkedTransferQueue, NEXT)},
+		{"WAITER", "Ljava/lang/invoke/VarHandle;", nullptr, $STATIC | $FINAL, $staticField(LinkedTransferQueue, WAITER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*element", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LinkedTransferQueue, init$, void)},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(LinkedTransferQueue, init$, void, $Collection*)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, add, bool, Object$*)},
+		{"awaitMatch", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/lang/Object;ZJ)Ljava/lang/Object;", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;TE;ZJ)TE;", $PRIVATE, $method(LinkedTransferQueue, awaitMatch, $Object*, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*, Object$*, bool, int64_t)},
+		{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(LinkedTransferQueue, bulkRemove, bool, $Predicate*)},
+		{"casHead", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)Z", nullptr, $PRIVATE, $method(LinkedTransferQueue, casHead, bool, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
+		{"casTail", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)Z", nullptr, $PRIVATE, $method(LinkedTransferQueue, casTail, bool, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, contains, bool, Object$*)},
+		{"countOfMode", "(Z)I", nullptr, $PRIVATE, $method(LinkedTransferQueue, countOfMode, int32_t, bool)},
+		{"drainTo", "(Ljava/util/Collection;)I", "(Ljava/util/Collection<-TE;>;)I", $PUBLIC, $virtualMethod(LinkedTransferQueue, drainTo, int32_t, $Collection*)},
+		{"drainTo", "(Ljava/util/Collection;I)I", "(Ljava/util/Collection<-TE;>;I)I", $PUBLIC, $virtualMethod(LinkedTransferQueue, drainTo, int32_t, $Collection*, int32_t)},
+		{"firstDataNode", "()Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $FINAL, $method(LinkedTransferQueue, firstDataNode, $LinkedTransferQueue$Node*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedTransferQueue, forEach, void, $Consumer*)},
+		{"forEachFrom", "(Ljava/util/function/Consumer;Ljava/util/concurrent/LinkedTransferQueue$Node;)V", "(Ljava/util/function/Consumer<-TE;>;Ljava/util/concurrent/LinkedTransferQueue$Node;)V", 0, $virtualMethod(LinkedTransferQueue, forEachFrom, void, $Consumer*, $LinkedTransferQueue$Node*)},
+		{"getWaitingConsumerCount", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, getWaitingConsumerCount, int32_t)},
+		{"hasWaitingConsumer", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, hasWaitingConsumer, bool)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(LinkedTransferQueue, iterator, $Iterator*)},
+		{"lambda$clear$2", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkedTransferQueue, lambda$clear$2, bool, Object$*)},
+		{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkedTransferQueue, lambda$removeAll$0, bool, $Collection*, Object$*)},
+		{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkedTransferQueue, lambda$retainAll$1, bool, $Collection*, Object$*)},
+		{"offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, offer, bool, Object$*, int64_t, $TimeUnit*)},
+		{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, offer, bool, Object$*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedTransferQueue, peek, $Object*)},
+		{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC, $virtualMethod(LinkedTransferQueue, poll, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedTransferQueue, poll, $Object*)},
+		{"put", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedTransferQueue, put, void, Object$*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LinkedTransferQueue, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remainingCapacity", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, remainingCapacity, int32_t)},
+		{"*remove", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, removeAll, bool, $Collection*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, removeIf, bool, $Predicate*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, retainAll, bool, $Collection*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, size, int32_t)},
+		{"skipDeadNodes", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $PRIVATE, $method(LinkedTransferQueue, skipDeadNodes, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
+		{"skipDeadNodesNearHead", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $PRIVATE, $method(LinkedTransferQueue, skipDeadNodesNearHead, void, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedTransferQueue, spliterator, $Spliterator*)},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"sweep", "()V", nullptr, $PRIVATE, $method(LinkedTransferQueue, sweep, void)},
+		{"take", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedTransferQueue, take, $Object*), "java.lang.InterruptedException"},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(LinkedTransferQueue, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toArrayInternal", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(LinkedTransferQueue, toArrayInternal, $ObjectArray*, $ObjectArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue, toString, $String*)},
+		{"transfer", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedTransferQueue, transfer, void, Object$*), "java.lang.InterruptedException"},
+		{"tryCasSuccessor", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)Z", nullptr, $PRIVATE, $method(LinkedTransferQueue, tryCasSuccessor, bool, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
+		{"tryTransfer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, tryTransfer, bool, Object$*)},
+		{"tryTransfer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue, tryTransfer, bool, Object$*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"unsplice", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $FINAL, $method(LinkedTransferQueue, unsplice, void, $LinkedTransferQueue$Node*, $LinkedTransferQueue$Node*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LinkedTransferQueue, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{"xfer", "(Ljava/lang/Object;ZIJ)Ljava/lang/Object;", "(TE;ZIJ)TE;", $PRIVATE, $method(LinkedTransferQueue, xfer, $Object*, Object$*, bool, int32_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.LinkedTransferQueue$LTQSpliterator", "java.util.concurrent.LinkedTransferQueue", "LTQSpliterator", $FINAL},
+		{"java.util.concurrent.LinkedTransferQueue$Itr", "java.util.concurrent.LinkedTransferQueue", "Itr", $FINAL},
+		{"java.util.concurrent.LinkedTransferQueue$Node", "java.util.concurrent.LinkedTransferQueue", "Node", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.LinkedTransferQueue",
+		"java.util.AbstractQueue",
+		"java.util.concurrent.TransferQueue,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractQueue<TE;>;Ljava/util/concurrent/TransferQueue<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.LinkedTransferQueue$LTQSpliterator,java.util.concurrent.LinkedTransferQueue$Itr,java.util.concurrent.LinkedTransferQueue$Node"
+	};
+	$loadClass(LinkedTransferQueue, name, initialize, &classInfo$$, LinkedTransferQueue::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LinkedTransferQueue));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/vector/VectorSupport$VectorRearrangeOp.h>
-
 #include <jdk/internal/vm/vector/VectorSupport$Vector.h>
 #include <jdk/internal/vm/vector/VectorSupport$VectorShuffle.h>
 #include <jdk/internal/vm/vector/VectorSupport.h>
@@ -16,40 +15,35 @@ namespace jdk {
 		namespace vm {
 			namespace vector {
 
-$MethodInfo _VectorSupport$VectorRearrangeOp_MethodInfo_[] = {
-	{"apply", "(Ljdk/internal/vm/vector/VectorSupport$Vector;Ljdk/internal/vm/vector/VectorSupport$VectorShuffle;)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TV;TSh;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorRearrangeOp, apply, $VectorSupport$Vector*, $VectorSupport$Vector*, $VectorSupport$VectorShuffle*)},
-	{}
-};
-
-$InnerClassInfo _VectorSupport$VectorRearrangeOp_InnerClassesInfo_[] = {
-	{"jdk.internal.vm.vector.VectorSupport$VectorRearrangeOp", "jdk.internal.vm.vector.VectorSupport", "VectorRearrangeOp", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.vm.vector.VectorSupport$Vector", "jdk.internal.vm.vector.VectorSupport", "Vector", $PUBLIC | $STATIC},
-	{"jdk.internal.vm.vector.VectorSupport$VectorShuffle", "jdk.internal.vm.vector.VectorSupport", "VectorShuffle", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _VectorSupport$VectorRearrangeOp_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.vm.vector.VectorSupport$VectorRearrangeOp",
-	nullptr,
-	nullptr,
-	nullptr,
-	_VectorSupport$VectorRearrangeOp_MethodInfo_,
-	"<V:Ljdk/internal/vm/vector/VectorSupport$Vector<TE;>;Sh:Ljdk/internal/vm/vector/VectorSupport$VectorShuffle<TE;>;E:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_VectorSupport$VectorRearrangeOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.vm.vector.VectorSupport"
-};
-
-$Object* allocate$VectorSupport$VectorRearrangeOp($Class* clazz) {
-	return $of($alloc(VectorSupport$VectorRearrangeOp));
-}
-
 $Class* VectorSupport$VectorRearrangeOp::load$($String* name, bool initialize) {
-	$loadClass(VectorSupport$VectorRearrangeOp, name, initialize, &_VectorSupport$VectorRearrangeOp_ClassInfo_, allocate$VectorSupport$VectorRearrangeOp);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljdk/internal/vm/vector/VectorSupport$Vector;Ljdk/internal/vm/vector/VectorSupport$VectorShuffle;)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TV;TSh;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorRearrangeOp, apply, $VectorSupport$Vector*, $VectorSupport$Vector*, $VectorSupport$VectorShuffle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.vm.vector.VectorSupport$VectorRearrangeOp", "jdk.internal.vm.vector.VectorSupport", "VectorRearrangeOp", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.vm.vector.VectorSupport$Vector", "jdk.internal.vm.vector.VectorSupport", "Vector", $PUBLIC | $STATIC},
+		{"jdk.internal.vm.vector.VectorSupport$VectorShuffle", "jdk.internal.vm.vector.VectorSupport", "VectorShuffle", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.vm.vector.VectorSupport$VectorRearrangeOp",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<V:Ljdk/internal/vm/vector/VectorSupport$Vector<TE;>;Sh:Ljdk/internal/vm/vector/VectorSupport$VectorShuffle<TE;>;E:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.vm.vector.VectorSupport"
+	};
+	$loadClass(VectorSupport$VectorRearrangeOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VectorSupport$VectorRearrangeOp);
+	});
 	return class$;
 }
 

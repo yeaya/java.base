@@ -19,6 +19,7 @@ class StreamSpliterators$SliceSpliterator : public ::java::lang::Object {
 	$class(StreamSpliterators$SliceSpliterator, 0, ::java::lang::Object)
 public:
 	StreamSpliterators$SliceSpliterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Spliterator* s, int64_t sliceOrigin, int64_t sliceFence, int64_t origin, int64_t fence);
 	virtual int32_t characteristics();
 	virtual int64_t estimateSize();

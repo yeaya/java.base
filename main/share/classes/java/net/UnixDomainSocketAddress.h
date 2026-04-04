@@ -35,7 +35,7 @@ public:
 	void readObjectNoData();
 	virtual $String* toString() override;
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x014A0E5413F48978;
+	static const int64_t serialVersionUID = (int64_t)0x014a0e5413f48978;
 	::java::nio::file::Path* path = nullptr;
 };
 

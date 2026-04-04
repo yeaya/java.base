@@ -1,5 +1,4 @@
 #include <java/io/StreamTokenizer.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
 #include <java/lang/IllegalStateException.h>
@@ -32,78 +31,6 @@ using $Arrays = ::java::util::Arrays;
 
 namespace java {
 	namespace io {
-
-$CompoundAttribute _StreamTokenizer_MethodAnnotations_init$1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _StreamTokenizer_FieldInfo_[] = {
-	{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(StreamTokenizer, reader)},
-	{"input", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(StreamTokenizer, input)},
-	{"buf", "[C", nullptr, $PRIVATE, $field(StreamTokenizer, buf)},
-	{"peekc", "I", nullptr, $PRIVATE, $field(StreamTokenizer, peekc)},
-	{"NEED_CHAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, NEED_CHAR)},
-	{"SKIP_LF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, SKIP_LF)},
-	{"pushedBack", "Z", nullptr, $PRIVATE, $field(StreamTokenizer, pushedBack)},
-	{"forceLower", "Z", nullptr, $PRIVATE, $field(StreamTokenizer, forceLower)},
-	{"LINENO", "I", nullptr, $PRIVATE, $field(StreamTokenizer, LINENO)},
-	{"eolIsSignificantP", "Z", nullptr, $PRIVATE, $field(StreamTokenizer, eolIsSignificantP)},
-	{"slashSlashCommentsP", "Z", nullptr, $PRIVATE, $field(StreamTokenizer, slashSlashCommentsP)},
-	{"slashStarCommentsP", "Z", nullptr, $PRIVATE, $field(StreamTokenizer, slashStarCommentsP)},
-	{"ctype", "[B", nullptr, $PRIVATE, $field(StreamTokenizer, ctype)},
-	{"CT_WHITESPACE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, CT_WHITESPACE)},
-	{"CT_DIGIT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, CT_DIGIT)},
-	{"CT_ALPHA", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, CT_ALPHA)},
-	{"CT_QUOTE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, CT_QUOTE)},
-	{"CT_COMMENT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, CT_COMMENT)},
-	{"ttype", "I", nullptr, $PUBLIC, $field(StreamTokenizer, ttype)},
-	{"TT_EOF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StreamTokenizer, TT_EOF)},
-	{"TT_EOL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StreamTokenizer, TT_EOL)},
-	{"TT_NUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StreamTokenizer, TT_NUMBER)},
-	{"TT_WORD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StreamTokenizer, TT_WORD)},
-	{"TT_NOTHING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, TT_NOTHING)},
-	{"sval", "Ljava/lang/String;", nullptr, $PUBLIC, $field(StreamTokenizer, sval)},
-	{"nval", "D", nullptr, $PUBLIC, $field(StreamTokenizer, nval)},
-	{}
-};
-
-$MethodInfo _StreamTokenizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StreamTokenizer, init$, void)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $DEPRECATED, $method(StreamTokenizer, init$, void, $InputStream*), nullptr, nullptr, _StreamTokenizer_MethodAnnotations_init$1},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(StreamTokenizer, init$, void, $Reader*)},
-	{"commentChar", "(I)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, commentChar, void, int32_t)},
-	{"eolIsSignificant", "(Z)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, eolIsSignificant, void, bool)},
-	{"lineno", "()I", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, lineno, int32_t)},
-	{"lowerCaseMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, lowerCaseMode, void, bool)},
-	{"nextToken", "()I", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, nextToken, int32_t), "java.io.IOException"},
-	{"ordinaryChar", "(I)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, ordinaryChar, void, int32_t)},
-	{"ordinaryChars", "(II)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, ordinaryChars, void, int32_t, int32_t)},
-	{"parseNumbers", "()V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, parseNumbers, void)},
-	{"pushBack", "()V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, pushBack, void)},
-	{"quoteChar", "(I)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, quoteChar, void, int32_t)},
-	{"read", "()I", nullptr, $PRIVATE, $method(StreamTokenizer, read, int32_t), "java.io.IOException"},
-	{"resetSyntax", "()V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, resetSyntax, void)},
-	{"slashSlashComments", "(Z)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, slashSlashComments, void, bool)},
-	{"slashStarComments", "(Z)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, slashStarComments, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, toString, $String*)},
-	{"whitespaceChars", "(II)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, whitespaceChars, void, int32_t, int32_t)},
-	{"wordChars", "(II)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, wordChars, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _StreamTokenizer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.StreamTokenizer",
-	"java.lang.Object",
-	nullptr,
-	_StreamTokenizer_FieldInfo_,
-	_StreamTokenizer_MethodInfo_
-};
-
-$Object* allocate$StreamTokenizer($Class* clazz) {
-	return $of($alloc(StreamTokenizer));
-}
 
 void StreamTokenizer::init$() {
 	$set(this, reader, nullptr);
@@ -144,7 +71,7 @@ void StreamTokenizer::init$($Reader* r) {
 
 void StreamTokenizer::resetSyntax() {
 	for (int32_t i = $nc(this->ctype)->length; --i >= 0;) {
-		$nc(this->ctype)->set(i, (int8_t)0);
+		this->ctype->set(i, 0);
 	}
 }
 
@@ -153,10 +80,10 @@ void StreamTokenizer::wordChars(int32_t low, int32_t hi) {
 		low = 0;
 	}
 	if (hi >= $nc(this->ctype)->length) {
-		hi = $nc(this->ctype)->length - 1;
+		hi = this->ctype->length - 1;
 	}
 	while (low <= hi) {
-		(*$nc(this->ctype))[low++] |= StreamTokenizer::CT_ALPHA;
+		(*this->ctype)[low++] |= StreamTokenizer::CT_ALPHA;
 	}
 }
 
@@ -165,10 +92,10 @@ void StreamTokenizer::whitespaceChars(int32_t low, int32_t hi) {
 		low = 0;
 	}
 	if (hi >= $nc(this->ctype)->length) {
-		hi = $nc(this->ctype)->length - 1;
+		hi = this->ctype->length - 1;
 	}
 	while (low <= hi) {
-		$nc(this->ctype)->set(low++, StreamTokenizer::CT_WHITESPACE);
+		this->ctype->set(low++, StreamTokenizer::CT_WHITESPACE);
 	}
 }
 
@@ -177,28 +104,28 @@ void StreamTokenizer::ordinaryChars(int32_t low, int32_t hi) {
 		low = 0;
 	}
 	if (hi >= $nc(this->ctype)->length) {
-		hi = $nc(this->ctype)->length - 1;
+		hi = this->ctype->length - 1;
 	}
 	while (low <= hi) {
-		$nc(this->ctype)->set(low++, (int8_t)0);
+		this->ctype->set(low++, 0);
 	}
 }
 
 void StreamTokenizer::ordinaryChar(int32_t ch) {
 	if (ch >= 0 && ch < $nc(this->ctype)->length) {
-		$nc(this->ctype)->set(ch, (int8_t)0);
+		this->ctype->set(ch, 0);
 	}
 }
 
 void StreamTokenizer::commentChar(int32_t ch) {
 	if (ch >= 0 && ch < $nc(this->ctype)->length) {
-		$nc(this->ctype)->set(ch, StreamTokenizer::CT_COMMENT);
+		this->ctype->set(ch, StreamTokenizer::CT_COMMENT);
 	}
 }
 
 void StreamTokenizer::quoteChar(int32_t ch) {
 	if (ch >= 0 && ch < $nc(this->ctype)->length) {
-		$nc(this->ctype)->set(ch, StreamTokenizer::CT_QUOTE);
+		this->ctype->set(ch, StreamTokenizer::CT_QUOTE);
 	}
 }
 
@@ -207,7 +134,7 @@ void StreamTokenizer::parseNumbers() {
 		(*$nc(this->ctype))[i] |= StreamTokenizer::CT_DIGIT;
 	}
 	(*$nc(this->ctype))[u'.'] |= StreamTokenizer::CT_DIGIT;
-	(*$nc(this->ctype))[u'-'] |= StreamTokenizer::CT_DIGIT;
+	(*this->ctype)[u'-'] |= StreamTokenizer::CT_DIGIT;
 }
 
 void StreamTokenizer::eolIsSignificant(bool flag) {
@@ -228,9 +155,9 @@ void StreamTokenizer::lowerCaseMode(bool fl) {
 
 int32_t StreamTokenizer::read() {
 	if (this->reader != nullptr) {
-		return $nc(this->reader)->read();
+		return this->reader->read();
 	} else if (this->input != nullptr) {
-		return $nc(this->input)->read();
+		return this->input->read();
 	} else {
 		$throwNew($IllegalStateException);
 	}
@@ -265,7 +192,7 @@ int32_t StreamTokenizer::nextToken() {
 	this->ttype = c;
 	this->peekc = StreamTokenizer::NEED_CHAR;
 	int32_t ctype = c < 256 ? $nc(ct)->get(c) : StreamTokenizer::CT_ALPHA;
-	while (((int32_t)(ctype & (uint32_t)(int32_t)StreamTokenizer::CT_WHITESPACE)) != 0) {
+	while ((ctype & StreamTokenizer::CT_WHITESPACE) != 0) {
 		if (c == u'\r') {
 			++this->LINENO;
 			if (this->eolIsSignificantP) {
@@ -288,9 +215,9 @@ int32_t StreamTokenizer::nextToken() {
 		if (c < 0) {
 			return this->ttype = StreamTokenizer::TT_EOF;
 		}
-		ctype = c < 256 ? ct->get(c) : StreamTokenizer::CT_ALPHA;
+		ctype = c < 256 ? $nc(ct)->get(c) : StreamTokenizer::CT_ALPHA;
 	}
-	if (((int32_t)(ctype & (uint32_t)(int32_t)StreamTokenizer::CT_DIGIT)) != 0) {
+	if ((ctype & StreamTokenizer::CT_DIGIT) != 0) {
 		bool neg = false;
 		if (c == u'-') {
 			c = read();
@@ -300,7 +227,7 @@ int32_t StreamTokenizer::nextToken() {
 			}
 			neg = true;
 		}
-		double v = (double)0;
+		double v = 0;
 		int32_t decexp = 0;
 		int32_t seendot = 0;
 		while (true) {
@@ -316,7 +243,7 @@ int32_t StreamTokenizer::nextToken() {
 		}
 		this->peekc = c;
 		if (decexp != 0) {
-			double denom = (double)10;
+			double denom = 10;
 			--decexp;
 			while (decexp > 0) {
 				denom *= 10;
@@ -327,16 +254,16 @@ int32_t StreamTokenizer::nextToken() {
 		this->nval = neg ? -v : v;
 		return this->ttype = StreamTokenizer::TT_NUMBER;
 	}
-	if (((int32_t)(ctype & (uint32_t)(int32_t)StreamTokenizer::CT_ALPHA)) != 0) {
+	if ((ctype & StreamTokenizer::CT_ALPHA) != 0) {
 		int32_t i = 0;
 		do {
 			if (i >= $nc(this->buf)->length) {
-				$set(this, buf, $Arrays::copyOf(this->buf, $nc(this->buf)->length * 2));
+				$set(this, buf, $Arrays::copyOf(this->buf, this->buf->length * 2));
 			}
-			$nc(this->buf)->set(i++, (char16_t)c);
+			this->buf->set(i++, (char16_t)c);
 			c = read();
-			ctype = c < 0 ? StreamTokenizer::CT_WHITESPACE : c < 256 ? ct->get(c) : StreamTokenizer::CT_ALPHA;
-		} while (((int32_t)(ctype & (uint32_t)(StreamTokenizer::CT_ALPHA | StreamTokenizer::CT_DIGIT))) != 0);
+			ctype = c < 0 ? StreamTokenizer::CT_WHITESPACE : c < 256 ? $nc(ct)->get(c) : StreamTokenizer::CT_ALPHA;
+		} while ((ctype & (StreamTokenizer::CT_ALPHA | StreamTokenizer::CT_DIGIT)) != 0);
 		this->peekc = c;
 		$set(this, sval, $String::copyValueOf(this->buf, 0, i));
 		if (this->forceLower) {
@@ -344,7 +271,7 @@ int32_t StreamTokenizer::nextToken() {
 		}
 		return this->ttype = StreamTokenizer::TT_WORD;
 	}
-	if (((int32_t)(ctype & (uint32_t)(int32_t)StreamTokenizer::CT_QUOTE)) != 0) {
+	if ((ctype & StreamTokenizer::CT_QUOTE) != 0) {
 		this->ttype = c;
 		int32_t i = 0;
 		int32_t d = read();
@@ -368,49 +295,32 @@ int32_t StreamTokenizer::nextToken() {
 						d = c2;
 					}
 				} else {
-
 					int32_t var$0 = 0;
 					switch (c) {
 					case u'a':
-						{
-							var$0 = 7;
-							break;
-						}
+						var$0 = 7;
+						break;
 					case u'b':
-						{
-							var$0 = u'\b';
-							break;
-						}
+						var$0 = u'\b';
+						break;
 					case u'f':
-						{
-							var$0 = 12;
-							break;
-						}
+						var$0 = 12;
+						break;
 					case u'n':
-						{
-							var$0 = u'\n';
-							break;
-						}
+						var$0 = u'\n';
+						break;
 					case u'r':
-						{
-							var$0 = u'\r';
-							break;
-						}
+						var$0 = u'\r';
+						break;
 					case u't':
-						{
-							var$0 = u'\t';
-							break;
-						}
+						var$0 = u'\t';
+						break;
 					case u'v':
-						{
-							var$0 = 11;
-							break;
-						}
+						var$0 = 11;
+						break;
 					default:
-						{
-							var$0 = c;
-							break;
-						}
+						var$0 = c;
+						break;
 					}
 					c = var$0;
 					d = read();
@@ -420,9 +330,9 @@ int32_t StreamTokenizer::nextToken() {
 				d = read();
 			}
 			if (i >= $nc(this->buf)->length) {
-				$set(this, buf, $Arrays::copyOf(this->buf, $nc(this->buf)->length * 2));
+				$set(this, buf, $Arrays::copyOf(this->buf, this->buf->length * 2));
 			}
-			$nc(this->buf)->set(i++, (char16_t)c);
+			this->buf->set(i++, (char16_t)c);
 		}
 		this->peekc = (d == this->ttype) ? StreamTokenizer::NEED_CHAR : d;
 		$set(this, sval, $String::copyValueOf(this->buf, 0, i));
@@ -451,11 +361,13 @@ int32_t StreamTokenizer::nextToken() {
 			return nextToken();
 		} else if (c == u'/' && this->slashSlashCommentsP) {
 			while ((c = read()) != u'\n' && c != u'\r' && c >= 0) {
+				;
 			}
 			this->peekc = c;
 			return nextToken();
-		} else if (((int32_t)(ct->get(u'/') & (uint32_t)(int32_t)StreamTokenizer::CT_COMMENT)) != 0) {
+		} else if (($nc(ct)->get(u'/') & StreamTokenizer::CT_COMMENT) != 0) {
 			while ((c = read()) != u'\n' && c != u'\r' && c >= 0) {
+				;
 			}
 			this->peekc = c;
 			return nextToken();
@@ -464,8 +376,9 @@ int32_t StreamTokenizer::nextToken() {
 			return this->ttype = u'/';
 		}
 	}
-	if (((int32_t)(ctype & (uint32_t)(int32_t)StreamTokenizer::CT_COMMENT)) != 0) {
+	if ((ctype & StreamTokenizer::CT_COMMENT) != 0) {
 		while ((c = read()) != u'\n' && c != u'\r' && c >= 0) {
+			;
 		}
 		this->peekc = c;
 		return nextToken();
@@ -484,48 +397,35 @@ int32_t StreamTokenizer::lineno() {
 }
 
 $String* StreamTokenizer::toString() {
-	$useLocalCurrentObjectStackCache();
-
-	$var($String, var$0, nullptr)
+	$useLocalObjectStack();
+	$var($String, var$0, nullptr);
 	switch (this->ttype) {
 	case StreamTokenizer::TT_EOF:
-		{
-			$assign(var$0, "EOF"_s);
-			break;
-		}
+		$assign(var$0, "EOF"_s);
+		break;
 	case StreamTokenizer::TT_EOL:
-		{
-			$assign(var$0, "EOL"_s);
-			break;
-		}
+		$assign(var$0, "EOL"_s);
+		break;
 	case StreamTokenizer::TT_WORD:
-		{
-			$assign(var$0, this->sval);
-			break;
-		}
+		$assign(var$0, this->sval);
+		break;
 	case StreamTokenizer::TT_NUMBER:
-		{
-			$assign(var$0, $str({"n="_s, $$str(this->nval)}));
-			break;
-		}
+		$assign(var$0, $str({"n="_s, $$str(this->nval)}));
+		break;
 	case StreamTokenizer::TT_NOTHING:
-		{
-			$assign(var$0, "NOTHING"_s);
-			break;
-		}
+		$assign(var$0, "NOTHING"_s);
+		break;
 	default:
 		{
-			{
-				if (this->ttype < 256 && (((int32_t)($nc(this->ctype)->get(this->ttype) & (uint32_t)(int32_t)StreamTokenizer::CT_QUOTE)) != 0)) {
-					$assign(var$0, this->sval);
-					break;
-				}
-				$var($chars, s, $new($chars, 3));
-				s->set(0, s->set(2, u'\''));
-				s->set(1, (char16_t)this->ttype);
-				$assign(var$0, $new($String, s));
+			if (this->ttype < 256 && (($nc(this->ctype)->get(this->ttype) & StreamTokenizer::CT_QUOTE) != 0)) {
+				$assign(var$0, this->sval);
 				break;
 			}
+			$var($chars, s, $new($chars, 3));
+			s->set(0, s->set(2, u'\''));
+			s->set(1, (char16_t)this->ttype);
+			$assign(var$0, $new($String, s));
+			break;
 		}
 	}
 	$var($String, ret, var$0);
@@ -536,7 +436,73 @@ StreamTokenizer::StreamTokenizer() {
 }
 
 $Class* StreamTokenizer::load$($String* name, bool initialize) {
-	$loadClass(StreamTokenizer, name, initialize, &_StreamTokenizer_ClassInfo_, allocate$StreamTokenizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(StreamTokenizer, reader)},
+		{"input", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(StreamTokenizer, input)},
+		{"buf", "[C", nullptr, $PRIVATE, $field(StreamTokenizer, buf)},
+		{"peekc", "I", nullptr, $PRIVATE, $field(StreamTokenizer, peekc)},
+		{"NEED_CHAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, NEED_CHAR)},
+		{"SKIP_LF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, SKIP_LF)},
+		{"pushedBack", "Z", nullptr, $PRIVATE, $field(StreamTokenizer, pushedBack)},
+		{"forceLower", "Z", nullptr, $PRIVATE, $field(StreamTokenizer, forceLower)},
+		{"LINENO", "I", nullptr, $PRIVATE, $field(StreamTokenizer, LINENO)},
+		{"eolIsSignificantP", "Z", nullptr, $PRIVATE, $field(StreamTokenizer, eolIsSignificantP)},
+		{"slashSlashCommentsP", "Z", nullptr, $PRIVATE, $field(StreamTokenizer, slashSlashCommentsP)},
+		{"slashStarCommentsP", "Z", nullptr, $PRIVATE, $field(StreamTokenizer, slashStarCommentsP)},
+		{"ctype", "[B", nullptr, $PRIVATE, $field(StreamTokenizer, ctype)},
+		{"CT_WHITESPACE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, CT_WHITESPACE)},
+		{"CT_DIGIT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, CT_DIGIT)},
+		{"CT_ALPHA", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, CT_ALPHA)},
+		{"CT_QUOTE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, CT_QUOTE)},
+		{"CT_COMMENT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, CT_COMMENT)},
+		{"ttype", "I", nullptr, $PUBLIC, $field(StreamTokenizer, ttype)},
+		{"TT_EOF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StreamTokenizer, TT_EOF)},
+		{"TT_EOL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StreamTokenizer, TT_EOL)},
+		{"TT_NUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StreamTokenizer, TT_NUMBER)},
+		{"TT_WORD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StreamTokenizer, TT_WORD)},
+		{"TT_NOTHING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamTokenizer, TT_NOTHING)},
+		{"sval", "Ljava/lang/String;", nullptr, $PUBLIC, $field(StreamTokenizer, sval)},
+		{"nval", "D", nullptr, $PUBLIC, $field(StreamTokenizer, nval)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StreamTokenizer, init$, void)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $DEPRECATED, $method(StreamTokenizer, init$, void, $InputStream*), nullptr, nullptr, init$methodAnnotations$$$1},
+		{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(StreamTokenizer, init$, void, $Reader*)},
+		{"commentChar", "(I)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, commentChar, void, int32_t)},
+		{"eolIsSignificant", "(Z)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, eolIsSignificant, void, bool)},
+		{"lineno", "()I", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, lineno, int32_t)},
+		{"lowerCaseMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, lowerCaseMode, void, bool)},
+		{"nextToken", "()I", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, nextToken, int32_t), "java.io.IOException"},
+		{"ordinaryChar", "(I)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, ordinaryChar, void, int32_t)},
+		{"ordinaryChars", "(II)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, ordinaryChars, void, int32_t, int32_t)},
+		{"parseNumbers", "()V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, parseNumbers, void)},
+		{"pushBack", "()V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, pushBack, void)},
+		{"quoteChar", "(I)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, quoteChar, void, int32_t)},
+		{"read", "()I", nullptr, $PRIVATE, $method(StreamTokenizer, read, int32_t), "java.io.IOException"},
+		{"resetSyntax", "()V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, resetSyntax, void)},
+		{"slashSlashComments", "(Z)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, slashSlashComments, void, bool)},
+		{"slashStarComments", "(Z)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, slashStarComments, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, toString, $String*)},
+		{"whitespaceChars", "(II)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, whitespaceChars, void, int32_t, int32_t)},
+		{"wordChars", "(II)V", nullptr, $PUBLIC, $virtualMethod(StreamTokenizer, wordChars, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.StreamTokenizer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StreamTokenizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamTokenizer);
+	});
 	return class$;
 }
 

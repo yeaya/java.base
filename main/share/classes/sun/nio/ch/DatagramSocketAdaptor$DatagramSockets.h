@@ -29,6 +29,7 @@ class DatagramSocketAdaptor$DatagramSockets : public ::java::lang::Object {
 	$class(DatagramSocketAdaptor$DatagramSockets, 0, ::java::lang::Object)
 public:
 	DatagramSocketAdaptor$DatagramSockets();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandles$Lookup* lambda$static$0();
 	static ::java::net::SocketAddress* NO_DELEGATE;

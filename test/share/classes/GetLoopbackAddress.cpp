@@ -1,5 +1,4 @@
 #include <GetLoopbackAddress.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <jcpp.h>
@@ -12,31 +11,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
-$FieldInfo _GetLoopbackAddress_FieldInfo_[] = {
-	{"IPv4Loopback", "Ljava/net/InetAddress;", nullptr, $STATIC, $staticField(GetLoopbackAddress, IPv4Loopback)},
-	{"IPv6Loopback", "Ljava/net/InetAddress;", nullptr, $STATIC, $staticField(GetLoopbackAddress, IPv6Loopback)},
-	{}
-};
-
-$MethodInfo _GetLoopbackAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetLoopbackAddress, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetLoopbackAddress, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _GetLoopbackAddress_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetLoopbackAddress",
-	"java.lang.Object",
-	nullptr,
-	_GetLoopbackAddress_FieldInfo_,
-	_GetLoopbackAddress_MethodInfo_
-};
-
-$Object* allocate$GetLoopbackAddress($Class* clazz) {
-	return $of($alloc(GetLoopbackAddress));
-}
-
 $InetAddress* GetLoopbackAddress::IPv4Loopback = nullptr;
 $InetAddress* GetLoopbackAddress::IPv6Loopback = nullptr;
 
@@ -45,10 +19,10 @@ void GetLoopbackAddress::init$() {
 
 void GetLoopbackAddress::main($StringArray* args) {
 	$init(GetLoopbackAddress);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, addr, $InetAddress::getLoopbackAddress());
 	bool var$0 = $nc(addr)->equals(GetLoopbackAddress::IPv4Loopback);
-	if (!(var$0 || $nc(addr)->equals(GetLoopbackAddress::IPv6Loopback))) {
+	if (!(var$0 || addr->equals(GetLoopbackAddress::IPv6Loopback))) {
 		$throwNew($RuntimeException, "Failed: getLoopbackAddress not returning a valid loopback address"_s);
 	}
 	$var($InetAddress, addr2, $InetAddress::getLoopbackAddress());
@@ -73,33 +47,33 @@ void GetLoopbackAddress::main($StringArray* args) {
 	}
 }
 
-void clinit$GetLoopbackAddress($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void GetLoopbackAddress::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		try {
 			$assignStatic(GetLoopbackAddress::IPv4Loopback, $InetAddress::getByAddress($$new($bytes, {
-				(int8_t)127,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)1
+				127,
+				0,
+				0,
+				1
 			})));
 			$assignStatic(GetLoopbackAddress::IPv6Loopback, $InetAddress::getByAddress($$new($bytes, {
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)1
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				1
 			})));
 		} catch ($UnknownHostException& e) {
 		}
@@ -110,7 +84,27 @@ GetLoopbackAddress::GetLoopbackAddress() {
 }
 
 $Class* GetLoopbackAddress::load$($String* name, bool initialize) {
-	$loadClass(GetLoopbackAddress, name, initialize, &_GetLoopbackAddress_ClassInfo_, clinit$GetLoopbackAddress, allocate$GetLoopbackAddress);
+	$FieldInfo fieldInfos$$[] = {
+		{"IPv4Loopback", "Ljava/net/InetAddress;", nullptr, $STATIC, $staticField(GetLoopbackAddress, IPv4Loopback)},
+		{"IPv6Loopback", "Ljava/net/InetAddress;", nullptr, $STATIC, $staticField(GetLoopbackAddress, IPv6Loopback)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetLoopbackAddress, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetLoopbackAddress, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetLoopbackAddress",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GetLoopbackAddress, name, initialize, &classInfo$$, GetLoopbackAddress::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GetLoopbackAddress);
+	});
 	return class$;
 }
 

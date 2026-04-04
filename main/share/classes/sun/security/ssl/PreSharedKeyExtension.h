@@ -36,6 +36,7 @@ class PreSharedKeyExtension : public ::java::lang::Object {
 	$class(PreSharedKeyExtension, 0, ::java::lang::Object)
 public:
 	PreSharedKeyExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool canRejoin(::sun::security::ssl::ClientHello$ClientHelloMessage* clientHello, ::sun::security::ssl::ServerHandshakeContext* shc, ::sun::security::ssl::SSLSessionImpl* s);
 	static void checkBinder(::sun::security::ssl::ServerHandshakeContext* shc, ::sun::security::ssl::SSLSessionImpl* session, ::sun::security::ssl::HandshakeHash* pskBinderHash, $bytes* binder);

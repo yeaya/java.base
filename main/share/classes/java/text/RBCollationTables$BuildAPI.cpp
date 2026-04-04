@@ -1,5 +1,4 @@
 #include <java/text/RBCollationTables$BuildAPI.h>
-
 #include <java/text/RBCollationTables.h>
 #include <java/util/Vector.h>
 #include <sun/text/IntHashtable.h>
@@ -17,42 +16,6 @@ using $UCompactIntArray = ::sun::text::UCompactIntArray;
 
 namespace java {
 	namespace text {
-
-$FieldInfo _RBCollationTables$BuildAPI_FieldInfo_[] = {
-	{"this$0", "Ljava/text/RBCollationTables;", nullptr, $FINAL | $SYNTHETIC, $field(RBCollationTables$BuildAPI, this$0)},
-	{}
-};
-
-$MethodInfo _RBCollationTables$BuildAPI_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/RBCollationTables;)V", nullptr, $PRIVATE, $method(RBCollationTables$BuildAPI, init$, void, $RBCollationTables*)},
-	{"fillInTables", "(ZZLsun/text/UCompactIntArray;Ljava/util/Vector;Ljava/util/Vector;Lsun/text/IntHashtable;SS)V", "(ZZLsun/text/UCompactIntArray;Ljava/util/Vector<Ljava/util/Vector<Ljava/text/EntryPair;>;>;Ljava/util/Vector<[I>;Lsun/text/IntHashtable;SS)V", 0, $method(RBCollationTables$BuildAPI, fillInTables, void, bool, bool, $UCompactIntArray*, $Vector*, $Vector*, $IntHashtable*, int16_t, int16_t)},
-	{}
-};
-
-$InnerClassInfo _RBCollationTables$BuildAPI_InnerClassesInfo_[] = {
-	{"java.text.RBCollationTables$BuildAPI", "java.text.RBCollationTables", "BuildAPI", $FINAL},
-	{}
-};
-
-$ClassInfo _RBCollationTables$BuildAPI_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.text.RBCollationTables$BuildAPI",
-	"java.lang.Object",
-	nullptr,
-	_RBCollationTables$BuildAPI_FieldInfo_,
-	_RBCollationTables$BuildAPI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RBCollationTables$BuildAPI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.text.RBCollationTables"
-};
-
-$Object* allocate$RBCollationTables$BuildAPI($Class* clazz) {
-	return $of($alloc(RBCollationTables$BuildAPI));
-}
 
 void RBCollationTables$BuildAPI::init$($RBCollationTables* this$0) {
 	$set(this, this$0, this$0);
@@ -73,7 +36,37 @@ RBCollationTables$BuildAPI::RBCollationTables$BuildAPI() {
 }
 
 $Class* RBCollationTables$BuildAPI::load$($String* name, bool initialize) {
-	$loadClass(RBCollationTables$BuildAPI, name, initialize, &_RBCollationTables$BuildAPI_ClassInfo_, allocate$RBCollationTables$BuildAPI);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/text/RBCollationTables;", nullptr, $FINAL | $SYNTHETIC, $field(RBCollationTables$BuildAPI, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/text/RBCollationTables;)V", nullptr, $PRIVATE, $method(RBCollationTables$BuildAPI, init$, void, $RBCollationTables*)},
+		{"fillInTables", "(ZZLsun/text/UCompactIntArray;Ljava/util/Vector;Ljava/util/Vector;Lsun/text/IntHashtable;SS)V", "(ZZLsun/text/UCompactIntArray;Ljava/util/Vector<Ljava/util/Vector<Ljava/text/EntryPair;>;>;Ljava/util/Vector<[I>;Lsun/text/IntHashtable;SS)V", 0, $method(RBCollationTables$BuildAPI, fillInTables, void, bool, bool, $UCompactIntArray*, $Vector*, $Vector*, $IntHashtable*, int16_t, int16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.RBCollationTables$BuildAPI", "java.text.RBCollationTables", "BuildAPI", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.text.RBCollationTables$BuildAPI",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.text.RBCollationTables"
+	};
+	$loadClass(RBCollationTables$BuildAPI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RBCollationTables$BuildAPI);
+	});
 	return class$;
 }
 

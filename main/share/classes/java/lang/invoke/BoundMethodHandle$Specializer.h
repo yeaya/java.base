@@ -36,6 +36,7 @@ class BoundMethodHandle$Specializer : public ::java::lang::invoke::ClassSpeciali
 	$class(BoundMethodHandle$Specializer, 0, ::java::lang::invoke::ClassSpecializer)
 public:
 	BoundMethodHandle$Specializer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::lang::invoke::ClassSpecializer$Factory* makeFactory() override;
 	::java::lang::invoke::BoundMethodHandle$SpeciesData* newSpeciesData($String* key);

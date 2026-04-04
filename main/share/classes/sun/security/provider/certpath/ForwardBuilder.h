@@ -58,6 +58,7 @@ class ForwardBuilder : public ::sun::security::provider::certpath::Builder {
 	$class(ForwardBuilder, 0, ::sun::security::provider::certpath::Builder)
 public:
 	ForwardBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::provider::certpath::PKIX$BuilderParams* buildParams, bool searchAllCertStores);
 	virtual void addCertToPath(::java::security::cert::X509Certificate* cert, ::java::util::LinkedList* certPathList) override;
 	bool getCerts(::sun::security::x509::AuthorityInfoAccessExtension* aiaExt, ::java::util::Collection* certs);

@@ -1,5 +1,4 @@
 #include <SubclassCastUOE.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <jcpp.h>
@@ -10,25 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 
-$MethodInfo _SubclassCastUOE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SubclassCastUOE, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SubclassCastUOE, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _SubclassCastUOE_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SubclassCastUOE",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SubclassCastUOE_MethodInfo_
-};
-
-$Object* allocate$SubclassCastUOE($Class* clazz) {
-	return $of($alloc(SubclassCastUOE));
-}
-
 void SubclassCastUOE::init$() {
 }
 
@@ -37,13 +17,13 @@ void SubclassCastUOE::main($StringArray* args) {
 	if (!($instanceOf($MappedByteBuffer, buf))) {
 		$throwNew($RuntimeException, "Direct buffer not a MappedByteBuffer"_s);
 	}
-	if (!$equals($nc(($cast($MappedByteBuffer, buf)))->load(), buf)) {
+	if (!$equals($nc($cast($MappedByteBuffer, buf))->load(), buf)) {
 		$throwNew($RuntimeException, "load() did not return same buffer"_s);
 	}
-	if (!$nc(($cast($MappedByteBuffer, buf)))->isLoaded()) {
+	if (!$cast($MappedByteBuffer, buf)->isLoaded()) {
 		$throwNew($RuntimeException, "isLoaded() returned false"_s);
 	}
-	if (!$equals($nc(($cast($MappedByteBuffer, buf)))->force(), buf)) {
+	if (!$equals($cast($MappedByteBuffer, buf)->force(), buf)) {
 		$throwNew($RuntimeException, "force() did not return same buffer"_s);
 	}
 }
@@ -52,7 +32,22 @@ SubclassCastUOE::SubclassCastUOE() {
 }
 
 $Class* SubclassCastUOE::load$($String* name, bool initialize) {
-	$loadClass(SubclassCastUOE, name, initialize, &_SubclassCastUOE_ClassInfo_, allocate$SubclassCastUOE);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SubclassCastUOE, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SubclassCastUOE, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SubclassCastUOE",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SubclassCastUOE, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SubclassCastUOE);
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ class $export NotYetConnectedException : public ::java::lang::IllegalStateExcept
 public:
 	NotYetConnectedException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x413038843A2118F8;
+	static const int64_t serialVersionUID = (int64_t)0x413038843a2118f8;
 	NotYetConnectedException(const NotYetConnectedException& e);
 	virtual void throw$() override;
-	inline NotYetConnectedException* operator ->() {
+	inline NotYetConnectedException* operator ->() const {
+		return (NotYetConnectedException*)throwing$;
+	}
+	inline operator NotYetConnectedException*() const {
 		return (NotYetConnectedException*)throwing$;
 	}
 };

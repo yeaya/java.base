@@ -23,6 +23,7 @@ class $import BigDecimal$StringBuilderHelper : public ::java::lang::Object {
 	$class(BigDecimal$StringBuilderHelper, 0, ::java::lang::Object)
 public:
 	BigDecimal$StringBuilderHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $chars* getCompactCharArray();
 	virtual ::java::lang::StringBuilder* getStringBuilder();

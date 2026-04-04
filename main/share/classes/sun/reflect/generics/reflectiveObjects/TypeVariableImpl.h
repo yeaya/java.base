@@ -62,6 +62,7 @@ public:
 	TypeVariableImpl();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::GenericDeclaration* decl, $String* n, $Array<::sun::reflect::generics::tree::FieldTypeSignature>* bs, ::sun::reflect::generics::factory::GenericsFactory* f);
 	virtual bool equals(Object$* o) override;
 	virtual $Array<::java::lang::reflect::AnnotatedType>* getAnnotatedBounds() override;

@@ -1,5 +1,4 @@
 #include <java/nio/ByteBufferAsLongBufferL.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
@@ -26,51 +25,10 @@ using $ByteOrder = ::java::nio::ByteOrder;
 using $LongBuffer = ::java::nio::LongBuffer;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _ByteBufferAsLongBufferL_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ByteBufferAsLongBufferL, $assertionsDisabled)},
-	{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PROTECTED | $FINAL, $field(ByteBufferAsLongBufferL, bb)},
-	{}
-};
-
-$MethodInfo _ByteBufferAsLongBufferL_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsLongBufferL, init$, void, $ByteBuffer*, $MemorySegmentProxy*)},
-	{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsLongBufferL, init$, void, $ByteBuffer*, int32_t, int32_t, int32_t, int32_t, int64_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, asReadOnlyBuffer, $LongBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ByteBufferAsLongBufferL, base, $Object*)},
-	{"byteOffset", "(J)J", nullptr, $PROTECTED, $virtualMethod(ByteBufferAsLongBufferL, byteOffset, int64_t, int64_t)},
-	{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, compact, $LongBuffer*)},
-	{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, duplicate, $LongBuffer*)},
-	{"get", "()J", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, get, int64_t)},
-	{"get", "(I)J", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, get, int64_t, int32_t)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, isReadOnly, bool)},
-	{"ix", "(I)I", nullptr, $PRIVATE, $method(ByteBufferAsLongBufferL, ix, int32_t, int32_t)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, order, $ByteOrder*)},
-	{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, put, $LongBuffer*, int64_t)},
-	{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, put, $LongBuffer*, int32_t, int64_t)},
-	{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, slice, $LongBuffer*)},
-	{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, slice, $LongBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ByteBufferAsLongBufferL_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.ByteBufferAsLongBufferL",
-	"java.nio.LongBuffer",
-	nullptr,
-	_ByteBufferAsLongBufferL_FieldInfo_,
-	_ByteBufferAsLongBufferL_MethodInfo_
-};
-
-$Object* allocate$ByteBufferAsLongBufferL($Class* clazz) {
-	return $of($alloc(ByteBufferAsLongBufferL));
-}
 
 bool ByteBufferAsLongBufferL::$assertionsDisabled = false;
 
@@ -84,7 +42,7 @@ void ByteBufferAsLongBufferL::init$($ByteBuffer* bb, $MemorySegmentProxy* segmen
 	if (!ByteBufferAsLongBufferL::$assertionsDisabled && !(pos <= cap)) {
 		$throwNew($AssertionError);
 	}
-	this->address = $nc(bb)->address;
+	this->address = bb->address;
 }
 
 void ByteBufferAsLongBufferL::init$($ByteBuffer* bb, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int64_t addr, $MemorySegmentProxy* segment) {
@@ -97,7 +55,7 @@ void ByteBufferAsLongBufferL::init$($ByteBuffer* bb, int32_t mark, int32_t pos, 
 }
 
 $Object* ByteBufferAsLongBufferL::base() {
-	return $of($nc(this->bb)->hb);
+	return $nc(this->bb)->hb;
 }
 
 $LongBuffer* ByteBufferAsLongBufferL::slice() {
@@ -139,45 +97,45 @@ int64_t ByteBufferAsLongBufferL::byteOffset(int64_t i) {
 }
 
 int64_t ByteBufferAsLongBufferL::get() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
-	$var($Object, var$1, $of($nc(this->bb)->hb));
+	$var($Object, var$1, $nc(this->bb)->hb);
 	int64_t x = $nc($Buffer::SCOPED_MEMORY_ACCESS)->getLongUnaligned(var$0, var$1, byteOffset(nextGetIndex()), false);
 	return (x);
 }
 
 int64_t ByteBufferAsLongBufferL::get(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
-	$var($Object, var$1, $of($nc(this->bb)->hb));
+	$var($Object, var$1, $nc(this->bb)->hb);
 	int64_t x = $nc($Buffer::SCOPED_MEMORY_ACCESS)->getLongUnaligned(var$0, var$1, byteOffset(checkIndex(i)), false);
 	return (x);
 }
 
 $LongBuffer* ByteBufferAsLongBufferL::put(int64_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t y = (x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
-	$var($Object, var$1, $of($nc(this->bb)->hb));
+	$var($Object, var$1, $nc(this->bb)->hb);
 	$nc($Buffer::SCOPED_MEMORY_ACCESS)->putLongUnaligned(var$0, var$1, byteOffset(nextPutIndex()), y, false);
 	return this;
 }
 
 $LongBuffer* ByteBufferAsLongBufferL::put(int32_t i, int64_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t y = (x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
-	$var($Object, var$1, $of($nc(this->bb)->hb));
+	$var($Object, var$1, $nc(this->bb)->hb);
 	$nc($Buffer::SCOPED_MEMORY_ACCESS)->putLongUnaligned(var$0, var$1, byteOffset(checkIndex(i)), y, false);
 	return this;
 }
 
 $LongBuffer* ByteBufferAsLongBufferL::compact() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!ByteBufferAsLongBufferL::$assertionsDisabled && !(pos <= lim)) {
@@ -209,7 +167,7 @@ $ByteOrder* ByteBufferAsLongBufferL::order() {
 	return $ByteOrder::LITTLE_ENDIAN;
 }
 
-void clinit$ByteBufferAsLongBufferL($Class* class$) {
+void ByteBufferAsLongBufferL::clinit$($Class* clazz) {
 	ByteBufferAsLongBufferL::$assertionsDisabled = !ByteBufferAsLongBufferL::class$->desiredAssertionStatus();
 }
 
@@ -217,7 +175,42 @@ ByteBufferAsLongBufferL::ByteBufferAsLongBufferL() {
 }
 
 $Class* ByteBufferAsLongBufferL::load$($String* name, bool initialize) {
-	$loadClass(ByteBufferAsLongBufferL, name, initialize, &_ByteBufferAsLongBufferL_ClassInfo_, clinit$ByteBufferAsLongBufferL, allocate$ByteBufferAsLongBufferL);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ByteBufferAsLongBufferL, $assertionsDisabled)},
+		{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PROTECTED | $FINAL, $field(ByteBufferAsLongBufferL, bb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsLongBufferL, init$, void, $ByteBuffer*, $MemorySegmentProxy*)},
+		{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsLongBufferL, init$, void, $ByteBuffer*, int32_t, int32_t, int32_t, int32_t, int64_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, asReadOnlyBuffer, $LongBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ByteBufferAsLongBufferL, base, $Object*)},
+		{"byteOffset", "(J)J", nullptr, $PROTECTED, $virtualMethod(ByteBufferAsLongBufferL, byteOffset, int64_t, int64_t)},
+		{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, compact, $LongBuffer*)},
+		{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, duplicate, $LongBuffer*)},
+		{"get", "()J", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, get, int64_t)},
+		{"get", "(I)J", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, get, int64_t, int32_t)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, isReadOnly, bool)},
+		{"ix", "(I)I", nullptr, $PRIVATE, $method(ByteBufferAsLongBufferL, ix, int32_t, int32_t)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, order, $ByteOrder*)},
+		{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, put, $LongBuffer*, int64_t)},
+		{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, put, $LongBuffer*, int32_t, int64_t)},
+		{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, slice, $LongBuffer*)},
+		{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsLongBufferL, slice, $LongBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.ByteBufferAsLongBufferL",
+		"java.nio.LongBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteBufferAsLongBufferL, name, initialize, &classInfo$$, ByteBufferAsLongBufferL::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ByteBufferAsLongBufferL));
+	});
 	return class$;
 }
 

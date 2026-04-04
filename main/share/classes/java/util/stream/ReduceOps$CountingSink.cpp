@@ -1,5 +1,4 @@
 #include <java/util/stream/ReduceOps$CountingSink.h>
-
 #include <java/util/stream/ReduceOps$AccumulatingSink.h>
 #include <java/util/stream/ReduceOps$Box.h>
 #include <java/util/stream/ReduceOps.h>
@@ -16,56 +15,6 @@ using $ReduceOps$Box = ::java::util::stream::ReduceOps$Box;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _ReduceOps$CountingSink_FieldInfo_[] = {
-	{"count", "J", nullptr, 0, $field(ReduceOps$CountingSink, count)},
-	{}
-};
-
-$MethodInfo _ReduceOps$CountingSink_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(ReduceOps$CountingSink, init$, void)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(ReduceOps$CountingSink, begin, void, int64_t)},
-	{"combine", "(Ljava/util/stream/ReduceOps$CountingSink;)V", "(Ljava/util/stream/ReduceOps$CountingSink<TT;>;)V", $PUBLIC, $virtualMethod(ReduceOps$CountingSink, combine, void, ReduceOps$CountingSink*)},
-	{"combine", "(Ljava/util/stream/ReduceOps$AccumulatingSink;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ReduceOps$CountingSink, combine, void, $ReduceOps$AccumulatingSink*)},
-	{"get", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(ReduceOps$CountingSink, get, $Object*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ReduceOps$CountingSink_InnerClassesInfo_[] = {
-	{"java.util.stream.ReduceOps$CountingSink", "java.util.stream.ReduceOps", "CountingSink", $STATIC | $ABSTRACT},
-	{"java.util.stream.ReduceOps$Box", "java.util.stream.ReduceOps", "Box", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.ReduceOps$AccumulatingSink", "java.util.stream.ReduceOps", "AccumulatingSink", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.ReduceOps$CountingSink$OfDouble", "java.util.stream.ReduceOps$CountingSink", "OfDouble", $STATIC | $FINAL},
-	{"java.util.stream.ReduceOps$CountingSink$OfLong", "java.util.stream.ReduceOps$CountingSink", "OfLong", $STATIC | $FINAL},
-	{"java.util.stream.ReduceOps$CountingSink$OfInt", "java.util.stream.ReduceOps$CountingSink", "OfInt", $STATIC | $FINAL},
-	{"java.util.stream.ReduceOps$CountingSink$OfRef", "java.util.stream.ReduceOps$CountingSink", "OfRef", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ReduceOps$CountingSink_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.ReduceOps$CountingSink",
-	"java.util.stream.ReduceOps$Box",
-	"java.util.stream.ReduceOps$AccumulatingSink",
-	_ReduceOps$CountingSink_FieldInfo_,
-	_ReduceOps$CountingSink_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/stream/ReduceOps$Box<Ljava/lang/Long;>;Ljava/util/stream/ReduceOps$AccumulatingSink<TT;Ljava/lang/Long;Ljava/util/stream/ReduceOps$CountingSink<TT;>;>;",
-	nullptr,
-	_ReduceOps$CountingSink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ReduceOps"
-};
-
-$Object* allocate$ReduceOps$CountingSink($Class* clazz) {
-	return $of($alloc(ReduceOps$CountingSink));
-}
 
 int32_t ReduceOps$CountingSink::hashCode() {
 	 return this->$ReduceOps$Box::hashCode();
@@ -111,7 +60,51 @@ ReduceOps$CountingSink::ReduceOps$CountingSink() {
 }
 
 $Class* ReduceOps$CountingSink::load$($String* name, bool initialize) {
-	$loadClass(ReduceOps$CountingSink, name, initialize, &_ReduceOps$CountingSink_ClassInfo_, allocate$ReduceOps$CountingSink);
+	$FieldInfo fieldInfos$$[] = {
+		{"count", "J", nullptr, 0, $field(ReduceOps$CountingSink, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(ReduceOps$CountingSink, init$, void)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(ReduceOps$CountingSink, begin, void, int64_t)},
+		{"combine", "(Ljava/util/stream/ReduceOps$CountingSink;)V", "(Ljava/util/stream/ReduceOps$CountingSink<TT;>;)V", $PUBLIC, $virtualMethod(ReduceOps$CountingSink, combine, void, ReduceOps$CountingSink*)},
+		{"combine", "(Ljava/util/stream/ReduceOps$AccumulatingSink;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ReduceOps$CountingSink, combine, void, $ReduceOps$AccumulatingSink*)},
+		{"get", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(ReduceOps$CountingSink, get, $Object*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ReduceOps$CountingSink", "java.util.stream.ReduceOps", "CountingSink", $STATIC | $ABSTRACT},
+		{"java.util.stream.ReduceOps$Box", "java.util.stream.ReduceOps", "Box", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.ReduceOps$AccumulatingSink", "java.util.stream.ReduceOps", "AccumulatingSink", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.ReduceOps$CountingSink$OfDouble", "java.util.stream.ReduceOps$CountingSink", "OfDouble", $STATIC | $FINAL},
+		{"java.util.stream.ReduceOps$CountingSink$OfLong", "java.util.stream.ReduceOps$CountingSink", "OfLong", $STATIC | $FINAL},
+		{"java.util.stream.ReduceOps$CountingSink$OfInt", "java.util.stream.ReduceOps$CountingSink", "OfInt", $STATIC | $FINAL},
+		{"java.util.stream.ReduceOps$CountingSink$OfRef", "java.util.stream.ReduceOps$CountingSink", "OfRef", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.ReduceOps$CountingSink",
+		"java.util.stream.ReduceOps$Box",
+		"java.util.stream.ReduceOps$AccumulatingSink",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/stream/ReduceOps$Box<Ljava/lang/Long;>;Ljava/util/stream/ReduceOps$AccumulatingSink<TT;Ljava/lang/Long;Ljava/util/stream/ReduceOps$CountingSink<TT;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ReduceOps"
+	};
+	$loadClass(ReduceOps$CountingSink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReduceOps$CountingSink));
+	});
 	return class$;
 }
 

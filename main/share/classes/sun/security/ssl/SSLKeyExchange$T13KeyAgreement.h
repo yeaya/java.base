@@ -29,6 +29,7 @@ class SSLKeyExchange$T13KeyAgreement : public ::sun::security::ssl::SSLKeyAgreem
 	$class(SSLKeyExchange$T13KeyAgreement, 0, ::sun::security::ssl::SSLKeyAgreement)
 public:
 	SSLKeyExchange$T13KeyAgreement();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::NamedGroup* namedGroup);
 	virtual ::sun::security::ssl::SSLKeyDerivation* createKeyDerivation(::sun::security::ssl::HandshakeContext* hc) override;
 	virtual ::sun::security::ssl::SSLPossession* createPossession(::sun::security::ssl::HandshakeContext* hc) override;

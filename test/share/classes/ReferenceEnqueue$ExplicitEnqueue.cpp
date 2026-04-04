@@ -1,5 +1,4 @@
 #include <ReferenceEnqueue$ExplicitEnqueue.h>
-
 #include <ReferenceEnqueue.h>
 #include <java/lang/ref/PhantomReference.h>
 #include <java/lang/ref/Reference.h>
@@ -23,84 +22,45 @@ using $SoftReference = ::java::lang::ref::SoftReference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-
-$FieldInfo _ReferenceEnqueue$ExplicitEnqueue_FieldInfo_[] = {
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $FINAL, $field(ReferenceEnqueue$ExplicitEnqueue, queue)},
-	{"refs", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/ref/Reference<Ljava/lang/Object;>;>;", $FINAL, $field(ReferenceEnqueue$ExplicitEnqueue, refs)},
-	{"iterations", "I", nullptr, $STATIC | $FINAL, $constField(ReferenceEnqueue$ExplicitEnqueue, iterations)},
-	{}
-};
-
-$MethodInfo _ReferenceEnqueue$ExplicitEnqueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ReferenceEnqueue$ExplicitEnqueue, init$, void)},
-	{"run", "()V", nullptr, 0, $virtualMethod(ReferenceEnqueue$ExplicitEnqueue, run, void), "java.lang.InterruptedException"},
-	{}
-};
-
-$InnerClassInfo _ReferenceEnqueue$ExplicitEnqueue_InnerClassesInfo_[] = {
-	{"ReferenceEnqueue$ExplicitEnqueue", "ReferenceEnqueue", "ExplicitEnqueue", $STATIC},
-	{}
-};
-
-$ClassInfo _ReferenceEnqueue$ExplicitEnqueue_ClassInfo_ = {
-	$ACC_SUPER,
-	"ReferenceEnqueue$ExplicitEnqueue",
-	"java.lang.Object",
-	nullptr,
-	_ReferenceEnqueue$ExplicitEnqueue_FieldInfo_,
-	_ReferenceEnqueue$ExplicitEnqueue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReferenceEnqueue$ExplicitEnqueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ReferenceEnqueue"
-};
-
-$Object* allocate$ReferenceEnqueue$ExplicitEnqueue($Class* clazz) {
-	return $of($alloc(ReferenceEnqueue$ExplicitEnqueue));
-}
 
 void ReferenceEnqueue$ExplicitEnqueue::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, queue, $new($ReferenceQueue));
 	$set(this, refs, $new($ArrayList));
 	$nc(this->refs)->add($$new($SoftReference, $$new($Object), this->queue));
-	$nc(this->refs)->add($$new($WeakReference, $$new($Object), this->queue));
-	$nc(this->refs)->add($$new($PhantomReference, $$new($Object), this->queue));
+	this->refs->add($$new($WeakReference, $$new($Object), this->queue));
+	this->refs->add($$new($PhantomReference, $$new($Object), this->queue));
 }
 
 void ReferenceEnqueue$ExplicitEnqueue::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($Iterator, i$, $nc(this->refs)->iterator());
+		$var($Iterator, i$, this->refs->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Reference, ref, $cast($Reference, i$->next()));
 			{
 				if ($nc(ref)->enqueue() == false) {
 					$throwNew($RuntimeException, "Error: enqueue failed"_s);
 				}
-				if (!$nc(ref)->refersTo(nullptr)) {
+				if (!ref->refersTo(nullptr)) {
 					$throwNew($RuntimeException, "Error: referent must be cleared"_s);
 				}
 			}
 		}
 	}
 	$System::gc();
-	for (int32_t i = 0; $nc(this->refs)->size() > 0 && i < ReferenceEnqueue$ExplicitEnqueue::iterations; ++i) {
-		$var($Reference, ref, $nc(this->queue)->poll());
+	for (int32_t i = 0; this->refs->size() > 0 && i < ReferenceEnqueue$ExplicitEnqueue::iterations; ++i) {
+		$var($Reference, ref, this->queue->poll());
 		if (ref == nullptr) {
 			$System::gc();
 			$Thread::sleep(100);
 			continue;
 		}
-		if ($nc(this->refs)->remove($of(ref)) == false) {
+		if (this->refs->remove(ref) == false) {
 			$throwNew($RuntimeException, $$str({"Error: unknown reference "_s, ref}));
 		}
 	}
-	if (!$nc(this->refs)->isEmpty()) {
+	if (!this->refs->isEmpty()) {
 		$throwNew($RuntimeException, "Error: not all references are removed"_s);
 	}
 }
@@ -109,7 +69,39 @@ ReferenceEnqueue$ExplicitEnqueue::ReferenceEnqueue$ExplicitEnqueue() {
 }
 
 $Class* ReferenceEnqueue$ExplicitEnqueue::load$($String* name, bool initialize) {
-	$loadClass(ReferenceEnqueue$ExplicitEnqueue, name, initialize, &_ReferenceEnqueue$ExplicitEnqueue_ClassInfo_, allocate$ReferenceEnqueue$ExplicitEnqueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $FINAL, $field(ReferenceEnqueue$ExplicitEnqueue, queue)},
+		{"refs", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/ref/Reference<Ljava/lang/Object;>;>;", $FINAL, $field(ReferenceEnqueue$ExplicitEnqueue, refs)},
+		{"iterations", "I", nullptr, $STATIC | $FINAL, $constField(ReferenceEnqueue$ExplicitEnqueue, iterations)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ReferenceEnqueue$ExplicitEnqueue, init$, void)},
+		{"run", "()V", nullptr, 0, $virtualMethod(ReferenceEnqueue$ExplicitEnqueue, run, void), "java.lang.InterruptedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ReferenceEnqueue$ExplicitEnqueue", "ReferenceEnqueue", "ExplicitEnqueue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ReferenceEnqueue$ExplicitEnqueue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ReferenceEnqueue"
+	};
+	$loadClass(ReferenceEnqueue$ExplicitEnqueue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceEnqueue$ExplicitEnqueue);
+	});
 	return class$;
 }
 

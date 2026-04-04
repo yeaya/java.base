@@ -1,5 +1,4 @@
 #include <ReferenceEnqueuePending$NumberedWeakReference.h>
-
 #include <ReferenceEnqueuePending.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/WeakReference.h>
@@ -13,41 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
 
-$FieldInfo _ReferenceEnqueuePending$NumberedWeakReference_FieldInfo_[] = {
-	{"number", "I", nullptr, 0, $field(ReferenceEnqueuePending$NumberedWeakReference, number)},
-	{}
-};
-
-$MethodInfo _ReferenceEnqueuePending$NumberedWeakReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Integer;Ljava/lang/ref/ReferenceQueue;I)V", "(Ljava/lang/Integer;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;I)V", 0, $method(ReferenceEnqueuePending$NumberedWeakReference, init$, void, $Integer*, $ReferenceQueue*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ReferenceEnqueuePending$NumberedWeakReference_InnerClassesInfo_[] = {
-	{"ReferenceEnqueuePending$NumberedWeakReference", "ReferenceEnqueuePending", "NumberedWeakReference", $STATIC},
-	{}
-};
-
-$ClassInfo _ReferenceEnqueuePending$NumberedWeakReference_ClassInfo_ = {
-	$ACC_SUPER,
-	"ReferenceEnqueuePending$NumberedWeakReference",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	_ReferenceEnqueuePending$NumberedWeakReference_FieldInfo_,
-	_ReferenceEnqueuePending$NumberedWeakReference_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Ljava/lang/Integer;>;",
-	nullptr,
-	_ReferenceEnqueuePending$NumberedWeakReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ReferenceEnqueuePending"
-};
-
-$Object* allocate$ReferenceEnqueuePending$NumberedWeakReference($Class* clazz) {
-	return $of($alloc(ReferenceEnqueuePending$NumberedWeakReference));
-}
-
 void ReferenceEnqueuePending$NumberedWeakReference::init$($Integer* referent, $ReferenceQueue* q, int32_t i) {
 	$WeakReference::init$(referent, q);
 	this->number = i;
@@ -57,7 +21,36 @@ ReferenceEnqueuePending$NumberedWeakReference::ReferenceEnqueuePending$NumberedW
 }
 
 $Class* ReferenceEnqueuePending$NumberedWeakReference::load$($String* name, bool initialize) {
-	$loadClass(ReferenceEnqueuePending$NumberedWeakReference, name, initialize, &_ReferenceEnqueuePending$NumberedWeakReference_ClassInfo_, allocate$ReferenceEnqueuePending$NumberedWeakReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"number", "I", nullptr, 0, $field(ReferenceEnqueuePending$NumberedWeakReference, number)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Integer;Ljava/lang/ref/ReferenceQueue;I)V", "(Ljava/lang/Integer;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;I)V", 0, $method(ReferenceEnqueuePending$NumberedWeakReference, init$, void, $Integer*, $ReferenceQueue*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ReferenceEnqueuePending$NumberedWeakReference", "ReferenceEnqueuePending", "NumberedWeakReference", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ReferenceEnqueuePending$NumberedWeakReference",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Ljava/lang/Integer;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ReferenceEnqueuePending"
+	};
+	$loadClass(ReferenceEnqueuePending$NumberedWeakReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceEnqueuePending$NumberedWeakReference);
+	});
 	return class$;
 }
 

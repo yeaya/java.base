@@ -56,6 +56,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Locale* l, ::java::lang::Appendable* a);
 	void init$(::java::nio::charset::Charset* charset, ::java::util::Locale* l, ::java::io::File* file);
 	void init$();

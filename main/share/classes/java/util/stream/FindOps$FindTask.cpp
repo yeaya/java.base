@@ -1,5 +1,4 @@
 #include <java/util/stream/FindOps$FindTask.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/CountedCompleter.h>
 #include <java/util/function/Predicate.h>
@@ -19,59 +18,14 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
-using $Predicate = ::java::util::function::Predicate;
-using $Supplier = ::java::util::function::Supplier;
 using $AbstractShortCircuitTask = ::java::util::stream::AbstractShortCircuitTask;
 using $FindOps$FindOp = ::java::util::stream::FindOps$FindOp;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
-using $Sink = ::java::util::stream::Sink;
 using $TerminalSink = ::java::util::stream::TerminalSink;
 
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _FindOps$FindTask_FieldInfo_[] = {
-	{"op", "Ljava/util/stream/FindOps$FindOp;", "Ljava/util/stream/FindOps$FindOp<TP_OUT;TO;>;", $PRIVATE | $FINAL, $field(FindOps$FindTask, op)},
-	{"mustFindFirst", "Z", nullptr, $PRIVATE | $FINAL, $field(FindOps$FindTask, mustFindFirst)},
-	{}
-};
-
-$MethodInfo _FindOps$FindTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/FindOps$FindOp;ZLjava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/FindOps$FindOp<TP_OUT;TO;>;ZLjava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(FindOps$FindTask, init$, void, $FindOps$FindOp*, bool, $PipelineHelper*, $Spliterator*)},
-	{"<init>", "(Ljava/util/stream/FindOps$FindTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/FindOps$FindTask<TP_IN;TP_OUT;TO;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(FindOps$FindTask, init$, void, FindOps$FindTask*, $Spliterator*)},
-	{"doLeaf", "()Ljava/lang/Object;", "()TO;", $PROTECTED, $virtualMethod(FindOps$FindTask, doLeaf, $Object*)},
-	{"foundResult", "(Ljava/lang/Object;)V", "(TO;)V", $PRIVATE, $method(FindOps$FindTask, foundResult, void, Object$*)},
-	{"getEmptyResult", "()Ljava/lang/Object;", "()TO;", $PROTECTED, $virtualMethod(FindOps$FindTask, getEmptyResult, $Object*)},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/FindOps$FindTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/FindOps$FindTask<TP_IN;TP_OUT;TO;>;", $PROTECTED, $virtualMethod(FindOps$FindTask, makeChild, FindOps$FindTask*, $Spliterator*)},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC, $virtualMethod(FindOps$FindTask, onCompletion, void, $CountedCompleter*)},
-	{}
-};
-
-$InnerClassInfo _FindOps$FindTask_InnerClassesInfo_[] = {
-	{"java.util.stream.FindOps$FindTask", "java.util.stream.FindOps", "FindTask", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _FindOps$FindTask_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.FindOps$FindTask",
-	"java.util.stream.AbstractShortCircuitTask",
-	nullptr,
-	_FindOps$FindTask_FieldInfo_,
-	_FindOps$FindTask_MethodInfo_,
-	"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;O:Ljava/lang/Object;>Ljava/util/stream/AbstractShortCircuitTask<TP_IN;TP_OUT;TO;Ljava/util/stream/FindOps$FindTask<TP_IN;TP_OUT;TO;>;>;",
-	nullptr,
-	_FindOps$FindTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.FindOps"
-};
-
-$Object* allocate$FindOps$FindTask($Class* clazz) {
-	return $of($alloc(FindOps$FindTask));
-}
 
 void FindOps$FindTask::init$($FindOps$FindOp* op, bool mustFindFirst, $PipelineHelper* helper, $Spliterator* spliterator) {
 	$AbstractShortCircuitTask::init$(helper, spliterator);
@@ -80,7 +34,7 @@ void FindOps$FindTask::init$($FindOps$FindOp* op, bool mustFindFirst, $PipelineH
 }
 
 void FindOps$FindTask::init$(FindOps$FindTask* parent, $Spliterator* spliterator) {
-	$AbstractShortCircuitTask::init$(static_cast<$AbstractShortCircuitTask*>(parent), spliterator);
+	$AbstractShortCircuitTask::init$(parent, spliterator);
 	this->mustFindFirst = $nc(parent)->mustFindFirst;
 	$set(this, op, parent->op);
 }
@@ -90,7 +44,7 @@ FindOps$FindTask* FindOps$FindTask::makeChild($Spliterator* spliterator) {
 }
 
 $Object* FindOps$FindTask::getEmptyResult() {
-	return $of($nc(this->op)->emptyValue);
+	return $nc(this->op)->emptyValue;
 }
 
 void FindOps$FindTask::foundResult(Object$* answer) {
@@ -102,34 +56,32 @@ void FindOps$FindTask::foundResult(Object$* answer) {
 }
 
 $Object* FindOps$FindTask::doLeaf() {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, result, $nc(($cast($TerminalSink, $($nc(this->helper)->wrapAndCopyInto($cast($TerminalSink, $($nc($nc(this->op)->sinkSupplier)->get())), this->spliterator)))))->get());
+	$useLocalObjectStack();
+	$var($Object, result, $$sure($TerminalSink, $nc(this->helper)->wrapAndCopyInto($$cast($TerminalSink, $nc($nc(this->op)->sinkSupplier)->get()), this->spliterator))->get());
 	if (!this->mustFindFirst) {
 		if (result != nullptr) {
 			shortCircuit(result);
 		}
-		return $of(nullptr);
+		return nullptr;
 	} else if (result != nullptr) {
 		foundResult(result);
-		return $of(result);
+		return result;
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
 void FindOps$FindTask::onCompletion($CountedCompleter* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mustFindFirst) {
-		{
-			$var(FindOps$FindTask, child, $cast(FindOps$FindTask, this->leftChild));
-			$var(FindOps$FindTask, p, nullptr);
-			for (; child != p; $assign(p, child), $assign(child, $cast(FindOps$FindTask, this->rightChild))) {
-				$var($Object, result, $nc(child)->getLocalResult());
-				if (result != nullptr && $nc($nc(this->op)->presentPredicate)->test(result)) {
-					setLocalResult(result);
-					foundResult(result);
-					break;
-				}
+		$var(FindOps$FindTask, child, $cast(FindOps$FindTask, this->leftChild));
+		$var(FindOps$FindTask, p, nullptr);
+		for (; child != p; $assign(p, child), $assign(child, $cast(FindOps$FindTask, this->rightChild))) {
+			$var($Object, result, $nc(child)->getLocalResult());
+			if (result != nullptr && $nc($nc(this->op)->presentPredicate)->test(result)) {
+				setLocalResult(result);
+				foundResult(result);
+				break;
 			}
 		}
 	}
@@ -140,7 +92,43 @@ FindOps$FindTask::FindOps$FindTask() {
 }
 
 $Class* FindOps$FindTask::load$($String* name, bool initialize) {
-	$loadClass(FindOps$FindTask, name, initialize, &_FindOps$FindTask_ClassInfo_, allocate$FindOps$FindTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"op", "Ljava/util/stream/FindOps$FindOp;", "Ljava/util/stream/FindOps$FindOp<TP_OUT;TO;>;", $PRIVATE | $FINAL, $field(FindOps$FindTask, op)},
+		{"mustFindFirst", "Z", nullptr, $PRIVATE | $FINAL, $field(FindOps$FindTask, mustFindFirst)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/FindOps$FindOp;ZLjava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/FindOps$FindOp<TP_OUT;TO;>;ZLjava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(FindOps$FindTask, init$, void, $FindOps$FindOp*, bool, $PipelineHelper*, $Spliterator*)},
+		{"<init>", "(Ljava/util/stream/FindOps$FindTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/FindOps$FindTask<TP_IN;TP_OUT;TO;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(FindOps$FindTask, init$, void, FindOps$FindTask*, $Spliterator*)},
+		{"doLeaf", "()Ljava/lang/Object;", "()TO;", $PROTECTED, $virtualMethod(FindOps$FindTask, doLeaf, $Object*)},
+		{"foundResult", "(Ljava/lang/Object;)V", "(TO;)V", $PRIVATE, $method(FindOps$FindTask, foundResult, void, Object$*)},
+		{"getEmptyResult", "()Ljava/lang/Object;", "()TO;", $PROTECTED, $virtualMethod(FindOps$FindTask, getEmptyResult, $Object*)},
+		{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/FindOps$FindTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/FindOps$FindTask<TP_IN;TP_OUT;TO;>;", $PROTECTED, $virtualMethod(FindOps$FindTask, makeChild, FindOps$FindTask*, $Spliterator*)},
+		{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC, $virtualMethod(FindOps$FindTask, onCompletion, void, $CountedCompleter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.FindOps$FindTask", "java.util.stream.FindOps", "FindTask", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.FindOps$FindTask",
+		"java.util.stream.AbstractShortCircuitTask",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;O:Ljava/lang/Object;>Ljava/util/stream/AbstractShortCircuitTask<TP_IN;TP_OUT;TO;Ljava/util/stream/FindOps$FindTask<TP_IN;TP_OUT;TO;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.FindOps"
+	};
+	$loadClass(FindOps$FindTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FindOps$FindTask));
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ public:
 	NoSuchProviderException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x75CBD4ABB73CABCA;
+	static const int64_t serialVersionUID = (int64_t)0x75cbd4abb73cabca;
 	NoSuchProviderException(const NoSuchProviderException& e);
 	virtual void throw$() override;
-	inline NoSuchProviderException* operator ->() {
+	inline NoSuchProviderException* operator ->() const {
+		return (NoSuchProviderException*)throwing$;
+	}
+	inline operator NoSuchProviderException*() const {
 		return (NoSuchProviderException*)throwing$;
 	}
 };

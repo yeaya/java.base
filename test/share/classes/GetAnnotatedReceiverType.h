@@ -21,6 +21,7 @@ class $export GetAnnotatedReceiverType : public ::java::lang::Object {
 	$class(GetAnnotatedReceiverType, 0, ::java::lang::Object)
 public:
 	GetAnnotatedReceiverType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkAnnotatedReceiverType(::java::lang::reflect::Executable* e, bool shouldBeParameterized, $String* msg);
 	static void checkEmptyAT(::java::lang::reflect::Executable* e, $String* msg);

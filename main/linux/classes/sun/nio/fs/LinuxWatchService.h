@@ -40,6 +40,7 @@ class LinuxWatchService : public ::sun::nio::fs::AbstractWatchService {
 	$class(LinuxWatchService, 0, ::sun::nio::fs::AbstractWatchService)
 public:
 	LinuxWatchService();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::UnixFileSystem* fs);
 	static void configureBlocking(int32_t fd, bool blocking);
 	static $ints* eventOffsets();

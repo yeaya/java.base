@@ -1,5 +1,4 @@
 #include <java/nio/InvalidMarkException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _InvalidMarkException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidMarkException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidMarkException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidMarkException, init$, void)},
-	{}
-};
-
-$ClassInfo _InvalidMarkException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.InvalidMarkException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_InvalidMarkException_FieldInfo_,
-	_InvalidMarkException_MethodInfo_
-};
-
-$Object* allocate$InvalidMarkException($Class* clazz) {
-	return $of($alloc(InvalidMarkException));
-}
 
 void InvalidMarkException::init$() {
 	$IllegalStateException::init$();
@@ -49,7 +25,25 @@ void InvalidMarkException::throw$() {
 }
 
 $Class* InvalidMarkException::load$($String* name, bool initialize) {
-	$loadClass(InvalidMarkException, name, initialize, &_InvalidMarkException_ClassInfo_, allocate$InvalidMarkException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidMarkException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidMarkException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.InvalidMarkException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidMarkException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidMarkException);
+	});
 	return class$;
 }
 

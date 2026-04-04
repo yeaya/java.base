@@ -1,5 +1,4 @@
 #include <test/java/lang/invoke/CallStaticInitOrder$Init5.h>
-
 #include <test/java/lang/invoke/CallStaticInitOrder.h>
 #include <jcpp.h>
 
@@ -14,52 +13,16 @@ namespace test {
 		namespace lang {
 			namespace invoke {
 
-$FieldInfo _CallStaticInitOrder$Init5_FieldInfo_[] = {
-	{"bang", "I", nullptr, $STATIC, $staticField(CallStaticInitOrder$Init5, bang)},
-	{}
-};
-
-$MethodInfo _CallStaticInitOrder$Init5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CallStaticInitOrder$Init5, init$, void)},
-	{}
-};
-
-$InnerClassInfo _CallStaticInitOrder$Init5_InnerClassesInfo_[] = {
-	{"test.java.lang.invoke.CallStaticInitOrder$Init5", "test.java.lang.invoke.CallStaticInitOrder", "Init5", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CallStaticInitOrder$Init5_ClassInfo_ = {
-	$ACC_SUPER,
-	"test.java.lang.invoke.CallStaticInitOrder$Init5",
-	"java.lang.Object",
-	nullptr,
-	_CallStaticInitOrder$Init5_FieldInfo_,
-	_CallStaticInitOrder$Init5_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CallStaticInitOrder$Init5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"test.java.lang.invoke.CallStaticInitOrder"
-};
-
-$Object* allocate$CallStaticInitOrder$Init5($Class* clazz) {
-	return $of($alloc(CallStaticInitOrder$Init5));
-}
-
 int32_t CallStaticInitOrder$Init5::bang = 0;
 
 void CallStaticInitOrder$Init5::init$() {
 }
 
-void clinit$CallStaticInitOrder$Init5($Class* class$) {
+void CallStaticInitOrder$Init5::clinit$($Class* clazz) {
 	{
 		$init($CallStaticInitOrder);
 		$CallStaticInitOrder::Init5Tick = $CallStaticInitOrder::tick("read bang -> Init5.<clinit>"_s);
 	}
-	$init($CallStaticInitOrder);
 	CallStaticInitOrder$Init5::bang = $CallStaticInitOrder::Init5Tick;
 }
 
@@ -67,7 +30,36 @@ CallStaticInitOrder$Init5::CallStaticInitOrder$Init5() {
 }
 
 $Class* CallStaticInitOrder$Init5::load$($String* name, bool initialize) {
-	$loadClass(CallStaticInitOrder$Init5, name, initialize, &_CallStaticInitOrder$Init5_ClassInfo_, clinit$CallStaticInitOrder$Init5, allocate$CallStaticInitOrder$Init5);
+	$FieldInfo fieldInfos$$[] = {
+		{"bang", "I", nullptr, $STATIC, $staticField(CallStaticInitOrder$Init5, bang)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CallStaticInitOrder$Init5, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"test.java.lang.invoke.CallStaticInitOrder$Init5", "test.java.lang.invoke.CallStaticInitOrder", "Init5", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"test.java.lang.invoke.CallStaticInitOrder$Init5",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"test.java.lang.invoke.CallStaticInitOrder"
+	};
+	$loadClass(CallStaticInitOrder$Init5, name, initialize, &classInfo$$, CallStaticInitOrder$Init5::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CallStaticInitOrder$Init5);
+	});
 	return class$;
 }
 

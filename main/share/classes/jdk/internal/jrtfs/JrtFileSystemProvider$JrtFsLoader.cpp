@@ -1,5 +1,4 @@
 #include <jdk/internal/jrtfs/JrtFileSystemProvider$JrtFsLoader.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/net/URL.h>
 #include <java/net/URLClassLoader.h>
@@ -17,43 +16,12 @@ namespace jdk {
 	namespace internal {
 		namespace jrtfs {
 
-$MethodInfo _JrtFileSystemProvider$JrtFsLoader_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;)V", nullptr, 0, $method(JrtFileSystemProvider$JrtFsLoader, init$, void, $URLArray*)},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(JrtFileSystemProvider$JrtFsLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _JrtFileSystemProvider$JrtFsLoader_InnerClassesInfo_[] = {
-	{"jdk.internal.jrtfs.JrtFileSystemProvider$JrtFsLoader", "jdk.internal.jrtfs.JrtFileSystemProvider", "JrtFsLoader", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JrtFileSystemProvider$JrtFsLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.jrtfs.JrtFileSystemProvider$JrtFsLoader",
-	"java.net.URLClassLoader",
-	nullptr,
-	nullptr,
-	_JrtFileSystemProvider$JrtFsLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JrtFileSystemProvider$JrtFsLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.jrtfs.JrtFileSystemProvider"
-};
-
-$Object* allocate$JrtFileSystemProvider$JrtFsLoader($Class* clazz) {
-	return $of($alloc(JrtFileSystemProvider$JrtFsLoader));
-}
-
 void JrtFileSystemProvider$JrtFsLoader::init$($URLArray* urls) {
 	$URLClassLoader::init$(urls);
 }
 
 $Class* JrtFileSystemProvider$JrtFsLoader::loadClass($String* cn, bool resolve) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* c = findLoadedClass(cn);
 	if (c == nullptr) {
 		$var($URL, u, findResource($$str({$($nc(cn)->replace(u'.', u'/')), ".class"_s})));
@@ -73,7 +41,33 @@ JrtFileSystemProvider$JrtFsLoader::JrtFileSystemProvider$JrtFsLoader() {
 }
 
 $Class* JrtFileSystemProvider$JrtFsLoader::load$($String* name, bool initialize) {
-	$loadClass(JrtFileSystemProvider$JrtFsLoader, name, initialize, &_JrtFileSystemProvider$JrtFsLoader_ClassInfo_, allocate$JrtFileSystemProvider$JrtFsLoader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/net/URL;)V", nullptr, 0, $method(JrtFileSystemProvider$JrtFsLoader, init$, void, $URLArray*)},
+		{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(JrtFileSystemProvider$JrtFsLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jrtfs.JrtFileSystemProvider$JrtFsLoader", "jdk.internal.jrtfs.JrtFileSystemProvider", "JrtFsLoader", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.jrtfs.JrtFileSystemProvider$JrtFsLoader",
+		"java.net.URLClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.jrtfs.JrtFileSystemProvider"
+	};
+	$loadClass(JrtFileSystemProvider$JrtFsLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JrtFileSystemProvider$JrtFsLoader));
+	});
 	return class$;
 }
 

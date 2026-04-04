@@ -1,5 +1,4 @@
 #include <java/lang/invoke/LambdaProxyClassArchive.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/invoke/MemberName.h>
@@ -24,32 +23,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$MethodInfo _LambdaProxyClassArchive_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LambdaProxyClassArchive, init$, void)},
-	{"addToArchive", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(LambdaProxyClassArchive, addToArchive, void, $Class*, $String*, $MethodType*, $MethodType*, $MemberName*, $MethodType*, $Class*)},
-	{"find", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class;[Ljava/lang/invoke/MethodType;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class<*>;[Ljava/lang/invoke/MethodType;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(LambdaProxyClassArchive, find, $Class*, $Class*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*, bool, $ClassArray*, $MethodTypeArray*)},
-	{"findFromArchive", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodType;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodType;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(LambdaProxyClassArchive, findFromArchive, $Class*, $Class*, $String*, $MethodType*, $MethodType*, $MemberName*, $MethodType*)},
-	{"loadedByBuiltinLoader", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(LambdaProxyClassArchive, loadedByBuiltinLoader, bool, $Class*)},
-	{"register", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class;[Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class<*>;[Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(LambdaProxyClassArchive, register$, bool, $Class*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*, bool, $ClassArray*, $MethodTypeArray*, $Class*)},
-	{}
-};
-
-#define _METHOD_INDEX_addToArchive 1
-#define _METHOD_INDEX_findFromArchive 3
-
-$ClassInfo _LambdaProxyClassArchive_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.LambdaProxyClassArchive",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_LambdaProxyClassArchive_MethodInfo_
-};
-
-$Object* allocate$LambdaProxyClassArchive($Class* clazz) {
-	return $of($alloc(LambdaProxyClassArchive));
-}
-
 void LambdaProxyClassArchive::init$() {
 }
 
@@ -62,16 +35,15 @@ bool LambdaProxyClassArchive::loadedByBuiltinLoader($Class* cls) {
 
 void LambdaProxyClassArchive::addToArchive($Class* caller, $String* interfaceMethodName, $MethodType* factoryType, $MethodType* interfaceMethodType, $MemberName* implementationMember, $MethodType* dynamicMethodType, $Class* lambdaProxyClass) {
 	$init(LambdaProxyClassArchive);
-	$prepareNativeStatic(LambdaProxyClassArchive, addToArchive, void, $Class* caller, $String* interfaceMethodName, $MethodType* factoryType, $MethodType* interfaceMethodType, $MemberName* implementationMember, $MethodType* dynamicMethodType, $Class* lambdaProxyClass);
+	$prepareNativeStatic(addToArchive, void, $Class* caller, $String* interfaceMethodName, $MethodType* factoryType, $MethodType* interfaceMethodType, $MemberName* implementationMember, $MethodType* dynamicMethodType, $Class* lambdaProxyClass);
 	$invokeNativeStatic(caller, interfaceMethodName, factoryType, interfaceMethodType, implementationMember, dynamicMethodType, lambdaProxyClass);
 	$finishNativeStatic();
 }
 
 $Class* LambdaProxyClassArchive::findFromArchive($Class* caller, $String* interfaceMethodName, $MethodType* factoryType, $MethodType* interfaceMethodType, $MemberName* implementationMember, $MethodType* dynamicMethodType) {
 	$init(LambdaProxyClassArchive);
-	$var($Class, $ret, nullptr);
-	$prepareNativeStatic(LambdaProxyClassArchive, findFromArchive, $Class*, $Class* caller, $String* interfaceMethodName, $MethodType* factoryType, $MethodType* interfaceMethodType, $MemberName* implementationMember, $MethodType* dynamicMethodType);
-	$assign($ret, $invokeNativeStaticObject(caller, interfaceMethodName, factoryType, interfaceMethodType, implementationMember, dynamicMethodType));
+	$prepareNativeStatic(findFromArchive, $Class*, $Class* caller, $String* interfaceMethodName, $MethodType* factoryType, $MethodType* interfaceMethodType, $MemberName* implementationMember, $MethodType* dynamicMethodType);
+	$var($Class, $ret, $invokeNativeStaticObject(caller, interfaceMethodName, factoryType, interfaceMethodType, implementationMember, dynamicMethodType));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -102,7 +74,26 @@ LambdaProxyClassArchive::LambdaProxyClassArchive() {
 }
 
 $Class* LambdaProxyClassArchive::load$($String* name, bool initialize) {
-	$loadClass(LambdaProxyClassArchive, name, initialize, &_LambdaProxyClassArchive_ClassInfo_, allocate$LambdaProxyClassArchive);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LambdaProxyClassArchive, init$, void)},
+		{"addToArchive", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(LambdaProxyClassArchive, addToArchive, void, $Class*, $String*, $MethodType*, $MethodType*, $MemberName*, $MethodType*, $Class*)},
+		{"find", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class;[Ljava/lang/invoke/MethodType;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class<*>;[Ljava/lang/invoke/MethodType;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(LambdaProxyClassArchive, find, $Class*, $Class*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*, bool, $ClassArray*, $MethodTypeArray*)},
+		{"findFromArchive", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodType;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;Ljava/lang/invoke/MethodType;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(LambdaProxyClassArchive, findFromArchive, $Class*, $Class*, $String*, $MethodType*, $MethodType*, $MemberName*, $MethodType*)},
+		{"loadedByBuiltinLoader", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(LambdaProxyClassArchive, loadedByBuiltinLoader, bool, $Class*)},
+		{"register", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class;[Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class<*>;[Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(LambdaProxyClassArchive, register$, bool, $Class*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*, bool, $ClassArray*, $MethodTypeArray*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.LambdaProxyClassArchive",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LambdaProxyClassArchive, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaProxyClassArchive);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/zip/Adler32.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
@@ -28,52 +27,6 @@ namespace java {
 	namespace util {
 		namespace zip {
 
-$CompoundAttribute _Adler32_MethodAnnotations_updateByteBuffer7[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Adler32_MethodAnnotations_updateBytes8[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _Adler32_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Adler32, $assertionsDisabled)},
-	{"adler", "I", nullptr, $PRIVATE, $field(Adler32, adler)},
-	{}
-};
-
-$MethodInfo _Adler32_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Adler32, init$, void)},
-	{"getValue", "()J", nullptr, $PUBLIC, $virtualMethod(Adler32, getValue, int64_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Adler32, reset, void)},
-	{"update", "(I)V", nullptr, $PUBLIC, $virtualMethod(Adler32, update, void, int32_t)},
-	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Adler32, update, void, $bytes*, int32_t, int32_t)},
-	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Adler32, update, void, $ByteBuffer*)},
-	{"update", "(II)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Adler32, update, int32_t, int32_t, int32_t)},
-	{"updateByteBuffer", "(IJII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Adler32, updateByteBuffer, int32_t, int32_t, int64_t, int32_t, int32_t), nullptr, nullptr, _Adler32_MethodAnnotations_updateByteBuffer7},
-	{"updateBytes", "(I[BII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Adler32, updateBytes, int32_t, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _Adler32_MethodAnnotations_updateBytes8},
-	{}
-};
-
-#define _METHOD_INDEX_update 6
-#define _METHOD_INDEX_updateByteBuffer 7
-#define _METHOD_INDEX_updateBytes 8
-
-$ClassInfo _Adler32_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.Adler32",
-	"java.lang.Object",
-	"java.util.zip.Checksum",
-	_Adler32_FieldInfo_,
-	_Adler32_MethodInfo_
-};
-
-$Object* allocate$Adler32($Class* clazz) {
-	return $of($alloc(Adler32));
-}
-
 bool Adler32::$assertionsDisabled = false;
 
 void Adler32::init$() {
@@ -95,7 +48,7 @@ void Adler32::update($bytes* b, int32_t off, int32_t len) {
 }
 
 void Adler32::update($ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(buffer)->position();
 	int32_t limit = buffer->limit();
 	if (!Adler32::$assertionsDisabled && !(pos <= limit)) {
@@ -106,18 +59,16 @@ void Adler32::update($ByteBuffer* buffer) {
 		return;
 	}
 	if (buffer->isDirect()) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				this->adler = updateByteBuffer(this->adler, $nc(($cast($DirectBuffer, buffer)))->address(), pos, rem);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$Reference::reachabilityFence(buffer);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			this->adler = updateByteBuffer(this->adler, $cast($DirectBuffer, buffer)->address(), pos, rem);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$Reference::reachabilityFence(buffer);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else if (buffer->hasArray()) {
 		int32_t var$2 = this->adler;
@@ -139,7 +90,7 @@ void Adler32::reset() {
 }
 
 int64_t Adler32::getValue() {
-	return (int64_t)((int64_t)this->adler & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	return (int64_t)this->adler & (int64_t)0xffffffff;
 }
 
 int32_t Adler32::update(int32_t adler, int32_t b) {
@@ -154,7 +105,7 @@ int32_t Adler32::updateByteBuffer(int32_t adler, int64_t addr, int32_t off, int3
 	return _Java_java_util_zip_Adler32_updateByteBuffer(adler, addr, off, len);
 }
 
-void clinit$Adler32($Class* class$) {
+void Adler32::clinit$($Class* clazz) {
 	Adler32::$assertionsDisabled = !Adler32::class$->desiredAssertionStatus();
 	{
 		$ZipUtils::loadLibrary();
@@ -165,7 +116,42 @@ Adler32::Adler32() {
 }
 
 $Class* Adler32::load$($String* name, bool initialize) {
-	$loadClass(Adler32, name, initialize, &_Adler32_ClassInfo_, clinit$Adler32, allocate$Adler32);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Adler32, $assertionsDisabled)},
+		{"adler", "I", nullptr, $PRIVATE, $field(Adler32, adler)},
+		{}
+	};
+	$CompoundAttribute updateByteBuffermethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute updateBytesmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Adler32, init$, void)},
+		{"getValue", "()J", nullptr, $PUBLIC, $virtualMethod(Adler32, getValue, int64_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Adler32, reset, void)},
+		{"update", "(I)V", nullptr, $PUBLIC, $virtualMethod(Adler32, update, void, int32_t)},
+		{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Adler32, update, void, $bytes*, int32_t, int32_t)},
+		{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Adler32, update, void, $ByteBuffer*)},
+		{"update", "(II)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Adler32, update, int32_t, int32_t, int32_t)},
+		{"updateByteBuffer", "(IJII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Adler32, updateByteBuffer, int32_t, int32_t, int64_t, int32_t, int32_t), nullptr, nullptr, updateByteBuffermethodAnnotations$$},
+		{"updateBytes", "(I[BII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Adler32, updateBytes, int32_t, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, updateBytesmethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.Adler32",
+		"java.lang.Object",
+		"java.util.zip.Checksum",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Adler32, name, initialize, &classInfo$$, Adler32::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Adler32);
+	});
 	return class$;
 }
 

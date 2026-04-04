@@ -105,7 +105,7 @@ public:
 	::java::util::Currency* currency = nullptr;
 	$volatile(bool) currencyInitialized = false;
 	$volatile(int32_t) hashCode$ = 0;
-	static const int64_t serialVersionUID = (int64_t)0x501D17990868939C;
+	static const int64_t serialVersionUID = (int64_t)0x501d17990868939c;
 	static const int32_t currentSerialVersion = 5;
 	int32_t serialVersionOnStream = 0;
 };

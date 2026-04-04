@@ -41,6 +41,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::util::locale::provider::LocaleProviderAdapter$Type* type, ::java::util::Set* langtags);
 	virtual ::java::util::Set* getAvailableLanguageTags() override;
 	virtual $Array<::java::util::Locale>* getAvailableLocales() override;

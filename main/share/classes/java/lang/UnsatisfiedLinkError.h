@@ -14,10 +14,13 @@ public:
 	UnsatisfiedLinkError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xC8386C9DFD0F10BC;
+	static const int64_t serialVersionUID = (int64_t)0xc8386c9dfd0f10bc;
 	UnsatisfiedLinkError(const UnsatisfiedLinkError& e);
 	virtual void throw$() override;
-	inline UnsatisfiedLinkError* operator ->() {
+	inline UnsatisfiedLinkError* operator ->() const {
+		return (UnsatisfiedLinkError*)throwing$;
+	}
+	inline operator UnsatisfiedLinkError*() const {
 		return (UnsatisfiedLinkError*)throwing$;
 	}
 };

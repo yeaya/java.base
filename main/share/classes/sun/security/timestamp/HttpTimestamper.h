@@ -41,6 +41,7 @@ class $export HttpTimestamper : public ::sun::security::timestamp::Timestamper {
 	$class(HttpTimestamper, 0, ::sun::security::timestamp::Timestamper)
 public:
 	HttpTimestamper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URI* tsaURI);
 	virtual ::sun::security::timestamp::TSResponse* generateTimestamp(::sun::security::timestamp::TSRequest* tsQuery) override;
 	static void verifyMimeType($String* contentType);

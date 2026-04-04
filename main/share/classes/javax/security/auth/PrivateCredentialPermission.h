@@ -40,6 +40,7 @@ class $export PrivateCredentialPermission : public ::java::security::Permission 
 	$class(PrivateCredentialPermission, 0, ::java::security::Permission)
 public:
 	PrivateCredentialPermission();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* credentialClass, ::java::util::Set* principals);
 	void init$($String* name, $String* actions);
 	virtual bool equals(Object$* obj) override;
@@ -53,7 +54,7 @@ public:
 	void init($String* name);
 	virtual ::java::security::PermissionCollection* newPermissionCollection() override;
 	void readObject(::java::io::ObjectInputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x4955DC777B507F4C;
+	static const int64_t serialVersionUID = (int64_t)0x4955dc777b507f4c;
 	static $Array<::javax::security::auth::PrivateCredentialPermission$CredOwner>* EMPTY_PRINCIPALS;
 	$String* credentialClass = nullptr;
 	::java::util::Set* principals = nullptr;

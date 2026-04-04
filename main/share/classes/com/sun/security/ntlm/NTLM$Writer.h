@@ -14,6 +14,7 @@ class NTLM$Writer : public ::java::lang::Object {
 	$class(NTLM$Writer, 0, ::java::lang::Object)
 public:
 	NTLM$Writer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type, int32_t len);
 	virtual $bytes* getBytes();
 	virtual void writeBytes(int32_t offset, $bytes* data);

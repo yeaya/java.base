@@ -171,6 +171,7 @@ class $export UnicodeSpec : public ::java::lang::Object {
 	$class(UnicodeSpec, 0, ::java::lang::Object)
 public:
 	UnicodeSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t codePoint);
 	virtual int8_t getBidiCategory();

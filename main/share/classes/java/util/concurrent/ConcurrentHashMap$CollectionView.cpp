@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentHashMap$CollectionView.h>
-
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/reflect/Array.h>
 #include <java/util/Arrays.h>
@@ -29,60 +28,6 @@ using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _ConcurrentHashMap$CollectionView_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConcurrentHashMap$CollectionView, serialVersionUID)},
-	{"map", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;", $FINAL, $field(ConcurrentHashMap$CollectionView, map)},
-	{"OOME_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentHashMap$CollectionView, OOME_MSG)},
-	{}
-};
-
-$MethodInfo _ConcurrentHashMap$CollectionView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap;)V", "(Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$CollectionView, init$, void, $ConcurrentHashMap*)},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, clear, void)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, containsAll, bool, $Collection*)},
-	{"getMap", "()Ljava/util/concurrent/ConcurrentHashMap;", "()Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;", $PUBLIC, $virtualMethod(ConcurrentHashMap$CollectionView, getMap, $ConcurrentHashMap*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$CollectionView, removeAll, bool, $Collection*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, retainAll, bool, $Collection*)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, size, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ConcurrentHashMap$CollectionView_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentHashMap$CollectionView", "java.util.concurrent.ConcurrentHashMap", "CollectionView", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ConcurrentHashMap$CollectionView_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.concurrent.ConcurrentHashMap$CollectionView",
-	"java.lang.Object",
-	"java.util.Collection,java.io.Serializable",
-	_ConcurrentHashMap$CollectionView_FieldInfo_,
-	_ConcurrentHashMap$CollectionView_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Collection<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_ConcurrentHashMap$CollectionView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentHashMap"
-};
-
-$Object* allocate$ConcurrentHashMap$CollectionView($Class* clazz) {
-	return $of($alloc(ConcurrentHashMap$CollectionView));
-}
 
 bool ConcurrentHashMap$CollectionView::equals(Object$* o) {
 	 return this->$Collection::equals(o);
@@ -123,9 +68,9 @@ bool ConcurrentHashMap$CollectionView::isEmpty() {
 }
 
 $ObjectArray* ConcurrentHashMap$CollectionView::toArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t sz = $nc(this->map)->mappingCount();
-	if (sz > 0x7FFFFFF7) {
+	if (sz > 0x7ffffff7) {
 		$throwNew($OutOfMemoryError, ConcurrentHashMap$CollectionView::OOME_MSG);
 	}
 	int32_t n = (int32_t)sz;
@@ -137,11 +82,11 @@ $ObjectArray* ConcurrentHashMap$CollectionView::toArray() {
 			$var($Object, e, i$->next());
 			{
 				if (i == n) {
-					if (n >= 0x7FFFFFF7) {
+					if (n >= 0x7ffffff7) {
 						$throwNew($OutOfMemoryError, ConcurrentHashMap$CollectionView::OOME_MSG);
 					}
-					if (n >= 0x7FFFFFF7 - ((int32_t)((uint32_t)0x7FFFFFF7 >> 1)) - 1) {
-						n = 0x7FFFFFF7;
+					if (n >= 0x7ffffff7 - ((int32_t)((uint32_t)0x7ffffff7 >> 1)) - 1) {
+						n = 0x7ffffff7;
 					} else {
 						n += ((int32_t)((uint32_t)n >> 1)) + 1;
 					}
@@ -155,13 +100,13 @@ $ObjectArray* ConcurrentHashMap$CollectionView::toArray() {
 }
 
 $ObjectArray* ConcurrentHashMap$CollectionView::toArray($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t sz = $nc(this->map)->mappingCount();
-	if (sz > 0x7FFFFFF7) {
+	if (sz > 0x7ffffff7) {
 		$throwNew($OutOfMemoryError, ConcurrentHashMap$CollectionView::OOME_MSG);
 	}
 	int32_t m = (int32_t)sz;
-	$var($ObjectArray, r, ($nc(a)->length >= m) ? a : $cast($ObjectArray, $1Array::newInstance($nc($of(a))->getClass()->getComponentType(), m)));
+	$var($ObjectArray, r, ($nc(a)->length >= m) ? a : $cast($ObjectArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), m)));
 	int32_t n = $nc(r)->length;
 	int32_t i = 0;
 	{
@@ -170,11 +115,11 @@ $ObjectArray* ConcurrentHashMap$CollectionView::toArray($ObjectArray* a) {
 			$var($Object, e, i$->next());
 			{
 				if (i == n) {
-					if (n >= 0x7FFFFFF7) {
+					if (n >= 0x7ffffff7) {
 						$throwNew($OutOfMemoryError, ConcurrentHashMap$CollectionView::OOME_MSG);
 					}
-					if (n >= 0x7FFFFFF7 - ((int32_t)((uint32_t)0x7FFFFFF7 >> 1)) - 1) {
-						n = 0x7FFFFFF7;
+					if (n >= 0x7ffffff7 - ((int32_t)((uint32_t)0x7ffffff7 >> 1)) - 1) {
+						n = 0x7ffffff7;
 					} else {
 						n += ((int32_t)((uint32_t)n >> 1)) + 1;
 					}
@@ -192,7 +137,7 @@ $ObjectArray* ConcurrentHashMap$CollectionView::toArray($ObjectArray* a) {
 }
 
 $String* ConcurrentHashMap$CollectionView::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(u'[');
 	$var($Iterator, it, iterator());
@@ -210,17 +155,13 @@ $String* ConcurrentHashMap$CollectionView::toString() {
 }
 
 bool ConcurrentHashMap$CollectionView::containsAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$equals(c, this)) {
-		{
-			$var($Iterator, i$, $nc(c)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Object, e, i$->next());
-				{
-					if (e == nullptr || !contains(e)) {
-						return false;
-					}
-				}
+		$var($Iterator, i$, $nc(c)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Object, e, i$->next());
+			if (e == nullptr || !contains(e)) {
+				return false;
 			}
 		}
 	}
@@ -228,7 +169,7 @@ bool ConcurrentHashMap$CollectionView::containsAll($Collection* c) {
 }
 
 bool ConcurrentHashMap$CollectionView::removeAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -236,30 +177,26 @@ bool ConcurrentHashMap$CollectionView::removeAll($Collection* c) {
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	if (($assign(t, $nc(this->map)->table)) == nullptr) {
 		return false;
-	} else if ($instanceOf($Set, c) && $nc(c)->size() > $nc(t)->length) {
-		{
-			$var($Iterator, it, iterator());
-			for (; $nc(it)->hasNext();) {
-				if (c->contains($(it->next()))) {
-					it->remove();
-					modified = true;
-				}
+	} else if ($instanceOf($Set, c) && c->size() > $nc(t)->length) {
+		$var($Iterator, it, iterator());
+		for (; $nc(it)->hasNext();) {
+			if (c->contains($(it->next()))) {
+				it->remove();
+				modified = true;
 			}
 		}
 	} else {
-		{
-			$var($Iterator, i$, c->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Object, e, i$->next());
-				modified |= remove(e);
-			}
+		$var($Iterator, i$, $nc(c)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Object, e, i$->next());
+			modified |= remove(e);
 		}
 	}
 	return modified;
 }
 
 bool ConcurrentHashMap$CollectionView::retainAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -279,12 +216,60 @@ bool ConcurrentHashMap$CollectionView::retainAll($Collection* c) {
 ConcurrentHashMap$CollectionView::ConcurrentHashMap$CollectionView() {
 }
 
-void clinit$ConcurrentHashMap$CollectionView($Class* class$) {
+void ConcurrentHashMap$CollectionView::clinit$($Class* clazz) {
 	$assignStatic(ConcurrentHashMap$CollectionView::OOME_MSG, "Required array size too large"_s);
 }
 
 $Class* ConcurrentHashMap$CollectionView::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentHashMap$CollectionView, name, initialize, &_ConcurrentHashMap$CollectionView_ClassInfo_, clinit$ConcurrentHashMap$CollectionView, allocate$ConcurrentHashMap$CollectionView);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConcurrentHashMap$CollectionView, serialVersionUID)},
+		{"map", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;", $FINAL, $field(ConcurrentHashMap$CollectionView, map)},
+		{"OOME_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentHashMap$CollectionView, OOME_MSG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap;)V", "(Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$CollectionView, init$, void, $ConcurrentHashMap*)},
+		{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, clear, void)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, containsAll, bool, $Collection*)},
+		{"getMap", "()Ljava/util/concurrent/ConcurrentHashMap;", "()Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;", $PUBLIC, $virtualMethod(ConcurrentHashMap$CollectionView, getMap, $ConcurrentHashMap*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$CollectionView, removeAll, bool, $Collection*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, retainAll, bool, $Collection*)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, size, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$CollectionView, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentHashMap$CollectionView", "java.util.concurrent.ConcurrentHashMap", "CollectionView", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.concurrent.ConcurrentHashMap$CollectionView",
+		"java.lang.Object",
+		"java.util.Collection,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Collection<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentHashMap"
+	};
+	$loadClass(ConcurrentHashMap$CollectionView, name, initialize, &classInfo$$, ConcurrentHashMap$CollectionView::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConcurrentHashMap$CollectionView));
+	});
 	return class$;
 }
 

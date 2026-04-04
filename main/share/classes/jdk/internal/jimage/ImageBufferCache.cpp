@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/ImageBufferCache.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/ThreadLocal.h>
 #include <java/lang/ref/WeakReference.h>
@@ -39,50 +38,6 @@ namespace jdk {
 	namespace internal {
 		namespace jimage {
 
-$FieldInfo _ImageBufferCache_FieldInfo_[] = {
-	{"MAX_CACHED_BUFFERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageBufferCache, MAX_CACHED_BUFFERS)},
-	{"LARGE_BUFFER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageBufferCache, LARGE_BUFFER)},
-	{"CACHE", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<[Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ImageBufferCache, CACHE)},
-	{"DECREASING_CAPACITY_NULLS_LAST", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;>;", $PRIVATE | $STATIC, $staticField(ImageBufferCache, DECREASING_CAPACITY_NULLS_LAST)},
-	{}
-};
-
-$MethodInfo _ImageBufferCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ImageBufferCache, init$, void)},
-	{"allocateBuffer", "(J)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, allocateBuffer, $ByteBuffer*, int64_t)},
-	{"getBuffer", "(J)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(ImageBufferCache, getBuffer, $ByteBuffer*, int64_t)},
-	{"getByteBuffer", "(Ljava/util/Map$Entry;)Ljava/nio/ByteBuffer;", "(Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;)Ljava/nio/ByteBuffer;", $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, getByteBuffer, $ByteBuffer*, $Map$Entry*)},
-	{"getCapacity", "(Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;)I", $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, getCapacity, int32_t, $Map$Entry*)},
-	{"newCacheEntry", "(Ljava/nio/ByteBuffer;)Ljava/util/Map$Entry;", "(Ljava/nio/ByteBuffer;)Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, newCacheEntry, $Map$Entry*, $ByteBuffer*)},
-	{"releaseBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $STATIC, $staticMethod(ImageBufferCache, releaseBuffer, void, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _ImageBufferCache_InnerClassesInfo_[] = {
-	{"jdk.internal.jimage.ImageBufferCache$2", nullptr, nullptr, 0},
-	{"jdk.internal.jimage.ImageBufferCache$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ImageBufferCache_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.jimage.ImageBufferCache",
-	"java.lang.Object",
-	nullptr,
-	_ImageBufferCache_FieldInfo_,
-	_ImageBufferCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageBufferCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.jimage.ImageBufferCache$2,jdk.internal.jimage.ImageBufferCache$1"
-};
-
-$Object* allocate$ImageBufferCache($Class* clazz) {
-	return $of($alloc(ImageBufferCache));
-}
-
 $ThreadLocal* ImageBufferCache::CACHE = nullptr;
 $Comparator* ImageBufferCache::DECREASING_CAPACITY_NULLS_LAST = nullptr;
 
@@ -91,12 +46,12 @@ void ImageBufferCache::init$() {
 
 $ByteBuffer* ImageBufferCache::allocateBuffer(int64_t size) {
 	$init(ImageBufferCache);
-	return $ByteBuffer::allocateDirect((int32_t)((int64_t)((size + 4095) & (uint64_t)(int64_t)~4095)));
+	return $ByteBuffer::allocateDirect((int32_t)((size + 4095) & ~0x0fff));
 }
 
 $ByteBuffer* ImageBufferCache::getBuffer(int64_t size) {
 	$init(ImageBufferCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (size < 0 || $Integer::MAX_VALUE < size) {
 		$throwNew($IndexOutOfBoundsException, "size"_s);
 	}
@@ -104,7 +59,7 @@ $ByteBuffer* ImageBufferCache::getBuffer(int64_t size) {
 	if (size > ImageBufferCache::LARGE_BUFFER) {
 		$assign(result, allocateBuffer(size));
 	} else {
-		$var($Map$EntryArray, cache, $cast($Map$EntryArray, $nc(ImageBufferCache::CACHE)->get()));
+		$var($Map$EntryArray, cache, $cast($Map$EntryArray, ImageBufferCache::CACHE->get()));
 		for (int32_t i = ImageBufferCache::MAX_CACHED_BUFFERS - 1; i >= 0; --i) {
 			$var($Map$Entry, reference, $nc(cache)->get(i));
 			if (reference != nullptr) {
@@ -127,11 +82,11 @@ $ByteBuffer* ImageBufferCache::getBuffer(int64_t size) {
 
 void ImageBufferCache::releaseBuffer($ByteBuffer* buffer) {
 	$init(ImageBufferCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(buffer)->capacity() > ImageBufferCache::LARGE_BUFFER) {
 		return;
 	}
-	$var($Map$EntryArray, cache, $cast($Map$EntryArray, $nc(ImageBufferCache::CACHE)->get()));
+	$var($Map$EntryArray, cache, $cast($Map$EntryArray, ImageBufferCache::CACHE->get()));
 	for (int32_t i = 0; i < ImageBufferCache::MAX_CACHED_BUFFERS; ++i) {
 		$var($Map$Entry, reference, $nc(cache)->get(i));
 		if (reference != nullptr && getByteBuffer(reference) == nullptr) {
@@ -145,22 +100,22 @@ void ImageBufferCache::releaseBuffer($ByteBuffer* buffer) {
 
 $Map$Entry* ImageBufferCache::newCacheEntry($ByteBuffer* bb) {
 	$init(ImageBufferCache);
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, $of($new($WeakReference, bb)));
+	$useLocalObjectStack();
+	$var($Object, var$0, $new($WeakReference, bb));
 	return $new($AbstractMap$SimpleEntry, var$0, $($Integer::valueOf($nc(bb)->capacity())));
 }
 
 int32_t ImageBufferCache::getCapacity($Map$Entry* e) {
 	$init(ImageBufferCache);
-	return e == nullptr ? 0 : $nc(($cast($Integer, $($nc(e)->getValue()))))->intValue();
+	return e == nullptr ? 0 : $$sure($Integer, e->getValue())->intValue();
 }
 
 $ByteBuffer* ImageBufferCache::getByteBuffer($Map$Entry* e) {
 	$init(ImageBufferCache);
-	return e == nullptr ? ($ByteBuffer*)nullptr : $cast($ByteBuffer, $nc(($cast($WeakReference, $($nc(e)->getKey()))))->get());
+	return e == nullptr ? ($ByteBuffer*)nullptr : $cast($ByteBuffer, $$sure($WeakReference, e->getKey())->get());
 }
 
-void clinit$ImageBufferCache($Class* class$) {
+void ImageBufferCache::clinit$($Class* clazz) {
 	$assignStatic(ImageBufferCache::CACHE, $new($ImageBufferCache$1));
 	$assignStatic(ImageBufferCache::DECREASING_CAPACITY_NULLS_LAST, $new($ImageBufferCache$2));
 }
@@ -169,7 +124,45 @@ ImageBufferCache::ImageBufferCache() {
 }
 
 $Class* ImageBufferCache::load$($String* name, bool initialize) {
-	$loadClass(ImageBufferCache, name, initialize, &_ImageBufferCache_ClassInfo_, clinit$ImageBufferCache, allocate$ImageBufferCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_CACHED_BUFFERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageBufferCache, MAX_CACHED_BUFFERS)},
+		{"LARGE_BUFFER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageBufferCache, LARGE_BUFFER)},
+		{"CACHE", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<[Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ImageBufferCache, CACHE)},
+		{"DECREASING_CAPACITY_NULLS_LAST", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;>;", $PRIVATE | $STATIC, $staticField(ImageBufferCache, DECREASING_CAPACITY_NULLS_LAST)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ImageBufferCache, init$, void)},
+		{"allocateBuffer", "(J)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, allocateBuffer, $ByteBuffer*, int64_t)},
+		{"getBuffer", "(J)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(ImageBufferCache, getBuffer, $ByteBuffer*, int64_t)},
+		{"getByteBuffer", "(Ljava/util/Map$Entry;)Ljava/nio/ByteBuffer;", "(Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;)Ljava/nio/ByteBuffer;", $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, getByteBuffer, $ByteBuffer*, $Map$Entry*)},
+		{"getCapacity", "(Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;)I", $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, getCapacity, int32_t, $Map$Entry*)},
+		{"newCacheEntry", "(Ljava/nio/ByteBuffer;)Ljava/util/Map$Entry;", "(Ljava/nio/ByteBuffer;)Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, newCacheEntry, $Map$Entry*, $ByteBuffer*)},
+		{"releaseBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $STATIC, $staticMethod(ImageBufferCache, releaseBuffer, void, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jimage.ImageBufferCache$2", nullptr, nullptr, 0},
+		{"jdk.internal.jimage.ImageBufferCache$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.jimage.ImageBufferCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.jimage.ImageBufferCache$2,jdk.internal.jimage.ImageBufferCache$1"
+	};
+	$loadClass(ImageBufferCache, name, initialize, &classInfo$$, ImageBufferCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageBufferCache);
+	});
 	return class$;
 }
 

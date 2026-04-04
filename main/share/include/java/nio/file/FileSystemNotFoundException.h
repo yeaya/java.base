@@ -15,10 +15,13 @@ public:
 	FileSystemNotFoundException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x6F04393B2D85375D;
+	static const int64_t serialVersionUID = (int64_t)0x6f04393b2d85375d;
 	FileSystemNotFoundException(const FileSystemNotFoundException& e);
 	virtual void throw$() override;
-	inline FileSystemNotFoundException* operator ->() {
+	inline FileSystemNotFoundException* operator ->() const {
+		return (FileSystemNotFoundException*)throwing$;
+	}
+	inline operator FileSystemNotFoundException*() const {
 		return (FileSystemNotFoundException*)throwing$;
 	}
 };

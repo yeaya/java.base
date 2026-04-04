@@ -1,5 +1,4 @@
 #include <WinMaxPath.h>
-
 #include <java/io/FileNotFoundException.h>
 #include <java/io/FileOutputStream.h>
 #include <java/util/Arrays.h>
@@ -11,36 +10,17 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 
-$MethodInfo _WinMaxPath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WinMaxPath, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WinMaxPath, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _WinMaxPath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WinMaxPath",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WinMaxPath_MethodInfo_
-};
-
-$Object* allocate$WinMaxPath($Class* clazz) {
-	return $of($alloc(WinMaxPath));
-}
-
 void WinMaxPath::init$() {
 }
 
 void WinMaxPath::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if (!$nc(osName)->startsWith("Windows"_s)) {
 		return;
 	}
 	try {
-		$var($chars, as, $new($chars, 0x0000FDE8));
+		$var($chars, as, $new($chars, 65000));
 		$Arrays::fill(as, u'a');
 		$var($FileOutputStream, out, $new($FileOutputStream, $$new($String, as)));
 		out->close();
@@ -52,7 +32,22 @@ WinMaxPath::WinMaxPath() {
 }
 
 $Class* WinMaxPath::load$($String* name, bool initialize) {
-	$loadClass(WinMaxPath, name, initialize, &_WinMaxPath_ClassInfo_, allocate$WinMaxPath);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WinMaxPath, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WinMaxPath, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WinMaxPath",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WinMaxPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WinMaxPath);
+	});
 	return class$;
 }
 

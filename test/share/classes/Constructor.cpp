@@ -1,18 +1,15 @@
 #include <Constructor.h>
-
 #include <Constructor$Entry.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
 using $Constructor$Entry = ::Constructor$Entry;
 using $Constructor$EntryArray = $Array<Constructor$Entry>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -22,49 +19,8 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-
-$FieldInfo _Constructor_FieldInfo_[] = {
-	{"fileURLs", "[LConstructor$Entry;", nullptr, $STATIC, $staticField(Constructor, fileURLs)},
-	{"jarURLs", "[LConstructor$Entry;", nullptr, $STATIC, $staticField(Constructor, jarURLs)},
-	{"normalHttpURLs", "[LConstructor$Entry;", nullptr, $STATIC, $staticField(Constructor, normalHttpURLs)},
-	{"abnormalHttpURLs", "[LConstructor$Entry;", nullptr, $STATIC, $staticField(Constructor, abnormalHttpURLs)},
-	{"ftpURLs", "[LConstructor$Entry;", nullptr, $STATIC, $staticField(Constructor, ftpURLs)},
-	{}
-};
-
-$MethodInfo _Constructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Constructor, init$, void)},
-	{"hasFtp", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Constructor, hasFtp, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Constructor, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _Constructor_InnerClassesInfo_[] = {
-	{"Constructor$Entry", "Constructor", "Entry", $STATIC},
-	{}
-};
-
-$ClassInfo _Constructor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Constructor",
-	"java.lang.Object",
-	nullptr,
-	_Constructor_FieldInfo_,
-	_Constructor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Constructor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Constructor$Entry"
-};
-
-$Object* allocate$Constructor($Class* clazz) {
-	return $of($alloc(Constructor));
-}
 
 $Constructor$EntryArray* Constructor::fileURLs = nullptr;
 $Constructor$EntryArray* Constructor::jarURLs = nullptr;
@@ -77,7 +33,7 @@ void Constructor::init$() {
 
 void Constructor::main($StringArray* args) {
 	$init(Constructor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, entries, $new($ArrayList));
 	entries->addAll($($Arrays::asList(Constructor::fileURLs)));
 	entries->addAll($($Arrays::asList(Constructor::jarURLs)));
@@ -97,8 +53,8 @@ void Constructor::main($StringArray* args) {
 				} else {
 					$assign(url, $new($URL, $$new($URL, e->context), e->spec));
 				}
-				if (!($nc($($nc(url)->toString()))->equals($nc(e)->expected))) {
-					$throwNew($RuntimeException, $$str({"error for: \n\tURL:"_s, $nc(e)->context, "\n\tspec: "_s, e->spec, "\n\texpected: "_s, e->expected, "\n\tactual: "_s, $(url->toString())}));
+				if (!($$nc($nc(url)->toString())->equals(e->expected))) {
+					$throwNew($RuntimeException, $$str({"error for: \n\tURL:"_s, e->context, "\n\tspec: "_s, e->spec, "\n\texpected: "_s, e->expected, "\n\tactual: "_s, $(url->toString())}));
 				} else {
 				}
 			}
@@ -117,8 +73,8 @@ bool Constructor::hasFtp() {
 	$shouldNotReachHere();
 }
 
-void clinit$Constructor($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Constructor::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Constructor::fileURLs, $new($Constructor$EntryArray, {
 		$$new($Constructor$Entry, nullptr, "file://JavaSoft/Test"_s, "file://JavaSoft/Test"_s),
 		$$new($Constructor$Entry, nullptr, "file:///JavaSoft/Test"_s, "file:/JavaSoft/Test"_s),
@@ -205,7 +161,41 @@ Constructor::Constructor() {
 }
 
 $Class* Constructor::load$($String* name, bool initialize) {
-	$loadClass(Constructor, name, initialize, &_Constructor_ClassInfo_, clinit$Constructor, allocate$Constructor);
+	$FieldInfo fieldInfos$$[] = {
+		{"fileURLs", "[LConstructor$Entry;", nullptr, $STATIC, $staticField(Constructor, fileURLs)},
+		{"jarURLs", "[LConstructor$Entry;", nullptr, $STATIC, $staticField(Constructor, jarURLs)},
+		{"normalHttpURLs", "[LConstructor$Entry;", nullptr, $STATIC, $staticField(Constructor, normalHttpURLs)},
+		{"abnormalHttpURLs", "[LConstructor$Entry;", nullptr, $STATIC, $staticField(Constructor, abnormalHttpURLs)},
+		{"ftpURLs", "[LConstructor$Entry;", nullptr, $STATIC, $staticField(Constructor, ftpURLs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Constructor, init$, void)},
+		{"hasFtp", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Constructor, hasFtp, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Constructor, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Constructor$Entry", "Constructor", "Entry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Constructor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Constructor$Entry"
+	};
+	$loadClass(Constructor, name, initialize, &classInfo$$, Constructor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Constructor);
+	});
 	return class$;
 }
 

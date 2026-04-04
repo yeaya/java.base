@@ -23,6 +23,7 @@ class SunJCE$SecureRandomHolder : public ::java::lang::Object {
 	$class(SunJCE$SecureRandomHolder, 0, ::java::lang::Object)
 public:
 	SunJCE$SecureRandomHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::SecureRandom* RANDOM;
 };

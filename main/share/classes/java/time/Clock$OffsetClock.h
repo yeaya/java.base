@@ -32,7 +32,7 @@ public:
 	virtual int64_t millis() override;
 	virtual $String* toString() override;
 	virtual ::java::time::Clock* withZone(::java::time::ZoneId* zone) override;
-	static const int64_t serialVersionUID = (int64_t)0x1BDC04B7477EF050;
+	static const int64_t serialVersionUID = (int64_t)0x1bdc04b7477ef050;
 	::java::time::Clock* baseClock = nullptr;
 	::java::time::Duration* offset = nullptr;
 };

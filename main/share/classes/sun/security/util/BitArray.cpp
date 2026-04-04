@@ -1,5 +1,4 @@
 #include <sun/security/util/BitArray.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/util/Arrays.h>
@@ -22,48 +21,6 @@ using $Arrays = ::java::util::Arrays;
 namespace sun {
 	namespace security {
 		namespace util {
-
-$FieldInfo _BitArray_FieldInfo_[] = {
-	{"repn", "[B", nullptr, $PRIVATE, $field(BitArray, repn)},
-	{"length", "I", nullptr, $PRIVATE, $field(BitArray, length$)},
-	{"BITS_PER_UNIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BitArray, BITS_PER_UNIT)},
-	{"NYBBLE", "[[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BitArray, NYBBLE)},
-	{"BYTES_PER_LINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BitArray, BYTES_PER_LINE)},
-	{}
-};
-
-$MethodInfo _BitArray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(BitArray, init$, void, int32_t), "java.lang.IllegalArgumentException"},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(BitArray, init$, void, int32_t, $bytes*), "java.lang.IllegalArgumentException"},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(BitArray, init$, void, $booleans*)},
-	{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PRIVATE, $method(BitArray, init$, void, BitArray*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BitArray, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BitArray, equals, bool, Object$*)},
-	{"get", "(I)Z", nullptr, $PUBLIC, $virtualMethod(BitArray, get, bool, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BitArray, hashCode, int32_t)},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(BitArray, length, int32_t)},
-	{"position", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BitArray, position, int32_t, int32_t)},
-	{"set", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(BitArray, set, void, int32_t, bool), "java.lang.ArrayIndexOutOfBoundsException"},
-	{"subscript", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BitArray, subscript, int32_t, int32_t)},
-	{"toBooleanArray", "()[Z", nullptr, $PUBLIC, $virtualMethod(BitArray, toBooleanArray, $booleans*)},
-	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(BitArray, toByteArray, $bytes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BitArray, toString, $String*)},
-	{"truncate", "()Lsun/security/util/BitArray;", nullptr, $PUBLIC, $virtualMethod(BitArray, truncate, BitArray*)},
-	{}
-};
-
-$ClassInfo _BitArray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.BitArray",
-	"java.lang.Object",
-	nullptr,
-	_BitArray_FieldInfo_,
-	_BitArray_MethodInfo_
-};
-
-$Object* allocate$BitArray($Class* clazz) {
-	return $of($alloc(BitArray));
-}
 
 $byteArray2* BitArray::NYBBLE = nullptr;
 
@@ -99,7 +56,7 @@ void BitArray::init$(int32_t length, $bytes* a) {
 	$set(this, repn, $new($bytes, repLength));
 	$System::arraycopy(a, 0, this->repn, 0, repLength);
 	if (repLength > 0) {
-		(*$nc(this->repn))[repLength - 1] &= (uint8_t)bitMask;
+		(*this->repn)[repLength - 1] &= (uint8_t)bitMask;
 	}
 }
 
@@ -121,7 +78,7 @@ bool BitArray::get(int32_t index) {
 		$throwNew($ArrayIndexOutOfBoundsException, $($Integer::toString(index)));
 	}
 	int8_t var$0 = $nc(this->repn)->get(subscript(index));
-	return ((int32_t)(var$0 & (uint32_t)position(index))) != 0;
+	return (var$0 & position(index)) != 0;
 }
 
 void BitArray::set(int32_t index, bool value) {
@@ -157,7 +114,7 @@ bool BitArray::equals(Object$* obj) {
 		return false;
 	}
 	for (int32_t i = 0; i < $nc(this->repn)->length; i += 1) {
-		if ($nc(this->repn)->get(i) != $nc($nc(ba)->repn)->get(i)) {
+		if (this->repn->get(i) != $nc(ba->repn)->get(i)) {
 			return false;
 		}
 	}
@@ -175,38 +132,38 @@ $booleans* BitArray::toBooleanArray() {
 int32_t BitArray::hashCode() {
 	int32_t hashCode = 0;
 	for (int32_t i = 0; i < $nc(this->repn)->length; ++i) {
-		hashCode = 31 * hashCode + $nc(this->repn)->get(i);
+		hashCode = 31 * hashCode + this->repn->get(i);
 	}
 	return hashCode ^ this->length$;
 }
 
 $Object* BitArray::clone() {
-	return $of($new(BitArray, this));
+	return $new(BitArray, this);
 }
 
 $String* BitArray::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->length$ == 0) {
 		return ""_s;
 	}
 	$var($ByteArrayOutputStream, out, $new($ByteArrayOutputStream));
 	for (int32_t i = 0; i < $nc(this->repn)->length - 1; ++i) {
-		out->write($nc(BitArray::NYBBLE)->get((int32_t)(($nc(this->repn)->get(i) >> 4) & (uint32_t)15)), 0, 4);
-		out->write($nc(BitArray::NYBBLE)->get((int32_t)($nc(this->repn)->get(i) & (uint32_t)15)), 0, 4);
+		out->write(BitArray::NYBBLE->get((this->repn->get(i) >> 4) & 0x0f), 0, 4);
+		out->write(BitArray::NYBBLE->get(this->repn->get(i) & 0x0f), 0, 4);
 		if ($mod(i, BitArray::BYTES_PER_LINE) == BitArray::BYTES_PER_LINE - 1) {
-			out->write((int32_t)u'\n');
+			out->write(u'\n');
 		} else {
-			out->write((int32_t)u' ');
+			out->write(u' ');
 		}
 	}
-	for (int32_t i = BitArray::BITS_PER_UNIT * ($nc(this->repn)->length - 1); i < this->length$; ++i) {
-		out->write((int32_t)(get(i) ? u'1' : u'0'));
+	for (int32_t i = BitArray::BITS_PER_UNIT * (this->repn->length - 1); i < this->length$; ++i) {
+		out->write(get(i) ? u'1' : u'0');
 	}
 	return $new($String, $(out->toByteArray()));
 }
 
 BitArray* BitArray::truncate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = this->length$ - 1; i >= 0; --i) {
 		if (get(i)) {
 			return $new(BitArray, i + 1, $($Arrays::copyOf(this->repn, $div((i + BitArray::BITS_PER_UNIT), BitArray::BITS_PER_UNIT))));
@@ -215,8 +172,8 @@ BitArray* BitArray::truncate() {
 	return $new(BitArray, 1);
 }
 
-void clinit$BitArray($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void BitArray::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(BitArray::NYBBLE, $new($byteArray2, {
 		$$new($bytes, {
 			(int8_t)u'0',
@@ -321,7 +278,44 @@ BitArray::BitArray() {
 }
 
 $Class* BitArray::load$($String* name, bool initialize) {
-	$loadClass(BitArray, name, initialize, &_BitArray_ClassInfo_, clinit$BitArray, allocate$BitArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"repn", "[B", nullptr, $PRIVATE, $field(BitArray, repn)},
+		{"length", "I", nullptr, $PRIVATE, $field(BitArray, length$)},
+		{"BITS_PER_UNIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BitArray, BITS_PER_UNIT)},
+		{"NYBBLE", "[[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BitArray, NYBBLE)},
+		{"BYTES_PER_LINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BitArray, BYTES_PER_LINE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(BitArray, init$, void, int32_t), "java.lang.IllegalArgumentException"},
+		{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(BitArray, init$, void, int32_t, $bytes*), "java.lang.IllegalArgumentException"},
+		{"<init>", "([Z)V", nullptr, $PUBLIC, $method(BitArray, init$, void, $booleans*)},
+		{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PRIVATE, $method(BitArray, init$, void, BitArray*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BitArray, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BitArray, equals, bool, Object$*)},
+		{"get", "(I)Z", nullptr, $PUBLIC, $virtualMethod(BitArray, get, bool, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BitArray, hashCode, int32_t)},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(BitArray, length, int32_t)},
+		{"position", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BitArray, position, int32_t, int32_t)},
+		{"set", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(BitArray, set, void, int32_t, bool), "java.lang.ArrayIndexOutOfBoundsException"},
+		{"subscript", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BitArray, subscript, int32_t, int32_t)},
+		{"toBooleanArray", "()[Z", nullptr, $PUBLIC, $virtualMethod(BitArray, toBooleanArray, $booleans*)},
+		{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(BitArray, toByteArray, $bytes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BitArray, toString, $String*)},
+		{"truncate", "()Lsun/security/util/BitArray;", nullptr, $PUBLIC, $virtualMethod(BitArray, truncate, BitArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.BitArray",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BitArray, name, initialize, &classInfo$$, BitArray::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BitArray);
+	});
 	return class$;
 }
 

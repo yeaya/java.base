@@ -38,13 +38,14 @@ class BasicPermissionCollection : public ::java::security::PermissionCollection 
 	$class(BasicPermissionCollection, 0, ::java::security::PermissionCollection)
 public:
 	BasicPermissionCollection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* clazz);
 	virtual void add(::java::security::Permission* permission) override;
 	virtual ::java::util::Enumeration* elements() override;
 	virtual bool implies(::java::security::Permission* permission) override;
 	void readObject(::java::io::ObjectInputStream* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x0A4287048DEDE3C7;
+	static const int64_t serialVersionUID = (int64_t)0x0a4287048dede3c7;
 	::java::util::concurrent::ConcurrentHashMap* perms = nullptr;
 	bool all_allowed = false;
 	$Class* permClass = nullptr;

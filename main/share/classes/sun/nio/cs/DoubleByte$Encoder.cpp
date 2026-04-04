@@ -1,5 +1,4 @@
 #include <sun/nio/cs/DoubleByte$Encoder.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -34,65 +33,6 @@ using $Surrogate$Parser = ::sun::nio::cs::Surrogate$Parser;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _DoubleByte$Encoder_FieldInfo_[] = {
-	{"MAX_SINGLEBYTE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DoubleByte$Encoder, MAX_SINGLEBYTE)},
-	{"c2b", "[C", nullptr, $PRIVATE | $FINAL, $field(DoubleByte$Encoder, c2b)},
-	{"c2bIndex", "[C", nullptr, $PRIVATE | $FINAL, $field(DoubleByte$Encoder, c2bIndex)},
-	{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PROTECTED, $field(DoubleByte$Encoder, sgp$)},
-	{"isASCIICompatible", "Z", nullptr, $FINAL, $field(DoubleByte$Encoder, isASCIICompatible$)},
-	{"repl", "[B", nullptr, $PROTECTED, $field(DoubleByte$Encoder, repl)},
-	{}
-};
-
-$MethodInfo _DoubleByte$Encoder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/charset/Charset;[C[C)V", nullptr, $PUBLIC, $method(DoubleByte$Encoder, init$, void, $Charset*, $chars*, $chars*)},
-	{"<init>", "(Ljava/nio/charset/Charset;[C[CZ)V", nullptr, $PUBLIC, $method(DoubleByte$Encoder, init$, void, $Charset*, $chars*, $chars*, bool)},
-	{"<init>", "(Ljava/nio/charset/Charset;FF[B[C[CZ)V", nullptr, $PUBLIC, $method(DoubleByte$Encoder, init$, void, $Charset*, float, float, $bytes*, $chars*, $chars*, bool)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, canEncode, bool, char16_t)},
-	{"encode", "([CII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, encode, int32_t, $chars*, int32_t, int32_t, $bytes*)},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeChar", "(C)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, encodeChar, int32_t, char16_t)},
-	{"encodeFromLatin1", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, encodeFromLatin1, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
-	{"encodeFromUTF16", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, encodeFromUTF16, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"implReplaceWith", "([B)V", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder, implReplaceWith, void, $bytes*)},
-	{"initC2B", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II[C[C)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DoubleByte$Encoder, initC2B, void, $StringArray*, $String*, $String*, $String*, int32_t, int32_t, $chars*, $chars*)},
-	{"isASCIICompatible", "()Z", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, isASCIICompatible, bool)},
-	{"sgp", "()Lsun/nio/cs/Surrogate$Parser;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder, sgp, $Surrogate$Parser*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DoubleByte$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.DoubleByte$Encoder", "sun.nio.cs.DoubleByte", "Encoder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DoubleByte$Encoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.DoubleByte$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	"sun.nio.cs.ArrayEncoder",
-	_DoubleByte$Encoder_FieldInfo_,
-	_DoubleByte$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DoubleByte$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.DoubleByte"
-};
-
-$Object* allocate$DoubleByte$Encoder($Class* clazz) {
-	return $of($alloc(DoubleByte$Encoder));
-}
 
 int32_t DoubleByte$Encoder::hashCode() {
 	 return this->$CharsetEncoder::hashCode();
@@ -135,7 +75,7 @@ void DoubleByte$Encoder::init$($Charset* cs, float avg, float max, $bytes* repl,
 }
 
 bool DoubleByte$Encoder::canEncode(char16_t c) {
-	return encodeChar(c) != 0x0000FFFD;
+	return encodeChar(c) != 0x0000fffd;
 }
 
 $Surrogate$Parser* DoubleByte$Encoder::sgp() {
@@ -146,7 +86,7 @@ $Surrogate$Parser* DoubleByte$Encoder::sgp() {
 }
 
 $CoderResult* DoubleByte$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -157,130 +97,126 @@ $CoderResult* DoubleByte$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer*
 	int32_t dp = var$2 + dst->position();
 	int32_t var$3 = dst->arrayOffset();
 	int32_t dl = var$3 + dst->limit();
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				char16_t c = $nc(sa)->get(sp);
-				int32_t bb = encodeChar(c);
-				if (bb == 0x0000FFFD) {
-					if ($Character::isSurrogate(c)) {
-						if ($nc($(sgp()))->parse(c, sa, sp, sl) < 0) {
-							$assign(var$6, $nc(this->sgp$)->error());
-							return$5 = true;
-							goto $finally;
-						}
-						$assign(var$6, $nc(this->sgp$)->unmappableResult());
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			char16_t c = $nc(sa)->get(sp);
+			int32_t bb = encodeChar(c);
+			if (bb == 0x0000fffd) {
+				if ($Character::isSurrogate(c)) {
+					if ($$nc(sgp())->parse(c, sa, sp, sl) < 0) {
+						$assign(var$6, $nc(this->sgp$)->error());
 						return$5 = true;
 						goto $finally;
 					}
-					$assign(var$6, $CoderResult::unmappableForLength(1));
+					$assign(var$6, $nc(this->sgp$)->unmappableResult());
 					return$5 = true;
 					goto $finally;
 				}
-				if (bb > DoubleByte$Encoder::MAX_SINGLEBYTE) {
-					if (dl - dp < 2) {
-						$init($CoderResult);
-						$assign(var$6, $CoderResult::OVERFLOW);
-						return$5 = true;
-						goto $finally;
-					}
-					$nc(da)->set(dp++, (int8_t)(bb >> 8));
-					da->set(dp++, (int8_t)bb);
-				} else {
-					if (dl - dp < 1) {
-						$init($CoderResult);
-						$assign(var$6, $CoderResult::OVERFLOW);
-						return$5 = true;
-						goto $finally;
-					}
-					$nc(da)->set(dp++, (int8_t)bb);
-				}
-				++sp;
+				$assign(var$6, $CoderResult::unmappableForLength(1));
+				return$5 = true;
+				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			if (bb > DoubleByte$Encoder::MAX_SINGLEBYTE) {
+				if (dl - dp < 2) {
+					$init($CoderResult);
+					$assign(var$6, $CoderResult::OVERFLOW);
+					return$5 = true;
+					goto $finally;
+				}
+				$nc(da)->set(dp++, (int8_t)(bb >> 8));
+				da->set(dp++, (int8_t)bb);
+			} else {
+				if (dl - dp < 1) {
+					$init($CoderResult);
+					$assign(var$6, $CoderResult::OVERFLOW);
+					return$5 = true;
+					goto $finally;
+				}
+				$nc(da)->set(dp++, (int8_t)bb);
+			}
+			++sp;
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
 
 $CoderResult* DoubleByte$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mark = $nc(src)->position();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				char16_t c = src->get();
-				int32_t bb = encodeChar(c);
-				if (bb == 0x0000FFFD) {
-					if ($Character::isSurrogate(c)) {
-						if ($nc($(sgp()))->parse(c, src) < 0) {
-							$assign(var$2, $nc(this->sgp$)->error());
-							return$1 = true;
-							goto $finally;
-						}
-						$assign(var$2, $nc(this->sgp$)->unmappableResult());
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			char16_t c = src->get();
+			int32_t bb = encodeChar(c);
+			if (bb == 0x0000fffd) {
+				if ($Character::isSurrogate(c)) {
+					if ($$nc(sgp())->parse(c, src) < 0) {
+						$assign(var$2, $nc(this->sgp$)->error());
 						return$1 = true;
 						goto $finally;
 					}
-					$assign(var$2, $CoderResult::unmappableForLength(1));
+					$assign(var$2, $nc(this->sgp$)->unmappableResult());
 					return$1 = true;
 					goto $finally;
 				}
-				if (bb > DoubleByte$Encoder::MAX_SINGLEBYTE) {
-					if ($nc(dst)->remaining() < 2) {
-						$init($CoderResult);
-						$assign(var$2, $CoderResult::OVERFLOW);
-						return$1 = true;
-						goto $finally;
-					}
-					$nc(dst)->put((int8_t)(bb >> 8));
-					dst->put((int8_t)(bb));
-				} else {
-					if ($nc(dst)->remaining() < 1) {
-						$init($CoderResult);
-						$assign(var$2, $CoderResult::OVERFLOW);
-						return$1 = true;
-						goto $finally;
-					}
-					$nc(dst)->put((int8_t)bb);
-				}
-				++mark;
+				$assign(var$2, $CoderResult::unmappableForLength(1));
+				return$1 = true;
+				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
+			if (bb > DoubleByte$Encoder::MAX_SINGLEBYTE) {
+				if ($nc(dst)->remaining() < 2) {
+					$init($CoderResult);
+					$assign(var$2, $CoderResult::OVERFLOW);
+					return$1 = true;
+					goto $finally;
+				}
+				dst->put((int8_t)(bb >> 8));
+				dst->put((int8_t)(bb));
+			} else {
+				if ($nc(dst)->remaining() < 1) {
+					$init($CoderResult);
+					$assign(var$2, $CoderResult::OVERFLOW);
+					return$1 = true;
+					goto $finally;
+				}
+				dst->put((int8_t)bb);
+			}
+			++mark;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -305,14 +241,14 @@ int32_t DoubleByte$Encoder::encode($chars* src, int32_t sp, int32_t len, $bytes*
 	while (sp < sl) {
 		char16_t c = $nc(src)->get(sp++);
 		int32_t bb = encodeChar(c);
-		if (bb == 0x0000FFFD) {
+		if (bb == 0x0000fffd) {
 			bool var$0 = $Character::isHighSurrogate(c) && sp < sl;
 			if (var$0 && $Character::isLowSurrogate(src->get(sp))) {
 				++sp;
 			}
 			dst->set(dp++, $nc(this->repl)->get(0));
-			if ($nc(this->repl)->length > 1) {
-				dst->set(dp++, $nc(this->repl)->get(1));
+			if (this->repl->length > 1) {
+				dst->set(dp++, this->repl->get(1));
 			}
 			continue;
 		}
@@ -330,12 +266,12 @@ int32_t DoubleByte$Encoder::encodeFromLatin1($bytes* src, int32_t sp, int32_t le
 	int32_t dp = 0;
 	int32_t sl = sp + len;
 	while (sp < sl) {
-		char16_t c = (char16_t)((int32_t)($nc(src)->get(sp++) & (uint32_t)255));
+		char16_t c = (char16_t)($nc(src)->get(sp++) & 0xff);
 		int32_t bb = encodeChar(c);
-		if (bb == 0x0000FFFD) {
+		if (bb == 0x0000fffd) {
 			$nc(dst)->set(dp++, $nc(this->repl)->get(0));
-			if ($nc(this->repl)->length > 1) {
-				dst->set(dp++, $nc(this->repl)->get(1));
+			if (this->repl->length > 1) {
+				dst->set(dp++, this->repl->get(1));
 			}
 			continue;
 		}
@@ -355,14 +291,14 @@ int32_t DoubleByte$Encoder::encodeFromUTF16($bytes* src, int32_t sp, int32_t len
 	while (sp < sl) {
 		char16_t c = $StringUTF16::getChar(src, sp++);
 		int32_t bb = encodeChar(c);
-		if (bb == 0x0000FFFD) {
+		if (bb == 0x0000fffd) {
 			bool var$0 = $Character::isHighSurrogate(c) && sp < sl;
 			if (var$0 && $Character::isLowSurrogate($StringUTF16::getChar(src, sp))) {
 				++sp;
 			}
 			$nc(dst)->set(dp++, $nc(this->repl)->get(0));
-			if ($nc(this->repl)->length > 1) {
-				dst->set(dp++, $nc(this->repl)->get(1));
+			if (this->repl->length > 1) {
+				dst->set(dp++, this->repl->get(1));
 			}
 			continue;
 		}
@@ -381,13 +317,13 @@ bool DoubleByte$Encoder::isASCIICompatible() {
 }
 
 int32_t DoubleByte$Encoder::encodeChar(char16_t ch) {
-	return $nc(this->c2b)->get($nc(this->c2bIndex)->get(ch >> 8) + ((int32_t)(ch & (uint32_t)255)));
+	return $nc(this->c2b)->get($nc(this->c2bIndex)->get(ch >> 8) + (ch & 0xff));
 }
 
 void DoubleByte$Encoder::initC2B($StringArray* b2c, $String* b2cSB, $String* b2cNR, $String* c2bNR, int32_t b2Min, int32_t b2Max, $chars* c2b, $chars* c2bIndex) {
 	$init(DoubleByte$Encoder);
-	$useLocalCurrentObjectStackCache();
-	$Arrays::fill(c2b, (char16_t)0x0000FFFD);
+	$useLocalObjectStack();
+	$Arrays::fill(c2b, (char16_t)0x0000fffd);
 	int32_t off = 256;
 	$var($charArray2, b2c_ca, $new($charArray2, $nc(b2c)->length));
 	$var($chars, b2cSB_ca, nullptr);
@@ -407,17 +343,17 @@ void DoubleByte$Encoder::initC2B($StringArray* b2c, $String* b2cSB, $String* b2c
 			char16_t c = b2cNR->charAt(j++);
 			if (b < 256 && b2cSB_ca != nullptr) {
 				if (b2cSB_ca->get(b) == c) {
-					b2cSB_ca->set(b, (char16_t)0xFFFD);
+					b2cSB_ca->set(b, (char16_t)0xfffd);
 				}
-			} else if ($nc(b2c_ca->get(b >> 8))->get(((int32_t)(b & (uint32_t)255)) - b2Min) == c) {
-				$nc(b2c_ca->get(b >> 8))->set(((int32_t)(b & (uint32_t)255)) - b2Min, (char16_t)0xFFFD);
+			} else if ($nc(b2c_ca->get(b >> 8))->get((b & 0xff) - b2Min) == c) {
+				$nc(b2c_ca->get(b >> 8))->set((b & 0xff) - b2Min, (char16_t)0xfffd);
 			}
 		}
 	}
 	if (b2cSB_ca != nullptr) {
 		for (int32_t b = 0; b < b2cSB_ca->length; ++b) {
 			char16_t c = b2cSB_ca->get(b);
-			if (c == (char16_t)0xFFFD) {
+			if (c == (char16_t)0xfffd) {
 				continue;
 			}
 			int32_t index = $nc(c2bIndex)->get(c >> 8);
@@ -426,7 +362,7 @@ void DoubleByte$Encoder::initC2B($StringArray* b2c, $String* b2cSB, $String* b2c
 				off += 256;
 				c2bIndex->set(c >> 8, (char16_t)index);
 			}
-			$nc(c2b)->set(index + ((int32_t)(c & (uint32_t)255)), (char16_t)b);
+			$nc(c2b)->set(index + (c & 0xff), (char16_t)b);
 		}
 	}
 	for (int32_t b1 = 0; b1 < b2c->length; ++b1) {
@@ -436,7 +372,7 @@ void DoubleByte$Encoder::initC2B($StringArray* b2c, $String* b2cSB, $String* b2c
 		}
 		for (int32_t b2 = b2Min; b2 <= b2Max; ++b2) {
 			char16_t c = $nc(db)->get(b2 - b2Min);
-			if (c == (char16_t)0xFFFD) {
+			if (c == (char16_t)0xfffd) {
 				continue;
 			}
 			int32_t index = $nc(c2bIndex)->get(c >> 8);
@@ -445,7 +381,7 @@ void DoubleByte$Encoder::initC2B($StringArray* b2c, $String* b2cSB, $String* b2c
 				off += 256;
 				c2bIndex->set(c >> 8, (char16_t)index);
 			}
-			$nc(c2b)->set(index + ((int32_t)(c & (uint32_t)255)), (char16_t)((b1 << 8) | b2));
+			$nc(c2b)->set(index + (c & 0xff), (char16_t)((b1 << 8) | b2));
 		}
 	}
 	if (c2bNR != nullptr) {
@@ -457,7 +393,7 @@ void DoubleByte$Encoder::initC2B($StringArray* b2c, $String* b2cSB, $String* b2c
 				c2bIndex->set(index, (char16_t)off);
 				off += 256;
 			}
-			index = $nc(c2bIndex)->get(index) + ((int32_t)(c & (uint32_t)255));
+			index = c2bIndex->get(index) + (c & 0xff);
 			$nc(c2b)->set(index, b);
 		}
 	}
@@ -467,7 +403,60 @@ DoubleByte$Encoder::DoubleByte$Encoder() {
 }
 
 $Class* DoubleByte$Encoder::load$($String* name, bool initialize) {
-	$loadClass(DoubleByte$Encoder, name, initialize, &_DoubleByte$Encoder_ClassInfo_, allocate$DoubleByte$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_SINGLEBYTE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DoubleByte$Encoder, MAX_SINGLEBYTE)},
+		{"c2b", "[C", nullptr, $PRIVATE | $FINAL, $field(DoubleByte$Encoder, c2b)},
+		{"c2bIndex", "[C", nullptr, $PRIVATE | $FINAL, $field(DoubleByte$Encoder, c2bIndex)},
+		{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PROTECTED, $field(DoubleByte$Encoder, sgp$)},
+		{"isASCIICompatible", "Z", nullptr, $FINAL, $field(DoubleByte$Encoder, isASCIICompatible$)},
+		{"repl", "[B", nullptr, $PROTECTED, $field(DoubleByte$Encoder, repl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/nio/charset/Charset;[C[C)V", nullptr, $PUBLIC, $method(DoubleByte$Encoder, init$, void, $Charset*, $chars*, $chars*)},
+		{"<init>", "(Ljava/nio/charset/Charset;[C[CZ)V", nullptr, $PUBLIC, $method(DoubleByte$Encoder, init$, void, $Charset*, $chars*, $chars*, bool)},
+		{"<init>", "(Ljava/nio/charset/Charset;FF[B[C[CZ)V", nullptr, $PUBLIC, $method(DoubleByte$Encoder, init$, void, $Charset*, float, float, $bytes*, $chars*, $chars*, bool)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, canEncode, bool, char16_t)},
+		{"encode", "([CII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, encode, int32_t, $chars*, int32_t, int32_t, $bytes*)},
+		{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeChar", "(C)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, encodeChar, int32_t, char16_t)},
+		{"encodeFromLatin1", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, encodeFromLatin1, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+		{"encodeFromUTF16", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, encodeFromUTF16, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"implReplaceWith", "([B)V", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder, implReplaceWith, void, $bytes*)},
+		{"initC2B", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II[C[C)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DoubleByte$Encoder, initC2B, void, $StringArray*, $String*, $String*, $String*, int32_t, int32_t, $chars*, $chars*)},
+		{"isASCIICompatible", "()Z", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder, isASCIICompatible, bool)},
+		{"sgp", "()Lsun/nio/cs/Surrogate$Parser;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder, sgp, $Surrogate$Parser*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.DoubleByte$Encoder", "sun.nio.cs.DoubleByte", "Encoder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.DoubleByte$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		"sun.nio.cs.ArrayEncoder",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.DoubleByte"
+	};
+	$loadClass(DoubleByte$Encoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DoubleByte$Encoder));
+	});
 	return class$;
 }
 

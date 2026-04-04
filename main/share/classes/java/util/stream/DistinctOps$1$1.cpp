@@ -1,5 +1,4 @@
 #include <java/util/stream/DistinctOps$1$1.h>
-
 #include <java/util/stream/DistinctOps$1.h>
 #include <java/util/stream/Sink$ChainedReference.h>
 #include <java/util/stream/Sink.h>
@@ -17,54 +16,6 @@ using $Sink$ChainedReference = ::java::util::stream::Sink$ChainedReference;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _DistinctOps$1$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/stream/DistinctOps$1;", nullptr, $FINAL | $SYNTHETIC, $field(DistinctOps$1$1, this$0)},
-	{"seenNull", "Z", nullptr, 0, $field(DistinctOps$1$1, seenNull)},
-	{"lastSeen", "Ljava/lang/Object;", "TT;", 0, $field(DistinctOps$1$1, lastSeen)},
-	{}
-};
-
-$MethodInfo _DistinctOps$1$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/DistinctOps$1;Ljava/util/stream/Sink;)V", nullptr, 0, $method(DistinctOps$1$1, init$, void, $DistinctOps$1*, $Sink*)},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(DistinctOps$1$1, accept, void, Object$*)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(DistinctOps$1$1, begin, void, int64_t)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(DistinctOps$1$1, end, void)},
-	{}
-};
-
-$EnclosingMethodInfo _DistinctOps$1$1_EnclosingMethodInfo_ = {
-	"java.util.stream.DistinctOps$1",
-	"opWrapSink",
-	"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
-};
-
-$InnerClassInfo _DistinctOps$1$1_InnerClassesInfo_[] = {
-	{"java.util.stream.DistinctOps$1", nullptr, nullptr, 0},
-	{"java.util.stream.DistinctOps$1$1", nullptr, nullptr, 0},
-	{"java.util.stream.Sink$ChainedReference", "java.util.stream.Sink", "ChainedReference", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DistinctOps$1$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.DistinctOps$1$1",
-	"java.util.stream.Sink$ChainedReference",
-	nullptr,
-	_DistinctOps$1$1_FieldInfo_,
-	_DistinctOps$1$1_MethodInfo_,
-	"Ljava/util/stream/Sink$ChainedReference<TT;TT;>;",
-	&_DistinctOps$1$1_EnclosingMethodInfo_,
-	_DistinctOps$1$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.DistinctOps"
-};
-
-$Object* allocate$DistinctOps$1$1($Class* clazz) {
-	return $of($alloc(DistinctOps$1$1));
-}
 
 void DistinctOps$1$1::init$($DistinctOps$1* this$0, $Sink* downstream) {
 	$set(this, this$0, this$0);
@@ -89,7 +40,7 @@ void DistinctOps$1$1::accept(Object$* t) {
 			this->seenNull = true;
 			$nc(this->downstream)->accept($set(this, lastSeen, nullptr));
 		}
-	} else if (this->lastSeen == nullptr || !$nc($of(t))->equals(this->lastSeen)) {
+	} else if (this->lastSeen == nullptr || !$of(t)->equals(this->lastSeen)) {
 		$nc(this->downstream)->accept($set(this, lastSeen, t));
 	}
 }
@@ -98,7 +49,48 @@ DistinctOps$1$1::DistinctOps$1$1() {
 }
 
 $Class* DistinctOps$1$1::load$($String* name, bool initialize) {
-	$loadClass(DistinctOps$1$1, name, initialize, &_DistinctOps$1$1_ClassInfo_, allocate$DistinctOps$1$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/stream/DistinctOps$1;", nullptr, $FINAL | $SYNTHETIC, $field(DistinctOps$1$1, this$0)},
+		{"seenNull", "Z", nullptr, 0, $field(DistinctOps$1$1, seenNull)},
+		{"lastSeen", "Ljava/lang/Object;", "TT;", 0, $field(DistinctOps$1$1, lastSeen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/DistinctOps$1;Ljava/util/stream/Sink;)V", nullptr, 0, $method(DistinctOps$1$1, init$, void, $DistinctOps$1*, $Sink*)},
+		{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(DistinctOps$1$1, accept, void, Object$*)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(DistinctOps$1$1, begin, void, int64_t)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(DistinctOps$1$1, end, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.DistinctOps$1",
+		"opWrapSink",
+		"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.DistinctOps$1", nullptr, nullptr, 0},
+		{"java.util.stream.DistinctOps$1$1", nullptr, nullptr, 0},
+		{"java.util.stream.Sink$ChainedReference", "java.util.stream.Sink", "ChainedReference", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.DistinctOps$1$1",
+		"java.util.stream.Sink$ChainedReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/Sink$ChainedReference<TT;TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.DistinctOps"
+	};
+	$loadClass(DistinctOps$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DistinctOps$1$1);
+	});
 	return class$;
 }
 

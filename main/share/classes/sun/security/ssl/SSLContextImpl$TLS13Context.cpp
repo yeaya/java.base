@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl$TLS13Context.h>
-
 #include <java/util/List.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/SSLContextImpl$AbstractTLSContext.h>
@@ -25,45 +24,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLContextImpl$TLS13Context_FieldInfo_[] = {
-	{"clientDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$TLS13Context, clientDefaultProtocols)},
-	{"clientDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$TLS13Context, clientDefaultCipherSuites)},
-	{}
-};
-
-$MethodInfo _SSLContextImpl$TLS13Context_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$TLS13Context, init$, void)},
-	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$TLS13Context, getClientDefaultCipherSuites, $List*)},
-	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$TLS13Context, getClientDefaultProtocolVersions, $List*)},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl$TLS13Context_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$TLS13Context", "sun.security.ssl.SSLContextImpl", "TLS13Context", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$AbstractTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLContextImpl$TLS13Context_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLContextImpl$TLS13Context",
-	"sun.security.ssl.SSLContextImpl$AbstractTLSContext",
-	nullptr,
-	_SSLContextImpl$TLS13Context_FieldInfo_,
-	_SSLContextImpl$TLS13Context_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl$TLS13Context_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl"
-};
-
-$Object* allocate$SSLContextImpl$TLS13Context($Class* clazz) {
-	return $of($alloc(SSLContextImpl$TLS13Context));
-}
-
 $List* SSLContextImpl$TLS13Context::clientDefaultProtocols = nullptr;
 $List* SSLContextImpl$TLS13Context::clientDefaultCipherSuites = nullptr;
 
@@ -79,7 +39,7 @@ $List* SSLContextImpl$TLS13Context::getClientDefaultCipherSuites() {
 	return SSLContextImpl$TLS13Context::clientDefaultCipherSuites;
 }
 
-void clinit$SSLContextImpl$TLS13Context($Class* class$) {
+void SSLContextImpl$TLS13Context::clinit$($Class* clazz) {
 	{
 		$init($ProtocolVersion);
 		$assignStatic(SSLContextImpl$TLS13Context::clientDefaultProtocols, $SSLContextImpl::getAvailableProtocols($$new($ProtocolVersionArray, {
@@ -96,7 +56,40 @@ SSLContextImpl$TLS13Context::SSLContextImpl$TLS13Context() {
 }
 
 $Class* SSLContextImpl$TLS13Context::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl$TLS13Context, name, initialize, &_SSLContextImpl$TLS13Context_ClassInfo_, clinit$SSLContextImpl$TLS13Context, allocate$SSLContextImpl$TLS13Context);
+	$FieldInfo fieldInfos$$[] = {
+		{"clientDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$TLS13Context, clientDefaultProtocols)},
+		{"clientDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$TLS13Context, clientDefaultCipherSuites)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$TLS13Context, init$, void)},
+		{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$TLS13Context, getClientDefaultCipherSuites, $List*)},
+		{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$TLS13Context, getClientDefaultProtocolVersions, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$TLS13Context", "sun.security.ssl.SSLContextImpl", "TLS13Context", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$AbstractTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLContextImpl$TLS13Context",
+		"sun.security.ssl.SSLContextImpl$AbstractTLSContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl"
+	};
+	$loadClass(SSLContextImpl$TLS13Context, name, initialize, &classInfo$$, SSLContextImpl$TLS13Context::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl$TLS13Context);
+	});
 	return class$;
 }
 

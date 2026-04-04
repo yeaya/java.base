@@ -1,38 +1,33 @@
 #include <TestPlainArrayNotGeneric$XMap.h>
-
 #include <TestPlainArrayNotGeneric.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 
-$InnerClassInfo _TestPlainArrayNotGeneric$XMap_InnerClassesInfo_[] = {
-	{"TestPlainArrayNotGeneric$XMap", "TestPlainArrayNotGeneric", "XMap", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TestPlainArrayNotGeneric$XMap_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"TestPlainArrayNotGeneric$XMap",
-	nullptr,
-	"java.util.Map",
-	nullptr,
-	nullptr,
-	"Ljava/lang/Object;Ljava/util/Map<Ljava/util/List<[Ljava/lang/String;>;[Ljava/lang/String;>;",
-	nullptr,
-	_TestPlainArrayNotGeneric$XMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestPlainArrayNotGeneric"
-};
-
-$Object* allocate$TestPlainArrayNotGeneric$XMap($Class* clazz) {
-	return $of($alloc(TestPlainArrayNotGeneric$XMap));
-}
-
 $Class* TestPlainArrayNotGeneric$XMap::load$($String* name, bool initialize) {
-	$loadClass(TestPlainArrayNotGeneric$XMap, name, initialize, &_TestPlainArrayNotGeneric$XMap_ClassInfo_, allocate$TestPlainArrayNotGeneric$XMap);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestPlainArrayNotGeneric$XMap", "TestPlainArrayNotGeneric", "XMap", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"TestPlainArrayNotGeneric$XMap",
+		nullptr,
+		"java.util.Map",
+		nullptr,
+		nullptr,
+		"Ljava/lang/Object;Ljava/util/Map<Ljava/util/List<[Ljava/lang/String;>;[Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestPlainArrayNotGeneric"
+	};
+	$loadClass(TestPlainArrayNotGeneric$XMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestPlainArrayNotGeneric$XMap);
+	});
 	return class$;
 }
 

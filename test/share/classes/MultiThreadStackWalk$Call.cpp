@@ -1,5 +1,4 @@
 #include <MultiThreadStackWalk$Call.h>
-
 #include <MultiThreadStackWalk$1.h>
 #include <MultiThreadStackWalk$Call$WalkType.h>
 #include <MultiThreadStackWalk$Env.h>
@@ -23,7 +22,6 @@
 using $MultiThreadStackWalk$1 = ::MultiThreadStackWalk$1;
 using $MultiThreadStackWalk$Call$WalkType = ::MultiThreadStackWalk$Call$WalkType;
 using $MultiThreadStackWalk$Env = ::MultiThreadStackWalk$Env;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -45,69 +43,32 @@ public:
 	virtual void accept(Object$* sfi) override {
 		$nc(inst$)->consume($cast($StackWalker$StackFrame, sfi));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MultiThreadStackWalk$Call$$Lambda$consume>());
-	}
 	$MultiThreadStackWalk$Env* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MultiThreadStackWalk$Call$$Lambda$consume::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MultiThreadStackWalk$Call$$Lambda$consume, inst$)},
-	{}
-};
-$MethodInfo MultiThreadStackWalk$Call$$Lambda$consume::methodInfos[3] = {
-	{"<init>", "(LMultiThreadStackWalk$Env;)V", nullptr, $PUBLIC, $method(MultiThreadStackWalk$Call$$Lambda$consume, init$, void, $MultiThreadStackWalk$Env*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Call$$Lambda$consume, accept, void, Object$*)},
-	{}
-};
-$ClassInfo MultiThreadStackWalk$Call$$Lambda$consume::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MultiThreadStackWalk$Call$$Lambda$consume",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* MultiThreadStackWalk$Call$$Lambda$consume::load$($String* name, bool initialize) {
-	$loadClass(MultiThreadStackWalk$Call$$Lambda$consume, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MultiThreadStackWalk$Call$$Lambda$consume, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LMultiThreadStackWalk$Env;)V", nullptr, $PUBLIC, $method(MultiThreadStackWalk$Call$$Lambda$consume, init$, void, $MultiThreadStackWalk$Env*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Call$$Lambda$consume, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MultiThreadStackWalk$Call$$Lambda$consume",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiThreadStackWalk$Call$$Lambda$consume, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiThreadStackWalk$Call$$Lambda$consume);
+	});
 	return class$;
 }
 $Class* MultiThreadStackWalk$Call$$Lambda$consume::class$ = nullptr;
-
-$MethodInfo _MultiThreadStackWalk$Call_MethodInfo_[] = {
-	{"call", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Call;III)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Call, call, void, $MultiThreadStackWalk$Env*, MultiThreadStackWalk$Call*, int32_t, int32_t, int32_t)},
-	{"getWalkType", "()LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Call, getWalkType, $MultiThreadStackWalk$Call$WalkType*)},
-	{"walk", "(LMultiThreadStackWalk$Env;)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Call, walk, void, $MultiThreadStackWalk$Env*)},
-	{}
-};
-
-$InnerClassInfo _MultiThreadStackWalk$Call_InnerClassesInfo_[] = {
-	{"MultiThreadStackWalk$Call", "MultiThreadStackWalk", "Call", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"MultiThreadStackWalk$Call$WalkType", "MultiThreadStackWalk$Call", "WalkType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MultiThreadStackWalk$Call_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"MultiThreadStackWalk$Call",
-	nullptr,
-	nullptr,
-	nullptr,
-	_MultiThreadStackWalk$Call_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultiThreadStackWalk$Call_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MultiThreadStackWalk"
-};
-
-$Object* allocate$MultiThreadStackWalk$Call($Class* clazz) {
-	return $of($alloc(MultiThreadStackWalk$Call));
-}
 
 $MultiThreadStackWalk$Call$WalkType* MultiThreadStackWalk$Call::getWalkType() {
 	$init($MultiThreadStackWalk$Call$WalkType);
@@ -115,22 +76,18 @@ $MultiThreadStackWalk$Call$WalkType* MultiThreadStackWalk$Call::getWalkType() {
 }
 
 void MultiThreadStackWalk$Call::walk($MultiThreadStackWalk$Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$MultiThreadStackWalk$Call$WalkType* walktype = getWalkType();
 	$nc($System::out)->println($$str({"Thread "_s, $($($Thread::currentThread())->getName()), " starting walk with "_s, walktype}));
 	$init($MultiThreadStackWalk$1);
 	switch ($nc($MultiThreadStackWalk$1::$SwitchMap$MultiThreadStackWalk$Call$WalkType)->get($nc((walktype))->ordinal())) {
 	case 1:
-		{
-			$init($StackWalker$Option);
-			$nc($($StackWalker::getInstance($StackWalker$Option::RETAIN_CLASS_REFERENCE)))->forEach(static_cast<$Consumer*>($$new(MultiThreadStackWalk$Call$$Lambda$consume, static_cast<$MultiThreadStackWalk$Env*>($nc(env)))));
-			break;
-		}
+		$init($StackWalker$Option);
+		$$nc($StackWalker::getInstance($StackWalker$Option::RETAIN_CLASS_REFERENCE))->forEach($$new(MultiThreadStackWalk$Call$$Lambda$consume, $nc(env)));
+		break;
 	default:
-		{
-			$throwNew($InternalError, $$str({"Unknown walk type: "_s, walktype}));
-		}
+		$throwNew($InternalError, $$str({"Unknown walk type: "_s, walktype}));
 	}
 }
 
@@ -142,11 +99,39 @@ void MultiThreadStackWalk$Call::call($MultiThreadStackWalk$Env* env, MultiThread
 
 $Class* MultiThreadStackWalk$Call::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MultiThreadStackWalk$Call$$Lambda$consume::classInfo$.name)) {
+		if (name->equals("MultiThreadStackWalk$Call$$Lambda$consume")) {
 			return MultiThreadStackWalk$Call$$Lambda$consume::load$(name, initialize);
 		}
 	}
-	$loadClass(MultiThreadStackWalk$Call, name, initialize, &_MultiThreadStackWalk$Call_ClassInfo_, allocate$MultiThreadStackWalk$Call);
+	$MethodInfo methodInfos$$[] = {
+		{"call", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Call;III)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Call, call, void, $MultiThreadStackWalk$Env*, MultiThreadStackWalk$Call*, int32_t, int32_t, int32_t)},
+		{"getWalkType", "()LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Call, getWalkType, $MultiThreadStackWalk$Call$WalkType*)},
+		{"walk", "(LMultiThreadStackWalk$Env;)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Call, walk, void, $MultiThreadStackWalk$Env*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MultiThreadStackWalk$Call", "MultiThreadStackWalk", "Call", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"MultiThreadStackWalk$Call$WalkType", "MultiThreadStackWalk$Call", "WalkType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"MultiThreadStackWalk$Call",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MultiThreadStackWalk"
+	};
+	$loadClass(MultiThreadStackWalk$Call, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiThreadStackWalk$Call);
+	});
 	return class$;
 }
 

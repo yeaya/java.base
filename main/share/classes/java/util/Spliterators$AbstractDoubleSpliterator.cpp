@@ -1,11 +1,9 @@
 #include <java/util/Spliterators$AbstractDoubleSpliterator.h>
-
 #include <java/util/Spliterator$OfDouble.h>
 #include <java/util/Spliterator.h>
 #include <java/util/Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer.h>
 #include <java/util/Spliterators$DoubleArraySpliterator.h>
 #include <java/util/Spliterators.h>
-#include <java/util/function/DoubleConsumer.h>
 #include <jcpp.h>
 
 #undef BATCH_UNIT
@@ -23,65 +21,20 @@ using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfDouble = ::java::util::Spliterator$OfDouble;
 using $Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer = ::java::util::Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer;
 using $Spliterators$DoubleArraySpliterator = ::java::util::Spliterators$DoubleArraySpliterator;
-using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 
 namespace java {
 	namespace util {
 
-$FieldInfo _Spliterators$AbstractDoubleSpliterator_FieldInfo_[] = {
-	{"MAX_BATCH", "I", nullptr, $STATIC | $FINAL, $constField(Spliterators$AbstractDoubleSpliterator, MAX_BATCH)},
-	{"BATCH_UNIT", "I", nullptr, $STATIC | $FINAL, $constField(Spliterators$AbstractDoubleSpliterator, BATCH_UNIT)},
-	{"characteristics", "I", nullptr, $PRIVATE | $FINAL, $field(Spliterators$AbstractDoubleSpliterator, characteristics$)},
-	{"est", "J", nullptr, $PRIVATE, $field(Spliterators$AbstractDoubleSpliterator, est)},
-	{"batch", "I", nullptr, $PRIVATE, $field(Spliterators$AbstractDoubleSpliterator, batch)},
-	{}
-};
-
-$MethodInfo _Spliterators$AbstractDoubleSpliterator_MethodInfo_[] = {
-	{"<init>", "(JI)V", nullptr, $PROTECTED, $method(Spliterators$AbstractDoubleSpliterator, init$, void, int64_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractDoubleSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractDoubleSpliterator, estimateSize, int64_t)},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractDoubleSpliterator, trySplit, $Spliterator$OfDouble*)},
-	{}
-};
-
-$InnerClassInfo _Spliterators$AbstractDoubleSpliterator_InnerClassesInfo_[] = {
-	{"java.util.Spliterators$AbstractDoubleSpliterator", "java.util.Spliterators", "AbstractDoubleSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer", "java.util.Spliterators$AbstractDoubleSpliterator", "HoldingDoubleConsumer", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Spliterators$AbstractDoubleSpliterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.Spliterators$AbstractDoubleSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator$OfDouble",
-	_Spliterators$AbstractDoubleSpliterator_FieldInfo_,
-	_Spliterators$AbstractDoubleSpliterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spliterators$AbstractDoubleSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Spliterators"
-};
-
-$Object* allocate$Spliterators$AbstractDoubleSpliterator($Class* clazz) {
-	return $of($alloc(Spliterators$AbstractDoubleSpliterator));
-}
-
 void Spliterators$AbstractDoubleSpliterator::init$(int64_t est, int32_t additionalCharacteristics) {
 	this->est = est;
-	this->characteristics$ = (((int32_t)(additionalCharacteristics & (uint32_t)$Spliterator::SIZED)) != 0) ? additionalCharacteristics | $Spliterator::SUBSIZED : additionalCharacteristics;
+	this->characteristics$ = ((additionalCharacteristics & $Spliterator::SIZED) != 0) ? additionalCharacteristics | $Spliterator::SUBSIZED : additionalCharacteristics;
 }
 
 $Spliterator$OfDouble* Spliterators$AbstractDoubleSpliterator::trySplit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, holder, $new($Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer));
 	int64_t s = this->est;
-	if (s > 1 && tryAdvance(static_cast<$DoubleConsumer*>(holder))) {
+	if (s > 1 && tryAdvance(holder)) {
 		int32_t n = this->batch + Spliterators$AbstractDoubleSpliterator::BATCH_UNIT;
 		if (n > s) {
 			n = (int32_t)s;
@@ -93,7 +46,7 @@ $Spliterator$OfDouble* Spliterators$AbstractDoubleSpliterator::trySplit() {
 		int32_t j = 0;
 		do {
 			a->set(j, holder->value);
-		} while (++j < n && tryAdvance(static_cast<$DoubleConsumer*>(holder)));
+		} while (++j < n && tryAdvance(holder));
 		this->batch = j;
 		if (this->est != $Long::MAX_VALUE) {
 			this->est -= j;
@@ -115,7 +68,45 @@ Spliterators$AbstractDoubleSpliterator::Spliterators$AbstractDoubleSpliterator()
 }
 
 $Class* Spliterators$AbstractDoubleSpliterator::load$($String* name, bool initialize) {
-	$loadClass(Spliterators$AbstractDoubleSpliterator, name, initialize, &_Spliterators$AbstractDoubleSpliterator_ClassInfo_, allocate$Spliterators$AbstractDoubleSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_BATCH", "I", nullptr, $STATIC | $FINAL, $constField(Spliterators$AbstractDoubleSpliterator, MAX_BATCH)},
+		{"BATCH_UNIT", "I", nullptr, $STATIC | $FINAL, $constField(Spliterators$AbstractDoubleSpliterator, BATCH_UNIT)},
+		{"characteristics", "I", nullptr, $PRIVATE | $FINAL, $field(Spliterators$AbstractDoubleSpliterator, characteristics$)},
+		{"est", "J", nullptr, $PRIVATE, $field(Spliterators$AbstractDoubleSpliterator, est)},
+		{"batch", "I", nullptr, $PRIVATE, $field(Spliterators$AbstractDoubleSpliterator, batch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JI)V", nullptr, $PROTECTED, $method(Spliterators$AbstractDoubleSpliterator, init$, void, int64_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractDoubleSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractDoubleSpliterator, estimateSize, int64_t)},
+		{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractDoubleSpliterator, trySplit, $Spliterator$OfDouble*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterators$AbstractDoubleSpliterator", "java.util.Spliterators", "AbstractDoubleSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer", "java.util.Spliterators$AbstractDoubleSpliterator", "HoldingDoubleConsumer", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.Spliterators$AbstractDoubleSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator$OfDouble",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Spliterators"
+	};
+	$loadClass(Spliterators$AbstractDoubleSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spliterators$AbstractDoubleSpliterator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <toStringTest.h>
-
 #include <java/lang/reflect/Modifier.h>
 #include <jcpp.h>
 
@@ -21,32 +20,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Modifier = ::java::lang::reflect::Modifier;
 
-$MethodInfo _toStringTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(toStringTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(toStringTest, main, void, $StringArray*)},
-	{"testString", "(ILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(toStringTest, testString, void, int32_t, $String*)},
-	{}
-};
-
-$ClassInfo _toStringTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"toStringTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_toStringTest_MethodInfo_
-};
-
-$Object* allocate$toStringTest($Class* clazz) {
-	return $of($alloc(toStringTest));
-}
-
 void toStringTest::init$() {
 }
 
 void toStringTest::testString(int32_t test, $String* expected) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($Modifier::toString(test)))->equals(expected)) {
+	$useLocalObjectStack();
+	if (!$$nc($Modifier::toString(test))->equals(expected)) {
 		$throwNew($RuntimeException, $$str({$$str(test), " yields incorrect toString result"_s}));
 	}
 }
@@ -63,7 +42,23 @@ toStringTest::toStringTest() {
 }
 
 $Class* toStringTest::load$($String* name, bool initialize) {
-	$loadClass(toStringTest, name, initialize, &_toStringTest_ClassInfo_, allocate$toStringTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(toStringTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(toStringTest, main, void, $StringArray*)},
+		{"testString", "(ILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(toStringTest, testString, void, int32_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"toStringTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(toStringTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(toStringTest);
+	});
 	return class$;
 }
 

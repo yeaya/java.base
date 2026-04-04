@@ -21,6 +21,7 @@ class Version : public ::java::lang::Enum {
 public:
 	Version();
 	static $Array<::com::sun::security::ntlm::Version>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::security::ntlm::Version* valueOf($String* name);
 	static $Array<::com::sun::security::ntlm::Version>* values();

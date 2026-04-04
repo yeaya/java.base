@@ -14,7 +14,7 @@ public:
 	SecurityPermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0x48AA663EB1871D26;
+	static const int64_t serialVersionUID = (int64_t)0x48aa663eb1871d26;
 };
 
 	} // security

@@ -1,5 +1,4 @@
 #include <java/lang/ClassValue$ClassValueMap.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassValue$Entry.h>
 #include <java/lang/ClassValue$Identity.h>
@@ -29,69 +28,6 @@ using $WeakHashMap = ::java::util::WeakHashMap;
 namespace java {
 	namespace lang {
 
-$FieldInfo _ClassValue$ClassValueMap_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ClassValue$ClassValueMap, $assertionsDisabled)},
-	{"cacheArray", "[Ljava/lang/ClassValue$Entry;", "[Ljava/lang/ClassValue$Entry<*>;", $PRIVATE, $field(ClassValue$ClassValueMap, cacheArray)},
-	{"cacheLoad", "I", nullptr, $PRIVATE, $field(ClassValue$ClassValueMap, cacheLoad)},
-	{"cacheLoadLimit", "I", nullptr, $PRIVATE, $field(ClassValue$ClassValueMap, cacheLoadLimit)},
-	{"INITIAL_ENTRIES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassValue$ClassValueMap, INITIAL_ENTRIES)},
-	{"CACHE_LOAD_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassValue$ClassValueMap, CACHE_LOAD_LIMIT)},
-	{"PROBE_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassValue$ClassValueMap, PROBE_LIMIT)},
-	{}
-};
-
-$MethodInfo _ClassValue$ClassValueMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ClassValue$ClassValueMap, init$, void)},
-	{"addToCache", "(Ljava/lang/ClassValue$Entry;)V", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue$Entry<TT;>;)V", $PRIVATE, $method(ClassValue$ClassValueMap, addToCache, void, $ClassValue$Entry*)},
-	{"addToCache", "(Ljava/lang/ClassValue;Ljava/lang/ClassValue$Entry;)V", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue<TT;>;Ljava/lang/ClassValue$Entry<TT;>;)V", $PRIVATE, $method(ClassValue$ClassValueMap, addToCache, void, $ClassValue*, $ClassValue$Entry*)},
-	{"changeEntry", "(Ljava/lang/ClassValue;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue<TT;>;TT;)V", $SYNCHRONIZED, $virtualMethod(ClassValue$ClassValueMap, changeEntry, void, $ClassValue*, Object$*)},
-	{"checkCacheLoad", "()V", nullptr, $PRIVATE, $method(ClassValue$ClassValueMap, checkCacheLoad, void)},
-	{"entryDislocation", "([Ljava/lang/ClassValue$Entry;ILjava/lang/ClassValue$Entry;)I", "([Ljava/lang/ClassValue$Entry<*>;ILjava/lang/ClassValue$Entry<*>;)I", $PRIVATE | $STATIC, $staticMethod(ClassValue$ClassValueMap, entryDislocation, int32_t, $ClassValue$EntryArray*, int32_t, $ClassValue$Entry*)},
-	{"findReplacement", "([Ljava/lang/ClassValue$Entry;I)Ljava/lang/ClassValue$Entry;", "([Ljava/lang/ClassValue$Entry<*>;I)Ljava/lang/ClassValue$Entry<*>;", $PRIVATE, $method(ClassValue$ClassValueMap, findReplacement, $ClassValue$Entry*, $ClassValue$EntryArray*, int32_t)},
-	{"finishEntry", "(Ljava/lang/ClassValue;Ljava/lang/ClassValue$Entry;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue<TT;>;Ljava/lang/ClassValue$Entry<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", $SYNCHRONIZED, $virtualMethod(ClassValue$ClassValueMap, finishEntry, $ClassValue$Entry*, $ClassValue*, $ClassValue$Entry*)},
-	{"getCache", "()[Ljava/lang/ClassValue$Entry;", "()[Ljava/lang/ClassValue$Entry<*>;", 0, $virtualMethod(ClassValue$ClassValueMap, getCache, $ClassValue$EntryArray*)},
-	{"loadFromCache", "([Ljava/lang/ClassValue$Entry;I)Ljava/lang/ClassValue$Entry;", "([Ljava/lang/ClassValue$Entry<*>;I)Ljava/lang/ClassValue$Entry<*>;", $STATIC, $staticMethod(ClassValue$ClassValueMap, loadFromCache, $ClassValue$Entry*, $ClassValue$EntryArray*, int32_t)},
-	{"overwrittenEntry", "(Ljava/lang/ClassValue$Entry;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue$Entry<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", $PRIVATE, $method(ClassValue$ClassValueMap, overwrittenEntry, $ClassValue$Entry*, $ClassValue$Entry*)},
-	{"placeInCache", "([Ljava/lang/ClassValue$Entry;ILjava/lang/ClassValue$Entry;Z)Ljava/lang/ClassValue$Entry;", "([Ljava/lang/ClassValue$Entry<*>;ILjava/lang/ClassValue$Entry<*>;Z)Ljava/lang/ClassValue$Entry<*>;", $PRIVATE, $method(ClassValue$ClassValueMap, placeInCache, $ClassValue$Entry*, $ClassValue$EntryArray*, int32_t, $ClassValue$Entry*, bool)},
-	{"probeBackupLocations", "([Ljava/lang/ClassValue$Entry;Ljava/lang/ClassValue;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>([Ljava/lang/ClassValue$Entry<*>;Ljava/lang/ClassValue<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", $STATIC, $staticMethod(ClassValue$ClassValueMap, probeBackupLocations, $ClassValue$Entry*, $ClassValue$EntryArray*, $ClassValue*)},
-	{"probeHomeLocation", "([Ljava/lang/ClassValue$Entry;Ljava/lang/ClassValue;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>([Ljava/lang/ClassValue$Entry<*>;Ljava/lang/ClassValue<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", $STATIC, $staticMethod(ClassValue$ClassValueMap, probeHomeLocation, $ClassValue$Entry*, $ClassValue$EntryArray*, $ClassValue*)},
-	{"reduceCacheLoad", "()V", nullptr, $PRIVATE, $method(ClassValue$ClassValueMap, reduceCacheLoad, void)},
-	{"removeEntry", "(Ljava/lang/ClassValue;)V", "(Ljava/lang/ClassValue<*>;)V", $SYNCHRONIZED, $virtualMethod(ClassValue$ClassValueMap, removeEntry, void, $ClassValue*)},
-	{"removeStaleEntries", "([Ljava/lang/ClassValue$Entry;II)V", "([Ljava/lang/ClassValue$Entry<*>;II)V", $PRIVATE, $method(ClassValue$ClassValueMap, removeStaleEntries, void, $ClassValue$EntryArray*, int32_t, int32_t)},
-	{"removeStaleEntries", "(Ljava/lang/ClassValue;)V", "(Ljava/lang/ClassValue<*>;)V", $PRIVATE, $method(ClassValue$ClassValueMap, removeStaleEntries, void, $ClassValue*)},
-	{"removeStaleEntries", "()V", nullptr, $PRIVATE, $method(ClassValue$ClassValueMap, removeStaleEntries, void)},
-	{"sizeCache", "(I)V", nullptr, $PRIVATE, $method(ClassValue$ClassValueMap, sizeCache, void, int32_t)},
-	{"startEntry", "(Ljava/lang/ClassValue;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", $SYNCHRONIZED, $virtualMethod(ClassValue$ClassValueMap, startEntry, $ClassValue$Entry*, $ClassValue*)},
-	{}
-};
-
-$InnerClassInfo _ClassValue$ClassValueMap_InnerClassesInfo_[] = {
-	{"java.lang.ClassValue$ClassValueMap", "java.lang.ClassValue", "ClassValueMap", $STATIC},
-	{"java.lang.ClassValue$Identity", "java.lang.ClassValue", "Identity", $STATIC},
-	{"java.lang.ClassValue$Entry", "java.lang.ClassValue", "Entry", $STATIC},
-	{}
-};
-
-$ClassInfo _ClassValue$ClassValueMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ClassValue$ClassValueMap",
-	"java.util.WeakHashMap",
-	nullptr,
-	_ClassValue$ClassValueMap_FieldInfo_,
-	_ClassValue$ClassValueMap_MethodInfo_,
-	"Ljava/util/WeakHashMap<Ljava/lang/ClassValue$Identity;Ljava/lang/ClassValue$Entry<*>;>;",
-	nullptr,
-	_ClassValue$ClassValueMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ClassValue"
-};
-
-$Object* allocate$ClassValue$ClassValueMap($Class* clazz) {
-	return $of($alloc(ClassValue$ClassValueMap));
-}
-
 bool ClassValue$ClassValueMap::$assertionsDisabled = false;
 
 void ClassValue$ClassValueMap::init$() {
@@ -105,14 +41,14 @@ $ClassValue$EntryArray* ClassValue$ClassValueMap::getCache() {
 
 $ClassValue$Entry* ClassValue$ClassValueMap::startEntry($ClassValue* classValue) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ClassValue$Entry, e, $cast($ClassValue$Entry, get($nc(classValue)->identity)));
-		$var($ClassValue$Version, v, $nc(classValue)->version());
+		$var($ClassValue$Version, v, classValue->version());
 		if (e == nullptr) {
 			$assign(e, $nc(v)->promise());
 			put(classValue->identity, e);
 			return e;
-		} else if ($nc(e)->isPromise()) {
+		} else if (e->isPromise()) {
 			if (e->version() != v) {
 				$assign(e, $nc(v)->promise());
 				put(classValue->identity, e);
@@ -132,23 +68,23 @@ $ClassValue$Entry* ClassValue$ClassValueMap::startEntry($ClassValue* classValue)
 
 $ClassValue$Entry* ClassValue$ClassValueMap::finishEntry($ClassValue* classValue, $ClassValue$Entry* e$renamed) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ClassValue$Entry, e, e$renamed);
 		$var($ClassValue$Entry, e0, $cast($ClassValue$Entry, get($nc(classValue)->identity)));
 		if (e == e0) {
 			if (!ClassValue$ClassValueMap::$assertionsDisabled && !($nc(e)->isPromise())) {
 				$throwNew($AssertionError);
 			}
-			remove($nc(classValue)->identity);
+			remove(classValue->identity);
 			return nullptr;
 		} else {
-			bool var$1 = e0 != nullptr && e0->isPromise();
-			if (var$1) {
-				var$1 = e0->version() == $nc(e)->version();
+			bool var$0 = e0 != nullptr && e0->isPromise();
+			if (var$0) {
+				var$0 = e0->version() == $nc(e)->version();
 			}
-			if (var$1) {
-				$var($ClassValue$Version, v, $nc(classValue)->version());
-				if (e->version() != v) {
+			if (var$0) {
+				$var($ClassValue$Version, v, classValue->version());
+				if ($nc(e)->version() != v) {
 					$assign(e, e->refreshVersion(v));
 				}
 				put(classValue->identity, e);
@@ -166,10 +102,10 @@ void ClassValue$ClassValueMap::removeEntry($ClassValue* classValue) {
 	$synchronized(this) {
 		$var($ClassValue$Entry, e, $cast($ClassValue$Entry, remove($nc(classValue)->identity)));
 		if (e == nullptr) {
-		} else if ($nc(e)->isPromise()) {
-			put($nc(classValue)->identity, e);
+		} else if (e->isPromise()) {
+			put(classValue->identity, e);
 		} else {
-			$nc(classValue)->bumpVersion();
+			classValue->bumpVersion();
 			removeStaleEntries(classValue);
 		}
 	}
@@ -177,9 +113,9 @@ void ClassValue$ClassValueMap::removeEntry($ClassValue* classValue) {
 
 void ClassValue$ClassValueMap::changeEntry($ClassValue* classValue, Object$* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ClassValue$Entry, e0, $cast($ClassValue$Entry, get($nc(classValue)->identity)));
-		$var($ClassValue$Version, version, $nc(classValue)->version());
+		$var($ClassValue$Version, version, classValue->version());
 		if (e0 != nullptr) {
 			bool var$0 = e0->version() == version;
 			if (var$0 && $equals(e0->value(), value)) {
@@ -197,39 +133,38 @@ void ClassValue$ClassValueMap::changeEntry($ClassValue* classValue, Object$* val
 
 $ClassValue$Entry* ClassValue$ClassValueMap::loadFromCache($ClassValue$EntryArray* cache, int32_t i) {
 	$init(ClassValue$ClassValueMap);
-	return $nc(cache)->get((int32_t)(i & (uint32_t)(cache->length - 1)));
+	return $nc(cache)->get(i & ($nc(cache)->length - 1));
 }
 
 $ClassValue$Entry* ClassValue$ClassValueMap::probeHomeLocation($ClassValue$EntryArray* cache, $ClassValue* classValue) {
 	$init(ClassValue$ClassValueMap);
-	return $nc(classValue)->castEntry($(loadFromCache(cache, classValue->hashCodeForCache)));
+	return $nc(classValue)->castEntry($(loadFromCache(cache, $nc(classValue)->hashCodeForCache)));
 }
 
 $ClassValue$Entry* ClassValue$ClassValueMap::probeBackupLocations($ClassValue$EntryArray* cache, $ClassValue* classValue) {
 	$init(ClassValue$ClassValueMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	int32_t mask = ($nc(cache)->length - 1);
-	int32_t home = ((int32_t)($nc(classValue)->hashCodeForCache & (uint32_t)mask));
+	int32_t home = ($nc(classValue)->hashCodeForCache & mask);
 	$var($ClassValue$Entry, e2, cache->get(home));
 	if (e2 == nullptr) {
 		return nullptr;
 	}
 	int32_t pos2 = -1;
 	for (int32_t i = home + 1; i < home + ClassValue$ClassValueMap::PROBE_LIMIT; ++i) {
-		$var($ClassValue$Entry, e, cache->get((int32_t)(i & (uint32_t)mask)));
+		$var($ClassValue$Entry, e, cache->get(i & mask));
 		if (e == nullptr) {
 			break;
 		}
 		if (classValue->match(e)) {
 			cache->set(home, e);
 			if (pos2 >= 0) {
-				$init($ClassValue$Entry);
-				cache->set((int32_t)(i & (uint32_t)mask), $ClassValue$Entry::DEAD_ENTRY);
+				cache->set(i & mask, $ClassValue$Entry::DEAD_ENTRY);
 			} else {
 				pos2 = i;
 			}
-			$init($ClassValue$Entry);
-			cache->set((int32_t)(pos2 & (uint32_t)mask), ((entryDislocation(cache, pos2, e2) < ClassValue$ClassValueMap::PROBE_LIMIT) ? e2 : $ClassValue$Entry::DEAD_ENTRY));
+			cache->set(pos2 & mask, ((entryDislocation(cache, pos2, e2) < ClassValue$ClassValueMap::PROBE_LIMIT) ? e2 : $ClassValue$Entry::DEAD_ENTRY));
 			return classValue->castEntry(e);
 		}
 		if (!$nc(e)->isLive() && pos2 < 0) {
@@ -246,11 +181,11 @@ int32_t ClassValue$ClassValueMap::entryDislocation($ClassValue$EntryArray* cache
 		return 0;
 	}
 	int32_t mask = ($nc(cache)->length - 1);
-	return (int32_t)((pos - $nc(cv)->hashCodeForCache) & (uint32_t)mask);
+	return (pos - $nc(cv)->hashCodeForCache) & mask;
 }
 
 void ClassValue$ClassValueMap::sizeCache(int32_t length) {
-	if (!ClassValue$ClassValueMap::$assertionsDisabled && !(((int32_t)(length & (uint32_t)(length - 1))) == 0)) {
+	if (!ClassValue$ClassValueMap::$assertionsDisabled && !((length & (length - 1)) == 0)) {
 		$throwNew($AssertionError);
 	}
 	this->cacheLoad = 0;
@@ -265,45 +200,42 @@ void ClassValue$ClassValueMap::checkCacheLoad() {
 }
 
 void ClassValue$ClassValueMap::reduceCacheLoad() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	removeStaleEntries();
 	if (this->cacheLoad < this->cacheLoadLimit) {
 		return;
 	}
 	$var($ClassValue$EntryArray, oldCache, getCache());
-	if ($nc(oldCache)->length > 0x3FFFFFFF) {
+	if ($nc(oldCache)->length > 0x3fffffff) {
 		return;
 	}
-	sizeCache($nc(oldCache)->length * 2);
+	sizeCache(oldCache->length * 2);
 	{
 		$var($ClassValue$EntryArray, arr$, oldCache);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ClassValue$Entry, e, arr$->get(i$));
-			{
-				if (e != nullptr && e->isLive()) {
-					addToCache(e);
-				}
+			if (e != nullptr && e->isLive()) {
+				addToCache(e);
 			}
 		}
 	}
 }
 
 void ClassValue$ClassValueMap::removeStaleEntries($ClassValue$EntryArray* cache, int32_t begin, int32_t count) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	int32_t mask = ($nc(cache)->length - 1);
 	int32_t removed = 0;
 	for (int32_t i = begin; i < begin + count; ++i) {
-		$var($ClassValue$Entry, e, cache->get((int32_t)(i & (uint32_t)mask)));
-		if (e == nullptr || $nc(e)->isLive()) {
+		$var($ClassValue$Entry, e, cache->get(i & mask));
+		if (e == nullptr || e->isLive()) {
 			continue;
 		}
 		$var($ClassValue$Entry, replacement, nullptr);
 		{
 			$assign(replacement, findReplacement(cache, i));
 		}
-		cache->set((int32_t)(i & (uint32_t)mask), replacement);
+		cache->set(i & mask, replacement);
 		if (replacement == nullptr) {
 			removed += 1;
 		}
@@ -312,13 +244,13 @@ void ClassValue$ClassValueMap::removeStaleEntries($ClassValue$EntryArray* cache,
 }
 
 $ClassValue$Entry* ClassValue$ClassValueMap::findReplacement($ClassValue$EntryArray* cache, int32_t home1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassValue$Entry, replacement, nullptr);
 	int32_t haveReplacement = -1;
 	int32_t replacementPos = 0;
 	int32_t mask = ($nc(cache)->length - 1);
 	for (int32_t i2 = home1 + 1; i2 < home1 + ClassValue$ClassValueMap::PROBE_LIMIT; ++i2) {
-		$var($ClassValue$Entry, e2, cache->get((int32_t)(i2 & (uint32_t)mask)));
+		$var($ClassValue$Entry, e2, cache->get(i2 & mask));
 		if (e2 == nullptr) {
 			break;
 		}
@@ -343,11 +275,10 @@ $ClassValue$Entry* ClassValue$ClassValueMap::findReplacement($ClassValue$EntryAr
 		}
 	}
 	if (haveReplacement >= 0) {
-		if (cache->get((int32_t)((replacementPos + 1) & (uint32_t)mask)) != nullptr) {
-			$init($ClassValue$Entry);
-			cache->set((int32_t)(replacementPos & (uint32_t)mask), $ClassValue$Entry::DEAD_ENTRY);
+		if (cache->get((replacementPos + 1) & mask) != nullptr) {
+			cache->set(replacementPos & mask, $ClassValue$Entry::DEAD_ENTRY);
 		} else {
-			cache->set((int32_t)(replacementPos & (uint32_t)mask), nullptr);
+			cache->set(replacementPos & mask, nullptr);
 			this->cacheLoad -= 1;
 		}
 	}
@@ -371,10 +302,11 @@ void ClassValue$ClassValueMap::addToCache($ClassValue$Entry* e) {
 }
 
 void ClassValue$ClassValueMap::addToCache($ClassValue* classValue, $ClassValue$Entry* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($ClassValue$EntryArray, cache, getCache());
 	int32_t mask = ($nc(cache)->length - 1);
-	int32_t home = (int32_t)($nc(classValue)->hashCodeForCache & (uint32_t)mask);
+	int32_t home = $nc(classValue)->hashCodeForCache & mask;
 	$var($ClassValue$Entry, e2, placeInCache(cache, home, e, false));
 	if (e2 == nullptr) {
 		return;
@@ -383,7 +315,7 @@ void ClassValue$ClassValueMap::addToCache($ClassValue* classValue, $ClassValue$E
 		int32_t dis2 = entryDislocation(cache, home, e2);
 		int32_t home2 = home - dis2;
 		for (int32_t i2 = home2; i2 < home2 + ClassValue$ClassValueMap::PROBE_LIMIT; ++i2) {
-			if (placeInCache(cache, (int32_t)(i2 & (uint32_t)mask), e2, true) == nullptr) {
+			if (placeInCache(cache, i2 & mask, e2, true) == nullptr) {
 				return;
 			}
 		}
@@ -395,7 +327,7 @@ $ClassValue$Entry* ClassValue$ClassValueMap::placeInCache($ClassValue$EntryArray
 	if (gently && e2 != nullptr) {
 		return e;
 	} else {
-		$nc(cache)->set(pos, e);
+		cache->set(pos, e);
 		return e2;
 	}
 }
@@ -403,13 +335,13 @@ $ClassValue$Entry* ClassValue$ClassValueMap::placeInCache($ClassValue$EntryArray
 $ClassValue$Entry* ClassValue$ClassValueMap::overwrittenEntry($ClassValue$Entry* e2) {
 	if (e2 == nullptr) {
 		this->cacheLoad += 1;
-	} else if ($nc(e2)->isLive()) {
+	} else if (e2->isLive()) {
 		return e2;
 	}
 	return nullptr;
 }
 
-void clinit$ClassValue$ClassValueMap($Class* class$) {
+void ClassValue$ClassValueMap::clinit$($Class* clazz) {
 	$load($ClassValue);
 	ClassValue$ClassValueMap::$assertionsDisabled = !$ClassValue::class$->desiredAssertionStatus();
 }
@@ -418,7 +350,64 @@ ClassValue$ClassValueMap::ClassValue$ClassValueMap() {
 }
 
 $Class* ClassValue$ClassValueMap::load$($String* name, bool initialize) {
-	$loadClass(ClassValue$ClassValueMap, name, initialize, &_ClassValue$ClassValueMap_ClassInfo_, clinit$ClassValue$ClassValueMap, allocate$ClassValue$ClassValueMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ClassValue$ClassValueMap, $assertionsDisabled)},
+		{"cacheArray", "[Ljava/lang/ClassValue$Entry;", "[Ljava/lang/ClassValue$Entry<*>;", $PRIVATE, $field(ClassValue$ClassValueMap, cacheArray)},
+		{"cacheLoad", "I", nullptr, $PRIVATE, $field(ClassValue$ClassValueMap, cacheLoad)},
+		{"cacheLoadLimit", "I", nullptr, $PRIVATE, $field(ClassValue$ClassValueMap, cacheLoadLimit)},
+		{"INITIAL_ENTRIES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassValue$ClassValueMap, INITIAL_ENTRIES)},
+		{"CACHE_LOAD_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassValue$ClassValueMap, CACHE_LOAD_LIMIT)},
+		{"PROBE_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassValue$ClassValueMap, PROBE_LIMIT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ClassValue$ClassValueMap, init$, void)},
+		{"addToCache", "(Ljava/lang/ClassValue$Entry;)V", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue$Entry<TT;>;)V", $PRIVATE, $method(ClassValue$ClassValueMap, addToCache, void, $ClassValue$Entry*)},
+		{"addToCache", "(Ljava/lang/ClassValue;Ljava/lang/ClassValue$Entry;)V", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue<TT;>;Ljava/lang/ClassValue$Entry<TT;>;)V", $PRIVATE, $method(ClassValue$ClassValueMap, addToCache, void, $ClassValue*, $ClassValue$Entry*)},
+		{"changeEntry", "(Ljava/lang/ClassValue;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue<TT;>;TT;)V", $SYNCHRONIZED, $virtualMethod(ClassValue$ClassValueMap, changeEntry, void, $ClassValue*, Object$*)},
+		{"checkCacheLoad", "()V", nullptr, $PRIVATE, $method(ClassValue$ClassValueMap, checkCacheLoad, void)},
+		{"entryDislocation", "([Ljava/lang/ClassValue$Entry;ILjava/lang/ClassValue$Entry;)I", "([Ljava/lang/ClassValue$Entry<*>;ILjava/lang/ClassValue$Entry<*>;)I", $PRIVATE | $STATIC, $staticMethod(ClassValue$ClassValueMap, entryDislocation, int32_t, $ClassValue$EntryArray*, int32_t, $ClassValue$Entry*)},
+		{"findReplacement", "([Ljava/lang/ClassValue$Entry;I)Ljava/lang/ClassValue$Entry;", "([Ljava/lang/ClassValue$Entry<*>;I)Ljava/lang/ClassValue$Entry<*>;", $PRIVATE, $method(ClassValue$ClassValueMap, findReplacement, $ClassValue$Entry*, $ClassValue$EntryArray*, int32_t)},
+		{"finishEntry", "(Ljava/lang/ClassValue;Ljava/lang/ClassValue$Entry;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue<TT;>;Ljava/lang/ClassValue$Entry<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", $SYNCHRONIZED, $virtualMethod(ClassValue$ClassValueMap, finishEntry, $ClassValue$Entry*, $ClassValue*, $ClassValue$Entry*)},
+		{"getCache", "()[Ljava/lang/ClassValue$Entry;", "()[Ljava/lang/ClassValue$Entry<*>;", 0, $virtualMethod(ClassValue$ClassValueMap, getCache, $ClassValue$EntryArray*)},
+		{"loadFromCache", "([Ljava/lang/ClassValue$Entry;I)Ljava/lang/ClassValue$Entry;", "([Ljava/lang/ClassValue$Entry<*>;I)Ljava/lang/ClassValue$Entry<*>;", $STATIC, $staticMethod(ClassValue$ClassValueMap, loadFromCache, $ClassValue$Entry*, $ClassValue$EntryArray*, int32_t)},
+		{"overwrittenEntry", "(Ljava/lang/ClassValue$Entry;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue$Entry<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", $PRIVATE, $method(ClassValue$ClassValueMap, overwrittenEntry, $ClassValue$Entry*, $ClassValue$Entry*)},
+		{"placeInCache", "([Ljava/lang/ClassValue$Entry;ILjava/lang/ClassValue$Entry;Z)Ljava/lang/ClassValue$Entry;", "([Ljava/lang/ClassValue$Entry<*>;ILjava/lang/ClassValue$Entry<*>;Z)Ljava/lang/ClassValue$Entry<*>;", $PRIVATE, $method(ClassValue$ClassValueMap, placeInCache, $ClassValue$Entry*, $ClassValue$EntryArray*, int32_t, $ClassValue$Entry*, bool)},
+		{"probeBackupLocations", "([Ljava/lang/ClassValue$Entry;Ljava/lang/ClassValue;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>([Ljava/lang/ClassValue$Entry<*>;Ljava/lang/ClassValue<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", $STATIC, $staticMethod(ClassValue$ClassValueMap, probeBackupLocations, $ClassValue$Entry*, $ClassValue$EntryArray*, $ClassValue*)},
+		{"probeHomeLocation", "([Ljava/lang/ClassValue$Entry;Ljava/lang/ClassValue;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>([Ljava/lang/ClassValue$Entry<*>;Ljava/lang/ClassValue<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", $STATIC, $staticMethod(ClassValue$ClassValueMap, probeHomeLocation, $ClassValue$Entry*, $ClassValue$EntryArray*, $ClassValue*)},
+		{"reduceCacheLoad", "()V", nullptr, $PRIVATE, $method(ClassValue$ClassValueMap, reduceCacheLoad, void)},
+		{"removeEntry", "(Ljava/lang/ClassValue;)V", "(Ljava/lang/ClassValue<*>;)V", $SYNCHRONIZED, $virtualMethod(ClassValue$ClassValueMap, removeEntry, void, $ClassValue*)},
+		{"removeStaleEntries", "([Ljava/lang/ClassValue$Entry;II)V", "([Ljava/lang/ClassValue$Entry<*>;II)V", $PRIVATE, $method(ClassValue$ClassValueMap, removeStaleEntries, void, $ClassValue$EntryArray*, int32_t, int32_t)},
+		{"removeStaleEntries", "(Ljava/lang/ClassValue;)V", "(Ljava/lang/ClassValue<*>;)V", $PRIVATE, $method(ClassValue$ClassValueMap, removeStaleEntries, void, $ClassValue*)},
+		{"removeStaleEntries", "()V", nullptr, $PRIVATE, $method(ClassValue$ClassValueMap, removeStaleEntries, void)},
+		{"sizeCache", "(I)V", nullptr, $PRIVATE, $method(ClassValue$ClassValueMap, sizeCache, void, int32_t)},
+		{"startEntry", "(Ljava/lang/ClassValue;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", $SYNCHRONIZED, $virtualMethod(ClassValue$ClassValueMap, startEntry, $ClassValue$Entry*, $ClassValue*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ClassValue$ClassValueMap", "java.lang.ClassValue", "ClassValueMap", $STATIC},
+		{"java.lang.ClassValue$Identity", "java.lang.ClassValue", "Identity", $STATIC},
+		{"java.lang.ClassValue$Entry", "java.lang.ClassValue", "Entry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ClassValue$ClassValueMap",
+		"java.util.WeakHashMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/WeakHashMap<Ljava/lang/ClassValue$Identity;Ljava/lang/ClassValue$Entry<*>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ClassValue"
+	};
+	$loadClass(ClassValue$ClassValueMap, name, initialize, &classInfo$$, ClassValue$ClassValueMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassValue$ClassValueMap);
+	});
 	return class$;
 }
 

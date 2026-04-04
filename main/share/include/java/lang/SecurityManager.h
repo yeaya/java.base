@@ -50,6 +50,7 @@ class $import SecurityManager : public ::java::lang::Object {
 	$class(SecurityManager, 0, ::java::lang::Object)
 public:
 	SecurityManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addNonExportedPackages(::java::lang::ModuleLayer* layer);
 	virtual void checkAccept($String* host, int32_t port);

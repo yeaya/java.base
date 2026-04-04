@@ -1,10 +1,8 @@
 #include <java/time/chrono/ChronoPeriodImpl.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/io/Serializable.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Math.h>
 #include <java/time/DateTimeException.h>
@@ -36,7 +34,6 @@ using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -63,57 +60,6 @@ namespace java {
 	namespace time {
 		namespace chrono {
 
-$FieldInfo _ChronoPeriodImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChronoPeriodImpl, serialVersionUID)},
-	{"SUPPORTED_UNITS", "Ljava/util/List;", "Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ChronoPeriodImpl, SUPPORTED_UNITS)},
-	{"chrono", "Ljava/time/chrono/Chronology;", nullptr, $PRIVATE | $FINAL, $field(ChronoPeriodImpl, chrono)},
-	{"years", "I", nullptr, $FINAL, $field(ChronoPeriodImpl, years)},
-	{"months", "I", nullptr, $FINAL, $field(ChronoPeriodImpl, months)},
-	{"days", "I", nullptr, $FINAL, $field(ChronoPeriodImpl, days)},
-	{}
-};
-
-$MethodInfo _ChronoPeriodImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/time/chrono/Chronology;III)V", nullptr, 0, $method(ChronoPeriodImpl, init$, void, $Chronology*, int32_t, int32_t, int32_t)},
-	{"addTo", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, addTo, $Temporal*, $Temporal*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, equals, bool, Object$*)},
-	{"get", "(Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, get, int64_t, $TemporalUnit*)},
-	{"getChronology", "()Ljava/time/chrono/Chronology;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, getChronology, $Chronology*)},
-	{"getUnits", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $PUBLIC, $virtualMethod(ChronoPeriodImpl, getUnits, $List*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, hashCode, int32_t)},
-	{"isNegative", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, isNegative, bool)},
-	{"isZero", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, isZero, bool)},
-	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, minus, $ChronoPeriod*, $TemporalAmount*)},
-	{"monthRange", "()J", nullptr, $PRIVATE, $method(ChronoPeriodImpl, monthRange, int64_t)},
-	{"multipliedBy", "(I)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, multipliedBy, $ChronoPeriod*, int32_t)},
-	{"normalized", "()Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, normalized, $ChronoPeriod*)},
-	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, plus, $ChronoPeriod*, $TemporalAmount*)},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/chrono/ChronoPeriodImpl;", nullptr, $STATIC, $staticMethod(ChronoPeriodImpl, readExternal, ChronoPeriodImpl*, $DataInput*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ChronoPeriodImpl, readObject, void, $ObjectInputStream*), "java.io.ObjectStreamException"},
-	{"subtractFrom", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, subtractFrom, $Temporal*, $Temporal*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, toString, $String*)},
-	{"validateAmount", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoPeriodImpl;", nullptr, $PRIVATE, $method(ChronoPeriodImpl, validateAmount, ChronoPeriodImpl*, $TemporalAmount*)},
-	{"validateChrono", "(Ljava/time/temporal/TemporalAccessor;)V", nullptr, $PRIVATE, $method(ChronoPeriodImpl, validateChrono, void, $TemporalAccessor*)},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(ChronoPeriodImpl, writeExternal, void, $DataOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $method(ChronoPeriodImpl, writeReplace, $Object*)},
-	{}
-};
-
-$ClassInfo _ChronoPeriodImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.chrono.ChronoPeriodImpl",
-	"java.lang.Object",
-	"java.time.chrono.ChronoPeriod,java.io.Serializable",
-	_ChronoPeriodImpl_FieldInfo_,
-	_ChronoPeriodImpl_MethodInfo_
-};
-
-$Object* allocate$ChronoPeriodImpl($Class* clazz) {
-	return $of($alloc(ChronoPeriodImpl));
-}
-
 $Object* ChronoPeriodImpl::clone() {
 	 return this->$ChronoPeriod::clone();
 }
@@ -125,7 +71,7 @@ void ChronoPeriodImpl::finalize() {
 $List* ChronoPeriodImpl::SUPPORTED_UNITS = nullptr;
 
 void ChronoPeriodImpl::init$($Chronology* chrono, int32_t years, int32_t months, int32_t days) {
-	$Objects::requireNonNull($of(chrono), "chrono"_s);
+	$Objects::requireNonNull(chrono, "chrono"_s);
 	$set(this, chrono, chrono);
 	this->years = years;
 	this->months = months;
@@ -136,16 +82,12 @@ int64_t ChronoPeriodImpl::get($TemporalUnit* unit) {
 	$init($ChronoUnit);
 	if ($equals(unit, $ChronoUnit::YEARS)) {
 		return this->years;
+	} else if ($equals(unit, $ChronoUnit::MONTHS)) {
+		return this->months;
+	} else if ($equals(unit, $ChronoUnit::DAYS)) {
+		return this->days;
 	} else {
-		if ($equals(unit, $ChronoUnit::MONTHS)) {
-			return this->months;
-		} else {
-			if ($equals(unit, $ChronoUnit::DAYS)) {
-				return this->days;
-			} else {
-				$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
-			}
-		}
+		$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
 	}
 }
 
@@ -166,26 +108,26 @@ bool ChronoPeriodImpl::isNegative() {
 }
 
 $ChronoPeriod* ChronoPeriodImpl::plus($TemporalAmount* amountToAdd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(ChronoPeriodImpl, amount, validateAmount(amountToAdd));
 	$var($Chronology, var$0, this->chrono);
 	int32_t var$1 = $Math::addExact(this->years, $nc(amount)->years);
-	int32_t var$2 = $Math::addExact(this->months, $nc(amount)->months);
-	return $new(ChronoPeriodImpl, var$0, var$1, var$2, $Math::addExact(this->days, $nc(amount)->days));
+	int32_t var$2 = $Math::addExact(this->months, amount->months);
+	return $new(ChronoPeriodImpl, var$0, var$1, var$2, $Math::addExact(this->days, amount->days));
 }
 
 $ChronoPeriod* ChronoPeriodImpl::minus($TemporalAmount* amountToSubtract) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(ChronoPeriodImpl, amount, validateAmount(amountToSubtract));
 	$var($Chronology, var$0, this->chrono);
 	int32_t var$1 = $Math::subtractExact(this->years, $nc(amount)->years);
-	int32_t var$2 = $Math::subtractExact(this->months, $nc(amount)->months);
-	return $new(ChronoPeriodImpl, var$0, var$1, var$2, $Math::subtractExact(this->days, $nc(amount)->days));
+	int32_t var$2 = $Math::subtractExact(this->months, amount->months);
+	return $new(ChronoPeriodImpl, var$0, var$1, var$2, $Math::subtractExact(this->days, amount->days));
 }
 
 ChronoPeriodImpl* ChronoPeriodImpl::validateAmount($TemporalAmount* amount) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(amount), "amount"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(amount, "amount"_s);
 	$var(ChronoPeriodImpl, period, nullptr);
 	bool var$0 = $instanceOf(ChronoPeriodImpl, amount);
 	if (var$0) {
@@ -196,8 +138,12 @@ ChronoPeriodImpl* ChronoPeriodImpl::validateAmount($TemporalAmount* amount) {
 		$throwNew($DateTimeException, $$str({"Unable to obtain ChronoPeriod from TemporalAmount: "_s, $nc($of(amount))->getClass()}));
 	}
 	if (!($nc(this->chrono)->equals($($nc(period)->getChronology())))) {
-		$var($String, var$1, $$str({"Chronology mismatch, expected: "_s, $($nc(this->chrono)->getId()), ", actual: "_s}));
-		$throwNew($ClassCastException, $$concat(var$1, $($nc($($nc(period)->getChronology()))->getId())));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("Chronology mismatch, expected: "_s);
+		var$1->append($(this->chrono->getId()));
+		var$1->append(", actual: "_s);
+		var$1->append($($$nc(period->getChronology())->getId()));
+		$throwNew($ClassCastException, $$str(var$1));
 	}
 	return period;
 }
@@ -296,12 +242,16 @@ $Temporal* ChronoPeriodImpl::subtractFrom($Temporal* temporal$renamed) {
 }
 
 void ChronoPeriodImpl::validateChrono($TemporalAccessor* temporal) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(temporal), "temporal"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(temporal, "temporal"_s);
 	$var($Chronology, temporalChrono, $cast($Chronology, $nc(temporal)->query($($TemporalQueries::chronology()))));
 	if (temporalChrono != nullptr && $nc(this->chrono)->equals(temporalChrono) == false) {
-		$var($String, var$0, $$str({"Chronology mismatch, expected: "_s, $($nc(this->chrono)->getId()), ", actual: "_s}));
-		$throwNew($DateTimeException, $$concat(var$0, $(temporalChrono->getId())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Chronology mismatch, expected: "_s);
+		var$0->append($(this->chrono->getId()));
+		var$0->append(", actual: "_s);
+		var$0->append($(temporalChrono->getId()));
+		$throwNew($DateTimeException, $$str(var$0));
 	}
 }
 
@@ -315,7 +265,7 @@ bool ChronoPeriodImpl::equals(Object$* obj) {
 		$assign(other, $cast(ChronoPeriodImpl, obj));
 		var$4 = true;
 	}
-	bool var$3 = (var$4);
+	bool var$3 = var$4;
 	bool var$2 = var$3 && this->years == $nc(other)->years;
 	bool var$1 = var$2 && this->months == other->months;
 	bool var$0 = var$1 && this->days == other->days;
@@ -324,17 +274,17 @@ bool ChronoPeriodImpl::equals(Object$* obj) {
 
 int32_t ChronoPeriodImpl::hashCode() {
 	int32_t var$1 = this->years + $Integer::rotateLeft(this->months, 8);
-	int32_t var$0 = (var$1 + $Integer::rotateLeft(this->days, 16));
+	int32_t var$0 = var$1 + $Integer::rotateLeft(this->days, 16);
 	return var$0 ^ $nc(this->chrono)->hashCode();
 }
 
 $String* ChronoPeriodImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isZero()) {
-		return $str({$($nc($(getChronology()))->toString()), " P0D"_s});
+		return $str({$($$nc(getChronology())->toString()), " P0D"_s});
 	} else {
 		$var($StringBuilder, buf, $new($StringBuilder));
-		buf->append($($nc($(getChronology()))->toString()))->append(u' ')->append(u'P');
+		buf->append($($$nc(getChronology())->toString()))->append(u' ')->append(u'P');
 		if (this->years != 0) {
 			buf->append(this->years)->append(u'Y');
 		}
@@ -349,7 +299,7 @@ $String* ChronoPeriodImpl::toString() {
 }
 
 $Object* ChronoPeriodImpl::writeReplace() {
-	return $of($new($Ser, $Ser::CHRONO_PERIOD_TYPE, this));
+	return $new($Ser, $Ser::CHRONO_PERIOD_TYPE, this);
 }
 
 void ChronoPeriodImpl::readObject($ObjectInputStream* s) {
@@ -365,15 +315,15 @@ void ChronoPeriodImpl::writeExternal($DataOutput* out) {
 
 ChronoPeriodImpl* ChronoPeriodImpl::readExternal($DataInput* in) {
 	$init(ChronoPeriodImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Chronology, chrono, $Chronology::of($($nc(in)->readUTF())));
-	int32_t years = $nc(in)->readInt();
+	int32_t years = in->readInt();
 	int32_t months = in->readInt();
 	int32_t days = in->readInt();
 	return $new(ChronoPeriodImpl, chrono, years, months, days);
 }
 
-void clinit$ChronoPeriodImpl($Class* class$) {
+void ChronoPeriodImpl::clinit$($Class* clazz) {
 	$init($ChronoUnit);
 	$assignStatic(ChronoPeriodImpl::SUPPORTED_UNITS, $List::of($ChronoUnit::YEARS, $ChronoUnit::MONTHS, $ChronoUnit::DAYS));
 }
@@ -382,7 +332,53 @@ ChronoPeriodImpl::ChronoPeriodImpl() {
 }
 
 $Class* ChronoPeriodImpl::load$($String* name, bool initialize) {
-	$loadClass(ChronoPeriodImpl, name, initialize, &_ChronoPeriodImpl_ClassInfo_, clinit$ChronoPeriodImpl, allocate$ChronoPeriodImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChronoPeriodImpl, serialVersionUID)},
+		{"SUPPORTED_UNITS", "Ljava/util/List;", "Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ChronoPeriodImpl, SUPPORTED_UNITS)},
+		{"chrono", "Ljava/time/chrono/Chronology;", nullptr, $PRIVATE | $FINAL, $field(ChronoPeriodImpl, chrono)},
+		{"years", "I", nullptr, $FINAL, $field(ChronoPeriodImpl, years)},
+		{"months", "I", nullptr, $FINAL, $field(ChronoPeriodImpl, months)},
+		{"days", "I", nullptr, $FINAL, $field(ChronoPeriodImpl, days)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/time/chrono/Chronology;III)V", nullptr, 0, $method(ChronoPeriodImpl, init$, void, $Chronology*, int32_t, int32_t, int32_t)},
+		{"addTo", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, addTo, $Temporal*, $Temporal*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, equals, bool, Object$*)},
+		{"get", "(Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, get, int64_t, $TemporalUnit*)},
+		{"getChronology", "()Ljava/time/chrono/Chronology;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, getChronology, $Chronology*)},
+		{"getUnits", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $PUBLIC, $virtualMethod(ChronoPeriodImpl, getUnits, $List*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, hashCode, int32_t)},
+		{"isNegative", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, isNegative, bool)},
+		{"isZero", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, isZero, bool)},
+		{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, minus, $ChronoPeriod*, $TemporalAmount*)},
+		{"monthRange", "()J", nullptr, $PRIVATE, $method(ChronoPeriodImpl, monthRange, int64_t)},
+		{"multipliedBy", "(I)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, multipliedBy, $ChronoPeriod*, int32_t)},
+		{"normalized", "()Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, normalized, $ChronoPeriod*)},
+		{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, plus, $ChronoPeriod*, $TemporalAmount*)},
+		{"readExternal", "(Ljava/io/DataInput;)Ljava/time/chrono/ChronoPeriodImpl;", nullptr, $STATIC, $staticMethod(ChronoPeriodImpl, readExternal, ChronoPeriodImpl*, $DataInput*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ChronoPeriodImpl, readObject, void, $ObjectInputStream*), "java.io.ObjectStreamException"},
+		{"subtractFrom", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, subtractFrom, $Temporal*, $Temporal*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriodImpl, toString, $String*)},
+		{"validateAmount", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoPeriodImpl;", nullptr, $PRIVATE, $method(ChronoPeriodImpl, validateAmount, ChronoPeriodImpl*, $TemporalAmount*)},
+		{"validateChrono", "(Ljava/time/temporal/TemporalAccessor;)V", nullptr, $PRIVATE, $method(ChronoPeriodImpl, validateChrono, void, $TemporalAccessor*)},
+		{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(ChronoPeriodImpl, writeExternal, void, $DataOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $method(ChronoPeriodImpl, writeReplace, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.chrono.ChronoPeriodImpl",
+		"java.lang.Object",
+		"java.time.chrono.ChronoPeriod,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ChronoPeriodImpl, name, initialize, &classInfo$$, ChronoPeriodImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ChronoPeriodImpl));
+	});
 	return class$;
 }
 

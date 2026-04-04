@@ -44,6 +44,7 @@ class Wrapper$Format : public ::java::lang::Object {
 	$class(Wrapper$Format, 0, ::java::lang::Object)
 public:
 	Wrapper$Format();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t floating(int32_t size);
 	static int32_t format(int32_t kind, int32_t size, int32_t slots);

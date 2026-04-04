@@ -1,13 +1,10 @@
 #include <Serialize.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/net/Inet6Address.h>
 #include <java/net/InetAddress.h>
 #include <java/net/NetworkInterface.h>
@@ -18,11 +15,8 @@ using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -33,34 +27,6 @@ using $InetAddress = ::java::net::InetAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
 using $Enumeration = ::java::util::Enumeration;
 
-$FieldInfo _Serialize_FieldInfo_[] = {
-	{"addr1", "[B", nullptr, $STATIC, $staticField(Serialize, addr1)},
-	{"addr2", "[B", nullptr, $STATIC, $staticField(Serialize, addr2)},
-	{"addr3", "[B", nullptr, $STATIC, $staticField(Serialize, addr3)},
-	{}
-};
-
-$MethodInfo _Serialize_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Serialize, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Serialize, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/net/Inet6Address;)Z", nullptr, $STATIC, $staticMethod(Serialize, test, bool, $Inet6Address*), "java.lang.Exception"},
-	{"test1", "(Ljava/net/Inet6Address;[B)Z", nullptr, $STATIC, $staticMethod(Serialize, test1, bool, $Inet6Address*, $bytes*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Serialize_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Serialize",
-	"java.lang.Object",
-	nullptr,
-	_Serialize_FieldInfo_,
-	_Serialize_MethodInfo_
-};
-
-$Object* allocate$Serialize($Class* clazz) {
-	return $of($alloc(Serialize));
-}
-
 $bytes* Serialize::addr1 = nullptr;
 $bytes* Serialize::addr2 = nullptr;
 $bytes* Serialize::addr3 = nullptr;
@@ -70,7 +36,7 @@ void Serialize::init$() {
 
 void Serialize::main($StringArray* args) {
 	$init(Serialize);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, nifs, $NetworkInterface::getNetworkInterfaces());
 	while ($nc(nifs)->hasMoreElements()) {
 		$var($NetworkInterface, nif, $cast($NetworkInterface, nifs->nextElement()));
@@ -81,11 +47,11 @@ void Serialize::main($StringArray* args) {
 				$var($Inet6Address, addr, $cast($Inet6Address, o));
 				$nc($System::out)->println($$str({"serializing "_s, addr}));
 				if (!test(addr)) {
-					$throwNew($RuntimeException, $$str({"failed on "_s, $($nc(addr)->toString())}));
+					$throwNew($RuntimeException, $$str({"failed on "_s, $(addr->toString())}));
 				}
-				$var($bytes, bytes, $nc(addr)->getAddress());
+				$var($bytes, bytes, addr->getAddress());
 				$var($Inet6Address, addr1, $Inet6Address::getByAddress("foo"_s, bytes, nif));
-				$nc($System::out)->println($$str({"serializing "_s, addr1}));
+				$System::out->println($$str({"serializing "_s, addr1}));
 				if (!test(addr1)) {
 					$throwNew($RuntimeException, $$str({"failed on "_s, $($nc(addr1)->toString())}));
 				}
@@ -101,28 +67,26 @@ void Serialize::main($StringArray* args) {
 	if (!$nc(nobj)->equals($($InetAddress::getByName("::1"_s)))) {
 		$throwNew($RuntimeException, "old ::1 not deserialized right"_s);
 	}
-	$nc($System::out)->println($of(nobj));
-	if (!test($cast($Inet6Address, $($InetAddress::getByName("fe80::1%99"_s))))) {
+	$nc($System::out)->println(nobj);
+	if (!test($$cast($Inet6Address, $InetAddress::getByName("fe80::1%99"_s)))) {
 		$throwNew($RuntimeException, "test failed on fe80::1%99"_s);
 	}
 	$assign(file, $new($File, $($System::getProperty("test.src"_s)), "serial-bge0.ser"_s));
 	$assign(ois, $new($ObjectInputStream, $$new($FileInputStream, file)));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$assign(nobj, $cast($Inet6Address, ois->readObject()));
-			} catch ($NullPointerException& e) {
-				$throwNew($RuntimeException, "6656849 Not fixed: NullPointer when deserializing"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			ois->close();
+			$assign(nobj, $cast($Inet6Address, ois->readObject()));
+		} catch ($NullPointerException& e) {
+			$throwNew($RuntimeException, "6656849 Not fixed: NullPointer when deserializing"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		ois->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$assign(nobj, $cast($Inet6Address, $InetAddress::getByAddress("foo.com"_s, $$new($bytes, {
 		(int8_t)254,
@@ -170,12 +134,12 @@ void Serialize::main($StringArray* args) {
 	if (!test1(nobj, Serialize::addr3)) {
 		$throwNew($RuntimeException, $$str({"failed with "_s, $($nc(nobj)->toString())}));
 	}
-	$nc($System::out)->println("All tests passed"_s);
+	$System::out->println("All tests passed"_s);
 }
 
 bool Serialize::test($Inet6Address* obj) {
 	$init(Serialize);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectOutputStream, oos, $new($ObjectOutputStream, $$new($FileOutputStream, "i6a1.ser"_s)));
 	oos->writeObject(obj);
 	oos->close();
@@ -191,7 +155,7 @@ bool Serialize::test($Inet6Address* obj) {
 
 bool Serialize::test1($Inet6Address* obj, $bytes* buf) {
 	$init(Serialize);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream, ois, $new($ObjectInputStream, $$new($ByteArrayInputStream, buf)));
 	$var($Inet6Address, nobj, $cast($Inet6Address, ois->readObject()));
 	ois->close();
@@ -202,7 +166,7 @@ bool Serialize::test1($Inet6Address* obj, $bytes* buf) {
 	}
 }
 
-void clinit$Serialize($Class* class$) {
+void Serialize::clinit$($Class* clazz) {
 	$assignStatic(Serialize::addr1, $new($bytes, {
 		(int8_t)172,
 		(int8_t)237,
@@ -1015,7 +979,30 @@ Serialize::Serialize() {
 }
 
 $Class* Serialize::load$($String* name, bool initialize) {
-	$loadClass(Serialize, name, initialize, &_Serialize_ClassInfo_, clinit$Serialize, allocate$Serialize);
+	$FieldInfo fieldInfos$$[] = {
+		{"addr1", "[B", nullptr, $STATIC, $staticField(Serialize, addr1)},
+		{"addr2", "[B", nullptr, $STATIC, $staticField(Serialize, addr2)},
+		{"addr3", "[B", nullptr, $STATIC, $staticField(Serialize, addr3)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Serialize, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Serialize, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/net/Inet6Address;)Z", nullptr, $STATIC, $staticMethod(Serialize, test, bool, $Inet6Address*), "java.lang.Exception"},
+		{"test1", "(Ljava/net/Inet6Address;[B)Z", nullptr, $STATIC, $staticMethod(Serialize, test1, bool, $Inet6Address*, $bytes*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Serialize",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Serialize, name, initialize, &classInfo$$, Serialize::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Serialize);
+	});
 	return class$;
 }
 

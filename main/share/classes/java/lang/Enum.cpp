@@ -1,5 +1,4 @@
 #include <java/lang/Enum.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
@@ -33,7 +32,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $ClassDesc = ::java::lang::constant::ClassDesc;
 using $Constable = ::java::lang::constant::Constable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
 using $Function = ::java::util::function::Function;
 
@@ -47,88 +45,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of($nc(inst$)->lambda$describeConstable$0($cast($ClassDesc, c)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Enum$$Lambda$lambda$describeConstable$0>());
+		 return $nc(inst$)->lambda$describeConstable$0($cast($ClassDesc, c));
 	}
 	Enum* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Enum$$Lambda$lambda$describeConstable$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Enum$$Lambda$lambda$describeConstable$0, inst$)},
-	{}
-};
-$MethodInfo Enum$$Lambda$lambda$describeConstable$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Enum;)V", nullptr, $PUBLIC, $method(Enum$$Lambda$lambda$describeConstable$0, init$, void, Enum*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Enum$$Lambda$lambda$describeConstable$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Enum$$Lambda$lambda$describeConstable$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.Enum$$Lambda$lambda$describeConstable$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Enum$$Lambda$lambda$describeConstable$0::load$($String* name, bool initialize) {
-	$loadClass(Enum$$Lambda$lambda$describeConstable$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Enum$$Lambda$lambda$describeConstable$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Enum;)V", nullptr, $PUBLIC, $method(Enum$$Lambda$lambda$describeConstable$0, init$, void, Enum*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Enum$$Lambda$lambda$describeConstable$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.Enum$$Lambda$lambda$describeConstable$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Enum$$Lambda$lambda$describeConstable$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Enum$$Lambda$lambda$describeConstable$0);
+	});
 	return class$;
 }
 $Class* Enum$$Lambda$lambda$describeConstable$0::class$ = nullptr;
-
-$FieldInfo _Enum_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Enum, name$)},
-	{"ordinal", "I", nullptr, $PRIVATE | $FINAL, $field(Enum, ordinal$)},
-	{}
-};
-
-$MethodInfo _Enum_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(Enum, init$, void, $String*, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(Enum, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"compareTo", "(Ljava/lang/Enum;)I", "(TE;)I", $PUBLIC | $FINAL, $method(Enum, compareTo, int32_t, Enum*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Enum, compareTo, int32_t, Object$*)},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Enum$EnumDesc<TE;>;>;", $PUBLIC | $FINAL, $virtualMethod(Enum, describeConstable, $Optional*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Enum, equals, bool, Object$*)},
-	{"finalize", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(Enum, finalize, void)},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<TE;>;", $PUBLIC | $FINAL, $method(Enum, getDeclaringClass, $Class*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Enum, hashCode, int32_t)},
-	{"lambda$describeConstable$0", "(Ljava/lang/constant/ClassDesc;)Ljava/lang/Enum$EnumDesc;", nullptr, $PRIVATE | $SYNTHETIC, $method(Enum, lambda$describeConstable$0, $Enum$EnumDesc*, $ClassDesc*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Enum, name, $String*)},
-	{"ordinal", "()I", nullptr, $PUBLIC | $FINAL, $method(Enum, ordinal, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Enum, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readObjectNoData", "()V", nullptr, $PRIVATE, $method(Enum, readObjectNoData, void), "java.io.ObjectStreamException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Enum, toString, $String*)},
-	{"valueOf", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;", "<T:Ljava/lang/Enum<TT;>;>(Ljava/lang/Class<TT;>;Ljava/lang/String;)TT;", $PUBLIC | $STATIC, $staticMethod(Enum, valueOf, Enum*, $Class*, $String*)},
-	{}
-};
-
-$InnerClassInfo _Enum_InnerClassesInfo_[] = {
-	{"java.lang.Enum$EnumDesc", "java.lang.Enum", "EnumDesc", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Enum_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.lang.Enum",
-	"java.lang.Object",
-	"java.lang.constant.Constable,java.lang.Comparable,java.io.Serializable",
-	_Enum_FieldInfo_,
-	_Enum_MethodInfo_,
-	"<E:Ljava/lang/Enum<TE;>;>Ljava/lang/Object;Ljava/lang/constant/Constable;Ljava/lang/Comparable<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_Enum_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.Enum$EnumDesc"
-};
-
-$Object* allocate$Enum($Class* clazz) {
-	return $of($alloc(Enum));
-}
 
 $String* Enum::name() {
 	return this->name$;
@@ -161,7 +105,7 @@ $Object* Enum::clone() {
 }
 
 int32_t Enum::compareTo(Enum* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Enum, other, o);
 	$var(Enum, self, this);
 	bool var$0 = $of(self)->getClass() != $nc($of(other))->getClass();
@@ -171,24 +115,23 @@ int32_t Enum::compareTo(Enum* o) {
 	if (var$0) {
 		$throwNew($ClassCastException);
 	}
-	return self->ordinal$ - $nc(other)->ordinal$;
+	return self->ordinal$ - other->ordinal$;
 }
 
 $Class* Enum::getDeclaringClass() {
 	$Class* clazz = $of(this)->getClass();
-	$Class* zuper = $nc(clazz)->getSuperclass();
+	$Class* zuper = clazz->getSuperclass();
 	return (zuper == Enum::class$) ? clazz : zuper;
 }
 
 $Optional* Enum::describeConstable() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc(getDeclaringClass())->describeConstable()))->map(static_cast<$Function*>($$new(Enum$$Lambda$lambda$describeConstable$0, this)));
+	$useLocalObjectStack();
+	return $$nc($nc(getDeclaringClass())->describeConstable())->map($$new(Enum$$Lambda$lambda$describeConstable$0, this));
 }
 
 Enum* Enum::valueOf($Class* enumClass, $String* name) {
-	$init(Enum);
-	$useLocalCurrentObjectStackCache();
-	$var(Enum, result, $cast(Enum, $nc($($nc(enumClass)->enumConstantDirectory()))->get(name)));
+	$useLocalObjectStack();
+	$var(Enum, result, $cast(Enum, $$nc($nc(enumClass)->enumConstantDirectory())->get(name)));
 	if (result != nullptr) {
 		return result;
 	}
@@ -222,11 +165,55 @@ Enum::Enum() {
 
 $Class* Enum::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Enum$$Lambda$lambda$describeConstable$0::classInfo$.name)) {
+		if (name->equals("java.lang.Enum$$Lambda$lambda$describeConstable$0")) {
 			return Enum$$Lambda$lambda$describeConstable$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Enum, name, initialize, &_Enum_ClassInfo_, allocate$Enum);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Enum, name$)},
+		{"ordinal", "I", nullptr, $PRIVATE | $FINAL, $field(Enum, ordinal$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(Enum, init$, void, $String*, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(Enum, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"compareTo", "(Ljava/lang/Enum;)I", "(TE;)I", $PUBLIC | $FINAL, $method(Enum, compareTo, int32_t, Enum*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Enum, compareTo, int32_t, Object$*)},
+		{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Enum$EnumDesc<TE;>;>;", $PUBLIC | $FINAL, $virtualMethod(Enum, describeConstable, $Optional*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Enum, equals, bool, Object$*)},
+		{"finalize", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(Enum, finalize, void)},
+		{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<TE;>;", $PUBLIC | $FINAL, $method(Enum, getDeclaringClass, $Class*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Enum, hashCode, int32_t)},
+		{"lambda$describeConstable$0", "(Ljava/lang/constant/ClassDesc;)Ljava/lang/Enum$EnumDesc;", nullptr, $PRIVATE | $SYNTHETIC, $method(Enum, lambda$describeConstable$0, $Enum$EnumDesc*, $ClassDesc*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Enum, name, $String*)},
+		{"ordinal", "()I", nullptr, $PUBLIC | $FINAL, $method(Enum, ordinal, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Enum, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readObjectNoData", "()V", nullptr, $PRIVATE, $method(Enum, readObjectNoData, void), "java.io.ObjectStreamException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Enum, toString, $String*)},
+		{"valueOf", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;", "<T:Ljava/lang/Enum<TT;>;>(Ljava/lang/Class<TT;>;Ljava/lang/String;)TT;", $PUBLIC | $STATIC, $staticMethod(Enum, valueOf, Enum*, $Class*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Enum$EnumDesc", "java.lang.Enum", "EnumDesc", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.lang.Enum",
+		"java.lang.Object",
+		"java.lang.constant.Constable,java.lang.Comparable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Enum<TE;>;>Ljava/lang/Object;Ljava/lang/constant/Constable;Ljava/lang/Comparable<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.Enum$EnumDesc"
+	};
+	$loadClass(Enum, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Enum));
+	});
 	return class$;
 }
 

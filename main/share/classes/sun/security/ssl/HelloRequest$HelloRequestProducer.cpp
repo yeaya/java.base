@@ -1,9 +1,7 @@
 #include <sun/security/ssl/HelloRequest$HelloRequestProducer.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeOutStream.h>
 #include <sun/security/ssl/HelloRequest$HelloRequestMessage.h>
 #include <sun/security/ssl/HelloRequest.h>
@@ -19,10 +17,7 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $HelloRequest$HelloRequestMessage = ::sun::security::ssl::HelloRequest$HelloRequestMessage;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
@@ -33,50 +28,19 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _HelloRequest$HelloRequestProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(HelloRequest$HelloRequestProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(HelloRequest$HelloRequestProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _HelloRequest$HelloRequestProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.HelloRequest$HelloRequestProducer", "sun.security.ssl.HelloRequest", "HelloRequestProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HelloRequest$HelloRequestProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.HelloRequest$HelloRequestProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_HelloRequest$HelloRequestProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HelloRequest$HelloRequestProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.HelloRequest"
-};
-
-$Object* allocate$HelloRequest$HelloRequestProducer($Class* clazz) {
-	return $of($alloc(HelloRequest$HelloRequestProducer));
-}
-
 void HelloRequest$HelloRequestProducer::init$() {
 }
 
 $bytes* HelloRequest$HelloRequestProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($HelloRequest$HelloRequestMessage, hrm, $new($HelloRequest$HelloRequestMessage, shc));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Produced HelloRequest handshake message"_s, $$new($ObjectArray, {$of(hrm)}));
+		$SSLLogger::fine("Produced HelloRequest handshake message"_s, $$new($ObjectArray, {hrm}));
 	}
 	hrm->write($nc(shc)->handshakeOutput);
-	$nc($nc(shc)->handshakeOutput)->flush();
+	$nc(shc->handshakeOutput)->flush();
 	$init($SSLHandshake);
 	$nc(shc->handshakeConsumers)->put($($Byte::valueOf($SSLHandshake::CLIENT_HELLO->id)), $SSLHandshake::CLIENT_HELLO);
 	return nullptr;
@@ -86,7 +50,33 @@ HelloRequest$HelloRequestProducer::HelloRequest$HelloRequestProducer() {
 }
 
 $Class* HelloRequest$HelloRequestProducer::load$($String* name, bool initialize) {
-	$loadClass(HelloRequest$HelloRequestProducer, name, initialize, &_HelloRequest$HelloRequestProducer_ClassInfo_, allocate$HelloRequest$HelloRequestProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(HelloRequest$HelloRequestProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(HelloRequest$HelloRequestProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.HelloRequest$HelloRequestProducer", "sun.security.ssl.HelloRequest", "HelloRequestProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.HelloRequest$HelloRequestProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.HelloRequest"
+	};
+	$loadClass(HelloRequest$HelloRequestProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HelloRequest$HelloRequestProducer);
+	});
 	return class$;
 }
 

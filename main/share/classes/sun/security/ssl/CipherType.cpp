@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CipherType.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -17,37 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _CipherType_FieldInfo_[] = {
-	{"NULL_CIPHER", "Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherType, NULL_CIPHER)},
-	{"STREAM_CIPHER", "Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherType, STREAM_CIPHER)},
-	{"BLOCK_CIPHER", "Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherType, BLOCK_CIPHER)},
-	{"AEAD_CIPHER", "Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherType, AEAD_CIPHER)},
-	{"$VALUES", "[Lsun/security/ssl/CipherType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CipherType, $VALUES)},
-	{}
-};
-
-$MethodInfo _CipherType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/CipherType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CipherType, $values, $CipherTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CipherType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherType, valueOf, CipherType*, $String*)},
-	{"values", "()[Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherType, values, $CipherTypeArray*)},
-	{}
-};
-
-$ClassInfo _CipherType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.CipherType",
-	"java.lang.Enum",
-	nullptr,
-	_CipherType_FieldInfo_,
-	_CipherType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/CipherType;>;"
-};
-
-$Object* allocate$CipherType($Class* clazz) {
-	return $of($alloc(CipherType));
-}
 
 CipherType* CipherType::NULL_CIPHER = nullptr;
 CipherType* CipherType::STREAM_CIPHER = nullptr;
@@ -79,7 +47,7 @@ void CipherType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CipherType($Class* class$) {
+void CipherType::clinit$($Class* clazz) {
 	$assignStatic(CipherType::NULL_CIPHER, $new(CipherType, "NULL_CIPHER"_s, 0));
 	$assignStatic(CipherType::STREAM_CIPHER, $new(CipherType, "STREAM_CIPHER"_s, 1));
 	$assignStatic(CipherType::BLOCK_CIPHER, $new(CipherType, "BLOCK_CIPHER"_s, 2));
@@ -91,7 +59,33 @@ CipherType::CipherType() {
 }
 
 $Class* CipherType::load$($String* name, bool initialize) {
-	$loadClass(CipherType, name, initialize, &_CipherType_ClassInfo_, clinit$CipherType, allocate$CipherType);
+	$FieldInfo fieldInfos$$[] = {
+		{"NULL_CIPHER", "Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherType, NULL_CIPHER)},
+		{"STREAM_CIPHER", "Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherType, STREAM_CIPHER)},
+		{"BLOCK_CIPHER", "Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherType, BLOCK_CIPHER)},
+		{"AEAD_CIPHER", "Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherType, AEAD_CIPHER)},
+		{"$VALUES", "[Lsun/security/ssl/CipherType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CipherType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/CipherType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CipherType, $values, $CipherTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CipherType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherType, valueOf, CipherType*, $String*)},
+		{"values", "()[Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherType, values, $CipherTypeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.CipherType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/CipherType;>;"
+	};
+	$loadClass(CipherType, name, initialize, &classInfo$$, CipherType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CipherType));
+	});
 	return class$;
 }
 

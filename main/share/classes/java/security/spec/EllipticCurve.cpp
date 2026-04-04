@@ -1,5 +1,4 @@
 #include <java/security/spec/EllipticCurve.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/spec/ECField.h>
 #include <java/security/spec/ECFieldF2m.h>
@@ -20,51 +19,17 @@ namespace java {
 	namespace security {
 		namespace spec {
 
-$FieldInfo _EllipticCurve_FieldInfo_[] = {
-	{"field", "Ljava/security/spec/ECField;", nullptr, $PRIVATE | $FINAL, $field(EllipticCurve, field)},
-	{"a", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(EllipticCurve, a)},
-	{"b", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(EllipticCurve, b)},
-	{"seed", "[B", nullptr, $PRIVATE | $FINAL, $field(EllipticCurve, seed)},
-	{}
-};
-
-$MethodInfo _EllipticCurve_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(EllipticCurve, init$, void, $ECField*, $BigInteger*, $BigInteger*)},
-	{"<init>", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/math/BigInteger;[B)V", nullptr, $PUBLIC, $method(EllipticCurve, init$, void, $ECField*, $BigInteger*, $BigInteger*, $bytes*)},
-	{"checkValidity", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EllipticCurve, checkValidity, void, $ECField*, $BigInteger*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, equals, bool, Object$*)},
-	{"getA", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getA, $BigInteger*)},
-	{"getB", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getB, $BigInteger*)},
-	{"getField", "()Ljava/security/spec/ECField;", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getField, $ECField*)},
-	{"getSeed", "()[B", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getSeed, $bytes*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _EllipticCurve_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.EllipticCurve",
-	"java.lang.Object",
-	nullptr,
-	_EllipticCurve_FieldInfo_,
-	_EllipticCurve_MethodInfo_
-};
-
-$Object* allocate$EllipticCurve($Class* clazz) {
-	return $of($alloc(EllipticCurve));
-}
-
 void EllipticCurve::checkValidity($ECField* field, $BigInteger* c, $String* cName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ECFieldFp, field)) {
-		$var($BigInteger, p, $nc(($cast($ECFieldFp, field)))->getP());
+		$var($BigInteger, p, $cast($ECFieldFp, field)->getP());
 		if ($nc(p)->compareTo(c) != 1) {
 			$throwNew($IllegalArgumentException, $$str({cName, " is too large"_s}));
 		} else if ($nc(c)->signum() < 0) {
 			$throwNew($IllegalArgumentException, $$str({cName, " is negative"_s}));
 		}
 	} else if ($instanceOf($ECFieldF2m, field)) {
-		int32_t m = $nc(($cast($ECFieldF2m, field)))->getM();
+		int32_t m = $cast($ECFieldF2m, field)->getM();
 		if ($nc(c)->bitLength() > m) {
 			$throwNew($IllegalArgumentException, $$str({cName, " is too large"_s}));
 		}
@@ -113,7 +78,7 @@ $bytes* EllipticCurve::getSeed() {
 	if (this->seed == nullptr) {
 		return nullptr;
 	} else {
-		return $cast($bytes, $nc(this->seed)->clone());
+		return $cast($bytes, this->seed->clone());
 	}
 }
 
@@ -128,13 +93,13 @@ bool EllipticCurve::equals(Object$* obj) {
 		var$3 = true;
 	}
 	bool var$2 = var$3;
-	bool var$1 = var$2 && $nc($of(this->field))->equals($nc(other)->field);
-	bool var$0 = var$1 && $nc(this->a)->equals($nc(other)->a);
-	return var$0 && $nc(this->b)->equals($nc(other)->b);
+	bool var$1 = var$2 && $nc(this->field)->equals($nc(other)->field);
+	bool var$0 = var$1 && $nc(this->a)->equals(other->a);
+	return var$0 && $nc(this->b)->equals(other->b);
 }
 
 int32_t EllipticCurve::hashCode() {
-	int32_t var$0 = $nc($of(this->field))->hashCode();
+	int32_t var$0 = $nc(this->field)->hashCode();
 	int32_t var$1 = 6 + ($nc(this->a)->hashCode() << 4);
 	return ($sl(var$0, var$1 + ($nc(this->b)->hashCode() << 2)));
 }
@@ -143,7 +108,36 @@ EllipticCurve::EllipticCurve() {
 }
 
 $Class* EllipticCurve::load$($String* name, bool initialize) {
-	$loadClass(EllipticCurve, name, initialize, &_EllipticCurve_ClassInfo_, allocate$EllipticCurve);
+	$FieldInfo fieldInfos$$[] = {
+		{"field", "Ljava/security/spec/ECField;", nullptr, $PRIVATE | $FINAL, $field(EllipticCurve, field)},
+		{"a", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(EllipticCurve, a)},
+		{"b", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(EllipticCurve, b)},
+		{"seed", "[B", nullptr, $PRIVATE | $FINAL, $field(EllipticCurve, seed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(EllipticCurve, init$, void, $ECField*, $BigInteger*, $BigInteger*)},
+		{"<init>", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/math/BigInteger;[B)V", nullptr, $PUBLIC, $method(EllipticCurve, init$, void, $ECField*, $BigInteger*, $BigInteger*, $bytes*)},
+		{"checkValidity", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EllipticCurve, checkValidity, void, $ECField*, $BigInteger*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, equals, bool, Object$*)},
+		{"getA", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getA, $BigInteger*)},
+		{"getB", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getB, $BigInteger*)},
+		{"getField", "()Ljava/security/spec/ECField;", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getField, $ECField*)},
+		{"getSeed", "()[B", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getSeed, $bytes*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.EllipticCurve",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EllipticCurve, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EllipticCurve);
+	});
 	return class$;
 }
 

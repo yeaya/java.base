@@ -21,6 +21,7 @@ class BootstrapLogger$DetectBackend : public ::java::lang::Object {
 	$class(BootstrapLogger$DetectBackend, 0, ::java::lang::Object)
 public:
 	BootstrapLogger$DetectBackend();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::logger::BootstrapLogger$LoggingBackend* detectedBackend;
 };

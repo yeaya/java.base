@@ -15,10 +15,13 @@ public:
 	AccessDeniedException();
 	void init$($String* file);
 	void init$($String* file, $String* other, $String* reason);
-	static const int64_t serialVersionUID = (int64_t)0x44993D6BF81C2721;
+	static const int64_t serialVersionUID = (int64_t)0x44993d6bf81c2721;
 	AccessDeniedException(const AccessDeniedException& e);
 	virtual void throw$() override;
-	inline AccessDeniedException* operator ->() {
+	inline AccessDeniedException* operator ->() const {
+		return (AccessDeniedException*)throwing$;
+	}
+	inline operator AccessDeniedException*() const {
 		return (AccessDeniedException*)throwing$;
 	}
 };

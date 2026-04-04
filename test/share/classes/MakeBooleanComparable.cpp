@@ -1,5 +1,4 @@
 #include <MakeBooleanComparable.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
@@ -15,30 +14,11 @@ using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $Random = ::java::util::Random;
 
-$MethodInfo _MakeBooleanComparable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MakeBooleanComparable, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MakeBooleanComparable, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _MakeBooleanComparable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MakeBooleanComparable",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MakeBooleanComparable_MethodInfo_
-};
-
-$Object* allocate$MakeBooleanComparable($Class* clazz) {
-	return $of($alloc(MakeBooleanComparable));
-}
-
 void MakeBooleanComparable::init$() {
 }
 
 void MakeBooleanComparable::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Random, rnd, $new($Random));
 	$var($List, list, $new($ArrayList));
 	int32_t numFalse = 0;
@@ -51,12 +31,12 @@ void MakeBooleanComparable::main($StringArray* args) {
 	}
 	$Collections::sort(list);
 	for (int32_t i = 0; i < numFalse; ++i) {
-		if ($nc(($cast($Boolean, $(list->get(i)))))->booleanValue()) {
+		if ($$sure($Boolean, list->get(i))->booleanValue()) {
 			$throwNew($RuntimeException, $$str({"False positive: "_s, $$str(i)}));
 		}
 	}
 	for (int32_t i = numFalse; i < 1000; ++i) {
-		if (!$nc(($cast($Boolean, $(list->get(i)))))->booleanValue()) {
+		if (!$$sure($Boolean, list->get(i))->booleanValue()) {
 			$throwNew($RuntimeException, $$str({"False negative: "_s, $$str(i)}));
 		}
 	}
@@ -66,7 +46,22 @@ MakeBooleanComparable::MakeBooleanComparable() {
 }
 
 $Class* MakeBooleanComparable::load$($String* name, bool initialize) {
-	$loadClass(MakeBooleanComparable, name, initialize, &_MakeBooleanComparable_ClassInfo_, allocate$MakeBooleanComparable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MakeBooleanComparable, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MakeBooleanComparable, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MakeBooleanComparable",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MakeBooleanComparable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MakeBooleanComparable);
+	});
 	return class$;
 }
 

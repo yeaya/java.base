@@ -18,7 +18,10 @@ public:
 	void init$($Throwable* cause);
 	HighLevelException(const HighLevelException& e);
 	virtual void throw$() override;
-	inline HighLevelException* operator ->() {
+	inline HighLevelException* operator ->() const {
+		return (HighLevelException*)throwing$;
+	}
+	inline operator HighLevelException*() const {
 		return (HighLevelException*)throwing$;
 	}
 };

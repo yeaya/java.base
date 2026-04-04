@@ -22,6 +22,7 @@ class TestObjectMethods$Relation : public ::java::lang::Enum {
 public:
 	TestObjectMethods$Relation();
 	static $Array<TestObjectMethods$Relation>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::TestObjectMethods$Relation* valueOf($String* name);
 	static $Array<TestObjectMethods$Relation>* values();

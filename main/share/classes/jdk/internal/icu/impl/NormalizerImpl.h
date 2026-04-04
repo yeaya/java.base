@@ -135,6 +135,7 @@ class NormalizerImpl : public ::java::lang::Object {
 	$class(NormalizerImpl, 0, ::java::lang::Object)
 public:
 	NormalizerImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* canonicalDecomposeWithSingleQuotation($String* string);
 	static int32_t combine($String* compositions, int32_t list, int32_t trail);
@@ -204,10 +205,10 @@ public:
 	bool singleLeadMightHaveNonZeroFCD16(int32_t lead);
 	static bool $assertionsDisabled;
 	static ::jdk::internal::icu::impl::NormalizerImpl$IsAcceptable* IS_ACCEPTABLE;
-	static const int32_t DATA_FORMAT = 0x4E726D32;
-	static const int32_t MIN_YES_YES_WITH_CC = 0x0000FE02;
-	static const int32_t JAMO_VT = 0x0000FE00;
-	static const int32_t MIN_NORMAL_MAYBE_YES = 0x0000FC00;
+	static const int32_t DATA_FORMAT = 0x4e726d32;
+	static const int32_t MIN_YES_YES_WITH_CC = 0x0000fe02;
+	static const int32_t JAMO_VT = 0x0000fe00;
+	static const int32_t MIN_NORMAL_MAYBE_YES = 0x0000fc00;
 	static const int32_t JAMO_L = 2;
 	static const int32_t INERT = 1;
 	static const int32_t HAS_COMP_BOUNDARY_AFTER = 1;
@@ -245,7 +246,7 @@ public:
 	static const int32_t COMP_1_TRAIL_MASK = 32766;
 	static const int32_t COMP_1_TRAIL_SHIFT = 9;
 	static const int32_t COMP_2_TRAIL_SHIFT = 6;
-	static const int32_t COMP_2_TRAIL_MASK = 0x0000FFC0;
+	static const int32_t COMP_2_TRAIL_MASK = 0x0000ffc0;
 	::jdk::internal::icu::util::VersionInfo* dataVersion = nullptr;
 	int32_t minDecompNoCP = 0;
 	int32_t minCompNoMaybeCP = 0;

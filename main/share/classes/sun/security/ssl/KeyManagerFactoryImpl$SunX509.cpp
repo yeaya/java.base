@@ -1,9 +1,7 @@
 #include <sun/security/ssl/KeyManagerFactoryImpl$SunX509.h>
-
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/KeyStore.h>
 #include <javax/net/ssl/ManagerFactoryParameters.h>
-#include <javax/net/ssl/X509ExtendedKeyManager.h>
 #include <sun/security/ssl/KeyManagerFactoryImpl.h>
 #include <sun/security/ssl/SunX509KeyManagerImpl.h>
 #include <jcpp.h>
@@ -14,45 +12,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $KeyStore = ::java::security::KeyStore;
 using $ManagerFactoryParameters = ::javax::net::ssl::ManagerFactoryParameters;
-using $X509ExtendedKeyManager = ::javax::net::ssl::X509ExtendedKeyManager;
 using $KeyManagerFactoryImpl = ::sun::security::ssl::KeyManagerFactoryImpl;
 using $SunX509KeyManagerImpl = ::sun::security::ssl::SunX509KeyManagerImpl;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$MethodInfo _KeyManagerFactoryImpl$SunX509_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyManagerFactoryImpl$SunX509, init$, void)},
-	{"engineInit", "(Ljava/security/KeyStore;[C)V", nullptr, $PROTECTED, $virtualMethod(KeyManagerFactoryImpl$SunX509, engineInit, void, $KeyStore*, $chars*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED, $virtualMethod(KeyManagerFactoryImpl$SunX509, engineInit, void, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$InnerClassInfo _KeyManagerFactoryImpl$SunX509_InnerClassesInfo_[] = {
-	{"sun.security.ssl.KeyManagerFactoryImpl$SunX509", "sun.security.ssl.KeyManagerFactoryImpl", "SunX509", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KeyManagerFactoryImpl$SunX509_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.ssl.KeyManagerFactoryImpl$SunX509",
-	"sun.security.ssl.KeyManagerFactoryImpl",
-	nullptr,
-	nullptr,
-	_KeyManagerFactoryImpl$SunX509_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyManagerFactoryImpl$SunX509_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.KeyManagerFactoryImpl"
-};
-
-$Object* allocate$KeyManagerFactoryImpl$SunX509($Class* clazz) {
-	return $of($alloc(KeyManagerFactoryImpl$SunX509));
-}
 
 void KeyManagerFactoryImpl$SunX509::init$() {
 	$KeyManagerFactoryImpl::init$();
@@ -71,7 +36,34 @@ KeyManagerFactoryImpl$SunX509::KeyManagerFactoryImpl$SunX509() {
 }
 
 $Class* KeyManagerFactoryImpl$SunX509::load$($String* name, bool initialize) {
-	$loadClass(KeyManagerFactoryImpl$SunX509, name, initialize, &_KeyManagerFactoryImpl$SunX509_ClassInfo_, allocate$KeyManagerFactoryImpl$SunX509);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyManagerFactoryImpl$SunX509, init$, void)},
+		{"engineInit", "(Ljava/security/KeyStore;[C)V", nullptr, $PROTECTED, $virtualMethod(KeyManagerFactoryImpl$SunX509, engineInit, void, $KeyStore*, $chars*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+		{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED, $virtualMethod(KeyManagerFactoryImpl$SunX509, engineInit, void, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.KeyManagerFactoryImpl$SunX509", "sun.security.ssl.KeyManagerFactoryImpl", "SunX509", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.ssl.KeyManagerFactoryImpl$SunX509",
+		"sun.security.ssl.KeyManagerFactoryImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.KeyManagerFactoryImpl"
+	};
+	$loadClass(KeyManagerFactoryImpl$SunX509, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyManagerFactoryImpl$SunX509);
+	});
 	return class$;
 }
 

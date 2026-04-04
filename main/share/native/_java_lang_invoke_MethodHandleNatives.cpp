@@ -35,6 +35,7 @@
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Modifier.h>
 
+#include "jvm_constants.h"
 #include <jcpp.h>
 
 using namespace ::java::lang;
@@ -166,7 +167,7 @@ enum VtableIndexFlag {
 };
 
 MemberName* init_method_MemberName(::java::lang::invoke::MemberName* mname, Method* method) {
-	int32_t flags = method->modifiers & Modifier::METHOD_MODIFIERS;// JVM_RECOGNIZED_METHOD_MODIFIERS);
+	int32_t flags = method->modifiers & JVM_RECOGNIZED_METHOD_MODIFIERS;
 	int32_t vmindex = VtableIndexFlag::invalid_vtable_index;
 	flags |= MemberName::IS_METHOD;
 	if ((flags & Modifier::STATIC) != 0) {
@@ -186,7 +187,7 @@ MemberName* init_method_MemberName(::java::lang::invoke::MemberName* mname, Meth
 }
 
 MemberName* init_constructor_MemberName(::java::lang::invoke::MemberName* mname, Constructor* constructor) {
-	int32_t flags = constructor->modifiers & Modifier::METHOD_MODIFIERS;// JVM_RECOGNIZED_METHOD_MODIFIERS);
+	int32_t flags = constructor->modifiers & JVM_RECOGNIZED_METHOD_MODIFIERS;
 	int32_t vmindex = VtableIndexFlag::invalid_vtable_index;
 	flags |= MemberName::IS_CONSTRUCTOR;
 	flags |= MethodHandleNatives$Constants::REF_invokeSpecial << MethodHandleNatives$Constants::MN_REFERENCE_KIND_SHIFT; // TODO
@@ -485,7 +486,7 @@ MemberName* resolve_MemberName(::java::lang::invoke::MemberName* mname, Class* c
 	{
 		int ref_kind = (flags >> MN_REFERENCE_KIND_SHIFT) & MN_REFERENCE_KIND_MASK;
 
-		$var(::java::lang::reflect::Field, Field, mname->clazz->getDeclaredField(name_str));
+		$var(::java::lang::reflect::Field, Field, mname->clazz->refField(name_str));
 		$var(MemberName, mname2, init_field_MemberName(mname, Field, ref_kind_is_setter(ref_kind)));
 		return mname2;
 	}

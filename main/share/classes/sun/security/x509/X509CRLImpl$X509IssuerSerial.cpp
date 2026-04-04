@@ -1,5 +1,4 @@
 #include <sun/security/x509/X509CRLImpl$X509IssuerSerial.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/cert/X509Certificate.h>
 #include <javax/security/auth/x500/X500Principal.h>
@@ -18,57 +17,13 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _X509CRLImpl$X509IssuerSerial_FieldInfo_[] = {
-	{"issuer", "Ljavax/security/auth/x500/X500Principal;", nullptr, $FINAL, $field(X509CRLImpl$X509IssuerSerial, issuer)},
-	{"serial", "Ljava/math/BigInteger;", nullptr, $FINAL, $field(X509CRLImpl$X509IssuerSerial, serial)},
-	{"hashcode", "I", nullptr, $VOLATILE, $field(X509CRLImpl$X509IssuerSerial, hashcode)},
-	{}
-};
-
-$MethodInfo _X509CRLImpl$X509IssuerSerial_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/x500/X500Principal;Ljava/math/BigInteger;)V", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, init$, void, $X500Principal*, $BigInteger*)},
-	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, init$, void, $X509Certificate*)},
-	{"compareTo", "(Lsun/security/x509/X509CRLImpl$X509IssuerSerial;)I", nullptr, $PUBLIC, $method(X509CRLImpl$X509IssuerSerial, compareTo, int32_t, X509CRLImpl$X509IssuerSerial*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(X509CRLImpl$X509IssuerSerial, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X509CRLImpl$X509IssuerSerial, equals, bool, Object$*)},
-	{"getIssuer", "()Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, getIssuer, $X500Principal*)},
-	{"getSerial", "()Ljava/math/BigInteger;", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, getSerial, $BigInteger*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X509CRLImpl$X509IssuerSerial, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _X509CRLImpl$X509IssuerSerial_InnerClassesInfo_[] = {
-	{"sun.security.x509.X509CRLImpl$X509IssuerSerial", "sun.security.x509.X509CRLImpl", "X509IssuerSerial", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _X509CRLImpl$X509IssuerSerial_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.x509.X509CRLImpl$X509IssuerSerial",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_X509CRLImpl$X509IssuerSerial_FieldInfo_,
-	_X509CRLImpl$X509IssuerSerial_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/security/x509/X509CRLImpl$X509IssuerSerial;>;",
-	nullptr,
-	_X509CRLImpl$X509IssuerSerial_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.x509.X509CRLImpl"
-};
-
-$Object* allocate$X509CRLImpl$X509IssuerSerial($Class* clazz) {
-	return $of($alloc(X509CRLImpl$X509IssuerSerial));
-}
-
 void X509CRLImpl$X509IssuerSerial::init$($X500Principal* issuer, $BigInteger* serial) {
 	$set(this, issuer, issuer);
 	$set(this, serial, serial);
 }
 
 void X509CRLImpl$X509IssuerSerial::init$($X509Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X500Principal, var$0, $nc(cert)->getIssuerX500Principal());
 	X509CRLImpl$X509IssuerSerial::init$(var$0, $(cert->getSerialNumber()));
 }
@@ -82,7 +37,7 @@ $BigInteger* X509CRLImpl$X509IssuerSerial::getSerial() {
 }
 
 bool X509CRLImpl$X509IssuerSerial::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -91,7 +46,7 @@ bool X509CRLImpl$X509IssuerSerial::equals(Object$* o) {
 	}
 	$var(X509CRLImpl$X509IssuerSerial, other, $cast(X509CRLImpl$X509IssuerSerial, o));
 	bool var$0 = $nc(this->serial)->equals($($nc(other)->getSerial()));
-	if (var$0 && $nc(this->issuer)->equals($($nc(other)->getIssuer()))) {
+	if (var$0 && $nc(this->issuer)->equals($(other->getIssuer()))) {
 		return true;
 	}
 	return false;
@@ -111,12 +66,12 @@ int32_t X509CRLImpl$X509IssuerSerial::hashCode() {
 }
 
 int32_t X509CRLImpl$X509IssuerSerial::compareTo(X509CRLImpl$X509IssuerSerial* another) {
-	$useLocalCurrentObjectStackCache();
-	int32_t cissuer = $nc($($nc(this->issuer)->toString()))->compareTo($($nc($nc(another)->issuer)->toString()));
+	$useLocalObjectStack();
+	int32_t cissuer = $$nc($nc(this->issuer)->toString())->compareTo($($nc($nc(another)->issuer)->toString()));
 	if (cissuer != 0) {
 		return cissuer;
 	}
-	return $nc(this->serial)->compareTo($nc(another)->serial);
+	return $nc(this->serial)->compareTo(another->serial);
 }
 
 int32_t X509CRLImpl$X509IssuerSerial::compareTo(Object$* another) {
@@ -127,7 +82,45 @@ X509CRLImpl$X509IssuerSerial::X509CRLImpl$X509IssuerSerial() {
 }
 
 $Class* X509CRLImpl$X509IssuerSerial::load$($String* name, bool initialize) {
-	$loadClass(X509CRLImpl$X509IssuerSerial, name, initialize, &_X509CRLImpl$X509IssuerSerial_ClassInfo_, allocate$X509CRLImpl$X509IssuerSerial);
+	$FieldInfo fieldInfos$$[] = {
+		{"issuer", "Ljavax/security/auth/x500/X500Principal;", nullptr, $FINAL, $field(X509CRLImpl$X509IssuerSerial, issuer)},
+		{"serial", "Ljava/math/BigInteger;", nullptr, $FINAL, $field(X509CRLImpl$X509IssuerSerial, serial)},
+		{"hashcode", "I", nullptr, $VOLATILE, $field(X509CRLImpl$X509IssuerSerial, hashcode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/auth/x500/X500Principal;Ljava/math/BigInteger;)V", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, init$, void, $X500Principal*, $BigInteger*)},
+		{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, init$, void, $X509Certificate*)},
+		{"compareTo", "(Lsun/security/x509/X509CRLImpl$X509IssuerSerial;)I", nullptr, $PUBLIC, $method(X509CRLImpl$X509IssuerSerial, compareTo, int32_t, X509CRLImpl$X509IssuerSerial*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(X509CRLImpl$X509IssuerSerial, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X509CRLImpl$X509IssuerSerial, equals, bool, Object$*)},
+		{"getIssuer", "()Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, getIssuer, $X500Principal*)},
+		{"getSerial", "()Ljava/math/BigInteger;", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, getSerial, $BigInteger*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X509CRLImpl$X509IssuerSerial, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.x509.X509CRLImpl$X509IssuerSerial", "sun.security.x509.X509CRLImpl", "X509IssuerSerial", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.x509.X509CRLImpl$X509IssuerSerial",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/security/x509/X509CRLImpl$X509IssuerSerial;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.x509.X509CRLImpl"
+	};
+	$loadClass(X509CRLImpl$X509IssuerSerial, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X509CRLImpl$X509IssuerSerial);
+	});
 	return class$;
 }
 

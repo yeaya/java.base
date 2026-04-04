@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/ImageReader.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
@@ -39,11 +38,9 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $Path = ::java::nio::file::Path;
-using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Function = ::java::util::function::Function;
 using $IntFunction = ::java::util::function::IntFunction;
-using $Stream = ::java::util::stream::Stream;
 using $BasicImageReader = ::jdk::internal::jimage::BasicImageReader;
 using $ImageHeader = ::jdk::internal::jimage::ImageHeader;
 using $ImageLocation = ::jdk::internal::jimage::ImageLocation;
@@ -65,27 +62,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($ImageReader$Node, inst$)->getNameString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ImageReader$$Lambda$getNameString>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ImageReader$$Lambda$getNameString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImageReader$$Lambda$getNameString, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageReader$$Lambda$getNameString, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ImageReader$$Lambda$getNameString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.jimage.ImageReader$$Lambda$getNameString",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ImageReader$$Lambda$getNameString::load$($String* name, bool initialize) {
-	$loadClass(ImageReader$$Lambda$getNameString, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImageReader$$Lambda$getNameString, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageReader$$Lambda$getNameString, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.jimage.ImageReader$$Lambda$getNameString",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ImageReader$$Lambda$getNameString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageReader$$Lambda$getNameString);
+	});
 	return class$;
 }
 $Class* ImageReader$$Lambda$getNameString::class$ = nullptr;
@@ -99,33 +93,29 @@ public:
 	virtual $Object* apply(Object$* s) override {
 		 return $of(ImageReader::lambda$getModuleNames$0(off, $cast($String, s)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ImageReader$$Lambda$lambda$getModuleNames$0$1>());
-	}
 	int32_t off = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ImageReader$$Lambda$lambda$getModuleNames$0$1::fieldInfos[2] = {
-	{"off", "I", nullptr, $PUBLIC, $field(ImageReader$$Lambda$lambda$getModuleNames$0$1, off)},
-	{}
-};
-$MethodInfo ImageReader$$Lambda$lambda$getModuleNames$0$1::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ImageReader$$Lambda$lambda$getModuleNames$0$1, init$, void, int32_t)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageReader$$Lambda$lambda$getModuleNames$0$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ImageReader$$Lambda$lambda$getModuleNames$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.jimage.ImageReader$$Lambda$lambda$getModuleNames$0$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* ImageReader$$Lambda$lambda$getModuleNames$0$1::load$($String* name, bool initialize) {
-	$loadClass(ImageReader$$Lambda$lambda$getModuleNames$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"off", "I", nullptr, $PUBLIC, $field(ImageReader$$Lambda$lambda$getModuleNames$0$1, off)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ImageReader$$Lambda$lambda$getModuleNames$0$1, init$, void, int32_t)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageReader$$Lambda$lambda$getModuleNames$0$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.jimage.ImageReader$$Lambda$lambda$getModuleNames$0$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageReader$$Lambda$lambda$getModuleNames$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageReader$$Lambda$lambda$getModuleNames$0$1);
+	});
 	return class$;
 }
 $Class* ImageReader$$Lambda$lambda$getModuleNames$0$1::class$ = nullptr;
@@ -136,99 +126,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(ImageReader::lambda$getModuleNames$1(x$0));
+		 return ImageReader::lambda$getModuleNames$1(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ImageReader$$Lambda$lambda$getModuleNames$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ImageReader$$Lambda$lambda$getModuleNames$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImageReader$$Lambda$lambda$getModuleNames$1$2, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageReader$$Lambda$lambda$getModuleNames$1$2, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo ImageReader$$Lambda$lambda$getModuleNames$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.jimage.ImageReader$$Lambda$lambda$getModuleNames$1$2",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* ImageReader$$Lambda$lambda$getModuleNames$1$2::load$($String* name, bool initialize) {
-	$loadClass(ImageReader$$Lambda$lambda$getModuleNames$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImageReader$$Lambda$lambda$getModuleNames$1$2, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageReader$$Lambda$lambda$getModuleNames$1$2, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.jimage.ImageReader$$Lambda$lambda$getModuleNames$1$2",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ImageReader$$Lambda$lambda$getModuleNames$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageReader$$Lambda$lambda$getModuleNames$1$2);
+	});
 	return class$;
 }
 $Class* ImageReader$$Lambda$lambda$getModuleNames$1$2::class$ = nullptr;
-
-$FieldInfo _ImageReader_FieldInfo_[] = {
-	{"reader", "Ljdk/internal/jimage/ImageReader$SharedImageReader;", nullptr, $PRIVATE | $FINAL, $field(ImageReader, reader)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ImageReader, closed)},
-	{}
-};
-
-$MethodInfo _ImageReader_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jimage/ImageReader$SharedImageReader;)V", nullptr, $PRIVATE, $method(ImageReader, init$, void, $ImageReader$SharedImageReader*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, close, void), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ImageReader, ensureOpen, void), "java.io.IOException"},
-	{"findLocation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation;", nullptr, $PUBLIC, $method(ImageReader, findLocation, $ImageLocation*, $String*, $String*)},
-	{"findLocation", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation;", nullptr, $PUBLIC, $method(ImageReader, findLocation, $ImageLocation*, $String*)},
-	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC, $method(ImageReader, findNode, $ImageReader$Node*, $String*), "java.io.IOException"},
-	{"getAttributes", "(I)[J", nullptr, $PUBLIC, $method(ImageReader, getAttributes, $longs*, int32_t)},
-	{"getByteOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $method(ImageReader, getByteOrder, $ByteOrder*)},
-	{"getEntryNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(ImageReader, getEntryNames, $StringArray*)},
-	{"getHeader", "()Ljdk/internal/jimage/ImageHeader;", nullptr, $PUBLIC, $method(ImageReader, getHeader, $ImageHeader*)},
-	{"getImagePath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $method(ImageReader, getImagePath, $Path*)},
-	{"getModuleNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(ImageReader, getModuleNames, $StringArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ImageReader, getName, $String*)},
-	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $PUBLIC, $method(ImageReader, getResource, $bytes*, $ImageReader$Node*), "java.io.IOException"},
-	{"getResource", "(Ljdk/internal/jimage/ImageReader$Resource;)[B", nullptr, $PUBLIC, $method(ImageReader, getResource, $bytes*, $ImageReader$Resource*), "java.io.IOException"},
-	{"getResource", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $method(ImageReader, getResource, $bytes*, $String*)},
-	{"getResource", "(Ljdk/internal/jimage/ImageLocation;)[B", nullptr, $PUBLIC, $method(ImageReader, getResource, $bytes*, $ImageLocation*)},
-	{"getResourceBuffer", "(Ljdk/internal/jimage/ImageLocation;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $method(ImageReader, getResourceBuffer, $ByteBuffer*, $ImageLocation*)},
-	{"getResourceStream", "(Ljdk/internal/jimage/ImageLocation;)Ljava/io/InputStream;", nullptr, $PUBLIC, $method(ImageReader, getResourceStream, $InputStream*, $ImageLocation*)},
-	{"getRootDirectory", "()Ljdk/internal/jimage/ImageReader$Directory;", nullptr, $PUBLIC, $method(ImageReader, getRootDirectory, $ImageReader$Directory*), "java.io.IOException"},
-	{"getString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(ImageReader, getString, $String*, int32_t)},
-	{"getStrings", "()Ljdk/internal/jimage/ImageStringsReader;", nullptr, $PUBLIC, $method(ImageReader, getStrings, $ImageStringsReader*)},
-	{"lambda$getModuleNames$0", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ImageReader, lambda$getModuleNames$0, $String*, int32_t, $String*)},
-	{"lambda$getModuleNames$1", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ImageReader, lambda$getModuleNames$1, $StringArray*, int32_t)},
-	{"open", "(Ljava/nio/file/Path;Ljava/nio/ByteOrder;)Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReader, open, ImageReader*, $Path*, $ByteOrder*), "java.io.IOException"},
-	{"open", "(Ljava/nio/file/Path;)Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReader, open, ImageReader*, $Path*), "java.io.IOException"},
-	{"releaseByteBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReader, releaseByteBuffer, void, $ByteBuffer*)},
-	{"requireOpen", "()V", nullptr, $PRIVATE, $method(ImageReader, requireOpen, void)},
-	{"verifyLocation", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(ImageReader, verifyLocation, bool, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _ImageReader_InnerClassesInfo_[] = {
-	{"jdk.internal.jimage.ImageReader$LinkNode", "jdk.internal.jimage.ImageReader", "LinkNode", $STATIC},
-	{"jdk.internal.jimage.ImageReader$Resource", "jdk.internal.jimage.ImageReader", "Resource", $STATIC},
-	{"jdk.internal.jimage.ImageReader$Directory", "jdk.internal.jimage.ImageReader", "Directory", $STATIC | $FINAL},
-	{"jdk.internal.jimage.ImageReader$Node", "jdk.internal.jimage.ImageReader", "Node", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.jimage.ImageReader$SharedImageReader", "jdk.internal.jimage.ImageReader", "SharedImageReader", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ImageReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.jimage.ImageReader",
-	"java.lang.Object",
-	"java.lang.AutoCloseable",
-	_ImageReader_FieldInfo_,
-	_ImageReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.jimage.ImageReader$LinkNode,jdk.internal.jimage.ImageReader$Resource,jdk.internal.jimage.ImageReader$Directory,jdk.internal.jimage.ImageReader$Node,jdk.internal.jimage.ImageReader$SharedImageReader,jdk.internal.jimage.ImageReader$SharedImageReader$LocationVisitor"
-};
-
-$Object* allocate$ImageReader($Class* clazz) {
-	return $of($alloc(ImageReader));
-}
 
 void ImageReader::init$($ImageReader$SharedImageReader* reader) {
 	$set(this, reader, reader);
@@ -337,10 +257,10 @@ $StringArray* ImageReader::getEntryNames() {
 }
 
 $StringArray* ImageReader::getModuleNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	requireOpen();
 	int32_t off = "/modules/"_s->length();
-	return $fcast($StringArray, $nc($($nc($($nc($($nc($($nc($($nc(this->reader)->findNode("/modules"_s)))->getChildren()))->stream()))->map(static_cast<$Function*>($$new(ImageReader$$Lambda$getNameString)))))->map(static_cast<$Function*>($$new(ImageReader$$Lambda$lambda$getModuleNames$0$1, off)))))->toArray(static_cast<$IntFunction*>($$new(ImageReader$$Lambda$lambda$getModuleNames$1$2))));
+	return $cast($StringArray, $$nc($$nc($$nc($$nc($$nc($nc(this->reader)->findNode("/modules"_s))->getChildren())->stream())->map($$new(ImageReader$$Lambda$getNameString)))->map($$new(ImageReader$$Lambda$lambda$getModuleNames$0$1, off)))->toArray($$new(ImageReader$$Lambda$lambda$getModuleNames$1$2)));
 }
 
 $longs* ImageReader::getAttributes(int32_t offset) {
@@ -380,7 +300,7 @@ $StringArray* ImageReader::lambda$getModuleNames$1(int32_t x$0) {
 
 $String* ImageReader::lambda$getModuleNames$0(int32_t off, $String* s) {
 	$init(ImageReader);
-	return $nc(s)->substring(off, s->length());
+	return $nc(s)->substring(off, $nc(s)->length());
 }
 
 ImageReader::ImageReader() {
@@ -388,17 +308,78 @@ ImageReader::ImageReader() {
 
 $Class* ImageReader::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ImageReader$$Lambda$getNameString::classInfo$.name)) {
+		if (name->equals("jdk.internal.jimage.ImageReader$$Lambda$getNameString")) {
 			return ImageReader$$Lambda$getNameString::load$(name, initialize);
 		}
-		if (name->equals(ImageReader$$Lambda$lambda$getModuleNames$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.jimage.ImageReader$$Lambda$lambda$getModuleNames$0$1")) {
 			return ImageReader$$Lambda$lambda$getModuleNames$0$1::load$(name, initialize);
 		}
-		if (name->equals(ImageReader$$Lambda$lambda$getModuleNames$1$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.jimage.ImageReader$$Lambda$lambda$getModuleNames$1$2")) {
 			return ImageReader$$Lambda$lambda$getModuleNames$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(ImageReader, name, initialize, &_ImageReader_ClassInfo_, allocate$ImageReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"reader", "Ljdk/internal/jimage/ImageReader$SharedImageReader;", nullptr, $PRIVATE | $FINAL, $field(ImageReader, reader)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ImageReader, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/jimage/ImageReader$SharedImageReader;)V", nullptr, $PRIVATE, $method(ImageReader, init$, void, $ImageReader$SharedImageReader*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, close, void), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ImageReader, ensureOpen, void), "java.io.IOException"},
+		{"findLocation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation;", nullptr, $PUBLIC, $method(ImageReader, findLocation, $ImageLocation*, $String*, $String*)},
+		{"findLocation", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation;", nullptr, $PUBLIC, $method(ImageReader, findLocation, $ImageLocation*, $String*)},
+		{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC, $method(ImageReader, findNode, $ImageReader$Node*, $String*), "java.io.IOException"},
+		{"getAttributes", "(I)[J", nullptr, $PUBLIC, $method(ImageReader, getAttributes, $longs*, int32_t)},
+		{"getByteOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $method(ImageReader, getByteOrder, $ByteOrder*)},
+		{"getEntryNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(ImageReader, getEntryNames, $StringArray*)},
+		{"getHeader", "()Ljdk/internal/jimage/ImageHeader;", nullptr, $PUBLIC, $method(ImageReader, getHeader, $ImageHeader*)},
+		{"getImagePath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $method(ImageReader, getImagePath, $Path*)},
+		{"getModuleNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(ImageReader, getModuleNames, $StringArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ImageReader, getName, $String*)},
+		{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $PUBLIC, $method(ImageReader, getResource, $bytes*, $ImageReader$Node*), "java.io.IOException"},
+		{"getResource", "(Ljdk/internal/jimage/ImageReader$Resource;)[B", nullptr, $PUBLIC, $method(ImageReader, getResource, $bytes*, $ImageReader$Resource*), "java.io.IOException"},
+		{"getResource", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $method(ImageReader, getResource, $bytes*, $String*)},
+		{"getResource", "(Ljdk/internal/jimage/ImageLocation;)[B", nullptr, $PUBLIC, $method(ImageReader, getResource, $bytes*, $ImageLocation*)},
+		{"getResourceBuffer", "(Ljdk/internal/jimage/ImageLocation;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $method(ImageReader, getResourceBuffer, $ByteBuffer*, $ImageLocation*)},
+		{"getResourceStream", "(Ljdk/internal/jimage/ImageLocation;)Ljava/io/InputStream;", nullptr, $PUBLIC, $method(ImageReader, getResourceStream, $InputStream*, $ImageLocation*)},
+		{"getRootDirectory", "()Ljdk/internal/jimage/ImageReader$Directory;", nullptr, $PUBLIC, $method(ImageReader, getRootDirectory, $ImageReader$Directory*), "java.io.IOException"},
+		{"getString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(ImageReader, getString, $String*, int32_t)},
+		{"getStrings", "()Ljdk/internal/jimage/ImageStringsReader;", nullptr, $PUBLIC, $method(ImageReader, getStrings, $ImageStringsReader*)},
+		{"lambda$getModuleNames$0", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ImageReader, lambda$getModuleNames$0, $String*, int32_t, $String*)},
+		{"lambda$getModuleNames$1", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ImageReader, lambda$getModuleNames$1, $StringArray*, int32_t)},
+		{"open", "(Ljava/nio/file/Path;Ljava/nio/ByteOrder;)Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReader, open, ImageReader*, $Path*, $ByteOrder*), "java.io.IOException"},
+		{"open", "(Ljava/nio/file/Path;)Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReader, open, ImageReader*, $Path*), "java.io.IOException"},
+		{"releaseByteBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReader, releaseByteBuffer, void, $ByteBuffer*)},
+		{"requireOpen", "()V", nullptr, $PRIVATE, $method(ImageReader, requireOpen, void)},
+		{"verifyLocation", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(ImageReader, verifyLocation, bool, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jimage.ImageReader$LinkNode", "jdk.internal.jimage.ImageReader", "LinkNode", $STATIC},
+		{"jdk.internal.jimage.ImageReader$Resource", "jdk.internal.jimage.ImageReader", "Resource", $STATIC},
+		{"jdk.internal.jimage.ImageReader$Directory", "jdk.internal.jimage.ImageReader", "Directory", $STATIC | $FINAL},
+		{"jdk.internal.jimage.ImageReader$Node", "jdk.internal.jimage.ImageReader", "Node", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.jimage.ImageReader$SharedImageReader", "jdk.internal.jimage.ImageReader", "SharedImageReader", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.jimage.ImageReader",
+		"java.lang.Object",
+		"java.lang.AutoCloseable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.jimage.ImageReader$LinkNode,jdk.internal.jimage.ImageReader$Resource,jdk.internal.jimage.ImageReader$Directory,jdk.internal.jimage.ImageReader$Node,jdk.internal.jimage.ImageReader$SharedImageReader,jdk.internal.jimage.ImageReader$SharedImageReader$LocationVisitor"
+	};
+	$loadClass(ImageReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageReader);
+	});
 	return class$;
 }
 

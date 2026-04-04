@@ -1,5 +1,4 @@
 #include <sun/security/x509/PolicyConstraintsExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -40,51 +39,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _PolicyConstraintsExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyConstraintsExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyConstraintsExtension, NAME)},
-	{"REQUIRE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyConstraintsExtension, REQUIRE)},
-	{"INHIBIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyConstraintsExtension, INHIBIT)},
-	{"TAG_REQUIRE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PolicyConstraintsExtension, TAG_REQUIRE)},
-	{"TAG_INHIBIT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PolicyConstraintsExtension, TAG_INHIBIT)},
-	{"require", "I", nullptr, $PRIVATE, $field(PolicyConstraintsExtension, require)},
-	{"inhibit", "I", nullptr, $PRIVATE, $field(PolicyConstraintsExtension, inhibit)},
-	{}
-};
-
-$MethodInfo _PolicyConstraintsExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(PolicyConstraintsExtension, init$, void, int32_t, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;II)V", nullptr, $PUBLIC, $method(PolicyConstraintsExtension, init$, void, $Boolean*, int32_t, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PolicyConstraintsExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(PolicyConstraintsExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PolicyConstraintsExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PolicyConstraintsExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.PolicyConstraintsExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_PolicyConstraintsExtension_FieldInfo_,
-	_PolicyConstraintsExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$PolicyConstraintsExtension($Class* clazz) {
-	return $of($alloc(PolicyConstraintsExtension));
-}
-
 int32_t PolicyConstraintsExtension::hashCode() {
 	 return this->$Extension::hashCode();
 }
@@ -107,7 +61,7 @@ $String* PolicyConstraintsExtension::REQUIRE = nullptr;
 $String* PolicyConstraintsExtension::INHIBIT = nullptr;
 
 void PolicyConstraintsExtension::encodeThis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->require == -1 && this->inhibit == -1) {
 		$set(this, extensionValue, nullptr);
 		return;
@@ -129,7 +83,6 @@ void PolicyConstraintsExtension::encodeThis() {
 }
 
 void PolicyConstraintsExtension::init$(int32_t require, int32_t inhibit) {
-	$init($Boolean);
 	PolicyConstraintsExtension::init$($Boolean::TRUE, require, inhibit);
 }
 
@@ -146,7 +99,7 @@ void PolicyConstraintsExtension::init$($Boolean* critical, int32_t require, int3
 }
 
 void PolicyConstraintsExtension::init$($Boolean* critical, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$();
 	this->require = -1;
 	this->inhibit = -1;
@@ -169,8 +122,8 @@ void PolicyConstraintsExtension::init$($Boolean* critical, Object$* value) {
 			next->resetTag($DerValue::tag_Integer);
 			this->require = next->getInteger();
 		} else {
-			bool var$2 = next->isContextSpecific(PolicyConstraintsExtension::TAG_INHIBIT);
-			if (var$2 && !next->isConstructed()) {
+			bool var$1 = next->isContextSpecific(PolicyConstraintsExtension::TAG_INHIBIT);
+			if (var$1 && !next->isConstructed()) {
 				if (this->inhibit != -1) {
 					$throwNew($IOException, "Duplicate inhibitPolicyMappingfound in the PolicyConstraintsExtension"_s);
 				}
@@ -184,7 +137,7 @@ void PolicyConstraintsExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* PolicyConstraintsExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("PolicyConstraints: ["_s)->append("  Require: "_s);
 	if (this->require == -1) {
@@ -203,7 +156,7 @@ $String* PolicyConstraintsExtension::toString() {
 }
 
 void PolicyConstraintsExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -220,9 +173,9 @@ void PolicyConstraintsExtension::set($String* name, Object$* obj) {
 		$throwNew($IOException, "Attribute value should be of type Integer."_s);
 	}
 	if ($nc(name)->equalsIgnoreCase(PolicyConstraintsExtension::REQUIRE)) {
-		this->require = $nc(($cast($Integer, obj)))->intValue();
+		this->require = $nc($cast($Integer, obj))->intValue();
 	} else if (name->equalsIgnoreCase(PolicyConstraintsExtension::INHIBIT)) {
-		this->inhibit = $nc(($cast($Integer, obj)))->intValue();
+		this->inhibit = $nc($cast($Integer, obj))->intValue();
 	} else {
 		$throwNew($IOException, $$str({"Attribute name ["_s, name, "] not recognized by CertAttrSet:PolicyConstraints."_s}));
 	}
@@ -264,7 +217,7 @@ $String* PolicyConstraintsExtension::getName() {
 PolicyConstraintsExtension::PolicyConstraintsExtension() {
 }
 
-void clinit$PolicyConstraintsExtension($Class* class$) {
+void PolicyConstraintsExtension::clinit$($Class* clazz) {
 	$assignStatic(PolicyConstraintsExtension::IDENT, "x509.info.extensions.PolicyConstraints"_s);
 	$assignStatic(PolicyConstraintsExtension::NAME, "PolicyConstraints"_s);
 	$assignStatic(PolicyConstraintsExtension::REQUIRE, "require"_s);
@@ -272,7 +225,47 @@ void clinit$PolicyConstraintsExtension($Class* class$) {
 }
 
 $Class* PolicyConstraintsExtension::load$($String* name, bool initialize) {
-	$loadClass(PolicyConstraintsExtension, name, initialize, &_PolicyConstraintsExtension_ClassInfo_, clinit$PolicyConstraintsExtension, allocate$PolicyConstraintsExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyConstraintsExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyConstraintsExtension, NAME)},
+		{"REQUIRE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyConstraintsExtension, REQUIRE)},
+		{"INHIBIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyConstraintsExtension, INHIBIT)},
+		{"TAG_REQUIRE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PolicyConstraintsExtension, TAG_REQUIRE)},
+		{"TAG_INHIBIT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PolicyConstraintsExtension, TAG_INHIBIT)},
+		{"require", "I", nullptr, $PRIVATE, $field(PolicyConstraintsExtension, require)},
+		{"inhibit", "I", nullptr, $PRIVATE, $field(PolicyConstraintsExtension, inhibit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(PolicyConstraintsExtension, init$, void, int32_t, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;II)V", nullptr, $PUBLIC, $method(PolicyConstraintsExtension, init$, void, $Boolean*, int32_t, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PolicyConstraintsExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(PolicyConstraintsExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PolicyConstraintsExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyConstraintsExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.PolicyConstraintsExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(PolicyConstraintsExtension, name, initialize, &classInfo$$, PolicyConstraintsExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PolicyConstraintsExtension));
+	});
 	return class$;
 }
 

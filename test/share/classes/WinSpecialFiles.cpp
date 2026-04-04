@@ -1,5 +1,4 @@
 #include <WinSpecialFiles.h>
-
 #include <java/io/File.h>
 #include <jcpp.h>
 
@@ -9,30 +8,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _WinSpecialFiles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WinSpecialFiles, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WinSpecialFiles, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _WinSpecialFiles_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WinSpecialFiles",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WinSpecialFiles_MethodInfo_
-};
-
-$Object* allocate$WinSpecialFiles($Class* clazz) {
-	return $of($alloc(WinSpecialFiles));
-}
-
 void WinSpecialFiles::init$() {
 }
 
 void WinSpecialFiles::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if (!$nc(osName)->startsWith("Windows"_s)) {
 		return;
@@ -43,7 +23,7 @@ void WinSpecialFiles::main($StringArray* args) {
 		if (!$nc(dir->get(i))->exists()) {
 			$throwNew($Exception, $$str({"exists() returns false for <"_s, $($nc(dir->get(i))->getPath()), ">"_s}));
 		}
-		$var($String, name, $nc($($nc(dir->get(i))->getPath()))->toLowerCase());
+		$var($String, name, $$nc($nc(dir->get(i))->getPath())->toLowerCase());
 		bool var$0 = name->indexOf("pagefile.sys"_s) != -1;
 		if (var$0 || name->indexOf("hiberfil.sys"_s) != -1) {
 			if ($nc(dir->get(i))->length() == 0) {
@@ -57,7 +37,22 @@ WinSpecialFiles::WinSpecialFiles() {
 }
 
 $Class* WinSpecialFiles::load$($String* name, bool initialize) {
-	$loadClass(WinSpecialFiles, name, initialize, &_WinSpecialFiles_ClassInfo_, allocate$WinSpecialFiles);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WinSpecialFiles, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WinSpecialFiles, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WinSpecialFiles",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WinSpecialFiles, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WinSpecialFiles);
+	});
 	return class$;
 }
 

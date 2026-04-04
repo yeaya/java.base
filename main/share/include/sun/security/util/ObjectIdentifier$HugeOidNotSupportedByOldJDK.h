@@ -13,6 +13,7 @@ class $import ObjectIdentifier$HugeOidNotSupportedByOldJDK : public ::java::io::
 	$class(ObjectIdentifier$HugeOidNotSupportedByOldJDK, 0, ::java::io::Serializable)
 public:
 	ObjectIdentifier$HugeOidNotSupportedByOldJDK();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)1;
 	static ::sun::security::util::ObjectIdentifier$HugeOidNotSupportedByOldJDK* theOne;

@@ -1,5 +1,4 @@
 #include <sun/security/rsa/RSAKeyPairGenerator$Legacy.h>
-
 #include <sun/security/rsa/RSAKeyPairGenerator.h>
 #include <sun/security/rsa/RSAUtil$KeyType.h>
 #include <sun/security/util/SecurityProviderConstants.h>
@@ -19,36 +18,6 @@ namespace sun {
 	namespace security {
 		namespace rsa {
 
-$MethodInfo _RSAKeyPairGenerator$Legacy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RSAKeyPairGenerator$Legacy, init$, void)},
-	{}
-};
-
-$InnerClassInfo _RSAKeyPairGenerator$Legacy_InnerClassesInfo_[] = {
-	{"sun.security.rsa.RSAKeyPairGenerator$Legacy", "sun.security.rsa.RSAKeyPairGenerator", "Legacy", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RSAKeyPairGenerator$Legacy_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.rsa.RSAKeyPairGenerator$Legacy",
-	"sun.security.rsa.RSAKeyPairGenerator",
-	nullptr,
-	nullptr,
-	_RSAKeyPairGenerator$Legacy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RSAKeyPairGenerator$Legacy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.rsa.RSAKeyPairGenerator"
-};
-
-$Object* allocate$RSAKeyPairGenerator$Legacy($Class* clazz) {
-	return $of($alloc(RSAKeyPairGenerator$Legacy));
-}
-
 void RSAKeyPairGenerator$Legacy::init$() {
 	$init($RSAUtil$KeyType);
 	$init($SecurityProviderConstants);
@@ -59,7 +28,32 @@ RSAKeyPairGenerator$Legacy::RSAKeyPairGenerator$Legacy() {
 }
 
 $Class* RSAKeyPairGenerator$Legacy::load$($String* name, bool initialize) {
-	$loadClass(RSAKeyPairGenerator$Legacy, name, initialize, &_RSAKeyPairGenerator$Legacy_ClassInfo_, allocate$RSAKeyPairGenerator$Legacy);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RSAKeyPairGenerator$Legacy, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.rsa.RSAKeyPairGenerator$Legacy", "sun.security.rsa.RSAKeyPairGenerator", "Legacy", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.rsa.RSAKeyPairGenerator$Legacy",
+		"sun.security.rsa.RSAKeyPairGenerator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.rsa.RSAKeyPairGenerator"
+	};
+	$loadClass(RSAKeyPairGenerator$Legacy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAKeyPairGenerator$Legacy);
+	});
 	return class$;
 }
 

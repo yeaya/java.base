@@ -1,5 +1,4 @@
 #include <java/lang/reflect/InaccessibleObjectException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace lang {
 		namespace reflect {
-
-$FieldInfo _InaccessibleObjectException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InaccessibleObjectException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InaccessibleObjectException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InaccessibleObjectException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InaccessibleObjectException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InaccessibleObjectException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.reflect.InaccessibleObjectException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_InaccessibleObjectException_FieldInfo_,
-	_InaccessibleObjectException_MethodInfo_
-};
-
-$Object* allocate$InaccessibleObjectException($Class* clazz) {
-	return $of($alloc(InaccessibleObjectException));
-}
 
 void InaccessibleObjectException::init$() {
 	$RuntimeException::init$();
@@ -54,7 +29,26 @@ void InaccessibleObjectException::throw$() {
 }
 
 $Class* InaccessibleObjectException::load$($String* name, bool initialize) {
-	$loadClass(InaccessibleObjectException, name, initialize, &_InaccessibleObjectException_ClassInfo_, allocate$InaccessibleObjectException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InaccessibleObjectException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InaccessibleObjectException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InaccessibleObjectException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.reflect.InaccessibleObjectException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InaccessibleObjectException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InaccessibleObjectException);
+	});
 	return class$;
 }
 

@@ -31,6 +31,7 @@ class $import DefaultFileSystemProvider : public ::java::lang::Object {
 	$class(DefaultFileSystemProvider, 0, ::java::lang::Object)
 public:
 	DefaultFileSystemProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::fs::WindowsFileSystemProvider* instance();
 	static ::java::nio::file::FileSystem* theFileSystem();

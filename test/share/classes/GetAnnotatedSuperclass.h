@@ -9,6 +9,7 @@ class $export GetAnnotatedSuperclass : public ::java::lang::Object {
 	$class(GetAnnotatedSuperclass, 0, ::java::lang::Object)
 public:
 	GetAnnotatedSuperclass();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void testReturnsEmptyAT();

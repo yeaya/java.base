@@ -66,7 +66,7 @@ public:
 	virtual $String* toString() override;
 	virtual ::java::util::Collection* values() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x1B73F9094B4B397B;
+	static const int64_t serialVersionUID = (int64_t)0x1b73f9094b4b397b;
 	::java::util::Map* m = nullptr;
 	$Object* mutex = nullptr;
 	::java::util::Set* keySet$ = nullptr;

@@ -1,5 +1,4 @@
 #include <java/nio/file/Path$1.h>
-
 #include <java/nio/file/Path.h>
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
@@ -15,50 +14,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _Path$1_FieldInfo_[] = {
-	{"this$0", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(Path$1, this$0)},
-	{"i", "I", nullptr, $PRIVATE, $field(Path$1, i)},
-	{}
-};
-
-$MethodInfo _Path$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(Path$1, init$, void, $Path*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Path$1, hasNext, bool)},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Path$1, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Path$1_EnclosingMethodInfo_ = {
-	"java.nio.file.Path",
-	"iterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _Path$1_InnerClassesInfo_[] = {
-	{"java.nio.file.Path$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Path$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.Path$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Path$1_FieldInfo_,
-	_Path$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
-	&_Path$1_EnclosingMethodInfo_,
-	_Path$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.Path"
-};
-
-$Object* allocate$Path$1($Class* clazz) {
-	return $of($alloc(Path$1));
-}
 
 void Path$1::init$($Path* this$0) {
 	$set(this, this$0, this$0);
@@ -83,7 +38,44 @@ Path$1::Path$1() {
 }
 
 $Class* Path$1::load$($String* name, bool initialize) {
-	$loadClass(Path$1, name, initialize, &_Path$1_ClassInfo_, allocate$Path$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(Path$1, this$0)},
+		{"i", "I", nullptr, $PRIVATE, $field(Path$1, i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(Path$1, init$, void, $Path*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Path$1, hasNext, bool)},
+		{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Path$1, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.file.Path",
+		"iterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.Path$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.Path$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.Path"
+	};
+	$loadClass(Path$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Path$1);
+	});
 	return class$;
 }
 

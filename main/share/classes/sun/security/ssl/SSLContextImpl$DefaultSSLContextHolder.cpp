@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl$DefaultSSLContextHolder.h>
-
 #include <java/security/KeyManagementException.h>
 #include <sun/security/ssl/SSLContextImpl$DefaultManagersHolder.h>
 #include <sun/security/ssl/SSLContextImpl$DefaultSSLContext.h>
@@ -22,50 +21,14 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLContextImpl$DefaultSSLContextHolder_FieldInfo_[] = {
-	{"sslContext", "Lsun/security/ssl/SSLContextImpl;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$DefaultSSLContextHolder, sslContext)},
-	{"reservedException", "Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$DefaultSSLContextHolder, reservedException)},
-	{}
-};
-
-$MethodInfo _SSLContextImpl$DefaultSSLContextHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLContextImpl$DefaultSSLContextHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl$DefaultSSLContextHolder_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$DefaultSSLContextHolder", "sun.security.ssl.SSLContextImpl", "DefaultSSLContextHolder", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLContextImpl$DefaultSSLContextHolder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLContextImpl$DefaultSSLContextHolder",
-	"java.lang.Object",
-	nullptr,
-	_SSLContextImpl$DefaultSSLContextHolder_FieldInfo_,
-	_SSLContextImpl$DefaultSSLContextHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl$DefaultSSLContextHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl"
-};
-
-$Object* allocate$SSLContextImpl$DefaultSSLContextHolder($Class* clazz) {
-	return $of($alloc(SSLContextImpl$DefaultSSLContextHolder));
-}
-
 $SSLContextImpl* SSLContextImpl$DefaultSSLContextHolder::sslContext = nullptr;
 $Exception* SSLContextImpl$DefaultSSLContextHolder::reservedException = nullptr;
 
 void SSLContextImpl$DefaultSSLContextHolder::init$() {
 }
 
-void clinit$SSLContextImpl$DefaultSSLContextHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SSLContextImpl$DefaultSSLContextHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($Exception, reserved, nullptr);
 		$var($SSLContextImpl, mediator, nullptr);
@@ -79,7 +42,7 @@ void clinit$SSLContextImpl$DefaultSSLContextHolder($Class* class$) {
 				$assign(reserved, $new($KeyManagementException, $(e->getMessage())));
 				$init($SSLLogger);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,defaultctx"_s)) {
-					$SSLLogger::warning("Failed to load default SSLContext"_s, $$new($ObjectArray, {$of(e)}));
+					$SSLLogger::warning("Failed to load default SSLContext"_s, $$new($ObjectArray, {e}));
 				}
 			}
 		}
@@ -92,7 +55,37 @@ SSLContextImpl$DefaultSSLContextHolder::SSLContextImpl$DefaultSSLContextHolder()
 }
 
 $Class* SSLContextImpl$DefaultSSLContextHolder::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl$DefaultSSLContextHolder, name, initialize, &_SSLContextImpl$DefaultSSLContextHolder_ClassInfo_, clinit$SSLContextImpl$DefaultSSLContextHolder, allocate$SSLContextImpl$DefaultSSLContextHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"sslContext", "Lsun/security/ssl/SSLContextImpl;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$DefaultSSLContextHolder, sslContext)},
+		{"reservedException", "Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$DefaultSSLContextHolder, reservedException)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLContextImpl$DefaultSSLContextHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$DefaultSSLContextHolder", "sun.security.ssl.SSLContextImpl", "DefaultSSLContextHolder", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLContextImpl$DefaultSSLContextHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl"
+	};
+	$loadClass(SSLContextImpl$DefaultSSLContextHolder, name, initialize, &classInfo$$, SSLContextImpl$DefaultSSLContextHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl$DefaultSSLContextHolder);
+	});
 	return class$;
 }
 

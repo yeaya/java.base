@@ -1,5 +1,4 @@
 #include <sun/nio/cs/JIS_X_0208.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -25,45 +24,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _JIS_X_0208_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JIS_X_0208, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(JIS_X_0208, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JIS_X_0208, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(JIS_X_0208, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(JIS_X_0208, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _JIS_X_0208_InnerClassesInfo_[] = {
-	{"sun.nio.cs.JIS_X_0208$EncodeHolder", "sun.nio.cs.JIS_X_0208", "EncodeHolder", $STATIC},
-	{"sun.nio.cs.JIS_X_0208$DecodeHolder", "sun.nio.cs.JIS_X_0208", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _JIS_X_0208_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.JIS_X_0208",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_JIS_X_0208_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JIS_X_0208_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.JIS_X_0208$EncodeHolder,sun.nio.cs.JIS_X_0208$DecodeHolder"
-};
-
-$Object* allocate$JIS_X_0208($Class* clazz) {
-	return $of($alloc(JIS_X_0208));
-}
 
 int32_t JIS_X_0208::hashCode() {
 	 return this->$Charset::hashCode();
@@ -114,7 +74,41 @@ JIS_X_0208::JIS_X_0208() {
 }
 
 $Class* JIS_X_0208::load$($String* name, bool initialize) {
-	$loadClass(JIS_X_0208, name, initialize, &_JIS_X_0208_ClassInfo_, allocate$JIS_X_0208);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JIS_X_0208, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(JIS_X_0208, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JIS_X_0208, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(JIS_X_0208, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(JIS_X_0208, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.JIS_X_0208$EncodeHolder", "sun.nio.cs.JIS_X_0208", "EncodeHolder", $STATIC},
+		{"sun.nio.cs.JIS_X_0208$DecodeHolder", "sun.nio.cs.JIS_X_0208", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.JIS_X_0208",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.JIS_X_0208$EncodeHolder,sun.nio.cs.JIS_X_0208$DecodeHolder"
+	};
+	$loadClass(JIS_X_0208, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JIS_X_0208));
+	});
 	return class$;
 }
 

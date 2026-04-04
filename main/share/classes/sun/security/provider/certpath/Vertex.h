@@ -34,6 +34,7 @@ class $export Vertex : public ::java::lang::Object {
 	$class(Vertex, 0, ::java::lang::Object)
 public:
 	Vertex();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::cert::X509Certificate* cert);
 	virtual $String* certToString();
 	virtual ::java::security::cert::X509Certificate* getCertificate();

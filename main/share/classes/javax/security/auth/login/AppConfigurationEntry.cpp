@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/AppConfigurationEntry.h>
-
 #include <java/util/Collections.h>
 #include <java/util/Map.h>
 #include <javax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag.h>
@@ -24,48 +23,9 @@ namespace javax {
 		namespace auth {
 			namespace login {
 
-$FieldInfo _AppConfigurationEntry_FieldInfo_[] = {
-	{"loginModuleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AppConfigurationEntry, loginModuleName)},
-	{"controlFlag", "Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;", nullptr, $PRIVATE, $field(AppConfigurationEntry, controlFlag)},
-	{"options", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;*>;", $PRIVATE, $field(AppConfigurationEntry, options)},
-	{}
-};
-
-$MethodInfo _AppConfigurationEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;Ljava/util/Map;)V", "(Ljava/lang/String;Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(AppConfigurationEntry, init$, void, $String*, $AppConfigurationEntry$LoginModuleControlFlag*, $Map*)},
-	{"getControlFlag", "()Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;", nullptr, $PUBLIC, $virtualMethod(AppConfigurationEntry, getControlFlag, $AppConfigurationEntry$LoginModuleControlFlag*)},
-	{"getLoginModuleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AppConfigurationEntry, getLoginModuleName, $String*)},
-	{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;*>;", $PUBLIC, $virtualMethod(AppConfigurationEntry, getOptions, $Map*)},
-	{}
-};
-
-$InnerClassInfo _AppConfigurationEntry_InnerClassesInfo_[] = {
-	{"javax.security.auth.login.AppConfigurationEntry$LoginModuleControlFlag", "javax.security.auth.login.AppConfigurationEntry", "LoginModuleControlFlag", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AppConfigurationEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.login.AppConfigurationEntry",
-	"java.lang.Object",
-	nullptr,
-	_AppConfigurationEntry_FieldInfo_,
-	_AppConfigurationEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AppConfigurationEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.security.auth.login.AppConfigurationEntry$LoginModuleControlFlag"
-};
-
-$Object* allocate$AppConfigurationEntry($Class* clazz) {
-	return $of($alloc(AppConfigurationEntry));
-}
-
 void AppConfigurationEntry::init$($String* loginModuleName, $AppConfigurationEntry$LoginModuleControlFlag* controlFlag, $Map* options) {
 	$init($AppConfigurationEntry$LoginModuleControlFlag);
-	if (loginModuleName == nullptr || $nc(loginModuleName)->isEmpty() || (controlFlag != $AppConfigurationEntry$LoginModuleControlFlag::REQUIRED && controlFlag != $AppConfigurationEntry$LoginModuleControlFlag::REQUISITE && controlFlag != $AppConfigurationEntry$LoginModuleControlFlag::SUFFICIENT && controlFlag != $AppConfigurationEntry$LoginModuleControlFlag::OPTIONAL) || options == nullptr) {
+	if (loginModuleName == nullptr || loginModuleName->isEmpty() || (controlFlag != $AppConfigurationEntry$LoginModuleControlFlag::REQUIRED && controlFlag != $AppConfigurationEntry$LoginModuleControlFlag::REQUISITE && controlFlag != $AppConfigurationEntry$LoginModuleControlFlag::SUFFICIENT && controlFlag != $AppConfigurationEntry$LoginModuleControlFlag::OPTIONAL) || options == nullptr) {
 		$throwNew($IllegalArgumentException);
 	}
 	$set(this, loginModuleName, loginModuleName);
@@ -89,7 +49,40 @@ AppConfigurationEntry::AppConfigurationEntry() {
 }
 
 $Class* AppConfigurationEntry::load$($String* name, bool initialize) {
-	$loadClass(AppConfigurationEntry, name, initialize, &_AppConfigurationEntry_ClassInfo_, allocate$AppConfigurationEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"loginModuleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AppConfigurationEntry, loginModuleName)},
+		{"controlFlag", "Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;", nullptr, $PRIVATE, $field(AppConfigurationEntry, controlFlag)},
+		{"options", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;*>;", $PRIVATE, $field(AppConfigurationEntry, options)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;Ljava/util/Map;)V", "(Ljava/lang/String;Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(AppConfigurationEntry, init$, void, $String*, $AppConfigurationEntry$LoginModuleControlFlag*, $Map*)},
+		{"getControlFlag", "()Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;", nullptr, $PUBLIC, $virtualMethod(AppConfigurationEntry, getControlFlag, $AppConfigurationEntry$LoginModuleControlFlag*)},
+		{"getLoginModuleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AppConfigurationEntry, getLoginModuleName, $String*)},
+		{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;*>;", $PUBLIC, $virtualMethod(AppConfigurationEntry, getOptions, $Map*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.security.auth.login.AppConfigurationEntry$LoginModuleControlFlag", "javax.security.auth.login.AppConfigurationEntry", "LoginModuleControlFlag", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.login.AppConfigurationEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.security.auth.login.AppConfigurationEntry$LoginModuleControlFlag"
+	};
+	$loadClass(AppConfigurationEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppConfigurationEntry);
+	});
 	return class$;
 }
 

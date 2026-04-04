@@ -1,5 +1,4 @@
 #include <KeySets$Adder.h>
-
 #include <KeySets.h>
 #include <jcpp.h>
 
@@ -7,38 +6,33 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _KeySets$Adder_MethodInfo_[] = {
-	{"add", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeySets$Adder, add, void), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _KeySets$Adder_InnerClassesInfo_[] = {
-	{"KeySets$Adder", "KeySets", "Adder", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeySets$Adder_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"KeySets$Adder",
-	nullptr,
-	nullptr,
-	nullptr,
-	_KeySets$Adder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeySets$Adder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"KeySets"
-};
-
-$Object* allocate$KeySets$Adder($Class* clazz) {
-	return $of($alloc(KeySets$Adder));
-}
-
 $Class* KeySets$Adder::load$($String* name, bool initialize) {
-	$loadClass(KeySets$Adder, name, initialize, &_KeySets$Adder_ClassInfo_, allocate$KeySets$Adder);
+	$MethodInfo methodInfos$$[] = {
+		{"add", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeySets$Adder, add, void), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"KeySets$Adder", "KeySets", "Adder", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"KeySets$Adder",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"KeySets"
+	};
+	$loadClass(KeySets$Adder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeySets$Adder);
+	});
 	return class$;
 }
 

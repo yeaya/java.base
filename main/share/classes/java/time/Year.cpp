@@ -1,5 +1,4 @@
 #include <java/time/Year.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
@@ -110,119 +109,27 @@ public:
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
 		 return $of(Year::from(temporal));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Year$$Lambda$from>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Year$$Lambda$from::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Year$$Lambda$from, init$, void)},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Year$$Lambda$from, queryFrom, $Object*, $TemporalAccessor*)},
-	{}
-};
-$ClassInfo Year$$Lambda$from::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.Year$$Lambda$from",
-	"java.lang.Object",
-	"java.time.temporal.TemporalQuery",
-	nullptr,
-	methodInfos
 };
 $Class* Year$$Lambda$from::load$($String* name, bool initialize) {
-	$loadClass(Year$$Lambda$from, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Year$$Lambda$from, init$, void)},
+		{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Year$$Lambda$from, queryFrom, $Object*, $TemporalAccessor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.Year$$Lambda$from",
+		"java.lang.Object",
+		"java.time.temporal.TemporalQuery",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Year$$Lambda$from, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Year$$Lambda$from);
+	});
 	return class$;
 }
 $Class* Year$$Lambda$from::class$ = nullptr;
-
-$CompoundAttribute _Year_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _Year_FieldInfo_[] = {
-	{"MIN_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Year, MIN_VALUE)},
-	{"MAX_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Year, MAX_VALUE)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Year, serialVersionUID)},
-	{"PARSER", "Ljava/time/format/DateTimeFormatter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Year, PARSER)},
-	{"year", "I", nullptr, $PRIVATE | $FINAL, $field(Year, year)},
-	{}
-};
-
-$MethodInfo _Year_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(Year, init$, void, int32_t)},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Year, adjustInto, $Temporal*, $Temporal*)},
-	{"atDay", "(I)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(Year, atDay, $LocalDate*, int32_t)},
-	{"atMonth", "(Ljava/time/Month;)Ljava/time/YearMonth;", nullptr, $PUBLIC, $method(Year, atMonth, $YearMonth*, $Month*)},
-	{"atMonth", "(I)Ljava/time/YearMonth;", nullptr, $PUBLIC, $method(Year, atMonth, $YearMonth*, int32_t)},
-	{"atMonthDay", "(Ljava/time/MonthDay;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(Year, atMonthDay, $LocalDate*, $MonthDay*)},
-	{"compareTo", "(Ljava/time/Year;)I", nullptr, $PUBLIC, $method(Year, compareTo, int32_t, Year*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Year, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Year, equals, bool, Object$*)},
-	{"format", "(Ljava/time/format/DateTimeFormatter;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Year, format, $String*, $DateTimeFormatter*)},
-	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, from, Year*, $TemporalAccessor*)},
-	{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(Year, get, int32_t, $TemporalField*)},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(Year, getLong, int64_t, $TemporalField*)},
-	{"getValue", "()I", nullptr, $PUBLIC, $method(Year, getValue, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Year, hashCode, int32_t)},
-	{"isAfter", "(Ljava/time/Year;)Z", nullptr, $PUBLIC, $method(Year, isAfter, bool, Year*)},
-	{"isBefore", "(Ljava/time/Year;)Z", nullptr, $PUBLIC, $method(Year, isBefore, bool, Year*)},
-	{"isLeap", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, isLeap, bool, int64_t)},
-	{"isLeap", "()Z", nullptr, $PUBLIC, $method(Year, isLeap, bool)},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(Year, isSupported, bool, $TemporalField*)},
-	{"isSupported", "(Ljava/time/temporal/TemporalUnit;)Z", nullptr, $PUBLIC, $virtualMethod(Year, isSupported, bool, $TemporalUnit*)},
-	{"isValidMonthDay", "(Ljava/time/MonthDay;)Z", nullptr, $PUBLIC, $method(Year, isValidMonthDay, bool, $MonthDay*)},
-	{"length", "()I", nullptr, $PUBLIC, $method(Year, length, int32_t)},
-	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, minus, Year*, $TemporalAmount*)},
-	{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, minus, Year*, int64_t, $TemporalUnit*)},
-	{"minusYears", "(J)Ljava/time/Year;", nullptr, $PUBLIC, $method(Year, minusYears, Year*, int64_t)},
-	{"now", "()Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, now, Year*)},
-	{"now", "(Ljava/time/ZoneId;)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, now, Year*, $ZoneId*)},
-	{"now", "(Ljava/time/Clock;)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, now, Year*, $Clock*)},
-	{"of", "(I)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, of, Year*, int32_t)},
-	{"parse", "(Ljava/lang/CharSequence;)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, parse, Year*, $CharSequence*)},
-	{"parse", "(Ljava/lang/CharSequence;Ljava/time/format/DateTimeFormatter;)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, parse, Year*, $CharSequence*, $DateTimeFormatter*)},
-	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, plus, Year*, $TemporalAmount*)},
-	{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, plus, Year*, int64_t, $TemporalUnit*)},
-	{"plusYears", "(J)Ljava/time/Year;", nullptr, $PUBLIC, $method(Year, plusYears, Year*, int64_t)},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(Year, query, $Object*, $TemporalQuery*)},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(Year, range, $ValueRange*, $TemporalField*)},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/Year;", nullptr, $STATIC, $staticMethod(Year, readExternal, Year*, $DataInput*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Year, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Year, toString, $String*)},
-	{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(Year, until, int64_t, $Temporal*, $TemporalUnit*)},
-	{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, with, Year*, $TemporalAdjuster*)},
-	{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, with, Year*, $TemporalField*, int64_t)},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(Year, writeExternal, void, $DataOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Year, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _Year_InnerClassesInfo_[] = {
-	{"java.time.Year$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Year_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.Year",
-	"java.lang.Object",
-	"java.time.temporal.Temporal,java.time.temporal.TemporalAdjuster,java.lang.Comparable,java.io.Serializable",
-	_Year_FieldInfo_,
-	_Year_MethodInfo_,
-	"Ljava/lang/Object;Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalAdjuster;Ljava/lang/Comparable<Ljava/time/Year;>;Ljava/io/Serializable;",
-	nullptr,
-	_Year_InnerClassesInfo_,
-	_Year_Annotations_,
-	nullptr,
-	"java.time.Year$1"
-};
-
-$Object* allocate$Year($Class* clazz) {
-	return $of($alloc(Year));
-}
 
 $Object* Year::clone() {
 	 return this->$Temporal::clone();
@@ -259,12 +166,12 @@ Year* Year::of(int32_t isoYear) {
 
 Year* Year::from($TemporalAccessor* temporal$renamed) {
 	$init(Year);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TemporalAccessor, temporal, temporal$renamed);
 	if ($instanceOf(Year, temporal)) {
 		return $cast(Year, temporal);
 	}
-	$Objects::requireNonNull($of(temporal), "temporal"_s);
+	$Objects::requireNonNull(temporal, "temporal"_s);
 	try {
 		$init($IsoChronology);
 		if ($nc($IsoChronology::INSTANCE)->equals($($Chronology::from(temporal))) == false) {
@@ -273,8 +180,12 @@ Year* Year::from($TemporalAccessor* temporal$renamed) {
 		$init($ChronoField);
 		return of($nc(temporal)->get($ChronoField::YEAR));
 	} catch ($DateTimeException& ex) {
-		$var($String, var$0, $$str({"Unable to obtain Year from TemporalAccessor: "_s, temporal, " of type "_s}));
-		$throwNew($DateTimeException, $$concat(var$0, $($nc($of(temporal))->getClass()->getName())), ex);
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unable to obtain Year from TemporalAccessor: "_s);
+		var$0->append(temporal);
+		var$0->append(" of type "_s);
+		var$0->append($($nc($of(temporal))->getClass()->getName()));
+		$throwNew($DateTimeException, $$str(var$0), ex);
 	}
 	$shouldNotReachHere();
 }
@@ -286,13 +197,13 @@ Year* Year::parse($CharSequence* text) {
 
 Year* Year::parse($CharSequence* text, $DateTimeFormatter* formatter) {
 	$init(Year);
-	$Objects::requireNonNull($of(formatter), "formatter"_s);
-	return $cast(Year, $nc(formatter)->parse(text, static_cast<$TemporalQuery*>($$new(Year$$Lambda$from))));
+	$Objects::requireNonNull(formatter, "formatter"_s);
+	return $cast(Year, $nc(formatter)->parse(text, $$new(Year$$Lambda$from)));
 }
 
 bool Year::isLeap(int64_t year) {
 	$init(Year);
-	return (((int64_t)(year & (uint64_t)(int64_t)3)) == 0) && ((year % 100) != 0 || (year % 400) == 0);
+	return ((year & 3) == 0) && ((year % 100) != 0 || (year % 400) == 0);
 }
 
 void Year::init$(int32_t year) {
@@ -328,7 +239,7 @@ $ValueRange* Year::range($TemporalField* field) {
 }
 
 int32_t Year::get($TemporalField* field) {
-	return $nc($(range(field)))->checkValidIntValue(getLong(field), field);
+	return $$nc(range(field))->checkValidIntValue(getLong(field), field);
 }
 
 int64_t Year::getLong($TemporalField* field) {
@@ -343,17 +254,11 @@ int64_t Year::getLong($TemporalField* field) {
 			$init($Year$1);
 			switch ($nc($Year$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc((chronoField))->ordinal())) {
 			case 1:
-				{
-					return (this->year < 1 ? 1 - this->year : this->year);
-				}
+				return (this->year < 1 ? 1 - this->year : this->year);
 			case 2:
-				{
-					return this->year;
-				}
+				return this->year;
 			case 3:
-				{
-					return (this->year < 1 ? 0 : 1);
-				}
+				return (this->year < 1 ? 0 : 1);
 			}
 			$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported field: "_s, field}));
 		}
@@ -390,17 +295,11 @@ Year* Year::with($TemporalField* field, int64_t newValue) {
 			$init($Year$1);
 			switch ($nc($Year$1::$SwitchMap$java$time$temporal$ChronoField)->get((chronoField)->ordinal())) {
 			case 1:
-				{
-					return Year::of((int32_t)(this->year < 1 ? 1 - newValue : newValue));
-				}
+				return Year::of((int32_t)(this->year < 1 ? 1 - newValue : newValue));
 			case 2:
-				{
-					return Year::of((int32_t)newValue);
-				}
+				return Year::of((int32_t)newValue);
 			case 3:
-				{
-					return (getLong($ChronoField::ERA) == newValue ? this : Year::of(1 - this->year));
-				}
+				return (getLong($ChronoField::ERA) == newValue ? this : Year::of(1 - this->year));
 			}
 			$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported field: "_s, field}));
 		}
@@ -424,26 +323,16 @@ Year* Year::plus(int64_t amountToAdd, $TemporalUnit* unit) {
 			$init($Year$1);
 			switch ($nc($Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc((chronoUnit))->ordinal())) {
 			case 1:
-				{
-					return plusYears(amountToAdd);
-				}
+				return plusYears(amountToAdd);
 			case 2:
-				{
-					return plusYears($Math::multiplyExact(amountToAdd, 10));
-				}
+				return plusYears($Math::multiplyExact(amountToAdd, 10));
 			case 3:
-				{
-					return plusYears($Math::multiplyExact(amountToAdd, 100));
-				}
+				return plusYears($Math::multiplyExact(amountToAdd, 100));
 			case 4:
-				{
-					return plusYears($Math::multiplyExact(amountToAdd, 1000));
-				}
+				return plusYears($Math::multiplyExact(amountToAdd, 1000));
 			case 5:
-				{
-					$init($ChronoField);
-					return with($ChronoField::ERA, $Math::addExact(getLong($ChronoField::ERA), amountToAdd));
-				}
+				$init($ChronoField);
+				return with($ChronoField::ERA, $Math::addExact(getLong($ChronoField::ERA), amountToAdd));
 			}
 			$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
 		}
@@ -464,27 +353,27 @@ Year* Year::minus($TemporalAmount* amountToSubtract) {
 }
 
 Year* Year::minus(int64_t amountToSubtract, $TemporalUnit* unit) {
-	return (amountToSubtract == $Long::MIN_VALUE ? $nc($(plus($Long::MAX_VALUE, unit)))->plus(1, unit) : plus(-amountToSubtract, unit));
+	return (amountToSubtract == $Long::MIN_VALUE ? $$nc(plus($Long::MAX_VALUE, unit))->plus(1, unit) : plus(-amountToSubtract, unit));
 }
 
 Year* Year::minusYears(int64_t yearsToSubtract) {
-	return (yearsToSubtract == $Long::MIN_VALUE ? $nc($(plusYears($Long::MAX_VALUE)))->plusYears(1) : plusYears(-yearsToSubtract));
+	return (yearsToSubtract == $Long::MIN_VALUE ? $$nc(plusYears($Long::MAX_VALUE))->plusYears(1) : plusYears(-yearsToSubtract));
 }
 
 $Object* Year::query($TemporalQuery* query) {
 	if (query == $TemporalQueries::chronology()) {
 		$init($IsoChronology);
-		return $of($of($IsoChronology::INSTANCE));
+		return $of($IsoChronology::INSTANCE);
 	} else if (query == $TemporalQueries::precision()) {
 		$init($ChronoUnit);
-		return $of($of($ChronoUnit::YEARS));
+		return $of($ChronoUnit::YEARS);
 	}
-	return $of($Temporal::query(query));
+	return $Temporal::query(query);
 }
 
 $Temporal* Year::adjustInto($Temporal* temporal) {
 	$init($IsoChronology);
-	if ($nc($($Chronology::from(temporal)))->equals($IsoChronology::INSTANCE) == false) {
+	if ($$nc($Chronology::from(temporal))->equals($IsoChronology::INSTANCE) == false) {
 		$throwNew($DateTimeException, "Adjustment only supported on ISO date-time"_s);
 	}
 	$init($ChronoField);
@@ -492,7 +381,7 @@ $Temporal* Year::adjustInto($Temporal* temporal) {
 }
 
 int64_t Year::until($Temporal* endExclusive, $TemporalUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Year, end, Year::from(endExclusive));
 	{
 		$ChronoUnit* chronoUnit = nullptr;
@@ -506,21 +395,13 @@ int64_t Year::until($Temporal* endExclusive, $TemporalUnit* unit) {
 			$init($Year$1);
 			switch ($nc($Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc((chronoUnit))->ordinal())) {
 			case 1:
-				{
-					return yearsUntil;
-				}
+				return yearsUntil;
 			case 2:
-				{
-					return yearsUntil / 10;
-				}
+				return yearsUntil / 10;
 			case 3:
-				{
-					return yearsUntil / 100;
-				}
+				return yearsUntil / 100;
 			case 4:
-				{
-					return yearsUntil / 1000;
-				}
+				return yearsUntil / 1000;
 			case 5:
 				{
 					$init($ChronoField);
@@ -535,7 +416,7 @@ int64_t Year::until($Temporal* endExclusive, $TemporalUnit* unit) {
 }
 
 $String* Year::format($DateTimeFormatter* formatter) {
-	$Objects::requireNonNull($of(formatter), "formatter"_s);
+	$Objects::requireNonNull(formatter, "formatter"_s);
 	return $nc(formatter)->format(this);
 }
 
@@ -572,7 +453,7 @@ bool Year::equals(Object$* obj) {
 		return true;
 	}
 	if ($instanceOf(Year, obj)) {
-		return this->year == $nc(($cast(Year, obj)))->year;
+		return this->year == $cast(Year, obj)->year;
 	}
 	return false;
 }
@@ -586,7 +467,7 @@ $String* Year::toString() {
 }
 
 $Object* Year::writeReplace() {
-	return $of($new($Ser, $Ser::YEAR_TYPE, this));
+	return $new($Ser, $Ser::YEAR_TYPE, this);
 }
 
 void Year::readObject($ObjectInputStream* s) {
@@ -606,11 +487,11 @@ int32_t Year::compareTo(Object$* other) {
 	return this->compareTo($cast(Year, other));
 }
 
-void clinit$Year($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Year::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($ChronoField);
 	$init($SignStyle);
-	$assignStatic(Year::PARSER, $nc($($nc($($$new($DateTimeFormatterBuilder)->parseLenient()))->appendValue($ChronoField::YEAR, 1, 10, $SignStyle::NORMAL)))->toFormatter());
+	$assignStatic(Year::PARSER, $$nc($$nc($$new($DateTimeFormatterBuilder)->parseLenient())->appendValue($ChronoField::YEAR, 1, 10, $SignStyle::NORMAL))->toFormatter());
 }
 
 Year::Year() {
@@ -618,11 +499,93 @@ Year::Year() {
 
 $Class* Year::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Year$$Lambda$from::classInfo$.name)) {
+		if (name->equals("java.time.Year$$Lambda$from")) {
 			return Year$$Lambda$from::load$(name, initialize);
 		}
 	}
-	$loadClass(Year, name, initialize, &_Year_ClassInfo_, clinit$Year, allocate$Year);
+	$FieldInfo fieldInfos$$[] = {
+		{"MIN_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Year, MIN_VALUE)},
+		{"MAX_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Year, MAX_VALUE)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Year, serialVersionUID)},
+		{"PARSER", "Ljava/time/format/DateTimeFormatter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Year, PARSER)},
+		{"year", "I", nullptr, $PRIVATE | $FINAL, $field(Year, year)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(Year, init$, void, int32_t)},
+		{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Year, adjustInto, $Temporal*, $Temporal*)},
+		{"atDay", "(I)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(Year, atDay, $LocalDate*, int32_t)},
+		{"atMonth", "(Ljava/time/Month;)Ljava/time/YearMonth;", nullptr, $PUBLIC, $method(Year, atMonth, $YearMonth*, $Month*)},
+		{"atMonth", "(I)Ljava/time/YearMonth;", nullptr, $PUBLIC, $method(Year, atMonth, $YearMonth*, int32_t)},
+		{"atMonthDay", "(Ljava/time/MonthDay;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(Year, atMonthDay, $LocalDate*, $MonthDay*)},
+		{"compareTo", "(Ljava/time/Year;)I", nullptr, $PUBLIC, $method(Year, compareTo, int32_t, Year*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Year, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Year, equals, bool, Object$*)},
+		{"format", "(Ljava/time/format/DateTimeFormatter;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Year, format, $String*, $DateTimeFormatter*)},
+		{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, from, Year*, $TemporalAccessor*)},
+		{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(Year, get, int32_t, $TemporalField*)},
+		{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(Year, getLong, int64_t, $TemporalField*)},
+		{"getValue", "()I", nullptr, $PUBLIC, $method(Year, getValue, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Year, hashCode, int32_t)},
+		{"isAfter", "(Ljava/time/Year;)Z", nullptr, $PUBLIC, $method(Year, isAfter, bool, Year*)},
+		{"isBefore", "(Ljava/time/Year;)Z", nullptr, $PUBLIC, $method(Year, isBefore, bool, Year*)},
+		{"isLeap", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, isLeap, bool, int64_t)},
+		{"isLeap", "()Z", nullptr, $PUBLIC, $method(Year, isLeap, bool)},
+		{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(Year, isSupported, bool, $TemporalField*)},
+		{"isSupported", "(Ljava/time/temporal/TemporalUnit;)Z", nullptr, $PUBLIC, $virtualMethod(Year, isSupported, bool, $TemporalUnit*)},
+		{"isValidMonthDay", "(Ljava/time/MonthDay;)Z", nullptr, $PUBLIC, $method(Year, isValidMonthDay, bool, $MonthDay*)},
+		{"length", "()I", nullptr, $PUBLIC, $method(Year, length, int32_t)},
+		{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, minus, Year*, $TemporalAmount*)},
+		{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, minus, Year*, int64_t, $TemporalUnit*)},
+		{"minusYears", "(J)Ljava/time/Year;", nullptr, $PUBLIC, $method(Year, minusYears, Year*, int64_t)},
+		{"now", "()Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, now, Year*)},
+		{"now", "(Ljava/time/ZoneId;)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, now, Year*, $ZoneId*)},
+		{"now", "(Ljava/time/Clock;)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, now, Year*, $Clock*)},
+		{"of", "(I)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, of, Year*, int32_t)},
+		{"parse", "(Ljava/lang/CharSequence;)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, parse, Year*, $CharSequence*)},
+		{"parse", "(Ljava/lang/CharSequence;Ljava/time/format/DateTimeFormatter;)Ljava/time/Year;", nullptr, $PUBLIC | $STATIC, $staticMethod(Year, parse, Year*, $CharSequence*, $DateTimeFormatter*)},
+		{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, plus, Year*, $TemporalAmount*)},
+		{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, plus, Year*, int64_t, $TemporalUnit*)},
+		{"plusYears", "(J)Ljava/time/Year;", nullptr, $PUBLIC, $method(Year, plusYears, Year*, int64_t)},
+		{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(Year, query, $Object*, $TemporalQuery*)},
+		{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(Year, range, $ValueRange*, $TemporalField*)},
+		{"readExternal", "(Ljava/io/DataInput;)Ljava/time/Year;", nullptr, $STATIC, $staticMethod(Year, readExternal, Year*, $DataInput*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Year, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Year, toString, $String*)},
+		{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(Year, until, int64_t, $Temporal*, $TemporalUnit*)},
+		{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, with, Year*, $TemporalAdjuster*)},
+		{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/Year;", nullptr, $PUBLIC, $virtualMethod(Year, with, Year*, $TemporalField*, int64_t)},
+		{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(Year, writeExternal, void, $DataOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Year, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.Year$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.Year",
+		"java.lang.Object",
+		"java.time.temporal.Temporal,java.time.temporal.TemporalAdjuster,java.lang.Comparable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalAdjuster;Ljava/lang/Comparable<Ljava/time/Year;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.time.Year$1"
+	};
+	$loadClass(Year, name, initialize, &classInfo$$, Year::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Year));
+	});
 	return class$;
 }
 

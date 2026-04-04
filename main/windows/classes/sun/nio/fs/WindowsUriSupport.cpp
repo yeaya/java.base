@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsUriSupport.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/SecurityException.h>
 #include <java/net/URI.h>
@@ -29,32 +28,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsUriSupport_FieldInfo_[] = {
-	{"IPV6_LITERAL_SUFFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsUriSupport, IPV6_LITERAL_SUFFIX)},
-	{}
-};
-
-$MethodInfo _WindowsUriSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsUriSupport, init$, void)},
-	{"fromUri", "(Lsun/nio/fs/WindowsFileSystem;Ljava/net/URI;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $staticMethod(WindowsUriSupport, fromUri, $WindowsPath*, $WindowsFileSystem*, $URI*)},
-	{"toUri", "(Ljava/lang/String;ZZ)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsUriSupport, toUri, $URI*, $String*, bool, bool)},
-	{"toUri", "(Lsun/nio/fs/WindowsPath;)Ljava/net/URI;", nullptr, $STATIC, $staticMethod(WindowsUriSupport, toUri, $URI*, $WindowsPath*)},
-	{}
-};
-
-$ClassInfo _WindowsUriSupport_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsUriSupport",
-	"java.lang.Object",
-	nullptr,
-	_WindowsUriSupport_FieldInfo_,
-	_WindowsUriSupport_MethodInfo_
-};
-
-$Object* allocate$WindowsUriSupport($Class* clazz) {
-	return $of($alloc(WindowsUriSupport));
-}
-
 $String* WindowsUriSupport::IPV6_LITERAL_SUFFIX = nullptr;
 
 void WindowsUriSupport::init$() {
@@ -62,16 +35,16 @@ void WindowsUriSupport::init$() {
 
 $URI* WindowsUriSupport::toUri($String* path, bool isUnc, bool addSlash) {
 	$init(WindowsUriSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, uriHost, nullptr);
 	$var($String, uriPath, nullptr);
 	if (isUnc) {
-		int32_t slash = $nc(path)->indexOf((int32_t)u'\\', 2);
+		int32_t slash = $nc(path)->indexOf(u'\\', 2);
 		$assign(uriHost, path->substring(2, slash));
 		$assign(uriPath, $(path->substring(slash))->replace(u'\\', u'/'));
 		if (uriHost->endsWith(WindowsUriSupport::IPV6_LITERAL_SUFFIX)) {
 			int32_t var$0 = uriHost->length();
-			$assign(uriHost, $($(uriHost->substring(0, var$0 - $nc(WindowsUriSupport::IPV6_LITERAL_SUFFIX)->length()))->replace(u'-', u':'))->replace(u's', u'%'));
+			$assign(uriHost, $($(uriHost->substring(0, var$0 - WindowsUriSupport::IPV6_LITERAL_SUFFIX->length()))->replace(u'-', u':'))->replace(u's', u'%'));
 		}
 	} else {
 		$assign(uriHost, ""_s);
@@ -101,15 +74,15 @@ $URI* WindowsUriSupport::toUri($String* path, bool isUnc, bool addSlash) {
 
 $URI* WindowsUriSupport::toUri($WindowsPath* path$renamed) {
 	$init(WindowsUriSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowsPath, path, path$renamed);
 	$assign(path, $nc(path)->toAbsolutePath());
-	$var($String, s, path->toString());
+	$var($String, s, $nc(path)->toString());
 	bool addSlash = false;
 	if (!$nc(s)->endsWith("\\"_s)) {
 		try {
 			path->checkRead();
-			addSlash = $nc($($WindowsFileAttributes::get(path, true)))->isDirectory();
+			addSlash = $$nc($WindowsFileAttributes::get(path, true))->isDirectory();
 		} catch ($SecurityException& x) {
 		} catch ($WindowsException& x) {
 		}
@@ -119,15 +92,15 @@ $URI* WindowsUriSupport::toUri($WindowsPath* path$renamed) {
 
 $WindowsPath* WindowsUriSupport::fromUri($WindowsFileSystem* fs, $URI* uri) {
 	$init(WindowsUriSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(uri)->isAbsolute()) {
 		$throwNew($IllegalArgumentException, "URI is not absolute"_s);
 	}
-	if ($nc(uri)->isOpaque()) {
+	if (uri->isOpaque()) {
 		$throwNew($IllegalArgumentException, "URI is not hierarchical"_s);
 	}
-	$var($String, scheme, $nc(uri)->getScheme());
-	if ((scheme == nullptr) || !$nc(scheme)->equalsIgnoreCase("file"_s)) {
+	$var($String, scheme, uri->getScheme());
+	if ((scheme == nullptr) || !scheme->equalsIgnoreCase("file"_s)) {
 		$throwNew($IllegalArgumentException, "URI scheme is not \"file\""_s);
 	}
 	if (uri->getRawFragment() != nullptr) {
@@ -158,8 +131,8 @@ $WindowsPath* WindowsUriSupport::fromUri($WindowsFileSystem* fs, $URI* uri) {
 		}
 		$assign(path, $str({"\\\\"_s, host, path}));
 	} else {
-		bool var$1 = ($nc(path)->length() > 2);
-		if (var$1 && (path->charAt(2) == u':')) {
+		bool var$0 = path->length() > 2;
+		if (var$0 && (path->charAt(2) == u':')) {
 			$assign(path, path->substring(1));
 		}
 	}
@@ -169,12 +142,33 @@ $WindowsPath* WindowsUriSupport::fromUri($WindowsFileSystem* fs, $URI* uri) {
 WindowsUriSupport::WindowsUriSupport() {
 }
 
-void clinit$WindowsUriSupport($Class* class$) {
+void WindowsUriSupport::clinit$($Class* clazz) {
 	$assignStatic(WindowsUriSupport::IPV6_LITERAL_SUFFIX, ".ipv6-literal.net"_s);
 }
 
 $Class* WindowsUriSupport::load$($String* name, bool initialize) {
-	$loadClass(WindowsUriSupport, name, initialize, &_WindowsUriSupport_ClassInfo_, clinit$WindowsUriSupport, allocate$WindowsUriSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"IPV6_LITERAL_SUFFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsUriSupport, IPV6_LITERAL_SUFFIX)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsUriSupport, init$, void)},
+		{"fromUri", "(Lsun/nio/fs/WindowsFileSystem;Ljava/net/URI;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $staticMethod(WindowsUriSupport, fromUri, $WindowsPath*, $WindowsFileSystem*, $URI*)},
+		{"toUri", "(Ljava/lang/String;ZZ)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsUriSupport, toUri, $URI*, $String*, bool, bool)},
+		{"toUri", "(Lsun/nio/fs/WindowsPath;)Ljava/net/URI;", nullptr, $STATIC, $staticMethod(WindowsUriSupport, toUri, $URI*, $WindowsPath*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsUriSupport",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsUriSupport, name, initialize, &classInfo$$, WindowsUriSupport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsUriSupport);
+	});
 	return class$;
 }
 

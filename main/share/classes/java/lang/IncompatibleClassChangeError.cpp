@@ -1,5 +1,4 @@
 #include <java/lang/IncompatibleClassChangeError.h>
-
 #include <java/lang/LinkageError.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _IncompatibleClassChangeError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IncompatibleClassChangeError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IncompatibleClassChangeError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IncompatibleClassChangeError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IncompatibleClassChangeError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _IncompatibleClassChangeError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.IncompatibleClassChangeError",
-	"java.lang.LinkageError",
-	nullptr,
-	_IncompatibleClassChangeError_FieldInfo_,
-	_IncompatibleClassChangeError_MethodInfo_
-};
-
-$Object* allocate$IncompatibleClassChangeError($Class* clazz) {
-	return $of($alloc(IncompatibleClassChangeError));
-}
 
 void IncompatibleClassChangeError::init$() {
 	$LinkageError::init$();
@@ -54,7 +29,26 @@ void IncompatibleClassChangeError::throw$() {
 }
 
 $Class* IncompatibleClassChangeError::load$($String* name, bool initialize) {
-	$loadClass(IncompatibleClassChangeError, name, initialize, &_IncompatibleClassChangeError_ClassInfo_, allocate$IncompatibleClassChangeError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IncompatibleClassChangeError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IncompatibleClassChangeError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IncompatibleClassChangeError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.IncompatibleClassChangeError",
+		"java.lang.LinkageError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IncompatibleClassChangeError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IncompatibleClassChangeError);
+	});
 	return class$;
 }
 

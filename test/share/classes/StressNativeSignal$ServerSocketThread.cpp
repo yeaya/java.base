@@ -1,10 +1,8 @@
 #include <StressNativeSignal$ServerSocketThread.h>
-
 #include <StressNativeSignal.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
 #include <jcpp.h>
@@ -12,7 +10,6 @@
 using $StressNativeSignal = ::StressNativeSignal;
 using $BufferedReader = ::java::io::BufferedReader;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -21,55 +18,16 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 
-$FieldInfo _StressNativeSignal$ServerSocketThread_FieldInfo_[] = {
-	{"this$0", "LStressNativeSignal;", nullptr, $FINAL | $SYNTHETIC, $field(StressNativeSignal$ServerSocketThread, this$0)},
-	{"shouldTerminate", "Z", nullptr, $PRIVATE | $VOLATILE, $field(StressNativeSignal$ServerSocketThread, shouldTerminate)},
-	{"socket", "Ljava/net/ServerSocket;", nullptr, $PRIVATE, $field(StressNativeSignal$ServerSocketThread, socket)},
-	{}
-};
-
-$MethodInfo _StressNativeSignal$ServerSocketThread_MethodInfo_[] = {
-	{"<init>", "(LStressNativeSignal;)V", nullptr, $PUBLIC, $method(StressNativeSignal$ServerSocketThread, init$, void, $StressNativeSignal*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$ServerSocketThread, run, void)},
-	{"terminate", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$ServerSocketThread, terminate, void)},
-	{}
-};
-
-$InnerClassInfo _StressNativeSignal$ServerSocketThread_InnerClassesInfo_[] = {
-	{"StressNativeSignal$ServerSocketThread", "StressNativeSignal", "ServerSocketThread", $PUBLIC},
-	{}
-};
-
-$ClassInfo _StressNativeSignal$ServerSocketThread_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StressNativeSignal$ServerSocketThread",
-	"java.lang.Thread",
-	nullptr,
-	_StressNativeSignal$ServerSocketThread_FieldInfo_,
-	_StressNativeSignal$ServerSocketThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StressNativeSignal$ServerSocketThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"StressNativeSignal"
-};
-
-$Object* allocate$StressNativeSignal$ServerSocketThread($Class* clazz) {
-	return $of($alloc(StressNativeSignal$ServerSocketThread));
-}
-
 void StressNativeSignal$ServerSocketThread::init$($StressNativeSignal* this$0) {
 	$set(this, this$0, this$0);
 	$Thread::init$();
 }
 
 void StressNativeSignal$ServerSocketThread::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$set(this, socket, $new($ServerSocket, 1122));
-		$var($Socket, client, $nc(this->socket)->accept());
+		$var($Socket, client, this->socket->accept());
 		$var($BufferedReader, reader, $new($BufferedReader, $$new($InputStreamReader, $($nc(client)->getInputStream()))));
 		this->shouldTerminate = false;
 		while (!this->shouldTerminate) {
@@ -95,7 +53,40 @@ StressNativeSignal$ServerSocketThread::StressNativeSignal$ServerSocketThread() {
 }
 
 $Class* StressNativeSignal$ServerSocketThread::load$($String* name, bool initialize) {
-	$loadClass(StressNativeSignal$ServerSocketThread, name, initialize, &_StressNativeSignal$ServerSocketThread_ClassInfo_, allocate$StressNativeSignal$ServerSocketThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LStressNativeSignal;", nullptr, $FINAL | $SYNTHETIC, $field(StressNativeSignal$ServerSocketThread, this$0)},
+		{"shouldTerminate", "Z", nullptr, $PRIVATE | $VOLATILE, $field(StressNativeSignal$ServerSocketThread, shouldTerminate)},
+		{"socket", "Ljava/net/ServerSocket;", nullptr, $PRIVATE, $field(StressNativeSignal$ServerSocketThread, socket)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LStressNativeSignal;)V", nullptr, $PUBLIC, $method(StressNativeSignal$ServerSocketThread, init$, void, $StressNativeSignal*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$ServerSocketThread, run, void)},
+		{"terminate", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$ServerSocketThread, terminate, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StressNativeSignal$ServerSocketThread", "StressNativeSignal", "ServerSocketThread", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StressNativeSignal$ServerSocketThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"StressNativeSignal"
+	};
+	$loadClass(StressNativeSignal$ServerSocketThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StressNativeSignal$ServerSocketThread);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/TreeMap$KeySpliterator.h>
-
 #include <java/util/Comparator.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/Spliterator.h>
@@ -28,48 +27,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _TreeMap$KeySpliterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;III)V", "(Ljava/util/TreeMap<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;III)V", 0, $method(TreeMap$KeySpliterator, init$, void, $TreeMap*, $TreeMap$Entry*, $TreeMap$Entry*, int32_t, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySpliterator, characteristics, int32_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TK;>;)V", $PUBLIC, $virtualMethod(TreeMap$KeySpliterator, forEachRemaining, void, $Consumer*)},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC | $FINAL, $virtualMethod(TreeMap$KeySpliterator, getComparator, $Comparator*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TK;>;)Z", $PUBLIC, $virtualMethod(TreeMap$KeySpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/TreeMap$KeySpliterator;", "()Ljava/util/TreeMap$KeySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$KeySpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _TreeMap$KeySpliterator_InnerClassesInfo_[] = {
-	{"java.util.TreeMap$KeySpliterator", "java.util.TreeMap", "KeySpliterator", $STATIC | $FINAL},
-	{"java.util.TreeMap$TreeMapSpliterator", "java.util.TreeMap", "TreeMapSpliterator", $STATIC},
-	{}
-};
-
-$ClassInfo _TreeMap$KeySpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.TreeMap$KeySpliterator",
-	"java.util.TreeMap$TreeMapSpliterator",
-	"java.util.Spliterator",
-	nullptr,
-	_TreeMap$KeySpliterator_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/TreeMap$TreeMapSpliterator<TK;TV;>;Ljava/util/Spliterator<TK;>;",
-	nullptr,
-	_TreeMap$KeySpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.TreeMap"
-};
-
-$Object* allocate$TreeMap$KeySpliterator($Class* clazz) {
-	return $of($alloc(TreeMap$KeySpliterator));
-}
 
 int64_t TreeMap$KeySpliterator::estimateSize() {
 	 return this->$TreeMap$TreeMapSpliterator::estimateSize();
@@ -100,15 +57,15 @@ void TreeMap$KeySpliterator::init$($TreeMap* tree, $TreeMap$Entry* origin, $Tree
 }
 
 $Spliterator* TreeMap$KeySpliterator::trySplit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->est < 0) {
 		getEstimate();
 	}
 	int32_t d = this->side;
 	$var($TreeMap$Entry, e, this->current);
 	$var($TreeMap$Entry, f, this->fence);
-	$var($TreeMap$Entry, s, (e == nullptr || e == f) ? ($TreeMap$Entry*)nullptr : (d == 0) ? $nc(this->tree)->root : (d > 0) ? $nc(e)->right : (d < 0 && f != nullptr) ? $nc(f)->left : ($TreeMap$Entry*)nullptr);
-	if (s != nullptr && s != e && s != f && $nc(this->tree)->compare(e->key, s->key) < 0) {
+	$var($TreeMap$Entry, s, (e == nullptr || e == f) ? ($TreeMap$Entry*)nullptr : (d == 0) ? $nc(this->tree)->root : (d > 0) ? e->right : (d < 0 && f != nullptr) ? f->left : ($TreeMap$Entry*)nullptr);
+	if (s != nullptr && s != e && s != f && $nc(this->tree)->compare($nc(e)->key, s->key) < 0) {
 		this->side = 1;
 		return $new(TreeMap$KeySpliterator, this->tree, e, $set(this, current, s), -1, $usrAssign(this->est, 1), this->expectedModCount);
 	}
@@ -116,7 +73,7 @@ $Spliterator* TreeMap$KeySpliterator::trySplit() {
 }
 
 void TreeMap$KeySpliterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -133,13 +90,13 @@ void TreeMap$KeySpliterator::forEachRemaining($Consumer* action) {
 		bool var$2 = false;
 		do {
 			$nc(action)->accept($nc(e)->key);
-			if (($assign(p, $nc(e)->right)) != nullptr) {
+			if (($assign(p, e->right)) != nullptr) {
 				while (($assign(pl, $nc(p)->left)) != nullptr) {
 					$assign(p, pl);
 				}
 			} else {
 				while (true) {
-					bool var$1 = ($assign(p, e->parent)) != nullptr;
+					bool var$1 = ($assign(p, $nc(e)->parent)) != nullptr;
 					if (!(var$1 && e == $nc(p)->right)) {
 						break;
 					}
@@ -188,7 +145,44 @@ TreeMap$KeySpliterator::TreeMap$KeySpliterator() {
 }
 
 $Class* TreeMap$KeySpliterator::load$($String* name, bool initialize) {
-	$loadClass(TreeMap$KeySpliterator, name, initialize, &_TreeMap$KeySpliterator_ClassInfo_, allocate$TreeMap$KeySpliterator);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;III)V", "(Ljava/util/TreeMap<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;III)V", 0, $method(TreeMap$KeySpliterator, init$, void, $TreeMap*, $TreeMap$Entry*, $TreeMap$Entry*, int32_t, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$KeySpliterator, characteristics, int32_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TK;>;)V", $PUBLIC, $virtualMethod(TreeMap$KeySpliterator, forEachRemaining, void, $Consumer*)},
+		{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC | $FINAL, $virtualMethod(TreeMap$KeySpliterator, getComparator, $Comparator*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TK;>;)Z", $PUBLIC, $virtualMethod(TreeMap$KeySpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/TreeMap$KeySpliterator;", "()Ljava/util/TreeMap$KeySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$KeySpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.TreeMap$KeySpliterator", "java.util.TreeMap", "KeySpliterator", $STATIC | $FINAL},
+		{"java.util.TreeMap$TreeMapSpliterator", "java.util.TreeMap", "TreeMapSpliterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.TreeMap$KeySpliterator",
+		"java.util.TreeMap$TreeMapSpliterator",
+		"java.util.Spliterator",
+		nullptr,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/TreeMap$TreeMapSpliterator<TK;TV;>;Ljava/util/Spliterator<TK;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.TreeMap"
+	};
+	$loadClass(TreeMap$KeySpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TreeMap$KeySpliterator));
+	});
 	return class$;
 }
 

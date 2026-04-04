@@ -1,5 +1,4 @@
 #include <java/security/cert/CertPathBuilderSpi.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/cert/CertPathBuilderResult.h>
 #include <java/security/cert/CertPathChecker.h>
@@ -17,26 +16,6 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$MethodInfo _CertPathBuilderSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertPathBuilderSpi, init$, void)},
-	{"engineBuild", "(Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathBuilderResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPathBuilderSpi, engineBuild, $CertPathBuilderResult*, $CertPathParameters*), "java.security.cert.CertPathBuilderException,java.security.InvalidAlgorithmParameterException"},
-	{"engineGetRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC, $virtualMethod(CertPathBuilderSpi, engineGetRevocationChecker, $CertPathChecker*)},
-	{}
-};
-
-$ClassInfo _CertPathBuilderSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.cert.CertPathBuilderSpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CertPathBuilderSpi_MethodInfo_
-};
-
-$Object* allocate$CertPathBuilderSpi($Class* clazz) {
-	return $of($alloc(CertPathBuilderSpi));
-}
-
 void CertPathBuilderSpi::init$() {
 }
 
@@ -49,7 +28,23 @@ CertPathBuilderSpi::CertPathBuilderSpi() {
 }
 
 $Class* CertPathBuilderSpi::load$($String* name, bool initialize) {
-	$loadClass(CertPathBuilderSpi, name, initialize, &_CertPathBuilderSpi_ClassInfo_, allocate$CertPathBuilderSpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertPathBuilderSpi, init$, void)},
+		{"engineBuild", "(Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathBuilderResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPathBuilderSpi, engineBuild, $CertPathBuilderResult*, $CertPathParameters*), "java.security.cert.CertPathBuilderException,java.security.InvalidAlgorithmParameterException"},
+		{"engineGetRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC, $virtualMethod(CertPathBuilderSpi, engineGetRevocationChecker, $CertPathChecker*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.cert.CertPathBuilderSpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CertPathBuilderSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertPathBuilderSpi);
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class $export SJIS$DecodeHolder : public ::java::lang::Object {
 	$class(SJIS$DecodeHolder, 0, ::java::lang::Object)
 public:
 	SJIS$DecodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cSBStr;
 	static $StringArray* b2cStr;

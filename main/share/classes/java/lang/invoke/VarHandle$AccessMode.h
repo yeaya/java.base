@@ -88,6 +88,7 @@ class $export VarHandle$AccessMode : public ::java::lang::Enum {
 public:
 	VarHandle$AccessMode();
 	static $Array<::java::lang::invoke::VarHandle$AccessMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* methodName, ::java::lang::invoke::VarHandle$AccessType* at);
 	virtual $String* methodName();
 	static ::java::lang::invoke::VarHandle$AccessMode* valueFromMethodName($String* methodName);
